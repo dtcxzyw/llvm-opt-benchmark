@@ -35,16 +35,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -83,16 +78,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -131,16 +121,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -179,16 +164,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -226,16 +206,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -273,16 +248,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -320,16 +290,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -366,16 +331,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -414,16 +374,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -462,16 +417,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -510,16 +460,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -558,16 +503,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -605,16 +545,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -652,16 +587,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -699,16 +629,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -745,16 +670,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -793,16 +713,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -841,16 +756,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -889,16 +799,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -937,16 +842,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -984,16 +884,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1031,16 +926,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1078,16 +968,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1124,16 +1009,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1170,16 +1050,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1216,16 +1091,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1262,16 +1132,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1308,16 +1173,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1354,16 +1214,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1400,16 +1255,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1446,16 +1296,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1492,16 +1337,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1525,16 +1365,11 @@ entry:
   br i1 %cmp.i6, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %entry
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %0 = add nuw nsw i64 %cond.i, 8
-  %1 = tail call i64 @llvm.umax.i64(i64 %0, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %1, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %0 = zext nneg i32 %narrow to i64
+  %1 = sub nsw i64 %0, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %1, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %entry, %for.body.preheader.i
@@ -1560,10 +1395,10 @@ entry:
   br i1 %cmp, label %for.body.preheader.i, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.016 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %add.ptr = getelementptr i8, ptr %d, i64 %i.016
+  %i.015 = phi i64 [ %add, %for.body ], [ 0, %entry ]
+  %add.ptr = getelementptr i8, ptr %d, i64 %i.015
   store i64 %c, ptr %add.ptr, align 8
-  %add = add nuw nsw i64 %i.016, 8
+  %add = add nuw nsw i64 %i.015, 8
   %cmp1 = icmp ult i64 %add, %cond.i
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !38
 
@@ -1573,13 +1408,10 @@ if.end:                                           ; preds = %for.body
 
 for.body.preheader.i:                             ; preds = %entry, %if.end
   %oprsz.014 = phi i64 [ %cond.i, %if.end ], [ 0, %entry ]
-  %conv.i.i15.in = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i15 = zext nneg i32 %conv.i.i15.in to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %oprsz.014
-  %0 = add nuw nsw i64 %oprsz.014, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %conv.i.i15)
-  %1 = xor i64 %oprsz.014, -1
-  %2 = add nsw i64 %smax.i, %1
+  %0 = or disjoint i32 %mul.i.i, 7
+  %1 = zext nneg i32 %0 to i64
+  %2 = sub nsw i64 %1, %oprsz.014
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
@@ -1605,10 +1437,10 @@ entry:
   br i1 %cmp, label %for.body.preheader.i, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.016 = phi i64 [ %add, %for.body ], [ 0, %entry ]
-  %add.ptr = getelementptr i8, ptr %d, i64 %i.016
+  %i.015 = phi i64 [ %add, %for.body ], [ 0, %entry ]
+  %add.ptr = getelementptr i8, ptr %d, i64 %i.015
   store i32 %c, ptr %add.ptr, align 4
-  %add = add nuw nsw i64 %i.016, 4
+  %add = add nuw nsw i64 %i.015, 4
   %cmp1 = icmp ult i64 %add, %cond.i
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !39
 
@@ -1618,13 +1450,10 @@ if.end:                                           ; preds = %for.body
 
 for.body.preheader.i:                             ; preds = %entry, %if.end
   %oprsz.014 = phi i64 [ %cond.i, %if.end ], [ 0, %entry ]
-  %conv.i.i15.in = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i15 = zext nneg i32 %conv.i.i15.in to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %oprsz.014
-  %0 = add nuw nsw i64 %oprsz.014, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %conv.i.i15)
-  %1 = xor i64 %oprsz.014, -1
-  %2 = add nsw i64 %smax.i, %1
+  %0 = or disjoint i32 %mul.i.i, 7
+  %1 = zext nneg i32 %0 to i64
+  %2 = sub nsw i64 %1, %oprsz.014
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
@@ -1652,10 +1481,10 @@ entry:
   br i1 %cmp.i, label %for.body.preheader.i.i, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %i.016.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
-  %add.ptr.i = getelementptr i8, ptr %d, i64 %i.016.i
+  %i.015.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
+  %add.ptr.i = getelementptr i8, ptr %d, i64 %i.015.i
   store i32 %mul, ptr %add.ptr.i, align 4
-  %add.i = add nuw nsw i64 %i.016.i, 4
+  %add.i = add nuw nsw i64 %i.015.i, 4
   %cmp1.i = icmp ult i64 %add.i, %cond.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !39
 
@@ -1665,13 +1494,10 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
   %oprsz.014.i = phi i64 [ %cond.i.i, %if.end.i ], [ 0, %entry ]
-  %conv.i.i15.in.i = add nuw nsw i32 %mul.i.i.i, 8
-  %conv.i.i15.i = zext nneg i32 %conv.i.i15.in.i to i64
   %scevgep.i.i = getelementptr i8, ptr %d, i64 %oprsz.014.i
-  %0 = add nuw nsw i64 %oprsz.014.i, 8
-  %smax.i.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %conv.i.i15.i)
-  %1 = xor i64 %oprsz.014.i, -1
-  %2 = add nsw i64 %smax.i.i, %1
+  %0 = or disjoint i32 %mul.i.i.i, 7
+  %1 = zext nneg i32 %0 to i64
+  %2 = sub nsw i64 %1, %oprsz.014.i
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
@@ -1699,10 +1525,10 @@ entry:
   br i1 %cmp.i, label %for.body.preheader.i.i, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.body.i
-  %i.016.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
-  %add.ptr.i = getelementptr i8, ptr %d, i64 %i.016.i
+  %i.015.i = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
+  %add.ptr.i = getelementptr i8, ptr %d, i64 %i.015.i
   store i32 %mul, ptr %add.ptr.i, align 4
-  %add.i = add nuw nsw i64 %i.016.i, 4
+  %add.i = add nuw nsw i64 %i.015.i, 4
   %cmp1.i = icmp ult i64 %add.i, %cond.i.i
   br i1 %cmp1.i, label %for.body.i, label %if.end.i, !llvm.loop !39
 
@@ -1712,13 +1538,10 @@ if.end.i:                                         ; preds = %for.body.i
 
 for.body.preheader.i.i:                           ; preds = %if.end.i, %entry
   %oprsz.014.i = phi i64 [ %cond.i.i, %if.end.i ], [ 0, %entry ]
-  %conv.i.i15.in.i = add nuw nsw i32 %mul.i.i.i, 8
-  %conv.i.i15.i = zext nneg i32 %conv.i.i15.in.i to i64
   %scevgep.i.i = getelementptr i8, ptr %d, i64 %oprsz.014.i
-  %0 = add nuw nsw i64 %oprsz.014.i, 8
-  %smax.i.i = tail call i64 @llvm.smax.i64(i64 %0, i64 %conv.i.i15.i)
-  %1 = xor i64 %oprsz.014.i, -1
-  %2 = add nsw i64 %smax.i.i, %1
+  %0 = or disjoint i32 %mul.i.i.i, 7
+  %1 = zext nneg i32 %0 to i64
+  %2 = sub nsw i64 %1, %oprsz.014.i
   %3 = and i64 %2, -8
   %4 = add nsw i64 %3, 8
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %4, i1 false)
@@ -1758,16 +1581,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1806,16 +1624,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1854,16 +1667,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1902,16 +1710,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -1951,16 +1754,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2000,16 +1798,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2049,16 +1842,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2098,16 +1886,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2147,16 +1930,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2193,16 +1971,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2240,16 +2013,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2286,16 +2054,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2332,16 +2095,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i9, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2381,16 +2139,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2430,16 +2183,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2477,16 +2225,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2525,16 +2268,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2574,16 +2312,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2623,16 +2356,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2670,16 +2398,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2718,16 +2441,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2767,16 +2485,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2816,16 +2529,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2863,16 +2571,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2911,16 +2614,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -2959,16 +2657,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3007,16 +2700,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3054,16 +2742,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3102,16 +2785,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3151,16 +2829,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3200,16 +2873,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3249,16 +2917,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3298,16 +2961,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3347,16 +3005,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3396,16 +3049,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3445,16 +3093,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3494,16 +3137,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3543,16 +3181,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3592,16 +3225,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3641,16 +3269,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3690,16 +3313,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3738,16 +3356,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3786,16 +3399,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3834,16 +3442,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3882,16 +3485,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3918,9 +3516,9 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
+  %or.i = tail call i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
-  store i8 %conv3.i, ptr %add.ptr5, align 1
+  store i8 %or.i, ptr %add.ptr5, align 1
   %add = add nuw nsw i64 %i.011, 1
   %exitcond.not = icmp eq i64 %add, %cond.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !85
@@ -3930,16 +3528,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -3966,9 +3559,9 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
+  %or.i = tail call i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr5 = getelementptr i8, ptr %d, i64 %i.011
-  store i16 %conv3.i, ptr %add.ptr5, align 2
+  store i16 %or.i, ptr %add.ptr5, align 2
   %add = add nuw nsw i64 %i.011, 2
   %cmp = icmp ult i64 %add, %cond.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !86
@@ -3978,16 +3571,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4026,16 +3614,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4062,7 +3645,7 @@ for.body:                                         ; preds = %entry, %for.body
   %0 = load i64, ptr %add.ptr, align 8
   %add.ptr1 = getelementptr i8, ptr %a, i64 %i.011
   %1 = load i64, ptr %add.ptr1, align 8
-  %or.i = tail call noundef i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
+  %or.i = tail call i64 @llvm.fshr.i64(i64 %1, i64 %1, i64 %0)
   %add.ptr4 = getelementptr i8, ptr %d, i64 %i.011
   store i64 %or.i, ptr %add.ptr4, align 8
   %add = add nuw nsw i64 %i.011, 8
@@ -4074,16 +3657,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4123,16 +3701,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4172,16 +3745,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4221,16 +3789,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4270,16 +3833,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4319,16 +3877,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4368,16 +3921,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4417,16 +3965,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4466,16 +4009,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4515,16 +4053,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4564,16 +4097,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4613,16 +4141,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4662,16 +4185,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4711,16 +4229,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4760,16 +4273,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4809,16 +4317,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4858,16 +4361,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4907,16 +4405,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -4956,16 +4449,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5005,16 +4493,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5054,16 +4537,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5103,16 +4581,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5152,16 +4625,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5201,16 +4669,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5250,16 +4713,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5302,16 +4760,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5357,16 +4810,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5412,16 +4860,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5466,16 +4909,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5520,16 +4958,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5572,16 +5005,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5627,16 +5055,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5682,16 +5105,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5736,16 +5154,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5790,16 +5203,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5841,16 +5249,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5892,16 +5295,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5943,16 +5341,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -5994,16 +5387,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6045,16 +5433,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6096,16 +5479,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6147,16 +5525,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6198,16 +5571,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6249,16 +5617,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6300,16 +5663,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %1 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %1, i64 %conv.i.i)
-  %2 = xor i64 %cond.i, -1
-  %3 = add nsw i64 %smax.i, %2
-  %4 = and i64 %3, -8
-  %5 = add nsw i64 %4, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %5, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %1 = zext nneg i32 %narrow to i64
+  %2 = sub nsw i64 %1, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %2, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6348,16 +5706,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6396,16 +5749,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6449,16 +5797,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %5 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %conv.i.i)
-  %6 = xor i64 %cond.i, -1
-  %7 = add nsw i64 %smax.i, %6
-  %8 = and i64 %7, -8
-  %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %5 = zext nneg i32 %narrow to i64
+  %6 = sub nsw i64 %5, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6502,16 +5845,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %5 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %conv.i.i)
-  %6 = xor i64 %cond.i, -1
-  %7 = add nsw i64 %smax.i, %6
-  %8 = and i64 %7, -8
-  %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %5 = zext nneg i32 %narrow to i64
+  %6 = sub nsw i64 %5, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6550,16 +5888,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6598,16 +5931,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6651,16 +5979,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %5 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %conv.i.i)
-  %6 = xor i64 %cond.i, -1
-  %7 = add nsw i64 %smax.i, %6
-  %8 = and i64 %7, -8
-  %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %5 = zext nneg i32 %narrow to i64
+  %6 = sub nsw i64 %5, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6704,16 +6027,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %5 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %5, i64 %conv.i.i)
-  %6 = xor i64 %cond.i, -1
-  %7 = add nsw i64 %smax.i, %6
-  %8 = and i64 %7, -8
-  %9 = add nsw i64 %8, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %9, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %5 = zext nneg i32 %narrow to i64
+  %6 = sub nsw i64 %5, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6756,16 +6074,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6808,16 +6121,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6856,16 +6164,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6904,16 +6207,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -6956,16 +6254,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7008,16 +6301,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i11, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7056,16 +6344,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7104,16 +6387,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i10, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7152,16 +6430,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7200,16 +6473,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7248,16 +6516,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7296,16 +6559,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7344,16 +6602,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7392,16 +6645,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7440,16 +6688,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7488,16 +6731,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7536,16 +6774,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7584,16 +6817,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7632,16 +6860,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7680,16 +6903,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7728,16 +6946,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7776,16 +6989,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7824,16 +7032,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7872,16 +7075,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %2 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %2, i64 %conv.i.i)
-  %3 = xor i64 %cond.i, -1
-  %4 = add nsw i64 %smax.i, %3
-  %5 = and i64 %4, -8
-  %6 = add nsw i64 %5, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %6, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %2 = zext nneg i32 %narrow to i64
+  %3 = sub nsw i64 %2, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %3, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7925,16 +7123,11 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp.i12, label %for.body.preheader.i, label %clear_high.exit
 
 for.body.preheader.i:                             ; preds = %for.end
-  %add.i.i = add nuw nsw i32 %mul.i.i, 8
-  %conv.i.i = zext nneg i32 %add.i.i to i64
   %scevgep.i = getelementptr i8, ptr %d, i64 %cond.i
-  %3 = add nuw nsw i64 %cond.i, 8
-  %smax.i = tail call i64 @llvm.smax.i64(i64 %3, i64 %conv.i.i)
-  %4 = xor i64 %cond.i, -1
-  %5 = add nsw i64 %smax.i, %4
-  %6 = and i64 %5, -8
-  %7 = add nsw i64 %6, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %7, i1 false)
+  %narrow = add nuw nsw i32 %mul.i.i, 8
+  %3 = zext nneg i32 %narrow to i64
+  %4 = sub nsw i64 %3, %cond.i
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %4, i1 false)
   br label %clear_high.exit
 
 clear_high.exit:                                  ; preds = %for.end, %for.body.preheader.i
@@ -7978,16 +7171,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshr.i8(i8, i8, i8) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.fshr.i16(i16, i16, i16) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshr.i32(i32, i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshr.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #5
@@ -8039,6 +7223,15 @@ declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshr.i8(i8, i8, i8) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.fshr.i16(i16, i16, i16) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.fshr.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.sadd.sat.i8(i8, i8) #5

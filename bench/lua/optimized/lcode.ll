@@ -625,10 +625,10 @@ entry:
 if.then:                                          ; preds = %entry
   %conv = trunc i64 %i to i32
   %shl1.i = shl i32 %reg, 7
+  %or.i = or disjoint i32 %shl1.i, 1
   %add.i = shl i32 %conv, 15
   %shl2.i = add i32 %add.i, 2147450880
-  %or.i = or i32 %shl1.i, %shl2.i
-  %or3.i = or disjoint i32 %or.i, 1
+  %or3.i = or i32 %shl2.i, %or.i
   %call.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or3.i)
   br label %if.end
 
@@ -637,7 +637,7 @@ if.else:                                          ; preds = %entry
   store i64 %i, ptr %o.i, align 8
   %tt_.i = getelementptr inbounds i8, ptr %o.i, i64 8
   store i8 3, ptr %tt_.i, align 8
-  %call.i6 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i, ptr noundef nonnull %o.i)
+  %call.i6 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i, ptr noundef %o.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i)
   %cmp.i = icmp slt i32 %call.i6, 131072
   %shl1.i.i = shl i32 %reg, 7
@@ -1851,7 +1851,7 @@ luaK_concat.exit:                                 ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %fs, ptr nocapture noundef %e, i32 noundef %cond) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr noundef %fs, ptr nocapture noundef %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e, align 8
   switch i32 %0, label %entry.if.then.i_crit_edge [
@@ -1912,11 +1912,11 @@ if.else.i.i:                                      ; preds = %if.then2
 removelastinstruction.exit:                       ; preds = %if.then.i.i, %if.else.i.i
   %dec.i = add nsw i32 %5, -1
   store i32 %dec.i, ptr %pc2.i.i, align 8
-  %tobool.not = icmp eq i32 %cond, 0
   %13 = lshr i32 %4, 9
   %shl1.i.i = and i32 %13, 32640
-  %or.i.i = select i1 %tobool.not, i32 32834, i32 66
-  %or7.i.i = or disjoint i32 %or.i.i, %shl1.i.i
+  %lnot.ext = shl nuw nsw i32 %cond, 15
+  %or.i.i = or disjoint i32 %shl1.i.i, %lnot.ext
+  %or7.i.i = xor i32 %or.i.i, 32834
   %call.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef %or7.i.i)
   %call.i.i.i = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef nonnull %fs, i32 noundef 2147483448)
   br label %return
@@ -1975,8 +1975,8 @@ freeexp.exit:                                     ; preds = %discharge2anyreg.ex
   %u6 = getelementptr inbounds i8, ptr %e, i64 8
   %20 = load i32, ptr %u6, align 8
   %shl2.i.i = shl i32 %20, 16
-  %shl6.i.i17 = shl i32 %cond, 15
-  %or3.i.i = or i32 %shl6.i.i17, %shl2.i.i
+  %shl6.i.i17 = shl nuw nsw i32 %cond, 15
+  %or3.i.i = or disjoint i32 %shl2.i.i, %shl6.i.i17
   %or7.i.i18 = or disjoint i32 %or3.i.i, 32707
   %call.i.i19 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i.i18)
   %call.i.i.i20 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef 2147483448)
@@ -2099,7 +2099,7 @@ if.end.thread:                                    ; preds = %entry
   %4 = or i8 %3, 64
   %tt_.i.i = getelementptr inbounds i8, ptr %o.i.i, i64 8
   store i8 %4, ptr %tt_.i.i, align 8
-  %call.i.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i.i, ptr noundef nonnull %o.i.i)
+  %call.i.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i.i, ptr noundef %o.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i.i)
   store i32 %call.i.i, ptr %u.i, align 8
   store i32 4, ptr %k, align 8
@@ -3743,7 +3743,7 @@ sw.epilog:                                        ; preds = %codebinNoK.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef %op, i32 noundef %line, i32 noundef %event) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @finishbinexpneg(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef range(i32 21, 33) %op, i32 noundef %line, i32 noundef range(i32 7, 17) %event) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %e2, align 8
   %cmp.i = icmp eq i32 %0, 6
@@ -3791,7 +3791,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codearith(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e1, ptr nocapture noundef %e2, i32 noundef %flip, i32 noundef %line) unnamed_addr #4 {
+define internal fastcc void @codearith(ptr noundef %fs, i32 noundef %opr, ptr nocapture noundef %e1, ptr nocapture noundef %e2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line) unnamed_addr #4 {
 entry:
   %temp.i.i = alloca %struct.expdesc, align 8
   %t.i = getelementptr inbounds i8, ptr %e2, i64 16
@@ -4163,7 +4163,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addk(ptr nocapture noundef %fs, ptr noundef %key, ptr noundef %v) unnamed_addr #4 {
+define internal fastcc i32 @addk(ptr nocapture noundef %fs, ptr noundef nonnull %key, ptr noundef nonnull %v) unnamed_addr #4 {
 entry:
   %val = alloca %struct.TValue, align 8
   %ls = getelementptr inbounds i8, ptr %fs, i64 16
@@ -4173,7 +4173,7 @@ entry:
   %2 = load ptr, ptr %fs, align 8
   %h = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %h, align 8
-  %call = tail call ptr @luaH_get(ptr noundef %3, ptr noundef %key) #13
+  %call = tail call ptr @luaH_get(ptr noundef %3, ptr noundef nonnull %key) #13
   %tt_ = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load i8, ptr %tt_, align 8
   %cmp = icmp eq i8 %4, 3
@@ -4219,7 +4219,7 @@ if.end22:                                         ; preds = %if.then, %land.lhs.
   %15 = load ptr, ptr %ls, align 8
   %h28 = getelementptr inbounds i8, ptr %15, i64 80
   %16 = load ptr, ptr %h28, align 8
-  call void @luaH_finishset(ptr noundef %1, ptr noundef %16, ptr noundef %key, ptr noundef nonnull %call, ptr noundef nonnull %val) #13
+  call void @luaH_finishset(ptr noundef %1, ptr noundef %16, ptr noundef nonnull %key, ptr noundef nonnull %call, ptr noundef nonnull %val) #13
   %k29 = getelementptr inbounds i8, ptr %2, i64 56
   %17 = load ptr, ptr %k29, align 8
   %call31 = call ptr @luaM_growaux_(ptr noundef %1, ptr noundef %17, i32 noundef %14, ptr noundef nonnull %sizek, i32 noundef 16, i32 noundef 33554431, ptr noundef nonnull @.str.4) #13
@@ -4408,7 +4408,7 @@ sw.bb4:                                           ; preds = %entry
   %10 = or i8 %9, 64
   %tt_.i.i = getelementptr inbounds i8, ptr %o.i.i, i64 8
   store i8 %10, ptr %tt_.i.i, align 8
-  %call.i.i34 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i.i, ptr noundef nonnull %o.i.i)
+  %call.i.i34 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i.i, ptr noundef %o.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i.i)
   store i32 %call.i.i34, ptr %u.i, align 8
   store i32 4, ptr %e, align 8
@@ -4452,10 +4452,10 @@ land.lhs.true.i:                                  ; preds = %sw.bb7
 if.then.i42:                                      ; preds = %land.lhs.true.i
   %conv.i = trunc i64 %13 to i32
   %shl1.i.i43 = shl i32 %reg, 7
+  %or.i.i44 = or disjoint i32 %shl1.i.i43, 2
   %add.i.i = shl i32 %conv.i, 15
-  %shl2.i.i44 = add i32 %add.i.i, 2147450880
-  %or.i.i45 = or i32 %shl1.i.i43, %shl2.i.i44
-  %or3.i.i46 = or disjoint i32 %or.i.i45, 2
+  %shl2.i.i45 = add i32 %add.i.i, 2147450880
+  %or3.i.i46 = or i32 %shl2.i.i45, %or.i.i44
   br label %luaK_float.exit
 
 if.else.i47:                                      ; preds = %land.lhs.true.i, %sw.bb7
@@ -4482,7 +4482,7 @@ if.else.i.i:                                      ; preds = %if.else.i47
 
 luaK_numberK.exit.i:                              ; preds = %if.else.i.i, %if.else.i47
   %kv.sink.i.i = phi ptr [ %kv.i.i, %if.else.i.i ], [ %o.i.i40, %if.else.i47 ]
-  %call6.i.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %kv.sink.i.i, ptr noundef nonnull %o.i.i40)
+  %call6.i.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %kv.sink.i.i, ptr noundef %o.i.i40)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i.i40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ik.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kv.i.i)
@@ -4601,7 +4601,7 @@ sw.bb:                                            ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %o.i)
   %tt_.i = getelementptr inbounds i8, ptr %o.i, i64 8
   store i8 17, ptr %tt_.i, align 8
-  %call.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i, ptr noundef nonnull %o.i)
+  %call.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i, ptr noundef %o.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i)
   br label %sw.epilog
 
@@ -4609,7 +4609,7 @@ sw.bb1:                                           ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %o.i15)
   %tt_.i16 = getelementptr inbounds i8, ptr %o.i15, i64 8
   store i8 1, ptr %tt_.i16, align 8
-  %call.i17 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i15, ptr noundef nonnull %o.i15)
+  %call.i17 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i15, ptr noundef %o.i15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i15)
   br label %sw.epilog
 
@@ -4625,7 +4625,7 @@ sw.bb3:                                           ; preds = %if.then
   store ptr %4, ptr %k.i, align 8
   %tt_1.i = getelementptr inbounds i8, ptr %k.i, i64 8
   store i8 69, ptr %tt_1.i, align 8
-  %call.i19 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %k.i, ptr noundef nonnull %v.i)
+  %call.i19 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %k.i, ptr noundef %v.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %k.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i)
   br label %sw.epilog
@@ -4637,7 +4637,7 @@ sw.bb5:                                           ; preds = %if.then
   store i64 %5, ptr %o.i20, align 8
   %tt_.i21 = getelementptr inbounds i8, ptr %o.i20, i64 8
   store i8 3, ptr %tt_.i21, align 8
-  %call.i22 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i20, ptr noundef nonnull %o.i20)
+  %call.i22 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i20, ptr noundef %o.i20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i20)
   br label %sw.epilog
 
@@ -4667,7 +4667,7 @@ if.else.i:                                        ; preds = %sw.bb7
 
 luaK_numberK.exit:                                ; preds = %sw.bb7, %if.else.i
   %kv.sink.i = phi ptr [ %kv.i, %if.else.i ], [ %o.i23, %sw.bb7 ]
-  %call6.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %kv.sink.i, ptr noundef nonnull %o.i23)
+  %call6.i = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %kv.sink.i, ptr noundef %o.i23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ik.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kv.i)
@@ -4683,7 +4683,7 @@ sw.bb10:                                          ; preds = %if.then
   %11 = or i8 %10, 64
   %tt_.i27 = getelementptr inbounds i8, ptr %o.i26, i64 8
   store i8 %11, ptr %tt_.i27, align 8
-  %call.i28 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef nonnull %o.i26, ptr noundef nonnull %o.i26)
+  %call.i28 = call fastcc i32 @addk(ptr noundef %fs, ptr noundef %o.i26, ptr noundef %o.i26)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %o.i26)
   br label %sw.epilog
 
@@ -4709,7 +4709,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finishbinexpval(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef %op, i32 noundef %v2, i32 noundef %flip, i32 noundef %line, i32 noundef %mmop, i32 noundef %event) unnamed_addr #4 {
+define internal fastcc void @finishbinexpval(ptr noundef %fs, ptr nocapture noundef %e1, ptr nocapture noundef readonly %e2, i32 noundef range(i32 -2147483626, -2147483648) %op, i32 noundef %v2, i32 noundef range(i32 0, 2) %flip, i32 noundef %line, i32 noundef range(i32 46, 49) %mmop, i32 noundef range(i32 -2147483642, -2147483648) %event) unnamed_addr #4 {
 entry:
   %call = tail call i32 @luaK_exp2anyreg(ptr noundef %fs, ptr noundef %e1)
   %shl2.i = shl i32 %call, 16
@@ -4788,13 +4788,13 @@ freeexps.exit:                                    ; preds = %freereg.exit.i.i, %
   store i32 17, ptr %e1, align 8
   tail call void @luaK_fixline(ptr noundef %fs, i32 noundef %line)
   %shl1.i = shl i32 %call, 7
+  %or.i = or disjoint i32 %shl1.i, %mmop
   %shl2.i12 = shl i32 %v2, 16
   %shl4.i14 = shl i32 %event, 24
-  %shl6.i = shl i32 %flip, 15
-  %or.i = or i32 %shl6.i, %shl2.i12
-  %or3.i13 = or i32 %or.i, %mmop
+  %shl6.i = shl nuw nsw i32 %flip, 15
+  %or3.i13 = or disjoint i32 %shl6.i, %shl2.i12
   %or5.i15 = or i32 %or3.i13, %shl4.i14
-  %or7.i = or i32 %or5.i15, %shl1.i
+  %or7.i = or i32 %or5.i15, %or.i
   %call.i16 = tail call range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef %fs, i32 noundef %or7.i)
   tail call void @luaK_fixline(ptr noundef %fs, i32 noundef %line)
   ret void

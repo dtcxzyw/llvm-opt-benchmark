@@ -632,7 +632,7 @@ define internal fastcc void @hid_report_set_tool(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hid_report_release_tool(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @hid_report_release_tool(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 336
   %5 = zext nneg i32 %2 to i64
   %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %4, i64 %5) #11, !srcloc !12
@@ -2404,7 +2404,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly %0, ptr n
 declare dso_local i32 @input_scancode_to_scalar(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2503,7 +2503,7 @@ define internal fastcc void @hidinput_configure_usage(ptr noundef %0, ptr nounde
   br i1 %64, label %71, label %65
 
 65:                                               ; preds = %53
-  %66 = call i32 %63(ptr noundef %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %66 = call i32 %63(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %67 = icmp sgt i32 %66, 0
   %68 = lshr i32 %66, 30
   %69 = and i32 %68, 2
@@ -4559,7 +4559,7 @@ default.unreachable304:                           ; preds = %150
   br i1 %562, label %566, label %563
 
 563:                                              ; preds = %558
-  %564 = call i32 %561(ptr noundef %10, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %564 = call i32 %561(ptr noundef %10, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %565 = icmp slt i32 %564, 0
   br i1 %565, label %thread-pre-split281.thread, label %566
 
@@ -4828,10 +4828,10 @@ thread-pre-split281.thread:                       ; preds = %699, %695, %65, %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @hid_map_usage_clear(ptr %.24.val, ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #9 align 16 {
+define internal fastcc void @hid_map_usage_clear(ptr %.24.val, ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext range(i8 1, 4) %3, i16 noundef zeroext %4) unnamed_addr #9 align 16 {
   %6 = zext i16 %4 to i32
   %7 = zext nneg i8 %3 to i32
-  switch i8 %3, label %default.unreachable [
+  switch i8 %3, label %default.unreachable1 [
     i8 3, label %10
     i8 2, label %8
     i8 1, label %9
@@ -4843,7 +4843,7 @@ define internal fastcc void @hid_map_usage_clear(ptr %.24.val, ptr nocapture nou
 9:                                                ; preds = %5
   br label %10
 
-default.unreachable:                              ; preds = %5
+default.unreachable1:                             ; preds = %5
   unreachable
 
 10:                                               ; preds = %5, %9, %8
@@ -4886,7 +4886,7 @@ default.unreachable:                              ; preds = %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3, i32 noundef %4) unnamed_addr #9 align 16 {
+define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext range(i8 1, 18) %3, i32 noundef range(i32 0, 66224) %4) unnamed_addr #9 align 16 {
   %6 = zext nneg i8 %3 to i32
   switch i8 %3, label %.thread [
     i8 3, label %11

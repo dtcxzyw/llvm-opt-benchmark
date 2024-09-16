@@ -1650,7 +1650,7 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
   br i1 %tobool1.not.i.i, label %for.inc.i.i, label %if.end3.i.i
 
 if.end3.i.i:                                      ; preds = %for.body.i.i
-  call fastcc void @evutil_found_ifaddr(ptr noundef nonnull %2)
+  call fastcc void @evutil_found_ifaddr(ptr noundef %2)
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end3.i.i, %for.body.i.i
@@ -1747,7 +1747,7 @@ land.lhs.true13.i:                                ; preds = %land.lhs.true.i
   br i1 %cmp17.i, label %if.then18.i, label %if.then21.i
 
 if.then18.i:                                      ; preds = %land.lhs.true13.i
-  call fastcc void @evutil_found_ifaddr(ptr noundef nonnull %sin_out.i)
+  call fastcc void @evutil_found_ifaddr(ptr noundef %sin_out.i)
   br label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.then18.i, %land.lhs.true13.i, %land.lhs.true.i
@@ -1770,7 +1770,7 @@ land.lhs.true31.i:                                ; preds = %land.lhs.true26.i
   br i1 %cmp35.i, label %if.then36.i, label %if.then39.i
 
 if.then36.i:                                      ; preds = %land.lhs.true31.i
-  call fastcc void @evutil_found_ifaddr(ptr noundef nonnull %sin6_out.i)
+  call fastcc void @evutil_found_ifaddr(ptr noundef %sin6_out.i)
   br label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.then36.i, %land.lhs.true31.i, %land.lhs.true26.i
@@ -3663,7 +3663,7 @@ declare ptr @getprotobynumber(i32 noundef) local_unnamed_addr #3
 declare ptr @getservbyname(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evutil_found_ifaddr(ptr nocapture noundef readonly %sa) unnamed_addr #0 {
+define internal fastcc void @evutil_found_ifaddr(ptr nocapture noundef nonnull readonly %sa) unnamed_addr #0 {
 entry:
   %0 = load i16, ptr %sa, align 2
   switch i16 %0, label %if.end21 [

@@ -354,7 +354,7 @@ if.end.i.i:                                       ; preds = %if.end.i75
   br i1 %cmp11.i.i, label %if.then12.i.i, label %if.end13.i.i
 
 if.then12.i.i:                                    ; preds = %if.end.i.i
-  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef nonnull %pipes.0146, i32 noundef %12)
+  call fastcc void @uv__process_child_init(ptr noundef nonnull readonly %options, i32 noundef %spec.store.select, ptr noundef %pipes.0146, i32 noundef %12)
   unreachable
 
 if.end13.i.i:                                     ; preds = %if.end.i.i
@@ -779,7 +779,7 @@ declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @fork() local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @uv__process_child_init(ptr nocapture noundef readonly %options, i32 noundef %stdio_count, ptr nocapture noundef %pipes, i32 noundef %error_fd) unnamed_addr #7 {
+define internal fastcc void @uv__process_child_init(ptr nocapture noundef readonly %options, i32 noundef %stdio_count, ptr nocapture noundef nonnull %pipes, i32 noundef %error_fd) unnamed_addr #7 {
 entry:
   %val.addr.i.i124 = alloca i32, align 4
   %val.addr.i.i114 = alloca i32, align 4

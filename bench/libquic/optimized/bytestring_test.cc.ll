@@ -1945,7 +1945,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef %name, ptr nocapture noundef readonly %der_expected, i64 noundef %der_len, ptr noundef %ber, i64 noundef %ber_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL12DoBerConvertPKcPKhmS2_m(ptr noundef %name, ptr nocapture noundef readonly %der_expected, i64 noundef range(i64 3, 86) %der_len, ptr noundef %ber, i64 noundef range(i64 3, 96) %ber_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %in = alloca %struct.cbs_st, align 8
   %out = alloca ptr, align 8
@@ -1970,7 +1970,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp3.not, label %lor.lhs.false, label %if.then6
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %bcmp9 = call i32 @bcmp(ptr %der_expected, ptr %ber, i64 %der_len)
+  %bcmp9 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %der_expected, ptr noundef nonnull dereferenceable(1) %ber, i64 %der_len)
   %cmp5.not = icmp eq i32 %bcmp9, 0
   br i1 %cmp5.not, label %return, label %if.then6
 
@@ -1985,7 +1985,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %cmp10.not, label %lor.lhs.false11, label %if.then14
 
 lor.lhs.false11:                                  ; preds = %if.end9
-  %bcmp = call i32 @bcmp(ptr nonnull %1, ptr %der_expected, i64 %der_len)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %der_expected, i64 %der_len)
   %cmp13.not = icmp eq i32 %bcmp, 0
   br i1 %cmp13.not, label %if.then.i, label %if.then14
 

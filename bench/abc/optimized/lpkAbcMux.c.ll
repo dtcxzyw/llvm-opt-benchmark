@@ -94,14 +94,14 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %68 = load i32, ptr %37, align 4
   %69 = tail call i32 @Lpk_SuppDelay(i32 noundef %68, ptr noundef nonnull %6) #4
   %70 = add nsw i32 %69, 1
-  %71 = tail call noundef i32 @llvm.smax.i32(i32 %67, i32 %70)
+  %71 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %67, i32 %70)
   %72 = load i32, ptr %37, align 4
   %73 = or i32 %72, %11
   %74 = tail call i32 @Lpk_SuppDelay(i32 noundef %73, ptr noundef nonnull %6) #4
   %75 = load i32, ptr %15, align 4
   %76 = tail call i32 @Lpk_SuppDelay(i32 noundef %75, ptr noundef nonnull %6) #4
   %77 = add nsw i32 %76, 1
-  %78 = tail call noundef i32 @llvm.smax.i32(i32 %74, i32 %77)
+  %78 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %74, i32 %77)
   %79 = tail call noundef i32 @llvm.smin.i32(i32 %71, i32 %78)
   %80 = icmp sle i32 %78, %71
   br label %184
@@ -115,7 +115,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %85 = load i32, ptr %37, align 4
   %86 = tail call i32 @Lpk_SuppDelay(i32 noundef %85, ptr noundef nonnull %6) #4
   %87 = add nsw i32 %86, 1
-  %88 = tail call noundef i32 @llvm.smax.i32(i32 %84, i32 %87)
+  %88 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %84, i32 %87)
   %89 = load i32, ptr %5, align 8
   %90 = lshr i32 %89, 12
   %91 = trunc nuw nsw i32 %57 to i8
@@ -141,7 +141,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %104 = load i32, ptr %15, align 4
   %105 = tail call i32 @Lpk_SuppDelay(i32 noundef %104, ptr noundef nonnull %6) #4
   %106 = add nsw i32 %105, 1
-  %107 = tail call noundef i32 @llvm.smax.i32(i32 %103, i32 %106)
+  %107 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %103, i32 %106)
   %108 = load i32, ptr %5, align 8
   %109 = lshr i32 %108, 12
   %110 = trunc nuw nsw i32 %35 to i8
@@ -168,7 +168,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %123 = load i32, ptr %15, align 4
   %124 = tail call i32 @Lpk_SuppDelay(i32 noundef %123, ptr noundef nonnull %6) #4
   %125 = add nsw i32 %124, 1
-  %126 = tail call noundef i32 @llvm.smax.i32(i32 %122, i32 %125)
+  %126 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %122, i32 %125)
   %127 = load i32, ptr %5, align 8
   %128 = lshr i32 %127, 12
   %129 = trunc nuw nsw i32 %57 to i8
@@ -192,7 +192,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %141 = load i32, ptr %37, align 4
   %142 = tail call i32 @Lpk_SuppDelay(i32 noundef %141, ptr noundef nonnull %6) #4
   %143 = add nsw i32 %142, 1
-  %144 = tail call noundef i32 @llvm.smax.i32(i32 %140, i32 %143)
+  %144 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %140, i32 %143)
   br i1 %.not163, label %157, label %145
 
 145:                                              ; preds = %138
@@ -219,7 +219,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %161 = load i32, ptr %15, align 4
   %162 = tail call i32 @Lpk_SuppDelay(i32 noundef %161, ptr noundef nonnull %6) #4
   %163 = add nsw i32 %162, 1
-  %164 = tail call noundef i32 @llvm.smax.i32(i32 %160, i32 %163)
+  %164 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %160, i32 %163)
   %165 = tail call noundef i32 @llvm.smin.i32(i32 %144, i32 %164)
   %.not212 = icmp sgt i32 %144, %164
   %166 = load i32, ptr %5, align 8

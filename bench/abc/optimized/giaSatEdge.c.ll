@@ -490,7 +490,7 @@ Vec_WecStart.exit:                                ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %5, %1
@@ -499,7 +499,7 @@ define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %
 6:                                                ; preds = %3
   %7 = add nsw i32 %1, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 %7)
+  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 %7)
   %10 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %10, %9
   br i1 %.not.i, label %11, label %Vec_WecGrow.exit
@@ -885,92 +885,102 @@ define noundef ptr @Seg_ManAlloc(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %17, ptr %18, align 8
   %19 = icmp ult i32 %17, 2
-  %20 = add nsw i32 %17, -1
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
-  %22 = sub nuw nsw i32 32, %21
-  %.09.i = select i1 %19, i32 %17, i32 %22
-  %23 = getelementptr inbounds i8, ptr %3, i64 12
-  store i32 %.09.i, ptr %23, align 4
-  %24 = shl nuw i32 1, %.09.i
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
-  store i32 %24, ptr %25, align 8
-  %26 = tail call ptr @sat_solver_new() #16
-  store ptr %26, ptr %3, align 8
-  tail call void @sat_solver_setnvars(ptr noundef %26, i32 noundef %17) #16
-  %27 = tail call i32 @sat_solver_nvars(ptr noundef %26) #16
-  %28 = getelementptr inbounds i8, ptr %3, i64 20
-  store i32 %27, ptr %28, align 4
-  %29 = load i32, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 96
-  store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 100
-  store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %26, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %26, i64 32
-  store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %26, i64 20
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %26, i64 36
-  store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %26, i64 40
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %26, i64 48
-  %43 = load i32, ptr %42, align 8
-  %44 = shl i32 %41, %43
-  %45 = getelementptr inbounds i8, ptr %26, i64 64
-  %46 = load ptr, ptr %45, align 8
-  %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %.val.i.i.i = load i32, ptr %49, align 4
-  %50 = or i32 %.val.i.i.i, %44
-  %51 = getelementptr inbounds i8, ptr %26, i64 24
-  store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %26, i64 44
-  %53 = load i32, ptr %52, align 4
-  %54 = shl i32 %53, %43
-  %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %46, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %.val.i8.i.i = load i32, ptr %57, align 4
-  %58 = or i32 %.val.i8.i.i, %54
-  %59 = getelementptr inbounds i8, ptr %26, i64 28
-  store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %26, i64 152
-  %61 = load ptr, ptr %60, align 8
-  %.not.i = icmp eq ptr %61, null
-  br i1 %.not.i, label %sat_solver_bookmark.exit, label %62
+  br i1 %19, label %Abc_Base2Log.exit, label %20
 
-62:                                               ; preds = %2
-  %63 = getelementptr inbounds i8, ptr %26, i64 120
-  %64 = load i64, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %26, i64 128
-  store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %26, i64 144
-  %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %29 to i64
-  %69 = shl nsw i64 %68, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %61, ptr align 8 %67, i64 %69, i1 false)
+20:                                               ; preds = %2
+  %21 = add nsw i32 %17, -1
+  %.not11.i = icmp eq i32 %21, 0
+  br i1 %.not11.i, label %Abc_Base2Log.exit, label %.lr.ph.preheader.i
+
+.lr.ph.preheader.i:                               ; preds = %20
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %21, i1 true)
+  %23 = sub nuw nsw i32 32, %22
+  br label %Abc_Base2Log.exit
+
+Abc_Base2Log.exit:                                ; preds = %2, %20, %.lr.ph.preheader.i
+  %.09.i = phi i32 [ %17, %2 ], [ 0, %20 ], [ %23, %.lr.ph.preheader.i ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 12
+  store i32 %.09.i, ptr %24, align 4
+  %25 = shl nuw i32 1, %.09.i
+  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  store i32 %25, ptr %26, align 8
+  %27 = tail call ptr @sat_solver_new() #16
+  store ptr %27, ptr %3, align 8
+  tail call void @sat_solver_setnvars(ptr noundef %27, i32 noundef %17) #16
+  %28 = tail call i32 @sat_solver_nvars(ptr noundef %27) #16
+  %29 = getelementptr inbounds i8, ptr %3, i64 20
+  store i32 %28, ptr %29, align 4
+  %30 = load i32, ptr %27, align 8
+  %31 = getelementptr inbounds i8, ptr %27, i64 96
+  store i32 %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %33 = load i32, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %27, i64 100
+  store i32 %33, ptr %34, align 4
+  %35 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %27, i64 32
+  store i32 %36, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %27, i64 20
+  %39 = load i32, ptr %38, align 4
+  %40 = getelementptr inbounds i8, ptr %27, i64 36
+  store i32 %39, ptr %40, align 4
+  %41 = getelementptr inbounds i8, ptr %27, i64 40
+  %42 = load i32, ptr %41, align 4
+  %43 = getelementptr inbounds i8, ptr %27, i64 48
+  %44 = load i32, ptr %43, align 8
+  %45 = shl i32 %42, %44
+  %46 = getelementptr inbounds i8, ptr %27, i64 64
+  %47 = load ptr, ptr %46, align 8
+  %48 = sext i32 %42 to i64
+  %49 = getelementptr inbounds ptr, ptr %47, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %.val.i.i.i = load i32, ptr %50, align 4
+  %51 = or i32 %.val.i.i.i, %45
+  %52 = getelementptr inbounds i8, ptr %27, i64 24
+  store i32 %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %27, i64 44
+  %54 = load i32, ptr %53, align 4
+  %55 = shl i32 %54, %44
+  %56 = sext i32 %54 to i64
+  %57 = getelementptr inbounds ptr, ptr %47, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %.val.i8.i.i = load i32, ptr %58, align 4
+  %59 = or i32 %.val.i8.i.i, %55
+  %60 = getelementptr inbounds i8, ptr %27, i64 28
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr inbounds i8, ptr %27, i64 152
+  %62 = load ptr, ptr %61, align 8
+  %.not.i = icmp eq ptr %62, null
+  br i1 %.not.i, label %sat_solver_bookmark.exit, label %63
+
+63:                                               ; preds = %Abc_Base2Log.exit
+  %64 = getelementptr inbounds i8, ptr %27, i64 120
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %27, i64 128
+  store i64 %65, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %27, i64 144
+  %68 = load ptr, ptr %67, align 8
+  %69 = sext i32 %30 to i64
+  %70 = shl nsw i64 %69, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %68, i64 %70, i1 false)
   br label %sat_solver_bookmark.exit
 
-sat_solver_bookmark.exit:                         ; preds = %2, %62
-  %70 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr %0, ptr %70, align 8
+sat_solver_bookmark.exit:                         ; preds = %Abc_Base2Log.exit, %63
+  %71 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %0, ptr %71, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %71 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr %calloc, ptr %71, align 8
+  %72 = getelementptr inbounds i8, ptr %3, i64 80
+  store ptr %calloc, ptr %72, align 8
   %calloc29 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %72 = getelementptr inbounds i8, ptr %3, i64 88
-  store ptr %calloc29, ptr %72, align 8
+  %73 = getelementptr inbounds i8, ptr %3, i64 88
+  store ptr %calloc29, ptr %73, align 8
   %calloc30 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %73 = getelementptr inbounds i8, ptr %3, i64 96
-  store ptr %calloc30, ptr %73, align 8
-  %74 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %3, i32 noundef %27)
-  %75 = load ptr, ptr %3, align 8
-  tail call void @sat_solver_setnvars(ptr noundef %75, i32 noundef %74) #16
+  %74 = getelementptr inbounds i8, ptr %3, i64 96
+  store ptr %calloc30, ptr %74, align 8
+  %75 = tail call i32 @Seg_ManCountIntLevels(ptr noundef nonnull %3, i32 noundef %28)
+  %76 = load ptr, ptr %3, align 8
+  tail call void @sat_solver_setnvars(ptr noundef %76, i32 noundef %75) #16
   tail call void @Gia_ManFillValue(ptr noundef %0) #16
   ret ptr %3
 }

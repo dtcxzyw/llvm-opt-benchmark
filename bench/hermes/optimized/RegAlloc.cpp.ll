@@ -13812,7 +13812,7 @@ return:                                           ; preds = %_ZNK6hermes8Interva
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #13 {
+define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 1152921504606846975) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #13 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

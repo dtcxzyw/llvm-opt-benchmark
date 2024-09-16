@@ -1904,7 +1904,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5
   %88 = phi i64 [ %87, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %.critedge.i ]
   %89 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %88) #12, !noalias !90
   %90 = add nsw i64 %89, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %60, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %17, i64 %90)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %60, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %17, i64 %90)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 48, i1 false)
   %91 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction15emitArrayLengthEPKNS_9ArrayTypeERNS_8QualTypeERNS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(6488) %61, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(48) %20) #12
@@ -2148,7 +2148,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %spec.select = select i1 %42, i64 %217, i64 %.sroa.0.0.copyload.i.i12
   call fastcc void @_ZN12_GLOBAL__N_120GenDefaultInitialize13visitWithKindEN5clang8QualType30PrimitiveDefaultInitializeKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i64 %spec.select, ptr noundef null, i64 0, ptr noundef nonnull byval(%"struct.std::array.857") align 8 %29)
   %218 = load ptr, ptr %112, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, i64 %208)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, i64 %208)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %30, i64 48, i1 false)
   %219 = load i8, ptr %.sroa.689.0..sroa_idx, align 8
   %220 = and i8 %219, 3
@@ -2339,7 +2339,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5
   %308 = phi i64 [ %307, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %279 ]
   %309 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i10, i64 noundef %308) #12, !noalias !93
   %310 = add nsw i64 %309, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull readonly align 8 dereferenceable(8) %280, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, i64 %310)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull readonly align 8 dereferenceable(8) %280, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, i64 %310)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %31)
   %311 = load ptr, ptr %280, align 8
   %312 = getelementptr inbounds i8, ptr %32, i64 16
@@ -2418,7 +2418,7 @@ _ZN12_GLOBAL__N_120GenDefaultInitialize14visitARCStrongEN5clang8QualTypeEPKNS1_9
   %350 = phi i64 [ %349, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i31 ], [ 0, %325 ]
   %351 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i28, i64 noundef %350) #12, !noalias !96
   %352 = add nsw i64 %351, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %326, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %10, i64 %352)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %326, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %10, i64 %352)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22EmitNullInitializationENS0_7AddressENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %327, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %11, i64 %2) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -2470,7 +2470,7 @@ _ZN12_GLOBAL__N_120GenDefaultInitialize12visitARCWeakEN5clang8QualTypeEPKNS1_9Fi
   %378 = phi i64 [ %377, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i24 ], [ 0, %353 ]
   %379 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i21, i64 noundef %378) #12, !noalias !99
   %380 = add nsw i64 %379, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %354, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %380)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %354, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %380)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22EmitNullInitializationENS0_7AddressENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %355, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %13, i64 %2) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
@@ -2522,7 +2522,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE11visitStructILm1EEEvN
   %407 = getelementptr inbounds i8, ptr %0, i64 8
   %408 = load ptr, ptr %407, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %407, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.0101, i64 %406)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %407, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.0101, i64 %406)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 144
@@ -2785,7 +2785,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_7PHINodeEEEPT_S4_RKNS_5TwineE.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_20GenDefaultInitializeEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -3721,7 +3721,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOf
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27, %150
   %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i27 ], [ %153, %150 ]
   %155 = add nsw i64 %148, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %154, i64 %155)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %157 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef %156, i64 noundef %157) #12
@@ -3788,7 +3788,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOf
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %187
   %193 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_28GenDefaultInitializeFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %192, %187 ]
   %194 = add nsw i64 %185, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %193, i64 %194)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_28GenDefaultInitializeFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %193, i64 %194)
   %195 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %196 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %197 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef %195, i64 noundef %196) #12
@@ -5544,7 +5544,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetE
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, %160
   %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32 ], [ %163, %160 ]
   %165 = add nsw i64 %158, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %164, i64 %165)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
   %166 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef %166, i64 noundef %167) #12
@@ -5611,7 +5611,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetE
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %197
   %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb0EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %202, %197 ]
   %204 = add nsw i64 %195, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %203, i64 %204)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb0EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
   %205 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %206 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %207 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef %205, i64 noundef %206) #12
@@ -6395,7 +6395,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPK
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE14visitARCStrongEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28, %150
   %154 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i28 ], [ %153, %150 ]
   %155 = add nsw i64 %148, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %154, i64 %155)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %154, i64 %155)
   %156 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %157 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %110, ptr noundef %156, i64 noundef %157) #12
@@ -6508,7 +6508,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPK
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE12visitARCWeakEN5clang8QualTypeEPKNS3_9FieldDeclENS3_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %215
   %221 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_21GenDestructorFuncNameEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %220, %215 ]
   %222 = add nsw i64 %213, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %221, i64 %222)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_21GenDestructorFuncNameEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %221, i64 %222)
   %223 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %224 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %225 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %188, ptr noundef %223, i64 noundef %224) #12
@@ -6880,7 +6880,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit.thread: ; preds = %151, %_ZNK5cl
 
 _ZNK5clang8QualType19isVolatileQualifiedEv.exit62: ; preds = %158, %160
   %166 = phi i1 [ true, %158 ], [ %165, %160 ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %156, ptr noundef nonnull %157, i1 noundef zeroext %166, ptr noundef nonnull %.sroa.0106.0134, i64 0, ptr noundef nonnull byval(%"struct.std::array.857") align 8 %8)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %156, ptr noundef %157, i1 noundef zeroext %166, ptr noundef nonnull %.sroa.0106.0134, i64 0, ptr noundef nonnull byval(%"struct.std::array.857") align 8 %8)
   br label %_ZN5clang21DestructedTypeVisitorIN12_GLOBAL__N_113GenDestructorEvE5visitIJRPKNS_9FieldDeclERNS_9CharUnitsERSt5arrayINS_7CodeGen7AddressELm1EEEEEvNS_8QualTypeEDpOT_.exit
 
 167:                                              ; preds = %155
@@ -6938,7 +6938,7 @@ _ZN5clang7CodeGen15FunctionArgListD2Ev.exit:      ; preds = %_ZN4llvm8Function4a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.std::array.857") align 8 %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.std::array.857") align 8 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca ptr, align 8
   %10 = alloca %"struct.std::array.857", align 8
@@ -7013,11 +7013,11 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7C
   %55 = phi i64 [ %54, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %.critedge ]
   %56 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %55) #12, !noalias !260
   %57 = add nsw i64 %56, %5
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %57)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %57)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
-  %58 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction15emitArrayLengthEPKNS_9ArrayTypeERNS_8QualTypeERNS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(6488) %27, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(48) %16) #12
+  %58 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction15emitArrayLengthEPKNS_9ArrayTypeERNS_8QualTypeERNS0_7AddressE(ptr noundef nonnull align 8 dereferenceable(6488) %27, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(48) %16) #12
   %.sroa.035.0.copyload = load i64, ptr %13, align 8
   %59 = call i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %31, i64 %.sroa.035.0.copyload) #12
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -7280,7 +7280,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
 
 _ZNK5clang8QualType19isVolatileQualifiedEv.exit.i: ; preds = %188, %186
   %194 = phi i1 [ true, %186 ], [ %193, %188 ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull %185, i1 noundef zeroext %194, ptr noundef null, i64 0, ptr noundef nonnull byval(%"struct.std::array.857") align 8 %10)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE10visitArrayIN5clang8QualType15DestructionKindELm1EEEvT_PKNS4_9ArrayTypeEbPKNS4_9FieldDeclENS4_9CharUnitsESt5arrayINS4_7CodeGen7AddressEXT0_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef %185, i1 noundef zeroext %194, ptr noundef null, i64 0, ptr noundef nonnull byval(%"struct.std::array.857") align 8 %10)
   br label %_ZN12_GLOBAL__N_113GenDestructor13visitWithKindEN5clang8QualType15DestructionKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit
 
 195:                                              ; preds = %_ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNodeES6_.exit
@@ -7290,7 +7290,7 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit.i: ; preds = %188, %186
 _ZN12_GLOBAL__N_113GenDestructor13visitWithKindEN5clang8QualType15DestructionKindES2_PKNS1_9FieldDeclENS1_9CharUnitsESt5arrayINS1_7CodeGen7AddressELm1EE.exit: ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit.i, %195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %196 = load ptr, ptr %79, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %25, i64 %175)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %25, i64 %175)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %26, i64 48, i1 false)
   %197 = load i8, ptr %.sroa.4.0..sroa_idx, align 8
   %198 = and i8 %197, 3
@@ -7487,7 +7487,7 @@ _ZN12_GLOBAL__N_113GenDestructor14visitARCStrongEN5clang8QualTypeEPKNS1_9FieldDe
   %40 = phi i64 [ %39, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %14 ]
   %41 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %40) #12, !noalias !263
   %42 = add nsw i64 %41, %.0.val
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %42)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %12, i64 %42)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   tail call void @_ZN5clang7CodeGen15CodeGenFunction25destroyARCStrongImpreciseERS1_NS0_7AddressENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %17, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %13, i64 %2) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
@@ -7540,7 +7540,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_13GenDestructorEE14getFieldOffsetEPKN5clang9
   %70 = getelementptr inbounds i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.06, i64 %69)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.06, i64 %69)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 144
@@ -7647,7 +7647,7 @@ _ZN12_GLOBAL__N_113GenDestructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDecl
   %126 = phi i64 [ %125, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i33 ], [ 0, %100 ]
   %127 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i30, i64 noundef %126) #12, !noalias !277
   %128 = add nsw i64 %127, %.0.val
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %102, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %10, i64 %128)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(8) %102, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %10, i64 %128)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   tail call void @_ZN5clang7CodeGen15CodeGenFunction14destroyARCWeakERS1_NS0_7AddressENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %103, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %11, i64 %2) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
@@ -7661,7 +7661,7 @@ _ZN12_GLOBAL__N_113GenDestructor12visitARCWeakEN5clang8QualTypeEPKNS1_9FieldDecl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_13GenDestructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -7960,7 +7960,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %7
   %97 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(6488) %97, i1 noundef zeroext false, i32 0) #12
   %98 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
+  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
   %99 = getelementptr inbounds i8, ptr %0, i64 -24
   %100 = and i64 %3, -16
   %101 = inttoptr i64 %100 to ptr
@@ -8153,7 +8153,7 @@ _ZN4llvm11SmallVectorIPN5clang17ImplicitParamDeclELj2EED2Ev.exit: ; preds = %27,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture writable align 8 %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, i64 %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 280
@@ -8330,10 +8330,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenCopyConstr
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.04.0.copyload = load i64, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -8578,7 +8578,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5cl
   %85 = phi i64 [ %84, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %62 ]
   %86 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %85) #12, !noalias !299
   %87 = add nsw i64 %86, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %87)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %87)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv.sroa.phi122, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
   br i1 %63, label %62, label %88, !llvm.loop !302
 
@@ -8853,7 +8853,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %223 = phi i1 [ true, %219 ], [ false, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi = phi ptr [ %38, %219 ], [ %indvars.iv106.sroa.gep111, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi113 = phi ptr [ %.sroa.0, %219 ], [ %.sroa.6, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %209)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %209)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv106.sroa.phi, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false)
   %224 = load ptr, ptr %indvars.iv106.sroa.phi113, align 8
   %225 = getelementptr inbounds nuw i8, ptr %indvars.iv106.sroa.phi, i64 24
@@ -9070,7 +9070,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5cl
   %315 = phi i64 [ %314, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i47 ], [ 0, %291 ]
   %316 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i44, i64 noundef %315) #12, !noalias !306
   %317 = add nsw i64 %316, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %317)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %317)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   %318 = getelementptr inbounds i8, ptr %17, i64 48
   %.val.i11.i = load ptr, ptr %0, align 8, !noalias !309
@@ -9112,7 +9112,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5cl
   %341 = phi i64 [ %340, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i14.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i50 ]
   %342 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i11.i, i64 noundef %341) #12, !noalias !309
   %343 = add nsw i64 %342, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %318, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %318, i64 %343)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %318, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %318, i64 %343)
   %344 = load ptr, ptr %292, align 8
   %345 = and i64 %2, 4
   %.not.i.i = icmp eq i64 %345, 0
@@ -9244,7 +9244,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5cl
   %409 = phi i64 [ %408, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %385 ]
   %410 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %409) #12, !noalias !323
   %411 = add nsw i64 %410, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %386, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18, i64 %411)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %386, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18, i64 %411)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   %412 = getelementptr inbounds i8, ptr %19, i64 48
   %.val.i7.i = load ptr, ptr %0, align 8, !noalias !326
@@ -9286,7 +9286,7 @@ _ZN12_GLOBAL__N_118GenCopyConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9Fiel
   %435 = phi i64 [ %434, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i10.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i ]
   %436 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i7.i, i64 noundef %435) #12, !noalias !326
   %437 = add nsw i64 %436, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %412, ptr noundef nonnull readonly align 8 dereferenceable(8) %386, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %412, i64 %437)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %412, ptr noundef nonnull readonly align 8 dereferenceable(8) %386, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %412, i64 %437)
   %438 = load ptr, ptr %386, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitARCCopyWeakENS0_7AddressES2_(ptr noundef nonnull align 8 dereferenceable(6488) %438, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %19, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %412) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
@@ -9338,10 +9338,10 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE11visitStructILm2EEEvN5c
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %23)
   %465 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %465, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %464)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %465, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %464)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %.sroa.092.48..sroa_idx94 = getelementptr inbounds i8, ptr %.sroa.088, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %465, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %464)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %465, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %464)
   %466 = load ptr, ptr %465, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -9579,7 +9579,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_18GenCopyConstructorEE20getFieldOffsetInBits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -9766,7 +9766,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %29, %35
   %47 = and i64 %46, -16
   %48 = load ptr, ptr %21, align 8
   %49 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %48, i64 %47) #12
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
   %50 = load ptr, ptr %21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %52 = load ptr, ptr %51, align 8
@@ -9877,7 +9877,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.19236.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 128
   %.sroa.19236.0.copyload = load ptr, ptr %.sroa.19236.0..sroa_idx, align 8
   %78 = getelementptr inbounds i8, ptr %4, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenCopyConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
   %79 = load ptr, ptr %21, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %81 = load ptr, ptr %80, align 8
@@ -10462,7 +10462,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %7
   %97 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(6488) %97, i1 noundef zeroext false, i32 0) #12
   %98 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
+  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
   %99 = getelementptr inbounds i8, ptr %0, i64 -24
   %100 = and i64 %3, -16
   %101 = inttoptr i64 %100 to ptr
@@ -10600,10 +10600,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenCopyAssign
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.04.0.copyload = load i64, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -10848,7 +10848,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5cla
   %85 = phi i64 [ %84, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %62 ]
   %86 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %85) #12, !noalias !399
   %87 = add nsw i64 %86, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %87)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %87)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv.sroa.phi122, ptr noundef nonnull align 8 dereferenceable(48) %28, i64 48, i1 false)
   br i1 %63, label %62, label %88, !llvm.loop !402
 
@@ -11123,7 +11123,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %223 = phi i1 [ true, %219 ], [ false, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi = phi ptr [ %38, %219 ], [ %indvars.iv106.sroa.gep111, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi113 = phi ptr [ %.sroa.0, %219 ], [ %.sroa.6, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %209)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %209)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv106.sroa.phi, ptr noundef nonnull align 8 dereferenceable(48) %39, i64 48, i1 false)
   %224 = load ptr, ptr %indvars.iv106.sroa.phi113, align 8
   %225 = getelementptr inbounds nuw i8, ptr %indvars.iv106.sroa.phi, i64 24
@@ -11340,7 +11340,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5cla
   %315 = phi i64 [ %314, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i47 ], [ 0, %291 ]
   %316 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i44, i64 noundef %315) #12, !noalias !406
   %317 = add nsw i64 %316, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %317)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %317)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   %318 = getelementptr inbounds i8, ptr %17, i64 48
   %.val.i9.i = load ptr, ptr %0, align 8, !noalias !409
@@ -11382,7 +11382,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5cla
   %341 = phi i64 [ %340, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i12.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i50 ]
   %342 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i9.i, i64 noundef %341) #12, !noalias !409
   %343 = add nsw i64 %342, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %318, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %318, i64 %343)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %318, ptr noundef nonnull readonly align 8 dereferenceable(8) %292, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %318, i64 %343)
   %344 = load ptr, ptr %292, align 8
   %345 = and i64 %2, 4
   %.not.i.i = icmp eq i64 %345, 0
@@ -11512,7 +11512,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5cla
   %408 = phi i64 [ %407, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %384 ]
   %409 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %408) #12, !noalias !423
   %410 = add nsw i64 %409, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %385, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18, i64 %410)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull readonly align 8 dereferenceable(8) %385, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %18, i64 %410)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   %411 = getelementptr inbounds i8, ptr %19, i64 48
   %.val.i8.i = load ptr, ptr %0, align 8, !noalias !426
@@ -11554,7 +11554,7 @@ _ZN12_GLOBAL__N_117GenCopyAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9Field
   %434 = phi i64 [ %433, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i11.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i ]
   %435 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i8.i, i64 noundef %434) #12, !noalias !426
   %436 = add nsw i64 %435, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %411, ptr noundef nonnull readonly align 8 dereferenceable(8) %385, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %411, i64 %436)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %411, ptr noundef nonnull readonly align 8 dereferenceable(8) %385, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %411, i64 %436)
   %437 = load ptr, ptr %385, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction21emitARCCopyAssignWeakENS_8QualTypeENS0_7AddressES3_(ptr noundef nonnull align 8 dereferenceable(6488) %437, i64 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %19, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %411) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %19)
@@ -11606,10 +11606,10 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE11visitStructILm2EEEvN5cl
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %23)
   %464 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %464, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %463)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %464, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %463)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
   %.sroa.092.48..sroa_idx94 = getelementptr inbounds i8, ptr %.sroa.088, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %464, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %463)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %464, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %463)
   %465 = load ptr, ptr %464, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -11847,7 +11847,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenCopyAssignmentEE20getFieldOffsetInBitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -12034,7 +12034,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %29, %35
   %47 = and i64 %46, -16
   %48 = load ptr, ptr %21, align 8
   %49 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %48, i64 %47) #12
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
   %50 = load ptr, ptr %21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %52 = load ptr, ptr %51, align 8
@@ -12145,7 +12145,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.19236.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 128
   %.sroa.19236.0.copyload = load ptr, ptr %.sroa.19236.0..sroa_idx, align 8
   %78 = getelementptr inbounds i8, ptr %4, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenCopyAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
   %79 = load ptr, ptr %21, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %81 = load ptr, ptr %80, align 8
@@ -13015,7 +13015,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetE
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE14visitARCStrongEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32, %160
   %164 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i32 ], [ %163, %160 ]
   %165 = add nsw i64 %158, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %164, i64 %165)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %164, i64 %165)
   %166 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %167 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #12
   %168 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef %166, i64 noundef %167) #12
@@ -13082,7 +13082,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetE
 _ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE12visitARCWeakEN5clang8QualTypeEPKNS4_9FieldDeclENS4_9CharUnitsE.exit: ; preds = %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i, %197
   %203 = phi i1 [ true, %_ZN12_GLOBAL__N_113StructVisitorINS_17GenBinaryFuncNameILb1EEEE14getFieldOffsetEPKN5clang9FieldDeclE.exit.i ], [ %202, %197 ]
   %204 = add nsw i64 %195, %4
-  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %203, i64 %204)
+  call fastcc void @_ZN12_GLOBAL__N_115GenFuncNameBaseINS_17GenBinaryFuncNameILb1EEEE20getVolatileOffsetStrB5cxx11EbN5clang9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %203, i64 %204)
   %205 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %206 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #12
   %207 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %170, ptr noundef %205, i64 noundef %206) #12
@@ -13626,7 +13626,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %7
   %97 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(6488) %97, i1 noundef zeroext false, i32 0) #12
   %98 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
+  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
   %99 = getelementptr inbounds i8, ptr %0, i64 -24
   %100 = and i64 %3, -16
   %101 = inttoptr i64 %100 to ptr
@@ -13764,10 +13764,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_18GenMoveConstr
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.04.0.copyload = load i64, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -14015,7 +14015,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5cl
   %88 = phi i64 [ %87, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %65 ]
   %89 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %88) #12, !noalias !556
   %90 = add nsw i64 %89, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %90)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(8) %46, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %90)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv.sroa.phi122, ptr noundef nonnull align 8 dereferenceable(48) %31, i64 48, i1 false)
   br i1 %66, label %65, label %91, !llvm.loop !559
 
@@ -14290,7 +14290,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %226 = phi i1 [ true, %222 ], [ false, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi = phi ptr [ %41, %222 ], [ %indvars.iv106.sroa.gep111, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi113 = phi ptr [ %.sroa.0, %222 ], [ %.sroa.6, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %212)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %212)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv106.sroa.phi, ptr noundef nonnull align 8 dereferenceable(48) %42, i64 48, i1 false)
   %227 = load ptr, ptr %indvars.iv106.sroa.phi113, align 8
   %228 = getelementptr inbounds nuw i8, ptr %indvars.iv106.sroa.phi, i64 24
@@ -14511,7 +14511,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5cl
   %318 = phi i64 [ %317, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i47 ], [ 0, %294 ]
   %319 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i44, i64 noundef %318) #12, !noalias !563
   %320 = add nsw i64 %319, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(8) %295, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %320)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(8) %295, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %320)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   %321 = getelementptr inbounds i8, ptr %20, i64 48
   %.val.i11.i = load ptr, ptr %0, align 8, !noalias !566
@@ -14553,7 +14553,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5cl
   %344 = phi i64 [ %343, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i14.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i50 ]
   %345 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i11.i, i64 noundef %344) #12, !noalias !566
   %346 = add nsw i64 %345, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %321, ptr noundef nonnull readonly align 8 dereferenceable(8) %295, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %321, i64 %346)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %321, ptr noundef nonnull readonly align 8 dereferenceable(8) %295, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %321, i64 %346)
   %347 = load ptr, ptr %295, align 8
   %.sroa.052.0.copyload.i = load i64, ptr %321, align 8
   %.sroa.253.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 56
@@ -14744,7 +14744,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5cl
   %423 = phi i64 [ %422, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %399 ]
   %424 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %423) #12, !noalias !589
   %425 = add nsw i64 %424, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(8) %400, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %21, i64 %425)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(8) %400, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %21, i64 %425)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %21)
   %426 = getelementptr inbounds i8, ptr %22, i64 48
   %.val.i7.i = load ptr, ptr %0, align 8, !noalias !592
@@ -14786,7 +14786,7 @@ _ZN12_GLOBAL__N_118GenMoveConstructor12visitARCWeakEN5clang8QualTypeEPKNS1_9Fiel
   %449 = phi i64 [ %448, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i10.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i ]
   %450 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i7.i, i64 noundef %449) #12, !noalias !592
   %451 = add nsw i64 %450, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %426, ptr noundef nonnull readonly align 8 dereferenceable(8) %400, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %426, i64 %451)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %426, ptr noundef nonnull readonly align 8 dereferenceable(8) %400, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %426, i64 %451)
   %452 = load ptr, ptr %400, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitARCMoveWeakENS0_7AddressES2_(ptr noundef nonnull align 8 dereferenceable(6488) %452, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %22, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %426) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %22)
@@ -14838,10 +14838,10 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE11visitStructILm2EEEvN5c
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %26)
   %479 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %479, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %478)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %479, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %478)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
   %.sroa.092.48..sroa_idx94 = getelementptr inbounds i8, ptr %.sroa.088, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %479, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %478)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %479, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %478)
   %480 = load ptr, ptr %479, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !595)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -15079,7 +15079,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_18GenMoveConstructorEE20getFieldOffsetInBits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -15266,7 +15266,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %29, %35
   %47 = and i64 %46, -16
   %48 = load ptr, ptr %21, align 8
   %49 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %48, i64 %47) #12
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
   %50 = load ptr, ptr %21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %52 = load ptr, ptr %51, align 8
@@ -15377,7 +15377,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.19236.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 128
   %.sroa.19236.0.copyload = load ptr, ptr %.sroa.19236.0..sroa_idx, align 8
   %78 = getelementptr inbounds i8, ptr %4, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_18GenMoveConstructorEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
   %79 = load ptr, ptr %21, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %81 = load ptr, ptr %80, align 8
@@ -15887,7 +15887,7 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %7
   %97 = load ptr, ptr %0, align 8
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(6488) %97, i1 noundef zeroext false, i32 0) #12
   %98 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
+  call fastcc void @_ZN12_GLOBAL__N_113getParamAddrsILm2EJLm0ELm1EEEESt5arrayIN5clang7CodeGen7AddressEXT_EESt16integer_sequenceImJXspT0_EEES1_INS2_9CharUnitsEXT_EERKNS3_15FunctionArgListEPNS3_15CodeGenFunctionE(ptr dead_on_unwind noalias writable align 8 %9, i64 %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef %98)
   %99 = getelementptr inbounds i8, ptr %0, i64 -24
   %100 = and i64 %3, -16
   %101 = inttoptr i64 %100 to ptr
@@ -16025,10 +16025,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_113GenBinaryFuncINS_17GenMoveAssign
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %9)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.04.0.copyload = load i64, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %14, i64 %.sroa.04.0.copyload)
   %15 = icmp slt i64 %10, 16
   %16 = trunc i64 %10 to i32
   %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
@@ -16279,7 +16279,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5cla
   %90 = phi i64 [ %89, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i ], [ 0, %67 ]
   %91 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i, i64 noundef %90) #12, !noalias !665
   %92 = add nsw i64 %91, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull readonly align 8 dereferenceable(8) %48, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %92)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull readonly align 8 dereferenceable(8) %48, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv.sroa.phi, i64 %92)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv.sroa.phi122, ptr noundef nonnull align 8 dereferenceable(48) %33, i64 48, i1 false)
   br i1 %68, label %67, label %93, !llvm.loop !668
 
@@ -16554,7 +16554,7 @@ _ZN4llvm13IRBuilderBase12CreateCondBrEPNS_5ValueEPNS_10BasicBlockES4_PNS_6MDNode
   %228 = phi i1 [ true, %224 ], [ false, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi = phi ptr [ %43, %224 ], [ %indvars.iv106.sroa.gep111, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
   %indvars.iv106.sroa.phi113 = phi ptr [ %.sroa.0, %224 ], [ %.sroa.6, %_ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit ]
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %214)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %indvars.iv106.sroa.phi, i64 %214)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %indvars.iv106.sroa.phi, ptr noundef nonnull align 8 dereferenceable(48) %44, i64 48, i1 false)
   %229 = load ptr, ptr %indvars.iv106.sroa.phi113, align 8
   %230 = getelementptr inbounds nuw i8, ptr %indvars.iv106.sroa.phi, i64 24
@@ -16779,7 +16779,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5cla
   %320 = phi i64 [ %319, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i47 ], [ 0, %296 ]
   %321 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i44, i64 noundef %320) #12, !noalias !672
   %322 = add nsw i64 %321, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(8) %297, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %322)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(8) %297, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %15, i64 %322)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   %323 = getelementptr inbounds i8, ptr %22, i64 48
   %.val.i12.i = load ptr, ptr %0, align 8, !noalias !675
@@ -16821,7 +16821,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5cla
   %346 = phi i64 [ %345, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i15.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i50 ]
   %347 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i12.i, i64 noundef %346) #12, !noalias !675
   %348 = add nsw i64 %347, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %323, ptr noundef nonnull readonly align 8 dereferenceable(8) %297, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %323, i64 %348)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %323, ptr noundef nonnull readonly align 8 dereferenceable(8) %297, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %323, i64 %348)
   %349 = load ptr, ptr %297, align 8
   %.sroa.079.0.copyload.i = load i64, ptr %323, align 8
   %.sroa.280.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 56
@@ -17034,7 +17034,7 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5cla
   %422 = phi i64 [ %421, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i.i ], [ 0, %398 ]
   %423 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i.i, i64 noundef %422) #12, !noalias !696
   %424 = add nsw i64 %423, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull readonly align 8 dereferenceable(8) %399, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %23, i64 %424)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull readonly align 8 dereferenceable(8) %399, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %23, i64 %424)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   %425 = getelementptr inbounds i8, ptr %24, i64 48
   %.val.i8.i = load ptr, ptr %0, align 8, !noalias !699
@@ -17076,7 +17076,7 @@ _ZN12_GLOBAL__N_117GenMoveAssignment12visitARCWeakEN5clang8QualTypeEPKNS1_9Field
   %448 = phi i64 [ %447, %_ZNK5clang9FieldDecl9getParentEv.exit.i.i.i11.i ], [ 0, %_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsEPKNS3_9FieldDeclE.exit.i ]
   %449 = tail call i64 @_ZNK5clang10ASTContext19toCharUnitsFromBitsEl(ptr noundef nonnull align 8 dereferenceable(23096) %.val.i8.i, i64 noundef %448) #12, !noalias !699
   %450 = add nsw i64 %449, %4
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %425, ptr noundef nonnull readonly align 8 dereferenceable(8) %399, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %425, i64 %450)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %425, ptr noundef nonnull readonly align 8 dereferenceable(8) %399, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %425, i64 %450)
   %451 = load ptr, ptr %399, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction21emitARCMoveAssignWeakENS_8QualTypeENS0_7AddressES3_(ptr noundef nonnull align 8 dereferenceable(6488) %451, i64 %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %24, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %425) #12
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
@@ -17128,10 +17128,10 @@ _ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE11visitStructILm2EEEvN5cl
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %28)
   %478 = getelementptr inbounds i8, ptr %0, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %477)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.088, i64 %477)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.088, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   %.sroa.092.48..sroa_idx94 = getelementptr inbounds i8, ptr %.sroa.088, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %477)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %.sroa.092.48..sroa_idx94, i64 %477)
   %479 = load ptr, ptr %478, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !702)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
@@ -17369,7 +17369,7 @@ _ZN12_GLOBAL__N_113StructVisitorINS_17GenMoveAssignmentEE20getFieldOffsetInBitsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca ptr, align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -17556,7 +17556,7 @@ _ZNK5clang9FieldDecl9getParentEv.exit:            ; preds = %29, %35
   %47 = and i64 %46, -16
   %48 = load ptr, ptr %21, align 8
   %49 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %48, i64 %47) #12
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %4, i64 %3)
   %50 = load ptr, ptr %21, align 8
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %52 = load ptr, ptr %51, align 8
@@ -17667,7 +17667,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.19236.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 128
   %.sroa.19236.0.copyload = load ptr, ptr %.sroa.19236.0..sroa_idx, align 8
   %78 = getelementptr inbounds i8, ptr %4, i64 48
-  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
+  call fastcc void @_ZN12_GLOBAL__N_111GenFuncBaseINS_17GenMoveAssignmentEE17getAddrWithOffsetEN5clang7CodeGen7AddressENS3_9CharUnitsE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %78, i64 %3)
   %79 = load ptr, ptr %21, align 8
   %80 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %81 = load ptr, ptr %80, align 8

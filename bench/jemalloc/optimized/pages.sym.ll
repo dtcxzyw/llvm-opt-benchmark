@@ -141,7 +141,7 @@ if.end.i14.i:                                     ; preds = %os_pages_unmap.exit
 if.then3.i.i:                                     ; preds = %if.end.i14.i
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %size
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %buf.i8.i.i)
-  %call.i9.i.i = call i32 @munmap(ptr noundef %add.ptr4.i.i, i64 noundef %sub1.i.i) #8
+  %call.i9.i.i = call i32 @munmap(ptr noundef nonnull %add.ptr4.i.i, i64 noundef %sub1.i.i) #8
   %cmp.i10.i.i = icmp eq i32 %call.i9.i.i, -1
   br i1 %cmp.i10.i.i, label %if.then.i11.i.i, label %os_pages_unmap.exit16.i.i
 

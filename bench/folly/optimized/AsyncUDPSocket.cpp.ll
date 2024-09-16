@@ -5928,7 +5928,7 @@ declare noundef i32 @_ZN5folly6netops10setsockoptENS_13NetworkSocketEiiPKvj(i32,
 declare void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176), i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev"(i8 %this.0.val, i32 %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_14AsyncUDPSocket4initEtNS2_11BindOptionsEE3$_0Lb1EED2Ev"(i8 range(i8 0, 2) %this.0.val, i32 %this.8.val.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq i8 %this.0.val, 0
   br i1 %tobool.not, label %if.then, label %if.end

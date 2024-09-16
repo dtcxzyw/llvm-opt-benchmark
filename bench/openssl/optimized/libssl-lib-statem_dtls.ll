@@ -889,7 +889,7 @@ if.else.i79.i:                                    ; preds = %lor.lhs.false32.i.i
   br i1 %cmp11.not.i.i, label %if.end56.i.i, label %if.then54.i.i
 
 if.then54.i.i:                                    ; preds = %if.else.i79.i
-  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef nonnull readonly %msg_hdr.i)
+  %call55.i.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef readonly %msg_hdr.i)
   br label %dtls1_process_out_of_seq_message.exit.i
 
 if.end56.i.i:                                     ; preds = %if.else.i79.i
@@ -976,7 +976,7 @@ if.end65.i:                                       ; preds = %lor.lhs.false59.i, 
   br i1 %or.cond57.i, label %if.then69.i, label %if.end71.i
 
 if.then69.i:                                      ; preds = %if.end65.i
-  %call70.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef nonnull %msg_hdr.i)
+  %call70.i = call fastcc i32 @dtls1_reassemble_fragment(ptr noundef nonnull %s, ptr noundef %msg_hdr.i)
   br label %if.then
 
 if.end71.i:                                       ; preds = %if.end65.i
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %if.end, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dtls1_hm_fragment_new(i64 noundef %frag_len, i32 noundef %reassembly) unnamed_addr #0 {
+define internal fastcc ptr @dtls1_hm_fragment_new(i64 noundef %frag_len, i32 noundef range(i32 0, 2) %reassembly) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 80, ptr noundef nonnull @.str, i32 noundef 65) #9
   %cmp = icmp eq ptr %call, null
@@ -1956,7 +1956,7 @@ declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #1
 declare i32 @WPACKET_get_length(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr noundef %s, ptr nocapture noundef readonly %msg_hdr) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 0) i32 @dtls1_reassemble_fragment(ptr noundef %s, ptr nocapture noundef nonnull readonly %msg_hdr) unnamed_addr #0 {
 entry:
   %seq64be = alloca [8 x i8], align 8
   %readbytes = alloca i64, align 8

@@ -2851,7 +2851,7 @@ select.unfold19:                                  ; preds = %126, %124
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @eth_hw_addr_random(ptr noundef %0) unnamed_addr #8 align 16 {
+define internal fastcc void @eth_hw_addr_random(ptr noundef nonnull %0) unnamed_addr #8 align 16 {
   %2 = alloca [6 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, i8 0, i64 6, i1 false), !annotation !5
@@ -2860,7 +2860,7 @@ define internal fastcc void @eth_hw_addr_random(ptr noundef %0) unnamed_addr #8 
   %4 = and i8 %3, -4
   %5 = or disjoint i8 %4, 2
   store i8 %5, ptr %2, align 1
-  call void @dev_addr_mod(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %2, i64 noundef 6) #17
+  call void @dev_addr_mod(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull %2, i64 noundef 6) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 812
   store i8 1, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2) #17
@@ -2871,7 +2871,7 @@ define internal fastcc void @eth_hw_addr_random(ptr noundef %0) unnamed_addr #8 
 declare dso_local i32 @device_set_wakeup_enable(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @nv_mgmt_acquire_sema(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nv_mgmt_acquire_sema(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 132
@@ -2915,7 +2915,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nv_mgmt_acquire_sema(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @nv_mgmt_get_version(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nv_mgmt_get_version(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 132
@@ -6105,7 +6105,7 @@ define internal fastcc void @nv_stop_tx(ptr noundef %0) unnamed_addr #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nv_vlan_mode(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @nv_vlan_mode(ptr noundef nonnull %0, i64 noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #17
   %4 = getelementptr i8, ptr %0, i64 3084
@@ -12698,7 +12698,7 @@ define internal noundef range(i32 0, 3) i32 @nv_set_features(ptr noundef %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @nv_request_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nv_request_irq(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 3120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0
@@ -13272,7 +13272,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local void @pci_disable_msix(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_msix_vector_map(ptr %.3120.val, i32 noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @set_msix_vector_map(ptr %.3120.val, i32 noundef range(i32 0, 3) %0, i32 noundef range(i32 135, 33377) %1) unnamed_addr #2 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2

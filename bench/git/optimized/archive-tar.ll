@@ -323,7 +323,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load ptr, ptr %hash_algo.i, align 8
   %hexsz.i = getelementptr inbounds i8, ptr %2, i64 24
   %3 = load i64, ptr %hexsz.i, align 8
-  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header.i, ptr noundef nonnull @.str.6, ptr noundef %call.i, i64 noundef %3)
+  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header.i, ptr noundef nonnull @.str.6, ptr noundef %call.i, i64 noundef %3)
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
@@ -336,7 +336,7 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i.i)
   %call.i.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef %4) #10
   %conv.i.i = sext i32 %call.i.i to i64
-  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i, i64 noundef %conv.i.i)
+  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header.i, ptr noundef nonnull @.str.7, ptr noundef nonnull %buf.i.i, i64 noundef %conv.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i.i)
   store i64 8589934591, ptr %git_time.i, align 8
   br label %if.end4.i
@@ -353,7 +353,7 @@ if.end7.i:                                        ; preds = %if.end4.i
   store i8 103, ptr %typeflag.i, align 1
   %call9.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %header.i, i64 noundef 100, ptr noundef nonnull @.str.8) #10
   %6 = load i64, ptr %len.i, align 8
-  call fastcc void @prepare_header(ptr noundef nonnull %args, ptr noundef nonnull %header.i, i32 noundef 33206, i64 noundef %6)
+  call fastcc void @prepare_header(ptr noundef nonnull %args, ptr noundef %header.i, i32 noundef 33206, i64 noundef %6)
   %7 = load i64, ptr @offset, align 8
   %tobool.not.i.i.i = icmp eq i64 %7, 0
   br i1 %tobool.not.i.i.i, label %if.then9.i.i.i, label %if.then.i.i.i
@@ -646,7 +646,7 @@ if.then32:                                        ; preds = %get_path_prefix.exi
 if.else36:                                        ; preds = %do.body.i, %get_path_prefix.exit
   %call39 = tail call ptr @oid_to_hex(ptr noundef %oid) #10
   %call40 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %header, i64 noundef 100, ptr noundef nonnull @.str.19, ptr noundef %call39) #10
-  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header, ptr noundef nonnull @.str.20, ptr noundef nonnull %path, i64 noundef %pathlen)
+  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header, ptr noundef nonnull @.str.20, ptr noundef nonnull %path, i64 noundef %pathlen)
   br label %if.end45
 
 if.else42:                                        ; preds = %if.end25
@@ -666,7 +666,7 @@ if.then48:                                        ; preds = %if.end45
 if.then50:                                        ; preds = %if.then48
   %call52 = call ptr @oid_to_hex(ptr noundef %oid) #10
   %call53 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %linkname, i64 noundef 100, ptr noundef nonnull @.str.21, ptr noundef %call52) #10
-  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header, ptr noundef nonnull @.str.22, ptr noundef %buffer, i64 noundef %size)
+  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header, ptr noundef nonnull @.str.22, ptr noundef %buffer, i64 noundef %size)
   br label %if.end64
 
 if.else54:                                        ; preds = %if.then48
@@ -683,14 +683,14 @@ if.then63:                                        ; preds = %if.end58
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %buf.i)
   %call.i43 = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %buf.i, i64 noundef 40, ptr noundef nonnull @.str.12, i64 noundef %size) #10
   %conv.i = sext i32 %call.i43 to i64
-  call fastcc void @strbuf_append_ext_header(ptr noundef nonnull %ext_header, ptr noundef nonnull @.str.23, ptr noundef nonnull %buf.i, i64 noundef %conv.i)
+  call fastcc void @strbuf_append_ext_header(ptr noundef %ext_header, ptr noundef nonnull @.str.23, ptr noundef nonnull %buf.i, i64 noundef %conv.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %buf.i)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.else54, %if.then50, %if.then63, %if.end58
   %cmp60130 = phi i1 [ true, %if.then63 ], [ %cmp60, %if.end58 ], [ false, %if.then50 ], [ false, %if.else54 ]
   %size_in_header.0 = phi i64 [ 0, %if.then63 ], [ %size, %if.end58 ], [ %size, %if.then50 ], [ %size, %if.else54 ]
-  call fastcc void @prepare_header(ptr noundef %args, ptr noundef nonnull %header, i32 noundef %mode.addr.0, i64 noundef %size_in_header.0)
+  call fastcc void @prepare_header(ptr noundef %args, ptr noundef %header, i32 noundef %mode.addr.0, i64 noundef %size_in_header.0)
   %len = getelementptr inbounds i8, ptr %ext_header, i64 8
   %8 = load i64, ptr %len, align 8
   %cmp65.not = icmp eq i64 %8, 0
@@ -705,7 +705,7 @@ if.then66:                                        ; preds = %if.end64
   store i8 120, ptr %typeflag.i, align 1
   %call.i44 = call ptr @oid_to_hex(ptr noundef %oid) #10
   %call2.i = call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %header.i, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %call.i44) #10
-  call fastcc void @prepare_header(ptr noundef readonly %args, ptr noundef nonnull %header.i, i32 noundef 33206, i64 noundef %8)
+  call fastcc void @prepare_header(ptr noundef readonly %args, ptr noundef %header.i, i32 noundef 33206, i64 noundef %8)
   %10 = load i64, ptr @offset, align 8
   %tobool.not.i.i.i = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i, label %if.then9.i.i.i, label %if.then.i.i.i
@@ -1143,7 +1143,7 @@ return:                                           ; preds = %if.then.i.i7.i77, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_append_ext_header(ptr noundef %sb, ptr noundef %keyword, ptr noundef %value, i64 noundef %valuelen) unnamed_addr #0 {
+define internal fastcc void @strbuf_append_ext_header(ptr noundef nonnull %sb, ptr noundef %keyword, ptr noundef %value, i64 noundef %valuelen) unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
@@ -1165,9 +1165,9 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body, %entry
   %len1.0.lcssa = phi i64 [ %len1.016, %entry ], [ %len1.0, %for.body ]
-  tail call void @strbuf_grow(ptr noundef %sb, i64 noundef %len1.0.lcssa) #10
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.9, i64 noundef %len1.0.lcssa, ptr noundef %keyword) #10
-  tail call void @strbuf_add(ptr noundef %sb, ptr noundef %value, i64 noundef %valuelen) #10
+  tail call void @strbuf_grow(ptr noundef nonnull %sb, i64 noundef %len1.0.lcssa) #10
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.9, i64 noundef %len1.0.lcssa, ptr noundef %keyword) #10
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %value, i64 noundef %valuelen) #10
   %1 = load i64, ptr %sb, align 8
   %tobool.not.i.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
@@ -1217,7 +1217,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_header(ptr nocapture noundef readonly %args, ptr noundef %header, i32 noundef %mode, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc void @prepare_header(ptr nocapture noundef readonly %args, ptr noundef nonnull %header, i32 noundef %mode, i64 noundef %size) unnamed_addr #0 {
 entry:
   %mode1 = getelementptr inbounds i8, ptr %header, i64 100
   %and = and i32 %mode, 4095

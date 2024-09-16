@@ -856,7 +856,7 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit95: ; preds = %123
 177:                                              ; preds = %175, %_ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit
   %.val = load ptr, ptr %8, align 8
   %.val72 = load ptr, ptr %79, align 8
-  %178 = invoke fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_4PathESaIS3_EEZNS_21command_edit_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEDaOT_T0_"(ptr %.val, ptr %.val72, ptr nonnull %33)
+  %178 = invoke fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_4PathESaIS3_EEZNS_21command_edit_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEDaOT_T0_"(ptr %.val, ptr %.val72, ptr %33)
           to label %179 unwind label %147
 
 179:                                              ; preds = %177
@@ -942,7 +942,7 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
   br label %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 207:                                              ; preds = %179
-  invoke fastcc void @_ZN12_GLOBAL__N_123create_editor_argumentsERKN5vcpkg10VcpkgPathsERKNS0_15ParsedArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(24) %34)
+  invoke fastcc void @_ZN12_GLOBAL__N_123create_editor_argumentsERKN5vcpkg10VcpkgPathsERKNS0_15ParsedArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(24) %34)
           to label %208 unwind label %147
 
 208:                                              ; preds = %207
@@ -1357,7 +1357,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_4PathESaIS3_EEZNS_21command_edit_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEDaOT_T0_"(ptr %.0.val, ptr readnone %.8.val, ptr %0) unnamed_addr #0 {
+define internal fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorINS_4PathESaIS3_EEZNS_21command_edit_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEDaOT_T0_"(ptr %.0.val, ptr readnone %.8.val, ptr nonnull %0) unnamed_addr #0 {
   %2 = alloca %"struct.vcpkg::IgnoreErrors", align 8
   %.not5 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -1472,7 +1472,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 declare void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123create_editor_argumentsERKN5vcpkg10VcpkgPathsERKNS0_15ParsedArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123create_editor_argumentsERKN5vcpkg10VcpkgPathsERKNS0_15ParsedArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull readonly align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::format_arg_store.86", align 16
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8

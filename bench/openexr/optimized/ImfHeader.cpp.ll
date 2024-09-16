@@ -802,7 +802,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %entry
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef %this, ptr noundef %other)
           to label %invoke.cont13 unwind label %lpad.loopexit.split-lp
 
 invoke.cont13:                                    ; preds = %for.end
@@ -910,7 +910,7 @@ dynamic_cast.bad_cast:                            ; preds = %if.then9
 dynamic_cast.end:                                 ; preds = %if.then9
   %call10 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttributeIfE5valueEv(ptr noundef nonnull align 8 dereferenceable(12) %5)
   %7 = load float, ptr %call10, align 4
-  %call.i = call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %this)
+  %call.i = call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef %this)
   %dwa_level.i = getelementptr inbounds i8, ptr %call.i, i64 4
   store float %7, ptr %dwa_level.i, align 4
   br label %if.end12
@@ -1121,7 +1121,7 @@ unreachable:                                      ; preds = %invoke.cont73, %del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef %dst, ptr noundef readnone %src) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %dst, ptr noundef nonnull readnone %src) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca ptr, align 8
   %0 = load atomic i8, ptr @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl acquire, align 8
@@ -1305,7 +1305,7 @@ _ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2EOSA
   %7 = load i8, ptr %_readsNothing3, align 8
   %frombool = and i8 %7, 1
   store i8 %frombool, ptr %_readsNothing, align 8
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef %this, ptr noundef %other)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2EOSA_.exit
@@ -1347,7 +1347,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %entry
-  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %this)
+  invoke fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef %this)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %for.end
@@ -1375,7 +1375,7 @@ terminate.lpad:                                   ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef readnone %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef nonnull readnone %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -1541,7 +1541,7 @@ for.body19:                                       ; preds = %_ZNSt3mapIN7Imf_3_2
   br i1 %cmp.i8.not, label %for.end26, label %for.body19, !llvm.loop !14
 
 for.end26:                                        ; preds = %for.body19, %_ZNSt3mapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEE5clearEv.exit
-  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
+  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef %this, ptr noundef %other)
   %_readsNothing = getelementptr inbounds i8, ptr %other, i64 48
   %8 = load i8, ptr %_readsNothing, align 8
   %_readsNothing27 = getelementptr inbounds i8, ptr %this, i64 48
@@ -1660,7 +1660,7 @@ if.else14.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZSt4swapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEvRSt3mapIT_T0_T1_T2_ESG_.exit
 
 _ZSt4swapIN7Imf_3_24NameEPNS0_9AttributeESt4lessIS1_ESaISt4pairIKS1_S3_EEEvRSt3mapIT_T0_T1_T2_ESG_.exit: ; preds = %if.then.i.i.i, %if.then4.i.i.i, %if.then9.i.i.i, %if.else14.i.i.i
-  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef nonnull %this, ptr noundef nonnull %other)
+  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_121copyCompressionRecordEPNS_6HeaderEPKS1_(ptr noundef %this, ptr noundef %other)
   %_readsNothing = getelementptr inbounds i8, ptr %other, i64 48
   %20 = load i8, ptr %_readsNothing, align 8
   %_readsNothing3 = getelementptr inbounds i8, ptr %this, i64 48
@@ -1823,7 +1823,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttri
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_26Header19dwaCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %this)
+  %call = tail call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef %this)
   %dwa_level = getelementptr inbounds i8, ptr %call, i64 4
   ret ptr %dwa_level
 }
@@ -2390,19 +2390,19 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK7Imf_3_214TypedAttri
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_26Header29resetDefaultCompressionLevelsEv(ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
-  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %this)
+  tail call fastcc void @_ZN7Imf_3_212_GLOBAL__N_122clearCompressionRecordEPNS_6HeaderE(ptr noundef %this)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %this)
+  %call = tail call fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef %this)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPNS_6HeaderE(ptr noundef nonnull %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %0 = load atomic i8, ptr @_ZGVZN7Imf_3_212_GLOBAL__N_18getStashEvE10stash_impl acquire, align 8
@@ -2497,13 +2497,13 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK7Imf_3_26Header19zipCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef nonnull %this)
+  %call = tail call fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef %this)
   %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %call to i32
   ret i32 %ref.tmp.sroa.0.0.extract.trunc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef readnone %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef nonnull readnone %hdr) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"struct.Imf_3_2::(anonymous namespace)::CompressionRecord", align 8
   call void @exr_get_default_zip_compression_level(ptr noundef nonnull %retval)
@@ -2593,7 +2593,7 @@ if.end9:                                          ; preds = %if.end, %_ZN7Imf_3_
 ; Function Attrs: mustprogress uwtable
 define noundef float @_ZNK7Imf_3_26Header19dwaCompressionLevelEv(ptr noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %call = tail call fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef nonnull %this)
+  %call = tail call fastcc i64 @_ZN7Imf_3_212_GLOBAL__N_125retrieveCompressionRecordEPKNS_6HeaderE(ptr noundef %this)
   %ref.tmp.sroa.1.0.extract.shift = lshr i64 %call, 32
   %ref.tmp.sroa.1.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.1.0.extract.shift to i32
   %0 = bitcast i32 %ref.tmp.sroa.1.0.extract.trunc to float

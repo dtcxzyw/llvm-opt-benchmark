@@ -927,7 +927,7 @@ if.then:                                          ; preds = %lor.lhs.false202, %
   unreachable
 
 if.end:                                           ; preds = %lor.lhs.false202
-  call fastcc void @clone_submodule(ptr noundef nonnull %clone_data, ptr noundef nonnull %reference)
+  call fastcc void @clone_submodule(ptr noundef %clone_data, ptr noundef %reference)
   call void @list_objects_filter_release(ptr noundef nonnull %filter_options) #19
   call void @string_list_clear(ptr noundef nonnull %reference, i32 noundef 1) #19
   ret i32 0
@@ -1525,7 +1525,7 @@ if.then19.i38:                                    ; preds = %if.then17.i
   %call20.i39 = call fastcc ptr @_(ptr noundef nonnull @.str.112)
   %63 = load ptr, ptr %sm_name, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg.i, ptr noundef %call20.i39, ptr noundef %63) #19
-  call fastcc void @append_fetch_remotes(ptr noundef nonnull %msg.i, ptr noundef %call14.i)
+  call fastcc void @append_fetch_remotes(ptr noundef %msg.i, ptr noundef %call14.i)
   call void @free(ptr noundef %call14.i) #19
   %call22.i = call fastcc ptr @_(ptr noundef nonnull @.str.113)
   %realrepo.i = getelementptr inbounds i8, ptr %add_data, i64 48
@@ -1596,7 +1596,7 @@ if.then67.i:                                      ; preds = %if.end55.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then67.i, %if.end55.i
-  call fastcc void @clone_submodule(ptr noundef nonnull %clone_data.i, ptr noundef nonnull %reference.i)
+  call fastcc void @clone_submodule(ptr noundef %clone_data.i, ptr noundef %reference.i)
   %env.i = getelementptr inbounds i8, ptr %cp.i, i64 24
   call void @prepare_submodule_repo_env(ptr noundef nonnull %env.i) #19
   %git_cmd.i = getelementptr inbounds i8, ptr %cp.i, i64 104
@@ -2241,7 +2241,7 @@ if.then265:                                       ; preds = %if.end260
 
 if.end268:                                        ; preds = %if.then265, %if.end260
   %list = getelementptr inbounds i8, ptr %opt, i64 128
-  %call269 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call269 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call269, 0
   br i1 %cmp, label %cleanup, label %if.end271
 
@@ -2264,7 +2264,7 @@ if.then277:                                       ; preds = %if.end274
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %list278, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %info, i8 0, i64 24, i1 false)
   %11 = load ptr, ptr %opt, align 8
-  %call280 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %11, ptr noundef nonnull %pathspec2, ptr noundef nonnull %list278)
+  %call280 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %11, ptr noundef %pathspec2, ptr noundef %list278)
   %cmp281 = icmp slt i32 %call280, 0
   br i1 %cmp281, label %if.then282, label %if.end283
 
@@ -2732,7 +2732,7 @@ _.exit.i46.i.i:                                   ; preds = %if.end3.i.i44.i.i, 
   br label %get_default_remote_submodule.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then15.i.i
-  %call4.i.i.i = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i.i.i, ptr noundef nonnull %remote_name.i.i)
+  %call4.i.i.i = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i.i.i, ptr noundef %remote_name.i.i)
   call void @repo_clear(ptr noundef nonnull %subrepo.i.i.i) #19
   br label %get_default_remote_submodule.exit.i.i
 
@@ -3169,7 +3169,7 @@ if.end7.i:                                        ; preds = %if.then4.i, %if.end
   %call10.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %default_remote.i.i)
   %109 = load ptr, ptr @the_repository, align 8
-  %call.i.i27 = call fastcc i32 @repo_get_default_remote(ptr noundef %109, ptr noundef nonnull %default_remote.i.i)
+  %call.i.i27 = call fastcc i32 @repo_get_default_remote(ptr noundef %109, ptr noundef %default_remote.i.i)
   %tobool.not.i.i28 = icmp eq i32 %call.i.i27, 0
   br i1 %tobool.not.i.i28, label %fetch_in_submodule.exit, label %if.then.i.i29
 
@@ -3769,7 +3769,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback23, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %git_submodule_helper_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.module_foreach.git_submodule_helper_usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %module_foreach_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %call40 = call fastcc i32 @module_list_compute(ptr noundef null, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call40 = call fastcc i32 @module_list_compute(ptr noundef null, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call40, 0
   br i1 %cmp, label %entry.cleanup_crit_edge, label %if.end
 
@@ -4011,7 +4011,7 @@ entry:
   store i32 2, ptr %flags, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %git_submodule_helper_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.module_init.git_submodule_helper_usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %module_init_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %call8 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call8 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %entry.cleanup_crit_edge, label %if.end
 
@@ -4237,7 +4237,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %ll_callback38, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %git_submodule_helper_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.module_status.git_submodule_helper_usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %module_status_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %call55 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call55 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call55, 0
   br i1 %cmp, label %entry.cleanup_crit_edge, label %if.end
 
@@ -4598,7 +4598,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %ll_callback23, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %git_submodule_helper_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.module_sync.git_submodule_helper_usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %module_sync_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %call40 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call40 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call40, 0
   br i1 %cmp, label %entry.cleanup_crit_edge, label %if.end
 
@@ -4759,7 +4759,7 @@ if.then48:                                        ; preds = %if.end
   unreachable
 
 if.end50:                                         ; preds = %if.end
-  %call51 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call51 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call51, 0
   br i1 %cmp, label %cleanup, label %if.end53
 
@@ -5150,9 +5150,9 @@ if.end77:                                         ; preds = %cond.end, %if.end77
   %argv.addr.0 = phi ptr [ %argv, %if.else70 ], [ %incdec.ptr67, %if.then66 ], [ %incdec.ptr, %if.then58 ], [ %argv, %if.end77.critedge ], [ %argv, %cond.end ]
   %argc.addr.0 = phi i32 [ %call, %if.else70 ], [ %dec68, %if.then66 ], [ %dec, %if.then58 ], [ 0, %if.end77.critedge ], [ 0, %cond.end ]
   %12 = load i32, ptr %files, align 4
-  %tobool78.not = icmp eq i32 %12, 0
+  %tobool78.not.not = icmp eq i32 %12, 0
   %.pre = load i32, ptr %cached, align 4
-  br i1 %tobool78.not, label %if.end84, label %if.then79
+  br i1 %tobool78.not.not, label %if.end84, label %if.then79
 
 if.then79:                                        ; preds = %if.end77
   %tobool80.not = icmp eq i32 %.pre, 0
@@ -5241,7 +5241,7 @@ if.end11.i:                                       ; preds = %if.then10.i, %if.en
   br i1 %tobool88, label %if.else.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %if.end11.i
-  br i1 %tobool78.not, label %if.then26.i, label %if.end27.i
+  br i1 %tobool78.not.not, label %if.then26.i, label %if.end27.i
 
 if.then26.i:                                      ; preds = %if.then24.i
   call void @setup_work_tree() #19
@@ -5269,7 +5269,7 @@ if.then37.i:                                      ; preds = %if.else.i
   br label %cleanup.i
 
 if.end39.i:                                       ; preds = %if.else.i, %if.end27.i
-  br i1 %tobool78.not, label %if.then42.i, label %if.else48.i
+  br i1 %tobool78.not.not, label %if.then42.i, label %if.else48.i
 
 if.then42.i:                                      ; preds = %if.end39.i
   %cond.i = zext i1 %tobool88 to i32
@@ -5305,7 +5305,7 @@ for.body.i.i.us:                                  ; preds = %for.body.i.i.prehea
   ]
 
 if.then.i.i.us:                                   ; preds = %for.body.i.i.us, %for.body.i.i.us
-  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %24)
+  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %24)
   br label %for.inc.i.i.us
 
 if.end.i.i.us:                                    ; preds = %for.body.i.i.us
@@ -5318,7 +5318,7 @@ if.end.i.i.us:                                    ; preds = %for.body.i.i.us
   br i1 %tobool36.not.i.i.us, label %if.end38.i.i.us, label %if.then37.i.i.us
 
 if.then37.i.i.us:                                 ; preds = %if.end.i.i.us
-  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %24)
+  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %24)
   br label %if.end38.i.i.us
 
 if.end38.i.i.us:                                  ; preds = %if.then37.i.i.us, %if.end.i.i.us
@@ -5347,7 +5347,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   ]
 
 if.then.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i
-  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %30)
+  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %30)
   br label %for.inc.i.i
 
 land.lhs.true11.i.i:                              ; preds = %for.body.i.i
@@ -5400,7 +5400,7 @@ if.end33.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %tobool36.not.i.i, label %if.end38.i.i, label %if.then37.i.i
 
 if.then37.i.i:                                    ; preds = %if.end33.i.i
-  call fastcc void @generate_submodule_summary(ptr noundef nonnull readonly %info, ptr noundef nonnull %30)
+  call fastcc void @generate_submodule_summary(ptr noundef readonly %info, ptr noundef nonnull %30)
   br label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.then37.i.i, %if.end33.i.i
@@ -5641,7 +5641,7 @@ entry:
   store i32 8, ptr %flags, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %git_submodule_helper_usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.absorb_git_dirs.git_submodule_helper_usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %embed_gitdir_options, ptr noundef nonnull %git_submodule_helper_usage, i32 noundef 0) #19
-  %call8 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr noundef nonnull %list)
+  %call8 = call fastcc i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr noundef %list)
   %cmp = icmp slt i32 %call8, 0
   br i1 %cmp, label %entry.cleanup_crit_edge, label %for.cond.preheader
 
@@ -6044,7 +6044,7 @@ declare i32 @opt_parse_list_objects_filter(ptr noundef, ptr noundef, i32 noundef
 declare void @usage_with_options(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clone_submodule(ptr nocapture noundef readonly %clone_data, ptr noundef %reference) unnamed_addr #0 {
+define internal fastcc void @clone_submodule(ptr nocapture noundef nonnull readonly %clone_data, ptr noundef nonnull %reference) unnamed_addr #0 {
 entry:
   %sm_alternate.i = alloca ptr, align 8
   %error_strategy.i = alloca ptr, align 8
@@ -6696,14 +6696,14 @@ declare i32 @is_writing_gitmodules_ok() local_unnamed_addr #3
 declare ptr @git_url_basename(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @resolve_relative_url(ptr noundef %rel_url, ptr noundef %up_path, i32 noundef %quiet) unnamed_addr #0 {
+define internal fastcc ptr @resolve_relative_url(ptr noundef %rel_url, ptr noundef %up_path, i32 noundef range(i32 0, 2) %quiet) unnamed_addr #0 {
 entry:
   %default_remote.i = alloca ptr, align 8
   %remoteurl = alloca ptr, align 8
   %remotesb = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %default_remote.i)
   %0 = load ptr, ptr @the_repository, align 8
-  %call.i = call fastcc i32 @repo_get_default_remote(ptr noundef %0, ptr noundef nonnull %default_remote.i)
+  %call.i = call fastcc i32 @repo_get_default_remote(ptr noundef %0, ptr noundef %default_remote.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %get_default_remote.exit, label %if.then.i
 
@@ -6786,7 +6786,7 @@ declare ptr @xgetcwd() local_unnamed_addr #3
 declare ptr @relative_url(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @repo_get_default_remote(ptr noundef %repo, ptr nocapture noundef writeonly %default_remote) unnamed_addr #0 {
+define internal fastcc i32 @repo_get_default_remote(ptr noundef %repo, ptr nocapture noundef nonnull writeonly %default_remote) unnamed_addr #0 {
 entry:
   %dest = alloca ptr, align 8
   %sb = alloca %struct.strbuf, align 8
@@ -6921,7 +6921,7 @@ declare i32 @is_directory(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_fetch_remotes(ptr noundef %msg, ptr noundef %git_dir_path) unnamed_addr #0 {
+define internal fastcc void @append_fetch_remotes(ptr noundef nonnull %msg, ptr noundef %git_dir_path) unnamed_addr #0 {
 entry:
   %cp_remote = alloca %struct.child_process, align 8
   %sb_remote_out = alloca %struct.strbuf, align 8
@@ -6962,7 +6962,7 @@ lor.lhs.false.i:                                  ; preds = %while.body
 
 if.then6:                                         ; preds = %lor.lhs.false.i
   %conv = trunc i64 %sub.i to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %msg, ptr noundef nonnull @.str.128, i32 noundef %conv, ptr noundef %line.011) #19
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %msg, ptr noundef nonnull @.str.128, i32 noundef %conv, ptr noundef %line.011) #19
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %lor.lhs.false.i, %if.then6
@@ -7006,9 +7006,9 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef %pathspec, ptr nocapture noundef %list) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @module_list_compute(ptr noundef %argv, ptr noundef %prefix, ptr noundef nonnull %pathspec, ptr nocapture noundef nonnull %list) unnamed_addr #0 {
 entry:
-  tail call void @parse_pathspec(ptr noundef %pathspec, i32 noundef 0, i32 noundef 2, ptr noundef %prefix, ptr noundef %argv) #19
+  tail call void @parse_pathspec(ptr noundef nonnull %pathspec, i32 noundef 0, i32 noundef 2, ptr noundef %prefix, ptr noundef %argv) #19
   %0 = load i32, ptr %pathspec, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8330,7 +8330,7 @@ declare void @sq_quote_buf(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_status(i32 noundef %flags, i8 noundef signext %state, ptr noundef %path, ptr noundef %oid, ptr noundef %displaypath) unnamed_addr #0 {
+define internal fastcc void @print_status(i32 noundef %flags, i8 noundef signext range(i8 32, 86) %state, ptr noundef %path, ptr noundef %oid, ptr noundef %displaypath) unnamed_addr #0 {
 entry:
   %sb.i = alloca %struct.strbuf, align 8
   %cp.i = alloca %struct.child_process, align 8
@@ -8680,7 +8680,7 @@ _.exit.i:                                         ; preds = %if.end3.i.i, %if.th
   br label %get_default_remote_submodule.exit
 
 if.end.i:                                         ; preds = %strbuf_setlen.exit45
-  %call4.i48 = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i, ptr noundef nonnull %default_remote)
+  %call4.i48 = call fastcc i32 @repo_get_default_remote(ptr noundef nonnull %subrepo.i, ptr noundef %default_remote)
   call void @repo_clear(ptr noundef nonnull %subrepo.i) #19
   br label %get_default_remote_submodule.exit
 
@@ -8905,7 +8905,7 @@ declare void @run_diff_index(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_submodule_summary(ptr nocapture noundef readonly %info, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc void @generate_submodule_summary(ptr nocapture noundef nonnull readonly %info, ptr noundef %p) unnamed_addr #0 {
 entry:
   %cp_log.i = alloca %struct.child_process, align 8
   %sb.i = alloca %struct.strbuf, align 8

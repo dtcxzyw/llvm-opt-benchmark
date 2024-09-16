@@ -4476,7 +4476,7 @@ if.end145:                                        ; preds = %lor.lhs.false131
   br i1 %tobool148.not, label %if.end180, label %if.then149
 
 if.then149:                                       ; preds = %if.end145
-  %call163 = call fastcc noundef zeroext i1 @"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_08TypeDescESt6vectorIS3_SaIS3_EEEEZNS2_11ImageOutput10check_openENS9_8OpenModeERKNS2_9ImageSpecENS2_3ROIEmE3$_0EbT_SG_T0_"(ptr %26, ptr %25, ptr nonnull %this)
+  %call163 = call fastcc noundef zeroext i1 @"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_08TypeDescESt6vectorIS3_SaIS3_EEEEZNS2_11ImageOutput10check_openENS9_8OpenModeERKNS2_9ImageSpecENS2_3ROIEmE3$_0EbT_SG_T0_"(ptr %26, ptr %25, ptr %this)
   br i1 %call163, label %invoke.cont.i.i, label %if.else167
 
 invoke.cont.i.i:                                  ; preds = %if.then149
@@ -5029,7 +5029,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_08TypeDescESt6vectorIS3_SaIS3_EEEEZNS2_11ImageOutput10check_openENS9_8OpenModeERKNS2_9ImageSpecENS2_3ROIEmE3$_0EbT_SG_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr nocapture readonly %__pred.coerce) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPN18OpenImageIO_v2_6_08TypeDescESt6vectorIS3_SaIS3_EEEEZNS2_11ImageOutput10check_openENS9_8OpenModeERKNS2_9ImageSpecENS2_3ROIEmE3$_0EbT_SG_T0_"(ptr %__first.coerce, ptr %__last.coerce, ptr nocapture nonnull readonly %__pred.coerce) unnamed_addr #13 {
 entry:
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %__first.coerce to i64

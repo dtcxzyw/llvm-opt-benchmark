@@ -462,7 +462,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, i8 noundef signext %separator, ptr noundef %output, ptr nocapture noundef %new_component) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIchEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, i8 noundef signext range(i8 0, 64) %separator, ptr noundef %output, ptr nocapture noundef %new_component) unnamed_addr #0 {
 entry:
   %ch.i = alloca i32, align 4
   %i = alloca i32, align 4
@@ -850,7 +850,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit51:      ; preds = %do.body.i.i34, %ret
 declare noundef zeroext i1 @_ZN3url18CanonicalizeSchemeEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIttEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, i8 noundef signext %separator, ptr noundef %output, ptr nocapture noundef %new_component) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_127DoCanonicalizePathComponentIttEEbPKT_RKNS_9ComponentEcPNS_12CanonOutputTIcEEPS5_(ptr noundef %source, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %component, i8 noundef signext range(i8 0, 64) %separator, ptr noundef %output, ptr nocapture noundef %new_component) unnamed_addr #0 {
 entry:
   %char_value.i = alloca i32, align 4
   %i = alloca i32, align 4

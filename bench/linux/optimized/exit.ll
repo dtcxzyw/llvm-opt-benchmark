@@ -3687,7 +3687,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #2 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @wait_consider_task(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @wait_consider_task(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 1216

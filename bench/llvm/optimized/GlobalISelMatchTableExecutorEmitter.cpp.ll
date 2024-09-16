@@ -5538,7 +5538,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %29, ptr %22, align 8
   store ptr %31, ptr %23, align 8
   store i32 %33, ptr %24, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa143, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa143, ptr noundef %5)
   %34 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiED2Ev.exit10.i.i.i, label %35
@@ -5595,7 +5595,7 @@ _ZNSt4pairISt6vectorIPN4llvm6RecordESaIS3_EEiED2Ev.exit10.i.i.i: ; preds = %35, 
   store ptr %49, ptr %42, align 8
   store ptr %51, ptr %43, align 8
   store i32 %53, ptr %44, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %60, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %60, ptr noundef %4)
   %61 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i.i10.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_SP_SP_RT0_.exit.i11.i", label %62
@@ -6297,7 +6297,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i26.i.i:      ; preds = %_ZN4llvmltENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairISt6vectorIPN4llvm6RecordESaIS6_EEiES3_IS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_35GlobalISelMatchTableExecutorEmitter30emitSubtargetFeatureBitsetImplERNS4_11raw_ostreamENS4_8ArrayRefINS4_2gi11RuleMatcherEEEE3$_2EEEvT_T0_SQ_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

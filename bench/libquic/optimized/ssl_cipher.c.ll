@@ -2606,7 +2606,7 @@ ssl_cipher_apply_rule.exit1124:                   ; preds = %if.end139.i1111, %i
   br i1 %cmp9, label %if.end16, label %land.lhs.true
 
 if.end16:                                         ; preds = %ssl_cipher_apply_rule.exit1124
-  %call11 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.2, ptr noundef nonnull %head, ptr noundef nonnull %tail)
+  %call11 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull @.str.2, ptr noundef %head, ptr noundef %tail)
   %add.ptr = getelementptr inbounds i8, ptr %rule_str, i64 7
   %156 = load i8, ptr %add.ptr, align 1
   %cmp12 = icmp eq i8 %156, 58
@@ -2622,7 +2622,7 @@ land.lhs.true:                                    ; preds = %ssl_cipher_apply_ru
   br i1 %cmp19.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %land.lhs.true
-  %call22 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %rule_p.01128, ptr noundef nonnull %head, ptr noundef nonnull %tail)
+  %call22 = call fastcc i32 @ssl_cipher_process_rulestr(ptr noundef nonnull %rule_p.01128, ptr noundef %head, ptr noundef %tail)
   %157 = icmp eq i32 %call22, 0
   br i1 %157, label %err, label %if.end26
 
@@ -2759,7 +2759,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ssl_cipher_apply_rule(i32 noundef %cipher_id, i32 noundef %alg_mkey, i32 noundef %alg_auth, i32 noundef %alg_enc, i32 noundef %alg_mac, i16 noundef zeroext %min_version, i32 noundef %rule, i32 noundef %strength_bits, i32 noundef %in_group, ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #4 {
+define internal fastcc void @ssl_cipher_apply_rule(i32 noundef range(i32 50383892, 50383891) %cipher_id, i32 noundef %alg_mkey, i32 noundef %alg_auth, i32 noundef %alg_enc, i32 noundef %alg_mac, i16 noundef zeroext %min_version, i32 noundef range(i32 1, 5) %rule, i32 noundef range(i32 -1, 257) %strength_bits, i32 noundef range(i32 0, 2) %in_group, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %cipher_id, 0
   %cmp1 = icmp eq i32 %strength_bits, -1
@@ -3180,7 +3180,7 @@ declare i32 @EVP_has_aes_hardware() local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef %head_p, ptr nocapture noundef %tail_p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_cipher_process_rulestr(ptr nocapture noundef readonly %rule_str, ptr nocapture noundef nonnull %head_p, ptr nocapture noundef nonnull %tail_p) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %rule_str, align 1
   %cmp538087117 = icmp eq i8 %0, 0
@@ -3419,7 +3419,7 @@ for.body:                                         ; preds = %if.end143, %for.inc
   %j.095 = phi i64 [ %inc160, %for.inc ], [ 0, %if.end143 ]
   %arrayidx = getelementptr inbounds [40 x %struct.ssl_cipher_st], ptr @kCiphers, i64 0, i64 %j.095
   %24 = load ptr, ptr %arrayidx, align 16
-  %call.i = tail call i32 @strncmp(ptr noundef readonly %24, ptr noundef readonly %l.2, i64 noundef %buf_len.0) #16
+  %call.i = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef %buf_len.0) #16
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %rule_equals.exit, label %for.inc
 
@@ -3448,7 +3448,7 @@ for.body168:                                      ; preds = %if.end161, %for.inc
   %j.196 = phi i64 [ %inc198, %for.inc197 ], [ 0, %if.end161 ]
   %arrayidx169 = getelementptr inbounds [37 x %struct.cipher_alias_st], ptr @kCipherAliases, i64 0, i64 %j.196
   %27 = load ptr, ptr %arrayidx169, align 16
-  %call.i105 = tail call i32 @strncmp(ptr noundef readonly %27, ptr noundef readonly %l.2, i64 noundef %buf_len.0) #16
+  %call.i105 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %27, ptr noundef nonnull readonly dereferenceable(1) %l.2, i64 noundef %buf_len.0) #16
   %cmp.i106 = icmp eq i32 %call.i105, 0
   br i1 %cmp.i106, label %rule_equals.exit111, label %for.inc197
 
@@ -3713,7 +3713,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.then29.i:                                      ; preds = %for.body.i
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 4, i32 noundef %43, i32 noundef 0, ptr noundef nonnull %head_p, ptr noundef %tail_p)
+  tail call fastcc void @ssl_cipher_apply_rule(i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i32 noundef 4, i32 noundef %43, i32 noundef 0, ptr noundef %head_p, ptr noundef %tail_p)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then29.i, %for.body.i

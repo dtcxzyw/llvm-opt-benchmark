@@ -141,841 +141,841 @@ cfl_load_dc_pred_hbd.exit:                        ; preds = %23, %28
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 8, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 8, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 4
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 4
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 4
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 4
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 4
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 16, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 16, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 5
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 5
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 4
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 8
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 32, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 32, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 16
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 16
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 6
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 6
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 4
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 4
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 16
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 16, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 16, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 4
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 5
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 5
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 8
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 4
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 32, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 32, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 6
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 6
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 8
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 8
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 64, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 64, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 16
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 16
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 7
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 7
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 8
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 16
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 128, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 128, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 32
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 32
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 8
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 8
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 8
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 8
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 32
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 32, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 32, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 4
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 4
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 6
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 6
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 16
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 4
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 64, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 64, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 7
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 7
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 16
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 8
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 128, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 128, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 16
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 16
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 8
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 8
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 16
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 16
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 256, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 256, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 32
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 32
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 9
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 9
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 16
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 16
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 32
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 128, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 128, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 8
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 8
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 8
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 8
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 32
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 8
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 256, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 256, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 16
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 16
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 9
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 9
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 32
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 16
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subtract_average_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
-  br label %.preheader34.us.i
+  br label %.preheader34.i
 
-.preheader34.us.i:                                ; preds = %._crit_edge.us.i, %2
-  %.02939.us.i = phi i32 [ %9, %._crit_edge.us.i ], [ 0, %2 ]
-  %.03038.us.i = phi ptr [ %8, %._crit_edge.us.i ], [ %0, %2 ]
-  %.03137.us.i = phi i32 [ %7, %._crit_edge.us.i ], [ 512, %2 ]
+.preheader34.i:                                   ; preds = %8, %2
+  %.02939.i = phi i32 [ 0, %2 ], [ %10, %8 ]
+  %.03038.i = phi ptr [ %0, %2 ], [ %9, %8 ]
+  %.03137.i = phi i32 [ 512, %2 ], [ %7, %8 ]
   br label %3
 
-3:                                                ; preds = %3, %.preheader34.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader34.us.i ], [ %indvars.iv.next.i, %3 ]
-  %.135.us.i = phi i32 [ %.03137.us.i, %.preheader34.us.i ], [ %7, %3 ]
-  %4 = getelementptr inbounds i16, ptr %.03038.us.i, i64 %indvars.iv.i
+3:                                                ; preds = %3, %.preheader34.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %3 ]
+  %.135.i = phi i32 [ %.03137.i, %.preheader34.i ], [ %7, %3 ]
+  %4 = getelementptr inbounds i16, ptr %.03038.i, i64 %indvars.iv.i
   %5 = load i16, ptr %4, align 2
   %6 = zext i16 %5 to i32
-  %7 = add nsw i32 %.135.us.i, %6
+  %7 = add nsw i32 %.135.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %3, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %3, !llvm.loop !7
 
-._crit_edge.us.i:                                 ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %.03038.us.i, i64 64
-  %9 = add nuw nsw i32 %.02939.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %9, 32
-  br i1 %exitcond51.not.i, label %._crit_edge40.i, label %.preheader34.us.i, !llvm.loop !8
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds i8, ptr %.03038.i, i64 64
+  %10 = add nuw nsw i32 %.02939.i, 1
+  %exitcond45.not.i = icmp eq i32 %10, 32
+  br i1 %exitcond45.not.i, label %11, label %.preheader34.i, !llvm.loop !8
 
-._crit_edge40.i:                                  ; preds = %._crit_edge.us.i
-  %10 = lshr i32 %7, 10
-  %11 = trunc i32 %10 to i16
-  br label %.preheader.us.i
+11:                                               ; preds = %8
+  %12 = lshr i32 %7, 10
+  %13 = trunc i32 %12 to i16
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us47.i, %._crit_edge40.i
-  %.02645.us.i = phi i32 [ %19, %._crit_edge.us47.i ], [ 0, %._crit_edge40.i ]
-  %.02744.us.i = phi ptr [ %17, %._crit_edge.us47.i ], [ %0, %._crit_edge40.i ]
-  %.03243.us.i = phi ptr [ %18, %._crit_edge.us47.i ], [ %1, %._crit_edge40.i ]
-  br label %12
+.preheader.i:                                     ; preds = %19, %11
+  %.02643.i = phi i32 [ 0, %11 ], [ %22, %19 ]
+  %.02742.i = phi ptr [ %0, %11 ], [ %20, %19 ]
+  %.03241.i = phi ptr [ %1, %11 ], [ %21, %19 ]
+  br label %14
 
-12:                                               ; preds = %12, %.preheader.us.i
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %12 ]
-  %13 = getelementptr inbounds i16, ptr %.02744.us.i, i64 %indvars.iv52.i
-  %14 = load i16, ptr %13, align 2
-  %15 = sub i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.03243.us.i, i64 %indvars.iv52.i
-  store i16 %15, ptr %16, align 2
-  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
-  %exitcond56.not.i = icmp eq i64 %indvars.iv.next53.i, 32
-  br i1 %exitcond56.not.i, label %._crit_edge.us47.i, label %12, !llvm.loop !9
+14:                                               ; preds = %14, %.preheader.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next47.i, %14 ]
+  %15 = getelementptr inbounds i16, ptr %.02742.i, i64 %indvars.iv46.i
+  %16 = load i16, ptr %15, align 2
+  %17 = sub i16 %16, %13
+  %18 = getelementptr inbounds i16, ptr %.03241.i, i64 %indvars.iv46.i
+  store i16 %17, ptr %18, align 2
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 32
+  br i1 %exitcond50.not.i, label %19, label %14, !llvm.loop !9
 
-._crit_edge.us47.i:                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %.02744.us.i, i64 64
-  %18 = getelementptr inbounds i8, ptr %.03243.us.i, i64 64
-  %19 = add nuw nsw i32 %.02645.us.i, 1
-  %exitcond57.not.i = icmp eq i32 %19, 32
-  br i1 %exitcond57.not.i, label %subtract_average_c.exit, label %.preheader.us.i, !llvm.loop !10
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %.02742.i, i64 64
+  %21 = getelementptr inbounds i8, ptr %.03241.i, i64 64
+  %22 = add nuw nsw i32 %.02643.i, 1
+  %exitcond51.not.i = icmp eq i32 %22, 32
+  br i1 %exitcond51.not.i, label %subtract_average_c.exit, label %.preheader.i, !llvm.loop !10
 
-subtract_average_c.exit:                          ; preds = %._crit_edge.us47.i
+subtract_average_c.exit:                          ; preds = %19
   ret void
 }
 
@@ -991,37 +991,37 @@ define hidden ptr @cfl_get_subtract_average_fn_c(i8 noundef zeroext %0) local_un
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_4x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1031,53 +1031,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 4
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 4
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_4x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1087,53 +1087,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 8
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 8
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_4x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1143,53 +1143,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 16
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 16
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_8x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1199,53 +1199,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 4
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 4
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_8x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1255,53 +1255,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 8
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 8
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_8x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1311,53 +1311,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 16
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 16
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_8x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1367,53 +1367,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 32
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 32
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_16x4_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1423,53 +1423,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 4
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 4
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_16x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1479,53 +1479,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 8
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 8
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_16x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1535,53 +1535,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 16
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 16
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_16x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1591,53 +1591,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 32
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 32
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_32x8_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1647,53 +1647,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 8
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 8
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_32x16_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1703,53 +1703,53 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 16
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 16
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_predict_lbd_32x32_c(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) #5 {
   %5 = sext i32 %2 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %4
-  %.01521.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %4 ]
-  %.01620.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %4 ]
-  %.01719.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %1, %4 ]
+.preheader.i:                                     ; preds = %27, %4
+  %.01521.i = phi i32 [ 0, %4 ], [ %30, %27 ]
+  %.01620.i = phi ptr [ %0, %4 ], [ %29, %27 ]
+  %.01719.i = phi ptr [ %1, %4 ], [ %28, %27 ]
   br label %6
 
-6:                                                ; preds = %get_scaled_luma_q0.exit.us.i, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.us.i ]
-  %7 = getelementptr inbounds i16, ptr %.01620.us.i, i64 %indvars.iv.i
+6:                                                ; preds = %get_scaled_luma_q0.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %get_scaled_luma_q0.exit.i ]
+  %7 = getelementptr inbounds i16, ptr %.01620.i, i64 %indvars.iv.i
   %8 = load i16, ptr %7, align 2
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %3, %9
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %15, label %12
+  br i1 %11, label %12, label %16
 
 12:                                               ; preds = %6
-  %13 = add nuw nsw i32 %10, 32
+  %13 = sub i32 32, %10
   %14 = lshr i32 %13, 6
-  br label %get_scaled_luma_q0.exit.us.i
+  %15 = sub nsw i32 0, %14
+  br label %get_scaled_luma_q0.exit.i
 
-15:                                               ; preds = %6
-  %16 = sub i32 32, %10
-  %17 = lshr i32 %16, 6
-  %18 = sub nsw i32 0, %17
-  br label %get_scaled_luma_q0.exit.us.i
+16:                                               ; preds = %6
+  %17 = add nuw nsw i32 %10, 32
+  %18 = lshr i32 %17, 6
+  br label %get_scaled_luma_q0.exit.i
 
-get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
-  %19 = phi i32 [ %18, %15 ], [ %14, %12 ]
-  %20 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %indvars.iv.i
+get_scaled_luma_q0.exit.i:                        ; preds = %16, %12
+  %19 = phi i32 [ %15, %12 ], [ %18, %16 ]
+  %20 = getelementptr inbounds i8, ptr %.01719.i, i64 %indvars.iv.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nsw i32 %19, %22
@@ -1759,16 +1759,16 @@ get_scaled_luma_q0.exit.us.i:                     ; preds = %15, %12
   store i8 %26, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %6, !llvm.loop !11
+  br i1 %exitcond.not.i, label %27, label %6, !llvm.loop !11
 
-._crit_edge.us.i:                                 ; preds = %get_scaled_luma_q0.exit.us.i
-  %27 = getelementptr inbounds i8, ptr %.01719.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.01620.us.i, i64 64
-  %29 = add nuw nsw i32 %.01521.us.i, 1
-  %exitcond25.not.i = icmp eq i32 %29, 32
-  br i1 %exitcond25.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.us.i, !llvm.loop !12
+27:                                               ; preds = %get_scaled_luma_q0.exit.i
+  %28 = getelementptr inbounds i8, ptr %.01719.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.01620.i, i64 64
+  %30 = add nuw nsw i32 %.01521.i, 1
+  %exitcond23.not.i = icmp eq i32 %30, 32
+  br i1 %exitcond23.not.i, label %cfl_predict_lbd_c.exit, label %.preheader.i, !llvm.loop !12
 
-cfl_predict_lbd_c.exit:                           ; preds = %._crit_edge.us.i
+cfl_predict_lbd_c.exit:                           ; preds = %27
   ret void
 }
 
@@ -2230,49 +2230,49 @@ define hidden void @cfl_subsample_lbd_420_4x4_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %33, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %32, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %33, %32 ]
+  %7 = phi i1 [ true, %3 ], [ false, %32 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %34, %32 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %9 = phi i1 [ true, %.preheader.us.i ], [ false, %8 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %9 = phi i1 [ true, %.preheader.i ], [ false, %8 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %8 ]
   %10 = add nsw i64 %indvars.iv.i, %6
-  %11 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = or disjoint i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds i8, ptr %.026.us.i, i64 %14
+  %15 = getelementptr inbounds i8, ptr %.026.i, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i16
   %18 = add nuw nsw i16 %17, %13
-  %19 = getelementptr inbounds i8, ptr %.026.us.i, i64 %10
+  %19 = getelementptr inbounds i8, ptr %.026.i, i64 %10
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i16
   %22 = add nuw nsw i16 %18, %21
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %23
-  %24 = sext i32 %.reass.us.i to i64
-  %25 = getelementptr inbounds i8, ptr %.026.us.i, i64 %24
+  %.reass.i = add i32 %invariant.op.i, %23
+  %24 = sext i32 %.reass.i to i64
+  %25 = getelementptr inbounds i8, ptr %.026.i, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i16
   %28 = add nuw nsw i16 %22, %27
   %29 = shl nuw nsw i16 %28, 1
   %30 = lshr exact i64 %indvars.iv.i, 1
-  %31 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %30
+  %31 = getelementptr inbounds i16, ptr %.02224.i, i64 %30
   store i16 %29, ptr %31, align 2
-  br i1 %9, label %8, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %9, label %8, label %32, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %33 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+32:                                               ; preds = %8
+  %33 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %34 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %32
   ret void
 }
 
@@ -2282,52 +2282,52 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 6
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 6
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2337,52 +2337,52 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 14
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 14
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2392,52 +2392,52 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 30
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 30
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2447,51 +2447,51 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %8 = phi i1 [ true, %.preheader.us.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i8, ptr %.026.us.i, i64 %13
+  %14 = getelementptr inbounds i8, ptr %.026.i, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %17 = add nuw nsw i16 %16, %12
-  %18 = getelementptr inbounds i8, ptr %.026.us.i, i64 %9
+  %18 = getelementptr inbounds i8, ptr %.026.i, i64 %9
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i16
   %21 = add nuw nsw i16 %17, %20
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %22
-  %23 = sext i32 %.reass.us.i to i64
-  %24 = getelementptr inbounds i8, ptr %.026.us.i, i64 %23
+  %.reass.i = add i32 %invariant.op.i, %22
+  %23 = sext i32 %.reass.i to i64
+  %24 = getelementptr inbounds i8, ptr %.026.i, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i16
   %27 = add nuw nsw i16 %21, %26
   %28 = shl nuw nsw i16 %27, 1
   %29 = lshr exact i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %29
+  %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
-  br i1 %8, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %8, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 6
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 6
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2501,50 +2501,50 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %33, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %32, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %33, %32 ]
+  %7 = phi i1 [ true, %3 ], [ false, %32 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %34, %32 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i8, ptr %.026.us.i, i64 %13
+  %14 = getelementptr inbounds i8, ptr %.026.i, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %17 = add nuw nsw i16 %16, %12
-  %18 = getelementptr inbounds i8, ptr %.026.us.i, i64 %9
+  %18 = getelementptr inbounds i8, ptr %.026.i, i64 %9
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i16
   %21 = add nuw nsw i16 %17, %20
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %22
-  %23 = sext i32 %.reass.us.i to i64
-  %24 = getelementptr inbounds i8, ptr %.026.us.i, i64 %23
+  %.reass.i = add i32 %invariant.op.i, %22
+  %23 = sext i32 %.reass.i to i64
+  %24 = getelementptr inbounds i8, ptr %.026.i, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i16
   %27 = add nuw nsw i16 %21, %26
   %28 = shl nuw nsw i16 %27, 1
   %29 = lshr exact i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %29
+  %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %31, label %8, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %31, label %8, label %32, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %33 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+32:                                               ; preds = %8
+  %33 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %34 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %32
   ret void
 }
 
@@ -2554,52 +2554,52 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 14
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 14
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2609,52 +2609,52 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 6
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 6
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2664,52 +2664,52 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 30
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 30
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2719,52 +2719,52 @@ define hidden void @cfl_subsample_lbd_420_32x16_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 14
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 14
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2774,51 +2774,51 @@ define hidden void @cfl_subsample_lbd_420_4x16_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %8 = phi i1 [ true, %.preheader.us.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i8, ptr %.026.us.i, i64 %13
+  %14 = getelementptr inbounds i8, ptr %.026.i, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %17 = add nuw nsw i16 %16, %12
-  %18 = getelementptr inbounds i8, ptr %.026.us.i, i64 %9
+  %18 = getelementptr inbounds i8, ptr %.026.i, i64 %9
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i16
   %21 = add nuw nsw i16 %17, %20
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %22
-  %23 = sext i32 %.reass.us.i to i64
-  %24 = getelementptr inbounds i8, ptr %.026.us.i, i64 %23
+  %.reass.i = add i32 %invariant.op.i, %22
+  %23 = sext i32 %.reass.i to i64
+  %24 = getelementptr inbounds i8, ptr %.026.i, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i16
   %27 = add nuw nsw i16 %21, %26
   %28 = shl nuw nsw i16 %27, 1
   %29 = lshr exact i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %29
+  %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
-  br i1 %8, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %8, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 14
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 14
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2828,50 +2828,50 @@ define hidden void @cfl_subsample_lbd_420_16x4_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %33, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %32, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %33, %32 ]
+  %7 = phi i1 [ true, %3 ], [ false, %32 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %34, %32 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i8, ptr %.026.us.i, i64 %13
+  %14 = getelementptr inbounds i8, ptr %.026.i, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %17 = add nuw nsw i16 %16, %12
-  %18 = getelementptr inbounds i8, ptr %.026.us.i, i64 %9
+  %18 = getelementptr inbounds i8, ptr %.026.i, i64 %9
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i16
   %21 = add nuw nsw i16 %17, %20
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %22
-  %23 = sext i32 %.reass.us.i to i64
-  %24 = getelementptr inbounds i8, ptr %.026.us.i, i64 %23
+  %.reass.i = add i32 %invariant.op.i, %22
+  %23 = sext i32 %.reass.i to i64
+  %24 = getelementptr inbounds i8, ptr %.026.i, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i16
   %27 = add nuw nsw i16 %21, %26
   %28 = shl nuw nsw i16 %27, 1
   %29 = lshr exact i64 %indvars.iv.i, 1
-  %30 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %29
+  %30 = getelementptr inbounds i16, ptr %.02224.i, i64 %29
   store i16 %28, ptr %30, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %31 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %31, label %8, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %31, label %8, label %32, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %8
-  %32 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %33 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+32:                                               ; preds = %8
+  %33 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %34 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %32
   ret void
 }
 
@@ -2881,52 +2881,52 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 30
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 30
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2936,52 +2936,52 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %31, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %33, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %32, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %31, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %32, %31 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %34, %31 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %33, %31 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i8, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i8, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i8, ptr %.026.i, i64 %12
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i16
   %16 = add nuw nsw i16 %15, %11
-  %17 = getelementptr inbounds i8, ptr %.026.us.i, i64 %8
+  %17 = getelementptr inbounds i8, ptr %.026.i, i64 %8
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i16
   %20 = add nuw nsw i16 %16, %19
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %21
-  %22 = sext i32 %.reass.us.i to i64
-  %23 = getelementptr inbounds i8, ptr %.026.us.i, i64 %22
+  %.reass.i = add i32 %invariant.op.i, %21
+  %22 = sext i32 %.reass.i to i64
+  %23 = getelementptr inbounds i8, ptr %.026.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i16
   %26 = add nuw nsw i16 %20, %25
   %27 = shl nuw nsw i16 %26, 1
   %28 = lshr exact i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %28
+  %29 = getelementptr inbounds i16, ptr %.02224.i, i64 %28
   store i16 %27, ptr %29, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %30 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %30, label %7, label %._crit_edge.us.i, !llvm.loop !19
+  br i1 %30, label %7, label %31, !llvm.loop !19
 
-._crit_edge.us.i:                                 ; preds = %7
-  %31 = getelementptr inbounds i8, ptr %.026.us.i, i64 %5
-  %32 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %33 = add nuw nsw i32 %.02125.us.i, 2
-  %34 = icmp ult i32 %.02125.us.i, 6
-  br i1 %34, label %.preheader.us.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %33 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %34 = add nuw nsw i32 %.02125.i, 2
+  %35 = icmp ult i32 %.02125.i, 6
+  br i1 %35, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %31
   ret void
 }
 
@@ -2996,557 +2996,557 @@ define hidden ptr @cfl_get_luma_subsampling_420_lbd_c(i8 noundef zeroext %0) loc
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %6 = phi i1 [ true, %.preheader.us.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
+  %7 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
   %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %10
+  %11 = getelementptr inbounds i8, ptr %.01519.i, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = add nuw nsw i16 %13, %9
   %15 = shl nuw nsw i16 %14, 2
   %16 = lshr exact i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %16
+  %17 = getelementptr inbounds i16, ptr %.01618.i, i64 %16
   store i16 %15, ptr %17, align 2
-  br i1 %6, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %6, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %6 = phi i1 [ true, %.preheader.us.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
+  %7 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
   %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %10
+  %11 = getelementptr inbounds i8, ptr %.01519.i, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = add nuw nsw i16 %13, %9
   %15 = shl nuw nsw i16 %14, 2
   %16 = lshr exact i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %16
+  %17 = getelementptr inbounds i16, ptr %.01618.i, i64 %16
   store i16 %15, ptr %17, align 2
-  br i1 %6, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %6, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %6 = phi i1 [ true, %.preheader.us.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
+  %7 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
   %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %10
+  %11 = getelementptr inbounds i8, ptr %.01519.i, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i16
   %14 = add nuw nsw i16 %13, %9
   %15 = shl nuw nsw i16 %14, 2
   %16 = lshr exact i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %16
+  %17 = getelementptr inbounds i16, ptr %.01618.i, i64 %16
   store i16 %15, ptr %17, align 2
-  br i1 %6, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %6, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_422_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %20, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %18, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %19, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %18, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %21, %18 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %19, %18 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %20, %18 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %9
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
   %13 = add nuw nsw i16 %12, %8
   %14 = shl nuw nsw i16 %13, 2
   %15 = lshr exact i64 %indvars.iv.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %15
+  %16 = getelementptr inbounds i16, ptr %.01618.i, i64 %15
   store i16 %14, ptr %16, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %17 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %17, label %5, label %._crit_edge.us.i, !llvm.loop !21
+  br i1 %17, label %5, label %18, !llvm.loop !21
 
-._crit_edge.us.i:                                 ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.us.i, i64 %4
-  %19 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %20 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.us.i, !llvm.loop !22
+18:                                               ; preds = %5
+  %19 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %20 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %21 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %21, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %18
   ret void
 }
 
@@ -3561,476 +3561,476 @@ define hidden ptr @cfl_get_luma_subsampling_422_lbd_c(i8 noundef zeroext %0) loc
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_lbd_444_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %13, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %12, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %11, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %14, %11 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %12, %11 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %13, %11 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i8, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
   %9 = shl nuw nsw i16 %8, 3
-  %10 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !23
+  br i1 %exitcond.not.i, label %11, label %5, !llvm.loop !23
 
-._crit_edge.us.i:                                 ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %.01317.us.i, i64 %4
-  %12 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %13 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %13, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.us.i, !llvm.loop !24
+11:                                               ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %.01317.i, i64 %4
+  %13 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %14 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %14, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_lbd_c.exit, label %.preheader.i, !llvm.loop !24
 
-cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_lbd_c.exit:              ; preds = %11
   ret void
 }
 
@@ -4048,45 +4048,45 @@ define hidden void @cfl_subsample_hbd_420_4x4_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %29, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %28, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %29, %28 ]
+  %7 = phi i1 [ true, %3 ], [ false, %28 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %30, %28 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %9 = phi i1 [ true, %.preheader.us.i ], [ false, %8 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %9 = phi i1 [ true, %.preheader.i ], [ false, %8 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %8 ]
   %10 = add nsw i64 %indvars.iv.i, %6
-  %11 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %11 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %12 = load i16, ptr %11, align 2
   %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.026.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.026.i, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = add i16 %15, %12
-  %17 = getelementptr inbounds i16, ptr %.026.us.i, i64 %10
+  %17 = getelementptr inbounds i16, ptr %.026.i, i64 %10
   %18 = load i16, ptr %17, align 2
   %19 = add i16 %16, %18
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %20
-  %21 = sext i32 %.reass.us.i to i64
-  %22 = getelementptr inbounds i16, ptr %.026.us.i, i64 %21
+  %.reass.i = add i32 %invariant.op.i, %20
+  %21 = sext i32 %.reass.i to i64
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = add i16 %19, %23
   %25 = shl i16 %24, 1
   %26 = lshr exact i64 %indvars.iv.i, 1
-  %27 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %26
+  %27 = getelementptr inbounds i16, ptr %.02224.i, i64 %26
   store i16 %25, ptr %27, align 2
-  br i1 %9, label %8, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %9, label %8, label %28, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %8
-  %28 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %29 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+28:                                               ; preds = %8
+  %29 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %30 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %28
   ret void
 }
 
@@ -4096,48 +4096,48 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 6
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 6
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4147,48 +4147,48 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 14
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 14
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4198,48 +4198,48 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 30
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 30
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4249,47 +4249,47 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %8 = phi i1 [ true, %.preheader.us.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i16, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i16, ptr %.026.i, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = add i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.026.us.i, i64 %9
+  %16 = getelementptr inbounds i16, ptr %.026.i, i64 %9
   %17 = load i16, ptr %16, align 2
   %18 = add i16 %15, %17
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %19
-  %20 = sext i32 %.reass.us.i to i64
-  %21 = getelementptr inbounds i16, ptr %.026.us.i, i64 %20
+  %.reass.i = add i32 %invariant.op.i, %19
+  %20 = sext i32 %.reass.i to i64
+  %21 = getelementptr inbounds i16, ptr %.026.i, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = add i16 %18, %22
   %24 = shl i16 %23, 1
   %25 = lshr exact i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %25
+  %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
-  br i1 %8, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %8, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 6
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 6
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4299,46 +4299,46 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr nocapture noundef readonly %
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %29, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %28, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %29, %28 ]
+  %7 = phi i1 [ true, %3 ], [ false, %28 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %30, %28 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i16, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i16, ptr %.026.i, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = add i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.026.us.i, i64 %9
+  %16 = getelementptr inbounds i16, ptr %.026.i, i64 %9
   %17 = load i16, ptr %16, align 2
   %18 = add i16 %15, %17
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %19
-  %20 = sext i32 %.reass.us.i to i64
-  %21 = getelementptr inbounds i16, ptr %.026.us.i, i64 %20
+  %.reass.i = add i32 %invariant.op.i, %19
+  %20 = sext i32 %.reass.i to i64
+  %21 = getelementptr inbounds i16, ptr %.026.i, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = add i16 %18, %22
   %24 = shl i16 %23, 1
   %25 = lshr exact i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %25
+  %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %27 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %27, label %8, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %27, label %8, label %28, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %8
-  %28 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %29 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+28:                                               ; preds = %8
+  %29 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %30 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %28
   ret void
 }
 
@@ -4348,48 +4348,48 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 14
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 14
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4399,48 +4399,48 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 6
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 6
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4450,48 +4450,48 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 30
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 30
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4501,48 +4501,48 @@ define hidden void @cfl_subsample_hbd_420_32x16_c(ptr nocapture noundef readonly
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 14
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 14
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4552,47 +4552,47 @@ define hidden void @cfl_subsample_hbd_420_4x16_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %8 = phi i1 [ true, %.preheader.us.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ 2, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i16, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i16, ptr %.026.i, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = add i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.026.us.i, i64 %9
+  %16 = getelementptr inbounds i16, ptr %.026.i, i64 %9
   %17 = load i16, ptr %16, align 2
   %18 = add i16 %15, %17
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %19
-  %20 = sext i32 %.reass.us.i to i64
-  %21 = getelementptr inbounds i16, ptr %.026.us.i, i64 %20
+  %.reass.i = add i32 %invariant.op.i, %19
+  %20 = sext i32 %.reass.i to i64
+  %21 = getelementptr inbounds i16, ptr %.026.i, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = add i16 %18, %22
   %24 = shl i16 %23, 1
   %25 = lshr exact i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %25
+  %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
-  br i1 %8, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %8, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 14
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 14
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4602,46 +4602,46 @@ define hidden void @cfl_subsample_hbd_420_16x4_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %0, %3 ]
-  %7 = phi i1 [ false, %._crit_edge.us.i ], [ true, %3 ]
-  %.02224.us.i = phi ptr [ %29, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %28, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %29, %28 ]
+  %7 = phi i1 [ true, %3 ], [ false, %28 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %30, %28 ]
   br label %8
 
-8:                                                ; preds = %8, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %8 ]
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = add nsw i64 %indvars.iv.i, %6
-  %10 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2
   %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds i16, ptr %.026.us.i, i64 %12
+  %13 = getelementptr inbounds i16, ptr %.026.i, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = add i16 %14, %11
-  %16 = getelementptr inbounds i16, ptr %.026.us.i, i64 %9
+  %16 = getelementptr inbounds i16, ptr %.026.i, i64 %9
   %17 = load i16, ptr %16, align 2
   %18 = add i16 %15, %17
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %19
-  %20 = sext i32 %.reass.us.i to i64
-  %21 = getelementptr inbounds i16, ptr %.026.us.i, i64 %20
+  %.reass.i = add i32 %invariant.op.i, %19
+  %20 = sext i32 %.reass.i to i64
+  %21 = getelementptr inbounds i16, ptr %.026.i, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = add i16 %18, %22
   %24 = shl i16 %23, 1
   %25 = lshr exact i64 %indvars.iv.i, 1
-  %26 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %25
+  %26 = getelementptr inbounds i16, ptr %.02224.i, i64 %25
   store i16 %24, ptr %26, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %27 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %27, label %8, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %27, label %8, label %28, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %8
-  %28 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %29 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  br i1 %7, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+28:                                               ; preds = %8
+  %29 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %30 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %28
   ret void
 }
 
@@ -4651,48 +4651,48 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 30
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 30
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4702,48 +4702,48 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr nocapture noundef readonly 
   %4 = shl i32 %1, 1
   %5 = sext i32 %4 to i64
   %6 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.026.us.i = phi ptr [ %27, %._crit_edge.us.i ], [ %0, %3 ]
-  %.02125.us.i = phi i32 [ %29, %._crit_edge.us.i ], [ 0, %3 ]
-  %.02224.us.i = phi ptr [ %28, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %27, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %30, %27 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
   br label %7
 
-7:                                                ; preds = %7, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %7 ]
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = add nsw i64 %indvars.iv.i, %6
-  %9 = getelementptr inbounds i16, ptr %.026.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
   %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds i16, ptr %.026.us.i, i64 %11
+  %12 = getelementptr inbounds i16, ptr %.026.i, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %10
-  %15 = getelementptr inbounds i16, ptr %.026.us.i, i64 %8
+  %15 = getelementptr inbounds i16, ptr %.026.i, i64 %8
   %16 = load i16, ptr %15, align 2
   %17 = add i16 %14, %16
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.us.i = add i32 %invariant.op.i, %18
-  %19 = sext i32 %.reass.us.i to i64
-  %20 = getelementptr inbounds i16, ptr %.026.us.i, i64 %19
+  %.reass.i = add i32 %invariant.op.i, %18
+  %19 = sext i32 %.reass.i to i64
+  %20 = getelementptr inbounds i16, ptr %.026.i, i64 %19
   %21 = load i16, ptr %20, align 2
   %22 = add i16 %17, %21
   %23 = shl i16 %22, 1
   %24 = lshr exact i64 %indvars.iv.i, 1
-  %25 = getelementptr inbounds i16, ptr %.02224.us.i, i64 %24
+  %25 = getelementptr inbounds i16, ptr %.02224.i, i64 %24
   store i16 %23, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %26 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %26, label %7, label %._crit_edge.us.i, !llvm.loop !25
+  br i1 %26, label %7, label %27, !llvm.loop !25
 
-._crit_edge.us.i:                                 ; preds = %7
-  %27 = getelementptr inbounds i16, ptr %.026.us.i, i64 %5
-  %28 = getelementptr inbounds i8, ptr %.02224.us.i, i64 64
-  %29 = add nuw nsw i32 %.02125.us.i, 2
-  %30 = icmp ult i32 %.02125.us.i, 6
-  br i1 %30, label %.preheader.us.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+27:                                               ; preds = %7
+  %28 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %29 = getelementptr inbounds i8, ptr %.02224.i, i64 64
+  %30 = add nuw nsw i32 %.02125.i, 2
+  %31 = icmp ult i32 %.02125.i, 6
+  br i1 %31, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %27
   ret void
 }
 
@@ -4758,517 +4758,517 @@ define hidden ptr @cfl_get_luma_subsampling_420_hbd_c(i8 noundef zeroext %0) loc
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %.preheader.us.i, %3
-  %.01420.us.i = phi i32 [ %19, %.preheader.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %17, %.preheader.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %18, %.preheader.us.i ], [ %2, %3 ]
-  %5 = load i16, ptr %.01519.us.i, align 2
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 2
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %.preheader.i ]
+  %5 = load i16, ptr %.01519.i, align 2
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %7, %5
   %9 = shl i16 %8, 2
-  store i16 %9, ptr %.01618.us.i, align 2
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 4
+  store i16 %9, ptr %.01618.i, align 2
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 4
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %.01519.us.i, i64 6
+  %12 = getelementptr inbounds i8, ptr %.01519.i, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %11
   %15 = shl i16 %14, 2
-  %16 = getelementptr inbounds i8, ptr %.01618.us.i, i64 2
+  %16 = getelementptr inbounds i8, ptr %.01618.i, i64 2
   store i16 %15, ptr %16, align 2
-  %17 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %18 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %19 = add nuw nsw i32 %.01420.us.i, 1
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %.preheader.us.i, %3
-  %.01420.us.i = phi i32 [ %19, %.preheader.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %17, %.preheader.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %18, %.preheader.us.i ], [ %2, %3 ]
-  %5 = load i16, ptr %.01519.us.i, align 2
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 2
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %.preheader.i ]
+  %5 = load i16, ptr %.01519.i, align 2
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %7, %5
   %9 = shl i16 %8, 2
-  store i16 %9, ptr %.01618.us.i, align 2
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 4
+  store i16 %9, ptr %.01618.i, align 2
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 4
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %.01519.us.i, i64 6
+  %12 = getelementptr inbounds i8, ptr %.01519.i, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %11
   %15 = shl i16 %14, 2
-  %16 = getelementptr inbounds i8, ptr %.01618.us.i, i64 2
+  %16 = getelementptr inbounds i8, ptr %.01618.i, i64 2
   store i16 %15, ptr %16, align 2
-  %17 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %18 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %19 = add nuw nsw i32 %.01420.us.i, 1
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %.preheader.us.i, %3
-  %.01420.us.i = phi i32 [ %19, %.preheader.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %17, %.preheader.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %18, %.preheader.us.i ], [ %2, %3 ]
-  %5 = load i16, ptr %.01519.us.i, align 2
-  %6 = getelementptr inbounds i8, ptr %.01519.us.i, i64 2
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %.preheader.i ]
+  %5 = load i16, ptr %.01519.i, align 2
+  %6 = getelementptr inbounds i8, ptr %.01519.i, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = add i16 %7, %5
   %9 = shl i16 %8, 2
-  store i16 %9, ptr %.01618.us.i, align 2
-  %10 = getelementptr inbounds i8, ptr %.01519.us.i, i64 4
+  store i16 %9, ptr %.01618.i, align 2
+  %10 = getelementptr inbounds i8, ptr %.01519.i, i64 4
   %11 = load i16, ptr %10, align 2
-  %12 = getelementptr inbounds i8, ptr %.01519.us.i, i64 6
+  %12 = getelementptr inbounds i8, ptr %.01519.i, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = add i16 %13, %11
   %15 = shl i16 %14, 2
-  %16 = getelementptr inbounds i8, ptr %.01618.us.i, i64 2
+  %16 = getelementptr inbounds i8, ptr %.01618.i, i64 2
   store i16 %15, ptr %16, align 2
-  %17 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %18 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %19 = add nuw nsw i32 %.01420.us.i, 1
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
   %exitcond.not.i = icmp eq i32 %19, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 14
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_422_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01420.us.i = phi i32 [ %18, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01519.us.i = phi ptr [ %16, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01618.us.i = phi ptr [ %17, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %8
+  %9 = getelementptr inbounds i16, ptr %.01519.i, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = add i16 %10, %7
   %12 = shl i16 %11, 2
   %13 = lshr exact i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds i16, ptr %.01618.us.i, i64 %13
+  %14 = getelementptr inbounds i16, ptr %.01618.i, i64 %13
   store i16 %12, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %15 = icmp ult i64 %indvars.iv.i, 30
-  br i1 %15, label %5, label %._crit_edge.us.i, !llvm.loop !28
+  br i1 %15, label %5, label %16, !llvm.loop !28
 
-._crit_edge.us.i:                                 ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.us.i, i64 %4
-  %17 = getelementptr inbounds i8, ptr %.01618.us.i, i64 64
-  %18 = add nuw nsw i32 %.01420.us.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.us.i, !llvm.loop !27
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -5283,462 +5283,462 @@ define hidden ptr @cfl_get_luma_subsampling_422_hbd_c(i8 noundef zeroext %0) loc
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_4x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_8x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_16x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_32x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_4x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_8x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_8x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_16x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_16x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_32x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_4x16_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 16
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 16
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_16x4_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 4
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 4
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_8x32_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 32
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 32
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @cfl_subsample_hbd_444_32x8_c(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = sext i32 %1 to i64
-  br label %.preheader.us.i
+  br label %.preheader.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %3
-  %.01218.us.i = phi i32 [ %12, %._crit_edge.us.i ], [ 0, %3 ]
-  %.01317.us.i = phi ptr [ %10, %._crit_edge.us.i ], [ %0, %3 ]
-  %.01416.us.i = phi ptr [ %11, %._crit_edge.us.i ], [ %2, %3 ]
+.preheader.i:                                     ; preds = %10, %3
+  %.01218.i = phi i32 [ 0, %3 ], [ %13, %10 ]
+  %.01317.i = phi ptr [ %0, %3 ], [ %11, %10 ]
+  %.01416.i = phi ptr [ %2, %3 ], [ %12, %10 ]
   br label %5
 
-5:                                                ; preds = %5, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %indvars.iv.i
+5:                                                ; preds = %5, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
+  %6 = getelementptr inbounds i16, ptr %.01317.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
   %8 = shl i16 %7, 3
-  %9 = getelementptr inbounds i16, ptr %.01416.us.i, i64 %indvars.iv.i
+  %9 = getelementptr inbounds i16, ptr %.01416.i, i64 %indvars.iv.i
   store i16 %8, ptr %9, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %5, !llvm.loop !29
+  br i1 %exitcond.not.i, label %10, label %5, !llvm.loop !29
 
-._crit_edge.us.i:                                 ; preds = %5
-  %10 = getelementptr inbounds i16, ptr %.01317.us.i, i64 %4
-  %11 = getelementptr inbounds i8, ptr %.01416.us.i, i64 64
-  %12 = add nuw nsw i32 %.01218.us.i, 1
-  %exitcond22.not.i = icmp eq i32 %12, 8
-  br i1 %exitcond22.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.us.i, !llvm.loop !30
+10:                                               ; preds = %5
+  %11 = getelementptr inbounds i16, ptr %.01317.i, i64 %4
+  %12 = getelementptr inbounds i8, ptr %.01416.i, i64 64
+  %13 = add nuw nsw i32 %.01218.i, 1
+  %exitcond20.not.i = icmp eq i32 %13, 8
+  br i1 %exitcond20.not.i, label %cfl_luma_subsampling_444_hbd_c.exit, label %.preheader.i, !llvm.loop !30
 
-cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %._crit_edge.us.i
+cfl_luma_subsampling_444_hbd_c.exit:              ; preds = %10
   ret void
 }
 

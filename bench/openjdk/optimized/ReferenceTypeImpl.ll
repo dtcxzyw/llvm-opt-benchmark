@@ -739,7 +739,7 @@ declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i16 @outStream_writeInt(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -753,7 +753,7 @@ define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef
   %12 = tail call ptr @inStream_readClassRef(ptr noundef %11, ptr noundef %0) #3
   %13 = tail call zeroext i16 @inStream_error(ptr noundef %0) #3
   %.not = icmp eq i16 %13, 0
-  br i1 %.not, label %14, label %77
+  br i1 %.not, label %14, label %76
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @gdata, align 8
@@ -782,7 +782,7 @@ define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef
 27:                                               ; preds = %20
   %28 = call zeroext i16 @map2jdwpError(i32 noundef %26) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %28) #3
-  br label %77
+  br label %76
 
 29:                                               ; preds = %20
   %30 = load i32, ptr %9, align 4
@@ -792,19 +792,19 @@ define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %33, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %29
-  %34 = icmp eq i32 %2, 1
-  br label %35
+  %.not27.i = icmp eq i32 %2, 0
+  br label %34
 
-35:                                               ; preds = %.lr.ph, %writeFieldInfo.exit
+34:                                               ; preds = %.lr.ph, %writeFieldInfo.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %writeFieldInfo.exit ]
-  %36 = call zeroext i16 @outStream_error(ptr noundef %1) #3
-  %.not18 = icmp eq i16 %36, 0
-  br i1 %.not18, label %37, label %.critedge
+  %35 = call zeroext i16 @outStream_error(ptr noundef %1) #3
+  %.not18 = icmp eq i16 %35, 0
+  br i1 %.not18, label %36, label %.critedge
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -812,96 +812,96 @@ define internal fastcc void @fields1(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %41 = call i32 @isFieldSynthetic(ptr noundef %12, ptr noundef %40, ptr noundef nonnull %8) #3
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %44, label %42
+  %40 = call i32 @isFieldSynthetic(ptr noundef %12, ptr noundef %39, ptr noundef nonnull %8) #3
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %43, label %41
 
-42:                                               ; preds = %37
-  %43 = call zeroext i16 @map2jdwpError(i32 noundef %41) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %43) #3
+41:                                               ; preds = %36
+  %42 = call zeroext i16 @map2jdwpError(i32 noundef %40) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %42) #3
   br label %writeFieldInfo.exit
 
-44:                                               ; preds = %37
-  %45 = call i32 @fieldModifiers(ptr noundef %12, ptr noundef %40, ptr noundef nonnull %7) #3
-  %.not24.i = icmp eq i32 %45, 0
-  br i1 %.not24.i, label %48, label %46
+43:                                               ; preds = %36
+  %44 = call i32 @fieldModifiers(ptr noundef %12, ptr noundef %39, ptr noundef nonnull %7) #3
+  %.not24.i = icmp eq i32 %44, 0
+  br i1 %.not24.i, label %47, label %45
 
-46:                                               ; preds = %44
-  %47 = call zeroext i16 @map2jdwpError(i32 noundef %45) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %47) #3
+45:                                               ; preds = %43
+  %46 = call zeroext i16 @map2jdwpError(i32 noundef %44) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %46) #3
   br label %writeFieldInfo.exit
 
-48:                                               ; preds = %44
-  %49 = call i32 @fieldSignature(ptr noundef %12, ptr noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
-  %.not25.i = icmp eq i32 %49, 0
-  br i1 %.not25.i, label %52, label %50
+47:                                               ; preds = %43
+  %48 = call i32 @fieldSignature(ptr noundef %12, ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
+  %.not25.i = icmp eq i32 %48, 0
+  br i1 %.not25.i, label %51, label %49
 
-50:                                               ; preds = %48
-  %51 = call zeroext i16 @map2jdwpError(i32 noundef %49) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %51) #3
+49:                                               ; preds = %47
+  %50 = call zeroext i16 @map2jdwpError(i32 noundef %48) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %50) #3
   br label %writeFieldInfo.exit
 
-52:                                               ; preds = %48
-  %53 = load i8, ptr %8, align 1
-  %.not26.i = icmp eq i8 %53, 0
-  br i1 %.not26.i, label %57, label %54
+51:                                               ; preds = %47
+  %52 = load i8, ptr %8, align 1
+  %.not26.i = icmp eq i8 %52, 0
+  br i1 %.not26.i, label %56, label %53
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %7, align 4
-  %56 = or i32 %55, -268435456
-  store i32 %56, ptr %7, align 4
-  br label %57
+53:                                               ; preds = %51
+  %54 = load i32, ptr %7, align 4
+  %55 = or i32 %54, -268435456
+  store i32 %55, ptr %7, align 4
+  br label %56
 
-57:                                               ; preds = %54, %52
-  %58 = call zeroext i16 @outStream_writeFieldID(ptr noundef %1, ptr noundef %40) #3
-  %59 = load ptr, ptr %4, align 8
-  %60 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %59) #3
-  %61 = load ptr, ptr %5, align 8
-  %62 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %61) #3
-  br i1 %34, label %63, label %65
+56:                                               ; preds = %53, %51
+  %57 = call zeroext i16 @outStream_writeFieldID(ptr noundef %1, ptr noundef %39) #3
+  %58 = load ptr, ptr %4, align 8
+  %59 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %58) #3
+  %60 = load ptr, ptr %5, align 8
+  %61 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %60) #3
+  br i1 %.not27.i, label %64, label %62
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %6, align 8
-  call void @writeGenericSignature(ptr noundef %1, ptr noundef %64) #3
-  br label %65
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %6, align 8
+  call void @writeGenericSignature(ptr noundef %1, ptr noundef %63) #3
+  br label %64
 
-65:                                               ; preds = %63, %57
-  %66 = load i32, ptr %7, align 4
-  %67 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %66) #3
-  %68 = load ptr, ptr %4, align 8
+64:                                               ; preds = %62, %56
+  %65 = load i32, ptr %7, align 4
+  %66 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %65) #3
+  %67 = load ptr, ptr %4, align 8
+  call void @jvmtiDeallocate(ptr noundef %67) #3
+  %68 = load ptr, ptr %5, align 8
   call void @jvmtiDeallocate(ptr noundef %68) #3
-  %69 = load ptr, ptr %5, align 8
-  call void @jvmtiDeallocate(ptr noundef %69) #3
-  %70 = load ptr, ptr %6, align 8
-  %.not27.i = icmp eq ptr %70, null
-  br i1 %.not27.i, label %writeFieldInfo.exit, label %71
+  %69 = load ptr, ptr %6, align 8
+  %.not28.i = icmp eq ptr %69, null
+  br i1 %.not28.i, label %writeFieldInfo.exit, label %70
 
-71:                                               ; preds = %65
-  call void @jvmtiDeallocate(ptr noundef nonnull %70) #3
+70:                                               ; preds = %64
+  call void @jvmtiDeallocate(ptr noundef nonnull %69) #3
   br label %writeFieldInfo.exit
 
-writeFieldInfo.exit:                              ; preds = %42, %46, %50, %65, %71
+writeFieldInfo.exit:                              ; preds = %41, %45, %49, %64, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = load i32, ptr %9, align 4
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %35, label %.critedge, !llvm.loop !10
+  %71 = load i32, ptr %9, align 4
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %34, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %35, %writeFieldInfo.exit, %29
-  %75 = load ptr, ptr %10, align 8
-  %.not19 = icmp eq ptr %75, null
-  br i1 %.not19, label %77, label %76
+.critedge:                                        ; preds = %34, %writeFieldInfo.exit, %29
+  %74 = load ptr, ptr %10, align 8
+  %.not19 = icmp eq ptr %74, null
+  br i1 %.not19, label %76, label %75
 
-76:                                               ; preds = %.critedge
-  call void @jvmtiDeallocate(ptr noundef nonnull %75) #3
-  br label %77
+75:                                               ; preds = %.critedge
+  call void @jvmtiDeallocate(ptr noundef nonnull %74) #3
+  br label %76
 
-77:                                               ; preds = %.critedge, %76, %3, %27
+76:                                               ; preds = %.critedge, %75, %3, %27
   ret void
 }
 
@@ -918,7 +918,7 @@ declare zeroext i16 @outStream_writeFieldID(ptr noundef, ptr noundef) local_unna
 declare void @writeGenericSignature(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -932,7 +932,7 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
   %12 = tail call ptr @inStream_readClassRef(ptr noundef %11, ptr noundef %0) #3
   %13 = tail call zeroext i16 @inStream_error(ptr noundef %0) #3
   %.not = icmp eq i16 %13, 0
-  br i1 %.not, label %14, label %77
+  br i1 %.not, label %14, label %76
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr @gdata, align 8
@@ -961,7 +961,7 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
 27:                                               ; preds = %20
   %28 = call zeroext i16 @map2jdwpError(i32 noundef %26) #3
   call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %28) #3
-  br label %77
+  br label %76
 
 29:                                               ; preds = %20
   %30 = load i32, ptr %9, align 4
@@ -971,19 +971,19 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %33, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %29
-  %34 = icmp eq i32 %2, 1
-  br label %35
+  %.not24.i = icmp eq i32 %2, 0
+  br label %34
 
-35:                                               ; preds = %.lr.ph, %writeMethodInfo.exit
+34:                                               ; preds = %.lr.ph, %writeMethodInfo.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %writeMethodInfo.exit ]
-  %36 = call zeroext i16 @outStream_error(ptr noundef %1) #3
-  %.not18 = icmp eq i16 %36, 0
-  br i1 %.not18, label %37, label %.critedge
+  %35 = call zeroext i16 @outStream_error(ptr noundef %1) #3
+  %.not18 = icmp eq i16 %35, 0
+  br i1 %.not18, label %36, label %.critedge
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
-  %40 = load ptr, ptr %39, align 8
+36:                                               ; preds = %34
+  %37 = load ptr, ptr %10, align 8
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -992,96 +992,96 @@ define internal fastcc void @methods1(ptr noundef %0, ptr noundef %1, i32 nounde
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  %41 = call i32 @isMethodSynthetic(ptr noundef %40, ptr noundef nonnull %8) #3
-  %.not.i = icmp eq i32 %41, 0
-  br i1 %.not.i, label %44, label %42
+  %40 = call i32 @isMethodSynthetic(ptr noundef %39, ptr noundef nonnull %8) #3
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %43, label %41
 
-42:                                               ; preds = %37
-  %43 = call zeroext i16 @map2jdwpError(i32 noundef %41) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %43) #3
+41:                                               ; preds = %36
+  %42 = call zeroext i16 @map2jdwpError(i32 noundef %40) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %42) #3
   br label %writeMethodInfo.exit
 
-44:                                               ; preds = %37
-  %45 = call i32 @methodModifiers(ptr noundef %40, ptr noundef nonnull %7) #3
-  %.not21.i = icmp eq i32 %45, 0
-  br i1 %.not21.i, label %48, label %46
+43:                                               ; preds = %36
+  %44 = call i32 @methodModifiers(ptr noundef %39, ptr noundef nonnull %7) #3
+  %.not21.i = icmp eq i32 %44, 0
+  br i1 %.not21.i, label %47, label %45
 
-46:                                               ; preds = %44
-  %47 = call zeroext i16 @map2jdwpError(i32 noundef %45) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %47) #3
+45:                                               ; preds = %43
+  %46 = call zeroext i16 @map2jdwpError(i32 noundef %44) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %46) #3
   br label %writeMethodInfo.exit
 
-48:                                               ; preds = %44
-  %49 = call i32 @methodSignature(ptr noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
-  %.not22.i = icmp eq i32 %49, 0
-  br i1 %.not22.i, label %52, label %50
+47:                                               ; preds = %43
+  %48 = call i32 @methodSignature(ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #3
+  %.not22.i = icmp eq i32 %48, 0
+  br i1 %.not22.i, label %51, label %49
 
-50:                                               ; preds = %48
-  %51 = call zeroext i16 @map2jdwpError(i32 noundef %49) #3
-  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %51) #3
+49:                                               ; preds = %47
+  %50 = call zeroext i16 @map2jdwpError(i32 noundef %48) #3
+  call void @outStream_setError(ptr noundef %1, i16 noundef zeroext %50) #3
   br label %writeMethodInfo.exit
 
-52:                                               ; preds = %48
-  %53 = load i8, ptr %8, align 1
-  %.not23.i = icmp eq i8 %53, 0
-  br i1 %.not23.i, label %57, label %54
+51:                                               ; preds = %47
+  %52 = load i8, ptr %8, align 1
+  %.not23.i = icmp eq i8 %52, 0
+  br i1 %.not23.i, label %56, label %53
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %7, align 4
-  %56 = or i32 %55, -268435456
-  store i32 %56, ptr %7, align 4
-  br label %57
+53:                                               ; preds = %51
+  %54 = load i32, ptr %7, align 4
+  %55 = or i32 %54, -268435456
+  store i32 %55, ptr %7, align 4
+  br label %56
 
-57:                                               ; preds = %54, %52
-  %58 = call zeroext i16 @outStream_writeMethodID(ptr noundef %1, ptr noundef %40) #3
-  %59 = load ptr, ptr %4, align 8
-  %60 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %59) #3
-  %61 = load ptr, ptr %5, align 8
-  %62 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %61) #3
-  br i1 %34, label %63, label %65
+56:                                               ; preds = %53, %51
+  %57 = call zeroext i16 @outStream_writeMethodID(ptr noundef %1, ptr noundef %39) #3
+  %58 = load ptr, ptr %4, align 8
+  %59 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %58) #3
+  %60 = load ptr, ptr %5, align 8
+  %61 = call zeroext i16 @outStream_writeString(ptr noundef %1, ptr noundef %60) #3
+  br i1 %.not24.i, label %64, label %62
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %6, align 8
-  call void @writeGenericSignature(ptr noundef %1, ptr noundef %64) #3
-  br label %65
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %6, align 8
+  call void @writeGenericSignature(ptr noundef %1, ptr noundef %63) #3
+  br label %64
 
-65:                                               ; preds = %63, %57
-  %66 = load i32, ptr %7, align 4
-  %67 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %66) #3
-  %68 = load ptr, ptr %4, align 8
+64:                                               ; preds = %62, %56
+  %65 = load i32, ptr %7, align 4
+  %66 = call zeroext i16 @outStream_writeInt(ptr noundef %1, i32 noundef %65) #3
+  %67 = load ptr, ptr %4, align 8
+  call void @jvmtiDeallocate(ptr noundef %67) #3
+  %68 = load ptr, ptr %5, align 8
   call void @jvmtiDeallocate(ptr noundef %68) #3
-  %69 = load ptr, ptr %5, align 8
-  call void @jvmtiDeallocate(ptr noundef %69) #3
-  %70 = load ptr, ptr %6, align 8
-  %.not24.i = icmp eq ptr %70, null
-  br i1 %.not24.i, label %writeMethodInfo.exit, label %71
+  %69 = load ptr, ptr %6, align 8
+  %.not25.i = icmp eq ptr %69, null
+  br i1 %.not25.i, label %writeMethodInfo.exit, label %70
 
-71:                                               ; preds = %65
-  call void @jvmtiDeallocate(ptr noundef nonnull %70) #3
+70:                                               ; preds = %64
+  call void @jvmtiDeallocate(ptr noundef nonnull %69) #3
   br label %writeMethodInfo.exit
 
-writeMethodInfo.exit:                             ; preds = %42, %46, %50, %65, %71
+writeMethodInfo.exit:                             ; preds = %41, %45, %49, %64, %70
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %72 = load i32, ptr %9, align 4
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next, %73
-  br i1 %74, label %35, label %.critedge, !llvm.loop !11
+  %71 = load i32, ptr %9, align 4
+  %72 = sext i32 %71 to i64
+  %73 = icmp slt i64 %indvars.iv.next, %72
+  br i1 %73, label %34, label %.critedge, !llvm.loop !11
 
-.critedge:                                        ; preds = %35, %writeMethodInfo.exit, %29
-  %75 = load ptr, ptr %10, align 8
-  %.not19 = icmp eq ptr %75, null
-  br i1 %.not19, label %77, label %76
+.critedge:                                        ; preds = %34, %writeMethodInfo.exit, %29
+  %74 = load ptr, ptr %10, align 8
+  %.not19 = icmp eq ptr %74, null
+  br i1 %.not19, label %76, label %75
 
-76:                                               ; preds = %.critedge
-  call void @jvmtiDeallocate(ptr noundef nonnull %75) #3
-  br label %77
+75:                                               ; preds = %.critedge
+  call void @jvmtiDeallocate(ptr noundef nonnull %74) #3
+  br label %76
 
-77:                                               ; preds = %.critedge, %76, %3, %27
+76:                                               ; preds = %.critedge, %75, %3, %27
   ret void
 }
 

@@ -1261,42 +1261,41 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 3) i32 @wimax_compact_ulmap_harq_control_ie_decoder(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
-  %6 = and i32 %3, 1
-  %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %11, label %7
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %10, label %6
 
-7:                                                ; preds = %4
-  %8 = and i8 %5, 8
-  %9 = load i32, ptr @hf_harq_control_ie_prefix_1, align 4
-  %10 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
-  %.not38 = icmp eq i8 %8, 0
-  br i1 %.not38, label %18, label %.sink.split
+6:                                                ; preds = %4
+  %7 = and i8 %5, 8
+  %8 = load i32, ptr @hf_harq_control_ie_prefix_1, align 4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 2, i32 noundef 0) #2
+  %.not38 = icmp eq i8 %7, 0
+  br i1 %.not38, label %17, label %.sink.split
 
-11:                                               ; preds = %4
-  %12 = load i32, ptr @hf_harq_control_ie_prefix, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+10:                                               ; preds = %4
+  %11 = load i32, ptr @hf_harq_control_ie_prefix, align 4
+  %12 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %11, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
   %.not37 = icmp sgt i8 %5, -1
-  br i1 %.not37, label %18, label %.sink.split
+  br i1 %.not37, label %17, label %.sink.split
 
-.sink.split:                                      ; preds = %11, %7
-  %hf_harq_control_ie_ai_sn.sink = phi ptr [ @hf_harq_control_ie_ai_sn_1, %7 ], [ @hf_harq_control_ie_ai_sn, %11 ]
-  %.sink3 = phi i32 [ 2, %7 ], [ 1, %11 ]
-  %hf_harq_control_ie_spid.sink = phi ptr [ @hf_harq_control_ie_spid_1, %7 ], [ @hf_harq_control_ie_spid, %11 ]
-  %hf_harq_control_ie_acid.sink.ph = phi ptr [ @hf_harq_control_ie_acid_1, %7 ], [ @hf_harq_control_ie_acid, %11 ]
-  %14 = load i32, ptr %hf_harq_control_ie_ai_sn.sink, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef %.sink3, i32 noundef 0) #2
-  %16 = load i32, ptr %hf_harq_control_ie_spid.sink, align 4
-  %17 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %2, i32 noundef %.sink3, i32 noundef 0) #2
-  br label %18
+.sink.split:                                      ; preds = %10, %6
+  %hf_harq_control_ie_ai_sn.sink = phi ptr [ @hf_harq_control_ie_ai_sn_1, %6 ], [ @hf_harq_control_ie_ai_sn, %10 ]
+  %.sink3 = phi i32 [ 2, %6 ], [ 1, %10 ]
+  %hf_harq_control_ie_spid.sink = phi ptr [ @hf_harq_control_ie_spid_1, %6 ], [ @hf_harq_control_ie_spid, %10 ]
+  %hf_harq_control_ie_acid.sink.ph = phi ptr [ @hf_harq_control_ie_acid_1, %6 ], [ @hf_harq_control_ie_acid, %10 ]
+  %13 = load i32, ptr %hf_harq_control_ie_ai_sn.sink, align 4
+  %14 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %13, ptr noundef %1, i32 noundef %2, i32 noundef %.sink3, i32 noundef 0) #2
+  %15 = load i32, ptr %hf_harq_control_ie_spid.sink, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %15, ptr noundef %1, i32 noundef %2, i32 noundef %.sink3, i32 noundef 0) #2
+  br label %17
 
-18:                                               ; preds = %.sink.split, %11, %7
-  %hf_harq_control_ie_acid.sink = phi ptr [ @hf_harq_control_ie_reserved_1, %7 ], [ @hf_harq_control_ie_reserved, %11 ], [ %hf_harq_control_ie_acid.sink.ph, %.sink.split ]
-  %.sink1 = phi i32 [ 2, %7 ], [ 1, %11 ], [ %.sink3, %.sink.split ]
-  %.0 = phi i32 [ 1, %7 ], [ 1, %11 ], [ 2, %.sink.split ]
-  %19 = load i32, ptr %hf_harq_control_ie_acid.sink, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %19, ptr noundef %1, i32 noundef %2, i32 noundef %.sink1, i32 noundef 0) #2
+17:                                               ; preds = %.sink.split, %10, %6
+  %hf_harq_control_ie_acid.sink = phi ptr [ @hf_harq_control_ie_reserved_1, %6 ], [ @hf_harq_control_ie_reserved, %10 ], [ %hf_harq_control_ie_acid.sink.ph, %.sink.split ]
+  %.sink1 = phi i32 [ 2, %6 ], [ 1, %10 ], [ %.sink3, %.sink.split ]
+  %.0 = phi i32 [ 1, %6 ], [ 1, %10 ], [ 2, %.sink.split ]
+  %18 = load i32, ptr %hf_harq_control_ie_acid.sink, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %2, i32 noundef %.sink1, i32 noundef 0) #2
   ret i32 %.0
 }
 

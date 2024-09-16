@@ -5043,7 +5043,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr n
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL10runAndSaveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_IN2cv6Point_IfEESaISA_EESaISC_EENS8_5Size_IiEESI_7PatternffbfiRNS8_3MatESL_bbb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, i64 %3, i32 noundef %4, float noundef %5, float noundef %6, i1 noundef zeroext %7, float noundef %8, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10runAndSaveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_IN2cv6Point_IfEESaISA_EESaISC_EENS8_5Size_IiEESI_7PatternffbfiRNS8_3MatESL_bbb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, i64 %3, i32 noundef range(i32 0, 4) %4, float noundef %5, float noundef %6, i1 noundef zeroext %7, float noundef %8, i32 noundef %9, ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %14) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %16 = alloca %"class.cv::internal::VecWriterProxy", align 8
   %17 = alloca %"class.cv::internal::WriteStructContext", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5260,7 +5260,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE6resizeEm.exit.i.i: ; preds = %.noexc45
   store ptr %156, ptr %157, align 8
   %.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %.sroa.7.0.extract.shift.i to i32
   %159 = getelementptr inbounds i8, ptr %155, i64 8
-  switch i32 %4, label %default.unreachable.i.i [
+  switch i32 %4, label %default.unreachable [
     i32 0, label %241
     i32 1, label %241
     i32 2, label %.preheader94.i.i
@@ -5603,7 +5603,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backEOS2_.exit.us.i.i: ; preds = %_ZN
 .split.us110.i.cont.i:                            ; preds = %.split.us110.i.invoke.i
   unreachable
 
-default.unreachable.i.i:                          ; preds = %.noexc46
+default.unreachable:                              ; preds = %.noexc46
   unreachable
 
 _ZL21calcChessboardCornersN2cv5Size_IiEEfRSt6vectorINS_7Point3_IfEESaIS4_EE7Pattern.exit.i: ; preds = %._crit_edge.us.i.i, %._crit_edge.us105.i.i, %._crit_edge.us109.i.i, %.preheader.lr.ph.i.i, %241, %.preheader93.lr.ph.i.i, %.preheader94.i.i, %.preheader96.lr.ph.i.i, %.preheader97.i.i

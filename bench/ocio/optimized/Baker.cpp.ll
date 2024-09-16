@@ -3618,7 +3618,7 @@ declare noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config17getNumDisplaysAllEv(ptr n
 declare noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config13getDisplayAllEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_"(ptr nocapture readonly %this.0.val, i32 noundef %type, ptr noundef %display, ptr noundef %view) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @"_ZZNK19OpenColorIO_v2_4dev5Baker4bakeERSoENK3$_0clENS_8ViewTypeEPKcS5_"(ptr nocapture readonly %this.0.val, i32 noundef range(i32 0, 2) %type, ptr noundef %display, ptr noundef %view) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.11", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8

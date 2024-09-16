@@ -2257,7 +2257,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #4
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #4 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 33) %2) unnamed_addr #0 align 16 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = alloca i64, align 8
@@ -2304,7 +2304,7 @@ define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture nound
   call void @chacha_block_generic(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 20) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @base_crng, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   %24 = getelementptr inbounds i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 16 %24, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %1, ptr noundef align 16 %24, i64 %2, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #16, !srcloc !25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
@@ -2356,7 +2356,7 @@ define internal fastcc void @crng_make_state(ptr noundef %0, ptr nocapture nound
   call void @chacha_block_generic(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 20) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(32) %28, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false)
   %41 = getelementptr inbounds i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 16 %41, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %1, ptr noundef align 16 %41, i64 %2, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #16, !srcloc !25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16

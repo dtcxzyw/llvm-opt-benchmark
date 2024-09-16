@@ -120,12 +120,12 @@ if.then10.i.i.i:                                  ; preds = %if.end8.i.i.i
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 16
   %conv3.i.i.i.i = zext i8 %4 to i64
   %shl4.i.i.i.i = shl nuw nsw i64 %conv3.i.i.i.i, 24
+  %or.i.i.i.i = or disjoint i64 %shl4.i.i.i.i, %shl.i.i.i.i
   %conv5.i.i.i.i = zext i8 %6 to i64
+  %or7.i.i.i.i = or disjoint i64 %or.i.i.i.i, %conv5.i.i.i.i
   %shl9.i.i.i.i = shl nuw nsw i64 %length, 8
-  %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %shl9.i.i.i.i
-  %or7.i.i.i.i = or disjoint i64 %or.i.i.i.i, %shl4.i.i.i.i
-  %conv13.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %conv5.i.i.i.i
-  %xor14.i.i.i.i = xor i64 %conv13.i.i.i.i, 2267503259
+  %or10.i.i.i.i = or disjoint i64 %or7.i.i.i.i, %shl9.i.i.i.i
+  %xor14.i.i.i.i = xor i64 %or10.i.i.i.i, 2267503259
   %mul.i.i22.i.i.i = mul i64 %xor14.i.i.i.i, -4417276706812531889
   %shr1.i.i.i.i.i = lshr i64 %mul.i.i22.i.i.i, 29
   %xor2.i.i23.i.i.i = xor i64 %shr1.i.i.i.i.i, %mul.i.i22.i.i.i
@@ -313,19 +313,18 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %exitcond.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !15
 
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i
+  %conv.i.i.i = trunc nuw nsw i64 %length to i32
+  %div20.i.i.i = lshr i32 %conv.i.i.i, 4
   %shr.i.i.i40.i.i = lshr i64 %add.i39.i.i, 37
   %xor.i.i27.i.i.i = xor i64 %shr.i.i.i40.i.i, %add.i39.i.i
   %mul.i.i41.i.i = mul i64 %xor.i.i27.i.i.i, 1609587791953885689
   %shr.i4.i.i42.i.i = lshr i64 %mul.i.i41.i.i, 32
   %xor.i5.i.i43.i.i = xor i64 %shr.i4.i.i42.i.i, %mul.i.i41.i.i
-  %cmp83.i.i.i = icmp ugt i64 %length, 143
-  br i1 %cmp83.i.i.i, label %for.body10.preheader.i.i.i, label %XXH3_len_129to240_64b.exit.i.i
+  %cmp83.not.i.i.i = icmp eq i32 %div20.i.i.i, 8
+  br i1 %cmp83.not.i.i.i, label %XXH3_len_129to240_64b.exit.i.i, label %for.body10.preheader.i.i.i
 
 for.body10.preheader.i.i.i:                       ; preds = %for.end.i.i.i
-  %conv.i.i.i = trunc nuw i64 %length to i32
-  %div20.i.i.i = lshr i32 %conv.i.i.i, 4
-  %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %div20.i.i.i, i32 9)
-  %wide.trip.count.i.i.i = zext nneg i32 %umax.i.i.i to i64
+  %wide.trip.count.i.i.i = zext nneg i32 %div20.i.i.i to i64
   br label %for.body10.i.i.i
 
 for.body10.i.i.i:                                 ; preds = %for.body10.i.i.i, %for.body10.preheader.i.i.i
@@ -610,9 +609,6 @@ declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7

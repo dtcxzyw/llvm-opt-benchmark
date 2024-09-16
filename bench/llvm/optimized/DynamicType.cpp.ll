@@ -754,7 +754,7 @@ define dso_local void @_ZN5clang4ento18setDynamicTypeInfoEN4llvm18IntrusiveRefCn
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = load ptr, ptr %1, align 8
   %8 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #14
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %8, i64 %3, i8 %4)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 %3, i8 %4)
   %9 = load ptr, ptr %6, align 8
   %10 = load ptr, ptr %1, align 8
   store ptr %10, ptr %6, align 8
@@ -775,7 +775,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i64 %3, i8 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %2, i64 %3, i8 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::ento::DynamicTypeInfo", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::ImmutableMap.45", align 8
@@ -861,7 +861,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionEN
   br label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS0_15DynamicTypeInfoENS2_16ImutKeyValueInfoIS6_S7_EEEEvE11MakeVoidPtrESA_.exit.i
 
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS0_15DynamicTypeInfoENS2_16ImutKeyValueInfoIS6_S7_EEEEvE11MakeVoidPtrESA_.exit.i: ; preds = %31, %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS0_15DynamicTypeInfoENS2_16ImutKeyValueInfoIS6_S7_EEEEvE3SetESA_S6_S7_RNSA_7FactoryE.exit.i
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull %9, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DynamicTypeMapEE8GDMIndexEvE5Index, ptr noundef %30) #14
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull %9, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DynamicTypeMapEE8GDMIndexEvE5Index, ptr noundef %30) #14
   %35 = load ptr, ptr %10, align 8, !noalias !31
   %.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS2_15DynamicTypeInfoENS_16ImutKeyValueInfoIS5_S6_EEED2Ev.exit.i, label %36
@@ -925,7 +925,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %10 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion10StripCastsEb(ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext true) #14, !noalias !45
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %10, i64 %3, i8 %9), !noalias !45
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %10, i64 %3, i8 %9), !noalias !45
   %11 = load ptr, ptr %6, align 8, !noalias !45
   store ptr %7, ptr %6, align 8, !noalias !45
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %7) #14, !noalias !45
@@ -960,7 +960,7 @@ define dso_local void @_ZN5clang4ento25setDynamicTypeAndCastInfoEN4llvm18Intrusi
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr %1, align 8
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull %2, i64 %4, i8 1)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DynamicTypeMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %2, i64 %4, i8 1)
   %22 = load ptr, ptr %12, align 8
   %23 = load ptr, ptr %1, align 8
   store ptr %23, ptr %12, align 8

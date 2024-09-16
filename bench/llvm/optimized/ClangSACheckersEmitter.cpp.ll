@@ -775,7 +775,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24.i:             ; preds = %330, %328
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit27.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %339, %337
-  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %262, ptr nonnull @.str.49, i64 8)
+  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(192) %262, ptr nonnull @.str.49, i64 8)
   %342 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
   %343 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #9
   %344 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %342, i64 %343, i1 noundef zeroext false) #9
@@ -835,7 +835,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33.i:             ; preds = %363, %361
   %368 = call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %262), !noalias !9
   %369 = extractvalue { ptr, i64 } %368, 0
   %370 = extractvalue { ptr, i64 } %368, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %262, ptr nonnull @.str.4, i64 1), !noalias !9
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %262, ptr nonnull @.str.4, i64 1), !noalias !9
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %5), !noalias !9
   %371 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 4, ptr %371, align 8, !noalias !9
@@ -846,7 +846,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit33.i:             ; preds = %363, %361
   unreachable
 
 373:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit33.i
-  %374 = call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef nonnull %366, ptr noundef nonnull align 8 dereferenceable(192) %262), !noalias !9
+  %374 = call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef %366, ptr noundef nonnull align 8 dereferenceable(192) %262), !noalias !9
   %375 = icmp eq i64 %374, 0
   br i1 %375, label %376, label %380
 
@@ -1760,7 +1760,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
   br i1 %.not.i, label %46, label %32
 
 32:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %33 = tail call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !17
+  %33 = tail call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !17
   switch i64 %33, label %46 [
     i64 0, label %34
     i64 1, label %38
@@ -1798,7 +1798,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %26, %28
   %47 = tail call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !17
   %48 = extractvalue { ptr, i64 } %47, 0
   %49 = extractvalue { ptr, i64 } %47, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !17
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !17
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %15), !noalias !17
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 4, ptr %50, align 8, !noalias !17
@@ -1885,7 +1885,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %77, %79
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %84, %86
   %.0.i = phi ptr [ %85, %84 ], [ %0, %86 ]
-  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.31, i64 7)
+  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.31, i64 7)
   %88 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
   %89 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #9
   %90 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef %88, i64 noundef %89) #9
@@ -1928,7 +1928,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %99, %101
   br label %_ZN4llvm11raw_ostreamlsEc.exit32
 
 _ZN4llvm11raw_ostreamlsEc.exit32:                 ; preds = %106, %108
-  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.32, i64 4)
+  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.32, i64 4)
   %110 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #9
   %111 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #9
   %112 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %110, i64 %111, i1 noundef zeroext false) #9
@@ -1971,7 +1971,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %121, %123
   br label %_ZN4llvm11raw_ostreamlsEc.exit38
 
 _ZN4llvm11raw_ostreamlsEc.exit38:                 ; preds = %128, %130
-  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.33, i64 10)
+  call fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr nonnull @.str.33, i64 10)
   %132 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
   %133 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #9
   %134 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %132, i64 %133, i1 noundef zeroext false) #9
@@ -2024,7 +2024,7 @@ _ZN4llvm11raw_ostreamlsEc.exit44:                 ; preds = %150, %152
   br i1 %.not.i45, label %165, label %155
 
 155:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit44
-  %156 = call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef nonnull %154, ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !20
+  %156 = call fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr noundef %154, ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !20
   switch i64 %156, label %165 [
     i64 0, label %157
     i64 1, label %161
@@ -2052,7 +2052,7 @@ _ZN4llvm11raw_ostreamlsEc.exit44:                 ; preds = %150, %152
   %166 = call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %3), !noalias !20
   %167 = extractvalue { ptr, i64 } %166, 0
   %168 = extractvalue { ptr, i64 } %166, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !20
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %3, ptr nonnull @.str.4, i64 1), !noalias !20
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.41, ptr noundef nonnull align 8 dereferenceable(32) %9), !noalias !20
   %169 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 4, ptr %169, align 8, !noalias !20
@@ -2141,7 +2141,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit52:               ; preds = %204, %202, %197, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 {
   tail call fastcc void @_ZL24getParentPackageFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3)
   %5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #9
   br i1 %5, label %8, label %6
@@ -2223,7 +2223,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZL14getStringValueB5cxx11RKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.0", align 1
   %7 = tail call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3) #9
@@ -2266,7 +2266,7 @@ declare noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr n
 declare noundef ptr @_ZNK4llvm6Record18getValueAsBitsInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitERKNS_6RecordE(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2307,7 +2307,7 @@ define internal fastcc noundef i64 @_ZL20getValueFromBitsInitPKN4llvm8BitsInitER
   %25 = tail call { ptr, i64 } @_ZNK4llvm6Record6getLocEv(ptr noundef nonnull align 8 dereferenceable(192) %1)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
-  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %1, ptr nonnull @.str.4, i64 1)
+  call fastcc void @_ZL18getCheckerFullNameB5cxx11PKN4llvm6RecordENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %1, ptr nonnull @.str.4, i64 1)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.42, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i8 4, ptr %28, align 8

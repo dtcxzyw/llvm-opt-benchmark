@@ -1767,7 +1767,7 @@ allowed_chars_len.exit:                           ; preds = %switch.early.test.i
   br i1 %or.cond, label %.lr.ph.i28, label %34
 
 30:                                               ; preds = %.lr.ph.i28
-  %31 = add i32 %.078.i, 1
+  %31 = add nuw i32 %.078.i, 1
   %exitcond.not.i30 = icmp eq i32 %31, %17
   br i1 %exitcond.not.i30, label %is_padded.exit, label %.lr.ph.i28, !llvm.loop !15
 

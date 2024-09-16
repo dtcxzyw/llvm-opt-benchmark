@@ -3162,7 +3162,7 @@ if.then99:                                        ; preds = %if.end97
   br i1 %tobool101.not, label %err, label %if.end103
 
 if.end103:                                        ; preds = %if.then99
-  %call104 = call fastcc i32 @tls_process_as_hello_retry_request(ptr noundef nonnull %s, ptr noundef nonnull %extpkt)
+  %call104 = call fastcc i32 @tls_process_as_hello_retry_request(ptr noundef nonnull %s, ptr noundef %extpkt)
   br label %return
 
 if.end105:                                        ; preds = %lor.lhs.false83, %if.end97
@@ -6680,7 +6680,7 @@ return:                                           ; preds = %if.end89, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tls_process_as_hello_retry_request(ptr noundef %s, ptr noundef %extpkt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tls_process_as_hello_retry_request(ptr noundef %s, ptr noundef nonnull %extpkt) unnamed_addr #0 {
 entry:
   %extensions = alloca ptr, align 8
   store ptr null, ptr %extensions, align 8
@@ -6702,7 +6702,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   %wrl = getelementptr inbounds i8, ptr %s, i64 3048
   %3 = load ptr, ptr %wrl, align 8
   %call2 = tail call i32 %2(ptr noundef %3, i32 noundef 772) #8
-  %call3 = call i32 @tls_collect_extensions(ptr noundef nonnull %s, ptr noundef %extpkt, i32 noundef 2048, ptr noundef nonnull %extensions, ptr noundef null, i32 noundef 1) #8
+  %call3 = call i32 @tls_collect_extensions(ptr noundef nonnull %s, ptr noundef nonnull %extpkt, i32 noundef 2048, ptr noundef nonnull %extensions, ptr noundef null, i32 noundef 1) #8
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %err, label %lor.lhs.false
 

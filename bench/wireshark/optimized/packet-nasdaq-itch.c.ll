@@ -573,7 +573,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @time_stamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @time_stamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 3, 9) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %27, label %6
 
@@ -626,7 +626,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #4
   %7 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef 0) #4
   %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #4
@@ -678,7 +678,7 @@ define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @executed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @executed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #4
   %7 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef 0) #4
   %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #4

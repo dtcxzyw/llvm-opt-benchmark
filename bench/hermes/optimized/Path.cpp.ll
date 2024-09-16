@@ -4222,7 +4222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext %MakeAbsolute, i32 noundef %Mode, i32 noundef %Type, i32 noundef %Flags) unnamed_addr #0 {
+define internal fastcc { i32, ptr } @_ZL18createUniqueEntityRKN4llvh5TwineERiRNS_15SmallVectorImplIcEEbj8FSEntityNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(18) %Model, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i1 noundef zeroext %MakeAbsolute, i32 noundef %Mode, i32 noundef range(i32 0, 3) %Type, i32 noundef range(i32 0, 5) %Flags) unnamed_addr #0 {
 entry:
   %path_storage.i = alloca %"class.llvh::SmallString.11", align 8
   %PathStorage.i = alloca %"class.llvh::SmallString.11", align 8
@@ -4424,7 +4424,7 @@ for.inc:                                          ; preds = %for.body12, %if.the
 
 for.end:                                          ; preds = %for.inc, %for.body
   %21 = load ptr, ptr %ResultPath, align 8
-  switch i32 %Type, label %default.unreachable [
+  switch i32 %Type, label %default.unreachable128 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb35
     i32 0, label %sw.bb47
@@ -4568,7 +4568,7 @@ if.then54:                                        ; preds = %_ZN4llvh3sys2fs16cr
   %36 = select i1 %cmp.i.i91, i1 %cmp.i92, i1 false
   br i1 %36, label %for.inc60, label %cleanup
 
-default.unreachable:                              ; preds = %for.end
+default.unreachable128:                           ; preds = %for.end
   unreachable
 
 for.inc60:                                        ; preds = %if.then27, %if.then54, %if.end43, %lor.rhs
@@ -4623,7 +4623,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i32, ptr } @_ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntity(ptr noundef nonnull align 8 dereferenceable(18) %Prefix, ptr %Suffix.coerce0, i64 %Suffix.coerce1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i32 noundef %Type) unnamed_addr #0 {
+define internal fastcc { i32, ptr } @_ZN4llvh3sys2fsL19createTemporaryFileERKNS_5TwineENS_9StringRefERiRNS_15SmallVectorImplIcEE8FSEntity(ptr noundef nonnull align 8 dereferenceable(18) %Prefix, ptr %Suffix.coerce0, i64 %Suffix.coerce1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ResultFD, ptr noundef nonnull align 8 dereferenceable(16) %ResultPath, i32 noundef range(i32 1, 3) %Type) unnamed_addr #0 {
 entry:
   %Storage.i = alloca %"class.llvh::SmallString.11", align 8
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8

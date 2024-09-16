@@ -1892,7 +1892,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @event_base_free_(ptr noundef %base, i32 noundef %run_finalizers) unnamed_addr #0 {
+define internal fastcc void @event_base_free_(ptr noundef %base, i32 noundef range(i32 0, 2) %run_finalizers) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %base, null
   %0 = load ptr, ptr @event_global_current_base_, align 8

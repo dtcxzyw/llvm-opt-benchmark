@@ -2134,13 +2134,13 @@ if.end76.i.i:                                     ; preds = %if.then73.i.i, %if.
   store ptr %ref_map.i.i.i, ptr %tail.i.i.i, align 8
   store ptr null, ptr %orefs.i.i.i, align 8
   store ptr %orefs.i.i.i, ptr %oref_tail.i.i.i, align 8
-  call fastcc void @filter_prefetch_refspec(ptr noundef nonnull %rs.i)
+  call fastcc void @filter_prefetch_refspec(ptr noundef %rs.i)
   %tobool.not.i68.i.i = icmp eq ptr %111, null
   br i1 %tobool.not.i68.i.i, label %if.end.i70.i.i, label %if.then.i69.i.i
 
 if.then.i69.i.i:                                  ; preds = %if.end76.i.i
   %fetch.i.i.i = getelementptr inbounds i8, ptr %111, i64 112
-  call fastcc void @filter_prefetch_refspec(ptr noundef nonnull %fetch.i.i.i)
+  call fastcc void @filter_prefetch_refspec(ptr noundef %fetch.i.i.i)
   br label %if.end.i70.i.i
 
 if.end.i70.i.i:                                   ; preds = %if.then.i69.i.i, %if.end76.i.i
@@ -2431,7 +2431,7 @@ land.lhs.true126.i.i.i:                           ; preds = %if.end118.i.i.i
   br i1 %tobool127.not.i.i.i, label %if.end130.i.i.i, label %if.then128.i.i.i
 
 if.then128.i.i.i:                                 ; preds = %land.lhs.true126.i.i.i
-  call fastcc void @find_non_local_tags(ptr noundef %remote_refs.0.i.i, ptr noundef null, ptr noundef nonnull %ref_map.i.i.i, ptr noundef nonnull %tail.i.i.i)
+  call fastcc void @find_non_local_tags(ptr noundef %remote_refs.0.i.i, ptr noundef null, ptr noundef %ref_map.i.i.i, ptr noundef %tail.i.i.i)
   br label %if.end130.i.i.i
 
 if.end130.i.i.i:                                  ; preds = %if.then128.i.i.i, %land.lhs.true126.i.i.i, %if.then121.i.i.i, %if.end118.i.i.i
@@ -2933,7 +2933,7 @@ _.exit32.i.i:                                     ; preds = %if.end3.i29.i.i, %_
   %name29.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 176
   %new_oid.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 44
   %old_oid.i.i = getelementptr inbounds i8, ptr %ref.250.i.i, i64 8
-  call fastcc void @display_ref_update(ptr noundef nonnull %display_state.i.i, i8 noundef signext 45, ptr noundef %retval.0.i2643.i.i, ptr noundef null, ptr noundef %retval.0.i31.i.i, ptr noundef nonnull %name29.i.i, ptr noundef nonnull %new_oid.i.i, ptr noundef nonnull %old_oid.i.i, i32 noundef %call23.i.i)
+  call fastcc void @display_ref_update(ptr noundef %display_state.i.i, i8 noundef signext 45, ptr noundef %retval.0.i2643.i.i, ptr noundef null, ptr noundef %retval.0.i31.i.i, ptr noundef nonnull %name29.i.i, ptr noundef nonnull %new_oid.i.i, ptr noundef nonnull %old_oid.i.i, i32 noundef %call23.i.i)
   %198 = load ptr, ptr @stderr, align 8
   call void @warn_dangling_symref(ptr noundef %198, ptr noundef %cond35.i.i, ptr noundef nonnull %name29.i.i) #17
   %199 = load ptr, ptr %ref.250.i.i, align 8
@@ -2952,7 +2952,7 @@ prune_refs.exit.i:                                ; preds = %for.body.i37.i, %_.
 
 if.end115.i.i:                                    ; preds = %prune_refs.exit.i, %if.end99.i.i
   %retcode.1.i.i = phi i32 [ %spec.store.select.i.i, %prune_refs.exit.i ], [ 0, %if.end99.i.i ]
-  %call116.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef nonnull %display_state.i.i, ptr noundef %79, ptr noundef %transaction.1.i.i, ptr noundef %164, ptr noundef nonnull %fetch_head.i.i, ptr noundef nonnull readonly %config)
+  %call116.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state.i.i, ptr noundef %79, ptr noundef %transaction.1.i.i, ptr noundef %164, ptr noundef %fetch_head.i.i, ptr noundef readonly %config)
   %tobool117.not.i.i = icmp eq i32 %call116.i.i, 0
   br i1 %tobool117.not.i.i, label %if.end119.i.i, label %if.then210.i.i
 
@@ -2965,7 +2965,7 @@ if.end119.i.i:                                    ; preds = %if.end115.i.i
 if.then124.i.i:                                   ; preds = %if.end119.i.i
   store ptr null, ptr %tags_ref_map.i.i, align 8
   store ptr %tags_ref_map.i.i, ptr %tail.i.i, align 8
-  call fastcc void @find_non_local_tags(ptr noundef %remote_refs.0.i.i, ptr noundef %transaction.1.i.i, ptr noundef nonnull %tags_ref_map.i.i, ptr noundef nonnull %tail.i.i)
+  call fastcc void @find_non_local_tags(ptr noundef %remote_refs.0.i.i, ptr noundef %transaction.1.i.i, ptr noundef %tags_ref_map.i.i, ptr noundef %tail.i.i)
   %201 = load ptr, ptr %tags_ref_map.i.i, align 8
   %tobool125.not.i.i = icmp eq ptr %201, null
   br i1 %tobool125.not.i.i, label %if.end131.i.i, label %if.then126.i.i
@@ -2994,7 +2994,7 @@ if.end.i112.i.i:                                  ; preds = %if.then.i117.i.i, %
   %call5.i113.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.164, ptr noundef null) #17
   %call6.i114.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.235) #17
   %call7.i.i.i = call i32 @transport_set_option(ptr noundef %transport.addr.0.i.i.i, ptr noundef nonnull @.str.146, ptr noundef null) #17
-  %call8.i115.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef nonnull %display_state.i.i, ptr noundef %transport.addr.0.i.i.i, ptr noundef %transaction.1.i.i, ptr noundef nonnull %201, ptr noundef nonnull %fetch_head.i.i, ptr noundef nonnull readonly %config)
+  %call8.i115.i.i = call fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state.i.i, ptr noundef %transport.addr.0.i.i.i, ptr noundef %transaction.1.i.i, ptr noundef nonnull %201, ptr noundef %fetch_head.i.i, ptr noundef readonly %config)
   %205 = load ptr, ptr @gsecondary, align 8
   %tobool9.not.i116.i.i = icmp eq ptr %205, null
   br i1 %tobool9.not.i116.i.i, label %backfill_tags.exit.i.i, label %if.then10.i.i.i
@@ -3372,7 +3372,7 @@ truncate_fetch_head.exit.i:                       ; preds = %if.end3.i.i.i104, %
 
 if.end4.i89:                                      ; preds = %truncate_fetch_head.exit.thread.i, %if.end749
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %argv.i, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.242, ptr noundef null) #17
-  call fastcc void @add_options_to_argv(ptr noundef nonnull %argv.i, ptr noundef nonnull %config)
+  call fastcc void @add_options_to_argv(ptr noundef %argv.i, ptr noundef %config)
   %cmp.not.i90 = icmp eq i32 %max_children.0, 1
   %nr14.phi.trans.insert.i = getelementptr inbounds i8, ptr %list, i64 8
   %.pre.i = load i64, ptr %nr14.phi.trans.insert.i, align 8
@@ -3518,7 +3518,7 @@ if.then764:                                       ; preds = %if.end756
   %parallel774 = getelementptr inbounds i8, ptr %config, i64 20
   %255 = load i32, ptr %parallel774, align 4
   %max_children765.1 = select i1 %cmp771, i32 %255, i32 %max_children765.0
-  call fastcc void @add_options_to_argv(ptr noundef nonnull %options, ptr noundef nonnull %config)
+  call fastcc void @add_options_to_argv(ptr noundef %options, ptr noundef %config)
   %256 = load ptr, ptr @the_repository, align 8
   %257 = load ptr, ptr %submodule_prefix, align 8
   %258 = load i32, ptr %recurse_submodules568148, align 4
@@ -3878,7 +3878,7 @@ declare ptr @remote_get(ptr noundef) local_unnamed_addr #3
 declare void @string_list_remove_duplicates(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @prepare_transport(ptr noundef %remote, i32 noundef %deepen) unnamed_addr #0 {
+define internal fastcc noundef ptr @prepare_transport(ptr noundef %remote, i32 noundef range(i32 0, 2) %deepen) unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %call = tail call ptr @transport_get(ptr noundef %remote, ptr noundef null) #17
@@ -4358,14 +4358,14 @@ declare void @oidset_clear(ptr noundef) local_unnamed_addr #3
 declare i32 @repo_has_promisor_remote(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_options_to_argv(ptr noundef %argv, ptr nocapture noundef readonly %config) unnamed_addr #0 {
+define internal fastcc void @add_options_to_argv(ptr noundef nonnull %argv, ptr nocapture noundef nonnull readonly %config) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @dry_run, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.248) #17
+  %call = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.248) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -4376,7 +4376,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then1:                                         ; preds = %if.end
   %tobool2.not = icmp eq i32 %1, 0
   %cond = select i1 %tobool2.not, ptr @.str.250, ptr @.str.249
-  %call3 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %cond) #17
+  %call3 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %cond) #17
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then1, %if.end
@@ -4387,7 +4387,7 @@ if.end4:                                          ; preds = %if.then1, %if.end
 if.then6:                                         ; preds = %if.end4
   %tobool7.not = icmp eq i32 %2, 0
   %cond8 = select i1 %tobool7.not, ptr @.str.252, ptr @.str.251
-  %call9 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %cond8) #17
+  %call9 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %cond8) #17
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then6, %if.end4
@@ -4396,7 +4396,7 @@ if.end10:                                         ; preds = %if.then6, %if.end4
   br i1 %tobool11.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %call13 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.253) #17
+  %call13 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.253) #17
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then12, %if.end10
@@ -4405,7 +4405,7 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   br i1 %tobool15.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %call17 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.254) #17
+  %call17 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.254) #17
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then16, %if.end14
@@ -4414,7 +4414,7 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br i1 %tobool19.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %call21 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.255) #17
+  %call21 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.255) #17
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then20, %if.end18
@@ -4434,7 +4434,7 @@ if.then33:                                        ; preds = %if.end22
 
 if.end37.sink.split:                              ; preds = %if.end22, %if.then33, %if.then28
   %.str.256.sink = phi ptr [ @.str.256, %if.then28 ], [ @.str.257, %if.then33 ], [ @.str.96, %if.end22 ]
-  %call29 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %.str.256.sink) #17
+  %call29 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %.str.256.sink) #17
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.sink.split, %if.end22
@@ -4449,7 +4449,7 @@ if.then43:                                        ; preds = %if.end37
 
 if.end46.sink.split:                              ; preds = %if.end37, %if.then43
   %.str.259.sink = phi ptr [ @.str.259, %if.then43 ], [ @.str.258, %if.end37 ]
-  %call44 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %.str.259.sink) #17
+  %call44 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %.str.259.sink) #17
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end46.sink.split, %if.end37
@@ -4458,7 +4458,7 @@ if.end46:                                         ; preds = %if.end46.sink.split
   br i1 %cmp47, label %if.then48, label %if.end50
 
 if.then48:                                        ; preds = %if.end46
-  %call49 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.260) #17
+  %call49 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.260) #17
   %.pr = load i32, ptr @verbosity, align 4
   br label %if.end50
 
@@ -4473,7 +4473,7 @@ if.else54:                                        ; preds = %if.end50
 
 if.end59.sink.split:                              ; preds = %if.else54, %if.end50
   %.str.261.sink = phi ptr [ @.str.260, %if.end50 ], [ @.str.261, %if.else54 ]
-  %call57 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %.str.261.sink) #17
+  %call57 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %.str.261.sink) #17
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end59.sink.split, %if.else54
@@ -4488,7 +4488,7 @@ if.then65:                                        ; preds = %if.end59
 
 if.end68.sink.split:                              ; preds = %if.end59, %if.then65
   %.str.263.sink = phi ptr [ @.str.263, %if.then65 ], [ @.str.262, %if.end59 ]
-  %call66 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull %.str.263.sink) #17
+  %call66 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull %.str.263.sink) #17
   br label %if.end68
 
 if.end68:                                         ; preds = %if.end68.sink.split, %if.end59
@@ -4497,7 +4497,7 @@ if.end68:                                         ; preds = %if.end68.sink.split
   br i1 %tobool69.not, label %if.then70, label %if.end72
 
 if.then70:                                        ; preds = %if.end68
-  %call71 = tail call ptr @strvec_push(ptr noundef %argv, ptr noundef nonnull @.str.264) #17
+  %call71 = tail call ptr @strvec_push(ptr noundef nonnull %argv, ptr noundef nonnull @.str.264) #17
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then70, %if.end68
@@ -4506,7 +4506,7 @@ if.end72:                                         ; preds = %if.then70, %if.end6
   br i1 %cmp73, label %if.then74, label %if.end76
 
 if.then74:                                        ; preds = %if.end72
-  %call75 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %argv, ptr noundef nonnull @.str.97) #17
+  %call75 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %argv, ptr noundef nonnull @.str.97) #17
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then74, %if.end72
@@ -4757,7 +4757,7 @@ declare void @transport_ls_refs_options_release(ptr noundef) local_unnamed_addr 
 declare ptr @ref_transaction_begin(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fetch_and_consume_refs(ptr noundef %display_state, ptr noundef %transport, ptr noundef %transaction, ptr noundef %ref_map, ptr noundef %fetch_head, ptr nocapture noundef readonly %config) unnamed_addr #0 {
+define internal fastcc i32 @fetch_and_consume_refs(ptr noundef nonnull %display_state, ptr noundef %transport, ptr noundef %transaction, ptr noundef %ref_map, ptr noundef nonnull %fetch_head, ptr nocapture noundef nonnull readonly %config) unnamed_addr #0 {
 entry:
   %quickref.i.i = alloca %struct.strbuf, align 8
   %quickref147.i.i = alloca %struct.strbuf, align 8
@@ -5492,7 +5492,7 @@ lor.lhs.false.i.i:                                ; preds = %if.then43.i.i
   br i1 %tobool45.not.i.i, label %if.else.i74.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then43.i.i
-  %call47.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.214, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 0)
+  %call47.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.214, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 0)
   %tobool48.not.i.i = icmp eq i32 %call47.i.i, 0
   %conv.i.i = select i1 %tobool48.not.i.i, i8 116, i8 33
   %89 = load i32, ptr @git_gettext_enabled, align 4
@@ -5583,7 +5583,7 @@ if.end93.sink.split.i.i:                          ; preds = %if.else83.i.i, %if.
 if.end93.i.i:                                     ; preds = %if.end93.sink.split.i.i, %if.else83.i.i, %if.then81.i.i
   %what.0.i.i = phi ptr [ @.str.219, %if.then81.i.i ], [ %call.i155.i.i, %if.end93.sink.split.i.i ], [ %.str.223..str.221.i.i, %if.else83.i.i ]
   %msg.0.i.i = phi ptr [ @.str.218, %if.then81.i.i ], [ %msg.0.ph.i.i, %if.end93.sink.split.i.i ], [ %.str.222..str.220.i.i, %if.else83.i.i ]
-  %call94.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull %msg.0.i.i, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 0)
+  %call94.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull %msg.0.i.i, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 0)
   %tobool95.not.i.i = icmp eq i32 %call94.i.i, 0
   %conv97.i.i = select i1 %tobool95.not.i.i, i8 42, i8 33
   br i1 %tobool95.not.i.i, label %cond.end102.i.i, label %cond.true99.i.i
@@ -5629,7 +5629,7 @@ if.then119.i.i:                                   ; preds = %if.then112.i.i, %if
   call void @strbuf_add(ptr noundef nonnull %quickref.i.i, ptr noundef nonnull @.str.224, i64 noundef 2) #17
   %102 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %quickref.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %102) #17
-  %call122.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.225, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 1)
+  %call122.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.225, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 1)
   %tobool123.not.i.i = icmp eq i32 %call122.i.i, 0
   %conv125.i.i = select i1 %tobool123.not.i.i, i8 32, i8 33
   %103 = load ptr, ptr %buf.i75.i, align 8
@@ -5672,7 +5672,7 @@ if.then146.i.i:                                   ; preds = %lor.lhs.false140.i.
   call void @strbuf_add(ptr noundef nonnull %quickref147.i.i, ptr noundef nonnull @.str.227, i64 noundef 3) #17
   %107 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %quickref147.i.i, ptr noundef nonnull %new_oid.i.i, i32 noundef %107) #17
-  %call152.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.228, ptr noundef nonnull %ref.0.i, ptr noundef %transaction, i32 noundef 1)
+  %call152.i.i = call fastcc i32 @s_update_ref(ptr noundef nonnull @.str.228, ptr noundef %ref.0.i, ptr noundef %transaction, i32 noundef 1)
   %tobool153.not.i.i = icmp eq i32 %call152.i.i, 0
   %conv155.i.i = select i1 %tobool153.not.i.i, i8 43, i8 33
   %108 = load ptr, ptr %buf156.i.i, align 8
@@ -5840,7 +5840,7 @@ out:                                              ; preds = %if.then, %store_upd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_non_local_tags(ptr noundef %refs, ptr noundef %transaction, ptr nocapture noundef readonly %head, ptr nocapture noundef %tail) unnamed_addr #0 {
+define internal fastcc void @find_non_local_tags(ptr noundef %refs, ptr noundef %transaction, ptr nocapture noundef nonnull readonly %head, ptr nocapture noundef nonnull %tail) unnamed_addr #0 {
 entry:
   %key.i = alloca %struct.hashmap_entry, align 8
   %key.i.i39 = alloca %struct.hashmap_entry, align 8
@@ -6108,7 +6108,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #3
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @filter_prefetch_refspec(ptr nocapture noundef %rs) unnamed_addr #0 {
+define internal fastcc void @filter_prefetch_refspec(ptr nocapture noundef nonnull %rs) unnamed_addr #0 {
 entry:
   %new_dst = alloca %struct.strbuf, align 8
   %0 = load i32, ptr @prefetch, align 4
@@ -6360,7 +6360,7 @@ declare i32 @delete_refs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @transport_summary_width(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @display_ref_update(ptr noundef %display_state, i8 noundef signext %code, ptr noundef %summary, ptr noundef %error, ptr noundef %remote, ptr noundef %local, ptr noundef %old_oid, ptr noundef %new_oid, i32 noundef %summary_width) unnamed_addr #0 {
+define internal fastcc void @display_ref_update(ptr noundef nonnull %display_state, i8 noundef signext range(i8 32, 117) %code, ptr noundef %summary, ptr noundef %error, ptr noundef %remote, ptr noundef %local, ptr noundef %old_oid, ptr noundef %new_oid, i32 noundef %summary_width) unnamed_addr #0 {
 entry:
   %r.i = alloca %struct.strbuf, align 8
   %l.i = alloca %struct.strbuf, align 8
@@ -6455,12 +6455,12 @@ if.end.i:                                         ; preds = %if.else
   call void @strbuf_add(ptr noundef nonnull %r.i, ptr noundef %call9, i64 noundef %call.i.i) #17
   %call.i8.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call10) #19
   call void @strbuf_add(ptr noundef nonnull %l.i, ptr noundef %call10, i64 noundef %call.i8.i) #17
-  %call1.i = call fastcc i32 @find_and_replace(ptr noundef nonnull %r.i, ptr noundef %call10)
+  %call1.i = call fastcc i32 @find_and_replace(ptr noundef %r.i, ptr noundef %call10)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %13 = call fastcc i32 @find_and_replace(ptr noundef nonnull %l.i, ptr noundef %call9)
+  %13 = call fastcc i32 @find_and_replace(ptr noundef %l.i, ptr noundef %call9)
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then3.i, %if.end.i
@@ -6545,7 +6545,7 @@ declare i32 @gettext_width(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_and_replace(ptr noundef %haystack, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_and_replace(ptr noundef nonnull %haystack, ptr nocapture noundef readonly %needle) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %needle) #19
   %conv = trunc i64 %call to i32
@@ -6674,7 +6674,7 @@ declare i64 @strbuf_write(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @repo_has_object_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @s_update_ref(ptr noundef %action, ptr noundef %ref, ptr noundef %transaction, i32 noundef %check_old) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @s_update_ref(ptr noundef %action, ptr noundef nonnull %ref, ptr noundef %transaction, i32 noundef range(i32 0, 2) %check_old) unnamed_addr #0 {
 entry:
   %err = alloca %struct.strbuf, align 8
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.231) #17

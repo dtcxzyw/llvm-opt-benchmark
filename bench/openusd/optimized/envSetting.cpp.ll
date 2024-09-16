@@ -984,14 +984,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__21Tf_EnvSettingRegistry11GetInstanceEv.exit
 37:                                               ; preds = %32
   %38 = trunc i8 %34 to i1
   %39 = load ptr, ptr %10, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %6, i1 noundef zeroext %38)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %6, i1 noundef zeroext %38)
           to label %40 unwind label %58
 
 40:                                               ; preds = %37
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %42 = load i8, ptr %21, align 8
   %43 = trunc i8 %42 to i1
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i1 noundef zeroext %43)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %7, i1 noundef zeroext %43)
           to label %44 unwind label %60
 
 44:                                               ; preds = %40
@@ -1205,7 +1205,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_StrB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.4", align 1
   %4 = select i1 %1, ptr @.str.19, ptr @.str.20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16

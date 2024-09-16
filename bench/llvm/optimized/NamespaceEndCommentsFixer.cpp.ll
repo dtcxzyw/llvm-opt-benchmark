@@ -1167,7 +1167,7 @@ _ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit: ; preds
   %321 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   %322 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   %.090.val114 = load ptr, ptr %316, align 8
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val114, ptr %321, i64 %322, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef nonnull %21)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val114, ptr %321, i64 %322, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #13
   br label %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit.thread
 
@@ -1712,7 +1712,7 @@ _ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9Strin
   %554 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   %555 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %28) #13
   %.090.val115 = load ptr, ptr %335, align 8
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val115, ptr %554, i64 %555, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef nonnull %21)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr %.090.val115, ptr %554, i64 %555, ptr noundef nonnull align 8 dereferenceable(696) %35, ptr noundef %21)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN5clang6format12_GLOBAL__N_113addEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121._crit_edge, %553, %_ZN5clang6format12_GLOBAL__N_115validEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefES4_.exit, %_ZN5clang6format12_GLOBAL__N_113hasEndCommentEPKNS0_11FormatTokenE.exit121.preheader, %325
@@ -1808,7 +1808,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr nocapture readonly %.216.val, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_116updateEndCommentEPKNS0_11FormatTokenEN4llvm9StringRefERKNS_13SourceManagerEPNS_7tooling12ReplacementsE(ptr nocapture readonly %.216.val, ptr %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.clang::tooling::Replacement", align 8

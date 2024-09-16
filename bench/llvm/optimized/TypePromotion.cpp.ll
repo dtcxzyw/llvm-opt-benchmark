@@ -769,7 +769,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %147, %150
 .lr.ph.i:                                         ; preds = %166, %169
   %.sroa.01.04.i = phi ptr [ %170, %169 ], [ %167, %166 ]
   %171 = load ptr, ptr %.sroa.01.04.i, align 8
-  %172 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef %109) #18
+  %172 = call noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_(ptr noundef nonnull align 8 dereferenceable(152) %171, ptr noundef nonnull %109) #18
   br i1 %172, label %"_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit", label %169
 
 "_ZZN12_GLOBAL__N_117TypePromotionImpl3runERN4llvm8FunctionEPKNS1_13TargetMachineERKNS1_19TargetTransformInfoERKNS1_8LoopInfoEENK3$_0clEPNS1_10BasicBlockE.exit": ; preds = %.lr.ph.i
@@ -3150,7 +3150,7 @@ _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12De
   %.sink.i.i = phi ptr [ %746, %734 ], [ %731, %730 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
-  call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef %.sink.i.i)
+  call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull %.sink.i.i)
   %748 = load i8, ptr %731, align 8
   %749 = icmp ult i8 %748, 29
   br i1 %749, label %_ZN4llvm8DebugLocD2Ev.exit.i.i, label %750
@@ -3233,11 +3233,11 @@ _ZN4llvm8DebugLocD2Ev.exit.i.i:                   ; preds = %767, %_ZN4llvm13IRB
   br i1 %774, label %775, label %776
 
 775:                                              ; preds = %772
-  call void @_ZN4llvm11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %769, ptr noundef %.sink.i.i) #18
+  call void @_ZN4llvm11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %769, ptr noundef nonnull %.sink.i.i) #18
   br label %777
 
 776:                                              ; preds = %772
-  call void @_ZN4llvm11Instruction9moveAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %769, ptr noundef %.sink.i.i) #18
+  call void @_ZN4llvm11Instruction9moveAfterEPS0_(ptr noundef nonnull align 8 dereferenceable(72) %769, ptr noundef nonnull %.sink.i.i) #18
   br label %777
 
 777:                                              ; preds = %776, %775

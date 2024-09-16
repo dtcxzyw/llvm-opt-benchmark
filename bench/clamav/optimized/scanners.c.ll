@@ -1258,9 +1258,9 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   %.not446 = icmp eq i64 %281, 0
   %282 = load ptr, ptr %5, align 8
   %283 = select i1 %.not446, ptr %282, ptr null
-  %284 = call fastcc i32 @scanraw(ptr noundef nonnull %0, i32 noundef %.0387, i8 noundef zeroext 0, ptr noundef nonnull %4, ptr noundef %283)
+  %284 = call fastcc i32 @scanraw(ptr noundef nonnull %0, i32 noundef %.0387, i8 noundef zeroext 0, ptr noundef %4, ptr noundef %283)
   store i32 %284, ptr %3, align 4
-  %285 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %284, ptr noundef nonnull %3)
+  %285 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %284, ptr noundef %3)
   br i1 %285, label %.thread626, label %286
 
 286:                                              ; preds = %278, %274
@@ -2737,7 +2737,7 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   %.val612 = load ptr, ptr %76, align 8
   call void @cli_event_time_nested_stop(ptr noundef %.val612, i32 noundef 6, i32 noundef 0) #16
   %1082 = load i32, ptr %3, align 4
-  %1083 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1082, ptr noundef nonnull %3)
+  %1083 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1082, ptr noundef %3)
   br i1 %1083, label %.thread626, label %1084
 
 1084:                                             ; preds = %1081
@@ -2815,9 +2815,9 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
   %.not587 = icmp eq i64 %1125, 0
   %1126 = load ptr, ptr %5, align 8
   %1127 = select i1 %.not587, ptr %1126, ptr null
-  %1128 = call fastcc i32 @scanraw(ptr noundef nonnull %0, i32 noundef %.0387, i8 noundef zeroext %.1394620624, ptr noundef nonnull %4, ptr noundef %1127)
+  %1128 = call fastcc i32 @scanraw(ptr noundef nonnull %0, i32 noundef %.0387, i8 noundef zeroext %.1394620624, ptr noundef %4, ptr noundef %1127)
   store i32 %1128, ptr %3, align 4
-  %1129 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1128, ptr noundef nonnull %3)
+  %1129 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1128, ptr noundef %3)
   br i1 %1129, label %.thread626, label %1130
 
 1130:                                             ; preds = %1122, %.thread621
@@ -2990,12 +2990,12 @@ emax_reached.exit:                                ; preds = %26, %._crit_edge.i
 .thread629:                                       ; preds = %.thread629.sink.split, %153
   %1203 = phi i32 [ %157, %153 ], [ %.sink, %.thread629.sink.split ]
   %.0396.ph = phi i64 [ 0, %153 ], [ %.0396.ph.ph, %.thread629.sink.split ]
-  %1204 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1203, ptr noundef nonnull %3)
+  %1204 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1203, ptr noundef %3)
   br label %1209
 
 .thread626:                                       ; preds = %1106, %1113, %1169, %1183, %1184, %1186, %1188, %1201, %1195, %1190, %1130, %1122, %1081, %278, %243, %272, %266
   %1205 = load i32, ptr %3, align 4
-  %1206 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1205, ptr noundef nonnull %3)
+  %1206 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %0, i32 noundef %1205, ptr noundef %3)
   %.not595 = icmp eq ptr %245, null
   br i1 %.not595, label %1209, label %1207
 
@@ -3321,7 +3321,7 @@ declare i32 @cli_scan_fmap(ptr noundef, i32 noundef, i1 noundef zeroext, ptr nou
 declare ptr @cli_bitset_init() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 586) %1, i8 noundef zeroext range(i8 0, 2) %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.cli_exe_info, align 8
   %8 = alloca ptr, align 8
@@ -4509,7 +4509,7 @@ define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef %1, i8 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -7152,7 +7152,7 @@ define internal fastcc i32 @cli_scanole2(ptr noundef %0) unnamed_addr #0 {
   %19 = load i32, ptr %3, align 4
   %20 = load i32, ptr %4, align 4
   %21 = load i32, ptr %5, align 4
-  %22 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %16, i32 noundef %19, i32 noundef %20, i32 noundef %21)
+  %22 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %16, i32 noundef %19, i32 noundef %20, i32 noundef %21)
   %.pr.pre = load ptr, ptr %2, align 8
   br label %thread-pre-split
 
@@ -7190,7 +7190,7 @@ thread-pre-split:                                 ; preds = %18, %13
 declare i32 @cli_7unz(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_scantar(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cli_scantar(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.273) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -8757,14 +8757,14 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
 
 269:                                              ; preds = %.sink.split, %.loopexit
   %270 = phi i32 [ %241, %.loopexit ], [ %.sink, %.sink.split ]
-  %271 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %14, i32 noundef %270, ptr noundef nonnull %13)
+  %271 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %14, i32 noundef %270, ptr noundef %13)
   call void @cli_logg_unsetup() #16
   br label %273
 
 .critedge:                                        ; preds = %39, %30, %24, %115, %140, %132, %153, %149
   %.sink143 = phi i32 [ 11, %115 ], [ 20, %140 ], [ 20, %132 ], [ 16, %153 ], [ 20, %149 ], [ 20, %24 ], [ 20, %30 ], [ 20, %39 ]
   store i32 %.sink143, ptr %13, align 4
-  %272 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %14, i32 noundef %.sink143, ptr noundef nonnull %13)
+  %272 = call fastcc zeroext i1 @result_should_goto_done(ptr noundef nonnull %14, i32 noundef %.sink143, ptr noundef %13)
   br label %273
 
 273:                                              ; preds = %.critedge, %269
@@ -9439,7 +9439,7 @@ cli_magic_scan_buff.exit:                         ; preds = %45
   %91 = load i64, ptr %57, align 8
   %92 = load i32, ptr %56, align 8
   %93 = load i32, ptr %55, align 4
-  %94 = call i32 @cli_matchmeta(ptr noundef %1, ptr noundef nonnull %54, i64 noundef %90, i64 noundef %91, i32 noundef %92, i32 noundef %76, i32 noundef %93) #16
+  %94 = call i32 @cli_matchmeta(ptr noundef nonnull %1, ptr noundef nonnull %54, i64 noundef %90, i64 noundef %91, i32 noundef %92, i32 noundef %76, i32 noundef %93) #16
   %95 = icmp eq i32 %94, 1
   br i1 %95, label %cli_magic_scan_buff.exit.thread, label %96
 
@@ -9836,7 +9836,7 @@ declare i32 @cli_uuencode(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @cli_ole2_extract(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca [9 x i8], align 1
@@ -9844,7 +9844,7 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %1
   %11 = alloca i32, align 4
   %12 = alloca %struct.stat, align 8
   store i32 0, ptr %11, align 4
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.232, ptr noundef %1) #16
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.232, ptr noundef nonnull %1) #16
   %13 = getelementptr inbounds i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
@@ -9872,12 +9872,12 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %1
   br i1 %.not91, label %28, label %24
 
 24:                                               ; preds = %23
-  %25 = call fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %11)
+  %25 = call fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %11)
   %.not85 = icmp eq i32 %25, 0
   br i1 %.not85, label %26, label %.thread114
 
 26:                                               ; preds = %24
-  %27 = call fastcc i32 @cli_ole2_tempdir_scan_vba_new(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %11)
+  %27 = call fastcc i32 @cli_ole2_tempdir_scan_vba_new(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %11)
   %.not86 = icmp eq i32 %27, 0
   br i1 %.not86, label %28, label %.thread114
 
@@ -9912,12 +9912,12 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %1
   store i32 0, ptr %8, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(9) @__const.cli_ole2_tempdir_scan_for_xlm_and_images.STR_WORKBOOK, i64 9, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %10, ptr noundef nonnull align 1 dereferenceable(5) @__const.cli_ole2_tempdir_scan_for_xlm_and_images.STR_BOOK, i64 5, i1 false)
-  %39 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull %9, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %39 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull %9, i32 noundef 8, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %41 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull %10, i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not11.i = icmp eq i32 %41, 0
   br i1 %.not11.i, label %43, label %42
 
@@ -9933,7 +9933,7 @@ define internal fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %1
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i.backedge
   %44 = phi i32 [ %.be, %.lr.ph.i.backedge ], [ %.pr.i, %43 ]
   %45 = load ptr, ptr %7, align 8
-  %46 = call i32 @cli_extract_xlm_macros_and_images(ptr noundef %1, ptr noundef %0, ptr noundef %45, i32 noundef %44) #16
+  %46 = call i32 @cli_extract_xlm_macros_and_images(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %45, i32 noundef %44) #16
   switch i32 %46, label %47 [
     i32 0, label %.thread
     i32 1, label %cli_ole2_tempdir_scan_for_xlm_and_images.exit.thread
@@ -9987,12 +9987,12 @@ cli_ole2_tempdir_scan_for_xlm_and_images.exit:    ; preds = %47
   br i1 %or.cond3.not, label %56, label %54
 
 54:                                               ; preds = %52
-  %55 = call i32 @cli_magic_scan_dir(ptr noundef %1, ptr noundef %0, i32 noundef 0)
+  %55 = call i32 @cli_magic_scan_dir(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 0)
   %.not92 = icmp eq i32 %55, 0
   br i1 %.not92, label %56, label %.thread114
 
 56:                                               ; preds = %54, %52
-  %57 = call ptr @opendir(ptr noundef %1)
+  %57 = call ptr @opendir(ptr noundef nonnull %1)
   %.not93 = icmp eq ptr %57, null
   br i1 %.not93, label %91, label %.preheader
 
@@ -10049,7 +10049,7 @@ sub_1121:                                         ; preds = %.tail
   br label %.loopexit.thread
 
 79:                                               ; preds = %.tail119.thread
-  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %1, ptr noundef nonnull %63) #16
+  %80 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %77, ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %1, ptr noundef nonnull %63) #16
   %81 = call i32 @lstat(ptr noundef nonnull %77, ptr noundef nonnull %12) #16
   %.not99 = icmp eq i32 %81, -1
   br i1 %.not99, label %88, label %82
@@ -10061,7 +10061,7 @@ sub_1121:                                         ; preds = %.tail
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
-  %87 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef nonnull %77, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
+  %87 = call fastcc i32 @cli_ole2_scan_tempdir(ptr noundef %0, ptr noundef %77, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %.not100 = icmp eq i32 %87, 0
   br i1 %.not100, label %88, label %93
 
@@ -10075,7 +10075,7 @@ sub_1121:                                         ; preds = %.tail
   br i1 %.not94, label %.loopexit.thread, label %60
 
 91:                                               ; preds = %56
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.235, ptr noundef %1) #16
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.235, ptr noundef nonnull %1) #16
   br label %.thread114
 
 .loopexit.thread:                                 ; preds = %89, %78, %.preheader
@@ -10096,12 +10096,12 @@ sub_1121:                                         ; preds = %.tail
 declare void @uniq_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_ole2_tempdir_scan_summary(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @cli_ole2_tempdir_scan_summary(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
-  %7 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.236, i32 noundef 21, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %7 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.236, i32 noundef 21, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %thread-pre-split, label %8
 
@@ -10121,7 +10121,7 @@ thread-pre-split:                                 ; preds = %3
 10:                                               ; preds = %.lr.ph, %19
   %11 = phi i32 [ %.pr, %.lr.ph ], [ %21, %19 ]
   %12 = load ptr, ptr %5, align 8
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef %0, ptr noundef %12, i32 noundef %11) #16
+  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef nonnull %0, ptr noundef %12, i32 noundef %11) #16
   store i8 0, ptr %9, align 1
   %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 0) #16
   %15 = icmp sgt i32 %14, -1
@@ -10141,7 +10141,7 @@ thread-pre-split:                                 ; preds = %3
   br i1 %.not22, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %19, %thread-pre-split
-  %22 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.240, i32 noundef 29, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %22 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.240, i32 noundef 29, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %.not23 = icmp eq i32 %22, 0
   br i1 %.not23, label %thread-pre-split25, label %23
 
@@ -10161,7 +10161,7 @@ thread-pre-split25:                               ; preds = %._crit_edge
 25:                                               ; preds = %.lr.ph29, %34
   %26 = phi i32 [ %.pr26, %.lr.ph29 ], [ %36, %34 ]
   %27 = load ptr, ptr %5, align 8
-  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef %0, ptr noundef %27, i32 noundef %26) #16
+  %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef nonnull %0, ptr noundef %27, i32 noundef %26) #16
   store i8 0, ptr %24, align 1
   %29 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 0) #16
   %30 = icmp sgt i32 %29, -1
@@ -10185,12 +10185,12 @@ thread-pre-split25:                               ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_ole2_tempdir_scan_embedded_ole10(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @cli_ole2_tempdir_scan_embedded_ole10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
-  %7 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.243, i32 noundef 14, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %7 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.243, i32 noundef 14, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %thread-pre-split, label %8
 
@@ -10210,7 +10210,7 @@ thread-pre-split:                                 ; preds = %3
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi i32 [ %.pr, %.lr.ph ], [ %.be, %.backedge ]
   %12 = load ptr, ptr %5, align 8
-  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef %0, ptr noundef %12, i32 noundef %11) #16
+  %13 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef nonnull %0, ptr noundef %12, i32 noundef %11) #16
   store i8 0, ptr %9, align 1
   %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 0) #16
   %15 = icmp slt i32 %14, 0
@@ -10235,7 +10235,7 @@ thread-pre-split:                                 ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [1024 x i8], align 16
   %7 = alloca ptr, align 8
@@ -10245,7 +10245,7 @@ define internal fastcc i32 @cli_ole2_tempdir_scan_vba(ptr noundef %0, ptr nounde
   store i32 0, ptr %8, align 4
   store i32 -1, ptr %9, align 4
   store ptr null, ptr %10, align 8
-  %11 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.245, i32 noundef 12, ptr noundef null, ptr noundef nonnull %8) #16
+  %11 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.245, i32 noundef 12, ptr noundef null, ptr noundef nonnull %8) #16
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %thread-pre-split, label %12
 
@@ -10267,7 +10267,7 @@ thread-pre-split:                                 ; preds = %4
 
 17:                                               ; preds = %.lr.ph236, %.backedge207
   %18 = phi i32 [ %.pr, %.lr.ph236 ], [ %.be208, %.backedge207 ]
-  %19 = call ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %2, i32 noundef %18) #16
+  %19 = call ptr @cli_vba_readdir(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %18) #16
   %.not179 = icmp eq ptr %19, null
   br i1 %.not179, label %.backedge207, label %.preheader206
 
@@ -10393,7 +10393,7 @@ thread-pre-split:                                 ; preds = %4
 
 84:                                               ; preds = %76, %56
   %85 = load i64, ptr %5, align 8
-  %86 = call fastcc i32 @vba_scandata(ptr noundef nonnull %45, i64 noundef %85, ptr noundef nonnull %1)
+  %86 = call fastcc i32 @vba_scandata(ptr noundef %45, i64 noundef %85, ptr noundef nonnull %1)
   %.not186 = icmp eq i32 %86, 0
   br i1 %.not186, label %87, label %.loopexit
 
@@ -10426,7 +10426,7 @@ thread-pre-split:                                 ; preds = %4
   br label %.backedge207
 
 ._crit_edge237:                                   ; preds = %.backedge207, %thread-pre-split
-  %97 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.251, i32 noundef 19, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %97 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.251, i32 noundef 19, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not168 = icmp eq i32 %97, 0
   br i1 %.not168, label %thread-pre-split196, label %98
 
@@ -10447,7 +10447,7 @@ thread-pre-split196:                              ; preds = %._crit_edge237
 101:                                              ; preds = %.lr.ph239, %.backedge202
   %102 = phi i32 [ %.pr197, %.lr.ph239 ], [ %.be203, %.backedge202 ]
   %103 = load ptr, ptr %7, align 8
-  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef %0, ptr noundef %103, i32 noundef %102) #16
+  %104 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef nonnull %0, ptr noundef %103, i32 noundef %102) #16
   store i8 0, ptr %99, align 1
   %105 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %6, i32 noundef 0) #16
   %106 = icmp eq i32 %105, -1
@@ -10490,7 +10490,7 @@ thread-pre-split196:                              ; preds = %._crit_edge237
   br label %.backedge202
 
 ._crit_edge240:                                   ; preds = %.backedge202, %thread-pre-split196
-  %120 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.253, i32 noundef 12, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
+  %120 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.253, i32 noundef 12, ptr noundef nonnull %7, ptr noundef nonnull %8) #16
   %.not170 = icmp eq i32 %120, 0
   br i1 %.not170, label %thread-pre-split198, label %121
 
@@ -10511,7 +10511,7 @@ thread-pre-split198:                              ; preds = %._crit_edge240
 124:                                              ; preds = %.lr.ph245, %.backedge
   %125 = phi i32 [ %.pr199, %.lr.ph245 ], [ %131, %.backedge ]
   %126 = load ptr, ptr %7, align 8
-  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef %0, ptr noundef %126, i32 noundef %125) #16
+  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 1024, ptr noundef nonnull @.str.238, ptr noundef nonnull %0, ptr noundef %126, i32 noundef %125) #16
   store i8 0, ptr %122, align 1
   %128 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %6, i32 noundef 0) #16
   %129 = icmp eq i32 %128, -1
@@ -10599,7 +10599,7 @@ thread-pre-split198:                              ; preds = %._crit_edge240
   %178 = getelementptr inbounds i32, ptr %177, i64 %indvars.iv275
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
-  %181 = call fastcc i32 @vba_scandata(ptr noundef nonnull %161, i64 noundef %180, ptr noundef nonnull %1)
+  %181 = call fastcc i32 @vba_scandata(ptr noundef %161, i64 noundef %180, ptr noundef nonnull %1)
   %.not175 = icmp eq i32 %181, 0
   br i1 %.not175, label %182, label %.loopexit
 
@@ -10731,7 +10731,7 @@ thread-pre-split198:                              ; preds = %._crit_edge240
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cli_ole2_tempdir_scan_vba_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @cli_ole2_tempdir_scan_vba_new(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca [4096 x i8], align 16
@@ -10742,7 +10742,7 @@ define internal fastcc i32 @cli_ole2_tempdir_scan_vba_new(ptr noundef %0, ptr no
   store ptr null, ptr %6, align 8
   store i32 -1, ptr %9, align 4
   store ptr null, ptr %10, align 8
-  %11 = call i32 @uniq_get(ptr noundef %2, ptr noundef nonnull @.str.264, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %5) #16
+  %11 = call i32 @uniq_get(ptr noundef nonnull %2, ptr noundef nonnull @.str.264, i32 noundef 3, ptr noundef nonnull %6, ptr noundef nonnull %5) #16
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %thread-pre-split, label %12
 
@@ -10767,7 +10767,7 @@ thread-pre-split:                                 ; preds = %4
   %19 = load ptr, ptr %6, align 8
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.266, ptr noundef %19, i32 noundef %18) #16
   store i8 0, ptr %13, align 1
-  %21 = call i32 @find_file(ptr noundef nonnull %8, ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4096)
+  %21 = call i32 @find_file(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4096)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.backedge
 
@@ -10775,7 +10775,7 @@ thread-pre-split:                                 ; preds = %4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.267, ptr noundef nonnull %7) #16
   %24 = load ptr, ptr %6, align 8
   %25 = load i32, ptr %5, align 4
-  %26 = call i32 @cli_vba_readdir_new(ptr noundef %1, ptr noundef nonnull %7, ptr noundef %2, ptr noundef %24, i32 noundef %25, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %10) #16
+  %26 = call i32 @cli_vba_readdir_new(ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef %24, i32 noundef %25, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %10) #16
   %.not41 = icmp eq i32 %26, 0
   br i1 %.not41, label %35, label %27
 
@@ -10943,7 +10943,7 @@ declare ptr @cli_vba_readdir(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare ptr @cli_vba_inflate(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vba_scandata(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @vba_scandata(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.cli_ac_data, align 8
   %5 = alloca %struct.cli_ac_data, align 8
   %6 = alloca [2 x ptr], align 16
@@ -10980,12 +10980,12 @@ define internal fastcc i32 @vba_scandata(ptr noundef %0, i64 noundef %1, ptr nou
   %30 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %4, ptr %30, align 8
   %31 = trunc i64 %1 to i32
-  %32 = call i32 @cli_scan_buff(ptr noundef %0, i32 noundef %31, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 522, ptr noundef nonnull %6) #16
+  %32 = call i32 @cli_scan_buff(ptr noundef nonnull %0, i32 noundef %31, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 522, ptr noundef nonnull %6) #16
   %.not40 = icmp eq i32 %32, 0
   br i1 %.not40, label %33, label %.thread87
 
 33:                                               ; preds = %29
-  %34 = call ptr @fmap_open_memory(ptr noundef %0, i64 noundef %1, ptr noundef null) #16
+  %34 = call ptr @fmap_open_memory(ptr noundef nonnull %0, i64 noundef %1, ptr noundef null) #16
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
 

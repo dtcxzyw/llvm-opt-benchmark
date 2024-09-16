@@ -3495,13 +3495,13 @@ define range(i32 -1, 1) i32 @zend_parse_parameter(i32 noundef %0, i32 noundef %1
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr %3, ptr %5, align 8
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %7 = call fastcc i32 @zend_parse_arg(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %0)
+  %7 = call fastcc i32 @zend_parse_arg(i32 noundef %1, ptr noundef %2, ptr noundef %6, ptr noundef %5, i32 noundef %0)
   call void @llvm.va_end.p0(ptr nonnull %6)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_parse_arg(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @zend_parse_arg(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4993,13 +4993,13 @@ zend_zval_value_name.exit:                        ; preds = %690, %690, %692, %6
 define range(i32 -1, 1) i32 @zend_parse_parameters_ex(i32 noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %0)
+  %5 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef %2, ptr noundef %4, i32 noundef %0)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %1, ptr %6, align 8
@@ -5326,7 +5326,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %158 = sext i32 %.085123 to i64
   %159 = getelementptr %struct._zval_struct, ptr %156, i64 %158
   %160 = getelementptr i8, ptr %159, i64 80
-  %161 = call fastcc i32 @zend_parse_arg(i32 noundef %157, ptr noundef %160, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %3)
+  %161 = call fastcc i32 @zend_parse_arg(i32 noundef %157, ptr noundef %160, ptr noundef %2, ptr noundef %6, i32 noundef %3)
   %162 = icmp eq i32 %161, -1
   br i1 %162, label %163, label %.backedge
 
@@ -5352,7 +5352,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
 define range(i32 -1, 1) i32 @zend_parse_parameters(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #1 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0)
+  %4 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %1, ptr noundef %3, i32 noundef 0)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
@@ -5378,7 +5378,7 @@ define range(i32 -1, 1) i32 @zend_parse_method_parameters(i32 noundef %0, ptr no
 
 15:                                               ; preds = %12, %3
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %16 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0)
+  %16 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef 0)
   br label %68
 
 17:                                               ; preds = %12
@@ -5459,7 +5459,7 @@ define range(i32 -1, 1) i32 @zend_parse_method_parameters(i32 noundef %0, ptr no
   unreachable
 
 .critedge:                                        ; preds = %48, %53, %44
-  %67 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %4, i32 noundef 0)
+  %67 = call fastcc i32 @zend_parse_va_args(i32 noundef %0, ptr noundef nonnull %18, ptr noundef %4, i32 noundef 0)
   br label %68
 
 68:                                               ; preds = %.critedge, %15
@@ -5479,7 +5479,7 @@ define range(i32 -1, 1) i32 @zend_parse_method_parameters_ex(i32 noundef %0, i32
 
 6:                                                ; preds = %4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %7 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef %3, ptr noundef nonnull %5, i32 noundef %0)
+  %7 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef %3, ptr noundef %5, i32 noundef %0)
   br label %61
 
 8:                                                ; preds = %4
@@ -5565,7 +5565,7 @@ define range(i32 -1, 1) i32 @zend_parse_method_parameters_ex(i32 noundef %0, i32
   unreachable
 
 .critedge:                                        ; preds = %39, %44, %35
-  %60 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef %0)
+  %60 = call fastcc i32 @zend_parse_va_args(i32 noundef %1, ptr noundef nonnull %9, ptr noundef %5, i32 noundef %0)
   br label %61
 
 61:                                               ; preds = %46, %6, %.critedge
@@ -11774,7 +11774,7 @@ zend_check_magic_method_public.exit491:           ; preds = %zend_check_magic_me
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_check_magic_method_args(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_check_magic_method_args(i32 noundef range(i32 0, 3) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, %0
@@ -11813,40 +11813,39 @@ define internal fastcc void @zend_check_magic_method_args(i32 noundef %0, ptr no
   br label %.loopexit
 
 18:                                               ; preds = %20
-  %19 = add nuw i32 %.023, 1
+  %19 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %19, %0
   br i1 %exitcond.not, label %.loopexit, label %20
 
 20:                                               ; preds = %.lr.ph, %18
   %.023 = phi i32 [ 0, %.lr.ph ], [ %19, %18 ]
   %21 = shl nuw i32 %.023, 1
-  %22 = add i32 %21, 8
-  %23 = shl i32 3, %22
-  %24 = and i32 %7, %23
-  %.not22 = icmp eq i32 %24, 0
-  br i1 %.not22, label %18, label %25
+  %22 = shl i32 768, %21
+  %23 = and i32 %7, %22
+  %.not22 = icmp eq i32 %23, 0
+  br i1 %.not22, label %18, label %24
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.161, ptr noundef nonnull %28, ptr noundef nonnull %31) #33
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef %3, ptr noundef nonnull @.str.161, ptr noundef nonnull %27, ptr noundef nonnull %30) #33
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %.preheader, %15, %17, %16, %25
+.loopexit:                                        ; preds = %18, %.preheader, %15, %17, %16, %24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_check_magic_method_return_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_check_magic_method_return_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 12, 16385) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 8192
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %32, label %8
+  br i1 %.not, label %30, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 40
@@ -11855,43 +11854,41 @@ define internal fastcc void @zend_check_magic_method_return_type(ptr nocapture n
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 131072
   %.not15 = icmp eq i32 %13, 0
-  br i1 %.not15, label %14, label %32
+  br i1 %.not15, label %14, label %30
 
 14:                                               ; preds = %8
-  %15 = and i32 %12, 29360128
-  %16 = and i32 %3, 131071
-  %17 = xor i32 %16, 131071
-  %18 = and i32 %17, %12
-  %19 = and i32 %18, 32768
-  %.not16.not = icmp eq i32 %19, 0
-  %20 = and i32 %18, 98303
-  %spec.select = select i1 %.not16.not, i32 %18, i32 %20
-  %21 = or disjoint i32 %19, %15
-  %spec.select18 = icmp ne i32 %21, 0
+  %15 = xor i32 %3, 131071
+  %16 = and i32 %15, %12
+  %17 = and i32 %12, 32768
+  %.not16.not = icmp eq i32 %17, 0
+  %18 = and i32 %16, 98303
+  %spec.select = select i1 %.not16.not, i32 %16, i32 %18
+  %19 = and i32 %12, 29392896
+  %spec.select18 = icmp ne i32 %19, 0
   %.not17 = icmp ne i32 %spec.select, 0
-  %22 = icmp ne i32 %3, 256
-  %or.cond = and i1 %22, %spec.select18
-  %or.cond19 = or i1 %.not17, %or.cond
-  br i1 %or.cond19, label %23, label %32
+  %20 = icmp ne i32 %3, 256
+  %or.cond = and i1 %20, %spec.select18
+  %or.cond19 = or i1 %or.cond, %.not17
+  br i1 %or.cond19, label %21, label %30
 
-23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = tail call ptr @zend_type_to_string(ptr null, i32 %3) #33
   %29 = getelementptr inbounds i8, ptr %28, i64 24
-  %30 = tail call ptr @zend_type_to_string(ptr null, i32 %3) #33
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
-  tail call void (i32, ptr, ...) @zend_error(i32 noundef %2, ptr noundef nonnull @.str.162, ptr noundef nonnull %26, ptr noundef nonnull %29, ptr noundef nonnull %31) #33
-  br label %32
+  tail call void (i32, ptr, ...) @zend_error(i32 noundef %2, ptr noundef nonnull @.str.162, ptr noundef nonnull %24, ptr noundef nonnull %27, ptr noundef nonnull %29) #33
+  br label %30
 
-32:                                               ; preds = %14, %8, %4, %23
+30:                                               ; preds = %14, %8, %4, %21
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_check_magic_method_arg_type(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @zend_check_magic_method_arg_type(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef range(i32 64, 129) %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %0 to i64
@@ -12838,7 +12835,7 @@ declare zeroext i1 @zend_class_implements_interface(ptr noundef, ptr noundef) lo
 declare void @zend_do_implement_interface(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @do_register_internal_class(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @do_register_internal_class(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %4, ptr noundef nonnull align 8 dereferenceable(512) %0, i64 512, i1 false)
@@ -14021,7 +14018,7 @@ define zeroext i1 @zend_is_callable_at_frame(ptr nocapture noundef readonly %0, 
 
 156:                                              ; preds = %127, %134, %121
   %157 = or i1 %27, %30
-  %158 = call fastcc zeroext i1 @zend_is_callable_check_class(ptr noundef nonnull %123, ptr noundef %.0562, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %7, ptr noundef %5, i1 noundef zeroext %157)
+  %158 = call fastcc zeroext i1 @zend_is_callable_check_class(ptr noundef nonnull %123, ptr noundef %.0562, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef %7, ptr noundef %5, i1 noundef zeroext %157)
   br i1 %158, label %168, label %159
 
 159:                                              ; preds = %156
@@ -14840,7 +14837,7 @@ thread-pre-split:                                 ; preds = %305
   %554 = phi ptr [ %552, %550 ], [ null, %547 ], [ null, %545 ]
   %555 = and i32 %3, 2
   %556 = icmp ne i32 %555, 0
-  %557 = call fastcc zeroext i1 @zend_is_callable_check_class(ptr noundef %546, ptr noundef %554, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %9, ptr noundef %5, i1 noundef zeroext %556)
+  %557 = call fastcc zeroext i1 @zend_is_callable_check_class(ptr noundef %546, ptr noundef %554, ptr noundef %2, ptr noundef nonnull %spec.store.select, ptr noundef %9, ptr noundef %5, i1 noundef zeroext %556)
   br i1 %557, label %._crit_edge, label %zend_release_fcall_info_cache.exit
 
 ._crit_edge:                                      ; preds = %553
@@ -14971,7 +14968,7 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_is_callable_check_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @zend_is_callable_check_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, -8

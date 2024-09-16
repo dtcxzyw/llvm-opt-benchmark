@@ -329,7 +329,7 @@ define noundef ptr @cli_hashtab_insert(ptr noundef %0, ptr nocapture noundef rea
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, i64 noundef %13) #18
-  tail call fastcc void @cli_hashtab_grow(ptr noundef nonnull %0)
+  tail call fastcc void @cli_hashtab_grow(ptr noundef %0)
   br label %14
 
 14:                                               ; preds = %11, %5
@@ -391,7 +391,7 @@ hash.exit.us:                                     ; preds = %14, %39
 
 39:                                               ; preds = %37
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i64 noundef %38) #18
-  tail call fastcc void @cli_hashtab_grow(ptr noundef nonnull %0)
+  tail call fastcc void @cli_hashtab_grow(ptr noundef %0)
   br label %hash.exit.us
 
 .lr.ph.i.preheader:                               ; preds = %14, %94
@@ -513,7 +513,7 @@ hash.exit.us:                                     ; preds = %14, %39
 
 94:                                               ; preds = %92
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i64 noundef %93) #18
-  tail call fastcc void @cli_hashtab_grow(ptr noundef nonnull %0)
+  tail call fastcc void @cli_hashtab_grow(ptr noundef %0)
   br label %.lr.ph.i.preheader
 
 95:                                               ; preds = %4, %.split77.us, %68, %67
@@ -524,7 +524,7 @@ hash.exit.us:                                     ; preds = %14, %39
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_hashtab_grow(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @cli_hashtab_grow(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 1
@@ -696,7 +696,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %0, i64 noundef %12) #18
-  tail call fastcc void @cli_htu32_grow(ptr noundef nonnull %0, ptr noundef %2)
+  tail call fastcc void @cli_htu32_grow(ptr noundef %0, ptr noundef %2)
   br label %13
 
 13:                                               ; preds = %10, %4
@@ -783,7 +783,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
 
 56:                                               ; preds = %54
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %0, i64 noundef %55) #18
-  tail call fastcc void @cli_htu32_grow(ptr noundef nonnull %0, ptr noundef %2)
+  tail call fastcc void @cli_htu32_grow(ptr noundef %0, ptr noundef %2)
   br label %15
 
 57:                                               ; preds = %3, %44, %37
@@ -792,7 +792,7 @@ define range(i32 0, 3) i32 @cli_htu32_insert(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_htu32_grow(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @cli_htu32_grow(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, 1

@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @anetTcpGenericConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @anetTcpGenericConnect(ptr noundef %err, ptr noundef %addr, i32 noundef %port, ptr noundef %source_addr, i32 noundef range(i32 1, 4) %flags) unnamed_addr #0 {
 entry:
   %yes.i = alloca i32, align 4
   %portstr = alloca [6 x i8], align 1
@@ -619,8 +619,7 @@ end:                                              ; preds = %if.then45, %if.end3
   %cmp67 = icmp ne i32 %s.3, -1
   %tobool69 = icmp eq ptr %source_addr, null
   %or.cond.not44 = or i1 %tobool69, %cmp67
-  %and71 = and i32 %flags, 2
-  %tobool72.not = icmp eq i32 %and71, 0
+  %tobool72.not = icmp ult i32 %flags, 2
   %or.cond33 = or i1 %tobool72.not, %or.cond.not44
   br i1 %or.cond33, label %return, label %if.then73
 
@@ -757,7 +756,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef %af, i32 noundef %backlog) unnamed_addr #0 {
+define internal fastcc i32 @_anetTcpServer(ptr noundef %err, i32 noundef %port, ptr noundef %bindaddr, i32 noundef range(i32 2, 11) %af, i32 noundef %backlog) unnamed_addr #0 {
 entry:
   %yes.i24 = alloca i32, align 4
   %yes.i = alloca i32, align 4

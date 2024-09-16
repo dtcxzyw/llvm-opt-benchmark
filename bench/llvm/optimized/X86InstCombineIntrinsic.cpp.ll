@@ -3193,7 +3193,7 @@ _ZN4llvm5APIntC2ERKS0_.exit843:                   ; preds = %1447, %1449
 _ZN4llvm5APIntC2ERKS0_.exit844:                   ; preds = %1454, %1456
   %1457 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1458 = load ptr, ptr %1457, align 8
-  %1459 = call fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %1421, ptr noundef nonnull %1423, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull align 8 dereferenceable(184) %1458)
+  %1459 = call fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %1421, ptr noundef nonnull %1423, ptr noundef %76, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(184) %1458)
   %1460 = load i32, ptr %1450, align 8
   %1461 = icmp ugt i32 %1460, 64
   br i1 %1461, label %1462, label %_ZN4llvm5APIntD2Ev.exit845
@@ -3341,7 +3341,7 @@ _ZN4llvm5APIntC2ERKS0_.exit851:                   ; preds = %1523, %1525
 _ZN4llvm5APIntC2ERKS0_.exit852:                   ; preds = %1530, %1532
   %1533 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1534 = load ptr, ptr %1533, align 8
-  %1535 = call fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %1497, ptr noundef nonnull %1499, ptr noundef nonnull %80, ptr noundef nonnull %81, ptr noundef nonnull align 8 dereferenceable(184) %1534)
+  %1535 = call fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull %1497, ptr noundef nonnull %1499, ptr noundef %80, ptr noundef %81, ptr noundef nonnull align 8 dereferenceable(184) %1534)
   %1536 = load i32, ptr %1526, align 8
   %1537 = icmp ugt i32 %1536, 64
   br i1 %1537, label %1538, label %_ZN4llvm5APIntD2Ev.exit853
@@ -3465,7 +3465,7 @@ _ZN4llvm5APIntD2Ev.exit856:                       ; preds = %_ZN4llvm5APIntD2Ev.
 1590:                                             ; preds = %1586
   %1591 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %1592 = load ptr, ptr %1591, align 8
-  %1593 = tail call fastcc noundef ptr @_ZL24getNegativeIsTrueBoolVecPN4llvm8ConstantERKNS_10DataLayoutE(ptr noundef nonnull %1582, ptr noundef nonnull align 8 dereferenceable(512) %1592)
+  %1593 = tail call fastcc noundef ptr @_ZL24getNegativeIsTrueBoolVecPN4llvm8ConstantERKNS_10DataLayoutE(ptr noundef %1582, ptr noundef nonnull align 8 dereferenceable(512) %1592)
   %1594 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %1595 = getelementptr inbounds nuw i8, ptr %82, i64 33
   store i8 1, ptr %1595, align 1
@@ -3953,7 +3953,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i881:
   br label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit
 
 1836:                                             ; preds = %_ZL17simplifyX86vpermvRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread, %_ZL17simplifyX86vpermvRKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit
-  %1837 = call fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef nonnull %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(1081) %1)
+  %1837 = call fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(1081) %1)
   br i1 %1837, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit, label %.critedge
 
 1838:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -4115,7 +4115,7 @@ _ZN4llvm19InstructionWorklist19pushUsersToWorkListERNS_11InstructionE.exit.i907:
   br label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit
 
 1912:                                             ; preds = %_ZL18simplifyX86vpermv3RKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit.thread, %_ZL18simplifyX86vpermv3RKN4llvm13IntrinsicInstERNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE.exit
-  %1913 = call fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef nonnull %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(1081) %1)
+  %1913 = call fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(1081) %1)
   br i1 %1913, label %_ZN4llvm12InstCombiner14replaceOperandERNS_11InstructionEjPNS_5ValueE.exit, label %.critedge
 
 1914:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
@@ -4677,7 +4677,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase9CreateShlEPNS_5V
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZNK4llvm10X86TTIImpl20instCombineIntrinsicERNS_12InstCombinerERNS_13IntrinsicInstEENK3$_0clEPNS_5ValueEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZNK4llvm10X86TTIImpl20instCombineIntrinsicERNS_12InstCombinerERNS_13IntrinsicInstEENK3$_0clEPNS_5ValueEjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -7749,7 +7749,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit:               ; preds = %13, %14, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(184) %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL18simplifyX86insertqRN4llvm13IntrinsicInstEPNS_5ValueES3_NS_5APIntES4_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(184) %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
   %9 = alloca %"class.llvm::SmallVector.121", align 8
@@ -8504,7 +8504,7 @@ _ZN4llvm11SmallVectorIiLj16EED2Ev.exit:           ; preds = %317, %314, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24getNegativeIsTrueBoolVecPN4llvm8ConstantERKNS_10DataLayoutE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL24getNegativeIsTrueBoolVecPN4llvm8ConstantERKNS_10DataLayoutE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9112,7 +9112,7 @@ _ZN4llvm5APIntD2Ev.exit30:                        ; preds = %98, %_ZN4llvm5APInt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(1081) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20simplifyX86VPERMMaskPN4llvm11InstructionEbRNS_12InstCombinerE(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(1081) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::SimplifyQuery", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"struct.llvm::KnownBits", align 8

@@ -3342,7 +3342,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1
 36:                                               ; preds = %32
   %37 = load i32, ptr %2, align 4
   %38 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %5, i32 noundef %37, i64 noundef %1, i32 noundef %38)
+  call fastcc void @XLogFileName(ptr noundef %5, i32 noundef %37, i64 noundef %1, i32 noundef %38)
   store i32 2, ptr %33, align 4
   %39 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   call void @llvm.assume(i1 %39)
@@ -4499,7 +4499,7 @@ define internal fastcc void @WalSndShutdown() unnamed_addr #8 {
 declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @WalSndWait(i32 noundef %0, i64 noundef %1, i32 noundef range(i32 83886093, 100663304) %2) unnamed_addr #0 {
   %4 = alloca %struct.WaitEvent, align 8
   %5 = load ptr, ptr @FeBeWaitSet, align 8
   tail call void @ModifyWaitEvent(ptr noundef %5, i32 noundef 0, i32 noundef %0, ptr noundef null) #16
@@ -4673,14 +4673,14 @@ declare i32 @BasicOpenFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @XLogFileName(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sext i32 %3 to i64
   %6 = udiv i64 4294967296, %5
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
   %10 = trunc nuw i64 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %1, i32 noundef %8, i32 noundef %10) #16
+  %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %0, i64 noundef 64, ptr noundef nonnull @.str.68, i32 noundef %1, i32 noundef %8, i32 noundef %10) #16
   ret void
 }
 

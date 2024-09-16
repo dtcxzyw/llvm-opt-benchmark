@@ -1654,7 +1654,7 @@ declare noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowER
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_12_GLOBAL__N_120BufferedRandomDeviceENS4_9RandomTagENS0_11DefaultMakeIS5_EES6_E7WrapperES6_vE5resetEPSA_EUlvE_Lb1EED2Ev(i8 %this.0.val, ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_12_GLOBAL__N_120BufferedRandomDeviceENS4_9RandomTagENS0_11DefaultMakeIS5_EES6_E7WrapperES6_vE5resetEPSA_EUlvE_Lb1EED2Ev(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp ne i8 %this.0.val, 0
   %isnull.i.i = icmp eq ptr %this.8.val.0.val, null
@@ -3508,7 +3508,7 @@ _ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNS_15ThreadLocalPRNGclEvE7W
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNS_15ThreadLocalPRNGclEvE7WrapperNS_12_GLOBAL__N_19RandomTagENS0_11DefaultMakeIS5_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev(i8 %this.0.val, ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalIZNS_15ThreadLocalPRNGclEvE7WrapperNS_12_GLOBAL__N_19RandomTagENS0_11DefaultMakeIS5_EES7_E7WrapperES7_vE5resetEPSB_EUlvE_Lb1EED2Ev(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp ne i8 %this.0.val, 0
   %isnull.i.i = icmp eq ptr %this.8.val.0.val, null

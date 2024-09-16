@@ -1597,7 +1597,7 @@ define internal fastcc void @numa_clear_kernel_node_hotplug() unnamed_addr #0 se
 declare dso_local zeroext i1 @memblock_validate_numa_coverage(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @alloc_node_data(i32 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @alloc_node_data(i32 noundef range(i32 0, 65) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i64 @memblock_phys_alloc_try_nid(i64 noundef 16384, i64 noundef 64, i32 noundef %0) #15
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6

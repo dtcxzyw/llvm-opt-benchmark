@@ -565,7 +565,7 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
 
 267:                                              ; preds = %262, %.thread
   %268 = phi i32 [ %266, %.thread ], [ 2, %262 ]
-  call fastcc void @yydestruct(i32 noundef %268, ptr noundef nonnull %2)
+  call fastcc void @yydestruct(i32 noundef %268, ptr noundef %2)
   br label %269
 
 269:                                              ; preds = %267, %php_json_yyerror.exit336
@@ -646,7 +646,7 @@ define internal noundef i32 @php_json_parser_array_create(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yydestruct(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   switch i32 %0, label %132 [
     i32 3, label %3
     i32 4, label %11

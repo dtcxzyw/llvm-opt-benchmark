@@ -71,7 +71,7 @@ if.end27:                                         ; preds = %if.then25, %if.end2
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end27
-  %call30 = tail call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %src, i32 noundef %srcLength.addr.0, ptr noundef %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr noundef nonnull %pErrorCode)
+  %call30 = tail call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %src, i32 noundef %srcLength.addr.0, ptr noundef %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr noundef %pErrorCode)
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end27, %if.then29
@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr nocapture noundef nonnull readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
 entry:
   %conv = zext i16 %options to i32
   %and = and i32 %conv, 11
@@ -573,11 +573,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp80, label %if.then81, label %if.else
 
 if.then81:                                        ; preds = %for.body
-  %call87 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %and85, ptr noundef nonnull %pErrorCode)
+  %call87 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %and85, ptr noundef %pErrorCode)
   br label %if.end91
 
 if.else:                                          ; preds = %for.body
-  %call90 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call90 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %add.ptr83, i32 noundef %13, ptr noundef %dest.addr.0229, i32 noundef %destSize.addr.0228, i16 noundef zeroext %spec.select186, ptr noundef %pErrorCode)
   br label %if.end91
 
 if.end91:                                         ; preds = %if.else, %if.then81
@@ -665,7 +665,7 @@ if.end134:                                        ; preds = %if.end133, %if.end1
   %destSize.addr.2 = phi i32 [ %dec, %if.end133 ], [ %destSize.addr.1223, %if.end128 ]
   %dest.addr.3 = phi ptr [ %dest.addr.4, %if.end133 ], [ %dest.addr.2224, %if.end128 ]
   %21 = load i32, ptr %runLength, align 4
-  %call138 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %21, ptr noundef %dest.addr.3, i32 noundef %destSize.addr.2, i16 noundef zeroext %and136, ptr noundef nonnull %pErrorCode)
+  %call138 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %add.ptr104, i32 noundef %21, ptr noundef %dest.addr.3, i32 noundef %destSize.addr.2, i16 noundef zeroext %and136, ptr noundef %pErrorCode)
   store i32 %call138, ptr %runLength, align 4
   %cmp139.not = icmp eq ptr %dest.addr.3, null
   %idx.ext141 = sext i32 %call138 to i64
@@ -760,7 +760,7 @@ if.end205:                                        ; preds = %if.end203, %if.end1
   %destSize.addr.3 = phi i32 [ %dec204, %if.end203 ], [ %destSize.addr.1223, %if.end197 ]
   %dest.addr.7 = phi ptr [ %dest.addr.8, %if.end203 ], [ %dest.addr.2224, %if.end197 ]
   %29 = load i32, ptr %runLength, align 4
-  %call206 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %29, ptr noundef %dest.addr.7, i32 noundef %destSize.addr.3, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call206 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %add.ptr104, i32 noundef %29, ptr noundef %dest.addr.7, i32 noundef %destSize.addr.3, i16 noundef zeroext %spec.select186, ptr noundef %pErrorCode)
   store i32 %call206, ptr %runLength, align 4
   %cmp207.not = icmp eq ptr %dest.addr.7, null
   %idx.ext209 = sext i32 %call206 to i64
@@ -842,11 +842,11 @@ for.body257:                                      ; preds = %for.body257.lr.ph, 
   br i1 %cmp259, label %if.then260, label %if.else267
 
 if.then260:                                       ; preds = %for.body257
-  %call266 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %and264, ptr noundef nonnull %pErrorCode)
+  %call266 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %and264, ptr noundef %pErrorCode)
   br label %if.end271
 
 if.else267:                                       ; preds = %for.body257
-  %call270 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call270 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %spec.select186, ptr noundef %pErrorCode)
   br label %if.end271
 
 if.end271:                                        ; preds = %if.else267, %if.then260
@@ -912,7 +912,7 @@ if.end305:                                        ; preds = %if.end303, %if.then
   %40 = phi i32 [ %.pre, %if.end303 ], [ %37, %if.then292 ]
   %destSize.addr.8 = phi i32 [ %dec304, %if.end303 ], [ %destSize.addr.7208, %if.then292 ]
   %dest.addr.15 = phi ptr [ %dest.addr.16, %if.end303 ], [ %dest.addr.14209, %if.then292 ]
-  %call309 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %40, ptr noundef %dest.addr.15, i32 noundef %destSize.addr.8, i16 noundef zeroext %and307, ptr noundef nonnull %pErrorCode)
+  %call309 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef %add.ptr290, i32 noundef %40, ptr noundef %dest.addr.15, i32 noundef %destSize.addr.8, i16 noundef zeroext %and307, ptr noundef %pErrorCode)
   store i32 %call309, ptr %runLength, align 4
   %cmp310.not = icmp eq ptr %dest.addr.15, null
   %idx.ext312 = sext i32 %call309 to i64
@@ -967,7 +967,7 @@ if.end341:                                        ; preds = %if.end339, %if.else
   %destSize.addr.10 = phi i32 [ %destSize.addr.7208, %if.else327 ], [ %dec340, %if.end339 ]
   %dest.addr.20 = phi ptr [ %dest.addr.14209, %if.else327 ], [ %dest.addr.21, %if.end339 ]
   %44 = load i32, ptr %runLength, align 4
-  %call342 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %44, ptr noundef %dest.addr.20, i32 noundef %destSize.addr.10, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call342 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef %add.ptr290, i32 noundef %44, ptr noundef %dest.addr.20, i32 noundef %destSize.addr.10, i16 noundef zeroext %spec.select186, ptr noundef %pErrorCode)
   store i32 %call342, ptr %runLength, align 4
   %cmp343.not = icmp eq ptr %dest.addr.20, null
   %idx.ext345 = sext i32 %call342 to i64
@@ -1021,7 +1021,7 @@ declare i32 @ubidi_countRuns_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ubidi_getVisualRun_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr nocapture noundef readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr nocapture noundef nonnull readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
 entry:
   %0 = lshr i16 %options, 1
   %1 = and i16 %0, 5

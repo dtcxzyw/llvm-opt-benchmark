@@ -551,23 +551,23 @@ progress_meter.exit:                              ; preds = %266, %269, %271
   %274 = getelementptr inbounds i8, ptr %0, i64 408
   %275 = load ptr, ptr %274, align 8
   %276 = getelementptr inbounds i8, ptr %2, i64 20
-  %277 = call fastcc ptr @max5data(i64 noundef %261, ptr noundef nonnull %276)
+  %277 = call fastcc ptr @max5data(i64 noundef %261, ptr noundef %276)
   %278 = load i64, ptr %16, align 8
-  %279 = call fastcc ptr @max5data(i64 noundef %278, ptr noundef nonnull %2)
+  %279 = call fastcc ptr @max5data(i64 noundef %278, ptr noundef %2)
   %280 = load i64, ptr %256, align 8
   %281 = getelementptr inbounds i8, ptr %2, i64 10
-  %282 = call fastcc ptr @max5data(i64 noundef %280, ptr noundef nonnull %281)
+  %282 = call fastcc ptr @max5data(i64 noundef %280, ptr noundef %281)
   %283 = getelementptr inbounds i8, ptr %0, i64 2736
   %284 = load i64, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %2, i64 30
-  %286 = call fastcc ptr @max5data(i64 noundef %284, ptr noundef nonnull %285)
+  %286 = call fastcc ptr @max5data(i64 noundef %284, ptr noundef %285)
   %287 = load i64, ptr %49, align 8
   %288 = getelementptr inbounds i8, ptr %2, i64 40
-  %289 = call fastcc ptr @max5data(i64 noundef %287, ptr noundef nonnull %288)
+  %289 = call fastcc ptr @max5data(i64 noundef %287, ptr noundef %288)
   %290 = getelementptr inbounds i8, ptr %0, i64 2712
   %291 = load i64, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr %2, i64 50
-  %293 = call fastcc ptr @max5data(i64 noundef %291, ptr noundef nonnull %292)
+  %293 = call fastcc ptr @max5data(i64 noundef %291, ptr noundef %292)
   %294 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %275, ptr noundef nonnull @.str.4, i64 noundef %.063.i, ptr noundef nonnull %276, i64 noundef %.0.i, ptr noundef nonnull %2, i64 noundef %.060.i, ptr noundef nonnull %281, ptr noundef nonnull %285, ptr noundef nonnull %288, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %292) #9
   %295 = load ptr, ptr %274, align 8
   %296 = call i32 @fflush(ptr noundef %295)
@@ -960,12 +960,12 @@ declare void @Curl_set_in_callback(ptr noundef, i1 noundef zeroext) local_unname
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returned %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @max5data(i64 noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = icmp slt i64 %0, 100000
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.9, i64 noundef %0) #9
+  %5 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.9, i64 noundef %0) #9
   br label %43
 
 6:                                                ; preds = %2
@@ -974,7 +974,7 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
 
 8:                                                ; preds = %6
   %9 = lshr i64 %0, 10
-  %10 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.10, i64 noundef %9) #9
+  %10 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.10, i64 noundef %9) #9
   br label %43
 
 11:                                               ; preds = %6
@@ -987,7 +987,7 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
   %.lhs.trunc = and i32 %15, 1048575
   %16 = udiv i32 %.lhs.trunc, 104857
   %.zext = zext nneg i32 %16 to i64
-  %17 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.11, i64 noundef %14, i64 noundef %.zext) #9
+  %17 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.11, i64 noundef %14, i64 noundef %.zext) #9
   br label %43
 
 18:                                               ; preds = %11
@@ -996,7 +996,7 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
 
 20:                                               ; preds = %18
   %21 = lshr i64 %0, 20
-  %22 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.12, i64 noundef %21) #9
+  %22 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.12, i64 noundef %21) #9
   br label %43
 
 23:                                               ; preds = %18
@@ -1009,7 +1009,7 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
   %.lhs.trunc25 = and i32 %27, 1073741822
   %28 = udiv i32 %.lhs.trunc25, 107374182
   %.zext26 = zext nneg i32 %28 to i64
-  %29 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.13, i64 noundef %26, i64 noundef %.zext26) #9
+  %29 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.13, i64 noundef %26, i64 noundef %.zext26) #9
   br label %43
 
 30:                                               ; preds = %23
@@ -1018,7 +1018,7 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
 
 32:                                               ; preds = %30
   %33 = lshr i64 %0, 30
-  %34 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.14, i64 noundef %33) #9
+  %34 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.14, i64 noundef %33) #9
   br label %43
 
 35:                                               ; preds = %30
@@ -1027,12 +1027,12 @@ define internal fastcc nonnull ptr @max5data(i64 noundef %0, ptr noundef returne
 
 37:                                               ; preds = %35
   %38 = lshr i64 %0, 40
-  %39 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.15, i64 noundef %38) #9
+  %39 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.15, i64 noundef %38) #9
   br label %43
 
 40:                                               ; preds = %35
   %41 = lshr i64 %0, 50
-  %42 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 6, ptr noundef nonnull @.str.16, i64 noundef %41) #9
+  %42 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 6, ptr noundef nonnull @.str.16, i64 noundef %41) #9
   br label %43
 
 43:                                               ; preds = %8, %20, %32, %40, %37, %25, %13, %4

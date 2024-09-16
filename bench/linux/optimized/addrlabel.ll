@@ -810,7 +810,7 @@ define internal void @ip6addrlbl_net_exit(ptr noundef %0) #0 align 16 {
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ip6addrlbl_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @ip6addrlbl_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 257) %5) unnamed_addr #0 align 16 {
   %7 = tail call i32 @__ipv6_addr_type(ptr noundef %1) #9
   %8 = and i32 %7, 4240
   switch i32 %8, label %20 [
@@ -1055,7 +1055,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #3 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @addrlbl_ifindex_exists(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @addrlbl_ifindex_exists(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %3 = tail call ptr @dev_get_by_index_rcu(ptr noundef %0, i32 noundef %1) #9
   tail call void @__rcu_read_unlock() #9
@@ -1064,7 +1064,7 @@ define internal fastcc zeroext i1 @addrlbl_ifindex_exists(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -3, 1) i32 @ip6addrlbl_del(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -3, 1) i32 @ip6addrlbl_del(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 129) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.in6_addr, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %6 = lshr i32 %2, 3
@@ -1171,7 +1171,7 @@ declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare dso_local ptr @dev_get_by_index_rcu(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @ip6addrlbl_fill(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @ip6addrlbl_fill(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
@@ -1210,7 +1210,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @ip6addrlbl_fill(ptr nounde
   store i32 %25, ptr %31, align 4
   %32 = getelementptr i8, ptr %19, i64 24
   store i32 %2, ptr %32, align 4
-  %33 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 16, ptr noundef %1) #9
+  %33 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 16, ptr noundef nonnull %1) #9
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %40, label %35
 

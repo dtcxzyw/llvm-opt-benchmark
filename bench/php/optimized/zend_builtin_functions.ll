@@ -3957,7 +3957,7 @@ define hidden void @zif_class_exists(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @class_exists_impl(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @class_exists_impl(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 2, 268435457) %2, i32 noundef range(i32 0, 4) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   store i8 1, ptr %6, align 1
@@ -4146,7 +4146,7 @@ define hidden void @zflf_class_exists_1(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_exists_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_class_exists_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 2, 268435457) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32
@@ -5110,7 +5110,7 @@ define hidden void @zif_get_declared_traits(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @get_declared_class_impl(i32 %.44.val, ptr nocapture noundef %0, i32 noundef range(i32 8, 11) %1) unnamed_addr #0 {
   %.not = icmp eq i32 %.44.val, 0
   br i1 %.not, label %4, label %3
 

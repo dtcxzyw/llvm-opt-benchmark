@@ -964,7 +964,7 @@ _ZNK10open_spiel4json5Value9GetStringB5cxx11Ev.exit: ; preds = %_ZN4absl7debian2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
-  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_16EscapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_16EscapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %153 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   %154 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   store ptr %153, ptr %24, align 8
@@ -1247,7 +1247,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 60:                                               ; preds = %45, %59, %54
   store ptr @.str.6, ptr %12, align 8
   store i64 1, ptr %35, align 8
-  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_16EscapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_16EscapeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %61 unwind label %.loopexit
 
 61:                                               ; preds = %60
@@ -1844,12 +1844,12 @@ define void @_ZN10open_spiel4json10FromStringEN4absl7debian211string_viewE(ptr d
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %5, align 8
-  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %4)
+  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.23, align 1
   %4 = alloca %"class.absl::debian2::string_view", align 8
   %5 = alloca %"class.absl::debian2::string_view", align 8
@@ -2196,7 +2196,7 @@ _ZN4absl7debian211string_viewC2EPKc.exit.i37:     ; preds = %_ZN4absl7debian210S
   br label %_ZN10open_spiel4json12_GLOBAL__N_113ParseConstantINS0_4NullEEEN4absl7debian28optionalINS0_5ValueEEEPNS5_11string_viewES9_T_.exit
 
 111:                                              ; preds = %_ZNK4absl7debian211string_view2atEm.exit
-  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %1)
+  call fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %1)
   store i8 0, ptr %0, align 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, i8 0, i64 56, i1 false)
@@ -2387,7 +2387,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i55: ; preds = %165
   br i1 %174, label %.lr.ph.i52, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56: ; preds = %172, %152, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i55, %thread-pre-split207
-  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %1)
           to label %175 unwind label %.loopexit
 
 175:                                              ; preds = %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit56
@@ -2767,7 +2767,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i128: ; preds = %279
   br i1 %288, label %.lr.ph.i125, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129: ; preds = %286, %269, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i128, %thread-pre-split209
-  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %1)
           to label %289 unwind label %.loopexit218
 
 289:                                              ; preds = %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit129
@@ -2894,7 +2894,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit.i106: ; preds = %316
   br i1 %325, label %.lr.ph.i103, label %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107, !llvm.loop !14
 
 _ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107: ; preds = %323, %_ZN4absl7debian211string_view13remove_prefixEm.exit.i106, %_ZN4absl7debian210StartsWithENS0_11string_viewES1_.exit.thread.i115
-  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN10open_spiel4json12_GLOBAL__N_110ParseValueEPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %1)
           to label %326 unwind label %.loopexit223
 
 326:                                              ; preds = %_ZN10open_spiel4json12_GLOBAL__N_117ConsumeWhitespaceEPN4absl7debian211string_viewE.exit107
@@ -3667,7 +3667,7 @@ _ZN4absl7debian2eqENS0_11string_viewES1_.exit.thread: ; preds = %16, %_ZN4absl7d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel4json12_GLOBAL__N_111ParseStringB5cxx11EPN4absl7debian211string_viewE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN4absl7debian211string_viewC2EPKc.exit:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %.sroa.01.0.copyload.i = load ptr, ptr %1, align 8

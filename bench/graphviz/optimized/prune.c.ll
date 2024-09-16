@@ -344,7 +344,7 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   %153 = select i1 %152, ptr %.056127.us, ptr %140
   %154 = getelementptr inbounds i8, ptr %153, i64 56
   %155 = load ptr, ptr %154, align 8
-  %156 = call fastcc i32 @remove_child(ptr noundef nonnull %115, ptr noundef %155)
+  %156 = call fastcc i32 @remove_child(ptr noundef %115, ptr noundef %155)
   %.not71.us = icmp eq i32 %156, 0
   br i1 %.not71.us, label %157, label %159
 
@@ -426,8 +426,8 @@ addnode.exit:                                     ; preds = %gv_strdup.exit.i80,
   unreachable
 
 ._crit_edge138:                                   ; preds = %._crit_edge134.us, %182, %108
-  call fastcc void @attrs_free(ptr noundef nonnull %4)
-  call fastcc void @nodes_free(ptr noundef nonnull %5)
+  call fastcc void @attrs_free(ptr noundef %4)
+  call fastcc void @nodes_free(ptr noundef %5)
   call fastcc void @graphviz_exit(i32 noundef 0) #18
   unreachable
 }
@@ -449,7 +449,7 @@ define internal fastcc void @help_message(ptr noundef %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree noreturn nounwind uwtable
-define internal fastcc void @graphviz_exit(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc void @graphviz_exit(i32 noundef range(i32 0, 2) %0) unnamed_addr #5 {
   tail call void @exit(i32 noundef %0) #22
   unreachable
 }
@@ -477,7 +477,7 @@ declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare ptr @agnameof(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr noundef %1) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -488,12 +488,12 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
 
 8:                                                ; preds = %2
   store i32 1, ptr %5, align 8
-  %9 = tail call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %1) #16
+  %9 = tail call ptr @agfstin(ptr noundef nonnull %0, ptr noundef nonnull %1) #16
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %15, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %9) #16
+  %11 = tail call ptr @agnxtin(ptr noundef nonnull %0, ptr noundef nonnull %9) #16
   %.not33 = icmp eq ptr %11, null
   br i1 %.not33, label %15, label %12
 
@@ -504,13 +504,13 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br label %41
 
 15:                                               ; preds = %10, %8
-  %16 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %1) #16
+  %16 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %1) #16
   %.not3438 = icmp eq ptr %16, null
   br i1 %.not3438, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %39
   %.02939 = phi ptr [ %17, %39 ], [ %16, %15 ]
-  %17 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02939) #16
+  %17 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02939) #16
   %18 = load i32, ptr %.02939, align 8
   %19 = and i32 %18, 3
   %20 = icmp eq i32 %19, 2
@@ -545,7 +545,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br i1 %.not37, label %37, label %39
 
 37:                                               ; preds = %31
-  %38 = tail call i32 @agdeledge(ptr noundef %0, ptr noundef nonnull %.02939) #16
+  %38 = tail call i32 @agdeledge(ptr noundef nonnull %0, ptr noundef nonnull %.02939) #16
   br label %39
 
 39:                                               ; preds = %.lr.ph, %37, %31
@@ -553,7 +553,7 @@ define internal fastcc range(i32 0, 2) i32 @remove_child(ptr noundef %0, ptr nou
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %39, %15
-  %40 = tail call i32 @agdelnode(ptr noundef %0, ptr noundef %1) #16
+  %40 = tail call i32 @agdelnode(ptr noundef nonnull %0, ptr noundef %1) #16
   br label %41
 
 41:                                               ; preds = %2, %._crit_edge, %12
@@ -572,7 +572,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare i32 @agclose(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @attrs_free(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc void @attrs_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -601,7 +601,7 @@ attrs_clear.exit:                                 ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nodes_free(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc void @nodes_free(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0

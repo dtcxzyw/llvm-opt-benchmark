@@ -91,18 +91,18 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %.not133, label %.thread140, label %57
 
 57:                                               ; preds = %.thread
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef %10, ptr noundef %11)
   %58 = load ptr, ptr %10, align 8
   %59 = load ptr, ptr %11, align 8
   tail call fastcc void @add_security_quals(i32 noundef %2, ptr noundef %58, ptr noundef %59, ptr noundef nonnull %3, ptr noundef nonnull %6)
   br label %.thread140
 
 .thread140:                                       ; preds = %57, %.thread
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %8, ptr noundef %9)
   br label %61
 
 60:                                               ; preds = %50
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef %52, i32 noundef %40, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef %52, i32 noundef %40, ptr noundef %8, ptr noundef %9)
   switch i32 %52, label %65 [
     i32 4, label %61
     i32 2, label %61
@@ -132,7 +132,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %.not134, label %75, label %72
 
 72:                                               ; preds = %68
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %12, ptr noundef %13)
   %73 = load ptr, ptr %12, align 8
   %74 = load ptr, ptr %13, align 8
   tail call fastcc void @add_security_quals(i32 noundef %2, ptr noundef %73, ptr noundef %74, ptr noundef nonnull %3, ptr noundef nonnull %6)
@@ -158,7 +158,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
 85:                                               ; preds = %78
   store ptr null, ptr %14, align 8
   store ptr null, ptr %15, align 8
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %14, ptr noundef %15)
   %86 = load ptr, ptr %14, align 8
   %87 = load ptr, ptr %15, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef %79, ptr noundef %86, ptr noundef %87, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -182,7 +182,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
 96:                                               ; preds = %92
   store ptr null, ptr %18, align 8
   store ptr null, ptr %19, align 8
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef %16, ptr noundef %17)
   %97 = load ptr, ptr %16, align 8
   %98 = load ptr, ptr %17, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 3, ptr noundef %97, ptr noundef %98, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -192,7 +192,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %.not137, label %104, label %101
 
 101:                                              ; preds = %96
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %18, ptr noundef %19)
   %102 = load ptr, ptr %18, align 8
   %103 = load ptr, ptr %19, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 3, ptr noundef %102, ptr noundef %103, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -215,7 +215,7 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %67, label %111, label %.thread142
 
 111:                                              ; preds = %110
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 2, i32 noundef %40, ptr noundef %20, ptr noundef %21)
   %112 = load ptr, ptr %20, align 8
   %113 = load ptr, ptr %21, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 4, ptr noundef %112, ptr noundef %113, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
@@ -227,18 +227,18 @@ define dso_local void @get_row_security_policies(ptr nocapture noundef readonly 
   br i1 %.not139, label %120, label %117
 
 117:                                              ; preds = %111
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef nonnull %26, ptr noundef nonnull %27)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 1, i32 noundef %40, ptr noundef %26, ptr noundef %27)
   %118 = load ptr, ptr %26, align 8
   %119 = load ptr, ptr %27, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 2, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
   br label %120
 
 120:                                              ; preds = %117, %111
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 4, i32 noundef %40, ptr noundef nonnull %22, ptr noundef nonnull %23)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 4, i32 noundef %40, ptr noundef %22, ptr noundef %23)
   %121 = load ptr, ptr %22, align 8
   %122 = load ptr, ptr %23, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 5, ptr noundef %121, ptr noundef %122, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext true)
-  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 3, i32 noundef %40, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  call fastcc void @get_policies_for_relation(ptr noundef %46, i32 noundef 3, i32 noundef %40, ptr noundef %24, ptr noundef %25)
   %123 = load ptr, ptr %24, align 8
   %124 = load ptr, ptr %25, align 8
   tail call fastcc void @add_with_check_options(ptr noundef %46, i32 noundef %2, i32 noundef 1, ptr noundef %123, ptr noundef %124, ptr noundef nonnull %4, ptr noundef nonnull %6, i1 noundef zeroext false)
@@ -271,7 +271,7 @@ declare i32 @check_enable_rls(i32 noundef, i32 noundef, i1 noundef zeroext) loca
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -698,7 +698,7 @@ define internal fastcc void @add_security_quals(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_with_check_options(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @add_with_check_options(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 1, 6) %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %3, i64 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph

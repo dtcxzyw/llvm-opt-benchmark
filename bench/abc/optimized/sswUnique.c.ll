@@ -782,10 +782,10 @@ Ssw_ObjSatNum.exit:                               ; preds = %40, %._crit_edge.i.
   %83 = sext i32 %.val37 to i64
   %84 = getelementptr inbounds i32, ptr %.val.i.i, i64 %83
   %85 = load i32, ptr %84, align 4
-  %86 = shl nsw i32 %85, 1
-  %87 = trunc i64 %.026.lcssa to i32
-  %88 = and i32 %87, 1
-  %89 = or disjoint i32 %86, %88
+  %86 = trunc i64 %.026.lcssa to i32
+  %87 = and i32 %86, 1
+  %88 = shl nsw i32 %85, 1
+  %89 = or disjoint i32 %88, %87
   %90 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %89, ptr %90, align 8
   br label %91

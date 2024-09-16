@@ -110,7 +110,7 @@ default_rand.exit:                                ; preds = %0, %5
 
 10:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %1)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %1, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %1, i64 noundef 4)
   %11 = getelementptr inbounds i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp ult i32 %12, 2
@@ -459,7 +459,7 @@ default_rand.exit:                                ; preds = %6, %10
 
 15:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %3, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %3, i64 noundef 4)
   %16 = getelementptr inbounds i8, ptr %3, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp ult i32 %17, 2
@@ -501,7 +501,7 @@ random_seed.exit.i.i:                             ; preds = %19, %15
 
 35:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %2, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %2, i64 noundef 4)
   %36 = getelementptr inbounds i8, ptr %2, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, 2
@@ -1344,7 +1344,7 @@ define hidden void @Init_RandomSeedCore() local_unnamed_addr #0 {
   br i1 %.not12.i.i, label %ruby_fill_random_bytes.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.i.i
-  call fastcc void @fill_random_seed(ptr noundef nonnull %2, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %2, i64 noundef 4)
   store i32 19650218, ptr %1, align 8
   br label %14
 
@@ -1549,12 +1549,12 @@ ruby_fill_random_bytes.exit.thread:               ; preds = %10, %.lr.ph.i.i, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fill_random_seed(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @fill_random_seed(ptr noundef nonnull %0, i64 noundef range(i64 0, 576460752303423488) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.timespec, align 8
   store ptr %0, ptr %3, align 8
   %5 = shl nuw nsw i64 %1, 2
-  tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %5, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %0, i8 0, i64 %5, i1 false)
   %6 = load i32, ptr @fill_random_bytes_syscall.try_syscall, align 4
   %.not.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i, label %16, label %.preheader
@@ -1814,7 +1814,7 @@ default_rand.exit:                                ; preds = %3, %9
 
 14:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %5, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %5, i64 noundef 4)
   %15 = getelementptr inbounds i8, ptr %5, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 2
@@ -1848,7 +1848,7 @@ rb_check_arity.exit:                              ; preds = %rand_mt_start.exit
 
 24:                                               ; preds = %rb_check_arity.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %4, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %4, i64 noundef 4)
   %25 = getelementptr inbounds i8, ptr %4, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, 2
@@ -1902,7 +1902,7 @@ default_rand.exit:                                ; preds = %3, %8
 
 13:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %4, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %4, i64 noundef 4)
   %14 = getelementptr inbounds i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 2
@@ -2085,7 +2085,7 @@ rb_check_frozen_inline.exit:                      ; preds = %28
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %rb_check_frozen_inline.exit
-  %36 = tail call fastcc i64 @rand_init_default(ptr noundef nonnull %9, ptr noundef %4)
+  %36 = tail call fastcc i64 @rand_init_default(ptr noundef %9, ptr noundef %4)
   br label %41
 
 37:                                               ; preds = %rb_check_frozen_inline.exit
@@ -2189,7 +2189,7 @@ define internal i64 @random_get_seed(i64 noundef %0) #0 {
 
 11:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %2, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %2, i64 noundef 4)
   %12 = getelementptr inbounds i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp ult i32 %13, 2
@@ -2492,7 +2492,7 @@ default_rand.exit:                                ; preds = %3, %8
 
 13:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %4, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %4, i64 noundef 4)
   %14 = getelementptr inbounds i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp ult i32 %15, 2
@@ -2561,7 +2561,7 @@ default_rand.exit:                                ; preds = %2, %7
 
 12:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %3, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %3, i64 noundef 4)
   %13 = getelementptr inbounds i8, ptr %3, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = icmp ult i32 %14, 2
@@ -2695,7 +2695,7 @@ default_rand.exit.rand_mt_start.exit_crit_edge:   ; preds = %default_rand.exit
 
 11:                                               ; preds = %default_rand.exit
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2)
-  call fastcc void @fill_random_seed(ptr noundef nonnull %2, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %2, i64 noundef 4)
   %12 = getelementptr inbounds i8, ptr %2, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp ult i32 %13, 2
@@ -2723,7 +2723,7 @@ rand_mt_start.exit:                               ; preds = %default_rand.exit.r
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @random_seed(i64 %0) #0 {
   %2 = alloca [5 x i32], align 16
-  call fastcc void @fill_random_seed(ptr noundef nonnull %2, i64 noundef 4)
+  call fastcc void @fill_random_seed(ptr noundef %2, i64 noundef 4)
   %3 = getelementptr inbounds i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, 2
@@ -3782,7 +3782,7 @@ rb_float_new_inline.exit:                         ; preds = %range_values.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rand_int(i64 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = and i64 %2, 1
@@ -3896,7 +3896,7 @@ define internal fastcc void @domain_error() unnamed_addr #18 {
 declare i64 @rb_check_to_int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @random_ulong_limited(i64 noundef %0, ptr noundef %1, i64 noundef range(i64 -4611686018427387904, -9223372036854775808) %2) unnamed_addr #0 {
   %4 = alloca %union.anon.20, align 8
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %limited_rand.exit, label %5
@@ -4162,7 +4162,7 @@ default_rand.exit.i:                              ; preds = %47, %43
 
 try_rand_if.exit:                                 ; preds = %default_rand.exit.i, %51
   %.0.i = phi ptr [ %56, %51 ], [ @random_mt_if, %default_rand.exit.i ]
-  %57 = tail call fastcc i64 @limited_big_rand(ptr noundef %.0.i, ptr noundef nonnull %1, i64 noundef %2)
+  %57 = tail call fastcc i64 @limited_big_rand(ptr noundef %.0.i, ptr noundef %1, i64 noundef %2)
   br label %58
 
 58:                                               ; preds = %try_rand_if.exit, %._crit_edge
@@ -4196,7 +4196,7 @@ declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_integer_unpack(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @limited_big_rand(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @limited_big_rand(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = tail call i64 @rb_absint_numwords(i64 noundef %2, i64 noundef 32, ptr noundef null) #22
   %6 = shl i64 %5, 1
@@ -4263,7 +4263,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %11
 .thread.us:                                       ; preds = %25, %.lr.ph.us
   %38 = phi i32 [ %37, %25 ], [ -1, %.lr.ph.us ]
   %39 = load ptr, ptr %22, align 8
-  %40 = call i32 %39(ptr noundef %1) #22
+  %40 = call i32 %39(ptr noundef nonnull %1) #22
   %41 = and i32 %40, %38
   %.not40.us = icmp eq i32 %.03343.us, 0
   br i1 %.not40.us, label %46, label %42
@@ -4309,7 +4309,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #16
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rand_init_default(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @rand_init_default(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = load i64, ptr %0, align 8
@@ -4332,7 +4332,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %2
 
 15:                                               ; preds = %rb_alloc_tmp_buffer2.exit, %10
   %16 = phi ptr [ %11, %10 ], [ %14, %rb_alloc_tmp_buffer2.exit ]
-  call fastcc void @fill_random_seed(ptr noundef nonnull %16, i64 noundef %6)
+  call fastcc void @fill_random_seed(ptr noundef %16, i64 noundef %6)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef %1, ptr noundef nonnull %16, i64 noundef %6) #22

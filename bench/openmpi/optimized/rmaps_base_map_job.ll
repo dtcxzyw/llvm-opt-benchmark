@@ -2845,7 +2845,7 @@ pmix_pointer_array_get_item.exit821:              ; preds = %1499, %1512
 
 1543:                                             ; preds = %1516
   %1544 = load ptr, ptr %10, align 8
-  %1545 = call fastcc i32 @map_colocate(ptr noundef %44, i1 noundef zeroext %297, i1 noundef zeroext %.3594, ptr noundef %1544, i16 noundef zeroext %.3607, ptr noundef nonnull %9)
+  %1545 = call fastcc i32 @map_colocate(ptr noundef %44, i1 noundef zeroext %297, i1 noundef zeroext %.3594, ptr noundef %1544, i16 noundef zeroext %.3607, ptr noundef %9)
   %1546 = load ptr, ptr %10, align 8
   call void @PMIx_Data_array_free(ptr noundef %1546) #14
   store ptr null, ptr %10, align 8
@@ -3334,7 +3334,7 @@ declare i32 @prte_hwloc_base_set_default_binding(ptr noundef, ptr noundef) local
 declare ptr @prte_hwloc_base_print_binding(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @map_colocate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @map_colocate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.pmix_list_t, align 8
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
@@ -3658,7 +3658,7 @@ pmix_pointer_array_get_item.exit267.us:           ; preds = %pmix_pointer_array_
   br i1 %1, label %.lr.ph340.us, label %175
 
 175:                                              ; preds = %174
-  %176 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef %.0215351, ptr noundef nonnull %8, ptr noundef null, ptr noundef %5) #14
+  %176 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %172, ptr noundef %.0215351, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %176, label %.lr.ph340.us, label %177
 
 177:                                              ; preds = %175
@@ -3684,7 +3684,7 @@ pmix_pointer_array_get_item.exit267.us:           ; preds = %pmix_pointer_array_
 187:                                              ; preds = %.lr.ph340.us, %218
   %.0220338.us = phi i32 [ 0, %.lr.ph340.us ], [ %219, %218 ]
   %188 = load i32, ptr %185, align 8
-  %189 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %188, ptr noundef %.0215351, ptr noundef null, ptr noundef %5) #14
+  %189 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %188, ptr noundef %.0215351, ptr noundef null, ptr noundef nonnull %5) #14
   %190 = icmp eq ptr %189, null
   br i1 %190, label %.loopexit302, label %191
 
@@ -3773,7 +3773,7 @@ pmix_pointer_array_get_item.exit267:              ; preds = %pmix_pointer_array_
   br i1 %230, label %.loopexit, label %231
 
 231:                                              ; preds = %pmix_pointer_array_get_item.exit267
-  %232 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %229, ptr noundef %.0215351, ptr noundef nonnull %8, ptr noundef null, ptr noundef %5) #14
+  %232 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %229, ptr noundef %.0215351, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %232, label %.loopexit, label %233
 
 233:                                              ; preds = %231
@@ -3841,7 +3841,7 @@ pmix_pointer_array_get_item.exit267:              ; preds = %pmix_pointer_array_
   br i1 %264, label %pmix_pointer_array_get_item.exit267, label %.loopexit303, !llvm.loop !22
 
 ._crit_edge355:                                   ; preds = %.loopexit303, %142
-  %265 = call i32 @prte_rmaps_base_compute_vpids(ptr noundef %0, ptr noundef %5) #14
+  %265 = call i32 @prte_rmaps_base_compute_vpids(ptr noundef %0, ptr noundef nonnull %5) #14
   %.not256 = icmp eq i32 %265, 0
   br i1 %.not256, label %.loopexit302, label %pmix_obj_run_destructors.exit299
 
@@ -3958,7 +3958,7 @@ pmix_pointer_array_get_item.exit278:              ; preds = %pmix_pointer_array_
   br i1 %1, label %353, label %324
 
 324:                                              ; preds = %pmix_pointer_array_get_item.exit278
-  %325 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef %323, ptr noundef %.1216335, ptr noundef nonnull %8, ptr noundef null, ptr noundef %5) #14
+  %325 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef %323, ptr noundef %.1216335, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #14
   br i1 %325, label %353, label %326
 
 326:                                              ; preds = %324
@@ -4018,7 +4018,7 @@ pmix_pointer_array_get_item.exit278:              ; preds = %pmix_pointer_array_
 
 356:                                              ; preds = %.lr.ph329, %388
   %.1221327 = phi i32 [ 0, %.lr.ph329 ], [ %389, %388 ]
-  %357 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %355, ptr noundef %.1216335, ptr noundef null, ptr noundef %5) #14
+  %357 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %355, ptr noundef %.1216335, ptr noundef null, ptr noundef nonnull %5) #14
   %358 = icmp eq ptr %357, null
   br i1 %358, label %.loopexit302, label %359
 
@@ -4101,7 +4101,7 @@ pmix_obj_run_destructors.exit283:                 ; preds = %.lr.ph.i280, %374
   br i1 %.not251, label %._crit_edge337, label %.preheader308, !llvm.loop !27
 
 ._crit_edge337:                                   ; preds = %.loopexit307, %266
-  %395 = call i32 @prte_rmaps_base_compute_vpids(ptr noundef %0, ptr noundef %5) #14
+  %395 = call i32 @prte_rmaps_base_compute_vpids(ptr noundef %0, ptr noundef nonnull %5) #14
   %.not252 = icmp eq i32 %395, 0
   br i1 %.not252, label %.loopexit302, label %pmix_obj_run_destructors.exit299
 

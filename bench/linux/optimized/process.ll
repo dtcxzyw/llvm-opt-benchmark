@@ -1529,7 +1529,7 @@ define dso_local void @__switch_to_xtra(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wrmsrl(i32 noundef %0, i64 noundef %1) unnamed_addr #9 align 16 {
+define internal fastcc void @wrmsrl(i32 noundef range(i32 -1073676001, -1073672159) %0, i64 noundef %1) unnamed_addr #9 align 16 {
   %3 = trunc i64 %1 to i32
   %4 = lshr i64 %1, 32
   %5 = trunc nuw i64 %4 to i32

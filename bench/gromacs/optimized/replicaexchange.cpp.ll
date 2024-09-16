@@ -1250,7 +1250,7 @@ declare void @_Z17check_multi_int64P8_IO_FILEPK14gmx_multisim_tlPKcb(ptr noundef
 declare noundef float @_Z27constantEnsembleTemperatureRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP11gmx_repl_ex19ReplicaExchangeTypef(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, float noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP11gmx_repl_ex19ReplicaExchangeTypef(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2, float noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %5 to i64
   %7 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1, i32 noundef 172, i64 noundef %6, i64 noundef 4)
@@ -1290,7 +1290,7 @@ define internal fastcc noundef zeroext i1 @_ZL13repl_quantityPK14gmx_multisim_tP
   %23 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %2, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = sext i32 %2 to i64
+  %25 = zext nneg i32 %2 to i64
   %26 = getelementptr inbounds [4 x ptr], ptr %24, i64 0, i64 %25
   %27 = getelementptr inbounds i8, ptr %1, i64 4
   %28 = load i32, ptr %27, align 4

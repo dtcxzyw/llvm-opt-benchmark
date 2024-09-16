@@ -511,7 +511,7 @@ pmix_cmd_line_get_param.exit356:                  ; preds = %.lr.ph.i351
   unreachable
 
 .thread459:                                       ; preds = %179, %convert_procs.exit
-  %189 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %5, ptr noundef nonnull @.str.22)
+  %189 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %5, ptr noundef nonnull @.str.22)
   br i1 %189, label %190, label %196
 
 190:                                              ; preds = %.thread459
@@ -529,7 +529,7 @@ pmix_cmd_line_get_param.exit356:                  ; preds = %.lr.ph.i351
   unreachable
 
 196:                                              ; preds = %.thread459
-  %197 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %5, ptr noundef nonnull @.str.24)
+  %197 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %5, ptr noundef nonnull @.str.24)
   br i1 %197, label %198, label %204
 
 198:                                              ; preds = %196
@@ -1330,7 +1330,7 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8

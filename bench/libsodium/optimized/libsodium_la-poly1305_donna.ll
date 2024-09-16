@@ -403,7 +403,7 @@ if.end:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef %bytes) unnamed_addr #2 {
+define internal fastcc void @poly1305_blocks(ptr nocapture noundef %st, ptr nocapture noundef readonly %m, i64 noundef range(i64 0, -15) %bytes) unnamed_addr #2 {
 entry:
   %final = getelementptr inbounds i8, ptr %st, i64 88
   %0 = load i8, ptr %final, align 8

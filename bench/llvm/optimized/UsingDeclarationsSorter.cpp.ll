@@ -193,7 +193,7 @@ tailrecurse.i.i.i:                                ; preds = %33, %41
 
 _ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.thread: ; preds = %tailrecurse.i.i.i, %41, %44, %33
   %48 = load i8, ptr %30, align 1
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef nonnull %11, i8 noundef signext %48)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef %11, i8 noundef signext %48)
   br label %131
 
 49:                                               ; preds = %44
@@ -204,7 +204,7 @@ _ZNK5clang6format13AnnotatedLine10startsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.th
 
 53:                                               ; preds = %49
   %54 = load i8, ptr %30, align 1
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef nonnull %11, i8 noundef signext %54)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef %11, i8 noundef signext %54)
   br label %55
 
 55:                                               ; preds = %53, %49
@@ -355,7 +355,7 @@ _ZN5clang6format12_GLOBAL__N_128computeUsingDeclarationLabelB5cxx11EPKNS0_11Form
 
 107:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_128computeUsingDeclarationLabelB5cxx11EPKNS0_11FormatTokenE.exit
   %108 = load i8, ptr %30, align 1
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef nonnull %11, i8 noundef signext %108)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef %11, i8 noundef signext %108)
   br label %130
 
 109:                                              ; preds = %_ZN5clang6format12_GLOBAL__N_128computeUsingDeclarationLabelB5cxx11EPKNS0_11FormatTokenE.exit
@@ -418,7 +418,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format12_GLOBAL__N_116UsingDeclaration
 ._crit_edge:                                      ; preds = %131, %5
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 719
   %134 = load i8, ptr %133, align 1
-  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef nonnull %11, i8 noundef signext %134)
+  call fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(696) %18, ptr noundef %11, i8 noundef signext %134)
   %135 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %135, align 8
   %136 = getelementptr inbounds i8, ptr %0, i64 16
@@ -503,7 +503,7 @@ _ZN4llvm11SmallVectorIN5clang6format12_GLOBAL__N_116UsingDeclarationELj4EED2Ev.e
 declare noundef zeroext i1 @_ZN5clang6format20AffectedRangeManager20computeAffectedLinesERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef %2, i8 noundef signext %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_124endUsingDeclarationBlockEPN4llvm15SmallVectorImplINS1_16UsingDeclarationEEERKNS_13SourceManagerEPNS_7tooling12ReplacementsENS0_11FormatStyle28SortUsingDeclarationsOptionsE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull %2, i8 noundef signext %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.134", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.llvm::Error", align 8

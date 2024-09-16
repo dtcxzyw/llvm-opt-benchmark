@@ -2409,7 +2409,7 @@ StartLogStreamer.exit.i:                          ; preds = %820
   store i32 -1, ptr %7, align 8
   %832 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %27, ptr %832, align 8
-  call fastcc void @ReceiveCopyData(ptr noundef %831, ptr noundef nonnull @ReceiveArchiveStreamChunk, ptr noundef nonnull %7)
+  call fastcc void @ReceiveCopyData(ptr noundef %831, ptr noundef nonnull @ReceiveArchiveStreamChunk, ptr noundef %7)
   %833 = getelementptr inbounds i8, ptr %7, i64 1064
   %834 = load ptr, ptr %833, align 8
   %.not.i214.i = icmp eq ptr %834, null
@@ -2495,7 +2495,7 @@ ReceiveArchiveStream.exit.i:                      ; preds = %853, %850
   store ptr %875, ptr %827, align 8
   %876 = zext i1 %870 to i32
   store i32 %876, ptr %4, align 8
-  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveTarCopyChunk, ptr noundef nonnull %4)
+  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveTarCopyChunk, ptr noundef %4)
   %.b3.i.i.i = load i1, ptr @showprogress, align 1
   %877 = load i32, ptr @verbose, align 4
   %878 = icmp ne i32 %877, 0
@@ -2515,7 +2515,7 @@ progress_update_filename.exit.i.i:                ; preds = %879, %868
 
 882:                                              ; preds = %progress_update_filename.exit.i.i
   call void @initPQExpBuffer(ptr noundef nonnull %6) #18
-  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveBackupManifestInMemoryChunk, ptr noundef nonnull %6)
+  call fastcc void @ReceiveCopyData(ptr noundef %869, ptr noundef nonnull @ReceiveBackupManifestInMemoryChunk, ptr noundef %6)
   %883 = load i64, ptr %828, align 8
   %884 = icmp eq i64 %883, 0
   br i1 %884, label %885, label %886
@@ -2577,7 +2577,7 @@ ReceiveTarFile.exit.i:                            ; preds = %886, %progress_upda
   unreachable
 
 ReceiveBackupManifest.exit.i:                     ; preds = %902
-  call fastcc void @ReceiveCopyData(ptr noundef %903, ptr noundef nonnull @ReceiveBackupManifestChunk, ptr noundef nonnull %3)
+  call fastcc void @ReceiveCopyData(ptr noundef %903, ptr noundef nonnull @ReceiveBackupManifestChunk, ptr noundef %3)
   %910 = load ptr, ptr %907, align 8
   %911 = call i32 @fclose(ptr noundef %910)
   call void @llvm.lifetime.end.p0(i64 1032, ptr nonnull %3)
@@ -3661,7 +3661,7 @@ declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @PQgetResult(ptr noundef %0) #18
   %6 = tail call i32 @PQresultStatus(ptr noundef %5) #18
@@ -3704,7 +3704,7 @@ define internal fastcc void @ReceiveCopyData(ptr noundef %0, ptr nocapture nound
 17:                                               ; preds = %14
   %18 = sext i32 %11 to i64
   %19 = load ptr, ptr %4, align 8
-  call void %1(i64 noundef %18, ptr noundef %19, ptr noundef %2) #18, !callees !14
+  call void %1(i64 noundef %18, ptr noundef %19, ptr noundef nonnull %2) #18, !callees !14
   %20 = load ptr, ptr %4, align 8
   call void @PQfreemem(ptr noundef %20) #18
   br label %10

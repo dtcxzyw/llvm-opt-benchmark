@@ -102,7 +102,7 @@ if.end53:                                         ; preds = %if.end45
   %size = getelementptr inbounds i8, ptr %local, i64 16
   %1 = load i64, ptr %size, align 8
   %cmp54 = icmp ult i64 %1, %add48
-  br i1 %cmp54, label %if.then56, label %for.cond2.preheader.preheader.i.lr.ph
+  br i1 %cmp54, label %if.then56, label %for.body.lr.ph
 
 if.then56:                                        ; preds = %if.end53
   %call57 = tail call i32 @_sodium_escrypt_free_region(ptr noundef nonnull %local) #6
@@ -112,9 +112,9 @@ if.then56:                                        ; preds = %if.end53
 if.end59:                                         ; preds = %if.then56
   %call60 = tail call ptr @_sodium_escrypt_alloc_region(ptr noundef nonnull %local, i64 noundef %add48) #6
   %tobool61.not = icmp eq ptr %call60, null
-  br i1 %tobool61.not, label %return, label %for.cond2.preheader.preheader.i.lr.ph
+  br i1 %tobool61.not, label %return, label %for.body.lr.ph
 
-for.cond2.preheader.preheader.i.lr.ph:            ; preds = %if.end53, %if.end59
+for.body.lr.ph:                                   ; preds = %if.end53, %if.end59
   %aligned = getelementptr inbounds i8, ptr %local, i64 8
   %2 = load ptr, ptr %aligned, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %mul38
@@ -122,29 +122,29 @@ for.cond2.preheader.preheader.i.lr.ph:            ; preds = %if.end53, %if.end59
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef %salt, i64 noundef %saltlen, i64 noundef 1, ptr noundef %2, i64 noundef %mul38) #6
   %mul1.i = shl nuw nsw i64 %conv, 1
   %sub.i = add nsw i64 %N, -1
-  %cmp1566.i = icmp ugt i64 %sub.i, 1
+  %cmp1565.i = icmp ugt i64 %N, 2
   %3 = ptrtoint ptr %add.ptr to i64
   %4 = ptrtoint ptr %add.ptr65 to i64
   %add27.i = add i64 %mul37, %4
   %5 = inttoptr i64 %add27.i to ptr
   %6 = getelementptr i8, ptr %add.ptr65, i64 %mul37
-  %arrayidx2.i.i = getelementptr i8, ptr %6, i64 -16
   %add.ptr.i.i = getelementptr i8, ptr %6, i64 -64
-  br label %for.cond2.preheader.preheader.i
+  %arrayidx2.i.i = getelementptr i8, ptr %6, i64 -16
+  br label %for.body
 
-for.cond2.preheader.preheader.i:                  ; preds = %for.cond2.preheader.preheader.i.lr.ph, %smix.exit
-  %indvars.iv = phi i64 [ 0, %for.cond2.preheader.preheader.i.lr.ph ], [ %indvars.iv.next, %smix.exit ]
+for.body:                                         ; preds = %for.body.lr.ph, %smix.exit
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %smix.exit ]
   %mul71 = mul i64 %mul37, %indvars.iv
   %arrayidx = getelementptr i8, ptr %2, i64 %mul71
   br label %for.cond2.preheader.i
 
-for.cond2.preheader.i:                            ; preds = %for.inc11.i, %for.cond2.preheader.preheader.i
-  %k.065.i = phi i64 [ %inc12.i, %for.inc11.i ], [ 0, %for.cond2.preheader.preheader.i ]
-  %mul5.i = shl nuw nsw i64 %k.065.i, 4
+for.cond2.preheader.i:                            ; preds = %for.inc11.i, %for.body
+  %k.064.i = phi i64 [ 0, %for.body ], [ %inc12.i, %for.inc11.i ]
+  %mul5.i = shl nuw nsw i64 %k.064.i, 4
   br label %for.body4.i
 
 for.cond14.preheader.i:                           ; preds = %for.inc11.i
-  br i1 %cmp1566.i, label %for.body16.i, label %for.end24.i
+  br i1 %cmp1565.i, label %for.body16.i, label %for.end24.i
 
 for.body4.i:                                      ; preds = %for.body4.i, %for.cond2.preheader.i
   %i.063.i = phi i64 [ 0, %for.cond2.preheader.i ], [ %inc.i, %for.body4.i ]
@@ -162,23 +162,23 @@ for.body4.i:                                      ; preds = %for.body4.i, %for.c
   br i1 %exitcond.not.i, label %for.inc11.i, label %for.body4.i, !llvm.loop !4
 
 for.inc11.i:                                      ; preds = %for.body4.i
-  %inc12.i = add nuw nsw i64 %k.065.i, 1
-  %exitcond78.not.i = icmp eq i64 %inc12.i, %mul1.i
-  br i1 %exitcond78.not.i, label %for.cond14.preheader.i, label %for.cond2.preheader.i, !llvm.loop !6
+  %inc12.i = add nuw nsw i64 %k.064.i, 1
+  %exitcond74.not.i = icmp eq i64 %inc12.i, %mul1.i
+  br i1 %exitcond74.not.i, label %for.cond14.preheader.i, label %for.cond2.preheader.i, !llvm.loop !6
 
 for.body16.i:                                     ; preds = %for.cond14.preheader.i, %for.body16.i
-  %X.068.i = phi ptr [ %8, %for.body16.i ], [ %add.ptr, %for.cond14.preheader.i ]
-  %i.167.i = phi i64 [ %add23.i, %for.body16.i ], [ 1, %for.cond14.preheader.i ]
-  %mul17.i = mul i64 %i.167.i, %mul37
+  %X.067.i = phi ptr [ %8, %for.body16.i ], [ %add.ptr, %for.cond14.preheader.i ]
+  %i.166.i = phi i64 [ %add23.i, %for.body16.i ], [ 1, %for.cond14.preheader.i ]
+  %mul17.i = mul i64 %i.166.i, %mul37
   %add18.i = add i64 %mul17.i, %3
   %7 = inttoptr i64 %add18.i to ptr
-  tail call fastcc void @blockmix_salsa8(ptr noundef %X.068.i, ptr noundef %7, i64 noundef %conv)
-  %add19.i = add nuw nsw i64 %i.167.i, 1
+  tail call fastcc void @blockmix_salsa8(ptr noundef %X.067.i, ptr noundef %7, i64 noundef %conv)
+  %add19.i = add nuw nsw i64 %i.166.i, 1
   %mul20.i = mul i64 %add19.i, %mul37
   %add21.i = add i64 %mul20.i, %3
   %8 = inttoptr i64 %add21.i to ptr
   tail call fastcc void @blockmix_salsa8(ptr noundef %7, ptr noundef %8, i64 noundef %conv)
-  %add23.i = add nuw nsw i64 %i.167.i, 2
+  %add23.i = add nuw nsw i64 %i.166.i, 2
   %cmp15.i = icmp ult i64 %add23.i, %sub.i
   br i1 %cmp15.i, label %for.body16.i, label %for.end24.i, !llvm.loop !7
 
@@ -190,19 +190,19 @@ for.end24.i:                                      ; preds = %for.body16.i, %for.
   %9 = inttoptr i64 %add26.i to ptr
   tail call fastcc void @blockmix_salsa8(ptr noundef %X.0.lcssa.i, ptr noundef %9, i64 noundef %conv)
   tail call fastcc void @blockmix_salsa8(ptr noundef %9, ptr noundef %add.ptr65, i64 noundef %conv)
+  %vecext.i8.i.i = load i32, ptr %add.ptr.i.i, align 16
   %10 = load <4 x i32>, ptr %arrayidx2.i.i, align 16
   %vecext.i.i.i = extractelement <4 x i32> %10, i64 1
   %conv.i.i = zext i32 %vecext.i.i.i to i64
   %shl.i.i = shl nuw i64 %conv.i.i, 32
-  %vecext.i8.i.i = load i32, ptr %add.ptr.i.i, align 16
   %conv5.i.i = zext i32 %vecext.i8.i.i to i64
   %add.i.i = or disjoint i64 %shl.i.i, %conv5.i.i
   br label %for.body32.i
 
 for.body32.i:                                     ; preds = %for.body32.i, %for.end24.i
-  %call28.pn74.i = phi i64 [ %conv41.i, %for.body32.i ], [ %add.i.i, %for.end24.i ]
-  %i.273.i = phi i64 [ %add45.i, %for.body32.i ], [ 0, %for.end24.i ]
-  %j.0.i = and i64 %call28.pn74.i, %sub.i
+  %call28.pn71.i = phi i64 [ %add.i.i, %for.end24.i ], [ %conv41.i, %for.body32.i ]
+  %i.270.i = phi i64 [ 0, %for.end24.i ], [ %add45.i, %for.body32.i ]
+  %j.0.i = and i64 %call28.pn71.i, %sub.i
   %mul33.i = mul i64 %j.0.i, %mul37
   %add34.i = add i64 %mul33.i, %3
   %11 = inttoptr i64 %add34.i to ptr
@@ -214,39 +214,39 @@ for.body32.i:                                     ; preds = %for.body32.i, %for.
   %12 = inttoptr i64 %add39.i to ptr
   %call40.i = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %5, ptr noundef %12, ptr noundef %add.ptr65, i64 noundef %conv)
   %conv41.i = zext i32 %call40.i to i64
-  %add45.i = add nuw nsw i64 %i.273.i, 2
+  %add45.i = add nuw nsw i64 %i.270.i, 2
   %cmp31.i = icmp ult i64 %add45.i, %N
   br i1 %cmp31.i, label %for.body32.i, label %for.cond52.preheader.i, !llvm.loop !8
 
 for.cond52.preheader.i:                           ; preds = %for.body32.i, %for.inc68.i
-  %k.177.i = phi i64 [ %inc69.i, %for.inc68.i ], [ 0, %for.body32.i ]
-  %mul56.i = shl nuw nsw i64 %k.177.i, 4
+  %k.173.i = phi i64 [ %inc69.i, %for.inc68.i ], [ 0, %for.body32.i ]
+  %mul56.i = shl nuw nsw i64 %k.173.i, 4
   br label %for.body55.i
 
 for.body55.i:                                     ; preds = %for.body55.i, %for.cond52.preheader.i
-  %i.375.i = phi i64 [ 0, %for.cond52.preheader.i ], [ %inc66.i, %for.body55.i ]
-  %mul57.i = mul nuw nsw i64 %i.375.i, 5
+  %i.372.i = phi i64 [ 0, %for.cond52.preheader.i ], [ %inc66.i, %for.body55.i ]
+  %mul57.i = mul nuw nsw i64 %i.372.i, 5
   %rem58.i = and i64 %mul57.i, 15
   %add59.i = or disjoint i64 %rem58.i, %mul56.i
   %mul60.i = shl nuw nsw i64 %add59.i, 2
   %arrayidx61.i = getelementptr i8, ptr %arrayidx, i64 %mul60.i
-  %add63.i = or disjoint i64 %i.375.i, %mul56.i
+  %add63.i = or disjoint i64 %i.372.i, %mul56.i
   %arrayidx64.i = getelementptr i32, ptr %add.ptr65, i64 %add63.i
   %13 = load i32, ptr %arrayidx64.i, align 4
   store i32 %13, ptr %arrayidx61.i, align 1
-  %inc66.i = add nuw nsw i64 %i.375.i, 1
-  %exitcond79.not.i = icmp eq i64 %inc66.i, 16
-  br i1 %exitcond79.not.i, label %for.inc68.i, label %for.body55.i, !llvm.loop !9
+  %inc66.i = add nuw nsw i64 %i.372.i, 1
+  %exitcond75.not.i = icmp eq i64 %inc66.i, 16
+  br i1 %exitcond75.not.i, label %for.inc68.i, label %for.body55.i, !llvm.loop !9
 
 for.inc68.i:                                      ; preds = %for.body55.i
-  %inc69.i = add nuw nsw i64 %k.177.i, 1
-  %exitcond81.not.i = icmp eq i64 %inc69.i, %mul1.i
-  br i1 %exitcond81.not.i, label %smix.exit, label %for.cond52.preheader.i, !llvm.loop !10
+  %inc69.i = add nuw nsw i64 %k.173.i, 1
+  %exitcond76.not.i = icmp eq i64 %inc69.i, %mul1.i
+  br i1 %exitcond76.not.i, label %smix.exit, label %for.cond52.preheader.i, !llvm.loop !10
 
 smix.exit:                                        ; preds = %for.inc68.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv1
-  br i1 %exitcond.not, label %for.end, label %for.cond2.preheader.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %smix.exit
   tail call void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef %passwd, i64 noundef %passwdlen, ptr noundef nonnull %2, i64 noundef %mul38, i64 noundef 1, ptr noundef %buf, i64 noundef %buflen) #6
@@ -267,9 +267,9 @@ declare ptr @_sodium_escrypt_alloc_region(ptr noundef, i64 noundef) local_unname
 declare void @_sodium_escrypt_PBKDF2_SHA256(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @blockmix_salsa8(ptr nocapture noundef readonly %Bin, ptr nocapture noundef writeonly %Bout, i64 noundef %r) unnamed_addr #3 {
+define internal fastcc void @blockmix_salsa8(ptr nocapture noundef readonly %Bin, ptr nocapture noundef writeonly %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
 entry:
-  %.idx1006 = shl i64 %r, 7
+  %.idx1006 = shl nuw nsw i64 %r, 7
   %0 = getelementptr i8, ptr %Bin, i64 %.idx1006
   %arrayidx = getelementptr i8, ptr %0, i64 -64
   %1 = load <2 x i64>, ptr %arrayidx, align 16
@@ -870,7 +870,7 @@ for.end:                                          ; preds = %for.body, %entry
   %X2.0.lcssa = phi <2 x i64> [ %X2.01008, %entry ], [ %X2.0, %for.body ]
   %X1.0.lcssa = phi <2 x i64> [ %X1.01009, %entry ], [ %X1.0, %for.body ]
   %X0.0.lcssa = phi <2 x i64> [ %X0.01010, %entry ], [ %X0.0, %for.body ]
-  %mul755 = shl i64 %dec, 3
+  %mul755 = shl nuw nsw i64 %dec, 3
   %add756 = or disjoint i64 %mul755, 4
   %arrayidx757 = getelementptr <2 x i64>, ptr %Bin, i64 %add756
   %220 = load <2 x i64>, ptr %arrayidx757, align 16
@@ -1048,7 +1048,7 @@ for.end:                                          ; preds = %for.body, %entry
   %permil993 = shufflevector <4 x i32> %xor.i1035916, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %290 = xor <4 x i32> %289, %283
   %add.i1841 = add <4 x i32> %290, %224
-  %add995 = shl i64 %dec, 7
+  %add995 = shl nsw i64 %dec, 7
   %291 = getelementptr i8, ptr %Bout, i64 %add995
   %arrayidx998 = getelementptr i8, ptr %291, i64 64
   store <4 x i32> %add.i1841, ptr %arrayidx998, align 16
@@ -1065,7 +1065,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc i32 @blockmix_salsa8_xor(ptr nocapture noundef readonly %Bin1, ptr nocapture noundef readonly %Bin2, ptr nocapture noundef writeonly %Bout, i64 noundef %r) unnamed_addr #3 {
+define internal fastcc i32 @blockmix_salsa8_xor(ptr nocapture noundef readonly %Bin1, ptr nocapture noundef readonly %Bin2, ptr nocapture noundef writeonly %Bout, i64 noundef range(i64 1, 4294967296) %r) unnamed_addr #3 {
 entry:
   %mul = shl nuw nsw i64 %r, 3
   %sub = add nsw i64 %mul, -4
@@ -1718,7 +1718,7 @@ for.end:                                          ; preds = %for.body, %entry
   %X2.0.lcssa = phi <2 x i64> [ %X2.01059, %entry ], [ %X2.0, %for.body ]
   %X1.0.lcssa = phi <2 x i64> [ %X1.01060, %entry ], [ %X1.0, %for.body ]
   %X0.0.lcssa = phi <2 x i64> [ %X0.01061, %entry ], [ %X0.0, %for.body ]
-  %mul822 = shl i64 %dec, 3
+  %mul822 = shl nuw nsw i64 %dec, 3
   %add823 = or disjoint i64 %mul822, 4
   %arrayidx824 = getelementptr <2 x i64>, ptr %Bin1, i64 %add823
   %242 = load <2 x i64>, ptr %arrayidx824, align 16
@@ -1908,7 +1908,7 @@ for.end:                                          ; preds = %for.body, %entry
   %permil1081 = shufflevector <4 x i32> %xor.i1124968, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %320 = xor <4 x i32> %319, %313
   %add.i1990 = add <4 x i32> %320, %254
-  %add1083 = shl i64 %dec, 7
+  %add1083 = shl nsw i64 %dec, 7
   %321 = getelementptr i8, ptr %Bout, i64 %add1083
   %arrayidx1086 = getelementptr i8, ptr %321, i64 64
   store <4 x i32> %add.i1990, ptr %arrayidx1086, align 16

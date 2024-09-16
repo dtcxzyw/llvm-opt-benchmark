@@ -4988,7 +4988,7 @@ _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit:       ; preds = %36, %_ZN7nanogui6Ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev11ImageCanvas20drawCoordinateSystemEP10NVGcontextENK3$_0clEZNS0_20drawCoordinateSystemES2_E9DrawFlags"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev11ImageCanvas20drawCoordinateSystemEP10NVGcontextENK3$_0clEZNS0_20drawCoordinateSystemES2_E9DrawFlags"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nanogui::Array.37", align 4
   %4 = alloca %"struct.nanogui::Array.37", align 4
   %5 = alloca %"class.std::__1::basic_string", align 8
@@ -8673,7 +8673,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %117, %114, %_ZNSt3_
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #35, !noalias !195
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false), !noalias !195
   %201 = load i32, ptr %126, align 4, !noalias !195
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %21, i32 noundef %199, i32 noundef %198, ptr noundef nonnull byval(%class.anon.130) align 8 %125, i32 noundef %201, ptr noundef %200)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %21, i32 noundef %199, i32 noundef %198, ptr noundef nonnull byval(%class.anon.130) align 8 %125, i32 noundef %201, ptr noundef %200)
           to label %202 unwind label %230, !noalias !195
 
 202:                                              ; preds = %196
@@ -9331,7 +9331,7 @@ _ZN3tev4TaskIvE12await_resumeEv.exit.i6.i:        ; preds = %_ZN4tlog6StreamlsIA
   %.sroa.02.0.copyload.i.i = load ptr, ptr %360, align 8, !noalias !223
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.221.0..sroa_idx.i.i, align 8, !noalias !223
   %435 = load i32, ptr %361, align 4, !noalias !223
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %433, i32 noundef %432, ptr %.sroa.02.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i32 noundef %435, ptr noundef %434)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %433, i32 noundef %432, ptr %.sroa.02.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, i32 noundef %435, ptr noundef %434)
           to label %436 unwind label %464, !noalias !223
 
 436:                                              ; preds = %430
@@ -10169,7 +10169,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %89, %86, %83
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #35, !noalias !251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false), !noalias !251
   %180 = load i32, ptr %105, align 4, !noalias !251
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias nonnull writable align 8 %23, i32 noundef %178, i32 noundef %177, ptr noundef nonnull byval(%class.anon.172) align 8 %104, i32 noundef %180, ptr noundef %179)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %23, i32 noundef %178, i32 noundef %177, ptr noundef nonnull byval(%class.anon.172) align 8 %104, i32 noundef %180, ptr noundef %179)
           to label %181 unwind label %209, !noalias !251
 
 181:                                              ; preds = %175
@@ -10837,7 +10837,7 @@ _ZN3tev10ThreadPool6globalEv.exit41:              ; preds = %344, %341, %.crited
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #35, !noalias !278
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %363, ptr noundef nonnull align 8 dereferenceable(56) %358, i64 56, i1 false), !noalias !278
   %432 = load i32, ptr %359, align 4, !noalias !278
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias nonnull writable align 8 %14, i64 noundef %430, i64 noundef %429, ptr noundef nonnull byval(%class.anon.173) align 8 %358, i32 noundef %432, ptr noundef %431)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef %430, i64 noundef %429, ptr noundef nonnull byval(%class.anon.173) align 8 %358, i32 noundef %432, ptr noundef %431)
           to label %433 unwind label %461, !noalias !278
 
 433:                                              ; preds = %427
@@ -11606,7 +11606,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %38, %35, %_ZNSt3__1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35, !noalias !305
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !noalias !305
   %127 = load i32, ptr %54, align 4, !noalias !305
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %125, i64 noundef %124, ptr noundef nonnull byval(%class.anon.135) align 8 %53, i32 noundef %127, ptr noundef %126)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %12, i64 noundef %125, i64 noundef %124, ptr noundef nonnull byval(%class.anon.135) align 8 %53, i32 noundef %127, ptr noundef %126)
           to label %128 unwind label %156, !noalias !305
 
 128:                                              ; preds = %122
@@ -13938,7 +13938,7 @@ _ZNSt3__110shared_ptrIN3tev5ImageEEC2B8ne190000ERKS3_.exit173: ; preds = %_ZNSt3
   %492 = load ptr, ptr %474, align 8
   store ptr %492, ptr %491, align 8
   store ptr null, ptr %474, align 8
-  invoke fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %480, ptr noundef nonnull align 8 dereferenceable(88) %479)
+  invoke fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias writable align 8 %480, ptr noundef nonnull align 8 dereferenceable(88) %479)
           to label %493 unwind label %515
 
 493:                                              ; preds = %.noexc177
@@ -15665,7 +15665,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %427, %424, %419
   store ptr %43, ptr %409, align 8
   store ptr %421, ptr %410, align 8
   %434 = load i32, ptr %27, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %431, ptr noundef nonnull byval(%class.anon.203) align 8 %49, i32 noundef %434)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %431, ptr noundef nonnull byval(%class.anon.203) align 8 %49, i32 noundef %434)
           to label %435 unwind label %464
 
 435:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -15874,7 +15874,7 @@ _ZN3tev10ThreadPool6globalEv.exit139:             ; preds = %509, %506, %._crit_
   %516 = getelementptr inbounds i8, ptr %20, i64 152
   store ptr %34, ptr %516, align 8
   %517 = load i32, ptr %27, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %513, ptr noundef nonnull byval(%class.anon.205) align 8 %56, i32 noundef %517)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %513, ptr noundef nonnull byval(%class.anon.205) align 8 %56, i32 noundef %517)
           to label %518 unwind label %540
 
 518:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit139
@@ -16732,7 +16732,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
@@ -16935,7 +16935,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
   %94 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.203) align 8 %17, i32 noundef %94, ptr noundef %93)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.203) align 8 %17, i32 noundef %94, ptr noundef %93)
           to label %95 unwind label %123
 
 95:                                               ; preds = %89
@@ -17419,7 +17419,7 @@ _ZN3tev5Latch9countDownEv.exit:                   ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
@@ -17622,7 +17622,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %94 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.205) align 8 %17, i32 noundef %94, ptr noundef %93)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %92, i32 noundef %91, ptr noundef nonnull byval(%class.anon.205) align 8 %17, i32 noundef %94, ptr noundef %93)
           to label %95 unwind label %123
 
 95:                                               ; preds = %89
@@ -18497,7 +18497,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev11ImageCanvas20drawCoordinateSystemEP10NVGcontextENK3$_1clENS_3BoxIfLj2EEEN7nanogui5ColorEbbRKNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEEZNS0_20drawCoordinateSystemES2_E9DrawFlags"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %8) unnamed_addr #7 align 2 {
+define internal fastcc void @"_ZZN3tev11ImageCanvas20drawCoordinateSystemEP10NVGcontextENK3$_1clENS_3BoxIfLj2EEEN7nanogui5ColorEbbRKNSt3__112basic_stringIcNS8_11char_traitsIcEENS8_9allocatorIcEEEEZNS0_20drawCoordinateSystemES2_E9DrawFlags"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, <2 x float> %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef range(i32 1, 3) %8) unnamed_addr #7 align 2 {
   %10 = alloca %"struct.nanogui::Array.37", align 8
   %11 = alloca %"struct.nanogui::Array.37", align 4
   %12 = alloca %"struct.nanogui::Array.37", align 4
@@ -18809,140 +18809,139 @@ _ZN7nanogui5ColorC2Eii.exit:                      ; preds = %172
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13)
   %.sroa.3.12.vec.insert96 = insertelement <2 x float> %.sroa.3.12.vec.insert, float %.sroa.speculated101, i64 1
-  %180 = and i32 %8, 2
-  %.not = icmp eq i32 %180, 0
-  br i1 %.not, label %208, label %181
+  %.not = icmp ult i32 %8, 2
+  br i1 %.not, label %207, label %180
 
-181:                                              ; preds = %_ZN7nanogui5ColorC2Eii.exit
+180:                                              ; preds = %_ZN7nanogui5ColorC2Eii.exit
   %.sroa.3155.12.vec.insert = insertelement <2 x float> %4, float %.sroa.speculated101, i64 1
-  %182 = load ptr, ptr %125, align 8
-  %183 = load ptr, ptr %182, align 8
-  tail call void @nvgBeginPath(ptr noundef %183)
-  %184 = load ptr, ptr %125, align 8
-  %185 = load ptr, ptr %184, align 8
-  %186 = sitofp i32 %120 to float
-  %187 = sitofp i32 %171 to float
-  tail call void @nvgMoveTo(ptr noundef %185, float noundef %186, float noundef %187)
-  %188 = load ptr, ptr %125, align 8
-  %189 = load ptr, ptr %188, align 8
-  %190 = sitofp i32 %70 to float
-  %191 = sitofp i32 %156 to float
-  tail call void @nvgLineTo(ptr noundef %189, float noundef %190, float noundef %191)
-  %192 = load ptr, ptr %125, align 8
-  %193 = load ptr, ptr %192, align 8
-  %194 = sitofp i32 %95 to float
-  %195 = sitofp i32 %167 to float
-  tail call void @nvgLineTo(ptr noundef %193, float noundef %194, float noundef %195)
-  %196 = load ptr, ptr %125, align 8
-  %197 = load ptr, ptr %196, align 8
-  %198 = sitofp i32 %168 to float
-  %199 = sitofp i32 %160 to float
-  tail call void @nvgLineTo(ptr noundef %197, float noundef %198, float noundef %199)
-  %200 = load ptr, ptr %125, align 8
-  %201 = load ptr, ptr %200, align 8
-  tail call void @nvgLineTo(ptr noundef %201, float noundef %186, float noundef %187)
-  %202 = load ptr, ptr %125, align 8
-  %203 = load ptr, ptr %202, align 8
-  tail call void @nvgStrokeWidth(ptr noundef %203, float noundef 3.000000e+00)
-  %204 = load ptr, ptr %125, align 8
-  %205 = load ptr, ptr %204, align 8
-  tail call void @nvgStrokeColor(ptr noundef %205, <2 x float> %3, <2 x float> %.sroa.3155.12.vec.insert)
-  %206 = load ptr, ptr %125, align 8
-  %207 = load ptr, ptr %206, align 8
-  tail call void @nvgStroke(ptr noundef %207)
-  br label %208
+  %181 = load ptr, ptr %125, align 8
+  %182 = load ptr, ptr %181, align 8
+  tail call void @nvgBeginPath(ptr noundef %182)
+  %183 = load ptr, ptr %125, align 8
+  %184 = load ptr, ptr %183, align 8
+  %185 = sitofp i32 %120 to float
+  %186 = sitofp i32 %171 to float
+  tail call void @nvgMoveTo(ptr noundef %184, float noundef %185, float noundef %186)
+  %187 = load ptr, ptr %125, align 8
+  %188 = load ptr, ptr %187, align 8
+  %189 = sitofp i32 %70 to float
+  %190 = sitofp i32 %156 to float
+  tail call void @nvgLineTo(ptr noundef %188, float noundef %189, float noundef %190)
+  %191 = load ptr, ptr %125, align 8
+  %192 = load ptr, ptr %191, align 8
+  %193 = sitofp i32 %95 to float
+  %194 = sitofp i32 %167 to float
+  tail call void @nvgLineTo(ptr noundef %192, float noundef %193, float noundef %194)
+  %195 = load ptr, ptr %125, align 8
+  %196 = load ptr, ptr %195, align 8
+  %197 = sitofp i32 %168 to float
+  %198 = sitofp i32 %160 to float
+  tail call void @nvgLineTo(ptr noundef %196, float noundef %197, float noundef %198)
+  %199 = load ptr, ptr %125, align 8
+  %200 = load ptr, ptr %199, align 8
+  tail call void @nvgLineTo(ptr noundef %200, float noundef %185, float noundef %186)
+  %201 = load ptr, ptr %125, align 8
+  %202 = load ptr, ptr %201, align 8
+  tail call void @nvgStrokeWidth(ptr noundef %202, float noundef 3.000000e+00)
+  %203 = load ptr, ptr %125, align 8
+  %204 = load ptr, ptr %203, align 8
+  tail call void @nvgStrokeColor(ptr noundef %204, <2 x float> %3, <2 x float> %.sroa.3155.12.vec.insert)
+  %205 = load ptr, ptr %125, align 8
+  %206 = load ptr, ptr %205, align 8
+  tail call void @nvgStroke(ptr noundef %206)
+  br label %207
 
-208:                                              ; preds = %181, %_ZN7nanogui5ColorC2Eii.exit
-  %.sroa.3155.0 = phi <2 x float> [ %4, %_ZN7nanogui5ColorC2Eii.exit ], [ %.sroa.3155.12.vec.insert, %181 ]
-  %209 = load i8, ptr %7, align 8
-  %210 = and i8 %209, 1
-  %.not.i.i = icmp eq i8 %210, 0
-  %211 = getelementptr inbounds i8, ptr %7, i64 8
-  %212 = load i64, ptr %211, align 8
-  %213 = lshr i8 %209, 1
-  %214 = zext nneg i8 %213 to i64
-  %215 = select i1 %.not.i.i, i64 %214, i64 %212
-  %216 = icmp eq i64 %215, 0
-  %217 = and i32 %8, 1
-  %.not48 = icmp eq i32 %217, 0
-  %or.cond = or i1 %.not48, %216
-  br i1 %or.cond, label %262, label %218
+207:                                              ; preds = %180, %_ZN7nanogui5ColorC2Eii.exit
+  %.sroa.3155.0 = phi <2 x float> [ %4, %_ZN7nanogui5ColorC2Eii.exit ], [ %.sroa.3155.12.vec.insert, %180 ]
+  %208 = load i8, ptr %7, align 8
+  %209 = and i8 %208, 1
+  %.not.i.i = icmp eq i8 %209, 0
+  %210 = getelementptr inbounds i8, ptr %7, i64 8
+  %211 = load i64, ptr %210, align 8
+  %212 = lshr i8 %208, 1
+  %213 = zext nneg i8 %212 to i64
+  %214 = select i1 %.not.i.i, i64 %213, i64 %211
+  %215 = icmp eq i64 %214, 0
+  %216 = and i32 %8, 1
+  %.not48 = icmp eq i32 %216, 0
+  %or.cond = or i1 %.not48, %215
+  br i1 %or.cond, label %261, label %217
 
-218:                                              ; preds = %208
+217:                                              ; preds = %207
   %.sroa.3155.12.vec.insert158 = insertelement <2 x float> %.sroa.3155.0, float %.sroa.speculated101, i64 1
-  %219 = load ptr, ptr %125, align 8
-  %220 = load ptr, ptr %219, align 8
-  tail call void @nvgBeginPath(ptr noundef %220)
-  %221 = load ptr, ptr %125, align 8
-  %222 = load ptr, ptr %221, align 8
-  tail call void @nvgFillColor(ptr noundef %222, <2 x float> %3, <2 x float> %.sroa.3155.12.vec.insert158)
+  %218 = load ptr, ptr %125, align 8
+  %219 = load ptr, ptr %218, align 8
+  tail call void @nvgBeginPath(ptr noundef %219)
+  %220 = load ptr, ptr %125, align 8
+  %221 = load ptr, ptr %220, align 8
+  tail call void @nvgFillColor(ptr noundef %221, <2 x float> %3, <2 x float> %.sroa.3155.12.vec.insert158)
   %.not49 = xor i1 %5, true
   %.not50 = xor i1 %6, true
   %brmerge = or i1 %.not49, %.not50
-  %223 = select i1 %brmerge, float 0.000000e+00, float 0x401AAAAAA0000000
+  %222 = select i1 %brmerge, float 0.000000e+00, float 0x401AAAAAA0000000
   %brmerge52 = or i1 %6, %.not49
-  %224 = select i1 %brmerge52, float 0.000000e+00, float 0x401AAAAAA0000000
+  %223 = select i1 %brmerge52, float 0.000000e+00, float 0x401AAAAAA0000000
   %brmerge54 = or i1 %5, %.not50
-  %225 = select i1 %brmerge54, float 0.000000e+00, float 0x401AAAAAA0000000
+  %224 = select i1 %brmerge54, float 0.000000e+00, float 0x401AAAAAA0000000
   %brmerge55 = or i1 %5, %6
-  %226 = select i1 %brmerge55, float 0.000000e+00, float 0x401AAAAAA0000000
-  %227 = load ptr, ptr %125, align 8
-  %228 = load ptr, ptr %227, align 8
-  br i1 %6, label %229, label %233
+  %225 = select i1 %brmerge55, float 0.000000e+00, float 0x401AAAAAA0000000
+  %226 = load ptr, ptr %125, align 8
+  %227 = load ptr, ptr %226, align 8
+  br i1 %6, label %228, label %232
 
-229:                                              ; preds = %218
-  %230 = sitofp i32 %95 to float
-  %231 = fsub float %230, %145
-  %232 = fadd float %231, -1.200000e+01
-  br label %236
+228:                                              ; preds = %217
+  %229 = sitofp i32 %95 to float
+  %230 = fsub float %229, %145
+  %231 = fadd float %230, -1.200000e+01
+  br label %235
 
-233:                                              ; preds = %218
-  %234 = sitofp i32 %70 to float
-  %235 = fadd float %234, -1.500000e+00
-  br label %236
+232:                                              ; preds = %217
+  %233 = sitofp i32 %70 to float
+  %234 = fadd float %233, -1.500000e+00
+  br label %235
 
-236:                                              ; preds = %233, %229
-  %237 = phi float [ %232, %229 ], [ %235, %233 ]
-  %238 = sitofp i32 %156 to float
-  %239 = select i1 %5, float 2.000000e+01, float 0.000000e+00
-  %240 = fsub float %238, %239
-  %241 = fadd float %145, 1.200000e+01
-  tail call void @nvgRoundedRectVarying(ptr noundef %228, float noundef %237, float noundef %240, float noundef %241, float noundef 2.000000e+01, float noundef %223, float noundef %224, float noundef %226, float noundef %225)
-  %242 = load ptr, ptr %125, align 8
-  %243 = load ptr, ptr %242, align 8
-  tail call void @nvgFill(ptr noundef %243)
-  %244 = load ptr, ptr %125, align 8
-  %245 = load ptr, ptr %244, align 8
-  tail call void @nvgFillColor(ptr noundef %245, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.3.12.vec.insert96)
-  %246 = load ptr, ptr %125, align 8
-  %247 = load ptr, ptr %246, align 8
-  br i1 %6, label %248, label %251
+235:                                              ; preds = %232, %228
+  %236 = phi float [ %231, %228 ], [ %234, %232 ]
+  %237 = sitofp i32 %156 to float
+  %238 = select i1 %5, float 2.000000e+01, float 0.000000e+00
+  %239 = fsub float %237, %238
+  %240 = fadd float %145, 1.200000e+01
+  tail call void @nvgRoundedRectVarying(ptr noundef %227, float noundef %236, float noundef %239, float noundef %240, float noundef 2.000000e+01, float noundef %222, float noundef %223, float noundef %225, float noundef %224)
+  %241 = load ptr, ptr %125, align 8
+  %242 = load ptr, ptr %241, align 8
+  tail call void @nvgFill(ptr noundef %242)
+  %243 = load ptr, ptr %125, align 8
+  %244 = load ptr, ptr %243, align 8
+  tail call void @nvgFillColor(ptr noundef %244, <2 x float> %.sroa.0.0.copyload.i.i.i, <2 x float> %.sroa.3.12.vec.insert96)
+  %245 = load ptr, ptr %125, align 8
+  %246 = load ptr, ptr %245, align 8
+  br i1 %6, label %247, label %250
 
-248:                                              ; preds = %236
-  %249 = sitofp i32 %95 to float
-  %250 = fadd float %249, -6.000000e+00
-  br label %255
+247:                                              ; preds = %235
+  %248 = sitofp i32 %95 to float
+  %249 = fadd float %248, -6.000000e+00
+  br label %254
 
-251:                                              ; preds = %236
-  %252 = sitofp i32 %70 to float
-  %253 = fadd float %252, 6.000000e+00
-  %254 = fadd float %253, -1.500000e+00
-  br label %255
+250:                                              ; preds = %235
+  %251 = sitofp i32 %70 to float
+  %252 = fadd float %251, 6.000000e+00
+  %253 = fadd float %252, -1.500000e+00
+  br label %254
 
-255:                                              ; preds = %251, %248
-  %256 = phi float [ %250, %248 ], [ %254, %251 ]
-  %257 = load i8, ptr %7, align 8
-  %258 = and i8 %257, 1
-  %.not.i.i.i92 = icmp eq i8 %258, 0
-  %259 = load ptr, ptr %141, align 8
-  %260 = select i1 %.not.i.i.i92, ptr %143, ptr %259
-  %261 = tail call float @nvgText(ptr noundef %247, float noundef %256, float noundef %238, ptr noundef %260, ptr noundef null)
-  br label %262
+254:                                              ; preds = %250, %247
+  %255 = phi float [ %249, %247 ], [ %253, %250 ]
+  %256 = load i8, ptr %7, align 8
+  %257 = and i8 %256, 1
+  %.not.i.i.i92 = icmp eq i8 %257, 0
+  %258 = load ptr, ptr %141, align 8
+  %259 = select i1 %.not.i.i.i92, ptr %143, ptr %258
+  %260 = tail call float @nvgText(ptr noundef %246, float noundef %255, float noundef %237, ptr noundef %259, ptr noundef null)
+  br label %261
 
-262:                                              ; preds = %255, %208
-  %263 = load ptr, ptr %125, align 8
-  %264 = load ptr, ptr %263, align 8
-  tail call void @nvgRestore(ptr noundef %264)
+261:                                              ; preds = %254, %207
+  %262 = load ptr, ptr %125, align 8
+  %263 = load ptr, ptr %262, align 8
+  tail call void @nvgRestore(ptr noundef %263)
   ret void
 }
 
@@ -58308,7 +58307,7 @@ _ZNSt3__120back_insert_iteratorIN3fmt2v96detail6bufferIcEEEaSB8ne190000EOc.exit1
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.130) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.130) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -59606,7 +59605,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4, i32 noundef %5, ptr noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
   %10 = alloca %"class.std::__1::future.202", align 8
@@ -59728,7 +59727,7 @@ _ZZN3tev10ThreadPool16enqueueCoroutineEiEN7Awaiter13await_suspendENSt3__116corou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.135) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.135) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -61971,7 +61970,7 @@ define internal noundef nonnull align 8 dereferenceable(16) ptr @"_ZNKSt3__110__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tlog::Stream", align 8
   %4 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %5 = alloca %"class.std::__1::future.202", align 8
@@ -63315,7 +63314,7 @@ _ZNSt3__16__treeINS_12__value_typeIiNS_6vectorINS_12basic_stringIcNS_11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.172) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.172) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -63435,7 +63434,7 @@ _ZZN3tev10ThreadPool16enqueueCoroutineEiEN7Awaiter13await_suspendENSt3__116corou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.173) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%class.anon.173) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64004,7 +64003,7 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_emplaceIN3tev16CanvasSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.203) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64200,7 +64199,7 @@ define internal fastcc void @"_ZZN3tev11ImageCanvas23computeCanvasStatisticsENSt
 declare void @_ZNSt3__16futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.175", align 8
   %8 = alloca %"class.std::__1::future.202", align 8
   %9 = alloca %"class.std::__1::future.202", align 8
@@ -64720,7 +64719,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.172) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_0EENS_4TaskIvEET_SJ_T0_iENKUliiSG_iPS0_E_clEiiSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.172) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -65477,7 +65476,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.173) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNS_11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricEiE3$_1EENS_4TaskIvEET_SJ_T0_iENKUlmmSG_iPS0_E_clEmmSG_iSL_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.173) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -66287,7 +66286,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_11Imag
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.130) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.130) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -67053,7 +67052,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_11Imag
   %.sroa.022.0.copyload = load ptr, ptr %9, align 8
   %.sroa.223.0.copyload = load i64, ptr %.sroa.223.0..sroa_idx, align 8
   %63 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, i32 noundef %63, ptr noundef %62)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_11ImageCanvas15getHdrImageDataEbiE3$_1EENS_4TaskIvEET_S6_T0_iENKUliiS3_iPS0_E_clEiiS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, i32 noundef %63, ptr noundef %62)
           to label %64 unwind label %92
 
 64:                                               ; preds = %58
@@ -67810,7 +67809,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncImZNKS_11Imag
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %62 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.135) align 8 %9, i32 noundef %62, ptr noundef %61)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncImZNKS_11ImageCanvas15getLdrImageDataEbiE3$_0EENS_4TaskIvEET_S6_T0_iENKUlmmS3_iPS0_E_clEmmS3_iS8_"(ptr dead_on_unwind noalias writable align 8 %5, i64 noundef %60, i64 noundef %59, ptr noundef nonnull byval(%class.anon.135) align 8 %9, i32 noundef %62, ptr noundef %61)
           to label %63 unwind label %91
 
 63:                                               ; preds = %57
@@ -68529,7 +68528,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 56, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.203) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.203) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -69322,7 +69321,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11Image
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   %64 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.205) align 8 %9, i32 noundef %64, ptr noundef %63)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %62, i32 noundef %61, ptr noundef nonnull byval(%class.anon.205) align 8 %9, i32 noundef %64, ptr noundef %63)
           to label %65 unwind label %93
 
 65:                                               ; preds = %59
@@ -70604,7 +70603,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %419, %416, %411
   store ptr %35, ptr %402, align 8
   store ptr %413, ptr %403, align 8
   %426 = load i32, ptr %19, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %423, ptr noundef nonnull byval(%class.anon.203) align 8 %41, i32 noundef %426)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_3EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %423, ptr noundef nonnull byval(%class.anon.203) align 8 %41, i32 noundef %426)
           to label %427 unwind label %456
 
 427:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -70819,7 +70818,7 @@ _ZN3tev10ThreadPool6globalEv.exit133:             ; preds = %505, %502, %499
   %512 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %26, ptr %512, align 8
   %513 = load i32, ptr %19, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %509, ptr noundef nonnull byval(%class.anon.205) align 8 %48, i32 noundef %513)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNS_11ImageCanvas23computeCanvasStatisticsENSt3__110shared_ptrINS_5ImageEEES6_RKNS3_12basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEENS_7EMetricERKNS_3BoxIiLj2EEEiE3$_4EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %509, ptr noundef nonnull byval(%class.anon.205) align 8 %48, i32 noundef %513)
           to label %514 unwind label %535
 
 514:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit133
@@ -72228,7 +72227,7 @@ define internal fastcc void @"_ZN3tev18invokeTaskDetachedIZNS_11ImageCanvas16can
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   store ptr null, ptr %26, align 8
-  invoke fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
+  invoke fastcc void @"_ZZN3tev11ImageCanvas16canvasStatisticsEvEN3$_2clEv"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %28 unwind label %49
 
 28:                                               ; preds = %8

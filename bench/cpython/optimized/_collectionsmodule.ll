@@ -3498,7 +3498,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end9
-  %call12 = tail call fastcc ptr @consume_iterator(ptr noundef nonnull %call6)
+  %call12 = tail call fastcc ptr @consume_iterator(ptr noundef %call6)
   br label %return
 
 if.end13:                                         ; preds = %if.end9
@@ -3613,13 +3613,13 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @consume_iterator(ptr noundef %it) unnamed_addr #0 {
+define internal fastcc noundef ptr @consume_iterator(ptr noundef nonnull %it) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %it, i64 8
   %it.val = load ptr, ptr %0, align 8
   %tp_iternext = getelementptr inbounds i8, ptr %it.val, i64 224
   %1 = load ptr, ptr %tp_iternext, align 8
-  %call15 = tail call ptr %1(ptr noundef %it) #9
+  %call15 = tail call ptr %1(ptr noundef nonnull %it) #9
   %cmp.not6 = icmp eq ptr %call15, null
   br i1 %cmp.not6, label %while.end, label %while.body
 
@@ -3641,7 +3641,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %while.body, %if.then1.i, %if.end.i
-  %call1 = tail call ptr %1(ptr noundef %it) #9
+  %call1 = tail call ptr %1(ptr noundef nonnull %it) #9
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !20
 
@@ -4295,7 +4295,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %cmp10, label %if.then11, label %if.end13
 
 if.then11:                                        ; preds = %if.end9
-  %call12 = tail call fastcc ptr @consume_iterator(ptr noundef nonnull %call6)
+  %call12 = tail call fastcc ptr @consume_iterator(ptr noundef %call6)
   br label %return
 
 if.end13:                                         ; preds = %if.end9

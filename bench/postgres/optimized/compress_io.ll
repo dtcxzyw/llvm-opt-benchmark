@@ -191,11 +191,11 @@ hasSuffix.exit21.thread:                          ; preds = %2, %hasSuffix.exit.
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %22
-  %29 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.5)
+  %29 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef %5, ptr noundef nonnull @.str.5)
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %28
-  %31 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.6)
+  %31 = call fastcc zeroext i1 @check_compressed_file(ptr noundef %0, ptr noundef %5, ptr noundef nonnull @.str.6)
   br i1 %31, label %select.unfold, label %32
 
 32:                                               ; preds = %hasSuffix.exit21.thread, %30
@@ -264,7 +264,7 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @check_compressed_file(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @check_compressed_file(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @__errno_location() #11
   %6 = load i32, ptr %5, align 4

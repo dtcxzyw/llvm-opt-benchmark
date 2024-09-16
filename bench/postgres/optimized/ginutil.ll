@@ -373,7 +373,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr nocapture noundef readonl
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %9, ptr noundef nonnull %3)
+  %10 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %9, ptr noundef %3)
   %11 = trunc i64 %10 to i16
   br label %12
 
@@ -383,7 +383,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -455,26 +455,25 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr no
   br label %fetch_att.exit
 
 44:                                               ; preds = %4
-  %45 = add i32 %1, 7
+  %45 = add nsw i32 %1, -1
   %46 = getelementptr i8, ptr %0, i64 8
   %.val = load i8, ptr %46, align 1
   %47 = zext i8 %.val to i32
-  %48 = and i32 %45, 7
-  %49 = shl nuw nsw i32 1, %48
-  %50 = and i32 %49, %47
-  %.not.i21 = icmp eq i32 %50, 0
-  br i1 %.not.i21, label %51, label %52
+  %48 = shl nuw nsw i32 1, %45
+  %49 = and i32 %48, %47
+  %.not.i21 = icmp eq i32 %49, 0
+  br i1 %.not.i21, label %50, label %51
 
-51:                                               ; preds = %44
+50:                                               ; preds = %44
   store i8 1, ptr %3, align 1
   br label %fetch_att.exit
 
-52:                                               ; preds = %44
-  %53 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #7
+51:                                               ; preds = %44
+  %52 = tail call i64 @nocache_index_getattr(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #7
   br label %fetch_att.exit
 
-fetch_att.exit:                                   ; preds = %40, %34, %31, %28, %25, %52, %51, %42
-  %.0 = phi i64 [ 0, %51 ], [ %53, %52 ], [ %43, %42 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %41, %40 ]
+fetch_att.exit:                                   ; preds = %40, %34, %31, %28, %25, %51, %50, %42
+  %.0 = phi i64 [ 0, %50 ], [ %52, %51 ], [ %43, %42 ], [ %35, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ], [ %41, %40 ]
   ret i64 %.0
 }
 
@@ -495,7 +494,7 @@ gintuple_get_attrnum.exit:                        ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %11 = getelementptr inbounds i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %12, ptr noundef nonnull %4)
+  %13 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef 1, ptr noundef %12, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %14 = and i64 %13, 65535
   %15 = add nsw i64 %14, -1
@@ -506,7 +505,7 @@ gintuple_get_attrnum.exit:                        ; preds = %3
   %.sink14 = phi ptr [ %16, %gintuple_get_attrnum.exit ], [ %10, %9 ]
   %.sink = phi i32 [ 2, %gintuple_get_attrnum.exit ], [ 1, %9 ]
   %18 = load ptr, ptr %.sink14, align 8
-  %19 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %.sink, ptr noundef %18, ptr noundef nonnull %5)
+  %19 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %.sink, ptr noundef %18, ptr noundef %5)
   %20 = load i8, ptr %5, align 1
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %31

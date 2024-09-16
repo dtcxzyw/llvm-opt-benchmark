@@ -2837,7 +2837,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %21 = alloca ptr, align 8
   %22 = alloca %"class.llvm::itanium_demangle::NodeArray", align 8
   %23 = alloca ptr, align 8
-  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef nonnull %0)
+  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %16, ptr noundef %0)
   %.val = load ptr, ptr %0, align 16
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %.val9 = load ptr, ptr %24, align 8
@@ -5690,7 +5690,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit180.thread: ; preds = %881, %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit180
   store i8 0, ptr %26, align 1
-  %884 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null, ptr noundef nonnull %26)
+  %884 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef null, ptr noundef %26)
   store ptr %884, ptr %7, align 8
   %.not16 = icmp eq ptr %884, null
   br i1 %.not16, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E9consumeIfEc.exit144.thread, label %885
@@ -5835,7 +5835,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #13 align 2 {
+define internal fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1) unnamed_addr #13 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.ptr2.i = getelementptr inbounds i8, ptr %0, i64 32
@@ -6510,7 +6510,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exi
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E14parseLocalNameEPNS6_9NameStateE.exit
 
 226:                                              ; preds = %218, %216
-  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %0)
+  call fastcc void @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E18SaveTemplateParamsC2EPS6_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %0)
   %227 = load ptr, ptr %0, align 16
   %228 = load ptr, ptr %9, align 8
   %.not.i74 = icmp eq ptr %227, %228
@@ -6577,7 +6577,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
 
 _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit18.thread: ; preds = %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E4lookEj.exit, %2
   store i8 0, ptr %8, align 1
-  %252 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef %1, ptr noundef nonnull %8)
+  %252 = call fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef %1, ptr noundef %8)
   %.not = icmp eq ptr %252, null
   br i1 %.not, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E15parseNestedNameEPNS6_9NameStateE.exit, label %253
 
@@ -9181,7 +9181,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle10ModuleNameD0Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E17parseUnscopedNameEPNS6_9NameStateEPb(ptr noundef nonnull align 16 dereferenceable(4928) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -22401,7 +22401,7 @@ define linkonce_odr hidden void @_ZN4llvm16itanium_demangle15UnnamedTypeNameD0Ev
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef nonnull ptr @_ZZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_116DefaultAllocatorEEES4_E22parseTemplateParamDeclEPNS0_14PODSmallVectorIPNS0_4NodeELm8EEEENKUlNS0_17TemplateParamKindEE_clESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 792
   %5 = zext nneg i32 %1 to i64

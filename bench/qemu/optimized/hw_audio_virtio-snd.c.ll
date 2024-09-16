@@ -360,7 +360,7 @@ for.cond:                                         ; preds = %if.end69
 
 for.body:                                         ; preds = %if.end27, %for.cond
   %i.066 = phi i32 [ %inc, %for.cond ], [ 0, %if.end27 ]
-  %call63 = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %call, i32 noundef %i.066, ptr noundef nonnull %default_params)
+  %call63 = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %call, i32 noundef %i.066, ptr noundef %default_params)
   %cmp65.not = icmp eq i32 %call63, 32768
   br i1 %cmp65.not, label %if.end69, label %print_code.exit
 
@@ -1338,7 +1338,7 @@ if.end67:                                         ; preds = %trace_virtio_snd_ha
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 32768, 32771) i32 @virtio_snd_set_pcm_params(ptr noundef %s, i32 noundef %stream_id, ptr nocapture noundef readonly %params) unnamed_addr #0 {
+define internal fastcc range(i32 32768, 32771) i32 @virtio_snd_set_pcm_params(ptr noundef %s, i32 noundef %stream_id, ptr nocapture noundef nonnull readonly %params) unnamed_addr #0 {
 entry:
   %streams = getelementptr inbounds i8, ptr %s, i64 612
   %0 = load i32, ptr %streams, align 4
@@ -2047,7 +2047,7 @@ if.else.i.i.i51.i:                                ; preds = %if.then.i.i.i49.i
 
 trace_virtio_snd_handle_pcm_set_params.exit.i.i:  ; preds = %if.else.i.i.i51.i, %if.then8.i.i.i52.i, %land.lhs.true5.i.i.i46.i, %if.end6.i42.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i33.i)
-  %call9.i.i = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %s, i32 noundef %56, ptr noundef nonnull %req.i34.i)
+  %call9.i.i = call fastcc i32 @virtio_snd_set_pcm_params(ptr noundef nonnull %s, i32 noundef %56, ptr noundef %req.i34.i)
   br label %virtio_snd_handle_pcm_set_params.exit.i
 
 virtio_snd_handle_pcm_set_params.exit.i:          ; preds = %trace_virtio_snd_handle_pcm_set_params.exit.i.i, %if.then4.i62.i, %do.body.i59.i

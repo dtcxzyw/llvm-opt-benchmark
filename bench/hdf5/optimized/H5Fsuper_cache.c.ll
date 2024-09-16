@@ -81,7 +81,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_superblock_get_final_load_size(
   %5 = alloca ptr, align 8
   %6 = alloca %struct.H5F_super_t, align 8
   store ptr %0, ptr %5, align 8
-  %7 = call fastcc i32 @H5F__superblock_prefix_decode(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true)
+  %7 = call fastcc i32 @H5F__superblock_prefix_decode(ptr noundef %6, ptr noundef %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %13
 
@@ -188,7 +188,7 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   br label %.thread
 
 14:                                               ; preds = %4
-  %15 = call fastcc i32 @H5F__superblock_prefix_decode(ptr noundef nonnull %8, ptr noundef nonnull %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false)
+  %15 = call fastcc i32 @H5F__superblock_prefix_decode(ptr noundef %8, ptr noundef %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -1096,7 +1096,7 @@ define internal range(i32 -1, 1) i32 @H5F__cache_drvrinfo_get_final_load_size(pt
   %5 = alloca ptr, align 8
   %6 = alloca %struct.H5O_drvinfo_t, align 8
   store ptr %0, ptr %5, align 8
-  %7 = call fastcc i32 @H5F__drvrinfo_prefix_decode(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true)
+  %7 = call fastcc i32 @H5F__drvrinfo_prefix_decode(ptr noundef %6, ptr noundef null, ptr noundef %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext true)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %13
 
@@ -1134,7 +1134,7 @@ define internal noundef ptr @H5F__cache_drvrinfo_deserialize(ptr noundef %0, i64
   br label %.thread
 
 13:                                               ; preds = %4
-  %14 = call fastcc i32 @H5F__drvrinfo_prefix_decode(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false)
+  %14 = call fastcc i32 @H5F__drvrinfo_prefix_decode(ptr noundef %7, ptr noundef nonnull %6, ptr noundef %5, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -1228,7 +1228,7 @@ define internal noundef i32 @H5F__cache_drvrinfo_free_icr(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr i8, ptr %6, i64 %2
   %.ptr87 = getelementptr i8, ptr %7, i64 -1
@@ -1454,7 +1454,7 @@ declare ptr @H5G_oloc(ptr noundef) local_unnamed_addr #3
 declare i32 @H5_checksum_metadata(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nocapture noundef %0, ptr noundef writeonly %1, ptr nocapture noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__drvrinfo_prefix_decode(ptr nocapture noundef nonnull %0, ptr noundef writeonly %1, ptr nocapture noundef nonnull %2, i64 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #1 {
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr i8, ptr %7, i64 %3
   %.ptr69 = getelementptr i8, ptr %8, i64 -1

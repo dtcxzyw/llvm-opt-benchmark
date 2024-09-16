@@ -7523,7 +7523,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_
 1185:                                             ; preds = %1183
   %1186 = load i8, ptr %.0116.lcssa2218, align 8
   %1187 = icmp eq i8 %1186, 2
-  invoke fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86, i1 noundef zeroext %1187, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef %84, ptr noundef %85, ptr noundef %86, i1 noundef zeroext %1187, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef %1)
           to label %1188 unwind label %1222
 
 1188:                                             ; preds = %1185
@@ -39509,7 +39509,7 @@ declare void @_ZN5Yosys5RTLIL6Module7connectERKSt4pairINS0_7SigSpecES3_E(ptr nou
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117gen_dffsr_complexEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_S4_bRSt3mapIS4_St3setIPNS1_8SyncRuleESt4lessIS8_ESaIS8_EES9_IS4_ESaISt4pairIKS4_SC_EEEPNS1_7ProcessE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef nonnull readonly align 8 dereferenceable(48) %5, ptr noundef %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8

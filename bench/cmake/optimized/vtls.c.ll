@@ -2093,7 +2093,7 @@ define dso_local i32 @Curl_pin_peer_pubkey(ptr noundef %0, ptr noundef %1, ptr n
 82:                                               ; preds = %79
   %83 = getelementptr inbounds i8, ptr %75, i64 %70
   store i8 0, ptr %83, align 1
-  %84 = call fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %75, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  %84 = call fastcc i32 @pubkey_pem_to_der(ptr noundef %75, ptr noundef %5, ptr noundef %8)
   %.not92 = icmp eq i32 %84, 0
   %85 = load i64, ptr %8, align 8
   %86 = icmp eq i64 %3, %85
@@ -2152,7 +2152,7 @@ declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #4
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @pubkey_pem_to_der(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.12) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %34, label %5
@@ -2218,7 +2218,7 @@ define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %0, ptr noundef %1, pt
   %.035.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %29 ]
   %31 = getelementptr inbounds i8, ptr %22, i64 %.035.lcssa
   store i8 0, ptr %31, align 1
-  %32 = tail call i32 @Curl_base64_decode(ptr noundef nonnull %22, ptr noundef %1, ptr noundef %2) #18
+  %32 = tail call i32 @Curl_base64_decode(ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull %2) #18
   %33 = load ptr, ptr @Curl_cfree, align 8
   tail call void %33(ptr noundef nonnull %22) #18
   br label %34

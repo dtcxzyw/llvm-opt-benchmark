@@ -2566,7 +2566,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce0, ptr %__value.coerce1) unnamed_addr #12 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_T2_"(ptr nocapture noundef %__first, i64 noundef range(i64 0, 288230376151711743) %__holeIndex, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__len, ptr %__value.coerce0, ptr %__value.coerce1) unnamed_addr #12 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

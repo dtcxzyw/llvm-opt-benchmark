@@ -491,7 +491,7 @@ _ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit: ; pre
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit
-  %cond.i54 = phi i32 [ %2, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit ], [ -1, %entry ]
+  %cond.i53 = phi i32 [ %2, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit ], [ -1, %entry ]
   %3 = load atomic i8, ptr @_ZGVZN4mold3elf15write_plt_entryINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn acquire, align 8
   %guard.uninitialized = icmp eq i8 %3, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
@@ -511,7 +511,7 @@ init.end:                                         ; preds = %init, %init.check, 
   %5 = load i64, ptr @_ZZN4mold3elf15write_plt_entryINS0_7PPC64V1EEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, align 8
   store i64 %5, ptr %buf, align 1
   %6 = trunc i64 %5 to i32
-  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i54)
+  %7 = tail call i32 @llvm.bswap.i32(i32 %cond.i53)
   %8 = or i32 %7, %6
   store i32 %8, ptr %buf, align 1
   %plt = getelementptr inbounds i8, ptr %ctx, i64 4112
@@ -595,70 +595,70 @@ init.end13:                                       ; preds = %init12, %init.check
   store i32 %27, ptr %buf, align 1
   %28 = and i32 %2, 65535
   %arrayidx20 = getelementptr inbounds i8, ptr %buf, i64 4
-  %x.0.copyload.i.i20 = load i32, ptr %arrayidx20, align 1
+  %x.0.copyload.i.i19 = load i32, ptr %arrayidx20, align 1
   %29 = tail call i32 @llvm.bswap.i32(i32 %28)
-  %30 = or i32 %x.0.copyload.i.i20, %29
+  %30 = or i32 %x.0.copyload.i.i19, %29
   store i32 %30, ptr %arrayidx20, align 1
   %plt22 = getelementptr inbounds i8, ptr %ctx, i64 4112
   %31 = load ptr, ptr %plt22, align 8
   %sh_addr24 = getelementptr inbounds i8, ptr %31, i64 40
-  %x.0.copyload.i21 = load i64, ptr %sh_addr24, align 1
-  %32 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i21)
+  %x.0.copyload.i20 = load i64, ptr %sh_addr24, align 1
+  %32 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i20)
   %33 = load i32, ptr %aux_idx.i, align 8
-  %cmp.i.i23 = icmp eq i32 %33, -1
-  br i1 %cmp.i.i23, label %if.end.thread.i45, label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24
+  %cmp.i.i22 = icmp eq i32 %33, -1
+  br i1 %cmp.i.i22, label %if.end.thread.i44, label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i23
 
-if.end.thread.i45:                                ; preds = %init.end13
-  %pltgot15.i46 = getelementptr inbounds i8, ptr %ctx, i64 4120
-  %34 = load ptr, ptr %pltgot15.i46, align 8
-  %sh_addr516.i47 = getelementptr inbounds i8, ptr %34, i64 40
-  %x.0.copyload.i617.i48 = load i64, ptr %sh_addr516.i47, align 1
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i617.i48)
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49
+if.end.thread.i44:                                ; preds = %init.end13
+  %pltgot15.i45 = getelementptr inbounds i8, ptr %ctx, i64 4120
+  %34 = load ptr, ptr %pltgot15.i45, align 8
+  %sh_addr516.i46 = getelementptr inbounds i8, ptr %34, i64 40
+  %x.0.copyload.i617.i47 = load i64, ptr %sh_addr516.i46, align 1
+  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i617.i47)
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24: ; preds = %init.end13
-  %conv.i.i26 = sext i32 %33 to i64
+_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i23: ; preds = %init.end13
+  %conv.i.i25 = sext i32 %33 to i64
   %36 = load ptr, ptr %symbol_aux.i, align 8
-  %plt_idx.i.i27 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %36, i64 %conv.i.i26, i32 0, i32 4
-  %37 = load i32, ptr %plt_idx.i.i27, align 4
-  %cmp.not.i28 = icmp eq i32 %37, -1
-  br i1 %cmp.not.i28, label %cond.false.i9.i41, label %if.then.i29
+  %plt_idx.i.i26 = getelementptr inbounds %"struct.mold::elf::SymbolAux", ptr %36, i64 %conv.i.i25, i32 0, i32 4
+  %37 = load i32, ptr %plt_idx.i.i26, align 4
+  %cmp.not.i27 = icmp eq i32 %37, -1
+  br i1 %cmp.not.i27, label %cond.false.i9.i40, label %if.then.i28
 
-if.then.i29:                                      ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24
-  %cmp.i5.i33 = icmp slt i32 %37, 32768
-  %mul.i.i34 = shl nsw i32 %37, 3
-  %add.i.i35 = add nsw i32 %mul.i.i34, 44
+if.then.i28:                                      ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i23
+  %cmp.i5.i32 = icmp slt i32 %37, 32768
+  %mul.i.i33 = shl nsw i32 %37, 3
+  %add.i.i34 = add nsw i32 %mul.i.i33, 44
   %38 = mul i32 %37, 12
-  %add2.i.i36 = add i32 %38, -131028
-  %retval.0.in.i.i37 = select i1 %cmp.i5.i33, i32 %add.i.i35, i32 %add2.i.i36
-  %retval.0.i.i38 = zext i32 %retval.0.in.i.i37 to i64
-  %add.i39 = add i64 %32, %retval.0.i.i38
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49
+  %add2.i.i35 = add i32 %38, -131028
+  %retval.0.in.i.i36 = select i1 %cmp.i5.i32, i32 %add.i.i34, i32 %add2.i.i35
+  %retval.0.i.i37 = zext i32 %retval.0.in.i.i36 to i64
+  %add.i38 = add i64 %32, %retval.0.i.i37
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48
 
-cond.false.i9.i41:                                ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i24
-  %pltgot.i42 = getelementptr inbounds i8, ptr %ctx, i64 4120
-  %39 = load ptr, ptr %pltgot.i42, align 8
-  %sh_addr5.i43 = getelementptr inbounds i8, ptr %39, i64 40
-  %x.0.copyload.i6.i44 = load i64, ptr %sh_addr5.i43, align 1
-  %40 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i6.i44)
-  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49
+cond.false.i9.i40:                                ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE11get_plt_idxERNS0_7ContextIS2_EE.exit.i23
+  %pltgot.i41 = getelementptr inbounds i8, ptr %ctx, i64 4120
+  %39 = load ptr, ptr %pltgot.i41, align 8
+  %sh_addr5.i42 = getelementptr inbounds i8, ptr %39, i64 40
+  %x.0.copyload.i6.i43 = load i64, ptr %sh_addr5.i42, align 1
+  %40 = tail call noundef i64 @llvm.bswap.i64(i64 %x.0.copyload.i6.i43)
+  br label %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48
 
-_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49: ; preds = %if.end.thread.i45, %if.then.i29, %cond.false.i9.i41
-  %retval.0.i40 = phi i64 [ %add.i39, %if.then.i29 ], [ %35, %if.end.thread.i45 ], [ %40, %cond.false.i9.i41 ]
-  %sub27 = sub i64 %32, %retval.0.i40
+_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48: ; preds = %if.end.thread.i44, %if.then.i28, %cond.false.i9.i40
+  %retval.0.i39 = phi i64 [ %add.i38, %if.then.i28 ], [ %35, %if.end.thread.i44 ], [ %40, %cond.false.i9.i40 ]
+  %sub27 = sub i64 %32, %retval.0.i39
   %41 = trunc i64 %sub27 to i32
   %42 = add i32 %41, 16777208
   %arrayidx31 = getelementptr inbounds i8, ptr %buf, i64 8
-  %x.0.copyload.i.i50 = load i32, ptr %arrayidx31, align 1
+  %x.0.copyload.i.i49 = load i32, ptr %arrayidx31, align 1
   br label %if.end
 
-if.end:                                           ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit
-  %conv30.sink.in = phi i32 [ %42, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49 ], [ %22, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
-  %x.0.copyload.i.i50.sink = phi i32 [ %x.0.copyload.i.i50, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49 ], [ %13, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
-  %arrayidx31.sink = phi ptr [ %arrayidx31, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit49 ], [ %arrayidx7, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
+if.end:                                           ; preds = %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit
+  %conv30.sink.in = phi i32 [ %42, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48 ], [ %22, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
+  %x.0.copyload.i.i49.sink = phi i32 [ %x.0.copyload.i.i49, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48 ], [ %13, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
+  %arrayidx31.sink = phi ptr [ %arrayidx31, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit48 ], [ %arrayidx7, %_ZNK4mold3elf6SymbolINS0_7PPC64V1EE12get_plt_addrERNS0_7ContextIS2_EE.exit ]
   %conv30.sink = and i32 %conv30.sink.in, 16777215
   %43 = tail call i32 @llvm.bswap.i32(i32 %conv30.sink)
-  %44 = or i32 %43, %x.0.copyload.i.i50.sink
+  %44 = or i32 %43, %x.0.copyload.i.i49.sink
   store i32 %44, ptr %arrayidx31.sink, align 1
   ret void
 }
@@ -752,7 +752,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -1747,7 +1747,7 @@ return:                                           ; preds = %_ZNSt11char_traitsI
 declare void @_ZN4mold3elf12InputSectionINS0_7PPC64V1EE13apply_toc_relERNS0_7ContextIS2_EERNS0_6SymbolIS2_EERKNS0_6ElfRelIS2_EEPhmlmPPSB_(ptr noundef nonnull align 8 dereferenceable(118), ptr noundef nonnull align 8 dereferenceable(4584), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 1 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_7PPC64V1EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clElll"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %val, i64 noundef %lo, i64 noundef %hi) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZZN4mold3elf12InputSectionINS0_7PPC64V1EE17apply_reloc_allocERNS0_7ContextIS2_EEPhENK3$_0clElll"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %val, i64 noundef range(i64 -33554432, -32767) %lo, i64 noundef range(i64 32768, 33554433) %hi) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.mold::Error", align 8
@@ -2667,7 +2667,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 23
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %5 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -2726,7 +2726,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp6, i64 21
   store i8 0, ptr %arrayidx.i.i.i18, align 1
   %ctx.val5 = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef nonnull %agg.tmp6)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
   %12 = load ptr, ptr %this, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_7PPC64V1EEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit35, label %if.then.i32
@@ -3713,7 +3713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %agg.result, i8 %ctx.88.val, ptr noundef %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_7PPC64V1EEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3722,7 +3722,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.17)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.17)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -3741,7 +3741,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.19)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.19)
   %3 = load ptr, ptr %ref.tmp1, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i1 = icmp eq ptr %3, %4

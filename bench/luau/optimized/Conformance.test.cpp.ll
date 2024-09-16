@@ -2808,7 +2808,7 @@ declare void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_10v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2833,7 +2833,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_12v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.234, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.234, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2858,7 +2858,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_14v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.235, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.235, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2883,7 +2883,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_16v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.236, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2908,7 +2908,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_18v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.237, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_18vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.237, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_18vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2933,7 +2933,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_20v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2958,7 +2958,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_22v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.240, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.240, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2983,7 +2983,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_24v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3008,7 +3008,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_26v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.242, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3033,7 +3033,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_28v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3058,7 +3058,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_30v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.244, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3083,7 +3083,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_32v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.245, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3108,7 +3108,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_34v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.246, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.246, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3133,7 +3133,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_36v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.247, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.247, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3158,7 +3158,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_38v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.248, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.248, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3183,7 +3183,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_40v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3208,7 +3208,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_42v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.250, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.250, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3233,7 +3233,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_44v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3258,7 +3258,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_46v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.252, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.252, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3283,7 +3283,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_48v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.253, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.253, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3308,7 +3308,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_50v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.254, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.254, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3333,7 +3333,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_52v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.255, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.255, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3358,7 +3358,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_54v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.256, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.256, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3383,7 +3383,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_56v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.257, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.257, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3409,7 +3409,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 define internal void @_ZL20DOCTEST_ANON_FUNC_58v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
   %2 = tail call noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef nonnull @_ZL14limitedReallocPvS_mm, ptr noundef null)
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.258, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_58vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef %2, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.258, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_58vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef %2, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -3434,7 +3434,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %5
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_60v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.262, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.262, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3758,7 +3758,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_62v() #4 personality ptr @__gxx_per
 
 107:                                              ; preds = %106, %67
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #37
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.268, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_62vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %2)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.268, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_62vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %2)
   %108 = getelementptr inbounds i8, ptr %19, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not.i = icmp eq ptr %109, null
@@ -3792,7 +3792,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %107, %110
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_72v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.269, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_72vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.269, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_72vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3817,7 +3817,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_74v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.279, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.279, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3842,7 +3842,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL20DOCTEST_ANON_FUNC_76v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.280, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -3959,7 +3959,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_78v() #4 personality ptr @__gxx_per
   %41 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr @.str.53, ptr %41, align 8, !alias.scope !12
   store i32 2, ptr %39, align 4
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.282, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_78vEN3$_08__invokeEP9lua_State", ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_78vEN3$_18__invokeEP9lua_State", ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.282, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_78vEN3$_08__invokeEP9lua_State", ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_78vEN3$_18__invokeEP9lua_State", ptr noundef null, ptr noundef nonnull %5, i1 noundef zeroext true, ptr noundef null)
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
@@ -4202,7 +4202,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_82v() #4 personality ptr @__gxx_per
   store ptr @.str.53, ptr %6, align 8, !alias.scope !17
   store i32 0, ptr %4, align 4
   store i32 0, ptr %1, align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.310, ptr noundef null, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_82vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.310, ptr noundef null, ptr noundef nonnull @"_ZZL20DOCTEST_ANON_FUNC_82vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -7766,7 +7766,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_96v() #4 personality ptr @__gxx_per
   %125 = alloca %"struct.doctest::detail::Expression_lhs.616", align 8
   %126 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %127 = tail call noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef nonnull @_ZL14limitedReallocPvS_mm, ptr noundef null)
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef null, ptr noundef %127, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef null, ptr noundef %127, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %128 = getelementptr inbounds i8, ptr %1, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = invoke noundef i32 @_Z12lua_getfieldP9lua_StateiPKc(ptr noundef %129, i32 noundef -10002, ptr noundef nonnull @.str.346)
@@ -14045,10 +14045,10 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   %50 = alloca %"struct.doctest::detail::Expression_lhs.638", align 8
   %51 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %52 = tail call noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef nonnull @_ZL14limitedReallocPvS_mm, ptr noundef null)
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.407, ptr noundef null, ptr noundef null, ptr noundef %52, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.407, ptr noundef null, ptr noundef null, ptr noundef %52, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %53 = getelementptr inbounds i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef %54, ptr noundef nonnull @.str.408)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %54, ptr noundef nonnull @.str.408)
           to label %55 unwind label %64
 
 55:                                               ; preds = %0
@@ -14155,7 +14155,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %90) #37
   %91 = getelementptr inbounds i8, ptr %2, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %54, ptr noundef nonnull @.str.410)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %54, ptr noundef nonnull @.str.410)
           to label %92 unwind label %64
 
 92:                                               ; preds = %87
@@ -14268,7 +14268,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %128) #37
   %129 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %129) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %54, ptr noundef nonnull @.str.411)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %54, ptr noundef nonnull @.str.411)
           to label %130 unwind label %64
 
 130:                                              ; preds = %125
@@ -14522,7 +14522,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %208) #37
   %209 = getelementptr inbounds i8, ptr %14, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %209) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %54, ptr noundef nonnull @.str.414)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %54, ptr noundef nonnull @.str.414)
           to label %210 unwind label %64
 
 210:                                              ; preds = %205
@@ -14776,7 +14776,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %288) #37
   %289 = getelementptr inbounds i8, ptr %27, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %289) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef %54, ptr noundef nonnull @.str.417)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef %54, ptr noundef nonnull @.str.417)
           to label %290 unwind label %64
 
 290:                                              ; preds = %285
@@ -14889,7 +14889,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_106v() #4 personality ptr @__gxx_pe
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %326) #37
   %327 = getelementptr inbounds i8, ptr %40, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %327) #37
-  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef %54, ptr noundef nonnull @.str.418)
+  invoke fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %54, ptr noundef nonnull @.str.418)
           to label %328 unwind label %64
 
 328:                                              ; preds = %323
@@ -15064,7 +15064,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit81: ; preds = %375, %377
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_108v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.421, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.421, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -15198,7 +15198,7 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i:             ; preds = %_ZSt7advanceIPKimEv
 _ZNSt6vectorIiSaIiEE13_M_assign_auxIPKiEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i, %42, %45, %_ZSt4copyIPKiPiET0_T_S4_S3_.exit18.i
   store i32 0, ptr @_ZZL21DOCTEST_ANON_FUNC_110vE5index, align 4
   store i8 %26, ptr @_ZZL21DOCTEST_ANON_FUNC_110vE8luaBreak, align 1
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull @.str.422, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_08__invokeEP9lua_State", ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_18__invokeEP9lua_State", ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull @.str.422, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_08__invokeEP9lua_State", ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_110vEN3$_18__invokeEP9lua_State", ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %48 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit, label %49
@@ -15347,7 +15347,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_112v() #4 personality ptr @__gxx_pe
   store i32 1, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 2, ptr %8, align 4
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.431, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_112vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.431, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_112vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -15372,7 +15372,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %11
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_114v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.436, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.436, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -15980,7 +15980,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_118v() #4 personality ptr @__gxx_pe
   %62 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr @.str.53, ptr %62, align 8, !alias.scope !120
   store i32 1, ptr %1, align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.445, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.445, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef null)
   %63 = getelementptr inbounds i8, ptr %2, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = invoke noundef ptr @_Z13lua_callbacksP9lua_State(ptr noundef %64)
@@ -20378,7 +20378,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit20: ; preds = %88, %89
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_126v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.491, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.491, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -20403,7 +20403,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_128v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.492, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_128vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.492, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_128vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -20428,7 +20428,7 @@ _ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit:   ; preds = %0, %4
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21DOCTEST_ANON_FUNC_130v() #4 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.503, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.503, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -20541,7 +20541,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_132v() #4 personality ptr @__gxx_pe
 
 34:                                               ; preds = %29, %28
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #37
-  invoke fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.506, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_132vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  invoke fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.506, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_132vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
           to label %35 unwind label %18
 
 35:                                               ; preds = %34
@@ -20588,7 +20588,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_136v() #4 personality ptr @__gxx_pe
   br i1 %.not, label %_ZNSt10unique_ptrI9lua_StatePFvPS0_EED2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.508, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_136vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.508, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_136vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext false, ptr noundef null)
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -20928,7 +20928,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_138v() #4 personality ptr @__gxx_pe
 
 115:                                              ; preds = %114, %68
   call void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #37
-  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.511, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_138vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %2)
+  call fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.511, ptr noundef nonnull @"_ZZL21DOCTEST_ANON_FUNC_138vEN3$_08__invokeEP9lua_State", ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull %2)
   %116 = getelementptr inbounds i8, ptr %19, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not.i = icmp eq ptr %117, null
@@ -20985,7 +20985,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_148v() #4 personality ptr @__gxx_pe
   %22 = alloca %"struct.doctest::detail::Expression_lhs.628", align 8
   %23 = alloca %"struct.doctest::detail::ExpressionDecomposer", align 4
   %24 = alloca i32, align 4
-  call fastcc void @_ZL22makeHugeFunctionSourceB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %1)
+  call fastcc void @_ZL22makeHugeFunctionSourceB5cxx11v(ptr dead_on_unwind noalias writable align 8 %1)
   %25 = invoke noundef ptr @_Z13luaL_newstatev()
           to label %26 unwind label %33
 
@@ -21462,7 +21462,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_150v() #4 personality ptr @__gxx_pe
   %14 = alloca i32, align 4
   %15 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %16 = alloca %"class.doctest::String", align 8
-  call fastcc void @_ZL22makeHugeFunctionSourceB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %2)
+  call fastcc void @_ZL22makeHugeFunctionSourceB5cxx11v(ptr dead_on_unwind noalias writable align 8 %2)
   store i64 0, ptr %3, align 8
   %17 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
   %18 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #37
@@ -26008,7 +26008,7 @@ declare void @_ZN7doctest6detail7tlssPopEv(ptr dead_on_unwind writable sret(%"cl
 declare void @_ZN7doctest6StringC1EPKcj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6, ptr noundef readonly %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14runConformancePKcPFvP9lua_StateES4_S2_P18lua_CompileOptionsbPN4Luau7CodeGen18CompilationOptionsE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5, i1 noundef zeroext %6, ptr noundef readonly %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::basic_fstream", align 8
@@ -37682,7 +37682,7 @@ _ZN7doctest8toStringIPiTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enumIT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL21DOCTEST_ANON_FUNC_106vENK3$_0clEP9lua_StatePKc"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %5 = alloca %"class.doctest::String", align 8
   %6 = alloca %"struct.doctest::detail::Result", align 8
@@ -39462,10 +39462,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 88:                                               ; preds = %.loopexit.i.i.i
   %89 = shl i64 %spec.select.i.i.i.i, 6
   %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #42
-          to label %.lr.ph.i.i.i.i.i.i unwind label %160
+          to label %.noexc20.i unwind label %160
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %88, %.lr.ph.i.i.i.i.i.i
-  %.07.i.i.i.i.i.i = phi i64 [ %95, %.lr.ph.i.i.i.i.i.i ], [ 0, %88 ]
+.noexc20.i:                                       ; preds = %88, %.noexc20.i
+  %.07.i.i.i.i.i.i = phi i64 [ %95, %.noexc20.i ], [ 0, %88 ]
   %91 = getelementptr inbounds %"struct.std::pair.685", ptr %90, i64 %.07.i.i.i.i.i.i
   %92 = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   store ptr %92, ptr %91, align 8
@@ -39475,9 +39475,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #37
   %95 = add nuw i64 %.07.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %95, %spec.select.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !400
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.loopexit.i.i.i.i, label %.noexc20.i, !llvm.loop !400
 
-_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
+_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.loopexit.i.i.i.i: ; preds = %.noexc20.i
   %.pre.i.i.i.i = load i64, ptr %61, align 8
   br label %_ZN4Luau6detail14DenseHashTableIPvSt4pairIS2_ZL21DOCTEST_ANON_FUNC_116vE4NodeES3_IKS2_S4_ENS0_16ItemInterfaceMapIS2_S4_EENS_16DenseHashPointerESt8equal_toIS2_EEC2ERS6_m.exit.i.i.i.i
 

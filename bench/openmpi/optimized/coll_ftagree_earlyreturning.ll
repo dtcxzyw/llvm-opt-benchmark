@@ -4398,7 +4398,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %75
 declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #2 {
+define internal fastcc void @send_msg(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 %3, i32 noundef range(i32 1, 4) %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #2 {
   %9 = alloca [4 x %struct.iovec], align 16
   %10 = alloca %struct.era_msg_header_t, align 8
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32

@@ -13324,7 +13324,7 @@ while.body.i.i.i:                                 ; preds = %_ZZN8facebook5velox
   store ptr %1, ptr %agg.tmp6.i.i.i, align 8
   store ptr %2, ptr %_M_refcount.i.i.i14.i.i.i, align 8
   store i64 %3, ptr %reservedBytes.i16.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -13519,7 +13519,7 @@ _ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5St
   store ptr %15, ptr %agg.tmp7.i, align 8
   store ptr %16, ptr %_M_refcount.i.i.i7.i, align 8
   store i64 %17, ptr %reservedBytes.i9.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS1_10MemoryPoolEmmRNS2_5StatsEEN9CandidateaSEOS7_.exit.i
@@ -14009,7 +14009,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPZN8facebook5velox6memory15MemoryReclaimer7reclaimEPNS4_10MemoryPoolEmmRNS5_5StatsEE9CandidateSt6vectorISA_SaISA_EEEElSA_NS0_5__ops15_Iter_comp_iterIZNS5_7reclaimES7_mmS9_E3$_0EEEvT_T0_SL_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef range(i64 -384307168202282325, 384307168202282326) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

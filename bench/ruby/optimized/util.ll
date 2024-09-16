@@ -230,7 +230,7 @@ define dso_local i64 @ruby_strtoul(ptr noundef nonnull %0, ptr noundef writeonly
   %15 = icmp ne i8 %13, 32
   %16 = add nsw i32 %14, -14
   %17 = icmp ult i32 %16, -5
-  %narrow.i.not = and i1 %15, %17
+  %narrow.i.not = select i1 %15, i1 %17, i1 false
   br i1 %narrow.i.not, label %.critedge, label %18
 
 18:                                               ; preds = %.lr.ph
@@ -1674,7 +1674,7 @@ Balloc.exit:                                      ; preds = %466, %496
   br label %ruby_nonempty_memcpy.exit
 
 ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %506
-  %507 = call fastcc ptr @d2b(double noundef %.sroa.0103.12, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %507 = call fastcc ptr @d2b(double noundef %.sroa.0103.12, ptr noundef %3, ptr noundef %4)
   %508 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %509
 
@@ -2842,7 +2842,7 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @llvm.get.rounding() #10
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #11 {
+define internal fastcc ptr @d2b(double noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #11 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @freelist, i64 8), align 8
   br label %5
 
@@ -3136,7 +3136,7 @@ lo0bits.exit61:                                   ; preds = %102, %85, %87, %89,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #1 {
   %3 = and i32 %1, 3
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %10, label %4
@@ -3604,7 +3604,7 @@ Balloc.exit:                                      ; preds = %38, %68
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #1 {
   %3 = lshr i32 %1, 5
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -4179,7 +4179,7 @@ define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noun
   br i1 %.not9.i645, label %nrv_alloc.exit, label %nrv_alloc.exit.sink.split
 
 24:                                               ; preds = %20
-  %25 = call fastcc ptr @d2b(double noundef %.sroa.088.0, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %25 = call fastcc ptr @d2b(double noundef %.sroa.088.0, ptr noundef %8, ptr noundef %7)
   %26 = lshr i32 %.sroa.088.4.extract.trunc137, 20
   %27 = and i32 %26, 2047
   %.not579.not = icmp eq i32 %27, 0
@@ -5901,7 +5901,7 @@ nrv_alloc.exit:                                   ; preds = %nrv_alloc.exit.sink
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef ptr @nrv_alloc(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef %2) unnamed_addr #12 {
+define internal fastcc noundef ptr @nrv_alloc(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i64 noundef range(i64 2, 10) %2) unnamed_addr #12 {
   %4 = tail call noalias ptr @malloc(i64 noundef %2) #21
   %5 = load i8, ptr %0, align 1
   store i8 %5, ptr %4, align 1
@@ -5935,7 +5935,7 @@ define internal fastcc noundef ptr @nrv_alloc(ptr nocapture noundef readonly %0,
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 -176, 80) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24

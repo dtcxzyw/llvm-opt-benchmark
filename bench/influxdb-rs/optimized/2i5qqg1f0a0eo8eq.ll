@@ -879,7 +879,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$12i
 82:                                               ; preds = %25
   %83 = add i64 %26, 1
   store i64 %83, ptr %18, align 8, !alias.scope !209
-  %84 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %84 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef align 8 dereferenceable(64) %0)
   %85 = icmp eq ptr %84, null
   br i1 %85, label %.loopexit164, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17hea6ccb050e60e3daE.exit.thread"
 
@@ -905,7 +905,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$12i
   br label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17hea6ccb050e60e3daE.exit.thread"
 
 94:                                               ; preds = %32
-  %95 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0)
+  %95 = tail call fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef align 8 dereferenceable(64) %0)
   %96 = icmp eq ptr %95, null
   br i1 %96, label %.loopexit164, label %"_ZN10serde_json2de21Deserializer$LT$R$GT$11parse_ident17hea6ccb050e60e3daE.exit.thread"
 
@@ -1161,7 +1161,7 @@ define hidden noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$12i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
@@ -1318,7 +1318,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
   br label %36
 
 67:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit28", %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit28"
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.056, i32 noundef %37)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.056, i32 noundef %37)
   br label %36
 
 68:                                               ; preds = %28
@@ -1338,12 +1338,12 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_d
 
 74:                                               ; preds = %68
   %75 = add i32 %.01255, %4
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow17h9938a0cca78edcc1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.056, i32 noundef %75)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow17h9938a0cca78edcc1E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.056, i32 noundef %75)
   br label %36
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
@@ -1413,7 +1413,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 33:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !293
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef 0, i32 noundef 0), !noalias !290
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %7, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef 0, i32 noundef 0), !noalias !290
   %34 = load i64, ptr %7, align 8, !range !295, !noalias !293, !noundef !4
   %trunc2.i = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds i8, ptr %7, i64 8
@@ -1421,7 +1421,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 36:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i", %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !293
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef 0, i32 noundef 0), !noalias !290
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %6, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef 0, i32 noundef 0), !noalias !290
   %37 = load i64, ptr %6, align 8, !range !295, !noalias !293, !noundef !4
   %trunc1.i = trunc nuw i64 %37 to i1
   %38 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1517,7 +1517,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 63:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i34"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !300
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062, i32 noundef 0), !noalias !297
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %5, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062, i32 noundef 0), !noalias !297
   %64 = load i64, ptr %5, align 8, !range !295, !noalias !300, !noundef !4
   %trunc2.i36 = trunc nuw i64 %64 to i1
   %65 = getelementptr inbounds i8, ptr %5, i64 8
@@ -1525,7 +1525,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 66:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i34", %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit.i34"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !300
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062, i32 noundef 0), !noalias !297
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062, i32 noundef 0), !noalias !297
   %67 = load i64, ptr %4, align 8, !range !295, !noalias !300, !noundef !4
   %trunc1.i35 = trunc nuw i64 %67 to i1
   %68 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1597,7 +1597,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 
 .critedge:                                        ; preds = %90
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h3ede72764d12d8c7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062)
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h3ede72764d12d8c7E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %.062)
   %95 = load i64, ptr %9, align 8, !range !295, !noundef !4
   %trunc14 = trunc nuw i64 %95 to i1
   %96 = getelementptr inbounds i8, ptr %9, i64 8
@@ -1622,7 +1622,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 {
+define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$14ignore_integer17h8a9ce90b36998ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -1876,7 +1876,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
@@ -2073,7 +2073,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 
 81:                                               ; preds = %77
   %82 = icmp eq i64 %3, 0
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17he0a3e64b4fd2435aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i1 noundef zeroext %82, i1 noundef zeroext %.012)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17he0a3e64b4fd2435aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i1 noundef zeroext %82, i1 noundef zeroext %.012)
   br label %36
 }
 
@@ -2120,7 +2120,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$16parse_whitespace
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -2298,7 +2298,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
   %81 = add nuw i64 %23, 1
   store i64 %81, ptr %22, align 8, !alias.scope !519
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18)
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext false)
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %18, ptr noalias noundef align 8 dereferenceable(64) %0, i1 noundef zeroext false)
   %82 = load i64, ptr %18, align 8, !range !522, !noundef !4
   %83 = icmp eq i64 %82, 3
   br i1 %83, label %106, label %104
@@ -2406,7 +2406,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deseria
 
 116:                                              ; preds = %30
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i1 noundef zeroext true)
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(64) %0, i1 noundef zeroext true)
   %117 = load i64, ptr %16, align 8, !range !522, !noundef !4
   %118 = icmp eq i64 %117, 3
   br i1 %118, label %121, label %119
@@ -2481,7 +2481,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18deserialize_numb
   %27 = add i64 %19, 1
   store i64 %27, ptr %13, align 8, !alias.scope !542
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext false)
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext false)
   %28 = load i64, ptr %11, align 8, !range !522, !noundef !4
   %29 = icmp eq i64 %28, 3
   %30 = getelementptr inbounds i8, ptr %11, i64 8
@@ -2570,12 +2570,12 @@ _ZN10serde_json2de12ParserNumber5visit17hbde161ad6a839460E.exit: ; preds = %42, 
   br label %73
 
 .thread:                                          ; preds = %31
-  %51 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.9)
+  %51 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.9)
   br label %75
 
 52:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext true)
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext true)
   %53 = load i64, ptr %10, align 8, !range !522, !noundef !4
   %54 = icmp eq i64 %53, 3
   %55 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2660,7 +2660,7 @@ default.unreachable2.i9:                          ; preds = %56
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h3ede72764d12d8c7E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_long_integer17h3ede72764d12d8c7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2779,11 +2779,11 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$18parse_l
   br label %51
 
 49:                                               ; preds = %18
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %.016)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17hcea51d4cb32cb00fE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %.016)
   br label %51
 
 50:                                               ; preds = %18, %18
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %.016)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %.016)
   br label %51
 
 51:                                               ; preds = %50, %49, %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17he9f81da73187de8aE.exit"
@@ -2958,7 +2958,7 @@ define hidden void @"_ZN10serde_json2de21Deserializer$LT$R$GT$21deserialize_raw_
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow17h9938a0cca78edcc1E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_decimal_overflow17h9938a0cca78edcc1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3068,7 +3068,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
   br label %46
 
 45:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit6", %"_ZN10serde_json2de21Deserializer$LT$R$GT$12peek_or_null17h93432af8f8deafb0E.exit6"
-  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4)
+  tail call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hd474bd648bb85b5aE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4)
   br label %46
 
 46:                                               ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$14f64_from_parts17he9f81da73187de8aE.exit", %45
@@ -3076,7 +3076,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$22parse_d
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17he0a3e64b4fd2435aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$23parse_exponent_overflow17he0a3e64b4fd2435aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca { i64, [2 x i64] }, align 8
   %.not = xor i1 %4, true
   %brmerge = or i1 %3, %.not
@@ -3163,7 +3163,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 {
+define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -3231,7 +3231,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -3393,7 +3393,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read5error17h7af55a7e8ce4d841E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read5error17h7af55a7e8ce4d841E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = invoke { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$8position17h80f89b2f30530b03E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
           to label %6 unwind label %12
@@ -3427,7 +3427,7 @@ define internal fastcc void @_ZN10serde_json4read5error17h7af55a7e8ce4d841E(ptr 
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read5error17he62493093cd906a4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read5error17he62493093cd906a4E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = invoke { i64, i64 } @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json..read..Read$GT$8position17h80f89b2f30530b03E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
           to label %6 unwind label %12
@@ -6166,7 +6166,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h2c43bf878a47e3adE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6185,7 +6185,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6204,7 +6204,7 @@ define internal fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %3, null
@@ -6240,7 +6240,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6266,7 +6266,7 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6292,7 +6292,7 @@ define internal fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6311,7 +6311,7 @@ define internal fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6337,7 +6337,7 @@ define internal fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6356,7 +6356,7 @@ define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..TableDefinition$C$serde_json..error..Error$GT$$GT$17h9088137e0109b6dfE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..TableDefinition$C$serde_json..error..Error$GT$$GT$17h9088137e0109b6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6375,7 +6375,7 @@ define internal fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$serde_json..error..Error$GT$$GT$17hdb5014897020cd78E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$serde_json..error..Error$GT$$GT$17hdb5014897020cd78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6394,7 +6394,7 @@ define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$C$serde_json..error..Error$GT$$GT$17hbc963c2720ad1304E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$C$serde_json..error..Error$GT$$GT$17hbc963c2720ad1304E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6433,7 +6433,7 @@ define internal void @"_ZN4core3ptr125drop_in_place$LT$serde..de..impls..$LT$imp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..ParquetFile$GT$$C$serde_json..error..Error$GT$$GT$17hf42e7dab62173af8E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..ParquetFile$GT$$C$serde_json..error..Error$GT$$GT$17hf42e7dab62173af8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -6482,7 +6482,7 @@ define internal void @"_ZN4core3ptr150drop_in_place$LT$influxdb3_write.._..$LT$i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$i16$GT$$C$serde_json..error..Error$GT$$GT$17hed9affa41bcb9d8aE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$i16$GT$$C$serde_json..error..Error$GT$$GT$17hed9affa41bcb9d8aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %3 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %4 = load i64, ptr %0, align 8, !range !295, !noundef !4
@@ -6534,7 +6534,7 @@ define internal void @"_ZN4core3ptr170drop_in_place$LT$serde..de..impls..$LT$imp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..DatabaseTables$GT$$C$serde_json..error..Error$GT$$GT$17h6dda815fb0c6f3e4E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr175drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..DatabaseTables$GT$$C$serde_json..error..Error$GT$$GT$17h6dda815fb0c6f3e4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6565,7 +6565,7 @@ define internal void @"_ZN4core3ptr176drop_in_place$LT$serde..de..impls..$LT$imp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..TableParquetFiles$GT$$C$serde_json..error..Error$GT$$GT$17h25308357f00c2181E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..TableParquetFiles$GT$$C$serde_json..error..Error$GT$$GT$17h25308357f00c2181E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6591,7 +6591,7 @@ define internal fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$influxdb3_write..catalog..TableDefinition$GT$$C$serde_json..error..Error$GT$$GT$17h2e59563ee6f0dd2fE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$influxdb3_write..catalog..TableDefinition$GT$$C$serde_json..error..Error$GT$$GT$17h2e59563ee6f0dd2fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = alloca { { ptr, i64 }, i64, { {} }, {} }, align 8
   %3 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   %4 = load i64, ptr %0, align 8, !range !295, !noundef !4
@@ -6623,7 +6623,7 @@ define internal void @"_ZN4core3ptr204drop_in_place$LT$serde..de..impls..$LT$imp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$GT$$C$serde_json..error..Error$GT$$GT$17hdafdb0bbd7dc5ab8E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$GT$$C$serde_json..error..Error$GT$$GT$17hdafdb0bbd7dc5ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7142,7 +7142,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc1a29577a7fe8cc3E.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7310,7 +7310,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7446,7 +7446,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025
 
 47:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1900
-  call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %8), !noalias !1900
+  call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(64) %8), !noalias !1900
   %48 = load i64, ptr %4, align 8, !range !295, !noalias !1900, !noundef !4
   %trunc9.i = trunc nuw i64 %48 to i1
   %49 = getelementptr inbounds i8, ptr %4, i64 8
@@ -7473,7 +7473,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hcf48880eba40ce50E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hcf48880eba40ce50E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { ptr, [5 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7634,7 +7634,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hcf48880eba40
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -7770,7 +7770,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b9346202
 
 47:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1966
-  call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %8), !noalias !1966
+  call fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, ptr noalias noundef align 8 dereferenceable(64) %8), !noalias !1966
   %48 = load i64, ptr %4, align 8, !range !295, !noalias !1966, !noundef !4
   %trunc9.i = trunc nuw i64 %48 to i1
   %49 = getelementptr inbounds i8, ptr %4, i64 8
@@ -9535,7 +9535,7 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h75ed8be0995f68faE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i64 15, ptr %5, align 8
-  call fastcc void @_ZN10serde_json4read5error17h7af55a7e8ce4d841E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN10serde_json4read5error17h7af55a7e8ce4d841E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
@@ -9598,7 +9598,7 @@ define hidden void @"_ZN70_$LT$serde_json..read..SliceRead$u20$as$u20$serde_json
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h75ed8be0995f68faE.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store i64 15, ptr %5, align 8
-  call fastcc void @_ZN10serde_json4read5error17he62493093cd906a4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZN10serde_json4read5error17he62493093cd906a4E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %26
@@ -10642,7 +10642,7 @@ define hidden noundef align 8 ptr @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -10702,7 +10702,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   %25 = add i64 %17, 1
   store i64 %25, ptr %11, align 8, !alias.scope !2749, !noalias !2741
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2748
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext false), !noalias !2741
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext false), !noalias !2741
   %26 = load i64, ptr %9, align 8, !range !522, !noalias !2748, !noundef !4
   %27 = icmp eq i64 %26, 3
   %28 = getelementptr inbounds i8, ptr %9, i64 8
@@ -10775,12 +10775,12 @@ _ZN10serde_json2de12ParserNumber5visit17ha7ad6ada4b9173c0E.exit.i.i.i: ; preds =
   br label %57
 
 .thread.i.i.i:                                    ; preds = %29
-  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.10), !noalias !2741
+  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.10), !noalias !2741
   br label %59
 
 43:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2748
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext true), !noalias !2741
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext true), !noalias !2741
   %44 = load i64, ptr %8, align 8, !range !522, !noalias !2748, !noundef !4
   %45 = icmp eq i64 %44, 3
   %46 = getelementptr inbounds i8, ptr %8, i64 8
@@ -10884,7 +10884,7 @@ define hidden noundef align 8 ptr @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -10944,7 +10944,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   %25 = add i64 %17, 1
   store i64 %25, ptr %11, align 8, !alias.scope !2809, !noalias !2801
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2808
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext false), !noalias !2801
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext false), !noalias !2801
   %26 = load i64, ptr %9, align 8, !range !522, !noalias !2808, !noundef !4
   %27 = icmp eq i64 %26, 3
   %28 = getelementptr inbounds i8, ptr %9, i64 8
@@ -11017,12 +11017,12 @@ _ZN10serde_json2de12ParserNumber5visit17hf90be4706da9dea6E.exit.i.i.i: ; preds =
   br label %57
 
 .thread.i.i.i:                                    ; preds = %29
-  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.8), !noalias !2801
+  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.8), !noalias !2801
   br label %59
 
 43:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !2808
-  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i1 noundef zeroext true), !noalias !2801
+  call fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noalias noundef align 8 dereferenceable(64) %1, i1 noundef zeroext true), !noalias !2801
   %44 = load i64, ptr %8, align 8, !range !522, !noalias !2808, !noundef !4
   %45 = icmp eq i64 %44, 3
   %46 = getelementptr inbounds i8, ptr %8, i64 8
@@ -11213,7 +11213,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %48, label %50, label %53
 
 .thread86:                                        ; preds = %36
-  %49 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.44)
+  %49 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.44)
   br label %185
 
 50:                                               ; preds = %44
@@ -11369,7 +11369,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %91 = add i64 %84, 1
   store i64 %91, ptr %67, align 8, !alias.scope !2922, !noalias !2925
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18), !noalias !2921
-  invoke fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %18, ptr noalias noundef nonnull align 8 dereferenceable(64) %.val.i.i.i, i1 noundef zeroext false)
+  invoke fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %18, ptr noalias noundef align 8 dereferenceable(64) %.val.i.i.i, i1 noundef zeroext false)
           to label %.noexc17.i.i.i unwind label %.loopexit24.i, !noalias !2889
 
 .noexc17.i.i.i:                                   ; preds = %90
@@ -11467,12 +11467,12 @@ _ZN10serde_json2de12ParserNumber5visit17h47f41641cec5711dE.exit.i.i.i.i.i.i.i.i:
   br label %145
 
 .thread.i.i.i.i.i.i.i.i:                          ; preds = %94
-  %113 = invoke fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.val.i.i.i, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.7)
+  %113 = invoke fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %.val.i.i.i, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.7)
           to label %.noexc21.i.i.i unwind label %.loopexit.split-lp25.i, !noalias !2889
 
 114:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !2921
-  invoke fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(64) %.val.i.i.i, i1 noundef zeroext true)
+  invoke fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_integer17hc5bf2192723568eaE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %17, ptr noalias noundef align 8 dereferenceable(64) %.val.i.i.i, i1 noundef zeroext true)
           to label %.noexc22.i.i.i unwind label %.loopexit24.i, !noalias !2889
 
 .noexc22.i.i.i:                                   ; preds = %114
@@ -11698,13 +11698,13 @@ common.resume:                                    ; preds = %161, %175, %180, %.
   store ptr %.sroa.536.0, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.737.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.737.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.737, i64 16, i1 false)
-  %160 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %160 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %163 unwind label %161
 
 161:                                              ; preds = %"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h4a0030968b4b82b4E.exit"
   %162 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$i16$GT$$C$serde_json..error..Error$GT$$GT$17hed9affa41bcb9d8aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #25
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$i16$GT$$C$serde_json..error..Error$GT$$GT$17hed9affa41bcb9d8aE"(ptr noalias noundef align 8 dereferenceable(32) %27) #25
           to label %common.resume unwind label %181
 
 163:                                              ; preds = %"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h4a0030968b4b82b4E.exit"
@@ -11900,7 +11900,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %37, label %39, label %42
 
 .thread86:                                        ; preds = %25
-  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.45)
+  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.45)
   br label %139
 
 39:                                               ; preds = %33
@@ -12236,13 +12236,13 @@ common.resume:                                    ; preds = %120, %.body.i
   store ptr %.sroa.536.0, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
-  %119 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %119 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %122 unwind label %120
 
 120:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hec26a446ab36c66dE.exit"
   %121 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$GT$$C$serde_json..error..Error$GT$$GT$17hdafdb0bbd7dc5ab8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16) #25
+  invoke fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..sync..Arc$LT$influxdb3_write..catalog..DatabaseSchema$GT$$GT$$C$serde_json..error..Error$GT$$GT$17hdafdb0bbd7dc5ab8E"(ptr noalias noundef align 8 dereferenceable(48) %16) #25
           to label %common.resume unwind label %136
 
 122:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hec26a446ab36c66dE.exit"
@@ -12395,7 +12395,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %37, label %39, label %42
 
 .thread86:                                        ; preds = %25
-  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.46)
+  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.46)
   br label %129
 
 39:                                               ; preds = %33
@@ -12718,13 +12718,13 @@ common.resume:                                    ; preds = %110, %.body.i
   store ptr %.sroa.536.0, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
-  %109 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %109 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %112 unwind label %110
 
 110:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h13ce113c77cdcb6bE.exit"
   %111 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr175drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..DatabaseTables$GT$$C$serde_json..error..Error$GT$$GT$17h6dda815fb0c6f3e4E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16) #25
+  invoke fastcc void @"_ZN4core3ptr175drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..DatabaseTables$GT$$C$serde_json..error..Error$GT$$GT$17h6dda815fb0c6f3e4E"(ptr noalias noundef align 8 dereferenceable(48) %16) #25
           to label %common.resume unwind label %126
 
 112:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h13ce113c77cdcb6bE.exit"
@@ -12877,7 +12877,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %37, label %39, label %42
 
 .thread86:                                        ; preds = %25
-  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.47)
+  %38 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.47)
   br label %125
 
 39:                                               ; preds = %33
@@ -13191,13 +13191,13 @@ common.resume:                                    ; preds = %106, %.body.i
   store ptr %.sroa.536.0, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6, i64 32, i1 false)
-  %105 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %105 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %108 unwind label %106
 
 106:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h138d8dc9a0cd6774E.exit"
   %107 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..TableParquetFiles$GT$$C$serde_json..error..Error$GT$$GT$17h25308357f00c2181E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %16) #25
+  invoke fastcc void @"_ZN4core3ptr178drop_in_place$LT$core..result..Result$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$influxdb3_write..TableParquetFiles$GT$$C$serde_json..error..Error$GT$$GT$17h25308357f00c2181E"(ptr noalias noundef align 8 dereferenceable(48) %16) #25
           to label %common.resume unwind label %122
 
 108:                                              ; preds = %"_ZN204_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$std..collections..hash..map..HashMap$LT$K$C$V$C$S$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$C$S$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17h138d8dc9a0cd6774E.exit"
@@ -13356,7 +13356,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %44, label %46, label %49
 
 .thread86:                                        ; preds = %32
-  %45 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.48)
+  %45 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.48)
   br label %135
 
 46:                                               ; preds = %40
@@ -13679,13 +13679,13 @@ common.resume:                                    ; preds = %111, %125, %130, %.
   store ptr %.sroa.536.0, ptr %.sroa.536.0..sroa_idx, align 8
   %.sroa.737.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.737.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.737, i64 16, i1 false)
-  %110 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %110 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %113 unwind label %111
 
 111:                                              ; preds = %"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hecef3397b9766647E.exit"
   %112 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$influxdb3_write..catalog..TableDefinition$GT$$C$serde_json..error..Error$GT$$GT$17h2e59563ee6f0dd2fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #25
+  invoke fastcc void @"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$influxdb3_write..catalog..TableDefinition$GT$$C$serde_json..error..Error$GT$$GT$17h2e59563ee6f0dd2fE"(ptr noalias noundef align 8 dereferenceable(32) %23) #25
           to label %common.resume unwind label %131
 
 113:                                              ; preds = %"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..collections..btree..map..BTreeMap$LT$K$C$V$GT$$GT$..deserialize..MapVisitor$LT$K$C$V$GT$$u20$as$u20$serde..de..Visitor$GT$9visit_map17hecef3397b9766647E.exit"
@@ -13867,7 +13867,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %25, label %27, label %30
 
 .thread76:                                        ; preds = %13
-  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.49)
+  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.49)
   br label %49
 
 27:                                               ; preds = %21
@@ -13889,13 +13889,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = add i8 %32, 1
   store i8 %33, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %37 unwind label %35
 
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..TableDefinition$C$serde_json..error..Error$GT$$GT$17h9088137e0109b6dfE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4) #25
+  invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..TableDefinition$C$serde_json..error..Error$GT$$GT$17h9088137e0109b6dfE"(ptr noalias noundef align 8 dereferenceable(56) %4) #25
           to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hde5e6f3bc3ed8ca7E.exit29" unwind label %46
 
 37:                                               ; preds = %30
@@ -14021,7 +14021,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %25, label %27, label %30
 
 .thread84:                                        ; preds = %13
-  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.50)
+  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.50)
   br label %49
 
 27:                                               ; preds = %21
@@ -14043,13 +14043,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = add i8 %32, 1
   store i8 %33, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %37 unwind label %35
 
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$serde_json..error..Error$GT$$GT$17hdb5014897020cd78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$C$serde_json..error..Error$GT$$GT$17hdb5014897020cd78E"(ptr noalias noundef align 8 dereferenceable(24) %4) #25
           to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hde5e6f3bc3ed8ca7E.exit30" unwind label %46
 
 37:                                               ; preds = %30
@@ -14175,7 +14175,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %25, label %27, label %30
 
 .thread84:                                        ; preds = %13
-  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.51)
+  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.51)
   br label %49
 
 27:                                               ; preds = %21
@@ -14197,13 +14197,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = add i8 %32, 1
   store i8 %33, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %37 unwind label %35
 
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$C$serde_json..error..Error$GT$$GT$17hbc963c2720ad1304E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
+  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..WalOp$GT$$C$serde_json..error..Error$GT$$GT$17hbc963c2720ad1304E"(ptr noalias noundef align 8 dereferenceable(24) %4) #25
           to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hde5e6f3bc3ed8ca7E.exit30" unwind label %46
 
 37:                                               ; preds = %30
@@ -14329,7 +14329,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br i1 %25, label %27, label %30
 
 .thread84:                                        ; preds = %13
-  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.52)
+  %26 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.52)
   br label %49
 
 27:                                               ; preds = %21
@@ -14351,13 +14351,13 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %33 = add i8 %32, 1
   store i8 %33, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %34 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %37 unwind label %35
 
 35:                                               ; preds = %30
   %36 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..ParquetFile$GT$$C$serde_json..error..Error$GT$$GT$17hf42e7dab62173af8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$alloc..vec..Vec$LT$influxdb3_write..ParquetFile$GT$$C$serde_json..error..Error$GT$$GT$17hf42e7dab62173af8E"(ptr noalias noundef align 8 dereferenceable(24) %4) #25
           to label %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hde5e6f3bc3ed8ca7E.exit30" unwind label %46
 
 37:                                               ; preds = %30
@@ -14513,7 +14513,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %38
 
 34:                                               ; preds = %11
-  %35 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.53)
+  %35 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.53)
   %36 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h109c4aef39839e33E(ptr noalias noundef nonnull align 8 %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %37 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
@@ -14582,7 +14582,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deseri
   br i1 %22, label %28, label %26
 
 .thread:                                          ; preds = %10
-  %25 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.54)
+  %25 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.54)
   br label %34
 
 26:                                               ; preds = %17
@@ -14742,7 +14742,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %419
 
 .thread121:                                       ; preds = %60
-  %68 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.55)
+  %68 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.55)
   br label %416
 
 69:                                               ; preds = %60
@@ -14834,7 +14834,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
   %99 = load i32, ptr %98, align 4, !noalias !3614, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39), !noalias !3614
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %46, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef align 8 dereferenceable(16) %46, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %100 = load i64, ptr %46, align 8, !range !526, !noalias !3592, !noundef !4
   %101 = getelementptr inbounds i8, ptr %46, i64 8
   %102 = load ptr, ptr %101, align 8, !noalias !3592
@@ -14852,7 +14852,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 
 105:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %45, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef align 8 dereferenceable(16) %45, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %106 = load i64, ptr %45, align 8, !range !526, !noalias !3592, !noundef !4
   %107 = getelementptr inbounds i8, ptr %45, i64 8
   %108 = load ptr, ptr %107, align 8, !noalias !3592
@@ -14870,7 +14870,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 
 111:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %44, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef align 8 dereferenceable(16) %44, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %112 = load i64, ptr %44, align 8, !range !526, !noalias !3592, !noundef !4
   %113 = getelementptr inbounds i8, ptr %44, i64 8
   %114 = load ptr, ptr %113, align 8, !noalias !3592
@@ -14888,7 +14888,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 
 117:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %43, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef align 8 dereferenceable(16) %43, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %118 = load i64, ptr %43, align 8, !range !526, !noalias !3592, !noundef !4
   %119 = getelementptr inbounds i8, ptr %43, i64 8
   %120 = load ptr, ptr %119, align 8, !noalias !3592
@@ -14906,7 +14906,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 
 123:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %42, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef align 8 dereferenceable(16) %42, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %124 = load i64, ptr %42, align 8, !range !526, !noalias !3592, !noundef !4
   %125 = getelementptr inbounds i8, ptr %42, i64 8
   %126 = load ptr, ptr %125, align 8, !noalias !3592
@@ -14924,7 +14924,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 
 129:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41), !noalias !3592
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hcf48880eba40ce50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %41, ptr noalias noundef nonnull align 8 dereferenceable(16) %47), !noalias !3621
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17hcf48880eba40ce50E(ptr noalias nocapture noundef align 8 dereferenceable(56) %41, ptr noalias noundef align 8 dereferenceable(16) %47), !noalias !3621
   %130 = load i64, ptr %41, align 8, !range !295, !noalias !3592, !noundef !4
   %trunc61.i = trunc nuw i64 %130 to i1
   %131 = getelementptr inbounds i8, ptr %41, i64 8
@@ -14985,7 +14985,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
   store i64 %.sroa.23.0, ptr %.sroa.23.0..sroa_idx, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 88
   store i32 %.sroa.24.0, ptr %.sroa.24.0..sroa_idx, align 8
-  %141 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %141 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %146 unwind label %144
 
 142:                                              ; preds = %164, %79
@@ -14998,7 +14998,7 @@ default.unreachable:                              ; preds = %215, %123, %117, %1
 144:                                              ; preds = %"_ZN168_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..PersistedSegment$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he5f1453a0707ec3fE.exit"
   %145 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %51) #25
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef align 8 dereferenceable(96) %51) #25
           to label %common.resume unwind label %162
 
 146:                                              ; preds = %"_ZN168_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..PersistedSegment$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he5f1453a0707ec3fE.exit"
@@ -15546,7 +15546,7 @@ _ZN5serde2de9MapAccess10next_value17h42403d4176267f72E.exit.i: ; preds = %260
 280:                                              ; preds = %271
   %281 = add i64 %272, 1
   store i64 %281, ptr %55, align 8, !alias.scope !3788, !noalias !3780
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %36, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %36, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.i unwind label %.loopexit.loopexit.i, !noalias !3665
 
 _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.thread.i: ; preds = %.noexc285.i, %.noexc284.i
@@ -15617,7 +15617,7 @@ _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.i: ; preds = %280
 296:                                              ; preds = %287
   %297 = add i64 %288, 1
   store i64 %297, ptr %55, align 8, !alias.scope !3816, !noalias !3808
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %35, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %35, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit295.i unwind label %.loopexit.loopexit.i, !noalias !3665
 
 _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit295.thread.i: ; preds = %.noexc293.i, %.noexc292.i
@@ -15688,7 +15688,7 @@ _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit295.i: ; preds = %296
 312:                                              ; preds = %303
   %313 = add i64 %304, 1
   store i64 %313, ptr %55, align 8, !alias.scope !3844, !noalias !3836
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %34, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %34, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit304.i unwind label %.loopexit.loopexit.i, !noalias !3665
 
 _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit304.thread.i: ; preds = %.noexc302.i, %.noexc301.i
@@ -15759,7 +15759,7 @@ _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit304.i: ; preds = %312
 328:                                              ; preds = %319
   %329 = add i64 %320, 1
   store i64 %329, ptr %55, align 8, !alias.scope !3872, !noalias !3864
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %33, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.i unwind label %.loopexit.loopexit.i, !noalias !3665
 
 _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.thread.i: ; preds = %.noexc311.i, %.noexc310.i
@@ -15830,7 +15830,7 @@ _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.i: ; preds = %328
 344:                                              ; preds = %335
   %345 = add i64 %336, 1
   store i64 %345, ptr %55, align 8, !alias.scope !3900, !noalias !3892
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %32, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit321.i unwind label %.loopexit.loopexit.i, !noalias !3665
 
 _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit321.thread.i: ; preds = %.noexc319.i, %.noexc318.i
@@ -16059,13 +16059,13 @@ common.resume:                                    ; preds = %399, %144, %.loopex
   store i64 %.sroa.56.0, ptr %.sroa.56.0..sroa_idx, align 8
   %.sroa.57.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 88
   store i32 %.sroa.57.0, ptr %.sroa.57.0..sroa_idx, align 8
-  %398 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %398 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %401 unwind label %399
 
 399:                                              ; preds = %"_ZN168_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..PersistedSegment$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6dd4f899869dc3f0E.exit"
   %400 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %48) #25
+  invoke fastcc void @"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$influxdb3_write..PersistedSegment$C$serde_json..error..Error$GT$$GT$17h730b14aacb7a136cE"(ptr noalias noundef align 8 dereferenceable(96) %48) #25
           to label %common.resume unwind label %162
 
 401:                                              ; preds = %"_ZN168_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..PersistedSegment$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6dd4f899869dc3f0E.exit"
@@ -16215,7 +16215,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %288
 
 .thread120:                                       ; preds = %42
-  %50 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.56)
+  %50 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.56)
   br label %285
 
 51:                                               ; preds = %42
@@ -16249,7 +16249,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   %65 = getelementptr inbounds i8, ptr %29, i64 8
   store i8 1, ptr %65, align 8, !noalias !3970
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !3970
-  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %28, ptr noalias noundef nonnull align 8 dereferenceable(16) %29), !noalias !3974
+  call fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %28, ptr noalias noundef align 8 dereferenceable(16) %29), !noalias !3974
   %66 = load i32, ptr %28, align 8, !range !1891, !noalias !3970, !noundef !4
   %trunc.i = trunc nuw i32 %66 to i1
   %67 = getelementptr inbounds i8, ptr %28, i64 8
@@ -16417,7 +16417,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store i64 %.sroa.10.071, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.1066.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 24
   store i32 %72, ptr %.sroa.1066.0..sroa_idx, align 8
-  %120 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %120 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %125 unwind label %123
 
 121:                                              ; preds = %139, %61
@@ -16430,7 +16430,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 123:                                              ; preds = %"_ZN162_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..WalOpBatch$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hef7cf136156abb25E.exit"
   %124 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #25
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef align 8 dereferenceable(32) %33) #25
           to label %common.resume unwind label %137
 
 125:                                              ; preds = %"_ZN162_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..WalOpBatch$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hef7cf136156abb25E.exit"
@@ -17033,13 +17033,13 @@ common.resume:                                    ; preds = %272, %123, %.loopex
   store i64 %.sroa.769.0, ptr %.sroa.769.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 24
   store i32 %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
-  %271 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %271 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %274 unwind label %272
 
 272:                                              ; preds = %"_ZN162_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..WalOpBatch$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h681390f8db841cc9E.exit"
   %273 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %30) #25
+  invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$core..result..Result$LT$influxdb3_write..WalOpBatch$C$serde_json..error..Error$GT$$GT$17hd49daf7e4a6b4f15E"(ptr noalias noundef align 8 dereferenceable(32) %30) #25
           to label %common.resume unwind label %137
 
 274:                                              ; preds = %"_ZN162_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..WalOpBatch$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h681390f8db841cc9E.exit"
@@ -17172,7 +17172,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %229
 
 .thread123:                                       ; preds = %34
-  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.57)
+  %42 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.57)
   br label %226
 
 43:                                               ; preds = %34
@@ -17270,7 +17270,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   store ptr %.sroa.572.1, ptr %.sroa.572.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8, i64 32, i1 false)
-  %74 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %74 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %79 unwind label %77
 
 75:                                               ; preds = %97, %53
@@ -17283,7 +17283,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 77:                                               ; preds = %"_ZN166_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..DatabaseTables$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h586b67dfc5bd0d85E.exit"
   %78 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %25) #25
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef align 8 dereferenceable(48) %25) #25
           to label %common.resume unwind label %95
 
 79:                                               ; preds = %"_ZN166_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..DatabaseTables$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h586b67dfc5bd0d85E.exit"
@@ -17791,13 +17791,13 @@ common.resume:                                    ; preds = %209, %77, %141, %20
   store ptr %.sroa.974.1, ptr %.sroa.974.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.15, i64 32, i1 false)
-  %208 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %208 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %211 unwind label %209
 
 209:                                              ; preds = %"_ZN166_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..DatabaseTables$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h62dff01fbe257e8dE.exit"
   %210 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22) #25
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$influxdb3_write..DatabaseTables$C$serde_json..error..Error$GT$$GT$17h3227131ee4a32a73E"(ptr noalias noundef align 8 dereferenceable(48) %22) #25
           to label %common.resume unwind label %95
 
 211:                                              ; preds = %"_ZN166_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..DatabaseTables$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h62dff01fbe257e8dE.exit"
@@ -17959,7 +17959,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %347
 
 .thread128:                                       ; preds = %51
-  %59 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.58)
+  %59 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.58)
   br label %344
 
 60:                                               ; preds = %51
@@ -18228,7 +18228,7 @@ common.resume:                                    ; preds = %331, %141, %309, %3
   store ptr %.sroa.874.0, ptr %.sroa.874.0..sroa_idx, align 8
   %.sroa.975.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.975.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.975, i64 16, i1 false)
-  %138 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %138 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %143 unwind label %141
 
 139:                                              ; preds = %157, %70
@@ -18241,7 +18241,7 @@ common.resume:                                    ; preds = %331, %141, %309, %3
 141:                                              ; preds = %"_ZN184_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..DatabaseSchema$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hd1e22cc2af1942fbE.exit"
   %142 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %42) #25
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef align 8 dereferenceable(48) %42) #25
           to label %common.resume unwind label %155
 
 143:                                              ; preds = %"_ZN184_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..DatabaseSchema$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hd1e22cc2af1942fbE.exit"
@@ -18991,13 +18991,13 @@ _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.i: ; preds = %228
   store ptr %.sroa.2082.0, ptr %.sroa.2082.0..sroa_idx, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.21.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.21, i64 16, i1 false)
-  %330 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %330 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %333 unwind label %331
 
 331:                                              ; preds = %"_ZN184_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..DatabaseSchema$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cc3868b2e8cb2dE.exit"
   %332 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39) #25
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..DatabaseSchema$C$serde_json..error..Error$GT$$GT$17hd807d5db07130a80E"(ptr noalias noundef align 8 dereferenceable(48) %39) #25
           to label %common.resume unwind label %155
 
 333:                                              ; preds = %"_ZN184_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..DatabaseSchema$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h83cc3868b2e8cb2dE.exit"
@@ -19140,7 +19140,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %296
 
 .thread132:                                       ; preds = %41
-  %49 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.59)
+  %49 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.59)
   br label %293
 
 50:                                               ; preds = %41
@@ -19239,7 +19239,7 @@ common.resume:                                    ; preds = %276, %107, %.loopex
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !4697
   store ptr %72, ptr %27, align 8, !noalias !4689
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !4689
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %26, ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h004c99380dff9b3aE(ptr noalias nocapture noundef align 8 dereferenceable(16) %26, ptr noalias noundef align 8 dereferenceable(16) %28)
           to label %83 unwind label %81, !noalias !4717
 
 81:                                               ; preds = %92, %80
@@ -19310,7 +19310,7 @@ common.resume:                                    ; preds = %276, %107, %.loopex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.8, i64 32, i1 false)
   %.sroa.877.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 48
   store i32 %.sroa.877.0, ptr %.sroa.877.0..sroa_idx, align 8
-  %104 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %104 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %109 unwind label %107
 
 105:                                              ; preds = %127, %60
@@ -19323,7 +19323,7 @@ common.resume:                                    ; preds = %276, %107, %.loopex
 107:                                              ; preds = %"_ZN182_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..InnerCatalog$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hc5e28f9704620462E.exit"
   %108 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %32) #25
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef align 8 dereferenceable(56) %32) #25
           to label %common.resume unwind label %125
 
 109:                                              ; preds = %"_ZN182_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..InnerCatalog$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hc5e28f9704620462E.exit"
@@ -19986,13 +19986,13 @@ _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.i: ; preds = %196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.20.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.20, i64 32, i1 false)
   %.sroa.2084.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 48
   store i32 %.sroa.2084.0, ptr %.sroa.2084.0..sroa_idx, align 8
-  %275 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %275 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %278 unwind label %276
 
 276:                                              ; preds = %"_ZN182_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..InnerCatalog$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17hdc2df907407c343dE.exit"
   %277 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %29) #25
+  invoke fastcc void @"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$influxdb3_write..catalog..InnerCatalog$C$serde_json..error..Error$GT$$GT$17h51eaf4267183d049E"(ptr noalias noundef align 8 dereferenceable(56) %29) #25
           to label %common.resume unwind label %125
 
 278:                                              ; preds = %"_ZN182_$LT$influxdb3_write..catalog.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..catalog..InnerCatalog$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17hdc2df907407c343dE.exit"
@@ -20158,7 +20158,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %387
 
 .thread118:                                       ; preds = %54
-  %62 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.60)
+  %62 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.60)
   br label %384
 
 63:                                               ; preds = %54
@@ -20271,7 +20271,7 @@ _ZN5serde2de9SeqAccess12next_element17h0b2388ec26b607bcE.exit.i: ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.414.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.312.i, i64 16, i1 false), !noalias !4971
   store ptr %92, ptr %38, align 8, !noalias !4971
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !4971
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %36, ptr noalias noundef nonnull align 8 dereferenceable(16) %41)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef align 8 dereferenceable(16) %36, ptr noalias noundef align 8 dereferenceable(16) %41)
           to label %101 unwind label %99, !noalias !4975
 
 99:                                               ; preds = %105, %98
@@ -20380,7 +20380,7 @@ _ZN5serde2de9SeqAccess12next_element17h0b2388ec26b607bcE.exit.i: ; preds = %86
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.6.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10.sroa.6, i64 24, i1 false)
   %.sroa.1068.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 48
   store i64 %.sroa.1068.0, ptr %.sroa.1068.0..sroa_idx, align 8
-  %129 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %129 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %134 unwind label %132
 
 130:                                              ; preds = %148, %73
@@ -20393,7 +20393,7 @@ _ZN5serde2de9SeqAccess12next_element17h0b2388ec26b607bcE.exit.i: ; preds = %86
 132:                                              ; preds = %"_ZN161_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..LpWriteOp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h38d44f975aeb0bebE.exit"
   %133 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %45) #25
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef align 8 dereferenceable(56) %45) #25
           to label %common.resume unwind label %146
 
 134:                                              ; preds = %"_ZN161_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..LpWriteOp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h38d44f975aeb0bebE.exit"
@@ -21082,7 +21082,7 @@ _ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit186.i: ; preds = %275
 304:                                              ; preds = %295
   %305 = add i64 %296, 1
   store i64 %305, ptr %49, align 8, !alias.scope !5226, !noalias !5218
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %29, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %29, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.i unwind label %.loopexit257.loopexit.i, !noalias !5023
 
 _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.thread.i: ; preds = %.noexc198.i, %.noexc197.i
@@ -21310,13 +21310,13 @@ _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.i: ; preds = %223
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.26.sroa.6.0..sroa.26.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.26.sroa.6, i64 24, i1 false)
   %.sroa.2672.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 48
   store i64 %.sroa.2672.0, ptr %.sroa.2672.0..sroa_idx, align 8
-  %370 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %370 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %373 unwind label %371
 
 371:                                              ; preds = %"_ZN161_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..LpWriteOp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h972ed54a88d454c9E.exit"
   %372 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %42) #25
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Result$LT$influxdb3_write..LpWriteOp$C$serde_json..error..Error$GT$$GT$17h87400fea3d871e62E"(ptr noalias noundef align 8 dereferenceable(56) %42) #25
           to label %common.resume unwind label %146
 
 373:                                              ; preds = %"_ZN161_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..LpWriteOp$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h972ed54a88d454c9E.exit"
@@ -21476,7 +21476,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %390
 
 .thread136:                                       ; preds = %59
-  %67 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.61)
+  %67 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.61)
   br label %387
 
 68:                                               ; preds = %59
@@ -21546,7 +21546,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i, i64 16, i1 false), !noalias !5274
   store ptr %85, ptr %45, align 8, !noalias !5274
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43), !noalias !5274
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %43, ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef align 8 dereferenceable(16) %43, ptr noalias noundef align 8 dereferenceable(16) %46)
           to label %94 unwind label %92, !noalias !5278
 
 92:                                               ; preds = %.invoke.i, %108, %103, %98, %91
@@ -21569,7 +21569,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
 
 98:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42), !noalias !5274
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %42, ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17h45153beb0025d8ddE(ptr noalias nocapture noundef align 8 dereferenceable(16) %42, ptr noalias noundef align 8 dereferenceable(16) %46)
           to label %99 unwind label %92, !noalias !5278
 
 99:                                               ; preds = %98
@@ -21586,7 +21586,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
 
 103:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41), !noalias !5274
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %41, ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef align 8 dereferenceable(16) %41, ptr noalias noundef align 8 dereferenceable(16) %46)
           to label %104 unwind label %92, !noalias !5278
 
 104:                                              ; preds = %103
@@ -21603,7 +21603,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
 
 108:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !5274
-  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %40, ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
+  invoke fastcc void @_ZN5serde2de9SeqAccess12next_element17hddb2b93462027652E(ptr noalias nocapture noundef align 8 dereferenceable(16) %40, ptr noalias noundef align 8 dereferenceable(16) %46)
           to label %109 unwind label %92, !noalias !5278
 
 109:                                              ; preds = %108
@@ -21686,7 +21686,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
   store i64 %.sroa.10.089, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 48
   store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
-  %128 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %128 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %133 unwind label %131
 
 129:                                              ; preds = %154, %78
@@ -21699,7 +21699,7 @@ default.unreachable:                              ; preds = %109, %104, %99, %94
 131:                                              ; preds = %"_ZN163_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..ParquetFile$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h282ad860e568710aE.exit"
   %132 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %50) #25
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef align 8 dereferenceable(56) %50) #25
           to label %common.resume unwind label %152
 
 133:                                              ; preds = %"_ZN163_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..ParquetFile$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h282ad860e568710aE.exit"
@@ -22275,7 +22275,7 @@ _ZN5serde2de9MapAccess10next_value17h64bd0e25f3e5a60fE.exit.i: ; preds = %248
 277:                                              ; preds = %268
   %278 = add i64 %269, 1
   store i64 %278, ptr %54, align 8, !alias.scope !5464, !noalias !5456
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %35, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %35, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.i unwind label %.loopexit.loopexit.i, !noalias !5328
 
 _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.thread.i: ; preds = %.noexc220.i, %.noexc219.i
@@ -22346,7 +22346,7 @@ _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit.i: ; preds = %277
 293:                                              ; preds = %284
   %294 = add i64 %285, 1
   store i64 %294, ptr %54, align 8, !alias.scope !5492, !noalias !5484
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %34, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hf739f52f214acafdE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %34, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit230.i unwind label %.loopexit.loopexit.i, !noalias !5328
 
 _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit230.thread.i: ; preds = %.noexc228.i, %.noexc227.i
@@ -22417,7 +22417,7 @@ _ZN5serde2de9MapAccess10next_value17h8b662d448ed88d15E.exit230.i: ; preds = %293
 309:                                              ; preds = %300
   %310 = add i64 %301, 1
   store i64 %310, ptr %54, align 8, !alias.scope !5520, !noalias !5512
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %33, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %33, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.i unwind label %.loopexit.loopexit.i, !noalias !5328
 
 _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.thread.i: ; preds = %.noexc237.i, %.noexc236.i
@@ -22494,7 +22494,7 @@ _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit.i: ; preds = %309
 328:                                              ; preds = %319
   %329 = add i64 %320, 1
   store i64 %329, ptr %54, align 8, !alias.scope !5548, !noalias !5540
-  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  invoke fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h31bbf22c50cab8e3E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %32, ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %_ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit247.i unwind label %.loopexit.loopexit.i, !noalias !5328
 
 _ZN5serde2de9MapAccess10next_value17h8c8e7a974503a2e5E.exit247.thread.i: ; preds = %.noexc245.i, %.noexc244.i
@@ -22647,13 +22647,13 @@ _ZN5serde2de9MapAccess8next_key17h093ffd34ad81d6e9E.exit.thread.i: ; preds = %_Z
   store i64 %.sroa.34.0, ptr %.sroa.34.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 48
   store i64 %.sroa.35.0, ptr %.sroa.35.0..sroa_idx, align 8
-  %366 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %366 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %369 unwind label %367
 
 367:                                              ; preds = %"_ZN163_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..ParquetFile$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6fc8e67e376b7a13E.exit"
   %368 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %47) #25
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..result..Result$LT$influxdb3_write..ParquetFile$C$serde_json..error..Error$GT$$GT$17h9c17a7c8ad094c13E"(ptr noalias noundef align 8 dereferenceable(56) %47) #25
           to label %common.resume unwind label %152
 
 369:                                              ; preds = %"_ZN163_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..ParquetFile$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h6fc8e67e376b7a13E.exit"
@@ -22829,7 +22829,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %442
 
 .thread124:                                       ; preds = %59
-  %67 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.62)
+  %67 = call fastcc noundef nonnull align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$17peek_invalid_type17h9fbf3b563aa68af7E"(ptr noalias noundef align 8 dereferenceable(64) %1, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.25e4624a8a52187adcad8f9d06c75c71.62)
   br label %439
 
 68:                                               ; preds = %59
@@ -23267,7 +23267,7 @@ common.resume:                                    ; preds = %426, %191, %402, %4
   store ptr %.sroa.1072.0, ptr %.sroa.1072.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.11, i64 16, i1 false)
-  %188 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %188 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h70158e937fbd0693E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %193 unwind label %191
 
 189:                                              ; preds = %207, %78
@@ -23280,7 +23280,7 @@ common.resume:                                    ; preds = %426, %191, %402, %4
 191:                                              ; preds = %"_ZN169_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..TableParquetFiles$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he649fcb317c11141E.exit"
   %192 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %50) #25
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef align 8 dereferenceable(72) %50) #25
           to label %common.resume unwind label %205
 
 193:                                              ; preds = %"_ZN169_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..TableParquetFiles$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17he649fcb317c11141E.exit"
@@ -24202,13 +24202,13 @@ _ZN5serde2de9MapAccess10next_value17h8af3c19637ede513E.exit.i: ; preds = %280
   store ptr %.sroa.27.0, ptr %.sroa.27.0..sroa_idx, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 64
   store i64 %.sroa.28.0, ptr %.sroa.28.0..sroa_idx, align 8
-  %425 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %425 = invoke fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17hd73e70373e4c48b4E"(ptr noalias noundef align 8 dereferenceable(64) %1)
           to label %428 unwind label %426
 
 426:                                              ; preds = %"_ZN169_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..TableParquetFiles$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h12f838a13d8fe2c8E.exit"
   %427 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %47) #25
+  invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..TableParquetFiles$C$serde_json..error..Error$GT$$GT$17hf53b85066479a2d5E"(ptr noalias noundef align 8 dereferenceable(72) %47) #25
           to label %common.resume unwind label %205
 
 428:                                              ; preds = %"_ZN169_$LT$influxdb3_write.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$influxdb3_write..TableParquetFiles$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h12f838a13d8fe2c8E.exit"

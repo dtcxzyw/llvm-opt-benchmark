@@ -217,7 +217,7 @@ if.end99.us:                                      ; preds = %for.cond77.preheade
   br i1 %cmp71.not.us, label %return, label %while.body72.us, !llvm.loop !10
 
 for.cond77.preheader.us:                          ; preds = %while.body72.us
-  %call81.us = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef nonnull %s, ptr noundef nonnull %s.addr.1153.us, ptr noundef nonnull %incdec.ptr69154.us, ptr noundef null)
+  %call81.us = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef %s, ptr noundef %s.addr.1153.us, ptr noundef %incdec.ptr69154.us, ptr noundef null)
   %tobool82.not.us = icmp eq i8 %call81.us, 0
   br i1 %tobool82.not.us, label %if.end99.us, label %return
 
@@ -229,7 +229,7 @@ while.body72:                                     ; preds = %while.body72.lr.ph,
   br i1 %cmp75, label %if.end86, label %if.end99
 
 for.cond77.if.then79_crit_edge:                   ; preds = %if.end95
-  %call81 = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef nonnull %s, ptr noundef nonnull %s.addr.1153, ptr noundef nonnull %incdec.ptr96, ptr noundef null)
+  %call81 = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef %s, ptr noundef %s.addr.1153, ptr noundef %incdec.ptr96, ptr noundef null)
   %tobool82.not = icmp eq i8 %call81, 0
   br i1 %tobool82.not, label %if.end99, label %return
 
@@ -418,7 +418,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef readnone %start, ptr noundef readonly %match, ptr noundef readonly %matchLimit, ptr noundef readnone %limit) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef nonnull readnone %start, ptr noundef nonnull readonly %match, ptr noundef nonnull readonly %matchLimit, ptr noundef readnone %limit) unnamed_addr #1 {
 entry:
   %0 = load i16, ptr %match, align 2
   %1 = and i16 %0, -1024
@@ -1509,7 +1509,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr nocapture noundef readonly %string, ptr nocapture noundef readonly %matchSet, i8 noundef signext %polarity) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr nocapture noundef readonly %string, ptr nocapture noundef readonly %matchSet, i8 noundef signext range(i8 0, 2) %polarity) unnamed_addr #1 {
 entry:
   br label %while.cond
 

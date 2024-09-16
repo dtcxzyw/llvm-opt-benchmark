@@ -3866,7 +3866,7 @@ define hidden void @_ZN14cap_primitives2fs9read_link9read_link17hf16c76e2dbff0c9
 16:                                               ; preds = %10, %24
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #35
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef align 8 dereferenceable(24) %8) #35
           to label %45 unwind label %43
 
 18:                                               ; preds = %10
@@ -6468,7 +6468,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !543, !noundef !9
@@ -15911,10 +15911,10 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   %22 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},~{memory}"(ptr nonnull inttoptr (i64 72 to ptr), ptr %21, ptr nonnull inttoptr (i64 3 to ptr)) #38, !srcloc !245
   %23 = extractvalue { ptr, i32, i32 } %22, 0
   %24 = ptrtoint ptr %23 to i64
-  %.not.i.i.i.i81 = icmp sgt ptr %23, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i.i82 = icmp sgt ptr %23, inttoptr (i64 -4096 to ptr)
   %25 = icmp slt ptr %23, null
-  %.014.i.i.i.i82 = and i1 %.not.i.i.i.i81, %25
-  br i1 %.014.i.i.i.i82, label %33, label %26
+  %.014.i.i.i.i83 = and i1 %.not.i.i.i.i82, %25
+  br i1 %.014.i.i.i.i83, label %33, label %26
 
 26:                                               ; preds = %18
   %27 = call noundef range(i32 0, -1) i32 @"_ZN78_$LT$std..sys..pal..unix..fd..FileDesc$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17h5ff6a90964182d58E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1), !range !501, !noalias !2152
@@ -15922,10 +15922,10 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
   %29 = inttoptr i64 %28 to ptr
   %30 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},~{memory}"(ptr nonnull inttoptr (i64 8 to ptr), ptr %29, ptr null, ptr nonnull inttoptr (i64 1 to ptr)) #38, !noalias !2155, !srcloc !2158
   %31 = extractvalue { ptr, i32, i32 } %30, 0
-  %.not.i.i.i.i83 = icmp sgt ptr %31, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i.i84 = icmp sgt ptr %31, inttoptr (i64 -4096 to ptr)
   %32 = icmp slt ptr %31, null
-  %.014.i.i.i.i84 = and i1 %.not.i.i.i.i83, %32
-  br i1 %.014.i.i.i.i84, label %52, label %43
+  %.014.i.i.i.i85 = and i1 %.not.i.i.i.i84, %32
+  br i1 %.014.i.i.i.i85, label %52, label %43
 
 33:                                               ; preds = %18
   %34 = trunc i64 %24 to i32
@@ -15955,8 +15955,8 @@ define hidden void @"_ZN66_$LT$T$u20$as$u20$system_interface..fs..file_io_ext..F
 
 52:                                               ; preds = %26
   %53 = ptrtoint ptr %31 to i64
-  %sext133 = shl i64 %53, 48
-  %54 = ashr exact i64 %sext133, 48
+  %sext134 = shl i64 %53, 48
+  %54 = ashr exact i64 %sext134, 48
   %.neg = mul nsw i64 %54, -4294967296
   %55 = or disjoint i64 %.neg, 2
   %56 = inttoptr i64 %55 to ptr
@@ -15984,8 +15984,8 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   %71 = inttoptr i64 %70 to ptr
   %72 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},~{memory}"(ptr nonnull inttoptr (i64 72 to ptr), ptr %68, ptr nonnull inttoptr (i64 4 to ptr), ptr nonnull %71) #38, !srcloc !2158
   %73 = extractvalue { ptr, i32, i32 } %72, 0
-  %.not.i.i85.not = icmp eq ptr %73, null
-  br i1 %.not.i.i85.not, label %77, label %74
+  %.not.i.i86.not = icmp eq ptr %73, null
+  br i1 %.not.i.i86.not, label %77, label %74
 
 74:                                               ; preds = %_ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit
   %75 = ptrtoint ptr %73 to i64
@@ -16001,10 +16001,10 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   %80 = inttoptr i64 %79 to ptr
   %81 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},~{memory}"(ptr nonnull inttoptr (i64 8 to ptr), ptr %80, ptr %31, ptr null) #38, !noalias !2167, !srcloc !2158
   %82 = extractvalue { ptr, i32, i32 } %81, 0
-  %.not.i.i.i.i87 = icmp sgt ptr %82, inttoptr (i64 -4096 to ptr)
+  %.not.i.i.i.i88 = icmp sgt ptr %82, inttoptr (i64 -4096 to ptr)
   %83 = icmp slt ptr %82, null
-  %.014.i.i.i.i88 = and i1 %.not.i.i.i.i87, %83
-  br i1 %.014.i.i.i.i88, label %84, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit"
+  %.014.i.i.i.i89 = and i1 %.not.i.i.i.i88, %83
+  br i1 %.014.i.i.i.i89, label %84, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit"
 
 84:                                               ; preds = %77
   %85 = ptrtoint ptr %82 to i64
@@ -16036,8 +16036,8 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   br label %100
 
 95:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hca976a35d6ee566eE.exit"
-  %sext132 = shl i64 %64, 48
-  %96 = ashr exact i64 %sext132, 48
+  %sext133 = shl i64 %64, 48
+  %96 = ashr exact i64 %sext133, 48
   %.neg59 = mul nsw i64 %96, -4294967296
   %97 = or disjoint i64 %.neg59, 2
   %98 = inttoptr i64 %97 to ptr
@@ -16055,8 +16055,8 @@ _ZN6rustix2io10read_write5write17h7ea8d0b8b10cd6f0E.exit: ; preds = %43
   br label %108
 
 103:                                              ; preds = %16
-  %sext134 = shl i64 %14, 48
-  %104 = ashr exact i64 %sext134, 48
+  %sext135 = shl i64 %14, 48
+  %104 = ashr exact i64 %sext135, 48
   %.neg62 = mul nsw i64 %104, -4294967296
   %105 = or disjoint i64 %.neg62, 2
   %106 = inttoptr i64 %105 to ptr

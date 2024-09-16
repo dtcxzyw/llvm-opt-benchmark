@@ -289,43 +289,43 @@ _ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit: ; preds = %4
   %30 = getelementptr inbounds i8, ptr %.val.val.i, i64 32
   %31 = sext i32 %1 to i64
   %32 = load i32, ptr %.val.val.i, align 8
-  br label %.lr.ph.split.i
+  br label %33
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i"
-  %.09.i = phi i32 [ %52, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ 0, %.lr.ph.i ]
-  %.sroa.04.08.i = phi ptr [ %53, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %26, %.lr.ph.i ]
-  %33 = load i32, ptr %.sroa.04.08.i, align 4
-  %34 = icmp eq i32 %.09.i, 0
-  br i1 %34, label %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", label %35
+33:                                               ; preds = %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %.lr.ph.i
+  %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %53, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %.sroa.04.08.i = phi ptr [ %26, %.lr.ph.i ], [ %54, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ]
+  %34 = load i32, ptr %.sroa.04.08.i, align 4
+  %35 = icmp eq i32 %.09.i, 0
+  br i1 %35, label %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", label %36
 
-35:                                               ; preds = %.lr.ph.split.i
-  %36 = load ptr, ptr %30, align 8
-  %37 = getelementptr inbounds i16, ptr %36, i64 %31
-  %38 = load i16, ptr %37, align 2
-  %39 = sext i16 %38 to i64
-  %40 = sext i32 %.09.i to i64
-  %41 = getelementptr inbounds i16, ptr %36, i64 %40
-  %42 = load i16, ptr %41, align 2
-  %43 = sext i16 %42 to i64
-  %44 = load ptr, ptr %29, align 8
-  %45 = getelementptr i16, ptr %44, i64 %39
-  %46 = getelementptr i16, ptr %45, i64 %43
-  %47 = load i16, ptr %46, align 2
-  %48 = sext i16 %47 to i32
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %30, align 8
+  %38 = getelementptr inbounds i16, ptr %37, i64 %31
+  %39 = load i16, ptr %38, align 2
+  %40 = sext i16 %39 to i64
+  %41 = sext i32 %.09.i to i64
+  %42 = getelementptr inbounds i16, ptr %37, i64 %41
+  %43 = load i16, ptr %42, align 2
+  %44 = sext i16 %43 to i64
+  %45 = load ptr, ptr %29, align 8
+  %46 = getelementptr i16, ptr %45, i64 %40
+  %47 = getelementptr i16, ptr %46, i64 %44
+  %48 = load i16, ptr %47, align 2
+  %49 = sext i16 %48 to i32
   br label %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i"
 
-"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %35, %.lr.ph.split.i
-  %.0.i.i.i = phi i32 [ %48, %35 ], [ 0, %.lr.ph.split.i ]
-  %49 = add nsw i32 %.0.i.i.i, %33
-  %50 = icmp slt i32 %49, %32
-  %51 = select i1 %50, i32 0, i32 %32
-  %52 = sub nsw i32 %49, %51
-  %53 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 4
-  %.not.i = icmp eq ptr %53, %28
-  br i1 %.not.i, label %"_ZN5ZXing6ReduceISt6vectorIiSaIiEEiZNKS_6Pdf41711ModulusPoly10evaluateAtEiE3$_0EET0_RKT_S7_T1_.exit", label %.lr.ph.split.i, !llvm.loop !7
+"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i": ; preds = %36, %33
+  %.0.i.i.i = phi i32 [ %49, %36 ], [ 0, %33 ]
+  %50 = add nsw i32 %.0.i.i.i, %34
+  %51 = icmp slt i32 %50, %32
+  %52 = select i1 %51, i32 0, i32 %32
+  %53 = sub nsw i32 %50, %52
+  %54 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 4
+  %.not.i = icmp eq ptr %54, %28
+  br i1 %.not.i, label %"_ZN5ZXing6ReduceISt6vectorIiSaIiEEiZNKS_6Pdf41711ModulusPoly10evaluateAtEiE3$_0EET0_RKT_S7_T1_.exit", label %33, !llvm.loop !7
 
 "_ZN5ZXing6ReduceISt6vectorIiSaIiEEiZNKS_6Pdf41711ModulusPoly10evaluateAtEiE3$_0EET0_RKT_S7_T1_.exit": ; preds = %18, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i", %25, %16, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit
-  %.0 = phi i32 [ %15, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit ], [ 0, %16 ], [ 0, %25 ], [ %52, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %23, %18 ]
+  %.0 = phi i32 [ %15, %_ZNK5ZXing6Pdf41711ModulusPoly11coefficientEi.exit ], [ 0, %16 ], [ 0, %25 ], [ %53, %"_ZZNK5ZXing6Pdf41711ModulusPoly10evaluateAtEiENK3$_1clIiiEEDaT_T0_.exit.i" ], [ %23, %18 ]
   ret i32 %.0
 }
 

@@ -1061,7 +1061,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   %magicptr = ptrtoint ptr %call to i64
   switch i64 %magicptr, label %land.lhs.true [
     i64 -1, label %return
@@ -1101,7 +1101,7 @@ entry:
   %argCount_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %argCount_3.i = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, ptr noundef nonnull align 8 dereferenceable(16) %argCount_3.i, i64 16, i1 false)
-  %call = call fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp)
+  %call = call fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %agg.tmp)
   %magicptr = ptrtoint ptr %call to i64
   switch i64 %magicptr, label %land.lhs.true [
     i64 -1, label %return
@@ -5847,7 +5847,7 @@ declare i64 @_ZN6hermes2vm16PropertyAccessor6createERNS0_7RuntimeENS0_6HandleINS
 declare i32 @_ZN6hermes2vm8JSObject17defineOwnComputedENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, i32, ptr, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef readonly %args) unnamed_addr #0 {
+define internal fastcc ptr @_ZN6hermes2vm12_GLOBAL__N_114lookupAccessorERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef nonnull readonly %args) unnamed_addr #0 {
 entry:
   %valueOrAccessor = alloca %"class.hermes::vm::MutableHandle", align 8
   %tmpPropNameStorage = alloca %"class.hermes::vm::MutableHandle.159", align 8

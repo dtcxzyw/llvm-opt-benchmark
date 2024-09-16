@@ -157,13 +157,13 @@ if.then.i.i:                                      ; preds = %dumpHeader.exit
 
 dumpByte.exit:                                    ; preds = %dumpHeader.exit.thread17, %dumpHeader.exit.thread, %dumpHeader.exit, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %x.i)
-  call fastcc void @dumpFunction(ptr noundef nonnull %D, ptr noundef nonnull %f, ptr noundef null)
+  call fastcc void @dumpFunction(ptr noundef %D, ptr noundef nonnull %f, ptr noundef null)
   %7 = load i32, ptr %status, align 4
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpFunction(ptr noundef %D, ptr nocapture noundef readonly %f, ptr noundef readnone %psource) unnamed_addr #0 {
+define internal fastcc void @dumpFunction(ptr noundef nonnull %D, ptr nocapture noundef readonly %f, ptr noundef readnone %psource) unnamed_addr #0 {
 entry:
   %buff.i.i184 = alloca [10 x i8], align 1
   %buff.i.i181.i = alloca [10 x i8], align 1
@@ -224,7 +224,7 @@ dumpString.exit:                                  ; preds = %if.then, %if.then.i
   br label %if.end
 
 if.else:                                          ; preds = %lor.lhs.false
-  tail call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %1)
+  tail call fastcc void @dumpString(ptr noundef %D, ptr noundef %1)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %dumpString.exit
@@ -562,7 +562,7 @@ dumpInteger.exit.i:                               ; preds = %if.then.i.i23.i, %s
 
 sw.bb3.i:                                         ; preds = %dumpByte.exit.i, %dumpByte.exit.i
   %73 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %73)
+  call fastcc void @dumpString(ptr noundef %D, ptr noundef %73)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %sw.bb3.i, %dumpInteger.exit.i, %dumpNumber.exit.i, %dumpByte.exit.i
@@ -1054,7 +1054,7 @@ for.body20.i:                                     ; preds = %dumpInt.exit180.i, 
   %161 = load ptr, ptr %locvars.i, align 8
   %arrayidx22.i = getelementptr inbounds %struct.LocVar, ptr %161, i64 %indvars.iv211.i
   %162 = load ptr, ptr %arrayidx22.i, align 8
-  call fastcc void @dumpString(ptr noundef nonnull %D, ptr noundef %162)
+  call fastcc void @dumpString(ptr noundef %D, ptr noundef %162)
   %163 = load ptr, ptr %locvars.i, align 8
   %startpc.i = getelementptr inbounds %struct.LocVar, ptr %163, i64 %indvars.iv211.i, i32 1
   %164 = load i32, ptr %startpc.i, align 8
@@ -1216,7 +1216,7 @@ dumpDebug.exit:                                   ; preds = %for.body41.i, %dump
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dumpString(ptr nocapture noundef %D, ptr noundef %s) unnamed_addr #0 {
+define internal fastcc void @dumpString(ptr nocapture noundef nonnull %D, ptr noundef %s) unnamed_addr #0 {
 entry:
   %buff.i8 = alloca [10 x i8], align 1
   %buff.i = alloca [10 x i8], align 1

@@ -1243,7 +1243,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   br label %825
 
 571:                                              ; preds = %364
-  %572 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %.11235, i64 noundef %.01081, ptr noundef %0, i64 noundef %354, i8 noundef zeroext %367, ptr noundef nonnull %15)
+  %572 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %.11235, i64 noundef %.01081, ptr noundef %0, i64 noundef %354, i8 noundef zeroext %367, ptr noundef %15)
   %573 = add i64 %572, -3
   %574 = icmp ult i64 %573, 14
   br i1 %574, label %.preheader.lr.ph, label %._crit_edge1209
@@ -2260,7 +2260,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_subtree_wide(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_subtree_wide(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca [8 x i32], align 16
   %8 = alloca [16 x ptr], align 16
   %9 = alloca %struct.llvm_blake3_chunk_state, align 8
@@ -2301,7 +2301,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %.0268.lcssa = phi i64 [ 0, %.preheader ], [ %18, %._crit_edge.loopexit ]
   %.0267.lcssa = phi i64 [ 0, %.preheader ], [ %21, %._crit_edge.loopexit ]
   %.lcssa285 = phi i64 [ %1, %.preheader ], [ %23, %._crit_edge.loopexit ]
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %8, i64 noundef %.0268.lcssa, i64 noundef 16, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 noundef zeroext %4, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef %5) #9
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %8, i64 noundef %.0268.lcssa, i64 noundef 16, ptr noundef %2, i64 noundef %3, i1 noundef zeroext true, i8 noundef zeroext %4, i8 noundef zeroext 1, i8 noundef zeroext 2, ptr noundef nonnull %5) #9
   %24 = icmp ugt i64 %1, %.0267.lcssa
   br i1 %24, label %25, label %207
 
@@ -2531,8 +2531,8 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %181 = shl i64 %178, 5
   %182 = select i1 %or.cond, i64 64, i64 %181
   %183 = getelementptr inbounds [1024 x i8], ptr %12, i64 0, i64 %182
-  %184 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %0, i64 noundef %173, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef nonnull %12)
-  %185 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef nonnull %175, i64 noundef %174, ptr noundef %2, i64 noundef %177, i8 noundef zeroext %4, ptr noundef nonnull %183)
+  %184 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef %0, i64 noundef %173, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, ptr noundef %12)
+  %185 = call fastcc i64 @blake3_compress_subtree_wide(ptr noundef nonnull %175, i64 noundef %174, ptr noundef %2, i64 noundef %177, i8 noundef zeroext %4, ptr noundef %183)
   %186 = icmp eq i64 %184, 1
   br i1 %186, label %187, label %188
 
@@ -2569,7 +2569,7 @@ define internal fastcc range(i64 0, -9223372036854775806) i64 @blake3_compress_s
   %.0270.lcssa = phi i64 [ 0, %188 ], [ %193, %._crit_edge300.loopexit ]
   %.lcssa = phi i64 [ 0, %188 ], [ %198, %._crit_edge300.loopexit ]
   %199 = or i8 %4, 4
-  call void @llvm_blake3_hash_many(ptr noundef nonnull %11, i64 noundef %.0270.lcssa, i64 noundef 1, ptr noundef %2, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %199, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %5) #9
+  call void @llvm_blake3_hash_many(ptr noundef nonnull %11, i64 noundef %.0270.lcssa, i64 noundef 1, ptr noundef %2, i64 noundef 0, i1 noundef zeroext false, i8 noundef zeroext %199, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %5) #9
   %200 = icmp ugt i64 %189, %.lcssa
   br i1 %200, label %201, label %207
 

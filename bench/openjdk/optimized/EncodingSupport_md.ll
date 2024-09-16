@@ -169,7 +169,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @utfError(i32 noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @utfError(i32 noundef range(i32 89, 110) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef %0, ptr noundef %1) #11
   tail call void @abort() #12

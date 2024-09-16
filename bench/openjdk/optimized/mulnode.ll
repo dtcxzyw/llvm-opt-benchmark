@@ -4023,7 +4023,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11LShiftINode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 32)
+  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef %0, i32 noundef 32)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.critedge, label %6
 
@@ -4716,7 +4716,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit145.thread: ; preds = %359, %349, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 64) i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 64) i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 32, 65) %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 8
@@ -4836,7 +4836,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 67:                                               ; preds = %_ZN4Node7set_reqEjPS_.exit
   %68 = getelementptr inbounds i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef %1) #10
+  %70 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull %1) #10
   %71 = getelementptr inbounds i8, ptr %0, i64 2408
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 32
@@ -5040,7 +5040,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11LShiftLNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 64)
+  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef %0, i32 noundef 64)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.critedge, label %6
 
@@ -5973,7 +5973,7 @@ define hidden noundef ptr @_ZN11RShiftINode5IdealEP8PhaseGVNb(ptr noundef nonnul
   br i1 %.not, label %199, label %20
 
 20:                                               ; preds = %3
-  %21 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef nonnull %1, ptr noundef nonnull %0, i32 noundef 32)
+  %21 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef nonnull %1, ptr noundef %0, i32 noundef 32)
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %199, label %23
 
@@ -6734,7 +6734,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12URShiftINode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 32)
+  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef %0, i32 noundef 32)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %.thread111, label %6
 
@@ -7424,7 +7424,7 @@ _ZL17const_shift_countP8PhaseGVNP4NodePi.exit.thread: ; preds = %2, %14, %22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN12URShiftLNode5IdealEP8PhaseGVNb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
-  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef nonnull %0, i32 noundef 64)
+  %4 = tail call fastcc noundef i32 @_ZL15maskShiftAmountP8PhaseGVNP4Nodei(ptr noundef %1, ptr noundef %0, i32 noundef 64)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %345, label %6
 

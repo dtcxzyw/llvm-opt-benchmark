@@ -1104,7 +1104,7 @@ return:                                           ; preds = %for.body, %sw.bb.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef %is_extended) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_residual_partitioned_rice_(ptr noundef %bw, ptr noundef %residual, i32 noundef %residual_samples, i32 noundef %predictor_order, ptr nocapture noundef readonly %rice_parameters, ptr nocapture noundef readonly %raw_bits, i32 noundef %partition_order, i32 noundef range(i32 0, 2) %is_extended) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_extended, 0
   %0 = load i32, ptr @FLAC__ENTROPY_CODING_METHOD_PARTITIONED_RICE2_PARAMETER_LEN, align 4

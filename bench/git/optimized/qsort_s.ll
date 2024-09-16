@@ -29,7 +29,7 @@ if.end:                                           ; preds = %land.lhs.true.i
 if.end4:                                          ; preds = %if.end
   %mul.i = mul i64 %s, %n
   %call5 = tail call ptr @xmalloc(i64 noundef %mul.i) #7
-  tail call fastcc void @msort_with_tmp(ptr noundef nonnull %b, i64 noundef %n, i64 noundef %s, ptr noundef nonnull %cmp, ptr noundef %call5, ptr noundef %ctx)
+  tail call fastcc void @msort_with_tmp(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %call5, ptr noundef %ctx)
   tail call void @free(ptr noundef %call5) #7
   br label %return
 
@@ -41,7 +41,7 @@ return:                                           ; preds = %entry, %if.end, %if
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @msort_with_tmp(ptr noundef %b, i64 noundef %n, i64 noundef %s, ptr noundef %cmp, ptr noundef %t, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc void @msort_with_tmp(ptr noundef nonnull %b, i64 noundef %n, i64 noundef %s, ptr noundef nonnull %cmp, ptr noundef %t, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %cmp1 = icmp ult i64 %n, 2
   br i1 %cmp1, label %return, label %if.end
@@ -105,7 +105,7 @@ if.end15:                                         ; preds = %if.then13, %while.e
   %n2.0.lcssa64 = phi i64 [ %n2.0.lcssa65, %if.then13 ], [ %n2.1, %while.end ]
   %sub16 = sub i64 %n, %n2.0.lcssa64
   %mul17 = mul i64 %sub16, %s
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %b, ptr align 1 %t, i64 %mul17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %b, ptr align 1 %t, i64 %mul17, i1 false)
   br label %return
 
 return:                                           ; preds = %entry, %if.end15

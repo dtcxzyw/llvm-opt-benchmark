@@ -11721,7 +11721,7 @@ _ZNK4Luau16ConstraintSolver17errorRecoveryTypeEv.exit189.invoke: ; preds = %_ZN4
   %.sroa.050.0.copyload = load ptr, ptr %186, align 8
   %187 = getelementptr inbounds i8, ptr %25, i64 32
   %188 = getelementptr inbounds i8, ptr %25, i64 56
-  invoke fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %185, ptr %.sroa.050.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %188)
+  invoke fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %185, ptr %.sroa.050.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %188)
           to label %189 unwind label %131
 
 189:                                              ; preds = %184
@@ -13028,12 +13028,12 @@ _ZN4Luau16ConstraintSolver9isBlockedEPKNS_4TypeE.exit151: ; preds = %159, %144, 
 
 _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %182
   %184 = getelementptr inbounds i8, ptr %181, i64 8
-  %185 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %184)
+  %185 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %184)
           to label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split unwind label %.loopexit.split-lp290.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %182
   %186 = getelementptr inbounds i8, ptr %181, i64 8
-  %187 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %186)
+  %187 = invoke fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %186)
           to label %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split unwind label %.loopexit.split-lp290.loopexit.split-lp
 
 _ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit.thread.sink.split: ; preds = %_ZN4Luau3getINS_16IntersectionTypeEEEPKT_PKNS_4TypeE.exit, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit
@@ -16213,7 +16213,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %58
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %64
   %67 = getelementptr inbounds i8, ptr %63, i64 8
-  %68 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %67)
+  %68 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %67)
   %.not = icmp ult i16 %68, 256
   br i1 %.not, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit.thread, label %69
 
@@ -16312,7 +16312,7 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %_ZNSt3mapINSt7__cx
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit104: ; preds = %107
   %110 = getelementptr inbounds i8, ptr %106, i64 8
-  %111 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %110)
+  %111 = call fastcc i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %110)
   %.not204 = icmp ult i16 %111, 256
   br i1 %.not204, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit104.thread, label %112
 
@@ -20859,7 +20859,7 @@ define dso_local noundef ptr @_ZNK4Luau16ConstraintSolver17errorRecoveryTypeEv(p
 declare noundef zeroext i1 @_ZN4Luau11occursCheckEPKNS_4TypeES2_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector.95", align 8
   %8 = alloca %"class.std::vector.100", align 8
   %9 = alloca %"class.std::vector.95", align 8
@@ -23732,11 +23732,11 @@ declare noundef ptr @_ZNK4Luau12BuiltinTypes21errorRecoveryTypePackEv(ptr nounde
 declare void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind writable sret(%"struct.std::pair.636") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_9UnionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::TypeIterator.739", align 8
   %3 = alloca %"struct.Luau::TypeIterator.739", align 8
-  call void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.739") align 8 %2, ptr noundef %0)
-  invoke void @_ZN4Luau3endEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.739") align 8 %3, ptr noundef %0)
+  call void @_ZN4Luau5beginEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.739") align 8 %2, ptr noundef nonnull %0)
+  invoke void @_ZN4Luau3endEPKNS_9UnionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator.739") align 8 %3, ptr noundef nonnull %0)
           to label %4 unwind label %51
 
 4:                                                ; preds = %1
@@ -23957,11 +23957,11 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit17: ; preds = %_ZN4Luau12TypeIter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_22FunctionCallConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clINS_16IntersectionTypeEEESt8optionalIPKNS_4TypeEEPKT_"(ptr noundef nonnull %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.Luau::TypeIterator", align 8
   %3 = alloca %"struct.Luau::TypeIterator", align 8
-  call void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %2, ptr noundef %0)
-  invoke void @_ZN4Luau3endEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %3, ptr noundef %0)
+  call void @_ZN4Luau5beginEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %2, ptr noundef nonnull %0)
+  invoke void @_ZN4Luau3endEPKNS_16IntersectionTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypeIterator") align 8 %3, ptr noundef nonnull %0)
           to label %4 unwind label %51
 
 4:                                                ; preds = %1
@@ -27831,7 +27831,7 @@ declare noundef zeroext i1 @_ZN4Luau11maybeStringEPKNS_4TypeE(ptr noundef) local
 declare void @_ZN4Luau8Property2rwEPKNS_4TypeE(ptr dead_on_unwind writable sret(%"struct.Luau::Property") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i16 1, 258) i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i16 1, 258) i16 @"_ZZN4Luau16ConstraintSolver11tryDispatchERKNS_21AssignIndexConstraintENS_7NotNullIKNS_10ConstraintEEEENK3$_0clEPNS_9TableTypeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = getelementptr inbounds i8, ptr %1, i64 64
@@ -36654,7 +36654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit70: ; 
   %.sroa.0.0.copyload = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %2, i64 24
   %72 = getelementptr inbounds i8, ptr %2, i64 48
-  invoke fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %69, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %72)
+  invoke fastcc void @_ZN4LuauL17saturateArgumentsEPNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEERKNS_7TypeFunERKSt6vectorIPKNS_4TypeESaISB_EERKS8_IPKNS_11TypePackVarESaISI_EE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %69, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %71, ptr noundef nonnull align 8 dereferenceable(24) %72)
           to label %73 unwind label %119
 
 73:                                               ; preds = %66

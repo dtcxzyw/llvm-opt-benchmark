@@ -697,7 +697,7 @@ define dso_local i32 @ieee80211_remain_on_channel(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   %9 = getelementptr inbounds i8, ptr %2, i64 8
   %10 = load i16, ptr %9, align 8

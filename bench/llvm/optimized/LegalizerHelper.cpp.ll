@@ -61639,7 +61639,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %112, %109, %_ZN4llv
 declare { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCastERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, ptr } @_ZL5SwapNjN4llvm5DstOpERNS_16MachineIRBuilderENS_19MachineInstrBuilderERKNS_5APIntE(i32 noundef %0, i64 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(12) %6) unnamed_addr #0 {
+define internal fastcc { ptr, ptr } @_ZL5SwapNjN4llvm5DstOpERNS_16MachineIRBuilderENS_19MachineInstrBuilderERKNS_5APIntE(i32 noundef range(i32 1, 5) %0, i64 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr %4, ptr %5, ptr noundef nonnull align 8 dereferenceable(12) %6) unnamed_addr #0 {
   %8 = alloca [1 x %"class.llvm::DstOp"], align 8
   %9 = alloca [2 x %"class.llvm::SrcOp"], align 8
   %10 = alloca [1 x %"class.llvm::DstOp"], align 8

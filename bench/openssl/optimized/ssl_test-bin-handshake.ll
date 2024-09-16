@@ -351,7 +351,7 @@ if.end66.i:                                       ; preds = %if.then64.i, %if.en
 
 if.then70.i:                                      ; preds = %if.end66.i
   %npn_protocols_len.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 8
-  %call74.i = call fastcc i32 @parse_protos(ptr noundef nonnull %9, ptr noundef nonnull %server_ctx_data, ptr noundef nonnull %npn_protocols_len.i)
+  %call74.i = call fastcc i32 @parse_protos(ptr noundef nonnull %9, ptr noundef %server_ctx_data, ptr noundef %npn_protocols_len.i)
   %call77.i = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 588, ptr noundef nonnull @.str.20, i32 noundef %call74.i) #10
   %tobool78.not.i = icmp eq i32 %call77.i, 0
   br i1 %tobool78.not.i, label %if.then2, label %if.end80.i
@@ -368,7 +368,7 @@ if.end81.i:                                       ; preds = %if.end80.i, %if.end
 
 if.then85.i:                                      ; preds = %if.end81.i
   %npn_protocols_len89.i = getelementptr inbounds i8, ptr %server2_ctx_data, i64 8
-  %call90.i = call fastcc i32 @parse_protos(ptr noundef nonnull %10, ptr noundef nonnull %server2_ctx_data, ptr noundef nonnull %npn_protocols_len89.i)
+  %call90.i = call fastcc i32 @parse_protos(ptr noundef nonnull %10, ptr noundef %server2_ctx_data, ptr noundef %npn_protocols_len89.i)
   %call93.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 596, ptr noundef nonnull @.str.21, i32 noundef %call90.i) #10
   %tobool94.not.i = icmp eq i32 %call93.i, 0
   br i1 %tobool94.not.i, label %if.then2, label %lor.lhs.false.i
@@ -390,7 +390,7 @@ if.end99.i:                                       ; preds = %if.end98.i, %if.end
 
 if.then104.i:                                     ; preds = %if.end99.i
   %npn_protocols_len108.i = getelementptr inbounds i8, ptr %client_ctx_data, i64 8
-  %call109.i = call fastcc i32 @parse_protos(ptr noundef nonnull %11, ptr noundef nonnull %client_ctx_data, ptr noundef nonnull %npn_protocols_len108.i)
+  %call109.i = call fastcc i32 @parse_protos(ptr noundef nonnull %11, ptr noundef %client_ctx_data, ptr noundef %npn_protocols_len108.i)
   %call112.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 605, ptr noundef nonnull @.str.23, i32 noundef %call109.i) #10
   %tobool113.not.i = icmp eq i32 %call112.i, 0
   br i1 %tobool113.not.i, label %if.then2, label %if.end115.i
@@ -408,7 +408,7 @@ if.end116.i:                                      ; preds = %if.end115.i, %if.en
 if.then120.i:                                     ; preds = %if.end116.i
   %alpn_protocols123.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 16
   %alpn_protocols_len.i = getelementptr inbounds i8, ptr %server_ctx_data, i64 24
-  %call124.i = call fastcc i32 @parse_protos(ptr noundef nonnull %12, ptr noundef nonnull %alpn_protocols123.i, ptr noundef nonnull %alpn_protocols_len.i)
+  %call124.i = call fastcc i32 @parse_protos(ptr noundef nonnull %12, ptr noundef %alpn_protocols123.i, ptr noundef %alpn_protocols_len.i)
   %call127.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 614, ptr noundef nonnull @.str.24, i32 noundef %call124.i) #10
   %tobool128.not.i = icmp eq i32 %call127.i, 0
   br i1 %tobool128.not.i, label %if.then2, label %if.end130.i
@@ -432,7 +432,7 @@ lor.lhs.false139.i:                               ; preds = %if.then136.i
   %14 = load ptr, ptr %alpn_protocols133.i, align 8
   %alpn_protocols142.i = getelementptr inbounds i8, ptr %server2_ctx_data, i64 16
   %alpn_protocols_len143.i = getelementptr inbounds i8, ptr %server2_ctx_data, i64 24
-  %call144.i = call fastcc i32 @parse_protos(ptr noundef %14, ptr noundef nonnull %alpn_protocols142.i, ptr noundef nonnull %alpn_protocols_len143.i)
+  %call144.i = call fastcc i32 @parse_protos(ptr noundef %14, ptr noundef %alpn_protocols142.i, ptr noundef %alpn_protocols_len143.i)
   %call147.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 623, ptr noundef nonnull @.str.25, i32 noundef %call144.i) #10
   %tobool148.not.i = icmp eq i32 %call147.i, 0
   br i1 %tobool148.not.i, label %if.then2, label %if.end150.i
@@ -450,7 +450,7 @@ if.end151.i:                                      ; preds = %if.end150.i, %if.en
 if.then156.i:                                     ; preds = %if.end151.i
   store ptr null, ptr %alpn_protos.i, align 8
   store i64 0, ptr %alpn_protos_len.i, align 8
-  %call159.i = call fastcc i32 @parse_protos(ptr noundef nonnull %15, ptr noundef nonnull %alpn_protos.i, ptr noundef nonnull %alpn_protos_len.i)
+  %call159.i = call fastcc i32 @parse_protos(ptr noundef nonnull %15, ptr noundef %alpn_protos.i, ptr noundef %alpn_protos_len.i)
   %call162.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 633, ptr noundef nonnull @.str.26, i32 noundef %call159.i) #10
   %tobool163.not.i = icmp eq i32 %call162.i, 0
   br i1 %tobool163.not.i, label %if.then2, label %lor.lhs.false164.i
@@ -576,7 +576,7 @@ if.then2:                                         ; preds = %if.end, %if.then4.i
 if.end3:                                          ; preds = %sw.epilog243.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %alpn_protos_len.i)
-  %call4 = call fastcc i32 @create_peer(ptr noundef nonnull %server, ptr noundef %server_ctx)
+  %call4 = call fastcc i32 @create_peer(ptr noundef %server, ptr noundef %server_ctx)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
@@ -585,7 +585,7 @@ if.then6:                                         ; preds = %if.end3
   br label %err
 
 if.end7:                                          ; preds = %if.end3
-  %call8 = call fastcc i32 @create_peer(ptr noundef nonnull %client, ptr noundef %client_ctx)
+  %call8 = call fastcc i32 @create_peer(ptr noundef %client, ptr noundef %client_ctx)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
 
@@ -785,7 +785,7 @@ for.cond:                                         ; preds = %for.cond.outer, %lo
   br i1 %tobool89, label %if.then90, label %if.else100
 
 if.then90:                                        ; preds = %for.cond
-  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %client, i32 noundef %phase.0.ph.ph.ph249)
+  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef %client, i32 noundef %phase.0.ph.ph.ph249)
   %37 = load i32, ptr %status86, align 4
   switch i32 %37, label %handshake_status.exit [
     i32 2, label %sw.bb8.i
@@ -825,7 +825,7 @@ if.then97:                                        ; preds = %sw.bb8.i, %handshak
   br label %if.end104
 
 if.else100:                                       ; preds = %for.cond
-  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef nonnull %server, i32 noundef %phase.0.ph.ph.ph249)
+  call fastcc void @do_connect_step(ptr noundef %test_ctx, ptr noundef %server, i32 noundef %phase.0.ph.ph.ph249)
   %38 = load i32, ptr %status87, align 4
   switch i32 %38, label %sw.bb117 [
     i32 2, label %sw.bb8.i106
@@ -1440,7 +1440,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @test_note(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @create_peer(ptr nocapture noundef writeonly %peer, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @create_peer(ptr nocapture noundef nonnull writeonly %peer, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @SSL_new(ptr noundef %ctx) #10
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 750, ptr noundef nonnull @.str.43, ptr noundef %call) #10
@@ -1583,7 +1583,7 @@ if.end11:                                         ; preds = %sub_18, %lor.lhs.fa
 declare i64 @time(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_connect_step(ptr nocapture noundef readonly %test_ctx, ptr nocapture noundef %peer, i32 noundef %phase) unnamed_addr #0 {
+define internal fastcc void @do_connect_step(ptr nocapture noundef readonly %test_ctx, ptr nocapture noundef nonnull %peer, i32 noundef range(i32 7, 6) %phase) unnamed_addr #0 {
 entry:
   %buf.i = alloca i8, align 1
   switch i32 %phase, label %sw.epilog [
@@ -2296,7 +2296,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_protos(ptr nocapture noundef readonly %protos, ptr nocapture noundef %out, ptr nocapture noundef writeonly %outlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_protos(ptr nocapture noundef readonly %protos, ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull writeonly %outlen) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %protos) #11
   %0 = load ptr, ptr %out, align 8
@@ -2488,7 +2488,7 @@ declare ptr @X509_STORE_CTX_get_ex_data(ptr noundef, i32 noundef) local_unnamed_
 declare void @X509_STORE_CTX_set_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @select_server_ctx(ptr noundef %s, ptr noundef %arg, i32 noundef %ignore) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @select_server_ctx(ptr noundef %s, ptr noundef %arg, i32 noundef range(i32 0, 2) %ignore) unnamed_addr #0 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #10
   %0 = load i32, ptr @ex_data_idx, align 4
@@ -2545,7 +2545,7 @@ declare i64 @SSL_set_options(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @SSL_CTX_get_options(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr noundef %s, ptr noundef %arg, i32 noundef %ignore) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr noundef %s, ptr noundef %arg, i32 noundef range(i32 0, 2) %ignore) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %remaining = alloca i64, align 8
@@ -2681,7 +2681,7 @@ declare ptr @SSL_alert_type_string(i32 noundef) local_unnamed_addr #1
 declare ptr @SSL_alert_desc_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_app_data_step(ptr nocapture noundef %peer) unnamed_addr #0 {
+define internal fastcc void @do_app_data_step(ptr nocapture noundef nonnull %peer) unnamed_addr #0 {
 entry:
   %status = getelementptr inbounds i8, ptr %peer, i64 44
   %0 = load i32, ptr %status, align 4

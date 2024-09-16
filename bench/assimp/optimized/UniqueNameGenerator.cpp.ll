@@ -959,7 +959,7 @@ for.body42:                                       ; preds = %for.end, %for.inc65
 
 for.body55:                                       ; preds = %for.body42, %invoke.cont58
   %it2.sroa.0.0280 = phi ptr [ %it2.sroa.0.0, %invoke.cont58 ], [ %it2.sroa.0.0278, %for.body42 ]
-  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias nonnull align 8 %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(24) %generate_unique_name, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
+  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias align 8 %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(24) %generate_unique_name, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i)
           to label %invoke.cont58 unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont58:                                    ; preds = %for.body55
@@ -991,7 +991,7 @@ for.cond93.preheader:                             ; preds = %for.end67
 
 for.body78:                                       ; preds = %for.cond73.preheader, %invoke.cont81
   %it70.sroa.0.0284 = phi ptr [ %incdec.ptr.i121, %invoke.cont81 ], [ %empty_names_indices.sroa.0.0.lcssa, %for.cond73.preheader ]
-  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(24) %generate_unique_name, ptr noundef nonnull align 8 dereferenceable(32) %this)
+  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(24) %generate_unique_name, ptr noundef nonnull align 8 dereferenceable(32) %this)
           to label %invoke.cont81 unwind label %lpad5.loopexit.split-lp.loopexit
 
 invoke.cont81:                                    ; preds = %for.body78
@@ -1008,7 +1008,7 @@ for.body98:                                       ; preds = %for.cond93.preheade
   %i89.0287 = phi i64 [ %inc107, %invoke.cont101 ], [ 0, %for.cond93.preheader ]
   %it90.sroa.0.0286 = phi ptr [ %incdec.ptr.i125, %invoke.cont101 ], [ %empty_names_indices.sroa.0.0.lcssa, %for.cond93.preheader ]
   %format_name.val = load ptr, ptr %format_name, align 8
-  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias nonnull align 8 %ref.tmp99, ptr %format_name.val, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %i89.0287)
+  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias align 8 %ref.tmp99, ptr %format_name.val, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %i89.0287)
           to label %invoke.cont101 unwind label %lpad5.loopexit
 
 invoke.cont101:                                   ; preds = %for.body98
@@ -1556,7 +1556,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %base_name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_0clB5cxx11ERKS9_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %base_name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1585,7 +1585,7 @@ if.else:                                          ; preds = %do.body
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %next_id, align 8
   %.val = load ptr, ptr %4, align 8
-  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias nonnull align 8 %ref.tmp, ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %base_name, i64 noundef %5)
+  invoke fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias align 8 %ref.tmp, ptr %.val, ptr noundef nonnull align 8 dereferenceable(32) %base_name, i64 noundef %5)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %if.else
@@ -1662,7 +1662,7 @@ nrvo.skipdtor:                                    ; preds = %if.end15
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %base_name, i64 noundef %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEENK3$_1clB5cxx11ERKS9_m"(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %base_name, i64 noundef %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1946,7 +1946,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body, %while.
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_ZN6Assimp3MDL8HalfLife19UniqueNameGenerator11make_uniqueERSt6vectorIS5_SaIS5_EEE13DuplicateInfoESt10_Select1stISH_ESt4lessIS5_ESaISH_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISH_E.exit: ; preds = %while.body.i.i.i.i.i.i.i.i.i, %while.body
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.02, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #15
-  tail call void @_ZdlPv(ptr noundef %__x.addr.02) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.02) #18
   %cmp.not = icmp eq ptr %__x.addr.0.val, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !21
 

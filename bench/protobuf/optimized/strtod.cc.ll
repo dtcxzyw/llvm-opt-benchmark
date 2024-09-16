@@ -189,7 +189,7 @@ if.then19.i:                                      ; preds = %_ZN6google8protobuf
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then19.i, %_ZN6google8protobuf2io14NoLocaleStrtodEPKcPPc.exit.i
-  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef nonnull %buffer)
+  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef %buffer)
   br label %_ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_114DoubleToBufferEdPc.exit: ; preds = %if.then.i, %if.then4.i, %if.then9.i, %if.end23.i
@@ -322,7 +322,7 @@ if.then20.i:                                      ; preds = %_ZN6google8protobuf
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.then20.i, %_ZN6google8protobuf2io12_GLOBAL__N_111safe_strtofEPKcPf.exit.i
-  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef nonnull %buffer)
+  call fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef %buffer)
   br label %_ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit
 
 _ZN6google8protobuf2io12_GLOBAL__N_113FloatToBufferEfPc.exit: ; preds = %if.then.i, %if.then5.i, %if.then10.i, %if.end24.i
@@ -362,7 +362,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef %buffer) unnamed_addr #5 {
+define internal fastcc void @_ZN6google8protobuf2io12_GLOBAL__N_115DelocalizeRadixEPc(ptr noundef nonnull %buffer) unnamed_addr #5 {
 entry:
   %call = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %buffer, i32 noundef 46) #15
   %cmp.not = icmp eq ptr %call, null

@@ -2718,7 +2718,7 @@ define dso_local void @_ZN4llvm9symbolize11JSONPrinter5printERKNS0_7RequestERKNS
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm9symbolize10SourceCodeD2Ev.exit ]
   %37 = load ptr, ptr %2, align 8
   %38 = getelementptr inbounds %"struct.llvm::DILineInfo", ptr %37, i64 %indvars.iv
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(181) %38)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(181) %38)
   %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %38) #17
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 144
@@ -2819,7 +2819,7 @@ _ZN4llvm9symbolize10SourceCodeD2Ev.exit:          ; preds = %_ZN4llvm4json5Array
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN4llvm9symbolize10SourceCodeD2Ev.exit, %3
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
   store i16 8, ptr %15, align 8
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %70 = load ptr, ptr %5, align 8
@@ -2997,7 +2997,7 @@ _ZN4llvm4json5ArrayD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(181) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(181) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3319,7 +3319,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN4llvm4json6ObjectixE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -3722,7 +3722,7 @@ _ZN4llvm4json6Object2KVD2Ev.exit:                 ; preds = %49, %_ZNKSt14defaul
   br label %.critedge11
 
 .critedge11:                                      ; preds = %55, %.critedge
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
   store i16 7, ptr %18, align 8
   %56 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %57 = load ptr, ptr %11, align 8
@@ -4203,7 +4203,7 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %121, %124
   br i1 %.not, label %._crit_edge, label %60
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit, %3
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
   store i16 8, ptr %24, align 8
   %130 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %131 = load ptr, ptr %10, align 8
@@ -4412,7 +4412,7 @@ define dso_local void @_ZN4llvm9symbolize11JSONPrinter5printERKNS0_7RequestERKSt
 
 25:                                               ; preds = %.lr.ph, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit
   %.sroa.010.015 = phi ptr [ %13, %.lr.ph ], [ %40, %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit ]
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(181) %.sroa.010.015)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS_10DILineInfoE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(181) %.sroa.010.015)
   store i16 7, ptr %6, align 8
   %26 = load ptr, ptr %7, align 8
   store ptr %26, ptr %16, align 8
@@ -4455,7 +4455,7 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %32, %35
   br i1 %.not, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %_ZN4llvm4json5Array9push_backEONS0_5ValueE.exit, %3
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nonnull @.str.7, i64 0)
   store i16 8, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %42 = load ptr, ptr %5, align 8
@@ -4645,7 +4645,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9symbolize11JSONPrinter10printError
   call void %11(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2) #17
   %12 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
-  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %12, i64 %13)
+  call fastcc void @_ZN4llvm9symbolizeL6toJSONERKNS0_7RequestENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %12, i64 %13)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8

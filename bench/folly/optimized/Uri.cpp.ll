@@ -4954,7 +4954,7 @@ lpad:                                             ; preds = %_ZN5boost13re_detai
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_18submatchB5cxx11ERKN5boost13match_resultsIPKcSaINS1_9sub_matchIS4_EEEEEi(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(77) %m, i32 noundef %idx) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_18submatchB5cxx11ERKN5boost13match_resultsIPKcSaINS1_9sub_matchIS4_EEEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(77) %m, i32 noundef range(i32 1, 5) %idx) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %e.i.i = alloca %"class.std::logic_error", align 8

@@ -3166,7 +3166,7 @@ default.unreachable2892:                          ; preds = %444
   br i1 %.not1233, label %1074, label %1071
 
 1071:                                             ; preds = %1070, %.loopexit
-  %1072 = call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %.5902)
+  %1072 = call fastcc i32 @updatewindow(ptr noundef %0, i32 noundef %.5902)
   %.not1234 = icmp eq i32 %1072, 0
   br i1 %.not1234, label %._crit_edge2889, label %1073
 
@@ -3271,7 +3271,7 @@ declare hidden i32 @inflate_table(i32 noundef, ptr noundef, i32 noundef, ptr nou
 declare hidden void @inflate_fast(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @updatewindow(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @updatewindow(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -3466,7 +3466,7 @@ define range(i32 -4, 1) i32 @inflateSetDictionary(ptr noundef readonly %0, ptr n
 19:                                               ; preds = %.thread, %14
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
-  %22 = tail call fastcc i32 @updatewindow(ptr noundef nonnull %0, i32 noundef %21)
+  %22 = tail call fastcc i32 @updatewindow(ptr noundef %0, i32 noundef %21)
   %.not38 = icmp eq i32 %22, 0
   br i1 %.not38, label %24, label %23
 

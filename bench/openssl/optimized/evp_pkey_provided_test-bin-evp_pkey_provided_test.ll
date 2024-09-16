@@ -3394,7 +3394,7 @@ declare i32 @PEM_write_bio_PKCS8PrivateKey_nid(ptr noundef, ptr noundef, i32 nou
 declare i32 @EVP_PKEY_print_private(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_with_file(ptr noundef %alg, i32 noundef %type, ptr noundef %membio) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compare_with_file(ptr noundef %alg, i32 noundef range(i32 -2147483648, 6) %type, ptr noundef %membio) unnamed_addr #0 {
 entry:
   %filename = alloca [80 x i8], align 16
   %buf = alloca [4096 x i8], align 16
@@ -3582,7 +3582,7 @@ declare i32 @test_size_t_lt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef %type, ptr noundef %pk) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_print_key_type_using_encoder(ptr noundef %alg, i32 noundef range(i32 -2147483648, 6) %type, ptr noundef %pk) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #6
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #6

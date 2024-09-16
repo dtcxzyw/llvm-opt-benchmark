@@ -582,7 +582,7 @@ if.then52:                                        ; preds = %bcread_knum.exit
   %idx.ext.i.i.i119 = zext i32 %sizedbg.0 to i64
   %add.ptr.i.i.i120 = getelementptr inbounds i8, ptr %63, i64 %idx.ext.i.i.i119
   store ptr %add.ptr.i.i.i120, ptr %p.i84, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr59, ptr align 1 %63, i64 %idx.ext.i.i.i119, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr59, ptr noundef nonnull align 1 dereferenceable(1) %63, i64 %idx.ext.i.i.i119, i1 false)
   %64 = load i32, ptr %level, align 4
   %and.i122 = and i32 %64, 1
   %cmp.not.i123 = icmp eq i32 %and.i122, 0
@@ -1037,7 +1037,7 @@ declare hidden ptr @lj_strfmt_pushf(ptr noundef, ptr noundef, ...) local_unnamed
 declare hidden void @lj_err_throw(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bcread_fill(ptr noundef %ls, i32 noundef %len, i32 noundef %need) unnamed_addr #0 {
+define internal fastcc void @bcread_fill(ptr noundef %ls, i32 noundef %len, i32 noundef range(i32 0, 2) %need) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %cmp = icmp ugt i32 %len, 2147483392

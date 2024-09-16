@@ -1342,7 +1342,7 @@ getzname.exit:                                    ; preds = %.lr.ph.i, %30, %11
   br i1 %39, label %.loopexit304, label %40
 
 40:                                               ; preds = %37
-  %41 = call fastcc ptr @getoffset(ptr noundef nonnull %.1198, ptr noundef nonnull %4)
+  %41 = call fastcc ptr @getoffset(ptr noundef nonnull %.1198, ptr noundef %4)
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.loopexit304, label %43
 
@@ -1435,7 +1435,7 @@ getzname.exit257:                                 ; preds = %.lr.ph.i252, %67
   ]
 
 80:                                               ; preds = %78
-  %81 = call fastcc ptr @getoffset(ptr noundef nonnull %.2199, ptr noundef nonnull %5)
+  %81 = call fastcc ptr @getoffset(ptr noundef nonnull %.2199, ptr noundef %5)
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.loopexit304, label %86
 
@@ -1475,7 +1475,7 @@ getzname.exit257:                                 ; preds = %.lr.ph.i252, %67
 
 95:                                               ; preds = %86, %86
   %96 = getelementptr i8, ptr %.4, i64 1
-  %97 = call fastcc ptr @getrule(ptr noundef %96, ptr noundef nonnull %6)
+  %97 = call fastcc ptr @getrule(ptr noundef %96, ptr noundef %6)
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.loopexit304, label %99
 
@@ -1486,7 +1486,7 @@ getzname.exit257:                                 ; preds = %.lr.ph.i252, %67
 
 101:                                              ; preds = %99
   %102 = getelementptr i8, ptr %97, i64 1
-  %103 = call fastcc ptr @getrule(ptr noundef %102, ptr noundef nonnull %7)
+  %103 = call fastcc ptr @getrule(ptr noundef %102, ptr noundef %7)
   %104 = icmp eq ptr %103, null
   br i1 %104, label %.loopexit304, label %105
 
@@ -1597,8 +1597,8 @@ increment_overflow_time.exit280.thread.thread:    ; preds = %increment_overflow_
   %.0215327 = phi i32 [ %148, %.lr.ph330 ], [ %.1216, %216 ]
   %.0217326 = phi i32 [ %.lcssa367, %.lr.ph330 ], [ %218, %216 ]
   %.1287325 = phi i64 [ %.2288292369, %.lr.ph330 ], [ %217, %216 ]
-  %153 = call fastcc i32 @transtime(i32 noundef %.0217326, ptr noundef nonnull %6, i32 noundef %110)
-  %154 = call fastcc i32 @transtime(i32 noundef %.0217326, ptr noundef nonnull %7, i32 noundef %117)
+  %153 = call fastcc i32 @transtime(i32 noundef %.0217326, ptr noundef %6, i32 noundef %110)
+  %154 = call fastcc i32 @transtime(i32 noundef %.0217326, ptr noundef %7, i32 noundef %117)
   %155 = and i32 %.0217326, 3
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %157, label %161
@@ -1914,7 +1914,7 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 45
   %5 = icmp eq i8 %3, 43
@@ -2060,7 +2060,7 @@ getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %96 [
     i8 74, label %4
@@ -2284,7 +2284,7 @@ getnum.exit:                                      ; preds = %26, %95, %119
 122:                                              ; preds = %getnum.exit
   %123 = getelementptr i8, ptr %.030, i64 1
   %124 = getelementptr inbounds i8, ptr %1, i64 16
-  %125 = tail call fastcc ptr @getoffset(ptr noundef %123, ptr noundef nonnull %124)
+  %125 = tail call fastcc ptr @getoffset(ptr noundef %123, ptr noundef %124)
   br label %getnum.exit40.thread
 
 126:                                              ; preds = %getnum.exit
@@ -2298,7 +2298,7 @@ getnum.exit40.thread:                             ; preds = %.preheader.i36, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #7 {
   %4 = and i32 %0, 3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11

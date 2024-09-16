@@ -1482,7 +1482,7 @@ if.end7:                                          ; preds = %do.end
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %jwt to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  invoke fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %jwt, i64 noundef %sub.ptr.sub)
+  invoke fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias align 8 %ref.tmp, ptr noundef nonnull %jwt, i64 noundef %sub.ptr.sub)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.end7
@@ -2214,7 +2214,7 @@ if.end24:                                         ; preds = %if.end20
   %sub.ptr.lhs.cast26 = ptrtoint ptr %call21 to i64
   %sub.ptr.rhs.cast27 = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub28 = sub i64 %sub.ptr.lhs.cast26, %sub.ptr.rhs.cast27
-  invoke fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias nonnull align 8 %ref.tmp25, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub28)
+  invoke fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub28)
           to label %invoke.cont29 unwind label %lpad
 
 invoke.cont29:                                    ; preds = %if.end24
@@ -3527,7 +3527,7 @@ ehcleanup:                                        ; preds = %ehcleanup.i, %ehcle
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias align 8 %agg.result, ptr noundef %str, i64 noundef %len) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24parse_json_part_from_jwtPKcm(ptr noalias nonnull align 8 %agg.result, ptr noundef %str, i64 noundef %len) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i7 = alloca %class.anon.58, align 1
   %ref.tmp.i.i.i.i.i = alloca %class.anon.58, align 1
@@ -4917,7 +4917,7 @@ entry:
   %ref.tmp62.i = alloca %"class.std::allocator.14", align 1
   %json = alloca %"class.grpc_core::experimental::Json", align 8
   %arrayidx = getelementptr inbounds i8, ptr %user_data, i64 184
-  call fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias nonnull align 8 %json, ptr noundef nonnull %arrayidx)
+  call fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias align 8 %json, ptr noundef nonnull %arrayidx)
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %json, i64 48
   %1 = load i8, ptr %_M_index.i.i.i.i, align 8
   switch i8 %1, label %sw.default.i.i.i [
@@ -6399,7 +6399,7 @@ entry:
   %agg.tmp60 = alloca %"class.grpc_core::URI", align 8
   %agg.tmp78 = alloca %"class.grpc_core::RefCountedPtr", align 8
   %responses = getelementptr inbounds i8, ptr %user_data, i64 128
-  call fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias nonnull align 8 %json, ptr noundef nonnull %responses)
+  call fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias align 8 %json, ptr noundef nonnull %responses)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %req, i8 0, i64 56, i1 false)
   invoke void @_ZN4absl12lts_202308028StatusOrIN9grpc_core3URIEEC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %uri)
           to label %invoke.cont unwind label %lpad
@@ -7287,7 +7287,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias align 8 %agg.result, ptr noundef readonly %response) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14json_from_httpPK18grpc_http_response(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %response) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i8 = alloca %class.anon.58, align 1
   %ref.tmp.i.i.i.i.i = alloca %class.anon.58, align 1

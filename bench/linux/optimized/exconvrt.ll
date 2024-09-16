@@ -502,7 +502,7 @@ acpi_ex_convert_to_ascii.exit:                    ; preds = %.split, %acpi_ex_co
 declare dso_local ptr @acpi_ut_create_string_object(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ex_convert_to_ascii(i64 noundef %0, i16 noundef zeroext range(i16 10, 17) %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6

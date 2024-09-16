@@ -1625,7 +1625,7 @@ define internal fastcc void @update_box(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32) %1, i32 noundef range(i32 0, 64) %2, i32 noundef range(i32 0, 32) %3) unnamed_addr #2 {
   %5 = alloca [128 x i64], align 16
   %6 = alloca [256 x i64], align 16
   %7 = alloca [256 x i8], align 16
@@ -1634,14 +1634,14 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = shl i32 %1, 3
-  %14 = and i32 %13, -32
+  %13 = shl nuw nsw i32 %1, 3
+  %14 = and i32 %13, 224
   %15 = or disjoint i32 %14, 4
-  %16 = shl i32 %2, 2
-  %17 = and i32 %16, -32
+  %16 = shl nuw nsw i32 %2, 2
+  %17 = and i32 %16, 224
   %18 = or disjoint i32 %17, 2
-  %19 = shl i32 %3, 3
-  %20 = and i32 %19, -32
+  %19 = shl nuw nsw i32 %3, 3
+  %20 = and i32 %19, 224
   %21 = or disjoint i32 %20, 4
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %6)
   %22 = getelementptr inbounds i8, ptr %0, i64 156
@@ -1693,7 +1693,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %60 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
-  %63 = icmp sgt i32 %15, %62
+  %63 = icmp ugt i32 %15, %62
   br i1 %63, label %64, label %69
 
 64:                                               ; preds = %59
@@ -1704,11 +1704,11 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %77
 
 69:                                               ; preds = %59
-  %70 = icmp slt i32 %24, %62
+  %70 = icmp ult i32 %24, %62
   br i1 %70, label %71, label %76
 
 71:                                               ; preds = %69
-  %72 = sub nsw i32 %62, %24
+  %72 = sub nuw nsw i32 %62, %24
   %73 = mul nsw i32 %48, %72
   %74 = sext i32 %73 to i64
   %75 = mul nsw i64 %74, %74
@@ -1729,7 +1729,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %82 = getelementptr inbounds i8, ptr %39, i64 %indvars.iv.i
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
-  %85 = icmp sgt i32 %18, %84
+  %85 = icmp ugt i32 %18, %84
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %77
@@ -1741,11 +1741,11 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %101
 
 92:                                               ; preds = %77
-  %93 = icmp slt i32 %27, %84
+  %93 = icmp ult i32 %27, %84
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %92
-  %95 = sub nsw i32 %84, %27
+  %95 = sub nuw nsw i32 %84, %27
   %96 = mul nsw i32 %53, %95
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %97
@@ -1768,7 +1768,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %106 = getelementptr inbounds i8, ptr %41, i64 %indvars.iv.i
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %109 = icmp sgt i32 %21, %108
+  %109 = icmp ugt i32 %21, %108
   br i1 %109, label %110, label %116
 
 110:                                              ; preds = %101
@@ -1780,11 +1780,11 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   br label %125
 
 116:                                              ; preds = %101
-  %117 = icmp slt i32 %30, %108
+  %117 = icmp ult i32 %30, %108
   br i1 %117, label %118, label %124
 
 118:                                              ; preds = %116
-  %119 = sub nsw i32 %108, %30
+  %119 = sub nuw nsw i32 %108, %30
   %120 = mul nsw i32 %58, %119
   %121 = sext i32 %120 to i64
   %122 = mul nsw i64 %121, %121
@@ -2033,12 +2033,12 @@ find_nearby_colors.exit:                          ; preds = %138, %4
 
 find_best_colors.exit:                            ; preds = %266, %.preheader89.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  %267 = and i32 %1, -4
-  %268 = and i32 %2, -8
-  %269 = and i32 %3, -4
+  %267 = and i32 %1, 28
+  %268 = and i32 %2, 56
+  %269 = and i32 %3, 28
   %270 = zext nneg i32 %269 to i64
-  %271 = sext i32 %268 to i64
-  %272 = sext i32 %267 to i64
+  %271 = zext nneg i32 %268 to i64
+  %272 = zext nneg i32 %267 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %find_best_colors.exit, %286

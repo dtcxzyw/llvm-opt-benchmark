@@ -126,7 +126,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   %40 = tail call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.077, i32 noundef %38, i32 noundef %39, ptr noundef null, ptr noundef nonnull @.str.14) #3
   %41 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %.058) #3
   %42 = load ptr, ptr %31, align 8
-  %43 = call fastcc i32 @get_form_key_value(ptr noundef %42, ptr noundef %41, ptr noundef nonnull %5, i32 noundef %.077, ptr noundef nonnull @pbrk_key)
+  %43 = call fastcc i32 @get_form_key_value(ptr noundef %42, ptr noundef %41, ptr noundef %5, i32 noundef %.077, ptr noundef nonnull @pbrk_key)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %._crit_edge, label %45
 
@@ -145,7 +145,7 @@ define internal i32 @dissect_form_urlencoded(ptr noundef %0, ptr nocapture nound
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.15, ptr noundef %56) #3
   %57 = add nuw i32 %43, 1
   %58 = load ptr, ptr %31, align 8
-  %59 = call fastcc i32 @get_form_key_value(ptr noundef %58, ptr noundef %41, ptr noundef nonnull %6, i32 noundef %57, ptr noundef nonnull @pbrk_value)
+  %59 = call fastcc i32 @get_form_key_value(ptr noundef %58, ptr noundef %41, ptr noundef %6, i32 noundef %57, ptr noundef nonnull @pbrk_value)
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %._crit_edge, label %61
 
@@ -206,7 +206,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @get_form_key_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %3) #3
   %8 = icmp sgt i32 %7, 0

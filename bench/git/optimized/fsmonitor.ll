@@ -550,7 +550,7 @@ if.then39:                                        ; preds = %if.end36
   ]
 
 if.then45:                                        ; preds = %if.then39, %if.then39
-  %call47 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %9, ptr noundef nonnull %query_result)
+  %call47 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %9, ptr noundef %query_result)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.then52, label %if.else70
 
@@ -603,7 +603,7 @@ if.then83:                                        ; preds = %if.then76, %if.then
   %bol.199 = phi i64 [ %bol.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
   %is_trivial.197 = phi i32 [ %is_trivial.1, %if.end80 ], [ 0, %if.then73 ], [ 0, %if.then76 ]
   %15 = load ptr, ptr %fsmonitor_last_update37, align 8
-  %call85 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 1, ptr noundef %15, ptr noundef nonnull %query_result)
+  %call85 = call fastcc i32 @query_fsmonitor_hook(ptr noundef %0, i32 noundef 1, ptr noundef %15, ptr noundef %query_result)
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %if.then90, label %if.end97
 
@@ -854,7 +854,7 @@ declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr n
 declare i64 @getnanotime() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @query_fsmonitor_hook(ptr noundef %r, i32 noundef %version, ptr noundef %last_update, ptr noundef %query_result) unnamed_addr #0 {
+define internal fastcc i32 @query_fsmonitor_hook(ptr noundef %r, i32 noundef range(i32 1, 3) %version, ptr noundef %last_update, ptr noundef nonnull %query_result) unnamed_addr #0 {
 entry:
   %cp = alloca %struct.child_process, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %cp, ptr noundef nonnull align 8 dereferenceable(120) @__const.query_fsmonitor_hook.cp, i64 120, i1 false)
@@ -875,7 +875,7 @@ if.end:                                           ; preds = %entry
   %dir = getelementptr inbounds i8, ptr %cp, i64 96
   store ptr %call7, ptr %dir, align 8
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str.5, i32 noundef 171, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.31, ptr noundef null) #7
-  %call.i = call i32 @pipe_command(ptr noundef nonnull %cp, ptr noundef null, i64 noundef 0, ptr noundef %query_result, i64 noundef 1024, ptr noundef null, i64 noundef 0) #7
+  %call.i = call i32 @pipe_command(ptr noundef nonnull %cp, ptr noundef null, i64 noundef 0, ptr noundef nonnull %query_result, i64 noundef 1024, ptr noundef null, i64 noundef 0) #7
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.else, label %if.then9
 

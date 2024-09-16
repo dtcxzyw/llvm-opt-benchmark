@@ -575,25 +575,25 @@ define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef rea
   store i32 %34, ptr %35, align 4
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %36, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
-  %37 = call fastcc i32 @bsdf_init_distance_map(ptr noundef nonnull %12, ptr noundef nonnull %4)
+  %37 = call fastcc i32 @bsdf_init_distance_map(ptr noundef %12, ptr noundef %4)
   store i32 %37, ptr %3, align 4
   %.not34 = icmp eq i32 %37, 0
   br i1 %.not34, label %38, label %thread-pre-split
 
 38:                                               ; preds = %31
-  %39 = call fastcc i32 @bsdf_approximate_edge(ptr noundef nonnull %4)
+  %39 = call fastcc i32 @bsdf_approximate_edge(ptr noundef %4)
   store i32 %39, ptr %3, align 4
   %.not35 = icmp eq i32 %39, 0
   br i1 %.not35, label %40, label %thread-pre-split
 
 40:                                               ; preds = %38
-  %41 = call fastcc i32 @edt8(ptr noundef nonnull %4)
+  %41 = call fastcc i32 @edt8(ptr noundef %4)
   store i32 %41, ptr %3, align 4
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %42, label %thread-pre-split
 
 42:                                               ; preds = %40
-  %43 = call fastcc i32 @finalize_sdf(ptr noundef nonnull %4, ptr noundef nonnull %13)
+  %43 = call fastcc i32 @finalize_sdf(ptr noundef %4, ptr noundef %13)
   store i32 %43, ptr %3, align 4
   br label %thread-pre-split
 
@@ -749,7 +749,7 @@ sdf_outline_decompose.exit:                       ; preds = %29
   br i1 %.not68, label %48, label %sdf_outline_decompose.exit.thread
 
 48:                                               ; preds = %44, %46
-  call fastcc void @sdf_shape_done(ptr noundef nonnull %4)
+  call fastcc void @sdf_shape_done(ptr noundef %4)
   br label %sdf_outline_decompose.exit.thread
 
 sdf_outline_decompose.exit.thread:                ; preds = %sdf_shape_new.exit, %27, %23, %17, %20, %7, %2, %48, %46, %44, %sdf_outline_decompose.exit, %10, %14
@@ -909,7 +909,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1106,7 +1106,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -1519,7 +1519,7 @@ bsdf_is_edge.exit.thread46:                       ; preds = %84, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @edt8(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @edt8(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
   %2 = alloca %struct.FT_Vector_, align 8
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
@@ -2048,7 +2048,7 @@ second_pass.exit:                                 ; preds = %._crit_edge40.us48.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -2147,7 +2147,7 @@ declare hidden i32 @FT_SqrtFixed(i32 noundef) local_unnamed_addr #3
 declare i32 @FT_Outline_Get_Orientation(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sdf_generate_with_overlaps(i64 %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
+define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 281474976710656) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.SDF_Shape_, align 8
   %.fr202 = freeze i64 %0
@@ -2209,7 +2209,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 %0, ptr noundef %1, i
   %31 = icmp eq i32 %.sroa.0129.0.extract.trunc, 0
   %32 = icmp eq i32 %.sroa.0129.0.extract.trunc, 1
   %33 = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.0129.0.insert.insert = and i64 %.fr202, -1095216660481
+  %.sroa.0129.0.insert.insert = and i64 %.fr202, 280379760050175
   br label %34
 
 34:                                               ; preds = %.lr.ph181, %132
@@ -2565,7 +2565,7 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sdf_generate_subdivision(i64 %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #2 {
+define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 281474976710656) %0, i32 range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #2 {
   %6 = alloca %struct.FT_Vector_, align 8
   %7 = alloca %struct.FT_Vector_, align 8
   %8 = alloca %struct.FT_Vector_, align 8
@@ -2685,7 +2685,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %43
   %.0.lcssa.i = phi i32 [ 1, %43 ], [ %64, %.lr.ph.i ]
-  %66 = call fastcc i32 @split_sdf_conic(ptr noundef nonnull %21, ptr noundef nonnull %18, i32 noundef %.0.lcssa.i, ptr noundef nonnull %17)
+  %66 = call fastcc i32 @split_sdf_conic(ptr noundef %21, ptr noundef %18, i32 noundef %.0.lcssa.i, ptr noundef %17)
   br label %72
 
 67:                                               ; preds = %.lr.ph99.i
@@ -2696,7 +2696,7 @@ sdf_edge_new.exit.i:                              ; preds = %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false)
   %70 = getelementptr inbounds i8, ptr %.04297.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
-  %71 = call fastcc i32 @split_sdf_cubic(ptr noundef nonnull %21, ptr noundef nonnull %19, i32 noundef 32, ptr noundef nonnull %17)
+  %71 = call fastcc i32 @split_sdf_cubic(ptr noundef %21, ptr noundef %19, i32 noundef 32, ptr noundef %17)
   br label %72
 
 72:                                               ; preds = %67, %._crit_edge.i
@@ -3877,7 +3877,7 @@ sdf_generate_bounding_box.exit:                   ; preds = %._crit_edge250.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sdf_shape_done(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @sdf_shape_done(ptr nocapture noundef nonnull %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %14, label %3
@@ -4218,7 +4218,7 @@ sdf_edge_new.exit.thread:                         ; preds = %13, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @split_sdf_conic(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @split_sdf_conic(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct.FT_Vector_], align 16
@@ -4277,74 +4277,69 @@ define internal fastcc i32 @split_sdf_conic(ptr noundef %0, ptr nocapture nounde
 
 48:                                               ; preds = %4
   %49 = lshr i32 %2, 1
-  %50 = call fastcc i32 @split_sdf_conic(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %49, ptr noundef %3)
+  %50 = call fastcc i32 @split_sdf_conic(ptr noundef %0, ptr noundef %7, i32 noundef %49, ptr noundef %3)
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %51, label %69
+  br i1 %.not, label %51, label %68
 
 51:                                               ; preds = %48
-  %52 = call fastcc i32 @split_sdf_conic(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %49, ptr noundef %3)
-  br label %69
+  %52 = call fastcc i32 @split_sdf_conic(ptr noundef %0, ptr noundef %10, i32 noundef %49, ptr noundef %3)
+  br label %68
 
 53:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %sdf_edge_new.exit.thread, label %54
+  %54 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
+  %55 = load i32, ptr %6, align 4
+  %.not8.i = icmp eq i32 %55, 0
+  br i1 %.not8.i, label %56, label %sdf_edge_new.exit
 
-54:                                               ; preds = %53
-  %55 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
-  %56 = load i32, ptr %6, align 4
-  %.not8.i = icmp eq i32 %56, 0
-  br i1 %.not8.i, label %57, label %sdf_edge_new.exit.thread
-
-sdf_edge_new.exit.thread:                         ; preds = %54, %53
-  %.ph = phi i32 [ 6, %53 ], [ %56, %54 ]
+sdf_edge_new.exit:                                ; preds = %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %69
+  br label %68
 
-57:                                               ; preds = %54
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %55, i8 0, i64 80, i1 false)
+56:                                               ; preds = %53
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %54, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %58 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
-  %59 = load i32, ptr %5, align 4
-  %.not8.i29 = icmp eq i32 %59, 0
-  br i1 %.not8.i29, label %60, label %sdf_edge_new.exit30
+  %57 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
+  %58 = load i32, ptr %5, align 4
+  %.not8.i28 = icmp eq i32 %58, 0
+  br i1 %.not8.i28, label %59, label %sdf_edge_new.exit29
 
-sdf_edge_new.exit30:                              ; preds = %57
+sdf_edge_new.exit29:                              ; preds = %56
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %69
+  br label %68
 
-60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %58, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, i8 0, i64 48, i1 false)
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds i8, ptr %57, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %60, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %62 = getelementptr inbounds i8, ptr %55, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
-  %63 = getelementptr inbounds i8, ptr %55, i64 64
-  store i32 1, ptr %63, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
-  %64 = getelementptr inbounds i8, ptr %58, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
-  %65 = getelementptr inbounds i8, ptr %58, i64 64
-  store i32 1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %55, i64 72
-  store ptr %58, ptr %66, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = getelementptr inbounds i8, ptr %58, i64 72
-  store ptr %67, ptr %68, align 8
-  store ptr %55, ptr %3, align 8
-  br label %69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
+  %61 = getelementptr inbounds i8, ptr %54, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
+  %62 = getelementptr inbounds i8, ptr %54, i64 64
+  store i32 1, ptr %62, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false)
+  %63 = getelementptr inbounds i8, ptr %57, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 16 dereferenceable(16) %13, i64 16, i1 false)
+  %64 = getelementptr inbounds i8, ptr %57, i64 64
+  store i32 1, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %54, i64 72
+  store ptr %57, ptr %65, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = getelementptr inbounds i8, ptr %57, i64 72
+  store ptr %66, ptr %67, align 8
+  store ptr %54, ptr %3, align 8
+  br label %68
 
-69:                                               ; preds = %sdf_edge_new.exit30, %sdf_edge_new.exit.thread, %51, %48, %60
-  %.0 = phi i32 [ %59, %sdf_edge_new.exit30 ], [ 0, %60 ], [ %50, %48 ], [ %52, %51 ], [ %.ph, %sdf_edge_new.exit.thread ]
+68:                                               ; preds = %sdf_edge_new.exit29, %sdf_edge_new.exit, %51, %48, %59
+  %.0 = phi i32 [ %55, %sdf_edge_new.exit ], [ %58, %sdf_edge_new.exit29 ], [ 0, %59 ], [ %50, %48 ], [ %52, %51 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 33) %2, ptr noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [7 x %struct.FT_Vector_], align 16
@@ -4372,10 +4367,10 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr nocapture nounde
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 56
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert53 = getelementptr inbounds i8, ptr %7, i64 8
-  %.pre54 = load i64, ptr %.phi.trans.insert53, align 8
-  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %7, i64 24
-  %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
+  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %7, i64 8
+  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8
+  %.phi.trans.insert51 = getelementptr inbounds i8, ptr %7, i64 24
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8
   br label %74
 
 22:                                               ; preds = %4
@@ -4446,8 +4441,8 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr nocapture nounde
   br label %133
 
 74:                                               ; preds = %._crit_edge, %41, %34, %22
-  %75 = phi i64 [ %.pre56, %._crit_edge ], [ %27, %41 ], [ %27, %34 ], [ %27, %22 ]
-  %76 = phi i64 [ %.pre54, %._crit_edge ], [ %24, %41 ], [ %24, %34 ], [ %24, %22 ]
+  %75 = phi i64 [ %.pre52, %._crit_edge ], [ %27, %41 ], [ %27, %34 ], [ %27, %22 ]
+  %76 = phi i64 [ %.pre50, %._crit_edge ], [ %24, %41 ], [ %24, %34 ], [ %24, %22 ]
   %77 = phi i64 [ %.pre, %._crit_edge ], [ %30, %41 ], [ %30, %34 ], [ %30, %22 ]
   %78 = getelementptr inbounds i8, ptr %7, i64 96
   store i64 %18, ptr %78, align 16
@@ -4515,70 +4510,65 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr nocapture nounde
 
 128:                                              ; preds = %74
   %129 = lshr i32 %2, 1
-  %130 = call fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %129, ptr noundef %3)
+  %130 = call fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr noundef %7, i32 noundef %129, ptr noundef %3)
   %.not = icmp eq i32 %130, 0
-  br i1 %.not, label %131, label %150
+  br i1 %.not, label %131, label %149
 
 131:                                              ; preds = %128
-  %132 = call fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %129, ptr noundef %3)
-  br label %150
+  %132 = call fastcc i32 @split_sdf_cubic(ptr noundef %0, ptr noundef %12, i32 noundef %129, ptr noundef %3)
+  br label %149
 
 133:                                              ; preds = %49, %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %sdf_edge_new.exit.thread, label %134
+  %134 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
+  %135 = load i32, ptr %6, align 4
+  %.not8.i = icmp eq i32 %135, 0
+  br i1 %.not8.i, label %136, label %sdf_edge_new.exit
 
-134:                                              ; preds = %133
-  %135 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %6) #11
-  %136 = load i32, ptr %6, align 4
-  %.not8.i = icmp eq i32 %136, 0
-  br i1 %.not8.i, label %137, label %sdf_edge_new.exit.thread
-
-sdf_edge_new.exit.thread:                         ; preds = %134, %133
-  %.ph = phi i32 [ 6, %133 ], [ %136, %134 ]
+sdf_edge_new.exit:                                ; preds = %133
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %150
+  br label %149
 
-137:                                              ; preds = %134
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %135, i8 0, i64 80, i1 false)
+136:                                              ; preds = %133
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %134, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %138 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
-  %139 = load i32, ptr %5, align 4
-  %.not8.i41 = icmp eq i32 %139, 0
-  br i1 %.not8.i41, label %140, label %sdf_edge_new.exit42
+  %137 = call ptr @ft_mem_qalloc(ptr noundef nonnull %0, i64 noundef 80, ptr noundef nonnull %5) #11
+  %138 = load i32, ptr %5, align 4
+  %.not8.i40 = icmp eq i32 %138, 0
+  br i1 %.not8.i40, label %139, label %sdf_edge_new.exit41
 
-sdf_edge_new.exit42:                              ; preds = %137
+sdf_edge_new.exit41:                              ; preds = %136
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %150
+  br label %149
 
-140:                                              ; preds = %137
-  %141 = getelementptr inbounds i8, ptr %138, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %141, i8 0, i64 48, i1 false)
+139:                                              ; preds = %136
+  %140 = getelementptr inbounds i8, ptr %137, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %140, i8 0, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %142 = getelementptr inbounds i8, ptr %135, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
-  %143 = getelementptr inbounds i8, ptr %135, i64 64
-  store i32 1, ptr %143, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
-  %144 = getelementptr inbounds i8, ptr %138, i64 16
-  %145 = getelementptr inbounds i8, ptr %7, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false)
-  %146 = getelementptr inbounds i8, ptr %138, i64 64
-  store i32 1, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %135, i64 72
-  store ptr %138, ptr %147, align 8
-  %148 = load ptr, ptr %3, align 8
-  %149 = getelementptr inbounds i8, ptr %138, i64 72
-  store ptr %148, ptr %149, align 8
-  store ptr %135, ptr %3, align 8
-  br label %150
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
+  %141 = getelementptr inbounds i8, ptr %134, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  %142 = getelementptr inbounds i8, ptr %134, i64 64
+  store i32 1, ptr %142, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 16 dereferenceable(16) %12, i64 16, i1 false)
+  %143 = getelementptr inbounds i8, ptr %137, i64 16
+  %144 = getelementptr inbounds i8, ptr %7, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 16 dereferenceable(16) %144, i64 16, i1 false)
+  %145 = getelementptr inbounds i8, ptr %137, i64 64
+  store i32 1, ptr %145, align 8
+  %146 = getelementptr inbounds i8, ptr %134, i64 72
+  store ptr %137, ptr %146, align 8
+  %147 = load ptr, ptr %3, align 8
+  %148 = getelementptr inbounds i8, ptr %137, i64 72
+  store ptr %147, ptr %148, align 8
+  store ptr %134, ptr %3, align 8
+  br label %149
 
-150:                                              ; preds = %sdf_edge_new.exit42, %sdf_edge_new.exit.thread, %131, %128, %140
-  %.0 = phi i32 [ %139, %sdf_edge_new.exit42 ], [ 0, %140 ], [ %130, %128 ], [ %132, %131 ], [ %.ph, %sdf_edge_new.exit.thread ]
+149:                                              ; preds = %sdf_edge_new.exit41, %sdf_edge_new.exit, %131, %128, %139
+  %.0 = phi i32 [ %135, %sdf_edge_new.exit ], [ %138, %sdf_edge_new.exit41 ], [ 0, %139 ], [ %130, %128 ], [ %132, %131 ]
   ret i32 %.0
 }
 

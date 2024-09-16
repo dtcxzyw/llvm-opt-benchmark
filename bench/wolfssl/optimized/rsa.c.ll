@@ -993,8 +993,8 @@ while.body12.i133.i:                              ; preds = %while.cond9.prehead
 ForceZero.exit145.i:                              ; preds = %while.body12.i133.i, %while.cond9.preheader.i129.i
   %add38.i = add nuw i32 %add6.i, %call.i
   %sub41.i = add i32 %pkcsBlockLen, -1
-  %cmp429.i = icmp ult i32 %add38.i, %sub41.i
-  br i1 %cmp429.i, label %for.body.preheader.i, label %for.end.i14
+  %cmp428.i = icmp ult i32 %add38.i, %sub41.i
+  br i1 %cmp428.i, label %for.body.preheader.i, label %for.end.i14
 
 for.body.preheader.i:                             ; preds = %ForceZero.exit145.i
   %39 = or disjoint i32 %mul.i, 1
@@ -1003,13 +1003,13 @@ for.body.preheader.i:                             ; preds = %ForceZero.exit145.i
 
 for.body.i15:                                     ; preds = %for.body.i15, %for.body.preheader.i
   %indvars.iv.i16 = phi i64 [ %40, %for.body.preheader.i ], [ %indvars.iv.next.i17, %for.body.i15 ]
-  %inc.012.i = phi i32 [ 1, %for.body.preheader.i ], [ %and.i, %for.body.i15 ]
-  %idx.010.i = phi i32 [ %add38.i, %for.body.preheader.i ], [ %add47.i, %for.body.i15 ]
+  %inc.011.i = phi i32 [ 1, %for.body.preheader.i ], [ %and.i, %for.body.i15 ]
+  %idx.09.i = phi i32 [ %add38.i, %for.body.preheader.i ], [ %add47.i, %for.body.i15 ]
   %arrayidx.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %indvars.iv.i16
   %41 = load i8, ptr %arrayidx.i, align 1
   %.not.i = icmp eq i8 %41, 0
-  %and.i = select i1 %.not.i, i32 %inc.012.i, i32 0
-  %add47.i = add i32 %and.i, %idx.010.i
+  %and.i = select i1 %.not.i, i32 %inc.011.i, i32 0
+  %add47.i = add i32 %and.i, %idx.09.i
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i17 to i32
   %exitcond.not.i18 = icmp eq i32 %sub41.i, %lftr.wideiv.i
@@ -1022,8 +1022,8 @@ for.end.i14:                                      ; preds = %for.body.i15, %Forc
   br i1 %cmp51.not.i, label %if.end54.i, label %RsaUnPad_OAEP.exit
 
 if.end54.i:                                       ; preds = %for.end.i14
-  %cmp6.i.not.i = icmp eq i32 %call.i, 0
-  br i1 %cmp6.i.not.i, label %ConstantCompare.exit.i, label %for.body.i148.i
+  %cmp6.not.i.i = icmp eq i32 %call.i, 0
+  br i1 %cmp6.not.i.i, label %ConstantCompare.exit.i, label %for.body.i148.i
 
 for.body.i148.i:                                  ; preds = %if.end54.i, %for.body.i148.i
   %indvars.iv.i149.i = phi i64 [ %indvars.iv.next.i151.i, %for.body.i148.i ], [ 0, %if.end54.i ]
@@ -1050,9 +1050,9 @@ ConstantCompare.exit.i:                           ; preds = %for.body.i148.i, %i
   %add64.i = add nuw nsw i32 %compareSum.0.lcssa.i.i, %xor.i
   %46 = load i8, ptr %pkcsBlock, align 1
   %conv66.i = zext i8 %46 to i32
-  %47 = or i32 %add64.i, %conv66.i
-  %.not7.i = icmp eq i32 %47, 0
-  %or.i154.i = select i1 %.not7.i, i32 %inc60.i, i32 %pkcsBlockLen
+  %add68.i = add nuw nsw i32 %add64.i, %conv66.i
+  %isneg.inv.i = icmp sgt i32 %add68.i, 0
+  %or.i154.i = select i1 %isneg.inv.i, i32 %pkcsBlockLen, i32 %inc60.i
   %idx.ext71.i = zext i32 %or.i154.i to i64
   %add.ptr72.i = getelementptr inbounds i8, ptr %pkcsBlock, i64 %idx.ext71.i
   store ptr %add.ptr72.i, ptr %out, align 8
@@ -1073,8 +1073,8 @@ do.end5:                                          ; preds = %entry
 if.end.i21:                                       ; preds = %do.end5
   %sub.i = add i32 %bits, 7
   %and.i22 = and i32 %sub.i, 7
-  %48 = load i8, ptr %pkcsBlock, align 1
-  %conv.i23 = zext i8 %48 to i32
+  %47 = load i8, ptr %pkcsBlock, align 1
+  %conv.i23 = zext i8 %47 to i32
   %shl.i = shl nuw nsw i32 255, %and.i22
   %and1.i = and i32 %shl.i, %conv.i23
   %cmp2.not.i = icmp eq i32 %and1.i, 0
@@ -1114,8 +1114,8 @@ if.end29.i:                                       ; preds = %if.else.i, %if.then
 if.end33.i:                                       ; preds = %if.end29.i
   %idxprom.i26 = zext i32 %sub10.i to i64
   %arrayidx35.i = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %idxprom.i26
-  %49 = load i8, ptr %arrayidx35.i, align 1
-  %cmp37.not.i = icmp eq i8 %49, -68
+  %48 = load i8, ptr %arrayidx35.i, align 1
+  %cmp37.not.i = icmp eq i8 %48, -68
   br i1 %cmp37.not.i, label %if.end42.i, label %sw.epilog
 
 if.end42.i:                                       ; preds = %if.end33.i
@@ -1136,30 +1136,30 @@ if.then53.i:                                      ; preds = %if.end48.i
 
 if.end55.i:                                       ; preds = %if.end48.i
   %notmask.i = shl nsw i32 -1, %and.i22
-  %50 = load i8, ptr %call44.i, align 1
-  %51 = trunc nsw i32 %notmask.i to i8
-  %52 = xor i8 %51, -1
-  %conv63.i = and i8 %50, %52
+  %49 = load i8, ptr %call44.i, align 1
+  %50 = trunc nsw i32 %notmask.i to i8
+  %51 = xor i8 %50, -1
+  %conv63.i = and i8 %49, %51
   store i8 %conv63.i, ptr %call44.i, align 1
-  %53 = load i8, ptr %pkcsBlock.addr.0.i, align 1
-  %conv71.i = and i8 %53, %52
+  %52 = load i8, ptr %pkcsBlock.addr.0.i, align 1
+  %conv71.i = and i8 %52, %51
   store i8 %conv71.i, ptr %pkcsBlock.addr.0.i, align 1
-  %54 = xor i32 %saltLen.addr.0.i, -1
-  %sub73.i28 = add nsw i32 %sub11.i, %54
+  %53 = xor i32 %saltLen.addr.0.i, -1
+  %sub73.i28 = add nsw i32 %sub11.i, %53
   %cmp742.i = icmp sgt i32 %sub73.i28, 0
   br i1 %cmp742.i, label %for.body.preheader.i30, label %for.end.i29
 
 for.body.preheader.i30:                           ; preds = %if.end55.i
-  %55 = zext nneg i32 %sub73.i28 to i64
+  %54 = zext nneg i32 %sub73.i28 to i64
   br label %for.body.i31
 
 for.body.i31:                                     ; preds = %for.inc.i, %for.body.preheader.i30
   %indvars.iv.i32 = phi i64 [ 0, %for.body.preheader.i30 ], [ %indvars.iv.next.i33, %for.inc.i ]
   %arrayidx77.i = getelementptr inbounds i8, ptr %call44.i, i64 %indvars.iv.i32
-  %56 = load i8, ptr %arrayidx77.i, align 1
+  %55 = load i8, ptr %arrayidx77.i, align 1
   %arrayidx80.i = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %indvars.iv.i32
-  %57 = load i8, ptr %arrayidx80.i, align 1
-  %cmp82.not.i = icmp eq i8 %56, %57
+  %56 = load i8, ptr %arrayidx80.i, align 1
+  %cmp82.not.i = icmp eq i8 %55, %56
   br i1 %cmp82.not.i, label %for.inc.i, label %if.then87.i
 
 if.then87.i:                                      ; preds = %for.body.i31
@@ -1168,22 +1168,22 @@ if.then87.i:                                      ; preds = %for.body.i31
 
 for.inc.i:                                        ; preds = %for.body.i31
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %55
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %54
   br i1 %exitcond.not, label %for.end.loopexit.i, label %for.body.i31, !llvm.loop !16
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %arrayidx96.phi.trans.insert.i = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %55
+  %arrayidx96.phi.trans.insert.i = getelementptr inbounds i8, ptr %pkcsBlock.addr.0.i, i64 %54
   %.pre.i = load i8, ptr %arrayidx96.phi.trans.insert.i, align 1
   br label %for.end.i29
 
 for.end.i29:                                      ; preds = %if.end55.i, %for.end.loopexit.i
-  %58 = phi i8 [ %.pre.i, %for.end.loopexit.i ], [ %conv71.i, %if.end55.i ]
+  %57 = phi i8 [ %.pre.i, %for.end.loopexit.i ], [ %conv71.i, %if.end55.i ]
   %i.0.lcssa.i = phi i32 [ %sub73.i28, %for.end.loopexit.i ], [ 0, %if.end55.i ]
   %idxprom92.i = zext nneg i32 %i.0.lcssa.i to i64
   %arrayidx93.i = getelementptr inbounds i8, ptr %call44.i, i64 %idxprom92.i
-  %59 = load i8, ptr %arrayidx93.i, align 1
-  %60 = xor i8 %59, %58
-  %cmp98.not.i = icmp eq i8 %60, 1
+  %58 = load i8, ptr %arrayidx93.i, align 1
+  %59 = xor i8 %58, %57
+  %cmp98.not.i = icmp eq i8 %59, 1
   br i1 %cmp98.not.i, label %if.end107.i, label %if.then103.i
 
 if.then103.i:                                     ; preds = %for.end.i29
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef %checkSmallCt) unnamed_addr #0 {
+define internal fastcc i32 @wc_RsaFunction_ex(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng, i32 noundef range(i32 0, 2) %checkSmallCt) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   %cmp1 = icmp eq ptr %in, null
@@ -1255,25 +1255,25 @@ lor.lhs.false8:                                   ; preds = %entry
 
 do.end:                                           ; preds = %lor.lhs.false8
   %cmp12 = icmp eq i32 %type, 3
-  br i1 %cmp12, label %land.lhs.true, label %wc_RsaEncryptSize.exit.i
+  br i1 %cmp12, label %land.lhs.true, label %if.end20
 
 land.lhs.true:                                    ; preds = %do.end
   %state = getelementptr inbounds i8, ptr %key, i64 8340
   %1 = load i32, ptr %state, align 4
   %cmp13 = icmp eq i32 %1, 4
-  br i1 %cmp13, label %if.then14, label %wc_RsaEncryptSize.exit.i
+  br i1 %cmp13, label %if.then14, label %if.end20
 
 if.then14:                                        ; preds = %land.lhs.true
-  %call = tail call fastcc i32 @RsaFunctionCheckIn(ptr noundef nonnull %in, i32 noundef %inLen, ptr noundef nonnull %key, i32 noundef %checkSmallCt)
+  %call = tail call fastcc i32 @RsaFunctionCheckIn(ptr noundef %in, i32 noundef %inLen, ptr noundef %key, i32 noundef %checkSmallCt)
   %cmp15.not = icmp eq i32 %call, 0
-  br i1 %cmp15.not, label %wc_RsaEncryptSize.exit.i, label %return
+  br i1 %cmp15.not, label %if.end20, label %return
 
-wc_RsaEncryptSize.exit.i:                         ; preds = %do.end, %land.lhs.true, %if.then14
+if.end20:                                         ; preds = %if.then14, %land.lhs.true, %do.end
   %call.i.i = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %key) #11
   %cmp.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i, label %wc_RsaFunctionSync.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %wc_RsaEncryptSize.exit.i
+if.end.i:                                         ; preds = %if.end20
   %cmp1.i = icmp ugt i32 %inLen, %call.i.i
   br i1 %cmp1.i, label %wc_RsaFunctionSync.exit, label %if.end3.i
 
@@ -1296,11 +1296,11 @@ land.lhs.true.i:                                  ; preds = %if.end8.i
 
 if.end13.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   store i32 %call.i.i, ptr %outLen, align 4
-  %call14.i = tail call fastcc i32 @RsaFunctionSync(ptr noundef nonnull %in, i32 noundef %inLen, ptr noundef nonnull %out, ptr noundef nonnull %outLen, i32 noundef %type, ptr noundef nonnull %key, ptr noundef %rng)
+  %call14.i = tail call fastcc i32 @RsaFunctionSync(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr noundef nonnull %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng)
   br label %wc_RsaFunctionSync.exit
 
-wc_RsaFunctionSync.exit:                          ; preds = %wc_RsaEncryptSize.exit.i, %if.end.i, %if.end3.i, %land.lhs.true.i, %if.end13.i
-  %retval.0.i = phi i32 [ %call14.i, %if.end13.i ], [ %call.i.i, %wc_RsaEncryptSize.exit.i ], [ -173, %if.end.i ], [ -131, %if.end3.i ], [ -3, %land.lhs.true.i ]
+wc_RsaFunctionSync.exit:                          ; preds = %if.end20, %if.end.i, %if.end3.i, %land.lhs.true.i, %if.end13.i
+  %retval.0.i = phi i32 [ %call14.i, %if.end13.i ], [ %call.i.i, %if.end20 ], [ -173, %if.end.i ], [ -131, %if.end3.i ], [ -3, %land.lhs.true.i ]
   %cmp24 = icmp slt i32 %retval.0.i, 0
   %cmp26 = icmp ne i32 %retval.0.i, -108
   %or.cond5 = and i1 %cmp24, %cmp26
@@ -1409,7 +1409,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef %rsa_type, i8 noundef zeroext %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaPublicEncryptEx(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef %key, i32 noundef range(i32 0, 3) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %in, null
   %cmp1 = icmp eq i32 %inLen, 0
@@ -1592,7 +1592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef writeonly %outPtr, ptr noundef %key, i32 noundef %rsa_type, i8 noundef zeroext %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaPrivateDecryptEx(ptr noundef readonly %in, i32 noundef %inLen, ptr noundef %out, i32 noundef %outLen, ptr noundef writeonly %outPtr, ptr noundef %key, i32 noundef range(i32 1, 4) %rsa_type, i8 noundef zeroext range(i8 1, 3) %pad_value, i32 noundef %pad_type, i32 noundef %hash, i32 noundef %mgf, ptr noundef %label, i32 noundef %labelSz, i32 noundef %saltLen, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %pad = alloca ptr, align 8
   store ptr null, ptr %pad, align 8
@@ -2563,7 +2563,7 @@ for.end:                                          ; preds = %for.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaMGF1(i32 noundef %hType, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
+define internal fastcc i32 @RsaMGF1(i32 noundef range(i32 4, 18) %hType, ptr nocapture noundef readonly %seed, i32 noundef %seedSz, ptr nocapture noundef writeonly %out, i32 noundef %outSz) unnamed_addr #0 {
 entry:
   %tmp = alloca [512 x i8], align 16
   %call = tail call i32 @wc_HashGetDigestSize(i32 noundef %hType) #11
@@ -2692,7 +2692,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -253, 1) i32 @RsaFunctionCheckIn(ptr noundef %in, i32 noundef %inLen, ptr noundef %key, i32 noundef %checkSmallCt) unnamed_addr #0 {
+define internal fastcc range(i32 -253, 1) i32 @RsaFunctionCheckIn(ptr noundef nonnull %in, i32 noundef range(i32 1, 0) %inLen, ptr noundef nonnull %key, i32 noundef range(i32 0, 2) %checkSmallCt) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 8
   %mul = shl i32 %0, 1
@@ -2708,7 +2708,7 @@ entry:
   br i1 %cmp50.not, label %if.end60, label %if.end89
 
 if.end60:                                         ; preds = %entry
-  %call55 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla, ptr noundef %in, i32 noundef %inLen) #11
+  %call55 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla, ptr noundef nonnull %in, i32 noundef %inLen) #11
   %cmp56.not = icmp eq i32 %call55, 0
   %tobool = icmp ne i32 %checkSmallCt, 0
   %or.cond = and i1 %tobool, %cmp56.not
@@ -2751,7 +2751,7 @@ declare i32 @sp_add_d(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @sp_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaFunctionSync(ptr noundef %in, i32 noundef %inLen, ptr noundef %out, ptr nocapture noundef readonly %outLen, i32 noundef %type, ptr noundef %key, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaFunctionSync(ptr noundef nonnull %in, i32 noundef range(i32 1, -2147483648) %inLen, ptr noundef nonnull %out, ptr nocapture noundef readonly %outLen, i32 noundef range(i32 0, -1) %type, ptr noundef nonnull %key, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %key, align 8
   %mul = shl i32 %0, 1
@@ -2767,7 +2767,7 @@ entry:
   br i1 %cmp48.not, label %land.lhs.true, label %if.end77
 
 land.lhs.true:                                    ; preds = %entry
-  %call52 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla, ptr noundef %in, i32 noundef %inLen) #11
+  %call52 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %vla, ptr noundef nonnull %in, i32 noundef %inLen) #11
   %cmp53.not = icmp eq i32 %call52, 0
   br i1 %cmp53.not, label %if.then59, label %if.end77
 
@@ -2786,13 +2786,13 @@ sw.bb61:                                          ; preds = %if.then59, %if.then
   br i1 %cmp64.not, label %if.then71, label %if.end77
 
 if.end68:                                         ; preds = %if.then59, %if.then59
-  %call60 = call fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %vla, ptr noundef nonnull %key, ptr noundef %rng)
+  %call60 = call fastcc i32 @RsaFunctionPrivate(ptr noundef %vla, ptr noundef %key, ptr noundef %rng)
   %cmp69 = icmp eq i32 %call60, 0
   br i1 %cmp69, label %if.then71, label %if.end77
 
 if.then71:                                        ; preds = %sw.bb61, %if.end68
   %3 = load i32, ptr %outLen, align 4
-  %call72 = call i32 @sp_to_unsigned_bin_len_ct(ptr noundef nonnull %vla, ptr noundef %out, i32 noundef %3) #11
+  %call72 = call i32 @sp_to_unsigned_bin_len_ct(ptr noundef nonnull %vla, ptr noundef nonnull %out, i32 noundef %3) #11
   %cmp73.not = icmp eq i32 %call72, 0
   %spec.select23 = select i1 %cmp73.not, i32 0, i32 -113
   br label %if.end77
@@ -2804,7 +2804,7 @@ if.end77:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @RsaFunctionPrivate(ptr noundef %tmp, ptr noundef %key, ptr noundef %rng) unnamed_addr #0 {
+define internal fastcc i32 @RsaFunctionPrivate(ptr noundef nonnull %tmp, ptr noundef nonnull %key, ptr noundef %rng) unnamed_addr #0 {
 entry:
   %mp = alloca i64, align 8
   store i64 0, ptr %mp, align 8
@@ -2850,42 +2850,42 @@ if.then133:                                       ; preds = %if.then123
   br i1 %cmp136.not, label %if.then143, label %if.end256
 
 if.then143:                                       ; preds = %if.then133
-  %call145 = call i32 @sp_mulmod(ptr noundef %tmp, ptr noundef nonnull %vla, ptr noundef nonnull %key, ptr noundef %tmp) #11
+  %call145 = call i32 @sp_mulmod(ptr noundef nonnull %tmp, ptr noundef nonnull %vla, ptr noundef nonnull %key, ptr noundef nonnull %tmp) #11
   %cmp146.not = icmp eq i32 %call145, 0
   br i1 %cmp146.not, label %land.lhs.true, label %if.end256
 
 land.lhs.true:                                    ; preds = %if.then143
   %dQ = getelementptr inbounds i8, ptr %key, i64 6240
   %q = getelementptr inbounds i8, ptr %key, i64 4160
-  %call156 = call i32 @sp_exptmod(ptr noundef %tmp, ptr noundef nonnull %dQ, ptr noundef nonnull %q, ptr noundef nonnull %vla) #11
+  %call156 = call i32 @sp_exptmod(ptr noundef nonnull %tmp, ptr noundef nonnull %dQ, ptr noundef nonnull %q, ptr noundef nonnull %vla) #11
   %cmp157.not = icmp eq i32 %call156, 0
   br i1 %cmp157.not, label %land.lhs.true163, label %if.end256
 
 land.lhs.true163:                                 ; preds = %land.lhs.true
   %dP = getelementptr inbounds i8, ptr %key, i64 5200
   %p = getelementptr inbounds i8, ptr %key, i64 3120
-  %call164 = call i32 @sp_exptmod(ptr noundef %tmp, ptr noundef nonnull %dP, ptr noundef nonnull %p, ptr noundef %tmp) #11
+  %call164 = call i32 @sp_exptmod(ptr noundef nonnull %tmp, ptr noundef nonnull %dP, ptr noundef nonnull %p, ptr noundef nonnull %tmp) #11
   %cmp165.not = icmp eq i32 %call164, 0
   br i1 %cmp165.not, label %land.lhs.true171, label %if.end256
 
 land.lhs.true171:                                 ; preds = %land.lhs.true163
-  %call173 = call i32 @sp_submod(ptr noundef %tmp, ptr noundef nonnull %vla, ptr noundef nonnull %p, ptr noundef %tmp) #11
+  %call173 = call i32 @sp_submod(ptr noundef nonnull %tmp, ptr noundef nonnull %vla, ptr noundef nonnull %p, ptr noundef nonnull %tmp) #11
   %cmp174.not = icmp eq i32 %call173, 0
   br i1 %cmp174.not, label %land.lhs.true180, label %if.end256
 
 land.lhs.true180:                                 ; preds = %land.lhs.true171
   %u = getelementptr inbounds i8, ptr %key, i64 7280
-  %call182 = call i32 @sp_mulmod(ptr noundef %tmp, ptr noundef nonnull %u, ptr noundef nonnull %p, ptr noundef %tmp) #11
+  %call182 = call i32 @sp_mulmod(ptr noundef nonnull %tmp, ptr noundef nonnull %u, ptr noundef nonnull %p, ptr noundef nonnull %tmp) #11
   %cmp183.not = icmp eq i32 %call182, 0
   br i1 %cmp183.not, label %land.lhs.true189, label %if.end256
 
 land.lhs.true189:                                 ; preds = %land.lhs.true180
-  %call191 = call i32 @sp_mul(ptr noundef %tmp, ptr noundef nonnull %q, ptr noundef %tmp) #11
+  %call191 = call i32 @sp_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %q, ptr noundef nonnull %tmp) #11
   %cmp192.not = icmp eq i32 %call191, 0
   br i1 %cmp192.not, label %land.lhs.true198, label %if.end256
 
 land.lhs.true198:                                 ; preds = %land.lhs.true189
-  %call199 = call i32 @sp_add(ptr noundef %tmp, ptr noundef nonnull %vla, ptr noundef %tmp) #11
+  %call199 = call i32 @sp_add(ptr noundef nonnull %tmp, ptr noundef nonnull %vla, ptr noundef nonnull %tmp) #11
   %cmp200.not = icmp eq i32 %call199, 0
   br i1 %cmp200.not, label %land.lhs.true207, label %if.end256
 
@@ -2910,13 +2910,13 @@ land.lhs.true233:                                 ; preds = %land.lhs.true225
   br i1 %cmp236.not, label %land.lhs.true242, label %if.end256
 
 land.lhs.true242:                                 ; preds = %land.lhs.true233
-  %call243 = call i32 @sp_mul(ptr noundef %tmp, ptr noundef nonnull %vla40, ptr noundef %tmp) #11
+  %call243 = call i32 @sp_mul(ptr noundef nonnull %tmp, ptr noundef nonnull %vla40, ptr noundef nonnull %tmp) #11
   %cmp244.not = icmp eq i32 %call243, 0
   br i1 %cmp244.not, label %land.lhs.true250, label %if.end256
 
 land.lhs.true250:                                 ; preds = %land.lhs.true242
   %4 = load i64, ptr %mp, align 8
-  %call252 = call i32 @sp_mont_red_ex(ptr noundef %tmp, ptr noundef nonnull %key, i64 noundef %4, i32 noundef 1) #11
+  %call252 = call i32 @sp_mont_red_ex(ptr noundef nonnull %tmp, ptr noundef nonnull %key, i64 noundef %4, i32 noundef 1) #11
   %cmp253.not = icmp eq i32 %call252, 0
   %spec.select101 = select i1 %cmp253.not, i32 0, i32 -117
   br label %if.end256

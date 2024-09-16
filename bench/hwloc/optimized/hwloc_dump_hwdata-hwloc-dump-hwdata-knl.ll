@@ -138,7 +138,7 @@ sub_2:                                            ; preds = %sub_1
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
   %39 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %24) #10
   store i8 0, ptr %14, align 1
-  %40 = call fastcc i32 @get_file_buffer(ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @get_file_buffer(ptr noundef %5, ptr noundef %6)
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %41, label %44
 
@@ -312,7 +312,7 @@ process_smbios_group.exit:                        ; preds = %73, %._crit_edge.lo
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %4)
   %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 511, ptr noundef nonnull @.str.8, ptr noundef %0, ptr noundef nonnull %116) #10
   store i8 0, ptr %92, align 1
-  %121 = call fastcc i32 @get_file_buffer(ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %121 = call fastcc i32 @get_file_buffer(ptr noundef %3, ptr noundef %4)
   %.not.i33 = icmp eq i32 %121, 0
   br i1 %.not.i33, label %122, label %125
 
@@ -729,9 +729,9 @@ declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #2
 declare void @rewinddir(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @get_file_buffer(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %0)
-  %4 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.17)
+define internal fastcc noundef i32 @get_file_buffer(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+  %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef nonnull %0)
+  %4 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %11
 
@@ -740,11 +740,11 @@ define internal fastcc noundef i32 @get_file_buffer(ptr noundef %0, ptr nocaptur
   %7 = tail call ptr @__errno_location() #14
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @strerror(i32 noundef %8) #10
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef %0, ptr noundef %9) #11
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.18, ptr noundef nonnull %0, ptr noundef %9) #11
   br label %22
 
 11:                                               ; preds = %2
-  %12 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %4)
+  %12 = tail call i64 @fread(ptr noundef nonnull %1, i64 noundef 1, i64 noundef 4096, ptr noundef nonnull %4)
   %13 = trunc i64 %12 to i32
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19

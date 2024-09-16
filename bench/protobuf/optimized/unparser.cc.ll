@@ -517,7 +517,7 @@ invoke.cont:
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %1 = extractvalue { ptr, ptr } %call.i5, 0
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext true)
           to label %do.body unwind label %lpad1
 
 do.body:                                          ; preds = %invoke.cont2
@@ -655,7 +655,7 @@ declare void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_s
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull align 8 dereferenceable(152) %desc, i1 noundef zeroext %is_top_level) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull align 8 dereferenceable(152) %desc, i1 noundef zeroext %is_top_level) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %first.i.i.i = alloca i8, align 1
   %factory.i.i = alloca %"class.google::protobuf::DynamicMessageFactory", align 8
@@ -778,7 +778,7 @@ if.else.i:                                        ; preds = %_ZN6google8protobuf
   br i1 %retval.0.i203, label %if.else13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 28, ptr nonnull @.str.25)
+  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 28, ptr nonnull @.str.25)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -791,7 +791,7 @@ land.lhs.true15.i:                                ; preds = %if.else13.i
   br i1 %tobool17.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %land.lhs.true15.i
-  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 25, ptr nonnull @.str.26)
+  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 25, ptr nonnull @.str.26)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
 lpad.i.loopexit:                                  ; preds = %if.then.i6.i340
@@ -961,7 +961,7 @@ if.then.i369:                                     ; preds = %invoke.cont46.i
   %call4.i371 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i352) #26, !noalias !20
   %39 = extractvalue { i64, ptr } %call4.i371, 0
   %40 = extractvalue { i64, ptr } %call4.i371, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %39, ptr %40)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %39, ptr %40)
           to label %invoke.cont.i unwind label %lpad.i372
 
 invoke.cont.i:                                    ; preds = %.noexc373
@@ -1015,7 +1015,7 @@ if.then13.i:                                      ; preds = %call11.i.noexc
   %call17.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15.i) #26, !noalias !20
   %46 = extractvalue { i64, ptr } %call17.i, 0
   %47 = extractvalue { i64, ptr } %call17.i, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %46, ptr %47)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %46, ptr %47)
           to label %invoke.cont19.i unwind label %lpad18.i
 
 invoke.cont19.i:                                  ; preds = %.noexc376
@@ -1608,7 +1608,7 @@ cleanup132.i:                                     ; preds = %if.end113.i
   store i64 0, ptr %x120.i, align 8, !alias.scope !67, !noalias !41
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #26
-  invoke fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %call116.i, ptr nonnull %writer, ptr nonnull %x120.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias align 8 %agg.result, ptr noundef %call116.i, ptr %writer, ptr %x120.i)
           to label %cleanup143.i unwind label %lpad124.i
 
 cleanup143.i:                                     ; preds = %cleanup132.i
@@ -1640,7 +1640,7 @@ cleanup164.i:                                     ; preds = %if.end145.i
   store i64 0, ptr %x152.i, align 8, !alias.scope !71, !noalias !41
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #26
-  invoke fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE0_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %call148.i, ptr nonnull %writer, ptr nonnull %x152.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE0_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias align 8 %agg.result, ptr noundef %call148.i, ptr %writer, ptr %x152.i)
           to label %cleanup175.i unwind label %lpad156.i
 
 cleanup175.i:                                     ; preds = %cleanup164.i
@@ -2858,7 +2858,7 @@ if.then.i.i33:                                    ; preds = %_ZN4absl12lts_20230
 invoke.cont50:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit29
   %18 = getelementptr inbounds i8, ptr %msg, i64 8
   %19 = load ptr, ptr %18, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(208) %19, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(208) %19, i1 noundef zeroext true)
           to label %do.body53 unwind label %lpad45
 
 do.body53:                                        ; preds = %invoke.cont50
@@ -3299,7 +3299,7 @@ ehcleanup:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull align 8 dereferenceable(208) %desc, i1 noundef zeroext %is_top_level) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull align 8 dereferenceable(208) %desc, i1 noundef zeroext %is_top_level) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon, align 1
   %first.i.i.i = alloca i8, align 1
@@ -3391,7 +3391,7 @@ if.else.i:                                        ; preds = %sw.bb
   br i1 %cmp.not.i.not, label %if.then11.i, label %if.else13.i
 
 if.then11.i:                                      ; preds = %if.else.i
-  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 28, ptr nonnull @.str.25)
+  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 28, ptr nonnull @.str.25)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -3404,7 +3404,7 @@ land.lhs.true15.i:                                ; preds = %if.else13.i
   br i1 %tobool17.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %land.lhs.true15.i
-  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 25, ptr nonnull @.str.26)
+  tail call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 25, ptr nonnull @.str.26)
   br label %_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescE.exit
 
 lpad.i.loopexit:                                  ; preds = %if.then.i6.i282
@@ -3775,7 +3775,7 @@ if.then.i57.i:                                    ; preds = %.noexc11.i.i
           to label %.noexc12.i.i unwind label %lpad3.i12.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc12.i.i:                                     ; preds = %if.then.i57.i, %.noexc11.i.i
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(208) %43, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(208) %43, i1 noundef zeroext false)
           to label %cleanup.i.i.i unwind label %lpad3.i12.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup.i.i.i:                                    ; preds = %.noexc12.i.i
@@ -3784,7 +3784,7 @@ cleanup.i.i.i:                                    ; preds = %.noexc12.i.i
   br i1 %cmp.i55.i, label %if.end22.i.i.i, label %_ZZZN6google8protobuf13json_internal12_GLOBAL__N_18WriteAnyINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEENKUlRKNS1_12ResolverPool7MessageEE_clESK_ENKUlRKNS1_14UntypedMessageEE_clESO_.exit.i.i
 
 do.body7.i.i.i:                                   ; preds = %call2.i.noexc.i.i
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 1 dereferenceable(1) %first.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %54, ptr noundef nonnull align 8 dereferenceable(208) %43, ptr noundef nonnull align 1 dereferenceable(1) %first.i.i.i)
           to label %cleanup15.i.i.i unwind label %lpad3.i12.loopexit.split-lp.loopexit.split-lp.i
 
 cleanup15.i.i.i:                                  ; preds = %do.body7.i.i.i
@@ -4236,7 +4236,7 @@ cleanup131.i:                                     ; preds = %if.end112.i
   store i64 0, ptr %x119.i, align 8, !alias.scope !194, !noalias !164
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #26
-  invoke fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %call115.i, ptr nonnull %writer, ptr nonnull %x119.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias align 8 %agg.result, ptr noundef %call115.i, ptr %writer, ptr %x119.i)
           to label %cleanup142.i unwind label %lpad123.i
 
 cleanup142.i:                                     ; preds = %cleanup131.i
@@ -4271,7 +4271,7 @@ cleanup163.i:                                     ; preds = %if.end144.i
   store i64 0, ptr %x151.i, align 8, !alias.scope !198, !noalias !164
   store i64 0, ptr %agg.result, align 8
   tail call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #26
-  invoke fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef %call147.i, ptr nonnull %writer, ptr nonnull %x151.i)
+  invoke fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias align 8 %agg.result, ptr noundef %call147.i, ptr %writer, ptr %x151.i)
           to label %cleanup174.i unwind label %lpad155.i
 
 cleanup174.i:                                     ; preds = %cleanup163.i
@@ -6135,7 +6135,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i441 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %buf.i442 = alloca [22 x i8], align 16
@@ -6876,7 +6876,7 @@ invoke.cont374:                                   ; preds = %_ZN4absl12lts_20230
 
 invoke.cont376:                                   ; preds = %invoke.cont374
   %99 = extractvalue { ptr, ptr } %call.i.i398399, 0
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(152) %99, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(152) %99, i1 noundef zeroext false)
           to label %invoke.cont376.cleanup379_crit_edge unwind label %lpad353
 
 invoke.cont376.cleanup379_crit_edge:              ; preds = %invoke.cont376
@@ -6948,7 +6948,7 @@ _ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDesc
   %call386 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp382) #26
   %110 = extractvalue { i64, ptr } %call386, 0
   %111 = extractvalue { i64, ptr } %call386, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %110, ptr %111)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %110, ptr %111)
           to label %invoke.cont388 unwind label %lpad387
 
 invoke.cont388:                                   ; preds = %_ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDescriptorE.exit418
@@ -6970,7 +6970,7 @@ return:                                           ; preds = %if.then.i.i3.i.i402
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJRKNS0_7MessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(16) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJRKNS0_7MessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(16) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i464 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %buf.i465 = alloca [22 x i8], align 16
@@ -7624,7 +7624,7 @@ nrvo.unused352:                                   ; preds = %_ZN6google8protobuf
 
 invoke.cont363:                                   ; preds = %nrvo.unused352
   %81 = extractvalue { ptr, ptr } %call.i.i425426, 0
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call1.i403, ptr noundef nonnull align 8 dereferenceable(152) %81, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call1.i403, ptr noundef nonnull align 8 dereferenceable(152) %81, i1 noundef zeroext false)
           to label %cleanup366 unwind label %lpad342
 
 cleanup366:                                       ; preds = %invoke.cont363
@@ -7692,7 +7692,7 @@ _ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDesc
   %call373 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #26
   %92 = extractvalue { i64, ptr } %call373, 0
   %93 = extractvalue { i64, ptr } %call373, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %92, ptr %93)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %92, ptr %93)
           to label %invoke.cont375 unwind label %lpad374
 
 invoke.cont375:                                   ; preds = %_ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDescriptorE.exit445
@@ -7718,7 +7718,7 @@ eh.resume:                                        ; preds = %lpad374, %lpad342, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %desc, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %desc, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %c.addr.i1.i.i.i.i = alloca i8, align 1
   %c.addr.i.i.i.i.i = alloca i8, align 1
@@ -8148,7 +8148,7 @@ call.i.noexc:                                     ; preds = %call.i.noexc.lr.ph,
   br i1 %cmp.i.i219, label %if.end14.i, label %if.then.i43
 
 if.then.i43:                                      ; preds = %call.i.noexc
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nonnull align 8 %is_empty.i, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %39)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias align 8 %is_empty.i, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef nonnull %39)
           to label %.noexc47 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc47:                                         ; preds = %if.then.i43
@@ -8974,7 +8974,7 @@ declare void @_ZN6google8protobuf13json_internal10JsonWriter11WriteBase64ESt17ba
 declare void @_ZN4absl12lts_202308027CEscapeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19WriteEnumINS1_23UnparseProto2DescriptorEEEvRNS1_10JsonWriterENT_5FieldEiNS2_16IntegerEnumStyleE(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, i32 noundef %value, i32 noundef %int_style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19WriteEnumINS1_23UnparseProto2DescriptorEEEvRNS1_10JsonWriterENT_5FieldEiNS2_16IntegerEnumStyleE(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, i32 noundef %value, i32 noundef range(i32 0, 2) %int_style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %buf.i = alloca [22 x i8], align 16
@@ -9457,7 +9457,7 @@ declare noundef i32 @_ZNK6google8protobuf10Reflection12GetEnumValueERKNS0_7Messa
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8protobuf10Reflection10GetMessageERKNS0_7MessageEPKNS0_15FieldDescriptorEPNS0_14MessageFactoryE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias align 8 %agg.result, ptr noundef nonnull %f, ptr %body.coerce0, ptr %body.coerce1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %f)
   %0 = load i64, ptr %body.coerce1, align 8, !noalias !351
@@ -9477,7 +9477,7 @@ _ZNR4absl12lts_202308028StatusOrIPKN6google8protobuf7MessageEEdeEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE0_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias align 8 %agg.result, ptr noundef nonnull %f, ptr %body.coerce0, ptr %body.coerce1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN6google8protobuf13json_internal16Proto2Descriptor13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS0_10DescriptorEE0_EES9_PKNS0_15FieldDescriptorESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %f)
   %0 = load i64, ptr %body.coerce1, align 8, !noalias !357
@@ -9502,7 +9502,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.addr.i1.i219.i = alloca i8, align 1
   %c.addr.i.i220.i = alloca i8, align 1
@@ -9650,7 +9650,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
           to label %invoke.cont12 unwind label %lpad.loopexit145
 
 invoke.cont12:                                    ; preds = %invoke.cont10
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nonnull align 8 %is_empty, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %call.i44)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias align 8 %is_empty, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef %call.i44)
           to label %do.body15 unwind label %lpad.loopexit145
 
 do.body15:                                        ; preds = %invoke.cont12
@@ -10305,7 +10305,7 @@ if.then.i.i112.cont:                              ; preds = %if.then.i.i112.invo
 
 invoke.cont69:                                    ; preds = %invoke.cont67
   %86 = load ptr, ptr %5, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJRKNS0_7MessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %call.i109, ptr noundef nonnull align 8 dereferenceable(16) %86)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_23UnparseProto2DescriptorEJRKNS0_7MessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %call.i109, ptr noundef nonnull align 8 dereferenceable(16) %86)
           to label %invoke.cont73 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont73:                                    ; preds = %invoke.cont69
@@ -10418,7 +10418,7 @@ return:                                           ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %inner.i.i = alloca %"class.absl::lts_20230802::StatusOr.406", align 8
   %call = tail call { i64, ptr } @_ZN6google8protobuf13json_internal16Proto2Descriptor13FieldTypeNameEPKNS0_15FieldDescriptorE(ptr noundef %field)
@@ -10541,7 +10541,7 @@ declare noundef ptr @_ZNK6google8protobuf10Descriptor9map_valueEv(ptr noundef no
 declare noundef ptr @_ZNK6google8protobuf10Descriptor7map_keyEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i389 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11518,7 +11518,7 @@ nrvo.unused354.i:                                 ; preds = %_ZN6google8protobuf
 
 invoke.cont365.i:                                 ; preds = %nrvo.unused354.i
   %110 = extractvalue { ptr, ptr } %call.i.i5455, 0
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call1.i, ptr noundef nonnull align 8 dereferenceable(152) %110, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %call1.i, ptr noundef nonnull align 8 dereferenceable(152) %110, i1 noundef zeroext false)
           to label %cleanup368.i unwind label %lpad344.i
 
 cleanup368.i:                                     ; preds = %invoke.cont365.i
@@ -11582,7 +11582,7 @@ _ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDesc
   %call375.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp371.i) #26, !noalias !429
   %120 = extractvalue { i64, ptr } %call375.i, 0
   %121 = extractvalue { i64, ptr } %call375.i, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %120, ptr %121)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %120, ptr %121)
           to label %invoke.cont377.i unwind label %lpad376.i
 
 invoke.cont377.i:                                 ; preds = %_ZN6google8protobuf13json_internal16Proto2Descriptor9FieldTypeEPKNS0_15FieldDescriptorE.exit
@@ -12326,7 +12326,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i379 = alloca %"class.absl::lts_20230802::Status", align 8
   %c.addr.i1.i316 = alloca i8, align 1
@@ -13411,7 +13411,7 @@ invoke.cont364:                                   ; preds = %_ZN4absl12lts_20230
   %151 = getelementptr inbounds i8, ptr %x338, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %152, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 8 dereferenceable(208) %153, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %152, ptr noundef nonnull align 8 dereferenceable(208) %153, i1 noundef zeroext false)
           to label %invoke.cont364.cleanup367_crit_edge unwind label %lpad341
 
 invoke.cont364.cleanup367_crit_edge:              ; preds = %invoke.cont364
@@ -13451,7 +13451,7 @@ sw.default:                                       ; preds = %entry
   %call374 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp370) #26
   %158 = extractvalue { i64, ptr } %call374, 0
   %159 = extractvalue { i64, ptr } %call374, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %158, ptr %159)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %158, ptr %159)
           to label %invoke.cont376 unwind label %lpad375
 
 invoke.cont376:                                   ; preds = %sw.default
@@ -13473,7 +13473,7 @@ return:                                           ; preds = %if.then.i.i3.i.i404
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJRKNS1_14UntypedMessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(40) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJRKNS1_14UntypedMessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, ptr noundef nonnull align 8 dereferenceable(40) %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i437 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %buf.i438 = alloca [22 x i8], align 16
@@ -14076,7 +14076,7 @@ nrvo.unused352:                                   ; preds = %entry, %entry
   store i64 0, ptr %x338, align 8, !alias.scope !536
   store i64 0, ptr %agg.result, align 8
   %84 = load ptr, ptr %82, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(208) %84, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %82, ptr noundef nonnull align 8 dereferenceable(208) %84, i1 noundef zeroext false)
           to label %cleanup366 unwind label %lpad342
 
 cleanup366:                                       ; preds = %nrvo.unused352
@@ -14112,7 +14112,7 @@ sw.default:                                       ; preds = %entry
   %call373 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp369) #26
   %89 = extractvalue { i64, ptr } %call373, 0
   %90 = extractvalue { i64, ptr } %call373, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %89, ptr %90)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %89, ptr %90)
           to label %invoke.cont375 unwind label %lpad374
 
 invoke.cont375:                                   ; preds = %sw.default
@@ -14138,7 +14138,7 @@ eh.resume:                                        ; preds = %lpad374, %lpad342, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull align 8 dereferenceable(208) %desc, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_111WriteFieldsINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescERb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull align 8 dereferenceable(208) %desc, ptr nocapture noundef nonnull align 1 dereferenceable(1) %first) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %c.addr.i1.i.i.i.i.i127 = alloca i8, align 1
   %c.addr.i.i.i.i.i.i128 = alloca i8, align 1
@@ -14519,7 +14519,7 @@ call.i.noexc:                                     ; preds = %call.i.noexc.lr.ph,
   br i1 %cmp.i182, label %if.end14.i, label %if.then.i32
 
 if.then.i32:                                      ; preds = %call.i.noexc
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nonnull align 8 %is_empty.i, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull %38)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias align 8 %is_empty.i, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef nonnull %38)
           to label %.noexc36 unwind label %lpad.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %if.then.i32
@@ -16378,7 +16378,7 @@ return:                                           ; preds = %if.then.i.i3.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19WriteEnumINS1_17UnparseProto3TypeEEEvRNS1_10JsonWriterENT_5FieldEiNS2_16IntegerEnumStyleE(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, i32 noundef %value, i32 noundef %int_style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19WriteEnumINS1_17UnparseProto3TypeEEEvRNS1_10JsonWriterENT_5FieldEiNS2_16IntegerEnumStyleE(ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef %field, i32 noundef %value, i32 noundef range(i32 0, 2) %int_style) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %buf.i = alloca [22 x i8], align 16
@@ -18199,7 +18199,7 @@ return:                                           ; preds = %if.end, %_ZNK4absl1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias align 8 %agg.result, ptr noundef nonnull %f, ptr %body.coerce0, ptr %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = alloca %"class.absl::lts_20230802::StatusOr", align 8
   call void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %m, ptr noundef nonnull align 8 dereferenceable(32) %f)
@@ -18247,7 +18247,7 @@ call.i.noexc:                                     ; preds = %invoke.cont4
           to label %call.i.noexc8 unwind label %lpad
 
 call.i.noexc8:                                    ; preds = %call.i.noexc
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %body.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %call.i9)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %body.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %call.i9)
           to label %call.i.noexc8.cleanup7_crit_edge unwind label %lpad
 
 call.i.noexc8.cleanup7_crit_edge:                 ; preds = %call.i.noexc8
@@ -18276,7 +18276,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias align 8 %agg.result, ptr noundef nonnull %f, ptr %body.coerce0, ptr %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = alloca %"class.absl::lts_20230802::StatusOr", align 8
   call void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %m, ptr noundef nonnull align 8 dereferenceable(32) %f)
@@ -18324,7 +18324,7 @@ call.i.noexc:                                     ; preds = %invoke.cont4
           to label %call.i.noexc8 unwind label %lpad
 
 call.i.noexc8:                                    ; preds = %call.i.noexc
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %body.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %call.i9)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %body.coerce0, ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %call.i9)
           to label %call.i.noexc8.cleanup7_crit_edge unwind label %lpad
 
 call.i.noexc8.cleanup7_crit_edge:                 ; preds = %call.i.noexc8
@@ -18355,7 +18355,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool
 declare void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr sret(%"class.absl::lts_20230802::StatusOr") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr nocapture noundef readonly %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr nocapture noundef readonly %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.addr.i1.i213.i = alloca i8, align 1
   %c.addr.i.i214.i = alloca i8, align 1
@@ -18460,7 +18460,7 @@ invoke.cont10:                                    ; preds = %for.cond, %cleanup.
 invoke.cont12:                                    ; preds = %invoke.cont10
   %19 = extractvalue { ptr, i64 } %call.i38, 0
   %arrayidx.i.i37 = getelementptr inbounds i8, ptr %19, i64 32
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nonnull align 8 %is_empty, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull %arrayidx.i.i37)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias align 8 %is_empty, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i, ptr noundef nonnull %arrayidx.i.i37)
           to label %do.body15 unwind label %lpad.loopexit126
 
 do.body15:                                        ; preds = %invoke.cont12
@@ -19017,7 +19017,7 @@ invoke.cont69:                                    ; preds = %invoke.cont67
   %81 = extractvalue { ptr, i64 } %call.i90, 0
   %arrayidx.i.i89 = getelementptr inbounds i8, ptr %81, i64 32
   %82 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJRKNS1_14UntypedMessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %arrayidx.i.i89, ptr noundef nonnull align 8 dereferenceable(40) %82)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteSingularINS1_17UnparseProto3TypeEJRKNS1_14UntypedMessageEEEEN4absl12lts_202308026StatusERNS1_10JsonWriterENT_5FieldEDpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull %arrayidx.i.i89, ptr noundef nonnull align 8 dereferenceable(40) %82)
           to label %invoke.cont73 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont73:                                    ; preds = %invoke.cont69
@@ -19130,7 +19130,7 @@ return:                                           ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112IsEmptyValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308028StatusOrIbEERKNT_3MsgENS9_5FieldE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %inner.i.i = alloca %"class.absl::lts_20230802::StatusOr.519", align 8
   %m.i = alloca %"class.absl::lts_20230802::StatusOr", align 8
@@ -19329,7 +19329,7 @@ return:                                           ; preds = %return.sink.split, 
 declare { ptr, i64 } @_ZNK6google8protobuf13json_internal12ResolverPool7Message13FieldsByIndexEv(ptr noundef nonnull align 8 dereferenceable(208)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_113WriteRepeatedINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i379 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20290,7 +20290,7 @@ nrvo.unused354.i:                                 ; preds = %_ZN6google8protobuf
   store i64 0, ptr %x340.i, align 8, !alias.scope !705, !noalias !662
   store i64 0, ptr %agg.result, align 8
   %126 = load ptr, ptr %arrayidx.i.i75, align 8
-  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i75, ptr noundef nonnull align 8 dereferenceable(208) %126, i1 noundef zeroext false)
+  invoke fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_112WriteMessageINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSA_4DescEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx.i.i75, ptr noundef nonnull align 8 dereferenceable(208) %126, i1 noundef zeroext false)
           to label %cleanup368.i unwind label %lpad344.i
 
 cleanup368.i:                                     ; preds = %nrvo.unused354.i
@@ -20322,7 +20322,7 @@ sw.default.i:                                     ; preds = %_ZN6google8protobuf
   %call375.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp371.i) #26, !noalias !662
   %130 = extractvalue { i64, ptr } %call375.i, 0
   %131 = extractvalue { i64, ptr } %call375.i, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %130, ptr %131)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %130, ptr %131)
           to label %invoke.cont377.i unwind label %lpad376.i
 
 invoke.cont377.i:                                 ; preds = %sw.default.i

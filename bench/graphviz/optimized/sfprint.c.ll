@@ -376,7 +376,7 @@ define range(i32 0, -2147483648) i32 @sfprint(ptr nocapture noundef %0, ptr noun
   %146 = icmp ult i32 %145, 26
   %147 = add nsw i32 %142, -48
   %148 = icmp ult i32 %147, 10
-  %149 = or i1 %148, %146
+  %149 = select i1 %146, i1 true, i1 %148
   br i1 %149, label %thread-pre-split, label %150
 
 150:                                              ; preds = %143

@@ -419,40 +419,40 @@ for.cond.preheader.i:                             ; preds = %if.end45.i
   %mul22.i.i = add nsw i64 %sub.i.i, -32
   %mul23.i.i = mul i64 %mul22.i.i, %11
   %add.ptr24.i.i = getelementptr inbounds i32, ptr %add.ptr49.i, i64 %mul23.i.i
-  %invariant.gep.i.i = getelementptr i8, ptr %add.ptr.i, i64 -64
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %mul59.i
+  %17 = getelementptr i8, ptr %add.ptr.i, i64 %mul59.i
+  %arrayidx.i.i = getelementptr i8, ptr %17, i64 -64
   br i1 %cmp51.not.i.i, label %for.body.us.i, label %for.body.i
 
-for.body.us.i:                                    ; preds = %for.cond.preheader.i, %for.cond52.preheader.i.us.i
-  %i.058.us.i = phi i64 [ %inc.us.i, %for.cond52.preheader.i.us.i ], [ 0, %for.cond.preheader.i ]
+for.body.us.i:                                    ; preds = %for.cond.preheader.i, %scryptROMix.exit.loopexit.us.i
+  %i.059.us.i = phi i64 [ %inc.us.i, %scryptROMix.exit.loopexit.us.i ], [ 0, %for.cond.preheader.i ]
   br label %for.body15.i.us.i
 
 for.body15.i.us.i:                                ; preds = %for.body15.i.us.i, %for.body.us.i
-  %i.157.i.us.i = phi i64 [ 1, %for.body.us.i ], [ %inc18.i.us.i, %for.body15.i.us.i ]
-  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr49.i, ptr noundef nonnull %add.ptr47.i, i64 noundef %11)
-  %inc18.i.us.i = add nuw i64 %i.157.i.us.i, 1
-  %exitcond68.not.i.us.i = icmp eq i64 %inc18.i.us.i, %10
-  br i1 %exitcond68.not.i.us.i, label %for.end21.i.loopexit.us.i, label %for.body15.i.us.i, !llvm.loop !4
+  %i.156.i.us.i = phi i64 [ 1, %for.body.us.i ], [ %inc18.i.us.i, %for.body15.i.us.i ]
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr49.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  %inc18.i.us.i = add nuw i64 %i.156.i.us.i, 1
+  %exitcond66.not.i.us.i = icmp eq i64 %inc18.i.us.i, %10
+  br i1 %exitcond66.not.i.us.i, label %for.end21.i.us.i, label %for.body15.i.us.i, !llvm.loop !4
 
-for.body28.i.us.i:                                ; preds = %for.end21.i.loopexit.us.i, %for.body28.i.us.i
-  %i.263.i.us.i = phi i64 [ %inc50.i.us.i, %for.body28.i.us.i ], [ 0, %for.end21.i.loopexit.us.i ]
-  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr47.i, i64 noundef %11)
-  %inc50.i.us.i = add nuw i64 %i.263.i.us.i, 1
-  %exitcond71.not.i.us.i = icmp eq i64 %inc50.i.us.i, %10
-  br i1 %exitcond71.not.i.us.i, label %for.cond52.preheader.i.us.i, label %for.body28.i.us.i, !llvm.loop !6
-
-for.cond52.preheader.i.us.i:                      ; preds = %for.body28.i.us.i
-  %inc.us.i = add nuw i64 %i.058.us.i, 1
-  %exitcond60.not.i = icmp eq i64 %inc.us.i, %12
-  br i1 %exitcond60.not.i, label %err.i, label %for.body.us.i, !llvm.loop !7
-
-for.end21.i.loopexit.us.i:                        ; preds = %for.body15.i.us.i
-  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr24.i.i, i64 noundef %11)
+for.end21.i.us.i:                                 ; preds = %for.body15.i.us.i
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef %11)
   br label %for.body28.i.us.i
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %scryptROMix.exit.loopexit.i
-  %i.058.i = phi i64 [ %inc.i, %scryptROMix.exit.loopexit.i ], [ 0, %for.cond.preheader.i ]
-  %mul60.i = mul i64 %i.058.i, %mul59.i
+for.body28.i.us.i:                                ; preds = %for.body28.i.us.i, %for.end21.i.us.i
+  %i.261.i.us.i = phi i64 [ %inc50.i.us.i, %for.body28.i.us.i ], [ 0, %for.end21.i.us.i ]
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  %inc50.i.us.i = add nuw i64 %i.261.i.us.i, 1
+  %exitcond69.not.i.us.i = icmp eq i64 %inc50.i.us.i, %10
+  br i1 %exitcond69.not.i.us.i, label %scryptROMix.exit.loopexit.us.i, label %for.body28.i.us.i, !llvm.loop !6
+
+scryptROMix.exit.loopexit.us.i:                   ; preds = %for.body28.i.us.i
+  %inc.us.i = add nuw i64 %i.059.us.i, 1
+  %exitcond61.not.i = icmp eq i64 %inc.us.i, %12
+  br i1 %exitcond61.not.i, label %err.i, label %for.body.us.i, !llvm.loop !7
+
+for.body.i:                                       ; preds = %for.cond.preheader.i, %scryptROMix.exit.loopexit58.i
+  %i.059.i = phi i64 [ %inc.i, %scryptROMix.exit.loopexit58.i ], [ 0, %for.cond.preheader.i ]
+  %mul60.i = mul i64 %i.059.i, %mul59.i
   %add.ptr61.i = getelementptr inbounds i8, ptr %call.i18, i64 %mul60.i
   br label %for.body.i.i
 
@@ -461,24 +461,24 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %pV.053.i.i = phi ptr [ %incdec.ptr11.i.i, %for.body.i.i ], [ %add.ptr49.i, %for.body.i ]
   %i.052.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %for.body.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %pB.054.i.i, i64 1
-  %17 = load i8, ptr %pB.054.i.i, align 1
-  %conv.i.i = zext i8 %17 to i32
+  %18 = load i8, ptr %pB.054.i.i, align 1
+  %conv.i.i = zext i8 %18 to i32
   store i32 %conv.i.i, ptr %pV.053.i.i, align 4
   %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %pB.054.i.i, i64 2
-  %18 = load i8, ptr %incdec.ptr.i.i, align 1
-  %conv2.i.i = zext i8 %18 to i32
+  %19 = load i8, ptr %incdec.ptr.i.i, align 1
+  %conv2.i.i = zext i8 %19 to i32
   %shl.i.i = shl nuw nsw i32 %conv2.i.i, 8
   %or.i.i = or disjoint i32 %shl.i.i, %conv.i.i
   store i32 %or.i.i, ptr %pV.053.i.i, align 4
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %pB.054.i.i, i64 3
-  %19 = load i8, ptr %incdec.ptr1.i.i, align 1
-  %conv4.i.i = zext i8 %19 to i32
+  %20 = load i8, ptr %incdec.ptr1.i.i, align 1
+  %conv4.i.i = zext i8 %20 to i32
   %shl5.i.i = shl nuw nsw i32 %conv4.i.i, 16
   %or6.i.i = or disjoint i32 %shl5.i.i, %or.i.i
   store i32 %or6.i.i, ptr %pV.053.i.i, align 4
   %incdec.ptr7.i.i = getelementptr inbounds i8, ptr %pB.054.i.i, i64 4
-  %20 = load i8, ptr %incdec.ptr3.i.i, align 1
-  %conv8.i.i = zext i8 %20 to i32
+  %21 = load i8, ptr %incdec.ptr3.i.i, align 1
+  %conv8.i.i = zext i8 %21 to i32
   %shl9.i.i = shl nuw i32 %conv8.i.i, 24
   %or10.i.i = or disjoint i32 %shl9.i.i, %or6.i.i
   store i32 %or10.i.i, ptr %pV.053.i.i, align 4
@@ -488,78 +488,78 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %for.body15.i.i, label %for.body.i.i, !llvm.loop !8
 
 for.body15.i.i:                                   ; preds = %for.body.i.i, %for.body15.i.i
-  %pV.158.i.i = phi ptr [ %add.ptr20.i.i, %for.body15.i.i ], [ %incdec.ptr11.i.i, %for.body.i.i ]
-  %i.157.i.i = phi i64 [ %inc18.i.i, %for.body15.i.i ], [ 1, %for.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %pV.158.i.i, i64 %idx.neg.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef %pV.158.i.i, ptr noundef nonnull %add.ptr.i.i, i64 noundef %11)
-  %inc18.i.i = add nuw i64 %i.157.i.i, 1
-  %add.ptr20.i.i = getelementptr inbounds i32, ptr %pV.158.i.i, i64 %mul24.i
-  %exitcond68.not.i.i = icmp eq i64 %inc18.i.i, %10
-  br i1 %exitcond68.not.i.i, label %for.end21.i.loopexit.i, label %for.body15.i.i, !llvm.loop !4
+  %pV.157.i.i = phi ptr [ %add.ptr20.i.i, %for.body15.i.i ], [ %incdec.ptr11.i.i, %for.body.i.i ]
+  %i.156.i.i = phi i64 [ %inc18.i.i, %for.body15.i.i ], [ 1, %for.body.i.i ]
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %pV.157.i.i, i64 %idx.neg.i.i
+  tail call fastcc void @scryptBlockMix(ptr noundef %pV.157.i.i, ptr noundef %add.ptr.i.i, i64 noundef %11)
+  %inc18.i.i = add nuw i64 %i.156.i.i, 1
+  %add.ptr20.i.i = getelementptr inbounds i32, ptr %pV.157.i.i, i64 %mul24.i
+  %exitcond66.not.i.i = icmp eq i64 %inc18.i.i, %10
+  br i1 %exitcond66.not.i.i, label %for.end21.i.i, label %for.body15.i.i, !llvm.loop !4
 
-for.end21.i.loopexit.i:                           ; preds = %for.body15.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr24.i.i, i64 noundef %11)
+for.end21.i.i:                                    ; preds = %for.body15.i.i
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr24.i.i, i64 noundef %11)
   br label %for.body28.us.i.i
 
-for.body28.us.i.i:                                ; preds = %for.cond38.for.end48_crit_edge.us.i.i, %for.end21.i.loopexit.i
-  %i.263.us.i.i = phi i64 [ %inc50.us.i.i, %for.cond38.for.end48_crit_edge.us.i.i ], [ 0, %for.end21.i.loopexit.i ]
-  %21 = load i32, ptr %gep.i.i, align 4
-  %conv32.us.i.i = zext i32 %21 to i64
+for.body28.us.i.i:                                ; preds = %for.cond38.for.end48_crit_edge.us.i.i, %for.end21.i.i
+  %i.261.us.i.i = phi i64 [ %inc50.us.i.i, %for.cond38.for.end48_crit_edge.us.i.i ], [ 0, %for.end21.i.i ]
+  %22 = load i32, ptr %arrayidx.i.i, align 4
+  %conv32.us.i.i = zext i32 %22 to i64
   %rem.us.i.i = urem i64 %conv32.us.i.i, %10
   %mul36.us.i.i = mul i64 %rem.us.i.i, %mul24.i
   %add.ptr37.us.i.i = getelementptr inbounds i32, ptr %add.ptr49.i, i64 %mul36.us.i.i
   br label %for.body42.us.i.i
 
 for.body42.us.i.i:                                ; preds = %for.body42.us.i.i, %for.body28.us.i.i
-  %pV.261.us.i.i = phi ptr [ %add.ptr37.us.i.i, %for.body28.us.i.i ], [ %incdec.ptr44.us.i.i, %for.body42.us.i.i ]
-  %k.060.us.i.i = phi i64 [ 0, %for.body28.us.i.i ], [ %inc47.us.i.i, %for.body42.us.i.i ]
-  %arrayidx43.us.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %k.060.us.i.i
-  %22 = load i32, ptr %arrayidx43.us.i.i, align 4
-  %incdec.ptr44.us.i.i = getelementptr inbounds i8, ptr %pV.261.us.i.i, i64 4
-  %23 = load i32, ptr %pV.261.us.i.i, align 4
-  %xor.us.i.i = xor i32 %23, %22
-  %arrayidx45.us.i.i = getelementptr inbounds i32, ptr %add.ptr47.i, i64 %k.060.us.i.i
+  %pV.260.us.i.i = phi ptr [ %add.ptr37.us.i.i, %for.body28.us.i.i ], [ %incdec.ptr44.us.i.i, %for.body42.us.i.i ]
+  %k.059.us.i.i = phi i64 [ 0, %for.body28.us.i.i ], [ %inc47.us.i.i, %for.body42.us.i.i ]
+  %arrayidx43.us.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %k.059.us.i.i
+  %23 = load i32, ptr %arrayidx43.us.i.i, align 4
+  %incdec.ptr44.us.i.i = getelementptr inbounds i8, ptr %pV.260.us.i.i, i64 4
+  %24 = load i32, ptr %pV.260.us.i.i, align 4
+  %xor.us.i.i = xor i32 %24, %23
+  %arrayidx45.us.i.i = getelementptr inbounds i32, ptr %add.ptr47.i, i64 %k.059.us.i.i
   store i32 %xor.us.i.i, ptr %arrayidx45.us.i.i, align 4
-  %inc47.us.i.i = add nuw i64 %k.060.us.i.i, 1
-  %exitcond69.not.i.i = icmp eq i64 %inc47.us.i.i, %mul24.i
-  br i1 %exitcond69.not.i.i, label %for.cond38.for.end48_crit_edge.us.i.i, label %for.body42.us.i.i, !llvm.loop !9
+  %inc47.us.i.i = add nuw i64 %k.059.us.i.i, 1
+  %exitcond67.not.i.i = icmp eq i64 %inc47.us.i.i, %mul24.i
+  br i1 %exitcond67.not.i.i, label %for.cond38.for.end48_crit_edge.us.i.i, label %for.body42.us.i.i, !llvm.loop !9
 
 for.cond38.for.end48_crit_edge.us.i.i:            ; preds = %for.body42.us.i.i
-  tail call fastcc void @scryptBlockMix(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr47.i, i64 noundef %11)
-  %inc50.us.i.i = add nuw i64 %i.263.us.i.i, 1
-  %exitcond70.not.i.i = icmp eq i64 %inc50.us.i.i, %10
-  br i1 %exitcond70.not.i.i, label %for.body56.i.i, label %for.body28.us.i.i, !llvm.loop !6
+  tail call fastcc void @scryptBlockMix(ptr noundef %add.ptr.i, ptr noundef %add.ptr47.i, i64 noundef %11)
+  %inc50.us.i.i = add nuw i64 %i.261.us.i.i, 1
+  %exitcond68.not.i.i = icmp eq i64 %inc50.us.i.i, %10
+  br i1 %exitcond68.not.i.i, label %for.body56.i.i, label %for.body28.us.i.i, !llvm.loop !6
 
 for.body56.i.i:                                   ; preds = %for.cond38.for.end48_crit_edge.us.i.i, %for.body56.i.i
-  %pB.166.i.i = phi ptr [ %incdec.ptr70.i.i, %for.body56.i.i ], [ %add.ptr61.i, %for.cond38.for.end48_crit_edge.us.i.i ]
-  %i.365.i.i = phi i64 [ %inc72.i.i, %for.body56.i.i ], [ 0, %for.cond38.for.end48_crit_edge.us.i.i ]
-  %arrayidx57.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %i.365.i.i
-  %24 = load i32, ptr %arrayidx57.i.i, align 4
-  %conv58.i.i = trunc i32 %24 to i8
-  %incdec.ptr59.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 1
-  store i8 %conv58.i.i, ptr %pB.166.i.i, align 1
-  %shr.i.i = lshr i32 %24, 8
+  %pB.164.i.i = phi ptr [ %incdec.ptr70.i.i, %for.body56.i.i ], [ %add.ptr61.i, %for.cond38.for.end48_crit_edge.us.i.i ]
+  %i.363.i.i = phi i64 [ %inc72.i.i, %for.body56.i.i ], [ 0, %for.cond38.for.end48_crit_edge.us.i.i ]
+  %arrayidx57.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %i.363.i.i
+  %25 = load i32, ptr %arrayidx57.i.i, align 4
+  %conv58.i.i = trunc i32 %25 to i8
+  %incdec.ptr59.i.i = getelementptr inbounds i8, ptr %pB.164.i.i, i64 1
+  store i8 %conv58.i.i, ptr %pB.164.i.i, align 1
+  %shr.i.i = lshr i32 %25, 8
   %conv61.i.i = trunc i32 %shr.i.i to i8
-  %incdec.ptr62.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 2
+  %incdec.ptr62.i.i = getelementptr inbounds i8, ptr %pB.164.i.i, i64 2
   store i8 %conv61.i.i, ptr %incdec.ptr59.i.i, align 1
-  %shr63.i.i = lshr i32 %24, 16
+  %shr63.i.i = lshr i32 %25, 16
   %conv65.i.i = trunc i32 %shr63.i.i to i8
-  %incdec.ptr66.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 3
+  %incdec.ptr66.i.i = getelementptr inbounds i8, ptr %pB.164.i.i, i64 3
   store i8 %conv65.i.i, ptr %incdec.ptr62.i.i, align 1
-  %shr67.i.i = lshr i32 %24, 24
+  %shr67.i.i = lshr i32 %25, 24
   %conv69.i.i = trunc nuw i32 %shr67.i.i to i8
-  %incdec.ptr70.i.i = getelementptr inbounds i8, ptr %pB.166.i.i, i64 4
+  %incdec.ptr70.i.i = getelementptr inbounds i8, ptr %pB.164.i.i, i64 4
   store i8 %conv69.i.i, ptr %incdec.ptr66.i.i, align 1
-  %inc72.i.i = add nuw i64 %i.365.i.i, 1
-  %exitcond72.not.i.i = icmp eq i64 %inc72.i.i, %mul24.i
-  br i1 %exitcond72.not.i.i, label %scryptROMix.exit.loopexit.i, label %for.body56.i.i, !llvm.loop !10
+  %inc72.i.i = add nuw i64 %i.363.i.i, 1
+  %exitcond70.not.i.i = icmp eq i64 %inc72.i.i, %mul24.i
+  br i1 %exitcond70.not.i.i, label %scryptROMix.exit.loopexit58.i, label %for.body56.i.i, !llvm.loop !10
 
-scryptROMix.exit.loopexit.i:                      ; preds = %for.body56.i.i
-  %inc.i = add nuw i64 %i.058.i, 1
+scryptROMix.exit.loopexit58.i:                    ; preds = %for.body56.i.i
+  %inc.i = add nuw i64 %i.059.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %12
   br i1 %exitcond.not.i, label %err.i, label %for.body.i, !llvm.loop !7
 
-err.i:                                            ; preds = %scryptROMix.exit.loopexit.i, %for.cond52.preheader.i.us.i
+err.i:                                            ; preds = %scryptROMix.exit.loopexit58.i, %scryptROMix.exit.loopexit.us.i
   %conv64.i = trunc i64 %keylen to i32
   %call65.i = tail call i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef %7, i32 noundef %conv.i, ptr noundef nonnull %call.i18, i32 noundef %conv51.i, i32 noundef 1, ptr noundef nonnull %5, i32 noundef %conv64.i, ptr noundef nonnull %key, ptr noundef %14, ptr noundef %15) #7
   %cmp66.i = icmp eq i32 %call65.i, 0
@@ -673,7 +673,7 @@ if.then17:                                        ; preds = %if.end14
   %8 = load i64, ptr %u64_value, align 8
   %cmp20 = icmp ult i64 %8, 2
   %or.cond = select i1 %tobool19, i1 true, i1 %cmp20
-  %9 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %8)
+  %9 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %8)
   %cmp1.i45 = icmp ugt i64 %9, 1
   %or.cond55 = select i1 %or.cond, i1 true, i1 %cmp1.i45
   br i1 %or.cond55, label %return, label %if.end25
@@ -856,7 +856,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @ossl_pkcs5_pbkdf2_hmac_ex(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scryptBlockMix(ptr nocapture noundef writeonly %B_, ptr nocapture noundef readonly %B, i64 noundef %r) unnamed_addr #0 {
+define internal fastcc void @scryptBlockMix(ptr nocapture noundef nonnull writeonly %B_, ptr nocapture noundef nonnull readonly %B, i64 noundef range(i64 1, 0) %r) unnamed_addr #0 {
 entry:
   %x.i = alloca [16 x i32], align 16
   %X = alloca [16 x i32], align 16

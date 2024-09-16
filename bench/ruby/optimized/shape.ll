@@ -170,7 +170,7 @@ define hidden noundef zeroext i1 @rb_shape_transition_shape_remove_ivar(i64 noun
 
 10:                                               ; preds = %4
   store ptr null, ptr %5, align 8
-  %11 = call fastcc ptr @remove_shape_recursive(ptr noundef nonnull %2, i64 noundef %1, ptr noundef nonnull %5)
+  %11 = call fastcc ptr @remove_shape_recursive(ptr noundef nonnull %2, i64 noundef %1, ptr noundef %5)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %73, label %12
 
@@ -283,7 +283,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %ROBJECT_IVPTR.exit3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
@@ -331,7 +331,7 @@ define internal fastcc ptr @remove_shape_recursive(ptr noundef %0, i64 noundef %
   %34 = load i64, ptr %33, align 8
   %35 = load i8, ptr %9, align 8
   %36 = zext i8 %35 to i32
-  %37 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %27, i64 noundef %34, i32 noundef %36, ptr noundef nonnull %4, i1 noundef zeroext true)
+  %37 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %27, i64 noundef %34, i32 noundef %36, ptr noundef %4, i1 noundef zeroext true)
   br label %38
 
 38:                                               ; preds = %22, %32, %28, %3, %16
@@ -415,7 +415,7 @@ rb_shape_obj_too_complex.exit.thread:             ; preds = %rb_shape_get_shape.
 
 31:                                               ; preds = %rb_shape_obj_too_complex.exit.thread
   %32 = load i64, ptr @id_frozen, align 8
-  %33 = call fastcc ptr @get_next_shape_internal(ptr noundef %25, i64 noundef %32, i32 noundef 2, ptr noundef nonnull %2, i1 noundef zeroext true)
+  %33 = call fastcc ptr @get_next_shape_internal(ptr noundef %25, i64 noundef %32, i32 noundef 2, ptr noundef %2, i1 noundef zeroext true)
   br label %34
 
 34:                                               ; preds = %rb_shape_get_shape.exit.thread, %rb_shape_get_shape.exit, %rb_shape_obj_too_complex.exit, %31, %29
@@ -444,7 +444,7 @@ rb_shape_get_shape_id.exit:                       ; preds = %1, %6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
+define internal fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 256) %2, ptr nocapture noundef nonnull writeonly %3, i1 noundef zeroext %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   store i8 0, ptr %3, align 1
@@ -529,12 +529,12 @@ rb_shape_alloc.exit.i:                            ; preds = %24
   %50 = getelementptr inbounds i8, ptr %39, i64 20
   store i32 %49, ptr %50, align 4
   store ptr null, ptr %39, align 8
-  switch i32 %2, label %rb_shape_alloc_new_child.exit [
-    i32 1, label %51
-    i32 2, label %65
-    i32 3, label %65
-    i32 4, label %68
-    i32 0, label %68
+  switch i8 %43, label %rb_shape_alloc_new_child.exit [
+    i8 1, label %51
+    i8 2, label %65
+    i8 3, label %65
+    i8 4, label %68
+    i8 0, label %68
   ]
 
 51:                                               ; preds = %rb_shape_alloc.exit.i
@@ -627,7 +627,7 @@ rb_vm_lock_leave.exit:                            ; preds = %.thread38, %90
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden ptr @rb_shape_get_next_iv_shape(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i8, align 1
-  %4 = call fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext true)
+  %4 = call fastcc ptr @get_next_shape_internal(ptr noundef %0, i64 noundef %1, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
   ret ptr %4
 }
 
@@ -657,7 +657,7 @@ define hidden ptr @rb_shape_get_next(ptr noundef %0, i64 noundef %1, i64 noundef
 19:                                               ; preds = %13, %8
   %.018 = phi i1 [ %18, %13 ], [ true, %8 ]
   store i8 0, ptr %4, align 1
-  %20 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, ptr noundef nonnull %4, i1 noundef zeroext %.018)
+  %20 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %0, i64 noundef %2, i32 noundef 1, ptr noundef %4, i1 noundef zeroext %.018)
   %21 = load i64, ptr %9, align 8
   %22 = and i64 %21, 31
   %23 = icmp eq i64 %22, 1
@@ -1282,7 +1282,7 @@ thread-pre-split:                                 ; preds = %8
   %27 = getelementptr inbounds i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %29 = call fastcc ptr @get_next_shape_internal(ptr noundef %.0, i64 noundef %28, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext true)
+  %29 = call fastcc ptr @get_next_shape_internal(ptr noundef %.0, i64 noundef %28, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   br label %31
 
@@ -1480,7 +1480,7 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr %struct.rb_shape, ptr %66, i64 %indvars.iv
   %68 = load i64, ptr @id_t_object, align 8
-  %69 = call fastcc ptr @get_next_shape_internal(ptr noundef %67, i64 noundef %68, i32 noundef 3, ptr noundef nonnull %1, i1 noundef zeroext true)
+  %69 = call fastcc ptr @get_next_shape_internal(ptr noundef %67, i64 noundef %68, i32 noundef 3, ptr noundef %1, i1 noundef zeroext true)
   %70 = trunc i64 %indvars.iv to i8
   %71 = tail call i64 @rb_size_pool_slot_size(i8 noundef zeroext %70) #13
   %72 = add i64 %71, 34359738352
@@ -1498,7 +1498,7 @@ rb_shape_alloc_with_parent_id.exit27:             ; preds = %47
 
 78:                                               ; preds = %.preheader
   %79 = load i64, ptr @id_frozen, align 8
-  %80 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %38, i64 noundef %79, i32 noundef 2, ptr noundef nonnull %2, i1 noundef zeroext true)
+  %80 = call fastcc ptr @get_next_shape_internal(ptr noundef nonnull %38, i64 noundef %79, i32 noundef 2, ptr noundef %2, i1 noundef zeroext true)
   %81 = load ptr, ptr @rb_shape_tree_ptr, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8

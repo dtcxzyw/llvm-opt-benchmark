@@ -72,7 +72,7 @@ define i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr nocapture noundef readonl
   %36 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val37.us, i64 %35, i32 2
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %32, 1
-  %39 = xor i32 %37, %38
+  %39 = xor i32 %38, %37
   %40 = getelementptr inbounds i8, ptr %31, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = lshr i32 %41, 1
@@ -81,7 +81,7 @@ define i32 @Kit_GraphToGiaInternal(ptr noundef %0, ptr nocapture noundef readonl
   %45 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val37.us, i64 %44, i32 2
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %41, 1
-  %48 = xor i32 %46, %47
+  %48 = xor i32 %47, %46
   %49 = load i32, ptr %17, align 8
   %.not.i.us = icmp eq i32 %49, 0
   br i1 %.not.i.us, label %50, label %59
@@ -425,12 +425,12 @@ Gia_ManAppendAnd.exit.i.us:                       ; preds = %248, %246
   br label %Gia_ManAppendAnd2.exit.us
 
 254:                                              ; preds = %52
-  %.not18.i.us = icmp eq i32 %46, %47
+  %.not18.i.us = icmp eq i32 %47, %46
   %255 = select i1 %.not18.i.us, i32 0, i32 %39
   br label %Gia_ManAppendAnd2.exit.us
 
 256:                                              ; preds = %50
-  %.not19.i.us = icmp eq i32 %37, %38
+  %.not19.i.us = icmp eq i32 %38, %37
   %257 = select i1 %.not19.i.us, i32 0, i32 %48
   br label %Gia_ManAppendAnd2.exit.us
 
@@ -465,7 +465,7 @@ Gia_ManAppendAnd2.exit.us:                        ; preds = %256, %254, %Gia_Man
   %274 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val37, i64 %273, i32 2
   %275 = load i32, ptr %274, align 8
   %276 = and i32 %270, 1
-  %277 = xor i32 %275, %276
+  %277 = xor i32 %276, %275
   %278 = getelementptr inbounds i8, ptr %269, i64 4
   %279 = load i32, ptr %278, align 4
   %280 = lshr i32 %279, 1
@@ -474,7 +474,7 @@ Gia_ManAppendAnd2.exit.us:                        ; preds = %256, %254, %Gia_Man
   %283 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val37, i64 %282, i32 2
   %284 = load i32, ptr %283, align 8
   %285 = and i32 %279, 1
-  %286 = xor i32 %284, %285
+  %286 = xor i32 %285, %284
   %287 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %277, i32 noundef %286) #14
   %288 = getelementptr inbounds i8, ptr %269, i64 8
   store i32 %287, ptr %288, align 8

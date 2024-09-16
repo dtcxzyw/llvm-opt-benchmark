@@ -6816,8 +6816,8 @@ entry:
   %idx.ext.i = sext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %call, i64 %idx.ext.i
   %len.off.i = add i32 %conv, 3
-  %tobool.not40.i = icmp ult i32 %len.off.i, 7
-  br i1 %tobool.not40.i, label %for.end.i, label %for.body.preheader.i
+  %tobool.not35.i = icmp ult i32 %len.off.i, 7
+  br i1 %tobool.not35.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %entry
   %sub.i = sub nsw i32 0, %div.i
@@ -6826,17 +6826,15 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ %0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %h1.042.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
+  %h1.037.i = phi i32 [ 0, %for.body.preheader.i ], [ %add.i, %for.body.i ]
   %arrayidx.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx.i.i, align 4
   %mul1.i = mul i32 %1, -862048943
-  %shl.i.i = mul i32 %1, 380141568
-  %shr.i33.i = lshr i32 %mul1.i, 17
-  %or.i.i = or disjoint i32 %shr.i33.i, %shl.i.i
+  %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %mul1.i, i32 %mul1.i, i32 15)
   %mul3.i = mul i32 %or.i.i, 461845907
-  %xor.i = xor i32 %mul3.i, %h1.042.i
-  %or.i36.i = tail call i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 13)
-  %mul5.i = mul i32 %or.i36.i, 5
+  %xor.i = xor i32 %mul3.i, %h1.037.i
+  %or.i33.i = tail call noundef i32 @llvm.fshl.i32(i32 %xor.i, i32 %xor.i, i32 13)
+  %mul5.i = mul i32 %or.i33.i, 5
   %add.i = add i32 %mul5.i, -430675100
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %2 = icmp eq i64 %indvars.iv.next.i, 0
@@ -6874,10 +6872,8 @@ sw.bb16.i:                                        ; preds = %sw.bb11.i, %for.end
   %conv18.i = zext i8 %5 to i32
   %xor19.i = xor i32 %k19.1.i, %conv18.i
   %mul20.i = mul i32 %xor19.i, -862048943
-  %shl.i37.i = mul i32 %xor19.i, 380141568
-  %shr.i38.i = lshr i32 %mul20.i, 17
-  %or.i39.i = or disjoint i32 %shr.i38.i, %shl.i37.i
-  %mul22.i = mul i32 %or.i39.i, 461845907
+  %or.i34.i = tail call noundef i32 @llvm.fshl.i32(i32 %mul20.i, i32 %mul20.i, i32 15)
+  %mul22.i = mul i32 %or.i34.i, 461845907
   %xor23.i = xor i32 %mul22.i, %h1.0.lcssa.i
   br label %_ZN7Imf_3_212_GLOBAL__N_118MurmurHash3_x86_32EPKvijPv.exit
 
@@ -12626,6 +12622,9 @@ __cxx_global_var_init.12.exit:                    ; preds = %invoke.cont.i107
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.fshl.i32(i32, i32, i32) #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -12645,9 +12644,6 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #26

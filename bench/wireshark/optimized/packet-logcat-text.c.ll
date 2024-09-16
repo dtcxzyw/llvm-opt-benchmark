@@ -164,7 +164,7 @@ define internal i32 @dissect_logcat_text_brief(ptr noundef %0, ptr noundef %1, p
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_brief.dinfo)
+  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_brief.dinfo)
   ret i32 %15
 }
 
@@ -190,7 +190,7 @@ define internal i32 @dissect_logcat_text_tag(ptr noundef %0, ptr noundef %1, ptr
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_tag.dinfo)
+  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_tag.dinfo)
   ret i32 %15
 }
 
@@ -216,7 +216,7 @@ define internal i32 @dissect_logcat_text_time(ptr noundef %0, ptr noundef %1, pt
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_time.dinfo)
+  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_time.dinfo)
   ret i32 %15
 }
 
@@ -258,7 +258,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
   store ptr @.str.30, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 224
   store ptr null, ptr %22, align 8
-  %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_process.dinfo)
+  %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_process.dinfo)
   ret i32 %23
 }
 
@@ -300,7 +300,7 @@ add_exported_pdu.exit:                            ; preds = %4, %7
   store ptr @.str.30, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 224
   store ptr null, ptr %22, align 8
-  %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_thread.dinfo)
+  %23 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_thread.dinfo)
   ret i32 %23
 }
 
@@ -326,7 +326,7 @@ define internal i32 @dissect_logcat_text_threadtime(ptr noundef %0, ptr noundef 
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_threadtime.dinfo)
+  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_threadtime.dinfo)
   ret i32 %15
 }
 
@@ -352,7 +352,7 @@ define internal i32 @dissect_logcat_text_long(ptr noundef %0, ptr noundef %1, pt
   br label %add_exported_pdu.exit
 
 add_exported_pdu.exit:                            ; preds = %4, %7
-  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @__const.dissect_logcat_text_long.dinfo)
+  %15 = tail call fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef @__const.dissect_logcat_text_long.dinfo)
   ret i32 %15
 }
 
@@ -555,7 +555,7 @@ define internal i32 @get_log(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5

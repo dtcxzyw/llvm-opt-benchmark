@@ -1316,7 +1316,7 @@ entry:
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %type_url) #14
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
-  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias nonnull align 8 %status, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, ptr %1, ptr noundef nonnull %type_name)
+  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias align 8 %status, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, ptr %1, ptr noundef %type_name)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
@@ -1438,7 +1438,7 @@ entry:
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %type_url) #14
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
-  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias nonnull align 8 %status, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, ptr %1, ptr noundef nonnull %type_name)
+  invoke fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias align 8 %status, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %0, ptr %1, ptr noundef %type_name)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %entry
@@ -1559,7 +1559,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %type_url.coerce0, ptr %type_url.coerce1, ptr noundef %type_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolver12ParseTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS6_SaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, i64 %type_url.coerce0, ptr %type_url.coerce1, ptr noundef nonnull %type_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1615,7 +1615,7 @@ if.then:                                          ; preds = %lor.lhs.false, %_ZN
   %call12 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   %7 = extractvalue { i64, ptr } %call12, 0
   %8 = extractvalue { i64, ptr } %call12, 1
-  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %7, ptr %8)
+  invoke void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %7, ptr %8)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then

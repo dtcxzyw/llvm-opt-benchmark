@@ -2272,7 +2272,7 @@ if.then80.i:                                      ; preds = %.noexc56
 
 .noexc57:                                         ; preds = %if.then80.i
   %agg.tmp.val.i = load i64, ptr %agg.tmp.i32, align 8
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp81.i, i64 %agg.tmp.val.i, ptr noundef nonnull %arg)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp81.i, i64 %agg.tmp.val.i, ptr noundef nonnull %arg)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc57
@@ -2376,7 +2376,7 @@ invoke.cont97.i:                                  ; preds = %.noexc58
 
 invoke.cont100.i:                                 ; preds = %invoke.cont97.i
   %agg.tmp88.val.i = load i64, ptr %agg.tmp88.i, align 8
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp87.i, i64 %agg.tmp88.val.i, ptr noundef nonnull %arg)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp87.i, i64 %agg.tmp88.val.i, ptr noundef nonnull %arg)
           to label %invoke.cont102.i unwind label %lpad101.i
 
 invoke.cont102.i:                                 ; preds = %invoke.cont100.i
@@ -2910,7 +2910,7 @@ if.then24:                                        ; preds = %invoke.cont4
 
 invoke.cont28:                                    ; preds = %if.then24
   %agg.tmp26.val = load i64, ptr %agg.tmp26, align 8
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp25, i64 %agg.tmp26.val, ptr noundef nonnull %arg)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp25, i64 %agg.tmp26.val, ptr noundef nonnull %arg)
           to label %invoke.cont30 unwind label %ehcleanup
 
 invoke.cont30:                                    ; preds = %invoke.cont28
@@ -3266,7 +3266,7 @@ if.end5:                                          ; preds = %entry
   br i1 %cmp7.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.end5
-  %call9 = tail call fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %arg, ptr noundef nonnull %26, ptr noundef nonnull %error)
+  %call9 = tail call fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %arg, ptr noundef %26, ptr noundef nonnull %error)
   br i1 %call9, label %if.else, label %if.then11
 
 cond.end:                                         ; preds = %if.end5
@@ -4663,7 +4663,7 @@ cond.true:                                        ; preds = %invoke.cont21
 
 invoke.cont29:                                    ; preds = %cond.true
   %agg.tmp23.val = load i64, ptr %agg.tmp23, align 8
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %agg.tmp20, i64 %agg.tmp23.val, ptr noundef nonnull %ep)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %agg.tmp20, i64 %agg.tmp23.val, ptr noundef nonnull %ep)
           to label %cond.end unwind label %lpad31
 
 cond.false:                                       ; preds = %invoke.cont21
@@ -4979,7 +4979,7 @@ if.end80:                                         ; preds = %invoke.cont72, %if.
   br i1 %cmp66108, label %cond.false85, label %cond.true82
 
 cond.true82:                                      ; preds = %if.end80
-  %call84 = invoke fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %ep, ptr noundef nonnull %zerocopy_send_record.0.i106, ptr noundef nonnull %error)
+  %call84 = invoke fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef nonnull %ep, ptr noundef %zerocopy_send_record.0.i106, ptr noundef nonnull %error)
           to label %cond.end88 unwind label %lpad.loopexit.split-lp
 
 cond.false85:                                     ; preds = %if.end80
@@ -5405,7 +5405,7 @@ declare noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull alig
 declare noundef zeroext i1 @_Z19grpc_fd_is_shutdownP7grpc_fd(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %agg.result, i64 %src_error.0.val, ptr noundef %tcp) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %agg.result, i64 %src_error.0.val, ptr noundef %tcp) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp1 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -5437,7 +5437,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %peer_string) #25
   %3 = extractvalue { i64, ptr } %call, 0
   %4 = extractvalue { i64, ptr } %call, 1
-  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp, i32 noundef 4, i64 %3, ptr %4)
+  invoke void @_Z18grpc_error_set_strN4absl12lts_202308026StatusEN9grpc_core17StatusStrPropertyESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp, i32 noundef 4, i64 %3, ptr %4)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont4
@@ -5678,7 +5678,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: uwtable
-define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr noundef %record, ptr nocapture noundef %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySendRecordEPN4absl12lts_202308026StatusE(ptr noundef %tcp, ptr noundef nonnull %record, ptr nocapture noundef %error) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %sent_length.i = alloca i64, align 8
   %saved_errno.i = alloca i32, align 4
@@ -5816,7 +5816,7 @@ if.then.i:                                        ; preds = %_ZN9grpc_core21TcpZ
   br i1 %tobool.i, label %lor.lhs.false.i, label %if.then3.i
 
 lor.lhs.false.i:                                  ; preds = %if.then.i
-  %call2.i = call fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef nonnull %tcp, ptr noundef nonnull %msg.i, i64 noundef %sending_length.1.i, ptr noundef nonnull %sent_length.i, ptr noundef nonnull %saved_errno.i, i32 noundef 67108864)
+  %call2.i = call fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef nonnull %tcp, ptr noundef %msg.i, i64 noundef %sending_length.1.i, ptr noundef %sent_length.i, ptr noundef %saved_errno.i, i32 noundef 67108864)
   %.pre144.i = load i32, ptr %saved_errno.i, align 4
   br i1 %call2.i, label %if.end12.i, label %if.then3.i
 
@@ -5986,7 +5986,7 @@ if.then.i37.i:                                    ; preds = %if.then27.i
 invoke.cont.i:                                    ; preds = %if.then27.i
   store i64 %33, ptr %agg.tmp.i, align 8, !alias.scope !54
   store i64 54, ptr %agg.tmp28.i, align 8, !noalias !54
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp.i, i64 %33, ptr noundef nonnull %tcp)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp.i, i64 %33, ptr noundef nonnull %tcp)
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont.i
@@ -6098,7 +6098,7 @@ if.then.i54.i:                                    ; preds = %if.else36.i
 invoke.cont42.i:                                  ; preds = %if.else36.i
   store i64 %47, ptr %agg.tmp38.i, align 8, !alias.scope !57
   store i64 54, ptr %agg.tmp39.i, align 8, !noalias !57
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp37.i, i64 %47, ptr noundef nonnull %tcp)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp37.i, i64 %47, ptr noundef nonnull %tcp)
           to label %invoke.cont44.i unwind label %lpad43.i
 
 invoke.cont44.i:                                  ; preds = %invoke.cont42.i
@@ -6482,7 +6482,7 @@ if.then41:                                        ; preds = %do.end
   br i1 %tobool42, label %lor.lhs.false, label %if.then43
 
 lor.lhs.false:                                    ; preds = %if.then41
-  %call = call fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef nonnull %tcp, ptr noundef nonnull %msg, i64 noundef %add, ptr noundef nonnull %sent_length, ptr noundef nonnull %saved_errno, i32 noundef 0)
+  %call = call fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef nonnull %tcp, ptr noundef %msg, i64 noundef %add, ptr noundef %sent_length, ptr noundef %saved_errno, i32 noundef 0)
   br i1 %call, label %if.end54thread-pre-split, label %lor.lhs.false.if.then43_crit_edge
 
 lor.lhs.false.if.then43_crit_edge:                ; preds = %lor.lhs.false
@@ -6628,7 +6628,7 @@ if.then.i:                                        ; preds = %if.then71
 invoke.cont:                                      ; preds = %if.then71
   store i64 %33, ptr %agg.tmp, align 8, !alias.scope !63
   store i64 54, ptr %agg.tmp72, align 8, !noalias !63
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp, i64 %33, ptr noundef %tcp)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp, i64 %33, ptr noundef %tcp)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont
@@ -6746,7 +6746,7 @@ if.then.i91:                                      ; preds = %if.else81
 invoke.cont87:                                    ; preds = %if.else81
   store i64 %48, ptr %agg.tmp83, align 8, !alias.scope !66
   store i64 54, ptr %agg.tmp84, align 8, !noalias !66
-  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias nonnull align 8 %ref.tmp82, i64 %48, ptr noundef %tcp)
+  invoke fastcc void @_ZL18tcp_annotate_errorN4absl12lts_202308026StatusEPN12_GLOBAL__N_18grpc_tcpE(ptr noalias align 8 %ref.tmp82, i64 %48, ptr noundef %tcp)
           to label %invoke.cont89 unwind label %lpad88
 
 invoke.cont89:                                    ; preds = %invoke.cont87
@@ -7784,7 +7784,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef %tcp, ptr noundef %msg, i64 noundef %sending_length, ptr nocapture noundef writeonly %sent_length, ptr nocapture noundef writeonly %saved_errno, i32 noundef %additional_flags) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL25tcp_write_with_timestampsPN12_GLOBAL__N_18grpc_tcpEP6msghdrmPlPii(ptr noundef %tcp, ptr noundef nonnull %msg, i64 noundef %sending_length, ptr nocapture noundef nonnull writeonly %sent_length, ptr nocapture noundef nonnull writeonly %saved_errno, i32 noundef range(i32 0, 67108865) %additional_flags) unnamed_addr #3 {
 entry:
   %opt = alloca i32, align 4
   %u = alloca %union.anon.56, align 8
@@ -7837,7 +7837,7 @@ do.body.i:                                        ; preds = %land.rhs.i, %if.end
   %call.i.i = call noundef nonnull align 8 dereferenceable(2344) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %syscall_write.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
   %4 = atomicrmw add ptr %syscall_write.i.i, i64 1 monotonic, align 8
-  %call1.i = call i64 @sendmsg(i32 noundef %3, ptr noundef %msg, i32 noundef %or.i)
+  %call1.i = call i64 @sendmsg(i32 noundef %3, ptr noundef nonnull %msg, i32 noundef %or.i)
   %cmp.i = icmp slt i64 %call1.i, 0
   br i1 %cmp.i, label %land.rhs.i, label %_Z8tcp_sendiPK6msghdrPii.exit
 

@@ -675,7 +675,7 @@ define internal fastcc void @destroy_k12_file_data(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1100,7 +1100,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 16, -2147483648) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 4
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -1219,7 +1219,7 @@ define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %99, ptr align 1 %101, i64 %95, i1 false)
   %102 = sub nuw nsw i32 %40, %39
   %103 = getelementptr inbounds i8, ptr %4, i64 56
-  %104 = zext i32 %102 to i64
+  %104 = zext nneg i32 %102 to i64
   tail call void @ws_buffer_assure_space(ptr noundef nonnull %103, i64 noundef %104) #11
   %105 = load ptr, ptr %103, align 8
   %106 = getelementptr inbounds i8, ptr %4, i64 72
@@ -1480,7 +1480,7 @@ define internal range(i32 0, 2) i32 @k12_dump(ptr noundef %0, ptr nocapture noun
   %53 = getelementptr inbounds i8, ptr %6, i64 32
   %54 = zext i32 %29 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %53, ptr align 1 %2, i64 %54, i1 false)
-  %55 = call fastcc i32 @k12_dump_record(ptr noundef nonnull %0, i32 noundef %34, ptr noundef nonnull %6, ptr noundef %3)
+  %55 = call fastcc i32 @k12_dump_record(ptr noundef nonnull %0, i32 noundef %34, ptr noundef %6, ptr noundef %3)
   br label %56
 
 56:                                               ; preds = %28, %18, %12
@@ -1685,12 +1685,12 @@ define internal void @k12_dump_src_setting(ptr nocapture readnone %0, ptr nocapt
   store i16 %rev41, ptr %23, align 4
   %rev42 = tail call i16 @llvm.bswap.i16(i16 %61)
   store i16 %rev42, ptr %29, align 2
-  %69 = call fastcc i32 @k12_dump_record(ptr noundef %2, i32 noundef %67, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %69 = call fastcc i32 @k12_dump_record(ptr noundef %2, i32 noundef %67, ptr noundef %5, ptr noundef nonnull %4)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1706,7 +1706,7 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
 
 13:                                               ; preds = %12
   %14 = zext nneg i32 %10 to i64
-  %15 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %14, ptr noundef %3) #11
+  %15 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %14, ptr noundef %3) #11
   %.not33 = icmp eq i32 %15, 0
   br i1 %.not33, label %37, label %16
 
@@ -1730,7 +1730,7 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
 
 26:                                               ; preds = %4
   %27 = zext nneg i32 %1 to i64
-  %28 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %27, ptr noundef %3) #11
+  %28 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %27, ptr noundef %3) #11
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %37, label %29
 

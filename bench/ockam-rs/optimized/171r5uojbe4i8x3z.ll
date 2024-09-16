@@ -580,7 +580,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
 
 .body7.i:                                         ; preds = %58, %48, %44
   %eh.lpad-body8.i = phi { ptr, i32 } [ %45, %44 ], [ %49, %48 ], [ %59, %58 ]
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %14) #30
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef align 8 dereferenceable(8) %14) #30
           to label %.body.i unwind label %70, !noalias !15
 
 50:                                               ; preds = %.noexc6.i
@@ -828,7 +828,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
 
 .body.i:                                          ; preds = %.body7.i, %52, %42, %38
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body8.i, %.body7.i ], [ %39, %38 ], [ %43, %42 ], [ %53, %52 ]
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %27) #30
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef align 8 dereferenceable(32) %27) #30
           to label %.body.thread unwind label %83, !noalias !44
 
 42:                                               ; preds = %36
@@ -906,7 +906,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
 
 .body7.i:                                         ; preds = %71, %61, %57
   %eh.lpad-body8.i = phi { ptr, i32 } [ %58, %57 ], [ %62, %61 ], [ %72, %71 ]
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26) #30
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef align 8 dereferenceable(8) %26) #30
           to label %.body.i unwind label %83, !noalias !44
 
 63:                                               ; preds = %.noexc6.i
@@ -1366,7 +1366,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   %eh.lpad-body54 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %80, %79 ], [ %.pn.i, %.body.i ]
   %.0.lpad-body52 = phi i1 [ true, %.body ], [ false, %79 ], [ false, %.body.i ]
   %172 = getelementptr inbounds i8, ptr %33, i64 32
-  invoke fastcc void @"_ZN4core3ptr254drop_in_place$LT$tokio_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39472eecb29bab70E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %172) #30
+  invoke fastcc void @"_ZN4core3ptr254drop_in_place$LT$tokio_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39472eecb29bab70E"(ptr noalias noundef align 8 dereferenceable(296) %172) #30
           to label %.body.thread55 unwind label %173
 
 173:                                              ; preds = %175, %.body.thread
@@ -1380,7 +1380,7 @@ define hidden void @"_ZN114_$LT$tokio_tungstenite..handshake..StartedHandshakeFu
   resume { ptr, i32 } %eh.lpad-body5365
 
 175:                                              ; preds = %.body.thread55
-  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %33) #30
+  invoke fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef align 8 dereferenceable(32) %33) #30
           to label %.body.thread55.thread unwind label %173
 }
 
@@ -2011,7 +2011,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread16: ; preds = %19, %_
   unreachable
 
 40:                                               ; preds = %34
-  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..Frame$GT$$C$tungstenite..error..Error$GT$$GT$17h343ad50d169c2ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %1) #30
+  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..Frame$GT$$C$tungstenite..error..Error$GT$$GT$17h343ad50d169c2ffbE"(ptr noalias noundef align 8 dereferenceable(136) %1) #30
           to label %41 unwind label %38
 
 41:                                               ; preds = %34, %42, %40
@@ -2454,7 +2454,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #30
+  invoke fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef align 8 dereferenceable(48) %11) #30
           to label %common.resume unwind label %23, !noalias !204
 
 23:                                               ; preds = %21
@@ -2684,7 +2684,7 @@ common.resume:                                    ; preds = %41, %68, %69, %70, 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #30
+  invoke fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef align 8 dereferenceable(48) %11) #30
           to label %common.resume unwind label %23, !noalias !238
 
 23:                                               ; preds = %21
@@ -2900,7 +2900,7 @@ define internal void @_ZN12futures_task5waker12wake_arc_raw17h7d9426260f6f315aE(
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #30
+  invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #30
           to label %12 unwind label %10
 
 6:                                                ; preds = %1
@@ -3127,7 +3127,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h92bf35ad52606180E.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h92bf35ad52606180E.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !292
   ret void
 }
@@ -3238,7 +3238,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h3b7ebd4b9fe80fceE.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_ready28_$u7b$$u7b$closure$u7d$$u7d$17h3b7ebd4b9fe80fceE.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !314
   ret void
 }
@@ -3349,7 +3349,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17h615da9e603ef6bbbE.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17h615da9e603ef6bbbE.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !336
   ret void
 }
@@ -3460,7 +3460,7 @@ define hidden void @"_ZN17tokio_tungstenite24WebSocketStream$LT$S$GT$12with_cont
   br label %"_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17he7940c8c336898c6E.exit"
 
 "_ZN129_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$10poll_flush28_$u7b$$u7b$closure$u7d$$u7d$17he7940c8c336898c6E.exit": ; preds = %36, %37, %40
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %8)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %8), !noalias !358
   ret void
 }
@@ -3622,7 +3622,7 @@ define hidden { i64, ptr } @"_ZN17tokio_tungstenite6compat17AllowStd$LT$S$GT$12w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load i64, ptr %1, align 8, !range !85, !noundef !4
   switch i64 %4, label %.thread [
@@ -3744,7 +3744,7 @@ _ZN3std2io5error5Error4kind17h8ecb8743c38342eaE.exit.thread29: ; preds = %12, %_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef align 8 dereferenceable(136) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17tokio_tungstenite6compat3cvt17h69aec40896957a6dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load i64, ptr %1, align 8, !range !85, !noundef !4
   switch i64 %4, label %.thread [
@@ -4504,7 +4504,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h6ddcc4870a74d58cE.llvm.76537
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$17h12c9eaa5c8118385E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   invoke void @"_ZN87_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h86e97e83692bcf21E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %5 unwind label %2
 
@@ -4550,7 +4550,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$tokio_tungstenite.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..Frame$GT$$C$tungstenite..error..Error$GT$$GT$17h343ad50d169c2ffbE"(ptr noalias noundef align 8 dereferenceable(136) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$tungstenite..protocol..frame..frame..Frame$GT$$C$tungstenite..error..Error$GT$$GT$17h343ad50d169c2ffbE"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !85, !noundef !4
   %4 = icmp eq i64 %3, 15
@@ -4602,13 +4602,13 @@ common.ret:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr223drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio..net..tcp..stream..TcpStream$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb606e6a59866135cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   tail call void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E.llvm.7653731377883981346"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr254drop_in_place$LT$tokio_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39472eecb29bab70E"(ptr noalias noundef align 8 dereferenceable(296) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr254drop_in_place$LT$tokio_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h39472eecb29bab70E"(ptr noalias noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 {
   tail call void @"_ZN4core3ptr41drop_in_place$LT$http..request..Parts$GT$17h0ad957867fff8a18E.llvm.12663281897316000666"(ptr noalias noundef nonnull align 8 dereferenceable(224) %0)
   ret void
 }
@@ -4620,7 +4620,7 @@ common.ret:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr272drop_in_place$LT$$LT$tokio_tungstenite..WebSocketStream$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$u20$as$u20$futures_sink..Sink$LT$tungstenite..protocol..message..Message$GT$$GT$..start_send..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf0e8b2b85acc6c32E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 {
   tail call void @"_ZN4core3ptr60drop_in_place$LT$tungstenite..protocol..message..Message$GT$17ha3f57cf13b9cf531E.llvm.7653731377883981346"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
   ret void
 }
@@ -5085,7 +5085,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$tokio_tungstenite..compat..WakerProxy$GT$$GT$17h83b69b732719fb6bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !655)
   %2 = load ptr, ptr %0, align 8, !alias.scope !655, !nonnull !4, !noundef !4
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !655
@@ -11445,7 +11445,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1713
   %43 = getelementptr inbounds i8, ptr %1, i64 48
   call void @_ZN11tungstenite8protocol16WebSocketContext4read17h2606f1d7c3ffb6baE(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1729
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !1713
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1710
   %44 = load i64, ptr %8, align 8, !range !171, !noundef !4
@@ -11605,7 +11605,7 @@ define hidden void @"_ZN92_$LT$tokio_tungstenite..WebSocketStream$LT$T$GT$$u20$a
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %4), !noalias !1742
   %43 = getelementptr inbounds i8, ptr %1, i64 48
   call void @_ZN11tungstenite8protocol16WebSocketContext4read17hb5b913796b23cfe2E(ptr noalias nocapture noundef nonnull sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %4, ptr noalias noundef nonnull align 8 dereferenceable(256) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !1758
-  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(136) %4)
+  call fastcc void @_ZN17tokio_tungstenite6compat3cvt17h0f1a1982a5227ee5E(ptr noalias nocapture noundef align 8 dereferenceable(136) %8, ptr noalias nocapture noundef align 8 dereferenceable(136) %4)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %4), !noalias !1742
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1739
   %44 = load i64, ptr %8, align 8, !range !171, !noundef !4

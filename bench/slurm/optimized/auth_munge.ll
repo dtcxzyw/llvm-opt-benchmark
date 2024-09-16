@@ -84,7 +84,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
   br i1 %.not8, label %21, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %16, ptr noundef %12, i1 noundef zeroext true)
+  %18 = tail call fastcc i32 @_decode_cred(ptr noundef %16, ptr noundef %12, i1 noundef zeroext true)
   %.not9 = icmp eq i32 %18, 0
   br i1 %.not9, label %19, label %23
 
@@ -324,7 +324,7 @@ define ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 no
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_decode_cred(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_decode_cred(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -613,7 +613,7 @@ define range(i32 -1, 1) i32 @auth_p_verify(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %5
   %10 = tail call ptr @slurm_auth_opts_to_socket(ptr noundef %1) #12
   store ptr %10, ptr %3, align 8
-  %11 = tail call fastcc i32 @_decode_cred(ptr noundef nonnull %0, ptr noundef %10, i1 noundef zeroext false)
+  %11 = tail call fastcc i32 @_decode_cred(ptr noundef %0, ptr noundef %10, i1 noundef zeroext false)
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   br label %12
 

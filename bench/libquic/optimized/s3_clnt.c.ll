@@ -817,7 +817,7 @@ lor.lhs.false95:                                  ; preds = %if.then92
   br i1 %tobool100.not, label %err, label %if.end103
 
 if.end103:                                        ; preds = %lor.lhs.false95, %if.end88
-  %call104 = call fastcc i32 @ssl3_write_client_cipher_list(ptr noundef nonnull %ssl, ptr noundef nonnull %cbb)
+  %call104 = call fastcc i32 @ssl3_write_client_cipher_list(ptr noundef nonnull %ssl, ptr noundef %cbb)
   %tobool105.not = icmp eq i32 %call104, 0
   br i1 %tobool105.not, label %err, label %lor.lhs.false106
 
@@ -3477,11 +3477,11 @@ declare i32 @CBB_add_bytes(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @CBB_add_u8_length_prefixed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_write_client_cipher_list(ptr noundef %ssl, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc i32 @ssl3_write_client_cipher_list(ptr noundef %ssl, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   tail call void @ssl_set_client_disabled(ptr noundef %ssl) #11
-  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef %out, ptr noundef nonnull %child) #11
+  %call = call i32 @CBB_add_u16_length_prefixed(ptr noundef nonnull %out, ptr noundef nonnull %child) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -3587,7 +3587,7 @@ land.lhs.true40:                                  ; preds = %if.end36
   br i1 %tobool42.not, label %return, label %if.end44
 
 if.end44:                                         ; preds = %land.lhs.true40, %if.end36
-  %call45 = call i32 @CBB_flush(ptr noundef %out) #11
+  %call45 = call i32 @CBB_flush(ptr noundef nonnull %out) #11
   br label %return
 
 return:                                           ; preds = %if.end17, %land.lhs.true40, %if.then30, %entry, %if.end44, %if.then24

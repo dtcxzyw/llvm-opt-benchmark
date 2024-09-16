@@ -282,11 +282,11 @@ for.end:                                          ; preds = %for.cond.for.end_cr
   %cond.i10.i.i3781.lcssa = phi ptr [ %cond.i10.i.i3780, %for.cond.for.end_crit_edge ], [ null, %entry ]
   store ptr %cond.i10.i.i3781.lcssa, ptr %normal, align 8
   store ptr %cond.i10.i.i86.lcssa, ptr %split, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull %normal, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %normal, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer)
           to label %invoke.cont10 unwind label %lpad.loopexit.split-lp
 
 invoke.cont10:                                    ; preds = %for.end
-  invoke fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull %split, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef %split, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %invoke.cont10
@@ -344,7 +344,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler3cpp11ShouldSplitEPKNS0_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr nocapture noundef %fields, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3cppL20OptimizeLayoutHelperEPSt6vectorIPKNS0_15FieldDescriptorESaIS6_EERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr nocapture noundef nonnull %fields, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i = alloca i32, align 4
   %aligned_to_1 = alloca [6 x %"class.std::vector.14"], align 16
@@ -1871,7 +1871,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i, %if.end4.
   %storemerge27.i.i.in.in.i = phi i64 [ %storemerge27.i.i.i, %if.end4.i.i.i ], [ %sub.ptr.div.i.i, %if.end.i ]
   %storemerge27.i.i.in.i = add nuw nsw i64 %storemerge27.i.i.in.in.i, 1
   %storemerge27.i.i.i = lshr i64 %storemerge27.i.i.in.i, 1
-  %mul.i.i.i = shl nuw nsw i64 %storemerge27.i.i.i, 5
+  %mul.i.i.i = shl i64 %storemerge27.i.i.i, 5
   %call.i.i.i = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %mul.i.i.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp2.not.i.i.i, label %if.end4.i.i.i, label %if.then.i.i

@@ -5180,7 +5180,7 @@ define hidden void @_ZN5tokio3net4addr15to_socket_addrs17h03184569136bd6e1E(ptr 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load i8, ptr %4, align 8, !range !445, !noundef !4
@@ -8591,7 +8591,7 @@ default.unreachable517:                           ; preds = %257, %432, %416, %3
 109:                                              ; preds = %71, %97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67)
   %110 = getelementptr inbounds i8, ptr %1, i64 312
-  invoke fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 %110, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 %110, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %113 unwind label %111
 
 111:                                              ; preds = %109
@@ -11581,7 +11581,7 @@ default.unreachable508:                           ; preds = %259, %425, %413, %3
 116:                                              ; preds = %79, %104
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75)
   %117 = getelementptr inbounds i8, ptr %1, i64 352
-  invoke fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 %117, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZN5tokio4sync9semaphore9Semaphore13acquire_owned28_$u7b$$u7b$closure$u7d$$u7d$17h0505f6b31d062a49E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %75, ptr noundef nonnull align 8 %117, ptr noalias noundef align 8 dereferenceable(8) %2)
           to label %120 unwind label %118
 
 118:                                              ; preds = %116

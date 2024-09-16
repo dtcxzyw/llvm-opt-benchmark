@@ -5829,7 +5829,7 @@ invoke.cont145:                                   ; preds = %land.lhs.true143
   br i1 %call.i319, label %land.rhs147, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i418
 
 land.rhs147:                                      ; preds = %invoke.cont145
-  invoke fastcc void @_ZL6symmodRK8rationalS1_(ptr noalias nonnull align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(32) %arg_v, ptr noundef nonnull align 8 dereferenceable(32) %v2)
+  invoke fastcc void @_ZL6symmodRK8rationalS1_(ptr noalias align 8 %ref.tmp148, ptr noundef nonnull align 8 dereferenceable(32) %arg_v, ptr noundef nonnull align 8 dereferenceable(32) %v2)
           to label %invoke.cont149 unwind label %lpad113
 
 invoke.cont149:                                   ; preds = %land.rhs147
@@ -5906,7 +5906,7 @@ cleanup.done157:                                  ; preds = %.noexc.i357
   br i1 %133, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i418, label %if.then161
 
 if.then161:                                       ; preds = %cleanup.done157
-  invoke fastcc void @_ZL6symmodRK8rationalS1_(ptr noalias nonnull align 8 %ref.tmp164, ptr noundef nonnull align 8 dereferenceable(32) %arg_v, ptr noundef nonnull align 8 dereferenceable(32) %v2)
+  invoke fastcc void @_ZL6symmodRK8rationalS1_(ptr noalias align 8 %ref.tmp164, ptr noundef nonnull align 8 dereferenceable(32) %arg_v, ptr noundef nonnull align 8 dereferenceable(32) %v2)
           to label %invoke.cont165 unwind label %lpad113
 
 invoke.cont165:                                   ; preds = %if.then161

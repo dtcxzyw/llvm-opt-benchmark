@@ -1203,7 +1203,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %216, %Vec_PtrPush.e
   br i1 %267, label %.lr.ph416, label %.critedge17
 
 268:                                              ; preds = %261
-  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %131, ptr noundef nonnull %260)
+  tail call fastcc void @Vec_PtrPushUnique(ptr noundef nonnull %131, ptr noundef %260)
   br label %.critedge17
 
 .lr.ph416:                                        ; preds = %.preheader, %Vec_PtrPushUnique.exit364
@@ -1595,7 +1595,7 @@ declare i32 @Nwk_ManGetTotalFanins(ptr noundef) local_unnamed_addr #1
 declare ptr @Nwk_ManStrash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

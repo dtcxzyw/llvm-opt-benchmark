@@ -476,7 +476,7 @@ define internal fastcc range(i32 -95, 1) i32 @mext_check_arguments(ptr noundef %
 declare dso_local i32 @ext4_ext_next_allocated_block(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @move_extent_per_page(ptr %.168.val, ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @move_extent_per_page(ptr %.168.val, ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca [8 x ptr], align 16
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

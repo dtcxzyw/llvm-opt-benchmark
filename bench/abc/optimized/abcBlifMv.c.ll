@@ -1296,12 +1296,12 @@ Abc_ObjMvVarNum.exit501:                          ; preds = %81, %92, %94
   %indvars.iv721 = phi i64 [ 0, %.lr.ph586.us ], [ %indvars.iv.next722, %116 ]
   %118 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv721
   %119 = load ptr, ptr %118, align 8
-  %120 = ptrtoint ptr %119 to i64
-  %121 = trunc nuw nsw i64 %indvars.iv721 to i32
-  %122 = lshr i32 %115, %121
-  %123 = and i32 %122, 1
-  %124 = zext nneg i32 %123 to i64
-  %125 = xor i64 %120, %124
+  %120 = trunc nuw nsw i64 %indvars.iv721 to i32
+  %121 = lshr i32 %115, %120
+  %122 = and i32 %121, 1
+  %123 = ptrtoint ptr %119 to i64
+  %124 = zext nneg i32 %122 to i64
+  %125 = xor i64 %123, %124
   %126 = inttoptr i64 %125 to ptr
   %127 = load ptr, ptr %72, align 8
   %128 = call ptr @Abc_AigAnd(ptr noundef %127, ptr noundef %117, ptr noundef %126) #14
@@ -1472,12 +1472,12 @@ Abc_ObjMvVarNum.exit508:                          ; preds = %157, %168, %170
   %indvars.iv744 = phi i64 [ 0, %.lr.ph602.us ], [ %indvars.iv.next745, %193 ]
   %195 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv744
   %196 = load ptr, ptr %195, align 8
-  %197 = ptrtoint ptr %196 to i64
-  %198 = trunc nuw nsw i64 %indvars.iv744 to i32
-  %199 = lshr i32 %192, %198
-  %200 = and i32 %199, 1
-  %201 = zext nneg i32 %200 to i64
-  %202 = xor i64 %197, %201
+  %197 = trunc nuw nsw i64 %indvars.iv744 to i32
+  %198 = lshr i32 %192, %197
+  %199 = and i32 %198, 1
+  %200 = ptrtoint ptr %196 to i64
+  %201 = zext nneg i32 %199 to i64
+  %202 = xor i64 %200, %201
   %203 = inttoptr i64 %202 to ptr
   %204 = load ptr, ptr %74, align 8
   %205 = call ptr @Abc_AigAnd(ptr noundef %204, ptr noundef %194, ptr noundef %203) #14
@@ -3654,7 +3654,7 @@ declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

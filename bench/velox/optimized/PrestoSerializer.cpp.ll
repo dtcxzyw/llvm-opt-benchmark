@@ -4586,7 +4586,7 @@ sw.bb58:                                          ; preds = %tailrecurse
   %653 = load ptr, ptr %rawOffsets_.i, align 8
   %rawSizes_.i = getelementptr inbounds i8, ptr %652, i64 128
   %654 = load ptr, ptr %rawSizes_.i, align 8
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef nonnull %652, ptr noundef %653, ptr noundef %654, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr noundef nonnull %childRanges60, ptr noundef nonnull %childSizes61)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef nonnull %652, ptr noundef %653, ptr noundef %654, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr noundef %childRanges60, ptr noundef %childSizes61)
           to label %invoke.cont72 unwind label %lpad62
 
 invoke.cont72:                                    ; preds = %sw.bb58
@@ -4655,7 +4655,7 @@ sw.bb82:                                          ; preds = %tailrecurse
   %664 = load ptr, ptr %rawOffsets_.i120, align 8
   %rawSizes_.i121 = getelementptr inbounds i8, ptr %663, i64 128
   %665 = load ptr, ptr %rawSizes_.i121, align 8
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef nonnull %663, ptr noundef %664, ptr noundef %665, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr noundef nonnull %childRanges84, ptr noundef nonnull %childSizes85)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef nonnull %663, ptr noundef %664, ptr noundef %665, ptr noundef nonnull align 8 dereferenceable(16) %ranges, ptr noundef %sizes, ptr noundef %childRanges84, ptr noundef %childSizes85)
           to label %invoke.cont96 unwind label %lpad86
 
 invoke.cont96:                                    ; preds = %sw.bb82
@@ -17951,7 +17951,7 @@ _ZNSt6vectorIN8facebook5velox10IndexRangeESaIS2_EED2Ev.exit34: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef %vector, ptr nocapture noundef readonly %rawOffsets, ptr nocapture noundef readonly %rawSizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr nocapture noundef readonly %sizes, ptr nocapture noundef %childRanges, ptr nocapture noundef %childSizes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_120expandRepeatedRangesEPKNS0_10BaseVectorEPKiS8_RKN5folly5RangeIPKNS0_10IndexRangeEEEPPiPSt6vectorISB_SaISB_EEPSJ_ISH_SaISH_EE(ptr noundef %vector, ptr nocapture noundef readonly %rawOffsets, ptr nocapture noundef readonly %rawSizes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ranges, ptr nocapture noundef readonly %sizes, ptr nocapture noundef nonnull %childRanges, ptr nocapture noundef nonnull %childSizes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %e_.i = getelementptr inbounds i8, ptr %ranges, i64 8
   %0 = load ptr, ptr %e_.i, align 8
@@ -41148,7 +41148,7 @@ if.then.i24:                                      ; preds = %invoke.cont9
 
 invoke.cont12:                                    ; preds = %if.then.i24, %invoke.cont9
   %21 = phi ptr [ %agg.tmp10.val.pre, %if.then.i24 ], [ null, %invoke.cont9 ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -42186,7 +42186,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -43019,7 +43019,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -43913,7 +43913,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -44596,7 +44596,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -45292,7 +45292,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -46026,7 +46026,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -46717,7 +46717,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -48039,7 +48039,7 @@ if.then.i74:                                      ; preds = %invoke.cont17
 
 invoke.cont20:                                    ; preds = %if.then.i74, %invoke.cont17
   %98 = phi ptr [ %agg.tmp18.val.pre, %if.then.i74 ], [ null, %invoke.cont17 ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp15, i32 noundef %call4, ptr %98)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp15, i32 noundef %call4, ptr %98)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -51833,7 +51833,7 @@ if.then.i24:                                      ; preds = %invoke.cont
 
 invoke.cont11:                                    ; preds = %if.then.i24, %invoke.cont
   %21 = phi ptr [ %agg.tmp9.val.pre, %if.then.i24 ], [ null, %invoke.cont ]
-  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef nonnull %agg.tmp, i32 noundef %call4, ptr %21)
+  invoke fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef nonnull %source, i32 noundef %retval.0.i, i32 noundef %resultOffset, ptr noundef %agg.tmp, i32 noundef %call4, ptr %21)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -53019,7 +53019,7 @@ _ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2ERKS4_.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef %source, i32 noundef %size, i32 noundef %offset, ptr nocapture noundef readonly %nulls, i32 noundef %nullCount, ptr %values.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_117readDecimalValuesEPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiS9_(ptr noundef %source, i32 noundef %size, i32 noundef %offset, ptr nocapture noundef nonnull readonly %nulls, i32 noundef %nullCount, ptr %values.0.val) unnamed_addr #0 {
 entry:
   %vtable.i = load ptr, ptr %values.0.val, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
@@ -57516,7 +57516,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIiEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIiEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -58522,7 +58522,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIlEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIlEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -60422,7 +60422,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIfEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIfEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61432,7 +61432,7 @@ unreachable:                                      ; preds = %invoke.cont48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIdEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_10serializer6presto12_GLOBAL__N_110readValuesIdEEvPNS0_15ByteInputStreamEiiN5boost13intrusive_ptrINS0_6BufferEEEiSC_EUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -70992,11 +70992,11 @@ if.then:                                          ; preds = %entry
   %cmp6.i = icmp ule i64 %sub.ptr.div.i15, %sub.i
   tail call void @llvm.assume(i1 %cmp6.i)
   %cmp8.not.i = icmp ult i64 %sub.ptr.div.i15, %sub
-  br i1 %cmp8.not.i, label %if.else.i, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EEmS9_ET_SB_T0_RSaIT1_E.exit.i
+  br i1 %cmp8.not.i, label %if.else.i, label %if.then9.i
 
-_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EEmS9_ET_SB_T0_RSaIT1_E.exit.i: ; preds = %if.then
+if.then9.i:                                       ; preds = %if.then
   %2 = shl nuw i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %this.val8, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %this.val8, i8 0, i64 %2, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %this.val8, i64 %2
   store ptr %scevgep.i.i.i.i, ptr %0, align 8
   br label %if.end6
@@ -71017,7 +71017,7 @@ _ZNKSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #37
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   %4 = shl nuw nsw i64 %sub, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr.i, i8 0, i64 %4, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i, i8 0, i64 %4, i1 false)
   %cmp.not1.i.i.i.i = icmp eq ptr %this.val7, %this.val8
   br i1 %cmp.not1.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i, label %for.body.i.i.i.i
 
@@ -71035,14 +71035,14 @@ for.body.i.i.i.i:                                 ; preds = %_ZNKSt6vectorISt10u
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i, label %for.body.i.i.i.i, !llvm.loop !551
 
 _ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i: ; preds = %for.body.i.i.i.i, %_ZNKSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i
-  %tobool.not.i30.i = icmp eq ptr %this.val7, null
-  br i1 %tobool.not.i30.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit32.i, label %if.then.i31.i
+  %tobool.not.i25.i = icmp eq ptr %this.val7, null
+  br i1 %tobool.not.i25.i, label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit27.i, label %if.then.i26.i
 
-if.then.i31.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i
+if.then.i26.i:                                    ; preds = %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %this.val7) #38
-  br label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit32.i
+  br label %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit27.i
 
-_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit32.i: ; preds = %if.then.i31.i, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i
+_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit27.i: ; preds = %if.then.i26.i, %_ZNSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr37.i = getelementptr inbounds %"class.std::unique_ptr.316", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %0, align 8
@@ -71080,7 +71080,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt10unique_ptrIN
   store ptr %add.ptr, ptr %0, align 8
   br label %if.end6
 
-if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit32.i, %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EEmS9_ET_SB_T0_RSaIT1_E.exit.i, %if.else
+if.end6:                                          ; preds = %invoke.cont.i, %if.then5, %_ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE13_M_deallocateEPS9_m.exit27.i, %if.then9.i, %if.else
   ret void
 }
 
@@ -71741,7 +71741,7 @@ if.then.i.i.i27:                                  ; preds = %if.else.i
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i, i64 1)
-  %add.i.i.i = add nsw i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
+  %add.i.i.i = add i64 %.sroa.speculated.i.i.i, %sub.ptr.div.i.i.i.i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %25 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %25
@@ -71862,7 +71862,7 @@ if.then.i.i.i86:                                  ; preds = %if.else.i55
 _ZNKSt6vectorISt10unique_ptrIN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStreamESt14default_deleteIS6_EESaIS9_EE12_M_check_lenEmPKc.exit.i.i61: ; preds = %if.else.i55
   %sub.ptr.div.i.i.i.i62 = ashr exact i64 %sub.ptr.sub.i.i.i.i59, 3
   %.sroa.speculated.i.i.i63 = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i.i62, i64 1)
-  %add.i.i.i64 = add nsw i64 %.sroa.speculated.i.i.i63, %sub.ptr.div.i.i.i.i62
+  %add.i.i.i64 = add i64 %.sroa.speculated.i.i.i63, %sub.ptr.div.i.i.i.i62
   %cmp7.i.i.i65 = icmp ult i64 %add.i.i.i64, %sub.ptr.div.i.i.i.i62
   %35 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i64, i64 1152921504606846975)
   %cond.i.i.i66 = select i1 %cmp7.i.i.i65, i64 1152921504606846975, i64 %35

@@ -709,7 +709,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN5vcpkg7Unic
           to label %39 unwind label %46
 
 39:                                               ; preds = %37
-  invoke fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %.0.i)
+  invoke fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %.0.i)
           to label %40 unwind label %46
 
 40:                                               ; preds = %39
@@ -777,7 +777,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg6Checks19msg_exit_with_errorERKNS_8
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedString6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LocalizedString", align 8
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   switch i32 %1, label %15 [
@@ -791,7 +791,7 @@ define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead
 
 5:                                                ; preds = %2
   %.sroa.05.0.copyload = load i64, ptr @_ZN5vcpkg18msgInvalidCodeUnitE, align 8
-  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.05.0.copyload)
+  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.05.0.copyload)
   br label %17
 
 6:                                                ; preds = %2
@@ -813,22 +813,22 @@ define internal fastcc void @_ZN5vcpkg7UnicodeL7messageENS0_9utf8_errcE(ptr dead
 
 11:                                               ; preds = %2
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg29msgPairedSurrogatesAreInvalidE, align 8
-  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.03.0.copyload)
+  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.03.0.copyload)
   br label %17
 
 12:                                               ; preds = %2
   %.sroa.02.0.copyload = load i64, ptr @_ZN5vcpkg26msgContinueCodeUnitInStartE, align 8
-  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.02.0.copyload)
+  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.02.0.copyload)
   br label %17
 
 13:                                               ; preds = %2
   %.sroa.01.0.copyload = load i64, ptr @_ZN5vcpkg26msgStartCodeUnitInContinueE, align 8
-  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.01.0.copyload)
+  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.01.0.copyload)
   br label %17
 
 14:                                               ; preds = %2
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg24msgEndOfStringInCodeUnitE, align 8
-  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.0.0.copyload)
+  tail call void @_ZN5vcpkg3msg6formatIJEJEEENS_15LocalizedStringENS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS4_E4typeET0_EE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, i64 %.sroa.0.0.copyload)
   br label %17
 
 15:                                               ; preds = %2

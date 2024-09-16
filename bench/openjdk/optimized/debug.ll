@@ -198,7 +198,7 @@ define hidden void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef %0, ptr no
 
 12:                                               ; preds = %7, %4
   %.0 = phi ptr [ null, %4 ], [ %spec.select, %7 ]
-  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef nonnull @.str.9, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef nonnull @.str.9, ptr noundef %3, ptr noundef %5)
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
   call void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_S1_im(i32 noundef %0, ptr noundef nonnull @.str.9, ptr noundef %3, ptr noundef nonnull %5, ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef %.0, ptr noundef %1, i32 noundef %2, i64 noundef 0) #17
@@ -270,7 +270,7 @@ define hidden void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef %0, i32 noundef %
 
 12:                                               ; preds = %7, %4
   %.0 = phi ptr [ null, %4 ], [ %spec.select, %7 ]
-  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %13 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
   call void @_ZN7VMError14report_and_dieEP6ThreadPvPKciS4_S4_P13__va_list_tag(ptr noundef %14, ptr noundef %.0, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5) #17
@@ -280,7 +280,7 @@ define hidden void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef %0, i32 noundef %
 declare noundef i64 @_ZN2os17current_thread_idEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = load i8, ptr @ExecutingUnitTests, align 1
@@ -290,7 +290,7 @@ define internal fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_ta
   br i1 %or.cond, label %9, label %24
 
 9:                                                ; preds = %3
-  call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
+  call void @llvm.va_copy.p0(ptr nonnull %5, ptr nonnull %2)
   %10 = call i32 @jio_vsnprintf(ptr noundef nonnull %4, i64 noundef 256, ptr noundef nonnull %1, ptr noundef nonnull %5) #16
   %11 = icmp eq ptr %0, null
   br i1 %11, label %12, label %15
@@ -343,7 +343,7 @@ declare void @_ZN7VMError14report_and_dieEiPKcS1_P13__va_list_tagP6ThreadPhPvS7_
 define hidden void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ...) local_unnamed_addr #2 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
-  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef null, ptr noundef %4, ptr noundef nonnull %6)
+  call fastcc void @_ZL25print_error_for_unit_testPKcS0_P13__va_list_tag(ptr noundef null, ptr noundef %4, ptr noundef %6)
   %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
   call void @_ZN7VMError14report_and_dieEP6ThreadPKcim11VMErrorTypeS3_P13__va_list_tag(ptr noundef %8, ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %6) #17

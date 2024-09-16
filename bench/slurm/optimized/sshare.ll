@@ -512,7 +512,7 @@ thread-pre-split63:                               ; preds = %140
   %165 = getelementptr inbounds i8, ptr %164, i64 272
   %166 = load ptr, ptr %165, align 8
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %166)
-  %168 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
+  %168 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef %5)
   %.not9.i = icmp eq i32 %168, 0
   %spec.select.i = select i1 %.not9.i, i32 %.0711.i, i32 1
   %169 = call ptr @list_next(ptr noundef %159) #14
@@ -526,7 +526,7 @@ _multi_cluster.exit:                              ; preds = %163, %158
   br label %172
 
 170:                                              ; preds = %156
-  %171 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %5)
+  %171 = call fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef %5)
   br label %172
 
 172:                                              ; preds = %_multi_cluster.exit, %170
@@ -684,12 +684,12 @@ declare i32 @getuid() local_unnamed_addr #5
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #9 {
+define internal fastcc i32 @_single_cluster(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #9 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.openapi_resp_single_t, align 8
   %6 = alloca %struct.data_parser_dump_cli_ctxt_t, align 8
   store ptr null, ptr %4, align 8
-  %7 = call i32 @slurm_associations_get_shares(ptr noundef %2, ptr noundef nonnull %4) #14
+  %7 = call i32 @slurm_associations_get_shares(ptr noundef nonnull %2, ptr noundef nonnull %4) #14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %9, label %8
 

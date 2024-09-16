@@ -167,7 +167,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not47, label %52, label %50
 
 50:                                               ; preds = %46
-  tail call fastcc void @print_server_version(ptr noundef nonnull %12)
+  tail call fastcc void @print_server_version(ptr noundef %12)
   tail call void @optfree(ptr noundef nonnull %12) #7
   %51 = load ptr, ptr @clamdopts, align 8
   tail call void @optfree(ptr noundef %51) #7
@@ -422,8 +422,8 @@ define dso_local void @help() local_unnamed_addr #0 {
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_server_version(ptr noundef %0) unnamed_addr #3 {
-  %2 = tail call i32 @get_clamd_version(ptr noundef %0) #7
+define internal fastcc void @print_server_version(ptr noundef nonnull %0) unnamed_addr #3 {
+  %2 = tail call i32 @get_clamd_version(ptr noundef nonnull %0) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %3
 

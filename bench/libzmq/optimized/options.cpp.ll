@@ -780,7 +780,7 @@ sw.bb125:                                         ; preds = %if.end
 
 sw.bb128:                                         ; preds = %if.end
   %socks_proxy_address = getelementptr inbounds i8, ptr %this, i64 376
-  %call129 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_address, i64 noundef -1)
+  %call129 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %socks_proxy_address, i64 noundef -1)
   br label %return
 
 sw.bb130:                                         ; preds = %if.end
@@ -795,7 +795,7 @@ if.then133:                                       ; preds = %sw.bb130
   br label %return
 
 if.else:                                          ; preds = %sw.bb130
-  %call135 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_username, i64 noundef 255)
+  %call135 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef %socks_proxy_username, i64 noundef 255)
   br label %return
 
 sw.bb136:                                         ; preds = %if.end
@@ -810,7 +810,7 @@ if.then140:                                       ; preds = %sw.bb136
   br label %return
 
 if.else141:                                       ; preds = %sw.bb136
-  %call143 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef nonnull %socks_proxy_password, i64 noundef 255)
+  %call143 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %optval_, i64 noundef %optvallen_, ptr noundef %socks_proxy_password, i64 noundef 255)
   br label %return
 
 sw.bb144:                                         ; preds = %if.end
@@ -866,7 +866,7 @@ if.then184:                                       ; preds = %sw.bb178
 
 sw.bb186:                                         ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filter_str) #15
-  %call188 = invoke fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %filter_str, i64 noundef 255)
+  %call188 = invoke fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %filter_str, i64 noundef 255)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %sw.bb186
@@ -923,17 +923,17 @@ if.end206:                                        ; preds = %invoke.cont.i.i, %i
 
 sw.bb207:                                         ; preds = %if.end
   %ipc_uid_accept_filters = getelementptr inbounds i8, ptr %this, i64 512
-  %call208 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_uid_accept_filters)
+  %call208 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %ipc_uid_accept_filters)
   br label %return
 
 sw.bb209:                                         ; preds = %if.end
   %ipc_gid_accept_filters = getelementptr inbounds i8, ptr %this, i64 560
-  %call210 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_gid_accept_filters)
+  %call210 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %ipc_gid_accept_filters)
   br label %return
 
 sw.bb211:                                         ; preds = %if.end
   %ipc_pid_accept_filters = getelementptr inbounds i8, ptr %this, i64 608
-  %call212 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %ipc_pid_accept_filters)
+  %call212 = tail call fastcc noundef i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %ipc_pid_accept_filters)
   br label %return
 
 sw.bb213:                                         ; preds = %if.end
@@ -1004,7 +1004,7 @@ if.then252:                                       ; preds = %if.else246
 
 sw.bb258:                                         ; preds = %if.end
   %zap_domain = getelementptr inbounds i8, ptr %this, i64 664
-  %call259 = tail call fastcc noundef i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %zap_domain)
+  %call259 = tail call fastcc noundef i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %zap_domain)
   br label %return
 
 sw.bb260:                                         ; preds = %if.end
@@ -1083,7 +1083,7 @@ if.then295:                                       ; preds = %sw.bb291
 
 sw.bb297:                                         ; preds = %if.end
   %bound_device = getelementptr inbounds i8, ptr %this, i64 960
-  %call298 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %bound_device, i64 noundef 16)
+  %call298 = tail call fastcc noundef i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %bound_device, i64 noundef 16)
   br label %return
 
 sw.bb299:                                         ; preds = %if.end
@@ -1518,7 +1518,7 @@ eh.resume:                                        ; preds = %lpad387, %lpad380, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_, i64 noundef %max_len_) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL39do_setsockopt_string_allow_empty_strictPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %out_value_, i64 noundef range(i64 -1, 256) %max_len_) unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %optval_, null
   %cmp1 = icmp eq i64 %optvallen_, 0
@@ -1641,7 +1641,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN3zmq1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIjEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIjjSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL17do_setsockopt_setIiEiPKvmPSt3setIT_St4lessIS3_ESaIS3_EE(ptr noundef readonly %optval_, i64 noundef %optvallen_, ptr noundef nonnull %set_) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %optvallen_, 0
   %cmp1 = icmp eq ptr %optval_, null
@@ -1867,7 +1867,7 @@ return:                                           ; preds = %_ZNSt8_Rb_treeIiiSt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef %out_value_) unnamed_addr #5 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL40do_setsockopt_string_allow_empty_relaxedPKvmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %optval_, i64 noundef %optvallen_, ptr noundef nonnull %out_value_) unnamed_addr #5 {
 entry:
   %0 = add i64 %optvallen_, -1
   %or.cond = icmp ult i64 %0, 255

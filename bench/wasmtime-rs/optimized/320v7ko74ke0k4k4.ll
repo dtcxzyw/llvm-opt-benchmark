@@ -116,7 +116,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$6advise28_$u7b$$u7b$closure$u7d$$u7d$17hf6bdf174c1ff076eE.llvm.10002545943538650143" = private unnamed_addr constant [6 x i32] [i32 0, i32 2, i32 1, i32 3, i32 4, i32 5], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(192) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
@@ -395,7 +395,7 @@ _ZN14cap_primitives2fs8metadata8Metadata10from_parts17hb1c6e71cd043708fE.exit: ;
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0d16b2d18ea65280E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0d16b2d18ea65280E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -441,7 +441,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h30c281365ab59433E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h30c281365ab59433E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -487,7 +487,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h37b09418e8a8e215E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h37b09418e8a8e215E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -533,7 +533,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -579,7 +579,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h644e248faf37abbcE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h644e248faf37abbcE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -625,7 +625,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -671,7 +671,7 @@ define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -760,7 +760,7 @@ define internal fastcc noundef nonnull ptr @"_ZN153_$LT$core..result..Result$LT$
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbf1067da4f4fec5E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbf1067da4f4fec5E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1008,7 +1008,7 @@ define hidden void @"_ZN4core3ptr145drop_in_place$LT$core..result..Result$LT$wig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$$LP$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..filesystem..Descriptor$GT$$C$alloc..string..String$RP$$GT$17h7743d2ce4a5b6c17E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr147drop_in_place$LT$$LP$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..filesystem..Descriptor$GT$$C$alloc..string..String$RP$$GT$17h7743d2ce4a5b6c17E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !169
@@ -1118,7 +1118,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr130dro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr198drop_in_place$LT$$LP$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$GT$17h48ff9d4b57898f20E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr198drop_in_place$LT$$LP$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$GT$17h48ff9d4b57898f20E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
@@ -1654,7 +1654,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %19)
           to label %"_ZN4core3ptr405drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hdca2cee82ea2985bE.exit" unwind label %49
 
 20:                                               ; preds = %15
@@ -2132,7 +2132,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 120
-  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %19)
+  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %19)
           to label %"_ZN4core3ptr407drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h898ba6ffa13cf4eeE.exit" unwind label %49
 
 20:                                               ; preds = %15
@@ -2493,7 +2493,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %0, i64 88
-  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %19)
+  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %19)
           to label %"_ZN4core3ptr408drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hd38d4f179b8e4f48E.exit" unwind label %49
 
 20:                                               ; preds = %15
@@ -3178,7 +3178,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !542
@@ -3279,7 +3279,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !574
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3305,7 +3305,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !583
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3331,7 +3331,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !592
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3357,7 +3357,7 @@ define internal fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !601
@@ -3458,7 +3458,7 @@ define internal fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !633
@@ -3525,7 +3525,7 @@ define internal fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !651
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3551,7 +3551,7 @@ define internal fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !660
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3577,7 +3577,7 @@ define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !669
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3603,7 +3603,7 @@ define internal fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !678
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3629,7 +3629,7 @@ define internal fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4037a673203753aE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4037a673203753aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !687
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3655,7 +3655,7 @@ define internal fastcc void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !696
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3681,7 +3681,7 @@ define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..hos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !705
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h191d351d6cc83dd6E.llvm.10377456559187600216"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
@@ -3900,7 +3900,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   ret void
 
 4:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  tail call fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %0)
   br label %common.ret
 
 5:                                                ; preds = %1
@@ -4004,7 +4004,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   ret void
 
 4:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  tail call fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %0)
   br label %common.ret
 
 5:                                                ; preds = %1
@@ -4163,7 +4163,7 @@ common.ret:                                       ; preds = %4, %1, %"_ZN4core3p
   ret void
 
 4:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
+  tail call fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %0)
   br label %common.ret
 
 5:                                                ; preds = %1
@@ -5723,7 +5723,7 @@ common.ret:                                       ; preds = %1, %"_ZN4core3ptr45
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !178, !noundef !5
@@ -7057,7 +7057,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10002545943538650143.e
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.7 = alloca { ptr, [1 x i64] }, align 8
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -7304,7 +7304,7 @@ define hidden void @"_ZN13wasmtime_wasi4host3env95_$LT$impl$u20$wasmtime_wasi..b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..preopens..Host$u20$for$u20$T$GT$15get_directories17hf6ead6cea210bde2E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..preopens..Host$u20$for$u20$T$GT$15get_directories17hf6ead6cea210bde2E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { { i64 } }, i32, {}, [4 x i8] }, { { { i64, ptr, {} }, i64 } } }, align 8
   %5 = alloca { [32 x i8], i8, [7 x i8] }, align 8
@@ -7441,7 +7441,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20
 40:                                               ; preds = %39
   %41 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$$LP$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..filesystem..Descriptor$GT$$C$alloc..string..String$RP$$GT$17h7743d2ce4a5b6c17E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4) #22
+  invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$$LP$wasmtime..runtime..component..resources..Resource$LT$wasmtime_wasi..filesystem..Descriptor$GT$$C$alloc..string..String$RP$$GT$17h7743d2ce4a5b6c17E"(ptr noalias noundef align 8 dereferenceable(40) %4) #22
           to label %.body unwind label %42
 
 42:                                               ; preds = %40
@@ -7946,7 +7946,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   store ptr inttoptr (i64 -2 to ptr), ptr %37, align 8
   %.sroa.447.8..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %.sroa.612.0.extract.shift.i.i220, ptr %.sroa.447.8..sroa_idx, align 8
-  %152 = invoke fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef nonnull align 16 dereferenceable(320) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %37)
+  %152 = invoke fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %37)
           to label %153 unwind label %62
 
 153:                                              ; preds = %151
@@ -8005,7 +8005,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
-  invoke fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %34, ptr noalias noundef nonnull align 16 dereferenceable(320) %1)
+  invoke fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %34, ptr noalias noundef align 16 dereferenceable(320) %1)
           to label %173 unwind label %62
 
 171:                                              ; preds = %166
@@ -8040,7 +8040,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   %.sroa.8290.8.copyload = load i64, ptr %.sroa.8290.8..sroa_idx, align 8, !alias.scope !1380, !noalias !1373
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
-  invoke fastcc void @"_ZN13wasmtime_wasi5stdio99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_stderr..Host$u20$for$u20$T$GT$19get_terminal_stderr17h865858b351015fd0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %33, ptr noalias noundef nonnull align 16 dereferenceable(320) %1)
+  invoke fastcc void @"_ZN13wasmtime_wasi5stdio99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_stderr..Host$u20$for$u20$T$GT$19get_terminal_stderr17h865858b351015fd0E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %33, ptr noalias noundef align 16 dereferenceable(320) %1)
           to label %184 unwind label %62
 
 182:                                              ; preds = %177
@@ -8092,7 +8092,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
   store ptr %188, ptr %32, align 8
   %.sroa.478.8..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   store i64 %.sroa.9296.0.copyload, ptr %.sroa.478.8..sroa_idx, align 8
-  %197 = invoke fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef nonnull align 16 dereferenceable(320) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %32)
+  %197 = invoke fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef align 16 dereferenceable(320) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %32)
           to label %198 unwind label %62
 
 198:                                              ; preds = %196
@@ -8148,7 +8148,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10298849200982743166.e
 
 214:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
-  invoke fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..preopens..Host$u20$for$u20$T$GT$15get_directories17hf6ead6cea210bde2E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %31, ptr noalias noundef nonnull align 16 dereferenceable(320) %1)
+  invoke fastcc void @"_ZN13wasmtime_wasi4host10filesystem99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..preopens..Host$u20$for$u20$T$GT$15get_directories17hf6ead6cea210bde2E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %31, ptr noalias noundef align 16 dereferenceable(320) %1)
           to label %217 unwind label %62
 
 215:                                              ; preds = %210
@@ -8818,7 +8818,7 @@ define hidden void @"_ZN13wasmtime_wasi8preview111read_string28_$u7b$$u7b$closur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..stderr..Host$u20$for$u20$T$GT$10get_stderr17hc8ba9b0ac3e161e1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [23 x i8] }, align 8
   %.sroa.8 = alloca [22 x i8], align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 112
@@ -8863,7 +8863,7 @@ define internal fastcc void @"_ZN13wasmtime_wasi5stdio90_$LT$impl$u20$wasmtime_w
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef align 16 dereferenceable(320) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_output..HostTerminalOutput$u20$for$u20$T$GT$4drop17h5814e7ae347b744cE"(ptr noalias noundef nonnull align 16 dereferenceable(320) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = tail call noundef i8 @_ZN8wasmtime7runtime9component14resource_table13ResourceTable6delete17h27c53045751114aaE(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1), !range !150
   %5 = icmp eq i8 %4, 4
@@ -8879,7 +8879,7 @@ define internal fastcc noundef ptr @"_ZN13wasmtime_wasi5stdio113_$LT$impl$u20$wa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN13wasmtime_wasi5stdio99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_stderr..Host$u20$for$u20$T$GT$19get_terminal_stderr17h865858b351015fd0E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN13wasmtime_wasi5stdio99_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..cli..terminal_stderr..Host$u20$for$u20$T$GT$19get_terminal_stderr17h865858b351015fd0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 16 dereferenceable(320) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 16, !nonnull !5, !align !829, !noundef !5
@@ -10472,7 +10472,7 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17h23342a8e833e2d72E.exit._c
 121:                                              ; preds = %119
   %122 = icmp ne ptr %.sroa.879.sroa.6.0.ph, null
   tail call void @llvm.assume(i1 %122)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %.sroa.879.sroa.6.0.ph)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noundef nonnull %.sroa.879.sroa.6.0.ph)
           to label %14 unwind label %.body35
 
 123:                                              ; preds = %119
@@ -10753,7 +10753,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h09b19ef8666cafe6E.exit.i: ; preds =
 206:                                              ; preds = %"_ZN4core3ptr438drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a88458c8495ad31E.exit"
   %207 = icmp ne ptr %.sroa.897.sroa.6.0.copyload154, null
   tail call void @llvm.assume(i1 %207)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %.sroa.897.sroa.6.0.copyload154)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h5fa82f3c1a27c0cbE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %11, ptr noundef nonnull %.sroa.897.sroa.6.0.copyload154)
           to label %14 unwind label %.body57
 
 208:                                              ; preds = %"_ZN4core3ptr438drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..get_flags..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h3a88458c8495ad31E.exit"
@@ -11170,7 +11170,7 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17hfd40c5348da9ab23E.exit.i.
   %118 = inttoptr i64 %.sroa.010.0.i to ptr
   %119 = icmp ne i64 %.sroa.010.0.i, 0
   tail call void @llvm.assume(i1 %119)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h30c281365ab59433E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %118)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h30c281365ab59433E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %8, ptr noundef nonnull %118)
           to label %11 unwind label %.body21
 
 120:                                              ; preds = %114
@@ -12967,7 +12967,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h23fa9ba69920d018E.exit.i: ; preds =
   %.sroa.4.0.i112122 = phi ptr [ %87, %"_ZN4core3ptr729drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8d4d6642f0c555fE.exit.thread" ], [ %.sroa.4.0.i112, %"_ZN4core3ptr729drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8d4d6642f0c555fE.exit" ]
   %139 = icmp ne ptr %.sroa.4.0.i112122, null
   tail call void @llvm.assume(i1 %139)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbf1067da4f4fec5E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %.sroa.4.0.i112122)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbf1067da4f4fec5E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %9, ptr noundef nonnull %.sroa.4.0.i112122)
           to label %15 unwind label %.body35
 
 140:                                              ; preds = %"_ZN4core3ptr729drop_in_place$LT$wasmtime_wasi..filesystem..Dir..spawn_blocking$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb8d4d6642f0c555fE.exit"
@@ -14104,7 +14104,7 @@ default.unreachable75:                            ; preds = %73, %2
 105:                                              ; preds = %100
   %106 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
+  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef align 8 dereferenceable(24) %10) #22
           to label %125 unwind label %116, !noalias !2185
 
 107:                                              ; preds = %100
@@ -14285,7 +14285,7 @@ default.unreachable75:                            ; preds = %73, %2
   br label %.body
 
 161:                                              ; preds = %.body18.i
-  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #22
+  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..create_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6db2974a3e90e7b3E"(ptr noalias noundef align 8 dereferenceable(24) %11) #22
           to label %160 unwind label %126
 
 162:                                              ; preds = %.invoke
@@ -14870,7 +14870,7 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17h729e61fe7571be05E.exit.i.
 126:                                              ; preds = %121
   %127 = icmp ne i64 %.sroa.010.0.i, 0
   tail call void @llvm.assume(i1 %127)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull %124)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %11, ptr noundef nonnull %124)
           to label %18 unwind label %.body27
 
 128:                                              ; preds = %125
@@ -14952,7 +14952,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17hf1dadd8c2c873b9bE.exit.i: ; preds =
   store i8 0, ptr %140, align 8, !noalias !2313
   %.val7.i = load ptr, ptr %142, align 8, !noalias !2313, !nonnull !5, !noundef !5
   %154 = getelementptr inbounds i8, ptr %.val7.i, i64 16
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %154)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %6, ptr noalias noundef readonly align 4 dereferenceable(4) %154)
           to label %195 unwind label %155, !noalias !2313
 
 155:                                              ; preds = %153
@@ -15148,7 +15148,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17hf1dadd8c2c873b9bE.exit.i: ; preds =
 204:                                              ; preds = %200
   %205 = icmp ne i64 %.sroa.086.0.copyload87131, 0
   tail call void @llvm.assume(i1 %205)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull %202)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %11, ptr noundef nonnull %202)
           to label %18 unwind label %.body45
 
 206:                                              ; preds = %203
@@ -15495,7 +15495,7 @@ default.unreachable169:                           ; preds = %191, %90, %3
 121:                                              ; preds = %117
   %122 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef align 8 dereferenceable(24) %18) #22
           to label %135 unwind label %131, !noalias !2378
 
 _ZN7cap_std2fs3dir3Dir8metadata17h0518ee3a2bfc440bE.exit.i.i: ; preds = %117
@@ -15665,7 +15665,7 @@ _ZN7cap_std2fs3dir3Dir8metadata17h0518ee3a2bfc440bE.exit.i.i: ; preds = %117
   br label %.body
 
 170:                                              ; preds = %.body12.i
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h46b7fc6b7a2a0ed9E"(ptr noalias noundef align 8 dereferenceable(24) %19) #22
           to label %169 unwind label %136, !noalias !2390
 
 171:                                              ; preds = %.invoke
@@ -15732,7 +15732,7 @@ common.ret:                                       ; preds = %292, %280, %179
 185:                                              ; preds = %182
   %186 = icmp ne i64 %.sroa.096.0.copyload97176, 0
   call void @llvm.assume(i1 %186)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull %184)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %21, ptr noundef nonnull %184)
           to label %72 unwind label %180
 
 187:                                              ; preds = %182, %283
@@ -15850,7 +15850,7 @@ common.ret:                                       ; preds = %292, %280, %179
 222:                                              ; preds = %218
   %223 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef align 8 dereferenceable(24) %11) #22
           to label %236 unwind label %232, !noalias !2435
 
 _ZN7cap_std2fs3dir3Dir16symlink_metadata17h01bcc12e1495f91aE.exit.i.i: ; preds = %218
@@ -16020,7 +16020,7 @@ _ZN7cap_std2fs3dir3Dir16symlink_metadata17h01bcc12e1495f91aE.exit.i.i: ; preds =
   br label %.body64
 
 271:                                              ; preds = %.body12.i39
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..stat_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7afeff43ced8efd8E"(ptr noalias noundef align 8 dereferenceable(24) %12) #22
           to label %270 unwind label %237, !noalias !2447
 
 272:                                              ; preds = %.invoke185
@@ -16082,7 +16082,7 @@ _ZN7cap_std2fs3dir3Dir16symlink_metadata17h01bcc12e1495f91aE.exit.i.i: ; preds =
 286:                                              ; preds = %283
   %287 = icmp ne i64 %.sroa.0124.0.copyload125184, 0
   call void @llvm.assume(i1 %287)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull %285)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6703a5b71fafb6bfE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %21, ptr noundef nonnull %285)
           to label %72 unwind label %281
 
 288:                                              ; preds = %187
@@ -16617,7 +16617,7 @@ default.unreachable9.i60:                         ; preds = %.thread
 158:                                              ; preds = %.noexc.i.i, %147
   %159 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %20) #22
+  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef align 8 dereferenceable(56) %20) #22
           to label %183 unwind label %174, !noalias !2507
 
 .noexc.i.i:                                       ; preds = %147
@@ -16811,7 +16811,7 @@ default.unreachable9.i60:                         ; preds = %.thread
   br label %.body
 
 219:                                              ; preds = %.body19.i
-  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %21) #22
+  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h09737d9b0301f52aE"(ptr noalias noundef align 8 dereferenceable(56) %21) #22
           to label %218 unwind label %184
 
 220:                                              ; preds = %.invoke
@@ -16972,7 +16972,7 @@ common.ret:                                       ; preds = %364, %357, %226
 
 .body.i.i:                                        ; preds = %289, %287, %277
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %278, %277 ], [ %288, %289 ], [ %288, %287 ]
-  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %13) #22
+  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef align 8 dereferenceable(56) %13) #22
           to label %314 unwind label %305, !noalias !2561
 
 .noexc.i.i90:                                     ; preds = %264
@@ -17227,7 +17227,7 @@ common.ret:                                       ; preds = %364, %357, %226
   br label %.body98
 
 350:                                              ; preds = %.body19.i70
-  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14) #22
+  invoke fastcc void @"_ZN4core3ptr264drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..set_times_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ad3e57d986f7197E"(ptr noalias noundef align 8 dereferenceable(56) %14) #22
           to label %349 unwind label %315
 
 351:                                              ; preds = %.invoke199
@@ -17793,11 +17793,11 @@ default.unreachable156:                           ; preds = %125, %2
 162:                                              ; preds = %152
   %163 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %10) #22
           to label %171 unwind label %164, !noalias !2667
 
 _ZN7cap_std2fs3dir3Dir9hard_link17hdcd59a7de05b645bE.exit.i.i: ; preds = %152
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %10)
           to label %"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$7link_at28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h564b0857b1e61947E.exit.i" unwind label %166, !noalias !2667
 
 164:                                              ; preds = %162
@@ -17953,7 +17953,7 @@ _ZN7cap_std2fs3dir3Dir9hard_link17hdcd59a7de05b645bE.exit.i.i: ; preds = %152
   br label %.body
 
 207:                                              ; preds = %.body17.i
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..link_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8ed2a16d68d066b6E"(ptr noalias noundef align 8 dereferenceable(56) %11) #22
           to label %206 unwind label %172
 
 208:                                              ; preds = %.invoke
@@ -18857,7 +18857,7 @@ default.unreachable:                              ; preds = %317
 
 "_ZN4core3ptr44drop_in_place$LT$cap_std..fs..file..File$GT$17h41be46f60dc01a82E.exit.i.i": ; preds = %224, %221
   %.pn.i.i = phi { ptr, i32 } [ %222, %221 ], [ %225, %224 ]
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef align 8 dereferenceable(56) %14) #22
           to label %269 unwind label %265, !noalias !2862
 
 221:                                              ; preds = %245, %238, %211
@@ -18868,7 +18868,7 @@ default.unreachable:                              ; preds = %317
 223:                                              ; preds = %.noexc.i.i
   store i32 %220, ptr %12, align 4, !noalias !2845
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11), !noalias !2845
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %11, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %11, ptr noalias noundef readonly align 4 dereferenceable(4) %12)
           to label %228 unwind label %224, !noalias !2862
 
 224:                                              ; preds = %240, %223
@@ -19131,7 +19131,7 @@ default.unreachable:                              ; preds = %317
   br label %.body
 
 306:                                              ; preds = %.body13.i
-  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %15) #22
+  invoke fastcc void @"_ZN4core3ptr259drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1a92e13e8fd50755E"(ptr noalias noundef align 8 dereferenceable(56) %15) #22
           to label %305 unwind label %270, !noalias !2902
 
 307:                                              ; preds = %.invoke
@@ -19187,7 +19187,7 @@ common.ret:                                       ; preds = %402, %313
 319:                                              ; preds = %316
   %320 = icmp ne ptr %.sroa.9.0.i, null
   call void @llvm.assume(i1 %320)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h644e248faf37abbcE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %.sroa.9.0.i)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h644e248faf37abbcE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %17, ptr noundef nonnull %.sroa.9.0.i)
           to label %407 unwind label %314
 
 321:                                              ; preds = %317
@@ -19907,7 +19907,7 @@ default.unreachable130:                           ; preds = %75, %3
 108:                                              ; preds = %116, %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #22
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17hfbaee3505c7d8515E"(ptr noalias noundef align 8 dereferenceable(24) %16) #22
           to label %.body.i.i unwind label %134, !noalias !3038
 
 110:                                              ; preds = %107
@@ -19993,7 +19993,7 @@ default.unreachable130:                           ; preds = %75, %3
 
 .body.i.i:                                        ; preds = %136, %108
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %137, %136 ], [ %109, %108 ]
-  invoke fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #22
+  invoke fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef align 8 dereferenceable(24) %18) #22
           to label %151 unwind label %146, !noalias !3070
 
 .noexc.i._crit_edge.i:                            ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i.i.i.i.i", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hc00801ed1527b065E.exit.i.i.i.i.i", %110, %.noexc.i.i
@@ -20168,7 +20168,7 @@ default.unreachable130:                           ; preds = %75, %3
   br label %.body
 
 188:                                              ; preds = %.body12.i
-  invoke fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #22
+  invoke fastcc void @"_ZN4core3ptr263drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..readlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8e8d617fb49ed066E"(ptr noalias noundef align 8 dereferenceable(24) %19) #22
           to label %187 unwind label %152, !noalias !3082
 
 189:                                              ; preds = %.invoke
@@ -20213,7 +20213,7 @@ common.ret:                                       ; preds = %225, %195
 200:                                              ; preds = %198
   %201 = icmp ne ptr %.sroa.4.0.i, null
   call void @llvm.assume(i1 %201)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0d16b2d18ea65280E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull %.sroa.4.0.i)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0d16b2d18ea65280E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %21, ptr noundef nonnull %.sroa.4.0.i)
           to label %229 unwind label %196
 
 202:                                              ; preds = %204
@@ -20729,7 +20729,7 @@ default.unreachable75:                            ; preds = %72, %2
 104:                                              ; preds = %99
   %105 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef align 8 dereferenceable(24) %9) #22
           to label %123 unwind label %114, !noalias !3174
 
 _ZN7cap_std2fs3dir3Dir10remove_dir17h9cdb1c8781ab9597E.exit.i.i: ; preds = %99
@@ -20909,7 +20909,7 @@ _ZN7cap_std2fs3dir3Dir10remove_dir17h9cdb1c8781ab9597E.exit.i.i: ; preds = %99
   br label %.body
 
 159:                                              ; preds = %.body18.i
-  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
+  invoke fastcc void @"_ZN4core3ptr271drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..remove_directory_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1693615f951c5ea4E"(ptr noalias noundef align 8 dereferenceable(24) %10) #22
           to label %158 unwind label %124
 
 160:                                              ; preds = %.invoke
@@ -21476,11 +21476,11 @@ default.unreachable153:                           ; preds = %117, %2
 154:                                              ; preds = %144
   %155 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10) #22
+  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %10) #22
           to label %163 unwind label %156, !noalias !3271
 
 _ZN7cap_std2fs3dir3Dir6rename17h506255c30c268736E.exit.i.i: ; preds = %144
-  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %10)
+  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %10)
           to label %"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$9rename_at28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hca18105ede42f249E.exit.i" unwind label %158, !noalias !3271
 
 156:                                              ; preds = %154
@@ -21636,7 +21636,7 @@ _ZN7cap_std2fs3dir3Dir6rename17h506255c30c268736E.exit.i.i: ; preds = %144
   br label %.body
 
 199:                                              ; preds = %.body17.i
-  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11) #22
+  invoke fastcc void @"_ZN4core3ptr261drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..rename_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6c81fe9880398b46E"(ptr noalias noundef align 8 dereferenceable(56) %11) #22
           to label %198 unwind label %164
 
 200:                                              ; preds = %.invoke
@@ -22290,12 +22290,12 @@ default.unreachable88:                            ; preds = %80, %2
 122:                                              ; preds = %120, %118, %107
   %123 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11) #22
+  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %11) #22
           to label %131 unwind label %124, !noalias !3376
 
 _ZN7cap_std2fs3dir3Dir7symlink17h0eea4570b3265b75E.exit.i.i: ; preds = %120, %118
   %.0.i.i.i = phi ptr [ %119, %118 ], [ %121, %120 ]
-  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
+  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %11)
           to label %"_ZN13wasmtime_wasi4host10filesystem106_$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$T$GT$10symlink_at28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0f6376ac144fbe11E.exit.i" unwind label %126, !noalias !3376
 
 124:                                              ; preds = %122
@@ -22451,7 +22451,7 @@ _ZN7cap_std2fs3dir3Dir7symlink17h0eea4570b3265b75E.exit.i.i: ; preds = %120, %11
   br label %.body
 
 167:                                              ; preds = %.body17.i
-  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %12) #22
+  invoke fastcc void @"_ZN4core3ptr262drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..symlink_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb0920c7dffd3e41cE"(ptr noalias noundef align 8 dereferenceable(48) %12) #22
           to label %166 unwind label %132
 
 168:                                              ; preds = %.invoke
@@ -23050,7 +23050,7 @@ default.unreachable75:                            ; preds = %72, %2
 104:                                              ; preds = %99
   %105 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #22
+  invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef align 8 dereferenceable(24) %9) #22
           to label %123 unwind label %114, !noalias !3483
 
 "_ZN69_$LT$cap_std..fs..dir..Dir$u20$as$u20$cap_fs_ext..dir_ext..DirExt$GT$22remove_file_or_symlink17h1cc8115ef29a978cE.exit.i.i": ; preds = %99
@@ -23230,7 +23230,7 @@ default.unreachable75:                            ; preds = %72, %2
   br label %.body
 
 159:                                              ; preds = %.body18.i
-  invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #22
+  invoke fastcc void @"_ZN4core3ptr266drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..unlink_file_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h55b8ec525d09107eE"(ptr noalias noundef align 8 dereferenceable(24) %10) #22
           to label %158 unwind label %124
 
 160:                                              ; preds = %.invoke
@@ -24290,7 +24290,7 @@ _ZN13wasmtime_wasi10filesystem4File15_spawn_blocking17ha283f5b1f38cf8f9E.exit.i.
 141:                                              ; preds = %135
   %142 = icmp ne i64 %.sroa.010.0.i.i, 0
   tail call void @llvm.assume(i1 %142)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %14, ptr noundef nonnull %140)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %14, ptr noundef nonnull %140)
           to label %234 unwind label %.body17.i, !noalias !3644
 
 .body.i:                                          ; preds = %131, %.body8.i.i
@@ -24375,7 +24375,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h0bd2536b6b1564b0E.exit.i.i: ; preds
   store i8 0, ptr %159, align 8, !noalias !3690
   %.val7.i.i = load ptr, ptr %156, align 8, !noalias !3694, !nonnull !5, !noundef !5
   %171 = getelementptr inbounds i8, ptr %.val7.i.i, i64 16
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %10, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %171)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %10, ptr noalias noundef readonly align 4 dereferenceable(4) %171)
           to label %216 unwind label %172, !noalias !3694
 
 172:                                              ; preds = %170
@@ -24565,7 +24565,7 @@ _ZN13wasmtime_wasi7runtime14spawn_blocking17h0bd2536b6b1564b0E.exit.i.i: ; preds
 226:                                              ; preds = %221
   %227 = icmp ne i64 %.sroa.070.0.copyload71109.i, 0
   tail call void @llvm.assume(i1 %227)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %14, ptr noundef nonnull %225)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h791d8a287e3ad9c9E"(ptr noalias nocapture noundef align 8 dereferenceable(192) %14, ptr noundef nonnull %225)
           to label %234 unwind label %.body35.i, !noalias !3644
 
 .body28.i:                                        ; preds = %213, %.body10.i.i
@@ -25238,7 +25238,7 @@ default.unreachable106:                           ; preds = %74, %3
   br label %.body
 
 172:                                              ; preds = %.body13.i
-  invoke fastcc void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4037a673203753aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18) #22
+  invoke fastcc void @"_ZN4core3ptr268drop_in_place$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..preview1..WasiP1Ctx$GT$..metadata_hash_at..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha4037a673203753aE"(ptr noalias noundef align 8 dereferenceable(32) %18) #22
           to label %171 unwind label %138, !noalias !3791
 
 173:                                              ; preds = %.invoke
@@ -25343,7 +25343,7 @@ common.ret:                                       ; preds = %217, %181
   %200 = inttoptr i64 %.sroa.069.0.copyload70 to ptr
   %201 = icmp ne i64 %.sroa.069.0.copyload70, 0
   call void @llvm.assume(i1 %201)
-  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h37b09418e8a8e215E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull %200)
+  invoke fastcc void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h37b09418e8a8e215E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %20, ptr noundef nonnull %200)
           to label %63 unwind label %182
 
 202:                                              ; preds = %.noexc32, %.noexc31, %.noexc30, %186
@@ -28311,7 +28311,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
 132:                                              ; preds = %131
   %133 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr198drop_in_place$LT$$LP$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$GT$17h48ff9d4b57898f20E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17) #22
+  invoke fastcc void @"_ZN4core3ptr198drop_in_place$LT$$LP$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$GT$$C$alloc..vec..Vec$LT$u32$GT$$RP$$GT$17h48ff9d4b57898f20E"(ptr noalias noundef align 8 dereferenceable(40) %17) #22
           to label %144 unwind label %134
 
 134:                                              ; preds = %132
@@ -28690,7 +28690,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   store ptr @anon.0af95c1f9456ea7116a16e4f925340d1.16.llvm.10002545943538650143, ptr %275, align 8, !alias.scope !4339
   %276 = getelementptr inbounds i8, ptr %21, i64 24
   store i64 0, ptr %276, align 8, !alias.scope !4339
-  %277 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %21)
+  %277 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E(ptr noalias nocapture noundef align 8 dereferenceable(48) %21)
           to label %280 unwind label %278
 
 278:                                              ; preds = %272

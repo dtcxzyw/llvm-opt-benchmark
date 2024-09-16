@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.00275d8b3cb15077b243853d979e2830.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.00275d8b3cb15077b243853d979e2830.4.llvm.13372823326256807255, [16 x i8] c"[\00\00\00\00\00\00\00\DD\03\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_multiaddr..Code$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17hd1511e5c1adfe20bE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_multiaddr..Code$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17hd1511e5c1adfe20bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -88,7 +88,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$$LP$$RF$str$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17h0a7c7d32bffaecc6E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$$LP$$RF$str$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17h0a7c7d32bffaecc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -1026,7 +1026,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %213, %.lr.ph.i.i.i ], [ %184, %.lr.ph.i.i.i.preheader ]
-  %213 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %213 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %214 = getelementptr inbounds ptr, ptr %212, i64 %.sroa.0.06.i.i.i
   %215 = load ptr, ptr %214, align 8, !noalias !145, !nonnull !11, !noundef !11
   %216 = getelementptr inbounds i8, ptr %215, i64 352
@@ -1122,7 +1122,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 255:                                              ; preds = %274, %271
   %256 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$$LP$$RF$str$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17h0a7c7d32bffaecc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #26
+  invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$$LP$$RF$str$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17h0a7c7d32bffaecc6E"(ptr noalias noundef align 8 dereferenceable(32) %10) #26
           to label %.body.i.i36 unwind label %285, !noalias !151
 
 257:                                              ; preds = %249
@@ -1256,7 +1256,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i10.i:                                   ; preds = %314, %.lr.ph.i.i10.i
   %.sroa.0.06.i.i11.i = phi i64 [ %317, %.lr.ph.i.i10.i ], [ %292, %314 ]
-  %317 = add nuw i64 %.sroa.0.06.i.i11.i, 1
+  %317 = add nuw nsw i64 %.sroa.0.06.i.i11.i, 1
   %318 = getelementptr inbounds ptr, ptr %306, i64 %.sroa.0.06.i.i11.i
   %319 = load ptr, ptr %318, align 8, !noalias !209, !nonnull !11, !noundef !11
   %320 = getelementptr inbounds i8, ptr %319, i64 352
@@ -1797,7 +1797,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi i64 [ %207, %.lr.ph.i.i.i ], [ %181, %.lr.ph.i.i.i.preheader ]
-  %207 = add nuw i64 %.sroa.0.06.i.i.i, 1
+  %207 = add nuw nsw i64 %.sroa.0.06.i.i.i, 1
   %208 = getelementptr inbounds ptr, ptr %206, i64 %.sroa.0.06.i.i.i
   %209 = load ptr, ptr %208, align 8, !noalias !316, !nonnull !11, !noundef !11
   %210 = getelementptr inbounds i8, ptr %209, i64 176
@@ -1891,7 +1891,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 247:                                              ; preds = %267, %264
   %248 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_multiaddr..Code$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17hd1511e5c1adfe20bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #26
+  invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$$LP$ockam_multiaddr..Code$C$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$RP$$GT$17hd1511e5c1adfe20bE"(ptr noalias noundef align 8 dereferenceable(24) %9) #26
           to label %.body.i.i36 unwind label %278, !noalias !322
 
 249:                                              ; preds = %241
@@ -2028,7 +2028,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 .lr.ph.i.i10.i:                                   ; preds = %308, %.lr.ph.i.i10.i
   %.sroa.0.06.i.i11.i = phi i64 [ %311, %.lr.ph.i.i10.i ], [ %286, %308 ]
-  %311 = add nuw i64 %.sroa.0.06.i.i11.i, 1
+  %311 = add nuw nsw i64 %.sroa.0.06.i.i11.i, 1
   %312 = getelementptr inbounds ptr, ptr %300, i64 %.sroa.0.06.i.i11.i
   %313 = load ptr, ptr %312, align 8, !noalias !376, !nonnull !11, !noundef !11
   %314 = getelementptr inbounds i8, ptr %313, i64 176

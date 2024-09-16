@@ -1015,8 +1015,8 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   %335 = load ptr, ptr %.sink758, align 8
   %336 = getelementptr inbounds ptr, ptr %335, i64 %68
   store ptr %.sink, ptr %336, align 8
-  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef nonnull %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef %8, i1 noundef zeroext true)
-  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef nonnull %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef %8, i1 noundef zeroext false)
+  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef %8, i1 noundef zeroext true)
+  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef %8, i1 noundef zeroext false)
   %337 = load i64, ptr %11, align 8
   %.not564 = icmp eq i64 %337, 0
   br i1 %.not564, label %342, label %338
@@ -1031,7 +1031,7 @@ define internal fastcc range(i32 -1, 1) i32 @_job_alloc(ptr nocapture noundef re
   br label %342
 
 342:                                              ; preds = %338, %341, %334
-  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef nonnull %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef null, i1 noundef zeroext false)
+  call fastcc void @_allocate_gres_bits(ptr noundef nonnull %20, ptr noundef nonnull %15, i64 noundef %.0479622, ptr noundef %11, i32 noundef %5, i1 noundef zeroext %22, ptr noundef null, i1 noundef zeroext false)
   br label %.loopexit635
 
 343:                                              ; preds = %305
@@ -5569,7 +5569,7 @@ define dso_local ptr @gres_ctld_gres_on_node_as_tres(ptr noundef %0, i32 noundef
   %.019 = phi i64 [ 0, %30 ], [ %38, %34 ]
   %40 = getelementptr inbounds i8, ptr %15, i64 8
   %41 = load ptr, ptr %40, align 8
-  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %4, ptr noundef nonnull %24, ptr noundef %41, i64 noundef %.019)
+  call fastcc void @_gres_2_tres_str_internal(ptr noundef %4, ptr noundef nonnull %24, ptr noundef %41, i64 noundef %.019)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %18, %8
@@ -5592,7 +5592,7 @@ define dso_local ptr @gres_ctld_gres_on_node_as_tres(ptr noundef %0, i32 noundef
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_gres_2_tres_str_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %.b = load i1, ptr @_gres_2_tres_str_internal.first_run, align 1
   br i1 %.b, label %6, label %5
 
@@ -5609,7 +5609,7 @@ define internal fastcc void @_gres_2_tres_str_internal(ptr noundef %0, ptr nound
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call fastcc void @_gres_add_2_tres_str(ptr noundef %0, ptr noundef nonnull %7, i64 noundef %3)
+  tail call fastcc void @_gres_add_2_tres_str(ptr noundef %0, ptr noundef %7, i64 noundef %3)
   br label %9
 
 9:                                                ; preds = %8, %6
@@ -5625,7 +5625,7 @@ define internal fastcc void @_gres_2_tres_str_internal(ptr noundef %0, ptr nound
   br i1 %.not14, label %14, label %13
 
 13:                                               ; preds = %10
-  tail call fastcc void @_gres_add_2_tres_str(ptr noundef %0, ptr noundef nonnull %12, i64 noundef %3)
+  tail call fastcc void @_gres_add_2_tres_str(ptr noundef %0, ptr noundef %12, i64 noundef %3)
   br label %14
 
 14:                                               ; preds = %10, %13, %9
@@ -6123,7 +6123,7 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
   %spec.store.select = select i1 %21, i64 0, i64 %.018
   %22 = getelementptr inbounds i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8
-  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %3, ptr noundef %23, ptr noundef %.019, i64 noundef %spec.store.select)
+  call fastcc void @_gres_2_tres_str_internal(ptr noundef %3, ptr noundef %23, ptr noundef %.019, i64 noundef %spec.store.select)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %7
@@ -6406,7 +6406,7 @@ declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bit_and_not(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @_allocate_gres_bits(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %.not = icmp ne ptr %6, null
@@ -7020,7 +7020,7 @@ declare i32 @gres_find_step_by_key(ptr noundef, ptr noundef) #1
 declare ptr @assoc_mgr_find_tres_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_gres_add_2_tres_str(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_gres_add_2_tres_str(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24

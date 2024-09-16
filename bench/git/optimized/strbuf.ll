@@ -92,14 +92,14 @@ if.else:                                          ; preds = %entry, %for.inc
   %prefix.addr.014 = phi ptr [ %incdec.ptr6, %for.inc ], [ %prefix, %entry ]
   %str.addr.013 = phi ptr [ %incdec.ptr, %for.inc ], [ %str, %entry ]
   %2 = load i8, ptr %str.addr.013, align 1
-  %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %2 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = shl i8 %3, 3
   %5 = and i8 %4, 32
   %x.addr.0.i10 = or i8 %5, %2
-  %idxprom.i4 = zext i8 %1 to i64
-  %arrayidx.i5 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i4
+  %conv.i4 = zext i8 %1 to i64
+  %arrayidx.i5 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i4
   %6 = load i8, ptr %arrayidx.i5, align 1
   %7 = shl i8 %6, 3
   %8 = and i8 %7, 32
@@ -734,8 +734,8 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %p.08 = phi ptr [ %incdec.ptr, %for.body ], [ %0, %entry ]
   %2 = load i8, ptr %p.08, align 1
-  %idxprom.i = zext i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %2 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = shl i8 %3, 3
   %5 = and i8 %4, 32
@@ -3491,7 +3491,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @strbuf_getdelim(ptr noundef %sb, ptr noundef %fp, i32 noundef %term) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @strbuf_getdelim(ptr noundef %sb, ptr noundef %fp, i32 noundef range(i32 0, 11) %term) unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @feof(ptr noundef %fp) #23
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -3925,7 +3925,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_humanise(ptr nocapture noundef %buf, i64 noundef %bytes, i32 noundef %humanise_rate) unnamed_addr #2 {
+define internal fastcc void @strbuf_humanise(ptr nocapture noundef %buf, i64 noundef %bytes, i32 noundef range(i32 0, 2) %humanise_rate) unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i64 %bytes, 1073741824
   br i1 %cmp, label %if.then, label %if.else
@@ -4118,8 +4118,8 @@ for.body:                                         ; preds = %entry, %for.body
   %i.09 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds i8, ptr %string, i64 %i.09
   %0 = load i8, ptr %arrayidx, align 1
-  %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %0 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = shl i8 %1, 3
   %3 = and i8 %2, 32
@@ -4148,8 +4148,8 @@ for.body:                                         ; preds = %entry, %for.body
   %i.08 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %arrayidx = getelementptr inbounds i8, ptr %string, i64 %i.08
   %0 = load i8, ptr %arrayidx, align 1
-  %idxprom.i = zext i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %0 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 4
   %cmp.not.i = icmp eq i8 %2, 0

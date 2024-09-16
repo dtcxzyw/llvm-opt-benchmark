@@ -2692,11 +2692,11 @@ define internal noundef i32 @sapi_cli_server_send_headers(ptr noundef %0) #0 {
   %32 = getelementptr inbounds i8, ptr %5, i64 116
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 216), align 8
-  call fastcc void @append_http_status_line(ptr noundef nonnull %3, i32 noundef %33, i32 noundef %34, i1 noundef zeroext false)
+  call fastcc void @append_http_status_line(ptr noundef %3, i32 noundef %33, i32 noundef %34, i1 noundef zeroext false)
   br label %35
 
 35:                                               ; preds = %31, %24
-  call fastcc void @append_essential_headers(ptr noundef nonnull %3, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %0)
+  call fastcc void @append_essential_headers(ptr noundef %3, ptr noundef nonnull %5, i1 noundef zeroext false, ptr noundef %0)
   %36 = call ptr @zend_llist_get_first_ex(ptr noundef %0, ptr noundef nonnull %4) #29
   %.not168178 = icmp eq ptr %36, null
   br i1 %.not168178, label %._crit_edge, label %.lr.ph
@@ -4711,7 +4711,7 @@ declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_cli_server_logf(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @php_cli_server_logf(i32 noundef range(i32 1, 4) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %3, align 8
@@ -4782,7 +4782,7 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @sapi_send_headers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_http_status_line(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @append_http_status_line(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct._http_response_status_code_pair, align 8
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
@@ -5312,7 +5312,7 @@ get_status_string.exit:                           ; preds = %213, %222
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_essential_headers(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @append_essential_headers(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -5848,7 +5848,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sapi_cli_server_log_write(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @sapi_cli_server_log_write(i32 noundef range(i32 1, 4) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca %struct.tm, align 8
   %5 = alloca [52 x i8], align 16
@@ -6691,7 +6691,7 @@ php_cli_server_client_populate_request_info.exit.i.i: ; preds = %155, %137
   %228 = call fastcc ptr @get_mime_type(ptr noundef nonnull %0, ptr noundef %226, i64 noundef %227)
   %229 = getelementptr inbounds i8, ptr %1, i64 116
   %230 = load i32, ptr %229, align 4
-  call fastcc void @append_http_status_line(ptr noundef nonnull %4, i32 noundef %230, i32 noundef 200, i1 noundef zeroext true)
+  call fastcc void @append_http_status_line(ptr noundef %4, i32 noundef %230, i32 noundef 200, i1 noundef zeroext true)
   %231 = load ptr, ptr %4, align 8
   %.not277.i.i = icmp eq ptr %231, null
   br i1 %.not277.i.i, label %php_cli_server_begin_send_static.exit.thread59.i, label %232
@@ -6703,7 +6703,7 @@ php_cli_server_begin_send_static.exit.thread59.i: ; preds = %225
   br label %374
 
 232:                                              ; preds = %225
-  call fastcc void @append_essential_headers(ptr noundef nonnull %4, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
+  call fastcc void @append_essential_headers(ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
   %.not278.i.i = icmp eq ptr %228, null
   %.pr.i.i = load ptr, ptr %4, align 8
   %.not287.i.i = icmp eq ptr %.pr.i.i, null
@@ -7578,7 +7578,7 @@ declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local
 declare ptr @zend_hash_index_find(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_cli_server_send_error_page(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_cli_server_send_error_page(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 400, 502) %2) unnamed_addr #0 {
   %4 = alloca %struct._http_response_status_code_pair, align 8
   %5 = alloca [32 x i8], align 16
   %6 = alloca %struct.smart_str, align 8
@@ -7768,13 +7768,13 @@ php_cli_server_buffer_append.exit525:             ; preds = %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %96 = getelementptr inbounds i8, ptr %1, i64 116
   %97 = load i32, ptr %96, align 4
-  call fastcc void @append_http_status_line(ptr noundef nonnull %6, i32 noundef %97, i32 noundef %2, i1 noundef zeroext true)
+  call fastcc void @append_http_status_line(ptr noundef %6, i32 noundef %97, i32 noundef %2, i1 noundef zeroext true)
   %98 = load ptr, ptr %6, align 8
   %.not462 = icmp eq ptr %98, null
   br i1 %.not462, label %317, label %99
 
 99:                                               ; preds = %95
-  call fastcc void @append_essential_headers(ptr noundef nonnull %6, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
+  call fastcc void @append_essential_headers(ptr noundef %6, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null)
   %100 = load ptr, ptr %6, align 8
   %.not463 = icmp eq ptr %100, null
   br i1 %.not463, label %107, label %101

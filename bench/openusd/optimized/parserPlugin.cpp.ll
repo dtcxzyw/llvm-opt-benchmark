@@ -1327,7 +1327,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %51, %5
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit unwind label %243
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %99
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %17, ptr noundef %14, ptr noundef %15)
           to label %101 unwind label %245
 
 101:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit
@@ -1798,7 +1798,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit94: ; preds = %257, %.body
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit98 unwind label %365
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit98: ; preds = %293
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull %26, ptr noundef nonnull %23, ptr noundef nonnull %24)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %26, ptr noundef %23, ptr noundef %24)
           to label %295 unwind label %367
 
 295:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit98
@@ -3278,7 +3278,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__9HioGlslfx13GetParametersEv(ptr dead_on_unwind writable sret(%"class.std::vector.43") align 8, ptr noundef nonnull align 8 dereferenceable(448)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34ConvertToSdrCompatibleValueAndTypeENS_7VtValueEPmPNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8

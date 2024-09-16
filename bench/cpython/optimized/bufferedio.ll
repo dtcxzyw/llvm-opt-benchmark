@@ -1228,7 +1228,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1260,7 +1260,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -1326,7 +1326,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr nocapture noundef readonly %buffer, i8 noundef signext %readinto1) unnamed_addr #0 {
+define internal fastcc ptr @_bufferediobase_readinto_generic(ptr noundef %self, ptr nocapture noundef nonnull readonly %buffer, i8 noundef signext range(i8 0, 2) %readinto1) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %readinto1, 0
   %cond = select i1 %tobool.not, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 56080)
@@ -4376,8 +4376,8 @@ land.lhs.true3.i58.i:                             ; preds = %land.lhs.true48.i
   br i1 %cmp.not.i60.i, label %cond.end.i104.i, label %cond.end.thread179.i.i
 
 cond.end.i104.i:                                  ; preds = %land.lhs.true3.i58.i
-  %cmp5.not.i105.not.i = icmp eq i64 %6, 0
-  br i1 %cmp5.not.i105.not.i, label %if.then.i.i65.i, label %if.end.i69.i
+  %cmp5.not.not.i.i = icmp eq i64 %6, 0
+  br i1 %cmp5.not.not.i.i, label %if.then.i.i65.i, label %if.end.i69.i
 
 cond.end.thread179.i.i:                           ; preds = %land.lhs.true3.i58.i
   %pos.i61.i = getelementptr inbounds i8, ptr %self, i64 64
@@ -4387,8 +4387,8 @@ cond.end.thread179.i.i:                           ; preds = %land.lhs.true3.i58.
   br i1 %cmp5.not181.i.i, label %if.end.i69.i, label %if.then.i.i65.i
 
 cond.end.thread.i.i:                              ; preds = %land.lhs.true48.i
-  %cmp5.not122.i.not.i = icmp eq i64 %6, 0
-  br i1 %cmp5.not122.i.not.i, label %if.then.i.i65.i, label %if.end.i69.i
+  %cmp5.not122.not.i.i = icmp eq i64 %6, 0
+  br i1 %cmp5.not122.not.i.i, label %if.then.i.i65.i, label %if.end.i69.i
 
 if.then.i.i65.i:                                  ; preds = %cond.end.thread.i.i, %cond.end.thread179.i.i, %cond.end.i104.i
   %80 = load ptr, ptr %buffer.i, align 8
@@ -5347,7 +5347,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 0)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 0)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -5379,7 +5379,7 @@ if.then:                                          ; preds = %entry
   br label %exit
 
 if.end:                                           ; preds = %entry
-  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef nonnull readonly %buffer, i8 noundef signext 1)
+  %call.i = call fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr noundef readonly %buffer, i8 noundef signext 1)
   br label %exit
 
 exit:                                             ; preds = %if.end, %if.then
@@ -6187,7 +6187,7 @@ declare ptr @_PyNumber_Index(ptr noundef) local_unnamed_addr #1
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr nocapture noundef readonly %buffer, i8 noundef signext %readinto1) unnamed_addr #0 {
+define internal fastcc ptr @_buffered_readinto_generic(ptr noundef %self, ptr nocapture noundef nonnull readonly %buffer, i8 noundef signext range(i8 0, 2) %readinto1) unnamed_addr #0 {
 entry:
   %ok = getelementptr inbounds i8, ptr %self, i64 24
   %0 = load i32, ptr %ok, align 8

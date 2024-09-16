@@ -238,7 +238,7 @@ define dso_local i32 @i915_gem_object_set_to_wc_domain(ptr noundef %0, i1 nounde
 declare dso_local i32 @i915_gem_object_wait(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_object_pin_pages(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc i32 @i915_gem_object_pin_pages(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -260,7 +260,7 @@ define internal fastcc i32 @i915_gem_object_pin_pages(ptr noundef %0) unnamed_ad
   br i1 %13, label %._crit_edge, label %.lr.ph, !prof !10, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %11, %1
-  %14 = tail call i32 @__i915_gem_object_get_pages(ptr noundef %0) #6
+  %14 = tail call i32 @__i915_gem_object_get_pages(ptr noundef nonnull %0) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge
@@ -269,7 +269,7 @@ define internal fastcc i32 @i915_gem_object_pin_pages(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @flush_write_domain(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @flush_write_domain(ptr noundef %0, i32 noundef range(i32 -129, -1) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 648
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
@@ -760,7 +760,7 @@ define dso_local i32 @i915_gem_set_caching_ioctl(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @i915_gem_object_lock_interruptible(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc i32 @i915_gem_object_lock_interruptible(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @ww_mutex_lock_interruptible(ptr noundef %3, ptr noundef null) #6
@@ -770,7 +770,7 @@ define internal fastcc i32 @i915_gem_object_lock_interruptible(ptr noundef %0) u
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %1
-  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #6, !srcloc !5
+  %9 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #6, !srcloc !5
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %15, label %11, !prof !6
 
@@ -782,7 +782,7 @@ define internal fastcc i32 @i915_gem_object_lock_interruptible(ptr noundef %0) u
 
 15:                                               ; preds = %11, %8
   %16 = phi i32 [ 2, %8 ], [ 1, %11 ]
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef %16) #6
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef %16) #6
   br label %17
 
 17:                                               ; preds = %15, %11

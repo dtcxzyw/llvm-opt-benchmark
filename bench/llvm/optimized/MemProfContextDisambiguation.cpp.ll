@@ -3859,7 +3859,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %40, %38
   %51 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %51, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 9)) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 9) #26
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef nonnull %12)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef %12)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #26
   br label %52
@@ -3905,7 +3905,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
   call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   %64 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 16
   %65 = load ptr, ptr %64, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %65)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %65)
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14identifyClonesEPNS6_11ContextNodeERNS2_8DenseSetIPKS7_NS2_12DenseMapInfoISB_vEEEERKNS9_IjNSC_IjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef nonnull %65, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   %66 = load ptr, ptr %11, align 8
   %67 = load i32, ptr %62, align 8
@@ -4029,7 +4029,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15.i:             ; preds = %105, %103
   %116 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %116, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.208, i64 6)) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef 6) #26
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef nonnull %14)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef %14)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #26
   br label %117
@@ -4081,7 +4081,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18.i:             ; preds = %133, %131
   %144 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %144, ptr noundef nonnull @.str.210, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.210, i64 15)) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef 15) #26
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef nonnull %16)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %18, ptr noundef %16)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #26
   br label %145
@@ -4126,7 +4126,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18.i:             ; preds = %133, %131
   br i1 %163, label %164, label %326
 
 164:                                              ; preds = %161
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i19.i)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i19.i)
   %165 = load i32, ptr %152, align 8
   %166 = icmp eq i32 %165, 0
   %167 = load ptr, ptr %7, align 8
@@ -7710,7 +7710,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1381, %1383
   %1392 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef %1392, ptr noundef nonnull align 1 dereferenceable(1) %52) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 14))
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %51)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %51)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %52) #26
   br label %1393
@@ -8405,7 +8405,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   br i1 %1708, label %2652, label %1709
 
 1709:                                             ; preds = %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE17getNodeForStackIdEm.exit.i117
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i118)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i118)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %31, i8 0, i64 20, i1 false)
   %1710 = load ptr, ptr %1637, align 8
   %1711 = load ptr, ptr %1636, align 8
@@ -16446,7 +16446,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %1485, %1487
   %1496 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %1496, ptr noundef nonnull align 1 dereferenceable(1) %40) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.100, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.100, i64 14))
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %39)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %39)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #26
   br label %1497
@@ -17085,7 +17085,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt6vectorISt5tupleIJN12_GLOBAL__N_19IndexCa
   %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %1771, %.lr.ph.i.i.i.i.i129.preheader ]
   %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
   %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %1787 = shl nuw nsw i64 %storemerge26.i.i.i.i.i, 6
+  %1787 = shl i64 %storemerge26.i.i.i.i.i, 6
   %1788 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %1787, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %.not.i.i.i.i151.i = icmp eq ptr %1788, null
   br i1 %.not.i.i.i.i151.i, label %select.unfold.i.i.i.i.i, label %1789
@@ -17337,7 +17337,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15F
   br i1 %1910, label %2852, label %1911
 
 1911:                                             ; preds = %_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE17getNodeForStackIdEm.exit.i108
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i109)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(144) %.0.i.i109)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %22, i8 0, i64 20, i1 false)
   %.val116681.i = load ptr, ptr %1766, align 8
   %.val117682.i = load ptr, ptr %1767, align 8
@@ -21610,7 +21610,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %53, %55
   %64 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %36) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.206, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.206, i64 9))
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %35)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %35)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %36) #26
   br label %65
@@ -21656,7 +21656,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
   call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %33)
   %77 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
   %78 = load ptr, ptr %77, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(144) %78)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(144) %78)
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14identifyClonesEPNS5_11ContextNodeERNS2_8DenseSetIPKS6_NS2_12DenseMapInfoISA_vEEEERKNS8_IjNSB_IjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %78, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34)
   %79 = load ptr, ptr %34, align 8
   %80 = load i32, ptr %75, align 8
@@ -21777,7 +21777,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %116, %118
   %127 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef %127, ptr noundef nonnull align 1 dereferenceable(1) %38) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull @.str.208, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.208, i64 6))
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %37)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %37)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #26
   br label %128
@@ -23978,7 +23978,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteConte
 
 1027:                                             ; preds = %1025
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  %1028 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef null, ptr noundef nonnull %21)
+  %1028 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef null, ptr noundef %21)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #26
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE25removeNoneTypeCalleeEdgesEPNS5_11ContextNodeE(ptr noundef %1028)
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE25removeNoneTypeCalleeEdgesEPNS5_11ContextNodeE(ptr noundef nonnull %1023)
@@ -24570,7 +24570,7 @@ _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraph
   %1257 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(16) %28)
   %1258 = load ptr, ptr %1257, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %1258, ptr noundef nonnull %26, i1 noundef zeroext false, ptr noundef nonnull %29)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %1258, ptr noundef nonnull %26, i1 noundef zeroext false, ptr noundef %29)
   %1259 = load ptr, ptr %29, align 8
   %1260 = load i32, ptr %174, align 8
   %1261 = zext i32 %1260 to i64
@@ -24581,7 +24581,7 @@ _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraph
 
 _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEE5countERSD_.exit546.thread.i: ; preds = %_ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEE5countERSD_.exit546.i, %1250, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoESt4pairIKS7_PNS6_11ContextNodeEESt10_Select1stISC_ESt4lessIS7_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS9_.exit.i.i538.i, %1241
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %1263 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %26, ptr noundef nonnull %30)
+  %1263 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull %26, ptr noundef %30)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #26
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE25removeNoneTypeCalleeEdgesEPNS5_11ContextNodeE(ptr noundef %1263)
   %1264 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS0_9IndexCallEE8FuncInfoEPNS6_11ContextNodeESt4lessIS7_ESaISt4pairIKS7_S9_EEEixERSD_(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull align 8 dereferenceable(16) %28)
@@ -25713,7 +25713,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %1653, %1655
   %1664 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %1664, ptr noundef nonnull align 1 dereferenceable(1) %40) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.210, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.210, i64 15))
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %39)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %39)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #26
   br label %1665
@@ -25758,7 +25758,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %1653, %1655
   br i1 %1683, label %1684, label %1846
 
 1684:                                             ; preds = %1681
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i25)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i.i25)
   %1685 = load i32, ptr %1672, align 8
   %1686 = icmp eq i32 %1685, 0
   %1687 = load ptr, ptr %4, align 8
@@ -29663,7 +29663,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit85.i.i:           ; preds = %181, %179
 _ZN4llvm11raw_ostreamlsEPKc.exit88.i.i:           ; preds = %193, %191
   %.0.i.i87.i.i = phi ptr [ %192, %191 ], [ %0, %193 ]
   %196 = load i8, ptr %23, align 8
-  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias nonnull writable align 8 %3, i8 noundef zeroext %196)
+  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias writable align 8 %3, i8 noundef zeroext %196)
   %197 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %198 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %199 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i87.i.i, ptr noundef %197, i64 noundef %198) #26
@@ -29707,7 +29707,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91.i.i:           ; preds = %207, %205
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit94.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit94.i.i:           ; preds = %218, %216
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i83.i)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i83.i)
   %221 = load i32, ptr %20, align 8
   %222 = icmp eq i32 %221, 0
   %223 = load ptr, ptr %4, align 8
@@ -30187,7 +30187,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30914,8 +30914,8 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsi
   store ptr @.str.110, ptr %359, align 8, !alias.scope !543, !noalias !532
   store i8 2, ptr %360, align 8, !alias.scope !543, !noalias !532
   store i8 3, ptr %361, align 1, !alias.scope !543, !noalias !532
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(144) %.val.i31.i.i.i.i), !noalias !532
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15), !noalias !532
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(144) %.val.i31.i.i.i.i), !noalias !532
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15), !noalias !532
   store ptr %11, ptr %10, align 8, !alias.scope !548, !noalias !532
   store ptr %14, ptr %362, align 8, !alias.scope !548, !noalias !532
   store i8 2, ptr %363, align 8, !alias.scope !548, !noalias !532
@@ -30933,7 +30933,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsi
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %390, i64 noundef %393, i64 noundef 4) #26, !noalias !523
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26, !noalias !523
   %394 = load i8, ptr %383, align 8, !noalias !532
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %19, i8 noundef zeroext %394), !noalias !523
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %19, i8 noundef zeroext %394), !noalias !523
   store ptr @.str.165, ptr %18, align 8, !alias.scope !558, !noalias !532
   store ptr %19, ptr %369, align 8, !alias.scope !558, !noalias !532
   store i8 3, ptr %370, align 8, !alias.scope !558, !noalias !532
@@ -31228,7 +31228,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i:     ; preds = %534, %532, %522, %5
   br i1 %538, label %540, label %557
 
 540:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %.val.i31.i.i.i.i)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull %.val.i31.i.i.i.i)
   %541 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26, !noalias !523
   %542 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26, !noalias !523
   %543 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %539, ptr noundef %541, i64 noundef %542) #26, !noalias !523
@@ -31254,7 +31254,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i:     ; preds = %534, %532, %522, %5
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit93.i.i.i.i.i
 
 557:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %.val.i31.i.i.i.i)
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull %.val.i31.i.i.i.i)
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23) #26, !noalias !523
   %558 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #26, !noalias !523
   %559 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #26, !noalias !523
@@ -34741,7 +34741,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %4, label %6
@@ -34779,7 +34779,7 @@ define internal fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DenseSet", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -35318,7 +35318,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15.i:             ; preds = %45, %43
   %.0.i.i14.i = phi ptr [ %44, %43 ], [ %34, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load i8, ptr %48, align 8
-  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias nonnull writable align 8 %3, i8 noundef zeroext %49)
+  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias writable align 8 %3, i8 noundef zeroext %49)
   %50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14.i, ptr noundef %50, i64 noundef %51) #26
@@ -35999,7 +35999,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categ
 declare void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE12getNodeLabelB5cxx11EPKNS7_11ContextNodeES9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -36034,7 +36034,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %2, %12
   store i8 %.014.i.i10, ptr %16, align 8, !alias.scope !641
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 11, ptr %17, align 1, !alias.scope !641
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %5) #26
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %5) #26
   %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.103) #26
   %19 = getelementptr i8, ptr %1, i64 8
   %.val4 = load ptr, ptr %19, align 8
@@ -36145,7 +36145,7 @@ define internal fastcc void @_ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteCo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %.val2.i = load ptr, ptr %3, align 8, !noalias !666
   %22 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 24
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %22), !noalias !666
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %22), !noalias !666
   store ptr @.str.163, ptr %10, align 8, !alias.scope !669, !noalias !666
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %23, align 8, !alias.scope !669, !noalias !666
@@ -36170,7 +36170,7 @@ define internal fastcc void @_ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteCo
   %.val.i = load ptr, ptr %3, align 8, !noalias !666
   %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %33 = load i8, ptr %32, align 8, !noalias !666
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %12, i8 noundef zeroext %33), !noalias !666
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %12, i8 noundef zeroext %33), !noalias !666
   store ptr %8, ptr %7, align 8, !alias.scope !684, !noalias !666
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %12, ptr %34, align 8, !alias.scope !684, !noalias !666
@@ -36360,7 +36360,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -36534,7 +36534,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -37426,7 +37426,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26Module
   %15 = alloca %"class.llvm::DenseSet", align 8
   %16 = alloca %"class.llvm::DenseSet", align 8
   store ptr %1, ptr %6, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
@@ -37912,7 +37912,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPN12_GLOBAL__N_120CallsiteContextGraphINS2_
   call void @llvm.assume(i1 %.not.i137)
   %278 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i136, i64 8
   %279 = load ptr, ptr %278, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %279)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %279)
   %280 = load i32, ptr %180, align 8
   %281 = icmp eq i32 %280, 0
   %282 = load ptr, ptr %176, align 8
@@ -38339,7 +38339,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %445, %456
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val91, ptr noundef nonnull %279, i1 noundef zeroext true, ptr noundef nonnull %15)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val91, ptr noundef nonnull %279, i1 noundef zeroext true, ptr noundef %15)
   %457 = load ptr, ptr %15, align 8
   %458 = load i32, ptr %165, align 8
   %459 = zext i32 %458 to i64
@@ -38374,7 +38374,7 @@ _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %445, %456
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit189
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit189: ; preds = %462, %473
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val91, ptr noundef %.0.i, i1 noundef zeroext false, ptr noundef nonnull %16)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val91, ptr noundef %.0.i, i1 noundef zeroext false, ptr noundef %16)
   %474 = load ptr, ptr %16, align 8
   %475 = load i32, ptr %168, align 8
   %476 = zext i32 %475 to i64
@@ -44270,7 +44270,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %.val7.i = load ptr, ptr %1, align 8, !noalias !781
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val8.i = load i32, ptr %4, align 8, !noalias !781
@@ -44609,7 +44609,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE14connectNewNodeEPNS6_11ContextNodeES8_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::DenseSet", align 8
   %7 = alloca %"class.llvm::DenseSet", align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -48308,7 +48308,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit85.i.i:           ; preds = %195, %193
 _ZN4llvm11raw_ostreamlsEPKc.exit88.i.i:           ; preds = %207, %205
   %.0.i.i87.i.i = phi ptr [ %206, %205 ], [ %0, %207 ]
   %210 = load i8, ptr %23, align 8
-  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias nonnull writable align 8 %3, i8 noundef zeroext %210)
+  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias writable align 8 %3, i8 noundef zeroext %210)
   %211 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %212 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %213 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i87.i.i, ptr noundef %211, i64 noundef %212) #26
@@ -48352,7 +48352,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit91.i.i:           ; preds = %221, %219
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit94.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit94.i.i:           ; preds = %232, %230
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i88.i)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %.val.i88.i)
   %235 = load i32, ptr %20, align 8
   %236 = icmp eq i32 %235, 0
   %237 = load ptr, ptr %4, align 8
@@ -48832,7 +48832,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11exportToDotENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49559,8 +49559,8 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsit
   store ptr @.str.110, ptr %359, align 8, !alias.scope !879, !noalias !868
   store i8 2, ptr %360, align 8, !alias.scope !879, !noalias !868
   store i8 3, ptr %361, align 1, !alias.scope !879, !noalias !868
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(144) %.val.i31.i.i.i.i), !noalias !868
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15), !noalias !868
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(144) %.val.i31.i.i.i.i), !noalias !868
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %15), !noalias !868
   store ptr %11, ptr %10, align 8, !alias.scope !884, !noalias !868
   store ptr %14, ptr %362, align 8, !alias.scope !884, !noalias !868
   store i8 2, ptr %363, align 8, !alias.scope !884, !noalias !868
@@ -49578,7 +49578,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsit
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %390, i64 noundef %393, i64 noundef 4) #26, !noalias !859
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #26, !noalias !859
   %394 = load i8, ptr %383, align 8, !noalias !868
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %19, i8 noundef zeroext %394), !noalias !859
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %19, i8 noundef zeroext %394), !noalias !859
   store ptr @.str.165, ptr %18, align 8, !alias.scope !894, !noalias !868
   store ptr %19, ptr %369, align 8, !alias.scope !894, !noalias !868
   store i8 3, ptr %370, align 8, !alias.scope !894, !noalias !868
@@ -49875,7 +49875,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i:     ; preds = %534, %532, %522, %5
   br i1 %538, label %542, label %559
 
 542:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %.val.i31.i.i.i.i, ptr noundef %541), !noalias !859
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull %.val.i31.i.i.i.i, ptr noundef %541), !noalias !859
   %543 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26, !noalias !859
   %544 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #26, !noalias !859
   %545 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %539, ptr noundef %543, i64 noundef %544) #26, !noalias !859
@@ -49901,7 +49901,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i:     ; preds = %534, %532, %522, %5
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit93.i.i.i.i.i
 
 559:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit87.i.i.i.i.i
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull %.val.i31.i.i.i.i, ptr noundef %541), !noalias !859
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull %.val.i31.i.i.i.i, ptr noundef %541), !noalias !859
   call void @_ZN4llvm3DOT12EscapeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23) #26, !noalias !859
   %560 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #26, !noalias !859
   %561 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #26, !noalias !859
@@ -52561,7 +52561,7 @@ _ZNSt8_Rb_treeIPKN4llvm15FunctionSummaryESt4pairIKS3_NS0_9ValueInfoEESt10_Select
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DenseSet", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -53100,7 +53100,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15.i:             ; preds = %45, %43
   %.0.i.i14.i = phi ptr [ %44, %43 ], [ %34, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load i8, ptr %48, align 8
-  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias nonnull writable align 8 %3, i8 noundef zeroext %49)
+  call fastcc void @_ZL18getAllocTypeStringB5cxx11h(ptr dead_on_unwind noalias writable align 8 %3, i8 noundef zeroext %49)
   %50 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   %52 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14.i, ptr noundef %50, i64 noundef %51) #26
@@ -53863,7 +53863,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %59, %57, %_ZNK4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE12getNodeLabelB5cxx11EPKNS6_11ContextNodeES8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -53903,7 +53903,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %3, %18
   store i8 %.014.i.i10, ptr %22, align 8, !alias.scope !960
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 11, ptr %23, align 1, !alias.scope !960
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %11) #26
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %11) #26
   %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.103) #26
   %25 = getelementptr i8, ptr %1, i64 8
   %.val4 = load i64, ptr %25, align 8
@@ -54206,7 +54206,7 @@ define internal fastcc void @_ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteCo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %.val2.i = load ptr, ptr %3, align 8, !noalias !1000
   %22 = getelementptr inbounds nuw i8, ptr %.val2.i, i64 24
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %22), !noalias !1000
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %22), !noalias !1000
   store ptr @.str.163, ptr %10, align 8, !alias.scope !1003, !noalias !1000
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %23, align 8, !alias.scope !1003, !noalias !1000
@@ -54231,7 +54231,7 @@ define internal fastcc void @_ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteCo
   %.val.i = load ptr, ptr %3, align 8, !noalias !1000
   %32 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %33 = load i8, ptr %32, align 8, !noalias !1000
-  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %12, i8 noundef zeroext %33), !noalias !1000
+  call fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %12, i8 noundef zeroext %33), !noalias !1000
   store ptr %8, ptr %7, align 8, !alias.scope !1018, !noalias !1000
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %12, ptr %34, align 8, !alias.scope !1018, !noalias !1000
@@ -54421,7 +54421,7 @@ _ZN4llvm11GraphWriterIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE13getContextIdsB5cxx11ERKNS_8DenseSetIjNS_12DenseMapInfoIjvEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -54595,7 +54595,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm14DOTGraphTraitsIPKN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCallsiteContextGraphENS_15FunctionSummaryENS1_9IndexCallEEEE8getColorB5cxx11Eh(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -55333,7 +55333,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   %15 = alloca %"class.llvm::DenseSet", align 8
   %16 = alloca %"class.llvm::DenseSet", align 8
   store ptr %1, ptr %6, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
@@ -55782,7 +55782,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPN12_GLOBAL__N_120CallsiteContextGraphINS2_
   call void @llvm.assume(i1 %.not.i147)
   %242 = getelementptr inbounds nuw i8, ptr %.0.i.pn.i.i146, i64 8
   %243 = load ptr, ptr %242, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %243)
+  call fastcc void @_ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE11ContextNode13getContextIdsEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %243)
   %244 = load i32, ptr %156, align 8
   %245 = icmp eq i32 %244, 0
   %246 = load ptr, ptr %152, align 8
@@ -56209,7 +56209,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %408, %419
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val96, ptr noundef nonnull %243, i1 noundef zeroext true, ptr noundef nonnull %15)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val96, ptr noundef nonnull %243, i1 noundef zeroext true, ptr noundef %15)
   %420 = load ptr, ptr %15, align 8
   %421 = load i32, ptr %142, align 8
   %422 = zext i32 %421 to i64
@@ -56244,7 +56244,7 @@ _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %408, %419
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit199
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit199: ; preds = %425, %436
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val96, ptr noundef %.0.i, i1 noundef zeroext false, ptr noundef nonnull %16)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull %.val96, ptr noundef %.0.i, i1 noundef zeroext false, ptr noundef %16)
   %437 = load ptr, ptr %16, align 8
   %438 = load i32, ptr %145, align 8
   %439 = zext i32 %438 to i64
@@ -60931,7 +60931,7 @@ _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit42: ; preds = %40, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %.val7.i = load ptr, ptr %1, align 8, !noalias !1103
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %.val8.i = load i32, ptr %4, align 8, !noalias !1103
@@ -61270,7 +61270,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE14connectNewNodeEPNS5_11ContextNodeES7_bNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::DenseSet", align 8
   %7 = alloca %"class.llvm::DenseSet", align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -68263,7 +68263,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteCont
 
 1193:                                             ; preds = %1191
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
-  %1194 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef null, ptr noundef nonnull %26)
+  %1194 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef null, ptr noundef %26)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #26
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE25removeNoneTypeCalleeEdgesEPNS6_11ContextNodeE(ptr noundef %1194)
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE25removeNoneTypeCalleeEdgesEPNS6_11ContextNodeE(ptr noundef nonnull %1189)
@@ -68857,7 +68857,7 @@ _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGrap
   %1423 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(16) %33)
   %1424 = load ptr, ptr %1423, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %1424, ptr noundef nonnull %31, i1 noundef zeroext false, ptr noundef nonnull %34)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef %1424, ptr noundef nonnull %31, i1 noundef zeroext false, ptr noundef %34)
   %1425 = load ptr, ptr %34, align 8
   %1426 = load i32, ptr %110, align 8
   %1427 = zext i32 %1426 to i64
@@ -68868,7 +68868,7 @@ _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGrap
 
 _ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEE5countERSE_.exit526.thread: ; preds = %1416, %1407, %_ZNKSt8_Rb_treeIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoESt4pairIKS8_PNS7_11ContextNodeEESt10_Select1stISD_ESt4lessIS8_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRSA_.exit.i.i518, %_ZNKSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEE5countERSE_.exit526
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  %1429 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %31, ptr noundef nonnull %35)
+  %1429 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %31, ptr noundef %35)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 4) #26
   call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE25removeNoneTypeCalleeEdgesEPNS6_11ContextNodeE(ptr noundef %1429)
   %1430 = call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIN12_GLOBAL__N_120CallsiteContextGraphINS0_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS3_11InstructionEE8FuncInfoEPNS7_11ContextNodeESt4lessIS8_ESaISt4pairIKS8_SA_EEEixERSE_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(16) %33)
@@ -70081,7 +70081,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26Module
   br i1 %.not134, label %395, label %18
 
 18:                                               ; preds = %16
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.val.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 96
@@ -70324,7 +70324,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCa
   %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %126, %123 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %128 = shl nuw nsw i64 %storemerge26.i.i.i.i, 4
+  %128 = shl i64 %storemerge26.i.i.i.i, 4
   %129 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %128, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %.not.i.i.i.i80 = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i80, label %select.unfold.i.i.i.i, label %130
@@ -70862,7 +70862,7 @@ _ZN12_GLOBAL__N_115allocTypesMatchINS_26ModuleCallsiteContextGraphEN4llvm8Functi
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %320, %330
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %318, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %11)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %318, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef %11)
   %331 = load ptr, ptr %11, align 8
   %332 = load i32, ptr %185, align 8
   %333 = zext i32 %332 to i64
@@ -70898,7 +70898,7 @@ _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %320, %330
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit107: ; preds = %336, %343
   %.pre-phi191 = phi i64 [ %338, %336 ], [ 0, %343 ]
   %344 = phi ptr [ %339, %336 ], [ null, %343 ]
-  %345 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %8, ptr noundef nonnull %12)
+  %345 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %8, ptr noundef %12)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %344, i64 noundef %.pre-phi191, i64 noundef 4) #26
   br label %346
 
@@ -71017,7 +71017,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26Module
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.std::pair.745", align 8
   store ptr %0, ptr %3, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -71208,7 +71208,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_26ModuleCa
 declare noundef zeroext i1 @_ZN4llvm7memprof18hasSingleAllocTypeEh(i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::DenseSet", align 8
   %.val112 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %.val112, align 8
@@ -72641,7 +72641,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.560", align 8
   %7 = alloca ptr, align 8
@@ -72873,7 +72873,7 @@ _ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8F
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %99, %110
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.val4, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %8)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_26ModuleCallsiteContextGraphEN4llvm8FunctionEPNS2_11InstructionEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS6_11ContextEdgeEEPNS6_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS9_St6vectorIS9_SaIS9_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.val4, ptr noundef %2, i1 noundef zeroext true, ptr noundef %8)
   %111 = load ptr, ptr %8, align 8
   %112 = load i32, ptr %96, align 8
   %113 = zext i32 %112 to i64
@@ -78566,7 +78566,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_120CallsiteContextGraphINS_26Modul
   %14 = alloca %"struct.std::pair.745", align 8
   store ptr %1, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_26ModuleCallsiteContextGraphENS_8FunctionEPNS_11InstructionEE11ContextNodeENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_E6insertERKSB_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %13)
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
@@ -79833,7 +79833,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   br i1 %.not.i.i.i, label %18, label %395
 
 18:                                               ; preds = %16
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.val.i = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 96
@@ -80076,7 +80076,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCal
   %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %126, %123 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %128 = shl nuw nsw i64 %storemerge26.i.i.i.i, 4
+  %128 = shl i64 %storemerge26.i.i.i.i, 4
   %129 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %128, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #30
   %.not.i.i.i.i81 = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i81, label %select.unfold.i.i.i.i, label %130
@@ -80614,7 +80614,7 @@ _ZN12_GLOBAL__N_115allocTypesMatchINS_25IndexCallsiteContextGraphEN4llvm15Functi
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %320, %330
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %318, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef nonnull %11)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %318, ptr noundef nonnull %8, i1 noundef zeroext false, ptr noundef %11)
   %331 = load ptr, ptr %11, align 8
   %332 = load i32, ptr %185, align 8
   %333 = zext i32 %332 to i64
@@ -80650,7 +80650,7 @@ _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %320, %330
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit108: ; preds = %336, %343
   %.pre-phi191 = phi i64 [ %338, %336 ], [ 0, %343 ]
   %344 = phi ptr [ %339, %336 ], [ null, %343 ]
-  %345 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %8, ptr noundef nonnull %12)
+  %345 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %8, ptr noundef %12)
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %344, i64 noundef %.pre-phi191, i64 noundef 4) #26
   br label %346
 
@@ -80769,7 +80769,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexC
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.std::pair.1027", align 8
   store ptr %0, ptr %3, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -80958,7 +80958,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_120CallsiteContextGraphINS1_25IndexCal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::DenseSet", align 8
   %.val112 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %.val112, align 8
@@ -82391,7 +82391,7 @@ _ZNK12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE24moveEdgeToNewCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEENS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::unique_ptr.885", align 8
   %7 = alloca ptr, align 8
@@ -82759,7 +82759,7 @@ _ZNSt6vectorIN12_GLOBAL__N_120CallsiteContextGraphINS0_25IndexCallsiteContextGra
   br label %_ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit
 
 _ZN4llvm8DenseSetIjNS_12DenseMapInfoIjvEEEC2ERKS3_.exit: ; preds = %149, %160
-  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.val4, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %8)
+  call fastcc void @_ZN12_GLOBAL__N_120CallsiteContextGraphINS_25IndexCallsiteContextGraphEN4llvm15FunctionSummaryENS_9IndexCallEE29moveEdgeToExistingCalleeCloneERKSt10shared_ptrINS5_11ContextEdgeEEPNS5_11ContextNodeEPN9__gnu_cxx17__normal_iteratorIPS8_St6vectorIS8_SaIS8_EEEEbNS2_8DenseSetIjNS2_12DenseMapInfoIjvEEEE(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %.val4, ptr noundef %2, i1 noundef zeroext true, ptr noundef %8)
   %161 = load ptr, ptr %8, align 8
   %162 = load i32, ptr %146, align 8
   %163 = zext i32 %162 to i64
@@ -88315,7 +88315,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_120CallsiteContextGraphINS_25Index
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.std::pair.1027", align 8
   store ptr %1, ptr %5, align 8
-  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call fastcc void @_ZN4llvm6detail12DenseSetImplIPKN12_GLOBAL__N_120CallsiteContextGraphINS2_25IndexCallsiteContextGraphENS_15FunctionSummaryENS2_9IndexCallEE11ContextNodeENS_8DenseMapISA_NS0_13DenseSetEmptyENS_12DenseMapInfoISA_vEENS0_12DenseSetPairISA_EEEESE_E6insertERKSA_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1

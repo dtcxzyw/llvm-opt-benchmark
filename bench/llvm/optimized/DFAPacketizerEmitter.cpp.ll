@@ -552,7 +552,7 @@ _ZNSt6vectorIPKN4llvm16CodeGenProcModelESaIS3_EE9push_backEOS3_.exit.i: ; preds 
   %142 = getelementptr inbounds i8, ptr %.sroa.030.047.i, i64 8
   %143 = getelementptr inbounds i8, ptr %.sroa.030.047.i, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %142) #16
-  call fastcc void @_ZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %15, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull %11)
+  call fastcc void @_ZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %15, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef %11)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   %144 = load ptr, ptr %.sroa.030.047.i, align 8
   %.not42.i = icmp eq ptr %144, null
@@ -771,7 +771,7 @@ declare { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::tuple.255", align 8
   %6 = alloca %"class.std::tuple.166", align 1
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

@@ -1619,12 +1619,12 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
 52:                                               ; preds = %49
   %53 = add nsw i32 %.0.i, -918000
   %or.cond27.i = icmp ult i32 %53, -917827
-  br i1 %or.cond27.i, label %ucs_wcwidth.exit, label %.lr.ph.i.i
+  br i1 %or.cond27.i, label %ucs_wcwidth.exit, label %.preheader.i.i
 
-.lr.ph.i.i:                                       ; preds = %52, %68
-  %.01723.i.i = phi i32 [ %.1.i.i, %68 ], [ 0, %52 ]
-  %.01822.i.i = phi i32 [ %.119.i.i, %68 ], [ 321, %52 ]
-  %54 = add i32 %.01822.i.i, %.01723.i.i
+.preheader.i.i:                                   ; preds = %52, %68
+  %.01722.i.i = phi i32 [ %.1.i.i, %68 ], [ 0, %52 ]
+  %.01821.i.i = phi i32 [ %.119.i.i, %68 ], [ 321, %52 ]
+  %54 = add i32 %.01821.i.i, %.01722.i.i
   %55 = sdiv i32 %54, 2
   %56 = sext i32 %55 to i64
   %57 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.nonspacing, i64 %56
@@ -1633,11 +1633,11 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %60 = icmp ugt i32 %.0.i, %59
   br i1 %60, label %61, label %63
 
-61:                                               ; preds = %.lr.ph.i.i
+61:                                               ; preds = %.preheader.i.i
   %62 = add nsw i32 %55, 1
   br label %68
 
-63:                                               ; preds = %.lr.ph.i.i
+63:                                               ; preds = %.preheader.i.i
   %64 = load i32, ptr %57, align 8
   %65 = icmp ult i32 %.0.i, %64
   br i1 %65, label %66, label %ucs_wcwidth.exit
@@ -1647,20 +1647,20 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   br label %68
 
 68:                                               ; preds = %66, %61
-  %.119.i.i = phi i32 [ %.01822.i.i, %61 ], [ %67, %66 ]
-  %.1.i.i = phi i32 [ %62, %61 ], [ %.01723.i.i, %66 ]
+  %.119.i.i = phi i32 [ %.01821.i.i, %61 ], [ %67, %66 ]
+  %.1.i.i = phi i32 [ %62, %61 ], [ %.01722.i.i, %66 ]
   %.not.i.i = icmp slt i32 %.119.i.i, %.1.i.i
-  br i1 %.not.i.i, label %69, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %69, label %.preheader.i.i, !llvm.loop !17
 
 69:                                               ; preds = %68
   %70 = add nsw i32 %.0.i, -262142
   %or.cond28.i = icmp ult i32 %70, -257790
-  br i1 %or.cond28.i, label %ucs_wcwidth.exit, label %.lr.ph.i13.i
+  br i1 %or.cond28.i, label %ucs_wcwidth.exit, label %.preheader.i13.i
 
-.lr.ph.i13.i:                                     ; preds = %69, %85
-  %.01723.i14.i = phi i32 [ %.1.i18.i, %85 ], [ 0, %69 ]
-  %.01822.i15.i = phi i32 [ %.119.i17.i, %85 ], [ 119, %69 ]
-  %71 = add i32 %.01822.i15.i, %.01723.i14.i
+.preheader.i13.i:                                 ; preds = %69, %85
+  %.01722.i14.i = phi i32 [ %.1.i18.i, %85 ], [ 0, %69 ]
+  %.01821.i15.i = phi i32 [ %.119.i17.i, %85 ], [ 119, %69 ]
+  %71 = add i32 %.01821.i15.i, %.01722.i14.i
   %72 = sdiv i32 %71, 2
   %73 = sext i32 %72 to i64
   %74 = getelementptr %struct.mbinterval, ptr @ucs_wcwidth.east_asian_fw, i64 %73
@@ -1669,11 +1669,11 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   %77 = icmp ugt i32 %.0.i, %76
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %.lr.ph.i13.i
+78:                                               ; preds = %.preheader.i13.i
   %79 = add nsw i32 %72, 1
   br label %85
 
-80:                                               ; preds = %.lr.ph.i13.i
+80:                                               ; preds = %.preheader.i13.i
   %81 = load i32, ptr %74, align 8
   %82 = icmp ult i32 %.0.i, %81
   br i1 %82, label %83, label %ucs_wcwidth.exit
@@ -1683,10 +1683,10 @@ utf8_to_unicode.exit:                             ; preds = %1, %.sink.split.i
   br label %85
 
 85:                                               ; preds = %83, %78
-  %.119.i17.i = phi i32 [ %.01822.i15.i, %78 ], [ %84, %83 ]
-  %.1.i18.i = phi i32 [ %79, %78 ], [ %.01723.i14.i, %83 ]
+  %.119.i17.i = phi i32 [ %.01821.i15.i, %78 ], [ %84, %83 ]
+  %.1.i18.i = phi i32 [ %79, %78 ], [ %.01722.i14.i, %83 ]
   %.not.i19.i = icmp slt i32 %.119.i17.i, %.1.i18.i
-  br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.lr.ph.i13.i, !llvm.loop !17
+  br i1 %.not.i19.i, label %ucs_wcwidth.exit, label %.preheader.i13.i, !llvm.loop !17
 
 ucs_wcwidth.exit:                                 ; preds = %63, %80, %85, %23, %utf8_to_unicode.exit, %47, %49, %52, %69
   %.0.i1 = phi i32 [ 0, %utf8_to_unicode.exit ], [ -1, %49 ], [ -1, %47 ], [ 1, %69 ], [ 1, %52 ], [ -1, %23 ], [ 2, %80 ], [ 1, %85 ], [ 0, %63 ]

@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E = external global { ptr }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !range !4, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -614,7 +614,7 @@ _ZN14regex_automata4util8captures9GroupInfo13pattern_names17h90ef4be80df8d7feE.e
   store ptr %37, ptr %6, align 8
   store i64 %36, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i64 noundef %38)
+  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef readonly align 8 dereferenceable(40) %10, i64 noundef %38)
   %40 = load i64, ptr %4, align 8, !range !46, !noundef !5
   %trunc8 = trunc nuw i64 %40 to i1
   br i1 %trunc8, label %43, label %41
@@ -795,7 +795,7 @@ define { ptr, i64 } @"_ZN86_$LT$regex..regex..bytes..Captures$u20$as$u20$core..o
   store i64 %1, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8, i64 noundef %1)
+  call fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 8 dereferenceable(40) %8, i64 noundef %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8, !noundef !5
   %11 = load i64, ptr %6, align 8, !range !46, !noundef !5

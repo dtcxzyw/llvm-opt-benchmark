@@ -152,7 +152,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @cfg80211_put_bss(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef %2, i16 noundef zeroext %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.ieee80211_sta_ht_cap, align 2
   %10 = getelementptr inbounds i8, ptr %0, i64 1256
   %11 = load ptr, ptr %10, align 8
@@ -2523,7 +2523,7 @@ declare dso_local void @ieee80211_tx_skb_tid(ptr noundef, ptr noundef, i32 nound
 declare dso_local ptr @ieee80211_bss_info_update(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_ibss_process_chanswitch(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_ibss_process_chanswitch(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.cfg80211_csa_settings, align 8
   %4 = alloca %struct.ieee80211_csa_ie, align 8
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %3) #15
@@ -2563,7 +2563,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_ibss_process_chanswitch(ptr
   %20 = load ptr, ptr %6, align 8
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 1986
-  %23 = call i32 @ieee80211_parse_ch_switch_ie(ptr noundef %0, ptr noundef %1, i32 noundef %21, i32 noundef %19, i32 noundef %12, ptr noundef %22, ptr noundef nonnull %4) #15
+  %23 = call i32 @ieee80211_parse_ch_switch_ie(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %21, i32 noundef %19, i32 noundef %12, ptr noundef %22, ptr noundef nonnull %4) #15
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %139, label %25
 
@@ -3094,7 +3094,7 @@ define internal fastcc void @ieee80211_ibss_csa_mark_radar(ptr noundef %0) unnam
 declare dso_local void @__cfg80211_radar_event(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i16 noundef zeroext %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 16 {
+define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr nocapture noundef readonly %3, i32 noundef %4, i16 noundef zeroext %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.cfg80211_chan_def, align 8
   %10 = alloca %struct.cfg80211_inform_bss, align 8
   %11 = alloca i8, align 1

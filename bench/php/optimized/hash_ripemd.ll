@@ -222,40 +222,40 @@ PHP_RIPEMD128Update.exit22:                       ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD128Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = or disjoint i64 %indvars.iv.i, 3
-  %82 = getelementptr inbounds i8, ptr %0, i64 %81
-  store i8 %80, ptr %82, align 1
-  %83 = load i32, ptr %77, align 4
-  %84 = lshr i32 %83, 16
-  %85 = trunc i32 %84 to i8
-  %86 = or disjoint i64 %indvars.iv.i, 2
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
-  store i8 %85, ptr %87, align 1
-  %88 = load i32, ptr %77, align 4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = or disjoint i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
-  store i8 %90, ptr %92, align 1
-  %93 = load i32, ptr %77, align 4
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %94, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_RIPEMD128Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD128Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = or disjoint i64 %indvars.iv.i, 3
+  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+  store i8 %81, ptr %83, align 1
+  %84 = load i32, ptr %78, align 4
+  %85 = lshr i32 %84, 16
+  %86 = trunc i32 %85 to i8
+  %87 = or disjoint i64 %indvars.iv.i, 2
+  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  store i8 %86, ptr %88, align 1
+  %89 = load i32, ptr %78, align 4
+  %90 = lshr i32 %89, 8
+  %91 = trunc i32 %90 to i8
+  %92 = or disjoint i64 %indvars.iv.i, 1
+  %93 = getelementptr inbounds i8, ptr %0, i64 %92
+  store i8 %91, ptr %93, align 1
+  %94 = load i32, ptr %78, align 4
+  %95 = trunc i32 %94 to i8
+  %96 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %95, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 4
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
+RIPEMDEncode.exit:                                ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 88) #6
   ret void
 }
@@ -464,40 +464,40 @@ PHP_RIPEMD160Update.exit22:                       ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD160Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = or disjoint i64 %indvars.iv.i, 3
-  %82 = getelementptr inbounds i8, ptr %0, i64 %81
-  store i8 %80, ptr %82, align 1
-  %83 = load i32, ptr %77, align 4
-  %84 = lshr i32 %83, 16
-  %85 = trunc i32 %84 to i8
-  %86 = or disjoint i64 %indvars.iv.i, 2
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
-  store i8 %85, ptr %87, align 1
-  %88 = load i32, ptr %77, align 4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = or disjoint i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
-  store i8 %90, ptr %92, align 1
-  %93 = load i32, ptr %77, align 4
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %94, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_RIPEMD160Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD160Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = or disjoint i64 %indvars.iv.i, 3
+  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+  store i8 %81, ptr %83, align 1
+  %84 = load i32, ptr %78, align 4
+  %85 = lshr i32 %84, 16
+  %86 = trunc i32 %85 to i8
+  %87 = or disjoint i64 %indvars.iv.i, 2
+  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  store i8 %86, ptr %88, align 1
+  %89 = load i32, ptr %78, align 4
+  %90 = lshr i32 %89, 8
+  %91 = trunc i32 %90 to i8
+  %92 = or disjoint i64 %indvars.iv.i, 1
+  %93 = getelementptr inbounds i8, ptr %0, i64 %92
+  store i8 %91, ptr %93, align 1
+  %94 = load i32, ptr %78, align 4
+  %95 = trunc i32 %94 to i8
+  %96 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %95, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 5
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
+RIPEMDEncode.exit:                                ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 92) #6
   ret void
 }
@@ -706,40 +706,40 @@ PHP_RIPEMD256Update.exit22:                       ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD256Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = or disjoint i64 %indvars.iv.i, 3
-  %82 = getelementptr inbounds i8, ptr %0, i64 %81
-  store i8 %80, ptr %82, align 1
-  %83 = load i32, ptr %77, align 4
-  %84 = lshr i32 %83, 16
-  %85 = trunc i32 %84 to i8
-  %86 = or disjoint i64 %indvars.iv.i, 2
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
-  store i8 %85, ptr %87, align 1
-  %88 = load i32, ptr %77, align 4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = or disjoint i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
-  store i8 %90, ptr %92, align 1
-  %93 = load i32, ptr %77, align 4
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %94, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_RIPEMD256Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD256Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = or disjoint i64 %indvars.iv.i, 3
+  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+  store i8 %81, ptr %83, align 1
+  %84 = load i32, ptr %78, align 4
+  %85 = lshr i32 %84, 16
+  %86 = trunc i32 %85 to i8
+  %87 = or disjoint i64 %indvars.iv.i, 2
+  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  store i8 %86, ptr %88, align 1
+  %89 = load i32, ptr %78, align 4
+  %90 = lshr i32 %89, 8
+  %91 = trunc i32 %90 to i8
+  %92 = or disjoint i64 %indvars.iv.i, 1
+  %93 = getelementptr inbounds i8, ptr %0, i64 %92
+  store i8 %91, ptr %93, align 1
+  %94 = load i32, ptr %78, align 4
+  %95 = trunc i32 %94 to i8
+  %96 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %95, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
+RIPEMDEncode.exit:                                ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #6
   ret void
 }
@@ -952,40 +952,40 @@ PHP_RIPEMD320Update.exit22:                       ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_RIPEMD320Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = or disjoint i64 %indvars.iv.i, 3
-  %82 = getelementptr inbounds i8, ptr %0, i64 %81
-  store i8 %80, ptr %82, align 1
-  %83 = load i32, ptr %77, align 4
-  %84 = lshr i32 %83, 16
-  %85 = trunc i32 %84 to i8
-  %86 = or disjoint i64 %indvars.iv.i, 2
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
-  store i8 %85, ptr %87, align 1
-  %88 = load i32, ptr %77, align 4
-  %89 = lshr i32 %88, 8
-  %90 = trunc i32 %89 to i8
-  %91 = or disjoint i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
-  store i8 %90, ptr %92, align 1
-  %93 = load i32, ptr %77, align 4
-  %94 = trunc i32 %93 to i8
-  %95 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %94, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_RIPEMD320Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_RIPEMD320Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = or disjoint i64 %indvars.iv.i, 3
+  %83 = getelementptr inbounds i8, ptr %0, i64 %82
+  store i8 %81, ptr %83, align 1
+  %84 = load i32, ptr %78, align 4
+  %85 = lshr i32 %84, 16
+  %86 = trunc i32 %85 to i8
+  %87 = or disjoint i64 %indvars.iv.i, 2
+  %88 = getelementptr inbounds i8, ptr %0, i64 %87
+  store i8 %86, ptr %88, align 1
+  %89 = load i32, ptr %78, align 4
+  %90 = lshr i32 %89, 8
+  %91 = trunc i32 %90 to i8
+  %92 = or disjoint i64 %indvars.iv.i, 1
+  %93 = getelementptr inbounds i8, ptr %0, i64 %92
+  store i8 %91, ptr %93, align 1
+  %94 = load i32, ptr %78, align 4
+  %95 = trunc i32 %94 to i8
+  %96 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %95, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 10
-  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %RIPEMDEncode.exit, label %77
 
-RIPEMDEncode.exit:                                ; preds = %.lr.ph.i23
+RIPEMDEncode.exit:                                ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 112) #6
   ret void
 }

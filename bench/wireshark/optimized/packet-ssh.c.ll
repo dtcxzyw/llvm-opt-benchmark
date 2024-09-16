@@ -4112,7 +4112,7 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
   %674 = call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %335, i32 noundef 5, i32 noundef %672, i32 noundef %673, ptr noundef null, ptr noundef nonnull @.str.527) #21
   %675 = load i32, ptr @hf_ssh2_msg_code, align 4
   %676 = call ptr @proto_tree_add_item(ptr noundef %674, i32 noundef %675, ptr noundef %335, i32 noundef 5, i32 noundef 1, i32 noundef 0) #21
-  %677 = call fastcc i32 @ssh_dissect_connection_specific(ptr noundef %335, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %674, i32 noundef %372, ptr noundef nonnull %.013.i)
+  %677 = call fastcc i32 @ssh_dissect_connection_specific(ptr noundef %335, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %674, i32 noundef %372, ptr noundef %.013.i)
   %678 = add i32 %677, -5
   br label %698
 
@@ -4185,7 +4185,7 @@ ssh_dissect_userauth_generic.exit.i:              ; preds = %633, %625, %613, %6
   %717 = call ptr @tvb_get_ptr(ptr noundef %328, i32 noundef %699, i32 noundef %712) #21
   %718 = call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %714, ptr noundef %328, i32 noundef %699, i32 noundef %712, i32 noundef 0) #21
   %719 = zext i32 %712 to i64
-  %bcmp.i.i = call i32 @bcmp(ptr %717, ptr nonnull %716, i64 %719)
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %717, ptr noundef nonnull dereferenceable(1) %716, i64 %719)
   %.not.i250.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i250.i, label %720, label %.critedge.i.i
 
@@ -5517,7 +5517,7 @@ ssh_kex_hash_type.exit.i.i:                       ; preds = %.fold.split.i.i, %.
   br i1 %453, label %.lr.ph.i.i, label %ssh_derive_symmetric_key.exit.i
 
 .lr.ph.i.i:                                       ; preds = %452
-  %454 = zext i32 %402 to i64
+  %454 = zext nneg i32 %402 to i64
   %455 = sub nsw i64 0, %454
   br label %456
 
@@ -5919,7 +5919,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noalias ptr @ssh_kex_shared_secret(i32 noundef range(i32 0, 196633) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6079,7 +6079,7 @@ ssh_kex_make_bignum.exit.thread:                  ; preds = %20, %16, %75, %84
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @ssh_print_data(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #5 {
+define internal fastcc void @ssh_print_data(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #5 {
   %4 = load ptr, ptr @ssh_debug_file, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -6344,7 +6344,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssh_dissect_userauth_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ssh_dissect_userauth_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 60, 80) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 60
   br i1 %5, label %6, label %25
 
@@ -6380,7 +6380,7 @@ define internal fastcc i32 @ssh_dissect_userauth_specific(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssh_dissect_connection_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ssh_dissect_connection_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 80, 90) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 80
   br i1 %5, label %6, label %33
 
@@ -6426,7 +6426,7 @@ define internal fastcc i32 @ssh_dissect_connection_generic(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @ssh_dissect_connection_specific(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 90, 128) %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -7391,7 +7391,7 @@ set_subdissector_for_channel.exit:                ; preds = %449, %481, %490, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssh_dissect_local_extension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %.280.val.732.val, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @ssh_dissect_local_extension(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %.280.val.732.val, ptr noundef %2, i32 noundef range(i32 192, 256) %3) unnamed_addr #0 {
   %5 = icmp ne i32 %.280.val.732.val, 0
   %6 = icmp ult i32 %3, 194
   %or.cond3 = and i1 %5, %6

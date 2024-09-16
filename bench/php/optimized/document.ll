@@ -2969,7 +2969,7 @@ define hidden void @zim_DOMDocument_load(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3676,7 +3676,7 @@ define hidden void @zim_DOM_Document_schemaValidate(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3741,10 +3741,10 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   %42 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef 0) #10
   %43 = call i32 @xmlLineNumbersDefault(i32 noundef 0) #10
   %44 = call i32 @xmlKeepBlanksDefault(i32 noundef 1) #10
-  %switch = icmp eq i32 %2, 1
+  %trunc = trunc nuw i32 %2 to i1
   %45 = load ptr, ptr %4, align 8
   %46 = load i64, ptr %5, align 8
-  br i1 %switch, label %47, label %70
+  br i1 %trunc, label %47, label %70
 
 47:                                               ; preds = %34
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #11
@@ -3896,7 +3896,7 @@ define hidden void @zim_DOM_Document_relaxNGValidate(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca [4097 x i8], align 16
@@ -3947,9 +3947,9 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
   br label %81
 
 33:                                               ; preds = %20
-  %switch = icmp eq i32 %2, 1
+  %trunc = trunc nuw i32 %2 to i1
   %34 = load ptr, ptr %4, align 8
-  br i1 %switch, label %35, label %46
+  br i1 %trunc, label %35, label %46
 
 35:                                               ; preds = %33
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #11
@@ -4065,7 +4065,7 @@ define hidden void @zim_DOMDocument_loadHTMLFile(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4081,7 +4081,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %14 = icmp ne ptr %13, null
   call void @llvm.assume(i1 %14)
-  br label %70
+  br label %69
 
 15:                                               ; preds = %3
   %16 = load i64, ptr %5, align 8
@@ -4093,7 +4093,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %19 = icmp ne ptr %18, null
   call void @llvm.assume(i1 %19)
-  br label %70
+  br label %69
 
 20:                                               ; preds = %15
   %21 = load i64, ptr %6, align 8
@@ -4105,105 +4105,105 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.40) #10
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %24, align 8
-  br label %70
+  br label %69
 
 25:                                               ; preds = %20
-  %26 = icmp eq i32 %2, 1
-  br i1 %26, label %27, label %35
+  %.not31 = icmp eq i32 %2, 0
+  br i1 %.not31, label %34, label %26
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr %4, align 8
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #11
-  %.not31 = icmp eq i64 %16, %29
-  br i1 %.not31, label %33, label %30
+26:                                               ; preds = %25
+  %27 = load ptr, ptr %4, align 8
+  %28 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #11
+  %.not32 = icmp eq i64 %16, %28
+  br i1 %.not32, label %32, label %29
 
-30:                                               ; preds = %27
+29:                                               ; preds = %26
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.21) #10
-  %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %32 = icmp ne ptr %31, null
-  call void @llvm.assume(i1 %32)
-  br label %70
+  %30 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %31 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %31)
+  br label %69
 
-33:                                               ; preds = %27
-  %34 = call ptr @htmlCreateFileParserCtxt(ptr noundef %28, ptr noundef null) #10
-  br label %43
+32:                                               ; preds = %26
+  %33 = call ptr @htmlCreateFileParserCtxt(ptr noundef %27, ptr noundef null) #10
+  br label %42
 
-35:                                               ; preds = %25
-  %36 = icmp ugt i64 %16, 2147483647
-  br i1 %36, label %37, label %39
+34:                                               ; preds = %25
+  %35 = icmp ugt i64 %16, 2147483647
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.39) #10
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %38, align 8
-  br label %70
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %37, align 8
+  br label %69
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %4, align 8
-  %41 = trunc nuw nsw i64 %16 to i32
-  %42 = call ptr @htmlCreateMemoryParserCtxt(ptr noundef %40, i32 noundef %41) #10
-  br label %43
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %4, align 8
+  %40 = trunc nuw nsw i64 %16 to i32
+  %41 = call ptr @htmlCreateMemoryParserCtxt(ptr noundef %39, i32 noundef %40) #10
+  br label %42
 
-43:                                               ; preds = %39, %33
-  %.0 = phi ptr [ %34, %33 ], [ %42, %39 ]
-  %.not32 = icmp eq ptr %.0, null
-  br i1 %.not32, label %44, label %46
+42:                                               ; preds = %38, %32
+  %.0 = phi ptr [ %33, %32 ], [ %41, %38 ]
+  %.not33 = icmp eq ptr %.0, null
+  br i1 %.not33, label %43, label %45
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %45, align 8
-  br label %70
+43:                                               ; preds = %42
+  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %44, align 8
+  br label %69
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %.0, i64 168
-  store ptr @php_libxml_ctx_error, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0, i64 176
-  store ptr @php_libxml_ctx_warning, ptr %48, align 8
-  %49 = load ptr, ptr %.0, align 8
-  %.not33 = icmp eq ptr %49, null
-  br i1 %.not33, label %54, label %50
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %.0, i64 168
+  store ptr @php_libxml_ctx_error, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %.0, i64 176
+  store ptr @php_libxml_ctx_warning, ptr %47, align 8
+  %48 = load ptr, ptr %.0, align 8
+  %.not34 = icmp eq ptr %48, null
+  br i1 %.not34, label %53, label %49
 
-50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %49, i64 176
-  store ptr @php_libxml_ctx_error, ptr %51, align 8
-  %52 = load ptr, ptr %.0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 168
-  store ptr @php_libxml_ctx_warning, ptr %53, align 8
-  br label %54
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %48, i64 176
+  store ptr @php_libxml_ctx_error, ptr %50, align 8
+  %51 = load ptr, ptr %.0, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 168
+  store ptr @php_libxml_ctx_warning, ptr %52, align 8
+  br label %53
 
-54:                                               ; preds = %50, %46
-  %55 = getelementptr inbounds i8, ptr %.0, i64 432
-  store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %.0, i64 156
+53:                                               ; preds = %49, %45
+  %54 = getelementptr inbounds i8, ptr %.0, i64 432
+  store i32 0, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %.0, i64 156
+  store i32 0, ptr %55, align 4
+  %56 = getelementptr inbounds i8, ptr %.0, i64 420
   store i32 0, ptr %56, align 4
-  %57 = getelementptr inbounds i8, ptr %.0, i64 420
+  %57 = getelementptr inbounds i8, ptr %.0, i64 28
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %.0, i64 28
+  %58 = getelementptr inbounds i8, ptr %.0, i64 436
   store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %.0, i64 436
-  store i32 0, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %.0, i64 328
-  store i32 1, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.0, i64 564
-  store i32 0, ptr %61, align 4
-  %62 = load i64, ptr %6, align 8
-  %.not34 = icmp eq i64 %62, 0
-  br i1 %.not34, label %66, label %63
+  %59 = getelementptr inbounds i8, ptr %.0, i64 328
+  store i32 1, ptr %59, align 8
+  %60 = getelementptr inbounds i8, ptr %.0, i64 564
+  store i32 0, ptr %60, align 4
+  %61 = load i64, ptr %6, align 8
+  %.not35 = icmp eq i64 %61, 0
+  br i1 %.not35, label %65, label %62
 
-63:                                               ; preds = %54
-  %64 = trunc i64 %62 to i32
-  %65 = call i32 @htmlCtxtUseOptions(ptr noundef nonnull %.0, i32 noundef %64) #10
-  br label %66
+62:                                               ; preds = %53
+  %63 = trunc i64 %61 to i32
+  %64 = call i32 @htmlCtxtUseOptions(ptr noundef nonnull %.0, i32 noundef %63) #10
+  br label %65
 
-66:                                               ; preds = %63, %54
-  %67 = call i32 @htmlParseDocument(ptr noundef nonnull %.0) #10
-  %68 = getelementptr inbounds i8, ptr %.0, i64 16
-  %69 = load ptr, ptr %68, align 8
+65:                                               ; preds = %62, %53
+  %66 = call i32 @htmlParseDocument(ptr noundef nonnull %.0) #10
+  %67 = getelementptr inbounds i8, ptr %.0, i64 16
+  %68 = load ptr, ptr %67, align 8
   call void @htmlFreeParserCtxt(ptr noundef nonnull %.0) #10
-  call fastcc void @php_dom_finish_loading_document(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %69)
-  br label %70
+  call fastcc void @php_dom_finish_loading_document(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %68)
+  br label %69
 
-70:                                               ; preds = %66, %44, %37, %30, %23, %17, %12
+69:                                               ; preds = %65, %43, %36, %29, %23, %17, %12
   ret void
 }
 

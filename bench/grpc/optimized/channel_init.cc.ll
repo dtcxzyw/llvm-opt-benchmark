@@ -1959,7 +1959,7 @@ for.end254.invoke.cont255_crit_edge:              ; preds = %for.end254
   br label %invoke.cont255
 
 if.then.i.i384:                                   ; preds = %for.end254
-  %call3.i.i5.i.i385 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %__x.val.i.i, ptr noundef nonnull %133)
+  %call3.i.i5.i.i385 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %__x.val.i.i, ptr noundef %133)
           to label %while.cond.i.i.i.i.i.i unwind label %lpad.loopexit.split-lp737.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 while.cond.i.i.i.i.i.i:                           ; preds = %if.then.i.i384, %while.cond.i.i.i.i.i.i
@@ -2031,7 +2031,7 @@ invoke.cont18.i:                                  ; preds = %while.body, %for.in
   store i64 57, ptr %ref.tmp14.i, align 8
   %138 = getelementptr inbounds i8, ptr %ref.tmp14.i, i64 8
   store ptr @.str.29, ptr %138, align 8
-  invoke fastcc void @"_ZZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique_ptrINS0_18FilterRegistrationESt14default_deleteIS3_EESaIS6_EEPN4absl12lts_2023080212AnyInvocableIKFvRNS_19ChannelStackBuilderEEEE23grpc_channel_stack_typeENK3$_3clB5cxx11ERKSt3mapIPK19grpc_channel_filterSt3setISO_NS_12_GLOBAL__N_127CompareChannelFiltersByNameESaISO_EESR_SaISt4pairIKSO_ST_EEE"(ptr noalias nonnull align 8 %ref.tmp16.i, ptr noundef nonnull align 8 dereferenceable(48) %dependencies)
+  invoke fastcc void @"_ZZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique_ptrINS0_18FilterRegistrationESt14default_deleteIS3_EESaIS6_EEPN4absl12lts_2023080212AnyInvocableIKFvRNS_19ChannelStackBuilderEEEE23grpc_channel_stack_typeENK3$_3clB5cxx11ERKSt3mapIPK19grpc_channel_filterSt3setISO_NS_12_GLOBAL__N_127CompareChannelFiltersByNameESaISO_EESR_SaISt4pairIKSO_ST_EEE"(ptr noalias align 8 %ref.tmp16.i, ptr noundef nonnull align 8 dereferenceable(48) %dependencies)
           to label %.noexc391 unwind label %lpad258.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc391:                                        ; preds = %invoke.cont18.i
@@ -2044,7 +2044,7 @@ invoke.cont18.i:                                  ; preds = %while.body, %for.in
   store i64 10, ptr %ref.tmp17.i, align 8
   %142 = getelementptr inbounds i8, ptr %ref.tmp17.i, i64 8
   store ptr @.str.30, ptr %142, align 8
-  invoke fastcc void @"_ZZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique_ptrINS0_18FilterRegistrationESt14default_deleteIS3_EESaIS6_EEPN4absl12lts_2023080212AnyInvocableIKFvRNS_19ChannelStackBuilderEEEE23grpc_channel_stack_typeENK3$_3clB5cxx11ERKSt3mapIPK19grpc_channel_filterSt3setISO_NS_12_GLOBAL__N_127CompareChannelFiltersByNameESaISO_EESR_SaISt4pairIKSO_ST_EEE"(ptr noalias nonnull align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(48) %original)
+  invoke fastcc void @"_ZZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique_ptrINS0_18FilterRegistrationESt14default_deleteIS3_EESaIS6_EEPN4absl12lts_2023080212AnyInvocableIKFvRNS_19ChannelStackBuilderEEEE23grpc_channel_stack_typeENK3$_3clB5cxx11ERKSt3mapIPK19grpc_channel_filterSt3setISO_NS_12_GLOBAL__N_127CompareChannelFiltersByNameESaISO_EESR_SaISt4pairIKSO_ST_EEE"(ptr noalias align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(48) %original)
           to label %invoke.cont21.i unwind label %lpad.i
 
 invoke.cont21.i:                                  ; preds = %.noexc391
@@ -4974,7 +4974,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %__x, ptr noundef %__p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %__x, ptr noundef nonnull %__p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_RT0_(ptr noundef %__x)
   %_M_parent = getelementptr inbounds i8, ptr %call, i64 8
@@ -4985,7 +4985,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %0, ptr noundef nonnull %call)
+  %call3 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %0, ptr noundef %call)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
@@ -5034,7 +5034,7 @@ invoke.cont6:                                     ; preds = %while.body
   br i1 %tobool10.not, label %if.end16, label %if.then11
 
 if.then11:                                        ; preds = %invoke.cont6
-  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %3, ptr noundef nonnull %call7)
+  %call14 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_St3setIS2_N9grpc_core12_GLOBAL__N_127CompareChannelFiltersByNameESaIS2_EEESt10_Select1stISB_ES8_SaISB_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISB_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %3, ptr noundef %call7)
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11

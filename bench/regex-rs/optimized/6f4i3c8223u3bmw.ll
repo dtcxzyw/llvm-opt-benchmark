@@ -911,7 +911,7 @@ define internal void @"_ZN4core3ptr59drop_in_place$LT$regex_automata..util..sear
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !66, !noundef !5
   switch i32 %2, label %"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$LT$$u5b$regex_automata..util..primitives..StateID$u5d$$GT$$GT$17h40b85a38069b3131E.exit" [
     i32 4, label %7
@@ -3734,7 +3734,7 @@ _ZN14regex_automata3nfa8thompson3nfa5State12memory_usage17hd9357ddd751aa01cE.exi
 138:                                              ; preds = %137
   %139 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #30
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef align 8 dereferenceable(24) %4) #30
           to label %.body unwind label %140
 
 140:                                              ; preds = %138
@@ -3763,7 +3763,7 @@ _ZN14regex_automata3nfa8thompson3nfa5State12memory_usage17hd9357ddd751aa01cE.exi
 150:                                              ; preds = %.invoke, %124
   %151 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #30
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$regex_automata..nfa..thompson..nfa..State$GT$17h92ead38d4ea6d5f0E"(ptr noalias noundef align 8 dereferenceable(24) %1) #30
           to label %.body unwind label %152
 
 152:                                              ; preds = %150

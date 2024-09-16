@@ -737,20 +737,16 @@ if.end14:                                         ; preds = %if.end10
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @copy_properties_from_host(ptr nocapture noundef readonly %props, i32 noundef %nb_props, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path, ptr noundef %nodename) unnamed_addr #0 {
+define internal fastcc void @copy_properties_from_host(ptr nocapture noundef readonly %props, i32 noundef range(i32 4, 14) %nb_props, ptr noundef %host_fdt, ptr noundef %guest_fdt, ptr noundef %node_path, ptr noundef %nodename) unnamed_addr #0 {
 entry:
   %prop_len = alloca i32, align 4
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %cmp10 = icmp sgt i32 %nb_props, 0
-  br i1 %cmp10, label %for.body.preheader, label %for.end
-
-for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %nb_props to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
+for.body:                                         ; preds = %entry, %for.inc
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr %struct.HostProperty, ptr %props, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
   %call = call ptr @qemu_fdt_getprop(ptr noundef %host_fdt, ptr noundef %node_path, ptr noundef %0, ptr noundef nonnull %prop_len, ptr noundef nonnull %err) #11
@@ -799,7 +795,7 @@ for.inc:                                          ; preds = %if.then, %if.end16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
-for.end:                                          ; preds = %for.inc, %entry
+for.end:                                          ; preds = %for.inc
   ret void
 }
 

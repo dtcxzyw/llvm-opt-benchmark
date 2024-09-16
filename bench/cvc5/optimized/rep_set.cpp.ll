@@ -728,7 +728,7 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.else.i.i, %if.then.i.i, %if.then13.i.i
-  %call4 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(56) %cache)
+  %call4 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(56) %cache)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1046,7 +1046,7 @@ return:                                           ; preds = %if.else.i, %_ZNSt16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef %n, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull %n, ptr noundef nonnull align 8 dereferenceable(56) %cache) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %agg.tmp23 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -1160,7 +1160,7 @@ if.then13.i.i.i:                                  ; preds = %if.else.i.i.i
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %if.then.i.i.i, %if.else.i.i.i, %if.then13.i.i.i
-  %call24 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef nonnull %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(56) %cache)
+  %call24 = invoke fastcc noundef zeroext i1 @_ZN4cvc58internal6theory12_GLOBAL__N_116containsStoreAllENS0_12NodeTemplateILb1EEERSt13unordered_setIS4_St4hashIS4_ESt8equal_toIS4_ESaIS4_EE(ptr noundef %agg.tmp23, ptr noundef nonnull align 8 dereferenceable(56) %cache)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit

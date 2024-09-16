@@ -8491,7 +8491,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %125, %135
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1
   %144 = load i32, ptr %37, align 8
-  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %16, i1 noundef zeroext %143, i32 noundef %144)
+  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef %16, i1 noundef zeroext %143, i32 noundef %144)
   br label %.thread100
 
 .thread100:                                       ; preds = %137, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit, %111
@@ -8758,7 +8758,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit86:                  ; preds = %242, %240, %177, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(233) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(233) %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::unique_ptr", align 8
@@ -15054,7 +15054,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %125, %135
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1
   %144 = load i32, ptr %37, align 8
-  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %16, i1 noundef zeroext %143, i32 noundef %144)
+  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef %16, i1 noundef zeroext %143, i32 noundef %144)
   br label %.thread100
 
 .thread100:                                       ; preds = %137, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit, %111
@@ -17141,7 +17141,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph92.i:                                       ; preds = %.preheader.i, %89
   %.04391.i = phi i64 [ %90, %89 ], [ 0, %.preheader.i ]
-  invoke fastcc void @"_ZN4dmlc12OMPException3RunIZN7xgboost6common19HostSketchContainerC1EPKNS2_7ContextEiNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbE3$_0JmEEEvT_DpT0_"(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr nonnull readonly %0, i64 noundef %.04391.i)
+  invoke fastcc void @"_ZN4dmlc12OMPException3RunIZN7xgboost6common19HostSketchContainerC1EPKNS2_7ContextEiNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbE3$_0JmEEEvT_DpT0_"(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr readonly %0, i64 noundef %.04391.i)
           to label %89 unwind label %.loopexit.i
 
 89:                                               ; preds = %.lr.ph92.i
@@ -17491,7 +17491,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %49, %59
   %67 = trunc i8 %66 to i1
   %68 = getelementptr inbounds i8, ptr %0, i64 104
   %69 = load i32, ptr %68, align 8
-  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef nonnull %18, i1 noundef zeroext %67, i32 noundef %69)
+  call fastcc void @_ZN7xgboost6common12_GLOBAL__N_112MergeWeightsERKNS_8MetaInfoENS0_4SpanIKfLm18446744073709551615EEEbi(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(233) %2, ptr noundef %18, i1 noundef zeroext %67, i32 noundef %69)
   br label %.thread
 
 .thread:                                          ; preds = %61, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit, %35
@@ -37854,7 +37854,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 75:                                               ; preds = %.lr.ph, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit
   %.01736 = phi i32 [ 0, %.lr.ph ], [ %102, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit ]
-  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %.01736, i32 noundef %1)
+  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %.01736, i32 noundef %1)
   %76 = load ptr, ptr %71, align 8
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %77, label %91
@@ -38027,7 +38027,7 @@ _ZN7xgboost6common22QuantileSketchTemplateIffNS0_9WQSummaryIffEEE16SummaryContai
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = add nsw i32 %2, 1
   %7 = sext i32 %6 to i64
@@ -41017,7 +41017,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %26, align 8
-  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(52) %34, i32 noundef %.01731, i32 noundef %9)
+  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(52) %34, i32 noundef %.01731, i32 noundef %9)
   %35 = load i64, ptr %3, align 8
   %.not29 = icmp eq i64 %35, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
@@ -41123,7 +41123,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = add nsw i32 %2, 1
   %7 = sext i32 %6 to i64
@@ -44140,7 +44140,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 75:                                               ; preds = %.lr.ph, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit
   %.01736 = phi i32 [ 0, %.lr.ph ], [ %102, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit ]
-  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %.01736, i32 noundef %1)
+  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceINS0_9WQSummaryIffE5EntryEE6ValuesEij(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(52) %3, i32 noundef %.01736, i32 noundef %1)
   %76 = load ptr, ptr %71, align 8
   %.not = icmp eq ptr %76, null
   br i1 %.not, label %77, label %91
@@ -47517,7 +47517,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %26, align 8
-  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(52) %34, i32 noundef %.01731, i32 noundef %9)
+  call fastcc void @_ZNK7xgboost6common12_GLOBAL__N_117QuantileAllreduceIfE6ValuesEij(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(52) %34, i32 noundef %.01731, i32 noundef %9)
   %35 = load i64, ptr %3, align 8
   %.not29 = icmp eq i64 %35, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
@@ -47623,7 +47623,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4dmlc12OMPException3RunIZN7xgboost6common19HostSketchContainerC1EPKNS2_7ContextEiNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbE3$_0JmEEEvT_DpT0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4dmlc12OMPException3RunIZN7xgboost6common19HostSketchContainerC1EPKNS2_7ContextEiNS3_4SpanIKNS2_11FeatureTypeELm18446744073709551615EEESt6vectorImSaImEEbE3$_0JmEEEvT_DpT0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readonly %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8

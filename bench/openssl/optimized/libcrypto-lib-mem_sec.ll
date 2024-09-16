@@ -1014,7 +1014,7 @@ if.end6:                                          ; preds = %if.end2
   %3 = load i64, ptr @secure_mem_used, align 8
   %sub = sub i64 %3, %call7
   store i64 %sub, ptr @secure_mem_used, align 8
-  tail call fastcc void @sh_free(ptr noundef nonnull %ptr)
+  tail call fastcc void @sh_free(ptr noundef %ptr)
   %4 = load ptr, ptr @sec_malloc_lock, align 8
   %call8 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #8
   br label %return
@@ -1049,7 +1049,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sh_free(ptr noundef %ptr) unnamed_addr #0 {
+define internal fastcc void @sh_free(ptr noundef nonnull %ptr) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 16), align 8
   %cmp1.not = icmp uge ptr %ptr, %0
@@ -1164,10 +1164,10 @@ cond.false11:                                     ; preds = %sh_testbit.exit
 
 cond.end12:                                       ; preds = %sh_testbit.exit
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 64), align 8
-  tail call fastcc void @sh_clearbit(ptr noundef %ptr, i32 noundef %conv, ptr noundef %7)
+  tail call fastcc void @sh_clearbit(ptr noundef nonnull %ptr, i32 noundef %conv, ptr noundef %7)
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @sh, i64 32), align 8
   %arrayidx15 = getelementptr inbounds ptr, ptr %8, i64 %list.0.lcssa.i
-  tail call fastcc void @sh_add_to_list(ptr noundef %arrayidx15, ptr noundef %ptr)
+  tail call fastcc void @sh_add_to_list(ptr noundef %arrayidx15, ptr noundef nonnull %ptr)
   br label %while.cond
 
 while.cond:                                       ; preds = %cond.end65, %cond.end12
@@ -1553,7 +1553,7 @@ if.end6:                                          ; preds = %if.end2
   %3 = load i64, ptr @secure_mem_used, align 8
   %sub = sub i64 %3, %call7
   store i64 %sub, ptr @secure_mem_used, align 8
-  tail call fastcc void @sh_free(ptr noundef nonnull %ptr)
+  tail call fastcc void @sh_free(ptr noundef %ptr)
   %4 = load ptr, ptr @sec_malloc_lock, align 8
   %call8 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #8
   br label %return

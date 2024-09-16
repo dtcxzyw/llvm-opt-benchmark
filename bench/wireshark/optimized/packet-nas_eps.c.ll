@@ -5722,7 +5722,7 @@ declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
   %7 = load i32, ptr @hf_nas_eps_bearer_id, align 4
@@ -7483,7 +7483,7 @@ declare i32 @dissect_gsm_map_lcs_LCS_ClientID_PDU(ptr noundef, ptr noundef, ptr 
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @dissect_nas_eps_emm_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #10

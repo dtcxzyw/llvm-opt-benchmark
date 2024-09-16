@@ -967,7 +967,7 @@ Vec_PtrPush.exit113:                              ; preds = %.Vec_PtrGrow.exit11
   %327 = getelementptr inbounds i8, ptr %326, i64 20
   %328 = load i32, ptr %327, align 4
   %329 = lshr i32 %328, 12
-  %330 = tail call noundef i32 @llvm.smin.i32(i32 %324, i32 %329)
+  %330 = tail call range(i32 -2147483648, 1048576) i32 @llvm.smin.i32(i32 %324, i32 %329)
   store i32 %330, ptr %318, align 4
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %.val83 = load i32, ptr %320, align 4
@@ -997,10 +997,10 @@ Vec_PtrPush.exit113:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @Vec_VecPush(ptr nocapture noundef %0, i32 noundef range(i32 -1048575, 1048576) %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = add i32 %1, 1
+  %6 = add nsw i32 %1, 1
   %.not = icmp sgt i32 %5, %1
   br i1 %.not, label %26, label %7
 
@@ -2456,7 +2456,7 @@ Res_WinFinalizeRoots.exit.thread:                 ; preds = %71, %49, %52, %Res_
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

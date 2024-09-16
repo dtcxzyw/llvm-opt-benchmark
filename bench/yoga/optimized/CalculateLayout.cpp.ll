@@ -3309,11 +3309,11 @@ call120.i.i.noexc:                                ; preds = %call115.i.i.noexc
   br label %if.end133.i.i
 
 if.end133.i.i:                                    ; preds = %call120.i.i.noexc, %if.then107.i.i, %if.then104.i.i, %if.then69.i.i
-  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %292, i8 noundef zeroext %retval.0.i10831829, float noundef %availableInnerMainDim.1.i1838, float noundef %call89.i, ptr noundef nonnull %childMainSizingMode.i.i, ptr noundef nonnull %childMainSize.i.i)
+  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %292, i8 noundef zeroext %retval.0.i10831829, float noundef %availableInnerMainDim.1.i1838, float noundef %call89.i, ptr noundef %childMainSizingMode.i.i, ptr noundef %childMainSize.i.i)
           to label %.noexc921 unwind label %lpad.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc921:                                        ; preds = %if.end133.i.i
-  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %292, i8 noundef zeroext %171, float noundef %cond101.i, float noundef %call89.i, ptr noundef nonnull %childCrossSizingMode.i.i, ptr noundef nonnull %childCrossSize.i.i)
+  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %292, i8 noundef zeroext %171, float noundef %cond101.i, float noundef %call89.i, ptr noundef %childCrossSizingMode.i.i, ptr noundef %childCrossSize.i.i)
           to label %.noexc922 unwind label %lpad.i.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc922:                                        ; preds = %.noexc921
@@ -4259,11 +4259,11 @@ invoke.cont400.i:                                 ; preds = %cond.end398.i
   store float %add402.i, ptr %childMainSize.i, align 4
   store i32 0, ptr %childMainSizingMode.i, align 4
   store i32 0, ptr %childCrossSizingMode.i, align 4
-  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %389, i8 noundef zeroext %retval.0.i10831829, float noundef %availableInnerMainDim.1.i1838, float noundef %call89.i, ptr noundef nonnull %childMainSizingMode.i, ptr noundef nonnull %childMainSize.i)
+  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %389, i8 noundef zeroext %retval.0.i10831829, float noundef %availableInnerMainDim.1.i1838, float noundef %call89.i, ptr noundef %childMainSizingMode.i, ptr noundef %childMainSize.i)
           to label %invoke.cont403.i unwind label %lpad.i.loopexit
 
 invoke.cont403.i:                                 ; preds = %invoke.cont400.i
-  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %389, i8 noundef zeroext %171, float noundef %cond101.i, float noundef %call89.i, ptr noundef nonnull %childCrossSizingMode.i, ptr noundef nonnull %childCrossSize.i)
+  invoke fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef nonnull %389, i8 noundef zeroext %171, float noundef %cond101.i, float noundef %call89.i, ptr noundef %childCrossSizingMode.i, ptr noundef %childCrossSize.i)
           to label %invoke.cont404.i unwind label %lpad.i.loopexit
 
 invoke.cont404.i:                                 ; preds = %invoke.cont403.i
@@ -6094,7 +6094,7 @@ declare void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr noundef nonnull
 declare noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640), i8 noundef zeroext, i8 noundef zeroext, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef float @_ZN8facebook4yogaL32calculateAvailableInnerDimensionEPKNS0_4NodeENS0_9DimensionEfff(ptr nocapture noundef readonly %node, i8 noundef zeroext %dimension, float noundef %availableDim, float noundef %paddingAndBorder, float noundef %ownerDim) unnamed_addr #6 {
+define internal fastcc noundef float @_ZN8facebook4yogaL32calculateAvailableInnerDimensionEPKNS0_4NodeENS0_9DimensionEfff(ptr nocapture noundef readonly %node, i8 noundef zeroext range(i8 0, 2) %dimension, float noundef %availableDim, float noundef %paddingAndBorder, float noundef %ownerDim) unnamed_addr #6 {
 entry:
   %sub = fsub float %availableDim, %paddingAndBorder
   %cmp.i.i = fcmp ord float %sub, 0.000000e+00
@@ -6102,7 +6102,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %minDimensions_.i = getelementptr inbounds i8, ptr %node, i64 232
-  %conv.i = zext i8 %dimension to i64
+  %conv.i = zext nneg i8 %dimension to i64
   %arrayidx.i.i.i = getelementptr inbounds [2 x %"class.facebook::yoga::CompactValue"], ptr %minDimensions_.i, i64 0, i64 %conv.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %sw.epilog.i.i [
@@ -6254,7 +6254,7 @@ declare i64 @_ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectio
 declare i64 @_ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE(ptr noundef nonnull align 8 dereferenceable(640), i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef %node, i8 noundef zeroext %axis, float noundef %ownerAxisSize, float noundef %ownerWidth, ptr nocapture noundef %mode, ptr nocapture noundef %size) unnamed_addr #3 {
+define internal fastcc void @_ZN8facebook4yogaL23constrainMaxSizeForModeEPKNS0_4NodeENS0_13FlexDirectionEffPNS0_10SizingModeEPf(ptr noundef %node, i8 noundef zeroext %axis, float noundef %ownerAxisSize, float noundef %ownerWidth, ptr nocapture noundef nonnull %mode, ptr nocapture noundef nonnull %size) unnamed_addr #3 {
 entry:
   %0 = icmp ult i8 %axis, 4
   br i1 %0, label %switch.lookup, label %sw.epilog.i

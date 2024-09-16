@@ -66,12 +66,12 @@ define hidden noundef range(i32 0, 3) i32 @ASN1_parse(ptr noundef %bp, ptr nound
 entry:
   %pp.addr = alloca ptr, align 8
   store ptr %pp, ptr %pp.addr, align 8
-  %call = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %pp.addr, i64 noundef %len, i32 noundef 0, i32 noundef 0, i32 noundef %indent, i32 noundef 0)
+  %call = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef %pp.addr, i64 noundef %len, i32 noundef 0, i32 noundef 0, i32 noundef %indent, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %bp, ptr nocapture noundef %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 3) i32 @asn1_parse2(ptr noundef %bp, ptr nocapture noundef nonnull %pp, i64 noundef %length, i32 noundef %offset, i32 noundef %depth, i32 noundef %indent, i32 noundef %dump) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %opp = alloca ptr, align 8
@@ -198,7 +198,7 @@ for.cond:                                         ; preds = %if.end55, %lor.lhs.
   %sub.ptr.sub67 = sub i64 %sub.ptr.rhs.cast62, %sub.ptr.rhs.cast66
   %13 = trunc i64 %sub.ptr.sub67 to i32
   %conv69 = add i32 %offset, %13
-  %call71 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %p, i64 noundef %sub.ptr.sub63, i32 noundef %conv69, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
+  %call71 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef %p, i64 noundef %sub.ptr.sub63, i32 noundef %conv69, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
   switch i32 %call71, label %lor.lhs.false [
     i32 0, label %end
     i32 2, label %for.cond.if.then80_crit_edge
@@ -230,7 +230,7 @@ while.body89:                                     ; preds = %while.cond86.prehea
   %sub.ptr.sub93 = sub i64 %sub.ptr.lhs.cast91, %sub.ptr.rhs.cast92
   %18 = trunc i64 %sub.ptr.sub93 to i32
   %conv95 = add i32 %offset, %18
-  %call97 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %p, i64 noundef %tmp.0177, i32 noundef %conv95, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
+  %call97 = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef %p, i64 noundef %tmp.0177, i32 noundef %conv95, i32 noundef %add96, i32 noundef %indent, i32 noundef %dump)
   %cmp98 = icmp eq i32 %call97, 0
   br i1 %cmp98, label %end, label %if.end101
 
@@ -671,7 +671,7 @@ define hidden noundef range(i32 0, 3) i32 @ASN1_parse_dump(ptr noundef %bp, ptr 
 entry:
   %pp.addr = alloca ptr, align 8
   store ptr %pp, ptr %pp.addr, align 8
-  %call = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef nonnull %pp.addr, i64 noundef %len, i32 noundef 0, i32 noundef 0, i32 noundef %indent, i32 noundef %dump)
+  %call = call fastcc i32 @asn1_parse2(ptr noundef %bp, ptr noundef %pp.addr, i64 noundef %len, i32 noundef 0, i32 noundef 0, i32 noundef %indent, i32 noundef %dump)
   ret i32 %call
 }
 

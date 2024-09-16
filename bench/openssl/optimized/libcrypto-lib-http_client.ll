@@ -1375,7 +1375,7 @@ if.then300:                                       ; preds = %lor.lhs.false296, %
   br label %return
 
 if.end301:                                        ; preds = %lor.lhs.false296
-  %call302 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %call293)
+  %call302 = call fastcc i32 @check_set_resp_len(ptr noundef %rctx, i64 noundef %call293)
   %tobool303.not = icmp eq i32 %call302, 0
   br i1 %tobool303.not, label %return, label %if.end308
 
@@ -1534,7 +1534,7 @@ if.else408:                                       ; preds = %if.end377
 
 if.end412:                                        ; preds = %if.else408, %for.end406
   %resp_len.1 = phi i64 [ %add407, %for.end406 ], [ %conv411, %if.else408 ]
-  %call413 = call fastcc i32 @check_set_resp_len(ptr noundef nonnull %rctx, i64 noundef %resp_len.1)
+  %call413 = call fastcc i32 @check_set_resp_len(ptr noundef %rctx, i64 noundef %resp_len.1)
   %tobool414.not = icmp eq i32 %call413, 0
   br i1 %tobool414.not, label %return, label %if.end416
 
@@ -1606,7 +1606,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_set_resp_len(ptr nocapture noundef %rctx, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_set_resp_len(ptr nocapture noundef nonnull %rctx, i64 noundef %len) unnamed_addr #0 {
 entry:
   %max_resp_len = getelementptr inbounds i8, ptr %rctx, i64 152
   %0 = load i64, ptr %max_resp_len, align 8
@@ -1919,7 +1919,7 @@ if.end57:                                         ; preds = %land.lhs.true48.thr
 if.end57.split:                                   ; preds = %if.end57
   %conv7444 = zext i1 %cmp7.not5262 to i32
   %cond7745 = select i1 %cmp1.not, ptr %cbio.068, ptr %rbio
-  %call7846 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7444, ptr noundef nonnull %cbio.068, ptr noundef nonnull %cond7745, ptr noundef null, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
+  %call7846 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7444, ptr noundef %cbio.068, ptr noundef nonnull %cond7745, ptr noundef null, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
   br label %end
 
 if.then60:                                        ; preds = %if.end57
@@ -1931,7 +1931,7 @@ if.then60:                                        ; preds = %if.end57
 if.then60.split:                                  ; preds = %if.then60
   %conv7448 = zext i1 %cmp7.not5262 to i32
   %cond7749 = select i1 %cmp1.not, ptr %call63, ptr %rbio
-  %call7850 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7448, ptr noundef nonnull %call63, ptr noundef nonnull %cond7749, ptr noundef nonnull %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
+  %call7850 = call fastcc ptr @http_req_ctx_new(i32 noundef %conv7448, ptr noundef %call63, ptr noundef nonnull %cond7749, ptr noundef nonnull %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy.addr.063, ptr noundef %server, ptr noundef %port.addr.065, i32 noundef %buf_size, i32 noundef %overall_timeout)
   br label %end
 
 if.then66:                                        ; preds = %if.then60
@@ -1967,9 +1967,9 @@ declare i32 @OSSL_HTTP_parse_url(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @BIO_do_connect_retry(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @http_req_ctx_new(i32 noundef %free_wbio, ptr noundef %wbio, ptr noundef %rbio, ptr noundef %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy, ptr noundef %server, ptr noundef %port, i32 noundef %buf_size, i32 noundef %overall_timeout) unnamed_addr #0 {
+define internal fastcc ptr @http_req_ctx_new(i32 noundef range(i32 0, 2) %free_wbio, ptr noundef nonnull %wbio, ptr noundef %rbio, ptr noundef %bio_update_fn, ptr noundef %arg, i32 noundef %use_ssl, ptr noundef %proxy, ptr noundef %server, ptr noundef %port, i32 noundef %buf_size, i32 noundef %overall_timeout) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OSSL_HTTP_REQ_CTX_new(ptr noundef %wbio, ptr noundef %rbio, i32 noundef %buf_size)
+  %call = tail call ptr @OSSL_HTTP_REQ_CTX_new(ptr noundef nonnull %wbio, ptr noundef %rbio, i32 noundef %buf_size)
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 

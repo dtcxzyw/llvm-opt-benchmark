@@ -115,7 +115,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %.sroa.13.0..sroa_idx30 = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.13.0.copyload31 = load i64, ptr %.sroa.13.0..sroa_idx30, align 8, !alias.scope !69
   %spec.select.i.i = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.13.0.copyload31, i64 %.sroa.10.0.copyload29)
-  %5 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %spec.select.i.i)
+  %5 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef %spec.select.i.i)
   %6 = extractvalue { i64, i64 } %5, 0
   switch i64 %6, label %8 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17had635ac09e5b739cE.exit
@@ -285,7 +285,7 @@ _ZN8smallvec10infallible17had635ac09e5b739cE.exit: ; preds = %2
   br i1 %81, label %82, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17hd1036e3eaba376d0E.exit"
 
 82:                                               ; preds = %65
-  %83 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, i64 noundef 1)
+  %83 = tail call fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias noundef align 8 dereferenceable(40) %0, i64 noundef 1)
   %84 = extractvalue { i64, i64 } %83, 0
   switch i64 %84, label %86 [
     i64 -9223372036854775807, label %_ZN8smallvec10infallible17had635ac09e5b739cE.exit.i
@@ -382,7 +382,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$core..alloc..layout..L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !122, !noundef !15
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -515,7 +515,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc11colle
 38:                                               ; preds = %14, %10
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #22
+  invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen..ir..ValueLabelAssignments$GT$17h63309f78d4962a4cE"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
           to label %40 unwind label %36
 
 40:                                               ; preds = %38
@@ -602,7 +602,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h6a12eea414ffa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h6363efbb927fa71aE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8, !noundef !15

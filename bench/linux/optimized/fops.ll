@@ -1901,7 +1901,7 @@ define internal fastcc range(i64 -2147483648, 4294967296) i64 @blkdev_direct_wri
 declare dso_local i64 @direct_write_fallback(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @generic_write_sync(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @generic_write_sync(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, -9223372036854775808) %1) unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 2

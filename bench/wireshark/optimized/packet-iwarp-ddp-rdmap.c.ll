@@ -502,7 +502,7 @@ define internal i32 @dissect_iwarp_ddp_rdmap(ptr noundef %0, ptr noundef %1, ptr
 thread-pre-split:                                 ; preds = %85, %73
   %.sink163 = phi i32 [ 14, %73 ], [ 18, %85 ]
   %100 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.sink163) #3
-  call fastcc void @dissect_rdmap_payload(ptr noundef %100, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
+  call fastcc void @dissect_rdmap_payload(ptr noundef %100, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   %.pr = load i8, ptr %5, align 8
   br label %101
 
@@ -514,13 +514,13 @@ thread-pre-split:                                 ; preds = %85, %73
   ]
 
 103:                                              ; preds = %101
-  %104 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef nonnull %5)
+  %104 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef %5)
   %105 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %104) #3
-  call fastcc void @dissect_rdmap_payload(ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
+  call fastcc void @dissect_rdmap_payload(ptr noundef %105, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5)
   br label %108
 
 106:                                              ; preds = %101
-  %107 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef nonnull %5)
+  %107 = call fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %52, i32 noundef %., ptr noundef %5)
   br label %108
 
 108:                                              ; preds = %101, %106, %103
@@ -616,7 +616,7 @@ declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr nounde
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 272
   %7 = load i32, ptr %6, align 8
@@ -701,7 +701,7 @@ define internal fastcc void @dissect_rdmap_payload(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_iwarp_rdmap(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 14, 19) %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i8, ptr %4, align 8
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %41

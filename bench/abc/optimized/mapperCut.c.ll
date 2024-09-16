@@ -434,12 +434,12 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   br i1 %.not178.us.i.i, label %154, label %176
 
 154:                                              ; preds = %149, %140, %131
-  %155 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %133, ptr noundef %134, ptr noundef nonnull %4, i32 noundef %138)
+  %155 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %133, ptr noundef %134, ptr noundef %4, i32 noundef %138)
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %176, label %157
 
 157:                                              ; preds = %154
-  %158 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef nonnull %4, i32 noundef %155)
+  %158 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %155)
   %159 = icmp eq ptr %158, null
   br i1 %159, label %176, label %160
 
@@ -521,12 +521,12 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   br i1 %.not183.i.i, label %201, label %223
 
 201:                                              ; preds = %196, %187, %178
-  %202 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %179, ptr noundef %181, ptr noundef nonnull %4, i32 noundef %185)
+  %202 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %179, ptr noundef %181, ptr noundef %4, i32 noundef %185)
   %203 = icmp eq i32 %202, 0
   br i1 %203, label %223, label %204
 
 204:                                              ; preds = %201
-  %205 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef nonnull %4, i32 noundef %202)
+  %205 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %202)
   %206 = icmp eq ptr %205, null
   br i1 %206, label %223, label %207
 
@@ -594,12 +594,12 @@ Map_CutTableRestart.exit.i.i:                     ; preds = %.lr.ph.i195.i.i, %1
   br i1 %.not181.i.i, label %247, label %269
 
 247:                                              ; preds = %242, %233, %224
-  %248 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %226, ptr noundef %227, ptr noundef nonnull %4, i32 noundef %231)
+  %248 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %226, ptr noundef %227, ptr noundef %4, i32 noundef %231)
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %269, label %250
 
 250:                                              ; preds = %247
-  %251 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef nonnull %4, i32 noundef %248)
+  %251 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef nonnull %calloc5.i, ptr noundef %4, i32 noundef %248)
   %252 = icmp eq ptr %251, null
   br i1 %252, label %269, label %253
 
@@ -1161,12 +1161,12 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
   %.161 = phi i32 [ %.04164, %.preheader56 ], [ %.2, %50 ]
   %.04460 = phi ptr [ %3, %.preheader56 ], [ %51, %50 ]
   %31 = load i32, ptr %24, align 8
-  %32 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %.04563, ptr noundef nonnull %.04460, ptr noundef nonnull %7, i32 noundef %31)
+  %32 = call fastcc i32 @Map_CutMergeTwo(ptr noundef nonnull %.04563, ptr noundef nonnull %.04460, ptr noundef %7, i32 noundef %31)
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %50, label %34
 
 34:                                               ; preds = %30
-  %35 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %32)
+  %35 = call fastcc ptr @Map_CutTableConsider(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7, i32 noundef %32)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %50, label %37
 
@@ -1247,7 +1247,7 @@ Map_CutTableRestart.exit:                         ; preds = %14, %6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4
   %7 = sext i8 %6 to i32
@@ -1550,7 +1550,7 @@ define internal fastcc i32 @Map_CutMergeTwo(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @Map_CutTableConsider(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #1 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader.i.i, label %Map_CutTableHash.exit.thread.i
 

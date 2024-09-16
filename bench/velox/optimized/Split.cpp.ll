@@ -13052,7 +13052,7 @@ declare void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESE_SE_RNSA_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIiEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESE_SE_RNSA_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -14132,7 +14132,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESE_SE_RNSA_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_113SplitFunction12applyDecodedIlEEvRKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEPNS0_13DecodedVectorESE_SE_RNSA_12VectorWriterINS0_5ArrayINS0_7VarcharEEEvEEEUliE_EEvPKmiibT_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

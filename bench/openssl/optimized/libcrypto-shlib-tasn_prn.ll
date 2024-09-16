@@ -155,7 +155,7 @@ if.end3:                                          ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef %it, ptr noundef %fname, ptr noundef %sname, i32 noundef %nohdr, ptr noundef %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_item_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef %it, ptr noundef %fname, ptr noundef %sname, i32 noundef range(i32 0, 2) %nohdr, ptr noundef %pctx) unnamed_addr #0 {
 entry:
   %parg = alloca %struct.ASN1_PRINT_ARG_st, align 8
   %funcs = getelementptr inbounds i8, ptr %it, i64 32

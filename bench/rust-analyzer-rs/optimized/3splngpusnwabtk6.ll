@@ -616,7 +616,7 @@ _ZN4core3ops8function6FnOnce9call_once17h03e8a432ff7094f8E.exit: ; preds = %22, 
 140:                                              ; preds = %22
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb21d285916a49dabE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18) #19
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb21d285916a49dabE"(ptr noalias noundef align 8 dereferenceable(24) %18) #19
           to label %.thread91.thread unwind label %124
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h0795ff8ea0c75bcfE.exit": ; preds = %49
@@ -644,7 +644,7 @@ _ZN4core3ops8function6FnOnce9call_once17h03e8a432ff7094f8E.exit: ; preds = %22, 
 
 "_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h0795ff8ea0c75bcfE.exit.thread": ; preds = %143, %.thread91.thread, %146, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h0795ff8ea0c75bcfE.exit"
   %.pn62121137 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..thread..scoped..ScopeData$GT$$GT$$GT$17h0795ff8ea0c75bcfE.exit" ], [ %.pn62122, %146 ], [ %.pn62122, %.thread91.thread ], [ %.pn62122, %143 ]
-  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2) #19
+  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef align 8 dereferenceable(104) %2) #19
           to label %.thread129 unwind label %124
 }
 
@@ -1283,7 +1283,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %33 = landingpad { ptr, i32 }
           cleanup
           catch ptr null
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h987b35b3193e61dfE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %3) #19
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h987b35b3193e61dfE"(ptr noalias noundef align 8 dereferenceable(96) %3) #19
           to label %.body.i.i unwind label %34, !noalias !245
 
 34:                                               ; preds = %32
@@ -1419,7 +1419,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %.119.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17he5115812433e882dE.exit.i" ], [ false, %26 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %6) #19
+  invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef align 8 dereferenceable(104) %6) #19
           to label %9 unwind label %85
 
 85:                                               ; preds = %104, %98, %97, %88, %84
@@ -1491,7 +1491,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h987b35b3193e61dfE"(ptr noalias noundef align 8 dereferenceable(96) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h987b35b3193e61dfE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr44drop_in_place$LT$vfs_notify..NotifyActor$GT$17h1fe5266a17e0945dE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
           to label %5 unwind label %2
 
@@ -1547,7 +1547,7 @@ define hidden void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$stdx..thread..Builder..spawn$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h1cb5174bccb79b8fE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr44drop_in_place$LT$vfs_notify..NotifyActor$GT$17h1fe5266a17e0945dE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
           to label %"_ZN4core3ptr120drop_in_place$LT$$LT$vfs_notify..NotifyHandle$u20$as$u20$vfs..loader..Handle$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h987b35b3193e61dfE.exit" unwind label %2
 
@@ -1745,7 +1745,7 @@ define internal void @"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb21d285916a49dabE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb21d285916a49dabE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !49, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808

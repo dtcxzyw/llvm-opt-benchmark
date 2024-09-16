@@ -547,7 +547,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @get_die_message_routine() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @http_status(ptr noundef %hdr, i32 noundef %code, ptr noundef %msg) unnamed_addr #0 {
+define internal fastcc void @http_status(ptr noundef %hdr, i32 noundef range(i32 400, 501) %code, ptr noundef %msg) unnamed_addr #0 {
 entry:
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %hdr, ptr noundef nonnull @.str.15, i32 noundef %code, ptr noundef %msg) #18
   ret void
@@ -738,7 +738,7 @@ if.then4:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then4, %if.then
   %14 = load ptr, ptr %call1, align 8
   store ptr %14, ptr %argv, align 16
-  call fastcc void @run_service(ptr noundef nonnull %argv, i32 noundef 0)
+  call fastcc void @run_service(ptr noundef %argv, i32 noundef 0)
   br label %if.end8
 
 if.else:                                          ; preds = %get_parameter.exit
@@ -1061,7 +1061,7 @@ strbuf_setlen.exit12:                             ; preds = %check_content_type.
   %bf.load = load i8, ptr %buffer_input, align 8
   %bf.clear = and i8 %bf.load, 1
   %bf.cast = zext nneg i8 %bf.clear to i32
-  call fastcc void @run_service(ptr noundef nonnull %argv, i32 noundef %bf.cast)
+  call fastcc void @run_service(ptr noundef %argv, i32 noundef %bf.cast)
   call void @strbuf_release(ptr noundef nonnull %buf) #18
   ret void
 }
@@ -1230,7 +1230,7 @@ declare void @packet_write_fmt(i32 noundef, ptr noundef, ...) local_unnamed_addr
 declare void @packet_flush(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @run_service(ptr noundef %argv, i32 noundef %buffer_input) unnamed_addr #0 {
+define internal fastcc void @run_service(ptr noundef nonnull %argv, i32 noundef range(i32 0, 2) %buffer_input) unnamed_addr #0 {
 entry:
   %buf.i31 = alloca [8192 x i8], align 16
   %buf.i = alloca ptr, align 8
@@ -1335,7 +1335,7 @@ if.then25:                                        ; preds = %if.end22
   br label %if.end28
 
 if.end28:                                         ; preds = %if.then25, %if.end22
-  call void @strvec_pushv(ptr noundef nonnull %cld, ptr noundef %argv) #18
+  call void @strvec_pushv(ptr noundef nonnull %cld, ptr noundef nonnull %argv) #18
   %tobool29 = icmp ne i32 %buffer_input, 0
   %or.cond = or i1 %tobool29, %tobool31
   %cmp = icmp sgt i64 %1, -1
@@ -1485,7 +1485,7 @@ if.end.thread.i:                                  ; preds = %while.body.loopexit
 
 if.end.i:                                         ; preds = %if.then48, %while.body.loopexit.i
   %cnt.0.i66 = phi i64 [ %10, %while.body.loopexit.i ], [ 0, %if.then48 ]
-  %call.i21 = call fastcc i64 @read_request(ptr noundef nonnull %full_request.i, i64 noundef %1)
+  %call.i21 = call fastcc i64 @read_request(ptr noundef %full_request.i, i64 noundef %1)
   %.pre.i22 = load ptr, ptr %full_request.i, align 8
   store ptr %.pre.i22, ptr %next_in.i, align 8
   %cmp20.i = icmp slt i64 %call.i21, 1
@@ -1552,7 +1552,7 @@ if.then51:                                        ; preds = %if.else
   %in53 = getelementptr inbounds i8, ptr %cld, i64 80
   %14 = load i32, ptr %in53, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i)
-  %call.i23 = call fastcc i64 @read_request(ptr noundef nonnull %buf.i, i64 noundef %1)
+  %call.i23 = call fastcc i64 @read_request(ptr noundef %buf.i, i64 noundef %1)
   %cmp.i24 = icmp slt i64 %call.i23, 0
   br i1 %cmp.i24, label %if.then.i30, label %if.end.i25
 
@@ -1698,7 +1698,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @git_inflate_init_gzip_only(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @read_request(ptr nocapture noundef writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
+define internal fastcc i64 @read_request(ptr nocapture noundef nonnull writeonly %out, i64 noundef %req_len) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %req_len, 0
   br i1 %cmp, label %if.then, label %if.else

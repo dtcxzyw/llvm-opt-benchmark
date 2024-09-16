@@ -259,7 +259,7 @@ if.end15:                                         ; preds = %if.then14, %for.end
   br i1 %cmp16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end15
-  %call.i24 = call i32 @munmap(ptr noundef %stack.0, i64 noundef %allocated_bytes.0) #8
+  %call.i24 = call i32 @munmap(ptr noundef nonnull %stack.0, i64 noundef %allocated_bytes.0) #8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %if.end15

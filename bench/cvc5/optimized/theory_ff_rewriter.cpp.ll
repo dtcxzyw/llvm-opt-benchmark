@@ -593,7 +593,7 @@ if.then.i.i3.i.i.i:                               ; preds = %lpad.i.i.i
 
 invoke.cont29.i.i:                                ; preds = %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i.i.i
   store ptr %call.i.i.i.i2.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !noalias !10
-  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias nonnull align 8 %ref.tmp30.i.i, i32 noundef 146, ptr noundef nonnull align 8 dereferenceable(24) %restChildren.i.i)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias align 8 %ref.tmp30.i.i, i32 noundef 146, ptr noundef nonnull align 8 dereferenceable(24) %restChildren.i.i)
           to label %invoke.cont32.i.i unwind label %lpad31.i.i, !noalias !7
 
 invoke.cont32.i.i:                                ; preds = %invoke.cont29.i.i
@@ -1466,7 +1466,7 @@ lpad134.i:                                        ; preds = %invoke.cont133.i
   br label %ehcleanup139.i
 
 if.end137.i:                                      ; preds = %for.end127.i
-  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias nonnull align 8 %agg.tmp8, i32 noundef 148, ptr noundef nonnull align 8 dereferenceable(24) %summands.i)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias align 8 %agg.tmp8, i32 noundef 148, ptr noundef nonnull align 8 dereferenceable(24) %summands.i)
           to label %cleanup.i unwind label %lpad58.loopexit.split-lp.i
 
 cleanup.i:                                        ; preds = %if.end137.i, %_ZN4cvc58internal7IntegerD2Ev.exit.i141.i
@@ -2133,7 +2133,7 @@ lpad49.i:                                         ; preds = %if.else21.i.i.i, %i
   br label %ehcleanup.i114
 
 if.end53.i:                                       ; preds = %if.then13.i.i59.i, %if.then.i.i53.i, %invoke.cont50.i, %invoke.cont38.i
-  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias nonnull align 8 %agg.tmp15, i32 noundef 146, ptr noundef nonnull align 8 dereferenceable(24) %factors.i)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias align 8 %agg.tmp15, i32 noundef 146, ptr noundef nonnull align 8 dereferenceable(24) %factors.i)
           to label %invoke.cont54.i unwind label %lpad6.loopexit.split-lp.i149
 
 invoke.cont54.i:                                  ; preds = %if.end53.i
@@ -4265,7 +4265,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i10, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias align 8 %agg.result, i32 noundef %k, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2ff12_GLOBAL__N_16mkNaryENS0_4kind6Kind_tEOSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EE(ptr noalias nonnull align 8 %agg.result, i32 noundef range(i32 146, 149) %k, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -4330,7 +4330,7 @@ call3.i.i.noexc.i:                                ; preds = %for.body.i.i.i
 
 invoke.cont.i:                                    ; preds = %call3.i.i.noexc.i, %if.else
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !92
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i)
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i)
           to label %_ZN4cvc58internal11NodeManager6mkNodeILb1EEENS0_12NodeTemplateILb1EEENS0_4kind6Kind_tERKSt6vectorINS3_IXT_EEESaIS8_EE.exit unwind label %lpad.loopexit.split-lp.i
 
 lpad.loopexit.i:                                  ; preds = %for.body.i.i.i

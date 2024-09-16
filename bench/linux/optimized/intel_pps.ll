@@ -4254,7 +4254,7 @@ declare dso_local ptr @vlv_get_dpll(ptr noundef) local_unnamed_addr #2
 declare dso_local void @vlv_force_pll_off(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @wait_panel_status(ptr noundef %0, i32 noundef range(i32 -1342177280, -1207959536) %1, i32 noundef range(i32 -2147483640, 1) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.pps_registers, align 4
   %5 = alloca %struct.pps_registers, align 4
   %6 = alloca %struct.edp_power_seq, align 2

@@ -69,7 +69,7 @@ get_repeat_base.exit:                             ; preds = %16, %18, %20
 
 23:                                               ; preds = %get_repeat_base.exit
   %24 = load ptr, ptr %11, align 8
-  %25 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.0100127, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %24, ptr noundef nonnull %3)
+  %25 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.0100127, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %24, ptr noundef %3)
   br label %26
 
 26:                                               ; preds = %get_repeat_base.exit, %23
@@ -92,7 +92,7 @@ get_repeat_base.exit:                             ; preds = %16, %18, %20
   br i1 %.not114, label %.sink.split134, label %33
 
 33:                                               ; preds = %31
-  %34 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %27, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %27, ptr noundef nonnull %4)
+  %34 = call fastcc i32 @compare_opcodes(ptr noundef %27, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %1, ptr noundef %3, ptr noundef %27, ptr noundef %4)
   %.not115 = icmp eq i32 %34, 0
   br i1 %.not115, label %.sink.split134, label %35
 
@@ -139,7 +139,7 @@ switch.lookup:                                    ; preds = %35
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %11, align 8
-  %56 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.0100127, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %55, ptr noundef nonnull %3)
+  %56 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.0100127, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef %55, ptr noundef %3)
   %57 = and i8 %52, 1
   %58 = xor i8 %57, 1
   %59 = zext nneg i8 %58 to i32
@@ -148,7 +148,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %.not112, label %.sink.split134, label %60
 
 60:                                               ; preds = %54
-  %61 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %56, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %56, ptr noundef nonnull %4)
+  %61 = call fastcc i32 @compare_opcodes(ptr noundef %56, i32 noundef %.lobit, i32 noundef %.lobit111, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %56, ptr noundef %4)
   %.not113 = icmp eq i32 %61, 0
   br i1 %.not113, label %.sink.split134, label %switch.lookup140
 
@@ -280,7 +280,7 @@ switch.lookup140:                                 ; preds = %60
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @get_chr_property_list(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc ptr @get_chr_property_list(ptr noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i32
   store i32 %7, ptr %4, align 4
@@ -840,7 +840,7 @@ get_repeat_base.exit:                             ; preds = %11, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca [8 x i32], align 16
   %9 = load i32, ptr %6, align 4
   %10 = add nsw i32 %9, -1
@@ -1015,7 +1015,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %79, %97
   %.3386 = phi ptr [ %99, %97 ], [ %93, %79 ]
   %.0255385 = phi ptr [ %107, %97 ], [ %88, %79 ]
-  %96 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %.3386, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %96 = call fastcc i32 @compare_opcodes(ptr noundef %.3386, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not290 = icmp eq i32 %96, 0
   br i1 %.not290, label %.thread, label %97
 
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
 
 125:                                              ; preds = %113
   %126 = getelementptr inbounds i8, ptr %122, i64 3
-  %127 = call fastcc i32 @compare_opcodes(ptr noundef nonnull %126, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %127 = call fastcc i32 @compare_opcodes(ptr noundef %126, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not289 = icmp eq i32 %127, 0
   br i1 %.not289, label %.thread, label %128
 
@@ -1077,7 +1077,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
 
 134:                                              ; preds = %.loopexit364
   %135 = load ptr, ptr %14, align 8
-  %136 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.1, i32 noundef %1, i32 noundef %2, ptr noundef %135, ptr noundef nonnull %8)
+  %136 = call fastcc ptr @get_chr_property_list(ptr noundef nonnull %.1, i32 noundef %1, i32 noundef %2, ptr noundef %135, ptr noundef %8)
   %137 = icmp eq ptr %136, null
   br i1 %137, label %.thread, label %138
 
@@ -1945,8 +1945,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_opcodes(ptr noundef %0, i32 
   br i1 %563, label %564, label %566
 
 564:                                              ; preds = %561
-  %.not.i = xor i1 %455, true
-  %565 = zext i1 %.not.i to i32
+  %565 = xor i32 %456, 1
   br label %check_char_prop.exit
 
 566:                                              ; preds = %561

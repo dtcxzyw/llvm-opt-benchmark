@@ -370,7 +370,7 @@ if.end25.i:                                       ; preds = %ecx_pubkey.exit46.i
   %pubkey.i43.i = getelementptr inbounds i8, ptr %17, i64 17
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %18 = load ptr, ptr %sender_authkey.i, align 8
-  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef nonnull %pubkey.i43.i)
+  %call28.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef %retval.0.i49.i, ptr noundef nonnull %17, ptr noundef %18, ptr noundef nonnull %17, ptr noundef nonnull %retval.0.i35.i, ptr noundef %pubkey.i43.i)
   %tobool.not.i = icmp eq i32 %call28.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end30.i
 
@@ -554,7 +554,7 @@ if.end15.i:                                       ; preds = %lor.lhs.false.i.i
   %11 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %12 = load ptr, ptr %sender_authkey.i, align 8
-  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef nonnull %pubkey.i.i)
+  %call18.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %11, ptr noundef nonnull %call.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %in, ptr noundef %pubkey.i.i)
   %tobool.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool.not.i, label %err.i, label %if.end20.i
 
@@ -702,7 +702,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @ecxkem_init(ptr noundef %vecxctx, i32 noundef %operation, ptr noundef %vecx, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @ecxkem_init(ptr noundef %vecxctx, i32 noundef range(i32 4096, 8193) %operation, ptr noundef %vecx, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -713,8 +713,8 @@ if.end:                                           ; preds = %entry
   %0 = getelementptr i8, ptr %vecx, i64 80
   %vecx.val = load ptr, ptr %0, align 8
   %cmp.i = icmp eq ptr %vecx.val, null
-  %narrow.i.not = and i1 %cmp, %cmp.i
-  br i1 %narrow.i.not, label %return, label %if.then.i
+  %narrow.not = and i1 %cmp, %cmp.i
+  br i1 %narrow.not, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %1 = load ptr, ptr %vecxctx, align 8
@@ -762,19 +762,19 @@ lor.lhs.false:                                    ; preds = %ecx_match_params.ex
   %7 = getelementptr i8, ptr %vauth, i64 80
   %vauth.val = load ptr, ptr %7, align 8
   %cmp.i15 = icmp eq ptr %vauth.val, null
-  %narrow.i17.not = and i1 %cmp15, %cmp.i15
-  br i1 %narrow.i17.not, label %return, label %if.then.i20
+  %narrow.not29 = and i1 %cmp15, %cmp.i15
+  br i1 %narrow.not29, label %return, label %if.then.i19
 
-if.then.i20:                                      ; preds = %lor.lhs.false
+if.then.i19:                                      ; preds = %lor.lhs.false
   %sender_authkey.i = getelementptr inbounds i8, ptr %vecxctx, i64 8
   %8 = load ptr, ptr %sender_authkey.i, align 8
   tail call void @ossl_ecx_key_free(ptr noundef %8) #5
   store ptr null, ptr %sender_authkey.i, align 8
   %call.i = tail call i32 @ossl_ecx_key_up_ref(ptr noundef nonnull %vauth) #5
-  %tobool.not.i21 = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i21, label %return, label %sender_authkey_set.exit
+  %tobool.not.i20 = icmp eq i32 %call.i, 0
+  br i1 %tobool.not.i20, label %return, label %sender_authkey_set.exit
 
-sender_authkey_set.exit:                          ; preds = %if.then.i20
+sender_authkey_set.exit:                          ; preds = %if.then.i19
   store ptr %vauth, ptr %sender_authkey.i, align 8
   br label %if.end24
 
@@ -784,8 +784,8 @@ if.end24:                                         ; preds = %sender_authkey_set.
   %call25 = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params)
   br label %return
 
-return:                                           ; preds = %if.then.i20, %if.then12, %if.end.i, %if.then.i, %ecx_match_params.exit, %lor.lhs.false, %if.end, %entry, %if.end24
-  %retval.0 = phi i32 [ %call25, %if.end24 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %ecx_match_params.exit ], [ 0, %if.end.i ], [ -2, %if.then.i ], [ 0, %if.then12 ], [ 0, %if.then.i20 ]
+return:                                           ; preds = %if.then.i19, %if.then12, %if.end.i, %if.then.i, %ecx_match_params.exit, %lor.lhs.false, %if.end, %entry, %if.end24
+  %retval.0 = phi i32 [ %call25, %if.end24 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %ecx_match_params.exit ], [ 0, %if.end.i ], [ -2, %if.then.i ], [ 0, %if.then12 ], [ 0, %if.then.i19 ]
   ret i32 %retval.0
 }
 
@@ -796,7 +796,7 @@ declare void @ossl_ecx_key_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ecx_key_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef readonly %recipient_pub) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef nonnull readonly %recipient_pub) unnamed_addr #0 {
 entry:
   %suiteid.i = alloca [2 x i8], align 1
   %prk.i = alloca [64 x i8], align 16
@@ -867,14 +867,14 @@ if.end17.thread:                                  ; preds = %lor.lhs.false.i
 if.end22:                                         ; preds = %if.end17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %2, i1 false)
   %add.ptr25 = getelementptr inbounds i8, ptr %kemctx, i64 %2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr align 1 %recipient_pub, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull align 1 %recipient_pub, i64 %2, i1 false)
   br label %if.end30
 
 if.then27:                                        ; preds = %if.end17.thread
   %pubkey.i = getelementptr inbounds i8, ptr %5, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %2, i1 false)
   %add.ptr2548 = getelementptr inbounds i8, ptr %kemctx, i64 %2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr2548, ptr align 1 %recipient_pub, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr2548, ptr nonnull align 1 %recipient_pub, i64 %2, i1 false)
   %add.ptr29 = getelementptr inbounds i8, ptr %kemctx, i64 %add
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr29, ptr nonnull align 1 %pubkey.i, i64 %2, i1 false)
   br label %if.end30

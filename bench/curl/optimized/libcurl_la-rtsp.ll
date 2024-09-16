@@ -750,7 +750,7 @@ do.end:                                           ; preds = %if.end
   br i1 %tobool10.not, label %if.then11, label %if.end26
 
 if.then11:                                        ; preds = %do.end
-  %call = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %data, ptr noundef %buf, i64 noundef %blen, ptr noundef nonnull %consumed)
+  %call = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %data, ptr noundef %buf, i64 noundef %blen, ptr noundef %consumed)
   %tobool12.not = icmp eq i32 %call, 0
   br i1 %tobool12.not, label %if.end14, label %out
 
@@ -812,7 +812,7 @@ if.then65:                                        ; preds = %if.then63
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then65, %if.then63
-  %call73 = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %data, ptr noundef %add.ptr44, i64 noundef %sub45, ptr noundef nonnull %consumed)
+  %call73 = call fastcc i32 @rtsp_filter_rtp(ptr noundef nonnull %data, ptr noundef %add.ptr44, i64 noundef %sub45, ptr noundef %consumed)
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.end76, label %out
 
@@ -1182,7 +1182,7 @@ declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef %pconsumed) unnamed_addr #0 {
+define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %data, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef nonnull %pconsumed) unnamed_addr #0 {
 entry:
   %conn = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn, align 8

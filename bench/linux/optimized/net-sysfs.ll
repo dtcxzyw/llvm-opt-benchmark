@@ -1770,7 +1770,7 @@ define internal i64 @xps_cpus_store(ptr noundef %0, ptr noundef %1, i64 noundef 
 declare dso_local ptr @get_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @xps_queue_show(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #10
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   %7 = zext nneg i32 %4 to i64

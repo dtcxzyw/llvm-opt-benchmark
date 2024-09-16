@@ -988,7 +988,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_tlv(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef range(i32 5, 9) %3, i32 noundef range(i32 -6, 65533) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr @ett_body, align 4

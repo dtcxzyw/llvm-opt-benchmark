@@ -40,7 +40,7 @@ define range(i32 0, 12) i32 @MPL_shm_seg_create(ptr nocapture noundef %0, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 4114) %3) unnamed_addr #0 {
   %5 = alloca [30 x i8], align 16
   %6 = alloca [26 x i8], align 16
   %7 = and i32 %3, 1
@@ -125,95 +125,94 @@ define internal fastcc range(i32 0, 12) i32 @MPL_shm_seg_create_attach_templ(ptr
   br i1 %.not52, label %MPLI_shm_ghnd_alloc.exit, label %46
 
 46:                                               ; preds = %44
-  %47 = and i32 %3, 4096
-  %.not53 = icmp eq i32 %47, 0
-  br i1 %.not53, label %69, label %48
+  %.not53 = icmp ult i32 %3, 4096
+  br i1 %.not53, label %68, label %47
 
-48:                                               ; preds = %46
-  %49 = load ptr, ptr %2, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %check_valid_fixed_mmap_range.exit.thread, label %51
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %2, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %check_valid_fixed_mmap_range.exit.thread, label %50
 
-51:                                               ; preds = %48
-  %52 = call i64 @sysconf(i32 noundef 30) #9
-  %53 = add i64 %1, -1
-  %54 = add i64 %53, %52
-  %55 = sub i64 0, %52
-  %56 = and i64 %54, %55
-  %57 = udiv i64 %56, %52
-  %.not27.i = icmp ugt i64 %52, %56
+50:                                               ; preds = %47
+  %51 = call i64 @sysconf(i32 noundef 30) #9
+  %52 = add i64 %1, -1
+  %53 = add i64 %52, %51
+  %54 = sub i64 0, %51
+  %55 = and i64 %53, %54
+  %56 = udiv i64 %55, %51
+  %.not27.i = icmp ugt i64 %51, %55
   br i1 %.not27.i, label %check_valid_fixed_mmap_range.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %51, %62
-  %.022.i = phi ptr [ %63, %62 ], [ %49, %51 ]
-  %.01621.i = phi i64 [ %64, %62 ], [ 0, %51 ]
-  %58 = call i32 @msync(ptr noundef %.022.i, i64 noundef %52, i32 noundef 0) #9
-  %.not.i57 = icmp eq i32 %58, -1
-  br i1 %.not.i57, label %59, label %check_valid_fixed_mmap_range.exit.thread.loopexit
+.lr.ph.i:                                         ; preds = %50, %61
+  %.022.i = phi ptr [ %62, %61 ], [ %48, %50 ]
+  %.01621.i = phi i64 [ %63, %61 ], [ 0, %50 ]
+  %57 = call i32 @msync(ptr noundef %.022.i, i64 noundef %51, i32 noundef 0) #9
+  %.not.i57 = icmp eq i32 %57, -1
+  br i1 %.not.i57, label %58, label %check_valid_fixed_mmap_range.exit.thread.loopexit
 
-59:                                               ; preds = %.lr.ph.i
-  %60 = tail call ptr @__errno_location() #10
-  %61 = load i32, ptr %60, align 4
-  %.not20.i = icmp eq i32 %61, 12
-  br i1 %.not20.i, label %62, label %check_valid_fixed_mmap_range.exit.thread.loopexit
+58:                                               ; preds = %.lr.ph.i
+  %59 = tail call ptr @__errno_location() #10
+  %60 = load i32, ptr %59, align 4
+  %.not20.i = icmp eq i32 %60, 12
+  br i1 %.not20.i, label %61, label %check_valid_fixed_mmap_range.exit.thread.loopexit
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %.022.i, i64 %52
-  %64 = add nuw i64 %.01621.i, 1
-  %65 = icmp ult i64 %64, %57
-  br i1 %65, label %.lr.ph.i, label %check_valid_fixed_mmap_range.exit, !llvm.loop !6
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %.022.i, i64 %51
+  %63 = add nuw i64 %.01621.i, 1
+  %64 = icmp ult i64 %63, %56
+  br i1 %64, label %.lr.ph.i, label %check_valid_fixed_mmap_range.exit, !llvm.loop !6
 
-check_valid_fixed_mmap_range.exit:                ; preds = %62, %51
-  %66 = load i64, ptr %0, align 8
-  %67 = trunc i64 %66 to i32
-  %68 = call ptr @mmap(ptr noundef nonnull %49, i64 noundef %1, i32 noundef 3, i32 noundef 17, i32 noundef %67, i64 noundef 0) #9
-  store ptr %68, ptr %2, align 8
+check_valid_fixed_mmap_range.exit:                ; preds = %61, %50
+  %65 = load i64, ptr %0, align 8
+  %66 = trunc i64 %65 to i32
+  %67 = call ptr @mmap(ptr noundef nonnull %48, i64 noundef %1, i32 noundef 3, i32 noundef 17, i32 noundef %66, i64 noundef 0) #9
+  store ptr %67, ptr %2, align 8
   br label %check_valid_fixed_mmap_range.exit.thread
 
-69:                                               ; preds = %46
-  %70 = load i64, ptr %0, align 8
-  %71 = trunc i64 %70 to i32
-  %72 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef %71, i64 noundef 0) #9
-  store ptr %72, ptr %2, align 8
+68:                                               ; preds = %46
+  %69 = load i64, ptr %0, align 8
+  %70 = trunc i64 %69 to i32
+  %71 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef 3, i32 noundef 1, i32 noundef %70, i64 noundef 0) #9
+  store ptr %71, ptr %2, align 8
   br label %check_valid_fixed_mmap_range.exit.thread
 
-check_valid_fixed_mmap_range.exit.thread.loopexit: ; preds = %.lr.ph.i, %59
+check_valid_fixed_mmap_range.exit.thread.loopexit: ; preds = %.lr.ph.i, %58
   %.pre = load ptr, ptr %2, align 8
   br label %check_valid_fixed_mmap_range.exit.thread
 
-check_valid_fixed_mmap_range.exit.thread:         ; preds = %check_valid_fixed_mmap_range.exit.thread.loopexit, %48, %check_valid_fixed_mmap_range.exit, %69
-  %73 = phi ptr [ %68, %check_valid_fixed_mmap_range.exit ], [ %72, %69 ], [ null, %48 ], [ %.pre, %check_valid_fixed_mmap_range.exit.thread.loopexit ]
-  %.1 = phi i32 [ 0, %check_valid_fixed_mmap_range.exit ], [ 0, %69 ], [ 10, %48 ], [ 10, %check_valid_fixed_mmap_range.exit.thread.loopexit ]
-  %magicptr = ptrtoint ptr %73 to i64
+check_valid_fixed_mmap_range.exit.thread:         ; preds = %check_valid_fixed_mmap_range.exit.thread.loopexit, %47, %check_valid_fixed_mmap_range.exit, %68
+  %72 = phi ptr [ %67, %check_valid_fixed_mmap_range.exit ], [ %71, %68 ], [ null, %47 ], [ %.pre, %check_valid_fixed_mmap_range.exit.thread.loopexit ]
+  %.1 = phi i32 [ 0, %check_valid_fixed_mmap_range.exit ], [ 0, %68 ], [ 10, %47 ], [ 10, %check_valid_fixed_mmap_range.exit.thread.loopexit ]
+  %magicptr = ptrtoint ptr %72 to i64
   switch i64 %magicptr, label %MPLI_shm_ghnd_alloc.exit [
-    i64 -1, label %74
-    i64 0, label %74
+    i64 -1, label %73
+    i64 0, label %73
   ]
 
-74:                                               ; preds = %check_valid_fixed_mmap_range.exit.thread, %check_valid_fixed_mmap_range.exit.thread
+73:                                               ; preds = %check_valid_fixed_mmap_range.exit.thread, %check_valid_fixed_mmap_range.exit.thread
   br label %MPLI_shm_ghnd_alloc.exit
 
-MPLI_shm_ghnd_alloc.exit:                         ; preds = %27, %check_valid_fixed_mmap_range.exit.thread, %37, %11, %74, %29, %44
-  %.2 = phi i32 [ 9, %29 ], [ 10, %74 ], [ 0, %44 ], [ 9, %11 ], [ 9, %37 ], [ %.1, %check_valid_fixed_mmap_range.exit.thread ], [ 11, %27 ]
-  %75 = load i64, ptr %0, align 8
-  %.not55 = icmp eq i64 %75, -1
-  br i1 %.not55, label %MPLI_shm_lhnd_close.exit, label %76
+MPLI_shm_ghnd_alloc.exit:                         ; preds = %27, %check_valid_fixed_mmap_range.exit.thread, %37, %11, %73, %29, %44
+  %.2 = phi i32 [ 9, %29 ], [ 10, %73 ], [ 0, %44 ], [ 9, %11 ], [ 9, %37 ], [ %.1, %check_valid_fixed_mmap_range.exit.thread ], [ 11, %27 ]
+  %74 = load i64, ptr %0, align 8
+  %.not55 = icmp eq i64 %74, -1
+  br i1 %.not55, label %MPLI_shm_lhnd_close.exit, label %75
 
-76:                                               ; preds = %MPLI_shm_ghnd_alloc.exit
-  %77 = trunc i64 %75 to i32
-  %78 = call i32 @close(i32 noundef %77) #9
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %MPLI_shm_lhnd_close.exit
+75:                                               ; preds = %MPLI_shm_ghnd_alloc.exit
+  %76 = trunc i64 %74 to i32
+  %77 = call i32 @close(i32 noundef %76) #9
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %MPLI_shm_lhnd_close.exit
 
-80:                                               ; preds = %76
+79:                                               ; preds = %75
   store i64 -1, ptr %0, align 8
   br label %MPLI_shm_lhnd_close.exit
 
-MPLI_shm_lhnd_close.exit:                         ; preds = %80, %76, %MPLI_shm_ghnd_alloc.exit
-  %.040 = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit ], [ 9, %76 ], [ 0, %80 ]
+MPLI_shm_lhnd_close.exit:                         ; preds = %79, %75, %MPLI_shm_ghnd_alloc.exit
+  %.040 = phi i32 [ 0, %MPLI_shm_ghnd_alloc.exit ], [ 9, %75 ], [ 0, %79 ]
   %.not56 = icmp eq i32 %.2, 0
-  %81 = select i1 %.not56, i32 %.040, i32 %.2
-  ret i32 %81
+  %80 = select i1 %.not56, i32 %.040, i32 %.2
+  ret i32 %80
 }
 
 ; Function Attrs: nounwind uwtable

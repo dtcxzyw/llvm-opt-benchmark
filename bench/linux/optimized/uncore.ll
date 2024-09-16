@@ -1535,11 +1535,11 @@ define dso_local range(i32 -2147483648, 1) i32 @uncore_pmu_event_add(ptr noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 align 16 {
   %4 = alloca [1 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store i64 0, ptr %4, align 8
-  %5 = icmp sgt i32 %2, 0
+  %5 = icmp ne i32 %2, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 112
   br i1 %5, label %7, label %.thread
 
@@ -1606,7 +1606,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef %
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %37
-  %52 = tail call ptr %49(ptr noundef %0, ptr noundef %42) #19
+  %52 = tail call ptr %49(ptr noundef nonnull %0, ptr noundef %42) #19
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.loopexit11
 
@@ -1768,7 +1768,7 @@ define internal fastcc range(i32 -22, 1) i32 @uncore_assign_events(ptr noundef %
 152:                                              ; preds = %.split28
   %153 = getelementptr [10 x ptr], ptr %6, i64 0, i64 %143
   %154 = load ptr, ptr %153, align 8
-  call void %150(ptr noundef %0, ptr noundef %154) #19
+  call void %150(ptr noundef nonnull %0, ptr noundef %154) #19
   br label %155
 
 155:                                              ; preds = %152, %.split28
@@ -3562,7 +3562,7 @@ define internal void @uncore_pci_remove(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #9 section ".init.text" align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -3688,7 +3688,7 @@ define internal fastcc range(i32 -12, 1) i32 @uncore_type_init(ptr noundef %0, i
   br i1 %80, label %.thread, label %81
 
 81:                                               ; preds = %76
-  tail call void %79(ptr noundef %0) #19
+  tail call void %79(ptr noundef nonnull %0) #19
   br label %.thread
 
 .loopexit8:                                       ; preds = %.preheader7, %54
@@ -5091,7 +5091,7 @@ define internal fastcc i32 @uncore_msr_pmus_register() unnamed_addr #9 section "
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @type_pmu_register(ptr nocapture noundef readonly %0) unnamed_addr #9 section ".init.text" align 16 {
+define internal fastcc i32 @type_pmu_register(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 section ".init.text" align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4

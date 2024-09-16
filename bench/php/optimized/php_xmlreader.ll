@@ -4128,7 +4128,7 @@ define hidden void @zim_XMLReader_setRelaxNGSchema(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [4097 x i8], align 16
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -4173,8 +4173,8 @@ define internal fastcc void @php_xmlreader_set_relaxng_schema(ptr nocapture noun
 
 28:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %4)
-  %switch.i = icmp eq i32 %2, 1
-  br i1 %switch.i, label %29, label %33
+  %trunc.i = trunc nuw i32 %2 to i1
+  br i1 %trunc.i, label %29, label %33
 
 29:                                               ; preds = %28
   %30 = call ptr @_xmlreader_get_valid_file_path(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 poison)

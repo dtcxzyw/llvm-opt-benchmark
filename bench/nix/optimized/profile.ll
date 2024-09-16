@@ -18619,7 +18619,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit:             ; preds = %74, %82, %85
   %.val = load ptr, ptr %8, align 8
   %88 = getelementptr inbounds i8, ptr %8, i64 8
   %.val77 = load ptr, ptr %88, align 8
-  invoke fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val, ptr %.val77)
+  invoke fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val, ptr %.val77)
           to label %89 unwind label %233
 
 89:                                               ; preds = %87
@@ -26075,7 +26075,7 @@ _ZNSt10shared_ptrIN3nix9EvalStateEED2Ev.exit:     ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.762, align 8
   %3 = alloca %"struct.std::pair.443", align 8
   %4 = alloca %"struct.std::pair.445", align 8
@@ -97261,7 +97261,7 @@ _ZN3nix3refINS_5StoreEEC2ERKS2_.exit229:          ; preds = %711, %718, %721
   %.val = load ptr, ptr %44, align 8
   %724 = getelementptr inbounds i8, ptr %44, i64 8
   %.val122 = load ptr, ptr %724, align 8
-  invoke fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr %.val, ptr %.val122)
+  invoke fastcc void @_ZL24builtPathsPerInstallableRKSt6vectorISt4pairIN3nix3refINS1_11InstallableEEENS1_19BuiltPathWithResultEESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %43, ptr %.val, ptr %.val122)
           to label %725 unwind label %1058
 
 725:                                              ; preds = %723

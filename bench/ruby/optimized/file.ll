@@ -485,7 +485,7 @@ stat_new_0.exit:                                  ; preds = %RTYPEDDATA_GET_DATA
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i64 0, 21) i64 @rb_file_directory_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -497,7 +497,7 @@ define dso_local range(i64 0, 21) i64 @rb_file_directory_p(i64 %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_stat(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @rb_stat(i64 noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.no_gvl_stat_data, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.no_gvl_stat_data, align 8
@@ -2378,7 +2378,7 @@ define hidden i64 @rb_realpath_internal(i64 noundef %0, i64 noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_check_realpath_internal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_check_realpath_internal(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca %struct.no_gvl_stat_data, align 8
   %6 = alloca %struct.stat, align 8
   %7 = alloca i64, align 8
@@ -2455,7 +2455,7 @@ RSTRING_PTR.exit47:                               ; preds = %25, %28
 
 39:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %40 = call fastcc i32 @rb_stat(i64 noundef %26, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @rb_stat(i64 noundef %26, ptr noundef %6)
   %41 = icmp slt i32 %40, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
   br i1 %41, label %44, label %42
@@ -4337,7 +4337,7 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_exist_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %. = select i1 %5, i64 0, i64 20
   ret i64 %.
@@ -4362,7 +4362,7 @@ define internal range(i64 0, 21) i64 @rb_file_readable_real_p(i64 %0, i64 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 1024) i64 @rb_file_world_readable_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %15, label %6
 
@@ -4404,7 +4404,7 @@ define internal range(i64 0, 21) i64 @rb_file_writable_real_p(i64 %0, i64 nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 1, 1024) i64 @rb_file_world_writable_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %15, label %6
 
@@ -4446,7 +4446,7 @@ define internal range(i64 0, 21) i64 @rb_file_executable_real_p(i64 %0, i64 noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_file_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4460,7 +4460,7 @@ define internal range(i64 0, 21) i64 @rb_file_file_p(i64 %0, i64 noundef %1) #0 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_zero_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 48
   %7 = load i64, ptr %6, align 8
@@ -4473,7 +4473,7 @@ define internal range(i64 0, 21) i64 @rb_file_zero_p(i64 %0, i64 noundef %1) #0 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @rb_file_size_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %rb_long2num_inline.exit, label %6
 
@@ -4508,7 +4508,7 @@ define internal i64 @rb_file_s_size(i64 %0, i64 noundef %1) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
-  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -4548,7 +4548,7 @@ rb_long2num_inline.exit:                          ; preds = %18, %21
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_owned_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %12, label %6
 
@@ -4568,7 +4568,7 @@ define internal range(i64 0, 21) i64 @rb_file_owned_p(i64 %0, i64 noundef %1) #0
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_grpowned_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %10, label %6
 
@@ -4588,7 +4588,7 @@ define internal range(i64 0, 21) i64 @rb_file_grpowned_p(i64 %0, i64 noundef %1)
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_pipe_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4670,7 +4670,7 @@ rb_get_path.exit:                                 ; preds = %12, %rbimpl_intern_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_socket_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4684,7 +4684,7 @@ define internal range(i64 0, 21) i64 @rb_file_socket_p(i64 %0, i64 noundef %1) #
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_blockdev_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4698,7 +4698,7 @@ define internal range(i64 0, 21) i64 @rb_file_blockdev_p(i64 %0, i64 noundef %1)
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i64 0, 21) i64 @rb_file_chardev_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4713,7 +4713,7 @@ define internal range(i64 0, 21) i64 @rb_file_chardev_p(i64 %0, i64 noundef %1) 
 define internal range(i64 0, 21) i64 @rb_file_suid_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4729,7 +4729,7 @@ define internal range(i64 0, 21) i64 @rb_file_suid_p(i64 %0, i64 noundef %1) #0 
 define internal range(i64 0, 21) i64 @rb_file_sgid_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4745,7 +4745,7 @@ define internal range(i64 0, 21) i64 @rb_file_sgid_p(i64 %0, i64 noundef %1) #0 
 define internal range(i64 0, 21) i64 @rb_file_sticky_p(i64 %0, i64 noundef %1) #0 {
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
-  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %7 = load i32, ptr %6, align 8
@@ -4761,12 +4761,12 @@ define internal range(i64 0, 21) i64 @rb_file_sticky_p(i64 %0, i64 noundef %1) #
 define internal range(i64 0, 21) i64 @rb_file_identical_p(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %struct.stat, align 8
-  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %19, label %8
 
 8:                                                ; preds = %3
-  %9 = call fastcc i32 @rb_stat(i64 noundef %2, ptr noundef nonnull %5)
+  %9 = call fastcc i32 @rb_stat(i64 noundef %2, ptr noundef %5)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %19, label %11
 
@@ -5080,7 +5080,7 @@ define internal i64 @rb_file_s_atime(i64 %0, i64 noundef %1) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
-  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -5111,7 +5111,7 @@ define internal i64 @rb_file_s_mtime(i64 %0, i64 noundef %1) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
-  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -5142,7 +5142,7 @@ define internal i64 @rb_file_s_ctime(i64 %0, i64 noundef %1) #0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
-  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef nonnull %4)
+  %6 = call fastcc i32 @rb_stat(i64 noundef %1, ptr noundef %4)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %14
 
@@ -7503,7 +7503,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %59 = getelementptr i8, ptr %1, i64 8
   %60 = load i64, ptr %59, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %20)
-  %61 = call fastcc i32 @rb_stat(i64 noundef %60, ptr noundef nonnull %20)
+  %61 = call fastcc i32 @rb_stat(i64 noundef %60, ptr noundef %20)
   %62 = icmp slt i32 %61, 0
   %63 = getelementptr inbounds i8, ptr %20, i64 24
   %64 = load i32, ptr %63, align 8
@@ -7518,7 +7518,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %68 = getelementptr i8, ptr %1, i64 8
   %69 = load i64, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %19)
-  %70 = call fastcc i32 @rb_stat(i64 noundef %69, ptr noundef nonnull %19)
+  %70 = call fastcc i32 @rb_stat(i64 noundef %69, ptr noundef %19)
   %71 = icmp slt i32 %70, 0
   %72 = getelementptr inbounds i8, ptr %19, i64 24
   %73 = load i32, ptr %72, align 8
@@ -7533,7 +7533,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %77 = getelementptr i8, ptr %1, i64 8
   %78 = load i64, ptr %77, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %18)
-  %79 = call fastcc i32 @rb_stat(i64 noundef %78, ptr noundef nonnull %18)
+  %79 = call fastcc i32 @rb_stat(i64 noundef %78, ptr noundef %18)
   %80 = icmp slt i32 %79, 0
   %81 = getelementptr inbounds i8, ptr %18, i64 24
   %82 = load i32, ptr %81, align 8
@@ -7548,7 +7548,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %86 = getelementptr i8, ptr %1, i64 8
   %87 = load i64, ptr %86, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %17)
-  %88 = call fastcc i32 @rb_stat(i64 noundef %87, ptr noundef nonnull %17)
+  %88 = call fastcc i32 @rb_stat(i64 noundef %87, ptr noundef %17)
   %89 = icmp slt i32 %88, 0
   %..i98 = select i1 %89, i64 0, i64 20
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %17)
@@ -7558,7 +7558,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %91 = getelementptr i8, ptr %1, i64 8
   %92 = load i64, ptr %91, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %16)
-  %93 = call fastcc i32 @rb_stat(i64 noundef %92, ptr noundef nonnull %16)
+  %93 = call fastcc i32 @rb_stat(i64 noundef %92, ptr noundef %16)
   %94 = icmp slt i32 %93, 0
   %95 = getelementptr inbounds i8, ptr %16, i64 24
   %96 = load i32, ptr %95, align 8
@@ -7573,7 +7573,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %101 = getelementptr i8, ptr %1, i64 8
   %102 = load i64, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15)
-  %103 = call fastcc i32 @rb_stat(i64 noundef %102, ptr noundef nonnull %15)
+  %103 = call fastcc i32 @rb_stat(i64 noundef %102, ptr noundef %15)
   %104 = icmp slt i32 %103, 0
   %105 = getelementptr inbounds i8, ptr %15, i64 24
   %106 = load i32, ptr %105, align 8
@@ -7588,7 +7588,7 @@ rb_num2char_inline.exit:                          ; preds = %RSTRING_PTR.exit.i,
   %110 = getelementptr i8, ptr %1, i64 8
   %111 = load i64, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %14)
-  %112 = call fastcc i32 @rb_stat(i64 noundef %111, ptr noundef nonnull %14)
+  %112 = call fastcc i32 @rb_stat(i64 noundef %111, ptr noundef %14)
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %rb_file_grpowned_p.exit, label %114
 
@@ -7609,7 +7609,7 @@ rb_file_grpowned_p.exit:                          ; preds = %109, %114
   %119 = getelementptr i8, ptr %1, i64 8
   %120 = load i64, ptr %119, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13)
-  %121 = call fastcc i32 @rb_stat(i64 noundef %120, ptr noundef nonnull %13)
+  %121 = call fastcc i32 @rb_stat(i64 noundef %120, ptr noundef %13)
   %122 = icmp slt i32 %121, 0
   %123 = getelementptr inbounds i8, ptr %13, i64 24
   %124 = load i32, ptr %123, align 8
@@ -7630,7 +7630,7 @@ rb_file_grpowned_p.exit:                          ; preds = %109, %114
   %132 = getelementptr i8, ptr %1, i64 8
   %133 = load i64, ptr %132, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %12)
-  %134 = call fastcc i32 @rb_stat(i64 noundef %133, ptr noundef nonnull %12)
+  %134 = call fastcc i32 @rb_stat(i64 noundef %133, ptr noundef %12)
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %rb_file_owned_p.exit, label %136
 
@@ -7651,7 +7651,7 @@ rb_file_owned_p.exit:                             ; preds = %131, %136
   %143 = getelementptr i8, ptr %1, i64 8
   %144 = load i64, ptr %143, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %11)
-  %145 = call fastcc i32 @rb_stat(i64 noundef %144, ptr noundef nonnull %11)
+  %145 = call fastcc i32 @rb_stat(i64 noundef %144, ptr noundef %11)
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %rb_file_rowned_p.exit, label %147
 
@@ -7672,7 +7672,7 @@ rb_file_rowned_p.exit:                            ; preds = %142, %147
   %154 = getelementptr i8, ptr %1, i64 8
   %155 = load i64, ptr %154, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %10)
-  %156 = call fastcc i32 @rb_stat(i64 noundef %155, ptr noundef nonnull %10)
+  %156 = call fastcc i32 @rb_stat(i64 noundef %155, ptr noundef %10)
   %157 = icmp slt i32 %156, 0
   %158 = getelementptr inbounds i8, ptr %10, i64 24
   %159 = load i32, ptr %158, align 8
@@ -7703,7 +7703,7 @@ rb_file_rowned_p.exit:                            ; preds = %142, %147
   %175 = getelementptr i8, ptr %1, i64 8
   %176 = load i64, ptr %175, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9)
-  %177 = call fastcc i32 @rb_stat(i64 noundef %176, ptr noundef nonnull %9)
+  %177 = call fastcc i32 @rb_stat(i64 noundef %176, ptr noundef %9)
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %rb_file_size_p.exit, label %179
 
@@ -7736,7 +7736,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   %191 = getelementptr i8, ptr %1, i64 8
   %192 = load i64, ptr %191, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8)
-  %193 = call fastcc i32 @rb_stat(i64 noundef %192, ptr noundef nonnull %8)
+  %193 = call fastcc i32 @rb_stat(i64 noundef %192, ptr noundef %8)
   %194 = icmp slt i32 %193, 0
   %195 = getelementptr inbounds i8, ptr %8, i64 24
   %196 = load i32, ptr %195, align 8
@@ -7751,7 +7751,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   %200 = getelementptr i8, ptr %1, i64 8
   %201 = load i64, ptr %200, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %202 = call fastcc i32 @rb_stat(i64 noundef %201, ptr noundef nonnull %7)
+  %202 = call fastcc i32 @rb_stat(i64 noundef %201, ptr noundef %7)
   %203 = icmp slt i32 %202, 0
   %204 = getelementptr inbounds i8, ptr %7, i64 24
   %205 = load i32, ptr %204, align 8
@@ -7798,7 +7798,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   %233 = getelementptr i8, ptr %1, i64 8
   %234 = load i64, ptr %233, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6)
-  %235 = call fastcc i32 @rb_stat(i64 noundef %234, ptr noundef nonnull %6)
+  %235 = call fastcc i32 @rb_stat(i64 noundef %234, ptr noundef %6)
   %236 = icmp slt i32 %235, 0
   %237 = getelementptr inbounds i8, ptr %6, i64 48
   %238 = load i64, ptr %237, align 8
@@ -7818,7 +7818,7 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   %244 = load i64, ptr %243, align 8
   store i64 %244, ptr %22, align 8
   tail call fastcc void @test_check(i32 noundef 1, i32 noundef %0, ptr noundef nonnull %1)
-  %245 = call fastcc i32 @rb_stat(i64 noundef %244, ptr noundef nonnull %21)
+  %245 = call fastcc i32 @rb_stat(i64 noundef %244, ptr noundef %21)
   %246 = icmp eq i32 %245, -1
   br i1 %246, label %247, label %253
 
@@ -7878,12 +7878,12 @@ rb_file_size_p.exit:                              ; preds = %174, %179, %185, %1
   %272 = load i64, ptr %271, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
-  %273 = call fastcc i32 @rb_stat(i64 noundef %270, ptr noundef nonnull %4)
+  %273 = call fastcc i32 @rb_stat(i64 noundef %270, ptr noundef %4)
   %274 = icmp slt i32 %273, 0
   br i1 %274, label %rb_file_identical_p.exit, label %275
 
 275:                                              ; preds = %268
-  %276 = call fastcc i32 @rb_stat(i64 noundef %272, ptr noundef nonnull %5)
+  %276 = call fastcc i32 @rb_stat(i64 noundef %272, ptr noundef %5)
   %277 = icmp slt i32 %276, 0
   br i1 %277, label %rb_file_identical_p.exit, label %278
 
@@ -7922,14 +7922,14 @@ rb_file_identical_p.exit:                         ; preds = %268, %275, %278, %2
   call fastcc void @test_check(i32 noundef 2, i32 noundef %0, ptr noundef nonnull %1)
   %292 = getelementptr i8, ptr %1, i64 8
   %293 = load i64, ptr %292, align 8
-  %294 = call fastcc i32 @rb_stat(i64 noundef %293, ptr noundef nonnull %24)
+  %294 = call fastcc i32 @rb_stat(i64 noundef %293, ptr noundef %24)
   %295 = icmp slt i32 %294, 0
   br i1 %295, label %329, label %296
 
 296:                                              ; preds = %291
   %297 = getelementptr i8, ptr %1, i64 16
   %298 = load i64, ptr %297, align 8
-  %299 = call fastcc i32 @rb_stat(i64 noundef %298, ptr noundef nonnull %25)
+  %299 = call fastcc i32 @rb_stat(i64 noundef %298, ptr noundef %25)
   %300 = icmp slt i32 %299, 0
   br i1 %300, label %329, label %301
 
@@ -9755,7 +9755,7 @@ declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #14
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_check_realpath_emulate(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @rb_check_realpath_emulate(i64 noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -10031,7 +10031,7 @@ chompdirsep.exit:                                 ; preds = %.critedge.thread.i,
   br i1 %.not57, label %119, label %117
 
 117:                                              ; preds = %115
-  %118 = call fastcc i32 @realpath_rec(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %.048, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 0)
+  %118 = call fastcc i32 @realpath_rec(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %.048, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 0)
   %.not58 = icmp eq i32 %118, 0
   br i1 %.not58, label %119, label %139
 
@@ -10040,12 +10040,12 @@ chompdirsep.exit:                                 ; preds = %.critedge.thread.i,
   br i1 %.not59, label %122, label %120
 
 120:                                              ; preds = %119
-  %121 = call fastcc i32 @realpath_rec(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %.047, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 0)
+  %121 = call fastcc i32 @realpath_rec(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %.047, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 0)
   %.not60 = icmp eq i32 %121, 0
   br i1 %.not60, label %122, label %139
 
 122:                                              ; preds = %120, %119
-  %123 = call fastcc i32 @realpath_rec(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %.0.lcssa.i.i, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 1)
+  %123 = call fastcc i32 @realpath_rec(ptr noundef %7, ptr noundef %8, ptr noundef %.0.lcssa.i.i, i64 noundef 4, i64 noundef %116, i32 noundef %3, i32 noundef 1)
   %.not61 = icmp eq i32 %123, 0
   br i1 %.not61, label %124, label %139
 
@@ -10480,7 +10480,7 @@ declare i64 @rb_dir_getwd_ospath() local_unnamed_addr #1
 declare i64 @rb_hash_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @realpath_rec(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @realpath_rec(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef range(i32 0, 3) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.no_gvl_stat_data, align 8
   %9 = alloca %struct.no_gvl_stat_data, align 8
   %10 = alloca %struct.stat, align 8
@@ -10869,7 +10869,7 @@ fs_enc_check.exit:                                ; preds = %169, %181
   %187 = load i8, ptr %.0.lcssa.i, align 1
   %.not127 = icmp eq i8 %187, 0
   %188 = zext i1 %.not127 to i32
-  %189 = call fastcc i32 @realpath_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.0.lcssa.i.i, i64 noundef %82, i64 noundef %4, i32 noundef %5, i32 noundef %188)
+  %189 = call fastcc i32 @realpath_rec(ptr noundef %0, ptr noundef %1, ptr noundef %.0.lcssa.i.i, i64 noundef %82, i64 noundef %4, i32 noundef %5, i32 noundef %188)
   %.not128 = icmp eq i32 %189, 0
   br i1 %.not128, label %190, label %.loopexit
 
@@ -10977,7 +10977,7 @@ declare void @rb_obj_freeze_inline(i64 noundef) local_unnamed_addr #1
 declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_eaccess(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @rb_eaccess(i64 noundef %0, i32 noundef range(i32 1, 5) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.access_arg, align 8
@@ -11049,7 +11049,7 @@ define internal ptr @nogvl_eaccess(ptr nocapture noundef readonly %0) #0 {
 declare i32 @eaccess(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_access(i64 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @rb_access(i64 noundef %0, i32 noundef range(i32 1, 5) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.access_arg, align 8
@@ -11701,33 +11701,25 @@ declare void @rb_thread_wait_for(i64, i64) local_unnamed_addr #1
 declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @test_check(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @test_check(i32 noundef range(i32 1, 3) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
-  %6 = add i32 %0, 1
-  %.not32 = icmp sgt i32 %1, %0
-  br i1 %.not32, label %7, label %9
+  %6 = add nuw nsw i32 %0, 1
+  %7 = icmp sle i32 %1, %0
+  %8 = icmp ugt i32 %1, %6
+  %or.cond = or i1 %7, %8
+  br i1 %or.cond, label %9, label %rb_check_arity.exit.preheader.preheader
 
-7:                                                ; preds = %3
-  %.not.i = icmp ne i32 %6, -1
-  %8 = icmp sgt i32 %1, %6
-  %or.cond.i = and i1 %.not.i, %8
-  br i1 %or.cond.i, label %9, label %rb_check_arity.exit.preheader
-
-rb_check_arity.exit.preheader:                    ; preds = %7
-  %.not33 = icmp slt i32 %0, 1
-  br i1 %.not33, label %rb_check_arity.exit._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %rb_check_arity.exit.preheader
+rb_check_arity.exit.preheader.preheader:          ; preds = %3
   %wide.trip.count = zext nneg i32 %6 to i64
-  br label %.lr.ph
+  br label %rb_check_arity.exit.preheader
 
-9:                                                ; preds = %7, %3
+9:                                                ; preds = %3
   tail call void @rb_error_arity(i32 noundef %1, i32 noundef %6, i32 noundef %6) #24
   unreachable
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %rb_check_arity.exit
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %rb_check_arity.exit ]
+rb_check_arity.exit.preheader:                    ; preds = %rb_check_arity.exit.preheader.preheader, %rb_check_arity.exit
+  %indvars.iv = phi i64 [ 1, %rb_check_arity.exit.preheader.preheader ], [ %indvars.iv.next, %rb_check_arity.exit ]
   %10 = getelementptr i64, ptr %2, i64 %indvars.iv
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 7
@@ -11736,11 +11728,11 @@ rb_check_arity.exit.preheader:                    ; preds = %7
   %15 = or i1 %14, %13
   br i1 %15, label %.critedge.thread, label %16
 
-.critedge.thread:                                 ; preds = %.lr.ph
+.critedge.thread:                                 ; preds = %rb_check_arity.exit.preheader
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   br label %.critedge.i.i
 
-16:                                               ; preds = %.lr.ph
+16:                                               ; preds = %rb_check_arity.exit.preheader
   %17 = inttoptr i64 %11 to ptr
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 31
@@ -11784,9 +11776,9 @@ rb_get_path.exit:                                 ; preds = %21, %rbimpl_intern_
 rb_check_arity.exit:                              ; preds = %16, %rb_get_path.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %rb_check_arity.exit._crit_edge, label %.lr.ph, !llvm.loop !220
+  br i1 %exitcond.not, label %29, label %rb_check_arity.exit.preheader, !llvm.loop !220
 
-rb_check_arity.exit._crit_edge:                   ; preds = %rb_check_arity.exit, %rb_check_arity.exit.preheader
+29:                                               ; preds = %rb_check_arity.exit
   ret void
 }
 

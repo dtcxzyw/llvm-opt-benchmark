@@ -852,7 +852,7 @@ if.end72.i.i:                                     ; preds = %if.end72.sink.split
   br label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit
 
 _ZL11btDoSimplexP9btSimplexP9btVector3.exit:      ; preds = %if.end38, %if.end72.i.i
-  %call5.i = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %simplex1, ptr noundef nonnull %dir)
+  %call5.i = call fastcc noundef i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef %simplex1, ptr noundef %dir)
   switch i32 %call5.i, label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit.if.end48_crit_edge [
     i32 1, label %for.end
     i32 -1, label %for.end.loopexit911
@@ -2273,7 +2273,7 @@ declare float @llvm.fabs.f32(float) #4
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef %simplex, ptr noundef %dir) unnamed_addr #2 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL12btDoSimplex3P9btSimplexP9btVector3(ptr noundef nonnull %simplex, ptr noundef nonnull %dir) unnamed_addr #2 {
 entry:
   %AO = alloca %class.btVector3, align 4
   %AB = alloca %class.btVector3, align 8
@@ -2284,7 +2284,7 @@ entry:
   %idxprom.i.i = sext i32 %0 to i64
   %arrayidx.i.i = getelementptr inbounds [4 x %struct.btSupportVector], ptr %simplex, i64 0, i64 %idxprom.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %simplex, i64 48
-  %call5 = tail call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull @_ZL15ccd_vec3_origin, ptr noundef %arrayidx.i.i, ptr noundef nonnull %arrayidx.i, ptr noundef %simplex, ptr noundef null)
+  %call5 = tail call noundef float @_Z19btVec3PointTriDist2PK9btVector3S1_S1_S1_PS_(ptr noundef nonnull @_ZL15ccd_vec3_origin, ptr noundef nonnull %arrayidx.i.i, ptr noundef nonnull %arrayidx.i, ptr noundef nonnull %simplex, ptr noundef null)
   %1 = tail call noundef float @llvm.fabs.f32(float %call5)
   %cmp.i = fcmp olt float %1, 0x3E80000000000000
   br i1 %cmp.i, label %return, label %if.end
@@ -2495,7 +2495,7 @@ if.then24:                                        ; preds = %if.end15
 if.then29:                                        ; preds = %if.then24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i, i64 48, i1 false)
   store i32 1, ptr %last.i, align 4
-  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AC, ptr noundef nonnull %AO, ptr noundef nonnull %AC, ptr noundef %dir)
+  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AC, ptr noundef nonnull %AO, ptr noundef nonnull %AC, ptr noundef nonnull %dir)
   br label %return
 
 if.else:                                          ; preds = %if.then24
@@ -2512,7 +2512,7 @@ if.then34:                                        ; preds = %if.else
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %simplex, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i, i64 48, i1 false)
   store i32 1, ptr %last.i, align 4
-  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AB, ptr noundef nonnull %AO, ptr noundef nonnull %AB, ptr noundef %dir)
+  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AB, ptr noundef nonnull %AO, ptr noundef nonnull %AB, ptr noundef nonnull %dir)
   br label %return
 
 if.else35:                                        ; preds = %if.else
@@ -2554,7 +2554,7 @@ if.then48:                                        ; preds = %if.then43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %simplex, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i, i64 48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i.i, i64 48, i1 false)
   store i32 1, ptr %last.i, align 4
-  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AB, ptr noundef nonnull %AO, ptr noundef nonnull %AB, ptr noundef %dir)
+  call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %AB, ptr noundef nonnull %AO, ptr noundef nonnull %AB, ptr noundef nonnull %dir)
   br label %return
 
 if.else49:                                        ; preds = %if.then43

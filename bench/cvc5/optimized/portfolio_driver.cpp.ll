@@ -19318,7 +19318,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare i32 @fork() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc54main12_GLOBAL__N_14Pipe3dupEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i32 noundef %fd) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4cvc54main12_GLOBAL__N_14Pipe3dupEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, i32 noundef range(i32 1, 3) %fd) unnamed_addr #3 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
   br label %while.cond

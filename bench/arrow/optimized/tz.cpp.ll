@@ -2050,7 +2050,7 @@ if.then.i125.i:                                   ; preds = %call5.i.i.noexc.i
           to label %call.i15.i.noexc.i unwind label %lpad12.i.i, !noalias !7
 
 call.i15.i.noexc.i:                               ; preds = %if.then.i125.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(16) %in.i.i, i32 noundef %109)
+  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(16) %in.i.i, i32 noundef %109)
           to label %_ZN14arrow_vendored4dateL15load_just_leapsERSi.exit.i unwind label %lpad12.i.i, !noalias !7
 
 if.end.i124.i:                                    ; preds = %call5.i.i.noexc.i
@@ -2126,7 +2126,7 @@ call5.i26.i.noexc.i:                              ; preds = %call4.i24.i.noexc.i
           to label %call.i33.i.noexc.i unwind label %lpad12.i.i, !noalias !7
 
 call.i33.i.noexc.i:                               ; preds = %call5.i26.i.noexc.i
-  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(16) %in.i.i, i32 noundef %121)
+  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %ref.tmp125.i, ptr noundef nonnull align 8 dereferenceable(16) %in.i.i, i32 noundef %121)
           to label %_ZN14arrow_vendored4dateL15load_just_leapsERSi.exit.i unwind label %lpad12.i.i, !noalias !7
 
 _ZN14arrow_vendored4dateL15load_just_leapsERSi.exit.i: ; preds = %call.i33.i.noexc.i, %call.i15.i.noexc.i
@@ -3469,8 +3469,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN14arrow_vendored
   br label %_ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZN14arrow_vendored4dateL16load_transitionsIiEESt6vectorINS0_6detail10transitionESaIS4_EERSii.exit
-  call fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nonnull align 8 %indices, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt)
-  invoke fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nonnull align 8 %infos, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt)
+  call fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias align 8 %indices, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt)
+  invoke fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias align 8 %infos, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit
@@ -3531,7 +3531,7 @@ invoke.cont5:                                     ; preds = %invoke.cont.i24, %i
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont5
-  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt)
+  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt)
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %if.then
@@ -4092,8 +4092,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN14arrow_vendored
   br label %_ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZN14arrow_vendored4dateL16load_transitionsIlEESt6vectorINS0_6detail10transitionESaIS4_EERSii.exit
-  call fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nonnull align 8 %indices, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt)
-  invoke fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nonnull align 8 %infos, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt)
+  call fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias align 8 %indices, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt)
+  invoke fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias align 8 %infos, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIN14arrow_vendored4date6detail10transitionESaIS3_EED2Ev.exit
@@ -4154,7 +4154,7 @@ invoke.cont5:                                     ; preds = %invoke.cont.i24, %i
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont5
-  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt)
+  invoke fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt)
           to label %invoke.cont11 unwind label %lpad4
 
 invoke.cont11:                                    ; preds = %if.then
@@ -5890,7 +5890,7 @@ lpad22:                                           ; preds = %if.then18
   br label %eh.resume
 
 if.end25:                                         ; preds = %if.else, %if.then7
-  %call27 = call fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef nonnull %rp)
+  %call27 = call fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef %rp)
   %10 = extractvalue { i64, ptr } %call27, 0
   %11 = extractvalue { i64, ptr } %call27, 1
   %call28 = call noundef ptr @_ZNK14arrow_vendored4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 %10, ptr %11)
@@ -6276,7 +6276,7 @@ lpad:                                             ; preds = %if.then
   resume { ptr, i32 } %1
 
 if.end:                                           ; preds = %entry
-  %call4 = call fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef nonnull %rp)
+  %call4 = call fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef %rp)
   %2 = extractvalue { i64, ptr } %call4, 0
   %cmp.i.i = icmp eq i64 %2, 10
   br i1 %cmp.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %_ZStneIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
@@ -6315,7 +6315,7 @@ declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef %rp) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef nonnull %rp) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6399,7 +6399,7 @@ if.end:                                           ; preds = %do.body.i.i
 
 if.then.i:                                        ; preds = %if.end
   %sub.i = sub nuw i64 %call.i.i, %__pos.addr.0.i.i
-  %call.i.i7 = tail call ptr @memchr(ptr noundef %add.ptr.i.i, i32 noundef 47, i64 noundef %sub.i) #26
+  %call.i.i7 = tail call ptr @memchr(ptr noundef nonnull %add.ptr.i.i, i32 noundef 47, i64 noundef %sub.i) #26
   %tobool.not.i = icmp eq ptr %call.i.i7, null
   br i1 %tobool.not.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit, label %if.then3.i
 
@@ -8854,7 +8854,7 @@ return:                                           ; preds = %for.body, %return.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIiEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t0 = alloca i32, align 4
   %t1 = alloca i32, align 4
@@ -9077,7 +9077,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL10load_leapsIlEESt6vectorINS0_11leap_secondESaIS3_EERSii(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_leapcnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t0 = alloca i64, align 8
   %t1 = alloca i32, align 4
@@ -10031,7 +10031,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL12load_indicesERSii(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_timecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -10167,7 +10167,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN14arrow_vendored4dateL11load_ttinfoERSii(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %inf, i32 noundef %tzh_typecnt) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.arrow_vendored::date::detail::ttinfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

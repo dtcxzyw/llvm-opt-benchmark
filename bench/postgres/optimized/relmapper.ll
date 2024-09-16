@@ -306,7 +306,7 @@ define dso_local i32 @RelationMapOidToFilenumberForDatabase(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @read_relmap_file(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 21, 23) %3) unnamed_addr #1 {
   %5 = alloca [1024 x i8], align 16
   br i1 %2, label %10, label %6
 

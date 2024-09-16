@@ -188,7 +188,7 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 21:                                               ; preds = %9
   %22 = getelementptr inbounds i8, ptr %1, i64 64
   %23 = load ptr, ptr %22, align 8
-  %24 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 30, ptr noundef %23, ptr noundef nonnull %10)
+  %24 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 30, ptr noundef %23, ptr noundef %10)
   %25 = load i8, ptr %10, align 1
   %26 = trunc i8 %25 to i1
   br i1 %26, label %31, label %27
@@ -207,7 +207,7 @@ define dso_local void @GenerateTypeDependencies(ptr noundef %0, ptr nocapture no
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %1, i64 64
   %35 = load ptr, ptr %34, align 8
-  %36 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %35, ptr noundef nonnull %10)
+  %36 = call fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef 32, ptr noundef %35, ptr noundef %10)
   %37 = load i8, ptr %10, align 1
   %38 = trunc i8 %37 to i1
   br i1 %38, label %42, label %39
@@ -925,18 +925,18 @@ declare void @CatalogTupleUpdate(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @stringToNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef range(i32 30, 33) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 18
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 2047
   %10 = zext nneg i16 %9 to i32
-  %11 = icmp sgt i32 %1, %10
+  %11 = icmp ugt i32 %1, %10
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef %3) #6
+  %13 = tail call i64 @getmissingattr(ptr noundef %2, i32 noundef %1, ptr noundef nonnull %3) #6
   br label %fastgetattr.exit
 
 14:                                               ; preds = %4
@@ -1016,7 +1016,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef %0, i32 noundef %1, ptr nou
   br label %fastgetattr.exit
 
 59:                                               ; preds = %14
-  %60 = add nsw i32 %1, 7
+  %60 = add nuw nsw i32 %1, 7
   %61 = getelementptr i8, ptr %15, i64 26
   %.val.i = load i8, ptr %61, align 1
   %62 = zext i8 %.val.i to i32

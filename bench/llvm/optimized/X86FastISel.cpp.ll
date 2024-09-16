@@ -16295,7 +16295,7 @@ declare noundef i32 @_ZN4llvm3X8613getCMovOpcodeEjbb(i32 noundef, i1 noundef zer
 declare i32 @_ZN4llvm8FastISel16fastEmitInst_rriEjPKNS_19TargetRegisterClassEjjm(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst_rrrrEjPKN4llvm19TargetRegisterClassEjjjj(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef range(i32 13826, 13906) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
   %9 = alloca %"class.llvm::MachineOperand", align 8
@@ -16309,7 +16309,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_111X86FastISel17fastEmitInst
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = zext i32 %1 to i64
+  %20 = zext nneg i32 %1 to i64
   %21 = sub nsw i64 0, %20
   %22 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %19, i64 %21
   %23 = tail call i32 @_ZN4llvm8FastISel15createResultRegEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @_ZN4llvm3X8614VR128XRegClassE) #18
@@ -16477,7 +16477,7 @@ declare i32 @_ZN4llvm8FastISel16fastEmitInst_rrrEjPKNS_19TargetRegisterClassEjjj
 declare i32 @_ZN4llvm8FastISel15fastEmitInst_rrEjPKNS_19TargetRegisterClassEjj(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel23X86SelectFPExtOrFPTruncEPKN4llvm11InstructionEjPKNS1_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111X86FastISel23X86SelectFPExtOrFPTruncEPKN4llvm11InstructionEjPKNS1_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, i32 noundef range(i32 1400, 7469) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -16544,7 +16544,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %15, %18
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = zext i32 %2 to i64
+  %54 = zext nneg i32 %2 to i64
   %55 = sub nsw i64 0, %54
   %56 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %53, i64 %55
   %57 = tail call { ptr, ptr } @_ZN4llvm7BuildMIERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_10MIMetadataERKNS_11MCInstrDescENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(288) %47, ptr %.sroa.03.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(32) %56, i32 %43)
@@ -17366,7 +17366,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK
 declare noundef zeroext i1 @_ZN4llvm3X8611isCalleePopEjbbb(i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 5) i32 @_ZL33computeBytesPoppedByCalleeForSRetPKN4llvm12X86SubtargetEjPKNS_8CallBaseE(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 5) i32 @_ZL33computeBytesPoppedByCalleeForSRetPKN4llvm12X86SubtargetEjPKNS_8CallBaseE(ptr nocapture noundef readonly %0, i32 noundef range(i32 21, 20) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 455
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1

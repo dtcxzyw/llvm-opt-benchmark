@@ -458,7 +458,7 @@ declare i32 @monitor_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @qmp_query_stats_schemas(i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef ptr @stats_filter(i32 noundef %target, ptr noundef %names, i32 noundef %cpu_index, i32 noundef %provider) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @stats_filter(i32 noundef range(i32 0, 3) %target, ptr noundef %names, i32 noundef %cpu_index, i32 noundef %provider) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #7
   store i32 %target, ptr %call, align 8

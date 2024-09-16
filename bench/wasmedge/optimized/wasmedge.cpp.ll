@@ -7534,7 +7534,7 @@ define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef 
   %7 = alloca %"struct.cxx20::span.279", align 8
   %8 = alloca %"class.cxx20::expected.623", align 8
   %9 = alloca %"struct.std::pair.263", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %2, i32 noundef %3) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %2, i32 noundef %3) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %10 = icmp ne ptr %0, null
   %11 = icmp ne ptr %1, null
@@ -7665,7 +7665,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.265", align 8
   %5 = alloca %"class.std::vector.133", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7848,7 +7848,7 @@ define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1,
   br i1 %or.cond, label %10, label %_ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEESaISF_EES0_INS1_7ValTypeESaISI_EEED2Ev.exit
 
 10:                                               ; preds = %4
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %2, i32 noundef %3) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %2, i32 noundef %3) #38
   %11 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #36
           to label %12 unwind label %57
 
@@ -14033,7 +14033,7 @@ define i32 @WasmEdge_VMRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, p
   %14 = alloca ptr, align 8
   %15 = alloca %"struct.std::pair.263", align 8
   store ptr %1, ptr %14, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %4, i32 noundef %5) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %4, i32 noundef %5) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_VMRunWasmFromFileE3$_0Z26WasmEdge_VMRunWasmFromFileE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %16
@@ -14317,7 +14317,7 @@ define i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, 
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
   %13 = alloca %"struct.std::pair.263", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %5, i32 noundef %6) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %5, i32 noundef %6) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ27WasmEdge_VMRunWasmFromBytesE3$_0Z27WasmEdge_VMRunWasmFromBytesE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %14
@@ -14486,7 +14486,7 @@ define i32 @WasmEdge_VMRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 
   %10 = alloca %"struct.cxx20::span.279", align 8
   %11 = alloca %"class.cxx20::expected.623", align 8
   %12 = alloca %"struct.std::pair.263", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %4, i32 noundef %5) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %4, i32 noundef %5) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %13 = icmp ne ptr %0, null
   %14 = icmp ne ptr %1, null
@@ -14657,7 +14657,7 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef 
   %12 = alloca %"struct.cxx20::span.277", align 8
   %13 = alloca %"struct.cxx20::span.279", align 8
   store ptr %1, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %4, i32 noundef %5) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %4, i32 noundef %5) #38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %67, label %14
 
@@ -14926,7 +14926,7 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr
   %9 = alloca %"class.WasmEdge::Async", align 8
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %5, i32 noundef %6) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %5, i32 noundef %6) #38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %12
 
@@ -15055,7 +15055,7 @@ define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr nou
   %8 = alloca %"class.WasmEdge::Async", align 8
   %9 = alloca %"struct.cxx20::span.277", align 8
   %10 = alloca %"struct.cxx20::span.279", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %4, i32 noundef %5) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %4, i32 noundef %5) #38
   %11 = icmp ne ptr %0, null
   %12 = icmp ne ptr %1, null
   %or.cond = and i1 %11, %12
@@ -15542,7 +15542,7 @@ define i32 @WasmEdge_VMExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef %3, i
   %8 = alloca %"struct.cxx20::span.279", align 8
   %9 = alloca %"class.cxx20::expected.623", align 8
   %10 = alloca %"struct.std::pair.263", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %3, i32 noundef %4) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %3, i32 noundef %4) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ18WasmEdge_VMExecuteE3$_0Z18WasmEdge_VMExecuteE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %11
@@ -15706,7 +15706,7 @@ define i32 @WasmEdge_VMExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3,
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
   %13 = alloca %"struct.std::pair.263", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %5, i32 noundef %6) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %5, i32 noundef %6) #38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ28WasmEdge_VMExecuteRegisteredE3$_0Z28WasmEdge_VMExecuteRegisteredE3$_1J18WasmEdge_VMContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %14
@@ -15876,7 +15876,7 @@ define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr 
   %6 = alloca %"struct.std::pair.263", align 8
   %7 = alloca %"class.WasmEdge::Async", align 8
   %8 = alloca %"struct.cxx20::span.279", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %3, i32 noundef %4) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %3, i32 noundef %4) #38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %47, label %9
 
@@ -15997,7 +15997,7 @@ define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, pt
   %9 = alloca %"class.WasmEdge::Async", align 8
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
-  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %5, i32 noundef %6) #38
+  call fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %5, i32 noundef %6) #38
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %52, label %12
 

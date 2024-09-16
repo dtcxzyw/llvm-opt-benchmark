@@ -417,7 +417,7 @@ define dso_local void @intel_thermal_interrupt() local_unnamed_addr #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @therm_throt_process(i1 noundef zeroext %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = zext i1 %0 to i8
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #12, !srcloc !13
   %5 = zext i32 %4 to i64

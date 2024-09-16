@@ -591,7 +591,7 @@ _ZN2cv3PtrINS_22HistogramCostExtractorEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_31Th
 232:                                              ; preds = %231
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #13
-  invoke fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(96) %18)
+  invoke fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(96) %18)
           to label %.preheader unwind label %261
 
 .preheader:                                       ; preds = %232
@@ -779,7 +779,7 @@ _ZN2cv3PtrINS_22HistogramCostExtractorEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_31Th
 298:                                              ; preds = %297
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #13
-  invoke fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(96) %31)
+  invoke fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(96) %31)
           to label %299 unwind label %314
 
 299:                                              ; preds = %298
@@ -1566,7 +1566,7 @@ declare void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 declare void @_ZN2cv10moveWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13simpleContourRKN2cv3MatEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.15", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.cv::_InputArray", align 8

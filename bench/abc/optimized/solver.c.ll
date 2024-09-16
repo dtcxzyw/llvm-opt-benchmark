@@ -1185,7 +1185,7 @@ solver_enqueue.exit157:                           ; preds = %228, %249, %vec_uin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @watch_list_push(ptr nocapture noundef %0, i64 %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @watch_list_push(ptr nocapture noundef %0, i64 %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8

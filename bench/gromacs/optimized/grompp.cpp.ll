@@ -5934,12 +5934,12 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit434: ; preds = %_ZN3gmx14Lo
   %1637 = getelementptr inbounds i8, ptr %113, i64 176
   %1638 = load i32, ptr %1637, align 8
   %1639 = getelementptr inbounds i8, ptr %113, i64 296
-  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull readonly %127, ptr %1633, i1 noundef zeroext false, ptr noundef %1632, i32 noundef %1636, i32 noundef %1638, ptr noundef nonnull %1639, ptr noundef nonnull %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
+  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef readonly %127, ptr %1633, i1 noundef zeroext false, ptr noundef %1632, i32 noundef %1636, i32 noundef %1638, ptr noundef %1639, ptr noundef %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
           to label %.noexc435 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc435:                                        ; preds = %1631
   %1640 = getelementptr inbounds i8, ptr %113, i64 308
-  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef nonnull readonly %127, ptr %1633, i1 noundef zeroext true, ptr noundef %1634, i32 noundef %1636, i32 noundef %1638, ptr noundef nonnull %1640, ptr noundef nonnull %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
+  invoke fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr noundef readonly %127, ptr %1633, i1 noundef zeroext true, ptr noundef %1634, i32 noundef %1636, i32 noundef %1638, ptr noundef %1640, ptr noundef %118, ptr noundef nonnull readonly align 8 dereferenceable(40) %117)
           to label %_ZL10gen_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEPKcS7_15RefCoordScaling7PbcTypePfSA_P14WarningHandlerRKNS1_8MDLoggerE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL10gen_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEPKcS7_15RefCoordScaling7PbcTypePfSA_P14WarningHandlerRKNS1_8MDLoggerE.exit: ; preds = %.noexc435, %_ZNSt10filesystem7__cxx114pathD2Ev.exit413, %_ZL10nint_ftypeP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEi.exit427
@@ -9132,7 +9132,7 @@ _ZL23checkExclusionDistancesRK10gmx_mtop_tRK10t_inputrecN3gmx8ArrayRefIKNS5_11Ba
 3039:                                             ; preds = %3036
   %3040 = getelementptr inbounds i8, ptr %132, i64 456
   %3041 = load ptr, ptr %3040, align 8
-  %3042 = invoke fastcc noundef float @_ZL9calc_tempPK10gmx_mtop_tPK10t_inputrecPA3_f(ptr noundef nonnull %127, ptr noundef nonnull %113, ptr noundef %3041)
+  %3042 = invoke fastcc noundef float @_ZL9calc_tempPK10gmx_mtop_tPK10t_inputrecPA3_f(ptr noundef %127, ptr noundef %113, ptr noundef %3041)
           to label %3043 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 3043:                                             ; preds = %3039, %3037
@@ -10113,7 +10113,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit62.i: ; preds = %3409
 
 .noexc651:                                        ; preds = %3441
   %3442 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3442, ptr noundef nonnull %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef nonnull %132, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3442, ptr noundef %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef %132, ptr noundef %8)
           to label %.noexc652 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc652:                                        ; preds = %.noexc651
@@ -10136,7 +10136,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit62.i: ; preds = %3409
 
 .lr.ph95.i:                                       ; preds = %.noexc653, %.noexc655
   %3448 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3448, ptr noundef nonnull %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef nonnull %132, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3448, ptr noundef %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef %132, ptr noundef %8)
           to label %.noexc654 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc654:                                        ; preds = %.lr.ph95.i
@@ -10157,7 +10157,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit62.i: ; preds = %3409
 
 3453:                                             ; preds = %.noexc656
   %3454 = load ptr, ptr %4, align 8
-  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3454, ptr noundef nonnull %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef nonnull %132, ptr noundef nonnull %8)
+  invoke fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %3454, ptr noundef %6, i1 noundef zeroext %.0.shrunk.i, ptr noundef %132, ptr noundef %8)
           to label %.noexc657 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc657:                                        ; preds = %3453
@@ -11997,7 +11997,7 @@ declare noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef, i32 noundef, ptr 
 declare noundef i32 @_Z20inputrec2nboundeddimPK10t_inputrec(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL9calc_tempPK10gmx_mtop_tPK10t_inputrecPA3_f(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc noundef float @_ZL9calc_tempPK10gmx_mtop_tPK10t_inputrecPA3_f(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = alloca %class.AtomIterator, align 8
   %5 = alloca %class.AtomIterator, align 8
   %6 = alloca %class.AtomRange, align 8
@@ -15821,7 +15821,7 @@ declare noundef zeroext i1 @_ZNK12AtomIteratoreqERKS_(ptr noundef nonnull align 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr nocapture noundef readonly %0, ptr nocapture readonly %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11read_posresP10gmx_mtop_tN3gmx8ArrayRefIK19MoleculeInformationEEbPKc15RefCoordScaling7PbcTypePfP14WarningHandlerRKNS1_8MDLoggerE(ptr nocapture noundef nonnull readonly %0, ptr nocapture readonly %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6, ptr noundef nonnull %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %8) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.gmx::RangeError", align 8
   %11 = alloca %"class.gmx::ExceptionInitializer", align 8
   %12 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -17042,7 +17042,7 @@ declare noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxsta
 declare void @_Z9close_trxP11t_trxstatus(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10copy_statePKcP10t_trxframebP7t_statePd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

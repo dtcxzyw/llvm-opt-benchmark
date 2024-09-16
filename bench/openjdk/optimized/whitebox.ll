@@ -3012,7 +3012,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   br label %64
 
 64:                                               ; preds = %62, %61
-  %65 = add nuw i64 %.01516.i, 1
+  %65 = add nuw nsw i64 %.01516.i, 1
   %exitcond.not.i = icmp eq i64 %65, %4
   br i1 %exitcond.not.i, label %_ZL30wb_stress_virtual_space_resizemmm.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -10754,7 +10754,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef signext i8 @_ZN17CompilationPolicy21highest_compile_levelEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24can_be_compiled_at_levelR12methodHandlehi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24can_be_compiled_at_levelR12methodHandlehi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext %1, i32 noundef range(i32 -2147483648, 128) %2) unnamed_addr #0 {
   %.not = icmp eq i8 %1, 0
   br i1 %.not, label %6, label %4
 
@@ -16586,7 +16586,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.800.val, ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %.800.val, ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 176), align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 6672), align 8
   %5 = getelementptr inbounds i8, ptr %.800.val, i64 24

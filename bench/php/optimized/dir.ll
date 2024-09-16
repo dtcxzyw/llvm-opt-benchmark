@@ -249,7 +249,7 @@ define hidden void @zif_opendir(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_php_do_opendir(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_php_do_opendir(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4

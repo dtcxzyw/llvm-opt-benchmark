@@ -1079,7 +1079,7 @@ lor.lhs.false.i:                                  ; preds = %if.then12
 
 if.end.i70:                                       ; preds = %lor.lhs.false.i
   store ptr null, ptr %descr.i, align 8
-  %call4.i = call fastcc i32 @analyze_descriptor(ptr noundef nonnull %owner, ptr noundef %name, ptr noundef nonnull %descr.i, i32 noundef 0)
+  %call4.i = call fastcc i32 @analyze_descriptor(ptr noundef nonnull %owner, ptr noundef %name, ptr noundef %descr.i, i32 noundef 0)
   switch i32 %call4.i, label %specialize_class_load_attr.exit.thread [
     i32 1, label %specialize_class_load_attr.exit
     i32 8, label %specialize_class_load_attr.exit
@@ -1103,7 +1103,7 @@ specialize_class_load_attr.exit:                  ; preds = %if.end.i70, %if.end
 
 if.end17:                                         ; preds = %if.end9
   store ptr null, ptr %descr, align 8
-  %call18 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 0)
+  %call18 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef %descr, i32 noundef 0)
   switch i32 %call18, label %fail [
     i32 10, label %sw.bb136
     i32 1, label %sw.bb19
@@ -1343,7 +1343,7 @@ return:                                           ; preds = %if.end53, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 14) i32 @analyze_descriptor(ptr noundef %type, ptr noundef %name, ptr nocapture noundef writeonly %descr, i32 noundef %store) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @analyze_descriptor(ptr noundef %type, ptr noundef %name, ptr nocapture noundef nonnull writeonly %descr, i32 noundef range(i32 0, 2) %store) unnamed_addr #0 {
 entry:
   %tobool.not = icmp ne i32 %store, 0
   br i1 %tobool.not, label %if.then, label %if.else
@@ -1587,7 +1587,7 @@ return:                                           ; preds = %if.else30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @specialize_dict_access(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef %values_op, i32 noundef %hint_op) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @specialize_dict_access(ptr noundef %owner, ptr nocapture noundef writeonly %instr, ptr nocapture noundef readonly %type, ptr noundef %name, i32 noundef range(i32 189, 206) %values_op, i32 noundef range(i32 198, 208) %hint_op) unnamed_addr #0 {
 entry:
   %tp_flags = getelementptr inbounds i8, ptr %type, i64 168
   %0 = load i64, ptr %tp_flags, align 8
@@ -1658,7 +1658,7 @@ if.end32:                                         ; preds = %if.end24
 
 if.end40:                                         ; preds = %if.end32, %if.end9
   %storemerge.in = phi i32 [ %hint_op, %if.end32 ], [ %values_op, %if.end9 ]
-  %storemerge = trunc i32 %storemerge.in to i8
+  %storemerge = trunc nuw i32 %storemerge.in to i8
   store i8 %storemerge, ptr %instr, align 2
   br label %return
 
@@ -1684,7 +1684,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i22.not, label %fail, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef nonnull %descr, i32 noundef 1)
+  %call6 = call fastcc i32 @analyze_descriptor(ptr noundef %owner.val, ptr noundef %name, ptr noundef %descr, i32 noundef 1)
   switch i32 %call6, label %fail [
     i32 10, label %sw.bb30
     i32 3, label %sw.bb9

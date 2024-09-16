@@ -1932,7 +1932,7 @@ proto_item_set_generated.exit348:                 ; preds = %330, %344, %341, %3
   br i1 %.not338, label %407, label %.thread360
 
 407:                                              ; preds = %395
-  call fastcc void @save_path(ptr noundef nonnull %1, ptr noundef %.0306, ptr noundef nonnull @.str.705, i32 noundef 0, ptr noundef nonnull %11)
+  call fastcc void @save_path(ptr noundef nonnull %1, ptr noundef %.0306, ptr noundef nonnull @.str.705, i32 noundef 0, ptr noundef %11)
   br label %.thread360
 
 .thread360:                                       ; preds = %382, %391, %407, %395, %390, %proto_item_set_generated.exit348, %proto_item_set_generated.exit348, %385, %377, %355, %348
@@ -2772,7 +2772,7 @@ dissect_headers.exit:                             ; preds = %.loopexit.i, %.thre
 864:                                              ; preds = %859
   %865 = getelementptr inbounds i8, ptr %285, i64 40
   %866 = load i32, ptr %865, align 8
-  call fastcc void @save_path(ptr noundef nonnull %1, ptr noundef %.0306, ptr noundef nonnull %858, i32 noundef %866, ptr noundef nonnull %11)
+  call fastcc void @save_path(ptr noundef nonnull %1, ptr noundef %.0306, ptr noundef nonnull %858, i32 noundef %866, ptr noundef %11)
   br label %876
 
 .thread356:                                       ; preds = %227, %165, %232
@@ -4141,7 +4141,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_path(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @save_path(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [6 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 80

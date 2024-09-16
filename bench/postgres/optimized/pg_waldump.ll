@@ -668,7 +668,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   br i1 %.not105, label %235, label %232
 
 232:                                              ; preds = %231
-  %233 = call fastcc zeroext i1 @verify_directory(ptr noundef nonnull %.082)
+  %233 = call fastcc zeroext i1 @verify_directory(ptr noundef %.082)
   br i1 %233, label %235, label %234
 
 234:                                              ; preds = %232
@@ -681,7 +681,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   br i1 %.not106, label %238, label %237
 
 237:                                              ; preds = %235
-  call fastcc void @create_fullpage_directory(ptr noundef nonnull %236)
+  call fastcc void @create_fullpage_directory(ptr noundef %236)
   br label %238
 
 238:                                              ; preds = %237, %235
@@ -695,14 +695,14 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   %242 = sext i32 %239 to i64
   %243 = getelementptr ptr, ptr %1, i64 %242
   %244 = load ptr, ptr %243, align 8
-  call fastcc void @split_path(ptr noundef %244, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @split_path(ptr noundef %244, ptr noundef %12, ptr noundef %13)
   %245 = load ptr, ptr %12, align 8
   %246 = icmp ne ptr %245, null
   %or.cond13 = select i1 %.not105, i1 %246, i1 false
   br i1 %or.cond13, label %247, label %250
 
 247:                                              ; preds = %241
-  %248 = call fastcc zeroext i1 @verify_directory(ptr noundef nonnull %245)
+  %248 = call fastcc zeroext i1 @verify_directory(ptr noundef %245)
   br i1 %248, label %250, label %249
 
 249:                                              ; preds = %247
@@ -727,7 +727,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
 257:                                              ; preds = %250
   %258 = call i32 @close(i32 noundef %254) #15
   %259 = load i32, ptr @WalSegSz, align 4
-  call fastcc void @XLogFromFileName(ptr noundef %253, ptr noundef nonnull %5, ptr noundef nonnull %14, i32 noundef %259)
+  call fastcc void @XLogFromFileName(ptr noundef %253, ptr noundef %5, ptr noundef %14, i32 noundef %259)
   %260 = load i64, ptr %48, align 8
   %261 = icmp eq i64 %260, 0
   br i1 %261, label %262, label %267
@@ -782,7 +782,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   %293 = sext i32 %281 to i64
   %294 = getelementptr ptr, ptr %1, i64 %293
   %295 = load ptr, ptr %294, align 8
-  call fastcc void @split_path(ptr noundef %295, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @split_path(ptr noundef %295, ptr noundef %12, ptr noundef %13)
   %296 = load ptr, ptr %13, align 8
   %297 = call fastcc i32 @open_file_in_directory(ptr noundef %252, ptr noundef %296)
   %298 = icmp slt i32 %297, 0
@@ -796,7 +796,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
 300:                                              ; preds = %292
   %301 = call i32 @close(i32 noundef %297) #15
   %302 = load i32, ptr @WalSegSz, align 4
-  call fastcc void @XLogFromFileName(ptr noundef %296, ptr noundef nonnull %5, ptr noundef nonnull %15, i32 noundef %302)
+  call fastcc void @XLogFromFileName(ptr noundef %296, ptr noundef %5, ptr noundef %15, i32 noundef %302)
   %303 = load i64, ptr %15, align 8
   %304 = icmp ult i64 %303, %279
   br i1 %304, label %305, label %314
@@ -1015,7 +1015,7 @@ sub_1134:                                         ; preds = %.tail.thread, %.thr
   %423 = load i32, ptr %73, align 8
   %424 = select i1 %422, i32 %423, i32 -1
   %425 = load i32, ptr %61, align 8
-  %426 = call fastcc zeroext i1 @XLogRecordMatchesRelationBlock(ptr noundef nonnull %349, i64 %.sroa.017.0, i32 %.sroa.3.0, i32 noundef %424, i32 noundef %425)
+  %426 = call fastcc zeroext i1 @XLogRecordMatchesRelationBlock(ptr noundef %349, i64 %.sroa.017.0, i32 %.sroa.3.0, i32 noundef %424, i32 noundef %425)
   br i1 %426, label %427, label %.backedge
 
 427:                                              ; preds = %418, %415
@@ -1070,7 +1070,7 @@ XLogRecordHasFPW.exit.thread:                     ; preds = %440, %427
   br label %454
 
 453:                                              ; preds = %448
-  call fastcc void @XLogDumpDisplayRecord(ptr noundef nonnull %6, ptr noundef nonnull %349)
+  call fastcc void @XLogDumpDisplayRecord(ptr noundef %6, ptr noundef %349)
   br label %454
 
 454:                                              ; preds = %451, %453, %XLogRecordHasFPW.exit.thread
@@ -1079,7 +1079,7 @@ XLogRecordHasFPW.exit.thread:                     ; preds = %440, %427
   br i1 %.not114, label %457, label %456
 
 456:                                              ; preds = %454
-  call fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %349, ptr noundef nonnull %455)
+  call fastcc void @XLogRecordSaveFPWs(ptr noundef %349, ptr noundef %455)
   br label %457
 
 457:                                              ; preds = %456, %454
@@ -1107,7 +1107,7 @@ XLogRecordHasFPW.exit.thread:                     ; preds = %440, %427
   br i1 %466, label %468, label %467
 
 467:                                              ; preds = %464
-  call fastcc void @XLogDumpDisplayStats(ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @XLogDumpDisplayStats(ptr noundef %6, ptr noundef %7)
   br label %468
 
 468:                                              ; preds = %467, %464, %._crit_edge161
@@ -1249,8 +1249,8 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @verify_directory(ptr nocapture noundef readonly %0) unnamed_addr #10 {
-  %2 = tail call ptr @opendir(ptr noundef %0)
+define internal fastcc noundef zeroext i1 @verify_directory(ptr nocapture noundef nonnull readonly %0) unnamed_addr #10 {
+  %2 = tail call ptr @opendir(ptr noundef nonnull %0)
   %3 = icmp ne ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -1263,8 +1263,8 @@ define internal fastcc noundef zeroext i1 @verify_directory(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_fullpage_directory(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @pg_check_dir(ptr noundef %0) #15
+define internal fastcc void @create_fullpage_directory(ptr noundef nonnull %0) unnamed_addr #0 {
+  %2 = tail call i32 @pg_check_dir(ptr noundef nonnull %0) #15
   switch i32 %2, label %9 [
     i32 0, label %3
     i32 1, label %10
@@ -1275,22 +1275,22 @@ define internal fastcc void @create_fullpage_directory(ptr noundef %0) unnamed_a
 
 3:                                                ; preds = %1
   %4 = load i32, ptr @pg_dir_create_mode, align 4
-  %5 = tail call i32 @pg_mkdir_p(ptr noundef %0, i32 noundef %4) #15
+  %5 = tail call i32 @pg_mkdir_p(ptr noundef nonnull %0, i32 noundef %4) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef %0) #15
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.91, ptr noundef nonnull %0) #15
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
 8:                                                ; preds = %1, %1, %1
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.92, ptr noundef %0) #15
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.92, ptr noundef nonnull %0) #15
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
 9:                                                ; preds = %1
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.93, ptr noundef %0) #15
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.93, ptr noundef nonnull %0) #15
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
@@ -1299,7 +1299,7 @@ define internal fastcc void @create_fullpage_directory(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @split_path(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @split_path(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -1422,10 +1422,10 @@ define internal fastcc noundef i32 @open_file_in_directory(ptr noundef %0, ptr n
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @XLogFromFileName(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc void @XLogFromFileName(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #10 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
+  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %8 = load i32, ptr %5, align 4
   %9 = zext i32 %8 to i64
   %10 = sext i32 %3 to i64
@@ -1598,7 +1598,7 @@ declare ptr @XLogReadRecord(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr noundef %0, i64 %1, i32 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr noundef nonnull %0, i64 %1, i32 %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.RelFileLocator, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1792,7 +1792,7 @@ define internal fastcc noundef zeroext i1 @XLogRecordMatchesRelationBlock(ptr no
 declare void @XLogRecStoreStats(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogDumpDisplayRecord(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @XLogDumpDisplayRecord(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.StringInfoData, align 8
@@ -1806,7 +1806,7 @@ define internal fastcc void @XLogDumpDisplayRecord(ptr nocapture noundef readonl
   %13 = load i8, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 48
   %15 = load i64, ptr %14, align 8
-  call void @XLogRecGetLen(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
+  call void @XLogRecGetLen(ptr noundef nonnull %1, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %16 = load ptr, ptr %10, align 8
   %17 = load i32, ptr %3, align 4
   %18 = load ptr, ptr %6, align 8
@@ -1859,7 +1859,7 @@ define internal fastcc void @XLogDumpDisplayRecord(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @XLogRecordSaveFPWs(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %union.PGAlignedBlock, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [6 x i8], align 1
@@ -1909,7 +1909,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
   unreachable
 
 34:                                               ; preds = %28
-  %35 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef %0, i8 noundef zeroext %29, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef null) #15
+  %35 = call zeroext i1 @XLogRecGetBlockTagExtended(ptr noundef nonnull %0, i8 noundef zeroext %29, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef null) #15
   %36 = load i32, ptr %8, align 4
   %or.cond = icmp ult i32 %36, 4
   br i1 %or.cond, label %37, label %53
@@ -1928,7 +1928,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
   %48 = load i32, ptr %15, align 4
   %49 = load i32, ptr %16, align 4
   %50 = load i32, ptr %6, align 4
-  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.117, ptr noundef %1, i32 noundef %42, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %5) #15
+  %51 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.117, ptr noundef nonnull %1, i32 noundef %42, i32 noundef %45, i32 noundef %46, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef %50, ptr noundef nonnull %5) #15
   %52 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.118)
   %.not25 = icmp eq ptr %52, null
   br i1 %.not25, label %54, label %55
@@ -1980,7 +1980,7 @@ define internal fastcc void @XLogRecordSaveFPWs(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @XLogDumpDisplayStats(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

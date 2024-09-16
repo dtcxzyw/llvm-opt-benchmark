@@ -193,7 +193,7 @@ define i32 @H5Rget_obj_type1(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %.thread45
 
 68:                                               ; preds = %61
-  %69 = call fastcc i32 @H5R__decode_token_compat(ptr noundef nonnull %41, i32 noundef %62, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %6)
+  %69 = call fastcc i32 @H5R__decode_token_compat(ptr noundef %41, i32 noundef %62, i32 noundef %1, ptr noundef %2, ptr noundef %6)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %75
 
@@ -260,13 +260,13 @@ declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @H5I_get_type(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.H5VL_file_cont_info_t, align 8
   %7 = alloca %struct.H5VL_file_get_args_t, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) @__const.H5R__decode_token_compat.cont_info, i64 32, i1 false)
-  %10 = tail call i64 @H5F_get_file_id(ptr noundef %0, i32 noundef %1, i1 noundef zeroext false) #6
+  %10 = tail call i64 @H5F_get_file_id(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext false) #6
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %55, label %12
 
@@ -304,7 +304,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
   store i64 8, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 16
   %32 = load i64, ptr %31, align 8
-  %33 = call i32 @H5R__decode_token_obj_compat(ptr noundef %3, ptr noundef nonnull %8, ptr noundef %4, i64 noundef %32) #6
+  %33 = call i32 @H5R__decode_token_obj_compat(ptr noundef nonnull %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i64 noundef %32) #6
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %35, label %.thread
 
@@ -329,7 +329,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_token_compat(ptr nounde
 46:                                               ; preds = %39
   %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = load i64, ptr %47, align 8
-  %49 = call i32 @H5R__decode_token_region_compat(ptr noundef nonnull %40, ptr noundef %3, ptr noundef nonnull %9, ptr noundef %4, i64 noundef %48, ptr noundef null) #6
+  %49 = call i32 @H5R__decode_token_region_compat(ptr noundef nonnull %40, ptr noundef nonnull %3, ptr noundef nonnull %9, ptr noundef nonnull %4, i64 noundef %48, ptr noundef null) #6
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %.thread
 
@@ -473,7 +473,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference1(i64 noundef %0, 
   br label %.thread50
 
 67:                                               ; preds = %60
-  %68 = call fastcc i32 @H5R__decode_token_compat(ptr noundef nonnull %40, i32 noundef %61, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %68 = call fastcc i32 @H5R__decode_token_compat(ptr noundef %40, i32 noundef %61, i32 noundef %1, ptr noundef %2, ptr noundef %5)
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %74
 
@@ -776,7 +776,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 150:                                              ; preds = %143
   %151 = getelementptr inbounds i8, ptr %9, i64 16
   %152 = load i64, ptr %151, align 8
-  %153 = call fastcc i32 @H5R__encode_token_region_compat(ptr noundef nonnull %144, ptr noundef nonnull %8, i64 noundef %152, ptr noundef nonnull %137, ptr noundef nonnull %0, ptr noundef nonnull %13)
+  %153 = call fastcc i32 @H5R__encode_token_region_compat(ptr noundef %144, ptr noundef %8, i64 noundef %152, ptr noundef %137, ptr noundef %0, ptr noundef %13)
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %.thread75
 
@@ -846,10 +846,10 @@ declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
-  %9 = call i32 @H5R__encode_heap(ptr noundef %0, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #6
+  %9 = call i32 @H5R__encode_heap(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #6
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -866,10 +866,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
   br i1 %.not, label %50, label %18
 
 18:                                               ; preds = %15
-  %19 = call i32 @H5CX_set_libver_bounds(ptr noundef %0) #6
+  %19 = call i32 @H5CX_set_libver_bounds(ptr noundef nonnull %0) #6
   %20 = load i64, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %4, i8 0, i64 %20, i1 false)
-  %21 = call i64 @H5S_select_serial_size(ptr noundef %3) #6
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %4, i8 0, i64 %20, i1 false)
+  %21 = call i64 @H5S_select_serial_size(ptr noundef nonnull %3) #6
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %23, label %27
 
@@ -892,10 +892,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
   br label %52
 
 35:                                               ; preds = %27
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %2, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 %1, i64 %2, i1 false)
   %36 = getelementptr inbounds i8, ptr %29, i64 %2
   store ptr %36, ptr %8, align 8
-  %37 = call i32 @H5S_select_serialize(ptr noundef %3, ptr noundef nonnull %8) #6
+  %37 = call i32 @H5S_select_serialize(ptr noundef nonnull %3, ptr noundef nonnull %8) #6
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %43
 
@@ -906,7 +906,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr
   br label %52
 
 43:                                               ; preds = %35
-  %44 = call i32 @H5R__encode_heap(ptr noundef %0, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %29, i64 noundef %28) #6
+  %44 = call i32 @H5R__encode_heap(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %29, i64 noundef %28) #6
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %._crit_edge
 
@@ -1038,7 +1038,7 @@ define range(i32 -1, 1) i32 @H5Rget_obj_type2(i64 noundef %0, i32 noundef %1, pt
   br label %.thread46
 
 68:                                               ; preds = %61
-  %69 = call fastcc i32 @H5R__decode_token_compat(ptr noundef nonnull %41, i32 noundef %62, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %7)
+  %69 = call fastcc i32 @H5R__decode_token_compat(ptr noundef %41, i32 noundef %62, i32 noundef %1, ptr noundef %2, ptr noundef %7)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %75
 
@@ -1211,7 +1211,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Rdereference2(i64 noundef %0, 
   br label %.thread53
 
 82:                                               ; preds = %75
-  %83 = call fastcc i32 @H5R__decode_token_compat(ptr noundef nonnull %55, i32 noundef %76, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %7)
+  %83 = call fastcc i32 @H5R__decode_token_compat(ptr noundef %55, i32 noundef %76, i32 noundef %2, ptr noundef %3, ptr noundef %7)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %89
 
@@ -1570,7 +1570,7 @@ define i64 @H5Rget_name(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noun
   br label %.thread44
 
 55:                                               ; preds = %48
-  %56 = call fastcc i32 @H5R__decode_token_compat(ptr noundef nonnull %42, i32 noundef %49, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %8)
+  %56 = call fastcc i32 @H5R__decode_token_compat(ptr noundef %42, i32 noundef %49, i32 noundef %1, ptr noundef %2, ptr noundef %8)
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 

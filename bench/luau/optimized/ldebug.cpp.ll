@@ -1399,7 +1399,7 @@ _Z12luaG_getlineP5Protoi.exit:                    ; preds = %.lr.ph.split, %_Z12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @_ZL11getcoverageP5ProtoiPimPvPFvS2_PKciiPKimE(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef range(i64 0, 2147483648) %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = shl nuw nsw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %2, i8 -1, i64 %7, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 136

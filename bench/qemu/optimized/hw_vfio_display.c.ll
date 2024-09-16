@@ -737,7 +737,7 @@ if.end7:                                          ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @vfio_display_get_dmabuf(ptr nocapture noundef readonly %vdev, i32 noundef %plane_type) unnamed_addr #0 {
+define internal fastcc ptr @vfio_display_get_dmabuf(ptr nocapture noundef readonly %vdev, i32 noundef range(i32 1, 3) %plane_type) unnamed_addr #0 {
 entry:
   %plane = alloca %struct.vfio_device_gfx_plane_info, align 8
   %dpy1 = getelementptr inbounds i8, ptr %vdev, i64 3568

@@ -258,7 +258,7 @@ default.unreachable:                              ; preds = %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @acpi_ex_field_datum_io(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   store i32 %1, ptr %5, align 4

@@ -1161,16 +1161,16 @@ define dso_local i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr nocapture noundef %13, i32 noundef %14) unnamed_addr #2 align 16 {
+define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 4) %2, i32 noundef range(i32 31, 53) %3, i32 noundef range(i32 8, 10) %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr nocapture noundef %13, i32 noundef %14) unnamed_addr #2 align 16 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca [53 x i16], align 16
   store i32 %3, ptr %16, align 4
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable2 [
     i32 1, label %19
     i32 0, label %36
     i32 3, label %37
-    i32 2, label %54
+    i32 2, label %53
   ]
 
 19:                                               ; preds = %15
@@ -1219,52 +1219,51 @@ define internal fastcc range(i64 -20, -71) i64 @ZSTD_buildSeqTable(ptr noundef %
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %1, align 8
-  %45 = shl nuw nsw i32 1, %4
-  %46 = add nuw nsw i32 %45, 1
+  %45 = shl nuw nsw i32 8, %4
+  %46 = or disjoint i32 %45, 8
   %47 = zext nneg i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 3
-  br label %49
+  br label %48
 
-49:                                               ; preds = %49, %43
-  %50 = phi i64 [ 0, %43 ], [ %52, %49 ]
-  %51 = getelementptr i8, ptr %44, i64 %50
-  tail call void @llvm.prefetch.p0(ptr %51, i32 0, i32 2, i32 1)
-  %52 = add nuw nsw i64 %50, 64
-  %53 = icmp ult i64 %52, %48
-  br i1 %53, label %49, label %.loopexit, !llvm.loop !17
+48:                                               ; preds = %48, %43
+  %49 = phi i64 [ 0, %43 ], [ %51, %48 ]
+  %50 = getelementptr i8, ptr %44, i64 %49
+  tail call void @llvm.prefetch.p0(ptr %50, i32 0, i32 2, i32 1)
+  %51 = add nuw nsw i64 %49, 64
+  %52 = icmp ult i64 %51, %47
+  br i1 %52, label %48, label %.loopexit, !llvm.loop !17
 
-54:                                               ; preds = %15
+53:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #15
   store i32 0, ptr %17, align 4, !annotation !18
   call void @llvm.lifetime.start.p0(i64 106, ptr nonnull %18) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(106) %18, i8 0, i64 106, i1 false), !annotation !18
-  %55 = call i64 @FSE_readNCount(ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %5, i64 noundef %6) #15
-  %56 = icmp ult i64 %55, -119
-  br i1 %56, label %57, label %62
+  %54 = call i64 @FSE_readNCount(ptr noundef nonnull %18, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %5, i64 noundef %6) #15
+  %55 = icmp ult i64 %54, -119
+  br i1 %55, label %56, label %61
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %17, align 4
-  %59 = icmp ugt i32 %58, %4
-  br i1 %59, label %62, label %60
+56:                                               ; preds = %53
+  %57 = load i32, ptr %17, align 4
+  %58 = icmp ugt i32 %57, %4
+  br i1 %58, label %61, label %59
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %16, align 4
-  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %61, ptr noundef %7, ptr noundef %8, i32 noundef %58, ptr noundef %13, i64 poison, i32 noundef %14)
+59:                                               ; preds = %56
+  %60 = load i32, ptr %16, align 4
+  call void @ZSTD_buildFSETable(ptr noundef %0, ptr noundef nonnull %18, i32 noundef %60, ptr noundef %7, ptr noundef %8, i32 noundef %57, ptr noundef %13, i64 poison, i32 noundef %14)
   store ptr %0, ptr %1, align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %60, %57, %54
-  %63 = phi i64 [ %55, %60 ], [ -20, %54 ], [ -20, %57 ]
+61:                                               ; preds = %59, %56, %53
+  %62 = phi i64 [ %54, %59 ], [ -20, %53 ], [ -20, %56 ]
   call void @llvm.lifetime.end.p0(i64 106, ptr nonnull %18) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #15
   br label %.loopexit
 
-default.unreachable:                              ; preds = %15
+default.unreachable2:                             ; preds = %15
   unreachable
 
-.loopexit:                                        ; preds = %49, %62, %39, %37, %36, %25, %21, %19
-  %64 = phi i64 [ %63, %62 ], [ 0, %36 ], [ 1, %25 ], [ -72, %19 ], [ -20, %21 ], [ -20, %37 ], [ 0, %39 ], [ 0, %49 ]
-  ret i64 %64
+.loopexit:                                        ; preds = %48, %61, %39, %37, %36, %25, %21, %19
+  %63 = phi i64 [ %62, %61 ], [ 0, %36 ], [ 1, %25 ], [ -72, %19 ], [ -20, %21 ], [ -20, %37 ], [ 0, %39 ], [ 0, %48 ]
+  ret i64 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

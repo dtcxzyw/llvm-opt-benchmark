@@ -3535,7 +3535,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader12decodeStringERNS0_5TokenER
 
 75:                                               ; preds = %73
   %76 = load i32, ptr %9, align 4
-  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %76)
+  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %76)
   %77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %78 unwind label %79
 
@@ -9150,7 +9150,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeStringERNS0_5Toke
 
 75:                                               ; preds = %73
   %76 = load i32, ptr %9, align 4
-  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %76)
+  call fastcc void @_ZN4JsonL15codePointToUTF8B5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %76)
   %77 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %78 unwind label %79
 
@@ -21120,7 +21120,7 @@ _ZN4Json13valueToStringB5cxx11Ey.exit:            ; preds = %_ZN4JsonL12uintToSt
 61:                                               ; preds = %58, %55
   %.sink.i.i = phi i32 [ %59, %58 ], [ %57, %55 ]
   %storemerge.i.i = phi ptr [ %60, %58 ], [ %51, %55 ]
-  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
+  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
   %62 = getelementptr inbounds i8, ptr %0, i64 8
   %63 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %62, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %64 unwind label %65
@@ -21264,7 +21264,7 @@ _ZNK4Json5Value4sizeEv.exit:                      ; preds = %86, %92
   %117 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.030.045) #41
   %118 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.030.045) #41
   %119 = trunc i64 %118 to i32
-  invoke fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %117, i32 noundef %119)
+  invoke fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %117, i32 noundef %119)
           to label %120 unwind label %.loopexit
 
 120:                                              ; preds = %116
@@ -21345,7 +21345,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.6", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21370,7 +21370,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   %15 = zext i32 %2 to i64
   %16 = getelementptr inbounds i8, ptr %1, i64 %15
   %cond = icmp eq i32 %2, 0
-  br i1 %cond, label %.loopexit41, label %.lr.ph.i
+  br i1 %cond, label %.loopexit40, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %23
   %.0144.i = phi ptr [ %24, %23 ], [ %1, %14 ]
@@ -21398,7 +21398,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
 26:                                               ; preds = %.lr.ph.i36
   %27 = getelementptr inbounds i8, ptr %.079.i, i64 1
   %.not.not.i = icmp eq ptr %16, %27
-  br i1 %.not.not.i, label %.loopexit41, label %.lr.ph.i36, !llvm.loop !249
+  br i1 %.not.not.i, label %.loopexit40, label %.lr.ph.i36, !llvm.loop !249
 
 .lr.ph.i36:                                       ; preds = %23, %26
   %.079.i = phi ptr [ %27, %26 ], [ %1, %23 ]
@@ -21406,12 +21406,12 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   %or.cond.i = icmp ult i8 %28, 32
   br i1 %or.cond.i, label %_ZN4JsonL8strnpbrkEPKcS1_m.exit, label %26
 
-.loopexit41:                                      ; preds = %26, %14
+.loopexit40:                                      ; preds = %26, %14
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #41
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.85, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %29 unwind label %34
 
-29:                                               ; preds = %.loopexit41
+29:                                               ; preds = %.loopexit40
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %1)
           to label %31 unwind label %36
 
@@ -21426,7 +21426,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dea
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #41
   br label %.sink.split
 
-34:                                               ; preds = %.loopexit41
+34:                                               ; preds = %.loopexit40
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -21465,8 +21465,8 @@ _ZN4JsonL8strnpbrkEPKcS1_m.exit:                  ; preds = %20, %.lr.ph.i36
           to label %.lr.ph unwind label %.loopexit.split-lp
 
 .lr.ph:                                           ; preds = %45, %83
-  %.02744 = phi ptr [ %84, %83 ], [ %1, %45 ]
-  %47 = load i8, ptr %.02744, align 1
+  %.02743 = phi ptr [ %84, %83 ], [ %1, %45 ]
+  %47 = load i8, ptr %.02743, align 1
   switch i8 %47, label %56 [
     i8 34, label %.invoke
     i8 92, label %50
@@ -21539,7 +21539,7 @@ _ZN4JsonL8strnpbrkEPKcS1_m.exit:                  ; preds = %20, %.lr.ph.i36
           to label %68 unwind label %76
 
 68:                                               ; preds = %66
-  %69 = load i8, ptr %.02744, align 1
+  %69 = load i8, ptr %.02743, align 1
   %70 = sext i8 %69 to i32
   %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %67, i32 noundef %70)
           to label %72 unwind label %76
@@ -21578,7 +21578,7 @@ _ZN4JsonL8strnpbrkEPKcS1_m.exit:                  ; preds = %20, %.lr.ph.i36
           to label %83 unwind label %.loopexit
 
 83:                                               ; preds = %.invoke, %81, %75
-  %84 = getelementptr inbounds i8, ptr %.02744, i64 1
+  %84 = getelementptr inbounds i8, ptr %.02743, i64 1
   %.not = icmp eq ptr %84, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !250
 
@@ -22096,7 +22096,7 @@ _ZN4Json12StyledWriter9pushValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 130:                                              ; preds = %127, %124
   %.sink.i.i = phi i32 [ %128, %127 ], [ %126, %124 ]
   %storemerge.i.i = phi ptr [ %129, %127 ], [ %120, %124 ]
-  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
+  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
   %131 = getelementptr inbounds i8, ptr %0, i64 104
   %132 = load i8, ptr %131, align 8
   %133 = trunc i8 %132 to i1
@@ -23946,7 +23946,7 @@ _ZN4Json18StyledStreamWriter9pushValueERKNSt7__cxx1112basic_stringIcSt11char_tra
 130:                                              ; preds = %127, %124
   %.sink.i.i = phi i32 [ %128, %127 ], [ %126, %124 ]
   %storemerge.i.i = phi ptr [ %129, %127 ], [ %120, %124 ]
-  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
+  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
   %131 = getelementptr inbounds i8, ptr %0, i64 104
   %132 = load i8, ptr %131, align 8
   %133 = trunc i8 %132 to i1
@@ -25791,7 +25791,7 @@ _ZN4Json23BuiltStyledStreamWriter9pushValueERKNSt7__cxx1112basic_stringIcSt11cha
 132:                                              ; preds = %129, %126
   %.sink.i.i = phi i32 [ %130, %129 ], [ %128, %126 ]
   %storemerge.i.i = phi ptr [ %131, %129 ], [ %122, %126 ]
-  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
+  call fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull %storemerge.i.i, i32 noundef %.sink.i.i)
   %133 = getelementptr inbounds i8, ptr %0, i64 216
   %134 = load i8, ptr %133, align 8
   %135 = trunc i8 %134 to i1
@@ -26095,7 +26095,7 @@ _ZN4Json23BuiltStyledStreamWriter6indentEv.exit:  ; preds = %247
   %263 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.090.0) #41
   %264 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.090.0) #41
   %265 = trunc i64 %264 to i32
-  invoke fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %263, i32 noundef %265)
+  invoke fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcj(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %263, i32 noundef %265)
           to label %266 unwind label %.loopexit
 
 266:                                              ; preds = %262

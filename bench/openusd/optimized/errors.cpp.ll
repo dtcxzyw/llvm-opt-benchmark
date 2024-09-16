@@ -7245,7 +7245,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
   br label %35
 
 16:                                               ; preds = %2
-  call fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  call fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %17 = getelementptr inbounds i8, ptr %7, i64 32
   %18 = load ptr, ptr %8, align 8
   %.not10 = icmp eq ptr %17, %18
@@ -7257,7 +7257,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
           to label %21 unwind label %.loopexit
 
 21:                                               ; preds = %.lr.ph
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %22 unwind label %.loopexit
 
 22:                                               ; preds = %21
@@ -7313,7 +7313,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRe
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocations8ToStringB5cxx11EvENK3$_0clB5cxx11ERKNS0_16RelocationSourceE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %1)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -7351,7 +7351,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(ptr noundef nonnull align 4 dereferenceable(8) %18)
-  tail call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.97, ptr noundef %4, ptr noundef %17, ptr noundef %19)
+  tail call void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.97, ptr noundef %4, ptr noundef %17, ptr noundef %19)
   ret void
 }
 

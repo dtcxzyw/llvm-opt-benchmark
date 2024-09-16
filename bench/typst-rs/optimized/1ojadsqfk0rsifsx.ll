@@ -168,7 +168,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE.35 = private unnamed_addr constant [3 x ptr] [ptr @anon.e1937a5437cdf78787e171774858dd58.87, ptr @anon.e1937a5437cdf78787e171774858dd58.84, ptr @anon.e1937a5437cdf78787e171774858dd58.88], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef writeonly align 2 dereferenceable(10) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i8 noundef %6, ptr noalias noundef align 8 dereferenceable(96) %7) unnamed_addr #0 {
+define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef nonnull writeonly align 2 dereferenceable(10) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, i8 noundef %6, ptr noalias noundef nonnull align 8 dereferenceable(96) %7) unnamed_addr #0 {
   %9 = alloca { i32, [2 x i32] }, align 4
   %10 = alloca { { ptr, i64 }, i64 }, align 8
   %11 = alloca { i16, [4 x i16] }, align 2
@@ -611,7 +611,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %194
   store i32 0, ptr %44, align 4
   store i32 0, ptr %45, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %11)
-  call fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef nonnull align 2 dereferenceable(10) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %224, i64 noundef %225, i8 noundef %46, ptr noalias noundef nonnull align 8 dereferenceable(96) %12)
+  call fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef align 2 dereferenceable(10) %11, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %224, i64 noundef %225, i8 noundef %46, ptr noalias noundef align 8 dereferenceable(96) %12)
   %255 = load i16, ptr %11, align 2, !range !154, !noundef !37
   %256 = icmp eq i16 %255, 2
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %11)
@@ -2250,8 +2250,8 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   %28 = call noundef double @_ZN5typst4util6scalar6Scalar3new17hda8574767bc8e8e7E(double noundef %27), !noalias !398
   %29 = call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %2, double noundef %28)
   call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %9)
-  call fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(616) %9)
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef nonnull align 8 dereferenceable(616) %9, double noundef %23, double noundef %29)
+  call fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef align 8 dereferenceable(616) %9)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef align 8 dereferenceable(616) %9, double noundef %23, double noundef %29)
           to label %30 unwind label %.loopexit.split-lp
 
 30:                                               ; preds = %21
@@ -2273,7 +2273,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
 37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %4, ptr noundef nonnull align 8 dereferenceable(616) %9, i64 616, i1 false)
-  call fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(616) %4)
+  call fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(616) %4)
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 616, ptr nonnull %9)
@@ -2302,7 +2302,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   store double %46, ptr %33, align 8, !alias.scope !404, !noalias !399
   store double %45, ptr %34, align 8, !alias.scope !404, !noalias !399
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %9, ptr noalias nocapture noundef align 8 dereferenceable(64) %6, ptr noalias nocapture noundef align 8 dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0.0)
           to label %47 unwind label %.loopexit
 
 47:                                               ; preds = %44
@@ -2352,7 +2352,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(616) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(616) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca {}, align 1
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -2845,7 +2845,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef align 8 dereferenceable(616) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { ptr, i64 }, align 8
@@ -3032,7 +3032,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { {}, {}, {} }, align 1
   %6 = alloca { double, double, double, double, double, double }, align 8
   %7 = alloca { double, double, double, double, double, double }, align 8
@@ -3639,7 +3639,7 @@ _ZN9typst_svg11SVGRenderer12render_group17hab2748341e3aa815E.exit: ; preds = %33
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %122), !noalias !564
   %375 = getelementptr inbounds i8, ptr %.sroa.0.094, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(48) %375, i64 48, i1 false), !noalias !582
-  call fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %123, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %122, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %329), !noalias !582
+  call fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias nocapture noundef align 8 dereferenceable(64) %123, ptr noalias nocapture noundef align 8 dereferenceable(48) %122, ptr noalias noundef readonly align 8 dereferenceable(48) %329), !noalias !582
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %122), !noalias !564
   call void @_ZN9xmlwriter9XmlWriter11end_element17h96445ab1255545adE(ptr noalias noundef nonnull align 8 dereferenceable(56) %0), !noalias !582
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %123)
@@ -4474,7 +4474,7 @@ _ZN5typst4util7hash12817h55317b6f3ebfc646E.exit.i: ; preds = %.noexc32.i
   %616 = getelementptr inbounds i8, ptr %615, i64 %.sroa.014.0.i.i.i.i.i
   %617 = sub nuw nsw i64 %.sroa.416.0.i.i.i.i.i, %.sroa.014.0.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %11), !noalias !848
-  call fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef nonnull align 2 dereferenceable(10) %11, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %532, ptr noalias noundef nonnull readonly align 1 %615, i64 noundef %598, ptr noalias noundef nonnull readonly align 1 %616, i64 noundef %617, i8 noundef 0, ptr noalias noundef nonnull align 8 dereferenceable(96) %12), !noalias !801
+  call fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694afdd9c7246E(ptr noalias nocapture noundef align 2 dereferenceable(10) %11, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %532, ptr noalias noundef nonnull readonly align 1 %615, i64 noundef %598, ptr noalias noundef nonnull readonly align 1 %616, i64 noundef %617, i8 noundef 0, ptr noalias noundef align 8 dereferenceable(96) %12), !noalias !801
   %618 = load i16, ptr %11, align 2, !range !154, !noalias !848, !noundef !37
   %619 = icmp eq i16 %618, 2
   %.sroa.420.0.copyload.i.i.i = load i64, ptr %.sroa.420.0..sroa_idx.i.i.i, align 2, !noalias !848
@@ -4615,8 +4615,8 @@ _ZN10ttf_parser4Face13outline_glyph17h92106d384096df99E.exit.i: ; preds = %"_ZN1
   %654 = call noundef double @_ZN5typst6layout3abs3Abs2pt17h97e2d3c955f11781E(double noundef %649), !noalias !801
   %655 = call noundef double @_ZN5typst6layout3abs3Abs2pt17h97e2d3c955f11781E(double noundef %653), !noalias !801
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !778
-  call fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %389)
-  call fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %389, double noundef %654, double noundef %655, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24), !noalias !801
+  call fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef align 8 dereferenceable(48) %24, ptr noalias nocapture noundef align 8 dereferenceable(64) %89, ptr noalias noundef readonly align 8 dereferenceable(24) %389)
+  call fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %389, double noundef %654, double noundef %655, ptr noalias nocapture noundef align 8 dereferenceable(48) %24), !noalias !801
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24), !noalias !778
   %656 = load i64, ptr %390, align 8, !range !906, !alias.scope !775, !noalias !785, !noundef !37
   %.not.i26 = icmp eq i64 %656, -9223372036854775807
@@ -4630,8 +4630,8 @@ _ZN10ttf_parser4Face13outline_glyph17h92106d384096df99E.exit.i: ; preds = %"_ZN1
   %659 = call noundef double @_ZN5typst6layout3abs3Abs2pt17h97e2d3c955f11781E(double noundef %649), !noalias !801
   %660 = call noundef double @_ZN5typst6layout3abs3Abs2pt17h97e2d3c955f11781E(double noundef %653), !noalias !801
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %23), !noalias !778
-  call fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %391)
-  call fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %390, double noundef %659, double noundef %660, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23), !noalias !801
+  call fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef align 8 dereferenceable(48) %23, ptr noalias nocapture noundef align 8 dereferenceable(64) %89, ptr noalias noundef readonly align 8 dereferenceable(24) %391)
+  call fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %390, double noundef %659, double noundef %660, ptr noalias nocapture noundef align 8 dereferenceable(48) %23), !noalias !801
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23), !noalias !778
   br label %661
 
@@ -4754,8 +4754,8 @@ _ZN9typst_svg11SVGRenderer15shape_fill_size17h1d45dbebc5c68f1aE.exit21: ; preds 
   %.sroa.5.1.i17 = phi double [ %.sroa.5.2.i19, %696 ], [ %.sroa.5.0.i16, %694 ]
   %.sroa.0.1.i18 = phi double [ %.sroa.0.2.i20, %696 ], [ %.sroa.0.0.i15, %694 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %117), !noalias !948
-  call fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %117, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %679, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %678)
-  call fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %679, double noundef %.sroa.0.1.i18, double noundef %.sroa.5.1.i17, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %117), !noalias !944
+  call fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef align 8 dereferenceable(48) %117, ptr noalias nocapture noundef align 8 dereferenceable(64) %134, ptr noalias noundef readonly align 8 dereferenceable(24) %679, ptr noalias noundef readonly align 8 dereferenceable(128) %678)
+  call fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %679, double noundef %.sroa.0.1.i18, double noundef %.sroa.5.1.i17, ptr noalias nocapture noundef align 8 dereferenceable(48) %117), !noalias !944
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %117), !noalias !948
   br label %700
 
@@ -4825,8 +4825,8 @@ _ZN9typst_svg11SVGRenderer15shape_fill_size17h1d45dbebc5c68f1aE.exit: ; preds = 
   %.sroa.5.1.i = phi double [ %.sroa.5.2.i, %720 ], [ %.sroa.5.0.i, %717 ]
   %.sroa.0.1.i = phi double [ %.sroa.0.2.i, %720 ], [ %.sroa.0.0.i, %717 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %116), !noalias !948
-  call fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %116, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %134, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %704, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %678)
-  call fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %701, double noundef %.sroa.0.1.i, double noundef %.sroa.5.1.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %116), !noalias !944
+  call fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef align 8 dereferenceable(48) %116, ptr noalias nocapture noundef align 8 dereferenceable(64) %134, ptr noalias noundef readonly align 8 dereferenceable(24) %704, ptr noalias noundef readonly align 8 dereferenceable(128) %678)
+  call fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %701, double noundef %.sroa.0.1.i, double noundef %.sroa.5.1.i, ptr noalias nocapture noundef align 8 dereferenceable(48) %116), !noalias !944
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %116), !noalias !948
   br label %723
 
@@ -5032,7 +5032,7 @@ _ZN9typst_svg11SVGRenderer12render_image17h162dd916712723eaE.exit: ; preds = %75
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer20text_paint_transform17h4c95e52cfe856ad2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 {
   %4 = alloca { double, double, double, double, double, double }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %6 = alloca { double, double, double, double, double, double }, align 8
@@ -5130,7 +5130,7 @@ default.unreachable1:                             ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 8 dereferenceable(128) %3) unnamed_addr #4 {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17h9a03aa31c600afcfE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %3) unnamed_addr #4 {
   %5 = alloca { double, double, double, double, double, double }, align 8
   %6 = alloca { i64, [6 x i64] }, align 8
   %7 = alloca { double, double, double, double, double, double }, align 8
@@ -5251,7 +5251,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer21shape_paint_transform17
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer10write_fill17h3fdbbb899afa9438E(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -5298,7 +5298,7 @@ default.unreachable6:                             ; preds = %5
 24:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %25 = getelementptr inbounds i8, ptr %1, i64 8
-  call fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef nonnull align 16 dereferenceable(32) %14, ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %25, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef align 16 dereferenceable(32) %14, ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %25, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %14, ptr %12, align 8
@@ -5322,7 +5322,7 @@ default.unreachable6:                             ; preds = %5
 31:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   %32 = getelementptr inbounds i8, ptr %1, i64 8
-  call fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef nonnull align 16 dereferenceable(32) %11, ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %32, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef align 16 dereferenceable(32) %11, ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %32, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %11, ptr %9, align 8
@@ -5386,7 +5386,7 @@ default.unreachable6:                             ; preds = %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef writeonly align 16 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(616) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca { i128, [4 x i64] }, align 16
   %8 = alloca { ptr, ptr, ptr, { ptr, ptr, ptr } }, align 8
   %9 = alloca { i128, [4 x i64] }, align 16
@@ -5573,7 +5573,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef writeonly align 16 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(616) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef nonnull writeonly align 16 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, double noundef %3, double noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5) unnamed_addr #4 personality ptr @rust_eh_personality {
   %7 = alloca { i128, [4 x i64] }, align 16
   %8 = alloca { ptr, ptr, ptr, { ptr, ptr, ptr, ptr, ptr, ptr } }, align 8
   %9 = alloca { i128, [4 x i64] }, align 16
@@ -5657,7 +5657,7 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb339049
   br i1 %exitcond.not.i2, label %_ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3, label %44
 
 _ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3: ; preds = %44
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %40)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %1, ptr noalias nocapture noundef align 8 dereferenceable(64) %23, ptr noalias nocapture noundef align 8 dereferenceable(48) %22, ptr noalias noundef readonly align 8 dereferenceable(48) %40)
           to label %.preheader unwind label %58, !noalias !1138
 
 .preheader:                                       ; preds = %_ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3, %.preheader
@@ -5876,7 +5876,7 @@ _ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit: ; preds = %.preheade
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE(ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %1, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca [1 x { ptr, ptr }], align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -5949,7 +5949,7 @@ default.unreachable24:                            ; preds = %5
 50:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
   %51 = getelementptr inbounds i8, ptr %1, i64 40
-  call fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef nonnull align 16 dereferenceable(32) %39, ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %51, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @_ZN9typst_svg11SVGRenderer13push_gradient17h32f2859240db2d6fE(ptr noalias nocapture noundef align 16 dereferenceable(32) %39, ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %51, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   store ptr %39, ptr %37, align 8
@@ -5973,7 +5973,7 @@ default.unreachable24:                            ; preds = %5
 57:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36)
   %58 = getelementptr inbounds i8, ptr %1, i64 40
-  call fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef nonnull align 16 dereferenceable(32) %36, ptr noalias noundef nonnull align 8 dereferenceable(616) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %58, double noundef %2, double noundef %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  call fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb3390491ee6ca8cE(ptr noalias nocapture noundef align 16 dereferenceable(32) %36, ptr noalias noundef align 8 dereferenceable(616) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %58, double noundef %2, double noundef %3, ptr noalias nocapture noundef align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
   store ptr %36, ptr %34, align 8
@@ -6264,7 +6264,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(616) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(616) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca [1 x { ptr, ptr }], align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8230,9 +8230,9 @@ default.unreachable164.i:                         ; preds = %.noexc56
 
 818:                                              ; preds = %.noexc99
   %819 = udiv i32 256, %816
-  %.0.sroa.speculated.i.i = call noundef range(i32 2, 0) i32 @llvm.umax.i32(i32 %819, i32 2)
+  %.0.sroa.speculated.i.i = call noundef range(i32 2, 257) i32 @llvm.umax.i32(i32 %819, i32 2)
   %820 = add nsw i32 %.0.sroa.speculated.i.i, -1
-  %821 = icmp ugt i32 %820, 1
+  %821 = icmp ult i32 %816, 86
   br i1 %821, label %.lr.ph.i45, label %._crit_edge.i44
 
 .lr.ph.i45:                                       ; preds = %818
@@ -10102,7 +10102,7 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
           to label %1295 unwind label %1265
 
 1295:                                             ; preds = %1293
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %36, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1294)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %1, ptr noalias nocapture noundef align 8 dereferenceable(64) %36, ptr noalias nocapture noundef align 8 dereferenceable(48) %34, ptr noalias noundef readonly align 8 dereferenceable(48) %1294)
           to label %1296 unwind label %1265
 
 1296:                                             ; preds = %1295
@@ -11452,7 +11452,7 @@ define void @_ZN9typst_svg3svg17h37b5e9a3953b4042E(ptr noalias nocapture noundef
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @_ZN12typst_timing11TimingScope3new17h1be44dc8a74a73c5E(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull readonly align 1 @anon.e1937a5437cdf78787e171774858dd58.29, i64 noundef 3, i64 noundef 0)
   call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %7)
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(616) %7)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer3new17hb7de5868f4c94f16E(ptr noalias nocapture noundef align 8 dereferenceable(616) %7)
           to label %15 unwind label %13
 
 9:                                                ; preds = %17, %35, %13
@@ -11482,7 +11482,7 @@ define void @_ZN9typst_svg3svg17h37b5e9a3953b4042E(ptr noalias nocapture noundef
 18:                                               ; preds = %15
   %19 = extractvalue { double, double } %16, 0
   %20 = extractvalue { double, double } %16, 1
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef nonnull align 8 dereferenceable(616) %7, double noundef %19, double noundef %20)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12write_header17h43c7e6c508d54cc2E(ptr noalias noundef align 8 dereferenceable(616) %7, double noundef %19, double noundef %20)
           to label %21 unwind label %35
 
 21:                                               ; preds = %18
@@ -11509,14 +11509,14 @@ define void @_ZN9typst_svg3svg17h37b5e9a3953b4042E(ptr noalias nocapture noundef
           to label %29 unwind label %35
 
 29:                                               ; preds = %24
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef nonnull align 8 dereferenceable(616) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer12render_frame17h25620b8e6ff0124bE(ptr noalias noundef align 8 dereferenceable(616) %7, ptr noalias nocapture noundef align 8 dereferenceable(64) %6, ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(48) %1)
           to label %30 unwind label %35
 
 30:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 616, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %3, ptr noundef nonnull align 8 dereferenceable(616) %7, i64 616, i1 false)
-  invoke fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(616) %3)
+  invoke fastcc void @_ZN9typst_svg11SVGRenderer8finalize17hef11d202670dcc6bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(616) %3)
           to label %31 unwind label %17
 
 31:                                               ; preds = %30

@@ -1182,7 +1182,7 @@ define linkonce_odr hidden void @_ZN2cv13RHO_HEST_REFC6refineEv(ptr noundef nonn
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 344
   %17 = load ptr, ptr %16, align 8
-  call fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef nonnull %2)
+  call fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr noundef %5, ptr noundef %7, ptr noundef %9, ptr noundef %11, i32 noundef %13, ptr noundef %15, ptr noundef %17, ptr noundef %2)
   %18 = getelementptr inbounds i8, ptr %0, i64 336
   %19 = getelementptr inbounds i8, ptr %3, i64 4
   %20 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1858,7 +1858,7 @@ _ZN2cvL9sacLMGainEPKfS1_fff.exit:                 ; preds = %501
   %528 = load i32, ptr %12, align 8
   %529 = load ptr, ptr %14, align 8
   %530 = load ptr, ptr %16, align 8
-  call fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr noundef %524, ptr noundef %525, ptr noundef %526, ptr noundef %527, i32 noundef %528, ptr noundef %529, ptr noundef %530, ptr noundef nonnull %2)
+  call fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr noundef %524, ptr noundef %525, ptr noundef %526, ptr noundef %527, i32 noundef %528, ptr noundef %529, ptr noundef %530, ptr noundef %2)
   br label %531
 
 531:                                              ; preds = %521, %523
@@ -3310,7 +3310,7 @@ declare double @llvm.fabs.f64(double) #13
 declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #14 {
+define internal fastcc void @_ZN2cvL21sacCalcJacobianErrorsEPKfS1_S1_PKcjPA8_fPfS6_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #14 {
   %9 = icmp ne ptr %5, null
   br i1 %9, label %10, label %11
 

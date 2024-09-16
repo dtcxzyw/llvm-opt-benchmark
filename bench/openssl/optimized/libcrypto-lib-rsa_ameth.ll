@@ -1206,7 +1206,7 @@ declare i32 @RSA_flags(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %off, i32 noundef %priv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkey_rsa_print(ptr noundef %bp, ptr nocapture noundef readonly %pkey, i32 noundef %off, i32 noundef range(i32 0, 2) %priv) unnamed_addr #0 {
 entry:
   %pkey1 = getelementptr inbounds i8, ptr %pkey, i64 32
   %0 = load ptr, ptr %pkey1, align 8
@@ -1416,7 +1416,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @ASN1_bn_print(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef %pss_key, ptr noundef readonly %pss, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_pss_param_print(ptr noundef %bp, i32 noundef range(i32 0, 2) %pss_key, ptr noundef readonly %pss, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_indent(ptr noundef %bp, i32 noundef %indent, i32 noundef 128) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -1787,7 +1787,7 @@ declare void @OSSL_PARAM_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_int_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef %rsa_type) unnamed_addr #0 {
+define internal fastcc i32 @rsa_int_import_from(ptr noundef %params, ptr noundef %vpctx, i32 noundef range(i32 0, 4097) %rsa_type) unnamed_addr #0 {
 entry:
   %rsa_pss_params = alloca %struct.rsa_pss_params_30_st, align 4
   %pss_defaults_set = alloca i32, align 4

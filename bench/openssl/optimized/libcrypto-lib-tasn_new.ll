@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef %embed, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_item_embed_new(ptr noundef %pval, ptr noundef %it, i32 noundef range(i32 0, 4097) %embed, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %funcs = getelementptr inbounds i8, ptr %it, i64 32
   %0 = load ptr, ptr %funcs, align 8
@@ -437,7 +437,7 @@ return:                                           ; preds = %if.else.i, %sw.bb10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_primitive_new(ptr noundef %pval, ptr noundef %it, i32 noundef %embed) unnamed_addr #0 {
+define internal fastcc i32 @asn1_primitive_new(ptr noundef %pval, ptr noundef %it, i32 noundef range(i32 0, 4097) %embed) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %it, null
   br i1 %tobool.not, label %return, label %if.end

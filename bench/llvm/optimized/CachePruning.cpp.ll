@@ -239,7 +239,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZNK4llvm9StringRef
   br i1 %51, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit172
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
-  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.sroa.4219.1, i64 %.sroa.7.1)
+  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.sroa.4219.1, i64 %.sroa.7.1)
   %52 = load i8, ptr %29, align 8
   %53 = trunc i8 %52 to i1
   %54 = load i64, ptr %10, align 8
@@ -258,7 +258,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit33:              ; preds = %_ZNK4llvm9StringRef
   br i1 %57, label %_ZN4llvmeqENS_9StringRefES0_.exit33.thread, label %_ZN4llvm5ErrorD2Ev.exit172
 
 _ZN4llvmeqENS_9StringRefES0_.exit33.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit33
-  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.sroa.4219.1, i64 %.sroa.7.1)
+  call fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %.sroa.4219.1, i64 %.sroa.7.1)
   %58 = load i8, ptr %27, align 8
   %59 = trunc i8 %58 to i1
   %60 = load i64, ptr %11, align 8
@@ -585,7 +585,7 @@ _ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread: ; 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8

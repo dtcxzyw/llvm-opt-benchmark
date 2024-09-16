@@ -1568,7 +1568,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 declare dso_local i32 @pci_read_config_dword(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @store_cache_disable(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef i64 @store_cache_disable(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8

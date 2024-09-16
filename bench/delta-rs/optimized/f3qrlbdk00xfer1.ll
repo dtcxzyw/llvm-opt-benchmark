@@ -756,7 +756,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h70cb359ebd8d3464E(
   br i1 %200, label %.body.thread.i.i, label %201
 
 201:                                              ; preds = %197
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %36)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %36)
           to label %.body.thread.i.i unwind label %205, !noalias !128
 
 202:                                              ; preds = %194
@@ -771,7 +771,7 @@ define hidden void @_ZN12object_store5parse14parse_url_opts17h70cb359ebd8d3464E(
   br label %215
 
 204:                                              ; preds = %202, %.thread10.i.i.i
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %36)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %36)
           to label %"_ZN4core3ptr116drop_in_place$LT$core..result..Result$LT$object_store..aws..builder..AmazonS3ConfigKey$C$object_store..Error$GT$$GT$17h258792574a9ff669E.exit10.i.i.i" unwind label %188, !noalias !128
 
 205:                                              ; preds = %214, %213, %201
@@ -1197,7 +1197,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h98ff93958d9f58ebE.exit.i: ; preds 
   br i1 %320, label %.body.thread.i.i233, label %321
 
 321:                                              ; preds = %317
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %22)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %22)
           to label %.body.thread.i.i233 unwind label %325, !noalias !217
 
 322:                                              ; preds = %315
@@ -1212,7 +1212,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h98ff93958d9f58ebE.exit.i: ; preds 
   br label %335
 
 324:                                              ; preds = %322, %.thread10.i.i.i249
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %22)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %22)
           to label %"_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$object_store..gcp..builder..GoogleConfigKey$C$object_store..Error$GT$$GT$17he7243cd9e80f4e17E.exit10.i.i.i" unwind label %309, !noalias !217
 
 325:                                              ; preds = %334, %333, %321
@@ -1609,7 +1609,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4d4cb2437c8d6904E.exit.i: ; preds 
   br i1 %429, label %.body.thread.i.i281, label %430
 
 430:                                              ; preds = %426
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %9)
           to label %.body.thread.i.i281 unwind label %434, !noalias !293
 
 431:                                              ; preds = %424
@@ -1624,7 +1624,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4d4cb2437c8d6904E.exit.i: ; preds 
   br label %444
 
 433:                                              ; preds = %431, %.thread10.i.i.i297
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %9)
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %9)
           to label %"_ZN4core3ptr115drop_in_place$LT$core..result..Result$LT$object_store..azure..builder..AzureConfigKey$C$object_store..Error$GT$$GT$17h32f1021315fc9c0cE.exit10.i.i.i" unwind label %418, !noalias !293
 
 434:                                              ; preds = %443, %442, %430
@@ -1892,7 +1892,7 @@ define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
@@ -1914,7 +1914,7 @@ define internal fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17
 .lr.ph:                                           ; preds = %3, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he27117bb5cbad3afE.exit"
   %15 = phi i64 [ %67, %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$GT$17he27117bb5cbad3afE.exit" ], [ %11, %3 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !357)
-  %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %15, i64 32)
+  %.0.sroa.speculated.i.i = call noundef range(i64 1, 0) i64 @llvm.umin.i64(i64 %15, i64 32)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !359
   call void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 4 dereferenceable(4) %8, ptr noalias noundef nonnull align 1 %7, i64 noundef %.0.sroa.speculated.i.i), !noalias !360
   %16 = load i64, ptr %6, align 8, !range !361, !noalias !359, !noundef !5
@@ -2111,7 +2111,7 @@ define hidden void @_ZN3std2io19default_read_to_end17heae8e6f6be413cabE(ptr noal
 
 41:                                               ; preds = %.thread84
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef align 8 dereferenceable(16) %10, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %42 = load i64, ptr %10, align 8, !range !361, !noundef !5
   %trunc = trunc nuw i64 %42 to i1
   %43 = getelementptr inbounds i8, ptr %10, i64 8
@@ -2160,7 +2160,7 @@ define hidden void @_ZN3std2io19default_read_to_end17heae8e6f6be413cabE(ptr noal
 
 61:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZN3std2io19default_read_to_end16small_probe_read17hec9b3a58264f5b94E(ptr noalias nocapture noundef align 8 dereferenceable(16) %9, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2)
   %62 = load i64, ptr %9, align 8, !range !361, !noundef !5
   %trunc58 = trunc nuw i64 %62 to i1
   %63 = load ptr, ptr %31, align 8
@@ -3070,7 +3070,7 @@ define internal void @"_ZN4core3ptr100drop_in_place$LT$$RF$alloc..sync..Arc$LT$o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$GT$17h43924e0fda56d6d2E"(ptr noalias noundef align 8 dereferenceable(256) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$GT$17h43924e0fda56d6d2E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !500, !noundef !5
   %3 = icmp eq i64 %2, 3
   br i1 %3, label %4, label %5
@@ -3154,7 +3154,7 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$hyper..error..Error$GT$$GT$17he9bb29b394e43ed1E"(ptr noalias noundef align 8 dereferenceable(160) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr126drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$hyper..error..Error$GT$$GT$17he9bb29b394e43ed1E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !500, !noundef !5
   %.not = icmp eq i64 %2, 3
   br i1 %.not, label %4, label %3
@@ -3178,7 +3178,7 @@ define internal void @"_ZN4core3ptr147drop_in_place$LT$$RF$alloc..sync..Arc$LT$l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef align 8 dereferenceable(264) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !range !503, !noundef !5
   %4 = icmp eq i64 %3, 4
@@ -3196,7 +3196,7 @@ define internal fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Resu
 8:                                                ; preds = %7
   %9 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$GT$17h43924e0fda56d6d2E"(ptr noalias noundef nonnull align 8 dereferenceable(256) %2) #23
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$GT$17h43924e0fda56d6d2E"(ptr noalias noundef align 8 dereferenceable(256) %2) #23
           to label %common.resume.i unwind label %19
 
 "_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h28d44380adb76875E.exit.i": ; preds = %7
@@ -3276,7 +3276,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h733
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$object_store..Error$GT$17h8b87487094bcc4adE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -4439,7 +4439,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17h787
   br i1 %24, label %"_ZN4core3ptr271drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$$GT$17h981252e991fcdf1cE.exit", label %25
 
 25:                                               ; preds = %21
-  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
+  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef align 8 dereferenceable(264) %8)
           to label %"_ZN4core3ptr271drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$$GT$17h981252e991fcdf1cE.exit" unwind label %.thread25
 
 "_ZN4core3ptr271drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$$GT$17h981252e991fcdf1cE.exit": ; preds = %21, %25
@@ -4571,7 +4571,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17h787
 51:                                               ; preds = %.invoke
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %1) #23
+  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef align 8 dereferenceable(264) %1) #23
           to label %.thread unwind label %49
 
 52:                                               ; preds = %.thread
@@ -4681,7 +4681,7 @@ define hidden void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h28d7c2a15089
   br i1 %12, label %23, label %13
 
 13:                                               ; preds = %8
-  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %9)
+  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef align 8 dereferenceable(264) %9)
           to label %._crit_edge unwind label %14, !noalias !762
 
 ._crit_edge:                                      ; preds = %13
@@ -4914,7 +4914,7 @@ common.resume:                                    ; preds = %.thread, %84, %65
 92:                                               ; preds = %7
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %2) #23
+  invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$$LP$hyper..error..Error$C$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..ImplStream$GT$$GT$$RP$$GT$$GT$17h2059f888bd7c00e8E"(ptr noalias noundef align 8 dereferenceable(264) %2) #23
           to label %.thread unwind label %90
 }
 
@@ -5173,7 +5173,7 @@ common.resume:                                    ; preds = %.thread, %83, %64
 91:                                               ; preds = %7
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$hyper..error..Error$GT$$GT$17he9bb29b394e43ed1E"(ptr noalias noundef nonnull align 8 dereferenceable(160) %2) #23
+  invoke fastcc void @"_ZN4core3ptr126drop_in_place$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$hyper..error..Error$GT$$GT$17he9bb29b394e43ed1E"(ptr noalias noundef align 8 dereferenceable(160) %2) #23
           to label %.thread unwind label %89
 }
 

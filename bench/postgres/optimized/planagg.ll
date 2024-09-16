@@ -126,7 +126,7 @@ list_length.exit72:                               ; preds = %28
   store ptr null, ptr %2, align 8
   %61 = getelementptr i8, ptr %0, i64 600
   %.val70 = load ptr, ptr %61, align 8
-  %62 = call fastcc zeroext i1 @can_minmax_aggs(ptr %.val70, ptr noundef nonnull %2)
+  %62 = call fastcc zeroext i1 @can_minmax_aggs(ptr %.val70, ptr noundef %2)
   br i1 %62, label %63, label %list_length.exit72.thread
 
 63:                                               ; preds = %60
@@ -225,7 +225,7 @@ list_length.exit72.thread:                        ; preds = %28, %26, %list_leng
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.600.val, ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.600.val, ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %.600.val, i64 4
   %3 = getelementptr inbounds i8, ptr %.600.val, i64 16
   %.not = icmp eq ptr %.600.val, null
@@ -343,7 +343,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i1 %4 to i8
   %7 = tail call ptr @palloc(i64 noundef 688) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %7, ptr noundef nonnull align 8 dereferenceable(688) %0, i64 688, i1 false)

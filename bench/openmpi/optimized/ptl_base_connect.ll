@@ -1161,7 +1161,7 @@ pmix_obj_new_tma.exit311:                         ; preds = %.lr.ph.i.i308, %228
 .lr.ph.i314:                                      ; preds = %279, %.lr.ph.i314
   %285 = phi ptr [ %287, %.lr.ph.i314 ], [ %284, %279 ]
   %.07.i315 = phi ptr [ %286, %.lr.ph.i314 ], [ %283, %279 ]
-  call void %285(ptr noundef %258) #13
+  call void %285(ptr noundef nonnull %258) #13
   %286 = getelementptr inbounds i8, ptr %.07.i315, i64 8
   %287 = load ptr, ptr %286, align 8
   %.not.i316 = icmp eq ptr %287, null
@@ -1243,7 +1243,7 @@ pmix_list_remove_first.exit.thread:               ; preds = %293, %250, %248
 .lr.ph.i320:                                      ; preds = %320, %.lr.ph.i320
   %326 = phi ptr [ %328, %.lr.ph.i320 ], [ %325, %320 ]
   %.07.i321 = phi ptr [ %327, %.lr.ph.i320 ], [ %324, %320 ]
-  call void %326(ptr noundef %303) #13
+  call void %326(ptr noundef nonnull %303) #13
   %327 = getelementptr inbounds i8, ptr %.07.i321, i64 8
   %328 = load ptr, ptr %327, align 8
   %.not.i322 = icmp eq ptr %328, null
@@ -1319,7 +1319,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 358:                                              ; preds = %357, %352, %350
   %359 = phi ptr [ %.pre, %357 ], [ %346, %352 ], [ %346, %350 ]
   %360 = getelementptr inbounds i8, ptr %359, i64 5
-  %361 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %.0, ptr noundef nonnull %360)
+  %361 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, i1 noundef zeroext %.0, ptr noundef nonnull %360)
   %.not269 = icmp eq i32 %361, 0
   br i1 %.not269, label %557, label %.loopexit335
 
@@ -1362,7 +1362,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
   br i1 %.not258, label %381, label %379
 
 379:                                              ; preds = %378
-  %380 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %.0, ptr noundef nonnull %.0205)
+  %380 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, i1 noundef zeroext %.0, ptr noundef nonnull %.0205)
   %.not268 = icmp eq i32 %380, 0
   %brmerge = or i1 %.not268, %.0
   br i1 %brmerge, label %557, label %.loopexit335
@@ -1415,7 +1415,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 404:                                              ; preds = %402, %397, %395
   %405 = load ptr, ptr %7, align 8
-  %406 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %.0, ptr noundef %405)
+  %406 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, i1 noundef zeroext %.0, ptr noundef %405)
   %407 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %407) #13
   %408 = icmp eq i32 %406, 0
@@ -1468,7 +1468,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 436:                                              ; preds = %434, %429, %427
   %437 = load ptr, ptr %7, align 8
-  %438 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %.0, ptr noundef %437)
+  %438 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, i1 noundef zeroext %.0, ptr noundef %437)
   %439 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %439) #13
   %440 = icmp eq i32 %438, 0
@@ -1515,7 +1515,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 463:                                              ; preds = %461, %456, %454
   %464 = load ptr, ptr %7, align 8
-  %465 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, i1 noundef zeroext %.0, ptr noundef %464)
+  %465 = call fastcc i32 @tryfile(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, i1 noundef zeroext %.0, ptr noundef %464)
   %466 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %466) #13
   %467 = icmp eq i32 %465, 0
@@ -1568,7 +1568,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 491:                                              ; preds = %489, %484, %482
   %492 = load ptr, ptr %7, align 8
-  %493 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %492, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
+  %493 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, ptr noundef %492, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
   %494 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %494) #13
   %.not267 = icmp eq i32 %493, 0
@@ -1610,7 +1610,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 513:                                              ; preds = %511, %506, %504
   %514 = load ptr, ptr %7, align 8
-  %515 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %514, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
+  %515 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, ptr noundef %514, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
   %516 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %516) #13
   %.not266 = icmp eq i32 %515, 0
@@ -1669,7 +1669,7 @@ pmix_obj_run_destructors.exit328:                 ; preds = %.lr.ph.i325, %._cri
 
 546:                                              ; preds = %544, %539, %537
   %547 = load ptr, ptr %7, align 8
-  %548 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef %547, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
+  %548 = call fastcc i32 @trysearch(ptr noundef %0, ptr noundef %8, ptr noundef %10, ptr noundef %5, ptr noundef %547, ptr noundef %.1196, i64 noundef %249, i1 noundef zeroext %.0)
   %549 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %549) #13
   %550 = icmp eq i32 %548, 0
@@ -1848,7 +1848,7 @@ declare i32 @PMIx_Info_xfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tryfile(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @tryfile(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.pmix_list_t, align 8
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -1988,7 +1988,7 @@ check_connections.exit:                           ; preds = %23, %37
 .lr.ph.i74:                                       ; preds = %64, %.lr.ph.i74
   %70 = phi ptr [ %72, %.lr.ph.i74 ], [ %69, %64 ]
   %.07.i75 = phi ptr [ %71, %.lr.ph.i74 ], [ %68, %64 ]
-  call void %70(ptr noundef %47) #13
+  call void %70(ptr noundef nonnull %47) #13
   %71 = getelementptr inbounds i8, ptr %.07.i75, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not.i76 = icmp eq ptr %72, null
@@ -2138,7 +2138,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i74, %64
 .lr.ph.i85:                                       ; preds = %141, %.lr.ph.i85
   %147 = phi ptr [ %149, %.lr.ph.i85 ], [ %146, %141 ]
   %.07.i86 = phi ptr [ %148, %.lr.ph.i85 ], [ %145, %141 ]
-  call void %147(ptr noundef %124) #13
+  call void %147(ptr noundef nonnull %124) #13
   %148 = getelementptr inbounds i8, ptr %.07.i86, i64 8
   %149 = load ptr, ptr %148, align 8
   %.not.i87 = icmp eq ptr %149, null
@@ -2196,7 +2196,7 @@ declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) 
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @trysearch(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc i32 @trysearch(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca %struct.pmix_list_t, align 8
   %10 = alloca ptr, align 8
   %11 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -2337,7 +2337,7 @@ check_connections.exit:                           ; preds = %28, %40
 .lr.ph.i94:                                       ; preds = %67, %.lr.ph.i94
   %73 = phi ptr [ %75, %.lr.ph.i94 ], [ %72, %67 ]
   %.07.i95 = phi ptr [ %74, %.lr.ph.i94 ], [ %71, %67 ]
-  call void %73(ptr noundef %50) #13
+  call void %73(ptr noundef nonnull %50) #13
   %74 = getelementptr inbounds i8, ptr %.07.i95, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not.i96 = icmp eq ptr %75, null
@@ -2482,7 +2482,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i94, %67
 .lr.ph.i105:                                      ; preds = %142, %.lr.ph.i105
   %148 = phi ptr [ %150, %.lr.ph.i105 ], [ %147, %142 ]
   %.07.i106 = phi ptr [ %149, %.lr.ph.i105 ], [ %146, %142 ]
-  call void %148(ptr noundef %125) #13
+  call void %148(ptr noundef nonnull %125) #13
   %149 = getelementptr inbounds i8, ptr %.07.i106, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not.i107 = icmp eq ptr %150, null
@@ -2587,7 +2587,7 @@ pmix_obj_run_destructors.exit108:                 ; preds = %.lr.ph.i105, %142
 .lr.ph.i117:                                      ; preds = %194, %.lr.ph.i117
   %200 = phi ptr [ %202, %.lr.ph.i117 ], [ %199, %194 ]
   %.07.i118 = phi ptr [ %201, %.lr.ph.i117 ], [ %198, %194 ]
-  call void %200(ptr noundef %177) #13
+  call void %200(ptr noundef nonnull %177) #13
   %201 = getelementptr inbounds i8, ptr %.07.i118, i64 8
   %202 = load ptr, ptr %201, align 8
   %.not.i119 = icmp eq ptr %202, null

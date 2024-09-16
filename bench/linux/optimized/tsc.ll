@@ -1719,7 +1719,7 @@ thread-pre-split:                                 ; preds = %62, %56, %38
 declare dso_local void @sched_clock_idle_sleep_event() local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__set_cyc2ns_scale(i64 noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @__set_cyc2ns_scale(i64 noundef range(i64 0, 4294967296) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #6 align 16 {
   %4 = alloca %struct.cyc2ns_data, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !15

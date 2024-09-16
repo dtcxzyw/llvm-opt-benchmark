@@ -5111,7 +5111,7 @@ _ZNK5Yosys7hashlib4dictINS_10TimingInfo7NameBitESt4pairIiS3_ENS0_8hash_opsIS3_EE
   br label %.body666
 
 995:                                              ; preds = %.lr.ph.i.i170
-  invoke fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %52, ptr noundef nonnull align 8 dereferenceable(12) %734)
+  invoke fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(49) %52, ptr noundef nonnull align 8 dereferenceable(12) %734)
           to label %996 unwind label %.loopexit1179
 
 996:                                              ; preds = %995
@@ -8895,7 +8895,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i428: ; preds = %2759, %.lr.ph1
   br i1 %.not, label %2771, label %2770
 
 2770:                                             ; preds = %2767
-  invoke fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(49) %52, ptr noundef nonnull align 8 dereferenceable(12) %2768)
+  invoke fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(49) %52, ptr noundef nonnull align 8 dereferenceable(12) %2768)
           to label %2771 unwind label %.loopexit1141
 
 2771:                                             ; preds = %2767, %2770
@@ -13122,7 +13122,7 @@ _ZN5Yosys10TimingInfo7NameBitD2Ev.exit:           ; preds = %1, %7, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEN12_GLOBAL__N_19StaWorker10t_endpointENS0_8hash_opsIS3_EEE6insertERKS3_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val6 = load ptr, ptr %4, align 8

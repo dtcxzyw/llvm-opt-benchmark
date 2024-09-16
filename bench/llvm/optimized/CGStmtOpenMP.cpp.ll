@@ -15350,7 +15350,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoD1Ev(ptr nou
 declare void @_ZN5clang7CodeGen15CGOpenMPRuntime26LastprivateConditionalRAII7disableERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::CGOpenMPRuntime::LastprivateConditionalRAII") align 8, ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL30emitCommonOMPParallelDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS6_12function_refIFvS2_S5_RNS6_15SmallVectorImplIPNS6_5ValueEEEEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL30emitCommonOMPParallelDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyERKNS6_12function_refIFvS2_S5_RNS6_15SmallVectorImplIPNS6_5ValueEEEEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 36, 107) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.1225", align 8
   %7 = alloca %"class.clang::CodeGen::CodeGenFunction::RunCleanupsScope", align 8
   %8 = alloca %"class.clang::CodeGen::CodeGenFunction::RunCleanupsScope", align 8
@@ -43599,7 +43599,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21EmitOMPTeamsDirective
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL27emitCommonOMPTeamsDirectiveRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveEN4llvm3omp9DirectiveERKNS0_15RegionCodeGenTyE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef range(i32 18, 92) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector.1225", align 8
   %6 = alloca %"class.(anonymous namespace)::OMPTeamsScope", align 8
   %7 = alloca %"class.llvm::SmallVector.1820", align 8
@@ -63360,7 +63360,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %42) #19
   %44 = tail call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %43, i64 noundef 0, i1 noundef zeroext false) #19
-  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef %44)
+  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef %44)
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %46 = load ptr, ptr %45, align 8
   %.not.i = icmp eq ptr %46, null
@@ -63389,7 +63389,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   store i8 1, ptr %62, align 1
   store ptr @.str.66, ptr %9, align 8
   store i8 3, ptr %61, align 8
-  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef %60)
+  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %9, ptr noundef %60)
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 1, ptr %64, align 1
@@ -63398,7 +63398,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %65 = load ptr, ptr %41, align 8
   %66 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %65) #19
   %67 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %66, i64 noundef 1, i1 noundef zeroext false) #19
-  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef %67)
+  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef %67)
   %68 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %69, align 1
@@ -63407,13 +63407,13 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15Cod
   %70 = load ptr, ptr %41, align 8
   %71 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %70) #19
   %72 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %71, i64 noundef 0, i1 noundef zeroext false) #19
-  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef %72)
+  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef %72)
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 33
   store i8 1, ptr %74, align 1
   store ptr @.str.69, ptr %15, align 8
   store i8 3, ptr %73, align 8
-  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef null)
+  call fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %37, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef null)
   %75 = load ptr, ptr %32, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %76, align 4
@@ -63979,7 +63979,7 @@ _ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3om
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6 = alloca [23 x i8], align 1

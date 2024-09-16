@@ -4652,7 +4652,7 @@ mysql_set_conn_state.exit491.i:                   ; preds = %1328, %1325
   br i1 %.not430.i, label %mysql_set_resultset_fmt.exit.i, label %1338
 
 1338:                                             ; preds = %1334
-  %1339 = call fastcc i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1335, ptr noundef nonnull %7, ptr noundef null)
+  %1339 = call fastcc i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1335, ptr noundef %7, ptr noundef null)
   %1340 = load i32, ptr @hf_mysql_connattrs, align 4
   %1341 = load i64, ptr %7, align 8
   %1342 = trunc i64 %1341 to i32
@@ -5079,7 +5079,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   %1563 = getelementptr i16, ptr %1562, i64 %indvars.iv.i
   %1564 = load i16, ptr %1563, align 2
   %1565 = trunc i16 %1564 to i8
-  %1566 = call fastcc signext i8 @mysql_dissect_exec_param(ptr noundef %1132, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6, i8 noundef zeroext %1565, ptr noundef %1)
+  %1566 = call fastcc signext i8 @mysql_dissect_exec_param(ptr noundef %1132, ptr noundef %0, ptr noundef %5, ptr noundef %6, i8 noundef zeroext %1565, ptr noundef %1)
   %.not417.i = icmp eq i8 %1566, 0
   br i1 %.not417.i, label %._crit_edge.loopexit.i, label %1558
 
@@ -5449,7 +5449,7 @@ declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mariadb_dissect_caps_or_flags(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @mariadb_dissect_caps_or_flags(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 5, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
   switch i32 %2, label %15 [
     i32 7, label %10
     i32 5, label %8
@@ -5491,7 +5491,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 4, 6) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1160) #8
@@ -6545,7 +6545,7 @@ define internal fastcc i32 @my_tvb_strsize(ptr noundef %0, i32 noundef %1) unnam
 declare i32 @tvb_strnlen(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 10) i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 10) i32 @tvb_get_fle(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
@@ -7097,7 +7097,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, i8 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_mysql_exec_param, align 4
   %8 = load i32, ptr %2, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 2, i32 noundef 0) #8
@@ -7142,7 +7142,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr n
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  tail call void %28(ptr noundef %1, ptr noundef %3, ptr noundef %11) #8
+  tail call void %28(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %11) #8
   br label %.loopexit
 
 37:                                               ; preds = %32, %.preheader

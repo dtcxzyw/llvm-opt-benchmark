@@ -36081,7 +36081,7 @@ arrayctor.cont54:                                 ; preds = %invoke.cont44
   %arrayidx.i.i110 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i108, i64 0, i64 %idxprom.i.i109
   %17 = load ptr, ptr %arrayidx.i.i110, align 8, !noalias !809
   store ptr %17, ptr %agg.tmp, align 8, !alias.scope !809
-  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias align 8 %ref.tmp55, ptr noundef %agg.tmp)
   %arrayidx61 = getelementptr inbounds i8, ptr %ml, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
   %18 = load ptr, ptr %add.ptr.i.i.i, align 8
@@ -36193,7 +36193,7 @@ if.end71:                                         ; preds = %invoke.cont68
   %arrayidx.i.i135 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i133, i64 0, i64 %spec.select.i.i132
   %33 = load ptr, ptr %arrayidx.i.i135, align 8, !noalias !812
   store ptr %33, ptr %agg.tmp73, align 8, !alias.scope !812
-  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias nonnull align 8 %ref.tmp72, ptr noundef nonnull %agg.tmp73)
+  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias align 8 %ref.tmp72, ptr noundef %agg.tmp73)
   %arrayidx79 = getelementptr inbounds i8, ptr %mr, i64 8
   %add.ptr.i.i.i138 = getelementptr inbounds i8, ptr %ref.tmp72, i64 16
   %34 = load ptr, ptr %add.ptr.i.i.i138, align 8
@@ -36595,7 +36595,7 @@ eh.resume:                                        ; preds = %ehcleanup
 declare noundef zeroext i1 @_ZNK4cvc58internal9BitVector14signedLessThanERKS1_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %node) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %node) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -37402,7 +37402,7 @@ arrayctor.cont16:                                 ; preds = %invoke.cont7
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !876
   store ptr %9, ptr %agg.tmp, align 8, !alias.scope !876
-  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp)
   %arrayidx22 = getelementptr inbounds i8, ptr %ml, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %10 = load ptr, ptr %add.ptr.i.i.i, align 8
@@ -37479,7 +37479,7 @@ _ZNSt5tupleIJN4cvc58internal12NodeTemplateILb1EEES3_bEED2Ev.exit: ; preds = %_ZN
   %arrayidx.i.i46 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i44, i64 0, i64 %spec.select.i.i
   %21 = load ptr, ptr %arrayidx.i.i46, align 8, !noalias !879
   store ptr %21, ptr %agg.tmp26, align 8, !alias.scope !879
-  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias nonnull align 8 %ref.tmp25, ptr noundef nonnull %agg.tmp26)
+  call fastcc void @_ZN4cvc58internal6theory2bv12_GLOBAL__N_117extract_ext_tupleENS0_12NodeTemplateILb0EEE(ptr noalias align 8 %ref.tmp25, ptr noundef %agg.tmp26)
   %arrayidx32 = getelementptr inbounds i8, ptr %mr, i64 8
   %add.ptr.i.i.i49 = getelementptr inbounds i8, ptr %ref.tmp25, i64 16
   %22 = load ptr, ptr %add.ptr.i.i.i49, align 8
@@ -49151,7 +49151,7 @@ invoke.cont31:                                    ; preds = %if.then29
   %arrayidx.i.i124 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i122, i64 0, i64 %idxprom.i.i123
   %20 = load ptr, ptr %arrayidx.i.i124, align 8, !noalias !1462
   store ptr %20, ptr %agg.tmp30, align 8, !alias.scope !1462
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp30, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp30, i1 noundef zeroext true)
           to label %if.end41 unwind label %lpad32
 
 lpad32:                                           ; preds = %invoke.cont31
@@ -49161,7 +49161,7 @@ lpad32:                                           ; preds = %invoke.cont31
 
 if.else35:                                        ; preds = %invoke.cont14
   store ptr %3, ptr %agg.tmp36, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp36, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp36, i1 noundef zeroext false)
           to label %if.end41 unwind label %lpad38
 
 lpad38:                                           ; preds = %if.else35
@@ -49734,7 +49734,7 @@ declare void @_ZN4cvc58internal9BitVector6mkOnesEj(ptr sret(%"class.cvc5::intern
 declare void @_ZN4cvc58internalanERKNS0_9BitVectorES3_(ptr sret(%"class.cvc5::internal::BitVector") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %map, ptr noundef %node, i1 noundef zeroext %neg) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %map, ptr noundef nonnull %node, i1 noundef zeroext %neg) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %map, i64 24
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
@@ -53130,7 +53130,7 @@ invoke.cont31:                                    ; preds = %if.then29
   %arrayidx.i.i124 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i122, i64 0, i64 %idxprom.i.i123
   %20 = load ptr, ptr %arrayidx.i.i124, align 8, !noalias !1520
   store ptr %20, ptr %agg.tmp30, align 8, !alias.scope !1520
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp30, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp30, i1 noundef zeroext true)
           to label %if.end41 unwind label %lpad32
 
 lpad32:                                           ; preds = %invoke.cont31
@@ -53140,7 +53140,7 @@ lpad32:                                           ; preds = %invoke.cont31
 
 if.else35:                                        ; preds = %invoke.cont14
   store ptr %3, ptr %agg.tmp36, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp36, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp36, i1 noundef zeroext false)
           to label %if.end41 unwind label %lpad38
 
 lpad38:                                           ; preds = %if.else35
@@ -54628,7 +54628,7 @@ invoke.cont35:                                    ; preds = %if.then33
   %arrayidx.i.i143 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i141, i64 0, i64 %idxprom.i.i142
   %20 = load ptr, ptr %arrayidx.i.i143, align 8, !noalias !1540
   store ptr %20, ptr %agg.tmp34, align 8, !alias.scope !1540
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp34, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp34, i1 noundef zeroext true)
           to label %if.end46 unwind label %lpad36
 
 lpad36:                                           ; preds = %invoke.cont35
@@ -54638,7 +54638,7 @@ lpad36:                                           ; preds = %invoke.cont35
 
 if.else39:                                        ; preds = %invoke.cont14
   store ptr %3, ptr %agg.tmp40, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef nonnull %agg.tmp40, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL6insertERSt13unordered_mapINS0_12NodeTemplateILb0EEENS2_5CountESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S6_EEES5_b(ptr noundef nonnull align 8 dereferenceable(56) %subterms, ptr noundef %agg.tmp40, i1 noundef zeroext false)
           to label %if.end46 unwind label %lpad42
 
 lpad42:                                           ; preds = %if.else39
@@ -61791,7 +61791,7 @@ invoke.cont10:                                    ; preds = %for.body
   %arrayidx.i.i87 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i, i64 0, i64 %idxprom.i.i86
   %4 = load ptr, ptr %arrayidx.i.i87, align 8, !noalias !1726
   store ptr %4, ptr %agg.tmp11, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef nonnull %agg.tmp11, i32 noundef %call6, ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull align 8 dereferenceable(24) %constSum)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef %agg.tmp11, i32 noundef %call6, ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull align 8 dereferenceable(24) %constSum)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont10
@@ -61837,7 +61837,7 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %for.body24
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef nonnull %agg.tmp25, i32 noundef %call6, ptr noundef nonnull %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(24) %children)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef %agg.tmp25, i32 noundef %call6, ptr noundef %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(24) %children)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %invoke.cont32
@@ -62171,7 +62171,7 @@ eh.resume:                                        ; preds = %ehcleanup66
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr nocapture noundef readonly %current, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull align 8 dereferenceable(24) %constSum) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr nocapture noundef nonnull readonly %current, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull align 8 dereferenceable(24) %constSum) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %coeff = alloca %"class.cvc5::internal::BitVector", align 8
   %term = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -62906,7 +62906,7 @@ terminate.lpad.i289:                              ; preds = %if.then13.i.i288
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit290: ; preds = %invoke.cont83, %if.then.i.i282, %if.then13.i.i288
   store ptr %58, ptr %agg.tmp87, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(24) %coeff)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp87, ptr noundef nonnull align 8 dereferenceable(24) %coeff)
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit290
@@ -62915,7 +62915,7 @@ invoke.cont91:                                    ; preds = %_ZN4cvc58internal12
           to label %invoke.cont97 unwind label %lpad96
 
 invoke.cont97:                                    ; preds = %invoke.cont91
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp93, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp95)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp93, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp95)
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %invoke.cont97
@@ -63008,7 +63008,7 @@ invoke.cont116:                                   ; preds = %invoke.cont110
           to label %invoke.cont118 unwind label %lpad117
 
 invoke.cont118:                                   ; preds = %invoke.cont116
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp108, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp113)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp108, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp113)
           to label %invoke.cont120 unwind label %lpad119
 
 invoke.cont120:                                   ; preds = %invoke.cont118
@@ -63103,7 +63103,7 @@ ehcleanup123:                                     ; preds = %ehcleanup122, %lpad
 
 if.else125:                                       ; preds = %if.end72
   store ptr %57, ptr %agg.tmp126, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(24) %coeff)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp126, ptr noundef nonnull align 8 dereferenceable(24) %coeff)
           to label %if.end132 unwind label %lpad128
 
 lpad128:                                          ; preds = %if.else125
@@ -63175,7 +63175,7 @@ sw.bb135:                                         ; preds = %entry
   %100 = load ptr, ptr %arrayidx.i.i383, align 8, !noalias !1759
   store ptr %100, ptr %agg.tmp136, align 8, !alias.scope !1759
   call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp137, i32 noundef %size, i32 noundef 1)
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp136, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp137)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp136, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp137)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %sw.bb135
@@ -63211,7 +63211,7 @@ _ZN4cvc58internal9BitVectorD2Ev.exit386:          ; preds = %invoke.cont141
           to label %invoke.cont150 unwind label %lpad149
 
 invoke.cont150:                                   ; preds = %_ZN4cvc58internal9BitVectorD2Ev.exit386
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp145)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp144, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp145)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %invoke.cont150
@@ -63298,7 +63298,7 @@ sw.bb156:                                         ; preds = %entry
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %sw.bb156
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp158)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp157, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp158)
           to label %invoke.cont165 unwind label %lpad164
 
 invoke.cont165:                                   ; preds = %invoke.cont163
@@ -63435,7 +63435,7 @@ terminate.lpad.i.i.i459:                          ; preds = %ehcleanup178
 sw.default:                                       ; preds = %entry
   store ptr %0, ptr %agg.tmp179, align 8
   call void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp180, i32 noundef %size, i32 noundef 1)
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef nonnull %agg.tmp179, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp180)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %factorToCoefficient, ptr noundef %agg.tmp179, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp180)
           to label %invoke.cont184 unwind label %lpad183
 
 invoke.cont184:                                   ; preds = %sw.default
@@ -63473,7 +63473,7 @@ eh.resume:                                        ; preds = %lpad183, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr nocapture noundef readonly %term, i32 noundef %size, ptr noundef %coeff, ptr noundef nonnull align 8 dereferenceable(24) %children) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr nocapture noundef nonnull readonly %term, i32 noundef %size, ptr noundef nonnull %coeff, ptr noundef nonnull align 8 dereferenceable(24) %children) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i132 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i133 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -64235,7 +64235,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_9BitVectorEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %map, ptr nocapture noundef readonly %term, ptr noundef nonnull align 8 dereferenceable(24) %coef) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bvL12addToCoefMapERSt3mapINS0_12NodeTemplateILb1EEENS0_9BitVectorESt4lessIS5_ESaISt4pairIKS5_S6_EEENS4_ILb0EEERKS6_(ptr noundef nonnull align 8 dereferenceable(48) %map, ptr nocapture noundef nonnull readonly %term, ptr noundef nonnull align 8 dereferenceable(24) %coef) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i124 = alloca %"class.std::tuple.167", align 8
   %ref.tmp10.i125 = alloca %"class.std::tuple.149", align 1
@@ -74553,7 +74553,7 @@ invoke.cont22:                                    ; preds = %for.body
   %arrayidx.i.i149 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i147, i64 0, i64 %idxprom.i.i148
   %6 = load ptr, ptr %arrayidx.i.i149, align 8, !noalias !2123
   store ptr %6, ptr %agg.tmp21, align 8, !alias.scope !2123
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef nonnull %agg.tmp21, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %leftMap, ptr noundef nonnull align 8 dereferenceable(24) %leftConst)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef %agg.tmp21, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %leftMap, ptr noundef nonnull align 8 dereferenceable(24) %leftConst)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -74606,7 +74606,7 @@ cleanup.done:                                     ; preds = %land.rhs
 
 if.else32:                                        ; preds = %invoke.cont15, %cleanup.done
   store ptr %1, ptr %agg.tmp33, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef nonnull %agg.tmp33, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %leftMap, ptr noundef nonnull align 8 dereferenceable(24) %leftConst)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef %agg.tmp33, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %leftMap, ptr noundef nonnull align 8 dereferenceable(24) %leftConst)
           to label %if.end37 unwind label %lpad35
 
 lpad35:                                           ; preds = %if.else32
@@ -74665,7 +74665,7 @@ invoke.cont49:                                    ; preds = %for.body47
   %arrayidx.i.i203 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i201, i64 0, i64 %idxprom.i.i202
   %12 = load ptr, ptr %arrayidx.i.i203, align 8, !noalias !2130
   store ptr %12, ptr %agg.tmp48, align 8, !alias.scope !2130
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef nonnull %agg.tmp48, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %rightMap, ptr noundef nonnull align 8 dereferenceable(24) %rightConst)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef %agg.tmp48, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %rightMap, ptr noundef nonnull align 8 dereferenceable(24) %rightConst)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont49
@@ -74697,7 +74697,7 @@ if.then67.invoke:                                 ; preds = %cleanup.done66, %cl
 
 if.else69:                                        ; preds = %if.end37, %cleanup.done66
   store ptr %3, ptr %agg.tmp70, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef nonnull %agg.tmp70, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %rightMap, ptr noundef nonnull align 8 dereferenceable(24) %rightConst)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13updateCoefMapENS0_12NodeTemplateILb0EEEjRSt3mapINS3_ILb1EEENS0_9BitVectorESt4lessIS6_ESaISt4pairIKS6_S7_EEERS7_(ptr noundef %agg.tmp70, i32 noundef %call10, ptr noundef nonnull align 8 dereferenceable(48) %rightMap, ptr noundef nonnull align 8 dereferenceable(24) %rightConst)
           to label %invoke.cont88 unwind label %lpad72
 
 lpad72:                                           ; preds = %if.else69
@@ -74890,7 +74890,7 @@ if.then119:                                       ; preds = %lor.lhs.false, %lan
           to label %invoke.cont124 unwind label %lpad123
 
 invoke.cont124:                                   ; preds = %if.then119
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef nonnull %agg.tmp120, i32 noundef %call10, ptr noundef nonnull %agg.tmp122, ptr noundef nonnull align 8 dereferenceable(24) %childrenLeft)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef %agg.tmp120, i32 noundef %call10, ptr noundef %agg.tmp122, ptr noundef nonnull align 8 dereferenceable(24) %childrenLeft)
           to label %invoke.cont126 unwind label %lpad125
 
 invoke.cont126:                                   ; preds = %invoke.cont124
@@ -74938,7 +74938,7 @@ if.then131:                                       ; preds = %lor.lhs.false129, %
           to label %invoke.cont136 unwind label %lpad135
 
 invoke.cont136:                                   ; preds = %if.then131
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef nonnull %agg.tmp132, i32 noundef %call10, ptr noundef nonnull %agg.tmp134, ptr noundef nonnull align 8 dereferenceable(24) %childrenRight)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef %agg.tmp132, i32 noundef %call10, ptr noundef %agg.tmp134, ptr noundef nonnull align 8 dereferenceable(24) %childrenRight)
           to label %invoke.cont138 unwind label %lpad137
 
 invoke.cont138:                                   ; preds = %invoke.cont136
@@ -74983,7 +74983,7 @@ if.then144:                                       ; preds = %invoke.cont142
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %if.then144
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef nonnull %agg.tmp145, i32 noundef %call10, ptr noundef nonnull %agg.tmp147, ptr noundef nonnull align 8 dereferenceable(24) %childrenLeft)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef %agg.tmp145, i32 noundef %call10, ptr noundef %agg.tmp147, ptr noundef nonnull align 8 dereferenceable(24) %childrenLeft)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %invoke.cont149
@@ -75028,7 +75028,7 @@ if.then157:                                       ; preds = %invoke.cont155
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %if.then157
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef nonnull %agg.tmp158, i32 noundef %call10, ptr noundef nonnull %agg.tmp160, ptr noundef nonnull align 8 dereferenceable(24) %childrenRight)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL13addToChildrenENS0_12NodeTemplateILb0EEEjNS0_9BitVectorERSt6vectorINS3_ILb1EEESaIS7_EE(ptr noundef %agg.tmp158, i32 noundef %call10, ptr noundef %agg.tmp160, ptr noundef nonnull align 8 dereferenceable(24) %childrenRight)
           to label %invoke.cont164 unwind label %lpad163
 
 invoke.cont164:                                   ; preds = %invoke.cont162

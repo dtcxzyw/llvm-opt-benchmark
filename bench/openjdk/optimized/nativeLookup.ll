@@ -146,7 +146,7 @@ define hidden noundef ptr @_ZN12NativeLookup13pure_jni_nameERK12methodHandle(ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
-  %8 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %7)
+  %8 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %7)
   br i1 %8, label %9, label %27
 
 9:                                                ; preds = %1
@@ -165,7 +165,7 @@ define hidden noundef ptr @_ZN12NativeLookup13pure_jni_nameERK12methodHandle(ptr
   %21 = getelementptr inbounds i8, ptr %20, i64 4
   %22 = load i16, ptr %21, align 4
   %23 = zext i16 %22 to i32
-  %24 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %2, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23)
+  %24 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %2, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %23)
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %9
@@ -234,7 +234,7 @@ define hidden noundef ptr @_ZN12NativeLookup13long_jni_nameERK12methodHandle(ptr
 
 .critedge:                                        ; preds = %20, %.critedge.loopexit.split.loop.exit14, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %21, %.critedge.loopexit.split.loop.exit14 ], [ %17, %20 ]
-  %22 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %2, ptr noundef nonnull %13, i32 noundef 1, i32 noundef %.0.lcssa)
+  %22 = call fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %2, ptr noundef nonnull %13, i32 noundef 1, i32 noundef %.0.lcssa)
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.critedge
@@ -248,7 +248,7 @@ define hidden noundef ptr @_ZN12NativeLookup13long_jni_nameERK12methodHandle(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19map_escaped_name_onP12stringStreamP6Symbolii(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %1, i64 6
   %7 = sext i32 %3 to i64

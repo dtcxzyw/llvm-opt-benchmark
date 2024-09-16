@@ -1048,7 +1048,7 @@ declare ptr @heap_form_minimal_tuple(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
-  %6 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %5)
   %.not = icmp ne ptr %6, null
   br i1 %.not, label %7, label %16
 
@@ -1084,7 +1084,7 @@ define dso_local noundef zeroext i1 @tuplestore_gettupleslot(ptr noundef %0, i1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1340,7 +1340,7 @@ declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext)
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @tuplestore_advance(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
-  %4 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %3)
+  %4 = call fastcc ptr @tuplestore_gettuple(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %3)
   %.not = icmp ne ptr %4, null
   br i1 %.not, label %5, label %9
 
@@ -1445,7 +1445,7 @@ define dso_local noundef zeroext i1 @tuplestore_skiptuples(ptr noundef %0, i64 n
 .lr.ph:                                           ; preds = %12, %57
   %.in = phi i64 [ %48, %57 ], [ %1, %12 ]
   %48 = add nsw i64 %.in, -1
-  %49 = call fastcc ptr @tuplestore_gettuple(ptr noundef nonnull %0, i1 noundef zeroext %2, ptr noundef nonnull %4)
+  %49 = call fastcc ptr @tuplestore_gettuple(ptr noundef nonnull %0, i1 noundef zeroext %2, ptr noundef %4)
   %.not37.not = icmp ne ptr %49, null
   br i1 %.not37.not, label %50, label %.loopexit
 

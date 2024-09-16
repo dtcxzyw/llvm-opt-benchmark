@@ -148,7 +148,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare dso_local zeroext i1 @nf_ct_invert_tuple(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @nf_nat_ipv4_manip_pkt(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @nf_nat_ipv4_manip_pkt(ptr noundef %0, i32 noundef range(i32 0, 69) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = zext nneg i32 %1 to i64
   %6 = add nuw nsw i32 %1, 20
   %7 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %6) #8
@@ -752,7 +752,7 @@ define dso_local void @nf_nat_ipv6_unregister_fn(ptr noundef %0, ptr noundef %1)
 declare dso_local i32 @ipv6_skip_exthdr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @l4proto_manip_pkt(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @l4proto_manip_pkt(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -2147483648) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %3, i64 38
   %7 = load i8, ptr %6, align 2
   switch i8 %7, label %160 [
@@ -1452,7 +1452,7 @@ declare dso_local i32 @nf_nat_inet_fn(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nf_xfrm_me_harder(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 11) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.flowi, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8

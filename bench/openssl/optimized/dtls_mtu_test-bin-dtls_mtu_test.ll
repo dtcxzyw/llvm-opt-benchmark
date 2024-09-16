@@ -236,7 +236,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @test_int_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %ctx, ptr noundef %cs, i32 noundef %no_etm) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %ctx, ptr noundef %cs, i32 noundef range(i32 0, 2) %no_etm) unnamed_addr #0 {
 entry:
   %srvr_ssl = alloca ptr, align 8
   %clnt_ssl = alloca ptr, align 8

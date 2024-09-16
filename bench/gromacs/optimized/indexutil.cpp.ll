@@ -4138,7 +4138,7 @@ define void @_Z24gmx_ana_index_make_blockP8t_blockaPK10gmx_mtop_tP15gmx_ana_inde
   %87 = load ptr, ptr %79, align 8
   %88 = getelementptr inbounds i32, ptr %87, i64 %indvars.iv186
   %89 = load i32, ptr %88, align 4
-  %90 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %89, ptr noundef %1, i32 noundef 2, ptr noundef nonnull %6)
+  %90 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %89, ptr noundef %1, i32 noundef 2, ptr noundef %6)
   br i1 %90, label %91, label %.loopexit.us.us
 
 91:                                               ; preds = %.lr.ph161.split.us.split.us
@@ -4272,7 +4272,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.us.us: ; preds = %112
   %164 = load ptr, ptr %79, align 8
   %165 = getelementptr inbounds i32, ptr %164, i64 %indvars.iv176
   %166 = load i32, ptr %165, align 4
-  %167 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %166, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %6)
+  %167 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %166, ptr noundef %1, i32 noundef 3, ptr noundef %6)
   br i1 %167, label %168, label %.loopexit151.us.us
 
 168:                                              ; preds = %.lr.ph161.split.us.split.us163
@@ -4363,7 +4363,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us: ; preds = %189
   %218 = load ptr, ptr %79, align 8
   %219 = getelementptr inbounds i32, ptr %218, i64 %indvars.iv173
   %220 = load i32, ptr %219, align 4
-  %221 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %220, ptr noundef %1, i32 noundef 1, ptr noundef nonnull %6)
+  %221 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %220, ptr noundef %1, i32 noundef 1, ptr noundef %6)
   br i1 %221, label %222, label %229
 
 222:                                              ; preds = %.lr.ph161.split.split.us
@@ -4392,7 +4392,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us: ; preds = %189
   %234 = load ptr, ptr %79, align 8
   %235 = getelementptr inbounds i32, ptr %234, i64 %indvars.iv
   %236 = load i32, ptr %235, align 4
-  %237 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %236, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %6)
+  %237 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %236, ptr noundef %1, i32 noundef %3, ptr noundef %6)
   br i1 %237, label %238, label %245
 
 238:                                              ; preds = %.lr.ph161.split.split
@@ -4455,7 +4455,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit140.us.us: ; preds = %189
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #17 {
   %5 = load i32, ptr %3, align 4
   switch i32 %2, label %87 [
     i32 1, label %.sink.split
@@ -4868,12 +4868,12 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
   br i1 %.not, label %23, label %18
 
 18:                                               ; preds = %14
-  %19 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02229, ptr noundef nonnull %4)
+  %19 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %.02229, ptr noundef %4)
   br i1 %19, label %20, label %_ZN3gmx17RangePartitioningD2Ev.exit
 
 20:                                               ; preds = %18
   %21 = add nsw i32 %16, -1
-  %22 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %21, ptr noundef nonnull %4)
+  %22 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %21, ptr noundef %4)
   br i1 %22, label %23, label %_ZN3gmx17RangePartitioningD2Ev.exit
 
 23:                                               ; preds = %20, %14
@@ -4886,7 +4886,7 @@ define noundef zeroext i1 @_Z32gmx_ana_index_has_complete_elemsP15gmx_ana_index_
   %25 = getelementptr i32, ptr %13, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4
-  %28 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %27, ptr noundef nonnull %4)
+  %28 = call fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr noundef nonnull align 8 dereferenceable(768) %2, i32 noundef %27, ptr noundef %4)
   br i1 %28, label %38, label %_ZN3gmx17RangePartitioningD2Ev.exit
 
 29:                                               ; preds = %8
@@ -4926,7 +4926,7 @@ _ZN3gmx17RangePartitioningD2Ev.exit:              ; preds = %20, %18, %33, %31, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #17 {
+define internal fastcc noundef zeroext i1 @_ZL22is_at_residue_boundaryRK10gmx_mtop_tiPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #17 {
   %4 = icmp eq i32 %1, -1
   br i1 %4, label %101, label %5
 
@@ -5203,7 +5203,7 @@ define void @_Z21gmx_ana_indexmap_initP18gmx_ana_indexmap_tP15gmx_ana_index_tPK1
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %28, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %34, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5)
+  %35 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %34, ptr noundef %2, i32 noundef %3, ptr noundef %5)
   %36 = load ptr, ptr %15, align 8
   %37 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv
   %38 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5305,7 +5305,7 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_Z33gmx_ana_indexmap_ini
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %25, i64 %35
   %37 = load i32, ptr %36, align 4
-  %38 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %37, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %4)
+  %38 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %37, ptr noundef %1, i32 noundef %2, ptr noundef %4)
   br i1 %38, label %.preheader, label %142
 
 .preheader:                                       ; preds = %32
@@ -5608,7 +5608,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us: ; preds = %113
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i32, ptr %158, i64 %162
   %164 = load i32, ptr %163, align 4
-  %165 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %164, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %10)
+  %165 = call fastcc noundef zeroext i1 @_ZL16next_group_indexiPK10gmx_mtop_t9e_index_tPi(i32 noundef %164, ptr noundef %1, i32 noundef %2, ptr noundef %10)
   %166 = zext i1 %165 to i32
   %spec.select = add nsw i32 %.050131, %166
   %167 = load ptr, ptr %148, align 8

@@ -1422,7 +1422,7 @@ return:                                           ; preds = %land.lhs.true40, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp10.not = icmp eq i32 %oprsz, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -1743,7 +1743,7 @@ if.end60:                                         ; preds = %if.then45, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2i_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp10.not = icmp eq i32 %oprsz, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
@@ -2028,7 +2028,7 @@ declare ptr @tcg_temp_new_vec(i32 noundef) local_unnamed_addr #2
 declare void @tcg_gen_dup_i64_vec(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_2s_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_2s_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, ptr noundef %c, i1 noundef zeroext %scalar_first, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp12.not = icmp eq i32 %oprsz, 0
   br i1 %cmp12.not, label %for.end, label %for.body.lr.ph
@@ -2494,7 +2494,7 @@ if.end59:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_3_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
@@ -2866,7 +2866,7 @@ if.end61:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_3i_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_3i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, i1 noundef zeroext %load_dest, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body.lr.ph
@@ -3298,7 +3298,7 @@ if.end61:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i1 noundef zeroext %write_aofs, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_4_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i1 noundef zeroext %write_aofs, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp16.not = icmp eq i32 %oprsz, 0
   br i1 %cmp16.not, label %for.end, label %for.body.lr.ph
@@ -3675,7 +3675,7 @@ if.end54:                                         ; preds = %sw.epilog.thread, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_4i_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i64 noundef %c, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
+define internal fastcc void @expand_4i_vec(i32 noundef range(i32 0, 256) %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %cofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i64 noundef %c, ptr nocapture noundef readonly %fni) unnamed_addr #1 {
 entry:
   %cmp13.not = icmp eq i32 %oprsz, 0
   br i1 %cmp13.not, label %for.end, label %for.body
@@ -4562,7 +4562,7 @@ if.end182:                                        ; preds = %if.then59, %if.end5
 declare void @tcg_gen_dup_mem_vec(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_dup_store(i32 noundef %type, i32 noundef %dofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %t_vec) unnamed_addr #1 {
+define internal fastcc void @do_dup_store(i32 noundef range(i32 1, 0) %type, i32 noundef %dofs, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %t_vec) unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i32 %oprsz, 7
   tail call void @llvm.assume(i1 %cmp)
@@ -7857,7 +7857,7 @@ declare void @tcg_gen_shls_vec(i32 noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @tcg_gen_shlv_vec(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_gvec_shifts(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, ptr noundef %shift, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %g) unnamed_addr #1 {
+define internal fastcc void @do_gvec_shifts(i32 noundef range(i32 0, 4) %vece, i32 noundef %dofs, i32 noundef %aofs, ptr noundef %shift, i32 noundef %oprsz, i32 noundef %maxsz, ptr noundef %g) unnamed_addr #1 {
 entry:
   %or = or i32 %aofs, %dofs
   switch i32 %oprsz, label %do.body1.i [
@@ -9578,7 +9578,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @expand_cmp_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef %tysz, i32 noundef %type, i32 noundef %cond) unnamed_addr #1 {
+define internal fastcc void @expand_cmp_vec(i32 noundef %vece, i32 noundef %dofs, i32 noundef %aofs, i32 noundef %bofs, i32 noundef %oprsz, i32 noundef range(i32 8, 33) %tysz, i32 noundef range(i32 3, 6) %type, i32 noundef range(i32 2, 0) %cond) unnamed_addr #1 {
 entry:
   %cmp10.not = icmp eq i32 %oprsz, 0
   br i1 %cmp10.not, label %for.end, label %for.body

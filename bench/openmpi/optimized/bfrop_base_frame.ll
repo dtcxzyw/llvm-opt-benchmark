@@ -335,7 +335,7 @@ pmix_tma_free.exit:                               ; preds = %10, %7, %1
   br i1 %.not11, label %19, label %13
 
 13:                                               ; preds = %pmix_tma_free.exit
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %12, ptr noundef %..i)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %12, ptr noundef %..i)
   %14 = load ptr, ptr %11, align 8
   br i1 %.not.i, label %18, label %15
 
@@ -384,7 +384,7 @@ declare void @abort() local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8
   switch i16 %3, label %pmix_tma_free.exit [
     i16 3, label %4
@@ -1456,7 +1456,7 @@ pmix_tma_free.exit.us.i.i.us:                     ; preds = %10, %pmix_tma_free.
   br i1 %.not.us.i.i.us, label %pmix_bfrops_base_tma_argv_free.exit.i.us, label %pmix_tma_free.exit.us.i.i.us, !llvm.loop !14
 
 pmix_bfrops_base_tma_argv_free.exit.i.us:         ; preds = %pmix_tma_free.exit.us.i.i.us, %10
-  tail call void @free(ptr noundef %9) #10
+  tail call void @free(ptr noundef nonnull %9) #10
   store ptr null, ptr %8, align 8
   br label %pmix_bfrops_base_tma_regattr_destruct.exit.us
 
@@ -1920,7 +1920,7 @@ pmix_tma_free.exit:                               ; preds = %16, %14, %10
 .lr.ph322:                                        ; preds = %.preheader, %.lr.ph322
   %.0.i321 = phi i64 [ %31, %.lr.ph322 ], [ 0, %.preheader ]
   %30 = getelementptr inbounds %struct.pmix_value, ptr %27, i64 %.0.i321
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %30, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %30, ptr noundef %1)
   %31 = add nuw i64 %.0.i321, 1
   %exitcond350.not = icmp eq i64 %31, %29
   br i1 %exitcond350.not, label %._crit_edge323, label %.lr.ph322, !llvm.loop !21
@@ -2021,7 +2021,7 @@ pmix_tma_free.exit.i.i238:                        ; preds = %.lr.ph.i.i, %pmix_t
   br label %pmix_bfrops_base_tma_argv_free.exit.i
 
 62:                                               ; preds = %._crit_edge.i.i
-  tail call void @free(ptr noundef %51) #10
+  tail call void @free(ptr noundef nonnull %51) #10
   br label %pmix_bfrops_base_tma_argv_free.exit.i
 
 pmix_bfrops_base_tma_argv_free.exit.i:            ; preds = %62, %._crit_edge.thread.i.i
@@ -2070,7 +2070,7 @@ pmix_tma_free.exit.i34.i:                         ; preds = %.lr.ph.i32.i, %pmix
   br label %pmix_bfrops_base_tma_argv_free.exit43.i
 
 76:                                               ; preds = %._crit_edge.i41.i
-  tail call void @free(ptr noundef %65) #10
+  tail call void @free(ptr noundef nonnull %65) #10
   br label %pmix_bfrops_base_tma_argv_free.exit43.i
 
 pmix_bfrops_base_tma_argv_free.exit43.i:          ; preds = %76, %._crit_edge.thread.i37.i
@@ -2122,7 +2122,7 @@ pmix_tma_free.exit45.i:                           ; preds = %83, %81
 
 93:                                               ; preds = %.lr.ph316
   %94 = getelementptr inbounds i8, ptr %90, i64 520
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %94, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %94, ptr noundef %1)
   br label %pmix_bfrops_base_tma_info_destruct.exit266
 
 pmix_bfrops_base_tma_info_destruct.exit266:       ; preds = %.lr.ph316, %93
@@ -2188,7 +2188,7 @@ pmix_bfrops_base_tma_app_destruct.exit:           ; preds = %84, %pmix_tma_free.
 
 112:                                              ; preds = %.lr.ph312
   %113 = getelementptr inbounds i8, ptr %109, i64 520
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %113, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %113, ptr noundef %1)
   br label %pmix_bfrops_base_tma_info_destruct.exit
 
 pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph312, %112
@@ -2225,7 +2225,7 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph312, %112
 .lr.ph309:                                        ; preds = %.preheader276, %.lr.ph309
   %.0.i155308 = phi i64 [ %125, %.lr.ph309 ], [ 0, %.preheader276 ]
   %124 = getelementptr inbounds %struct.pmix_pdata, ptr %121, i64 %.0.i155308, i32 2
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %124, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %124, ptr noundef %1)
   %125 = add nuw i64 %.0.i155308, 1
   %exitcond346.not = icmp eq i64 %125, %123
   br i1 %exitcond346.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !24
@@ -2397,7 +2397,7 @@ pmix_tma_free.exit164.thread359:                  ; preds = %184
   br i1 %.not143360, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader277.thread361
 
 .preheader277.thread361:                          ; preds = %pmix_tma_free.exit164.thread359
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %188, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %188, ptr noundef %1)
   br label %195
 
 pmix_tma_free.exit164.thread:                     ; preds = %184
@@ -2409,11 +2409,11 @@ pmix_tma_free.exit164.thread:                     ; preds = %184
   br i1 %.not143358, label %pmix_bfrops_base_tma_value_free.exit167, label %.preheader277.thread
 
 .preheader277.thread:                             ; preds = %pmix_tma_free.exit164.thread
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %191, ptr noundef nonnull %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %191, ptr noundef nonnull %1)
   br label %192
 
 .preheader277:                                    ; preds = %pmix_tma_free.exit164
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %186, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %186, ptr noundef %1)
   br i1 %.not.i163, label %195, label %192
 
 192:                                              ; preds = %.preheader277.thread, %.preheader277
@@ -2526,7 +2526,7 @@ pmix_tma_free.exit.i.i251:                        ; preds = %.lr.ph.i.i249, %pmi
   br label %pmix_bfrops_base_tma_argv_free.exit.i255
 
 232:                                              ; preds = %._crit_edge.i.i261
-  tail call void @free(ptr noundef %221) #10
+  tail call void @free(ptr noundef nonnull %221) #10
   br label %pmix_bfrops_base_tma_argv_free.exit.i255
 
 pmix_bfrops_base_tma_argv_free.exit.i255:         ; preds = %232, %._crit_edge.thread.i.i254
@@ -2556,7 +2556,7 @@ pmix_bfrops_base_tma_argv_free.exit.i255:         ; preds = %232, %._crit_edge.t
 
 242:                                              ; preds = %.lr.ph290
   %243 = getelementptr inbounds i8, ptr %239, i64 520
-  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef nonnull %243, ptr noundef %1)
+  tail call fastcc void @pmix_bfrops_base_tma_value_destruct(ptr noundef %243, ptr noundef %1)
   br label %pmix_bfrops_base_tma_info_destruct.exit270
 
 pmix_bfrops_base_tma_info_destruct.exit270:       ; preds = %.lr.ph290, %242

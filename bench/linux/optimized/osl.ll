@@ -2204,7 +2204,7 @@ define dso_local range(i32 0, 16388) i32 @acpi_os_enter_sleep(i8 noundef zeroext
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @acpi_request_region(i8 %.0.val, i64 %.4.val, i32 noundef %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @acpi_request_region(i8 %.0.val, i64 %.4.val, i32 noundef range(i32 0, 256) %0, ptr noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = icmp ne i64 %.4.val, 0
   %4 = icmp ne i32 %0, 0
   %5 = and i1 %3, %4

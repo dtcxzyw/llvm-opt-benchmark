@@ -235,7 +235,7 @@ define hidden void @php_filter_int(ptr noundef %0, i64 noundef %1, ptr noundef r
 
 74:                                               ; preds = %64
   %75 = getelementptr inbounds i8, ptr %.0178, i64 2
-  %76 = call fastcc i32 @php_filter_parse_hex(ptr noundef nonnull %75, i64 noundef %65, ptr noundef nonnull %5)
+  %76 = call fastcc i32 @php_filter_parse_hex(ptr noundef nonnull %75, i64 noundef %65, ptr noundef %5)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread164, label %._crit_edge
 
@@ -454,7 +454,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 2) i32 @php_filter_parse_hex(ptr noundef readonly %0, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge

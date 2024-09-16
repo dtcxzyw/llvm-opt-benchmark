@@ -987,7 +987,7 @@ entry:
   store i64 0, ptr %ctlen, align 8
   store i64 0, ptr %unwraplen, align 8
   store i64 0, ptr %secretlen, align 8
-  %call = call fastcc i32 @rsa_keygen(ptr noundef nonnull %pub, ptr noundef nonnull %priv)
+  %call = call fastcc i32 @rsa_keygen(ptr noundef %pub, ptr noundef %priv)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 534, ptr noundef nonnull @.str.78, i32 noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -1118,7 +1118,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ct, i8 0, i64 256, i1 false)
   store i64 0, ptr %ctlen, align 8
   store i64 0, ptr %secretlen, align 8
-  %call = call fastcc i32 @rsa_keygen(ptr noundef nonnull %pub, ptr noundef nonnull %priv)
+  %call = call fastcc i32 @rsa_keygen(ptr noundef %pub, ptr noundef %priv)
   %call1 = call i32 @test_true(ptr noundef nonnull @.str.22, i32 noundef 598, ptr noundef nonnull @.str.103, i32 noundef %call) #6
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %entry.land.end_crit_edge, label %land.lhs.true
@@ -1644,7 +1644,7 @@ declare i64 @EVP_CIPHER_get_flags(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef %pub, ptr nocapture noundef %priv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @rsa_keygen(ptr noundef nonnull %pub, ptr nocapture noundef nonnull %priv) unnamed_addr #1 {
 entry:
   %pub_der = alloca ptr, align 8
   %pp = alloca ptr, align 8
@@ -1678,7 +1678,7 @@ if.end:                                           ; preds = %lor.lhs.false5
   %2 = load ptr, ptr %pub_der, align 8
   store ptr %2, ptr %pp, align 8
   %3 = load i64, ptr %len, align 8
-  %call9 = call ptr @d2i_PublicKey(i32 noundef 6, ptr noundef %pub, ptr noundef nonnull %pp, i64 noundef %3) #6
+  %call9 = call ptr @d2i_PublicKey(i32 noundef 6, ptr noundef nonnull %pub, ptr noundef nonnull %pp, i64 noundef %3) #6
   %call10 = call i32 @test_ptr(ptr noundef nonnull @.str.22, i32 noundef 513, ptr noundef nonnull @.str.102, ptr noundef %call9) #6
   %tobool11.not = icmp ne i32 %call10, 0
   %spec.select = zext i1 %tobool11.not to i32

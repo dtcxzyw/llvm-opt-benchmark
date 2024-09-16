@@ -225,7 +225,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff5parse14zeroConstra
 entry:
   %r = alloca %"class.std::optional", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
+  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
   %0 = getelementptr inbounds i8, ptr %r, i64 80
   %r.val = load i8, ptr %0, align 8
   %tobool.i.i = trunc i8 %r.val to i1
@@ -308,7 +308,7 @@ _ZNSt8optionalIN4cvc58internal6theory2ff5parse12_GLOBAL__N_18SpectrumEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %t, i8 noundef zeroext %depth) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %t, i8 noundef zeroext %depth) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %val0.i509 = alloca %"class.cvc5::internal::FiniteFieldValue", align 8
   %val1.i510 = alloca %"class.cvc5::internal::FiniteFieldValue", align 8
@@ -1069,7 +1069,7 @@ if.then13.i.i.i192:                               ; preds = %if.else.i.i.i190
           to label %invoke.cont80 unwind label %lpad72.loopexit
 
 invoke.cont80:                                    ; preds = %if.else.i.i.i190, %if.then.i.i.i194, %if.then13.i.i.i192
-  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78, i8 noundef zeroext %sub)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp78, i8 noundef zeroext %sub)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont80
@@ -1449,7 +1449,7 @@ if.then13.i.i.i266:                               ; preds = %if.else.i.i.i264
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit273: ; preds = %if.then.i.i.i268, %if.else.i.i.i264, %if.then13.i.i.i266
   %sub101 = add i8 %depth, -1
-  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99, i8 noundef zeroext %sub101)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp99, i8 noundef zeroext %sub101)
           to label %invoke.cont104 unwind label %lpad103
 
 invoke.cont104:                                   ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit273
@@ -1497,7 +1497,7 @@ if.then13.i.i.i293:                               ; preds = %if.else.i.i.i291
           to label %invoke.cont108 unwind label %lpad107
 
 invoke.cont108:                                   ; preds = %if.else.i.i.i291, %if.then.i.i.i295, %if.then13.i.i.i293
-  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp106, i8 noundef zeroext %sub101)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %ref.tmp105, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp106, i8 noundef zeroext %sub101)
           to label %invoke.cont113 unwind label %lpad112
 
 invoke.cont113:                                   ; preds = %invoke.cont108
@@ -2020,7 +2020,7 @@ if.then13.i.i.i499:                               ; preds = %if.else.i.i.i497
           to label %invoke.cont143 unwind label %lpad133.loopexit
 
 invoke.cont143:                                   ; preds = %if.else.i.i.i497, %if.then.i.i.i501, %if.then13.i.i.i499
-  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp141, i8 noundef zeroext %sub126)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp141, i8 noundef zeroext %sub126)
           to label %invoke.cont148 unwind label %lpad147
 
 invoke.cont148:                                   ; preds = %invoke.cont143
@@ -2416,7 +2416,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff5parse13oneConstrai
 entry:
   %r = alloca %"class.std::optional", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
-  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
+  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
   %0 = getelementptr inbounds i8, ptr %r, i64 80
   %r.val = load i8, ptr %0, align 8
   %tobool.i.i = trunc i8 %r.val to i1
@@ -2504,7 +2504,7 @@ entry:
   %r = alloca %"class.std::optional", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Integer", align 8
   %ref.tmp12 = alloca %"class.cvc5::internal::Integer", align 8
-  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
+  call fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %r, ptr noundef nonnull align 8 dereferenceable(8) %fact, i8 noundef zeroext 5)
   %0 = getelementptr inbounds i8, ptr %r, i64 80
   %r.val = load i8, ptr %0, align 8
   %tobool.i.i = trunc i8 %r.val to i1
@@ -5122,7 +5122,7 @@ lor.lhs.false.i.i.i.i.i358:                       ; preds = %if.end3.i.i.i.i.i35
 cond.true108:                                     ; preds = %lor.lhs.false.i.i.i.i.i358, %if.end3.i.i.i.i.i355, %for.cond.i.i.i371, %call2.i.i.i.i.noexc378
   %64 = phi ptr [ %.pre, %call2.i.i.i.i.noexc378 ], [ %51, %for.cond.i.i.i371 ], [ %.pre, %if.end3.i.i.i.i.i355 ], [ %.pre, %lor.lhs.false.i.i.i.i.i358 ]
   store ptr %64, ptr %agg.tmp129, align 8
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias nonnull align 8 %ref.tmp128, ptr %call19, ptr noundef nonnull %agg.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp128, ptr %call19, ptr noundef %agg.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
           to label %invoke.cont134 unwind label %lpad133
 
 invoke.cont134:                                   ; preds = %cond.true108
@@ -5263,7 +5263,7 @@ lpad135:                                          ; preds = %if.else.i.i, %if.th
 cond.true147:                                     ; preds = %lor.lhs.false.i.i.i.i.i, %if.end3.i.i.i.i.i, %for.cond.i.i.i, %for.cond.i.i.i.i.i365, %for.body.i.i.i375, %if.end.i.i.i.i.i350, %call2.i.i.i.i.noexc
   %81 = load ptr, ptr %__begin3.sroa.0.01236, align 8
   store ptr %81, ptr %agg.tmp190, align 8
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias nonnull align 8 %ref.tmp189, ptr %call19, ptr noundef nonnull %agg.tmp190, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp189, ptr %call19, ptr noundef %agg.tmp190, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i95)
           to label %invoke.cont193 unwind label %lpad192
 
 invoke.cont193:                                   ; preds = %cond.true147
@@ -6201,7 +6201,7 @@ if.then258:                                       ; preds = %if.else255
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %if.then258
-  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias nonnull align 8 %ref.tmp259, ptr %call19, ptr noundef nonnull %agg.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263)
+  invoke fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %ref.tmp259, ptr %call19, ptr noundef %agg.tmp260, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263)
           to label %invoke.cont267 unwind label %lpad266
 
 invoke.cont267:                                   ; preds = %invoke.cont265
@@ -6706,7 +6706,7 @@ declare void @_ZNK4cvc58internal7Integer3absEv(ptr sret(%"class.cvc5::internal::
 declare void @_ZNK4cvc58internal7IntegerngEv(ptr sret(%"class.cvc5::internal::Integer") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias align 8 %agg.result, ptr nonnull %this.0.val.0.val, ptr nocapture noundef readonly %n, ptr noundef nonnull align 8 dereferenceable(32) %coeff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTemplateILb1EEESt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ESaIS5_EEENK3$_0clENS4_ILb0EEERKNS0_16FiniteFieldValueE"(ptr noalias nonnull align 8 %agg.result, ptr nonnull %this.0.val.0.val, ptr nocapture noundef nonnull readonly %n, ptr noundef nonnull align 8 dereferenceable(32) %coeff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.91", align 8
@@ -6732,7 +6732,7 @@ invoke.cont3.i:                                   ; preds = %.noexc
           to label %invoke.cont7.i unwind label %lpad6.i, !noalias !62
 
 invoke.cont7.i:                                   ; preds = %invoke.cont3.i
-  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i)
+  invoke void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %nb.i)
           to label %invoke.cont6 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %invoke.cont7.i
@@ -7932,7 +7932,7 @@ if.then13.i.i.i444:                               ; preds = %if.else.i.i.i442
   br label %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit451
 
 _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit451: ; preds = %if.then.i.i.i446, %if.else.i.i.i442, %if.then13.i.i.i444
-  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias nonnull align 8 %ref.tmp142, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp143, i8 noundef zeroext 5)
+  invoke fastcc void @_ZN4cvc58internal6theory2ff5parse12_GLOBAL__N_18spectrumERKNS0_12NodeTemplateILb1EEEh(ptr noalias align 8 %ref.tmp142, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp143, i8 noundef zeroext 5)
           to label %invoke.cont145 unwind label %lpad144
 
 invoke.cont145:                                   ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit451

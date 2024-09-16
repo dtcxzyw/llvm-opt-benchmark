@@ -8097,7 +8097,7 @@ define internal void @rt_process_forms(ptr nocapture noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rt_process_stats(ptr %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #1 {
+define internal fastcc void @rt_process_stats(ptr %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   %6 = alloca [4 x float], align 16
   %7 = shl i32 %2, 2
   %8 = mul i32 %7, %3
@@ -8319,7 +8319,7 @@ dt_ioppr_rgb_matrix_to_lab.exit:                  ; preds = %152, %149
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @rt_clamp_minmax(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #17 {
+define internal fastcc void @rt_clamp_minmax(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #17 {
   %3 = load float, ptr %0, align 4, !tbaa !16
   %4 = load float, ptr %1, align 4, !tbaa !16
   %5 = fcmp reassoc nsz arcp contract afn une float %3, %4
@@ -9267,7 +9267,7 @@ declare i32 @dt_masks_get_area(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rt_masks_point_calc_delta(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc i32 @rt_masks_point_calc_delta(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, i32 noundef %7) unnamed_addr #1 {
   %9 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
   %10 = icmp eq i32 %7, 1
@@ -9381,7 +9381,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare void @dt_iop_image_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_retouch_clone(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #1 {
+define internal fastcc void @_retouch_clone(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !218
   %10 = sext i32 %9 to i64
@@ -9658,7 +9658,7 @@ define internal fastcc void @_retouch_clone(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !218
   %11 = sext i32 %10 to i64
@@ -9880,7 +9880,7 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
 165:                                              ; preds = %162, %98, %29
   %166 = phi i32 [ %164, %162 ], [ %101, %98 ], [ %36, %29 ]
   %167 = phi i32 [ %163, %162 ], [ %100, %98 ], [ %30, %29 ]
-  tail call void @dt_heal(ptr noundef %17, ptr noundef %24, ptr noundef %2, i32 noundef %167, i32 noundef %166, i32 noundef 4, i32 noundef %7) #27
+  tail call void @dt_heal(ptr noundef %17, ptr noundef %24, ptr noundef nonnull %2, i32 noundef %167, i32 noundef %166, i32 noundef 4, i32 noundef %7) #27
   %168 = load i32, ptr %12, align 4, !tbaa !216
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %170, label %.loopexit23
@@ -10055,7 +10055,7 @@ define internal fastcc void @_retouch_heal(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_retouch_blur(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float noundef %5, i32 noundef %6, float noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #1 {
+define internal fastcc void @_retouch_blur(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, float noundef %5, i32 noundef %6, float noundef %7, ptr nocapture noundef readonly %8) unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %7)
   %12 = fcmp reassoc nsz arcp contract afn ugt float %11, 0x3FB99999A0000000
@@ -10407,7 +10407,7 @@ define internal fastcc void @_retouch_blur(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, float noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #18 {
+define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, float noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #18 {
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !216
   %9 = icmp sgt i32 %8, 0
@@ -10576,7 +10576,7 @@ define internal fastcc void @_retouch_fill(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @rt_copy_mask_to_alpha(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float noundef %5) unnamed_addr #18 {
+define internal fastcc void @rt_copy_mask_to_alpha(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, float noundef %5) unnamed_addr #18 {
   %7 = getelementptr inbounds i8, ptr %4, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !216
   %9 = icmp sgt i32 %8, 0
@@ -10861,7 +10861,7 @@ declare ptr @dt_ioppr_get_pipe_work_profile_info(ptr noundef) local_unnamed_addr
 declare void @dt_ioppr_transform_image_colorspace(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @image_rgb2lab(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 {
+define internal fastcc void @image_rgb2lab(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %6 = mul nsw i64 %5, %4
@@ -11169,7 +11169,7 @@ declare void @dt_bilateral_slice(ptr noundef, ptr noundef, ptr noundef, float no
 declare void @dt_bilateral_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @image_lab2rgb(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 {
+define internal fastcc void @image_lab2rgb(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 {
   %4 = sext i32 %1 to i64
   %5 = sext i32 %2 to i64
   %6 = mul nsw i64 %5, %4
@@ -11337,7 +11337,7 @@ define internal fastcc void @image_lab2rgb(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #24 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #24 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

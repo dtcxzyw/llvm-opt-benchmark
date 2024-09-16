@@ -94,7 +94,7 @@ define void @Rwr_ManPrecompute(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %54, label %.critedge2.loopexit, label %55
 
 55:                                               ; preds = %45
-  %56 = tail call i32 @llvm.umax.i32(i32 %48, i32 %52)
+  %56 = tail call range(i32 0, 64) i32 @llvm.umax.i32(i32 %48, i32 %52)
   %57 = add nuw nsw i32 %56, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
@@ -375,7 +375,7 @@ Rwr_ManIncTravId.exit:                            ; preds = %3, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 1, 65) %4, i32 noundef range(i32 -2147483647, -2147483648) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 100
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1
@@ -438,10 +438,10 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
 44:                                               ; preds = %41, %10
   %.0.in = phi i32 [ %15, %10 ], [ %43, %41 ]
   %.0 = and i32 %.0.in, 65535
-  %45 = icmp sgt i32 %4, 2
-  br i1 %45, label %46, label %._crit_edge69
+  %45 = icmp ugt i32 %4, 2
+  br i1 %45, label %46, label %._crit_edge71
 
-._crit_edge69:                                    ; preds = %44
+._crit_edge71:                                    ; preds = %44
   %.pre = zext nneg i32 %.0 to i64
   br label %57
 
@@ -459,18 +459,18 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   %.not62 = icmp eq i8 %56, 0
   br i1 %.not62, label %.loopexit, label %57
 
-57:                                               ; preds = %._crit_edge69, %46
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge69 ], [ %51, %46 ]
+57:                                               ; preds = %._crit_edge71, %46
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge71 ], [ %51, %46 ]
   %58 = getelementptr inbounds i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %.pre-phi
-  %.05965 = load ptr, ptr %60, align 8
-  %.not6366 = icmp eq ptr %.05965, null
-  br i1 %.not6366, label %._crit_edge.thread, label %.lr.ph
+  %.05967 = load ptr, ptr %60, align 8
+  %.not6368 = icmp eq ptr %.05967, null
+  br i1 %.not6368, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57, %76
-  %.05967 = phi ptr [ %.059, %76 ], [ %.05965, %57 ]
-  %61 = getelementptr inbounds i8, ptr %.05967, i64 14
+  %.05969 = phi ptr [ %.059, %76 ], [ %.05967, %57 ]
+  %61 = getelementptr inbounds i8, ptr %.05969, i64 14
   %62 = load i32, ptr %61, align 2
   %63 = lshr i32 %62, 24
   %64 = and i32 %63, 63
@@ -494,13 +494,13 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %70, %72
-  %77 = getelementptr inbounds i8, ptr %.05967, i64 40
+  %77 = getelementptr inbounds i8, ptr %.05969, i64 40
   %.059 = load ptr, ptr %77, align 8
   %.not63 = icmp eq ptr %.059, null
   br i1 %.not63, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %.05967, i64 40
+  %78 = getelementptr inbounds i8, ptr %.05969, i64 40
   br label %89
 
 ._crit_edge.thread:                               ; preds = %57
@@ -520,7 +520,7 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   br label %89
 
 89:                                               ; preds = %._crit_edge, %85, %._crit_edge.thread
-  %.057.lcssa71 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
+  %.057.lcssa73 = phi ptr [ %60, %85 ], [ %60, %._crit_edge.thread ], [ %78, %._crit_edge ]
   %90 = getelementptr inbounds i8, ptr %0, i64 88
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %91) #10
@@ -532,89 +532,89 @@ define internal fastcc void @Rwr_ManTryNode(ptr nocapture noundef %0, ptr nounde
   %97 = getelementptr inbounds i8, ptr %92, i64 4
   store i32 0, ptr %97, align 4
   %98 = getelementptr inbounds i8, ptr %92, i64 14
-  %99 = shl i32 %4, 24
-  %100 = and i32 %99, 1056964608
-  %101 = shl i32 %5, 16
-  %102 = and i32 %101, 16711680
-  %103 = or disjoint i32 %100, %102
-  %104 = shl i32 %3, 31
-  %105 = or disjoint i32 %103, %104
-  %106 = or disjoint i32 %.0, %105
-  store i32 %106, ptr %98, align 2
-  %107 = getelementptr inbounds i8, ptr %92, i64 24
-  store ptr %1, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %92, i64 32
-  store ptr %2, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %92, i64 40
-  store ptr null, ptr %109, align 8
-  %110 = load ptr, ptr %93, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = load i32, ptr %110, align 8
-  %114 = icmp eq i32 %112, %113
-  br i1 %114, label %115, label %.Vec_PtrGrow.exit11_crit_edge.i
+  %99 = shl nuw nsw i32 %4, 24
+  %100 = shl i32 %5, 16
+  %101 = and i32 %100, 16711680
+  %.masked65 = and i32 %99, 1056964608
+  %.masked = or disjoint i32 %.masked65, %101
+  %102 = shl nuw i32 %3, 31
+  %103 = or disjoint i32 %.masked, %102
+  %104 = or disjoint i32 %.0, %103
+  store i32 %104, ptr %98, align 2
+  %105 = getelementptr inbounds i8, ptr %92, i64 24
+  store ptr %1, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %92, i64 32
+  store ptr %2, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %92, i64 40
+  store ptr null, ptr %107, align 8
+  %108 = load ptr, ptr %93, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 4
+  %110 = load i32, ptr %109, align 4
+  %111 = load i32, ptr %108, align 8
+  %112 = icmp eq i32 %110, %111
+  br i1 %112, label %113, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %89
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %110, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %108, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
-115:                                              ; preds = %89
-  %116 = icmp slt i32 %112, 16
-  br i1 %116, label %117, label %125
+113:                                              ; preds = %89
+  %114 = icmp slt i32 %110, 16
+  br i1 %114, label %115, label %123
 
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds i8, ptr %110, i64 8
-  %119 = load ptr, ptr %118, align 8
-  %.not9.i.i = icmp eq ptr %119, null
-  br i1 %.not9.i.i, label %122, label %120
+115:                                              ; preds = %113
+  %116 = getelementptr inbounds i8, ptr %108, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %.not9.i.i = icmp eq ptr %117, null
+  br i1 %.not9.i.i, label %120, label %118
 
-120:                                              ; preds = %117
-  %121 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %119, i64 noundef 128) #11
+118:                                              ; preds = %115
+  %119 = tail call dereferenceable_or_null(128) ptr @realloc(ptr noundef nonnull %117, i64 noundef 128) #11
   br label %Vec_PtrGrow.exit.i
 
-122:                                              ; preds = %117
-  %123 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #12
+120:                                              ; preds = %115
+  %121 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #12
   br label %Vec_PtrGrow.exit.i
 
-Vec_PtrGrow.exit.i:                               ; preds = %122, %120
-  %124 = phi ptr [ %121, %120 ], [ %123, %122 ]
-  store ptr %124, ptr %118, align 8
-  store i32 16, ptr %110, align 8
+Vec_PtrGrow.exit.i:                               ; preds = %120, %118
+  %122 = phi ptr [ %119, %118 ], [ %121, %120 ]
+  store ptr %122, ptr %116, align 8
+  store i32 16, ptr %108, align 8
   br label %Vec_PtrPush.exit
 
-125:                                              ; preds = %115
-  %126 = shl nuw nsw i32 %112, 1
-  %127 = getelementptr inbounds i8, ptr %110, i64 8
-  %128 = load ptr, ptr %127, align 8
-  %.not9.i10.i = icmp eq ptr %128, null
-  %129 = zext nneg i32 %126 to i64
-  %130 = shl nuw nsw i64 %129, 3
-  br i1 %.not9.i10.i, label %133, label %131
+123:                                              ; preds = %113
+  %124 = shl nuw nsw i32 %110, 1
+  %125 = getelementptr inbounds i8, ptr %108, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %.not9.i10.i = icmp eq ptr %126, null
+  %127 = zext nneg i32 %124 to i64
+  %128 = shl nuw nsw i64 %127, 3
+  br i1 %.not9.i10.i, label %131, label %129
 
-131:                                              ; preds = %125
-  %132 = tail call ptr @realloc(ptr noundef nonnull %128, i64 noundef %130) #11
-  br label %135
+129:                                              ; preds = %123
+  %130 = tail call ptr @realloc(ptr noundef nonnull %126, i64 noundef %128) #11
+  br label %133
 
-133:                                              ; preds = %125
-  %134 = tail call noalias ptr @malloc(i64 noundef %130) #12
-  br label %135
+131:                                              ; preds = %123
+  %132 = tail call noalias ptr @malloc(i64 noundef %128) #12
+  br label %133
 
-135:                                              ; preds = %133, %131
-  %136 = phi ptr [ %132, %131 ], [ %134, %133 ]
-  store ptr %136, ptr %127, align 8
-  store i32 %126, ptr %110, align 8
+133:                                              ; preds = %131, %129
+  %134 = phi ptr [ %130, %129 ], [ %132, %131 ]
+  store ptr %134, ptr %125, align 8
+  store i32 %124, ptr %108, align 8
   br label %Vec_PtrPush.exit
 
-Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %135
-  %137 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %136, %135 ], [ %124, %Vec_PtrGrow.exit.i ]
-  %138 = load i32, ptr %111, align 4
-  %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %111, align 4
-  %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds ptr, ptr %137, i64 %140
-  store ptr %92, ptr %141, align 8
-  store ptr %92, ptr %.057.lcssa71, align 8
+Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %133
+  %135 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %134, %133 ], [ %122, %Vec_PtrGrow.exit.i ]
+  %136 = load i32, ptr %109, align 4
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %109, align 4
+  %138 = sext i32 %136 to i64
+  %139 = getelementptr inbounds ptr, ptr %135, i64 %138
+  store ptr %92, ptr %139, align 8
+  store ptr %92, ptr %.057.lcssa73, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %72, %66, %46, %Vec_PtrPush.exit
@@ -1070,14 +1070,14 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
-
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #8
+declare i32 @llvm.umax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
@@ -1089,8 +1089,8 @@ attributes #3 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(1) }

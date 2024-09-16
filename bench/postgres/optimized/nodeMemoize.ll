@@ -941,7 +941,7 @@ ExecProcNode.exit:                                ; preds = %395, %400
   br i1 %415, label %.critedge, label %416
 
 416:                                              ; preds = %413
-  %417 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef nonnull %403)
+  %417 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef %403)
   br i1 %417, label %421, label %.critedge
 
 .critedge:                                        ; preds = %413, %416
@@ -1039,7 +1039,7 @@ ExecProcNode.exit91:                              ; preds = %445, %452
   unreachable
 
 470:                                              ; preds = %463
-  %471 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef nonnull %455)
+  %471 = tail call fastcc zeroext i1 @cache_store_tuple(ptr noundef nonnull %0, ptr noundef %455)
   br i1 %471, label %476, label %472
 
 472:                                              ; preds = %470
@@ -1398,7 +1398,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1410,7 +1410,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call ptr %12(ptr noundef %1) #10
+  %13 = tail call ptr %12(ptr noundef nonnull %1) #10
   store ptr %13, ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr null, ptr %14, align 8

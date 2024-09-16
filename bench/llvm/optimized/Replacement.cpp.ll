@@ -2869,7 +2869,7 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.thread: ; preds = %3
   store i64 0, ptr %5, align 8
   store ptr %20, ptr %21, align 8
   store ptr null, ptr %19, align 8
-  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %5)
+  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %5)
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit
 
 22:                                               ; preds = %3
@@ -2901,7 +2901,7 @@ _ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i: ; preds = %2
 
 32:                                               ; preds = %.lr.ph.i.i.i.i.i
   store ptr %31, ptr %26, align 8
-  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull %5)
+  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %5)
   call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %18) #20
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit
 
@@ -3004,7 +3004,7 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit10: ; preds = %.thread, %.lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
   %.val7 = load ptr, ptr %3, align 8
@@ -3394,7 +3394,7 @@ _ZNSt6vectorIN5clang7tooling5RangeESaIS2_EEC2ERKS4_.exit.thread: ; preds = %2, %
   store i64 0, ptr %3, align 8
   store ptr %48, ptr %49, align 8
   store ptr null, ptr %47, align 8
-  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3)
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit
 
 50:                                               ; preds = %._crit_edge
@@ -3427,7 +3427,7 @@ _ZNSt12_Vector_baseIN5clang7tooling5RangeESaIS2_EEC2EmRKS3_.exit.i: ; preds = %5
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
   store ptr %59, ptr %54, align 8
-  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZL20combineAndSortRangesSt6vectorIN5clang7tooling5RangeESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3)
   tail call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %44) #20
   br label %_ZNSt6vectorIN5clang7tooling5RangeESaIS2_EED2Ev.exit
 

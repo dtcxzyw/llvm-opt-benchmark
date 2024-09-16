@@ -993,7 +993,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.val, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.val, i32 noundef range(i32 1, 257) %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 156
@@ -1023,7 +1023,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %17, label %.preheader1, label %.preheader3
 
 .preheader3:                                      ; preds = %14
-  br i1 %18, label %.lr.ph, label %.loopexit
+  br i1 %18, label %.lr.ph, label %.lr.ph13
 
 .lr.ph:                                           ; preds = %.preheader3
   %19 = icmp eq i32 %2, 4
@@ -1053,7 +1053,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %exitcond30.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !11
 
 .preheader1:                                      ; preds = %14
-  br i1 %18, label %.lr.ph7, label %.loopexit
+  br i1 %18, label %.lr.ph7, label %.lr.ph13
 
 .lr.ph7:                                          ; preds = %.preheader1
   %36 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1135,9 +1135,9 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   %exitcond41.not = icmp eq i32 %88, 256
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us, %.preheader3, %.preheader1
-  %.2 = phi i32 [ 0, %.preheader1 ], [ 0, %.preheader3 ], [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
-  %89 = icmp sgt i32 %.2, %1
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us
+  %.2 = phi i32 [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
+  %89 = icmp ugt i32 %.2, %1
   br i1 %89, label %90, label %97
 
 90:                                               ; preds = %.loopexit
@@ -1153,15 +1153,16 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br label %97
 
 97:                                               ; preds = %90, %.loopexit
-  %98 = icmp slt i32 %.2, %1
+  %98 = icmp ult i32 %.2, %1
   br i1 %98, label %.lr.ph13, label %._crit_edge
 
-.lr.ph13:                                         ; preds = %97
+.lr.ph13:                                         ; preds = %.preheader1, %.preheader3, %97
+  %.24648 = phi i32 [ %.2, %97 ], [ 0, %.preheader3 ], [ 0, %.preheader1 ]
   %99 = icmp eq i32 %2, 4
   br i1 %99, label %.lr.ph13.split.us, label %.lr.ph13.split
 
 .lr.ph13.split.us:                                ; preds = %.lr.ph13, %.lr.ph13.split.us
-  %.412.us = phi i32 [ %104, %.lr.ph13.split.us ], [ %.2, %.lr.ph13 ]
+  %.412.us = phi i32 [ %104, %.lr.ph13.split.us ], [ %.24648, %.lr.ph13 ]
   %100 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %101 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %102 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
@@ -1171,7 +1172,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph13.split.us, !llvm.loop !13
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13, %.lr.ph13.split
-  %.412 = phi i32 [ %108, %.lr.ph13.split ], [ %.2, %.lr.ph13 ]
+  %.412 = phi i32 [ %108, %.lr.ph13.split ], [ %.24648, %.lr.ph13 ]
   %105 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %106 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %107 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)

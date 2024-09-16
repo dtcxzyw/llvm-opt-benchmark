@@ -188,7 +188,7 @@ define dso_local void @_ZN4node9inspector15FormatWsAddressERKNSt7__cxx1112basic_
 entry:
   %url.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port)
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %url.i)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %url.i) #19, !noalias !5
   br i1 %include_protocol, label %if.then.i, label %_ZN4node9inspector12_GLOBAL__N_113FormatAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b.exit
@@ -209,7 +209,7 @@ _ZN4node9inspector12_GLOBAL__N_113FormatAddressERKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port) unnamed_addr #0 {
+define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port) unnamed_addr #0 {
 entry:
   %url = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %host, i8 noundef signext 58, i64 noundef 0) #19
@@ -230,7 +230,7 @@ if.end6.critedge:                                 ; preds = %entry
 if.end6:                                          ; preds = %if.end6.critedge, %if.then
   %call7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %url, i8 noundef signext 58) #19
   %call8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call7, i32 noundef %port) #19
-  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %url) #19
+  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %url) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %url) #19
   ret void
 }
@@ -1314,7 +1314,7 @@ if.then.i:                                        ; preds = %for.body.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %__begin2.sroa.0.05.i), !noalias !27
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %__begin2.sroa.0.05.i), !noalias !27
   %call7.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %json.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19, !noalias !27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19, !noalias !27
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.05.i, i64 48
@@ -1846,7 +1846,7 @@ _ZN4node9inspector12_GLOBAL__N_16EscapeEPNSt7__cxx1112basic_stringIcSt11char_tra
 if.then:                                          ; preds = %_ZN4node9inspector12_GLOBAL__N_16EscapeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit282
   call void @_ZN4node9inspector15InspectorSocket7GetHostB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(8) %socket) #19
   %32 = load i32, ptr %server_port_.i, align 8
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias nonnull align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, i32 noundef %32)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_114FormatHostPortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias align 8 %ref.tmp50, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, i32 noundef %32)
   %call53 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %detected_host, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51) #19
@@ -2159,7 +2159,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   %call6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i28, ptr noundef nonnull @.str.52) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4) #19
-  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias nonnull align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(48) %response)
+  call fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(48) %response)
   call void @llvm.lifetime.start.p0(i64 132, ptr nonnull %header.i)
   %call.i33 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7) #19
   %call2.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %header.i, i64 noundef 132, ptr noundef nonnull @__const._ZN4node9inspector12_GLOBAL__N_116SendHttpResponseEPNS0_15InspectorSocketERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.HEADERS, i32 noundef 200, i64 noundef %call.i33) #19
@@ -3280,7 +3280,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hide
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %object) unnamed_addr #0 {
+define internal fastcc void @_ZN4node9inspector12_GLOBAL__N_111MapToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_St4lessIS8_ESaISt4pairIKS8_S8_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %object) unnamed_addr #0 {
 entry:
   %json = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %json) #19
@@ -3314,7 +3314,7 @@ if.end:                                           ; preds = %if.then, %for.body
 
 for.end:                                          ; preds = %if.end, %entry
   %call14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %json, ptr noundef nonnull @.str.59) #19
-  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %json) #19
+  call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %json) #19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %json) #19
   ret void
 }

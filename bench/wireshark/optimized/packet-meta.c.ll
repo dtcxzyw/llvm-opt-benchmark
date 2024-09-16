@@ -244,8 +244,8 @@ define internal i32 @dissect_meta(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %15, %13 ]
   %.065 = phi ptr [ null, %._crit_edge ], [ %19, %13 ]
   %.064 = phi ptr [ null, %._crit_edge ], [ %17, %13 ]
-  %.not82 = icmp eq i16 %10, 0
-  br i1 %.not82, label %evaluate_meta_items.exit, label %.lr.ph.i
+  %.not.i = icmp eq i16 %10, 0
+  br i1 %.not.i, label %evaluate_meta_items.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31
   %32 = getelementptr inbounds i8, ptr %1, i64 348

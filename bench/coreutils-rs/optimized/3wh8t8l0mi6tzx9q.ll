@@ -1281,7 +1281,7 @@ define hidden void @"_ZN4core3ptr315drop_in_place$LT$hashbrown..raw..RawTable$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca { { { ptr, ptr } }, ptr }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %3 = load ptr, ptr %0, align 8, !alias.scope !120, !nonnull !5, !noundef !5
@@ -2363,7 +2363,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc3a44a09c8c465
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #36
+  invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$signal_hook..iterator..backend..SelfPipeWrite$GT$$GT$17h001eb037ae6d6e3aE"(ptr noalias noundef align 8 dereferenceable(16) %12) #36
           to label %35 unwind label %33
 
 "_ZN4core3ptr145drop_in_place$LT$alloc..sync..Arc$LT$signal_hook..iterator..backend..PendingSignals$LT$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$$GT$17hb71246328d7f9b92E.exit.i": ; preds = %.noexc.i, %1

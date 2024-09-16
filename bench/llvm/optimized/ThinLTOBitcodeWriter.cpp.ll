@@ -734,7 +734,7 @@ _ZN4llvm18ProfileSummaryInfoD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
   br i1 %179, label %219, label %180
 
 180:                                              ; preds = %175
-  %181 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef nonnull %178)
+  %181 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef %178)
   br i1 %181, label %182, label %219
 
 182:                                              ; preds = %180
@@ -922,7 +922,7 @@ _ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit.i.i: ; preds = %.lr.p
   br i1 %267, label %268, label %272
 
 268:                                              ; preds = %266, %.lr.ph223.i.i
-  %269 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef nonnull %261)
+  %269 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef %261)
   br i1 %269, label %270, label %272
 
 270:                                              ; preds = %268
@@ -1064,7 +1064,7 @@ _ZNK4llvm15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_deta
   br i1 %325, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.thread.i.i.i.i
 
 _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i.i.i.i: ; preds = %323
-  %326 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef nonnull %322)
+  %326 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef %322)
   br i1 %326, label %"_ZN4llvm12function_refIFbPKNS_11GlobalValueEEE11callback_fnIZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERNS_11raw_ostreamEPS8_NS0_IFRNS_9AAResultsERNS_8FunctionEEEERNS_6ModuleEE3$_2EEblS3_.exit.i.i", label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.thread.i.i.i.i
 
 _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.thread.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i.i.i.i, %323, %_ZNK4llvm15concat_iteratorINS_11GlobalValueEJNS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_8FunctionELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_14GlobalVariableELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_11GlobalAliasELb0ELb0EvLb0EvEELb0ELb0EEENS2_INS4_INS_11GlobalIFuncELb0ELb0EvLb0EvEELb0ELb0EEEEEdeEv.exit.i.i.i
@@ -2001,8 +2001,8 @@ _ZN4llvm18ProfileSummaryInfoD2Ev.exit.i:          ; preds = %_ZNKSt14default_del
   %.021.i = phi ptr [ %.1.i, %748 ], [ %78, %_ZN12_GLOBAL__N_115hasTypeMetadataERN4llvm6ModuleE.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %52, i8 0, i64 20, i1 false)
   call void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(48) %73, i1 noundef zeroext false, ptr noundef %.021.i, i1 noundef zeroext true, ptr noundef nonnull %52) #16
-  %.not31 = icmp eq ptr %75, null
-  br i1 %.not31, label %751, label %750
+  %.not45.i = icmp eq ptr %75, null
+  br i1 %.not45.i, label %751, label %750
 
 750:                                              ; preds = %749
   call void @_ZN4llvm26writeThinLinkBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamERKNS_18ModuleSummaryIndexERKSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(488) %.021.i, ptr noundef nonnull align 4 dereferenceable(20) %52) #16
@@ -2712,7 +2712,7 @@ declare void @_ZN4llvm6Module13addModuleFlagENS0_15ModFlagBehaviorENS_9StringRef
 declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 536870912
@@ -5855,7 +5855,7 @@ _ZNK4llvm6detail12DenseSetImplIPKNS_6ComdatENS_8DenseMapIS4_NS0_13DenseSetEmptyE
   br i1 %62, label %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i, label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
 
 _ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i: ; preds = %60
-  %63 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef nonnull %59)
+  %63 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_4clEPKNS0_12GlobalObjectE"(ptr noundef %59)
   br label %"_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit"
 
 "_ZZN12_GLOBAL__N_127splitAndWriteThinLTOBitcodeERN4llvm11raw_ostreamEPS1_NS0_12function_refIFRNS0_9AAResultsERNS0_8FunctionEEEERNS0_6ModuleEENK3$_1clEPKNS0_11GlobalValueE.exit": ; preds = %24, %.lr.ph.i.i.i.i.i18.i, %51, %11, %32, %39, %58, %60, %_ZN4llvm16dyn_cast_or_nullINS_14GlobalVariableEKNS_12GlobalObjectEEEDaPT0_.exit.i
@@ -7003,7 +7003,7 @@ declare void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef, p
 declare { ptr, i64 } @_ZN4llvm9Intrinsic7getNameEj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_114promoteTypeIdsERN4llvm6ModuleENS0_9StringRefEENK3$_0clEPNS0_8CallInstEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_114promoteTypeIdsERN4llvm6ModuleENS0_9StringRefEENK3$_0clEPNS0_8CallInstEj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -7013,7 +7013,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114promoteTypeIdsERN4llvm6ModuleE
   %10 = zext nneg i32 %9 to i64
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds %"class.llvm::Use", ptr %1, i64 %11
-  %13 = zext i32 %2 to i64
+  %13 = zext nneg i32 %2 to i64
   %14 = getelementptr inbounds %"class.llvm::Use", ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24

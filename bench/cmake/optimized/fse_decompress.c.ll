@@ -317,13 +317,13 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %.not294.i, label %228, label %58
 
 58:                                               ; preds = %53
-  %59 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %12, ptr noundef %25, i64 noundef %26)
+  %59 = call fastcc i64 @BIT_initDStream(ptr noundef %12, ptr noundef %25, i64 noundef %26)
   %60 = icmp ult i64 %59, -119
   br i1 %60, label %61, label %FSE_decompress_wksp_body_default.exit
 
 61:                                               ; preds = %58
-  call fastcc void @FSE_initDState(ptr noundef nonnull %13, ptr noundef nonnull %12, ptr noundef nonnull %50)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %50)
+  call fastcc void @FSE_initDState(ptr noundef %13, ptr noundef %12, ptr noundef nonnull %50)
+  call fastcc void @FSE_initDState(ptr noundef %14, ptr noundef %12, ptr noundef nonnull %50)
   %62 = getelementptr inbounds i8, ptr %12, i64 8
   %.promoted.i = load i32, ptr %62, align 8
   %.promoted463.i = load i64, ptr %12, align 8
@@ -643,13 +643,13 @@ BIT_reloadDStreamFast.exit375.i:                  ; preds = %207
   br label %FSE_decompress_wksp_body_default.exit
 
 228:                                              ; preds = %53
-  %229 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %9, ptr noundef %25, i64 noundef %26)
+  %229 = call fastcc i64 @BIT_initDStream(ptr noundef %9, ptr noundef %25, i64 noundef %26)
   %230 = icmp ult i64 %229, -119
   br i1 %230, label %231, label %FSE_decompress_wksp_body_default.exit
 
 231:                                              ; preds = %228
-  call fastcc void @FSE_initDState(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef nonnull %50)
-  call fastcc void @FSE_initDState(ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %50)
+  call fastcc void @FSE_initDState(ptr noundef %10, ptr noundef %9, ptr noundef nonnull %50)
+  call fastcc void @FSE_initDState(ptr noundef %11, ptr noundef %9, ptr noundef nonnull %50)
   %232 = getelementptr inbounds i8, ptr %9, i64 8
   %.promoted501.i = load i32, ptr %232, align 8
   %.promoted503.i = load i64, ptr %9, align 8
@@ -993,7 +993,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -1139,7 +1139,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FSE_initDState(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #5 {
   %4 = load i16, ptr %2, align 2
   %5 = zext i16 %4 to i32
   %6 = load i64, ptr %1, align 8

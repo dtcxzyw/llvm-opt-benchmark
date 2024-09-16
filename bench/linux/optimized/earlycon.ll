@@ -221,13 +221,13 @@ declare dso_local void @console_list_lock() local_unnamed_addr #3
 declare dso_local void @console_list_unlock() local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_options(ptr noundef nonnull %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   store i64 0, ptr %3, align 8, !annotation !9
-  %4 = call i32 @uart_parse_earlycon(ptr noundef %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 202), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
+  %4 = call i32 @uart_parse_earlycon(ptr noundef nonnull %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @early_console_dev, i64 202), ptr noundef nonnull %3, ptr noundef nonnull %2) #6
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %33
 

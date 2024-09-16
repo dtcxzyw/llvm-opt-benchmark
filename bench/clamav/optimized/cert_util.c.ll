@@ -344,7 +344,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
   %22 = getelementptr inbounds ptr, ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8
-  %24 = call fastcc i32 @_x509_to_pem_append(ptr noundef %23, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %24 = call fastcc i32 @_x509_to_pem_append(ptr noundef %23, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not64.us = icmp eq i32 %24, 0
   br i1 %.not64.us, label %25, label %.loopexit
 
@@ -371,7 +371,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %32 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
   %33 = getelementptr inbounds ptr, ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8
-  %35 = call fastcc i32 @_x509_to_pem_append(ptr noundef %34, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %35 = call fastcc i32 @_x509_to_pem_append(ptr noundef %34, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not62.us = icmp eq i32 %35, 0
   br i1 %.not62.us, label %36, label %.loopexit
 
@@ -389,7 +389,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
-  %45 = call fastcc i32 @_x509_to_pem_append(ptr noundef %44, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %45 = call fastcc i32 @_x509_to_pem_append(ptr noundef %44, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not64 = icmp eq i32 %45, 0
   br i1 %.not64, label %46, label %.loopexit
 
@@ -398,7 +398,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %47 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 48), align 8
   %48 = getelementptr inbounds ptr, ptr %47, i64 %41
   %49 = load ptr, ptr %48, align 8
-  %50 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %49, ptr noundef nonnull %2, ptr noundef nonnull %5)
+  %50 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %49, ptr noundef %2, ptr noundef %5)
   %51 = icmp ne i32 %50, 0
   %52 = load i32, ptr %5, align 4
   %53 = icmp ne i32 %52, 0
@@ -417,7 +417,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
   %60 = getelementptr inbounds ptr, ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8
-  %62 = call fastcc i32 @_x509_to_pem_append(ptr noundef %61, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %62 = call fastcc i32 @_x509_to_pem_append(ptr noundef %61, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not62 = icmp eq i32 %62, 0
   br i1 %.not62, label %63, label %.loopexit
 
@@ -426,7 +426,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
   %65 = getelementptr inbounds ptr, ptr %64, i64 %58
   %66 = load ptr, ptr %65, align 8
-  %67 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef nonnull %2, ptr noundef nonnull %6)
+  %67 = call fastcc i32 @x509_cert_name_cmp(ptr noundef %66, ptr noundef %2, ptr noundef %6)
   %68 = icmp ne i32 %67, 0
   %69 = load i32, ptr %6, align 4
   %70 = icmp ne i32 %69, 0
@@ -450,7 +450,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
   br i1 %.not60, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = call fastcc i32 @_x509_to_pem_append(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
+  %78 = call fastcc i32 @_x509_to_pem_append(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not61 = icmp eq i32 %78, 0
   br i1 %.not61, label %79, label %.loopexit
 
@@ -501,7 +501,7 @@ define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
   br i1 %6, label %10, label %7
@@ -624,7 +624,7 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @BIO_s_mem() #15
@@ -650,7 +650,7 @@ define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, 
 
 16:                                               ; preds = %11
   %17 = call i64 @BIO_ctrl(ptr noundef nonnull %7, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %4) #15
-  %18 = call ptr @X509_get_subject_name(ptr noundef %1) #15
+  %18 = call ptr @X509_get_subject_name(ptr noundef nonnull %1) #15
   %19 = call i32 @X509_NAME_print_ex(ptr noundef nonnull %10, ptr noundef %18, i32 noundef 0, i64 noundef 196608) #15
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %22

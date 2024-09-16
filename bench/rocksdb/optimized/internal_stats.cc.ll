@@ -3300,7 +3300,7 @@ if.end:                                           ; preds = %invoke.cont6
           to label %invoke.cont10 unwind label %lpad5
 
 invoke.cont10:                                    ; preds = %if.end
-  invoke fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8)
+  invoke fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont10
@@ -3900,7 +3900,7 @@ if.end12:                                         ; preds = %invoke.cont9
           to label %invoke.cont15 unwind label %lpad8
 
 invoke.cont15:                                    ; preds = %if.end12
-  invoke fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13)
+  invoke fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp13)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -8103,7 +8103,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -8231,7 +8231,7 @@ invoke.cont26:                                    ; preds = %lor.rhs.i, %if.then
   %second.i = getelementptr inbounds i8, ptr %__i.sroa.0.0.i, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21, ptr noundef nonnull align 8 dereferenceable(48) %second.i)
           to label %invoke.cont28 unwind label %lpad25
 
 invoke.cont28:                                    ; preds = %invoke.cont26
@@ -8357,7 +8357,7 @@ invoke.cont41:                                    ; preds = %lor.rhs.i105, %if.t
   %second.i109 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i108, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i87)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i88)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(48) %second.i109)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(48) %second.i109)
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %invoke.cont41
@@ -8488,11 +8488,11 @@ invoke.cont69:                                    ; preds = %.noexc119
   store ptr %52, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %level_stats.i, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats.i, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %div, ptr noundef nonnull readonly align 8 dereferenceable(188) %interval_stats)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef %level_stats.i, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %div, ptr noundef nonnull readonly align 8 dereferenceable(188) %interval_stats)
           to label %invoke.cont.i unwind label %lpad.i122
 
 invoke.cont.i:                                    ; preds = %invoke.cont69
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(48) %level_stats.i)
           to label %invoke.cont1.i unwind label %lpad.i122
 
 invoke.cont1.i:                                   ; preds = %invoke.cont.i
@@ -8543,7 +8543,7 @@ lpad.i127:                                        ; preds = %.noexc130
   br label %ehcleanup88
 
 invoke.cont84:                                    ; preds = %.noexc130
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i124, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %name_.i124, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont84
@@ -8654,7 +8654,7 @@ invoke.cont116:                                   ; preds = %lor.rhs.i179, %if.t
   %second.i183 = getelementptr inbounds i8, ptr %__i.sroa.0.0.i182, i64 40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i161)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i162)
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef nonnull %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(48) %second.i183)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(48) %second.i183)
           to label %invoke.cont118 unwind label %lpad115
 
 invoke.cont118:                                   ; preds = %invoke.cont116
@@ -10423,7 +10423,7 @@ _ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %from) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdbL23MapUint64ValuesToStringERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS6_ESaISt4pairIKS6_mEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %from) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -10848,7 +10848,7 @@ invoke.cont100:                                   ; preds = %cond.end95
   %39 = load double, ptr %add.ptr.i65, align 8
   %40 = load ptr, ptr %comp_stats_, align 8
   %add.ptr.i66 = getelementptr inbounds %"struct.rocksdb::InternalStats::CompactionStats", ptr %40, i64 %conv103
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %level_stats, i32 noundef %conv.i55, i32 noundef %37, double noundef %conv102, double noundef %39, double noundef %cond96, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i66)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef %level_stats, i32 noundef %conv.i55, i32 noundef %37, double noundef %conv102, double noundef %39, double noundef %cond96, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i66)
           to label %invoke.cont108 unwind label %ehcleanup.thread182
 
 invoke.cont108:                                   ; preds = %invoke.cont100
@@ -10963,7 +10963,7 @@ cond.end127:                                      ; preds = %for.end116, %cond.f
   store ptr %53, ptr %_M_right.i.i.i.i.i74, align 8
   %_M_node_count.i.i.i.i.i75 = getelementptr inbounds i8, ptr %sum_stats, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i75, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %sum_stats, i32 noundef %total_files.0.lcssa, i32 noundef %total_files_being_compacted.0.lcssa, double noundef %total_file_size.0.lcssa, double noundef 0.000000e+00, double noundef %cond128, ptr noundef nonnull align 8 dereferenceable(188) %compaction_stats_sum)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef %sum_stats, i32 noundef %total_files.0.lcssa, i32 noundef %total_files_being_compacted.0.lcssa, double noundef %total_file_size.0.lcssa, double noundef 0.000000e+00, double noundef %cond128, ptr noundef nonnull align 8 dereferenceable(188) %compaction_stats_sum)
           to label %invoke.cont130 unwind label %ehcleanup
 
 invoke.cont130:                                   ; preds = %cond.end127
@@ -11573,7 +11573,7 @@ if.then:                                          ; preds = %for.body
   store ptr %2, ptr %_M_left.i.i.i.i.i, align 8
   store ptr %2, ptr %_M_right.i.i.i.i.i, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef nonnull %priority_stats, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_117PrepareLevelStatsEPSt3mapINS_13LevelStatTypeEdSt4lessIS2_ESaISt4pairIKS2_dEEEiidddRKNS_13InternalStats15CompactionStatsE(ptr noundef %priority_stats, i32 noundef 0, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, ptr noundef nonnull align 8 dereferenceable(188) %add.ptr.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -11673,7 +11673,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN7rocksdb22WriteStall
 declare noundef i64 @_ZN7rocksdb11ParseUint64ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nocapture noundef writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %cf_name, ptr noundef nonnull align 8 dereferenceable(32) %group_by) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::allocator.3", align 1
@@ -12364,7 +12364,7 @@ if.then.i.i386:                                   ; preds = %lor.rhs.i.i381, %_Z
 "_ZZN7rocksdb12_GLOBAL__N_121PrintLevelStatsHeaderEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ENK3$_0clENS_13LevelStatTypeE.exit387": ; preds = %lor.rhs.i.i381
   %header_name.i384 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i.i374, i64 72
   %call2.i385 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %header_name.i384) #29
-  %call25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.300, ptr noundef %call4, ptr noundef %call2.i, ptr noundef %call2.i25, ptr noundef %call2.i45, ptr noundef %call2.i65, ptr noundef %call2.i85, ptr noundef %call2.i105, ptr noundef %call2.i125, ptr noundef %call2.i145, ptr noundef %call2.i165, ptr noundef %call2.i185, ptr noundef %call2.i205, ptr noundef %call2.i225, ptr noundef %call2.i245, ptr noundef %call2.i265, ptr noundef %call2.i285, ptr noundef %call2.i305, ptr noundef %call2.i325, ptr noundef %call2.i345, ptr noundef %call2.i365, ptr noundef %call2.i385) #29
+  %call25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.300, ptr noundef %call4, ptr noundef %call2.i, ptr noundef %call2.i25, ptr noundef %call2.i45, ptr noundef %call2.i65, ptr noundef %call2.i85, ptr noundef %call2.i105, ptr noundef %call2.i125, ptr noundef %call2.i145, ptr noundef %call2.i165, ptr noundef %call2.i185, ptr noundef %call2.i205, ptr noundef %call2.i225, ptr noundef %call2.i245, ptr noundef %call2.i265, ptr noundef %call2.i285, ptr noundef %call2.i305, ptr noundef %call2.i325, ptr noundef %call2.i345, ptr noundef %call2.i365, ptr noundef %call2.i385) #29
   %conv34 = sext i32 %call25 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #29
   %call.i390 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33)
@@ -12391,7 +12391,7 @@ invoke.cont:                                      ; preds = %.noexc
   %sub32 = sub nsw i64 2000, %idx.ext29
   %add.ptr30 = getelementptr inbounds i8, ptr %buf, i64 %idx.ext29
   %call36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #29
-  %call37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %add.ptr30, i64 noundef %sub32, ptr noundef nonnull @.str.301, ptr noundef %call36) #29
+  %call37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr30, i64 noundef %sub32, ptr noundef nonnull @.str.301, ptr noundef %call36) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #29
   ret void
@@ -12408,7 +12408,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr nocapture noundef writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_115PrintLevelStatsEPcmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapINS_13LevelStatTypeEdSt4lessISB_ESaISt4pairIKSB_dEEE(ptr nocapture noundef nonnull writeonly %buf, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 dereferenceable(48) %stat_value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp52 = alloca %"class.std::__cxx11::basic_string", align 8

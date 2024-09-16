@@ -1811,7 +1811,7 @@ define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, p
   %97 = load ptr, ptr %80, align 8
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #17
   %99 = trunc i64 %98 to i32
-  %100 = call fastcc i32 @DecodeNumberField(i32 noundef %99, ptr noundef %97, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14)
+  %100 = call fastcc i32 @DecodeNumberField(i32 noundef %99, ptr noundef %97, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %14)
   store i32 %100, ptr %32, align 4
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %.loopexit, label %102
@@ -1930,7 +1930,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
 150:                                              ; preds = %73
   %151 = getelementptr ptr, ptr %0, i64 %indvars.iv
   %152 = load ptr, ptr %151, align 8
-  %153 = call fastcc i32 @DecodeDate(ptr noundef %152, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6)
+  %153 = call fastcc i32 @DecodeDate(ptr noundef %152, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, i1 noundef zeroext %6)
   %.not323 = icmp eq i32 %153, 0
   br i1 %.not323, label %560, label %.loopexit
 
@@ -2188,7 +2188,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   %279 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %278) #17
   %280 = trunc i64 %279 to i32
   %281 = or i32 %.0266425, 14
-  %282 = call fastcc i32 @DecodeNumberField(i32 noundef %280, ptr noundef %278, i32 noundef %281, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14)
+  %282 = call fastcc i32 @DecodeNumberField(i32 noundef %280, ptr noundef %278, i32 noundef %281, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %14)
   store i32 %282, ptr %32, align 4
   %283 = icmp sgt i32 %282, -1
   %284 = load i32, ptr %13, align 4
@@ -2211,7 +2211,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %or.cond332, label %291, label %293
 
 291:                                              ; preds = %286
-  %292 = call fastcc i32 @DecodeDate(ptr noundef %199, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, i1 noundef zeroext %6)
+  %292 = call fastcc i32 @DecodeDate(ptr noundef %199, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, i1 noundef zeroext %6)
   %.not310 = icmp eq i32 %292, 0
   br i1 %.not310, label %560, label %.loopexit
 
@@ -2227,7 +2227,7 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %298, label %299, label %302
 
 299:                                              ; preds = %294
-  %300 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14)
+  %300 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %14)
   store i32 %300, ptr %32, align 4
   %301 = icmp slt i32 %300, 0
   br i1 %301, label %.loopexit, label %560
@@ -2237,13 +2237,13 @@ DecodePosixTimezone.exit.thread:                  ; preds = %.critedge.i, %Decod
   br i1 %303, label %304, label %307
 
 304:                                              ; preds = %302
-  %305 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14)
+  %305 = call fastcc i32 @DecodeNumberField(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %14)
   store i32 %305, ptr %32, align 4
   %306 = icmp slt i32 %305, 0
   br i1 %306, label %.loopexit, label %560
 
 307:                                              ; preds = %302
-  %308 = call fastcc i32 @DecodeNumber(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef nonnull %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %14, i1 noundef zeroext %6)
+  %308 = call fastcc i32 @DecodeNumber(i32 noundef %288, ptr noundef %199, i32 noundef %.0266425, ptr noundef %13, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %14, i1 noundef zeroext %6)
   %.not311 = icmp eq i32 %308, 0
   br i1 %.not311, label %560, label %.loopexit
 
@@ -2986,7 +2986,7 @@ define internal fastcc range(i32 -1, 2) i32 @DecodeTimezone(ptr noundef %0, ptr 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #4 {
   %8 = alloca [7 x i8], align 1
   %9 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #17
   %.not = icmp eq ptr %9, null
@@ -3129,7 +3129,7 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumberField(i32 noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @DecodeDate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   %8 = alloca i32, align 4
@@ -3364,7 +3364,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
   br i1 %109, label %.loopexit, label %110
 
 110:                                              ; preds = %106
-  %111 = call fastcc i32 @DecodeNumber(i32 noundef %108, ptr noundef nonnull %104, i32 noundef %.261109, ptr noundef nonnull %8, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext %4)
+  %111 = call fastcc i32 @DecodeNumber(i32 noundef %108, ptr noundef nonnull %104, i32 noundef %.261109, ptr noundef %8, ptr noundef %3, ptr noundef nonnull %6, ptr noundef %7, i1 noundef zeroext %4)
   %.not69 = icmp eq i32 %111, 0
   br i1 %.not69, label %112, label %.loopexit
 
@@ -3440,7 +3440,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, i1 noundef zeroext %7) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull writeonly %6, i1 noundef zeroext %7) unnamed_addr #4 {
   %9 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %10 = call i32 @strtoint(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 10) #18
@@ -3464,7 +3464,7 @@ define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr no
 
 20:                                               ; preds = %15
   %21 = or i32 %2, 14
-  %22 = call fastcc i32 @DecodeNumberField(i32 noundef %0, ptr noundef %1, i32 noundef %21, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %22 = call fastcc i32 @DecodeNumberField(i32 noundef %0, ptr noundef %1, i32 noundef %21, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   br label %118
 
 23:                                               ; preds = %15
@@ -3891,7 +3891,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr nocapture noundef r
 
 94:                                               ; preds = %33
   %95 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %96 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %95)
+  %96 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %95)
   %97 = load i32, ptr %11, align 8
   %98 = mul i32 %97, 100
   store i32 %98, ptr %3, align 4
@@ -3899,7 +3899,7 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr nocapture noundef r
 
 99:                                               ; preds = %33, %33
   %100 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %101 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %100)
+  %101 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %100)
   %102 = load i32, ptr %11, align 8
   store i32 %102, ptr %5, align 4
   br label %.backedgethread-pre-split
@@ -3921,14 +3921,14 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr nocapture noundef r
 
 111:                                              ; preds = %33
   %112 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %113 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %112)
+  %113 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %112)
   %114 = load i32, ptr %11, align 8
   store i32 %114, ptr %4, align 4
   br label %.backedgethread-pre-split
 
 115:                                              ; preds = %33, %33
   %116 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %117 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %116)
+  %117 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %116)
   %118 = load i32, ptr %3, align 4
   %119 = load i32, ptr %11, align 8
   %120 = call i32 @llvm.smax.i32(i32 %118, i32 0)
@@ -3944,14 +3944,14 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr nocapture noundef r
 
 124:                                              ; preds = %33
   %125 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %126 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %125)
+  %126 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %125)
   %127 = load i32, ptr %11, align 8
   store i32 %127, ptr %3, align 4
   br label %.backedgethread-pre-split
 
 128:                                              ; preds = %33, %33, %33, %33
   %129 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %130 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %129)
+  %130 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %129)
   %131 = load i32, ptr %11, align 8
   %132 = load i32, ptr %6, align 4
   %133 = add i32 %132, %131
@@ -3960,12 +3960,12 @@ define range(i32 -1, 2) i32 @PGTYPEStimestamp_defmt_scan(ptr nocapture noundef r
 
 134:                                              ; preds = %33
   %135 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %136 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %135)
+  %136 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %135)
   br label %.backedgethread-pre-split
 
 137:                                              ; preds = %33
   %138 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %139 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %138)
+  %139 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %138)
   %140 = load i32, ptr %11, align 8
   store i32 %140, ptr %7, align 4
   br label %.backedgethread-pre-split
@@ -4137,7 +4137,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 213:                                              ; preds = %33
   %214 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %215 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 11, ptr noundef nonnull %12, ptr noundef %214)
+  %215 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 11, ptr noundef %12, ptr noundef %214)
   %216 = load i64, ptr %11, align 8
   store i64 %216, ptr %14, align 8
   %217 = call ptr @gmtime(ptr noundef nonnull %14) #18
@@ -4168,7 +4168,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 232:                                              ; preds = %33
   %233 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %234 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %233)
+  %234 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %233)
   %235 = load i32, ptr %11, align 8
   store i32 %235, ptr %8, align 4
   br label %.backedgethread-pre-split
@@ -4199,7 +4199,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 248:                                              ; preds = %33
   %249 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %250 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %249)
+  %250 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %249)
   %251 = load i32, ptr %11, align 8
   %252 = add i32 %251, -8
   %or.cond = icmp ult i32 %252, -7
@@ -4208,7 +4208,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 253:                                              ; preds = %33
   %254 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %255 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %254)
+  %255 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %254)
   %256 = load i32, ptr %11, align 8
   %257 = icmp ugt i32 %256, 53
   %spec.store.select = select i1 %257, i32 1, i32 %255
@@ -4216,7 +4216,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 258:                                              ; preds = %33
   %259 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %260 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %259)
+  %260 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %259)
   %261 = load i32, ptr %11, align 8
   %262 = add i32 %261, -54
   %or.cond3 = icmp ult i32 %262, -53
@@ -4225,7 +4225,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 263:                                              ; preds = %33
   %264 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %265 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %264)
+  %265 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %264)
   %266 = load i32, ptr %11, align 8
   %267 = icmp ugt i32 %266, 6
   %spec.store.select4 = select i1 %267, i32 1, i32 %265
@@ -4233,7 +4233,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 268:                                              ; preds = %33
   %269 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %270 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %269)
+  %270 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %269)
   %271 = load i32, ptr %11, align 8
   %272 = icmp ugt i32 %271, 53
   %spec.store.select5 = select i1 %272, i32 1, i32 %270
@@ -4241,14 +4241,14 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 273:                                              ; preds = %33
   %274 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %275 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 6, ptr noundef nonnull %12, ptr noundef %274)
+  %275 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 6, ptr noundef %12, ptr noundef %274)
   %276 = load i32, ptr %11, align 8
   store i32 %276, ptr %3, align 4
   br label %.backedgethread-pre-split
 
 277:                                              ; preds = %33
   %278 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %279 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %12, ptr noundef %278)
+  %279 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 1, ptr noundef %12, ptr noundef %278)
   %.not287 = icmp eq i32 %279, 0
   br i1 %.not287, label %280, label %.backedgethread-pre-split
 
@@ -4260,7 +4260,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 
 283:                                              ; preds = %33
   %284 = getelementptr i8, ptr %.1263.lcssa, i64 2
-  %285 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %12, ptr noundef %284)
+  %285 = call fastcc i32 @pgtypes_defmt_scan(ptr noundef %11, i32 noundef 1, ptr noundef %12, ptr noundef %284)
   %.not286 = icmp eq i32 %285, 0
   br i1 %.not286, label %.preheader, label %.backedgethread-pre-split
 
@@ -4510,7 +4510,7 @@ sub_0307:                                         ; preds = %179, %.tail302.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pgtypes_defmt_scan(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @pgtypes_defmt_scan(ptr nocapture noundef nonnull writeonly %0, i32 noundef range(i32 1, 12) %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #4 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   br label %6

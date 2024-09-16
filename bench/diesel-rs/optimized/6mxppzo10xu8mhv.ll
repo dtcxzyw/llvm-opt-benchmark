@@ -353,7 +353,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   %.sroa.234.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.234.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
   store i64 %105, ptr %5, align 8
-  invoke fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias nonnull align 8 %3, ptr nonnull align 8 %19, ptr nonnull align 8 %15)
+  invoke fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias align 8 %3, ptr align 8 %19, ptr align 8 %15)
           to label %112 unwind label %110
 
 108:                                              ; preds = %104
@@ -667,7 +667,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.227.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   store i64 %39, ptr %7, align 8
-  invoke fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias nonnull align 8 %4, ptr nonnull align 8 %12, ptr nonnull align 8 %10)
+  invoke fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias align 8 %4, ptr align 8 %12, ptr align 8 %10)
           to label %47 unwind label %45
 
 42:                                               ; preds = %38
@@ -870,11 +870,11 @@ define void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f151bb9721c3855E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
-  call void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr align 8 %1, ptr nonnull align 1 @anon.abf8fe563b43581151cc1e47c808543d.1, i64 8)
+  call void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(ptr nonnull sret({ i64, [2 x i64] }) align 8 %5, ptr nonnull align 8 %1, ptr nonnull align 1 @anon.abf8fe563b43581151cc1e47c808543d.1, i64 8)
   %7 = load i64, ptr %5, align 8, !range !3, !noundef !4
   %8 = icmp eq i64 %7, -9223372036854775808
   %9 = getelementptr inbounds i8, ptr %5, i64 8
@@ -897,7 +897,7 @@ define internal fastcc void @_ZN25diesel_table_macro_syntax12get_sql_name17h1f15
   br label %22
 
 15:                                               ; preds = %11
-  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h917a0f3099ea7456E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %6, ptr align 8 %2)
+  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h917a0f3099ea7456E"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %6, ptr nonnull align 8 %2)
   br label %17
 
 16:                                               ; preds = %11

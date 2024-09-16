@@ -3868,7 +3868,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %153, %155
   br i1 %160, label %161, label %select.unfold.outer.backedge
 
 161:                                              ; preds = %opal_thread_add_fetch_32.exit
-  %162 = call fastcc ptr @get_next_send_range(ptr noundef nonnull %0, ptr noundef nonnull %.071.ph119)
+  %162 = call fastcc ptr @get_next_send_range(ptr noundef nonnull %0, ptr noundef %.071.ph119)
   br label %select.unfold.outer.backedge
 
 select.unfold.outer.backedge:                     ; preds = %200, %198, %opal_thread_add_fetch_32.exit90, %opal_thread_add_fetch_32.exit, %161
@@ -3935,7 +3935,7 @@ opal_thread_add_fetch_32.exit90:                  ; preds = %190, %192
   br i1 %197, label %198, label %select.unfold.outer.backedge
 
 198:                                              ; preds = %opal_thread_add_fetch_32.exit90
-  %199 = call fastcc ptr @get_next_send_range(ptr noundef nonnull %0, ptr noundef nonnull %.071.ph119)
+  %199 = call fastcc ptr @get_next_send_range(ptr noundef nonnull %0, ptr noundef %.071.ph119)
   br label %select.unfold.outer.backedge
 
 200:                                              ; preds = %168
@@ -4283,7 +4283,7 @@ define internal void @mca_pml_ob1_copy_frag_completion(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_next_send_range(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @get_next_send_range(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i8, ptr @opal_uses_threads, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %8
@@ -4544,7 +4544,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_send_request_put_frag_failed(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_send_request_put_frag_failed(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56

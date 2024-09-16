@@ -1244,7 +1244,7 @@ _ZN8WasmEdge4LLVM4Core4initEv.exit:               ; preds = %_ZNSt11unique_lockI
   %.sroa.0.0.copyload.i = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.012.i, i64 26
   %.val.i = load i8, ptr %58, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.sroa.0.0.copyload.i, i8 %.val.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %7, ptr %.sroa.0.0.copyload.i, i8 %.val.i) #16
   %59 = load ptr, ptr %50, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 360
   %61 = load ptr, ptr %60, align 8
@@ -2445,7 +2445,7 @@ _ZN8WasmEdge3ASTeqERKNS0_12FunctionTypeES3_.exit.thread: ; preds = %_ZN8WasmEdge
   %.sroa.0.0.copyload = load ptr, ptr %288, align 8
   %289 = getelementptr inbounds i8, ptr %288, i64 240
   %290 = load i64, ptr %289, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.sroa.0.0.copyload, i64 %290, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %12, ptr %.sroa.0.0.copyload, i64 %290, ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i) #16
   %291 = load ptr, ptr %12, align 8
   %292 = call ptr @LLVMGetReturnType(ptr noundef %291) #16, !noalias !227
   %293 = call noundef i32 @LLVMCountParamTypes(ptr noundef %291) #16
@@ -2658,7 +2658,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit: ; preds = %348,
 389:                                              ; preds = %386
   %390 = ptrtoint ptr %376 to i64
   store i64 %390, ptr %14, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %14) #16
+  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14) #16
   %.not285 = icmp eq i64 %313, 0
   br i1 %.not285, label %._crit_edge273, label %.lr.ph272
 
@@ -3019,7 +3019,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13ImportSectionE(ptr no
   %.sroa.021.0.copyload = load ptr, ptr %32, align 8
   %55 = getelementptr inbounds i8, ptr %32, i64 240
   %56 = load i64, ptr %55, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.sroa.021.0.copyload, i64 %56, ptr noundef nonnull align 8 dereferenceable(72) %54) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %8, ptr %.sroa.021.0.copyload, i64 %56, ptr noundef nonnull align 8 dereferenceable(72) %54) #16
   %57 = load ptr, ptr %8, align 8
   %58 = call ptr @LLVMGetReturnType(ptr noundef %57) #16, !noalias !317
   %.cast = ptrtoint ptr %57 to i64
@@ -3428,7 +3428,7 @@ _ZNSt6vectorISt5tupleIJjN8WasmEdge4LLVM14FunctionCalleeEPKNS1_3AST11CodeSegmentE
   %.sroa.0.0.copyload = load ptr, ptr %301, align 8
   %302 = getelementptr i8, ptr %.0174, i64 110
   %.val = load i8, ptr %302, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %.sroa.0.0.copyload, i8 %.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %17, ptr %.sroa.0.0.copyload, i8 %.val) #16
   %303 = load ptr, ptr %22, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 360
   %305 = load ptr, ptr %304, align 8
@@ -3479,7 +3479,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST13GlobalSectionE(ptr no
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.012, i64 26
   %.val = load i8, ptr %11, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.0.0.copyload, i8 %.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.0.0.copyload, i8 %.val) #16
   %12 = load ptr, ptr %8, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 360
   %14 = load ptr, ptr %13, align 8
@@ -3604,7 +3604,7 @@ define void @_ZN8WasmEdge4LLVM8Compiler7compileERKNS_3AST15FunctionSectionERKNS2
   %.sroa.0.0.copyload = load ptr, ptr %49, align 8
   %69 = getelementptr inbounds i8, ptr %49, i64 240
   %70 = load i64, ptr %69, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %.sroa.0.0.copyload, i64 %70, ptr noundef nonnull align 8 dereferenceable(72) %60) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %17, ptr %.sroa.0.0.copyload, i64 %70, ptr noundef nonnull align 8 dereferenceable(72) %60) #16
   %71 = load i64, ptr %17, align 8
   %72 = load ptr, ptr %42, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 8
@@ -4144,7 +4144,7 @@ _ZN12_GLOBAL__N_116FunctionCompilerC2ERN8WasmEdge4LLVM8Compiler14CompileContextE
   store ptr %317, ptr %153, align 8
   store ptr %318, ptr %154, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %21, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) #16
   %324 = load ptr, ptr %10, align 8
   %325 = load ptr, ptr %155, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %324, %325
@@ -4658,7 +4658,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZN8WasmEdge4LLVM4DataD1Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 {
   %4 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %5 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %6 = alloca %"class.WasmEdge::LLVM::Type", align 8
@@ -4696,7 +4696,7 @@ _ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7V
   %.012.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %44, %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backEOS2_.exit.i.i ]
   %19 = getelementptr i8, ptr %.012.i.i, i64 2
   %.0.val.i.i = load i8, ptr %19, align 2, !noalias !665
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %1, i8 %.0.val.i.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %5, ptr %1, i8 %.0.val.i.i) #16
   %.not.i.i.i.i = icmp eq ptr %.sroa.9.0, %.sroa.2318.0
   br i1 %.not.i.i.i.i, label %22, label %20
 
@@ -4910,7 +4910,7 @@ _ZN12_GLOBAL__N_114toLLVMArgsTypeEN8WasmEdge4LLVM7ContextENS1_4TypeEN5cxx204span
 94:                                               ; preds = %_ZN12_GLOBAL__N_114toLLVMArgsTypeEN8WasmEdge4LLVM7ContextENS1_4TypeEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE.exit
   %95 = getelementptr i8, ptr %85, i64 2
   %.val.i = load i8, ptr %95, align 2, !noalias !685
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %1, i8 %.val.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %6, ptr %1, i8 %.val.i) #16
   %.pre = load i64, ptr %6, align 8
   %96 = inttoptr i64 %.pre to ptr
   br label %_ZN12_GLOBAL__N_114toLLVMRetsTypeEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE.exit
@@ -4935,7 +4935,7 @@ _ZN12_GLOBAL__N_114toLLVMArgsTypeEN8WasmEdge4LLVM7ContextENS1_4TypeEN5cxx204span
   %.sroa.16.043.i = phi ptr [ %.sroa.16.2.i, %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backEOS2_.exit.i ], [ %101, %.lr.ph.preheader.i ]
   %102 = getelementptr i8, ptr %.046.i, i64 2
   %.0.val.i = load i8, ptr %102, align 2, !noalias !685
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %1, i8 %.0.val.i) #16, !noalias !685
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %4, ptr %1, i8 %.0.val.i) #16, !noalias !685
   %.not.i.i.i = icmp eq ptr %.sroa.8.044.i, %.sroa.16.043.i
   br i1 %.not.i.i.i, label %105, label %103
 
@@ -5076,7 +5076,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14Fun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load ptr, ptr %2, align 8, !noalias !699
   %6 = tail call ptr @LLVMTypeOf(ptr noundef %5) #16, !noalias !699
@@ -5187,7 +5187,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContext12get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i8 %.2.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i8 %.2.val) unnamed_addr #0 {
   switch i8 %.2.val, label %14 [
     i8 127, label %3
     i8 126, label %5
@@ -5876,7 +5876,7 @@ _ZNSt12_Vector_baseISt4pairIN8WasmEdge4LLVM4TypeENS2_5ValueEESaIS5_EE13_M_deallo
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
@@ -6414,7 +6414,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler16updateInstrCou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7221,7 +7221,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit.thread: ; preds = %_ZN
   %643 = load ptr, ptr %8, align 8
   %644 = getelementptr %"class.WasmEdge::ValType", ptr %643, i64 %.01115, i32 0, i32 0, i32 2
   %.val616 = load i8, ptr %644, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.sroa.0187.0.copyload, i8 %.val616) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %9, ptr %.sroa.0187.0.copyload, i8 %.val616) #16
   %645 = load i64, ptr %9, align 8
   %646 = inttoptr i64 %645 to ptr
   %647 = call ptr @LLVMGetUndef(ptr noundef %646) #16, !noalias !836
@@ -7308,7 +7308,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   store ptr %686, ptr %684, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %679, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15) #16
   %687 = load ptr, ptr %15, align 8
   %688 = getelementptr inbounds i8, ptr %15, i64 8
   %689 = load ptr, ptr %688, align 8
@@ -7491,7 +7491,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit795.thread: ; preds = %
   %777 = load ptr, ptr %16, align 8
   %778 = getelementptr %"class.WasmEdge::ValType", ptr %777, i64 %.06061111, i32 0, i32 0, i32 2
   %.val615 = load i8, ptr %778, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %.sroa.0174.0.copyload, i8 %.val615) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %17, ptr %.sroa.0174.0.copyload, i8 %.val615) #16
   %779 = load i64, ptr %17, align 8
   %780 = inttoptr i64 %779 to ptr
   %781 = call ptr @LLVMGetUndef(ptr noundef %780) #16, !noalias !856
@@ -7591,7 +7591,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit806: ; preds = %.critedge.thr
   store ptr %830, ptr %828, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %823, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27) #16
   %831 = load ptr, ptr %27, align 8
   %832 = getelementptr inbounds i8, ptr %27, i64 8
   %833 = load ptr, ptr %832, align 8
@@ -7833,7 +7833,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit848.thread: ; preds = %
   %955 = load ptr, ptr %28, align 8
   %956 = getelementptr %"class.WasmEdge::ValType", ptr %955, i64 %.06091107, i32 0, i32 0, i32 2
   %.val = load i8, ptr %956, align 2
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr %.sroa.0161.0.copyload, i8 %.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %29, ptr %.sroa.0161.0.copyload, i8 %.val) #16
   %957 = load i64, ptr %29, align 8
   %958 = inttoptr i64 %957 to ptr
   %959 = call ptr @LLVMGetUndef(ptr noundef %958) #16, !noalias !907
@@ -7920,7 +7920,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit859: ; preds = %.critedge.thr
   store ptr %998, ptr %996, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %991, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35) #16
   %999 = load ptr, ptr %35, align 8
   %1000 = getelementptr inbounds i8, ptr %35, i64 8
   %1001 = load ptr, ptr %1000, align 8
@@ -8027,7 +8027,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i880: ; preds = %1036, %_ZNSt6
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1047:                                             ; preds = %1
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
   %1048 = getelementptr inbounds i8, ptr %36, i64 32
   %1049 = load ptr, ptr %1048, align 8
   %.not = icmp eq ptr %1049, null
@@ -8094,7 +8094,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit.i880: ; preds = %1036, %_ZNSt6
   %1090 = load ptr, ptr %1089, align 8
   store ptr %1090, ptr %1088, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1083, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %40, ptr noundef %41, ptr noundef %42) #16
   %1091 = load ptr, ptr %42, align 8
   %1092 = load ptr, ptr %1085, align 8
   %.not4.i.i.i.i883 = icmp eq ptr %1091, %1092
@@ -8173,7 +8173,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit897: ; preds = %_ZN
   br label %_ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit899
 
 _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit899: ; preds = %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit897, %1120
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %36, ptr noundef nonnull align 8 dereferenceable(9) %43, i64 9, i1 false)
   %1125 = getelementptr inbounds i8, ptr %36, i64 16
   %1126 = getelementptr inbounds i8, ptr %43, i64 16
@@ -8367,7 +8367,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler7ControlaSEOS1_.exit: ; preds = %_ZSt8_Destro
   %.012.i.i = phi ptr [ %1196, %.lr.ph.i.i ], [ %1245, %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backEOS2_.exit.i.i ]
   %1220 = getelementptr i8, ptr %.012.i.i, i64 2
   %.0.val.i.i = load i8, ptr %1220, align 2, !noalias !918
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.025.0.copyload.i, i8 %.0.val.i.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.025.0.copyload.i, i8 %.0.val.i.i) #16
   %.not.i.i.i.i900 = icmp eq ptr %.sroa.7.0.i, %.sroa.15.0.i
   br i1 %.not.i.i.i.i900, label %1223, label %1221
 
@@ -8640,7 +8640,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_Z
   %.012.i33.i = phi ptr [ %1196, %.lr.ph.i32.i ], [ %1341, %_ZNSt6vectorIN8WasmEdge4LLVM4TypeESaIS2_EE9push_backEOS2_.exit.i36.i ]
   %1316 = getelementptr i8, ptr %.012.i33.i, i64 2
   %.0.val.i34.i = load i8, ptr %1316, align 2, !noalias !939
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr %.sroa.0.0.copyload.i, i8 %.0.val.i34.i) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextERKNS0_7ValTypeE(ptr dead_on_unwind noalias writable align 8 %2, ptr %.sroa.0.0.copyload.i, i8 %.0.val.i34.i) #16
   %.not.i.i.i35.i = icmp eq ptr %.sroa.9.0.i, %.sroa.18.0.i
   br i1 %.not.i.i.i35.i, label %1319, label %1317
 
@@ -8987,7 +8987,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8buildPHIEN5cxx204spanIKN8WasmEdge7ValTypeELm
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1449:                                             ; preds = %1
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(200) %.0.val) #16
   %1450 = getelementptr inbounds i8, ptr %.0.val, i64 192
   %1451 = getelementptr inbounds i8, ptr %44, i64 32
   %1452 = load i64, ptr %1451, align 8
@@ -9048,7 +9048,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8buildPHIEN5cxx204spanIKN8WasmEdge7ValTypeELm
   %1489 = load ptr, ptr %1488, align 8
   store ptr %1489, ptr %1487, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1482, i8 0, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %49, ptr noundef nonnull %50) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10enterBlockEN8WasmEdge4LLVM10BasicBlockES3_S3_St6vectorINS2_5ValueESaIS5_EESt4pairIS4_INS1_7ValTypeESaIS9_EESB_ES4_ISt5tupleIJS7_S3_EESaISE_EE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50) #16
   %1490 = load ptr, ptr %50, align 8
   %1491 = load ptr, ptr %1484, align 8
   %.not4.i.i.i.i903 = icmp eq ptr %1490, %1491
@@ -9675,7 +9675,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EED2Ev.exit919: ; preds = %_ZNSt4pairIS
 
 1531:                                             ; preds = %1530
   %1532 = getelementptr inbounds i8, ptr %.0.val, i64 192
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1034) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1034) #16
   %1533 = load ptr, ptr %1532, align 8, !noalias !961
   %1534 = load ptr, ptr %51, align 8, !noalias !961
   %1535 = call ptr @LLVMBuildBr(ptr noundef %1533, ptr noundef %1534) #16, !noalias !961
@@ -9975,7 +9975,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit953: ; preds = %.critedge.thr
   %1738 = load ptr, ptr %1686, align 8
   tail call void @LLVMPositionBuilderAtEnd(ptr noundef %1738, ptr noundef %1729) #16
   store i64 %1713, ptr %52, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %52) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %52) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1739:                                             ; preds = %1530
@@ -10174,7 +10174,7 @@ switch.lookup:                                    ; preds = %1840
   %1855 = load ptr, ptr %1848, align 8, !noalias !1115
   %1856 = call ptr @LLVMBuildBitCast(ptr noundef %1855, ptr noundef %1850, ptr noundef %1854, ptr noundef nonnull @.str.11) #16, !noalias !1115
   store ptr %1856, ptr %55, align 8, !alias.scope !1115
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %55) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %55) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1857:                                             ; preds = %1530
@@ -10236,7 +10236,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit980: ; preds = %.critedge.thr
   %1900 = load ptr, ptr %1858, align 8, !noalias !1148
   %1901 = tail call ptr @LLVMBuildZExt(ptr noundef %1900, ptr noundef %1895, ptr noundef %1899, ptr noundef nonnull @.str.11) #16, !noalias !1148
   store ptr %1901, ptr %56, align 8, !alias.scope !1148
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %56) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %56) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1902:                                             ; preds = %1530
@@ -10262,7 +10262,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit980: ; preds = %.critedge.thr
   %1916 = call ptr @LLVMConstInt(ptr noundef %1914, i64 noundef %1915, i32 noundef 0) #16, !noalias !1163
   store ptr %1916, ptr %61, align 8, !alias.scope !1163
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %57, ptr noundef nonnull align 8 dereferenceable(8) %1903, ptr noundef nonnull %58, ptr nonnull %61, i64 1, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %57) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %57) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 1917:                                             ; preds = %1530
@@ -10307,7 +10307,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit980: ; preds = %.critedge.thr
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %62, ptr noundef nonnull align 8 dereferenceable(8) %1924, ptr noundef nonnull %63) #16
   %1952 = load i64, ptr %62, align 8
   %1953 = inttoptr i64 %1952 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1042) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1042) #16
   %1954 = load ptr, ptr %1924, align 8, !noalias !1196
   %1955 = load ptr, ptr %64, align 8, !noalias !1196
   %1956 = call ptr @LLVMBuildCondBr(ptr noundef %1954, ptr noundef %1953, ptr noundef %1923, ptr noundef %1955) #16, !noalias !1196
@@ -10439,7 +10439,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1004: ; preds = %.critedge.th
   %2034 = load ptr, ptr %1978, align 8, !noalias !1224
   %2035 = tail call ptr @LLVMBuildSelect(ptr noundef %2034, ptr noundef %2004, ptr noundef %2032, ptr noundef %2033, ptr noundef nonnull @.str.11) #16, !noalias !1224
   store ptr %2035, ptr %65, align 8, !alias.scope !1224
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %65) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %65) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2036:                                             ; preds = %1530
@@ -10458,7 +10458,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1004: ; preds = %.critedge.th
   %2048 = load ptr, ptr %2042, align 8, !noalias !1227
   %2049 = tail call ptr @LLVMBuildLoad2(ptr noundef %2048, ptr noundef %2044, ptr noundef %2047, ptr noundef nonnull @.str.11) #16, !noalias !1227
   store ptr %2049, ptr %66, align 8, !alias.scope !1227
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %66) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %66) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2050:                                             ; preds = %1530
@@ -10541,7 +10541,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1010: ; preds = %.critedge.th
   %2108 = load ptr, ptr %2099, align 8, !noalias !1239
   %2109 = call ptr @LLVMBuildLoad2(ptr noundef %2108, ptr noundef %2104, ptr noundef %2107, ptr noundef nonnull @.str.11) #16, !noalias !1239
   store ptr %2109, ptr %69, align 8, !alias.scope !1239
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %69) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %69) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2110:                                             ; preds = %1530
@@ -10649,7 +10649,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1022: ; preds = %.critedge.th
   %2175 = getelementptr inbounds i8, ptr %76, i64 8
   store i64 %2159, ptr %2175, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %72, ptr noundef nonnull align 8 dereferenceable(8) %2160, ptr noundef nonnull %73, ptr nonnull %76, i64 2, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %72) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %72) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2176:                                             ; preds = %1530
@@ -11055,7 +11055,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1082: ; preds = %.critedge.th
   %2430 = getelementptr inbounds i8, ptr %101, i64 16
   store i64 %2408, ptr %2430, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %97, ptr noundef nonnull align 8 dereferenceable(8) %2413, ptr noundef nonnull %98, ptr nonnull %101, i64 3, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %97) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %97) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2431:                                             ; preds = %1530
@@ -11079,7 +11079,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1082: ; preds = %.critedge.th
   %2443 = call ptr @LLVMConstInt(ptr noundef %2441, i64 noundef %2442, i32 noundef 0) #16, !noalias !1391
   store ptr %2443, ptr %106, align 8, !alias.scope !1391
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %102, ptr noundef nonnull align 8 dereferenceable(8) %2432, ptr noundef nonnull %103, ptr nonnull %106, i64 1, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %102) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %102) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2444:                                             ; preds = %1530
@@ -11188,7 +11188,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2511 = getelementptr inbounds i8, ptr %2510, i64 104
   %2512 = load i64, ptr %2511, align 8
   store i64 %2512, ptr %112, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2507, i32 noundef %2509, ptr noundef nonnull %112) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2507, i32 noundef %2509, ptr noundef %112) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2513:                                             ; preds = %1530
@@ -11199,7 +11199,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2518 = getelementptr inbounds i8, ptr %2517, i64 112
   %2519 = load i64, ptr %2518, align 8
   store i64 %2519, ptr %113, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2514, i32 noundef %2516, ptr noundef nonnull %113) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2514, i32 noundef %2516, ptr noundef %113) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2520:                                             ; preds = %1530
@@ -11210,7 +11210,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2525 = getelementptr inbounds i8, ptr %2524, i64 128
   %2526 = load i64, ptr %2525, align 8
   store i64 %2526, ptr %114, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2521, i32 noundef %2523, ptr noundef nonnull %114) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2521, i32 noundef %2523, ptr noundef %114) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2527:                                             ; preds = %1530
@@ -11221,7 +11221,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2532 = getelementptr inbounds i8, ptr %2531, i64 136
   %2533 = load i64, ptr %2532, align 8
   store i64 %2533, ptr %115, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2528, i32 noundef %2530, ptr noundef nonnull %115) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2528, i32 noundef %2530, ptr noundef %115) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2534:                                             ; preds = %1530
@@ -11234,7 +11234,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2541 = getelementptr inbounds i8, ptr %2538, i64 104
   %2542 = load i64, ptr %2541, align 8
   store i64 %2542, ptr %116, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2535, i32 noundef %2537, i64 %2540, ptr noundef nonnull %116, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2535, i32 noundef %2537, i64 %2540, ptr noundef %116, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2543:                                             ; preds = %1530
@@ -11247,7 +11247,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2550 = getelementptr inbounds i8, ptr %2547, i64 104
   %2551 = load i64, ptr %2550, align 8
   store i64 %2551, ptr %117, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2544, i32 noundef %2546, i64 %2549, ptr noundef nonnull %117, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2544, i32 noundef %2546, i64 %2549, ptr noundef %117, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2552:                                             ; preds = %1530
@@ -11260,7 +11260,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2559 = getelementptr inbounds i8, ptr %2556, i64 104
   %2560 = load i64, ptr %2559, align 8
   store i64 %2560, ptr %118, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2553, i32 noundef %2555, i64 %2558, ptr noundef nonnull %118, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2553, i32 noundef %2555, i64 %2558, ptr noundef %118, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2561:                                             ; preds = %1530
@@ -11273,7 +11273,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2568 = getelementptr inbounds i8, ptr %2565, i64 104
   %2569 = load i64, ptr %2568, align 8
   store i64 %2569, ptr %119, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2562, i32 noundef %2564, i64 %2567, ptr noundef nonnull %119, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2562, i32 noundef %2564, i64 %2567, ptr noundef %119, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2570:                                             ; preds = %1530
@@ -11286,7 +11286,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2577 = getelementptr inbounds i8, ptr %2574, i64 112
   %2578 = load i64, ptr %2577, align 8
   store i64 %2578, ptr %120, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2571, i32 noundef %2573, i64 %2576, ptr noundef nonnull %120, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2571, i32 noundef %2573, i64 %2576, ptr noundef %120, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2579:                                             ; preds = %1530
@@ -11299,7 +11299,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2586 = getelementptr inbounds i8, ptr %2583, i64 112
   %2587 = load i64, ptr %2586, align 8
   store i64 %2587, ptr %121, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2580, i32 noundef %2582, i64 %2585, ptr noundef nonnull %121, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2580, i32 noundef %2582, i64 %2585, ptr noundef %121, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2588:                                             ; preds = %1530
@@ -11312,7 +11312,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2595 = getelementptr inbounds i8, ptr %2592, i64 112
   %2596 = load i64, ptr %2595, align 8
   store i64 %2596, ptr %122, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2589, i32 noundef %2591, i64 %2594, ptr noundef nonnull %122, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2589, i32 noundef %2591, i64 %2594, ptr noundef %122, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2597:                                             ; preds = %1530
@@ -11325,7 +11325,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2604 = getelementptr inbounds i8, ptr %2601, i64 112
   %2605 = load i64, ptr %2604, align 8
   store i64 %2605, ptr %123, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2598, i32 noundef %2600, i64 %2603, ptr noundef nonnull %123, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2598, i32 noundef %2600, i64 %2603, ptr noundef %123, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2606:                                             ; preds = %1530
@@ -11338,7 +11338,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2613 = getelementptr inbounds i8, ptr %2610, i64 112
   %2614 = load i64, ptr %2613, align 8
   store i64 %2614, ptr %124, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2607, i32 noundef %2609, i64 %2612, ptr noundef nonnull %124, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2607, i32 noundef %2609, i64 %2612, ptr noundef %124, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2615:                                             ; preds = %1530
@@ -11351,7 +11351,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2622 = getelementptr inbounds i8, ptr %2619, i64 112
   %2623 = load i64, ptr %2622, align 8
   store i64 %2623, ptr %125, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2616, i32 noundef %2618, i64 %2621, ptr noundef nonnull %125, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2616, i32 noundef %2618, i64 %2621, ptr noundef %125, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2624:                                             ; preds = %1530
@@ -11362,7 +11362,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2629 = getelementptr inbounds i8, ptr %2628, i64 104
   %2630 = load i64, ptr %2629, align 8
   store i64 %2630, ptr %126, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2625, i32 noundef %2627, ptr noundef nonnull %126, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2625, i32 noundef %2627, ptr noundef %126, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2631:                                             ; preds = %1530
@@ -11373,7 +11373,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2636 = getelementptr inbounds i8, ptr %2635, i64 112
   %2637 = load i64, ptr %2636, align 8
   store i64 %2637, ptr %127, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2632, i32 noundef %2634, ptr noundef nonnull %127, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2632, i32 noundef %2634, ptr noundef %127, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2638:                                             ; preds = %1530
@@ -11384,7 +11384,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2643 = getelementptr inbounds i8, ptr %2642, i64 128
   %2644 = load i64, ptr %2643, align 8
   store i64 %2644, ptr %128, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2639, i32 noundef %2641, ptr noundef nonnull %128, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2639, i32 noundef %2641, ptr noundef %128, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2645:                                             ; preds = %1530
@@ -11395,7 +11395,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2650 = getelementptr inbounds i8, ptr %2649, i64 136
   %2651 = load i64, ptr %2650, align 8
   store i64 %2651, ptr %129, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2646, i32 noundef %2648, ptr noundef nonnull %129, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2646, i32 noundef %2648, ptr noundef %129, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2652:                                             ; preds = %1530, %1530
@@ -11406,7 +11406,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2657 = getelementptr inbounds i8, ptr %2656, i64 88
   %2658 = load i64, ptr %2657, align 8
   store i64 %2658, ptr %130, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2653, i32 noundef %2655, ptr noundef nonnull %130, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2653, i32 noundef %2655, ptr noundef %130, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2659:                                             ; preds = %1530, %1530
@@ -11417,7 +11417,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2664 = getelementptr inbounds i8, ptr %2663, i64 96
   %2665 = load i64, ptr %2664, align 8
   store i64 %2665, ptr %131, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2660, i32 noundef %2662, ptr noundef nonnull %131, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2660, i32 noundef %2662, ptr noundef %131, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2666:                                             ; preds = %1530
@@ -11428,7 +11428,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2671 = getelementptr inbounds i8, ptr %2670, i64 104
   %2672 = load i64, ptr %2671, align 8
   store i64 %2672, ptr %132, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2667, i32 noundef %2669, ptr noundef nonnull %132, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %2667, i32 noundef %2669, ptr noundef %132, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2673:                                             ; preds = %1530
@@ -11452,7 +11452,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1100: ; preds = %.critedge.th
   %2685 = call ptr @LLVMConstInt(ptr noundef %2683, i64 noundef %2684, i32 noundef 0) #16, !noalias !1426
   store ptr %2685, ptr %137, align 8, !alias.scope !1426
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %133, ptr noundef nonnull align 8 dereferenceable(8) %2674, ptr noundef nonnull %134, ptr nonnull %137, i64 1, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %133) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %133) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2686:                                             ; preds = %1530
@@ -11511,7 +11511,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1106: ; preds = %.critedge.th
   %2719 = getelementptr inbounds i8, ptr %142, i64 8
   store i64 %2705, ptr %2719, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createCallENS0_14FunctionCalleeEN5cxx204spanIKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %138, ptr noundef nonnull align 8 dereferenceable(8) %2706, ptr noundef nonnull %139, ptr nonnull %142, i64 2, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %138) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %138) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2720:                                             ; preds = %1530
@@ -11893,7 +11893,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1160: ; preds = %.critedge.th
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1551)
   %2958 = tail call ptr @LLVMConstInt(ptr noundef %2956, i64 noundef %2957, i32 noundef 0) #16, !noalias !1554
   store ptr %2958, ptr %163, align 8, !alias.scope !1554
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %163) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %163) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2959:                                             ; preds = %1530
@@ -11906,7 +11906,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1160: ; preds = %.critedge.th
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1561)
   %2964 = tail call ptr @LLVMConstInt(ptr noundef %2963, i64 noundef %.sroa.0.0.extract.trunc.i1163, i32 noundef 0) #16, !noalias !1564
   store ptr %2964, ptr %164, align 8, !alias.scope !1564
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %164) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %164) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2965:                                             ; preds = %1530
@@ -11915,7 +11915,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1160: ; preds = %.critedge.th
   %.sroa.0661.0.extract.trunc = trunc i128 %2967 to i32
   %2968 = bitcast i32 %.sroa.0661.0.extract.trunc to float
   call void @_ZN8WasmEdge4LLVM7Context8getFloatEf(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %165, ptr noundef nonnull align 8 dereferenceable(8) %2966, float noundef %2968) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %165) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %165) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2969:                                             ; preds = %1530
@@ -11924,7 +11924,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1160: ; preds = %.critedge.th
   %.sroa.0.0.extract.trunc.i1173 = trunc i128 %2971 to i64
   %2972 = bitcast i64 %.sroa.0.0.extract.trunc.i1173 to double
   call void @_ZN8WasmEdge4LLVM7Context9getDoubleEd(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %166, ptr noundef nonnull align 8 dereferenceable(8) %2970, double noundef %2972) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %166) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %166) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 2973:                                             ; preds = %1530
@@ -11975,7 +11975,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1183: ; preds = %.critedge.th
   %3005 = load ptr, ptr %2974, align 8, !noalias !1581
   %3006 = tail call ptr @LLVMBuildZExt(ptr noundef %3005, ptr noundef %3000, ptr noundef %3004, ptr noundef nonnull @.str.11) #16, !noalias !1581
   store ptr %3006, ptr %167, align 8, !alias.scope !1581
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %167) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %167) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3007:                                             ; preds = %1530
@@ -12026,7 +12026,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1189: ; preds = %.critedge.th
   %3039 = load ptr, ptr %3008, align 8, !noalias !1600
   %3040 = tail call ptr @LLVMBuildZExt(ptr noundef %3039, ptr noundef %3034, ptr noundef %3038, ptr noundef nonnull @.str.11) #16, !noalias !1600
   store ptr %3040, ptr %168, align 8, !alias.scope !1600
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %168) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %168) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3041:                                             ; preds = %1530
@@ -12078,7 +12078,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1195: ; preds = %.critedge.th
   %3069 = getelementptr inbounds i8, ptr %171, i64 8
   store i64 2, ptr %3069, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %169, ptr noundef nonnull align 8 dereferenceable(8) %3044, i32 noundef %3042, ptr nonnull %170, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %171, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %169) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %169) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3070:                                             ; preds = %1530
@@ -12130,7 +12130,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1201: ; preds = %.critedge.th
   %3098 = getelementptr inbounds i8, ptr %175, i64 8
   store i64 2, ptr %3098, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %173, ptr noundef nonnull align 8 dereferenceable(8) %3073, i32 noundef %3071, ptr nonnull %174, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %175, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %173) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %173) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3099:                                             ; preds = %1530
@@ -12182,7 +12182,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1207: ; preds = %.critedge.th
   %3127 = getelementptr inbounds i8, ptr %179, i64 8
   store i64 2, ptr %3127, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %177, ptr noundef nonnull align 8 dereferenceable(8) %3102, i32 noundef %3100, ptr nonnull %178, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %179, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %177) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %177) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3128:                                             ; preds = %1530
@@ -12234,7 +12234,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1213: ; preds = %.critedge.th
   %3156 = getelementptr inbounds i8, ptr %183, i64 8
   store i64 2, ptr %3156, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %181, ptr noundef nonnull align 8 dereferenceable(8) %3131, i32 noundef %3129, ptr nonnull %182, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %183, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %181) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %181) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3157:                                             ; preds = %1530, %1530
@@ -12276,7 +12276,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1219: ; preds = %.critedge.th
   store i64 %3179, ptr %186, align 8, !alias.scope !1615
   store ptr %3178, ptr %3177, align 8, !noalias !1615
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %185, ptr noundef nonnull align 8 dereferenceable(8) %3160, i32 noundef %3158, ptr noundef nonnull %186, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %185) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %185) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3180:                                             ; preds = %1530, %1530
@@ -12318,7 +12318,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1225: ; preds = %.critedge.th
   store i64 %3202, ptr %188, align 8, !alias.scope !1618
   store ptr %3201, ptr %3200, align 8, !noalias !1618
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %187, ptr noundef nonnull align 8 dereferenceable(8) %3183, i32 noundef %3181, ptr noundef nonnull %188, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %187) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %187) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3203:                                             ; preds = %1530, %1530
@@ -12359,7 +12359,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1231: ; preds = %.critedge.th
   %3225 = load ptr, ptr %3204, align 8, !noalias !1624
   %3226 = tail call ptr @LLVMBuildFNeg(ptr noundef %3225, ptr noundef %3224, ptr noundef nonnull @.str.11) #16, !noalias !1624
   store ptr %3226, ptr %189, align 8, !alias.scope !1624
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %189) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %189) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3227:                                             ; preds = %1530, %1530
@@ -12401,7 +12401,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1237: ; preds = %.critedge.th
   store i64 %3249, ptr %191, align 8, !alias.scope !1627
   store ptr %3248, ptr %3247, align 8, !noalias !1627
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %190, ptr noundef nonnull align 8 dereferenceable(8) %3230, i32 noundef %3228, ptr noundef nonnull %191, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %190) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %190) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3250:                                             ; preds = %1530, %1530
@@ -12443,7 +12443,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1243: ; preds = %.critedge.th
   store i64 %3272, ptr %193, align 8, !alias.scope !1630
   store ptr %3271, ptr %3270, align 8, !noalias !1630
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %192, ptr noundef nonnull align 8 dereferenceable(8) %3253, i32 noundef %3251, ptr noundef nonnull %193, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %192) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %192) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3273:                                             ; preds = %1530, %1530
@@ -12485,7 +12485,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1249: ; preds = %.critedge.th
   store i64 %3295, ptr %195, align 8, !alias.scope !1633
   store ptr %3294, ptr %3293, align 8, !noalias !1633
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %194, ptr noundef nonnull align 8 dereferenceable(8) %3276, i32 noundef %3274, ptr noundef nonnull %195, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %194) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %194) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3296:                                             ; preds = %1530, %1530
@@ -12526,7 +12526,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1255: ; preds = %.critedge.th
   %3318 = getelementptr inbounds i8, ptr %.0.val, i64 192
   store i64 %3315, ptr %197, align 8
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %196, ptr noundef nonnull align 8 dereferenceable(8) %3318, i32 noundef %3316, ptr noundef nonnull %197, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %196) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %196) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3319:                                             ; preds = %1530, %1530
@@ -12568,7 +12568,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1261: ; preds = %.critedge.th
   store i64 %3341, ptr %199, align 8, !alias.scope !1639
   store ptr %3340, ptr %3339, align 8, !noalias !1639
   call void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsicEjNS0_5ValueEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %198, ptr noundef nonnull align 8 dereferenceable(8) %3322, i32 noundef %3320, ptr noundef nonnull %199, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %198) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %198) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3342:                                             ; preds = %1530
@@ -12613,7 +12613,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1267: ; preds = %.critedge.th
   %3368 = load ptr, ptr %3343, align 8, !noalias !1645
   %3369 = tail call ptr @LLVMBuildTrunc(ptr noundef %3368, ptr noundef %3363, ptr noundef %3367, ptr noundef nonnull @.str.11) #16, !noalias !1645
   store ptr %3369, ptr %200, align 8, !alias.scope !1645
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %200) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %200) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3370:                                             ; preds = %1530
@@ -12621,7 +12621,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1267: ; preds = %.critedge.th
   %3372 = getelementptr inbounds i8, ptr %3371, i64 104
   %3373 = load i64, ptr %3372, align 8
   store i64 %3373, ptr %201, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %201) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %201) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3374:                                             ; preds = %1530
@@ -12629,7 +12629,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1267: ; preds = %.critedge.th
   %3376 = getelementptr inbounds i8, ptr %3375, i64 104
   %3377 = load i64, ptr %3376, align 8
   store i64 %3377, ptr %202, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %202) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %202) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3378:                                             ; preds = %1530
@@ -12637,7 +12637,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1267: ; preds = %.critedge.th
   %3380 = getelementptr inbounds i8, ptr %3379, i64 104
   %3381 = load i64, ptr %3380, align 8
   store i64 %3381, ptr %203, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %203) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %203) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3382:                                             ; preds = %1530
@@ -12645,7 +12645,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1267: ; preds = %.critedge.th
   %3384 = getelementptr inbounds i8, ptr %3383, i64 104
   %3385 = load i64, ptr %3384, align 8
   store i64 %3385, ptr %204, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %204) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %204) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3386:                                             ; preds = %1530
@@ -12690,7 +12690,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1273: ; preds = %.critedge.th
   %3412 = load ptr, ptr %3387, align 8, !noalias !1651
   %3413 = tail call ptr @LLVMBuildSExt(ptr noundef %3412, ptr noundef %3407, ptr noundef %3411, ptr noundef nonnull @.str.11) #16, !noalias !1651
   store ptr %3413, ptr %205, align 8, !alias.scope !1651
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %205) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %205) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3414:                                             ; preds = %1530
@@ -12735,7 +12735,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1279: ; preds = %.critedge.th
   %3440 = load ptr, ptr %3415, align 8, !noalias !1657
   %3441 = tail call ptr @LLVMBuildZExt(ptr noundef %3440, ptr noundef %3435, ptr noundef %3439, ptr noundef nonnull @.str.11) #16, !noalias !1657
   store ptr %3441, ptr %206, align 8, !alias.scope !1657
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %206) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %206) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3442:                                             ; preds = %1530
@@ -12743,7 +12743,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1279: ; preds = %.critedge.th
   %3444 = getelementptr inbounds i8, ptr %3443, i64 112
   %3445 = load i64, ptr %3444, align 8
   store i64 %3445, ptr %207, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %207) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %207) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3446:                                             ; preds = %1530
@@ -12751,7 +12751,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1279: ; preds = %.critedge.th
   %3448 = getelementptr inbounds i8, ptr %3447, i64 112
   %3449 = load i64, ptr %3448, align 8
   store i64 %3449, ptr %208, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %208) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %208) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3450:                                             ; preds = %1530
@@ -12759,7 +12759,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1279: ; preds = %.critedge.th
   %3452 = getelementptr inbounds i8, ptr %3451, i64 112
   %3453 = load i64, ptr %3452, align 8
   store i64 %3453, ptr %209, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %209) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %209) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3454:                                             ; preds = %1530
@@ -12767,7 +12767,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1279: ; preds = %.critedge.th
   %3456 = getelementptr inbounds i8, ptr %3455, i64 112
   %3457 = load i64, ptr %3456, align 8
   store i64 %3457, ptr %210, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %210) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %210) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3458:                                             ; preds = %1530, %1530
@@ -12812,7 +12812,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1285: ; preds = %.critedge.th
   %3484 = load ptr, ptr %3459, align 8, !noalias !1663
   %3485 = tail call ptr @LLVMBuildSIToFP(ptr noundef %3484, ptr noundef %3479, ptr noundef %3483, ptr noundef nonnull @.str.11) #16, !noalias !1663
   store ptr %3485, ptr %211, align 8, !alias.scope !1663
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %211) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %211) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3486:                                             ; preds = %1530, %1530
@@ -12857,7 +12857,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1291: ; preds = %.critedge.th
   %3512 = load ptr, ptr %3487, align 8, !noalias !1669
   %3513 = tail call ptr @LLVMBuildUIToFP(ptr noundef %3512, ptr noundef %3507, ptr noundef %3511, ptr noundef nonnull @.str.11) #16, !noalias !1669
   store ptr %3513, ptr %212, align 8, !alias.scope !1669
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %212) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %212) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3514:                                             ; preds = %1530, %1530
@@ -12902,7 +12902,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1297: ; preds = %.critedge.th
   %3540 = load ptr, ptr %3515, align 8, !noalias !1675
   %3541 = tail call ptr @LLVMBuildSIToFP(ptr noundef %3540, ptr noundef %3535, ptr noundef %3539, ptr noundef nonnull @.str.11) #16, !noalias !1675
   store ptr %3541, ptr %213, align 8, !alias.scope !1675
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %213) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %213) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3542:                                             ; preds = %1530, %1530
@@ -12947,7 +12947,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1303: ; preds = %.critedge.th
   %3568 = load ptr, ptr %3543, align 8, !noalias !1681
   %3569 = tail call ptr @LLVMBuildUIToFP(ptr noundef %3568, ptr noundef %3563, ptr noundef %3567, ptr noundef nonnull @.str.11) #16, !noalias !1681
   store ptr %3569, ptr %214, align 8, !alias.scope !1681
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %214) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %214) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3570:                                             ; preds = %1530
@@ -12990,7 +12990,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1309: ; preds = %.critedge.th
   %3593 = load i64, ptr %3592, align 8
   store i64 %3593, ptr %217, align 8
   call void @_ZN8WasmEdge4LLVM7Builder13createFPTruncENS0_5ValueENS0_4TypeEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %215, ptr noundef nonnull align 8 dereferenceable(8) %3571, ptr noundef nonnull %216, ptr noundef nonnull %217, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %215) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %215) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3594:                                             ; preds = %1530
@@ -13033,7 +13033,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1315: ; preds = %.critedge.th
   %3617 = load i64, ptr %3616, align 8
   store i64 %3617, ptr %220, align 8
   call void @_ZN8WasmEdge4LLVM7Builder11createFPExtENS0_5ValueENS0_4TypeEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %218, ptr noundef nonnull align 8 dereferenceable(8) %3595, ptr noundef nonnull %219, ptr noundef nonnull %220, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %218) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %218) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3618:                                             ; preds = %1530
@@ -13078,7 +13078,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1321: ; preds = %.critedge.th
   %3644 = load ptr, ptr %3619, align 8, !noalias !1693
   %3645 = tail call ptr @LLVMBuildBitCast(ptr noundef %3644, ptr noundef %3639, ptr noundef %3643, ptr noundef nonnull @.str.11) #16, !noalias !1693
   store ptr %3645, ptr %221, align 8, !alias.scope !1693
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %221) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %221) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3646:                                             ; preds = %1530
@@ -13123,7 +13123,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1327: ; preds = %.critedge.th
   %3672 = load ptr, ptr %3647, align 8, !noalias !1699
   %3673 = tail call ptr @LLVMBuildBitCast(ptr noundef %3672, ptr noundef %3667, ptr noundef %3671, ptr noundef nonnull @.str.11) #16, !noalias !1699
   store ptr %3673, ptr %222, align 8, !alias.scope !1699
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %222) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %222) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3674:                                             ; preds = %1530
@@ -13168,7 +13168,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1333: ; preds = %.critedge.th
   %3700 = load ptr, ptr %3675, align 8, !noalias !1705
   %3701 = tail call ptr @LLVMBuildBitCast(ptr noundef %3700, ptr noundef %3695, ptr noundef %3699, ptr noundef nonnull @.str.11) #16, !noalias !1705
   store ptr %3701, ptr %223, align 8, !alias.scope !1705
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %223) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %223) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3702:                                             ; preds = %1530
@@ -13213,7 +13213,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1339: ; preds = %.critedge.th
   %3728 = load ptr, ptr %3703, align 8, !noalias !1711
   %3729 = tail call ptr @LLVMBuildBitCast(ptr noundef %3728, ptr noundef %3723, ptr noundef %3727, ptr noundef nonnull @.str.11) #16, !noalias !1711
   store ptr %3729, ptr %224, align 8, !alias.scope !1711
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %224) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %224) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3730:                                             ; preds = %1530
@@ -13264,7 +13264,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1345: ; preds = %.critedge.th
   %3762 = load ptr, ptr %3731, align 8, !noalias !1720
   %3763 = tail call ptr @LLVMBuildSExt(ptr noundef %3762, ptr noundef %3757, ptr noundef %3761, ptr noundef nonnull @.str.11) #16, !noalias !1720
   store ptr %3763, ptr %225, align 8, !alias.scope !1720
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %225) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %225) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3764:                                             ; preds = %1530
@@ -13315,7 +13315,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1351: ; preds = %.critedge.th
   %3796 = load ptr, ptr %3765, align 8, !noalias !1729
   %3797 = tail call ptr @LLVMBuildSExt(ptr noundef %3796, ptr noundef %3791, ptr noundef %3795, ptr noundef nonnull @.str.11) #16, !noalias !1729
   store ptr %3797, ptr %226, align 8, !alias.scope !1729
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %226) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %226) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3798:                                             ; preds = %1530
@@ -13366,7 +13366,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1357: ; preds = %.critedge.th
   %3830 = load ptr, ptr %3799, align 8, !noalias !1738
   %3831 = tail call ptr @LLVMBuildSExt(ptr noundef %3830, ptr noundef %3825, ptr noundef %3829, ptr noundef nonnull @.str.11) #16, !noalias !1738
   store ptr %3831, ptr %227, align 8, !alias.scope !1738
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %227) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %227) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3832:                                             ; preds = %1530
@@ -13417,7 +13417,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1363: ; preds = %.critedge.th
   %3864 = load ptr, ptr %3833, align 8, !noalias !1747
   %3865 = tail call ptr @LLVMBuildSExt(ptr noundef %3864, ptr noundef %3859, ptr noundef %3863, ptr noundef nonnull @.str.11) #16, !noalias !1747
   store ptr %3865, ptr %228, align 8, !alias.scope !1747
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %228) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %228) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3866:                                             ; preds = %1530
@@ -13468,7 +13468,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3898 = load ptr, ptr %3867, align 8, !noalias !1756
   %3899 = tail call ptr @LLVMBuildSExt(ptr noundef %3898, ptr noundef %3893, ptr noundef %3897, ptr noundef nonnull @.str.11) #16, !noalias !1756
   store ptr %3899, ptr %229, align 8, !alias.scope !1756
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %229) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %229) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3900:                                             ; preds = %1530
@@ -13476,7 +13476,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3902 = getelementptr inbounds i8, ptr %3901, i64 104
   %3903 = load i64, ptr %3902, align 8
   store i64 %3903, ptr %230, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %230) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %230) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3904:                                             ; preds = %1530
@@ -13484,7 +13484,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3906 = getelementptr inbounds i8, ptr %3905, i64 104
   %3907 = load i64, ptr %3906, align 8
   store i64 %3907, ptr %231, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %231) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %231) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3908:                                             ; preds = %1530
@@ -13492,7 +13492,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3910 = getelementptr inbounds i8, ptr %3909, i64 104
   %3911 = load i64, ptr %3910, align 8
   store i64 %3911, ptr %232, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %232) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %232) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3912:                                             ; preds = %1530
@@ -13500,7 +13500,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3914 = getelementptr inbounds i8, ptr %3913, i64 104
   %3915 = load i64, ptr %3914, align 8
   store i64 %3915, ptr %233, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %233) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %233) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3916:                                             ; preds = %1530
@@ -13508,7 +13508,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3918 = getelementptr inbounds i8, ptr %3917, i64 112
   %3919 = load i64, ptr %3918, align 8
   store i64 %3919, ptr %234, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %234) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %234) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3920:                                             ; preds = %1530
@@ -13516,7 +13516,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3922 = getelementptr inbounds i8, ptr %3921, i64 112
   %3923 = load i64, ptr %3922, align 8
   store i64 %3923, ptr %235, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %235) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %235) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3924:                                             ; preds = %1530
@@ -13524,7 +13524,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3926 = getelementptr inbounds i8, ptr %3925, i64 112
   %3927 = load i64, ptr %3926, align 8
   store i64 %3927, ptr %236, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %236) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %236) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3928:                                             ; preds = %1530
@@ -13532,7 +13532,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1369: ; preds = %.critedge.th
   %3930 = getelementptr inbounds i8, ptr %3929, i64 112
   %3931 = load i64, ptr %3930, align 8
   store i64 %3931, ptr %237, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %237) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %237) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3932:                                             ; preds = %1530, %1530
@@ -13595,7 +13595,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1381: ; preds = %.critedge.th
   %3972 = load ptr, ptr %3963, align 8, !noalias !1770
   %3973 = tail call ptr @LLVMBuildZExt(ptr noundef %3972, ptr noundef %3967, ptr noundef %3971, ptr noundef nonnull @.str.11) #16, !noalias !1770
   store ptr %3973, ptr %238, align 8, !alias.scope !1770
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %238) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %238) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 3974:                                             ; preds = %1530, %1530
@@ -13658,7 +13658,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1393: ; preds = %.critedge.th
   %4014 = load ptr, ptr %4005, align 8, !noalias !1784
   %4015 = tail call ptr @LLVMBuildZExt(ptr noundef %4014, ptr noundef %4009, ptr noundef %4013, ptr noundef nonnull @.str.11) #16, !noalias !1784
   store ptr %4015, ptr %239, align 8, !alias.scope !1784
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %239) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %239) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4016:                                             ; preds = %1530, %1530
@@ -13721,7 +13721,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1405: ; preds = %.critedge.th
   %4056 = load ptr, ptr %4047, align 8, !noalias !1798
   %4057 = tail call ptr @LLVMBuildZExt(ptr noundef %4056, ptr noundef %4051, ptr noundef %4055, ptr noundef nonnull @.str.11) #16, !noalias !1798
   store ptr %4057, ptr %240, align 8, !alias.scope !1798
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %240) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %240) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4058:                                             ; preds = %1530, %1530
@@ -13784,7 +13784,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1417: ; preds = %.critedge.th
   %4098 = load ptr, ptr %4089, align 8, !noalias !1812
   %4099 = tail call ptr @LLVMBuildZExt(ptr noundef %4098, ptr noundef %4093, ptr noundef %4097, ptr noundef nonnull @.str.11) #16, !noalias !1812
   store ptr %4099, ptr %241, align 8, !alias.scope !1812
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %241) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %241) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4100:                                             ; preds = %1530, %1530
@@ -13847,7 +13847,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1429: ; preds = %.critedge.th
   %4140 = load ptr, ptr %4131, align 8, !noalias !1826
   %4141 = tail call ptr @LLVMBuildZExt(ptr noundef %4140, ptr noundef %4135, ptr noundef %4139, ptr noundef nonnull @.str.11) #16, !noalias !1826
   store ptr %4141, ptr %242, align 8, !alias.scope !1826
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %242) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %242) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4142:                                             ; preds = %1530, %1530
@@ -13910,7 +13910,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1441: ; preds = %.critedge.th
   %4182 = load ptr, ptr %4173, align 8, !noalias !1840
   %4183 = tail call ptr @LLVMBuildZExt(ptr noundef %4182, ptr noundef %4177, ptr noundef %4181, ptr noundef nonnull @.str.11) #16, !noalias !1840
   store ptr %4183, ptr %243, align 8, !alias.scope !1840
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %243) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %243) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4184:                                             ; preds = %1530, %1530
@@ -13973,7 +13973,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1453: ; preds = %.critedge.th
   %4224 = load ptr, ptr %4215, align 8, !noalias !1854
   %4225 = tail call ptr @LLVMBuildZExt(ptr noundef %4224, ptr noundef %4219, ptr noundef %4223, ptr noundef nonnull @.str.11) #16, !noalias !1854
   store ptr %4225, ptr %244, align 8, !alias.scope !1854
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %244) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %244) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4226:                                             ; preds = %1530, %1530
@@ -14036,7 +14036,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1465: ; preds = %.critedge.th
   %4266 = load ptr, ptr %4257, align 8, !noalias !1868
   %4267 = tail call ptr @LLVMBuildZExt(ptr noundef %4266, ptr noundef %4261, ptr noundef %4265, ptr noundef nonnull @.str.11) #16, !noalias !1868
   store ptr %4267, ptr %245, align 8, !alias.scope !1868
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %245) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %245) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4268:                                             ; preds = %1530, %1530
@@ -14099,7 +14099,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1477: ; preds = %.critedge.th
   %4308 = load ptr, ptr %4299, align 8, !noalias !1882
   %4309 = tail call ptr @LLVMBuildZExt(ptr noundef %4308, ptr noundef %4303, ptr noundef %4307, ptr noundef nonnull @.str.11) #16, !noalias !1882
   store ptr %4309, ptr %246, align 8, !alias.scope !1882
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %246) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %246) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4310:                                             ; preds = %1530, %1530
@@ -14162,7 +14162,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1489: ; preds = %.critedge.th
   %4350 = load ptr, ptr %4341, align 8, !noalias !1896
   %4351 = tail call ptr @LLVMBuildZExt(ptr noundef %4350, ptr noundef %4345, ptr noundef %4349, ptr noundef nonnull @.str.11) #16, !noalias !1896
   store ptr %4351, ptr %247, align 8, !alias.scope !1896
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %247) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %247) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4352:                                             ; preds = %1530, %1530
@@ -14225,7 +14225,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1501: ; preds = %.critedge.th
   %4392 = load ptr, ptr %4383, align 8, !noalias !1908
   %4393 = tail call ptr @LLVMBuildZExt(ptr noundef %4392, ptr noundef %4387, ptr noundef %4391, ptr noundef nonnull @.str.11) #16, !noalias !1908
   store ptr %4393, ptr %248, align 8, !alias.scope !1908
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %248) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %248) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4394:                                             ; preds = %1530, %1530
@@ -14288,7 +14288,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1513: ; preds = %.critedge.th
   %4434 = load ptr, ptr %4425, align 8, !noalias !1920
   %4435 = tail call ptr @LLVMBuildZExt(ptr noundef %4434, ptr noundef %4429, ptr noundef %4433, ptr noundef nonnull @.str.11) #16, !noalias !1920
   store ptr %4435, ptr %249, align 8, !alias.scope !1920
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %249) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %249) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4436:                                             ; preds = %1530, %1530
@@ -14351,7 +14351,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1525: ; preds = %.critedge.th
   %4476 = load ptr, ptr %4467, align 8, !noalias !1932
   %4477 = tail call ptr @LLVMBuildZExt(ptr noundef %4476, ptr noundef %4471, ptr noundef %4475, ptr noundef nonnull @.str.11) #16, !noalias !1932
   store ptr %4477, ptr %250, align 8, !alias.scope !1932
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %250) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %250) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4478:                                             ; preds = %1530, %1530
@@ -14414,7 +14414,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1537: ; preds = %.critedge.th
   %4518 = load ptr, ptr %4509, align 8, !noalias !1944
   %4519 = tail call ptr @LLVMBuildZExt(ptr noundef %4518, ptr noundef %4513, ptr noundef %4517, ptr noundef nonnull @.str.11) #16, !noalias !1944
   store ptr %4519, ptr %251, align 8, !alias.scope !1944
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %251) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %251) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4520:                                             ; preds = %1530, %1530
@@ -14477,7 +14477,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1549: ; preds = %.critedge.th
   %4560 = load ptr, ptr %4551, align 8, !noalias !1956
   %4561 = tail call ptr @LLVMBuildZExt(ptr noundef %4560, ptr noundef %4555, ptr noundef %4559, ptr noundef nonnull @.str.11) #16, !noalias !1956
   store ptr %4561, ptr %252, align 8, !alias.scope !1956
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %252) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %252) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4562:                                             ; preds = %1530, %1530
@@ -14540,7 +14540,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1561: ; preds = %.critedge.th
   %4602 = load ptr, ptr %4593, align 8, !noalias !1968
   %4603 = tail call ptr @LLVMBuildZExt(ptr noundef %4602, ptr noundef %4597, ptr noundef %4601, ptr noundef nonnull @.str.11) #16, !noalias !1968
   store ptr %4603, ptr %253, align 8, !alias.scope !1968
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %253) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %253) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4604:                                             ; preds = %1530, %1530
@@ -14597,7 +14597,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1573: ; preds = %.critedge.th
   %4638 = load ptr, ptr %4635, align 8, !noalias !1977
   %4639 = tail call ptr @LLVMBuildAdd(ptr noundef %4638, ptr noundef %4636, ptr noundef %4637, ptr noundef nonnull @.str.11) #16, !noalias !1977
   store ptr %4639, ptr %254, align 8, !alias.scope !1977
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %254) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %254) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4640:                                             ; preds = %1530, %1530
@@ -14654,7 +14654,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1585: ; preds = %.critedge.th
   %4674 = load ptr, ptr %4671, align 8, !noalias !1986
   %4675 = tail call ptr @LLVMBuildSub(ptr noundef %4674, ptr noundef %4672, ptr noundef %4673, ptr noundef nonnull @.str.11) #16, !noalias !1986
   store ptr %4675, ptr %255, align 8, !alias.scope !1986
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %255) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %255) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4676:                                             ; preds = %1530, %1530
@@ -14711,7 +14711,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1597: ; preds = %.critedge.th
   %4710 = load ptr, ptr %4707, align 8, !noalias !1995
   %4711 = tail call ptr @LLVMBuildMul(ptr noundef %4710, ptr noundef %4708, ptr noundef %4709, ptr noundef nonnull @.str.11) #16, !noalias !1995
   store ptr %4711, ptr %256, align 8, !alias.scope !1995
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %256) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %256) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4712:                                             ; preds = %1530, %1530
@@ -14813,7 +14813,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1609: ; preds = %.critedge.th
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %257, ptr noundef nonnull align 8 dereferenceable(8) %4776, ptr noundef nonnull %258) #16
   %4780 = load i64, ptr %257, align 8
   %4781 = inttoptr i64 %4780 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %259, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %259, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
   %4782 = load ptr, ptr %4776, align 8, !noalias !2065
   %4783 = load ptr, ptr %259, align 8, !noalias !2065
   %4784 = call ptr @LLVMBuildCondBr(ptr noundef %4782, ptr noundef %4781, ptr noundef %4771, ptr noundef %4783) #16, !noalias !2065
@@ -14831,7 +14831,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1609: ; preds = %.critedge.th
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %260, ptr noundef nonnull align 8 dereferenceable(8) %4776, ptr noundef nonnull %261) #16
   %4793 = load i64, ptr %260, align 8
   %4794 = inttoptr i64 %4793 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %262, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1029) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %262, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1029) #16
   %4795 = load ptr, ptr %4776, align 8, !noalias !2081
   %4796 = load ptr, ptr %262, align 8, !noalias !2081
   %4797 = call ptr @LLVMBuildCondBr(ptr noundef %4795, ptr noundef %4794, ptr noundef %4775, ptr noundef %4796) #16, !noalias !2081
@@ -14841,7 +14841,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1609: ; preds = %.critedge.th
   %4799 = load ptr, ptr %4776, align 8, !noalias !2084
   %4800 = call ptr @LLVMBuildSDiv(ptr noundef %4799, ptr noundef %4786, ptr noundef %4777, ptr noundef nonnull @.str.11) #16, !noalias !2084
   store ptr %4800, ptr %263, align 8, !alias.scope !2084
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %263) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %263) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4801:                                             ; preds = %1530, %1530
@@ -14924,7 +14924,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1621: ; preds = %.critedge.th
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %264, ptr noundef nonnull align 8 dereferenceable(8) %4848, ptr noundef nonnull %265) #16
   %4852 = load i64, ptr %264, align 8
   %4853 = inttoptr i64 %4852 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %266, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %266, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
   %4854 = load ptr, ptr %4848, align 8, !noalias !2113
   %4855 = load ptr, ptr %266, align 8, !noalias !2113
   %4856 = call ptr @LLVMBuildCondBr(ptr noundef %4854, ptr noundef %4853, ptr noundef %4847, ptr noundef %4855) #16, !noalias !2113
@@ -14935,7 +14935,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1621: ; preds = %.critedge.th
   %4859 = load ptr, ptr %4848, align 8, !noalias !2116
   %4860 = call ptr @LLVMBuildUDiv(ptr noundef %4859, ptr noundef %4858, ptr noundef %4849, ptr noundef nonnull @.str.11) #16, !noalias !2116
   store ptr %4860, ptr %267, align 8, !alias.scope !2116
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %267) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %267) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4861:                                             ; preds = %1530, %1530
@@ -15041,7 +15041,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1633: ; preds = %.critedge.th
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %268, ptr noundef nonnull align 8 dereferenceable(8) %4928, ptr noundef nonnull %269) #16
   %4933 = load i64, ptr %268, align 8
   %4934 = inttoptr i64 %4933 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %270, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %270, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
   %4935 = load ptr, ptr %4928, align 8, !noalias !2183
   %4936 = load ptr, ptr %270, align 8, !noalias !2183
   %4937 = call ptr @LLVMBuildCondBr(ptr noundef %4935, ptr noundef %4934, ptr noundef %4927, ptr noundef %4936) #16, !noalias !2183
@@ -15085,7 +15085,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1633: ; preds = %.critedge.th
   call void @LLVMAddIncoming(ptr noundef %4961, ptr noundef nonnull %275, ptr noundef nonnull %276, i32 noundef 1) #16
   %4964 = ptrtoint ptr %4961 to i64
   store i64 %4964, ptr %277, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %277) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %277) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 4965:                                             ; preds = %1530, %1530
@@ -15168,7 +15168,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1645: ; preds = %.critedge.th
   call void @_ZN8WasmEdge4LLVM7Builder12createLikelyENS0_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %278, ptr noundef nonnull align 8 dereferenceable(8) %5012, ptr noundef nonnull %279) #16
   %5016 = load i64, ptr %278, align 8
   %5017 = inttoptr i64 %5016 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %280, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %280, ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef 1028) #16
   %5018 = load ptr, ptr %5012, align 8, !noalias !2243
   %5019 = load ptr, ptr %280, align 8, !noalias !2243
   %5020 = call ptr @LLVMBuildCondBr(ptr noundef %5018, ptr noundef %5017, ptr noundef %5011, ptr noundef %5019) #16, !noalias !2243
@@ -15179,7 +15179,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1645: ; preds = %.critedge.th
   %5023 = load ptr, ptr %5012, align 8, !noalias !2246
   %5024 = call ptr @LLVMBuildURem(ptr noundef %5023, ptr noundef %5022, ptr noundef %5013, ptr noundef nonnull @.str.11) #16, !noalias !2246
   store ptr %5024, ptr %281, align 8, !alias.scope !2246
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %281) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %281) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5025:                                             ; preds = %1530, %1530
@@ -15236,7 +15236,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1657: ; preds = %.critedge.th
   %5059 = load ptr, ptr %5056, align 8, !noalias !2255
   %5060 = tail call ptr @LLVMBuildAnd(ptr noundef %5059, ptr noundef %5057, ptr noundef %5058, ptr noundef nonnull @.str.11) #16, !noalias !2255
   store ptr %5060, ptr %282, align 8, !alias.scope !2255
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %282) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %282) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5061:                                             ; preds = %1530, %1530
@@ -15293,7 +15293,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1669: ; preds = %.critedge.th
   %5095 = load ptr, ptr %5092, align 8, !noalias !2264
   %5096 = tail call ptr @LLVMBuildOr(ptr noundef %5095, ptr noundef %5093, ptr noundef %5094, ptr noundef nonnull @.str.11) #16, !noalias !2264
   store ptr %5096, ptr %283, align 8, !alias.scope !2264
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %283) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %283) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5097:                                             ; preds = %1530, %1530
@@ -15350,7 +15350,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1681: ; preds = %.critedge.th
   %5131 = load ptr, ptr %5128, align 8, !noalias !2273
   %5132 = tail call ptr @LLVMBuildXor(ptr noundef %5131, ptr noundef %5129, ptr noundef %5130, ptr noundef nonnull @.str.11) #16, !noalias !2273
   store ptr %5132, ptr %284, align 8, !alias.scope !2273
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %284) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %284) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5133:                                             ; preds = %1530, %1530
@@ -15444,7 +15444,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1693: ; preds = %.critedge.th
   %5185 = load ptr, ptr %5144, align 8, !noalias !2301
   %5186 = tail call ptr @LLVMBuildShl(ptr noundef %5185, ptr noundef %5184, ptr noundef %5167, ptr noundef nonnull @.str.11) #16, !noalias !2301
   store ptr %5186, ptr %285, align 8, !alias.scope !2301
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %285) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %285) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5187:                                             ; preds = %1530, %1530
@@ -15538,7 +15538,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1705: ; preds = %.critedge.th
   %5239 = load ptr, ptr %5198, align 8, !noalias !2329
   %5240 = tail call ptr @LLVMBuildAShr(ptr noundef %5239, ptr noundef %5238, ptr noundef %5221, ptr noundef nonnull @.str.11) #16, !noalias !2329
   store ptr %5240, ptr %286, align 8, !alias.scope !2329
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %286) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %286) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5241:                                             ; preds = %1530, %1530
@@ -15632,7 +15632,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1717: ; preds = %.critedge.th
   %5293 = load ptr, ptr %5252, align 8, !noalias !2357
   %5294 = tail call ptr @LLVMBuildLShr(ptr noundef %5293, ptr noundef %5292, ptr noundef %5275, ptr noundef nonnull @.str.11) #16, !noalias !2357
   store ptr %5294, ptr %287, align 8, !alias.scope !2357
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %287) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %287) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5295:                                             ; preds = %1530
@@ -15699,7 +15699,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1729: ; preds = %.critedge.th
   %5334 = getelementptr inbounds i8, ptr %290, i64 8
   store i64 3, ptr %5334, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %288, ptr noundef nonnull align 8 dereferenceable(8) %5328, i32 noundef %5326, ptr nonnull %289, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %290, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %288) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %288) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5335:                                             ; preds = %1530
@@ -15766,7 +15766,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1741: ; preds = %.critedge.th
   %5374 = getelementptr inbounds i8, ptr %294, i64 8
   store i64 3, ptr %5374, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %292, ptr noundef nonnull align 8 dereferenceable(8) %5368, i32 noundef %5366, ptr nonnull %293, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %294, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %292) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %292) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5375:                                             ; preds = %1530
@@ -15833,7 +15833,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1753: ; preds = %.critedge.th
   %5414 = getelementptr inbounds i8, ptr %298, i64 8
   store i64 3, ptr %5414, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %296, ptr noundef nonnull align 8 dereferenceable(8) %5408, i32 noundef %5406, ptr nonnull %297, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %298, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %296) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %296) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5415:                                             ; preds = %1530
@@ -15900,7 +15900,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1765: ; preds = %.critedge.th
   %5454 = getelementptr inbounds i8, ptr %302, i64 8
   store i64 3, ptr %5454, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %300, ptr noundef nonnull align 8 dereferenceable(8) %5448, i32 noundef %5446, ptr nonnull %301, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %302, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %300) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %300) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5455:                                             ; preds = %1530, %1530
@@ -15954,7 +15954,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1777: ; preds = %.critedge.th
   store i64 %5485, ptr %305, align 8
   store i64 %5481, ptr %306, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createFAddENS0_5ValueES2_PKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %304, ptr noundef nonnull align 8 dereferenceable(8) %5486, ptr noundef nonnull %305, ptr noundef nonnull %306, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %304) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %304) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5487:                                             ; preds = %1530, %1530
@@ -16008,7 +16008,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1789: ; preds = %.critedge.th
   store i64 %5517, ptr %308, align 8
   store i64 %5513, ptr %309, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createFSubENS0_5ValueES2_PKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %307, ptr noundef nonnull align 8 dereferenceable(8) %5518, ptr noundef nonnull %308, ptr noundef nonnull %309, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %307) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %307) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5519:                                             ; preds = %1530, %1530
@@ -16062,7 +16062,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1801: ; preds = %.critedge.th
   store i64 %5549, ptr %311, align 8
   store i64 %5545, ptr %312, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createFMulENS0_5ValueES2_PKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %310, ptr noundef nonnull align 8 dereferenceable(8) %5550, ptr noundef nonnull %311, ptr noundef nonnull %312, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %310) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %310) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5551:                                             ; preds = %1530, %1530
@@ -16116,7 +16116,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1813: ; preds = %.critedge.th
   store i64 %5581, ptr %314, align 8
   store i64 %5577, ptr %315, align 8
   call void @_ZN8WasmEdge4LLVM7Builder10createFDivENS0_5ValueES2_PKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %313, ptr noundef nonnull align 8 dereferenceable(8) %5582, ptr noundef nonnull %314, ptr noundef nonnull %315, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %313) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %313) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5583:                                             ; preds = %1530, %1530
@@ -16216,7 +16216,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1825: ; preds = %.critedge.th
   %5646 = call ptr @LLVMBuildSelect(ptr noundef %5645, ptr noundef %5623, ptr noundef %5642, ptr noundef %5644, ptr noundef nonnull @.str.11) #16, !noalias !2438
   %5647 = ptrtoint ptr %5646 to i64
   store i64 %5647, ptr %323, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %323) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %323) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5648:                                             ; preds = %1530, %1530
@@ -16316,7 +16316,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1837: ; preds = %.critedge.th
   %5711 = call ptr @LLVMBuildSelect(ptr noundef %5710, ptr noundef %5688, ptr noundef %5707, ptr noundef %5709, ptr noundef nonnull @.str.11) #16, !noalias !2471
   %5712 = ptrtoint ptr %5711 to i64
   store i64 %5712, ptr %331, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %331) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %331) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5713:                                             ; preds = %1530, %1530
@@ -16381,7 +16381,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5750 = getelementptr inbounds i8, ptr %334, i64 8
   store i64 2, ptr %5750, align 8
   call void @_ZN8WasmEdge4LLVM7Builder15createIntrinsicEjN5cxx204spanIKNS0_4TypeELm18446744073709551615EEENS3_IKNS0_5ValueELm18446744073709551615EEEPKc(ptr dead_on_unwind nonnull writable sret(%"class.WasmEdge::LLVM::Value") align 8 %332, ptr noundef nonnull align 8 dereferenceable(8) %5747, i32 noundef %5745, ptr nonnull %333, i64 1, ptr noundef nonnull byval(%"struct.cxx20::span.134") align 8 %334, ptr noundef nonnull @.str.11) #16
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %332) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %332) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5751:                                             ; preds = %1530
@@ -16500,7 +16500,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5843 = getelementptr inbounds i8, ptr %5840, i64 144
   %5844 = load i64, ptr %5843, align 8
   store i64 %5844, ptr %336, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5837, i32 noundef %5839, i64 %5842, ptr noundef nonnull %336) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5837, i32 noundef %5839, i64 %5842, ptr noundef %336) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5845:                                             ; preds = %1530
@@ -16513,7 +16513,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5852 = getelementptr inbounds i8, ptr %5849, i64 152
   %5853 = load i64, ptr %5852, align 8
   store i64 %5853, ptr %337, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5846, i32 noundef %5848, i64 %5851, ptr noundef nonnull %337) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5846, i32 noundef %5848, i64 %5851, ptr noundef %337) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5854:                                             ; preds = %1530
@@ -16526,7 +16526,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5861 = getelementptr inbounds i8, ptr %5858, i64 160
   %5862 = load i64, ptr %5861, align 8
   store i64 %5862, ptr %338, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5855, i32 noundef %5857, i64 %5860, ptr noundef nonnull %338) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5855, i32 noundef %5857, i64 %5860, ptr noundef %338) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5863:                                             ; preds = %1530
@@ -16539,7 +16539,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5870 = getelementptr inbounds i8, ptr %5867, i64 176
   %5871 = load i64, ptr %5870, align 8
   store i64 %5871, ptr %339, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5864, i32 noundef %5866, i64 %5869, ptr noundef nonnull %339) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5864, i32 noundef %5866, i64 %5869, ptr noundef %339) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5872:                                             ; preds = %1530
@@ -16574,7 +16574,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5895 = getelementptr inbounds i8, ptr %5894, i64 192
   %5896 = load i64, ptr %5895, align 8
   store i64 %5896, ptr %340, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5891, i32 noundef %5893, ptr noundef nonnull %340, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5891, i32 noundef %5893, ptr noundef %340, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5897:                                             ; preds = %1530
@@ -16591,7 +16591,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5907 = getelementptr inbounds i8, ptr %5904, i64 144
   %5908 = load i64, ptr %5907, align 8
   store i64 %5908, ptr %342, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5898, i32 noundef %5900, i32 noundef %5903, ptr noundef nonnull %341, ptr noundef nonnull %342) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5898, i32 noundef %5900, i32 noundef %5903, ptr noundef %341, ptr noundef %342) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5909:                                             ; preds = %1530
@@ -16608,7 +16608,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5919 = getelementptr inbounds i8, ptr %5916, i64 152
   %5920 = load i64, ptr %5919, align 8
   store i64 %5920, ptr %344, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5910, i32 noundef %5912, i32 noundef %5915, ptr noundef nonnull %343, ptr noundef nonnull %344) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5910, i32 noundef %5912, i32 noundef %5915, ptr noundef %343, ptr noundef %344) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5921:                                             ; preds = %1530
@@ -16625,7 +16625,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5931 = getelementptr inbounds i8, ptr %5928, i64 160
   %5932 = load i64, ptr %5931, align 8
   store i64 %5932, ptr %346, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5922, i32 noundef %5924, i32 noundef %5927, ptr noundef nonnull %345, ptr noundef nonnull %346) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5922, i32 noundef %5924, i32 noundef %5927, ptr noundef %345, ptr noundef %346) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5933:                                             ; preds = %1530
@@ -16642,7 +16642,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %5943 = getelementptr inbounds i8, ptr %5940, i64 176
   %5944 = load i64, ptr %5943, align 8
   store i64 %5944, ptr %348, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5934, i32 noundef %5936, i32 noundef %5939, ptr noundef nonnull %347, ptr noundef nonnull %348) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5934, i32 noundef %5936, i32 noundef %5939, ptr noundef %347, ptr noundef %348) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5945:                                             ; preds = %1530
@@ -16658,7 +16658,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   store i64 %5954, ptr %349, align 8
   %5955 = getelementptr inbounds i8, ptr %5952, i64 144
   %5956 = load i64, ptr %5955, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5946, i32 noundef %5948, i32 noundef %5951, ptr noundef nonnull %349, i64 %5956) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5946, i32 noundef %5948, i32 noundef %5951, ptr noundef %349, i64 %5956) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5957:                                             ; preds = %1530
@@ -16674,7 +16674,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   store i64 %5966, ptr %350, align 8
   %5967 = getelementptr inbounds i8, ptr %5964, i64 152
   %5968 = load i64, ptr %5967, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5958, i32 noundef %5960, i32 noundef %5963, ptr noundef nonnull %350, i64 %5968) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5958, i32 noundef %5960, i32 noundef %5963, ptr noundef %350, i64 %5968) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5969:                                             ; preds = %1530
@@ -16690,7 +16690,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   store i64 %5978, ptr %351, align 8
   %5979 = getelementptr inbounds i8, ptr %5976, i64 160
   %5980 = load i64, ptr %5979, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5970, i32 noundef %5972, i32 noundef %5975, ptr noundef nonnull %351, i64 %5980) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5970, i32 noundef %5972, i32 noundef %5975, ptr noundef %351, i64 %5980) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5981:                                             ; preds = %1530
@@ -16706,7 +16706,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   store i64 %5990, ptr %352, align 8
   %5991 = getelementptr inbounds i8, ptr %5988, i64 176
   %5992 = load i64, ptr %5991, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5982, i32 noundef %5984, i32 noundef %5987, ptr noundef nonnull %352, i64 %5992) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %5982, i32 noundef %5984, i32 noundef %5987, ptr noundef %352, i64 %5992) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 5993:                                             ; preds = %1530
@@ -16730,7 +16730,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1849: ; preds = %.critedge.th
   %6004 = load ptr, ptr %5997, align 8, !noalias !2501
   %6005 = call ptr @LLVMBuildBitCast(ptr noundef %6004, ptr noundef %5999, ptr noundef %6003, ptr noundef nonnull @.str.11) #16, !noalias !2501
   store ptr %6005, ptr %355, align 8, !alias.scope !2501
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %355) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %355) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6006:                                             ; preds = %1530
@@ -16839,7 +16839,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6074 = load ptr, ptr %6007, align 8, !noalias !2520
   %6075 = call ptr @LLVMBuildBitCast(ptr noundef %6074, ptr noundef %6069, ptr noundef %6073, ptr noundef nonnull @.str.11) #16, !noalias !2520
   store ptr %6075, ptr %357, align 8, !alias.scope !2520
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %357) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %357) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6076:                                             ; preds = %1530
@@ -16852,7 +16852,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6083 = getelementptr inbounds i8, ptr %6077, i64 104
   %6084 = load i64, ptr %6083, align 8
   store i64 %6084, ptr %359, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6079, i32 noundef %6082, ptr noundef nonnull %359, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6079, i32 noundef %6082, ptr noundef %359, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6085:                                             ; preds = %1530
@@ -16865,7 +16865,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6092 = getelementptr inbounds i8, ptr %6086, i64 104
   %6093 = load i64, ptr %6092, align 8
   store i64 %6093, ptr %360, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6088, i32 noundef %6091, ptr noundef nonnull %360, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6088, i32 noundef %6091, ptr noundef %360, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6094:                                             ; preds = %1530
@@ -16876,7 +16876,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6098 = getelementptr inbounds i8, ptr %0, i64 12
   %6099 = load i8, ptr %6098, align 4
   %6100 = zext i8 %6099 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %361, i32 noundef %6100) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %361, i32 noundef %6100) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6101:                                             ; preds = %1530
@@ -16889,7 +16889,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6108 = getelementptr inbounds i8, ptr %6102, i64 104
   %6109 = load i64, ptr %6108, align 8
   store i64 %6109, ptr %362, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6104, i32 noundef %6107, ptr noundef nonnull %362, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6104, i32 noundef %6107, ptr noundef %362, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6110:                                             ; preds = %1530
@@ -16902,7 +16902,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6117 = getelementptr inbounds i8, ptr %6111, i64 104
   %6118 = load i64, ptr %6117, align 8
   store i64 %6118, ptr %363, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6113, i32 noundef %6116, ptr noundef nonnull %363, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i64 %6113, i32 noundef %6116, ptr noundef %363, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6119:                                             ; preds = %1530
@@ -16913,7 +16913,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6123 = getelementptr inbounds i8, ptr %0, i64 12
   %6124 = load i8, ptr %6123, align 4
   %6125 = zext i8 %6124 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %364, i32 noundef %6125) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %364, i32 noundef %6125) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6126:                                             ; preds = %1530
@@ -16934,7 +16934,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6137 = getelementptr inbounds i8, ptr %0, i64 12
   %6138 = load i8, ptr %6137, align 4
   %6139 = zext i8 %6138 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %365, i32 noundef %6139) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %365, i32 noundef %6139) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6140:                                             ; preds = %1530
@@ -16955,7 +16955,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6151 = getelementptr inbounds i8, ptr %0, i64 12
   %6152 = load i8, ptr %6151, align 4
   %6153 = zext i8 %6152 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %366, i32 noundef %6153) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %366, i32 noundef %6153) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6154:                                             ; preds = %1530
@@ -16976,7 +16976,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6165 = getelementptr inbounds i8, ptr %0, i64 12
   %6166 = load i8, ptr %6165, align 4
   %6167 = zext i8 %6166 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %367, i32 noundef %6167) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %367, i32 noundef %6167) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6168:                                             ; preds = %1530
@@ -16997,7 +16997,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6179 = getelementptr inbounds i8, ptr %0, i64 12
   %6180 = load i8, ptr %6179, align 4
   %6181 = zext i8 %6180 to i32
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %368, i32 noundef %6181) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %368, i32 noundef %6181) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6182:                                             ; preds = %1530
@@ -17009,7 +17009,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6185 = getelementptr inbounds i8, ptr %6184, i64 144
   %6186 = load i64, ptr %6185, align 8
   store i64 %6186, ptr %369, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %369) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %369) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6187:                                             ; preds = %1530
@@ -17017,7 +17017,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6189 = getelementptr inbounds i8, ptr %6188, i64 152
   %6190 = load i64, ptr %6189, align 8
   store i64 %6190, ptr %370, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %370) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %370) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6191:                                             ; preds = %1530
@@ -17025,7 +17025,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6193 = getelementptr inbounds i8, ptr %6192, i64 160
   %6194 = load i64, ptr %6193, align 8
   store i64 %6194, ptr %371, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %371) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %371) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6195:                                             ; preds = %1530
@@ -17033,7 +17033,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6197 = getelementptr inbounds i8, ptr %6196, i64 176
   %6198 = load i64, ptr %6197, align 8
   store i64 %6198, ptr %372, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %372) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %372) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6199:                                             ; preds = %1530
@@ -17041,7 +17041,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6201 = getelementptr inbounds i8, ptr %6200, i64 168
   %6202 = load i64, ptr %6201, align 8
   store i64 %6202, ptr %373, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %373) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %373) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6203:                                             ; preds = %1530
@@ -17049,7 +17049,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6205 = getelementptr inbounds i8, ptr %6204, i64 184
   %6206 = load i64, ptr %6205, align 8
   store i64 %6206, ptr %374, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %374) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %374) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6207:                                             ; preds = %1530
@@ -17057,7 +17057,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6209 = getelementptr inbounds i8, ptr %6208, i64 144
   %6210 = load i64, ptr %6209, align 8
   store i64 %6210, ptr %375, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %375, i32 noundef 32) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %375, i32 noundef 32) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6211:                                             ; preds = %1530
@@ -17065,7 +17065,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6213 = getelementptr inbounds i8, ptr %6212, i64 144
   %6214 = load i64, ptr %6213, align 8
   store i64 %6214, ptr %376, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %376, i32 noundef 33) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %376, i32 noundef 33) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6215:                                             ; preds = %1530
@@ -17073,7 +17073,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6217 = getelementptr inbounds i8, ptr %6216, i64 144
   %6218 = load i64, ptr %6217, align 8
   store i64 %6218, ptr %377, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %377, i32 noundef 40) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %377, i32 noundef 40) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6219:                                             ; preds = %1530
@@ -17081,7 +17081,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6221 = getelementptr inbounds i8, ptr %6220, i64 144
   %6222 = load i64, ptr %6221, align 8
   store i64 %6222, ptr %378, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %378, i32 noundef 36) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %378, i32 noundef 36) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6223:                                             ; preds = %1530
@@ -17089,7 +17089,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6225 = getelementptr inbounds i8, ptr %6224, i64 144
   %6226 = load i64, ptr %6225, align 8
   store i64 %6226, ptr %379, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %379, i32 noundef 38) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %379, i32 noundef 38) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6227:                                             ; preds = %1530
@@ -17097,7 +17097,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6229 = getelementptr inbounds i8, ptr %6228, i64 144
   %6230 = load i64, ptr %6229, align 8
   store i64 %6230, ptr %380, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %380, i32 noundef 34) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %380, i32 noundef 34) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6231:                                             ; preds = %1530
@@ -17105,7 +17105,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6233 = getelementptr inbounds i8, ptr %6232, i64 144
   %6234 = load i64, ptr %6233, align 8
   store i64 %6234, ptr %381, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %381, i32 noundef 41) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %381, i32 noundef 41) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6235:                                             ; preds = %1530
@@ -17113,7 +17113,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6237 = getelementptr inbounds i8, ptr %6236, i64 144
   %6238 = load i64, ptr %6237, align 8
   store i64 %6238, ptr %382, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %382, i32 noundef 37) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %382, i32 noundef 37) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6239:                                             ; preds = %1530
@@ -17121,7 +17121,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6241 = getelementptr inbounds i8, ptr %6240, i64 144
   %6242 = load i64, ptr %6241, align 8
   store i64 %6242, ptr %383, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %383, i32 noundef 39) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %383, i32 noundef 39) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6243:                                             ; preds = %1530
@@ -17129,7 +17129,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6245 = getelementptr inbounds i8, ptr %6244, i64 144
   %6246 = load i64, ptr %6245, align 8
   store i64 %6246, ptr %384, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %384, i32 noundef 35) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %384, i32 noundef 35) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6247:                                             ; preds = %1530
@@ -17137,7 +17137,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6249 = getelementptr inbounds i8, ptr %6248, i64 152
   %6250 = load i64, ptr %6249, align 8
   store i64 %6250, ptr %385, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %385, i32 noundef 32) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %385, i32 noundef 32) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6251:                                             ; preds = %1530
@@ -17145,7 +17145,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6253 = getelementptr inbounds i8, ptr %6252, i64 152
   %6254 = load i64, ptr %6253, align 8
   store i64 %6254, ptr %386, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %386, i32 noundef 33) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %386, i32 noundef 33) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6255:                                             ; preds = %1530
@@ -17153,7 +17153,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6257 = getelementptr inbounds i8, ptr %6256, i64 152
   %6258 = load i64, ptr %6257, align 8
   store i64 %6258, ptr %387, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %387, i32 noundef 40) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %387, i32 noundef 40) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6259:                                             ; preds = %1530
@@ -17161,7 +17161,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6261 = getelementptr inbounds i8, ptr %6260, i64 152
   %6262 = load i64, ptr %6261, align 8
   store i64 %6262, ptr %388, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %388, i32 noundef 36) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %388, i32 noundef 36) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6263:                                             ; preds = %1530
@@ -17169,7 +17169,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6265 = getelementptr inbounds i8, ptr %6264, i64 152
   %6266 = load i64, ptr %6265, align 8
   store i64 %6266, ptr %389, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %389, i32 noundef 38) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %389, i32 noundef 38) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6267:                                             ; preds = %1530
@@ -17177,7 +17177,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6269 = getelementptr inbounds i8, ptr %6268, i64 152
   %6270 = load i64, ptr %6269, align 8
   store i64 %6270, ptr %390, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %390, i32 noundef 34) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %390, i32 noundef 34) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6271:                                             ; preds = %1530
@@ -17185,7 +17185,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6273 = getelementptr inbounds i8, ptr %6272, i64 152
   %6274 = load i64, ptr %6273, align 8
   store i64 %6274, ptr %391, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %391, i32 noundef 41) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %391, i32 noundef 41) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6275:                                             ; preds = %1530
@@ -17193,7 +17193,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6277 = getelementptr inbounds i8, ptr %6276, i64 152
   %6278 = load i64, ptr %6277, align 8
   store i64 %6278, ptr %392, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %392, i32 noundef 37) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %392, i32 noundef 37) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6279:                                             ; preds = %1530
@@ -17201,7 +17201,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6281 = getelementptr inbounds i8, ptr %6280, i64 152
   %6282 = load i64, ptr %6281, align 8
   store i64 %6282, ptr %393, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %393, i32 noundef 39) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %393, i32 noundef 39) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6283:                                             ; preds = %1530
@@ -17209,7 +17209,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6285 = getelementptr inbounds i8, ptr %6284, i64 152
   %6286 = load i64, ptr %6285, align 8
   store i64 %6286, ptr %394, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %394, i32 noundef 35) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %394, i32 noundef 35) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6287:                                             ; preds = %1530
@@ -17217,7 +17217,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6289 = getelementptr inbounds i8, ptr %6288, i64 160
   %6290 = load i64, ptr %6289, align 8
   store i64 %6290, ptr %395, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %395, i32 noundef 32) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %395, i32 noundef 32) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6291:                                             ; preds = %1530
@@ -17225,7 +17225,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6293 = getelementptr inbounds i8, ptr %6292, i64 160
   %6294 = load i64, ptr %6293, align 8
   store i64 %6294, ptr %396, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %396, i32 noundef 33) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %396, i32 noundef 33) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6295:                                             ; preds = %1530
@@ -17233,7 +17233,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6297 = getelementptr inbounds i8, ptr %6296, i64 160
   %6298 = load i64, ptr %6297, align 8
   store i64 %6298, ptr %397, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %397, i32 noundef 40) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %397, i32 noundef 40) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6299:                                             ; preds = %1530
@@ -17241,7 +17241,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6301 = getelementptr inbounds i8, ptr %6300, i64 160
   %6302 = load i64, ptr %6301, align 8
   store i64 %6302, ptr %398, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %398, i32 noundef 36) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %398, i32 noundef 36) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6303:                                             ; preds = %1530
@@ -17249,7 +17249,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6305 = getelementptr inbounds i8, ptr %6304, i64 160
   %6306 = load i64, ptr %6305, align 8
   store i64 %6306, ptr %399, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %399, i32 noundef 38) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %399, i32 noundef 38) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6307:                                             ; preds = %1530
@@ -17257,7 +17257,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6309 = getelementptr inbounds i8, ptr %6308, i64 160
   %6310 = load i64, ptr %6309, align 8
   store i64 %6310, ptr %400, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %400, i32 noundef 34) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %400, i32 noundef 34) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6311:                                             ; preds = %1530
@@ -17265,7 +17265,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6313 = getelementptr inbounds i8, ptr %6312, i64 160
   %6314 = load i64, ptr %6313, align 8
   store i64 %6314, ptr %401, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %401, i32 noundef 41) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %401, i32 noundef 41) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6315:                                             ; preds = %1530
@@ -17273,7 +17273,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6317 = getelementptr inbounds i8, ptr %6316, i64 160
   %6318 = load i64, ptr %6317, align 8
   store i64 %6318, ptr %402, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %402, i32 noundef 37) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %402, i32 noundef 37) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6319:                                             ; preds = %1530
@@ -17281,7 +17281,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6321 = getelementptr inbounds i8, ptr %6320, i64 160
   %6322 = load i64, ptr %6321, align 8
   store i64 %6322, ptr %403, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %403, i32 noundef 39) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %403, i32 noundef 39) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6323:                                             ; preds = %1530
@@ -17289,7 +17289,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6325 = getelementptr inbounds i8, ptr %6324, i64 160
   %6326 = load i64, ptr %6325, align 8
   store i64 %6326, ptr %404, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %404, i32 noundef 35) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %404, i32 noundef 35) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6327:                                             ; preds = %1530
@@ -17297,7 +17297,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6329 = getelementptr inbounds i8, ptr %6328, i64 176
   %6330 = load i64, ptr %6329, align 8
   store i64 %6330, ptr %405, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %405, i32 noundef 32) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %405, i32 noundef 32) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6331:                                             ; preds = %1530
@@ -17305,7 +17305,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6333 = getelementptr inbounds i8, ptr %6332, i64 176
   %6334 = load i64, ptr %6333, align 8
   store i64 %6334, ptr %406, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %406, i32 noundef 33) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %406, i32 noundef 33) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6335:                                             ; preds = %1530
@@ -17313,7 +17313,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6337 = getelementptr inbounds i8, ptr %6336, i64 176
   %6338 = load i64, ptr %6337, align 8
   store i64 %6338, ptr %407, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %407, i32 noundef 40) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %407, i32 noundef 40) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6339:                                             ; preds = %1530
@@ -17321,7 +17321,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6341 = getelementptr inbounds i8, ptr %6340, i64 176
   %6342 = load i64, ptr %6341, align 8
   store i64 %6342, ptr %408, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %408, i32 noundef 38) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %408, i32 noundef 38) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6343:                                             ; preds = %1530
@@ -17329,7 +17329,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6345 = getelementptr inbounds i8, ptr %6344, i64 176
   %6346 = load i64, ptr %6345, align 8
   store i64 %6346, ptr %409, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %409, i32 noundef 41) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %409, i32 noundef 41) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6347:                                             ; preds = %1530
@@ -17337,7 +17337,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6349 = getelementptr inbounds i8, ptr %6348, i64 176
   %6350 = load i64, ptr %6349, align 8
   store i64 %6350, ptr %410, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %410, i32 noundef 39) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %410, i32 noundef 39) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6351:                                             ; preds = %1530
@@ -17348,7 +17348,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6355 = getelementptr inbounds i8, ptr %6352, i64 160
   %6356 = load i64, ptr %6355, align 8
   store i64 %6356, ptr %412, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %411, i32 noundef 1, ptr noundef nonnull %412) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %411, i32 noundef 1, ptr noundef %412) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6357:                                             ; preds = %1530
@@ -17359,7 +17359,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6361 = getelementptr inbounds i8, ptr %6358, i64 160
   %6362 = load i64, ptr %6361, align 8
   store i64 %6362, ptr %414, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %413, i32 noundef 14, ptr noundef nonnull %414) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %413, i32 noundef 14, ptr noundef %414) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6363:                                             ; preds = %1530
@@ -17370,7 +17370,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6367 = getelementptr inbounds i8, ptr %6364, i64 160
   %6368 = load i64, ptr %6367, align 8
   store i64 %6368, ptr %416, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %415, i32 noundef 4, ptr noundef nonnull %416) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %415, i32 noundef 4, ptr noundef %416) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6369:                                             ; preds = %1530
@@ -17381,7 +17381,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6373 = getelementptr inbounds i8, ptr %6370, i64 160
   %6374 = load i64, ptr %6373, align 8
   store i64 %6374, ptr %418, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %417, i32 noundef 2, ptr noundef nonnull %418) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %417, i32 noundef 2, ptr noundef %418) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6375:                                             ; preds = %1530
@@ -17392,7 +17392,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6379 = getelementptr inbounds i8, ptr %6376, i64 160
   %6380 = load i64, ptr %6379, align 8
   store i64 %6380, ptr %420, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %419, i32 noundef 5, ptr noundef nonnull %420) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %419, i32 noundef 5, ptr noundef %420) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6381:                                             ; preds = %1530
@@ -17403,7 +17403,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6385 = getelementptr inbounds i8, ptr %6382, i64 160
   %6386 = load i64, ptr %6385, align 8
   store i64 %6386, ptr %422, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %421, i32 noundef 3, ptr noundef nonnull %422) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %421, i32 noundef 3, ptr noundef %422) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6387:                                             ; preds = %1530
@@ -17414,7 +17414,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6391 = getelementptr inbounds i8, ptr %6388, i64 176
   %6392 = load i64, ptr %6391, align 8
   store i64 %6392, ptr %424, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %423, i32 noundef 1, ptr noundef nonnull %424) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %423, i32 noundef 1, ptr noundef %424) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6393:                                             ; preds = %1530
@@ -17425,7 +17425,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6397 = getelementptr inbounds i8, ptr %6394, i64 176
   %6398 = load i64, ptr %6397, align 8
   store i64 %6398, ptr %426, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %425, i32 noundef 14, ptr noundef nonnull %426) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %425, i32 noundef 14, ptr noundef %426) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6399:                                             ; preds = %1530
@@ -17436,7 +17436,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6403 = getelementptr inbounds i8, ptr %6400, i64 176
   %6404 = load i64, ptr %6403, align 8
   store i64 %6404, ptr %428, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %427, i32 noundef 4, ptr noundef nonnull %428) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %427, i32 noundef 4, ptr noundef %428) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6405:                                             ; preds = %1530
@@ -17447,7 +17447,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6409 = getelementptr inbounds i8, ptr %6406, i64 176
   %6410 = load i64, ptr %6409, align 8
   store i64 %6410, ptr %430, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %429, i32 noundef 2, ptr noundef nonnull %430) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %429, i32 noundef 2, ptr noundef %430) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6411:                                             ; preds = %1530
@@ -17458,7 +17458,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6415 = getelementptr inbounds i8, ptr %6412, i64 176
   %6416 = load i64, ptr %6415, align 8
   store i64 %6416, ptr %432, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %431, i32 noundef 5, ptr noundef nonnull %432) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %431, i32 noundef 5, ptr noundef %432) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6417:                                             ; preds = %1530
@@ -17469,7 +17469,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1866: ; preds = %.critedge.th
   %6421 = getelementptr inbounds i8, ptr %6418, i64 176
   %6422 = load i64, ptr %6421, align 8
   store i64 %6422, ptr %434, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %433, i32 noundef 3, ptr noundef nonnull %434) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %433, i32 noundef 3, ptr noundef %434) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6423:                                             ; preds = %1530
@@ -17540,7 +17540,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1883: ; preds = %.critedge.th
   %6468 = load ptr, ptr %6465, align 8, !noalias !2532
   %6469 = tail call ptr @LLVMBuildAnd(ptr noundef %6468, ptr noundef %6466, ptr noundef %6467, ptr noundef nonnull @.str.11) #16, !noalias !2532
   store ptr %6469, ptr %435, align 8, !alias.scope !2532
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %435) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %435) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6470:                                             ; preds = %1530
@@ -17599,7 +17599,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1895: ; preds = %.critedge.th
   %6506 = load ptr, ptr %6501, align 8, !noalias !2544
   %6507 = tail call ptr @LLVMBuildAnd(ptr noundef %6506, ptr noundef %6502, ptr noundef %6505, ptr noundef nonnull @.str.11) #16, !noalias !2544
   store ptr %6507, ptr %436, align 8, !alias.scope !2544
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %436) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %436) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6508:                                             ; preds = %1530
@@ -17656,7 +17656,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1907: ; preds = %.critedge.th
   %6542 = load ptr, ptr %6539, align 8, !noalias !2553
   %6543 = tail call ptr @LLVMBuildOr(ptr noundef %6542, ptr noundef %6540, ptr noundef %6541, ptr noundef nonnull @.str.11) #16, !noalias !2553
   store ptr %6543, ptr %437, align 8, !alias.scope !2553
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %437) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %437) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6544:                                             ; preds = %1530
@@ -17713,7 +17713,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1919: ; preds = %.critedge.th
   %6578 = load ptr, ptr %6575, align 8, !noalias !2562
   %6579 = tail call ptr @LLVMBuildXor(ptr noundef %6578, ptr noundef %6576, ptr noundef %6577, ptr noundef nonnull @.str.11) #16, !noalias !2562
   store ptr %6579, ptr %438, align 8, !alias.scope !2562
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %438) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %438) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6580:                                             ; preds = %1530
@@ -17790,7 +17790,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6630 = load ptr, ptr %6622, align 8, !noalias !2580
   %6631 = tail call ptr @LLVMBuildXor(ptr noundef %6630, ptr noundef %6629, ptr noundef %6624, ptr noundef nonnull @.str.11) #16, !noalias !2580
   store ptr %6631, ptr %439, align 8, !alias.scope !2580
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %439) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %439) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6632:                                             ; preds = %1530
@@ -17834,7 +17834,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6652 = getelementptr inbounds i8, ptr %6651, i64 152
   %6653 = load i64, ptr %6652, align 8
   store i64 %6653, ptr %440, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %440, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %440, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6654:                                             ; preds = %1530
@@ -17842,7 +17842,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6656 = getelementptr inbounds i8, ptr %6655, i64 152
   %6657 = load i64, ptr %6656, align 8
   store i64 %6657, ptr %441, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %441, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %441, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6658:                                             ; preds = %1530
@@ -17941,7 +17941,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6712 = getelementptr inbounds i8, ptr %6711, i64 144
   %6713 = load i64, ptr %6712, align 8
   store i64 %6713, ptr %442, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %442) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %442) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6714:                                             ; preds = %1530
@@ -17977,7 +17977,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6732 = getelementptr inbounds i8, ptr %6731, i64 160
   %6733 = load i64, ptr %6732, align 8
   store i64 %6733, ptr %443, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %443, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %443, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6734:                                             ; preds = %1530
@@ -17985,7 +17985,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6736 = getelementptr inbounds i8, ptr %6735, i64 160
   %6737 = load i64, ptr %6736, align 8
   store i64 %6737, ptr %444, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %444, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %444, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6738:                                             ; preds = %1530
@@ -17993,7 +17993,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6740 = getelementptr inbounds i8, ptr %6739, i64 144
   %6741 = load i64, ptr %6740, align 8
   store i64 %6741, ptr %445, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %445, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %445, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6742:                                             ; preds = %1530
@@ -18001,7 +18001,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6744 = getelementptr inbounds i8, ptr %6743, i64 144
   %6745 = load i64, ptr %6744, align 8
   store i64 %6745, ptr %446, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %446, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %446, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6746:                                             ; preds = %1530
@@ -18009,7 +18009,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6748 = getelementptr inbounds i8, ptr %6747, i64 144
   %6749 = load i64, ptr %6748, align 8
   store i64 %6749, ptr %447, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %447, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %447, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6750:                                             ; preds = %1530
@@ -18017,7 +18017,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6752 = getelementptr inbounds i8, ptr %6751, i64 144
   %6753 = load i64, ptr %6752, align 8
   store i64 %6753, ptr %448, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %448, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %448, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6754:                                             ; preds = %1530
@@ -18123,7 +18123,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6812 = getelementptr inbounds i8, ptr %6811, i64 152
   %6813 = load i64, ptr %6812, align 8
   store i64 %6813, ptr %449, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %449) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %449) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6814:                                             ; preds = %1530
@@ -18131,7 +18131,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6816 = getelementptr inbounds i8, ptr %6815, i64 144
   %6817 = load i64, ptr %6816, align 8
   store i64 %6817, ptr %450, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %450, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %450, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6818:                                             ; preds = %1530
@@ -18139,7 +18139,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6820 = getelementptr inbounds i8, ptr %6819, i64 144
   %6821 = load i64, ptr %6820, align 8
   store i64 %6821, ptr %451, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %451, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %451, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6822:                                             ; preds = %1530
@@ -18147,7 +18147,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6824 = getelementptr inbounds i8, ptr %6823, i64 144
   %6825 = load i64, ptr %6824, align 8
   store i64 %6825, ptr %452, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %452, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %452, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6826:                                             ; preds = %1530
@@ -18155,7 +18155,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6828 = getelementptr inbounds i8, ptr %6827, i64 144
   %6829 = load i64, ptr %6828, align 8
   store i64 %6829, ptr %453, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %453, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %453, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6830:                                             ; preds = %1530
@@ -18209,7 +18209,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6857 = getelementptr inbounds i8, ptr %6856, i64 152
   %6858 = load i64, ptr %6857, align 8
   store i64 %6858, ptr %454, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %454, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %454, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6859:                                             ; preds = %1530
@@ -18217,7 +18217,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6861 = getelementptr inbounds i8, ptr %6860, i64 152
   %6862 = load i64, ptr %6861, align 8
   store i64 %6862, ptr %455, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %455, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %455, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6863:                                             ; preds = %1530
@@ -18225,7 +18225,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6865 = getelementptr inbounds i8, ptr %6864, i64 152
   %6866 = load i64, ptr %6865, align 8
   store i64 %6866, ptr %456, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %456, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %456, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6867:                                             ; preds = %1530
@@ -18233,7 +18233,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6869 = getelementptr inbounds i8, ptr %6868, i64 152
   %6870 = load i64, ptr %6869, align 8
   store i64 %6870, ptr %457, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %457, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %457, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6871:                                             ; preds = %1530
@@ -18311,7 +18311,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6913 = getelementptr inbounds i8, ptr %6912, i64 152
   %6914 = load i64, ptr %6913, align 8
   store i64 %6914, ptr %458, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %458, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %458, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6915:                                             ; preds = %1530
@@ -18319,7 +18319,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6917 = getelementptr inbounds i8, ptr %6916, i64 152
   %6918 = load i64, ptr %6917, align 8
   store i64 %6918, ptr %459, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %459, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %459, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6919:                                             ; preds = %1530
@@ -18327,7 +18327,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6921 = getelementptr inbounds i8, ptr %6920, i64 152
   %6922 = load i64, ptr %6921, align 8
   store i64 %6922, ptr %460, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %460, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %460, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6923:                                             ; preds = %1530
@@ -18335,7 +18335,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1937: ; preds = %.critedge.th
   %6925 = getelementptr inbounds i8, ptr %6924, i64 152
   %6926 = load i64, ptr %6925, align 8
   store i64 %6926, ptr %461, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %461, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %461, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 6927:                                             ; preds = %1530
@@ -18481,7 +18481,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7021 = load ptr, ptr %6941, align 8, !noalias !2616
   %7022 = call ptr @LLVMBuildBitCast(ptr noundef %7021, ptr noundef %7016, ptr noundef %7020, ptr noundef nonnull @.str.11) #16, !noalias !2616
   store ptr %7022, ptr %467, align 8, !alias.scope !2616
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %467) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %467) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7023:                                             ; preds = %1530
@@ -18517,7 +18517,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7041 = getelementptr inbounds i8, ptr %7040, i64 160
   %7042 = load i64, ptr %7041, align 8
   store i64 %7042, ptr %468, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %468, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %468, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7043:                                             ; preds = %1530
@@ -18525,7 +18525,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7045 = getelementptr inbounds i8, ptr %7044, i64 160
   %7046 = load i64, ptr %7045, align 8
   store i64 %7046, ptr %469, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %469, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %469, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7047:                                             ; preds = %1530
@@ -18533,7 +18533,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7049 = getelementptr inbounds i8, ptr %7048, i64 160
   %7050 = load i64, ptr %7049, align 8
   store i64 %7050, ptr %470, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %470, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %470, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7051:                                             ; preds = %1530
@@ -18541,7 +18541,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7053 = getelementptr inbounds i8, ptr %7052, i64 160
   %7054 = load i64, ptr %7053, align 8
   store i64 %7054, ptr %471, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %471, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %471, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7055:                                             ; preds = %1530
@@ -18591,7 +18591,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7081 = getelementptr inbounds i8, ptr %7080, i64 160
   %7082 = load i64, ptr %7081, align 8
   store i64 %7082, ptr %472, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %472, i1 noundef zeroext true, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %472, i1 noundef zeroext true, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7083:                                             ; preds = %1530
@@ -18599,7 +18599,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7085 = getelementptr inbounds i8, ptr %7084, i64 160
   %7086 = load i64, ptr %7085, align 8
   store i64 %7086, ptr %473, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %473, i1 noundef zeroext true, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %473, i1 noundef zeroext true, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7087:                                             ; preds = %1530
@@ -18607,7 +18607,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7089 = getelementptr inbounds i8, ptr %7088, i64 160
   %7090 = load i64, ptr %7089, align 8
   store i64 %7090, ptr %474, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %474, i1 noundef zeroext false, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %474, i1 noundef zeroext false, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7091:                                             ; preds = %1530
@@ -18615,7 +18615,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7093 = getelementptr inbounds i8, ptr %7092, i64 160
   %7094 = load i64, ptr %7093, align 8
   store i64 %7094, ptr %475, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %475, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %475, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7095:                                             ; preds = %1530
@@ -18721,7 +18721,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7153 = getelementptr inbounds i8, ptr %7152, i64 168
   %7154 = load i64, ptr %7153, align 8
   store i64 %7154, ptr %476, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %476) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %476) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7155:                                             ; preds = %1530
@@ -18827,7 +18827,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7213 = getelementptr inbounds i8, ptr %7212, i64 184
   %7214 = load i64, ptr %7213, align 8
   store i64 %7214, ptr %477, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %477) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %477) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7215:                                             ; preds = %1530
@@ -18939,7 +18939,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7276 = getelementptr inbounds i8, ptr %7275, i64 168
   %7277 = load i64, ptr %7276, align 8
   store i64 %7277, ptr %478, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %478) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %478) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7278:                                             ; preds = %1530
@@ -18947,7 +18947,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7280 = getelementptr inbounds i8, ptr %7279, i64 168
   %7281 = load i64, ptr %7280, align 8
   store i64 %7281, ptr %479, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %479) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %479) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7282:                                             ; preds = %1530
@@ -18955,7 +18955,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7284 = getelementptr inbounds i8, ptr %7283, i64 184
   %7285 = load i64, ptr %7284, align 8
   store i64 %7285, ptr %480, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %480) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %480) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7286:                                             ; preds = %1530
@@ -18963,7 +18963,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1949: ; preds = %.critedge.th
   %7288 = getelementptr inbounds i8, ptr %7287, i64 184
   %7289 = load i64, ptr %7288, align 8
   store i64 %7289, ptr %481, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %481) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %481) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7290:                                             ; preds = %1530, %1530, %1530, %1530
@@ -19046,7 +19046,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7346 = load ptr, ptr %7338, align 8, !noalias !2634
   %7347 = tail call ptr @LLVMBuildXor(ptr noundef %7346, ptr noundef %7345, ptr noundef %7340, ptr noundef nonnull @.str.11) #16, !noalias !2634
   store ptr %7347, ptr %482, align 8, !alias.scope !2634
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef nonnull %482) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, ptr noundef %482) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7348:                                             ; preds = %1530
@@ -19110,7 +19110,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7379 = getelementptr inbounds i8, ptr %7378, i64 104
   %7380 = load i64, ptr %7379, align 8
   store i64 %7380, ptr %483, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7375, i32 noundef %7377, ptr noundef nonnull %483, i32 noundef 32) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7375, i32 noundef %7377, ptr noundef %483, i32 noundef 32) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7381:                                             ; preds = %1530
@@ -19121,7 +19121,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7386 = getelementptr inbounds i8, ptr %7385, i64 112
   %7387 = load i64, ptr %7386, align 8
   store i64 %7387, ptr %484, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7382, i32 noundef %7384, ptr noundef nonnull %484, i32 noundef 64) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7382, i32 noundef %7384, ptr noundef %484, i32 noundef 64) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7388:                                             ; preds = %1530
@@ -19135,7 +19135,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7396 = load i64, ptr %7395, align 8
   store i64 %7396, ptr %485, align 8
   store i64 %7396, ptr %486, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7389, i32 noundef %7391, i32 noundef %7393, ptr noundef nonnull %485, ptr noundef nonnull %486, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7389, i32 noundef %7391, i32 noundef %7393, ptr noundef %485, ptr noundef %486, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7397:                                             ; preds = %1530
@@ -19149,7 +19149,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7405 = load i64, ptr %7404, align 8
   store i64 %7405, ptr %487, align 8
   store i64 %7405, ptr %488, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7398, i32 noundef %7400, i32 noundef %7402, ptr noundef nonnull %487, ptr noundef nonnull %488, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7398, i32 noundef %7400, i32 noundef %7402, ptr noundef %487, ptr noundef %488, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7406:                                             ; preds = %1530
@@ -19165,7 +19165,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7415 = getelementptr inbounds i8, ptr %7412, i64 88
   %7416 = load i64, ptr %7415, align 8
   store i64 %7416, ptr %490, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7407, i32 noundef %7409, i32 noundef %7411, ptr noundef nonnull %489, ptr noundef nonnull %490, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7407, i32 noundef %7409, i32 noundef %7411, ptr noundef %489, ptr noundef %490, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7417:                                             ; preds = %1530
@@ -19181,7 +19181,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7426 = getelementptr inbounds i8, ptr %7423, i64 96
   %7427 = load i64, ptr %7426, align 8
   store i64 %7427, ptr %492, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7418, i32 noundef %7420, i32 noundef %7422, ptr noundef nonnull %491, ptr noundef nonnull %492, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7418, i32 noundef %7420, i32 noundef %7422, ptr noundef %491, ptr noundef %492, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7428:                                             ; preds = %1530
@@ -19197,7 +19197,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7437 = getelementptr inbounds i8, ptr %7434, i64 88
   %7438 = load i64, ptr %7437, align 8
   store i64 %7438, ptr %494, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7429, i32 noundef %7431, i32 noundef %7433, ptr noundef nonnull %493, ptr noundef nonnull %494, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7429, i32 noundef %7431, i32 noundef %7433, ptr noundef %493, ptr noundef %494, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7439:                                             ; preds = %1530
@@ -19213,7 +19213,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7448 = getelementptr inbounds i8, ptr %7445, i64 96
   %7449 = load i64, ptr %7448, align 8
   store i64 %7449, ptr %496, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7440, i32 noundef %7442, i32 noundef %7444, ptr noundef nonnull %495, ptr noundef nonnull %496, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7440, i32 noundef %7442, i32 noundef %7444, ptr noundef %495, ptr noundef %496, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7450:                                             ; preds = %1530
@@ -19229,7 +19229,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7459 = getelementptr inbounds i8, ptr %7456, i64 104
   %7460 = load i64, ptr %7459, align 8
   store i64 %7460, ptr %498, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7451, i32 noundef %7453, i32 noundef %7455, ptr noundef nonnull %497, ptr noundef nonnull %498, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7451, i32 noundef %7453, i32 noundef %7455, ptr noundef %497, ptr noundef %498, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7461:                                             ; preds = %1530
@@ -19242,7 +19242,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7468 = getelementptr inbounds i8, ptr %7467, i64 104
   %7469 = load i64, ptr %7468, align 8
   store i64 %7469, ptr %499, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7462, i32 noundef %7464, i32 noundef %7466, ptr noundef nonnull %499) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7462, i32 noundef %7464, i32 noundef %7466, ptr noundef %499) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7470:                                             ; preds = %1530
@@ -19255,7 +19255,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7477 = getelementptr inbounds i8, ptr %7476, i64 112
   %7478 = load i64, ptr %7477, align 8
   store i64 %7478, ptr %500, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7471, i32 noundef %7473, i32 noundef %7475, ptr noundef nonnull %500) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7471, i32 noundef %7473, i32 noundef %7475, ptr noundef %500) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7479:                                             ; preds = %1530
@@ -19268,7 +19268,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7486 = getelementptr inbounds i8, ptr %7485, i64 88
   %7487 = load i64, ptr %7486, align 8
   store i64 %7487, ptr %501, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7480, i32 noundef %7482, i32 noundef %7484, ptr noundef nonnull %501) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7480, i32 noundef %7482, i32 noundef %7484, ptr noundef %501) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7488:                                             ; preds = %1530
@@ -19281,7 +19281,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7495 = getelementptr inbounds i8, ptr %7494, i64 96
   %7496 = load i64, ptr %7495, align 8
   store i64 %7496, ptr %502, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7489, i32 noundef %7491, i32 noundef %7493, ptr noundef nonnull %502) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7489, i32 noundef %7491, i32 noundef %7493, ptr noundef %502) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7497:                                             ; preds = %1530
@@ -19294,7 +19294,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7504 = getelementptr inbounds i8, ptr %7503, i64 88
   %7505 = load i64, ptr %7504, align 8
   store i64 %7505, ptr %503, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7498, i32 noundef %7500, i32 noundef %7502, ptr noundef nonnull %503) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7498, i32 noundef %7500, i32 noundef %7502, ptr noundef %503) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7506:                                             ; preds = %1530
@@ -19307,7 +19307,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7513 = getelementptr inbounds i8, ptr %7512, i64 96
   %7514 = load i64, ptr %7513, align 8
   store i64 %7514, ptr %504, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7507, i32 noundef %7509, i32 noundef %7511, ptr noundef nonnull %504) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7507, i32 noundef %7509, i32 noundef %7511, ptr noundef %504) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7515:                                             ; preds = %1530
@@ -19320,7 +19320,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7522 = getelementptr inbounds i8, ptr %7521, i64 104
   %7523 = load i64, ptr %7522, align 8
   store i64 %7523, ptr %505, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7516, i32 noundef %7518, i32 noundef %7520, ptr noundef nonnull %505) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7516, i32 noundef %7518, i32 noundef %7520, ptr noundef %505) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7524:                                             ; preds = %1530
@@ -19334,7 +19334,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7532 = load i64, ptr %7531, align 8
   store i64 %7532, ptr %506, align 8
   store i64 %7532, ptr %507, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7525, i32 noundef %7527, i32 noundef %7529, i32 noundef 1, ptr noundef nonnull %506, ptr noundef nonnull %507, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7525, i32 noundef %7527, i32 noundef %7529, i32 noundef 1, ptr noundef %506, ptr noundef %507, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7533:                                             ; preds = %1530
@@ -19348,7 +19348,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7541 = load i64, ptr %7540, align 8
   store i64 %7541, ptr %508, align 8
   store i64 %7541, ptr %509, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7534, i32 noundef %7536, i32 noundef %7538, i32 noundef 1, ptr noundef nonnull %508, ptr noundef nonnull %509, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7534, i32 noundef %7536, i32 noundef %7538, i32 noundef 1, ptr noundef %508, ptr noundef %509, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7542:                                             ; preds = %1530
@@ -19364,7 +19364,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7551 = getelementptr inbounds i8, ptr %7548, i64 88
   %7552 = load i64, ptr %7551, align 8
   store i64 %7552, ptr %511, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7543, i32 noundef %7545, i32 noundef %7547, i32 noundef 1, ptr noundef nonnull %510, ptr noundef nonnull %511, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7543, i32 noundef %7545, i32 noundef %7547, i32 noundef 1, ptr noundef %510, ptr noundef %511, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7553:                                             ; preds = %1530
@@ -19380,7 +19380,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7562 = getelementptr inbounds i8, ptr %7559, i64 96
   %7563 = load i64, ptr %7562, align 8
   store i64 %7563, ptr %513, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7554, i32 noundef %7556, i32 noundef %7558, i32 noundef 1, ptr noundef nonnull %512, ptr noundef nonnull %513, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7554, i32 noundef %7556, i32 noundef %7558, i32 noundef 1, ptr noundef %512, ptr noundef %513, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7564:                                             ; preds = %1530
@@ -19396,7 +19396,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7573 = getelementptr inbounds i8, ptr %7570, i64 88
   %7574 = load i64, ptr %7573, align 8
   store i64 %7574, ptr %515, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7565, i32 noundef %7567, i32 noundef %7569, i32 noundef 1, ptr noundef nonnull %514, ptr noundef nonnull %515, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7565, i32 noundef %7567, i32 noundef %7569, i32 noundef 1, ptr noundef %514, ptr noundef %515, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7575:                                             ; preds = %1530
@@ -19412,7 +19412,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7584 = getelementptr inbounds i8, ptr %7581, i64 96
   %7585 = load i64, ptr %7584, align 8
   store i64 %7585, ptr %517, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7576, i32 noundef %7578, i32 noundef %7580, i32 noundef 1, ptr noundef nonnull %516, ptr noundef nonnull %517, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7576, i32 noundef %7578, i32 noundef %7580, i32 noundef 1, ptr noundef %516, ptr noundef %517, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7586:                                             ; preds = %1530
@@ -19428,7 +19428,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7595 = getelementptr inbounds i8, ptr %7592, i64 104
   %7596 = load i64, ptr %7595, align 8
   store i64 %7596, ptr %519, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7587, i32 noundef %7589, i32 noundef %7591, i32 noundef 1, ptr noundef nonnull %518, ptr noundef nonnull %519, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7587, i32 noundef %7589, i32 noundef %7591, i32 noundef 1, ptr noundef %518, ptr noundef %519, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7597:                                             ; preds = %1530
@@ -19442,7 +19442,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7605 = load i64, ptr %7604, align 8
   store i64 %7605, ptr %520, align 8
   store i64 %7605, ptr %521, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7598, i32 noundef %7600, i32 noundef %7602, i32 noundef 2, ptr noundef nonnull %520, ptr noundef nonnull %521, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7598, i32 noundef %7600, i32 noundef %7602, i32 noundef 2, ptr noundef %520, ptr noundef %521, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7606:                                             ; preds = %1530
@@ -19456,7 +19456,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7614 = load i64, ptr %7613, align 8
   store i64 %7614, ptr %522, align 8
   store i64 %7614, ptr %523, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7607, i32 noundef %7609, i32 noundef %7611, i32 noundef 2, ptr noundef nonnull %522, ptr noundef nonnull %523, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7607, i32 noundef %7609, i32 noundef %7611, i32 noundef 2, ptr noundef %522, ptr noundef %523, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7615:                                             ; preds = %1530
@@ -19472,7 +19472,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7624 = getelementptr inbounds i8, ptr %7621, i64 88
   %7625 = load i64, ptr %7624, align 8
   store i64 %7625, ptr %525, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7616, i32 noundef %7618, i32 noundef %7620, i32 noundef 2, ptr noundef nonnull %524, ptr noundef nonnull %525, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7616, i32 noundef %7618, i32 noundef %7620, i32 noundef 2, ptr noundef %524, ptr noundef %525, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7626:                                             ; preds = %1530
@@ -19488,7 +19488,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7635 = getelementptr inbounds i8, ptr %7632, i64 96
   %7636 = load i64, ptr %7635, align 8
   store i64 %7636, ptr %527, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7627, i32 noundef %7629, i32 noundef %7631, i32 noundef 2, ptr noundef nonnull %526, ptr noundef nonnull %527, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7627, i32 noundef %7629, i32 noundef %7631, i32 noundef 2, ptr noundef %526, ptr noundef %527, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7637:                                             ; preds = %1530
@@ -19504,7 +19504,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7646 = getelementptr inbounds i8, ptr %7643, i64 88
   %7647 = load i64, ptr %7646, align 8
   store i64 %7647, ptr %529, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7638, i32 noundef %7640, i32 noundef %7642, i32 noundef 2, ptr noundef nonnull %528, ptr noundef nonnull %529, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7638, i32 noundef %7640, i32 noundef %7642, i32 noundef 2, ptr noundef %528, ptr noundef %529, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7648:                                             ; preds = %1530
@@ -19520,7 +19520,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7657 = getelementptr inbounds i8, ptr %7654, i64 96
   %7658 = load i64, ptr %7657, align 8
   store i64 %7658, ptr %531, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7649, i32 noundef %7651, i32 noundef %7653, i32 noundef 2, ptr noundef nonnull %530, ptr noundef nonnull %531, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7649, i32 noundef %7651, i32 noundef %7653, i32 noundef 2, ptr noundef %530, ptr noundef %531, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7659:                                             ; preds = %1530
@@ -19536,7 +19536,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7668 = getelementptr inbounds i8, ptr %7665, i64 104
   %7669 = load i64, ptr %7668, align 8
   store i64 %7669, ptr %533, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7660, i32 noundef %7662, i32 noundef %7664, i32 noundef 2, ptr noundef nonnull %532, ptr noundef nonnull %533, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7660, i32 noundef %7662, i32 noundef %7664, i32 noundef 2, ptr noundef %532, ptr noundef %533, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7670:                                             ; preds = %1530
@@ -19550,7 +19550,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7678 = load i64, ptr %7677, align 8
   store i64 %7678, ptr %534, align 8
   store i64 %7678, ptr %535, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7671, i32 noundef %7673, i32 noundef %7675, i32 noundef 3, ptr noundef nonnull %534, ptr noundef nonnull %535, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7671, i32 noundef %7673, i32 noundef %7675, i32 noundef 3, ptr noundef %534, ptr noundef %535, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7679:                                             ; preds = %1530
@@ -19564,7 +19564,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7687 = load i64, ptr %7686, align 8
   store i64 %7687, ptr %536, align 8
   store i64 %7687, ptr %537, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7680, i32 noundef %7682, i32 noundef %7684, i32 noundef 3, ptr noundef nonnull %536, ptr noundef nonnull %537, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7680, i32 noundef %7682, i32 noundef %7684, i32 noundef 3, ptr noundef %536, ptr noundef %537, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7688:                                             ; preds = %1530
@@ -19580,7 +19580,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7697 = getelementptr inbounds i8, ptr %7694, i64 88
   %7698 = load i64, ptr %7697, align 8
   store i64 %7698, ptr %539, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7689, i32 noundef %7691, i32 noundef %7693, i32 noundef 3, ptr noundef nonnull %538, ptr noundef nonnull %539, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7689, i32 noundef %7691, i32 noundef %7693, i32 noundef 3, ptr noundef %538, ptr noundef %539, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7699:                                             ; preds = %1530
@@ -19596,7 +19596,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7708 = getelementptr inbounds i8, ptr %7705, i64 96
   %7709 = load i64, ptr %7708, align 8
   store i64 %7709, ptr %541, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7700, i32 noundef %7702, i32 noundef %7704, i32 noundef 3, ptr noundef nonnull %540, ptr noundef nonnull %541, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7700, i32 noundef %7702, i32 noundef %7704, i32 noundef 3, ptr noundef %540, ptr noundef %541, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7710:                                             ; preds = %1530
@@ -19612,7 +19612,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7719 = getelementptr inbounds i8, ptr %7716, i64 88
   %7720 = load i64, ptr %7719, align 8
   store i64 %7720, ptr %543, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7711, i32 noundef %7713, i32 noundef %7715, i32 noundef 3, ptr noundef nonnull %542, ptr noundef nonnull %543, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7711, i32 noundef %7713, i32 noundef %7715, i32 noundef 3, ptr noundef %542, ptr noundef %543, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7721:                                             ; preds = %1530
@@ -19628,7 +19628,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7730 = getelementptr inbounds i8, ptr %7727, i64 96
   %7731 = load i64, ptr %7730, align 8
   store i64 %7731, ptr %545, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7722, i32 noundef %7724, i32 noundef %7726, i32 noundef 3, ptr noundef nonnull %544, ptr noundef nonnull %545, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7722, i32 noundef %7724, i32 noundef %7726, i32 noundef 3, ptr noundef %544, ptr noundef %545, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7732:                                             ; preds = %1530
@@ -19644,7 +19644,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7741 = getelementptr inbounds i8, ptr %7738, i64 104
   %7742 = load i64, ptr %7741, align 8
   store i64 %7742, ptr %547, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7733, i32 noundef %7735, i32 noundef %7737, i32 noundef 3, ptr noundef nonnull %546, ptr noundef nonnull %547, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7733, i32 noundef %7735, i32 noundef %7737, i32 noundef 3, ptr noundef %546, ptr noundef %547, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7743:                                             ; preds = %1530
@@ -19658,7 +19658,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7751 = load i64, ptr %7750, align 8
   store i64 %7751, ptr %548, align 8
   store i64 %7751, ptr %549, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7744, i32 noundef %7746, i32 noundef %7748, i32 noundef 5, ptr noundef nonnull %548, ptr noundef nonnull %549, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7744, i32 noundef %7746, i32 noundef %7748, i32 noundef 5, ptr noundef %548, ptr noundef %549, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7752:                                             ; preds = %1530
@@ -19672,7 +19672,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7760 = load i64, ptr %7759, align 8
   store i64 %7760, ptr %550, align 8
   store i64 %7760, ptr %551, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7753, i32 noundef %7755, i32 noundef %7757, i32 noundef 5, ptr noundef nonnull %550, ptr noundef nonnull %551, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7753, i32 noundef %7755, i32 noundef %7757, i32 noundef 5, ptr noundef %550, ptr noundef %551, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7761:                                             ; preds = %1530
@@ -19688,7 +19688,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7770 = getelementptr inbounds i8, ptr %7767, i64 88
   %7771 = load i64, ptr %7770, align 8
   store i64 %7771, ptr %553, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7762, i32 noundef %7764, i32 noundef %7766, i32 noundef 5, ptr noundef nonnull %552, ptr noundef nonnull %553, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7762, i32 noundef %7764, i32 noundef %7766, i32 noundef 5, ptr noundef %552, ptr noundef %553, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7772:                                             ; preds = %1530
@@ -19704,7 +19704,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7781 = getelementptr inbounds i8, ptr %7778, i64 96
   %7782 = load i64, ptr %7781, align 8
   store i64 %7782, ptr %555, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7773, i32 noundef %7775, i32 noundef %7777, i32 noundef 5, ptr noundef nonnull %554, ptr noundef nonnull %555, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7773, i32 noundef %7775, i32 noundef %7777, i32 noundef 5, ptr noundef %554, ptr noundef %555, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7783:                                             ; preds = %1530
@@ -19720,7 +19720,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7792 = getelementptr inbounds i8, ptr %7789, i64 88
   %7793 = load i64, ptr %7792, align 8
   store i64 %7793, ptr %557, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7784, i32 noundef %7786, i32 noundef %7788, i32 noundef 5, ptr noundef nonnull %556, ptr noundef nonnull %557, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7784, i32 noundef %7786, i32 noundef %7788, i32 noundef 5, ptr noundef %556, ptr noundef %557, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7794:                                             ; preds = %1530
@@ -19736,7 +19736,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7803 = getelementptr inbounds i8, ptr %7800, i64 96
   %7804 = load i64, ptr %7803, align 8
   store i64 %7804, ptr %559, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7795, i32 noundef %7797, i32 noundef %7799, i32 noundef 5, ptr noundef nonnull %558, ptr noundef nonnull %559, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7795, i32 noundef %7797, i32 noundef %7799, i32 noundef 5, ptr noundef %558, ptr noundef %559, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7805:                                             ; preds = %1530
@@ -19752,7 +19752,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7814 = getelementptr inbounds i8, ptr %7811, i64 104
   %7815 = load i64, ptr %7814, align 8
   store i64 %7815, ptr %561, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7806, i32 noundef %7808, i32 noundef %7810, i32 noundef 5, ptr noundef nonnull %560, ptr noundef nonnull %561, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7806, i32 noundef %7808, i32 noundef %7810, i32 noundef 5, ptr noundef %560, ptr noundef %561, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7816:                                             ; preds = %1530
@@ -19766,7 +19766,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7824 = load i64, ptr %7823, align 8
   store i64 %7824, ptr %562, align 8
   store i64 %7824, ptr %563, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7817, i32 noundef %7819, i32 noundef %7821, i32 noundef 6, ptr noundef nonnull %562, ptr noundef nonnull %563, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7817, i32 noundef %7819, i32 noundef %7821, i32 noundef 6, ptr noundef %562, ptr noundef %563, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7825:                                             ; preds = %1530
@@ -19780,7 +19780,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7833 = load i64, ptr %7832, align 8
   store i64 %7833, ptr %564, align 8
   store i64 %7833, ptr %565, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7826, i32 noundef %7828, i32 noundef %7830, i32 noundef 6, ptr noundef nonnull %564, ptr noundef nonnull %565, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7826, i32 noundef %7828, i32 noundef %7830, i32 noundef 6, ptr noundef %564, ptr noundef %565, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7834:                                             ; preds = %1530
@@ -19796,7 +19796,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7843 = getelementptr inbounds i8, ptr %7840, i64 88
   %7844 = load i64, ptr %7843, align 8
   store i64 %7844, ptr %567, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7835, i32 noundef %7837, i32 noundef %7839, i32 noundef 6, ptr noundef nonnull %566, ptr noundef nonnull %567, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7835, i32 noundef %7837, i32 noundef %7839, i32 noundef 6, ptr noundef %566, ptr noundef %567, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7845:                                             ; preds = %1530
@@ -19812,7 +19812,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7854 = getelementptr inbounds i8, ptr %7851, i64 96
   %7855 = load i64, ptr %7854, align 8
   store i64 %7855, ptr %569, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7846, i32 noundef %7848, i32 noundef %7850, i32 noundef 6, ptr noundef nonnull %568, ptr noundef nonnull %569, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7846, i32 noundef %7848, i32 noundef %7850, i32 noundef 6, ptr noundef %568, ptr noundef %569, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7856:                                             ; preds = %1530
@@ -19828,7 +19828,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7865 = getelementptr inbounds i8, ptr %7862, i64 88
   %7866 = load i64, ptr %7865, align 8
   store i64 %7866, ptr %571, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7857, i32 noundef %7859, i32 noundef %7861, i32 noundef 6, ptr noundef nonnull %570, ptr noundef nonnull %571, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7857, i32 noundef %7859, i32 noundef %7861, i32 noundef 6, ptr noundef %570, ptr noundef %571, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7867:                                             ; preds = %1530
@@ -19844,7 +19844,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7876 = getelementptr inbounds i8, ptr %7873, i64 96
   %7877 = load i64, ptr %7876, align 8
   store i64 %7877, ptr %573, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7868, i32 noundef %7870, i32 noundef %7872, i32 noundef 6, ptr noundef nonnull %572, ptr noundef nonnull %573, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7868, i32 noundef %7870, i32 noundef %7872, i32 noundef 6, ptr noundef %572, ptr noundef %573, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7878:                                             ; preds = %1530
@@ -19860,7 +19860,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7887 = getelementptr inbounds i8, ptr %7884, i64 104
   %7888 = load i64, ptr %7887, align 8
   store i64 %7888, ptr %575, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7879, i32 noundef %7881, i32 noundef %7883, i32 noundef 6, ptr noundef nonnull %574, ptr noundef nonnull %575, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7879, i32 noundef %7881, i32 noundef %7883, i32 noundef 6, ptr noundef %574, ptr noundef %575, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7889:                                             ; preds = %1530
@@ -19874,7 +19874,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7897 = load i64, ptr %7896, align 8
   store i64 %7897, ptr %576, align 8
   store i64 %7897, ptr %577, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7890, i32 noundef %7892, i32 noundef %7894, i32 noundef 0, ptr noundef nonnull %576, ptr noundef nonnull %577, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7890, i32 noundef %7892, i32 noundef %7894, i32 noundef 0, ptr noundef %576, ptr noundef %577, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7898:                                             ; preds = %1530
@@ -19888,7 +19888,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7906 = load i64, ptr %7905, align 8
   store i64 %7906, ptr %578, align 8
   store i64 %7906, ptr %579, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7899, i32 noundef %7901, i32 noundef %7903, i32 noundef 0, ptr noundef nonnull %578, ptr noundef nonnull %579, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7899, i32 noundef %7901, i32 noundef %7903, i32 noundef 0, ptr noundef %578, ptr noundef %579, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7907:                                             ; preds = %1530
@@ -19904,7 +19904,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7916 = getelementptr inbounds i8, ptr %7913, i64 88
   %7917 = load i64, ptr %7916, align 8
   store i64 %7917, ptr %581, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7908, i32 noundef %7910, i32 noundef %7912, i32 noundef 0, ptr noundef nonnull %580, ptr noundef nonnull %581, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7908, i32 noundef %7910, i32 noundef %7912, i32 noundef 0, ptr noundef %580, ptr noundef %581, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7918:                                             ; preds = %1530
@@ -19920,7 +19920,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7927 = getelementptr inbounds i8, ptr %7924, i64 96
   %7928 = load i64, ptr %7927, align 8
   store i64 %7928, ptr %583, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7919, i32 noundef %7921, i32 noundef %7923, i32 noundef 0, ptr noundef nonnull %582, ptr noundef nonnull %583, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7919, i32 noundef %7921, i32 noundef %7923, i32 noundef 0, ptr noundef %582, ptr noundef %583, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7929:                                             ; preds = %1530
@@ -19936,7 +19936,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7938 = getelementptr inbounds i8, ptr %7935, i64 88
   %7939 = load i64, ptr %7938, align 8
   store i64 %7939, ptr %585, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7930, i32 noundef %7932, i32 noundef %7934, i32 noundef 0, ptr noundef nonnull %584, ptr noundef nonnull %585, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7930, i32 noundef %7932, i32 noundef %7934, i32 noundef 0, ptr noundef %584, ptr noundef %585, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7940:                                             ; preds = %1530
@@ -19952,7 +19952,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7949 = getelementptr inbounds i8, ptr %7946, i64 96
   %7950 = load i64, ptr %7949, align 8
   store i64 %7950, ptr %587, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7941, i32 noundef %7943, i32 noundef %7945, i32 noundef 0, ptr noundef nonnull %586, ptr noundef nonnull %587, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7941, i32 noundef %7943, i32 noundef %7945, i32 noundef 0, ptr noundef %586, ptr noundef %587, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7951:                                             ; preds = %1530
@@ -19968,7 +19968,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7960 = getelementptr inbounds i8, ptr %7957, i64 104
   %7961 = load i64, ptr %7960, align 8
   store i64 %7961, ptr %589, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7952, i32 noundef %7954, i32 noundef %7956, i32 noundef 0, ptr noundef nonnull %588, ptr noundef nonnull %589, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7952, i32 noundef %7954, i32 noundef %7956, i32 noundef 0, ptr noundef %588, ptr noundef %589, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7962:                                             ; preds = %1530
@@ -19982,7 +19982,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7970 = load i64, ptr %7969, align 8
   store i64 %7970, ptr %590, align 8
   store i64 %7970, ptr %591, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7963, i32 noundef %7965, i32 noundef %7967, ptr noundef nonnull %590, ptr noundef nonnull %591, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7963, i32 noundef %7965, i32 noundef %7967, ptr noundef %590, ptr noundef %591, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7971:                                             ; preds = %1530
@@ -19996,7 +19996,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7979 = load i64, ptr %7978, align 8
   store i64 %7979, ptr %592, align 8
   store i64 %7979, ptr %593, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7972, i32 noundef %7974, i32 noundef %7976, ptr noundef nonnull %592, ptr noundef nonnull %593, i1 noundef zeroext true) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7972, i32 noundef %7974, i32 noundef %7976, ptr noundef %592, ptr noundef %593, i1 noundef zeroext true) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7980:                                             ; preds = %1530
@@ -20012,7 +20012,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %7989 = getelementptr inbounds i8, ptr %7986, i64 88
   %7990 = load i64, ptr %7989, align 8
   store i64 %7990, ptr %595, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7981, i32 noundef %7983, i32 noundef %7985, ptr noundef nonnull %594, ptr noundef nonnull %595, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7981, i32 noundef %7983, i32 noundef %7985, ptr noundef %594, ptr noundef %595, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 7991:                                             ; preds = %1530
@@ -20028,7 +20028,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %8000 = getelementptr inbounds i8, ptr %7997, i64 96
   %8001 = load i64, ptr %8000, align 8
   store i64 %8001, ptr %597, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7992, i32 noundef %7994, i32 noundef %7996, ptr noundef nonnull %596, ptr noundef nonnull %597, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %7992, i32 noundef %7994, i32 noundef %7996, ptr noundef %596, ptr noundef %597, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 8002:                                             ; preds = %1530
@@ -20044,7 +20044,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %8011 = getelementptr inbounds i8, ptr %8008, i64 88
   %8012 = load i64, ptr %8011, align 8
   store i64 %8012, ptr %599, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8003, i32 noundef %8005, i32 noundef %8007, ptr noundef nonnull %598, ptr noundef nonnull %599, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8003, i32 noundef %8005, i32 noundef %8007, ptr noundef %598, ptr noundef %599, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 8013:                                             ; preds = %1530
@@ -20060,7 +20060,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %8022 = getelementptr inbounds i8, ptr %8019, i64 96
   %8023 = load i64, ptr %8022, align 8
   store i64 %8023, ptr %601, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8014, i32 noundef %8016, i32 noundef %8018, ptr noundef nonnull %600, ptr noundef nonnull %601, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8014, i32 noundef %8016, i32 noundef %8018, ptr noundef %600, ptr noundef %601, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 8024:                                             ; preds = %1530
@@ -20076,7 +20076,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit1967: ; preds = %.critedge.th
   %8033 = getelementptr inbounds i8, ptr %8030, i64 104
   %8034 = load i64, ptr %8033, align 8
   store i64 %8034, ptr %603, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8025, i32 noundef %8027, i32 noundef %8029, ptr noundef nonnull %602, ptr noundef nonnull %603, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %.0.val, i32 noundef %8025, i32 noundef %8027, i32 noundef %8029, ptr noundef %602, ptr noundef %603, i1 noundef zeroext false) #16
   br label %_ZNSt4pairISt6vectorIN8WasmEdge7ValTypeESaIS2_EES4_ED2Ev.exit787
 
 8035:                                             ; preds = %1530
@@ -20498,7 +20498,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler10leaveBlockEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.89", align 8
   %4 = alloca %"class.WasmEdge::LLVM::BasicBlock", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -20741,7 +20741,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE5eraseEN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, i32 noundef range(i32 3, 1044) %2) unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   store i32 %2, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -20767,7 +20767,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8Was
   br i1 %14, label %_ZNSt13unordered_mapIN8WasmEdge7ErrCode5ValueENS0_4LLVM10BasicBlockESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERSA_.exit, label %10, !llvm.loop !2685
 
 15:                                               ; preds = %3
-  %16 = zext i32 %2 to i64
+  %16 = zext nneg i32 %2 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 88
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %16, %18
@@ -21313,7 +21313,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EEC2EmRKS3_.exit: ; preds = %_ZNSt6vect
 
 109:                                              ; preds = %105
   store i64 %108, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull %4) #16
+  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %4) #16
   %110 = load ptr, ptr %3, align 8
   %111 = getelementptr inbounds i8, ptr %3, i64 8
   %112 = load ptr, ptr %111, align 8
@@ -21481,7 +21481,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %.sroa.042.0.copyload = load ptr, ptr %63, align 8
   %69 = getelementptr inbounds i8, ptr %63, i64 240
   %70 = load i64, ptr %69, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.sroa.042.0.copyload, i64 %70, ptr noundef nonnull align 8 dereferenceable(72) %68) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.sroa.042.0.copyload, i64 %70, ptr noundef nonnull align 8 dereferenceable(72) %68) #16
   %71 = load ptr, ptr %10, align 8
   %72 = tail call ptr @LLVMGetReturnType(ptr noundef %71) #16, !noalias !2840
   %73 = getelementptr inbounds i8, ptr %68, i64 8
@@ -21736,7 +21736,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 208:                                              ; preds = %199
   %209 = ptrtoint ptr %191 to i64
   store i64 %209, ptr %17, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef nonnull %17) #16
+  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef %17) #16
   %210 = load ptr, ptr %16, align 8
   %211 = getelementptr inbounds i8, ptr %16, i64 8
   %212 = load ptr, ptr %211, align 8
@@ -22379,7 +22379,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %.sroa.033.0.copyload = load ptr, ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %52, i64 240
   %59 = load i64, ptr %58, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr %.sroa.033.0.copyload, i64 %59, ptr noundef nonnull align 8 dereferenceable(72) %57) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %10, ptr %.sroa.033.0.copyload, i64 %59, ptr noundef nonnull align 8 dereferenceable(72) %57) #16
   %60 = load ptr, ptr %10, align 8
   %61 = tail call ptr @LLVMGetReturnType(ptr noundef %60) #16, !noalias !3054
   %62 = getelementptr inbounds i8, ptr %57, i64 8
@@ -23051,7 +23051,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %.sroa.042.0.copyload = load ptr, ptr %147, align 8
   %153 = getelementptr inbounds i8, ptr %147, i64 240
   %154 = load i64, ptr %153, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.sroa.042.0.copyload, i64 %154, ptr noundef nonnull align 8 dereferenceable(72) %152) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.042.0.copyload, i64 %154, ptr noundef nonnull align 8 dereferenceable(72) %152) #16
   %155 = load ptr, ptr %15, align 8
   %156 = call ptr @LLVMGetReturnType(ptr noundef %155) #16, !noalias !3296
   %157 = getelementptr inbounds i8, ptr %152, i64 8
@@ -23286,7 +23286,7 @@ _ZNSt6vectorIN8WasmEdge4LLVM5ValueESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu
 280:                                              ; preds = %271
   %281 = ptrtoint ptr %263 to i64
   store i64 %281, ptr %22, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %22) #16
+  call fastcc void @_ZN12_GLOBAL__N_112unpackStructERN8WasmEdge4LLVM7BuilderENS1_5ValueE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef %22) #16
   %282 = load ptr, ptr %21, align 8
   %283 = getelementptr inbounds i8, ptr %21, i64 8
   %284 = load ptr, ptr %283, align 8
@@ -23889,7 +23889,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9getTrapBBEN8WasmEdge7ErrCode5ValueE.exit: ; 
   %.sroa.033.0.copyload = load ptr, ptr %136, align 8
   %142 = getelementptr inbounds i8, ptr %136, i64 240
   %143 = load i64, ptr %142, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.sroa.033.0.copyload, i64 %143, ptr noundef nonnull align 8 dereferenceable(72) %141) #16
+  call fastcc void @_ZN12_GLOBAL__N_110toLLVMTypeEN8WasmEdge4LLVM7ContextENS1_4TypeERKNS0_3AST12FunctionTypeE(ptr dead_on_unwind noalias writable align 8 %15, ptr %.sroa.033.0.copyload, i64 %143, ptr noundef nonnull align 8 dereferenceable(72) %141) #16
   %144 = load ptr, ptr %15, align 8
   %145 = call ptr @LLVMGetReturnType(ptr noundef %144) #16, !noalias !3498
   %146 = getelementptr inbounds i8, ptr %141, i64 8
@@ -24477,7 +24477,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM8Compiler14CompileContext9getG
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -24589,10 +24589,10 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i64 %.0.val, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i64 %.0.val, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.WasmEdge::LLVM::Type", align 8
   store i64 %.0.val, ptr %6, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %6) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %6) #16
   %7 = getelementptr inbounds i8, ptr %0, i64 192
   %8 = getelementptr inbounds i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
@@ -24621,7 +24621,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca [1 x ptr], align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -24848,7 +24848,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM7Builder20createUnaryIntrinsic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %"class.WasmEdge::LLVM::Type"], align 8
   %5 = alloca %"struct.cxx20::span.134", align 8
@@ -25372,7 +25372,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileUnsignedTruncEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %"class.WasmEdge::LLVM::Type"], align 8
   %5 = alloca %"struct.cxx20::span.134", align 8
@@ -25987,7 +25987,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM7Builder11createFPExtENS0_5Val
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileSignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.WasmEdge::LLVM::Type"], align 8
   %4 = alloca %"struct.cxx20::span.134", align 8
   %5 = alloca [2 x %"class.WasmEdge::LLVM::Value"], align 8
@@ -26313,7 +26313,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileUnsignedTruncSatEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.WasmEdge::LLVM::Type"], align 8
   %4 = alloca %"struct.cxx20::span.134", align 8
   %5 = alloca [2 x %"class.WasmEdge::LLVM::Value"], align 8
@@ -26794,7 +26794,7 @@ define linkonce_odr hidden void @_ZN8WasmEdge4LLVM7Builder10createFDivENS0_5Valu
 define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i64 %.0.val) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Type", align 8
   store i64 %.0.val, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %4) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %4) #16
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -26818,7 +26818,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorL
   %5 = alloca %"class.WasmEdge::LLVM::Type", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.0.val, ptr %5, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %5) #16
   %6 = getelementptr inbounds i8, ptr %0, i64 192
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -26860,19 +26860,19 @@ _ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeES3_b.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i64 %.0.val, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileSplatLoadOpEjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i64 %.0.val, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %6 = alloca %"class.WasmEdge::LLVM::Type", align 8
   store i64 %.0.val, ptr %5, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %5) #16
   %7 = load i64, ptr %3, align 8
   store i64 %7, ptr %6, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %6) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %6) #16
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileLoadLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %8, align 8, !noalias !4138
@@ -26912,7 +26912,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   store ptr %28, ptr %27, align 8, !noalias !4138
   %30 = load i64, ptr %4, align 8
   store i64 %30, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %7) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler13compileLoadOpEjjjN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %7) #16
   %31 = load ptr, ptr %27, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %.sroa.0.0.copyload = load ptr, ptr %32, align 8
@@ -26942,7 +26942,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLaneOpEjjjjN8WasmEdge4LLVM4TypeES3_(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr nocapture noundef nonnull readonly %4, i64 %.0.val) unnamed_addr #0 align 2 {
   %6 = alloca %"class.WasmEdge::LLVM::Type", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -26964,7 +26964,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileStoreLa
   store ptr %20, ptr %22, align 8
   %23 = load i64, ptr %4, align 8
   store i64 %23, ptr %6, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext false) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileStoreOpEjjjN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef %6, i1 noundef zeroext false, i1 noundef zeroext false) #16
   ret void
 }
 
@@ -27041,7 +27041,7 @@ _ZNSt6vectorIP15LLVMOpaqueValueSaIS1_EED2Ev.exit: ; preds = %_ZSt9transformIPKmN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEjS3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1, ptr nocapture noundef nonnull readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -27087,7 +27087,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtract
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileReplaceLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %4, align 8, !noalias !4201
   %5 = getelementptr inbounds i8, ptr %0, i64 152
@@ -27157,7 +27157,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileExtractLaneOpEN8WasmEdge4LLVM4TypeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i64 %.0.val, i32 noundef range(i32 0, 256) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -27474,7 +27474,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOpEN8WasmEdge4LLVM4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @LLVMGetUndef(ptr noundef %4) #16, !noalias !4383
@@ -27517,7 +27517,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler14compileSplatOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE16LLVMIntPredicate(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 32, 42) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %5, align 8, !noalias !257
@@ -27618,7 +27618,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler22compileVectorCompareOpEN8WasmEdge4LLVM4TypeE17LLVMRealPredicateS3_(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 15) %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %.val4.i = load ptr, ptr %6, align 8, !noalias !257
@@ -27918,7 +27918,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler20compileVectorB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorNarrowEN8WasmEdge4LLVM4TypeEb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %6 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -29585,7 +29585,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_23compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorUAvgrEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.cxx20::span.134", align 8
   %4 = alloca [2 x %"class.WasmEdge::LLVM::Value"], align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -29778,7 +29778,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_24compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtendEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %6 = load ptr, ptr %1, align 8, !noalias !5072
   %7 = tail call ptr @LLVMGetElementType(ptr noundef %6) #16, !noalias !5072
@@ -29998,7 +29998,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler21compileVectorVectorOpIZNS0_22compileVectorV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::vector.29", align 8
   %6 = alloca %class.anon.365, align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -30110,7 +30110,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %65 = load i64, ptr %64, align 8, !noalias !5138
   store i64 %65, ptr %8, align 8, !alias.scope !5138
   store ptr %64, ptr %63, align 8, !noalias !5138
-  call fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %8) #16
+  call fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %8) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !5141)
   %.val4.i5 = load ptr, ptr %44, align 8, !noalias !5141
   %.val5.i6 = load ptr, ptr %45, align 8, !noalias !5141
@@ -30143,7 +30143,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit10: ; preds = %.critedge.thre
   %81 = load i64, ptr %80, align 8, !noalias !5141
   store i64 %81, ptr %10, align 8, !alias.scope !5141
   store ptr %80, ptr %63, align 8, !noalias !5141
-  call fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %10) #16
+  call fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %10) #16
   %82 = getelementptr inbounds i8, ptr %0, i64 192
   %83 = load i64, ptr %7, align 8
   %84 = inttoptr i64 %83 to ptr
@@ -32042,7 +32042,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler19compileVectorF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler21compileVectorFNearestEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load i64, ptr %1, align 8
@@ -32731,7 +32731,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler15compileVectorOpIZNS0_20compileVectorPromote
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler23compileVectorVectorMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -32880,7 +32880,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler24compileVectorVectorNMAddEN8WasmEdge4LLVM4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -33522,7 +33522,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   %53 = getelementptr inbounds i8, ptr %52, i64 104
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %54 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %4, ptr %55) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %4, ptr %55) #16
   %.val4.i5 = load ptr, ptr %10, align 8, !noalias !6152
   %.val5.i6 = load ptr, ptr %11, align 8, !noalias !6152
   %56 = icmp eq ptr %.val4.i5, %.val5.i6
@@ -33616,7 +33616,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicWaitEjjN8WasmEdge4LLVM4TypeEj(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 32, 65) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %8 = alloca %"class.WasmEdge::LLVM::Type", align 8
@@ -33715,7 +33715,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit11: ; preds = %.critedge.thre
   store i64 %72, ptr %9, align 8
   %73 = load i64, ptr %3, align 8
   %74 = inttoptr i64 %73 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %9, ptr %74) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %9, ptr %74) #16
   %.val4.i12 = load ptr, ptr %15, align 8, !noalias !6191
   %.val5.i13 = load ptr, ptr %16, align 8, !noalias !6191
   %75 = icmp eq ptr %.val4.i12, %.val5.i13
@@ -33784,7 +33784,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit17: ; preds = %.critedge.thre
   call void @llvm.experimental.noalias.scope.decl(metadata !6207)
   %112 = load ptr, ptr %102, align 8, !noalias !6210
   %113 = call ptr @LLVMInt32TypeInContext(ptr noundef %112) #16, !noalias !6210
-  %114 = zext i32 %4 to i64
+  %114 = zext nneg i32 %4 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !6213)
   %115 = call ptr @LLVMConstInt(ptr noundef %113, i64 noundef %114, i32 noundef 0) #16, !noalias !6216
   store ptr %115, ptr %111, align 8, !alias.scope !6216
@@ -33826,7 +33826,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler9stackPushEN8WasmEdge4LLVM5ValueE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicLoadEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca [1 x ptr], align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %10 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -33862,7 +33862,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicL
   store i64 %33, ptr %9, align 8
   %34 = load i64, ptr %5, align 8
   %35 = inttoptr i64 %34 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %9, ptr %35) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %9, ptr %35) #16
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 88
   %38 = load i64, ptr %37, align 8
@@ -33911,7 +33911,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler17compileAtomicL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicStoreEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 align 2 {
   %6 = alloca [1 x ptr], align 8
   %7 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %8 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -33992,7 +33992,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   store i64 %58, ptr %10, align 8
   %59 = load i64, ptr %4, align 8
   %60 = inttoptr i64 %59 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %10, ptr %60) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %10, ptr %60) #16
   %61 = load ptr, ptr %0, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 88
   %63 = load i64, ptr %62, align 8
@@ -34021,7 +34021,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler18compileAtomicRMWOpEjjj18LLVMAtomicRMWBinOpN8WasmEdge4LLVM4TypeES4_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 7) %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
   %9 = alloca [1 x ptr], align 8
   %10 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %11 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -34100,7 +34100,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
   store i64 %59, ptr %13, align 8
   %60 = load i64, ptr %6, align 8
   %61 = inttoptr i64 %60 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %13, ptr %61) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %13, ptr %61) #16
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 88
   %64 = load i64, ptr %63, align 8
@@ -34147,7 +34147,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit: ; preds = %.critedge.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler28compileAtomicCompareExchangeEjjjN8WasmEdge4LLVM4TypeES3_b(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca [1 x ptr], align 8
   %9 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %10 = alloca %"class.WasmEdge::LLVM::Value", align 8
@@ -34264,7 +34264,7 @@ _ZN12_GLOBAL__N_116FunctionCompiler8stackPopEv.exit10: ; preds = %.critedge.thre
   store i64 %78, ptr %15, align 8
   %79 = load i64, ptr %5, align 8
   %80 = inttoptr i64 %79 to ptr
-  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %15, ptr %80) #16
+  call fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %15, ptr %80) #16
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 88
   %83 = load i64, ptr %82, align 8
@@ -35331,7 +35331,7 @@ define linkonce_odr hidden noundef i32 @_ZNK8WasmEdge4LLVM4Type22getPrimitiveSiz
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVectorExtMulEN8WasmEdge4LLVM4TypeEbbENKUlNS2_5ValueEE_clES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.WasmEdge::LLVM::Value", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 192
@@ -35389,7 +35389,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_116FunctionCompiler19compileVector
 declare ptr @LLVMBuildFence(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1, ptr %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116FunctionCompiler33compileAtomicCheckOffsetAlignmentEN8WasmEdge4LLVM5ValueENS2_4TypeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly %1, ptr %.0.val) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %"class.WasmEdge::LLVM::Type"], align 8
   %5 = alloca %"struct.cxx20::span.134", align 8

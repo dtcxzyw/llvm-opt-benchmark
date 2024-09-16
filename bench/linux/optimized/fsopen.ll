@@ -698,7 +698,7 @@ declare dso_local ptr @fs_context_for_mount(ptr noundef, i32 noundef) local_unna
 declare dso_local void @put_filesystem(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fscontext_create_fd(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @fscontext_create_fd(ptr noundef %0, i32 noundef range(i32 0, 524289) %1) unnamed_addr #0 align 16 {
   %3 = or i32 %1, 2
   %4 = tail call i32 @anon_inode_getfd(ptr noundef nonnull @.str.2, ptr noundef nonnull @fscontext_fops, ptr noundef %0, i32 noundef %3) #6
   %5 = icmp slt i32 %4, 0

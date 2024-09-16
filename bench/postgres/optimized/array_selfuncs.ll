@@ -917,7 +917,7 @@ calc_distr.exit163:                               ; preds = %._crit_edge87.i, %c
   br i1 %190, label %.critedge.i, label %191
 
 191:                                              ; preds = %187
-  %192 = add i32 %.03852.i, 1
+  %192 = add nuw i32 %.03852.i, 1
   %indvars.iv.next.i171 = add nsw i64 %indvars.iv.i170, 1
   %exitcond.not.i = icmp eq i32 %192, %186
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %187, !llvm.loop !17

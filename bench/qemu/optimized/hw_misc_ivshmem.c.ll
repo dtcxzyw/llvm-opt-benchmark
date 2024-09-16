@@ -441,7 +441,7 @@ if.then18.i:                                      ; preds = %ivshmem_recv_msg.ex
   br label %ivshmem_recv_setup.exit
 
 if.end19.i:                                       ; preds = %ivshmem_recv_msg.exit65.i
-  call fastcc void @process_msg(ptr noundef %call.i, i64 noundef %retval.0.i60.i, i32 noundef %fd.3.i, ptr noundef nonnull %err.i)
+  call fastcc void @process_msg(ptr noundef %call.i, i64 noundef %retval.0.i60.i, i32 noundef %fd.3.i, ptr noundef %err.i)
   %22 = load ptr, ptr %err.i, align 8
   %tobool20.not.i = icmp eq ptr %22, null
   br i1 %tobool20.not.i, label %do.cond.i, label %if.then21.i
@@ -706,7 +706,7 @@ if.then5:                                         ; preds = %if.then
 for.body.i:                                       ; preds = %if.then5, %for.inc.i
   %i.014.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %if.then5 ]
   store ptr null, ptr %err.i, align 8
-  call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %call.i, i32 noundef %i.014.i, ptr noundef nonnull %err.i)
+  call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %call.i, i32 noundef %i.014.i, ptr noundef %err.i)
   %4 = load ptr, ptr %err.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -893,7 +893,7 @@ if.end12:                                         ; preds = %if.end
   store i32 0, ptr %msg_buffered_bytes, align 16
   %server_chr = getelementptr inbounds i8, ptr %opaque, i64 2624
   %call15 = tail call i32 @qemu_chr_fe_get_msgfd(ptr noundef nonnull %server_chr) #11
-  call fastcc void @process_msg(ptr noundef nonnull %opaque, i64 noundef %2, i32 noundef %call15, ptr noundef nonnull %err)
+  call fastcc void @process_msg(ptr noundef nonnull %opaque, i64 noundef %2, i32 noundef %call15, ptr noundef %err)
   %3 = load ptr, ptr %err, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end17, label %if.then16
@@ -1006,7 +1006,7 @@ declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @process_msg(ptr noundef %s, i64 noundef %msg, i32 noundef %fd, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @process_msg(ptr noundef %s, i64 noundef %msg, i32 noundef %fd, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %err.i.i = alloca ptr, align 8
   %local_err.i = alloca ptr, align 8
@@ -1016,7 +1016,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 557, ptr noundef nonnull @__func__.process_msg, ptr noundef nonnull @.str.20, i64 noundef %msg) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 557, ptr noundef nonnull @__func__.process_msg, ptr noundef nonnull @.str.20, i64 noundef %msg) #11
   %call = tail call i32 @close(i32 noundef %fd) #11
   br label %if.end15
 
@@ -1034,7 +1034,7 @@ if.then3:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 484, ptr noundef nonnull @__func__.process_msg_shmem, ptr noundef nonnull @.str.21) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 484, ptr noundef nonnull @__func__.process_msg_shmem, ptr noundef nonnull @.str.21) #11
   %call.i = tail call i32 @close(i32 noundef %fd) #11
   br label %process_msg_shmem.exit
 
@@ -1046,7 +1046,7 @@ if.end.i:                                         ; preds = %if.then3
 if.then2.i:                                       ; preds = %if.end.i
   %call3.i = tail call ptr @__errno_location() #14
   %2 = load i32, ptr %call3.i, align 4
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 491, ptr noundef nonnull @__func__.process_msg_shmem, i32 noundef %2, ptr noundef nonnull @.str.22) #11
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 491, ptr noundef nonnull @__func__.process_msg_shmem, i32 noundef %2, ptr noundef nonnull @.str.22) #11
   %call4.i = tail call i32 @close(i32 noundef %fd) #11
   br label %process_msg_shmem.exit
 
@@ -1060,7 +1060,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %if.end8.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end5.i
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %4) #11
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %4) #11
   br label %process_msg_shmem.exit
 
 if.end8.i:                                        ; preds = %if.end5.i
@@ -1131,7 +1131,7 @@ if.then12:                                        ; preds = %if.end9
   br i1 %cmp.not.i, label %if.end.i24, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then12
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 532, ptr noundef nonnull @__func__.process_msg_connect, ptr noundef nonnull @.str.24, i32 noundef %13) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 532, ptr noundef nonnull @__func__.process_msg_connect, ptr noundef nonnull @.str.24, i32 noundef %13) #11
   %call.i23 = tail call i32 @close(i32 noundef %fd) #11
   br label %if.end15
 
@@ -1203,13 +1203,13 @@ if.else.i.i:                                      ; preds = %land.end.i.i
   br i1 %tobool9.not.i.i, label %setup_interrupt.exit.i, label %do.end12.i.i
 
 do.end12.i.i:                                     ; preds = %if.else.i.i
-  call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %s, i32 noundef %12, ptr noundef nonnull %err.i.i)
+  call fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef nonnull %s, i32 noundef %12, ptr noundef %err.i.i)
   %24 = load ptr, ptr %err.i.i, align 8
   %tobool13.not.i.i = icmp eq ptr %24, null
   br i1 %tobool13.not.i.i, label %if.end.i.i, label %if.then14.i.i
 
 if.then14.i.i:                                    ; preds = %do.end12.i.i
-  call void @error_propagate(ptr noundef %errp, ptr noundef nonnull %24) #11
+  call void @error_propagate(ptr noundef nonnull %errp, ptr noundef nonnull %24) #11
   br label %setup_interrupt.exit.i
 
 if.end.i.i:                                       ; preds = %do.end12.i.i
@@ -1262,7 +1262,7 @@ lor.lhs.false.i:                                  ; preds = %if.else
   br i1 %cmp3.i, label %if.then.i30, label %if.end.i32
 
 if.then.i30:                                      ; preds = %lor.lhs.false.i, %if.else
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 514, ptr noundef nonnull @__func__.process_msg_disconnect, ptr noundef nonnull @.str.27, i32 noundef %conv.i28) #11
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 514, ptr noundef nonnull @__func__.process_msg_disconnect, ptr noundef nonnull @.str.27, i32 noundef %conv.i28) #11
   br label %if.end15
 
 if.end.i32:                                       ; preds = %lor.lhs.false.i
@@ -1296,7 +1296,7 @@ declare i32 @g_unix_set_fd_nonblocking(i32 noundef, i32 noundef, ptr noundef) lo
 declare i32 @msix_enabled(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef %s, i32 noundef %vector, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @ivshmem_add_kvm_msi_virq(ptr noundef %s, i32 noundef %vector, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %c = alloca %struct.KVMRouteChange, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %s, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #11
@@ -1322,7 +1322,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then4, label %if.end5
 
 if.then4:                                         ; preds = %if.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 436, ptr noundef nonnull @__func__.ivshmem_add_kvm_msi_virq, ptr noundef nonnull @.str.26) #11
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.7, i32 noundef 436, ptr noundef nonnull @__func__.ivshmem_add_kvm_msi_virq, ptr noundef nonnull @.str.26) #11
   br label %return
 
 if.end5:                                          ; preds = %if.end

@@ -6300,7 +6300,7 @@ declare i32 @wc_PemGetHeaderFooter(i32 noundef, ptr noundef, ptr noundef) local_
 declare ptr @mystrnstr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ProcessChainBuffer(ptr noundef %ctx, ptr noundef %buff, i64 noundef %sz, i32 noundef %type, ptr noundef %ssl, i32 noundef %verify) unnamed_addr #0 {
+define internal fastcc i32 @ProcessChainBuffer(ptr noundef %ctx, ptr noundef %buff, i64 noundef %sz, i32 noundef range(i32 24, 23) %type, ptr noundef %ssl, i32 noundef %verify) unnamed_addr #0 {
 entry:
   %consumed = alloca i64, align 8
   %cmp9 = icmp sgt i64 %sz, 0
@@ -8327,7 +8327,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr nocapture noundef writeonly %error) unnamed_addr #0 {
+define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr nocapture noundef nonnull writeonly %error) unnamed_addr #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %call = call i32 @wc_Md5Hash(ptr noundef %o, i32 noundef %len, ptr noundef nonnull %digest) #20
@@ -8377,7 +8377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr nocapture noundef %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
+define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr nocapture noundef %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext range(i8 0, 2) %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   store ptr null, ptr %sess, align 8
@@ -9092,7 +9092,7 @@ if.then24:                                        ; preds = %if.then21
   br i1 %cmp36.not, label %do.end62, label %if.then38
 
 if.then38:                                        ; preds = %if.then24
-  %call39 = call fastcc i32 @HashObject(ptr noundef nonnull %sessionID, i32 noundef 32, ptr noundef nonnull %error)
+  %call39 = call fastcc i32 @HashObject(ptr noundef nonnull %sessionID, i32 noundef 32, ptr noundef %error)
   %11 = load i32, ptr %error, align 4
   %cmp40 = icmp eq i32 %11, 0
   br i1 %cmp40, label %if.end57.thread46, label %if.end85

@@ -144,7 +144,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %50 = fmul double %49, 2.550000e+02
   %51 = fptoui double %50 to i32
   %52 = call i32 @llvm.umin.i32(i32 %51, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select.i, i32 noundef %47, i32 noundef %52)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select.i, i32 noundef %47, i32 noundef %52)
   br label %color_string.exit
 
 53:                                               ; preds = %38
@@ -152,7 +152,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %55 = fmul double %54, 2.550000e+02
   %56 = fptoui double %55 to i32
   %spec.select32.i = call i32 @llvm.umin.i32(i32 %56, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i, i32 noundef %spec.select32.i)
   br label %color_string.exit
 
 57:                                               ; preds = %38
@@ -165,7 +165,7 @@ define void @attach_edge_colors(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %63 = fmul double %62, 2.550000e+02
   %64 = fptoui double %63 to i32
   %65 = call i32 @llvm.umin.i32(i32 %64, i32 255)
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select33.i, i32 noundef 0, i32 noundef %65)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr noundef nonnull @.str.32, i32 noundef %spec.select33.i, i32 noundef 0, i32 noundef %65)
   br label %color_string.exit
 
 color_string.exit:                                ; preds = %38, %39, %53, %57
@@ -744,7 +744,7 @@ define internal fastcc void @graphviz_exit() unnamed_addr #4 {
 declare ptr @SparseMatrix_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #5 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 1, 9) %1) unnamed_addr #5 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -925,7 +925,7 @@ agxbsizeof.exit.i.i.us:                           ; preds = %.lr.ph, %agxbuse.ex
   br i1 %.not.i.i.us, label %36, label %35
 
 35:                                               ; preds = %agxbsizeof.exit.i.i.us
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i.us = load i8, ptr %15, align 1
   br label %36
 
@@ -988,7 +988,7 @@ agxbsizeof.exit.i.i:                              ; preds = %.lr.ph, %agxbuse.ex
   br i1 %.not.i.i, label %57, label %56
 
 56:                                               ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %6, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %6, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %15, align 1
   br label %57
 
@@ -2290,7 +2290,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   %100 = sext i32 %98 to i64
   %101 = getelementptr inbounds i32, ptr %99, i64 %100
   %102 = load i32, ptr %101, align 4
-  call void (ptr, ptr, ...) @agxbprint(ptr noundef nonnull %8, ptr noundef nonnull @.str.19, i32 noundef %102)
+  call void (ptr, ptr, ...) @agxbprint(ptr noundef %8, ptr noundef nonnull @.str.19, i32 noundef %102)
   %.val.i.i.i = load i8, ptr %92, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   %103 = load i64, ptr %93, align 8
@@ -2302,7 +2302,7 @@ agxbsizeof.exit.i.i:                              ; preds = %agxbsizeof.exit.i.i
   br i1 %.not.i.i, label %107, label %106
 
 106:                                              ; preds = %agxbsizeof.exit.i.i
-  call fastcc void @agxbmore(ptr noundef nonnull %8, i64 noundef 1)
+  call fastcc void @agxbmore(ptr noundef %8, i64 noundef 1)
   %.val.i15.pre.i.i = load i8, ptr %92, align 1
   br label %107
 
@@ -2388,7 +2388,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %124
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @agxbprint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @agxbprint(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -2431,7 +2431,7 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 19:                                               ; preds = %agxblen.exit.i
   %20 = sub nuw nsw i64 %9, %17
-  call fastcc void @agxbmore(ptr noundef nonnull %0, i64 noundef %20)
+  call fastcc void @agxbmore(ptr noundef %0, i64 noundef %20)
   %.val.i.i.pre.i = load i8, ptr %10, align 1
   br label %21
 
@@ -2510,7 +2510,7 @@ define i32 @getDotNodeID(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noundef range(i64 -2147483646, 2147483649) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1
   %.not.i = icmp eq i8 %.val.i, -1
@@ -2555,7 +2555,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br label %gv_recalloc.exit
 
 23:                                               ; preds = %2
-  %24 = add i64 %1, 31
+  %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
   %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #25
   %26 = icmp eq ptr %25, null

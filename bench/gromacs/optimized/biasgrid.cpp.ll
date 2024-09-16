@@ -886,7 +886,7 @@ _ZN3gmx12_GLOBAL__N_117indexWithinPeriodEii.exit.i: ; preds = %34, %32, %22
   %.val = load ptr, ptr %8, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 32
   %.val15 = load ptr, ptr %45, align 8
-  %46 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.val, ptr %.val15, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %46 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.val, ptr %.val15, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
   br i1 %46, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread, label %_ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit
 
 _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds = %21, %9, %44
@@ -939,7 +939,7 @@ _ZN3gmx12_GLOBAL__N_118gridToSubgridIndexERKNS_8BiasGridEPKiS5_iPi.exit: ; preds
   %.lcssa = phi i32 [ %60, %.lr.ph.preheader.i ], [ %68, %.lr.ph.i18 ]
   %73 = add nsw i32 %.lcssa, 1
   store i32 %73, ptr %.lcssa24, align 4
-  %74 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %51, ptr %50, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %74 = call fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %51, ptr %50, ptr noundef %1, ptr noundef %5, ptr noundef nonnull %3)
   br i1 %74, label %_ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread, label %49, !llvm.loop !15
 
 _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread: ; preds = %49, %.lr.ph.i18._crit_edge, %.lr.ph, %44
@@ -948,7 +948,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.thread: ; preds = %49, %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.24.val, ptr %.32.val, ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_118subgridToGridIndexERKNS_8BiasGridEPKiS5_Pi(ptr %.24.val, ptr %.32.val, ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [4 x i32], align 16
   %6 = ptrtoint ptr %.32.val to i64

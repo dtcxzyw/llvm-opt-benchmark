@@ -1460,7 +1460,7 @@ if.end1031:                                       ; preds = %if.end1017, %if.the
   %285 = load float, ptr %arrayidx1100, align 4
   %arrayidx1101 = getelementptr inbounds i8, ptr %rect, i64 4
   store float %285, ptr %arrayidx1101, align 4
-  %call1105 = call fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef nonnull %rect, ptr noundef nonnull %quad, ptr noundef nonnull %ret)
+  %call1105 = call fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr noundef %rect, ptr noundef %quad, ptr noundef %ret)
   %cmp1106 = icmp slt i32 %call1105, 1
   br i1 %cmp1106, label %return, label %if.end1108
 
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr nocapture noundef readonly %h, ptr nocapture noundef readonly %p, ptr noundef %ret) unnamed_addr #6 {
+define internal fastcc noundef i32 @_ZL18intersectRectQuad2PfS_S_(ptr nocapture noundef nonnull readonly %h, ptr nocapture noundef nonnull readonly %p, ptr noundef nonnull %ret) unnamed_addr #6 {
 entry:
   %buffer = alloca [16 x float], align 16
   br label %for.cond1.preheader
@@ -1915,7 +1915,7 @@ if.then85:                                        ; preds = %done
   %mul86 = shl nsw i32 %nr.4, 1
   %conv87 = sext i32 %mul86 to i64
   %mul88 = shl nsw i64 %conv87, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %ret, ptr align 4 %r.178, i64 %mul88, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ret, ptr align 4 %r.178, i64 %mul88, i1 false)
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then85, %done

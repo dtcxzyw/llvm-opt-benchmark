@@ -1410,7 +1410,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento15BlockDataRegionEKNS2_9MemRegionEEEDaPT0
   br i1 %.not15.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .loopexit.i.i:                                    ; preds = %88, %63
-  call fastcc void @_ZN12_GLOBAL__N_122StackAddrEscapeChecker23getCapturedStackRegionsERKN5clang4ento15BlockDataRegionERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZN12_GLOBAL__N_122StackAddrEscapeChecker23getCapturedStackRegionsERKN5clang4ento15BlockDataRegionERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %90 = load ptr, ptr %8, align 8
   %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
   %92 = getelementptr inbounds ptr, ptr %90, i64 %91
@@ -2663,7 +2663,7 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_10ReturnStmtEE10_checkStmt
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
-  call fastcc void @_ZN12_GLOBAL__N_122StackAddrEscapeChecker23getCapturedStackRegionsERKN5clang4ento15BlockDataRegionERNS2_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  call fastcc void @_ZN12_GLOBAL__N_122StackAddrEscapeChecker23getCapturedStackRegionsERKN5clang4ento15BlockDataRegionERNS2_14CheckerContextE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(81) %2)
   %44 = load ptr, ptr %14, align 8
   %45 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #17
   %46 = getelementptr inbounds ptr, ptr %44, i64 %45

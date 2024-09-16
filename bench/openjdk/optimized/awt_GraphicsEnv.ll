@@ -385,21 +385,21 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
 
 33:                                               ; preds = %28, %30, %22, %23
   %.026 = phi i64 [ 3, %22 ], [ 3, %23 ], [ 3, %28 ], [ 14, %30 ]
-  %34 = call fastcc ptr @findWithTemplate(ptr noundef nonnull %4, i64 noundef %.026)
+  %34 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef %.026)
   %.not38 = icmp eq ptr %34, null
   br i1 %.not38, label %35, label %49
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %13, ptr %36, align 8
-  %37 = call fastcc ptr @findWithTemplate(ptr noundef nonnull %4, i64 noundef 3)
+  %37 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 3)
   %.not39 = icmp eq ptr %37, null
   br i1 %.not39, label %38, label %49
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds i8, ptr %4, i64 24
   store i32 4, ptr %39, align 8
-  %40 = call fastcc ptr @findWithTemplate(ptr noundef nonnull %4, i64 noundef 10)
+  %40 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 10)
   %.not40 = icmp eq ptr %40, null
   br i1 %.not40, label %41, label %49
 
@@ -407,13 +407,13 @@ define internal fastcc noundef ptr @makeDefaultConfig(ptr noundef %0, i32 nounde
   %42 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 8, ptr %42, align 4
   store i32 3, ptr %39, align 8
-  %43 = call fastcc ptr @findWithTemplate(ptr noundef nonnull %4, i64 noundef 14)
+  %43 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 14)
   %.not41 = icmp eq ptr %43, null
   br i1 %.not41, label %44, label %49
 
 44:                                               ; preds = %41
   store i32 8, ptr %42, align 4
-  %45 = call fastcc ptr @findWithTemplate(ptr noundef nonnull %4, i64 noundef 6)
+  %45 = call fastcc ptr @findWithTemplate(ptr noundef %4, i64 noundef 6)
   %.not42 = icmp eq ptr %45, null
   br i1 %.not42, label %46, label %49
 
@@ -4421,7 +4421,7 @@ define void @Java_sun_awt_X11GraphicsDevice_enterFullScreenExclusive(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef zeroext range(i8 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = alloca %union._XEvent, align 8
   %5 = load ptr, ptr @awt_display, align 8
@@ -4451,8 +4451,7 @@ define internal fastcc void @X11GD_SetFullscreenMode(i64 noundef %0, i8 noundef 
   store i64 %0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 48
   store i32 32, ptr %19, align 8
-  %.not9 = icmp ne i8 %1, 0
-  %20 = zext i1 %.not9 to i64
+  %20 = zext nneg i8 %1 to i64
   %21 = getelementptr inbounds i8, ptr %4, i64 56
   store i64 %20, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 64
@@ -4573,11 +4572,11 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i64 @GLXGC_FindBestVisual(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @findWithTemplate(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @findWithTemplate(ptr noundef nonnull %0, i64 noundef range(i64 3, 15) %1) unnamed_addr #0 {
   %3 = alloca %struct.XColor, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @awt_display, align 8
-  %6 = call ptr @XGetVisualInfo(ptr noundef %5, i64 noundef %1, ptr noundef %0, ptr noundef nonnull %4) #17
+  %6 = call ptr @XGetVisualInfo(ptr noundef %5, i64 noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %4) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %70, label %7
 

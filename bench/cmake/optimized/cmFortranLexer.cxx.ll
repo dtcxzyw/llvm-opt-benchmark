@@ -2431,7 +2431,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare noundef ptr @_Z25cmFortranParser_StringEndP17cmFortranParser_s(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL7yyunputiPcPv(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
+define internal fastcc void @_ZL7yyunputiPcPv(i32 noundef range(i32 -128, 128) %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 48

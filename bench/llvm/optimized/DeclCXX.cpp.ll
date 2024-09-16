@@ -13417,21 +13417,21 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %18
   %34 = load ptr, ptr %4, align 8
   %35 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
-  %.not14.i = icmp eq i64 %35, 0
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.split.i
+  %.not15.i = icmp eq i64 %35, 0
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 37:                                               ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i
-  %38 = getelementptr inbounds i8, ptr %.015.i, i64 8
+  %38 = getelementptr inbounds i8, ptr %.016.i, i64 8
   %.not.i = icmp eq ptr %38, %36
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.split.i:                                   ; preds = %33, %37
-  %.015.i = phi ptr [ %38, %37 ], [ %34, %33 ]
-  %39 = load ptr, ptr %.015.i, align 8
-  %.not25.i = icmp eq ptr %39, null
-  br i1 %.not25.i, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i, label %40
+.lr.ph.i:                                         ; preds = %33, %37
+  %.016.i = phi ptr [ %38, %37 ], [ %34, %33 ]
+  %39 = load ptr, ptr %.016.i, align 8
+  %.not14.i = icmp eq ptr %39, null
+  br i1 %.not14.i, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i, label %40
 
-40:                                               ; preds = %.lr.ph.split.i
+40:                                               ; preds = %.lr.ph.i
   %41 = icmp eq ptr %32, %39
   br i1 %41, label %"_ZZN5clang13CXXMethodDecl29getCorrespondingMethodInClassEPKNS_13CXXRecordDeclEbENK3$_0clEPS0_.exit", label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i
 
@@ -13447,7 +13447,7 @@ _ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i: ; preds = %40
   %50 = icmp eq ptr %45, %49
   br i1 %50, label %"_ZZN5clang13CXXMethodDecl29getCorrespondingMethodInClassEPKNS_13CXXRecordDeclEbENK3$_0clEPS0_.exit", label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i
 
-_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i: ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i, %.lr.ph.split.i
+_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.thread12.i: ; preds = %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit.i, %.lr.ph.i
   %51 = call fastcc noundef zeroext i1 @_ZL20recursivelyOverridesPKN5clang13CXXMethodDeclES2_(ptr noundef %39, ptr noundef nonnull %32)
   br i1 %51, label %"_ZZN5clang13CXXMethodDecl29getCorrespondingMethodInClassEPKNS_13CXXRecordDeclEbENK3$_0clEPS0_.exit", label %37
 

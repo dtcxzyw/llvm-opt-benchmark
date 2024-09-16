@@ -2468,7 +2468,7 @@ dump_buffer.exit18:                               ; preds = %41, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_bits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @emit_bits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -128, 256) %2) unnamed_addr #0 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   %6 = load i32, ptr %5, align 8

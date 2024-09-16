@@ -2803,7 +2803,7 @@ declare dso_local zeroext i1 @acpi_dma_supported(ptr noundef) local_unnamed_addr
 declare dso_local i32 @acpi_get_dma_attr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) unnamed_addr #5 align 16 {
+define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 5) %2, ptr noundef writeonly %3, i64 noundef %4) unnamed_addr #5 align 16 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %8 = or i1 %6, %7
@@ -2998,8 +2998,8 @@ define internal fastcc i32 @acpi_node_prop_read(ptr noundef %0, ptr noundef read
   br i1 %115, label %select.unfold, label %.thread50
 
 select.unfold:                                    ; preds = %.loopexit90, %.thread49.thread, %.loopexit85, %.thread.thread
-  %.ph227 = phi ptr [ %54, %.thread.thread ], [ %71, %.loopexit85 ], [ %99, %.thread49.thread ], [ %116, %.loopexit90 ]
-  switch i32 %2, label %default.unreachable [
+  %.ph228 = phi ptr [ %54, %.thread.thread ], [ %71, %.loopexit85 ], [ %99, %.thread49.thread ], [ %116, %.loopexit90 ]
+  switch i32 %2, label %default.unreachable222 [
     i32 0, label %119
     i32 1, label %127
     i32 2, label %135
@@ -3008,7 +3008,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   ]
 
 119:                                              ; preds = %select.unfold
-  %120 = getelementptr inbounds i8, ptr %.ph227, i64 8
+  %120 = getelementptr inbounds i8, ptr %.ph228, i64 8
   %121 = load i64, ptr %120, align 8
   %122 = icmp ugt i64 %121, 255
   br i1 %122, label %.thread52, label %123
@@ -3023,7 +3023,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br label %153
 
 127:                                              ; preds = %select.unfold
-  %128 = getelementptr inbounds i8, ptr %.ph227, i64 8
+  %128 = getelementptr inbounds i8, ptr %.ph228, i64 8
   %129 = load i64, ptr %128, align 8
   %130 = icmp ugt i64 %129, 65535
   br i1 %130, label %.thread52, label %131
@@ -3038,7 +3038,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br label %153
 
 135:                                              ; preds = %select.unfold
-  %136 = getelementptr inbounds i8, ptr %.ph227, i64 8
+  %136 = getelementptr inbounds i8, ptr %.ph228, i64 8
   %137 = load i64, ptr %136, align 8
   %138 = icmp ugt i64 %137, 4294967295
   br i1 %138, label %.thread52, label %139
@@ -3057,7 +3057,7 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br i1 %144, label %153, label %145
 
 145:                                              ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %.ph227, i64 8
+  %146 = getelementptr inbounds i8, ptr %.ph228, i64 8
   %147 = load i64, ptr %146, align 8
   store i64 %147, ptr %3, align 8
   br label %153
@@ -3067,12 +3067,12 @@ select.unfold:                                    ; preds = %.loopexit90, %.thre
   br i1 %149, label %.thread52, label %150
 
 150:                                              ; preds = %148
-  %151 = getelementptr inbounds i8, ptr %.ph227, i64 8
+  %151 = getelementptr inbounds i8, ptr %.ph228, i64 8
   %152 = load ptr, ptr %151, align 8
   store ptr %152, ptr %3, align 8
   br label %.thread52
 
-default.unreachable:                              ; preds = %275, %select.unfold
+default.unreachable222:                           ; preds = %275, %select.unfold
   unreachable
 
 153:                                              ; preds = %145, %143, %141, %139, %133, %131, %125, %123
@@ -3173,22 +3173,22 @@ default.unreachable:                              ; preds = %275, %select.unfold
   %210 = select i1 %209, ptr %207, ptr null
   %211 = icmp ugt i32 %2, 3
   %212 = or i1 %211, %209
-  br i1 %212, label %255, label %.thread231
+  br i1 %212, label %255, label %.thread232
 
 .loopexit78.thread:                               ; preds = %162
   %213 = icmp ugt i32 %2, 3
-  br i1 %213, label %.thread52, label %.thread231
+  br i1 %213, label %.thread52, label %.thread232
 
-.thread231:                                       ; preds = %.loopexit78, %.loopexit78.thread
+.thread232:                                       ; preds = %.loopexit78, %.loopexit78.thread
   %214 = phi ptr [ null, %.loopexit78.thread ], [ %210, %.loopexit78 ]
   %215 = getelementptr inbounds i8, ptr %20, i64 8
   %216 = load volatile ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, %215
   br i1 %217, label %.thread52, label %.critedge65.outer
 
-.critedge65.outer:                                ; preds = %.thread231, %.thread55
-  %.ph75 = phi ptr [ %252, %.thread55 ], [ %214, %.thread231 ]
-  %.ph76 = phi ptr [ %220, %.thread55 ], [ %215, %.thread231 ]
+.critedge65.outer:                                ; preds = %.thread232, %.thread55
+  %.ph75 = phi ptr [ %252, %.thread55 ], [ %214, %.thread232 ]
+  %.ph76 = phi ptr [ %220, %.thread55 ], [ %215, %.thread232 ]
   %218 = load ptr, ptr %.ph76, align 8
   %219 = icmp eq ptr %218, %215
   br i1 %219, label %.thread52, label %.lr.ph164
@@ -3218,7 +3218,7 @@ default.unreachable:                              ; preds = %275, %select.unfold
   %235 = getelementptr i8, ptr %230, i64 24
   %236 = load i32, ptr %235, align 8
   %237 = icmp eq i32 %236, 3
-  br i1 %237, label %.thread241, label %.thread52
+  br i1 %237, label %.thread242, label %.thread52
 
 .lr.ph156:                                        ; preds = %225, %241
   %238 = phi i64 [ %239, %241 ], [ 0, %225 ]
@@ -3249,22 +3249,22 @@ default.unreachable:                              ; preds = %275, %select.unfold
   br i1 %254, label %.thread52, label %.lr.ph164, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.thread55
-  br i1 %251, label %.thread241, label %.thread52
+  br i1 %251, label %.thread242, label %.thread52
 
 255:                                              ; preds = %.loopexit78
   %256 = icmp eq i32 %208, 0
-  br i1 %256, label %.thread241, label %.thread52
+  br i1 %256, label %.thread242, label %.thread52
 
-.thread241:                                       ; preds = %.thread55.thread, %.loopexit, %255
+.thread242:                                       ; preds = %.thread55.thread, %.loopexit, %255
   %257 = phi ptr [ %210, %255 ], [ %235, %.thread55.thread ], [ %252, %.loopexit ]
   br i1 %22, label %261, label %258
 
-258:                                              ; preds = %.thread241
+258:                                              ; preds = %.thread242
   %259 = getelementptr inbounds i8, ptr %257, i64 4
   %260 = load i32, ptr %259, align 4
   br label %.thread52
 
-261:                                              ; preds = %.thread241
+261:                                              ; preds = %.thread242
   %262 = icmp eq i32 %2, 4
   br i1 %262, label %268, label %263
 
@@ -3291,7 +3291,7 @@ default.unreachable:                              ; preds = %275, %select.unfold
 275:                                              ; preds = %270
   %276 = getelementptr inbounds i8, ptr %257, i64 8
   %277 = load ptr, ptr %276, align 8
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable222 [
     i32 0, label %.thread59
     i32 1, label %282
     i32 2, label %280
@@ -3485,8 +3485,8 @@ default.unreachable:                              ; preds = %275, %select.unfold
   %396 = icmp ult i64 %395, %383
   br i1 %396, label %.preheader, label %.thread52, !llvm.loop !40
 
-.thread52:                                        ; preds = %.critedge65.outer, %.critedge65.backedge, %390, %.preheader, %373, %366, %352, %346, %342, %328, %322, %318, %304, %298, %294, %159, %.thread55.thread, %.loopexit78.thread, %.loopexit, %.thread50, %.thread231, %135, %127, %119, %148, %150, %153, %378, %273, %268, %263, %258, %255
-  %397 = phi i32 [ %208, %255 ], [ -22, %268 ], [ -71, %273 ], [ 0, %378 ], [ %260, %258 ], [ -75, %263 ], [ 1, %148 ], [ 1, %150 ], [ -75, %135 ], [ -75, %127 ], [ -75, %119 ], [ %155, %153 ], [ -22, %.thread231 ], [ -22, %.thread50 ], [ -22, %.loopexit78.thread ], [ -71, %.loopexit ], [ -71, %.thread55.thread ], [ -22, %159 ], [ -75, %298 ], [ -71, %294 ], [ 0, %304 ], [ -75, %322 ], [ -71, %318 ], [ 0, %328 ], [ -75, %346 ], [ -71, %342 ], [ 0, %352 ], [ -71, %366 ], [ 0, %373 ], [ %382, %390 ], [ -71, %.preheader ], [ -22, %.critedge65.backedge ], [ -22, %.critedge65.outer ]
+.thread52:                                        ; preds = %.critedge65.outer, %.critedge65.backedge, %390, %.preheader, %373, %366, %352, %346, %342, %328, %322, %318, %304, %298, %294, %159, %.thread55.thread, %.loopexit78.thread, %.loopexit, %.thread50, %.thread232, %135, %127, %119, %148, %150, %153, %378, %273, %268, %263, %258, %255
+  %397 = phi i32 [ %208, %255 ], [ -22, %268 ], [ -71, %273 ], [ 0, %378 ], [ %260, %258 ], [ -75, %263 ], [ 1, %148 ], [ 1, %150 ], [ -75, %135 ], [ -75, %127 ], [ -75, %119 ], [ %155, %153 ], [ -22, %.thread232 ], [ -22, %.thread50 ], [ -22, %.loopexit78.thread ], [ -71, %.loopexit ], [ -71, %.thread55.thread ], [ -22, %159 ], [ -75, %298 ], [ -71, %294 ], [ 0, %304 ], [ -75, %322 ], [ -71, %318 ], [ 0, %328 ], [ -75, %346 ], [ -71, %342 ], [ 0, %352 ], [ -71, %366 ], [ 0, %373 ], [ %382, %390 ], [ -71, %.preheader ], [ -22, %.critedge65.backedge ], [ -22, %.critedge65.outer ]
   ret i32 %397
 }
 

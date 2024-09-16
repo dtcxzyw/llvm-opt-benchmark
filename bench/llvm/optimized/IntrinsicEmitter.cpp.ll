@@ -2315,7 +2315,7 @@ _ZN12_GLOBAL__N_116IntrinsicEmitter28EmitIntrinsicToOverloadTableERKN4llvm21Code
   %.sroa.20.158.i = phi ptr [ %723, %.lr.ph60.i ], [ %.sroa.20.4.i, %_ZN4llvm11SmallVectorIhLj40EED2Ev.exit.i ]
   %.sroa.9.157.i = phi ptr [ %722, %.lr.ph60.i ], [ %.sroa.9.4.i, %_ZN4llvm11SmallVectorIhLj40EED2Ev.exit.i ]
   %.sroa.0.156.i = phi ptr [ %722, %.lr.ph60.i ], [ %.sroa.0.4.i, %_ZN4llvm11SmallVectorIhLj40EED2Ev.exit.i ]
-  call fastcc void @_ZL20ComputeTypeSignatureRKN4llvm16CodeGenIntrinsicE(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.025.059.i)
+  call fastcc void @_ZL20ComputeTypeSignatureRKN4llvm16CodeGenIntrinsicE(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.025.059.i)
   %726 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %57) #17
   %727 = icmp ult i64 %726, 9
   br i1 %727, label %728, label %.loopexit.i
@@ -2633,7 +2633,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34.i:             ; preds = %845, %843
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit37.i
 
 863:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit31.i57
-  call fastcc void @_ZL20ComputeTypeSignatureRKN4llvm16CodeGenIntrinsicE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.02.065.i)
+  call fastcc void @_ZL20ComputeTypeSignatureRKN4llvm16CodeGenIntrinsicE(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.02.065.i)
   %864 = load ptr, ptr %418, align 8
   %865 = load ptr, ptr %420, align 8
   %866 = ptrtoint ptr %864 to i64

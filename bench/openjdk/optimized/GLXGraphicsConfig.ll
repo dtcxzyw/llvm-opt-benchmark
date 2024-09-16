@@ -264,7 +264,7 @@ define hidden i64 @GLXGC_FindBestVisual(ptr nocapture noundef readnone %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [9 x i32], align 16
   %5 = alloca i32, align 4

@@ -2252,7 +2252,7 @@ _settriple.exit:                                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_settriple(ptr nocapture noundef %result, i8 noundef zeroext %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #8 {
+define internal fastcc void @_settriple(ptr nocapture noundef %result, i8 noundef zeroext range(i8 0, 2) %sign, i64 noundef %a, i64 noundef %exp) unnamed_addr #8 {
 entry:
   %err.i = alloca i8, align 1
   %0 = load i8, ptr %result, align 8
@@ -2285,7 +2285,7 @@ if.then4.i:                                       ; preds = %if.then.i
 mpd_minalloc.exit:                                ; preds = %if.then.i, %if.then4.i, %land.lhs.true.i, %entry
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
-  %or.i13 = or i8 %8, %sign
+  %or.i13 = or disjoint i8 %8, %sign
   store i8 %or.i13, ptr %result, align 8
   %exp1 = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %exp, ptr %exp1, align 8
@@ -2622,7 +2622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_mpd_qget_uint(i32 noundef %use_sign, ptr noundef %a, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc i64 @_mpd_qget_uint(i32 noundef range(i32 0, 2) %use_sign, ptr noundef %a, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %tmp = alloca %struct.mpd_t, align 8
   %tmp_data = alloca [2 x i64], align 16
@@ -2709,7 +2709,7 @@ if.end21:                                         ; preds = %_mpd_isint.exit
   %alloc = getelementptr inbounds i8, ptr %tmp, i64 32
   store i64 2, ptr %alloc, align 8
   %sub = sub i64 0, %8
-  call fastcc void @mpd_qsshiftr(ptr noundef nonnull %tmp, ptr noundef nonnull %a, i64 noundef %sub)
+  call fastcc void @mpd_qsshiftr(ptr noundef %tmp, ptr noundef nonnull %a, i64 noundef %sub)
   store i64 0, ptr %a.addr.0.sroa.gep, align 8
   %.pre = load ptr, ptr %a.addr.0.sroa.gep34, align 8
   %.pre56 = load i64, ptr %a.addr.0.sroa.gep37, align 8
@@ -5278,7 +5278,7 @@ return:                                           ; preds = %mpd_zerocoeff.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @_mpd_get_rnd(ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef %use_msd) unnamed_addr #14 {
+define internal fastcc i64 @_mpd_get_rnd(ptr nocapture noundef readonly %data, i64 noundef %len, i32 noundef range(i32 0, 2) %use_msd) unnamed_addr #14 {
 entry:
   %rnd = alloca i64, align 8
   %rest = alloca i64, align 8
@@ -5398,7 +5398,7 @@ mpd_word_digits.exit:                             ; preds = %if.end26.i, %if.end
   %retval.i.0 = phi i64 [ %cond.i, %if.then4.i ], [ %cond7.i, %if.end.i ], [ %cond12.i, %if.then10.i ], [ %cond17.i, %if.then15.i ], [ %cond25.i, %if.then23.i ], [ %cond30.i, %if.then28.i ], [ %cond38.i, %if.then36.i ], [ %cond41.i, %if.end39.i ], [ %cond44.i, %if.end42.i ], [ 9, %if.end13.i ], [ 14, %if.end26.i ]
   %sub1 = add nuw nsw i64 %retval.i.0, 4294967295
   %conv = and i64 %sub1, 4294967295
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %rnd, ptr noundef nonnull %rest, i64 noundef %0, i64 noundef %conv)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %rnd, ptr noundef %rest, i64 noundef %0, i64 noundef %conv)
   %cmp = icmp sgt i64 %len, 1
   %20 = load i64, ptr %rest, align 8
   %cmp3 = icmp eq i64 %20, 0
@@ -9111,7 +9111,7 @@ return:                                           ; preds = %if.then, %if.end7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qaddsub_inf(ptr nocapture noundef %result, i8 %a.0.val, ptr nocapture noundef readonly %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i17 = alloca i8, align 1
   %err.i.i6 = alloca i8, align 1
@@ -9245,8 +9245,8 @@ if.then4.i.i29:                                   ; preds = %if.then.i.i25
 mpd_setspecial.exit30:                            ; preds = %if.end8, %land.lhs.true.i.i22, %if.then.i.i25, %if.then4.i.i29
   %30 = load i8, ptr %result, align 8
   %31 = and i8 %30, -16
-  %or10.i19 = or i8 %sign_b, %31
-  %or611.i20 = or i8 %or10.i19, 2
+  %or10.i19 = or disjoint i8 %sign_b, %31
+  %or611.i20 = or disjoint i8 %or10.i19, 2
   store i8 %or611.i20, ptr %result, align 8
   %exp.i21 = getelementptr inbounds i8, ptr %result, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %exp.i21, i8 0, i64 24, i1 false)
@@ -9258,7 +9258,7 @@ return:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef %a, ptr noundef %b, i8 noundef zeroext range(i8 0, 2) %sign_b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %big_aligned_data = alloca [64 x i64], align 16
@@ -9530,7 +9530,7 @@ if.end80:                                         ; preds = %if.end76, %if.then6
   store i64 %newsize.0, ptr %len81, align 8
   %56 = load i8, ptr %result, align 8
   %57 = and i8 %56, -16
-  %or.i23895 = or i8 %57, %sign_b
+  %or.i23895 = or disjoint i8 %57, %sign_b
   br label %if.end136.sink.split
 
 if.else:                                          ; preds = %if.end56
@@ -9646,7 +9646,7 @@ cond.end125:                                      ; preds = %mpd_qresize.exit, %
   %cond126 = phi i8 [ %77, %cond.false122 ], [ %sign_b, %mpd_qresize.exit ]
   %78 = load i8, ptr %result, align 8
   %79 = and i8 %78, -16
-  %or.i23094 = or i8 %79, %cond126
+  %or.i23094 = or disjoint i8 %79, %cond126
   store i8 %or.i23094, ptr %result, align 8
   %80 = load ptr, ptr %data109, align 8
   %81 = getelementptr i64, ptr %80, i64 %size.addr.0.lcssa.i
@@ -9656,19 +9656,18 @@ cond.end125:                                      ; preds = %mpd_qresize.exit, %
   br i1 %cmp.i, label %if.then130, label %if.end136
 
 if.then130:                                       ; preds = %cond.end125
-  %83 = and i8 %or.i23094, -2
-  store i8 %83, ptr %result, align 8
+  store i8 %79, ptr %result, align 8
   %round = getelementptr inbounds i8, ptr %ctx, i64 36
-  %84 = load i32, ptr %round, align 4
-  %cmp131 = icmp eq i32 %84, 3
+  %83 = load i32, ptr %round, align 4
+  %cmp131 = icmp eq i32 %83, 3
   br i1 %cmp131, label %if.then133, label %if.end136
 
 if.then133:                                       ; preds = %if.then130
-  %85 = or i8 %or.i23094, 1
+  %84 = or disjoint i8 %79, 1
   br label %if.end136.sink.split
 
 if.end136.sink.split:                             ; preds = %if.end80, %if.then133
-  %.sink = phi i8 [ %85, %if.then133 ], [ %or.i23895, %if.end80 ]
+  %.sink = phi i8 [ %84, %if.then133 ], [ %or.i23895, %if.end80 ]
   store i8 %.sink, ptr %result, align 8
   br label %if.end136
 
@@ -9677,26 +9676,26 @@ if.end136:                                        ; preds = %if.end136.sink.spli
   br label %finish
 
 finish:                                           ; preds = %mpd_qresize.exit193, %mpd_qresize.exit219, %if.end136, %mpd_seterror.exit
-  %86 = load i8, ptr %big_aligned, align 8
-  %tobool.i8.i.not = icmp ult i8 %86, 32
+  %85 = load i8, ptr %big_aligned, align 8
+  %tobool.i8.i.not = icmp ult i8 %85, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %finish
-  %87 = load ptr, ptr @mpd_free, align 8
-  %88 = load ptr, ptr %data, align 8
-  call void %87(ptr noundef %88) #28
+  %86 = load ptr, ptr @mpd_free, align 8
+  %87 = load ptr, ptr %data, align 8
+  call void %86(ptr noundef %87) #28
   %.pre = load i8, ptr %big_aligned, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %finish
-  %89 = phi i8 [ %.pre, %if.then.i ], [ %86, %finish ]
-  %90 = and i8 %89, 16
-  %tobool.i.i.not = icmp eq i8 %90, 0
+  %88 = phi i8 [ %.pre, %if.then.i ], [ %85, %finish ]
+  %89 = and i8 %88, 16
+  %tobool.i.i.not = icmp eq i8 %89, 0
   br i1 %tobool.i.i.not, label %if.then3.i, label %mpd_del.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %91 = load ptr, ptr @mpd_free, align 8
-  call void %91(ptr noundef nonnull %big_aligned) #28
+  %90 = load ptr, ptr @mpd_free, align 8
+  call void %90(ptr noundef nonnull %big_aligned) #28
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -10509,7 +10508,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qdiv(i32 noundef %action, ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qdiv(i32 noundef range(i32 0, 2) %action, ptr noundef %q, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i249 = alloca i8, align 1
   %err.i.i236 = alloca i8, align 1
@@ -11267,7 +11266,7 @@ if.then141:                                       ; preds = %if.then132, %if.the
   br label %if.end159
 
 if.else146:                                       ; preds = %mpd_qresize.exit
-  %cmp147 = icmp eq i32 %action, 1
+  %cmp147 = icmp ne i32 %action, 0
   %or.cond1 = and i1 %cmp147, %cmp
   br i1 %or.cond1, label %if.then152, label %if.end159
 
@@ -13418,7 +13417,7 @@ while.body:                                       ; preds = %if.end66, %if.end41
   %prec.0 = phi i64 [ %add, %if.end41 ], [ %add67, %if.end66 ]
   store i64 %prec.0, ptr %workctx, align 8
   store i32 0, ptr %workstatus, align 4
-  call fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef nonnull %workctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef %workctx, ptr noundef nonnull %workstatus)
   %64 = load i32, ptr %workstatus, align 4
   %65 = load i32, ptr %status, align 4
   %or = or i32 %65, %64
@@ -13728,7 +13727,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end69
 
 if.else68:                                        ; preds = %if.end12
-  call fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %workctx, ptr noundef %status)
   %workctx.val59 = load i64, ptr %workctx, align 8
   %143 = load i8, ptr %result, align 8
   %144 = and i8 %143, 14
@@ -13811,7 +13810,7 @@ if.end69:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qexp(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i103 = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -14398,7 +14397,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.end:                                          ; preds = %for.body
   %arrayidx56 = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %cond
   %113 = load i64, ptr %arrayidx56, align 8
-  call fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef nonnull %sum, i64 noundef %113, i8 noundef zeroext 0, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef %sum, i64 noundef %113, i8 noundef zeroext 0, ptr noundef %workctx, ptr noundef %status)
   %114 = load i8, ptr %tmp, align 8
   %tobool.i8.i69.not = icmp ult i8 %114, 32
   br i1 %tobool.i8.i69.not, label %if.then.i79, label %if.end.i72
@@ -14990,7 +14989,7 @@ if.then23:                                        ; preds = %if.then20
   %70 = load ptr, ptr %data24, align 8
   %data25 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %71 = load ptr, ptr %data25, align 8
-  call fastcc void @_mpd_mul_2_le2(ptr noundef nonnull %rbuf, ptr noundef %70, ptr noundef %71, i64 noundef %61)
+  call fastcc void @_mpd_mul_2_le2(ptr noundef %rbuf, ptr noundef %70, ptr noundef %71, i64 noundef %61)
   br label %if.end43
 
 mpd_uint_zero.exit:                               ; preds = %for.body.i.preheader, %for.cond.i.preheader
@@ -15106,7 +15105,7 @@ if.then75:                                        ; preds = %if.else73
   %91 = load ptr, ptr %data76, align 8
   %data77 = getelementptr inbounds i8, ptr %spec.select95, i64 40
   %92 = load ptr, ptr %data77, align 8
-  %call80 = call fastcc ptr @_mpd_kmul(ptr noundef %91, ptr noundef %92, i64 noundef %60, i64 noundef %61, ptr noundef nonnull %rsize)
+  %call80 = call fastcc ptr @_mpd_kmul(ptr noundef %91, ptr noundef %92, i64 noundef %60, i64 noundef %61, ptr noundef %rsize)
   br label %if.end97
 
 if.else81:                                        ; preds = %if.else73
@@ -15118,11 +15117,11 @@ if.else81:                                        ; preds = %if.else73
   br i1 %cmp82, label %if.then83, label %if.else89
 
 if.then83:                                        ; preds = %if.else81
-  %call88 = call fastcc ptr @_mpd_fntmul(ptr noundef %93, ptr noundef %94, i64 noundef %60, i64 noundef %61, ptr noundef nonnull %rsize)
+  %call88 = call fastcc ptr @_mpd_fntmul(ptr noundef %93, ptr noundef %94, i64 noundef %60, i64 noundef %61, ptr noundef %rsize)
   br label %if.end97
 
 if.else89:                                        ; preds = %if.else81
-  %call94 = call fastcc ptr @_mpd_kmul_fnt(ptr noundef %93, ptr noundef %94, i64 noundef %60, i64 noundef %61, ptr noundef nonnull %rsize)
+  %call94 = call fastcc ptr @_mpd_kmul_fnt(ptr noundef %93, ptr noundef %94, i64 noundef %60, i64 noundef %61, ptr noundef %rsize)
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then75, %if.else89, %if.then83
@@ -15369,7 +15368,7 @@ for.body:                                         ; preds = %mpd_qadd.exit, %for
   store i64 %add22, ptr %varcontext, align 8
   %18 = xor i8 %16, 1
   store i8 %18, ptr %result, align 8
-  call fastcc void @_mpd_qexp(ptr noundef nonnull %tmp, ptr noundef nonnull %result, ptr noundef nonnull %varcontext, ptr noundef %status)
+  call fastcc void @_mpd_qexp(ptr noundef nonnull %tmp, ptr noundef nonnull %result, ptr noundef %varcontext, ptr noundef %status)
   %19 = load i8, ptr %result, align 8
   %20 = xor i8 %19, 1
   store i8 %20, ptr %result, align 8
@@ -16021,7 +16020,7 @@ if.end62:                                         ; preds = %if.then57, %if.then
 while.body:                                       ; preds = %if.end85, %if.end62
   %prec.0 = phi i64 [ %add, %if.end62 ], [ %add86, %if.end85 ]
   store i64 %prec.0, ptr %workctx, align 8
-  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef %workctx, ptr noundef %status)
   %74 = load i64, ptr %exp65, align 8
   %75 = load i64, ptr %digits66, align 8
   %add67 = add i64 %75, %74
@@ -16259,7 +16258,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end87
 
 if.else:                                          ; preds = %if.end31
-  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %workctx, ptr noundef %status)
   %workctx.val = load i64, ptr %workctx, align 8
   %135 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val69 = load i64, ptr %135, align 8
@@ -16272,7 +16271,7 @@ if.end87:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qln(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qln(ptr noundef %result, ptr noundef readonly %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i89 = alloca i8, align 1
   %err.i.i76 = alloca i8, align 1
@@ -16714,7 +16713,7 @@ for.body:                                         ; preds = %mpd_qadd.exit, %for
   store i64 %add86, ptr %varcontext, align 8
   %82 = xor i8 %80, 1
   store i8 %82, ptr %result, align 8
-  call fastcc void @_mpd_qexp(ptr noundef nonnull %tmp, ptr noundef nonnull %result, ptr noundef nonnull %varcontext, ptr noundef %status)
+  call fastcc void @_mpd_qexp(ptr noundef nonnull %tmp, ptr noundef nonnull %result, ptr noundef %varcontext, ptr noundef %status)
   %83 = load i8, ptr %result, align 8
   %84 = xor i8 %83, 1
   store i8 %84, ptr %result, align 8
@@ -17494,7 +17493,7 @@ if.end67:                                         ; preds = %if.then62, %if.then
 while.body:                                       ; preds = %if.end90, %if.end67
   %prec.0 = phi i64 [ %add, %if.end67 ], [ %add91, %if.end90 ]
   store i64 %prec.0, ptr %workctx, align 8
-  call fastcc void @_mpd_qlog10(i32 noundef 0, ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qlog10(i32 noundef 0, ptr noundef %result, ptr noundef nonnull %a.addr.0, ptr noundef %workctx, ptr noundef %status)
   %109 = load i64, ptr %exp70, align 8
   %110 = load i64, ptr %digits71, align 8
   %add72 = add i64 %110, %109
@@ -17732,7 +17731,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %if.end92
 
 if.else:                                          ; preds = %if.end36
-  call fastcc void @_mpd_qlog10(i32 noundef 1, ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qlog10(i32 noundef 1, ptr noundef %result, ptr noundef nonnull %a, ptr noundef %workctx, ptr noundef %status)
   %workctx.val = load i64, ptr %workctx, align 8
   %170 = getelementptr inbounds i8, ptr %workctx, i64 16
   %workctx.val73 = load i64, ptr %170, align 8
@@ -17744,7 +17743,7 @@ if.end92:                                         ; preds = %if.end.i, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qlog10(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qlog10(i32 noundef range(i32 0, 2) %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %workctx = alloca %struct.mpd_context_t, align 8
   %ln10_data = alloca [64 x i64], align 16
@@ -17760,11 +17759,11 @@ entry:
   %0 = load i64, ptr %ctx, align 8
   %add = add i64 %0, 3
   store i64 %add, ptr %workctx, align 8
-  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qln(ptr noundef %result, ptr noundef %a, ptr noundef %workctx, ptr noundef %status)
   %1 = load i64, ptr %workctx, align 8
   call void @mpd_qln10(ptr noundef nonnull %ln10, i64 noundef %1, ptr noundef %status)
-  %cmp = icmp eq i32 %action, 1
-  br i1 %cmp, label %if.then, label %if.end
+  %cmp.not = icmp eq i32 %action, 0
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %workctx, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
@@ -21018,7 +21017,7 @@ if.end98:                                         ; preds = %_qcheck_pow_bounds.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_int(ptr noundef %result, ptr noundef %base, ptr noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qpow_int(ptr noundef %result, ptr noundef %base, ptr noundef %exp, i8 noundef zeroext range(i8 0, 2) %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i98 = alloca i8, align 1
   %err.i.i.i = alloca i8, align 1
@@ -21549,7 +21548,7 @@ mpd_seterror.exit.i:                              ; preds = %if.then4.i.i.i, %if
 while.end.i:                                      ; preds = %lor.lhs.false.i, %if.then.i97, %land.rhs.i.while.end_crit_edge.i
   %101 = phi i8 [ %.pre39.i, %land.rhs.i.while.end_crit_edge.i ], [ %79, %if.then.i97 ], [ %79, %lor.lhs.false.i ]
   %102 = and i8 %101, -2
-  %or.i22.i = or i8 %102, %resultsign
+  %or.i22.i = or disjoint i8 %102, %resultsign
   store i8 %or.i22.i, ptr %result, align 8
   br label %_mpd_qpow_mpd.exit
 
@@ -21561,7 +21560,7 @@ _mpd_qpow_mpd.exit:                               ; preds = %mpd_seterror.exit.i
   br label %if.end33
 
 if.else32:                                        ; preds = %if.end21
-  call fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef nonnull %tbase, i64 noundef %call.i, i8 noundef zeroext %resultsign, ptr noundef nonnull %workctx, ptr noundef %status)
+  call fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef %tbase, i64 noundef %call.i, i8 noundef zeroext %resultsign, ptr noundef %workctx, ptr noundef %status)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else32, %_mpd_qpow_mpd.exit
@@ -21601,7 +21600,7 @@ if.then4.i.i110:                                  ; preds = %if.then.i.i106
 _settriple.exit:                                  ; preds = %if.then36, %land.lhs.true.i.i103, %if.then.i.i106, %if.then4.i.i110
   %111 = load i8, ptr %result, align 8
   %112 = and i8 %111, -16
-  %or.i13.i = or i8 %112, %resultsign
+  %or.i13.i = or disjoint i8 %112, %resultsign
   store i8 %or.i13.i, ptr %result, align 8
   %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 2000000000000000001, ptr %exp1.i, align 8
@@ -22370,7 +22369,7 @@ if.end87:                                         ; preds = %if.end80
   call void @mpd_qrem(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %call93 = call i32 @mpd_qshiftl(ptr noundef %result, ptr noundef nonnull @one, i64 noundef %77, ptr noundef %status)
   call void @mpd_qrem(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef %result, ptr noundef %maxcontext, ptr noundef %status)
   call void @mpd_qrem(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %79 = load i8, ptr %tbase, align 8
   %80 = and i8 %79, 14
@@ -22395,7 +22394,7 @@ for.cond.preheader:                               ; preds = %lor.lhs.false99
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0204 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  call fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %tmp, ptr noundef nonnull %tbase, ptr noundef nonnull %tmod, ptr noundef %status)
+  call fastcc void @_mpd_qpowmod_uint(ptr noundef %tmp, ptr noundef %tbase, ptr noundef %tmod, ptr noundef %status)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %t, ptr noundef nonnull align 8 dereferenceable(48) %tmp, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tmp, ptr noundef nonnull align 8 dereferenceable(48) %tbase, i64 48, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %tbase, ptr noundef nonnull align 8 dereferenceable(48) %t, i64 48, i1 false)
@@ -22435,12 +22434,12 @@ while.body:                                       ; preds = %mpd_iszero.exit
   br i1 %tobool119.not, label %if.end121, label %if.then120
 
 if.then120:                                       ; preds = %while.body
-  call fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tbase, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tbase, ptr noundef %maxcontext, ptr noundef %status)
   call void @mpd_qrem(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then120, %while.body
-  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef %maxcontext, ptr noundef %status)
   call void @mpd_qrem(ptr noundef nonnull %tbase, ptr noundef nonnull %tbase, ptr noundef nonnull %tmod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   call void @mpd_qdivint(ptr noundef nonnull %texp, ptr noundef nonnull %texp, ptr noundef nonnull %two, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %93 = load i8, ptr %texp, align 8
@@ -22898,13 +22897,13 @@ return:                                           ; preds = %if.then21, %mpd_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef nonnull readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
   store i32 0, ptr %workstatus, align 4
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   %0 = load i32, ptr %workstatus, align 4
   %1 = load i32, ptr %status, align 4
   %or = or i32 %1, %0
@@ -22960,7 +22959,7 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpowmod_uint(ptr noundef %result, ptr noundef %base, ptr noundef %mod, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qpowmod_uint(ptr noundef nonnull %result, ptr noundef nonnull %base, ptr noundef nonnull %mod, ptr noundef %status) unnamed_addr #8 {
 entry:
   %maxcontext = alloca %struct.mpd_context_t, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #28
@@ -23028,13 +23027,13 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  call fastcc void @_mpd_qmul_exact(ptr noundef %result, ptr noundef %result, ptr noundef %base, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qrem(ptr noundef %result, ptr noundef %result, ptr noundef %mod, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %base, ptr noundef %maxcontext, ptr noundef %status)
+  call void @mpd_qrem(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %mod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  call fastcc void @_mpd_qmul_exact(ptr noundef %base, ptr noundef %base, ptr noundef %base, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  call void @mpd_qrem(ptr noundef %base, ptr noundef %base, ptr noundef %mod, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef %maxcontext, ptr noundef %status)
+  call void @mpd_qrem(ptr noundef nonnull %base, ptr noundef nonnull %base, ptr noundef nonnull %mod, ptr noundef nonnull %maxcontext, ptr noundef %status)
   %shr = lshr i64 %exp.addr.017, 1
   %cmp.not = icmp ult i64 %exp.addr.017, 2
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !40
@@ -23344,7 +23343,7 @@ return:                                           ; preds = %if.end2.i, %mpd_qre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @_mpd_apply_round_fit(ptr noundef %dec, i64 noundef range(i64 0, -1) %rnd, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = getelementptr i8, ptr %ctx, i64 36
@@ -24392,7 +24391,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qrescale(ptr noundef %result, ptr noundef %a, i64 noundef range(i64 -2999999999999999996, 1000000000000000001) %exp, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i42 = alloca i8, align 1
   %err.i.i = alloca i8, align 1
@@ -24725,7 +24724,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qround_to_integral(i32 noundef %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qround_to_integral(i32 noundef range(i32 0, 3) %action, ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %0 = load i8, ptr %a, align 8
@@ -26154,7 +26153,7 @@ mpd_seterror.exit:                                ; preds = %if.then1, %land.lhs
 if.end2:                                          ; preds = %if.then, %if.end2.i, %entry
   %a.addr.0.sroa.phi = phi ptr [ %a.addr.0.sroa.gep19, %entry ], [ %digits, %if.end2.i ], [ %digits, %if.then ]
   %a.addr.0 = phi ptr [ %a, %entry ], [ %aa, %if.end2.i ], [ %aa, %if.then ]
-  call fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a.addr.0, ptr noundef %ctx, ptr noundef nonnull %xstatus)
+  call fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a.addr.0, ptr noundef %ctx, ptr noundef %xstatus)
   %22 = load i32, ptr %xstatus, align 4
   %and = and i32 %22, 520
   %tobool3.not = icmp eq i32 %and, 0
@@ -26177,7 +26176,7 @@ if.then9:                                         ; preds = %if.then4
   br label %out
 
 if.end11:                                         ; preds = %if.then4
-  call fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a.addr.0, ptr noundef nonnull %workctx, ptr noundef nonnull %ystatus)
+  call fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a.addr.0, ptr noundef nonnull %workctx, ptr noundef %ystatus)
   %26 = load i32, ptr %ystatus, align 4
   %cmp12.not = icmp eq i32 %26, 0
   br i1 %cmp12.not, label %out, label %if.then13
@@ -26264,7 +26263,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qsqrt(ptr noundef %result, ptr noundef %a, ptr nocapture noundef readonly %ctx, ptr noundef nonnull %status) unnamed_addr #8 {
 entry:
   %err.i.i122 = alloca i8, align 1
   %err.i.i102 = alloca i8, align 1
@@ -26324,7 +26323,7 @@ entry:
   br i1 %tobool.not, label %mpd_iszero.exit, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call24 = call i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %ctx, ptr noundef %status)
+  %call24 = call i32 @mpd_qcheck_nan(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %ctx, ptr noundef nonnull %status)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.end, label %return
 
@@ -26475,7 +26474,7 @@ _settriple.exit:                                  ; preds = %if.then34, %land.lh
   store i64 %conv.i, ptr %len.i, align 8
   call void @mpd_setdigits(ptr noundef nonnull %result)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %err.i.i91)
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef %ctx, ptr noundef nonnull %status)
   br label %return
 
 if.end36:                                         ; preds = %mpd_iszero.exit
@@ -26550,11 +26549,11 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.end2.i
 
 if.then5.i.i:                                     ; preds = %if.then2.i.i
-  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call6.i.i = call i32 @mpd_switch_to_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef nonnull %status) #28
   br label %mpd_qresize.exit.i
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
-  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef %status) #28
+  %call9.i.i = call i32 @mpd_realloc_dyn(ptr noundef nonnull %c, i64 noundef %cond.i.i, ptr noundef nonnull %status) #28
   br label %mpd_qresize.exit.i
 
 mpd_qresize.exit.i:                               ; preds = %if.end8.i.i, %if.then5.i.i
@@ -26595,7 +26594,7 @@ if.end45:                                         ; preds = %if.end2.i, %if.end4
   br i1 %tobool49.not, label %if.else, label %if.then50
 
 if.then50:                                        ; preds = %if.end45
-  %call51 = call i32 @mpd_qshiftl(ptr noundef nonnull %c, ptr noundef nonnull %c, i64 noundef 1, ptr noundef %status)
+  %call51 = call i32 @mpd_qshiftl(ptr noundef nonnull %c, ptr noundef nonnull %c, i64 noundef 1, ptr noundef nonnull %status)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %malloc_error, label %if.end54
 
@@ -26621,7 +26620,7 @@ if.end60:                                         ; preds = %if.else, %if.end54
 
 if.then62:                                        ; preds = %if.end60
   %mul = shl nuw i64 %sub61, 1
-  %call63 = call i32 @mpd_qshiftl(ptr noundef nonnull %c, ptr noundef nonnull %c, i64 noundef %mul, ptr noundef %status)
+  %call63 = call i32 @mpd_qshiftl(ptr noundef nonnull %c, ptr noundef nonnull %c, i64 noundef %mul, ptr noundef nonnull %status)
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %malloc_error, label %if.end71
 
@@ -26634,7 +26633,7 @@ if.else67:                                        ; preds = %if.end60
 if.end71:                                         ; preds = %if.then62, %if.else67
   %exact.0 = phi i1 [ %tobool70.not, %if.else67 ], [ false, %if.then62 ]
   %sub72 = sub i64 %div, %sub61
-  %call73 = call i32 @mpd_qshiftl(ptr noundef %result, ptr noundef nonnull @one, i64 noundef %add, ptr noundef %status)
+  %call73 = call i32 @mpd_qshiftl(ptr noundef %result, ptr noundef nonnull @one, i64 noundef %add, ptr noundef nonnull %status)
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %malloc_error, label %while.body.preheader
 
@@ -26655,7 +26654,7 @@ lor.lhs.false:                                    ; preds = %while.body.preheade
 if.then82:                                        ; preds = %if.end96, %lor.lhs.false, %while.body.preheader
   %74 = load i32, ptr %status77, align 4
   %and84 = and i32 %74, 958
-  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and84, ptr noundef %status)
+  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and84, ptr noundef nonnull %status)
   br label %out
 
 if.end85:                                         ; preds = %lor.lhs.false
@@ -26664,7 +26663,7 @@ if.end85:                                         ; preds = %lor.lhs.false
   br i1 %cmp87, label %while.end, label %if.end89
 
 if.end89:                                         ; preds = %if.end85
-  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %q, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %q, ptr noundef %maxcontext, ptr noundef %status77)
   %75 = load i8, ptr %result, align 8
   %76 = and i8 %75, 14
   %tobool92.not = icmp eq i8 %76, 0
@@ -26673,7 +26672,7 @@ if.end89:                                         ; preds = %if.end85
 if.then93:                                        ; preds = %if.end89
   %77 = load i32, ptr %status77, align 4
   %and95 = and i32 %77, 958
-  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and95, ptr noundef %status)
+  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and95, ptr noundef nonnull %status)
   br label %out
 
 if.end96:                                         ; preds = %if.end89
@@ -26688,7 +26687,7 @@ while.end:                                        ; preds = %if.end85
   br i1 %exact.0, label %if.else124, label %if.then99
 
 if.then99:                                        ; preds = %while.end
-  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %r, ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status77)
+  call fastcc void @_mpd_qmul_exact(ptr noundef nonnull %r, ptr noundef nonnull %result, ptr noundef nonnull %result, ptr noundef %maxcontext, ptr noundef nonnull %status77)
   %80 = load i8, ptr %r, align 8
   %81 = and i8 %80, 14
   %tobool102.not = icmp eq i8 %81, 0
@@ -26697,7 +26696,7 @@ if.then99:                                        ; preds = %while.end
 if.then103:                                       ; preds = %if.then99
   %82 = load i32, ptr %status77, align 4
   %and105 = and i32 %82, 958
-  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and105, ptr noundef %status)
+  call void @mpd_seterror(ptr noundef nonnull %result, i32 noundef %and105, ptr noundef nonnull %status)
   br label %out
 
 if.end106:                                        ; preds = %if.then99
@@ -26714,7 +26713,7 @@ if.then114:                                       ; preds = %if.then111
 
 if.else116:                                       ; preds = %if.then111
   %sub117 = sub i64 0, %sub61
-  %call118 = call i32 @mpd_qshiftl(ptr noundef nonnull %result, ptr noundef nonnull %result, i64 noundef %sub117, ptr noundef %status)
+  %call118 = call i32 @mpd_qshiftl(ptr noundef nonnull %result, ptr noundef nonnull %result, i64 noundef %sub117, ptr noundef nonnull %status)
   %tobool119.not = icmp eq i32 %call118, 0
   br i1 %tobool119.not, label %malloc_error, label %if.end138
 
@@ -26812,7 +26811,7 @@ mpd_del.exit:                                     ; preds = %if.then3.i, %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %maxcontext, ptr noundef nonnull align 8 dereferenceable(48) %ctx, i64 48, i1 false)
   %round = getelementptr inbounds i8, ptr %maxcontext, i64 36
   store i32 6, ptr %round, align 4
-  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef %status)
+  call void @mpd_qfinalize(ptr noundef nonnull %result, ptr noundef nonnull %maxcontext, ptr noundef nonnull %status)
   br label %return
 
 malloc_error:                                     ; preds = %mpd_qresize.exit.i, %if.else116, %if.end71, %if.then62, %if.then50
@@ -28519,7 +28518,7 @@ return:                                           ; preds = %if.end.thread, %_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpd_qsshiftr(ptr noundef %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #8 {
+define internal fastcc void @mpd_qsshiftr(ptr noundef nonnull %result, ptr noundef readonly %a, i64 noundef %n) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %data.i.i = getelementptr inbounds i8, ptr %a, i64 40
@@ -28730,13 +28729,13 @@ return:                                           ; preds = %for.cond, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @_mpd_basecmp(ptr nocapture noundef readonly %big, ptr nocapture noundef readonly %small, i64 noundef %n, i64 noundef %m, i64 noundef %shift) unnamed_addr #14 {
+define internal fastcc range(i32 -1, 2) i32 @_mpd_basecmp(ptr nocapture noundef readonly %big, ptr nocapture noundef readonly %small, i64 noundef %n, i64 noundef %m, i64 noundef range(i64 0, -9223372036854775807) %shift) unnamed_addr #14 {
 entry:
   %l = alloca i64, align 8
   %lprev = alloca i64, align 8
   %h = alloca i64, align 8
   %div.i = udiv i64 %shift, 19
-  %mul.i.neg = mul i64 %div.i, -19
+  %mul.i.neg = mul nsw i64 %div.i, -19
   %sub.i = add i64 %mul.i.neg, %shift
   %cmp.not = icmp eq i64 %sub.i, 0
   br i1 %cmp.not, label %while.cond.preheader, label %if.then
@@ -28754,7 +28753,7 @@ if.then:                                          ; preds = %entry
   %arrayidx3 = getelementptr i8, ptr %1, i64 -8
   %2 = load i64, ptr %arrayidx3, align 8
   %sub = sub i64 19, %sub.i
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %lprev, i64 noundef %2, i64 noundef %sub)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %h, ptr noundef %lprev, i64 noundef %2, i64 noundef %sub)
   %3 = load i64, ptr %h, align 8
   %cmp4.not = icmp eq i64 %3, 0
   br i1 %cmp4.not, label %if.end14, label %if.then5
@@ -28786,7 +28785,7 @@ for.body:                                         ; preds = %if.end14, %if.end25
   %5 = phi i64 [ %9, %if.end25 ], [ %lprev.promoted, %if.end14 ]
   %arrayidx16 = getelementptr i64, ptr %small, i64 %m.addr.048
   %6 = load i64, ptr %arrayidx16, align 8
-  call fastcc void @_mpd_divmod_pow10(ptr noundef nonnull %h, ptr noundef nonnull %l, i64 noundef %6, i64 noundef %sub)
+  call fastcc void @_mpd_divmod_pow10(ptr noundef %h, ptr noundef %l, i64 noundef %6, i64 noundef %sub)
   %mul = mul i64 %5, %0
   %7 = load i64, ptr %h, align 8
   %add = add i64 %mul, %7
@@ -28860,7 +28859,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef writeonly %q, ptr nocapture noundef writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #20 {
+define internal fastcc void @_mpd_divmod_pow10(ptr nocapture noundef nonnull writeonly %q, ptr nocapture noundef nonnull writeonly %r, i64 noundef %v, i64 noundef %exp) unnamed_addr #20 {
 entry:
   %cmp = icmp ult i64 %exp, 10
   br i1 %cmp, label %if.then, label %if.else37
@@ -29590,7 +29589,7 @@ mpd_seterror.exit.i170:                           ; preds = %if.then4.i.i.i181, 
 
 _mpd_qmul_exact.exit:                             ; preds = %if.end.i91, %mpd_seterror.exit.i170
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %workstatus.i)
-  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %s.i, ptr noundef nonnull %t.i, ptr noundef nonnull %maxcontext.i, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %s.i, ptr noundef nonnull %t.i, ptr noundef %maxcontext.i, ptr noundef %status26)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.i = icmp sgt i64 %indvars.iv.i, 0
   br i1 %cmp.i, label %for.body.i, label %for.end.i, !llvm.loop !53
@@ -29729,7 +29728,7 @@ mpd_qtrunc.exit:                                  ; preds = %mpd_seterror.exit.i
   %emin = getelementptr inbounds i8, ptr %workctx, i64 16
   store i64 -1000000000000000002, ptr %emin, align 8
   call fastcc void @_mpd_qmul(ptr noundef nonnull %rr.1, ptr noundef nonnull %bb, ptr noundef nonnull %qq.0, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
-  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %aa, ptr noundef nonnull %rr.1, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %aa, ptr noundef nonnull %rr.1, ptr noundef %workctx, ptr noundef %status26)
   %121 = load i8, ptr %qq.0, align 8
   %122 = and i8 %121, 14
   %tobool.not217 = icmp eq i8 %122, 0
@@ -29767,7 +29766,7 @@ if.else:                                          ; preds = %if.end41
   br i1 %cmp49, label %if.then50, label %if.else53
 
 if.then50:                                        ; preds = %if.else
-  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %rr.1, ptr noundef nonnull %bb, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %rr.1, ptr noundef nonnull %bb, ptr noundef %workctx, ptr noundef %status26)
   br label %for.inc
 
 if.else53:                                        ; preds = %if.else
@@ -29776,12 +29775,12 @@ if.else53:                                        ; preds = %if.else
   br i1 %cmp55, label %for.end, label %if.else57
 
 if.else57:                                        ; preds = %if.else53
-  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %rr.1, ptr noundef nonnull %bb, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qsub_exact(ptr noundef nonnull %rr.1, ptr noundef nonnull %rr.1, ptr noundef nonnull %bb, ptr noundef %workctx, ptr noundef %status26)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else57, %if.then50
   %one.sink = phi ptr [ @one, %if.else57 ], [ @minus_one, %if.then50 ]
-  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %qq.0, ptr noundef nonnull %qq.0, ptr noundef nonnull %one.sink, ptr noundef nonnull %workctx, ptr noundef nonnull %status26)
+  call fastcc void @_mpd_qadd_exact(ptr noundef nonnull %qq.0, ptr noundef nonnull %qq.0, ptr noundef nonnull %one.sink, ptr noundef %workctx, ptr noundef %status26)
   %inc = add nuw nsw i32 %k.0218, 1
   %131 = load i8, ptr %qq.0, align 8
   %132 = and i8 %131, 14
@@ -30119,7 +30118,7 @@ return:                                           ; preds = %mpd_setspecial.exit
 declare hidden ptr @mpd_qnew() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qsub_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qsub_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef nonnull readonly %ctx, ptr nocapture noundef nonnull %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30136,7 +30135,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end8.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %mpd_qsub.exit
 
@@ -30151,8 +30150,8 @@ if.end.i:                                         ; preds = %if.then.i
 if.end8.i:                                        ; preds = %lor.lhs.false.i
   %and.i19.i = and i8 %2, 1
   %conv13.i = xor i8 %and.i19.i, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %conv13.i, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %conv13.i, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i, %if.end.i, %if.end8.i
@@ -30217,7 +30216,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qadd_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef readonly %ctx, ptr nocapture noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qadd_exact(ptr noundef %result, ptr noundef %a, ptr noundef %b, ptr nocapture noundef nonnull readonly %ctx, ptr nocapture noundef nonnull %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30234,7 +30233,7 @@ lor.lhs.false.i:                                  ; preds = %entry
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
-  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  %call3.i = call i32 @mpd_qcheck_nans(ptr noundef %result, ptr noundef nonnull %a, ptr noundef %b, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %if.end.i, label %mpd_qadd.exit
 
@@ -30247,8 +30246,8 @@ if.end.i:                                         ; preds = %if.then.i
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
   %and.i14.i = and i8 %2, 1
-  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %and.i14.i, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %b, i8 noundef zeroext %and.i14.i, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i, %if.end.i, %if.end7.i
@@ -30307,7 +30306,7 @@ if.end:                                           ; preds = %mpd_seterror.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef %base, i64 noundef %exp, i8 noundef zeroext %resultsign, ptr nocapture noundef readonly %ctx, ptr noundef %status) unnamed_addr #8 {
+define internal fastcc void @_mpd_qpow_uint(ptr noundef %result, ptr noundef nonnull %base, i64 noundef %exp, i8 noundef zeroext range(i8 0, 2) %resultsign, ptr nocapture noundef nonnull readonly %ctx, ptr noundef %status) unnamed_addr #8 {
 entry:
   %err.i.i = alloca i8, align 1
   %workstatus = alloca i32, align 4
@@ -30347,7 +30346,7 @@ if.then4.i.i:                                     ; preds = %if.then.i.i
 _settriple.exit:                                  ; preds = %if.then, %land.lhs.true.i.i, %if.then.i.i, %if.then4.i.i
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
-  %or.i13.i = or i8 %8, %resultsign
+  %or.i13.i = or disjoint i8 %8, %resultsign
   store i8 %or.i13.i, ptr %result, align 8
   %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
   store i64 0, ptr %exp1.i, align 8
@@ -30481,15 +30480,15 @@ while.body.lr.ph:                                 ; preds = %if.end2
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
   %shr32.in = phi i64 [ %25, %while.body.lr.ph ], [ %shr32, %while.body.backedge ]
   %shr32 = lshr i64 %shr32.in, 1
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   %and = and i64 %shr32, %exp
   %tobool5.not = icmp eq i64 %and, 0
   br i1 %tobool5.not, label %if.end7, label %if.then6
 
 if.then6:                                         ; preds = %while.body
-  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef %base, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
-  call void @mpd_qfinalize(ptr noundef %result, ptr noundef readonly %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %result, ptr noundef nonnull %base, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
+  call void @mpd_qfinalize(ptr noundef %result, ptr noundef nonnull readonly %ctx, ptr noundef nonnull %workstatus)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then6, %while.body
@@ -30533,7 +30532,7 @@ while.end:                                        ; preds = %while.end.loopexit,
   store i32 %or, ptr %status, align 4
   %35 = load i8, ptr %result, align 8
   %36 = and i8 %35, -2
-  %or.i19 = or i8 %36, %resultsign
+  %or.i19 = or disjoint i8 %36, %resultsign
   store i8 %or.i19, ptr %result, align 8
   br label %return
 
@@ -30548,7 +30547,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #22
 declare double @llvm.ceil.f64(double) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #23 {
+define internal fastcc void @_mpd_mul_2_le2(ptr nocapture noundef nonnull writeonly %w, ptr nocapture noundef readonly %u, ptr nocapture noundef readonly %v, i64 noundef %m) unnamed_addr #23 {
 entry:
   %0 = load i64, ptr %u, align 8
   %1 = load i64, ptr %v, align 8
@@ -30746,7 +30745,7 @@ declare hidden void @_mpd_basemul(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare hidden ptr @mpd_calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #8 {
+define internal fastcc ptr @_mpd_kmul(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8
@@ -30785,7 +30784,7 @@ return:                                           ; preds = %if.end6.thread, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly %u, ptr noundef readonly %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef %rsize) unnamed_addr #8 {
+define internal fastcc ptr @_mpd_fntmul(ptr noundef readonly %u, ptr noundef readonly %v, i64 noundef %ulen, i64 noundef range(i64 193, 0) %vlen, ptr nocapture noundef nonnull %rsize) unnamed_addr #8 {
 entry:
   %sub.i = xor i64 %vlen, -1
   %cmp.i62 = icmp ugt i64 %ulen, %sub.i
@@ -30991,7 +30990,7 @@ if.end53:                                         ; preds = %if.end53.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef %ulen, i64 noundef %vlen, ptr nocapture noundef writeonly %rsize) unnamed_addr #8 {
+define internal fastcc ptr @_mpd_kmul_fnt(ptr noundef %u, ptr noundef %v, i64 noundef range(i64 2, 1) %ulen, i64 noundef range(i64 257, -9223372036854775808) %vlen, ptr nocapture noundef nonnull writeonly %rsize) unnamed_addr #8 {
 entry:
   %call = tail call fastcc i64 @_kmul_resultsize(i64 noundef %ulen, i64 noundef %vlen)
   store i64 %call, ptr %rsize, align 8
@@ -31038,7 +31037,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 1, 0) i64 @_kmul_resultsize(i64 noundef %la, i64 noundef %lb) unnamed_addr #19 {
+define internal fastcc range(i64 1, 0) i64 @_kmul_resultsize(i64 noundef range(i64 2, 1) %la, i64 noundef range(i64 257, -9223372036854775808) %lb) unnamed_addr #19 {
 entry:
   %sub.i = xor i64 %lb, -1
   %cmp.i = icmp ugt i64 %la, %sub.i
@@ -31070,9 +31069,9 @@ do.body.i9:                                       ; preds = %add_size_t.exit
   unreachable
 
 add_size_t.exit12:                                ; preds = %add_size_t.exit
-  %add = add i64 %la, 1
+  %add = add nuw i64 %la, 1
   %div6 = lshr i64 %add, 1
-  %add2 = add nuw i64 %div6, 1
+  %add2 = add nuw nsw i64 %div6, 1
   %umul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %add2, i64 3)
   %8 = extractvalue { i64, i1 } %umul.i, 1
   br i1 %8, label %do.body.i13, label %mul_size_t.exit
@@ -31095,7 +31094,7 @@ mul_size_t.exit:                                  ; preds = %add_size_t.exit12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @_kmul_worksize(i64 noundef %n, i64 noundef %lim) unnamed_addr #19 {
+define internal fastcc i64 @_kmul_worksize(i64 noundef %n, i64 noundef range(i64 16, 6442450945) %lim) unnamed_addr #19 {
 entry:
   %cmp.not = icmp ugt i64 %n, %lim
   br i1 %cmp.not, label %if.end, label %return
@@ -31276,7 +31275,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %call = call fastcc ptr @_mpd_fntmul(ptr noundef %a, ptr noundef %b, i64 noundef %la, i64 noundef %lb, ptr noundef nonnull %dummy)
+  %call = call fastcc ptr @_mpd_fntmul(ptr noundef %a, ptr noundef %b, i64 noundef %la, i64 noundef %lb, ptr noundef %dummy)
   %cmp3 = icmp eq ptr %call, null
   br i1 %cmp3, label %return, label %if.end
 

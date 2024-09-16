@@ -86,108 +86,103 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #1 {
-  %.not73 = icmp slt i32 %1, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
+define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef readonly %0, i32 noundef range(i32 23, 48) %1, i16 noundef zeroext %2) unnamed_addr #1 {
   %4 = lshr i32 %1, 1
-  br label %.lr.ph
+  br label %5
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph._crit_edge
-  %.076 = phi i32 [ %71, %.lr.ph._crit_edge ], [ %4, %.lr.ph.preheader ]
-  %.05875 = phi i32 [ %.1, %.lr.ph._crit_edge ], [ 0, %.lr.ph.preheader ]
-  %.06074 = phi i32 [ %.161, %.lr.ph._crit_edge ], [ %1, %.lr.ph.preheader ]
-  %5 = sext i32 %.076 to i64
-  %6 = getelementptr %struct.codes_t, ptr %0, i64 %5
-  %7 = load i16, ptr %6, align 2
-  %.not65 = icmp ugt i16 %7, %2
-  br i1 %.not65, label %.lr.ph._crit_edge, label %8
+5:                                                ; preds = %3, %68
+  %.074 = phi i32 [ %4, %3 ], [ %72, %68 ]
+  %.05873 = phi i32 [ 0, %3 ], [ %.1, %68 ]
+  %.06072 = phi i32 [ %1, %3 ], [ %.161, %68 ]
+  %6 = sext i32 %.074 to i64
+  %7 = getelementptr %struct.codes_t, ptr %0, i64 %6
+  %8 = load i16, ptr %7, align 2
+  %.not65 = icmp ugt i16 %8, %2
+  br i1 %.not65, label %68, label %9
 
-8:                                                ; preds = %.lr.ph
-  %9 = add nsw i32 %.076, 1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr %struct.codes_t, ptr %0, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = icmp ugt i16 %12, %2
-  br i1 %13, label %14, label %.lr.ph._crit_edge
+9:                                                ; preds = %5
+  %10 = getelementptr i8, ptr %7, i64 4
+  %11 = load i16, ptr %10, align 2
+  %12 = icmp ugt i16 %11, %2
+  br i1 %12, label %13, label %68
 
-14:                                               ; preds = %8
-  %15 = zext i16 %7 to i32
-  %16 = zext i16 %2 to i32
-  %17 = getelementptr %struct.codes_t, ptr %0, i64 %5, i32 1
-  %18 = load i16, ptr %17, align 2
-  %19 = zext i16 %18 to i32
-  %20 = icmp eq i16 %18, 0
-  br i1 %20, label %.loopexit, label %21
+13:                                               ; preds = %9
+  %14 = zext i16 %8 to i32
+  %15 = zext i16 %2 to i32
+  %16 = getelementptr inbounds i8, ptr %7, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i32
+  %19 = icmp eq i16 %17, 0
+  br i1 %19, label %.loopexit, label %20
 
-21:                                               ; preds = %14
-  %22 = icmp ugt i16 %2, -24257
-  %23 = and i32 %15, 65280
-  %24 = sub nsw i32 %16, %23
-  br i1 %22, label %25, label %49
+20:                                               ; preds = %13
+  %21 = icmp ugt i16 %2, -24257
+  %22 = and i32 %14, 65280
+  %23 = sub nsw i32 %15, %22
+  br i1 %21, label %24, label %48
 
-25:                                               ; preds = %21
-  %26 = ashr i32 %24, 8
-  %27 = and i32 %16, 255
-  %28 = and i32 %15, 255
-  %29 = mul nsw i32 %26, 157
+24:                                               ; preds = %20
+  %25 = ashr i32 %23, 8
+  %26 = and i32 %15, 255
+  %27 = and i32 %14, 255
+  %28 = mul nsw i32 %25, 157
+  %29 = icmp ugt i32 %26, 160
   %30 = icmp ugt i32 %27, 160
-  %31 = icmp ugt i32 %28, 160
-  %32 = select i1 %31, i32 0, i32 -34
-  %33 = select i1 %31, i32 34, i32 0
-  %34 = select i1 %30, i32 %32, i32 %33
-  %35 = and i32 %19, 255
-  %36 = add nsw i32 %27, -33
-  %37 = sub nsw i32 %36, %28
-  %38 = add nsw i32 %37, %29
+  %31 = select i1 %30, i32 0, i32 -34
+  %32 = select i1 %30, i32 34, i32 0
+  %33 = select i1 %29, i32 %31, i32 %32
+  %34 = and i32 %18, 255
+  %35 = add nsw i32 %26, -33
+  %36 = sub nsw i32 %35, %27
+  %37 = add nsw i32 %36, %28
+  %38 = add nsw i32 %37, %33
   %39 = add nsw i32 %38, %34
-  %40 = add nsw i32 %39, %35
-  %41 = and i32 %19, 65280
-  %42 = sdiv i32 %40, 94
-  %43 = shl nsw i32 %42, 8
-  %44 = srem i32 %40, 94
-  %45 = or disjoint i32 %41, 33
-  %46 = add nsw i32 %45, %44
-  %47 = add nsw i32 %46, %43
-  %48 = trunc i32 %47 to i16
+  %40 = and i32 %18, 65280
+  %41 = sdiv i32 %39, 94
+  %42 = shl nsw i32 %41, 8
+  %43 = srem i32 %39, 94
+  %44 = or disjoint i32 %40, 33
+  %45 = add nsw i32 %44, %43
+  %46 = add nsw i32 %45, %42
+  %47 = trunc i32 %46 to i16
   br label %.loopexit
 
-49:                                               ; preds = %21
-  %50 = lshr i32 %24, 8
-  %51 = mul nuw nsw i32 %50, 94
-  %52 = and i32 %16, 255
-  %53 = and i32 %15, 255
-  %54 = sub nsw i32 %52, %53
-  %55 = add nsw i32 %54, %51
-  %56 = and i32 %19, 255
-  %57 = add nsw i32 %55, %56
-  %58 = icmp ugt i32 %56, 160
-  %.neg = select i1 %58, i32 65438, i32 65472
-  %59 = add nsw i32 %57, %.neg
-  %.lhs.trunc = trunc i32 %59 to i16
-  %60 = srem i16 %.lhs.trunc, 157
-  %61 = and i16 %18, -256
-  %62 = sdiv i16 %.lhs.trunc, 157
-  %63 = shl i16 %62, 8
-  %64 = icmp sgt i16 %60, 62
-  %65 = select i1 %64, i16 98, i16 64
-  %66 = add i16 %60, %61
-  %67 = add i16 %66, %63
-  %68 = add i16 %67, %65
+48:                                               ; preds = %20
+  %49 = lshr i32 %23, 8
+  %50 = mul nuw nsw i32 %49, 94
+  %51 = and i32 %15, 255
+  %52 = and i32 %14, 255
+  %53 = sub nsw i32 %51, %52
+  %54 = add nsw i32 %53, %50
+  %55 = and i32 %18, 255
+  %56 = add nsw i32 %54, %55
+  %57 = icmp ugt i32 %55, 160
+  %.neg = select i1 %57, i32 65438, i32 65472
+  %58 = add nsw i32 %56, %.neg
+  %.lhs.trunc = trunc i32 %58 to i16
+  %59 = srem i16 %.lhs.trunc, 157
+  %60 = and i16 %17, -256
+  %61 = sdiv i16 %.lhs.trunc, 157
+  %62 = shl i16 %61, 8
+  %63 = icmp sgt i16 %59, 62
+  %64 = select i1 %63, i16 98, i16 64
+  %65 = add i16 %59, %60
+  %66 = add i16 %65, %62
+  %67 = add i16 %66, %64
   br label %.loopexit
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %8
-  %.1 = phi i32 [ %9, %8 ], [ %.05875, %.lr.ph ]
-  %69 = add nsw i32 %.076, -1
-  %.161 = select i1 %.not65, i32 %69, i32 %.06074
-  %70 = add i32 %.1, %.161
-  %71 = ashr i32 %70, 1
+68:                                               ; preds = %9, %5
+  %69 = add nsw i32 %.074, -1
+  %70 = add nsw i32 %.074, 1
+  %.161 = select i1 %.not65, i32 %69, i32 %.06072
+  %.1 = select i1 %.not65, i32 %.05873, i32 %70
+  %71 = add i32 %.1, %.161
+  %72 = ashr i32 %71, 1
   %.not = icmp sgt i32 %.1, %.161
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph._crit_edge, %3, %14, %49, %25
-  %.059 = phi i16 [ %48, %25 ], [ %68, %49 ], [ 0, %14 ], [ 0, %3 ], [ 0, %.lr.ph._crit_edge ]
+.loopexit:                                        ; preds = %68, %13, %48, %24
+  %.059 = phi i16 [ %47, %24 ], [ %67, %48 ], [ 0, %13 ], [ 0, %68 ]
   ret i16 %.059
 }
 

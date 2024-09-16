@@ -2295,7 +2295,7 @@ _ZN5clang13ObjCBoxedExprC2EPNS_4ExprENS_8QualTypeEPNS_14ObjCMethodDeclENS_11Sour
 declare i64 @_ZN5clang4Sema36DefaultFunctionArrayLvalueConversionEPNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL33LookupObjCInterfaceDeclForLiteralRN5clang4SemaENS_14SourceLocationENS_8SemaObjC15ObjCLiteralKindE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL33LookupObjCInterfaceDeclForLiteralRN5clang4SemaENS_14SourceLocationENS_8SemaObjC15ObjCLiteralKindE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 {
 switch.lookup:
   %3 = alloca i32, align 4
   %4 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -2303,7 +2303,7 @@ switch.lookup:
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
-  %9 = sext i32 %2 to i64
+  %9 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZL33LookupObjCInterfaceDeclForLiteralRN5clang4SemaENS_14SourceLocationENS_8SemaObjC15ObjCLiteralKindE.337, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -2378,7 +2378,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang17ObjCInterfaceDeclENS1_9NamedDeclEEEDaPT0_.ex
   br i1 %.not.i, label %switch.lookup44, label %55
 
 switch.lookup44:                                  ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang17ObjCInterfaceDeclENS1_9NamedDeclEEEDaPT0_.exit, %_ZN4llvm16dyn_cast_or_nullIN5clang17ObjCInterfaceDeclENS1_9NamedDeclEEEDaPT0_.exit.thread31
-  %41 = sext i32 %2 to i64
+  %41 = zext nneg i32 %2 to i64
   %switch.gep45 = getelementptr inbounds [5 x i32], ptr @switch.table._ZL33LookupObjCInterfaceDeclForLiteralRN5clang4SemaENS_14SourceLocationENS_8SemaObjC15ObjCLiteralKindE.337, i64 0, i64 %41
   %switch.load46 = load i32, ptr %switch.gep45, align 4
   %42 = load ptr, ptr %10, align 8
@@ -5427,10 +5427,10 @@ _ZN5clang8SemaObjC16GlobalMethodPool5beginEv.exit.i: ; preds = %.lr.ph.i6.i12.i3
   %.sroa.023.028.i = phi ptr [ %.sroa.023.1.i, %_ZN4llvm16DenseMapIteratorIN5clang8SelectorESt4pairINS1_14ObjCMethodListES4_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEi.exit.i ], [ %.pn15.i.i.i, %_ZN5clang8SemaObjC16GlobalMethodPool5beginEv.exit.i ]
   %80 = getelementptr i8, ptr %.sroa.023.028.i, i64 16
   %.val.i = load i64, ptr %80, align 8
-  %81 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef nonnull %.0113, i64 %.val.i)
+  %81 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val.i)
   %82 = getelementptr i8, ptr %.sroa.023.028.i, i64 32
   %.val22.i = load i64, ptr %82, align 8
-  %83 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef nonnull %.0113, i64 %.val22.i)
+  %83 = tail call fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %58, i32 %2, i32 %4, i32 %5, ptr noundef %.0113, i64 %.val22.i)
   %brmerge.i = or i1 %81, %83
   %84 = getelementptr inbounds i8, ptr %.sroa.023.028.i, i64 40
   %.not9.i3.i.i.i = icmp eq ptr %84, %77
@@ -13406,7 +13406,7 @@ _ZNK5clang10ASTContext13getObjCIdTypeEv.exit464:  ; preds = %176, %179
 
 294:                                              ; preds = %292
   %295 = load ptr, ptr %0, align 8
-  %296 = call fastcc noundef zeroext i1 @_ZL30isMethodDeclaredInRootProtocolRN5clang4SemaEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %295, ptr noundef nonnull %293)
+  %296 = call fastcc noundef zeroext i1 @_ZL30isMethodDeclaredInRootProtocolRN5clang4SemaEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %295, ptr noundef %293)
   br i1 %296, label %_ZN4llvm11SmallVectorIPN5clang14ObjCMethodDeclELj4EED2Ev.exit.thread, label %297
 
 297:                                              ; preds = %294
@@ -15725,7 +15725,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %.thread225, %229
 266:                                              ; preds = %265
   %267 = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load i64, ptr %16, align 8
-  call fastcc void @_ZL18checkFoundationAPIRN5clang4SemaENS_14SourceLocationEPKNS_14ObjCMethodDeclEN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %267, i32 %.sroa.068.0.copyload, ptr noundef nonnull %.0, ptr %170, i64 %171, i64 %.sroa.0.0.copyload, i1 noundef zeroext true)
+  call fastcc void @_ZL18checkFoundationAPIRN5clang4SemaENS_14SourceLocationEPKNS_14ObjCMethodDeclEN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %267, i32 %.sroa.068.0.copyload, ptr noundef %.0, ptr %170, i64 %171, i64 %.sroa.0.0.copyload, i1 noundef zeroext true)
   br label %268
 
 268:                                              ; preds = %266, %265
@@ -16232,7 +16232,7 @@ _ZL18applyCocoaAPICheckRN5clang4SemaEPKNS_15ObjCMessageExprEjPFbS4_RKNS_5NSAPIER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18checkFoundationAPIRN5clang4SemaENS_14SourceLocationEPKNS_14ObjCMethodDeclEN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, i64 %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL18checkFoundationAPIRN5clang4SemaENS_14SourceLocationEPKNS_14ObjCMethodDeclEN4llvm8ArrayRefIPNS_4ExprEEENS_8QualTypeEb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %3, i64 %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"class.clang::Selector", align 8
   %9 = alloca %"class.clang::Selector", align 8
   %10 = alloca %"class.clang::QualType", align 8
@@ -16677,7 +16677,7 @@ _ZNK5clang21ObjCObjectPointerType24isObjCQualifiedClassTypeEv.exit: ; preds = %4
 declare noundef ptr @_ZNK5clang4Type27getAsObjCQualifiedClassTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL30isMethodDeclaredInRootProtocolRN5clang4SemaEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL30isMethodDeclaredInRootProtocolRN5clang4SemaEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -20528,7 +20528,7 @@ _ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25diagnoseObjCARCConversionRN5clang4SemaENS_11SourceRangeENS_8QualTypeE22ARCConversionTypeClassPNS_4ExprES6_S4_NS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZL25diagnoseObjCARCConversionRN5clang4SemaENS_11SourceRangeENS_8QualTypeE22ARCConversionTypeClassPNS_4ExprES6_S4_NS_21CheckedConversionKindE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, i64 %2, i32 noundef range(i32 0, 5) %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 5) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %"class.clang::SourceRange", align 8
   %10 = alloca %"class.clang::QualType", align 8
   %11 = alloca %"class.clang::QualType", align 8
@@ -20610,7 +20610,7 @@ define internal fastcc void @_ZL25diagnoseObjCARCConversionRN5clang4SemaENS_11So
   br label %58
 
 57:                                               ; preds = %52
-  switch i32 %6, label %default.unreachable [
+  switch i32 %6, label %default.unreachable160 [
     i32 0, label %58
     i32 4, label %58
     i32 3, label %58
@@ -20651,7 +20651,7 @@ define internal fastcc void @_ZL25diagnoseObjCARCConversionRN5clang4SemaENS_11So
   %82 = select i1 %81, i32 2, i32 3
   br label %83
 
-default.unreachable:                              ; preds = %57
+default.unreachable160:                           ; preds = %57
   unreachable
 
 83:                                               ; preds = %57, %70, %58
@@ -20885,8 +20885,8 @@ _ZL15isAnyRetainable22ARCConversionTypeClass.exit: ; preds = %88, %83
 
 199:                                              ; preds = %167
   %.not128 = icmp eq i32 %7, 3
-  %.167 = select i1 %.not128, i32 5399, i32 5396
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %172, i32 %.sroa.028.0.copyload.sroa.speculated, i32 noundef %.167, i1 noundef zeroext false) #18
+  %.168 = select i1 %.not128, i32 5399, i32 5396
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %172, i32 %.sroa.028.0.copyload.sroa.speculated, i32 noundef %.168, i1 noundef zeroext false) #18
   %.sroa.09.0.copyload121 = load i64, ptr %10, align 8
   call fastcc void @_ZL28addFixitForObjCARCConversionIN5clang8SemaBase21SemaDiagnosticBuilderEEvRNS0_4SemaERT_NS0_21CheckedConversionKindENS0_14SourceLocationENS0_8QualTypeEPNS0_4ExprESB_PKcSD_(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull align 8 dereferenceable(96) %31, i32 noundef %7, i32 %85, i64 %.sroa.09.0.copyload121, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @.str.25, ptr noundef null)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #18
@@ -20898,7 +20898,7 @@ _ZL15isAnyRetainable22ARCConversionTypeClass.exit: ; preds = %88, %83
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %200
-  br i1 %170, label %.thread160, label %203
+  br i1 %170, label %.thread161, label %203
 
 203:                                              ; preds = %202
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %172, i32 %.sroa.028.0.copyload.sroa.speculated, i32 noundef 5400, i1 noundef zeroext false) #18
@@ -20906,14 +20906,14 @@ _ZL15isAnyRetainable22ARCConversionTypeClass.exit: ; preds = %88, %83
   br label %210
 
 205:                                              ; preds = %200
-  br i1 %170, label %.thread160, label %207
+  br i1 %170, label %.thread161, label %207
 
-.thread160:                                       ; preds = %202, %205
+.thread161:                                       ; preds = %202, %205
   %206 = call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
   br label %207
 
-207:                                              ; preds = %205, %.thread160
-  %.sroa.06.0 = phi i32 [ %206, %.thread160 ], [ %.sroa.028.0.copyload.sroa.speculated, %205 ]
+207:                                              ; preds = %205, %.thread161
+  %.sroa.06.0 = phi i32 [ %206, %.thread161 ], [ %.sroa.028.0.copyload.sroa.speculated, %205 ]
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %34, ptr noundef nonnull align 8 dereferenceable(8) %172, i32 %.sroa.06.0, i32 noundef 5397, i1 noundef zeroext false) #18
   %208 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %209 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN5clanglsIbEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_(ptr noundef nonnull align 8 dereferenceable(96) %208, ptr noundef nonnull align 1 dereferenceable(1) %25)
@@ -21005,8 +21005,8 @@ _ZL15isAnyRetainable22ARCConversionTypeClass.exit140: ; preds = %166, %_ZL15isAn
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZL15isAnyRetainable22ARCConversionTypeClass.exit140, %162, %240
-  %.sink165 = phi ptr [ %32, %240 ], [ %22, %162 ], [ %35, %_ZL15isAnyRetainable22ARCConversionTypeClass.exit140 ]
-  call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink165) #18
+  %.sink166 = phi ptr [ %32, %240 ], [ %22, %162 ], [ %35, %_ZL15isAnyRetainable22ARCConversionTypeClass.exit140 ]
+  call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink166) #18
   br label %254
 
 254:                                              ; preds = %.sink.split, %199, %121, %50, %55, %44
@@ -26480,7 +26480,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 %2, i32 %3, ptr noundef %4, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL45HelperToDiagnoseMismatchedMethodsInGlobalPoolRN5clang4SemaENS_14SourceLocationES2_S2_PNS_14ObjCMethodDeclERNS_14ObjCMethodListE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i32 %1, i32 %2, i32 %3, ptr noundef nonnull %4, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.145", align 1

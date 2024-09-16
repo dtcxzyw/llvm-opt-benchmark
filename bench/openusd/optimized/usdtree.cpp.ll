@@ -51986,7 +51986,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_113PrintChildrenIN32pxrInternal_v0_
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle", align 8
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfHandle", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  call fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %15 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(65) %8)
           to label %.preheader unwind label %.loopexit.split-lp
 
@@ -52216,7 +52216,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer13GetPseudoRootEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle") align 8, ptr noundef nonnull align 8 dereferenceable(557)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -52254,7 +52254,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_
 _ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11SdfPrimSpec15GetNameChildrenEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfChildrenView") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__11SdfPrimSpec15GetNameChildrenEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfChildrenView") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
@@ -52305,7 +52305,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19PrintPrimIN32pxrInternal_v0_24__p
   %47 = alloca %"class.std::__cxx11::basic_string", align 8
   %48 = alloca %"class.std::vector.347", align 8
   %49 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  call fastcc void @_ZN12_GLOBAL__N_111GetChildrenERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %50 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(65) %40)
           to label %.noexc unwind label %58
 
@@ -52363,7 +52363,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19PrintPrimIN32pxrInternal_v0_24__p
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %67
-  invoke fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %280 unwind label %60
 
 72:                                               ; preds = %67
@@ -52582,7 +52582,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i: ; pr
   br label %278
 
 132:                                              ; preds = %121, %116
-  invoke fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %133 unwind label %128
 
 133:                                              ; preds = %132
@@ -53948,7 +53948,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc
 declare noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7GetSizeEv(ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17GetNameB5cxx11ERKN32pxrInternal_v0_24__pxrReserved__9SdfHandleINS0_11SdfPrimSpecEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)

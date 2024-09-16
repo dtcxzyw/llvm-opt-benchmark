@@ -73,7 +73,7 @@ if.end18:                                         ; preds = %if.end15
   %2 = load ptr, ptr %cert, align 8
   %ctx = getelementptr inbounds i8, ptr %cond1116, i64 8
   %3 = load ptr, ptr %ctx, align 8
-  %call20 = tail call fastcc i32 @ssl_set_cert(ptr noundef %2, ptr noundef nonnull %x, ptr noundef %3)
+  %call20 = tail call fastcc i32 @ssl_set_cert(ptr noundef %2, ptr noundef %x, ptr noundef %3)
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end18, %if.then17, %if.then14
@@ -90,10 +90,10 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @ssl_security_cert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr nocapture noundef %c, ptr noundef %x, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_cert(ptr nocapture noundef %c, ptr noundef nonnull %x, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %i = alloca i64, align 8
-  %call = tail call ptr @X509_get0_pubkey(ptr noundef %x) #6
+  %call = tail call ptr @X509_get0_pubkey(ptr noundef nonnull %x) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -150,7 +150,7 @@ if.then10:                                        ; preds = %if.end8
   %5 = load i64, ptr %i, align 8
   %privatekey17 = getelementptr inbounds %struct.cert_pkey_st, ptr %4, i64 %5, i32 1
   %6 = load ptr, ptr %privatekey17, align 8
-  %call18 = call i32 @X509_check_private_key(ptr noundef %x, ptr noundef %6) #6
+  %call18 = call i32 @X509_check_private_key(ptr noundef nonnull %x, ptr noundef %6) #6
   %tobool19.not = icmp eq i32 %call18, 0
   %.pre16 = load ptr, ptr %pkeys, align 8
   %.pre18 = load i64, ptr %i, align 8
@@ -175,7 +175,7 @@ if.end28:                                         ; preds = %if.then10, %if.then
   %arrayidx30 = getelementptr inbounds %struct.cert_pkey_st, ptr %11, i64 %10
   %12 = load ptr, ptr %arrayidx30, align 8
   call void @X509_free(ptr noundef %12) #6
-  %call31 = call i32 @X509_up_ref(ptr noundef %x) #6
+  %call31 = call i32 @X509_up_ref(ptr noundef nonnull %x) #6
   %13 = load ptr, ptr %pkeys, align 8
   %14 = load i64, ptr %i, align 8
   %arrayidx33 = getelementptr inbounds %struct.cert_pkey_st, ptr %13, i64 %14
@@ -399,7 +399,7 @@ if.end15:                                         ; preds = %if.end
   %2 = load ptr, ptr %cert, align 8
   %ctx = getelementptr inbounds i8, ptr %cond1113, i64 8
   %3 = load ptr, ptr %ctx, align 8
-  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef nonnull %pkey, ptr noundef %3)
+  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef %pkey, ptr noundef %3)
   br label %return
 
 return:                                           ; preds = %cond.false, %entry, %cond.end10, %if.end15, %if.then14
@@ -408,10 +408,10 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef %pkey, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ssl_set_pkey(ptr nocapture noundef %c, ptr noundef nonnull %pkey, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %i = alloca i64, align 8
-  %call = call ptr @ssl_cert_lookup_by_pkey(ptr noundef %pkey, ptr noundef nonnull %i, ptr noundef %ctx) #6
+  %call = call ptr @ssl_cert_lookup_by_pkey(ptr noundef nonnull %pkey, ptr noundef nonnull %i, ptr noundef %ctx) #6
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -431,7 +431,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %call5 = call i32 @X509_check_private_key(ptr noundef nonnull %2, ptr noundef %pkey) #6
+  %call5 = call i32 @X509_check_private_key(ptr noundef nonnull %2, ptr noundef nonnull %pkey) #6
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %return, label %land.lhs.true.if.end7_crit_edge
 
@@ -446,7 +446,7 @@ if.end7:                                          ; preds = %land.lhs.true.if.en
   %privatekey = getelementptr inbounds %struct.cert_pkey_st, ptr %4, i64 %3, i32 1
   %5 = load ptr, ptr %privatekey, align 8
   call void @EVP_PKEY_free(ptr noundef %5) #6
-  %call10 = call i32 @EVP_PKEY_up_ref(ptr noundef %pkey) #6
+  %call10 = call i32 @EVP_PKEY_up_ref(ptr noundef nonnull %pkey) #6
   %6 = load ptr, ptr %pkeys, align 8
   %7 = load i64, ptr %i, align 8
   %privatekey13 = getelementptr inbounds %struct.cert_pkey_st, ptr %6, i64 %7, i32 1
@@ -571,7 +571,7 @@ if.end15.i:                                       ; preds = %cond.false.i, %cond
   %12 = load ptr, ptr %cert.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %cond1113.i, i64 8
   %13 = load ptr, ptr %ctx.i, align 8
-  %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %12, ptr noundef nonnull %pkey.0, ptr noundef %13)
+  %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %12, ptr noundef %pkey.0, ptr noundef %13)
   br label %SSL_use_PrivateKey.exit
 
 SSL_use_PrivateKey.exit:                          ; preds = %cond.false.i, %cond.end10.i, %if.end15.i
@@ -630,7 +630,7 @@ if.end15.i:                                       ; preds = %cond.false.i, %cond
   %5 = load ptr, ptr %cert.i, align 8
   %ctx.i = getelementptr inbounds i8, ptr %cond1113.i, i64 8
   %6 = load ptr, ptr %ctx.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %5, ptr noundef nonnull %call, ptr noundef %6)
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %5, ptr noundef %call, ptr noundef %6)
   br label %SSL_use_PrivateKey.exit
 
 SSL_use_PrivateKey.exit:                          ; preds = %cond.false.i, %cond.end10.i, %if.end15.i
@@ -671,7 +671,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
-  %call4 = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef nonnull %x, ptr noundef %ctx)
+  %call4 = tail call fastcc i32 @ssl_set_cert(ptr noundef %0, ptr noundef %x, ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -831,7 +831,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
-  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef nonnull %pkey, ptr noundef %ctx)
+  %call = tail call fastcc i32 @ssl_set_pkey(ptr noundef %0, ptr noundef %pkey, ptr noundef %ctx)
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -910,7 +910,7 @@ if.then22:                                        ; preds = %if.end19
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %if.end19
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 344
   %6 = load ptr, ptr %cert.i, align 8
-  %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %6, ptr noundef nonnull %pkey.0, ptr noundef nonnull %ctx)
+  %call.i = tail call fastcc i32 @ssl_set_pkey(ptr noundef %6, ptr noundef %pkey.0, ptr noundef nonnull %ctx)
   tail call void @EVP_PKEY_free(ptr noundef nonnull %pkey.0) #6
   br label %end
 
@@ -941,7 +941,7 @@ if.then:                                          ; preds = %entry
 SSL_CTX_use_PrivateKey.exit:                      ; preds = %entry
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 344
   %2 = load ptr, ptr %cert.i, align 8
-  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef nonnull %call, ptr noundef nonnull %ctx)
+  %call.i = call fastcc i32 @ssl_set_pkey(ptr noundef %2, ptr noundef %call, ptr noundef nonnull %ctx)
   call void @EVP_PKEY_free(ptr noundef nonnull %call) #6
   br label %return
 
@@ -1193,7 +1193,7 @@ if.then:                                          ; preds = %entry
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 771, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786690, ptr noundef null) #6
-  br label %common.ret57
+  br label %common.ret55
 
 if.end:                                           ; preds = %entry
   %cmp4 = icmp eq i32 %version, 1
@@ -1203,11 +1203,11 @@ if.then5:                                         ; preds = %if.end
   %add.i = add i64 %serverinfo_length, 4
   %call6 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %add.i, ptr noundef nonnull @.str, i32 noundef 784) #6
   %cmp7 = icmp eq ptr %call6, null
-  br i1 %cmp7, label %common.ret57, label %if.end9
+  br i1 %cmp7, label %common.ret55, label %if.end9
 
-common.ret57:                                     ; preds = %if.end17, %if.then5, %if.then36, %if.then16, %if.then13, %if.then, %if.end37.i, %if.end9
-  %common.ret57.op = phi i32 [ %call10, %if.end9 ], [ 0, %if.then ], [ 0, %if.then16 ], [ 0, %if.then36 ], [ 0, %if.then13 ], [ 0, %if.then5 ], [ 0, %if.end17 ], [ 1, %if.end37.i ]
-  ret i32 %common.ret57.op
+common.ret55:                                     ; preds = %if.end17, %if.then5, %if.then36, %if.then16, %if.then13, %if.then, %if.end37.i, %if.end9
+  %common.ret55.op = phi i32 [ %call10, %if.end9 ], [ 0, %if.then ], [ 0, %if.then16 ], [ 0, %if.then36 ], [ 0, %if.then13 ], [ 0, %if.then5 ], [ 0, %if.end17 ], [ 1, %if.end37.i ]
+  ret i32 %common.ret55.op
 
 if.end9:                                          ; preds = %if.then5
   store i8 0, ptr %call6, align 1
@@ -1221,7 +1221,7 @@ if.end9:                                          ; preds = %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull readonly align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %call10 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef nonnull %ctx, i32 noundef 2, ptr noundef nonnull %call6, i64 noundef %add.i)
   tail call void @CRYPTO_free(ptr noundef nonnull %call6, ptr noundef nonnull @.str, i32 noundef 793) #6
-  br label %common.ret57
+  br label %common.ret55
 
 if.end11:                                         ; preds = %if.end
   %cmp3.not.i = icmp ne i32 %version, 2
@@ -1230,26 +1230,26 @@ if.end11:                                         ; preds = %if.end
   br i1 %or.cond.i, label %if.then13, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %if.end11, %if.end21.us.i
-  %pkt.sroa.13.057.us.i = phi i64 [ %sub.i.i7.i.us.i, %if.end21.us.i ], [ %serverinfo_length, %if.end11 ]
-  %pkt.sroa.0.056.us.i = phi ptr [ %add.ptr.i.i6.i.us.i, %if.end21.us.i ], [ %serverinfo, %if.end11 ]
-  %switch.i = icmp ult i64 %pkt.sroa.13.057.us.i, 8
+  %pkt.sroa.13.056.us.i = phi i64 [ %sub.i.i7.i.us.i, %if.end21.us.i ], [ %serverinfo_length, %if.end11 ]
+  %pkt.sroa.0.055.us.i = phi ptr [ %add.ptr.i.i6.i.us.i, %if.end21.us.i ], [ %serverinfo, %if.end11 ]
+  %switch.i = icmp ult i64 %pkt.sroa.13.056.us.i, 8
   br i1 %switch.i, label %if.then13, label %lor.lhs.false.i.us.i
 
 lor.lhs.false.i.us.i:                             ; preds = %while.body.us.i
-  %add.ptr.i2.i20.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.us.i, i64 6
+  %add.ptr.i2.i20.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 6
   %0 = load i8, ptr %add.ptr.i2.i20.us.i, align 1
   %conv.i.i.i.us.i = zext i8 %0 to i64
   %shl.i.i.i.us.i = shl nuw nsw i64 %conv.i.i.i.us.i, 8
-  %add.ptr.i.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.us.i, i64 7
+  %add.ptr.i.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 7
   %1 = load i8, ptr %add.ptr.i.i.i.us.i, align 1
   %conv2.i.i.i.us.i = zext i8 %1 to i64
   %or.i.i.i.us.i = or disjoint i64 %shl.i.i.i.us.i, %conv2.i.i.i.us.i
-  %sub.i.i.i.us.i = add i64 %pkt.sroa.13.057.us.i, -8
+  %sub.i.i.i.us.i = add i64 %pkt.sroa.13.056.us.i, -8
   %cmp.i.i4.i.us.i = icmp ult i64 %sub.i.i.i.us.i, %or.i.i.i.us.i
   br i1 %cmp.i.i4.i.us.i, label %if.then13, label %if.end21.us.i
 
 if.end21.us.i:                                    ; preds = %lor.lhs.false.i.us.i
-  %add.ptr.i2.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.us.i, i64 8
+  %add.ptr.i2.i.i.us.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.us.i, i64 8
   %add.ptr.i.i6.i.us.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.us.i, i64 %or.i.i.i.us.i
   %sub.i.i7.i.us.i = sub nuw i64 %sub.i.i.i.us.i, %or.i.i.i.us.i
   %tobool9.not.us.i = icmp eq i64 %sub.i.i7.i.us.i, 0
@@ -1259,7 +1259,7 @@ if.then13:                                        ; preds = %lor.lhs.false.i.us.
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 798, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret57
+  br label %common.ret55
 
 if.end14:                                         ; preds = %if.end21.us.i
   %cert = getelementptr inbounds i8, ptr %ctx, i64 344
@@ -1272,14 +1272,14 @@ if.then16:                                        ; preds = %if.end14
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 802, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 786691, ptr noundef null) #6
-  br label %common.ret57
+  br label %common.ret55
 
 if.end17:                                         ; preds = %if.end14
   %serverinfo20 = getelementptr inbounds i8, ptr %3, i64 24
   %4 = load ptr, ptr %serverinfo20, align 8
   %call21 = tail call ptr @CRYPTO_realloc(ptr noundef %4, i64 noundef %serverinfo_length, ptr noundef nonnull @.str, i32 noundef 806) #6
   %cmp22 = icmp eq ptr %call21, null
-  br i1 %cmp22, label %common.ret57, label %if.end24
+  br i1 %cmp22, label %common.ret55, label %if.end24
 
 if.end24:                                         ; preds = %if.end17
   %5 = load ptr, ptr %cert, align 8
@@ -1290,7 +1290,7 @@ if.end24:                                         ; preds = %if.end17
   %8 = load ptr, ptr %7, align 8
   %serverinfo30 = getelementptr inbounds i8, ptr %8, i64 24
   %9 = load ptr, ptr %serverinfo30, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr align 1 %serverinfo, i64 %serverinfo_length, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %9, ptr nonnull align 1 %serverinfo, i64 %serverinfo_length, i1 false)
   %10 = load ptr, ptr %cert, align 8
   %11 = load ptr, ptr %10, align 8
   %serverinfo_length33 = getelementptr inbounds i8, ptr %11, i64 32
@@ -1298,39 +1298,39 @@ if.end24:                                         ; preds = %if.end17
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end24, %if.end37.i
-  %pkt.sroa.13.057.i = phi i64 [ %sub.i.i7.i.i, %if.end37.i ], [ %serverinfo_length, %if.end24 ]
-  %pkt.sroa.0.056.i = phi ptr [ %add.ptr.i.i6.i.i, %if.end37.i ], [ %serverinfo, %if.end24 ]
-  %cmp.i.i.i = icmp ult i64 %pkt.sroa.13.057.i, 4
+  %pkt.sroa.13.056.i = phi i64 [ %sub.i.i7.i.i, %if.end37.i ], [ %serverinfo_length, %if.end24 ]
+  %pkt.sroa.0.055.i = phi ptr [ %add.ptr.i.i6.i.i, %if.end37.i ], [ %serverinfo, %if.end24 ]
+  %cmp.i.i.i = icmp ult i64 %pkt.sroa.13.056.i, 4
   br i1 %cmp.i.i.i, label %if.then36, label %lor.lhs.false14.i
 
 lor.lhs.false14.i:                                ; preds = %while.body.i
-  %12 = load i8, ptr %pkt.sroa.0.056.i, align 1
+  %12 = load i8, ptr %pkt.sroa.0.055.i, align 1
   %conv.i.i.i = zext i8 %12 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 1
   %13 = load i8, ptr %add.ptr.i.i.i, align 1
   %conv2.i.i.i = zext i8 %13 to i64
   %shl3.i.i.i = shl nuw nsw i64 %conv2.i.i.i, 16
   %or.i.i.i = or disjoint i64 %shl3.i.i.i, %shl.i.i.i
-  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 2
+  %add.ptr5.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 2
   %14 = load i8, ptr %add.ptr5.i.i.i, align 1
   %conv6.i.i.i = zext i8 %14 to i64
   %shl7.i.i.i = shl nuw nsw i64 %conv6.i.i.i, 8
   %or8.i.i.i = or disjoint i64 %or.i.i.i, %shl7.i.i.i
-  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 3
+  %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 3
   %15 = load i8, ptr %add.ptr10.i.i.i, align 1
   %conv11.i.i.i = zext i8 %15 to i64
   %or12.i.i.i = or disjoint i64 %or8.i.i.i, %conv11.i.i.i
-  %16 = and i64 %pkt.sroa.13.057.i, -2
+  %16 = and i64 %pkt.sroa.13.056.i, -2
   %cmp.i.i13.i = icmp eq i64 %16, 4
   br i1 %cmp.i.i13.i, label %if.then36, label %lor.lhs.false17.i
 
 lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
-  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 4
+  %add.ptr.i2.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 4
   %17 = load i8, ptr %add.ptr.i2.i.i, align 1
   %conv.i.i15.i = zext i8 %17 to i32
   %shl.i.i16.i = shl nuw nsw i32 %conv.i.i15.i, 8
-  %add.ptr.i.i17.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 5
+  %add.ptr.i.i17.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 5
   %18 = load i8, ptr %add.ptr.i.i17.i, align 1
   %conv2.i.i18.i = zext i8 %18 to i32
   %or.i.i19.i = or disjoint i32 %shl.i.i16.i, %conv2.i.i18.i
@@ -1338,20 +1338,20 @@ lor.lhs.false17.i:                                ; preds = %lor.lhs.false14.i
   br i1 %cmp.i.i.i.i, label %if.then36, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %lor.lhs.false17.i
-  %add.ptr.i2.i20.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 6
+  %add.ptr.i2.i20.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 6
   %19 = load i8, ptr %add.ptr.i2.i20.i, align 1
   %conv.i.i.i.i = zext i8 %19 to i64
   %shl.i.i.i.i = shl nuw nsw i64 %conv.i.i.i.i, 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 7
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 7
   %20 = load i8, ptr %add.ptr.i.i.i.i, align 1
   %conv2.i.i.i.i = zext i8 %20 to i64
   %or.i.i.i.i = or disjoint i64 %shl.i.i.i.i, %conv2.i.i.i.i
-  %sub.i.i.i.i = add i64 %pkt.sroa.13.057.i, -8
+  %sub.i.i.i.i = add i64 %pkt.sroa.13.056.i, -8
   %cmp.i.i4.i.i = icmp ult i64 %sub.i.i.i.i, %or.i.i.i.i
   br i1 %cmp.i.i4.i.i, label %if.then36, label %if.end21.i
 
 if.end21.i:                                       ; preds = %lor.lhs.false.i.i
-  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.056.i, i64 8
+  %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %pkt.sroa.0.055.i, i64 8
   %add.ptr.i.i6.i.i = getelementptr inbounds i8, ptr %add.ptr.i2.i.i.i, i64 %or.i.i.i.i
   %sub.i.i7.i.i = sub nuw i64 %sub.i.i.i.i, %or.i.i.i.i
   %cmp27.i = icmp eq i64 %or12.i.i.i, 464
@@ -1370,13 +1370,13 @@ if.else.i:                                        ; preds = %if.end21.i
 
 if.end37.i:                                       ; preds = %if.else.i, %if.then28.i
   %tobool9.not.i = icmp eq i64 %sub.i.i7.i.i, 0
-  br i1 %tobool9.not.i, label %common.ret57, label %while.body.i, !llvm.loop !4
+  br i1 %tobool9.not.i, label %common.ret55, label %while.body.i, !llvm.loop !4
 
-if.then36:                                        ; preds = %if.then28.i, %if.else.i, %while.body.i, %lor.lhs.false14.i, %lor.lhs.false17.i, %lor.lhs.false.i.i
+if.then36:                                        ; preds = %lor.lhs.false.i.i, %lor.lhs.false17.i, %lor.lhs.false14.i, %while.body.i, %if.else.i, %if.then28.i
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 819, ptr noundef nonnull @__func__.SSL_CTX_use_serverinfo_ex) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 388, ptr noundef null) #6
-  br label %common.ret57
+  br label %common.ret55
 }
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

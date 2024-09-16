@@ -415,7 +415,7 @@ define void @Java_sun_jvm_hotspot_debugger_linux_LinuxDebuggerLocal_attach0__I(p
   %34 = getelementptr inbounds i8, ptr %33, i64 880
   %35 = load ptr, ptr %34, align 8
   call void %35(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, i64 noundef %32)
-  call fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %13)
+  call fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13)
   br label %throw_new_debugger_exception.exit
 
 throw_new_debugger_exception.exit:                ; preds = %25, %15, %3, %30
@@ -425,16 +425,16 @@ throw_new_debugger_exception.exit:                ; preds = %25, %15, %3, %30
 declare ptr @Pgrab(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = tail call i32 @get_num_threads(ptr noundef %2)
+  %6 = tail call i32 @get_num_threads(ptr noundef nonnull %2)
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %33
   %.055 = phi i32 [ %40, %33 ], [ 0, %3 ]
-  %8 = tail call i32 @get_lwp_id(ptr noundef %2, i32 noundef %.055)
+  %8 = tail call i32 @get_lwp_id(ptr noundef nonnull %2, i32 noundef %.055)
   %9 = load ptr, ptr @_ZL23getThreadForThreadId_ID, align 8
   %10 = sext i32 %8 to i64
   %11 = tail call noundef ptr (ptr, ptr, ptr, ...) @_ZN7JNIEnv_16CallObjectMethodEP8_jobjectP10_jmethodIDz(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %9, i64 noundef %10)
@@ -482,14 +482,14 @@ define internal fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %33, %3
-  %41 = tail call i32 @get_num_libs(ptr noundef %2)
+  %41 = tail call i32 @get_num_libs(ptr noundef nonnull %2)
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph58, label %.loopexit
 
 .lr.ph58:                                         ; preds = %._crit_edge, %78
   %.156 = phi i32 [ %88, %78 ], [ 0, %._crit_edge ]
-  call void @get_lib_addr_range(ptr noundef %2, i32 noundef %.156, ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %43 = call ptr @get_lib_name(ptr noundef %2, i32 noundef %.156)
+  call void @get_lib_addr_range(ptr noundef nonnull %2, i32 noundef %.156, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %43 = call ptr @get_lib_name(ptr noundef nonnull %2, i32 noundef %.156)
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 1336
   %46 = load ptr, ptr %45, align 8
@@ -664,7 +664,7 @@ _ZN7JNIEnv_17ExceptionOccurredEv.exit25:          ; preds = %40
           to label %_ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit unwind label %37
 
 _ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit: ; preds = %50
-  invoke fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %46)
+  invoke fastcc void @_ZL25fillThreadsAndLoadObjectsP7JNIEnv_P8_jobjectP13ps_prochandle(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %46)
           to label %56 unwind label %37
 
 56:                                               ; preds = %_ZN7JNIEnv_12SetLongFieldEP8_jobjectP9_jfieldIDl.exit, %49, %_ZN7JNIEnv_17ExceptionOccurredEv.exit25, %_ZN7JNIEnv_17ExceptionOccurredEv.exit23

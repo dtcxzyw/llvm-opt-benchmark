@@ -16203,7 +16203,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm6CHIArgES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8GVNHoist23findHoistableCandidatesERNS0_8DenseMapIPNS0_10BasicBlockENS0_11SmallVectorIS1_Lj2EEENS0_12DenseMapInfoIS9_vEENS0_6detail12DenseMapPairIS9_SB_EEEENS6_7InsKindERNSA_ISt4pairIS9_NSA_IPNS0_11InstructionELj4EEEELj4EEEE3$_1EEEvT_ST_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #15 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPN4llvm6CHIArgES2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_8GVNHoist23findHoistableCandidatesERNS0_8DenseMapIPNS0_10BasicBlockENS0_11SmallVectorIS1_Lj2EEENS0_12DenseMapInfoIS9_vEENS0_6detail12DenseMapPairIS9_SB_EEEENS6_7InsKindERNSA_ISt4pairIS9_NSA_IPNS0_11InstructionELj4EEEELj4EEEE3$_1EEEvT_ST_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 576460752303423485) %3) unnamed_addr #15 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64

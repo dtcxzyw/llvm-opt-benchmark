@@ -8351,7 +8351,7 @@ _ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EE9push_backERKS2_.exit.i119: ; preds = %
 
 ._crit_edge.i92:                                  ; preds = %_ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EE9push_backERKS2_.exit.i119, %2861
   %.2.lcssa.i = phi i32 [ %.0467.i, %2861 ], [ %.3.i, %_ZNSt6vectorIN5Yosys4Macc6port_tESaIS2_EE9push_backERKS2_.exit.i119 ]
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(49) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(49) %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %.thread.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .thread.i:                                        ; preds = %2549, %._crit_edge.i92, %_ZN12_GLOBAL__N_113AlumaccWorker17macc_may_overflowERN5Yosys4MaccEib.exit.i, %2716, %._crit_edge.i100.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL7SigSpecEPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i78, %2395, %2388
@@ -9561,12 +9561,12 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_
           to label %3583 unwind label %3615
 
 3583:                                             ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit.i
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(49) %3582, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(49) %3582, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %3584 unwind label %3615
 
 3584:                                             ; preds = %3583
   call void @_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %20) #21
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(49) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(49) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %.loopexit.i169 unwind label %.loopexit.split-lp.loopexit.i193
 
 .loopexit.i169:                                   ; preds = %3327, %.lr.ph.i168, %3584, %.thread.i192, %3508, %._crit_edge.thread.i
@@ -14011,7 +14011,7 @@ _ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_
           to label %855 unwind label %868
 
 855:                                              ; preds = %_ZNSt4pairIN5Yosys5RTLIL7SigSpecES2_EC2IRS2_S5_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit273
-  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(49) %854, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  invoke fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(49) %854, ptr noundef nonnull align 8 dereferenceable(8) %17)
           to label %856 unwind label %868
 
 856:                                              ; preds = %855
@@ -17725,7 +17725,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %_ZSt
   br i1 %959, label %960, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit342
 
 960:                                              ; preds = %.loopexit765
-  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(768) %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(768) %190)
           to label %961 unwind label %.loopexit778
 
 961:                                              ; preds = %960
@@ -17942,7 +17942,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit342:              ; preds = %972, %_ZSt8_Destroy
   br i1 %1015, label %1016, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit61.i
 
 1016:                                             ; preds = %1013
-  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(768) %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(768) %190)
           to label %.noexc346 unwind label %.loopexit778
 
 .noexc346:                                        ; preds = %1016
@@ -17990,7 +17990,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i: ; preds = %
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i:               ; preds = %1026, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i.i
-  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(768) %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(768) %190)
           to label %.noexc347 unwind label %.loopexit778
 
 .noexc347:                                        ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit.i
@@ -18707,7 +18707,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit363:              ; preds = %1227, %_ZSt8_Destro
   br i1 %870, label %1230, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit376
 
 1230:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit363
-  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(768) %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(768) %190)
           to label %1231 unwind label %.loopexit778
 
 1231:                                             ; preds = %1230
@@ -18798,7 +18798,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit376:              ; preds = %1242, %_ZSt8_Destro
           to label %1254 unwind label %1310, !noalias !197
 
 1254:                                             ; preds = %1253
-  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(768) %190)
+  invoke fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(768) %190)
           to label %1255 unwind label %1312, !noalias !197
 
 1255:                                             ; preds = %1254
@@ -24417,7 +24417,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL7SigSpecEPN12_GLOBAL__N_113AlumaccWorker10maccn
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker10maccnode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val6 = load ptr, ptr %4, align 8
@@ -26440,7 +26440,7 @@ _ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4poolIPN12_GLOBAL__N_113AlumaccWorker9alunode_tENS0_12hash_ptr_opsEE6insertERKS5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val6 = load ptr, ptr %4, align 8
@@ -29972,7 +29972,7 @@ _ZNSt12_Vector_baseISt5tupleIJbbbbN5Yosys5RTLIL7SigSpecEEESaIS4_EE13_M_deallocat
 declare noundef ptr @_ZN5Yosys5RTLIL6Module6addPosENS0_8IdStringERKNS0_7SigSpecES5_bRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(768) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_ltEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(768) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -31569,7 +31569,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit124:              ; preds = %560, %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(768) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113AlumaccWorker9alunode_t6get_eqEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(768) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_write_header(ptr noundef %file, ptr noundef %hdr, i64 noundef %offset, i1 noundef zeroext %read) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_write_header(ptr noundef %file, ptr noundef %hdr, i64 noundef range(i64 65536, 131073) %offset, i1 noundef zeroext %read) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %file, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -2016,19 +2016,19 @@ error_bat_restore:                                ; preds = %sw.bb60, %if.end70
 
 if.then99:                                        ; preds = %error_bat_restore
   %or.cond2.i = icmp ult i32 %conv, 4
-  %spec.select94 = select i1 %or.cond2.i, i64 0, i64 %bat_prior_offset.1
+  %spec.select93 = select i1 %or.cond2.i, i64 0, i64 %bat_prior_offset.1
   %37 = load ptr, ptr %bat.i, align 8
   %arrayidx9.i54 = getelementptr i64, ptr %37, i64 %idxprom.i
-  store i64 %spec.select94, ptr %arrayidx9.i54, align 8
-  %conv.i56 = and i64 %12, 7
+  store i64 %spec.select93, ptr %arrayidx9.i54, align 8
+  %conv.i55 = and i64 %12, 7
   %38 = load ptr, ptr %bat.i, align 8
-  %arrayidx13.i59 = getelementptr i64, ptr %38, i64 %idxprom.i
-  %39 = load i64, ptr %arrayidx13.i59, align 8
-  %or.i60 = or i64 %39, %conv.i56
-  store i64 %or.i60, ptr %arrayidx13.i59, align 8
+  %arrayidx13.i58 = getelementptr i64, ptr %38, i64 %idxprom.i
+  %39 = load i64, ptr %arrayidx13.i58, align 8
+  %or.i59 = or i64 %39, %conv.i55
+  store i64 %or.i59, ptr %arrayidx13.i58, align 8
   %40 = load ptr, ptr %bat.i, align 8
-  %arrayidx17.i62 = getelementptr i64, ptr %40, i64 %idxprom.i
-  %41 = load i64, ptr %arrayidx17.i62, align 8
+  %arrayidx17.i61 = getelementptr i64, ptr %40, i64 %idxprom.i
+  %41 = load i64, ptr %arrayidx17.i61, align 8
   store i64 %41, ptr %bat_entry, align 8
   br label %exit
 
@@ -2747,8 +2747,8 @@ if.then42:                                        ; preds = %if.then34
   br label %exit
 
 if.end43:                                         ; preds = %if.then34
-  %cmp4952.not = icmp eq i64 %shr, 0
-  br i1 %cmp4952.not, label %while.end, label %while.body.lr.ph
+  %cmp4951.not = icmp eq i64 %shr, 0
+  br i1 %cmp4951.not, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end43
   %cond = select i1 %cmp25, i32 6, i32 0
@@ -2758,14 +2758,14 @@ while.body.lr.ph:                                 ; preds = %if.end43
   %chunk_ratio_bits.i = getelementptr inbounds i8, ptr %s, i64 432
   %add53 = add i64 %add1, 1048575
   %or.cond2.i = icmp ult i32 %cond48, 4
-  %conv.i44 = zext nneg i32 %cond48 to i64
+  %conv.i43 = zext nneg i32 %cond48 to i64
   br i1 %or.cond2.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %while.body.us
-  %sector_num.053.us = phi i64 [ %add67.us, %while.body.us ], [ 0, %while.body.lr.ph ]
+  %sector_num.052.us = phi i64 [ %add67.us, %while.body.us ], [ 0, %while.body.lr.ph ]
   %2 = load i32, ptr %sectors_per_block_bits.i, align 8
   %sh_prom.i.us = zext nneg i32 %2 to i64
-  %shr.i.us = ashr i64 %sector_num.053.us, %sh_prom.i.us
+  %shr.i.us = ashr i64 %sector_num.052.us, %sh_prom.i.us
   %conv.i.us = trunc i64 %shr.i.us to i32
   %3 = load i32, ptr %chunk_ratio_bits.i, align 8
   %shr6.i.us = lshr i32 %conv.i.us, %3
@@ -2778,19 +2778,19 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %5 = load ptr, ptr %bat, align 8
   %arrayidx13.i.us = getelementptr i64, ptr %5, i64 %idxprom.i.us
   %6 = load i64, ptr %arrayidx13.i.us, align 8
-  %or.i.us = or i64 %6, %conv.i44
+  %or.i.us = or i64 %6, %conv.i43
   store i64 %or.i.us, ptr %arrayidx13.i.us, align 8
   %7 = load i32, ptr %sectors_per_block, align 4
   %conv66.us = zext i32 %7 to i64
-  %add67.us = add i64 %sector_num.053.us, %conv66.us
+  %add67.us = add i64 %sector_num.052.us, %conv66.us
   %cmp49.us = icmp ult i64 %add67.us, %shr
   br i1 %cmp49.us, label %while.body.us, label %while.end, !llvm.loop !12
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %sector_num.053 = phi i64 [ %add67, %while.body ], [ 0, %while.body.lr.ph ]
+  %sector_num.052 = phi i64 [ %add67, %while.body ], [ 0, %while.body.lr.ph ]
   %8 = load i32, ptr %sectors_per_block_bits.i, align 8
   %sh_prom.i = zext nneg i32 %8 to i64
-  %shr.i = ashr i64 %sector_num.053, %sh_prom.i
+  %shr.i = ashr i64 %sector_num.052, %sh_prom.i
   %conv.i = trunc i64 %shr.i to i32
   %9 = load i32, ptr %chunk_ratio_bits.i, align 8
   %shr6.i = lshr i32 %conv.i, %9
@@ -2798,7 +2798,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %10 = load i32, ptr %logical_sector_size_bits, align 4
   %idxprom.i = zext i32 %add.i to i64
   %sh_prom52 = zext nneg i32 %10 to i64
-  %shl = shl i64 %sector_num.053, %sh_prom52
+  %shl = shl i64 %sector_num.052, %sh_prom52
   %sub = add i64 %add53, %shl
   %and = and i64 %sub, -1048576
   %call58 = tail call ptr @blk_bs(ptr noundef %blk) #17
@@ -2808,11 +2808,11 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %12 = load ptr, ptr %bat, align 8
   %arrayidx13.i = getelementptr i64, ptr %12, i64 %idxprom.i
   %13 = load i64, ptr %arrayidx13.i, align 8
-  %or.i = or i64 %13, %conv.i44
+  %or.i = or i64 %13, %conv.i43
   store i64 %or.i, ptr %arrayidx13.i, align 8
   %14 = load i32, ptr %sectors_per_block, align 4
   %conv66 = zext i32 %14 to i64
-  %add67 = add i64 %sector_num.053, %conv66
+  %add67 = add i64 %sector_num.052, %conv66
   %cmp49 = icmp ult i64 %add67, %shr
   br i1 %cmp49, label %while.body, label %while.end, !llvm.loop !12
 

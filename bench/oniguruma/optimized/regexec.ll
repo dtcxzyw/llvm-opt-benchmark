@@ -136,7 +136,7 @@ define void @onig_region_clear(ptr nocapture noundef %0) local_unnamed_addr #4 {
   br i1 %17, label %history_root_free.exit, label %18
 
 18:                                               ; preds = %._crit_edge
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %16)
+  tail call fastcc void @history_tree_free(ptr noundef %16)
   store ptr null, ptr %15, align 8
   br label %history_root_free.exit
 
@@ -330,7 +330,7 @@ define void @onig_region_free(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %18, label %history_root_free.exit, label %19
 
 19:                                               ; preds = %15
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %17)
+  tail call fastcc void @history_tree_free(ptr noundef %17)
   store ptr null, ptr %16, align 8
   br label %history_root_free.exit
 
@@ -457,7 +457,7 @@ define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unn
   br i1 %67, label %history_root_free.exit, label %68
 
 68:                                               ; preds = %._crit_edge
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %66)
+  tail call fastcc void @history_tree_free(ptr noundef %66)
   store ptr null, ptr %65, align 8
   br label %history_root_free.exit
 
@@ -520,7 +520,7 @@ define internal fastcc noalias noundef ptr @history_tree_clone(ptr nocapture nou
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %18
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %2)
+  tail call fastcc void @history_tree_free(ptr noundef %2)
   br label %history_node_new.exit.thread
 
 27:                                               ; preds = %18
@@ -1359,7 +1359,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   %57 = getelementptr inbounds i8, ptr %21, i64 48
   %58 = load i32, ptr %57, align 8
   %59 = add nsw i32 %58, 1
-  %60 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef nonnull %23, i32 noundef %59)
+  %60 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef %23, i32 noundef %59)
   %.not307 = icmp eq i32 %60, 0
   br i1 %.not307, label %61, label %adjust_match_param.exit
 
@@ -1680,7 +1680,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   br i1 %exitcond351.not, label %._crit_edge330, label %205, !llvm.loop !11
 
 ._crit_edge330:                                   ; preds = %205, %.preheader
-  %237 = tail call fastcc i32 @regset_search_body_position_lead(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.1254, ptr noundef %4, ptr noundef nonnull %201, ptr noundef %8)
+  %237 = tail call fastcc i32 @regset_search_body_position_lead(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.1254, ptr noundef %4, ptr noundef %201, ptr noundef %8)
   br label %240
 
 238:                                              ; preds = %195
@@ -1766,7 +1766,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   br i1 %275, label %onig_region_clear.exit, label %276
 
 276:                                              ; preds = %._crit_edge.i312
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %274)
+  tail call fastcc void @history_tree_free(ptr noundef %274)
   store ptr null, ptr %273, align 8
   br label %onig_region_clear.exit
 
@@ -1854,7 +1854,7 @@ onig_region_clear.exit:                           ; preds = %276, %._crit_edge.i
   br i1 %314, label %onig_region_clear.exit317, label %315
 
 315:                                              ; preds = %._crit_edge.i313
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %313)
+  tail call fastcc void @history_tree_free(ptr noundef %313)
   store ptr null, ptr %312, align 8
   br label %onig_region_clear.exit317
 
@@ -1881,7 +1881,7 @@ adjust_match_param.exit:                          ; preds = %46, %56, %adjust_ma
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @onig_region_resize_clear(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -5, 1) i32 @onig_region_resize_clear(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %1, i32 10)
@@ -1964,7 +1964,7 @@ define internal fastcc range(i32 -5, 1) i32 @onig_region_resize_clear(ptr nocapt
   br i1 %44, label %onig_region_resize.exit, label %45
 
 45:                                               ; preds = %._crit_edge.i
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %43)
+  tail call fastcc void @history_tree_free(ptr noundef %43)
   store ptr null, ptr %42, align 8
   br label %onig_region_resize.exit
 
@@ -2375,7 +2375,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %243, label %.loopexit, label %245
 
 244:                                              ; preds = %237
-  call fastcc void @history_tree_clear(ptr noundef nonnull %239)
+  call fastcc void @history_tree_clear(ptr noundef %239)
   br label %245
 
 245:                                              ; preds = %241, %244
@@ -2393,7 +2393,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %252, ptr %21, align 8
   %253 = load ptr, ptr %238, align 8
   %254 = load ptr, ptr %19, align 8
-  %255 = call fastcc i32 @make_capture_history_tree(ptr noundef %253, ptr noundef nonnull %21, ptr noundef %254, ptr noundef %1, ptr noundef nonnull %0)
+  %255 = call fastcc i32 @make_capture_history_tree(ptr noundef %253, ptr noundef %21, ptr noundef %254, ptr noundef %1, ptr noundef nonnull %0)
   %256 = icmp slt i32 %255, 0
   br i1 %256, label %.loopexit2086, label %257
 
@@ -3266,7 +3266,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %787, label %788, label %794
 
 788:                                              ; preds = %779
-  %789 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %789 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1870 = icmp eq i32 %789, 0
   br i1 %.not1870, label %790, label %.loopexit
 
@@ -3336,7 +3336,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %828, label %829, label %835
 
 829:                                              ; preds = %820
-  %830 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %830 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1868 = icmp eq i32 %830, 0
   br i1 %.not1868, label %831, label %.loopexit
 
@@ -3412,7 +3412,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %873, label %874, label %880
 
 874:                                              ; preds = %865
-  %875 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %875 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1866 = icmp eq i32 %875, 0
   br i1 %.not1866, label %876, label %.loopexit
 
@@ -3507,7 +3507,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %922, label %923, label %929
 
 923:                                              ; preds = %914
-  %924 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %924 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1864 = icmp eq i32 %924, 0
   br i1 %.not1864, label %925, label %.loopexit
 
@@ -4104,7 +4104,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %1268, label %1269, label %1275
 
 1269:                                             ; preds = %1258
-  %1270 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %1270 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1791 = icmp eq i32 %1270, 0
   br i1 %.not1791, label %1271, label %.loopexit
 
@@ -4173,7 +4173,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %1314, label %1315, label %1321
 
 1315:                                             ; preds = %1304
-  %1316 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %1316 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1790 = icmp eq i32 %1316, 0
   br i1 %.not1790, label %1317, label %.loopexit
 
@@ -4292,7 +4292,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %1387, label %1388, label %1394
 
 1388:                                             ; preds = %._crit_edge2205
-  %1389 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %1389 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1789 = icmp eq i32 %1389, 0
   br i1 %.not1789, label %1390, label %.loopexit
 
@@ -4436,7 +4436,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %1469, label %1470, label %1476
 
 1470:                                             ; preds = %1461
-  %1471 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %1471 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1787 = icmp eq i32 %1471, 0
   br i1 %.not1787, label %1472, label %.loopexit
 
@@ -5021,14 +5021,14 @@ string_cmp_ic.exit1977.thread:                    ; preds = %.lr.ph2219, %.lr.ph
 .split:                                           ; preds = %1749
   %1756 = load ptr, ptr %19, align 8
   %1757 = load ptr, ptr %18, align 8
-  %1758 = call fastcc i32 @backref_match_at_nested_level(ptr noundef nonnull %0, ptr noundef %1756, ptr noundef %1757, i32 noundef %.21422, i32 noundef %28, i32 noundef %1752, i32 noundef 1, ptr noundef nonnull %1750, ptr noundef nonnull %15, ptr noundef %2)
+  %1758 = call fastcc i32 @backref_match_at_nested_level(ptr noundef nonnull %0, ptr noundef %1756, ptr noundef %1757, i32 noundef %.21422, i32 noundef %28, i32 noundef %1752, i32 noundef 1, ptr noundef nonnull %1750, ptr noundef %15, ptr noundef %2)
   br label %1763
 
 .split1579:                                       ; preds = %1749
   %1759 = load ptr, ptr %1750, align 8
   %1760 = load ptr, ptr %19, align 8
   %1761 = load ptr, ptr %18, align 8
-  %1762 = call fastcc i32 @backref_match_at_nested_level(ptr noundef nonnull %0, ptr noundef %1760, ptr noundef %1761, i32 noundef %.21422, i32 noundef %28, i32 noundef %1752, i32 noundef %1754, ptr noundef %1759, ptr noundef nonnull %15, ptr noundef %2)
+  %1762 = call fastcc i32 @backref_match_at_nested_level(ptr noundef nonnull %0, ptr noundef %1760, ptr noundef %1761, i32 noundef %.21422, i32 noundef %28, i32 noundef %1752, i32 noundef %1754, ptr noundef %1759, ptr noundef %15, ptr noundef %2)
   br label %1763
 
 1763:                                             ; preds = %.split1579, %.split
@@ -5222,7 +5222,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %1840, label %1841, label %1847
 
 1841:                                             ; preds = %1830
-  %1842 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %1842 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1767 = icmp eq i32 %1842, 0
   br i1 %.not1767, label %1843, label %.loopexit
 
@@ -5632,7 +5632,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2045, label %2046, label %2052
 
 2046:                                             ; preds = %.loopexit2078
-  %2047 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2047 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1759 = icmp eq i32 %2047, 0
   br i1 %.not1759, label %2048, label %.loopexit
 
@@ -5677,7 +5677,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2073, label %2074, label %2080
 
 2074:                                             ; preds = %2063
-  %2075 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2075 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1783 = icmp eq i32 %2075, 0
   br i1 %.not1783, label %2076, label %.loopexit
 
@@ -5720,7 +5720,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2100, label %2101, label %2107
 
 2101:                                             ; preds = %2090
-  %2102 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2102 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1782 = icmp eq i32 %2102, 0
   br i1 %.not1782, label %2103, label %.loopexit
 
@@ -5857,7 +5857,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2185, label %2186, label %2192
 
 2186:                                             ; preds = %2177
-  %2187 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2187 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1780 = icmp eq i32 %2187, 0
   br i1 %.not1780, label %2188, label %.loopexit
 
@@ -5917,7 +5917,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2223, label %2224, label %2230
 
 2224:                                             ; preds = %2215
-  %2225 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2225 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1779 = icmp eq i32 %2225, 0
   br i1 %.not1779, label %2226, label %.loopexit
 
@@ -5967,7 +5967,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2253, label %2254, label %2260
 
 2254:                                             ; preds = %2241
-  %2255 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2255 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1777 = icmp eq i32 %2255, 0
   br i1 %.not1777, label %2256, label %.loopexit
 
@@ -6009,7 +6009,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2279, label %2280, label %2286
 
 2280:                                             ; preds = %2272
-  %2281 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2281 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1778 = icmp eq i32 %2281, 0
   br i1 %.not1778, label %2282, label %.loopexit
 
@@ -6059,7 +6059,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2309, label %2310, label %2316
 
 2310:                                             ; preds = %2297
-  %2311 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2311 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1775 = icmp eq i32 %2311, 0
   br i1 %.not1775, label %2312, label %.loopexit
 
@@ -6101,7 +6101,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2335, label %2336, label %2342
 
 2336:                                             ; preds = %2328
-  %2337 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2337 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1776 = icmp eq i32 %2337, 0
   br i1 %.not1776, label %2338, label %.loopexit
 
@@ -6219,7 +6219,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2392, label %2393, label %2399
 
 2393:                                             ; preds = %2384
-  %2394 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2394 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1773 = icmp eq i32 %2394, 0
   br i1 %.not1773, label %2395, label %.loopexit
 
@@ -6268,7 +6268,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2420, label %2421, label %2427
 
 2421:                                             ; preds = %2412
-  %2422 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2422 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1774 = icmp eq i32 %2422, 0
   br i1 %.not1774, label %2423, label %.loopexit
 
@@ -6360,7 +6360,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br label %.preheader2039.outer
 
 2462:                                             ; preds = %2444
-  %2463 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2463 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1768 = icmp eq i32 %2463, 0
   br i1 %.not1768, label %2464, label %.loopexit
 
@@ -6412,7 +6412,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2492, label %2493, label %2499
 
 2493:                                             ; preds = %2485
-  %2494 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2494 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1770 = icmp eq i32 %2494, 0
   br i1 %.not1770, label %2495, label %.loopexit
 
@@ -6481,7 +6481,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2535, label %2536, label %2542
 
 2536:                                             ; preds = %2524
-  %2537 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2537 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1735 = icmp eq i32 %2537, 0
   br i1 %.not1735, label %2538, label %.loopexit
 
@@ -6554,7 +6554,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br label %.outer2737.backedge
 
 2571:                                             ; preds = %2557
-  %2572 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2572 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1733 = icmp eq i32 %2572, 0
   br i1 %.not1733, label %2573, label %.loopexit
 
@@ -6658,7 +6658,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2623, label %2624, label %2630
 
 2624:                                             ; preds = %2615
-  %2625 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2625 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1750 = icmp eq i32 %2625, 0
   br i1 %.not1750, label %2626, label %.loopexit
 
@@ -6726,7 +6726,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2664, label %2665, label %2671
 
 2665:                                             ; preds = %2656
-  %2666 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2666 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1747 = icmp eq i32 %2666, 0
   br i1 %.not1747, label %2667, label %.loopexit
 
@@ -6830,7 +6830,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2718, label %2720, label %2726
 
 2720:                                             ; preds = %2719
-  %2721 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2721 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1742 = icmp eq i32 %2721, 0
   br i1 %.not1742, label %2722, label %.loopexit
 
@@ -6859,7 +6859,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2718, label %2734, label %2740
 
 2734:                                             ; preds = %2733
-  %2735 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2735 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1741 = icmp eq i32 %2735, 0
   br i1 %.not1741, label %2736, label %.loopexit
 
@@ -6913,7 +6913,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2760, label %2761, label %2767
 
 2761:                                             ; preds = %2752
-  %2762 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2762 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1739 = icmp eq i32 %2762, 0
   br i1 %.not1739, label %2763, label %.loopexit
 
@@ -6950,7 +6950,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2782, label %2783, label %2789
 
 2783:                                             ; preds = %2774
-  %2784 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2784 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1738 = icmp eq i32 %2784, 0
   br i1 %.not1738, label %2785, label %.loopexit
 
@@ -6987,7 +6987,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2804, label %2805, label %2811
 
 2805:                                             ; preds = %2796
-  %2806 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2806 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1737 = icmp eq i32 %2806, 0
   br i1 %.not1737, label %2807, label %.loopexit
 
@@ -7285,7 +7285,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2938, label %2939, label %.sink.split2592
 
 2939:                                             ; preds = %2930
-  %2940 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2940 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1934 = icmp eq i32 %2940, 0
   br i1 %.not1934, label %2941, label %.loopexit
 
@@ -7315,7 +7315,7 @@ backref_check_at_nested_level.exit:               ; preds = %.lr.ph.preheader.i.
   br i1 %2957, label %2958, label %.sink.split2592
 
 2958:                                             ; preds = %2949
-  %2959 = call fastcc i32 @stack_double(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %19, ptr noundef nonnull %5)
+  %2959 = call fastcc i32 @stack_double(ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %19, ptr noundef %5)
   %.not1933 = icmp eq i32 %2959, 0
   br i1 %.not1933, label %2960, label %.loopexit
 
@@ -7622,7 +7622,7 @@ backref_check_at_nested_level.exit.thread:        ; preds = %.lr.ph2176, %mem_is
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
+define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7669,7 +7669,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
   %35 = icmp sgt i64 %22, %34
   %36 = getelementptr inbounds i8, ptr %4, i64 %34
   %.0167 = select i1 %35, ptr %36, ptr %2
-  %37 = call fastcc i32 @forward_search(ptr noundef nonnull %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %.0167, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %37 = call fastcc i32 @forward_search(ptr noundef nonnull %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %.0167, ptr noundef %9, ptr noundef %10)
   %.not196 = icmp eq i32 %37, 0
   br i1 %.not196, label %47, label %38
 
@@ -7682,7 +7682,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
   br label %.sink.split
 
 42:                                               ; preds = %30
-  %43 = call fastcc i32 @forward_search(ptr noundef nonnull %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %43 = call fastcc i32 @forward_search(ptr noundef nonnull %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %2, ptr noundef %9, ptr noundef %10)
   %.not195 = icmp eq i32 %43, 0
   br i1 %.not195, label %47, label %44
 
@@ -7790,7 +7790,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %74, i64 24
   %88 = load ptr, ptr %87, align 8
-  %89 = call fastcc i32 @forward_search(ptr noundef %86, ptr noundef %1, ptr noundef %2, ptr noundef %.3.us, ptr noundef %88, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %89 = call fastcc i32 @forward_search(ptr noundef %86, ptr noundef %1, ptr noundef %2, ptr noundef %.3.us, ptr noundef %88, ptr noundef %9, ptr noundef %10)
   %.not187.us = icmp eq i32 %89, 0
   br i1 %.not187.us, label %94, label %90
 
@@ -7819,7 +7819,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
 
 103:                                              ; preds = %95
   %104 = getelementptr inbounds %struct.MatchArg, ptr %6, i64 %indvars.iv242
-  %105 = tail call fastcc i32 @match_at(ptr noundef nonnull %98, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %.3.us, ptr noundef %104)
+  %105 = tail call fastcc i32 @match_at(ptr noundef nonnull %98, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %.3.us, ptr noundef nonnull %104)
   %.not188.us = icmp eq i32 %105, -1
   br i1 %.not188.us, label %106, label %.split.us
 
@@ -7867,7 +7867,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds i8, ptr %107, i64 24
   %121 = load ptr, ptr %120, align 8
-  %122 = call fastcc i32 @forward_search(ptr noundef %119, ptr noundef %1, ptr noundef %2, ptr noundef %.01688, ptr noundef %121, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %122 = call fastcc i32 @forward_search(ptr noundef %119, ptr noundef %1, ptr noundef %2, ptr noundef %.01688, ptr noundef %121, ptr noundef %9, ptr noundef %10)
   %.not191 = icmp eq i32 %122, 0
   br i1 %.not191, label %127, label %123
 
@@ -7892,7 +7892,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
   %130 = getelementptr inbounds %struct.RR, ptr %129, i64 %indvars.iv247
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds %struct.MatchArg, ptr %6, i64 %indvars.iv247
-  %133 = tail call fastcc i32 @match_at(ptr noundef %131, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %.01688, ptr noundef %132)
+  %133 = tail call fastcc i32 @match_at(ptr noundef %131, ptr noundef %1, ptr noundef %2, ptr noundef %5, ptr noundef %.01688, ptr noundef nonnull %132)
   %.not192 = icmp eq i32 %133, -1
   br i1 %.not192, label %136, label %134
 
@@ -8007,7 +8007,7 @@ define internal fastcc i32 @regset_search_body_position_lead(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @regset_search_body_regex_lead(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #4 {
+define internal fastcc i32 @regset_search_body_regex_lead(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #4 {
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 0
@@ -8327,7 +8327,7 @@ define i32 @onig_match_with_param(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 64:                                               ; preds = %40
   %65 = add nsw i32 %60, 1
-  %66 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef nonnull %4, i32 noundef %65)
+  %66 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef %4, i32 noundef %65)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread, label %adjust_match_param.exit
 
@@ -8487,7 +8487,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
   %49 = getelementptr inbounds i8, ptr %0, i64 48
   %50 = load i32, ptr %49, align 8
   %51 = add nsw i32 %50, 1
-  %52 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef nonnull %6, i32 noundef %51)
+  %52 = tail call fastcc i32 @onig_region_resize_clear(ptr noundef %6, i32 noundef %51)
   %.not364 = icmp eq i32 %52, 0
   br i1 %.not364, label %53, label %adjust_match_param.exit
 
@@ -8851,7 +8851,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
 
 259:                                              ; preds = %.preheader411, %._crit_edge438
   %.1 = phi ptr [ %.3.lcssa, %._crit_edge438 ], [ %.2319, %.preheader411 ]
-  %260 = call fastcc i32 @forward_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.0307471475, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %260 = call fastcc i32 @forward_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.1, ptr noundef %.0307471475, ptr noundef %11, ptr noundef %12)
   %.not395 = icmp eq i32 %260, 0
   br i1 %.not395, label %.loopexit, label %261
 
@@ -8890,7 +8890,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread478:                                       ; preds = %.thread476, %252
   %.0307471481 = phi ptr [ %spec.select408, %252 ], [ %2, %.thread476 ]
-  %276 = call fastcc i32 @forward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2319, ptr noundef %.0307471481, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %276 = call fastcc i32 @forward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.2319, ptr noundef %.0307471481, ptr noundef %11, ptr noundef %12)
   %.not389 = icmp eq i32 %276, 0
   br i1 %.not389, label %.loopexit, label %277
 
@@ -9066,7 +9066,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
 
 376:                                              ; preds = %373, %371
   %.0304 = phi ptr [ %372, %371 ], [ %375, %373 ]
-  %377 = call fastcc i32 @backward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0304, ptr noundef %.0, ptr noundef %.0305, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %377 = call fastcc i32 @backward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0304, ptr noundef %.0, ptr noundef %.0305, ptr noundef %13, ptr noundef %14)
   %.not384.not = icmp eq i32 %377, 0
   br i1 %.not384.not, label %.loopexit, label %378
 
@@ -9109,7 +9109,7 @@ define internal fastcc i32 @search_in_range(ptr noundef %0, ptr noundef %1, ptr 
 397:                                              ; preds = %357
   %398 = load ptr, ptr %365, align 8
   %399 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %398, ptr noundef %1, ptr noundef %2) #29
-  %400 = call fastcc i32 @backward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %399, ptr noundef %.0, ptr noundef %.0305, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %400 = call fastcc i32 @backward_search(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %399, ptr noundef %.0, ptr noundef %.0305, ptr noundef %13, ptr noundef %14)
   %.not382.not = icmp eq i32 %400, 0
   br i1 %.not382.not, label %.loopexit, label %401
 
@@ -9489,7 +9489,7 @@ define range(i32 -30, 1) i32 @onig_regset_new(ptr nocapture noundef writeonly %0
   br i1 %41, label %onig_region_free.exit, label %42
 
 42:                                               ; preds = %38
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %40)
+  tail call fastcc void @history_tree_free(ptr noundef %40)
   br label %onig_region_free.exit
 
 onig_region_free.exit:                            ; preds = %38, %42
@@ -9735,7 +9735,7 @@ define range(i32 -30, 1) i32 @onig_regset_replace(ptr nocapture noundef %0, i32 
   br i1 %30, label %history_root_free.exit.i, label %31
 
 31:                                               ; preds = %27
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %29)
+  tail call fastcc void @history_tree_free(ptr noundef %29)
   br label %history_root_free.exit.i
 
 history_root_free.exit.i:                         ; preds = %31, %27
@@ -9971,7 +9971,7 @@ define void @onig_regset_free(ptr nocapture noundef %0) local_unnamed_addr #4 {
   br i1 %25, label %onig_region_free.exit, label %26
 
 26:                                               ; preds = %22
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %24)
+  tail call fastcc void @history_tree_free(ptr noundef %24)
   br label %onig_region_free.exit
 
 onig_region_free.exit:                            ; preds = %22, %26
@@ -11282,7 +11282,7 @@ onig_get_arg_by_callout_args.exit.thread:         ; preds = %11, %2, %21, %19, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @history_tree_free(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @history_tree_free(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -11312,7 +11312,7 @@ define internal fastcc void @history_tree_free(ptr nocapture noundef %0) unnamed
   br i1 %.not.i, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %14)
+  tail call fastcc void @history_tree_free(ptr noundef %14)
   %.pre = load i32, ptr %2, align 8
   br label %16
 
@@ -11356,7 +11356,7 @@ history_tree_clear.exit:                          ; preds = %20, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @history_tree_clear(ptr nocapture noundef %0) unnamed_addr #4 {
+define internal fastcc void @history_tree_clear(ptr nocapture noundef nonnull %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -11386,7 +11386,7 @@ define internal fastcc void @history_tree_clear(ptr nocapture noundef %0) unname
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %14)
+  tail call fastcc void @history_tree_free(ptr noundef %14)
   %.pre = load i32, ptr %2, align 8
   br label %16
 
@@ -11443,7 +11443,7 @@ define internal fastcc noalias noundef ptr @history_node_new() unnamed_addr #22 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 2) i32 @make_capture_history_tree(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
+define internal fastcc range(i32 -5, 2) i32 @make_capture_history_tree(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #4 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp ult ptr %6, %2
   br i1 %7, label %.lr.ph, label %history_tree_add_child.exit
@@ -11568,7 +11568,7 @@ define internal fastcc range(i32 -5, 2) i32 @make_capture_history_tree(ptr nocap
   store i32 %62, ptr %10, align 8
   %63 = getelementptr inbounds i8, ptr %.054, i64 32
   store ptr %63, ptr %1, align 8
-  %64 = tail call fastcc i32 @make_capture_history_tree(ptr noundef nonnull %24, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
+  %64 = tail call fastcc i32 @make_capture_history_tree(ptr noundef nonnull %24, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   %.not50 = icmp eq i32 %64, 0
   br i1 %.not50, label %65, label %history_tree_add_child.exit
 
@@ -11614,7 +11614,7 @@ history_tree_add_child.exit:                      ; preds = %56, %84, %48, %23, 
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #5 {
+define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #5 {
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %2, align 8
   %9 = load ptr, ptr %3, align 8
@@ -11782,7 +11782,7 @@ declare i32 @onigenc_egcb_is_break_position(ptr noundef, ptr noundef, ptr nounde
 declare i32 @onigenc_wb_is_break_position(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #4 {
   %6 = alloca ptr, align 8
   %7 = alloca [18 x i8], align 16
   %8 = alloca [18 x i8], align 16
@@ -11857,7 +11857,7 @@ define internal fastcc range(i32 0, 2) i32 @string_cmp_ic(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @backref_match_at_nested_level(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef %8, ptr noundef %9) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @backref_match_at_nested_level(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef nonnull %8, ptr noundef %9) unnamed_addr #4 {
   %11 = alloca ptr, align 8
   %.067 = getelementptr inbounds i8, ptr %1, i64 -32
   %.not68 = icmp ult ptr %.067, %2
@@ -11969,7 +11969,7 @@ mem_is_in_memp.exit.thread.us.us:                 ; preds = %26, %34, %mem_is_in
   %47 = getelementptr inbounds i8, ptr %0, i64 96
   %48 = load ptr, ptr %47, align 8
   %49 = trunc i64 %39 to i32
-  %50 = call fastcc i32 @string_cmp_ic(ptr noundef %48, i32 noundef %4, ptr noundef %36, ptr noundef nonnull %11, i32 noundef %49)
+  %50 = call fastcc i32 @string_cmp_ic(ptr noundef %48, i32 noundef %4, ptr noundef %36, ptr noundef %11, i32 noundef %49)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.loopexit64, label %._crit_edge
 
@@ -12004,7 +12004,7 @@ mem_is_in_memp.exit.thread.us.us:                 ; preds = %26, %34, %mem_is_in
 declare ptr @onig_get_callout_start_func(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @forward_search(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @forward_search(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #4 {
   %8 = getelementptr inbounds i8, ptr %0, i64 436
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
@@ -12391,7 +12391,7 @@ slow_search.exit.thread:                          ; preds = %142, %103, %75, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @backward_search(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @backward_search(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #4 {
   %9 = getelementptr inbounds i8, ptr %0, i64 136
   %10 = getelementptr inbounds i8, ptr %0, i64 96
   %11 = getelementptr inbounds i8, ptr %0, i64 176

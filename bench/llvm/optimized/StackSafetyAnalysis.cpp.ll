@@ -2141,7 +2141,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit72:    ; preds = %250, %252, %253
 
 _ZN4llvm11raw_ostreamlsEPKc.exit75:               ; preds = %260, %262
   %.0.i.i74 = phi ptr [ %261, %260 ], [ %.0.i71, %262 ]
-  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %spec.select.i.i)
+  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(80) %spec.select.i.i)
   call void @_ZNK4llvm5APInt5printERNS_11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(12) %209, ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i74, i1 noundef zeroext true) #25
   %266 = getelementptr inbounds nuw i8, ptr %.0.i.i74, i64 24
   %267 = load ptr, ptr %266, align 8
@@ -2351,7 +2351,7 @@ _ZNKSt8functionIFRKN4llvm15StackSafetyInfoERNS0_8FunctionEEEclES5_.exit: ; preds
   br i1 %.not.i.i.i, label %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i, label %55
 
 55:                                               ; preds = %_ZNKSt8functionIFRKN4llvm15StackSafetyInfoERNS0_8FunctionEEEclES5_.exit
-  %56 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i, ptr noundef nonnull %32)
+  %56 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i, ptr noundef %32)
   br label %57
 
 57:                                               ; preds = %57, %55
@@ -2392,7 +2392,7 @@ _ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4le
   br i1 %.not.i.i5.i, label %_ZN12_GLOBAL__N_112FunctionInfoIN4llvm11GlobalValueEEC2ERKS3_.exit, label %66
 
 66:                                               ; preds = %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i
-  %67 = call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i, ptr noundef nonnull %37)
+  %67 = call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i, ptr noundef %37)
   br label %68
 
 68:                                               ; preds = %68, %66
@@ -2679,7 +2679,7 @@ _ZNSt3mapIPKN4llvm11GlobalValueEN12_GLOBAL__N_112FunctionInfoIS1_EESt4lessIS3_ES
   br i1 %.not.i.i.i33, label %._crit_edge151.i, label %177
 
 177:                                              ; preds = %170
-  %178 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i32, ptr noundef nonnull %171)
+  %178 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i32, ptr noundef %171)
   br label %179
 
 179:                                              ; preds = %179, %177
@@ -3222,7 +3222,7 @@ _ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE3runEv.exit.
   br i1 %.not.i.i.i73.i, label %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i.i, label %410
 
 410:                                              ; preds = %407
-  %411 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i, ptr noundef nonnull %383)
+  %411 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i, ptr noundef %383)
   br label %412
 
 412:                                              ; preds = %412, %410
@@ -3263,7 +3263,7 @@ _ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4le
   br i1 %.not.i.i5.i.i, label %_ZN12_GLOBAL__N_112FunctionInfoIN4llvm11GlobalValueEEC2ERKS3_.exit.i, label %421
 
 421:                                              ; preds = %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i.i
-  %422 = call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i.i, ptr noundef nonnull %388)
+  %422 = call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i.i, ptr noundef %388)
   br label %423
 
 423:                                              ; preds = %423, %421
@@ -3332,7 +3332,7 @@ _ZN12_GLOBAL__N_112FunctionInfoIN4llvm11GlobalValueEEC2ERKS3_.exit.i: ; preds = 
   %449 = load i64, ptr %448, align 8
   %450 = trunc i64 %449 to i32
   %451 = getelementptr inbounds nuw i8, ptr %.sroa.0124.0153.i, i64 48
-  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %447, i32 noundef %450, ptr noundef nonnull align 8 dereferenceable(32) %451)
+  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef %447, i32 noundef %450, ptr noundef nonnull align 8 dereferenceable(32) %451)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !33
   call void @llvm.experimental.noalias.scope.decl(metadata !40)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !33
@@ -3561,7 +3561,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13
   br i1 %.not5.i.i.i, label %541, label %531
 
 531:                                              ; preds = %_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i.i
-  %532 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i79.i, ptr noundef nonnull %441, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  %532 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i79.i, ptr noundef %441, ptr noundef nonnull align 8 dereferenceable(24) %4)
   br label %533
 
 533:                                              ; preds = %533, %531
@@ -3689,7 +3689,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13
   br i1 %.not5.i.i100.i, label %579, label %569
 
 569:                                              ; preds = %_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE20_Reuse_or_alloc_nodeC2ERSD_.exit.i.i98.i
-  %570 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i99.i, ptr noundef nonnull %565, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %570 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i99.i, ptr noundef %565, ptr noundef nonnull align 8 dereferenceable(24) %3)
   br label %571
 
 571:                                              ; preds = %571, %569
@@ -3997,7 +3997,7 @@ _ZNSt10unique_ptrIN4llvm21StackSafetyGlobalInfo6InfoTyESt14default_deleteIS2_EE5
   %.sroa.063.091 = phi ptr [ %766, %_ZN4llvm13ConstantRangeD2Ev.exit ], [ %.val25, %684 ]
   %687 = getelementptr inbounds nuw i8, ptr %.sroa.063.091, i64 32
   %688 = load ptr, ptr %687, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(80) %688)
+  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(80) %688)
   %689 = getelementptr inbounds nuw i8, ptr %.sroa.063.091, i64 40
   %690 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %689) #25
   br i1 %690, label %691, label %_ZN4llvm15SmallPtrSetImplIPKNS_10AllocaInstEE6insertES3_.exit
@@ -4208,7 +4208,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
@@ -10121,7 +10121,7 @@ _ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEE8addRangeEPKNS1_11InstructionERKN
   %142 = lshr i64 %140, 3
   %143 = load ptr, ptr %.sroa.0286.0324, align 8
   %144 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %143, ptr noundef %144, i64 %142, i8 %141)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %143, ptr noundef %144, i64 %142, i8 %141)
   %145 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %145, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit.thread, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit
 
@@ -10796,7 +10796,7 @@ _ZN4llvm5APIntD2Ev.exit21.i:                      ; preds = %426, %423, %_ZN4llv
 
 _ZN4llvm5APIntD2Ev.exit22.i:                      ; preds = %432, %429, %_ZN4llvm5APIntD2Ev.exit21.i
   %433 = load ptr, ptr %.sroa.0286.0324, align 8, !noalias !97
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_RKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %433, ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_RKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %433, ptr noundef %266, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %434 = load i32, ptr %73, align 8, !noalias !97
   %435 = icmp ugt i32 %434, 64
   br i1 %435, label %436, label %_ZN4llvm5APIntD2Ev.exit.i23.i
@@ -11215,7 +11215,7 @@ _ZNK4llvm8CallBase17getParamByValTypeEj.exit:     ; preds = %604, %608, %611, %_
   %624 = lshr i64 %622, 3
   %625 = load ptr, ptr %.sroa.0286.0324, align 8
   %626 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %625, ptr noundef %626, i64 %624, i8 %623)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %625, ptr noundef %626, i64 %624, i8 %623)
   %627 = trunc i8 %.fca.1.extract.i.i200 to i1
   br i1 %627, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit204.thread, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit204
 
@@ -11395,7 +11395,7 @@ _ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEE8addRangeEPKNS1_11InstructionERKN
 697:                                              ; preds = %670
   %698 = load ptr, ptr %.sroa.0286.0324, align 8
   %699 = load ptr, ptr %12, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %698, ptr noundef %699)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %698, ptr noundef %699)
   %700 = and i64 %601, 4294967295
   %.val.i.i.i = load ptr, ptr %77, align 8
   %.not3.i.i.i.i = icmp eq ptr %.val.i.i.i, null
@@ -12018,7 +12018,7 @@ declare noundef zeroext i1 @_ZNK4llvm13StackLifetime11isReachableEPKNS_11Instruc
 declare noundef zeroext i1 @_ZNK4llvm13StackLifetime12isAliveAfterEPKNS_10AllocaInstEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(1329), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, i64 %4, i8 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, i64 %4, i8 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::ConstantRange", align 8
   %9 = alloca %"class.llvm::APInt", align 8
@@ -12443,7 +12443,7 @@ _ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEE8addRangeEPKNS1_11InstructionERKN
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %94, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %92, ptr noundef %95, i64 %89, i8 %88)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_NS1_8TypeSizeE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %92, ptr noundef %95, i64 %89, i8 %88)
   %96 = trunc i8 %.fca.1.extract.i.i to i1
   br i1 %96, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit.thread, label %_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis12isSafeAccessERKN4llvm3UseEPNS1_10AllocaInstENS1_8TypeSizeE.exit
 
@@ -12578,7 +12578,7 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %156, %153, %_ZN4llv
 declare noundef zeroext i1 @_ZNK4llvm11Instruction20isLifetimeStartOrEndEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ConstantRange", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -12864,7 +12864,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i19:                  ; preds = %138, %136
 148:                                              ; preds = %_ZN12_GLOBAL__N_18isUnsafeERKN4llvm13ConstantRangeE.exit
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %150 = load i32, ptr %149, align 8
-  call void @_ZNK4llvm13ConstantRange11sextOrTruncEj(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %150) #25
+  call void @_ZNK4llvm13ConstantRange11sextOrTruncEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %150) #25
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit20
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit20:           ; preds = %147, %145, %148
@@ -12904,7 +12904,7 @@ declare void @_ZNK4llvm13ConstantRange9unionWithERKS0_NS0_18PreferredRangeTypeE(
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEE11updateRangeERKNS1_13ConstantRangeE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
-  call fastcc void @_ZN12_GLOBAL__N_111unionNoWrapERKN4llvm13ConstantRangeES3_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_111unionNoWrapERKN4llvm13ConstantRangeES3_(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 65
@@ -12973,9 +12973,9 @@ _ZN4llvm13ConstantRangeD2Ev.exit:                 ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111unionNoWrapERKN4llvm13ConstantRangeES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111unionNoWrapERKN4llvm13ConstantRangeES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::ConstantRange", align 8
-  tail call void @_ZNK4llvm13ConstantRange9unionWithERKS0_NS0_18PreferredRangeTypeE(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #25
+  tail call void @_ZNK4llvm13ConstantRange9unionWithERKS0_NS0_18PreferredRangeTypeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 0) #25
   %5 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange16isSignWrappedSetEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   br i1 %5, label %6, label %_ZN4llvm13ConstantRangeD2Ev.exit
 
@@ -13179,7 +13179,7 @@ declare noundef ptr @_ZNK4llvm13TargetExtType13getLayoutTypeEv(ptr noundef nonnu
 declare i8 @_ZNK4llvm10DataLayout15getABITypeAlignEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_RKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAccessRangeEPN4llvm5ValueES3_RKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ConstantRange", align 8
   %7 = alloca %"class.llvm::ConstantRange", align 8
   %8 = tail call noundef zeroext i1 @_ZNK4llvm13ConstantRange10isEmptySetEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #25
@@ -13192,7 +13192,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis14getAcc
   br label %_ZN4llvm13ConstantRangeD2Ev.exit9
 
 12:                                               ; preds = %5
-  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3)
+  call fastcc void @_ZN12_GLOBAL__N_124StackSafetyLocalAnalysis10offsetFromEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2, ptr noundef %3)
   %13 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange10isEmptySetEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br i1 %13, label %_ZN12_GLOBAL__N_18isUnsafeERKN4llvm13ConstantRangeE.exit.thread, label %14
 
@@ -13531,7 +13531,7 @@ _ZN12_GLOBAL__N_124StackSafetyLocalAnalysis16getSCEVAsPointerEPN4llvm5ValueE.exi
   br i1 %56, label %_ZN4llvm13ConstantRangeD2Ev.exit, label %57
 
 57:                                               ; preds = %52
-  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %2)
+  call fastcc void @_ZN12_GLOBAL__N_124getStaticAllocaSizeRangeERKN4llvm10AllocaInstE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %2)
   %58 = load ptr, ptr %53, align 8
   %59 = load ptr, ptr %58, align 8
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %59) #25
@@ -14124,7 +14124,7 @@ _ZN4llvm9BitVectorD2Ev.exit3:                     ; preds = %_ZN4llvm9BitVectorD
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -14145,7 +14145,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstE
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %2
-  %15 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %13, ptr noundef nonnull %4)
+  %15 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %13, ptr noundef %4)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %16, align 8
   br label %17
@@ -14181,7 +14181,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstE
   br i1 %.not29, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %29, ptr noundef nonnull %19)
+  %31 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %29, ptr noundef %19)
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %31, ptr %32, align 8
   br label %33
@@ -14301,7 +14301,7 @@ _ZNSt3setIPKN4llvm11InstructionESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %_Z
   br i1 %.not.i.i4, label %_ZNSt3mapIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEENS2_13ConstantRangeENS4_4LessESaISt4pairIKS4_S5_EEEC2ERKSB_.exit, label %44
 
 44:                                               ; preds = %_ZNSt3setIPKN4llvm11InstructionESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
-  %45 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i, ptr noundef nonnull %38)
+  %45 = call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i, ptr noundef %38)
   br label %46
 
 46:                                               ; preds = %46, %44
@@ -14402,7 +14402,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11InstructionES3_St9_Ide
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -14457,7 +14457,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13
   br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE13_M_clone_nodeILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_RT0_.exit
-  %30 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %28, ptr noundef nonnull %4)
+  %30 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %28, ptr noundef %4)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %30, ptr %31, align 8
   br label %32
@@ -14527,7 +14527,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13
   br i1 %.not29, label %63, label %60
 
 60:                                               ; preds = %_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE13_M_clone_nodeILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_RT0_.exit33
-  %61 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %59, ptr noundef nonnull %34)
+  %61 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %59, ptr noundef %34)
   %62 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr %61, ptr %62, align 8
   br label %63
@@ -14543,7 +14543,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -14564,7 +14564,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %2
-  %15 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %13, ptr noundef nonnull %4)
+  %15 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %13, ptr noundef %4)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %15, ptr %16, align 8
   br label %17
@@ -14600,7 +14600,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL
   br i1 %.not29, label %33, label %30
 
 30:                                               ; preds = %.lr.ph
-  %31 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %29, ptr noundef nonnull %19)
+  %31 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %29, ptr noundef %19)
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %31, ptr %32, align 8
   br label %33
@@ -15316,7 +15316,7 @@ _ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef readnone %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef readnone %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %.val.i.i = load ptr, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -15544,7 +15544,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i31:                  ; preds = %89, %87
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 104:                                              ; preds = %99
-  tail call void @_ZNK4llvm13ConstantRange3addERKS0_(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
+  tail call void @_ZNK4llvm13ConstantRange3addERKS0_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %4) #25
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit:             ; preds = %104, %101, %98, %96, %78, %76, %58, %56, %31, %29
@@ -15552,7 +15552,7 @@ _ZN4llvm13ConstantRangeC2ERKS0_.exit:             ; preds = %104, %101, %98, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE13_M_clone_nodeILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_RT0_(ptr noundef %0)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
@@ -15562,7 +15562,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValue
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %6, ptr noundef nonnull %3)
+  %8 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %6, ptr noundef %3)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
   br label %10
@@ -15587,7 +15587,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValue
   br i1 %.not29, label %19, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %15, ptr noundef nonnull %11)
+  %17 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE7_M_copyILb0ENSF_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS9_ESK_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %15, ptr noundef %11)
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %17, ptr %18, align 8
   br label %19
@@ -15625,7 +15625,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN4llvm11GlobalValue
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i.i.i.i.i.i.i, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i.i, ptr noundef nonnull %6)
+  %13 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN4llvm10AllocaInstESt4pairIKS3_N12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE7_M_copyILb0ENSG_11_Alloc_nodeEEEPSt13_Rb_tree_nodeISA_ESL_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i.i.i.i.i.i.i, ptr noundef %6)
   br label %14
 
 14:                                               ; preds = %14, %12
@@ -15671,7 +15671,7 @@ _ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4le
   br i1 %.not.i.i5.i.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS1_EEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE11_Alloc_nodeclIRKS9_EEPSt13_Rb_tree_nodeIS9_EOT_.exit, label %28
 
 28:                                               ; preds = %_ZNSt3mapIPKN4llvm10AllocaInstEN12_GLOBAL__N_17UseInfoINS0_11GlobalValueEEESt4lessIS3_ESaISt4pairIKS3_S7_EEEC2ERKSE_.exit.i.i.i.i.i.i.i
-  %29 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i.i.i.i.i.i.i, ptr noundef nonnull %22)
+  %29 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIjSt4pairIKjN12_GLOBAL__N_17UseInfoIN4llvm11GlobalValueEEEESt10_Select1stIS7_ESt4lessIjESaIS7_EE7_M_copyILb0ENSD_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS7_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i4.i.i.i.i.i.i.i, ptr noundef %22)
   br label %30
 
 30:                                               ; preds = %30, %28
@@ -16361,7 +16361,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4ll
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.014.016.us.i.us, i64 48
-  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %34, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %34, i32 noundef %37, ptr noundef nonnull align 8 dereferenceable(32) %38)
   %39 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br i1 %39, label %_ZN4llvm13ConstantRangeaSERKS0_.exit.us.i.us, label %40
 
@@ -16471,7 +16471,7 @@ _ZN12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE12updateOneU
   %81 = load i64, ptr %80, align 8
   %82 = trunc i64 %81 to i32
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.014.016.i, i64 48
-  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %79, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(32) %83)
+  call fastcc void @_ZNK12_GLOBAL__N_127StackSafetyDataFlowAnalysisIN4llvm11GlobalValueEE22getArgumentAccessRangeEPKS2_jRKNS1_13ConstantRangeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %79, i32 noundef %82, ptr noundef nonnull align 8 dereferenceable(32) %83)
   %84 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange8containsERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   br i1 %84, label %_ZN4llvm13ConstantRangeaSERKS0_.exit.i, label %85
 
@@ -17318,7 +17318,7 @@ _ZNSt8_Rb_treeIPKN4llvm11GlobalValueESt4pairIKS3_N12_GLOBAL__N_112FunctionInfoIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   %4 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE13_M_clone_nodeILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_RT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
@@ -17328,7 +17328,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallI
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %9 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %7, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %9, ptr %10, align 8
   br label %11
@@ -17353,7 +17353,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallI
   br i1 %.not29, label %20, label %17
 
 17:                                               ; preds = %.lr.ph
-  %18 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %16, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %18 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIN12_GLOBAL__N_18CallInfoIN4llvm11GlobalValueEEESt4pairIKS4_NS2_13ConstantRangeEESt10_Select1stIS8_ENS4_4LessESaIS8_EE7_M_copyILb0ENSD_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS8_ESI_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %16, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %18, ptr %19, align 8
   br label %20
@@ -19331,7 +19331,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %29, ptr %20, align 8
   store i32 %32, ptr %23, align 8
   store i64 %33, ptr %22, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %17, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %17, ptr noundef %5)
   %34 = load i32, ptr %23, align 8
   %35 = icmp ugt i32 %34, 64
   br i1 %35, label %36, label %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i
@@ -19425,7 +19425,7 @@ _ZN4llvm15FunctionSummary11ParamAccess4CallaSEOS2_.exit.i: ; preds = %71, %68, %
   store i64 %59, ptr %51, align 8
   store i32 %62, ptr %54, align 8
   store i64 %63, ptr %53, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %76, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %76, ptr noundef %4)
   %77 = load i32, ptr %54, align 8
   %78 = icmp ugt i32 %77, 64
   br i1 %78, label %79, label %_ZN4llvm5APIntD2Ev.exit.i.i.i
@@ -19746,7 +19746,7 @@ _ZSt4swapIN4llvm15FunctionSummary11ParamAccess4CallEENSt9enable_ifIXsr6__and_ISt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm15FunctionSummary11ParamAccess4CallESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS2_15StackSafetyInfo16getParamAccessesERNS2_18ModuleSummaryIndexEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

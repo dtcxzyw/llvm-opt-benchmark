@@ -5503,7 +5503,7 @@ declare dso_local ptr @trace_seq_acquire(ptr noundef, i32 noundef) local_unnamed
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef nonnull ptr @xhci_trb_type_string(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
+define internal fastcc noundef nonnull ptr @xhci_trb_type_string(i8 noundef zeroext range(i8 0, 64) %0) unnamed_addr #7 align 16 {
   switch i8 %0, label %34 [
     i8 1, label %35
     i8 2, label %2

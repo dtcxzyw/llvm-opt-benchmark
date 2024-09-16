@@ -541,7 +541,7 @@ if.then21:                                        ; preds = %for.end18
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then21, %for.end18
-  %call = call fastcc i32 @aegis128l_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef nonnull %state)
+  %call = call fastcc i32 @aegis128l_mac(ptr noundef %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef %state)
   ret i32 %call
 }
 
@@ -1089,8 +1089,8 @@ if.then36:                                        ; preds = %if.end31.thread546,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i)
   %186 = sub nuw nsw i64 32, %rem32541553
   %187 = getelementptr i8, ptr %pad.i, i64 %rem32541553
-  call void @llvm.memset.p0.i64(ptr align 1 %187, i8 0, i64 %186, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32541553, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 %rem32541553, i1 false)
   %in.val.i.i93 = load i64, ptr %pad.i, align 16
   %add.ptr3.i.i94 = getelementptr inbounds i8, ptr %pad.i, i64 8
   %add.ptr3.val.i.i95 = load i64, ptr %add.ptr3.i.i94, align 8
@@ -1138,10 +1138,8 @@ if.then36:                                        ; preds = %if.end31.thread546,
   store i32 %in.sroa.3.8.extract.trunc.i65.i, ptr %add.ptr3.i29.i, align 8
   %add.ptr3.i70.i = getelementptr inbounds i8, ptr %pad.i, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i, ptr %add.ptr3.i70.i, align 4
-  %add.ptr32.i = getelementptr i8, ptr %pad.i, i64 %rem32541553
-  %sub.i = sub nuw nsw i64 32, %rem32541553
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.i, i8 0, i64 %sub.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32541553, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 %rem32541553, i1 false)
   %in.val.i71.i = load i64, ptr %pad.i, align 16
   %add.ptr3.val.i73.i = load i64, ptr %add.ptr3.i.i94, align 8
   %in.val.i76.i = load i64, ptr %add.ptr.i96, align 16
@@ -1216,8 +1214,8 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i112)
   %228 = sub nuw nsw i64 32, %rem32541544
   %229 = getelementptr i8, ptr %pad.i112, i64 %rem32541544
-  call void @llvm.memset.p0.i64(ptr align 1 %229, i8 0, i64 %228, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i112, ptr readonly align 1 %add.ptr43, i64 %rem32541544, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i112, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 %rem32541544, i1 false)
   %in.val.i.i113 = load i64, ptr %pad.i112, align 16
   %add.ptr3.i.i114 = getelementptr inbounds i8, ptr %pad.i112, i64 8
   %add.ptr3.val.i.i115 = load i64, ptr %add.ptr3.i.i114, align 8
@@ -1265,9 +1263,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   store i32 %in.sroa.3.8.extract.trunc.i65.i147, ptr %add.ptr3.i29.i118, align 8
   %add.ptr3.i70.i151 = getelementptr inbounds i8, ptr %pad.i112, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i149, ptr %add.ptr3.i70.i151, align 4
-  %add.ptr32.i152 = getelementptr i8, ptr %pad.i112, i64 %rem32541544
-  %sub.i153 = sub nuw nsw i64 32, %rem32541544
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr32.i152, i8 0, i64 %sub.i153, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
   %in.val.i71.i154 = load i64, ptr %pad.i112, align 16
   %add.ptr3.val.i73.i155 = load i64, ptr %add.ptr3.i.i114, align 8
   %in.val.i76.i156 = load i64, ptr %add.ptr.i116, align 16
@@ -1320,7 +1316,7 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end31.thread546, %if.end31.thread, %if.then36, %if.else41, %if.end31
-  %call = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef nonnull %state)
+  %call = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %computed_mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %clen, ptr noundef %state)
   %cmp50 = icmp eq i32 %call, 0
   br i1 %cmp50, label %if.then51, label %if.end63
 
@@ -1359,7 +1355,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc range(i32 -1, 1) i32 @aegis128l_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @aegis128l_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
 entry:
   %shl = shl i64 %mlen, 3
   %shl2 = shl i64 %adlen, 3
@@ -1518,7 +1514,7 @@ return:                                           ; preds = %if.then, %if.then25
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis128l_update(ptr nocapture noundef %state, i64 %d1.coerce0, i64 %d1.coerce1, i64 %d2.coerce0, i64 %d2.coerce1) unnamed_addr #0 {
+define internal fastcc void @aegis128l_update(ptr nocapture noundef nonnull %state, i64 %d1.coerce0, i64 %d1.coerce1, i64 %d2.coerce0, i64 %d2.coerce1) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 112
   %tmp.sroa.0.0.copyload = load i64, ptr %arrayidx, align 4

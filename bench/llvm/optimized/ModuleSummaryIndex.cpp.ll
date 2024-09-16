@@ -4625,7 +4625,7 @@ _ZNK4llvm9ValueInfo4nameEv.exit.i373.thread:      ; preds = %591
 
 597:                                              ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i373.thread, %_ZNK4llvm9ValueInfo4nameEv.exit.i373
   %598 = load i64, ptr %584, align 8, !noalias !57
-  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias nonnull writable align 8 %83, i64 noundef %598)
+  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias writable align 8 %83, i64 noundef %598)
   br label %_ZL12getNodeLabelB5cxx11RKN4llvm9ValueInfoEPNS_18GlobalValueSummaryE.exit
 
 599:                                              ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i373.thread
@@ -4956,7 +4956,7 @@ _ZNK4llvm9ValueInfo4nameEv.exit.i.thread:         ; preds = %_ZL20getSummaryAttr
 
 732:                                              ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i.thread, %_ZNK4llvm9ValueInfo4nameEv.exit.i
   %733 = load i64, ptr %584, align 8, !noalias !83
-  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias nonnull writable align 8 %38, i64 noundef %733), !noalias !54
+  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias writable align 8 %38, i64 noundef %733), !noalias !54
   br label %_ZL17getNodeVisualNameB5cxx11RKN4llvm9ValueInfoE.exit
 
 734:                                              ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i.thread
@@ -5276,7 +5276,7 @@ _ZL12getNodeLabelB5cxx11RKN4llvm9ValueInfoEPNS_18GlobalValueSummaryE.exit: ; pre
 _ZN4llvm11raw_ostreamlsEPKc.exit226:              ; preds = %827, %829
   %.0.i.i225 = phi ptr [ %828, %827 ], [ %1, %829 ]
   %832 = load i64, ptr %385, align 8
-  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias nonnull writable align 8 %91, i64 noundef %245, i64 noundef %832)
+  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias writable align 8 %91, i64 noundef %245, i64 noundef %832)
   %833 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %91) #23
   %834 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %91) #23
   %835 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i225, ptr noundef %833, i64 noundef %834) #23
@@ -6100,7 +6100,7 @@ _ZNK4llvm9ValueInfo4nameEv.exit.i391.thread:      ; preds = %1147
 
 1155:                                             ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i391.thread, %_ZNK4llvm9ValueInfo4nameEv.exit.i391
   %1156 = load i64, ptr %1149, align 8, !noalias !109
-  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %1156)
+  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias writable align 8 %10, i64 noundef %1156)
   br label %_ZL17getNodeVisualNameB5cxx11RKN4llvm9ValueInfoE.exit405
 
 1157:                                             ; preds = %_ZNK4llvm9ValueInfo4nameEv.exit.i391.thread
@@ -6137,7 +6137,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit.i400:       ; preds = %1164, %1163
   br label %_ZL17getNodeVisualNameB5cxx11RKN4llvm9ValueInfoE.exit405
 
 1165:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9.i
-  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %1103)
+  call fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias writable align 8 %11, i64 noundef %1103)
   br label %_ZL17getNodeVisualNameB5cxx11RKN4llvm9ValueInfoE.exit405
 
 _ZL17getNodeVisualNameB5cxx11RKN4llvm9ValueInfoE.exit405: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit.i400, %1155, %1165
@@ -6793,7 +6793,7 @@ _ZN12_GLOBAL__N_110Attributes10addCommentERKN4llvm5TwineE.exit: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6804,7 +6804,7 @@ define internal fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11
   br i1 %.not, label %.thread, label %10
 
 .thread:                                          ; preds = %3
-  tail call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %2)
+  tail call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %2)
   br label %.critedge18
 
 10:                                               ; preds = %3
@@ -6911,7 +6911,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %6
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %6, %19, %21, %22
   %.0.i.i = phi ptr [ %20, %19 ], [ %.0.val, %22 ], [ %.0.val, %21 ], [ %.0.val, %6 ]
-  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef %1, i64 noundef %2)
+  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias writable align 8 %7, i64 noundef %1, i64 noundef %2)
   %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %25, i64 noundef %26) #23
@@ -6938,7 +6938,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %6, %19, %21, %22
 
 _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %36, %38
   %.0.i.i9 = phi ptr [ %37, %36 ], [ %27, %38 ]
-  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %3, i64 noundef %4)
+  call fastcc void @"_ZZNK4llvm18ModuleSummaryIndex11exportToDotERNS_11raw_ostreamERKNS_8DenseSetImNS_12DenseMapInfoImvEEEEENK3$_0clB5cxx11Emm"(ptr dead_on_unwind noalias writable align 8 %8, i64 noundef %3, i64 noundef %4)
   %41 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %42 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #23
   %43 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i9, ptr noundef %41, i64 noundef %42) #23
@@ -7949,7 +7949,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17getNodeVisualNameB5cxx11m(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.118", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

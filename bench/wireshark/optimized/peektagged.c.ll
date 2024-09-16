@@ -182,7 +182,7 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   br label %88
 
 52:                                               ; preds = %48
-  %53 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
+  %53 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %1, ptr noundef %2)
   switch i32 %53, label %56 [
     i32 -1, label %88
     i32 0, label %54
@@ -208,7 +208,7 @@ wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till
   br label %88
 
 60:                                               ; preds = %56
-  %61 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2)
+  %61 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %1, ptr noundef %2)
   switch i32 %61, label %64 [
     i32 -1, label %88
     i32 0, label %62
@@ -334,7 +334,7 @@ define internal fastcc range(i32 -1, 2) i32 @wtap_file_read_pattern(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @wtap_file_read_number(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @wtap_file_read_number(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [12 x i8], align 1
   %6 = alloca ptr, align 8
   br label %7

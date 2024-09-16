@@ -326,7 +326,7 @@ define i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %32, %3
-  %accumulator.tr = phi i32 [ 0, %3 ], [ %36, %32 ]
+  %accumulator.tr = phi i32 [ 0, %3 ], [ %34, %32 ]
   %.tr54 = phi ptr [ %1, %3 ], [ %10, %32 ]
   %.tr55 = phi ptr [ %2, %3 ], [ %33, %32 ]
   %4 = load i8, ptr %.tr54, align 1
@@ -353,21 +353,21 @@ tailrecurse:                                      ; preds = %32, %3
 12:                                               ; preds = %._crit_edge
   %13 = add i8 %.lcssa, -97
   %or.cond = icmp ult i8 %13, 6
-  br i1 %or.cond, label %14, label %72
+  br i1 %or.cond, label %14, label %68
 
 14:                                               ; preds = %12
   %narrow = shl nuw i8 %.lcssa, 1
   %15 = add nsw i8 %narrow, 64
   %16 = zext nneg i8 %15 to i32
-  %17 = add nuw nsw i32 %.0.lcssa, %16
-  br label %72
+  %17 = or disjoint i32 %.0.lcssa, %16
+  br label %68
 
 18:                                               ; preds = %._crit_edge
   %19 = icmp eq i8 %.lcssa, 40
   br i1 %19, label %.preheader, label %.preheader103
 
 .preheader103:                                    ; preds = %Dau_ParseFormulaEndToken.exit, %18
-  br label %37
+  br label %35
 
 .preheader:                                       ; preds = %18, %29
   %20 = phi i8 [ %.pre, %29 ], [ 40, %18 ]
@@ -410,106 +410,102 @@ Dau_ParseFormulaEndToken.exit:                    ; preds = %.preheader, %27
 
 32:                                               ; preds = %Dau_ParseFormulaEndToken.exit
   %33 = getelementptr inbounds i8, ptr %.tr55, i64 -1
-  %34 = icmp sgt i32 %.0.lcssa, 0
-  %35 = zext i1 %34 to i32
-  %36 = xor i32 %accumulator.tr, %35
+  %34 = xor i32 %.0.lcssa, %accumulator.tr
   br label %tailrecurse
 
-37:                                               ; preds = %.preheader103, %47
-  %38 = phi i8 [ %.pre79, %47 ], [ %.lcssa, %.preheader103 ]
-  %.010.i42 = phi i32 [ %.1.i45, %47 ], [ 0, %.preheader103 ]
-  %.0.i43 = phi ptr [ %48, %47 ], [ %.037.lcssa, %.preheader103 ]
-  switch i8 %38, label %43 [
+35:                                               ; preds = %.preheader103, %45
+  %36 = phi i8 [ %.pre79, %45 ], [ %.lcssa, %.preheader103 ]
+  %.010.i42 = phi i32 [ %.1.i45, %45 ], [ 0, %.preheader103 ]
+  %.0.i43 = phi ptr [ %46, %45 ], [ %.037.lcssa, %.preheader103 ]
+  switch i8 %36, label %41 [
     i8 0, label %Dau_ParseFormulaEndToken.exit47
-    i8 126, label %47
-    i8 40, label %39
-    i8 41, label %41
+    i8 126, label %45
+    i8 40, label %37
+    i8 41, label %39
   ]
 
-39:                                               ; preds = %37
-  %40 = add nsw i32 %.010.i42, 1
-  br label %43
+37:                                               ; preds = %35
+  %38 = add nsw i32 %.010.i42, 1
+  br label %41
 
-41:                                               ; preds = %37
-  %42 = add nsw i32 %.010.i42, -1
-  br label %43
+39:                                               ; preds = %35
+  %40 = add nsw i32 %.010.i42, -1
+  br label %41
 
-43:                                               ; preds = %41, %39, %37
-  %.2.i44 = phi i32 [ %40, %39 ], [ %42, %41 ], [ %.010.i42, %37 ]
-  %44 = icmp eq i32 %.2.i44, 0
-  br i1 %44, label %45, label %47
+41:                                               ; preds = %39, %37, %35
+  %.2.i44 = phi i32 [ %38, %37 ], [ %40, %39 ], [ %.010.i42, %35 ]
+  %42 = icmp eq i32 %.2.i44, 0
+  br i1 %42, label %43, label %45
 
-45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.0.i43, i64 1
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds i8, ptr %.0.i43, i64 1
   br label %Dau_ParseFormulaEndToken.exit47
 
-47:                                               ; preds = %43, %37
-  %.1.i45 = phi i32 [ %.2.i44, %43 ], [ %.010.i42, %37 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i43, i64 1
-  %.pre79 = load i8, ptr %48, align 1
-  br label %37, !llvm.loop !4
+45:                                               ; preds = %41, %35
+  %.1.i45 = phi i32 [ %.2.i44, %41 ], [ %.010.i42, %35 ]
+  %46 = getelementptr inbounds i8, ptr %.0.i43, i64 1
+  %.pre79 = load i8, ptr %46, align 1
+  br label %35, !llvm.loop !4
 
-Dau_ParseFormulaEndToken.exit47:                  ; preds = %37, %45
-  %.011.i46 = phi ptr [ %46, %45 ], [ null, %37 ]
-  %49 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef nonnull %.037.lcssa, ptr noundef %.011.i46)
-  %50 = icmp sgt i32 %.0.lcssa, 0
-  %51 = zext i1 %50 to i32
-  %52 = xor i32 %49, %51
-  %53 = load i8, ptr %.011.i46, align 1
-  %54 = getelementptr inbounds i8, ptr %.011.i46, i64 1
-  br label %55
+Dau_ParseFormulaEndToken.exit47:                  ; preds = %35, %43
+  %.011.i46 = phi ptr [ %44, %43 ], [ null, %35 ]
+  %47 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef nonnull %.037.lcssa, ptr noundef %.011.i46)
+  %48 = xor i32 %47, %.0.lcssa
+  %49 = load i8, ptr %.011.i46, align 1
+  %50 = getelementptr inbounds i8, ptr %.011.i46, i64 1
+  br label %51
 
-55:                                               ; preds = %65, %Dau_ParseFormulaEndToken.exit47
-  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.1.i51, %65 ]
-  %.0.i49 = phi ptr [ %54, %Dau_ParseFormulaEndToken.exit47 ], [ %66, %65 ]
-  %56 = load i8, ptr %.0.i49, align 1
-  switch i8 %56, label %61 [
+51:                                               ; preds = %61, %Dau_ParseFormulaEndToken.exit47
+  %.010.i48 = phi i32 [ 0, %Dau_ParseFormulaEndToken.exit47 ], [ %.1.i51, %61 ]
+  %.0.i49 = phi ptr [ %50, %Dau_ParseFormulaEndToken.exit47 ], [ %62, %61 ]
+  %52 = load i8, ptr %.0.i49, align 1
+  switch i8 %52, label %57 [
     i8 0, label %Dau_ParseFormulaEndToken.exit53
-    i8 126, label %65
-    i8 40, label %57
-    i8 41, label %59
+    i8 126, label %61
+    i8 40, label %53
+    i8 41, label %55
   ]
 
-57:                                               ; preds = %55
-  %58 = add nsw i32 %.010.i48, 1
-  br label %61
+53:                                               ; preds = %51
+  %54 = add nsw i32 %.010.i48, 1
+  br label %57
 
-59:                                               ; preds = %55
-  %60 = add nsw i32 %.010.i48, -1
-  br label %61
+55:                                               ; preds = %51
+  %56 = add nsw i32 %.010.i48, -1
+  br label %57
 
-61:                                               ; preds = %59, %57, %55
-  %.2.i50 = phi i32 [ %58, %57 ], [ %60, %59 ], [ %.010.i48, %55 ]
-  %62 = icmp eq i32 %.2.i50, 0
-  br i1 %62, label %63, label %65
+57:                                               ; preds = %55, %53, %51
+  %.2.i50 = phi i32 [ %54, %53 ], [ %56, %55 ], [ %.010.i48, %51 ]
+  %58 = icmp eq i32 %.2.i50, 0
+  br i1 %58, label %59, label %61
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %.0.i49, i64 1
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds i8, ptr %.0.i49, i64 1
   br label %Dau_ParseFormulaEndToken.exit53
 
-65:                                               ; preds = %61, %55
-  %.1.i51 = phi i32 [ %.2.i50, %61 ], [ %.010.i48, %55 ]
-  %66 = getelementptr inbounds i8, ptr %.0.i49, i64 1
-  br label %55, !llvm.loop !4
+61:                                               ; preds = %57, %51
+  %.1.i51 = phi i32 [ %.2.i50, %57 ], [ %.010.i48, %51 ]
+  %62 = getelementptr inbounds i8, ptr %.0.i49, i64 1
+  br label %51, !llvm.loop !4
 
-Dau_ParseFormulaEndToken.exit53:                  ; preds = %55, %63
-  %.011.i52 = phi ptr [ %64, %63 ], [ null, %55 ]
-  %67 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef nonnull %54, ptr noundef %.011.i52)
-  switch i8 %53, label %72 [
-    i8 38, label %68
-    i8 94, label %70
+Dau_ParseFormulaEndToken.exit53:                  ; preds = %51, %59
+  %.011.i52 = phi ptr [ %60, %59 ], [ null, %51 ]
+  %63 = tail call i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef nonnull %50, ptr noundef %.011.i52)
+  switch i8 %49, label %68 [
+    i8 38, label %64
+    i8 94, label %66
   ]
 
-68:                                               ; preds = %Dau_ParseFormulaEndToken.exit53
-  %69 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %52, i32 noundef %67) #28
-  br label %72
+64:                                               ; preds = %Dau_ParseFormulaEndToken.exit53
+  %65 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %48, i32 noundef %63) #28
+  br label %68
 
-70:                                               ; preds = %Dau_ParseFormulaEndToken.exit53
-  %71 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %52, i32 noundef %67) #28
-  br label %72
+66:                                               ; preds = %Dau_ParseFormulaEndToken.exit53
+  %67 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %48, i32 noundef %63) #28
+  br label %68
 
-72:                                               ; preds = %Dau_ParseFormulaEndToken.exit53, %12, %70, %68, %14
-  %.036 = phi i32 [ %17, %14 ], [ %69, %68 ], [ %71, %70 ], [ -1, %12 ], [ -1, %Dau_ParseFormulaEndToken.exit53 ]
+68:                                               ; preds = %Dau_ParseFormulaEndToken.exit53, %12, %66, %64, %14
+  %.036 = phi i32 [ %17, %14 ], [ %65, %64 ], [ %67, %66 ], [ -1, %12 ], [ -1, %Dau_ParseFormulaEndToken.exit53 ]
   %accumulator.ret.tr = xor i32 %.036, %accumulator.tr
   ret i32 %accumulator.ret.tr
 }
@@ -2647,7 +2643,7 @@ Vec_IntPush.exit71:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #9 {
+define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1073741824, 1073741824) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %5, %1
@@ -2656,7 +2652,7 @@ define internal fastcc void @Vec_WecPush(ptr nocapture noundef %0, i32 noundef %
 6:                                                ; preds = %3
   %7 = add nsw i32 %1, 1
   %8 = shl nsw i32 %5, 1
-  %9 = tail call noundef i32 @llvm.smax.i32(i32 %8, i32 %7)
+  %9 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %8, i32 %7)
   %10 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %10, %9
   br i1 %.not.i, label %11, label %Vec_WecGrow.exit

@@ -930,17 +930,17 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %80, %78, %76, %74
   %85 = getelementptr inbounds i8, ptr %7, i64 16
   %86 = getelementptr inbounds i8, ptr %7, i64 20
   %87 = getelementptr inbounds i8, ptr %7, i64 8
-  %.rhs.trunc = trunc nuw nsw i32 %.012 to i8
-  %88 = udiv i8 -16, %.rhs.trunc
-  %narrow = add nuw i8 %88, 1
-  %89 = zext i8 %narrow to i32
+  %.rhs.trunc.i = trunc nuw nsw i32 %.012 to i8
+  %88 = udiv i8 -16, %.rhs.trunc.i
+  %narrow.i = add nuw nsw i8 %88, 1
+  %89 = zext nneg i8 %narrow.i to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %103, %_ZNSt6vectorIdSaIdEE6resizeEm.exit
   %.01320.i = phi i32 [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %104, %103 ]
   %.01419.i = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE6resizeEm.exit ], [ %97, %103 ]
   %90 = trunc i64 %.01419.i to i32
-  %91 = add i32 %89, %90
+  %91 = add i32 %90, %89
   br label %92
 
 92:                                               ; preds = %95, %.preheader.i
@@ -974,8 +974,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %80, %78, %76, %74
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #20
   %100 = add nuw nsw i32 %.01218.i, %.012
   %lftr.wideiv = trunc i64 %97 to i32
-  %exitcond.not = icmp eq i32 %91, %lftr.wideiv
-  br i1 %exitcond.not, label %103, label %92, !llvm.loop !12
+  %exitcond = icmp eq i32 %91, %lftr.wideiv
+  br i1 %exitcond, label %103, label %92, !llvm.loop !12
 
 101:                                              ; preds = %94, %.noexc26
   %102 = landingpad { ptr, i32 }

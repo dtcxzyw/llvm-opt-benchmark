@@ -3157,7 +3157,7 @@ declare void @Curl_setup_transfer(ptr noundef, i32 noundef, i64 noundef, i1 noun
 declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @imap_matchresp(ptr noundef %line, i64 noundef %len, ptr noundef %cmd) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @imap_matchresp(ptr noundef %line, i64 noundef range(i64 2, 0) %len, ptr noundef %cmd) unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %line, i64 %len
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd) #10

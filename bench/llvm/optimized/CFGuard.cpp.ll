@@ -875,10 +875,10 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm22createCFGuardCheckPassEv
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
-  store i32 0, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store i32 0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   store ptr @.str.3, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 48
   store i64 24, ptr %.sroa.2.0..sroa_idx.i.i, align 8

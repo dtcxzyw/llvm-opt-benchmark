@@ -557,32 +557,32 @@ gv_calloc.exit.i.i:                               ; preds = %243
 .lr.ph.i.preheader.i:                             ; preds = %.critedge2.preheader.i.i
   %254 = call double @strtod(ptr noundef nonnull %253, ptr noundef nonnull %3) #13
   %255 = fcmp ogt double %254, 0.000000e+00
-  br i1 %255, label %.lr.ph.i45, label %.critedge.i.i
+  br i1 %255, label %.lr.ph.i46, label %.critedge.i.i
 
 .critedge2.loopexit.i.i:                          ; preds = %264
-  %exitcond.not.i.i = icmp eq i64 %.03242.i23.i, %.015.i
-  br i1 %exitcond.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i47
+  %exitcond.not.i.i = icmp eq i64 %.03242.i27.i, %.015.i
+  br i1 %exitcond.not.i.i, label %getRankseps.exit.i, label %.lr.ph.i.i48
 
-.lr.ph.i.i47:                                     ; preds = %.critedge2.loopexit.i.i
-  %256 = add nuw nsw i64 %.03242.i23.i, 1
-  %257 = call double @strtod(ptr noundef nonnull %.1.i.i46, ptr noundef nonnull %3) #13
+.lr.ph.i.i48:                                     ; preds = %.critedge2.loopexit.i.i
+  %256 = add nuw nsw i64 %.03242.i27.i, 1
+  %257 = call double @strtod(ptr noundef nonnull %.1.i.i47, ptr noundef nonnull %3) #13
   %258 = fcmp ogt double %257, 0.000000e+00
-  br i1 %258, label %.lr.ph.i45, label %.critedge.i.i
+  br i1 %258, label %.lr.ph.i46, label %.critedge.i.i
 
-.lr.ph.i45:                                       ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i47
-  %259 = phi double [ %257, %.lr.ph.i.i47 ], [ %254, %.lr.ph.i.preheader.i ]
-  %.03242.i23.i = phi i64 [ %256, %.lr.ph.i.i47 ], [ 1, %.lr.ph.i.preheader.i ]
-  %.03043.i22.i = phi double [ %261, %.lr.ph.i.i47 ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
+.lr.ph.i46:                                       ; preds = %.lr.ph.i.preheader.i, %.lr.ph.i.i48
+  %259 = phi double [ %257, %.lr.ph.i.i48 ], [ %254, %.lr.ph.i.preheader.i ]
+  %.03242.i27.i = phi i64 [ %256, %.lr.ph.i.i48 ], [ 1, %.lr.ph.i.preheader.i ]
+  %.03043.i26.i = phi double [ %261, %.lr.ph.i.i48 ], [ 0.000000e+00, %.lr.ph.i.preheader.i ]
   %260 = tail call double @llvm.maxnum.f64(double %259, double 2.000000e-02)
-  %261 = fadd double %260, %.03043.i22.i
-  %262 = getelementptr inbounds double, ptr %244, i64 %.03242.i23.i
+  %261 = fadd double %260, %.03043.i26.i
+  %262 = getelementptr inbounds double, ptr %244, i64 %.03242.i27.i
   store double %261, ptr %262, align 8
   %263 = load ptr, ptr %3, align 8
   br label %264
 
-264:                                              ; preds = %gv_isspace.exit.thread.i.i, %.lr.ph.i45
-  %.1.i.i46 = phi ptr [ %263, %.lr.ph.i45 ], [ %266, %gv_isspace.exit.thread.i.i ]
-  %265 = load i8, ptr %.1.i.i46, align 1
+264:                                              ; preds = %gv_isspace.exit.thread.i.i, %.lr.ph.i46
+  %.1.i.i47 = phi ptr [ %263, %.lr.ph.i46 ], [ %266, %gv_isspace.exit.thread.i.i ]
+  %265 = load i8, ptr %.1.i.i47, align 1
   switch i8 %265, label %.critedge2.loopexit.i.i [
     i8 58, label %gv_isspace.exit.thread.i.i
     i8 9, label %gv_isspace.exit.thread.i.i
@@ -594,13 +594,13 @@ gv_calloc.exit.i.i:                               ; preds = %243
   ]
 
 gv_isspace.exit.thread.i.i:                       ; preds = %264, %264, %264, %264, %264, %264, %264
-  %266 = getelementptr inbounds i8, ptr %.1.i.i46, i64 1
+  %266 = getelementptr inbounds i8, ptr %.1.i.i47, i64 1
   br label %264
 
-.critedge.i.i:                                    ; preds = %.lr.ph.i.i47, %.critedge2.loopexit.i.i, %.lr.ph.i.preheader.i, %.critedge2.preheader.i.i, %gv_calloc.exit.i.i
-  %.133.i.i = phi i64 [ 1, %gv_calloc.exit.i.i ], [ 1, %.critedge2.preheader.i.i ], [ 1, %.lr.ph.i.preheader.i ], [ %256, %.lr.ph.i.i47 ], [ %239, %.critedge2.loopexit.i.i ]
-  %.131.i.i = phi double [ 0.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %261, %.critedge2.loopexit.i.i ], [ %261, %.lr.ph.i.i47 ]
-  %.129.i.i = phi double [ 1.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %260, %.critedge2.loopexit.i.i ], [ %260, %.lr.ph.i.i47 ]
+.critedge.i.i:                                    ; preds = %.lr.ph.i.i48, %.lr.ph.i.preheader.i, %.critedge2.preheader.i.i, %gv_calloc.exit.i.i
+  %.133.i.i = phi i64 [ 1, %gv_calloc.exit.i.i ], [ 1, %.critedge2.preheader.i.i ], [ 1, %.lr.ph.i.preheader.i ], [ %256, %.lr.ph.i.i48 ]
+  %.131.i.i = phi double [ 0.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %261, %.lr.ph.i.i48 ]
+  %.129.i.i = phi double [ 1.000000e+00, %gv_calloc.exit.i.i ], [ 0.000000e+00, %.critedge2.preheader.i.i ], [ 0.000000e+00, %.lr.ph.i.preheader.i ], [ %260, %.lr.ph.i.i48 ]
   %.not3851.i.i = icmp ugt i64 %.133.i.i, %.015.i
   br i1 %.not3851.i.i, label %getRankseps.exit.i, label %.lr.ph54.i.i
 
@@ -611,10 +611,10 @@ gv_isspace.exit.thread.i.i:                       ; preds = %264, %264, %264, %2
   %268 = getelementptr inbounds double, ptr %244, i64 %.053.i.i
   store double %267, ptr %268, align 8
   %269 = add i64 %.053.i.i, 1
-  %exitcond55.not.i.i = icmp eq i64 %.053.i.i, %.015.i
-  br i1 %exitcond55.not.i.i, label %getRankseps.exit.i, label %.lr.ph54.i.i
+  %exitcond.not = icmp eq i64 %.053.i.i, %.015.i
+  br i1 %exitcond.not, label %getRankseps.exit.i, label %.lr.ph54.i.i
 
-getRankseps.exit.i:                               ; preds = %.lr.ph54.i.i, %.critedge.i.i
+getRankseps.exit.i:                               ; preds = %.critedge2.loopexit.i.i, %.lr.ph54.i.i, %.critedge.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %270 = load i8, ptr @Verbose, align 1
   %.not.i42 = icmp eq i8 %270, 0
@@ -626,13 +626,13 @@ getRankseps.exit.i:                               ; preds = %.lr.ph54.i.i, %.cri
   br label %274
 
 274:                                              ; preds = %274, %271
-  %.029.i = phi i64 [ 0, %271 ], [ %279, %274 ]
+  %.030.i = phi i64 [ 0, %271 ], [ %279, %274 ]
   %275 = load ptr, ptr @stderr, align 8
-  %276 = getelementptr inbounds double, ptr %244, i64 %.029.i
+  %276 = getelementptr inbounds double, ptr %244, i64 %.030.i
   %277 = load double, ptr %276, align 8
   %278 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %275, ptr noundef nonnull @.str.7, double noundef %277) #15
-  %279 = add i64 %.029.i, 1
-  %exitcond.not.i = icmp eq i64 %.029.i, %.015.i
+  %279 = add nuw i64 %.030.i, 1
+  %exitcond.not.i = icmp eq i64 %.030.i, %.015.i
   br i1 %exitcond.not.i, label %280, label %274
 
 280:                                              ; preds = %274
@@ -642,12 +642,12 @@ getRankseps.exit.i:                               ; preds = %.lr.ph54.i.i, %.cri
 
 282:                                              ; preds = %280, %getRankseps.exit.i
   %283 = tail call ptr @agfstnode(ptr noundef %0) #13
-  %.not2130.i = icmp eq ptr %283, null
-  br i1 %.not2130.i, label %setAbsolutePos.exit, label %.lr.ph32.i
+  %.not2131.i = icmp eq ptr %283, null
+  br i1 %.not2131.i, label %setAbsolutePos.exit, label %.lr.ph33.i43
 
-.lr.ph32.i:                                       ; preds = %282, %.lr.ph32.i
-  %.01931.i = phi ptr [ %310, %.lr.ph32.i ], [ %283, %282 ]
-  %284 = getelementptr inbounds i8, ptr %.01931.i, i64 16
+.lr.ph33.i43:                                     ; preds = %282, %.lr.ph33.i43
+  %.01932.i = phi ptr [ %310, %.lr.ph33.i43 ], [ %283, %282 ]
+  %284 = getelementptr inbounds i8, ptr %.01932.i, i64 16
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds i8, ptr %285, i64 152
   %287 = load ptr, ptr %286, align 8
@@ -675,11 +675,11 @@ getRankseps.exit.i:                               ; preds = %.lr.ph54.i.i, %.cri
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 8
   store double %305, ptr %309, align 8
-  %310 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01931.i) #13
-  %.not21.i43 = icmp eq ptr %310, null
-  br i1 %.not21.i43, label %setAbsolutePos.exit, label %.lr.ph32.i
+  %310 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01932.i) #13
+  %.not21.i44 = icmp eq ptr %310, null
+  br i1 %.not21.i44, label %setAbsolutePos.exit, label %.lr.ph33.i43
 
-setAbsolutePos.exit:                              ; preds = %.lr.ph32.i, %282
+setAbsolutePos.exit:                              ; preds = %.lr.ph33.i43, %282
   tail call void @free(ptr noundef %244) #13
   br label %311
 

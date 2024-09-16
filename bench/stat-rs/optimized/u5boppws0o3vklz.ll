@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef align 8 dereferenceable(128) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1145,13 +1145,13 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i138: ;
 33:                                               ; preds = %25, %46
   %.sroa.0119.0189 = phi i64 [ 4, %25 ], [ %34, %46 ]
   %34 = add nsw i64 %.sroa.0119.0189, -1
-  %35 = call fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %8)
+  %35 = call fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef align 8 dereferenceable(128) %8)
   %36 = extractvalue { i64, double } %35, 0
   %switch121 = icmp eq i64 %36, 0
   br i1 %switch121, label %37, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit149
 
 37:                                               ; preds = %33, %46
-  %38 = call fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %8)
+  %38 = call fastcc { i64, double } @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbdb14932c381211E"(ptr noalias noundef align 8 dereferenceable(128) %8)
   %39 = extractvalue { i64, double } %38, 0
   %switch123 = icmp eq i64 %39, 1
   %40 = getelementptr inbounds i8, ptr %.val137, i64 24

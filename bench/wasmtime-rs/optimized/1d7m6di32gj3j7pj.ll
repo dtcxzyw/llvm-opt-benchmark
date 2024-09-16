@@ -1002,7 +1002,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 322:                                              ; preds = %100
   %323 = load ptr, ptr %55, align 8, !nonnull !3, !noundef !3
   %324 = getelementptr inbounds i8, ptr %323, i64 16
-  invoke fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8bfc2199b7ca00E(ptr noalias nonnull align 8 %53, ptr nonnull align 8 %1, ptr nonnull align 8 %324, ptr align 8 %2, ptr nonnull align 8 %54)
+  invoke fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8bfc2199b7ca00E(ptr noalias align 8 %53, ptr nonnull align 8 %1, ptr align 8 %324, ptr align 8 %2, ptr align 8 %54)
           to label %325 unwind label %320
 
 325:                                              ; preds = %322
@@ -1061,7 +1061,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8bfc2199b7ca00E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8bfc2199b7ca00E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr align 8 %3, ptr nonnull align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = alloca { { i64, [3 x i64] }, {} }, align 8
   %8 = alloca { ptr, ptr, {} }, align 8
@@ -1314,7 +1314,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
   br label %155
 
 155:                                              ; preds = %159, %154
-  %156 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr align 8 %4)
+  %156 = invoke zeroext i1 @_ZN15wiggle_generate6config9Asyncness7is_sync17h73e4ab8c390d74b4E(ptr nonnull align 8 %4)
           to label %167 unwind label %165
 
 157:                                              ; preds = %659, %649, %633, %627, %620, %587, %580, %576, %572, %555, %548, %540, %498, %491, %487, %477, %435, %428, %424, %393, %388, %379, %370, %349, %338, %328, %320, %313, %302, %292, %281, %275, %263, %252, %247, %240, %229, %224, %213, %206, %196, %192, %190, %182, %178, %171, %164, %151, %147, %139, %130, %123, %119

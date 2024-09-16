@@ -70,7 +70,7 @@ if.then:                                          ; preds = %for.cond
   br i1 %cmp9, label %for.end, label %for.cond.backedge
 
 if.else:                                          ; preds = %for.cond
-  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef nonnull %val, i32 noundef 4, ptr noundef nonnull %waited)
+  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef %val, i32 noundef 4, ptr noundef %waited)
   br i1 %call, label %for.end, label %if.else.if.end13_crit_edge
 
 if.else.if.end13_crit_edge:                       ; preds = %if.else
@@ -95,7 +95,7 @@ if.end16:                                         ; preds = %if.then15, %for.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr nocapture noundef %val, i32 noundef %new_if_free, ptr nocapture noundef writeonly %waited) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef %lockcnt, ptr nocapture noundef nonnull %val, i32 noundef %new_if_free, ptr nocapture noundef nonnull writeonly %waited) unnamed_addr #2 {
 entry:
   %_now.i.i80 = alloca %struct.timeval, align 8
   %_now.i.i66 = alloca %struct.timeval, align 8
@@ -434,7 +434,7 @@ if.then:                                          ; preds = %for.cond
   br i1 %cmp9, label %for.end, label %for.cond
 
 if.else:                                          ; preds = %for.cond
-  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef nonnull %val, i32 noundef %locked_state.0.ph, ptr noundef nonnull %waited)
+  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef %val, i32 noundef %locked_state.0.ph, ptr noundef %waited)
   br i1 %call, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.else
@@ -470,7 +470,7 @@ entry:
 
 while.body2:                                      ; preds = %entry, %if.end
   %locked_state.06 = phi i32 [ %spec.select, %if.end ], [ 1, %entry ]
-  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef nonnull %val, i32 noundef %locked_state.06, ptr noundef nonnull %waited)
+  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef %val, i32 noundef %locked_state.06, ptr noundef %waited)
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %while.body2
@@ -503,7 +503,7 @@ entry:
   store i32 %0, ptr %val, align 4
   store i8 0, ptr %waited, align 1
   %add2 = add i32 %0, 1
-  %call3 = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef nonnull %val, i32 noundef %add2, ptr noundef nonnull %waited)
+  %call3 = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef %val, i32 noundef %add2, ptr noundef %waited)
   br i1 %call3, label %while.end3, label %while.body2
 
 while.body2:                                      ; preds = %entry, %while.body2
@@ -513,7 +513,7 @@ while.body2:                                      ; preds = %entry, %while.body2
   %spec.select = select i1 %tobool, i32 2, i32 %step.04
   %2 = load i32, ptr %val, align 4
   %add = add i32 %2, %spec.select
-  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef nonnull %val, i32 noundef %add, ptr noundef nonnull %waited)
+  %call = call fastcc zeroext i1 @qemu_lockcnt_cmpxchg_or_wait(ptr noundef nonnull %lockcnt, ptr noundef %val, i32 noundef %add, ptr noundef %waited)
   br i1 %call, label %while.end3, label %while.body2, !llvm.loop !9
 
 while.end3:                                       ; preds = %while.body2, %entry

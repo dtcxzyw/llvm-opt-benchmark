@@ -10624,7 +10624,7 @@ eh.resume:                                        ; preds = %lpad37, %lpad.i42, 
 declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIdEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %mantissa, i32 noundef %exponent, double noundef %expected_low, double noundef %expected_high, double noundef %expected_half) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIdEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %mantissa, i32 noundef range(i32 -324, 309) %exponent, double noundef %expected_low, double noundef %expected_high, double noundef %expected_half) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %expected_low.addr = alloca double, align 8
   %expected_high.addr = alloca double, align 8
@@ -11497,7 +11497,7 @@ eh.resume:                                        ; preds = %lpad37, %lpad.i42, 
 declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIfEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %mantissa, i32 noundef %exponent, float noundef %expected_low, float noundef %expected_high, float noundef %expected_half) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIfEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull align 8 dereferenceable(32) %mantissa, i32 noundef range(i32 -46, 39) %exponent, float noundef %expected_low, float noundef %expected_high, float noundef %expected_half) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %expected_low.addr = alloca float, align 4
   %expected_high.addr = alloca float, align 4
@@ -20510,7 +20510,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIdEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %input_generator, ptr noundef nonnull align 8 dereferenceable(32) %expected_generator, i32 noundef %lower_bound, i32 noundef %upper_bound) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIdEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %input_generator, ptr noundef nonnull align 8 dereferenceable(32) %expected_generator, i32 noundef range(i32 -1074, -322) %lower_bound, i32 noundef range(i32 308, 1024) %upper_bound) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i273 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i266 = alloca i32, align 4
@@ -20574,10 +20574,6 @@ entry:
   %ref.tmp223 = alloca double, align 8
   %ref.tmp228 = alloca %"class.testing::Message", align 8
   %ref.tmp231 = alloca %"class.testing::internal::AssertHelper", align 8
-  %cmp337 = icmp slt i32 %lower_bound, %upper_bound
-  br i1 %cmp337, label %for.body.lr.ph, label %for.end121
-
-for.body.lr.ph:                                   ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %input_generator, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %input_generator, i64 24
   %_M_manager.i.i64 = getelementptr inbounds i8, ptr %expected_generator, i64 16
@@ -20590,11 +20586,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %message_.i.i86 = getelementptr inbounds i8, ptr %gtest_ar21, i64 8
   br label %for.body
 
-for.body53.lr.ph:                                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
-  %_M_manager.i.i107 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i110 = getelementptr inbounds i8, ptr %input_generator, i64 24
-  %_M_manager.i.i119 = getelementptr inbounds i8, ptr %expected_generator, i64 16
-  %_M_invoker.i122 = getelementptr inbounds i8, ptr %expected_generator, i64 24
+for.cond51.preheader:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
   %1 = getelementptr inbounds i8, ptr %result62, i64 8
   %message_.i.i134 = getelementptr inbounds i8, ptr %gtest_ar69, i64 8
   %dispatcher_.i.i.i168 = getelementptr inbounds i8, ptr %ref.tmp.i163, i64 8
@@ -20603,11 +20595,11 @@ for.body53.lr.ph:                                 ; preds = %_ZN7testing15Assert
   %message_.i.i177 = getelementptr inbounds i8, ptr %gtest_ar90, i64 8
   br label %for.body53
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit105
-  %step.0339 = phi i32 [ 1, %for.body.lr.ph ], [ %add1.i, %_ZN7testing15AssertionResultD2Ev.exit105 ]
-  %index.0338 = phi i32 [ %lower_bound, %for.body.lr.ph ], [ %add, %_ZN7testing15AssertionResultD2Ev.exit105 ]
+for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit105
+  %step.0338 = phi i32 [ 1, %entry ], [ %add1.i, %_ZN7testing15AssertionResultD2Ev.exit105 ]
+  %index.0337 = phi i32 [ %lower_bound, %entry ], [ %add, %_ZN7testing15AssertionResultD2Ev.exit105 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  store i32 %index.0338, ptr %__args.addr.i, align 4, !noalias !629
+  store i32 %index.0337, ptr %__args.addr.i, align 4, !noalias !629
   %2 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !629
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit
@@ -20638,7 +20630,7 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i63)
-  store i32 %index.0338, ptr %__args.addr.i63, align 4
+  store i32 %index.0337, ptr %__args.addr.i63, align 4
   %5 = load ptr, ptr %_M_manager.i.i64, align 8
   %tobool.not.i.i65 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i65, label %if.then.i67, label %if.end.i
@@ -20924,12 +20916,12 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end46, %_ZNKSt14
   store ptr null, ptr %message_.i.i86, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_694) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input) #20
-  %add = add nsw i32 %step.0339, %index.0338
-  %shr.i = ashr i32 %step.0339, 2
-  %add.i = add i32 %step.0339, 1
+  %add = add nsw i32 %step.0338, %index.0337
+  %shr.i = ashr i32 %step.0338, 2
+  %add.i = add i32 %step.0338, 1
   %add1.i = add i32 %add.i, %shr.i
   %cmp = icmp slt i32 %add, %upper_bound
-  br i1 %cmp, label %for.body, label %for.body53.lr.ph, !llvm.loop !640
+  br i1 %cmp, label %for.body, label %for.cond51.preheader, !llvm.loop !640
 
 ehcleanup47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit101, %lpad27
   %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %27, %lpad27 ]
@@ -20941,12 +20933,12 @@ ehcleanup48:                                      ; preds = %lpad1.loopexit, %lp
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_694) #20
   br label %eh.resume
 
-for.body53:                                       ; preds = %for.body53.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit196
-  %step.1342 = phi i32 [ 1, %for.body53.lr.ph ], [ %add1.i199, %_ZN7testing15AssertionResultD2Ev.exit196 ]
-  %index.1341 = phi i32 [ %upper_bound, %for.body53.lr.ph ], [ %sub, %_ZN7testing15AssertionResultD2Ev.exit196 ]
+for.body53:                                       ; preds = %for.cond51.preheader, %_ZN7testing15AssertionResultD2Ev.exit196
+  %step.1340 = phi i32 [ 1, %for.cond51.preheader ], [ %add1.i199, %_ZN7testing15AssertionResultD2Ev.exit196 ]
+  %index.1339 = phi i32 [ %upper_bound, %for.cond51.preheader ], [ %sub, %_ZN7testing15AssertionResultD2Ev.exit196 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i106)
-  store i32 %index.1341, ptr %__args.addr.i106, align 4, !noalias !641
-  %34 = load ptr, ptr %_M_manager.i.i107, align 8, !noalias !641
+  store i32 %index.1339, ptr %__args.addr.i106, align 4, !noalias !641
+  %34 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !641
   %tobool.not.i.i108 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i108, label %if.then.i111, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit112
 
@@ -20955,7 +20947,7 @@ if.then.i111:                                     ; preds = %for.body53
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit112: ; preds = %for.body53
-  %35 = load ptr, ptr %_M_invoker.i110, align 8, !noalias !641
+  %35 = load ptr, ptr %_M_invoker.i, align 8, !noalias !641
   call void %35(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input54, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i106)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i113)
@@ -20976,8 +20968,8 @@ invoke.cont56:                                    ; preds = %.noexc115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i113) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i113)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i118)
-  store i32 %index.1341, ptr %__args.addr.i118, align 4
-  %37 = load ptr, ptr %_M_manager.i.i119, align 8
+  store i32 %index.1339, ptr %__args.addr.i118, align 4
+  %37 = load ptr, ptr %_M_manager.i.i64, align 8
   %tobool.not.i.i120 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i120, label %if.then.i123, label %if.end.i121
 
@@ -20989,7 +20981,7 @@ if.then.i123:                                     ; preds = %invoke.cont56
   unreachable
 
 if.end.i121:                                      ; preds = %invoke.cont56
-  %38 = load ptr, ptr %_M_invoker.i122, align 8
+  %38 = load ptr, ptr %_M_invoker.i66, align 8
   %call2.i125 = invoke noundef double %38(ptr noundef nonnull align 8 dereferenceable(16) %expected_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i118)
           to label %invoke.cont59 unwind label %lpad58.loopexit
 
@@ -21262,12 +21254,12 @@ _ZN7testing15AssertionResultD2Ev.exit196:         ; preds = %if.end115, %_ZNKSt1
   store ptr null, ptr %message_.i.i177, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input54) #20
-  %sub = sub nsw i32 %index.1341, %step.1342
-  %shr.i197 = ashr i32 %step.1342, 2
-  %add.i198 = add i32 %step.1342, 1
+  %sub = sub nsw i32 %index.1339, %step.1340
+  %shr.i197 = ashr i32 %step.1340, 2
+  %add.i198 = add i32 %step.1340, 1
   %add1.i199 = add i32 %add.i198, %shr.i197
   %cmp52 = icmp sgt i32 %sub, %lower_bound
-  br i1 %cmp52, label %for.body53, label %for.end121, !llvm.loop !652
+  br i1 %cmp52, label %for.body53, label %for.body125.lr.ph, !llvm.loop !652
 
 ehcleanup116:                                     ; preds = %_ZN7testing7MessageD2Ev.exit192, %lpad96
   %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %_ZN7testing7MessageD2Ev.exit192 ], [ %59, %lpad96 ]
@@ -21279,25 +21271,19 @@ ehcleanup117:                                     ; preds = %lpad58.loopexit, %l
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   br label %eh.resume
 
-for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit196, %entry
-  %cmp124343 = icmp sgt i32 %lower_bound, -999999
-  br i1 %cmp124343, label %for.body125.lr.ph, label %for.end184
-
-for.body125.lr.ph:                                ; preds = %for.end121
+for.body125.lr.ph:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit196
   %sub122 = add nsw i32 %lower_bound, -1
-  %_M_manager.i.i201 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i204 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %66 = getelementptr inbounds i8, ptr %result130, i64 8
   %message_.i.i219 = getelementptr inbounds i8, ptr %gtest_ar138, i64 8
   %message_.i.i243 = getelementptr inbounds i8, ptr %gtest_ar159, i64 8
   br label %for.body125
 
 for.body125:                                      ; preds = %for.body125.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit262
-  %step.2345 = phi i32 [ 1, %for.body125.lr.ph ], [ %add1.i265, %_ZN7testing15AssertionResultD2Ev.exit262 ]
-  %index.2344 = phi i32 [ %sub122, %for.body125.lr.ph ], [ %sub182, %_ZN7testing15AssertionResultD2Ev.exit262 ]
+  %step.2343 = phi i32 [ 1, %for.body125.lr.ph ], [ %add1.i265, %_ZN7testing15AssertionResultD2Ev.exit262 ]
+  %index.2342 = phi i32 [ %sub122, %for.body125.lr.ph ], [ %sub182, %_ZN7testing15AssertionResultD2Ev.exit262 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i200)
-  store i32 %index.2344, ptr %__args.addr.i200, align 4, !noalias !653
-  %67 = load ptr, ptr %_M_manager.i.i201, align 8, !noalias !653
+  store i32 %index.2342, ptr %__args.addr.i200, align 4, !noalias !653
+  %67 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !653
   %tobool.not.i.i202 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i202, label %if.then.i205, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit206
 
@@ -21306,7 +21292,7 @@ if.then.i205:                                     ; preds = %for.body125
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit206: ; preds = %for.body125
-  %68 = load ptr, ptr %_M_invoker.i204, align 8, !noalias !653
+  %68 = load ptr, ptr %_M_invoker.i, align 8, !noalias !653
   call void %68(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input126, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i200)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i200)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i207)
@@ -21558,12 +21544,12 @@ _ZN7testing15AssertionResultD2Ev.exit262:         ; preds = %if.end177, %_ZNKSt1
   store ptr null, ptr %message_.i.i243, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_720) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input126) #20
-  %sub182 = sub nsw i32 %index.2344, %step.2345
-  %shr.i263 = ashr i32 %step.2345, 2
-  %add.i264 = add i32 %step.2345, 1
+  %sub182 = sub nsw i32 %index.2342, %step.2343
+  %shr.i263 = ashr i32 %step.2343, 2
+  %add.i264 = add i32 %step.2343, 1
   %add1.i265 = add i32 %add.i264, %shr.i263
   %cmp124 = icmp sgt i32 %sub182, -1000000
-  br i1 %cmp124, label %for.body125, label %for.end184, !llvm.loop !659
+  br i1 %cmp124, label %for.body125, label %for.body188.lr.ph, !llvm.loop !659
 
 ehcleanup178:                                     ; preds = %_ZN7testing7MessageD2Ev.exit258, %lpad166
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit258 ], [ %89, %lpad166 ]
@@ -21575,25 +21561,19 @@ ehcleanup179:                                     ; preds = %ehcleanup178, %ehcl
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_720) #20
   br label %eh.resume
 
-for.end184:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit262, %for.end121
-  %cmp187346 = icmp slt i32 %upper_bound, 999999
-  br i1 %cmp187346, label %for.body188.lr.ph, label %for.end247
-
-for.body188.lr.ph:                                ; preds = %for.end184
+for.body188.lr.ph:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit262
   %add185 = add nuw nsw i32 %upper_bound, 1
-  %_M_manager.i.i267 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i270 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %95 = getelementptr inbounds i8, ptr %result193, i64 8
   %message_.i.i285 = getelementptr inbounds i8, ptr %gtest_ar201, i64 8
   %message_.i.i311 = getelementptr inbounds i8, ptr %gtest_ar222, i64 8
   br label %for.body188
 
 for.body188:                                      ; preds = %for.body188.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit330
-  %step.3348 = phi i32 [ 1, %for.body188.lr.ph ], [ %add1.i333, %_ZN7testing15AssertionResultD2Ev.exit330 ]
-  %index.3347 = phi i32 [ %add185, %for.body188.lr.ph ], [ %add245, %_ZN7testing15AssertionResultD2Ev.exit330 ]
+  %step.3346 = phi i32 [ 1, %for.body188.lr.ph ], [ %add1.i333, %_ZN7testing15AssertionResultD2Ev.exit330 ]
+  %index.3345 = phi i32 [ %add185, %for.body188.lr.ph ], [ %add245, %_ZN7testing15AssertionResultD2Ev.exit330 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i266)
-  store i32 %index.3347, ptr %__args.addr.i266, align 4, !noalias !660
-  %96 = load ptr, ptr %_M_manager.i.i267, align 8, !noalias !660
+  store i32 %index.3345, ptr %__args.addr.i266, align 4, !noalias !660
+  %96 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !660
   %tobool.not.i.i268 = icmp eq ptr %96, null
   br i1 %tobool.not.i.i268, label %if.then.i271, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit272
 
@@ -21602,7 +21582,7 @@ if.then.i271:                                     ; preds = %for.body188
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit272: ; preds = %for.body188
-  %97 = load ptr, ptr %_M_invoker.i270, align 8, !noalias !660
+  %97 = load ptr, ptr %_M_invoker.i, align 8, !noalias !660
   call void %97(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input189, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i266)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i266)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i273)
@@ -21854,9 +21834,9 @@ _ZN7testing15AssertionResultD2Ev.exit330:         ; preds = %if.end240, %_ZNKSt1
   store ptr null, ptr %message_.i.i311, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_731) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input189) #20
-  %add245 = add nsw i32 %step.3348, %index.3347
-  %shr.i331 = ashr i32 %step.3348, 2
-  %add.i332 = add i32 %step.3348, 1
+  %add245 = add nsw i32 %step.3346, %index.3345
+  %shr.i331 = ashr i32 %step.3346, 2
+  %add.i332 = add i32 %step.3346, 1
   %add1.i333 = add i32 %add.i332, %shr.i331
   %cmp187 = icmp slt i32 %add245, 1000000
   br i1 %cmp187, label %for.body188, label %for.end247, !llvm.loop !666
@@ -21871,7 +21851,7 @@ ehcleanup242:                                     ; preds = %ehcleanup241, %ehcl
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_731) #20
   br label %eh.resume
 
-for.end247:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit330, %for.end184
+for.end247:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit330
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup242, %lpad.i274, %lpad190, %ehcleanup179, %lpad.i208, %lpad127, %ehcleanup117, %lpad.i114, %lpad55, %ehcleanup48, %lpad.i, %lpad
@@ -22101,7 +22081,7 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIfEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %input_generator, ptr noundef nonnull align 8 dereferenceable(32) %expected_generator, i32 noundef %lower_bound, i32 noundef %upper_bound) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124TestOverflowAndUnderflowIfEEvRKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEERKS1_IFT_iEEii(ptr noundef nonnull align 8 dereferenceable(32) %input_generator, ptr noundef nonnull align 8 dereferenceable(32) %expected_generator, i32 noundef range(i32 -149, -44) %lower_bound, i32 noundef range(i32 38, 128) %upper_bound) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i275 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i268 = alloca i32, align 4
@@ -22165,10 +22145,6 @@ entry:
   %ref.tmp223 = alloca double, align 8
   %ref.tmp228 = alloca %"class.testing::Message", align 8
   %ref.tmp231 = alloca %"class.testing::internal::AssertHelper", align 8
-  %cmp340 = icmp slt i32 %lower_bound, %upper_bound
-  br i1 %cmp340, label %for.body.lr.ph, label %for.end121
-
-for.body.lr.ph:                                   ; preds = %entry
   %_M_manager.i.i = getelementptr inbounds i8, ptr %input_generator, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %input_generator, i64 24
   %_M_manager.i.i64 = getelementptr inbounds i8, ptr %expected_generator, i64 16
@@ -22181,11 +22157,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %message_.i.i86 = getelementptr inbounds i8, ptr %gtest_ar21, i64 8
   br label %for.body
 
-for.body53.lr.ph:                                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
-  %_M_manager.i.i107 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i110 = getelementptr inbounds i8, ptr %input_generator, i64 24
-  %_M_manager.i.i119 = getelementptr inbounds i8, ptr %expected_generator, i64 16
-  %_M_invoker.i122 = getelementptr inbounds i8, ptr %expected_generator, i64 24
+for.cond51.preheader:                             ; preds = %_ZN7testing15AssertionResultD2Ev.exit105
   %1 = getelementptr inbounds i8, ptr %result62, i64 8
   %message_.i.i134 = getelementptr inbounds i8, ptr %gtest_ar69, i64 8
   %dispatcher_.i.i.i169 = getelementptr inbounds i8, ptr %ref.tmp.i163, i64 8
@@ -22194,11 +22166,11 @@ for.body53.lr.ph:                                 ; preds = %_ZN7testing15Assert
   %message_.i.i179 = getelementptr inbounds i8, ptr %gtest_ar90, i64 8
   br label %for.body53
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit105
-  %step.0342 = phi i32 [ 1, %for.body.lr.ph ], [ %add1.i, %_ZN7testing15AssertionResultD2Ev.exit105 ]
-  %index.0341 = phi i32 [ %lower_bound, %for.body.lr.ph ], [ %add, %_ZN7testing15AssertionResultD2Ev.exit105 ]
+for.body:                                         ; preds = %entry, %_ZN7testing15AssertionResultD2Ev.exit105
+  %step.0341 = phi i32 [ 1, %entry ], [ %add1.i, %_ZN7testing15AssertionResultD2Ev.exit105 ]
+  %index.0340 = phi i32 [ %lower_bound, %entry ], [ %add, %_ZN7testing15AssertionResultD2Ev.exit105 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
-  store i32 %index.0341, ptr %__args.addr.i, align 4, !noalias !675
+  store i32 %index.0340, ptr %__args.addr.i, align 4, !noalias !675
   %2 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !675
   %tobool.not.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit
@@ -22229,7 +22201,7 @@ invoke.cont:                                      ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i63)
-  store i32 %index.0341, ptr %__args.addr.i63, align 4
+  store i32 %index.0340, ptr %__args.addr.i63, align 4
   %5 = load ptr, ptr %_M_manager.i.i64, align 8
   %tobool.not.i.i65 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i65, label %if.then.i67, label %if.end.i
@@ -22519,12 +22491,12 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %if.end46, %_ZNKSt14
   store ptr null, ptr %message_.i.i86, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_694) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input) #20
-  %add = add nsw i32 %step.0342, %index.0341
-  %shr.i = ashr i32 %step.0342, 2
-  %add.i = add i32 %step.0342, 1
+  %add = add nsw i32 %step.0341, %index.0340
+  %shr.i = ashr i32 %step.0341, 2
+  %add.i = add i32 %step.0341, 1
   %add1.i = add i32 %add.i, %shr.i
   %cmp = icmp slt i32 %add, %upper_bound
-  br i1 %cmp, label %for.body, label %for.body53.lr.ph, !llvm.loop !686
+  br i1 %cmp, label %for.body, label %for.cond51.preheader, !llvm.loop !686
 
 ehcleanup47:                                      ; preds = %_ZN7testing7MessageD2Ev.exit101, %lpad27
   %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %_ZN7testing7MessageD2Ev.exit101 ], [ %29, %lpad27 ]
@@ -22536,12 +22508,12 @@ ehcleanup48:                                      ; preds = %lpad1.loopexit, %lp
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_694) #20
   br label %eh.resume
 
-for.body53:                                       ; preds = %for.body53.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit198
-  %step.1345 = phi i32 [ 1, %for.body53.lr.ph ], [ %add1.i201, %_ZN7testing15AssertionResultD2Ev.exit198 ]
-  %index.1344 = phi i32 [ %upper_bound, %for.body53.lr.ph ], [ %sub, %_ZN7testing15AssertionResultD2Ev.exit198 ]
+for.body53:                                       ; preds = %for.cond51.preheader, %_ZN7testing15AssertionResultD2Ev.exit198
+  %step.1343 = phi i32 [ 1, %for.cond51.preheader ], [ %add1.i201, %_ZN7testing15AssertionResultD2Ev.exit198 ]
+  %index.1342 = phi i32 [ %upper_bound, %for.cond51.preheader ], [ %sub, %_ZN7testing15AssertionResultD2Ev.exit198 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i106)
-  store i32 %index.1344, ptr %__args.addr.i106, align 4, !noalias !687
-  %36 = load ptr, ptr %_M_manager.i.i107, align 8, !noalias !687
+  store i32 %index.1342, ptr %__args.addr.i106, align 4, !noalias !687
+  %36 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !687
   %tobool.not.i.i108 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i108, label %if.then.i111, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit112
 
@@ -22550,7 +22522,7 @@ if.then.i111:                                     ; preds = %for.body53
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit112: ; preds = %for.body53
-  %37 = load ptr, ptr %_M_invoker.i110, align 8, !noalias !687
+  %37 = load ptr, ptr %_M_invoker.i, align 8, !noalias !687
   call void %37(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input54, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i106)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i106)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i113)
@@ -22571,8 +22543,8 @@ invoke.cont56:                                    ; preds = %.noexc115
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i113) #20
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i113)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i118)
-  store i32 %index.1344, ptr %__args.addr.i118, align 4
-  %39 = load ptr, ptr %_M_manager.i.i119, align 8
+  store i32 %index.1342, ptr %__args.addr.i118, align 4
+  %39 = load ptr, ptr %_M_manager.i.i64, align 8
   %tobool.not.i.i120 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i120, label %if.then.i123, label %if.end.i121
 
@@ -22584,7 +22556,7 @@ if.then.i123:                                     ; preds = %invoke.cont56
   unreachable
 
 if.end.i121:                                      ; preds = %invoke.cont56
-  %40 = load ptr, ptr %_M_invoker.i122, align 8
+  %40 = load ptr, ptr %_M_invoker.i66, align 8
   %call2.i125 = invoke noundef float %40(ptr noundef nonnull align 8 dereferenceable(16) %expected_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i118)
           to label %invoke.cont59 unwind label %lpad58.loopexit
 
@@ -22861,12 +22833,12 @@ _ZN7testing15AssertionResultD2Ev.exit198:         ; preds = %if.end115, %_ZNKSt1
   store ptr null, ptr %message_.i.i179, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input54) #20
-  %sub = sub nsw i32 %index.1344, %step.1345
-  %shr.i199 = ashr i32 %step.1345, 2
-  %add.i200 = add i32 %step.1345, 1
+  %sub = sub nsw i32 %index.1342, %step.1343
+  %shr.i199 = ashr i32 %step.1343, 2
+  %add.i200 = add i32 %step.1343, 1
   %add1.i201 = add i32 %add.i200, %shr.i199
   %cmp52 = icmp sgt i32 %sub, %lower_bound
-  br i1 %cmp52, label %for.body53, label %for.end121, !llvm.loop !698
+  br i1 %cmp52, label %for.body53, label %for.body125.lr.ph, !llvm.loop !698
 
 ehcleanup116:                                     ; preds = %_ZN7testing7MessageD2Ev.exit194, %lpad96
   %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %_ZN7testing7MessageD2Ev.exit194 ], [ %63, %lpad96 ]
@@ -22878,25 +22850,19 @@ ehcleanup117:                                     ; preds = %lpad58.loopexit, %l
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_707) #20
   br label %eh.resume
 
-for.end121:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit198, %entry
-  %cmp124346 = icmp sgt i32 %lower_bound, -999999
-  br i1 %cmp124346, label %for.body125.lr.ph, label %for.end184
-
-for.body125.lr.ph:                                ; preds = %for.end121
+for.body125.lr.ph:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit198
   %sub122 = add nsw i32 %lower_bound, -1
-  %_M_manager.i.i203 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i206 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %70 = getelementptr inbounds i8, ptr %result130, i64 8
   %message_.i.i221 = getelementptr inbounds i8, ptr %gtest_ar138, i64 8
   %message_.i.i245 = getelementptr inbounds i8, ptr %gtest_ar159, i64 8
   br label %for.body125
 
 for.body125:                                      ; preds = %for.body125.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit264
-  %step.2348 = phi i32 [ 1, %for.body125.lr.ph ], [ %add1.i267, %_ZN7testing15AssertionResultD2Ev.exit264 ]
-  %index.2347 = phi i32 [ %sub122, %for.body125.lr.ph ], [ %sub182, %_ZN7testing15AssertionResultD2Ev.exit264 ]
+  %step.2346 = phi i32 [ 1, %for.body125.lr.ph ], [ %add1.i267, %_ZN7testing15AssertionResultD2Ev.exit264 ]
+  %index.2345 = phi i32 [ %sub122, %for.body125.lr.ph ], [ %sub182, %_ZN7testing15AssertionResultD2Ev.exit264 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i202)
-  store i32 %index.2347, ptr %__args.addr.i202, align 4, !noalias !699
-  %71 = load ptr, ptr %_M_manager.i.i203, align 8, !noalias !699
+  store i32 %index.2345, ptr %__args.addr.i202, align 4, !noalias !699
+  %71 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !699
   %tobool.not.i.i204 = icmp eq ptr %71, null
   br i1 %tobool.not.i.i204, label %if.then.i207, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit208
 
@@ -22905,7 +22871,7 @@ if.then.i207:                                     ; preds = %for.body125
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit208: ; preds = %for.body125
-  %72 = load ptr, ptr %_M_invoker.i206, align 8, !noalias !699
+  %72 = load ptr, ptr %_M_invoker.i, align 8, !noalias !699
   call void %72(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input126, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i202)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i202)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i209)
@@ -23157,12 +23123,12 @@ _ZN7testing15AssertionResultD2Ev.exit264:         ; preds = %if.end177, %_ZNKSt1
   store ptr null, ptr %message_.i.i245, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_720) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input126) #20
-  %sub182 = sub nsw i32 %index.2347, %step.2348
-  %shr.i265 = ashr i32 %step.2348, 2
-  %add.i266 = add i32 %step.2348, 1
+  %sub182 = sub nsw i32 %index.2345, %step.2346
+  %shr.i265 = ashr i32 %step.2346, 2
+  %add.i266 = add i32 %step.2346, 1
   %add1.i267 = add i32 %add.i266, %shr.i265
   %cmp124 = icmp sgt i32 %sub182, -1000000
-  br i1 %cmp124, label %for.body125, label %for.end184, !llvm.loop !705
+  br i1 %cmp124, label %for.body125, label %for.body188.lr.ph, !llvm.loop !705
 
 ehcleanup178:                                     ; preds = %_ZN7testing7MessageD2Ev.exit260, %lpad166
   %.pn39.pn = phi { ptr, i32 } [ %.pn39, %_ZN7testing7MessageD2Ev.exit260 ], [ %93, %lpad166 ]
@@ -23174,25 +23140,19 @@ ehcleanup179:                                     ; preds = %ehcleanup178, %ehcl
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_720) #20
   br label %eh.resume
 
-for.end184:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit264, %for.end121
-  %cmp187349 = icmp slt i32 %upper_bound, 999999
-  br i1 %cmp187349, label %for.body188.lr.ph, label %for.end247
-
-for.body188.lr.ph:                                ; preds = %for.end184
+for.body188.lr.ph:                                ; preds = %_ZN7testing15AssertionResultD2Ev.exit264
   %add185 = add nuw nsw i32 %upper_bound, 1
-  %_M_manager.i.i269 = getelementptr inbounds i8, ptr %input_generator, i64 16
-  %_M_invoker.i272 = getelementptr inbounds i8, ptr %input_generator, i64 24
   %99 = getelementptr inbounds i8, ptr %result193, i64 8
   %message_.i.i287 = getelementptr inbounds i8, ptr %gtest_ar201, i64 8
   %message_.i.i314 = getelementptr inbounds i8, ptr %gtest_ar222, i64 8
   br label %for.body188
 
 for.body188:                                      ; preds = %for.body188.lr.ph, %_ZN7testing15AssertionResultD2Ev.exit333
-  %step.3351 = phi i32 [ 1, %for.body188.lr.ph ], [ %add1.i336, %_ZN7testing15AssertionResultD2Ev.exit333 ]
-  %index.3350 = phi i32 [ %add185, %for.body188.lr.ph ], [ %add245, %_ZN7testing15AssertionResultD2Ev.exit333 ]
+  %step.3349 = phi i32 [ 1, %for.body188.lr.ph ], [ %add1.i336, %_ZN7testing15AssertionResultD2Ev.exit333 ]
+  %index.3348 = phi i32 [ %add185, %for.body188.lr.ph ], [ %add245, %_ZN7testing15AssertionResultD2Ev.exit333 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i268)
-  store i32 %index.3350, ptr %__args.addr.i268, align 4, !noalias !706
-  %100 = load ptr, ptr %_M_manager.i.i269, align 8, !noalias !706
+  store i32 %index.3348, ptr %__args.addr.i268, align 4, !noalias !706
+  %100 = load ptr, ptr %_M_manager.i.i, align 8, !noalias !706
   %tobool.not.i.i270 = icmp eq ptr %100, null
   br i1 %tobool.not.i.i270, label %if.then.i273, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit274
 
@@ -23201,7 +23161,7 @@ if.then.i273:                                     ; preds = %for.body188
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEclEi.exit274: ; preds = %for.body188
-  %101 = load ptr, ptr %_M_invoker.i272, align 8, !noalias !706
+  %101 = load ptr, ptr %_M_invoker.i, align 8, !noalias !706
   call void %101(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %input189, ptr noundef nonnull align 8 dereferenceable(16) %input_generator, ptr noundef nonnull align 4 dereferenceable(4) %__args.addr.i268)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %__args.addr.i268)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i275)
@@ -23453,9 +23413,9 @@ _ZN7testing15AssertionResultD2Ev.exit333:         ; preds = %if.end240, %_ZNKSt1
   store ptr null, ptr %message_.i.i314, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_731) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input189) #20
-  %add245 = add nsw i32 %step.3351, %index.3350
-  %shr.i334 = ashr i32 %step.3351, 2
-  %add.i335 = add i32 %step.3351, 1
+  %add245 = add nsw i32 %step.3349, %index.3348
+  %shr.i334 = ashr i32 %step.3349, 2
+  %add.i335 = add i32 %step.3349, 1
   %add1.i336 = add i32 %add.i335, %shr.i334
   %cmp187 = icmp slt i32 %add245, 1000000
   br i1 %cmp187, label %for.body188, label %for.end247, !llvm.loop !712
@@ -23470,7 +23430,7 @@ ehcleanup242:                                     ; preds = %ehcleanup241, %ehcl
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_731) #20
   br label %eh.resume
 
-for.end247:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit333, %for.end184
+for.end247:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit333
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup242, %lpad.i276, %lpad190, %ehcleanup179, %lpad.i210, %lpad127, %ehcleanup117, %lpad.i114, %lpad55, %ehcleanup48, %lpad.i, %lpad

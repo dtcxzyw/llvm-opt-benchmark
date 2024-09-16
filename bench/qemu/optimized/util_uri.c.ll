@@ -121,7 +121,7 @@ land.lhs.true.i.i:                                ; preds = %if.end4.i
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   %add.ptr5.i.i = getelementptr i8, ptr %.pn.i.i, i64 4
   store ptr %add.ptr5.i.i, ptr %cur.i.i, align 8
-  %call.i13.i = call fastcc i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef nonnull %cur.i.i)
+  %call.i13.i = call fastcc i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef %cur.i.i)
   %cmp6.not.i.i = icmp eq i32 %call.i13.i, 0
   br i1 %cmp6.not.i.i, label %if.end.i.i, label %rfc3986_parse_hier_part.exit.thread.i
 
@@ -140,7 +140,7 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i
   %incdec.ptr.i.i.i = getelementptr i8, ptr %12, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %cur.i.i.i, align 8
-  %call.i.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i.i.i, i8 noundef signext 0, i32 noundef 1)
+  %call.i.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i.i.i, i8 noundef signext 0, i32 noundef 1)
   %cmp2.not.i.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.not.i.i.i, label %while.cond.i.i.i, label %rfc3986_parse_path_ab_empty.exit.i.i, !llvm.loop !7
 
@@ -187,7 +187,7 @@ if.end13.i.i:                                     ; preds = %if.end23.sink.split
   br label %if.end9.i
 
 if.then17.i.i:                                    ; preds = %land.lhs.true.i.i
-  %call18.i.i = call fastcc i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef nonnull %cur.i.i)
+  %call18.i.i = call fastcc i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef %cur.i.i)
   %cmp19.not.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %cmp19.not.i.i, label %if.then17.if.end192_crit_edge.i.i, label %rfc3986_parse_hier_part.exit.thread.i
 
@@ -277,7 +277,7 @@ switch.early.test49.i.i:                          ; preds = %land.lhs.true96.i.i
 if.then178.i.i:                                   ; preds = %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %switch.early.test49.i.i, %land.lhs.true96.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %lor.lhs.false46.i.i, %if.else23.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cur.i24.i.i)
   store ptr %incdec.ptr.i, ptr %cur.i24.i.i, align 8
-  %call.i25.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i24.i.i, i8 noundef signext 0, i32 noundef 0)
+  %call.i25.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i24.i.i, i8 noundef signext 0, i32 noundef 0)
   %cmp.not.i.i.i = icmp eq i32 %call.i25.i.i, 0
   br i1 %cmp.not.i.i.i, label %while.cond.i27.i.i, label %rfc3986_parse_path_rootless.exit.thread.i.i
 
@@ -290,7 +290,7 @@ while.cond.i27.i.i:                               ; preds = %if.then178.i.i, %wh
 while.body.i36.i.i:                               ; preds = %while.cond.i27.i.i
   %incdec.ptr.i37.i.i = getelementptr i8, ptr %23, i64 1
   store ptr %incdec.ptr.i37.i.i, ptr %cur.i24.i.i, align 8
-  %call3.i.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i24.i.i, i8 noundef signext 0, i32 noundef 1)
+  %call3.i.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i24.i.i, i8 noundef signext 0, i32 noundef 1)
   %cmp4.not.i38.i.i = icmp eq i32 %call3.i.i.i, 0
   br i1 %cmp4.not.i38.i.i, label %while.cond.i27.i.i, label %rfc3986_parse_path_rootless.exit.thread.i.i, !llvm.loop !8
 
@@ -360,7 +360,7 @@ if.end9.i:                                        ; preds = %if.then187.i.i, %if
 if.then13.i:                                      ; preds = %if.end9.i
   %incdec.ptr14.i = getelementptr i8, ptr %storemerge.i, i64 1
   store ptr %incdec.ptr14.i, ptr %str.addr.i, align 8
-  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef nonnull %str.addr.i)
+  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef %str.addr.i)
   %.pre24.i = load ptr, ptr %str.addr.i, align 8
   %.pre25.i = load i8, ptr %.pre24.i, align 1
   br label %if.end20.i
@@ -374,7 +374,7 @@ if.end20.i:                                       ; preds = %if.then13.i, %if.en
 if.then24.i:                                      ; preds = %if.end20.i
   %incdec.ptr25.i = getelementptr i8, ptr %30, i64 1
   store ptr %incdec.ptr25.i, ptr %str.addr.i, align 8
-  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef nonnull %str.addr.i)
+  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef %str.addr.i)
   %.pre26.i = load ptr, ptr %str.addr.i, align 8
   %.pre27.i = load i8, ptr %.pre26.i, align 1
   br label %if.end31.i
@@ -410,7 +410,7 @@ land.lhs.true.i:                                  ; preds = %if.then2
 if.then.i:                                        ; preds = %land.lhs.true.i
   %add.ptr5.i = getelementptr i8, ptr %str, i64 2
   store ptr %add.ptr5.i, ptr %str.addr.i10, align 8
-  %call.i = call fastcc i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef nonnull %str.addr.i10)
+  %call.i = call fastcc i32 @rfc3986_parse_authority(ptr noundef %uri, ptr noundef %str.addr.i10)
   %cmp6.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp6.not.i, label %if.end.i14, label %if.then5
 
@@ -429,7 +429,7 @@ while.cond.i.i15:                                 ; preds = %while.body.i.i19, %
 while.body.i.i19:                                 ; preds = %while.cond.i.i15
   %incdec.ptr.i.i = getelementptr i8, ptr %35, i64 1
   store ptr %incdec.ptr.i.i, ptr %cur.i.i9, align 8
-  %call.i.i20 = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i.i9, i8 noundef signext 0, i32 noundef 1)
+  %call.i.i20 = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i.i9, i8 noundef signext 0, i32 noundef 1)
   %cmp2.not.i.i = icmp eq i32 %call.i.i20, 0
   br i1 %cmp2.not.i.i, label %while.cond.i.i15, label %rfc3986_parse_path_ab_empty.exit.i, !llvm.loop !7
 
@@ -477,7 +477,7 @@ rfc3986_parse_path_ab_empty.exit.i:               ; preds = %while.body.i.i19
   br label %if.then5
 
 if.then17.i:                                      ; preds = %land.lhs.true.i
-  %call18.i = call fastcc i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef nonnull %str.addr.i10)
+  %call18.i = call fastcc i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr noundef %str.addr.i10)
   %cmp19.not.i = icmp eq i32 %call18.i, 0
   br i1 %cmp19.not.i, label %if.then17.if.end192_crit_edge.i, label %if.then5
 
@@ -567,7 +567,7 @@ switch.early.test54.i:                            ; preds = %land.lhs.true96.i
 if.then178.i:                                     ; preds = %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %switch.early.test54.i, %land.lhs.true96.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %lor.lhs.false46.i, %if.else23.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cur.i29.i)
   store ptr %str, ptr %cur.i29.i, align 8
-  %call.i30.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i29.i, i8 noundef signext 58, i32 noundef 0)
+  %call.i30.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i29.i, i8 noundef signext 58, i32 noundef 0)
   %cmp.not.i.i = icmp eq i32 %call.i30.i, 0
   br i1 %cmp.not.i.i, label %while.cond.i32.i, label %rfc3986_parse_path_no_scheme.exit.thread.i
 
@@ -580,7 +580,7 @@ while.cond.i32.i:                                 ; preds = %if.then178.i, %whil
 while.body.i41.i:                                 ; preds = %while.cond.i32.i
   %incdec.ptr.i42.i = getelementptr i8, ptr %46, i64 1
   store ptr %incdec.ptr.i42.i, ptr %cur.i29.i, align 8
-  %call3.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur.i29.i, i8 noundef signext 0, i32 noundef 1)
+  %call3.i.i = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur.i29.i, i8 noundef signext 0, i32 noundef 1)
   %cmp4.not.i43.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.not.i43.i, label %while.cond.i32.i, label %rfc3986_parse_path_no_scheme.exit.thread.i, !llvm.loop !9
 
@@ -647,7 +647,7 @@ if.end192.i:                                      ; preds = %if.then187.i, %if.e
 if.then196.i:                                     ; preds = %if.end192.i
   %incdec.ptr.i12 = getelementptr i8, ptr %51, i64 1
   store ptr %incdec.ptr.i12, ptr %str.addr.i10, align 8
-  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef nonnull %str.addr.i10)
+  call fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr noundef %str.addr.i10)
   %.pre63.i = load ptr, ptr %str.addr.i10, align 8
   %.pre64.i = load i8, ptr %.pre63.i, align 1
   br label %if.end202.i
@@ -661,7 +661,7 @@ if.end202.i:                                      ; preds = %if.then196.i, %if.e
 if.then206.i:                                     ; preds = %if.end202.i
   %incdec.ptr207.i = getelementptr i8, ptr %54, i64 1
   store ptr %incdec.ptr207.i, ptr %str.addr.i10, align 8
-  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef nonnull %str.addr.i10)
+  call fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr noundef %str.addr.i10)
   %.pre65.i = load ptr, ptr %str.addr.i10, align 8
   %.pre66.i = load i8, ptr %.pre65.i, align 1
   br label %if.end213.i
@@ -3293,7 +3293,7 @@ return:                                           ; preds = %next, %entry, %lor.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_query(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp160.not = icmp eq ptr %uri, null
@@ -3515,7 +3515,7 @@ if.end203:                                        ; preds = %lor.lhs.false21.us,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
+define internal fastcc void @rfc3986_parse_fragment(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %cmp168.not = icmp eq ptr %uri, null
@@ -3756,7 +3756,7 @@ if.end222:                                        ; preds = %lor.lhs.false21.us,
 declare noalias ptr @g_strndup(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_authority(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %cur.i = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8
@@ -4014,7 +4014,7 @@ if.end36.i:                                       ; preds = %if.then110.i42.i, %
   br i1 %cmp38.not.i, label %if.end41.i, label %while.cond58.i.preheader
 
 if.end41.i:                                       ; preds = %if.end36.i
-  %call42.i = call fastcc i32 @rfc3986_parse_dec_octet(ptr noundef nonnull %cur.i)
+  %call42.i = call fastcc i32 @rfc3986_parse_dec_octet(ptr noundef %cur.i)
   %cmp43.not.i = icmp eq i32 %call42.i, 0
   br i1 %cmp43.not.i, label %if.end46.i, label %while.cond58.i.preheader
 
@@ -4025,7 +4025,7 @@ if.end46.i:                                       ; preds = %if.end41.i
   br i1 %cmp48.not.i, label %if.end51.i, label %while.cond58.i.preheader
 
 if.end51.i:                                       ; preds = %if.end46.i
-  %call52.i = call fastcc i32 @rfc3986_parse_dec_octet(ptr noundef nonnull %cur.i)
+  %call52.i = call fastcc i32 @rfc3986_parse_dec_octet(ptr noundef %cur.i)
   %cmp53.not.i = icmp eq i32 %call52.i, 0
   br i1 %cmp53.not.i, label %found.i, label %while.cond58.i.preheader
 
@@ -4223,7 +4223,7 @@ return:                                           ; preds = %while.body.i20, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr nocapture noundef %str) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_path_absolute(ptr noundef %uri, ptr nocapture noundef nonnull %str) unnamed_addr #0 {
 entry:
   %cur = alloca ptr, align 8
   %0 = load ptr, ptr %str, align 8
@@ -4234,7 +4234,7 @@ entry:
 if.end:                                           ; preds = %entry
   %incdec.ptr = getelementptr i8, ptr %0, i64 1
   store ptr %incdec.ptr, ptr %cur, align 8
-  %call = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur, i8 noundef signext 0, i32 noundef 0)
+  %call = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur, i8 noundef signext 0, i32 noundef 0)
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %while.cond, label %if.end14
 
@@ -4247,7 +4247,7 @@ while.cond:                                       ; preds = %if.end, %while.body
 while.body:                                       ; preds = %while.cond
   %incdec.ptr8 = getelementptr i8, ptr %2, i64 1
   store ptr %incdec.ptr8, ptr %cur, align 8
-  %call9 = call fastcc i32 @rfc3986_parse_segment(ptr noundef nonnull %cur, i8 noundef signext 0, i32 noundef 1)
+  %call9 = call fastcc i32 @rfc3986_parse_segment(ptr noundef %cur, i8 noundef signext 0, i32 noundef 1)
   %cmp10.not = icmp eq i32 %call9, 0
   br i1 %cmp10.not, label %while.cond, label %return, !llvm.loop !46
 
@@ -4304,7 +4304,7 @@ return:                                           ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_dec_octet(ptr nocapture noundef %str) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_dec_octet(ptr nocapture noundef nonnull %str) unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %1 = load i8, ptr %0, align 1
@@ -4367,7 +4367,7 @@ return:                                           ; preds = %if.else39, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_segment(ptr nocapture noundef %str, i8 noundef signext %forbid, i32 noundef %empty) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @rfc3986_parse_segment(ptr nocapture noundef nonnull %str, i8 noundef signext range(i8 0, 59) %forbid, i32 noundef range(i32 0, 2) %empty) unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %str, align 8
   %1 = load i8, ptr %0, align 1
@@ -4450,8 +4450,7 @@ switch.early.test107:                             ; preds = %land.lhs.true69
   ]
 
 if.then:                                          ; preds = %switch.early.test107, %switch.early.test, %lor.lhs.false20
-  %tobool.not = icmp eq i32 %empty, 0
-  %. = zext i1 %tobool.not to i32
+  %. = xor i32 %empty, 1
   br label %return
 
 if.end152:                                        ; preds = %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %switch.early.test107, %land.lhs.true69, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %lor.lhs.false20, %entry

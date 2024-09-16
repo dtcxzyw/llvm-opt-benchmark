@@ -419,7 +419,7 @@ if.then15:                                        ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef nonnull %state, ptr noundef %status)
+  %call = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.033, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.030, i32 noundef %runLength.031, ptr noundef %state, ptr noundef %status)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then15, %if.else
@@ -434,7 +434,7 @@ for.end:                                          ; preds = %for.inc, %if.then3
   %runValue.0.lcssa = phi i8 [ %0, %if.then3 ], [ %runValue.1, %for.inc ]
   %runLength.0.lcssa = phi i32 [ 1, %if.then3 ], [ %runLength.1, %for.inc ]
   %buffer.addr.0.lcssa = phi ptr [ %incdec.ptr5, %if.then3 ], [ %buffer.addr.1, %for.inc ]
-  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef nonnull %state, ptr noundef %status)
+  %call18 = call fastcc ptr @encodeRunByte(ptr noundef %buffer.addr.0.lcssa, ptr noundef nonnull %add.ptr, i8 noundef zeroext %runValue.0.lcssa, i32 noundef %runLength.0.lcssa, ptr noundef %state, ptr noundef %status)
   %2 = load i8, ptr %state, align 2
   %cmp21.not = icmp eq i8 %2, 0
   br i1 %cmp21.not, label %if.end30, label %if.then23
@@ -484,7 +484,7 @@ if.end30:                                         ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @encodeRunByte(ptr noundef writeonly %buffer, ptr noundef readnone %bufLimit, i8 noundef zeroext %value, i32 noundef %length, ptr nocapture noundef %state, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc ptr @encodeRunByte(ptr noundef writeonly %buffer, ptr noundef readnone %bufLimit, i8 noundef zeroext %value, i32 noundef %length, ptr nocapture noundef nonnull %state, ptr noundef %status) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %status, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

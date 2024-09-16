@@ -12725,7 +12725,7 @@ entry:
 declare i32 @getTimeoutFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pauseClientsByClient(i64 noundef %endTime, i32 noundef %isPauseClientAll) unnamed_addr #0 {
+define internal fastcc void @pauseClientsByClient(i64 noundef %endTime, i32 noundef range(i32 0, 2) %isPauseClientAll) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %isPauseClientAll, 0
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1544), align 8

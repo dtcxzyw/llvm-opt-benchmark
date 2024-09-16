@@ -7523,7 +7523,7 @@ declare float @llvm.sqrt.f32(float) #9
 declare void @llvm.x86.sse.sfence() #21
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @backtransform(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #22 {
+define internal fastcc void @backtransform(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #22 {
   %6 = load float, ptr %4, align 4, !tbaa !12
   %7 = load float, ptr %3, align 4, !tbaa !12
   %8 = fdiv reassoc nsz arcp contract afn float %6, %7
@@ -7807,7 +7807,7 @@ define internal fastcc void @backtransform(ptr nocapture noundef %0, i32 noundef
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @backtransform_v2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr nocapture noundef readonly %4, float noundef %5, float noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #22 {
+define internal fastcc void @backtransform_v2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, ptr nocapture noundef nonnull readonly %4, float noundef %5, float noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #22 {
   %9 = sext i32 %1 to i64
   %10 = sext i32 %2 to i64
   %11 = load float, ptr %4, align 4, !tbaa !12
@@ -8209,7 +8209,7 @@ common.ret1:                                      ; preds = %33, %19, %7, %5, %4
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @variance_rec(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #23 {
+define internal fastcc void @variance_rec(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #23 {
   %5 = icmp ult i64 %0, 4
   br i1 %5, label %6, label %86
 

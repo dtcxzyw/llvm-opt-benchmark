@@ -12871,7 +12871,7 @@ _ZN3ue221insertion_ordered_mapINS_7left_idESt6vectorINS_12graph_detail17vertex_d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L13get_eng_vertsERNS_9RoseGraphE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L13get_eng_vertsERNS_9RoseGraphE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(56) %g) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ref.tmp8.i = alloca %"struct.std::pair.261", align 8
   %ref.tmp15 = alloca %"struct.ue2::left_id", align 8
@@ -13440,7 +13440,7 @@ cleanup:                                          ; preds = %_ZN5boost9container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L5chunkINS_7left_idEEEvSt6vectorIT_SaIS3_EEPS2_IS5_SaIS5_EEm(ptr noundef %in, ptr noundef %out, i64 noundef %chunk_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L5chunkINS_7left_idEEEvSt6vectorIT_SaIS3_EEPS2_IS5_SaIS5_EEm(ptr noundef nonnull %in, ptr noundef nonnull %out, i64 noundef range(i64 200, 1001) %chunk_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.301", align 8
   %ref.tmp11 = alloca %"class.std::vector.301", align 8
@@ -31332,7 +31332,7 @@ _ZNSt6vectorIPN3ue28NGHolderESaIS2_EED2Ev.exit206: ; preds = %if.then.i.i.i205, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16mergeOutfixHaigsERNS_13RoseBuildImplERSt6vectorIPNS_11raw_som_dfaESaIS4_EEj(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dfas, i32 noundef %limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L16mergeOutfixHaigsERNS_13RoseBuildImplERSt6vectorIPNS_11raw_som_dfaESaIS4_EEj(ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dfas, i32 noundef range(i32 255, 8193) %limit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i157 = alloca %"class.boost::variant", align 8
   %temp.i = alloca %"class.boost::variant", align 8

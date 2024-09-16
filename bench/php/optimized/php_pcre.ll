@@ -970,7 +970,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc void @pcre_handle_exec_error(i32 noundef %0) unnamed_addr #3 {
+define internal fastcc void @pcre_handle_exec_error(i32 noundef range(i32 0, -1) %0) unnamed_addr #3 {
   switch i32 %0, label %5 [
     i32 -47, label %7
     i32 -53, label %2
@@ -1725,7 +1725,7 @@ free_subpats_table.exit523:                       ; preds = %173, %160
   %270 = call ptr @_zend_new_array(i32 noundef %269) #23
   store ptr %270, ptr %8, align 8
   store i32 775, ptr %144, align 8
-  call fastcc void @populate_subpat_array(ptr noundef nonnull %8, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %267, i64 noundef %5)
+  call fastcc void @populate_subpat_array(ptr noundef %8, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %267, i64 noundef %5)
   %271 = load ptr, ptr %.0433, align 8
   %272 = call ptr @zend_hash_next_index_insert_new(ptr noundef %271, ptr noundef nonnull %8) #23
   br label %.loopexit542
@@ -1733,7 +1733,7 @@ free_subpats_table.exit523:                       ; preds = %173, %160
 273:                                              ; preds = %178
   %274 = trunc nsw i64 %indvars.iv.next653 to i32
   %275 = call ptr @php_pcre2_get_mark(ptr noundef %.0456) #23
-  call fastcc void @populate_subpat_array(ptr noundef nonnull %.0433, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %275, i64 noundef %5)
+  call fastcc void @populate_subpat_array(ptr noundef %.0433, ptr noundef nonnull %16, ptr noundef nonnull %105, ptr noundef %.0440, i32 noundef %61, i32 noundef %.3, ptr noundef %275, i64 noundef %5)
   br label %.loopexit549
 
 .loopexit542:                                     ; preds = %.preheader541.split, %.preheader541.split.us.split, %.preheader541.split.us.split.us, %248, %266, %154
@@ -2162,7 +2162,7 @@ declare i32 @php_pcre2_jit_match(ptr noundef, ptr noundef, i64 noundef, i64 noun
 declare i32 @php_pcre2_match(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_offset_pair(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 0, 513) %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8
@@ -2355,7 +2355,7 @@ declare ptr @zend_hash_index_add_new(ptr noundef, i64 noundef, ptr noundef) loca
 declare ptr @_zend_new_array(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @populate_subpat_array(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc void @populate_subpat_array(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._zval_struct, align 8
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
@@ -4216,7 +4216,7 @@ define internal fastcc void @_preg_replace_common(ptr nocapture noundef writeonl
 
 36:                                               ; preds = %19
   tail call void @llvm.assume(i1 %14)
-  %37 = call fastcc ptr @php_pcre_replace_array(ptr noundef nonnull %1, ptr noundef %4, ptr noundef %3, ptr noundef nonnull %6, i64 noundef %7, ptr noundef nonnull %11)
+  %37 = call fastcc ptr @php_pcre_replace_array(ptr noundef %1, ptr noundef %4, ptr noundef %3, ptr noundef nonnull %6, i64 noundef %7, ptr noundef %11)
   br label %php_pcre_replace.exit
 
 php_pcre_replace.exit:                            ; preds = %29, %36
@@ -4361,7 +4361,7 @@ php_pcre_replace.exit:                            ; preds = %29, %36
 
 108:                                              ; preds = %92
   call void @llvm.assume(i1 %14)
-  %109 = call fastcc ptr @php_pcre_replace_array(ptr noundef nonnull %1, ptr noundef %4, ptr noundef %3, ptr noundef %.0153, i64 noundef %7, ptr noundef nonnull %11)
+  %109 = call fastcc ptr @php_pcre_replace_array(ptr noundef %1, ptr noundef %4, ptr noundef %3, ptr noundef %.0153, i64 noundef %7, ptr noundef %11)
   br label %php_pcre_replace.exit189
 
 php_pcre_replace.exit189:                         ; preds = %101, %108
@@ -4635,7 +4635,7 @@ define hidden void @zif_preg_replace_callback(ptr noundef %0, ptr nocapture noun
   %62 = load ptr, ptr %3, align 8
   %63 = load ptr, ptr %4, align 8
   %64 = load i64, ptr %5, align 8
-  %65 = call fastcc i64 @preg_replace_func_impl(ptr noundef %1, ptr noundef %62, ptr noundef %.2247, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %63, ptr noundef %.2229251, i64 noundef %64, i64 noundef %61)
+  %65 = call fastcc i64 @preg_replace_func_impl(ptr noundef %1, ptr noundef %62, ptr noundef %.2247, ptr noundef %7, ptr noundef %8, ptr noundef %63, ptr noundef %.2229251, i64 noundef %64, i64 noundef %61)
   %.not238 = icmp eq ptr %.0225288, null
   br i1 %.not238, label %75, label %66
 
@@ -4667,7 +4667,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %10, align 8
@@ -4675,7 +4675,7 @@ define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeon
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %9
-  %13 = call fastcc ptr @php_replace_in_subject_func(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %10, i64 noundef %8)
+  %13 = call fastcc ptr @php_replace_in_subject_func(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, i64 noundef %7, ptr noundef %10, i64 noundef %8)
   %.not103 = icmp eq ptr %13, null
   br i1 %.not103, label %.loopexit.sink.split, label %14
 
@@ -4756,7 +4756,7 @@ define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeon
 51:                                               ; preds = %49, %47
   %.091 = phi ptr [ null, %47 ], [ %50, %49 ]
   %.0 = phi ptr [ %48, %47 ], [ %50, %49 ]
-  %52 = call fastcc ptr @php_replace_in_subject_func(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.0, i64 noundef %7, ptr noundef nonnull %10, i64 noundef %8)
+  %52 = call fastcc ptr @php_replace_in_subject_func(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.0, i64 noundef %7, ptr noundef %10, i64 noundef %8)
   %.not98 = icmp eq ptr %52, null
   br i1 %.not98, label %62, label %53
 
@@ -5031,7 +5031,7 @@ define hidden void @zif_preg_replace_callback_array(ptr noundef %0, ptr nocaptur
   %93 = load ptr, ptr %4, align 8
   %94 = load i64, ptr %5, align 8
   %95 = load i64, ptr %6, align 8
-  %96 = call fastcc i64 @preg_replace_func_impl(ptr noundef nonnull %3, ptr noundef nonnull %.1286, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %93, ptr noundef %.3390, i64 noundef %94, i64 noundef %95)
+  %96 = call fastcc i64 @preg_replace_func_impl(ptr noundef nonnull %3, ptr noundef nonnull %.1286, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %93, ptr noundef %.3390, i64 noundef %94, i64 noundef %95)
   %97 = add i64 %96, %.0277395
   %98 = load i8, ptr %71, align 8
   switch i8 %98, label %130 [
@@ -6974,7 +6974,7 @@ declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_pcre_replace_array(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @php_pcre_replace_array(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
@@ -7095,7 +7095,7 @@ define internal fastcc ptr @php_pcre_replace_array(ptr nocapture noundef readonl
   %68 = load i32, ptr %67, align 8
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 8
-  %70 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %64, ptr noundef nonnull %.0132182, ptr noundef nonnull %59, i64 noundef %61, ptr noundef %.0131, i64 noundef %4, ptr noundef %5)
+  %70 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %64, ptr noundef nonnull %.0132182, ptr noundef nonnull %59, i64 noundef %61, ptr noundef %.0131, i64 noundef %4, ptr noundef nonnull %5)
   %71 = load i32, ptr %67, align 8
   %72 = add i32 %71, -1
   store i32 %72, ptr %67, align 8
@@ -7241,7 +7241,7 @@ php_pcre_replace.exit:                            ; preds = %58, %63, %66
   %137 = load i32, ptr %136, align 8
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 8
-  %139 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %133, ptr noundef nonnull %.3186, ptr noundef nonnull %128, i64 noundef %130, ptr noundef nonnull %1, i64 noundef %4, ptr noundef %5)
+  %139 = tail call ptr @php_pcre_replace_impl(ptr noundef nonnull %133, ptr noundef nonnull %.3186, ptr noundef nonnull %128, i64 noundef %130, ptr noundef nonnull %1, i64 noundef %4, ptr noundef nonnull %5)
   %140 = load i32, ptr %136, align 8
   %141 = add i32 %140, -1
   store i32 %141, ptr %136, align 8
@@ -7315,7 +7315,7 @@ declare void @zend_release_fcall_info_cache(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef nonnull %6, i64 noundef %7) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %9
 
@@ -7332,7 +7332,7 @@ define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noun
   %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = getelementptr inbounds i8, ptr %4, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef nonnull %10, ptr noundef %4, ptr noundef nonnull %16, i64 noundef %18, ptr noundef %2, ptr noundef %3, i64 noundef %5, ptr noundef %6, i64 noundef %7)
+  %19 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef %10, ptr noundef %4, ptr noundef nonnull %16, i64 noundef %18, ptr noundef %2, ptr noundef %3, i64 noundef %5, ptr noundef %6, i64 noundef %7)
   %20 = load i32, ptr %13, align 8
   %21 = add i32 %20, -1
   store i32 %21, ptr %13, align 8
@@ -7405,7 +7405,7 @@ define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noun
   %54 = getelementptr inbounds i8, ptr %.097110, i64 24
   %55 = getelementptr inbounds i8, ptr %.097110, i64 16
   %56 = load i64, ptr %55, align 8
-  %57 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef nonnull %48, ptr noundef %.097110, ptr noundef nonnull %54, i64 noundef %56, ptr noundef %2, ptr noundef %3, i64 noundef %5, ptr noundef %6, i64 noundef %7)
+  %57 = tail call fastcc ptr @php_pcre_replace_func_impl(ptr noundef %48, ptr noundef %.097110, ptr noundef nonnull %54, i64 noundef %56, ptr noundef %2, ptr noundef %3, i64 noundef %5, ptr noundef %6, i64 noundef %7)
   %58 = load i32, ptr %51, align 8
   %59 = add i32 %58, -1
   store i32 %59, ptr %51, align 8
@@ -7482,7 +7482,7 @@ define internal fastcc ptr @php_replace_in_subject_func(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_pcre_replace_func_impl(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc ptr @php_pcre_replace_func_impl(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %6, ptr nocapture noundef nonnull %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca %struct._zval_struct, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7691,11 +7691,11 @@ free_subpats_table.exit:                          ; preds = %44, %31
   %104 = call ptr @_zend_new_array(i32 noundef %103) #23
   store ptr %104, ptr %11, align 8
   store i32 775, ptr %70, align 8
-  call fastcc void @populate_subpat_array(ptr noundef nonnull %11, ptr noundef readonly %2, ptr noundef nonnull readonly %51, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %101, i64 noundef %8)
+  call fastcc void @populate_subpat_array(ptr noundef %11, ptr noundef readonly %2, ptr noundef nonnull readonly %51, ptr noundef %.0501, i32 noundef %14, i32 noundef %.3505, ptr noundef %101, i64 noundef %8)
   store ptr %10, ptr %71, align 8
   store i32 1, ptr %72, align 8
   store ptr %11, ptr %73, align 8
-  %105 = call i32 @zend_call_function(ptr noundef %4, ptr noundef %5) #23
+  %105 = call i32 @zend_call_function(ptr noundef nonnull %4, ptr noundef nonnull %5) #23
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %107, label %113
 
@@ -8219,7 +8219,7 @@ declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #1
 declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc void @php_pcre_init_pcre2(i8 noundef zeroext range(i8 0, 2) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @gctx, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %5

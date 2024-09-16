@@ -478,7 +478,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
 
 invoke.cont72:                                    ; preds = %invoke.cont66
   %16 = load ptr, ptr %printer, align 8
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %service, ptr noundef nonnull %16, ptr noundef nonnull %vars, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %service, ptr noundef %16, ptr noundef %vars, i1 noundef zeroext true)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont72
@@ -714,7 +714,7 @@ invoke.cont36.i:                                  ; preds = %invoke.cont30.i
           to label %invoke.cont39.i unwind label %lpad38.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont36.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp32.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp37.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp32.i, ptr noundef %agg.tmp.i, ptr noundef %agg.tmp37.i, i1 noundef zeroext false)
           to label %invoke.cont41.i unwind label %lpad40.i
 
 invoke.cont41.i:                                  ; preds = %invoke.cont39.i
@@ -793,11 +793,11 @@ if.then.i.i.i.i:                                  ; preds = %invoke.cont.i.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %invoke.cont.i.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef nonnull %vars.i)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef %vars.i)
           to label %invoke.cont55.i unwind label %lpad14.i
 
 invoke.cont55.i:                                  ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef nonnull %vars.i)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef %vars.i)
           to label %if.end.i unwind label %lpad14.i
 
 lpad.i55:                                         ; preds = %for.body.i, %for.cond.i
@@ -996,7 +996,7 @@ invoke.cont88.i:                                  ; preds = %invoke.cont79.i
           to label %invoke.cont91.i unwind label %lpad90.i
 
 invoke.cont91.i:                                  ; preds = %invoke.cont88.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp83.i, ptr noundef nonnull %agg.tmp84.i, ptr noundef nonnull %agg.tmp89.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp83.i, ptr noundef %agg.tmp84.i, ptr noundef %agg.tmp89.i, i1 noundef zeroext false)
           to label %invoke.cont93.i unwind label %lpad92.i
 
 invoke.cont93.i:                                  ; preds = %invoke.cont91.i
@@ -1075,11 +1075,11 @@ if.then.i.i.i98.i:                                ; preds = %invoke.cont.i96.i
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit99.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit99.i: ; preds = %if.then.i.i.i98.i, %invoke.cont.i96.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %17, ptr noundef nonnull %vars.i)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef %vars.i)
           to label %invoke.cont107.i unwind label %lpad14.i
 
 invoke.cont107.i:                                 ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit99.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %17, ptr noundef nonnull %vars.i)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %17, ptr noundef %vars.i)
           to label %if.end109.i unwind label %lpad14.i
 
 lpad74.i:                                         ; preds = %call.i.noexc75.i, %invoke.cont69.i
@@ -1474,7 +1474,7 @@ invoke.cont47.i103:                               ; preds = %invoke.cont37.i
           to label %invoke.cont53.i unwind label %lpad52.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont47.i103
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp43.i62, ptr noundef nonnull %agg.tmp.i63, ptr noundef nonnull %agg.tmp48.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp43.i62, ptr noundef %agg.tmp.i63, ptr noundef %agg.tmp48.i, i1 noundef zeroext false)
           to label %invoke.cont55.i104 unwind label %lpad54.i
 
 invoke.cont55.i104:                               ; preds = %invoke.cont53.i
@@ -1569,7 +1569,7 @@ invoke.cont74.i:                                  ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont80.i unwind label %lpad79.i
 
 invoke.cont80.i:                                  ; preds = %invoke.cont74.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp69.i, ptr noundef nonnull %agg.tmp70.i, ptr noundef nonnull %agg.tmp75.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp69.i, ptr noundef %agg.tmp70.i, ptr noundef %agg.tmp75.i, i1 noundef zeroext false)
           to label %invoke.cont82.i unwind label %lpad81.i
 
 invoke.cont82.i:                                  ; preds = %invoke.cont80.i
@@ -2415,7 +2415,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %service, ptr noundef %printer, ptr nocapture noundef readonly %dictonary, i1 noundef zeroext %grpc_var_import) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef %service, ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary, i1 noundef zeroext %grpc_var_import) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -2695,7 +2695,7 @@ invoke.cont59:                                    ; preds = %invoke.cont53
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont59
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp55, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp60, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp55, ptr noundef %agg.tmp, ptr noundef %agg.tmp60, i1 noundef zeroext true)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont62
@@ -2765,7 +2765,7 @@ invoke.cont83:                                    ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %invoke.cont83
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef nonnull %agg.tmp79, ptr noundef nonnull %agg.tmp84, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp78, ptr noundef %agg.tmp79, ptr noundef %agg.tmp84, i1 noundef zeroext false)
           to label %invoke.cont88 unwind label %lpad87
 
 invoke.cont88:                                    ; preds = %invoke.cont86
@@ -3036,7 +3036,7 @@ invoke.cont122:                                   ; preds = %invoke.cont114
           to label %invoke.cont125 unwind label %lpad124
 
 invoke.cont125:                                   ; preds = %invoke.cont122
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp117, ptr noundef nonnull %agg.tmp118, ptr noundef nonnull %agg.tmp123, i1 noundef zeroext true)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp117, ptr noundef %agg.tmp118, ptr noundef %agg.tmp123, i1 noundef zeroext true)
           to label %invoke.cont127 unwind label %lpad126
 
 invoke.cont127:                                   ; preds = %invoke.cont125
@@ -3106,7 +3106,7 @@ invoke.cont146:                                   ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %invoke.cont146
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp141, ptr noundef nonnull %agg.tmp142, ptr noundef nonnull %agg.tmp147, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp141, ptr noundef %agg.tmp142, ptr noundef %agg.tmp147, i1 noundef zeroext false)
           to label %invoke.cont151 unwind label %lpad150
 
 invoke.cont151:                                   ; preds = %invoke.cont149
@@ -3766,7 +3766,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
 
 invoke.cont72:                                    ; preds = %invoke.cont66
   %17 = load ptr, ptr %printer, align 8
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %service, ptr noundef nonnull %17, ptr noundef nonnull %vars, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateImportsEPKN14grpc_generator7ServiceEPNS1_7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_St4lessISD_ESaISt4pairIKSD_SD_EEEb(ptr noundef nonnull %service, ptr noundef %17, ptr noundef %vars, i1 noundef zeroext false)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont72
@@ -4308,7 +4308,7 @@ invoke.cont69.i.i:                                ; preds = %invoke.cont59.i.i
           to label %invoke.cont75.i.i unwind label %lpad74.i.i
 
 invoke.cont75.i.i:                                ; preds = %invoke.cont69.i.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp65.i.i, ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp70.i.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp65.i.i, ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp70.i.i, i1 noundef zeroext false)
           to label %invoke.cont77.i.i unwind label %lpad76.i.i
 
 invoke.cont77.i.i:                                ; preds = %invoke.cont75.i.i
@@ -4403,7 +4403,7 @@ invoke.cont96.i.i:                                ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont102.i.i unwind label %lpad101.i.i
 
 invoke.cont102.i.i:                               ; preds = %invoke.cont96.i.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp91.i.i, ptr noundef nonnull %agg.tmp92.i.i, ptr noundef nonnull %agg.tmp97.i.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp91.i.i, ptr noundef %agg.tmp92.i.i, ptr noundef %agg.tmp97.i.i, i1 noundef zeroext false)
           to label %invoke.cont104.i.i unwind label %lpad103.i.i
 
 invoke.cont104.i.i:                               ; preds = %invoke.cont102.i.i
@@ -5024,7 +5024,7 @@ invoke.cont28.i.i:                                ; preds = %invoke.cont20.i.i
           to label %invoke.cont34.i86.i unwind label %lpad33.i.i
 
 invoke.cont34.i86.i:                              ; preds = %invoke.cont28.i.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp24.i.i, ptr noundef nonnull %agg.tmp.i39.i, ptr noundef nonnull %agg.tmp29.i.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp24.i.i, ptr noundef %agg.tmp.i39.i, ptr noundef %agg.tmp29.i.i, i1 noundef zeroext false)
           to label %invoke.cont36.i.i unwind label %lpad35.i.i
 
 invoke.cont36.i.i:                                ; preds = %invoke.cont34.i86.i
@@ -5119,7 +5119,7 @@ invoke.cont55.i.i:                                ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont61.i.i unwind label %lpad60.i.i
 
 invoke.cont61.i.i:                                ; preds = %invoke.cont55.i.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp50.i.i, ptr noundef nonnull %agg.tmp51.i.i, ptr noundef nonnull %agg.tmp56.i.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp50.i.i, ptr noundef %agg.tmp51.i.i, ptr noundef %agg.tmp56.i.i, i1 noundef zeroext false)
           to label %invoke.cont63.i.i unwind label %lpad62.i.i
 
 invoke.cont63.i.i:                                ; preds = %invoke.cont61.i.i
@@ -5641,7 +5641,7 @@ invoke.cont28.i:                                  ; preds = %invoke.cont20.i121
           to label %invoke.cont34.i125 unwind label %lpad33.i
 
 invoke.cont34.i125:                               ; preds = %invoke.cont28.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp24.i, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp29.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp24.i, ptr noundef %agg.tmp.i, ptr noundef %agg.tmp29.i, i1 noundef zeroext false)
           to label %invoke.cont36.i unwind label %lpad35.i
 
 invoke.cont36.i:                                  ; preds = %invoke.cont34.i125
@@ -5736,7 +5736,7 @@ invoke.cont55.i:                                  ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont61.i unwind label %lpad60.i
 
 invoke.cont61.i:                                  ; preds = %invoke.cont55.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp50.i, ptr noundef nonnull %agg.tmp51.i, ptr noundef nonnull %agg.tmp56.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp50.i, ptr noundef %agg.tmp51.i, ptr noundef %agg.tmp56.i, i1 noundef zeroext false)
           to label %invoke.cont63.i unwind label %lpad62.i
 
 invoke.cont63.i:                                  ; preds = %invoke.cont61.i
@@ -5876,7 +5876,7 @@ invoke.cont91.i:                                  ; preds = %invoke.cont84.i
   br i1 %call92.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %invoke.cont91.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %207, ptr noundef nonnull %vars.i64)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %207, ptr noundef %vars.i64)
           to label %cleanup.i unwind label %lpad13.i110
 
 lpad.loopexit.i99:                                ; preds = %for.body.i104, %for.cond.i94
@@ -6013,7 +6013,7 @@ invoke.cont97.i:                                  ; preds = %if.end.i
   br i1 %call98.i, label %if.then99.i, label %if.end101.i
 
 if.then99.i:                                      ; preds = %invoke.cont97.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %207, ptr noundef nonnull %vars.i64)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %207, ptr noundef %vars.i64)
           to label %cleanup.i unwind label %lpad13.i110
 
 if.end101.i:                                      ; preds = %invoke.cont97.i
@@ -6028,7 +6028,7 @@ invoke.cont105.i:                                 ; preds = %if.end101.i
   br i1 %call106.i, label %if.then107.i, label %if.end109.i
 
 if.then107.i:                                     ; preds = %invoke.cont105.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %207, ptr noundef nonnull %vars.i64)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %207, ptr noundef %vars.i64)
           to label %cleanup.i unwind label %lpad13.i110
 
 if.end109.i:                                      ; preds = %invoke.cont105.i
@@ -6043,7 +6043,7 @@ invoke.cont113.i:                                 ; preds = %if.end109.i
   br i1 %call114.i, label %if.then115.i, label %cleanup.i
 
 if.then115.i:                                     ; preds = %invoke.cont113.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %207, ptr noundef nonnull %vars.i64)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %207, ptr noundef %vars.i64)
           to label %cleanup.i unwind label %lpad13.i110
 
 cleanup.i:                                        ; preds = %if.then115.i, %invoke.cont113.i, %if.then107.i, %if.then99.i, %if.then.i
@@ -6319,7 +6319,7 @@ invoke.cont31.i:                                  ; preds = %invoke.cont23.i
           to label %invoke.cont37.i196 unwind label %lpad36.i
 
 invoke.cont37.i196:                               ; preds = %invoke.cont31.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp27.i, ptr noundef nonnull %agg.tmp.i147, ptr noundef nonnull %agg.tmp32.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp27.i, ptr noundef %agg.tmp.i147, ptr noundef %agg.tmp32.i, i1 noundef zeroext false)
           to label %invoke.cont39.i unwind label %lpad38.i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont37.i196
@@ -6414,7 +6414,7 @@ invoke.cont58.i:                                  ; preds = %_ZNSt6vectorINSt7__
           to label %invoke.cont64.i unwind label %lpad63.i
 
 invoke.cont64.i:                                  ; preds = %invoke.cont58.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %ref.tmp53.i, ptr noundef nonnull %agg.tmp54.i, ptr noundef nonnull %agg.tmp59.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %ref.tmp53.i, ptr noundef %agg.tmp54.i, ptr noundef %agg.tmp59.i, i1 noundef zeroext false)
           to label %invoke.cont66.i unwind label %lpad65.i
 
 invoke.cont66.i:                                  ; preds = %invoke.cont64.i
@@ -6554,7 +6554,7 @@ invoke.cont94.i:                                  ; preds = %invoke.cont87.i
   br i1 %call95.i, label %if.then.i219, label %if.end.i211
 
 if.then.i219:                                     ; preds = %invoke.cont94.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %277, ptr noundef nonnull %vars.i144)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %277, ptr noundef %vars.i144)
           to label %cleanup.i212 unwind label %lpad16.i
 
 lpad.loopexit.i182:                               ; preds = %for.body.i190, %for.cond.i177
@@ -6691,7 +6691,7 @@ invoke.cont100.i:                                 ; preds = %if.end.i211
   br i1 %call101.i, label %if.then102.i, label %if.end104.i
 
 if.then102.i:                                     ; preds = %invoke.cont100.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %277, ptr noundef nonnull %vars.i144)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %277, ptr noundef %vars.i144)
           to label %cleanup.i212 unwind label %lpad16.i
 
 if.end104.i:                                      ; preds = %invoke.cont100.i
@@ -6706,7 +6706,7 @@ invoke.cont108.i:                                 ; preds = %if.end104.i
   br i1 %call109.i, label %if.then110.i, label %if.end112.i
 
 if.then110.i:                                     ; preds = %invoke.cont108.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %277, ptr noundef nonnull %vars.i144)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %277, ptr noundef %vars.i144)
           to label %cleanup.i212 unwind label %lpad16.i
 
 if.end112.i:                                      ; preds = %invoke.cont108.i
@@ -6721,7 +6721,7 @@ invoke.cont116.i:                                 ; preds = %if.end112.i
   br i1 %call117.i, label %if.then118.i, label %cleanup.i212
 
 if.then118.i:                                     ; preds = %invoke.cont116.i
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %277, ptr noundef nonnull %vars.i144)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %277, ptr noundef %vars.i144)
           to label %cleanup.i212 unwind label %lpad16.i
 
 cleanup.i212:                                     ; preds = %if.then118.i, %invoke.cont116.i, %if.then110.i, %if.then102.i, %if.then.i219
@@ -6968,7 +6968,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %ns, ptr noundef %filename, i1 noundef zeroext %include_separator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_117GenerateNamespaceESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EES7_b(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %ns, ptr noundef nonnull %filename, i1 noundef zeroext %include_separator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7542,7 +7542,7 @@ declare void @_ZN11flatbuffers11ConvertCaseERKNSt7__cxx1112basic_stringIcSt11cha
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_123GenerateSerializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -7687,7 +7687,7 @@ lpad:                                             ; preds = %invoke.cont24, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_125GenerateDeserializeMethodEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -7799,7 +7799,7 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_128GenerateUnaryClientInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -7906,7 +7906,7 @@ lpad.i15:                                         ; preds = %.noexc18
 
 invoke.cont3:                                     ; preds = %.noexc18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp4)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias align 8 %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -7916,7 +7916,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %meta_data, ptr noundef nonnull align 8 dereferenceable(32) %call.i22) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp9)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias align 8 %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -8153,7 +8153,7 @@ ehcleanup49:                                      ; preds = %ehcleanup48, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_129GenerateDepluxStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -8258,11 +8258,11 @@ lpad.i15:                                         ; preds = %.noexc18
 
 invoke.cont3:                                     ; preds = %.noexc18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias nonnull align 8 %meta_data)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias align 8 %meta_data)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias nonnull align 8 %options)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias align 8 %options)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -8481,7 +8481,7 @@ ehcleanup43:                                      ; preds = %ehcleanup42, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_134GenerateClientWriteStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -8590,7 +8590,7 @@ lpad.i18:                                         ; preds = %.noexc21
 
 invoke.cont3:                                     ; preds = %.noexc21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp4)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias align 8 %ref.tmp4)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont3
@@ -8600,7 +8600,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont8:                                     ; preds = %invoke.cont6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %meta_data, ptr noundef nonnull align 8 dereferenceable(32) %call.i25) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp9)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias align 8 %ref.tmp9)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont8
@@ -8882,7 +8882,7 @@ ehcleanup61:                                      ; preds = %ehcleanup60, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %printer, ptr nocapture noundef readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_137GenerateClientReadableStreamInterfaceEPN14grpc_generator7PrinterEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EEE(ptr noundef nonnull %printer, ptr nocapture noundef nonnull readonly %dictonary) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %vars = alloca %"class.std::map", align 8
@@ -8985,11 +8985,11 @@ lpad.i13:                                         ; preds = %.noexc16
 
 invoke.cont3:                                     ; preds = %.noexc16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #11
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias nonnull align 8 %meta_data)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias align 8 %meta_data)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias nonnull align 8 %options)
+  invoke fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias align 8 %options)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -9163,7 +9163,7 @@ ehcleanup32:                                      ; preds = %ehcleanup31, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_116GenerateMetaDataB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
@@ -9200,7 +9200,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN17grpc_ts_generator12_GLOBAL__N_115GenerateOptionsB5cxx11Ev(ptr noalias nonnull align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11

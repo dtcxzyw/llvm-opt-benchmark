@@ -3400,7 +3400,7 @@ lor.lhs.false122:                                 ; preds = %land.lhs.true118
 
 if.then131:                                       ; preds = %lor.lhs.false122, %land.lhs.true118
   %38 = load i32, ptr %age_add_u, align 4
-  %call.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %38, ptr noundef nonnull %tick_nonce)
+  %call.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %38, ptr noundef %tick_nonce)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %err, label %if.end.i
 
@@ -3680,7 +3680,7 @@ if.end137.i:                                      ; preds = %lor.lhs.false130.i
 
 if.end141.i:                                      ; preds = %if.end137.i, %if.end100.i
   %iv_len.0.i = phi i32 [ %call101.i, %if.end100.i ], [ %call114.i, %if.end137.i ]
-  %call142.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %41, ptr noundef nonnull %tick_nonce)
+  %call142.i = call fastcc i32 @create_ticket_prequel(ptr noundef nonnull %s, ptr noundef %pkt, i32 noundef %41, ptr noundef %tick_nonce)
   %tobool143.not.i = icmp eq i32 %call142.i, 0
   br i1 %tobool143.not.i, label %construct_stateless_ticket.exit.thread91, label %if.end145.i
 
@@ -5041,7 +5041,7 @@ land.lhs.true144:                                 ; preds = %if.end142
   br i1 %tobool146.not, label %err, label %if.end164
 
 if.else149:                                       ; preds = %for.end
-  %call150 = call i32 @ssl_verify_cert_chain(ptr noundef nonnull %s, ptr noundef %call16) #12
+  %call150 = call i32 @ssl_verify_cert_chain(ptr noundef nonnull %s, ptr noundef nonnull %call16) #12
   %cmp151 = icmp slt i32 %call150, 1
   br i1 %cmp151, label %if.then153, label %if.end156
 
@@ -8327,7 +8327,7 @@ declare i32 @ossl_gost_ukm(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @create_ticket_prequel(ptr noundef %s, ptr noundef %pkt, i32 noundef %age_add, ptr noundef %tick_nonce) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @create_ticket_prequel(ptr noundef %s, ptr noundef %pkt, i32 noundef %age_add, ptr noundef nonnull %tick_nonce) unnamed_addr #1 {
 entry:
   %session = getelementptr inbounds i8, ptr %s, i64 2176
   %0 = load ptr, ptr %session, align 8
@@ -8394,7 +8394,7 @@ if.then48:                                        ; preds = %land.lhs.true36
   br i1 %tobool51.not, label %return.sink.split, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then48
-  %call52 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %pkt, ptr noundef %tick_nonce, i64 noundef 8, i64 noundef 1) #12
+  %call52 = tail call i32 @WPACKET_sub_memcpy__(ptr noundef %pkt, ptr noundef nonnull %tick_nonce, i64 noundef 8, i64 noundef 1) #12
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return.sink.split, label %if.end56
 

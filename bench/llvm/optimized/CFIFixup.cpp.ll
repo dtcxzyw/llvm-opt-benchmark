@@ -314,17 +314,17 @@ _ZN4llvm23SmallVectorTemplateBaseIZNS_8CFIFixup20runOnMachineFunctionERNS_15Mach
   call void @_ZN4llvm15SmallVectorBaseImE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef 0) #13
   call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull %59, i64 noundef %58, i64 noundef 1) #13
   %.val.i.i.i = load ptr, ptr %9, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %.val.i.i.i, i8 0, i64 %58, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.val.i.i.i, i8 0, i64 %58, i1 false)
   br label %_ZN4llvm11SmallVectorIZNS_8CFIFixup20runOnMachineFunctionERNS_15MachineFunctionEE10BlockFlagsLj32EEC2EmRKS4_.exit
 
 62:                                               ; preds = %57
   %.val.i.i = load ptr, ptr %9, align 8
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #13
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %63, i64 %58)
-  %64 = icmp eq i64 %.sroa.speculated.i.i, 0
+  %64 = icmp eq i64 %63, 0
   br i1 %64, label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i, label %.lr.ph.i.preheader.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %62
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %63, i64 %58)
   call void @llvm.memset.p0.i64(ptr align 1 %.val.i.i, i8 0, i64 %.sroa.speculated.i.i, i1 false)
   br label %_ZSt6fill_nIPZN4llvm8CFIFixup20runOnMachineFunctionERNS0_15MachineFunctionEE10BlockFlagsmS4_ET_S6_T0_RKT1_.exit.i.i
 

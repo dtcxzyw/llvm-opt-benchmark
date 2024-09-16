@@ -856,7 +856,7 @@ thread-pre-split:                                 ; preds = %16
 
 .thread:                                          ; preds = %6, %35, %34
   %.05070 = phi ptr [ %.050, %35 ], [ %.050, %34 ], [ %0, %6 ]
-  %38 = call fastcc i32 @handle_filetype(ptr noundef %.05070, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %38 = call fastcc i32 @handle_filetype(ptr noundef %.05070, i32 noundef %1, ptr noundef %7, ptr noundef %10, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not61 = icmp eq i32 %38, 0
   br i1 %.not61, label %39, label %cli_safer_strdup.exit.thread
 
@@ -937,7 +937,7 @@ cli_safer_strdup.exit68:                          ; preds = %.thread76
   br label %67
 
 67:                                               ; preds = %cli_safer_strdup.exit68, %59
-  %68 = call fastcc i32 @handle_entry(ptr noundef nonnull %9, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %68 = call fastcc i32 @handle_entry(ptr noundef %9, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   br label %cli_safer_strdup.exit.thread
 
 cli_safer_strdup.exit.thread:                     ; preds = %64, %62, %54, %51, %39, %35, %cli_safer_strdup.exit, %.thread, %67
@@ -949,7 +949,7 @@ cli_safer_strdup.exit.thread:                     ; preds = %64, %62, %54, %51, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = and i32 %1, 4
   %9 = load i32, ptr %4, align 4
   %switch.i = icmp ult i32 %9, 2
@@ -965,7 +965,7 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not33.i, label %22, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call i32 @lstat(ptr noundef readonly %0, ptr noundef %2) #22
+  %14 = tail call i32 @lstat(ptr noundef readonly %0, ptr noundef nonnull %2) #22
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %41, label %16
 
@@ -1001,7 +1001,7 @@ define internal fastcc i32 @handle_filetype(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not35.i, label %29, label %.thread.i
 
 .thread.i:                                        ; preds = %25, %10
-  %27 = tail call i32 @stat(ptr noundef readonly %0, ptr noundef %2) #22
+  %27 = tail call i32 @stat(ptr noundef readonly %0, ptr noundef nonnull %2) #22
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %41, label %.thread._crit_edge.i
 
@@ -1111,7 +1111,7 @@ cli_safer_strdup.exit:                            ; preds = %44
 cli_safer_strdup.exit37:                          ; preds = %57
   %62 = icmp eq i32 %52, 5
   %63 = select i1 %62, i32 4, i32 5
-  %64 = tail call i32 %5(ptr noundef %2, ptr noundef nonnull %58, ptr noundef nonnull %0, i32 noundef %63, ptr noundef %6) #22
+  %64 = tail call i32 %5(ptr noundef nonnull %2, ptr noundef nonnull %58, ptr noundef nonnull %0, i32 noundef %63, ptr noundef %6) #22
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %65, label %cli_safer_strdup.exit.thread
 
@@ -1124,7 +1124,7 @@ cli_safer_strdup.exit.thread:                     ; preds = %59, %56, %46, %43, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_entry(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @handle_entry(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %struct.stat, align 8
@@ -1301,7 +1301,7 @@ cli_max_malloc.exit.tail.thread:                  ; preds = %sub_029, %cli_max_m
   br label %.backedge
 
 76:                                               ; preds = %72, %71
-  %77 = call fastcc i32 @handle_filetype(ptr noundef nonnull %61, i32 noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %77 = call fastcc i32 @handle_filetype(ptr noundef nonnull %61, i32 noundef %1, ptr noundef %9, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not128.i = icmp eq i32 %77, 0
   br i1 %.not128.i, label %79, label %78
 
@@ -1425,7 +1425,7 @@ cli_max_realloc.exit:                             ; preds = %94
 116:                                              ; preds = %.lr.ph, %129
   %.0102.i73 = phi i64 [ 0, %.lr.ph ], [ %130, %129 ]
   %117 = getelementptr inbounds %struct.dirent_data, ptr %.0100.i.ph53130135, i64 %.0102.i73
-  %118 = call fastcc i32 @handle_entry(ptr noundef nonnull %117, i32 noundef %1, i32 noundef %115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %118 = call fastcc i32 @handle_entry(ptr noundef %117, i32 noundef %1, i32 noundef %115, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %119 = getelementptr inbounds i8, ptr %117, i64 32
   %120 = load i32, ptr %119, align 8
   %.not139.i = icmp eq i32 %120, 0

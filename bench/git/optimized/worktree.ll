@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_worktrees_internal(i32 noundef %skip_reading_head) unnamed_addr #0 {
+define internal fastcc ptr @get_worktrees_internal(i32 noundef range(i32 0, 2) %skip_reading_head) unnamed_addr #0 {
 entry:
   %flags.i.i26 = alloca i32, align 4
   %path.i = alloca %struct.strbuf, align 8

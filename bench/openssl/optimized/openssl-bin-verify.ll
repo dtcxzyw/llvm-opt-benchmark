@@ -429,7 +429,7 @@ if.then114:                                       ; preds = %if.end112
   %7 = load ptr, ptr %untrusted, align 8
   %8 = load ptr, ptr %trusted, align 8
   %9 = load ptr, ptr %crls, align 8
-  %call115 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
+  %call115 = call fastcc i32 @check(ptr noundef %call102, ptr noundef null, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
   %sext = add nsw i32 %call115, -1
   br label %end
 
@@ -441,7 +441,7 @@ for.body121:                                      ; preds = %for.body121.prehead
   %11 = load ptr, ptr %untrusted, align 8
   %12 = load ptr, ptr %trusted, align 8
   %13 = load ptr, ptr %crls, align 8
-  %call122 = call fastcc i32 @check(ptr noundef nonnull %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
+  %call122 = call fastcc i32 @check(ptr noundef %call102, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %show_chain.0, ptr noundef %vfyopts.1)
   %cmp123.not.not = icmp eq i32 %call122, 0
   %spec.select35 = select i1 %cmp123.not.not, i32 -1, i32 %ret.182
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -614,7 +614,7 @@ declare void @ERR_clear_error() local_unnamed_addr #1
 declare void @store_setup_crl_download(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check(ptr noundef %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef %show_chain, ptr noundef %opts) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check(ptr noundef nonnull %ctx, ptr noundef %file, ptr noundef %uchain, ptr noundef %tchain, ptr noundef %crls, i32 noundef range(i32 0, 2) %show_chain, ptr noundef %opts) unnamed_addr #0 {
 entry:
   %call = tail call ptr @load_cert_pass(ptr noundef %file, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.113) #2
   %cmp = icmp eq ptr %call, null
@@ -664,8 +664,8 @@ if.then16:                                        ; preds = %if.end13
   br label %end
 
 if.end19:                                         ; preds = %if.end13
-  %call20 = tail call i32 @X509_STORE_set_flags(ptr noundef %ctx, i64 noundef 0) #2
-  %call21 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call14, ptr noundef %ctx, ptr noundef nonnull %call, ptr noundef %uchain) #2
+  %call20 = tail call i32 @X509_STORE_set_flags(ptr noundef nonnull %ctx, i64 noundef 0) #2
+  %call21 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call14, ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef %uchain) #2
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %if.then22, label %if.end30
 

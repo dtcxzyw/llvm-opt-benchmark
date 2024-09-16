@@ -29242,7 +29242,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_nr_pdcp_meta_data(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @add_nr_pdcp_meta_data(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call ptr @get_pdcp_nr_proto_data(ptr noundef %0) #5
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %27

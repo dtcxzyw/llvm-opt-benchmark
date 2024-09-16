@@ -217,7 +217,7 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   store i8 0, ptr %4, align 1
-  %62 = call fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull %4)
+  %62 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %4)
   %63 = load ptr, ptr @table_states_not_ready, align 8
   %64 = icmp eq ptr %63, null
   %65 = load ptr, ptr @process_syncing_tables_for_apply.last_start_times, align 8
@@ -496,7 +496,7 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
   call void @CommandCounterIncrement() #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %211 = call fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull %2)
+  %211 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %2)
   %212 = load i8, ptr %2, align 1
   %213 = trunc i8 %212 to i1
   br i1 %213, label %214, label %AllTablesyncsReady.exit.i
@@ -631,7 +631,7 @@ define internal fastcc void @finish_sync_worker() unnamed_addr #4 {
 define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
   store i8 0, ptr %1, align 1
-  %2 = call fastcc zeroext i1 @FetchTableStates(ptr noundef nonnull %1)
+  %2 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %1)
   %3 = load i8, ptr %1, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -649,7 +649,7 @@ define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef writeonly %0) unnamed_addr #1 {
+define internal fastcc zeroext i1 @FetchTableStates(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #1 {
   store i8 0, ptr %0, align 1
   %.b12 = load i1, ptr @table_states_valid, align 1
   br i1 %.b12, label %._crit_edge22, label %2
@@ -853,7 +853,7 @@ define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
   %4 = alloca %struct.WalRcvStreamOptions, align 8
   store i64 0, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  call fastcc void @start_table_sync(ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @start_table_sync(ptr noundef %2, ptr noundef %3)
   %5 = load ptr, ptr @MySubscription, align 8
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr @MyLogicalRepWorker, align 8
@@ -874,7 +874,7 @@ define internal fastcc void @run_tablesync_worker() unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @start_table_sync(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
+define internal fastcc void @start_table_sync(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #1 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca [3 x i32], align 4
   %5 = alloca [4 x i32], align 16
@@ -1115,7 +1115,7 @@ walrcv_clear_result.exit.i:                       ; preds = %140, %137
   %146 = getelementptr inbounds i8, ptr %145, i64 36
   %147 = load i8, ptr %146, align 4
   %148 = trunc i8 %147 to i1
-  %149 = call ptr %143(ptr noundef %144, ptr noundef %55, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %148, i32 noundef 2, ptr noundef %0) #12
+  %149 = call ptr %143(ptr noundef %144, ptr noundef %55, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %148, i32 noundef 2, ptr noundef nonnull %0) #12
   %150 = call zeroext i16 @replorigin_by_name(ptr noundef nonnull %14, i1 noundef zeroext true) #12
   %.not40.i = icmp eq i16 %150, 0
   br i1 %.not40.i, label %151, label %158

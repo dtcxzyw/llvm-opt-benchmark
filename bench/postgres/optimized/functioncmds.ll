@@ -973,7 +973,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   unreachable
 
 76:                                               ; preds = %63
-  %77 = call fastcc zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %33, ptr noundef nonnull %43, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %77 = call fastcc zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %33, ptr noundef nonnull %43, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   br i1 %77, label %._crit_edge, label %78
 
 ._crit_edge:                                      ; preds = %76
@@ -1220,7 +1220,7 @@ update_proconfig_value.exit.i:                    ; preds = %update_proconfig_va
   br i1 %.not84.i, label %194, label %192
 
 192:                                              ; preds = %190
-  %193 = call fastcc i32 @interpret_func_support(ptr noundef nonnull %191)
+  %193 = call fastcc i32 @interpret_func_support(ptr noundef %191)
   br label %194
 
 194:                                              ; preds = %192, %190
@@ -2158,7 +2158,7 @@ define dso_local { i64, i32 } @AlterFunction(ptr noundef %0, ptr nocapture nound
   %70 = load ptr, ptr %63, align 8
   %71 = getelementptr %union.ListCell, ptr %70, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
-  %73 = call fastcc zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %59, ptr noundef %72, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %73 = call fastcc zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %59, ptr noundef %72, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   br i1 %73, label %66, label %.split
 
 .split:                                           ; preds = %.lr.ph90
@@ -2327,7 +2327,7 @@ interpret_func_volatility.exit:                   ; preds = %78, %83, %86
   br i1 %.not78, label %172, label %158
 
 158:                                              ; preds = %156
-  %159 = tail call fastcc i32 @interpret_func_support(ptr noundef nonnull %157)
+  %159 = tail call fastcc i32 @interpret_func_support(ptr noundef %157)
   %160 = getelementptr inbounds i8, ptr %37, i64 92
   %161 = load i32, ptr %160, align 4
   %.not79 = icmp eq i32 %161, 0
@@ -2480,7 +2480,7 @@ declare zeroext i1 @object_ownercheck(i32 noundef, i32 noundef, i32 noundef) loc
 declare ptr @NameListToString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @compute_common_attribute(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull %11) unnamed_addr #0 {
   %13 = getelementptr inbounds i8, ptr %2, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(11) @.str.89) #10
@@ -2679,9 +2679,9 @@ define internal fastcc noundef zeroext i1 @compute_common_attribute(ptr noundef 
 declare double @defGetNumeric(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @interpret_func_support(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @interpret_func_support(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [1 x i32], align 4
-  %3 = tail call ptr @defGetQualifiedName(ptr noundef %0) #8
+  %3 = tail call ptr @defGetQualifiedName(ptr noundef nonnull %0) #8
   store i32 2281, ptr %2, align 4
   %4 = call i32 @LookupFuncName(ptr noundef %3, i32 noundef 1, ptr noundef nonnull %2, i1 noundef zeroext true) #8
   %.not = icmp eq i32 %4, 0

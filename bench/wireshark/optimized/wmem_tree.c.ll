@@ -220,7 +220,7 @@ define i32 @wmem_tree_count(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %.not.i, label %wmem_tree_foreach.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %4, ptr noundef nonnull @count_nodes, ptr noundef nonnull %2)
+  %6 = call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef %4, ptr noundef nonnull @count_nodes, ptr noundef nonnull %2)
   %.pre = load i32, ptr %2, align 4
   br label %wmem_tree_foreach.exit
 
@@ -237,7 +237,7 @@ define noundef zeroext i1 @wmem_tree_foreach(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  %7 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   br label %8
 
 8:                                                ; preds = %3, %6
@@ -1883,14 +1883,14 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2)
+  %7 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef %5, ptr noundef %1, ptr noundef %2)
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %6, %3
@@ -1922,7 +1922,7 @@ define internal fastcc noundef zeroext i1 @wmem_tree_foreach_nodes(ptr nocapture
   br i1 %26, label %33, label %.critedge
 
 wmem_tree_foreach.exit:                           ; preds = %12
-  %27 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %16, ptr noundef %1, ptr noundef %2)
+  %27 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef %16, ptr noundef %1, ptr noundef %2)
   br i1 %27, label %33, label %.critedge
 
 .critedge:                                        ; preds = %12, %21, %17, %wmem_tree_foreach.exit
@@ -1932,7 +1932,7 @@ wmem_tree_foreach.exit:                           ; preds = %12
   br i1 %.not23, label %32, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef nonnull %29, ptr noundef %1, ptr noundef %2)
+  %31 = tail call fastcc zeroext i1 @wmem_tree_foreach_nodes(ptr noundef %29, ptr noundef %1, ptr noundef %2)
   br i1 %31, label %33, label %32
 
 32:                                               ; preds = %30, %.critedge
@@ -1957,7 +1957,7 @@ define void @wmem_print_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not9.i, label %wmem_print_subtree.exit, label %9
 
 9:                                                ; preds = %4
-  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.1, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %1, ptr noundef %2)
+  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.1, ptr noundef %8, i32 noundef 0, ptr noundef %1, ptr noundef %2)
   br label %wmem_print_subtree.exit
 
 wmem_print_subtree.exit:                          ; preds = %3, %4, %9
@@ -1970,7 +1970,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wmem_tree_print_nodes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @wmem_tree_print_nodes(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %.not38 = icmp eq ptr %3, null
   %.not39 = icmp eq ptr %4, null
   br label %tailrecurse
@@ -2057,7 +2057,7 @@ wmem_print_indent.exit52:                         ; preds = %.lr.ph.i49, %33
 
 39:                                               ; preds = %37
   %40 = add i32 %.tr55, 1
-  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.9, ptr noundef nonnull %38, i32 noundef %40, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.9, ptr noundef %38, i32 noundef %40, ptr noundef %3, ptr noundef %4)
   br label %41
 
 41:                                               ; preds = %39, %37
@@ -2067,7 +2067,7 @@ wmem_print_indent.exit52:                         ; preds = %.lr.ph.i49, %33
 
 43:                                               ; preds = %41
   %44 = add i32 %.tr55, 1
-  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.10, ptr noundef nonnull %42, i32 noundef %44, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @wmem_tree_print_nodes(ptr noundef nonnull @.str.10, ptr noundef %42, i32 noundef %44, ptr noundef %3, ptr noundef %4)
   br label %45
 
 45:                                               ; preds = %43, %41

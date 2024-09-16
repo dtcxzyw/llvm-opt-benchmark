@@ -116,7 +116,7 @@ define hidden noundef ptr @normalize_path(ptr noundef %0) local_unnamed_addr #0 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @normalizePath(ptr noundef readonly %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %.preheader
 

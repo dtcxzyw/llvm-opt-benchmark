@@ -6791,7 +6791,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINSt7__cxx1112basi
           to label %270 unwind label %273
 
 270:                                              ; preds = %268
-  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %269, ptr noundef nonnull %261)
+  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %269, ptr noundef %261)
           to label %275 unwind label %273
 
 271:                                              ; preds = %264
@@ -43936,7 +43936,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEES3_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__8UsdStage4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14InitialLoadSetE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.289") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimDataHandle", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsPredicate", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -44959,7 +44959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i: ; preds = %442, %
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %.invoke, %456, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit5.i, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i
-  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull %2)
+  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef %2)
           to label %457 unwind label %528
 
 457:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit
@@ -47305,7 +47305,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
           to label %66 unwind label %69
 
 66:                                               ; preds = %64
-  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %65, ptr noundef nonnull %41)
+  invoke fastcc void @_ZL12_DumpResultsRKN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEERKNS_7SdfPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %65, ptr noundef %41)
           to label %71 unwind label %69
 
 67:                                               ; preds = %.noexc3.i.i

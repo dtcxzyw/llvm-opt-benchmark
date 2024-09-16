@@ -322,7 +322,7 @@ define range(i32 -1, 1) i32 @H5Tset_order(i64 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5T__set_order(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 12

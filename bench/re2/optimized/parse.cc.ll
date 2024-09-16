@@ -3803,7 +3803,7 @@ if.end12.i:                                       ; preds = %invoke.cont48
   br i1 %tobool14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
-  invoke fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %tmp, i32 noundef %20, i32 noundef %20, i32 noundef 0)
+  invoke fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %tmp, i32 noundef %20, i32 noundef %20, i32 noundef 0)
           to label %invoke.cont56 unwind label %lpad49
 
 if.else.i:                                        ; preds = %if.end12.i
@@ -4150,7 +4150,7 @@ if.then8:                                         ; preds = %if.then
   br i1 %tobool14.not.i, label %if.else.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then8
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %this, i32 noundef %lo, i32 noundef 9, i32 noundef 0)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %this, i32 noundef %lo, i32 noundef 9, i32 noundef 0)
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then8
@@ -4167,7 +4167,7 @@ if.then10:                                        ; preds = %if.end
   br i1 %tobool14.not.i23, label %if.else.i25, label %if.then15.i24
 
 if.then15.i24:                                    ; preds = %if.then10
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %this, i32 noundef 11, i32 noundef %hi, i32 noundef 0)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %this, i32 noundef 11, i32 noundef %hi, i32 noundef 0)
   br label %if.end17
 
 if.else.i25:                                      ; preds = %if.then10
@@ -4180,7 +4180,7 @@ if.end12:                                         ; preds = %entry
   br i1 %tobool14.not, label %if.else, label %if.then15
 
 if.then15:                                        ; preds = %if.end12
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %this, i32 noundef %lo, i32 noundef %hi, i32 noundef 0)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %this, i32 noundef %lo, i32 noundef %hi, i32 noundef 0)
   br label %if.end17
 
 if.else:                                          ; preds = %if.end12
@@ -4414,7 +4414,7 @@ declare noundef ptr @_ZN3re26Regexp17ConcatOrAlternateENS_8RegexpOpEPPS0_iNS0_10
 declare void @_ZN3re26Regexp15AddRuneToStringEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %cc, i32 noundef %lo, i32 noundef %hi, i32 noundef %depth) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %cc, i32 noundef %lo, i32 noundef %hi, i32 noundef %depth) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %cmp = icmp sgt i32 %depth, 10
@@ -4556,7 +4556,7 @@ sw.epilog:                                        ; preds = %sw.bb27, %sw.bb, %s
   %.pn = phi i32 [ %7, %sw.default ], [ %dec, %sw.bb ], [ %sext, %sw.bb27 ]
   %hi1.0 = phi i32 [ %add19, %sw.default ], [ %spec.select25, %sw.bb ], [ %spec.select26, %sw.bb27 ]
   %lo1.0 = add nsw i32 %.pn, %lo.addr.047
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %cc, i32 noundef %lo1.0, i32 noundef %hi1.0, i32 noundef %add38)
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef %cc, i32 noundef %lo1.0, i32 noundef %hi1.0, i32 noundef %add38)
   %11 = load i32, ptr %hi15, align 4
   %add40 = add nsw i32 %11, 1
   br label %while.cond.backedge
@@ -7520,7 +7520,7 @@ _ZNK4absl7debian211string_viewixEm.exit28.i:      ; preds = %_ZN4absl7debian211s
   br i1 %cmp17.i, label %_ZNK4absl7debian211string_viewixEm.exit34.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %_ZNK4absl7debian211string_viewixEm.exit28.i
-  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef nonnull %s.i, ptr noundef nonnull %hi)
+  %call19.i = call fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr noundef %s.i, ptr noundef %hi)
   %.pre.i = load i64, ptr %length_.i.i144, align 8
   %cmp.i30.i = icmp ne i64 %.pre.i, 0
   %or.cond.not.i = select i1 %call19.i, i1 %cmp.i30.i, i1 false
@@ -8960,7 +8960,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #22
 declare noundef zeroext i1 @_ZNK3re29CharClass8ContainsEi(ptr noundef nonnull align 8 dereferenceable(20), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr nocapture noundef %s, ptr nocapture noundef writeonly %np) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @_ZN3re2L12ParseIntegerEPN4absl7debian211string_viewEPi(ptr nocapture noundef nonnull %s, ptr nocapture noundef nonnull writeonly %np) unnamed_addr #15 {
 entry:
   %length_.i = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load i64, ptr %length_.i, align 8

@@ -408,7 +408,7 @@ define internal fastcc i32 @snoop_read_packet(ptr nocapture noundef readonly %0,
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds i8, ptr %2, i64 80
-  %57 = call fastcc i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %8)
+  %57 = call fastcc i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %1, ptr noundef nonnull %56, ptr noundef %4, ptr noundef %5, ptr noundef %8)
   %.not79 = icmp eq i32 %57, 0
   br i1 %.not79, label %101, label %58
 
@@ -568,7 +568,7 @@ switch.lookup:                                    ; preds = %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @snoop_read_shomiti_wireless_pseudoheader(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.shomiti_wireless_header, align 1
   %7 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 12, ptr noundef %2, ptr noundef %3) #7
   %.not = icmp eq i32 %7, 0

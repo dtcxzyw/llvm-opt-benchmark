@@ -1446,7 +1446,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit54.i: ; preds = %307, %294
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %181) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %182) #23
   call void @_ZN32pxrInternal_v0_24__pxrReserved__31HdCollectionExpressionEvaluatorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %174) #23
-  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nonnull writable align 8 %183)
+  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias writable align 8 %183)
   %311 = getelementptr inbounds nuw i8, ptr %185, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %185, i8 0, i64 104, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %311) #23
@@ -4000,7 +4000,7 @@ _ZN12_GLOBAL__N_119TestPathExpressionsEv.exit:    ; preds = %_ZN32pxrInternal_v0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %100)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %101)
-  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nonnull writable align 8 %41)
+  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias writable align 8 %41)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #23
   %1122 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %.noexc.i unwind label %1745
@@ -4028,7 +4028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i22: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias nonnull writable align 8 %47)
+  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias writable align 8 %47)
           to label %1126 unwind label %1749
 
 1126:                                             ; preds = %1125
@@ -4705,7 +4705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit152.i:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias nonnull writable align 8 %68)
+  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias writable align 8 %68)
           to label %1341 unwind label %1794
 
 1341:                                             ; preds = %1340
@@ -5361,7 +5361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit210.i4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %85) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #23
-  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias nonnull writable align 8 %89)
+  invoke fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias writable align 8 %89)
           to label %1550 unwind label %1839
 
 1550:                                             ; preds = %1549
@@ -6733,7 +6733,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TestHdPredicateLibraryEv() unnam
   %286 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %287 = alloca %"class.std::__cxx11::basic_string", align 8
   %288 = alloca %"class.std::allocator.6", align 1
-  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nonnull writable align 8 %59)
+  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias writable align 8 %59)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #23
   %289 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %61)
           to label %.noexc unwind label %1992
@@ -13763,7 +13763,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122TestEvaluatorUtilitiesEv() unnam
   %79 = alloca %"class.std::allocator.6", align 1
   %80 = alloca %"class.std::__cxx11::basic_string", align 8
   %81 = alloca %"class.std::allocator.6", align 1
-  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nonnull writable align 8 %16)
+  call fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias writable align 8 %16)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #23
   %82 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc unwind label %830
@@ -16806,7 +16806,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEE10_Remove
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116_CreateTestSceneEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.89", align 8
   %3 = alloca %"class.std::vector.115", align 8
   %4 = alloca [10 x %"struct.pxrInternal_v0_24__pxrReserved__::HdRetainedSceneIndex::AddedPrimEntry"], align 8
@@ -17254,7 +17254,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPat
   store i32 %194, ptr %221, align 4
   %222 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %196, ptr %222, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %134, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %134, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %225 unwind label %1492
 
 223:                                              ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7SdfPathEEC2IRS1_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit
@@ -17549,7 +17549,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPat
 345:                                              ; preds = %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPathEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i545
   %346 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %342, ptr %346, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %247, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %247, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
           to label %347 unwind label %1512
 
 347:                                              ; preds = %345
@@ -17839,7 +17839,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPat
   store i32 %475, ptr %474, align 4
   %476 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %447, ptr %476, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %368, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %369, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %368, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %369, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %32)
           to label %479 unwind label %1537
 
 477:                                              ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7SdfPathEEC2IRS1_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit584
@@ -18133,7 +18133,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPat
 598:                                              ; preds = %_ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPathEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i640
   %599 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %595, ptr %599, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %500, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %501, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %500, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %501, ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %40)
           to label %600 unwind label %1557
 
 600:                                              ; preds = %598
@@ -18229,7 +18229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit657: ;
   %633 = getelementptr inbounds nuw i8, ptr %630, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %632, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %633, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %632, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %633, ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53)
           to label %634 unwind label %1572
 
 634:                                              ; preds = %631
@@ -18443,7 +18443,7 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS1_7SdfPat
   store i32 %725, ptr %724, align 4
   %726 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %697, ptr %726, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %642, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %645, ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %57)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %642, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %645, ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %57)
           to label %729 unwind label %1590
 
 727:                                              ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7SdfPathEEC2IRS1_S2_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS7_S8_EEEbE4typeELb1EEEOS7_OS8_.exit686
@@ -18489,7 +18489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit706: ;
   %740 = getelementptr inbounds nuw i8, ptr %737, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %739, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %740, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %65)
+  invoke fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %739, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %740, ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %65)
           to label %741 unwind label %1599
 
 741:                                              ; preds = %738
@@ -22461,7 +22461,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataIN12_GLOBAL__N_112_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118_MakePrimContainerEbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenERKSt6vectorIS1_SaIS1_EERKS4_ISt4pairIS1_NS0_7SdfPathEESaISB_EE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.97", align 8
   %7 = alloca %"class.std::vector.174", align 8
   %8 = alloca %"class.std::shared_ptr.150", align 8
@@ -29244,7 +29244,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__46HdMaterialBindingsSchemaTok
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter18_AddRefMaybeLockedEPKNS_9TfRefBaseEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126_GetCustomPredicateLibraryEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN12_GLOBAL__N_126_GetCustomPredicateLibraryEvE3lib acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %11, !prof !98

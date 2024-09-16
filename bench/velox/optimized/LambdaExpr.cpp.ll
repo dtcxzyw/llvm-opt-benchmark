@@ -7174,7 +7174,7 @@ entry:
   %lambdaCtx = alloca %"class.facebook::velox::exec::EvalCtx", align 8
   %end_.i = getelementptr inbounds i8, ptr %rows, i64 32
   %0 = load i32, ptr %end_.i, align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nonnull align 8 %row, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(8) %wrapCapture, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %0)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias align 8 %row, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(8) %wrapCapture, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %0)
   %context.val = load ptr, ptr %context, align 8
   %1 = getelementptr i8, ptr %context, i64 8
   %context.val7 = load ptr, ptr %1, align 8
@@ -7326,7 +7326,7 @@ entry:
   %lambdaCtx = alloca %"class.facebook::velox::exec::EvalCtx", align 8
   %end_.i = getelementptr inbounds i8, ptr %rows, i64 32
   %0 = load i32, ptr %end_.i, align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nonnull align 8 %row, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(8) %wrapCapture, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %0)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias align 8 %row, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %context, ptr noundef nonnull align 8 dereferenceable(8) %wrapCapture, ptr noundef nonnull align 8 dereferenceable(24) %args, i32 noundef %0)
   %context.val = load ptr, ptr %context, align 8
   %1 = getelementptr i8, ptr %context, i64 8
   %context.val4 = load ptr, ptr %1, align 8
@@ -7464,7 +7464,7 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wrapCapture, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallable15createRowVectorEPNS1_7EvalCtxERKN5boost13intrusive_ptrINS0_6BufferEEERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISF_EEi(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wrapCapture, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, i32 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size.addr = alloca i32, align 4
   %allVectors = alloca %"class.std::vector.6", align 8

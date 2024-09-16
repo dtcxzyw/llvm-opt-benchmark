@@ -3684,7 +3684,7 @@ rbimpl_intern_const.exit115.i:                    ; preds = %.lr.ph.i113.i, %.cr
   br label %153
 
 153:                                              ; preds = %150, %rbimpl_intern_const.exit115.i
-  call fastcc void @make_compile_option(ptr noundef nonnull %5, i64 noundef %2)
+  call fastcc void @make_compile_option(ptr noundef %5, i64 noundef %2)
   %154 = load i16, ptr %5, align 4
   %155 = and i16 %154, -3
   store i16 %155, ptr %5, align 4
@@ -9313,7 +9313,7 @@ Check_Type.exit32:                                ; preds = %47
   store i64 %51, ptr %4, align 8
   store i64 %.128, ptr %5, align 8
   %53 = call i64 @rb_fstring_new(ptr noundef nonnull @.str.285, i64 noundef 10) #20
-  call fastcc void @make_compile_option(ptr noundef nonnull %6, i64 noundef %52)
+  call fastcc void @make_compile_option(ptr noundef %6, i64 noundef %52)
   %54 = and i64 %spec.store.select, 1
   %.not.i.i = icmp eq i64 %54, 0
   br i1 %.not.i.i, label %57, label %55
@@ -9551,7 +9551,7 @@ Check_Type.exit32:                                ; preds = %49
   store i64 %53, ptr %5, align 8
   store i64 %.128, ptr %6, align 8
   %55 = call i64 @rb_fstring_new(ptr noundef nonnull @.str.285, i64 noundef 10) #20
-  call fastcc void @make_compile_option(ptr noundef nonnull %7, i64 noundef %54)
+  call fastcc void @make_compile_option(ptr noundef %7, i64 noundef %54)
   %56 = and i64 %spec.store.select, 1
   %.not.i.i = icmp eq i64 %56, 0
   %57 = getelementptr inbounds i8, ptr %8, i64 648
@@ -9761,7 +9761,7 @@ define internal i64 @iseqw_s_compile_file_prism(i32 noundef %0, ptr noundef %1, 
 
 36:                                               ; preds = %23
   %37 = load i64, ptr %6, align 8
-  call fastcc void @make_compile_option(ptr noundef nonnull %7, i64 noundef %37)
+  call fastcc void @make_compile_option(ptr noundef %7, i64 noundef %37)
   %38 = getelementptr inbounds i8, ptr %10, i64 752
   %39 = call i64 @rb_fstring_new(ptr noundef nonnull @.str.1, i64 noundef 6) #20
   %40 = load i64, ptr %5, align 8
@@ -9934,7 +9934,7 @@ define internal i64 @iseqw_s_compile_file(i32 noundef %0, ptr noundef %1, i64 %2
 
 45:                                               ; preds = %41
   %46 = load i64, ptr %5, align 8
-  call fastcc void @make_compile_option(ptr noundef nonnull %6, i64 noundef %46)
+  call fastcc void @make_compile_option(ptr noundef %6, i64 noundef %46)
   %47 = call i64 @rb_fstring_new(ptr noundef nonnull @.str.1, i64 noundef 6) #20
   %48 = load i64, ptr %4, align 8
   %49 = call i64 @rb_realpath_internal(i64 noundef 4, i64 noundef %48, i32 noundef 1) #20
@@ -10172,7 +10172,7 @@ make_compile_option_value.exit:                   ; preds = %.lr.ph.i89.i, %rbim
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i64 @iseqw_s_compile_option_set(i64 %0, i64 noundef returned %1) #0 {
   %3 = alloca %struct.rb_compile_option_struct, align 8
-  call fastcc void @make_compile_option(ptr noundef nonnull %3, i64 noundef %1)
+  call fastcc void @make_compile_option(ptr noundef %3, i64 noundef %1)
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr @COMPILE_OPTION_DEFAULT, align 8
   ret i64 %1
@@ -10451,7 +10451,7 @@ declare i64 @rb_sym2str(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_hash_aref(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @make_compile_option(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @make_compile_option(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   switch i64 %1, label %7 [
     i64 4, label %3
     i64 0, label %5

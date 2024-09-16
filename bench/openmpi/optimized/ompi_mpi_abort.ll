@@ -111,7 +111,7 @@ opal_gethostname.exit:                            ; preds = %6, %11
   br i1 %or.cond3, label %49, label %50
 
 49:                                               ; preds = %46
-  call fastcc void @try_kill_peers(ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @try_kill_peers(ptr noundef %0, i32 noundef %1)
   br label %50
 
 50:                                               ; preds = %49, %46
@@ -141,7 +141,7 @@ declare void @opal_delay_abort() local_unnamed_addr #2
 declare void @_exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @try_kill_peers(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @try_kill_peers(ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16

@@ -56,7 +56,7 @@ entry:
   %tables = alloca %struct.AcpiBuildTables, align 8
   %call = tail call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #9
   call void @acpi_build_tables_init(ptr noundef nonnull %tables) #10
-  call fastcc void @virt_acpi_build(ptr noundef %s, ptr noundef nonnull %tables)
+  call fastcc void @virt_acpi_build(ptr noundef %s, ptr noundef %tables)
   %0 = load ptr, ptr %tables, align 8
   %call1 = call ptr @acpi_add_rom_blob(ptr noundef nonnull @virt_acpi_build_update, ptr noundef %call, ptr noundef %0, ptr noundef nonnull @.str) #10
   store ptr %call1, ptr %call, align 8
@@ -93,7 +93,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 declare void @acpi_build_tables_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virt_acpi_build(ptr noundef %s, ptr nocapture noundef readonly %tables) unnamed_addr #0 {
+define internal fastcc void @virt_acpi_build(ptr noundef %s, ptr nocapture noundef nonnull readonly %tables) unnamed_addr #0 {
 entry:
   %table.i44 = alloca %struct.AcpiTable, align 8
   %table.i34 = alloca %struct.AcpiTable, align 8
@@ -425,7 +425,7 @@ if.end:                                           ; preds = %lor.lhs.false
   call void @acpi_build_tables_init(ptr noundef nonnull %tables) #10
   %call = call ptr @qdev_get_machine() #10
   %call.i = call ptr @object_dynamic_cast_assert(ptr noundef %call, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 35, ptr noundef nonnull @__func__.RISCV_VIRT_MACHINE) #10
-  call fastcc void @virt_acpi_build(ptr noundef %call.i, ptr noundef nonnull %tables)
+  call fastcc void @virt_acpi_build(ptr noundef %call.i, ptr noundef %tables)
   %1 = load ptr, ptr %build_opaque, align 8
   %2 = load ptr, ptr %tables, align 8
   %call.i6 = call i32 @acpi_data_len(ptr noundef %2) #10

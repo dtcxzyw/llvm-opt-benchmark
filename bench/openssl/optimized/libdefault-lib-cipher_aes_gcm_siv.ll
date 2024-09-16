@@ -520,7 +520,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef %enc) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_aes_gcm_siv_init(ptr noundef %vctx, ptr noundef readonly %key, i64 noundef %keylen, ptr noundef readonly %iv, i64 noundef %ivlen, ptr noundef %params, i32 noundef range(i32 0, 2) %enc) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -530,9 +530,8 @@ if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 440
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 8
-  %bf.value = and i8 %0, 1
   %bf.clear = and i8 %bf.load, -2
-  %bf.set = or disjoint i8 %bf.clear, %bf.value
+  %bf.set = or disjoint i8 %bf.clear, %0
   store i8 %bf.set, ptr %enc1, align 8
   %cmp.not = icmp eq ptr %key, null
   br i1 %cmp.not, label %if.end7, label %if.then2

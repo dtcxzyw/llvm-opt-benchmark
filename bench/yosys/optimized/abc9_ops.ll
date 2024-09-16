@@ -3158,7 +3158,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit186.i: ; preds = %.body347.i
   br i1 %.not.i, label %1002, label %940
 
 940:                                              ; preds = %938
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %174)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_0clEv"(ptr dead_on_unwind noalias writable align 4 %174)
           to label %942 unwind label %.thread548.i
 
 .thread548.i:                                     ; preds = %940
@@ -3168,127 +3168,127 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit186.i: ; preds = %.body347.i
 
 942:                                              ; preds = %940
   %943 = getelementptr inbounds i8, ptr %174, i64 4
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_1clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %943)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_1clEv"(ptr dead_on_unwind noalias writable align 4 %943)
           to label %944 unwind label %1010
 
 944:                                              ; preds = %942
   %945 = getelementptr inbounds i8, ptr %174, i64 8
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_2clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %945)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_2clEv"(ptr dead_on_unwind noalias writable align 4 %945)
           to label %946 unwind label %1010
 
 946:                                              ; preds = %944
   %947 = getelementptr inbounds i8, ptr %174, i64 12
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_3clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %947)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_3clEv"(ptr dead_on_unwind noalias writable align 4 %947)
           to label %948 unwind label %1010
 
 948:                                              ; preds = %946
   %949 = getelementptr inbounds i8, ptr %174, i64 16
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %949)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_4clEv"(ptr dead_on_unwind noalias writable align 4 %949)
           to label %950 unwind label %1010
 
 950:                                              ; preds = %948
   %951 = getelementptr inbounds i8, ptr %174, i64 20
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_5clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %951)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_5clEv"(ptr dead_on_unwind noalias writable align 4 %951)
           to label %952 unwind label %1010
 
 952:                                              ; preds = %950
   %953 = getelementptr inbounds i8, ptr %174, i64 24
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_6clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %953)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_6clEv"(ptr dead_on_unwind noalias writable align 4 %953)
           to label %954 unwind label %1010
 
 954:                                              ; preds = %952
   %955 = getelementptr inbounds i8, ptr %174, i64 28
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_7clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %955)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_7clEv"(ptr dead_on_unwind noalias writable align 4 %955)
           to label %956 unwind label %1010
 
 956:                                              ; preds = %954
   %957 = getelementptr inbounds i8, ptr %174, i64 32
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_8clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %957)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_8clEv"(ptr dead_on_unwind noalias writable align 4 %957)
           to label %958 unwind label %1010
 
 958:                                              ; preds = %956
   %959 = getelementptr inbounds i8, ptr %174, i64 36
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_9clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %959)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_9clEv"(ptr dead_on_unwind noalias writable align 4 %959)
           to label %960 unwind label %1010
 
 960:                                              ; preds = %958
   %961 = getelementptr inbounds i8, ptr %174, i64 40
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_10clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %961)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_10clEv"(ptr dead_on_unwind noalias writable align 4 %961)
           to label %962 unwind label %1010
 
 962:                                              ; preds = %960
   %963 = getelementptr inbounds i8, ptr %174, i64 44
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_11clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %963)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_11clEv"(ptr dead_on_unwind noalias writable align 4 %963)
           to label %964 unwind label %1010
 
 964:                                              ; preds = %962
   %965 = getelementptr inbounds i8, ptr %174, i64 48
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_12clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %965)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_12clEv"(ptr dead_on_unwind noalias writable align 4 %965)
           to label %966 unwind label %1010
 
 966:                                              ; preds = %964
   %967 = getelementptr inbounds i8, ptr %174, i64 52
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_13clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %967)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_13clEv"(ptr dead_on_unwind noalias writable align 4 %967)
           to label %968 unwind label %1010
 
 968:                                              ; preds = %966
   %969 = getelementptr inbounds i8, ptr %174, i64 56
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_14clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %969)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_14clEv"(ptr dead_on_unwind noalias writable align 4 %969)
           to label %970 unwind label %1010
 
 970:                                              ; preds = %968
   %971 = getelementptr inbounds i8, ptr %174, i64 60
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_15clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %971)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_15clEv"(ptr dead_on_unwind noalias writable align 4 %971)
           to label %972 unwind label %1010
 
 972:                                              ; preds = %970
   %973 = getelementptr inbounds i8, ptr %174, i64 64
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_16clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %973)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_16clEv"(ptr dead_on_unwind noalias writable align 4 %973)
           to label %974 unwind label %1010
 
 974:                                              ; preds = %972
   %975 = getelementptr inbounds i8, ptr %174, i64 68
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_17clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %975)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_17clEv"(ptr dead_on_unwind noalias writable align 4 %975)
           to label %976 unwind label %1010
 
 976:                                              ; preds = %974
   %977 = getelementptr inbounds i8, ptr %174, i64 72
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_18clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %977)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_18clEv"(ptr dead_on_unwind noalias writable align 4 %977)
           to label %978 unwind label %1010
 
 978:                                              ; preds = %976
   %979 = getelementptr inbounds i8, ptr %174, i64 76
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_19clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %979)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_19clEv"(ptr dead_on_unwind noalias writable align 4 %979)
           to label %980 unwind label %1010
 
 980:                                              ; preds = %978
   %981 = getelementptr inbounds i8, ptr %174, i64 80
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_20clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %981)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_20clEv"(ptr dead_on_unwind noalias writable align 4 %981)
           to label %982 unwind label %1010
 
 982:                                              ; preds = %980
   %983 = getelementptr inbounds i8, ptr %174, i64 84
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_21clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %983)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_21clEv"(ptr dead_on_unwind noalias writable align 4 %983)
           to label %984 unwind label %1010
 
 984:                                              ; preds = %982
   %985 = getelementptr inbounds i8, ptr %174, i64 88
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_22clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %985)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_22clEv"(ptr dead_on_unwind noalias writable align 4 %985)
           to label %986 unwind label %1010
 
 986:                                              ; preds = %984
   %987 = getelementptr inbounds i8, ptr %174, i64 92
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_23clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %987)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_23clEv"(ptr dead_on_unwind noalias writable align 4 %987)
           to label %988 unwind label %1010
 
 988:                                              ; preds = %986
   %989 = getelementptr inbounds i8, ptr %174, i64 96
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_24clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %989)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_24clEv"(ptr dead_on_unwind noalias writable align 4 %989)
           to label %990 unwind label %1010
 
 990:                                              ; preds = %988
   %991 = getelementptr inbounds i8, ptr %174, i64 100
-  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_25clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %991)
+  invoke fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_25clEv"(ptr dead_on_unwind noalias writable align 4 %991)
           to label %992 unwind label %1010
 
 992:                                              ; preds = %990
@@ -54514,7 +54514,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit:   ; preds = %6, %1, %13
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_0clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_0clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_0clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54560,7 +54560,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_1clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_1clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_1clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54606,7 +54606,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_2clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_2clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_2clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54652,7 +54652,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_3clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_3clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_3clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54698,7 +54698,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_4clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_4clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_4clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54744,7 +54744,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_5clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_5clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_5clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54790,7 +54790,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_6clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_6clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_6clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54836,7 +54836,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_7clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_7clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_7clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54882,7 +54882,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_8clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_8clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_8clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54928,7 +54928,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_9clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_9clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK3$_9clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -54974,7 +54974,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_10clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_10clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_10clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55020,7 +55020,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_11clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_11clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_11clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55066,7 +55066,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_12clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_12clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_12clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55112,7 +55112,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_13clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_13clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_13clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55158,7 +55158,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_14clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_14clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_14clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55204,7 +55204,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_15clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_15clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_15clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55250,7 +55250,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_16clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_16clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_16clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55296,7 +55296,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_17clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_17clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_17clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55342,7 +55342,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_18clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_18clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_18clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55388,7 +55388,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_19clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_19clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_19clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55434,7 +55434,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_20clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_20clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_20clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55480,7 +55480,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_21clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_21clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_21clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55526,7 +55526,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_22clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_22clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_22clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55572,7 +55572,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_23clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_23clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_23clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55618,7 +55618,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_24clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_24clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_24clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20
@@ -55664,7 +55664,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_25clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_25clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN12_GLOBAL__N_15checkEPN5Yosys5RTLIL6DesignEbENK4$_25clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !20

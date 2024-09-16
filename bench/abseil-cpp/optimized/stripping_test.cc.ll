@@ -649,7 +649,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_113StrippingTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_113StrippingTestEE19GetSetUpCaseOrSuiteEPKci(i32 noundef range(i32 256, 476) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -691,7 +691,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_113StrippingTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noalias noundef ptr @_ZN7testing8internal16SuiteApiResolverIN12_GLOBAL__N_113StrippingTestEE22GetTearDownCaseOrSuiteEPKci(i32 noundef range(i32 256, 476) %line_num) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::internal::GTestLog", align 4
   %call3 = tail call noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext true)
@@ -963,7 +963,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont35 unwind label %lpad
 
 invoke.cont35:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
@@ -1074,7 +1074,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i50, %cleanup.cont.critedge
   store ptr null, ptr %message_.i48, align 8
   %call.i.i52 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %kEncodedPositiveControl) #30
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp58, i64 %call.i.i52, ptr nonnull %kEncodedPositiveControl)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp58, i64 %call.i.i52, ptr nonnull %kEncodedPositiveControl)
           to label %invoke.cont62 unwind label %lpad33
 
 invoke.cont62:                                    ; preds = %cleanup.cont
@@ -1267,7 +1267,7 @@ _ZN7testing15AssertionResultD2Ev.exit77:          ; preds = %if.end85, %_ZNKSt14
   %call92 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %encoded_negative_control) #30
   %57 = extractvalue { i64, ptr } %call92, 0
   %58 = extractvalue { i64, ptr } %call92, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp90, i64 %57, ptr %58)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp90, i64 %57, ptr %58)
           to label %invoke.cont93 unwind label %lpad33
 
 invoke.cont93:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit77
@@ -1998,7 +1998,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrI8_IO_FILESt8functionIFvPS0_EEEC2IS4_vEES2_NSt9enable_ifIXntsr19is_lvalue_referenceIT_EE5valueEOS8_E4typeE.exit:
   %ref.tmp.i = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
   %err = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2385,7 +2385,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly align 8 %agg.result, i64 %needle.coerce0, ptr %needle.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 %needle.coerce0, ptr %needle.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -6338,7 +6338,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont5:                                     ; preds = %invoke.cont
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #37
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont12 unwind label %lpad
 
 invoke.cont12:                                    ; preds = %invoke.cont5
@@ -6457,7 +6457,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call31 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %needle) #30
   %14 = extractvalue { i64, ptr } %call31, 0
   %15 = extractvalue { i64, ptr } %call31, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp29, i64 %14, ptr %15)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp29, i64 %14, ptr %15)
           to label %invoke.cont34 unwind label %lpad10
 
 invoke.cont34:                                    ; preds = %cleanup.cont
@@ -6828,7 +6828,7 @@ invoke.cont10:                                    ; preds = %invoke.cont9
 invoke.cont12:                                    ; preds = %invoke.cont10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #30
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2) #37
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %invoke.cont12
@@ -6957,7 +6957,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call40 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %needle) #30
   %17 = extractvalue { i64, ptr } %call40, 0
   %18 = extractvalue { i64, ptr } %call40, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp38, i64 %17, ptr %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp38, i64 %17, ptr %18)
           to label %invoke.cont43 unwind label %lpad17
 
 invoke.cont43:                                    ; preds = %cleanup.cont
@@ -7321,7 +7321,7 @@ lpad3:                                            ; preds = %invoke.cont
   unreachable
 
 if.end:                                           ; preds = %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.end
@@ -7429,7 +7429,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call32 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %needle) #30
   %15 = extractvalue { i64, ptr } %call32, 0
   %16 = extractvalue { i64, ptr } %call32, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp30, i64 %15, ptr %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp30, i64 %15, ptr %16)
           to label %invoke.cont35 unwind label %lpad9
 
 invoke.cont35:                                    ; preds = %cleanup.cont
@@ -7792,7 +7792,7 @@ lpad3:                                            ; preds = %invoke.cont
   br label %ehcleanup64
 
 if.end:                                           ; preds = %invoke.cont4, %entry
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %if.end
@@ -7900,7 +7900,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call32 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %needle) #30
   %15 = extractvalue { i64, ptr } %call32, 0
   %16 = extractvalue { i64, ptr } %call32, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp30, i64 %15, ptr %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp30, i64 %15, ptr %16)
           to label %invoke.cont35 unwind label %lpad9
 
 invoke.cont35:                                    ; preds = %cleanup.cont
@@ -8250,7 +8250,7 @@ invoke.cont6:                                     ; preds = %entry
 
 invoke.cont9:                                     ; preds = %invoke.cont6
   call void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp5) #37
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont18 unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont9, %entry
@@ -8369,7 +8369,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call37 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %needle) #30
   %14 = extractvalue { i64, ptr } %call37, 0
   %15 = extractvalue { i64, ptr } %call37, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp35, i64 %14, ptr %15)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp35, i64 %14, ptr %15)
           to label %invoke.cont40 unwind label %lpad16
 
 invoke.cont40:                                    ; preds = %cleanup.cont
@@ -8753,7 +8753,7 @@ lpad7:                                            ; preds = %invoke.cont6
   unreachable
 
 if.end:                                           ; preds = %if.then, %invoke.cont
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont18 unwind label %lpad5
 
 invoke.cont18:                                    ; preds = %if.end
@@ -8861,7 +8861,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call39 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle) #30
   %16 = extractvalue { i64, ptr } %call39, 0
   %17 = extractvalue { i64, ptr } %call39, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp37, i64 %16, ptr %17)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp37, i64 %16, ptr %17)
           to label %invoke.cont42 unwind label %lpad16
 
 invoke.cont42:                                    ; preds = %cleanup.cont
@@ -9054,7 +9054,7 @@ _ZN7testing15AssertionResultD2Ev.exit54:          ; preds = %if.end64, %_ZNKSt14
   %call70 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_needle) #30
   %50 = extractvalue { i64, ptr } %call70, 0
   %51 = extractvalue { i64, ptr } %call70, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp68, i64 %50, ptr %51)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp68, i64 %50, ptr %51)
           to label %invoke.cont73 unwind label %lpad16
 
 invoke.cont73:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit54
@@ -9470,7 +9470,7 @@ lpad18:                                           ; preds = %invoke.cont16
   unreachable
 
 if.end:                                           ; preds = %while.cond, %invoke.cont5
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont26 unwind label %lpad6
 
 invoke.cont26:                                    ; preds = %if.end
@@ -9578,7 +9578,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call47 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle1) #30
   %19 = extractvalue { i64, ptr } %call47, 0
   %20 = extractvalue { i64, ptr } %call47, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp45, i64 %19, ptr %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp45, i64 %19, ptr %20)
           to label %invoke.cont50 unwind label %lpad24
 
 invoke.cont50:                                    ; preds = %cleanup.cont
@@ -9771,7 +9771,7 @@ _ZN7testing15AssertionResultD2Ev.exit64:          ; preds = %if.end72, %_ZNKSt14
   %call78 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle2) #30
   %53 = extractvalue { i64, ptr } %call78, 0
   %54 = extractvalue { i64, ptr } %call78, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp76, i64 %53, ptr %54)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp76, i64 %53, ptr %54)
           to label %invoke.cont81 unwind label %lpad24
 
 invoke.cont81:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit64
@@ -9963,7 +9963,7 @@ _ZN7testing15AssertionResultD2Ev.exit114:         ; preds = %if.end103, %_ZNKSt1
   %call109 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_needle) #30
   %87 = extractvalue { i64, ptr } %call109, 0
   %88 = extractvalue { i64, ptr } %call109, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp107, i64 %87, ptr %88)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp107, i64 %87, ptr %88)
           to label %invoke.cont112 unwind label %lpad24
 
 invoke.cont112:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit114
@@ -10385,7 +10385,7 @@ lpad14:                                           ; preds = %invoke.cont12
   unreachable
 
 if.end:                                           ; preds = %invoke.cont7, %invoke.cont5
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont22 unwind label %lpad6
 
 invoke.cont22:                                    ; preds = %if.end
@@ -10493,7 +10493,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call43 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle1) #30
   %19 = extractvalue { i64, ptr } %call43, 0
   %20 = extractvalue { i64, ptr } %call43, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp41, i64 %19, ptr %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp41, i64 %19, ptr %20)
           to label %invoke.cont46 unwind label %lpad20
 
 invoke.cont46:                                    ; preds = %cleanup.cont
@@ -10686,7 +10686,7 @@ _ZN7testing15AssertionResultD2Ev.exit61:          ; preds = %if.end68, %_ZNKSt14
   %call74 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle2) #30
   %53 = extractvalue { i64, ptr } %call74, 0
   %54 = extractvalue { i64, ptr } %call74, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp72, i64 %53, ptr %54)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp72, i64 %53, ptr %54)
           to label %invoke.cont77 unwind label %lpad20
 
 invoke.cont77:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit61
@@ -10878,7 +10878,7 @@ _ZN7testing15AssertionResultD2Ev.exit111:         ; preds = %if.end99, %_ZNKSt14
   %call105 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_needle) #30
   %87 = extractvalue { i64, ptr } %call105, 0
   %88 = extractvalue { i64, ptr } %call105, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp103, i64 %87, ptr %88)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp103, i64 %87, ptr %88)
           to label %invoke.cont108 unwind label %lpad20
 
 invoke.cont108:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit111
@@ -11337,7 +11337,7 @@ lpad33:                                           ; preds = %invoke.cont31
   unreachable
 
 if.end36:                                         ; preds = %if.end
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %exe)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias align 8 %exe)
           to label %invoke.cont42 unwind label %lpad6
 
 invoke.cont42:                                    ; preds = %if.end36
@@ -11445,7 +11445,7 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   %call63 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %var_needle) #30
   %25 = extractvalue { i64, ptr } %call63, 0
   %26 = extractvalue { i64, ptr } %call63, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp61, i64 %25, ptr %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp61, i64 %25, ptr %26)
           to label %invoke.cont66 unwind label %lpad40
 
 invoke.cont66:                                    ; preds = %cleanup.cont
@@ -11638,7 +11638,7 @@ _ZN7testing15AssertionResultD2Ev.exit60:          ; preds = %if.end88, %_ZNKSt14
   %call94 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %msg_needle) #30
   %59 = extractvalue { i64, ptr } %call94, 0
   %60 = extractvalue { i64, ptr } %call94, 1
-  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp92, i64 %59, ptr %60)
+  invoke fastcc void @_ZN12_GLOBAL__N_113StrippingTest13FileHasSubstrESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp92, i64 %59, ptr %60)
           to label %invoke.cont97 unwind label %lpad40
 
 invoke.cont97:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit60

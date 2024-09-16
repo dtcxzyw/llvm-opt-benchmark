@@ -19413,7 +19413,7 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
 
 72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
   call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef nonnull %7, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull %10)
+  %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef %7, i32 noundef %3, i1 noundef zeroext true, ptr noundef nonnull %10)
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %74 = load ptr, ptr %70, align 8
   %.not14 = icmp eq ptr %74, null
@@ -19461,7 +19461,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %75, %81
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = load ptr, ptr %0, align 8
@@ -19737,7 +19737,7 @@ _ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit: ; preds = %_ZN18cons
 
 72:                                               ; preds = %_ZL12bounds_checkRK18constantPoolHandleiP10JavaThread.exit
   call void @_ZN18constantPoolHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef nonnull %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %10)
+  %73 = call fastcc noundef ptr @_ZL19get_field_at_helper18constantPoolHandleibP10JavaThread(ptr noundef %7, i32 noundef %3, i1 noundef zeroext false, ptr noundef nonnull %10)
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %74 = load ptr, ptr %70, align 8
   %.not14 = icmp eq ptr %74, null

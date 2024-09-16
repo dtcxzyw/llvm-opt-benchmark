@@ -106,7 +106,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.df12dd7d62f56185f0383eceae1d36f2.328.llvm.3890463254259644073 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
 @anon.b16754a467d3cf51c98f9660b4d015ba.5.llvm.17224713629878502917 = external hidden unnamed_addr constant <{ [43 x i8] }>, align 1
 @anon.b16754a467d3cf51c98f9660b4d015ba.13.llvm.17224713629878502917 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E" = private unnamed_addr constant [53 x i16] [i16 315, i16 258, i16 265, i16 264, i16 320, i16 259, i16 -32104, i16 306, i16 338, i16 266, i16 289, i16 288, i16 291, i16 290, i16 316, i16 270, i16 257, i16 256, i16 271, i16 281, i16 280, i16 272, i16 254, i16 274, i16 262, i16 284, i16 296, i16 278, i16 277, i16 305, i16 279, i16 273, i16 255, i16 263, i16 282, i16 283, i16 317, i16 322, i16 323, i16 324, i16 325, i16 339, i16 340, i16 341, i16 347, i16 -31986, i16 -31272, i16 -31614, i16 -30801, i16 -30800, i16 -30799, i16 -23423, i16 315], align 2
+@"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE" = private unnamed_addr constant [41 x i16] [i16 258, i16 265, i16 264, i16 320, i16 259, i16 -32104, i16 306, i16 338, i16 266, i16 289, i16 288, i16 291, i16 290, i16 316, i16 270, i16 257, i16 256, i16 271, i16 281, i16 280, i16 272, i16 254, i16 274, i16 262, i16 284, i16 296, i16 278, i16 277, i16 305, i16 279, i16 273, i16 255, i16 263, i16 282, i16 283, i16 317, i16 322, i16 323, i16 324, i16 325, i16 339], align 2
+@"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E" = private unnamed_addr constant [24 x i16] [i16 259, i16 -32104, i16 306, i16 338, i16 266, i16 289, i16 288, i16 291, i16 290, i16 316, i16 270, i16 257, i16 256, i16 271, i16 281, i16 280, i16 272, i16 254, i16 274, i16 262, i16 284, i16 296, i16 278, i16 277], align 2
+@"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE" = private unnamed_addr constant [12 x i16] [i16 257, i16 256, i16 271, i16 281, i16 280, i16 272, i16 254, i16 274, i16 262, i16 284, i16 296, i16 278], align 2
 @switch.table._ZN5image5image12ImageDecoder11total_bytes17hfbe10cd0d9df2f0aE = private unnamed_addr constant [10 x i64] [i64 1, i64 2, i64 3, i64 4, i64 2, i64 4, i64 6, i64 8, i64 12, i64 16], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -1324,7 +1326,7 @@ define hidden void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$15finish_int
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i16 noundef %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef range(i16 30, 32) %2, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { { { i64, ptr }, i64 }, i32, i16, [1 x i16] }, align 8
@@ -1364,15 +1366,12 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
 "_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17h1f9fb2a48752e84dE.exit": ; preds = %5
   %25 = load i16, ptr %14, align 8, !range !248, !noundef !4
   %26 = icmp eq i16 %25, 26
-  br i1 %26, label %switch.lookup, label %29
+  br i1 %26, label %27, label %29
 
-switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17h1f9fb2a48752e84dE.exit"
+27:                                               ; preds = %"_ZN62_$LT$$RF$T$u20$as$u20$tiff..encoder..tiff_value..TiffValue$GT$5write17h1f9fb2a48752e84dE.exit"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %27 = sext i16 %2 to i64
-  %switch.gep = getelementptr inbounds [53 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E", i64 0, i64 %27
-  %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %28 = icmp ugt i64 %4, 4294967295
   br i1 %28, label %43, label %30
@@ -1387,17 +1386,19 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   br label %56
 
-30:                                               ; preds = %switch.lookup
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = trunc nuw i64 %4 to i32
+30:                                               ; preds = %27
+  %31 = trunc nuw i64 %4 to i32
+  %switch36 = icmp eq i16 %2, 31
+  %. = select i1 %switch36, i16 273, i16 279
+  %32 = getelementptr inbounds i8, ptr %1, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   %33 = getelementptr inbounds i8, ptr %12, i64 28
   store i16 4, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %12, i64 24
-  store i32 %32, ptr %34, align 8
+  store i32 %31, ptr %34, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !249
-  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hd720169ea943ee69E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %31, i16 noundef %switch.load)
+  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hd720169ea943ee69E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %11, ptr noalias noundef nonnull align 8 dereferenceable(24) %32, i16 noundef %.)
           to label %35 unwind label %39, !noalias !254
 
 35:                                               ; preds = %30
@@ -1428,7 +1429,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #24, !noalias !256
   unreachable
 
-43:                                               ; preds = %switch.lookup
+43:                                               ; preds = %27
   store i16 24, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
@@ -1515,7 +1516,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i16 noundef %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef range(i16 1, 42) %2, ptr noalias noundef nonnull readonly align 2 %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { { { i64, ptr }, i64 }, i32, i16, [1 x i16] }, align 8
@@ -1561,8 +1562,9 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  %27 = sext i16 %2 to i64
-  %switch.gep = getelementptr inbounds [53 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E", i64 0, i64 %27
+  %switch.tableidx = add nsw i16 %2, -1
+  %27 = sext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [41 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE", i64 0, i64 %27
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %28 = icmp ugt i64 %4, 4294967295
@@ -1706,7 +1708,7 @@ switch.lookup:                                    ; preds = %"_ZN62_$LT$$RF$T$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i16 noundef %2, i16 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef range(i16 5, 29) %2, i16 noundef range(i16 1, 5) %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr }, i64 }, i32, i16, [1 x i16] }, align 8
@@ -1747,8 +1749,9 @@ switch.lookup:                                    ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = sext i16 %2 to i64
-  %switch.gep = getelementptr inbounds [53 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E", i64 0, i64 %25
+  %switch.tableidx = add nsw i16 %2, -5
+  %25 = sext i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E", i64 0, i64 %25
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -1874,7 +1877,7 @@ switch.lookup:                                    ; preds = %.noexc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i16 noundef %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef range(i16 16, 28) %2, i32 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { { { i64, ptr }, i64 }, i32, i16, [1 x i16] }, align 8
@@ -1915,8 +1918,9 @@ switch.lookup:                                    ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   %24 = getelementptr inbounds i8, ptr %1, i64 16
-  %25 = sext i16 %2 to i64
-  %switch.gep = getelementptr inbounds [53 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E", i64 0, i64 %25
+  %switch.tableidx = add nsw i16 %2, -16
+  %25 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE", i64 0, i64 %25
   %switch.load = load i16, ptr %switch.gep, align 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
@@ -2042,7 +2046,7 @@ switch.lookup:                                    ; preds = %.noexc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(48) %1, i16 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i16 noundef range(i16 34, 36) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr }, i64 }, i32, i16, [1 x i16] }, align 8
@@ -2081,19 +2085,18 @@ define internal fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9wr
 
 .noexc21:                                         ; preds = %23
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %switch.lookup, label %50
+  br i1 %25, label %26, label %50
 
 .body.thread:                                     ; preds = %34, %57
   %eh.lpad-body32 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %57 ], [ %35, %34 ]
   resume { ptr, i32 } %eh.lpad-body32
 
-switch.lookup:                                    ; preds = %.noexc21
+26:                                               ; preds = %.noexc21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
-  %27 = sext i16 %2 to i64
-  %switch.gep = getelementptr inbounds [53 x i16], ptr @"switch.table._ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E", i64 0, i64 %27
-  %switch.load = load i16, ptr %switch.gep, align 2
+  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %switch = icmp eq i16 %2, 35
+  %. = select i1 %switch, i16 283, i16 282
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %10, i64 28
@@ -2102,10 +2105,10 @@ switch.lookup:                                    ; preds = %.noexc21
   store i32 1, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9), !noalias !377
-  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hd720169ea943ee69E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %26, i16 noundef %switch.load)
+  invoke void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$5entry17hd720169ea943ee69E.llvm.17224713629878502917"(ptr noalias nocapture noundef nonnull sret({ ptr, [4 x i64] }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, i16 noundef %.)
           to label %30 unwind label %34, !noalias !382
 
-30:                                               ; preds = %switch.lookup
+30:                                               ; preds = %26
   %31 = load ptr, ptr %9, align 8, !noalias !377, !noundef !4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %38, label %.thread43
@@ -2121,7 +2124,7 @@ switch.lookup:                                    ; preds = %.noexc21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$tiff..encoder..DirectoryEntry$LT$u32$GT$$GT$$GT$17h7db0769c71dd49f3E.exit"
 
-34:                                               ; preds = %switch.lookup
+34:                                               ; preds = %26
   %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$tiff..encoder..DirectoryEntry$LT$u32$GT$$GT$17hbe057994cbb1d472E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10) #23
@@ -2230,7 +2233,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2242,7 +2245,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -2288,7 +2291,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2300,7 +2303,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -2346,7 +2349,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2358,7 +2361,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -2404,7 +2407,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2416,7 +2419,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -2462,7 +2465,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2474,7 +2477,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -2520,7 +2523,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %4, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %7, i64 noundef %9)
   %10 = load i16, ptr %4, align 8, !range !248, !noundef !4
   %11 = icmp eq i16 %10, 26
   br i1 %11, label %12, label %19
@@ -2532,7 +2535,7 @@ define hidden void @"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$15finish
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8, !noundef !4
-  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
+  call fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %3, ptr noalias noundef align 8 dereferenceable(48) %5, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %14, i64 noundef %16)
   %17 = load i16, ptr %3, align 8, !range !248, !noundef !4
   %18 = icmp eq i16 %17, 26
   br i1 %18, label %20, label %22
@@ -6015,7 +6018,7 @@ switch.lookup:
   %239 = add nuw nsw i64 %238, %237
   %240 = udiv i64 %239, %237
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %156), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %156, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %156, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 17, i32 noundef %4)
           to label %241 unwind label %.thread247.i.i.i
 
 241:                                              ; preds = %235
@@ -6026,7 +6029,7 @@ switch.lookup:
 244:                                              ; preds = %241
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %156), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %155), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %155, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %155, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 16, i32 noundef %5)
           to label %247 unwind label %.thread247.i.i.i
 
 245:                                              ; preds = %241
@@ -6079,7 +6082,7 @@ switch.lookup:
 252:                                              ; preds = %247
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %155), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %154), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %154, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %154, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 5, i16 noundef 1)
           to label %253 unwind label %.thread247.i.i.i
 
 253:                                              ; preds = %252
@@ -6090,7 +6093,7 @@ switch.lookup:
 256:                                              ; preds = %253
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %154), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %153), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %153, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.35, i64 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %153, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.35, i64 noundef 1)
           to label %259 unwind label %.thread247.i.i.i
 
 257:                                              ; preds = %253
@@ -6158,7 +6161,7 @@ switch.lookup:
   %.val.i.i.i = load ptr, ptr %268, align 8, !noalias !845, !nonnull !4, !noundef !4
   %269 = getelementptr inbounds i8, ptr %152, i64 16
   %.val219.i.i.i = load i64, ptr %269, align 8, !noalias !845, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %151, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i, i64 noundef %.val219.i.i.i)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %151, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i, i64 noundef %.val219.i.i.i)
           to label %270 unwind label %265
 
 270:                                              ; preds = %267
@@ -6169,7 +6172,7 @@ switch.lookup:
 273:                                              ; preds = %270
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %151), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %150), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %150, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 24, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %150, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 24, i16 noundef 1)
           to label %276 unwind label %265
 
 274:                                              ; preds = %270
@@ -6227,7 +6230,7 @@ switch.lookup:
 
 283:                                              ; preds = %279
   %284 = trunc nuw i64 %237 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %149, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 27, i32 noundef %284)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %149, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 27, i32 noundef %284)
           to label %286 unwind label %265
 
 285:                                              ; preds = %279
@@ -6242,7 +6245,7 @@ switch.lookup:
 289:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %149), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %148), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %148, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 28, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %148, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 28, i16 noundef 1)
           to label %292 unwind label %265
 
 290:                                              ; preds = %286
@@ -6274,7 +6277,7 @@ switch.lookup:
 295:                                              ; preds = %292
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %148), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %147), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %147, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %147, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 34)
           to label %298 unwind label %265
 
 296:                                              ; preds = %292
@@ -6306,7 +6309,7 @@ switch.lookup:
 301:                                              ; preds = %298
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %147), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %146), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %146, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %146, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 35)
           to label %304 unwind label %265
 
 302:                                              ; preds = %298
@@ -6338,7 +6341,7 @@ switch.lookup:
 307:                                              ; preds = %304
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %146), !noalias !845
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %145), !noalias !845
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %145, ptr noalias noundef nonnull align 8 dereferenceable(48) %157, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %145, ptr noalias noundef align 8 dereferenceable(48) %157, i16 noundef 26, i16 noundef 1)
           to label %310 unwind label %265
 
 308:                                              ; preds = %304
@@ -6528,9 +6531,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %343 = mul i64 %342, %341
   %344 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i, align 4, !alias.scope !860, !noalias !865, !noundef !4
   %345 = zext i32 %344 to i64
-  %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %345, i64 %343)
+  %.0.sroa.speculated.i.i.i.i = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %345, i64 %343)
   %346 = add i64 %343, %342
-  %.0.sroa.speculated.i2.i.i.i = call noundef i64 @llvm.umin.i64(i64 %345, i64 %346)
+  %.0.sroa.speculated.i2.i.i.i = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %345, i64 %346)
   %347 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i, %.0.sroa.speculated.i.i.i.i
   %348 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !860, !noalias !865, !noundef !4
   %349 = mul i64 %347, %348
@@ -6553,7 +6556,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %353 = load ptr, ptr %352, align 8, !alias.scope !878, !noalias !879, !nonnull !4, !noundef !4
   %354 = getelementptr inbounds i8, ptr %140, i64 16
   %355 = load i64, ptr %354, align 8, !alias.scope !878, !noalias !879, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %139, ptr noalias noundef nonnull align 8 dereferenceable(48) %351, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %353, i64 noundef %355)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %139, ptr noalias noundef align 8 dereferenceable(48) %351, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %353, i64 noundef %355)
           to label %.noexc.i.i29.i unwind label %369
 
 .noexc.i.i29.i:                                   ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17h1767d891504e98cbE.exit.thread.i.i"
@@ -6568,7 +6571,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %360 = load ptr, ptr %359, align 8, !alias.scope !878, !noalias !879, !nonnull !4, !noundef !4
   %361 = getelementptr inbounds i8, ptr %140, i64 40
   %362 = load i64, ptr %361, align 8, !alias.scope !878, !noalias !879, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %138, ptr noalias noundef nonnull align 8 dereferenceable(48) %351, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %360, i64 noundef %362)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %138, ptr noalias noundef align 8 dereferenceable(48) %351, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %360, i64 noundef %362)
           to label %.noexc1.i.i.i unwind label %369
 
 .noexc1.i.i.i:                                    ; preds = %358
@@ -6922,7 +6925,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %466 = add nuw nsw i64 %465, %464
   %467 = udiv i64 %466, %464
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %133), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %133, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %133, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 17, i32 noundef %4)
           to label %468 unwind label %.thread247.i.i.i165
 
 468:                                              ; preds = %461
@@ -6933,7 +6936,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 471:                                              ; preds = %468
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %133), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %132), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %132, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %132, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 16, i32 noundef %5)
           to label %474 unwind label %.thread247.i.i.i165
 
 472:                                              ; preds = %468
@@ -6986,7 +6989,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 479:                                              ; preds = %474
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %132), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %131), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %131, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %131, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 5, i16 noundef 1)
           to label %480 unwind label %.thread247.i.i.i165
 
 480:                                              ; preds = %479
@@ -6997,7 +7000,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 483:                                              ; preds = %480
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %131), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %130), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %130, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.23, i64 noundef 3)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %130, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.23, i64 noundef 3)
           to label %486 unwind label %.thread247.i.i.i165
 
 484:                                              ; preds = %480
@@ -7065,7 +7068,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %.val.i.i.i231 = load ptr, ptr %495, align 8, !noalias !944, !nonnull !4, !noundef !4
   %496 = getelementptr inbounds i8, ptr %129, i64 16
   %.val219.i.i.i232 = load i64, ptr %496, align 8, !noalias !944, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %128, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i231, i64 noundef %.val219.i.i.i232)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %128, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i231, i64 noundef %.val219.i.i.i232)
           to label %497 unwind label %492
 
 497:                                              ; preds = %494
@@ -7076,7 +7079,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 500:                                              ; preds = %497
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %128), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %127), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %127, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 24, i16 noundef 2)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %127, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 24, i16 noundef 2)
           to label %503 unwind label %492
 
 501:                                              ; preds = %497
@@ -7134,7 +7137,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 
 510:                                              ; preds = %506
   %511 = trunc nuw i64 %464 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %126, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 27, i32 noundef %511)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %126, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 27, i32 noundef %511)
           to label %513 unwind label %492
 
 512:                                              ; preds = %506
@@ -7149,7 +7152,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 516:                                              ; preds = %513
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %126), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %125), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %125, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 28, i16 noundef 3)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %125, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 28, i16 noundef 3)
           to label %519 unwind label %492
 
 517:                                              ; preds = %513
@@ -7181,7 +7184,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 522:                                              ; preds = %519
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %125), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %124), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %124, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %124, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 34)
           to label %525 unwind label %492
 
 523:                                              ; preds = %519
@@ -7213,7 +7216,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 528:                                              ; preds = %525
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %124), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %123), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %123, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %123, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 35)
           to label %531 unwind label %492
 
 529:                                              ; preds = %525
@@ -7245,7 +7248,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 534:                                              ; preds = %531
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %123), !noalias !944
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %122), !noalias !944
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %122, ptr noalias noundef nonnull align 8 dereferenceable(48) %134, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %122, ptr noalias noundef align 8 dereferenceable(48) %134, i16 noundef 26, i16 noundef 1)
           to label %537 unwind label %492
 
 535:                                              ; preds = %531
@@ -7431,9 +7434,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %570 = mul i64 %569, %568
   %571 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i341, align 4, !alias.scope !959, !noalias !964, !noundef !4
   %572 = zext i32 %571 to i64
-  %.0.sroa.speculated.i.i.i.i356 = call noundef i64 @llvm.umin.i64(i64 %572, i64 %570)
+  %.0.sroa.speculated.i.i.i.i356 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %572, i64 %570)
   %573 = add i64 %570, %569
-  %.0.sroa.speculated.i2.i.i.i357 = call noundef i64 @llvm.umin.i64(i64 %572, i64 %573)
+  %.0.sroa.speculated.i2.i.i.i357 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %572, i64 %573)
   %574 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i357, %.0.sroa.speculated.i.i.i.i356
   %575 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i338, align 8, !alias.scope !959, !noalias !964, !noundef !4
   %576 = mul i64 %574, %575
@@ -7456,7 +7459,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %580 = load ptr, ptr %579, align 8, !alias.scope !977, !noalias !978, !nonnull !4, !noundef !4
   %581 = getelementptr inbounds i8, ptr %117, i64 16
   %582 = load i64, ptr %581, align 8, !alias.scope !977, !noalias !978, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %116, ptr noalias noundef nonnull align 8 dereferenceable(48) %578, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %580, i64 noundef %582)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %116, ptr noalias noundef align 8 dereferenceable(48) %578, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %580, i64 noundef %582)
           to label %.noexc.i.i29.i345 unwind label %596
 
 .noexc.i.i29.i345:                                ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17h48d79c0e698e1fbeE.exit.thread.i.i"
@@ -7471,7 +7474,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %587 = load ptr, ptr %586, align 8, !alias.scope !977, !noalias !978, !nonnull !4, !noundef !4
   %588 = getelementptr inbounds i8, ptr %117, i64 40
   %589 = load i64, ptr %588, align 8, !alias.scope !977, !noalias !978, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %115, ptr noalias noundef nonnull align 8 dereferenceable(48) %578, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %587, i64 noundef %589)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %115, ptr noalias noundef align 8 dereferenceable(48) %578, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %587, i64 noundef %589)
           to label %.noexc1.i.i.i352 unwind label %596
 
 .noexc1.i.i.i352:                                 ; preds = %585
@@ -7825,7 +7828,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %693 = add nuw nsw i64 %692, %691
   %694 = udiv i64 %693, %691
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %110), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %110, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %110, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 17, i32 noundef %4)
           to label %695 unwind label %.thread247.i.i.i410
 
 695:                                              ; preds = %688
@@ -7836,7 +7839,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 698:                                              ; preds = %695
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %110), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %109), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %109, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %109, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 16, i32 noundef %5)
           to label %701 unwind label %.thread247.i.i.i410
 
 699:                                              ; preds = %695
@@ -7889,7 +7892,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 706:                                              ; preds = %701
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %109), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %108), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %108, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %108, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 5, i16 noundef 1)
           to label %707 unwind label %.thread247.i.i.i410
 
 707:                                              ; preds = %706
@@ -7900,7 +7903,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 710:                                              ; preds = %707
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %108), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %107), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %107, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.33, i64 noundef 4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %107, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.33, i64 noundef 4)
           to label %713 unwind label %.thread247.i.i.i410
 
 711:                                              ; preds = %707
@@ -7968,7 +7971,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %.val.i.i.i476 = load ptr, ptr %722, align 8, !noalias !1043, !nonnull !4, !noundef !4
   %723 = getelementptr inbounds i8, ptr %106, i64 16
   %.val219.i.i.i477 = load i64, ptr %723, align 8, !noalias !1043, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %105, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i476, i64 noundef %.val219.i.i.i477)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %105, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i476, i64 noundef %.val219.i.i.i477)
           to label %724 unwind label %719
 
 724:                                              ; preds = %721
@@ -7979,7 +7982,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 727:                                              ; preds = %724
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %105), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %104), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %104, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 24, i16 noundef 2)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %104, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 24, i16 noundef 2)
           to label %730 unwind label %719
 
 728:                                              ; preds = %724
@@ -8037,7 +8040,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 
 737:                                              ; preds = %733
   %738 = trunc nuw i64 %691 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %103, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 27, i32 noundef %738)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %103, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 27, i32 noundef %738)
           to label %740 unwind label %719
 
 739:                                              ; preds = %733
@@ -8052,7 +8055,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 743:                                              ; preds = %740
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %103), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %102), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %102, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 28, i16 noundef 4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %102, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 28, i16 noundef 4)
           to label %746 unwind label %719
 
 744:                                              ; preds = %740
@@ -8084,7 +8087,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 749:                                              ; preds = %746
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %102), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %101), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %101, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %101, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 34)
           to label %752 unwind label %719
 
 750:                                              ; preds = %746
@@ -8116,7 +8119,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 755:                                              ; preds = %752
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %101), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %100), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %100, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %100, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 35)
           to label %758 unwind label %719
 
 756:                                              ; preds = %752
@@ -8148,7 +8151,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 761:                                              ; preds = %758
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %100), !noalias !1043
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %99), !noalias !1043
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %99, ptr noalias noundef nonnull align 8 dereferenceable(48) %111, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %99, ptr noalias noundef align 8 dereferenceable(48) %111, i16 noundef 26, i16 noundef 1)
           to label %764 unwind label %719
 
 762:                                              ; preds = %758
@@ -8334,9 +8337,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %797 = mul i64 %796, %795
   %798 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i586, align 4, !alias.scope !1058, !noalias !1063, !noundef !4
   %799 = zext i32 %798 to i64
-  %.0.sroa.speculated.i.i.i.i601 = call noundef i64 @llvm.umin.i64(i64 %799, i64 %797)
+  %.0.sroa.speculated.i.i.i.i601 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %799, i64 %797)
   %800 = add i64 %797, %796
-  %.0.sroa.speculated.i2.i.i.i602 = call noundef i64 @llvm.umin.i64(i64 %799, i64 %800)
+  %.0.sroa.speculated.i2.i.i.i602 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %799, i64 %800)
   %801 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i602, %.0.sroa.speculated.i.i.i.i601
   %802 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i583, align 8, !alias.scope !1058, !noalias !1063, !noundef !4
   %803 = mul i64 %801, %802
@@ -8359,7 +8362,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %807 = load ptr, ptr %806, align 8, !alias.scope !1076, !noalias !1077, !nonnull !4, !noundef !4
   %808 = getelementptr inbounds i8, ptr %94, i64 16
   %809 = load i64, ptr %808, align 8, !alias.scope !1076, !noalias !1077, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %93, ptr noalias noundef nonnull align 8 dereferenceable(48) %805, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %807, i64 noundef %809)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %93, ptr noalias noundef align 8 dereferenceable(48) %805, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %807, i64 noundef %809)
           to label %.noexc.i.i29.i590 unwind label %823
 
 .noexc.i.i29.i590:                                ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17h49e556d957bd6646E.exit.thread.i.i"
@@ -8374,7 +8377,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %814 = load ptr, ptr %813, align 8, !alias.scope !1076, !noalias !1077, !nonnull !4, !noundef !4
   %815 = getelementptr inbounds i8, ptr %94, i64 40
   %816 = load i64, ptr %815, align 8, !alias.scope !1076, !noalias !1077, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %92, ptr noalias noundef nonnull align 8 dereferenceable(48) %805, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %814, i64 noundef %816)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %92, ptr noalias noundef align 8 dereferenceable(48) %805, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %814, i64 noundef %816)
           to label %.noexc1.i.i.i597 unwind label %823
 
 .noexc1.i.i.i597:                                 ; preds = %812
@@ -8794,7 +8797,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %937 = add nuw nsw i64 %936, %935
   %938 = udiv i64 %937, %935
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %73), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %73, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %73, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 17, i32 noundef %4)
           to label %939 unwind label %.thread247.i.i.i669
 
 939:                                              ; preds = %932
@@ -8805,7 +8808,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 942:                                              ; preds = %939
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %73), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %72, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %72, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 16, i32 noundef %5)
           to label %945 unwind label %.thread247.i.i.i669
 
 943:                                              ; preds = %939
@@ -8858,7 +8861,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 950:                                              ; preds = %945
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %71), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %71, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %71, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 5, i16 noundef 1)
           to label %951 unwind label %.thread247.i.i.i669
 
 951:                                              ; preds = %950
@@ -8869,7 +8872,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 954:                                              ; preds = %951
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %71), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %70), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %70, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.31, i64 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %70, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.31, i64 noundef 1)
           to label %957 unwind label %.thread247.i.i.i669
 
 955:                                              ; preds = %951
@@ -8937,7 +8940,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %.val.i.i.i735 = load ptr, ptr %966, align 8, !noalias !1182, !nonnull !4, !noundef !4
   %967 = getelementptr inbounds i8, ptr %69, i64 16
   %.val219.i.i.i736 = load i64, ptr %967, align 8, !noalias !1182, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %68, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i735, i64 noundef %.val219.i.i.i736)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %68, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i735, i64 noundef %.val219.i.i.i736)
           to label %968 unwind label %963
 
 968:                                              ; preds = %965
@@ -8948,7 +8951,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 971:                                              ; preds = %968
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %68), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %67), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %67, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 24, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %67, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 24, i16 noundef 1)
           to label %974 unwind label %963
 
 972:                                              ; preds = %968
@@ -9006,7 +9009,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 
 981:                                              ; preds = %977
   %982 = trunc nuw i64 %935 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %66, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 27, i32 noundef %982)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %66, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 27, i32 noundef %982)
           to label %984 unwind label %963
 
 983:                                              ; preds = %977
@@ -9021,7 +9024,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 987:                                              ; preds = %984
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %66), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %65), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %65, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 28, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %65, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 28, i16 noundef 1)
           to label %990 unwind label %963
 
 988:                                              ; preds = %984
@@ -9053,7 +9056,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 993:                                              ; preds = %990
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %65), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %64), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %64, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %64, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 34)
           to label %996 unwind label %963
 
 994:                                              ; preds = %990
@@ -9085,7 +9088,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 999:                                              ; preds = %996
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %64), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %63, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %63, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 35)
           to label %1002 unwind label %963
 
 1000:                                             ; preds = %996
@@ -9117,7 +9120,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1005:                                             ; preds = %1002
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %63), !noalias !1182
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %62), !noalias !1182
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %62, ptr noalias noundef nonnull align 8 dereferenceable(48) %74, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %62, ptr noalias noundef align 8 dereferenceable(48) %74, i16 noundef 26, i16 noundef 1)
           to label %1008 unwind label %963
 
 1006:                                             ; preds = %1002
@@ -9303,9 +9306,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1041 = mul i64 %1040, %1039
   %1042 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i845, align 4, !alias.scope !1197, !noalias !1202, !noundef !4
   %1043 = zext i32 %1042 to i64
-  %.0.sroa.speculated.i.i.i.i860 = call noundef i64 @llvm.umin.i64(i64 %1043, i64 %1041)
+  %.0.sroa.speculated.i.i.i.i860 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1043, i64 %1041)
   %1044 = add i64 %1041, %1040
-  %.0.sroa.speculated.i2.i.i.i861 = call noundef i64 @llvm.umin.i64(i64 %1043, i64 %1044)
+  %.0.sroa.speculated.i2.i.i.i861 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1043, i64 %1044)
   %1045 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i861, %.0.sroa.speculated.i.i.i.i860
   %1046 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i842, align 8, !alias.scope !1197, !noalias !1202, !noundef !4
   %1047 = mul i64 %1045, %1046
@@ -9328,7 +9331,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1051 = load ptr, ptr %1050, align 8, !alias.scope !1215, !noalias !1216, !nonnull !4, !noundef !4
   %1052 = getelementptr inbounds i8, ptr %57, i64 16
   %1053 = load i64, ptr %1052, align 8, !alias.scope !1215, !noalias !1216, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %56, ptr noalias noundef nonnull align 8 dereferenceable(48) %1049, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1051, i64 noundef %1053)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %56, ptr noalias noundef align 8 dereferenceable(48) %1049, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1051, i64 noundef %1053)
           to label %.noexc.i.i29.i849 unwind label %1067
 
 .noexc.i.i29.i849:                                ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17ha7c32f1f1ff31d57E.exit.thread.i.i"
@@ -9343,7 +9346,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1058 = load ptr, ptr %1057, align 8, !alias.scope !1215, !noalias !1216, !nonnull !4, !noundef !4
   %1059 = getelementptr inbounds i8, ptr %57, i64 40
   %1060 = load i64, ptr %1059, align 8, !alias.scope !1215, !noalias !1216, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %55, ptr noalias noundef nonnull align 8 dereferenceable(48) %1049, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1058, i64 noundef %1060)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %55, ptr noalias noundef align 8 dereferenceable(48) %1049, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1058, i64 noundef %1060)
           to label %.noexc1.i.i.i856 unwind label %1067
 
 .noexc1.i.i.i856:                                 ; preds = %1056
@@ -9737,7 +9740,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1170 = add nuw nsw i64 %1169, %1168
   %1171 = udiv i64 %1170, %1168
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %50), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %50, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %50, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 17, i32 noundef %4)
           to label %1172 unwind label %.thread247.i.i.i914
 
 1172:                                             ; preds = %1164
@@ -9748,7 +9751,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1175:                                             ; preds = %1172
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %49), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %49, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %49, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 16, i32 noundef %5)
           to label %1178 unwind label %.thread247.i.i.i914
 
 1176:                                             ; preds = %1172
@@ -9801,7 +9804,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1183:                                             ; preds = %1178
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %49), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %48), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %48, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %48, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 5, i16 noundef 1)
           to label %1184 unwind label %.thread247.i.i.i914
 
 1184:                                             ; preds = %1183
@@ -9812,7 +9815,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1187:                                             ; preds = %1184
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %47, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.30, i64 noundef 3)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %47, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.30, i64 noundef 3)
           to label %1190 unwind label %.thread247.i.i.i914
 
 1188:                                             ; preds = %1184
@@ -9880,7 +9883,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %.val.i.i.i980 = load ptr, ptr %1199, align 8, !noalias !1287, !nonnull !4, !noundef !4
   %1200 = getelementptr inbounds i8, ptr %46, i64 16
   %.val219.i.i.i981 = load i64, ptr %1200, align 8, !noalias !1287, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %45, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i980, i64 noundef %.val219.i.i.i981)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %45, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i980, i64 noundef %.val219.i.i.i981)
           to label %1201 unwind label %1196
 
 1201:                                             ; preds = %1198
@@ -9891,7 +9894,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1204:                                             ; preds = %1201
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %45), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %44), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %44, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 24, i16 noundef 2)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %44, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 24, i16 noundef 2)
           to label %1207 unwind label %1196
 
 1205:                                             ; preds = %1201
@@ -9949,7 +9952,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 
 1214:                                             ; preds = %1210
   %1215 = trunc nuw i64 %1168 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %43, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 27, i32 noundef %1215)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %43, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 27, i32 noundef %1215)
           to label %1217 unwind label %1196
 
 1216:                                             ; preds = %1210
@@ -9964,7 +9967,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1220:                                             ; preds = %1217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %42, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 28, i16 noundef 3)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %42, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 28, i16 noundef 3)
           to label %1223 unwind label %1196
 
 1221:                                             ; preds = %1217
@@ -9996,7 +9999,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1226:                                             ; preds = %1223
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %41, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %41, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 34)
           to label %1229 unwind label %1196
 
 1227:                                             ; preds = %1223
@@ -10028,7 +10031,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1232:                                             ; preds = %1229
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %40), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %40, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %40, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 35)
           to label %1235 unwind label %1196
 
 1233:                                             ; preds = %1229
@@ -10060,7 +10063,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1238:                                             ; preds = %1235
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40), !noalias !1287
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39), !noalias !1287
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %39, ptr noalias noundef nonnull align 8 dereferenceable(48) %51, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %39, ptr noalias noundef align 8 dereferenceable(48) %51, i16 noundef 26, i16 noundef 1)
           to label %1241 unwind label %1196
 
 1239:                                             ; preds = %1235
@@ -10246,9 +10249,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1274 = mul i64 %1273, %1272
   %1275 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i1090, align 4, !alias.scope !1302, !noalias !1307, !noundef !4
   %1276 = zext i32 %1275 to i64
-  %.0.sroa.speculated.i.i.i.i1105 = call noundef i64 @llvm.umin.i64(i64 %1276, i64 %1274)
+  %.0.sroa.speculated.i.i.i.i1105 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1276, i64 %1274)
   %1277 = add i64 %1274, %1273
-  %.0.sroa.speculated.i2.i.i.i1106 = call noundef i64 @llvm.umin.i64(i64 %1276, i64 %1277)
+  %.0.sroa.speculated.i2.i.i.i1106 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1276, i64 %1277)
   %1278 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i1106, %.0.sroa.speculated.i.i.i.i1105
   %1279 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i1087, align 8, !alias.scope !1302, !noalias !1307, !noundef !4
   %1280 = mul i64 %1278, %1279
@@ -10271,7 +10274,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1284 = load ptr, ptr %1283, align 8, !alias.scope !1320, !noalias !1321, !nonnull !4, !noundef !4
   %1285 = getelementptr inbounds i8, ptr %34, i64 16
   %1286 = load i64, ptr %1285, align 8, !alias.scope !1320, !noalias !1321, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %33, ptr noalias noundef nonnull align 8 dereferenceable(48) %1282, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1284, i64 noundef %1286)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %33, ptr noalias noundef align 8 dereferenceable(48) %1282, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1284, i64 noundef %1286)
           to label %.noexc.i.i29.i1094 unwind label %1300
 
 .noexc.i.i29.i1094:                               ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17h516dea4136811ac8E.exit.thread.i.i"
@@ -10286,7 +10289,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1291 = load ptr, ptr %1290, align 8, !alias.scope !1320, !noalias !1321, !nonnull !4, !noundef !4
   %1292 = getelementptr inbounds i8, ptr %34, i64 40
   %1293 = load i64, ptr %1292, align 8, !alias.scope !1320, !noalias !1321, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %32, ptr noalias noundef nonnull align 8 dereferenceable(48) %1282, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1291, i64 noundef %1293)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %32, ptr noalias noundef align 8 dereferenceable(48) %1282, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1291, i64 noundef %1293)
           to label %.noexc1.i.i.i1101 unwind label %1300
 
 .noexc1.i.i.i1101:                                ; preds = %1289
@@ -10676,7 +10679,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1402 = add nuw nsw i64 %1401, %1400
   %1403 = udiv i64 %1402, %1400
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %27, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 17, i32 noundef %4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %27, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 17, i32 noundef %4)
           to label %1404 unwind label %.thread247.i.i.i1159
 
 1404:                                             ; preds = %1396
@@ -10687,7 +10690,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1407:                                             ; preds = %1404
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %26, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 16, i32 noundef %5)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %26, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 16, i32 noundef %5)
           to label %1410 unwind label %.thread247.i.i.i1159
 
 1408:                                             ; preds = %1404
@@ -10740,7 +10743,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1415:                                             ; preds = %1410
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %25, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 5, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %25, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 5, i16 noundef 1)
           to label %1416 unwind label %.thread247.i.i.i1159
 
 1416:                                             ; preds = %1415
@@ -10751,7 +10754,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1419:                                             ; preds = %1416
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %24, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.36, i64 noundef 4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %24, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 1, ptr noalias noundef nonnull readonly align 2 @anon.c564382f77062b0983ee7bf00026c29e.36, i64 noundef 4)
           to label %1422 unwind label %.thread247.i.i.i1159
 
 1420:                                             ; preds = %1416
@@ -10819,7 +10822,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %.val.i.i.i1225 = load ptr, ptr %1431, align 8, !noalias !1391, !nonnull !4, !noundef !4
   %1432 = getelementptr inbounds i8, ptr %23, i64 16
   %.val219.i.i.i1226 = load i64, ptr %1432, align 8, !noalias !1391, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %22, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i1225, i64 noundef %.val219.i.i.i1226)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h1fa85eb9646c4ebaE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %22, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 41, ptr noalias noundef nonnull readonly align 2 %.val.i.i.i1225, i64 noundef %.val219.i.i.i1226)
           to label %1433 unwind label %1428
 
 1433:                                             ; preds = %1430
@@ -10830,7 +10833,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1436:                                             ; preds = %1433
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %21, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 24, i16 noundef 2)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %21, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 24, i16 noundef 2)
           to label %1439 unwind label %1428
 
 1437:                                             ; preds = %1433
@@ -10888,7 +10891,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 
 1446:                                             ; preds = %1442
   %1447 = trunc nuw i64 %1400 to i32
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %20, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 27, i32 noundef %1447)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hb3c5add38b41da6fE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %20, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 27, i32 noundef %1447)
           to label %1449 unwind label %1428
 
 1448:                                             ; preds = %1442
@@ -10903,7 +10906,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1452:                                             ; preds = %1449
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %19, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 28, i16 noundef 4)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %19, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 28, i16 noundef 4)
           to label %1455 unwind label %1428
 
 1453:                                             ; preds = %1449
@@ -10935,7 +10938,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1458:                                             ; preds = %1455
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %18, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 34)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %18, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 34)
           to label %1461 unwind label %1428
 
 1459:                                             ; preds = %1455
@@ -10967,7 +10970,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1464:                                             ; preds = %1461
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %17, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 35)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17hd3a7ff3334f9de51E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %17, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 35)
           to label %1467 unwind label %1428
 
 1465:                                             ; preds = %1461
@@ -10999,7 +11002,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
 1470:                                             ; preds = %1467
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !1391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16), !noalias !1391
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i16 noundef 26, i16 noundef 1)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h895f65d057ff1b00E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %16, ptr noalias noundef align 8 dereferenceable(48) %28, i16 noundef 26, i16 noundef 1)
           to label %1473 unwind label %1428
 
 1471:                                             ; preds = %1467
@@ -11185,9 +11188,9 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1506 = mul i64 %1505, %1504
   %1507 = load i32, ptr %.sroa.620.sroa.10.0..sroa.620.0..sroa_idx.sroa_idx.i1335, align 4, !alias.scope !1406, !noalias !1411, !noundef !4
   %1508 = zext i32 %1507 to i64
-  %.0.sroa.speculated.i.i.i.i1350 = call noundef i64 @llvm.umin.i64(i64 %1508, i64 %1506)
+  %.0.sroa.speculated.i.i.i.i1350 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1508, i64 %1506)
   %1509 = add i64 %1506, %1505
-  %.0.sroa.speculated.i2.i.i.i1351 = call noundef i64 @llvm.umin.i64(i64 %1508, i64 %1509)
+  %.0.sroa.speculated.i2.i.i.i1351 = call noundef range(i64 0, 4294967296) i64 @llvm.umin.i64(i64 %1508, i64 %1509)
   %1510 = sub nsw i64 %.0.sroa.speculated.i2.i.i.i1351, %.0.sroa.speculated.i.i.i.i1350
   %1511 = load i64, ptr %.sroa.620.sroa.7.0..sroa.620.0..sroa_idx.sroa_idx.i1332, align 8, !alias.scope !1406, !noalias !1411, !noundef !4
   %1512 = mul i64 %1510, %1511
@@ -11210,7 +11213,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1516 = load ptr, ptr %1515, align 8, !alias.scope !1424, !noalias !1425, !nonnull !4, !noundef !4
   %1517 = getelementptr inbounds i8, ptr %11, i64 16
   %1518 = load i64, ptr %1517, align 8, !alias.scope !1424, !noalias !1425, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %1514, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1516, i64 noundef %1518)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %10, ptr noalias noundef align 8 dereferenceable(48) %1514, i16 noundef 31, ptr noalias noundef nonnull readonly align 4 %1516, i64 noundef %1518)
           to label %.noexc.i.i29.i1339 unwind label %1532
 
 .noexc.i.i29.i1339:                               ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$23next_strip_sample_count17h64515a04c898dbf5E.exit.thread.i.i"
@@ -11225,7 +11228,7 @@ common.resume:                                    ; preds = %1489, %.thread242.i
   %1523 = load ptr, ptr %1522, align 8, !alias.scope !1424, !noalias !1425, !nonnull !4, !noundef !4
   %1524 = getelementptr inbounds i8, ptr %11, i64 40
   %1525 = load i64, ptr %1524, align 8, !alias.scope !1424, !noalias !1425, !noundef !4
-  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %9, ptr noalias noundef nonnull align 8 dereferenceable(48) %1514, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1523, i64 noundef %1525)
+  invoke fastcc void @"_ZN4tiff7encoder29DirectoryEncoder$LT$W$C$K$GT$9write_tag17h0255dabbae9d7c33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %9, ptr noalias noundef align 8 dereferenceable(48) %1514, i16 noundef 30, ptr noalias noundef nonnull readonly align 4 %1523, i64 noundef %1525)
           to label %.noexc1.i.i.i1346 unwind label %1532
 
 .noexc1.i.i.i1346:                                ; preds = %1521

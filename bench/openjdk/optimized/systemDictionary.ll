@@ -1588,7 +1588,7 @@ _ZL22needs_load_placeholder6Handle.exit.thread:   ; preds = %_ZN11MutexLockerC2E
   br i1 %106, label %107, label %108
 
 107:                                              ; preds = %105
-  call fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef nonnull %104)
+  call fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef %104)
   br label %_ZL23handle_parallel_loadingP10JavaThreadP6SymbolP15ClassLoaderDatabPb.exit.thread
 
 108:                                              ; preds = %105
@@ -1982,7 +1982,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZNK5Klass12class_l
   br i1 %49, label %50, label %51
 
 50:                                               ; preds = %48
-  tail call fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef nonnull %47)
+  tail call fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef %47)
   br label %53
 
 51:                                               ; preds = %48, %46
@@ -2090,7 +2090,7 @@ declare noundef ptr @_ZN16PlaceholderTable9get_entryEP6SymbolP15ClassLoaderData(
 declare noundef zeroext i1 @_ZN16PlaceholderEntry17check_seen_threadEP10JavaThreadN16PlaceholderTable15classloadActionE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL21log_circularity_errorP6SymbolP16PlaceholderEntry(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %class.LogStream, align 8
   %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_116ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %4, null

@@ -25,7 +25,7 @@ define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0.i.i.i.i = alloca { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, align 8
   %.sroa.6.i.i.i = alloca [6 x i64], align 8
   %3 = alloca { { ptr, i64 }, ptr }, align 8
@@ -387,7 +387,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
   br i1 %63, label %64, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next5check28_$u7b$$u7b$closure$u7d$$u7d$17hb20fd8aa7e72bb08E.exit.i.i.i"
 
 64:                                               ; preds = %59
-  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(80) %57), !noalias !91
+  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef readonly align 8 dereferenceable(32) %8, ptr noalias noundef align 8 dereferenceable(80) %57), !noalias !91
   %65 = icmp eq ptr %60, %23
   br i1 %65, label %"_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$17hea6b4ad3d247d0d8E.exit", label %66
 
@@ -401,7 +401,7 @@ define hidden void @_ZN5salsa7runtime16dependency_graph15DependencyGraph26for_ea
 71:                                               ; preds = %71, %66
   %.0.i5.i.i = phi i64 [ 0, %66 ], [ %73, %71 ]
   %72 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %60, i64 %.0.i5.i.i
-  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8, ptr noalias noundef nonnull align 8 dereferenceable(80) %72), !noalias !91
+  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef readonly align 8 dereferenceable(32) %8, ptr noalias noundef align 8 dereferenceable(80) %72), !noalias !91
   %73 = add nuw i64 %.0.i5.i.i, 1
   %74 = icmp eq i64 %73, %70
   br i1 %74, label %"_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$17hea6b4ad3d247d0d8E.exit", label %71
@@ -484,7 +484,7 @@ select.unfold:                                    ; preds = %43, %39
   br i1 %104, label %105, label %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next5check28_$u7b$$u7b$closure$u7d$$u7d$17hb20fd8aa7e72bb08E.exit.i.i.i58"
 
 105:                                              ; preds = %100
-  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(80) %98), !noalias !117
+  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef readonly align 8 dereferenceable(32) %7, ptr noalias noundef align 8 dereferenceable(80) %98), !noalias !117
   %106 = icmp eq ptr %101, %81
   br i1 %106, label %"_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$17hea6b4ad3d247d0d8E.exit61", label %107
 
@@ -498,7 +498,7 @@ select.unfold:                                    ; preds = %43, %39
 112:                                              ; preds = %112, %107
   %.0.i5.i.i60 = phi i64 [ 0, %107 ], [ %114, %112 ]
   %113 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %101, i64 %.0.i5.i.i60
-  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(80) %113), !noalias !117
+  call fastcc void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h96f839c7419ebf14E"(ptr noalias noundef readonly align 8 dereferenceable(32) %7, ptr noalias noundef align 8 dereferenceable(80) %113), !noalias !117
   %114 = add nuw i64 %.0.i5.i.i60, 1
   %115 = icmp eq i64 %114, %111
   br i1 %115, label %"_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw28_$u7b$$u7b$closure$u7d$$u7d$17hea6b4ad3d247d0d8E.exit61", label %112

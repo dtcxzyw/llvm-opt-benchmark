@@ -22236,7 +22236,7 @@ declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(6
 declare void @_ZNK6duckdb5Value8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL18GenerateColumnNameEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 noundef %total_cols, i64 noundef %col_number, ptr noundef nonnull align 8 dereferenceable(32) %prefix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL18GenerateColumnNameEmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 noundef %total_cols, i64 noundef %col_number, ptr noundef nonnull align 8 dereferenceable(32) %prefix) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %leading_zeros = alloca %"class.std::__cxx11::basic_string", align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22534,7 +22534,7 @@ ehcleanup13:                                      ; preds = %if.then.i.i55, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL14TrimWhitespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %col_name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL14TrimWhitespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %col_name) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %codepoint = alloca i32, align 4

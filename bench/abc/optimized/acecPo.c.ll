@@ -6373,14 +6373,14 @@ Vec_IntAlloc.exit95:                              ; preds = %Vec_IntAlloc.exit91
   %.0130149 = phi i32 [ -1, %.lr.ph152 ], [ %.1, %61 ]
   %indvars.iv148 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next, %61 ]
   %.val82 = load ptr, ptr %56, align 8
-  %69 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val79151, ptr %.val82, ptr noundef nonnull %68)
+  %69 = tail call fastcc i32 @Gia_ObjLevel(ptr nonnull %.val79151, ptr %.val82, ptr noundef %68)
   %70 = icmp slt i32 %.058129150, %69
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %67
   %.val83 = load ptr, ptr %52, align 8
   %.val84 = load ptr, ptr %56, align 8
-  %72 = tail call fastcc i32 @Gia_ObjLevel(ptr %.val83, ptr %.val84, ptr noundef nonnull %68)
+  %72 = tail call fastcc i32 @Gia_ObjLevel(ptr %.val83, ptr %.val84, ptr noundef %68)
   %73 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %74
 
@@ -6818,7 +6818,7 @@ Vec_WecFreeP.exit:                                ; preds = %Vec_WecFree.exit.i,
 declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Gia_ObjLevel(ptr %.32.val, ptr nocapture %.160.val, ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = ptrtoint ptr %.32.val to i64
   %4 = sub i64 %2, %3

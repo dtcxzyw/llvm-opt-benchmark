@@ -1884,7 +1884,7 @@ if.then185.i:                                     ; preds = %if.then182.i
   br label %if.end188.i
 
 if.end188.i:                                      ; preds = %if.then185.i, %if.then182.i
-  %call191.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef nonnull %targetDir.i, i8 noundef signext %noVersion.0.i)
+  %call191.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef %targetDir.i, i8 noundef signext %noVersion.0.i)
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else192.i:                                     ; preds = %if.then179.i
@@ -2012,7 +2012,7 @@ if.then27.i175.i:                                 ; preds = %call4.i.noexc.i.i
   br label %cleanup.i.i
 
 if.end32.i.i:                                     ; preds = %call4.i.noexc.i.i, %if.end.i168.i
-  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef nonnull %tempObjectFile.i.i, ptr noundef null)
+  %call35.i179.i = invoke fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %tempObjectFile.i.i, ptr noundef null)
           to label %cleanup.i.i unwind label %lpad.i.i
 
 cleanup.i.i:                                      ; preds = %if.end32.i.i, %if.then27.i175.i, %if.then250.i
@@ -2053,7 +2053,7 @@ if.then269.i:                                     ; preds = %if.then266.i
   br label %if.end272.i
 
 if.end272.i:                                      ; preds = %if.then269.i, %if.then266.i
-  %call275.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef nonnull %targetDir.i, i8 noundef signext %noVersion.0.i)
+  %call275.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef %targetDir.i, i8 noundef signext %noVersion.0.i)
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 if.else279.i:                                     ; preds = %land.lhs.true247.i, %land.lhs.true244.i
@@ -2257,7 +2257,7 @@ for.inc123.i.i:                                   ; preds = %if.then120.i.i, %if
   br i1 %exitcond.not.i211.i, label %if.then127.i.i, label %for.body.i191.i, !llvm.loop !25
 
 if.then127.i.i:                                   ; preds = %for.inc123.i.i, %for.cond.preheader.i190.i
-  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef nonnull %call9.i.i, ptr noundef nonnull %call2.i187.i)
+  %call128.i.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %call9.i.i, ptr noundef nonnull %call2.i187.i)
   br label %if.end129.i.i
 
 if.end129.i.i:                                    ; preds = %if.then127.i.i, %if.then113.i.i
@@ -2344,7 +2344,7 @@ if.then.i239.i:                                   ; preds = %land.lhs.true.i.i
   br label %_ZL23pkg_destroyOptMatchArchPc.exit.i
 
 _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %if.then.i239.i, %land.lhs.true.i.i, %_ZL22pkg_createOptMatchArchPc.exit.i
-  %call311.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir.i, i8 noundef signext %104, ptr noundef nonnull %gencFilePath.i, ptr noundef null)
+  %call311.i = call fastcc noundef i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir.i, i8 noundef signext %104, ptr noundef %gencFilePath.i, ptr noundef null)
   br label %if.end312.i
 
 if.end312.i:                                      ; preds = %_ZL23pkg_destroyOptMatchArchPc.exit.i, %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
@@ -2483,7 +2483,7 @@ if.then348.i:                                     ; preds = %if.then345.i
   br label %if.end351.i
 
 if.end351.i:                                      ; preds = %if.then348.i, %if.then345.i
-  %call354.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef nonnull %targetDir.i, i8 noundef signext %noVersion.0.i)
+  %call354.i = call fastcc noundef i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef nonnull %o.sroa.68.0, ptr noundef %targetDir.i, i8 noundef signext %noVersion.0.i)
   %cmp355.not.i = icmp eq i32 %call354.i, 0
   br i1 %cmp355.not.i, label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit, label %if.then356.i
 
@@ -2616,13 +2616,13 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare signext i8 @isFileModTimeLater(ptr noundef, ptr noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %installDir, ptr noundef %targetDir, i8 noundef signext %noVersion) unnamed_addr #13 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL18pkg_installLibraryPKcS0_a(ptr noundef %installDir, ptr noundef nonnull %targetDir, i8 noundef signext range(i8 0, 2) %noVersion) unnamed_addr #13 {
 entry:
   %cmd = alloca [512 x i8], align 16
   %0 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 128
   %1 = load ptr, ptr %arrayidx, align 8
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd, i64 noundef 512, ptr noundef nonnull @.str.118, ptr noundef %targetDir, ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), ptr noundef %installDir, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512)) #19
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %cmd, i64 noundef 512, ptr noundef nonnull @.str.118, ptr noundef nonnull %targetDir, ptr noundef %1, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), ptr noundef %installDir, ptr noundef nonnull @.str.55, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512)) #19
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd) #23
   %2 = and i64 %call.i, 4294967295
   %cmp.i = icmp eq i64 %2, 0
@@ -2664,7 +2664,7 @@ declare void @writeAssemblyCode(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @writeObjectCode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef %targetDir, i8 noundef signext %mode, ptr noundef %objectFile, ptr noundef %command) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -1, 2) i32 @_ZL23pkg_generateLibraryFilePKccS0_Pca(ptr noundef nonnull %targetDir, i8 noundef signext %mode, ptr noundef nonnull %objectFile, ptr noundef %command) unnamed_addr #7 {
 entry:
   %cmp.not = icmp eq ptr %command, null
   %cmp1 = icmp eq i8 %mode, 115
@@ -2712,7 +2712,7 @@ if.end24:                                         ; preds = %if.then4, %if.then2
   %7 = load ptr, ptr %arrayidx25, align 8
   %arrayidx26 = getelementptr inbounds i8, ptr %6, i64 112
   %8 = load ptr, ptr %arrayidx26, align 8
-  %call27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.1, ptr noundef nonnull dereferenceable(1) @.str.138, ptr noundef %7, ptr noundef %8, ptr noundef %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), ptr noundef %objectFile) #19
+  %call27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.1, ptr noundef nonnull dereferenceable(1) @.str.138, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512), ptr noundef nonnull %objectFile) #19
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.1) #23
   %9 = and i64 %call.i, 4294967295
   %cmp.i = icmp eq i64 %9, 0
@@ -2728,7 +2728,7 @@ if.then30:                                        ; preds = %if.end24, %normal_c
   %10 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx31 = getelementptr inbounds i8, ptr %10, i64 120
   %11 = load ptr, ptr %arrayidx31, align 8
-  %call32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.1, ptr noundef nonnull dereferenceable(1) @.str.139, ptr noundef %11, ptr noundef %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512)) #19
+  %call32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.1, ptr noundef nonnull dereferenceable(1) @.str.139, ptr noundef %11, ptr noundef nonnull %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 512)) #19
   %call.i22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.1) #23
   %12 = and i64 %call.i22, 4294967295
   %cmp.i23 = icmp eq i64 %12, 0
@@ -2805,7 +2805,7 @@ if.end73:                                         ; preds = %if.then36, %if.else
   %27 = load ptr, ptr %arrayidx82, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %22, i64 96
   %28 = load ptr, ptr %arrayidx83, align 8
-  %call84 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.3, ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %23, ptr noundef %24, ptr noundef %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), ptr noundef %objectFile, ptr noundef nonnull %25, ptr noundef nonnull %cond81, ptr noundef %27, ptr noundef %28) #19
+  %call84 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.3, ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), ptr noundef nonnull %objectFile, ptr noundef nonnull %25, ptr noundef nonnull %cond81, ptr noundef %27, ptr noundef %28) #19
   %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.3) #23
   %29 = and i64 %call.i32, 4294967295
   %cmp.i33 = icmp eq i64 %29, 0

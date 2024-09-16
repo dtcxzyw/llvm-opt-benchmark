@@ -242,40 +242,40 @@ PHP_SHA256Update.exit22:                          ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_SHA256Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %80, ptr %81, align 1
-  %82 = load i32, ptr %77, align 4
-  %83 = lshr i32 %82, 16
-  %84 = trunc i32 %83 to i8
-  %85 = or disjoint i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds i8, ptr %0, i64 %85
-  store i8 %84, ptr %86, align 1
-  %87 = load i32, ptr %77, align 4
-  %88 = lshr i32 %87, 8
-  %89 = trunc i32 %88 to i8
-  %90 = or disjoint i64 %indvars.iv.i, 2
-  %91 = getelementptr inbounds i8, ptr %0, i64 %90
-  store i8 %89, ptr %91, align 1
-  %92 = load i32, ptr %77, align 4
-  %93 = trunc i32 %92 to i8
-  %94 = or disjoint i64 %indvars.iv.i, 3
-  %95 = getelementptr inbounds i8, ptr %0, i64 %94
-  store i8 %93, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_SHA256Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA256Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %81, ptr %82, align 1
+  %83 = load i32, ptr %78, align 4
+  %84 = lshr i32 %83, 16
+  %85 = trunc i32 %84 to i8
+  %86 = or disjoint i64 %indvars.iv.i, 1
+  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  store i8 %85, ptr %87, align 1
+  %88 = load i32, ptr %78, align 4
+  %89 = lshr i32 %88, 8
+  %90 = trunc i32 %89 to i8
+  %91 = or disjoint i64 %indvars.iv.i, 2
+  %92 = getelementptr inbounds i8, ptr %0, i64 %91
+  store i8 %90, ptr %92, align 1
+  %93 = load i32, ptr %78, align 4
+  %94 = trunc i32 %93 to i8
+  %95 = or disjoint i64 %indvars.iv.i, 3
+  %96 = getelementptr inbounds i8, ptr %0, i64 %95
+  store i8 %94, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %77
 
-SHAEncode32.exit:                                 ; preds = %.lr.ph.i23
+SHAEncode32.exit:                                 ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -484,40 +484,40 @@ PHP_SHA224Update.exit22:                          ; preds = %72, %67
   %75 = getelementptr inbounds i8, ptr %3, i64 %.1.i19
   %76 = sub nuw nsw i64 8, %.1.i19
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr nonnull readonly align 1 %75, i64 %76, i1 false)
-  br label %.lr.ph.i23
+  br label %77
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23, %PHP_SHA224Update.exit22
-  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next23.i, %.lr.ph.i23 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next.i, %.lr.ph.i23 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
-  %78 = load i32, ptr %77, align 4
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  %81 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %80, ptr %81, align 1
-  %82 = load i32, ptr %77, align 4
-  %83 = lshr i32 %82, 16
-  %84 = trunc i32 %83 to i8
-  %85 = or disjoint i64 %indvars.iv.i, 1
-  %86 = getelementptr inbounds i8, ptr %0, i64 %85
-  store i8 %84, ptr %86, align 1
-  %87 = load i32, ptr %77, align 4
-  %88 = lshr i32 %87, 8
-  %89 = trunc i32 %88 to i8
-  %90 = or disjoint i64 %indvars.iv.i, 2
-  %91 = getelementptr inbounds i8, ptr %0, i64 %90
-  store i8 %89, ptr %91, align 1
-  %92 = load i32, ptr %77, align 4
-  %93 = trunc i32 %92 to i8
-  %94 = or disjoint i64 %indvars.iv.i, 3
-  %95 = getelementptr inbounds i8, ptr %0, i64 %94
-  store i8 %93, ptr %95, align 1
+77:                                               ; preds = %77, %PHP_SHA224Update.exit22
+  %indvars.iv22.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next23.i, %77 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA224Update.exit22 ], [ %indvars.iv.next.i, %77 ]
+  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv22.i
+  %79 = load i32, ptr %78, align 4
+  %80 = lshr i32 %79, 24
+  %81 = trunc nuw i32 %80 to i8
+  %82 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %81, ptr %82, align 1
+  %83 = load i32, ptr %78, align 4
+  %84 = lshr i32 %83, 16
+  %85 = trunc i32 %84 to i8
+  %86 = or disjoint i64 %indvars.iv.i, 1
+  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  store i8 %85, ptr %87, align 1
+  %88 = load i32, ptr %78, align 4
+  %89 = lshr i32 %88, 8
+  %90 = trunc i32 %89 to i8
+  %91 = or disjoint i64 %indvars.iv.i, 2
+  %92 = getelementptr inbounds i8, ptr %0, i64 %91
+  store i8 %90, ptr %92, align 1
+  %93 = load i32, ptr %78, align 4
+  %94 = trunc i32 %93 to i8
+  %95 = or disjoint i64 %indvars.iv.i, 3
+  %96 = getelementptr inbounds i8, ptr %0, i64 %95
+  store i8 %94, ptr %96, align 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.next23.i, 7
-  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %.lr.ph.i23
+  br i1 %exitcond.not.i, label %SHAEncode32.exit, label %77
 
-SHAEncode32.exit:                                 ; preds = %.lr.ph.i23
+SHAEncode32.exit:                                 ; preds = %77
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 104) #7
   ret void
 }
@@ -1080,64 +1080,64 @@ PHP_SHA384Update.exit30:                          ; preds = %PHP_SHA384Update.ex
   %97 = getelementptr inbounds i8, ptr %3, i64 %.0.i27
   %98 = sub nuw nsw i64 16, %.0.i27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %96, ptr nonnull readonly align 1 %97, i64 %98, i1 false)
-  br label %.lr.ph.i31
+  br label %99
 
-.lr.ph.i31:                                       ; preds = %.lr.ph.i31, %PHP_SHA384Update.exit30
-  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next39.i, %.lr.ph.i31 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next.i, %.lr.ph.i31 ]
-  %99 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
-  %100 = load i64, ptr %99, align 8
-  %101 = lshr i64 %100, 56
-  %102 = trunc nuw i64 %101 to i8
-  %103 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %102, ptr %103, align 1
-  %104 = load i64, ptr %99, align 8
-  %105 = lshr i64 %104, 48
-  %106 = trunc i64 %105 to i8
-  %107 = or disjoint i64 %indvars.iv.i, 1
-  %108 = getelementptr inbounds i8, ptr %0, i64 %107
-  store i8 %106, ptr %108, align 1
-  %109 = load i64, ptr %99, align 8
-  %110 = lshr i64 %109, 40
-  %111 = trunc i64 %110 to i8
-  %112 = or disjoint i64 %indvars.iv.i, 2
-  %113 = getelementptr inbounds i8, ptr %0, i64 %112
-  store i8 %111, ptr %113, align 1
-  %114 = load i64, ptr %99, align 8
-  %115 = lshr i64 %114, 32
-  %116 = trunc i64 %115 to i8
-  %117 = or disjoint i64 %indvars.iv.i, 3
-  %118 = getelementptr inbounds i8, ptr %0, i64 %117
-  store i8 %116, ptr %118, align 1
-  %119 = load i64, ptr %99, align 8
-  %120 = lshr i64 %119, 24
-  %121 = trunc i64 %120 to i8
-  %122 = or disjoint i64 %indvars.iv.i, 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 %122
-  store i8 %121, ptr %123, align 1
-  %124 = load i64, ptr %99, align 8
-  %125 = lshr i64 %124, 16
-  %126 = trunc i64 %125 to i8
-  %127 = or disjoint i64 %indvars.iv.i, 5
-  %128 = getelementptr inbounds i8, ptr %0, i64 %127
-  store i8 %126, ptr %128, align 1
-  %129 = load i64, ptr %99, align 8
-  %130 = lshr i64 %129, 8
-  %131 = trunc i64 %130 to i8
-  %132 = or disjoint i64 %indvars.iv.i, 6
-  %133 = getelementptr inbounds i8, ptr %0, i64 %132
-  store i8 %131, ptr %133, align 1
-  %134 = load i64, ptr %99, align 8
-  %135 = trunc i64 %134 to i8
-  %136 = or disjoint i64 %indvars.iv.i, 7
-  %137 = getelementptr inbounds i8, ptr %0, i64 %136
-  store i8 %135, ptr %137, align 1
+99:                                               ; preds = %99, %PHP_SHA384Update.exit30
+  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next39.i, %99 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA384Update.exit30 ], [ %indvars.iv.next.i, %99 ]
+  %100 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
+  %101 = load i64, ptr %100, align 8
+  %102 = lshr i64 %101, 56
+  %103 = trunc nuw i64 %102 to i8
+  %104 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %103, ptr %104, align 1
+  %105 = load i64, ptr %100, align 8
+  %106 = lshr i64 %105, 48
+  %107 = trunc i64 %106 to i8
+  %108 = or disjoint i64 %indvars.iv.i, 1
+  %109 = getelementptr inbounds i8, ptr %0, i64 %108
+  store i8 %107, ptr %109, align 1
+  %110 = load i64, ptr %100, align 8
+  %111 = lshr i64 %110, 40
+  %112 = trunc i64 %111 to i8
+  %113 = or disjoint i64 %indvars.iv.i, 2
+  %114 = getelementptr inbounds i8, ptr %0, i64 %113
+  store i8 %112, ptr %114, align 1
+  %115 = load i64, ptr %100, align 8
+  %116 = lshr i64 %115, 32
+  %117 = trunc i64 %116 to i8
+  %118 = or disjoint i64 %indvars.iv.i, 3
+  %119 = getelementptr inbounds i8, ptr %0, i64 %118
+  store i8 %117, ptr %119, align 1
+  %120 = load i64, ptr %100, align 8
+  %121 = lshr i64 %120, 24
+  %122 = trunc i64 %121 to i8
+  %123 = or disjoint i64 %indvars.iv.i, 4
+  %124 = getelementptr inbounds i8, ptr %0, i64 %123
+  store i8 %122, ptr %124, align 1
+  %125 = load i64, ptr %100, align 8
+  %126 = lshr i64 %125, 16
+  %127 = trunc i64 %126 to i8
+  %128 = or disjoint i64 %indvars.iv.i, 5
+  %129 = getelementptr inbounds i8, ptr %0, i64 %128
+  store i8 %127, ptr %129, align 1
+  %130 = load i64, ptr %100, align 8
+  %131 = lshr i64 %130, 8
+  %132 = trunc i64 %131 to i8
+  %133 = or disjoint i64 %indvars.iv.i, 6
+  %134 = getelementptr inbounds i8, ptr %0, i64 %133
+  store i8 %132, ptr %134, align 1
+  %135 = load i64, ptr %100, align 8
+  %136 = trunc i64 %135 to i8
+  %137 = or disjoint i64 %indvars.iv.i, 7
+  %138 = getelementptr inbounds i8, ptr %0, i64 %137
+  store i8 %136, ptr %138, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 6
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i31
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %99
 
-SHAEncode64.exit:                                 ; preds = %.lr.ph.i31
+SHAEncode64.exit:                                 ; preds = %99
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #7
   ret void
 }
@@ -1419,64 +1419,64 @@ PHP_SHA512Update.exit30:                          ; preds = %96, %91
   %99 = getelementptr inbounds i8, ptr %3, i64 %.1.i27
   %100 = sub nuw nsw i64 16, %.1.i27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %98, ptr nonnull readonly align 1 %99, i64 %100, i1 false)
-  br label %.lr.ph.i31
+  br label %101
 
-.lr.ph.i31:                                       ; preds = %.lr.ph.i31, %PHP_SHA512Update.exit30
-  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next39.i, %.lr.ph.i31 ]
-  %indvars.iv.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next.i, %.lr.ph.i31 ]
-  %101 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
-  %102 = load i64, ptr %101, align 8
-  %103 = lshr i64 %102, 56
-  %104 = trunc nuw i64 %103 to i8
-  %105 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
-  store i8 %104, ptr %105, align 1
-  %106 = load i64, ptr %101, align 8
-  %107 = lshr i64 %106, 48
-  %108 = trunc i64 %107 to i8
-  %109 = or disjoint i64 %indvars.iv.i, 1
-  %110 = getelementptr inbounds i8, ptr %0, i64 %109
-  store i8 %108, ptr %110, align 1
-  %111 = load i64, ptr %101, align 8
-  %112 = lshr i64 %111, 40
-  %113 = trunc i64 %112 to i8
-  %114 = or disjoint i64 %indvars.iv.i, 2
-  %115 = getelementptr inbounds i8, ptr %0, i64 %114
-  store i8 %113, ptr %115, align 1
-  %116 = load i64, ptr %101, align 8
-  %117 = lshr i64 %116, 32
-  %118 = trunc i64 %117 to i8
-  %119 = or disjoint i64 %indvars.iv.i, 3
-  %120 = getelementptr inbounds i8, ptr %0, i64 %119
-  store i8 %118, ptr %120, align 1
-  %121 = load i64, ptr %101, align 8
-  %122 = lshr i64 %121, 24
-  %123 = trunc i64 %122 to i8
-  %124 = or disjoint i64 %indvars.iv.i, 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 %124
-  store i8 %123, ptr %125, align 1
-  %126 = load i64, ptr %101, align 8
-  %127 = lshr i64 %126, 16
-  %128 = trunc i64 %127 to i8
-  %129 = or disjoint i64 %indvars.iv.i, 5
-  %130 = getelementptr inbounds i8, ptr %0, i64 %129
-  store i8 %128, ptr %130, align 1
-  %131 = load i64, ptr %101, align 8
-  %132 = lshr i64 %131, 8
-  %133 = trunc i64 %132 to i8
-  %134 = or disjoint i64 %indvars.iv.i, 6
-  %135 = getelementptr inbounds i8, ptr %0, i64 %134
-  store i8 %133, ptr %135, align 1
-  %136 = load i64, ptr %101, align 8
-  %137 = trunc i64 %136 to i8
-  %138 = or disjoint i64 %indvars.iv.i, 7
-  %139 = getelementptr inbounds i8, ptr %0, i64 %138
-  store i8 %137, ptr %139, align 1
+101:                                              ; preds = %101, %PHP_SHA512Update.exit30
+  %indvars.iv38.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next39.i, %101 ]
+  %indvars.iv.i = phi i64 [ 0, %PHP_SHA512Update.exit30 ], [ %indvars.iv.next.i, %101 ]
+  %102 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv38.i
+  %103 = load i64, ptr %102, align 8
+  %104 = lshr i64 %103, 56
+  %105 = trunc nuw i64 %104 to i8
+  %106 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  store i8 %105, ptr %106, align 1
+  %107 = load i64, ptr %102, align 8
+  %108 = lshr i64 %107, 48
+  %109 = trunc i64 %108 to i8
+  %110 = or disjoint i64 %indvars.iv.i, 1
+  %111 = getelementptr inbounds i8, ptr %0, i64 %110
+  store i8 %109, ptr %111, align 1
+  %112 = load i64, ptr %102, align 8
+  %113 = lshr i64 %112, 40
+  %114 = trunc i64 %113 to i8
+  %115 = or disjoint i64 %indvars.iv.i, 2
+  %116 = getelementptr inbounds i8, ptr %0, i64 %115
+  store i8 %114, ptr %116, align 1
+  %117 = load i64, ptr %102, align 8
+  %118 = lshr i64 %117, 32
+  %119 = trunc i64 %118 to i8
+  %120 = or disjoint i64 %indvars.iv.i, 3
+  %121 = getelementptr inbounds i8, ptr %0, i64 %120
+  store i8 %119, ptr %121, align 1
+  %122 = load i64, ptr %102, align 8
+  %123 = lshr i64 %122, 24
+  %124 = trunc i64 %123 to i8
+  %125 = or disjoint i64 %indvars.iv.i, 4
+  %126 = getelementptr inbounds i8, ptr %0, i64 %125
+  store i8 %124, ptr %126, align 1
+  %127 = load i64, ptr %102, align 8
+  %128 = lshr i64 %127, 16
+  %129 = trunc i64 %128 to i8
+  %130 = or disjoint i64 %indvars.iv.i, 5
+  %131 = getelementptr inbounds i8, ptr %0, i64 %130
+  store i8 %129, ptr %131, align 1
+  %132 = load i64, ptr %102, align 8
+  %133 = lshr i64 %132, 8
+  %134 = trunc i64 %133 to i8
+  %135 = or disjoint i64 %indvars.iv.i, 6
+  %136 = getelementptr inbounds i8, ptr %0, i64 %135
+  store i8 %134, ptr %136, align 1
+  %137 = load i64, ptr %102, align 8
+  %138 = trunc i64 %137 to i8
+  %139 = or disjoint i64 %indvars.iv.i, 7
+  %140 = getelementptr inbounds i8, ptr %0, i64 %139
+  store i8 %138, ptr %140, align 1
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next39.i, 8
-  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %.lr.ph.i31
+  br i1 %exitcond.not.i, label %SHAEncode64.exit, label %101
 
-SHAEncode64.exit:                                 ; preds = %.lr.ph.i31
+SHAEncode64.exit:                                 ; preds = %101
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 208) #7
   ret void
 }

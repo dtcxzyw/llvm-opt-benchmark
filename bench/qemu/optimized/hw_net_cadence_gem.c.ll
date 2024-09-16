@@ -910,7 +910,7 @@ do.end120:                                        ; preds = %for.body.i157, %for
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gem_get_rx_desc(ptr noundef %s, i32 noundef %q) unnamed_addr #0 {
+define internal fastcc void @gem_get_rx_desc(ptr noundef %s, i32 noundef range(i32 -2147483648, 65536) %q) unnamed_addr #0 {
 entry:
   %arrayidx.i.i = getelementptr i8, ptr %s, i64 9500
   %0 = load i32, ptr %arrayidx.i.i, align 4
@@ -2209,7 +2209,7 @@ gem_mac_address_filter.exit:                      ; preds = %land.lhs.true41.i
   br label %if.end
 
 if.end:                                           ; preds = %gem_mac_address_filter.exit, %if.then3.i, %entry, %if.then31.i
-  %retval.0.i253 = phi i32 [ %20, %gem_mac_address_filter.exit ], [ -2, %entry ], [ %cond.i, %if.then31.i ], [ -3, %if.then3.i ]
+  %retval.0.i254 = phi i32 [ %20, %gem_mac_address_filter.exit ], [ -2, %entry ], [ %cond.i, %if.then31.i ], [ -3, %if.then3.i ]
   %21 = and i32 %0, 65536
   %tobool.not = icmp eq i32 %21, 0
   br i1 %tobool.not, label %if.end16, label %if.then3
@@ -2551,8 +2551,8 @@ gem_get_max_buf_len.exit:                         ; preds = %if.then.i144, %if.t
   br i1 %cmp62, label %do.body65, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %gem_get_max_buf_len.exit
-  %tobool74.not272 = icmp eq i32 %bytes_to_copy.0, 0
-  br i1 %tobool74.not272, label %while.cond.preheader.while.end_crit_edge, label %while.body.lr.ph
+  %tobool74.not273 = icmp eq i32 %bytes_to_copy.0, 0
+  br i1 %tobool74.not273, label %while.cond.preheader.while.end_crit_edge, label %while.body.lr.ph
 
 while.cond.preheader.while.end_crit_edge:         ; preds = %while.cond.preheader
   %.pre = trunc i64 %size.addr.0 to i32
@@ -2567,16 +2567,17 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
   %conv83 = zext nneg i32 %and.i129 to i64
   %arrayidx.i177 = getelementptr i8, ptr %arrayidx80, i64 4
   %conv159 = trunc i64 %size.addr.0 to i32
-  %shl57.i.i = shl i32 %retval.0.i253, 25
+  %shl57.i.i = shl i32 %retval.0.i254, 25
   %and6.i.i = and i32 %shl57.i.i, 100663296
   %arrayidx3.i.i = getelementptr i8, ptr %call, i64 10720
   %rx_desc_addr.i.i = getelementptr inbounds i8, ptr %call, i64 19792
   %arrayidx9.i.i = getelementptr [8 x i32], ptr %rx_desc_addr.i.i, i64 0, i64 %idxprom
+  %trunc.i199 = trunc nuw nsw i32 %retval.0.i140 to i16
   %regs2.i.i = getelementptr inbounds i8, ptr %call, i64 9484
   %sub.i.i = add nuw nsw i32 %retval.0.i140, 287
   %idxprom5.i.i = zext nneg i32 %sub.i.i to i64
   %arrayidx6.i.i = getelementptr [512 x i32], ptr %regs2.i.i, i64 0, i64 %idxprom5.i.i
-  %arrayidx.i.i199 = getelementptr i8, ptr %call, i64 9508
+  %arrayidx.i.i200 = getelementptr i8, ptr %call, i64 9508
   br label %while.body
 
 do.body65:                                        ; preds = %gem_get_max_buf_len.exit
@@ -2611,8 +2612,8 @@ do.end72:                                         ; preds = %do.body65, %if.then
   br label %return
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end248
-  %bytes_to_copy.1275 = phi i32 [ %bytes_to_copy.0, %while.body.lr.ph ], [ %sub136, %if.end248 ]
-  %rxbuf_ptr.1274 = phi ptr [ %rxbuf_ptr.0, %while.body.lr.ph ], [ %add.ptr128, %if.end248 ]
+  %bytes_to_copy.1276 = phi i32 [ %bytes_to_copy.0, %while.body.lr.ph ], [ %sub136, %if.end248 ]
+  %rxbuf_ptr.1275 = phi ptr [ %rxbuf_ptr.0, %while.body.lr.ph ], [ %add.ptr128, %if.end248 ]
   %65 = phi i32 [ 16384, %while.body.lr.ph ], [ 0, %if.end248 ]
   %call.i = tail call ptr @qemu_get_nic_opaque(ptr noundef %nc) #9
   %regs.i157 = getelementptr inbounds i8, ptr %call.i, i64 9484
@@ -2704,11 +2705,11 @@ if.then.i171:                                     ; preds = %do.end79
 rx_desc_get_buffer.exit:                          ; preds = %do.end79, %if.then.i171
   %ret.0.i = phi i64 [ %or.i175, %if.then.i171 ], [ %and.i169, %do.end79 ]
   %add84 = add i64 %ret.0.i, %conv83
-  %cond118 = tail call i32 @llvm.umin.i32(i32 %bytes_to_copy.1275, i32 %spec.store.select)
+  %cond118 = tail call i32 @llvm.umin.i32(i32 %bytes_to_copy.1276, i32 %spec.store.select)
   %conv119 = zext nneg i32 %cond118 to i64
-  %call120 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %add84, i32 1, ptr noundef %rxbuf_ptr.1274, i64 noundef %conv119) #9
-  %add.ptr128 = getelementptr i8, ptr %rxbuf_ptr.1274, i64 %conv119
-  %sub136 = sub i32 %bytes_to_copy.1275, %cond118
+  %call120 = tail call i32 @address_space_write(ptr noundef nonnull %dma_as, i64 noundef %add84, i32 1, ptr noundef %rxbuf_ptr.1275, i64 noundef %conv119) #9
+  %add.ptr128 = getelementptr i8, ptr %rxbuf_ptr.1275, i64 %conv119
+  %sub136 = sub i32 %bytes_to_copy.1276, %cond118
   %cmp148 = icmp eq i32 %sub136, 0
   %and.i183 = or i32 %65, %conv159
   %or.i184 = or i32 %and.i183, 32768
@@ -2717,7 +2718,7 @@ rx_desc_get_buffer.exit:                          ; preds = %do.end79, %if.then.
   %78 = load i32, ptr %arrayidx80, align 4
   %or.i185 = or i32 %78, 1
   store i32 %or.i185, ptr %arrayidx80, align 4
-  switch i32 %retval.0.i253, label %sw.default [
+  switch i32 %retval.0.i254, label %sw.default [
     i32 -2, label %sw.epilog
     i32 -3, label %sw.bb165
     i32 -5, label %sw.bb170
@@ -2782,15 +2783,15 @@ gem_get_rx_desc_addr.exit:                        ; preds = %sw.epilog, %if.then
   br i1 %tobool232.not, label %do.end241, label %do.end235
 
 do.end235:                                        ; preds = %gem_get_rx_desc_addr.exit
-  switch i32 %retval.0.i140, label %do.body.i.i [
-    i32 0, label %gem_get_rx_queue_base_addr.exit
-    i32 1, label %sw.bb1.i.i
-    i32 2, label %sw.bb1.i.i
-    i32 3, label %sw.bb1.i.i
-    i32 4, label %sw.bb1.i.i
-    i32 5, label %sw.bb1.i.i
-    i32 6, label %sw.bb1.i.i
-    i32 7, label %sw.bb1.i.i
+  switch i16 %trunc.i199, label %do.body.i.i [
+    i16 0, label %gem_get_rx_queue_base_addr.exit
+    i16 1, label %sw.bb1.i.i
+    i16 2, label %sw.bb1.i.i
+    i16 3, label %sw.bb1.i.i
+    i16 4, label %sw.bb1.i.i
+    i16 5, label %sw.bb1.i.i
+    i16 6, label %sw.bb1.i.i
+    i16 7, label %sw.bb1.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %do.end235, %do.end235, %do.end235, %do.end235, %do.end235, %do.end235, %do.end235
@@ -2801,19 +2802,19 @@ do.body.i.i:                                      ; preds = %do.end235
   unreachable
 
 gem_get_rx_queue_base_addr.exit:                  ; preds = %do.end235, %sw.bb1.i.i
-  %base_addr.0.in.i.i = phi ptr [ %arrayidx6.i.i, %sw.bb1.i.i ], [ %arrayidx.i.i199, %do.end235 ]
+  %base_addr.0.in.i.i = phi ptr [ %arrayidx6.i.i, %sw.bb1.i.i ], [ %arrayidx.i.i200, %do.end235 ]
   %base_addr.0.i.i = load i32, ptr %base_addr.0.in.i.i, align 4
   br label %if.end248
 
 do.end241:                                        ; preds = %gem_get_rx_desc_addr.exit
   %call.val124 = load i32, ptr %arrayidx21, align 4
   %86 = and i32 %call.val124, 1073741824
-  %tobool.not.i200 = icmp eq i32 %86, 0
-  %spec.select.i201 = select i1 %tobool.not.i200, i32 2, i32 4
-  %and.i202 = lshr i32 %call.val124, 27
-  %87 = and i32 %and.i202, 2
-  %ret.1.i205 = add nuw nsw i32 %spec.select.i201, %87
-  %mul243 = shl nuw nsw i32 %ret.1.i205, 2
+  %tobool.not.i201 = icmp eq i32 %86, 0
+  %spec.select.i202 = select i1 %tobool.not.i201, i32 2, i32 4
+  %and.i203 = lshr i32 %call.val124, 27
+  %87 = and i32 %and.i203, 2
+  %ret.1.i206 = add nuw nsw i32 %spec.select.i202, %87
+  %mul243 = shl nuw nsw i32 %ret.1.i206, 2
   %88 = load i32, ptr %arrayidx9.i.i, align 4
   %add247 = add i32 %mul243, %88
   br label %if.end248
@@ -2826,57 +2827,57 @@ if.end248:                                        ; preds = %do.end241, %gem_get
 
 while.end:                                        ; preds = %if.end248, %while.cond.preheader.while.end_crit_edge
   %conv249.pre-phi = phi i32 [ %.pre, %while.cond.preheader.while.end_crit_edge ], [ %conv159, %if.end248 ]
-  %arrayidx.i206 = getelementptr i8, ptr %call, i64 9820
-  %89 = load i32, ptr %arrayidx.i206, align 4
-  %conv.i207 = zext i32 %89 to i64
-  %shl.i208 = shl nuw i64 %conv.i207, 32
-  %arrayidx2.i209 = getelementptr i8, ptr %call, i64 9824
-  %90 = load i32, ptr %arrayidx2.i209, align 4
-  %conv3.i210 = zext i32 %90 to i64
-  %or.i211 = or disjoint i64 %shl.i208, %conv3.i210
+  %arrayidx.i207 = getelementptr i8, ptr %call, i64 9820
+  %89 = load i32, ptr %arrayidx.i207, align 4
+  %conv.i208 = zext i32 %89 to i64
+  %shl.i209 = shl nuw i64 %conv.i208, 32
+  %arrayidx2.i210 = getelementptr i8, ptr %call, i64 9824
+  %90 = load i32, ptr %arrayidx2.i210, align 4
+  %conv3.i211 = zext i32 %90 to i64
+  %or.i212 = or disjoint i64 %shl.i209, %conv3.i211
   %conv4.i = and i64 %size.addr.0, 4294967295
-  %add.i = add i64 %or.i211, %conv4.i
-  %shr.i212 = lshr i64 %add.i, 32
-  %conv5.i213 = trunc nuw i64 %shr.i212 to i32
-  store i32 %conv5.i213, ptr %arrayidx.i206, align 4
+  %add.i = add i64 %or.i212, %conv4.i
+  %shr.i213 = lshr i64 %add.i, 32
+  %conv5.i214 = trunc nuw i64 %shr.i213 to i32
+  store i32 %conv5.i214, ptr %arrayidx.i207, align 4
   %conv8.i = trunc i64 %add.i to i32
-  store i32 %conv8.i, ptr %arrayidx2.i209, align 4
+  store i32 %conv8.i, ptr %arrayidx2.i210, align 4
   %arrayidx12.i = getelementptr i8, ptr %call, i64 9828
   %91 = load i32, ptr %arrayidx12.i, align 4
   %inc.i = add i32 %91, 1
   store i32 %inc.i, ptr %arrayidx12.i, align 4
-  %bcmp.i214 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
-  %tobool.not.i215 = icmp eq i32 %bcmp.i214, 0
-  br i1 %tobool.not.i215, label %if.then.i222, label %if.end.i216
+  %bcmp.i215 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @broadcast_addr, i64 6)
+  %tobool.not.i216 = icmp eq i32 %bcmp.i215, 0
+  br i1 %tobool.not.i216, label %if.then.i223, label %if.end.i217
 
-if.then.i222:                                     ; preds = %while.end
+if.then.i223:                                     ; preds = %while.end
   %arrayidx14.i = getelementptr i8, ptr %call, i64 9832
   %92 = load i32, ptr %arrayidx14.i, align 4
   %inc15.i = add i32 %92, 1
   store i32 %inc15.i, ptr %arrayidx14.i, align 4
-  br label %if.end.i216
+  br label %if.end.i217
 
-if.end.i216:                                      ; preds = %if.then.i222, %while.end
+if.end.i217:                                      ; preds = %if.then.i223, %while.end
   %93 = load i8, ptr %buf, align 1
-  %cmp.i217 = icmp eq i8 %93, 1
-  br i1 %cmp.i217, label %if.then19.i221, label %if.end23.i
+  %cmp.i218 = icmp eq i8 %93, 1
+  br i1 %cmp.i218, label %if.then19.i222, label %if.end23.i
 
-if.then19.i221:                                   ; preds = %if.end.i216
+if.then19.i222:                                   ; preds = %if.end.i217
   %arrayidx21.i = getelementptr i8, ptr %call, i64 9836
   %94 = load i32, ptr %arrayidx21.i, align 4
   %inc22.i = add i32 %94, 1
   store i32 %inc22.i, ptr %arrayidx21.i, align 4
   br label %if.end23.i
 
-if.end23.i:                                       ; preds = %if.then19.i221, %if.end.i216
+if.end23.i:                                       ; preds = %if.then19.i222, %if.end.i217
   %cmp24.i = icmp ult i32 %conv249.pre-phi, 65
-  br i1 %cmp24.i, label %gem_receive_updatestats.exit, label %if.else.i218
+  br i1 %cmp24.i, label %gem_receive_updatestats.exit, label %if.else.i219
 
-if.else.i218:                                     ; preds = %if.end23.i
+if.else.i219:                                     ; preds = %if.end23.i
   %cmp30.i = icmp ult i32 %conv249.pre-phi, 128
   br i1 %cmp30.i, label %gem_receive_updatestats.exit, label %if.else36.i
 
-if.else36.i:                                      ; preds = %if.else.i218
+if.else36.i:                                      ; preds = %if.else.i219
   %cmp37.i = icmp ult i32 %conv249.pre-phi, 256
   br i1 %cmp37.i, label %gem_receive_updatestats.exit, label %if.else43.i
 
@@ -2890,11 +2891,11 @@ if.else50.i:                                      ; preds = %if.else43.i
 
 if.else57.i:                                      ; preds = %if.else50.i
   %cmp58.i = icmp ult i32 %conv249.pre-phi, 1519
-  %..i219 = select i1 %cmp58.i, i64 9864, i64 9868
+  %..i220 = select i1 %cmp58.i, i64 9864, i64 9868
   br label %gem_receive_updatestats.exit
 
-gem_receive_updatestats.exit:                     ; preds = %if.end23.i, %if.else.i218, %if.else36.i, %if.else43.i, %if.else50.i, %if.else57.i
-  %.sink.i = phi i64 [ 9844, %if.end23.i ], [ 9848, %if.else.i218 ], [ 9852, %if.else36.i ], [ 9856, %if.else43.i ], [ 9860, %if.else50.i ], [ %..i219, %if.else57.i ]
+gem_receive_updatestats.exit:                     ; preds = %if.end23.i, %if.else.i219, %if.else36.i, %if.else43.i, %if.else50.i, %if.else57.i
+  %.sink.i = phi i64 [ 9844, %if.end23.i ], [ 9848, %if.else.i219 ], [ 9852, %if.else36.i ], [ 9856, %if.else43.i ], [ 9860, %if.else50.i ], [ %..i220, %if.else57.i ]
   %arrayidx34.i = getelementptr i8, ptr %call, i64 %.sink.i
   %95 = load i32, ptr %arrayidx34.i, align 4
   %inc35.i = add i32 %95, 1
@@ -2903,53 +2904,53 @@ gem_receive_updatestats.exit:                     ; preds = %if.end23.i, %if.els
   %96 = load i32, ptr %arrayidx251, align 4
   %or252 = or i32 %96, 2
   store i32 %or252, ptr %arrayidx251, align 4
-  %cmp.i223 = icmp eq i32 %retval.0.i140, 0
-  %regs3.i225 = getelementptr inbounds i8, ptr %call, i64 9484
-  %sub.i226 = add nuw nsw i32 %retval.0.i140, 399
-  %idxprom.i227 = zext nneg i32 %sub.i226 to i64
-  %arrayidx4.i228 = getelementptr [512 x i32], ptr %regs3.i225, i64 0, i64 %idxprom.i227
-  %sub9.i229 = add nuw nsw i32 %retval.0.i140, 255
-  %idxprom10.i230 = zext nneg i32 %sub9.i229 to i64
-  %arrayidx11.i231 = getelementptr [512 x i32], ptr %regs3.i225, i64 0, i64 %idxprom10.i230
-  %arrayidx.i240 = getelementptr i8, ptr %call, i64 9532
-  %arrayidx2.i241 = getelementptr i8, ptr %call, i64 9520
-  %arrayidx11.sink7.i233 = select i1 %cmp.i223, ptr %arrayidx2.i241, ptr %arrayidx11.i231
-  %not5.pn.in.in.i234 = select i1 %cmp.i223, ptr %arrayidx.i240, ptr %arrayidx4.i228
-  %not5.pn.in.i235 = load i32, ptr %not5.pn.in.in.i234, align 4
-  %not5.pn.i236 = and i32 %not5.pn.in.i235, 2
-  %and6.sink.i237 = xor i32 %not5.pn.i236, 2
-  %97 = load i32, ptr %arrayidx11.sink7.i233, align 4
-  %or12.i238 = or i32 %and6.sink.i237, %97
-  store i32 %or12.i238, ptr %arrayidx11.sink7.i233, align 4
+  %cmp.i224 = icmp eq i32 %retval.0.i140, 0
+  %regs3.i226 = getelementptr inbounds i8, ptr %call, i64 9484
+  %sub.i227 = add nuw nsw i32 %retval.0.i140, 399
+  %idxprom.i228 = zext nneg i32 %sub.i227 to i64
+  %arrayidx4.i229 = getelementptr [512 x i32], ptr %regs3.i226, i64 0, i64 %idxprom.i228
+  %sub9.i230 = add nuw nsw i32 %retval.0.i140, 255
+  %idxprom10.i231 = zext nneg i32 %sub9.i230 to i64
+  %arrayidx11.i232 = getelementptr [512 x i32], ptr %regs3.i226, i64 0, i64 %idxprom10.i231
+  %arrayidx.i241 = getelementptr i8, ptr %call, i64 9532
+  %arrayidx2.i242 = getelementptr i8, ptr %call, i64 9520
+  %arrayidx11.sink7.i234 = select i1 %cmp.i224, ptr %arrayidx2.i242, ptr %arrayidx11.i232
+  %not5.pn.in.in.i235 = select i1 %cmp.i224, ptr %arrayidx.i241, ptr %arrayidx4.i229
+  %not5.pn.in.i236 = load i32, ptr %not5.pn.in.in.i235, align 4
+  %not5.pn.i237 = and i32 %not5.pn.in.i236, 2
+  %and6.sink.i238 = xor i32 %not5.pn.i237, 2
+  %97 = load i32, ptr %arrayidx11.sink7.i234, align 4
+  %or12.i239 = or i32 %and6.sink.i238, %97
+  store i32 %or12.i239, ptr %arrayidx11.sink7.i234, align 4
   %irq.i = getelementptr inbounds i8, ptr %call, i64 9408
   %98 = load ptr, ptr %irq.i, align 16
-  %99 = load i32, ptr %arrayidx2.i241, align 4
+  %99 = load i32, ptr %arrayidx2.i242, align 4
   %tobool.i = icmp ne i32 %99, 0
   %lnot.ext.i = zext i1 %tobool.i to i32
   tail call void @qemu_set_irq(ptr noundef %98, i32 noundef %lnot.ext.i) #9
-  %num_priority_queues.i244 = getelementptr inbounds i8, ptr %call, i64 9472
-  %100 = load i8, ptr %num_priority_queues.i244, align 16
-  %cmp9.i245 = icmp ugt i8 %100, 1
-  br i1 %cmp9.i245, label %for.body.i247, label %return
+  %num_priority_queues.i245 = getelementptr inbounds i8, ptr %call, i64 9472
+  %100 = load i8, ptr %num_priority_queues.i245, align 16
+  %cmp9.i246 = icmp ugt i8 %100, 1
+  br i1 %cmp9.i246, label %for.body.i248, label %return
 
-for.body.i247:                                    ; preds = %gem_receive_updatestats.exit, %for.body.i247
-  %indvars.iv.i248 = phi i64 [ %indvars.iv.next.i249, %for.body.i247 ], [ 1, %gem_receive_updatestats.exit ]
-  %arrayidx5.i = getelementptr [8 x ptr], ptr %irq.i, i64 0, i64 %indvars.iv.i248
+for.body.i248:                                    ; preds = %gem_receive_updatestats.exit, %for.body.i248
+  %indvars.iv.i249 = phi i64 [ %indvars.iv.next.i250, %for.body.i248 ], [ 1, %gem_receive_updatestats.exit ]
+  %arrayidx5.i = getelementptr [8 x ptr], ptr %irq.i, i64 0, i64 %indvars.iv.i249
   %101 = load ptr, ptr %arrayidx5.i, align 8
-  %102 = add nuw nsw i64 %indvars.iv.i248, 255
-  %arrayidx8.i = getelementptr [512 x i32], ptr %regs3.i225, i64 0, i64 %102
+  %102 = add nuw nsw i64 %indvars.iv.i249, 255
+  %arrayidx8.i = getelementptr [512 x i32], ptr %regs3.i226, i64 0, i64 %102
   %103 = load i32, ptr %arrayidx8.i, align 4
   %tobool9.i = icmp ne i32 %103, 0
   %lnot.ext13.i = zext i1 %tobool9.i to i32
   tail call void @qemu_set_irq(ptr noundef %101, i32 noundef %lnot.ext13.i) #9
-  %indvars.iv.next.i249 = add nuw nsw i64 %indvars.iv.i248, 1
-  %104 = load i8, ptr %num_priority_queues.i244, align 16
+  %indvars.iv.next.i250 = add nuw nsw i64 %indvars.iv.i249, 1
+  %104 = load i8, ptr %num_priority_queues.i245, align 16
   %105 = zext i8 %104 to i64
-  %cmp.i250 = icmp ult i64 %indvars.iv.next.i249, %105
-  br i1 %cmp.i250, label %for.body.i247, label %return, !llvm.loop !9
+  %cmp.i251 = icmp ult i64 %indvars.iv.next.i250, %105
+  br i1 %cmp.i251, label %for.body.i248, label %return, !llvm.loop !9
 
-return:                                           ; preds = %for.inc.i, %for.body.i247, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then9, %do.end72
-  %retval.0 = phi i64 [ -1, %do.end72 ], [ -1, %if.then9 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i247 ], [ %size, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.body.i248, %if.then19.i, %if.then24.i, %if.then.i166, %if.then3.i168, %if.then3.i, %gem_receive_updatestats.exit, %if.then9, %do.end72
+  %retval.0 = phi i64 [ -1, %do.end72 ], [ -1, %if.then9 ], [ %size.addr.0, %gem_receive_updatestats.exit ], [ %size, %if.then3.i ], [ -1, %if.then3.i168 ], [ -1, %if.then.i166 ], [ -1, %if.then24.i ], [ -1, %if.then19.i ], [ %size.addr.0, %for.body.i248 ], [ %size, %for.inc.i ]
   ret i64 %retval.0
 }
 

@@ -1941,7 +1941,7 @@ define void @_ZN9uu_expand16expand_shortcuts17h672d27761356097cE(ptr noalias noc
   br i1 %125, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i, label %126
 
 126:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %127 = add nuw i64 %.05.i.i.i.i.i, 1
+  %127 = add nuw nsw i64 %.05.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %127, %.sroa.3.0.i47.i.i.i.i
   br i1 %exitcond.not.i.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i
 

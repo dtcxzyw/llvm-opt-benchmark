@@ -1802,7 +1802,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit297:       ; preds = %698, %701
 
 778:                                              ; preds = %._crit_edge468
   %779 = load ptr, ptr %26, align 8
-  call fastcc void @_ZL16average_residuesPdPS_iiPKiPKfPK7t_atoms(ptr noundef %180, ptr noundef null, i32 noundef 0, i32 noundef %.lcssa, ptr noundef %779, ptr noundef %145, ptr noundef nonnull %142)
+  call fastcc void @_ZL16average_residuesPdPS_iiPKiPKfPK7t_atoms(ptr noundef %180, ptr noundef null, i32 noundef 0, i32 noundef %.lcssa, ptr noundef %779, ptr noundef %145, ptr noundef %142)
   br label %780
 
 780:                                              ; preds = %778, %._crit_edge468
@@ -2601,7 +2601,7 @@ declare void @_Z14gmx_rmpbc_doneP9gmx_rmpbc(ptr noundef) local_unnamed_addr #4
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16average_residuesPdPS_iiPKiPKfPK7t_atoms(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) unnamed_addr #8 {
+define internal fastcc void @_ZL16average_residuesPdPS_iiPKiPKfPK7t_atoms(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -2147483648, 9) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #8 {
   %8 = icmp sgt i32 %3, 0
   br i1 %8, label %.lr.ph69, label %._crit_edge
 

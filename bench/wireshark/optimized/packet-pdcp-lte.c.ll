@@ -2168,7 +2168,7 @@ proto_item_set_generated.exit436:                 ; preds = %proto_item_set_gene
 
 579:                                              ; preds = %572, %575
   %580 = load i32, ptr %11, align 4
-  call fastcc void @checkChannelSequenceInfo(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %23, i32 noundef %580, ptr noundef %.0337529, ptr noundef %.0341, ptr noundef nonnull %12)
+  call fastcc void @checkChannelSequenceInfo(ptr noundef nonnull %1, ptr noundef %0, ptr noundef %23, i32 noundef %580, ptr noundef %.0337529, ptr noundef %.0341, ptr noundef %12)
   br label %.critedge425
 
 581:                                              ; preds = %352
@@ -3270,7 +3270,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 50
@@ -3534,7 +3534,7 @@ define internal fastcc void @checkChannelSequenceInfo(ptr noundef %0, ptr nounde
 
 .sink.split:                                      ; preds = %13, %152
   %.sink = phi ptr [ %66, %152 ], [ %34, %13 ]
-  tail call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %.sink, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @addChannelSequenceInfo(ptr noundef nonnull %.sink, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1, ptr noundef %5, ptr noundef %6)
   br label %174
 
 174:                                              ; preds = %.sink.split, %13
@@ -3565,7 +3565,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addChannelSequenceInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc void @addChannelSequenceInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

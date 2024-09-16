@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.8193b3a1c1e29bd1080c20fb878f7e0e.18 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"avoid all symlinks" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9402ee381c696a99E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9402ee381c696a99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -421,7 +421,7 @@ _ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread: ; pr
 
 .body:                                            ; preds = %108, %116, %127
   %eh.lpad-body = phi { ptr, i32 } [ %128, %127 ], [ %117, %116 ], [ %109, %108 ]
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9402ee381c696a99E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #8
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h9402ee381c696a99E"(ptr noalias noundef align 8 dereferenceable(24) %12) #8
           to label %144 unwind label %142
 
 _ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit: ; preds = %.noexc.i

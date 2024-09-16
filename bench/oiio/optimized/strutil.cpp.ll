@@ -1730,7 +1730,7 @@ vaarg.end392:                                     ; preds = %vaarg.in_mem388, %v
   %pr.4 = select i1 %cmp394, i32 6, i32 %spec.store.select4
   %sub402 = add i32 %pr.4, 2147483647
   %or403 = or i32 %sub402, -2147483648
-  %call404 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef nonnull %sn, ptr noundef nonnull %l, ptr noundef nonnull %num, ptr noundef nonnull %dp, double noundef %85, i32 noundef %or403)
+  %call404 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef %sn, ptr noundef %l, ptr noundef %num, ptr noundef %dp, double noundef %85, i32 noundef %or403)
   %tobool405.not = icmp eq i32 %call404, 0
   %or407 = or i32 %fl.3, 128
   %fl.7 = select i1 %tobool405.not, i32 %fl.3, i32 %or407
@@ -1828,7 +1828,7 @@ vaarg.end475:                                     ; preds = %vaarg.in_mem471, %v
   %cmp477 = icmp eq i32 %pr.0, -1
   %spec.store.select6 = select i1 %cmp477, i32 6, i32 %pr.0
   %or481 = or i32 %spec.store.select6, -2147483648
-  %call482 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef nonnull %sn, ptr noundef nonnull %l, ptr noundef nonnull %num, ptr noundef nonnull %dp, double noundef %95, i32 noundef %or481)
+  %call482 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef %sn, ptr noundef %l, ptr noundef %num, ptr noundef %dp, double noundef %95, i32 noundef %or481)
   %tobool483.not = icmp eq i32 %call482, 0
   %or485 = or i32 %fl.3, 128
   %spec.select612 = select i1 %tobool483.not, i32 %fl.3, i32 %or485
@@ -2016,7 +2016,7 @@ if.end569:                                        ; preds = %if.end565, %while.b
   %fl.12 = phi i32 [ %fl.3, %doafloat ], [ %fl.111178, %if.then553 ], [ %add567, %if.end565 ], [ %fl.13797, %while.body560 ]
   %cmp570 = icmp eq i32 %pr.91180, -1
   %spec.store.select8 = select i1 %cmp570, i32 6, i32 %pr.91180
-  %call574 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef nonnull %sn, ptr noundef nonnull %l, ptr noundef nonnull %num, ptr noundef nonnull %dp, double noundef %fv.1, i32 noundef %spec.store.select8)
+  %call574 = call fastcc noundef i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr noundef %sn, ptr noundef %l, ptr noundef %num, ptr noundef %dp, double noundef %fv.1, i32 noundef %spec.store.select8)
   %tobool575.not = icmp eq i32 %call574, 0
   %or577 = or i32 %fl.12, 128
   %spec.select614 = select i1 %tobool575.not, i32 %fl.12, i32 %or577
@@ -3789,7 +3789,7 @@ done:                                             ; preds = %if.then11, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr nocapture noundef writeonly %start, ptr nocapture noundef writeonly %len, ptr noundef %out, ptr nocapture noundef writeonly %decimal_pos, double noundef %value, i32 noundef %frac_digits) unnamed_addr #7 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL18stbsp__real_to_strPPKcPjPcPidj(ptr nocapture noundef nonnull writeonly %start, ptr nocapture noundef nonnull writeonly %len, ptr noundef nonnull %out, ptr nocapture noundef nonnull writeonly %decimal_pos, double noundef %value, i32 noundef %frac_digits) unnamed_addr #7 {
 entry:
   %0 = bitcast double %value to i64
   %shr = lshr i64 %0, 52
@@ -13210,12 +13210,12 @@ entry:
   %m_len.i.i2 = getelementptr inbounds i8, ptr %b, i64 8
   %3 = load i64, ptr %m_len.i.i2, align 8
   store i64 %3, ptr %m_len.i1, align 8
-  %call = call fastcc noundef i64 @_ZN18OpenImageIO_v2_6_0L20levenshtein_distanceENS_17basic_string_viewIcSt11char_traitsIcEEES3_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
+  %call = call fastcc noundef i64 @_ZN18OpenImageIO_v2_6_0L20levenshtein_distanceENS_17basic_string_viewIcSt11char_traitsIcEEES3_(ptr noundef %agg.tmp, ptr noundef %agg.tmp1)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN18OpenImageIO_v2_6_0L20levenshtein_distanceENS_17basic_string_viewIcSt11char_traitsIcEEES3_(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN18OpenImageIO_v2_6_0L20levenshtein_distanceENS_17basic_string_viewIcSt11char_traitsIcEEES3_(ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %b) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %m_len.i.i = getelementptr inbounds i8, ptr %a, i64 8

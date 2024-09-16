@@ -583,7 +583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %resB, i8 noundef signext %freeBundleObj) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %resB, i8 noundef signext range(i8 0, 2) %freeBundleObj) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %resB, null
   br i1 %cmp.not, label %if.end11, label %if.then
@@ -598,11 +598,11 @@ if.then2:                                         ; preds = %if.then
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.then2, %while.body.i.i
-  %resB.addr.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %if.then2 ]
-  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 16
+while.body.i.i:                                   ; preds = %while.body.i.i, %if.then2
+  %resB.addr.04.i.i = phi ptr [ %0, %if.then2 ], [ %1, %while.body.i.i ]
+  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.04.i.i, i64 16
   %1 = load ptr, ptr %fParent.i.i, align 8
-  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 108
+  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.04.i.i, i64 108
   %2 = load i32, ptr %fCountExisting.i.i, align 4
   %dec.i.i = add i32 %2, -1
   store i32 %dec.i.i, ptr %fCountExisting.i.i, align 4
@@ -1330,7 +1330,7 @@ sw.bb10:                                          ; preds = %if.else, %if.else, 
   %fData2.i35 = getelementptr inbounds i8, ptr %5, i64 40
   %call14 = tail call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i35, i32 noundef %3, i32 noundef %inc, ptr noundef %key)
   %6 = load i32, ptr %fIndex, align 4
-  %call20 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call14, i32 noundef %6, ptr noundef %len, ptr noundef nonnull %status)
+  %call20 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %call14, i32 noundef %6, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb21:                                          ; preds = %if.else, %if.else
@@ -1339,11 +1339,11 @@ sw.bb21:                                          ; preds = %if.else, %if.else
   %fData2.i37 = getelementptr inbounds i8, ptr %7, i64 40
   %call25 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i37, i32 noundef %3, i32 noundef %inc)
   %8 = load i32, ptr %fIndex, align 4
-  %call33 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call25, i32 noundef %8, ptr noundef %len, ptr noundef nonnull %status)
+  %call33 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %call25, i32 noundef %8, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb34:                                          ; preds = %if.else
-  %call37 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %3, i32 noundef %inc, ptr noundef %len, ptr noundef nonnull %status)
+  %call37 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %3, i32 noundef %inc, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb38:                                          ; preds = %if.else, %if.else, %if.else
@@ -1358,23 +1358,19 @@ return:                                           ; preds = %if.else, %sw.bb38, 
 declare i32 @res_getTableItemByIndex_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %r, i32 noundef %sIndex, ptr noundef %len, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %r, i32 noundef %sIndex, ptr noundef %len, ptr noundef nonnull %status) unnamed_addr #1 {
 entry:
   %shr.mask = and i32 %r, -268435456
   %cmp = icmp eq i32 %shr.mask, 805306368
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @ures_getByIndex_75(ptr noundef %resB, i32 noundef %sIndex, ptr noundef null, ptr noundef %status)
-  %cmp.i = icmp eq ptr %status, null
-  br i1 %cmp.i, label %ures_getString_75.exit, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.then
+  %call = tail call ptr @ures_getByIndex_75(ptr noundef nonnull %resB, i32 noundef %sIndex, ptr noundef null, ptr noundef nonnull %status)
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
   br i1 %cmp.i.i, label %if.end.i, label %ures_getString_75.exit
 
-if.end.i:                                         ; preds = %lor.lhs.false.i
+if.end.i:                                         ; preds = %if.then
   %cmp1.i = icmp eq ptr %call, null
   br i1 %cmp1.i, label %return.sink.split.i, label %if.end3.i
 
@@ -1393,8 +1389,8 @@ return.sink.split.i:                              ; preds = %if.end3.i, %if.end.
   store i32 %.sink.i, ptr %status, align 4
   br label %ures_getString_75.exit
 
-ures_getString_75.exit:                           ; preds = %if.then, %lor.lhs.false.i, %if.end3.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ null, %lor.lhs.false.i ], [ null, %if.then ], [ %call.i.i, %if.end3.i ], [ null, %return.sink.split.i ]
+ures_getString_75.exit:                           ; preds = %if.then, %if.end3.i, %return.sink.split.i
+  %retval.0.i = phi ptr [ null, %if.then ], [ %call.i.i, %if.end3.i ], [ null, %return.sink.split.i ]
   tail call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef %call, i8 noundef signext 1)
   br label %return
 
@@ -1481,7 +1477,7 @@ sw.bb8:                                           ; preds = %if.else, %if.else, 
   %resB.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %resB, i64 32
   %resB.val33 = load ptr, ptr %9, align 8
-  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %5, i32 noundef %call12, ptr noundef %6, i32 noundef %7, ptr noundef %resB.val, ptr noundef %resB.val33, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %5, i32 noundef %call12, ptr noundef %6, i32 noundef %7, ptr noundef %resB.val, ptr noundef %resB.val33, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 sw.bb19:                                          ; preds = %if.else, %if.else
@@ -1495,7 +1491,7 @@ sw.bb19:                                          ; preds = %if.else, %if.else
   %resB.val34 = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %resB, i64 32
   %resB.val35 = load ptr, ptr %14, align 8
-  %call.i38 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %11, i32 noundef %call23, ptr noundef null, i32 noundef %12, ptr noundef %resB.val34, ptr noundef %resB.val35, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i38 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %11, i32 noundef %call23, ptr noundef null, i32 noundef %12, ptr noundef %resB.val34, ptr noundef %resB.val35, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 return:                                           ; preds = %if.else, %entry, %lor.lhs.false, %if.then5, %sw.bb19, %sw.bb8, %sw.bb, %if.then2
@@ -1566,7 +1562,7 @@ sw.bb8:                                           ; preds = %if.then6, %if.then6
   %resB.val33 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %resB, i64 32
   %resB.val34 = load ptr, ptr %7, align 8
-  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %4, i32 noundef %call11, ptr noundef %5, i32 noundef %indexR, ptr noundef %resB.val33, ptr noundef %resB.val34, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %4, i32 noundef %call11, ptr noundef %5, i32 noundef %indexR, ptr noundef %resB.val33, ptr noundef %resB.val34, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 sw.bb18:                                          ; preds = %if.then6, %if.then6
@@ -1579,7 +1575,7 @@ sw.bb18:                                          ; preds = %if.then6, %if.then6
   %resB.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %resB, i64 32
   %resB.val32 = load ptr, ptr %11, align 8
-  %call.i37 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %9, i32 noundef %call21, ptr noundef null, i32 noundef %indexR, ptr noundef %resB.val, ptr noundef %resB.val32, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i37 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %9, i32 noundef %call21, ptr noundef null, i32 noundef %indexR, ptr noundef %resB.val, ptr noundef %resB.val32, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %if.end3
@@ -1652,7 +1648,7 @@ sw.bb10:                                          ; preds = %if.then6, %if.then6
   %4 = load ptr, ptr %fData.i34, align 8
   %fData2.i35 = getelementptr inbounds i8, ptr %4, i64 40
   %call13 = call i32 @res_getTableItemByIndex_75(ptr noundef nonnull %fData2.i35, i32 noundef %2, i32 noundef %indexS, ptr noundef nonnull %key)
-  %call19 = call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call13, i32 noundef %indexS, ptr noundef %len, ptr noundef nonnull %status)
+  %call19 = call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %call13, i32 noundef %indexS, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb20:                                          ; preds = %if.then6, %if.then6
@@ -1660,11 +1656,11 @@ sw.bb20:                                          ; preds = %if.then6, %if.then6
   %5 = load ptr, ptr %fData.i36, align 8
   %fData2.i37 = getelementptr inbounds i8, ptr %5, i64 40
   %call23 = tail call i32 @res_getArrayItem_75(ptr noundef nonnull %fData2.i37, i32 noundef %2, i32 noundef %indexS)
-  %call30 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %call23, i32 noundef %indexS, ptr noundef %len, ptr noundef nonnull %status)
+  %call30 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %call23, i32 noundef %indexS, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb31:                                          ; preds = %if.then6
-  %call33 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef nonnull %resB, i32 noundef %2, i32 noundef %indexS, ptr noundef %len, ptr noundef nonnull %status)
+  %call33 = tail call fastcc noundef ptr @_ZL23ures_getStringWithAliasPK15UResourceBundlejiPiP10UErrorCode(ptr noundef %resB, i32 noundef %2, i32 noundef %indexS, ptr noundef %len, ptr noundef %status)
   br label %return
 
 sw.bb34:                                          ; preds = %if.then6, %if.then6, %if.then6
@@ -1795,7 +1791,7 @@ if.then4.i:                                       ; preds = %lor.lhs.false.i, %d
   %resB.addr.0.val.i = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %resB.addr.018.i, i64 32
   %resB.addr.0.val11.i = load ptr, ptr %11, align 8
-  %call.i.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %8, i32 noundef %call220.i, ptr noundef %9, i32 noundef -1, ptr noundef %resB.addr.0.val.i, ptr noundef %resB.addr.0.val11.i, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %8, i32 noundef %call220.i, ptr noundef %9, i32 noundef -1, ptr noundef %resB.addr.0.val.i, ptr noundef %resB.addr.0.val11.i, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   %12 = load ptr, ptr %path.addr.i, align 8
   %13 = load i8, ptr %12, align 1
   %tobool7.not.i = icmp eq i8 %13, 0
@@ -1889,7 +1885,7 @@ if.then4:                                         ; preds = %do.body.preheader, 
   %resB.addr.0.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %resB.addr.018, i64 32
   %resB.addr.0.val11 = load ptr, ptr %8, align 8
-  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %5, i32 noundef %call220, ptr noundef %6, i32 noundef -1, ptr noundef %resB.addr.0.val, ptr noundef %resB.addr.0.val11, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %5, i32 noundef %call220, ptr noundef %6, i32 noundef -1, ptr noundef %resB.addr.0.val, ptr noundef %resB.addr.0.val11, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   %9 = load ptr, ptr %path.addr, align 8
   %10 = load i8, ptr %9, align 1
   %tobool7.not = icmp eq i8 %10, 0
@@ -2179,7 +2175,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp27, label %if.then28, label %if.end60
 
 if.then28:                                        ; preds = %while.body
-  invoke fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef %4, i32 noundef %5, ptr noundef %resPath.0142, i32 noundef %len.0143, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef %4, i32 noundef %5, ptr noundef %resPath.0142, i32 noundef %len.0143, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %status)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp.loopexit
 
 invoke.cont:                                      ; preds = %if.then28
@@ -2236,7 +2232,7 @@ land.lhs.true:                                    ; preds = %invoke.cont38
 if.then43:                                        ; preds = %land.lhs.true
   %resB.val89 = load ptr, ptr %19, align 8
   %resB.val90 = load ptr, ptr %fResPath, align 8
-  %call.i94 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.3, i32 noundef %call39, ptr noundef null, i32 noundef -1, ptr noundef %resB.val89, ptr noundef %resB.val90, i32 noundef 0, ptr noundef %helper.2, ptr noundef nonnull %status)
+  %call.i94 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.3, i32 noundef %call39, ptr noundef null, i32 noundef -1, ptr noundef %resB.val89, ptr noundef %resB.val90, i32 noundef 0, ptr noundef %helper.2, ptr noundef %status)
           to label %invoke.cont44 unwind label %lpad.loopexit
 
 invoke.cont44:                                    ; preds = %if.then43
@@ -2306,7 +2302,7 @@ if.end73:                                         ; preds = %lor.lhs.false67, %i
   %35 = load ptr, ptr %key, align 8
   %resB.val87 = load ptr, ptr %19, align 8
   %resB.val88 = load ptr, ptr %fResPath, align 8
-  %call.i95 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.2160, i32 noundef %res.1159, ptr noundef %35, i32 noundef -1, ptr noundef %resB.val87, ptr noundef %resB.val88, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i95 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.2160, i32 noundef %res.1159, ptr noundef %35, i32 noundef -1, ptr noundef %resB.val87, ptr noundef %resB.val88, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
           to label %invoke.cont74 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont74:                                    ; preds = %if.end73
@@ -2338,7 +2334,7 @@ if.then89:                                        ; preds = %land.lhs.true87
 if.else95.invoke:                                 ; preds = %if.end85, %land.lhs.true87, %if.else79, %invoke.cont74, %if.then89
   %38 = phi ptr [ %36, %if.then89 ], [ %resPath.1161, %invoke.cont74 ], [ @.str.1, %if.else79 ], [ @.str.1, %land.lhs.true87 ], [ @.str.1, %if.end85 ]
   %39 = phi i32 [ %conv93, %if.then89 ], [ %len.1162, %invoke.cont74 ], [ 0, %if.else79 ], [ 0, %land.lhs.true87 ], [ 0, %if.end85 ]
-  invoke fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef %4, i32 noundef %5, ptr noundef nonnull %38, i32 noundef %39, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef %4, i32 noundef %5, ptr noundef nonnull %38, i32 noundef %39, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %status)
           to label %if.end98 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 if.end98:                                         ; preds = %if.else95.invoke
@@ -2396,7 +2392,7 @@ if.else115:                                       ; preds = %_ZL21getTableItemBy
   %49 = getelementptr i8, ptr %resB, i64 24
   %resB.val = load ptr, ptr %49, align 8
   %resB.val86 = load ptr, ptr %fResPath, align 8
-  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %48, i32 noundef %resource.0.fr.i, ptr noundef %inKey, i32 noundef -1, ptr noundef %resB.val, ptr noundef %resB.val86, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %48, i32 noundef %resource.0.fr.i, ptr noundef %inKey, i32 noundef -1, ptr noundef %resB.val, ptr noundef %resB.val86, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %if.end120
 
 if.else119:                                       ; preds = %if.end3
@@ -2415,7 +2411,7 @@ return:                                           ; preds = %cleanup, %entry, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef nonnull %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp77 = alloca %"class.icu_75::StringPiece", align 8
@@ -2911,7 +2907,7 @@ if.then14:                                        ; preds = %if.then9
   br i1 %tobool15.not, label %if.else23, label %if.then16
 
 if.then16:                                        ; preds = %if.then14
-  %call17 = call fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr noundef nonnull %resB, ptr noundef nonnull %key, ptr noundef nonnull %res, ptr noundef nonnull %status)
+  %call17 = call fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr noundef %resB, ptr noundef %key, ptr noundef %res, ptr noundef %status)
   %6 = load i32, ptr %status, align 4
   %cmp.i29 = icmp sgt i32 %6, 0
   br i1 %cmp.i29, label %if.else, label %if.then20
@@ -2923,7 +2919,7 @@ if.then20:                                        ; preds = %if.then16
   %resB.val27 = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %resB, i64 32
   %resB.val28 = load ptr, ptr %10, align 8
-  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %call17, i32 noundef %7, ptr noundef %8, i32 noundef -1, ptr noundef %resB.val27, ptr noundef %resB.val28, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %call17, i32 noundef %7, ptr noundef %8, i32 noundef -1, ptr noundef %resB.val27, ptr noundef %resB.val28, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 if.else:                                          ; preds = %if.then16
@@ -2941,7 +2937,7 @@ if.else25:                                        ; preds = %if.then9
   %resB.val = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %resB, i64 32
   %resB.val26 = load ptr, ptr %14, align 8
-  %call.i31 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %11, i32 noundef %call12, ptr noundef %12, i32 noundef -1, ptr noundef %resB.val, ptr noundef %resB.val26, i32 noundef 0, ptr noundef %fillIn, ptr noundef nonnull %status)
+  %call.i31 = call fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %11, i32 noundef %call12, ptr noundef %12, i32 noundef -1, ptr noundef %resB.val, ptr noundef %resB.val26, i32 noundef 0, ptr noundef %fillIn, ptr noundef %status)
   br label %return
 
 if.else28:                                        ; preds = %if.end3
@@ -2956,7 +2952,7 @@ return:                                           ; preds = %if.else28, %if.else
 declare i32 @res_getTableItemByKey_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef readonly %resBundle, ptr noundef %resTag, ptr nocapture noundef writeonly %res, ptr nocapture noundef writeonly %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef nonnull readonly %resBundle, ptr noundef nonnull %resTag, ptr nocapture noundef nonnull writeonly %res, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #1 {
 entry:
   %indexR = alloca i32, align 4
   %fData = getelementptr inbounds i8, ptr %resBundle, i64 8
@@ -2976,7 +2972,7 @@ if.end5:                                          ; preds = %if.end
   %fData3 = getelementptr inbounds i8, ptr %0, i64 40
   %rootRes = getelementptr inbounds i8, ptr %0, i64 72
   %2 = load i32, ptr %rootRes, align 8
-  %call = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData3, i32 noundef %2, ptr noundef nonnull %indexR, ptr noundef %resTag)
+  %call = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData3, i32 noundef %2, ptr noundef nonnull %indexR, ptr noundef nonnull %resTag)
   store i32 %call, ptr %res, align 4
   %fHasFallback = getelementptr inbounds i8, ptr %resBundle, i64 112
   %3 = load i8, ptr %fHasFallback, align 8
@@ -3020,7 +3016,7 @@ if.then12:                                        ; preds = %while.body
   %fData14 = getelementptr inbounds i8, ptr %5, i64 40
   %rootRes16 = getelementptr inbounds i8, ptr %5, i64 72
   %7 = load i32, ptr %rootRes16, align 8
-  %call17 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData14, i32 noundef %7, ptr noundef nonnull %indexR, ptr noundef %resTag)
+  %call17 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData14, i32 noundef %7, ptr noundef nonnull %indexR, ptr noundef nonnull %resTag)
   store i32 %call17, ptr %res, align 4
   %8 = icmp eq i32 %call17, -1
   br i1 %8, label %land.rhs.outer, label %if.end22, !llvm.loop !17
@@ -3114,7 +3110,7 @@ if.then14:                                        ; preds = %if.then9
   br i1 %tobool15.not, label %if.else27, label %if.then16
 
 if.then16:                                        ; preds = %if.then14
-  %call17 = call fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr noundef nonnull %resB, ptr noundef nonnull %key, ptr noundef nonnull %res, ptr noundef nonnull %status)
+  %call17 = call fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr noundef %resB, ptr noundef %key, ptr noundef %res, ptr noundef %status)
   %6 = load i32, ptr %status, align 4
   %cmp.i35 = icmp sgt i32 %6, 0
   br i1 %cmp.i35, label %if.else, label %if.then20
@@ -3318,7 +3314,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef %r, ptr noundef %path, ptr noundef %localeID, i32 noundef %openType, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17ures_openWithTypeP15UResourceBundlePKcS2_12UResOpenTypeP10UErrorCode(ptr noundef %r, ptr noundef %path, ptr noundef %localeID, i32 noundef range(i32 0, 3) %openType, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %t1.i41 = alloca ptr, align 8
   %name.i42 = alloca [157 x i8], align 16
@@ -3439,7 +3435,7 @@ call15.i.noexc:                                   ; preds = %if.end.i
           to label %.noexc40 unwind label %lpad
 
 .noexc40:                                         ; preds = %call15.i.noexc
-  %call17.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name.i, ptr noundef %call15.i39, i32 noundef %openType, ptr noundef nonnull %isRoot.i, ptr noundef nonnull %hasChopped.i, ptr noundef nonnull %isDefault.i, ptr noundef nonnull %intStatus.i)
+  %call17.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name.i, ptr noundef %call15.i39, i32 noundef %openType, ptr noundef %isRoot.i, ptr noundef %hasChopped.i, ptr noundef %isDefault.i, ptr noundef %intStatus.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %.noexc40
@@ -3493,7 +3489,7 @@ land.lhs.true.i:                                  ; preds = %if.then22.i
   br i1 %tobool44.old.not.i, label %if.then45.i, label %if.end54.i
 
 if.then45.i:                                      ; preds = %land.lhs.true.i, %_ZL13mayHaveParentPc.exit.i
-  %call49.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef nonnull %name.i, ptr noundef nonnull %status)
+  %call49.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
           to label %invoke.cont48.i unwind label %lpad.i
 
 invoke.cont48.i:                                  ; preds = %if.then45.i
@@ -3515,7 +3511,7 @@ if.end54.i:                                       ; preds = %invoke.cont48.i, %l
 
 if.then62.i:                                      ; preds = %if.end54.i
   %call64.i = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull dereferenceable(1) %call15.i39) #21
-  %call67.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name.i, ptr noundef %call15.i39, i32 noundef 0, ptr noundef nonnull %isRoot.i, ptr noundef nonnull %hasChopped.i, ptr noundef nonnull %isDefault.i, ptr noundef nonnull %intStatus.i)
+  %call67.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name.i, ptr noundef %call15.i39, i32 noundef 0, ptr noundef %isRoot.i, ptr noundef %hasChopped.i, ptr noundef %isDefault.i, ptr noundef %intStatus.i)
           to label %invoke.cont66.i unwind label %lpad.i
 
 invoke.cont66.i:                                  ; preds = %if.then62.i
@@ -3554,7 +3550,7 @@ land.lhs.true79.i:                                ; preds = %if.then72.i
   br i1 %tobool80.old.not.i, label %if.then81.i, label %finish.loopexit.i
 
 if.then81.i:                                      ; preds = %land.lhs.true79.i, %_ZL13mayHaveParentPc.exit61.i
-  %call85.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef nonnull %name.i, ptr noundef nonnull %status)
+  %call85.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i, ptr noundef %name.i, ptr noundef nonnull %status)
           to label %invoke.cont84.i unwind label %lpad.i
 
 invoke.cont84.i:                                  ; preds = %if.then81.i
@@ -3566,7 +3562,7 @@ if.end91.i:                                       ; preds = %if.end54.i
 
 if.then93.i:                                      ; preds = %if.end91.i, %if.end70.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %name.i, ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false) #21
-  %call98.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name.i, ptr noundef %call15.i39, i32 noundef %openType, ptr noundef nonnull %isRoot.i, ptr noundef nonnull %hasChopped.i, ptr noundef nonnull %isDefault.i, ptr noundef nonnull %intStatus.i)
+  %call98.i = invoke fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name.i, ptr noundef %call15.i39, i32 noundef %openType, ptr noundef %isRoot.i, ptr noundef %hasChopped.i, ptr noundef %isDefault.i, ptr noundef %intStatus.i)
           to label %invoke.cont97.i unwind label %lpad.i
 
 invoke.cont97.i:                                  ; preds = %if.then93.i
@@ -3834,7 +3830,7 @@ lor.lhs.false.i65:                                ; preds = %if.then26.i
   br i1 %cmp33.i, label %if.then39.i, label %lor.lhs.false34.i
 
 lor.lhs.false34.i:                                ; preds = %lor.lhs.false.i65
-  %call37.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef nonnull %name.i42, ptr noundef nonnull %status)
+  %call37.i = invoke fastcc noundef signext i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(8) %t1.i41, ptr noundef %name.i42, ptr noundef nonnull %status)
           to label %invoke.cont36.i unwind label %lpad.i55
 
 invoke.cont36.i:                                  ; preds = %lor.lhs.false34.i
@@ -3951,7 +3947,7 @@ if.then22:                                        ; preds = %if.end20
   br i1 %cmp24, label %if.then25, label %.sink.split
 
 if.then25:                                        ; preds = %if.then22
-  call fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr noundef nonnull %entry1.1)
+  call fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr noundef %entry1.1)
   store i32 7, ptr %status, align 4
   br label %return
 
@@ -4634,7 +4630,7 @@ if.then98:                                        ; preds = %if.end93
   br label %if.end106
 
 if.else102:                                       ; preds = %if.end93
-  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i86, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1024)
+  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef %found, ptr noundef %call.i86, ptr noundef %bund1, ptr noundef %parent, i32 noundef 1024)
           to label %if.end106 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.end106:                                        ; preds = %if.else102, %if.then98
@@ -4802,7 +4798,7 @@ if.then232:                                       ; preds = %land.lhs.true191, %
   br label %if.end236
 
 if.end236:                                        ; preds = %if.then225, %if.then232
-  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i99, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
+  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef %found, ptr noundef %call.i99, ptr noundef %bund1, ptr noundef %parent, i32 noundef 1023)
           to label %invoke.cont239 unwind label %lpad2.loopexit.split-lp.loopexit
 
 invoke.cont239:                                   ; preds = %if.end236
@@ -4953,7 +4949,7 @@ invoke.cont331:                                   ; preds = %invoke.cont329
 
 if.end340:                                        ; preds = %if.else289, %invoke.cont298, %invoke.cont320, %invoke.cont331, %if.end311, %invoke.cont292, %if.then288
   %call343 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %found, ptr noundef nonnull dereferenceable(1) %parent) #21
-  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %found, ptr noundef %call.i125, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef 1023)
+  invoke fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef %found, ptr noundef %call.i125, ptr noundef %bund1, ptr noundef %parent, i32 noundef 1023)
           to label %invoke.cont346 unwind label %lpad2.loopexit
 
 invoke.cont346:                                   ; preds = %if.end340
@@ -5152,7 +5148,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #6
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef %localeID, ptr noundef %res, ptr noundef %bund1, ptr noundef %parent, i32 noundef %parentCapacity) unnamed_addr #1 {
+define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %localeID, ptr noundef %res, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef range(i32 1023, 1025) %parentCapacity) unnamed_addr #1 {
 entry:
   %length16.i = alloca i32, align 4
   %subStatus = alloca i32, align 4
@@ -5163,7 +5159,7 @@ entry:
   br i1 %cmp.not, label %if.then9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = call ptr @ures_getByKey_75(ptr noundef nonnull %res, ptr noundef nonnull @.str.30, ptr noundef %bund1, ptr noundef nonnull %subStatus)
+  %call = call ptr @ures_getByKey_75(ptr noundef nonnull %res, ptr noundef nonnull @.str.30, ptr noundef nonnull %bund1, ptr noundef nonnull %subStatus)
   %0 = load i32, ptr %subStatus, align 4
   %cmp.i = icmp sgt i32 %0, 0
   br i1 %cmp.i, label %if.then9, label %if.then2
@@ -5171,10 +5167,6 @@ if.then:                                          ; preds = %entry
 if.then2:                                         ; preds = %if.then
   store i32 %parentCapacity, ptr %parentLen, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %length16.i)
-  %cmp1.i.i = icmp eq ptr %bund1, null
-  br i1 %cmp1.i.i, label %if.end4.thread14, label %if.end3.i.i
-
-if.end3.i.i:                                      ; preds = %if.then2
   %fData.i.i.i = getelementptr inbounds i8, ptr %bund1, i64 8
   %1 = load ptr, ptr %fData.i.i.i, align 8
   %fData2.i.i.i = getelementptr inbounds i8, ptr %1, i64 40
@@ -5184,24 +5176,22 @@ if.end3.i.i:                                      ; preds = %if.then2
   %cmp6.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp6.i.i, label %if.end4.thread14, label %ures_getUTF8String_75.exit
 
-ures_getUTF8String_75.exit:                       ; preds = %if.end3.i.i
+ures_getUTF8String_75.exit:                       ; preds = %if.then2
   %.pr = load i32, ptr %subStatus, align 4
   %3 = load i32, ptr %length16.i, align 4
-  %cmp.i.i = icmp sgt i32 %.pr, 0
-  %cmp3.i = icmp slt i32 %parentCapacity, 0
-  %or.cond = or i1 %cmp.i.i, %cmp3.i
-  br i1 %or.cond, label %if.end4.thread14, label %if.end7.thread.i
+  %cmp.i.i = icmp slt i32 %.pr, 1
+  br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.end4.thread14
 
-if.end7.thread.i:                                 ; preds = %ures_getUTF8String_75.exit
+lor.lhs.false.i:                                  ; preds = %ures_getUTF8String_75.exit
   %cmp839.i = icmp eq i32 %3, 0
   br i1 %cmp839.i, label %if.then11.i, label %if.else17.i
 
-if.then11.i:                                      ; preds = %if.end7.thread.i
+if.then11.i:                                      ; preds = %lor.lhs.false.i
   store i32 0, ptr %parentLen, align 4
   %call15.i = call i32 @u_terminateChars_75(ptr noundef nonnull %parent, i32 noundef %parentCapacity, i32 noundef 0, ptr noundef nonnull %subStatus)
   br label %if.end4
 
-if.else17.i:                                      ; preds = %if.end7.thread.i
+if.else17.i:                                      ; preds = %lor.lhs.false.i
   %cmp18.i = icmp slt i32 %parentCapacity, %3
   br i1 %cmp18.i, label %if.then19.i, label %if.end21.i
 
@@ -5213,7 +5203,7 @@ if.end21.i:                                       ; preds = %if.else17.i
   %call30.i = call ptr @u_strToUTF8_75(ptr noundef nonnull %parent, i32 noundef %parentCapacity, ptr noundef nonnull %parentLen, ptr noundef nonnull %call.i.i.i, i32 noundef %3, ptr noundef nonnull %subStatus)
   br label %if.end4
 
-if.end4.thread14:                                 ; preds = %if.end3.i.i, %if.then2, %ures_getUTF8String_75.exit
+if.end4.thread14:                                 ; preds = %if.then2, %ures_getUTF8String_75.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %length16.i)
   br label %if.then9
 
@@ -5230,7 +5220,7 @@ lor.lhs.false:                                    ; preds = %if.end4
 
 if.then9:                                         ; preds = %if.then, %entry, %if.end4.thread14, %lor.lhs.false, %if.end4
   store i32 0, ptr %subStatus, align 4
-  %call10 = call i32 @uloc_getParent_75(ptr noundef %localeID, ptr noundef nonnull %parent, i32 noundef %parentCapacity, ptr noundef nonnull %subStatus)
+  %call10 = call i32 @uloc_getParent_75(ptr noundef nonnull %localeID, ptr noundef nonnull %parent, i32 noundef %parentCapacity, ptr noundef nonnull %subStatus)
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then9, %lor.lhs.false
@@ -5461,24 +5451,23 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @u_versionFromUString_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr noundef %resB) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10entryCloseP18UResourceDataEntry(ptr nocapture noundef nonnull %resB) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
-  %cmp.not4.i = icmp eq ptr %resB, null
-  br i1 %cmp.not4.i, label %_ZL13entryCloseIntP18UResourceDataEntry.exit, label %while.body.i
+  br label %while.body.i
 
-while.body.i:                                     ; preds = %entry, %while.body.i
-  %resB.addr.05.i = phi ptr [ %0, %while.body.i ], [ %resB, %entry ]
-  %fParent.i = getelementptr inbounds i8, ptr %resB.addr.05.i, i64 16
+while.body.i:                                     ; preds = %while.body.i, %entry
+  %resB.addr.04.i = phi ptr [ %resB, %entry ], [ %0, %while.body.i ]
+  %fParent.i = getelementptr inbounds i8, ptr %resB.addr.04.i, i64 16
   %0 = load ptr, ptr %fParent.i, align 8
-  %fCountExisting.i = getelementptr inbounds i8, ptr %resB.addr.05.i, i64 108
+  %fCountExisting.i = getelementptr inbounds i8, ptr %resB.addr.04.i, i64 108
   %1 = load i32, ptr %fCountExisting.i, align 4
   %dec.i = add i32 %1, -1
   store i32 %dec.i, ptr %fCountExisting.i, align 4
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZL13entryCloseIntP18UResourceDataEntry.exit, label %while.body.i, !llvm.loop !4
 
-_ZL13entryCloseIntP18UResourceDataEntry.exit:     ; preds = %while.body.i, %entry
+_ZL13entryCloseIntP18UResourceDataEntry.exit:     ; preds = %while.body.i
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 
@@ -5509,7 +5498,7 @@ declare ptr @res_getBinaryNoTrace_75(ptr noundef, i32 noundef, ptr noundef) loca
 declare ptr @res_getIntVectorNoTrace_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %0 = load i32, ptr %status, align 4
@@ -5539,7 +5528,7 @@ if.then7:                                         ; preds = %if.then5
 
 if.end8:                                          ; preds = %if.then5
   %fData = getelementptr inbounds i8, ptr %dataEntry, i64 40
-  %call9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %fData, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef nonnull %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef nonnull %status)
+  %call9 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %fData, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef nonnull %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef %status)
   br label %return
 
 if.end10:                                         ; preds = %if.end3
@@ -5573,11 +5562,11 @@ if.then19:                                        ; preds = %if.else
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZL9resbMutex)
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.then19, %while.body.i.i
-  %resB.addr.05.i.i = phi ptr [ %4, %while.body.i.i ], [ %3, %if.then19 ]
-  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 16
+while.body.i.i:                                   ; preds = %while.body.i.i, %if.then19
+  %resB.addr.04.i.i = phi ptr [ %3, %if.then19 ], [ %4, %while.body.i.i ]
+  %fParent.i.i = getelementptr inbounds i8, ptr %resB.addr.04.i.i, i64 16
   %4 = load ptr, ptr %fParent.i.i, align 8
-  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.05.i.i, i64 108
+  %fCountExisting.i.i = getelementptr inbounds i8, ptr %resB.addr.04.i.i, i64 108
   %5 = load i32, ptr %fCountExisting.i.i, align 4
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %fCountExisting.i.i, align 4
@@ -5983,7 +5972,7 @@ return:                                           ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %resData, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %resData, i32 noundef %r, ptr noundef %key, i32 noundef %idx, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath, i32 noundef %recursionDepth, ptr noundef %resB, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %len = alloca i32, align 4
   %chAlias = alloca %"class.icu_75::CharString", align 8
@@ -6228,7 +6217,7 @@ if.end117:                                        ; preds = %if.else111, %if.the
 if.then119:                                       ; preds = %if.end117
   %28 = load ptr, ptr %temp, align 8
   %add = add nsw i32 %recursionDepth, 1
-  %call121 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.0, i32 noundef %r.addr.1, ptr noundef %28, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef null, i32 noundef %add, ptr noundef %resB, ptr noundef nonnull %status)
+  %call121 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull %dataEntry.0, i32 noundef %r.addr.1, ptr noundef %28, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef null, i32 noundef %add, ptr noundef %resB, ptr noundef %status)
           to label %if.end187 unwind label %lpad50
 
 if.else122:                                       ; preds = %if.end117
@@ -6317,7 +6306,7 @@ lpad132:                                          ; preds = %if.else.i143, %if.t
 
 if.end146:                                        ; preds = %invoke.cont142
   %40 = load ptr, ptr %temp, align 8
-  %call149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.2196, i32 noundef %call143, ptr noundef %40, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath.addr.1195, i32 noundef %add147, ptr noundef %resB.addr.3194, ptr noundef nonnull %status)
+  %call149 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_116init_resb_resultEP18UResourceDataEntryjPKciS1_S3_iP15UResourceBundleP10UErrorCode(ptr noundef %dataEntry.2196, i32 noundef %call143, ptr noundef %40, i32 noundef -1, ptr noundef %validLocaleDataEntry, ptr noundef %containerResPath.addr.1195, i32 noundef %add147, ptr noundef %resB.addr.3194, ptr noundef %status)
           to label %invoke.cont148 unwind label %lpad132
 
 invoke.cont148:                                   ; preds = %if.end146
@@ -6638,7 +6627,7 @@ if.then7:                                         ; preds = %for.body
   %5 = load ptr, ptr %pResData.i, align 8
   %6 = load i32, ptr %res.i, align 8
   %7 = load ptr, ptr %validLocaleDataEntry.i, align 8
-  %call16 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6, ptr noundef null, i32 noundef -1, ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull %stackTempBundle, ptr noundef nonnull %errorCode)
+  %call16 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %6, ptr noundef null, i32 noundef -1, ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull %stackTempBundle, ptr noundef %errorCode)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %if.then7
@@ -6761,7 +6750,7 @@ if.then67:                                        ; preds = %invoke.cont64
   %30 = load ptr, ptr %pResData.i59, align 8
   %31 = load i32, ptr %res.i60, align 8
   %32 = load ptr, ptr %validLocaleDataEntry.i62, align 8
-  %call77 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %30, i32 noundef %31, ptr noundef null, i32 noundef -1, ptr noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %stackTempBundle, ptr noundef nonnull %errorCode)
+  %call77 = invoke fastcc noundef ptr @_ZN12_GLOBAL__N_130getAliasTargetAsResourceBundleERK12ResourceDatajPKciP18UResourceDataEntryS4_iP15UResourceBundleP10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %30, i32 noundef %31, ptr noundef null, i32 noundef -1, ptr noundef %32, ptr noundef null, i32 noundef 0, ptr noundef nonnull %stackTempBundle, ptr noundef %errorCode)
           to label %invoke.cont76 unwind label %lpad48
 
 invoke.cont76:                                    ; preds = %if.then67
@@ -6894,7 +6883,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8
 declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef %name, ptr nocapture noundef readonly %defaultLocale, i32 noundef %openType, ptr nocapture noundef writeonly %isRoot, ptr nocapture noundef %foundParent, ptr nocapture noundef writeonly %isDefault, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name, ptr nocapture noundef readonly %defaultLocale, i32 noundef range(i32 0, 2) %openType, ptr nocapture noundef nonnull writeonly %isRoot, ptr nocapture noundef nonnull %foundParent, ptr nocapture noundef nonnull writeonly %isDefault, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 while.body.lr.ph:
   %err.i.i = alloca i32, align 4
   %err.i = alloca i32, align 4
@@ -6935,14 +6924,14 @@ while.body.lr.ph:
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end29
-  %call2 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef %name, ptr noundef %path, ptr noundef %status)
+  %call2 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef nonnull %name, ptr noundef %path, ptr noundef nonnull %status)
   %4 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %4, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #25
-  %call6 = call i32 @strncmp(ptr noundef %name, ptr noundef %defaultLocale, i64 noundef %call5) #25
+  %call6 = call i32 @strncmp(ptr noundef nonnull %name, ptr noundef %defaultLocale, i64 noundef %call5) #25
   %cmp = icmp eq i32 %call6, 0
   %conv = zext i1 %cmp to i8
   store i8 %conv, ptr %isDefault, align 1
@@ -7177,7 +7166,7 @@ land.lhs.true.i:                                  ; preds = %if.end35.i
   br i1 %cmp.i54102.not.i, label %if.then112.i, label %if.then42.i
 
 if.then42.i:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %region.i)
+  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %region.i)
           to label %invoke.cont45.i unwind label %lpad22.i
 
 invoke.cont45.i:                                  ; preds = %if.then42.i
@@ -7315,7 +7304,7 @@ invoke.cont98.i:                                  ; preds = %invoke.cont95.i
           to label %invoke.cont99.i unwind label %lpad81.i
 
 invoke.cont99.i:                                  ; preds = %invoke.cont98.i
-  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %ref.tmp101.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %region.i)
+  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias align 8 %ref.tmp101.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %region.i)
           to label %invoke.cont102.i unwind label %lpad81.i
 
 invoke.cont102.i:                                 ; preds = %invoke.cont99.i
@@ -7360,7 +7349,7 @@ invoke.cont116.i:                                 ; preds = %lor.rhs.i
   store i32 0, ptr %len.i78.i, align 8
   %53 = load ptr, ptr %ref.tmp115.i, align 8
   store i8 0, ptr %53, align 1
-  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %ref.tmp114.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp115.i)
+  invoke fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias align 8 %ref.tmp114.i, ptr noundef nonnull align 8 dereferenceable(60) %language.i, ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp115.i)
           to label %invoke.cont122.i unwind label %lpad117.i
 
 invoke.cont122.i:                                 ; preds = %invoke.cont116.i
@@ -7765,7 +7754,7 @@ return:                                           ; preds = %if.end93.thread, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef %name, ptr nocapture noundef %status) unnamed_addr #1 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL21loadParentsExceptRootRP18UResourceDataEntryPciaS2_P10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(8) %t1, ptr noundef nonnull %name, ptr nocapture noundef %status) unnamed_addr #1 {
 entry:
   %parentLocaleLen = alloca i32, align 4
   %parentStatus = alloca i32, align 4
@@ -7814,7 +7803,7 @@ if.then10:                                        ; preds = %while.body
 
 if.then18:                                        ; preds = %if.then10
   %add = add nuw nsw i32 %7, 1
-  call void @u_UCharsToChars_75(ptr noundef nonnull %call12, ptr noundef %name, i32 noundef %add)
+  call void @u_UCharsToChars_75(ptr noundef nonnull %call12, ptr noundef nonnull %name, i32 noundef %add)
   %call19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(5) @.str) #25
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %return, label %if.end24
@@ -7824,7 +7813,7 @@ if.end24:                                         ; preds = %if.then10, %if.then
   %10 = load ptr, ptr %t1, align 8
   %fPath = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %fPath, align 8
-  %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef %name, ptr noundef %11, ptr noundef nonnull %parentStatus)
+  %call25 = call fastcc noundef ptr @_ZL10init_entryPKcS0_P10UErrorCode(ptr noundef nonnull %name, ptr noundef %11, ptr noundef nonnull %parentStatus)
   %12 = load i32, ptr %parentStatus, align 4
   %cmp.i27 = icmp slt i32 %12, 1
   br i1 %cmp.i27, label %if.else, label %if.then28
@@ -8190,7 +8179,7 @@ declare void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr sret(%"class.icu_
 declare void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr sret(%"class.icu_75::CharString") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %language, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %region) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16getDefaultScriptRKN6icu_7510CharStringES2_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %language, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %region) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca i32, align 4
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8

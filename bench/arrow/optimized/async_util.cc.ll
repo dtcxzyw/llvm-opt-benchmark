@@ -7447,7 +7447,7 @@ invoke.cont46:                                    ; preds = %invoke.cont26
   %56 = load i64, ptr %task, align 8
   store i64 %56, ptr %agg.tmp47, align 8
   store ptr null, ptr %task, align 8
-  %call50 = invoke fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %agg.tmp47, i32 noundef %.sroa.speculated, i1 noundef zeroext false)
+  %call50 = invoke fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %agg.tmp47, i32 noundef %.sroa.speculated, i1 noundef zeroext false)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont46
@@ -7627,7 +7627,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef %task, i32 noundef %latched_cost, i1 noundef zeroext %in_continue) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull %task, i32 noundef %latched_cost, i1 noundef zeroext %in_continue) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.132", align 8
   %agg.tmp = alloca %class.anon.218, align 8
@@ -8279,7 +8279,7 @@ invoke.cont47:                                    ; preds = %invoke.cont45
   %26 = load i64, ptr %next_task, align 8
   store i64 %26, ptr %agg.tmp48, align 8
   store ptr null, ptr %next_task, align 8
-  %call51 = invoke fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull %agg.tmp48, i32 noundef %.sroa.speculated, i1 noundef zeroext true)
+  %call51 = invoke fastcc noundef zeroext i1 @_ZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl10SubmitTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEib(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %agg.tmp48, i32 noundef %.sroa.speculated, i1 noundef zeroext true)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %invoke.cont47

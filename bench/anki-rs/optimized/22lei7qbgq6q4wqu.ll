@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN7anki_io5error11FileIoError12is_not_found17h637f7feac20ba008E = private unnamed_addr constant [41 x i8] c"\00\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D", align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -463,7 +463,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit:    ; preds = %2
 70:                                               ; preds = %72
   %71 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #10
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %10) #10
           to label %92 unwind label %90
 
 72:                                               ; preds = %2
@@ -557,7 +557,7 @@ _ZN5alloc3fmt6format17hce246aee5769fae0E.exit42:  ; preds = %72
 96:                                               ; preds = %98
   %97 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #10
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef align 8 dereferenceable(24) %9) #10
           to label %93 unwind label %90
 
 98:                                               ; preds = %65

@@ -398,7 +398,7 @@ cond.end:                                         ; preds = %if.end35, %cond.tru
   %21 = load ptr, ptr %supp_privinfo45, align 8
   %supp_privinfo_len = getelementptr inbounds i8, ptr %vctx, i64 120
   %22 = load i64, ptr %supp_privinfo_len, align 8
-  %call46 = call fastcc i32 @x942_encode_otherinfo(i64 noundef %cond, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %14, i64 noundef %15, ptr noundef %10, i64 noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %21, i64 noundef %22, ptr noundef nonnull %der, ptr noundef nonnull %der_len, ptr noundef nonnull %ctr)
+  %call46 = call fastcc i32 @x942_encode_otherinfo(i64 noundef %cond, ptr noundef nonnull %8, i64 noundef %9, ptr noundef %14, i64 noundef %15, ptr noundef %10, i64 noundef %16, ptr noundef %17, i64 noundef %18, ptr noundef %19, i64 noundef %20, ptr noundef %21, i64 noundef %22, ptr noundef %der, ptr noundef %der_len, ptr noundef %ctr)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.then48, label %if.end49
 
@@ -415,7 +415,7 @@ if.end49:                                         ; preds = %cond.end
   %25 = load ptr, ptr %der, align 8
   %26 = load i64, ptr %der_len, align 8
   %27 = load ptr, ptr %ctr, align 8
-  %call51 = tail call fastcc i32 @x942kdf_hash_kdm(ptr noundef nonnull %call21, ptr noundef %23, i64 noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef %27, ptr noundef %key, i64 noundef %keylen)
+  %call51 = tail call fastcc i32 @x942kdf_hash_kdm(ptr noundef %call21, ptr noundef %23, i64 noundef %24, ptr noundef %25, i64 noundef %26, ptr noundef %27, ptr noundef %key, i64 noundef %keylen)
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 500) #6
   br label %return
 
@@ -652,7 +652,7 @@ if.end68:                                         ; preds = %if.then65
   %data73.phi.trans.insert = getelementptr inbounds i8, ptr %call63, i64 16
   %.pre = load ptr, ptr %data73.phi.trans.insert, align 8
   %..pre = select i1 %cmp70.not, ptr null, ptr %.pre
-  %call74 = call fastcc i32 @find_alg_id(ptr noundef %call, ptr noundef %.pre, ptr noundef %..pre, ptr noundef nonnull %id)
+  %call74 = call fastcc i32 @find_alg_id(ptr noundef %call, ptr noundef %.pre, ptr noundef %..pre, ptr noundef %id)
   %cmp75 = icmp eq i32 %call74, 0
   br i1 %cmp75, label %return, label %if.end77
 
@@ -744,7 +744,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @ossl_prov_digest_md(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x942_encode_otherinfo(i64 noundef %keylen, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, ptr nocapture noundef writeonly %der, ptr nocapture noundef writeonly %der_len, ptr nocapture noundef writeonly %out_ctr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x942_encode_otherinfo(i64 noundef %keylen, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, ptr nocapture noundef nonnull writeonly %der, ptr nocapture noundef nonnull writeonly %der_len, ptr nocapture noundef nonnull writeonly %out_ctr) unnamed_addr #0 {
 entry:
   %pcounter = alloca ptr, align 8
   %der_buflen = alloca i64, align 8
@@ -757,7 +757,7 @@ entry:
 if.end:                                           ; preds = %entry
   %keylen.tr = trunc nuw i64 %keylen to i32
   %conv = shl nuw nsw i32 %keylen.tr, 3
-  %call = call fastcc i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef null, i64 noundef 0, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, i32 noundef %conv, ptr noundef null)
+  %call = call fastcc i32 @der_encode_sharedinfo(ptr noundef %pkt, ptr noundef null, i64 noundef 0, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, i32 noundef %conv, ptr noundef null)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false
 
@@ -775,7 +775,7 @@ if.end4:                                          ; preds = %lor.lhs.false
 
 if.end9:                                          ; preds = %if.end4
   %1 = load i64, ptr %der_buflen, align 8
-  %call10 = call fastcc i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef nonnull %call5, i64 noundef %1, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, i32 noundef %conv, ptr noundef nonnull %pcounter)
+  %call10 = call fastcc i32 @der_encode_sharedinfo(ptr noundef %pkt, ptr noundef nonnull %call5, i64 noundef %1, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, i32 noundef %conv, ptr noundef nonnull %pcounter)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %err, label %if.end13
 
@@ -817,7 +817,7 @@ return:                                           ; preds = %entry, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %other, i64 noundef %other_len, ptr nocapture noundef writeonly %ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %other, i64 noundef %other_len, ptr nocapture noundef writeonly %ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
 entry:
   %mac = alloca [64 x i8], align 16
   %cmp = icmp ugt i64 %z_len, 1073741824
@@ -835,7 +835,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %kdf_md) #6
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %kdf_md) #6
   %cmp6 = icmp slt i32 %call, 1
   br i1 %cmp6, label %return, label %if.end8
 
@@ -849,7 +849,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond3, label %end, label %if.end17
 
 if.end17:                                         ; preds = %if.end8
-  %call18 = tail call i32 @EVP_DigestInit(ptr noundef nonnull %call10, ptr noundef %kdf_md) #6
+  %call18 = tail call i32 @EVP_DigestInit(ptr noundef nonnull %call10, ptr noundef nonnull %kdf_md) #6
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %end, label %for.cond.preheader
 
@@ -932,23 +932,23 @@ return:                                           ; preds = %if.end, %end, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef %pkt, ptr noundef %buf, i64 noundef %buflen, ptr noundef %der_oid, i64 noundef %der_oidlen, ptr noundef %acvp, i64 noundef %acvplen, ptr noundef %partyu, i64 noundef %partyulen, ptr noundef %partyv, i64 noundef %partyvlen, ptr noundef %supp_pub, i64 noundef %supp_publen, ptr noundef %supp_priv, i64 noundef %supp_privlen, i32 noundef %keylen_bits, ptr noundef writeonly %pcounter) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef %buf, i64 noundef %buflen, ptr noundef %der_oid, i64 noundef %der_oidlen, ptr noundef %acvp, i64 noundef %acvplen, ptr noundef %partyu, i64 noundef %partyulen, ptr noundef %partyv, i64 noundef %partyvlen, ptr noundef %supp_pub, i64 noundef %supp_publen, ptr noundef %supp_priv, i64 noundef %supp_privlen, i32 noundef range(i32 0, 134217721) %keylen_bits, ptr noundef writeonly %pcounter) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %buf, null
   br i1 %cmp.not, label %cond.false, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %call = tail call i32 @WPACKET_init_der(ptr noundef %pkt, ptr noundef nonnull %buf, i64 noundef %buflen) #6
+  %call = tail call i32 @WPACKET_init_der(ptr noundef nonnull %pkt, ptr noundef nonnull %buf, i64 noundef %buflen) #6
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
 cond.false:                                       ; preds = %entry
-  %call1 = tail call i32 @WPACKET_init_null_der(ptr noundef %pkt) #6
+  %call1 = tail call i32 @WPACKET_init_null_der(ptr noundef nonnull %pkt) #6
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %cond.false, %cond.true
-  %call3 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef -1) #6
+  %call3 = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef nonnull %pkt, i32 noundef -1) #6
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %land.end, label %land.lhs.true5
 
@@ -957,7 +957,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
   br i1 %cmp6, label %land.lhs.true9, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true5
-  %call7 = tail call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef 3, ptr noundef nonnull %supp_priv, i64 noundef %supp_privlen) #6
+  %call7 = tail call i32 @ossl_DER_w_octet_string(ptr noundef nonnull %pkt, i32 noundef 3, ptr noundef nonnull %supp_priv, i64 noundef %supp_privlen) #6
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %land.end, label %land.lhs.true9
 
@@ -966,7 +966,7 @@ land.lhs.true9:                                   ; preds = %lor.lhs.false, %lan
   br i1 %cmp10, label %land.lhs.true14, label %lor.lhs.false11
 
 lor.lhs.false11:                                  ; preds = %land.lhs.true9
-  %call12 = tail call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef 2, ptr noundef nonnull %supp_pub, i64 noundef %supp_publen) #6
+  %call12 = tail call i32 @ossl_DER_w_octet_string(ptr noundef nonnull %pkt, i32 noundef 2, ptr noundef nonnull %supp_pub, i64 noundef %supp_publen) #6
   %tobool13.not = icmp eq i32 %call12, 0
   br i1 %tobool13.not, label %land.end, label %land.lhs.true14
 
@@ -975,7 +975,7 @@ land.lhs.true14:                                  ; preds = %lor.lhs.false11, %l
   br i1 %cmp15, label %land.lhs.true19, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %land.lhs.true14
-  %call17 = tail call i32 @ossl_DER_w_octet_string_uint32(ptr noundef %pkt, i32 noundef 2, i32 noundef %keylen_bits) #6
+  %call17 = tail call i32 @ossl_DER_w_octet_string_uint32(ptr noundef nonnull %pkt, i32 noundef 2, i32 noundef %keylen_bits) #6
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %land.end, label %land.lhs.true19
 
@@ -984,7 +984,7 @@ land.lhs.true19:                                  ; preds = %lor.lhs.false16, %l
   br i1 %cmp20, label %land.lhs.true24, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %land.lhs.true19
-  %call22 = tail call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef 1, ptr noundef nonnull %partyv, i64 noundef %partyvlen) #6
+  %call22 = tail call i32 @ossl_DER_w_octet_string(ptr noundef nonnull %pkt, i32 noundef 1, ptr noundef nonnull %partyv, i64 noundef %partyvlen) #6
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %land.end, label %land.lhs.true24
 
@@ -993,7 +993,7 @@ land.lhs.true24:                                  ; preds = %lor.lhs.false21, %l
   br i1 %cmp25, label %land.lhs.true29, label %lor.lhs.false26
 
 lor.lhs.false26:                                  ; preds = %land.lhs.true24
-  %call27 = tail call i32 @ossl_DER_w_octet_string(ptr noundef %pkt, i32 noundef 0, ptr noundef nonnull %partyu, i64 noundef %partyulen) #6
+  %call27 = tail call i32 @ossl_DER_w_octet_string(ptr noundef nonnull %pkt, i32 noundef 0, ptr noundef nonnull %partyu, i64 noundef %partyulen) #6
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %land.end, label %land.lhs.true29
 
@@ -1002,17 +1002,17 @@ land.lhs.true29:                                  ; preds = %lor.lhs.false26, %l
   br i1 %cmp30, label %land.lhs.true34, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %land.lhs.true29
-  %call32 = tail call i32 @ossl_DER_w_precompiled(ptr noundef %pkt, i32 noundef -1, ptr noundef nonnull %acvp, i64 noundef %acvplen) #6
+  %call32 = tail call i32 @ossl_DER_w_precompiled(ptr noundef nonnull %pkt, i32 noundef -1, ptr noundef nonnull %acvp, i64 noundef %acvplen) #6
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %land.end, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %lor.lhs.false31, %land.lhs.true29
-  %call.i = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef %pkt, i32 noundef -1) #6
+  %call.i = tail call i32 @ossl_DER_w_begin_sequence(ptr noundef nonnull %pkt, i32 noundef -1) #6
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %land.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true34
-  %call1.i = tail call i32 @ossl_DER_w_octet_string_uint32(ptr noundef %pkt, i32 noundef -1, i32 noundef 1) #6
+  %call1.i = tail call i32 @ossl_DER_w_octet_string_uint32(ptr noundef nonnull %pkt, i32 noundef -1, i32 noundef 1) #6
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %land.end, label %land.lhs.true3.i
 
@@ -1021,28 +1021,28 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   br i1 %cmp.i, label %land.lhs.true6.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true3.i
-  %call4.i = tail call ptr @WPACKET_get_curr(ptr noundef %pkt) #6
+  %call4.i = tail call ptr @WPACKET_get_curr(ptr noundef nonnull %pkt) #6
   store ptr %call4.i, ptr %pcounter, align 8
   %cmp5.not.i = icmp eq ptr %call4.i, null
   br i1 %cmp5.not.i, label %land.end, label %land.lhs.true6.i
 
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false.i, %land.lhs.true3.i
-  %call7.i = tail call i32 @ossl_DER_w_precompiled(ptr noundef %pkt, i32 noundef -1, ptr noundef %der_oid, i64 noundef %der_oidlen) #6
+  %call7.i = tail call i32 @ossl_DER_w_precompiled(ptr noundef nonnull %pkt, i32 noundef -1, ptr noundef %der_oid, i64 noundef %der_oidlen) #6
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %land.end, label %DER_w_keyinfo.exit
 
 DER_w_keyinfo.exit:                               ; preds = %land.lhs.true6.i
-  %call9.i = tail call i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef -1) #6
+  %call9.i = tail call i32 @ossl_DER_w_end_sequence(ptr noundef nonnull %pkt, i32 noundef -1) #6
   %tobool10.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool10.i.not, label %land.end, label %land.lhs.true37
 
 land.lhs.true37:                                  ; preds = %DER_w_keyinfo.exit
-  %call38 = tail call i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef -1) #6
+  %call38 = tail call i32 @ossl_DER_w_end_sequence(ptr noundef nonnull %pkt, i32 noundef -1) #6
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true37
-  %call40 = tail call i32 @WPACKET_finish(ptr noundef %pkt) #6
+  %call40 = tail call i32 @WPACKET_finish(ptr noundef nonnull %pkt) #6
   %tobool41 = icmp ne i32 %call40, 0
   %0 = zext i1 %tobool41 to i32
   br label %land.end
@@ -1102,7 +1102,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq, ptr nocapture noundef writeonly %id) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_alg_id(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq, ptr nocapture noundef nonnull writeonly %id) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EVP_CIPHER_fetch(ptr noundef %libctx, ptr noundef %algname, ptr noundef %propq) #6
   %cmp.not = icmp eq ptr %call, null

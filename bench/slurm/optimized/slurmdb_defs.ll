@@ -1101,7 +1101,7 @@ define void @slurmdb_destroy_cluster_rec(ptr noundef %0) #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @_free_cluster_rec_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_cluster_rec_members(ptr noundef %0)
   call void @slurm_xfree(ptr noundef nonnull %2) #20
   br label %4
 
@@ -1110,7 +1110,7 @@ define void @slurmdb_destroy_cluster_rec(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_free_cluster_rec_members(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_free_cluster_rec_members(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -1660,7 +1660,7 @@ define void @slurmdb_destroy_res_rec(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @_free_res_rec_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_res_rec_members(ptr noundef %0)
   call void @slurm_xfree(ptr noundef nonnull %2) #20
   br label %4
 
@@ -1669,7 +1669,7 @@ define void @slurmdb_destroy_res_rec(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_free_res_rec_members(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_free_res_rec_members(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -2627,7 +2627,7 @@ define void @slurmdb_destroy_res_cond(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @_free_res_cond_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_res_cond_members(ptr noundef %0)
   call void @slurm_xfree(ptr noundef nonnull %2) #20
   br label %4
 
@@ -2636,7 +2636,7 @@ define void @slurmdb_destroy_res_cond(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_free_res_cond_members(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @_free_res_cond_members(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -3578,7 +3578,7 @@ define void @slurmdb_init_cluster_rec(ptr noundef %0, i1 noundef zeroext %1) loc
   br i1 %1, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call fastcc void @_free_cluster_rec_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_cluster_rec_members(ptr noundef %0)
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -3725,7 +3725,7 @@ define void @slurmdb_init_res_rec(ptr noundef %0, i1 noundef zeroext %1) local_u
   br i1 %1, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call fastcc void @_free_res_rec_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_res_rec_members(ptr noundef %0)
   br label %5
 
 5:                                                ; preds = %4, %3
@@ -3937,7 +3937,7 @@ define void @slurmdb_init_res_cond(ptr noundef %0, i1 noundef zeroext %1) local_
   br i1 %1, label %4, label %5
 
 4:                                                ; preds = %3
-  tail call fastcc void @_free_res_cond_members(ptr noundef nonnull %0)
+  tail call fastcc void @_free_res_cond_members(ptr noundef %0)
   br label %5
 
 5:                                                ; preds = %4, %3

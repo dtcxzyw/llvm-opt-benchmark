@@ -352,7 +352,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
 119:                                              ; preds = %115
   %120 = load i16, ptr %117, align 2, !noundef !3
   store ptr %18, ptr %11, align 8
-  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %10, ptr align 8 %87, i16 %120, ptr nonnull align 16 %13)
+  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %10, ptr align 8 %87, i16 %120, ptr align 16 %13)
           to label %125 unwind label %123
 
 121:                                              ; preds = %136, %115
@@ -414,7 +414,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr nocap
   %138 = load i16, ptr %133, align 2, !noundef !3
   %139 = load ptr, ptr %57, align 8, !nonnull !3, !noundef !3
   %140 = load i64, ptr %58, align 8, !noundef !3
-  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %87, i16 %138, ptr nonnull align 16 %13)
+  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %87, i16 %138, ptr align 16 %13)
           to label %141 unwind label %.loopexit.i.i
 
 141:                                              ; preds = %137
@@ -523,7 +523,7 @@ _ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_equivalence_classes17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  invoke fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias nonnull align 8 %19)
+  invoke fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias align 8 %19)
           to label %.noexc22 unwind label %.thread31
 
 .noexc22:                                         ; preds = %.noexc21
@@ -1098,7 +1098,7 @@ default.unreachable:                              ; preds = %16
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias align 8 %0, ptr align 8 %1, i16 %2, ptr nocapture readonly align 16 %3) unnamed_addr #1 {
+define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias align 8 %0, ptr align 8 %1, i16 %2, ptr nocapture nonnull readonly align 16 %3) unnamed_addr #1 {
   %5 = alloca { { ptr, ptr }, { { i8, i8 }, {} }, [6 x i8] }, align 8
   %6 = alloca i64, align 8
   %7 = alloca i16, align 2
@@ -1317,7 +1317,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %2, ptr %8, align 8
   store i8 1, ptr %5, align 16
-  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %6, ptr align 8 %0, i16 %1, ptr nonnull align 16 %5)
+  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %6, ptr align 8 %0, i16 %1, ptr align 16 %5)
   call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %6)
   ret void
 }
@@ -1329,7 +1329,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8
   store i8 2, ptr %5, align 16
-  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %6, ptr align 8 %0, i16 %1, ptr nonnull align 16 %5)
+  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %6, ptr align 8 %0, i16 %1, ptr align 16 %5)
   call void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %6)
   ret void
 }
@@ -1356,7 +1356,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   %15 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 %12, ptr %15, align 1
   store i8 0, ptr %9, align 16
-  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias align 8 %0, ptr align 8 %1, i16 %2, ptr nonnull align 16 %9)
+  call fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias align 8 %0, ptr align 8 %1, i16 %2, ptr align 16 %9)
   ret void
 }
 
@@ -1400,7 +1400,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
 
 27:                                               ; preds = %23
   store i8 3, ptr %11, align 16
-  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %12, ptr align 8 %1, i16 %18, ptr nonnull align 16 %11)
+  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %12, ptr align 8 %1, i16 %18, ptr align 16 %11)
           to label %28 unwind label %20
 
 28:                                               ; preds = %27
@@ -1771,7 +1771,7 @@ default.unreachable:                              ; preds = %20
   %51 = getelementptr inbounds i8, ptr %22, i64 2
   %52 = load i16, ptr %51, align 2, !noundef !3
   store i8 3, ptr %3, align 16
-  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %4, ptr nonnull align 8 %0, i16 %52, ptr nonnull align 16 %3)
+  invoke fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14set_constraint17hd93bbe528b761809E(ptr noalias nonnull align 8 %4, ptr nonnull align 8 %0, i16 %52, ptr align 16 %3)
           to label %53 unwind label %.loopexit
 
 53:                                               ; preds = %50
@@ -2232,7 +2232,7 @@ default.unreachable48:                            ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias nocapture writeonly align 8 %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias nocapture nonnull writeonly align 8 %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -2319,7 +2319,7 @@ define hidden void @"_ZN85_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as
   %.sroa.0 = alloca [80 x i8], align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, align 8
-  call fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias nonnull align 8 %6)
+  call fastcc void @"_ZN75_$LT$cranelift_isle..trie_again..Rule$u20$as$u20$core..default..Default$GT$7default17hc3ba1b0c5de2fbd0E"(ptr noalias align 8 %6)
   store i64 0, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr inttoptr (i64 16 to ptr), ptr %7, align 8

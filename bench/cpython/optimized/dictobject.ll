@@ -1570,7 +1570,7 @@ new_dict.exit:                                    ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @new_dict(ptr nocapture noundef %interp, ptr noundef %keys, ptr noundef %values, i64 noundef %used, i32 noundef %free_values_on_failure) unnamed_addr #0 {
+define internal fastcc ptr @new_dict(ptr nocapture noundef %interp, ptr noundef %keys, ptr noundef %values, i64 noundef %used, i32 noundef range(i32 0, 2) %free_values_on_failure) unnamed_addr #0 {
 entry:
   %dict_state.i = getelementptr inbounds i8, ptr %interp, i64 303904
   %numfree = getelementptr inbounds i8, ptr %interp, i64 305200
@@ -4672,7 +4672,7 @@ return:                                           ; preds = %if.end, %_PyDict_No
 declare void @_PyErr_SetKeyError(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @_PyDict_NotifyEvent(ptr nocapture noundef %interp, i32 noundef %event, ptr noundef %mp, ptr noundef %key, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc i64 @_PyDict_NotifyEvent(ptr nocapture noundef %interp, i32 noundef range(i32 0, 6) %event, ptr noundef %mp, ptr noundef %key, ptr noundef %value) unnamed_addr #0 {
 entry:
   %ma_version_tag = getelementptr inbounds i8, ptr %mp, i64 24
   %0 = load i64, ptr %ma_version_tag, align 8
@@ -4687,7 +4687,7 @@ if.then:                                          ; preds = %entry
   %interp.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %4 = load ptr, ptr %interp.i.i, align 8
   %watchers.i = getelementptr inbounds i8, ptr %4, i64 305208
-  %5 = sext i32 %event to i64
+  %5 = zext nneg i32 %event to i64
   %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._PyDict_SendEvent, i64 0, i64 %5
   br label %for.body.i
 
@@ -4742,7 +4742,7 @@ return:                                           ; preds = %if.end, %_PyDict_Se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delitem_common(ptr nocapture noundef %mp, i64 noundef %hash, i64 noundef %ix, ptr noundef %old_value, i64 noundef %new_version) unnamed_addr #0 {
+define internal fastcc void @delitem_common(ptr nocapture noundef %mp, i64 noundef %hash, i64 noundef range(i64 -2, -3) %ix, ptr noundef %old_value, i64 noundef %new_version) unnamed_addr #0 {
 entry:
   %ma_keys = getelementptr inbounds i8, ptr %mp, i64 32
   %0 = load ptr, ptr %ma_keys, align 8
@@ -6540,7 +6540,7 @@ return:                                           ; preds = %while.cond41, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dictresize(ptr nocapture noundef %interp, ptr nocapture noundef %mp, i8 noundef zeroext %log2_newsize, i32 noundef %unicode) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dictresize(ptr nocapture noundef %interp, ptr nocapture noundef %mp, i8 noundef zeroext %log2_newsize, i32 noundef range(i32 0, 2) %unicode) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i8 %log2_newsize, 63
   br i1 %cmp, label %if.then, label %if.end
@@ -8112,7 +8112,7 @@ lor.lhs.false25:                                  ; preds = %land.lhs.true22
 
 if.then33:                                        ; preds = %lor.lhs.false25, %land.lhs.true22
   %call34 = tail call fastcc i64 @_PyDict_NotifyEvent(ptr noundef %interp, i32 noundef 3, ptr noundef nonnull %a, ptr noundef nonnull %b, ptr noundef null)
-  %call35 = tail call fastcc ptr @clone_combined_dict_keys(ptr noundef nonnull %b)
+  %call35 = tail call fastcc ptr @clone_combined_dict_keys(ptr noundef %b)
   %cmp36 = icmp eq ptr %call35, null
   br i1 %cmp36, label %return, label %if.end39
 
@@ -9041,7 +9041,7 @@ land.lhs.true47:                                  ; preds = %if.end40
   br i1 %cmp50.not, label %if.end69, label %if.then52
 
 if.then52:                                        ; preds = %land.lhs.true47
-  %call53 = tail call fastcc ptr @clone_combined_dict_keys(ptr noundef nonnull %o)
+  %call53 = tail call fastcc ptr @clone_combined_dict_keys(ptr noundef %o)
   %cmp54 = icmp eq ptr %call53, null
   br i1 %cmp54, label %return, label %if.end57
 
@@ -9207,7 +9207,7 @@ dictiter_new.exit:                                ; preds = %entry, %_Py_NewRef.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clone_combined_dict_keys(ptr nocapture noundef readonly %orig) unnamed_addr #0 {
+define internal fastcc ptr @clone_combined_dict_keys(ptr nocapture noundef nonnull readonly %orig) unnamed_addr #0 {
 entry:
   %ma_keys = getelementptr inbounds i8, ptr %orig, i64 32
   %0 = load ptr, ptr %ma_keys, align 8

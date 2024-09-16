@@ -199,7 +199,7 @@ define dso_local void @pci_setup_bridge(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef range(i64 0, 1057537) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.pci_bus_region, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1315,7 +1315,7 @@ define dso_local void @__pci_bus_size_bridges(ptr noundef %0, ptr noundef %1) lo
 declare dso_local ptr @pci_bus_resource_n(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @pbus_size_mem(ptr noundef %0, i64 noundef range(i64 512, 1057281) %1, i64 noundef range(i64 512, 1057281) %2, i64 noundef range(i64 0, 1057281) %3, i64 noundef range(i64 0, 1057281) %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) unnamed_addr #5 align 16 {
   %9 = alloca [24 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %9) #12
   %10 = or i64 %1, 8192
@@ -2413,141 +2413,140 @@ define internal fastcc void @pci_root_bus_distribute_available_resources(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @pci_bus_release_bridge_resources(ptr noundef %0, i64 noundef range(i64 0, 1057537) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
-  br i1 %6, label %33, label %7
+  br i1 %6, label %32, label %7
 
 7:                                                ; preds = %3
-  %8 = icmp eq i32 %2, 1
-  br i1 %8, label %.split, label %.split.us
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %7, %.split.us
-  %9 = phi ptr [ %14, %.split.us ], [ %5, %7 ]
-  %10 = phi i8 [ %spec.select, %.split.us ], [ 1, %7 ]
-  %11 = getelementptr inbounds i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %13 = icmp eq ptr %12, null
-  %spec.select = select i1 %13, i8 %10, i8 0
-  %14 = load ptr, ptr %9, align 8
-  %15 = icmp eq ptr %14, %4
-  br i1 %15, label %.split5.us, label %.split.us, !llvm.loop !37
+  %8 = phi ptr [ %13, %.split.us ], [ %5, %7 ]
+  %9 = phi i8 [ %spec.select, %.split.us ], [ 1, %7 ]
+  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %12 = icmp eq ptr %11, null
+  %spec.select = select i1 %12, i8 %9, i8 0
+  %13 = load ptr, ptr %8, align 8
+  %14 = icmp eq ptr %13, %4
+  br i1 %14, label %.split5.us, label %.split.us, !llvm.loop !37
 
-.split:                                           ; preds = %7, %27
-  %16 = phi ptr [ %29, %27 ], [ %5, %7 ]
-  %17 = phi i8 [ %28, %27 ], [ 1, %7 ]
-  %18 = getelementptr inbounds i8, ptr %16, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %27, label %21
+.split:                                           ; preds = %7, %26
+  %15 = phi ptr [ %28, %26 ], [ %5, %7 ]
+  %16 = phi i8 [ %27, %26 ], [ 1, %7 ]
+  %17 = getelementptr inbounds i8, ptr %15, i64 24
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %26, label %20
 
-21:                                               ; preds = %.split
-  %22 = getelementptr inbounds i8, ptr %16, i64 68
-  %23 = load i32, ptr %22, align 4
-  %24 = and i32 %23, -256
-  %25 = icmp eq i32 %24, 394240
-  br i1 %25, label %26, label %27
+20:                                               ; preds = %.split
+  %21 = getelementptr inbounds i8, ptr %15, i64 68
+  %22 = load i32, ptr %21, align 4
+  %23 = and i32 %22, -256
+  %24 = icmp eq i32 %23, 394240
+  br i1 %24, label %25, label %26
 
-26:                                               ; preds = %21
-  tail call fastcc void @pci_bus_release_bridge_resources(ptr noundef nonnull %19, i64 noundef %1, i32 noundef 1)
-  br label %27
+25:                                               ; preds = %20
+  tail call fastcc void @pci_bus_release_bridge_resources(ptr noundef nonnull %18, i64 noundef %1, i32 noundef 1)
+  br label %26
 
-27:                                               ; preds = %26, %21, %.split
-  %28 = phi i8 [ %17, %.split ], [ 0, %21 ], [ 0, %26 ]
-  %29 = load ptr, ptr %16, align 8
-  %30 = icmp eq ptr %29, %4
-  br i1 %30, label %.split5.us, label %.split, !llvm.loop !37
+26:                                               ; preds = %25, %20, %.split
+  %27 = phi i8 [ %16, %.split ], [ 0, %20 ], [ 0, %25 ]
+  %28 = load ptr, ptr %15, align 8
+  %29 = icmp eq ptr %28, %4
+  br i1 %29, label %.split5.us, label %.split, !llvm.loop !37
 
-.split5.us:                                       ; preds = %.split.us, %27
-  %.us-phi = phi i8 [ %28, %27 ], [ %spec.select, %.split.us ]
-  %31 = and i8 %.us-phi, 1
-  %32 = icmp eq i8 %31, 0
-  br label %33
+.split5.us:                                       ; preds = %26, %.split.us
+  %.us-phi = phi i8 [ %spec.select, %.split.us ], [ %27, %26 ]
+  %30 = and i8 %.us-phi, 1
+  %31 = icmp eq i8 %30, 0
+  br label %32
 
-33:                                               ; preds = %.split5.us, %3
-  %34 = phi i1 [ false, %3 ], [ %32, %.split5.us ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %86, label %38
+32:                                               ; preds = %.split5.us, %3
+  %33 = phi i1 [ false, %3 ], [ %31, %.split5.us ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %84, label %37
 
-38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %0, i64 56
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 68
-  %42 = load i32, ptr %41, align 4
-  %43 = and i32 %42, -256
-  %44 = icmp ne i32 %43, 394240
-  %45 = icmp ne i32 %2, 1
-  %46 = select i1 %45, i1 %34, i1 false
-  %47 = select i1 %44, i1 true, i1 %46
-  br i1 %47, label %86, label %48
+37:                                               ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 68
+  %41 = load i32, ptr %40, align 4
+  %42 = and i32 %41, -256
+  %43 = icmp ne i32 %42, 394240
+  %44 = icmp eq i32 %2, 0
+  %45 = select i1 %44, i1 %33, i1 false
+  %46 = select i1 %43, i1 true, i1 %45
+  br i1 %46, label %84, label %47
 
-48:                                               ; preds = %38
-  %49 = getelementptr i8, ptr %40, i64 1368
-  %50 = and i64 %1, 256
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %63
+47:                                               ; preds = %37
+  %48 = getelementptr i8, ptr %39, i64 1368
+  %49 = and i64 %1, 256
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %61
 
-52:                                               ; preds = %48
-  %53 = and i64 %1, 8192
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %63, label %55
+51:                                               ; preds = %47
+  %52 = and i64 %1, 8192
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %61, label %54
 
-55:                                               ; preds = %52
-  %56 = and i64 %1, 1048576
-  %57 = icmp eq i64 %56, 0
-  %.phi.trans.insert = getelementptr i8, ptr %40, i64 1520
+54:                                               ; preds = %51
+  %55 = icmp ult i64 %1, 1048576
+  %.phi.trans.insert = getelementptr i8, ptr %39, i64 1520
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %58 = and i64 %.pre, 1048576
-  %59 = icmp eq i64 %58, 0
-  %or.cond = select i1 %57, i1 true, i1 %59
-  br i1 %or.cond, label %._crit_edge, label %63
+  %56 = and i64 %.pre, 1048576
+  %57 = icmp eq i64 %56, 0
+  %or.cond = select i1 %55, i1 true, i1 %57
+  br i1 %or.cond, label %._crit_edge, label %61
 
-._crit_edge:                                      ; preds = %55
-  %60 = and i64 %.pre, 1056768
-  %61 = icmp eq i64 %60, 8192
-  %62 = select i1 %61, i32 2, i32 1
-  br label %63
+._crit_edge:                                      ; preds = %54
+  %58 = and i64 %.pre, 1056768
+  %59 = icmp eq i64 %58, 8192
+  %60 = select i1 %59, i32 2, i32 1
+  br label %61
 
-63:                                               ; preds = %55, %._crit_edge, %52, %48
-  %64 = phi i32 [ 0, %48 ], [ 1, %52 ], [ %62, %._crit_edge ], [ 2, %55 ]
-  %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr %struct.resource, ptr %49, i64 %65
-  %67 = getelementptr inbounds i8, ptr %66, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %86, label %70
+61:                                               ; preds = %54, %._crit_edge, %51, %47
+  %62 = phi i32 [ 0, %47 ], [ 1, %51 ], [ %60, %._crit_edge ], [ 2, %54 ]
+  %63 = zext nneg i32 %62 to i64
+  %64 = getelementptr %struct.resource, ptr %48, i64 %63
+  %65 = getelementptr inbounds i8, ptr %64, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %84, label %68
 
-70:                                               ; preds = %63
-  tail call void @release_child_resources(ptr noundef %66) #12
-  %71 = tail call i32 @release_resource(ptr noundef %66) #12
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %86
+68:                                               ; preds = %61
+  tail call void @release_child_resources(ptr noundef %64) #12
+  %69 = tail call i32 @release_resource(ptr noundef %64) #12
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %84
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %66, i64 24
-  %75 = load i64, ptr %74, align 8
-  %76 = and i64 %75, 1057536
-  %77 = getelementptr inbounds i8, ptr %40, i64 184
-  %78 = add nuw nsw i32 %64, 7
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %77, ptr noundef nonnull @.str.23, i32 noundef %78, ptr noundef %66) #13
-  %79 = getelementptr inbounds i8, ptr %66, i64 8
-  %80 = load i64, ptr %79, align 8
-  %81 = load i64, ptr %66, align 8
-  %82 = sub i64 %80, %81
-  store i64 %82, ptr %79, align 8
-  store i64 0, ptr %66, align 8
-  store i64 0, ptr %74, align 8
-  %83 = and i64 %75, 8192
-  %84 = icmp eq i64 %83, 0
-  %85 = select i1 %84, i64 %76, i64 8192
-  tail call fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef %85)
-  store i64 %76, ptr %74, align 8
-  br label %86
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %64, i64 24
+  %73 = load i64, ptr %72, align 8
+  %74 = and i64 %73, 1057536
+  %75 = getelementptr inbounds i8, ptr %39, i64 184
+  %76 = add nuw nsw i32 %62, 7
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %75, ptr noundef nonnull @.str.23, i32 noundef %76, ptr noundef %64) #13
+  %77 = getelementptr inbounds i8, ptr %64, i64 8
+  %78 = load i64, ptr %77, align 8
+  %79 = load i64, ptr %64, align 8
+  %80 = sub i64 %78, %79
+  store i64 %80, ptr %77, align 8
+  store i64 0, ptr %64, align 8
+  store i64 0, ptr %72, align 8
+  %81 = and i64 %73, 8192
+  %82 = icmp eq i64 %81, 0
+  %83 = select i1 %82, i64 %74, i64 8192
+  tail call fastcc void @__pci_setup_bridge(ptr noundef %0, i64 noundef %83)
+  store i64 %74, ptr %72, align 8
+  br label %84
 
-86:                                               ; preds = %73, %70, %63, %38, %33
+84:                                               ; preds = %71, %68, %61, %37, %32
   ret void
 }
 
@@ -3230,7 +3229,7 @@ declare dso_local void @down_read(ptr noundef) local_unnamed_addr #4
 declare dso_local ptr @pci_resource_name(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #5 align 16 {
+define internal fastcc void @add_to_list(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, i64 noundef range(i64 1, 0) %4) unnamed_addr #5 align 16 {
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %7 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3520, i64 noundef 72) #14
   %8 = icmp eq ptr %7, null

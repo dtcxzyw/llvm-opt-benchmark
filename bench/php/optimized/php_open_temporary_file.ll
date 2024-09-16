@@ -154,7 +154,7 @@ define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not32, label %18, label %30
 
 18:                                               ; preds = %16, %14
-  %19 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %11, ptr noundef nonnull %spec.store.select, ptr noundef %2)
+  %19 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %11, ptr noundef nonnull %spec.store.select, ptr noundef %2)
   br label %30
 
 20:                                               ; preds = %7
@@ -168,7 +168,7 @@ define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not27, label %24, label %30
 
 24:                                               ; preds = %22, %20
-  %25 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, ptr noundef %2)
+  %25 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %0, ptr noundef nonnull %spec.store.select, ptr noundef %2)
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %27, label %30
 
@@ -189,7 +189,7 @@ define i32 @php_open_temporary_fd_ex(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_do_open_temporary_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct._cwd_state, align 8
@@ -306,11 +306,11 @@ define i32 @php_open_temporary_fd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not30.i, label %php_open_temporary_fd_ex.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %10, ptr noundef nonnull %spec.store.select.i, ptr noundef %2)
+  %14 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %10, ptr noundef nonnull %spec.store.select.i, ptr noundef %2)
   br label %php_open_temporary_fd_ex.exit
 
 15:                                               ; preds = %6
-  %16 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select.i, ptr noundef %2)
+  %16 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %0, ptr noundef nonnull %spec.store.select.i, ptr noundef %2)
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %php_open_temporary_fd_ex.exit
 
@@ -354,7 +354,7 @@ define noalias noundef ptr @php_open_temporary_file(ptr noundef %0, ptr noundef 
   br i1 %.not30.i.i, label %php_open_temporary_fd.exit.thread, label %php_open_temporary_fd.exit
 
 13:                                               ; preds = %6
-  %14 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select.i.i, ptr noundef %2)
+  %14 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %0, ptr noundef nonnull %spec.store.select.i.i, ptr noundef %2)
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %php_open_temporary_fd.exit.thread10
 
@@ -363,7 +363,7 @@ define noalias noundef ptr @php_open_temporary_file(ptr noundef %0, ptr noundef 
   br label %9
 
 php_open_temporary_fd.exit:                       ; preds = %11
-  %17 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %10, ptr noundef nonnull %spec.store.select.i.i, ptr noundef %2)
+  %17 = tail call fastcc i32 @php_do_open_temporary_file(ptr noundef %10, ptr noundef nonnull %spec.store.select.i.i, ptr noundef %2)
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %php_open_temporary_fd.exit.thread, label %php_open_temporary_fd.exit.thread10
 

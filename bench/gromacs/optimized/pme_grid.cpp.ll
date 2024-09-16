@@ -1332,7 +1332,7 @@ define void @_Z13pmegrids_initP10pmegrids_tiiiiibiiiN3gmx8ArrayRefISt6vectorIfNS
   %29 = sub nsw i32 %3, %25
   %30 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 %29, ptr %30, align 4
-  tail call fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef %27, i32 noundef %29, i1 noundef zeroext false, i32 noundef %5, ptr noundef nonnull %.sroa.01.0.copyload.i)
+  tail call fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %26, i32 noundef %27, i32 noundef %29, i1 noundef zeroext false, i32 noundef %5, ptr noundef %.sroa.01.0.copyload.i)
   %31 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %7, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 76
@@ -1760,7 +1760,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %153, %155, %157, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i32 noundef %11, ptr noundef %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i32 noundef %11, ptr noundef nonnull %12) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _Z18set_grid_alignmentPii.exit:
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.87", align 1
@@ -2142,7 +2142,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   %82 = mul nsw i32 %72, %81
   %83 = sdiv i32 %82, %58
   %84 = load i32, ptr %7, align 4
-  invoke fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr noundef nonnull %63, i32 noundef %35, i32 noundef %37, i32 noundef %38, i32 noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %77, i32 noundef %80, i32 noundef %83, i1 noundef zeroext true, i32 noundef %84, ptr noundef nonnull %41)
+  invoke fastcc void @_ZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEE(ptr noundef nonnull %63, i32 noundef %35, i32 noundef %37, i32 noundef %38, i32 noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %77, i32 noundef %80, i32 noundef %83, i1 noundef zeroext true, i32 noundef %84, ptr noundef %41)
           to label %24 unwind label %.loopexit
 
 85:                                               ; preds = %24

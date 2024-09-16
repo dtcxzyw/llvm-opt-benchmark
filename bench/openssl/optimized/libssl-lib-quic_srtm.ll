@@ -283,10 +283,10 @@ if.then20:                                        ; preds = %if.then15
 if.else:                                          ; preds = %if.end13
   %6 = load i64, ptr %seq_num8, align 8
   store ptr %call.i.i, ptr %new_head, align 8
-  %seq_num2.i89 = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  %7 = load i64, ptr %seq_num2.i89, align 8
-  %cmp3.i90 = icmp ugt i64 %7, %6
-  br i1 %cmp3.i90, label %while.body.i, label %sorted_insert_seq_num.exit
+  %seq_num2.i88 = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %7 = load i64, ptr %seq_num2.i88, align 8
+  %cmp3.i89 = icmp ugt i64 %7, %6
+  br i1 %cmp3.i89, label %while.body.i, label %sorted_insert_seq_num.exit
 
 land.rhs.i:                                       ; preds = %while.body.i
   %seq_num2.i = getelementptr inbounds i8, ptr %9, i64 24
@@ -295,19 +295,19 @@ land.rhs.i:                                       ; preds = %while.body.i
   br i1 %cmp3.i, label %while.body.i, label %sorted_insert_seq_num.exit.loopexit, !llvm.loop !7
 
 while.body.i:                                     ; preds = %if.else, %land.rhs.i
-  %cur.010.i91 = phi ptr [ %9, %land.rhs.i ], [ %call.i.i, %if.else ]
-  %next_by_seq_num.i39 = getelementptr inbounds i8, ptr %cur.010.i91, i64 8
+  %cur.09.i90 = phi ptr [ %9, %land.rhs.i ], [ %call.i.i, %if.else ]
+  %next_by_seq_num.i39 = getelementptr inbounds i8, ptr %cur.09.i90, i64 8
   %9 = load ptr, ptr %next_by_seq_num.i39, align 8
   %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %sorted_insert_seq_num.exit.loopexit, label %land.rhs.i, !llvm.loop !7
 
 sorted_insert_seq_num.exit.loopexit:              ; preds = %land.rhs.i, %while.body.i
-  %.ph103 = phi ptr [ %9, %land.rhs.i ], [ null, %while.body.i ]
-  %next_by_seq_num.i39.le = getelementptr inbounds i8, ptr %cur.010.i91, i64 8
+  %.ph102 = phi ptr [ %9, %land.rhs.i ], [ null, %while.body.i ]
+  %next_by_seq_num.i39.le = getelementptr inbounds i8, ptr %cur.09.i90, i64 8
   br label %sorted_insert_seq_num.exit
 
 sorted_insert_seq_num.exit:                       ; preds = %sorted_insert_seq_num.exit.loopexit, %if.else
-  %10 = phi ptr [ %call.i.i, %if.else ], [ %.ph103, %sorted_insert_seq_num.exit.loopexit ]
+  %10 = phi ptr [ %call.i.i, %if.else ], [ %.ph102, %sorted_insert_seq_num.exit.loopexit ]
   %fixup.0.lcssa.i = phi ptr [ %new_head, %if.else ], [ %next_by_seq_num.i39.le, %sorted_insert_seq_num.exit.loopexit ]
   %next_by_seq_num5.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %10, ptr %next_by_seq_num5.i, align 8
@@ -355,48 +355,48 @@ srtm_check_lh.exit58.thread:                      ; preds = %if.then35
 if.else43:                                        ; preds = %if.end32
   %16 = load ptr, ptr %opaque7, align 8
   store ptr %call.i49, ptr %new_head, align 8
-  %opaque2.i95 = getelementptr inbounds i8, ptr %call.i49, i64 16
-  %17 = load ptr, ptr %opaque2.i95, align 8
-  %cmp3.i6496 = icmp ugt ptr %17, %16
-  br i1 %cmp3.i6496, label %while.body.i66, label %sorted_insert_srt.exit
+  %opaque2.i94 = getelementptr inbounds i8, ptr %call.i49, i64 16
+  %17 = load ptr, ptr %opaque2.i94, align 8
+  %cmp3.i6395 = icmp ugt ptr %17, %16
+  br i1 %cmp3.i6395, label %while.body.i65, label %sorted_insert_srt.exit
 
-land.rhs.i61:                                     ; preds = %while.body.i66
+land.rhs.i60:                                     ; preds = %while.body.i65
   %opaque2.i = getelementptr inbounds i8, ptr %19, i64 16
   %18 = load ptr, ptr %opaque2.i, align 8
-  %cmp3.i64 = icmp ugt ptr %18, %16
-  br i1 %cmp3.i64, label %while.body.i66, label %sorted_insert_srt.exit, !llvm.loop !8
+  %cmp3.i63 = icmp ugt ptr %18, %16
+  br i1 %cmp3.i63, label %while.body.i65, label %sorted_insert_srt.exit, !llvm.loop !8
 
-while.body.i66:                                   ; preds = %if.else43, %land.rhs.i61
-  %cur.010.i6397 = phi ptr [ %19, %land.rhs.i61 ], [ %call.i49, %if.else43 ]
-  %19 = load ptr, ptr %cur.010.i6397, align 8
-  %cmp.not.i67 = icmp eq ptr %19, null
-  br i1 %cmp.not.i67, label %sorted_insert_srt.exit, label %land.rhs.i61, !llvm.loop !8
+while.body.i65:                                   ; preds = %if.else43, %land.rhs.i60
+  %cur.09.i6296 = phi ptr [ %19, %land.rhs.i60 ], [ %call.i49, %if.else43 ]
+  %19 = load ptr, ptr %cur.09.i6296, align 8
+  %cmp.not.i66 = icmp eq ptr %19, null
+  br i1 %cmp.not.i66, label %sorted_insert_srt.exit, label %land.rhs.i60, !llvm.loop !8
 
-sorted_insert_srt.exit:                           ; preds = %while.body.i66, %land.rhs.i61, %if.else43
-  %20 = phi ptr [ %call.i49, %if.else43 ], [ %19, %land.rhs.i61 ], [ null, %while.body.i66 ]
-  %fixup.0.lcssa.i65 = phi ptr [ %new_head, %if.else43 ], [ %cur.010.i6397, %land.rhs.i61 ], [ %cur.010.i6397, %while.body.i66 ]
+sorted_insert_srt.exit:                           ; preds = %while.body.i65, %land.rhs.i60, %if.else43
+  %20 = phi ptr [ %call.i49, %if.else43 ], [ %19, %land.rhs.i60 ], [ null, %while.body.i65 ]
+  %fixup.0.lcssa.i64 = phi ptr [ %new_head, %if.else43 ], [ %cur.09.i6296, %land.rhs.i60 ], [ %cur.09.i6296, %while.body.i65 ]
   store ptr %20, ptr %call3, align 8
-  store ptr %call3, ptr %fixup.0.lcssa.i65, align 8
-  %new_head.0.new_head.0.new_head.0.77 = load ptr, ptr %new_head, align 8
-  %cmp44.not = icmp eq ptr %new_head.0.new_head.0.new_head.0.77, %call.i49
+  store ptr %call3, ptr %fixup.0.lcssa.i64, align 8
+  %new_head.0.new_head.0.new_head.0.76 = load ptr, ptr %new_head, align 8
+  %cmp44.not = icmp eq ptr %new_head.0.new_head.0.new_head.0.76, %call.i49
   br i1 %cmp44.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %sorted_insert_srt.exit
   %21 = load ptr, ptr %items_rev, align 8
-  %call.i68 = call ptr @OPENSSL_LH_insert(ptr noundef %21, ptr noundef %new_head.0.new_head.0.new_head.0.77) #8
+  %call.i67 = call ptr @OPENSSL_LH_insert(ptr noundef %21, ptr noundef %new_head.0.new_head.0.new_head.0.76) #8
   %22 = load ptr, ptr %items_rev, align 8
-  %call.i.i69 = call i32 @OPENSSL_LH_error(ptr noundef %22) #8
-  %tobool.not.i70 = icmp eq i32 %call.i.i69, 0
-  br i1 %tobool.not.i70, label %return, label %srtm_check_lh.exit76.thread
+  %call.i.i68 = call i32 @OPENSSL_LH_error(ptr noundef %22) #8
+  %tobool.not.i69 = icmp eq i32 %call.i.i68, 0
+  br i1 %tobool.not.i69, label %return, label %srtm_check_lh.exit75.thread
 
-srtm_check_lh.exit76.thread:                      ; preds = %if.then45
-  %bf.load.i73 = load i8, ptr %alloc_failed, align 8
-  %bf.set.i74 = or i8 %bf.load.i73, 1
-  store i8 %bf.set.i74, ptr %alloc_failed, align 8
+srtm_check_lh.exit75.thread:                      ; preds = %if.then45
+  %bf.load.i72 = load i8, ptr %alloc_failed, align 8
+  %bf.set.i73 = or i8 %bf.load.i72, 1
+  store i8 %bf.set.i73, ptr %alloc_failed, align 8
   br label %return
 
-return:                                           ; preds = %sorted_insert_srt.exit, %if.then35, %if.then45, %srtm_check_lh.exit76.thread, %srtm_check_lh.exit58.thread, %srtm_find.exit, %if.end2, %entry, %if.then29, %if.then20, %if.then12
-  %retval.0 = phi i32 [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.then12 ], [ 0, %entry ], [ 0, %srtm_find.exit ], [ 0, %if.end2 ], [ 0, %srtm_check_lh.exit58.thread ], [ 0, %srtm_check_lh.exit76.thread ], [ 1, %if.then45 ], [ 1, %if.then35 ], [ 1, %sorted_insert_srt.exit ]
+return:                                           ; preds = %sorted_insert_srt.exit, %if.then35, %if.then45, %srtm_check_lh.exit75.thread, %srtm_check_lh.exit58.thread, %srtm_find.exit, %if.end2, %entry, %if.then29, %if.then20, %if.then12
+  %retval.0 = phi i32 [ 0, %if.then20 ], [ 0, %if.then29 ], [ 0, %if.then12 ], [ 0, %entry ], [ 0, %srtm_find.exit ], [ 0, %if.end2 ], [ 0, %srtm_check_lh.exit58.thread ], [ 0, %srtm_check_lh.exit75.thread ], [ 1, %if.then45 ], [ 1, %if.then35 ], [ 1, %sorted_insert_srt.exit ]
   ret i32 %retval.0
 }
 

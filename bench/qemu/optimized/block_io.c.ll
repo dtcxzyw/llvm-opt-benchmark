@@ -2182,7 +2182,7 @@ if.then12:                                        ; preds = %if.end9
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then12, %if.end9
-  %call14 = call fastcc i32 @bdrv_pad_request(ptr noundef nonnull %0, ptr noundef nonnull %qiov.addr, ptr noundef nonnull %qiov_offset.addr, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr, i1 noundef zeroext false, ptr noundef nonnull %pad, ptr noundef null, ptr noundef nonnull %flags.addr)
+  %call14 = call fastcc i32 @bdrv_pad_request(ptr noundef nonnull %0, ptr noundef %qiov.addr, ptr noundef %qiov_offset.addr, ptr noundef %offset.addr, ptr noundef %bytes.addr, i1 noundef zeroext false, ptr noundef %pad, ptr noundef null, ptr noundef %flags.addr)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %fail, label %if.end18
 
@@ -2326,7 +2326,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare zeroext i1 @bdrv_co_is_inserted(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef %qiov, ptr nocapture noundef %qiov_offset, ptr nocapture noundef %offset, ptr nocapture noundef %bytes, i1 noundef zeroext %write, ptr noundef %pad, ptr noundef writeonly %padded, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @bdrv_pad_request(ptr noundef %bs, ptr nocapture noundef nonnull %qiov, ptr nocapture noundef nonnull %qiov_offset, ptr nocapture noundef nonnull %offset, ptr nocapture noundef nonnull %bytes, i1 noundef zeroext %write, ptr noundef nonnull %pad, ptr noundef writeonly %padded, ptr nocapture noundef nonnull %flags) unnamed_addr #0 {
 entry:
   %sliced_niov = alloca i32, align 4
   %sliced_head = alloca i64, align 8
@@ -3017,7 +3017,7 @@ if.end26:                                         ; preds = %land.lhs.true18, %i
   br i1 %tobool.not, label %if.then29, label %if.end35
 
 if.then29:                                        ; preds = %if.end26
-  %call30 = call fastcc i32 @bdrv_pad_request(ptr noundef nonnull %0, ptr noundef nonnull %qiov.addr, ptr noundef nonnull %qiov_offset.addr, ptr noundef nonnull %offset.addr, ptr noundef nonnull %bytes.addr, i1 noundef zeroext true, ptr noundef nonnull %pad, ptr noundef nonnull %padded, ptr noundef nonnull %flags.addr)
+  %call30 = call fastcc i32 @bdrv_pad_request(ptr noundef nonnull %0, ptr noundef %qiov.addr, ptr noundef %qiov_offset.addr, ptr noundef %offset.addr, ptr noundef %bytes.addr, i1 noundef zeroext true, ptr noundef %pad, ptr noundef nonnull %padded, ptr noundef %flags.addr)
   %cmp31 = icmp slt i32 %call30, 0
   br i1 %cmp31, label %return, label %if.end35
 
@@ -3247,7 +3247,7 @@ entry:
   %1 = load i32, ptr %bl, align 8
   %conv = zext i32 %1 to i64
   %and = and i32 %flags, -9
-  %call = call fastcc zeroext i1 @bdrv_init_padding(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext true, ptr noundef nonnull %pad)
+  %call = call fastcc zeroext i1 @bdrv_init_padding(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext true, ptr noundef %pad)
   br i1 %call, label %if.then, label %if.end29
 
 if.then:                                          ; preds = %entry
@@ -7050,7 +7050,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @bdrv_init_padding(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %write, ptr nocapture noundef %pad) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @bdrv_init_padding(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i1 noundef zeroext %write, ptr nocapture noundef nonnull %pad) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %write to i8
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464

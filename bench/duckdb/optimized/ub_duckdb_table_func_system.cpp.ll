@@ -77320,7 +77320,7 @@ sw.epilog:                                        ; preds = %sw.bb4.i, %sw.bb1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #19 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i35 = ptrtoint ptr %__last.coerce to i64
@@ -77653,7 +77653,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_T0_SK_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr %__value.coerce) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNS3_21DuckDBConstraintsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_1EEEvT_T0_SK_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %__len, ptr %__value.coerce) unnamed_addr #20 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -83992,7 +83992,7 @@ _ZN6duckdb19DuckDBFunctionsDataD2Ev.exit:         ; preds = %if.then.i.i.i.i, %e
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_19DuckDBFunctionsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_0EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) unnamed_addr #22 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_19DuckDBFunctionsInitERNS3_13ClientContextERNS3_22TableFunctionInitInputEE3$_0EEEvT_SJ_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit) unnamed_addr #22 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce

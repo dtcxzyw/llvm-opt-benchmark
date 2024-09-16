@@ -4013,7 +4013,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i189: 
   br label %_ZN4llvm8DebugLocC2ERKS0_.exit.i
 
 _ZN4llvm8DebugLocC2ERKS0_.exit.i:                 ; preds = %186, %.lr.ph.i
-  %188 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %176, ptr noundef %178, ptr noundef %183, ptr noundef nonnull %6)
+  %188 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %176, ptr noundef %178, ptr noundef %183, ptr noundef %6)
   %189 = load ptr, ptr %6, align 8
   %.not.i.i.i.i11.i = icmp eq ptr %189, null
   br i1 %.not.i.i.i.i11.i, label %_ZN4llvm8DebugLocD2Ev.exit.i, label %190
@@ -4160,7 +4160,7 @@ _ZN4llvm8dyn_castINS_14DbgDeclareInstEKNS_11InstructionEEEDcPT0_.exit.i: ; preds
   br label %270
 
 270:                                              ; preds = %268, %_ZN4llvm8dyn_castINS_14DbgDeclareInstEKNS_11InstructionEEEDcPT0_.exit.i
-  %271 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %251, ptr noundef %261, ptr noundef %265, ptr noundef nonnull %4)
+  %271 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %251, ptr noundef %261, ptr noundef %265, ptr noundef %4)
   %272 = load ptr, ptr %4, align 8
   %.not.i.i.i.i29.i = icmp eq ptr %272, null
   br i1 %.not.i.i.i.i29.i, label %_ZN4llvm8DebugLocD2Ev.exit.i206, label %273
@@ -4271,7 +4271,7 @@ _ZN4llvmL13filterDbgVarsENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_deta
   br label %316
 
 316:                                              ; preds = %314, %306
-  %317 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %307, ptr noundef %309, ptr noundef %311, ptr noundef nonnull %5)
+  %317 = call fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %164, ptr noundef %307, ptr noundef %309, ptr noundef %311, ptr noundef %5)
   %318 = load ptr, ptr %5, align 8
   %.not.i.i.i.i33.i = icmp eq ptr %318, null
   br i1 %.not.i.i.i.i33.i, label %_ZN4llvm8DebugLocD2Ev.exit34.i, label %319
@@ -16463,7 +16463,7 @@ _ZNK4llvm3EVTeqES0_.exit1413.thread:              ; preds = %_ZN4llvm23SmallVect
   br label %1620
 
 1620:                                             ; preds = %1619, %1617
-  %1621 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6SDNodeELj3EEEZNS_16SelectionDAGISel16SelectCodeCommonES3_PKhjE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr nonnull %0)
+  %1621 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6SDNodeELj3EEEZNS_16SelectionDAGISel16SelectCodeCommonES3_PKhjE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr %0)
   %1622 = icmp eq i8 %251, -101
   %1623 = icmp ult i8 %1483, 15
   %1624 = select i1 %1622, i1 true, i1 %1623
@@ -18732,7 +18732,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG9getVTListENS_3EVTE(ptr noundef nonn
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG9getVTListENS_8ArrayRefINS_3EVTEEE(ptr noundef nonnull align 8 dereferenceable(904), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6SDNodeELj3EEEZNS_16SelectionDAGISel16SelectCodeCommonES3_PKhjE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_6SDNodeELj3EEEZNS_16SelectionDAGISel16SelectCodeCommonES3_PKhjE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #29
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -21899,7 +21899,7 @@ declare void @_ZNK4llvm30DiagnosticInfoOptimizationBase6getMsgB5cxx11Ev(ptr dead
 declare void @_ZN4llvm25OptimizationRemarkEmitter4emitERNS_30DiagnosticInfoOptimizationBaseE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(424)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17processDbgDeclareRN4llvm20FunctionLoweringInfoEPKNS_5ValueEPNS_12DIExpressionEPNS_15DILocalVariableENS_8DebugLocE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4

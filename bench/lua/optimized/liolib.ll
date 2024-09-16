@@ -578,7 +578,7 @@ declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aux_lines(ptr noundef %L, i32 noundef %toclose) unnamed_addr #0 {
+define internal fastcc void @aux_lines(ptr noundef %L, i32 noundef range(i32 0, 2) %toclose) unnamed_addr #0 {
 entry:
   %call = tail call i32 @lua_gettop(ptr noundef %L) #10
   %cmp = icmp slt i32 %call, 252
@@ -689,7 +689,7 @@ declare i64 @lua_tointegerx(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @luaL_checkstack(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @g_read(ptr noundef %L, ptr noundef %f, i32 noundef %first) unnamed_addr #0 {
+define internal fastcc i32 @g_read(ptr noundef %L, ptr noundef %f, i32 noundef range(i32 1, 3) %first) unnamed_addr #0 {
 entry:
   %b.i44 = alloca %struct.luaL_Buffer, align 8
   %rn.i = alloca %struct.RN, align 8
@@ -832,7 +832,7 @@ if.end15.i:                                       ; preds = %if.then.i, %test2.e
   %count.0.i = phi i32 [ 0, %test2.exit.i ], [ 0, %test2.exit42.i ], [ 1, %if.then.i ]
   %tobool24.not.i = phi ptr [ @.str.30, %test2.exit.i ], [ @.str.29, %test2.exit42.i ], [ @.str.30, %if.then.i ]
   %hex.0.i = phi i32 [ 0, %test2.exit.i ], [ 1, %test2.exit42.i ], [ 0, %if.then.i ]
-  %call16.i = call fastcc i32 @readdigits(ptr noundef nonnull %rn.i, i32 noundef %hex.0.i)
+  %call16.i = call fastcc i32 @readdigits(ptr noundef %rn.i, i32 noundef %hex.0.i)
   %add.i42 = add nsw i32 %call16.i, %count.0.i
   %10 = load i32, ptr %c.i, align 8
   %conv.i.i = sext i8 %4 to i32
@@ -860,7 +860,7 @@ if.then19.i:                                      ; preds = %if.then.i48.i
   %12 = load ptr, ptr %rn.i, align 8
   %call.i.i57.i = call i32 @getc(ptr noundef %12)
   store i32 %call.i.i57.i, ptr %c.i, align 8
-  %call20.i = call fastcc i32 @readdigits(ptr noundef nonnull %rn.i, i32 noundef %hex.0.i)
+  %call20.i = call fastcc i32 @readdigits(ptr noundef %rn.i, i32 noundef %hex.0.i)
   %add21.i = add nsw i32 %call20.i, %add.i42
   %.pre.pre.i = load i32, ptr %c.i, align 8
   br label %if.end22.i
@@ -1018,7 +1018,7 @@ sw.default:                                       ; preds = %if.else11
 
 for.inc:                                          ; preds = %cond.true, %cond.false, %read_all.exit, %sw.bb20, %sw.bb18, %read_number.exit
   %success.2 = phi i32 [ 1, %read_all.exit ], [ %call21, %sw.bb20 ], [ %call19, %sw.bb18 ], [ %retval.0.i, %read_number.exit ], [ %conv.i, %cond.true ], [ %conv.i40, %cond.false ]
-  %inc = add nsw i32 %n.156, 1
+  %inc = add nuw nsw i32 %n.156, 1
   %dec = add nsw i32 %dec57, -1
   %tobool = icmp ne i32 %dec57, 0
   %tobool3 = icmp ne i32 %success.2, 0
@@ -1060,7 +1060,7 @@ declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_line(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %chop) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_line(ptr noundef %L, ptr nocapture noundef %f, i32 noundef range(i32 0, 2) %chop) unnamed_addr #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   call void @luaL_buffinit(ptr noundef %L, ptr noundef nonnull %b) #10
@@ -1171,7 +1171,7 @@ declare ptr @localeconv() local_unnamed_addr #3
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @readdigits(ptr nocapture noundef %rn, i32 noundef %hex) unnamed_addr #6 {
+define internal fastcc i32 @readdigits(ptr nocapture noundef nonnull %rn, i32 noundef range(i32 0, 2) %hex) unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %hex, 0
   %n.i = getelementptr inbounds i8, ptr %rn, i64 12
@@ -1287,7 +1287,7 @@ declare void @luaL_checkany(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @luaL_testudata(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %arg) unnamed_addr #0 {
+define internal fastcc i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef range(i32 1, 3) %arg) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %call = tail call i32 @lua_gettop(ptr noundef %L) #10
@@ -1344,7 +1344,7 @@ land.rhs12:                                       ; preds = %if.else
 for.inc:                                          ; preds = %if.else, %land.rhs12, %cond.end
   %status.1.shrunk = phi i1 [ %1, %cond.end ], [ false, %if.else ], [ %cmp14, %land.rhs12 ]
   %status.1 = zext i1 %status.1.shrunk to i32
-  %inc = add nsw i32 %arg.addr.021, 1
+  %inc = add nuw nsw i32 %arg.addr.021, 1
   %dec = add nsw i32 %dec23, -1
   %tobool.not = icmp eq i32 %dec23, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !12

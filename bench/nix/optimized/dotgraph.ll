@@ -776,15 +776,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS
           to label %168 unwind label %189, !noalias !9
 
 168:                                              ; preds = %164
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 %160, ptr %159)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %25, i64 %160, ptr %159)
           to label %169 unwind label %191, !noalias !9
 
 169:                                              ; preds = %168
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 %166, ptr nonnull %167)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %26, i64 %166, ptr nonnull %167)
           to label %170 unwind label %193, !noalias !9
 
 170:                                              ; preds = %169
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %27, i64 7, ptr nonnull @.str.4)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %27, i64 7, ptr nonnull @.str.4)
           to label %171 unwind label %195, !noalias !9
 
 171:                                              ; preds = %170
@@ -1414,11 +1414,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i133:
   store i64 26, ptr %94, align 8, !noalias !14
   %367 = getelementptr inbounds i8, ptr %364, i64 26
   store i8 0, ptr %367, align 1, !noalias !14
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 %339, ptr %338)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %20, i64 %339, ptr %338)
           to label %368 unwind label %795, !noalias !14
 
 368:                                              ; preds = %.noexc9.i134
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 %363, ptr %362)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %21, i64 %363, ptr %362)
           to label %369 unwind label %797, !noalias !14
 
 369:                                              ; preds = %368
@@ -1607,7 +1607,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i133:
   %424 = load ptr, ptr %423, align 8, !noalias !14
   %425 = getelementptr inbounds i8, ptr %423, i64 8
   %426 = load i64, ptr %425, align 8, !noalias !14
-  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 %426, ptr %424)
+  invoke fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %22, i64 %426, ptr %424)
           to label %427 unwind label %799, !noalias !14
 
 427:                                              ; preds = %412
@@ -2989,7 +2989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1, ptr %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL8dotQuoteB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 %1, ptr %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1
@@ -3035,7 +3035,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   store ptr %10, ptr %7, align 8
   store i64 0, ptr %20, align 8
   store i8 0, ptr %10, align 8
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.21)
           to label %22 unwind label %37
 
 22:                                               ; preds = %18

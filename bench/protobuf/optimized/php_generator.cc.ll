@@ -950,7 +950,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fullname.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp17.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %filename.i, ptr noundef %file, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %filename.i, ptr noundef %file, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
   %vtable.i = load ptr, ptr %generator_context, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
   %0 = load ptr, ptr %vfn.i, align 8
@@ -974,7 +974,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont3.i
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename.i) #25
   %2 = extractvalue { i64, ptr } %call6.i, 0
   %3 = extractvalue { i64, ptr } %call6.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %fullname.i, i64 %2, ptr %3)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %fullname.i, i64 %2, ptr %3)
           to label %invoke.cont7.i unwind label %lpad4.i
 
 invoke.cont7.i:                                   ; preds = %invoke.cont5.i
@@ -1177,7 +1177,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont13.i.i.i
           to label %invoke.cont4.i.i.i unwind label %lpad3.i.i.i
 
 invoke.cont4.i.i.i:                               ; preds = %invoke.cont.i.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef nonnull %file, ptr noundef nonnull %nodes_without_dependency.i.i.i, ptr noundef nonnull %deps.i.i.i, ptr noundef nonnull %dependency_count.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef nonnull %file, ptr noundef %nodes_without_dependency.i.i.i, ptr noundef %deps.i.i.i, ptr noundef %dependency_count.i.i.i)
           to label %invoke.cont7.preheader.i.i.i unwind label %lpad5.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i.i
 
 invoke.cont7.preheader.i.i.i:                     ; preds = %invoke.cont4.i.i.i
@@ -2204,7 +2204,7 @@ if.else93.i.i.i:                                  ; preds = %while.end.i.i.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i.i.i.i.i, align 8, !noalias !43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i194.i.i.i, i8 0, i64 24, i1 false), !noalias !43
   store i8 0, ptr %options.i.i.i.i, align 8, !noalias !43
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %dependency_filename.i.i.i, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %dependency_filename.i.i.i, ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i.i.i)
           to label %invoke.cont94.i.i.i unwind label %lpad.i195.i.i.i
 
 lpad.i195.i.i.i:                                  ; preds = %if.else93.i.i.i
@@ -2218,7 +2218,7 @@ invoke.cont94.i.i.i:                              ; preds = %if.else93.i.i.i
   %call98.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %dependency_filename.i.i.i) #25
   %205 = extractvalue { i64, ptr } %call98.i.i.i, 0
   %206 = extractvalue { i64, ptr } %call98.i.i.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp96.i.i.i, i64 %205, ptr %206)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp96.i.i.i, i64 %205, ptr %206)
           to label %invoke.cont100.i.i.i unwind label %lpad99.i.i.i
 
 invoke.cont100.i.i.i:                             ; preds = %invoke.cont94.i.i.i
@@ -2780,7 +2780,7 @@ for.body.i.i:                                     ; preds = %.noexc.i, %for.body
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.noexc.i ]
   %276 = load ptr, ptr %message_types_.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %276, i64 %indvars.iv.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 0, ptr nonnull @.str.14, ptr noundef %add.ptr.i.i.i, ptr noundef nonnull %printer.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 0, ptr nonnull @.str.14, ptr noundef %add.ptr.i.i.i, ptr noundef %printer.i)
           to label %.noexc.i unwind label %lpad12.loopexit.split-lp.loopexit.i
 
 .noexc.i:                                         ; preds = %for.body.i.i
@@ -2794,7 +2794,7 @@ for.body10.i.i:                                   ; preds = %.noexc15.i, %for.bo
   %indvars.iv396.i.i = phi i64 [ 0, %for.body10.lr.ph.i.i ], [ %indvars.iv.next397.i.i, %.noexc15.i ]
   %279 = load ptr, ptr %enum_types_.i.i.i, align 8
   %add.ptr.i77.i.i = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %279, i64 %indvars.iv396.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i77.i.i, ptr noundef nonnull %printer.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i77.i.i, ptr noundef %printer.i)
           to label %.noexc15.i unwind label %lpad12.loopexit.i
 
 .noexc15.i:                                       ; preds = %for.body10.i.i
@@ -2866,14 +2866,14 @@ if.end.i.i:                                       ; preds = %land.rhs.i.i.i, %ca
           to label %call29.i.noexc.i unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call29.i.noexc.i:                                 ; preds = %if.end.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %dependency_filename.i.i, ptr noundef %call29.i17.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %dependency_filename.i.i, ptr noundef %call29.i17.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc18.i unwind label %lpad12.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc18.i:                                       ; preds = %call29.i.noexc.i
   %call32.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %dependency_filename.i.i) #25
   %290 = extractvalue { i64, ptr } %call32.i.i, 0
   %291 = extractvalue { i64, ptr } %call32.i.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %290, ptr %291)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i.i, i64 %290, ptr %291)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc18.i
@@ -4062,7 +4062,7 @@ if.then16.i.i.i.i:                                ; preds = %if.end12.i.i.i.i
   %461 = extractvalue { i64, ptr } %call19.i.i.i.i, 0
   %462 = extractvalue { i64, ptr } %call19.i.i.i.i, 1
   %options.val.i.i.i.i = load i8, ptr %options, align 8, !noalias !61
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i.i.i, i64 %461, ptr %462, i8 %options.val.i.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i.i.i, i64 %461, ptr %462, i8 %options.val.i.i.i.i)
           to label %invoke.cont.i.i.i41 unwind label %lpad.i.i.i113
 
 if.end20.i.i.i.i:                                 ; preds = %if.end12.i.i.i.i
@@ -4246,7 +4246,7 @@ invoke.cont5.i60:                                 ; preds = %invoke.cont3.i56
   %call6.i61 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename.i32) #25
   %477 = extractvalue { i64, ptr } %call6.i61, 0
   %478 = extractvalue { i64, ptr } %call6.i61, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %fullname.i34, i64 %477, ptr %478)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %fullname.i34, i64 %477, ptr %478)
           to label %invoke.cont11.i unwind label %lpad4.i58
 
 invoke.cont11.i:                                  ; preds = %invoke.cont5.i60
@@ -4414,7 +4414,7 @@ invoke.cont.i.i30.i:                              ; preds = %if.end.i.i80
   br i1 %call.i.i29.i, label %if.then.i.i.i, label %if.end.i.i31.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont.i.i30.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer.i33, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i.i, i1 noundef zeroext true, i32 noundef 0)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer.i33, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i.i, i1 noundef zeroext true, i32 noundef 0)
           to label %if.end.i.i31.i unwind label %lpad.i22.i.i
 
 lpad.i22.i.i:                                     ; preds = %if.then.i.i.i, %if.end.i.i80
@@ -4459,7 +4459,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_17Ser
   %call6.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i.i) #25
   %507 = extractvalue { i64, ptr } %call6.i.i, 0
   %508 = extractvalue { i64, ptr } %call6.i.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i25.i, i64 %507, ptr %508)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i25.i, i64 %507, ptr %508)
           to label %.noexc.i83 unwind label %lpad10.loopexit.split-lp.i
 
 .noexc.i83:                                       ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_17ServiceDescriptorEEEvPNS0_2io7PrinterEPKT_.exit.i.i
@@ -4640,7 +4640,7 @@ invoke.cont.i.i59.i:                              ; preds = %_ZN6google8protobuf
   br i1 %call.i.i58.i, label %if.then.i.i81.i, label %if.end.i.i60.i
 
 if.then.i.i81.i:                                  ; preds = %invoke.cont.i.i59.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer.i33, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i38.i, i1 noundef zeroext true, i32 noundef 0)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer.i33, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i38.i, i1 noundef zeroext true, i32 noundef 0)
           to label %if.end.i.i60.i unwind label %lpad.i16.i.i
 
 lpad.i16.i.i:                                     ; preds = %if.then.i.i81.i, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i54.i
@@ -5088,7 +5088,7 @@ call16.i.noexc.i:                                 ; preds = %invoke.cont11.i.i
           to label %.noexc279 unwind label %lpad.i38.i.i
 
 .noexc279:                                        ; preds = %call16.i.noexc.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i265, ptr noundef %call16.i85.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i265, ptr noundef %call16.i85.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i.i)
           to label %invoke.cont.i272 unwind label %lpad.i269, !noalias !106
 
 invoke.cont.i272:                                 ; preds = %.noexc279
@@ -5424,7 +5424,7 @@ call28.i.noexc.i:                                 ; preds = %invoke.cont21.i.i
           to label %.noexc201 unwind label %lpad.i46.i.i
 
 .noexc201:                                        ; preds = %call28.i.noexc.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i187, ptr noundef %call28.i86.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i41.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i187, ptr noundef %call28.i86.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i41.i.i)
           to label %invoke.cont.i194 unwind label %lpad.i191, !noalias !137
 
 invoke.cont.i194:                                 ; preds = %.noexc201
@@ -5877,7 +5877,7 @@ invoke.cont.i94.i:                                ; preds = %.noexc100.i
           to label %.noexc unwind label %lpad.i.i99.i
 
 .noexc:                                           ; preds = %invoke.cont.i94.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef %call4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i87.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i, ptr noundef %call4.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options.i.i87.i)
           to label %invoke.cont.i132 unwind label %lpad.i129, !noalias !171
 
 invoke.cont.i132:                                 ; preds = %.noexc
@@ -7532,7 +7532,7 @@ invoke.cont38.i:                                  ; preds = %for.body32.i
   store i64 0, ptr %ref.tmp36.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %metadata_filename.i, ptr noundef nonnull %103, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %metadata_filename.i, ptr noundef nonnull %103, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp36.i)
           to label %_ZN6google8protobuf8compiler3php7OptionsD2Ev.exit.i unwind label %lpad39.i
 
 _ZN6google8protobuf8compiler3php7OptionsD2Ev.exit.i: ; preds = %invoke.cont38.i
@@ -8975,7 +8975,7 @@ for.body129.i:                                    ; preds = %for.inc132.i, %for.
   %indvars.iv.i = phi i64 [ 0, %for.body129.lr.ph.i ], [ %indvars.iv.next.i, %for.inc132.i ]
   %266 = load ptr, ptr %message_types_.i.i, align 8
   %add.ptr.i183.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %266, i64 %indvars.iv.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i183.i, ptr noundef nonnull %printer.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i183.i, ptr noundef %printer.i)
           to label %for.inc132.i unwind label %lpad67.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 for.inc132.i:                                     ; preds = %for.body129.i
@@ -8989,7 +8989,7 @@ for.body139.i:                                    ; preds = %for.inc142.i, %for.
   %indvars.iv1036.i = phi i64 [ 0, %for.body139.lr.ph.i ], [ %indvars.iv.next1037.i, %for.inc142.i ]
   %269 = load ptr, ptr %enum_types_.i.i, align 8
   %add.ptr.i185.i = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %269, i64 %indvars.iv1036.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i185.i, ptr noundef nonnull %printer.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i185.i, ptr noundef %printer.i)
           to label %for.inc142.i unwind label %lpad67.loopexit.split-lp.loopexit.i
 
 for.inc142.i:                                     ; preds = %for.body139.i
@@ -9080,7 +9080,7 @@ invoke.cont170.i:                                 ; preds = %invoke.cont155.i, %
   store i64 0, ptr %ref.tmp169.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i210.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i211.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %metadata_filename168.i, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp169.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %metadata_filename168.i, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp169.i)
           to label %_ZN6google8protobuf8compiler3php7OptionsD2Ev.exit228.i unwind label %lpad171.i
 
 _ZN6google8protobuf8compiler3php7OptionsD2Ev.exit228.i: ; preds = %invoke.cont170.i
@@ -9393,7 +9393,7 @@ for.body198.i:                                    ; preds = %for.inc201.i, %for.
   %indvars.iv1039.i = phi i64 [ 0, %for.body198.lr.ph.i ], [ %indvars.iv.next1040.i, %for.inc201.i ]
   %319 = load ptr, ptr %message_types_.i237.i, align 8
   %add.ptr.i239.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %319, i64 %indvars.iv1039.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i239.i, ptr noundef nonnull %printer.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i239.i, ptr noundef %printer.i)
           to label %for.inc201.i unwind label %lpad192.loopexit.split-lp.loopexit.i
 
 for.inc201.i:                                     ; preds = %for.body198.i
@@ -10364,7 +10364,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !375
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %result.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !375
   %call6.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #25, !noalias !375
   %cmp7.not.i = icmp eq i64 %call6.i, 0
   br i1 %cmp7.not.i, label %invoke.cont10.i, label %for.body.i
@@ -10447,7 +10447,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %call8 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
   %9 = extractvalue { i64, ptr } %call8, 0
   %10 = extractvalue { i64, ptr } %call8, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %fullname, i64 %9, ptr %10)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %fullname, i64 %9, ptr %10)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -10625,7 +10625,7 @@ invoke.cont.i.i:                                  ; preds = %_ZN6google8protobuf
   br i1 %call.i.i83, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i, i1 noundef zeroext true, i32 noundef 0)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i, i1 noundef zeroext true, i32 noundef 0)
           to label %if.end.i.i unwind label %lpad.i9.i
 
 lpad.i9.i:                                        ; preds = %if.then.i.i, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i82
@@ -10710,14 +10710,14 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit25.i, %_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_10DescriptorEEEvPNS0_2io7PrinterEPKT_.exit.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp5.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp5.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc unwind label %lpad15
 
 .noexc:                                           ; preds = %if.end.i
   %call6.i84 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i) #25
   %41 = extractvalue { i64, ptr } %call6.i84, 0
   %42 = extractvalue { i64, ptr } %call6.i84, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i70, i64 %41, ptr %42)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i70, i64 %41, ptr %42)
           to label %invoke.cont.i86 unwind label %lpad.i85
 
 invoke.cont.i86:                                  ; preds = %.noexc
@@ -10727,7 +10727,7 @@ invoke.cont.i86:                                  ; preds = %.noexc
   %call10.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #25
   %44 = extractvalue { i64, ptr } %call10.i, 0
   %45 = extractvalue { i64, ptr } %call10.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp7.i, i64 %44, ptr %45)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp7.i, i64 %44, ptr %45)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont.i86
@@ -11034,7 +11034,7 @@ lpad.i359:                                        ; preds = %invoke.cont.i360, %
   br label %cleanup.action25.i
 
 cond.false.i:                                     ; preds = %call21.i.noexc
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %initial_value.i, ptr noundef nonnull %add.ptr.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %initial_value.i, ptr noundef nonnull %add.ptr.i)
           to label %cleanup.done.i unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit
 
 cleanup.action.i:                                 ; preds = %invoke.cont.i360
@@ -11384,7 +11384,7 @@ for.body.i139:                                    ; preds = %_ZN6google8protobuf
   %indvars.iv.i140 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i146, %_ZN6google8protobuf14SourceLocationD2Ev.exit.i ]
   %127 = load ptr, ptr %fields_.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %127, i64 %indvars.iv.i140
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp.i124, ptr noundef %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp.i124, ptr noundef %add.ptr.i.i, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc151 unwind label %lpad30.loopexit
 
 .noexc151:                                        ; preds = %for.body.i139
@@ -11405,7 +11405,7 @@ invoke.cont10.i144:                               ; preds = %invoke.cont.i143
   br i1 %call11.i, label %if.then.i148, label %if.end.i145
 
 if.then.i148:                                     ; preds = %invoke.cont10.i144
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i, i1 noundef zeroext false, i32 noundef 10)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i, i1 noundef zeroext false, i32 noundef 10)
           to label %if.end.i145 unwind label %lpad9.i
 
 lpad.i142:                                        ; preds = %.noexc151
@@ -11568,14 +11568,14 @@ invoke.cont66:                                    ; preds = %invoke.cont5.i163, 
   %reass.add.i173 = shl i64 %151, 1
   %add.i4.i174 = add i64 %152, %reass.add.i173
   store i64 %add.i4.i174, ptr %indent_.i.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %metadata_filename, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %metadata_filename, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont67 unwind label %lpad30.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont67:                                    ; preds = %invoke.cont66
   %call69 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %metadata_filename) #25
   %153 = extractvalue { i64, ptr } %call69, 0
   %154 = extractvalue { i64, ptr } %call69, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %metadata_fullname, i64 %153, ptr %154)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %metadata_fullname, i64 %153, ptr %154)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %invoke.cont67
@@ -11682,7 +11682,7 @@ invoke.cont86:                                    ; preds = %invoke.cont86.lr.ph
   %indvars.iv420 = phi i64 [ 0, %invoke.cont86.lr.ph ], [ %indvars.iv.next421, %for.inc89 ]
   %167 = load ptr, ptr %fields_.i217, align 8
   %add.ptr.i219 = getelementptr inbounds %"class.google::protobuf::FieldDescriptor", ptr %167, i64 %indvars.iv420
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateFieldAccessorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS0_2io7PrinterE(ptr noundef %add.ptr.i219, ptr noundef nonnull align 8 dereferenceable(40) %options, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateFieldAccessorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS0_2io7PrinterE(ptr noundef %add.ptr.i219, ptr noundef nonnull align 8 dereferenceable(40) %options, ptr noundef %printer)
           to label %for.inc89 unwind label %lpad73.loopexit.split-lp.loopexit
 
 for.inc89:                                        ; preds = %invoke.cont86
@@ -11720,7 +11720,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   %call103 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %172) #25
   %173 = extractvalue { i64, ptr } %call103, 0
   %174 = extractvalue { i64, ptr } %call103, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp100, i64 %173, ptr %174, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp100, i64 %173, ptr %174, i1 noundef zeroext true)
           to label %invoke.cont104 unwind label %lpad73.loopexit
 
 invoke.cont104:                                   ; preds = %for.body96
@@ -11920,7 +11920,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_10D
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !384
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i), !noalias !384
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !384
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %invoke.cont.i277 unwind label %lpad.i276, !noalias !384
 
 invoke.cont.i277:                                 ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i
@@ -12061,7 +12061,7 @@ invoke.cont149:                                   ; preds = %invoke.cont146
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %filename.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %printer.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %fullname.i, ptr noundef nonnull %message, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc340 unwind label %lpad141.loopexit.split-lp.loopexit.split-lp
 
 .noexc340:                                        ; preds = %invoke.cont149
@@ -12549,7 +12549,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp9.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %result.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !398
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %result.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options), !noalias !398
   %call6.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %result.i) #25, !noalias !398
   %cmp7.not.i = icmp eq i64 %call6.i, 0
   br i1 %cmp7.not.i, label %invoke.cont10.i, label %for.body.i
@@ -12632,7 +12632,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   %call12 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %filename) #25
   %13 = extractvalue { i64, ptr } %call12, 0
   %14 = extractvalue { i64, ptr } %call12, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %fullname, i64 %13, ptr %14)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %fullname, i64 %13, ptr %14)
           to label %invoke.cont13 unwind label %lpad10
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -12822,7 +12822,7 @@ invoke.cont.i.i:                                  ; preds = %if.end.i
   br i1 %call.i.i48, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i.i
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i, i1 noundef zeroext true, i32 noundef 0)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i, i1 noundef zeroext true, i32 noundef 0)
           to label %if.end.i.i unwind label %lpad.i22.i
 
 lpad.i22.i:                                       ; preds = %if.then.i.i, %if.end.i
@@ -12868,7 +12868,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_14Enu
   %call6.i49 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i.i) #25
   %41 = extractvalue { i64, ptr } %call6.i49, 0
   %42 = extractvalue { i64, ptr } %call6.i49, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i47, i64 %41, ptr %42)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i47, i64 %41, ptr %42)
           to label %.noexc unwind label %lpad20.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_14EnumDescriptorEEEvPNS0_2io7PrinterEPKT_.exit.i
@@ -12975,7 +12975,7 @@ invoke.cont.i.i78:                                ; preds = %_ZN6google8protobuf
   br i1 %call.i.i77, label %if.then.i.i96, label %if.end.i.i79
 
 if.then.i.i96:                                    ; preds = %invoke.cont.i.i78
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i57, i1 noundef zeroext true, i32 noundef 0)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(104) %location.i.i57, i1 noundef zeroext true, i32 noundef 0)
           to label %if.end.i.i79 unwind label %lpad.i6.i
 
 lpad.i6.i:                                        ; preds = %if.then.i.i96, %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i73
@@ -13021,14 +13021,14 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_19Enu
   %call.i91 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5.i) #25
   %57 = extractvalue { i64, ptr } %call.i91, 0
   %58 = extractvalue { i64, ptr } %call.i91, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp3.i, i64 %57, ptr %58)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp3.i, i64 %57, ptr %58)
           to label %invoke.cont.i93 unwind label %lpad.i92
 
 invoke.cont.i93:                                  ; preds = %.noexc99
   %call6.i94 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i) #25
   %59 = extractvalue { i64, ptr } %call6.i94, 0
   %60 = extractvalue { i64, ptr } %call6.i94, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i59, i64 %59, ptr %60)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i59, i64 %59, ptr %60)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont.i93
@@ -13073,7 +13073,7 @@ invoke.cont42:                                    ; preds = %invoke.cont8.i
   %call45 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #25
   %65 = extractvalue { i64, ptr } %call45, 0
   %66 = extractvalue { i64, ptr } %call45, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %prefix, i64 %65, ptr %66)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %prefix, i64 %65, ptr %66)
           to label %invoke.cont46 unwind label %lpad20.loopexit.split-lp.loopexit
 
 invoke.cont46:                                    ; preds = %invoke.cont42
@@ -13215,7 +13215,7 @@ for.body69:                                       ; preds = %for.body69.lr.ph, %
   %call77 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #25
   %86 = extractvalue { i64, ptr } %call77, 0
   %87 = extractvalue { i64, ptr } %call77, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp74, i64 %86, ptr %87)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp74, i64 %86, ptr %87)
           to label %invoke.cont78 unwind label %lpad20.loopexit
 
 invoke.cont78:                                    ; preds = %for.body69
@@ -14084,7 +14084,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_14E
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !407
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i.i), !noalias !407
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp8.i.i), !noalias !407
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %invoke.cont.i530 unwind label %lpad.i529, !noalias !407
 
 invoke.cont.i530:                                 ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_124LegacyGeneratedClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit.i
@@ -14225,7 +14225,7 @@ invoke.cont183:                                   ; preds = %invoke.cont180
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %filename.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %printer.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %fullname.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %fullname.i, ptr noundef nonnull %en, ptr noundef nonnull readonly align 8 dereferenceable(40) %options)
           to label %.noexc585 unwind label %lpad175
 
 .noexc585:                                        ; preds = %invoke.cont183
@@ -14523,7 +14523,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %file, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_125GeneratedMetadataFileNameB5cxx11EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %file, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i42 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i30 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -14875,7 +14875,7 @@ invoke.cont82:                                    ; preds = %while.body
   %sub.i = sub nuw i64 %.sroa.speculated.i, %conv79
   %.sroa.speculated.i59 = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv81)
   %add.ptr.i61 = getelementptr inbounds i8, ptr %2, i64 %conv79
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp77, i64 %.sroa.speculated.i59, ptr %add.ptr.i61, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp77, i64 %.sroa.speculated.i59, ptr %add.ptr.i61, i1 noundef zeroext true)
           to label %invoke.cont84 unwind label %lpad28.loopexit
 
 invoke.cont84:                                    ; preds = %invoke.cont82
@@ -14964,7 +14964,7 @@ invoke.cont113:                                   ; preds = %_ZNKSt17basic_strin
   %sub.i94 = sub nuw i64 %.sroa.speculated.i, %conv110
   %.sroa.speculated.i95 = call i64 @llvm.umin.i64(i64 %sub.i94, i64 %conv112)
   %add.ptr.i97 = getelementptr inbounds i8, ptr %2, i64 %conv110
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp108, i64 %.sroa.speculated.i95, ptr %add.ptr.i97, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp108, i64 %.sroa.speculated.i95, ptr %add.ptr.i97, i1 noundef zeroext true)
           to label %invoke.cont115 unwind label %lpad28.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %invoke.cont113
@@ -14995,7 +14995,7 @@ invoke.cont127:                                   ; preds = %invoke.cont115
   store i64 4, ptr %ref.tmp126, align 8
   %60 = getelementptr inbounds i8, ptr %ref.tmp126, i64 8
   store ptr @.str.18, ptr %60, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp126)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp124, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp126)
           to label %invoke.cont128 unwind label %lpad122
 
 invoke.cont128:                                   ; preds = %invoke.cont127
@@ -15031,7 +15031,7 @@ eh.resume:                                        ; preds = %ehcleanup130, %lpad
 declare void @_ZN6google8protobuf2io7PrinterC1EPNS1_20ZeroCopyOutputStreamEcPNS1_19AnnotationCollectorE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef, i8 noundef signext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %filename.coerce0, ptr %filename.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119FilenameToClassnameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %filename.coerce0, ptr %filename.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp2 = alloca %"class.std::allocator.7", align 1
@@ -16821,7 +16821,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 %name_prefix.coerce0, ptr %name_prefix.coerce1, ptr nocapture noundef readonly %message, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 %name_prefix.coerce0, ptr %name_prefix.coerce1, ptr nocapture noundef readonly %message, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i299 = alloca %struct._Guard, align 8
   %__guard.i289 = alloca %struct._Guard, align 8
@@ -16945,7 +16945,7 @@ cleanup.action:                                   ; preds = %invoke.cont25
 
 cleanup.done:                                     ; preds = %cleanup.action, %invoke.cont25
   %message.val = load ptr, ptr %all_names_.i, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %ref.tmp31, ptr %message.val, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp31, ptr %message.val, i1 noundef zeroext true)
           to label %invoke.cont33 unwind label %lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont33:                                    ; preds = %cleanup.done
@@ -17182,7 +17182,7 @@ lpad.i122:                                        ; preds = %invoke.cont72
 invoke.cont73:                                    ; preds = %invoke.cont72
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias nonnull align 8 %ref.tmp74, ptr noundef nonnull %call52)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp74, ptr noundef nonnull %call52)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %invoke.cont73
@@ -17611,7 +17611,7 @@ lpad.i162:                                        ; preds = %invoke.cont102
 invoke.cont103:                                   ; preds = %invoke.cont102
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i160) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i160)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias nonnull align 8 %ref.tmp104, ptr noundef nonnull %add.ptr.i72)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp104, ptr noundef nonnull %add.ptr.i72)
           to label %invoke.cont106 unwind label %lpad105
 
 invoke.cont106:                                   ; preds = %invoke.cont103
@@ -17801,7 +17801,7 @@ lpad.i220:                                        ; preds = %invoke.cont149
 invoke.cont150:                                   ; preds = %invoke.cont149
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i218) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i218)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias nonnull align 8 %ref.tmp151, ptr noundef nonnull %add.ptr.i177)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %ref.tmp151, ptr noundef nonnull %add.ptr.i177)
           to label %invoke.cont153 unwind label %lpad152
 
 invoke.cont153:                                   ; preds = %invoke.cont150
@@ -17996,7 +17996,7 @@ for.body178:                                      ; preds = %for.body178.lr.ph, 
   %137 = extractvalue { i64, ptr } %call180, 1
   %138 = load ptr, ptr %nested_types_.i, align 8
   %add.ptr.i271 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %138, i64 %indvars.iv340
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 %136, ptr %137, ptr noundef %add.ptr.i271, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateMessageToPoolESt17basic_string_viewIcSt11char_traitsIcEEPKNS0_10DescriptorEPNS0_2io7PrinterE(i64 %136, ptr %137, ptr noundef %add.ptr.i271, ptr noundef %printer)
           to label %for.inc184 unwind label %lpad32.loopexit.split-lp.loopexit
 
 for.inc184:                                       ; preds = %for.body178
@@ -18010,7 +18010,7 @@ for.body192:                                      ; preds = %for.body192.lr.ph, 
   %indvars.iv343 = phi i64 [ 0, %for.body192.lr.ph ], [ %indvars.iv.next344, %for.inc196 ]
   %141 = load ptr, ptr %enum_types_.i, align 8
   %add.ptr.i273 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %141, i64 %indvars.iv343
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i273, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i273, ptr noundef %printer)
           to label %for.inc196 unwind label %lpad32.loopexit
 
 for.inc196:                                       ; preds = %for.body192
@@ -18038,7 +18038,7 @@ eh.resume:                                        ; preds = %ehcleanup26, %clean
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr nocapture noundef readonly %en, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118GenerateEnumToPoolEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr nocapture noundef readonly %en, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %map.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %os.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -18048,7 +18048,7 @@ entry:
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr i8, ptr %en, i64 8
   %en.val = load ptr, ptr %0, align 8
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %ref.tmp, ptr %en.val, i1 noundef zeroext true)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp, ptr %en.val, i1 noundef zeroext true)
   %1 = load ptr, ptr %0, align 8
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA5_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA11_cSA_EEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 72, ptr nonnull @.str.72, ptr noundef nonnull align 1 dereferenceable(5) @.str.11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(11) @.str.51, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %invoke.cont1 unwind label %lpad
@@ -18080,7 +18080,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   %call9 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #25
   %7 = extractvalue { i64, ptr } %call9, 0
   %8 = extractvalue { i64, ptr } %call9, 1
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp6, i64 %7, ptr %8)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp6, i64 %7, ptr %8)
   %9 = load ptr, ptr %all_names_.i17, align 8
   %call.i19 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %invoke.cont13 unwind label %lpad10
@@ -18213,7 +18213,7 @@ declare noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToString
 declare void @_ZN6google8protobuf17FileDescriptorSetD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef %file, ptr noundef %nodes_without_dependency, ptr noundef %deps, ptr noundef %dependency_count) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef %file, ptr noundef nonnull %nodes_without_dependency, ptr noundef nonnull %deps, ptr noundef nonnull %dependency_count) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %dependency_count_.i = getelementptr inbounds i8, ptr %file, i64 48
   %0 = load i32, ptr %dependency_count_.i, align 8
@@ -18709,7 +18709,7 @@ if.then.i.i.i78:                                  ; preds = %for.end.i.i.i.i75
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE6insertIS8_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSF_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESL_.exit92
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE6insertIS8_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSF_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESL_.exit92: ; preds = %for.body.i.i.i.i64, %if.then.i.i.i78
-  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef %call16, ptr noundef %nodes_without_dependency, ptr noundef nonnull %deps, ptr noundef nonnull %dependency_count)
+  tail call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_124AnalyzeDependencyForFileEPKNS0_14FileDescriptorEPN4absl12lts_2023080213flat_hash_setIS6_NS8_18container_internal6HashEqIS6_vE4HashENSC_2EqESaIS6_EEEPNS8_13flat_hash_mapIS6_SG_SD_SE_SaISt4pairIKS6_SG_EEEEPNSI_IS6_iSD_SE_SaISJ_ISK_iEEEE(ptr noundef %call16, ptr noundef %nodes_without_dependency, ptr noundef %deps, ptr noundef %dependency_count)
   br label %for.inc35
 
 for.inc35:                                        ; preds = %land.rhs.i17, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE6insertIS8_TnNSt9enable_ifIXsr4absl11disjunctionISt14is_convertibleIRKT_S8_ENSF_22SameAsElementReferenceISL_EEEE5valueEiE4typeELi0ETnNSH_IXsr14IsDecomposableISL_EE5valueEiE4typeELi0EEESt4pairINSF_8iteratorEbESL_.exit92
@@ -19616,7 +19616,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -19685,7 +19685,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.the
   store i64 %sub.i, ptr %ref.tmp7, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr %add.ptr.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i11, align 8
-  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7)
+  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7)
   br label %return
 
 if.end11:                                         ; preds = %while.body.i.i, %if.end19.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %entry
@@ -19921,7 +19921,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_119EnumOrMessageSuffixB5cxx11EPKNS0_15FieldDescriptorEb(ptr noalias nonnull align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -20009,7 +20009,7 @@ call3.i.noexc:                                    ; preds = %invoke.cont5.i
   %tobool.i = trunc i8 %8 to i1
   %9 = getelementptr i8, ptr %call3.i3, i64 8
   %call3.val.i = load ptr, ptr %9, align 8, !noalias !583
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %ref.tmp2.i, ptr %call3.val.i, i1 noundef zeroext %tobool.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp2.i, ptr %call3.val.i, i1 noundef zeroext %tobool.i)
           to label %.noexc4 unwind label %lpad
 
 .noexc4:                                          ; preds = %call3.i.noexc
@@ -20022,7 +20022,7 @@ call3.i.noexc:                                    ; preds = %invoke.cont5.i
   store i64 1, ptr %ref.tmp4.i, align 8, !noalias !583
   %13 = getelementptr inbounds i8, ptr %ref.tmp4.i, i64 8
   store ptr @.str.36, ptr %13, align 8, !noalias !583
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4.i)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp1.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp4.i)
           to label %invoke.cont6.i unwind label %lpad.i
 
 invoke.cont6.i:                                   ; preds = %.noexc4
@@ -20091,7 +20091,7 @@ call13.i.noexc:                                   ; preds = %invoke.cont19.i
   %tobool15.i = trunc i8 %23 to i1
   %24 = getelementptr i8, ptr %call13.i8, i64 8
   %call13.val.i = load ptr, ptr %24, align 8, !noalias !583
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %ref.tmp12.i, ptr %call13.val.i, i1 noundef zeroext %tobool15.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %ref.tmp12.i, ptr %call13.val.i, i1 noundef zeroext %tobool15.i)
           to label %.noexc9 unwind label %lpad
 
 .noexc9:                                          ; preds = %call13.i.noexc
@@ -20104,7 +20104,7 @@ call13.i.noexc:                                   ; preds = %invoke.cont19.i
   store i64 1, ptr %ref.tmp18.i, align 8, !noalias !583
   %28 = getelementptr inbounds i8, ptr %ref.tmp18.i, i64 8
   store ptr @.str.36, ptr %28, align 8, !noalias !583
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp18.i)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp10.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp18.i)
           to label %invoke.cont20.i unwind label %lpad16.i
 
 invoke.cont20.i:                                  ; preds = %.noexc9
@@ -20540,7 +20540,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118DescriptorFullNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b(ptr noalias nonnull align 8 %agg.result, ptr %desc.8.val, i1 noundef zeroext %is_internal) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -20609,7 +20609,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.the
   store i64 %sub.i, ptr %ref.tmp7, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i11 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store ptr %add.ptr.i, ptr %pc.sroa.2.0.piece_.sroa_idx.i11, align 8
-  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7)
+  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7)
   br label %return
 
 if.end11:                                         ; preds = %while.body.i.i, %if.end19.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %entry
@@ -20879,7 +20879,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %classname.coerce0, ptr %classname.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_118ConstantNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %classname.coerce0, ptr %classname.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %lower = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21214,7 +21214,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateFieldAccessorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS0_2io7PrinterE(ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_121GenerateFieldAccessorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS0_2io7PrinterE(ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %map.i48.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %map.i32.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
@@ -21368,7 +21368,7 @@ if.then:                                          ; preds = %cleanup.done
   %call13 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #25
   %15 = extractvalue { i64, ptr } %call13, 0
   %16 = extractvalue { i64, ptr } %call13, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp10, i64 %15, ptr %16, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp10, i64 %15, ptr %16, i1 noundef zeroext true)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %if.then
@@ -21450,12 +21450,12 @@ if.then26:                                        ; preds = %invoke.cont24
   %call31 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %23) #25
   %24 = extractvalue { i64, ptr } %call31, 0
   %25 = extractvalue { i64, ptr } %call31, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp28, i64 %24, ptr %25, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp28, i64 %24, ptr %25, i1 noundef zeroext true)
           to label %invoke.cont32 unwind label %lpad14
 
 invoke.cont32:                                    ; preds = %if.then26
   %26 = load ptr, ptr %all_names_.i131, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp34, ptr noundef nonnull %field)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp34, ptr noundef nonnull %field)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %invoke.cont32
@@ -21488,7 +21488,7 @@ if.else41:                                        ; preds = %invoke.cont24, %inv
   %call46 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #25
   %30 = extractvalue { i64, ptr } %call46, 0
   %31 = extractvalue { i64, ptr } %call46, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp43, i64 %30, ptr %31, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp43, i64 %30, ptr %31, i1 noundef zeroext true)
           to label %invoke.cont47 unwind label %lpad14
 
 invoke.cont47:                                    ; preds = %if.else41
@@ -21509,7 +21509,7 @@ if.then54:                                        ; preds = %invoke.cont19
   %call59 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #25
   %35 = extractvalue { i64, ptr } %call59, 0
   %36 = extractvalue { i64, ptr } %call59, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp56, i64 %35, ptr %36, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp56, i64 %35, ptr %36, i1 noundef zeroext true)
           to label %invoke.cont60 unwind label %lpad14
 
 invoke.cont60:                                    ; preds = %if.then54
@@ -21569,12 +21569,12 @@ if.then72:                                        ; preds = %invoke.cont70
   %call77 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %41) #25
   %42 = extractvalue { i64, ptr } %call77, 0
   %43 = extractvalue { i64, ptr } %call77, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp74, i64 %42, ptr %43, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp74, i64 %42, ptr %43, i1 noundef zeroext true)
           to label %invoke.cont78 unwind label %lpad14
 
 invoke.cont78:                                    ; preds = %if.then72
   %44 = load ptr, ptr %all_names_.i150, align 8
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %ref.tmp80, ptr noundef nonnull %field)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %ref.tmp80, ptr noundef nonnull %field)
           to label %invoke.cont82 unwind label %lpad81
 
 invoke.cont82:                                    ; preds = %invoke.cont78
@@ -21765,7 +21765,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #25
   %67 = extractvalue { i64, ptr } %call6.i, 0
   %68 = extractvalue { i64, ptr } %call6.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp.i, i64 %67, ptr %68, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp.i, i64 %67, ptr %68, i1 noundef zeroext true)
           to label %.noexc180 unwind label %lpad14
 
 .noexc180:                                        ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit.i
@@ -21774,7 +21774,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
 
 invoke.cont.i176:                                 ; preds = %.noexc180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #25
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef nonnull %printer, ptr noundef nonnull %field)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef %printer, ptr noundef nonnull %field)
           to label %.noexc181 unwind label %lpad14
 
 .noexc181:                                        ; preds = %invoke.cont.i176
@@ -21785,14 +21785,14 @@ invoke.cont.i176:                                 ; preds = %.noexc180
   %call13.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #25
   %69 = extractvalue { i64, ptr } %call13.i, 0
   %70 = extractvalue { i64, ptr } %call13.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp10.i, i64 %69, ptr %70)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp10.i, i64 %69, ptr %70)
           to label %invoke.cont15.i unwind label %lpad14.i
 
 invoke.cont15.i:                                  ; preds = %.noexc182
   %call16.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #25
   %71 = extractvalue { i64, ptr } %call16.i, 0
   %72 = extractvalue { i64, ptr } %call16.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp8.i, i64 %71, ptr %72)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp8.i, i64 %71, ptr %72)
           to label %invoke.cont18.i unwind label %lpad17.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont15.i
@@ -21813,7 +21813,7 @@ invoke.cont20.i:                                  ; preds = %invoke.cont18.i
   %slots_.i.i.i.i.i.i.i.i21.i = getelementptr inbounds i8, ptr %options.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i21.i, i8 0, i64 24, i1 false), !noalias !663
   store i8 0, ptr %options.i.i, align 8, !noalias !663
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp23.i, ptr noundef %call1.i178, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp23.i, ptr noundef %call1.i178, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i)
           to label %_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorEb.exit.i unwind label %lpad.i22.i
 
 lpad.i22.i:                                       ; preds = %invoke.cont20.i
@@ -21911,7 +21911,7 @@ invoke.cont101:                                   ; preds = %invoke.cont13.i.i.i
   %call106 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %84) #25
   %85 = extractvalue { i64, ptr } %call106, 0
   %86 = extractvalue { i64, ptr } %call106, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp103, i64 %85, ptr %86, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp103, i64 %85, ptr %86, i1 noundef zeroext true)
           to label %invoke.cont107 unwind label %lpad14
 
 invoke.cont107:                                   ; preds = %invoke.cont101
@@ -21939,7 +21939,7 @@ invoke.cont113:                                   ; preds = %if.end112
   %call118 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #25
   %90 = extractvalue { i64, ptr } %call118, 0
   %91 = extractvalue { i64, ptr } %call118, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp115, i64 %90, ptr %91, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp115, i64 %90, ptr %91, i1 noundef zeroext true)
           to label %invoke.cont119 unwind label %lpad14
 
 invoke.cont119:                                   ; preds = %invoke.cont113
@@ -22180,7 +22180,7 @@ if.then159:                                       ; preds = %invoke.cont156
           to label %invoke.cont164 unwind label %lpad14
 
 invoke.cont164:                                   ; preds = %if.then159
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp163, ptr noundef %call165, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp163, ptr noundef %call165, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont170 unwind label %lpad14
 
 invoke.cont170:                                   ; preds = %invoke.cont164
@@ -22286,7 +22286,7 @@ if.then180:                                       ; preds = %invoke.cont177
           to label %invoke.cont185 unwind label %lpad14
 
 invoke.cont185:                                   ; preds = %if.then180
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp184, ptr noundef %call186, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp184, ptr noundef %call186, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont191 unwind label %lpad14
 
 invoke.cont191:                                   ; preds = %invoke.cont185
@@ -22470,7 +22470,7 @@ if.then217:                                       ; preds = %invoke.cont214
           to label %invoke.cont222 unwind label %lpad14
 
 invoke.cont222:                                   ; preds = %if.then217
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp221, ptr noundef %call223, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp221, ptr noundef %call223, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont228 unwind label %lpad14
 
 invoke.cont228:                                   ; preds = %invoke.cont222
@@ -22566,7 +22566,7 @@ if.then238:                                       ; preds = %invoke.cont235
           to label %invoke.cont243 unwind label %lpad14
 
 invoke.cont243:                                   ; preds = %if.then238
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp242, ptr noundef %call244, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp242, ptr noundef %call244, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont249 unwind label %lpad14
 
 invoke.cont249:                                   ; preds = %invoke.cont243
@@ -22692,7 +22692,7 @@ if.then264:                                       ; preds = %invoke.cont261
           to label %invoke.cont267 unwind label %lpad14
 
 invoke.cont267:                                   ; preds = %if.then264
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp266, ptr noundef %call268, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp266, ptr noundef %call268, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont269 unwind label %lpad14
 
 invoke.cont269:                                   ; preds = %invoke.cont267
@@ -22758,7 +22758,7 @@ if.then277:                                       ; preds = %invoke.cont274
           to label %invoke.cont280 unwind label %lpad14
 
 invoke.cont280:                                   ; preds = %if.then277
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp279, ptr noundef %call281, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp279, ptr noundef %call281, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont282 unwind label %lpad14
 
 invoke.cont282:                                   ; preds = %invoke.cont280
@@ -22906,7 +22906,7 @@ invoke.cont301:                                   ; preds = %.noexc487, %call1.i
   %arrayidx3.i = getelementptr inbounds [11 x ptr], ptr @_ZN6google8protobuf15FieldDescriptor14kCppTypeToNameE, i64 0, i64 %idxprom2.i
   %224 = load ptr, ptr %arrayidx3.i, align 8
   %call.i.i489 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %224) #25
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp299, i64 %call.i.i489, ptr %224, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp299, i64 %call.i.i489, ptr %224, i1 noundef zeroext true)
           to label %invoke.cont303 unwind label %lpad14
 
 invoke.cont303:                                   ; preds = %invoke.cont301
@@ -23218,7 +23218,7 @@ call4.i.noexc:                                    ; preds = %_ZN6google8protobuf
   %slots_.i.i.i.i.i.i.i.i18.i = getelementptr inbounds i8, ptr %options.i.i592, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i18.i, i8 0, i64 24, i1 false), !noalias !669
   store i8 0, ptr %options.i.i592, align 8, !noalias !669
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp.i594, ptr noundef %call4.i627, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i592)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp.i594, ptr noundef %call4.i627, ptr noundef nonnull align 8 dereferenceable(40) %options.i.i592)
           to label %_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.exit.i unwind label %lpad.i19.i
 
 lpad.i19.i:                                       ; preds = %call4.i.noexc
@@ -23234,7 +23234,7 @@ _ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEE
 
 invoke.cont.i616:                                 ; preds = %_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_b.exit.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i594) #25
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef nonnull %printer, ptr noundef nonnull %field)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef %printer, ptr noundef nonnull %field)
           to label %.noexc628 unwind label %lpad14
 
 .noexc628:                                        ; preds = %invoke.cont.i616
@@ -23245,14 +23245,14 @@ invoke.cont.i616:                                 ; preds = %_ZN6google8protobuf
   %call11.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i596) #25
   %261 = extractvalue { i64, ptr } %call11.i, 0
   %262 = extractvalue { i64, ptr } %call11.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp8.i595, i64 %261, ptr %262)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp8.i595, i64 %261, ptr %262)
           to label %invoke.cont13.i unwind label %lpad12.i
 
 invoke.cont13.i:                                  ; preds = %.noexc629
   %call14.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8.i595) #25
   %263 = extractvalue { i64, ptr } %call14.i, 0
   %264 = extractvalue { i64, ptr } %call14.i, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp6.i, i64 %263, ptr %264)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp6.i, i64 %263, ptr %264)
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont13.i
@@ -23273,7 +23273,7 @@ invoke.cont18.i621:                               ; preds = %invoke.cont16.i
   %slots_.i.i.i.i.i.i.i.i28.i = getelementptr inbounds i8, ptr %options.i24.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i.i28.i, i8 0, i64 24, i1 false), !noalias !672
   store i8 0, ptr %options.i24.i, align 8, !noalias !672
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp21.i, ptr noundef %call1.i624, ptr noundef nonnull align 8 dereferenceable(40) %options.i24.i)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp21.i, ptr noundef %call1.i624, ptr noundef nonnull align 8 dereferenceable(40) %options.i24.i)
           to label %_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorEb.exit.i unwind label %lpad.i29.i
 
 lpad.i29.i:                                       ; preds = %invoke.cont18.i621
@@ -23406,7 +23406,7 @@ invoke.cont350:                                   ; preds = %invoke.cont13.i.i.i
   %call355 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %281) #25
   %282 = extractvalue { i64, ptr } %call355, 0
   %283 = extractvalue { i64, ptr } %call355, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp352, i64 %282, ptr %283, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp352, i64 %282, ptr %283, i1 noundef zeroext true)
           to label %invoke.cont356 unwind label %lpad14
 
 invoke.cont356:                                   ; preds = %invoke.cont350
@@ -23677,7 +23677,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %classname = alloca %"class.std::__cxx11::basic_string", align 8
   %php_namespace = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23685,7 +23685,7 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp5 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   call void @_ZN6google8protobuf8compiler3php18GeneratedClassNameB5cxx11EPKNS0_10DescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %classname, ptr noundef %desc)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -23708,7 +23708,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i64, ptr } %call.i3, 1
   store ptr %6, ptr %5, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
           to label %cleanup unwind label %lpad1
 
 lpad:                                             ; preds = %entry
@@ -23740,7 +23740,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 declare void @_ZN6google8protobuf8compiler3php18GeneratedClassNameB5cxx11EPKNS0_10DescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.7", align 1
@@ -23878,7 +23878,7 @@ eh.resume:                                        ; preds = %lpad22, %lpad.i16, 
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias align 8 %agg.result, i64 %full_name.coerce0, ptr nocapture readonly %full_name.coerce1, i8 %options.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_17PhpNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, i64 %full_name.coerce0, ptr nocapture readonly %full_name.coerce1, i8 %options.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.7", align 1
@@ -23959,7 +23959,7 @@ if.then23:                                        ; preds = %if.else
   %call27 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %segment) #25
   %9 = extractvalue { i64, ptr } %call27, 0
   %10 = extractvalue { i64, ptr } %call27, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp26, i64 %9, ptr %10)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp26, i64 %9, ptr %10)
           to label %invoke.cont28 unwind label %lpad16.loopexit
 
 invoke.cont28:                                    ; preds = %if.then23
@@ -24019,7 +24019,7 @@ for.end:                                          ; preds = %for.inc, %if.end
   %call49 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %segment) #25
   %14 = extractvalue { i64, ptr } %call49, 0
   %15 = extractvalue { i64, ptr } %call49, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp47, i64 %14, ptr %15)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp47, i64 %14, ptr %15)
           to label %invoke.cont50 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont50:                                    ; preds = %for.end
@@ -24068,7 +24068,7 @@ eh.resume:                                        ; preds = %ehcleanup58, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %classname.coerce0, ptr %classname.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113PhpNamePrefixB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %classname.coerce0, ptr %classname.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.7", align 1
   %ref.tmp1 = alloca %"class.std::allocator.7", align 1
@@ -24325,7 +24325,7 @@ nrvo.skipdtor:                                    ; preds = %sw.epilog, %for.con
 declare noundef zeroext i1 @_ZNK6google8protobuf10Descriptor17GetSourceLocationEPNS0_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef %printer, ptr noundef nonnull align 8 dereferenceable(104) %location, i1 noundef zeroext %trailingNewline, i32 noundef %indentCount) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_133GenerateDocCommentBodyForLocationEPNS0_2io7PrinterERKNS0_14SourceLocationEbi(ptr noundef nonnull %printer, ptr noundef nonnull align 8 dereferenceable(104) %location, i1 noundef zeroext %trailingNewline, i32 noundef range(i32 0, 11) %indentCount) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %map.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %ref.tmp.i = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::SkipEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
@@ -24347,7 +24347,7 @@ if.then:                                          ; preds = %entry
   %call3 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %comments) #25
   %0 = extractvalue { i64, ptr } %call3, 0
   %1 = extractvalue { i64, ptr } %call3, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp, i64 %0, ptr %1)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp, i64 %0, ptr %1)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %if.then
@@ -25328,7 +25328,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor11is_requiredEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef nonnull %printer, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options, i32 noundef %function_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_123GenerateFieldDocCommentEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKNS2_7OptionsEi(ptr noundef nonnull %printer, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options, i32 noundef range(i32 1, 4) %function_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %map.i60 = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %map.i44 = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
@@ -25379,19 +25379,19 @@ invoke.cont13.i.i.i7.i:                           ; preds = %invoke.cont5.i
 
 _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit: ; preds = %invoke.cont5.i, %invoke.cont13.i.i.i7.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %map.i)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef nonnull %printer, ptr noundef %field)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef %printer, ptr noundef %field)
   call void @_ZNK6google8protobuf15FieldDescriptor11DebugStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(88) %field)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #25
   %5 = extractvalue { i64, ptr } %call, 0
   %6 = extractvalue { i64, ptr } %call, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp3, i64 %5, ptr %6)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp3, i64 %5, ptr %6)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit
   %call6 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #25
   %7 = extractvalue { i64, ptr } %call6, 0
   %8 = extractvalue { i64, ptr } %call6, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp, i64 %7, ptr %8)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_112EscapePhpdocB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp, i64 %7, ptr %8)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont
@@ -25408,7 +25408,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   ]
 
 if.then:                                          ; preds = %invoke.cont10
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp13, ptr noundef nonnull %field, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp13, ptr noundef nonnull %field, ptr noundef nonnull align 8 dereferenceable(40) %options)
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 26, ptr nonnull @.str.130, ptr noundef nonnull align 1 dereferenceable(9) @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %invoke.cont15 unwind label %lpad14
 
@@ -25530,7 +25530,7 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %land.rhs, %if.
 
 land.end:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit, %if.then19
   %cond = phi ptr [ @.str.14, %if.then19 ], [ %25, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit ]
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp24, ptr noundef nonnull %field, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %ref.tmp24, ptr noundef nonnull %field, ptr noundef nonnull align 8 dereferenceable(40) %options)
   store ptr %cond, ptr %ref.tmp25, align 8
   invoke void @_ZN6google8protobuf2io7Printer5PrintIJA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEA11_cPKcEEEvSt17basic_string_viewIcS8_EDpRKT_(ptr noundef nonnull align 8 dereferenceable(256) %printer, i64 34, ptr nonnull @.str.133, ptr noundef nonnull align 1 dereferenceable(9) @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp24, ptr noundef nonnull align 1 dereferenceable(11) @.str.134, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp25)
           to label %invoke.cont27 unwind label %lpad26
@@ -25633,7 +25633,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
 declare noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor12has_presenceEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_115DefaultForFieldB5cxx11EPKNS0_15FieldDescriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.7", align 1
   %ref.tmp2 = alloca %"class.std::allocator.7", align 1
@@ -25970,7 +25970,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef %printer, ptr noundef %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122GenerateDocCommentBodyINS0_15FieldDescriptorEEEvPNS0_2io7PrinterEPKT_(ptr noundef nonnull %printer, ptr noundef %descriptor) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %location = alloca %"struct.google::protobuf::SourceLocation", align 8
   %leading_comments.i = getelementptr inbounds i8, ptr %location, i64 16
@@ -26124,7 +26124,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_111FirstLineOfB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.7", align 1
@@ -26174,7 +26174,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad
 declare void @_ZNK6google8protobuf15FieldDescriptor11DebugStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpSetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.7", align 1
   %type = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26351,7 +26351,7 @@ invoke.cont21:                                    ; preds = %invoke.cont2
           to label %invoke.cont24 unwind label %lpad1
 
 invoke.cont24:                                    ; preds = %invoke.cont21
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp23, ptr noundef %call25, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp23, ptr noundef %call25, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont26 unwind label %lpad1
 
 invoke.cont26:                                    ; preds = %invoke.cont24
@@ -26618,7 +26618,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_117PhpGetterTypeNameB5cxx11EPKNS0_15FieldDescriptorERKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %field, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.7", align 1
   %ref.tmp3 = alloca %"class.std::allocator.7", align 1
@@ -26950,14 +26950,14 @@ sw.bb27:                                          ; preds = %_ZNK6google8protobu
   %26 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
   store ptr @.str.15, ptr %26, align 8
   %call31 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %field)
-  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp30, ptr noundef %call31, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  call fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp30, ptr noundef %call31, ptr noundef nonnull align 8 dereferenceable(40) %options)
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #25
   %27 = extractvalue { i64, ptr } %call.i, 0
   store i64 %27, ptr %ref.tmp29, align 8
   %28 = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
   %29 = extractvalue { i64, ptr } %call.i, 1
   store ptr %29, ptr %28, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp29)
           to label %invoke.cont34 unwind label %lpad32
 
 invoke.cont34:                                    ; preds = %sw.bb27
@@ -28040,7 +28040,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr noundef %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr noundef %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %classname = alloca %"class.std::__cxx11::basic_string", align 8
   %php_namespace = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28048,7 +28048,7 @@ entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp5 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   call void @_ZN6google8protobuf8compiler3php18GeneratedClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %classname, ptr noundef %desc)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %php_namespace, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(40) %options)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %php_namespace, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(40) %options)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -28071,7 +28071,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %5 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   %6 = extractvalue { i64, ptr } %call.i3, 1
   store ptr %6, ptr %5, align 8
-  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
+  invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5)
           to label %cleanup unwind label %lpad1
 
 lpad:                                             ; preds = %entry
@@ -28412,7 +28412,7 @@ declare noundef ptr @_ZNK6google8protobuf10Descriptor15FindFieldByNameESt17basic
 declare void @_ZN6google8protobuf8compiler3php18GeneratedClassNameB5cxx11EPKNS0_14EnumDescriptorE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116RootPhpNamespaceINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly %desc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %options) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator.7", align 1
@@ -29470,7 +29470,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %message, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %message, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %map.i67 = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %map.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
@@ -29505,7 +29505,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_10DescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull %message, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -29617,7 +29617,7 @@ invoke.cont27:                                    ; preds = %invoke.cont27.lr.ph
   %call34 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %16) #25
   %17 = extractvalue { i64, ptr } %call34, 0
   %18 = extractvalue { i64, ptr } %call34, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp31, i64 %17, ptr %18, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp31, i64 %17, ptr %18, i1 noundef zeroext true)
           to label %invoke.cont35 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont35:                                    ; preds = %invoke.cont27
@@ -29703,7 +29703,7 @@ for.body43:                                       ; preds = %for.body43.lr.ph, %
   %call50 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #25
   %27 = extractvalue { i64, ptr } %call50, 0
   %28 = extractvalue { i64, ptr } %call50, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp47, i64 %27, ptr %28, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp47, i64 %27, ptr %28, i1 noundef zeroext true)
           to label %invoke.cont51 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont51:                                    ; preds = %for.body43
@@ -29840,7 +29840,7 @@ invoke.cont72:                                    ; preds = %invoke.cont72.lr.ph
   %call78 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %45) #25
   %46 = extractvalue { i64, ptr } %call78, 0
   %47 = extractvalue { i64, ptr } %call78, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp75, i64 %46, ptr %47, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp75, i64 %46, ptr %47, i1 noundef zeroext true)
           to label %invoke.cont79 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont79:                                    ; preds = %invoke.cont72
@@ -29869,7 +29869,7 @@ for.body90:                                       ; preds = %for.body90.lr.ph, %
   %call97 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #25
   %53 = extractvalue { i64, ptr } %call97, 0
   %54 = extractvalue { i64, ptr } %call97, 1
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias nonnull align 8 %ref.tmp94, i64 %53, ptr %54, i1 noundef zeroext true)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_122UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEb(ptr noalias align 8 %ref.tmp94, i64 %53, ptr %54, i1 noundef zeroext true)
           to label %invoke.cont98 unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont98:                                    ; preds = %for.body90
@@ -29936,7 +29936,7 @@ for.body120:                                      ; preds = %for.body120.lr.ph, 
   %indvars.iv153 = phi i64 [ 0, %for.body120.lr.ph ], [ %indvars.iv.next154, %for.inc123 ]
   %62 = load ptr, ptr %nested_types_.i, align 8
   %add.ptr.i111 = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %62, i64 %indvars.iv153
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i111, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_116GenerateCMessageEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i111, ptr noundef %printer)
           to label %for.inc123 unwind label %lpad21.loopexit.split-lp.loopexit
 
 for.inc123:                                       ; preds = %for.body120
@@ -29950,7 +29950,7 @@ for.body130:                                      ; preds = %for.body130.lr.ph, 
   %indvars.iv156 = phi i64 [ 0, %for.body130.lr.ph ], [ %indvars.iv.next157, %for.inc133 ]
   %65 = load ptr, ptr %enum_types_.i, align 8
   %add.ptr.i113 = getelementptr inbounds %"class.google::protobuf::EnumDescriptor", ptr %65, i64 %indvars.iv156
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i113, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i113, ptr noundef %printer)
           to label %for.inc133 unwind label %lpad21.loopexit
 
 for.inc133:                                       ; preds = %for.body130
@@ -29977,7 +29977,7 @@ ehcleanup137:                                     ; preds = %ehcleanup136, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %desc, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCEnumEPKNS0_14EnumDescriptorEPNS0_2io7PrinterE(ptr noundef %desc, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %map.i = alloca %"class.absl::lts_20230802::flat_hash_map.62", align 8
   %ref.tmp.i = alloca [2 x %"struct.std::pair.77"], align 8
@@ -30008,7 +30008,7 @@ invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZN4absl12lts_2023080218container_internal11kEmptyGroupE, i64 16), ptr %aggregate_metadata_prefixes.i, align 8
   %slots_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %slots_.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull %desc, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113FullClassNameINS0_14EnumDescriptorEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_RKNS2_7OptionsE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull %desc, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont
@@ -30209,7 +30209,7 @@ ehcleanup39:                                      ; preds = %ehcleanup38, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr nocapture noundef readonly %message, ptr noundef %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr nocapture noundef readonly %message, ptr noundef nonnull %printer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c_name.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca [1 x %"struct.std::pair.77"], align 8
@@ -30259,7 +30259,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %5 = load ptr, ptr %nested_types_.i, align 8
   %add.ptr.i = getelementptr inbounds %"class.google::protobuf::Descriptor", ptr %5, i64 %indvars.iv
-  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i, ptr noundef nonnull %printer)
+  invoke fastcc void @_ZN6google8protobuf8compiler3php12_GLOBAL__N_113GenerateCInitEPKNS0_10DescriptorEPNS0_2io7PrinterE(ptr noundef %add.ptr.i, ptr noundef %printer)
           to label %for.inc unwind label %lpad.loopexit.split-lp.loopexit
 
 for.inc:                                          ; preds = %for.body

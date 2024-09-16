@@ -74808,7 +74808,7 @@ _ZNK5Yosys7hashlib4dictISt4pairIiNS_5RTLIL6SigBitEEbNS0_8hash_opsIS5_EEE9do_look
           to label %1542 unwind label %1647
 
 1542:                                             ; preds = %.noexc328
-  %1543 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef nonnull %41, ptr noundef nonnull %42)
+  %1543 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef %41, ptr noundef %42)
           to label %1544 unwind label %1649
 
 1544:                                             ; preds = %1542
@@ -76277,7 +76277,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
           to label %2146 unwind label %2188
 
 2146:                                             ; preds = %.noexc400
-  %2147 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  %2147 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef %24, ptr noundef %25)
           to label %2148 unwind label %2190
 
 2148:                                             ; preds = %2146
@@ -77340,7 +77340,7 @@ _ZN5Yosys7hashlib4dictISt5tupleIJiiNS_5RTLIL6SigBitES4_EEbNS0_8hash_opsIS5_EEE4f
           to label %2563 unwind label %2623
 
 2563:                                             ; preds = %.noexc485
-  %2564 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  %2564 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef %14, ptr noundef %15)
           to label %2565 unwind label %2625
 
 2565:                                             ; preds = %2563
@@ -77443,7 +77443,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit41.i:             ; preds = %2585, %_ZSt8_Destro
           to label %2589 unwind label %2627
 
 2589:                                             ; preds = %.noexc486
-  %2590 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %2590 = invoke fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr noundef nonnull align 8 dereferenceable(264) %72, ptr noundef %16, ptr noundef %17)
           to label %2591 unwind label %2629
 
 2591:                                             ; preds = %2589
@@ -81081,7 +81081,7 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113MemQueryCache7addr_eqEN5Yosys5RTLIL7SigSpecES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.8", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %6 = alloca %"class.std::vector.8", align 8

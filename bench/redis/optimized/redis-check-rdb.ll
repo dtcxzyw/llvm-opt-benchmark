@@ -294,14 +294,14 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   br i1 %tobool.not.i, label %while.body.i, label %eoferr
 
 while.body.i:                                     ; preds = %if.end, %if.end12.i
-  %len.addr.03.i = phi i64 [ %sub.i, %if.end12.i ], [ 9, %if.end ]
-  %buf.addr.02.i = phi ptr [ %add.ptr.i, %if.end12.i ], [ %buf, %if.end ]
+  %len.addr.02.i = phi i64 [ %sub.i, %if.end12.i ], [ 9, %if.end ]
+  %buf.addr.01.i = phi ptr [ %add.ptr.i, %if.end12.i ], [ %buf, %if.end ]
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
   %tobool2.not.not.i = icmp eq i64 %2, 0
-  %3 = call i64 @llvm.umin.i64(i64 %2, i64 %len.addr.03.i)
-  %cond.i = select i1 %tobool2.not.not.i, i64 %len.addr.03.i, i64 %3
+  %3 = call i64 @llvm.umin.i64(i64 %2, i64 %len.addr.02.i)
+  %cond.i = select i1 %tobool2.not.not.i, i64 %len.addr.02.i, i64 %3
   %4 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call.i = call i64 %4(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02.i, i64 noundef %cond.i) #15
+  %call.i = call i64 %4(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i, i64 noundef %cond.i) #15
   %cmp5.i = icmp eq i64 %call.i, 0
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
@@ -317,12 +317,12 @@ if.end8.i:                                        ; preds = %while.body.i
   br i1 %tobool9.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.end8.i
-  call void %6(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02.i, i64 noundef %cond.i) #15
+  call void %6(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i, i64 noundef %cond.i) #15
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %if.end8.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.addr.02.i, i64 %cond.i
-  %sub.i = sub i64 %len.addr.03.i, %cond.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.addr.01.i, i64 %cond.i
+  %sub.i = sub i64 %len.addr.02.i, %cond.i
   %7 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
   %add.i = add i64 %7, %cond.i
   store i64 %add.i, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
@@ -377,59 +377,59 @@ if.then39:                                        ; preds = %while.body
   %call40 = call i64 @rdbLoadTime(ptr noundef nonnull @redis_check_rdb.rdb) #15
   %mul = mul nsw i64 %call40, 1000
   %9 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %conv.i74 = and i64 %9, 1
-  %tobool.not = icmp eq i64 %conv.i74, 0
+  %conv.i73 = and i64 %9, 1
+  %tobool.not = icmp eq i64 %conv.i73, 0
   br i1 %tobool.not, label %while.body.backedge, label %eoferr
 
 if.then46:                                        ; preds = %while.body
   store i32 2, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 48), align 8
   %call47 = call i64 @rdbLoadMillisecondTime(ptr noundef nonnull @redis_check_rdb.rdb, i32 noundef %call25) #15
   %10 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %conv.i4673 = and i64 %10, 1
-  %tobool49.not = icmp eq i64 %conv.i4673, 0
+  %conv.i4672 = and i64 %10, 1
+  %tobool49.not = icmp eq i64 %conv.i4672, 0
   br i1 %tobool49.not, label %while.body.backedge, label %eoferr
 
 if.then55:                                        ; preds = %while.body
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
   %and.i47 = and i64 %11, 1
   %tobool.not.i48 = icmp eq i64 %and.i47, 0
-  br i1 %tobool.not.i48, label %while.body.i51, label %eoferr
+  br i1 %tobool.not.i48, label %while.body.i50, label %eoferr
 
-while.body.i51:                                   ; preds = %if.then55, %if.end12.i61
-  %len.addr.03.i52 = phi i64 [ %sub.i63, %if.end12.i61 ], [ 1, %if.then55 ]
-  %buf.addr.02.i53 = phi ptr [ %add.ptr.i62, %if.end12.i61 ], [ %byte, %if.then55 ]
+while.body.i50:                                   ; preds = %if.then55, %if.end12.i60
+  %len.addr.02.i51 = phi i64 [ %sub.i62, %if.end12.i60 ], [ 1, %if.then55 ]
+  %buf.addr.01.i52 = phi ptr [ %add.ptr.i61, %if.end12.i60 ], [ %byte, %if.then55 ]
   %12 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
-  %tobool2.not.not.i54 = icmp eq i64 %12, 0
-  %13 = call i64 @llvm.umin.i64(i64 %12, i64 %len.addr.03.i52)
-  %cond.i55 = select i1 %tobool2.not.not.i54, i64 %len.addr.03.i52, i64 %13
+  %tobool2.not.not.i53 = icmp eq i64 %12, 0
+  %13 = call i64 @llvm.umin.i64(i64 %12, i64 %len.addr.02.i51)
+  %cond.i54 = select i1 %tobool2.not.not.i53, i64 %len.addr.02.i51, i64 %13
   %14 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call.i56 = call i64 %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02.i53, i64 noundef %cond.i55) #15
-  %cmp5.i57 = icmp eq i64 %call.i56, 0
-  br i1 %cmp5.i57, label %if.then6.i66, label %if.end8.i58
+  %call.i55 = call i64 %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i52, i64 noundef %cond.i54) #15
+  %cmp5.i56 = icmp eq i64 %call.i55, 0
+  br i1 %cmp5.i56, label %if.then6.i65, label %if.end8.i57
 
-if.then6.i66:                                     ; preds = %while.body.i51
+if.then6.i65:                                     ; preds = %while.body.i50
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
-  %or.i67 = or i64 %15, 1
-  store i64 %or.i67, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
+  %or.i66 = or i64 %15, 1
+  store i64 %or.i66, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
   br label %eoferr
 
-if.end8.i58:                                      ; preds = %while.body.i51
+if.end8.i57:                                      ; preds = %while.body.i50
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 32), align 8
-  %tobool9.not.i59 = icmp eq ptr %16, null
-  br i1 %tobool9.not.i59, label %if.end12.i61, label %if.then10.i60
+  %tobool9.not.i58 = icmp eq ptr %16, null
+  br i1 %tobool9.not.i58, label %if.end12.i60, label %if.then10.i59
 
-if.then10.i60:                                    ; preds = %if.end8.i58
-  call void %16(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02.i53, i64 noundef %cond.i55) #15
-  br label %if.end12.i61
+if.then10.i59:                                    ; preds = %if.end8.i57
+  call void %16(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01.i52, i64 noundef %cond.i54) #15
+  br label %if.end12.i60
 
-if.end12.i61:                                     ; preds = %if.then10.i60, %if.end8.i58
-  %add.ptr.i62 = getelementptr inbounds i8, ptr %buf.addr.02.i53, i64 %cond.i55
-  %sub.i63 = sub i64 %len.addr.03.i52, %cond.i55
+if.end12.i60:                                     ; preds = %if.then10.i59, %if.end8.i57
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %buf.addr.01.i52, i64 %cond.i54
+  %sub.i62 = sub i64 %len.addr.02.i51, %cond.i54
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %add.i64 = add i64 %17, %cond.i55
-  store i64 %add.i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
-  %tobool1.not.i65 = icmp eq i64 %sub.i63, 0
-  br i1 %tobool1.not.i65, label %while.body.backedge, label %while.body.i51, !llvm.loop !5
+  %add.i63 = add i64 %17, %cond.i54
+  store i64 %add.i63, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
+  %tobool1.not.i64 = icmp eq i64 %sub.i62, 0
+  br i1 %tobool1.not.i64, label %while.body.backedge, label %while.body.i50, !llvm.loop !5
 
 if.then64:                                        ; preds = %while.body
   %call65 = call i64 @rdbLoadLen(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef null) #15
@@ -447,9 +447,9 @@ if.end82:                                         ; preds = %if.then77
   %conv83 = trunc i64 %call78 to i32
   br label %while.body.backedge
 
-while.body.backedge:                              ; preds = %if.end12.i61, %if.end82, %if.end130, %if.end154, %if.end221, %if.then39, %if.then46, %if.then64, %if.end92, %if.end111, %if.then166
-  %expiretime.0.be = phi i64 [ %mul, %if.then39 ], [ %call47, %if.then46 ], [ %expiretime.0, %if.then64 ], [ %expiretime.0, %if.end82 ], [ %expiretime.0, %if.end92 ], [ %expiretime.0, %if.end111 ], [ %expiretime.0, %if.end130 ], [ %expiretime.0, %if.end154 ], [ %expiretime.0, %if.then166 ], [ -1, %if.end221 ], [ %expiretime.0, %if.end12.i61 ]
-  %selected_dbid.0.be = phi i32 [ %selected_dbid.0, %if.then39 ], [ %selected_dbid.0, %if.then46 ], [ %selected_dbid.0, %if.then64 ], [ %conv83, %if.end82 ], [ %selected_dbid.0, %if.end92 ], [ %selected_dbid.0, %if.end111 ], [ %selected_dbid.0, %if.end130 ], [ %selected_dbid.0, %if.end154 ], [ %selected_dbid.0, %if.then166 ], [ %selected_dbid.0, %if.end221 ], [ %selected_dbid.0, %if.end12.i61 ]
+while.body.backedge:                              ; preds = %if.end12.i60, %if.end82, %if.end130, %if.end154, %if.end221, %if.then39, %if.then46, %if.then64, %if.end92, %if.end111, %if.then166
+  %expiretime.0.be = phi i64 [ %mul, %if.then39 ], [ %call47, %if.then46 ], [ %expiretime.0, %if.then64 ], [ %expiretime.0, %if.end82 ], [ %expiretime.0, %if.end92 ], [ %expiretime.0, %if.end111 ], [ %expiretime.0, %if.end130 ], [ %expiretime.0, %if.end154 ], [ %expiretime.0, %if.then166 ], [ -1, %if.end221 ], [ %expiretime.0, %if.end12.i60 ]
+  %selected_dbid.0.be = phi i32 [ %selected_dbid.0, %if.then39 ], [ %selected_dbid.0, %if.then46 ], [ %selected_dbid.0, %if.then64 ], [ %conv83, %if.end82 ], [ %selected_dbid.0, %if.end92 ], [ %selected_dbid.0, %if.end111 ], [ %selected_dbid.0, %if.end130 ], [ %selected_dbid.0, %if.end154 ], [ %selected_dbid.0, %if.then166 ], [ %selected_dbid.0, %if.end221 ], [ %selected_dbid.0, %if.end12.i60 ]
   br label %while.body
 
 if.then87:                                        ; preds = %while.body
@@ -620,7 +620,7 @@ while.end:                                        ; preds = %while.body
 if.then226:                                       ; preds = %while.end
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 40), align 8
   store i32 5, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 48), align 8
-  %call227 = call fastcc i64 @rioRead(ptr noundef nonnull %cksum, i64 noundef 8)
+  %call227 = call fastcc i64 @rioRead(ptr noundef %cksum, i64 noundef 8)
   %cmp228 = icmp eq i64 %call227, 0
   br i1 %cmp228, label %eoferr, label %if.end231
 
@@ -645,7 +645,7 @@ if.end242.sink.split:                             ; preds = %if.else235, %if.end
 if.end242:                                        ; preds = %if.end242.sink.split, %while.end
   br i1 %cmp, label %return.sink.split.sink.split, label %return.sink.split
 
-eoferr:                                           ; preds = %if.then55, %if.end202, %if.end185, %if.end145, %if.end140, %if.then135, %if.then120, %if.end111, %if.end106, %if.then101, %if.end92, %if.then87, %if.then77, %if.then64, %if.then46, %if.then39, %while.body, %if.then6.i66, %if.end, %if.then6.i, %if.then226, %if.then129
+eoferr:                                           ; preds = %if.then55, %if.end202, %if.end185, %if.end145, %if.end140, %if.then135, %if.then120, %if.end111, %if.end106, %if.then101, %if.end92, %if.then87, %if.then77, %if.then64, %if.then46, %if.then39, %while.body, %if.then6.i65, %if.end, %if.then6.i, %if.then226, %if.then129
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @rdbstate, i64 52), align 4
   %tobool247.not = icmp eq i32 %30, 0
   br i1 %tobool247.not, label %if.else249, label %if.then248
@@ -696,26 +696,22 @@ declare void @rioInitWithFile(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @rdbLoadProgressCallback(ptr noundef, ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %buf, i64 noundef %len) unnamed_addr #5 {
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %buf, i64 noundef range(i64 1, 10) %len) unnamed_addr #5 {
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 48), align 8
   %and = and i64 %0, 1
   %tobool.not = icmp eq i64 %and, 0
-  br i1 %tobool.not, label %while.cond.preheader, label %return
+  br i1 %tobool.not, label %while.body, label %return
 
-while.cond.preheader:                             ; preds = %entry
-  %tobool1.not1 = icmp eq i64 %len, 0
-  br i1 %tobool1.not1, label %return, label %while.body
-
-while.body:                                       ; preds = %while.cond.preheader, %if.end12
-  %len.addr.03 = phi i64 [ %sub, %if.end12 ], [ %len, %while.cond.preheader ]
-  %buf.addr.02 = phi ptr [ %add.ptr, %if.end12 ], [ %buf, %while.cond.preheader ]
+while.body:                                       ; preds = %entry, %if.end12
+  %len.addr.02 = phi i64 [ %sub, %if.end12 ], [ %len, %entry ]
+  %buf.addr.01 = phi ptr [ %add.ptr, %if.end12 ], [ %buf, %entry ]
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 64), align 8
   %tobool2.not.not = icmp eq i64 %1, 0
-  %2 = tail call i64 @llvm.umin.i64(i64 %1, i64 %len.addr.03)
-  %cond = select i1 %tobool2.not.not, i64 %len.addr.03, i64 %2
+  %2 = tail call i64 @llvm.umin.i64(i64 %1, i64 %len.addr.02)
+  %cond = select i1 %tobool2.not.not, i64 %len.addr.02, i64 %2
   %3 = load ptr, ptr @redis_check_rdb.rdb, align 8
-  %call = tail call i64 %3(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02, i64 noundef %cond) #15
+  %call = tail call i64 %3(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01, i64 noundef %cond) #15
   %cmp5 = icmp eq i64 %call, 0
   br i1 %cmp5, label %if.then6, label %if.end8
 
@@ -731,20 +727,20 @@ if.end8:                                          ; preds = %while.body
   br i1 %tobool9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  tail call void %5(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.02, i64 noundef %cond) #15
+  tail call void %5(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %buf.addr.01, i64 noundef %cond) #15
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %if.end8
-  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.02, i64 %cond
-  %sub = sub i64 %len.addr.03, %cond
+  %add.ptr = getelementptr inbounds i8, ptr %buf.addr.01, i64 %cond
+  %sub = sub i64 %len.addr.02, %cond
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
   %add = add i64 %6, %cond
   store i64 %add, ptr getelementptr inbounds (i8, ptr @redis_check_rdb.rdb, i64 56), align 8
   %tobool1.not = icmp eq i64 %sub, 0
   br i1 %tobool1.not, label %return, label %while.body, !llvm.loop !5
 
-return:                                           ; preds = %if.end12, %while.cond.preheader, %entry, %if.then6
-  %retval.0 = phi i64 [ 0, %if.then6 ], [ 0, %entry ], [ 1, %while.cond.preheader ], [ 1, %if.end12 ]
+return:                                           ; preds = %if.end12, %entry, %if.then6
+  %retval.0 = phi i64 [ 0, %if.then6 ], [ 0, %entry ], [ 1, %if.end12 ]
   ret i64 %retval.0
 }
 

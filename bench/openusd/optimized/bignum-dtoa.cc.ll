@@ -397,11 +397,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10Ei
 
 178:                                              ; preds = %169
   %179 = add nsw i32 %164, %2
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %179, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr %3, ptr noundef %5)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %179, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 180:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr %3, ptr noundef %5)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %2, ptr noundef nonnull %6, ptr noundef %8, ptr noundef %9, ptr %3, ptr noundef %5)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestDigitsEPNS0_6BignumES2_S2_S2_bNS0_6VectorIcEEPi.exit
 
 181:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL15FixupMultiply10EibPiPNS0_6BignumES3_S3_S3_.exit
@@ -420,7 +420,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL22GenerateShortestD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL21GenerateCountedDigitsEiPiPNS0_6BignumES3_NS0_6VectorIcEES1_(i32 noundef %0, ptr nocapture noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = add i32 %0, -1
   %8 = icmp sgt i32 %0, 1
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge37.critedge

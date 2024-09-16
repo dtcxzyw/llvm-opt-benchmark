@@ -7026,7 +7026,7 @@ if.then108:                                       ; preds = %invoke.cont105
           to label %invoke.cont111 unwind label %lpad32
 
 invoke.cont111:                                   ; preds = %if.then108
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %334, ptr noundef %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %334, ptr noundef %errors)
           to label %_ZNSt8optionalIN9grpc_core22XdsRouteConfigResource11RetryPolicyEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit unwind label %lpad113
 
 _ZNSt8optionalIN9grpc_core22XdsRouteConfigResource11RetryPolicyEEaSIS2_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS3_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_ISt6__and_IJSt9is_scalarIS2_ES7_IS2_NSt5decayISA_E4typeEEEEESt16is_constructibleIS2_JSA_EESt13is_assignableIRS2_SA_EEERS3_E4typeEOSA_.exit: ; preds = %invoke.cont111
@@ -9255,7 +9255,7 @@ if.then186.i:                                     ; preds = %invoke.cont183.i
           to label %invoke.cont189.i unwind label %lpad.loopexit.split-lp488.i, !noalias !194
 
 invoke.cont189.i:                                 ; preds = %if.then186.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp190.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %576, ptr noundef nonnull %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp190.i, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %576, ptr noundef nonnull %errors)
           to label %invoke.cont192.i unwind label %lpad191.i, !noalias !194
 
 invoke.cont192.i:                                 ; preds = %invoke.cont189.i
@@ -13616,7 +13616,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %retry_policy_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %retry_policy_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i27 = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1

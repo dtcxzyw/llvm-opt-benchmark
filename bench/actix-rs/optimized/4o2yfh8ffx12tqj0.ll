@@ -6859,7 +6859,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.485.0..sroa_idx, align 8
   %.sroa.586.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %176, ptr %.sroa.586.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h1e52e29bfc2a7b59E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %27)
+  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h1e52e29bfc2a7b59E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %27)
           to label %236 unwind label %.thread418
 
 236:                                              ; preds = %229
@@ -7098,7 +7098,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit293
   store i64 1, ptr %.sroa.436.0..sroa_idx, align 8
   %.sroa.537.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
   store ptr %258, ptr %.sroa.537.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h2bfd0e079e709ca8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %42)
+  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h2bfd0e079e709ca8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %42)
           to label %315 unwind label %.thread418
 
 315:                                              ; preds = %309
@@ -7393,7 +7393,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit311
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h1e52e29bfc2a7b59E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h1e52e29bfc2a7b59E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -7446,7 +7446,7 @@ define internal fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h2bfd0e079e709ca8E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN2h25proto7streams7streams5Inner12recv_headers28_$u7b$$u7b$closure$u7d$$u7d$17h2bfd0e079e709ca8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -8494,7 +8494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit360
   store i64 1, ptr %.sroa.440.0..sroa_idx, align 8
   %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %191, ptr %.sroa.541.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner17recv_push_promise28_$u7b$$u7b$closure$u7d$$u7d$17he8d00f90cd638fedE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %39)
+  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner17recv_push_promise28_$u7b$$u7b$closure$u7d$$u7d$17he8d00f90cd638fedE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %39)
           to label %245 unwind label %390
 
 245:                                              ; preds = %240
@@ -8984,7 +8984,7 @@ common.resume:                                    ; preds = %390, %384
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto7streams7streams5Inner17recv_push_promise28_$u7b$$u7b$closure$u7d$$u7d$17he8d00f90cd638fedE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN2h25proto7streams7streams5Inner17recv_push_promise28_$u7b$$u7b$closure$u7d$$u7d$17he8d00f90cd638fedE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10049,7 +10049,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store i64 1, ptr %.sroa.471.0..sroa_idx, align 8
   %.sroa.572.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 16
   store ptr %87, ptr %.sroa.572.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17hc74e25ed5f37d5e1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %26)
+  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17hc74e25ed5f37d5e1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %26)
           to label %144 unwind label %.thread402
 
 144:                                              ; preds = %138
@@ -10267,7 +10267,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit268
   store i64 1, ptr %.sroa.434.0..sroa_idx, align 8
   %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %165, ptr %.sroa.535.0..sroa_idx, align 8
-  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17h12a51cc7c711c24bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %39)
+  invoke fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17h12a51cc7c711c24bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %39)
           to label %224 unwind label %.thread402
 
 224:                                              ; preds = %218
@@ -10781,7 +10781,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17h12a51cc7c711c24bE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17h12a51cc7c711c24bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10834,7 +10834,7 @@ define internal fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17hc74e25ed5f37d5e1E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN2h25proto7streams7streams5Inner9recv_data28_$u7b$$u7b$closure$u7d$$u7d$17hc74e25ed5f37d5e1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 {
 .critedge:
   %1 = alloca { i64, { ptr, i64 } }, align 8
   %2 = alloca { i64, { ptr, i64 } }, align 8
@@ -10931,7 +10931,7 @@ define hidden void @_ZN2h25proto7streams7streams7Actions24reset_on_recv_stream_e
 38:                                               ; preds = %.invoke, %132, %.noexc95, %.critedge9.i, %107, %45, %134, %96, %95, %75, %66, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.thread, %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..proto..error..Error$GT$$GT$17hc2cadcf24e46fc49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #20
+  invoke fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..proto..error..Error$GT$$GT$17hc2cadcf24e46fc49E"(ptr noalias noundef align 8 dereferenceable(40) %5) #20
           to label %141 unwind label %139
 
 40:                                               ; preds = %26
@@ -11656,7 +11656,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$allo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..proto..error..Error$GT$$GT$17hc2cadcf24e46fc49E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$h2..proto..error..Error$GT$$GT$17hc2cadcf24e46fc49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i8, ptr %0, align 8, !range !327, !noundef !4
   %4 = icmp eq i8 %3, 3

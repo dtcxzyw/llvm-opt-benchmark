@@ -332,7 +332,7 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %oom.i)
   store i8 0, ptr %oom.i, align 1
-  %call.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef nonnull %oom.i, i64 noundef %nallocs, ptr noundef %results, ptr noundef %deferred_work_generated)
+  %call.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef %oom.i, i64 noundef %nallocs, ptr noundef %results, ptr noundef %deferred_work_generated)
   %cmp.i = icmp eq i64 %call.i, %nallocs
   br i1 %cmp.i, label %hpa_alloc_batch_psset.exit, label %lor.lhs.false.i
 
@@ -374,7 +374,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %sub.i = sub i64 %nallocs, %call.i
-  %call1.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef nonnull %oom.i, i64 noundef %sub.i, ptr noundef %results, ptr noundef %deferred_work_generated)
+  %call1.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef %oom.i, i64 noundef %sub.i, ptr noundef %results, ptr noundef %deferred_work_generated)
   %add.i = add i64 %call1.i, %call.i
   %cmp2.i = icmp eq i64 %add.i, %nallocs
   br i1 %cmp2.i, label %return.sink.split.i, label %lor.lhs.false3.i
@@ -429,7 +429,7 @@ malloc_mutex_lock.exit58.i:                       ; preds = %if.then.i.i55.i, %i
   store atomic i8 0, ptr %locked.i59.i monotonic, align 1
   %call1.i61.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i45.i) #8
   %sub14.i = sub i64 %nallocs, %add.i
-  %call15.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef nonnull %oom.i, i64 noundef %sub14.i, ptr noundef %results, ptr noundef %deferred_work_generated)
+  %call15.i = call fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef nonnull %self, i64 noundef %size, ptr noundef %oom.i, i64 noundef %sub14.i, ptr noundef %results, ptr noundef %deferred_work_generated)
   %add16.i = add i64 %call15.i, %add.i
   br label %return.sink.split.i
 
@@ -1753,7 +1753,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef %shard, i64 noundef %size, ptr nocapture noundef writeonly %oom, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) unnamed_addr #1 {
+define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef %shard, i64 noundef %size, ptr nocapture noundef nonnull writeonly %oom, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) unnamed_addr #1 {
 entry:
   %now.i.i = alloca %struct.nstime_t, align 8
   %lock.i.i = getelementptr inbounds i8, ptr %shard, i64 128

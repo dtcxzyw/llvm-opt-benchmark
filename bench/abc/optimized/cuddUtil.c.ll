@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  tail call fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %14)
   tail call void @free(ptr noundef nonnull %14) #23
   br label %20
 
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -546,7 +546,7 @@ define range(i32 0, 2) i32 @Cudd_PrintDebug(ptr noundef %0, ptr noundef %1, i32 
   br i1 %45, label %cuddP.exit.thread, label %cuddP.exit
 
 cuddP.exit:                                       ; preds = %43
-  %46 = tail call fastcc i32 @dp2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %44)
+  %46 = tail call fastcc i32 @dp2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %44)
   tail call void @st__free_table(ptr noundef nonnull %44) #23
   %47 = load ptr, ptr %39, align 8
   %48 = tail call i32 @fputc(i32 noundef 10, ptr noundef %47)
@@ -599,7 +599,7 @@ cuddP.exit.thread:                                ; preds = %43, %cuddP.exit
   br i1 %exitcond.not.i, label %Cudd_PrintMinterm.exit, label %.lr.ph.i, !llvm.loop !4
 
 Cudd_PrintMinterm.exit:                           ; preds = %.lr.ph.i, %.preheader.i
-  tail call fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %63)
+  tail call fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %63)
   tail call void @free(ptr noundef nonnull %63) #23
   br label %69
 
@@ -668,7 +668,7 @@ define double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2)
 13:                                               ; preds = %3
   %14 = tail call double @Cudd_ReadEpsilon(ptr noundef nonnull %0) #23
   tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef 0.000000e+00) #23
-  %15 = tail call fastcc double @ddCountMintermAux(ptr noundef %1, double noundef %ldexp, ptr noundef nonnull %11)
+  %15 = tail call fastcc double @ddCountMintermAux(ptr noundef %1, double noundef %ldexp, ptr noundef %11)
   tail call void @cuddHashTableQuit(ptr noundef nonnull %11) #23
   tail call void @Cudd_SetEpsilon(ptr noundef nonnull %0, double noundef %14) #23
   br label %16
@@ -685,7 +685,7 @@ define range(i32 0, 2) i32 @cuddP(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call fastcc i32 @dp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %6 = tail call fastcc i32 @dp2(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @st__free_table(ptr noundef nonnull %3) #23
   %7 = getelementptr inbounds i8, ptr %0, i64 608
   %8 = load ptr, ptr %7, align 8
@@ -798,7 +798,7 @@ define i32 @Cudd_EstimateCofactor(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
-  %12 = call fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %11, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %5)
+  %12 = call fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %6, ptr noundef %11, i32 noundef %2, i32 noundef %3, ptr noundef %5)
   call fastcc void @ddClearFlag(ptr noundef %11)
   call void @st__free_table(ptr noundef nonnull %6) #23
   br label %13
@@ -815,7 +815,7 @@ declare i32 @st__ptrcmp(ptr noundef, ptr noundef) #4
 declare i32 @st__ptrhash(ptr noundef, i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -826,12 +826,12 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %6
-  %14 = tail call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %5) #23
+  %14 = tail call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %5) #23
   %.not91 = icmp eq i32 %14, 0
   br i1 %.not91, label %15, label %190
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %16 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
   %17 = icmp eq i32 %16, -10000
   br i1 %17, label %190, label %18
 
@@ -849,7 +849,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
 
 24:                                               ; preds = %19
   store ptr %2, ptr %5, align 8
-  %25 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %25 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
   %26 = icmp eq i32 %25, -10000
   %. = select i1 %26, i32 -1, i32 1
   br label %190
@@ -887,7 +887,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %5, align 8
-  %47 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %46) #23
+  %47 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %46) #23
   %48 = icmp eq i32 %47, -10000
   br i1 %48, label %190, label %49
 
@@ -923,7 +923,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   br i1 %72, label %73, label %76
 
 73:                                               ; preds = %60
-  %74 = tail call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
+  %74 = tail call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %2) #23
   %75 = icmp eq i32 %74, -10000
   br i1 %75, label %190, label %76
 
@@ -935,13 +935,13 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
 79:                                               ; preds = %50
   %80 = getelementptr inbounds i8, ptr %2, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = call fastcc i32 @cuddEstimateCofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %81, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7)
+  %82 = call fastcc i32 @cuddEstimateCofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %81, i32 noundef %3, i32 noundef %4, ptr noundef %7)
   %83 = getelementptr inbounds i8, ptr %2, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = ptrtoint ptr %84 to i64
   %86 = and i64 %85, -2
   %87 = inttoptr i64 %86 to ptr
-  %88 = call fastcc i32 @cuddEstimateCofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %87, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %8)
+  %88 = call fastcc i32 @cuddEstimateCofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %87, i32 noundef %3, i32 noundef %4, ptr noundef %8)
   %89 = load ptr, ptr %8, align 8
   %90 = ptrtoint ptr %89 to i64
   %91 = load ptr, ptr %83, align 8
@@ -962,7 +962,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   br i1 %101, label %102, label %189
 
 102:                                              ; preds = %98
-  %103 = call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef %96) #23
+  %103 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %96) #23
   %104 = icmp eq i32 %103, -10000
   br i1 %104, label %190, label %189
 
@@ -1077,7 +1077,7 @@ define internal fastcc i32 @cuddEstimateCofactor(ptr noundef %0, ptr noundef %1,
   br i1 %183, label %184, label %189
 
 184:                                              ; preds = %174
-  %185 = call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %.131.i) #23
+  %185 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %.131.i) #23
   %186 = icmp eq i32 %185, -10000
   br i1 %186, label %190, label %189
 
@@ -1214,7 +1214,7 @@ declare double @Cudd_ReadEpsilon(ptr noundef) local_unnamed_addr #4
 declare void @Cudd_SetEpsilon(ptr noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -1240,7 +1240,7 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   br i1 %.not, label %36, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @cuddHashTableLookup1(ptr noundef %2, ptr noundef %0) #23
+  %19 = tail call ptr @cuddHashTableLookup1(ptr noundef nonnull %2, ptr noundef %0) #23
   %.not50 = icmp eq ptr %19, null
   br i1 %.not50, label %36, label %20
 
@@ -1304,7 +1304,7 @@ define internal fastcc double @ddCountMintermAux(ptr noundef %0, double noundef 
   %61 = getelementptr inbounds i8, ptr %2, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @cuddUniqueConst(ptr noundef %62, double noundef %56) #23
-  %64 = tail call i32 @cuddHashTableInsert1(ptr noundef %2, ptr noundef %0, ptr noundef %63, i64 noundef %60) #23
+  %64 = tail call i32 @cuddHashTableInsert1(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %63, i64 noundef %60) #23
   %.not53 = icmp eq i32 %64, 0
   br i1 %.not53, label %65, label %73
 
@@ -1337,7 +1337,7 @@ define double @Cudd_CountPath(ptr noundef %0) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
-  %8 = tail call fastcc double @ddCountPathAux(ptr noundef %7, ptr noundef nonnull %2)
+  %8 = tail call fastcc double @ddCountPathAux(ptr noundef %7, ptr noundef %2)
   %9 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #23
   tail call void @st__free_table(ptr noundef nonnull %2) #23
   br label %10
@@ -1348,14 +1348,14 @@ define double @Cudd_CountPath(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 2147483647
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @st__lookup(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %3) #23
+  %7 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %3) #23
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %11, label %8
 
@@ -1389,7 +1389,7 @@ define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef %1) un
 27:                                               ; preds = %24
   %28 = fadd double %16, %22
   store double %28, ptr %25, align 8
-  %29 = call i32 @st__add_direct(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %25) #23
+  %29 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %25) #23
   %30 = icmp eq i32 %29, -10000
   br i1 %30, label %31, label %32
 
@@ -1443,7 +1443,7 @@ define range(i32 -1, 1) i32 @Cudd_EpdCountMinterm(ptr nocapture noundef readonly
   %18 = ptrtoint ptr %1 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = call fastcc i32 @ddEpdCountMintermAux(ptr noundef %20, ptr noundef nonnull %5, ptr noundef %3, ptr noundef nonnull %14)
+  %21 = call fastcc i32 @ddEpdCountMintermAux(ptr noundef %20, ptr noundef %5, ptr noundef %3, ptr noundef %14)
   %22 = call i32 @st__foreach(ptr noundef nonnull %14, ptr noundef nonnull @ddEpdFree, ptr noundef null) #23
   call void @st__free_table(ptr noundef nonnull %14) #23
   %23 = icmp eq i32 %21, -1
@@ -1475,7 +1475,7 @@ declare i32 @EpdCmp(ptr noundef, ptr noundef) #4
 declare void @EpdMakeZero(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.EpDoubleStruct, align 8
   %6 = alloca %struct.EpDoubleStruct, align 8
   %7 = alloca ptr, align 8
@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br label %49
 
 16:                                               ; preds = %10
-  tail call void @EpdCopy(ptr noundef %1, ptr noundef %2) #23
+  tail call void @EpdCopy(ptr noundef nonnull %1, ptr noundef %2) #23
   br label %49
 
 17:                                               ; preds = %4
@@ -1506,7 +1506,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %.not, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = call i32 @st__lookup(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  %21 = call i32 @st__lookup(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %7) #23
   %.not35 = icmp eq i32 %21, 0
   br i1 %.not35, label %24, label %22
 
@@ -1539,7 +1539,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
   br i1 %.not36, label %40, label %39
 
 39:                                               ; preds = %37
-  call void @EpdSubtract3(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2) #23
+  call void @EpdSubtract3(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %2) #23
   call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %6) #23
   br label %40
 
@@ -1557,7 +1557,7 @@ define internal fastcc range(i32 -1, 1) i32 @ddEpdCountMintermAux(ptr noundef %0
 
 45:                                               ; preds = %43
   call void @EpdCopy(ptr noundef %2, ptr noundef nonnull %44) #23
-  %46 = call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull %44) #23
+  %46 = call i32 @st__insert(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %44) #23
   %47 = icmp eq i32 %46, -10000
   br i1 %47, label %48, label %49
 
@@ -1587,7 +1587,7 @@ define double @Cudd_CountPathsToNonZero(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef nonnull %2)
+  %5 = tail call fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef %2)
   %6 = tail call i32 @st__foreach(ptr noundef nonnull %2, ptr noundef nonnull @cuddStCountfree, ptr noundef null) #23
   tail call void @st__free_table(ptr noundef nonnull %2) #23
   br label %7
@@ -1598,7 +1598,7 @@ define double @Cudd_CountPathsToNonZero(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
@@ -1620,7 +1620,7 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
   br label %45
 
 16:                                               ; preds = %2
-  %17 = call i32 @st__lookup(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %3) #23
+  %17 = call i32 @st__lookup(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %3) #23
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %21, label %18
 
@@ -1660,7 +1660,7 @@ define internal fastcc double @ddCountPathsToNonZero(ptr noundef %0, ptr noundef
 40:                                               ; preds = %37
   %41 = fadd double %29, %35
   store double %41, ptr %38, align 8
-  %42 = call i32 @st__add_direct(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %38) #23
+  %42 = call i32 @st__add_direct(ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %38) #23
   %43 = icmp eq i32 %42, -10000
   br i1 %43, label %44, label %45
 
@@ -1705,7 +1705,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %18, ptr noundef nonnull %9)
+  tail call fastcc void @ddSupportStep(ptr noundef %18, ptr noundef %9)
   tail call fastcc void @ddClearFlag(ptr noundef %18)
   %19 = getelementptr inbounds i8, ptr %0, i64 448
   %20 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1833,7 +1833,7 @@ define ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddSupportStep(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @ddSupportStep(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 2147483647
   br i1 %4, label %common.ret10, label %5
@@ -1906,7 +1906,7 @@ define noundef ptr @Cudd_SupportIndex(ptr nocapture noundef %0, ptr noundef %1) 
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %18, ptr noundef nonnull %9)
+  tail call fastcc void @ddSupportStep(ptr noundef %18, ptr noundef %9)
   tail call fastcc void @ddClearFlag(ptr noundef %18)
   br label %19
 
@@ -1938,7 +1938,7 @@ define i32 @Cudd_SupportSize(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %14 = ptrtoint ptr %1 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %16, ptr noundef nonnull %9)
+  tail call fastcc void @ddSupportStep(ptr noundef %16, ptr noundef %9)
   tail call fastcc void @ddClearFlag(ptr noundef %16)
   %wide.trip.count = zext nneg i32 %. to i64
   br label %.lr.ph35
@@ -1964,7 +1964,7 @@ define i32 @Cudd_SupportSize(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %23 = ptrtoint ptr %1 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %25, ptr noundef nonnull %9)
+  tail call fastcc void @ddSupportStep(ptr noundef %25, ptr noundef %9)
   tail call fastcc void @ddClearFlag(ptr noundef %25)
   br label %._crit_edge36
 
@@ -2025,7 +2025,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr nocapture noundef readonly %1
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef nonnull %10)
+  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph77.preheader, label %.lr.ph75, !llvm.loop !18
@@ -2191,7 +2191,7 @@ define noundef ptr @Cudd_VectorSupportIndex(ptr nocapture noundef %0, ptr nocapt
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef nonnull %10)
+  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph35.preheader, label %.lr.ph33, !llvm.loop !21
@@ -2259,7 +2259,7 @@ define i32 @Cudd_VectorSupportSize(ptr nocapture noundef %0, ptr nocapture nound
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, -2
   %22 = inttoptr i64 %21 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef nonnull %10)
+  tail call fastcc void @ddSupportStep(ptr noundef %22, ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph47.preheader, label %.lr.ph45, !llvm.loop !23
@@ -2349,12 +2349,12 @@ define range(i32 0, 2) i32 @Cudd_ClassifySupport(ptr noundef %0, ptr noundef %1,
   %25 = ptrtoint ptr %1 to i64
   %26 = and i64 %25, -2
   %27 = inttoptr i64 %26 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %27, ptr noundef nonnull %13)
+  tail call fastcc void @ddSupportStep(ptr noundef %27, ptr noundef %13)
   tail call fastcc void @ddClearFlag(ptr noundef %27)
   %28 = ptrtoint ptr %2 to i64
   %29 = and i64 %28, -2
   %30 = inttoptr i64 %29 to ptr
-  tail call fastcc void @ddSupportStep(ptr noundef %30, ptr noundef nonnull %18)
+  tail call fastcc void @ddSupportStep(ptr noundef %30, ptr noundef %18)
   tail call fastcc void @ddClearFlag(ptr noundef %30)
   %31 = getelementptr inbounds i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
@@ -3806,7 +3806,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader353, %162
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ddPickArbitraryMinterms(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ddPickArbitraryMinterms(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %._crit_edge80, label %.lr.ph79
 
@@ -5545,7 +5545,7 @@ define noalias noundef ptr @Cudd_FirstNode(ptr noundef %0, ptr noundef %1, ptr n
   br label %33
 
 26:                                               ; preds = %11
-  %27 = tail call fastcc i32 @cuddNodeArrayRecur(ptr noundef %18, ptr noundef nonnull %22, i32 noundef 0)
+  %27 = tail call fastcc i32 @cuddNodeArrayRecur(ptr noundef %18, ptr noundef %22, i32 noundef 0)
   %28 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %22, ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %7, i64 16
@@ -5582,7 +5582,7 @@ define noundef ptr @cuddNodeArray(ptr noundef %0, ptr nocapture noundef writeonl
   br label %14
 
 12:                                               ; preds = %2
-  %13 = tail call fastcc i32 @cuddNodeArrayRecur(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 0)
+  %13 = tail call fastcc i32 @cuddNodeArrayRecur(ptr noundef %0, ptr noundef %9, i32 noundef 0)
   store i32 %6, ptr %1, align 4
   br label %14
 
@@ -6024,7 +6024,7 @@ define void @Cudd_OutOfMem(i64 noundef %0) local_unnamed_addr #16 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %70, label %5
 
@@ -6049,12 +6049,12 @@ define internal fastcc range(i32 0, 2) i32 @dp2(ptr noundef %0, ptr noundef %1, 
   br label %70
 
 20:                                               ; preds = %5
-  %21 = tail call i32 @st__lookup(ptr noundef %2, ptr noundef nonnull %8, ptr noundef null) #23
+  %21 = tail call i32 @st__lookup(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #23
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %70, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @st__add_direct(ptr noundef %2, ptr noundef nonnull %8, ptr noundef null) #23
+  %24 = tail call i32 @st__add_direct(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef null) #23
   %25 = icmp eq i32 %24, -10000
   br i1 %25, label %70, label %26
 
@@ -6181,7 +6181,7 @@ declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @st__add_direct(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @cuddNodeArrayRecur(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc i32 @cuddNodeArrayRecur(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64

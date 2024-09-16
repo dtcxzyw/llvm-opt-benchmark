@@ -6260,7 +6260,7 @@ _ZNK4llvm6object6Binary14isLittleEndianEv.exit.i: ; preds = %.thread248.i, %swit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %622, i8 0, i64 96, i1 false), !noalias !719
   %626 = getelementptr inbounds nuw i8, ptr %610, i64 384
   store i8 0, ptr %626, align 8, !noalias !719
-  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 3), !noalias !703
+  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 3), !noalias !703
   %627 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %628 = load i8, ptr %627, align 8, !noalias !703
   %629 = trunc i8 %628 to i1
@@ -6301,7 +6301,7 @@ _ZN4llvm8ExpectedISt6vectorINS_6object10SectionRefESaIS3_EEED2Ev.exit.i.i.i: ; p
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !703
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !703
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !703
-  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 12), !noalias !703
+  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 12), !noalias !703
   %640 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %641 = load i8, ptr %640, align 8, !noalias !703
   %642 = and i8 %641, 1
@@ -6404,7 +6404,7 @@ _ZN4llvm5ErrorD2Ev.exit81.i129:                   ; preds = %674
   br label %_ZN4llvm8ExpectedISt6vectorINS_6object10SectionRefESaIS3_EEED2Ev.exit142.i
 
 _ZN4llvm5ErrorD2Ev.exit82.i:                      ; preds = %674
-  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 8), !noalias !703
+  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 8), !noalias !703
   %677 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %678 = load i8, ptr %677, align 8, !noalias !744
   %679 = trunc i8 %678 to i1
@@ -6498,7 +6498,7 @@ _ZN4llvm5ErrorD2Ev.exit91.i130:                   ; preds = %_ZNSt6vectorIN4llvm
   %713 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %714 = load i64, ptr %713, align 8, !noalias !755
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !703
-  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 9), !noalias !703
+  call fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0234.2.i, i32 noundef 9), !noalias !703
   store ptr null, ptr %28, align 8, !noalias !703
   %715 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %716 = load i8, ptr %715, align 8, !noalias !758
@@ -8481,7 +8481,7 @@ declare void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 derefer
 declare void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, i32, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14lookupSectionsRN4llvm6object10ObjectFileENS_17InstrProfSectKindE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 3, 13) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::StringRef", align 8

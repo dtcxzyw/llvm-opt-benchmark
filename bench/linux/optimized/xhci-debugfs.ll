@@ -633,7 +633,7 @@ define dso_local void @xhci_debugfs_init(ptr noundef %0) local_unnamed_addr #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xhci_debugfs_regset(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ...) unnamed_addr #0 align 16 {
+define internal void @xhci_debugfs_regset(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef range(i64 2, 15) %3, ptr noundef %4, ptr nocapture noundef readonly %5, ...) unnamed_addr #0 align 16 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   %8 = load ptr, ptr %0, align 8
@@ -681,7 +681,7 @@ define internal void @xhci_debugfs_regset(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @xhci_debugfs_extcap_regset(ptr noundef %0, i32 noundef range(i32 1, 11) %1, ptr noundef %2, i64 noundef range(i64 2, 15) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 16
@@ -1546,7 +1546,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef nonnull ptr @xhci_trb_type_string(i8 noundef zeroext %0) unnamed_addr #7 align 16 {
+define internal fastcc noundef nonnull ptr @xhci_trb_type_string(i8 noundef zeroext range(i8 0, 64) %0) unnamed_addr #7 align 16 {
   switch i8 %0, label %34 [
     i8 1, label %35
     i8 2, label %2

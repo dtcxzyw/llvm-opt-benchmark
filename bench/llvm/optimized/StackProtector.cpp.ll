@@ -844,7 +844,7 @@ _ZNK4llvm11ConstantInt15getLimitedValueEm.exit.thread: ; preds = %_ZNK4llvm5APIn
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit: ; preds = %180, %164, %189
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull %142, ptr nonnull %15)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %142, ptr %15)
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
 194:                                              ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit
@@ -914,7 +914,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSP
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit114
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit114: ; preds = %216, %200, %225
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull %142, ptr nonnull %15)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %142, ptr %15)
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
 230:                                              ; preds = %147
@@ -981,7 +981,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSP
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit132
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6insertEOSt4pairIS4_S6_E.exit132: ; preds = %251, %235, %260
-  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr nonnull %142, ptr nonnull %15)
+  call fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %142, ptr %15)
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit
 
 265:                                              ; preds = %145
@@ -2725,7 +2725,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZNK4llvm10AllocaInst17isArrayAllocationEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr nocapture readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm25OptimizationRemarkEmitter4emitIZNS_17SSPLayoutAnalysis22requiresStackProtectorEPNS_8FunctionEPNS_8DenseMapIPKNS_10AllocaInstENS_16MachineFrameInfo13SSPLayoutKindENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEEE3$_1EEvT_PDTclfL0p_EE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %5 = alloca %"class.llvm::OptimizationRemark", align 8
   %6 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
@@ -2750,7 +2750,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread: ; preds = %3, %_ZNK4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6)
-  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull @.str, ptr nonnull @.str.26, i64 27, ptr noundef %1) #20, !noalias !64
+  call void @_ZN4llvm18OptimizationRemarkC1EPKcNS_9StringRefEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(432) %5, ptr noundef nonnull @.str, ptr nonnull @.str.26, i64 27, ptr noundef nonnull %1) #20, !noalias !64
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase6insertENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(424) %5, ptr nonnull @.str.23, i64 37) #20, !noalias !64
   %18 = load ptr, ptr %2, align 8, !noalias !64
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(80) %6, ptr nonnull @.str.24, i64 8, ptr noundef %18) #20, !noalias !64

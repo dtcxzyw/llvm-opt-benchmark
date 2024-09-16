@@ -140,7 +140,7 @@ define internal i32 @ft_black_render(ptr noundef readnone %0, ptr nocapture noun
   %storemerge.idx = sext i32 %narrow to i64
   %storemerge = getelementptr inbounds i8, ptr %42, i64 %storemerge.idx
   store ptr %storemerge, ptr %52, align 16
-  %55 = call fastcc i32 @Render_Glyph(ptr noundef nonnull %3)
+  %55 = call fastcc i32 @Render_Glyph(ptr noundef %3)
   br label %56
 
 56:                                               ; preds = %40, %35, %38, %34, %30, %23, %17, %20, %8, %13, %7, %2, %43
@@ -411,7 +411,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Render_Glyph(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @Render_Glyph(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [2048 x i64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %3, align 8
@@ -455,7 +455,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef %0) unnamed_addr #0 {
   store ptr @Vertical_Sweep_Step, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 176
   %26 = load i32, ptr %25, align 8
-  %27 = call fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 noundef signext 0, i32 noundef %26)
+  %27 = call fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signext 0, i32 noundef %26)
   %.not32 = icmp eq i32 %27, 0
   br i1 %.not32, label %28, label %36
 
@@ -472,7 +472,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef %0) unnamed_addr #0 {
   store ptr @Horizontal_Sweep_Step, ptr %24, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 180
   %33 = load i32, ptr %32, align 4
-  %34 = call fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 noundef signext 1, i32 noundef %33)
+  %34 = call fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signext 1, i32 noundef %33)
   %.not34 = icmp eq i32 %34, 0
   br i1 %.not34, label %35, label %36
 
@@ -669,7 +669,7 @@ define internal void @Vertical_Sweep_Step(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 noundef signext range(i8 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -860,7 +860,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %116 = sub nsw i64 %115, %111
   %spec.select.i.i = select i1 %.not.i.i, i64 %112, i64 %116
   %spec.select200.i.i = select i1 %.not.i.i, i64 %116, i64 %112
-  %117 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %spec.select.i.i, i64 noundef %spec.select200.i.i)
+  %117 = tail call fastcc signext i8 @Line_To(ptr noundef %0, i64 noundef %spec.select.i.i, i64 noundef %spec.select200.i.i)
   %.not195.i.i = icmp eq i8 %117, 0
   br i1 %.not195.i.i, label %.backedge.i.i, label %.loopexit
 
@@ -918,7 +918,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %150 = sdiv i64 %149, 2
   %151 = add nsw i64 %147, %.sroa.9.1.us.i.i
   %152 = sdiv i64 %151, 2
-  %153 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.095.1.us.i.i, i64 noundef %.sroa.9.1.us.i.i, i64 noundef %150, i64 noundef %152)
+  %153 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.sroa.095.1.us.i.i, i64 noundef %.sroa.9.1.us.i.i, i64 noundef %150, i64 noundef %152)
   %.not193.us.i.i = icmp eq i8 %153, 0
   br i1 %.not193.us.i.i, label %.split.us.i.i, label %.loopexit
 
@@ -958,7 +958,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %.us-phi233.i.i = phi i64 [ %147, %132 ], [ %166, %155 ]
   %.us-phi234.i.i = phi i64 [ %.sroa.095.1.us.i.i, %132 ], [ %.sroa.095.1.i.i, %155 ]
   %.us-phi235.i.i = phi i64 [ %.sroa.9.1.us.i.i, %132 ], [ %.sroa.9.1.i.i, %155 ]
-  %171 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.us-phi234.i.i, i64 noundef %.us-phi235.i.i, i64 noundef %.us-phi232.i.i, i64 noundef %.us-phi233.i.i)
+  %171 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.us-phi234.i.i, i64 noundef %.us-phi235.i.i, i64 noundef %.us-phi232.i.i, i64 noundef %.us-phi233.i.i)
   %.not194.i.i = icmp eq i8 %171, 0
   br i1 %.not194.i.i, label %.backedge.i.i, label %.loopexit
 
@@ -967,7 +967,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %174 = sdiv i64 %173, 2
   %175 = add nsw i64 %166, %.sroa.9.1.i.i
   %176 = sdiv i64 %175, 2
-  %177 = tail call fastcc signext i8 @Conic_To(ptr noundef nonnull %0, i64 noundef %.sroa.095.1.i.i, i64 noundef %.sroa.9.1.i.i, i64 noundef %174, i64 noundef %176)
+  %177 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.sroa.095.1.i.i, i64 noundef %.sroa.9.1.i.i, i64 noundef %174, i64 noundef %176)
   %.not193.i.i = icmp eq i8 %177, 0
   br i1 %.not193.i.i, label %.split.i.i, label %.loopexit
 
@@ -1034,17 +1034,17 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %216 = sub nsw i64 %215, %194
   %spec.select205.i.i = select i1 %.not.i.i, i64 %212, i64 %216
   %spec.select206.i.i = select i1 %.not.i.i, i64 %216, i64 %212
-  %217 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %spec.select205.i.i, i64 noundef %spec.select206.i.i)
+  %217 = tail call fastcc signext i8 @Cubic_To(ptr noundef %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %spec.select205.i.i, i64 noundef %spec.select206.i.i)
   %.not199.i.i = icmp eq i8 %217, 0
   br i1 %.not199.i.i, label %.backedge.i.i, label %.loopexit
 
 218:                                              ; preds = %208
-  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
+  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not198.i.i = icmp eq i8 %219, 0
   br i1 %.not198.i.i, label %221, label %.loopexit
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %99
-  %220 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
+  %220 = tail call fastcc signext i8 @Line_To(ptr noundef %0, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not190.i.i = icmp eq i8 %220, 0
   br i1 %.not190.i.i, label %221, label %.loopexit
 
@@ -1094,7 +1094,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   br label %246
 
 246:                                              ; preds = %243, %234, %232, %230, %223
-  %247 = tail call fastcc signext i8 @End_Profile(ptr noundef nonnull %0)
+  %247 = tail call fastcc signext i8 @End_Profile(ptr noundef %0)
   %.not44.i = icmp eq i8 %247, 0
   br i1 %.not44.i, label %248, label %.loopexit
 
@@ -1426,7 +1426,7 @@ Convert_Glyph.exit:                               ; preds = %266, %256
   %393 = load i64, ptr %392, align 8
   %394 = getelementptr inbounds i8, ptr %.1103171.i, i64 32
   %395 = load i64, ptr %394, align 8
-  tail call void %391(ptr noundef %0, i32 noundef %.197.i, i64 noundef %393, i64 noundef %395) #10
+  tail call void %391(ptr noundef nonnull %0, i32 noundef %.197.i, i64 noundef %393, i64 noundef %395) #10
   %396 = load i16, ptr %387, align 4
   %397 = and i16 %396, -65
   store i16 %397, ptr %387, align 4
@@ -1440,7 +1440,7 @@ Convert_Glyph.exit:                               ; preds = %266, %256
 
 ._crit_edge174.i:                                 ; preds = %399, %.preheader.i, %313
   %400 = load ptr, ptr %34, align 8
-  tail call void %400(ptr noundef %0) #10
+  tail call void %400(ptr noundef nonnull %0) #10
   %.not37.i.i = icmp eq ptr %.0..0..0..0..0104161.i, null
   br i1 %.not37.i.i, label %Increment.exit.i, label %.lr.ph.i.i37
 
@@ -1809,7 +1809,7 @@ define internal void @Horizontal_Sweep_Step(ptr nocapture readnone %0) #1 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2024,7 +2024,7 @@ Insert_Y_Turns.exit:                              ; preds = %.critedge.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %2, %5
@@ -2043,12 +2043,12 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef 
   br i1 %.not33, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call fastcc signext i8 @End_Profile(ptr noundef nonnull %0)
+  %14 = tail call fastcc signext i8 @End_Profile(ptr noundef %0)
   %.not34 = icmp eq i8 %14, 0
   br i1 %.not34, label %15, label %35
 
 15:                                               ; preds = %13, %12
-  %16 = tail call fastcc signext i8 @New_Profile(ptr noundef nonnull %0, i32 noundef %9)
+  %16 = tail call fastcc signext i8 @New_Profile(ptr noundef %0, i32 noundef %9)
   %.not35 = icmp eq i8 %16, 0
   br i1 %.not35, label %17, label %35
 
@@ -2063,7 +2063,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef 
   br i1 %8, label %25, label %27
 
 25:                                               ; preds = %17
-  %26 = tail call fastcc signext i8 @Line_Up(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %20, i64 noundef %1, i64 noundef %2, i64 noundef %22, i64 noundef %24)
+  %26 = tail call fastcc signext i8 @Line_Up(ptr noundef %0, i64 noundef %19, i64 noundef %20, i64 noundef %1, i64 noundef %2, i64 noundef %22, i64 noundef %24)
   %.not37 = icmp eq i8 %26, 0
   br i1 %.not37, label %33, label %35
 
@@ -2072,7 +2072,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef 
   %29 = sub nsw i64 0, %2
   %30 = sub nsw i64 0, %24
   %31 = sub nsw i64 0, %22
-  %32 = tail call fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %28, i64 noundef %1, i64 noundef %29, i64 noundef %30, i64 noundef %31)
+  %32 = tail call fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef %0, i64 noundef %19, i64 noundef %28, i64 noundef %1, i64 noundef %29, i64 noundef %30, i64 noundef %31)
   %.not36 = icmp eq i8 %32, 0
   br i1 %.not36, label %33, label %35
 
@@ -2088,7 +2088,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_To(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 {
+define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #6 {
   %6 = alloca [65 x %struct.TPoint_], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
@@ -2193,12 +2193,12 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr nocapture noundef
   br i1 %.not73, label %74, label %72
 
 72:                                               ; preds = %71
-  %73 = call fastcc signext i8 @End_Profile(ptr noundef nonnull %0)
+  %73 = call fastcc signext i8 @End_Profile(ptr noundef %0)
   %.not74 = icmp eq i8 %73, 0
   br i1 %.not74, label %74, label %.loopexit
 
 74:                                               ; preds = %72, %71
-  %75 = call fastcc signext i8 @New_Profile(ptr noundef nonnull %0, i32 noundef %69)
+  %75 = call fastcc signext i8 @New_Profile(ptr noundef %0, i32 noundef %69)
   %.not75 = icmp eq i8 %75, 0
   br i1 %.not75, label %76, label %.loopexit
 
@@ -2577,7 +2577,7 @@ Bezier_Up.exit.thread:                            ; preds = %109, %79, %178, %Be
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca [97 x %struct.TPoint_], align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
@@ -2705,12 +2705,12 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef
   br i1 %.not90, label %91, label %89
 
 89:                                               ; preds = %88
-  %90 = call fastcc signext i8 @End_Profile(ptr noundef nonnull %0)
+  %90 = call fastcc signext i8 @End_Profile(ptr noundef %0)
   %.not91 = icmp eq i8 %90, 0
   br i1 %.not91, label %91, label %115
 
 91:                                               ; preds = %89, %88
-  %92 = call fastcc signext i8 @New_Profile(ptr noundef nonnull %0, i32 noundef %86)
+  %92 = call fastcc signext i8 @New_Profile(ptr noundef %0, i32 noundef %86)
   %.not92 = icmp eq i8 %92, 0
   br i1 %.not92, label %93, label %115
 
@@ -2720,7 +2720,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef
   br i1 %85, label %96, label %98
 
 96:                                               ; preds = %93
-  %97 = call fastcc signext i8 @Bezier_Up(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %.0, ptr noundef nonnull @Split_Cubic, i64 noundef %94, i64 noundef %95)
+  %97 = call fastcc signext i8 @Bezier_Up(ptr noundef %0, i32 noundef 3, ptr noundef %.0, ptr noundef nonnull @Split_Cubic, i64 noundef %94, i64 noundef %95)
   %.not94 = icmp eq i8 %97, 0
   br i1 %.not94, label %112, label %115
 
@@ -2739,7 +2739,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef
   store i64 %106, ptr %26, align 8
   %107 = sub nsw i64 0, %95
   %108 = sub nsw i64 0, %94
-  %109 = call fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %.0, ptr noundef nonnull readonly @Split_Cubic, i64 noundef %107, i64 noundef %108)
+  %109 = call fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef %0, i32 noundef 3, ptr noundef %.0, ptr noundef nonnull readonly @Split_Cubic, i64 noundef %107, i64 noundef %108)
   %110 = load i64, ptr %32, align 8
   %111 = sub nsw i64 0, %110
   store i64 %111, ptr %32, align 8
@@ -2763,7 +2763,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Cubic_To(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr nocapture noundef nonnull %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2913,7 +2913,7 @@ define internal fastcc signext range(i8 0, 2) i8 @New_Profile(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = icmp slt i64 %4, %5
   %9 = icmp sgt i64 %2, %6
   %or.cond = or i1 %8, %9
@@ -3059,7 +3059,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
 declare hidden i64 @FT_MulDiv_No_Round(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = zext nneg i32 %1 to i64
   %8 = getelementptr inbounds %struct.TPoint_, ptr %2, i64 %7, i32 1
   %9 = load i64, ptr %8, align 8

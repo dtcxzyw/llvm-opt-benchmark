@@ -21395,7 +21395,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %1404
 
 1403:                                             ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_L12getBuiltPathENS0_3refINS0_5StoreEEES4_RKNS0_17SingleDerivedPathEE3$_0ZNS0_L12getBuiltPathES4_S4_S7_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit.i"
-  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull readonly align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %1368)
+  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull readonly align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(48) %1368)
           to label %1404 unwind label %.loopexit850
 
 1404:                                             ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix15SingleBuiltPathEEEONS4_10overloadedIJZNS4_L12getBuiltPathENS4_3refINS4_5StoreEEESA_RKNS4_17SingleDerivedPathEE3$_0ZNS4_L12getBuiltPathESA_SA_SD_E3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_22SingleDerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i", %1403
@@ -25201,7 +25201,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %2850
 
 2849:                                             ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_L12getBuiltPathENS0_3refINS0_5StoreEEES4_RKNS0_17SingleDerivedPathEE3$_0ZNS0_L12getBuiltPathES4_S4_S7_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit.i455"
-  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(48) %2834)
+  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull readonly align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(48) %2834)
           to label %2850 unwind label %.loopexit883
 
 2850:                                             ; preds = %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix15SingleBuiltPathEEEONS4_10overloadedIJZNS4_L12getBuiltPathENS4_3refINS4_5StoreEEESA_RKNS4_17SingleDerivedPathEE3$_0ZNS4_L12getBuiltPathESA_SA_SD_E3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_22SingleDerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i.i460", %2849
@@ -27794,7 +27794,7 @@ _ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_16DerivedPathBuiltEEERKNSt19variant_a
 _ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE10_Auto_nodeD2Ev.exit.i: ; preds = %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_16DerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit56.thread96.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit56.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit45.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit34.thread88.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit34.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit23.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit.thread80.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit.i.i
   %277 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef nonnull %65) #30
+  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef %65) #30
   br label %common.resume.i
 
 278:                                              ; preds = %272, %_ZSt3getILm1EJN3nix17DerivedPathOpaqueENS0_16DerivedPathBuiltEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKS7_.exit.i.i.i.i.i.i.i.i.i.i, %266, %_ZNKSt8__detail10_Synth3wayclIN3nix9StorePathES3_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i14, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i.i.i.i.i15, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %246, %.thread9.i
@@ -27808,7 +27808,7 @@ _ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build
 
 .thread.i:                                        ; preds = %244, %.noexc15.i, %201, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i41.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i.i43.i.i, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i44.i.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit23.thread84.i.thread.i, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit23.thread84.i.i
   %.sroa.01.0.ph.i = phi ptr [ %.sroa.077.0.i.i, %244 ], [ %.08.lcssa.i.i.i21, %201 ], [ %.08.lcssa.i.i.i21, %.noexc15.i ], [ %.08.lcssa.i.i.i21, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit23.thread84.i.i ], [ %.08.lcssa.i.i.i21, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i41.i.i ], [ %.08.lcssa.i.i.i21, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i.i43.i.i ], [ %.08.lcssa.i.i.i21, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i44.i.i ], [ %.08.lcssa.i.i.i21, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit23.thread84.i.thread.i ]
-  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef nonnull %65) #30
+  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef %65) #30
   br label %_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESU_IJEEEEESt17_Rb_tree_iteratorISJ_ESt23_Rb_tree_const_iteratorISJ_EDpOT_.exit
 
 _ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS3_EESU_IJEEEEESt17_Rb_tree_iteratorISJ_ESt23_Rb_tree_const_iteratorISJ_EDpOT_.exit: ; preds = %41, %_ZNK3nix9StorePathltERKS0_.exit.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread16.i.i.i.i.i.i.i.i.i.i.i, %_ZNK3nix9StorePathltERKS0_.exit.thread.i.i.i.i.i.i.i.i.i.i.i, %37, %.thread.i, %278, %58, %_ZNKSt4lessIN3nix11DerivedPathEEclERKS1_S4_.exit
@@ -52461,7 +52461,7 @@ declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 derefere
 declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nix::DerivedPathOpaque", align 8
   %5 = alloca %class.anon.949, align 1
   %6 = alloca %"struct.nix::DerivedPathOpaque", align 8
@@ -52605,7 +52605,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %65
 
 64:                                               ; preds = %"_ZSt5visitIN3nix10overloadedIJZNS0_L12getBuiltPathENS0_3refINS0_5StoreEEES4_RKNS0_17SingleDerivedPathEE3$_0ZNS0_L12getBuiltPathES4_S4_S7_E3$_1EEEJRKSt7variantIJNS0_17DerivedPathOpaqueENS0_22SingleDerivedPathBuiltEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISK_EEEEE4typeEE4typeEOST_EEEE4typeEOSI_DpOSK_.exit.i"
-  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %43)
+  invoke fastcc void @"_ZZN3nixL12getBuiltPathENS_3refINS_5StoreEEES2_RKNS_17SingleDerivedPathEENK3$_1clERKNS_22SingleDerivedPathBuiltE"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(48) %43)
           to label %65 unwind label %247
 
 65:                                               ; preds = %64, %"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN3nix15SingleBuiltPathEEEONS4_10overloadedIJZNS4_L12getBuiltPathENS4_3refINS4_5StoreEEESA_RKNS4_17SingleDerivedPathEE3$_0ZNS4_L12getBuiltPathESA_SA_SD_E3$_1EEERKSt7variantIJNS4_17DerivedPathOpaqueENS4_22SingleDerivedPathBuiltEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESH_SN_.exit.i"
@@ -54261,7 +54261,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6ve
   tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE8_M_eraseEPSt13_Rb_tree_nodeISJ_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef nonnull %.02) #30
+  tail call fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef %.02) #30
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !228
 
@@ -54270,7 +54270,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeIN3nix11DerivedPathESt4pairIKS1_St6vectorIZNS0_11Installable6build2ENS0_3refINS0_5StoreEEES8_NS0_7RealiseERKS4_INS6_IS5_EESaISA_EENS0_9BuildModeEE3AuxSaISG_EEESt10_Select1stISJ_ESt4lessIS1_ESaISJ_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISJ_E(ptr noundef nonnull %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8

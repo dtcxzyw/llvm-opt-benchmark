@@ -2800,7 +2800,7 @@ cond.end:                                         ; preds = %invoke.cont5, %invo
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %cond.end
-  %call24 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef null, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp8, i64 %call21, i1 noundef zeroext false)
+  %call24 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef null, ptr noundef %agg.tmp, ptr noundef %agg.tmp8, i64 %call21, i1 noundef zeroext false)
           to label %invoke.cont23 unwind label %lpad19
 
 invoke.cont23:                                    ; preds = %invoke.cont20
@@ -3041,7 +3041,7 @@ ehcleanup35:                                      ; preds = %lpad, %_ZN9grpc_cor
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %c_channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %cq, ptr noundef %pollset_set_alternative, ptr nocapture noundef %path, ptr nocapture noundef %authority, i64 %deadline.coerce, i1 noundef zeroext %registered_method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %c_channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %cq, ptr noundef %pollset_set_alternative, ptr nocapture noundef nonnull %path, ptr nocapture noundef nonnull %authority, i64 %deadline.coerce, i1 noundef zeroext %registered_method) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %args = alloca %struct.grpc_call_create_args, align 8
@@ -3385,7 +3385,7 @@ cond.end:                                         ; preds = %do.end, %invoke.con
   %.sink = phi i8 [ 1, %invoke.cont4 ], [ 0, %do.end ]
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2, i64 32
   store i8 %.sink, ptr %_M_engaged.i.i.i.i.i, align 8
-  %call12 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef null, ptr noundef %pollset_set, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i64 %deadline.coerce, i1 noundef zeroext true)
+  %call12 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef null, ptr noundef %pollset_set, ptr noundef %agg.tmp, ptr noundef %agg.tmp2, i64 %deadline.coerce, i1 noundef zeroext true)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %cond.end
@@ -4443,7 +4443,7 @@ cond.end:                                         ; preds = %invoke.cont6, %invo
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %cond.end
-  %call23 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef null, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp7, i64 %call20, i1 noundef zeroext true)
+  %call23 = invoke fastcc noundef ptr @_ZL33grpc_channel_create_call_internalP12grpc_channelP9grpc_calljP21grpc_completion_queueP16grpc_pollset_setN9grpc_core5SliceESt8optionalIS8_ENS7_9TimestampEb(ptr noundef %channel, ptr noundef %parent_call, i32 noundef %propagation_mask, ptr noundef %completion_queue, ptr noundef null, ptr noundef %agg.tmp, ptr noundef %agg.tmp7, i64 %call20, i1 noundef zeroext true)
           to label %invoke.cont22 unwind label %lpad18
 
 invoke.cont22:                                    ; preds = %invoke.cont19

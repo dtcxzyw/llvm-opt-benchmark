@@ -840,7 +840,7 @@ for.end13:                                        ; preds = %for.body7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cryptodev_backend_set_throttle(ptr noundef %backend, i32 noundef %field, i64 noundef %value, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @cryptodev_backend_set_throttle(ptr noundef %backend, i32 noundef range(i32 0, 4) %field, i64 noundef %value, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %tc = getelementptr inbounds i8, ptr %backend, i64 936
   %idxprom = zext nneg i32 %field to i64

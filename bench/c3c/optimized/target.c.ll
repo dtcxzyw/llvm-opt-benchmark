@@ -2558,8 +2558,8 @@ switch.lookup303:                                 ; preds = %563
 606:                                              ; preds = %597
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @x86_features_from_host(ptr noundef nonnull %3)
-  call fastcc void @x86features_from_cpu(ptr noundef nonnull %4, i32 noundef 4)
+  call fastcc void @x86_features_from_host(ptr noundef %3)
+  call fastcc void @x86features_from_cpu(ptr noundef %4, i32 noundef 4)
   %.val.i.i = load i64, ptr %3, align 8
   %607 = getelementptr inbounds i8, ptr %3, i64 8
   %.val1.i.i = load i64, ptr %607, align 8
@@ -2574,7 +2574,7 @@ switch.lookup303:                                 ; preds = %563
   br i1 %613, label %x64_cpu_default.exit.i, label %614
 
 614:                                              ; preds = %606
-  call fastcc void @x86features_from_cpu(ptr noundef nonnull %4, i32 noundef 3)
+  call fastcc void @x86features_from_cpu(ptr noundef %4, i32 noundef 3)
   %.val4.i.i = load i64, ptr %3, align 8
   %.val5.i.i = load i64, ptr %607, align 8
   %.val6.i.i = load i64, ptr %4, align 8
@@ -2587,7 +2587,7 @@ switch.lookup303:                                 ; preds = %563
   br i1 %619, label %x64_cpu_default.exit.i, label %620
 
 620:                                              ; preds = %614
-  call fastcc void @x86features_from_cpu(ptr noundef nonnull %4, i32 noundef 2)
+  call fastcc void @x86features_from_cpu(ptr noundef %4, i32 noundef 2)
   %.val8.i.i = load i64, ptr %3, align 8
   %.val9.i.i = load i64, ptr %607, align 8
   %.val10.i.i = load i64, ptr %4, align 8
@@ -2601,15 +2601,15 @@ switch.lookup303:                                 ; preds = %563
 
 626:                                              ; preds = %620
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 74)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 88)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 40)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 41)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 55)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 48)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 82)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 83)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %4, i32 noundef 38)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 74)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 88)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 40)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 41)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 55)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 48)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 82)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 83)
+  call fastcc void @x86_features_add_feature(ptr noundef %4, i32 noundef 38)
   %.val12.i.i = load i64, ptr %3, align 8
   %.val13.i.i = load i64, ptr %607, align 8
   %.val14.i.i = load i64, ptr %4, align 8
@@ -2672,7 +2672,7 @@ x64_cpu_default.exit.i:                           ; preds = %626, %620, %614, %6
 x86_cpu_from_set.exit.i:                          ; preds = %644, %643, %642, %641, %640, %640
   %.0.i18.i = phi ptr [ %645, %644 ], [ @.str.324, %643 ], [ @.str.323, %642 ], [ @.str.322, %641 ], [ @.str.321, %640 ], [ @.str.321, %640 ]
   store ptr %.0.i18.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 16), align 8
-  call fastcc void @x86features_from_cpu(ptr noundef nonnull %5, i32 noundef %.0.i108)
+  call fastcc void @x86features_from_cpu(ptr noundef %5, i32 noundef %.0.i108)
   %647 = load i16, ptr %603, align 8
   %648 = shl i16 %647, 6
   %649 = ashr i16 %648, 12
@@ -2754,43 +2754,43 @@ x64features_limit_from_capability.exit.i:         ; preds = %665, %x86_cpu_from_
   ]
 
 674:                                              ; preds = %673
-  call fastcc void @x86_features_from_host(ptr noundef nonnull %2)
+  call fastcc void @x86_features_from_host(ptr noundef %2)
   br label %679
 
 675:                                              ; preds = %673
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 13)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 14)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 15)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 23)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 13)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 14)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 15)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 23)
   br label %676
 
 676:                                              ; preds = %675, %673, %673
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 8)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 33)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 32)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 44)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 45)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 54)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 56)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 100)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 8)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 33)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 32)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 44)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 45)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 54)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 56)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 100)
   br label %677
 
 677:                                              ; preds = %676, %673, %673
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 74)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 63)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 42)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 86)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 40)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 74)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 63)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 42)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 86)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 40)
   br label %678
 
 678:                                              ; preds = %677, %673, %673
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 55)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 84)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 83)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 82)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 38)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 48)
-  call fastcc void @x86_features_add_feature(ptr noundef nonnull %2, i32 noundef 41)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 55)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 84)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 83)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 82)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 38)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 48)
+  call fastcc void @x86_features_add_feature(ptr noundef %2, i32 noundef 41)
   br label %679
 
 default.unreachable.i:                            ; preds = %673
@@ -3408,7 +3408,7 @@ define internal fastcc range(i32 0, 65) i32 @arch_pointer_bit_width(i32 noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65) i32 @os_target_c_type_bits(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 65) i32 @os_target_c_type_bits(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #2 {
   switch i32 %0, label %7 [
     i32 21, label %4
     i32 16, label %4
@@ -3435,10 +3435,10 @@ define internal fastcc range(i32 0, 65) i32 @os_target_c_type_bits(i32 noundef %
     i32 33, label %4
     i32 35, label %4
     i32 0, label %5
-    i32 28, label %switch.lookup12
-    i32 27, label %switch.lookup12
-    i32 7, label %switch.lookup12
-    i32 15, label %switch.lookup9
+    i32 28, label %switch.lookup13
+    i32 27, label %switch.lookup13
+    i32 7, label %switch.lookup13
+    i32 15, label %switch.lookup10
   ]
 
 4:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -3449,11 +3449,11 @@ define internal fastcc range(i32 0, 65) i32 @os_target_c_type_bits(i32 noundef %
   %6 = icmp eq i32 %1, 15
   br i1 %6, label %switch.lookup, label %7
 
-default.unreachable:                              ; preds = %7
+default.unreachable9:                             ; preds = %7
   unreachable
 
 7:                                                ; preds = %5, %3
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable9 [
     i32 0, label %15
     i32 1, label %8
     i32 2, label %9
@@ -3471,25 +3471,25 @@ default.unreachable:                              ; preds = %7
   br label %15
 
 switch.lookup:                                    ; preds = %5
-  %12 = sext i32 %2 to i64
+  %12 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
-switch.lookup9:                                   ; preds = %3
-  %13 = sext i32 %2 to i64
-  %switch.gep10 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.6, i64 0, i64 %13
-  %switch.load11 = load i32, ptr %switch.gep10, align 4
+switch.lookup10:                                  ; preds = %3
+  %13 = zext nneg i32 %2 to i64
+  %switch.gep11 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.6, i64 0, i64 %13
+  %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %15
 
-switch.lookup12:                                  ; preds = %3, %3, %3
-  %14 = sext i32 %2 to i64
-  %switch.gep13 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.7, i64 0, i64 %14
-  %switch.load14 = load i32, ptr %switch.gep13, align 4
+switch.lookup13:                                  ; preds = %3, %3, %3
+  %14 = zext nneg i32 %2 to i64
+  %switch.gep14 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.7, i64 0, i64 %14
+  %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %15
 
-15:                                               ; preds = %switch.lookup12, %switch.lookup9, %switch.lookup, %7, %11, %9, %8
-  %.0 = phi i32 [ 64, %11 ], [ %10, %9 ], [ 32, %8 ], [ 16, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load11, %switch.lookup9 ], [ %switch.load14, %switch.lookup12 ]
+15:                                               ; preds = %switch.lookup13, %switch.lookup10, %switch.lookup, %7, %11, %9, %8
+  %.0 = phi i32 [ 64, %11 ], [ %10, %9 ], [ 32, %8 ], [ 16, %7 ], [ %switch.load, %switch.lookup ], [ %switch.load12, %switch.lookup10 ], [ %switch.load15, %switch.lookup13 ]
   ret i32 %.0
 }
 
@@ -3525,7 +3525,7 @@ define internal fastcc zeroext i1 @slice_strcmp(ptr nocapture readonly %0, i64 %
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86features_from_cpu(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @x86features_from_cpu(ptr noundef nonnull %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   switch i32 %1, label %11 [
     i32 6, label %3
@@ -3534,87 +3534,86 @@ define internal fastcc void @x86features_from_cpu(ptr noundef %0, i32 noundef %1
     i32 3, label %6
     i32 2, label %7
     i32 1, label %8
-    i32 -1, label %9
-    i32 0, label %9
     i32 7, label %10
+    i32 0, label %9
   ]
 
 3:                                                ; preds = %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 17)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 14)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 26)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 13)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 15)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 11)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 23)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 19)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 77)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 12)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 21)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 22)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 29)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 49)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 69)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 92)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 93)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 62)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 17)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 14)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 26)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 13)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 15)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 11)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 23)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 19)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 77)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 12)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 21)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 22)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 29)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 49)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 69)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 92)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 93)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 62)
   br label %4
 
 4:                                                ; preds = %3, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 1)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 0)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 72)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 66)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 103)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 101)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 35)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 1)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 72)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 66)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 103)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 101)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 35)
   br label %5
 
 5:                                                ; preds = %4, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 8)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 32)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 33)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 44)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 45)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 54)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 56)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 102)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 60)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 47)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 71)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 54)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 8)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 32)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 33)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 44)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 45)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 54)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 56)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 102)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 60)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 47)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 71)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 54)
   br label %6
 
 6:                                                ; preds = %5, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 7)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 60)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 100)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 7)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 60)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 100)
   br label %7
 
 7:                                                ; preds = %6, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 85)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 86)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 63)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 42)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 85)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 86)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 63)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 42)
   br label %8
 
 8:                                                ; preds = %7, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 74)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 88)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 40)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 74)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 88)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 40)
   br label %9
 
-9:                                                ; preds = %8, %2, %2
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 41)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 55)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 48)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 82)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 83)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 38)
+9:                                                ; preds = %8, %2
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 41)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 55)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 48)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 82)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 83)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 38)
   br label %12
 
 10:                                               ; preds = %2
-  tail call fastcc void @x86_features_from_host(ptr noundef nonnull %0)
+  tail call fastcc void @x86_features_from_host(ptr noundef %0)
   br label %12
 
 11:                                               ; preds = %2
@@ -3632,7 +3631,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #4
 declare ptr @scratch_buffer_copy() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86_features_from_host(ptr noundef %0) unnamed_addr #2 {
+define internal fastcc void @x86_features_from_host(ptr noundef nonnull %0) unnamed_addr #2 {
   %2 = tail call ptr @LLVMGetHostCPUFeatures() #17
   %3 = load i8, ptr @debug_log, align 1
   %4 = trunc i8 %3 to i1
@@ -3797,7 +3796,7 @@ declare ptr @LLVMGetHostCPUName() local_unnamed_addr #4
 declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.sink.i.i28.i31 = getelementptr inbounds i8, ptr %0, i64 8
   br label %tailrecurse
@@ -3936,8 +3935,8 @@ tailrecurse.backedge:                             ; preds = %9, %10, %11, %12, %
   br label %tailrecurse.backedge
 
 11:                                               ; preds = %tailrecurse
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 8)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 44)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 8)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 44)
   br label %tailrecurse.backedge
 
 12:                                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
@@ -3972,7 +3971,7 @@ common.ret:                                       ; preds = %tailrecurse, %tailr
   ret void
 
 20:                                               ; preds = %tailrecurse
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 7)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 7)
   %21 = load i64, ptr %0, align 8
   %22 = or i64 %21, 1152921504606846976
   store i64 %22, ptr %0, align 8
@@ -3982,7 +3981,7 @@ common.ret:                                       ; preds = %tailrecurse, %tailr
   br label %tailrecurse.backedge
 
 24:                                               ; preds = %tailrecurse
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 87)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 87)
   br label %tailrecurse.backedge
 
 25:                                               ; preds = %tailrecurse
@@ -3995,8 +3994,8 @@ common.ret:                                       ; preds = %tailrecurse, %tailr
   br label %tailrecurse.backedge
 
 28:                                               ; preds = %tailrecurse
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 13)
-  tail call fastcc void @x86_features_add_feature(ptr noundef nonnull %0, i32 noundef 15)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 13)
+  tail call fastcc void @x86_features_add_feature(ptr noundef %0, i32 noundef 15)
   br label %tailrecurse.backedge
 
 29:                                               ; preds = %tailrecurse

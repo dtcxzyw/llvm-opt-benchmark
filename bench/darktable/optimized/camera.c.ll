@@ -1363,7 +1363,7 @@ define internal fastcc noundef ptr @_lib_property_add_new(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_property_add_to_gui(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @_lib_property_add_to_gui(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !13
   %4 = getelementptr inbounds i8, ptr %3, i64 1448
   %5 = load double, ptr %4, align 8, !tbaa !23
@@ -1392,7 +1392,7 @@ define internal fastcc void @_lib_property_add_to_gui(ptr noundef %0, ptr nocapt
   tail call void @gtk_grid_attach(ptr noundef %22, ptr noundef %23, i32 noundef 0, i32 noundef %24, i32 noundef 2, i32 noundef 1) #18
   %25 = load ptr, ptr %16, align 8, !tbaa !47
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef 80) #18
-  %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.15, ptr noundef nonnull @_osd_button_clicked, ptr noundef %0, ptr noundef null, i32 noundef 0) #18
+  %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.15, ptr noundef nonnull @_osd_button_clicked, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #18
   %28 = tail call ptr @g_type_check_instance_cast(ptr noundef %8, i64 noundef %13) #18
   tail call void @gtk_widget_show_all(ptr noundef %28) #18
   %29 = getelementptr inbounds i8, ptr %1, i64 72

@@ -349,7 +349,7 @@ prte_oob_base_get_peer.exit.thread:               ; preds = %100, %96, %prte_oob
   br i1 %.not247, label %203, label %146
 
 146:                                              ; preds = %144
-  %147 = call fastcc ptr @process_uri(ptr noundef nonnull %145)
+  %147 = call fastcc ptr @process_uri(ptr noundef %145)
   %148 = icmp eq ptr %147, null
   br i1 %148, label %149, label %351
 
@@ -1062,7 +1062,7 @@ declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_uri(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @process_uri(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.pmix_proc, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %3, 64
@@ -1077,7 +1077,7 @@ define internal fastcc ptr @process_uri(ptr noundef %0) unnamed_addr #0 {
 
 9:                                                ; preds = %4
   %10 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #10
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %3, ptr noundef nonnull @.str.14, ptr noundef %10, ptr noundef %0) #10
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %3, ptr noundef nonnull @.str.14, ptr noundef %10, ptr noundef nonnull %0) #10
   br label %11
 
 11:                                               ; preds = %9, %4, %1
@@ -1092,7 +1092,7 @@ define internal fastcc ptr @process_uri(ptr noundef %0) unnamed_addr #0 {
 
 16:                                               ; preds = %11
   store i8 0, ptr %12, align 1
-  %17 = call i32 @prte_util_convert_string_to_process_name(ptr noundef nonnull %2, ptr noundef %0) #10
+  %17 = call i32 @prte_util_convert_string_to_process_name(ptr noundef nonnull %2, ptr noundef nonnull %0) #10
   %18 = call zeroext i1 @PMIx_Check_procid(ptr noundef nonnull %2, ptr noundef nonnull @prte_process_info) #10
   br i1 %18, label %19, label %29
 

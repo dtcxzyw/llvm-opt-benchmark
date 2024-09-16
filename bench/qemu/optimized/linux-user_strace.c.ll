@@ -1438,7 +1438,7 @@ print_flags.exit217:                              ; preds = %if.then8.i210, %if.
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_flags(ptr nocapture noundef readonly %f, i64 noundef %flags, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_flags(ptr nocapture noundef readonly %f, i64 noundef %flags, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %f_string18 = getelementptr inbounds i8, ptr %f, i64 16
   %0 = load ptr, ptr %f_string18, align 8
@@ -7805,7 +7805,7 @@ print_pointer.exit:                               ; preds = %if.then.i39, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_pointer(i64 noundef %p, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_pointer(i64 noundef %p, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %p, 0
   %tobool.not.i = icmp eq i32 %last, 0
@@ -7832,7 +7832,7 @@ declare ptr @lock_user_string(i64 noundef) local_unnamed_addr #1
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_execve_argv(i64 noundef %argv, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_execve_argv(i64 noundef %argv, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str) #9
   %call9 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %argv, i64 noundef 8, i1 noundef zeroext true) #9
@@ -7872,7 +7872,7 @@ return:                                           ; preds = %for.inc, %entry, %f
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_open_flags(i64 noundef %flags, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_open_flags(i64 noundef %flags, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %and = and i64 %flags, 3
   br label %for.body.i
@@ -7952,7 +7952,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i64 @target_strlen(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_itimerval(i64 noundef %it_addr, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_itimerval(i64 noundef %it_addr, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %it_addr, 0
   br i1 %tobool.not, label %if.end, label %if.then.i
@@ -8022,7 +8022,7 @@ declare i32 @gnu_dev_major(i64 noundef) local_unnamed_addr #4
 declare i32 @gnu_dev_minor(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @print_rlimit64(i64 noundef %rlim_addr, i32 noundef %last) unnamed_addr #0 {
+define internal fastcc void @print_rlimit64(i64 noundef %rlim_addr, i32 noundef range(i32 0, 2) %last) unnamed_addr #0 {
 entry:
   %format.i9 = alloca [64 x i8], align 16
   %format.i = alloca [64 x i8], align 16

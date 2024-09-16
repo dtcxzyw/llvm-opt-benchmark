@@ -633,7 +633,7 @@ add_intrinsic.exit.thread53:                      ; preds = %opal_obj_run_constr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @add_intrinsic(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @add_intrinsic(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 81, 114) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @opal_class_init_epoch, align 4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_op_t_class, i64 32), align 8
   %.not = icmp eq i32 %5, %6

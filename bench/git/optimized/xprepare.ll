@@ -72,7 +72,7 @@ cond.end.if.then17_crit_edge.i:                   ; preds = %cond.end.i
 if.end:                                           ; preds = %cond.end.i
   %count.i = getelementptr inbounds i8, ptr %cf, i64 96
   store i64 0, ptr %count.i, align 8
-  %call9 = call fastcc i32 @xdl_prepare_ctx(i32 noundef 1, ptr noundef %mf1, i64 noundef %add, ptr noundef nonnull %xpp, ptr noundef nonnull %cf, ptr noundef %xe)
+  %call9 = call fastcc i32 @xdl_prepare_ctx(i32 noundef 1, ptr noundef %mf1, i64 noundef %add, ptr noundef nonnull %xpp, ptr noundef %cf, ptr noundef %xe)
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %if.then12, label %if.end13
 
@@ -84,7 +84,7 @@ if.then12:                                        ; preds = %if.end
 
 if.end13:                                         ; preds = %if.end
   %xdf2 = getelementptr inbounds i8, ptr %xe, i64 136
-  %call14 = call fastcc i32 @xdl_prepare_ctx(i32 noundef 2, ptr noundef %mf2, i64 noundef %add2, ptr noundef nonnull %xpp, ptr noundef nonnull %cf, ptr noundef nonnull %xdf2)
+  %call14 = call fastcc i32 @xdl_prepare_ctx(i32 noundef 2, ptr noundef %mf2, i64 noundef %add2, ptr noundef nonnull %xpp, ptr noundef %cf, ptr noundef nonnull %xdf2)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %if.then17, label %if.end19
 
@@ -695,7 +695,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i64 @xdl_guess_lines(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @xdl_prepare_ctx(i32 noundef %pass, ptr noundef %mf, i64 noundef %narec, ptr nocapture noundef readonly %xpp, ptr noundef %cf, ptr noundef %xdf) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @xdl_prepare_ctx(i32 noundef range(i32 1, 3) %pass, ptr noundef %mf, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %narec, ptr nocapture noundef readonly %xpp, ptr noundef nonnull %cf, ptr noundef %xdf) unnamed_addr #0 {
 entry:
   %narec.addr = alloca i64, align 8
   %bsize = alloca i64, align 8

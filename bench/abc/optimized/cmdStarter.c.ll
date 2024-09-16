@@ -127,7 +127,7 @@ Abc_Clock.exit:                                   ; preds = %5, %10
 
 28:                                               ; preds = %26
   %29 = add nuw nsw i32 %.0107.ph, 1
-  %30 = call noundef i32 @llvm.smax.i32(i32 %.0106.ph, i32 %27)
+  %30 = call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %.0106.ph, i32 %27)
   br label %.outer, !llvm.loop !4
 
 .outer:                                           ; preds = %18, %28

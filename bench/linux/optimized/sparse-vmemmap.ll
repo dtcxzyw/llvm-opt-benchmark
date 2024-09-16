@@ -157,7 +157,7 @@ define dso_local ptr @vmemmap_alloc_block_buf(i64 noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc ptr @altmap_alloc_block_buf(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 section ".meminit.text" align 16 {
   %3 = and i64 %0, 4095
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -538,7 +538,7 @@ define dso_local noundef ptr @vmemmap_p4d_populate(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @p4d_populate(ptr noundef %0, ptr noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @p4d_populate(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -826,7 +826,7 @@ define dso_local ptr @__populate_section_memmap(i64 noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @vmemmap_populate_compound_pages(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 section ".meminit.text" align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 104

@@ -282,7 +282,7 @@ define internal fastcc void @"_ZN4core3ptr121drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$u5d$$GT$$GT$17h86c5ce26cc6c1222E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$u5d$$GT$$GT$17h86c5ce26cc6c1222E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -473,7 +473,7 @@ default.unreachable:                              ; preds = %.lr.ph.i
 65:                                               ; preds = %61
   %66 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.val8.i, i64 0, i64 %.1.i.i.i
   %67 = add i64 %.1.i.i.i, 1
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %66) #24
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %66) #24
           to label %61 unwind label %68, !noalias !11
 
 68:                                               ; preds = %65
@@ -662,7 +662,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h318
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h7a3d88356a0ad04cE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h7a3d88356a0ad04cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !65, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -698,7 +698,7 @@ define internal void @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Erro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i8, ptr %0, align 8, !range !17, !noundef !4
   switch i8 %2, label %default.unreachable4 [
     i8 0, label %14
@@ -808,7 +808,7 @@ define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h755e8fa2120c3127E.llvm.3039913483822116442"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17h0abdac033b4067e1E.llvm.3039913483822116442.exit.i" unwind label %3
@@ -1028,7 +1028,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
 3:                                                ; preds = %1
   %4 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.0.val, i64 0, i64 %.0.i
   %5 = add i64 %.0.i, 1
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4)
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %4)
           to label %1 unwind label %8
 
 6:                                                ; preds = %10, %8
@@ -1044,7 +1044,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
 10:                                               ; preds = %6
   %11 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %.0.val, i64 0, i64 %.1.i
   %12 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11) #24
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %11) #24
           to label %6 unwind label %13
 
 13:                                               ; preds = %10
@@ -1137,7 +1137,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$L
 22:                                               ; preds = %18
   %23 = getelementptr inbounds [0 x { { { i64, i64 }, { ptr, i64 }, { ptr, i64 } }, i8, [7 x i8] }], ptr %.0.val, i64 0, i64 %.1.i
   %24 = add i64 %.1.i, 1
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %23) #24
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef align 8 dereferenceable(56) %23) #24
           to label %18 unwind label %25
 
 25:                                               ; preds = %22
@@ -1321,7 +1321,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !155, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1378,7 +1378,7 @@ define internal fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalia
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93c819fE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93c819fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1421,7 +1421,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45892ceE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45892ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1464,7 +1464,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba9560fb32E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba9560fb32E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1493,7 +1493,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba956
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %1) #24
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$$LP$tree_sitter..QueryProperty$C$bool$RP$$GT$17h4105920471641592E"(ptr noalias noundef align 8 dereferenceable(56) %1) #24
           to label %17 unwind label %18
 
 17:                                               ; preds = %15
@@ -1507,7 +1507,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba956
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e5877eE"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e5877eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %0, align 8, !noundef !4
@@ -1536,7 +1536,7 @@ define internal fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e
 15:                                               ; preds = %7
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #24
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %1) #24
           to label %17 unwind label %18
 
 17:                                               ; preds = %15
@@ -1630,7 +1630,7 @@ define void @"_ZN11tree_sitter3ffi41_$LT$impl$u20$tree_sitter..TreeCursor$GT$8in
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN11tree_sitter3ffi36_$LT$impl$u20$tree_sitter..Query$GT$8from_raw17h489271bf3db5ea01E"(ptr noalias nocapture noundef writeonly sret({ ptr, [12 x i64] }) align 8 dereferenceable(104) %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
-  tail call fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  tail call fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef align 8 dereferenceable(104) %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   ret void
 }
 
@@ -3817,7 +3817,7 @@ define void @_ZN11tree_sitter5Query3new17h5348e067b01afc7cE(ptr noalias nocaptur
   br i1 %25, label %29, label %.lr.ph
 
 26:                                               ; preds = %4
-  call fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %21, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef align 8 dereferenceable(104) %0, ptr noundef nonnull %21, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   br label %252
 
 .lr.ph:                                           ; preds = %23
@@ -4301,7 +4301,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i: ; preds = %66,
   br i1 %.not.i.i.i41, label %224, label %215
 
 215:                                              ; preds = %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.i.i.i"
-  %216 = and i32 %.sroa.4.0.i.ph10.i.fr.i.i.i, -33
+  %216 = and i32 %.sroa.4.0.i.ph10.i.fr.i.i.i, 2097119
   %217 = add nsw i32 %216, -65
   %or.cond3.i.i.i.i.i.i.i = icmp ult i32 %217, 26
   br i1 %or.cond3.i.i.i.i.i.i.i, label %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hc806db70d9b40672E.exit.thread.i.i", label %218
@@ -4442,7 +4442,7 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i: ; preds = %66,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352cdabc1cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [1 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca i32, align 4
@@ -4946,7 +4946,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.5434 = phi i8 [ %.6435, %240 ], [ 1, %236 ]
   %.6428 = phi i8 [ 0, %240 ], [ 1, %236 ]
   %.pn467.pn = phi { ptr, i32 } [ %.pn467, %240 ], [ %237, %236 ]
-  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$u5d$$GT$$GT$17h86c5ce26cc6c1222E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %29) #24
+  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$alloc..boxed..Box$LT$$u5b$alloc..boxed..Box$LT$$u5b$tree_sitter..TextPredicateCapture$u5d$$GT$$u5d$$GT$$GT$17h86c5ce26cc6c1222E"(ptr noalias noundef align 8 dereferenceable(16) %29) #24
           to label %230 unwind label %264
 
 236:                                              ; preds = %233
@@ -5495,7 +5495,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %405 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %406 = add i64 %.sroa.5.0.i1051, -1
   %407 = getelementptr inbounds i8, ptr %.sroa.0783.0, i64 8
-  invoke fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %55, i64 noundef %273, ptr noalias noundef nonnull readonly align 1 %382, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 %405, i64 noundef %404, ptr noalias noundef nonnull readonly align 8 %.val513, i64 noundef %.val514, ptr noalias noundef nonnull readonly align 4 %407, i64 noundef %406)
+  invoke fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef align 8 dereferenceable(56) %55, i64 noundef %273, ptr noalias noundef nonnull readonly align 1 %382, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 %405, i64 noundef %404, ptr noalias noundef nonnull readonly align 8 %.val513, i64 noundef %.val514, ptr noalias noundef nonnull readonly align 4 %407, i64 noundef %406)
           to label %534 unwind label %.thread1030.loopexit
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit580": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit"
@@ -5510,7 +5510,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %411 = load ptr, ptr %112, align 8, !nonnull !4, !noundef !4
   %412 = add i64 %.sroa.5.0.i1051, -1
   %413 = getelementptr inbounds i8, ptr %.sroa.0783.0, i64 8
-  invoke fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %52, i64 noundef %273, ptr noalias noundef nonnull readonly align 1 %382, i64 noundef %384, ptr noalias noundef nonnull readonly align 8 %411, i64 noundef %410, ptr noalias noundef nonnull readonly align 8 %.val513, i64 noundef %.val514, ptr noalias noundef nonnull readonly align 4 %413, i64 noundef %412)
+  invoke fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef align 8 dereferenceable(56) %52, i64 noundef %273, ptr noalias noundef nonnull readonly align 1 %382, i64 noundef %384, ptr noalias noundef nonnull readonly align 8 %411, i64 noundef %410, ptr noalias noundef nonnull readonly align 8 %.val513, i64 noundef %.val514, ptr noalias noundef nonnull readonly align 4 %413, i64 noundef %412)
           to label %524 unwind label %.thread1030.loopexit
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit584": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit552"
@@ -5580,7 +5580,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store i64 %.fca.1.extract155, ptr %199, align 8
   store ptr %434, ptr %200, align 8
   store i64 %435, ptr %201, align 8
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93c819fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %78, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %38)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2b58feb1e93c819fE"(ptr noalias noundef align 8 dereferenceable(24) %78, ptr noalias nocapture noundef align 8 dereferenceable(32) %38)
           to label %437 unwind label %.thread1030.loopexit
 
 437:                                              ; preds = %433
@@ -5684,7 +5684,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store i64 %466, ptr %195, align 8
   store i8 %.0.i595, ptr %196, align 1
   store i8 3, ptr %40, align 8
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e5877eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %81, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %40)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8b58fe94e0e5877eE"(ptr noalias noundef align 8 dereferenceable(24) %81, ptr noalias nocapture noundef align 8 dereferenceable(40) %40)
           to label %467 unwind label %.loopexit.split-lp.loopexit
 
 467:                                              ; preds = %464
@@ -5770,7 +5770,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %41, ptr %502, align 8, !alias.scope !654, !noalias !657
   %503 = getelementptr inbounds i8, ptr %42, i64 24
   store i64 1, ptr %503, align 8, !alias.scope !654, !noalias !657
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %43, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %42)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %43, ptr noalias nocapture noundef align 8 dereferenceable(48) %42)
           to label %504 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 504:                                              ; preds = %497
@@ -5806,7 +5806,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %45, ptr %512, align 8, !alias.scope !660, !noalias !663
   %513 = getelementptr inbounds i8, ptr %46, i64 24
   store i64 1, ptr %513, align 8, !alias.scope !660, !noalias !663
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %47, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %47, ptr noalias nocapture noundef align 8 dereferenceable(48) %46)
           to label %514 unwind label %.thread1030.loopexit.split-lp.loopexit.split-lp
 
 514:                                              ; preds = %507
@@ -5840,7 +5840,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %49, ptr %520, align 8, !alias.scope !666, !noalias !669
   %521 = getelementptr inbounds i8, ptr %50, i64 24
   store i64 1, ptr %521, align 8, !alias.scope !666, !noalias !669
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %51, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %50)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %51, ptr noalias nocapture noundef align 8 dereferenceable(48) %50)
           to label %522 unwind label %.thread1030.loopexit.split-lp.loopexit.split-lp
 
 522:                                              ; preds = %516
@@ -5887,7 +5887,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   %.0.i609 = phi i8 [ %530, %528 ], [ 0, %527 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7136, i64 48, i1 false)
   store i8 %.0.i609, ptr %203, align 8
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba9560fb32E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %80, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %53)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h76d97bba9560fb32E"(ptr noalias noundef align 8 dereferenceable(24) %80, ptr noalias nocapture noundef align 8 dereferenceable(56) %53)
           to label %533 unwind label %.thread1030.loopexit
 
 533:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17haf1a4e4fbc71bd79E.exit611"
@@ -5903,7 +5903,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 
 537:                                              ; preds = %534
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.7130, i64 48, i1 false)
-  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45892ceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %79, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  invoke fastcc void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h35157b44a45892ceE"(ptr noalias noundef align 8 dereferenceable(24) %79, ptr noalias nocapture noundef align 8 dereferenceable(48) %54)
           to label %.outer.backedge unwind label %.thread1030.loopexit
 
 538:                                              ; preds = %534
@@ -6038,7 +6038,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 580:                                              ; preds = %579
   %581 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h7a3d88356a0ad04cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #24
+  invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h7a3d88356a0ad04cE"(ptr noalias noundef align 8 dereferenceable(24) %22) #24
           to label %.thread987 unwind label %589, !noalias !729
 
 582:                                              ; preds = %579
@@ -6114,7 +6114,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 597:                                              ; preds = %596
   %598 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %57) #24
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %57) #24
           to label %.thread987 unwind label %599
 
 599:                                              ; preds = %597
@@ -6167,7 +6167,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %59, ptr %613, align 8, !alias.scope !755, !noalias !758
   %614 = getelementptr inbounds i8, ptr %60, i64 24
   store i64 1, ptr %614, align 8, !alias.scope !755, !noalias !758
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %61, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %60)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %61, ptr noalias nocapture noundef align 8 dereferenceable(48) %60)
           to label %615 unwind label %.thread1030.loopexit.split-lp.loopexit.split-lp
 
 615:                                              ; preds = %608
@@ -6198,7 +6198,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %62, ptr %622, align 8, !alias.scope !761, !noalias !764
   %623 = getelementptr inbounds i8, ptr %63, i64 24
   store i64 1, ptr %623, align 8, !alias.scope !761, !noalias !764
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %64, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %64, ptr noalias nocapture noundef align 8 dereferenceable(48) %63)
           to label %624 unwind label %.thread1030.loopexit.split-lp.loopexit.split-lp
 
 624:                                              ; preds = %617
@@ -6233,7 +6233,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
   store ptr %66, ptr %631, align 8, !alias.scope !767, !noalias !770
   %632 = getelementptr inbounds i8, ptr %67, i64 24
   store i64 1, ptr %632, align 8, !alias.scope !767, !noalias !770
-  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %68, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %67)
+  invoke fastcc void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E(ptr noalias nocapture noundef align 8 dereferenceable(24) %68, ptr noalias nocapture noundef align 8 dereferenceable(48) %67)
           to label %633 unwind label %.thread1030.loopexit.split-lp.loopexit.split-lp
 
 633:                                              ; preds = %626
@@ -6373,7 +6373,7 @@ define internal fastcc void @_ZN11tree_sitter5Query14from_raw_parts17h66b686352c
 680:                                              ; preds = %679
   %681 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %70) #24
+  invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$tree_sitter..TextPredicateCapture$GT$17hbf650b8a9a29e743E"(ptr noalias noundef align 8 dereferenceable(40) %70) #24
           to label %.thread987 unwind label %682
 
 682:                                              ; preds = %680
@@ -7398,7 +7398,7 @@ define noundef zeroext i1 @_ZN11tree_sitter5Query29is_pattern_guaranteed_at_step
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef %9) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef range(i64 0, -1) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8

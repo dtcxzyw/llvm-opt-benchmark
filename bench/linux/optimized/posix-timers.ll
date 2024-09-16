@@ -3841,7 +3841,7 @@ __lock_timer.exit.thread:                         ; preds = %89, %22, %__lock_ti
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @timer_wait_running(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc ptr @timer_wait_running(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load volatile ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 52
@@ -3862,7 +3862,7 @@ define internal fastcc ptr @timer_wait_running(ptr noundef %0, ptr nocapture nou
   br label %14
 
 13:                                               ; preds = %2
-  tail call void %10(ptr noundef %0) #8
+  tail call void %10(ptr noundef nonnull %0) #8
   br label %14
 
 14:                                               ; preds = %13, %12

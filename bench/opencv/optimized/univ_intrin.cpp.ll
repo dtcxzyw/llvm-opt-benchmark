@@ -368,7 +368,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
           to label %156 unwind label %216
 
 156:                                              ; preds = %155
-  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef nonnull %37, ptr noundef nonnull %38, ptr noundef nonnull %36, i32 noundef 0, i32 noundef 0, i32 noundef -1)
+  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef %37, ptr noundef %38, ptr noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef -1)
           to label %157 unwind label %218
 
 157:                                              ; preds = %156
@@ -1212,7 +1212,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
 
 446:                                              ; preds = %.noexc136
   %447 = add nuw nsw i32 %.04056.us.us.us.i, %444
-  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef %447, i32 noundef %.04056.us.us.us.i, i32 noundef %426)
+  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef %8, ptr noundef %9, ptr noundef %7, i32 noundef %447, i32 noundef %.04056.us.us.us.i, i32 noundef %426)
           to label %.lr.ph.us.us.us.i unwind label %.split60.us.split.us.split.us.i
 
 .lr.ph.us.us.us.i:                                ; preds = %446
@@ -1306,7 +1306,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
 
 478:                                              ; preds = %.noexc137
   %479 = add nuw nsw i32 %.04056.us62.us.us.i, %476
-  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef %479, i32 noundef %.04056.us62.us.us.i, i32 noundef %426)
+  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef %8, ptr noundef %9, ptr noundef %7, i32 noundef %479, i32 noundef %.04056.us62.us.us.i, i32 noundef %426)
           to label %.preheader.us63.us.us.i unwind label %.split60.split.us.split.us.split.us.i
 
 .preheader.us63.us.us.i:                          ; preds = %478
@@ -1367,7 +1367,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
 
 495:                                              ; preds = %.noexc138
   %496 = add nuw nsw i32 %.04056.us72.i, %.04169.us.i
-  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, i32 noundef %496, i32 noundef %.04056.us72.i, i32 noundef %426)
+  invoke fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef %8, ptr noundef %9, ptr noundef %7, i32 noundef %496, i32 noundef %.04056.us72.i, i32 noundef %426)
           to label %.preheader.us.i unwind label %.split60.split.split.us.i
 
 .preheader.us.i:                                  ; preds = %495
@@ -1695,7 +1695,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110conv1dsimdEN2cv3MatES1_Pfiii(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::_OutputArray", align 8

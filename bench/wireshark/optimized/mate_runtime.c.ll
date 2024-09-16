@@ -709,7 +709,7 @@ new_pdu.exit:                                     ; preds = %.lr.ph.i.i, %.loope
   %294 = load ptr, ptr %5, align 8
   %295 = getelementptr inbounds i8, ptr %294, i64 16
   store ptr null, ptr %295, align 8
-  %296 = call fastcc ptr @new_gop(ptr noundef nonnull %218, ptr noundef nonnull %61, ptr noundef %275)
+  %296 = call fastcc ptr @new_gop(ptr noundef %218, ptr noundef nonnull %61, ptr noundef %275)
   store ptr %296, ptr %5, align 8
   %297 = load ptr, ptr %226, align 8
   %298 = call i32 @g_hash_table_insert(ptr noundef %297, ptr noundef %275, ptr noundef %296) #10
@@ -806,7 +806,7 @@ apply_extras.exit.i:                              ; preds = %328, %324
   br i1 %.not103.i, label %346, label %342
 
 342:                                              ; preds = %338
-  %343 = call fastcc ptr @new_gop(ptr noundef nonnull %218, ptr noundef %61, ptr noundef %225)
+  %343 = call fastcc ptr @new_gop(ptr noundef %218, ptr noundef %61, ptr noundef %225)
   store ptr %343, ptr %5, align 8
   %344 = load ptr, ptr %226, align 8
   %345 = call i32 @g_hash_table_insert(ptr noundef %344, ptr noundef %225, ptr noundef %343) #10
@@ -846,7 +846,7 @@ apply_extras.exit.i:                              ; preds = %328, %324
 
 354:                                              ; preds = %352
   call void @delete_avpl(ptr noundef nonnull %353, i32 noundef 0) #10
-  %355 = call fastcc ptr @new_gop(ptr noundef nonnull %218, ptr noundef nonnull %61, ptr noundef %225)
+  %355 = call fastcc ptr @new_gop(ptr noundef %218, ptr noundef nonnull %61, ptr noundef %225)
   store ptr %355, ptr %5, align 8
   store ptr %355, ptr %77, align 8
   br label %357
@@ -1859,7 +1859,7 @@ declare ptr @avpl_to_str(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @new_gop(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_gop(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(120) ptr @g_slice_alloc(i64 noundef 120) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8

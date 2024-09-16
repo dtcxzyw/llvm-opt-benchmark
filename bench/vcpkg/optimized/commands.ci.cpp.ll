@@ -4234,7 +4234,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
   call void @_ZN5vcpkg4Json5ValueC1EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(8) %103) #21
   call void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %103) #21
   %1170 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNR5vcpkg4Json5Value5arrayENS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(8) %102, i32 465, ptr nonnull @.str.2) #21
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRNS_4Json5ArrayEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESB_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(24) %1170)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRNS_4Json5ArrayEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESB_E3$_0EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(24) %1170)
           to label %1171 unwind label %1177
 
 1171:                                             ; preds = %1169
@@ -4335,7 +4335,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
           to label %1209 unwind label %1226
 
 1209:                                             ; preds = %1208
-  invoke fastcc void @"_ZN5vcpkg4Util8erase_ifISt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr nonnull %77)
+  invoke fastcc void @"_ZN5vcpkg4Util8erase_ifISt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %107, ptr %77)
           to label %1210 unwind label %1228
 
 1210:                                             ; preds = %1209
@@ -4351,7 +4351,7 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt4p
           to label %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit unwind label %1230
 
 _ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit: ; preds = %1214
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESF_E3$_2EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISO_EEOSL_OSJ_"(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(48) %107)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRSt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESF_E3$_2EESt6vectorINSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISO_EEOSL_OSJ_"(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(48) %107)
           to label %1215 unwind label %1230
 
 1215:                                             ; preds = %_ZNR5vcpkg15LocalizedString6appendIJEJEEERS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6TagArgINS_8identityIS5_E4typeET0_EE.exit
@@ -5064,7 +5064,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ParsedArguments") align 8, ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116parse_exclusionsERKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS2_S8_EEES2_NS1_7TripletERNS1_13ExclusionsMapE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116parse_exclusionsERKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS2_S8_EEES2_NS1_7TripletERNS1_13ExclusionsMapE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 range(i64 7, 13) %2, ptr %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::SortedVector.336", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"struct.vcpkg::StringView", align 8
@@ -6635,7 +6635,7 @@ declare noundef nonnull align 1 ptr @_ZNK5vcpkg10VcpkgPaths9installedEv(ptr noun
 declare void @_ZN5vcpkg31adjust_action_plan_to_status_dbERNS_10ActionPlanERKNS_16StatusParagraphsE(ptr dead_on_unwind writable sret(%"class.std::set.297") align 8, ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util8erase_ifISt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util8erase_ifISt3setINS_11PackageSpecESt4lessIS3_ESaIS3_EEZNS_19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readonly %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

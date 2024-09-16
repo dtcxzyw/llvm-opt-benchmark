@@ -232,7 +232,7 @@ uv__utf8_decode1.exit:                            ; preds = %60, %10
   ]
 
 63:                                               ; preds = %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit, %uv__utf8_decode1.exit
-  %64 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %.038.ph, ptr noundef nonnull %.038, ptr noundef nonnull %5, ptr noundef %3)
+  %64 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %.038.ph, ptr noundef nonnull %.038, ptr noundef %5, ptr noundef %3)
   %65 = icmp slt i32 %64, 0
   br i1 %65, label %66, label %68
 
@@ -260,7 +260,7 @@ uv__utf8_decode1.exit:                            ; preds = %60, %10
   br i1 %74, label %75, label %80
 
 75:                                               ; preds = %73
-  %76 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %.038.ph, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %3)
+  %76 = call fastcc i32 @uv__idna_toascii_label(ptr noundef %.038.ph, ptr noundef nonnull %1, ptr noundef %5, ptr noundef %3)
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %78, label %._crit_edge
 
@@ -297,7 +297,7 @@ uv__utf8_decode1.exit.thread:                     ; preds = %60, %49, %45, %17, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readnone %3) unnamed_addr #1 {
+define internal fastcc i32 @uv__idna_toascii_label(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef readnone %3) unnamed_addr #1 {
   %5 = icmp ult ptr %0, %1
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 

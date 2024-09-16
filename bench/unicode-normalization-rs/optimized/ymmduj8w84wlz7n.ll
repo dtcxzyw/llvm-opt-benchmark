@@ -5,12 +5,12 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @_ZN21unicode_normalization9normalize7compose17h4f064d4953ae007fE(i32 noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = add i32 %0, -4352
+  %3 = add nsw i32 %0, -4352
   %or.cond.i = icmp ult i32 %3, 19
   br i1 %or.cond.i, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = add i32 %0, -44032
+  %5 = add nsw i32 %0, -44032
   %or.cond1.i = icmp ult i32 %5, 11172
   %6 = add i32 %1, -4520
   %7 = icmp ult i32 %6, 27

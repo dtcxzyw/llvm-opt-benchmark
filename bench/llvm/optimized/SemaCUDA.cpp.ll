@@ -646,11 +646,11 @@ _ZNK5clang7VarDecl13isStaticLocalEv.exit:         ; preds = %42, %47
   br i1 %spec.select.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_4DeclEEEDaPT0_.exit.thread, label %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread
 
 _ZNK5clang7VarDecl13isStaticLocalEv.exit.thread:  ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i.i, %16, %20, %_ZNK5clang7VarDecl13isStaticLocalEv.exit
-  %53 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %3, i1 noundef zeroext true)
+  %53 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef %3, i1 noundef zeroext true)
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread
-  %55 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %3, i1 noundef zeroext true)
+  %55 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef %3, i1 noundef zeroext true)
   br i1 %55, label %56, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.thread
 
 56:                                               ; preds = %54, %_ZNK5clang7VarDecl13isStaticLocalEv.exit.thread
@@ -1010,7 +1010,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_4DeclEEEDaPT0_.exit.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 256
@@ -1262,7 +1262,7 @@ _ZN4llvm6any_ofIRKNS_11SmallVectorIPN5clang4AttrELj4EEEZL7hasAttrINS2_14CUDADevi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 256
@@ -1625,8 +1625,8 @@ _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.
   br i1 %.not30, label %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread, label %63
 
 _ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread: ; preds = %50, %43, %45, %_ZNK5clang4Decl7hasAttrINS_21CUDAInvalidTargetAttrEEEbv.exit.thread, %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit
-  %52 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %1, i1 noundef zeroext %2)
-  %53 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %52 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS0_4DeclEb(ptr noundef %1, i1 noundef zeroext %2)
+  %53 = tail call fastcc noundef zeroext i1 @_ZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS0_4DeclEb(ptr noundef %1, i1 noundef zeroext %2)
   br i1 %52, label %54, label %55
 
 54:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit.thread
@@ -4539,7 +4539,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %"_ZN9__gnu_cxx5__op
   store ptr %192, ptr %6, align 8
   %193 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr null, ptr %193, align 8
-  %194 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIN5clang11DeclContext22specific_decl_iteratorINS2_9FieldDeclEEEEEZNS2_8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull %0, ptr nonnull %5)
+  %194 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIN5clang11DeclContext22specific_decl_iteratorINS2_9FieldDeclEEEEEZNS2_8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %0, ptr %5)
   br label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
 
 _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit, %"_ZSt13__find_if_notIPKN5clang16CXXBaseSpecifierEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA17isEmptyDestructorENS0_14SourceLocationEPNS0_17CXXDestructorDeclEE3$_0EEET_SD_SD_T0_.exit.thread", %"_ZSt13__find_if_notIPKN5clang16CXXBaseSpecifierEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA17isEmptyDestructorENS0_14SourceLocationEPNS0_17CXXDestructorDeclEE3$_0EEET_SD_SD_T0_.exit", %_ZN5clang13CXXMethodDecl9getParentEv.exit19, %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit, %19, %15, %3
@@ -4548,7 +4548,7 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZN5clang13C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIN5clang11DeclContext22specific_decl_iteratorINS2_9FieldDeclEEEEEZNS2_8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_1EEbOT_T0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture readonly %1, ptr nocapture readonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIN5clang11DeclContext22specific_decl_iteratorINS2_9FieldDeclEEEEEZNS2_8SemaCUDA17isEmptyDestructorENS2_14SourceLocationEPNS2_17CXXDestructorDeclEE3$_1EEbOT_T0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readonly %1, ptr nocapture nonnull readonly %2) unnamed_addr #0 {
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i.i.i6 = load ptr, ptr %4, align 8
@@ -4905,109 +4905,109 @@ declare noundef zeroext i1 @_ZNK5clang7VarDecl7hasInitEv(ptr noundef nonnull ali
 declare noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #13
-  %5 = icmp eq i32 %2, 1
-  br i1 %5, label %6, label %19
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %18, label %5
 
-6:                                                ; preds = %3
+5:                                                ; preds = %3
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", label %7
+  br i1 %.not.i, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", label %6
 
-7:                                                ; preds = %6
-  %8 = load i8, ptr %4, align 8
-  %9 = add i8 %8, -115
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i8 %9, -2
+6:                                                ; preds = %5
+  %7 = load i8, ptr %4, align 8
+  %8 = add i8 %7, -115
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i8 %8, -2
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit": ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i = load i32, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load ptr, ptr %11, align 8
-  %13 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i.i, ptr noundef %12)
-  br i1 %13, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit": ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i = load i32, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i.i, ptr noundef %11)
+  br i1 %12, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread": ; preds = %6, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit"
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload.i.i11 = load i64, ptr %14, align 8
-  %15 = and i64 %.sroa.0.0.copyload.i.i11, -16
-  %16 = inttoptr i64 %15 to ptr
-  %17 = load ptr, ptr %16, align 16
-  %18 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %17) #13
-  %.not.i12 = icmp eq ptr %18, null
-  br i1 %.not.i12, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split"
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread": ; preds = %5, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit"
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.0.0.copyload.i.i12 = load i64, ptr %13, align 8
+  %14 = and i64 %.sroa.0.0.copyload.i.i12, -16
+  %15 = inttoptr i64 %14 to ptr
+  %16 = load ptr, ptr %15, align 16
+  %17 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %16) #13
+  %.not.i13 = icmp eq ptr %17, null
+  br i1 %.not.i13, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split"
 
-19:                                               ; preds = %3
-  %20 = tail call noundef nonnull align 8 dereferenceable(841) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
-  %22 = load i64, ptr %21, align 8
-  %23 = and i64 %22, 131072
-  %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %24, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
+18:                                               ; preds = %3
+  %19 = tail call noundef nonnull align 8 dereferenceable(841) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
+  %21 = load i64, ptr %20, align 8
+  %22 = and i64 %21, 131072
+  %.not8 = icmp eq i64 %22, 0
+  br i1 %.not8, label %23, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
 
-24:                                               ; preds = %19
-  %.not.i14 = icmp eq ptr %4, null
-  br i1 %.not.i14, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread", label %25
+23:                                               ; preds = %18
+  %.not.i15 = icmp eq ptr %4, null
+  br i1 %.not.i15, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread", label %24
 
-25:                                               ; preds = %24
-  %26 = load i8, ptr %4, align 8
-  %27 = add i8 %26, -115
-  %spec.select.i.i.i.i.i.i.i.i.i15 = icmp ult i8 %27, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i15, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18"
+24:                                               ; preds = %23
+  %25 = load i8, ptr %4, align 8
+  %26 = add i8 %25, -115
+  %spec.select.i.i.i.i.i.i.i.i.i16 = icmp ult i8 %26, -2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i16, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18": ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i16 = load i32, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i.i16, ptr noundef %30)
-  br i1 %31, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38"
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19": ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i17 = load i32, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i.i17, ptr noundef %29)
+  br i1 %30, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38": ; preds = %25, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18"
-  %32 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 18168
-  %34 = load i8, ptr %33, align 8
-  store i8 1, ptr %33, align 8
-  %35 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload.i.i19 = load i64, ptr %36, align 8
-  %37 = and i64 %.sroa.0.0.copyload.i.i19, -16
-  %38 = inttoptr i64 %37 to ptr
-  %39 = load ptr, ptr %38, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %40, align 8
-  %41 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i8, ptr %44, align 16
-  %46 = and i8 %45, -2
-  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %46, 42
-  %47 = tail call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(23096) %35, i1 noundef zeroext %spec.select.i.i.i.i.i.i.i.i.i.i, ptr noundef null) #13
-  store i8 %34, ptr %33, align 8
-  br i1 %47, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39": ; preds = %24, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19"
+  %31 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 18168
+  %33 = load i8, ptr %32, align 8
+  store i8 1, ptr %32, align 8
+  %34 = tail call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.0.0.copyload.i.i20 = load i64, ptr %35, align 8
+  %36 = and i64 %.sroa.0.0.copyload.i.i20, -16
+  %37 = inttoptr i64 %36 to ptr
+  %38 = load ptr, ptr %37, align 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %39, align 8
+  %40 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %41 = inttoptr i64 %40 to ptr
+  %42 = load ptr, ptr %41, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i8, ptr %43, align 16
+  %45 = and i8 %44, -2
+  %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %45, 42
+  %46 = tail call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(23096) %34, i1 noundef zeroext %spec.select.i.i.i.i.i.i.i.i.i.i, ptr noundef null) #13
+  store i8 %33, ptr %32, align 8
+  br i1 %46, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread": ; preds = %24, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18"
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload.i.i20 = load i64, ptr %48, align 8
-  %49 = and i64 %.sroa.0.0.copyload.i.i20, -16
-  %50 = inttoptr i64 %49 to ptr
-  %51 = load ptr, ptr %50, align 16
-  %52 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %51) #13
-  %.not.i21 = icmp eq ptr %52, null
-  br i1 %.not.i21, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split"
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread": ; preds = %23, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19"
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.sroa.0.0.copyload.i.i21 = load i64, ptr %47, align 8
+  %48 = and i64 %.sroa.0.0.copyload.i.i21, -16
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load ptr, ptr %49, align 16
+  %51 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %50) #13
+  %.not.i22 = icmp eq ptr %51, null
+  br i1 %.not.i22, label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit", label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split": ; preds = %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread"
-  %.sink40 = phi ptr [ %18, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread" ], [ %52, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread" ]
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i7.i22 = load i32, ptr %53, align 8
-  %54 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonnull align 8 dereferenceable(144) %.sink40) #13
-  %55 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA17isEmptyDestructorENS_14SourceLocationEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i7.i22, ptr noundef %54)
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split": ; preds = %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread"
+  %.sink41 = phi ptr [ %17, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread" ], [ %51, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread" ]
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i7.i23 = load i32, ptr %52, align 8
+  %53 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl13getDestructorEv(ptr noundef nonnull align 8 dereferenceable(144) %.sink41) #13
+  %54 = tail call noundef zeroext i1 @_ZN5clang8SemaCUDA17isEmptyDestructorENS_14SourceLocationEPNS_17CXXDestructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %.sroa.0.0.copyload.i7.i23, ptr noundef %53)
   br label %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit"
 
-"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit": ; preds = %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split", %7, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", %19, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit"
-  %.0 = phi i1 [ false, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit" ], [ true, %19 ], [ false, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread38" ], [ true, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread" ], [ true, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit18.thread" ], [ false, %7 ], [ %55, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split" ]
+"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit": ; preds = %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split", %6, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread", %18, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39", %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit"
+  %.0 = phi i1 [ false, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit" ], [ true, %18 ], [ false, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread39" ], [ true, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit.thread" ], [ true, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_0clEPKNS0_4ExprE.exit19.thread" ], [ false, %6 ], [ %54, %"_ZZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindEENK3$_1clES4_.exit.sink.split" ]
   ret i1 %.0
 }
 
@@ -5865,7 +5865,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDADeviceAttrEEEbv.exit80.thread: ; preds = %189, 
   br i1 %191, label %217, label %192
 
 192:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDADeviceAttrEEEbv.exit80.thread
-  %193 = call fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8SemaCUDA23maybeAddHostDeviceAttrsEPNS1_12FunctionDeclES4_E3$_0EEDaOT_T0_"(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nonnull %0, ptr nonnull %4)
+  %193 = call fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8SemaCUDA23maybeAddHostDeviceAttrsEPNS1_12FunctionDeclES4_E3$_0EEDaOT_T0_"(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr %0, ptr %4)
   %194 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %194) #13
@@ -5927,7 +5927,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl32isFunctionTemplateSpeciali
 declare noundef zeroext i1 @_ZNK5clang12FunctionDecl10isVariadicEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8SemaCUDA23maybeAddHostDeviceAttrsEPNS1_12FunctionDeclES4_E3$_0EEDaOT_T0_"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %1, ptr %2) unnamed_addr #0 {
+define internal fastcc ptr @"_ZN4llvm7find_ifIRKN5clang12LookupResultEZNS1_8SemaCUDA23maybeAddHostDeviceAttrsEPNS1_12FunctionDeclES4_E3$_0EEDaOT_T0_"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull %1, ptr nonnull %2) unnamed_addr #0 {
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

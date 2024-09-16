@@ -549,7 +549,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %6, %20, %_ZN4llvm
   br i1 %.not21.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit, label %58
 
 58:                                               ; preds = %55
-  %59 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.017.i, ptr noundef nonnull %57)
+  %59 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.017.i, ptr noundef %57)
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit
 
 _ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %58, %55, %53, %43, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
@@ -622,7 +622,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode6insert
   br i1 %.not.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior6insertEjRKN4llvm9RopePieceE.exit, label %38
 
 38:                                               ; preds = %.loopexit
-  %39 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.019.i, ptr noundef nonnull %37)
+  %39 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.019.i, ptr noundef %37)
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior6insertEjRKN4llvm9RopePieceE.exit
 
 _ZN12_GLOBAL__N_122RopePieceBTreeInterior6insertEjRKN4llvm9RopePieceE.exit: ; preds = %38, %.loopexit, %6
@@ -1381,7 +1381,7 @@ tailrecurse.outer:                                ; preds = %_ZN12_GLOBAL__N_118
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc noalias noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 5
   %.val20 = load i8, ptr %4, align 1
   %5 = icmp eq i8 %.val20, 16

@@ -5248,7 +5248,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %111 = sext i32 %109 to i64
   %112 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %111
   %113 = load i32, ptr %112, align 4
-  %114 = xor i32 %113, %110
+  %114 = xor i32 %110, %113
   %115 = invoke i32 @Gia_ManHashAnd(ptr noundef %44, i32 noundef %.03475, i32 noundef %114)
           to label %116 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit
 
@@ -5295,7 +5295,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %145 = sext i32 %143 to i64
   %146 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %145
   %147 = load i32, ptr %146, align 4
-  %148 = xor i32 %147, %144
+  %148 = xor i32 %144, %147
   invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %44, i32 noundef %148)
           to label %149 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
 
@@ -10628,7 +10628,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %111 = sext i32 %109 to i64
   %112 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %111
   %113 = load i32, ptr %112, align 4
-  %114 = xor i32 %113, %110
+  %114 = xor i32 %110, %113
   %115 = invoke i32 @Gia_ManHashAnd(ptr noundef %44, i32 noundef %.03475, i32 noundef %114)
           to label %116 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit.split-lp.loopexit
 
@@ -10675,7 +10675,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %145 = sext i32 %143 to i64
   %146 = getelementptr inbounds i32, ptr %.sroa.051.0, i64 %145
   %147 = load i32, ptr %146, align 4
-  %148 = xor i32 %147, %144
+  %148 = xor i32 %144, %147
   invoke fastcc void @_ZL15Gia_ManAppendCoP10Gia_Man_t_i(ptr noundef %44, i32 noundef %148)
           to label %149 unwind label %_ZNSt6vectorIiSaIiEED2Ev.exit.loopexit
 

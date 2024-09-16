@@ -71,14 +71,14 @@ Prs_ManRoot.exit:                                 ; preds = %2, %5
   %25 = getelementptr i8, ptr %23, i64 8
   %.val.i = load ptr, ptr %25, align 8
   %26 = tail call ptr @Abc_NamStr(ptr noundef %.val.i, i32 noundef %24) #6
-  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef %26) #6
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.10, ptr noundef %26) #6
   %28 = getelementptr i8, ptr %23, i64 52
   %.val21.i = load i32, ptr %28, align 4
   %.not.i = icmp eq i32 %.val21.i, 0
   br i1 %.not.i, label %.thread.i, label %29
 
 29:                                               ; preds = %21
-  %30 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 7, i64 1, ptr %9)
+  %30 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 7, i64 1, ptr nonnull %9)
   %.val22.pr.i = load i32, ptr %28, align 4
   %.not20.i = icmp eq i32 %.val22.pr.i, 0
   br i1 %.not20.i, label %.thread.i, label %31
@@ -98,7 +98,7 @@ Prs_ManRoot.exit:                                 ; preds = %2, %5
   %36 = load i32, ptr %35, align 4
   %.val.i.i17 = load ptr, ptr %25, align 8
   %37 = tail call ptr @Abc_NamStr(ptr noundef %.val.i.i17, i32 noundef %36) #6
-  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %37) #6
+  %38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %37) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.val8.i.i = load i32, ptr %28, align 4
   %39 = sext i32 %.val8.i.i to i64
@@ -106,11 +106,11 @@ Prs_ManRoot.exit:                                 ; preds = %2, %5
   br i1 %40, label %34, label %Prs_ManWriteBlifArray.exit.i, !llvm.loop !4
 
 Prs_ManWriteBlifArray.exit.i:                     ; preds = %34, %31
-  %fputc.i.i = tail call i32 @fputc(i32 10, ptr %9)
+  %fputc.i.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
   br label %.thread.i
 
 .thread.i:                                        ; preds = %Prs_ManWriteBlifArray.exit.i, %29, %21
-  %41 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 7, i64 1, ptr %9)
+  %41 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 7, i64 1, ptr nonnull %9)
   %42 = getelementptr i8, ptr %23, i64 68
   %.val810.i23.i = load i32, ptr %42, align 4
   %43 = icmp sgt i32 %.val810.i23.i, 0
@@ -127,7 +127,7 @@ Prs_ManWriteBlifArray.exit.i:                     ; preds = %34, %31
   %47 = load i32, ptr %46, align 4
   %.val.i28.i = load ptr, ptr %25, align 8
   %48 = tail call ptr @Abc_NamStr(ptr noundef %.val.i28.i, i32 noundef %47) #6
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %48) #6
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %48) #6
   %indvars.iv.next.i29.i = add nuw nsw i64 %indvars.iv.i26.i, 1
   %.val8.i30.i = load i32, ptr %42, align 4
   %50 = sext i32 %.val8.i30.i to i64
@@ -135,8 +135,8 @@ Prs_ManWriteBlifArray.exit.i:                     ; preds = %34, %31
   br i1 %51, label %45, label %Prs_ManWriteBlifArray.exit31.i, !llvm.loop !4
 
 Prs_ManWriteBlifArray.exit31.i:                   ; preds = %45, %.thread.i
-  %fputc.i24.i = tail call i32 @fputc(i32 10, ptr %9)
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 8, i64 1, ptr %9)
+  %fputc.i24.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 8, i64 1, ptr nonnull %9)
   %53 = getelementptr i8, ptr %23, i64 84
   %.val810.i32.i = load i32, ptr %53, align 4
   %54 = icmp sgt i32 %.val810.i32.i, 0
@@ -153,7 +153,7 @@ Prs_ManWriteBlifArray.exit31.i:                   ; preds = %45, %.thread.i
   %58 = load i32, ptr %57, align 4
   %.val.i37.i = load ptr, ptr %25, align 8
   %59 = tail call ptr @Abc_NamStr(ptr noundef %.val.i37.i, i32 noundef %58) #6
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %59) #6
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %59) #6
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %.val8.i39.i = load i32, ptr %53, align 4
   %61 = sext i32 %.val8.i39.i to i64
@@ -161,7 +161,7 @@ Prs_ManWriteBlifArray.exit31.i:                   ; preds = %45, %.thread.i
   br i1 %62, label %56, label %Prs_ManWriteBlifArray.exit40.i, !llvm.loop !4
 
 Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBlifArray.exit31.i
-  %fputc.i33.i = tail call i32 @fputc(i32 10, ptr %9)
+  %fputc.i33.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
   %63 = getelementptr i8, ptr %23, i64 228
   %.val7184.i.i = load i32, ptr %63, align 4
   %64 = icmp sgt i32 %.val7184.i.i, 0
@@ -204,19 +204,19 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   br i1 %86, label %87, label %105
 
 87:                                               ; preds = %68
-  %88 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr %9)
+  %88 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 6, i64 1, ptr nonnull %9)
   %Prs_BoxSignals.V.val70.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %89 = getelementptr inbounds i8, ptr %Prs_BoxSignals.V.val70.i.i, i64 4
   %90 = load i32, ptr %89, align 4
   %.val63.i.i = load ptr, ptr %25, align 8
   %91 = tail call ptr @Abc_NamStr(ptr noundef %.val63.i.i, i32 noundef %90) #6
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %91) #6
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %91) #6
   %Prs_BoxSignals.V.val69.i.i = load ptr, ptr @Prs_BoxSignals.V.2, align 8
   %93 = getelementptr inbounds i8, ptr %Prs_BoxSignals.V.val69.i.i, i64 12
   %94 = load i32, ptr %93, align 4
   %.val62.i.i = load ptr, ptr %25, align 8
   %95 = tail call ptr @Abc_NamStr(ptr noundef %.val62.i.i, i32 noundef %94) #6
-  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %95) #6
+  %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %95) #6
   %.val74.i.i = load ptr, ptr %65, align 8
   %.val75.i.i = load ptr, ptr %66, align 8
   %97 = getelementptr inbounds i32, ptr %.val75.i.i, i64 %indvars.iv91.i.i
@@ -226,7 +226,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %101 = getelementptr i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 4
   %103 = add nsw i32 %102, 48
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.18, i32 noundef %103) #6
+  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.18, i32 noundef %103) #6
   br label %137
 
 105:                                              ; preds = %68
@@ -236,7 +236,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   br i1 %.not.i.not.i.i, label %108, label %121
 
 108:                                              ; preds = %105
-  %109 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr %9)
+  %109 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 6, i64 1, ptr nonnull %9)
   %Prs_BoxSignals.V.val6481.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %110 = icmp sgt i32 %Prs_BoxSignals.V.val6481.i.i, 1
   br i1 %110, label %.lr.ph83.i.i, label %.critedge2.i.i
@@ -249,7 +249,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %113 = load i32, ptr %112, align 4
   %.val61.i.i = load ptr, ptr %25, align 8
   %114 = tail call ptr @Abc_NamStr(ptr noundef %.val61.i.i, i32 noundef %113) #6
-  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %114) #6
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %114) #6
   %indvars.iv.next89.i.i = add nuw nsw i64 %indvars.iv88.i.i, 2
   %Prs_BoxSignals.V.val64.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %116 = trunc i64 %indvars.iv.next89.i.i to i32
@@ -260,14 +260,14 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
 .critedge2.i.i:                                   ; preds = %.lr.ph83.i.i, %108
   %.val78.i.i = load ptr, ptr %67, align 8
   %119 = tail call ptr @Abc_NamStr(ptr noundef %.val78.i.i, i32 noundef %85) #6
-  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.9, ptr noundef %119) #6
+  %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.9, ptr noundef %119) #6
   br label %137
 
 121:                                              ; preds = %105
-  %122 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 7, i64 1, ptr %9)
+  %122 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 7, i64 1, ptr nonnull %9)
   %.val60.i.i = load ptr, ptr %25, align 8
   %123 = tail call ptr @Abc_NamStr(ptr noundef %.val60.i.i, i32 noundef %85) #6
-  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %123) #6
+  %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.4, ptr noundef %123) #6
   %Prs_BoxSignals.V.val79.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %125 = icmp sgt i32 %Prs_BoxSignals.V.val79.i.i, 1
   br i1 %125, label %.lr.ph.i42.i, label %.critedge4.i.i
@@ -284,7 +284,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   %131 = tail call ptr @Abc_NamStr(ptr noundef %.val59.i.i, i32 noundef %128) #6
   %.val.i44.i = load ptr, ptr %25, align 8
   %132 = tail call ptr @Abc_NamStr(ptr noundef %.val.i44.i, i32 noundef %130) #6
-  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef %131, ptr noundef %132) #6
+  %133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.5, ptr noundef %131, ptr noundef %132) #6
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i43.i, 2
   %Prs_BoxSignals.V.val.i.i = load i32, ptr @Prs_BoxSignals.V.1, align 8
   %134 = trunc i64 %indvars.iv.next.i45.i to i32
@@ -293,7 +293,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   br i1 %136, label %.lr.ph.i42.i, label %.critedge4.i.i, !llvm.loop !7
 
 .critedge4.i.i:                                   ; preds = %.lr.ph.i42.i, %121
-  %fputc.i41.i = tail call i32 @fputc(i32 10, ptr %9)
+  %fputc.i41.i = tail call i32 @fputc(i32 10, ptr nonnull %9)
   br label %137
 
 137:                                              ; preds = %.critedge4.i.i, %.critedge2.i.i, %87
@@ -304,7 +304,7 @@ Prs_ManWriteBlifArray.exit40.i:                   ; preds = %56, %Prs_ManWriteBl
   br i1 %139, label %68, label %Prs_ManWriteBlifNtk.exit, !llvm.loop !8
 
 Prs_ManWriteBlifNtk.exit:                         ; preds = %137, %Prs_ManWriteBlifArray.exit40.i
-  %140 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr %9)
+  %140 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 6, i64 1, ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %3, align 4
   %141 = sext i32 %.val to i64

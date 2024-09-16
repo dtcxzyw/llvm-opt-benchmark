@@ -28,7 +28,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %oid, ptr noundef nonnull %found)
+  %call = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %oid, ptr noundef %found)
   %1 = load i32, ptr %found, align 4
   %tobool1.not = icmp eq i32 %1, 0
   br i1 %tobool1.not, label %return, label %if.end3
@@ -52,7 +52,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @locate_object_entry_hash(ptr nocapture noundef readonly %pdata, ptr nocapture noundef readonly %oid, ptr nocapture noundef writeonly %found) unnamed_addr #0 {
+define internal fastcc i32 @locate_object_entry_hash(ptr nocapture noundef readonly %pdata, ptr nocapture noundef readonly %oid, ptr nocapture noundef nonnull writeonly %found) unnamed_addr #0 {
 entry:
   %index_size = getelementptr inbounds i8, ptr %pdata, i64 32
   %0 = load i32, ptr %index_size, align 8
@@ -497,7 +497,7 @@ for.body.preheader.i:                             ; preds = %if.then57
 for.body.i:                                       ; preds = %if.end12.i, %for.body.preheader.i
   %i.016.i = phi i32 [ %add.i, %if.end12.i ], [ 0, %for.body.preheader.i ]
   %entry1.015.i = phi ptr [ %incdec.ptr.i, %if.end12.i ], [ %23, %for.body.preheader.i ]
-  %call10.i = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %entry1.015.i, ptr noundef nonnull %found.i)
+  %call10.i = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef %entry1.015.i, ptr noundef %found.i)
   %24 = load i32, ptr %found.i, align 4
   %tobool.not.i = icmp eq i32 %24, 0
   br i1 %tobool.not.i, label %if.end12.i, label %if.then11.i
@@ -522,7 +522,7 @@ rehash_objects.exit:                              ; preds = %if.end12.i, %if.the
   br label %if.end65
 
 if.else:                                          ; preds = %if.end48
-  %call60 = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef nonnull %add.ptr, ptr noundef nonnull %found)
+  %call60 = call fastcc i32 @locate_object_entry_hash(ptr noundef nonnull %pdata, ptr noundef nonnull %add.ptr, ptr noundef %found)
   %27 = load i32, ptr %found, align 4
   %tobool61.not = icmp eq i32 %27, 0
   br i1 %tobool61.not, label %if.end63, label %if.then62

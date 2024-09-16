@@ -204,7 +204,7 @@ if.end15.i:                                       ; preds = %if.end.i
   br i1 %cmp.i, label %if.then18.i, label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  call fastcc void @_ZL33replaceCondBranchWithDirectBranchPN6hermes14CondBranchInstEPNS_10BasicBlockE(ptr noundef nonnull %call11.i, ptr noundef %14)
+  call fastcc void @_ZL33replaceCondBranchWithDirectBranchPN6hermes14CondBranchInstEPNS_10BasicBlockE(ptr noundef %call11.i, ptr noundef %14)
   br label %for.inc.i
 
 if.end20.i:                                       ; preds = %if.end15.i
@@ -222,7 +222,7 @@ if.end28.i:                                       ; preds = %if.end20.i
 
 if.then30.i:                                      ; preds = %if.end28.i
   %call16.call17.i = select i1 %tobool.i.i, ptr %14, ptr %16
-  call fastcc void @_ZL33replaceCondBranchWithDirectBranchPN6hermes14CondBranchInstEPNS_10BasicBlockE(ptr noundef nonnull %call11.i, ptr noundef nonnull %call16.call17.i)
+  call fastcc void @_ZL33replaceCondBranchWithDirectBranchPN6hermes14CondBranchInstEPNS_10BasicBlockE(ptr noundef %call11.i, ptr noundef nonnull %call16.call17.i)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then30.i, %if.end28.i, %if.end20.i, %if.then18.i, %if.end.i, %_ZL18simplifySwitchInstPN6hermes10SwitchInstE.exit.i
@@ -1287,7 +1287,7 @@ for.body.i.i28:                                   ; preds = %_ZN4llvh11SmallVect
   br i1 %tobool.not.i36.i, label %for.inc.i.i31, label %if.then.i37.i
 
 if.then.i37.i:                                    ; preds = %for.body.i.i28
-  call void @_ZN6hermes7PhiInst11removeEntryEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(132) %167, ptr noundef %it.sroa.0.060.i) #9
+  call void @_ZN6hermes7PhiInst11removeEntryEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(132) %167, ptr noundef nonnull %it.sroa.0.060.i) #9
   br label %for.inc.i.i31
 
 for.inc.i.i31:                                    ; preds = %if.then.i37.i, %for.body.i.i28

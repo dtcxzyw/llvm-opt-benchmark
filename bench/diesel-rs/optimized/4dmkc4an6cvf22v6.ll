@@ -566,7 +566,7 @@ define internal void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !75, !noundef !4
   %4 = icmp eq i64 %3, 0
@@ -1042,7 +1042,7 @@ define internal void @"_ZN4core3ptr70drop_in_place$LT$alloc..boxed..Box$LT$dyn$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef align 8 dereferenceable(104) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !116, !noundef !4
   %.not = icmp eq i64 %2, 2
   br i1 %.not, label %17, label %3
@@ -5779,11 +5779,11 @@ define hidden void @_ZN6diesel2pg10connection6result8PgResult3new17hb391f335f3cd
 
 .thread.i:                                        ; preds = %61, %39
   %.02.i = phi i1 [ %62, %61 ], [ true, %39 ]
-  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7)
+  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef align 8 dereferenceable(56) %7)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h3fba6112ef42ec54E.exit" unwind label %.loopexit
 
 64:                                               ; preds = %.body.i
-  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %7) #28
+  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$diesel..pg..connection..result..PgResult$GT$$C$diesel..result..Error$GT$$GT$17hbf6407c5f1834dfeE"(ptr noalias noundef align 8 dereferenceable(56) %7) #28
           to label %.thread151 unwind label %65
 
 65:                                               ; preds = %64
@@ -6644,7 +6644,7 @@ define void @"_ZN122_$LT$diesel..sqlite..connection..row..SqliteField$u20$as$u20
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN6diesel6sqlite10connection18statement_iterator17StatementIterator26handle_duplicated_row_case17hcff5c32e3281d4c5E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(16) %2, i64 noundef %3) unnamed_addr #13 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6diesel6sqlite10connection18statement_iterator17StatementIterator26handle_duplicated_row_case17hcff5c32e3281d4c5E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3) unnamed_addr #13 personality ptr @rust_eh_personality {
   %5 = alloca {}, align 8
   %6 = alloca { i64, i64, { i64, { { i64, [12 x i64] } } } }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -7140,7 +7140,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6295a486baad6c91E.exit: ; preds = %156
   br label %161
 
 164:                                              ; preds = %161
-  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21)
+  call fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef align 8 dereferenceable(104) %21)
   br label %165
 
 165:                                              ; preds = %161, %164, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1ceaa034c956f07eE.exit"
@@ -7195,7 +7195,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6295a486baad6c91E.exit: ; preds = %156
 
 180:                                              ; preds = %.thread51, %.thread
   %.pn.pn.pn55 = phi { ptr, i32 } [ %170, %.thread51 ], [ %.pn.pn.pn, %.thread ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %21) #28
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$diesel..sqlite..connection..row..PrivateSqliteRow$GT$17h08a4a617f2995eaeE"(ptr noalias noundef align 8 dereferenceable(104) %21) #28
           to label %common.resume unwind label %167
 
 .thread56:                                        ; preds = %.thread51
@@ -7514,7 +7514,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h6295a486baad6c91E.exit: ; preds = %64
   %107 = getelementptr inbounds i8, ptr %1, i64 104
   %108 = getelementptr inbounds i8, ptr %1, i64 120
   %109 = load i64, ptr %108, align 8, !noundef !4
-  tail call fastcc void @_ZN6diesel6sqlite10connection18statement_iterator17StatementIterator26handle_duplicated_row_case17hcff5c32e3281d4c5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %107, i64 noundef %109)
+  tail call fastcc void @_ZN6diesel6sqlite10connection18statement_iterator17StatementIterator26handle_duplicated_row_case17hcff5c32e3281d4c5E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(8) %13, ptr noalias noundef align 8 dereferenceable(16) %107, i64 noundef %109)
   br label %101
 
 110:                                              ; preds = %104

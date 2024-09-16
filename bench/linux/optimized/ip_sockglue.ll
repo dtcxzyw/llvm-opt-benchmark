@@ -2655,7 +2655,7 @@ declare dso_local i32 @ip_mc_join_group(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @ip_mc_leave_group(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc ptr @memdup_sockptr(ptr %0, i8 %1, i64 noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc ptr @memdup_sockptr(ptr %0, i8 %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #7 align 16 {
   %4 = tail call ptr @llvm.returnaddress(i32 0)
   %5 = ptrtoint ptr %4 to i64
   %6 = tail call noalias ptr @__kmalloc_node_track_caller(i64 noundef %2, i32 noundef 1060032, i32 noundef -1, i64 noundef %5) #18
@@ -4025,7 +4025,7 @@ copy_to_sockptr.exit.thread:                      ; preds = %360
 declare dso_local i32 @ip_mroute_getsockopt(ptr noundef, i32 noundef, ptr, i8, ptr, i8) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc i32 @copy_to_sockptr(ptr %0, i8 %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #7 align 16 {
   %5 = and i8 %1, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -4089,7 +4089,7 @@ define internal fastcc ptr @sk_dst_get(ptr noundef %0) unnamed_addr #7 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc i32 @dst_mtu(ptr noundef nonnull %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
@@ -4098,7 +4098,7 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #7 align 16 {
   br i1 %6, label %7, label %9, !prof !7
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @ip6_mtu(ptr noundef %0) #14
+  %8 = tail call i32 @ip6_mtu(ptr noundef nonnull %0) #14
   br label %15
 
 9:                                                ; preds = %1
@@ -4106,11 +4106,11 @@ define internal fastcc i32 @dst_mtu(ptr noundef %0) unnamed_addr #7 align 16 {
   br i1 %10, label %11, label %13, !prof !7
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @ipv4_mtu(ptr noundef %0) #14
+  %12 = tail call i32 @ipv4_mtu(ptr noundef nonnull %0) #14
   br label %15
 
 13:                                               ; preds = %9
-  %14 = tail call i32 %5(ptr noundef %0) #14
+  %14 = tail call i32 %5(ptr noundef nonnull %0) #14
   br label %15
 
 15:                                               ; preds = %13, %11, %7
@@ -4424,64 +4424,65 @@ declare dso_local ptr @__ip_dev_find(ptr noundef, i32 noundef, i1 noundef zeroex
 declare dso_local noalias ptr @__kmalloc_node_track_caller(i64 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @set_mcast_msfilter(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 16 {
-  %7 = zext i32 %2 to i64
-  %8 = shl nuw nsw i64 %7, 2
-  %9 = add nuw nsw i64 %8, 16
-  %10 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %9, i32 noundef 3264) #18
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %35, label %12
+define internal fastcc i32 @set_mcast_msfilter(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 33554431) %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 16 {
+  %7 = shl nuw nsw i32 %2, 2
+  %narrow = add nuw nsw i32 %7, 16
+  %8 = zext nneg i32 %narrow to i64
+  %9 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %8, i32 noundef 3264) #18
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %34, label %11
 
-12:                                               ; preds = %6
-  %13 = load i16, ptr %4, align 4
-  %14 = icmp eq i16 %13, 2
-  br i1 %14, label %15, label %.loopexit
+11:                                               ; preds = %6
+  %12 = load i16, ptr %4, align 4
+  %13 = icmp eq i16 %12, 2
+  br i1 %13, label %14, label %.loopexit
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %4, i64 4
-  %17 = load i32, ptr %16, align 4
-  store i32 %17, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 %2, ptr %20, align 4
-  %21 = icmp sgt i32 %2, 0
-  br i1 %21, label %22, label %.loopexit3
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %4, i64 4
+  %16 = load i32, ptr %15, align 4
+  store i32 %16, ptr %9, align 8
+  %17 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 0, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 %3, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %2, ptr %19, align 4
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %.loopexit3, label %20
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %10, i64 16
-  br label %24
+20:                                               ; preds = %14
+  %21 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = zext nneg i32 %2 to i64
+  br label %23
 
-24:                                               ; preds = %28, %22
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %22 ]
-  %25 = getelementptr %struct.__kernel_sockaddr_storage, ptr %5, i64 %indvars.iv
-  %26 = load i16, ptr %25, align 4
-  %27 = icmp eq i16 %26, 2
-  br i1 %27, label %28, label %.loopexit
+23:                                               ; preds = %27, %20
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %20 ]
+  %24 = getelementptr %struct.__kernel_sockaddr_storage, ptr %5, i64 %indvars.iv
+  %25 = load i16, ptr %24, align 4
+  %26 = icmp eq i16 %25, 2
+  br i1 %26, label %27, label %.loopexit
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %25, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = getelementptr [0 x i32], ptr %23, i64 0, i64 %indvars.iv
-  store i32 %30, ptr %31, align 4
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %24, i64 4
+  %29 = load i32, ptr %28, align 4
+  %30 = getelementptr [0 x i32], ptr %21, i64 0, i64 %indvars.iv
+  store i32 %29, ptr %30, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = icmp eq i64 %indvars.iv.next, %7
-  br i1 %32, label %.loopexit3, label %24, !llvm.loop !33
+  %31 = icmp eq i64 %indvars.iv.next, %22
+  br i1 %31, label %.loopexit3, label %23, !llvm.loop !33
 
-.loopexit3:                                       ; preds = %28, %15
-  %33 = tail call i32 @ip_mc_msfilter(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %1) #14
+.loopexit3:                                       ; preds = %27, %14
+  %32 = tail call i32 @ip_mc_msfilter(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %1) #14
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.loopexit3, %12
-  %34 = phi i32 [ %33, %.loopexit3 ], [ -99, %12 ], [ -99, %24 ]
-  tail call void @kfree(ptr noundef nonnull %10) #14
-  br label %35
+.loopexit:                                        ; preds = %23, %.loopexit3, %11
+  %33 = phi i32 [ %32, %.loopexit3 ], [ -99, %11 ], [ -99, %23 ]
+  tail call void @kfree(ptr noundef nonnull %9) #14
+  br label %34
 
-35:                                               ; preds = %.loopexit, %6
-  %36 = phi i32 [ -105, %6 ], [ %34, %.loopexit ]
-  ret i32 %36
+34:                                               ; preds = %.loopexit, %6
+  %35 = phi i32 [ -105, %6 ], [ %33, %.loopexit ]
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid

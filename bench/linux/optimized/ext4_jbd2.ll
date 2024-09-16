@@ -726,7 +726,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
 declare dso_local i32 @jbd2_journal_get_write_access(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 align 16 {
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !38

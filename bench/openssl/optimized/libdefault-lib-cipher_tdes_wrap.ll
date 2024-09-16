@@ -113,7 +113,7 @@ if.end.i11.i:                                     ; preds = %if.else.i
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.end3.i12.i
 
 if.then2.i.i:                                     ; preds = %if.end.i11.i
-  %9 = trunc nuw i64 %inl to i32
+  %9 = trunc nuw nsw i64 %inl to i32
   %conv.i19.i = add nsw i32 %9, -16
   br label %des_ede3_unwrap.exit.i
 

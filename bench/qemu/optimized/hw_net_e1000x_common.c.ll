@@ -1128,35 +1128,35 @@ e1000x_inc_reg_if_not_full.exit13:                ; preds = %e1000x_inc_reg_if_n
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
   %arrayidx.i15 = getelementptr i8, ptr %mac, i64 16520
   %9 = load i64, ptr %arrayidx.i15, align 4
-  %arrayidx2.i17 = getelementptr i8, ptr %mac, i64 16524
-  %.add5.i22 = tail call i64 @llvm.uadd.sat.i64(i64 %9, i64 %conv4.i)
-  %conv9.i23 = trunc i64 %.add5.i22 to i32
-  store i32 %conv9.i23, ptr %arrayidx.i15, align 4
-  %shr.i24 = lshr i64 %.add5.i22, 32
-  %conv12.i25 = trunc nuw i64 %shr.i24 to i32
-  store i32 %conv12.i25, ptr %arrayidx2.i17, align 4
+  %arrayidx2.i16 = getelementptr i8, ptr %mac, i64 16524
+  %.add5.i18 = tail call i64 @llvm.uadd.sat.i64(i64 %9, i64 %conv4.i)
+  %conv9.i19 = trunc i64 %.add5.i18 to i32
+  store i32 %conv9.i19, ptr %arrayidx.i15, align 4
+  %shr.i20 = lshr i64 %.add5.i18, 32
+  %conv12.i21 = trunc nuw i64 %shr.i20 to i32
+  store i32 %conv12.i21, ptr %arrayidx2.i16, align 4
   switch i32 %pkt_type, label %sw.epilog [
     i32 -1430533119, label %sw.bb
     i32 -1430533118, label %sw.bb4
   ]
 
 sw.bb:                                            ; preds = %e1000x_inc_reg_if_not_full.exit13
-  %arrayidx.i26 = getelementptr i8, ptr %mac, i64 16504
-  %10 = load i32, ptr %arrayidx.i26, align 4
-  %cmp.not.i27 = icmp eq i32 %10, -1
-  br i1 %cmp.not.i27, label %sw.epilog, label %sw.epilog.sink.split
+  %arrayidx.i22 = getelementptr i8, ptr %mac, i64 16504
+  %10 = load i32, ptr %arrayidx.i22, align 4
+  %cmp.not.i23 = icmp eq i32 %10, -1
+  br i1 %cmp.not.i23, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.bb4:                                           ; preds = %e1000x_inc_reg_if_not_full.exit13
-  %arrayidx.i31 = getelementptr i8, ptr %mac, i64 16508
-  %11 = load i32, ptr %arrayidx.i31, align 4
-  %cmp.not.i32 = icmp eq i32 %11, -1
-  br i1 %cmp.not.i32, label %sw.epilog, label %sw.epilog.sink.split
+  %arrayidx.i27 = getelementptr i8, ptr %mac, i64 16508
+  %11 = load i32, ptr %arrayidx.i27, align 4
+  %cmp.not.i28 = icmp eq i32 %11, -1
+  br i1 %cmp.not.i28, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb4, %sw.bb
   %.sink = phi i32 [ %10, %sw.bb ], [ %11, %sw.bb4 ]
-  %arrayidx.i31.sink = phi ptr [ %arrayidx.i26, %sw.bb ], [ %arrayidx.i31, %sw.bb4 ]
-  %inc.i34 = add nuw i32 %.sink, 1
-  store i32 %inc.i34, ptr %arrayidx.i31.sink, align 4
+  %arrayidx.i27.sink = phi ptr [ %arrayidx.i22, %sw.bb ], [ %arrayidx.i27, %sw.bb4 ]
+  %inc.i30 = add nuw i32 %.sink, 1
+  store i32 %inc.i30, ptr %arrayidx.i27.sink, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb4, %sw.bb, %e1000x_inc_reg_if_not_full.exit13

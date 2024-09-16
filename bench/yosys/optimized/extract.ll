@@ -4642,7 +4642,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit692: ; preds = %_ZNSt6vector
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1484, i8 0, i64 56, i1 false)
   %1492 = getelementptr inbounds i8, ptr %1491, i64 304
   %.val = load i32, ptr %1492, align 4, !noalias !64
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %184, i32 %.val)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %184, i32 %.val)
           to label %1493 unwind label %1529
 
 1493:                                             ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit692
@@ -4848,7 +4848,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit708: ; preds = %1589, %.lr.p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1560, i8 0, i64 56, i1 false)
   %1568 = getelementptr inbounds i8, ptr %1567, i64 304
   %.val494 = load i32, ptr %1568, align 4, !noalias !64
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %188, i32 %.val494)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %188, i32 %.val494)
           to label %1569 unwind label %1581
 
 1569:                                             ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEEppEv.exit708
@@ -9715,7 +9715,7 @@ declare void @_ZN5Yosys4Pass4callEPNS_5RTLIL6DesignENSt7__cxx1112basic_stringIcS
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idB5cxx11ERKNS0_8IdStringE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -20461,7 +20461,7 @@ _ZNSt12_Vector_baseIN10SubCircuit6Solver6ResultESaIS2_EED2Ev.exit: ; preds = %_Z
 declare void @_ZN10SubCircuit6Solver4mineERSt6vectorINS0_10MineResultESaIS2_EEiiii(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %4 = icmp ult i64 %3, 2
   br i1 %4, label %5, label %6
@@ -20513,7 +20513,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_
   br label %29
 
 28:                                               ; preds = %23, %19
-  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
+  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
   br label %29
 
 29:                                               ; preds = %28, %27, %18, %9, %5
@@ -21297,7 +21297,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
 165:                                              ; preds = %164, %.noexc110
   %166 = getelementptr inbounds i8, ptr %157, i64 %163
   store ptr %166, ptr %59, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %16, i32 %131, i32 %138, ptr noundef nonnull %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias writable align 8 %16, i32 %131, i32 %138, ptr noundef %19)
           to label %167 unwind label %220
 
 167:                                              ; preds = %165
@@ -21735,7 +21735,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i1
 347:                                              ; preds = %346, %.noexc159
   %348 = getelementptr inbounds i8, ptr %339, i64 %345
   store ptr %348, ptr %241, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %20, i32 %313, i32 %320, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias writable align 8 %20, i32 %313, i32 %320, ptr noundef %23)
           to label %349 unwind label %400
 
 349:                                              ; preds = %347
@@ -22554,7 +22554,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias writable align 8 %0, i32 %.0.val, i32 %.0.val1, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116SubCircuitSolver13unified_paramEN5Yosys5RTLIL8IdStringES3_NS2_5ConstE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.0.val, i32 %.0.val1, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = sext i32 %.0.val to i64
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, i64 8), align 8
   %5 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString18global_id_storage_E, align 8

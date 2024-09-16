@@ -48,8 +48,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [40 x i8] c"%d@%zu.%06zu:send_bitmap_header_enter \0A\00", align 1
 @.str.21 = private unnamed_addr constant [27 x i8] c"send_bitmap_header_enter \0A\00", align 1
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
-@.str.22 = private unnamed_addr constant [55 x i8] c"!(flags & (0xffffff00 | DIRTY_BITMAP_MIG_EXTRA_FLAGS))\00", align 1
-@__PRETTY_FUNCTION__.qemu_put_bitmap_flags = private unnamed_addr constant [49 x i8] c"void qemu_put_bitmap_flags(QEMUFile *, uint32_t)\00", align 1
 @_TRACE_DIRTY_BITMAP_SAVE_COMPLETE_ENTER_DSTATE = external local_unnamed_addr global i16, align 2
 @.str.23 = private unnamed_addr constant [48 x i8] c"%d@%zu.%06zu:dirty_bitmap_save_complete_enter \0A\00", align 1
 @.str.24 = private unnamed_addr constant [35 x i8] c"dirty_bitmap_save_complete_enter \0A\00", align 1
@@ -686,7 +684,7 @@ land.lhs.true28.i:                                ; preds = %land.lhs.true19.i, 
   br i1 %tobool31.i, label %for.inc.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %land.lhs.true28.i
-  %call33.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.059.i, ptr noundef nonnull %call11.i, ptr noundef null)
+  %call33.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef %bs.059.i, ptr noundef nonnull %call11.i, ptr noundef null)
   %tobool34.not.i = icmp eq i32 %call33.i, 0
   br i1 %tobool34.not.i, label %if.end36.i, label %fail.thread.i
 
@@ -724,7 +722,7 @@ for.body44.i:                                     ; preds = %if.end40.i, %for.in
 
 if.end48.i:                                       ; preds = %for.body44.i
   %call49.i = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %bs.163.i) #11
-  %call50.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef nonnull %bs.163.i, ptr noundef %call49.i, ptr noundef %alias_map.047.i)
+  %call50.i = tail call fastcc i32 @add_bitmaps_to_list(ptr noundef %opaque, ptr noundef %bs.163.i, ptr noundef %call49.i, ptr noundef %alias_map.047.i)
   %tobool51.not.i = icmp eq i32 %call50.i, 0
   br i1 %tobool51.not.i, label %for.inc54.i, label %fail.i
 
@@ -2029,7 +2027,7 @@ declare ptr @blk_bs(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_has_named_bitmaps(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_bitmaps_to_list(ptr nocapture noundef %s, ptr noundef %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_bitmaps_to_list(ptr nocapture noundef %s, ptr noundef nonnull %bs, ptr noundef %bs_name, ptr noundef %alias_map) unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -2037,7 +2035,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call = tail call ptr @bdrv_get_node_name(ptr noundef %bs) #11
+  %call = tail call ptr @bdrv_get_node_name(ptr noundef nonnull %bs) #11
   %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %bs_name, ptr noundef nonnull dereferenceable(1) %call) #12
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %if.else
@@ -2047,7 +2045,7 @@ if.else:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end:                                           ; preds = %entry, %lor.lhs.false
-  %call3 = tail call ptr @bdrv_dirty_bitmap_first(ptr noundef %bs) #11
+  %call3 = tail call ptr @bdrv_dirty_bitmap_first(ptr noundef nonnull %bs) #11
   %tobool4.not59 = icmp eq ptr %call3, null
   br i1 %tobool4.not59, label %return, label %for.body
 
@@ -2103,7 +2101,7 @@ if.then29:                                        ; preds = %if.end26
   br label %return
 
 if.end30:                                         ; preds = %if.end26
-  %call31 = tail call ptr @bdrv_dirty_bitmap_first(ptr noundef %bs) #11
+  %call31 = tail call ptr @bdrv_dirty_bitmap_first(ptr noundef nonnull %bs) #11
   %tobool33.not61 = icmp eq ptr %call31, null
   br i1 %tobool33.not61, label %return, label %for.body34.lr.ph
 
@@ -2155,7 +2153,7 @@ if.then57:                                        ; preds = %if.else53
 if.end59:                                         ; preds = %if.end48, %if.else53
   %bitmap_alias.0 = phi ptr [ %4, %if.end48 ], [ %call35, %if.else53 ]
   %bitmap_transform.0 = phi ptr [ %5, %if.end48 ], [ null, %if.else53 ]
-  call void @bdrv_ref(ptr noundef %bs) #11
+  call void @bdrv_ref(ptr noundef nonnull %bs) #11
   call void @bdrv_dirty_bitmap_set_busy(ptr noundef nonnull %bitmap.162, i1 noundef zeroext true) #11
   %call60 = call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
   store ptr %bs, ptr %call60, align 8
@@ -2167,7 +2165,7 @@ if.end59:                                         ; preds = %if.end48, %if.else5
   store ptr %call64, ptr %bitmap_alias65, align 8
   %bitmap66 = getelementptr inbounds i8, ptr %call60, i64 24
   store ptr %bitmap.162, ptr %bitmap66, align 8
-  %call67 = call i64 @bdrv_nb_sectors(ptr noundef %bs) #11
+  %call67 = call i64 @bdrv_nb_sectors(ptr noundef nonnull %bs) #11
   %total_sectors = getelementptr inbounds i8, ptr %call60, i64 32
   store i64 %call67, ptr %total_sectors, align 8
   %call68 = call i32 @bdrv_dirty_bitmap_granularity(ptr noundef nonnull %bitmap.162) #11
@@ -2280,7 +2278,7 @@ declare zeroext i1 @bdrv_dirty_bitmap_enabled(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bdrv_dirty_bitmap_get_persistence(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_bitmap_header(ptr noundef %f, ptr nocapture noundef %s, ptr nocapture noundef readonly %dbms, i32 noundef %additional_flags) unnamed_addr #0 {
+define internal fastcc void @send_bitmap_header(ptr noundef %f, ptr nocapture noundef %s, ptr nocapture noundef readonly %dbms, i32 noundef range(i32 16, 67) %additional_flags) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %dbms, align 8
@@ -2335,23 +2333,15 @@ if.end:                                           ; preds = %if.then, %trace_sen
   %prev_bitmap = getelementptr inbounds i8, ptr %s, i64 32
   %9 = load ptr, ptr %prev_bitmap, align 8
   %cmp4.not = icmp eq ptr %1, %9
-  br i1 %cmp4.not, label %if.end8, label %if.then5
+  br i1 %cmp4.not, label %qemu_put_bitmap_flags.exit, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   store ptr %1, ptr %prev_bitmap, align 8
   %or7 = or i32 %flags.0, 4
-  br label %if.end8
+  br label %qemu_put_bitmap_flags.exit
 
-if.end8:                                          ; preds = %if.then5, %if.end
+qemu_put_bitmap_flags.exit:                       ; preds = %if.end, %if.then5
   %flags.1 = phi i32 [ %or7, %if.then5 ], [ %flags.0, %if.end ]
-  %tobool.not.i = icmp ult i32 %flags.1, 128
-  br i1 %tobool.not.i, label %qemu_put_bitmap_flags.exit, label %if.else.i
-
-if.else.i:                                        ; preds = %if.end8
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str, i32 noundef 375, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_put_bitmap_flags) #14
-  unreachable
-
-qemu_put_bitmap_flags.exit:                       ; preds = %if.end8
   tail call void @qemu_put_byte(ptr noundef %f, i32 noundef %flags.1) #11
   %and = and i32 %flags.1, 8
   %tobool.not = icmp eq i32 %and, 0

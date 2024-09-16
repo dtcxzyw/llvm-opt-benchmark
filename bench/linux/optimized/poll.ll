@@ -2561,7 +2561,7 @@ declare dso_local i32 @__SCT__tp_func_io_uring_poll_arm(ptr noundef, ptr noundef
 declare dso_local zeroext i1 @io_match_task_safe(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @io_poll_cancel_req(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @io_poll_cancel_req(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -2147483648, ptr elementtype(i32) %2) #10, !srcloc !33
   %3 = load volatile i32, ptr %2, align 4
@@ -2569,7 +2569,7 @@ define internal fastcc void @io_poll_cancel_req(ptr noundef %0) unnamed_addr #0 
   br i1 %4, label %5, label %7, !prof !7
 
 5:                                                ; preds = %1
-  %6 = tail call fastcc zeroext i1 @io_poll_get_ownership_slowpath(ptr noundef %0)
+  %6 = tail call fastcc zeroext i1 @io_poll_get_ownership_slowpath(ptr noundef nonnull %0)
   br i1 %6, label %11, label %40
 
 7:                                                ; preds = %1
@@ -2607,7 +2607,7 @@ define internal fastcc void @io_poll_cancel_req(ptr noundef %0) unnamed_addr #0 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 @__SCT__tp_func_io_uring_task_add(ptr noundef %26, ptr noundef %0, i32 noundef 0) #10
+  %27 = tail call i32 @__SCT__tp_func_io_uring_task_add(ptr noundef %26, ptr noundef nonnull %0, i32 noundef 0) #10
   br label %28
 
 28:                                               ; preds = %24, %21
@@ -2629,7 +2629,7 @@ define internal fastcc void @io_poll_cancel_req(ptr noundef %0) unnamed_addr #0 
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, -1
   %39 = zext i1 %38 to i32
-  tail call void @__io_req_task_work_add(ptr noundef %0, i32 noundef %39) #10
+  tail call void @__io_req_task_work_add(ptr noundef nonnull %0, i32 noundef %39) #10
   br label %40
 
 40:                                               ; preds = %5, %35, %7

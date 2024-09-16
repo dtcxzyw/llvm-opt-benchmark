@@ -8081,7 +8081,7 @@ declare void @_ZN13NodeTimerList11deSerializeERSih(ptr noundef nonnull align 8 d
 declare void @_ZN16StaticObjectList11deSerializeERSi(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL19correctBlockNodeIdsPK13NameIdMappingP7MapNodeP8IGameDef(ptr nocapture noundef readonly %nimap, ptr nocapture noundef %nodes, ptr noundef %gamedef) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19correctBlockNodeIdsPK13NameIdMappingP7MapNodeP8IGameDef(ptr nocapture noundef nonnull readonly %nimap, ptr nocapture noundef %nodes, ptr noundef %gamedef) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i126 = alloca %"struct.std::__detail::_AllocNode.276", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8

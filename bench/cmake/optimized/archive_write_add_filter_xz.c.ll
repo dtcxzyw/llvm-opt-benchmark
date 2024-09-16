@@ -814,7 +814,7 @@ declare zeroext i8 @lzma_lzma_preset(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @lzma_crc32(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @drive_compressor(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
   %6 = getelementptr inbounds i8, ptr %1, i64 304

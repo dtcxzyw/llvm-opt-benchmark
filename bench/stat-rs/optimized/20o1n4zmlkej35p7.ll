@@ -488,8 +488,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %.sroa.4.0.copyload, ptr %22, align 8, !noalias !103
   %23 = add i64 %20, 1
-  %.not.i.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %.loopexit, label %19
+  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 0
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %19
 
 24:                                               ; preds = %2
   %25 = load i64, ptr %9, align 8
@@ -569,8 +569,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %21 = getelementptr inbounds double, ptr %17, i64 %20
   store double %1, ptr %21, align 8, !noalias !122
   %22 = add i64 %20, 1
-  %.not.i.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 0
-  br i1 %.not.i.not.i.i.i.i.i, label %.loopexit, label %19
+  %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 0
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %19
 
 23:                                               ; preds = %3
   %24 = load i64, ptr %9, align 8

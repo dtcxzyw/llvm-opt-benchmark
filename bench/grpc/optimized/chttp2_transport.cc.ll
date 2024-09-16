@@ -5567,7 +5567,7 @@ invoke.cont8:                                     ; preds = %entry
           to label %invoke.cont12 unwind label %lpad9
 
 invoke.cont12:                                    ; preds = %invoke.cont8
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %tp, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %tp, ptr noundef %agg.tmp)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont12
@@ -6931,7 +6931,7 @@ return:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15set_write_stateP21grpc_chttp2_transport23grpc_chttp2_write_statePKc(ptr noundef %t, i32 noundef %st, ptr noundef %reason) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15set_write_stateP21grpc_chttp2_transport23grpc_chttp2_write_statePKc(ptr noundef %t, i32 noundef range(i32 0, 3) %st, ptr noundef %reason) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6978,45 +6978,43 @@ invoke.cont:                                      ; preds = %if.then
   %write_state = getelementptr inbounds i8, ptr %t, i64 3340
   %10 = load i32, ptr %write_state, align 4
   %11 = icmp ult i32 %10, 3
-  %12 = icmp ult i32 %st, 3
-  %or.cond = and i1 %11, %12
-  br i1 %or.cond, label %switch.lookup45, label %do.body.i19.invoke
+  br i1 %11, label %switch.lookup, label %do.body.i
 
-do.body.i19.invoke:                               ; preds = %invoke.cont
+do.body.i:                                        ; preds = %invoke.cont
   invoke void @gpr_unreachable_code(ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.12, i32 noundef 999) #38
-          to label %do.body.i19.cont unwind label %lpad5
+          to label %.noexc unwind label %lpad5
 
-do.body.i19.cont:                                 ; preds = %do.body.i19.invoke
+.noexc:                                           ; preds = %do.body.i
   unreachable
 
-switch.lookup45:                                  ; preds = %invoke.cont
-  %13 = zext nneg i32 %10 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %13
+switch.lookup:                                    ; preds = %invoke.cont
+  %12 = zext nneg i32 %10 to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %14 = zext nneg i32 %st to i64
-  %switch.gep46 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %14
-  %switch.load47 = load ptr, ptr %switch.gep46, align 8
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.12, i32 noundef 1005, i32 noundef 1, ptr noundef nonnull @.str.119, ptr noundef nonnull %t, ptr noundef nonnull %.str.120..str.121, ptr noundef %call4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load47, ptr noundef %reason)
+  %13 = zext nneg i32 %st to i64
+  %switch.gep47 = getelementptr inbounds [3 x ptr], ptr @switch.table._Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE.88, i64 0, i64 %13
+  %switch.load48 = load ptr, ptr %switch.gep47, align 8
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.12, i32 noundef 1005, i32 noundef 1, ptr noundef nonnull @.str.119, ptr noundef nonnull %t, ptr noundef nonnull %.str.120..str.121, ptr noundef %call4, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load48, ptr noundef %reason)
           to label %invoke.cont10 unwind label %lpad5
 
-invoke.cont10:                                    ; preds = %switch.lookup45
+invoke.cont10:                                    ; preds = %switch.lookup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #36
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #36
   br label %do.end
 
 lpad:                                             ; preds = %if.then
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad5:                                            ; preds = %do.body.i19.invoke, %switch.lookup45
-  %16 = landingpad { ptr, i32 }
+lpad5:                                            ; preds = %do.body.i, %switch.lookup
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #36
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %16, %lpad5 ], [ %15, %lpad ]
+  %.pn = phi { ptr, i32 } [ %15, %lpad5 ], [ %14, %lpad ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #36
   br label %eh.resume
 
@@ -7030,99 +7028,99 @@ if.then12:                                        ; preds = %do.end
   %run_after_write = getelementptr inbounds i8, ptr %t, i64 3064
   call void @_ZN9grpc_core7ExecCtx7RunListERKNS_13DebugLocationEP17grpc_closure_list(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13, ptr noundef nonnull %run_after_write)
   %close_transport_on_writes_finished = getelementptr inbounds i8, ptr %t, i64 3056
-  %17 = load i64, ptr %close_transport_on_writes_finished, align 8
-  %cmp.i = icmp eq i64 %17, 0
+  %16 = load i64, ptr %close_transport_on_writes_finished, align 8
+  %cmp.i = icmp eq i64 %16, 0
   br i1 %cmp.i, label %if.end31, label %if.then15
 
 if.then15:                                        ; preds = %if.then12
-  store i64 %17, ptr %err, align 8
-  %and.i.i.i = and i64 %17, 1
+  store i64 %16, ptr %err, align 8
+  %and.i.i.i = and i64 %16, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then.i, label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %if.then15
-  %sub.i.i.i = add nsw i64 %17, -1
-  %18 = inttoptr i64 %sub.i.i.i to ptr
-  %19 = atomicrmw add ptr %18, i32 1 monotonic, align 4
+  %sub.i.i.i = add nsw i64 %16, -1
+  %17 = inttoptr i64 %sub.i.i.i to ptr
+  %18 = atomicrmw add ptr %17, i32 1 monotonic, align 4
   %.pre = load i64, ptr %close_transport_on_writes_finished, align 8
   store i64 0, ptr %ref.tmp17, align 8, !alias.scope !119
   %cmp.not.i = icmp eq i64 %.pre, 0
   br i1 %cmp.not.i, label %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, label %if.then.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.thread:    ; preds = %invoke.cont19
-  store i64 %17, ptr %agg.tmp, align 8
+  store i64 %16, ptr %agg.tmp, align 8
   br label %if.then.i.i31
 
 if.then.i:                                        ; preds = %if.then15, %invoke.cont19
-  %20 = phi i64 [ %.pre, %invoke.cont19 ], [ %17, %if.then15 ]
+  %19 = phi i64 [ %.pre, %invoke.cont19 ], [ %16, %if.then15 ]
   store i64 0, ptr %close_transport_on_writes_finished, align 8
   store i64 54, ptr %ref.tmp17, align 8
-  %and.i.i.i22 = and i64 %20, 1
+  %and.i.i.i22 = and i64 %19, 1
   %cmp.i.i.i23 = icmp eq i64 %and.i.i.i22, 0
   br i1 %cmp.i.i.i23, label %_ZN4absl12lts_202308026StatusD2Ev.exit, label %if.then.i.i24
 
 if.then.i.i24:                                    ; preds = %if.then.i
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %20)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %19)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %lpad21
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %if.then.i.i24, %if.then.i
-  store i64 %17, ptr %agg.tmp, align 8
+  store i64 %16, ptr %agg.tmp, align 8
   br i1 %cmp.i.i.i, label %invoke.cont25, label %if.then.i.i31
 
 if.then.i.i31:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.thread, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  %sub.i.i.i32 = add nsw i64 %17, -1
-  %21 = inttoptr i64 %sub.i.i.i32 to ptr
-  %22 = atomicrmw add ptr %21, i32 1 monotonic, align 4
+  %sub.i.i.i32 = add nsw i64 %16, -1
+  %20 = inttoptr i64 %sub.i.i.i32 to ptr
+  %21 = atomicrmw add ptr %20, i32 1 monotonic, align 4
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.then.i.i31, %_ZN4absl12lts_202308026StatusD2Ev.exit
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %t, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %t, ptr noundef %agg.tmp)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
-  %23 = load i64, ptr %agg.tmp, align 8
-  %and.i.i.i34 = and i64 %23, 1
+  %22 = load i64, ptr %agg.tmp, align 8
+  %and.i.i.i34 = and i64 %22, 1
   %cmp.i.i.i35 = icmp eq i64 %and.i.i.i34, 0
   br i1 %cmp.i.i.i35, label %_ZN4absl12lts_202308026StatusD2Ev.exit38, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %invoke.cont27
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %23)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %22)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit38 unwind label %terminate.lpad.i37
 
 terminate.lpad.i37:                               ; preds = %if.then.i.i36
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #35
+  %24 = extractvalue { ptr, i32 } %23, 0
+  call void @__clang_call_terminate(ptr %24) #35
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit38:         ; preds = %invoke.cont27, %if.then.i.i36
   br i1 %cmp.i.i.i, label %if.end31, label %if.then.i.i41
 
 if.then.i.i41:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit38
-  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %17)
+  invoke void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef %16)
           to label %if.end31 unwind label %terminate.lpad.i42
 
 terminate.lpad.i42:                               ; preds = %if.then.i.i41
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  call void @__clang_call_terminate(ptr %27) #35
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #35
   unreachable
 
 lpad21:                                           ; preds = %if.then.i.i24
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 lpad26:                                           ; preds = %invoke.cont25
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %lpad26, %lpad21
   %agg.tmp.sink = phi ptr [ %agg.tmp, %lpad26 ], [ %ref.tmp17, %lpad21 ]
-  %.pn13 = phi { ptr, i32 } [ %29, %lpad26 ], [ %28, %lpad21 ]
+  %.pn13 = phi { ptr, i32 } [ %28, %lpad26 ], [ %27, %lpad21 ]
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.sink) #36
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %err) #36
   br label %eh.resume
@@ -7522,7 +7520,7 @@ if.then.i.i59:                                    ; preds = %if.then46
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.then46, %if.then.i.i59
-  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef nonnull %agg.tmp47)
+  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef %agg.tmp47)
           to label %invoke.cont50 unwind label %lpad49
 
 invoke.cont50:                                    ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -8028,7 +8026,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr nocapture noundef readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr nocapture noundef nonnull readonly %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca ptr, align 8
   %agg.tmp1 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -11830,7 +11828,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef nonnull %agg.tmp, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef %agg.tmp, i1 noundef zeroext true)
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
@@ -11920,7 +11918,7 @@ invoke.cont15:                                    ; preds = %_ZNSt6vectorIN4absl
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef nonnull %agg.tmp9)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef %agg.tmp9)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -12053,7 +12051,7 @@ eh.resume:                                        ; preds = %lpad14, %ehcleanup2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef %error, i1 noundef zeroext %immediate_disconnect_hint) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef nonnull %error, i1 noundef zeroext %immediate_disconnect_hint) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i = alloca %struct.grpc_slice, align 8
@@ -12309,7 +12307,7 @@ ehcleanup45:                                      ; preds = %lpad, %lpad.body.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %t, ptr nocapture noundef %error) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %t, ptr nocapture noundef nonnull %error) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i167 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i60 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12558,7 +12556,7 @@ if.then.i.i284:                                   ; preds = %if.end.i
   br label %.noexc50
 
 .noexc50:                                         ; preds = %if.then.i.i284, %if.end.i
-  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef nonnull %agg.tmp24.i)
+  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef %agg.tmp24.i)
           to label %invoke.cont26.i unwind label %lpad25.i
 
 invoke.cont26.i:                                  ; preds = %.noexc50
@@ -13788,7 +13786,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %if.then.i.i, %if.then
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %1, ptr noundef nonnull %agg.tmp, i1 noundef zeroext false)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %1, ptr noundef %agg.tmp, i1 noundef zeroext false)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -13974,7 +13972,7 @@ if.then.i.i37:                                    ; preds = %if.then61
   br label %invoke.cont66
 
 invoke.cont66:                                    ; preds = %if.then.i.i37, %if.then61
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %1, ptr noundef nonnull %agg.tmp64, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %1, ptr noundef %agg.tmp64, i1 noundef zeroext true)
           to label %invoke.cont68 unwind label %lpad67
 
 invoke.cont68:                                    ; preds = %invoke.cont66
@@ -14008,7 +14006,7 @@ if.then.i.i47:                                    ; preds = %_ZN4absl12lts_20230
   br label %invoke.cont73
 
 invoke.cont73:                                    ; preds = %if.then.i.i47, %_ZN4absl12lts_202308026StatusD2Ev.exit44
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %1, ptr noundef nonnull %agg.tmp71)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %1, ptr noundef %agg.tmp71)
           to label %invoke.cont75 unwind label %lpad74
 
 invoke.cont75:                                    ; preds = %invoke.cont73
@@ -15141,7 +15139,7 @@ if.then.i.i:                                      ; preds = %if.then16
   br label %invoke.cont17
 
 invoke.cont17:                                    ; preds = %if.then.i.i, %if.then16
-  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias nonnull align 8 %overall_error, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %s, ptr noundef nonnull @.str.61)
+  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias align 8 %overall_error, ptr noundef %agg.tmp, ptr noundef nonnull %s, ptr noundef nonnull @.str.61)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont17
@@ -15381,7 +15379,7 @@ if.then.i.i97:                                    ; preds = %if.then59
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %if.then.i.i97, %if.then59
-  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias nonnull align 8 %overall_error60, ptr noundef nonnull %agg.tmp61, ptr noundef nonnull %s, ptr noundef nonnull @.str.61)
+  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias align 8 %overall_error60, ptr noundef %agg.tmp61, ptr noundef nonnull %s, ptr noundef nonnull @.str.61)
           to label %invoke.cont64 unwind label %lpad63
 
 invoke.cont64:                                    ; preds = %invoke.cont62
@@ -15544,7 +15542,7 @@ if.then6.i:                                       ; preds = %.noexc117
           to label %.noexc118 unwind label %lpad73
 
 .noexc118:                                        ; preds = %if.then6.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %t, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %t, ptr noundef %agg.tmp.i)
           to label %invoke.cont10.i unwind label %lpad9.i, !noalias !241
 
 invoke.cont10.i:                                  ; preds = %.noexc118
@@ -16090,7 +16088,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %entry, %if.then.i.i
-  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp, ptr noundef %s, ptr noundef nonnull @.str.52)
+  invoke fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp, ptr noundef %s, ptr noundef nonnull @.str.52)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -16491,7 +16489,7 @@ eh.resume:                                        ; preds = %lpad, %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %extra_error, ptr nocapture noundef readonly %s, ptr noundef %main_error_msg) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13removal_errorN4absl12lts_202308026StatusEP18grpc_chttp2_streamPKc(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %extra_error, ptr nocapture noundef readonly %s, ptr noundef %main_error_msg) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %refs = alloca [3 x %"class.absl::lts_20230802::Status"], align 16
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -18914,7 +18912,7 @@ if.then.i.i:                                      ; preds = %if.then
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.then, %if.then.i.i
-  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL24cancel_unstarted_streamsP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -26558,7 +26556,7 @@ invoke.cont18.i.i:                                ; preds = %if.end.i.i
           to label %invoke.cont20.i.i unwind label %lpad19.i.i
 
 invoke.cont20.i.i:                                ; preds = %invoke.cont18.i.i
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %tp, ptr noundef nonnull %agg.tmp.i.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef nonnull %tp, ptr noundef %agg.tmp.i.i, i1 noundef zeroext true)
           to label %invoke.cont22.i.i unwind label %lpad21.i.i
 
 invoke.cont22.i.i:                                ; preds = %invoke.cont20.i.i
@@ -29726,7 +29724,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i:   ; preds = %if.then.i.i.i.i, %if.then.i.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %tp, ptr noundef nonnull %agg.tmp.i.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %tp, ptr noundef %agg.tmp.i.i)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit.i.i
@@ -29771,7 +29769,7 @@ if.then10.i.i:                                    ; preds = %if.then5.i.i
           to label %invoke.cont16.i.i unwind label %lpad15.i.i
 
 invoke.cont16.i.i:                                ; preds = %if.then10.i.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %tp, ptr noundef nonnull %agg.tmp12.i.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef nonnull %tp, ptr noundef %agg.tmp12.i.i)
           to label %invoke.cont18.i.i unwind label %lpad17.i.i
 
 invoke.cont18.i.i:                                ; preds = %invoke.cont16.i.i
@@ -30131,7 +30129,7 @@ entry:
   %0 = load i64, ptr %error, align 8
   store i64 %0, ptr %agg.tmp2.i, align 8
   store i64 54, ptr %error, align 8
-  invoke fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef %agg.tmp.i, ptr noundef %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -30196,7 +30194,7 @@ _ZZN9grpc_core12_GLOBAL__N_120InitTransportClosureIXadL_ZL18read_action_lockedNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr nocapture noundef %t, ptr nocapture noundef %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -30371,7 +30369,7 @@ if.end27:                                         ; preds = %if.then.i.i13, %_ZN
   store ptr null, ptr %t, align 8
   store i64 %27, ptr %agg.tmp30, align 8
   store i64 54, ptr %err, align 8
-  invoke fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef nonnull %agg.tmp29, ptr noundef nonnull %agg.tmp30)
+  invoke fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef %agg.tmp29, ptr noundef %agg.tmp30)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %30
@@ -30453,7 +30451,7 @@ ehcleanup35:                                      ; preds = %if.then.i.i37, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr nocapture noundef %t, ptr nocapture noundef %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull %t, ptr nocapture noundef nonnull %error) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %parser.i = alloca %struct.grpc_http_parser, align 8
   %response.i = alloca %struct.grpc_http_response, align 8
@@ -31606,7 +31604,7 @@ if.then.i.i159:                                   ; preds = %if.end166
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit161
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit161:    ; preds = %if.end166, %if.then.i.i159
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %143, ptr noundef nonnull %agg.tmp168)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %143, ptr noundef %agg.tmp168)
           to label %invoke.cont170 unwind label %lpad169
 
 invoke.cont170:                                   ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit161
@@ -31890,7 +31888,7 @@ entry:
   %0 = load i64, ptr %error, align 8
   store i64 %0, ptr %agg.tmp2.i, align 8
   store i64 54, ptr %error, align 8
-  invoke fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke fastcc void @_ZL29read_action_parse_loop_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef %agg.tmp.i, ptr noundef %agg.tmp2.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
@@ -32517,7 +32515,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont7.i
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef %agg.tmp.i, i1 noundef zeroext true)
           to label %invoke.cont18.i unwind label %lpad17.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
@@ -32608,7 +32606,7 @@ invoke.cont29.i:                                  ; preds = %_ZNSt6vectorIN4absl
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont29.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef nonnull %agg.tmp23.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef %agg.tmp23.i)
           to label %invoke.cont33.i unwind label %lpad32.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
@@ -32898,7 +32896,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont7.i
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef %agg.tmp.i, i1 noundef zeroext true)
           to label %invoke.cont18.i unwind label %lpad17.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
@@ -32989,7 +32987,7 @@ invoke.cont29.i:                                  ; preds = %_ZNSt6vectorIN4absl
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont29.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef nonnull %agg.tmp23.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef %agg.tmp23.i)
           to label %invoke.cont33.i unwind label %lpad32.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
@@ -33279,7 +33277,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont7.i
           to label %invoke.cont16.i unwind label %lpad15.i
 
 invoke.cont16.i:                                  ; preds = %invoke.cont14.i
-  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef nonnull %agg.tmp.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZL11send_goawayP21grpc_chttp2_transportN4absl12lts_202308026StatusEb(ptr noundef %12, ptr noundef %agg.tmp.i, i1 noundef zeroext true)
           to label %invoke.cont18.i unwind label %lpad17.i
 
 invoke.cont18.i:                                  ; preds = %invoke.cont16.i
@@ -33370,7 +33368,7 @@ invoke.cont29.i:                                  ; preds = %_ZNSt6vectorIN4absl
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %invoke.cont29.i
-  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef nonnull %agg.tmp23.i)
+  invoke fastcc void @_ZL22close_transport_lockedP21grpc_chttp2_transportN4absl12lts_202308026StatusE(ptr noundef %25, ptr noundef %agg.tmp23.i)
           to label %invoke.cont33.i unwind label %lpad32.i
 
 invoke.cont33.i:                                  ; preds = %invoke.cont31.i
@@ -35585,7 +35583,7 @@ invoke.cont21.i:                                  ; preds = %_ZN4absl12lts_20230
   store ptr %26, ptr %agg.tmp18.i, align 8
   store ptr null, ptr %f, align 8
   store i64 0, ptr %agg.tmp19.i, align 8, !alias.scope !467
-  invoke fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef nonnull %agg.tmp18.i, ptr noundef nonnull %agg.tmp19.i)
+  invoke fastcc void @_ZL18read_action_lockedN9grpc_core13RefCountedPtrI21grpc_chttp2_transportEEN4absl12lts_202308026StatusE(ptr noundef %agg.tmp18.i, ptr noundef %agg.tmp19.i)
           to label %invoke.cont23.i unwind label %lpad22.i
 
 invoke.cont23.i:                                  ; preds = %invoke.cont21.i

@@ -3562,7 +3562,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit499.i:            ; preds = %1272, %1271, %1269,
 
 _ZN4llvm11raw_ostreamlsEPKc.exit503.i:            ; preds = %1285, %1283
   %.0.i.i502.i = phi ptr [ %1284, %1283 ], [ %.0.i.i498.i, %1285 ]
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(28) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(28) %5)
   %1288 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %1289 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %1290 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i502.i, ptr noundef %1288, i64 noundef %1289) #21
@@ -3724,7 +3724,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit526.i:            ; preds = %1357, %1356, %1354,
 
 _ZN4llvm11raw_ostreamlsEPKc.exit530.i:            ; preds = %1365, %1363
   %.0.i.i529.i = phi ptr [ %1364, %1363 ], [ %1, %1365 ]
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(28) %6)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(28) %6)
   %1368 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %1369 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %1370 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i529.i, ptr noundef %1368, i64 noundef %1369) #21
@@ -4697,7 +4697,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %41, %39
 _ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %56, %54
   %.0.i.i54.i = phi ptr [ %55, %54 ], [ %1, %56 ]
   %.0.val48.i = load ptr, ptr %.0117.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val48.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val48.i, i32 noundef 1)
   %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %60 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i54.i, ptr noundef %59, i64 noundef %60) #21
@@ -4725,7 +4725,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %56, %54
 _ZN4llvm11raw_ostreamlsEPKc.exit58.i:             ; preds = %72, %70
   %.0.i.i57.i = phi ptr [ %71, %70 ], [ %61, %72 ]
   %.0.val49.i = load ptr, ptr %.0117.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val49.i)
+  call fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val49.i)
   %75 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %76 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i57.i, ptr noundef %75, i64 noundef %76) #21
@@ -4983,11 +4983,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit84.i:             ; preds = %182, %181, %179, %_
 
 _ZN4llvm11raw_ostreamlsEPKc.exit88.i:             ; preds = %195, %193
   %.0.i.i87.i = phi ptr [ %194, %193 ], [ %.0.i.i83.i, %195 ]
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(28) %8)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(28) %8)
   %198 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %199 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %200 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i87.i, ptr noundef %198, i64 noundef %199) #21
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 4 dereferenceable(28) %9)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 4 dereferenceable(28) %9)
   %201 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %202 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %203 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %200, ptr noundef %201, i64 noundef %202) #21
@@ -5233,7 +5233,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %41, %39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %51) #21, !noalias !28
   %52 = getelementptr inbounds nuw i8, ptr %.0.val19.i, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %52) #21, !noalias !28
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -5243,7 +5243,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %41, %39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !25
   %.0.val20.i = load ptr, ptr %.058.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
   %53 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %54 = load ptr, ptr %31, align 8
   %55 = load ptr, ptr %33, align 8
@@ -5609,7 +5609,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %38, %36
 .lr.ph93.i:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %160
   %.092.i = phi ptr [ %161, %160 ], [ %.val33.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %.0.val.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val.i, i32 noundef 1)
   %48 = load ptr, ptr %42, align 8
   %.not10.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not10.i.i.i.i, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.thread.i, label %.lr.ph.i.i.i.i
@@ -5669,7 +5669,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 _ZN4llvm11raw_ostreamlsEPKc.exit44.i:             ; preds = %67, %65
   %.0.i.i43.i = phi ptr [ %66, %65 ], [ %1, %67 ]
   %.0.val35.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val35.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val35.i, i32 noundef 1)
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %71 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i43.i, ptr noundef %70, i64 noundef %71) #21
@@ -5832,7 +5832,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62.i:             ; preds = %144, %142
 
 _ZN4llvm11raw_ostreamlsEPKc.exit65.i:             ; preds = %156, %154
   %.0.val37.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.0.val37.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.0.val37.i, i32 noundef 1)
   %159 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
   br label %.sink.split.i
 
@@ -6932,7 +6932,7 @@ define dso_local void @_ZN5clang21EmitSveStreamingAttrsERN4llvm12RecordKeeperERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter20createStreamingAttrsERN4llvm11raw_ostreamE8ACLEKind(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter20createStreamingAttrsERN4llvm11raw_ostreamE8ACLEKind(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.llvm::SmallVector.52", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -6962,8 +6962,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter20createStreamingAttrs
   br i1 %.not153, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %switch = icmp eq i32 %2, 1
-  %spec.select = select i1 %switch, ptr @.str.260, ptr @.str.261
+  %trunc = trunc nuw i32 %2 to i1
+  %spec.select = select i1 %trunc, ptr @.str.260, ptr @.str.261
   store ptr %spec.select, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 3, ptr %21, align 8
@@ -7175,7 +7175,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit64:               ; preds = %56, %58
   %132 = load ptr, ptr %.fca.0.extract.i, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %.0.val52 = load ptr, ptr %.0163, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %.sink189, ptr noundef nonnull align 8 dereferenceable(336) %.0.val52, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %.sink189, ptr noundef nonnull align 8 dereferenceable(336) %.0.val52, i32 noundef 1)
   %134 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %133, ptr noundef nonnull align 8 dereferenceable(32) %.sink189)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink189) #21
   %135 = getelementptr inbounds i8, ptr %.0163, i64 8
@@ -8459,7 +8459,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %36, %34
 _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %51, %49
   %.0.i.i26.i = phi ptr [ %50, %49 ], [ %1, %51 ]
   %.0.val20.i = load ptr, ptr %.050.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
   %54 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %55 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %56 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i26.i, ptr noundef %54, i64 noundef %55) #21
@@ -8487,7 +8487,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27.i:             ; preds = %51, %49
 _ZN4llvm11raw_ostreamlsEPKc.exit30.i:             ; preds = %67, %65
   %.0.i.i29.i = phi ptr [ %66, %65 ], [ %56, %67 ]
   %.0.val21.i = load ptr, ptr %.050.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val21.i)
+  call fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val21.i)
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %71 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i29.i, ptr noundef %70, i64 noundef %71) #21
@@ -8728,7 +8728,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %37, %35
   %46 = getelementptr inbounds nuw i8, ptr %.0.val19.i, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %46) #21
   %.0.val20.i = load ptr, ptr %.058.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val20.i, i32 noundef 1)
   %47 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %48 = load ptr, ptr %27, align 8
   %49 = load ptr, ptr %29, align 8
@@ -9094,7 +9094,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %38, %36
 .lr.ph93.i:                                       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i, %160
   %.092.i = phi ptr [ %161, %160 ], [ %.val33.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i ]
   %.0.val.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val.i, i32 noundef 1)
   %48 = load ptr, ptr %42, align 8
   %.not10.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not10.i.i.i.i, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE4findERKS5_.exit.thread.i, label %.lr.ph.i.i.i.i
@@ -9154,7 +9154,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 _ZN4llvm11raw_ostreamlsEPKc.exit44.i:             ; preds = %67, %65
   %.0.i.i43.i = phi ptr [ %66, %65 ], [ %1, %67 ]
   %.0.val35.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val35.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.0.val35.i, i32 noundef 1)
   %70 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %71 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %72 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i43.i, ptr noundef %70, i64 noundef %71) #21
@@ -9317,7 +9317,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62.i:             ; preds = %144, %142
 
 _ZN4llvm11raw_ostreamlsEPKc.exit65.i:             ; preds = %156, %154
   %.0.val37.i = load ptr, ptr %.092.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.0.val37.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.0.val37.i, i32 noundef 1)
   %159 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
   br label %.sink.split.i
 
@@ -9762,7 +9762,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS5_St4lessI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   %.0.val33.i = load ptr, ptr %.0106.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(336) %.0.val33.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(336) %.0.val33.i, i32 noundef 1)
   %161 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %160, ptr noundef nonnull align 8 dereferenceable(32) %22)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #21
   br label %162
@@ -10148,7 +10148,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #3 align 2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca [21 x i8], align 16
@@ -10452,7 +10452,7 @@ _ZNK12_GLOBAL__N_17SVEType17isScalarPredicateEv.exit30.thread: ; preds = %115, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKind(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKind(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10493,7 +10493,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntr
   %storemerge26.i.i.in.in.i.i = phi i64 [ %storemerge26.i.i.i.i, %select.unfold.i.i.i.i ], [ %18, %21 ]
   %storemerge26.i.i.in.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i, 1
   %storemerge26.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i, 1
-  %23 = shl nuw nsw i64 %storemerge26.i.i.i.i, 3
+  %23 = shl i64 %storemerge26.i.i.i.i, 3
   %24 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #25
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %select.unfold.i.i.i.i, label %25
@@ -10580,7 +10580,7 @@ _ZNSt17_Temporary_bufferIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_d
 .lr.ph15:                                         ; preds = %"_ZSt11stable_sortIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEZNS1_10SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS7_8ACLEKindE3$_0EvT_SE_T0_.exit"
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %switch.i = icmp eq i32 %2, 1
+  %trunc.i = trunc nuw i32 %2 to i1
   br label %41
 
 41:                                               ; preds = %.lr.ph15, %_ZNK12_GLOBAL__N_19Intrinsic13emitIntrinsicERN4llvm11raw_ostreamERNS_10SVEEmitterE8ACLEKind.exit
@@ -10607,9 +10607,9 @@ _ZNSt17_Temporary_bufferIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_d
 
 49:                                               ; preds = %44, %41
   %50 = phi ptr [ %48, %44 ], [ @.str.209, %41 ]
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val16.i = load i32, ptr %42, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef %.val16.i)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef %.val16.i)
   %51 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #21
   %52 = load ptr, ptr %39, align 8
   %53 = load ptr, ptr %40, align 8
@@ -10666,7 +10666,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28.i:             ; preds = %73, %71
   %80 = ptrtoint ptr %78 to i64
   %81 = sub i64 %79, %80
   %82 = icmp ult i64 %81, 14
-  br i1 %switch.i, label %83, label %102
+  br i1 %trunc.i, label %83, label %102
 
 83:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit28.i
   br i1 %82, label %84, label %86
@@ -10766,7 +10766,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43.i:             ; preds = %129, %127
   %132 = getelementptr inbounds i8, ptr %.0.val, i64 232
   %.val17.i = load ptr, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %.0.val, i64 240
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(28) %.val17.i)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 4 dereferenceable(28) %.val17.i)
   %134 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %135 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %136 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %134, i64 noundef %135) #21
@@ -10851,7 +10851,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit54.i:             ; preds = %172, %170, %.lr.ph.
   %175 = add i32 %.06.i, 1
   %176 = zext i32 %175 to i64
   %177 = getelementptr inbounds %"class.(anonymous namespace)::SVEType", ptr %.val21.i, i64 %176
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(28) %177)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType3strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(28) %177)
   %178 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %179 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %180 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %178, i64 noundef %179) #21
@@ -11382,7 +11382,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_18ImmCheckELb1EE9push_backES2_.e
 
 ._crit_edge158:                                   ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_18ImmCheckELb1EE9push_backES2_.exit, %106
   store i32 1, ptr %17, align 4
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %21, i64 %22, ptr %24, i64 %25, i64 %41, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %46, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %.0139.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %16, ptr %21, i64 %22, ptr %24, i64 %25, i64 %41, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %46, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %.0139.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS3_EELb0EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %16)
   %150 = load ptr, ptr %16, align 8
   %.not.i = icmp eq ptr %150, null
@@ -11416,7 +11416,7 @@ _ZN12_GLOBAL__N_19Intrinsic21isOverloadedIntrinsicEN4llvm9StringRefE.exit: ; pre
 
 162:                                              ; preds = %_ZN12_GLOBAL__N_19Intrinsic21isOverloadedIntrinsicEN4llvm9StringRefE.exit
   store i32 2, ptr %19, align 4
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %21, i64 %22, ptr %24, i64 %25, i64 %41, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %46, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %.0139.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %18, ptr %21, i64 %22, ptr %24, i64 %25, i64 %41, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 %46, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %.0139.lcssa, ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS3_EELb0EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %163 = load ptr, ptr %18, align 8
   %.not.i64 = icmp eq ptr %163, null
@@ -11666,7 +11666,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i64 %.0.val5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %.0.val7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 %.0.val9, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(128) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %8) unnamed_addr #3 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_19IntrinsicEJRN4llvm9StringRefES4_RmS4_S5_S4_RlRNS2_11SmallVectorINS0_8ImmCheckELj2EEERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE9ClassKindRNS0_10SVEEmitterES4_S4_EENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i64 %.8.val3, i64 %.0.val5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i64 %.0.val7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 %.0.val9, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(128) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %8) unnamed_addr #3 {
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.std::allocator", align 1
@@ -13599,8 +13599,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0.i = getelementptr inbounds i8, ptr %.014.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.0.i)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.0.i)
   %72 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %.lr.ph.i.critedge, label %74
@@ -13900,8 +13900,8 @@ _ZNSt3_V26rotateIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS3
 define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::tuple.95", align 8
   %4 = alloca %"class.std::tuple.95", align 8
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   %6 = getelementptr inbounds i8, ptr %4, i64 40
   %7 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -13944,7 +13944,7 @@ _ZStltIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjS5_EJS5_jS5_EEbRKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14097,8 +14097,8 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIPSt10unique_ptrIN12
   %.01932.i = phi ptr [ %.120.i, %92 ], [ %30, %.lr.ph.i23 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01932.i)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01833.i)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01932.i)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01833.i)
   %32 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20) #21
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %.critedge, label %34
@@ -14436,8 +14436,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.01932.i59 = phi ptr [ %.120.i62, %223 ], [ %161, %.lr.ph.i26 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01932.i59)
-  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01833.i58)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01932.i59)
+  call fastcc void @"_ZZZN12_GLOBAL__N_110SVEEmitter26createCoreHeaderIntrinsicsERN4llvm11raw_ostreamERS0_8ACLEKindENK3$_0clERKSt10unique_ptrINS_9IntrinsicESt14default_deleteIS8_EESD_ENKUlSD_E_clB5cxx11ESD_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(8) %.01833.i58)
   %163 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %25) #21
   %164 = icmp slt i32 %163, 0
   br i1 %164, label %.critedge111, label %165
@@ -15573,7 +15573,7 @@ _ZSt4moveIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EES6_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15631,7 +15631,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9Cl
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %26) #21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %27) #21
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %28) #21
   %29 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #21, !noalias !127
@@ -15672,7 +15672,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_19Intrinsic20replaceTemplatedArgsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #3 align 2 {
   %5 = alloca [21 x i8], align 16
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.(anonymous namespace)::SVEType", align 4
@@ -15917,7 +15917,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19Intrinsic17getBuiltinTypeStrB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(336) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.(anonymous namespace)::SVEType", align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.(anonymous namespace)::SVEType", align 4
@@ -15964,7 +15964,7 @@ _ZNK12_GLOBAL__N_19Intrinsic12getNumParamsEv.exit: ; preds = %8, %_ZN4llvm5count
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = getelementptr inbounds %"class.(anonymous namespace)::SVEType", ptr %.val4, i64 %indvars.iv.next
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %5, ptr noundef nonnull readonly align 4 dereferenceable(28) %22, i64 28, i1 false)
-  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(28) %5)
+  call fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 4 dereferenceable(28) %5)
   %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   br label %8, !llvm.loop !137
@@ -16144,7 +16144,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %86, %84, %17, %89, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_17SVEType11builtin_strB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #3 align 2 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca [21 x i8], align 16
@@ -16565,7 +16565,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -16606,7 +16606,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -16628,9 +16628,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -16643,9 +16643,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -16665,9 +16665,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -16693,9 +16693,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -16715,9 +16715,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -16752,9 +16752,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -16770,9 +16770,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -16804,7 +16804,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter14createBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16824,9 +16824,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -16895,8 +16895,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -16960,9 +16960,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -17084,9 +17084,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -17314,7 +17314,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -17355,7 +17355,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -17377,9 +17377,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -17392,9 +17392,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -17414,9 +17414,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -17442,9 +17442,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -17464,9 +17464,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -17501,9 +17501,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -17519,9 +17519,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -17553,7 +17553,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter16createCodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17573,9 +17573,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -17644,8 +17644,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -17709,9 +17709,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -17833,9 +17833,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -17923,7 +17923,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -17964,7 +17964,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -17986,9 +17986,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -18001,9 +18001,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -18023,9 +18023,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -18051,9 +18051,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -18073,9 +18073,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -18110,9 +18110,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -18128,9 +18128,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -18162,7 +18162,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createRangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18182,9 +18182,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -18253,8 +18253,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -18318,9 +18318,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -18442,9 +18442,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -18733,7 +18733,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -18774,7 +18774,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -18796,9 +18796,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -18811,9 +18811,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -18833,9 +18833,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -18861,9 +18861,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -18883,9 +18883,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -18920,9 +18920,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -18938,9 +18938,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -18972,7 +18972,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter17createSMEBuiltinsERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18992,9 +18992,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -19063,8 +19063,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -19128,9 +19128,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -19252,9 +19252,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -19340,7 +19340,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -19381,7 +19381,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -19403,9 +19403,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -19418,9 +19418,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -19440,9 +19440,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -19468,9 +19468,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -19490,9 +19490,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -19527,9 +19527,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -19545,9 +19545,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -19579,7 +19579,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter19createSMECodeGenMapERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19599,9 +19599,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -19670,8 +19670,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -19735,9 +19735,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -19859,9 +19859,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
@@ -19947,7 +19947,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef nonnull %19)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %0, i64 noundef %.013.i.i.i, i64 noundef %29, ptr noundef %19)
   %34 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, label %35
@@ -19988,7 +19988,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %42 = sub i64 %41, %20
   %43 = ashr exact i64 %42, 3
   store i64 %.val.i.i.i.i.i6.i, ptr %18, align 8
-  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef nonnull %18)
+  call fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %43, ptr noundef %18)
   %44 = load ptr, ptr %18, align 8
   %.not.i.i.i9.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i9.i, label %"_ZSt10__pop_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_SG_SG_RT0_.exit.i10.i", label %45
@@ -20010,9 +20010,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val25.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(336) %.val25.i.i, i32 noundef 1)
   %.val.i.i.i.i = load ptr, ptr %50, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i.i, i32 noundef 1)
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   %53 = icmp slt i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #21
@@ -20025,9 +20025,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val24.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(336) %.val24.i.i, i32 noundef 1)
   %.val.i.i26.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i26.i.i, i32 noundef 1)
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %56 = icmp slt i32 %55, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
@@ -20047,9 +20047,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val23.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(336) %.val23.i.i, i32 noundef 1)
   %.val.i.i27.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i27.i.i, i32 noundef 1)
   %61 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13) #21
   %62 = icmp slt i32 %61, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #21
@@ -20075,9 +20075,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val22.i.i = load ptr, ptr %24, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(336) %.val22.i.i, i32 noundef 1)
   %.val.i.i28.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i28.i.i, i32 noundef 1)
   %69 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #21
   %70 = icmp slt i32 %69, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #21
@@ -20097,9 +20097,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i.i = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %.val.i.i29.i.i = load ptr, ptr %51, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i29.i.i, i32 noundef 1)
   %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #21
   %76 = icmp slt i32 %75, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #21
@@ -20134,9 +20134,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %.1.val.i.i, i32 noundef 1)
   %.val.i.i.i13.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i.i13.i, i32 noundef 1)
   %83 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %84 = icmp slt i32 %83, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
@@ -20152,9 +20152,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i14.i = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i14.i, i32 noundef 1)
   %.val.i.i15.i.i = load ptr, ptr %.114.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i15.i.i, i32 noundef 1)
   %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) #21
   %87 = icmp slt i32 %86, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #21
@@ -20186,7 +20186,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS2_EElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10SVEEmitter20createSMERangeChecksERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20206,9 +20206,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt10unique_ptrIN12_GLOBAL__N_
   %.val = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(336) %.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %16, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %17 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #21
   %18 = icmp slt i32 %17, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #21
@@ -20277,8 +20277,8 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.val.i = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(336) %.val.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(336) %39, i32 noundef 1)
   %42 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   %43 = icmp slt i32 %42, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #21
@@ -20342,9 +20342,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPSt10unique_ptrIN12_GLOBAL_
   %.0.val = load ptr, ptr %.021, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.0.val, i32 noundef 1)
   %.val.i.i = load ptr, ptr %0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %8 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %9 = icmp slt i32 %8, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
@@ -20466,9 +20466,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   %.0 = getelementptr inbounds i8, ptr %.09, i64 -8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef 1)
   %.val.i.i = load ptr, ptr %.0, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
+  call fastcc void @_ZNK12_GLOBAL__N_19Intrinsic10mangleNameB5cxx11E9ClassKind(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(336) %.val.i.i, i32 noundef 1)
   %5 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %6 = icmp slt i32 %5, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21

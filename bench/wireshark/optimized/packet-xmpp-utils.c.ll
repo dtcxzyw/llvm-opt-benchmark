@@ -1643,7 +1643,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr nocapture noundef rea
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.except_stacknode, align 8
   %7 = alloca %struct.except_cleanup, align 8
   %8 = alloca %struct.except_stacknode, align 8

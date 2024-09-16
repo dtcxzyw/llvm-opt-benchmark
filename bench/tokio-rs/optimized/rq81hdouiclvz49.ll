@@ -42,7 +42,7 @@ _ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.99617e9b38b04d979831048b7b1fbcab.2, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.99617e9b38b04d979831048b7b1fbcab.4) #6
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit": ; preds = %1, %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0fe71e5905152937E.exit": ; preds = %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i, %1
   %.0.i.i2.i = phi ptr [ %4, %_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit17h0b8516078e59d88dE.exit.i ], [ getelementptr inbounds (i8, ptr @_ZN12tokio_stream10stream_map4rand12thread_rng_n10THREAD_RNG7__getit5__KEY17hbb852b38e5a63c29E, i64 4), %1 ]
   %7 = load i32, ptr %.0.i.i2.i, align 4, !noundef !10
   %8 = getelementptr inbounds i8, ptr %.0.i.i2.i, i64 4

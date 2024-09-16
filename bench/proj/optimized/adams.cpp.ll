@@ -109,7 +109,7 @@ _ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

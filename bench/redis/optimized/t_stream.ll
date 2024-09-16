@@ -5140,7 +5140,7 @@ define dso_local void @xaddCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %parsed_args = alloca %struct.streamAddTrimArgs, align 8
   %id28 = alloca %struct.streamID, align 8
-  %call = call fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef nonnull %parsed_args, i32 noundef 1)
+  %call = call fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef %parsed_args, i32 noundef 1)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -5439,7 +5439,7 @@ return:                                           ; preds = %if.end14, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef %args, i32 noundef %xadd) unnamed_addr #0 {
+define internal fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef nonnull %args, i32 noundef range(i32 0, 2) %xadd) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %args, i8 0, i64 72, i1 false)
   %argc = getelementptr inbounds i8, ptr %c, i64 88
@@ -10587,7 +10587,7 @@ if.end75:                                         ; preds = %entry, %lor.lhs.fal
 define dso_local void @xtrimCommand(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %parsed_args = alloca %struct.streamAddTrimArgs, align 8
-  %call = call fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef nonnull %parsed_args, i32 noundef 0)
+  %call = call fastcc i32 @streamParseAddOrTrimArgsOrReply(ptr noundef %c, ptr noundef %parsed_args, i32 noundef 0)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 

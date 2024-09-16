@@ -29360,7 +29360,7 @@ if.then119.i:                                     ; preds = %for.end116.i
 land.lhs.true.i:                                  ; preds = %if.then119.i
   %func_qualname122.i = getelementptr inbounds i8, ptr %func, i64 40
   %38 = load ptr, ptr %func_qualname122.i, align 8
-  %call123.i = tail call fastcc i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr noundef nonnull %9, i64 noundef %kwnames.val201.i, ptr noundef nonnull readonly %kwnames, ptr noundef %38)
+  %call123.i = tail call fastcc i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr noundef nonnull %9, i64 noundef %kwnames.val201.i, ptr noundef readonly %kwnames, ptr noundef %38)
   %tobool124.not.i = icmp eq i32 %call123.i, 0
   br i1 %tobool124.not.i, label %land.lhs.true.if.end126_crit_edge.i, label %kw_fail.i
 
@@ -29723,7 +29723,7 @@ for.end287.i:                                     ; preds = %for.body278.i
 if.then289.i:                                     ; preds = %for.end287.i
   %func_qualname290.i = getelementptr inbounds i8, ptr %func, i64 40
   %91 = load ptr, ptr %func_qualname290.i, align 8
-  tail call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %spec.select200.i, i64 noundef %cond.i, ptr noundef nonnull %localsplus, ptr noundef %91)
+  tail call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %spec.select200.i, i64 noundef %cond.i, ptr noundef %localsplus, ptr noundef %91)
   br label %if.then3
 
 if.end291.i:                                      ; preds = %for.end287.i, %cond.end.i
@@ -29834,7 +29834,7 @@ for.end360.i:                                     ; preds = %for.inc358.i
 if.then362.i:                                     ; preds = %for.end360.i
   %func_qualname363.i = getelementptr inbounds i8, ptr %func, i64 40
   %103 = load ptr, ptr %func_qualname363.i, align 8
-  call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %missing326.1.i, i64 noundef -1, ptr noundef nonnull %localsplus, ptr noundef %103)
+  call fastcc void @missing_arguments(ptr noundef %tstate, ptr noundef %9, i64 noundef %missing326.1.i, i64 noundef -1, ptr noundef %localsplus, ptr noundef %103)
   br label %if.then3
 
 do.body370.i:                                     ; preds = %for.cond366.preheader.i, %for.inc386.i
@@ -32593,7 +32593,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #4
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef %kwcount, ptr nocapture noundef readonly %kwnames, ptr noundef %qualname) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @positional_only_passed_as_keyword(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef %kwcount, ptr nocapture noundef nonnull readonly %kwnames, ptr noundef %qualname) unnamed_addr #2 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #15
   %cond = icmp eq ptr %call, null
@@ -32767,7 +32767,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @_Py_CalculateSuggestions(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @missing_arguments(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef %missing, i64 noundef %defcount, ptr nocapture noundef readonly %localsplus, ptr noundef %qualname) unnamed_addr #2 {
+define internal fastcc void @missing_arguments(ptr noundef %tstate, ptr nocapture noundef readonly %co, i64 noundef range(i64 1, 0) %missing, i64 noundef %defcount, ptr nocapture noundef nonnull readonly %localsplus, ptr noundef %qualname) unnamed_addr #2 {
 entry:
   %cmp.not = icmp eq i64 %defcount, -1
   %cond = select i1 %cmp.not, ptr @.str.79, ptr @.str.78

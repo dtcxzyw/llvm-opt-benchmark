@@ -826,7 +826,7 @@ define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 nound
 
 ._crit_edge:                                      ; preds = %300, %298, %285
   %.15 = phi i64 [ 0, %285 ], [ %296, %298 ], [ %296, %300 ]
-  call fastcc void @close_member_types(ptr noundef nonnull %6)
+  call fastcc void @close_member_types(ptr noundef %6)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %108, %110, %127, %129, %146, %148, %165, %167, %184, %186, %203, %205, %222, %224, %241, %243, %260, %262, %279, %281, %32, %34, %51, %53, %70, %72, %89, %91, %.preheader386, %.preheader383, %.preheader380, %.preheader377, %.preheader374, %.preheader371, %.preheader368, %.preheader365, %.preheader362, %.preheader359, %.preheader356, %.preheader353, %.preheader350, %.preheader, %._crit_edge, %18, %76, %266, %13
@@ -4780,8 +4780,8 @@ print_data.exit:                                  ; preds = %19, %23
   br i1 %.not126, label %.thread10, label %29
 
 29:                                               ; preds = %28
-  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef nonnull %3)
-  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef nonnull %4)
+  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef %3)
+  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef %4)
   %30 = load float, ptr %3, align 4
   %31 = fpext float %30 to double
   %32 = fsub double 0.000000e+00, %31
@@ -4870,8 +4870,8 @@ print_data.exit145:                               ; preds = %64, %68
   br label %print_data.exit.thread
 
 77:                                               ; preds = %9
-  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef nonnull %3)
-  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef nonnull %4)
+  call fastcc void @ull2float(i64 noundef %.0.val, ptr noundef %3)
+  call fastcc void @ull2float(i64 noundef %.0.val1, ptr noundef %4)
   %78 = load float, ptr %3, align 4
   %79 = fpext float %78 to double
   %80 = fsub double 0.000000e+00, %79
@@ -5981,7 +5981,7 @@ all_zero.exit795:                                 ; preds = %247, %248
   br i1 %422, label %423, label %442
 
 423:                                              ; preds = %420
-  %424 = call fastcc i64 @diff_region(i64 noundef %412, i64 noundef %415, i64 noundef %418, i64 noundef %421, ptr noundef nonnull %14)
+  %424 = call fastcc i64 @diff_region(i64 noundef %412, i64 noundef %415, i64 noundef %418, i64 noundef %421, ptr noundef %14)
   %425 = tail call i32 @H5Sclose(i64 noundef %421) #14
   %426 = icmp slt i32 %425, 0
   %427 = load i32, ptr @enable_error_stack, align 4
@@ -6502,7 +6502,7 @@ all_zero.exit795:                                 ; preds = %247, %248
   br i1 %732, label %735, label %733
 
 733:                                              ; preds = %729
-  %734 = call fastcc i64 @diff_region(i64 noundef %698, i64 noundef %717, i64 noundef %720, i64 noundef %727, ptr noundef nonnull %14)
+  %734 = call fastcc i64 @diff_region(i64 noundef %698, i64 noundef %717, i64 noundef %720, i64 noundef %727, ptr noundef %14)
   br label %735
 
 735:                                              ; preds = %729, %733
@@ -7254,7 +7254,7 @@ all_zero.exit795:                                 ; preds = %247, %248
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_member_types(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @close_member_types(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %29, label %4
@@ -7278,7 +7278,7 @@ define internal fastcc void @close_member_types(ptr nocapture noundef readonly %
   br i1 %.not18, label %16, label %12
 
 12:                                               ; preds = %8
-  tail call fastcc void @close_member_types(ptr noundef nonnull %11)
+  tail call fastcc void @close_member_types(ptr noundef %11)
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
@@ -7762,7 +7762,7 @@ declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Ropen_region(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @diff_region(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @diff_region(i64 noundef range(i64 0, -9223372036854775808) %0, i64 noundef range(i64 0, -9223372036854775808) %1, i64 noundef range(i64 0, -9223372036854775808) %2, i64 noundef range(i64 0, -9223372036854775808) %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %union.anon.2, align 8
   %8 = alloca ptr, align 8
@@ -8659,7 +8659,7 @@ declare float @llvm.fabs.f32(float) #6
 declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ull2float(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @ull2float(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.3, align 8
@@ -8767,7 +8767,7 @@ define internal fastcc void @ull2float(i64 noundef %0, ptr nocapture noundef wri
   br label %72
 
 71:                                               ; preds = %50
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr nonnull align 1 %32, i64 %30, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 1 %32, i64 %30, i1 false)
   br label %72
 
 72:                                               ; preds = %55, %67, %63, %34, %46, %42, %10, %22, %18, %71

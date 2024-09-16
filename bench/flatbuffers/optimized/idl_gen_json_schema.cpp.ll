@@ -852,7 +852,7 @@ for.body:                                         ; preds = %invoke.cont38, %inv
 invoke.cont59:                                    ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %call.i169170) #20
   %5 = load ptr, ptr %e.sroa.0.01537, align 8
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp60, ptr noundef %5)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp60, ptr noundef %5)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont59
@@ -1488,7 +1488,7 @@ for.body205:                                      ; preds = %for.body205.lr.ph, 
 invoke.cont213:                                   ; preds = %for.body205
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp210, ptr noundef nonnull align 8 dereferenceable(32) %call.i286287) #20
   %56 = load ptr, ptr %s.sroa.0.01545, align 8
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp214, ptr noundef %56)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp214, ptr noundef %56)
           to label %invoke.cont216 unwind label %lpad215
 
 invoke.cont216:                                   ; preds = %invoke.cont213
@@ -3100,13 +3100,13 @@ if.else.i.i:                                      ; preds = %sw.bb1.i
   br i1 %cmp2.not.i.i, label %if.else8.i.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.else.i.i
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp4.i.i, ptr noundef nonnull %173)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp4.i.i, ptr noundef nonnull %173)
           to label %if.end12.i.i unwind label %lpad.i.i735, !noalias !113
 
 if.else8.i.i:                                     ; preds = %if.else.i.i
   %element.i.i = getelementptr inbounds i8, ptr %161, i64 204
   %174 = load i32, ptr %element.i.i, align 4, !noalias !113
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias nonnull align 8 %ref.tmp9.i.i, i32 noundef %174)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias align 8 %ref.tmp9.i.i, i32 noundef %174)
           to label %if.end12.i.i unwind label %lpad.i.i735, !noalias !113
 
 if.end12.i.i:                                     ; preds = %_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_.exit1170, %if.else8.i.i, %if.then3.i.i
@@ -3628,7 +3628,7 @@ sw.default.i:                                     ; preds = %invoke.cont456
   br i1 %cmp.not.i24.i, label %if.end.i.i, label %if.then.i25.i
 
 if.then.i25.i:                                    ; preds = %sw.default.i
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp462, ptr noundef nonnull %221)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp462, ptr noundef nonnull %221)
           to label %invoke.cont465 unwind label %lpad446
 
 if.end.i.i:                                       ; preds = %sw.default.i
@@ -3638,11 +3638,11 @@ if.end.i.i:                                       ; preds = %sw.default.i
   br i1 %cmp2.not.i27.i, label %if.end5.i.i, label %if.then3.i28.i
 
 if.then3.i28.i:                                   ; preds = %if.end.i.i
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp462, ptr noundef nonnull %222)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp462, ptr noundef nonnull %222)
           to label %invoke.cont465 unwind label %lpad446
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias nonnull align 8 %ref.tmp462, i32 noundef %162)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias align 8 %ref.tmp462, i32 noundef %162)
           to label %invoke.cont465 unwind label %lpad446
 
 invoke.cont465:                                   ; preds = %.noexc739, %for.end.i, %.noexc738, %_ZN11flatbuffers5jsons12_GLOBAL__N_112GenArrayTypeB5cxx11ERKNS_4TypeE.exit.i, %if.then.i25.i, %if.then3.i28.i, %if.end5.i.i
@@ -4806,7 +4806,7 @@ invoke.cont714:                                   ; preds = %invoke.cont702
   %305 = load ptr, ptr %parser_, align 8
   %root_struct_def_717 = getelementptr inbounds i8, ptr %305, i64 760
   %306 = load ptr, ptr %root_struct_def_717, align 8
-  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp715, ptr noundef %306)
+  invoke fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp715, ptr noundef %306)
           to label %invoke.cont719 unwind label %lpad718
 
 invoke.cont719:                                   ; preds = %invoke.cont714
@@ -6387,11 +6387,11 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %agg.result, ptr noundef %enum_def) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef %enum_def) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef %enum_def)
+  call fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_9StructDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp1, ptr noundef %enum_def)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, i64 noundef 0, ptr noundef nonnull @.str.26)
           to label %invoke.cont unwind label %lpad
 
@@ -6424,11 +6424,11 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %agg.result, ptr noundef %enum_def) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_110GenTypeRefINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef %enum_def) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef %enum_def)
+  call fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_111GenFullNameINS_7EnumDefEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKT_(ptr noalias align 8 %ref.tmp1, ptr noundef %enum_def)
   %call.i2 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, i64 noundef 0, ptr noundef nonnull @.str.26)
           to label %invoke.cont unwind label %lpad
 
@@ -6461,7 +6461,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers5jsons12_GLOBAL__N_17GenTypeB5cxx11ENS_8BaseTypeE(ptr noalias nonnull align 8 %agg.result, i32 noundef %type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i161 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i137 = alloca %"class.std::__cxx11::basic_stringstream", align 8

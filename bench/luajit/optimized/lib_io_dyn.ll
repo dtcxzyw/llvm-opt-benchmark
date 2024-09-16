@@ -722,7 +722,7 @@ declare void @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @luaL_fileresult(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @io_file_read(ptr noundef %L, ptr %iof.0.val, i32 noundef %start) unnamed_addr #0 {
+define internal fastcc i32 @io_file_read(ptr noundef %L, ptr %iof.0.val, i32 noundef range(i32 0, 2) %start) unnamed_addr #0 {
 entry:
   %d.i = alloca double, align 8
   %top = getelementptr inbounds i8, ptr %L, i64 40
@@ -748,7 +748,7 @@ if.else:                                          ; preds = %entry
   %add3 = add nsw i32 %sub, 20
   tail call void @luaL_checkstack(ptr noundef nonnull %L, i32 noundef %add3, ptr noundef nonnull @.str.6) #10
   %glref.i50 = getelementptr inbounds i8, ptr %L, i64 16
-  %2 = sext i32 %start to i64
+  %2 = zext nneg i32 %start to i64
   br label %for.body
 
 for.body:                                         ; preds = %if.else, %for.inc
@@ -854,8 +854,8 @@ if.then13.i:                                      ; preds = %if.then.i41
   br label %for.inc
 
 if.else42:                                        ; preds = %if.else36
-  %18 = trunc nsw i64 %indvars.iv to i32
-  %add43 = add nsw i32 %18, 1
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  %add43 = add nuw nsw i32 %18, 1
   call void @lj_err_arg(ptr noundef nonnull %L, i32 noundef %add43, i32 noundef 1219) #11
   unreachable
 
@@ -923,14 +923,14 @@ if.else59:                                        ; preds = %if.else47
 
 for.inc:                                          ; preds = %if.then13.i, %if.then.i41, %io_file_readlen.exit, %if.then30, %io_file_readnum.exit
   %ok.2 = phi i32 [ %retval.0.i, %io_file_readnum.exit ], [ %call35, %if.then30 ], [ %retval.0.i54, %io_file_readlen.exit ], [ %ok.16, %if.then.i41 ], [ %ok.16, %if.then13.i ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %tobool = icmp ne i32 %dec8, 0
   %tobool4 = icmp ne i32 %ok.2, 0
   %30 = select i1 %tobool, i1 %tobool4, i1 false
   br i1 %30, label %for.body, label %if.end63.loopexit, !llvm.loop !5
 
 if.end63.loopexit:                                ; preds = %for.inc
-  %31 = trunc nsw i64 %indvars.iv.next to i32
+  %31 = trunc nuw i64 %indvars.iv.next to i32
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.loopexit, %if.then
@@ -967,7 +967,7 @@ return:                                           ; preds = %if.end73, %if.then6
 declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @io_file_readline(ptr noundef %L, ptr nocapture noundef %fp, i32 noundef %chop) unnamed_addr #0 {
+define internal fastcc i32 @io_file_readline(ptr noundef %L, ptr nocapture noundef %fp, i32 noundef range(i32 0, 2) %chop) unnamed_addr #0 {
 entry:
   %call30 = tail call ptr @lj_buf_tmp(ptr noundef %L, i32 noundef 8192) #10
   %call131 = tail call ptr @fgets(ptr noundef %call30, i32 noundef 8192, ptr noundef %fp)

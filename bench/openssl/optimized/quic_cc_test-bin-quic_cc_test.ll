@@ -182,7 +182,7 @@ if.end53:                                         ; preds = %for.cond.preheader,
   br i1 %tobool.not.i35, label %net_sim_send.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end53
-  %call2.i = call fastcc i32 @net_sim_process(ptr noundef nonnull %sim, i64 noundef 0)
+  %call2.i = call fastcc i32 @net_sim_process(ptr noundef %sim, i64 noundef 0)
   %cmp.i = icmp ne i32 %call2.i, 0
   %conv.i = zext i1 %cmp.i to i32
   %call3.i = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 152, ptr noundef nonnull @.str.24, i32 noundef %conv.i) #8
@@ -257,7 +257,7 @@ net_sim_send.exit:                                ; preds = %if.end53, %if.end65
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %total_sent.1.lcssa = phi i64 [ %total_sent.058, %for.cond.preheader ], [ %add, %for.cond ]
-  %call61 = call fastcc i32 @net_sim_process(ptr noundef nonnull %sim, i64 noundef 1)
+  %call61 = call fastcc i32 @net_sim_process(ptr noundef %sim, i64 noundef 1)
   %call62 = call i32 @test_int_gt(ptr noundef nonnull @.str.2, i32 noundef 414, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, i32 noundef %call61, i32 noundef 0) #8
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %if.then95, label %if.end65
@@ -586,7 +586,7 @@ declare void @OSSL_PARAM_construct_uint64(ptr sret(%struct.ossl_param_st) align 
 declare i32 @test_uint64_t_ge(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @net_sim_process(ptr nocapture noundef %s, i64 noundef %skip_forward) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @net_sim_process(ptr nocapture noundef nonnull %s, i64 noundef range(i64 0, 2) %skip_forward) unnamed_addr #0 {
 entry:
   %loss_info.i = alloca %struct.ossl_cc_loss_info_st, align 8
   %ack_info.i = alloca %struct.ossl_cc_ack_info_st, align 8

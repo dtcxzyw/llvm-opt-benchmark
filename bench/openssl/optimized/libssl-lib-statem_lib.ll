@@ -844,7 +844,7 @@ if.then13:                                        ; preds = %if.end10
   br label %err
 
 if.end14:                                         ; preds = %if.end10
-  %call15 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen)
+  %call15 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef %tls13tbs, ptr noundef %hdata, ptr noundef %hdatalen)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %err, label %if.end18
 
@@ -1055,7 +1055,7 @@ declare i32 @tls1_lookup_md(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_cert_verify_tbs_data(ptr noundef %s, ptr noundef %tls13tbs, ptr noundef %hdata, ptr nocapture noundef writeonly %hdatalen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @get_cert_verify_tbs_data(ptr noundef %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr nocapture noundef nonnull writeonly %hdatalen) unnamed_addr #1 {
 entry:
   %hashlen = alloca i64, align 8
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -1123,7 +1123,7 @@ if.end31:                                         ; preds = %if.else25, %if.then
 if.else32:                                        ; preds = %land.lhs.true, %entry
   %handshake_buffer = getelementptr inbounds i8, ptr %s, i64 352
   %7 = load ptr, ptr %handshake_buffer, align 8
-  %call33 = tail call i64 @BIO_ctrl(ptr noundef %7, i32 noundef 3, i64 noundef 0, ptr noundef %hdata) #11
+  %call33 = tail call i64 @BIO_ctrl(ptr noundef %7, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %hdata) #11
   %cmp34 = icmp slt i64 %call33, 1
   br i1 %cmp34, label %if.then35, label %if.end37
 
@@ -1388,7 +1388,7 @@ if.end74:                                         ; preds = %if.end69
   store ptr %add.ptr.i.i82, ptr %pkt, align 8
   %sub.i.i83 = sub nuw i64 %pkt.val.i.i79, %conv70
   store i64 %sub.i.i83, ptr %20, align 8
-  %call75 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef nonnull %tls13tbs, ptr noundef nonnull %hdata, ptr noundef nonnull %hdatalen)
+  %call75 = call fastcc i32 @get_cert_verify_tbs_data(ptr noundef nonnull %s, ptr noundef %tls13tbs, ptr noundef %hdata, ptr noundef %hdatalen)
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %err, label %if.end78
 

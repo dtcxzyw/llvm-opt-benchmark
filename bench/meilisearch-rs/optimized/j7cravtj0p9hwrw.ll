@@ -1440,7 +1440,7 @@ define hidden void @"_ZN4core3ptr102drop_in_place$LT$meilisearch_types..settings
 95:                                               ; preds = %.loopexit191, %.loopexit.split-lp192, %73
   %.pn4 = phi { ptr, i32 } [ %lpad.phi200, %73 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 456
-  call fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96) #25
+  call fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias noundef align 8 dereferenceable(24) %96) #25
   %97 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr130drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17he8184b63d3c618c5E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %97) #25
           to label %144 unwind label %252
@@ -1944,7 +1944,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 210:                                              ; preds = %.loopexit, %.loopexit.split-lp, %188
   %.pn14 = phi { ptr, i32 } [ %.pn12, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %211 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %211) #25
+  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias noundef align 8 dereferenceable(32) %211) #25
           to label %220 unwind label %252
 
 .loopexit:                                        ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h9549ec6c860d0a73E.llvm.7557364402226394005.exit.i.i.i.i.i.i149"
@@ -2066,7 +2066,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 "_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit", %230, %236
   %.pn20 = phi { ptr, i32 } [ %237, %236 ], [ %.pn16, %230 ], [ %.pn16, %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit" ]
   %235 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %235) #25
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef align 8 dereferenceable(48) %235) #25
           to label %239 unwind label %252
 
 236:                                              ; preds = %234
@@ -2076,13 +2076,13 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 
 "_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit161": ; preds = %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit158", %234
   %238 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %238)
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef align 8 dereferenceable(48) %238)
           to label %243 unwind label %241
 
 239:                                              ; preds = %241, %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit"
   %.pn22 = phi { ptr, i32 } [ %242, %241 ], [ %.pn20, %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit" ]
   %240 = getelementptr inbounds i8, ptr %0, i64 224
-  invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %240) #25
+  invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias noundef align 8 dereferenceable(32) %240) #25
           to label %254 unwind label %252
 
 241:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit161"
@@ -2610,7 +2610,7 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$meilisearch_types..settings
 95:                                               ; preds = %.loopexit191, %.loopexit.split-lp192, %73
   %.pn4 = phi { ptr, i32 } [ %lpad.phi200, %73 ], [ %lpad.loopexit193, %.loopexit191 ], [ %lpad.loopexit.split-lp194, %.loopexit.split-lp192 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 456
-  call fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %96) #25
+  call fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias noundef align 8 dereferenceable(24) %96) #25
   %97 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @"_ZN4core3ptr130drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..set..BTreeSet$LT$alloc..string..String$GT$$GT$$GT$17he8184b63d3c618c5E.llvm.7557364402226394005"(ptr noalias noundef nonnull align 8 dereferenceable(32) %97) #25
           to label %144 unwind label %252
@@ -3114,7 +3114,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 210:                                              ; preds = %.loopexit, %.loopexit.split-lp, %188
   %.pn14 = phi { ptr, i32 } [ %.pn12, %188 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %211 = getelementptr inbounds i8, ptr %0, i64 192
-  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %211) #25
+  invoke fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias noundef align 8 dereferenceable(32) %211) #25
           to label %220 unwind label %252
 
 .loopexit:                                        ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h9549ec6c860d0a73E.llvm.7557364402226394005.exit.i.i.i.i.i.i149"
@@ -3236,7 +3236,7 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 "_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit": ; preds = %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit", %230, %236
   %.pn20 = phi { ptr, i32 } [ %237, %236 ], [ %.pn16, %230 ], [ %.pn16, %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit" ]
   %235 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %235) #25
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef align 8 dereferenceable(48) %235) #25
           to label %239 unwind label %252
 
 236:                                              ; preds = %234
@@ -3246,13 +3246,13 @@ default.unreachable:                              ; preds = %.lr.ph.i.i.i.i
 
 "_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit161": ; preds = %"_ZN4core3ptr82drop_in_place$LT$milli..update..settings..Setting$LT$alloc..string..String$GT$$GT$17hd8e6d9bd3db69219E.exit158", %234
   %238 = getelementptr inbounds i8, ptr %0, i64 344
-  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %238)
+  invoke fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias noundef align 8 dereferenceable(48) %238)
           to label %243 unwind label %241
 
 239:                                              ; preds = %241, %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit"
   %.pn22 = phi { ptr, i32 } [ %242, %241 ], [ %.pn20, %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit" ]
   %240 = getelementptr inbounds i8, ptr %0, i64 224
-  invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %240) #25
+  invoke fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias noundef align 8 dereferenceable(32) %240) #25
           to label %254 unwind label %252
 
 241:                                              ; preds = %"_ZN4core3ptr102drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..TypoSettings$GT$$GT$17h039b6577d38eb1a6E.exit161"
@@ -3400,7 +3400,7 @@ define hidden void @"_ZN4core3ptr106drop_in_place$LT$hashbrown..set..HashSet$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr106drop_in_place$LT$milli..update..settings..Setting$LT$meilisearch_types..settings..FacetingSettings$GT$$GT$17hec033657f2c1f5e8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [72 x i8], align 8
   %4 = load i64, ptr %0, align 8, !range !739, !noundef !4
@@ -4509,7 +4509,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$hashbrown..raw..RawTable$LT
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr128drop_in_place$LT$milli..update..settings..Setting$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$$GT$17hf59cf75cf99cc891E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !141, !noundef !4
   %3 = icmp sgt i64 %2, -9223372036854775807
   br i1 %3, label %4, label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$meilisearch_types..settings..RankingRuleView$GT$$GT$17h3409ab1a9307ca46E.exit"
@@ -6282,7 +6282,7 @@ define hidden void @"_ZN4core3ptr175drop_in_place$LT$core..slice..sort..Insertio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr177drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17h72d84b648b76e2faE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = alloca [72 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !293, !noundef !4
   %cond = icmp eq i64 %3, 0
@@ -6799,7 +6799,7 @@ define hidden void @"_ZN4core3ptr213drop_in_place$LT$core..iter..adapters..filte
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr215drop_in_place$LT$milli..update..settings..Setting$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$milli..update..settings..Setting$LT$milli..vector..settings..EmbeddingSettings$GT$$GT$$GT$$GT$17hd926532aa66abddaE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = alloca [72 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !293, !noundef !4
   %cond = icmp eq i64 %3, 0

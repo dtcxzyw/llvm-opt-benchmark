@@ -425,7 +425,7 @@ define i32 @Xzs_ReadBackward(ptr nocapture noundef %0, ptr noundef %1, ptr nound
 
 87:                                               ; preds = %80
   %88 = add nsw i64 %83, 4
-  %89 = call fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %11, ptr noundef nonnull %1, i64 noundef %88, ptr noundef %4)
+  %89 = call fastcc i32 @Xz_ReadIndex(ptr noundef %11, ptr noundef nonnull %1, i64 noundef %88, ptr noundef %4)
   %.not109.i = icmp eq i32 %89, 0
   br i1 %.not109.i, label %90, label %Xz_ReadBackward.exit.thread
 
@@ -588,7 +588,7 @@ declare i32 @LookInStream_Read2(ptr noundef, ptr noundef, i64 noundef, i32 nound
 declare i32 @CrcCalc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, -3) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = icmp ugt i64 %2, 2147483648
   br i1 %6, label %75, label %7
@@ -638,7 +638,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef %0, ptr noundef %1, i64 nou
   br i1 %33, label %Xz_ReadIndex2.exit, label %34
 
 34:                                               ; preds = %28
-  call void @Xz_Free(ptr noundef %0, ptr noundef nonnull %3) #9
+  call void @Xz_Free(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   %.not67.i = icmp eq i64 %31, 0
   br i1 %.not67.i, label %.loopexit70.i.preheader, label %35
 

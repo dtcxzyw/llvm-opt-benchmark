@@ -738,7 +738,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   store i32 16842752, ptr %42, align 8
   %307 = getelementptr inbounds i8, ptr %42, i64 8
   store ptr %43, ptr %307, align 8
-  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %42)
           to label %308 unwind label %345
 
 308:                                              ; preds = %304
@@ -890,7 +890,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   store i32 16842752, ptr %47, align 8
   %361 = getelementptr inbounds i8, ptr %47, i64 8
   store ptr %48, ptr %361, align 8
-  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(24) %47)
+  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(24) %47)
           to label %362 unwind label %372
 
 362:                                              ; preds = %358
@@ -1122,7 +1122,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %454, %448, %441
   store i32 0, ptr %390, align 4
   store i32 16842752, ptr %54, align 8
   store ptr %55, ptr %391, align 8
-  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(24) %54)
+  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(24) %54)
           to label %478 unwind label %488
 
 478:                                              ; preds = %477
@@ -1201,7 +1201,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %454, %448, %441
   store i32 0, ptr %398, align 4
   store i32 16842752, ptr %64, align 8
   store ptr %56, ptr %399, align 8
-  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(24) %64)
+  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(24) %64)
           to label %499 unwind label %504
 
 499:                                              ; preds = %498
@@ -1338,7 +1338,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit136:                 ; preds = %509, %506
   store i32 0, ptr %426, align 4
   store i32 16842752, ptr %79, align 8
   store ptr %80, ptr %427, align 8
-  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79)
+  invoke fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79)
           to label %528 unwind label %541
 
 528:                                              ; preds = %527
@@ -2038,7 +2038,7 @@ declare void @_ZNK2cv4face19BasicFaceRecognizer7getMeanEv(ptr dead_on_unwind wri
 declare void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10norm_0_255RKN2cv11_InputArrayE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::_InputOutputArray", align 8
   %5 = alloca %"class.cv::_InputOutputArray", align 8

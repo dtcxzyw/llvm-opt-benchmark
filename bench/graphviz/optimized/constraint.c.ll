@@ -336,7 +336,7 @@ overlaps.exit.thread:                             ; preds = %.loopexit.i, %.lr.p
 declare i32 @agnnodes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 8, 73) %1) unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -379,7 +379,7 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtnode(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @constrainX(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @constrainX(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
   %6 = load ptr, ptr @Dtobag, align 8
   %7 = tail call ptr @dtopen(ptr noundef nonnull @constr, ptr noundef %6) #17
   %8 = icmp sgt i32 %2, 0
@@ -492,7 +492,7 @@ define internal range(i32 0, 2) i32 @intersectY(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @constrainY(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc void @constrainY(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
   %6 = load ptr, ptr @Dtobag, align 8
   %7 = tail call ptr @dtopen(ptr noundef nonnull @constr, ptr noundef %6) #17
   %8 = icmp sgt i32 %2, 0
@@ -754,8 +754,8 @@ define range(i32 0, 2) i32 @scAdjust(ptr noundef %0, i32 noundef %1) local_unnam
 11:                                               ; preds = %8, %2
   %.sroa.015.0 = phi <2 x float> [ %.sroa.015.4.vec.insert, %8 ], [ %.fca.0.extract, %2 ]
   %12 = tail call ptr @agfstnode(ptr noundef %0) #17
-  %.not119 = icmp eq ptr %12, null
-  br i1 %.not119, label %._crit_edge, label %.lr.ph
+  %.not118 = icmp eq ptr %12, null
+  br i1 %.not118, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %.sroa.015.0.vec.extract20 = extractelement <2 x float> %.sroa.015.0, i64 0
@@ -765,9 +765,9 @@ define range(i32 0, 2) i32 @scAdjust(ptr noundef %0, i32 noundef %1) local_unnam
   br label %15
 
 15:                                               ; preds = %.lr.ph, %32
-  %.079121 = phi ptr [ %5, %.lr.ph ], [ %54, %32 ]
-  %.082120 = phi ptr [ %12, %.lr.ph ], [ %55, %32 ]
-  %16 = getelementptr inbounds i8, ptr %.082120, i64 16
+  %.079120 = phi ptr [ %5, %.lr.ph ], [ %54, %32 ]
+  %.082119 = phi ptr [ %12, %.lr.ph ], [ %55, %32 ]
+  %16 = getelementptr inbounds i8, ptr %.082119, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 48
   %19 = load double, ptr %18, align 8
@@ -792,38 +792,38 @@ define range(i32 0, 2) i32 @scAdjust(ptr noundef %0, i32 noundef %1) local_unnam
 32:                                               ; preds = %27, %22
   %.081 = phi double [ %24, %22 ], [ %29, %27 ]
   %.080 = phi double [ %26, %22 ], [ %31, %27 ]
-  %33 = getelementptr inbounds i8, ptr %.082120, i64 16
+  %33 = getelementptr inbounds i8, ptr %.082119, i64 16
   %34 = getelementptr inbounds i8, ptr %17, i64 176
   %35 = load ptr, ptr %34, align 8
   %36 = load double, ptr %35, align 8
-  store double %36, ptr %.079121, align 8
+  store double %36, ptr %.079120, align 8
   %37 = load ptr, ptr %33, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 176
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %.079121, i64 8
+  %42 = getelementptr inbounds i8, ptr %.079120, i64 8
   store double %41, ptr %42, align 8
   %43 = fsub double %36, %.081
-  %44 = getelementptr inbounds i8, ptr %.079121, i64 16
+  %44 = getelementptr inbounds i8, ptr %.079120, i64 16
   store double %43, ptr %44, align 8
   %45 = fsub double %41, %.080
-  %46 = getelementptr inbounds i8, ptr %.079121, i64 24
+  %46 = getelementptr inbounds i8, ptr %.079120, i64 24
   store double %45, ptr %46, align 8
   %47 = fadd double %.081, %36
-  %48 = getelementptr inbounds i8, ptr %.079121, i64 32
+  %48 = getelementptr inbounds i8, ptr %.079120, i64 32
   store double %47, ptr %48, align 8
   %49 = fadd double %.080, %41
-  %50 = getelementptr inbounds i8, ptr %.079121, i64 40
+  %50 = getelementptr inbounds i8, ptr %.079120, i64 40
   store double %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %.079121, i64 48
+  %51 = getelementptr inbounds i8, ptr %.079120, i64 48
   store double %.081, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %.079121, i64 56
+  %52 = getelementptr inbounds i8, ptr %.079120, i64 56
   store double %.080, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %.079121, i64 64
-  store ptr %.082120, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %.079121, i64 72
-  %55 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.082120) #17
+  %53 = getelementptr inbounds i8, ptr %.079120, i64 64
+  store ptr %.082119, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %.079120, i64 72
+  %55 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.082119) #17
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %._crit_edge, label %15
 
@@ -1143,12 +1143,12 @@ mkOverlapSet.exit:                                ; preds = %._crit_edge.i, %215
   br i1 %.not87, label %224, label %220
 
 .thread:                                          ; preds = %points_append.exit.i
-  %.not87108 = icmp eq i32 %1, 0
-  br i1 %.not87108, label %224, label %computeScale.exit
+  %.not87107 = icmp eq i32 %1, 0
+  br i1 %.not87107, label %224, label %computeScale.exit
 
 220:                                              ; preds = %219
-  %.not118 = icmp eq i64 %.sroa.11.1.lcssa.i, 1
-  br i1 %.not118, label %computeScale.exit, label %.lr.ph.i95
+  %.not117 = icmp eq i64 %.sroa.11.1.lcssa.i, 1
+  br i1 %.not117, label %computeScale.exit, label %.lr.ph.i95
 
 .lr.ph.i95:                                       ; preds = %220, %.lr.ph.i95
   %.013.i = phi i64 [ %223, %.lr.ph.i95 ], [ 1, %220 ]
@@ -1166,36 +1166,36 @@ mkOverlapSet.exit:                                ; preds = %._crit_edge.i, %215
   br i1 %exitcond.not.i96, label %computeScale.exit, label %.lr.ph.i95
 
 224:                                              ; preds = %.thread, %219
-  %.sroa.11.0.lcssa101.i104113 = phi i64 [ 1, %.thread ], [ %.sroa.11.1.lcssa.i, %219 ]
-  %.sroa.0.5.i105111 = phi ptr [ %calloc.i, %.thread ], [ %.sroa.0.5.i, %219 ]
-  store double 1.000000e+00, ptr %.sroa.0.5.i105111, align 8
-  %225 = getelementptr inbounds i8, ptr %.sroa.0.5.i105111, i64 8
+  %.sroa.11.0.lcssa101.i103112 = phi i64 [ 1, %.thread ], [ %.sroa.11.1.lcssa.i, %219 ]
+  %.sroa.0.5.i104110 = phi ptr [ %calloc.i, %.thread ], [ %.sroa.0.5.i, %219 ]
+  store double 1.000000e+00, ptr %.sroa.0.5.i104110, align 8
+  %225 = getelementptr inbounds i8, ptr %.sroa.0.5.i104110, i64 8
   store double 0x7FF0000000000000, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %.sroa.0.5.i105111, i64 16
-  %227 = add i64 %.sroa.11.0.lcssa101.i104113, -1
+  %226 = getelementptr inbounds i8, ptr %.sroa.0.5.i104110, i64 16
+  %227 = add i64 %.sroa.11.0.lcssa101.i103112, -1
   tail call void @qsort(ptr noundef nonnull %226, i64 noundef %227, i64 noundef 16, ptr noundef nonnull @sortf) #17
-  %228 = tail call fastcc ptr @gv_calloc(i64 noundef %.sroa.11.0.lcssa101.i104113, i64 noundef 16)
-  %229 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i105111, i64 %227
+  %228 = tail call fastcc ptr @gv_calloc(i64 noundef %.sroa.11.0.lcssa101.i103112, i64 noundef 16)
+  %229 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i104110, i64 %227
   %230 = load double, ptr %229, align 8
   %231 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %227
   store double %230, ptr %231, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 8
   store double 1.000000e+00, ptr %232, align 8
-  %233 = icmp ugt i64 %.sroa.11.0.lcssa101.i104113, 1
-  br i1 %233, label %.lr.ph.split.us.preheader.i, label %.lr.ph51.i.preheader
+  %233 = icmp ugt i64 %.sroa.11.0.lcssa101.i103112, 1
+  br i1 %233, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i97.preheader
 
 .lr.ph.split.us.preheader.i:                      ; preds = %224
-  %234 = add i64 %.sroa.11.0.lcssa101.i104113, -2
+  %234 = add i64 %.sroa.11.0.lcssa101.i103112, -2
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.split.us.preheader.i
   %.04145.us.i = phi i64 [ %246, %.lr.ph.split.us.i ], [ %234, %.lr.ph.split.us.preheader.i ]
-  %235 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i105111, i64 %.04145.us.i
+  %235 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i104110, i64 %.04145.us.i
   %236 = load double, ptr %235, align 8
   %237 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %.04145.us.i
   store double %236, ptr %237, align 8
   %238 = add nuw i64 %.04145.us.i, 1
-  %239 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i105111, i64 %238, i32 1
+  %239 = getelementptr inbounds %struct.pointf_s, ptr %.sroa.0.5.i104110, i64 %238, i32 1
   %240 = load double, ptr %239, align 8
   %241 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %238, i32 1
   %242 = load double, ptr %241, align 8
@@ -1204,15 +1204,15 @@ mkOverlapSet.exit:                                ; preds = %._crit_edge.i, %215
   store double %243, ptr %244, align 8
   %245 = icmp eq i64 %.04145.us.i, 0
   %246 = add i64 %.04145.us.i, -1
-  br i1 %245, label %.lr.ph51.i.preheader, label %.lr.ph.split.us.i
+  br i1 %245, label %._crit_edge.i97.preheader, label %.lr.ph.split.us.i
 
-.lr.ph51.i.preheader:                             ; preds = %.lr.ph.split.us.i, %224
-  br label %.lr.ph51.i
+._crit_edge.i97.preheader:                        ; preds = %.lr.ph.split.us.i, %224
+  br label %._crit_edge.i97
 
-.lr.ph51.i:                                       ; preds = %.lr.ph51.i.preheader, %.lr.ph51.i
-  %.049.i = phi i64 [ %253, %.lr.ph51.i ], [ 0, %.lr.ph51.i.preheader ]
-  %.04048.i = phi i64 [ %.1.i99, %.lr.ph51.i ], [ 0, %.lr.ph51.i.preheader ]
-  %.04247.i = phi double [ %.143.i, %.lr.ph51.i ], [ 0x7FF0000000000000, %.lr.ph51.i.preheader ]
+._crit_edge.i97:                                  ; preds = %._crit_edge.i97.preheader, %._crit_edge.i97
+  %.049.i = phi i64 [ %253, %._crit_edge.i97 ], [ 0, %._crit_edge.i97.preheader ]
+  %.04048.i = phi i64 [ %.1.i98, %._crit_edge.i97 ], [ 0, %._crit_edge.i97.preheader ]
+  %.04247.i = phi double [ %.143.i, %._crit_edge.i97 ], [ 0x7FF0000000000000, %._crit_edge.i97.preheader ]
   %247 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %.049.i
   %248 = load double, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %247, i64 8
@@ -1220,13 +1220,13 @@ mkOverlapSet.exit:                                ; preds = %._crit_edge.i, %215
   %251 = fmul double %248, %250
   %252 = fcmp olt double %251, %.04247.i
   %.143.i = select i1 %252, double %251, double %.04247.i
-  %.1.i99 = select i1 %252, i64 %.049.i, i64 %.04048.i
+  %.1.i98 = select i1 %252, i64 %.049.i, i64 %.04048.i
   %253 = add nuw i64 %.049.i, 1
-  %exitcond.not.i100 = icmp eq i64 %253, %.sroa.11.0.lcssa101.i104113
-  br i1 %exitcond.not.i100, label %computeScaleXY.exit, label %.lr.ph51.i
+  %exitcond.not.i99 = icmp eq i64 %253, %.sroa.11.0.lcssa101.i103112
+  br i1 %exitcond.not.i99, label %computeScaleXY.exit, label %._crit_edge.i97
 
-computeScaleXY.exit:                              ; preds = %.lr.ph51.i
-  %254 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %.1.i99
+computeScaleXY.exit:                              ; preds = %._crit_edge.i97
+  %254 = getelementptr inbounds %struct.pointf_s, ptr %228, i64 %.1.i98
   %255 = load double, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %254, i64 8
   %257 = load double, ptr %256, align 8
@@ -1234,10 +1234,10 @@ computeScaleXY.exit:                              ; preds = %.lr.ph51.i
   br label %computeScale.exit
 
 computeScale.exit:                                ; preds = %.lr.ph.i95, %.thread, %220, %computeScaleXY.exit
-  %.sroa.0.5.i105109 = phi ptr [ %.sroa.0.5.i105111, %computeScaleXY.exit ], [ %.sroa.0.5.i, %220 ], [ %calloc.i, %.thread ], [ %.sroa.0.5.i, %.lr.ph.i95 ]
+  %.sroa.0.5.i104108 = phi ptr [ %.sroa.0.5.i104110, %computeScaleXY.exit ], [ %.sroa.0.5.i, %220 ], [ %calloc.i, %.thread ], [ %.sroa.0.5.i, %.lr.ph.i95 ]
   %.sroa.028.1 = phi double [ %255, %computeScaleXY.exit ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i95 ]
   %.sroa.7.1 = phi double [ %257, %computeScaleXY.exit ], [ 0.000000e+00, %220 ], [ 0.000000e+00, %.thread ], [ %.1.i, %.lr.ph.i95 ]
-  tail call void @free(ptr noundef %.sroa.0.5.i105109) #17
+  tail call void @free(ptr noundef %.sroa.0.5.i104108) #17
   %258 = load i8, ptr @Verbose, align 1
   %.not88 = icmp eq i8 %258, 0
   br i1 %.not88, label %262, label %259
@@ -1251,21 +1251,21 @@ computeScale.exit:                                ; preds = %.lr.ph.i95, %.threa
   %.sroa.028.0 = phi double [ %.1.lcssa.i, %122 ], [ %.1.lcssa.i, %120 ], [ %.sroa.028.1, %259 ], [ %.sroa.028.1, %computeScale.exit ]
   %.sroa.7.0 = phi double [ %.1.lcssa.i, %122 ], [ %.1.lcssa.i, %120 ], [ %.sroa.7.1, %259 ], [ %.sroa.7.1, %computeScale.exit ]
   %263 = icmp sgt i32 %3, 0
-  br i1 %263, label %.lr.ph125, label %compress.exit.thread
+  br i1 %263, label %.lr.ph124, label %compress.exit.thread
 
-.lr.ph125:                                        ; preds = %262, %.lr.ph125
-  %.1123 = phi ptr [ %281, %.lr.ph125 ], [ %5, %262 ]
-  %.083122 = phi i32 [ %282, %.lr.ph125 ], [ 0, %262 ]
-  %264 = load double, ptr %.1123, align 8
+.lr.ph124:                                        ; preds = %262, %.lr.ph124
+  %.1122 = phi ptr [ %281, %.lr.ph124 ], [ %5, %262 ]
+  %.083121 = phi i32 [ %282, %.lr.ph124 ], [ 0, %262 ]
+  %264 = load double, ptr %.1122, align 8
   %265 = fmul double %.sroa.028.0, %264
-  %266 = getelementptr inbounds i8, ptr %.1123, i64 64
+  %266 = getelementptr inbounds i8, ptr %.1122, i64 64
   %267 = load ptr, ptr %266, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 176
   %271 = load ptr, ptr %270, align 8
   store double %265, ptr %271, align 8
-  %272 = getelementptr inbounds i8, ptr %.1123, i64 8
+  %272 = getelementptr inbounds i8, ptr %.1122, i64 8
   %273 = load double, ptr %272, align 8
   %274 = fmul double %.sroa.7.0, %273
   %275 = load ptr, ptr %266, align 8
@@ -1275,13 +1275,13 @@ computeScale.exit:                                ; preds = %.lr.ph.i95, %.threa
   %279 = load ptr, ptr %278, align 8
   %280 = getelementptr inbounds i8, ptr %279, i64 8
   store double %274, ptr %280, align 8
-  %281 = getelementptr inbounds i8, ptr %.1123, i64 72
-  %282 = add nuw nsw i32 %.083122, 1
+  %281 = getelementptr inbounds i8, ptr %.1122, i64 72
+  %282 = add nuw nsw i32 %.083121, 1
   %exitcond.not = icmp eq i32 %282, %3
-  br i1 %exitcond.not, label %compress.exit.thread, label %.lr.ph125
+  br i1 %exitcond.not, label %compress.exit.thread, label %.lr.ph124
 
-compress.exit.thread:                             ; preds = %84, %.lr.ph125, %262, %compress.exit, %57, %218
-  %.0 = phi i32 [ 0, %218 ], [ 0, %57 ], [ 0, %compress.exit ], [ 1, %262 ], [ 1, %.lr.ph125 ], [ 0, %84 ]
+compress.exit.thread:                             ; preds = %84, %.lr.ph124, %262, %compress.exit, %57, %218
+  %.0 = phi i32 [ 0, %218 ], [ 0, %57 ], [ 0, %compress.exit ], [ 1, %262 ], [ 1, %.lr.ph124 ], [ 0, %84 ]
   tail call void @free(ptr noundef %5) #17
   ret i32 %.0
 }
@@ -2158,7 +2158,7 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 8, 17) %3) unnamed_addr #3 {
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 %2)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %5, label %8

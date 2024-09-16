@@ -139,7 +139,7 @@ if.then.i:                                        ; preds = %entry
 
 url_decode_mem.exit:                              ; preds = %entry, %if.then.i
   %len.addr.0.i = phi i32 [ %conv6.i, %if.then.i ], [ %conv, %entry ]
-  %call7.i = call fastcc ptr @url_decode_internal(ptr noundef nonnull %url.addr.i, i32 noundef %len.addr.0.i, ptr noundef null, ptr noundef nonnull %out.i, i32 noundef 0)
+  %call7.i = call fastcc ptr @url_decode_internal(ptr noundef nonnull %url.addr.i, i32 noundef %len.addr.0.i, ptr noundef null, ptr noundef %out.i, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %url.addr.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %out.i)
   ret ptr %call7.i
@@ -170,7 +170,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %len.addr.0 = phi i32 [ %conv6, %if.then ], [ %len, %entry ]
-  %call7 = call fastcc ptr @url_decode_internal(ptr noundef nonnull %url.addr, i32 noundef %len.addr.0, ptr noundef null, ptr noundef nonnull %out, i32 noundef 0)
+  %call7 = call fastcc ptr @url_decode_internal(ptr noundef nonnull %url.addr, i32 noundef %len.addr.0, ptr noundef null, ptr noundef %out, i32 noundef 0)
   ret ptr %call7
 }
 
@@ -186,7 +186,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @url_decode_internal(ptr nocapture noundef %query, i32 noundef %len, ptr noundef readonly %stop_at, ptr noundef %out, i32 noundef %decode_plus) unnamed_addr #2 {
+define internal fastcc ptr @url_decode_internal(ptr nocapture noundef %query, i32 noundef %len, ptr noundef readonly %stop_at, ptr noundef nonnull %out, i32 noundef range(i32 0, 2) %decode_plus) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %query, align 8
   %tobool.not59 = icmp eq i32 %len, 0
@@ -330,7 +330,7 @@ if.end28.sink.split:                              ; preds = %if.else, %strbuf_av
 while.end:                                        ; preds = %while.cond.backedge, %while.body, %entry, %if.then4
   %q.1 = phi ptr [ %incdec.ptr, %if.then4 ], [ %0, %entry ], [ %add.ptr18, %while.cond.backedge ], [ %q.060, %while.body ]
   store ptr %q.1, ptr %query, align 8
-  %call31 = tail call ptr @strbuf_detach(ptr noundef %out, ptr noundef null) #9
+  %call31 = tail call ptr @strbuf_detach(ptr noundef nonnull %out, ptr noundef null) #9
   ret ptr %call31
 }
 
@@ -343,7 +343,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoded) #8
   %conv = trunc i64 %call to i32
-  %call1 = call fastcc ptr @url_decode_internal(ptr noundef nonnull %encoded.addr, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %out, i32 noundef 0)
+  %call1 = call fastcc ptr @url_decode_internal(ptr noundef nonnull %encoded.addr, i32 noundef %conv, ptr noundef null, ptr noundef %out, i32 noundef 0)
   ret ptr %call1
 }
 
@@ -352,7 +352,7 @@ define dso_local ptr @url_decode_parameter_name(ptr nocapture noundef %query) lo
 entry:
   %out = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
-  %call = call fastcc ptr @url_decode_internal(ptr noundef %query, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef nonnull %out, i32 noundef 1)
+  %call = call fastcc ptr @url_decode_internal(ptr noundef %query, i32 noundef -1, ptr noundef nonnull @.str, ptr noundef %out, i32 noundef 1)
   ret ptr %call
 }
 
@@ -361,7 +361,7 @@ define dso_local ptr @url_decode_parameter_value(ptr nocapture noundef %query) l
 entry:
   %out = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
-  %call = call fastcc ptr @url_decode_internal(ptr noundef %query, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef nonnull %out, i32 noundef 1)
+  %call = call fastcc ptr @url_decode_internal(ptr noundef %query, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %out, i32 noundef 1)
   ret ptr %call
 }
 

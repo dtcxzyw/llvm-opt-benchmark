@@ -3568,11 +3568,11 @@ define internal i32 @dissect_zbee_zcl_scenes(ptr noundef %0, ptr nocapture nound
   ]
 
 28:                                               ; preds = %25
-  call fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 29:                                               ; preds = %25
-  call fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 1)
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 30:                                               ; preds = %25, %25, %25, %25, %25
@@ -3588,7 +3588,7 @@ define internal i32 @dissect_zbee_zcl_scenes(ptr noundef %0, ptr nocapture nound
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 38:                                               ; preds = %25
-  call fastcc void @dissect_zcl_scenes_copy_scene(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_scenes_copy_scene(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 39:                                               ; preds = %7
@@ -3628,11 +3628,11 @@ define internal i32 @dissect_zbee_zcl_scenes(ptr noundef %0, ptr nocapture nound
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 57:                                               ; preds = %47
-  call fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %49, ptr noundef %5, i32 noundef 0)
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 58:                                               ; preds = %47
-  call fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %49, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %49, ptr noundef %5, i32 noundef 1)
   br label %dissect_zcl_scenes_get_scene_membership_response.exit
 
 59:                                               ; preds = %47
@@ -4341,11 +4341,11 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr nocaptur
   ]
 
 28:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_set_absolute_location(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_set_absolute_location(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 29:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_set_device_config(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_set_device_config(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 30:                                               ; preds = %25
@@ -4354,19 +4354,19 @@ define internal i32 @dissect_zbee_zcl_rssi_location(ptr noundef %0, ptr nocaptur
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 33:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_get_location_data(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_get_location_data(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 34:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_rssi_response(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_rssi_response(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 35:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_send_pings(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_send_pings(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 36:                                               ; preds = %25
-  call fastcc void @dissect_zcl_rssi_location_anchor_node_announce(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_rssi_location_anchor_node_announce(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_rssi_location_device_config_response.exit
 
 37:                                               ; preds = %7
@@ -6360,11 +6360,11 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr nocapture nou
   br label %dissect_zcl_pwr_prof_pwrprofnotif.exit
 
 40:                                               ; preds = %25
-  call fastcc void @dissect_zcl_pwr_prof_getoverallschedpricersp(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_pwr_prof_getoverallschedpricersp(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_pwr_prof_pwrprofnotif.exit
 
 41:                                               ; preds = %25, %25
-  call fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %dissect_zcl_pwr_prof_pwrprofnotif.exit
 
 42:                                               ; preds = %7
@@ -6491,7 +6491,7 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr nocapture nou
   br i1 %exitcond.not.i56, label %dissect_zcl_pwr_prof_pwrprofnotif.exit, label %.lr.ph.i53, !llvm.loop !21
 
 114:                                              ; preds = %50, %50
-  call fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %52, ptr noundef %5)
   br label %dissect_zcl_pwr_prof_pwrprofnotif.exit
 
 115:                                              ; preds = %50, %50
@@ -7326,11 +7326,11 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 259:                                              ; preds = %17
-  call fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %2, ptr noundef %0, ptr noundef %5)
   br label %.loopexit
 
 260:                                              ; preds = %17
-  call fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext 17)
+  call fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %2, ptr noundef %0, ptr noundef %5, i16 noundef zeroext 17)
   br label %.loopexit
 
 261:                                              ; preds = %7
@@ -7548,11 +7548,11 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 380:                                              ; preds = %261
-  call fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext 1)
+  call fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %2, ptr noundef %0, ptr noundef %5, i16 noundef zeroext 1)
   br label %.loopexit
 
 381:                                              ; preds = %261
-  call fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %2, ptr noundef %0, ptr noundef %5)
   br label %.loopexit
 
 ..loopexit_crit_edge:                             ; preds = %.lr.ph321
@@ -7630,7 +7630,7 @@ define internal void @dissect_zcl_gp_attr_data(ptr noundef %0, ptr noundef %1, p
   %.01719.i = phi i8 [ %27, %24 ], [ 0, %9 ]
   %21 = zext i8 %.01719.i to i32
   %22 = add nuw nsw i32 %21, 1
-  %23 = call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %14, ptr noundef nonnull %8, i32 noundef %22)
+  %23 = call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %14, ptr noundef %8, i32 noundef %22)
   %.not.i = icmp eq i32 %23, 0
   %.pre.i = load i32, ptr %8, align 4
   br i1 %.not.i, label %dissect_zbee_zcl_gp_sink_table.exit, label %24
@@ -7714,7 +7714,7 @@ dissect_zbee_zcl_gp_sink_table.exit:              ; preds = %.preheader.i, %24, 
   %.01719.i42 = phi i8 [ %78, %75 ], [ 0, %60 ]
   %72 = zext i8 %.01719.i42 to i32
   %73 = add nuw nsw i32 %72, 1
-  %74 = call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %65, ptr noundef nonnull %7, i32 noundef %73)
+  %74 = call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %65, ptr noundef %7, i32 noundef %73)
   %.not.i43 = icmp eq i32 %74, 0
   %.pre.i44 = load i32, ptr %7, align 4
   br i1 %.not.i43, label %dissect_zbee_zcl_gp_proxy_table.exit, label %75
@@ -8089,7 +8089,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zbee_zcl_scenes_group_id, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #8
@@ -8129,12 +8129,12 @@ define internal fastcc void @dissect_zcl_scenes_add_scene(ptr noundef %0, ptr no
   %33 = load i32, ptr %2, align 4
   %34 = add i32 %33, %spec.store.select
   store i32 %34, ptr %2, align 4
-  tail call fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_scenes_copy_scene(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_scenes_copy_scene(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_scenes_copy_mode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #8
@@ -8165,7 +8165,7 @@ define internal fastcc void @dissect_zcl_scenes_copy_scene(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #8
   %7 = load i32, ptr @hf_zbee_zcl_scenes_status, align 4
@@ -8216,7 +8216,7 @@ define internal fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef 
   %41 = load i32, ptr %2, align 4
   %42 = add i32 %41, %spec.store.select
   store i32 %42, ptr %2, align 4
-  tail call fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %43
 
 43:                                               ; preds = %21, %4
@@ -8224,7 +8224,7 @@ define internal fastcc void @dissect_zcl_scenes_view_scene_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_scenes_extension_fields(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = add i32 %4, 2
   %6 = tail call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %5) #8
@@ -8445,7 +8445,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_set_absolute_location(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_set_absolute_location(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_rssi_location_coordinate1, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #8
@@ -8476,7 +8476,7 @@ define internal fastcc void @dissect_zcl_rssi_location_set_absolute_location(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_set_device_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_set_device_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_rssi_location_power, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #8
@@ -8507,7 +8507,7 @@ define internal fastcc void @dissect_zcl_rssi_location_set_device_config(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_get_location_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_get_location_data(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #8
   %6 = load i32, ptr %2, align 4
@@ -8539,7 +8539,7 @@ define internal fastcc void @dissect_zcl_rssi_location_get_location_data(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_rssi_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_rssi_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_rssi_location_replaying_device, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -8575,7 +8575,7 @@ define internal fastcc void @dissect_zcl_rssi_location_rssi_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_send_pings(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_send_pings(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_rssi_location_target_add, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -8596,7 +8596,7 @@ define internal fastcc void @dissect_zcl_rssi_location_send_pings(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_rssi_location_anchor_node_announce(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_rssi_location_anchor_node_announce(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_rssi_location_anchor_node_add, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 8, i32 noundef -2147483648) #8
@@ -8638,7 +8638,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @signed_time_secs_to_str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pwr_prof_getoverallschedpricersp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pwr_prof_getoverallschedpricersp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_pwr_prof_currency, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #8
@@ -8659,7 +8659,7 @@ define internal fastcc void @dissect_zcl_pwr_prof_getoverallschedpricersp(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_pwr_prof_pwr_prof_id, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #8
@@ -8752,7 +8752,7 @@ define internal fastcc i32 @dissect_zbee_zcl_gp_payload(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %4) #8
   %6 = load i32, ptr %2, align 4
@@ -8808,8 +8808,8 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
-  %5 = and i16 %3, -17
+define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext range(i16 1, 18) %3) unnamed_addr #0 {
+  %5 = and i16 %3, 15
   %or.cond = icmp eq i16 %5, 1
   br i1 %or.cond, label %6, label %.loopexit
 
@@ -8853,7 +8853,7 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.03841.us = phi i32 [ %32, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %30 = add nuw nsw i32 %.03841.us, %29
-  %31 = tail call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %30)
+  %31 = tail call fastcc i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %30)
   %32 = add nuw nsw i32 %.03841.us, 1
   %33 = icmp ult i32 %32, %28
   %.not.us = icmp ne i32 %31, 0
@@ -8863,7 +8863,7 @@ define internal fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr nounde
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %.lr.ph.split.us42
   %.03841.us43 = phi i32 [ %37, %.lr.ph.split.us42 ], [ 0, %.lr.ph ]
   %35 = add nuw nsw i32 %.03841.us43, %29
-  %36 = tail call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %35)
+  %36 = tail call fastcc i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %1, ptr noundef %0, ptr noundef %2, i32 noundef %35)
   %37 = add nuw nsw i32 %.03841.us43, 1
   %38 = icmp ult i32 %37, %28
   %.not.us45 = icmp ne i32 %36, 0
@@ -8895,7 +8895,7 @@ declare void @col_set_writable(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_sink_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 510) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @ett_zbee_gp_sink_tbl_entry, align 4
   %7 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1650, i32 noundef %3) #8
@@ -9011,7 +9011,7 @@ define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_sink_table_entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dissect_zbee_zcl_gp_proxy_table_entry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 510) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = load i32, ptr @ett_zbee_gp_proxy_tbl_entry, align 4
   %7 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %5, i32 noundef -1, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.1653, i32 noundef %3) #8

@@ -2025,7 +2025,7 @@ _ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev.exit: ; preds = %call.i.noexc
   %call19 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %listening_address) #29
   %9 = extractvalue { i64, ptr } %call19, 0
   %10 = extractvalue { i64, ptr } %call19, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias nonnull align 8 %ref.tmp10, i64 %7, ptr %8, i64 %9, ptr %10)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias align 8 %ref.tmp10, i64 %7, ptr %8, i64 %9, ptr %10)
           to label %invoke.cont20 unwind label %if.then.i35
 
 invoke.cont20:                                    ; preds = %_ZN9grpc_core13RefCountedPtrINS_9XdsClientEED2Ev.exit
@@ -2435,7 +2435,7 @@ if.then:                                          ; preds = %invoke.cont
   %call19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %listening_address_.i) #29
   %8 = extractvalue { i64, ptr } %call19, 0
   %9 = extractvalue { i64, ptr } %call19, 1
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias nonnull align 8 %ref.tmp7, i64 %5, ptr %6, i64 %8, ptr %9)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias align 8 %ref.tmp7, i64 %5, ptr %6, i64 %8, ptr %9)
           to label %invoke.cont20 unwind label %lpad
 
 invoke.cont20:                                    ; preds = %if.then
@@ -2685,7 +2685,7 @@ if.then.i.i5:                                     ; preds = %if.then.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias align 8 %agg.result, i64 %resource_name_template.coerce0, ptr %resource_name_template.coerce1, i64 %listening_address.coerce0, ptr %listening_address.coerce1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120ListenerResourceNameB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES4_(ptr noalias nonnull align 8 %agg.result, i64 %resource_name_template.coerce0, ptr %resource_name_template.coerce1, i64 %listening_address.coerce0, ptr %listening_address.coerce1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2727,7 +2727,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
   store i64 %listening_address.sroa.0.0, ptr %second.i, align 8
   %listening_address.sroa.4.0.second.i.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp8, i64 24
   store ptr %listening_address.sroa.4.0, ptr %listening_address.sroa.4.0.second.i.sroa_idx, align 8
-  invoke void @_ZN4absl12lts_2023080213StrReplaceAllB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt16initializer_listISt4pairIS4_S4_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %resource_name_template.coerce0, ptr %resource_name_template.coerce1, ptr nonnull %ref.tmp8, i64 1)
+  invoke void @_ZN4absl12lts_2023080213StrReplaceAllB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEESt16initializer_listISt4pairIS4_S4_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %resource_name_template.coerce0, ptr %resource_name_template.coerce1, ptr nonnull %ref.tmp8, i64 1)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %if.end
@@ -3213,7 +3213,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %agg.tmp)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -3329,7 +3329,7 @@ if.then8:                                         ; preds = %if.end
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %if.then8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %agg.tmp)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -3409,7 +3409,7 @@ if.then16:                                        ; preds = %if.end14, %_ZStneIc
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %if.then16
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %agg.tmp19)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %agg.tmp19)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -4866,7 +4866,7 @@ for.end163.i:                                     ; preds = %_ZN9grpc_core13RefC
   br i1 %cmp.i179.not.i, label %if.end170.i, label %if.then166.i
 
 if.then166.i:                                     ; preds = %for.end163.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp69.sroa.0.3, ptr noundef nonnull %pending_filter_chain_match_manager_.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp69.sroa.0.3, ptr noundef %pending_filter_chain_match_manager_.val)
           to label %if.end170.i unwind label %lpad95.i
 
 if.end170.i:                                      ; preds = %if.then166.i, %for.end163.i
@@ -5185,7 +5185,7 @@ _ZNSt12__shared_ptrIKN9grpc_core19XdsListenerResourceELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher12OnFatalErrorEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull %status) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8687,7 +8687,7 @@ invoke.cont68.invoke.i.i:                         ; preds = %invoke.cont68.i.i, 
   %56 = extractvalue { i64, ptr } %call71.pn.i.i, 0
   %57 = load ptr, ptr %.in.i.i, align 8
   %call42.val8.i.i = load ptr, ptr %.sink.i.i, align 8
-  %58 = invoke fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %57, ptr %call42.val8.i.i, ptr noundef nonnull %54, i64 %56, ptr %55)
+  %58 = invoke fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %57, ptr %call42.val8.i.i, ptr noundef %54, i64 %56, ptr %55)
           to label %cleanup.i.i unwind label %lpad25.i.i
 
 cleanup.i.i:                                      ; preds = %invoke.cont68.invoke.i.i, %invoke.cont34.i.i
@@ -13525,7 +13525,7 @@ declare void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6Stat
 declare { i64, ptr } @_Z22grpc_endpoint_get_peerP13grpc_endpoint(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %source_ip_vector.0.val, ptr readnone %source_ip_vector.8.val, ptr noundef %source_ip, i64 %port.coerce0, ptr %port.coerce1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_130FindFilterChainDataForSourceIpERKSt6vectorINS_19XdsListenerResource14FilterChainMap8SourceIpESaIS4_EEPK21grpc_resolved_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr %source_ip_vector.0.val, ptr readnone %source_ip_vector.8.val, ptr noundef nonnull %source_ip, i64 %port.coerce0, ptr %port.coerce1) unnamed_addr #4 {
 entry:
   %val.i.i.i = alloca i32, align 4
   %cmp.i.not3 = icmp eq ptr %source_ip_vector.0.val, %source_ip_vector.8.val
@@ -13564,7 +13564,7 @@ land.lhs.true12:                                  ; preds = %land.lhs.true
 if.end20:                                         ; preds = %land.lhs.true12, %land.lhs.true, %if.end8
   %prefix_len25 = getelementptr inbounds i8, ptr %__begin2.sroa.0.04, i64 132
   %4 = load i32, ptr %prefix_len25, align 4
-  %call26 = tail call noundef zeroext i1 @_Z26grpc_sockaddr_match_subnetPK21grpc_resolved_addressS1_j(ptr noundef %source_ip, ptr noundef nonnull %__begin2.sroa.0.04, i32 noundef %4)
+  %call26 = tail call noundef zeroext i1 @_Z26grpc_sockaddr_match_subnetPK21grpc_resolved_addressS1_j(ptr noundef nonnull %source_ip, ptr noundef nonnull %__begin2.sroa.0.04, i32 noundef %4)
   %spec.select12 = select i1 %call26, ptr %__begin2.sroa.0.04, ptr %best_match.05
   br label %for.inc
 
@@ -15124,7 +15124,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i15
 _ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit: ; preds = %invoke.cont18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %agg.tmp.val = phi ptr [ %18, %invoke.cont18 ], [ %18, %if.then.i.i.i.i.i ], [ %agg.tmp.val.pre, %if.else.i.i.i.i.i ]
   %http_filters_ = getelementptr inbounds i8, ptr %this, i64 56
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i, ptr %agg.tmp.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i, ptr %agg.tmp.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %_ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit
@@ -15969,7 +15969,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
 _ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %invoke.cont11.i
   %agg.tmp9.val.i = phi ptr [ %8, %invoke.cont11.i ], [ %8, %if.then.i.i.i.i.i.i ], [ %agg.tmp9.val.pre.i, %if.else.i.i.i.i.i.i ]
   %http_filters_.i = getelementptr inbounds i8, ptr %parent_.val, i64 56
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i.i, ptr %agg.tmp9.val.i, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i.i, ptr %agg.tmp9.val.i, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_.i)
           to label %invoke.cont14.i unwind label %lpad13.i
 
 invoke.cont14.i:                                  ; preds = %_ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit.i
@@ -16618,7 +16618,7 @@ lpad:                                             ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry, ptr nocapture readonly %rds_update.0.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry, ptr nocapture readonly %rds_update.0.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp.i = alloca [5 x %"class.std::basic_string_view"], align 8
@@ -19524,7 +19524,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i6
 _ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit: ; preds = %_ZNR4absl12lts_202308028StatusOrISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEE5valueEv.exit, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
   %agg.tmp.val = phi ptr [ %11, %_ZNR4absl12lts_202308028StatusOrISt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEE5valueEv.exit ], [ %11, %if.then.i.i.i.i.i ], [ %agg.tmp.val.pre, %if.else.i.i.i.i.i ]
   %http_filters_ = getelementptr inbounds i8, ptr %this, i64 48
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i, ptr %agg.tmp.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager23XdsServerConfigSelector6CreateERKNS_21XdsHttpFilterRegistryESt10shared_ptrIKNS_22XdsRouteConfigResourceEERKSt6vectorINS_19XdsListenerResource21HttpConnectionManager10HttpFilterESaISF_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %http_filter_registry_.i, ptr %agg.tmp.val, ptr noundef nonnull align 8 dereferenceable(24) %http_filters_)
           to label %invoke.cont unwind label %common.resume
 
 invoke.cont:                                      ; preds = %_ZNSt10shared_ptrIKN9grpc_core22XdsRouteConfigResourceEEC2ERKS3_.exit
@@ -20661,7 +20661,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_122XdsServerConfigFetcher15Listener
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef readnone %filter_chain_match_manager) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull readnone %filter_chain_match_manager) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp17 = alloca %"class.grpc_core::RefCountedPtr.945", align 8
   %pending_filter_chain_match_manager_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -21869,7 +21869,7 @@ if.then22.i:                                      ; preds = %_ZN4absl12lts_20230
           to label %.noexc30.i unwind label %lpad.i
 
 .noexc30.i:                                       ; preds = %if.then22.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.4.i, ptr noundef nonnull %filter_chain_match_manager_.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.4.i, ptr noundef %filter_chain_match_manager_.val)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc30.i
@@ -22079,7 +22079,7 @@ if.then15.i:                                      ; preds = %_ZN4absl12lts_20230
           to label %.noexc12.i unwind label %lpad.i
 
 .noexc12.i:                                       ; preds = %if.then15.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.2.i, ptr noundef nonnull %filter_chain_match_manager_.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.2.i, ptr noundef %filter_chain_match_manager_.val)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc12.i
@@ -22281,7 +22281,7 @@ if.then13.i:                                      ; preds = %_ZN4absl12lts_20230
           to label %.noexc10.i unwind label %lpad.i
 
 .noexc10.i:                                       ; preds = %if.then13.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.2.i, ptr noundef nonnull %filter_chain_match_manager_.val)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher41PendingFilterChainMatchManagerReadyLockedEPNS2_23FilterChainMatchManagerE(ptr noundef nonnull align 8 dereferenceable(104) %listener_watcher.sroa.0.2.i, ptr noundef %filter_chain_match_manager_.val)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %.noexc10.i

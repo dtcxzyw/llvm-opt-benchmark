@@ -267,7 +267,7 @@ entry:
 declare i64 @qdict_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @memory_dump(ptr noundef %mon, i32 noundef %count, i32 noundef %format, i32 noundef %wsize, i64 noundef %addr, i32 noundef %is_physical) unnamed_addr #0 {
+define internal fastcc void @memory_dump(ptr noundef %mon, i32 noundef %count, i32 noundef %format, i32 noundef %wsize, i64 noundef %addr, i32 noundef range(i32 0, 2) %is_physical) unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %call.i82 = tail call fastcc ptr @mon_get_cpu_sync(ptr noundef %mon, i1 noundef zeroext true)

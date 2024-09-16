@@ -1803,7 +1803,7 @@ set_proc_descriptor_to_file.exit.i:               ; preds = %497, %494, %get_str
   br i1 %.not149.i487, label %544, label %.critedge14.i
 
 544:                                              ; preds = %542
-  %545 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %341, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %545 = call fastcc i32 @set_proc_descriptor_to_pty(ptr noundef nonnull %341, ptr noundef %11, ptr noundef %12)
   br label %set_proc_descriptor_to_blackhole.exit.thread.thread.i
 
 .critedge14.i:                                    ; preds = %542, %.critedge12.i
@@ -2492,13 +2492,13 @@ dup_proc_descriptor.exit:                         ; preds = %20, %16, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_proc_descriptor_to_pty(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_proc_descriptor_to_pty(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @openpty(ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  %7 = tail call i32 @openpty(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %12, label %8
 

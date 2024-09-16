@@ -7105,7 +7105,7 @@ _ZNKSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
           to label %2019 unwind label %.loopexit.split-lp1280
 
 2019:                                             ; preds = %.thread1217
-  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %33)
+  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %33)
           to label %2020 unwind label %2066
 
 2020:                                             ; preds = %2019
@@ -7510,7 +7510,7 @@ _ZNKSt8_Rb_treeIN5Yosys5RTLIL7SigSpecES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
           to label %2167 unwind label %.loopexit.split-lp
 
 2167:                                             ; preds = %.thread1221
-  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %39)
           to label %2168 unwind label %2210
 
 2168:                                             ; preds = %2167
@@ -69060,7 +69060,7 @@ _ZNK5Yosys7hashlib4poolINS_7SigPool8bitDef_tENS0_8hash_opsIS3_EEE5countERKS3_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112SpliceWorker18get_spliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.548", align 8
   %5 = alloca %"class.std::tuple.524", align 1
   %6 = alloca %"class.std::tuple.548", align 8
@@ -69664,7 +69664,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit104: ; preds = %248, %.crited
           to label %250 unwind label %94
 
 250:                                              ; preds = %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit104
-  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull %12)
+  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef %12)
           to label %251 unwind label %465
 
 251:                                              ; preds = %250
@@ -69755,7 +69755,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit117:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %295 unwind label %.loopexit.split-lp.loopexit
 
 295:                                              ; preds = %292
-  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef %14)
           to label %296 unwind label %467
 
 296:                                              ; preds = %295
@@ -72483,7 +72483,7 @@ _ZNKSt4lessIN5Yosys5RTLIL6SigBitEEclERKS2_S5_.exit: ; preds = %40
 declare noundef ptr @_ZN5Yosys10log_signalERKNS_5RTLIL7SigSpecEb(ptr noundef nonnull align 8 dereferenceable(64), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112SpliceWorker17get_sliced_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.548", align 8
   %5 = alloca %"class.std::tuple.524", align 1
   %6 = alloca %"struct.Yosys::RTLIL::SigBit", align 8

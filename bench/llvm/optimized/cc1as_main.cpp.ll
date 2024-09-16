@@ -2801,7 +2801,7 @@ _ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCT
 1085:                                             ; preds = %1083, %_ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCTargetOptionsE.exit.i.i
   %1086 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #16
   %1087 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %157) #16
-  call fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr %1086, i64 %1087, ptr noundef nonnull align 8 dereferenceable(1304) %104, i1 noundef zeroext %1081)
+  call fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias writable align 8 %25, ptr %1086, i64 %1087, ptr noundef nonnull align 8 dereferenceable(1304) %104, i1 noundef zeroext %1081)
   %1088 = load ptr, ptr %25, align 8
   %.not373.i.i = icmp eq ptr %1088, null
   br i1 %.not373.i.i, label %_ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit240.i.i, label %1089
@@ -2813,7 +2813,7 @@ _ZNK4llvm6Target15createMCAsmInfoERKNS_14MCRegisterInfoENS_9StringRefERKNS_15MCT
 _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %1089
   %1091 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %154) #16
   %1092 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %154) #16
-  call fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr %1091, i64 %1092, ptr noundef nonnull align 8 dereferenceable(1304) %104, i1 noundef zeroext %1081)
+  call fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias writable align 8 %26, ptr %1091, i64 %1092, ptr noundef nonnull align 8 dereferenceable(1304) %104, i1 noundef zeroext %1081)
   %1093 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
   br label %1094
@@ -5135,7 +5135,7 @@ declare void @_ZN4llvm15MCTargetOptionsC1Ev(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15getOutputStreamN4llvm9StringRefERN5clang17DiagnosticsEngineEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.std::error_code", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

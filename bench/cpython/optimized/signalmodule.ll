@@ -1995,7 +1995,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %signal_setitimer_impl.exit
 
 if.end10.i:                                       ; preds = %if.end5.i
-  %call11.i = call fastcc ptr @itimer_retval(ptr noundef nonnull %old.i)
+  %call11.i = call fastcc ptr @itimer_retval(ptr noundef %old.i)
   br label %signal_setitimer_impl.exit
 
 signal_setitimer_impl.exit:                       ; preds = %timeval_from_double.exit.thread.i, %timeval_from_double.exit.i, %timeval_from_double.exit10.thread.i, %timeval_from_double.exit10.i, %if.then8.i, %if.end10.i
@@ -2033,7 +2033,7 @@ if.then.i:                                        ; preds = %entry.split
   br label %signal_getitimer_impl.exit
 
 if.end.i:                                         ; preds = %entry.split
-  %call3.i = call fastcc ptr @itimer_retval(ptr noundef nonnull %old.i)
+  %call3.i = call fastcc ptr @itimer_retval(ptr noundef %old.i)
   br label %signal_getitimer_impl.exit
 
 signal_getitimer_impl.exit:                       ; preds = %if.then.i, %if.end.i
@@ -2061,7 +2061,7 @@ if.then.i8:                                       ; preds = %land.lhs.true.split
   br label %signal_getitimer_impl.exit14
 
 if.end.i12:                                       ; preds = %land.lhs.true.split
-  %call3.i13 = call fastcc ptr @itimer_retval(ptr noundef nonnull %old.i5)
+  %call3.i13 = call fastcc ptr @itimer_retval(ptr noundef %old.i5)
   br label %signal_getitimer_impl.exit14
 
 signal_getitimer_impl.exit14:                     ; preds = %if.then.i8, %if.end.i12
@@ -2904,7 +2904,7 @@ if.end.i:                                         ; preds = %do.body.backedge.i,
   %module.val.i = load ptr, ptr %17, align 8
   %18 = getelementptr i8, ptr %module.val.i, i64 24
   %call8.val.i = load ptr, ptr %18, align 8
-  %call9.i = call fastcc ptr @fill_siginfo(ptr %call8.val.i, ptr noundef nonnull %si.i)
+  %call9.i = call fastcc ptr @fill_siginfo(ptr %call8.val.i, ptr noundef %si.i)
   br label %signal_sigwaitinfo_impl.exit
 
 signal_sigwaitinfo_impl.exit:                     ; preds = %if.end6.i.i, %cond.true.i, %if.end.i
@@ -3054,7 +3054,7 @@ do.end.i:                                         ; preds = %if.end24.i, %if.end
   %module.val.i = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %module.val.i, i64 24
   %call29.val.i = load ptr, ptr %22, align 8
-  %call30.i = call fastcc ptr @fill_siginfo(ptr %call29.val.i, ptr noundef nonnull %si.i)
+  %call30.i = call fastcc ptr @fill_siginfo(ptr %call29.val.i, ptr noundef %si.i)
   br label %signal_sigtimedwait_impl.exit
 
 signal_sigtimedwait_impl.exit:                    ; preds = %do.body.i, %if.end13.i, %PyErr_CheckSignals.exit.i, %if.end5, %if.then2.i, %if.else.i, %do.end.i
@@ -3118,7 +3118,7 @@ declare noundef i32 @setitimer(i32 noundef, ptr nocapture noundef readonly, ptr 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @itimer_retval(ptr nocapture noundef readonly %iv) unnamed_addr #1 {
+define internal fastcc ptr @itimer_retval(ptr nocapture noundef nonnull readonly %iv) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef 2) #15
   %cmp = icmp eq ptr %call, null
@@ -3677,7 +3677,7 @@ declare i32 @sigwait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sigwaitinfo(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fill_siginfo(ptr %state.24.val, ptr nocapture noundef readonly %si) unnamed_addr #1 {
+define internal fastcc ptr @fill_siginfo(ptr %state.24.val, ptr nocapture noundef nonnull readonly %si) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyStructSequence_New(ptr noundef %state.24.val) #15
   %tobool.not = icmp eq ptr %call, null

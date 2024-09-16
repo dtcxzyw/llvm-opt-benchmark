@@ -2311,7 +2311,7 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 256
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %53, label %10
+  br i1 %.not, label %58, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 92
@@ -2378,7 +2378,7 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #27
-          to label %52 unwind label %43
+          to label %57 unwind label %43
 
 .thread.i:                                        ; preds = %25
   %39 = landingpad { ptr, i32 }
@@ -2409,37 +2409,50 @@ define void @_ZN3gmx20IntegerOptionStorage16processSetValuesEPSt6vectorIiSaIiEE(
   %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  br i1 %.3.i, label %46, label %51
+  br i1 %.3.i, label %46, label %56
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
   call void @__cxa_free_exception(ptr %26) #23
-  br label %51
+  br label %56
 
 47:                                               ; preds = %24
   %48 = icmp ult i64 %23, %13
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
   %50 = sub nuw nsw i64 %13, %23
   tail call void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %17, i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %15)
   br label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
 
-51:                                               ; preds = %46, %45
+51:                                               ; preds = %47
+  %52 = icmp ugt i64 %23, %13
+  br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds i32, ptr %15, i64 %13
+  %.not.i.i.i = icmp eq ptr %17, %54
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit, label %55
+
+55:                                               ; preds = %53
+  store ptr %54, ptr %16, align 8
+  br label %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit
+
+56:                                               ; preds = %46, %45
   %.pn.pn.pn27.i = phi { ptr, i32 } [ %.pn.i, %45 ], [ %.pn.pn.pn28.i, %46 ]
   resume { ptr, i32 } %.pn.pn.pn27.i
 
-52:                                               ; preds = %38
+57:                                               ; preds = %38
   unreachable
 
-_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %47, %49
+_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %49, %51, %53, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %53
+  br label %58
 
-53:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit, %2
+58:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIiEEvmPSt6vectorIT_SaIS2_EE.exit, %2
   ret void
 }
 
@@ -3116,7 +3129,7 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 256
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %53, label %10
+  br i1 %.not, label %58, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 92
@@ -3183,7 +3196,7 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #27
-          to label %52 unwind label %43
+          to label %57 unwind label %43
 
 .thread.i:                                        ; preds = %25
   %39 = landingpad { ptr, i32 }
@@ -3214,37 +3227,50 @@ define void @_ZN3gmx19DoubleOptionStorage16processSetValuesEPSt6vectorIdSaIdEE(p
   %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  br i1 %.3.i, label %46, label %51
+  br i1 %.3.i, label %46, label %56
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
   call void @__cxa_free_exception(ptr %26) #23
-  br label %51
+  br label %56
 
 47:                                               ; preds = %24
   %48 = icmp ult i64 %23, %13
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
   %50 = sub nuw nsw i64 %13, %23
   tail call void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPdS1_EEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %17, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %15)
   br label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
 
-51:                                               ; preds = %46, %45
+51:                                               ; preds = %47
+  %52 = icmp ugt i64 %23, %13
+  br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds double, ptr %15, i64 %13
+  %.not.i.i.i = icmp eq ptr %17, %54
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit, label %55
+
+55:                                               ; preds = %53
+  store ptr %54, ptr %16, align 8
+  br label %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit
+
+56:                                               ; preds = %46, %45
   %.pn.pn.pn27.i = phi { ptr, i32 } [ %.pn.i, %45 ], [ %.pn.pn.pn28.i, %46 ]
   resume { ptr, i32 } %.pn.pn.pn27.i
 
-52:                                               ; preds = %38
+57:                                               ; preds = %38
   unreachable
 
-_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %47, %49
+_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %49, %51, %53, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %53
+  br label %58
 
-53:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit, %2
+58:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIdEEvmPSt6vectorIT_SaIS2_EE.exit, %2
   ret void
 }
 
@@ -3751,7 +3777,7 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 256
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %53, label %10
+  br i1 %.not, label %58, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 92
@@ -3818,7 +3844,7 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
 
 38:                                               ; preds = %36
   invoke void @__cxa_throw(ptr %26, ptr nonnull @_ZTIN3gmx17InvalidInputErrorE, ptr nonnull @_ZN3gmx17InvalidInputErrorD2Ev) #27
-          to label %52 unwind label %43
+          to label %57 unwind label %43
 
 .thread.i:                                        ; preds = %25
   %39 = landingpad { ptr, i32 }
@@ -3849,37 +3875,50 @@ define void @_ZN3gmx18FloatOptionStorage16processSetValuesEPSt6vectorIfSaIfEE(pt
   %.3.i = phi i1 [ %.013.i, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
-  br i1 %.3.i, label %46, label %51
+  br i1 %.3.i, label %46, label %56
 
 46:                                               ; preds = %45, %.thread29.i, %.thread.i
   %.pn.pn.pn28.i = phi { ptr, i32 } [ %39, %.thread.i ], [ %.pn.i, %45 ], [ %40, %.thread29.i ]
   call void @__cxa_free_exception(ptr %26) #23
-  br label %51
+  br label %56
 
 47:                                               ; preds = %24
   %48 = icmp ult i64 %23, %13
-  br i1 %48, label %49, label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
+  br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
   %50 = sub nuw nsw i64 %13, %23
   tail call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %17, i64 noundef %50, ptr noundef nonnull align 4 dereferenceable(4) %15)
   br label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
 
-51:                                               ; preds = %46, %45
+51:                                               ; preds = %47
+  %52 = icmp ugt i64 %23, %13
+  br i1 %52, label %53, label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds float, ptr %15, i64 %13
+  %.not.i.i.i = icmp eq ptr %17, %54
+  br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit, label %55
+
+55:                                               ; preds = %53
+  store ptr %54, ptr %16, align 8
+  br label %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit
+
+56:                                               ; preds = %46, %45
   %.pn.pn.pn27.i = phi { ptr, i32 } [ %.pn.i, %45 ], [ %.pn.pn.pn28.i, %46 ]
   resume { ptr, i32 } %.pn.pn.pn27.i
 
-52:                                               ; preds = %38
+57:                                               ; preds = %38
   unreachable
 
-_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %47, %49
+_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit: ; preds = %10, %14, %19, %49, %51, %53, %55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  br label %53
+  br label %58
 
-53:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit, %2
+58:                                               ; preds = %_ZN12_GLOBAL__N_112expandVectorIfEEvmPSt6vectorIT_SaIS2_EE.exit, %2
   ret void
 }
 

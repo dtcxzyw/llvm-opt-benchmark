@@ -894,7 +894,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = and i64 %6, -2
   %8 = inttoptr i64 %7 to ptr
@@ -902,15 +902,15 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 32
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %31, label %.preheader54
+  br i1 %.not, label %31, label %.preheader53
 
-.preheader54:                                     ; preds = %5
+.preheader53:                                     ; preds = %5
   %12 = getelementptr inbounds i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader54
+.lr.ph:                                           ; preds = %.preheader53
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %wide.trip.count = zext nneg i32 %13 to i64
@@ -919,14 +919,14 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef
 17:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph59, label %22, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph58, label %22, !llvm.loop !17
 
-.lr.ph59:                                         ; preds = %17
+.lr.ph58:                                         ; preds = %17
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = xor i64 %6, 1
   %21 = inttoptr i64 %20 to ptr
-  %wide.trip.count68 = zext nneg i32 %13 to i64
+  %wide.trip.count67 = zext nneg i32 %13 to i64
   br label %27
 
 22:                                               ; preds = %.lr.ph, %17
@@ -937,13 +937,13 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef
   br i1 %25, label %.loopexit, label %17
 
 26:                                               ; preds = %27
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %.loopexit, label %27, !llvm.loop !18
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
+  br i1 %exitcond68.not, label %.loopexit, label %27, !llvm.loop !18
 
-27:                                               ; preds = %.lr.ph59, %26
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next66, %26 ]
-  %28 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv65
+27:                                               ; preds = %.lr.ph58, %26
+  %indvars.iv64 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next65, %26 ]
+  %28 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv64
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %21
   br i1 %30, label %.loopexit, label %26
@@ -966,8 +966,8 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_NodeBalanceCone_rec(ptr noundef
   %35 = getelementptr i8, ptr %0, i64 20
   %.val44 = load i32, ptr %35, align 4
   %36 = and i32 %.val44, 15
-  %.not53 = icmp eq i32 %36, 7
-  br i1 %.not53, label %37, label %45
+  %.not52 = icmp eq i32 %36, 7
+  br i1 %.not52, label %37, label %45
 
 37:                                               ; preds = %34
   %38 = or i32 %4, %3
@@ -1072,46 +1072,46 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %84 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %83
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %0, i64 20
-  %87 = ptrtoint ptr %85 to i64
-  %88 = lshr i32 %.val3.i, 10
-  %.lobit.i = and i32 %88, 1
-  %89 = zext nneg i32 %.lobit.i to i64
-  %90 = xor i64 %89, %87
-  %91 = inttoptr i64 %90 to ptr
-  %92 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef %91, ptr noundef %1, i32 noundef 0, i32 noundef %3, i32 noundef %4)
+  %87 = lshr i32 %.val3.i, 10
+  %88 = and i32 %87, 1
+  %89 = ptrtoint ptr %85 to i64
+  %90 = zext nneg i32 %88 to i64
+  %91 = xor i64 %90, %89
+  %92 = inttoptr i64 %91 to ptr
+  %93 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef %92, ptr noundef %1, i32 noundef 0, i32 noundef %3, i32 noundef %4)
   %.val.i46 = load ptr, ptr %0, align 8
   %.val2.i47 = load ptr, ptr %80, align 8
-  %93 = getelementptr i8, ptr %.val.i46, i64 32
-  %.val.val.i48 = load ptr, ptr %93, align 8
-  %94 = getelementptr i8, ptr %.val2.i47, i64 4
-  %.val2.val.i49 = load i32, ptr %94, align 4
-  %95 = getelementptr i8, ptr %.val.val.i48, i64 8
-  %.val.val.val.i50 = load ptr, ptr %95, align 8
-  %96 = sext i32 %.val2.val.i49 to i64
-  %97 = getelementptr inbounds ptr, ptr %.val.val.val.i50, i64 %96
-  %98 = load ptr, ptr %97, align 8
+  %94 = getelementptr i8, ptr %.val.i46, i64 32
+  %.val.val.i48 = load ptr, ptr %94, align 8
+  %95 = getelementptr i8, ptr %.val2.i47, i64 4
+  %.val2.val.i49 = load i32, ptr %95, align 4
+  %96 = getelementptr i8, ptr %.val.val.i48, i64 8
+  %.val.val.val.i50 = load ptr, ptr %96, align 8
+  %97 = sext i32 %.val2.val.i49 to i64
+  %98 = getelementptr inbounds ptr, ptr %.val.val.val.i50, i64 %97
+  %99 = load ptr, ptr %98, align 8
   %.val3.i51 = load i32, ptr %86, align 4
-  %99 = ptrtoint ptr %98 to i64
   %100 = lshr i32 %.val3.i51, 11
-  %.lobit.i52 = and i32 %100, 1
-  %101 = zext nneg i32 %.lobit.i52 to i64
-  %102 = xor i64 %101, %99
-  %103 = inttoptr i64 %102 to ptr
-  %104 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef %103, ptr noundef %1, i32 noundef 0, i32 noundef %3, i32 noundef %4)
-  %105 = icmp eq i32 %92, -1
-  %106 = icmp eq i32 %104, -1
-  %or.cond3 = select i1 %105, i1 true, i1 %106
-  br i1 %or.cond3, label %.loopexit, label %107
+  %101 = and i32 %100, 1
+  %102 = ptrtoint ptr %99 to i64
+  %103 = zext nneg i32 %101 to i64
+  %104 = xor i64 %103, %102
+  %105 = inttoptr i64 %104 to ptr
+  %106 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef %105, ptr noundef %1, i32 noundef 0, i32 noundef %3, i32 noundef %4)
+  %107 = icmp eq i32 %93, -1
+  %108 = icmp eq i32 %106, -1
+  %or.cond3 = select i1 %107, i1 true, i1 %108
+  br i1 %or.cond3, label %.loopexit, label %109
 
-107:                                              ; preds = %79
-  %108 = icmp ne i32 %92, 0
-  %109 = icmp ne i32 %104, 0
-  %110 = select i1 %108, i1 true, i1 %109
-  %111 = zext i1 %110 to i32
+109:                                              ; preds = %79
+  %110 = icmp ne i32 %93, 0
+  %111 = icmp ne i32 %106, 0
+  %112 = select i1 %110, i1 true, i1 %111
+  %113 = zext i1 %112 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %27, %26, %.preheader54, %79, %107, %Vec_PtrPush.exit
-  %.038 = phi i32 [ %111, %107 ], [ 0, %Vec_PtrPush.exit ], [ -1, %79 ], [ 0, %.preheader54 ], [ -1, %27 ], [ 0, %26 ], [ 1, %22 ]
+.loopexit:                                        ; preds = %22, %27, %26, %.preheader53, %79, %109, %Vec_PtrPush.exit
+  %.038 = phi i32 [ %113, %109 ], [ 0, %Vec_PtrPush.exit ], [ -1, %79 ], [ 0, %.preheader53 ], [ -1, %27 ], [ 0, %26 ], [ 1, %22 ]
   ret i32 %.038
 }
 
@@ -1602,9 +1602,9 @@ Abc_NodeBalanceCone.exit:                         ; preds = %._crit_edge.i
   %110 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 8
   %112 = ptrtoint ptr %111 to i64
-  %113 = ptrtoint ptr %108 to i64
-  %114 = and i64 %112, 1
-  %115 = xor i64 %114, %113
+  %113 = and i64 %112, 1
+  %114 = ptrtoint ptr %108 to i64
+  %115 = xor i64 %113, %114
   %116 = inttoptr i64 %115 to ptr
   store ptr %116, ptr %110, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -605,7 +605,7 @@ if.else.i:                                        ; preds = %if.then3
 
 get_time.exit:                                    ; preds = %if.then.i, %if.else.i
   %2 = phi i64 [ %conv.i, %if.then.i ], [ %.pre, %if.else.i ]
-  %call = call fastcc i32 @local_time_tzoffset(i64 noundef %2, ptr noundef nonnull %human_tm)
+  %call = call fastcc i32 @local_time_tzoffset(i64 noundef %2, ptr noundef %human_tm)
   br label %if.end4
 
 if.end4:                                          ; preds = %entry, %get_time.exit
@@ -625,7 +625,7 @@ if.then.i56:                                      ; preds = %if.then5
   unreachable
 
 local_tzoffset.exit:                              ; preds = %if.then5
-  %call1.i57 = call fastcc range(i32 -59652359, 59652360) i32 @local_time_tzoffset(i64 noundef %git_time, ptr noundef nonnull %tm.i)
+  %call1.i57 = call fastcc range(i32 -59652359, 59652360) i32 @local_time_tzoffset(i64 noundef %git_time, ptr noundef %tm.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %tm.i)
   br label %if.end7
 
@@ -1009,11 +1009,11 @@ return:                                           ; preds = %if.then135.i, %if.e
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -59652359, 59652360) i32 @local_time_tzoffset(i64 noundef %t, ptr noundef %tm) unnamed_addr #1 {
+define internal fastcc range(i32 -59652359, 59652360) i32 @local_time_tzoffset(i64 noundef %t, ptr noundef nonnull %tm) unnamed_addr #1 {
 entry:
   %t.addr = alloca i64, align 8
   store i64 %t, ptr %t.addr, align 8
-  %call = call ptr @localtime_r(ptr noundef nonnull %t.addr, ptr noundef %tm) #19
+  %call = call ptr @localtime_r(ptr noundef nonnull %t.addr, ptr noundef nonnull %tm) #19
   %tm_year.i = getelementptr inbounds i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year.i, align 4
   %tm_mon.i = getelementptr inbounds i8, ptr %tm, i64 16
@@ -1242,16 +1242,16 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.end.i.i:                                       ; preds = %for.body.i.i
   %conv3.i.i = zext i8 %13 to i32
-  %idxprom.i.i.i = zext i8 %13 to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
+  %conv.i.i.i = zext i8 %13 to i64
+  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
   %16 = and i8 %15, 4
   %cmp.not.i.i.i = icmp eq i8 %16, 0
   %and3.i.i.i = and i32 %conv3.i.i, 223
   %spec.select.i.i.i = select i1 %cmp.not.i.i.i, i32 %conv3.i.i, i32 %and3.i.i.i
   %conv4.i.i = zext i8 %14 to i32
-  %idxprom.i8.i.i = zext i8 %14 to i64
-  %arrayidx.i9.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i.i
+  %conv.i8.i.i = zext i8 %14 to i64
+  %arrayidx.i9.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i.i
   %17 = load i8, ptr %arrayidx.i9.i.i, align 1
   %18 = and i8 %17, 4
   %cmp.not.i10.i.i = icmp eq i8 %18, 0
@@ -1305,16 +1305,16 @@ for.body.i36.i:                                   ; preds = %for.inc.i59.i, %for
 
 if.end.i41.i:                                     ; preds = %for.body.i36.i
   %conv3.i42.i = zext i8 %23 to i32
-  %idxprom.i.i43.i = zext i8 %23 to i64
-  %arrayidx.i.i44.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i43.i
+  %conv.i.i43.i = zext i8 %23 to i64
+  %arrayidx.i.i44.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i43.i
   %25 = load i8, ptr %arrayidx.i.i44.i, align 1
   %26 = and i8 %25, 4
   %cmp.not.i.i45.i = icmp eq i8 %26, 0
   %and3.i.i46.i = and i32 %conv3.i42.i, 223
   %spec.select.i.i47.i = select i1 %cmp.not.i.i45.i, i32 %conv3.i42.i, i32 %and3.i.i46.i
   %conv4.i48.i = zext i8 %24 to i32
-  %idxprom.i8.i49.i = zext i8 %24 to i64
-  %arrayidx.i9.i50.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i49.i
+  %conv.i8.i49.i = zext i8 %24 to i64
+  %arrayidx.i9.i50.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i49.i
   %27 = load i8, ptr %arrayidx.i9.i50.i, align 1
   %28 = and i8 %27, 4
   %cmp.not.i10.i51.i = icmp eq i8 %28, 0
@@ -1373,16 +1373,16 @@ for.body.i66.i:                                   ; preds = %for.inc.i89.i, %for
 
 if.end.i71.i:                                     ; preds = %for.body.i66.i
   %conv3.i72.i = zext i8 %33 to i32
-  %idxprom.i.i73.i = zext i8 %33 to i64
-  %arrayidx.i.i74.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i73.i
+  %conv.i.i73.i = zext i8 %33 to i64
+  %arrayidx.i.i74.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i73.i
   %35 = load i8, ptr %arrayidx.i.i74.i, align 1
   %36 = and i8 %35, 4
   %cmp.not.i.i75.i = icmp eq i8 %36, 0
   %and3.i.i76.i = and i32 %conv3.i72.i, 223
   %spec.select.i.i77.i = select i1 %cmp.not.i.i75.i, i32 %conv3.i72.i, i32 %and3.i.i76.i
   %conv4.i78.i = zext i8 %34 to i32
-  %idxprom.i8.i79.i = zext i8 %34 to i64
-  %arrayidx.i9.i80.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i79.i
+  %conv.i8.i79.i = zext i8 %34 to i64
+  %arrayidx.i9.i80.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i79.i
   %37 = load i8, ptr %arrayidx.i9.i80.i, align 1
   %38 = and i8 %37, 4
   %cmp.not.i10.i81.i = icmp eq i8 %38, 0
@@ -1459,16 +1459,16 @@ for.body.i96.i:                                   ; preds = %for.cond15.i, %for.
 
 if.end.i101.i:                                    ; preds = %for.body.i96.i
   %conv3.i102.i = zext i8 %45 to i32
-  %idxprom.i.i103.i = zext i8 %45 to i64
-  %arrayidx.i.i104.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i103.i
+  %conv.i.i103.i = zext i8 %45 to i64
+  %arrayidx.i.i104.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i103.i
   %47 = load i8, ptr %arrayidx.i.i104.i, align 1
   %48 = and i8 %47, 4
   %cmp.not.i.i105.i = icmp eq i8 %48, 0
   %and3.i.i106.i = and i32 %conv3.i102.i, 223
   %spec.select.i.i107.i = select i1 %cmp.not.i.i105.i, i32 %conv3.i102.i, i32 %and3.i.i106.i
   %conv4.i108.i = zext i8 %46 to i32
-  %idxprom.i8.i109.i = zext i8 %46 to i64
-  %arrayidx.i9.i110.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i109.i
+  %conv.i8.i109.i = zext i8 %46 to i64
+  %arrayidx.i9.i110.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i109.i
   %49 = load i8, ptr %arrayidx.i9.i110.i, align 1
   %50 = and i8 %49, 4
   %cmp.not.i10.i111.i = icmp eq i8 %50, 0
@@ -1516,16 +1516,16 @@ for.body.i126.i:                                  ; preds = %for.body.i126.i.pre
 
 if.end.i131.i:                                    ; preds = %for.body.i126.i
   %conv3.i132.i = zext i8 %54 to i32
-  %idxprom.i.i133.i = zext i8 %54 to i64
-  %arrayidx.i.i134.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i133.i
+  %conv.i.i133.i = zext i8 %54 to i64
+  %arrayidx.i.i134.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i133.i
   %56 = load i8, ptr %arrayidx.i.i134.i, align 1
   %57 = and i8 %56, 4
   %cmp.not.i.i135.i = icmp eq i8 %57, 0
   %and3.i.i136.i = and i32 %conv3.i132.i, 223
   %spec.select.i.i137.i = select i1 %cmp.not.i.i135.i, i32 %conv3.i132.i, i32 %and3.i.i136.i
   %conv4.i138.i = zext i8 %55 to i32
-  %idxprom.i8.i139.i = zext i8 %55 to i64
-  %arrayidx.i9.i140.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i139.i
+  %conv.i8.i139.i = zext i8 %55 to i64
+  %arrayidx.i9.i140.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i139.i
   %58 = load i8, ptr %arrayidx.i9.i140.i, align 1
   %59 = and i8 %58, 4
   %cmp.not.i10.i141.i = icmp eq i8 %59, 0
@@ -1661,7 +1661,7 @@ sw.bb.i:                                          ; preds = %if.end5.i, %if.end5
   br i1 %cmp9.not.i, label %do.body.i.preheader, label %if.then11.i
 
 if.then11.i:                                      ; preds = %sw.bb.i
-  %call12.i = call fastcc i32 @match_multi_number(i64 noundef %call.i43, i8 noundef signext %79, ptr noundef nonnull %date.addr.0, ptr noundef nonnull %78, ptr noundef nonnull %tm, i64 noundef 0)
+  %call12.i = call fastcc i32 @match_multi_number(i64 noundef %call.i43, i8 noundef signext %79, ptr noundef nonnull %date.addr.0, ptr noundef nonnull %78, ptr noundef %tm, i64 noundef 0)
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %do.body.i.preheader, label %match_digit.exit
 
@@ -2406,7 +2406,7 @@ sw.bb.i.i:                                        ; preds = %pending_number.exit
   br i1 %cmp.not.i.i, label %sw.epilog.i.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %sw.bb.i.i
-  %call4.i.i = call fastcc i32 @match_multi_number(i64 noundef %call.i.i, i8 noundef signext %12, ptr noundef nonnull %date.addr.025.i, ptr noundef nonnull %11, ptr noundef nonnull %tm.i, i64 noundef %10)
+  %call4.i.i = call fastcc i32 @match_multi_number(i64 noundef %call.i.i, i8 noundef signext %12, ptr noundef nonnull %date.addr.025.i, ptr noundef nonnull %11, ptr noundef %tm.i, i64 noundef %10)
   %tobool.not.i7.i = icmp eq i32 %call4.i.i, 0
   br i1 %tobool.not.i7.i, label %if.then.sw.epilog_crit_edge.i.i, label %if.then5.i.i
 
@@ -2481,16 +2481,16 @@ for.body.i.i.i:                                   ; preds = %for.inc.i.i.i, %for
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i
   %conv3.i.i.i = zext i8 %22 to i32
-  %idxprom.i.i.i.i = zext i8 %22 to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i.i
+  %conv.i.i.i.i = zext i8 %22 to i64
+  %arrayidx.i.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i.i.i
   %24 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %25 = and i8 %24, 4
   %cmp.not.i.i.i.i = icmp eq i8 %25, 0
   %and3.i.i.i.i = and i32 %conv3.i.i.i, 223
   %spec.select.i.i.i.i = select i1 %cmp.not.i.i.i.i, i32 %conv3.i.i.i, i32 %and3.i.i.i.i
   %conv4.i.i.i = zext i8 %23 to i32
-  %idxprom.i8.i.i.i = zext i8 %23 to i64
-  %arrayidx.i9.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i.i.i
+  %conv.i8.i.i.i = zext i8 %23 to i64
+  %arrayidx.i9.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i.i.i
   %26 = load i8, ptr %arrayidx.i9.i.i.i, align 1
   %27 = and i8 %26, 4
   %cmp.not.i10.i.i.i = icmp eq i8 %27, 0
@@ -2545,16 +2545,16 @@ for.body.i77.i.i:                                 ; preds = %for.inc.i100.i.i, %
 
 if.end.i82.i.i:                                   ; preds = %for.body.i77.i.i
   %conv3.i83.i.i = zext i8 %32 to i32
-  %idxprom.i.i84.i.i = zext i8 %32 to i64
-  %arrayidx.i.i85.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i84.i.i
+  %conv.i.i84.i.i = zext i8 %32 to i64
+  %arrayidx.i.i85.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i84.i.i
   %34 = load i8, ptr %arrayidx.i.i85.i.i, align 1
   %35 = and i8 %34, 4
   %cmp.not.i.i86.i.i = icmp eq i8 %35, 0
   %and3.i.i87.i.i = and i32 %conv3.i83.i.i, 223
   %spec.select.i.i88.i.i = select i1 %cmp.not.i.i86.i.i, i32 %conv3.i83.i.i, i32 %and3.i.i87.i.i
   %conv4.i89.i.i = zext i8 %33 to i32
-  %idxprom.i8.i90.i.i = zext i8 %33 to i64
-  %arrayidx.i9.i91.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i90.i.i
+  %conv.i8.i90.i.i = zext i8 %33 to i64
+  %arrayidx.i9.i91.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i90.i.i
   %36 = load i8, ptr %arrayidx.i9.i91.i.i, align 1
   %37 = and i8 %36, 4
   %cmp.not.i10.i92.i.i = icmp eq i8 %37, 0
@@ -2618,16 +2618,16 @@ for.body.i107.i.i:                                ; preds = %for.inc.i130.i.i, %
 
 if.end.i112.i.i:                                  ; preds = %for.body.i107.i.i
   %conv3.i113.i.i = zext i8 %44 to i32
-  %idxprom.i.i114.i.i = zext i8 %44 to i64
-  %arrayidx.i.i115.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i114.i.i
+  %conv.i.i114.i.i = zext i8 %44 to i64
+  %arrayidx.i.i115.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i114.i.i
   %46 = load i8, ptr %arrayidx.i.i115.i.i, align 1
   %47 = and i8 %46, 4
   %cmp.not.i.i116.i.i = icmp eq i8 %47, 0
   %and3.i.i117.i.i = and i32 %conv3.i113.i.i, 223
   %spec.select.i.i118.i.i = select i1 %cmp.not.i.i116.i.i, i32 %conv3.i113.i.i, i32 %and3.i.i117.i.i
   %conv4.i119.i.i = zext i8 %45 to i32
-  %idxprom.i8.i120.i.i = zext i8 %45 to i64
-  %arrayidx.i9.i121.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i120.i.i
+  %conv.i8.i120.i.i = zext i8 %45 to i64
+  %arrayidx.i9.i121.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i120.i.i
   %48 = load i8, ptr %arrayidx.i9.i121.i.i, align 1
   %49 = and i8 %48, 4
   %cmp.not.i10.i122.i.i = icmp eq i8 %49, 0
@@ -2676,16 +2676,16 @@ for.body.i137.i.i:                                ; preds = %for.inc40.i.i, %for
 
 if.end.i142.i.i:                                  ; preds = %for.body.i137.i.i
   %conv3.i143.i.i = zext i8 %53 to i32
-  %idxprom.i.i144.i.i = zext i8 %53 to i64
-  %arrayidx.i.i145.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i144.i.i
+  %conv.i.i144.i.i = zext i8 %53 to i64
+  %arrayidx.i.i145.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i144.i.i
   %55 = load i8, ptr %arrayidx.i.i145.i.i, align 1
   %56 = and i8 %55, 4
   %cmp.not.i.i146.i.i = icmp eq i8 %56, 0
   %and3.i.i147.i.i = and i32 %conv3.i143.i.i, 223
   %spec.select.i.i148.i.i = select i1 %cmp.not.i.i146.i.i, i32 %conv3.i143.i.i, i32 %and3.i.i147.i.i
   %conv4.i149.i.i = zext i8 %54 to i32
-  %idxprom.i8.i150.i.i = zext i8 %54 to i64
-  %arrayidx.i9.i151.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i150.i.i
+  %conv.i8.i150.i.i = zext i8 %54 to i64
+  %arrayidx.i9.i151.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i150.i.i
   %57 = load i8, ptr %arrayidx.i9.i151.i.i, align 1
   %58 = and i8 %57, 4
   %cmp.not.i10.i152.i.i = icmp eq i8 %58, 0
@@ -2734,16 +2734,16 @@ for.body.i167.i.i:                                ; preds = %for.inc.i190.i.i, %
 
 if.end.i172.i.i:                                  ; preds = %for.body.i167.i.i
   %conv3.i173.i.i = zext i8 %62 to i32
-  %idxprom.i.i174.i.i = zext i8 %62 to i64
-  %arrayidx.i.i175.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i174.i.i
+  %conv.i.i174.i.i = zext i8 %62 to i64
+  %arrayidx.i.i175.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i174.i.i
   %64 = load i8, ptr %arrayidx.i.i175.i.i, align 1
   %65 = and i8 %64, 4
   %cmp.not.i.i176.i.i = icmp eq i8 %65, 0
   %and3.i.i177.i.i = and i32 %conv3.i173.i.i, 223
   %spec.select.i.i178.i.i = select i1 %cmp.not.i.i176.i.i, i32 %conv3.i173.i.i, i32 %and3.i.i177.i.i
   %conv4.i179.i.i = zext i8 %63 to i32
-  %idxprom.i8.i180.i.i = zext i8 %63 to i64
-  %arrayidx.i9.i181.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i180.i.i
+  %conv.i8.i180.i.i = zext i8 %63 to i64
+  %arrayidx.i9.i181.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i180.i.i
   %66 = load i8, ptr %arrayidx.i9.i181.i.i, align 1
   %67 = and i8 %66, 4
   %cmp.not.i10.i182.i.i = icmp eq i8 %67, 0
@@ -2847,16 +2847,16 @@ for.body.i199.i.i:                                ; preds = %for.inc.i222.i.i, %
 
 if.end.i204.i.i:                                  ; preds = %for.body.i199.i.i
   %conv3.i205.i.i = zext i8 %81 to i32
-  %idxprom.i.i206.i.i = zext i8 %81 to i64
-  %arrayidx.i.i207.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i206.i.i
+  %conv.i.i206.i.i = zext i8 %81 to i64
+  %arrayidx.i.i207.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i206.i.i
   %83 = load i8, ptr %arrayidx.i.i207.i.i, align 1
   %84 = and i8 %83, 4
   %cmp.not.i.i208.i.i = icmp eq i8 %84, 0
   %and3.i.i209.i.i = and i32 %conv3.i205.i.i, 223
   %spec.select.i.i210.i.i = select i1 %cmp.not.i.i208.i.i, i32 %conv3.i205.i.i, i32 %and3.i.i209.i.i
   %conv4.i211.i.i = zext i8 %82 to i32
-  %idxprom.i8.i212.i.i = zext i8 %82 to i64
-  %arrayidx.i9.i213.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i212.i.i
+  %conv.i8.i212.i.i = zext i8 %82 to i64
+  %arrayidx.i9.i213.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i212.i.i
   %85 = load i8, ptr %arrayidx.i9.i213.i.i, align 1
   %86 = and i8 %85, 4
   %cmp.not.i10.i214.i.i = icmp eq i8 %86, 0
@@ -2957,16 +2957,16 @@ for.body.i252.i.i:                                ; preds = %for.inc91.i.i, %for
 
 if.end.i257.i.i:                                  ; preds = %for.body.i252.i.i
   %conv3.i258.i.i = zext i8 %99 to i32
-  %idxprom.i.i259.i.i = zext i8 %99 to i64
-  %arrayidx.i.i260.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i259.i.i
+  %conv.i.i259.i.i = zext i8 %99 to i64
+  %arrayidx.i.i260.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i259.i.i
   %101 = load i8, ptr %arrayidx.i.i260.i.i, align 1
   %102 = and i8 %101, 4
   %cmp.not.i.i261.i.i = icmp eq i8 %102, 0
   %and3.i.i262.i.i = and i32 %conv3.i258.i.i, 223
   %spec.select.i.i263.i.i = select i1 %cmp.not.i.i261.i.i, i32 %conv3.i258.i.i, i32 %and3.i.i262.i.i
   %conv4.i264.i.i = zext i8 %100 to i32
-  %idxprom.i8.i265.i.i = zext i8 %100 to i64
-  %arrayidx.i9.i266.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i265.i.i
+  %conv.i8.i265.i.i = zext i8 %100 to i64
+  %arrayidx.i9.i266.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i265.i.i
   %103 = load i8, ptr %arrayidx.i9.i266.i.i, align 1
   %104 = and i8 %103, 4
   %cmp.not.i10.i267.i.i = icmp eq i8 %104, 0
@@ -3083,16 +3083,16 @@ for.body.i305.i.i:                                ; preds = %for.body.i305.i.i.p
 
 if.end.i310.i.i:                                  ; preds = %for.body.i305.i.i
   %conv3.i311.i.i = zext i8 %129 to i32
-  %idxprom.i.i312.i.i = zext i8 %129 to i64
-  %arrayidx.i.i313.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i312.i.i
+  %conv.i.i312.i.i = zext i8 %129 to i64
+  %arrayidx.i.i313.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i312.i.i
   %131 = load i8, ptr %arrayidx.i.i313.i.i, align 1
   %132 = and i8 %131, 4
   %cmp.not.i.i314.i.i = icmp eq i8 %132, 0
   %and3.i.i315.i.i = and i32 %conv3.i311.i.i, 223
   %spec.select.i.i316.i.i = select i1 %cmp.not.i.i314.i.i, i32 %conv3.i311.i.i, i32 %and3.i.i315.i.i
   %conv4.i317.i.i = zext i8 %130 to i32
-  %idxprom.i8.i318.i.i = zext i8 %130 to i64
-  %arrayidx.i9.i319.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i8.i318.i.i
+  %conv.i8.i318.i.i = zext i8 %130 to i64
+  %arrayidx.i9.i319.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i8.i318.i.i
   %133 = load i8, ptr %arrayidx.i9.i319.i.i, align 1
   %134 = and i8 %133, 4
   %cmp.not.i10.i320.i.i = icmp eq i8 %134, 0
@@ -3833,7 +3833,7 @@ declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @match_multi_number(i64 noundef %num, i8 noundef signext %c, ptr noundef %date, ptr noundef %end, ptr nocapture noundef %tm, i64 noundef %now) unnamed_addr #1 {
+define internal fastcc i32 @match_multi_number(i64 noundef %num, i8 noundef signext %c, ptr noundef %date, ptr noundef %end, ptr nocapture noundef nonnull %tm, i64 noundef %now) unnamed_addr #1 {
 entry:
   %tv.i = alloca %struct.timeval, align 8
   %end.addr = alloca ptr, align 8
@@ -4087,7 +4087,7 @@ return:                                           ; preds = %if.end76.thread, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 2) i32 @set_date(i32 noundef %year, i32 noundef %month, i32 noundef %day, ptr noundef readonly %now_tm, i64 noundef %now, ptr nocapture noundef %tm) unnamed_addr #16 {
+define internal fastcc range(i32 -1, 2) i32 @set_date(i32 noundef %year, i32 noundef %month, i32 noundef %day, ptr noundef readonly %now_tm, i64 noundef %now, ptr nocapture noundef nonnull %tm) unnamed_addr #16 {
 entry:
   %0 = add i32 %month, -1
   %or.cond = icmp ult i32 %0, 12

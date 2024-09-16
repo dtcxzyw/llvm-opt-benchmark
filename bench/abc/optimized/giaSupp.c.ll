@@ -786,8 +786,8 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %.val60 = load i32, ptr %12, align 8
   tail call fastcc void @Vec_IntFillExtra(ptr noundef nonnull %11, i32 noundef %.val60)
   %13 = getelementptr i8, ptr %6, i64 4
-  %.val5977 = load i32, ptr %13, align 4
-  %14 = icmp sgt i32 %.val5977, 0
+  %.val5976 = load i32, ptr %13, align 4
+  %14 = icmp sgt i32 %.val5976, 0
   br i1 %14, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %2
@@ -799,11 +799,11 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %18, i64 4
-  %.val5879 = load i32, ptr %19, align 4
-  %20 = icmp sgt i32 %.val5879, 0
-  br i1 %20, label %.lr.ph81, label %.critedge2
+  %.val5878 = load i32, ptr %19, align 4
+  %20 = icmp sgt i32 %.val5878, 0
+  br i1 %20, label %.lr.ph80, label %.critedge2
 
-.lr.ph81:                                         ; preds = %.critedge.preheader
+.lr.ph80:                                         ; preds = %.critedge.preheader
   %21 = getelementptr i8, ptr %10, i64 400
   br label %.critedge
 
@@ -823,23 +823,23 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %29 = icmp slt i64 %indvars.iv.next, %28
   br i1 %29, label %22, label %.critedge.preheader, !llvm.loop !14
 
-.critedge:                                        ; preds = %.lr.ph81, %.critedge
-  %indvars.iv86 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next87, %.critedge ]
-  %30 = phi ptr [ %18, %.lr.ph81 ], [ %36, %.critedge ]
+.critedge:                                        ; preds = %.lr.ph80, %.critedge
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next86, %.critedge ]
+  %30 = phi ptr [ %18, %.lr.ph80 ], [ %36, %.critedge ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val65 = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds i32, ptr %.val65, i64 %indvars.iv86
+  %32 = getelementptr inbounds i32, ptr %.val65, i64 %indvars.iv85
   %33 = load i32, ptr %32, align 4
   %.val71 = load ptr, ptr %21, align 8
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %.val71, i64 %34
   store i32 0, ptr %35, align 4
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %36 = load ptr, ptr %17, align 8
   %37 = getelementptr i8, ptr %36, i64 4
   %.val58 = load i32, ptr %37, align 4
   %38 = sext i32 %.val58 to i64
-  %39 = icmp slt i64 %indvars.iv.next87, %38
+  %39 = icmp slt i64 %indvars.iv.next86, %38
   br i1 %39, label %.critedge, label %.critedge2, !llvm.loop !15
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
@@ -850,9 +850,9 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 .preheader:                                       ; preds = %.critedge2
   %42 = icmp sgt i32 %.val57, 0
-  br i1 %42, label %.lr.ph84, label %.critedge4
+  br i1 %42, label %.lr.ph83, label %.critedge4
 
-.lr.ph84:                                         ; preds = %.preheader
+.lr.ph83:                                         ; preds = %.preheader
   %43 = getelementptr i8, ptr %9, i64 8
   %44 = getelementptr i8, ptr %10, i64 400
   br label %54
@@ -869,10 +869,10 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %53 = load i32, ptr %52, align 4
   br label %.critedge4
 
-54:                                               ; preds = %.lr.ph84, %54
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next90, %54 ]
+54:                                               ; preds = %.lr.ph83, %54
+  %indvars.iv88 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next89, %54 ]
   %.val63 = load ptr, ptr %43, align 8
-  %55 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv89
+  %55 = getelementptr inbounds i32, ptr %.val63, i64 %indvars.iv88
   %56 = load i32, ptr %55, align 4
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr i8, ptr %57, i64 32
@@ -895,30 +895,30 @@ define i32 @Gia_ManRebuildOne(ptr nocapture noundef readonly %0, i32 noundef %1)
   %72 = getelementptr inbounds i32, ptr %.val62, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = lshr i32 %61, 29
-  %.lobit = and i32 %74, 1
-  %75 = xor i32 %.lobit, %66
-  %76 = lshr i64 %.val.i, 61
-  %77 = trunc nuw nsw i64 %76 to i32
-  %78 = and i32 %77, 1
-  %79 = xor i32 %73, %78
-  %80 = tail call i32 @Gia_ManHashAnd(ptr noundef %57, i32 noundef %75, i32 noundef %79) #15
+  %75 = and i32 %74, 1
+  %76 = xor i32 %75, %66
+  %77 = lshr i64 %.val.i, 61
+  %78 = trunc nuw nsw i64 %77 to i32
+  %79 = and i32 %78, 1
+  %80 = xor i32 %79, %73
+  %81 = tail call i32 @Gia_ManHashAnd(ptr noundef %57, i32 noundef %76, i32 noundef %80) #15
   %.val72 = load ptr, ptr %44, align 8
-  %81 = getelementptr inbounds i32, ptr %.val72, i64 %59
-  store i32 %80, ptr %81, align 4
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %82 = getelementptr inbounds i32, ptr %.val72, i64 %59
+  store i32 %81, ptr %82, align 4
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %.val = load i32, ptr %40, align 4
-  %82 = sext i32 %.val to i64
-  %83 = icmp slt i64 %indvars.iv.next90, %82
-  br i1 %83, label %54, label %.critedge4, !llvm.loop !16
+  %83 = sext i32 %.val to i64
+  %84 = icmp slt i64 %indvars.iv.next89, %83
+  br i1 %84, label %54, label %.critedge4, !llvm.loop !16
 
 .critedge4:                                       ; preds = %54, %.preheader, %45
-  %.055 = phi i32 [ %53, %45 ], [ -1, %.preheader ], [ %80, %54 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 8
-  %85 = getelementptr inbounds [2 x i32], ptr %84, i64 0, i64 %4
-  %86 = load i32, ptr %85, align 4
-  %87 = and i32 %86, 1
-  %88 = xor i32 %87, %.055
-  ret i32 %88
+  %.055 = phi i32 [ %53, %45 ], [ -1, %.preheader ], [ %81, %54 ]
+  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %86 = getelementptr inbounds [2 x i32], ptr %85, i64 0, i64 %4
+  %87 = load i32, ptr %86, align 4
+  %88 = and i32 %87, 1
+  %89 = xor i32 %88, %.055
+  ret i32 %89
 }
 
 ; Function Attrs: nounwind uwtable

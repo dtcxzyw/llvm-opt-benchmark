@@ -251,7 +251,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path, ptr noundef %name, i32 noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @ll_loadfunc(ptr noundef %L, ptr noundef %path, ptr noundef %name, i32 noundef range(i32 0, 2) %r) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #8
   %cmp = icmp ugt i64 %call, 4095

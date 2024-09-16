@@ -2388,27 +2388,27 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13UnaryOperatorES4_.exit:
   br i1 %147, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 148:                                              ; preds = %136
-  %149 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %149 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %149, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 150:                                              ; preds = %136
-  %151 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %151 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %151, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 152:                                              ; preds = %136
-  %153 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %153 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %153, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 154:                                              ; preds = %136
-  %155 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %155 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %155, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 156:                                              ; preds = %136
-  %157 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %157 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %157, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 158:                                              ; preds = %136
-  %159 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %159 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %159, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 160:                                              ; preds = %136
@@ -2444,67 +2444,67 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit:
   br i1 %173, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 174:                                              ; preds = %136
-  %175 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %175 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %175, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 176:                                              ; preds = %136
-  %177 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %177 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %177, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 178:                                              ; preds = %136
-  %179 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %179 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %179, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 180:                                              ; preds = %136
-  %181 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %181 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %181, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 182:                                              ; preds = %136
-  %183 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %183 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %183, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 184:                                              ; preds = %136
-  %185 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %185 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %185, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 186:                                              ; preds = %136
-  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %187 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %187, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 188:                                              ; preds = %136
-  %189 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %189 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %189, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 190:                                              ; preds = %136
-  %191 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %191 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %191, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 192:                                              ; preds = %136
-  %193 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %193 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %193, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 194:                                              ; preds = %136
-  %195 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %195 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %195, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 196:                                              ; preds = %136
-  %197 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %197 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %197, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 198:                                              ; preds = %136
-  %199 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %199 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %199, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 200:                                              ; preds = %136
-  %201 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %201 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %201, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 202:                                              ; preds = %136
-  %203 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %203 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %203, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 204:                                              ; preds = %136
-  %205 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %205 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %205, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 206:                                              ; preds = %136
@@ -2516,143 +2516,143 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13SourceLocExprES4_.exit:
   br i1 %209, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 210:                                              ; preds = %136
-  %211 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %211 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %211, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 212:                                              ; preds = %136
-  %213 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %213 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %213, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 214:                                              ; preds = %136
-  %215 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %215 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %215, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 216:                                              ; preds = %136
-  %217 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %217 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %217, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 218:                                              ; preds = %136
-  %219 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %219 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %219, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 220:                                              ; preds = %136
-  %221 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %221 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %221, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 222:                                              ; preds = %136
-  %223 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %223 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %223, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 224:                                              ; preds = %136
-  %225 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %225 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %225, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 226:                                              ; preds = %136
-  %227 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %227 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %227, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 228:                                              ; preds = %136
-  %229 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %229 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %229, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 230:                                              ; preds = %136
-  %231 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %231 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %231, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 232:                                              ; preds = %136
-  %233 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %233 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %233, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 234:                                              ; preds = %136
-  %235 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %235 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %235, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 236:                                              ; preds = %136
-  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %237 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %237, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 238:                                              ; preds = %136
-  %239 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %239 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %239, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 240:                                              ; preds = %136
-  %241 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %241 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %241, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 242:                                              ; preds = %136
-  %243 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %243 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %243, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 244:                                              ; preds = %136
-  %245 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %245 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %245, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 246:                                              ; preds = %136
-  %247 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %247 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %247, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 248:                                              ; preds = %136
-  %249 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %249 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %249, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 250:                                              ; preds = %136
-  %251 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %251 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %251, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 252:                                              ; preds = %136
-  %253 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %253 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %253, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 254:                                              ; preds = %136
-  %255 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %255 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %255, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 256:                                              ; preds = %136
-  %257 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %257 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %257, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 258:                                              ; preds = %136
-  %259 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %259 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %259, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 260:                                              ; preds = %136
-  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %261 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %261, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 262:                                              ; preds = %136
-  %263 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %263 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %263, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 264:                                              ; preds = %136
-  %265 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %265 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %265, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 266:                                              ; preds = %136
-  %267 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %267 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %267, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 268:                                              ; preds = %136
-  %269 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %269 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %269, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 270:                                              ; preds = %136
-  %271 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %271 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %271, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 272:                                              ; preds = %136
-  %273 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %273 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %273, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 274:                                              ; preds = %136
-  %275 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %275 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %275, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 276:                                              ; preds = %136
-  %277 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %277 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %277, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 278:                                              ; preds = %136
-  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %279 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %279, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 280:                                              ; preds = %136
@@ -2672,207 +2672,207 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ExpressionTraitExprES4_
   br i1 %286, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 287:                                              ; preds = %136
-  %288 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %288 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %288, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 289:                                              ; preds = %136
-  %290 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %290 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %290, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 291:                                              ; preds = %136
-  %292 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %292 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %292, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 293:                                              ; preds = %136
-  %294 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %294 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %294, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 295:                                              ; preds = %136
-  %296 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %296 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %296, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 297:                                              ; preds = %136
-  %298 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %298 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %298, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 299:                                              ; preds = %136
-  %300 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %300 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %300, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 301:                                              ; preds = %136
-  %302 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %302 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %302, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 303:                                              ; preds = %136
-  %304 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %304 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %304, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 305:                                              ; preds = %136
-  %306 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %306 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %306, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 307:                                              ; preds = %136
-  %308 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %308 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %308, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 309:                                              ; preds = %136
-  %310 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %310 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %310, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 311:                                              ; preds = %136
-  %312 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %312 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %312, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 313:                                              ; preds = %136
-  %314 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %314 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %314, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 315:                                              ; preds = %136
-  %316 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %316 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %316, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 317:                                              ; preds = %136
-  %318 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %318 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %318, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 319:                                              ; preds = %136
-  %320 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %320 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %320, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 321:                                              ; preds = %136
-  %322 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %322 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %322, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 323:                                              ; preds = %136
-  %324 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %324 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %324, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 325:                                              ; preds = %136
-  %326 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %326 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %326, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 327:                                              ; preds = %136
-  %328 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %328 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %328, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 329:                                              ; preds = %136
-  %330 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %330 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %330, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 331:                                              ; preds = %136
-  %332 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %332 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %332, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 333:                                              ; preds = %136
-  %334 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %334 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %334, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 335:                                              ; preds = %136
-  %336 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %336 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %336, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 337:                                              ; preds = %136
-  %338 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %338 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %338, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 339:                                              ; preds = %136
-  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %340 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %340, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 341:                                              ; preds = %136
-  %342 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %342 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %342, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 343:                                              ; preds = %136
-  %344 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %344 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %344, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 345:                                              ; preds = %136
-  %346 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %346 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %346, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 347:                                              ; preds = %136
-  %348 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %348 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %348, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 349:                                              ; preds = %136
-  %350 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %350 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %350, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 351:                                              ; preds = %136
-  %352 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %352 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %352, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 353:                                              ; preds = %136
-  %354 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %354 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %354, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 355:                                              ; preds = %136
-  %356 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %356 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %356, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 357:                                              ; preds = %136
-  %358 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %358 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %358, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 359:                                              ; preds = %136
-  %360 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %360 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %360, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 361:                                              ; preds = %136
-  %362 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %362 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %362, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 363:                                              ; preds = %136
-  %364 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %364 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %364, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 365:                                              ; preds = %136
-  %366 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %366 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %366, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 367:                                              ; preds = %136
-  %368 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %368 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %368, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 369:                                              ; preds = %136
-  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %370 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %370, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 371:                                              ; preds = %136
-  %372 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %372 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %372, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 373:                                              ; preds = %136
-  %374 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %374 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %374, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 375:                                              ; preds = %136
-  %376 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %376 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %376, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 377:                                              ; preds = %136
-  %378 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %378 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %378, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 379:                                              ; preds = %136
-  %380 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %380 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %380, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 381:                                              ; preds = %136
-  %382 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %382 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %382, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 383:                                              ; preds = %136
-  %384 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %384 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %384, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 385:                                              ; preds = %136
-  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %386 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %386, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 387:                                              ; preds = %136
-  %388 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %388 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %388, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 389:                                              ; preds = %136
@@ -2924,39 +2924,39 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AtomicExprES4_.exit: ; 
   br i1 %409, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 410:                                              ; preds = %136
-  %411 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %411 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %411, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 412:                                              ; preds = %136
-  %413 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %413 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %413, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 414:                                              ; preds = %136
-  %415 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %415 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %415, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 416:                                              ; preds = %136
-  %417 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %417 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %417, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 418:                                              ; preds = %136
-  %419 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %419 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %419, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 420:                                              ; preds = %136
-  %421 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %421 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %421, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 422:                                              ; preds = %136
-  %423 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %423 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %423, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 424:                                              ; preds = %136
-  %425 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %425 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %425, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 426:                                              ; preds = %136
-  %427 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %.tr107117, ptr noundef nonnull %.tr108118)
+  %427 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %.tr107117, ptr noundef %.tr108118)
   br i1 %427, label %_ZN12_GLOBAL__N_112StmtComparer12IsEquivalentEPKN5clang4StmtES4_.exit.thread, label %_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPKNS_13UnaryOperatorEPKNS_19CXXOperatorCallExprE.exit
 
 428:                                              ; preds = %136
@@ -5903,7 +5903,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit280:     ; preds = %_ZNK5clang13CXXReco
   br i1 %.not547, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit280.thread, label %406
 
 406:                                              ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit280
-  %407 = tail call fastcc noundef zeroext i1 @_ZL31IsStructurallyEquivalentLambdasRN5clang28StructuralEquivalenceContextEPNS_13CXXRecordDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %339, ptr noundef nonnull %340)
+  %407 = tail call fastcc noundef zeroext i1 @_ZL31IsStructurallyEquivalentLambdasRN5clang28StructuralEquivalenceContextEPNS_13CXXRecordDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %339, ptr noundef %340)
   br i1 %407, label %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit280.thread, label %_ZN5clang17DiagnosticBuilderD2Ev.exit263
 
 _ZNK5clang13CXXRecordDecl8isLambdaEv.exit280.thread: ; preds = %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread._ZNK5clang13CXXRecordDecl8isLambdaEv.exit278_crit_edge, %406, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit280
@@ -10605,7 +10605,7 @@ declare noundef i32 @_ZN5clang13UnaryOperator21getOverloadedOperatorENS_17UnaryO
 declare noundef i32 @_ZN5clang14BinaryOperator21getOverloadedOperatorENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24UnaryExprOrTypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10649,7 +10649,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang24UnaryExprOrTypeTrai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8TypoExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10671,7 +10671,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13TypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10749,7 +10749,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13TypeTraitExprES4_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang32SubstNonTypeTemplateParmPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::TemplateArgument", align 8
   %5 = alloca %"class.clang::TemplateArgument", align 8
   %6 = load ptr, ptr %0, align 8
@@ -10777,7 +10777,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang28SubstNonTypeTemplateParmExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10829,7 +10829,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang28SubstNonTypeTemplat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13StringLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10880,7 +10880,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang13StringLiteralES4_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14SizeOfPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10902,7 +10902,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ShuffleVectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10924,7 +10924,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24SYCLUniqueStableNameExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10946,7 +10946,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RequiresExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10968,7 +10968,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12RecoveryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -10990,7 +10990,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PseudoObjectExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11012,7 +11012,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14PredefinedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11034,7 +11034,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ParenListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11056,7 +11056,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9ParenExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11078,7 +11078,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16PackIndexingExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11100,7 +11100,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17PackExpansionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11122,7 +11122,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedMemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6 = load i64, ptr %5, align 8
@@ -11132,11 +11132,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   br i1 %7, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit: ; preds = %3
-  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 9:                                                ; preds = %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit
-  %10 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
   br label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread: ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit, %9
@@ -11145,7 +11145,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20UnresolvedLookupExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6 = load i64, ptr %5, align 8
@@ -11155,11 +11155,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   br i1 %7, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit: ; preds = %3
-  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %8 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
   br i1 %8, label %9, label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 9:                                                ; preds = %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit
-  %10 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %10 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2)
   br label %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread
 
 _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.thread: ; preds = %3, %_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit, %9
@@ -11168,7 +11168,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OverloadExprES4_.exit.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OpaqueValueExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11190,7 +11190,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12OffsetOfExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11212,7 +11212,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ObjCSubscriptRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11234,7 +11234,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCSelectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11256,7 +11256,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCProtocolExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11278,7 +11278,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCPropertyRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11300,7 +11300,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCMessageExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11322,7 +11322,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15ObjCIvarRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11344,7 +11344,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11ObjCIsaExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11366,7 +11366,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27ObjCIndirectCopyRestoreExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11388,7 +11388,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14ObjCEncodeExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11410,7 +11410,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ObjCDictionaryLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11432,7 +11432,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13ObjCBoxedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11454,7 +11454,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBoolLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11476,7 +11476,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ObjCAvailabilityCheckExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11498,7 +11498,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ObjCArrayLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11520,7 +11520,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15OMPIteratorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11542,7 +11542,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19OMPArrayShapingExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11564,7 +11564,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10NoInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11586,7 +11586,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10MemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i6 = load i64, ptr %5, align 8
@@ -11654,7 +11654,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang10MemberExprES4_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19MatrixSubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11676,7 +11676,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24MaterializeTemporaryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11698,7 +11698,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23MSPropertySubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11720,7 +11720,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17MSPropertyRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11742,7 +11742,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10LambdaExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11764,7 +11764,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14IntegerLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = load ptr, ptr %0, align 8
@@ -11901,7 +11901,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang14IntegerLiteralES4_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12InitListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11923,7 +11923,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21ImplicitValueInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11945,7 +11945,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImaginaryLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11967,7 +11967,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14HLSLOutArgExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -11989,7 +11989,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20GenericSelectionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly %1, ptr noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12070,7 +12070,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang20GenericSelectionExp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11GNUNullExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12092,7 +12092,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20FunctionParmPackExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12114,7 +12114,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExprWithCleanupsES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -12143,7 +12143,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8FullExprES4_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12ConstantExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -12172,7 +12172,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8FullExprES4_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15FloatingLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APFloat", align 8
   %5 = alloca %"class.llvm::APFloat", align 8
   %6 = load ptr, ptr %0, align 8
@@ -12261,7 +12261,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang15FloatingLiteralES4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17FixedPointLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12283,7 +12283,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20ExtVectorElementExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12305,7 +12305,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9EmbedExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12327,7 +12327,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24DesignatedInitUpdateExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12349,7 +12349,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18DesignatedInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12371,7 +12371,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25DependentScopeDeclRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12404,7 +12404,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang25DependentScopeDeclR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20DependentCoawaitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12426,7 +12426,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11DeclRefExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12456,7 +12456,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang11DeclRefExprES4_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoyieldExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -12485,7 +12485,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CoroutineSuspendExprES4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CoawaitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -12514,7 +12514,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CoroutineSuspendExprES4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ConvertVectorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12536,7 +12536,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25ConceptSpecializationExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12558,7 +12558,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CompoundLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12580,7 +12580,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CharacterLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -12611,7 +12611,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang16CharacterLiteralES4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ImplicitCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -12640,7 +12640,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CastExprES4_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ObjCBridgedCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %5, align 8
@@ -12676,7 +12676,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExplicitCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXStaticCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %5, align 8
@@ -12719,7 +12719,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXNamedCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXReinterpretCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %5, align 8
@@ -12762,7 +12762,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXNamedCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDynamicCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %5, align 8
@@ -12805,7 +12805,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXNamedCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %5, align 8
@@ -12848,7 +12848,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXNamedCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXAddrspaceCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i6.i = load i64, ptr %5, align 8
@@ -12891,7 +12891,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXNamedCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXFunctionalCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %5, align 8
@@ -12927,7 +12927,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExplicitCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang14CStyleCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %5, align 8
@@ -12963,7 +12963,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExplicitCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18BuiltinBitCastExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %5, align 8
@@ -12999,7 +12999,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ExplicitCastExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang8CallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13039,7 +13039,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8CallExprES4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18UserDefinedLiteralES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %5, align 8
@@ -13106,7 +13106,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8CallExprES4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19CXXOperatorCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %5, align 8
@@ -13173,7 +13173,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8CallExprES4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXMemberCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %5, align 8
@@ -13240,7 +13240,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8CallExprES4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CUDAKernelCallExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i11 = load i64, ptr %5, align 8
@@ -13307,7 +13307,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8CallExprES4_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXUuidofExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13329,7 +13329,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXUnresolvedConstructExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13351,7 +13351,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXTypeidExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13373,7 +13373,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang12CXXThrowExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13395,7 +13395,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXThisExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13417,7 +13417,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25CXXStdInitializerListExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13439,7 +13439,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXScalarValueInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13461,7 +13461,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang26CXXRewrittenBinaryOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13483,7 +13483,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang23CXXPseudoDestructorExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13505,7 +13505,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXParenListInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13527,7 +13527,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang21CXXNullPtrLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13549,7 +13549,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang15CXXNoexceptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13571,7 +13571,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10CXXNewExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13593,7 +13593,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang24CXXInheritedCtorInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13615,7 +13615,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang11CXXFoldExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13637,7 +13637,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27CXXDependentScopeMemberExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13670,7 +13670,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang27CXXDependentScopeMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13CXXDeleteExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13692,7 +13692,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXDefaultInitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13714,7 +13714,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17CXXDefaultArgExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13736,7 +13736,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13758,7 +13758,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang22CXXTemporaryObjectExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -13787,7 +13787,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16CXXConstructExprES4_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18CXXBoolLiteralExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13812,7 +13812,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang20CXXBindTemporaryExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13834,7 +13834,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang9BlockExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13856,7 +13856,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang10AsTypeExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13878,7 +13878,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayTypeTraitExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13900,7 +13900,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArraySubscriptExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13922,7 +13922,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang16ArraySectionExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13944,7 +13944,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang17ArrayInitLoopExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13966,7 +13966,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang18ArrayInitIndexExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -13988,7 +13988,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang13AddrLabelExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -14012,7 +14012,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang19ConditionalOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -14041,7 +14041,7 @@ _ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang27AbstractConditionalOper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12TraverseStmtEPKN5clang25BinaryConditionalOperatorES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i8 = load i64, ptr %5, align 8
@@ -14135,7 +14135,7 @@ _ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit: ;
 declare void @_ZNK5clang32SubstNonTypeTemplateParmPackExpr15getArgumentPackEv(ptr dead_on_unwind writable sret(%"class.clang::TemplateArgument") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang12OverloadExprES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8
@@ -15893,7 +15893,7 @@ declare noundef ptr @_ZN5clang12ObjCIvarDecl22getContainingInterfaceEv(ptr nound
 declare noundef ptr @_ZNK5clang31ClassTemplateSpecializationDecl22getSpecializedTemplateEv(ptr noundef nonnull align 8 dereferenceable(181)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL31IsStructurallyEquivalentLambdasRN5clang28StructuralEquivalenceContextEPNS_13CXXRecordDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL31IsStructurallyEquivalentLambdasRN5clang28StructuralEquivalenceContextEPNS_13CXXRecordDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv(ptr noundef nonnull align 8 dereferenceable(144) %1) #17
   %5 = tail call noundef ptr @_ZNK5clang13CXXRecordDecl21getLambdaCallOperatorEv(ptr noundef nonnull align 8 dereferenceable(144) %2) #17
   %6 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_13CXXMethodDeclES3_(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %4, ptr noundef %5)

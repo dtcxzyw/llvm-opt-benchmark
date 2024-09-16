@@ -137,15 +137,15 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
 
 .critedge.i:                                      ; preds = %50, %49
   %62 = load i8, ptr %0, align 8
-  %.not15.i = icmp eq i8 %62, 32
-  br i1 %.not15.i, label %63, label %69
+  %.not14.i = icmp eq i8 %62, 32
+  br i1 %.not14.i, label %63, label %69
 
 63:                                               ; preds = %.critedge.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.0.copyload.i.i.i.i.i17 = load i64, ptr %64, align 8
   %65 = and i64 %.0.copyload.i.i.i.i.i17, 4
-  %.not16.i = icmp eq i64 %65, 0
-  br i1 %.not16.i, label %69, label %66
+  %.not15.i = icmp eq i64 %65, 0
+  br i1 %.not15.i, label %69, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -162,8 +162,8 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %74 = load i64, ptr %73, align 8
   %75 = or i64 %74, %.sroa.0.0.copyload.i31.i
   %76 = and i64 %75, 1
-  %.not17.i = icmp eq i64 %76, 0
-  br i1 %.not17.i, label %77, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
+  %.not16.i = icmp eq i64 %76, 0
+  br i1 %.not16.i, label %77, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -174,18 +174,18 @@ _ZNK5clang8QualType13hasQualifiersEv.exit:        ; preds = %_ZNK5clang4Type10is
   %.not.i.i.i = icmp eq i64 %81, 0
   %or.cond.i = or i1 %.not.i.i.i, %.not27.i
   %.pre.i = and i64 %74, -16
-  %.pre19.i = inttoptr i64 %.pre.i to ptr
+  %.pre18.i = inttoptr i64 %.pre.i to ptr
   br i1 %or.cond.i, label %.critedge2.i, label %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i
 
 _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %.pre19.i, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.pre18.i, i64 24
   %.sroa.0.0.copyload.i.i.i.i15 = load i64, ptr %82, align 8
   %83 = and i64 %.sroa.0.0.copyload.i.i.i.i15, 2199023255040
   %84 = icmp eq i64 %83, 1536
   br i1 %84, label %_ZL12IsModifiableRN5clang10ASTContextEPKNS_4ExprENS2_14Classification5KindsERNS_14SourceLocationE.exit, label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %_ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i, %77
-  %85 = load ptr, ptr %.pre19.i, align 16
+  %85 = load ptr, ptr %.pre18.i, align 16
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i16 = load i64, ptr %86, align 8
   %87 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i16, -16
@@ -207,7 +207,7 @@ _ZNK5clang7CanQualINS_4TypeEE13getQualifiersEv.exit.i: ; preds = %77
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang12CanProxyBaseINS_10RecordTypeEEcvPKS1_Ev.exit.thread.i, label %96
 
 96:                                               ; preds = %95
-  %97 = load ptr, ptr %.pre19.i, align 16
+  %97 = load ptr, ptr %.pre18.i, align 16
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i8, ptr %98, align 16
   %100 = icmp eq i8 %99, 47

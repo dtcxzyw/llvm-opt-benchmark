@@ -4886,7 +4886,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %535, %533
   store i32 -2130509820, ptr %75, align 8
   %575 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %70, ptr %575, align 8
-  invoke fastcc void @_ZN2cvL26sortMatrixColumnsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75)
+  invoke fastcc void @_ZN2cvL26sortMatrixColumnsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %75)
           to label %576 unwind label %632
 
 576:                                              ; preds = %569
@@ -4909,7 +4909,7 @@ _ZNK2cv11_InputArray6getMatEi.exit.i:             ; preds = %535, %533
   store i32 -2130509820, ptr %78, align 8
   %584 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %70, ptr %584, align 8
-  invoke fastcc void @_ZN2cvL26sortMatrixColumnsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
+  invoke fastcc void @_ZN2cvL26sortMatrixColumnsByIndicesERKNS_11_InputArrayES2_(ptr dead_on_unwind noalias writable align 8 %76, ptr noundef nonnull align 8 dereferenceable(24) %77, ptr noundef nonnull align 8 dereferenceable(24) %78)
           to label %585 unwind label %636
 
 585:                                              ; preds = %578

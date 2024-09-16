@@ -6458,7 +6458,7 @@ _ZN4llvm7objcarc26getAttachedARCFunctionKindEPKNS_8CallBaseE.exit.thread: ; pred
   %2062 = icmp eq ptr %2061, null
   %2063 = getelementptr inbounds i8, ptr %2061, i64 -24
   %2064 = select i1 %2062, ptr null, ptr %2063
-  call fastcc void @_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18BlockFrequencyInfoESG_RKS0_(ptr noundef nonnull %296, ptr noundef nonnull align 8 dereferenceable(57) %136, ptr noundef nonnull %2055, ptr noundef nonnull %2058, ptr noundef nonnull align 8 dereferenceable(80) %2064)
+  call fastcc void @_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18BlockFrequencyInfoESG_RKS0_(ptr noundef nonnull %296, ptr noundef nonnull align 8 dereferenceable(57) %136, ptr noundef %2055, ptr noundef %2058, ptr noundef nonnull align 8 dereferenceable(80) %2064)
   br label %2065
 
 2065:                                             ; preds = %2059, %2056, %2053
@@ -6472,7 +6472,7 @@ _ZN4llvm7objcarc26getAttachedARCFunctionKindEPKNS_8CallBaseE.exit.thread: ; pred
   %2070 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2071 = load ptr, ptr %2070, align 8
   %2072 = load ptr, ptr %2054, align 8
-  call fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull %199, ptr noundef nonnull align 8 dereferenceable(57) %136, ptr noundef nonnull align 8 dereferenceable(12) %140, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %2071, ptr noundef %2072)
+  call fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef %199, ptr noundef nonnull align 8 dereferenceable(57) %136, ptr noundef nonnull align 8 dereferenceable(12) %140, ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %2071, ptr noundef %2072)
   br label %2073
 
 2073:                                             ; preds = %2065, %2069, %_ZN4llvm7objcarc26getAttachedARCFunctionKindEPKNS_8CallBaseE.exit.thread
@@ -14162,7 +14162,7 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_14LandingPadInstEEppEv.exit.i: ; preds = %.cri
   %5397 = getelementptr inbounds i8, ptr %.sroa.047.080.i, i64 -24
   %5398 = select i1 %5396, ptr null, ptr %5397
   %.val34.i = load ptr, ptr %26, align 8
-  %5399 = call fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef nonnull %5398, ptr noundef %.val34.i, ptr noundef null)
+  %5399 = call fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef %5398, ptr noundef %.val34.i, ptr noundef null)
   %.not.i1401 = icmp eq ptr %5399, null
   br i1 %.not.i1401, label %_ZN4llvm10BasicBlock13getTerminatorEv.exit39.i, label %5400
 
@@ -14724,7 +14724,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i1433: ; preds = %_ZNK4llvm11Instruct
   call void @_ZN4llvm17CleanupReturnInstC1EPNS_5ValueEPNS_10BasicBlockEjNS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %5687, ptr noundef %5685, ptr noundef nonnull %5611, i32 noundef 2, ptr nonnull %5686, i64 0) #19
   %5688 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %spec.select.i.i.i1434) #19
   %.val.val.val.i = load ptr, ptr %5657, align 8
-  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val.val.val.i, ptr %15, ptr noundef nonnull %5664)
+  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val.val.val.i, ptr %15, ptr noundef %5664)
   %5689 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %5613) #19
   %5690 = call noundef ptr @_ZN4llvm17ConstantTokenNone3getERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %5689) #19
   store ptr %5685, ptr %17, align 8
@@ -14952,7 +14952,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapIn
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %5724, ptr noundef nonnull %5757) #19
   %5801 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %5724) #19
   %.val69.val.val.i = load ptr, ptr %5657, align 8
-  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val69.val.val.i, ptr %15, ptr noundef nonnull %5664)
+  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val69.val.val.i, ptr %15, ptr noundef %5664)
   br label %_ZNK4llvm11Instruction7isEHPadEv.exit.i
 
 _ZNK4llvm11Instruction7isEHPadEv.exit.i:          ; preds = %.loopexit164.i, %5797, %5738, %5726, %5723
@@ -14977,13 +14977,13 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.i:          ; preds = %.loopexit164.i, %57
   %5808 = icmp eq ptr %.sroa.0111.0183.i, null
   %5809 = getelementptr inbounds i8, ptr %.sroa.0111.0183.i, i64 -24
   %5810 = select i1 %5808, ptr null, ptr %5809
-  %5811 = call fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef nonnull %5810, ptr noundef nonnull %5611, ptr noundef nonnull %16)
+  %5811 = call fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef %5810, ptr noundef nonnull %5611, ptr noundef nonnull %16)
   %.not.i1436 = icmp eq ptr %5811, null
   br i1 %.not.i1436, label %5813, label %5812
 
 5812:                                             ; preds = %5807
   %.val71.val.val.i = load ptr, ptr %5806, align 8
-  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val71.val.val.i, ptr %15, ptr noundef nonnull %5811)
+  call fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.val71.val.val.i, ptr %15, ptr noundef %5811)
   br label %5813
 
 5813:                                             ; preds = %5812, %5807
@@ -17274,7 +17274,7 @@ declare noundef zeroext i1 @_ZN4llvm16salvageKnowledgeEPNS_11InstructionEPNS_15A
 declare void @_ZN4llvm25CloneAndPruneFunctionIntoEPNS_8FunctionEPKS0_RNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS7_NS_3sys10SmartMutexILb0EEEEEEEbRNS_15SmallVectorImplIPNS_10ReturnInstEEEPKcPNS_14ClonedCodeInfoE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(57), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18BlockFrequencyInfoESG_RKS0_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15updateCallerBFIPN4llvm10BasicBlockERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEEPNS_18BlockFrequencyInfoESG_RKS0_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(80) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallPtrSet.398", align 8
   %7 = alloca %"class.llvm::WeakTrackingVH", align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -17527,7 +17527,7 @@ _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EED2Ev.exit: ; preds = %_ZN4llvm14Wea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEERKNS0_12ProfileCountERKNS_8CallBaseEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(57) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
@@ -17554,7 +17554,7 @@ define internal fastcc void @_ZL17updateCallProfilePN4llvm8FunctionERKNS_8ValueM
   %.sroa.2.0 = phi i64 [ %18, %13 ], [ 0, %12 ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %20, i64 %.sroa.2.0)
   %21 = sub nsw i64 0, %.sroa.speculated
-  tail call void @_ZN4llvm19updateProfileCalleeEPNS_8FunctionElPKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef %0, i64 noundef %21, ptr noundef nonnull %1)
+  tail call void @_ZN4llvm19updateProfileCalleeEPNS_8FunctionElPKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS5_NS_3sys10SmartMutexILb0EEEEEEE(ptr noundef nonnull %0, i64 noundef %21, ptr noundef nonnull %1)
   br label %22
 
 22:                                               ; preds = %6, %19
@@ -21488,7 +21488,7 @@ declare noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 derefe
 declare void @_ZN4llvm32updateLoopMetadataDebugLocationsERNS_11InstructionENS_12function_refIFPNS_8MetadataES4_EEE(ptr noundef nonnull align 8 dereferenceable(72), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14inlineDebugLocN4llvm8DebugLocEPNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS6_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S9_EEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14inlineDebugLocN4llvm8DebugLocEPNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS6_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::DebugLoc", align 8
   call void @_ZN4llvm8DebugLoc15appendInlinedAtERKS0_PNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS8_NS_12DenseMapInfoISA_vEENS_6detail12DenseMapPairISA_SB_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DebugLoc") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) #19
   %7 = call noundef i32 @_ZNK4llvm8DebugLoc7getLineEv(ptr noundef nonnull align 8 dereferenceable(8) %1) #19
@@ -21532,7 +21532,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10DILocationENS_8MetadataEEEDaPT0_.exit.i: ; preds
   %12 = load ptr, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8
-  call fastcc void @_ZL14inlineDebugLocN4llvm8DebugLocEPNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS6_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S9_EEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %4, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(20) %14)
+  call fastcc void @_ZL14inlineDebugLocN4llvm8DebugLocEPNS_10DILocationERNS_11LLVMContextERNS_8DenseMapIPKNS_6MDNodeEPS6_NS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_S9_EEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %4, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(20) %14)
   %15 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
   %16 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %16, null
@@ -24242,7 +24242,7 @@ declare noundef ptr @_ZNK4llvm10InvokeInst17getLandingPadInstEv(ptr noundef nonn
 declare void @_ZN4llvm14LandingPadInst9addClauseEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL38HandleCallsInBlockInlinedThroughInvokePN4llvm10BasicBlockES1_PNS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEE(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !noalias !337
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -24504,7 +24504,7 @@ declare void @_ZN4llvm14InsertPositionC1EPNS_10BasicBlockE(ptr noundef nonnull a
 declare { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.0.val.0.val.56.val, ptr nonnull %.8.val, ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL18HandleInlinedEHPadPN4llvm10InvokeInstEPNS_10BasicBlockERNS_14ClonedCodeInfoEENK3$_0clES3_"(ptr %.0.val.0.val.56.val, ptr nonnull %.8.val, ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %.8.val, align 8
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %.8.val) #19
   %4 = getelementptr inbounds ptr, ptr %2, i64 %3

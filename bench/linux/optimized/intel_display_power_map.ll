@@ -625,7 +625,7 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_display_power_map_init(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__set_power_wells(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 6) %2) unnamed_addr #0 align 16 {
   %4 = ptrtoint ptr %1 to i64
   %5 = zext nneg i32 %2 to i64
   br label %6

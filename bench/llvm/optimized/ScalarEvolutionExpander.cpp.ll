@@ -12036,7 +12036,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit156:        ; preds = %._ZN4llvm15Instruct
 declare { i64, i32 } @_ZNK4llvm19TargetTransformInfo17getIntImmCostInstEjjRKNS_5APIntEPNS_4TypeENS0_14TargetCostKindEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -12534,7 +12534,7 @@ _ZN4llvm11SmallVectorIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15Instruc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc { i64, i32 } @_ZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EE(ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 3) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -18004,7 +18004,7 @@ tailrecurse:                                      ; preds = %_ZSt13__upper_bound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_SG_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPSt4pairIPKN4llvm4LoopEPKNS1_4SCEVEES9_lN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111LoopCompareEEEEvT_SG_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 1152921504606846973) %3, ptr %4) unnamed_addr #0 {
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %7 = shl nsw i64 %3, 1
   %8 = ptrtoint ptr %1 to i64
@@ -20949,7 +20949,7 @@ _ZSt17__rotate_adaptiveIPPN4llvm7PHINodeES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm7PHINodeES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #13 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm7PHINodeES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12SCEVExpander19replaceCongruentIVsEPNS0_4LoopEPKNS0_13DominatorTreeERNS0_15SmallVectorImplINS0_14WeakTrackingVHEEEPKNS0_19TargetTransformInfoEE3$_0EEEvT_SM_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3) unnamed_addr #13 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -21485,7 +21485,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEPNS_7PHINodeENS_12DenseMapInfoIS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 38, 48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.OperationIndices, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
@@ -21535,7 +21535,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVCastExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVCastExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -21703,7 +21703,7 @@ declare { i64, i32 } @_ZNK4llvm19TargetTransformInfo18getCmpSelInstrCostEjPNS_4T
 declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 38, 48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.OperationIndices.447, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
@@ -21756,7 +21756,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVUDivExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVUDivExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -21916,7 +21916,7 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperand
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 38, 48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.OperationIndices.462, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
@@ -21968,7 +21968,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_12SCEVNAryExprEENS_15Ins
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm12SCEVNAryExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -22126,7 +22126,7 @@ define internal fastcc void @_ZN4llvm15SmallVectorImplIZL22costAndCollectOperand
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljE_clEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 38, 48) %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.OperationIndices.477, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
@@ -22181,7 +22181,7 @@ _ZN4llvm15SmallVectorImplIZL22costAndCollectOperandsINS_14SCEVAddRecExprEENS_15I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc { i64, i32 } @_ZZL22costAndCollectOperandsIN4llvm14SCEVAddRecExprEENS0_15InstructionCostERKNS0_11SCEVOperandERKNS0_19TargetTransformInfoENS6_14TargetCostKindERNS0_15SmallVectorImplIS3_EEENKUljjjjE0_clEjjjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 53, 58) %1, i32 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

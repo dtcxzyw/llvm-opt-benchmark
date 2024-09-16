@@ -1604,7 +1604,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -536870912, 536870912) i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -536870912, 536870912) i32 @CQICH_Enhanced_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -1734,7 +1734,7 @@ define internal fastcc noundef range(i32 -536870912, 536870912) i32 @CQICH_Enhan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @HO_Anchor_Active_UL_MAP_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @HO_Anchor_Active_UL_MAP_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 3, 514) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
   %8 = add nuw nsw i32 %7, 1
@@ -1780,15 +1780,15 @@ define internal fastcc noundef i32 @HO_Anchor_Active_UL_MAP_IE(ptr noundef %0, p
   %37 = add i32 %2, 3
   %38 = sdiv i32 %37, 2
   %39 = and i32 %37, 1
-  %40 = add i32 %3, -2
-  %41 = add i32 %40, %39
+  %40 = add nsw i32 %3, -2
+  %41 = add nuw nsw i32 %40, %39
   %42 = lshr i32 %41, 1
   %43 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %38, i32 noundef %42) #4
   ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @HO_Active_Anchor_UL_MAP_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @HO_Active_Anchor_UL_MAP_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 3, 514) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
   %8 = add nuw nsw i32 %7, 1
@@ -1834,15 +1834,15 @@ define internal fastcc noundef i32 @HO_Active_Anchor_UL_MAP_IE(ptr noundef %0, p
   %37 = add i32 %2, 3
   %38 = sdiv i32 %37, 2
   %39 = and i32 %37, 1
-  %40 = add i32 %3, -2
-  %41 = add i32 %40, %39
+  %40 = add nsw i32 %3, -2
+  %41 = add nuw nsw i32 %40, %39
   %42 = lshr i32 %41, 1
   %43 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %38, i32 noundef %42) #4
   ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -536870912, 536870912) i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef range(i32 -536870912, 536870912) i32 @Anchor_BS_switch_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -2003,7 +2003,7 @@ define internal fastcc noundef range(i32 -536870912, 536870912) i32 @Anchor_BS_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -2326,7 +2326,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_sounding_command
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @MIMO_UL_Enhanced_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @MIMO_UL_Enhanced_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 3, 514) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
   %8 = add nuw nsw i32 %7, 1
@@ -2372,15 +2372,15 @@ define internal fastcc noundef i32 @MIMO_UL_Enhanced_IE(ptr noundef %0, ptr noun
   %37 = add i32 %2, 3
   %38 = sdiv i32 %37, 2
   %39 = and i32 %37, 1
-  %40 = add i32 %3, -2
-  %41 = add i32 %40, %39
+  %40 = add nsw i32 %3, -2
+  %41 = add nuw nsw i32 %40, %39
   %42 = lshr i32 %41, 1
   %43 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %38, i32 noundef %42) #4
   ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = shl nuw nsw i32 %2, 2
   %7 = sdiv i32 %1, 2
@@ -2490,7 +2490,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ULMAP_IE(ptr n
   %.2202.us = phi i32 [ %146, %UL_HARQ_Chase_Sub_Burst_IE.exit.us ], [ %79, %69 ]
   %80 = sdiv i32 %.2202.us, 8
   %81 = srem i32 %.2202.us, 8
-  %82 = add i32 %36, %81
+  %82 = add nsw i32 %36, %81
   %83 = lshr i32 %82, 3
   %84 = add nuw nsw i32 %83, 1
   %85 = load i32, ptr @ett_302k, align 4
@@ -3367,7 +3367,7 @@ default.unreachable:                              ; preds = %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ACKCH_Region_Allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3399,7 +3399,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @HARQ_ACKCH_Region_A
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_SDMA_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3629,7 +3629,7 @@ default.unreachable:                              ; preds = %99
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @Feedback_Polling_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Feedback_Polling_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 3, 514) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3754,7 +3754,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @Power_Control_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @Power_Control_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = sdiv i32 %1, 2
   %6 = and i32 %1, 1
   %7 = add nuw nsw i32 %6, 1
@@ -3845,7 +3845,7 @@ define internal fastcc noundef i32 @Power_Control_IE(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_allocation_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
 .lr.ph.preheader:
   %4 = shl i32 %1, 2
   %5 = sdiv i32 %1, 2
@@ -3946,7 +3946,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -3987,7 +3987,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @AAS_UL_IE(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @CQICH_Alloc_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @CQICH_Alloc_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4197,7 +4197,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @CQICH_Alloc_IE(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Zone_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Zone_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4238,7 +4238,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Zone_IE(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @PHYMOD_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @PHYMOD_UL_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4280,10 +4280,10 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @PHYMOD_UL_IE(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, 33) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = sdiv i32 %2, 2
   %7 = and i32 %2, 1
-  %8 = add i32 %3, %7
+  %8 = add nuw nsw i32 %3, %7
   %9 = add nuw nsw i32 %8, 1
   %10 = lshr i32 %9, 1
   %11 = load i32, ptr @ett_299, align 4
@@ -4320,14 +4320,14 @@ define internal fastcc noundef i32 @MIMO_UL_IE(ptr noundef %0, ptr noundef %1, i
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %12, i32 noundef %30, ptr noundef %4, i32 noundef %.pre-phi, i32 noundef 1, i32 noundef %29) #4
   %32 = add i32 %2, 2
   %33 = sdiv i32 %32, 2
-  %34 = add i32 %8, -1
+  %34 = add nsw i32 %8, -1
   %35 = lshr i32 %34, 1
   %36 = tail call ptr @proto_tree_add_expert(ptr noundef %12, ptr noundef %1, ptr noundef nonnull @ei_ulmap_not_implemented, ptr noundef %4, i32 noundef %33, i32 noundef %35) #4
   ret i32 %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 536870912) i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 536870912) i32 @ULMAP_Fast_Tracking_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4374,7 +4374,7 @@ define internal fastcc range(i32 0, 536870912) i32 @ULMAP_Fast_Tracking_IE(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_PUSC_Burst_Allocation_in_other_segment_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4418,7 +4418,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @UL_PUSC_Burst_Alloc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @Fast_Ranging_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @Fast_Ranging_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1
@@ -4481,7 +4481,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Fast_Ranging_IE(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Allocation_Start_IE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -536870912, 536870912) i32 @UL_Allocation_Start_IE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 2, 33) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = shl i32 %1, 2
   %6 = sdiv i32 %1, 2
   %7 = and i32 %1, 1

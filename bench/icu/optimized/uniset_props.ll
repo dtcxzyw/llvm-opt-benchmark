@@ -2535,7 +2535,7 @@ if.end97:                                         ; preds = %sw.bb
 
 sw.bb101:                                         ; preds = %if.else85
   %29 = load ptr, ptr %vname, align 8
-  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf, ptr noundef %29)
+  %call105 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef %buf, ptr noundef %29)
   %tobool106.not = icmp eq i8 %call105, 0
   br i1 %tobool106.not, label %cleanup.sink.split, label %if.end111
 
@@ -2558,7 +2558,7 @@ invoke.cont119:                                   ; preds = %if.then118
 
 sw.bb132:                                         ; preds = %if.else85
   %31 = load ptr, ptr %vname, align 8
-  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef nonnull %buf133, ptr noundef %31)
+  %call138 = call fastcc noundef signext i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr noundef %buf133, ptr noundef %31)
   %tobool139.not = icmp eq i8 %call138, 0
   br i1 %tobool139.not, label %cleanup.sink.split, label %if.end144
 
@@ -2713,7 +2713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_7512_GLOBAL__N_113mungeCharNameEPcPKci(ptr nocapture noundef nonnull %dst, ptr nocapture noundef readonly %src) unnamed_addr #11 {
 entry:
   %invariant.gep = getelementptr i8, ptr %dst, i64 -1
   br label %while.cond.outer

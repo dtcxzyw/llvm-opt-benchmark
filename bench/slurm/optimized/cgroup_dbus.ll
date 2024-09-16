@@ -406,7 +406,7 @@ define range(i32 -1, 1) i32 @cgroup_dbus_attach_to_scope(i32 noundef %0, ptr nou
   %154 = load ptr, ptr %19, align 8
   call void @dbus_pending_call_unref(ptr noundef %154) #5
   call void @dbus_connection_unref(ptr noundef nonnull %30) #5
-  %155 = call fastcc i32 @_process_and_close_reply_msg(ptr noundef nonnull %150)
+  %155 = call fastcc i32 @_process_and_close_reply_msg(ptr noundef %150)
   %.not27 = icmp ne i32 %155, 0
   %. = sext i1 %.not27 to i32
   br label %156
@@ -458,10 +458,10 @@ declare void @dbus_connection_unref(ptr noundef) local_unnamed_addr #1
 declare void @dbus_pending_call_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.DBusMessageIter, align 8
   %3 = alloca ptr, align 8
-  %4 = call i32 @dbus_message_iter_init(ptr noundef %0, ptr noundef nonnull %2) #5
+  %4 = call i32 @dbus_message_iter_init(ptr noundef nonnull %0, ptr noundef nonnull %2) #5
   br label %5
 
 5:                                                ; preds = %25, %1
@@ -518,7 +518,7 @@ define internal fastcc range(i32 -1, 1) i32 @_process_and_close_reply_msg(ptr no
   br i1 %.not5, label %27, label %5, !llvm.loop !6
 
 27:                                               ; preds = %25
-  call void @dbus_message_unref(ptr noundef %0) #5
+  call void @dbus_message_unref(ptr noundef nonnull %0) #5
   ret i32 %.1
 }
 

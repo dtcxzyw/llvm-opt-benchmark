@@ -1494,7 +1494,7 @@ sw.bb49.i:                                        ; preds = %if.end18.i
 
 sw.bb52.i:                                        ; preds = %if.end18.i
   %conv54.i = zext i16 %81 to i32
-  %call55.i = call fastcc i32 @filter_object(ptr noundef %path.0.i, i32 noundef %conv54.i, ptr noundef nonnull %oid.i, ptr noundef nonnull %buf.i24, ptr noundef nonnull %size.i)
+  %call55.i = call fastcc i32 @filter_object(ptr noundef %path.0.i, i32 noundef %conv54.i, ptr noundef nonnull %oid.i, ptr noundef %buf.i24, ptr noundef %size.i)
   %tobool56.not.i = icmp eq i32 %call55.i, 0
   br i1 %tobool56.not.i, label %sw.epilogthread-pre-split.i, label %cleanup.i29
 
@@ -2572,7 +2572,7 @@ if.end8.i:                                        ; preds = %if.then4.i50
   ]
 
 if.then11.i:                                      ; preds = %if.end8.i
-  %call13.i = call fastcc i32 @filter_object(ptr noundef nonnull %30, i32 noundef 33188, ptr noundef nonnull %data, ptr noundef nonnull %contents.i, ptr noundef nonnull %size.i43)
+  %call13.i = call fastcc i32 @filter_object(ptr noundef nonnull %30, i32 noundef 33188, ptr noundef nonnull %data, ptr noundef %contents.i, ptr noundef %size.i43)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.then11.if.end37_crit_edge.i, label %if.then15.i
 
@@ -2805,14 +2805,14 @@ declare void @die_errno(ptr noundef, ...) local_unnamed_addr #4
 declare void @write_or_die(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @filter_object(ptr noundef %path, i32 noundef %mode, ptr noundef %oid, ptr nocapture noundef %buf, ptr noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @filter_object(ptr noundef %path, i32 noundef range(i32 0, 65536) %mode, ptr noundef %oid, ptr nocapture noundef nonnull %buf, ptr noundef nonnull %size) unnamed_addr #0 {
 entry:
   %ca.i = alloca %struct.conv_attrs, align 8
   %type = alloca i32, align 4
   %strbuf = alloca %struct.strbuf, align 8
   %meta = alloca %struct.checkout_metadata, align 8
   %0 = load ptr, ptr @the_repository, align 8
-  %call = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef %oid, ptr noundef nonnull %type, ptr noundef %size) #13
+  %call = call ptr @repo_read_object_file(ptr noundef %0, ptr noundef %oid, ptr noundef nonnull %type, ptr noundef nonnull %size) #13
   store ptr %call, ptr %buf, align 8
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end

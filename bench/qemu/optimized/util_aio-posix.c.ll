@@ -580,7 +580,7 @@ while.end6.i:                                     ; preds = %entry, %while.end6.
   %node7.i = getelementptr inbounds i8, ptr %node.0.i, i64 64
   %1 = load atomic i64, ptr %node7.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  %call.i = tail call fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef nonnull %node.0.i)
+  %call.i = tail call fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef %node.0.i)
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %aio_dispatch_handlers.exit, label %while.end6.i, !llvm.loop !13
 
@@ -1547,7 +1547,7 @@ if.end.i88:                                       ; preds = %if.then.i, %do.body
   %103 = phi ptr [ %.pre.i, %if.then.i ], [ null, %do.body.i ]
   store ptr %103, ptr %.pre12.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %node_ready.i, i8 0, i64 16, i1 false)
-  %call.i89 = call fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef nonnull %101)
+  %call.i89 = call fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef %101)
   %104 = select i1 %call.i89, i1 true, i1 %progress.011.i
   %105 = load ptr, ptr %ready_list, align 8
   %tobool.not.i90 = icmp eq ptr %105, null
@@ -1654,7 +1654,7 @@ declare void @g_source_remove_poll(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @qemu_lockcnt_count(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef %node) unnamed_addr #2 {
+define internal fastcc zeroext i1 @aio_dispatch_handler(ptr noundef %ctx, ptr noundef nonnull %node) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %revents1 = getelementptr inbounds i8, ptr %node, i64 6

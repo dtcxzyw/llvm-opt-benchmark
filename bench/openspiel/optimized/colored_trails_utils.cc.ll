@@ -695,7 +695,7 @@ define void @_ZN10open_spiel14colored_trails13InitTradeInfoEPNS0_9TradeInfoEi(pt
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc35
-  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_117InitChipCombosRecEPNS0_9TradeInfoEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %3)
+  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_117InitChipCombosRecEPNS0_9TradeInfoEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i32 noundef %1, ptr noundef %3)
           to label %13 unwind label %91
 
 13:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -1439,7 +1439,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
           to label %69 unwind label %72
 
 69:                                               ; preds = %68
-  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_117InitChipCombosRecEPNS0_9TradeInfoEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN10open_spiel14colored_trails12_GLOBAL__N_117InitChipCombosRecEPNS0_9TradeInfoEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, i32 noundef %1, ptr noundef %6)
           to label %70 unwind label %74
 
 70:                                               ; preds = %69
@@ -1567,7 +1567,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2:                   ; preds = %_ZNSt6vectorIiSaIiE
 define range(i64 0, 8589934592) i64 @_ZN10open_spiel14colored_trails5ScoreEiRKNS0_5BoardE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #3 {
   %3 = alloca i8, align 1
   store i8 0, ptr %3, align 1
-  %4 = call fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %3)
+  %4 = call fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %3)
   %5 = load i8, ptr %3, align 1
   %6 = and i8 %5, 1
   %.sroa.2.0.insert.ext.i = zext nneg i8 %6 to i64
@@ -1578,7 +1578,7 @@ define range(i64 0, 8589934592) i64 @_ZN10open_spiel14colored_trails5ScoreEiRKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10open_spiel14colored_trails12_GLOBAL__N_18ScoreRecEiRKNS0_5BoardEPb(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.open_spiel::colored_trails::Board", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = sext i32 %0 to i64

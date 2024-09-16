@@ -10588,7 +10588,7 @@ invoke.cont38:                                    ; preds = %for.body
 do.body:                                          ; preds = %invoke.cont38
   %35 = load ptr, ptr %__begin1.sroa.0.0745, align 8
   %type_.i = getelementptr inbounds i8, ptr %35, i64 56
-  invoke fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(24) %AppendColumnOfNulls, ptr noundef nonnull align 8 dereferenceable(16) %type_.i)
+  invoke fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(24) %AppendColumnOfNulls, ptr noundef nonnull align 8 dereferenceable(16) %type_.i)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad43
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %do.body
@@ -11060,7 +11060,7 @@ if.end108:                                        ; preds = %invoke.cont98
   br i1 %cmp115, label %do.body117, label %if.end143
 
 do.body117:                                       ; preds = %if.end108
-  invoke fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias nonnull align 8 %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(24) %AppendColumnOfNulls, ptr noundef nonnull align 8 dereferenceable(16) %type_.i225)
+  invoke fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias align 8 %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(24) %AppendColumnOfNulls, ptr noundef nonnull align 8 dereferenceable(16) %type_.i225)
           to label %_ZN5arrow6StatusD2Ev.exit262 unwind label %lpad43
 
 _ZN5arrow6StatusD2Ev.exit262:                     ; preds = %do.body117
@@ -12361,7 +12361,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5arrow6Schema6field
 declare void @_ZNK5arrow6Schema18GetAllFieldIndicesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::vector.71") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow20PromoteTableToSchemaERKSt10shared_ptrINS_5TableEERKS0_INS_6SchemaEERKNS_7compute11CastOptionsEPNS_10MemoryPoolEENK3$_0clERKS0_INS_8DataTypeEE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.127", align 8
   %array_of_nulls = alloca %"class.std::shared_ptr.53", align 8

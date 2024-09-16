@@ -768,7 +768,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ossl_statem_fatal(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_early_data_count_ok(ptr noundef %s, i64 noundef %length, i64 noundef %overhead, i32 noundef %send) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ossl_early_data_count_ok(ptr noundef %s, i64 noundef %length, i64 noundef range(i64 0, 105) %overhead, i32 noundef range(i32 0, 2) %send) unnamed_addr #1 {
 entry:
   %session.i = getelementptr inbounds i8, ptr %s, i64 2176
   %0 = load ptr, ptr %session.i, align 8
@@ -830,7 +830,7 @@ if.then:                                          ; preds = %ossl_get_max_early_
 
 if.end:                                           ; preds = %land.lhs.true.i, %land.rhs.i, %ossl_get_max_early_data.exit
   %retval.0.i11 = phi i32 [ %retval.0.i, %ossl_get_max_early_data.exit ], [ %2, %land.lhs.true.i ], [ %4, %land.rhs.i ]
-  %8 = trunc i64 %overhead to i32
+  %8 = trunc nuw nsw i64 %overhead to i32
   %conv1 = add i32 %retval.0.i11, %8
   %early_data_count = getelementptr inbounds i8, ptr %s, i64 5288
   %9 = load i32, ptr %early_data_count, align 8

@@ -6648,7 +6648,7 @@ define internal fastcc noundef i32 @dissect_struct_ost_body(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -6754,7 +6754,7 @@ define internal fastcc noundef i32 @dissect_struct_obd_ioobj(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 8) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -6814,7 +6814,7 @@ add_extra_padding.exit:                           ; preds = %._crit_edge, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rc_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 4) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -6871,7 +6871,7 @@ add_extra_padding.exit:                           ; preds = %._crit_edge, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 1, 7) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %9 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -6943,7 +6943,7 @@ define internal fastcc i32 @dissect_struct_ldlm_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 10) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = icmp eq i32 %7, 198183891
@@ -7449,7 +7449,7 @@ add_extra_padding.exit:                           ; preds = %110, %113
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -7585,7 +7585,7 @@ define internal fastcc noundef i32 @dissect_struct_mdt_body(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 2, 4) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -7844,7 +7844,7 @@ dissect_struct_lmv_mds_md_v1.exit:                ; preds = %24, %30, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 3, 5) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -7888,7 +7888,7 @@ add_extra_padding.exit:                           ; preds = %4, %28, %18, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_mdt_ioepoch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_mdt_ioepoch(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 8) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -7936,7 +7936,7 @@ define internal fastcc noundef i32 @dissect_struct_mdt_ioepoch(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_mdt_rec_reint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
@@ -8199,7 +8199,7 @@ add_extra_padding.exit:                           ; preds = %5, %186, %179, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_close_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_close_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 4, 9) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -8246,7 +8246,7 @@ define internal fastcc noundef i32 @dissect_struct_close_data(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_llog_cookie_array(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 6) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -8429,7 +8429,7 @@ define internal fastcc noundef i32 @process_opcode_reint_rep(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_struct_eadata(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 2, 8) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -8469,7 +8469,7 @@ add_extra_padding.exit:                           ; preds = %4, %24, %18, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 10) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = icmp eq i32 %7, 198183891
@@ -8961,7 +8961,7 @@ define internal fastcc noundef i32 @dissect_struct_ldlm_reply(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891
@@ -9097,7 +9097,7 @@ define internal fastcc noundef i32 @dissect_struct_llogd_body(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_llog_log_hdr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_llog_log_hdr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %8 = icmp eq i32 %7, 198183891
@@ -9230,7 +9230,7 @@ define internal fastcc noundef i32 @dissect_struct_llog_rec_hdr(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_struct_seq_range(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_struct_seq_range(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
   %7 = icmp eq i32 %6, 198183891

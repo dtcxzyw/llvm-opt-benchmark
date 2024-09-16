@@ -890,7 +890,7 @@ define internal fastcc ptr @__tcf_get_next_proto(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_proto_put(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_proto_put(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 -1, ptr elementtype(i32) %3) #14, !srcloc !20
   %5 = icmp eq i32 %4, 1
@@ -906,10 +906,51 @@ define internal fastcc void @tcf_proto_put(ptr noundef %0, i1 noundef zeroext %1
 
 9:                                                ; preds = %2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
-  tail call fastcc void @tcf_proto_destroy(ptr noundef %0, i1 noundef zeroext %1, ptr noundef null)
+  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %13 = load ptr, ptr %12, align 8
+  tail call void %13(ptr noundef nonnull %0, i1 noundef zeroext %1, ptr noundef null) #14
+  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %15, i64 56
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 1248
+  tail call void @mutex_lock(ptr noundef %18) #14
+  %19 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %tcf_proto_destroy.exit, label %22
+
+22:                                               ; preds = %9
+  %23 = getelementptr inbounds i8, ptr %0, i64 88
+  %24 = load ptr, ptr %23, align 8
+  store volatile ptr %24, ptr %20, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %28, label %26
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  store volatile ptr %20, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %26, %22
+  store volatile ptr null, ptr %19, align 8
+  br label %tcf_proto_destroy.exit
+
+tcf_proto_destroy.exit:                           ; preds = %9, %28
+  tail call void @mutex_unlock(ptr noundef %18) #14
+  %29 = load ptr, ptr %14, align 8
+  tail call fastcc void @__tcf_chain_put(ptr noundef %29, i1 noundef zeroext false, i1 noundef zeroext false)
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 192
+  %32 = load ptr, ptr %31, align 8
+  tail call void @module_put(ptr noundef %32) #14
+  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  tail call void @kvfree_call_rcu(ptr noundef %33, ptr noundef nonnull %0) #14
   br label %.thread
 
-.thread:                                          ; preds = %6, %8, %9
+.thread:                                          ; preds = %6, %8, %tcf_proto_destroy.exit
   ret void
 }
 
@@ -3531,7 +3572,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tc_chain_notify(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc void @tc_chain_notify(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef range(i32 100, 103) %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %12, label %9
 
@@ -3601,7 +3642,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tc_chain_fill_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %8, i32 noundef %9, ptr noundef readonly %10) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tc_chain_fill_node(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %8, i32 noundef range(i32 100, 103) %9, ptr noundef readonly %10) unnamed_addr #0 align 16 {
   %12 = alloca i32, align 4
   %13 = getelementptr inbounds i8, ptr %4, i64 192
   %14 = load ptr, ptr %13, align 8
@@ -3880,7 +3921,7 @@ declare void @llvm.write_register.i64(metadata, i64) #11
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcf_block_offload_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcf_block_offload_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.flow_block_offload, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #14
   %8 = getelementptr inbounds i8, ptr %7, i64 8
@@ -7947,7 +7988,7 @@ define internal fastcc ptr @__tcf_block_find(ptr noundef %0, ptr noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcf_chain_tp_find(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tcf_chain_tp_find(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 65536) %2, i32 noundef range(i32 1, -65535) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   br label %6
 
@@ -8012,7 +8053,7 @@ define internal fastcc ptr @tcf_chain_tp_find(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcf_proto_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @tcf_proto_create(ptr noundef %0, i32 noundef range(i32 1, 65536) %1, i32 noundef range(i32 0, -65535) %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
   %8 = tail call noalias align 8 dereferenceable_or_null(104) ptr @kmalloc_trace(ptr noundef %7, i32 noundef 3520, i64 noundef 104) #15
   %9 = icmp eq ptr %8, null
@@ -8072,8 +8113,8 @@ define internal fastcc ptr @tcf_proto_create(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
-  tail call void @mutex_lock(ptr noundef %0) #14
+define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, 65536) %2, i32 noundef range(i32 0, -65535) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+  tail call void @mutex_lock(ptr noundef nonnull %0) #14
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 64
@@ -8162,7 +8203,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr nound
 
 75:                                               ; preds = %65
   tail call void @__rcu_read_unlock() #14
-  tail call void @mutex_unlock(ptr noundef %0) #14
+  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
   %76 = getelementptr inbounds i8, ptr %1, i64 40
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 48
@@ -8297,12 +8338,12 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr nound
 .thread26:                                        ; preds = %143, %147
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !93
   store volatile ptr %1, ptr %89, align 8
-  tail call void @mutex_unlock(ptr noundef %0) #14
+  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
   br label %173
 
 149:                                              ; preds = %110, %98, %106
   %.ph21 = phi ptr [ %90, %110 ], [ inttoptr (i64 -22 to ptr), %98 ], [ %90, %106 ]
-  tail call void @mutex_unlock(ptr noundef %0) #14
+  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
   %150 = getelementptr inbounds i8, ptr %1, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 48
@@ -8323,7 +8364,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr nound
   br label %173
 
 161:                                              ; preds = %.loopexit30
-  tail call void @mutex_unlock(ptr noundef %0) #14
+  tail call void @mutex_unlock(ptr noundef nonnull %0) #14
   %162 = getelementptr inbounds i8, ptr %1, i64 40
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 48
@@ -8352,7 +8393,7 @@ define internal fastcc ptr @tcf_chain_tp_insert_unique(ptr noundef %0, ptr nound
 declare dso_local i32 @nla_strcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tfilter_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tfilter_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef range(i32 44, 46) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef %11) unnamed_addr #0 align 16 {
   %13 = icmp eq ptr %1, null
   br i1 %13, label %17, label %14
 
@@ -8725,7 +8766,7 @@ declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #1
 declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcf_fill_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i16 noundef zeroext %9, i32 noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef readonly %13) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcf_fill_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i16 noundef zeroext %9, i32 noundef range(i32 44, 46) %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef readonly %13) unnamed_addr #0 align 16 {
   %15 = alloca i32, align 4
   %16 = getelementptr inbounds i8, ptr %1, i64 192
   %17 = load ptr, ptr %16, align 8
@@ -8988,7 +9029,7 @@ tcf_proto_destroy.exit:                           ; preds = %20, %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tcf_chain_tp_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tcf_chain_tp_remove(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 56
@@ -9046,7 +9087,7 @@ define internal fastcc void @tcf_chain_tp_remove(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) unnamed_addr #0 align 16 {
   %12 = icmp eq ptr %1, null
   br i1 %12, label %16, label %13
 
@@ -9075,7 +9116,7 @@ define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef reado
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 %31(ptr noundef %3, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) #14
+  %32 = tail call i32 %31(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) #14
   br label %63
 
 33:                                               ; preds = %22, %16
@@ -9087,7 +9128,7 @@ define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef reado
   %37 = getelementptr inbounds i8, ptr %2, i64 8
   %38 = load i32, ptr %37, align 4
   %39 = load i16, ptr %18, align 2
-  %40 = tail call fastcc i32 @tcf_fill_node(ptr noundef %0, ptr noundef nonnull %34, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %17, i32 noundef %38, i16 noundef zeroext %39, i32 noundef 45, i1 noundef zeroext false, i1 noundef zeroext %9, ptr noundef %10)
+  %40 = tail call fastcc i32 @tcf_fill_node(ptr noundef %0, ptr noundef nonnull %34, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %7, i32 noundef %17, i32 noundef %38, i16 noundef zeroext %39, i32 noundef 45, i1 noundef zeroext false, i1 noundef zeroext %9, ptr noundef %10)
   %41 = icmp slt i32 %40, 1
   br i1 %41, label %42, label %46
 
@@ -9109,7 +9150,7 @@ define internal fastcc i32 @tfilter_del_notify(ptr noundef %0, ptr noundef reado
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 80
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 %50(ptr noundef %3, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) #14
+  %51 = tail call i32 %50(ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10) #14
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %54, label %53
 

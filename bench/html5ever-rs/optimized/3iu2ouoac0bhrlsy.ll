@@ -82,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.dcf0590ddea9489929259de672f22440.76 = private unnamed_addr constant <{ [44 x i8] }> <{ [44 x i8] c"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -476,7 +476,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 140:                                              ; preds = %143, %141
   %.pn = phi { ptr, i32 } [ %142, %141 ], [ %lpad.phi, %143 ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #8
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef align 8 dereferenceable(24) %8) #8
           to label %211 unwind label %209
 
 141:                                              ; preds = %175, %172, %108
@@ -496,7 +496,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 143:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #8
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E"(ptr noalias noundef align 8 dereferenceable(24) %7) #8
           to label %140 unwind label %209
 
 .loopexit332:                                     ; preds = %.lr.ph.i.i.i142, %.noexc

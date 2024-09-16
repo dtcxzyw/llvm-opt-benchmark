@@ -207,7 +207,7 @@ define internal i32 @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr nound
 22:                                               ; preds = %18
   %23 = getelementptr inbounds i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
-  %25 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %24, ptr noundef nonnull %20, ptr noundef nonnull %13)
+  %25 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %24, ptr noundef nonnull %20, ptr noundef %13)
   %26 = load ptr, ptr %23, align 8
   %27 = tail call ptr @ws_find_media_type_parameter(ptr noundef %26, ptr noundef %25, ptr noundef nonnull @.str.75) #7
   %.not.i = icmp eq ptr %27, null
@@ -569,7 +569,7 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   %201 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200, i32 noundef 0) #7
   store i32 0, ptr %9, align 4
   %202 = load ptr, ptr %23, align 8
-  %203 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %202, ptr noundef %201, ptr noundef nonnull %9)
+  %203 = call fastcc ptr @unfold_and_compact_mime_header(ptr noundef %202, ptr noundef %201, ptr noundef %9)
   %204 = load i32, ptr %9, align 4
   %205 = icmp slt i32 %204, 1
   br i1 %205, label %is_known_multipart_header.exit.thread._crit_edge.i, label %206
@@ -1016,7 +1016,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %62, label %4
 

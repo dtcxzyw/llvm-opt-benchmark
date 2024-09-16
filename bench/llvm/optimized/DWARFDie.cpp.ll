@@ -3156,7 +3156,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i28: ; preds = %96, %_ZNSt8functio
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit30
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit30:           ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i28, %106
-  %113 = call fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %.sroa.0.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef nonnull %12, i32 noundef 0)
+  %113 = call fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %.sroa.0.0.i, ptr %.sroa.4.0.i, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %12, i32 noundef 0)
   %114 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %115 = load ptr, ptr %114, align 8
   %.not.i.i.i = icmp eq ptr %115, null
@@ -3446,7 +3446,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i46: ; preds = %238, %_ZNSt8functi
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit48
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit48:           ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i46, %243
-  call fastcc void @_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieERKNS_14DWARFAttributeEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %208, i32 noundef %.0, ptr noundef nonnull %21)
+  call fastcc void @_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieERKNS_14DWARFAttributeEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %208, i32 noundef %.0, ptr noundef %21)
   %247 = load ptr, ptr %227, align 8
   %.not.i.i.i49 = icmp eq ptr %247, null
   br i1 %.not.i.i.i49, label %_ZNSt8functionIFvN4llvm5ErrorEEED2Ev.exit.i50, label %248
@@ -3956,7 +3956,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit8:   ; preds = %_ZNSt8functionIFvN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::DWARFDie", align 8
   %8 = alloca %"struct.llvm::DIDumpOptions", align 8
   %9 = alloca %"struct.llvm::DIDumpOptions", align 8
@@ -4044,7 +4044,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i:  ; preds = %36, %_ZNSt8function
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit:             ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i, %47
   %55 = add i32 %5, 1
-  %56 = call fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %18, ptr %19, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef nonnull %8, i32 noundef %55)
+  %56 = call fastcc noundef i32 @_ZL15dumpParentChainN4llvm8DWARFDieERNS_11raw_ostreamEjNS_13DIDumpOptionsEj(ptr %18, ptr %19, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef %8, i32 noundef %55)
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %58 = load ptr, ptr %57, align 8
   %.not.i.i.i = icmp eq ptr %58, null
@@ -4269,7 +4269,7 @@ define dso_local void @_ZNK4llvm8DWARFDie10attributesEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieERKNS_14DWARFAttributeEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL13dumpAttributeRN4llvm11raw_ostreamERKNS_8DWARFDieERKNS_14DWARFAttributeEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -4793,7 +4793,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit110:              ; preds = %246, %248
 288:                                              ; preds = %286
   %289 = add i32 %3, 17
   call void @_ZN4llvm13DIDumpOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %37, ptr noundef nonnull align 8 dereferenceable(160) %4)
-  call fastcc void @_ZL16dumpLocationListRN4llvm11raw_ostreamERKNS_14DWARFFormValueEPNS_9DWARFUnitEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef %98, i32 noundef %289, ptr noundef nonnull %37)
+  call fastcc void @_ZL16dumpLocationListRN4llvm11raw_ostreamERKNS_14DWARFFormValueEPNS_9DWARFUnitEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef %98, i32 noundef %289, ptr noundef %37)
   call void @_ZN4llvm13DIDumpOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %37) #19
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
@@ -6949,7 +6949,7 @@ declare void @_ZN4llvm14DWARFFormValue11dumpAddressERNS_11raw_ostreamEhm(ptr nou
 declare noundef zeroext i1 @_ZNK4llvm14DWARFFormValue11isFormClassENS0_9FormClassE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16dumpLocationListRN4llvm11raw_ostreamERKNS_14DWARFFormValueEPNS_9DWARFUnitEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL16dumpLocationListRN4llvm11raw_ostreamERKNS_14DWARFFormValueEPNS_9DWARFUnitEjNS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"struct.llvm::DIDumpOptions", align 8
   %8 = alloca %"class.std::optional.26", align 8

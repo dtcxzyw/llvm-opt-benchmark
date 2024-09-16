@@ -1528,7 +1528,7 @@ define internal fastcc void @ct_try_receive_message(ptr noundef %0) unnamed_addr
   br label %.thread39
 
 280:                                              ; preds = %193
-  %281 = call fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnull %167)
+  %281 = call fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef %167)
   %282 = icmp eq i32 %281, 0
   br i1 %282, label %.thread39, label %.thread37, !prof !50
 
@@ -1656,7 +1656,7 @@ declare dso_local i32 @intel_guc_send_mmio(ptr noundef, ptr noundef, i32 noundef
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -32, 1) i32 @ct_write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -32, 1) i32 @ct_write(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -2147483648, 1) %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1934,7 +1934,7 @@ declare dso_local i64 @ktime_get_raw() local_unnamed_addr #3
 declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -616
   %4 = getelementptr i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2041,7 +2041,7 @@ define internal fastcc i32 @ct_process_request(ptr noundef %0, ptr noundef %1) u
   br label %59
 
 .thread:                                          ; preds = %20, %37, %43
-  tail call void @kfree(ptr noundef %1) #13
+  tail call void @kfree(ptr noundef nonnull %1) #13
   br label %59
 
 59:                                               ; preds = %.thread, %53

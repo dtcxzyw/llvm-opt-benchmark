@@ -2623,7 +2623,7 @@ define hidden noundef i64 @"_ZN81_$LT$memchr..memchr..Memchr$u20$as$u20$core..it
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = load i64, ptr %0, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -4181,7 +4181,7 @@ default.unreachable:                              ; preds = %72
 77:                                               ; preds = %75
   %78 = extractvalue { ptr, i64 } %76, 0
   %79 = extractvalue { ptr, i64 } %76, 1
-  %80 = invoke fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14, ptr noalias noundef nonnull readonly align 1 %78, i64 noundef %79)
+  %80 = invoke fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef align 8 dereferenceable(40) %14, ptr noalias noundef nonnull readonly align 1 %78, i64 noundef %79)
           to label %81 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 81:                                               ; preds = %77
@@ -4755,7 +4755,7 @@ default.unreachable:                              ; preds = %78
 83:                                               ; preds = %81
   %84 = extractvalue { ptr, i64 } %82, 0
   %85 = extractvalue { ptr, i64 } %82, 1
-  %86 = invoke fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %85)
+  %86 = invoke fastcc noundef ptr @"_ZN83_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$$u20$as$u20$std..io..Write$GT$9write_all17h86c442a0568c6012E"(ptr noalias noundef align 8 dereferenceable(40) %14, ptr noalias noundef nonnull readonly align 1 %84, i64 noundef %85)
           to label %87 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 87:                                               ; preds = %83

@@ -1094,7 +1094,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @hidraw_send_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = and i32 %.168.val.76.val, 1048575
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %5
@@ -1201,7 +1201,7 @@ declare i64 @llvm.read_register.i64(metadata) #9
 declare void @llvm.write_register.i64(metadata, i64) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 16384) i64 @hidraw_get_report(i32 %.168.val.76.val, ptr noundef %0, i64 noundef range(i64 0, 16384) %1, i8 noundef zeroext range(i8 0, 3) %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   %5 = and i32 %.168.val.76.val, 1048575
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13

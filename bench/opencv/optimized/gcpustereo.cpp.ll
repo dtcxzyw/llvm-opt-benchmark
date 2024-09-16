@@ -2379,7 +2379,7 @@ define linkonce_odr hidden void @_ZN10GCPUStereo3runERKN2cv3MatES3_NS0_4gapi18St
   ]
 
 17:                                               ; preds = %5
-  call fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %18 = getelementptr inbounds i8, ptr %7, i64 8
   %19 = getelementptr inbounds i8, ptr %7, i64 16
   store i64 0, ptr %19, align 8
@@ -2399,7 +2399,7 @@ define linkonce_odr hidden void @_ZN10GCPUStereo3runERKN2cv3MatES3_NS0_4gapi18St
   br label %60
 
 23:                                               ; preds = %5
-  call fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %24 = getelementptr inbounds i8, ptr %9, i64 8
   %25 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 0, ptr %25, align 8
@@ -2511,7 +2511,7 @@ define linkonce_odr hidden void @_ZN10GCPUStereo3runERKN2cv3MatES3_NS0_4gapi18St
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19calcDepthERKN2cv3MatES3_RK11StereoSetup(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_InputArray", align 8

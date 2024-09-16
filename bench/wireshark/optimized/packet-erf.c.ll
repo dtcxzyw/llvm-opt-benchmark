@@ -3266,7 +3266,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %609, %593, %592, %5
   %742 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 0, ptr %742, align 2
   %743 = call i32 @tvb_captured_length(ptr noundef %737) #11
-  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %737, i32 noundef %743, ptr noundef nonnull %19)
+  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %737, i32 noundef %743, ptr noundef %19)
   br label %750
 
 744:                                              ; preds = %736
@@ -3362,7 +3362,7 @@ dissect_erf_pseudo_extension_header.exit:         ; preds = %609, %593, %592, %5
   %806 = getelementptr inbounds i8, ptr %19, i64 6
   store i8 0, ptr %806, align 2
   %807 = call i32 @tvb_captured_length(ptr noundef %801) #11
-  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %801, i32 noundef %807, ptr noundef nonnull %19)
+  call fastcc void @erf_atm_guess_traffic_type(ptr noundef %801, i32 noundef %807, ptr noundef %19)
   br label %814
 
 808:                                              ; preds = %789
@@ -4509,11 +4509,11 @@ switch.early.test.i:                              ; preds = %1355
   %1370 = add i32 %.0406609.i, 4
   %1371 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1370) #11
   %1372 = zext i1 %1369 to i32
-  call fastcc void @erf_ts_to_nstime(i64 noundef %1371, ptr noundef nonnull %14, i32 noundef %1372)
+  call fastcc void @erf_ts_to_nstime(i64 noundef %1371, ptr noundef %14, i32 noundef %1372)
   %.sroa.gep504.i = getelementptr inbounds i8, ptr %1012, i64 28
   %spec.store.select.sroa.sel505.i = select i1 %1013, ptr %988, ptr %.sroa.gep504.i
   %1373 = load i32, ptr %spec.store.select.sroa.sel505.i, align 4
-  %1374 = call fastcc ptr @dissect_relative_time(ptr noundef %.2.i144, i32 noundef %1373, ptr noundef %0, i32 noundef %1370, i32 noundef %1025, ptr noundef nonnull %14)
+  %1374 = call fastcc ptr @dissect_relative_time(ptr noundef %.2.i144, i32 noundef %1373, ptr noundef %0, i32 noundef %1370, i32 noundef %1025, ptr noundef %14)
   store ptr %1374, ptr %8, align 8
   br label %.critedge.thread.i
 
@@ -4757,7 +4757,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_atm_guess_traffic_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc void @erf_atm_guess_traffic_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 4, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 5
@@ -5204,7 +5204,7 @@ declare void @proto_item_fill_label(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @tvb_get_stringzpad(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_relative_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc ptr @dissect_relative_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = load i64, ptr %5, align 8
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %15
@@ -5232,7 +5232,7 @@ define internal fastcc ptr @dissect_relative_time(ptr noundef %0, i32 noundef %1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = icmp ne i32 %2, 0
   %5 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   %.0 = select i1 %4, i64 %5, i64 %0

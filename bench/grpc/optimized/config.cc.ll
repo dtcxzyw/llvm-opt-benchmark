@@ -94,7 +94,7 @@ define void @_ZN9grpc_core44TestOnlyReloadExperimentsFromConfigVariablesEv() loc
 entry:
   %ref.tmp.i = alloca %"struct.grpc_core::(anonymous namespace)::Experiments", align 1
   %ref.tmp = alloca %"struct.grpc_core::(anonymous namespace)::Experiments", align 1
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nonnull align 1 %ref.tmp)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias align 1 %ref.tmp)
   call void @llvm.lifetime.start.p0(i64 41, ptr nonnull %ref.tmp.i)
   %0 = load atomic i8, ptr @_ZGVZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEvE11experiments acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -106,7 +106,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nonnull align 1 %ref.tmp.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias align 1 %ref.tmp.i)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i
@@ -128,7 +128,7 @@ _ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit: ; preds = %entry, %ini
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nocapture align 1 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nocapture nonnull align 1 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp23 = alloca %"struct.grpc_core::ExperimentMetadata", align 8
@@ -539,7 +539,7 @@ init.check.i.i:                                   ; preds = %invoke.cont29
   br i1 %tobool.not.i.i23, label %invoke.cont37, label %init.i.i
 
 init.i.i:                                         ; preds = %init.check.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nonnull align 1 %ref.tmp.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias align 1 %ref.tmp.i.i)
           to label %invoke.cont1.i.i unwind label %lpad.i.i
 
 invoke.cont1.i.i:                                 ; preds = %init.i.i
@@ -1015,7 +1015,7 @@ init.check.i:                                     ; preds = %entry
   br i1 %tobool.not.i, label %_ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nonnull align 1 %ref.tmp.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias align 1 %ref.tmp.i)
           to label %invoke.cont1.i unwind label %lpad.i
 
 invoke.cont1.i:                                   ; preds = %init.i

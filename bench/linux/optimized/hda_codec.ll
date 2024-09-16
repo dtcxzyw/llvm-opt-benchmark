@@ -2321,7 +2321,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @read_pin_defaults(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @hda_set_power_state(ptr noundef %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 768
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -3750,7 +3750,7 @@ define dso_local i32 @snd_hda_mixer_amp_volume_put(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @update_amp_value(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #9 align 16 {
+define internal fastcc i32 @update_amp_value(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 16) %4, i32 noundef range(i32 0, 64) %5, i32 noundef %6) unnamed_addr #9 align 16 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = zext i16 %1 to i32
@@ -3785,71 +3785,71 @@ define internal fastcc i32 @update_amp_value(ptr noundef %0, i16 noundef zeroext
 
 32:                                               ; preds = %29, %20
   %33 = phi i16 [ %1, %20 ], [ %31, %29 ]
-  %34 = icmp eq i32 %3, 1
-  %35 = select i1 %34, i32 18, i32 13
+  %.not = icmp eq i32 %3, 0
+  %34 = select i1 %.not, i32 13, i32 18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #24
   store i32 0, ptr %9, align 4, !annotation !9
-  %36 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %33, i32 noundef %35, ptr noundef nonnull %9) #24
-  %37 = load i32, ptr %9, align 4
+  %35 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %33, i32 noundef %34, ptr noundef nonnull %9) #24
+  %36 = load i32, ptr %9, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #24
-  %38 = load i16, ptr %11, align 4
-  %39 = zext i16 %38 to i32
-  %40 = icmp ugt i16 %38, %1
-  br i1 %40, label %55, label %41
+  %37 = load i16, ptr %11, align 4
+  %38 = zext i16 %37 to i32
+  %39 = icmp ugt i16 %37, %1
+  br i1 %39, label %54, label %40
 
-41:                                               ; preds = %32
-  %42 = getelementptr inbounds i8, ptr %0, i64 824
-  %43 = load i32, ptr %42, align 8
-  %44 = add i32 %43, %39
-  %45 = icmp ugt i32 %44, %10
-  br i1 %45, label %46, label %55
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds i8, ptr %0, i64 824
+  %42 = load i32, ptr %41, align 8
+  %43 = add i32 %42, %38
+  %44 = icmp ugt i32 %43, %10
+  br i1 %44, label %45, label %54
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 1144
-  %48 = load ptr, ptr %47, align 8
-  %49 = sub nsw i32 %10, %39
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr i32, ptr %48, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = and i32 %52, 8
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %58
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds i8, ptr %0, i64 1144
+  %47 = load ptr, ptr %46, align 8
+  %48 = sub nsw i32 %10, %38
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr i32, ptr %47, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = and i32 %51, 8
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %57
 
-55:                                               ; preds = %46, %41, %32
-  %56 = getelementptr inbounds i8, ptr %0, i64 768
-  %57 = load i16, ptr %56, align 8
-  br label %58
+54:                                               ; preds = %45, %40, %32
+  %55 = getelementptr inbounds i8, ptr %0, i64 768
+  %56 = load i16, ptr %55, align 8
+  br label %57
 
-58:                                               ; preds = %55, %46
-  %59 = phi i16 [ %1, %46 ], [ %57, %55 ]
-  %60 = icmp sgt i32 %36, -1
-  %61 = lshr i32 %37, 8
-  %62 = and i32 %61, 127
-  %63 = select i1 %60, i32 %62, i32 127
-  %64 = icmp eq i32 %6, 0
-  %65 = add i32 %6, %5
-  %66 = select i1 %64, i32 0, i32 %65
-  %67 = call i32 @llvm.umin.i32(i32 %66, i32 %63)
-  %68 = shl i32 %10, 20
-  %69 = icmp eq i32 %2, 0
-  %70 = select i1 %69, i32 8192, i32 0
-  %71 = or disjoint i32 %70, %68
-  %72 = select i1 %34, i32 32768, i32 0
-  %73 = or disjoint i32 %71, %72
-  %74 = or i32 %73, %4
+57:                                               ; preds = %54, %45
+  %58 = phi i16 [ %1, %45 ], [ %56, %54 ]
+  %59 = icmp sgt i32 %35, -1
+  %60 = lshr i32 %36, 8
+  %61 = and i32 %60, 127
+  %62 = select i1 %59, i32 %61, i32 127
+  %63 = icmp eq i32 %6, 0
+  %64 = add i32 %6, %5
+  %65 = select i1 %63, i32 0, i32 %64
+  %66 = call i32 @llvm.umin.i32(i32 %65, i32 %62)
+  %67 = shl i32 %10, 20
+  %68 = icmp eq i32 %2, 0
+  %69 = select i1 %68, i32 8192, i32 0
+  %70 = or disjoint i32 %69, %67
+  %71 = select i1 %.not, i32 0, i32 32768
+  %72 = or disjoint i32 %70, %71
+  %73 = or disjoint i32 %72, %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
   store i32 0, ptr %8, align 4, !annotation !9
-  %75 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %59, i32 noundef %35, ptr noundef nonnull %8) #24
-  %76 = load i32, ptr %8, align 4
-  %77 = icmp sgt i32 %75, -1
-  %78 = and i32 %76, -1073741824
+  %74 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %58, i32 noundef %34, ptr noundef nonnull %8) #24
+  %75 = load i32, ptr %8, align 4
+  %76 = icmp sgt i32 %74, -1
+  %77 = and i32 %75, -1073741824
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #24
-  %79 = icmp eq i32 %78, 1073741824
-  %80 = select i1 %77, i1 %79, i1 false
-  %81 = select i1 %80, i32 720912, i32 720896
-  %82 = or i32 %74, %81
-  %83 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %82, i32 noundef 127, i32 noundef %67) #24
-  ret i32 %83
+  %78 = icmp eq i32 %77, 1073741824
+  %79 = select i1 %76, i1 %78, i1 false
+  %80 = select i1 %79, i32 720912, i32 720896
+  %81 = or disjoint i32 %80, %73
+  %82 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %81, i32 noundef 127, i32 noundef %66) #24
+  ret i32 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5563,13 +5563,13 @@ define dso_local void @snd_hda_spdif_ctls_assign(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #9 align 16 {
+define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 -1, 256) %3) unnamed_addr #9 align 16 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %3, -1
   %7 = shl nuw nsw i32 %3, 8
   %8 = select i1 %6, i32 255, i32 65535
   %9 = select i1 %6, i32 0, i32 %7
-  %10 = or i32 %9, %2
+  %10 = or disjoint i32 %9, %2
   %11 = zext i16 %1 to i32
   %12 = shl i32 %11, 20
   %13 = or disjoint i32 %12, 986368

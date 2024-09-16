@@ -106,7 +106,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10kriegspiel12_GLOBAL__N_120BasicKriegspielTestsEi(i32 noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10kriegspiel12_GLOBAL__N_120BasicKriegspielTestsEi(i32 noundef range(i32 4, 9) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::map", align 8
   %3 = alloca %"class.open_spiel::GameParameter", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

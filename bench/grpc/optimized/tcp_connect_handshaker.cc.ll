@@ -561,7 +561,7 @@ if.then.i.i38:                                    ; preds = %invoke.cont37
   br label %invoke.cont44
 
 invoke.cont44:                                    ; preds = %if.then.i.i38, %invoke.cont37
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %arg, ptr noundef nonnull %agg.tmp43)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %arg, ptr noundef %agg.tmp43)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
@@ -617,7 +617,7 @@ if.then68:                                        ; preds = %do.end
 
 invoke.cont80:                                    ; preds = %do.end, %if.then68
   store i64 0, ptr %agg.tmp79, align 8, !alias.scope !12
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %arg, ptr noundef nonnull %agg.tmp79)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %arg, ptr noundef %agg.tmp79)
           to label %cleanup unwind label %lpad81
 
 cleanup:                                          ; preds = %invoke.cont80, %if.then.i.i43, %invoke.cont46, %if.end29
@@ -832,7 +832,7 @@ invoke.cont:                                      ; preds = %if.then3
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -1022,7 +1022,7 @@ invoke.cont12:                                    ; preds = %if.then9
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont12
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull %agg.tmp13)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %agg.tmp13)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -1301,7 +1301,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 declare void @_Z22grpc_endpoint_shutdownP13grpc_endpointN4absl12lts_202308026StatusE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef readonly %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120TCPConnectHandshaker12FinishLockedEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

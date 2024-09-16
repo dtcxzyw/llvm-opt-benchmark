@@ -10057,7 +10057,7 @@ if.end26.thread:                                  ; preds = %if.then15, %if.then
 
 if.end26:                                         ; preds = %if.end8
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5640), align 8
-  %call = tail call fastcc ptr @findReplica(ptr noundef nonnull %9, i32 noundef %20)
+  %call = tail call fastcc ptr @findReplica(ptr noundef %9, i32 noundef %20)
   %tobool27.not = icmp eq ptr %call, null
   br i1 %tobool27.not, label %if.end37, label %land.lhs.true28
 
@@ -10457,7 +10457,7 @@ if.end88:                                         ; preds = %if.end82
 if.then90:                                        ; preds = %land.lhs.true84, %if.end88
   %25 = load i64, ptr %port, align 8
   %conv = trunc i64 %25 to i32
-  %call91 = call fastcc ptr @findReplica(ptr noundef nonnull %host.0.lcssa, i32 noundef %conv)
+  %call91 = call fastcc ptr @findReplica(ptr noundef %host.0.lcssa, i32 noundef %conv)
   %cmp92 = icmp eq ptr %call91, null
   br i1 %cmp92, label %if.then94, label %if.end95
 
@@ -10524,7 +10524,7 @@ return:                                           ; preds = %if.then44, %if.then
 declare i32 @clusterAllowFailoverCmd(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @findReplica(ptr nocapture noundef readonly %host, i32 noundef %port) unnamed_addr #0 {
+define internal fastcc ptr @findReplica(ptr nocapture noundef nonnull readonly %host, i32 noundef %port) unnamed_addr #0 {
 entry:
   %li = alloca %struct.listIter, align 8
   %ip = alloca [46 x i8], align 16
@@ -10563,7 +10563,7 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
 
 if.end5:                                          ; preds = %if.then.i.i, %while.body
   %replicaip.0 = phi ptr [ %2, %while.body ], [ %ip, %if.then.i.i ]
-  %call6 = call i32 @strcasecmp(ptr noundef %host, ptr noundef nonnull %replicaip.0) #23
+  %call6 = call i32 @strcasecmp(ptr noundef nonnull %host, ptr noundef nonnull %replicaip.0) #23
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %land.lhs.true, label %while.cond.backedge
 

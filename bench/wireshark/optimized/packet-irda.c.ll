@@ -1956,7 +1956,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 10, 12) %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #6
   %6 = icmp sgt i32 %5, 0
@@ -2523,7 +2523,7 @@ define internal fastcc noundef i32 @dissect_negotiation(ptr noundef %0, ptr noun
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_xid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_xid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %7
@@ -2828,7 +2828,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_appl_proto(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 3) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1

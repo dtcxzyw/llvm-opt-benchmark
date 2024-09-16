@@ -1607,7 +1607,7 @@ define dso_local void @PathNameDeleteTemporaryDir(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @walkdir(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @walkdir(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef range(i32 14, 16) %3) unnamed_addr #0 {
   %5 = alloca [2048 x i8], align 16
   %6 = tail call ptr @AllocateDir(ptr noundef %0)
   %7 = tail call ptr @ReadDirExtended(ptr noundef %6, ptr noundef %0, i32 noundef %3)

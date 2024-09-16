@@ -1348,7 +1348,7 @@ declare dso_local i32 @pskb_trim_rcsum_slow(ptr noundef, i32 noundef) local_unna
 declare dso_local void @sock_pfree(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 180
@@ -1389,7 +1389,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %10, i64 12
   %36 = load i32, ptr %35, align 4
-  %37 = tail call i32 @ip_route_use_hint(ptr noundef %1, i32 noundef %24, i32 noundef %36, i8 noundef zeroext %30, ptr noundef %2, ptr noundef nonnull %3) #6
+  %37 = tail call i32 @ip_route_use_hint(ptr noundef nonnull %1, i32 noundef %24, i32 noundef %36, i8 noundef zeroext %30, ptr noundef %2, ptr noundef nonnull %3) #6
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %251, !prof !9
 
@@ -1433,7 +1433,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   br i1 %62, label %77, label %63
 
 63:                                               ; preds = %59
-  %64 = tail call i32 @tcp_v4_early_demux(ptr noundef %1) #6
+  %64 = tail call i32 @tcp_v4_early_demux(ptr noundef nonnull %1) #6
   br label %72
 
 65:                                               ; preds = %56
@@ -1443,7 +1443,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   br i1 %68, label %77, label %69
 
 69:                                               ; preds = %65
-  %70 = tail call i32 @udp_v4_early_demux(ptr noundef %1) #6
+  %70 = tail call i32 @udp_v4_early_demux(ptr noundef nonnull %1) #6
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %251, !prof !9
 
@@ -1477,7 +1477,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   %93 = load i32, ptr %90, align 4
   %94 = getelementptr inbounds i8, ptr %78, i64 1
   %95 = load i8, ptr %94, align 1
-  %96 = tail call i32 @ip_route_input_noref(ptr noundef %1, i32 noundef %92, i32 noundef %93, i8 noundef zeroext %95, ptr noundef %2) #6
+  %96 = tail call i32 @ip_route_input_noref(ptr noundef nonnull %1, i32 noundef %92, i32 noundef %93, i8 noundef zeroext %95, ptr noundef %2) #6
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %119, label %251, !prof !9
 
@@ -1537,7 +1537,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   br i1 %136, label %146, label %137
 
 137:                                              ; preds = %128
-  %138 = tail call i32 @pskb_expand_head(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #6
+  %138 = tail call i32 @pskb_expand_head(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 2080) #6
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %._crit_edge, label %140
 
@@ -1568,7 +1568,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   store i8 %155, ptr %156, align 4
   %157 = getelementptr inbounds i8, ptr %2, i64 272
   %158 = load ptr, ptr %157, align 8
-  %159 = tail call i32 @ip_options_compile(ptr noundef %158, ptr noundef %151, ptr noundef %1) #6
+  %159 = tail call i32 @ip_options_compile(ptr noundef %158, ptr noundef %151, ptr noundef nonnull %1) #6
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %166, label %161
 
@@ -1633,7 +1633,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
   br label %.thread
 
 202:                                              ; preds = %183, %170
-  %203 = tail call i32 @ip_options_rcv_srr(ptr noundef %1, ptr noundef %2) #6
+  %203 = tail call i32 @ip_options_rcv_srr(ptr noundef nonnull %1, ptr noundef %2) #6
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %205, label %.thread
 
@@ -1705,7 +1705,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @ip_rcv_finish_core(ptr nound
 
 .thread:                                          ; preds = %237, %246, %254, %251, %202, %198, %195, %191, %161, %140
   %250 = phi i32 [ 12, %254 ], [ 2, %251 ], [ 2, %202 ], [ 2, %198 ], [ 2, %195 ], [ 2, %191 ], [ 2, %161 ], [ 2, %140 ], [ 13, %246 ], [ 13, %237 ]
-  tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef %250) #6
+  tail call void @kfree_skb_reason(ptr noundef nonnull %1, i32 noundef %250) #6
   br label %258
 
 251:                                              ; preds = %89, %69, %34

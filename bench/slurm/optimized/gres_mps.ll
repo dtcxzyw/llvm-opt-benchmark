@@ -103,12 +103,12 @@ define void @gres_p_job_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
-  call fastcc void @_set_env(ptr noundef nonnull %5)
+  call fastcc void @_set_env(ptr noundef %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_env(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @_set_env(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 -1, ptr %3, align 4
@@ -119,7 +119,7 @@ define internal fastcc void @_set_env(ptr noundef %0) unnamed_addr #0 {
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @.str.6, ptr %7, align 8
-  tail call void @gres_common_gpu_set_env(ptr noundef %0) #7
+  tail call void @gres_common_gpu_set_env(ptr noundef nonnull %0) #7
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
   %10 = icmp ne i64 %9, 0
@@ -223,7 +223,7 @@ define void @gres_p_step_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store i8 0, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %5, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %15, i8 0, i64 25, i1 false)
-  call fastcc void @_set_env(ptr noundef nonnull %5)
+  call fastcc void @_set_env(ptr noundef %5)
   ret void
 }
 
@@ -255,7 +255,7 @@ define void @gres_p_task_set_env(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 88
   store i8 0, ptr %18, align 8
-  call fastcc void @_set_env(ptr noundef nonnull %6)
+  call fastcc void @_set_env(ptr noundef %6)
   ret void
 }
 

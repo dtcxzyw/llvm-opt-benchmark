@@ -10332,7 +10332,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local void @netdev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @e1000e_update_tdt_wa(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @e1000e_update_tdt_wa(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 65536) %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1464
   %5 = getelementptr inbounds i8, ptr %3, i64 1472
@@ -14669,7 +14669,7 @@ declare dso_local void @free_netdev(ptr noundef) local_unnamed_addr #0
 declare dso_local void @pci_disable_device(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__e1000e_disable_aspm(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @__e1000e_disable_aspm(ptr noundef %0, i16 noundef zeroext range(i16 1, 4) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 16

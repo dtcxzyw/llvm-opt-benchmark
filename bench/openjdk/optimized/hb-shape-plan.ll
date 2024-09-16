@@ -53,7 +53,7 @@ define hidden noundef zeroext i1 @_ZN19hb_shape_plan_key_t4initEbP9hb_face_tPK23
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %13, ptr %20, align 8
   %21 = shl nuw nsw i64 %12, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %4, i64 %21, i1 false), !alias.scope !6
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %4, i64 %21, i1 false), !alias.scope !6
   %22 = getelementptr inbounds i8, ptr %13, i64 8
   %23 = getelementptr inbounds i8, ptr %13, i64 12
   %.promoted = load i32, ptr %22, align 4

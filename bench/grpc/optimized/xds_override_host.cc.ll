@@ -2799,7 +2799,7 @@ terminate.lpad.i.i:                               ; preds = %lpad11.body.i
 invoke.cont29.i:                                  ; preds = %if.then20.i, %if.then.i
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0100.i) #29
   %call.i1.i.i.i = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %it.sroa.0.0100.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #25
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull %call.i1.i.i.i) #25
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef %call.i1.i.i.i) #25
   %23 = load i64, ptr %_M_node_count.i.i.i.i, align 8
   %dec.i.i.i.i = add i64 %23, -1
   store i64 %dec.i.i.i.i, ptr %_M_node_count.i.i.i.i, align 8
@@ -3017,7 +3017,7 @@ cleanup.thread.i.i.i:                             ; preds = %_ZNKSt4lessIvEclIRK
   br label %if.end81.i
 
 if.then.i11.i.i.i:                                ; preds = %_ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTltclsr3stdE7forwardIT_Efp_Eclsr3stdE7forwardIT0_Efp0_EEOSA_OSB_.exit9.i.i.i.i
-  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull %call5.i.i.i.i.i.i.i59.i) #25
+  call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef %call5.i.i.i.i.i.i.i59.i) #25
   br label %if.end81.i
 
 if.else66.i:                                      ; preds = %invoke.cont45.i
@@ -4224,7 +4224,7 @@ while.body:                                       ; preds = %entry, %while.body
   tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x.addr.0.val)
   %1 = getelementptr i8, ptr %__x.addr.02, i64 16
   %__x.addr.0.val4 = load ptr, ptr %1, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull %__x.addr.02) #25
+  tail call fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef %__x.addr.02) #25
   %cmp.not = icmp eq ptr %__x.addr.0.val4, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !46
 
@@ -4233,7 +4233,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef %__p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryEESt10_Select1stISC_ESt4lessIvESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull %__p) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 64
   %address_list_.i.i.i.i.i = getelementptr inbounds i8, ptr %__p, i64 88

@@ -813,7 +813,7 @@ define internal ptr @H5FD__onion_open(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %431
 
 44:                                               ; preds = %37
-  %45 = tail call fastcc i32 @H5FD__onion_parse_config_str(ptr noundef nonnull %31, ptr noundef nonnull %38)
+  %45 = tail call fastcc i32 @H5FD__onion_parse_config_str(ptr noundef %31, ptr noundef %38)
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %47, label %51
 
@@ -975,7 +975,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
 
 141:                                              ; preds = %136, %132
   %142 = load ptr, ptr %86, align 8
-  %143 = tail call fastcc i32 @H5FD__onion_create_truncate_onion(ptr noundef nonnull %59, ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef %142, i32 noundef %1, i64 noundef %3)
+  %143 = tail call fastcc i32 @H5FD__onion_create_truncate_onion(ptr noundef %59, ptr noundef %0, ptr noundef %68, ptr noundef %142, i32 noundef %1, i64 noundef %3)
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %149
 
@@ -1373,7 +1373,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br i1 %.not309, label %389, label %382
 
 382:                                              ; preds = %380
-  %383 = call fastcc i32 @H5FD__onion_open_rw(ptr noundef nonnull %59, i32 noundef %1, i64 noundef %3, i1 noundef zeroext %180)
+  %383 = call fastcc i32 @H5FD__onion_open_rw(ptr noundef %59, i32 noundef %1, i64 noundef %3, i1 noundef zeroext %180)
   %384 = icmp slt i32 %383, 0
   br i1 %384, label %385, label %389
 
@@ -2546,7 +2546,7 @@ declare ptr @H5P_peek_driver_config_str(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %strcmpload = load i8, ptr %0, align 1
   %.not = icmp eq i8 %strcmpload, 0
   br i1 %.not, label %3, label %7
@@ -2811,7 +2811,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare double @log2(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_create_truncate_onion(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_create_truncate_onion(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i64 noundef range(i64 1, -1) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 416
   %8 = getelementptr inbounds i8, ptr %0, i64 464
   %9 = getelementptr inbounds i8, ptr %0, i64 420
@@ -2850,7 +2850,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 27:                                               ; preds = %H5FD__onion_get_legit_fapl_id.exit
-  %28 = tail call ptr @H5FD_open(ptr noundef %1, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
+  %28 = tail call ptr @H5FD_open(ptr noundef nonnull %1, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
   %29 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
@@ -2863,7 +2863,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 35:                                               ; preds = %27
-  %36 = tail call ptr @H5FD_open(ptr noundef %2, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
+  %36 = tail call ptr @H5FD_open(ptr noundef nonnull %2, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
   %37 = getelementptr inbounds i8, ptr %0, i64 392
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
@@ -3090,7 +3090,7 @@ declare i32 @H5FD__onion_ingest_history(ptr noundef, ptr noundef, i64 noundef, i
 declare i32 @H5FD__onion_ingest_revision_record(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef nonnull %0, i32 noundef %1, i64 noundef range(i64 1, -1) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 416

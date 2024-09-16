@@ -1030,7 +1030,7 @@ define hidden noundef zeroext i1 @_ZN2cv6detail20Jpeg2KOpjDecoderBase8readDataER
   br label %83
 
 70:                                               ; preds = %43
-  call fastcc void @_ZN2cv12_GLOBAL__N_114colorspaceNameB5cxx11E11COLOR_SPACE(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %45)
+  call fastcc void @_ZN2cv12_GLOBAL__N_114colorspaceNameB5cxx11E11COLOR_SPACE(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %45)
   %71 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #20
   %72 = load i32, ptr %1, align 8
   %73 = and i32 %72, 4088
@@ -1894,7 +1894,7 @@ _ZNSt6vectorIPKiSaIS1_EED2Ev.exit64:              ; preds = %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12_GLOBAL__N_114colorspaceNameB5cxx11E11COLOR_SPACE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12_GLOBAL__N_114colorspaceNameB5cxx11E11COLOR_SPACE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1

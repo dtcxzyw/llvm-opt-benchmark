@@ -1395,7 +1395,7 @@ pgstat_entry_ref_hash_lookup.exit:                ; preds = %.lr.ph.i.i
   br i1 %.not14, label %127, label %56
 
 56:                                               ; preds = %53
-  %57 = call fastcc zeroext i1 @pgstat_drop_entry_internal(ptr noundef nonnull %55, ptr noundef null)
+  %57 = call fastcc zeroext i1 @pgstat_drop_entry_internal(ptr noundef %55, ptr noundef null)
   %58 = load i32, ptr %6, align 8
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %127
@@ -1569,7 +1569,7 @@ pgstat_drop_database_and_contents.exit:           ; preds = %.outer._crit_edge.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pgstat_drop_entry_internal(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -1845,7 +1845,7 @@ define internal i32 @pgstat_hash_hash_key(ptr nocapture noundef readonly %0, i64
   %.07.lcssa.i.i = phi i64 [ %1, %3 ], [ %13, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi ptr [ %0, %3 ], [ %12, %.lr.ph.i.i ]
   %.sroa.15.0.lcssa.i.i = phi i64 [ %.sroa.15.016.i.i, %3 ], [ %.sroa.15.0.i.i, %.lr.ph.i.i ]
-  switch i64 %.07.lcssa.i.i, label %default.unreachable.i.i.i [
+  switch i64 %.07.lcssa.i.i, label %default.unreachable26.i.i.i [
     i64 0, label %fasthash32.exit
     i64 7, label %15
     i64 6, label %._crit_edge20.i.i.i
@@ -1911,7 +1911,7 @@ define internal i32 @pgstat_hash_hash_key(ptr nocapture noundef readonly %0, i64
   %49 = or i64 %46, %48
   br label %50
 
-default.unreachable.i.i.i:                        ; preds = %._crit_edge.i.i
+default.unreachable26.i.i.i:                      ; preds = %._crit_edge.i.i
   unreachable
 
 50:                                               ; preds = %._crit_edge18.i.i.i, %._crit_edge24.i.i.i

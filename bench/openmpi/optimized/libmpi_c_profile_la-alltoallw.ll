@@ -344,7 +344,7 @@ ompi_errcode_get_mpi_code.exit152:                ; preds = %134, %130, %.prehea
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef range(i32 1, 0) %0) unnamed_addr #0 {
   %2 = icmp sgt i32 %0, -1
   br i1 %2, label %.loopexit, label %.preheader
 

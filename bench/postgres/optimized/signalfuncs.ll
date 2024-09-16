@@ -70,7 +70,7 @@ define dso_local range(i64 0, 2) i64 @pg_cancel_backend(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @pg_signal_backend(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @pg_signal_backend(i32 noundef %0, i32 noundef range(i32 2, 16) %1) unnamed_addr #0 {
   %3 = tail call ptr @BackendPidGetProc(i32 noundef %0) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

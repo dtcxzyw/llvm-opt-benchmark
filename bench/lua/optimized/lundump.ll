@@ -63,7 +63,7 @@ if.end14:                                         ; preds = %entry, %if.else12, 
   br i1 %cmp.not.i.i.i, label %loadBlock.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end14
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadBlock.exit.i.i:                               ; preds = %if.end14
@@ -72,7 +72,7 @@ loadBlock.exit.i.i:                               ; preds = %if.end14
   br i1 %cmp.not.i.i, label %checkliteral.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %loadBlock.exit.i.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.2) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.2) #7
   unreachable
 
 checkliteral.exit.i:                              ; preds = %loadBlock.exit.i.i
@@ -98,7 +98,7 @@ cond.end.i.i:                                     ; preds = %checkliteral.exit.i
   br i1 %cmp3.i.i, label %if.then.i15.i, label %loadByte.exit.i
 
 if.then.i15.i:                                    ; preds = %cond.end.i.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i:                                  ; preds = %cond.end.i.i, %cond.end.thread.i.i
@@ -108,7 +108,7 @@ loadByte.exit.i:                                  ; preds = %cond.end.i.i, %cond
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %loadByte.exit.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.3) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.3) #7
   unreachable
 
 if.end.i:                                         ; preds = %loadByte.exit.i
@@ -133,7 +133,7 @@ cond.end.i25.i:                                   ; preds = %if.end.i
   br i1 %cmp3.i27.i, label %if.then.i28.i, label %loadByte.exit29.i
 
 if.then.i28.i:                                    ; preds = %cond.end.i25.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit29.i:                                ; preds = %cond.end.i25.i, %cond.end.thread.i19.i
@@ -143,7 +143,7 @@ loadByte.exit29.i:                                ; preds = %cond.end.i25.i, %co
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %loadByte.exit29.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.4) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.4) #7
   unreachable
 
 if.end7.i:                                        ; preds = %loadByte.exit29.i
@@ -153,7 +153,7 @@ if.end7.i:                                        ; preds = %loadByte.exit29.i
   br i1 %cmp.not.i.i34.i, label %loadBlock.exit.i36.i, label %if.then.i.i35.i
 
 if.then.i.i35.i:                                  ; preds = %if.end7.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadBlock.exit.i36.i:                             ; preds = %if.end7.i
@@ -162,7 +162,7 @@ loadBlock.exit.i36.i:                             ; preds = %if.end7.i
   br i1 %cmp.not.i38.i, label %checkliteral.exit40.i, label %if.then.i39.i
 
 if.then.i39.i:                                    ; preds = %loadBlock.exit.i36.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.6) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.6) #7
   unreachable
 
 checkliteral.exit40.i:                            ; preds = %loadBlock.exit.i36.i
@@ -188,7 +188,7 @@ cond.end.i.i.i:                                   ; preds = %checkliteral.exit40
   br i1 %cmp3.i.i.i, label %if.then.i.i47.i, label %loadByte.exit.i.i
 
 if.then.i.i47.i:                                  ; preds = %cond.end.i.i.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %cond.end.thread.i.i.i
@@ -199,7 +199,7 @@ loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %co
 
 if.then.i45.i:                                    ; preds = %loadByte.exit.i.i
   %call2.i.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7) #6
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef %call2.i.i) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef %call2.i.i) #7
   unreachable
 
 fchecksize.exit.i:                                ; preds = %loadByte.exit.i.i
@@ -224,7 +224,7 @@ cond.end.i.i61.i:                                 ; preds = %fchecksize.exit.i
   br i1 %cmp3.i.i63.i, label %if.then.i.i64.i, label %loadByte.exit.i55.i
 
 if.then.i.i64.i:                                  ; preds = %cond.end.i.i61.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i55.i:                              ; preds = %cond.end.i.i61.i, %cond.end.thread.i.i51.i
@@ -235,7 +235,7 @@ loadByte.exit.i55.i:                              ; preds = %cond.end.i.i61.i, %
 
 if.then.i59.i:                                    ; preds = %loadByte.exit.i55.i
   %call2.i60.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8) #6
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef %call2.i60.i) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef %call2.i60.i) #7
   unreachable
 
 fchecksize.exit65.i:                              ; preds = %loadByte.exit.i55.i
@@ -260,7 +260,7 @@ cond.end.i.i79.i:                                 ; preds = %fchecksize.exit65.i
   br i1 %cmp3.i.i81.i, label %if.then.i.i82.i, label %loadByte.exit.i73.i
 
 if.then.i.i82.i:                                  ; preds = %cond.end.i.i79.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i73.i:                              ; preds = %cond.end.i.i79.i, %cond.end.thread.i.i69.i
@@ -271,7 +271,7 @@ loadByte.exit.i73.i:                              ; preds = %cond.end.i.i79.i, %
 
 if.then.i77.i:                                    ; preds = %loadByte.exit.i73.i
   %call2.i78.i = call ptr (ptr, ptr, ...) @luaO_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.9) #6
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef %call2.i78.i) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef %call2.i78.i) #7
   unreachable
 
 fchecksize.exit83.i:                              ; preds = %loadByte.exit.i73.i
@@ -281,7 +281,7 @@ fchecksize.exit83.i:                              ; preds = %loadByte.exit.i73.i
   br i1 %cmp.not.i.i86.i, label %loadInteger.exit.i, label %if.then.i.i87.i
 
 if.then.i.i87.i:                                  ; preds = %fchecksize.exit83.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadInteger.exit.i:                               ; preds = %fchecksize.exit83.i
@@ -291,7 +291,7 @@ loadInteger.exit.i:                               ; preds = %fchecksize.exit83.i
   br i1 %cmp9.not.i, label %if.end12.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %loadInteger.exit.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.10) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.10) #7
   unreachable
 
 if.end12.i:                                       ; preds = %loadInteger.exit.i
@@ -301,7 +301,7 @@ if.end12.i:                                       ; preds = %loadInteger.exit.i
   br i1 %cmp.not.i.i92.i, label %loadNumber.exit.i, label %if.then.i.i93.i
 
 if.then.i.i93.i:                                  ; preds = %if.end12.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadNumber.exit.i:                                ; preds = %if.end12.i
@@ -311,7 +311,7 @@ loadNumber.exit.i:                                ; preds = %if.end12.i
   br i1 %cmp14.i, label %if.then16.i, label %checkHeader.exit
 
 if.then16.i:                                      ; preds = %loadNumber.exit.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.11) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.11) #7
   unreachable
 
 checkHeader.exit:                                 ; preds = %loadNumber.exit.i
@@ -336,7 +336,7 @@ cond.end.i:                                       ; preds = %checkHeader.exit
   br i1 %cmp3.i, label %if.then.i20, label %loadByte.exit
 
 if.then.i20:                                      ; preds = %cond.end.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit:                                    ; preds = %cond.end.thread.i, %cond.end.i
@@ -372,7 +372,7 @@ cond.true:                                        ; preds = %land.lhs.true
 
 cond.end:                                         ; preds = %loadByte.exit, %land.lhs.true, %cond.true
   %31 = phi ptr [ %call19, %loadByte.exit ], [ %call19, %land.lhs.true ], [ %.pre, %cond.true ]
-  call fastcc void @loadFunction(ptr noundef nonnull %S, ptr noundef %31, ptr noundef null)
+  call fastcc void @loadFunction(ptr noundef %S, ptr noundef %31, ptr noundef null)
   ret ptr %call18
 }
 
@@ -385,7 +385,7 @@ declare hidden ptr @luaF_newproto(ptr noundef) local_unnamed_addr #1
 declare hidden void @luaC_barrier_(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @loadFunction(ptr noundef %S, ptr noundef %f, ptr noundef %psource) unnamed_addr #0 {
+define internal fastcc void @loadFunction(ptr noundef nonnull %S, ptr noundef %f, ptr noundef %psource) unnamed_addr #0 {
 entry:
   %x.i30.i = alloca i64, align 8
   %x.i.i = alloca double, align 8
@@ -422,7 +422,7 @@ cond.end.i.i.i:                                   ; preds = %do.body.i.i
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %loadByte.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %cond.end.thread.i.i.i
@@ -431,7 +431,7 @@ loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %co
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %loadByte.exit.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i:                                       ; preds = %loadByte.exit.i.i
@@ -474,7 +474,7 @@ cond.end.i.i.i44:                                 ; preds = %do.body.i.i25
   br i1 %cmp3.i.i.i46, label %if.then.i.i.i47, label %loadByte.exit.i.i33
 
 if.then.i.i.i47:                                  ; preds = %cond.end.i.i.i44
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i33:                              ; preds = %cond.end.i.i.i44, %cond.end.thread.i.i.i29
@@ -483,7 +483,7 @@ loadByte.exit.i.i33:                              ; preds = %cond.end.i.i.i44, %
   br i1 %cmp.not.i.i35, label %if.end.i.i37, label %if.then.i.i36
 
 if.then.i.i36:                                    ; preds = %loadByte.exit.i.i33
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i37:                                     ; preds = %loadByte.exit.i.i33
@@ -522,7 +522,7 @@ cond.end.i:                                       ; preds = %loadInt.exit48
   br i1 %cmp3.i, label %if.then.i, label %loadByte.exit
 
 if.then.i:                                        ; preds = %cond.end.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit:                                    ; preds = %cond.end.thread.i, %cond.end.i
@@ -553,7 +553,7 @@ cond.end.i59:                                     ; preds = %loadByte.exit
   br i1 %cmp3.i61, label %if.then.i62, label %loadByte.exit63
 
 if.then.i62:                                      ; preds = %cond.end.i59
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit63:                                  ; preds = %cond.end.thread.i53, %cond.end.i59
@@ -584,7 +584,7 @@ cond.end.i73:                                     ; preds = %loadByte.exit63
   br i1 %cmp3.i75, label %if.then.i76, label %loadByte.exit77
 
 if.then.i76:                                      ; preds = %cond.end.i73
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit77:                                  ; preds = %cond.end.thread.i67, %cond.end.i73
@@ -619,7 +619,7 @@ cond.end.i.i.i.i:                                 ; preds = %do.body.i.i.i
   br i1 %cmp3.i.i.i.i, label %if.then.i.i.i.i, label %loadByte.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %cond.end.i.i.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i.i:                              ; preds = %cond.end.i.i.i.i, %cond.end.thread.i.i.i.i
@@ -628,7 +628,7 @@ loadByte.exit.i.i.i:                              ; preds = %cond.end.i.i.i.i, %
   br i1 %cmp.not.i.i.i78, label %if.end.i.i.i, label %if.then.i.i.i79
 
 if.then.i.i.i79:                                  ; preds = %loadByte.exit.i.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i.i:                                     ; preds = %loadByte.exit.i.i.i
@@ -655,7 +655,7 @@ loadInt.exit.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.not.i.i80, label %do.body.i.i.i83, label %if.then.i.i81
 
 if.then.i.i81:                                    ; preds = %loadInt.exit.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 do.body.i.i.i83:                                  ; preds = %loadInt.exit.i, %if.end.i.i.i95
@@ -683,7 +683,7 @@ cond.end.i.i.i.i109:                              ; preds = %do.body.i.i.i83
   br i1 %cmp3.i.i.i.i111, label %if.then.i.i.i.i112, label %loadByte.exit.i.i.i91
 
 if.then.i.i.i.i112:                               ; preds = %cond.end.i.i.i.i109
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i.i91:                            ; preds = %cond.end.i.i.i.i109, %cond.end.thread.i.i.i.i87
@@ -692,7 +692,7 @@ loadByte.exit.i.i.i91:                            ; preds = %cond.end.i.i.i.i109
   br i1 %cmp.not.i.i.i93, label %if.end.i.i.i95, label %if.then.i.i.i94
 
 if.then.i.i.i94:                                  ; preds = %loadByte.exit.i.i.i91
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i.i95:                                   ; preds = %loadByte.exit.i.i.i91
@@ -752,7 +752,7 @@ cond.end.i.i:                                     ; preds = %for.body7.i
   br i1 %cmp3.i.i, label %if.then.i.i108, label %loadByte.exit.i
 
 if.then.i.i108:                                   ; preds = %cond.end.i.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i:                                  ; preds = %cond.end.i.i, %cond.end.thread.i.i
@@ -776,7 +776,7 @@ sw.bb18.i:                                        ; preds = %loadByte.exit.i
   br i1 %cmp.not.i.i28.i, label %loadNumber.exit.i, label %if.then.i.i29.i
 
 if.then.i.i29.i:                                  ; preds = %sw.bb18.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadNumber.exit.i:                                ; preds = %sw.bb18.i
@@ -793,7 +793,7 @@ sw.bb21.i:                                        ; preds = %loadByte.exit.i
   br i1 %cmp.not.i.i33.i, label %loadInteger.exit.i, label %if.then.i.i34.i
 
 if.then.i.i34.i:                                  ; preds = %sw.bb21.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadInteger.exit.i:                               ; preds = %sw.bb21.i
@@ -803,12 +803,12 @@ loadInteger.exit.i:                               ; preds = %sw.bb21.i
   br label %for.inc34.sink.split.i
 
 sw.bb26.i:                                        ; preds = %loadByte.exit.i, %loadByte.exit.i
-  %call.i35.i = call fastcc ptr @loadStringN(ptr noundef nonnull readonly %S, ptr noundef nonnull %f)
+  %call.i35.i = call fastcc ptr @loadStringN(ptr noundef readonly %S, ptr noundef nonnull %f)
   %cmp.i.i = icmp eq ptr %call.i35.i, null
   br i1 %cmp.i.i, label %if.then.i36.i, label %loadString.exit.i
 
 if.then.i36.i:                                    ; preds = %sw.bb26.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.16) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.16) #7
   unreachable
 
 loadString.exit.i:                                ; preds = %sw.bb26.i
@@ -857,7 +857,7 @@ cond.end.i.i.i.i155:                              ; preds = %do.body.i.i.i114
   br i1 %cmp3.i.i.i.i157, label %if.then.i.i.i.i158, label %loadByte.exit.i.i.i122
 
 if.then.i.i.i.i158:                               ; preds = %cond.end.i.i.i.i155
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i.i122:                           ; preds = %cond.end.i.i.i.i155, %cond.end.thread.i.i.i.i118
@@ -866,7 +866,7 @@ loadByte.exit.i.i.i122:                           ; preds = %cond.end.i.i.i.i155
   br i1 %cmp.not.i.i.i124, label %if.end.i.i.i126, label %if.then.i.i.i125
 
 if.then.i.i.i125:                                 ; preds = %loadByte.exit.i.i.i122
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i.i126:                                  ; preds = %loadByte.exit.i.i.i122
@@ -924,7 +924,7 @@ cond.end.i.i151:                                  ; preds = %for.body7.i141
   br i1 %cmp3.i.i153, label %if.then.i.i154, label %loadByte.exit.i147
 
 if.then.i.i154:                                   ; preds = %cond.end.i.i151
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i147:                               ; preds = %cond.end.i.i151, %cond.end.thread.i.i144
@@ -956,7 +956,7 @@ cond.end.i30.i:                                   ; preds = %loadByte.exit.i147
   br i1 %cmp3.i32.i, label %if.then.i33.i, label %loadByte.exit34.i
 
 if.then.i33.i:                                    ; preds = %cond.end.i30.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit34.i:                                ; preds = %cond.end.i30.i, %cond.end.thread.i24.i
@@ -988,7 +988,7 @@ cond.end.i44.i:                                   ; preds = %loadByte.exit34.i
   br i1 %cmp3.i46.i, label %if.then.i47.i, label %loadByte.exit48.i
 
 if.then.i47.i:                                    ; preds = %cond.end.i44.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit48.i:                                ; preds = %cond.end.i44.i, %cond.end.thread.i38.i
@@ -1029,7 +1029,7 @@ cond.end.i.i.i224:                                ; preds = %do.body.i.i205
   br i1 %cmp3.i.i.i226, label %if.then.i.i.i227, label %loadByte.exit.i.i213
 
 if.then.i.i.i227:                                 ; preds = %cond.end.i.i.i224
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i213:                             ; preds = %cond.end.i.i.i224, %cond.end.thread.i.i.i209
@@ -1038,7 +1038,7 @@ loadByte.exit.i.i213:                             ; preds = %cond.end.i.i.i224, 
   br i1 %cmp.not.i.i215, label %if.end.i.i217, label %if.then.i.i216
 
 if.then.i.i216:                                   ; preds = %loadByte.exit.i.i213
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i217:                                    ; preds = %loadByte.exit.i.i213
@@ -1108,7 +1108,7 @@ cond.end.i165:                                    ; preds = %cond.true.i, %land.
   %arrayidx27.i = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv234
   %98 = load ptr, ptr %arrayidx27.i, align 8
   %99 = load ptr, ptr %source, align 8
-  call fastcc void @loadFunction(ptr noundef nonnull %S, ptr noundef %98, ptr noundef %99)
+  call fastcc void @loadFunction(ptr noundef %S, ptr noundef %98, ptr noundef %99)
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next235, %or.i.i221
   br i1 %exitcond238.not, label %do.body.i.i.i169.preheader, label %for.body7.i164, !llvm.loop !12
@@ -1141,7 +1141,7 @@ cond.end.i.i.i.i200:                              ; preds = %do.body.i.i.i169
   br i1 %cmp3.i.i.i.i202, label %if.then.i.i.i.i203, label %loadByte.exit.i.i.i177
 
 if.then.i.i.i.i203:                               ; preds = %cond.end.i.i.i.i200
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i.i177:                           ; preds = %cond.end.i.i.i.i200, %cond.end.thread.i.i.i.i173
@@ -1150,7 +1150,7 @@ loadByte.exit.i.i.i177:                           ; preds = %cond.end.i.i.i.i200
   br i1 %cmp.not.i.i.i179, label %if.end.i.i.i181, label %if.then.i.i.i180
 
 if.then.i.i.i180:                                 ; preds = %loadByte.exit.i.i.i177
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i.i181:                                  ; preds = %loadByte.exit.i.i.i177
@@ -1176,7 +1176,7 @@ loadInt.exit.i187:                                ; preds = %if.end.i.i.i181
   br i1 %cmp.not.i.i191, label %do.body.i.i56.i, label %if.then.i.i192
 
 if.then.i.i192:                                   ; preds = %loadInt.exit.i187
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 do.body.i.i56.i:                                  ; preds = %loadInt.exit.i187, %if.end.i.i68.i
@@ -1204,7 +1204,7 @@ cond.end.i.i.i75.i:                               ; preds = %do.body.i.i56.i
   br i1 %cmp3.i.i.i77.i, label %if.then.i.i.i78.i, label %loadByte.exit.i.i64.i
 
 if.then.i.i.i78.i:                                ; preds = %cond.end.i.i.i75.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i64.i:                            ; preds = %cond.end.i.i.i75.i, %cond.end.thread.i.i.i60.i
@@ -1213,7 +1213,7 @@ loadByte.exit.i.i64.i:                            ; preds = %cond.end.i.i.i75.i,
   br i1 %cmp.not.i.i66.i, label %if.end.i.i68.i, label %if.then.i.i67.i
 
 if.then.i.i67.i:                                  ; preds = %loadByte.exit.i.i64.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i68.i:                                   ; preds = %loadByte.exit.i.i64.i
@@ -1266,7 +1266,7 @@ cond.end.i.i.i100.i:                              ; preds = %do.body.i.i81.i
   br i1 %cmp3.i.i.i102.i, label %if.then.i.i.i103.i, label %loadByte.exit.i.i89.i
 
 if.then.i.i.i103.i:                               ; preds = %cond.end.i.i.i100.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i89.i:                            ; preds = %cond.end.i.i.i100.i, %cond.end.thread.i.i.i85.i
@@ -1275,7 +1275,7 @@ loadByte.exit.i.i89.i:                            ; preds = %cond.end.i.i.i100.i
   br i1 %cmp.not.i.i91.i, label %if.end.i.i93.i, label %if.then.i.i92.i
 
 if.then.i.i92.i:                                  ; preds = %loadByte.exit.i.i89.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i93.i:                                   ; preds = %loadByte.exit.i.i89.i
@@ -1319,7 +1319,7 @@ cond.end.i.i.i125.i:                              ; preds = %do.body.i.i106.i
   br i1 %cmp3.i.i.i127.i, label %if.then.i.i.i128.i, label %loadByte.exit.i.i114.i
 
 if.then.i.i.i128.i:                               ; preds = %cond.end.i.i.i125.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i114.i:                           ; preds = %cond.end.i.i.i125.i, %cond.end.thread.i.i.i110.i
@@ -1328,7 +1328,7 @@ loadByte.exit.i.i114.i:                           ; preds = %cond.end.i.i.i125.i
   br i1 %cmp.not.i.i116.i, label %if.end.i.i118.i, label %if.then.i.i117.i
 
 if.then.i.i117.i:                                 ; preds = %loadByte.exit.i.i114.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i118.i:                                  ; preds = %loadByte.exit.i.i114.i
@@ -1377,7 +1377,7 @@ cond.end.i.i.i150.i:                              ; preds = %do.body.i.i131.i
   br i1 %cmp3.i.i.i152.i, label %if.then.i.i.i153.i, label %loadByte.exit.i.i139.i
 
 if.then.i.i.i153.i:                               ; preds = %cond.end.i.i.i150.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i139.i:                           ; preds = %cond.end.i.i.i150.i, %cond.end.thread.i.i.i135.i
@@ -1386,7 +1386,7 @@ loadByte.exit.i.i139.i:                           ; preds = %cond.end.i.i.i150.i
   br i1 %cmp.not.i.i141.i, label %if.end.i.i143.i, label %if.then.i.i142.i
 
 if.then.i.i142.i:                                 ; preds = %loadByte.exit.i.i139.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i143.i:                                  ; preds = %loadByte.exit.i.i139.i
@@ -1421,7 +1421,7 @@ for.body25.i:                                     ; preds = %loadInt.exit154.i, 
 
 for.body35.i:                                     ; preds = %for.body25.i, %loadInt.exit204.i
   %indvars.iv244.i = phi i64 [ %indvars.iv.next245.i, %loadInt.exit204.i ], [ 0, %for.body25.i ]
-  %call36.i = call fastcc ptr @loadStringN(ptr noundef nonnull readonly %S, ptr noundef nonnull %f)
+  %call36.i = call fastcc ptr @loadStringN(ptr noundef readonly %S, ptr noundef nonnull %f)
   %137 = load ptr, ptr %locvars.i, align 8
   %arrayidx39.i = getelementptr inbounds %struct.LocVar, ptr %137, i64 %indvars.iv244.i
   store ptr %call36.i, ptr %arrayidx39.i, align 8
@@ -1452,7 +1452,7 @@ cond.end.i.i.i175.i:                              ; preds = %do.body.i.i156.i
   br i1 %cmp3.i.i.i177.i, label %if.then.i.i.i178.i, label %loadByte.exit.i.i164.i
 
 if.then.i.i.i178.i:                               ; preds = %cond.end.i.i.i175.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i164.i:                           ; preds = %cond.end.i.i.i175.i, %cond.end.thread.i.i.i160.i
@@ -1461,7 +1461,7 @@ loadByte.exit.i.i164.i:                           ; preds = %cond.end.i.i.i175.i
   br i1 %cmp.not.i.i166.i, label %if.end.i.i168.i, label %if.then.i.i167.i
 
 if.then.i.i167.i:                                 ; preds = %loadByte.exit.i.i164.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i168.i:                                  ; preds = %loadByte.exit.i.i164.i
@@ -1505,7 +1505,7 @@ cond.end.i.i.i200.i:                              ; preds = %do.body.i.i181.i
   br i1 %cmp3.i.i.i202.i, label %if.then.i.i.i203.i, label %loadByte.exit.i.i189.i
 
 if.then.i.i.i203.i:                               ; preds = %cond.end.i.i.i200.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i189.i:                           ; preds = %cond.end.i.i.i200.i, %cond.end.thread.i.i.i185.i
@@ -1514,7 +1514,7 @@ loadByte.exit.i.i189.i:                           ; preds = %cond.end.i.i.i200.i
   br i1 %cmp.not.i.i191.i, label %if.end.i.i193.i, label %if.then.i.i192.i
 
 if.then.i.i192.i:                                 ; preds = %loadByte.exit.i.i189.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i193.i:                                  ; preds = %loadByte.exit.i.i189.i
@@ -1563,7 +1563,7 @@ cond.end.i.i.i225.i:                              ; preds = %do.body.i.i206.i
   br i1 %cmp3.i.i.i227.i, label %if.then.i.i.i228.i, label %loadByte.exit.i.i214.i
 
 if.then.i.i.i228.i:                               ; preds = %cond.end.i.i.i225.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i214.i:                           ; preds = %cond.end.i.i.i225.i, %cond.end.thread.i.i.i210.i
@@ -1572,7 +1572,7 @@ loadByte.exit.i.i214.i:                           ; preds = %cond.end.i.i.i225.i
   br i1 %cmp.not.i.i216.i, label %if.end.i.i218.i, label %if.then.i.i217.i
 
 if.then.i.i217.i:                                 ; preds = %loadByte.exit.i.i214.i
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i218.i:                                  ; preds = %loadByte.exit.i.i214.i
@@ -1599,7 +1599,7 @@ for.body58.lr.ph.i:                               ; preds = %if.end.i
 
 for.body58.i:                                     ; preds = %for.body58.i, %for.body58.lr.ph.i
   %indvars.iv249.i = phi i64 [ 0, %for.body58.lr.ph.i ], [ %indvars.iv.next250.i, %for.body58.i ]
-  %call59.i = call fastcc ptr @loadStringN(ptr noundef nonnull readonly %S, ptr noundef nonnull %f)
+  %call59.i = call fastcc ptr @loadStringN(ptr noundef readonly %S, ptr noundef nonnull %f)
   %159 = load ptr, ptr %upvalues.i, align 8
   %arrayidx61.i = getelementptr inbounds %struct.Upvaldesc, ptr %159, i64 %indvars.iv249.i
   store ptr %call59.i, ptr %arrayidx61.i, align 8
@@ -1612,7 +1612,7 @@ loadDebug.exit:                                   ; preds = %for.body58.i, %load
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @error(ptr nocapture noundef readonly %S, ptr noundef %why) unnamed_addr #2 {
+define internal fastcc void @error(ptr nocapture noundef nonnull readonly %S, ptr noundef %why) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %S, align 8
   %name = getelementptr inbounds i8, ptr %S, i64 16
@@ -1633,7 +1633,7 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare hidden i32 @luaZ_fill(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @loadStringN(ptr nocapture noundef readonly %S, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc ptr @loadStringN(ptr nocapture noundef nonnull readonly %S, ptr noundef %p) unnamed_addr #0 {
 entry:
   %buff = alloca [40 x i8], align 16
   %0 = load ptr, ptr %S, align 8
@@ -1665,7 +1665,7 @@ cond.end.i.i.i:                                   ; preds = %do.body.i.i
   br i1 %cmp3.i.i.i, label %if.then.i.i.i, label %loadByte.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %cond.end.i.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %cond.end.thread.i.i.i
@@ -1674,7 +1674,7 @@ loadByte.exit.i.i:                                ; preds = %cond.end.i.i.i, %co
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %loadByte.exit.i.i
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.15) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.15) #7
   unreachable
 
 if.end.i.i:                                       ; preds = %loadByte.exit.i.i
@@ -1702,7 +1702,7 @@ if.then3:                                         ; preds = %if.else
   br i1 %cmp.not.i, label %loadBlock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then3
-  call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadBlock.exit:                                   ; preds = %if.then3
@@ -1727,7 +1727,7 @@ if.else6:                                         ; preds = %if.else
   br i1 %cmp.not.i23, label %loadBlock.exit25, label %if.then.i24
 
 if.then.i24:                                      ; preds = %if.else6
-  tail call fastcc void @error(ptr noundef nonnull readonly %S, ptr noundef nonnull @.str.12) #7
+  tail call fastcc void @error(ptr noundef readonly %S, ptr noundef nonnull @.str.12) #7
   unreachable
 
 loadBlock.exit25:                                 ; preds = %if.else6

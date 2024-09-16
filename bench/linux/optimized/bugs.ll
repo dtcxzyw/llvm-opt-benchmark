@@ -2526,7 +2526,7 @@ define dso_local void @x86_spec_ctrl_setup_ap() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_spec_ctrl(i64 noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @update_spec_ctrl(i64 noundef range(i64 1, 0) %0) unnamed_addr #1 align 16 {
   tail call void asm sideeffect "movq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @x86_spec_ctrl_current, i64 %0, ptr nonnull elementtype(i64) @x86_spec_ctrl_current) #15, !srcloc !26
   %2 = trunc i64 %0 to i32
   %3 = lshr i64 %0, 32
@@ -2721,7 +2721,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @cpu_show_meltdown(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @cpu_show_common(ptr noundef %0, i32 noundef range(i32 688, 700) %1) unnamed_addr #1 align 16 {
   %3 = zext nneg i32 %1 to i64
   %4 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @boot_cpu_data, i64 40), i64 %3) #15, !srcloc !27
   %5 = icmp ult i8 %4, 2
@@ -3948,8 +3948,8 @@ define internal fastcc void @spec_ctrl_disable_kernel_rrsba() unnamed_addr #4 se
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @spectre_v2_determine_rsb_fill_type_at_vmexit(i32 noundef %0) unnamed_addr #4 section ".init.text" align 16 {
-  switch i32 %0, label %default.unreachable [
+define internal fastcc void @spectre_v2_determine_rsb_fill_type_at_vmexit(i32 noundef range(i32 0, 7) %0) unnamed_addr #4 section ".init.text" align 16 {
+  switch i32 %0, label %default.unreachable1 [
     i32 0, label %11
     i32 5, label %2
     i32 3, label %2
@@ -3975,7 +3975,7 @@ define internal fastcc void @spectre_v2_determine_rsb_fill_type_at_vmexit(i32 no
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 29), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds (i8, ptr @cpu_caps_set, i64 29)) #15, !srcloc !12
   br label %8
 
-default.unreachable:                              ; preds = %1
+default.unreachable1:                             ; preds = %1
   unreachable
 
 8:                                                ; preds = %7, %6

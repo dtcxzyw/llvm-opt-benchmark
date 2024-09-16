@@ -3631,7 +3631,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7GfVec2fEEEbPT_NS_11
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_7GfVec4fEEEEEbPT_NS_11UsdTimeCodeE.exit: ; preds = %536
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #19
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_ToGfVec4dVectorERKNS_7VtArrayINS_7GfVec4fEEE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %25)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_ToGfVec4dVectorERKNS_7VtArrayINS_7GfVec4fEEE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %25)
           to label %538 unwind label %547
 
 538:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3GetINS_7VtArrayINS_7GfVec4fEEEEEbPT_NS_11UsdTimeCodeE.exit
@@ -4048,7 +4048,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEC1Ev(pt
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__13UsdGeomCamera21GetClippingPlanesAttrEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_ToGfVec4dVectorERKNS_7VtArrayINS_7GfVec4fEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_ToGfVec4dVectorERKNS_7VtArrayINS_7GfVec4fEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %4 unwind label %17

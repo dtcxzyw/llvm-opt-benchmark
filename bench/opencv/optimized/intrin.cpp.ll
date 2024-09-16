@@ -2238,7 +2238,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i:         ; preds = %844, %841, %.loopexit379.i
-  invoke fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef nonnull %46)
+  invoke fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef %46)
           to label %846 unwind label %1006
 
 846:                                              ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i
@@ -3426,7 +3426,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   br label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i41
 
 _ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i41:       ; preds = %1322, %1319, %1313
-  invoke fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef nonnull %12)
+  invoke fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %50, ptr noundef %12)
           to label %1324 unwind label %1361
 
 1324:                                             ; preds = %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i41
@@ -5698,7 +5698,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit113:            ; preds = %610, %620, %622
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6desync12_GLOBAL__N_14dropERN3ade10TypedGraphIJN2cv5gimpl8NodeTypeENS4_5InputENS4_6OutputENS4_2OpENS4_4DataENS4_10ConstValueENS4_6IslandENS4_8ProtocolENS4_17OriginalInputMetaENS4_10OutputMetaENS4_7JournalENS1_6passes19TopologicalSortDataENS4_17DataObjectCounterENS4_11IslandModelENS4_14ActiveBackendsENS4_18CustomMetaFunctionENS4_9StreamingENS4_12DeserializedENS4_13HasIntrinsicsENS4_10DesyncPathENS4_10DesyncEdgeENS4_14DesynchronizedENS4_11CompileArgsEEEENS1_6HandleINS1_4NodeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.74", align 8
   %5 = alloca %"class.ade::Handle", align 8
   %6 = alloca %"class.std::vector.74", align 8

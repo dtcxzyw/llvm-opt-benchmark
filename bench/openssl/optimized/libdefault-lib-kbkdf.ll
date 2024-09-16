@@ -439,7 +439,7 @@ if.end45:                                         ; preds = %if.end34
   %20 = load i32, ptr %use_separator, align 8
   %r51 = getelementptr inbounds i8, ptr %vctx, i64 24
   %21 = load i32, ptr %r51, align 8
-  %call52 = tail call fastcc i32 @derive(ptr noundef %12, i32 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef nonnull %call41, i64 noundef %call19, i32 noundef %l.0, i32 noundef %20, ptr noundef %key, i64 noundef %keylen, i32 noundef %21)
+  %call52 = tail call fastcc i32 @derive(ptr noundef %12, i32 noundef %13, ptr noundef %14, i64 noundef %15, ptr noundef %16, i64 noundef %17, ptr noundef %18, i64 noundef %19, ptr noundef %call41, i64 noundef %call19, i32 noundef %l.0, i32 noundef %20, ptr noundef %key, i64 noundef %keylen, i32 noundef %21)
   br label %done
 
 done:                                             ; preds = %if.end45, %kmac_derive.exit
@@ -664,7 +664,7 @@ if.then102:                                       ; preds = %land.lhs.true99
 land.lhs.true105:                                 ; preds = %if.then102
   %15 = load ptr, ptr %label, align 8
   %16 = load i64, ptr %label_len, align 8
-  %call109 = call fastcc i32 @kmac_init(ptr noundef nonnull %12, ptr noundef %15, i64 noundef %16)
+  %call109 = call fastcc i32 @kmac_init(ptr noundef %12, ptr noundef %15, i64 noundef %16)
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %return, label %land.lhs.true105.lor.lhs.false111_crit_edge
 
@@ -737,7 +737,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i64 @EVP_MAC_CTX_get_mac_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef %k_i, i64 noundef %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef %ko_len, i32 noundef %r) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive(ptr noundef %ctx_init, i32 noundef %mode, ptr nocapture noundef readonly %iv, i64 noundef %iv_len, ptr noundef %label, i64 noundef %label_len, ptr noundef %context, i64 noundef %context_len, ptr noundef nonnull %k_i, i64 noundef range(i64 1, 0) %h, i32 noundef %l, i32 noundef %has_separator, ptr nocapture noundef writeonly %ko, i64 noundef range(i64 1, 0) %ko_len, i32 noundef %r) unnamed_addr #0 {
 entry:
   %l.addr = alloca i32, align 4
   %zero = alloca i8, align 1
@@ -749,14 +749,10 @@ entry:
   br i1 %cmp1.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %k_i, ptr align 1 %iv, i64 %iv_len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %k_i, ptr align 1 %iv, i64 %iv_len, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %cmp326.not = icmp eq i64 %ko_len, 0
-  br i1 %cmp326.not, label %done, label %for.body.lr.ph
-
-for.body.lr.ph:                                   ; preds = %if.end
   %cmp10 = icmp eq i32 %mode, 1
   %div = sdiv i32 %r, 8
   %sub = sub nsw i32 4, %div
@@ -766,11 +762,11 @@ for.body.lr.ph:                                   ; preds = %if.end
   %tobool22.not = icmp eq i32 %has_separator, 0
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %if.end38
-  %counter.029 = phi i32 [ 1, %for.body.lr.ph ], [ %inc, %if.end38 ]
-  %k_i_len.028 = phi i64 [ %iv_len, %for.body.lr.ph ], [ %h, %if.end38 ]
-  %written.027 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %if.end38 ]
-  %or8.i = call noundef i32 @llvm.bswap.i32(i32 %counter.029)
+for.body:                                         ; preds = %if.end, %if.end38
+  %counter.028 = phi i32 [ 1, %if.end ], [ %inc, %if.end38 ]
+  %k_i_len.027 = phi i64 [ %iv_len, %if.end ], [ %h, %if.end38 ]
+  %written.026 = phi i64 [ 0, %if.end ], [ %add, %if.end38 ]
+  %or8.i = call noundef i32 @llvm.bswap.i32(i32 %counter.028)
   store i32 %or8.i, ptr %i, align 4
   %call5 = call ptr @EVP_MAC_CTX_dup(ptr noundef %ctx_init) #7
   %cmp6 = icmp eq ptr %call5, null
@@ -780,7 +776,7 @@ if.end9:                                          ; preds = %for.body
   br i1 %cmp10, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end9
-  %call12 = call i32 @EVP_MAC_update(ptr noundef nonnull %call5, ptr noundef %k_i, i64 noundef %k_i_len.028) #7
+  %call12 = call i32 @EVP_MAC_update(ptr noundef nonnull %call5, ptr noundef nonnull %k_i, i64 noundef %k_i_len.027) #7
   %tobool.not = icmp eq i32 %call12, 0
   br i1 %tobool.not, label %done, label %if.end14
 
@@ -816,24 +812,24 @@ land.lhs.true31:                                  ; preds = %lor.lhs.false29
   br i1 %tobool33.not, label %done, label %lor.lhs.false34
 
 lor.lhs.false34:                                  ; preds = %land.lhs.true31, %lor.lhs.false29
-  %call35 = call i32 @EVP_MAC_final(ptr noundef nonnull %call5, ptr noundef %k_i, ptr noundef null, i64 noundef %h) #7
+  %call35 = call i32 @EVP_MAC_final(ptr noundef nonnull %call5, ptr noundef nonnull %k_i, ptr noundef null, i64 noundef %h) #7
   %tobool36.not = icmp eq i32 %call35, 0
   br i1 %tobool36.not, label %done, label %if.end38
 
 if.end38:                                         ; preds = %lor.lhs.false34
-  %sub39 = sub i64 %ko_len, %written.027
-  %add.ptr40 = getelementptr inbounds i8, ptr %ko, i64 %written.027
+  %sub39 = sub i64 %ko_len, %written.026
+  %add.ptr40 = getelementptr inbounds i8, ptr %ko, i64 %written.026
   %cond = call i64 @llvm.umin.i64(i64 %sub39, i64 %h)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr40, ptr align 1 %k_i, i64 %cond, i1 false)
-  %add = add i64 %written.027, %h
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr40, ptr nonnull align 1 %k_i, i64 %cond, i1 false)
+  %add = add i64 %written.026, %h
   call void @EVP_MAC_CTX_free(ptr noundef nonnull %call5) #7
-  %inc = add i32 %counter.029, 1
+  %inc = add i32 %counter.028, 1
   %cmp3 = icmp ult i64 %add, %ko_len
   br i1 %cmp3, label %for.body, label %done, !llvm.loop !4
 
-done:                                             ; preds = %for.body, %land.lhs.true, %lor.lhs.false34, %land.lhs.true31, %lor.lhs.false26, %land.lhs.true23, %lor.lhs.false, %if.end14, %if.end38, %if.end
-  %ctx.1 = phi ptr [ null, %if.end ], [ null, %if.end38 ], [ %call5, %if.end14 ], [ %call5, %lor.lhs.false ], [ %call5, %land.lhs.true23 ], [ %call5, %lor.lhs.false26 ], [ %call5, %land.lhs.true31 ], [ %call5, %lor.lhs.false34 ], [ %call5, %land.lhs.true ], [ null, %for.body ]
-  %ret.0 = phi i32 [ 1, %if.end ], [ 1, %if.end38 ], [ 0, %if.end14 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true23 ], [ 0, %lor.lhs.false26 ], [ 0, %land.lhs.true31 ], [ 0, %lor.lhs.false34 ], [ 0, %land.lhs.true ], [ 0, %for.body ]
+done:                                             ; preds = %if.end38, %if.end14, %lor.lhs.false, %land.lhs.true23, %lor.lhs.false26, %land.lhs.true31, %lor.lhs.false34, %land.lhs.true, %for.body
+  %ctx.1 = phi ptr [ null, %for.body ], [ %call5, %lor.lhs.false34 ], [ %call5, %land.lhs.true31 ], [ %call5, %lor.lhs.false26 ], [ %call5, %land.lhs.true23 ], [ %call5, %lor.lhs.false ], [ %call5, %if.end14 ], [ %call5, %land.lhs.true ], [ null, %if.end38 ]
+  %ret.0 = phi i32 [ 0, %for.body ], [ 0, %lor.lhs.false34 ], [ 0, %land.lhs.true31 ], [ 0, %lor.lhs.false26 ], [ 0, %land.lhs.true23 ], [ 0, %lor.lhs.false ], [ 0, %if.end14 ], [ 0, %land.lhs.true ], [ 1, %if.end38 ]
   call void @EVP_MAC_CTX_free(ptr noundef %ctx.1) #7
   ret i32 %ret.0
 }
@@ -872,7 +868,7 @@ declare i32 @ossl_param_get1_concat_octet_string(ptr noundef, ptr noundef, ptr n
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kmac_init(ptr noundef %ctx, ptr noundef %custom, i64 noundef %customlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kmac_init(ptr noundef nonnull %ctx, ptr noundef %custom, i64 noundef %customlen) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -888,7 +884,7 @@ if.end:                                           ; preds = %entry
   %arrayidx2 = getelementptr inbounds i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp3) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx2, ptr noundef nonnull align 8 dereferenceable(40) %tmp3, i64 40, i1 false)
-  %call = call i32 @EVP_MAC_CTX_set_params(ptr noundef %ctx, ptr noundef nonnull %params) #7
+  %call = call i32 @EVP_MAC_CTX_set_params(ptr noundef nonnull %ctx, ptr noundef nonnull %params) #7
   %cmp4 = icmp sgt i32 %call, 0
   %conv = zext i1 %cmp4 to i32
   br label %return

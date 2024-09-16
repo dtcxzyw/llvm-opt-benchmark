@@ -65,136 +65,135 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr noundef %0, i8 noundef zeroext range(i8 0, 18) %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = and i8 %1, 3
   %6 = lshr i8 %1, 2
   %7 = and i8 %6, 3
   %8 = lshr i8 %1, 4
-  %9 = and i8 %8, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 280
-  %12 = getelementptr inbounds i8, ptr %0, i64 241
-  %13 = icmp eq i8 %1, 1
-  %14 = select i1 %13, i32 8, i32 3
-  %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
-  %18 = icmp ult i8 %1, 2
-  %19 = getelementptr i8, ptr %2, i64 1
-  %20 = getelementptr i8, ptr %2, i64 2
-  br label %21
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds i8, ptr %0, i64 280
+  %11 = getelementptr inbounds i8, ptr %0, i64 241
+  %12 = icmp eq i8 %1, 1
+  %13 = select i1 %12, i32 8, i32 3
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds i8, ptr %0, i64 232
+  %17 = icmp ult i8 %1, 2
+  %18 = getelementptr i8, ptr %2, i64 1
+  %19 = getelementptr i8, ptr %2, i64 2
+  br label %20
 
-21:                                               ; preds = %79, %3
-  %22 = phi i32 [ 3, %3 ], [ %80, %79 ]
+20:                                               ; preds = %78, %3
+  %21 = phi i32 [ 3, %3 ], [ %79, %78 ]
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %5)
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %7)
-  call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %9)
+  call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %8)
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext 0)
-  call void @ps2_begin_command(ptr noundef %10) #8
-  %23 = load i32, ptr %11, align 8
-  store i32 3, ptr %11, align 8
-  store i8 0, ptr %12, align 1
-  call void @llvm.memset.p0.i64(ptr noundef align 1 %2, i8 0, i64 %15, i1 false)
-  %24 = call i32 @ps2_sendbyte(ptr noundef %10, i8 noundef zeroext -23, i32 noundef 200) #8
-  %25 = icmp sgt i32 %24, -1
-  %26 = call i32 @__SCT__might_resched() #8
-  %27 = load i8, ptr %12, align 1
-  %28 = zext i8 %27 to i32
-  %29 = icmp ugt i32 %14, %28
-  br i1 %29, label %30, label %45
+  call void @ps2_begin_command(ptr noundef %9) #8
+  %22 = load i32, ptr %10, align 8
+  store i32 3, ptr %10, align 8
+  store i8 0, ptr %11, align 1
+  call void @llvm.memset.p0.i64(ptr noundef align 1 %2, i8 0, i64 %14, i1 false)
+  %23 = call i32 @ps2_sendbyte(ptr noundef %9, i8 noundef zeroext -23, i32 noundef 200) #8
+  %24 = icmp sgt i32 %23, -1
+  %25 = call i32 @__SCT__might_resched() #8
+  %26 = load i8, ptr %11, align 1
+  %27 = zext i8 %26 to i32
+  %28 = icmp ugt i32 %13, %27
+  br i1 %28, label %29, label %44
 
-30:                                               ; preds = %21
+29:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !5
   call void @init_wait_entry(ptr noundef nonnull %4, i32 noundef 0) #8
-  %31 = call i64 @prepare_to_wait_event(ptr noundef %16, ptr noundef nonnull %4, i32 noundef 2) #8
-  %32 = load i8, ptr %12, align 1
-  %33 = zext i8 %32 to i32
-  %.not = icmp ugt i32 %14, %33
+  %30 = call i64 @prepare_to_wait_event(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 2) #8
+  %31 = load i8, ptr %11, align 1
+  %32 = zext i8 %31 to i32
+  %.not = icmp ugt i32 %13, %32
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %30, %.lr.ph
-  %34 = phi i64 [ %42, %.lr.ph ], [ 200, %30 ]
-  %35 = call i64 @schedule_timeout(i64 noundef %34) #8
-  %36 = call i64 @prepare_to_wait_event(ptr noundef %16, ptr noundef nonnull %4, i32 noundef 2) #8
-  %37 = load i8, ptr %12, align 1
-  %38 = zext i8 %37 to i32
-  %39 = icmp ule i32 %14, %38
-  %40 = icmp eq i64 %35, 0
-  %41 = select i1 %39, i1 %40, i1 false
-  %42 = select i1 %41, i64 1, i64 %35
-  %43 = icmp eq i64 %42, 0
-  %44 = select i1 %39, i1 true, i1 %43
-  br i1 %44, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %29, %.lr.ph
+  %33 = phi i64 [ %41, %.lr.ph ], [ 200, %29 ]
+  %34 = call i64 @schedule_timeout(i64 noundef %33) #8
+  %35 = call i64 @prepare_to_wait_event(ptr noundef %15, ptr noundef nonnull %4, i32 noundef 2) #8
+  %36 = load i8, ptr %11, align 1
+  %37 = zext i8 %36 to i32
+  %38 = icmp ule i32 %13, %37
+  %39 = icmp eq i64 %34, 0
+  %40 = select i1 %38, i1 %39, i1 false
+  %41 = select i1 %40, i64 1, i64 %34
+  %42 = icmp eq i64 %41, 0
+  %43 = select i1 %38, i1 true, i1 %42
+  br i1 %43, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %30
-  call void @finish_wait(ptr noundef %16, ptr noundef nonnull %4) #8
+._crit_edge:                                      ; preds = %.lr.ph, %29
+  call void @finish_wait(ptr noundef %15, ptr noundef nonnull %4) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %._crit_edge, %21
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %2, ptr noundef align 8 %17, i64 %15, i1 false)
-  store i32 %23, ptr %11, align 8
-  store i8 0, ptr %12, align 1
-  call void @ps2_end_command(ptr noundef %10) #8
-  br i1 %25, label %46, label %79
+44:                                               ; preds = %._crit_edge, %20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %2, ptr noundef align 8 %16, i64 %14, i1 false)
+  store i32 %22, ptr %10, align 8
+  store i8 0, ptr %11, align 1
+  call void @ps2_end_command(ptr noundef %9) #8
+  br i1 %24, label %45, label %78
+
+45:                                               ; preds = %44
+  br i1 %17, label %81, label %46
 
 46:                                               ; preds = %45
-  br i1 %18, label %82, label %47
+  %47 = load i8, ptr %2, align 1
+  %48 = and i8 %47, -56
+  %49 = icmp eq i8 %48, 0
+  br i1 %49, label %50, label %78
 
-47:                                               ; preds = %46
-  %48 = load i8, ptr %2, align 1
-  %49 = and i8 %48, -56
-  %50 = icmp eq i8 %49, 0
-  br i1 %50, label %51, label %79
+50:                                               ; preds = %46
+  %51 = load i8, ptr %18, align 1
+  br label %54
 
-51:                                               ; preds = %47
-  %52 = load i8, ptr %19, align 1
-  br label %55
+52:                                               ; preds = %54
+  %53 = load i8, ptr %19, align 1
+  br label %63
 
-53:                                               ; preds = %55
-  %54 = load i8, ptr %20, align 1
-  br label %64
+54:                                               ; preds = %54, %50
+  %55 = phi i64 [ 0, %50 ], [ %61, %54 ]
+  %56 = phi i8 [ 0, %50 ], [ %60, %54 ]
+  %57 = getelementptr [4 x i8], ptr @cytp_resolution, i64 0, i64 %55
+  %58 = load i8, ptr %57, align 1
+  %59 = icmp eq i8 %58, %51
+  %60 = select i1 %59, i8 1, i8 %56
+  %61 = add nuw nsw i64 %55, 1
+  %62 = icmp eq i64 %61, 4
+  br i1 %62, label %52, label %54, !llvm.loop !7
 
-55:                                               ; preds = %55, %51
-  %56 = phi i64 [ 0, %51 ], [ %62, %55 ]
-  %57 = phi i8 [ 0, %51 ], [ %61, %55 ]
-  %58 = getelementptr [4 x i8], ptr @cytp_resolution, i64 0, i64 %56
-  %59 = load i8, ptr %58, align 1
-  %60 = icmp eq i8 %59, %52
-  %61 = select i1 %60, i8 1, i8 %57
-  %62 = add nuw nsw i64 %56, 1
-  %63 = icmp eq i64 %62, 4
-  br i1 %63, label %53, label %55, !llvm.loop !7
+63:                                               ; preds = %63, %52
+  %64 = phi i64 [ 0, %52 ], [ %70, %63 ]
+  %65 = phi i8 [ 0, %52 ], [ %69, %63 ]
+  %66 = getelementptr [6 x i8], ptr @cytp_rate, i64 0, i64 %64
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, %53
+  %69 = select i1 %68, i8 1, i8 %65
+  %70 = add nuw nsw i64 %64, 1
+  %71 = icmp eq i64 %70, 6
+  br i1 %71, label %72, label %63, !llvm.loop !10
 
-64:                                               ; preds = %64, %53
-  %65 = phi i64 [ 0, %53 ], [ %71, %64 ]
-  %66 = phi i8 [ 0, %53 ], [ %70, %64 ]
-  %67 = getelementptr [6 x i8], ptr @cytp_rate, i64 0, i64 %65
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp eq i8 %68, %54
-  %70 = select i1 %69, i8 1, i8 %66
-  %71 = add nuw nsw i64 %65, 1
-  %72 = icmp eq i64 %71, 6
-  br i1 %72, label %73, label %64, !llvm.loop !10
+72:                                               ; preds = %63
+  %73 = and i8 %60, 1
+  %74 = icmp eq i8 %73, 0
+  %75 = and i8 %69, 1
+  %76 = icmp eq i8 %75, 0
+  %77 = select i1 %74, i1 true, i1 %76
+  br i1 %77, label %78, label %81
 
-73:                                               ; preds = %64
-  %74 = and i8 %61, 1
-  %75 = icmp eq i8 %74, 0
-  %76 = and i8 %70, 1
-  %77 = icmp eq i8 %76, 0
-  %78 = select i1 %75, i1 true, i1 %77
-  br i1 %78, label %79, label %82
+78:                                               ; preds = %72, %46, %44
+  %79 = add nsw i32 %21, -1
+  %80 = icmp ugt i32 %21, 1
+  br i1 %80, label %20, label %81, !llvm.loop !11
 
-79:                                               ; preds = %73, %47, %45
-  %80 = add nsw i32 %22, -1
-  %81 = icmp ugt i32 %22, 1
-  br i1 %81, label %21, label %82, !llvm.loop !11
-
-82:                                               ; preds = %79, %73, %46
-  %83 = phi i32 [ -5, %79 ], [ 0, %46 ], [ 0, %73 ]
-  ret i32 %83
+81:                                               ; preds = %78, %72, %45
+  %82 = phi i32 [ -5, %78 ], [ 0, %45 ], [ 0, %72 ]
+  ret i32 %82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -732,7 +731,7 @@ define internal noundef range(i32 -1, 1) i32 @cypress_reconnect(ptr noundef %0) 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext range(i8 0, 4) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @ps2_begin_command(ptr noundef %3) #8
   %4 = getelementptr inbounds i8, ptr %0, i64 97

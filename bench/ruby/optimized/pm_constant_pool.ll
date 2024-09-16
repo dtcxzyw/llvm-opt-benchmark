@@ -248,7 +248,7 @@ define hidden i32 @pm_constant_pool_insert_shared(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #9 {
+define internal fastcc i32 @pm_constant_pool_insert(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #9 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -430,7 +430,7 @@ pm_constant_pool_hash.exit:                       ; preds = %.lr.ph.i45, %43
   %91 = add i32 %90, 1
   store i32 %91, ptr %5, align 8
   %92 = and i32 %91, 1073741823
-  %93 = shl i32 %3, 30
+  %93 = shl nuw i32 %3, 30
   %94 = or disjoint i32 %92, %93
   store i32 %94, ptr %89, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %89, i64 4

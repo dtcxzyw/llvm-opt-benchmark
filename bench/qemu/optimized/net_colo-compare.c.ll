@@ -1172,7 +1172,7 @@ if.then31:                                        ; preds = %if.end29
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then31, %if.end29
-  %call34 = call fastcc i32 @find_and_check_chardev(ptr noundef nonnull %chr, ptr noundef nonnull %0, ptr noundef %errp)
+  %call34 = call fastcc i32 @find_and_check_chardev(ptr noundef %chr, ptr noundef nonnull %0, ptr noundef %errp)
   %tobool35.not = icmp eq i32 %call34, 0
   br i1 %tobool35.not, label %lor.lhs.false36, label %return
 
@@ -1184,7 +1184,7 @@ lor.lhs.false36:                                  ; preds = %if.end32
 
 if.end39:                                         ; preds = %lor.lhs.false36
   %8 = load ptr, ptr %sec_indev, align 8
-  %call41 = call fastcc i32 @find_and_check_chardev(ptr noundef nonnull %chr, ptr noundef %8, ptr noundef %errp)
+  %call41 = call fastcc i32 @find_and_check_chardev(ptr noundef %chr, ptr noundef %8, ptr noundef %errp)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %lor.lhs.false43, label %return
 
@@ -1196,7 +1196,7 @@ lor.lhs.false43:                                  ; preds = %if.end39
 
 if.end46:                                         ; preds = %lor.lhs.false43
   %10 = load ptr, ptr %outdev, align 8
-  %call48 = call fastcc i32 @find_and_check_chardev(ptr noundef nonnull %chr, ptr noundef %10, ptr noundef %errp)
+  %call48 = call fastcc i32 @find_and_check_chardev(ptr noundef %chr, ptr noundef %10, ptr noundef %errp)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %lor.lhs.false50, label %return
 
@@ -1222,7 +1222,7 @@ if.end53:                                         ; preds = %lor.lhs.false50
   br i1 %tobool57.not, label %if.end68, label %if.then58
 
 if.then58:                                        ; preds = %if.end53
-  %call60 = call fastcc i32 @find_and_check_chardev(ptr noundef nonnull %chr, ptr noundef nonnull %14, ptr noundef %errp)
+  %call60 = call fastcc i32 @find_and_check_chardev(ptr noundef %chr, ptr noundef nonnull %14, ptr noundef %errp)
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %lor.lhs.false62, label %return
 
@@ -1308,7 +1308,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr nocapture noundef %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr nocapture noundef nonnull %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_chr_find(ptr noundef %chr_name) #16
   store ptr %call, ptr %chr, align 8
@@ -1352,7 +1352,7 @@ entry:
   %conn = alloca ptr, align 8
   %add.ptr = getelementptr i8, ptr %pri_rs, i64 -296
   store ptr null, ptr %conn, align 8
-  %call = call fastcc i32 @packet_enqueue(ptr noundef %add.ptr, i32 noundef 0, ptr noundef nonnull %conn)
+  %call = call fastcc i32 @packet_enqueue(ptr noundef %add.ptr, i32 noundef 0, ptr noundef %conn)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -1440,7 +1440,7 @@ entry:
   %conn = alloca ptr, align 8
   %add.ptr = getelementptr i8, ptr %sec_rs, i64 -69960
   store ptr null, ptr %conn, align 8
-  %call = call fastcc i32 @packet_enqueue(ptr noundef %add.ptr, i32 noundef 1, ptr noundef nonnull %conn)
+  %call = call fastcc i32 @packet_enqueue(ptr noundef %add.ptr, i32 noundef 1, ptr noundef %conn)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.else, label %if.then
 
@@ -1626,7 +1626,7 @@ declare ptr @qemu_chr_find(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @qemu_chr_has_feature(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @packet_enqueue(ptr noundef %s, i32 noundef %mode, ptr nocapture noundef writeonly %con) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @packet_enqueue(ptr noundef %s, i32 noundef range(i32 0, 2) %mode, ptr nocapture noundef nonnull writeonly %con) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %key = alloca %struct.ConnectionKey, align 1

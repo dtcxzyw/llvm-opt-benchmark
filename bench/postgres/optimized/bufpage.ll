@@ -694,7 +694,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
   unreachable
 
 87:                                               ; preds = %78
-  call fastcc void @compactify_tuples(ptr noundef nonnull %2, i32 noundef %75, ptr noundef nonnull %0, i1 noundef zeroext %.069.lcssa)
+  call fastcc void @compactify_tuples(ptr noundef %2, i32 noundef %75, ptr noundef nonnull %0, i1 noundef zeroext %.069.lcssa)
   br label %88
 
 88:                                               ; preds = %87, %77
@@ -725,7 +725,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
+define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
   %5 = alloca %union.PGAlignedBlock, align 8
   br i1 %3, label %6, label %64
 
@@ -733,14 +733,14 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
-  %smax163 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count165 = zext nneg i32 %smax163 to i64
+  %smax162 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %wide.trip.count164 = zext nneg i32 %smax162 to i64
   br label %10
 
 10:                                               ; preds = %19, %6
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %19 ], [ 0, %6 ]
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %19 ], [ 0, %6 ]
   %.0 = phi i32 [ %20, %19 ], [ %9, %6 ]
-  %11 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv161
+  %11 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv160
   %12 = getelementptr inbounds i8, ptr %11, i64 2
   %13 = load i16, ptr %12, align 2
   %14 = sext i16 %13 to i32
@@ -753,27 +753,27 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
 
 19:                                               ; preds = %10
   %20 = sub nsw i32 %.0, %17
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge144, label %10, !llvm.loop !9
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %exitcond165.not = icmp eq i64 %indvars.iv.next161, %wide.trip.count164
+  br i1 %exitcond165.not, label %._crit_edge144, label %10, !llvm.loop !9
 
 21:                                               ; preds = %10
-  %22 = trunc nuw nsw i64 %indvars.iv161 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv160 to i32
   %23 = icmp sgt i32 %1, %22
   br i1 %23, label %.lr.ph143, label %._crit_edge144
 
 .lr.ph143:                                        ; preds = %21
   %24 = getelementptr inbounds i8, ptr %2, i64 24
-  %25 = and i64 %indvars.iv161, 4294967295
-  %wide.trip.count170 = zext i32 %1 to i64
+  %25 = and i64 %indvars.iv160, 4294967295
+  %wide.trip.count169 = zext i32 %1 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph143, %52
-  %indvars.iv167 = phi i64 [ %25, %.lr.ph143 ], [ %indvars.iv.next168, %52 ]
+  %indvars.iv166 = phi i64 [ %25, %.lr.ph143 ], [ %indvars.iv.next167, %52 ]
   %.2141 = phi i32 [ %.0, %.lr.ph143 ], [ %53, %52 ]
   %.0107140 = phi i32 [ %18, %.lr.ph143 ], [ %.1108, %52 ]
-  %.0111139 = phi i32 [ %18, %.lr.ph143 ], [ %.pre-phi174, %52 ]
-  %27 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv167
+  %.0111139 = phi i32 [ %18, %.lr.ph143 ], [ %.pre-phi173, %52 ]
+  %27 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv166
   %28 = load i16, ptr %27, align 2
   %29 = add i16 %28, 1
   %30 = zext i16 %29 to i64
@@ -805,7 +805,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br label %52
 
 52:                                               ; preds = %40, %26
-  %.pre-phi174 = phi i32 [ %48, %40 ], [ %35, %26 ]
+  %.pre-phi173 = phi i32 [ %48, %40 ], [ %35, %26 ]
   %.pre-phi = phi i32 [ %50, %40 ], [ %38, %26 ]
   %.1108 = phi i32 [ %51, %40 ], [ %.0107140, %26 ]
   %53 = sub i32 %.2141, %.pre-phi
@@ -814,12 +814,12 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %56 = and i32 %54, -32768
   %57 = or disjoint i32 %56, %55
   store i32 %57, ptr %32, align 4
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge144, label %26, !llvm.loop !10
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
+  br i1 %exitcond170.not, label %._crit_edge144, label %26, !llvm.loop !10
 
 ._crit_edge144:                                   ; preds = %19, %52, %21
-  %.0111.lcssa = phi i32 [ %18, %21 ], [ %.pre-phi174, %52 ], [ %.0, %19 ]
+  %.0111.lcssa = phi i32 [ %18, %21 ], [ %.pre-phi173, %52 ], [ %.0, %19 ]
   %.0107.lcssa = phi i32 [ %18, %21 ], [ %.1108, %52 ], [ %.0, %19 ]
   %.2.lcssa = phi i32 [ %.0, %21 ], [ %53, %52 ], [ %20, %19 ]
   %58 = sext i32 %.2.lcssa to i64
@@ -829,7 +829,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %62 = sub nsw i32 %.0107.lcssa, %.0111.lcssa
   %63 = sext i32 %62 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %59, ptr align 1 %61, i64 %63, i1 false)
-  br label %154
+  br label %153
 
 64:                                               ; preds = %4
   %65 = getelementptr i8, ptr %2, i64 12
@@ -844,8 +844,8 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br i1 %71, label %.preheader.preheader, label %85
 
 .preheader.preheader:                             ; preds = %64
-  %smax154 = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax154 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -861,8 +861,8 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %80 = zext i16 %79 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %80, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond155.not, label %81, label %.preheader, !llvm.loop !11
+  %exitcond154.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond154.not, label %81, label %.preheader, !llvm.loop !11
 
 81:                                               ; preds = %.preheader
   %82 = getelementptr inbounds i8, ptr %2, i64 16
@@ -870,136 +870,135 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %84 = zext i16 %83 to i32
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 2
   %.pre = load i16, ptr %.phi.trans.insert, align 2
-  %.phi.trans.insert172 = getelementptr inbounds i8, ptr %0, i64 4
-  %.pre173 = load i16, ptr %.phi.trans.insert172, align 2
-  %.pre175 = sext i16 %.pre to i32
-  %.pre177 = zext i16 %.pre173 to i32
-  %.pre179 = add nsw i32 %.pre177, %.pre175
-  br label %112
+  %.phi.trans.insert171 = getelementptr inbounds i8, ptr %0, i64 4
+  %.pre172 = load i16, ptr %.phi.trans.insert171, align 2
+  %.pre174 = sext i16 %.pre to i32
+  %.pre176 = zext i16 %.pre172 to i32
+  %.pre178 = add nsw i32 %.pre176, %.pre174
+  br label %111
 
 85:                                               ; preds = %64
   %86 = getelementptr inbounds i8, ptr %2, i64 16
   %87 = load i16, ptr %86, align 4
   %88 = zext i16 %87 to i32
-  %89 = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
-  br label %90
+  br label %89
 
-90:                                               ; preds = %100, %85
-  %.5118 = phi i32 [ 0, %85 ], [ %102, %100 ]
-  %.5 = phi i32 [ %88, %85 ], [ %101, %100 ]
-  %91 = zext nneg i32 %.5118 to i64
-  %92 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 2
-  %94 = load i16, ptr %93, align 2
-  %95 = sext i16 %94 to i32
-  %96 = getelementptr inbounds i8, ptr %92, i64 4
-  %97 = load i16, ptr %96, align 2
-  %98 = zext i16 %97 to i32
-  %99 = add nsw i32 %98, %95
-  %.not = icmp eq i32 %.5, %99
-  br i1 %.not, label %100, label %103
+89:                                               ; preds = %99, %85
+  %.5118 = phi i32 [ 0, %85 ], [ %101, %99 ]
+  %.5 = phi i32 [ %88, %85 ], [ %100, %99 ]
+  %90 = zext nneg i32 %.5118 to i64
+  %91 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %90
+  %92 = getelementptr inbounds i8, ptr %91, i64 2
+  %93 = load i16, ptr %92, align 2
+  %94 = sext i16 %93 to i32
+  %95 = getelementptr inbounds i8, ptr %91, i64 4
+  %96 = load i16, ptr %95, align 2
+  %97 = zext i16 %96 to i32
+  %98 = add nsw i32 %97, %94
+  %.not = icmp eq i32 %.5, %98
+  br i1 %.not, label %99, label %102
 
-100:                                              ; preds = %90
-  %101 = sub nsw i32 %.5, %98
-  %102 = add nuw nsw i32 %.5118, 1
-  %exitcond.not = icmp eq i32 %102, %89
-  br i1 %exitcond.not, label %103, label %90, !llvm.loop !12
+99:                                               ; preds = %89
+  %100 = sub nsw i32 %.5, %97
+  %101 = add nuw nsw i32 %.5118, 1
+  %exitcond.not = icmp eq i32 %101, %1
+  br i1 %exitcond.not, label %102, label %89, !llvm.loop !12
 
-103:                                              ; preds = %90, %100
-  %.6119 = phi i32 [ %.5118, %90 ], [ %89, %100 ]
-  %.6 = phi i32 [ %.5, %90 ], [ %101, %100 ]
-  %104 = getelementptr inbounds i8, ptr %2, i64 14
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = zext i16 %105 to i64
-  %108 = getelementptr i8, ptr %5, i64 %107
-  %109 = getelementptr i8, ptr %2, i64 %107
-  %110 = sub nsw i32 %.6, %106
-  %111 = sext i32 %110 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %109, i64 %111, i1 false)
-  br label %112
+102:                                              ; preds = %89, %99
+  %.6119 = phi i32 [ %.5118, %89 ], [ %1, %99 ]
+  %.6 = phi i32 [ %.5, %89 ], [ %100, %99 ]
+  %103 = getelementptr inbounds i8, ptr %2, i64 14
+  %104 = load i16, ptr %103, align 2
+  %105 = zext i16 %104 to i32
+  %106 = zext i16 %104 to i64
+  %107 = getelementptr i8, ptr %5, i64 %106
+  %108 = getelementptr i8, ptr %2, i64 %106
+  %109 = sub nsw i32 %.6, %105
+  %110 = sext i32 %109 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %107, ptr align 1 %108, i64 %110, i1 false)
+  br label %111
 
-112:                                              ; preds = %103, %81
-  %.pre-phi180 = phi i32 [ %99, %103 ], [ %.pre179, %81 ]
-  %.4117 = phi i32 [ %.6119, %103 ], [ 0, %81 ]
-  %.4 = phi i32 [ %.6, %103 ], [ %84, %81 ]
-  %113 = icmp slt i32 %.4117, %1
-  br i1 %113, label %.lr.ph, label %._crit_edge
+111:                                              ; preds = %102, %81
+  %.pre-phi179 = phi i32 [ %98, %102 ], [ %.pre178, %81 ]
+  %.4117 = phi i32 [ %.6119, %102 ], [ 0, %81 ]
+  %.4 = phi i32 [ %.6, %102 ], [ %84, %81 ]
+  %112 = icmp slt i32 %.4117, %1
+  br i1 %112, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %2, i64 24
-  %115 = zext nneg i32 %.4117 to i64
-  %wide.trip.count159 = zext i32 %1 to i64
-  br label %116
+.lr.ph:                                           ; preds = %111
+  %113 = getelementptr inbounds i8, ptr %2, i64 24
+  %114 = sext i32 %.4117 to i64
+  %wide.trip.count158 = sext i32 %1 to i64
+  br label %115
 
-116:                                              ; preds = %.lr.ph, %142
-  %indvars.iv156 = phi i64 [ %115, %.lr.ph ], [ %indvars.iv.next157, %142 ]
-  %.7135 = phi i32 [ %.4, %.lr.ph ], [ %143, %142 ]
-  %.2109134 = phi i32 [ %.pre-phi180, %.lr.ph ], [ %.3110, %142 ]
-  %.1112133 = phi i32 [ %.pre-phi180, %.lr.ph ], [ %.pre-phi182, %142 ]
-  %117 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv156
-  %118 = load i16, ptr %117, align 2
-  %119 = add i16 %118, 1
-  %120 = zext i16 %119 to i64
-  %121 = add nsw i64 %120, -1
-  %122 = getelementptr [0 x %struct.ItemIdData], ptr %114, i64 0, i64 %121
-  %123 = getelementptr inbounds i8, ptr %117, i64 2
-  %124 = load i16, ptr %123, align 2
-  %125 = sext i16 %124 to i32
-  %126 = getelementptr inbounds i8, ptr %117, i64 4
-  %127 = load i16, ptr %126, align 2
-  %128 = zext i16 %127 to i32
-  %129 = add nsw i32 %128, %125
-  %.not128 = icmp eq i32 %.1112133, %129
-  br i1 %.not128, label %142, label %130
+115:                                              ; preds = %.lr.ph, %141
+  %indvars.iv155 = phi i64 [ %114, %.lr.ph ], [ %indvars.iv.next156, %141 ]
+  %.7135 = phi i32 [ %.4, %.lr.ph ], [ %142, %141 ]
+  %.2109134 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.3110, %141 ]
+  %.1112133 = phi i32 [ %.pre-phi179, %.lr.ph ], [ %.pre-phi181, %141 ]
+  %116 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv155
+  %117 = load i16, ptr %116, align 2
+  %118 = add i16 %117, 1
+  %119 = zext i16 %118 to i64
+  %120 = add nsw i64 %119, -1
+  %121 = getelementptr [0 x %struct.ItemIdData], ptr %113, i64 0, i64 %120
+  %122 = getelementptr inbounds i8, ptr %116, i64 2
+  %123 = load i16, ptr %122, align 2
+  %124 = sext i16 %123 to i32
+  %125 = getelementptr inbounds i8, ptr %116, i64 4
+  %126 = load i16, ptr %125, align 2
+  %127 = zext i16 %126 to i32
+  %128 = add nsw i32 %127, %124
+  %.not128 = icmp eq i32 %.1112133, %128
+  br i1 %.not128, label %141, label %129
 
-130:                                              ; preds = %116
-  %131 = sext i32 %.7135 to i64
-  %132 = getelementptr i8, ptr %2, i64 %131
-  %133 = sext i32 %.1112133 to i64
-  %134 = getelementptr i8, ptr %5, i64 %133
-  %135 = sub nsw i32 %.2109134, %.1112133
-  %136 = sext i32 %135 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %132, ptr align 1 %134, i64 %136, i1 false)
-  %137 = load i16, ptr %123, align 2
-  %138 = sext i16 %137 to i32
-  %139 = load i16, ptr %126, align 2
-  %140 = zext i16 %139 to i32
-  %141 = add nsw i32 %140, %138
-  br label %142
+129:                                              ; preds = %115
+  %130 = sext i32 %.7135 to i64
+  %131 = getelementptr i8, ptr %2, i64 %130
+  %132 = sext i32 %.1112133 to i64
+  %133 = getelementptr i8, ptr %5, i64 %132
+  %134 = sub nsw i32 %.2109134, %.1112133
+  %135 = sext i32 %134 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %131, ptr align 1 %133, i64 %135, i1 false)
+  %136 = load i16, ptr %122, align 2
+  %137 = sext i16 %136 to i32
+  %138 = load i16, ptr %125, align 2
+  %139 = zext i16 %138 to i32
+  %140 = add nsw i32 %139, %137
+  br label %141
 
-142:                                              ; preds = %130, %116
-  %.pre-phi182 = phi i32 [ %138, %130 ], [ %125, %116 ]
-  %.pre-phi181 = phi i32 [ %140, %130 ], [ %128, %116 ]
-  %.3110 = phi i32 [ %141, %130 ], [ %.2109134, %116 ]
-  %143 = sub i32 %.7135, %.pre-phi181
-  %144 = load i32, ptr %122, align 4
-  %145 = and i32 %143, 32767
-  %146 = and i32 %144, -32768
-  %147 = or disjoint i32 %146, %145
-  store i32 %147, ptr %122, align 4
-  %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count159
-  br i1 %exitcond160.not, label %._crit_edge, label %116, !llvm.loop !13
+141:                                              ; preds = %129, %115
+  %.pre-phi181 = phi i32 [ %137, %129 ], [ %124, %115 ]
+  %.pre-phi180 = phi i32 [ %139, %129 ], [ %127, %115 ]
+  %.3110 = phi i32 [ %140, %129 ], [ %.2109134, %115 ]
+  %142 = sub i32 %.7135, %.pre-phi180
+  %143 = load i32, ptr %121, align 4
+  %144 = and i32 %142, 32767
+  %145 = and i32 %143, -32768
+  %146 = or disjoint i32 %145, %144
+  store i32 %146, ptr %121, align 4
+  %indvars.iv.next156 = add nsw i64 %indvars.iv155, 1
+  %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
+  br i1 %exitcond159.not, label %._crit_edge, label %115, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %142, %112
-  %.1112.lcssa = phi i32 [ %.pre-phi180, %112 ], [ %.pre-phi182, %142 ]
-  %.2109.lcssa = phi i32 [ %.pre-phi180, %112 ], [ %.3110, %142 ]
-  %.7.lcssa = phi i32 [ %.4, %112 ], [ %143, %142 ]
-  %148 = sext i32 %.7.lcssa to i64
-  %149 = getelementptr i8, ptr %2, i64 %148
-  %150 = sext i32 %.1112.lcssa to i64
-  %151 = getelementptr i8, ptr %5, i64 %150
-  %152 = sub nsw i32 %.2109.lcssa, %.1112.lcssa
-  %153 = sext i32 %152 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %149, ptr align 1 %151, i64 %153, i1 false)
-  br label %154
+._crit_edge:                                      ; preds = %141, %111
+  %.1112.lcssa = phi i32 [ %.pre-phi179, %111 ], [ %.pre-phi181, %141 ]
+  %.2109.lcssa = phi i32 [ %.pre-phi179, %111 ], [ %.3110, %141 ]
+  %.7.lcssa = phi i32 [ %.4, %111 ], [ %142, %141 ]
+  %147 = sext i32 %.7.lcssa to i64
+  %148 = getelementptr i8, ptr %2, i64 %147
+  %149 = sext i32 %.1112.lcssa to i64
+  %150 = getelementptr i8, ptr %5, i64 %149
+  %151 = sub nsw i32 %.2109.lcssa, %.1112.lcssa
+  %152 = sext i32 %151 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr align 1 %150, i64 %152, i1 false)
+  br label %153
 
-154:                                              ; preds = %._crit_edge, %._crit_edge144
+153:                                              ; preds = %._crit_edge, %._crit_edge144
   %.3 = phi i32 [ %.2.lcssa, %._crit_edge144 ], [ %.7.lcssa, %._crit_edge ]
-  %155 = trunc i32 %.3 to i16
-  %156 = getelementptr inbounds i8, ptr %2, i64 14
-  store i16 %155, ptr %156, align 2
+  %154 = trunc i32 %.3 to i16
+  %155 = getelementptr inbounds i8, ptr %2, i64 14
+  store i16 %154, ptr %155, align 2
   ret void
 }
 
@@ -1575,7 +1574,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %97
-  call fastcc void @compactify_tuples(ptr noundef nonnull %4, i32 noundef %.086.lcssa, ptr noundef nonnull %0, i1 noundef zeroext %.0.lcssa)
+  call fastcc void @compactify_tuples(ptr noundef %4, i32 noundef %.086.lcssa, ptr noundef nonnull %0, i1 noundef zeroext %.0.lcssa)
   br label %.loopexit
 
 105:                                              ; preds = %97
@@ -1999,9 +1998,6 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10

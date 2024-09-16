@@ -45,7 +45,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
   %5 = alloca %struct.job_state_args_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @__const.dump_job_state.args, i64 32, i1 false)
   %6 = trunc i32 %0 to i16
-  call fastcc void @_dump_job_state_locked(ptr noundef nonnull %5, i16 noundef zeroext %6, ptr noundef %1)
+  call fastcc void @_dump_job_state_locked(ptr noundef %5, i16 noundef zeroext %6, ptr noundef %1)
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
@@ -58,7 +58,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   store i8 0, ptr %13, align 8
   store i32 0, ptr %8, align 8
-  call fastcc void @_dump_job_state_locked(ptr noundef nonnull %5, i16 noundef zeroext %6, ptr noundef %1)
+  call fastcc void @_dump_job_state_locked(ptr noundef %5, i16 noundef zeroext %6, ptr noundef %1)
   %14 = load ptr, ptr %7, align 8
   store ptr %14, ptr %3, align 8
   %15 = load i32, ptr %8, align 8
@@ -76,7 +76,7 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_job_state_locked(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = alloca %struct.foreach_het_job_state_args_t, align 8
   %.not = icmp eq i16 %1, 0
   br i1 %.not, label %12, label %.preheader
@@ -97,7 +97,7 @@ define internal fastcc void @_dump_job_state_locked(ptr noundef %0, i16 noundef 
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @job_list, align 8
-  %14 = tail call i32 @list_for_each_ro(ptr noundef %13, ptr noundef nonnull @_foreach_job_state_filter, ptr noundef %0) #6
+  %14 = tail call i32 @list_for_each_ro(ptr noundef %13, ptr noundef nonnull @_foreach_job_state_filter, ptr noundef nonnull %0) #6
   br label %.loopexit
 
 15:                                               ; preds = %.lr.ph, %_add_job_state_by_job_id.exit

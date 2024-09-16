@@ -10595,7 +10595,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SourceToTarget_Tra
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_SourceToTarget_TransparentContainer_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -10878,7 +10878,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UERadioCapability_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_UERadioCapability_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -18865,7 +18865,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PDUSessionResource
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #10
   %6 = load i32, ptr @hf_ngap_PDUSessionResourceSetupRequestTransfer_PDU, align 4
-  %7 = call fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6)
+  %7 = call fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef %6)
   %8 = add i32 %7, 7
   %9 = ashr i32 %8, 3
   ret i32 %9
@@ -20153,7 +20153,7 @@ sub_1:                                            ; preds = %sub_0
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %13, align 8
-  %43 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %40, ptr noundef nonnull @.str.3950, ptr noundef %42, ptr noundef nonnull %5)
+  %43 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %40, ptr noundef nonnull @.str.3950, ptr noundef %42, ptr noundef %5)
   %.not134 = icmp eq i32 %43, 0
   br i1 %.not134, label %.tail.thread, label %thread-pre-split
 
@@ -20170,7 +20170,7 @@ sub_1:                                            ; preds = %sub_0
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr %13, align 8
-  %49 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %46, ptr noundef nonnull @.str.3950, ptr noundef %48, ptr noundef nonnull %5)
+  %49 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %46, ptr noundef nonnull @.str.3950, ptr noundef %48, ptr noundef %5)
   %.not137 = icmp eq i32 %49, 0
   br i1 %.not137, label %50, label %thread-pre-split
 
@@ -20187,7 +20187,7 @@ sub_1:                                            ; preds = %sub_0
 
 54:                                               ; preds = %52
   %55 = load ptr, ptr %13, align 8
-  %56 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %53, ptr noundef nonnull @.str.3955, ptr noundef %55, ptr noundef nonnull %5)
+  %56 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %53, ptr noundef nonnull @.str.3955, ptr noundef %55, ptr noundef %5)
   %.not140 = icmp eq i32 %56, 0
   br i1 %.not140, label %57, label %thread-pre-split
 
@@ -20214,7 +20214,7 @@ sub_1:                                            ; preds = %sub_0
 
 65:                                               ; preds = %63
   %66 = load ptr, ptr %13, align 8
-  %67 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %64, ptr noundef nonnull @.str.3960, ptr noundef %66, ptr noundef nonnull %5)
+  %67 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef nonnull %64, ptr noundef nonnull @.str.3960, ptr noundef %66, ptr noundef %5)
   %.not145 = icmp eq i32 %67, 0
   br i1 %.not145, label %68, label %thread-pre-split
 
@@ -20250,7 +20250,7 @@ sub_1:                                            ; preds = %sub_0
 
 79:                                               ; preds = %._crit_edge, %70, %72
   %80 = phi ptr [ %.pre, %._crit_edge ], [ %.pre166, %70 ], [ %.pre166, %72 ]
-  %81 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3964, ptr noundef %80, ptr noundef nonnull %5)
+  %81 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3964, ptr noundef %80, ptr noundef %5)
   %.not150 = icmp eq i32 %81, 0
   br i1 %.not150, label %82, label %thread-pre-split
 
@@ -20273,31 +20273,31 @@ sub_1:                                            ; preds = %sub_0
   %.0112163 = phi i32 [ %88, %87 ], [ 0, %84 ]
   %89 = tail call ptr @json_get_array_index(ptr noundef nonnull %83, i32 noundef %.0112163) #10
   %90 = load ptr, ptr %13, align 8
-  %91 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %89, ptr noundef nonnull @.str.3950, ptr noundef %90, ptr noundef nonnull %5)
+  %91 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %89, ptr noundef nonnull @.str.3950, ptr noundef %90, ptr noundef %5)
   %.not155 = icmp eq i32 %91, 0
   br i1 %.not155, label %87, label %thread-pre-split
 
 .loopexit:                                        ; preds = %87, %84, %82
   %92 = load ptr, ptr %13, align 8
-  %93 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3966, ptr noundef %92, ptr noundef nonnull %5)
+  %93 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3966, ptr noundef %92, ptr noundef %5)
   %.not152 = icmp eq i32 %93, 0
   br i1 %.not152, label %94, label %thread-pre-split
 
 94:                                               ; preds = %.loopexit
   %95 = load ptr, ptr %13, align 8
-  %96 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3967, ptr noundef %95, ptr noundef nonnull %5)
+  %96 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3967, ptr noundef %95, ptr noundef %5)
   %.not153 = icmp eq i32 %96, 0
   br i1 %.not153, label %97, label %thread-pre-split
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %13, align 8
-  %99 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3968, ptr noundef %98, ptr noundef nonnull %5)
+  %99 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3968, ptr noundef %98, ptr noundef %5)
   %.not154 = icmp eq i32 %99, 0
   br i1 %.not154, label %100, label %thread-pre-split
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %13, align 8
-  %102 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3969, ptr noundef %101, ptr noundef nonnull %5)
+  %102 = call fastcc i32 @find_n2_info_content(ptr noundef %18, ptr noundef %25, ptr noundef nonnull @.str.3969, ptr noundef %101, ptr noundef %5)
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %.lr.ph, %41, %47, %54, %65, %79, %.loopexit, %94, %97, %100
@@ -24306,7 +24306,7 @@ define internal i32 @dissect_ngap_ServedGUAMIItem(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_SourceToTarget_TransparentContainer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -24741,7 +24741,7 @@ define internal i32 @dissect_ngap_UEPresence(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_UERadioCapability(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -27986,7 +27986,7 @@ declare i32 @dissect_per_object_identifier(ptr noundef, i32 noundef, ptr noundef
 declare i32 @dissect_per_open_type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_ngap_PDUSessionResourceSetupRequestTransfer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -28549,7 +28549,7 @@ declare ptr @json_get_string(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @find_n2_info_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_n2_info_content(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca double, align 8
   %7 = tail call ptr @json_get_object(ptr noundef %0, ptr noundef %1, ptr noundef %2) #10
   %.not = icmp eq ptr %7, null

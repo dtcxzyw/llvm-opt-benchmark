@@ -1471,7 +1471,7 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   %607 = load ptr, ptr @expr_arena, align 8
   %608 = zext i32 %606 to i64
   %609 = getelementptr inbounds %struct.Expr_, ptr %607, i64 %608
-  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef %609, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30)
+  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef %609, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %28) #10
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %29) #10
   %610 = getelementptr inbounds i8, ptr %28, i64 16
@@ -1586,7 +1586,7 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   %.0127.i273 = phi i64 [ %669, %.lr.ph274 ], [ %648, %.preheader ]
   %667 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set_int(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %667, i64 noundef %.0127.i273) #10
-  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %27, ptr noundef nonnull %32)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %27, ptr noundef %32)
   %668 = call ptr @llvm_store(ptr noundef %0, ptr noundef nonnull %31, ptr noundef %1) #10
   %669 = add i64 %.0127.i273, 1
   %.not138.i = icmp ugt i64 %669, %.0126.i
@@ -1642,7 +1642,7 @@ llvm_emit_slice_copy.exit:                        ; preds = %539, %556
   call void @llvm_emit_cond_br(ptr noundef nonnull %0, ptr noundef nonnull %34, ptr noundef %675, ptr noundef %674) #10
   call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %675) #10
   %701 = getelementptr inbounds i8, ptr %2, i64 8
-  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef nonnull %33)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %27, ptr noundef %33)
   %702 = call ptr @llvm_store(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %1) #10
   %703 = load ptr, ptr %683, align 8
   %704 = call fastcc ptr @type_lowering(ptr noundef %703)
@@ -1697,7 +1697,7 @@ llvm_emit_slice_assign.exit:                      ; preds = %.lr.ph274, %.prehea
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
-  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  call fastcc void @llvm_emit_slice_values(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25)
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %23) #10
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %24) #10
   %723 = load i8, ptr %25, align 1
@@ -3345,7 +3345,7 @@ expr_is_vector_subscript.exit.i.thread:           ; preds = %expr_is_vector_subs
 llvm_emit_inc_dec_change.exit.i:                  ; preds = %1569, %1568
   %1570 = getelementptr inbounds i8, ptr %1541, i64 8
   %1571 = load i64, ptr %1570, align 8
-  %1572 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1571, ptr noundef nonnull %4, i32 noundef %1545)
+  %1572 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %1571, ptr noundef %4, i32 noundef %1545)
   %1573 = getelementptr inbounds i8, ptr %5, i64 16
   %1574 = load ptr, ptr %1573, align 8
   %1575 = getelementptr inbounds i8, ptr %5, i64 4
@@ -3658,11 +3658,11 @@ llvm_emit_rethrow_expr.exit:                      ; preds = %llvm_emit_rethrow_e
   %1723 = load ptr, ptr %1722, align 8
   %1724 = getelementptr inbounds i8, ptr %1669, i64 8
   %1725 = load i64, ptr %1724, align 8
-  call fastcc void @llvm_emit_array_bounds_check(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef %1723, i64 %1725)
+  call fastcc void @llvm_emit_array_bounds_check(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %1723, i64 %1725)
   br label %1726
 
 1726:                                             ; preds = %1721, %1715, %1713
-  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef nonnull %10)
+  call fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %1, ptr noundef %10)
   br i1 %1659, label %gencontext_emit_subscript.exit, label %1727
 
 1727:                                             ; preds = %1726
@@ -16456,7 +16456,7 @@ declare void @LLVMPositionBuilderBefore(ptr noundef, ptr noundef) local_unnamed_
 declare void @llvm_store_to_ptr_zero(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0, i64 noundef range(i64 8, 33) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %8
 
@@ -16525,7 +16525,7 @@ declare void @llvm_emit_panic_if_true(ptr noundef, ptr noundef, ptr noundef, i64
 declare ptr @LLVMBuildMemMove(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca %struct.BEValue, align 8
   %8 = alloca %struct.BEValue, align 8
   %9 = alloca %struct.BEValue, align 8
@@ -16931,19 +16931,19 @@ llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %1
   %.0126 = phi ptr [ %191, %223 ], [ %191, %210 ], [ %191, %208 ], [ %234, %230 ], [ %191, %.thread ]
   %236 = getelementptr inbounds i8, ptr %11, i64 16
   %237 = load ptr, ptr %236, align 8
-  call void @llvm_value_set(ptr noundef %4, ptr noundef %237, ptr noundef %.0126) #10
+  call void @llvm_value_set(ptr noundef nonnull %4, ptr noundef %237, ptr noundef %.0126) #10
   %238 = getelementptr inbounds i8, ptr %8, i64 16
   %239 = load ptr, ptr %238, align 8
-  call void @llvm_value_set(ptr noundef %3, ptr noundef %239, ptr noundef %86) #10
+  call void @llvm_value_set(ptr noundef nonnull %3, ptr noundef %239, ptr noundef %86) #10
   %240 = call i32 @type_abi_alignment(ptr noundef nonnull %.0) #10
-  call void @llvm_value_set_address(ptr noundef %2, ptr noundef %.0132, ptr noundef nonnull %.0, i32 noundef %240) #10
+  call void @llvm_value_set_address(ptr noundef nonnull %2, ptr noundef %.0132, ptr noundef nonnull %.0, i32 noundef %240) #10
   ret void
 }
 
 declare i64 @LLVMConstIntGetZExtValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -16976,7 +16976,7 @@ define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, 
   %23 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %8) #10
   %24 = getelementptr inbounds i8, ptr %2, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %22, ptr noundef %23, ptr noundef %3, i32 noundef %25, ptr noundef nonnull %5)
+  %26 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %22, ptr noundef %23, ptr noundef nonnull %3, i32 noundef %25, ptr noundef nonnull %5)
   %27 = getelementptr inbounds i8, ptr %8, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %5, align 4
@@ -17574,7 +17574,7 @@ define internal fastcc void @llvm_emit_deref(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_pre_inc_dec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_pre_inc_dec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca %struct.BEValue, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 16
@@ -17633,7 +17633,7 @@ expr_is_vector_subscript.exit.thread:             ; preds = %expr_is_vector_subs
   call void @llvm_value_rvalue(ptr noundef nonnull %0, ptr noundef nonnull %5) #10
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = load i64, ptr %31, align 8
-  %33 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %32, ptr noundef nonnull %5, i32 noundef %3)
+  %33 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef nonnull %0, i64 %32, ptr noundef %5, i32 noundef %3)
   %34 = getelementptr inbounds i8, ptr %6, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %6, i64 4
@@ -17661,7 +17661,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #1
 declare void @span_to_scratch(i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 24
@@ -17728,7 +17728,7 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %52, ptr noundef %16) #10
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %54, ptr noundef nonnull %7, i32 noundef %3)
+  %55 = call fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %54, ptr noundef %7, i32 noundef %3)
   %56 = load ptr, ptr %50, align 8
   %57 = call ptr @LLVMBuildInsertElement(ptr noundef %56, ptr noundef %18, ptr noundef %55, ptr noundef %.057, ptr noundef nonnull @.str.3) #10
   %58 = getelementptr inbounds i8, ptr %6, i64 16
@@ -17744,7 +17744,7 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
   %8 = alloca %struct.BEValue, align 8
@@ -18040,7 +18040,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %84
 declare ptr @LLVMBuildNUWSub(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -20677,10 +20677,10 @@ define internal fastcc void @llvm_emit_vector_subscript(ptr noundef %0, ptr noun
 declare void @llvm_emit_ptr_from_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_array_bounds_check(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_array_bounds_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca %struct.BEValue, align 8
-  tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
+  tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %1) #10
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8

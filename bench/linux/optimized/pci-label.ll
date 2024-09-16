@@ -295,7 +295,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @label_show(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %.632.val) #3
   %4 = getelementptr i8, ptr %.632.val, i64 -16
   %5 = icmp ne ptr %4, null
@@ -339,50 +339,50 @@ define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0,
   br i1 %30, label %31, label %.thread1
 
 31:                                               ; preds = %26
-  %32 = icmp eq i32 %1, 1
-  br i1 %32, label %33, label %37
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %36, label %32
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
-  %35 = load i64, ptr %34, align 8
-  %36 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %35) #3
-  br label %49
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %34 = load i64, ptr %33, align 8
+  %35 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %34) #3
+  br label %48
 
-37:                                               ; preds = %31
+36:                                               ; preds = %31
   %switch = icmp eq i32 %28, 2
-  %38 = getelementptr i8, ptr %16, i64 32
-  %39 = load ptr, ptr %38, align 8
-  br i1 %switch, label %40, label %42
+  %37 = getelementptr i8, ptr %16, i64 32
+  %38 = load ptr, ptr %37, align 8
+  br i1 %switch, label %39, label %41
 
-40:                                               ; preds = %37
-  %41 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %39) #3
-  br label %49
+39:                                               ; preds = %36
+  %40 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %38) #3
+  br label %48
 
-42:                                               ; preds = %37
-  %43 = getelementptr i8, ptr %16, i64 28
-  %44 = load i32, ptr %43, align 4
-  %45 = tail call i32 @utf16s_to_utf8s(ptr noundef %39, i32 noundef %44, i32 noundef 1, ptr noundef %0, i32 noundef 4095) #3
-  %46 = add i32 %45, 1
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr i8, ptr %0, i64 %47
-  store i8 10, ptr %48, align 1
-  br label %49
+41:                                               ; preds = %36
+  %42 = getelementptr i8, ptr %16, i64 28
+  %43 = load i32, ptr %42, align 4
+  %44 = tail call i32 @utf16s_to_utf8s(ptr noundef %38, i32 noundef %43, i32 noundef 1, ptr noundef %0, i32 noundef 4095) #3
+  %45 = add i32 %44, 1
+  %46 = sext i32 %44 to i64
+  %47 = getelementptr i8, ptr %0, i64 %46
+  store i8 10, ptr %47, align 1
+  br label %48
 
 .thread1:                                         ; preds = %23, %19, %14, %26
   tail call void @kfree(ptr noundef nonnull %12) #3
   br label %.thread
 
-49:                                               ; preds = %42, %40, %33
-  %50 = phi i32 [ %36, %33 ], [ %41, %40 ], [ %46, %42 ]
-  %.fr = freeze i32 %50
+48:                                               ; preds = %41, %39, %32
+  %49 = phi i32 [ %35, %32 ], [ %40, %39 ], [ %45, %41 ]
+  %.fr = freeze i32 %49
   tail call void @kfree(ptr noundef nonnull %12) #3
-  %51 = icmp sgt i32 %.fr, 0
-  %spec.select = select i1 %51, i32 %.fr, i32 -1
+  %50 = icmp sgt i32 %.fr, 0
+  %spec.select = select i1 %50, i32 %.fr, i32 -1
   br label %.thread
 
-.thread:                                          ; preds = %49, %2, %.thread1, %11, %7
-  %52 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %49 ]
-  ret i32 %52
+.thread:                                          ; preds = %48, %2, %.thread1, %11, %7
+  %51 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %48 ]
+  ret i32 %51
 }
 
 ; Function Attrs: null_pointer_is_valid

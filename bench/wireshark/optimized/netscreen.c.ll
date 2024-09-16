@@ -155,7 +155,7 @@ netscreen_seek_next_packet.exit:                  ; preds = %19, %21
 
 26:                                               ; preds = %netscreen_seek_next_packet.exit
   %27 = load ptr, ptr %0, align 8
-  %28 = call fastcc i32 @parse_netscreen_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %28 = call fastcc i32 @parse_netscreen_packet(ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %37, label %29
 
@@ -209,7 +209,7 @@ define internal range(i32 -1, 2) i32 @netscreen_seek_read(ptr nocapture noundef 
   br label %22
 
 20:                                               ; preds = %12
-  %21 = call fastcc i32 @parse_netscreen_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  %21 = call fastcc i32 @parse_netscreen_packet(ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %7, ptr noundef %4, ptr noundef %5)
   br label %22
 
 22:                                               ; preds = %6, %20, %17
@@ -240,7 +240,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -257,7 +257,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
   store i32 3, ptr %17, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %13, i8 0, i64 13, i1 false)
-  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
+  %18 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %13) #7
   %19 = icmp slt i32 %18, 5
   br i1 %19, label %20, label %22
 
@@ -296,7 +296,7 @@ define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef 
   %38 = getelementptr inbounds i8, ptr %2, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr i8, ptr %37, i64 %39
-  %41 = call ptr @file_gets(ptr noundef %3, i32 noundef 128, ptr noundef %0) #7
+  %41 = call ptr @file_gets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef %0) #7
   %42 = icmp eq ptr %41, null
   br i1 %42, label %._crit_edge, label %.preheader82.lr.ph
 
@@ -512,7 +512,7 @@ info_line.exit:                                   ; preds = %95
 .backedge:                                        ; preds = %.thread77, %info_line.exit
   %.056.be = phi i32 [ %104, %info_line.exit ], [ %.181, %.thread77 ]
   %.0.be = phi i32 [ 0, %info_line.exit ], [ %120, %.thread77 ]
-  %121 = call ptr @file_gets(ptr noundef %3, i32 noundef 128, ptr noundef %0) #7
+  %121 = call ptr @file_gets(ptr noundef nonnull %3, i32 noundef 128, ptr noundef %0) #7
   %122 = icmp eq ptr %121, null
   br i1 %122, label %._crit_edge, label %.preheader82
 

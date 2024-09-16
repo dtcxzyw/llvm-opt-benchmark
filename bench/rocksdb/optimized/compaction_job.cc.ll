@@ -26898,7 +26898,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i.i, 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i) #28
   %1 = load i64, ptr %range_size.i.i.i.i, align 8
   store i64 %1, ptr %range_size.i9.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i, ptr %__comp.coerce)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i, ptr %__comp.coerce)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -26946,7 +26946,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i) #28
   %5 = load i64, ptr %range_size.i.i, align 8
   store i64 %5, ptr %range_size.i3.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i, ptr %__comp.coerce)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i, ptr %__comp.coerce)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_SF_SF_RT0_.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %while.body.i.i
@@ -27245,7 +27245,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value, ptr %__comp.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb11TableReader6AnchorESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_13CompactionJob26GenSubcompactionBoundariesEvE3$_0EEEvT_T0_SG_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value, ptr %__comp.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2.i.i.i = alloca %"class.rocksdb::Slice", align 8

@@ -1022,7 +1022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr nocapture noundef readonly %trie, i32 noundef %start, i32 noundef %limit, ptr noundef readonly %enumValue, ptr noundef readonly %enumRange, ptr noundef %context) unnamed_addr #1 {
+define internal fastcc void @_ZL14enumEitherTriePK6UTrie2iiPFjPKvjEPFaS3_iijES3_(ptr nocapture noundef readonly %trie, i32 noundef range(i32 0, -1023) %start, i32 noundef range(i32 -2147482624, -2147483648) %limit, ptr noundef readonly %enumValue, ptr noundef readonly %enumRange, ptr noundef %context) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %enumRange, null
   br i1 %cmp, label %return, label %if.end

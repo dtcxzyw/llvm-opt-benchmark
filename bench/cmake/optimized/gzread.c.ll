@@ -41,7 +41,7 @@ define dso_local i32 @cm_zlib_gzread(ptr noundef %0, ptr noundef %1, i32 noundef
 
 14:                                               ; preds = %11
   %15 = zext nneg i32 %2 to i64
-  %16 = tail call fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %15)
+  %16 = tail call fastcc i64 @gz_read(ptr noundef %0, ptr noundef %1, i64 noundef %15)
   %17 = trunc i64 %16 to i32
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
@@ -64,7 +64,7 @@ define dso_local i32 @cm_zlib_gzread(ptr noundef %0, ptr noundef %1, i32 noundef
 declare void @cm_zlib_gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @gz_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %gz_skip.exit, label %5
 
@@ -122,7 +122,7 @@ define internal fastcc i64 @gz_read(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %33, label %gz_skip.exit.thread, label %34
 
 34:                                               ; preds = %31, %29
-  %35 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
+  %35 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %gz_skip.exit, label %37
 
@@ -193,7 +193,7 @@ gz_skip.exit.thread:                              ; preds = %31, %37, %8, %5
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %66, %63
-  %71 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
+  %71 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %gz_skip.exit, label %103
 
@@ -237,7 +237,7 @@ gz_load.exit:                                     ; preds = %86
 92:                                               ; preds = %73
   store i32 %spec.select, ptr %43, align 8
   store ptr %.037, ptr %44, align 8
-  %93 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0)
+  %93 = tail call fastcc i32 @gz_decomp(ptr noundef %0)
   %94 = icmp eq i32 %93, -1
   br i1 %94, label %gz_skip.exit, label %95
 
@@ -307,7 +307,7 @@ define dso_local i64 @cm_zlib_gzfread(ptr noundef %0, i64 noundef %1, i64 nounde
   br i1 %.not25, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = tail call fastcc i64 @gz_read(ptr noundef nonnull %3, ptr noundef %0, i64 noundef %mul.val)
+  %17 = tail call fastcc i64 @gz_read(ptr noundef %3, ptr noundef %0, i64 noundef %mul.val)
   %18 = udiv i64 %17, %1
   br label %19
 
@@ -357,7 +357,7 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzgetc(ptr noundef %0) local_un
   br label %28
 
 22:                                               ; preds = %10
-  %23 = call fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 1)
+  %23 = call fastcc i64 @gz_read(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 1)
   %24 = icmp eq i64 %23, 0
   %25 = load i8, ptr %2, align 1
   %26 = zext i8 %25 to i32
@@ -411,7 +411,7 @@ define dso_local range(i32 -1, 256) i32 @cm_zlib_gzgetc_(ptr noundef %0) local_u
   br label %cm_zlib_gzgetc.exit
 
 22:                                               ; preds = %10
-  %23 = call fastcc i64 @gz_read(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef 1)
+  %23 = call fastcc i64 @gz_read(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 1)
   %24 = icmp eq i64 %23, 0
   %25 = load i8, ptr %2, align 1
   %26 = zext i8 %25 to i32
@@ -497,7 +497,7 @@ define dso_local range(i32 -1, -2147483648) i32 @cm_zlib_gzungetc(i32 noundef %0
   br i1 %38, label %gz_skip.exit, label %39
 
 39:                                               ; preds = %36, %34
-  %40 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %1)
+  %40 = tail call fastcc i32 @gz_fetch(ptr noundef %1)
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %gz_skip.exit.thread, label %42
 
@@ -682,7 +682,7 @@ define dso_local noundef ptr @cm_zlib_gzgets(ptr noundef %0, ptr noundef writeon
   br i1 %41, label %gz_skip.exit.thread, label %42
 
 42:                                               ; preds = %39, %37
-  %43 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
+  %43 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %gz_skip.exit, label %45
 
@@ -710,7 +710,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %16, %13
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %49
-  %53 = tail call fastcc i32 @gz_fetch(ptr noundef nonnull %0)
+  %53 = tail call fastcc i32 @gz_fetch(ptr noundef %0)
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %gz_skip.exit, label %55
 
@@ -769,7 +769,7 @@ gz_skip.exit:                                     ; preds = %42, %52, %gz_skip.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_fetch(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_fetch(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 160
@@ -788,7 +788,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_fetch(ptr noundef %0) unnamed_ad
   ]
 
 10:                                               ; preds = %.critedge2
-  %11 = tail call fastcc i32 @gz_look(ptr noundef nonnull %0)
+  %11 = tail call fastcc i32 @gz_look(ptr noundef %0)
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %.critedge, label %13
 
@@ -852,7 +852,7 @@ gz_load.exit:                                     ; preds = %35
   store i32 %45, ptr %4, align 8
   %46 = load ptr, ptr %5, align 8
   store ptr %46, ptr %6, align 8
-  %47 = tail call fastcc i32 @gz_decomp(ptr noundef nonnull %0)
+  %47 = tail call fastcc i32 @gz_decomp(ptr noundef %0)
   %48 = icmp eq i32 %47, -1
   br i1 %48, label %.critedge, label %49
 
@@ -908,7 +908,7 @@ define dso_local i32 @cm_zlib_gzdirect(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call fastcc i32 @gz_look(ptr noundef nonnull %0)
+  %15 = tail call fastcc i32 @gz_look(ptr noundef %0)
   br label %16
 
 16:                                               ; preds = %14, %11, %7, %3
@@ -922,7 +922,7 @@ define dso_local i32 @cm_zlib_gzdirect(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
@@ -979,7 +979,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_look(ptr noundef %0) unnamed_add
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %26
-  %31 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
+  %31 = tail call fastcc i32 @gz_avail(ptr noundef %0)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %62, label %33
 
@@ -1104,7 +1104,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
@@ -1118,7 +1118,7 @@ define internal fastcc range(i32 -1, 1) i32 @gz_decomp(ptr noundef %0) unnamed_a
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @gz_avail(ptr noundef nonnull %0)
+  %10 = tail call fastcc i32 @gz_avail(ptr noundef %0)
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %.loopexit, label %12
 
@@ -1199,7 +1199,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #6
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_avail(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_avail(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = getelementptr inbounds i8, ptr %0, i64 116
   %4 = load i32, ptr %3, align 4

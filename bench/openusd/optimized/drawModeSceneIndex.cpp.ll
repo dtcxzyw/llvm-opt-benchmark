@@ -293,7 +293,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %36 unwind label %91
 
 36:                                               ; preds = %32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %37 unwind label %93
 
 37:                                               ; preds = %36
@@ -814,7 +814,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
           to label %164 unwind label %.loopexit
 
 164:                                              ; preds = %160
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %165 unwind label %217
 
 165:                                              ; preds = %164
@@ -1049,7 +1049,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdImagingUsdPrimInfoSchema", align 8
   %4 = alloca %"class.std::shared_ptr.50", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
@@ -1432,7 +1432,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_IsUsdNativeInstanceERKNS_1
   %188 = load ptr, ptr %173, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
-  invoke void %190(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %173, float noundef 0.000000e+00)
+  invoke void %190(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %173, float noundef 0.000000e+00)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit16 unwind label %191
 
 191:                                              ; preds = %187
@@ -3369,7 +3369,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandi
           to label %96 unwind label %.loopexit
 
 96:                                               ; preds = %92
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %97 unwind label %174
 
 97:                                               ; preds = %96
@@ -4703,7 +4703,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26UsdImaging_DrawModeStandi
           to label %189 unwind label %.loopexit249
 
 189:                                              ; preds = %185
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetDrawModeERKNS_16HdSceneIndexPrimE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
           to label %190 unwind label %322
 
 190:                                              ; preds = %189

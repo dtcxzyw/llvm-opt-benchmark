@@ -829,7 +829,7 @@ entry:
 declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @sifive_pwm_interrupt(ptr noundef %s, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc void @sifive_pwm_interrupt(ptr noundef %s, i32 noundef range(i32 0, 4) %num) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6

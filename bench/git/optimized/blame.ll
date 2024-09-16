@@ -1634,7 +1634,7 @@ if.end626:                                        ; preds = %if.then624, %if.the
   br i1 %tobool628.not, label %if.then629, label %if.end637
 
 if.then629:                                       ; preds = %if.end626
-  call fastcc void @find_alignment(ptr noundef nonnull %sb, ptr noundef nonnull %output_option)
+  call fastcc void @find_alignment(ptr noundef nonnull %sb, ptr noundef %output_option)
   %115 = load i8, ptr @repeated_meta_color, align 16
   %tobool630.not = icmp ne i8 %115, 0
   %.pre158 = load i32, ptr %output_option, align 4
@@ -2110,7 +2110,7 @@ define internal void @sanity_check_on_fail(ptr noundef %sb, i32 noundef %baa) #8
 entry:
   %opt = alloca i32, align 4
   store i32 112, ptr %opt, align 4
-  call fastcc void @find_alignment(ptr noundef %sb, ptr noundef nonnull %opt)
+  call fastcc void @find_alignment(ptr noundef %sb, ptr noundef %opt)
   %0 = load i32, ptr %opt, align 4
   tail call fastcc void @output(ptr noundef %sb, i32 noundef %0)
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.93, i32 noundef %baa) #18
@@ -2192,7 +2192,7 @@ declare void @blame_sort_final(ptr noundef) local_unnamed_addr #2
 declare void @blame_coalesce(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_alignment(ptr noundef %sb, ptr nocapture noundef %option) unnamed_addr #0 {
+define internal fastcc void @find_alignment(ptr noundef %sb, ptr nocapture noundef nonnull %option) unnamed_addr #0 {
 entry:
   %ci = alloca %struct.commit_info, align 8
   %0 = load i32, ptr @abbrev, align 4
@@ -2274,7 +2274,7 @@ if.then17:                                        ; preds = %if.end15
   %bf.set = or i32 %bf.load20, 65536
   store i32 %bf.set, ptr %10, align 8
   %11 = load ptr, ptr %commit, align 8
-  call fastcc void @get_commit_info(ptr noundef %11, ptr noundef nonnull %ci)
+  call fastcc void @get_commit_info(ptr noundef %11, ptr noundef %ci)
   %12 = load i32, ptr %option, align 4
   %and25 = and i32 %12, 256
   %tobool26.not = icmp eq i32 %and25, 0
@@ -2469,7 +2469,7 @@ for.body26.us:                                    ; preds = %for.body26.lr.ph, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %ci.i, ptr noundef nonnull align 8 dereferenceable(184) @__const.emit_other.ci, i64 184, i1 false)
   %commit.i20.us = getelementptr inbounds i8, ptr %7, i64 24
   %8 = load ptr, ptr %commit.i20.us, align 8
-  call fastcc void @get_commit_info(ptr noundef %8, ptr noundef nonnull %ci.i)
+  call fastcc void @get_commit_info(ptr noundef %8, ptr noundef %ci.i)
   %9 = load ptr, ptr %commit.i20.us, align 8
   %oid.i21.us = getelementptr inbounds i8, ptr %9, i64 4
   %call.i22.us = call ptr @oid_to_hex_r(ptr noundef nonnull %hex.i17, ptr noundef nonnull %oid.i21.us) #17
@@ -3362,7 +3362,7 @@ declare ptr @ngettext(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @emit_one_suspect_detail(ptr nocapture noundef readonly %suspect, i32 noundef %repeat) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @emit_one_suspect_detail(ptr nocapture noundef readonly %suspect, i32 noundef range(i32 0, 513) %repeat) unnamed_addr #0 {
 entry:
   %ci = alloca %struct.commit_info, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %ci, ptr noundef nonnull align 8 dereferenceable(184) @__const.emit_other.ci, i64 184, i1 false)
@@ -3380,7 +3380,7 @@ if.end:                                           ; preds = %entry
   %bf.set = or i32 %bf.load, 65536
   store i32 %bf.set, ptr %0, align 8
   %2 = load ptr, ptr %commit2, align 8
-  call fastcc void @get_commit_info(ptr noundef %2, ptr noundef nonnull %ci)
+  call fastcc void @get_commit_info(ptr noundef %2, ptr noundef %ci)
   %buf = getelementptr inbounds i8, ptr %ci, i64 16
   %3 = load ptr, ptr %buf, align 8
   %call = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %3)
@@ -3444,7 +3444,7 @@ declare void @maybe_flush_or_die(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @display_progress(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_commit_info(ptr noundef %commit, ptr noundef %ret) unnamed_addr #0 {
+define internal fastcc void @get_commit_info(ptr noundef %commit, ptr noundef nonnull %ret) unnamed_addr #0 {
 entry:
   %subject = alloca ptr, align 8
   %call = tail call ptr @get_log_output_encoding() #17
@@ -3453,12 +3453,12 @@ entry:
   %author_mail = getelementptr inbounds i8, ptr %ret, i64 24
   %author_time = getelementptr inbounds i8, ptr %ret, i64 48
   %author_tz = getelementptr inbounds i8, ptr %ret, i64 56
-  tail call fastcc void @get_ac_line(ptr noundef %call1, ptr noundef nonnull @.str.106, ptr noundef %ret, ptr noundef nonnull %author_mail, ptr noundef nonnull %author_time, ptr noundef nonnull %author_tz)
+  tail call fastcc void @get_ac_line(ptr noundef %call1, ptr noundef nonnull @.str.106, ptr noundef %ret, ptr noundef %author_mail, ptr noundef %author_time, ptr noundef %author_tz)
   %committer = getelementptr inbounds i8, ptr %ret, i64 80
   %committer_mail = getelementptr inbounds i8, ptr %ret, i64 104
   %committer_time = getelementptr inbounds i8, ptr %ret, i64 128
   %committer_tz = getelementptr inbounds i8, ptr %ret, i64 136
-  tail call fastcc void @get_ac_line(ptr noundef %call1, ptr noundef nonnull @.str.107, ptr noundef nonnull %committer, ptr noundef nonnull %committer_mail, ptr noundef nonnull %committer_time, ptr noundef nonnull %committer_tz)
+  tail call fastcc void @get_ac_line(ptr noundef %call1, ptr noundef nonnull @.str.107, ptr noundef %committer, ptr noundef %committer_mail, ptr noundef %committer_time, ptr noundef %committer_tz)
   %call2 = call i32 @find_commit_subject(ptr noundef %call1, ptr noundef nonnull %subject) #17
   %tobool3.not = icmp eq i32 %call2, 0
   %summary5 = getelementptr inbounds i8, ptr %ret, i64 160
@@ -3487,7 +3487,7 @@ declare ptr @get_log_output_encoding() local_unnamed_addr #2
 declare ptr @repo_logmsg_reencode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_ac_line(ptr noundef %inbuf, ptr nocapture noundef readonly %what, ptr noundef %name, ptr noundef %mail, ptr nocapture noundef writeonly %git_time, ptr noundef %tz) unnamed_addr #0 {
+define internal fastcc void @get_ac_line(ptr noundef %inbuf, ptr nocapture noundef readonly %what, ptr noundef nonnull %name, ptr noundef nonnull %mail, ptr nocapture noundef nonnull writeonly %git_time, ptr noundef nonnull %tz) unnamed_addr #0 {
 entry:
   %ident = alloca %struct.ident_split, align 8
   %maillen = alloca i64, align 8
@@ -3523,9 +3523,9 @@ if.end6:                                          ; preds = %if.else, %if.then4
   br i1 %tobool8.not, label %if.end10, label %error_out
 
 error_out:                                        ; preds = %if.end6, %entry
-  call void @strbuf_add(ptr noundef %name, ptr noundef nonnull @.str.109, i64 noundef 9) #17
-  call void @strbuf_add(ptr noundef %mail, ptr noundef nonnull @.str.109, i64 noundef 9) #17
-  call void @strbuf_add(ptr noundef %tz, ptr noundef nonnull @.str.109, i64 noundef 9) #17
+  call void @strbuf_add(ptr noundef nonnull %name, ptr noundef nonnull @.str.109, i64 noundef 9) #17
+  call void @strbuf_add(ptr noundef nonnull %mail, ptr noundef nonnull @.str.109, i64 noundef 9) #17
+  call void @strbuf_add(ptr noundef nonnull %tz, ptr noundef nonnull @.str.109, i64 noundef 9) #17
   store i64 0, ptr %git_time, align 8
   br label %return
 
@@ -3576,11 +3576,11 @@ if.then29:                                        ; preds = %if.end25
   %sub.ptr.lhs.cast33 = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast34 = ptrtoint ptr %6 to i64
   %sub.ptr.sub35 = sub i64 %sub.ptr.lhs.cast33, %sub.ptr.rhs.cast34
-  call void @strbuf_add(ptr noundef %tz, ptr noundef nonnull %6, i64 noundef %sub.ptr.sub35) #17
+  call void @strbuf_add(ptr noundef nonnull %tz, ptr noundef nonnull %6, i64 noundef %sub.ptr.sub35) #17
   br label %if.end37
 
 if.else36:                                        ; preds = %if.end25
-  call void @strbuf_add(ptr noundef %tz, ptr noundef nonnull @.str.109, i64 noundef 9) #17
+  call void @strbuf_add(ptr noundef nonnull %tz, ptr noundef nonnull @.str.109, i64 noundef 9) #17
   br label %if.end37
 
 if.end37:                                         ; preds = %if.else36, %if.then29
@@ -3588,10 +3588,10 @@ if.end37:                                         ; preds = %if.else36, %if.then
   %8 = load i64, ptr %maillen, align 8
   %conv39 = trunc i64 %8 to i32
   %9 = load ptr, ptr %mailbuf, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %mail, ptr noundef nonnull @.str.110, i32 noundef %conv39, ptr noundef %9) #17
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %mail, ptr noundef nonnull @.str.110, i32 noundef %conv39, ptr noundef %9) #17
   %10 = load ptr, ptr %namebuf, align 8
   %11 = load i64, ptr %namelen, align 8
-  call void @strbuf_add(ptr noundef %name, ptr noundef %10, i64 noundef %11) #17
+  call void @strbuf_add(ptr noundef nonnull %name, ptr noundef %10, i64 noundef %11) #17
   br label %return
 
 return:                                           ; preds = %if.end37, %error_out

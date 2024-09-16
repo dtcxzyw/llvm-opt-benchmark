@@ -6477,7 +6477,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit.thread: ; preds = %_ZNK5clang13CXXMeth
   store ptr %105, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %9, i64 40
   store i64 0, ptr %109, align 8
-  call fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %.0.shrunk)
+  call fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %.0.shrunk)
   %110 = getelementptr inbounds i8, ptr %10, i64 56
   %111 = getelementptr inbounds i8, ptr %10, i64 32
   %.val127 = load ptr, ptr %111, align 8
@@ -7794,7 +7794,7 @@ _ZNK12_GLOBAL__N_114DeclUseTracker16hasUnclaimedUsesEPKN5clang7VarDeclE.exit.thr
   br i1 %.not.i.i.i292, label %._crit_edge988, label %661
 
 661:                                              ; preds = %657
-  %662 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i291, ptr noundef nonnull %649)
+  %662 = call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %.val.i.i.i291, ptr noundef %649)
   br label %663
 
 663:                                              ; preds = %663, %661
@@ -11030,7 +11030,7 @@ _ZNSt6vectorIS_IPKN5clang7VarDeclESaIS3_EESaIS5_EEC2ERKS7_.exit: ; preds = %_ZSt
 
 2121:                                             ; preds = %_ZNSt6vectorIS_IPKN5clang7VarDeclESaIS3_EESaIS5_EEC2ERKS7_.exit
   %2122 = call noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #23
-  call fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(23096) %2122, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %31)
+  call fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(23096) %2122, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %2123 = load ptr, ptr %555, align 8
   call void @_ZNSt8_Rb_treeIPKN5clang7VarDeclESt4pairIKS3_N4llvm11SmallVectorINS0_9FixItHintELj4EEEESt10_Select1stISA_ESt4lessIS3_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %2123)
   store ptr null, ptr %555, align 8
@@ -11566,7 +11566,7 @@ _ZN17WarningGadgetSetsD2Ev.exit558:               ; preds = %_ZNSt5tupleIJSt6vec
 declare noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %6 = alloca %"class.clang::ast_matchers::internal::Matcher.552", align 8
   %7 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -12079,7 +12079,7 @@ define internal fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferU
   %416 = getelementptr inbounds nuw i8, ptr %356, i64 16
   store ptr %411, ptr %416, align 8, !alias.scope !253, !noalias !250
   %417 = atomicrmw add ptr %412, i32 1 monotonic, align 4, !noalias !256
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %361), !noalias !250
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %361), !noalias !250
   %418 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !257
   %419 = getelementptr inbounds i8, ptr %418, i64 8
   store i32 0, ptr %419, align 4, !noalias !257
@@ -12432,7 +12432,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   %567 = getelementptr inbounds nuw i8, ptr %344, i64 16
   store ptr %562, ptr %567, align 8, !alias.scope !309, !noalias !306
   %568 = atomicrmw add ptr %563, i32 1 monotonic, align 4, !noalias !312
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %349), !noalias !306
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %349), !noalias !306
   %569 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !313
   %570 = getelementptr inbounds i8, ptr %569, i64 8
   store i32 0, ptr %570, align 4, !noalias !313
@@ -12766,8 +12766,8 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %337)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.041.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.033.i)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %333), !noalias !362
-  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %334), !noalias !362
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %333), !noalias !362
+  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias writable align 8 %334), !noalias !362
   call void @llvm.experimental.noalias.scope.decl(metadata !365)
   %710 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !368
   store i32 %710, ptr %332, align 8, !alias.scope !365, !noalias !362
@@ -13717,7 +13717,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8QualTypeEED2Ev.exit7.i: ; preds = %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %1114, ptr noundef nonnull @.str.61, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.61, i64 1)) #24, !noalias !488
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %291, i64 noundef 1) #24, !noalias !488
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %290, ptr noundef nonnull align 8 dereferenceable(32) %291) #24, !noalias !488
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %295), !noalias !488
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %295), !noalias !488
   %1115 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !507
   %1116 = getelementptr inbounds i8, ptr %1115, i64 8
   store i32 0, ptr %1116, align 4, !noalias !507
@@ -14047,7 +14047,7 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Match
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1257, ptr noundef nonnull align 8 dereferenceable(32) %302) #24, !noalias !488
   %1258 = getelementptr inbounds i8, ptr %298, i64 104
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1258, ptr noundef nonnull align 8 dereferenceable(32) %299) #24, !noalias !488
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %313), !noalias !488
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %313), !noalias !488
   %1259 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !547
   %1260 = getelementptr inbounds i8, ptr %1259, i64 8
   store i32 0, ptr %1260, align 4, !noalias !547
@@ -15797,7 +15797,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit.i: ;
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit.i130
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit.i130: ; preds = %1998, %1994, %_ZN5clang12ast_matchers8internal7MatcherINS_18CXXConstructorDeclEED2Ev.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nonnull writable align 8 %241), !noalias !783
+  call fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias writable align 8 %241), !noalias !783
   call void @llvm.experimental.noalias.scope.decl(metadata !800)
   %2002 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !803
   %2003 = getelementptr inbounds i8, ptr %2002, i64 8
@@ -16884,7 +16884,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   %2471 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %2472 = load ptr, ptr %2471, align 8, !noalias !970
   store ptr null, ptr %2471, align 8, !noalias !970
-  call fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nonnull writable align 8 %375)
+  call fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias writable align 8 %375)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %211)
   call void @llvm.experimental.noalias.scope.decl(metadata !973)
@@ -17551,8 +17551,8 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit287: ; pred
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %207)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %208)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %209)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %200), !noalias !1032
-  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %201), !noalias !1032
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %200), !noalias !1032
+  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias writable align 8 %201), !noalias !1032
   call void @llvm.experimental.noalias.scope.decl(metadata !1035)
   %2769 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !1038
   store i32 %2769, ptr %199, align 8, !alias.scope !1035, !noalias !1032
@@ -17571,7 +17571,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit287: ; pred
   store ptr %2777, ptr %2775, align 8, !alias.scope !1035, !noalias !1032
   store ptr null, ptr %2776, align 8, !noalias !1038
   call void @_ZNKR5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_18PolymorphicMatcherINS1_23matcher_hasType0MatcherEFvNS1_8TypeListIJNS_4ExprENS_10FriendDeclENS_15TypedefNameDeclENS_9ValueDeclENS_16CXXBaseSpecifierEEEEEJNS1_7MatcherINS_8QualTypeEEEEEESG_EEcvNSD_IT_EEINS_11DeclRefExprEEEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.2069") align 8 %204, ptr noundef nonnull align 8 dereferenceable(56) %199), !noalias !1032
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %205), !noalias !1032
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %205), !noalias !1032
   call void @llvm.experimental.noalias.scope.decl(metadata !1039)
   call void @llvm.experimental.noalias.scope.decl(metadata !1042)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %198), !noalias !1045
@@ -17895,7 +17895,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
 
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit19.i: ; preds = %2917, %2913, %_ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9StringRefE.exit.i304
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %209, ptr noundef nonnull align 8 dereferenceable(24) %206, i32 179) #24, !noalias !1032
-  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %208, ptr noundef nonnull %209), !noalias !1032
+  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %208, ptr noundef %209), !noalias !1032
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %207, ptr noundef nonnull align 8 dereferenceable(24) %208, i32 179) #24, !noalias !1032
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %190), !noalias !1087
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %191), !noalias !1087
@@ -18267,7 +18267,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   %3075 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store ptr %3070, ptr %3075, align 8, !alias.scope !1124, !noalias !1121
   %3076 = atomicrmw add ptr %3071, i32 1 monotonic, align 4, !noalias !1127
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %182), !noalias !1121
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %182), !noalias !1121
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %171), !noalias !1128
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %172), !noalias !1128
   call void @llvm.experimental.noalias.scope.decl(metadata !1133)
@@ -18715,7 +18715,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13UnaryOperatorEED2Ev.exit.i: ; pred
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %177) #24, !noalias !1121
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %178) #24, !noalias !1121
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %185, ptr noundef nonnull align 8 dereferenceable(24) %173, i32 179) #24, !noalias !1121
-  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %184, ptr noundef nonnull %185), !noalias !1121
+  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nonnull writable align 8 %184, ptr noundef %185), !noalias !1121
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %183, ptr noundef nonnull align 8 dereferenceable(24) %184, i32 179) #24, !noalias !1121
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %163), !noalias !1188
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %164), !noalias !1188
@@ -18976,7 +18976,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   %3375 = getelementptr inbounds nuw i8, ptr %151, i64 16
   store ptr %3370, ptr %3375, align 8, !alias.scope !1214, !noalias !1211
   %3376 = atomicrmw add ptr %3371, i32 1 monotonic, align 4, !noalias !1217
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %160), !noalias !1211
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %160), !noalias !1211
   call void @llvm.experimental.noalias.scope.decl(metadata !1218)
   call void @llvm.experimental.noalias.scope.decl(metadata !1221)
   call void @llvm.experimental.noalias.scope.decl(metadata !1224)
@@ -19313,7 +19313,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %147, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.070.i, i64 12, i1 false), !noalias !1211
   %3513 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %3493, ptr %3513, align 8, !noalias !1211
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef nonnull %147), !noalias !1211
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef %147), !noalias !1211
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %145, ptr noundef nonnull align 8 dereferenceable(24) %146, i32 179) #24, !noalias !1211
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %135), !noalias !1295
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %136), !noalias !1295
@@ -19748,8 +19748,8 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %130)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %131)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %132)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %124), !noalias !1318
-  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %125), !noalias !1318
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %124), !noalias !1318
+  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias writable align 8 %125), !noalias !1318
   call void @llvm.experimental.noalias.scope.decl(metadata !1321)
   %3705 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !1324
   store i32 %3705, ptr %123, align 8, !alias.scope !1321, !noalias !1318
@@ -19767,7 +19767,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   %3713 = load ptr, ptr %3712, align 8, !noalias !1324
   store ptr %3713, ptr %3711, align 8, !alias.scope !1321, !noalias !1318
   store ptr null, ptr %3712, align 8, !noalias !1324
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %130), !noalias !1318
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %130), !noalias !1318
   call void @llvm.experimental.noalias.scope.decl(metadata !1325)
   %3714 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !1328
   store i32 %3714, ptr %129, align 8, !alias.scope !1325, !noalias !1318
@@ -20120,7 +20120,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11DeclRefExprEED2Ev.exit19.i: ; pred
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i: ; preds = %3869, %_ZN5clang12ast_matchers8internal7MatcherINS_11DeclRefExprEED2Ev.exit19.i
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %131, ptr noundef nonnull %132), !noalias !1318
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %131, ptr noundef %132), !noalias !1318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0796, ptr noundef nonnull align 8 dereferenceable(12) %131, i64 12, i1 false)
   %3872 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %3873 = load ptr, ptr %3872, align 8, !noalias !1318
@@ -20453,7 +20453,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %4005, ptr noundef nonnull @.str.68, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.68, i64 1)) #24, !noalias !1408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %97, i64 noundef 1) #24, !noalias !1408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef nonnull align 8 dereferenceable(32) %97) #24, !noalias !1408
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %102), !noalias !1408
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %102), !noalias !1408
   call void @llvm.experimental.noalias.scope.decl(metadata !1411)
   %4006 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !1414
   %4007 = getelementptr inbounds i8, ptr %4006, i64 8
@@ -20482,7 +20482,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %4017 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %4006, ptr %4017, align 8, !alias.scope !1411, !noalias !1408
   %4018 = atomicrmw add ptr %4007, i32 1 monotonic, align 4, !noalias !1414
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %103), !noalias !1408
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %103), !noalias !1408
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %93), !noalias !1415
   store ptr %101, ptr %93, align 16, !noalias !1418
   %4019 = getelementptr inbounds i8, ptr %93, i64 8
@@ -20626,7 +20626,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
 _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit.i474: ; preds = %4075, %_ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9StringRefE.exit.i473
   %4078 = atomicrmw add ptr %4070, i32 1 monotonic, align 4, !noalias !1438
   %4079 = atomicrmw add ptr %4070, i32 1 monotonic, align 4, !noalias !1441
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %107), !noalias !1408
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %107), !noalias !1408
   call void @llvm.experimental.noalias.scope.decl(metadata !1444)
   %4080 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !1447
   %4081 = getelementptr inbounds i8, ptr %4080, i64 8
@@ -20655,7 +20655,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %4091 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store ptr %4080, ptr %4091, align 8, !alias.scope !1444, !noalias !1408
   %4092 = atomicrmw add ptr %4081, i32 1 monotonic, align 4, !noalias !1447
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %108), !noalias !1408
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %108), !noalias !1408
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %88), !noalias !1448
   store ptr %106, ptr %88, align 16, !noalias !1451
   %4093 = getelementptr inbounds i8, ptr %88, i64 8
@@ -21170,7 +21170,7 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Match
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i501
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i501: ; preds = %4325, %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0MatcherEFvNS1_8TypeListIJNS_4ExprENS_10FriendDeclENS_15TypedefNameDeclENS_9ValueDeclENS_16CXXBaseSpecifierEEEEEJNS1_7MatcherINS_8QualTypeEEEEED2Ev.exit48.i
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull %110), !noalias !1408
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef %110), !noalias !1408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0787, ptr noundef nonnull align 8 dereferenceable(12) %109, i64 12, i1 false)
   %4328 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %4329 = load ptr, ptr %4328, align 8, !noalias !1408
@@ -21500,7 +21500,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %4452 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %4445, ptr %4452, align 8, !alias.scope !1532, !noalias !1503
   %4453 = atomicrmw add ptr %4446, i32 1 monotonic, align 4, !noalias !1535
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %72), !noalias !1503
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %72), !noalias !1503
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61), !noalias !1536
   store ptr %71, ptr %61, align 16, !noalias !1539
   %4454 = getelementptr inbounds i8, ptr %61, i64 8
@@ -21644,7 +21644,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
 _ZN5clang12ast_matchers6hasRHSERKNS0_8internal7MatcherINS_4ExprEEE.exit.i533: ; preds = %4510, %_ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9StringRefE.exit.i532
   %4513 = atomicrmw add ptr %4505, i32 1 monotonic, align 4, !noalias !1559
   %4514 = atomicrmw add ptr %4505, i32 1 monotonic, align 4, !noalias !1562
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %76), !noalias !1503
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %76), !noalias !1503
   call void @llvm.experimental.noalias.scope.decl(metadata !1565)
   %4515 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !1568
   %4516 = getelementptr inbounds i8, ptr %4515, i64 8
@@ -21673,7 +21673,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %4526 = getelementptr inbounds nuw i8, ptr %75, i64 16
   store ptr %4515, ptr %4526, align 8, !alias.scope !1565, !noalias !1503
   %4527 = atomicrmw add ptr %4516, i32 1 monotonic, align 4, !noalias !1568
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %77), !noalias !1503
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %77), !noalias !1503
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56), !noalias !1569
   store ptr %75, ptr %56, align 16, !noalias !1572
   %4528 = getelementptr inbounds i8, ptr %56, i64 8
@@ -22222,7 +22222,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit.i: ; preds
   br label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i569
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEEC2ERKS4_.exit.i569: ; preds = %4777, %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit.i
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull %79), !noalias !1503
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef %79), !noalias !1503
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0782, ptr noundef nonnull align 8 dereferenceable(12) %78, i64 12, i1 false)
   %4780 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %4781 = load ptr, ptr %4780, align 8, !noalias !1503
@@ -22372,7 +22372,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %44), !noalias !1624
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %44), !noalias !1624
   call void @llvm.experimental.noalias.scope.decl(metadata !1627)
   %4835 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !1630
   %4836 = getelementptr inbounds i8, ptr %4835, i64 8
@@ -22401,7 +22401,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %4846 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %4835, ptr %4846, align 8, !alias.scope !1627, !noalias !1624
   %4847 = atomicrmw add ptr %4836, i32 1 monotonic, align 4, !noalias !1630
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %45), !noalias !1624
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %45), !noalias !1624
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !1631
   store ptr %43, ptr %39, align 16, !noalias !1634
   %4848 = getelementptr inbounds i8, ptr %39, i64 8
@@ -23044,8 +23044,8 @@ _ZNSt8optionalIN5clang12ast_matchers8internal15DynTypedMatcherEED2Ev.exit.i615: 
 _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9StringRefE.exit618: ; preds = %_ZNSt8optionalIN5clang12ast_matchers8internal15DynTypedMatcherEED2Ev.exit.i615, %5118, %5122
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %395)
-  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %396)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %395)
+  call fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias writable align 8 %396)
   call void @llvm.experimental.noalias.scope.decl(metadata !1723)
   %5126 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !1723
   store i32 %5126, ptr %394, align 8, !alias.scope !1723
@@ -24711,7 +24711,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang7VarDeclENS_8DenseMapIS5_NS0_13DenseSetEm
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #1 {
+define internal fastcc void @_ZL9getFixItsR17FixableGadgetSetsRKN5clang13FixitStrategyERNS1_10ASTContextEPKNS1_4DeclERKN12_GLOBAL__N_114DeclUseTrackerERNS1_24UnsafeBufferUsageHandlerERKNS1_21VariableGroupsManagerE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) unnamed_addr #1 {
   %9 = alloca i64, align 8
   %10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25127,7 +25127,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %241, %235
   store i8 0, ptr %160, align 8, !noalias !1842
   %305 = load ptr, ptr %144, align 8, !noalias !1842
   %306 = load ptr, ptr %145, align 8, !noalias !1842
-  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull %198, ptr noundef nonnull align 8 dereferenceable(696) %305, ptr noundef nonnull align 8 dereferenceable(841) %306, ptr noundef nonnull %115), !noalias !1842
+  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef nonnull %198, ptr noundef nonnull align 8 dereferenceable(696) %305, ptr noundef nonnull align 8 dereferenceable(841) %306, ptr noundef %115), !noalias !1842
   %307 = load i8, ptr %161, align 8, !noalias !1842
   %308 = trunc i8 %307 to i1
   br i1 %308, label %310, label %309
@@ -25152,7 +25152,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %241, %235
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %117) #24, !noalias !1842
   %.val.i.i = load ptr, ptr %144, align 8, !noalias !1842
   %.val15.i.i = load ptr, ptr %145, align 8, !noalias !1842
-  call fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias nonnull writable align 8 %118, ptr noundef nonnull %198, ptr %.val.i.i, ptr %.val15.i.i), !noalias !1842
+  call fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias writable align 8 %118, ptr noundef nonnull %198, ptr %.val.i.i, ptr %.val15.i.i), !noalias !1842
   %322 = load i8, ptr %160, align 8, !noalias !1842
   %323 = trunc i8 %322 to i1
   %324 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %116) #24, !noalias !1842
@@ -25161,11 +25161,11 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %241, %235
 
 326:                                              ; preds = %310
   %.sroa.02.0.copyload.i.i = load i64, ptr %115, align 8, !noalias !1842
-  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr %324, i64 %325, i64 %.sroa.02.0.copyload.i.i, i8 %322), !noalias !1842
+  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %119, ptr %324, i64 %325, i64 %.sroa.02.0.copyload.i.i, i8 %322), !noalias !1842
   br label %328
 
 327:                                              ; preds = %310
-  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr %324, i64 %325, i64 undef, i8 0), !noalias !1842
+  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %120, ptr %324, i64 %325, i64 undef, i8 0), !noalias !1842
   br label %328
 
 328:                                              ; preds = %327, %326
@@ -25432,7 +25432,7 @@ _ZNK12_GLOBAL__N_114DeclUseTracker10lookupDeclEPKN5clang7VarDeclE.exit.thread.i:
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull %169, i64 noundef 4) #24, !noalias !1864
   %.val18.i.i = load ptr, ptr %144, align 8, !noalias !1864
   %.val19.i.i = load ptr, ptr %145, align 8, !noalias !1864
-  call fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef %198, ptr %.val18.i.i, ptr %.val19.i.i), !noalias !1864
+  call fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %198, ptr %.val18.i.i, ptr %.val19.i.i), !noalias !1864
   %427 = load i8, ptr %170, align 8, !noalias !1864
   %428 = trunc i8 %427 to i1
   br i1 %428, label %430, label %429
@@ -26282,7 +26282,7 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.i.i.i: ; preds
   %740 = load ptr, ptr %144, align 8, !noalias !1899
   %741 = load ptr, ptr %145, align 8, !noalias !1899
   %.val39.i.i.i = load i32, ptr %678, align 8, !noalias !1899
-  call fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias nonnull writable align 8 %106, i32 %.val39.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %740, ptr noundef nonnull align 8 dereferenceable(841) %741), !noalias !1899
+  call fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias writable align 8 %106, i32 %.val39.i.i.i, ptr noundef nonnull align 8 dereferenceable(696) %740, ptr noundef nonnull align 8 dereferenceable(841) %741), !noalias !1899
   %742 = load i8, ptr %152, align 8, !noalias !1899
   %743 = trunc i8 %742 to i1
   br i1 %743, label %745, label %744
@@ -27990,7 +27990,7 @@ _ZNK5clang13FixitStrategy6lookupEPKNS_7VarDeclE.exit60.thread.i.i: ; preds = %_Z
 
 1335:                                             ; preds = %_ZNK5clang13FixitStrategy6lookupEPKNS_7VarDeclE.exit60.i.i
   store i8 0, ptr %1273, align 8, !noalias !1923
-  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef %1279, ptr noundef nonnull align 8 dereferenceable(696) %1258, ptr noundef nonnull align 8 dereferenceable(841) %1260, ptr noundef nonnull %81), !noalias !1917
+  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %82, ptr noundef %1279, ptr noundef nonnull align 8 dereferenceable(696) %1258, ptr noundef nonnull align 8 dereferenceable(841) %1260, ptr noundef %81), !noalias !1917
   %1336 = load i8, ptr %1274, align 8, !noalias !1923
   %1337 = trunc i8 %1336 to i1
   br i1 %1337, label %1339, label %1338
@@ -28004,7 +28004,7 @@ _ZNK5clang13FixitStrategy6lookupEPKNS_7VarDeclE.exit60.thread.i.i: ; preds = %_Z
   %1341 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #24, !noalias !1917
   %.sroa.014.0.copyload.i.i = load i64, ptr %81, align 8, !noalias !1923
   %.sroa.2.0.copyload.i.i = load i8, ptr %1273, align 8, !noalias !1923
-  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr %1340, i64 %1341, i64 %.sroa.014.0.copyload.i.i, i8 %.sroa.2.0.copyload.i.i), !noalias !1917
+  call fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %83, ptr %1340, i64 %1341, i64 %.sroa.014.0.copyload.i.i, i8 %.sroa.2.0.copyload.i.i), !noalias !1917
   %1342 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1264, i64 %indvars.iv.i.i
   %1343 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1342, ptr noundef nonnull align 8 dereferenceable(32) %83) #24, !noalias !1917
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %83) #24, !noalias !1917
@@ -79184,7 +79184,7 @@ declare void @_ZN5clang12ast_matchers11MatchFinderC1ENS1_18MatchFinderOptionsE(p
 declare void @_ZN5clang12ast_matchers11MatchFinder10addMatcherERKNS0_8internal7MatcherINS_4StmtEEEPNS1_13MatchCallbackE(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 align 2 {
 _ZN5clang12ast_matchers14hasDeclContextERKNS0_8internal7MatcherINS_4DeclEEE.exit:
   %1 = alloca %"class.std::optional.2326", align 8
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -79692,7 +79692,7 @@ define linkonce_odr hidden void @_ZN32DerefSimplePtrArithFixableGadget7matcherEv
   %67 = alloca %"class.std::allocator.141", align 1
   %68 = alloca %"class.clang::ast_matchers::internal::PolymorphicMatcher.2314", align 8
   %69 = alloca %"class.clang::ast_matchers::internal::Matcher", align 8
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %31)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2188)
   %70 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !2188
   %71 = getelementptr inbounds i8, ptr %70, i64 8
@@ -79721,7 +79721,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %81 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %70, ptr %81, align 8, !alias.scope !2188
   %82 = atomicrmw add ptr %71, i32 1 monotonic, align 4, !noalias !2188
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %35)
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %35)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27), !noalias !2191
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28), !noalias !2191
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2196)
@@ -81235,7 +81235,7 @@ _ZNK5clang12ast_matchers8internal15BindableMatcherINS_4StmtEE4bindEN4llvm9String
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11ASTNodeKindE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::DynTypedMatcher") align 8 %61, ptr noundef nonnull align 8 dereferenceable(24) %62, i32 179) #24
-  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %61)
+  call fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %61)
   %752 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %753 = load ptr, ptr %752, align 8
   %.not.i.i.i.i108 = icmp eq ptr %753, null
@@ -81433,7 +81433,7 @@ define linkonce_odr hidden void @_ZN21UPCPreIncrementGadget7matcherEv(ptr dead_o
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %18, ptr %22, align 8, !alias.scope !2367
   %23 = atomicrmw add ptr %19, i32 1 monotonic, align 4, !noalias !2367
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %17)
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2368)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2371)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2374)
@@ -81671,7 +81671,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %9, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.032, i64 12, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %100, ptr %120, align 8
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %9)
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !2415)
   call void @llvm.experimental.noalias.scope.decl(metadata !2418)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
@@ -81930,7 +81930,7 @@ define linkonce_odr hidden void @_ZN18UUCAddAssignGadget7matcherEv(ptr dead_on_u
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %34, ptr %39, align 8, !alias.scope !2422
   %40 = atomicrmw add ptr %35, i32 1 monotonic, align 4, !noalias !2422
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %28)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %28)
   call void @llvm.experimental.noalias.scope.decl(metadata !2425)
   %41 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !2425
   %42 = getelementptr inbounds i8, ptr %41, i64 8
@@ -81959,7 +81959,7 @@ _ZNO5clang12ast_matchers8internal18PolymorphicMatcherINS1_23matcher_hasType0Matc
   %52 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %41, ptr %52, align 8, !alias.scope !2425
   %53 = atomicrmw add ptr %42, i32 1 monotonic, align 4, !noalias !2425
-  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nonnull writable align 8 %29)
+  call fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias writable align 8 %29)
   call void @llvm.experimental.noalias.scope.decl(metadata !2428)
   call void @llvm.experimental.noalias.scope.decl(metadata !2431)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2428
@@ -82374,7 +82374,7 @@ _ZNK5clang12ast_matchers8internal16VariadicFunctionINS1_15BindableMatcherINS_4St
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.058, i64 12, i1 false)
   %223 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %203, ptr %223, align 8
-  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  call fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !2498)
   call void @llvm.experimental.noalias.scope.decl(metadata !2501)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %15, i64 12, i1 false)
@@ -82690,7 +82690,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_14BinaryOperatorEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.2692", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
@@ -82886,7 +82886,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.2700", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
@@ -84081,7 +84081,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2
 
 247:                                              ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %249 = load ptr, ptr %15, align 8
   store ptr %249, ptr %14, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %248, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -84103,7 +84103,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113FixableGadgetEEclEPS1_.exit.i100: ; pred
 
 256:                                              ; preds = %254
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %258 = load ptr, ptr %17, align 8
   store ptr %258, ptr %16, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -84125,7 +84125,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113FixableGadgetEEclEPS1_.exit.i104: ; pred
 
 265:                                              ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %267 = load ptr, ptr %19, align 8
   store ptr %267, ptr %18, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %266, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -84217,7 +84217,7 @@ _ZNKSt14default_deleteI18UUCAddAssignGadgetEclEPS0_.exit.i: ; preds = %_ZNSt10un
 
 300:                                              ; preds = %298
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %302 = load ptr, ptr %25, align 8
   store ptr %302, ptr %24, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %301, ptr noundef nonnull align 8 dereferenceable(8) %24)
@@ -84239,7 +84239,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113FixableGadgetEEclEPS1_.exit.i120: ; pred
 
 309:                                              ; preds = %307
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %311 = load ptr, ptr %27, align 8
   store ptr %311, ptr %26, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %310, ptr noundef nonnull align 8 dereferenceable(8) %26)
@@ -84261,7 +84261,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113FixableGadgetEEclEPS1_.exit.i124: ; pred
 
 318:                                              ; preds = %316
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %320 = load ptr, ptr %29, align 8
   store ptr %320, ptr %28, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %319, ptr noundef nonnull align 8 dereferenceable(8) %28)
@@ -84283,7 +84283,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113FixableGadgetEEclEPS1_.exit.i128: ; pred
 
 327:                                              ; preds = %325
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %329 = load ptr, ptr %31, align 8
   store ptr %329, ptr %30, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %328, ptr noundef nonnull align 8 dereferenceable(8) %30)
@@ -84305,7 +84305,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i: ; preds =
 
 336:                                              ; preds = %334
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %338 = load ptr, ptr %33, align 8
   store ptr %338, ptr %32, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %337, ptr noundef nonnull align 8 dereferenceable(8) %32)
@@ -84327,7 +84327,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i134: ; pred
 
 345:                                              ; preds = %343
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %347 = load ptr, ptr %35, align 8
   store ptr %347, ptr %34, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %346, ptr noundef nonnull align 8 dereferenceable(8) %34)
@@ -84349,7 +84349,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i138: ; pred
 
 354:                                              ; preds = %352
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %356 = load ptr, ptr %37, align 8
   store ptr %356, ptr %36, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %355, ptr noundef nonnull align 8 dereferenceable(8) %36)
@@ -84371,7 +84371,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i142: ; pred
 
 363:                                              ; preds = %361
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %365 = load ptr, ptr %39, align 8
   store ptr %365, ptr %38, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %364, ptr noundef nonnull align 8 dereferenceable(8) %38)
@@ -84393,7 +84393,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i146: ; pred
 
 372:                                              ; preds = %370
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %374 = load ptr, ptr %41, align 8
   store ptr %374, ptr %40, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %373, ptr noundef nonnull align 8 dereferenceable(8) %40)
@@ -84415,7 +84415,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i150: ; pred
 
 381:                                              ; preds = %379
   %382 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %383 = load ptr, ptr %43, align 8
   store ptr %383, ptr %42, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %382, ptr noundef nonnull align 8 dereferenceable(8) %42)
@@ -84437,7 +84437,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_113WarningGadgetEEclEPS1_.exit.i154: ; pred
 
 390:                                              ; preds = %388
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(64) %1)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(64) %1)
   %392 = load ptr, ptr %45, align 8
   store ptr %392, ptr %44, align 8
   call fastcc void @_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %391, ptr noundef nonnull align 8 dereferenceable(8) %44)
@@ -84587,7 +84587,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84652,7 +84652,7 @@ _ZN12_GLOBAL__N_124PointerDereferenceGadgetC2ERKN5clang12ast_matchers11MatchFind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -84690,7 +84690,7 @@ _ZN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetC2ERKN5clang12ast_matchers11M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -84831,7 +84831,7 @@ _ZN18UUCAddAssignGadgetC2ERKN5clang12ast_matchers11MatchFinder11MatchResultE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84896,7 +84896,7 @@ _ZN12_GLOBAL__N_124PtrToPtrAssignmentGadgetC2ERKN5clang12ast_matchers11MatchFind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84961,7 +84961,7 @@ _ZN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetC2ERKN5clang12ast_matchers11MatchF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -85111,7 +85111,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85149,7 +85149,7 @@ _ZN12_GLOBAL__N_115IncrementGadgetC2ERKN5clang12ast_matchers11MatchFinder11Match
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85187,7 +85187,7 @@ _ZN12_GLOBAL__N_115DecrementGadgetC2ERKN5clang12ast_matchers11MatchFinder11Match
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85225,7 +85225,7 @@ _ZN12_GLOBAL__N_120ArraySubscriptGadgetC2ERKN5clang12ast_matchers11MatchFinder11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -85290,7 +85290,7 @@ _ZN12_GLOBAL__N_123PointerArithmeticGadgetC2ERKN5clang12ast_matchers11MatchFinde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85328,7 +85328,7 @@ _ZN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetC2ERKN5clang12ast_matchers11MatchF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85366,7 +85366,7 @@ _ZN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetC2ERKN5clang12ast_matchers11Ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85404,7 +85404,7 @@ _ZN12_GLOBAL__N_120DataInvocationGadgetC2ERKN5clang12ast_matchers11MatchFinder11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -96454,7 +96454,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.426", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
@@ -96616,7 +96616,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.2430", align 8
   %5 = alloca [1 x ptr], align 8
@@ -98903,7 +98903,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedPointerContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #1 {
 _ZNSt11_Tuple_implILm1EJN5clang12ast_matchers8internal7MatcherINS0_8QualTypeEEEEEC2ERKS5_.exit.i.i.i.i:
   %2 = alloca [6 x ptr], align 16
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -99291,7 +99291,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4ExprEED2Ev.exit: ; preds = %_ZN5cla
   %198 = getelementptr inbounds i8, ptr %21, i64 48
   store ptr %186, ptr %198, align 8, !alias.scope !3278
   call void @_ZNO5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_7MatcherINS_8CastExprEEES5_EEcvNS3_IT_EEIS4_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.2556") align 8 %20, ptr noundef nonnull align 8 dereferenceable(56) %21)
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %25)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !3281)
   %199 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !3281
   store i32 %199, ptr %24, align 8, !alias.scope !3281
@@ -99590,7 +99590,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8CastExprEED2Ev.exit26: ; preds = %_
   %329 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %317, ptr %329, align 8, !alias.scope !3308
   %330 = atomicrmw add ptr %323, i32 1 monotonic, align 4, !noalias !3308
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %33)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %33)
   call void @llvm.experimental.noalias.scope.decl(metadata !3311)
   %331 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !3311
   store i32 %331, ptr %32, align 8, !alias.scope !3311
@@ -99616,7 +99616,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8CastExprEED2Ev.exit26: ; preds = %_
   br label %_ZN5clang12ast_matchers6hasLHSERKNS0_8internal7MatcherINS_4ExprEEE.exit
 
 _ZN5clang12ast_matchers6hasLHSERKNS0_8internal7MatcherINS_4ExprEEE.exit: ; preds = %_ZN5clang12ast_matchers8internal7MatcherINS_8CastExprEED2Ev.exit26, %339
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %36)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %36)
   call void @llvm.experimental.noalias.scope.decl(metadata !3317)
   %342 = load i32, ptr @_ZN5clang12ast_matchers5allOfE, align 4, !noalias !3317
   store i32 %342, ptr %35, align 8, !alias.scope !3317
@@ -99866,7 +99866,7 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_25HasAnyOperatorNameMat
   %454 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %449, ptr %454, align 8, !alias.scope !3326
   %455 = atomicrmw add ptr %450, i32 1 monotonic, align 4, !noalias !3326
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %43)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %43)
   %456 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !3329
   %457 = getelementptr inbounds i8, ptr %456, i64 8
   store i32 0, ptr %457, align 4, !noalias !3329
@@ -99888,7 +99888,7 @@ _ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_25HasAnyOperatorNameMat
 _ZN5clang12ast_matchers6hasLHSERKNS0_8internal7MatcherINS_4ExprEEE.exit49: ; preds = %_ZN5clang12ast_matchers8internal18PolymorphicMatcherINS1_25HasAnyOperatorNameMatcherEFvNS1_8TypeListIJNS_14BinaryOperatorENS_19CXXOperatorCallExprENS_26CXXRewrittenBinaryOperatorENS_13UnaryOperatorEEEEEJSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EEEED2Ev.exit, %462
   %465 = atomicrmw add ptr %457, i32 1 monotonic, align 4, !noalias !3329
   %466 = atomicrmw add ptr %457, i32 1 monotonic, align 4, !noalias !3332
-  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nonnull writable align 8 %44)
+  call fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias writable align 8 %44)
   %467 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !3335
   %468 = getelementptr inbounds i8, ptr %467, i64 8
   store i32 0, ptr %468, align 4, !noalias !3335
@@ -104102,7 +104102,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11DeclRefExprEED2Ev.exit3: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.2666", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
@@ -105475,7 +105475,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN5clang7VarDeclESt4pairIKS3_St3set
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %3, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
@@ -105493,7 +105493,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113Fi
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %10, ptr noundef nonnull %4)
+  %12 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %10, ptr noundef %4)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %12, ptr %13, align 8
   br label %14
@@ -105526,7 +105526,7 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113Fi
   br i1 %.not29, label %27, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %23, ptr noundef nonnull %16)
+  %25 = tail call fastcc noundef ptr @_ZNSt8_Rb_treeIPKN12_GLOBAL__N_113FixableGadgetES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE7_M_copyILb0ENS9_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS3_ESE_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %23, ptr noundef %16)
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %25, ptr %26, align 8
   br label %27
@@ -106292,7 +106292,7 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %2, %_ZNK5clang4Decl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr nocapture noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr nocapture noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca %"class.std::allocator.141", align 1
   %7 = alloca i8, align 1
   %8 = alloca %"class.clang::TypeLoc", align 8
@@ -106541,7 +106541,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %111, %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr nonnull %.2104.val, ptr nonnull %.2112.val) unnamed_addr #1 {
+define internal fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDeclERKNS_10ASTContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly %1, ptr nonnull %.2104.val, ptr nonnull %.2112.val) unnamed_addr #1 {
   %3 = alloca %"class.std::optional.2770", align 8
   %4 = alloca %"class.std::optional.2778", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -106549,7 +106549,7 @@ define internal fastcc void @_ZL24createSpanTypeForVarDeclB5cxx11PKN5clang7VarDe
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 0, ptr %8, align 8
-  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %.2104.val, ptr noundef nonnull align 8 dereferenceable(841) %.2112.val, ptr noundef nonnull %3)
+  call fastcc void @_ZL18getPointeeTypeTextB5cxx11PKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsEPSt8optionalINS_10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(696) %.2104.val, ptr noundef nonnull align 8 dereferenceable(841) %.2112.val, ptr noundef %3)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -106602,7 +106602,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, i64 %3, i8 %4) unnamed_addr #1 {
+define internal fastcc void @_ZL15getSpanTypeTextB5cxx11N4llvm9StringRefESt8optionalIN5clang10QualifiersEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, i64 %3, i8 %4) unnamed_addr #1 {
   %6 = alloca %"class.std::allocator.141", align 1
   %7 = alloca %"class.std::allocator.141", align 1
   %8 = alloca %"class.std::optional.2770", align 8
@@ -107092,7 +107092,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE21takeAllocationForGrow
 declare void @_ZN5clang5Lexer13findNextTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind writable sret(%"class.std::optional.2794") align 8, i32, ptr noundef nonnull align 8 dereferenceable(696), ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.24.val, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.24.val, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = tail call i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.24.val, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) #24
   %6 = icmp slt i32 %5, 0

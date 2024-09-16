@@ -62,8 +62,8 @@ if.end:                                           ; preds = %for.body
   br i1 %or.cond202.not, label %if.end20, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end
-  %idxprom.i = zext nneg i8 %2 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext nneg i8 %2 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = shl i8 %3, 3
   %5 = and i8 %4, 32
@@ -78,8 +78,8 @@ if.end20:                                         ; preds = %land.lhs.true13, %i
   br i1 %or.cond204.not, label %if.end36, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end20
-  %idxprom.i233 = zext nneg i8 %1 to i64
-  %arrayidx.i234 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i233
+  %conv.i233 = zext nneg i8 %1 to i64
+  %arrayidx.i234 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i233
   %6 = load i8, ptr %arrayidx.i234, align 1
   %7 = shl i8 %6, 3
   %8 = and i8 %7, 32
@@ -238,8 +238,8 @@ while.body168.us422:                              ; preds = %while.body168.lr.ph
   br i1 %cmp174.us, label %if.end184.us, label %land.lhs.true176.us
 
 land.lhs.true176.us:                              ; preds = %while.body168.us422
-  %idxprom.i263.us = zext nneg i8 %21 to i64
-  %arrayidx.i264.us = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i263.us
+  %conv.i263.us = zext nneg i8 %21 to i64
+  %arrayidx.i264.us = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i263.us
   %22 = load i8, ptr %arrayidx.i264.us, align 1
   %23 = shl i8 %22, 3
   %24 = and i8 %23, 32

@@ -611,7 +611,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, -2147483646) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -701,10 +701,10 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_bacnet_snet, align 4
   %66 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %65, ptr noundef %0, i32 noundef %.0566, i32 noundef 2, i32 noundef 0) #2
-  %67 = add i32 %.0566, 2
+  %67 = add nuw i32 %.0566, 2
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %67) #2
   %69 = zext i8 %68 to i32
-  %70 = add i32 %.0566, 3
+  %70 = add nuw i32 %.0566, 3
   switch i8 %68, label %86 [
     i8 0, label %71
     i8 6, label %74
@@ -721,7 +721,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %76 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %75, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #2
   %77 = load i32, ptr @hf_bacnet_sadr_eth, align 4
   %78 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %77, ptr noundef %0, i32 noundef %70, i32 noundef 6, i32 noundef 0) #2
-  %79 = add i32 %.0566, 9
+  %79 = add nuw i32 %.0566, 9
   br label %96
 
 80:                                               ; preds = %64
@@ -729,7 +729,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %81, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #2
   %83 = load i32, ptr @hf_bacnet_sadr_mstp, align 4
   %84 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %83, ptr noundef %0, i32 noundef %70, i32 noundef 1, i32 noundef 0) #2
-  %85 = add i32 %.0566, 4
+  %85 = add nuw i32 %.0566, 4
   br label %96
 
 86:                                               ; preds = %64
@@ -741,7 +741,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %88, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #2
   %91 = load i32, ptr @hf_bacnet_sadr_tmp, align 4
   %92 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %91, ptr noundef %0, i32 noundef %70, i32 noundef %69, i32 noundef 0) #2
-  %93 = add i32 %70, %69
+  %93 = add nuw i32 %70, %69
   br label %96
 
 94:                                               ; preds = %86
@@ -755,7 +755,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
 97:                                               ; preds = %96
   %98 = load i32, ptr @hf_bacnet_hopc, align 4
   %99 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %100 = add i32 %.1, 1
+  %100 = add nuw i32 %.1, 1
   br label %101
 
 101:                                              ; preds = %97, %96
@@ -771,7 +771,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %107 = load ptr, ptr %6, align 8
   %108 = tail call ptr @rval_to_str_const(i32 noundef %105, ptr noundef nonnull @bacnet_msgtype_rvals, ptr noundef nonnull @.str.275) #2
   tail call void @col_add_str(ptr noundef %107, i32 noundef 25, ptr noundef %108) #2
-  %109 = add i32 %.2, 1
+  %109 = add nuw i32 %.2, 1
   switch i8 %103, label %449 [
     i8 2, label %110
     i8 3, label %117
@@ -798,19 +798,19 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
 110:                                              ; preds = %102
   %111 = load i32, ptr @hf_bacnet_dnet, align 4
   %112 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %111, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
-  %113 = add i32 %.2, 3
+  %113 = add nuw i32 %.2, 3
   %114 = load i32, ptr @hf_bacnet_perf, align 4
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #2
-  %116 = add i32 %.2, 4
+  %116 = add nuw i32 %.2, 4
   br label %.loopexit
 
 117:                                              ; preds = %102
   %118 = load i32, ptr @hf_bacnet_rejectreason, align 4
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %118, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef 0) #2
-  %120 = add i32 %.2, 2
+  %120 = add nuw i32 %.2, 2
   %121 = load i32, ptr @hf_bacnet_dnet, align 4
   %122 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %121, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef 0) #2
-  %123 = add i32 %.2, 4
+  %123 = add nuw i32 %.2, 4
   br label %.loopexit
 
 124:                                              ; preds = %102, %102, %102, %102
@@ -831,7 +831,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %133 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %109) #2
   %134 = load i32, ptr @hf_bacnet_rportnum, align 4
   %135 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %134, ptr noundef %0, i32 noundef %109, i32 noundef 1, i32 noundef 0) #2
-  %136 = add i32 %.2, 2
+  %136 = add nuw i32 %.2, 2
   %137 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %136) #2
   %138 = icmp sgt i32 %137, 1
   %139 = icmp ne i8 %133, 0
@@ -865,25 +865,25 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
 160:                                              ; preds = %102
   %161 = load i32, ptr @hf_bacnet_dnet, align 4
   %162 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %161, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
-  %163 = add i32 %.2, 3
+  %163 = add nuw i32 %.2, 3
   %164 = load i32, ptr @hf_bacnet_term_time_value, align 4
   %165 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 1, i32 noundef 0) #2
-  %166 = add i32 %.2, 4
+  %166 = add nuw i32 %.2, 4
   br label %.loopexit
 
 167:                                              ; preds = %102
   %168 = load i32, ptr @hf_bacnet_dnet, align 4
   %169 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %168, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
-  %170 = add i32 %.2, 3
+  %170 = add nuw i32 %.2, 3
   br label %.loopexit
 
 171:                                              ; preds = %102
   %172 = load i32, ptr @hf_bacnet_dnet, align 4
   %173 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %172, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
-  %174 = add i32 %.2, 3
+  %174 = add nuw i32 %.2, 3
   %175 = load i32, ptr @hf_bacnet_netno_status, align 4
   %176 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %175, ptr noundef %0, i32 noundef %174, i32 noundef 1, i32 noundef 0) #2
-  %177 = add i32 %.2, 4
+  %177 = add nuw i32 %.2, 4
   br label %.loopexit
 
 178:                                              ; preds = %102
@@ -1288,7 +1288,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   %454 = zext i16 %453 to i32
   %455 = load i32, ptr @hf_bacnet_vendor, align 4
   %456 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %455, ptr noundef %0, i32 noundef %109, i32 noundef 2, i32 noundef 0) #2
-  %457 = add i32 %.2, 3
+  %457 = add nuw i32 %.2, 3
   %458 = load ptr, ptr @bacnet_dissector_table, align 8
   %459 = tail call i32 @dissector_try_uint(ptr noundef %458, i32 noundef %454, ptr noundef %452, ptr noundef nonnull %1, ptr noundef %15) #2
   %.not590 = icmp eq i32 %459, 0

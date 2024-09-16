@@ -36,7 +36,7 @@ define dso_local i32 @curl_mvsnprintf(ptr noundef writeonly %0, i64 noundef %1, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
-  %11 = call fastcc i32 @parsefmt(ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %11 = call fastcc i32 @parsefmt(ptr noundef %2, ptr noundef %7, ptr noundef %8, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %.not.i = icmp eq i32 %11, 0
   %12 = load i32, ptr %5, align 4
   %13 = icmp sgt i32 %12, 0
@@ -1127,7 +1127,7 @@ define internal fastcc void @formatf(ptr noundef %0, ptr nocapture noundef reado
   %10 = alloca [32 x i8], align 16
   store i32 0, ptr %5, align 4
   store i32 0, ptr %6, align 4
-  %11 = call fastcc i32 @parsefmt(ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %11 = call fastcc i32 @parsefmt(ptr noundef %2, ptr noundef %7, ptr noundef %8, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %.not = icmp eq i32 %11, 0
   %12 = load i32, ptr %5, align 4
   %13 = icmp sgt i32 %12, 0
@@ -2292,7 +2292,7 @@ define dso_local i32 @curl_mvfprintf(ptr nocapture noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 12) i32 @parsefmt(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #3 {
+define internal fastcc range(i32 0, 12) i32 @parsefmt(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef %5) unnamed_addr #3 {
   %7 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %thread-pre-split.outer
@@ -3318,7 +3318,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %9 = alloca [32 x i8], align 16
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
-  %10 = call fastcc i32 @parsefmt(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
+  %10 = call fastcc i32 @parsefmt(ptr noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %4, ptr noundef %5, ptr noundef %2)
   %.not = icmp eq i32 %10, 0
   %11 = load i32, ptr %4, align 4
   %12 = icmp sgt i32 %11, 0
@@ -4330,7 +4330,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %9 = alloca [32 x i8], align 16
   store i32 0, ptr %4, align 4
   store i32 0, ptr %5, align 4
-  %10 = call fastcc i32 @parsefmt(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
+  %10 = call fastcc i32 @parsefmt(ptr noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %4, ptr noundef %5, ptr noundef %2)
   %.not = icmp eq i32 %10, 0
   %11 = load i32, ptr %4, align 4
   %12 = icmp sgt i32 %11, 0

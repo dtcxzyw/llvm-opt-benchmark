@@ -92,13 +92,13 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 define range(i32 0, 2) i32 @agerr(i32 noundef %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call fastcc i32 @agerr_va(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @agerr_va(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = icmp eq i32 %0, 3
   %6 = load i32, ptr @agerrno, align 4
@@ -120,14 +120,14 @@ define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocaptu
 
 15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %2)
   %16 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %4) #16
   call void @llvm.va_end.p0(ptr nonnull %4)
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  call void @llvm.va_end.p0(ptr %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %19 = load ptr, ptr @stderr, align 8
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.userout) #14
   br label %userout.exit
@@ -140,7 +140,7 @@ define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocaptu
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %21
-  call void @llvm.va_end.p0(ptr %2)
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %26 = load ptr, ptr @stderr, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.userout) #14
   br label %userout.exit
@@ -158,8 +158,8 @@ define internal fastcc range(i32 0, 2) i32 @agerr_va(i32 noundef %0, ptr nocaptu
   br label %36
 
 36:                                               ; preds = %29, %28
-  %37 = call i32 @vsnprintf(ptr noundef nonnull %23, i64 noundef %22, ptr noundef readonly %1, ptr noundef %2) #16
-  call void @llvm.va_end.p0(ptr %2)
+  %37 = call i32 @vsnprintf(ptr noundef nonnull %23, i64 noundef %22, ptr noundef readonly %1, ptr noundef nonnull %2) #16
+  call void @llvm.va_end.p0(ptr nonnull %2)
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %42
 
@@ -191,8 +191,8 @@ userout.exit:                                     ; preds = %18, %25, %39, %42
 
 51:                                               ; preds = %46, %45
   %52 = load ptr, ptr @stderr, align 8
-  %53 = tail call i32 @vfprintf(ptr noundef %52, ptr noundef %1, ptr noundef %2) #14
-  tail call void @llvm.va_end.p0(ptr %2)
+  %53 = tail call i32 @vfprintf(ptr noundef %52, ptr noundef %1, ptr noundef nonnull %2) #14
+  tail call void @llvm.va_end.p0(ptr nonnull %2)
   br label %65
 
 54:                                               ; preds = %3
@@ -218,7 +218,7 @@ userout.exit:                                     ; preds = %18, %25, %39, %42
 
 62:                                               ; preds = %60, %58
   %63 = phi ptr [ %.pre, %60 ], [ %59, %58 ]
-  %64 = tail call i32 @vfprintf(ptr noundef %63, ptr noundef %1, ptr noundef %2) #16
+  %64 = tail call i32 @vfprintf(ptr noundef %63, ptr noundef %1, ptr noundef nonnull %2) #16
   br label %65
 
 65:                                               ; preds = %56, %userout.exit, %51, %62
@@ -230,7 +230,7 @@ userout.exit:                                     ; preds = %18, %25, %39, %42
 define void @agerrorf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = call fastcc i32 @agerr_va(i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @agerr_va(i32 noundef 1, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -239,7 +239,7 @@ define void @agerrorf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr
 define void @agwarningf(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #3 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  %3 = call fastcc i32 @agerr_va(i32 noundef 0, ptr noundef %0, ptr noundef nonnull %2)
+  %3 = call fastcc i32 @agerr_va(i32 noundef 0, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }

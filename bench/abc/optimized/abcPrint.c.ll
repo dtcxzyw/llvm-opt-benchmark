@@ -8714,70 +8714,70 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %31, i64 20
   %.val3.i = load i32, ptr %38, align 4
-  %39 = ptrtoint ptr %37 to i64
-  %40 = lshr i32 %.val3.i, 10
-  %.lobit.i = and i32 %40, 1
-  %41 = zext nneg i32 %.lobit.i to i64
-  %42 = xor i64 %41, %39
-  %43 = inttoptr i64 %42 to ptr
-  %44 = icmp eq ptr %43, %21
-  br i1 %44, label %45, label %47
+  %39 = lshr i32 %.val3.i, 10
+  %40 = and i32 %39, 1
+  %41 = ptrtoint ptr %37 to i64
+  %42 = zext nneg i32 %40 to i64
+  %43 = xor i64 %42, %41
+  %44 = inttoptr i64 %43 to ptr
+  %45 = icmp eq ptr %44, %21
+  br i1 %45, label %46, label %48
 
-45:                                               ; preds = %29
-  %46 = add nsw i32 %.04772, 1
+46:                                               ; preds = %29
+  %47 = add nsw i32 %.04772, 1
   br label %.critedge
 
-47:                                               ; preds = %29
-  %48 = icmp eq ptr %4, %43
-  br i1 %48, label %49, label %53
+48:                                               ; preds = %29
+  %49 = icmp eq ptr %4, %44
+  br i1 %49, label %50, label %54
 
-49:                                               ; preds = %47
-  %50 = add nsw i32 %.04573, 1
-  %51 = icmp eq i32 %.04971, -1
-  %52 = trunc nuw nsw i64 %indvars.iv81 to i32
-  %spec.select = select i1 %51, i32 %52, i32 %.04971
+50:                                               ; preds = %48
+  %51 = add nsw i32 %.04573, 1
+  %52 = icmp eq i32 %.04971, -1
+  %53 = trunc nuw nsw i64 %indvars.iv81 to i32
+  %spec.select = select i1 %52, i32 %53, i32 %.04971
   br label %.critedge
 
-53:                                               ; preds = %47
-  %54 = and i64 %39, -2
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr i8, ptr %55, i64 20
-  %.val63 = load i32, ptr %56, align 4
-  %57 = and i32 %.val63, 15
-  %.not = icmp eq i32 %57, 2
-  br i1 %.not, label %58, label %62
+54:                                               ; preds = %48
+  %55 = and i64 %41, -2
+  %56 = inttoptr i64 %55 to ptr
+  %57 = getelementptr i8, ptr %56, i64 20
+  %.val63 = load i32, ptr %57, align 4
+  %58 = and i32 %.val63, 15
+  %.not = icmp eq i32 %58, 2
+  br i1 %.not, label %59, label %63
 
-58:                                               ; preds = %53
-  %59 = add nsw i32 %.04573, 1
-  %60 = icmp eq i32 %.04971, -1
-  %61 = trunc nuw nsw i64 %indvars.iv81 to i32
-  %spec.select55 = select i1 %60, i32 %61, i32 %.04971
+59:                                               ; preds = %54
+  %60 = add nsw i32 %.04573, 1
+  %61 = icmp eq i32 %.04971, -1
+  %62 = trunc nuw nsw i64 %indvars.iv81 to i32
+  %spec.select55 = select i1 %61, i32 %62, i32 %.04971
   br label %.critedge
 
-62:                                               ; preds = %53
-  %63 = lshr i32 %.val63, 7
-  %64 = trunc i64 %42 to i32
-  %65 = xor i32 %63, %64
-  %66 = and i32 %65, 1
-  %.not54 = icmp eq i32 %66, 0
-  br i1 %.not54, label %71, label %67
+63:                                               ; preds = %54
+  %64 = lshr i32 %.val63, 7
+  %65 = trunc i64 %43 to i32
+  %66 = xor i32 %64, %65
+  %67 = and i32 %66, 1
+  %.not54 = icmp eq i32 %67, 0
+  br i1 %.not54, label %72, label %68
 
-67:                                               ; preds = %62
-  %68 = add nsw i32 %.04573, 1
-  %69 = icmp eq i32 %.04971, -1
-  %70 = trunc nuw nsw i64 %indvars.iv81 to i32
-  %spec.select56 = select i1 %69, i32 %70, i32 %.04971
+68:                                               ; preds = %63
+  %69 = add nsw i32 %.04573, 1
+  %70 = icmp eq i32 %.04971, -1
+  %71 = trunc nuw nsw i64 %indvars.iv81 to i32
+  %spec.select56 = select i1 %70, i32 %71, i32 %.04971
   br label %.critedge
 
-71:                                               ; preds = %62
-  %72 = add nsw i32 %.04474, 1
+72:                                               ; preds = %63
+  %73 = add nsw i32 %.04474, 1
   br label %.critedge
 
-.critedge:                                        ; preds = %67, %58, %49, %45, %71
-  %.150 = phi i32 [ %.04971, %45 ], [ %.04971, %71 ], [ %spec.select, %49 ], [ %spec.select55, %58 ], [ %spec.select56, %67 ]
-  %.148 = phi i32 [ %46, %45 ], [ %.04772, %71 ], [ %.04772, %49 ], [ %.04772, %58 ], [ %.04772, %67 ]
-  %.146 = phi i32 [ %.04573, %45 ], [ %.04573, %71 ], [ %50, %49 ], [ %59, %58 ], [ %68, %67 ]
-  %.1 = phi i32 [ %.04474, %45 ], [ %72, %71 ], [ %.04474, %49 ], [ %.04474, %58 ], [ %.04474, %67 ]
+.critedge:                                        ; preds = %68, %59, %50, %46, %72
+  %.150 = phi i32 [ %.04971, %46 ], [ %.04971, %72 ], [ %spec.select, %50 ], [ %spec.select55, %59 ], [ %spec.select56, %68 ]
+  %.148 = phi i32 [ %47, %46 ], [ %.04772, %72 ], [ %.04772, %50 ], [ %.04772, %59 ], [ %.04772, %68 ]
+  %.146 = phi i32 [ %.04573, %46 ], [ %.04573, %72 ], [ %51, %50 ], [ %60, %59 ], [ %69, %68 ]
+  %.1 = phi i32 [ %.04474, %46 ], [ %73, %72 ], [ %.04474, %50 ], [ %.04474, %59 ], [ %.04474, %68 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
   br i1 %exitcond85.not, label %.critedge2, label %29, !llvm.loop !93
@@ -8787,50 +8787,50 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %.047.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.148, %.critedge ]
   %.045.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.146, %.critedge ]
   %.044.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %.critedge ]
-  %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.134, i32 noundef %.0.lcssa)
-  %74 = getelementptr i8, ptr %0, i64 124
-  %.val = load i32, ptr %74, align 4
-  %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef %.val)
-  %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.136, i32 noundef %.044.lcssa)
-  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.137, i32 noundef %.047.lcssa)
-  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138, i32 noundef %.045.lcssa)
+  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.134, i32 noundef %.0.lcssa)
+  %75 = getelementptr i8, ptr %0, i64 124
+  %.val = load i32, ptr %75, align 4
+  %76 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.135, i32 noundef %.val)
+  %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.136, i32 noundef %.044.lcssa)
+  %78 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.137, i32 noundef %.047.lcssa)
+  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.138, i32 noundef %.045.lcssa)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %79 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %Abc_Clock.exit65, label %81
+  %80 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #19
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %Abc_Clock.exit65, label %82
 
-81:                                               ; preds = %.critedge2
-  %82 = load i64, ptr %2, align 8
-  %83 = mul nsw i64 %82, 1000000
-  %84 = getelementptr inbounds i8, ptr %2, i64 8
-  %85 = load i64, ptr %84, align 8
-  %86 = sdiv i64 %85, 1000
-  %87 = add nsw i64 %86, %83
+82:                                               ; preds = %.critedge2
+  %83 = load i64, ptr %2, align 8
+  %84 = mul nsw i64 %83, 1000000
+  %85 = getelementptr inbounds i8, ptr %2, i64 8
+  %86 = load i64, ptr %85, align 8
+  %87 = sdiv i64 %86, 1000
+  %88 = add nsw i64 %87, %84
   br label %Abc_Clock.exit65
 
-Abc_Clock.exit65:                                 ; preds = %.critedge2, %81
-  %.0.i64 = phi i64 [ %87, %81 ], [ -1, %.critedge2 ]
+Abc_Clock.exit65:                                 ; preds = %.critedge2, %82
+  %.0.i64 = phi i64 [ %88, %82 ], [ -1, %.critedge2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %88 = add i64 %.0.i64, %.0.i.neg
-  %89 = sitofp i64 %88 to float
-  %90 = fdiv float %89, 1.000000e+06
-  %91 = fpext float %90 to double
-  %92 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, double noundef %91)
-  %93 = icmp sgt i32 %.049.lcssa, -1
-  br i1 %93, label %94, label %101
+  %89 = add i64 %.0.i64, %.0.i.neg
+  %90 = sitofp i64 %89 to float
+  %91 = fdiv float %90, 1.000000e+06
+  %92 = fpext float %91 to double
+  %93 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, double noundef %92)
+  %94 = icmp sgt i32 %.049.lcssa, -1
+  br i1 %94, label %95, label %102
 
-94:                                               ; preds = %Abc_Clock.exit65
+95:                                               ; preds = %Abc_Clock.exit65
   %.val61 = load ptr, ptr %15, align 8
-  %95 = getelementptr i8, ptr %.val61, i64 8
-  %.val61.val = load ptr, ptr %95, align 8
-  %96 = zext nneg i32 %.049.lcssa to i64
-  %97 = getelementptr inbounds ptr, ptr %.val61.val, i64 %96
-  %98 = load ptr, ptr %97, align 8
-  %99 = call ptr @Abc_ObjName(ptr noundef %98) #19
-  %100 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef %.049.lcssa, ptr noundef %99)
-  br label %101
+  %96 = getelementptr i8, ptr %.val61, i64 8
+  %.val61.val = load ptr, ptr %96, align 8
+  %97 = zext nneg i32 %.049.lcssa to i64
+  %98 = getelementptr inbounds ptr, ptr %.val61.val, i64 %97
+  %99 = load ptr, ptr %98, align 8
+  %100 = call ptr @Abc_ObjName(ptr noundef %99) #19
+  %101 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.140, i32 noundef %.049.lcssa, ptr noundef %100)
+  br label %102
 
-101:                                              ; preds = %94, %Abc_Clock.exit65
+102:                                              ; preds = %95, %Abc_Clock.exit65
   ret void
 }
 

@@ -1990,7 +1990,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ver2str(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ver2str(ptr noundef %0, i32 noundef range(i32 2, 8) %1) unnamed_addr #0 {
   %3 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %4 = add nuw nsw i32 %1, 1
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
@@ -2175,7 +2175,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @parse_fru_record_table(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc zeroext i16 @parse_fru_record_table(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext range(i16 6, 8) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

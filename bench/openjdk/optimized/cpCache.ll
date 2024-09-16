@@ -1999,7 +1999,7 @@ define hidden void @_ZN17ConstantPoolCache21adjust_method_entriesEPb(ptr nocaptu
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   %29 = getelementptr inbounds %class.ResolvedIndyEntry, ptr %28, i64 %indvars.iv
   store ptr %26, ptr %29, align 8
-  tail call fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef nonnull @.str.14, ptr noundef nonnull %10, ptr noundef %26, ptr noundef %1)
+  tail call fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef nonnull @.str.14, ptr noundef %10, ptr noundef %26, ptr noundef %1)
   br label %30
 
 30:                                               ; preds = %.lr.ph, %12, %16
@@ -2059,7 +2059,7 @@ define hidden void @_ZN17ConstantPoolCache21adjust_method_entriesEPb(ptr nocaptu
   %60 = zext i16 %59 to i32
   %61 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %57, i32 noundef %60) #12
   store ptr %61, ptr %41, align 8
-  tail call fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef nonnull @.str.15, ptr noundef nonnull %42, ptr noundef %61, ptr noundef %1)
+  tail call fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef nonnull @.str.15, ptr noundef %42, ptr noundef %61, ptr noundef %1)
   br label %62
 
 62:                                               ; preds = %.lr.ph36, %44, %51, %50
@@ -2075,7 +2075,7 @@ define hidden void @_ZN17ConstantPoolCache21adjust_method_entriesEPb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL10log_adjustPKcP6MethodS2_Pb(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 800

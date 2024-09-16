@@ -837,7 +837,7 @@ declare void @RSA_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @RSA_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gen_init(ptr noundef %provctx, i32 noundef %selection, i32 noundef %rsa_type, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc ptr @gen_init(ptr noundef %provctx, i32 noundef %selection, i32 noundef range(i32 0, 4097) %rsa_type, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_prov_ctx_get0_libctx(ptr noundef %provctx) #5
   %call1 = tail call i32 @ossl_prov_is_running() #5

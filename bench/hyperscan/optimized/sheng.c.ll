@@ -1988,7 +1988,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 3) i8 @runSheng(ptr noundef %sh, ptr nocapture noundef %q, i64 noundef %b_end, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 3) i8 @runSheng(ptr noundef %sh, ptr nocapture noundef %q, i64 noundef %b_end, i32 noundef range(i32 0, 3) %mode) unnamed_addr #0 {
 entry:
   %state1 = getelementptr inbounds i8, ptr %q, i64 16
   %0 = load ptr, ptr %state1, align 8

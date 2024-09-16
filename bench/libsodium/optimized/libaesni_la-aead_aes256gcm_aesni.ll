@@ -331,7 +331,7 @@ if.then6:                                         ; preds = %if.end4, %lor.lhs.f
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -344,7 +344,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %1 = getelementptr i8, ptr %pad.i, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -354,14 +354,14 @@ if.end8.i:                                        ; preds = %if.then4.i, %if.the
   br i1 %cmp12.i, label %for.body.i.i, label %if.end89.i
 
 for.body.i.i:                                     ; preds = %if.end8.i, %for.body.i.i
-  %counter.addr.07.i.i = phi <2 x i64> [ %add.i.i.i, %for.body.i.i ], [ %3, %if.end8.i ]
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end8.i ]
-  %4 = bitcast <2 x i64> %counter.addr.07.i.i to <16 x i8>
+  %counter.addr.06.i.i = phi <2 x i64> [ %add.i.i.i, %for.body.i.i ], [ %3, %if.end8.i ]
+  %i.05.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.end8.i ]
+  %4 = bitcast <2 x i64> %counter.addr.06.i.i to <16 x i8>
   %5 = shufflevector <16 x i8> %4, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i.i
+  %arrayidx.i.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i.i
   store <16 x i8> %5, ptr %arrayidx.i.i, align 16
-  %add.i.i.i = add <2 x i64> %counter.addr.07.i.i, <i64 1, i64 0>
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %add.i.i.i = add <2 x i64> %counter.addr.06.i.i, <i64 1, i64 0>
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 7
   br i1 %exitcond.not.i.i, label %incr_counters.exit.i, label %for.body.i.i, !llvm.loop !7
 
@@ -445,14 +445,14 @@ for.body.i225.preheader.i:                        ; preds = %for.end65.i, %for.b
   br label %for.body.i225.i
 
 for.body.i225.i:                                  ; preds = %for.body.i225.i, %for.body.i225.preheader.i
-  %counter.addr.07.i226.i = phi <2 x i64> [ %add.i.i229.i, %for.body.i225.i ], [ %counter.1629.i, %for.body.i225.preheader.i ]
-  %i.06.i227.i = phi i64 [ %inc.i230.i, %for.body.i225.i ], [ 0, %for.body.i225.preheader.i ]
-  %15 = bitcast <2 x i64> %counter.addr.07.i226.i to <16 x i8>
+  %counter.addr.06.i226.i = phi <2 x i64> [ %add.i.i229.i, %for.body.i225.i ], [ %counter.1629.i, %for.body.i225.preheader.i ]
+  %i.05.i227.i = phi i64 [ %inc.i230.i, %for.body.i225.i ], [ 0, %for.body.i225.preheader.i ]
+  %15 = bitcast <2 x i64> %counter.addr.06.i226.i to <16 x i8>
   %16 = shufflevector <16 x i8> %15, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i228.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i227.i
+  %arrayidx.i228.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i227.i
   store <16 x i8> %16, ptr %arrayidx.i228.i, align 16
-  %add.i.i229.i = add <2 x i64> %counter.addr.07.i226.i, <i64 1, i64 0>
-  %inc.i230.i = add nuw nsw i64 %i.06.i227.i, 1
+  %add.i.i229.i = add <2 x i64> %counter.addr.06.i226.i, <i64 1, i64 0>
+  %inc.i230.i = add nuw nsw i64 %i.05.i227.i, 1
   %exitcond.not.i231.i = icmp eq i64 %inc.i230.i, 7
   br i1 %exitcond.not.i231.i, label %incr_counters.exit232.i, label %for.body.i225.i, !llvm.loop !7
 
@@ -559,14 +559,14 @@ for.body35.i:                                     ; preds = %for.body35.i, %encr
   br i1 %exitcond.not.i, label %for.body.i266.i, label %for.body35.i, !llvm.loop !12
 
 for.body.i266.i:                                  ; preds = %for.body35.i, %for.body.i266.i
-  %counter.addr.07.i267.i = phi <2 x i64> [ %add.i.i270.i, %for.body.i266.i ], [ %add.i.i229.i, %for.body35.i ]
-  %i.06.i268.i = phi i64 [ %inc.i271.i, %for.body.i266.i ], [ 0, %for.body35.i ]
-  %40 = bitcast <2 x i64> %counter.addr.07.i267.i to <16 x i8>
+  %counter.addr.06.i267.i = phi <2 x i64> [ %add.i.i270.i, %for.body.i266.i ], [ %add.i.i229.i, %for.body35.i ]
+  %i.05.i268.i = phi i64 [ %inc.i271.i, %for.body.i266.i ], [ 0, %for.body35.i ]
+  %40 = bitcast <2 x i64> %counter.addr.06.i267.i to <16 x i8>
   %41 = shufflevector <16 x i8> %40, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i269.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i268.i
+  %arrayidx.i269.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i268.i
   store <16 x i8> %41, ptr %arrayidx.i269.i, align 16
-  %add.i.i270.i = add <2 x i64> %counter.addr.07.i267.i, <i64 1, i64 0>
-  %inc.i271.i = add nuw nsw i64 %i.06.i268.i, 1
+  %add.i.i270.i = add <2 x i64> %counter.addr.06.i267.i, <i64 1, i64 0>
+  %inc.i271.i = add nuw nsw i64 %i.05.i268.i, 1
   %exitcond.not.i272.i = icmp eq i64 %inc.i271.i, 7
   br i1 %exitcond.not.i272.i, label %incr_counters.exit273.i, label %for.body.i266.i, !llvm.loop !7
 
@@ -744,14 +744,14 @@ if.end89.i:                                       ; preds = %for.end86.i, %if.en
   br i1 %cmp91.i, label %for.body.i334.i, label %if.end149.i
 
 for.body.i334.i:                                  ; preds = %if.end89.i, %for.body.i334.i
-  %counter.addr.07.i335.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i334.i ], [ %counter.0.i, %if.end89.i ]
-  %i.06.i336.i = phi i64 [ %inc.i339.i, %for.body.i334.i ], [ 0, %if.end89.i ]
-  %85 = bitcast <2 x i64> %counter.addr.07.i335.i to <16 x i8>
+  %counter.addr.06.i335.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i334.i ], [ %counter.0.i, %if.end89.i ]
+  %i.05.i336.i = phi i64 [ %inc.i339.i, %for.body.i334.i ], [ 0, %if.end89.i ]
+  %85 = bitcast <2 x i64> %counter.addr.06.i335.i to <16 x i8>
   %86 = shufflevector <16 x i8> %85, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i337.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i336.i
+  %arrayidx.i337.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i336.i
   store <16 x i8> %86, ptr %arrayidx.i337.i, align 16
-  %add.i.i338.i = add <2 x i64> %counter.addr.07.i335.i, <i64 1, i64 0>
-  %inc.i339.i = add nuw nsw i64 %i.06.i336.i, 1
+  %add.i.i338.i = add <2 x i64> %counter.addr.06.i335.i, <i64 1, i64 0>
+  %inc.i339.i = add nuw nsw i64 %i.05.i336.i, 1
   %exitcond.not.i340.i = icmp eq i64 %inc.i339.i, 7
   br i1 %exitcond.not.i340.i, label %incr_counters.exit341.i, label %for.body.i334.i, !llvm.loop !7
 
@@ -840,14 +840,14 @@ for.body.i372.preheader.i:                        ; preds = %for.end124.i, %for.
   br label %for.body.i372.i
 
 for.body.i372.i:                                  ; preds = %for.body.i372.i, %for.body.i372.preheader.i
-  %counter.addr.07.i373.i = phi <2 x i64> [ %add.i.i376.i, %for.body.i372.i ], [ %counter.3643.i, %for.body.i372.preheader.i ]
-  %i.06.i374.i = phi i64 [ %inc.i377.i, %for.body.i372.i ], [ 0, %for.body.i372.preheader.i ]
-  %96 = bitcast <2 x i64> %counter.addr.07.i373.i to <16 x i8>
+  %counter.addr.06.i373.i = phi <2 x i64> [ %add.i.i376.i, %for.body.i372.i ], [ %counter.3643.i, %for.body.i372.preheader.i ]
+  %i.05.i374.i = phi i64 [ %inc.i377.i, %for.body.i372.i ], [ 0, %for.body.i372.preheader.i ]
+  %96 = bitcast <2 x i64> %counter.addr.06.i373.i to <16 x i8>
   %97 = shufflevector <16 x i8> %96, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i375.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i374.i
+  %arrayidx.i375.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i374.i
   store <16 x i8> %97, ptr %arrayidx.i375.i, align 16
-  %add.i.i376.i = add <2 x i64> %counter.addr.07.i373.i, <i64 1, i64 0>
-  %inc.i377.i = add nuw nsw i64 %i.06.i374.i, 1
+  %add.i.i376.i = add <2 x i64> %counter.addr.06.i373.i, <i64 1, i64 0>
+  %inc.i377.i = add nuw nsw i64 %i.05.i374.i, 1
   %exitcond.not.i378.i = icmp eq i64 %inc.i377.i, 7
   br i1 %exitcond.not.i378.i, label %incr_counters.exit379.i, label %for.body.i372.i, !llvm.loop !7
 
@@ -1064,14 +1064,14 @@ for.body.i492.preheader.lr.ph.i:                  ; preds = %for.cond189.prehead
   br label %for.body.i492.preheader.i
 
 for.body.i456.i:                                  ; preds = %for.body.i456.i, %for.body.i456.preheader.i
-  %counter.addr.07.i457.i = phi <2 x i64> [ %add.i.i460.i, %for.body.i456.i ], [ %counter.4659.i, %for.body.i456.preheader.i ]
-  %i.06.i458.i = phi i64 [ %inc.i461.i, %for.body.i456.i ], [ 0, %for.body.i456.preheader.i ]
-  %148 = bitcast <2 x i64> %counter.addr.07.i457.i to <16 x i8>
+  %counter.addr.06.i457.i = phi <2 x i64> [ %add.i.i460.i, %for.body.i456.i ], [ %counter.4659.i, %for.body.i456.preheader.i ]
+  %i.05.i458.i = phi i64 [ %inc.i461.i, %for.body.i456.i ], [ 0, %for.body.i456.preheader.i ]
+  %148 = bitcast <2 x i64> %counter.addr.06.i457.i to <16 x i8>
   %149 = shufflevector <16 x i8> %148, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i459.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i458.i
+  %arrayidx.i459.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i458.i
   store <16 x i8> %149, ptr %arrayidx.i459.i, align 16
-  %add.i.i460.i = add <2 x i64> %counter.addr.07.i457.i, <i64 1, i64 0>
-  %inc.i461.i = add nuw nsw i64 %i.06.i458.i, 1
+  %add.i.i460.i = add <2 x i64> %counter.addr.06.i457.i, <i64 1, i64 0>
+  %inc.i461.i = add nuw nsw i64 %i.05.i458.i, 1
   %exitcond.not.i462.i = icmp eq i64 %inc.i461.i, 4
   br i1 %exitcond.not.i462.i, label %for.cond156.preheader.i, label %for.body.i456.i, !llvm.loop !7
 
@@ -1190,14 +1190,14 @@ for.body232.lr.ph.i:                              ; preds = %for.cond229.prehead
   br label %for.body232.i
 
 for.body.i492.i:                                  ; preds = %for.body.i492.i, %for.body.i492.preheader.i
-  %counter.addr.07.i493.i = phi <2 x i64> [ %add.i.i496.i, %for.body.i492.i ], [ %counter.5667.i, %for.body.i492.preheader.i ]
-  %i.06.i494.i = phi i64 [ %inc.i497.i, %for.body.i492.i ], [ 0, %for.body.i492.preheader.i ]
-  %177 = bitcast <2 x i64> %counter.addr.07.i493.i to <16 x i8>
+  %counter.addr.06.i493.i = phi <2 x i64> [ %add.i.i496.i, %for.body.i492.i ], [ %counter.5667.i, %for.body.i492.preheader.i ]
+  %i.05.i494.i = phi i64 [ %inc.i497.i, %for.body.i492.i ], [ 0, %for.body.i492.preheader.i ]
+  %177 = bitcast <2 x i64> %counter.addr.06.i493.i to <16 x i8>
   %178 = shufflevector <16 x i8> %177, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i495.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i494.i
+  %arrayidx.i495.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i494.i
   store <16 x i8> %178, ptr %arrayidx.i495.i, align 16
-  %add.i.i496.i = add <2 x i64> %counter.addr.07.i493.i, <i64 1, i64 0>
-  %inc.i497.i = add nuw nsw i64 %i.06.i494.i, 1
+  %add.i.i496.i = add <2 x i64> %counter.addr.06.i493.i, <i64 1, i64 0>
+  %inc.i497.i = add nuw nsw i64 %i.05.i494.i, 1
   %exitcond.not.i498.i = icmp eq i64 %inc.i497.i, 2
   br i1 %exitcond.not.i498.i, label %for.cond195.preheader.i, label %for.body.i492.i, !llvm.loop !7
 
@@ -1417,7 +1417,7 @@ if.else.i:                                        ; preds = %encrypt.exit.i
 
 aes_gcm_encrypt_generic.exit:                     ; preds = %for.end286.i, %if.else.i
   %.sink.i = phi i64 [ 16, %if.else.i ], [ 32, %for.end286.i ]
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef %.sink.i)
   %244 = load <2 x i64>, ptr %mac, align 1
   %245 = load <16 x i8>, ptr %sth, align 16
   %246 = shufflevector <16 x i8> %245, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -1551,7 +1551,7 @@ required_blocks.exit.i:                           ; preds = %lor.lhs.false6.i.i
   %j.sroa.0.0.copyload.i = load <12 x i8>, ptr %npub, align 1
   %j.sroa.0.0.vec.expand.i = shufflevector <12 x i8> %j.sroa.0.0.copyload.i, <12 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 poison, i32 poison, i32 poison, i32 poison>
   %and.i = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef readonly %ad, i64 noundef %and.i)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef readonly %ad, i64 noundef %and.i)
   %and6.i = and i64 %ad_len_, 15
   %cmp7.not.i = icmp eq i64 %and6.i, 0
   br i1 %cmp7.not.i, label %if.end14.i, label %if.then8.i
@@ -1564,12 +1564,12 @@ if.then8.i:                                       ; preds = %required_blocks.exi
   %1 = getelementptr i8, ptr %pad.i, i64 %and6.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, i8 0, i64 %0, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr12.i, i64 %and6.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad.i, i64 noundef 16)
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then8.i, %required_blocks.exit.i
   %and15.i = and i64 %c_len_, 68719476720
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull readonly %c, i64 noundef %and15.i)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull readonly %c, i64 noundef %and15.i)
   %and16.i = and i64 %c_len_, 15
   %cmp17.not.i = icmp eq i64 %and16.i, 0
   br i1 %cmp17.not.i, label %if.end26.i, label %if.then18.i
@@ -1582,7 +1582,7 @@ if.then18.i:                                      ; preds = %if.end14.i
   %3 = getelementptr i8, ptr %pad19.i, i64 %and16.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %3, i8 0, i64 %2, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad19.i, ptr readonly align 1 %add.ptr24.i, i64 %and16.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %pad19.i, i64 noundef 16)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.then18.i, %if.end14.i
@@ -1613,7 +1613,7 @@ encrypt.exit.i:                                   ; preds = %for.body.i.i
   %10 = load <2 x i64>, ptr %arrayidx6.i.i, align 16
   %11 = tail call <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64> %7, <2 x i64> %10)
   store <16 x i8> %9, ptr %last_block.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth.i, ptr noundef nonnull %last_block.i, i64 noundef 16)
   %12 = load <16 x i8>, ptr %sth.i, align 16
   %13 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %14 = bitcast <16 x i8> %13 to <2 x i64>
@@ -1665,7 +1665,7 @@ required_blocks.exit:                             ; preds = %lor.lhs.false6.i
 
 if.then.i:                                        ; preds = %required_blocks.exit
   %and.i34 = and i64 %ad_len_, -16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i34)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull readonly %ad, i64 noundef %and.i34)
   %and2.i = and i64 %ad_len_, 15
   %cmp3.not.i = icmp eq i64 %and2.i, 0
   br i1 %cmp3.not.i, label %if.end8.i, label %if.then4.i
@@ -1678,7 +1678,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %16 = getelementptr i8, ptr %pad.i16, i64 %and2.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %16, i8 0, i64 %15, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i16, ptr readonly align 1 %add.ptr6.i, i64 %and2.i, i1 false)
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %pad.i16, i64 noundef 16)
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then4.i, %if.then.i, %required_blocks.exit
@@ -1720,14 +1720,14 @@ for.body.i218.preheader.lr.ph.i:                  ; preds = %for.cond45.preheade
   br label %for.body.i218.preheader.i
 
 for.body.i.i20:                                   ; preds = %for.body.i.i20, %for.body.i.preheader.i
-  %counter.addr.07.i.i = phi <2 x i64> [ %add.i.i.i, %for.body.i.i20 ], [ %counter.0440.i, %for.body.i.preheader.i ]
-  %i.06.i.i = phi i64 [ %inc.i.i21, %for.body.i.i20 ], [ 0, %for.body.i.preheader.i ]
-  %19 = bitcast <2 x i64> %counter.addr.07.i.i to <16 x i8>
+  %counter.addr.06.i.i = phi <2 x i64> [ %add.i.i.i, %for.body.i.i20 ], [ %counter.0440.i, %for.body.i.preheader.i ]
+  %i.05.i.i = phi i64 [ %inc.i.i21, %for.body.i.i20 ], [ 0, %for.body.i.preheader.i ]
+  %19 = bitcast <2 x i64> %counter.addr.06.i.i to <16 x i8>
   %20 = shufflevector <16 x i8> %19, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i.i
+  %arrayidx.i.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i.i
   store <16 x i8> %20, ptr %arrayidx.i.i, align 16
-  %add.i.i.i = add <2 x i64> %counter.addr.07.i.i, <i64 1, i64 0>
-  %inc.i.i21 = add nuw nsw i64 %i.06.i.i, 1
+  %add.i.i.i = add <2 x i64> %counter.addr.06.i.i, <i64 1, i64 0>
+  %inc.i.i21 = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i22 = icmp eq i64 %inc.i.i21, 7
   br i1 %exitcond.not.i.i22, label %incr_counters.exit.i, label %for.body.i.i20, !llvm.loop !7
 
@@ -1832,14 +1832,14 @@ encrypt_xor_wide.exit.i:                          ; preds = %for.body22.i.i
   br label %for.body.i173.i
 
 for.body.i173.i:                                  ; preds = %for.body.i173.i, %encrypt_xor_wide.exit.i
-  %counter.addr.07.i174.i = phi <2 x i64> [ %add.i.i177.i, %for.body.i173.i ], [ %add.i.i.i, %encrypt_xor_wide.exit.i ]
-  %i.06.i175.i = phi i64 [ %inc.i178.i, %for.body.i173.i ], [ 0, %encrypt_xor_wide.exit.i ]
-  %44 = bitcast <2 x i64> %counter.addr.07.i174.i to <16 x i8>
+  %counter.addr.06.i174.i = phi <2 x i64> [ %add.i.i.i, %encrypt_xor_wide.exit.i ], [ %add.i.i177.i, %for.body.i173.i ]
+  %i.05.i175.i = phi i64 [ 0, %encrypt_xor_wide.exit.i ], [ %inc.i178.i, %for.body.i173.i ]
+  %44 = bitcast <2 x i64> %counter.addr.06.i174.i to <16 x i8>
   %45 = shufflevector <16 x i8> %44, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i176.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i175.i
+  %arrayidx.i176.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i175.i
   store <16 x i8> %45, ptr %arrayidx.i176.i, align 16
-  %add.i.i177.i = add <2 x i64> %counter.addr.07.i174.i, <i64 1, i64 0>
-  %inc.i178.i = add nuw nsw i64 %i.06.i175.i, 1
+  %add.i.i177.i = add <2 x i64> %counter.addr.06.i174.i, <i64 1, i64 0>
+  %inc.i178.i = add nuw nsw i64 %i.05.i175.i, 1
   %exitcond.not.i179.i = icmp eq i64 %inc.i178.i, 7
   br i1 %exitcond.not.i179.i, label %incr_counters.exit180.i, label %for.body.i173.i, !llvm.loop !7
 
@@ -1973,14 +1973,14 @@ for.body.i279.preheader.lr.ph.i:                  ; preds = %for.cond75.preheade
   br label %for.body.i279.preheader.i
 
 for.body.i218.i:                                  ; preds = %for.body.i218.i, %for.body.i218.preheader.i
-  %counter.addr.07.i219.i = phi <2 x i64> [ %add.i.i222.i, %for.body.i218.i ], [ %counter.1450.i, %for.body.i218.preheader.i ]
-  %i.06.i220.i = phi i64 [ %inc.i223.i, %for.body.i218.i ], [ 0, %for.body.i218.preheader.i ]
-  %68 = bitcast <2 x i64> %counter.addr.07.i219.i to <16 x i8>
+  %counter.addr.06.i219.i = phi <2 x i64> [ %add.i.i222.i, %for.body.i218.i ], [ %counter.1450.i, %for.body.i218.preheader.i ]
+  %i.05.i220.i = phi i64 [ %inc.i223.i, %for.body.i218.i ], [ 0, %for.body.i218.preheader.i ]
+  %68 = bitcast <2 x i64> %counter.addr.06.i219.i to <16 x i8>
   %69 = shufflevector <16 x i8> %68, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i221.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i220.i
+  %arrayidx.i221.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i220.i
   store <16 x i8> %69, ptr %arrayidx.i221.i, align 16
-  %add.i.i222.i = add <2 x i64> %counter.addr.07.i219.i, <i64 1, i64 0>
-  %inc.i223.i = add nuw nsw i64 %i.06.i220.i, 1
+  %add.i.i222.i = add <2 x i64> %counter.addr.06.i219.i, <i64 1, i64 0>
+  %inc.i223.i = add nuw nsw i64 %i.05.i220.i, 1
   %exitcond.not.i224.i = icmp eq i64 %inc.i223.i, 7
   br i1 %exitcond.not.i224.i, label %incr_counters.exit225.i, label %for.body.i218.i, !llvm.loop !7
 
@@ -2129,14 +2129,14 @@ for.body.i315.preheader.lr.ph.i:                  ; preds = %for.cond114.prehead
   br label %for.body.i315.preheader.i
 
 for.body.i279.i:                                  ; preds = %for.body.i279.i, %for.body.i279.preheader.i
-  %counter.addr.07.i280.i = phi <2 x i64> [ %add.i.i283.i, %for.body.i279.i ], [ %counter.2462.i, %for.body.i279.preheader.i ]
-  %i.06.i281.i = phi i64 [ %inc.i284.i, %for.body.i279.i ], [ 0, %for.body.i279.preheader.i ]
-  %99 = bitcast <2 x i64> %counter.addr.07.i280.i to <16 x i8>
+  %counter.addr.06.i280.i = phi <2 x i64> [ %add.i.i283.i, %for.body.i279.i ], [ %counter.2462.i, %for.body.i279.preheader.i ]
+  %i.05.i281.i = phi i64 [ %inc.i284.i, %for.body.i279.i ], [ 0, %for.body.i279.preheader.i ]
+  %99 = bitcast <2 x i64> %counter.addr.06.i280.i to <16 x i8>
   %100 = shufflevector <16 x i8> %99, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i282.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i281.i
+  %arrayidx.i282.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i281.i
   store <16 x i8> %100, ptr %arrayidx.i282.i, align 16
-  %add.i.i283.i = add <2 x i64> %counter.addr.07.i280.i, <i64 1, i64 0>
-  %inc.i284.i = add nuw nsw i64 %i.06.i281.i, 1
+  %add.i.i283.i = add <2 x i64> %counter.addr.06.i280.i, <i64 1, i64 0>
+  %inc.i284.i = add nuw nsw i64 %i.05.i281.i, 1
   %exitcond.not.i285.i = icmp eq i64 %inc.i284.i, 4
   br i1 %exitcond.not.i285.i, label %incr_counters.exit286.i, label %for.body.i279.i, !llvm.loop !7
 
@@ -2256,14 +2256,14 @@ for.body157.lr.ph.i:                              ; preds = %for.cond154.prehead
   br label %for.body157.i
 
 for.body.i315.i:                                  ; preds = %for.body.i315.i, %for.body.i315.preheader.i
-  %counter.addr.07.i316.i = phi <2 x i64> [ %add.i.i319.i, %for.body.i315.i ], [ %counter.3470.i, %for.body.i315.preheader.i ]
-  %i.06.i317.i = phi i64 [ %inc.i320.i, %for.body.i315.i ], [ 0, %for.body.i315.preheader.i ]
-  %129 = bitcast <2 x i64> %counter.addr.07.i316.i to <16 x i8>
+  %counter.addr.06.i316.i = phi <2 x i64> [ %add.i.i319.i, %for.body.i315.i ], [ %counter.3470.i, %for.body.i315.preheader.i ]
+  %i.05.i317.i = phi i64 [ %inc.i320.i, %for.body.i315.i ], [ 0, %for.body.i315.preheader.i ]
+  %129 = bitcast <2 x i64> %counter.addr.06.i316.i to <16 x i8>
   %130 = shufflevector <16 x i8> %129, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %arrayidx.i318.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.06.i317.i
+  %arrayidx.i318.i = getelementptr <2 x i64>, ptr %rev_counters.i, i64 %i.05.i317.i
   store <16 x i8> %130, ptr %arrayidx.i318.i, align 16
-  %add.i.i319.i = add <2 x i64> %counter.addr.07.i316.i, <i64 1, i64 0>
-  %inc.i320.i = add nuw nsw i64 %i.06.i317.i, 1
+  %add.i.i319.i = add <2 x i64> %counter.addr.06.i316.i, <i64 1, i64 0>
+  %inc.i320.i = add nuw nsw i64 %i.05.i317.i, 1
   %exitcond.not.i321.i = icmp eq i64 %inc.i320.i, 2
   br i1 %exitcond.not.i321.i, label %incr_counters.exit322.i, label %for.body.i315.i, !llvm.loop !7
 
@@ -2442,7 +2442,7 @@ for.body192.preheader.i:                          ; preds = %for.cond190.prehead
 for.end196.i:                                     ; preds = %for.body192.preheader.i, %for.cond190.preheader.i
   %add.ptr198.i = getelementptr inbounds i8, ptr %last_blocks.i, i64 16
   store <16 x i8> %180, ptr %add.ptr198.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 32)
   %185 = bitcast <2 x i64> %counter.4.lcssa.i to <16 x i8>
   %186 = shufflevector <16 x i8> %185, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %187 = bitcast <16 x i8> %186 to <2 x i64>
@@ -2470,7 +2470,7 @@ for.body206.lr.ph.i:                              ; preds = %for.body.i391.i
 
 if.else.i:                                        ; preds = %encrypt.exit.i30
   store <16 x i8> %180, ptr %last_blocks.i, align 16
-  call fastcc void @gh_ad_blocks(ptr noundef nonnull readonly %st_, ptr noundef nonnull %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
+  call fastcc void @gh_ad_blocks(ptr noundef readonly %st_, ptr noundef %sth, ptr noundef nonnull %last_blocks.i, i64 noundef 16)
   br label %aes_gcm_decrypt_generic.exit
 
 aes_gcm_decrypt_generic.exit:                     ; preds = %for.body206.lr.ph.i, %if.else.i
@@ -2604,7 +2604,7 @@ declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #9
 declare <2 x i64> @llvm.x86.pclmulqdq(<2 x i64>, <2 x i64>, i8 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @gh_ad_blocks(ptr nocapture noundef readonly %st, ptr nocapture noundef %sth, ptr nocapture noundef readonly %ad, i64 noundef %ad_len) unnamed_addr #0 {
+define internal fastcc void @gh_ad_blocks(ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull %sth, ptr nocapture noundef readonly %ad, i64 noundef range(i64 0, -15) %ad_len) unnamed_addr #0 {
 entry:
   %cmp.not168 = icmp ult i64 %ad_len, 224
   br i1 %cmp.not168, label %for.cond12.preheader, label %for.body.lr.ph

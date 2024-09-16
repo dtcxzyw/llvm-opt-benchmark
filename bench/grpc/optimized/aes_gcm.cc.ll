@@ -1039,7 +1039,7 @@ if.then14:                                        ; preds = %if.end12
 
 if.end15:                                         ; preds = %if.end12
   store i64 0, ptr %ciphertext_bytes_written, align 8
-  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details)
+  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef %nonce, ptr noundef %error_details)
   %cmp16.not = icmp eq i32 %call, 0
   br i1 %cmp16.not, label %if.end18, label %return
 
@@ -1328,7 +1328,7 @@ if.then18:                                        ; preds = %if.end16
 
 if.end19:                                         ; preds = %if.end16
   store i64 0, ptr %plaintext_bytes_written, align 8
-  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef nonnull %nonce, ptr noundef %error_details)
+  %call = tail call fastcc noundef i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr noundef %crypter, ptr noundef %nonce, ptr noundef %error_details)
   %cmp20.not = icmp eq i32 %call, 0
   br i1 %cmp20.not, label %if.end22, label %if.then21
 
@@ -1753,7 +1753,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr nocapture noundef readonly %aes_gcm_crypter, ptr nocapture noundef readonly %nonce, ptr noundef %error_details) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 14) i32 @_ZL25aes_gcm_rekey_if_requiredP25gsec_aes_gcm_aead_crypterPKhPPc(ptr nocapture noundef readonly %aes_gcm_crypter, ptr nocapture noundef nonnull readonly %nonce, ptr noundef %error_details) unnamed_addr #0 {
 entry:
   %gsec_key = getelementptr inbounds i8, ptr %aes_gcm_crypter, i64 32
   %0 = load ptr, ptr %gsec_key, align 8

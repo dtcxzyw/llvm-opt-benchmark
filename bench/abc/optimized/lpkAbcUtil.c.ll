@@ -41,7 +41,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Lpk_FunCreate(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 {
-select.unfold.preheader.i:
+Kit_TruthCopy.exit.preheader:
   %6 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %6, align 4
   %7 = icmp slt i32 %.val, 6
@@ -86,7 +86,7 @@ select.unfold.preheader.i:
   %37 = icmp sgt i32 %.val34, 0
   br i1 %37, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %select.unfold.preheader.i
+.lr.ph:                                           ; preds = %Kit_TruthCopy.exit.preheader
   %38 = getelementptr i8, ptr %1, i64 8
   %.val35 = load ptr, ptr %38, align 8
   %39 = getelementptr inbounds i8, ptr %14, i64 212
@@ -110,7 +110,7 @@ Kit_TruthCopy.exit:                               ; preds = %.lr.ph, %Kit_TruthC
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %Kit_TruthCopy.exit, !llvm.loop !4
 
-.critedge:                                        ; preds = %Kit_TruthCopy.exit, %select.unfold.preheader.i
+.critedge:                                        ; preds = %Kit_TruthCopy.exit, %Kit_TruthCopy.exit.preheader
   %49 = load i32, ptr %1, align 8
   %50 = icmp eq i32 %.val34, %49
   br i1 %50, label %51, label %.Vec_PtrGrow.exit11_crit_edge.i
@@ -182,7 +182,7 @@ declare i32 @Kit_TruthSupport(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Lpk_FunDup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
-select.unfold.preheader.i:
+Kit_TruthCopy.exit:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = lshr i32 %3, 7
@@ -236,12 +236,12 @@ select.unfold.preheader.i:
   %41 = icmp eq i32 %39, %40
   br i1 %41, label %42, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %select.unfold.preheader.i
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Kit_TruthCopy.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %37, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
-42:                                               ; preds = %select.unfold.preheader.i
+42:                                               ; preds = %Kit_TruthCopy.exit
   %43 = icmp slt i32 %39, 16
   br i1 %43, label %44, label %52
 

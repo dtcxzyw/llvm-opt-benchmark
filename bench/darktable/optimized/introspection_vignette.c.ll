@@ -484,7 +484,7 @@ declare i32 @dt_iop_canvas_not_sensitive(ptr noundef) local_unnamed_addr #3
 declare void @cairo_set_line_width(ptr noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @draw_overlay(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #1 {
+define internal fastcc void @draw_overlay(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, i32 noundef range(i32 0, 17) %5, float noundef %6) unnamed_addr #1 {
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !54
   %9 = getelementptr inbounds i8, ptr %8, i64 1448
   %10 = load double, ptr %9, align 8, !tbaa !55

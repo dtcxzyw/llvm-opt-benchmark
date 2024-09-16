@@ -9999,7 +9999,7 @@ invoke.cont137:                                   ; preds = %invoke.cont133
           to label %invoke.cont140 unwind label %lpad139
 
 invoke.cont140:                                   ; preds = %invoke.cont137
-  %call143 = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef nonnull %agg.tmp131, ptr noundef nonnull align 8 dereferenceable(152) %58, ptr noundef nonnull %colorSpace.01100, ptr noundef nonnull %agg.tmp135, ptr noundef nonnull align 8 dereferenceable(152) %im, ptr noundef %call141)
+  %call143 = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef %agg.tmp131, ptr noundef nonnull align 8 dereferenceable(152) %58, ptr noundef nonnull %colorSpace.01100, ptr noundef %agg.tmp135, ptr noundef nonnull align 8 dereferenceable(152) %im, ptr noundef %call141)
           to label %invoke.cont142 unwind label %lpad139
 
 invoke.cont142:                                   ; preds = %invoke.cont140
@@ -11952,7 +11952,7 @@ declare void @_ZN4pbrt17SplitStringToIntsESt17basic_string_viewIcSt11char_traits
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef %fn1, ptr noundef nonnull align 8 dereferenceable(152) %im1, ptr nocapture noundef readonly %cs1, ptr noundef %fn2, ptr noundef nonnull align 8 dereferenceable(152) %im2, ptr nocapture noundef readonly %cs2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef nonnull %fn1, ptr noundef nonnull align 8 dereferenceable(152) %im1, ptr nocapture noundef readonly %cs1, ptr noundef nonnull %fn2, ptr noundef nonnull align 8 dereferenceable(152) %im2, ptr nocapture noundef readonly %cs2) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i112 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i79 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -20306,7 +20306,7 @@ invoke.cont344:                                   ; preds = %invoke.cont341
           to label %invoke.cont346 unwind label %lpad345
 
 invoke.cont346:                                   ; preds = %invoke.cont344
-  %call349 = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef nonnull %agg.tmp337, ptr noundef nonnull align 8 dereferenceable(152) %im, ptr noundef %call342, ptr noundef nonnull %agg.tmp343, ptr noundef nonnull align 8 dereferenceable(152) %refRead, ptr noundef %call347)
+  %call349 = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef %agg.tmp337, ptr noundef nonnull align 8 dereferenceable(152) %im, ptr noundef %call342, ptr noundef %agg.tmp343, ptr noundef nonnull align 8 dereferenceable(152) %refRead, ptr noundef %call347)
           to label %invoke.cont348 unwind label %lpad345
 
 invoke.cont348:                                   ; preds = %invoke.cont346
@@ -33613,7 +33613,7 @@ for.body.i.i22.preheader.i.i.i.i.us:              ; preds = %for.cond.preheader.
 invoke.cont.i.i.i.i.us:                           ; preds = %for.body.i.i22.preheader.i.i.i.i.us, %for.cond.preheader.i.i19.i.i.i.i.us, %if.else.i.i18.i.i.i.i.us
   store i64 0, ptr %__value.i.i.i.i.sroa.7.16.gep3210.sroa_idx5488, align 8
   store ptr null, ptr %__value.i.i.i.i.sroa.4, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef nonnull %__first.addr.0.call.i.i.us, i64 noundef %__parent.0.i.i.i.i.us, i64 noundef %sub.ptr.div.i.i.i.i.us, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef %__first.addr.0.call.i.i.us, i64 noundef %__parent.0.i.i.i.i.us, i64 noundef %sub.ptr.div.i.i.i.i.us, ptr noundef %agg.tmp.i.i.i.i)
           to label %invoke.cont7.i.i.i.i.us unwind label %lpad6.i.i.i.i.split.us
 
 invoke.cont7.i.i.i.i.us:                          ; preds = %invoke.cont.i.i.i.i.us
@@ -33910,7 +33910,7 @@ for.body.lr.ph.i.i16.i.i.i.i.us:                  ; preds = %for.cond.preheader.
 invoke.cont1.i.i.i.i.us:                          ; preds = %for.body.lr.ph.i.i16.i.i.i.i.us, %for.cond.preheader.i.i14.i.i.i.i.us, %if.else.i.i13.i.i.i.i.us
   store i64 0, ptr %__value.i9.i.i.i.sroa.9.16.gep3211.sroa_idx5496, align 8
   store ptr null, ptr %__value.i9.i.i.i.sroa.5, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef nonnull %__first.addr.0.call.i.i.us, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i.us, ptr noundef nonnull %agg.tmp.i10.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef %__first.addr.0.call.i.i.us, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i.us, ptr noundef %agg.tmp.i10.i.i.i)
           to label %invoke.cont4.i.i.i.i.us unwind label %lpad3.i.i.i.i.split.us
 
 invoke.cont4.i.i.i.i.us:                          ; preds = %invoke.cont1.i.i.i.i.us
@@ -57906,7 +57906,7 @@ if.else.i.i.i19.i.i.i:                            ; preds = %_ZNSt4pairIN4pbrt6P
 invoke.cont.i.i.i:                                ; preds = %if.else.i.i.i19.i.i.i, %for.body.i.i.i23.preheader.i.i.i, %for.cond.preheader.i.i.i20.i.i.i
   store i64 0, ptr %nAlloc.i.i.i.i.i.i, align 8
   store ptr null, ptr %ptr.i.i.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
           to label %invoke.cont10.i.i.i unwind label %lpad9.i.i.i
 
 invoke.cont10.i.i.i:                              ; preds = %invoke.cont.i.i.i
@@ -58039,7 +58039,7 @@ if.else.i.i.i14.i:                                ; preds = %invoke.cont.i
 invoke.cont8.i:                                   ; preds = %if.else.i.i.i14.i, %for.body.lr.ph.i.i.i17.i, %for.cond.preheader.i.i.i15.i
   store i64 0, ptr %nAlloc.i.i.i.i, align 8
   store ptr null, ptr %ptr.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef nonnull %agg.tmp7.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i, ptr noundef %agg.tmp7.i)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %invoke.cont8.i
@@ -58922,7 +58922,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4pbrt6Point2IiEENS3_18ImageChannelValuesEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZ3catS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp37 = alloca %"struct.std::pair.90", align 8
   %sub = add nsw i64 %__len, -1
@@ -61580,7 +61580,7 @@ invoke.cont44.i.i.i:                              ; preds = %invoke.cont40.i.i.i
 
 invoke.cont46.i.i.i:                              ; preds = %invoke.cont44.i.i.i
   %46 = load ptr, ptr %call47.i.i.i, align 8
-  %call49.i.i.i = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef nonnull %agg.tmp35.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %imRead.i.i.i, ptr noundef %call41.i.i.i, ptr noundef nonnull %agg.tmp42.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call7.i.i.i, ptr noundef %46)
+  %call49.i.i.i = invoke fastcc noundef zeroext i1 @_ZL23checkImageCompatibilityNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN4pbrt5ImageEPKNS5_13RGBColorSpaceES4_S8_SB_(ptr noundef %agg.tmp35.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %imRead.i.i.i, ptr noundef %call41.i.i.i, ptr noundef %agg.tmp42.i.i.i, ptr noundef nonnull align 8 dereferenceable(152) %call7.i.i.i, ptr noundef %46)
           to label %invoke.cont48.i.i.i unwind label %lpad45.i.i.i
 
 invoke.cont48.i.i.i:                              ; preds = %invoke.cont46.i.i.i
@@ -70814,7 +70814,7 @@ _ZNSt15__new_allocatorIN4pbrt18ImageChannelValuesEE7destroyIS1_EEvPT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEE3$_1EEEvT_T0_SI_T1_T2_"(ptr noundef nonnull %__first, i64 noundef range(i64 0, 96076792050570581) %__holeIndex, i64 noundef range(i64 -192153584101141162, 192153584101141163) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.pbrt::ImageChannelValues", align 8
   %sub = add nsw i64 %__len, -1
@@ -70948,7 +70948,7 @@ if.else.i.i:                                      ; preds = %if.end18
 _ZN4pbrt18ImageChannelValuesC2EOS0_.exit:         ; preds = %for.body.lr.ph.i.i, %for.cond.preheader.i.i, %if.else.i.i
   store i64 0, ptr %nAlloc5.i.i, align 8
   store ptr null, ptr %ptr7.i.i, align 8
-  %cmp3.i = icmp sgt i64 %__holeIndex.addr.1, %__holeIndex
+  %cmp3.i = icmp ugt i64 %__holeIndex.addr.1, %__holeIndex
   br i1 %cmp3.i, label %land.rhs.lr.ph.i, label %while.end.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit

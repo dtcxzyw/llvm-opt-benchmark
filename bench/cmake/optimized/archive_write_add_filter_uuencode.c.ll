@@ -376,7 +376,7 @@ declare ptr @archive_string_ensure(ptr noundef, i64 noundef) local_unnamed_addr 
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #0 {
   %4 = and i64 %2, 4294967295
   %.not = icmp eq i64 %4, 0
   %5 = trunc i64 %2 to i8
@@ -384,7 +384,7 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef rea
   %7 = select i1 %.not, i8 96, i8 %6
   %8 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %7) #6
   %9 = icmp ugt i64 %2, 2
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.073 = phi i64 [ %33, %.lr.ph ], [ %2, %3 ]
@@ -428,57 +428,57 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr nocapture noundef rea
   %34 = icmp ugt i64 %33, 2
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.047.lcssa = phi ptr [ %1, %3 ], [ %32, %.lr.ph ]
-  %.0.lcssa = phi i64 [ %2, %3 ], [ %33, %.lr.ph ]
-  %.not48 = icmp eq i64 %.0.lcssa, 0
-  br i1 %.not48, label %56, label %35
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not48 = icmp eq i64 %33, 0
+  br i1 %.not48, label %55, label %._crit_edge.thread
 
-35:                                               ; preds = %._crit_edge
-  %36 = load i8, ptr %.047.lcssa, align 1
-  %37 = lshr i8 %36, 2
-  %.not49 = icmp ult i8 %36, 4
-  %narrow = add nuw nsw i8 %37, 32
+._crit_edge.thread:                               ; preds = %3, %._crit_edge
+  %.0.lcssa80 = phi i64 [ %33, %._crit_edge ], [ %2, %3 ]
+  %.047.lcssa79 = phi ptr [ %32, %._crit_edge ], [ %1, %3 ]
+  %35 = load i8, ptr %.047.lcssa79, align 1
+  %36 = lshr i8 %35, 2
+  %.not49 = icmp ult i8 %35, 4
+  %narrow = add nuw nsw i8 %36, 32
   %narrow50 = select i1 %.not49, i8 96, i8 %narrow
-  %38 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow50) #6
-  %39 = load i8, ptr %.047.lcssa, align 1
-  %40 = shl i8 %39, 4
-  %41 = and i8 %40, 48
-  %42 = icmp eq i64 %.0.lcssa, 1
-  br i1 %42, label %43, label %45
+  %37 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow50) #6
+  %38 = load i8, ptr %.047.lcssa79, align 1
+  %39 = shl i8 %38, 4
+  %40 = and i8 %39, 48
+  %41 = icmp eq i64 %.0.lcssa80, 1
+  br i1 %41, label %42, label %44
 
-43:                                               ; preds = %35
-  %.not57 = icmp eq i8 %41, 0
-  %narrow58 = add nuw nsw i8 %41, 32
+42:                                               ; preds = %._crit_edge.thread
+  %.not57 = icmp eq i8 %40, 0
+  %narrow58 = add nuw nsw i8 %40, 32
   %narrow59 = select i1 %.not57, i8 96, i8 %narrow58
-  %44 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow59) #6
+  %43 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow59) #6
   br label %.sink.split
 
-45:                                               ; preds = %35
-  %46 = getelementptr inbounds i8, ptr %.047.lcssa, i64 1
-  %47 = load i8, ptr %46, align 1
-  %48 = lshr i8 %47, 4
-  %49 = or disjoint i8 %48, %41
-  %.not51 = icmp eq i8 %49, 0
-  %narrow52 = add nuw nsw i8 %49, 32
+44:                                               ; preds = %._crit_edge.thread
+  %45 = getelementptr inbounds i8, ptr %.047.lcssa79, i64 1
+  %46 = load i8, ptr %45, align 1
+  %47 = lshr i8 %46, 4
+  %48 = or disjoint i8 %47, %40
+  %.not51 = icmp eq i8 %48, 0
+  %narrow52 = add nuw nsw i8 %48, 32
   %narrow53 = select i1 %.not51, i8 96, i8 %narrow52
-  %50 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow53) #6
-  %51 = load i8, ptr %46, align 1
-  %52 = shl i8 %51, 2
-  %53 = and i8 %52, 60
-  %.not54 = icmp eq i8 %53, 0
-  %narrow55 = add nuw nsw i8 %53, 32
+  %49 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %narrow53) #6
+  %50 = load i8, ptr %45, align 1
+  %51 = shl i8 %50, 2
+  %52 = and i8 %51, 60
+  %.not54 = icmp eq i8 %52, 0
+  %narrow55 = add nuw nsw i8 %52, 32
   %narrow56 = select i1 %.not54, i8 96, i8 %narrow55
   br label %.sink.split
 
-.sink.split:                                      ; preds = %45, %43
-  %.sink = phi i8 [ 96, %43 ], [ %narrow56, %45 ]
-  %54 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %.sink) #6
-  %55 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 96) #6
-  br label %56
+.sink.split:                                      ; preds = %44, %42
+  %.sink = phi i8 [ 96, %42 ], [ %narrow56, %44 ]
+  %53 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext %.sink) #6
+  %54 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 96) #6
+  br label %55
 
-56:                                               ; preds = %.sink.split, %._crit_edge
-  %57 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 10) #6
+55:                                               ; preds = %.sink.split, %._crit_edge
+  %56 = tail call ptr @archive_strappend_char(ptr noundef %0, i8 noundef signext 10) #6
   ret void
 }
 

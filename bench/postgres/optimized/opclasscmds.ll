@@ -477,7 +477,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   %127 = getelementptr inbounds i8, ptr %123, i64 20
   store i32 %.0174, ptr %127, align 4
   call fastcc void @assignOperTypes(ptr noundef nonnull %123, i32 noundef %35)
-  call fastcc void @addFamilyMember(ptr noundef nonnull %4, ptr noundef nonnull %123)
+  call fastcc void @addFamilyMember(ptr noundef %4, ptr noundef nonnull %123)
   br label %166
 
 128:                                              ; preds = %.lr.ph291
@@ -521,7 +521,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
 
 151:                                              ; preds = %148, %138
   call fastcc void @assignProcTypes(ptr noundef nonnull %142, i32 noundef %35, i32 noundef %57, i32 noundef %45)
-  call fastcc void @addFamilyMember(ptr noundef nonnull %5, ptr noundef nonnull %142)
+  call fastcc void @addFamilyMember(ptr noundef %5, ptr noundef nonnull %142)
   br label %166
 
 152:                                              ; preds = %.lr.ph291
@@ -1037,7 +1037,7 @@ define internal fastcc void @assignOperTypes(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addFamilyMember(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @addFamilyMember(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1157,7 +1157,7 @@ list_length.exit12:                               ; preds = %list_length.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assignProcTypes(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @assignProcTypes(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -2182,7 +2182,7 @@ processTypesSpec.exit.i:                          ; preds = %list_length.exit12.
   store i32 %.sink139.i, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %119, i64 16
   store i32 %storemerge.i63.sink.i, ptr %123, align 4
-  call fastcc void @addFamilyMember(ptr noundef nonnull %.sink.i, ptr noundef nonnull %119)
+  call fastcc void @addFamilyMember(ptr noundef %.sink.i, ptr noundef nonnull %119)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i68, 1
   %124 = load i32, ptr %50, align 4
   %125 = sext i32 %124 to i64
@@ -2425,7 +2425,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %198, %dropOperators
   %248 = getelementptr inbounds i8, ptr %241, i64 28
   store i32 %37, ptr %248, align 4
   tail call fastcc void @assignOperTypes(ptr noundef nonnull %241, i32 noundef %24)
-  call fastcc void @addFamilyMember(ptr noundef nonnull %2, ptr noundef nonnull %241)
+  call fastcc void @addFamilyMember(ptr noundef %2, ptr noundef nonnull %241)
   br label %285
 
 249:                                              ; preds = %.lr.ph
@@ -2475,7 +2475,7 @@ AlterOpFamilyDrop.exit:                           ; preds = %198, %dropOperators
 
 275:                                              ; preds = %272, %259
   tail call fastcc void @assignProcTypes(ptr noundef nonnull %263, i32 noundef %24, i32 noundef 0, i32 noundef %34)
-  call fastcc void @addFamilyMember(ptr noundef nonnull %3, ptr noundef nonnull %263)
+  call fastcc void @addFamilyMember(ptr noundef %3, ptr noundef nonnull %263)
   br label %285
 
 276:                                              ; preds = %.lr.ph

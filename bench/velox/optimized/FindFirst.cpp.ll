@@ -4770,7 +4770,7 @@ entry:
   %agg.tmp51 = alloca %"class.std::shared_ptr.75", align 8
   %0 = load ptr, ptr %args, align 8
   %context.val = load ptr, ptr %context, align 8
-  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %flatArray, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.val)
+  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias align 8 %flatArray, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.val)
   %_M_finish.i = getelementptr inbounds i8, ptr %args, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %2 = load ptr, ptr %args, align 8
@@ -6092,7 +6092,7 @@ while.body.i:                                     ; preds = %invoke.cont35.i
   %205 = load ptr, ptr %rawNulls.i, align 8
   %206 = load ptr, ptr %rawOffsets.i, align 8
   %207 = load ptr, ptr %rawSizes.i, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias nonnull align 8 %elementRows.i, i32 noundef %168, ptr noundef nonnull align 8 dereferenceable(38) %effectiveRows_.i.i.i, ptr noundef %205, ptr noundef %206, ptr noundef %207)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias align 8 %elementRows.i, i32 noundef %168, ptr noundef nonnull align 8 dereferenceable(38) %effectiveRows_.i.i.i, ptr noundef %205, ptr noundef %206, ptr noundef %207)
           to label %invoke.cont40.i unwind label %lpad34.loopexit.split-lp.loopexit.i
 
 invoke.cont40.i:                                  ; preds = %while.body.i
@@ -8022,7 +8022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.0.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayDecoder = alloca %"class.facebook::velox::exec::LocalDecodedVector", align 8
   %0 = load ptr, ptr %input, align 8
@@ -8051,7 +8051,7 @@ _ZN8facebook5velox4exec18LocalDecodedVectorC2ERKNS1_7EvalCtxERKNS0_10BaseVectorE
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN8facebook5velox4exec18LocalDecodedVectorC2ERKNS1_7EvalCtxERKNS0_10BaseVectorERKNS0_17SelectivityVectorEb.exit
-  invoke void @_ZN8facebook5velox9functions12flattenArrayERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_13DecodedVectorE(ptr sret(%"class.std::shared_ptr.67") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(120) %call2)
+  invoke void @_ZN8facebook5velox9functions12flattenArrayERKNS0_17SelectivityVectorERKSt10shared_ptrINS0_10BaseVectorEERNS0_13DecodedVectorE(ptr nonnull sret(%"class.std::shared_ptr.67") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(120) %call2)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -8679,7 +8679,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(99), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNKS0_9functions12_GLOBAL__N_117FindFirstFunction5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISC_EERKSA_IKNS0_4TypeEERNS0_4exec7EvalCtxERSC_EUlT_E_EEvPKmiibSP_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -10367,7 +10367,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i.i41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias align 8 %agg.result, i32 noundef %numElements, ptr nocapture noundef nonnull align 8 dereferenceable(38) %arrayRows, ptr noundef %rawNulls, ptr noundef %rawOffsets, ptr noundef %rawSizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias nonnull align 8 %agg.result, i32 noundef %numElements, ptr nocapture noundef nonnull align 8 dereferenceable(38) %arrayRows, ptr noundef %rawNulls, ptr noundef %rawOffsets, ptr noundef %rawSizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.197, align 8
@@ -13908,7 +13908,7 @@ invoke.cont:
   %flatResult = alloca ptr, align 8
   %1 = load ptr, ptr %args, align 8
   %context.val = load ptr, ptr %context, align 8
-  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias nonnull align 8 %flatArray, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.val)
+  call fastcc void @_ZNK8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase17prepareInputArrayERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxE(ptr noalias align 8 %flatArray, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr %context.val)
   %2 = load ptr, ptr %flatArray, align 8
   %rawOffsets_.i = getelementptr inbounds i8, ptr %2, i64 112
   %3 = load ptr, ptr %rawOffsets_.i, align 8
@@ -14547,7 +14547,7 @@ while.body.i:                                     ; preds = %invoke.cont33.i
   %105 = load ptr, ptr %rawNulls.i, align 8
   %106 = load ptr, ptr %rawOffsets.i, align 8
   %107 = load ptr, ptr %rawSizes.i, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias nonnull align 8 %elementRows.i, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(38) %effectiveRows_.i.i.i, ptr noundef %105, ptr noundef %106, ptr noundef %107)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias align 8 %elementRows.i, i32 noundef %68, ptr noundef nonnull align 8 dereferenceable(38) %effectiveRows_.i.i.i, ptr noundef %105, ptr noundef %106, ptr noundef %107)
           to label %invoke.cont37.i unwind label %lpad32.loopexit.split-lp.loopexit.i
 
 invoke.cont37.i:                                  ; preds = %while.body.i

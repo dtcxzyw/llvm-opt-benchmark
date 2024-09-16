@@ -1785,7 +1785,7 @@ define range(i32 0, -2147483648) i32 @cvInitNArrayIterator(i32 noundef %0, ptr n
 85:                                               ; preds = %82, %78
   store i32 0, ptr %17, align 4
   %86 = getelementptr inbounds %struct.CvMatND, ptr %3, i64 %indvars.iv210
-  %87 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull %70, ptr noundef nonnull %86, ptr noundef nonnull %17)
+  %87 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %70, ptr noundef %86, ptr noundef nonnull %17)
   %88 = load i32, ptr %17, align 4
   %.not134 = icmp eq i32 %88, 0
   br i1 %.not134, label %96, label %89
@@ -2137,7 +2137,7 @@ default.unreachable223:                           ; preds = %108
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull %0, ptr noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %struct.CvMat, align 8
@@ -4061,7 +4061,7 @@ define ptr @cvPtr2D(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef 
   store i32 %1, ptr %17, align 4
   %204 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %2, ptr %204, align 4
-  %205 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef %3, i32 noundef 1, ptr noundef null)
+  %205 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %17, ptr noundef %3, i32 noundef 1, ptr noundef null)
   br label %212
 
 .critedge154:                                     ; preds = %.critedge, %32, %28, %24, %67, %159, %4
@@ -6646,7 +6646,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br label %153
 
 151:                                              ; preds = %144
-  %152 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %2, i32 noundef 1, ptr noundef null)
+  %152 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %2, i32 noundef 1, ptr noundef null)
   br label %.loopexit
 
 153:                                              ; preds = %.lr.ph, %153
@@ -6664,7 +6664,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
   br i1 %160, label %153, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %153, %.preheader
-  %161 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %2, i32 noundef 1, ptr noundef null)
+  %161 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2, i32 noundef 1, ptr noundef null)
   br label %.loopexit
 
 .critedge141:                                     ; preds = %.critedge, %16, %20, %24, %87, %3
@@ -6702,7 +6702,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -7211,7 +7211,7 @@ define ptr @cvPtr3D(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 
   store i32 %2, ptr %57, align 4
   %58 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %3, ptr %58, align 4
-  %59 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %4, i32 noundef 1, ptr noundef null)
+  %59 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %4, i32 noundef 1, ptr noundef null)
   br label %66
 
 .critedge:                                        ; preds = %11, %14, %5
@@ -7296,7 +7296,7 @@ define ptr @cvPtrND(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32
   ]
 
 23:                                               ; preds = %20
-  %24 = tail call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  %24 = tail call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
   br label %76
 
 25:                                               ; preds = %20
@@ -7540,7 +7540,7 @@ define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
   br label %56
 
 54:                                               ; preds = %49
-  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null)
+  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null)
   br label %56
 
 56:                                               ; preds = %.critedge, %54, %36
@@ -7686,7 +7686,7 @@ common.resume:                                    ; preds = %54, %56, %29, %31
   store i32 %2, ptr %10, align 4
   %60 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %3, ptr %60, align 4
-  %61 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null)
+  %61 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null)
   br label %62
 
 62:                                               ; preds = %.split28, %59, %33
@@ -7760,7 +7760,7 @@ define void @cvGet3D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
   store i32 %3, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %4, ptr %24, align 4
-  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null)
+  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef 0, ptr noundef null)
   br label %26
 
 26:                                               ; preds = %.split11, %22
@@ -7800,7 +7800,7 @@ define void @cvGetND(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
   br label %13
 
 11:                                               ; preds = %6
-  %12 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null)
+  %12 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null)
   br label %13
 
 13:                                               ; preds = %.split, %.split8, %11
@@ -7919,7 +7919,7 @@ define double @cvGetReal1D(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br label %56
 
 54:                                               ; preds = %49
-  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null)
+  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, ptr noundef null)
   br label %56
 
 56:                                               ; preds = %.critedge, %54, %36
@@ -8142,7 +8142,7 @@ common.resume:                                    ; preds = %30, %32, %70, %72, 
   store i32 %1, ptr %9, align 4
   %61 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 %2, ptr %61, align 4
-  %62 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null)
+  %62 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef 0, ptr noundef null)
   br label %63
 
 63:                                               ; preds = %.split32, %60, %34
@@ -8288,7 +8288,7 @@ common.resume:                                    ; preds = %33, %35, %13, %15
   store i32 %2, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 %3, ptr %24, align 4
-  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null)
+  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null)
   br label %26
 
 26:                                               ; preds = %.split17, %22
@@ -8399,7 +8399,7 @@ define double @cvGetRealND(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %14
 
 12:                                               ; preds = %7
-  %13 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null)
+  %13 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null)
   br label %14
 
 14:                                               ; preds = %.split, %.split13, %12
@@ -8596,7 +8596,7 @@ define void @cvSet1D(ptr noundef %0, i32 noundef %1, ptr noundef byval(%struct.C
   br label %56
 
 54:                                               ; preds = %49
-  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef null)
+  %55 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef null)
   br label %56
 
 56:                                               ; preds = %.critedge, %54, %36
@@ -8734,7 +8734,7 @@ common.resume:                                    ; preds = %54, %56, %29, %31
   store i32 %1, ptr %10, align 4
   %60 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %2, ptr %60, align 4
-  %61 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef -1, ptr noundef null)
+  %61 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef -1, ptr noundef null)
   br label %62
 
 62:                                               ; preds = %.split27, %59, %33
@@ -8800,7 +8800,7 @@ define void @cvSet3D(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef
   store i32 %2, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %3, ptr %24, align 4
-  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef -1, ptr noundef null)
+  %25 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef -1, ptr noundef null)
   br label %26
 
 26:                                               ; preds = %.split10, %22
@@ -8832,7 +8832,7 @@ define void @cvSetND(ptr noundef %0, ptr noundef %1, ptr noundef byval(%struct.C
   br label %13
 
 11:                                               ; preds = %6
-  %12 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef -1, ptr noundef null)
+  %12 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef -1, ptr noundef null)
   br label %13
 
 13:                                               ; preds = %.split, %.split7, %11
@@ -8944,7 +8944,7 @@ define void @cvSetReal1D(ptr noundef %0, i32 noundef %1, double noundef %2) loca
   br label %57
 
 55:                                               ; preds = %50
-  %56 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef null)
+  %56 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef -1, ptr noundef null)
   br label %57
 
 57:                                               ; preds = %.critedge, %55, %37
@@ -9183,7 +9183,7 @@ common.resume:                                    ; preds = %31, %33, %70, %72, 
   store i32 %1, ptr %10, align 4
   %62 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %2, ptr %62, align 4
-  %63 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef -1, ptr noundef null)
+  %63 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %7, i32 noundef -1, ptr noundef null)
   br label %64
 
 64:                                               ; preds = %.split31, %61, %35
@@ -9345,7 +9345,7 @@ common.resume:                                    ; preds = %33, %35, %14, %16
   store i32 %2, ptr %24, align 4
   %25 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %3, ptr %25, align 4
-  %26 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef -1, ptr noundef null)
+  %26 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %8, i32 noundef -1, ptr noundef null)
   br label %27
 
 27:                                               ; preds = %.split16, %23
@@ -9472,7 +9472,7 @@ define void @cvSetRealND(ptr noundef %0, ptr noundef %1, double noundef %2) loca
   br label %15
 
 13:                                               ; preds = %8
-  %14 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef -1, ptr noundef null)
+  %14 = call fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef -1, ptr noundef null)
   br label %15
 
 15:                                               ; preds = %.split, %.split12, %13
@@ -10239,7 +10239,7 @@ define nonnull ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef r
   br label %.loopexit
 
 198:                                              ; preds = %.thread308
-  %199 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull %16, ptr noundef nonnull %2, ptr noundef null)
+  %199 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %16, ptr noundef %2, ptr noundef null)
   %200 = icmp sgt i32 %.0168273, 0
   br i1 %200, label %201, label %.loopexit
 
@@ -10445,7 +10445,7 @@ define nonnull ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %.not235, label %284, label %286
 
 284:                                              ; preds = %282, %278
-  %285 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull %7)
+  %285 = call fastcc noundef ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr noundef %0, ptr noundef %33, ptr noundef nonnull %7)
   %.pre = load i32, ptr %33, align 8
   br label %286
 

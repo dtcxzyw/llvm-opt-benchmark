@@ -296,7 +296,7 @@ declare i32 @mbedtls_rsa_deduce_private_exponent(ptr noundef, ptr noundef, ptr n
 declare i32 @mbedtls_rsa_deduce_crt(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16512, 1) i32 @rsa_check_context(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -16512, 1) i32 @rsa_check_context(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1195,7 +1195,7 @@ define hidden i32 @mbedtls_rsa_private(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not68, label %29, label %87
 
 29:                                               ; preds = %27
-  %30 = call fastcc i32 @rsa_prepare_blinding(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
+  %30 = call fastcc i32 @rsa_prepare_blinding(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
   %.not69 = icmp eq i32 %30, 0
   br i1 %.not69, label %31, label %87
 
@@ -1345,7 +1345,7 @@ define hidden i32 @mbedtls_rsa_private(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rsa_prepare_blinding(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @rsa_prepare_blinding(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.mbedtls_mpi, align 8
   call void @mbedtls_mpi_init(ptr noundef nonnull %4) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 304
@@ -1390,14 +1390,14 @@ define internal fastcc i32 @rsa_prepare_blinding(ptr noundef %0, ptr noundef %1,
 23:                                               ; preds = %21
   %24 = load i64, ptr %8, align 8
   %25 = add i64 %24, -1
-  %26 = call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %5, i64 noundef %25, ptr noundef %1, ptr noundef %2) #14
+  %26 = call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %5, i64 noundef %25, ptr noundef nonnull %1, ptr noundef %2) #14
   %.not54 = icmp eq i32 %26, 0
   br i1 %.not54, label %27, label %.loopexit
 
 27:                                               ; preds = %23
   %28 = load i64, ptr %8, align 8
   %29 = add i64 %28, -1
-  %30 = call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %4, i64 noundef %29, ptr noundef %1, ptr noundef %2) #14
+  %30 = call i32 @mbedtls_mpi_fill_random(ptr noundef nonnull %4, i64 noundef %29, ptr noundef nonnull %1, ptr noundef %2) #14
   %.not55 = icmp eq i32 %30, 0
   br i1 %.not55, label %31, label %.loopexit
 
@@ -1515,7 +1515,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_encrypt(ptr noundef %0, ptr noundef re
   %45 = getelementptr inbounds i8, ptr %44, i64 1
   %46 = xor i64 %20, -1
   %47 = add i64 %18, %46
-  %48 = call fastcc i32 @mgf_mask(ptr noundef nonnull %45, i64 noundef %47, ptr noundef nonnull %27, i64 noundef %20, ptr noundef nonnull %9)
+  %48 = call fastcc i32 @mgf_mask(ptr noundef nonnull %45, i64 noundef %47, ptr noundef nonnull %27, i64 noundef %20, ptr noundef %9)
   %.not69 = icmp eq i32 %48, 0
   br i1 %.not69, label %49, label %.thread
 
@@ -1525,7 +1525,7 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_encrypt(ptr noundef %0, ptr noundef re
   br label %53
 
 49:                                               ; preds = %43
-  %50 = call fastcc i32 @mgf_mask(ptr noundef nonnull %27, i64 noundef %20, ptr noundef nonnull %45, i64 noundef %47, ptr noundef nonnull %9)
+  %50 = call fastcc i32 @mgf_mask(ptr noundef nonnull %27, i64 noundef %20, ptr noundef nonnull %45, i64 noundef %47, ptr noundef %9)
   call void @mbedtls_md_free(ptr noundef nonnull %9) #14
   %.not70 = icmp eq i32 %50, 0
   br i1 %.not70, label %51, label %53
@@ -1551,7 +1551,7 @@ declare void @mbedtls_md_init(ptr noundef) local_unnamed_addr #1
 declare i32 @mbedtls_md_setup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mgf_mask(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @mgf_mask(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [64 x i8], align 16
   %7 = alloca [4 x i8], align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
@@ -1860,12 +1860,12 @@ define hidden i32 @mbedtls_rsa_rsaes_oaep_decrypt(ptr noundef %0, ptr noundef %1
   %40 = getelementptr inbounds i8, ptr %39, i64 1
   %41 = xor i64 %38, -1
   %42 = add nsw i64 %17, %41
-  %43 = call fastcc i32 @mgf_mask(ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %12)
+  %43 = call fastcc i32 @mgf_mask(ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull %40, i64 noundef %42, ptr noundef %12)
   %.not80 = icmp eq i32 %43, 0
   br i1 %.not80, label %44, label %46
 
 44:                                               ; preds = %36
-  %45 = call fastcc i32 @mgf_mask(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %37, i64 noundef %38, ptr noundef nonnull %12)
+  %45 = call fastcc i32 @mgf_mask(ptr noundef nonnull %40, i64 noundef %42, ptr noundef nonnull %37, i64 noundef %38, ptr noundef %12)
   %.not81 = icmp eq i32 %45, 0
   br i1 %.not81, label %47, label %46
 
@@ -2193,7 +2193,7 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
   %74 = getelementptr inbounds i8, ptr %7, i64 %spec.select
   %75 = xor i64 %spec.select, -1
   %76 = add i64 %49, %75
-  %77 = call fastcc i32 @mgf_mask(ptr noundef %74, i64 noundef %76, ptr noundef %58, i64 noundef %29, ptr noundef nonnull %9)
+  %77 = call fastcc i32 @mgf_mask(ptr noundef %74, i64 noundef %76, ptr noundef %58, i64 noundef %29, ptr noundef %9)
   %.not100 = icmp eq i32 %77, 0
   br i1 %.not100, label %78, label %.thread
 
@@ -2533,7 +2533,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 55:                                               ; preds = %49
   %56 = xor i64 %44, -1
   %57 = add nsw i64 %spec.select91, %56
-  %58 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select, i64 noundef %57, ptr noundef nonnull %53, i64 noundef %44, ptr noundef nonnull %10)
+  %58 = call fastcc i32 @mgf_mask(ptr noundef nonnull %spec.select, i64 noundef %57, ptr noundef nonnull %53, i64 noundef %44, ptr noundef %10)
   %.not81 = icmp eq i32 %58, 0
   br i1 %.not81, label %59, label %92
 

@@ -3756,7 +3756,7 @@ define void @_ZN3gmx18SelectionEvaluator8evaluateEPNS_19SelectionCollectionEP10t
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %4, %26, %29
-  invoke fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull %6)
+  invoke fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef %6)
           to label %31 unwind label %97
 
 31:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
@@ -4154,7 +4154,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit34: ; preds = %._crit_ed
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr nocapture noundef %0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr nocapture noundef nonnull %0) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::shared_ptr", align 8
   %3 = load ptr, ptr %0, align 8
   %.not1113 = icmp eq ptr %3, null
@@ -4233,7 +4233,7 @@ define internal fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20Selection
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %30, %36, %39
-  invoke fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef nonnull %2)
+  invoke fastcc void @_ZL15init_frame_evalSt10shared_ptrIN3gmx20SelectionTreeElementEE(ptr noundef %2)
           to label %41 unwind label %77
 
 41:                                               ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit

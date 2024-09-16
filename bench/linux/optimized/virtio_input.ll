@@ -871,7 +871,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtinput_cfg_bits(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc void @virtinput_cfg_bits(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 16, 18) %1, i32 noundef range(i32 0, 19) %2, ptr noundef %3, i32 noundef range(i32 8, 769) %4) unnamed_addr #2 align 16 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1

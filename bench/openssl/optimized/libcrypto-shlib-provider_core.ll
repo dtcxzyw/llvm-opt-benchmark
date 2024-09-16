@@ -1255,7 +1255,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool1.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %land.lhs.true, %if.end
-  %call = tail call fastcc i32 @provider_activate(ptr noundef nonnull %prov, i32 noundef 1, i32 noundef %upcalls)
+  %call = tail call fastcc i32 @provider_activate(ptr noundef %prov, i32 noundef 1, i32 noundef %upcalls)
   %cmp4 = icmp sgt i32 %call, 0
   br i1 %cmp4, label %if.then5, label %return
 
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @provider_activate(ptr noundef %prov, i32 noundef %lock, i32 noundef %upcalls) unnamed_addr #0 {
+define internal fastcc i32 @provider_activate(ptr noundef nonnull %prov, i32 noundef range(i32 0, 2) %lock, i32 noundef %upcalls) unnamed_addr #0 {
 entry:
   %provider_dispatch.i = alloca ptr, align 8
   %tmp_provctx.i = alloca ptr, align 8
@@ -1762,7 +1762,7 @@ for.body.i:                                       ; preds = %if.then54, %for.bod
   %54 = load ptr, ptr %create_cb.i, align 8
   %cbdata.i = getelementptr inbounds i8, ptr %call.i7.i, i64 32
   %55 = load ptr, ptr %cbdata.i, align 8
-  %call4.i = call i32 %54(ptr noundef %prov, ptr noundef %55) #11
+  %call4.i = call i32 %54(ptr noundef nonnull %prov, ptr noundef %55) #11
   %and.i = and i32 %call4.i, %ret.010.i
   %inc.i27 = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i27, %call.i.i26
@@ -1804,7 +1804,7 @@ return:                                           ; preds = %provider_init.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @provider_deactivate(ptr noundef %prov, i32 noundef %upcalls, i32 noundef %removechildren) unnamed_addr #0 {
+define internal fastcc i32 @provider_deactivate(ptr noundef %prov, i32 noundef range(i32 0, 2) %upcalls, i32 noundef %removechildren) unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %cmp.not = icmp eq ptr %prov, null
@@ -2032,7 +2032,7 @@ if.end:                                           ; preds = %if.then, %get_provi
   br i1 %cmp.i, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i)
+  %call5 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef %call.i)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %return, label %if.end8
 
@@ -2206,7 +2206,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noundef %store) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @provider_activate_fallbacks(ptr noundef nonnull %store) unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %store, i64 32
   %0 = load ptr, ptr %lock, align 8
@@ -2268,7 +2268,7 @@ if.end31:                                         ; preds = %if.end26
   %call33 = tail call i32 @ERR_get_next_error_library() #11
   %error_lib = getelementptr inbounds i8, ptr %call28, i64 96
   store i32 %call33, ptr %error_lib, align 8
-  %call34 = tail call fastcc i32 @provider_activate(ptr noundef nonnull %call28, i32 noundef 0, i32 noundef 0)
+  %call34 = tail call fastcc i32 @provider_activate(ptr noundef %call28, i32 noundef 0, i32 noundef 0)
   %cmp35 = icmp slt i32 %call34, 0
   br i1 %cmp35, label %if.then36, label %if.end37
 
@@ -2336,7 +2336,7 @@ get_provider_store.exit.thread:                   ; preds = %entry
   br label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef nonnull %call.i)
+  %call1 = tail call fastcc i32 @provider_activate_fallbacks(ptr noundef %call.i)
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %return, label %if.end
 

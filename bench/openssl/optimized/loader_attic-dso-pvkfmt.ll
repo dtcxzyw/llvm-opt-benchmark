@@ -225,7 +225,7 @@ entry:
   %isdss = alloca i32, align 4
   store i32 -1, ptr %isdss, align 4
   %in.val = load ptr, ptr %in, align 8
-  %call = call fastcc ptr @do_b2i_key(ptr %in.val, i32 noundef %length, ptr noundef nonnull %isdss, ptr noundef %ispub)
+  %call = call fastcc ptr @do_b2i_key(ptr %in.val, i32 noundef %length, ptr noundef %isdss, ptr noundef %ispub)
   %0 = load i32, ptr %isdss, align 4
   %cmp = icmp eq i32 %0, 0
   %cmp1 = icmp eq i32 %0, 1
@@ -236,13 +236,13 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_b2i_key(ptr %in.0.val, i32 noundef %length, ptr nocapture noundef %isdss, ptr nocapture noundef %ispub) unnamed_addr #0 {
+define internal fastcc ptr @do_b2i_key(ptr %in.0.val, i32 noundef %length, ptr nocapture noundef nonnull %isdss, ptr nocapture noundef %ispub) unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %bitlen = alloca i32, align 4
   %magic = alloca i32, align 4
   store ptr %in.0.val, ptr %p, align 8
-  %call = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef %length, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef %isdss, ptr noundef %ispub)
+  %call = call i32 @ossl_do_blob_header(ptr noundef nonnull %p, i32 noundef %length, ptr noundef nonnull %magic, ptr noundef nonnull %bitlen, ptr noundef nonnull %isdss, ptr noundef %ispub)
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return.sink.split, label %if.end
 
@@ -321,7 +321,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @evp_pkey_new0_key(ptr noundef %key, i32 noundef %evp_type) unnamed_addr #0 {
+define internal fastcc ptr @evp_pkey_new0_key(ptr noundef %key, i32 noundef range(i32 0, 117) %evp_type) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %key, null
   br i1 %cmp, label %return, label %if.end
@@ -813,7 +813,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isdss.i)
   store i32 -1, ptr %isdss.i, align 4
   %in.val.i = load ptr, ptr %in, align 8
-  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub)
+  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
   %0 = load i32, ptr %isdss.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %cmp1.i = icmp eq i32 %0, 1
@@ -834,7 +834,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %isdss.i)
   store i32 -1, ptr %isdss.i, align 4
   %in.val.i = load ptr, ptr %in, align 8
-  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub)
+  %call.i = call fastcc ptr @do_b2i_key(ptr %in.val.i, i32 noundef %conv, ptr noundef %isdss.i, ptr noundef nonnull %ispub)
   %0 = load i32, ptr %isdss.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %cmp1.i = icmp eq i32 %0, 1
@@ -999,12 +999,12 @@ entry:
   %ispub = alloca i32, align 4
   store i32 1, ptr %isdss, align 4
   store i32 0, ptr %ispub, align 4
-  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss, ptr noundef nonnull %ispub, ptr noundef %libctx, ptr noundef %propq)
+  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss, ptr noundef %ispub, ptr noundef %libctx, ptr noundef %propq)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef readonly %cb, ptr noundef %u, ptr nocapture noundef %isdss, ptr nocapture noundef %ispub, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef readonly %cb, ptr noundef %u, ptr nocapture noundef nonnull %isdss, ptr nocapture noundef nonnull %ispub, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %keybuf.i = alloca [20 x i8], align 16
   %psbuf.i = alloca [1024 x i8], align 16
@@ -1099,7 +1099,7 @@ if.end10.i:                                       ; preds = %if.end7.i
   br i1 %cmp12.i, label %err.i, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call18.i = call fastcc i32 @derive_pvk_key(ptr noundef nonnull %keybuf.i, ptr noundef nonnull %call5, i32 noundef %1, ptr noundef nonnull %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
+  %call18.i = call fastcc i32 @derive_pvk_key(ptr noundef %keybuf.i, ptr noundef nonnull %call5, i32 noundef %1, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
   %tobool19.not.i = icmp eq i32 %call18.i, 0
   br i1 %tobool19.not.i, label %err.i, label %if.end21.i
 
@@ -1187,7 +1187,7 @@ if.end85.i:                                       ; preds = %if.end73.i, %if.end
   %p.0.i = phi ptr [ %call5, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
   %rc4.1.i = phi ptr [ null, %if.end.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end73.i ], [ %call28.i, %if.end47.i ], [ %call28.i, %if.end47.i ]
   %enctmp.1.i = phi ptr [ null, %if.end.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end73.i ], [ %call11.i, %if.end47.i ], [ %call11.i, %if.end47.i ]
-  %call86.i = call fastcc ptr @do_b2i_key(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef %isdss, ptr noundef %ispub)
+  %call86.i = call fastcc ptr @do_b2i_key(ptr nonnull %p.0.i, i32 noundef %0, ptr noundef %isdss, ptr noundef nonnull %ispub)
   br label %err.i
 
 err.i:                                            ; preds = %if.end85.i, %if.then82.i, %if.end67.i, %if.end63.i, %if.then55.i, %if.end41.i, %if.end37.i, %if.end32.i, %if.end26.i, %if.then25.i, %if.end15.i, %if.end10.i, %if.then9.i, %if.then.i
@@ -1229,7 +1229,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ispub.i)
   store i32 1, ptr %isdss.i, align 4
   store i32 0, ptr %ispub.i, align 4
-  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub.i, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss.i, ptr noundef %ispub.i, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isdss.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ispub.i)
   ret ptr %call.i
@@ -1242,7 +1242,7 @@ entry:
   %ispub = alloca i32, align 4
   store i32 0, ptr %isdss, align 4
   store i32 0, ptr %ispub, align 4
-  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss, ptr noundef nonnull %ispub, ptr noundef %libctx, ptr noundef %propq)
+  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss, ptr noundef %ispub, ptr noundef %libctx, ptr noundef %propq)
   ret ptr %call
 }
 
@@ -1255,7 +1255,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ispub.i)
   store i32 0, ptr %isdss.i, align 4
   store i32 0, ptr %ispub.i, align 4
-  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub.i, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss.i, ptr noundef %ispub.i, ptr noundef null, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %isdss.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ispub.i)
   ret ptr %call.i
@@ -1268,7 +1268,7 @@ entry:
   %ispub = alloca i32, align 4
   store i32 -1, ptr %isdss, align 4
   store i32 -1, ptr %ispub, align 4
-  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss, ptr noundef nonnull %ispub, ptr noundef null, ptr noundef null)
+  %call = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss, ptr noundef %ispub, ptr noundef null, ptr noundef null)
   %0 = load i32, ptr %isdss, align 4
   %cmp = icmp eq i32 %0, 0
   %cmp1 = icmp eq i32 %0, 1
@@ -1287,7 +1287,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ispub.i)
   store i32 -1, ptr %isdss.i, align 4
   store i32 -1, ptr %ispub.i, align 4
-  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef nonnull %isdss.i, ptr noundef nonnull %ispub.i, ptr noundef null, ptr noundef null)
+  %call.i = call fastcc ptr @do_PVK_key_bio(ptr noundef %in, ptr noundef %cb, ptr noundef %u, ptr noundef %isdss.i, ptr noundef %ispub.i, ptr noundef null, ptr noundef null)
   %0 = load i32, ptr %isdss.i, align 4
   %cmp.i = icmp eq i32 %0, 0
   %cmp1.i = icmp eq i32 %0, 1
@@ -1423,7 +1423,7 @@ if.then50.i:                                      ; preds = %if.end47.i
   br label %error.i
 
 if.end51.i:                                       ; preds = %if.end47.i
-  %call54.i = call fastcc i32 @derive_pvk_key(ptr noundef nonnull %keybuf.i, ptr noundef nonnull %incdec.ptr11.i70.i, i32 noundef 16, ptr noundef nonnull %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
+  %call54.i = call fastcc i32 @derive_pvk_key(ptr noundef %keybuf.i, ptr noundef nonnull %incdec.ptr11.i70.i, i32 noundef 16, ptr noundef %psbuf.i, i32 noundef %inlen.0.i, ptr noundef %libctx, ptr noundef %propq)
   %tobool55.not.i = icmp eq i32 %call54.i, 0
   br i1 %tobool55.not.i, label %error.i, label %if.end57.i
 
@@ -1532,7 +1532,7 @@ declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_lebin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef %out, ptr noundef %pk, i32 noundef %ispub) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -1879048178) i32 @do_i2b(ptr noundef %out, ptr noundef %pk, i32 noundef range(i32 0, 2) %ispub) unnamed_addr #0 {
 entry:
   %p.i71 = alloca ptr, align 8
   %q.i72 = alloca ptr, align 8
@@ -1584,7 +1584,7 @@ if.end.i:                                         ; preds = %if.then
   %add.i = add nsw i32 %call1.i, 15
   %shr.i = ashr i32 %add.i, 4
   %tobool.not.i = icmp eq i32 %ispub, 0
-  br i1 %tobool.not.i, label %if.else.i, label %if.end8.thread
+  br i1 %tobool.not.i, label %if.else.i, label %if.end8.thread.thread154
 
 if.else.i:                                        ; preds = %if.end.i
   call void @RSA_get0_key(ptr noundef %call1, ptr noundef null, ptr noundef null, ptr noundef nonnull %d.i) #6
@@ -1635,7 +1635,7 @@ lor.lhs.false27.i:                                ; preds = %lor.lhs.false22.i
   %add29.i = add nsw i32 %call28.i, 7
   %div30.i = sdiv i32 %add29.i, 8
   %cmp31.i = icmp sgt i32 %div30.i, %shr.i
-  br i1 %cmp31.i, label %if.end8.thread.thread, label %if.end8.thread.thread154
+  br i1 %cmp31.i, label %if.end8.thread.thread, label %if.end8.thread
 
 if.end8.thread.thread:                            ; preds = %if.then, %if.else.i, %if.end8.i, %lor.lhs.false.i, %lor.lhs.false17.i, %lor.lhs.false22.i, %lor.lhs.false27.i
   call void @ERR_new() #6
@@ -1695,13 +1695,13 @@ if.then6.i:                                       ; preds = %if.end.i29
   %10 = load ptr, ptr %pub_key.i, align 8
   %call7.i = call i32 @BN_num_bits(ptr noundef %10) #6
   %cmp8.i = icmp sgt i32 %call7.i, %call.i23
-  br i1 %cmp8.i, label %if.end8.thread147, label %if.end8
+  br i1 %cmp8.i, label %if.end8.thread147, label %if.end8.thread166
 
 if.else.i30:                                      ; preds = %if.end.i29
   %11 = load ptr, ptr %priv_key.i, align 8
   %call11.i = call i32 @BN_num_bits(ptr noundef %11) #6
   %cmp12.i31 = icmp sgt i32 %call11.i, 160
-  br i1 %cmp12.i31, label %if.end8.thread147, label %if.end8.thread166
+  br i1 %cmp12.i31, label %if.end8.thread147, label %if.end8
 
 if.end8.thread147:                                ; preds = %if.then5, %lor.lhs.false.i27, %lor.lhs.false2.i, %if.then6.i, %if.else.i30
   call void @ERR_new() #6
@@ -1714,25 +1714,25 @@ if.end8.thread147:                                ; preds = %if.then5, %lor.lhs.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv_key.i)
   br label %end
 
-if.end8:                                          ; preds = %if.then6.i
+if.end8:                                          ; preds = %if.else.i30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %g.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub_key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv_key.i)
   %cmp = icmp eq i32 %call.i23, 0
-  br i1 %cmp, label %end, label %if.then4.i
+  br i1 %cmp, label %end, label %if.else.i37
 
-if.end8.thread166:                                ; preds = %if.else.i30
+if.end8.thread166:                                ; preds = %if.then6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %q.i22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %g.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pub_key.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priv_key.i)
   %cmp169 = icmp eq i32 %call.i23, 0
-  br i1 %cmp169, label %end, label %if.else.i37
+  br i1 %cmp169, label %end, label %if.then4.i
 
-if.end8.thread:                                   ; preds = %if.end.i
+if.end8.thread:                                   ; preds = %lor.lhs.false27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -1741,9 +1741,9 @@ if.end8.thread:                                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmq1.i)
   %cmp114 = icmp eq i32 %call1.i, 0
-  br i1 %cmp114, label %end, label %if.then10.i
+  br i1 %cmp114, label %end, label %if.else12.i
 
-if.end8.thread.thread154:                         ; preds = %lor.lhs.false27.i
+if.end8.thread.thread154:                         ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %d.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
@@ -1752,33 +1752,33 @@ if.end8.thread.thread154:                         ; preds = %lor.lhs.false27.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmp1.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dmq1.i)
   %cmp114157 = icmp eq i32 %call1.i, 0
-  br i1 %cmp114157, label %end, label %if.else12.i
+  br i1 %cmp114157, label %end, label %if.then10.i
 
-if.then4.i:                                       ; preds = %if.end8
-  %shr.i33 = lshr exact i32 %call.i23, 3
-  %mul.i = mul nuw nsw i32 %shr.i33, 3
+if.then4.i:                                       ; preds = %if.end8.thread166
+  %shr.i33173 = lshr exact i32 %call.i23, 3
+  %mul.i = mul nuw nsw i32 %shr.i33173, 3
   %add5.i35 = add nuw nsw i32 %mul.i, 44
   br label %ossl_blob_length.exit
 
-if.else.i37:                                      ; preds = %if.end8.thread166
-  %shr.i33173 = lshr exact i32 %call.i23, 2
-  %add7.i = add nuw nsw i32 %shr.i33173, 64
+if.else.i37:                                      ; preds = %if.end8
+  %shr.i33 = lshr exact i32 %call.i23, 2
+  %add7.i = add nuw nsw i32 %shr.i33, 64
   br label %ossl_blob_length.exit
 
-if.then10.i:                                      ; preds = %if.end8.thread
-  %add.i32121 = add i32 %call1.i, 7
-  %shr.i33122 = lshr i32 %add.i32121, 3
-  %add11.i = add nuw nsw i32 %shr.i33122, 4
-  br label %ossl_blob_length.exit
-
-if.else12.i:                                      ; preds = %if.end8.thread.thread154
+if.then10.i:                                      ; preds = %if.end8.thread.thread154
   %add.i32121161 = add i32 %call1.i, 7
-  %add1.i123163 = add i32 %call1.i, 15
-  %shr2.i124164 = lshr i32 %add1.i123163, 4
-  %12 = lshr i32 %add.i32121161, 2
-  %mul13.i = and i32 %12, 1073741822
+  %shr.i33122162 = lshr i32 %add.i32121161, 3
+  %12 = add nuw nsw i32 %shr.i33122162, 4
+  br label %ossl_blob_length.exit
+
+if.else12.i:                                      ; preds = %if.end8.thread
+  %add.i32121 = add i32 %call1.i, 7
+  %add1.i123 = add i32 %call1.i, 15
+  %shr2.i124 = lshr i32 %add1.i123, 4
+  %13 = lshr i32 %add.i32121, 2
+  %mul13.i = and i32 %13, 1073741822
   %add14.i38 = add nuw nsw i32 %mul13.i, 4
-  %mul15.i = mul nuw nsw i32 %shr2.i124164, 5
+  %mul15.i = mul nuw nsw i32 %shr2.i124, 5
   %add16.i = add nuw i32 %add14.i38, %mul15.i
   br label %ossl_blob_length.exit
 
@@ -1787,14 +1787,14 @@ ossl_blob_length.exit:                            ; preds = %if.then4.i, %if.els
   %magic.0115130 = phi i32 [ 827544388, %if.then4.i ], [ 844321604, %if.else.i37 ], [ 826364754, %if.then10.i ], [ 843141970, %if.else12.i ]
   %bitlen.0116128 = phi i32 [ %call.i23, %if.then4.i ], [ %call.i23, %if.else.i37 ], [ %call1.i, %if.then10.i ], [ %call1.i, %if.else12.i ]
   %keyalg.0117126 = phi i8 [ 34, %if.then4.i ], [ 34, %if.else.i37 ], [ -92, %if.then10.i ], [ -92, %if.else12.i ]
-  %retval.0.i36 = phi i32 [ %add5.i35, %if.then4.i ], [ %add7.i, %if.else.i37 ], [ %add11.i, %if.then10.i ], [ %add16.i, %if.else12.i ]
+  %retval.0.i36 = phi i32 [ %add5.i35, %if.then4.i ], [ %add7.i, %if.else.i37 ], [ %12, %if.then10.i ], [ %add16.i, %if.else12.i ]
   %add = add nuw i32 %retval.0.i36, 16
   %cmp13 = icmp eq ptr %out, null
   br i1 %cmp13, label %end, label %if.end15
 
 if.end15:                                         ; preds = %ossl_blob_length.exit
-  %13 = load ptr, ptr %out, align 8
-  %tobool16.not.not = icmp eq ptr %13, null
+  %14 = load ptr, ptr %out, align 8
+  %tobool16.not.not = icmp eq ptr %14, null
   br i1 %tobool16.not.not, label %if.else18, label %if.end24
 
 if.else18:                                        ; preds = %if.end15
@@ -1808,7 +1808,7 @@ if.end23:                                         ; preds = %if.else18
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end15, %if.end23
-  %p.0 = phi ptr [ %call19, %if.end23 ], [ %13, %if.end15 ]
+  %p.0 = phi ptr [ %call19, %if.end23 ], [ %14, %if.end15 ]
   %. = select i1 %tobool9.not.i135, i8 7, i8 6
   %p.1 = getelementptr inbounds i8, ptr %p.0, i64 1
   store i8 %., ptr %p.0, align 1
@@ -1869,11 +1869,11 @@ if.then35:                                        ; preds = %if.end24
   %call.i65 = call i32 @RSA_size(ptr noundef %call36) #6
   %call1.i66 = call i32 @RSA_bits(ptr noundef %call36) #6
   call void @RSA_get0_key(ptr noundef %call36, ptr noundef nonnull %n.i, ptr noundef nonnull %e.i59, ptr noundef nonnull %d.i58) #6
-  %14 = load ptr, ptr %e.i59, align 8
-  %call.i.i = call i32 @BN_bn2lebinpad(ptr noundef %14, ptr noundef nonnull %incdec.ptr11.i57, i32 noundef 4) #6
+  %15 = load ptr, ptr %e.i59, align 8
+  %call.i.i = call i32 @BN_bn2lebinpad(ptr noundef %15, ptr noundef nonnull %incdec.ptr11.i57, i32 noundef 4) #6
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.0, i64 20
-  %15 = load ptr, ptr %n.i, align 8
-  %call.i17.i = call i32 @BN_bn2lebinpad(ptr noundef %15, ptr noundef nonnull %add.ptr.i.i, i32 noundef %call.i65) #6
+  %16 = load ptr, ptr %n.i, align 8
+  %call.i17.i = call i32 @BN_bn2lebinpad(ptr noundef %16, ptr noundef nonnull %add.ptr.i.i, i32 noundef %call.i65) #6
   br i1 %tobool9.not.i135, label %if.end.i68, label %write_rsa.exit
 
 if.end.i68:                                       ; preds = %if.then35
@@ -1883,24 +1883,24 @@ if.end.i68:                                       ; preds = %if.then35
   %shr.i70 = ashr i32 %add.i69, 4
   call void @RSA_get0_factors(ptr noundef %call36, ptr noundef nonnull %p.i60, ptr noundef nonnull %q.i61) #6
   call void @RSA_get0_crt_params(ptr noundef %call36, ptr noundef nonnull %dmp1.i63, ptr noundef nonnull %dmq1.i64, ptr noundef nonnull %iqmp.i62) #6
-  %16 = load ptr, ptr %p.i60, align 8
-  %call.i19.i = call i32 @BN_bn2lebinpad(ptr noundef %16, ptr noundef nonnull %add.ptr.i18.i, i32 noundef %shr.i70) #6
+  %17 = load ptr, ptr %p.i60, align 8
+  %call.i19.i = call i32 @BN_bn2lebinpad(ptr noundef %17, ptr noundef nonnull %add.ptr.i18.i, i32 noundef %shr.i70) #6
   %idx.ext.i20.i = sext i32 %shr.i70 to i64
   %add.ptr.i21.i = getelementptr inbounds i8, ptr %add.ptr.i18.i, i64 %idx.ext.i20.i
-  %17 = load ptr, ptr %q.i61, align 8
-  %call.i22.i = call i32 @BN_bn2lebinpad(ptr noundef %17, ptr noundef nonnull %add.ptr.i21.i, i32 noundef %shr.i70) #6
+  %18 = load ptr, ptr %q.i61, align 8
+  %call.i22.i = call i32 @BN_bn2lebinpad(ptr noundef %18, ptr noundef nonnull %add.ptr.i21.i, i32 noundef %shr.i70) #6
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %add.ptr.i21.i, i64 %idx.ext.i20.i
-  %18 = load ptr, ptr %dmp1.i63, align 8
-  %call.i25.i = call i32 @BN_bn2lebinpad(ptr noundef %18, ptr noundef nonnull %add.ptr.i24.i, i32 noundef %shr.i70) #6
+  %19 = load ptr, ptr %dmp1.i63, align 8
+  %call.i25.i = call i32 @BN_bn2lebinpad(ptr noundef %19, ptr noundef nonnull %add.ptr.i24.i, i32 noundef %shr.i70) #6
   %add.ptr.i27.i = getelementptr inbounds i8, ptr %add.ptr.i24.i, i64 %idx.ext.i20.i
-  %19 = load ptr, ptr %dmq1.i64, align 8
-  %call.i28.i = call i32 @BN_bn2lebinpad(ptr noundef %19, ptr noundef nonnull %add.ptr.i27.i, i32 noundef %shr.i70) #6
+  %20 = load ptr, ptr %dmq1.i64, align 8
+  %call.i28.i = call i32 @BN_bn2lebinpad(ptr noundef %20, ptr noundef nonnull %add.ptr.i27.i, i32 noundef %shr.i70) #6
   %add.ptr.i30.i = getelementptr inbounds i8, ptr %add.ptr.i27.i, i64 %idx.ext.i20.i
-  %20 = load ptr, ptr %iqmp.i62, align 8
-  %call.i31.i = call i32 @BN_bn2lebinpad(ptr noundef %20, ptr noundef nonnull %add.ptr.i30.i, i32 noundef %shr.i70) #6
+  %21 = load ptr, ptr %iqmp.i62, align 8
+  %call.i31.i = call i32 @BN_bn2lebinpad(ptr noundef %21, ptr noundef nonnull %add.ptr.i30.i, i32 noundef %shr.i70) #6
   %add.ptr.i33.i = getelementptr inbounds i8, ptr %add.ptr.i30.i, i64 %idx.ext.i20.i
-  %21 = load ptr, ptr %d.i58, align 8
-  %call.i34.i = call i32 @BN_bn2lebinpad(ptr noundef %21, ptr noundef %add.ptr.i33.i, i32 noundef %call.i65) #6
+  %22 = load ptr, ptr %d.i58, align 8
+  %call.i34.i = call i32 @BN_bn2lebinpad(ptr noundef %22, ptr noundef %add.ptr.i33.i, i32 noundef %call.i65) #6
   br label %write_rsa.exit
 
 write_rsa.exit:                                   ; preds = %if.then35, %if.end.i68
@@ -1928,26 +1928,26 @@ if.else37:                                        ; preds = %if.end24
   store ptr null, ptr %priv_key.i75, align 8
   call void @DSA_get0_pqg(ptr noundef %call38, ptr noundef nonnull %p.i71, ptr noundef nonnull %q.i72, ptr noundef nonnull %g.i73) #6
   call void @DSA_get0_key(ptr noundef %call38, ptr noundef nonnull %pub_key.i74, ptr noundef nonnull %priv_key.i75) #6
-  %22 = load ptr, ptr %p.i71, align 8
-  %call.i76 = call i32 @BN_num_bits(ptr noundef %22) #6
+  %23 = load ptr, ptr %p.i71, align 8
+  %call.i76 = call i32 @BN_num_bits(ptr noundef %23) #6
   %add.i77 = add nsw i32 %call.i76, 7
   %div.i78 = sdiv i32 %add.i77, 8
-  %23 = load ptr, ptr %p.i71, align 8
-  %call.i.i79 = call i32 @BN_bn2lebinpad(ptr noundef %23, ptr noundef nonnull %incdec.ptr11.i57, i32 noundef %div.i78) #6
+  %24 = load ptr, ptr %p.i71, align 8
+  %call.i.i79 = call i32 @BN_bn2lebinpad(ptr noundef %24, ptr noundef nonnull %incdec.ptr11.i57, i32 noundef %div.i78) #6
   %idx.ext.i.i80 = sext i32 %div.i78 to i64
   %add.ptr.i.i81 = getelementptr inbounds i8, ptr %incdec.ptr11.i57, i64 %idx.ext.i.i80
-  %24 = load ptr, ptr %q.i72, align 8
-  %call.i10.i = call i32 @BN_bn2lebinpad(ptr noundef %24, ptr noundef nonnull %add.ptr.i.i81, i32 noundef 20) #6
+  %25 = load ptr, ptr %q.i72, align 8
+  %call.i10.i = call i32 @BN_bn2lebinpad(ptr noundef %25, ptr noundef nonnull %add.ptr.i.i81, i32 noundef 20) #6
   %add.ptr.i11.i = getelementptr inbounds i8, ptr %add.ptr.i.i81, i64 20
-  %25 = load ptr, ptr %g.i73, align 8
-  %call.i12.i = call i32 @BN_bn2lebinpad(ptr noundef %25, ptr noundef nonnull %add.ptr.i11.i, i32 noundef %div.i78) #6
+  %26 = load ptr, ptr %g.i73, align 8
+  %call.i12.i = call i32 @BN_bn2lebinpad(ptr noundef %26, ptr noundef nonnull %add.ptr.i11.i, i32 noundef %div.i78) #6
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %add.ptr.i11.i, i64 %idx.ext.i.i80
   %.div.i = select i1 %tobool9.not.i135, i32 20, i32 %div.i78
   %.idx.ext.i.i = select i1 %tobool9.not.i135, i64 20, i64 %idx.ext.i.i80
   %priv_key.val.i = load ptr, ptr %priv_key.i75, align 8
   %pub_key.val.i = load ptr, ptr %pub_key.i74, align 8
-  %26 = select i1 %tobool9.not.i135, ptr %priv_key.val.i, ptr %pub_key.val.i
-  %call.i18.i = call i32 @BN_bn2lebinpad(ptr noundef %26, ptr noundef nonnull %add.ptr.i14.i, i32 noundef %.div.i) #6
+  %27 = select i1 %tobool9.not.i135, ptr %priv_key.val.i, ptr %pub_key.val.i
+  %call.i18.i = call i32 @BN_bn2lebinpad(ptr noundef %27, ptr noundef nonnull %add.ptr.i14.i, i32 noundef %.div.i) #6
   %add.ptr.i19.i = getelementptr inbounds i8, ptr %add.ptr.i14.i, i64 %.idx.ext.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i19.i, i8 -1, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i71)
@@ -1961,9 +1961,9 @@ if.end39:                                         ; preds = %if.else37, %write_r
   br i1 %tobool16.not.not, label %end, label %if.then41
 
 if.then41:                                        ; preds = %if.end39
-  %27 = load ptr, ptr %out, align 8
+  %28 = load ptr, ptr %out, align 8
   %idx.ext = sext i32 %add to i64
-  %add.ptr = getelementptr inbounds i8, ptr %27, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %28, i64 %idx.ext
   store ptr %add.ptr, ptr %out, align 8
   br label %end
 
@@ -2006,7 +2006,7 @@ declare ptr @EVP_CIPHER_CTX_new() local_unnamed_addr #1
 declare i32 @PEM_def_callback(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @derive_pvk_key(ptr noundef %key, ptr noundef %salt, i32 noundef %saltlen, ptr noundef %pass, i32 noundef %passlen, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc i32 @derive_pvk_key(ptr noundef nonnull %key, ptr noundef %salt, i32 noundef range(i32 1, 0) %saltlen, ptr noundef nonnull %pass, i32 noundef range(i32 0, -2147483648) %passlen, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %params = alloca [5 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -2031,7 +2031,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %incdec.ptr5 = getelementptr inbounds i8, ptr %params, i64 80
   %conv7 = zext nneg i32 %passlen to i64
-  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.6, ptr noundef %pass, i64 noundef %conv7) #6
+  call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.6, ptr noundef nonnull %pass, i64 noundef %conv7) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
   %incdec.ptr8 = getelementptr inbounds i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp9, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i64 noundef 0) #6
@@ -2041,7 +2041,7 @@ if.end4:                                          ; preds = %if.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %incdec.ptr8, ptr noundef nonnull align 8 dereferenceable(40) %tmp11, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %incdec.ptr10, ptr noundef nonnull align 8 dereferenceable(40) %tmp12, i64 40, i1 false)
-  %call14 = call i32 @EVP_KDF_derive(ptr noundef nonnull %call1, ptr noundef %key, i64 noundef 20, ptr noundef nonnull %params) #6
+  %call14 = call i32 @EVP_KDF_derive(ptr noundef nonnull %call1, ptr noundef nonnull %key, i64 noundef 20, ptr noundef nonnull %params) #6
   call void @EVP_KDF_CTX_free(ptr noundef nonnull %call1) #6
   br label %return
 

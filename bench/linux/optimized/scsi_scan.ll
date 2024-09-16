@@ -653,7 +653,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @scsi_autopm_get_host(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr noundef nonnull %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca %struct.scsi_sense_hdr, align 8
@@ -680,7 +680,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
 
 .loopexit26:                                      ; preds = %17, %21
   %23 = phi ptr [ %22, %21 ], [ null, %17 ]
-  %24 = tail call ptr @scsi_device_lookup_by_target(ptr noundef %0, i64 noundef %1) #17
+  %24 = tail call ptr @scsi_device_lookup_by_target(ptr noundef nonnull %0, i64 noundef %1) #17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %45, label %26
 
@@ -1487,7 +1487,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr n
   %506 = getelementptr inbounds i8, ptr %49, i64 112
   %507 = load i16, ptr %506, align 8
   %508 = zext i16 %507 to i32
-  %509 = call fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef nonnull %49, i32 noundef %508)
+  %509 = call fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %49, i32 noundef %508)
   br label %510
 
 510:                                              ; preds = %505, %494
@@ -2790,7 +2790,7 @@ declare dso_local ptr @scsi_device_lookup_by_target(ptr noundef, i64 noundef) lo
 declare dso_local i64 @scsi_get_device_flags(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @scsi_alloc_sdev(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -2975,11 +2975,11 @@ define internal fastcc ptr @scsi_alloc_sdev(ptr noundef %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_unlock_floptical(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @scsi_unlock_floptical(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !19
-  tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.31) #17
+  tail call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.24, ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.31) #17
   store i8 26, ptr %3, align 16
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %4, align 1
@@ -2991,7 +2991,7 @@ define internal fastcc void @scsi_unlock_floptical(ptr noundef %0, ptr noundef %
   store i8 42, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 5
   store i8 0, ptr %8, align 1
-  %9 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 34, ptr noundef %1, i32 noundef 42, i32 noundef 2000, i32 noundef 3, ptr noundef null) #17
+  %9 = call i32 @scsi_execute_cmd(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 34, ptr noundef nonnull %1, i32 noundef 42, i32 noundef 2000, i32 noundef 3, ptr noundef null) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17
   ret void
 }
@@ -3018,7 +3018,7 @@ declare dso_local ptr @blk_mq_init_queue(ptr noundef) local_unnamed_addr #4
 declare dso_local void @__scsi_init_queue(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef nonnull %0, i32 noundef range(i32 -32768, 65536) %1) unnamed_addr #2 align 16 {
   %3 = alloca { i32, i32, i32, i8 }, align 8
   %4 = icmp ugt i32 %1, 3
   br i1 %4, label %.preheader, label %.loopexit
@@ -3038,7 +3038,7 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
   %.not4 = icmp eq ptr %12, null
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %13 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #17
+  %13 = tail call i32 @scsi_device_max_queue_depth(ptr noundef nonnull %0) #17
   %14 = tail call i32 @llvm.umin.i32(i32 %13, i32 %1)
   br i1 %.not4, label %24, label %15
 
@@ -3061,7 +3061,7 @@ define internal fastcc i32 @scsi_realloc_sdev_budget_map(ptr noundef %0, i32 nou
 24:                                               ; preds = %.loopexit, %18
   %25 = phi ptr [ %21, %18 ], [ null, %.loopexit ]
   %26 = phi ptr [ %23, %18 ], [ null, %.loopexit ]
-  %27 = tail call i32 @scsi_device_max_queue_depth(ptr noundef %0) #17
+  %27 = tail call i32 @scsi_device_max_queue_depth(ptr noundef nonnull %0) #17
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 488

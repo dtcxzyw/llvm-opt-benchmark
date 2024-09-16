@@ -171,7 +171,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_imoll_oP8PJconsts(pt
   %65 = load ptr, ptr %56, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 440
   store double 0x3FD657184AE74487, ptr %66, align 8
-  %67 = tail call fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6, double noundef 0x4004F1A6C638D03F, double noundef 0x4004F1A6C638D03F)
+  %67 = tail call fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 6, double noundef 0x4004F1A6C638D03F, double noundef 0x4004F1A6C638D03F)
   br i1 %67, label %78, label %_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread
 
 _ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd.exit.thread: ; preds = %57, %47, %45, %35, %33, %23, %21, %11, %9, %6, %59
@@ -202,31 +202,31 @@ _ZL21pj_imoll_o_destructorP8PJconstsi.exit:       ; preds = %76, %_ZL21pj_imoll_
   br label %109
 
 78:                                               ; preds = %59
-  %79 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 1, double noundef 0xBFF921FB54442D18, double noundef 1.000000e-10)
+  %79 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 2, i32 noundef 1, double noundef 0xBFF921FB54442D18, double noundef 1.000000e-10)
   %80 = load ptr, ptr %20, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 456
   %82 = load double, ptr %81, align 8
   %83 = fadd double %79, %82
   store double %83, ptr %81, align 8
-  %84 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 2, double noundef 0x3FF0C152382D7365, double noundef 1.000000e-10)
+  %84 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 3, i32 noundef 2, double noundef 0x3FF0C152382D7365, double noundef 1.000000e-10)
   %85 = load ptr, ptr %32, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 456
   %87 = load double, ptr %86, align 8
   %88 = fadd double %84, %87
   store double %88, ptr %86, align 8
-  %89 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull %2, i32 noundef 4, i32 noundef 1, double noundef 0xC00921FB54442D18, double noundef -1.000000e-10)
+  %89 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 4, i32 noundef 1, double noundef 0xC00921FB54442D18, double noundef -1.000000e-10)
   %90 = load ptr, ptr %44, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 456
   %92 = load double, ptr %91, align 8
   %93 = fadd double %89, %92
   store double %93, ptr %91, align 8
-  %94 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull %2, i32 noundef 5, i32 noundef 2, double noundef 0xBFF0C152382D7365, double noundef -1.000000e-10)
+  %94 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 5, i32 noundef 2, double noundef 0xBFF0C152382D7365, double noundef -1.000000e-10)
   %95 = load ptr, ptr %56, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 456
   %97 = load double, ptr %96, align 8
   %98 = fadd double %94, %97
   store double %98, ptr %96, align 8
-  %99 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull %2, i32 noundef 6, i32 noundef 3, double noundef 0x3FF921FB54442D18, double noundef -1.000000e-10)
+  %99 = tail call fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef %2, i32 noundef 6, i32 noundef 3, double noundef 0x3FF921FB54442D18, double noundef -1.000000e-10)
   %100 = getelementptr inbounds i8, ptr %2, i64 40
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 456
@@ -256,7 +256,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @pj_moll(ptr noundef null)
   %7 = add nsw i32 %2, -1
   %8 = zext nneg i32 %7 to i64
@@ -331,7 +331,7 @@ define internal noundef ptr @_ZL21pj_imoll_o_destructorP8PJconstsi(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 4) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = add nsw i32 %1, -1
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds [6 x ptr], ptr %0, i64 0, i64 %7

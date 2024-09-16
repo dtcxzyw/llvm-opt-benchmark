@@ -444,7 +444,7 @@ define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnam
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %217
-  %223 = call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %215, ptr noundef nonnull %2)
+  %223 = call fastcc i32 @ir_gcm_schedule_early(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %215, ptr noundef %2)
   br label %224
 
 224:                                              ; preds = %.lr.ph461, %217, %222
@@ -755,7 +755,7 @@ ir_gcm_schedule_rest.exit:                        ; preds = %256, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds %struct._ir_insn, ptr %5, i64 %6

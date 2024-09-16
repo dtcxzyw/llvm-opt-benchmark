@@ -456,11 +456,11 @@ header_len.exit:                                  ; preds = %32, %37, %37
   %.0272 = phi ptr [ %42, %header_len.exit ], [ null, %26 ]
   %48 = add i32 %1, 4
   %49 = load i32, ptr @hf_beep_channel, align 4
-  %50 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %48, ptr noundef %.0272, i32 noundef %49, ptr noundef nonnull %11, ptr noundef nonnull @req_chan_hfa)
+  %50 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %48, ptr noundef %.0272, i32 noundef %49, ptr noundef %11, ptr noundef nonnull @req_chan_hfa)
   %51 = add i32 %1, 5
   %52 = add i32 %51, %50
   %53 = load i32, ptr @hf_beep_msgno, align 4
-  %54 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %52, ptr noundef %.0272, i32 noundef %53, ptr noundef nonnull %7, ptr noundef nonnull @req_msgno_hfa)
+  %54 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %52, ptr noundef %.0272, i32 noundef %53, ptr noundef %7, ptr noundef nonnull @req_msgno_hfa)
   %55 = add i32 %54, %52
   %56 = add i32 %55, 1
   %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %56) #5
@@ -552,11 +552,11 @@ proto_item_set_hidden.exit.i:                     ; preds = %63, %60, %47
 set_mime_hdr_flags.exit:                          ; preds = %68, %78, %79, %80, %81, %85, %86, %87, %88
   %89 = add i32 %55, 3
   %90 = load i32, ptr @hf_beep_seqno, align 4
-  %91 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %89, ptr noundef %.0272, i32 noundef %90, ptr noundef nonnull %9, ptr noundef nonnull @req_seqno_hfa)
+  %91 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %89, ptr noundef %.0272, i32 noundef %90, ptr noundef %9, ptr noundef nonnull @req_seqno_hfa)
   %92 = add i32 %55, 4
   %93 = add i32 %92, %91
   %94 = load i32, ptr @hf_beep_size, align 4
-  %95 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %93, ptr noundef %.0272, i32 noundef %94, ptr noundef nonnull %10, ptr noundef nonnull @req_size_hfa)
+  %95 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %93, ptr noundef %.0272, i32 noundef %94, ptr noundef %10, ptr noundef nonnull @req_size_hfa)
   %96 = add i32 %95, %93
   br i1 %.not.i313, label %106, label %109
 
@@ -598,7 +598,7 @@ set_mime_hdr_flags.exit:                          ; preds = %68, %78, %79, %80, 
 114:                                              ; preds = %113
   %115 = add i32 %96, 1
   %116 = load i32, ptr @hf_beep_ansno, align 4
-  %117 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %115, ptr noundef %.0272, i32 noundef %116, ptr noundef nonnull %8, ptr noundef nonnull @req_ansno_hfa)
+  %117 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %115, ptr noundef %.0272, i32 noundef %116, ptr noundef %8, ptr noundef nonnull @req_ansno_hfa)
   %118 = add i32 %117, %115
   br label %119
 
@@ -779,15 +779,15 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
 198:                                              ; preds = %197
   %199 = add i32 %1, 4
   %200 = load i32, ptr @hf_beep_channel, align 4
-  %201 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %199, ptr noundef null, i32 noundef %200, ptr noundef nonnull %11, ptr noundef nonnull @seq_chan_hfa)
+  %201 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %199, ptr noundef null, i32 noundef %200, ptr noundef %11, ptr noundef nonnull @seq_chan_hfa)
   %202 = add i32 %1, 5
   %203 = add i32 %202, %201
   %204 = load i32, ptr @hf_beep_ackno, align 4
-  %205 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %203, ptr noundef null, i32 noundef %204, ptr noundef nonnull %12, ptr noundef nonnull @seq_ackno_hfa)
+  %205 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %203, ptr noundef null, i32 noundef %204, ptr noundef %12, ptr noundef nonnull @seq_ackno_hfa)
   %206 = add i32 %203, 1
   %207 = add i32 %206, %205
   %208 = load i32, ptr @hf_beep_window, align 4
-  %209 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %207, ptr noundef null, i32 noundef %208, ptr noundef nonnull %13, ptr noundef nonnull @seq_window_hfa)
+  %209 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %207, ptr noundef null, i32 noundef %208, ptr noundef %13, ptr noundef nonnull @seq_window_hfa)
   %210 = add i32 %209, %207
   %211 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %210, ptr noundef null)
   %212 = icmp slt i32 %211, 1
@@ -799,15 +799,15 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   tail call void @proto_item_set_len(ptr noundef %214, i32 noundef 4) #5
   %215 = add i32 %1, 4
   %216 = load i32, ptr @hf_beep_channel, align 4
-  %217 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %215, ptr noundef nonnull %3, i32 noundef %216, ptr noundef nonnull %11, ptr noundef nonnull @seq_chan_hfa)
+  %217 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %215, ptr noundef nonnull %3, i32 noundef %216, ptr noundef %11, ptr noundef nonnull @seq_chan_hfa)
   %218 = add i32 %1, 5
   %219 = add i32 %218, %217
   %220 = load i32, ptr @hf_beep_ackno, align 4
-  %221 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %219, ptr noundef nonnull %3, i32 noundef %220, ptr noundef nonnull %12, ptr noundef nonnull @seq_ackno_hfa)
+  %221 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %219, ptr noundef nonnull %3, i32 noundef %220, ptr noundef %12, ptr noundef nonnull @seq_ackno_hfa)
   %222 = add i32 %219, 1
   %223 = add i32 %222, %221
   %224 = load i32, ptr @hf_beep_window, align 4
-  %225 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %223, ptr noundef nonnull %3, i32 noundef %224, ptr noundef nonnull %13, ptr noundef nonnull @seq_window_hfa)
+  %225 = call fastcc i32 @dissect_beep_int(ptr noundef %0, ptr noundef %2, i32 noundef %223, ptr noundef nonnull %3, i32 noundef %224, ptr noundef %13, ptr noundef nonnull @seq_window_hfa)
   %226 = add i32 %225, %223
   %227 = tail call fastcc i32 @check_term(ptr noundef %0, ptr noundef %2, i32 noundef %226, ptr noundef nonnull %3)
   %228 = icmp slt i32 %227, 1
@@ -1025,7 +1025,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_beep_int(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = load ptr, ptr @g_ascii_table, align 8
   br label %9
 

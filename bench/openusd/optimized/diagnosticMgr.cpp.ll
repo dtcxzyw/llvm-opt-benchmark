@@ -5074,7 +5074,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   store ptr %.sroa.0.0.copyload.i.i, ptr %7, align 8, !noalias !27
   store i32 %.sroa.2.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !27
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 56
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr16FormatDiagnosticERKNS_6TfEnumERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3any(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(33) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull readnone align 8 poison)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr16FormatDiagnosticERKNS_6TfEnumERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3any(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(33) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull readnone align 8 poison)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %27 = load ptr, ptr %21, align 8
   %28 = load ptr, ptr %22, align 8
@@ -5208,7 +5208,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   store ptr %.sroa.0.0.copyload.i.i17, ptr %5, align 8, !noalias !34
   store i32 %.sroa.2.0.copyload.i.i19, ptr %.sroa.2.0..sroa_idx.i20, align 8, !noalias !34
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.047, i64 56
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr16FormatDiagnosticERKNS_6TfEnumERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3any(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(33) %65, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr nonnull readnone align 8 poison)
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr16FormatDiagnosticERKNS_6TfEnumERKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3any(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(33) %65, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr nonnull readnone align 8 poison)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %68 = load ptr, ptr %62, align 8
   %69 = load ptr, ptr %63, align 8

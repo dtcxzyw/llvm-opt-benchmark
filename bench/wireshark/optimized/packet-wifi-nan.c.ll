@@ -1212,7 +1212,7 @@ define internal i32 @dissect_nan_action(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  call fastcc void @find_attribute_field(ptr noundef %12, ptr noundef %0, i32 noundef %19, ptr noundef nonnull %5, ptr noundef %1)
+  call fastcc void @find_attribute_field(ptr noundef %12, ptr noundef %0, i32 noundef %19, ptr noundef %5, ptr noundef %1)
   %21 = load i32, ptr %5, align 4
   %22 = icmp ult i32 %21, %19
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !4
@@ -1238,7 +1238,7 @@ define internal i32 @dissect_nan_service_discovery(ptr noundef %0, ptr noundef %
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  call fastcc void @find_attribute_field(ptr noundef %11, ptr noundef %0, i32 noundef %12, ptr noundef nonnull %5, ptr noundef %1)
+  call fastcc void @find_attribute_field(ptr noundef %11, ptr noundef %0, i32 noundef %12, ptr noundef %5, ptr noundef %1)
   %13 = load i32, ptr %5, align 4
   %14 = icmp ult i32 %13, %12
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !6
@@ -1287,7 +1287,7 @@ define internal i32 @dissect_nan_beacon(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  call fastcc void @find_attribute_field(ptr noundef %20, ptr noundef %0, i32 noundef %21, ptr noundef nonnull %5, ptr noundef %1)
+  call fastcc void @find_attribute_field(ptr noundef %20, ptr noundef %0, i32 noundef %21, ptr noundef %5, ptr noundef %1)
   %22 = load i32, ptr %5, align 4
   %23 = icmp ult i32 %22, %21
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !7
@@ -1335,7 +1335,7 @@ declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @find_attribute_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @find_attribute_field(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = sub i32 %2, %6
   %8 = icmp ult i32 %7, 3

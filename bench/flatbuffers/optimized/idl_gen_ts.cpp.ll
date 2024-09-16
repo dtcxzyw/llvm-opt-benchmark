@@ -6941,7 +6941,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %in
   store i64 0, ptr %_M_node_count.i.i.i.i.i12, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %enumcode) #22
   %5 = load ptr, ptr %it.sroa.0.025, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator7GenEnumERNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapIS9_NS_12_GLOBAL__N_116ImportDefinitionESt4lessIS9_ESaISt4pairIKS9_SD_EEEb(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %5, ptr noundef nonnull %enumcode, ptr noundef nonnull align 8 dereferenceable(48) %imports, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator7GenEnumERNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapIS9_NS_12_GLOBAL__N_116ImportDefinitionESt4lessIS9_ESaISt4pairIKS9_SD_EEEb(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %5, ptr noundef %enumcode, ptr noundef nonnull align 8 dereferenceable(48) %imports, i1 noundef zeroext false)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %for.body
@@ -7243,7 +7243,7 @@ invoke.cont14:                                    ; preds = %invoke.cont15.i
   %13 = load ptr, ptr %it.sroa.0.072, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %declcode) #22
   %14 = load ptr, ptr %parser_, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9GenStructERKNS_6ParserERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISC_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISC_ESaISt4pairIKSC_SG_EEE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(1784) %14, ptr noundef nonnull align 8 dereferenceable(328) %13, ptr noundef nonnull %declcode, ptr noundef nonnull align 8 dereferenceable(48) %imports)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9GenStructERKNS_6ParserERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISC_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISC_ESaISt4pairIKSC_SG_EEE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(1784) %14, ptr noundef nonnull align 8 dereferenceable(328) %13, ptr noundef %declcode, ptr noundef nonnull align 8 dereferenceable(48) %imports)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont14
@@ -8869,7 +8869,7 @@ if.end:                                           ; preds = %invoke.cont51, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator7GenEnumERNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapIS9_NS_12_GLOBAL__N_116ImportDefinitionESt4lessIS9_ESaISt4pairIKS9_SD_EEEb(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %enum_def, ptr noundef %code_ptr, ptr noundef nonnull align 8 dereferenceable(48) %imports, i1 noundef zeroext %reverse) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator7GenEnumERNS_7EnumDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapIS9_NS_12_GLOBAL__N_116ImportDefinitionESt4lessIS9_ESaISt4pairIKS9_SD_EEEb(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %enum_def, ptr noundef nonnull %code_ptr, ptr noundef nonnull align 8 dereferenceable(48) %imports, i1 noundef zeroext %reverse) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i58 = alloca %struct._Guard, align 8
   %__guard.i = alloca %struct._Guard, align 8
@@ -8928,7 +8928,7 @@ entry:
 
 if.end4:                                          ; preds = %entry
   %doc_comment = getelementptr inbounds i8, ptr %enum_def, i64 64
-  tail call void @_ZN11flatbuffers2ts11TsGenerator13GenDocCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment, ptr noundef %code_ptr, ptr noundef null)
+  tail call void @_ZN11flatbuffers2ts11TsGenerator13GenDocCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment, ptr noundef nonnull %code_ptr, ptr noundef null)
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %code_ptr, ptr noundef nonnull @.str.56)
   %namer_.i = getelementptr inbounds i8, ptr %this, i64 128
   %vtable.i2.i = load ptr, ptr %namer_.i, align 8, !noalias !59
@@ -9252,7 +9252,7 @@ lpad12.i.i:                                       ; preds = %if.end26.i.i, %if.t
 if.then19.i.i:                                    ; preds = %invoke.cont11.i.i
   %struct_def.i.i = getelementptr inbounds i8, ptr %25, i64 64
   %34 = load ptr, ptr %struct_def.i.i, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp20.i.i, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %underlying_type99.val, ptr noundef nonnull align 8 dereferenceable(328) %34)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp20.i.i, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %underlying_type99.val, ptr noundef nonnull align 8 dereferenceable(328) %34)
           to label %invoke.cont22.i.i unwind label %lpad12.i.i
 
 invoke.cont22.i.i:                                ; preds = %if.then19.i.i
@@ -9452,7 +9452,7 @@ invoke.cont37.i:                                  ; preds = %invoke.cont35.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp47.i, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %underlying_type99.val, ptr noundef nonnull align 8 dereferenceable(312) %underlying_type99.val)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp47.i, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %underlying_type99.val, ptr noundef nonnull align 8 dereferenceable(312) %underlying_type99.val)
           to label %invoke.cont49.i unwind label %lpad48.i
 
 invoke.cont49.i:                                  ; preds = %invoke.cont37.i
@@ -11128,7 +11128,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(312) %dependency) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(312) %dependency) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i44 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12002,7 +12002,7 @@ if.then40:                                        ; preds = %invoke.cont23
   %26 = load ptr, ptr %6, align 8
   %struct_def = getelementptr inbounds i8, ptr %12, i64 64
   %27 = load ptr, ptr %struct_def, align 8
-  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(568) %1, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef nonnull align 8 dereferenceable(328) %27)
+  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(568) %1, ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef nonnull align 8 dereferenceable(328) %27)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %type, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object_name.i) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %rel_file_path.i) #22
@@ -12232,7 +12232,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(328) %dependency) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(328) %dependency) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i7.i = alloca %"class.std::__cxx11::basic_string", align 8
   %unique_name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15409,7 +15409,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9GenStructERKNS_6ParserERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISC_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISC_ESaISt4pairIKSC_SG_EEE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef %code_ptr, ptr noundef nonnull align 8 dereferenceable(48) %imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator9GenStructERKNS_6ParserERNS_9StructDefEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapISC_NS_12_GLOBAL__N_116ImportDefinitionESt4lessISC_ESaISt4pairIKSC_SG_EEE(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %code_ptr, ptr noundef nonnull align 8 dereferenceable(48) %imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i2443 = alloca %struct._Guard, align 8
   %__guard.i2433 = alloca %struct._Guard, align 8
@@ -15824,7 +15824,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
   %object_name.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object_name.i) #22
   %rel_file_path.i = getelementptr inbounds i8, ptr %agg.tmp.ensured, i64 128
@@ -15857,7 +15857,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 
 invoke.cont:                                      ; preds = %if.end3
   %doc_comment = getelementptr inbounds i8, ptr %struct_def, i64 64
-  invoke void @_ZN11flatbuffers2ts11TsGenerator13GenDocCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment, ptr noundef %code_ptr, ptr noundef null)
+  invoke void @_ZN11flatbuffers2ts11TsGenerator13GenDocCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEPS8_PKc(ptr noundef nonnull align 8 dereferenceable(24) %doc_comment, ptr noundef nonnull %code_ptr, ptr noundef null)
           to label %invoke.cont5 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -16427,7 +16427,7 @@ invoke.cont149:                                   ; preds = %.noexc701
 
 invoke.cont151:                                   ; preds = %invoke.cont149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(32) %call.i705706) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp152, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp152, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %invoke.cont156 unwind label %lpad155
 
 invoke.cont156:                                   ; preds = %invoke.cont151
@@ -16572,7 +16572,7 @@ if.then182:                                       ; preds = %if.end178
   %presence.i = getelementptr inbounds i8, ptr %25, i64 280
   %60 = load i32, ptr %presence.i, align 8
   %cmp.i733 = icmp eq i32 %60, 1
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp185, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %cmp.i733)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp185, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %cmp.i733)
           to label %invoke.cont190 unwind label %lpad139
 
 invoke.cont190:                                   ; preds = %if.then182
@@ -16616,7 +16616,7 @@ ehcleanup200:                                     ; preds = %ehcleanup199, %lpad
   br label %ehcleanup304
 
 if.else201:                                       ; preds = %if.end178
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp204, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %45)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp204, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %45)
           to label %invoke.cont208 unwind label %lpad139
 
 invoke.cont208:                                   ; preds = %if.else201
@@ -16842,7 +16842,7 @@ invoke.cont278:                                   ; preds = %invoke.cont276
   br i1 %cmp287.not, label %if.end299, label %if.then288
 
 if.then288:                                       ; preds = %invoke.cont278
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias nonnull align 8 %ref.tmp290, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %25, ptr noundef nonnull align 8 dereferenceable(48) %imports)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias align 8 %ref.tmp290, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %25, ptr noundef nonnull align 8 dereferenceable(48) %imports)
           to label %invoke.cont291 unwind label %lpad260
 
 invoke.cont291:                                   ; preds = %if.then288
@@ -16941,7 +16941,7 @@ if.else305:                                       ; preds = %if.end114
 sw.bb:                                            ; preds = %if.else305
   %struct_def313 = getelementptr inbounds i8, ptr %25, i64 208
   %85 = load ptr, ptr %struct_def313, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp310, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %85)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp310, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %85)
           to label %invoke.cont314 unwind label %lpad84
 
 invoke.cont314:                                   ; preds = %sw.bb
@@ -17565,7 +17565,7 @@ invoke.cont449:                                   ; preds = %if.else305
   store ptr %128, ptr %struct_def.i.i, align 8, !alias.scope !257
   store ptr %129, ptr %enum_def.i.i, align 8, !alias.scope !257
   store i16 %130, ptr %fixed_length.i.i, align 8, !alias.scope !257
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %vectortypename, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont450 unwind label %lpad84
 
 invoke.cont450:                                   ; preds = %invoke.cont449
@@ -18473,7 +18473,7 @@ invoke.cont737:                                   ; preds = %if.else305
   store ptr %197, ptr %struct_def.i.i1046, align 8, !alias.scope !278
   store ptr %198, ptr %enum_def.i.i1047, align 8, !alias.scope !278
   store i16 %199, ptr %fixed_length.i.i1048, align 8, !alias.scope !278
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename738, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype734, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %vectortypename738, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype734, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont739 unwind label %lpad84
 
 invoke.cont739:                                   ; preds = %invoke.cont737
@@ -19639,7 +19639,7 @@ _ZN11flatbuffers7IsUnionERKNS_4TypeE.exit:        ; preds = %land.lhs.true1110
   br i1 %tobool.i, label %invoke.cont1268, label %if.then1115
 
 if.then1115:                                      ; preds = %land.lhs.true1110, %_ZN11flatbuffers7IsUnionERKNS_4TypeE.exit
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %type1116, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %type1116, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %invoke.cont1119 unwind label %lpad84
 
 invoke.cont1119:                                  ; preds = %if.then1115
@@ -21471,7 +21471,7 @@ lpad.i1636:                                       ; preds = %.noexc1638
   br label %ehcleanup1470
 
 invoke.cont1466:                                  ; preds = %.noexc1638
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenStructArgsERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefEPS8_RSE_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %arguments, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1463)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenStructArgsERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefEPS8_RSE_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef %arguments, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1463)
           to label %invoke.cont1468 unwind label %lpad1467
 
 invoke.cont1468:                                  ; preds = %invoke.cont1466
@@ -21966,7 +21966,7 @@ invoke.cont1583:                                  ; preds = %invoke.cont1573
 invoke.cont1585:                                  ; preds = %invoke.cont1583
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1581, ptr noundef nonnull align 8 dereferenceable(32) %call.i17581759) #22
   %presence.i.i1761 = getelementptr inbounds i8, ptr %447, i64 280
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp1586, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull readonly align 8 dereferenceable(26) %value.i, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp1586, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull readonly align 8 dereferenceable(26) %value.i, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %invoke.cont1588 unwind label %lpad1587
 
 invoke.cont1588:                                  ; preds = %invoke.cont1585
@@ -22263,7 +22263,7 @@ if.then1666:                                      ; preds = %if.else1661
           to label %if.end1669 unwind label %lpad1559
 
 if.end1669:                                       ; preds = %if.then1666, %if.else1661
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias nonnull align 8 %ref.tmp1670, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %447, ptr noundef nonnull align 8 dereferenceable(48) %imports)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias align 8 %ref.tmp1670, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %447, ptr noundef nonnull align 8 dereferenceable(48) %imports)
           to label %invoke.cont1671 unwind label %lpad1559
 
 invoke.cont1671:                                  ; preds = %if.end1669
@@ -22619,7 +22619,7 @@ lpad.i1893:                                       ; preds = %.noexc1895
 
 invoke.cont1723:                                  ; preds = %.noexc1895
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1721) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp1726, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vector_type, i1 noundef zeroext true, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp1726, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vector_type, i1 noundef zeroext true, i1 noundef zeroext false)
           to label %invoke.cont1728 unwind label %lpad1727
 
 invoke.cont1728:                                  ; preds = %invoke.cont1723
@@ -23894,7 +23894,7 @@ invoke.cont2029:                                  ; preds = %invoke.cont2027
   %presence.i.i2124 = getelementptr inbounds i8, ptr %614, i64 280
   %623 = load i32, ptr %presence.i.i2124, align 8, !noalias !428
   %cmp.i.i2125 = icmp eq i32 %623, 1
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp2030, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull readonly align 8 dereferenceable(26) %value.i2110, i1 noundef zeroext true, i1 noundef zeroext %cmp.i.i2125)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp2030, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull readonly align 8 dereferenceable(26) %value.i2110, i1 noundef zeroext true, i1 noundef zeroext %cmp.i.i2125)
           to label %invoke.cont2032 unwind label %lpad2031
 
 invoke.cont2032:                                  ; preds = %invoke.cont2029
@@ -24539,7 +24539,7 @@ invoke.cont2208:                                  ; preds = %invoke.cont2206
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2198) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2199) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2200) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp2217, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp2217, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont2218 unwind label %lpad2187
 
 invoke.cont2218:                                  ; preds = %invoke.cont2208
@@ -25125,7 +25125,7 @@ if.end67:                                         ; preds = %invoke.cont64, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %type, i1 noundef zeroext %input, i1 noundef zeroext %allowNull) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %type, i1 noundef zeroext %input, i1 noundef zeroext %allowNull) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"struct.flatbuffers::(anonymous namespace)::ImportDefinition", align 8
@@ -25175,7 +25175,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 if.else:                                          ; preds = %if.then3
   %struct_def = getelementptr inbounds i8, ptr %type, i64 8
   %2 = load ptr, ptr %struct_def, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr noundef nonnull align 8 dereferenceable(328) %2)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr noundef nonnull align 8 dereferenceable(328) %2)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %if.else
@@ -25412,7 +25412,7 @@ if.then66:                                        ; preds = %sw.default
   br i1 %tobool67.not, label %if.end80, label %if.then68
 
 if.then68:                                        ; preds = %if.then66
-  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr noundef nonnull align 8 dereferenceable(312) %21)
+  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %owner, ptr noundef nonnull align 8 dereferenceable(312) %21)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %enum_name, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #22
   %object_name.i52 = getelementptr inbounds i8, ptr %ref.tmp69, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object_name.i52) #22
@@ -26200,7 +26200,7 @@ cleanup.action12:                                 ; preds = %_ZN11flatbuffers11N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %field, ptr noundef nonnull align 8 dereferenceable(48) %imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %field, ptr noundef nonnull align 8 dereferenceable(48) %imports) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp11 = alloca %"class.std::allocator", align 1
@@ -26318,7 +26318,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont13
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont43
   %i.0108 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %invoke.cont43 ]
   %10 = load ptr, ptr %enum_def, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %10, ptr noundef nonnull align 8 dereferenceable(312) %10)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp16, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %10, ptr noundef nonnull align 8 dereferenceable(312) %10)
           to label %invoke.cont22 unwind label %lpad21.loopexit
 
 invoke.cont22:                                    ; preds = %for.body
@@ -26491,7 +26491,7 @@ if.then62:                                        ; preds = %sw.default
 if.end66:                                         ; preds = %if.then62, %sw.default
   %val.0 = phi ptr [ %call65, %if.then62 ], [ %call60, %sw.default ]
   %24 = load ptr, ptr %enum_def, align 8
-  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %24, ptr noundef nonnull align 8 dereferenceable(312) %24)
+  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp68, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %24, ptr noundef nonnull align 8 dereferenceable(312) %24)
   %call.i5960 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68, ptr noundef nonnull @.str.81)
           to label %invoke.cont75 unwind label %lpad74
 
@@ -27520,7 +27520,7 @@ eh.resume:                                        ; preds = %lpad47, %lpad.i90, 
 declare void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenStructArgsERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefEPS8_RSE_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %struct_def, ptr noundef %arguments, ptr noundef nonnull align 8 dereferenceable(32) %nameprefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenStructArgsERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefEPS8_RSE_(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %struct_def, ptr noundef nonnull %arguments, ptr noundef nonnull align 8 dereferenceable(32) %nameprefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27603,7 +27603,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   %presence.i = getelementptr inbounds i8, ptr %2, i64 280
   %9 = load i32, ptr %presence.i, align 8
   %cmp.i26 = icmp eq i32 %9, 1
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext true, i1 noundef zeroext %cmp.i26)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext true, i1 noundef zeroext %cmp.i26)
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont24
@@ -29945,7 +29945,7 @@ invoke.cont44:                                    ; preds = %.noexc381
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pack_func_offset_decl) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pack_func_create_call) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont48 unwind label %lpad47
 
 invoke.cont48:                                    ; preds = %invoke.cont44
@@ -30483,7 +30483,7 @@ invoke.cont145:                                   ; preds = %invoke.cont143
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_type) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_offset_decl) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %field_offset_val) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias nonnull align 8 %field_default_val, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %64, ptr noundef nonnull align 8 dereferenceable(48) %imports)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator15GenDefaultValueERKNS_8FieldDefERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessISB_ESaISt4pairIKSB_SD_EEE(ptr noalias align 8 %field_default_val, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(312) %64, ptr noundef nonnull align 8 dereferenceable(48) %imports)
           to label %invoke.cont148 unwind label %lpad147
 
 invoke.cont148:                                   ; preds = %invoke.cont145
@@ -30511,7 +30511,7 @@ land.rhs.i:                                       ; preds = %lor.rhs157
 
 lor.end161:                                       ; preds = %land.rhs.i, %lor.rhs157, %if.then155
   %71 = phi i1 [ true, %if.then155 ], [ false, %lor.rhs157 ], [ %cmp.i2.i, %land.rhs.i ]
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %64, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %71)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %64, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false, i1 noundef zeroext %71)
           to label %invoke.cont167 unwind label %lpad158
 
 invoke.cont167:                                   ; preds = %lor.end161
@@ -30723,7 +30723,7 @@ if.else224:                                       ; preds = %invoke.cont148
 sw.bb:                                            ; preds = %if.else224
   %struct_def230 = getelementptr inbounds i8, ptr %64, i64 208
   %90 = load ptr, ptr %struct_def230, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp231, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %90)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp231, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %90)
           to label %invoke.cont232 unwind label %lpad158
 
 invoke.cont232:                                   ; preds = %sw.bb
@@ -30947,7 +30947,7 @@ invoke.cont291:                                   ; preds = %if.else224
   store ptr %107, ptr %struct_def.i.i, align 8, !alias.scope !571
   store ptr %108, ptr %enum_def.i.i, align 8, !alias.scope !571
   store i16 %109, ptr %fixed_length.i.i, align 8, !alias.scope !571
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %vectortypename, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont292 unwind label %lpad158
 
 invoke.cont292:                                   ; preds = %invoke.cont291
@@ -31153,7 +31153,7 @@ invoke.cont362:                                   ; preds = %if.then355
 
 invoke.cont364:                                   ; preds = %invoke.cont362
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp360, ptr noundef nonnull align 8 dereferenceable(32) %call.i587588) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp365, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp365, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont367 unwind label %lpad366
 
 invoke.cont367:                                   ; preds = %invoke.cont364
@@ -31461,7 +31461,7 @@ ehcleanup400:                                     ; preds = %ehcleanup399, %lpad
   br label %ehcleanup448
 
 if.else401:                                       ; preds = %invoke.cont341
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp408, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp408, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont409 unwind label %lpad303
 
 invoke.cont409:                                   ; preds = %if.else401
@@ -31809,7 +31809,7 @@ invoke.cont476:                                   ; preds = %invoke.cont474
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp455) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp456) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp457) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp492, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp492, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont493 unwind label %lpad293
 
 invoke.cont493:                                   ; preds = %invoke.cont476
@@ -32111,7 +32111,7 @@ ehcleanup535:                                     ; preds = %ehcleanup533, %lpad
   br label %ehcleanup694
 
 sw.bb536:                                         ; preds = %invoke.cont294
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias nonnull align 8 %ref.tmp537, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %108)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias align 8 %ref.tmp537, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %108)
           to label %invoke.cont538 unwind label %lpad293
 
 invoke.cont538:                                   ; preds = %sw.bb536
@@ -32124,13 +32124,13 @@ invoke.cont540:                                   ; preds = %invoke.cont538
           to label %invoke.cont543 unwind label %lpad293
 
 invoke.cont543:                                   ; preds = %invoke.cont540
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp545, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias align 8 %ref.tmp545, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext true)
           to label %invoke.cont546 unwind label %lpad293
 
 invoke.cont546:                                   ; preds = %invoke.cont543
   %call547 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %field_val, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp545) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp545) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp554, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp554, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont555 unwind label %lpad293
 
 invoke.cont555:                                   ; preds = %invoke.cont546
@@ -32388,7 +32388,7 @@ land.rhs.i903:                                    ; preds = %if.then600
 
 invoke.cont602:                                   ; preds = %land.rhs.i903, %if.then600
   %199 = phi i1 [ false, %if.then600 ], [ %cmp.i2.i906, %land.rhs.i903 ]
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp601, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext %199)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp601, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype, i1 noundef zeroext false, i1 noundef zeroext %199)
           to label %invoke.cont604 unwind label %lpad293
 
 invoke.cont604:                                   ; preds = %invoke.cont602
@@ -32552,7 +32552,7 @@ invoke.cont643:                                   ; preds = %invoke.cont641
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp620) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp621) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp622) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp658, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp658, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont659 unwind label %lpad293
 
 invoke.cont659:                                   ; preds = %invoke.cont643
@@ -32846,7 +32846,7 @@ invoke.cont699:                                   ; preds = %if.else224
   store ptr %227, ptr %struct_def.i.i1020, align 8, !alias.scope !646
   store ptr %228, ptr %enum_def.i.i1021, align 8, !alias.scope !646
   store i16 %229, ptr %fixed_length.i.i1022, align 8, !alias.scope !646
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %vectortypename700, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext false, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %vectortypename700, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %invoke.cont701 unwind label %lpad158
 
 invoke.cont701:                                   ; preds = %invoke.cont699
@@ -33058,7 +33058,7 @@ invoke.cont777:                                   ; preds = %if.then770
 
 invoke.cont779:                                   ; preds = %invoke.cont777
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp775, ptr noundef nonnull align 8 dereferenceable(32) %call.i11001101) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp780, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp780, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont782 unwind label %lpad781
 
 invoke.cont782:                                   ; preds = %invoke.cont779
@@ -33377,7 +33377,7 @@ ehcleanup815:                                     ; preds = %ehcleanup814, %lpad
   br label %ehcleanup863
 
 if.else816:                                       ; preds = %invoke.cont754
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp823, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp823, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont824 unwind label %lpad713
 
 invoke.cont824:                                   ; preds = %if.else816
@@ -33725,7 +33725,7 @@ invoke.cont891:                                   ; preds = %invoke.cont889
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp870) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp871) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp872) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp907, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp907, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont908 unwind label %lpad702
 
 invoke.cont908:                                   ; preds = %invoke.cont891
@@ -34027,7 +34027,7 @@ ehcleanup950:                                     ; preds = %ehcleanup948, %lpad
   br label %ehcleanup1117
 
 sw.bb951:                                         ; preds = %invoke.cont703
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias nonnull align 8 %ref.tmp952, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %228)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias align 8 %ref.tmp952, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %228)
           to label %invoke.cont955 unwind label %lpad702
 
 invoke.cont955:                                   ; preds = %sw.bb951
@@ -34040,13 +34040,13 @@ invoke.cont957:                                   ; preds = %invoke.cont955
           to label %invoke.cont960 unwind label %lpad702
 
 invoke.cont960:                                   ; preds = %invoke.cont957
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp962, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias align 8 %ref.tmp962, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext true)
           to label %invoke.cont963 unwind label %lpad702
 
 invoke.cont963:                                   ; preds = %invoke.cont960
   %call964 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %field_val, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp962) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp962) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp971, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp971, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont972 unwind label %lpad702
 
 invoke.cont972:                                   ; preds = %invoke.cont963
@@ -34304,7 +34304,7 @@ land.rhs.i1417:                                   ; preds = %if.then1018
 
 invoke.cont1020:                                  ; preds = %land.rhs.i1417, %if.then1018
   %320 = phi i1 [ false, %if.then1018 ], [ %cmp.i2.i1420, %land.rhs.i1417 ]
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias nonnull align 8 %ref.tmp1019, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext false, i1 noundef zeroext %320)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator11GenTypeNameERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_10DefinitionERKNS_4TypeEbb(ptr noalias align 8 %ref.tmp1019, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(26) %vectortype696, i1 noundef zeroext false, i1 noundef zeroext %320)
           to label %invoke.cont1022 unwind label %lpad702
 
 invoke.cont1022:                                  ; preds = %invoke.cont1020
@@ -34474,7 +34474,7 @@ invoke.cont1063:                                  ; preds = %invoke.cont1061
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1038) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1039) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1040) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp1080, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp1080, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %struct_def, ptr noundef nonnull align 8 dereferenceable(328) %struct_def)
           to label %invoke.cont1081 unwind label %lpad702
 
 invoke.cont1081:                                  ; preds = %invoke.cont1063
@@ -34767,7 +34767,7 @@ ehcleanup1117:                                    ; preds = %lpad.body.i1225, %l
 sw.bb1118:                                        ; preds = %if.else224
   %enum_def1123 = getelementptr inbounds i8, ptr %64, i64 216
   %348 = load ptr, ptr %enum_def1123, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias nonnull align 8 %ref.tmp1119, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %348)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias align 8 %ref.tmp1119, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(312) %348)
           to label %invoke.cont1124 unwind label %lpad158
 
 invoke.cont1124:                                  ; preds = %sw.bb1118
@@ -34776,7 +34776,7 @@ invoke.cont1124:                                  ; preds = %sw.bb1118
 
 invoke.cont1126:                                  ; preds = %invoke.cont1124
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1119) #22
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp1129, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias align 8 %ref.tmp1129, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %struct_def, ptr noundef nonnull align 8 dereferenceable(32) %field_method, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false)
           to label %invoke.cont1132 unwind label %lpad158
 
 invoke.cont1132:                                  ; preds = %invoke.cont1126
@@ -36440,7 +36440,7 @@ lpad3:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %dependent, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %union_enum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %dependent, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %union_enum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %type_list = alloca %"class.std::set.103", align 8
@@ -36563,7 +36563,7 @@ lpad15:                                           ; preds = %if.end26, %if.then1
 if.then19:                                        ; preds = %invoke.cont12
   %struct_def = getelementptr inbounds i8, ptr %5, i64 64
   %12 = load ptr, ptr %struct_def, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(328) %12)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_9StructDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(328) %12)
           to label %invoke.cont22 unwind label %lpad15
 
 invoke.cont22:                                    ; preds = %if.then19
@@ -36665,7 +36665,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %dependent, ptr noundef nonnull align 8 dereferenceable(32) %field_name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %union_type, i1 noundef zeroext %is_array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers2ts11TsGenerator13GenUnionValTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERSE_RKNS_4TypeEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %dependent, ptr noundef nonnull align 8 dereferenceable(32) %field_name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %union_type, i1 noundef zeroext %is_array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %enum_type = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"struct.flatbuffers::(anonymous namespace)::ImportDefinition", align 8
@@ -36710,7 +36710,7 @@ entry:
   br i1 %tobool.not, label %if.end177, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(312) %0)
+  call fastcc void @_ZN11flatbuffers2ts11TsGenerator9AddImportINS_7EnumDefEEENS_12_GLOBAL__N_116ImportDefinitionERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessISC_ESaISt4pairIKSC_S5_EEERKNS_10DefinitionERKT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(200) %dependent, ptr noundef nonnull align 8 dereferenceable(312) %0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %enum_type, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   %object_name.i = getelementptr inbounds i8, ptr %ref.tmp, i64 160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %object_name.i) #22
@@ -36978,7 +36978,7 @@ invoke.cont65:                                    ; preds = %invoke.cont63
   %struct_def = getelementptr inbounds i8, ptr %union_type, i64 8
   %17 = load ptr, ptr %struct_def, align 8
   %18 = load ptr, ptr %enum_def, align 8
-  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias nonnull align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %17, ptr noundef nonnull align 8 dereferenceable(312) %18)
+  invoke fastcc void @_ZN11flatbuffers2ts11TsGenerator20GenObjApiUnionTypeTSERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12_GLOBAL__N_116ImportDefinitionESt4lessIS8_ESaISt4pairIKS8_SA_EEERKNS_9StructDefERKNS_10IDLOptionsERKNS_7EnumDefE(ptr noalias align 8 %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(48) %imports, ptr noundef nonnull align 8 dereferenceable(328) %17, ptr noundef nonnull align 8 dereferenceable(312) %18)
           to label %invoke.cont71 unwind label %lpad64
 
 invoke.cont71:                                    ; preds = %invoke.cont65

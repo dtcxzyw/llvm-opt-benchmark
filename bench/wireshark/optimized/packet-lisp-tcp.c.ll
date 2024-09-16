@@ -596,7 +596,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @dissect_lisp_map_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_lisp_tcp_message_eid_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_lisp_tcp_message_eid_prefix(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 8, 12) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   store i16 0, ptr %6, align 2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #2

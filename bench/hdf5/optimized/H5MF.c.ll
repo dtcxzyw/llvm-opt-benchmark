@@ -3042,7 +3042,7 @@ define range(i32 -1, 1) i32 @H5MF_try_close(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5MF__close_delete_fstype(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @H5MF__close_delete_fstype(ptr noundef %0, i32 noundef range(i32 -2147483648, 13) %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8

@@ -547,7 +547,7 @@ fill_in_pseudo_header.exit:                       ; preds = %71, %.sink.split.i
   br i1 %.not69, label %142, label %155
 
 142:                                              ; preds = %133
-  call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef %10, ptr noundef %11)
   %143 = call ptr @wtap_block_create(i32 noundef 1) #9
   %144 = call ptr @wtap_block_get_mandatory_data(ptr noundef %143) #9
   %145 = load i32, ptr %66, align 8
@@ -596,7 +596,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_new_if_info(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @add_new_if_info(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(7) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) %1, i64 7, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -880,7 +880,7 @@ fill_in_pseudo_header.exit:                       ; preds = %64, %.sink.split.i
   br i1 %.not65, label %153, label %166
 
 153:                                              ; preds = %144
-  call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  call fastcc void @add_new_if_info(ptr noundef nonnull %13, ptr noundef %10, ptr noundef %11)
   %154 = call ptr @wtap_block_create(i32 noundef 1) #9
   %155 = call ptr @wtap_block_get_mandatory_data(ptr noundef %154) #9
   %156 = load i32, ptr %59, align 8

@@ -3404,7 +3404,7 @@ if.then136:                                       ; preds = %if.end.i.i15026
   store ptr %arg0, ptr %arg0, align 8
   %Next2.i.i.i.i.i = getelementptr inbounds i8, ptr %arg0, i64 8
   store ptr %arg0, ptr %Next2.i.i.i.i.i, align 8
-  %call138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg0)
+  %call138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg0)
   br i1 %call138, label %if.end144, label %if.then139
 
 if.then139:                                       ; preds = %if.then136
@@ -3445,8 +3445,8 @@ if.then152:                                       ; preds = %if.end.i.i15045
   store ptr null, ptr %arg5, align 8
   store i8 0, ptr %arg6, align 1
   store i8 0, ptr %arg7, align 1
-  %call155 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0153)
-  %call164 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1)
+  %call155 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0153)
+  %call164 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1)
   br i1 %call164, label %_ZN4llvh9StringRefC2EPKc.exit6782, label %if.then165
 
 if.then165:                                       ; preds = %if.then152
@@ -3461,7 +3461,7 @@ if.then165:                                       ; preds = %if.then152
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6782:                ; preds = %if.then152
-  %call172 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2)
+  %call172 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2)
   br i1 %call172, label %_ZN4llvh9StringRefC2EPKc.exit6792, label %if.then173
 
 if.then173:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6782
@@ -3476,10 +3476,10 @@ if.then173:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6792:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6782
-  %call180 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3)
-  %call189 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4)
-  %call198 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5)
-  %call207 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.28, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg6)
+  %call180 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3)
+  %call189 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4)
+  %call198 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5)
+  %call207 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.28, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg6)
   br i1 %call207, label %_ZN4llvh9StringRefC2EPKc.exit6832, label %if.then208
 
 if.then208:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6792
@@ -3494,7 +3494,7 @@ if.then208:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6832:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6792
-  %call215 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7)
+  %call215 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7)
   br i1 %call215, label %if.end221, label %if.then216
 
 if.then216:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6832
@@ -3544,8 +3544,8 @@ if.then231:                                       ; preds = %if.end.i.i15064
   store ptr null, ptr %arg5237, align 8
   store i8 0, ptr %arg6238, align 1
   store i8 0, ptr %arg7239, align 1
-  %call241 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0232)
-  %call250 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1233)
+  %call241 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0232)
+  %call250 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1233)
   br i1 %call250, label %_ZN4llvh9StringRefC2EPKc.exit6872, label %if.then251
 
 if.then251:                                       ; preds = %if.then231
@@ -3560,7 +3560,7 @@ if.then251:                                       ; preds = %if.then231
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6872:                ; preds = %if.then231
-  %call258 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2234)
+  %call258 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2234)
   br i1 %call258, label %_ZN4llvh9StringRefC2EPKc.exit6882, label %if.then259
 
 if.then259:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6872
@@ -3575,10 +3575,10 @@ if.then259:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6882:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6872
-  %call266 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3235)
-  %call275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4236)
-  %call284 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5237)
-  %call293 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %arg6238)
+  %call266 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3235)
+  %call275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4236)
+  %call284 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5237)
+  %call293 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 1 dereferenceable(1) %arg6238)
   br i1 %call293, label %_ZN4llvh9StringRefC2EPKc.exit6922, label %if.then294
 
 if.then294:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6882
@@ -3593,7 +3593,7 @@ if.then294:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6922:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6882
-  %call301 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7239)
+  %call301 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7239)
   br i1 %call301, label %if.end307, label %if.then302
 
 if.then302:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6922
@@ -3643,8 +3643,8 @@ if.then317:                                       ; preds = %if.end.i.i15083
   store ptr null, ptr %arg5323, align 8
   store i8 0, ptr %arg6324, align 1
   store i8 0, ptr %arg7325, align 1
-  %call327 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0318)
-  %call336 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1319)
+  %call327 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0318)
+  %call336 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1319)
   br i1 %call336, label %_ZN4llvh9StringRefC2EPKc.exit6962, label %if.then337
 
 if.then337:                                       ; preds = %if.then317
@@ -3659,7 +3659,7 @@ if.then337:                                       ; preds = %if.then317
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6962:                ; preds = %if.then317
-  %call344 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2320)
+  %call344 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2320)
   br i1 %call344, label %_ZN4llvh9StringRefC2EPKc.exit6972, label %if.then345
 
 if.then345:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6962
@@ -3674,10 +3674,10 @@ if.then345:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit6972:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6962
-  %call352 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3321)
-  %call361 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4322)
-  %call370 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5323)
-  %call379 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.28, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg6324)
+  %call352 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3321)
+  %call361 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg4322)
+  %call370 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg5323)
+  %call379 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.28, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg6324)
   br i1 %call379, label %_ZN4llvh9StringRefC2EPKc.exit7012, label %if.then380
 
 if.then380:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit6972
@@ -3692,7 +3692,7 @@ if.then380:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7012:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit6972
-  %call387 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7325)
+  %call387 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.30, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg7325)
   br i1 %call387, label %if.end393, label %if.then388
 
 if.then388:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7012
@@ -3751,7 +3751,7 @@ if.then403:                                       ; preds = %if.end.i.i15102
   store ptr null, ptr %arg2406, align 8
   store ptr null, ptr %arg3407, align 8
   store ptr null, ptr %arg4408, align 8
-  %call410 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0404)
+  %call410 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg0404)
   br i1 %call410, label %_ZN4llvh9StringRefC2EPKc.exit7042, label %if.then411
 
 if.then411:                                       ; preds = %if.then403
@@ -3766,7 +3766,7 @@ if.then411:                                       ; preds = %if.then403
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7042:                ; preds = %if.then403
-  %call418 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1405)
+  %call418 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg1405)
   br i1 %call418, label %_ZN4llvh9StringRefC2EPKc.exit7052, label %if.then419
 
 if.then419:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7042
@@ -3781,7 +3781,7 @@ if.then419:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7052:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7042
-  %call426 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2406)
+  %call426 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2406)
   br i1 %call426, label %_ZN4llvh9StringRefC2EPKc.exit7062, label %if.then427
 
 if.then427:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7052
@@ -3796,8 +3796,8 @@ if.then427:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7062:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7052
-  %call434 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3407)
-  %call443 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg4408)
+  %call434 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg3407)
+  %call443 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg4408)
   %271 = load ptr, ptr %this, align 8
   %call452 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 120, ptr noundef nonnull align 8 dereferenceable(656) %271, i64 noundef 8)
   %272 = load ptr, ptr %arg0404, align 8
@@ -3820,7 +3820,7 @@ if.end.i.i15121:                                  ; preds = %if.end.i.i14931
 if.then458:                                       ; preds = %if.end.i.i15121
   store ptr null, ptr %arg0459, align 8
   store ptr null, ptr %arg1460, align 8
-  %call462 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0459)
+  %call462 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0459)
   br i1 %call462, label %_ZN4llvh9StringRefC2EPKc.exit7102, label %if.then463
 
 if.then463:                                       ; preds = %if.then458
@@ -3835,7 +3835,7 @@ if.then463:                                       ; preds = %if.then458
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7102:                ; preds = %if.then458
-  %call470 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1460)
+  %call470 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1460)
   br i1 %call470, label %if.end476, label %if.then471
 
 if.then471:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7102
@@ -3880,7 +3880,7 @@ if.end.i.i15140:                                  ; preds = %if.end399
 if.then484:                                       ; preds = %if.end.i.i15140
   store ptr null, ptr %arg0485, align 8
   store ptr null, ptr %arg1486, align 8
-  %call488 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0485)
+  %call488 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0485)
   br i1 %call488, label %_ZN4llvh9StringRefC2EPKc.exit7132, label %if.then489
 
 if.then489:                                       ; preds = %if.then484
@@ -3895,7 +3895,7 @@ if.then489:                                       ; preds = %if.then484
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7132:                ; preds = %if.then484
-  %call496 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1486)
+  %call496 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1486)
   br i1 %call496, label %if.end502, label %if.then497
 
 if.then497:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7132
@@ -3941,7 +3941,7 @@ if.then510:                                       ; preds = %if.end.i.i15159
   store ptr null, ptr %arg0511, align 8
   store ptr null, ptr %arg1512, align 8
   store ptr null, ptr %arg2513, align 8
-  %call515 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0511)
+  %call515 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0511)
   br i1 %call515, label %_ZN4llvh9StringRefC2EPKc.exit7162, label %if.then516
 
 if.then516:                                       ; preds = %if.then510
@@ -3956,7 +3956,7 @@ if.then516:                                       ; preds = %if.then510
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7162:                ; preds = %if.then510
-  %call523 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1512)
+  %call523 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1512)
   br i1 %call523, label %_ZN4llvh9StringRefC2EPKc.exit7172, label %if.then524
 
 if.then524:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7162
@@ -3971,7 +3971,7 @@ if.then524:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7172:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7162
-  %call531 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2513)
+  %call531 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2513)
   br i1 %call531, label %if.end537, label %if.then532
 
 if.then532:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7172
@@ -4021,7 +4021,7 @@ if.then545:                                       ; preds = %if.end.i.i15178
   store ptr null, ptr %arg1547, align 8
   store ptr null, ptr %arg2548, align 8
   store i8 0, ptr %arg3549, align 1
-  %call551 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0546)
+  %call551 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0546)
   br i1 %call551, label %_ZN4llvh9StringRefC2EPKc.exit7202, label %if.then552
 
 if.then552:                                       ; preds = %if.then545
@@ -4036,7 +4036,7 @@ if.then552:                                       ; preds = %if.then545
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7202:                ; preds = %if.then545
-  %call559 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1547)
+  %call559 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1547)
   br i1 %call559, label %_ZN4llvh9StringRefC2EPKc.exit7212, label %if.then560
 
 if.then560:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7202
@@ -4051,7 +4051,7 @@ if.then560:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7212:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7202
-  %call567 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2548)
+  %call567 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg2548)
   br i1 %call567, label %_ZN4llvh9StringRefC2EPKc.exit7222, label %if.then568
 
 if.then568:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7212
@@ -4066,7 +4066,7 @@ if.then568:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7222:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7212
-  %call575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.75, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg3549)
+  %call575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.75, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg3549)
   br i1 %call575, label %if.end581, label %if.then576
 
 if.then576:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7222
@@ -4121,10 +4121,10 @@ if.then590:                                       ; preds = %if.end.i.i15197
   store ptr null, ptr %arg1592, align 8
   store ptr null, ptr %arg2593, align 8
   store ptr null, ptr %arg3594, align 8
-  %call596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0591)
-  %call605 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1592)
-  %call614 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.81, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg2593)
-  %call623 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg3594)
+  %call596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0591)
+  %call605 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1592)
+  %call614 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.81, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg2593)
+  %call623 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg3594)
   br i1 %call623, label %if.end629, label %if.then624
 
 if.then624:                                       ; preds = %if.then590
@@ -4216,7 +4216,7 @@ if.then653:                                       ; preds = %if.end.i.i15254
   store ptr %arg0654, ptr %arg0654, align 8
   %Next2.i.i.i.i.i3323 = getelementptr inbounds i8, ptr %arg0654, i64 8
   store ptr %arg0654, ptr %Next2.i.i.i.i.i3323, align 8
-  %call656 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg0654)
+  %call656 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg0654)
   br i1 %call656, label %if.end662, label %if.then657
 
 if.then657:                                       ; preds = %if.then653
@@ -4248,7 +4248,7 @@ if.end.i.i15273:                                  ; preds = %if.end.i.i15254
 
 if.then670:                                       ; preds = %if.end.i.i15273
   store ptr null, ptr %arg0671, align 8
-  %call673 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0671)
+  %call673 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0671)
   %335 = load ptr, ptr %this, align 8
   %call682 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %335, i64 noundef 8)
   %336 = load ptr, ptr %arg0671, align 8
@@ -4275,7 +4275,7 @@ if.end.i.i15292:                                  ; preds = %if.end.i.i15216
 
 if.then688:                                       ; preds = %if.end.i.i15292
   store ptr null, ptr %arg0689, align 8
-  %call691 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0689)
+  %call691 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0689)
   %340 = load ptr, ptr %this, align 8
   %call700 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %340, i64 noundef 8)
   %341 = load ptr, ptr %arg0689, align 8
@@ -4302,7 +4302,7 @@ if.end.i.i15311:                                  ; preds = %if.end.i.i15273
 
 if.then706:                                       ; preds = %if.end.i.i15311
   store ptr null, ptr %arg0707, align 8
-  %call709 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg0707)
+  %call709 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg0707)
   br i1 %call709, label %if.end715, label %if.then710
 
 if.then710:                                       ; preds = %if.then706
@@ -4341,7 +4341,7 @@ if.end.i.i15330:                                  ; preds = %if.end.i.i14969
 
 if.then723:                                       ; preds = %if.end.i.i15330
   store ptr null, ptr %arg0724, align 8
-  %call726 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg0724)
+  %call726 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg0724)
   %350 = load ptr, ptr %this, align 8
   %call735 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 56, ptr noundef nonnull align 8 dereferenceable(656) %350, i64 noundef 8)
   %351 = load ptr, ptr %arg0724, align 8
@@ -4367,7 +4367,7 @@ if.end.i.i15349:                                  ; preds = %if.end399
 if.then741:                                       ; preds = %if.end.i.i15349
   store ptr null, ptr %arg0742, align 8
   store ptr null, ptr %arg1743, align 8
-  %call745 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg0742)
+  %call745 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg0742)
   br i1 %call745, label %_ZN4llvh9StringRefC2EPKc.exit7422, label %if.then746
 
 if.then746:                                       ; preds = %if.then741
@@ -4382,7 +4382,7 @@ if.then746:                                       ; preds = %if.then741
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7422:                ; preds = %if.then741
-  %call753 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1743)
+  %call753 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1743)
   br i1 %call753, label %if.end759, label %if.then754
 
 if.then754:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7422
@@ -4427,7 +4427,7 @@ if.then767:                                       ; preds = %if.end.i.i15368
   store ptr %arg1769, ptr %arg1769, align 8
   %Next2.i.i.i.i.i3375 = getelementptr inbounds i8, ptr %arg1769, i64 8
   store ptr %arg1769, ptr %Next2.i.i.i.i.i3375, align 8
-  %call771 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.103, i64 12, ptr noundef nonnull align 8 dereferenceable(8) %arg0768)
+  %call771 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.103, i64 12, ptr noundef nonnull align 8 dereferenceable(8) %arg0768)
   br i1 %call771, label %_ZN4llvh9StringRefC2EPKc.exit7452, label %if.then772
 
 if.then772:                                       ; preds = %if.then767
@@ -4442,7 +4442,7 @@ if.then772:                                       ; preds = %if.then767
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7452:                ; preds = %if.then767
-  %call779 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.105, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg1769)
+  %call779 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.105, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg1769)
   br i1 %call779, label %if.end785, label %if.then780
 
 if.then780:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7452
@@ -4476,7 +4476,7 @@ if.end.i.i15387:                                  ; preds = %if.end.i.i15140
 if.then793:                                       ; preds = %if.end.i.i15387
   store ptr null, ptr %arg0794, align 8
   store ptr null, ptr %arg1795, align 8
-  %call797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0794)
+  %call797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0794)
   br i1 %call797, label %_ZN4llvh9StringRefC2EPKc.exit7482, label %if.then798
 
 if.then798:                                       ; preds = %if.then793
@@ -4491,7 +4491,7 @@ if.then798:                                       ; preds = %if.then793
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7482:                ; preds = %if.then793
-  %call805 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1795)
+  %call805 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg1795)
   br i1 %call805, label %if.end811, label %if.then806
 
 if.then806:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7482
@@ -4536,7 +4536,7 @@ if.end.i.i15406:                                  ; preds = %if.end.i.i15083
 if.then819:                                       ; preds = %if.end.i.i15406
   store ptr null, ptr %arg0820, align 8
   store ptr null, ptr %arg1821, align 8
-  %call823 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg0820)
+  %call823 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg0820)
   br i1 %call823, label %_ZN4llvh9StringRefC2EPKc.exit7512, label %if.then824
 
 if.then824:                                       ; preds = %if.then819
@@ -4581,7 +4581,7 @@ if.then846:                                       ; preds = %if.end.i.i15425
   store ptr null, ptr %arg0847, align 8
   store ptr null, ptr %arg1848, align 8
   store ptr null, ptr %arg2849, align 8
-  %call851 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.115, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0847)
+  %call851 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.115, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0847)
   br i1 %call851, label %_ZN4llvh9StringRefC2EPKc.exit7542, label %if.then852
 
 if.then852:                                       ; preds = %if.then846
@@ -4596,8 +4596,8 @@ if.then852:                                       ; preds = %if.then846
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7542:                ; preds = %if.then846
-  %call859 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.117, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg1848)
-  %call868 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.119, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg2849)
+  %call859 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.117, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg1848)
+  %call868 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.119, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg2849)
   %382 = load ptr, ptr %this, align 8
   %call877 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %382, i64 noundef 8)
   %383 = load ptr, ptr %arg0847, align 8
@@ -4630,7 +4630,7 @@ if.then883:                                       ; preds = %if.end.i.i15444
   store ptr null, ptr %arg0884, align 8
   store ptr null, ptr %arg1885, align 8
   store ptr null, ptr %arg2886, align 8
-  %call888 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0884)
+  %call888 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg0884)
   br i1 %call888, label %_ZN4llvh9StringRefC2EPKc.exit7582, label %if.then889
 
 if.then889:                                       ; preds = %if.then883
@@ -4645,7 +4645,7 @@ if.then889:                                       ; preds = %if.then883
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7582:                ; preds = %if.then883
-  %call896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg1885)
+  %call896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg1885)
   br i1 %call896, label %_ZN4llvh9StringRefC2EPKc.exit7592, label %if.then897
 
 if.then897:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7582
@@ -4660,7 +4660,7 @@ if.then897:                                       ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7592:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit7582
-  %call904 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.125, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg2886)
+  %call904 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.125, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg2886)
   %390 = load ptr, ptr %this, align 8
   %call913 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %390, i64 noundef 8)
   %391 = load ptr, ptr %arg0884, align 8
@@ -4711,7 +4711,7 @@ if.end.i.i15482:                                  ; preds = %if.end.i.i15311
 
 if.then927:                                       ; preds = %if.end.i.i15482
   store i8 0, ptr %arg0928, align 1
-  %call930 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg0928)
+  %call930 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg0928)
   br i1 %call930, label %if.end936, label %if.then931
 
 if.then931:                                       ; preds = %if.then927
@@ -4790,7 +4790,7 @@ if.end.i.i15520:                                  ; preds = %if.end.i.i15482
 
 if.then962:                                       ; preds = %if.end.i.i15520
   store double 0.000000e+00, ptr %arg0963, align 8
-  %call965 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr noundef nonnull %node, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0963)
+  %call965 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr noundef %node, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg0963)
   br i1 %call965, label %if.end971, label %if.then966
 
 if.then966:                                       ; preds = %if.then962
@@ -4830,7 +4830,7 @@ if.end.i.i15539:                                  ; preds = %if.end.i.i15501
 if.then979:                                       ; preds = %if.end.i.i15539
   store ptr null, ptr %arg0980, align 8
   store ptr null, ptr %arg1981, align 8
-  %call983 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.136, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg0980)
+  %call983 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.136, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg0980)
   br i1 %call983, label %_ZN4llvh9StringRefC2EPKc.exit7692, label %if.then984
 
 if.then984:                                       ; preds = %if.then979
@@ -4845,7 +4845,7 @@ if.then984:                                       ; preds = %if.then979
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7692:                ; preds = %if.then979
-  %call991 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.138, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1981)
+  %call991 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.138, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg1981)
   br i1 %call991, label %if.end997, label %if.then992
 
 if.then992:                                       ; preds = %_ZN4llvh9StringRefC2EPKc.exit7692
@@ -4887,7 +4887,7 @@ if.end.i.i15558:                                  ; preds = %if.end.i.i15539
 
 if.then1005:                                      ; preds = %if.end.i.i15558
   store ptr null, ptr %arg01006, align 8
-  %call1008 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.141, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01006)
+  %call1008 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.141, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01006)
   br i1 %call1008, label %if.end1014, label %if.then1009
 
 if.then1009:                                      ; preds = %if.then1005
@@ -4968,7 +4968,7 @@ if.then1038:                                      ; preds = %if.end.i.i15615
   store ptr %arg01039, ptr %arg01039, align 8
   %Next2.i.i.i.i.i3516 = getelementptr inbounds i8, ptr %arg01039, i64 8
   store ptr %arg01039, ptr %Next2.i.i.i.i.i3516, align 8
-  %call1041 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.146, i64 11, ptr noundef nonnull align 8 dereferenceable(16) %arg01039)
+  %call1041 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.146, i64 11, ptr noundef nonnull align 8 dereferenceable(16) %arg01039)
   br i1 %call1041, label %if.end1047, label %if.then1042
 
 if.then1042:                                      ; preds = %if.then1038
@@ -5002,7 +5002,7 @@ if.then1055:                                      ; preds = %if.end.i.i15634
   store ptr %arg01056, ptr %arg01056, align 8
   %Next2.i.i.i.i.i3525 = getelementptr inbounds i8, ptr %arg01056, i64 8
   store ptr %arg01056, ptr %Next2.i.i.i.i.i3525, align 8
-  %call1058 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg01056)
+  %call1058 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg01056)
   br i1 %call1058, label %if.end1064, label %if.then1059
 
 if.then1059:                                      ; preds = %if.then1055
@@ -5037,7 +5037,7 @@ if.then1072:                                      ; preds = %if.end.i.i15653
   %Next2.i.i.i.i.i3534 = getelementptr inbounds i8, ptr %arg01073, i64 8
   store ptr %arg01073, ptr %Next2.i.i.i.i.i3534, align 8
   store i8 0, ptr %arg11074, align 1
-  %call1076 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.152, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg01073)
+  %call1076 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.152, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg01073)
   br i1 %call1076, label %_ZN4llvh9StringRefC2EPKc.exit7802, label %if.then1077
 
 if.then1077:                                      ; preds = %if.then1072
@@ -5052,7 +5052,7 @@ if.then1077:                                      ; preds = %if.then1072
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7802:                ; preds = %if.then1072
-  %call1084 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.154, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %arg11074)
+  %call1084 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.154, i64 13, ptr noundef nonnull align 1 dereferenceable(1) %arg11074)
   br i1 %call1084, label %if.end1090, label %if.then1085
 
 if.then1085:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit7802
@@ -5086,7 +5086,7 @@ if.end.i.i15672:                                  ; preds = %if.end.i.i15558
 
 if.then1099:                                      ; preds = %if.end.i.i15672
   store ptr null, ptr %arg01100, align 8
-  %call1102 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01100)
+  %call1102 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01100)
   br i1 %call1102, label %if.end1108, label %if.then1103
 
 if.then1103:                                      ; preds = %if.then1099
@@ -5129,7 +5129,7 @@ if.then1116:                                      ; preds = %if.end.i.i15691
   store ptr %arg21119, ptr %arg21119, align 8
   %Next2.i.i.i.i.i3559 = getelementptr inbounds i8, ptr %arg21119, i64 8
   store ptr %arg21119, ptr %Next2.i.i.i.i.i3559, align 8
-  %call1121 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01117)
+  %call1121 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01117)
   br i1 %call1121, label %_ZN4llvh9StringRefC2EPKc.exit7852, label %if.then1122
 
 if.then1122:                                      ; preds = %if.then1116
@@ -5144,8 +5144,8 @@ if.then1122:                                      ; preds = %if.then1116
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7852:                ; preds = %if.then1116
-  %call1129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11118)
-  %call1138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21119)
+  %call1129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11118)
+  %call1138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21119)
   br i1 %call1138, label %if.end1144, label %if.then1139
 
 if.then1139:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit7852
@@ -5180,8 +5180,8 @@ if.end.i.i15710:                                  ; preds = %if.end.i.i15653
 if.then1152:                                      ; preds = %if.end.i.i15710
   store ptr null, ptr %arg01153, align 8
   store i8 0, ptr %arg11154, align 1
-  %call1156 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01153)
-  %458 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.166, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg11154)
+  %call1156 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01153)
+  %458 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.166, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg11154)
   %459 = load ptr, ptr %this, align 8
   %call1174 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %459, i64 noundef 8)
   %460 = load ptr, ptr %arg01153, align 8
@@ -5210,7 +5210,7 @@ if.end.i.i15729:                                  ; preds = %if.end.i.i15710
 
 if.then1181:                                      ; preds = %if.end.i.i15729
   store ptr null, ptr %arg01182, align 8
-  %call1184 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01182)
+  %call1184 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01182)
   br i1 %call1184, label %if.end1190, label %if.then1185
 
 if.then1185:                                      ; preds = %if.then1181
@@ -5250,7 +5250,7 @@ if.end.i.i15748:                                  ; preds = %if.end.i.i15634
 if.then1198:                                      ; preds = %if.end.i.i15748
   store ptr null, ptr %arg01199, align 8
   store ptr null, ptr %arg11200, align 8
-  %call1202 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01199)
+  %call1202 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01199)
   br i1 %call1202, label %_ZN4llvh9StringRefC2EPKc.exit7942, label %if.then1203
 
 if.then1203:                                      ; preds = %if.then1198
@@ -5265,7 +5265,7 @@ if.then1203:                                      ; preds = %if.then1198
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7942:                ; preds = %if.then1198
-  %call1210 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.173, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg11200)
+  %call1210 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.173, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg11200)
   %470 = load ptr, ptr %this, align 8
   %call1219 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %470, i64 noundef 8)
   %471 = load ptr, ptr %arg01199, align 8
@@ -5297,7 +5297,7 @@ if.then1225:                                      ; preds = %if.end.i.i15767
   store ptr %arg21228, ptr %arg21228, align 8
   %Next2.i.i.i.i.i3601 = getelementptr inbounds i8, ptr %arg21228, i64 8
   store ptr %arg21228, ptr %Next2.i.i.i.i.i3601, align 8
-  %call1230 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01226)
+  %call1230 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01226)
   br i1 %call1230, label %_ZN4llvh9StringRefC2EPKc.exit7972, label %if.then1231
 
 if.then1231:                                      ; preds = %if.then1225
@@ -5312,8 +5312,8 @@ if.then1231:                                      ; preds = %if.then1225
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit7972:                ; preds = %if.then1225
-  %call1238 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11227)
-  %call1247 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21228)
+  %call1238 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11227)
+  %call1247 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21228)
   br i1 %call1247, label %if.end1253, label %if.then1248
 
 if.then1248:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit7972
@@ -5364,7 +5364,7 @@ if.then1261:                                      ; preds = %if.end.i.i15786
   %Next2.i.i.i.i.i3615 = getelementptr inbounds i8, ptr %arg21264, i64 8
   store ptr %arg21264, ptr %Next2.i.i.i.i.i3615, align 8
   store i8 0, ptr %arg31265, align 1
-  %call1267 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01262)
+  %call1267 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.158, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01262)
   br i1 %call1267, label %_ZN4llvh9StringRefC2EPKc.exit8012, label %if.then1268
 
 if.then1268:                                      ; preds = %if.then1261
@@ -5379,8 +5379,8 @@ if.then1268:                                      ; preds = %if.then1261
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8012:                ; preds = %if.then1261
-  %call1275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11263)
-  %call1284 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21264)
+  %call1275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg11263)
+  %call1284 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.162, i64 9, ptr noundef nonnull align 8 dereferenceable(16) %arg21264)
   br i1 %call1284, label %_ZN4llvh9StringRefC2EPKc.exit8032, label %if.then1285
 
 if.then1285:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8012
@@ -5395,7 +5395,7 @@ if.then1285:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8032:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8012
-  %call1292 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31265)
+  %call1292 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31265)
   br i1 %call1292, label %if.end1298, label %if.then1293
 
 if.then1293:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8032
@@ -5437,7 +5437,7 @@ if.then1307:                                      ; preds = %if.end.i.i15805
   store ptr null, ptr %arg01308, align 8
   store ptr null, ptr %arg11309, align 8
   store ptr null, ptr %arg21310, align 8
-  %call1312 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01308)
+  %call1312 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01308)
   br i1 %call1312, label %_ZN4llvh9StringRefC2EPKc.exit8062, label %if.then1313
 
 if.then1313:                                      ; preds = %if.then1307
@@ -5452,7 +5452,7 @@ if.then1313:                                      ; preds = %if.then1307
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8062:                ; preds = %if.then1307
-  %call1320 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg11309)
+  %call1320 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg11309)
   br i1 %call1320, label %_ZN4llvh9StringRefC2EPKc.exit8072, label %if.then1321
 
 if.then1321:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8062
@@ -5467,7 +5467,7 @@ if.then1321:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8072:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8062
-  %call1328 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg21310)
+  %call1328 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg21310)
   br i1 %call1328, label %if.end1334, label %if.then1329
 
 if.then1329:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8072
@@ -5514,7 +5514,7 @@ if.then1342:                                      ; preds = %if.end.i.i15824
   store ptr null, ptr %arg01343, align 8
   store ptr null, ptr %arg11344, align 8
   store i8 0, ptr %arg21345, align 1
-  %call1347 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01343)
+  %call1347 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01343)
   br i1 %call1347, label %_ZN4llvh9StringRefC2EPKc.exit8102, label %if.then1348
 
 if.then1348:                                      ; preds = %if.then1342
@@ -5529,7 +5529,7 @@ if.then1348:                                      ; preds = %if.then1342
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8102:                ; preds = %if.then1342
-  %call1355 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11344)
+  %call1355 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11344)
   br i1 %call1355, label %_ZN4llvh9StringRefC2EPKc.exit8112, label %if.then1356
 
 if.then1356:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8102
@@ -5544,7 +5544,7 @@ if.then1356:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8112:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8102
-  %call1363 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.193, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg21345)
+  %call1363 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.193, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg21345)
   br i1 %call1363, label %if.end1369, label %if.then1364
 
 if.then1364:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8112
@@ -5592,7 +5592,7 @@ if.then1378:                                      ; preds = %if.end.i.i15843
   store ptr null, ptr %arg01379, align 8
   store ptr null, ptr %arg11380, align 8
   store i8 0, ptr %arg21381, align 1
-  %call1383 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01379)
+  %call1383 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg01379)
   br i1 %call1383, label %_ZN4llvh9StringRefC2EPKc.exit8142, label %if.then1384
 
 if.then1384:                                      ; preds = %if.then1378
@@ -5607,7 +5607,7 @@ if.then1384:                                      ; preds = %if.then1378
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8142:                ; preds = %if.then1378
-  %call1391 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11380)
+  %call1391 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11380)
   br i1 %call1391, label %_ZN4llvh9StringRefC2EPKc.exit8152, label %if.then1392
 
 if.then1392:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8142
@@ -5622,7 +5622,7 @@ if.then1392:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8152:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8142
-  %call1399 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.193, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg21381)
+  %call1399 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.193, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg21381)
   br i1 %call1399, label %if.end1405, label %if.then1400
 
 if.then1400:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8152
@@ -5670,7 +5670,7 @@ if.then1414:                                      ; preds = %if.end.i.i15862
   store ptr null, ptr %arg01415, align 8
   store ptr null, ptr %arg11416, align 8
   store i8 0, ptr %arg21417, align 1
-  %call1419 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01415)
+  %call1419 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01415)
   br i1 %call1419, label %_ZN4llvh9StringRefC2EPKc.exit8182, label %if.then1420
 
 if.then1420:                                      ; preds = %if.then1414
@@ -5685,7 +5685,7 @@ if.then1420:                                      ; preds = %if.then1414
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8182:                ; preds = %if.then1414
-  %call1427 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11416)
+  %call1427 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11416)
   br i1 %call1427, label %_ZN4llvh9StringRefC2EPKc.exit8192, label %if.then1428
 
 if.then1428:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8182
@@ -5700,7 +5700,7 @@ if.then1428:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8192:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8182
-  %call1435 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21417)
+  %call1435 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21417)
   br i1 %call1435, label %if.end1441, label %if.then1436
 
 if.then1436:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8192
@@ -5753,7 +5753,7 @@ if.then1450:                                      ; preds = %if.end.i.i15881
   store ptr null, ptr %arg11452, align 8
   store i8 0, ptr %arg21453, align 1
   store i8 0, ptr %arg31454, align 1
-  %call1456 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01451)
+  %call1456 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg01451)
   br i1 %call1456, label %_ZN4llvh9StringRefC2EPKc.exit8222, label %if.then1457
 
 if.then1457:                                      ; preds = %if.then1450
@@ -5768,7 +5768,7 @@ if.then1457:                                      ; preds = %if.then1450
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8222:                ; preds = %if.then1450
-  %call1464 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11452)
+  %call1464 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11452)
   br i1 %call1464, label %_ZN4llvh9StringRefC2EPKc.exit8232, label %if.then1465
 
 if.then1465:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8222
@@ -5783,7 +5783,7 @@ if.then1465:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8232:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8222
-  %call1472 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21453)
+  %call1472 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21453)
   br i1 %call1472, label %_ZN4llvh9StringRefC2EPKc.exit8242, label %if.then1473
 
 if.then1473:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8232
@@ -5798,7 +5798,7 @@ if.then1473:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8242:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8232
-  %call1480 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31454)
+  %call1480 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31454)
   br i1 %call1480, label %if.end1486, label %if.then1481
 
 if.then1481:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8242
@@ -5854,7 +5854,7 @@ if.then1496:                                      ; preds = %if.end.i.i15900
   store ptr null, ptr %arg01497, align 8
   store ptr null, ptr %arg11498, align 8
   store ptr null, ptr %arg21499, align 8
-  %call1501 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01497)
+  %call1501 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01497)
   br i1 %call1501, label %_ZN4llvh9StringRefC2EPKc.exit8272, label %if.then1502
 
 if.then1502:                                      ; preds = %if.then1496
@@ -5869,7 +5869,7 @@ if.then1502:                                      ; preds = %if.then1496
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8272:                ; preds = %if.then1496
-  %call1509 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11498)
+  %call1509 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11498)
   br i1 %call1509, label %_ZN4llvh9StringRefC2EPKc.exit8282, label %if.then1510
 
 if.then1510:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8272
@@ -5884,7 +5884,7 @@ if.then1510:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8282:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8272
-  %call1517 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg21499)
+  %call1517 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg21499)
   br i1 %call1517, label %if.end1523, label %if.then1518
 
 if.then1518:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8282
@@ -5956,7 +5956,7 @@ if.then1531:                                      ; preds = %if.end.i.i15919
   store ptr null, ptr %arg01532, align 8
   store ptr null, ptr %arg11533, align 8
   store ptr null, ptr %arg21534, align 8
-  %call1536 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01532)
+  %call1536 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01532)
   br i1 %call1536, label %_ZN4llvh9StringRefC2EPKc.exit8312, label %if.then1537
 
 if.then1537:                                      ; preds = %if.then1531
@@ -5971,7 +5971,7 @@ if.then1537:                                      ; preds = %if.then1531
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8312:                ; preds = %if.then1531
-  %call1544 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.125, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg11533)
+  %call1544 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.125, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg11533)
   br i1 %call1544, label %_ZN4llvh9StringRefC2EPKc.exit8322, label %if.then1545
 
 if.then1545:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8312
@@ -5986,7 +5986,7 @@ if.then1545:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8322:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8312
-  %call1552 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg21534)
+  %call1552 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg21534)
   br i1 %call1552, label %if.end1558, label %if.then1553
 
 if.then1553:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8322
@@ -6033,7 +6033,7 @@ if.then1566:                                      ; preds = %if.end.i.i15938
   store ptr null, ptr %arg01567, align 8
   store ptr null, ptr %arg11568, align 8
   store ptr null, ptr %arg21569, align 8
-  %call1571 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01567)
+  %call1571 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01567)
   br i1 %call1571, label %_ZN4llvh9StringRefC2EPKc.exit8352, label %if.then1572
 
 if.then1572:                                      ; preds = %if.then1566
@@ -6048,7 +6048,7 @@ if.then1572:                                      ; preds = %if.then1566
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8352:                ; preds = %if.then1566
-  %call1579 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11568)
+  %call1579 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11568)
   br i1 %call1579, label %_ZN4llvh9StringRefC2EPKc.exit8362, label %if.then1580
 
 if.then1580:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8352
@@ -6063,7 +6063,7 @@ if.then1580:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8362:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8352
-  %call1587 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg21569)
+  %call1587 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg21569)
   br i1 %call1587, label %if.end1593, label %if.then1588
 
 if.then1588:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8362
@@ -6131,7 +6131,7 @@ if.end1631.thread14919:                           ; preds = %if.end.i.i15957
 
 if.then1601:                                      ; preds = %if.end.i.i15957
   store ptr null, ptr %arg01602, align 8
-  %call1604 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01602)
+  %call1604 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01602)
   br i1 %call1604, label %if.end1610, label %if.then1605
 
 if.then1605:                                      ; preds = %if.then1601
@@ -6211,7 +6211,7 @@ if.then1635:                                      ; preds = %if.end.i.i15995
   store ptr null, ptr %arg01636, align 8
   store ptr null, ptr %arg11637, align 8
   store i8 0, ptr %arg21638, align 1
-  %call1640 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01636)
+  %call1640 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01636)
   br i1 %call1640, label %_ZN4llvh9StringRefC2EPKc.exit8432, label %if.then1641
 
 if.then1641:                                      ; preds = %if.then1635
@@ -6226,8 +6226,8 @@ if.then1641:                                      ; preds = %if.then1635
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8432:                ; preds = %if.then1635
-  %call1648 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg11637)
-  %call1657 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21638)
+  %call1648 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg11637)
+  %call1657 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg21638)
   br i1 %call1657, label %if.end1663, label %if.then1658
 
 if.then1658:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8432
@@ -6278,7 +6278,7 @@ if.end.i.i16014:                                  ; preds = %if.end1631.thread14
 
 if.then1672:                                      ; preds = %if.end.i.i16014
   store ptr null, ptr %arg01673, align 8
-  %call1675 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg01673)
+  %call1675 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg01673)
   br i1 %call1675, label %if.end1681, label %if.then1676
 
 if.then1676:                                      ; preds = %if.then1672
@@ -6318,7 +6318,7 @@ if.end.i.i16033:                                  ; preds = %if.end.i.i15425
 if.then1689:                                      ; preds = %if.end.i.i16033
   store ptr null, ptr %arg01690, align 8
   store ptr null, ptr %arg11691, align 8
-  %call1693 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.235, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01690)
+  %call1693 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.235, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01690)
   br i1 %call1693, label %_ZN4llvh9StringRefC2EPKc.exit8492, label %if.then1694
 
 if.then1694:                                      ; preds = %if.then1689
@@ -6333,7 +6333,7 @@ if.then1694:                                      ; preds = %if.then1689
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8492:                ; preds = %if.then1689
-  %call1701 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11691)
+  %call1701 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg11691)
   br i1 %call1701, label %if.end1707, label %if.then1702
 
 if.then1702:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8492
@@ -6378,8 +6378,8 @@ if.then1715:                                      ; preds = %if.end.i.i16052
   store ptr %arg11717, ptr %arg11717, align 8
   %Next2.i.i.i.i.i3889 = getelementptr inbounds i8, ptr %arg11717, i64 8
   store ptr %arg11717, ptr %Next2.i.i.i.i.i3889, align 8
-  %call1719 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01716)
-  %call1728 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg11717)
+  %call1719 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.60, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01716)
+  %call1728 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.123, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg11717)
   br i1 %call1728, label %if.end1734, label %if.then1729
 
 if.then1729:                                      ; preds = %if.then1715
@@ -6413,8 +6413,8 @@ if.end.i.i16071:                                  ; preds = %if.end.i.i16014
 if.then1742:                                      ; preds = %if.end.i.i16071
   store ptr null, ptr %arg01743, align 8
   store ptr null, ptr %arg11744, align 8
-  %call1746 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.242, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01743)
-  %call1755 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg11744)
+  %call1746 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.242, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg01743)
+  %call1755 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg11744)
   br i1 %call1755, label %if.end1761, label %if.then1756
 
 if.then1756:                                      ; preds = %if.then1742
@@ -6464,8 +6464,8 @@ if.end.i.i16090:                                  ; preds = %if.end1765
 if.then1769:                                      ; preds = %if.end.i.i16090
   store ptr null, ptr %arg01770, align 8
   store ptr null, ptr %arg11771, align 8
-  %call1773 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01770)
-  %call1782 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg11771)
+  %call1773 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01770)
+  %call1782 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg11771)
   br i1 %call1782, label %if.end1788, label %if.then1783
 
 if.then1783:                                      ; preds = %if.then1769
@@ -6529,7 +6529,7 @@ if.then1796:                                      ; preds = %if.end.i.i16109
   store ptr %arg11798, ptr %arg11798, align 8
   %Next2.i.i.i.i.i3921 = getelementptr inbounds i8, ptr %arg11798, i64 8
   store ptr %arg11798, ptr %Next2.i.i.i.i.i3921, align 8
-  %call1800 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01797)
+  %call1800 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg01797)
   br i1 %call1800, label %_ZN4llvh9StringRefC2EPKc.exit8612, label %if.then1801
 
 if.then1801:                                      ; preds = %if.then1796
@@ -6544,7 +6544,7 @@ if.then1801:                                      ; preds = %if.then1796
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8612:                ; preds = %if.then1796
-  %call1808 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.251, i64 12, ptr noundef nonnull align 8 dereferenceable(16) %arg11798)
+  %call1808 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.251, i64 12, ptr noundef nonnull align 8 dereferenceable(16) %arg11798)
   br i1 %call1808, label %if.end1814, label %if.then1809
 
 if.then1809:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8612
@@ -6582,7 +6582,7 @@ if.then1822:                                      ; preds = %if.end.i.i16128
   store ptr %arg11824, ptr %arg11824, align 8
   %Next2.i.i.i.i.i3936 = getelementptr inbounds i8, ptr %arg11824, i64 8
   store ptr %arg11824, ptr %Next2.i.i.i.i.i3936, align 8
-  %call1826 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.254, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg01823)
+  %call1826 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.254, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg01823)
   br i1 %call1826, label %_ZN4llvh9StringRefC2EPKc.exit8642, label %if.then1827
 
 if.then1827:                                      ; preds = %if.then1822
@@ -6597,7 +6597,7 @@ if.then1827:                                      ; preds = %if.then1822
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8642:                ; preds = %if.then1822
-  %call1834 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.146, i64 11, ptr noundef nonnull align 8 dereferenceable(16) %arg11824)
+  %call1834 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.146, i64 11, ptr noundef nonnull align 8 dereferenceable(16) %arg11824)
   br i1 %call1834, label %if.end1840, label %if.then1835
 
 if.then1835:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8642
@@ -6668,7 +6668,7 @@ if.end.i.i16147:                                  ; preds = %if.end1818.thread15
 if.then1848:                                      ; preds = %if.end.i.i16147
   store ptr null, ptr %arg01849, align 8
   store ptr null, ptr %arg11850, align 8
-  %call1852 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.258, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg01849)
+  %call1852 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.258, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg01849)
   br i1 %call1852, label %_ZN4llvh9StringRefC2EPKc.exit8672, label %if.then1853
 
 if.then1853:                                      ; preds = %if.then1848
@@ -6683,7 +6683,7 @@ if.then1853:                                      ; preds = %if.then1848
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8672:                ; preds = %if.then1848
-  %call1860 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.260, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11850)
+  %call1860 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.260, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11850)
   br i1 %call1860, label %if.end1866, label %if.then1861
 
 if.then1861:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8672
@@ -6748,7 +6748,7 @@ if.then1874:                                      ; preds = %if.end.i.i16166
   store i8 0, ptr %arg01875, align 1
   store ptr null, ptr %arg11876, align 8
   store ptr null, ptr %arg21877, align 8
-  %call1879 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.262, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %arg01875)
+  %call1879 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.262, i64 4, ptr noundef nonnull align 1 dereferenceable(1) %arg01875)
   br i1 %call1879, label %_ZN4llvh9StringRefC2EPKc.exit8702, label %if.then1880
 
 if.then1880:                                      ; preds = %if.then1874
@@ -6764,7 +6764,7 @@ if.then1880:                                      ; preds = %if.then1874
 
 _ZN4llvh9StringRefC2EPKc.exit8702:                ; preds = %if.then1874
   %call.i3970 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.264, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg11876)
-  %call1896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg21877)
+  %call1896 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg21877)
   br i1 %call1896, label %if.end1902, label %if.then1897
 
 if.then1897:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8702
@@ -6835,7 +6835,7 @@ if.then1911:                                      ; preds = %if.end.i.i16185
   store i8 0, ptr %arg31915, align 1
   store i8 0, ptr %arg41916, align 1
   store i8 0, ptr %arg51917, align 1
-  %call1919 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg01912)
+  %call1919 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg01912)
   br i1 %call1919, label %_ZN4llvh9StringRefC2EPKc.exit8742, label %if.then1920
 
 if.then1920:                                      ; preds = %if.then1911
@@ -6850,7 +6850,7 @@ if.then1920:                                      ; preds = %if.then1911
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8742:                ; preds = %if.then1911
-  %call1927 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11913)
+  %call1927 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg11913)
   br i1 %call1927, label %_ZN4llvh9StringRefC2EPKc.exit8752, label %if.then1928
 
 if.then1928:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8742
@@ -6865,7 +6865,7 @@ if.then1928:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8752:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8742
-  %call1935 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg21914)
+  %call1935 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg21914)
   br i1 %call1935, label %_ZN4llvh9StringRefC2EPKc.exit8762, label %if.then1936
 
 if.then1936:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8752
@@ -6880,7 +6880,7 @@ if.then1936:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8762:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8752
-  %call1943 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31915)
+  %call1943 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg31915)
   br i1 %call1943, label %_ZN4llvh9StringRefC2EPKc.exit8772, label %if.then1944
 
 if.then1944:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8762
@@ -6895,7 +6895,7 @@ if.then1944:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8772:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8762
-  %call1951 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg41916)
+  %call1951 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg41916)
   br i1 %call1951, label %_ZN4llvh9StringRefC2EPKc.exit8782, label %if.then1952
 
 if.then1952:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8772
@@ -6910,7 +6910,7 @@ if.then1952:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8782:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8772
-  %call1959 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.276, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg51917)
+  %call1959 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.276, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg51917)
   br i1 %call1959, label %if.end1965, label %if.then1960
 
 if.then1960:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8782
@@ -6977,11 +6977,11 @@ if.then1976:                                      ; preds = %if.end.i.i16204
   %Next2.i.i.i.i.i4022 = getelementptr inbounds i8, ptr %arg51982, i64 8
   store ptr %arg51982, ptr %Next2.i.i.i.i.i4022, align 8
   store ptr null, ptr %arg61983, align 8
-  %call1985 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg01977)
-  %call1994 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg11978)
-  %call2003 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.281, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg21979)
-  %call2012 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.283, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %arg31980)
-  %call2021 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg41981)
+  %call1985 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg01977)
+  %call1994 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg11978)
+  %call2003 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.281, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg21979)
+  %call2012 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.283, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %arg31980)
+  %call2021 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg41981)
   br i1 %call2021, label %_ZN4llvh9StringRefC2EPKc.exit8852, label %if.then2022
 
 if.then2022:                                      ; preds = %if.then1976
@@ -6996,7 +6996,7 @@ if.then2022:                                      ; preds = %if.then1976
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8852:                ; preds = %if.then1976
-  %call2029 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.287, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg51982)
+  %call2029 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.287, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg51982)
   br i1 %call2029, label %_ZN4llvh9StringRefC2EPKc.exit8862, label %if.then2030
 
 if.then2030:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8852
@@ -7011,7 +7011,7 @@ if.then2030:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8862:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8852
-  %call2037 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg61983)
+  %call2037 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg61983)
   br i1 %call2037, label %if.end2043, label %if.then2038
 
 if.then2038:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8862
@@ -7080,11 +7080,11 @@ if.then2051:                                      ; preds = %if.end.i.i16223
   %Next2.i.i.i.i.i4042 = getelementptr inbounds i8, ptr %arg52057, i64 8
   store ptr %arg52057, ptr %Next2.i.i.i.i.i4042, align 8
   store ptr null, ptr %arg62058, align 8
-  %call2060 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg02052)
-  %call2069 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12053)
-  %call2078 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.281, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg22054)
-  %call2087 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.283, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %arg32055)
-  %call2096 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg42056)
+  %call2060 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg02052)
+  %call2069 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12053)
+  %call2078 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.281, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg22054)
+  %call2087 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.283, i64 19, ptr noundef nonnull align 8 dereferenceable(8) %arg32055)
+  %call2096 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg42056)
   br i1 %call2096, label %_ZN4llvh9StringRefC2EPKc.exit8932, label %if.then2097
 
 if.then2097:                                      ; preds = %if.then2051
@@ -7099,7 +7099,7 @@ if.then2097:                                      ; preds = %if.then2051
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8932:                ; preds = %if.then2051
-  %call2104 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.287, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg52057)
+  %call2104 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.287, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg52057)
   br i1 %call2104, label %_ZN4llvh9StringRefC2EPKc.exit8942, label %if.then2105
 
 if.then2105:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8932
@@ -7114,7 +7114,7 @@ if.then2105:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8942:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8932
-  %call2112 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg62058)
+  %call2112 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg62058)
   br i1 %call2112, label %if.end2118, label %if.then2113
 
 if.then2113:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8942
@@ -7156,7 +7156,7 @@ if.then2126:                                      ; preds = %if.end.i.i16242
   store ptr %arg02127, ptr %arg02127, align 8
   %Next2.i.i.i.i.i4061 = getelementptr inbounds i8, ptr %arg02127, i64 8
   store ptr %arg02127, ptr %Next2.i.i.i.i.i4061, align 8
-  %call2129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg02127)
+  %call2129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg02127)
   br i1 %call2129, label %if.end2135, label %if.then2130
 
 if.then2130:                                      ; preds = %if.then2126
@@ -7199,7 +7199,7 @@ if.then2143:                                      ; preds = %if.end.i.i16261
   store ptr null, ptr %arg62150, align 8
   store ptr null, ptr %arg72151, align 8
   store ptr null, ptr %arg8, align 8
-  %call2153 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02144)
+  %call2153 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02144)
   br i1 %call2153, label %_ZN4llvh9StringRefC2EPKc.exit8992, label %if.then2154
 
 if.then2154:                                      ; preds = %if.then2143
@@ -7214,8 +7214,8 @@ if.then2154:                                      ; preds = %if.then2143
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit8992:                ; preds = %if.then2143
-  %call2161 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12145)
-  %call2170 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg22146)
+  %call2161 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12145)
+  %call2170 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg22146)
   br i1 %call2170, label %_ZN4llvh9StringRefC2EPKc.exit9012, label %if.then2171
 
 if.then2171:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit8992
@@ -7230,7 +7230,7 @@ if.then2171:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9012:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit8992
-  %call2178 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg32147)
+  %call2178 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg32147)
   br i1 %call2178, label %_ZN4llvh9StringRefC2EPKc.exit9022, label %if.then2179
 
 if.then2179:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9012
@@ -7245,7 +7245,7 @@ if.then2179:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9022:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9012
-  %call2186 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.306, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg42148)
+  %call2186 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.306, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg42148)
   br i1 %call2186, label %_ZN4llvh9StringRefC2EPKc.exit9032, label %if.then2187
 
 if.then2187:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9022
@@ -7260,7 +7260,7 @@ if.then2187:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9032:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9022
-  %call2194 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg52149)
+  %call2194 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg52149)
   br i1 %call2194, label %_ZN4llvh9StringRefC2EPKc.exit9042, label %if.then2195
 
 if.then2195:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9032
@@ -7275,9 +7275,9 @@ if.then2195:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9042:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9032
-  %call2202 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg62150)
-  %call2211 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg72151)
-  %call2220 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.312, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg8)
+  %call2202 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg62150)
+  %call2211 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg72151)
+  %call2220 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.312, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg8)
   %684 = load ptr, ptr %this, align 8
   %call2229 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 96, ptr noundef nonnull align 8 dereferenceable(656) %684, i64 noundef 8)
   %685 = load ptr, ptr %arg02144, align 8
@@ -7358,7 +7358,7 @@ if.then2239:                                      ; preds = %if.end.i.i16280
   store ptr null, ptr %arg52245, align 8
   store ptr null, ptr %arg62246, align 8
   store ptr null, ptr %arg72247, align 8
-  %call2249 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02240)
+  %call2249 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02240)
   br i1 %call2249, label %_ZN4llvh9StringRefC2EPKc.exit9092, label %if.then2250
 
 if.then2250:                                      ; preds = %if.then2239
@@ -7373,8 +7373,8 @@ if.then2250:                                      ; preds = %if.then2239
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9092:                ; preds = %if.then2239
-  %call2257 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12241)
-  %call2266 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg22242)
+  %call2257 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12241)
+  %call2266 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg22242)
   br i1 %call2266, label %_ZN4llvh9StringRefC2EPKc.exit9112, label %if.then2267
 
 if.then2267:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9092
@@ -7389,7 +7389,7 @@ if.then2267:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9112:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9092
-  %call2274 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.306, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg32243)
+  %call2274 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.306, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg32243)
   br i1 %call2274, label %_ZN4llvh9StringRefC2EPKc.exit9122, label %if.then2275
 
 if.then2275:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9112
@@ -7404,7 +7404,7 @@ if.then2275:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9122:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9112
-  %call2282 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg42244)
+  %call2282 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg42244)
   br i1 %call2282, label %_ZN4llvh9StringRefC2EPKc.exit9132, label %if.then2283
 
 if.then2283:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9122
@@ -7419,9 +7419,9 @@ if.then2283:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9132:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9122
-  %call2290 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg52245)
-  %call2299 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg62246)
-  %call2308 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.312, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg72247)
+  %call2290 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg52245)
+  %call2299 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg62246)
+  %call2308 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.312, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg72247)
   %700 = load ptr, ptr %this, align 8
   %call2317 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 96, ptr noundef nonnull align 8 dereferenceable(656) %700, i64 noundef 8)
   %701 = load ptr, ptr %arg02240, align 8
@@ -7496,7 +7496,7 @@ if.then2326:                                      ; preds = %if.end.i.i16299
   store ptr null, ptr %arg22329, align 8
   store i8 0, ptr %arg32330, align 1
   store i8 0, ptr %arg42331, align 1
-  %call2333 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02327)
+  %call2333 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02327)
   br i1 %call2333, label %_ZN4llvh9StringRefC2EPKc.exit9182, label %if.then2334
 
 if.then2334:                                      ; preds = %if.then2326
@@ -7511,7 +7511,7 @@ if.then2334:                                      ; preds = %if.then2326
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9182:                ; preds = %if.then2326
-  %call2341 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12328)
+  %call2341 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12328)
   br i1 %call2341, label %_ZN4llvh9StringRefC2EPKc.exit9192, label %if.then2342
 
 if.then2342:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9182
@@ -7526,7 +7526,7 @@ if.then2342:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9192:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9182
-  %call2349 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg22329)
+  %call2349 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg22329)
   br i1 %call2349, label %_ZN4llvh9StringRefC2EPKc.exit9202, label %if.then2350
 
 if.then2350:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9192
@@ -7541,7 +7541,7 @@ if.then2350:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9202:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9192
-  %call2357 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg32330)
+  %call2357 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg32330)
   br i1 %call2357, label %_ZN4llvh9StringRefC2EPKc.exit9212, label %if.then2358
 
 if.then2358:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9202
@@ -7556,7 +7556,7 @@ if.then2358:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9212:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9202
-  %call2365 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg42331)
+  %call2365 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg42331)
   br i1 %call2365, label %if.end2371, label %if.then2366
 
 if.then2366:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9212
@@ -7637,7 +7637,7 @@ if.then2381:                                      ; preds = %if.end.i.i16318
   %Next2.i.i.i.i.i4182 = getelementptr inbounds i8, ptr %arg22384, i64 8
   store ptr %arg22384, ptr %Next2.i.i.i.i.i4182, align 8
   store ptr null, ptr %arg32385, align 8
-  %call2387 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg02382)
+  %call2387 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg02382)
   br i1 %call2387, label %_ZN4llvh9StringRefC2EPKc.exit9242, label %if.then2388
 
 if.then2388:                                      ; preds = %if.then2381
@@ -7652,7 +7652,7 @@ if.then2388:                                      ; preds = %if.then2381
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9242:                ; preds = %if.then2381
-  %call2395 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg12383)
+  %call2395 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg12383)
   br i1 %call2395, label %_ZN4llvh9StringRefC2EPKc.exit9252, label %if.then2396
 
 if.then2396:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9242
@@ -7667,8 +7667,8 @@ if.then2396:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9252:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9242
-  %call2403 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.333, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg22384)
-  %call2412 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.335, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg32385)
+  %call2403 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.333, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg22384)
+  %call2412 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.335, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg32385)
   br i1 %call2412, label %if.end2418, label %if.then2413
 
 if.then2413:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9252
@@ -7726,7 +7726,7 @@ if.then2426:                                      ; preds = %if.end.i.i16337
   store ptr null, ptr %arg02427, align 8
   store ptr null, ptr %arg12428, align 8
   store ptr null, ptr %arg22429, align 8
-  %call2431 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.338, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02427)
+  %call2431 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.338, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02427)
   br i1 %call2431, label %_ZN4llvh9StringRefC2EPKc.exit9292, label %if.then2432
 
 if.then2432:                                      ; preds = %if.then2426
@@ -7741,7 +7741,7 @@ if.then2432:                                      ; preds = %if.then2426
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9292:                ; preds = %if.then2426
-  %call2439 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12428)
+  %call2439 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12428)
   br i1 %call2439, label %_ZN4llvh9StringRefC2EPKc.exit9302, label %if.then2440
 
 if.then2440:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9292
@@ -7756,7 +7756,7 @@ if.then2440:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9302:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9292
-  %call2447 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.335, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg22429)
+  %call2447 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.335, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg22429)
   br i1 %call2447, label %if.end2453, label %if.then2448
 
 if.then2448:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9302
@@ -7822,7 +7822,7 @@ if.end.i.i16356:                                  ; preds = %if.end2422.thread16
 
 if.then2461:                                      ; preds = %if.end.i.i16356
   store ptr null, ptr %arg02462, align 8
-  %call2464 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02462)
+  %call2464 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02462)
   br i1 %call2464, label %if.end2470, label %if.then2465
 
 if.then2465:                                      ; preds = %if.then2461
@@ -7864,7 +7864,7 @@ if.end.i.i16375:                                  ; preds = %if.end2474
 
 if.then2478:                                      ; preds = %if.end.i.i16375
   store ptr null, ptr %arg02479, align 8
-  %call2481 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02479)
+  %call2481 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg02479)
   br i1 %call2481, label %if.end2487, label %if.then2482
 
 if.then2482:                                      ; preds = %if.then2478
@@ -7926,7 +7926,7 @@ if.end.i.i16394:                                  ; preds = %if.end2491
 if.then2495:                                      ; preds = %if.end.i.i16394
   store ptr null, ptr %arg02496, align 8
   store ptr null, ptr %arg12497, align 8
-  %call2499 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02496)
+  %call2499 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg02496)
   br i1 %call2499, label %_ZN4llvh9StringRefC2EPKc.exit9372, label %if.then2500
 
 if.then2500:                                      ; preds = %if.then2495
@@ -7941,7 +7941,7 @@ if.then2500:                                      ; preds = %if.then2495
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9372:                ; preds = %if.then2495
-  %call2507 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12497)
+  %call2507 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12497)
   br i1 %call2507, label %if.end2513, label %if.then2508
 
 if.then2508:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9372
@@ -7991,8 +7991,8 @@ if.then2521:                                      ; preds = %if.end.i.i16413
   store ptr %arg12523, ptr %Next2.i.i.i.i.i4260, align 8
   store ptr null, ptr %arg22524, align 8
   store ptr null, ptr %arg32525, align 8
-  %call2527 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg02522)
-  %call2536 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg12523)
+  %call2527 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg02522)
+  %call2536 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg12523)
   br i1 %call2536, label %_ZN4llvh9StringRefC2EPKc.exit9412, label %if.then2537
 
 if.then2537:                                      ; preds = %if.then2521
@@ -8007,8 +8007,8 @@ if.then2537:                                      ; preds = %if.then2521
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9412:                ; preds = %if.then2521
-  %call2544 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg22524)
-  %call2553 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.355, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg32525)
+  %call2544 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg22524)
+  %call2553 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.355, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg32525)
   br i1 %call2553, label %if.end2559, label %if.then2554
 
 if.then2554:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9412
@@ -8047,7 +8047,7 @@ if.end.i.i16432:                                  ; preds = %if.end2563
 if.then2567:                                      ; preds = %if.end.i.i16432
   store ptr null, ptr %arg02568, align 8
   store ptr null, ptr %arg12569, align 8
-  %call2571 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.358, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02568)
+  %call2571 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.358, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02568)
   br i1 %call2571, label %_ZN4llvh9StringRefC2EPKc.exit9452, label %if.then2572
 
 if.then2572:                                      ; preds = %if.then2567
@@ -8062,7 +8062,7 @@ if.then2572:                                      ; preds = %if.then2567
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9452:                ; preds = %if.then2567
-  %call2579 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12569)
+  %call2579 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12569)
   br i1 %call2579, label %if.end2585, label %if.then2580
 
 if.then2580:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9452
@@ -8107,7 +8107,7 @@ if.end.i.i16451:                                  ; preds = %if.end2589
 
 if.then2593:                                      ; preds = %if.end.i.i16451
   store ptr null, ptr %arg02594, align 8
-  %call2596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.358, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02594)
+  %call2596 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.358, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02594)
   br i1 %call2596, label %if.end2602, label %if.then2597
 
 if.then2597:                                      ; preds = %if.then2593
@@ -8146,7 +8146,7 @@ if.end.i.i16470:                                  ; preds = %if.end.i.i16451
 
 if.then2610:                                      ; preds = %if.end.i.i16470
   store ptr null, ptr %arg02611, align 8
-  %call2613 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg02611)
+  %call2613 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg02611)
   br i1 %call2613, label %if.end2619, label %if.then2614
 
 if.then2614:                                      ; preds = %if.then2610
@@ -8189,7 +8189,7 @@ if.end.i.i16489:                                  ; preds = %if.end2623
 if.then2627:                                      ; preds = %if.end.i.i16489
   store ptr null, ptr %arg02628, align 8
   store ptr null, ptr %arg12629, align 8
-  %call2631 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg02628)
+  %call2631 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg02628)
   br i1 %call2631, label %_ZN4llvh9StringRefC2EPKc.exit9522, label %if.then2632
 
 if.then2632:                                      ; preds = %if.then2627
@@ -8204,7 +8204,7 @@ if.then2632:                                      ; preds = %if.then2627
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9522:                ; preds = %if.then2627
-  %call2639 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.355, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg12629)
+  %call2639 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.355, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg12629)
   br i1 %call2639, label %if.end2645, label %if.then2640
 
 if.then2640:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9522
@@ -8252,7 +8252,7 @@ if.then2653:                                      ; preds = %if.end.i.i16508
   %Next2.i.i.i.i.i4327 = getelementptr inbounds i8, ptr %arg02654, i64 8
   store ptr %arg02654, ptr %Next2.i.i.i.i.i4327, align 8
   store ptr null, ptr %arg12655, align 8
-  %call2657 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg02654)
+  %call2657 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg02654)
   br i1 %call2657, label %_ZN4llvh9StringRefC2EPKc.exit9552, label %if.then2658
 
 if.then2658:                                      ; preds = %if.then2653
@@ -8267,7 +8267,7 @@ if.then2658:                                      ; preds = %if.then2653
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9552:                ; preds = %if.then2653
-  %call2665 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12655)
+  %call2665 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12655)
   %791 = load ptr, ptr %this, align 8
   %call2674 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %791, i64 noundef 8)
   %792 = load ptr, ptr %arg12655, align 8
@@ -8289,7 +8289,7 @@ if.then2680:                                      ; preds = %if.end.i.i16527
   %Next2.i.i.i.i.i4336 = getelementptr inbounds i8, ptr %arg02681, i64 8
   store ptr %arg02681, ptr %Next2.i.i.i.i.i4336, align 8
   store ptr null, ptr %arg12682, align 8
-  %call2684 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.152, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg02681)
+  %call2684 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.152, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg02681)
   br i1 %call2684, label %_ZN4llvh9StringRefC2EPKc.exit9582, label %if.then2685
 
 if.then2685:                                      ; preds = %if.then2680
@@ -8304,7 +8304,7 @@ if.then2685:                                      ; preds = %if.then2680
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9582:                ; preds = %if.then2680
-  %call2692 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12682)
+  %call2692 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg12682)
   %796 = load ptr, ptr %this, align 8
   %call2701 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %796, i64 noundef 8)
   %797 = load ptr, ptr %arg12682, align 8
@@ -8326,7 +8326,7 @@ if.end.i.i16546:                                  ; preds = %if.end2703
 
 if.then2707:                                      ; preds = %if.end.i.i16546
   store ptr null, ptr %arg02708, align 8
-  %call2710 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02708)
+  %call2710 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02708)
   br i1 %call2710, label %if.end2716, label %if.then2711
 
 if.then2711:                                      ; preds = %if.then2707
@@ -8369,7 +8369,7 @@ if.end.i.i16565:                                  ; preds = %if.end2720
 if.then2724:                                      ; preds = %if.end.i.i16565
   store ptr null, ptr %arg02725, align 8
   store ptr null, ptr %arg12726, align 8
-  %call2728 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02725)
+  %call2728 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02725)
   br i1 %call2728, label %_ZN4llvh9StringRefC2EPKc.exit9632, label %if.then2729
 
 if.then2729:                                      ; preds = %if.then2724
@@ -8384,7 +8384,7 @@ if.then2729:                                      ; preds = %if.then2724
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9632:                ; preds = %if.then2724
-  %call2736 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12726)
+  %call2736 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12726)
   br i1 %call2736, label %if.end2742, label %if.then2737
 
 if.then2737:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9632
@@ -8429,7 +8429,7 @@ if.end.i.i16584:                                  ; preds = %if.end2746
 
 if.then2750:                                      ; preds = %if.end.i.i16584
   store ptr null, ptr %arg02751, align 8
-  %call2753 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02751)
+  %call2753 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02751)
   br i1 %call2753, label %if.end2759, label %if.then2754
 
 if.then2754:                                      ; preds = %if.then2750
@@ -8472,7 +8472,7 @@ if.end.i.i16603:                                  ; preds = %if.end2763
 if.then2767:                                      ; preds = %if.end.i.i16603
   store ptr null, ptr %arg02768, align 8
   store ptr null, ptr %arg12769, align 8
-  %call2771 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg02768)
+  %call2771 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.99, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg02768)
   br i1 %call2771, label %_ZN4llvh9StringRefC2EPKc.exit9682, label %if.then2772
 
 if.then2772:                                      ; preds = %if.then2767
@@ -8487,7 +8487,7 @@ if.then2772:                                      ; preds = %if.then2767
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9682:                ; preds = %if.then2767
-  %call2779 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg12769)
+  %call2779 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.201, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg12769)
   br i1 %call2779, label %if.end2785, label %if.then2780
 
 if.then2780:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9682
@@ -8533,7 +8533,7 @@ if.end.i.i16622:                                  ; preds = %if.end2789
 if.then2793:                                      ; preds = %if.end.i.i16622
   store ptr null, ptr %arg02794, align 8
   store ptr null, ptr %arg12795, align 8
-  %call2797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.384, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg02794)
+  %call2797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.384, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg02794)
   br i1 %call2797, label %_ZN4llvh9StringRefC2EPKc.exit9712, label %if.then2798
 
 if.then2798:                                      ; preds = %if.then2793
@@ -8548,7 +8548,7 @@ if.then2798:                                      ; preds = %if.then2793
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9712:                ; preds = %if.then2793
-  %call2805 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg12795)
+  %call2805 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg12795)
   br i1 %call2805, label %if.end2811, label %if.then2806
 
 if.then2806:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9712
@@ -8616,7 +8616,7 @@ if.end.i.i16660:                                  ; preds = %if.end2823
 
 if.then2827:                                      ; preds = %if.end.i.i16660
   store ptr null, ptr %arg02828, align 8
-  %call2830 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg02828)
+  %call2830 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg02828)
   br i1 %call2830, label %if.end2836, label %if.then2831
 
 if.then2831:                                      ; preds = %if.then2827
@@ -8658,7 +8658,7 @@ if.end.i.i16679:                                  ; preds = %if.end2840
 
 if.then2844:                                      ; preds = %if.end.i.i16679
   store ptr null, ptr %arg02845, align 8
-  %call2847 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg02845)
+  %call2847 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg02845)
   br i1 %call2847, label %if.end2853, label %if.then2848
 
 if.then2848:                                      ; preds = %if.then2844
@@ -8705,7 +8705,7 @@ if.then2861:                                      ; preds = %if.end.i.i16698
   store ptr %arg12863, ptr %Next2.i.i.i.i.i4444, align 8
   store i8 0, ptr %arg22864, align 1
   store ptr null, ptr %arg32865, align 8
-  %call2867 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02862)
+  %call2867 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02862)
   br i1 %call2867, label %_ZN4llvh9StringRefC2EPKc.exit9792, label %if.then2868
 
 if.then2868:                                      ; preds = %if.then2861
@@ -8720,7 +8720,7 @@ if.then2868:                                      ; preds = %if.then2861
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9792:                ; preds = %if.then2861
-  %call2875 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.173, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg12863)
+  %call2875 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.173, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg12863)
   br i1 %call2875, label %_ZN4llvh9StringRefC2EPKc.exit9802, label %if.then2876
 
 if.then2876:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9792
@@ -8735,7 +8735,7 @@ if.then2876:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9802:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9792
-  %call2883 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.395, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %arg22864)
+  %call2883 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.395, i64 11, ptr noundef nonnull align 1 dereferenceable(1) %arg22864)
   br i1 %call2883, label %_ZN4llvh9StringRefC2EPKc.exit9812, label %if.then2884
 
 if.then2884:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9802
@@ -8750,7 +8750,7 @@ if.then2884:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9812:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9802
-  %call2891 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg32865)
+  %call2891 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.160, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg32865)
   %847 = load ptr, ptr %this, align 8
   %call2900 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %847, i64 noundef 8)
   %848 = load ptr, ptr %arg02862, align 8
@@ -8772,7 +8772,7 @@ if.end.i.i16717:                                  ; preds = %if.end.i.i16698
 
 if.then2907:                                      ; preds = %if.end.i.i16717
   store ptr null, ptr %arg02908, align 8
-  %call2910 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02908)
+  %call2910 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02908)
   br i1 %call2910, label %if.end2916, label %if.then2911
 
 if.then2911:                                      ; preds = %if.then2907
@@ -8812,7 +8812,7 @@ if.end.i.i16736:                                  ; preds = %if.end.i.i16527
 if.then2924:                                      ; preds = %if.end.i.i16736
   store ptr null, ptr %arg02925, align 8
   store ptr null, ptr %arg12926, align 8
-  %call2928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02925)
+  %call2928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg02925)
   br i1 %call2928, label %_ZN4llvh9StringRefC2EPKc.exit9862, label %if.then2929
 
 if.then2929:                                      ; preds = %if.then2924
@@ -8827,7 +8827,7 @@ if.then2929:                                      ; preds = %if.then2924
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9862:                ; preds = %if.then2924
-  %call2936 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12926)
+  %call2936 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg12926)
   %859 = load ptr, ptr %this, align 8
   %call2945 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %859, i64 noundef 8)
   %860 = load ptr, ptr %arg02925, align 8
@@ -8858,7 +8858,7 @@ if.end.i.i16755:                                  ; preds = %if.end2947
 
 if.then2951:                                      ; preds = %if.end.i.i16755
   store ptr null, ptr %arg02952, align 8
-  %call2954 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02952)
+  %call2954 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg02952)
   br i1 %call2954, label %if.end2960, label %if.then2955
 
 if.then2955:                                      ; preds = %if.then2951
@@ -8916,7 +8916,7 @@ if.then2973:                                      ; preds = %if.then2968
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9912:                ; preds = %if.then2968
-  %call2980 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg12970)
+  %call2980 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg12970)
   br i1 %call2980, label %if.end2986, label %if.then2981
 
 if.then2981:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9912
@@ -8995,7 +8995,7 @@ if.then2999:                                      ; preds = %if.then2994
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9942:                ; preds = %if.then2994
-  %call3006 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg12996)
+  %call3006 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg12996)
   br i1 %call3006, label %if.end3012, label %if.then3007
 
 if.then3007:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9942
@@ -9062,7 +9062,7 @@ if.then3020:                                      ; preds = %if.end.i.i16812
   %Next2.i.i.i.i.i4533 = getelementptr inbounds i8, ptr %arg13022, i64 8
   store ptr %arg13022, ptr %Next2.i.i.i.i.i4533, align 8
   store ptr null, ptr %arg23023, align 8
-  %call3025 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.412, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg03021)
+  %call3025 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.412, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg03021)
   br i1 %call3025, label %_ZN4llvh9StringRefC2EPKc.exit9972, label %if.then3026
 
 if.then3026:                                      ; preds = %if.then3020
@@ -9077,7 +9077,7 @@ if.then3026:                                      ; preds = %if.then3020
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9972:                ; preds = %if.then3020
-  %call3033 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.414, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg13022)
+  %call3033 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.414, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg13022)
   br i1 %call3033, label %_ZN4llvh9StringRefC2EPKc.exit9982, label %if.then3034
 
 if.then3034:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit9972
@@ -9092,7 +9092,7 @@ if.then3034:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit9982:                ; preds = %_ZN4llvh9StringRefC2EPKc.exit9972
-  %call3041 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.416, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg23023)
+  %call3041 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.416, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg23023)
   %885 = load ptr, ptr %this, align 8
   %call3050 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %885, i64 noundef 8)
   %886 = load ptr, ptr %arg03021, align 8
@@ -9119,7 +9119,7 @@ if.then3056:                                      ; preds = %if.end.i.i16831
   %Next2.i.i.i.i.i4547 = getelementptr inbounds i8, ptr %arg13058, i64 8
   store ptr %arg13058, ptr %Next2.i.i.i.i.i4547, align 8
   store ptr null, ptr %arg23059, align 8
-  %call3061 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.419, i64 15, ptr noundef nonnull align 8 dereferenceable(8) %arg03057)
+  %call3061 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.419, i64 15, ptr noundef nonnull align 8 dereferenceable(8) %arg03057)
   br i1 %call3061, label %_ZN4llvh9StringRefC2EPKc.exit10012, label %if.then3062
 
 if.then3062:                                      ; preds = %if.then3056
@@ -9134,7 +9134,7 @@ if.then3062:                                      ; preds = %if.then3056
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10012:               ; preds = %if.then3056
-  %call3069 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.414, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg13058)
+  %call3069 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.414, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg13058)
   br i1 %call3069, label %_ZN4llvh9StringRefC2EPKc.exit10022, label %if.then3070
 
 if.then3070:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10012
@@ -9149,7 +9149,7 @@ if.then3070:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10022:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10012
-  %call3077 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.422, i64 15, ptr noundef nonnull align 8 dereferenceable(8) %arg23059)
+  %call3077 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.422, i64 15, ptr noundef nonnull align 8 dereferenceable(8) %arg23059)
   br i1 %call3077, label %if.end3083, label %if.then3078
 
 if.then3078:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10022
@@ -9379,7 +9379,7 @@ if.end.i.i16983:                                  ; preds = %if.end.i.i16964
 if.then3165:                                      ; preds = %if.end.i.i16983
   store double 0.000000e+00, ptr %arg03166, align 8
   store ptr null, ptr %arg13167, align 8
-  %call3169 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr noundef nonnull %node, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03166)
+  %call3169 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr noundef %node, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03166)
   br i1 %call3169, label %_ZN4llvh9StringRefC2EPKc.exit10142, label %if.then3170
 
 if.then3170:                                      ; preds = %if.then3165
@@ -9394,7 +9394,7 @@ if.then3170:                                      ; preds = %if.then3165
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10142:               ; preds = %if.then3165
-  %call3177 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13167)
+  %call3177 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13167)
   br i1 %call3177, label %if.end3183, label %if.then3178
 
 if.then3178:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10142
@@ -9439,7 +9439,7 @@ if.end3239.thread:                                ; preds = %if.end.i.i17002
 
 if.then3191:                                      ; preds = %if.end.i.i17002
   store ptr null, ptr %arg03192, align 8
-  %call3194 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg03192)
+  %call3194 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg03192)
   br i1 %call3194, label %if.end3200, label %if.then3195
 
 if.then3195:                                      ; preds = %if.then3191
@@ -9508,7 +9508,7 @@ if.end.i.i17040:                                  ; preds = %if.end3212
 if.then3216:                                      ; preds = %if.end.i.i17040
   store i8 0, ptr %arg03217, align 1
   store ptr null, ptr %arg13218, align 8
-  %call3220 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg03217)
+  %call3220 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg03217)
   br i1 %call3220, label %_ZN4llvh9StringRefC2EPKc.exit10202, label %if.then3221
 
 if.then3221:                                      ; preds = %if.then3216
@@ -9523,7 +9523,7 @@ if.then3221:                                      ; preds = %if.then3216
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10202:               ; preds = %if.then3216
-  %call3228 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13218)
+  %call3228 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.266, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg13218)
   br i1 %call3228, label %if.end3234, label %if.then3229
 
 if.then3229:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10202
@@ -9728,7 +9728,7 @@ if.then3291:                                      ; preds = %if.end.i.i17173
   store ptr null, ptr %arg23294, align 8
   store ptr null, ptr %arg33295, align 8
   store ptr null, ptr %arg43296, align 8
-  %call3298 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg03292)
+  %call3298 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg03292)
   br i1 %call3298, label %_ZN4llvh9StringRefC2EPKc.exit10292, label %if.then3299
 
 if.then3299:                                      ; preds = %if.then3291
@@ -9743,8 +9743,8 @@ if.then3299:                                      ; preds = %if.then3291
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10292:               ; preds = %if.then3291
-  %call3306 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.450, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13293)
-  %call3315 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg23294)
+  %call3306 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.450, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13293)
+  %call3315 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg23294)
   br i1 %call3315, label %_ZN4llvh9StringRefC2EPKc.exit10312, label %if.then3316
 
 if.then3316:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10292
@@ -9759,8 +9759,8 @@ if.then3316:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10312:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10292
-  %call3323 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg33295)
-  %call3332 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg43296)
+  %call3323 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg33295)
+  %call3332 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg43296)
   %965 = load ptr, ptr %this, align 8
   %call3341 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 96, ptr noundef nonnull align 8 dereferenceable(656) %965, i64 noundef 8)
   %966 = load ptr, ptr %arg13293, align 8
@@ -9787,8 +9787,8 @@ if.then3347:                                      ; preds = %if.end.i.i17192
   store ptr null, ptr %arg03348, align 8
   store ptr null, ptr %arg13349, align 8
   store i8 0, ptr %arg23350, align 1
-  %call3352 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg03348)
-  %call3361 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13349)
+  %call3352 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg03348)
+  %call3361 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13349)
   br i1 %call3361, label %_ZN4llvh9StringRefC2EPKc.exit10362, label %if.then3362
 
 if.then3362:                                      ; preds = %if.then3347
@@ -9803,7 +9803,7 @@ if.then3362:                                      ; preds = %if.then3347
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10362:               ; preds = %if.then3347
-  %call3369 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23350)
+  %call3369 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23350)
   br i1 %call3369, label %if.end3375, label %if.then3370
 
 if.then3370:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10362
@@ -9857,7 +9857,7 @@ if.then3384:                                      ; preds = %if.end.i.i17211
   store ptr null, ptr %arg13386, align 8
   store ptr null, ptr %arg23387, align 8
   store ptr null, ptr %arg33388, align 8
-  %call3390 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg03385)
+  %call3390 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg03385)
   br i1 %call3390, label %_ZN4llvh9StringRefC2EPKc.exit10392, label %if.then3391
 
 if.then3391:                                      ; preds = %if.then3384
@@ -9872,9 +9872,9 @@ if.then3391:                                      ; preds = %if.then3384
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10392:               ; preds = %if.then3384
-  %call3398 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13386)
-  %call3407 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg23387)
-  %call3416 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg33388)
+  %call3398 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13386)
+  %call3407 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg23387)
+  %call3416 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg33388)
   %981 = load ptr, ptr %this, align 8
   %call3425 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %981, i64 noundef 8)
   %982 = load ptr, ptr %arg13386, align 8
@@ -9900,8 +9900,8 @@ if.then3431:                                      ; preds = %if.end.i.i17230
   store ptr null, ptr %arg03432, align 8
   store ptr null, ptr %arg13433, align 8
   store i8 0, ptr %arg23434, align 1
-  %call3436 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg03432)
-  %call3445 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13433)
+  %call3436 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg03432)
+  %call3445 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13433)
   br i1 %call3445, label %_ZN4llvh9StringRefC2EPKc.exit10452, label %if.then3446
 
 if.then3446:                                      ; preds = %if.then3431
@@ -9916,7 +9916,7 @@ if.then3446:                                      ; preds = %if.then3431
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10452:               ; preds = %if.then3431
-  %call3453 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23434)
+  %call3453 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23434)
   br i1 %call3453, label %if.end3459, label %if.then3454
 
 if.then3454:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10452
@@ -9962,7 +9962,7 @@ if.end.i.i17249:                                  ; preds = %if.end.i.i17230
 
 if.then3468:                                      ; preds = %if.end.i.i17249
   store ptr null, ptr %arg03469, align 8
-  %call3471 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg03469)
+  %call3471 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg03469)
   br i1 %call3471, label %if.end3477, label %if.then3472
 
 if.then3472:                                      ; preds = %if.then3468
@@ -10005,7 +10005,7 @@ if.end.i.i17268:                                  ; preds = %if.end3481
 if.then3485:                                      ; preds = %if.end.i.i17268
   store ptr null, ptr %arg03486, align 8
   store ptr null, ptr %arg13487, align 8
-  %call3489 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.472, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03486)
+  %call3489 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.472, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03486)
   br i1 %call3489, label %_ZN4llvh9StringRefC2EPKc.exit10502, label %if.then3490
 
 if.then3490:                                      ; preds = %if.then3485
@@ -10020,7 +10020,7 @@ if.then3490:                                      ; preds = %if.then3485
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10502:               ; preds = %if.then3485
-  %call3497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg13487)
+  %call3497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg13487)
   br i1 %call3497, label %if.end3503, label %if.then3498
 
 if.then3498:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10502
@@ -10065,7 +10065,7 @@ if.end.i.i17287:                                  ; preds = %if.end3507
 
 if.then3511:                                      ; preds = %if.end.i.i17287
   store ptr null, ptr %arg03512, align 8
-  %call3514 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03512)
+  %call3514 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03512)
   br i1 %call3514, label %if.end3520, label %if.then3515
 
 if.then3515:                                      ; preds = %if.then3511
@@ -10107,7 +10107,7 @@ if.end.i.i17306:                                  ; preds = %if.end3524
 
 if.then3528:                                      ; preds = %if.end.i.i17306
   store ptr null, ptr %arg03529, align 8
-  %call3531 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03529)
+  %call3531 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03529)
   br i1 %call3531, label %if.end3537, label %if.then3532
 
 if.then3532:                                      ; preds = %if.then3528
@@ -10147,7 +10147,7 @@ if.end.i.i17325:                                  ; preds = %if.end.i.i16736
 if.then3545:                                      ; preds = %if.end.i.i17325
   store ptr null, ptr %arg03546, align 8
   store ptr null, ptr %arg13547, align 8
-  %call3549 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03546)
+  %call3549 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.186, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg03546)
   br i1 %call3549, label %_ZN4llvh9StringRefC2EPKc.exit10572, label %if.then3550
 
 if.then3550:                                      ; preds = %if.then3545
@@ -10162,7 +10162,7 @@ if.then3550:                                      ; preds = %if.then3545
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10572:               ; preds = %if.then3545
-  %call3557 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13547)
+  %call3557 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13547)
   br i1 %call3557, label %if.end3563, label %if.then3558
 
 if.then3558:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10572
@@ -10208,7 +10208,7 @@ if.end.i.i17344:                                  ; preds = %if.end3567
 if.then3571:                                      ; preds = %if.end.i.i17344
   store ptr null, ptr %arg03572, align 8
   store ptr null, ptr %arg13573, align 8
-  %call3575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.472, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03572)
+  %call3575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.472, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03572)
   br i1 %call3575, label %_ZN4llvh9StringRefC2EPKc.exit10602, label %if.then3576
 
 if.then3576:                                      ; preds = %if.then3571
@@ -10223,7 +10223,7 @@ if.then3576:                                      ; preds = %if.then3571
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10602:               ; preds = %if.then3571
-  %call3583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg13573)
+  %call3583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg13573)
   br i1 %call3583, label %if.end3589, label %if.then3584
 
 if.then3584:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10602
@@ -10270,7 +10270,7 @@ if.then3597:                                      ; preds = %if.end.i.i17363
   store ptr %arg03598, ptr %arg03598, align 8
   %Next2.i.i.i.i.i4840 = getelementptr inbounds i8, ptr %arg03598, i64 8
   store ptr %arg03598, ptr %Next2.i.i.i.i.i4840, align 8
-  %call3600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03598)
+  %call3600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03598)
   br i1 %call3600, label %if.end3606, label %if.then3601
 
 if.then3601:                                      ; preds = %if.then3597
@@ -10306,8 +10306,8 @@ if.end.i.i17382:                                  ; preds = %if.end3610
 if.then3614:                                      ; preds = %if.end.i.i17382
   store ptr null, ptr %arg03615, align 8
   store ptr null, ptr %arg13616, align 8
-  %call3618 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03615)
-  %call3627 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13616)
+  %call3618 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03615)
+  %call3627 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13616)
   br i1 %call3627, label %if.end3633, label %if.then3628
 
 if.then3628:                                      ; preds = %if.then3614
@@ -10355,7 +10355,7 @@ if.then3641:                                      ; preds = %if.end.i.i17401
   store ptr null, ptr %arg13643, align 8
   store i8 0, ptr %arg23644, align 1
   store ptr null, ptr %arg33645, align 8
-  %call3647 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03642)
+  %call3647 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.89, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg03642)
   br i1 %call3647, label %_ZN4llvh9StringRefC2EPKc.exit10682, label %if.then3648
 
 if.then3648:                                      ; preds = %if.then3641
@@ -10370,7 +10370,7 @@ if.then3648:                                      ; preds = %if.then3641
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10682:               ; preds = %if.then3641
-  %call3655 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg13643)
+  %call3655 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg13643)
   br i1 %call3655, label %_ZN4llvh9StringRefC2EPKc.exit10692, label %if.then3656
 
 if.then3656:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10682
@@ -10385,7 +10385,7 @@ if.then3656:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10692:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10682
-  %call3663 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23644)
+  %call3663 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23644)
   br i1 %call3663, label %_ZN4llvh9StringRefC2EPKc.exit10702, label %if.then3664
 
 if.then3664:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10692
@@ -10400,7 +10400,7 @@ if.then3664:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10702:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10692
-  %call3671 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg33645)
+  %call3671 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg33645)
   %1044 = load ptr, ptr %this, align 8
   %call3680 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %1044, i64 noundef 8)
   %1045 = load ptr, ptr %arg03642, align 8
@@ -10438,7 +10438,7 @@ if.end.i.i17420:                                  ; preds = %if.end3683
 
 if.then3687:                                      ; preds = %if.end.i.i17420
   store ptr null, ptr %arg03688, align 8
-  %call3690 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg03688)
+  %call3690 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg03688)
   br i1 %call3690, label %if.end3696, label %if.then3691
 
 if.then3691:                                      ; preds = %if.then3687
@@ -10477,7 +10477,7 @@ if.end.i.i17439:                                  ; preds = %if.end.i.i17420
 
 if.then3704:                                      ; preds = %if.end.i.i17439
   store ptr null, ptr %arg03705, align 8
-  %call3707 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.500, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03705)
+  %call3707 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.500, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03705)
   br i1 %call3707, label %if.end3713, label %if.then3708
 
 if.then3708:                                      ; preds = %if.then3704
@@ -10518,7 +10518,7 @@ if.then3721:                                      ; preds = %if.end.i.i17458
   store ptr %arg03722, ptr %arg03722, align 8
   %Next2.i.i.i.i.i4906 = getelementptr inbounds i8, ptr %arg03722, i64 8
   store ptr %arg03722, ptr %Next2.i.i.i.i.i4906, align 8
-  %call3724 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03722)
+  %call3724 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03722)
   br i1 %call3724, label %if.end3730, label %if.then3725
 
 if.then3725:                                      ; preds = %if.then3721
@@ -10556,7 +10556,7 @@ if.then3738:                                      ; preds = %if.end.i.i17477
   store ptr %arg03739, ptr %arg03739, align 8
   %Next2.i.i.i.i.i4915 = getelementptr inbounds i8, ptr %arg03739, i64 8
   store ptr %arg03739, ptr %Next2.i.i.i.i.i4915, align 8
-  %call3741 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03739)
+  %call3741 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg03739)
   br i1 %call3741, label %if.end3747, label %if.then3742
 
 if.then3742:                                      ; preds = %if.then3738
@@ -10592,7 +10592,7 @@ if.end.i.i17496:                                  ; preds = %if.end3751
 if.then3755:                                      ; preds = %if.end.i.i17496
   store ptr null, ptr %arg03756, align 8
   store ptr null, ptr %arg13757, align 8
-  %call3759 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03756)
+  %call3759 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03756)
   br i1 %call3759, label %_ZN4llvh9StringRefC2EPKc.exit10812, label %if.then3760
 
 if.then3760:                                      ; preds = %if.then3755
@@ -10607,7 +10607,7 @@ if.then3760:                                      ; preds = %if.then3755
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10812:               ; preds = %if.then3755
-  %call3767 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13757)
+  %call3767 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13757)
   %1070 = load ptr, ptr %this, align 8
   %call3776 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1070, i64 noundef 8)
   %1071 = load ptr, ptr %arg03756, align 8
@@ -10639,7 +10639,7 @@ if.end.i.i17515:                                  ; preds = %if.end3778
 if.then3782:                                      ; preds = %if.end.i.i17515
   store ptr null, ptr %arg03783, align 8
   store ptr null, ptr %arg13784, align 8
-  %call3786 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg03783)
+  %call3786 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg03783)
   br i1 %call3786, label %_ZN4llvh9StringRefC2EPKc.exit10842, label %if.then3787
 
 if.then3787:                                      ; preds = %if.then3782
@@ -10654,7 +10654,7 @@ if.then3787:                                      ; preds = %if.then3782
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10842:               ; preds = %if.then3782
-  %call3794 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg13784)
+  %call3794 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg13784)
   br i1 %call3794, label %if.end3800, label %if.then3795
 
 if.then3795:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10842
@@ -10701,7 +10701,7 @@ if.then3808:                                      ; preds = %if.end.i.i17534
   store ptr null, ptr %arg03809, align 8
   store ptr null, ptr %arg13810, align 8
   store i8 0, ptr %arg23811, align 1
-  %call3813 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg03809)
+  %call3813 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg03809)
   br i1 %call3813, label %_ZN4llvh9StringRefC2EPKc.exit10872, label %if.then3814
 
 if.then3814:                                      ; preds = %if.then3808
@@ -10716,7 +10716,7 @@ if.then3814:                                      ; preds = %if.then3808
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10872:               ; preds = %if.then3808
-  %call3821 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg13810)
+  %call3821 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg13810)
   br i1 %call3821, label %_ZN4llvh9StringRefC2EPKc.exit10882, label %if.then3822
 
 if.then3822:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10872
@@ -10731,7 +10731,7 @@ if.then3822:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10882:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10872
-  %call3829 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23811)
+  %call3829 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg23811)
   br i1 %call3829, label %if.end3835, label %if.then3830
 
 if.then3830:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10882
@@ -10780,7 +10780,7 @@ if.then3844:                                      ; preds = %if.end.i.i17553
   store ptr null, ptr %arg13846, align 8
   store ptr null, ptr %arg23847, align 8
   store ptr null, ptr %arg33848, align 8
-  %call3850 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.519, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg03845)
+  %call3850 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.519, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg03845)
   br i1 %call3850, label %_ZN4llvh9StringRefC2EPKc.exit10912, label %if.then3851
 
 if.then3851:                                      ; preds = %if.then3844
@@ -10795,7 +10795,7 @@ if.then3851:                                      ; preds = %if.then3844
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10912:               ; preds = %if.then3844
-  %call3858 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.521, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg13846)
+  %call3858 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.521, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg13846)
   br i1 %call3858, label %_ZN4llvh9StringRefC2EPKc.exit10922, label %if.then3859
 
 if.then3859:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10912
@@ -10810,7 +10810,7 @@ if.then3859:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10922:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10912
-  %call3866 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.523, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg23847)
+  %call3866 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.523, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg23847)
   br i1 %call3866, label %_ZN4llvh9StringRefC2EPKc.exit10932, label %if.then3867
 
 if.then3867:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10922
@@ -10825,7 +10825,7 @@ if.then3867:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10932:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit10922
-  %call3874 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.525, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg33848)
+  %call3874 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.525, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg33848)
   br i1 %call3874, label %if.end3880, label %if.then3875
 
 if.then3875:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10932
@@ -10878,7 +10878,7 @@ if.then3888:                                      ; preds = %if.end.i.i17572
   store ptr null, ptr %arg03889, align 8
   store ptr null, ptr %arg13890, align 8
   store i8 0, ptr %arg23891, align 1
-  %call3893 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.528, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03889)
+  %call3893 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.528, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg03889)
   br i1 %call3893, label %_ZN4llvh9StringRefC2EPKc.exit10962, label %if.then3894
 
 if.then3894:                                      ; preds = %if.then3888
@@ -10893,8 +10893,8 @@ if.then3894:                                      ; preds = %if.then3888
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit10962:               ; preds = %if.then3888
-  %call3901 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13890)
-  %call3910 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.531, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg23891)
+  %call3901 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13890)
+  %call3910 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.531, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg23891)
   br i1 %call3910, label %if.end3916, label %if.then3911
 
 if.then3911:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit10962
@@ -10946,7 +10946,7 @@ if.then3925:                                      ; preds = %if.end.i.i17591
   %Next2.i.i.i.i.i5016 = getelementptr inbounds i8, ptr %arg03926, i64 8
   store ptr %arg03926, ptr %Next2.i.i.i.i.i5016, align 8
   store ptr null, ptr %arg13927, align 8
-  %call3929 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg03926)
+  %call3929 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg03926)
   br i1 %call3929, label %_ZN4llvh9StringRefC2EPKc.exit11002, label %if.then3930
 
 if.then3930:                                      ; preds = %if.then3925
@@ -10961,7 +10961,7 @@ if.then3930:                                      ; preds = %if.then3925
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11002:               ; preds = %if.then3925
-  %call3937 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13927)
+  %call3937 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg13927)
   %1111 = load ptr, ptr %this, align 8
   %call3946 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %1111, i64 noundef 8)
   %1112 = load ptr, ptr %arg13927, align 8
@@ -10985,7 +10985,7 @@ if.then3952:                                      ; preds = %if.end.i.i17610
   store ptr null, ptr %arg03953, align 8
   store ptr null, ptr %arg13954, align 8
   store ptr null, ptr %arg23955, align 8
-  %call3957 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03953)
+  %call3957 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03953)
   br i1 %call3957, label %_ZN4llvh9StringRefC2EPKc.exit11032, label %if.then3958
 
 if.then3958:                                      ; preds = %if.then3952
@@ -11000,8 +11000,8 @@ if.then3958:                                      ; preds = %if.then3952
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11032:               ; preds = %if.then3952
-  %call3965 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13954)
-  %call3974 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg23955)
+  %call3965 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13954)
+  %call3974 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg23955)
   br i1 %call3974, label %if.end3980, label %if.then3975
 
 if.then3975:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11032
@@ -11052,7 +11052,7 @@ if.then3988:                                      ; preds = %if.end.i.i17629
   store ptr null, ptr %arg13990, align 8
   store ptr null, ptr %arg23991, align 8
   store ptr null, ptr %arg33992, align 8
-  %call3994 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03989)
+  %call3994 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg03989)
   br i1 %call3994, label %_ZN4llvh9StringRefC2EPKc.exit11072, label %if.then3995
 
 if.then3995:                                      ; preds = %if.then3988
@@ -11067,8 +11067,8 @@ if.then3995:                                      ; preds = %if.then3988
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11072:               ; preds = %if.then3988
-  %call4002 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13990)
-  %call4011 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.544, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg23991)
+  %call4002 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg13990)
+  %call4011 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.544, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg23991)
   br i1 %call4011, label %_ZN4llvh9StringRefC2EPKc.exit11092, label %if.then4012
 
 if.then4012:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11072
@@ -11083,7 +11083,7 @@ if.then4012:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11072
-  %call4019 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.546, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg33992)
+  %call4019 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.546, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg33992)
   %1125 = load ptr, ptr %this, align 8
   %call4028 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %1125, i64 noundef 8)
   %1126 = load ptr, ptr %arg03989, align 8
@@ -11126,7 +11126,7 @@ if.then4034:                                      ; preds = %if.end.i.i17648
   %Next2.i.i.i.i.i5060 = getelementptr inbounds i8, ptr %arg24037, i64 8
   store ptr %arg24037, ptr %Next2.i.i.i.i.i5060, align 8
   store ptr null, ptr %arg34038, align 8
-  %call4040 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04035)
+  %call4040 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04035)
   br i1 %call4040, label %_ZN4llvh9StringRefC2EPKc.exit11122, label %if.then4041
 
 if.then4041:                                      ; preds = %if.then4034
@@ -11141,8 +11141,8 @@ if.then4041:                                      ; preds = %if.then4034
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11122:               ; preds = %if.then4034
-  %call4048 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14036)
-  %call4057 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24037)
+  %call4048 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14036)
+  %call4057 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24037)
   br i1 %call4057, label %_ZN4llvh9StringRefC2EPKc.exit11142, label %if.then4058
 
 if.then4058:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11122
@@ -11157,7 +11157,7 @@ if.then4058:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11142:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11122
-  %call4065 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg34038)
+  %call4065 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg34038)
   br i1 %call4065, label %if.end4071, label %if.then4066
 
 if.then4066:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11142
@@ -11197,7 +11197,7 @@ if.then4079:                                      ; preds = %if.end.i.i17667
   store ptr null, ptr %arg04080, align 8
   store ptr null, ptr %arg14081, align 8
   store ptr null, ptr %arg24082, align 8
-  %call4084 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04080)
+  %call4084 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04080)
   br i1 %call4084, label %_ZN4llvh9StringRefC2EPKc.exit11172, label %if.then4085
 
 if.then4085:                                      ; preds = %if.then4079
@@ -11212,8 +11212,8 @@ if.then4085:                                      ; preds = %if.then4079
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11172:               ; preds = %if.then4079
-  %call4092 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14081)
-  %call4101 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg24082)
+  %call4092 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14081)
+  %call4101 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg24082)
   br i1 %call4101, label %if.end4107, label %if.then4102
 
 if.then4102:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11172
@@ -11264,7 +11264,7 @@ if.then4115:                                      ; preds = %if.end.i.i17686
   store ptr null, ptr %arg14117, align 8
   store ptr null, ptr %arg24118, align 8
   store ptr null, ptr %arg34119, align 8
-  %call4121 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04116)
+  %call4121 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04116)
   br i1 %call4121, label %_ZN4llvh9StringRefC2EPKc.exit11212, label %if.then4122
 
 if.then4122:                                      ; preds = %if.then4115
@@ -11279,9 +11279,9 @@ if.then4122:                                      ; preds = %if.then4115
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11212:               ; preds = %if.then4115
-  %call4129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14117)
-  %call4138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.544, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg24118)
-  %call4147 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.546, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg34119)
+  %call4129 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14117)
+  %call4138 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.544, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg24118)
+  %call4147 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.546, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg34119)
   %1150 = load ptr, ptr %this, align 8
   %call4156 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %1150, i64 noundef 8)
   %1151 = load ptr, ptr %arg04116, align 8
@@ -11323,7 +11323,7 @@ if.then4162:                                      ; preds = %if.end.i.i17705
   %Next2.i.i.i.i.i5111 = getelementptr inbounds i8, ptr %arg24165, i64 8
   store ptr %arg24165, ptr %Next2.i.i.i.i.i5111, align 8
   store ptr null, ptr %arg34166, align 8
-  %call4168 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04163)
+  %call4168 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04163)
   br i1 %call4168, label %_ZN4llvh9StringRefC2EPKc.exit11262, label %if.then4169
 
 if.then4169:                                      ; preds = %if.then4162
@@ -11338,8 +11338,8 @@ if.then4169:                                      ; preds = %if.then4162
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11262:               ; preds = %if.then4162
-  %call4176 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14164)
-  %call4185 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24165)
+  %call4176 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14164)
+  %call4185 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24165)
   br i1 %call4185, label %_ZN4llvh9StringRefC2EPKc.exit11282, label %if.then4186
 
 if.then4186:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11262
@@ -11354,7 +11354,7 @@ if.then4186:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11282:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11262
-  %call4193 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg34166)
+  %call4193 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg34166)
   br i1 %call4193, label %if.end4199, label %if.then4194
 
 if.then4194:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11282
@@ -11400,7 +11400,7 @@ if.then4207:                                      ; preds = %if.end.i.i17724
   %Next2.i.i.i.i.i5132 = getelementptr inbounds i8, ptr %arg44212, i64 8
   store ptr %arg44212, ptr %Next2.i.i.i.i.i5132, align 8
   store ptr null, ptr %arg54213, align 8
-  %call4215 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04208)
+  %call4215 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04208)
   br i1 %call4215, label %_ZN4llvh9StringRefC2EPKc.exit11312, label %if.then4216
 
 if.then4216:                                      ; preds = %if.then4207
@@ -11415,8 +11415,8 @@ if.then4216:                                      ; preds = %if.then4207
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11312:               ; preds = %if.then4207
-  %call4223 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14209)
-  %call4232 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24210)
+  %call4223 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14209)
+  %call4232 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg24210)
   br i1 %call4232, label %_ZN4llvh9StringRefC2EPKc.exit11332, label %if.then4233
 
 if.then4233:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11312
@@ -11431,7 +11431,7 @@ if.then4233:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11332:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11312
-  %call4240 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg34211)
+  %call4240 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.285, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg34211)
   br i1 %call4240, label %_ZN4llvh9StringRefC2EPKc.exit11342, label %if.then4241
 
 if.then4241:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11332
@@ -11446,7 +11446,7 @@ if.then4241:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11342:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11332
-  %call4248 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.572, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg44212)
+  %call4248 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.572, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg44212)
   br i1 %call4248, label %_ZN4llvh9StringRefC2EPKc.exit11352, label %if.then4249
 
 if.then4249:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11342
@@ -11461,7 +11461,7 @@ if.then4249:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11352:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11342
-  %call4256 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg54213)
+  %call4256 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg54213)
   br i1 %call4256, label %if.end4262, label %if.then4257
 
 if.then4257:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11352
@@ -11500,7 +11500,7 @@ if.end.i.i17743:                                  ; preds = %if.end4266
 if.then4270:                                      ; preds = %if.end.i.i17743
   store ptr null, ptr %arg04271, align 8
   store ptr null, ptr %arg14272, align 8
-  %call4274 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04271)
+  %call4274 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04271)
   br i1 %call4274, label %_ZN4llvh9StringRefC2EPKc.exit11382, label %if.then4275
 
 if.then4275:                                      ; preds = %if.then4270
@@ -11515,7 +11515,7 @@ if.then4275:                                      ; preds = %if.then4270
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11382:               ; preds = %if.then4270
-  %call4282 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg14272)
+  %call4282 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.26, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg14272)
   %1178 = load ptr, ptr %this, align 8
   %call4291 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1178, i64 noundef 8)
   %1179 = load ptr, ptr %arg04271, align 8
@@ -11552,7 +11552,7 @@ if.then4297:                                      ; preds = %if.end.i.i17762
   store ptr null, ptr %arg24300, align 8
   store ptr null, ptr %arg34301, align 8
   store ptr null, ptr %arg44302, align 8
-  %call4304 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04298)
+  %call4304 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04298)
   br i1 %call4304, label %_ZN4llvh9StringRefC2EPKc.exit11412, label %if.then4305
 
 if.then4305:                                      ; preds = %if.then4297
@@ -11567,7 +11567,7 @@ if.then4305:                                      ; preds = %if.then4297
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11412:               ; preds = %if.then4297
-  %call4312 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg14299)
+  %call4312 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg14299)
   br i1 %call4312, label %_ZN4llvh9StringRefC2EPKc.exit11422, label %if.then4313
 
 if.then4313:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11412
@@ -11582,9 +11582,9 @@ if.then4313:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11422:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11412
-  %call4320 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg24300)
-  %call4329 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg34301)
-  %call4338 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg44302)
+  %call4320 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg24300)
+  %call4329 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg34301)
+  %call4338 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.56, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg44302)
   %1185 = load ptr, ptr %this, align 8
   %call4347 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 96, ptr noundef nonnull align 8 dereferenceable(656) %1185, i64 noundef 8)
   %1186 = load ptr, ptr %arg04298, align 8
@@ -11610,7 +11610,7 @@ if.end.i.i17781:                                  ; preds = %if.end4349
 if.then4353:                                      ; preds = %if.end.i.i17781
   store ptr null, ptr %arg04354, align 8
   store ptr null, ptr %arg14355, align 8
-  %call4357 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04354)
+  %call4357 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04354)
   br i1 %call4357, label %_ZN4llvh9StringRefC2EPKc.exit11472, label %if.then4358
 
 if.then4358:                                      ; preds = %if.then4353
@@ -11625,7 +11625,7 @@ if.then4358:                                      ; preds = %if.then4353
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11472:               ; preds = %if.then4353
-  %call4365 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14355)
+  %call4365 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14355)
   br i1 %call4365, label %if.end4371, label %if.then4366
 
 if.then4366:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11472
@@ -11671,7 +11671,7 @@ if.end.i.i17800:                                  ; preds = %if.end4375
 if.then4379:                                      ; preds = %if.end.i.i17800
   store ptr null, ptr %arg04380, align 8
   store ptr null, ptr %arg14381, align 8
-  %call4383 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04380)
+  %call4383 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04380)
   br i1 %call4383, label %_ZN4llvh9StringRefC2EPKc.exit11502, label %if.then4384
 
 if.then4384:                                      ; preds = %if.then4379
@@ -11686,7 +11686,7 @@ if.then4384:                                      ; preds = %if.then4379
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11502:               ; preds = %if.then4379
-  %call4391 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14381)
+  %call4391 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14381)
   br i1 %call4391, label %if.end4397, label %if.then4392
 
 if.then4392:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11502
@@ -11736,8 +11736,8 @@ if.then4405:                                      ; preds = %if.end.i.i17819
   store ptr %arg14407, ptr %Next2.i.i.i.i.i5220, align 8
   store ptr null, ptr %arg24408, align 8
   store i8 0, ptr %arg34409, align 1
-  %call4411 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg04406)
-  %call4420 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg14407)
+  %call4411 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.351, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg04406)
+  %call4420 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.330, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg14407)
   br i1 %call4420, label %_ZN4llvh9StringRefC2EPKc.exit11542, label %if.then4421
 
 if.then4421:                                      ; preds = %if.then4405
@@ -11752,8 +11752,8 @@ if.then4421:                                      ; preds = %if.then4405
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11542:               ; preds = %if.then4405
-  %call4428 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg24408)
-  %call4437 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg34409)
+  %call4428 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg24408)
+  %call4437 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg34409)
   br i1 %call4437, label %if.end4443, label %if.then4438
 
 if.then4438:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11542
@@ -11792,7 +11792,7 @@ if.end.i.i17838:                                  ; preds = %if.end4448
 
 if.then4452:                                      ; preds = %if.end.i.i17838
   store ptr null, ptr %arg04453, align 8
-  %call4455 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg04453)
+  %call4455 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.171, i64 6, ptr noundef nonnull align 8 dereferenceable(8) %arg04453)
   br i1 %call4455, label %if.end4461, label %if.then4456
 
 if.then4456:                                      ; preds = %if.then4452
@@ -11837,7 +11837,7 @@ if.then4469:                                      ; preds = %if.end.i.i17857
   store ptr null, ptr %arg04470, align 8
   store ptr null, ptr %arg14471, align 8
   store ptr null, ptr %arg24472, align 8
-  %call4474 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04470)
+  %call4474 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04470)
   br i1 %call4474, label %_ZN4llvh9StringRefC2EPKc.exit11602, label %if.then4475
 
 if.then4475:                                      ; preds = %if.then4469
@@ -11852,7 +11852,7 @@ if.then4475:                                      ; preds = %if.then4469
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11602:               ; preds = %if.then4469
-  %call4482 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14471)
+  %call4482 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg14471)
   br i1 %call4482, label %_ZN4llvh9StringRefC2EPKc.exit11612, label %if.then4483
 
 if.then4483:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11602
@@ -11867,7 +11867,7 @@ if.then4483:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11612:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11602
-  %call4490 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg24472)
+  %call4490 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg24472)
   br i1 %call4490, label %if.end4496, label %if.then4491
 
 if.then4491:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11612
@@ -11915,7 +11915,7 @@ if.end.i.i17876:                                  ; preds = %if.end4500
 
 if.then4504:                                      ; preds = %if.end.i.i17876
   store ptr null, ptr %arg04505, align 8
-  %call4507 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg04505)
+  %call4507 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg04505)
   br i1 %call4507, label %if.end4513, label %if.then4508
 
 if.then4508:                                      ; preds = %if.then4504
@@ -11958,7 +11958,7 @@ if.end.i.i17895:                                  ; preds = %if.end4517
 if.then4521:                                      ; preds = %if.end.i.i17895
   store ptr null, ptr %arg04522, align 8
   store ptr null, ptr %arg14523, align 8
-  %call4525 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04522)
+  %call4525 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04522)
   br i1 %call4525, label %_ZN4llvh9StringRefC2EPKc.exit11662, label %if.then4526
 
 if.then4526:                                      ; preds = %if.then4521
@@ -11973,7 +11973,7 @@ if.then4526:                                      ; preds = %if.then4521
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11662:               ; preds = %if.then4521
-  %call4533 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14523)
+  %call4533 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14523)
   %1234 = load ptr, ptr %this, align 8
   %call4542 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1234, i64 noundef 8)
   %1235 = load ptr, ptr %arg04522, align 8
@@ -12005,7 +12005,7 @@ if.end.i.i17914:                                  ; preds = %if.end4544
 if.then4548:                                      ; preds = %if.end.i.i17914
   store ptr null, ptr %arg04549, align 8
   store ptr null, ptr %arg14550, align 8
-  %call4552 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04549)
+  %call4552 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04549)
   br i1 %call4552, label %_ZN4llvh9StringRefC2EPKc.exit11692, label %if.then4553
 
 if.then4553:                                      ; preds = %if.then4548
@@ -12020,7 +12020,7 @@ if.then4553:                                      ; preds = %if.then4548
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11692:               ; preds = %if.then4548
-  %call4560 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14550)
+  %call4560 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg14550)
   %1240 = load ptr, ptr %this, align 8
   %call4569 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1240, i64 noundef 8)
   %1241 = load ptr, ptr %arg04549, align 8
@@ -12051,7 +12051,7 @@ if.end.i.i17933:                                  ; preds = %if.end4571
 
 if.then4575:                                      ; preds = %if.end.i.i17933
   store ptr null, ptr %arg04576, align 8
-  %call4578 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg04576)
+  %call4578 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg04576)
   br i1 %call4578, label %if.end4584, label %if.then4579
 
 if.then4579:                                      ; preds = %if.then4575
@@ -12106,7 +12106,7 @@ if.then4592:                                      ; preds = %if.end.i.i17952
   store ptr %arg34596, ptr %Next2.i.i.i.i.i5317, align 8
   store i8 0, ptr %arg44597, align 1
   store i8 0, ptr %arg54598, align 1
-  %call4600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg04593)
+  %call4600 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.149, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg04593)
   br i1 %call4600, label %_ZN4llvh9StringRefC2EPKc.exit11742, label %if.then4601
 
 if.then4601:                                      ; preds = %if.then4592
@@ -12121,7 +12121,7 @@ if.then4601:                                      ; preds = %if.then4592
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11742:               ; preds = %if.then4592
-  %call4608 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.614, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg14594)
+  %call4608 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.614, i64 8, ptr noundef nonnull align 8 dereferenceable(16) %arg14594)
   br i1 %call4608, label %_ZN4llvh9StringRefC2EPKc.exit11752, label %if.then4609
 
 if.then4609:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11742
@@ -12136,7 +12136,7 @@ if.then4609:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11752:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11742
-  %call4616 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.616, i64 14, ptr noundef nonnull align 8 dereferenceable(16) %arg24595)
+  %call4616 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.616, i64 14, ptr noundef nonnull align 8 dereferenceable(16) %arg24595)
   br i1 %call4616, label %_ZN4llvh9StringRefC2EPKc.exit11762, label %if.then4617
 
 if.then4617:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11752
@@ -12151,7 +12151,7 @@ if.then4617:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11762:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11752
-  %call4624 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.618, i64 13, ptr noundef nonnull align 8 dereferenceable(16) %arg34596)
+  %call4624 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.618, i64 13, ptr noundef nonnull align 8 dereferenceable(16) %arg34596)
   br i1 %call4624, label %_ZN4llvh9StringRefC2EPKc.exit11772, label %if.then4625
 
 if.then4625:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11762
@@ -12166,7 +12166,7 @@ if.then4625:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11772:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11762
-  %call4632 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.620, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg44597)
+  %call4632 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.620, i64 7, ptr noundef nonnull align 1 dereferenceable(1) %arg44597)
   br i1 %call4632, label %_ZN4llvh9StringRefC2EPKc.exit11782, label %if.then4633
 
 if.then4633:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11772
@@ -12181,7 +12181,7 @@ if.then4633:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11782:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11772
-  %call4640 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.622, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg54598)
+  %call4640 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.622, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg54598)
   br i1 %call4640, label %if.end4646, label %if.then4641
 
 if.then4641:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11782
@@ -12227,7 +12227,7 @@ if.then4656:                                      ; preds = %if.end.i.i17971
   store i8 0, ptr %arg54662, align 1
   store ptr null, ptr %arg64663, align 8
   store ptr null, ptr %arg74664, align 8
-  %call4666 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg04657)
+  %call4666 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg04657)
   br i1 %call4666, label %_ZN4llvh9StringRefC2EPKc.exit11812, label %if.then4667
 
 if.then4667:                                      ; preds = %if.then4656
@@ -12242,7 +12242,7 @@ if.then4667:                                      ; preds = %if.then4656
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11812:               ; preds = %if.then4656
-  %call4674 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14658)
+  %call4674 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14658)
   br i1 %call4674, label %_ZN4llvh9StringRefC2EPKc.exit11822, label %if.then4675
 
 if.then4675:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11812
@@ -12257,7 +12257,7 @@ if.then4675:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11822:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11812
-  %call4682 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg24659)
+  %call4682 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg24659)
   br i1 %call4682, label %_ZN4llvh9StringRefC2EPKc.exit11832, label %if.then4683
 
 if.then4683:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11822
@@ -12272,7 +12272,7 @@ if.then4683:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11832:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11822
-  %call4690 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg34660)
+  %call4690 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg34660)
   br i1 %call4690, label %_ZN4llvh9StringRefC2EPKc.exit11842, label %if.then4691
 
 if.then4691:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11832
@@ -12287,7 +12287,7 @@ if.then4691:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11842:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11832
-  %call4698 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg44661)
+  %call4698 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg44661)
   br i1 %call4698, label %_ZN4llvh9StringRefC2EPKc.exit11852, label %if.then4699
 
 if.then4699:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11842
@@ -12302,7 +12302,7 @@ if.then4699:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11852:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11842
-  %call4706 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.630, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg54662)
+  %call4706 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.630, i64 5, ptr noundef nonnull align 1 dereferenceable(1) %arg54662)
   br i1 %call4706, label %_ZN4llvh9StringRefC2EPKc.exit11862, label %if.then4707
 
 if.then4707:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11852
@@ -12317,8 +12317,8 @@ if.then4707:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11862:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11852
-  %call4714 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg64663)
-  %call4723 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg74664)
+  %call4714 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg64663)
+  %call4723 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg74664)
   br i1 %call4723, label %if.end4729, label %if.then4724
 
 if.then4724:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11862
@@ -12385,7 +12385,7 @@ if.end.i.i17990:                                  ; preds = %if.end4737
 
 if.then4741:                                      ; preds = %if.end.i.i17990
   store ptr null, ptr %arg04742, align 8
-  %call4744 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg04742)
+  %call4744 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.94, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg04742)
   br i1 %call4744, label %if.end4750, label %if.then4745
 
 if.then4745:                                      ; preds = %if.then4741
@@ -12431,7 +12431,7 @@ if.then4758:                                      ; preds = %if.end.i.i18009
   store i8 0, ptr %arg24761, align 1
   store i8 0, ptr %arg34762, align 1
   store i8 0, ptr %arg44763, align 1
-  %call4765 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04759)
+  %call4765 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04759)
   br i1 %call4765, label %_ZN4llvh9StringRefC2EPKc.exit11922, label %if.then4766
 
 if.then4766:                                      ; preds = %if.then4758
@@ -12446,7 +12446,7 @@ if.then4766:                                      ; preds = %if.then4758
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11922:               ; preds = %if.then4758
-  %call4773 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14760)
+  %call4773 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14760)
   br i1 %call4773, label %_ZN4llvh9StringRefC2EPKc.exit11932, label %if.then4774
 
 if.then4774:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11922
@@ -12461,7 +12461,7 @@ if.then4774:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11932:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11922
-  %call4781 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg24761)
+  %call4781 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg24761)
   br i1 %call4781, label %_ZN4llvh9StringRefC2EPKc.exit11942, label %if.then4782
 
 if.then4782:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11932
@@ -12476,7 +12476,7 @@ if.then4782:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11942:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11932
-  %call4789 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg34762)
+  %call4789 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg34762)
   br i1 %call4789, label %_ZN4llvh9StringRefC2EPKc.exit11952, label %if.then4790
 
 if.then4790:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11942
@@ -12491,7 +12491,7 @@ if.then4790:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11952:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit11942
-  %call4797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg44763)
+  %call4797 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.274, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg44763)
   br i1 %call4797, label %if.end4803, label %if.then4798
 
 if.then4798:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11952
@@ -12546,7 +12546,7 @@ if.end.i.i18028:                                  ; preds = %if.end.i.i18009
 if.then4814:                                      ; preds = %if.end.i.i18028
   store ptr null, ptr %arg04815, align 8
   store i8 0, ptr %arg14816, align 1
-  %call4818 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg04815)
+  %call4818 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg04815)
   br i1 %call4818, label %_ZN4llvh9StringRefC2EPKc.exit11982, label %if.then4819
 
 if.then4819:                                      ; preds = %if.then4814
@@ -12561,7 +12561,7 @@ if.then4819:                                      ; preds = %if.then4814
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit11982:               ; preds = %if.then4814
-  %call4826 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg14816)
+  %call4826 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg14816)
   br i1 %call4826, label %if.end4832, label %if.then4827
 
 if.then4827:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit11982
@@ -12612,8 +12612,8 @@ if.then4841:                                      ; preds = %if.end.i.i18047
   store ptr null, ptr %arg24844, align 8
   store i8 0, ptr %arg34845, align 1
   store ptr null, ptr %arg44846, align 8
-  %call4848 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04842)
-  %call4857 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg14843)
+  %call4848 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg04842)
+  %call4857 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg14843)
   br i1 %call4857, label %_ZN4llvh9StringRefC2EPKc.exit12022, label %if.then4858
 
 if.then4858:                                      ; preds = %if.then4841
@@ -12628,7 +12628,7 @@ if.then4858:                                      ; preds = %if.then4841
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12022:               ; preds = %if.then4841
-  %call4865 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg24844)
+  %call4865 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg24844)
   br i1 %call4865, label %_ZN4llvh9StringRefC2EPKc.exit12032, label %if.then4866
 
 if.then4866:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12022
@@ -12643,7 +12643,7 @@ if.then4866:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12032:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12022
-  %call4873 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg34845)
+  %call4873 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg34845)
   br i1 %call4873, label %_ZN4llvh9StringRefC2EPKc.exit12042, label %if.then4874
 
 if.then4874:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12032
@@ -12658,7 +12658,7 @@ if.then4874:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12042:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12032
-  %call4881 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44846)
+  %call4881 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44846)
   %1307 = load ptr, ptr %this, align 8
   %call4890 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %1307, i64 noundef 8)
   %1308 = load ptr, ptr %arg04842, align 8
@@ -12703,7 +12703,7 @@ if.then4897:                                      ; preds = %if.end.i.i18066
   store ptr null, ptr %arg24900, align 8
   store ptr null, ptr %arg34901, align 8
   store ptr null, ptr %arg44902, align 8
-  %call4904 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.652, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg04898)
+  %call4904 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.652, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg04898)
   br i1 %call4904, label %_ZN4llvh9StringRefC2EPKc.exit12072, label %if.then4905
 
 if.then4905:                                      ; preds = %if.then4897
@@ -12718,7 +12718,7 @@ if.then4905:                                      ; preds = %if.then4897
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12072:               ; preds = %if.then4897
-  %call4912 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.654, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg14899)
+  %call4912 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.654, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg14899)
   br i1 %call4912, label %_ZN4llvh9StringRefC2EPKc.exit12082, label %if.then4913
 
 if.then4913:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12072
@@ -12733,7 +12733,7 @@ if.then4913:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12082:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12072
-  %call4920 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.656, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg24900)
+  %call4920 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.656, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg24900)
   br i1 %call4920, label %_ZN4llvh9StringRefC2EPKc.exit12092, label %if.then4921
 
 if.then4921:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12082
@@ -12748,7 +12748,7 @@ if.then4921:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12092:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12082
-  %call4928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg34901)
+  %call4928 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg34901)
   %call.i5510 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef readonly %node, ptr nonnull readonly @.str.183, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg44902)
   %1318 = load ptr, ptr %this, align 8
   %call4946 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %1318, i64 noundef 8)
@@ -12789,7 +12789,7 @@ if.end.i.i18085:                                  ; preds = %if.end4948
 
 if.then4952:                                      ; preds = %if.end.i.i18085
   store ptr null, ptr %arg04953, align 8
-  %call4955 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg04953)
+  %call4955 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.249, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg04953)
   br i1 %call4955, label %if.end4961, label %if.then4956
 
 if.then4956:                                      ; preds = %if.then4952
@@ -12833,7 +12833,7 @@ if.then4969:                                      ; preds = %if.end.i.i18104
   store ptr %arg04970, ptr %arg04970, align 8
   %Next2.i.i.i.i.i5529 = getelementptr inbounds i8, ptr %arg04970, i64 8
   store ptr %arg04970, ptr %Next2.i.i.i.i.i5529, align 8
-  %call4972 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg04970)
+  %call4972 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg04970)
   br i1 %call4972, label %if.end4978, label %if.then4973
 
 if.then4973:                                      ; preds = %if.then4969
@@ -12872,7 +12872,7 @@ if.then4986:                                      ; preds = %if.end.i.i18123
   store ptr null, ptr %arg24989, align 8
   store ptr null, ptr %arg34990, align 8
   store i8 0, ptr %arg44991, align 1
-  %call4993 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg04987)
+  %call4993 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg04987)
   br i1 %call4993, label %_ZN4llvh9StringRefC2EPKc.exit12172, label %if.then4994
 
 if.then4994:                                      ; preds = %if.then4986
@@ -12887,10 +12887,10 @@ if.then4994:                                      ; preds = %if.then4986
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12172:               ; preds = %if.then4986
-  %call5001 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.666, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14988)
-  %call5010 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg24989)
-  %call5019 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg34990)
-  %call5028 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.670, i64 16, ptr noundef nonnull align 1 dereferenceable(1) %arg44991)
+  %call5001 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.666, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg14988)
+  %call5010 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.309, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg24989)
+  %call5019 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg34990)
+  %call5028 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.670, i64 16, ptr noundef nonnull align 1 dereferenceable(1) %arg44991)
   br i1 %call5028, label %if.end5034, label %if.then5029
 
 if.then5029:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12172
@@ -12947,7 +12947,7 @@ if.then5043:                                      ; preds = %if.end.i.i18142
   store ptr %arg05044, ptr %arg05044, align 8
   %Next2.i.i.i.i.i5556 = getelementptr inbounds i8, ptr %arg05044, i64 8
   store ptr %arg05044, ptr %Next2.i.i.i.i.i5556, align 8
-  %call5046 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05044)
+  %call5046 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05044)
   br i1 %call5046, label %if.end5052, label %if.then5047
 
 if.then5047:                                      ; preds = %if.then5043
@@ -12983,7 +12983,7 @@ if.end.i.i18161:                                  ; preds = %if.end5056
 if.then5060:                                      ; preds = %if.end.i.i18161
   store ptr null, ptr %arg05061, align 8
   store ptr null, ptr %arg15062, align 8
-  %call5064 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05061)
+  %call5064 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05061)
   br i1 %call5064, label %_ZN4llvh9StringRefC2EPKc.exit12252, label %if.then5065
 
 if.then5065:                                      ; preds = %if.then5060
@@ -12998,7 +12998,7 @@ if.then5065:                                      ; preds = %if.then5060
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12252:               ; preds = %if.then5060
-  %call5072 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15062)
+  %call5072 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15062)
   br i1 %call5072, label %if.end5078, label %if.then5073
 
 if.then5073:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12252
@@ -13041,7 +13041,7 @@ if.end.i.i18180:                                  ; preds = %if.end.i.i17724
 if.then5086:                                      ; preds = %if.end.i.i18180
   store ptr null, ptr %arg05087, align 8
   store ptr null, ptr %arg15088, align 8
-  %call5090 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05087)
+  %call5090 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05087)
   br i1 %call5090, label %_ZN4llvh9StringRefC2EPKc.exit12282, label %if.then5091
 
 if.then5091:                                      ; preds = %if.then5086
@@ -13056,7 +13056,7 @@ if.then5091:                                      ; preds = %if.then5086
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12282:               ; preds = %if.then5086
-  %call5098 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15088)
+  %call5098 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15088)
   br i1 %call5098, label %if.end5104, label %if.then5099
 
 if.then5099:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12282
@@ -13121,7 +13121,7 @@ if.end.i.i18218:                                  ; preds = %if.end.i.i18199
 
 if.then5120:                                      ; preds = %if.end.i.i18218
   store ptr null, ptr %arg05121, align 8
-  %call5123 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg05121)
+  %call5123 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.129, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg05121)
   br i1 %call5123, label %if.end5129, label %if.then5124
 
 if.then5124:                                      ; preds = %if.then5120
@@ -13164,7 +13164,7 @@ if.end.i.i18237:                                  ; preds = %if.end5133
 if.then5137:                                      ; preds = %if.end.i.i18237
   store ptr null, ptr %arg05138, align 8
   store ptr null, ptr %arg15139, align 8
-  %call5141 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05138)
+  %call5141 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05138)
   br i1 %call5141, label %_ZN4llvh9StringRefC2EPKc.exit12342, label %if.then5142
 
 if.then5142:                                      ; preds = %if.then5137
@@ -13179,7 +13179,7 @@ if.then5142:                                      ; preds = %if.then5137
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12342:               ; preds = %if.then5137
-  %call5149 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15139)
+  %call5149 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15139)
   br i1 %call5149, label %if.end5155, label %if.then5150
 
 if.then5150:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12342
@@ -13228,7 +13228,7 @@ if.then5163:                                      ; preds = %if.end.i.i18256
   store ptr %arg05164, ptr %Next2.i.i.i.i.i5632, align 8
   store i8 0, ptr %arg15165, align 1
   store i8 0, ptr %arg25166, align 1
-  %call5168 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05164)
+  %call5168 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05164)
   br i1 %call5168, label %_ZN4llvh9StringRefC2EPKc.exit12372, label %if.then5169
 
 if.then5169:                                      ; preds = %if.then5163
@@ -13243,7 +13243,7 @@ if.then5169:                                      ; preds = %if.then5163
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12372:               ; preds = %if.then5163
-  %call5176 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15165)
+  %call5176 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15165)
   br i1 %call5176, label %_ZN4llvh9StringRefC2EPKc.exit12382, label %if.then5177
 
 if.then5177:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12372
@@ -13258,7 +13258,7 @@ if.then5177:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12382:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12372
-  %call5184 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25166)
+  %call5184 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25166)
   br i1 %call5184, label %if.end5190, label %if.then5185
 
 if.then5185:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12382
@@ -13298,7 +13298,7 @@ if.then5200:                                      ; preds = %if.end.i.i18275
   store ptr %arg05201, ptr %Next2.i.i.i.i.i5651, align 8
   store i8 0, ptr %arg15202, align 1
   store i8 0, ptr %arg25203, align 1
-  %call5205 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05201)
+  %call5205 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05201)
   br i1 %call5205, label %_ZN4llvh9StringRefC2EPKc.exit12412, label %if.then5206
 
 if.then5206:                                      ; preds = %if.then5200
@@ -13313,7 +13313,7 @@ if.then5206:                                      ; preds = %if.then5200
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12412:               ; preds = %if.then5200
-  %call5213 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15202)
+  %call5213 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15202)
   br i1 %call5213, label %_ZN4llvh9StringRefC2EPKc.exit12422, label %if.then5214
 
 if.then5214:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12412
@@ -13328,7 +13328,7 @@ if.then5214:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12422:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12412
-  %call5221 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25203)
+  %call5221 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25203)
   br i1 %call5221, label %if.end5227, label %if.then5222
 
 if.then5222:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12422
@@ -13371,7 +13371,7 @@ if.then5237:                                      ; preds = %if.end.i.i18294
   store ptr %arg05238, ptr %Next2.i.i.i.i.i5670, align 8
   store i8 0, ptr %arg15239, align 1
   store i8 0, ptr %arg25240, align 1
-  %call5242 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05238)
+  %call5242 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05238)
   br i1 %call5242, label %_ZN4llvh9StringRefC2EPKc.exit12452, label %if.then5243
 
 if.then5243:                                      ; preds = %if.then5237
@@ -13386,7 +13386,7 @@ if.then5243:                                      ; preds = %if.then5237
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12452:               ; preds = %if.then5237
-  %call5250 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15239)
+  %call5250 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.689, i64 12, ptr noundef nonnull align 1 dereferenceable(1) %arg15239)
   br i1 %call5250, label %_ZN4llvh9StringRefC2EPKc.exit12462, label %if.then5251
 
 if.then5251:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12452
@@ -13401,7 +13401,7 @@ if.then5251:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12462:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12452
-  %call5258 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25240)
+  %call5258 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg25240)
   br i1 %call5258, label %if.end5264, label %if.then5259
 
 if.then5259:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12462
@@ -13443,7 +13443,7 @@ if.then5274:                                      ; preds = %if.end.i.i18313
   %Next2.i.i.i.i.i5689 = getelementptr inbounds i8, ptr %arg05275, i64 8
   store ptr %arg05275, ptr %Next2.i.i.i.i.i5689, align 8
   store i8 0, ptr %arg15276, align 1
-  %call5278 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05275)
+  %call5278 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg05275)
   br i1 %call5278, label %_ZN4llvh9StringRefC2EPKc.exit12492, label %if.then5279
 
 if.then5279:                                      ; preds = %if.then5274
@@ -13458,7 +13458,7 @@ if.then5279:                                      ; preds = %if.then5274
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12492:               ; preds = %if.then5274
-  %call5286 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg15276)
+  %call5286 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.691, i64 17, ptr noundef nonnull align 1 dereferenceable(1) %arg15276)
   br i1 %call5286, label %if.end5292, label %if.then5287
 
 if.then5287:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12492
@@ -13495,7 +13495,7 @@ if.end.i.i18332:                                  ; preds = %if.end5297
 
 if.then5301:                                      ; preds = %if.end.i.i18332
   store ptr null, ptr %arg05302, align 8
-  %call5304 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05302)
+  %call5304 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05302)
   br i1 %call5304, label %if.end5310, label %if.then5305
 
 if.then5305:                                      ; preds = %if.then5301
@@ -13538,7 +13538,7 @@ if.end.i.i18351:                                  ; preds = %if.end5314
 if.then5318:                                      ; preds = %if.end.i.i18351
   store ptr null, ptr %arg05319, align 8
   store ptr null, ptr %arg15320, align 8
-  %call5322 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05319)
+  %call5322 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05319)
   br i1 %call5322, label %_ZN4llvh9StringRefC2EPKc.exit12542, label %if.then5323
 
 if.then5323:                                      ; preds = %if.then5318
@@ -13553,7 +13553,7 @@ if.then5323:                                      ; preds = %if.then5318
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12542:               ; preds = %if.then5318
-  %call5330 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15320)
+  %call5330 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15320)
   br i1 %call5330, label %if.end5336, label %if.then5331
 
 if.then5331:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12542
@@ -13596,7 +13596,7 @@ if.end.i.i18370:                                  ; preds = %if.end.i.i18351
 if.then5344:                                      ; preds = %if.end.i.i18370
   store ptr null, ptr %arg05345, align 8
   store ptr null, ptr %arg15346, align 8
-  %call5348 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05345)
+  %call5348 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05345)
   br i1 %call5348, label %_ZN4llvh9StringRefC2EPKc.exit12572, label %if.then5349
 
 if.then5349:                                      ; preds = %if.then5344
@@ -13611,7 +13611,7 @@ if.then5349:                                      ; preds = %if.then5344
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12572:               ; preds = %if.then5344
-  %call5356 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15346)
+  %call5356 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15346)
   br i1 %call5356, label %if.end5362, label %if.then5357
 
 if.then5357:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12572
@@ -13657,7 +13657,7 @@ if.end.i.i18389:                                  ; preds = %if.end5366
 if.then5370:                                      ; preds = %if.end.i.i18389
   store ptr null, ptr %arg05371, align 8
   store ptr null, ptr %arg15372, align 8
-  %call5374 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05371)
+  %call5374 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05371)
   br i1 %call5374, label %_ZN4llvh9StringRefC2EPKc.exit12602, label %if.then5375
 
 if.then5375:                                      ; preds = %if.then5370
@@ -13672,7 +13672,7 @@ if.then5375:                                      ; preds = %if.then5370
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12602:               ; preds = %if.then5370
-  %call5382 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15372)
+  %call5382 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15372)
   br i1 %call5382, label %if.end5388, label %if.then5383
 
 if.then5383:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12602
@@ -13719,7 +13719,7 @@ if.then5396:                                      ; preds = %if.end.i.i18408
   store ptr null, ptr %arg05397, align 8
   store ptr null, ptr %arg15398, align 8
   store i8 0, ptr %arg25399, align 1
-  %call5401 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg05397)
+  %call5401 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg05397)
   br i1 %call5401, label %_ZN4llvh9StringRefC2EPKc.exit12632, label %if.then5402
 
 if.then5402:                                      ; preds = %if.then5396
@@ -13734,7 +13734,7 @@ if.then5402:                                      ; preds = %if.then5396
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12632:               ; preds = %if.then5396
-  %call5409 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg15398)
+  %call5409 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.340, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg15398)
   br i1 %call5409, label %_ZN4llvh9StringRefC2EPKc.exit12642, label %if.then5410
 
 if.then5410:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12632
@@ -13749,7 +13749,7 @@ if.then5410:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12642:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12632
-  %call5417 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.276, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg25399)
+  %call5417 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.276, i64 9, ptr noundef nonnull align 1 dereferenceable(1) %arg25399)
   br i1 %call5417, label %if.end5423, label %if.then5418
 
 if.then5418:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12642
@@ -13798,7 +13798,7 @@ if.end.i.i18427:                                  ; preds = %if.end5428
 
 if.then5432:                                      ; preds = %if.end.i.i18427
   store ptr null, ptr %arg05433, align 8
-  %call5435 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg05433)
+  %call5435 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg05433)
   br i1 %call5435, label %if.end5441, label %if.then5436
 
 if.then5436:                                      ; preds = %if.then5432
@@ -14087,7 +14087,7 @@ if.end.i.i18655:                                  ; preds = %if.end5533
 
 if.then5537:                                      ; preds = %if.end.i.i18655
   store ptr null, ptr %arg05538, align 8
-  %call5540 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.733, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg05538)
+  %call5540 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.733, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg05538)
   br i1 %call5540, label %if.end5546, label %if.then5541
 
 if.then5541:                                      ; preds = %if.then5537
@@ -14130,7 +14130,7 @@ if.end.i.i18674:                                  ; preds = %if.end5550
 if.then5554:                                      ; preds = %if.end.i.i18674
   store ptr null, ptr %arg05555, align 8
   store ptr null, ptr %arg15556, align 8
-  %call5558 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05555)
+  %call5558 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.510, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05555)
   br i1 %call5558, label %_ZN4llvh9StringRefC2EPKc.exit12822, label %if.then5559
 
 if.then5559:                                      ; preds = %if.then5554
@@ -14145,7 +14145,7 @@ if.then5559:                                      ; preds = %if.then5554
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12822:               ; preds = %if.then5554
-  %call5566 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg15556)
+  %call5566 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.512, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg15556)
   br i1 %call5566, label %if.end5572, label %if.then5567
 
 if.then5567:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12822
@@ -14190,7 +14190,7 @@ if.end.i.i18693:                                  ; preds = %if.end5576
 
 if.then5580:                                      ; preds = %if.end.i.i18693
   store ptr null, ptr %arg05581, align 8
-  %call5583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg05581)
+  %call5583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.493, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg05581)
   br i1 %call5583, label %if.end5589, label %if.then5584
 
 if.then5584:                                      ; preds = %if.then5580
@@ -14233,7 +14233,7 @@ if.end.i.i18712:                                  ; preds = %if.end5593
 if.then5597:                                      ; preds = %if.end.i.i18712
   store ptr null, ptr %arg05598, align 8
   store ptr null, ptr %arg15599, align 8
-  %call5601 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.741, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg05598)
+  %call5601 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.741, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg05598)
   br i1 %call5601, label %_ZN4llvh9StringRefC2EPKc.exit12872, label %if.then5602
 
 if.then5602:                                      ; preds = %if.then5597
@@ -14248,7 +14248,7 @@ if.then5602:                                      ; preds = %if.then5597
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12872:               ; preds = %if.then5597
-  %call5609 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15599)
+  %call5609 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15599)
   %1499 = load ptr, ptr %this, align 8
   %call5618 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1499, i64 noundef 8)
   %1500 = load ptr, ptr %arg05598, align 8
@@ -14277,7 +14277,7 @@ if.end.i.i18731:                                  ; preds = %if.end.i.i18712
 if.then5624:                                      ; preds = %if.end.i.i18731
   store ptr null, ptr %arg05625, align 8
   store ptr null, ptr %arg15626, align 8
-  %call5628 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg05625)
+  %call5628 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg05625)
   br i1 %call5628, label %_ZN4llvh9StringRefC2EPKc.exit12902, label %if.then5629
 
 if.then5629:                                      ; preds = %if.then5624
@@ -14292,7 +14292,7 @@ if.then5629:                                      ; preds = %if.then5624
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12902:               ; preds = %if.then5624
-  %call5636 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg15626)
+  %call5636 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg15626)
   %1505 = load ptr, ptr %this, align 8
   %call5645 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1505, i64 noundef 8)
   %1506 = load ptr, ptr %arg05625, align 8
@@ -14327,7 +14327,7 @@ if.then5651:                                      ; preds = %if.end.i.i18750
   store ptr %arg05652, ptr %Next2.i.i.i.i.i5916, align 8
   store ptr null, ptr %arg15653, align 8
   store ptr null, ptr %arg25654, align 8
-  %call5656 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05652)
+  %call5656 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05652)
   br i1 %call5656, label %_ZN4llvh9StringRefC2EPKc.exit12932, label %if.then5657
 
 if.then5657:                                      ; preds = %if.then5651
@@ -14342,7 +14342,7 @@ if.then5657:                                      ; preds = %if.then5651
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12932:               ; preds = %if.then5651
-  %call5664 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15653)
+  %call5664 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15653)
   br i1 %call5664, label %_ZN4llvh9StringRefC2EPKc.exit12942, label %if.then5665
 
 if.then5665:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12932
@@ -14357,7 +14357,7 @@ if.then5665:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12942:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12932
-  %call5672 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25654)
+  %call5672 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25654)
   %1512 = load ptr, ptr %this, align 8
   %call5681 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %1512, i64 noundef 8)
   %1513 = load ptr, ptr %arg15653, align 8
@@ -14384,7 +14384,7 @@ if.then5687:                                      ; preds = %if.end.i.i18769
   store ptr %arg05688, ptr %Next2.i.i.i.i.i5930, align 8
   store ptr null, ptr %arg15689, align 8
   store ptr null, ptr %arg25690, align 8
-  %call5692 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05688)
+  %call5692 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg05688)
   br i1 %call5692, label %_ZN4llvh9StringRefC2EPKc.exit12972, label %if.then5693
 
 if.then5693:                                      ; preds = %if.then5687
@@ -14399,7 +14399,7 @@ if.then5693:                                      ; preds = %if.then5687
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12972:               ; preds = %if.then5687
-  %call5700 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15689)
+  %call5700 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15689)
   br i1 %call5700, label %_ZN4llvh9StringRefC2EPKc.exit12982, label %if.then5701
 
 if.then5701:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit12972
@@ -14414,7 +14414,7 @@ if.then5701:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit12982:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit12972
-  %call5708 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25690)
+  %call5708 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25690)
   %1519 = load ptr, ptr %this, align 8
   %call5717 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %1519, i64 noundef 8)
   %1520 = load ptr, ptr %arg15689, align 8
@@ -14438,7 +14438,7 @@ if.end.i.i18788:                                  ; preds = %if.end5719
 if.then5723:                                      ; preds = %if.end.i.i18788
   store ptr null, ptr %arg05724, align 8
   store ptr null, ptr %arg15725, align 8
-  %call5727 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.528, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg05724)
+  %call5727 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.528, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg05724)
   br i1 %call5727, label %_ZN4llvh9StringRefC2EPKc.exit13012, label %if.then5728
 
 if.then5728:                                      ; preds = %if.then5723
@@ -14453,7 +14453,7 @@ if.then5728:                                      ; preds = %if.then5723
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13012:               ; preds = %if.then5723
-  %call5735 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15725)
+  %call5735 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15725)
   br i1 %call5735, label %if.end5741, label %if.then5736
 
 if.then5736:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13012
@@ -14500,7 +14500,7 @@ if.then5749:                                      ; preds = %if.end.i.i18807
   store ptr %arg05750, ptr %arg05750, align 8
   %Next2.i.i.i.i.i5961 = getelementptr inbounds i8, ptr %arg05750, i64 8
   store ptr %arg05750, ptr %Next2.i.i.i.i.i5961, align 8
-  %call5752 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.759, i64 12, ptr noundef nonnull align 8 dereferenceable(16) %arg05750)
+  %call5752 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.759, i64 12, ptr noundef nonnull align 8 dereferenceable(16) %arg05750)
   br i1 %call5752, label %if.end5758, label %if.then5753
 
 if.then5753:                                      ; preds = %if.then5749
@@ -14536,7 +14536,7 @@ if.end.i.i18826:                                  ; preds = %if.end5762
 if.then5766:                                      ; preds = %if.end.i.i18826
   store ptr null, ptr %arg05767, align 8
   store ptr null, ptr %arg15768, align 8
-  %call5770 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg05767)
+  %call5770 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg05767)
   br i1 %call5770, label %_ZN4llvh9StringRefC2EPKc.exit13062, label %if.then5771
 
 if.then5771:                                      ; preds = %if.then5766
@@ -14551,7 +14551,7 @@ if.then5771:                                      ; preds = %if.then5766
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13062:               ; preds = %if.then5766
-  %call5778 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15768)
+  %call5778 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg15768)
   br i1 %call5778, label %if.end5784, label %if.then5779
 
 if.then5779:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13062
@@ -14597,7 +14597,7 @@ if.end.i.i18845:                                  ; preds = %if.end5788
 if.then5792:                                      ; preds = %if.end.i.i18845
   store ptr null, ptr %arg05793, align 8
   store ptr null, ptr %arg15794, align 8
-  %call5796 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05793)
+  %call5796 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05793)
   br i1 %call5796, label %_ZN4llvh9StringRefC2EPKc.exit13092, label %if.then5797
 
 if.then5797:                                      ; preds = %if.then5792
@@ -14612,7 +14612,7 @@ if.then5797:                                      ; preds = %if.then5792
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13092:               ; preds = %if.then5792
-  %call5804 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15794)
+  %call5804 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15794)
   br i1 %call5804, label %if.end5810, label %if.then5805
 
 if.then5805:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13092
@@ -14661,7 +14661,7 @@ if.then5818:                                      ; preds = %if.end.i.i18864
   store i8 0, ptr %arg25821, align 1
   store i8 0, ptr %arg35822, align 1
   store i8 0, ptr %arg45823, align 1
-  %call5825 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.768, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg05819)
+  %call5825 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.768, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg05819)
   br i1 %call5825, label %_ZN4llvh9StringRefC2EPKc.exit13122, label %if.then5826
 
 if.then5826:                                      ; preds = %if.then5818
@@ -14676,8 +14676,8 @@ if.then5826:                                      ; preds = %if.then5818
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13122:               ; preds = %if.then5818
-  %1550 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.770, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg15820)
-  %call5842 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg25821)
+  %1550 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.770, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg15820)
+  %call5842 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg25821)
   br i1 %call5842, label %_ZN4llvh9StringRefC2EPKc.exit13142, label %if.then5843
 
 if.then5843:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13122
@@ -14692,7 +14692,7 @@ if.then5843:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13142:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13122
-  %call5850 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg35822)
+  %call5850 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg35822)
   br i1 %call5850, label %_ZN4llvh9StringRefC2EPKc.exit13152, label %if.then5851
 
 if.then5851:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13142
@@ -14707,7 +14707,7 @@ if.then5851:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13152:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13142
-  %call5858 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.775, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg45823)
+  %call5858 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.775, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg45823)
   br i1 %call5858, label %if.end5864, label %if.then5859
 
 if.then5859:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13152
@@ -14766,7 +14766,7 @@ if.then5875:                                      ; preds = %if.end.i.i18883
   store ptr null, ptr %arg05876, align 8
   store ptr null, ptr %arg15877, align 8
   store ptr null, ptr %arg25878, align 8
-  %call5880 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05876)
+  %call5880 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05876)
   br i1 %call5880, label %_ZN4llvh9StringRefC2EPKc.exit13182, label %if.then5881
 
 if.then5881:                                      ; preds = %if.then5875
@@ -14781,8 +14781,8 @@ if.then5881:                                      ; preds = %if.then5875
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13182:               ; preds = %if.then5875
-  %call5888 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15877)
-  %call5897 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25878)
+  %call5888 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15877)
+  %call5897 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg25878)
   br i1 %call5897, label %if.end5903, label %if.then5898
 
 if.then5898:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13182
@@ -14832,7 +14832,7 @@ if.then5911:                                      ; preds = %if.end.i.i18902
   %Next2.i.i.i.i.i6051 = getelementptr inbounds i8, ptr %arg25914, i64 8
   store ptr %arg25914, ptr %Next2.i.i.i.i.i6051, align 8
   store ptr null, ptr %arg35915, align 8
-  %call5917 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05912)
+  %call5917 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg05912)
   br i1 %call5917, label %_ZN4llvh9StringRefC2EPKc.exit13222, label %if.then5918
 
 if.then5918:                                      ; preds = %if.then5911
@@ -14847,7 +14847,7 @@ if.then5918:                                      ; preds = %if.then5911
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13222:               ; preds = %if.then5911
-  %call5925 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15913)
+  %call5925 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg15913)
   br i1 %call5925, label %_ZN4llvh9StringRefC2EPKc.exit13232, label %if.then5926
 
 if.then5926:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13222
@@ -14862,7 +14862,7 @@ if.then5926:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13232:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13222
-  %call5933 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg25914)
+  %call5933 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.534, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg25914)
   br i1 %call5933, label %_ZN4llvh9StringRefC2EPKc.exit13242, label %if.then5934
 
 if.then5934:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13232
@@ -14877,7 +14877,7 @@ if.then5934:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13242:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13232
-  %call5941 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg35915)
+  %call5941 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg35915)
   %1573 = load ptr, ptr %this, align 8
   %call5950 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %1573, i64 noundef 8)
   %1574 = load ptr, ptr %arg05912, align 8
@@ -14902,7 +14902,7 @@ if.end.i.i18921:                                  ; preds = %if.end5952
 if.then5956:                                      ; preds = %if.end.i.i18921
   store ptr null, ptr %arg05957, align 8
   store ptr null, ptr %arg15958, align 8
-  %call5960 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05957)
+  %call5960 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.39, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg05957)
   br i1 %call5960, label %_ZN4llvh9StringRefC2EPKc.exit13272, label %if.then5961
 
 if.then5961:                                      ; preds = %if.then5956
@@ -14917,7 +14917,7 @@ if.then5961:                                      ; preds = %if.then5956
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13272:               ; preds = %if.then5956
-  %call5968 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15958)
+  %call5968 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.22, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg15958)
   %1580 = load ptr, ptr %this, align 8
   %call5977 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1580, i64 noundef 8)
   %1581 = load ptr, ptr %arg05957, align 8
@@ -14950,7 +14950,7 @@ if.then5983:                                      ; preds = %if.end.i.i18940
   store ptr %arg05984, ptr %arg05984, align 8
   %Next2.i.i.i.i.i6082 = getelementptr inbounds i8, ptr %arg05984, i64 8
   store ptr %arg05984, ptr %Next2.i.i.i.i.i6082, align 8
-  %call5986 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg05984)
+  %call5986 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg05984)
   br i1 %call5986, label %if.end5992, label %if.then5987
 
 if.then5987:                                      ; preds = %if.then5983
@@ -14988,7 +14988,7 @@ if.then6000:                                      ; preds = %if.end.i.i18959
   store ptr %arg16002, ptr %arg16002, align 8
   %Next2.i.i.i.i.i6091 = getelementptr inbounds i8, ptr %arg16002, i64 8
   store ptr %arg16002, ptr %Next2.i.i.i.i.i6091, align 8
-  %call6004 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06001)
+  %call6004 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06001)
   br i1 %call6004, label %_ZN4llvh9StringRefC2EPKc.exit13322, label %if.then6005
 
 if.then6005:                                      ; preds = %if.then6000
@@ -15003,7 +15003,7 @@ if.then6005:                                      ; preds = %if.then6000
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13322:               ; preds = %if.then6000
-  %call6012 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg16002)
+  %call6012 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg16002)
   br i1 %call6012, label %if.end6018, label %if.then6013
 
 if.then6013:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13322
@@ -15037,7 +15037,7 @@ if.end.i.i18978:                                  ; preds = %if.end.i.i18446
 if.then6026:                                      ; preds = %if.end.i.i18978
   store ptr null, ptr %arg06027, align 8
   store ptr null, ptr %arg16028, align 8
-  %call6030 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06027)
+  %call6030 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06027)
   br i1 %call6030, label %_ZN4llvh9StringRefC2EPKc.exit13352, label %if.then6031
 
 if.then6031:                                      ; preds = %if.then6026
@@ -15052,7 +15052,7 @@ if.then6031:                                      ; preds = %if.then6026
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13352:               ; preds = %if.then6026
-  %call6038 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16028)
+  %call6038 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16028)
   %1596 = load ptr, ptr %this, align 8
   %call6047 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1596, i64 noundef 8)
   %1597 = load ptr, ptr %arg06027, align 8
@@ -15084,7 +15084,7 @@ if.end.i.i18997:                                  ; preds = %if.end6049
 if.then6053:                                      ; preds = %if.end.i.i18997
   store ptr null, ptr %arg06054, align 8
   store ptr null, ptr %arg16055, align 8
-  %call6057 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06054)
+  %call6057 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06054)
   br i1 %call6057, label %_ZN4llvh9StringRefC2EPKc.exit13382, label %if.then6058
 
 if.then6058:                                      ; preds = %if.then6053
@@ -15099,7 +15099,7 @@ if.then6058:                                      ; preds = %if.then6053
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13382:               ; preds = %if.then6053
-  %call6065 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg16055)
+  %call6065 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg16055)
   br i1 %call6065, label %if.end6071, label %if.then6066
 
 if.then6066:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13382
@@ -15146,7 +15146,7 @@ if.then6079:                                      ; preds = %if.end.i.i19016
   store ptr %arg06080, ptr %arg06080, align 8
   %Next2.i.i.i.i.i6133 = getelementptr inbounds i8, ptr %arg06080, i64 8
   store ptr %arg06080, ptr %Next2.i.i.i.i.i6133, align 8
-  %call6082 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg06080)
+  %call6082 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.14, i64 4, ptr noundef nonnull align 8 dereferenceable(16) %arg06080)
   br i1 %call6082, label %if.end6088, label %if.then6083
 
 if.then6083:                                      ; preds = %if.then6079
@@ -15182,7 +15182,7 @@ if.end.i.i19035:                                  ; preds = %if.end6092
 if.then6096:                                      ; preds = %if.end.i.i19035
   store ptr null, ptr %arg06097, align 8
   store ptr null, ptr %arg16098, align 8
-  %call6100 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06097)
+  %call6100 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.17, i64 2, ptr noundef nonnull align 8 dereferenceable(8) %arg06097)
   br i1 %call6100, label %_ZN4llvh9StringRefC2EPKc.exit13432, label %if.then6101
 
 if.then6101:                                      ; preds = %if.then6096
@@ -15197,7 +15197,7 @@ if.then6101:                                      ; preds = %if.then6096
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13432:               ; preds = %if.then6096
-  %call6108 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16098)
+  %call6108 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16098)
   %1613 = load ptr, ptr %this, align 8
   %call6117 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(656) %1613, i64 noundef 8)
   %1614 = load ptr, ptr %arg06097, align 8
@@ -15230,7 +15230,7 @@ if.then6123:                                      ; preds = %if.end.i.i19054
   store ptr %arg06124, ptr %arg06124, align 8
   %Next2.i.i.i.i.i6154 = getelementptr inbounds i8, ptr %arg06124, i64 8
   store ptr %arg06124, ptr %Next2.i.i.i.i.i6154, align 8
-  %call6126 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06124)
+  %call6126 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06124)
   br i1 %call6126, label %if.end6132, label %if.then6127
 
 if.then6127:                                      ; preds = %if.then6123
@@ -15267,7 +15267,7 @@ if.then6140:                                      ; preds = %if.end.i.i19073
   store ptr null, ptr %arg06141, align 8
   store ptr null, ptr %arg16142, align 8
   store ptr null, ptr %arg26143, align 8
-  %call6145 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06141)
+  %call6145 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.227, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06141)
   br i1 %call6145, label %_ZN4llvh9StringRefC2EPKc.exit13482, label %if.then6146
 
 if.then6146:                                      ; preds = %if.then6140
@@ -15282,8 +15282,8 @@ if.then6146:                                      ; preds = %if.then6140
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13482:               ; preds = %if.then6140
-  %call6153 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.810, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg16142)
-  %call6162 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg26143)
+  %call6153 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.810, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg16142)
+  %call6162 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.594, i64 7, ptr noundef nonnull align 8 dereferenceable(8) %arg26143)
   %1623 = load ptr, ptr %this, align 8
   %call6171 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %1623, i64 noundef 8)
   %1624 = load ptr, ptr %arg06141, align 8
@@ -15319,7 +15319,7 @@ if.then6177:                                      ; preds = %if.end.i.i19092
   store ptr %arg06178, ptr %arg06178, align 8
   %Next2.i.i.i.i.i6175 = getelementptr inbounds i8, ptr %arg06178, i64 8
   store ptr %arg06178, ptr %Next2.i.i.i.i.i6175, align 8
-  %call6180 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06178)
+  %call6180 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06178)
   br i1 %call6180, label %if.end6186, label %if.then6181
 
 if.then6181:                                      ; preds = %if.then6177
@@ -15356,7 +15356,7 @@ if.then6194:                                      ; preds = %if.end.i.i19111
   store ptr %arg06195, ptr %arg06195, align 8
   %Next2.i.i.i.i.i6184 = getelementptr inbounds i8, ptr %arg06195, i64 8
   store ptr %arg06195, ptr %Next2.i.i.i.i.i6184, align 8
-  %call6197 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg06195)
+  %call6197 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg06195)
   br i1 %call6197, label %if.end6203, label %if.then6198
 
 if.then6198:                                      ; preds = %if.then6194
@@ -15393,7 +15393,7 @@ if.then6211:                                      ; preds = %if.end.i.i19130
   store ptr %arg06212, ptr %arg06212, align 8
   %Next2.i.i.i.i.i6193 = getelementptr inbounds i8, ptr %arg06212, i64 8
   store ptr %arg06212, ptr %Next2.i.i.i.i.i6193, align 8
-  %call6214 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg06212)
+  %call6214 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.486, i64 5, ptr noundef nonnull align 8 dereferenceable(16) %arg06212)
   br i1 %call6214, label %if.end6220, label %if.then6215
 
 if.then6215:                                      ; preds = %if.then6211
@@ -15428,7 +15428,7 @@ if.end.i.i19149:                                  ; preds = %if.end6224
 
 if.then6228:                                      ; preds = %if.end.i.i19149
   store ptr null, ptr %arg06229, align 8
-  %call6231 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.820, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg06229)
+  %call6231 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.820, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg06229)
   br i1 %call6231, label %if.end6237, label %if.then6232
 
 if.then6232:                                      ; preds = %if.then6228
@@ -15473,7 +15473,7 @@ if.then6245:                                      ; preds = %if.end.i.i19168
   store ptr null, ptr %arg16247, align 8
   store ptr null, ptr %arg26248, align 8
   store ptr null, ptr %arg36249, align 8
-  %call6251 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.519, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg06246)
+  %call6251 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.519, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg06246)
   br i1 %call6251, label %_ZN4llvh9StringRefC2EPKc.exit13602, label %if.then6252
 
 if.then6252:                                      ; preds = %if.then6245
@@ -15488,7 +15488,7 @@ if.then6252:                                      ; preds = %if.then6245
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13602:               ; preds = %if.then6245
-  %call6259 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.521, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16247)
+  %call6259 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.521, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg16247)
   br i1 %call6259, label %_ZN4llvh9StringRefC2EPKc.exit13612, label %if.then6260
 
 if.then6260:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13602
@@ -15503,7 +15503,7 @@ if.then6260:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13612:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13602
-  %call6267 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.523, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg26248)
+  %call6267 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.523, i64 8, ptr noundef nonnull align 8 dereferenceable(8) %arg26248)
   br i1 %call6267, label %_ZN4llvh9StringRefC2EPKc.exit13622, label %if.then6268
 
 if.then6268:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13612
@@ -15518,7 +15518,7 @@ if.then6268:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13622:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13612
-  %call6275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.525, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg36249)
+  %call6275 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.525, i64 9, ptr noundef nonnull align 8 dereferenceable(8) %arg36249)
   br i1 %call6275, label %if.end6281, label %if.then6276
 
 if.then6276:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13622
@@ -15571,7 +15571,7 @@ if.then6289:                                      ; preds = %if.end.i.i19187
   store ptr %arg06290, ptr %arg06290, align 8
   %Next2.i.i.i.i.i6241 = getelementptr inbounds i8, ptr %arg06290, i64 8
   store ptr %arg06290, ptr %Next2.i.i.i.i.i6241, align 8
-  %call6292 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg06290)
+  %call6292 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.687, i64 7, ptr noundef nonnull align 8 dereferenceable(16) %arg06290)
   br i1 %call6292, label %if.end6298, label %if.then6293
 
 if.then6293:                                      ; preds = %if.then6289
@@ -15613,7 +15613,7 @@ if.then6306:                                      ; preds = %if.end.i.i19206
   store i8 0, ptr %arg56312, align 1
   store i8 0, ptr %arg66313, align 1
   store i8 0, ptr %arg76314, align 1
-  %call6316 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg06307)
+  %call6316 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg06307)
   br i1 %call6316, label %_ZN4llvh9StringRefC2EPKc.exit13672, label %if.then6317
 
 if.then6317:                                      ; preds = %if.then6306
@@ -15628,9 +15628,9 @@ if.then6317:                                      ; preds = %if.then6306
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13672:               ; preds = %if.then6306
-  %call6324 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg16308)
-  %call6333 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg26309)
-  %call6342 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg36310)
+  %call6324 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg16308)
+  %call6333 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.796, i64 11, ptr noundef nonnull align 8 dereferenceable(8) %arg26309)
+  %call6342 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg36310)
   br i1 %call6342, label %_ZN4llvh9StringRefC2EPKc.exit13702, label %if.then6343
 
 if.then6343:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13672
@@ -15645,7 +15645,7 @@ if.then6343:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13702:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13672
-  %call6350 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg46311)
+  %call6350 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg46311)
   br i1 %call6350, label %_ZN4llvh9StringRefC2EPKc.exit13712, label %if.then6351
 
 if.then6351:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13702
@@ -15660,7 +15660,7 @@ if.then6351:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13712:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13702
-  %call6358 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg56312)
+  %call6358 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg56312)
   br i1 %call6358, label %_ZN4llvh9StringRefC2EPKc.exit13722, label %if.then6359
 
 if.then6359:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13712
@@ -15675,7 +15675,7 @@ if.then6359:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13722:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13712
-  %call6366 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg66313)
+  %call6366 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.304, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg66313)
   br i1 %call6366, label %_ZN4llvh9StringRefC2EPKc.exit13732, label %if.then6367
 
 if.then6367:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13722
@@ -15690,7 +15690,7 @@ if.then6367:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13732:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13722
-  %call6374 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.775, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg76314)
+  %call6374 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.775, i64 6, ptr noundef nonnull align 1 dereferenceable(1) %arg76314)
   br i1 %call6374, label %if.end6380, label %if.then6375
 
 if.then6375:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13732
@@ -15763,7 +15763,7 @@ if.then6393:                                      ; preds = %if.end.i.i19225
   store ptr %arg16395, ptr %Next2.i.i.i.i.i6297, align 8
   store ptr null, ptr %arg26396, align 8
   store i8 0, ptr %arg36397, align 1
-  %call6399 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg06394)
+  %call6399 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.269, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %arg06394)
   br i1 %call6399, label %_ZN4llvh9StringRefC2EPKc.exit13762, label %if.then6400
 
 if.then6400:                                      ; preds = %if.then6393
@@ -15778,7 +15778,7 @@ if.then6400:                                      ; preds = %if.then6393
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13762:               ; preds = %if.then6393
-  %call6407 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg16395)
+  %call6407 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg16395)
   br i1 %call6407, label %_ZN4llvh9StringRefC2EPKc.exit13772, label %if.then6408
 
 if.then6408:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13762
@@ -15793,8 +15793,8 @@ if.then6408:                                      ; preds = %_ZN4llvh9StringRefC
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13772:               ; preds = %_ZN4llvh9StringRefC2EPKc.exit13762
-  %call6415 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg26396)
-  %call6424 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg36397)
+  %call6415 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg26396)
+  %call6424 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.203, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg36397)
   br i1 %call6424, label %if.end6430, label %if.then6425
 
 if.then6425:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13772
@@ -15836,7 +15836,7 @@ if.then6439:                                      ; preds = %if.end.i.i19244
   %Next2.i.i.i.i.i6316 = getelementptr inbounds i8, ptr %arg06440, i64 8
   store ptr %arg06440, ptr %Next2.i.i.i.i.i6316, align 8
   store ptr null, ptr %arg16441, align 8
-  %call6443 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.844, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg06440)
+  %call6443 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.844, i64 10, ptr noundef nonnull align 8 dereferenceable(16) %arg06440)
   br i1 %call6443, label %_ZN4llvh9StringRefC2EPKc.exit13812, label %if.then6444
 
 if.then6444:                                      ; preds = %if.then6439
@@ -15851,7 +15851,7 @@ if.then6444:                                      ; preds = %if.then6439
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13812:               ; preds = %if.then6439
-  %call6451 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg16441)
+  %call6451 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.229, i64 14, ptr noundef nonnull align 8 dereferenceable(8) %arg16441)
   %1688 = load ptr, ptr %this, align 8
   %call6460 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %1688, i64 noundef 8)
   %1689 = load ptr, ptr %arg16441, align 8
@@ -15876,7 +15876,7 @@ if.then6466:                                      ; preds = %if.end.i.i19263
   %Next2.i.i.i.i.i6325 = getelementptr inbounds i8, ptr %arg06467, i64 8
   store ptr %arg06467, ptr %Next2.i.i.i.i.i6325, align 8
   store ptr null, ptr %arg16468, align 8
-  %call6470 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06467)
+  %call6470 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.19, i64 6, ptr noundef nonnull align 8 dereferenceable(16) %arg06467)
   br i1 %call6470, label %_ZN4llvh9StringRefC2EPKc.exit13842, label %if.then6471
 
 if.then6471:                                      ; preds = %if.then6466
@@ -15891,7 +15891,7 @@ if.then6471:                                      ; preds = %if.then6466
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13842:               ; preds = %if.then6466
-  %call6478 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg16468)
+  %call6478 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.24, i64 10, ptr noundef nonnull align 8 dereferenceable(8) %arg16468)
   %1693 = load ptr, ptr %this, align 8
   %call6487 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %1693, i64 noundef 8)
   %1694 = load ptr, ptr %arg16468, align 8
@@ -15914,7 +15914,7 @@ if.end.i.i19282:                                  ; preds = %if.end6489
 if.then6493:                                      ; preds = %if.end.i.i19282
   store ptr null, ptr %arg06494, align 8
   store i8 0, ptr %arg16495, align 1
-  %call6497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef nonnull %node, ptr nonnull @.str.770, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg06494)
+  %call6497 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr noundef %node, ptr nonnull @.str.770, i64 13, ptr noundef nonnull align 8 dereferenceable(8) %arg06494)
   br i1 %call6497, label %_ZN4llvh9StringRefC2EPKc.exit13872, label %if.then6498
 
 if.then6498:                                      ; preds = %if.then6493
@@ -15929,7 +15929,7 @@ if.then6498:                                      ; preds = %if.then6493
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13872:               ; preds = %if.then6493
-  %call6505 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg16495)
+  %call6505 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.772, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg16495)
   br i1 %call6505, label %if.end6511, label %if.then6506
 
 if.then6506:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13872
@@ -16021,7 +16021,7 @@ if.end.i.i19339:                                  ; preds = %if.end6532
 
 if.then6536:                                      ; preds = %if.end.i.i19339
   store ptr null, ptr %arg06537, align 8
-  %call6539 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06537)
+  %call6539 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.78, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06537)
   br i1 %call6539, label %if.end6545, label %if.then6540
 
 if.then6540:                                      ; preds = %if.then6536
@@ -16060,7 +16060,7 @@ if.end.i.i19358:                                  ; preds = %if.end.i.i19339
 
 if.then6553:                                      ; preds = %if.end.i.i19358
   store ptr null, ptr %arg06554, align 8
-  %call6556 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06554)
+  %call6556 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.453, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06554)
   br i1 %call6556, label %if.end6562, label %if.then6557
 
 if.then6557:                                      ; preds = %if.then6553
@@ -16104,7 +16104,7 @@ if.then6570:                                      ; preds = %if.end.i.i19377
   store ptr null, ptr %arg06571, align 8
   store ptr null, ptr %arg16572, align 8
   store i8 0, ptr %arg26573, align 1
-  %call6575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06571)
+  %call6575 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.66, i64 4, ptr noundef nonnull align 8 dereferenceable(8) %arg06571)
   br i1 %call6575, label %_ZN4llvh9StringRefC2EPKc.exit13962, label %if.then6576
 
 if.then6576:                                      ; preds = %if.then6570
@@ -16119,8 +16119,8 @@ if.then6576:                                      ; preds = %if.then6570
   br label %return
 
 _ZN4llvh9StringRefC2EPKc.exit13962:               ; preds = %if.then6570
-  %call6583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg16572)
-  %call6592 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef nonnull %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg26573)
+  %call6583 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %node, ptr nonnull @.str.68, i64 5, ptr noundef nonnull align 8 dereferenceable(8) %arg16572)
+  %call6592 = call fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr noundef %node, ptr nonnull @.str.183, i64 8, ptr noundef nonnull align 1 dereferenceable(1) %arg26573)
   br i1 %call6592, label %if.end6598, label %if.then6593
 
 if.then6593:                                      ; preds = %_ZN4llvh9StringRefC2EPKc.exit13962
@@ -17422,7 +17422,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder15extractNodeListEPKNS_6parser10JSONObjectEN4llvh9StringRefERNS7_12simple_ilistINS0_4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %result) unnamed_addr #0 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -17586,7 +17586,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder14extractNodePtrEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -17691,7 +17691,7 @@ return:                                           ; preds = %_ZSt11lower_boundIP
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr nocapture noundef readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder18extractNodeBooleanEPKNS_6parser10JSONObjectEN4llvh9StringRefERb(ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -18090,7 +18090,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr nocapture noundef readonly %jsObj, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder17extractNodeNumberEPKNS_6parser10JSONObjectEN4llvh9StringRefERd(ptr nocapture noundef nonnull readonly %jsObj, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8
@@ -18188,7 +18188,7 @@ return:                                           ; preds = %_ZNK6hermes6parser1
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr nocapture noundef readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes6ESTree12_GLOBAL__N_110ASTBuilder16extractNodeLabelEPKNS_6parser10JSONObjectEN4llvh9StringRefERPNS_12UniqueStringE(ptr nocapture noundef nonnull readonly %jsObj, ptr nocapture readonly %name.coerce0, i64 %name.coerce1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #4 align 2 {
 entry:
   %hiddenClass_.i = getelementptr inbounds i8, ptr %jsObj, i64 8
   %0 = load ptr, ptr %hiddenClass_.i, align 8

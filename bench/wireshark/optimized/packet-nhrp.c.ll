@@ -426,7 +426,7 @@ declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_dissect_nhrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -891,11 +891,11 @@ dissect_nhrp_hdr.exit.thread:                     ; preds = %96, %177
   ]
 
 267:                                              ; preds = %266, %266, %266
-  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef nonnull %20, i32 noundef 1, i32 noundef %4)
+  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef %20, i32 noundef 1, i32 noundef %4)
   br label %dissect_nhrp_mand.exit
 
 268:                                              ; preds = %266, %266, %266
-  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef nonnull %20, i32 noundef 0, i32 noundef %4)
+  call fastcc void @dissect_cie_list(ptr noundef %187, ptr noundef %1, ptr noundef %190, i32 noundef %.4.i, i32 noundef %188, ptr noundef %20, i32 noundef 0, i32 noundef %4)
   br label %dissect_nhrp_mand.exit
 
 269:                                              ; preds = %266
@@ -1093,7 +1093,7 @@ dissect_nhrp_mand.exit:                           ; preds = %266, %267, %268, %2
 
 373:                                              ; preds = %372, %372, %372, %372
   %374 = add i32 %323, %328
-  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %323, i32 noundef %374, ptr noundef nonnull readonly %20, i32 noundef 0, i32 noundef 0)
+  call fastcc void @dissect_cie_list(ptr noundef %0, ptr noundef %1, ptr noundef %.0158.i, i32 noundef %323, i32 noundef %374, ptr noundef readonly %20, i32 noundef 0, i32 noundef 0)
   br label %437
 
 375:                                              ; preds = %372
@@ -1307,7 +1307,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cie_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_cie_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #0 {
   %9 = add i32 %3, 12
   %.not123 = icmp sgt i32 %9, %4
   br i1 %.not123, label %._crit_edge, label %.lr.ph

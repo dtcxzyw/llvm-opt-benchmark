@@ -143,13 +143,13 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %params)
   %3 = load ptr, ptr @die_routine, align 8
-  %4 = call fastcc ptr @fmt_with_err(ptr noundef nonnull %buf, ptr noundef %fmt)
+  %4 = call fastcc ptr @fmt_with_err(ptr noundef %buf, ptr noundef %fmt)
   call void %3(ptr noundef nonnull %buf, ptr noundef nonnull %params) #19
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @fmt_with_err(ptr noundef returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
+define internal fastcc noundef nonnull ptr @fmt_with_err(ptr noundef nonnull returned writeonly %buf, ptr noundef %fmt) unnamed_addr #6 {
 entry:
   %str_error = alloca [256 x i8], align 16
   %call = tail call ptr @__errno_location() #20
@@ -439,19 +439,19 @@ entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   store i32 0, ptr @bug_called_must_BUG, align 4
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef nonnull %ap) #16
+  call fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef %ap) #16
   unreachable
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef %params) unnamed_addr #3 {
+define internal fastcc void @BUG_vfl(ptr noundef %file, i32 noundef %line, ptr noundef %fmt, ptr noundef nonnull %params) unnamed_addr #3 {
 entry:
   %prefix.i = alloca [256 x i8], align 16
   %params_copy = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy.p0(ptr nonnull %params_copy, ptr %params)
+  call void @llvm.va_copy.p0(ptr nonnull %params_copy, ptr nonnull %params)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %prefix.i)
   %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %prefix.i, i64 noundef 256, ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line) #17
-  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef %params)
+  call fastcc void @vreportf(ptr noundef nonnull %prefix.i, ptr noundef readonly %fmt, ptr noundef nonnull %params)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %prefix.i)
   %.b = load i1, ptr @BUG_vfl.in_bug, align 4
   br i1 %.b, label %if.then, label %if.end

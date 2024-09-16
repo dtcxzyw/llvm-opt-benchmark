@@ -4415,11 +4415,11 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %.split98.us
-  call fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr noundef nonnull %7, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  call fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr noundef %7, i32 noundef %47, ptr noundef nonnull align 4 dereferenceable(4) %8)
   br label %93
 
 83:                                               ; preds = %.split98.us
-  call fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef nonnull %7, i32 noundef %47)
+  call fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef %7, i32 noundef %47)
   br label %93
 
 84:                                               ; preds = %42
@@ -4438,7 +4438,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   br i1 %91, label %87, label %92, !llvm.loop !30
 
 92:                                               ; preds = %87
-  call fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef nonnull %7, i32 noundef %47)
+  call fastcc void @_ZL10hemi_splitIjEvPT_j(ptr noundef %7, i32 noundef %47)
   br label %93
 
 93:                                               ; preds = %82, %83, %92
@@ -4541,7 +4541,7 @@ _ZN10MemTracker29record_virtual_memory_reserveEPvmRK15NativeCallStack8MEMFLAGS.e
 declare noundef i64 @_ZN2os14vm_min_addressEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #21 {
+define internal fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #21 {
   %.08 = add i32 %1, -1
   %.not9 = icmp eq i32 %.08, 0
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
@@ -4590,7 +4590,7 @@ define internal fastcc void @_ZL20shuffle_fisher_yatesIjEvPT_jR10FastRandom(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #21 {
+define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #21 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 2
   %5 = alloca i8, i64 %4, align 16
@@ -4598,7 +4598,7 @@ define internal fastcc void @_ZL10hemi_splitIjEvPT_j(ptr nocapture noundef %0, i
   br i1 %.not, label %._crit_edge, label %.lr.ph22.preheader
 
 .lr.ph22.preheader:                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 4 %0, i64 %4, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %0, i64 %4, i1 false)
   br label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %.lr.ph22.preheader, %.lr.ph22

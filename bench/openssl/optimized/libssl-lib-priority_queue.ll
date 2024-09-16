@@ -375,13 +375,13 @@ if.end13:                                         ; preds = %if.end
   br i1 %cmp14.not, label %if.end16, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end13, %while.body.i
-  %n.addr.07.i = phi i64 [ %div4.i, %while.body.i ], [ %3, %if.end13 ]
-  %sub.i = add i64 %n.addr.07.i, -1
+  %n.addr.06.i = phi i64 [ %div4.i, %while.body.i ], [ %3, %if.end13 ]
+  %sub.i = add i64 %n.addr.06.i, -1
   %div4.i = lshr i64 %sub.i, 1
   %pq.val.i = load ptr, ptr %pq, align 8
   %pq.val5.i = load ptr, ptr %elements, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t_h.i.i)
-  %arrayidx.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %n.addr.07.i
+  %arrayidx.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %n.addr.06.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %t_h.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
   %arrayidx2.i.i = getelementptr inbounds %struct.pq_heap_st, ptr %pq.val.i, i64 %div4.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx2.i.i, i64 16, i1 false)
@@ -389,7 +389,7 @@ while.body.i:                                     ; preds = %if.end13, %while.bo
   %index.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %8 = load i64, ptr %index.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val5.i, i64 %8
-  store i64 %n.addr.07.i, ptr %arrayidx5.i.i, align 8
+  store i64 %n.addr.06.i, ptr %arrayidx5.i.i, align 8
   %index7.i.i = getelementptr inbounds i8, ptr %arrayidx2.i.i, i64 8
   %9 = load i64, ptr %index7.i.i, align 8
   %arrayidx8.i.i = getelementptr inbounds %struct.pq_elem_st, ptr %pq.val5.i, i64 %9

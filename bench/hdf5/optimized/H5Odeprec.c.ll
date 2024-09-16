@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @H5Oget_info1(i64 noundef %0, ptr noundef %1) local_
   br label %.thread33
 
 53:                                               ; preds = %46
-  %54 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %33, ptr noundef nonnull %3, ptr noundef nonnull %1, i32 noundef 31)
+  %54 = call fastcc i32 @H5O__get_info_old(ptr noundef %33, ptr noundef %3, ptr noundef %1, i32 noundef 31)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %61
 
@@ -379,7 +379,7 @@ define range(i32 -1, 1) i32 @H5Oget_info1(i64 noundef %0, ptr noundef %1) local_
 declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.H5VL_object_get_args_t, align 8
   %6 = alloca %struct.H5O_info2_t, align 8
   %7 = alloca %struct.H5VL_optional_args_t, align 8
@@ -401,7 +401,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef %0, p
   store ptr %6, ptr %15, align 8
   store i32 %12, ptr %14, align 8
   %16 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %17 = call i32 @H5VL_object_get(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, i64 noundef %16, ptr noundef null) #4
+  %17 = call i32 @H5VL_object_get(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, i64 noundef %16, ptr noundef null) #4
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %23
 
@@ -417,7 +417,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef %0, p
   br i1 %.not39, label %50, label %25
 
 25:                                               ; preds = %23
-  %26 = call ptr @H5VL_object_data(ptr noundef %0) #4
+  %26 = call ptr @H5VL_object_data(ptr noundef nonnull %0) #4
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %32
 
@@ -501,7 +501,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef %0, p
   %75 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %8, ptr %75, align 8
   %76 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
-  %77 = call i32 @H5VL_object_optional(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, i64 noundef %76, ptr noundef null) #4
+  %77 = call i32 @H5VL_object_optional(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i64 noundef %76, ptr noundef null) #4
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %83
 
@@ -662,7 +662,7 @@ define range(i32 -1, 1) i32 @H5Oget_info_by_name1(i64 noundef %0, ptr noundef %1
   br label %.thread43
 
 77:                                               ; preds = %70
-  %78 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %57, ptr noundef nonnull %6, ptr noundef nonnull %2, i32 noundef 31)
+  %78 = call fastcc i32 @H5O__get_info_old(ptr noundef %57, ptr noundef %6, ptr noundef %2, i32 noundef 31)
   %79 = icmp slt i32 %78, 0
   br i1 %79, label %80, label %85
 
@@ -833,7 +833,7 @@ define range(i32 -1, 1) i32 @H5Oget_info_by_idx1(i64 noundef %0, ptr noundef %1,
   br label %.thread56
 
 89:                                               ; preds = %82
-  %90 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %69, ptr noundef nonnull %9, ptr noundef nonnull %5, i32 noundef 31)
+  %90 = call fastcc i32 @H5O__get_info_old(ptr noundef %69, ptr noundef %9, ptr noundef %5, i32 noundef 31)
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %97
 
@@ -952,7 +952,7 @@ define range(i32 -1, 1) i32 @H5Oget_info2(i64 noundef %0, ptr noundef %1, i32 no
   br label %.thread37
 
 59:                                               ; preds = %52
-  %60 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %39, ptr noundef nonnull %4, ptr noundef nonnull %1, i32 noundef %2)
+  %60 = call fastcc i32 @H5O__get_info_old(ptr noundef %39, ptr noundef %4, ptr noundef %1, i32 noundef %2)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %67
 
@@ -1110,7 +1110,7 @@ define range(i32 -1, 1) i32 @H5Oget_info_by_name2(i64 noundef %0, ptr noundef %1
   br label %.thread47
 
 83:                                               ; preds = %76
-  %84 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %63, ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %3)
+  %84 = call fastcc i32 @H5O__get_info_old(ptr noundef %63, ptr noundef %7, ptr noundef %2, i32 noundef %3)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %91
 
@@ -1288,7 +1288,7 @@ define range(i32 -1, 1) i32 @H5Oget_info_by_idx2(i64 noundef %0, ptr noundef %1,
   br label %.thread60
 
 95:                                               ; preds = %88
-  %96 = call fastcc i32 @H5O__get_info_old(ptr noundef nonnull %75, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %6)
+  %96 = call fastcc i32 @H5O__get_info_old(ptr noundef %75, ptr noundef %10, ptr noundef %5, i32 noundef %6)
   %97 = icmp slt i32 %96, 0
   br i1 %97, label %98, label %103
 

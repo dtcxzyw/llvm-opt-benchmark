@@ -474,7 +474,7 @@ cli_pcre_freemeta.exit:                           ; preds = %56, %59
   br i1 %.not122, label %113, label %112
 
 112:                                              ; preds = %.loopexit
-  call fastcc void @pcre_perf_events_init(ptr noundef nonnull %47, ptr noundef %1)
+  call fastcc void @pcre_perf_events_init(ptr noundef %47, ptr noundef %1)
   br label %113
 
 113:                                              ; preds = %112, %.loopexit
@@ -568,7 +568,7 @@ declare i32 @cli_caloff(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr 
 declare i32 @cli_pcre_addoptions(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pcre_perf_events_init(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @pcre_perf_events_init(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @p_sigevents, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %7

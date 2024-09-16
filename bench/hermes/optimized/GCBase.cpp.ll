@@ -4969,7 +4969,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %diag, i64 noundef %hvBytes) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN6hermes2vm6GCBase20sizeDiagnosticCensusEmEN26HeapSizeDiagnosticAcceptor8acceptHVERKNS0_11HermesValueERZNS1_20sizeDiagnosticCensusEmE14DiagnosticStatm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %hv, ptr noundef nonnull align 8 dereferenceable(64) %diag, i64 noundef range(i64 4, 9) %hvBytes) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i81 = alloca %"class.std::allocator.2", align 1
   %ref.tmp.i.i75 = alloca %"class.std::allocator.2", align 1

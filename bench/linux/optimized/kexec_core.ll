@@ -2006,7 +2006,7 @@ declare void @llvm.write_register.i64(metadata, i64) #13
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(i32 3264, 1051843) %1, i64 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 592
   %5 = load i64, ptr @vmemmap_base, align 8
   br label %6
@@ -2021,7 +2021,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef %1, i6
   %11 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #19, !srcloc !22
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 1936
-  %14 = and i32 %1, -257
+  %14 = and i32 %1, 2096895
   %15 = and i32 %1, 256
   %16 = icmp eq i32 %15, 0
   %17 = getelementptr inbounds i8, ptr %0, i64 64

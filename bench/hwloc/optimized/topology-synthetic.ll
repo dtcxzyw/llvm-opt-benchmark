@@ -933,7 +933,7 @@ hwloc__export_synthetic_update_status.exit.thread: ; preds = %.lr.ph176.i, %162,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @hwloc__export_synthetic_memory_children(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @hwloc__export_synthetic_memory_children(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i64 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 144
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
@@ -1380,7 +1380,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 36:                                               ; preds = %24
   %37 = getelementptr inbounds i8, ptr %18, i64 176
   %38 = getelementptr inbounds i8, ptr %.015, i64 1
-  %39 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %38, ptr noundef nonnull %7, ptr noundef nonnull %30, ptr noundef nonnull %37, i32 noundef %.0289.i)
+  %39 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %38, ptr noundef %7, ptr noundef %30, ptr noundef %37, i32 noundef %.0289.i)
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %469, label %._crit_edge470.i
 
@@ -1507,7 +1507,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds i8, ptr %86, i64 1
-  %91 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %90, ptr noundef nonnull %12, ptr noundef nonnull %70, ptr noundef nonnull %26, i32 noundef %.0289.i)
+  %91 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %90, ptr noundef %12, ptr noundef %70, ptr noundef %26, i32 noundef %.0289.i)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %.loopexit374.i.preheader, label %93
 
@@ -1672,7 +1672,7 @@ define internal ptr @hwloc_synthetic_component_instantiate(ptr noundef %0, ptr n
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds i8, ptr %145, i64 1
-  %164 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %163, ptr noundef nonnull %8, ptr noundef nonnull %143, ptr noundef nonnull %97, i32 noundef %.0289.i)
+  %164 = call fastcc i32 @hwloc_synthetic_parse_attrs(ptr noundef nonnull %163, ptr noundef %8, ptr noundef %143, ptr noundef %97, i32 noundef %.0289.i)
   %165 = icmp slt i32 %164, 0
   br i1 %165, label %.loopexit374.i.preheader, label %166
 
@@ -2289,7 +2289,7 @@ hwloc_synthetic_set_default_attrs.exit366.i:      ; preds = %439, %436, %434, %4
   %443 = getelementptr inbounds i8, ptr %377, i64 48
   %444 = getelementptr inbounds i8, ptr %377, i64 8
   %445 = load i64, ptr %444, align 8
-  call fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull %20, ptr noundef nonnull %443, i64 noundef %445, i32 noundef %.0289.i)
+  call fastcc void @hwloc_synthetic_process_indexes(ptr noundef %20, ptr noundef %443, i64 noundef %445, i32 noundef %.0289.i)
   %446 = add i32 %.4427.i, 1
   %447 = zext i32 %446 to i64
   %448 = icmp ugt i64 %.2283.i, %447
@@ -2339,7 +2339,7 @@ hwloc_synthetic_free_levels.exit.i:               ; preds = %._crit_edge.i.i
 
 .loopexit:                                        ; preds = %._crit_edge424.i, %372
   %461 = load i64, ptr %25, align 8
-  call fastcc void @hwloc_synthetic_process_indexes(ptr noundef nonnull %20, ptr noundef nonnull %26, i64 noundef %461, i32 noundef %.0289.i)
+  call fastcc void @hwloc_synthetic_process_indexes(ptr noundef %20, ptr noundef %26, i64 noundef %461, i32 noundef %.0289.i)
   %462 = load ptr, ptr %7, align 8
   %463 = call noalias ptr @strdup(ptr noundef %462) #22
   store ptr %463, ptr %20, align 8
@@ -2502,7 +2502,7 @@ hwloc_synthetic_free_levels.exit:                 ; preds = %._crit_edge.i
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #7 {
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
   %7 = load i32, ptr %2, align 8
@@ -2562,13 +2562,13 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr nou
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds i8, ptr %14, i64 20
-  %31 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %30, ptr noundef nonnull %6)
+  %31 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %30, ptr noundef %6)
   store i64 %31, ptr %13, align 8
   br label %35
 
 32:                                               ; preds = %.critedge.us
   %33 = getelementptr inbounds i8, ptr %14, i64 7
-  %34 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %33, ptr noundef nonnull %6)
+  %34 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %33, ptr noundef %6)
   br label %35
 
 35:                                               ; preds = %32, %29, %25, %20
@@ -2614,7 +2614,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr nou
 
 49:                                               ; preds = %.lr.ph.split
   %50 = getelementptr inbounds i8, ptr %47, i64 5
-  %51 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %50, ptr noundef nonnull %6)
+  %51 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %50, ptr noundef %6)
   br label %68
 
 52:                                               ; preds = %.lr.ph.split
@@ -2624,7 +2624,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_synthetic_parse_attrs(ptr nou
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds i8, ptr %47, i64 20
-  %56 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %55, ptr noundef nonnull %6)
+  %56 = call fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef nonnull %55, ptr noundef %6)
   store i64 %56, ptr %13, align 8
   br label %68
 
@@ -2736,7 +2736,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3323,7 +3323,7 @@ define internal fastcc void @hwloc_synthetic_process_indexes(ptr nocapture nound
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc i64 @hwloc_synthetic_parse_memory_attr(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtoull(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 0) #22
   %5 = load ptr, ptr %3, align 8

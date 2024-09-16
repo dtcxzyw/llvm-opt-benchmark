@@ -1730,7 +1730,7 @@ if.end414:                                        ; preds = %MOD_EXP_CTIME_COPY_
   %call421 = call fastcc i64 @bn_get_bits(ptr noundef %p, i32 noundef %sub420)
   %94 = trunc i64 %call421 to i32
   %conv424 = and i32 %94, %sub419
-  %call425 = call fastcc i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef nonnull %tmp, i32 noundef %0, ptr noundef nonnull %add.ptr, i32 noundef %conv424, i32 noundef %spec.select)
+  %call425 = call fastcc i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef %tmp, i32 noundef %0, ptr noundef %add.ptr, i32 noundef %conv424, i32 noundef %spec.select)
   %tobool426.not = icmp eq i32 %call425, 0
   br i1 %tobool426.not, label %err, label %if.end428
 
@@ -1759,7 +1759,7 @@ for.end445:                                       ; preds = %for.cond435
   %call447 = call fastcc i64 @bn_get_bits(ptr noundef %p, i32 noundef %sub446)
   %95 = trunc i64 %call447 to i32
   %conv450 = and i32 %sub430, %95
-  %call451 = call fastcc i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef nonnull %am, i32 noundef %0, ptr noundef nonnull %add.ptr, i32 noundef %conv450, i32 noundef %spec.select)
+  %call451 = call fastcc i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef %am, i32 noundef %0, ptr noundef %add.ptr, i32 noundef %conv450, i32 noundef %spec.select)
   %tobool452.not = icmp eq i32 %call451, 0
   br i1 %tobool452.not, label %err, label %if.end454
 
@@ -1901,15 +1901,15 @@ declare i32 @bn_get_bits5(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @bn_power5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef %b, i32 noundef %top, ptr noundef %buf, i32 noundef %idx, i32 noundef %window) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr noundef nonnull %b, i32 noundef range(i32 -2147483648, 1048576) %top, ptr noundef nonnull %buf, i32 noundef %idx, i32 noundef range(i32 1, 7) %window) unnamed_addr #0 {
 entry:
   %shl = shl nuw nsw i32 1, %window
-  %call = tail call ptr @bn_wexpand(ptr noundef %b, i32 noundef %top) #5
+  %call = tail call ptr @bn_wexpand(ptr noundef nonnull %b, i32 noundef %top) #5
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp1 = icmp slt i32 %window, 4
+  %cmp1 = icmp ult i32 %window, 4
   br i1 %cmp1, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %if.end

@@ -342,7 +342,7 @@ if.then2.i:                                       ; preds = %if.then.i
   br label %if.then5
 
 if.then5:                                         ; preds = %if.then2.i, %_ZN9grpc_core7ExecCtx3GetEv.exit27
-  tail call fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef nonnull %3)
+  tail call fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef %3)
   br label %return
 
 if.end6:                                          ; preds = %if.then.i, %if.end
@@ -364,7 +364,7 @@ if.then10:                                        ; preds = %lor.lhs.false, %if.
   br i1 %cmp14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.then10
-  tail call fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef nonnull %3)
+  tail call fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef %3)
   br label %return
 
 if.end16:                                         ; preds = %if.then10
@@ -629,7 +629,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef %lock) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13queue_offloadPN9grpc_core8CombinerE(ptr noundef nonnull %lock) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
@@ -977,7 +977,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %entry, %if.then.i.i
-  invoke fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull %this, ptr noundef %closure, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull %this, ptr noundef %closure, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -1005,7 +1005,7 @@ lpad:                                             ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef %lock, ptr noundef %closure, ptr nocapture noundef readonly %error) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef %lock, ptr noundef %closure, ptr nocapture noundef nonnull readonly %error) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1971,7 +1971,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %entry, %if.then.i.i
-  invoke fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef %1, ptr noundef nonnull %closure, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL21combiner_finally_execPN9grpc_core8CombinerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef %1, ptr noundef nonnull %closure, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit

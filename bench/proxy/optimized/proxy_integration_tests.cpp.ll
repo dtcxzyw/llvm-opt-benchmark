@@ -493,7 +493,7 @@ define dso_local void @_ZN39ProxyIntegrationTests_TestDrawable_Test8TestBodyEv(p
           to label %32 unwind label %60
 
 32:                                               ; preds = %1
-  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %33 unwind label %62
 
 33:                                               ; preds = %32
@@ -534,7 +534,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %42
-  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %6)
           to label %47 unwind label %65
 
 47:                                               ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit
@@ -758,7 +758,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
           to label %123 unwind label %201
 
 123:                                              ; preds = %122
-  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %124 unwind label %203
 
 124:                                              ; preds = %123
@@ -827,7 +827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %_ZN
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit82
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit82: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, %142
-  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
           to label %147 unwind label %206
 
 147:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit82
@@ -1153,7 +1153,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
           to label %260 unwind label %337
 
 260:                                              ; preds = %259
-  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %261 unwind label %339
 
 261:                                              ; preds = %260
@@ -1222,7 +1222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133: ; preds = %_Z
   br label %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit136
 
 _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit136: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit133, %279
-  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22)
           to label %284 unwind label %342
 
 284:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEEC2EOS4_QL_ZNS_5proxy18HasMoveConstructorEE.exit136
@@ -1547,7 +1547,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
           to label %396 unwind label %416
 
 396:                                              ; preds = %395
-  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  invoke fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %397 unwind label %418
 
 397:                                              ; preds = %396
@@ -1810,7 +1810,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8DrawableEED2EvQaantL_ZNS_5proxy20HasTrivialDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123MakeDrawableFromCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2391,7 +2391,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_121PrintDrawableToStringB5cxx11EN3pro5proxyINS_4spec8DrawableEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -2427,7 +2427,7 @@ _ZNK12_GLOBAL__N_14spec4Draw8accessorIN3pro5proxyINS0_8DrawableEEEE4DrawIJRNSt7_
           to label %20 unwind label %22
 
 20:                                               ; preds = %15
-  invoke void @_ZNOSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
+  invoke void @_ZNOSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %21 unwind label %22
 
 21:                                               ; preds = %20

@@ -619,8 +619,8 @@ dissect_q932_facility_ie.exit:                    ; preds = %85, %34
 
 87:                                               ; preds = %33
   %88 = zext i8 %22 to i32
-  %.not42 = icmp eq i8 %22, 0
-  br i1 %.not42, label %._crit_edge.i, label %.lr.ph.i40
+  %.not28.i = icmp eq i8 %22, 0
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %87, %.lr.ph.i40
   %.024.i = phi i32 [ %89, %.lr.ph.i40 ], [ 2, %87 ]
@@ -633,7 +633,7 @@ dissect_q932_facility_ie.exit:                    ; preds = %85, %34
   %93 = and i8 %90, 127
   %94 = zext nneg i8 %93 to i32
   %95 = or disjoint i32 %92, %94
-  %96 = icmp ugt i32 %.02122.i, 1
+  %96 = icmp ne i32 %91, 0
   %.not.i41 = icmp sgt i8 %90, -1
   %97 = select i1 %96, i1 %.not.i41, i1 false
   br i1 %97, label %.lr.ph.i40, label %._crit_edge.i, !llvm.loop !6

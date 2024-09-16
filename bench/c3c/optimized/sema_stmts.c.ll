@@ -7573,7 +7573,7 @@ declare void @context_change_scope_for_label(ptr noundef, i32 noundef) local_unn
 declare void @context_pop_defers_and_replace_ast(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @sema_analyse_cond(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = icmp ne i32 %2, 0
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -8522,7 +8522,7 @@ sema_analyse_cond_list.exit:                      ; preds = %sema_analyse_last_c
 .critedge:                                        ; preds = %..critedge_crit_edge, %489
   %496 = phi i32 [ %.pre167, %..critedge_crit_edge ], [ %.pre168, %489 ]
   %497 = and i32 %496, 256
-  %498 = or i32 %497, %2
+  %498 = or disjoint i32 %497, %2
   %brmerge.not = icmp eq i32 %498, 0
   br i1 %brmerge.not, label %499, label %sema_analyse_cond_list.exit.thread
 

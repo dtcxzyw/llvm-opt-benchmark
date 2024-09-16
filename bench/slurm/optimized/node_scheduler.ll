@@ -1033,7 +1033,7 @@ define dso_local void @build_active_feature_bitmap(ptr nocapture noundef readonl
   %16 = load ptr, ptr %7, align 8
   tail call void @find_feature_nodes(ptr noundef %16, i1 noundef zeroext %15)
   %17 = load ptr, ptr %7, align 8
-  %18 = call fastcc i32 @_match_feature(ptr noundef %17, ptr noundef nonnull %4)
+  %18 = call fastcc i32 @_match_feature(ptr noundef %17, ptr noundef %4)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %26, label %20
 
@@ -1066,7 +1066,7 @@ declare i32 @node_features_g_count() local_unnamed_addr #1
 declare zeroext i1 @node_features_g_user_update(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_match_feature(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_match_feature(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -1745,7 +1745,7 @@ define dso_local i32 @select_nodes(ptr noundef %0, i1 noundef zeroext %1, ptr no
 110:                                              ; preds = %102, %96
   %111 = load i32, ptr %42, align 8
   %112 = call zeroext i1 @node_features_g_user_update(i32 noundef %111) #13
-  %113 = call fastcc i32 @_build_node_list(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef %3, i1 noundef zeroext %1, i1 noundef zeroext %112)
+  %113 = call fastcc i32 @_build_node_list(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %8, ptr noundef %3, i1 noundef zeroext %1, i1 noundef zeroext %112)
   %.not335 = icmp eq i32 %113, 0
   br i1 %.not335, label %114, label %497
 
@@ -1807,7 +1807,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %129
   br i1 %.not336, label %149, label %140
 
 140:                                              ; preds = %._crit_edge
-  %141 = call fastcc i32 @_nodes_in_sets(ptr noundef nonnull %139, ptr noundef nonnull %115, i32 noundef %117)
+  %141 = call fastcc i32 @_nodes_in_sets(ptr noundef %139, ptr noundef nonnull %115, i32 noundef %117)
   store i32 %141, ptr %7, align 4
   %.not337 = icmp eq i32 %141, 0
   br i1 %.not337, label %149, label %142
@@ -1853,14 +1853,14 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %129
   %159 = load i32, ptr %11, align 4
   %160 = load i32, ptr %12, align 4
   %161 = load i32, ptr %13, align 4
-  %162 = call fastcc i32 @_get_req_features(ptr noundef nonnull %115, i32 noundef %117, ptr noundef nonnull %9, ptr noundef nonnull %0, ptr noundef %.0296, i32 noundef %159, i32 noundef %160, i32 noundef %161, i1 noundef zeroext %1, ptr noundef nonnull %14, i1 noundef zeroext %112, i1 noundef zeroext %4)
+  %162 = call fastcc i32 @_get_req_features(ptr noundef nonnull %115, i32 noundef %117, ptr noundef %9, ptr noundef nonnull %0, ptr noundef %.0296, i32 noundef %159, i32 noundef %160, i32 noundef %161, i1 noundef zeroext %1, ptr noundef %14, i1 noundef zeroext %112, i1 noundef zeroext %4)
   store i32 %162, ptr %7, align 4
   %.pre = load ptr, ptr %9, align 8
   %.not340 = icmp eq ptr %.pre, null
   br i1 %.not340, label %.thread419, label %163
 
 163:                                              ; preds = %158
-  %164 = call fastcc ptr @_handle_exclusive_gres(ptr noundef nonnull %0, ptr noundef nonnull %.pre, i1 noundef zeroext %1)
+  %164 = call fastcc ptr @_handle_exclusive_gres(ptr noundef nonnull %0, ptr noundef %.pre, i1 noundef zeroext %1)
   %165 = call i32 @bit_set_count(ptr noundef nonnull %.pre) #13
   %166 = getelementptr inbounds i8, ptr %0, i64 604
   store i32 %165, ptr %166, align 4
@@ -1997,7 +1997,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph, %129
 240:                                              ; preds = %232, %227
   %.0294 = phi i1 [ true, %227 ], [ %239, %232 ]
   %241 = load ptr, ptr %14, align 8
-  call fastcc void @_preempt_jobs(ptr noundef %241, i1 noundef zeroext %.0294, ptr noundef nonnull %7, ptr noundef nonnull %0)
+  call fastcc void @_preempt_jobs(ptr noundef %241, i1 noundef zeroext %.0294, ptr noundef %7, ptr noundef nonnull %0)
   %242 = load i32, ptr %7, align 4
   %243 = icmp eq i32 %242, 2016
   %brmerge.not = and i1 %.0294, %243
@@ -2808,7 +2808,7 @@ _first_array_task.exit:                           ; preds = %55, %51, %_first_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2057) i32 @_build_node_list(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2057) i32 @_build_node_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3671,7 +3671,7 @@ _valid_features.exit:                             ; preds = %250, %._crit_edge.i
   %417 = load ptr, ptr %28, align 8
   %418 = getelementptr inbounds i8, ptr %417, i64 200
   %419 = load ptr, ptr %418, align 8
-  %420 = call fastcc i32 @_match_feature(ptr noundef %419, ptr noundef nonnull %150)
+  %420 = call fastcc i32 @_match_feature(ptr noundef %419, ptr noundef %150)
   %.pre523 = load ptr, ptr %150, align 8
   br label %421
 
@@ -3891,7 +3891,7 @@ _valid_features.exit:                             ; preds = %250, %._crit_edge.i
   br i1 %.not363, label %546, label %541
 
 541:                                              ; preds = %539
-  call fastcc void @_split_node_set(ptr noundef nonnull %364, ptr noundef nonnull %157, i32 noundef %.0289.ph466, i32 noundef %387, ptr noundef %.0285, ptr noundef nonnull %540, i32 noundef 1)
+  call fastcc void @_split_node_set(ptr noundef nonnull %364, ptr noundef %157, i32 noundef %.0289.ph466, i32 noundef %387, ptr noundef %.0285, ptr noundef nonnull %540, i32 noundef 1)
   %542 = load ptr, ptr %151, align 16
   %.not364 = icmp eq ptr %542, null
   br i1 %.not364, label %544, label %543
@@ -3914,7 +3914,7 @@ _valid_features.exit:                             ; preds = %250, %._crit_edge.i
 
 548:                                              ; preds = %546
   %549 = load ptr, ptr %18, align 8
-  call fastcc void @_split_node_set(ptr noundef %549, ptr noundef nonnull %157, i32 noundef %.0289.ph466, i32 noundef %.3, ptr noundef %.0285, ptr noundef nonnull %547, i32 noundef 2)
+  call fastcc void @_split_node_set(ptr noundef %549, ptr noundef %157, i32 noundef %.0289.ph466, i32 noundef %.3, ptr noundef %.0285, ptr noundef nonnull %547, i32 noundef 2)
   %550 = load ptr, ptr %153, align 8
   %.not367 = icmp eq ptr %550, null
   br i1 %.not367, label %552, label %551
@@ -3937,7 +3937,7 @@ _valid_features.exit:                             ; preds = %250, %._crit_edge.i
 
 556:                                              ; preds = %554
   %557 = load ptr, ptr %18, align 8
-  call fastcc void @_split_node_set(ptr noundef %557, ptr noundef nonnull %157, i32 noundef %.0289.ph466, i32 noundef %.4, ptr noundef %.0285, ptr noundef nonnull %555, i32 noundef 3)
+  call fastcc void @_split_node_set(ptr noundef %557, ptr noundef %157, i32 noundef %.0289.ph466, i32 noundef %.4, ptr noundef %.0285, ptr noundef nonnull %555, i32 noundef 3)
   %558 = load ptr, ptr %152, align 16
   %.not370 = icmp eq ptr %558, null
   br i1 %.not370, label %560, label %559
@@ -4200,9 +4200,9 @@ _find_grp_node_bitmap.exit.thread:                ; preds = %.loopexit406
   call void @assoc_mgr_lock(ptr noundef nonnull %13) #13
   call void @acct_policy_set_qos_order(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9) #13
   %665 = load ptr, ptr %8, align 8
-  call fastcc void @_find_qos_grp_node_bitmap(ptr noundef %0, ptr noundef %665, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10)
+  call fastcc void @_find_qos_grp_node_bitmap(ptr noundef %0, ptr noundef %665, ptr noundef %7, ptr noundef %12, ptr noundef %11, ptr noundef %10)
   %666 = load ptr, ptr %9, align 8
-  call fastcc void @_find_qos_grp_node_bitmap(ptr noundef %0, ptr noundef %666, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %10)
+  call fastcc void @_find_qos_grp_node_bitmap(ptr noundef %0, ptr noundef %666, ptr noundef %7, ptr noundef %12, ptr noundef %11, ptr noundef %10)
   %.not1722.i = icmp eq ptr %664, null
   br i1 %.not1722.i, label %_find_grp_node_bitmap.exitthread-pre-split, label %.lr.ph.i403
 
@@ -4503,7 +4503,7 @@ define internal fastcc void @_log_node_set(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %.thread
@@ -4540,7 +4540,7 @@ define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef %0, pt
   br i1 %14, label %.thread, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = tail call i32 @bit_super_set(ptr noundef %0, ptr noundef nonnull %13) #13
+  %16 = tail call i32 @bit_super_set(ptr noundef nonnull %0, ptr noundef nonnull %13) #13
   %.not = icmp eq i32 %16, 1
   %spec.select = select i1 %.not, i32 0, i32 2014
   call void @slurm_bit_free(ptr noundef nonnull %4) #13
@@ -4691,7 +4691,7 @@ define dso_local range(i32 0, 2051) i32 @get_node_cnts(ptr noundef %0, i32 nound
 declare void @job_array_pre_sched(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_req_features(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #0 {
+define internal fastcc i32 @_get_req_features(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef nonnull %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -5397,7 +5397,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph398, %340
   %349 = phi ptr [ %.pre435, %._crit_edge399 ], [ %301, %326 ]
   %350 = load i8, ptr %18, align 1
   %351 = trunc i8 %350 to i1
-  %352 = call fastcc i32 @_pick_best_nodes(ptr noundef %349, i32 noundef %.0287.lcssa, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %4, i32 noundef %307, i32 noundef %6, i32 noundef %307, i1 noundef zeroext %8, ptr noundef %136, ptr noundef nonnull %9, i1 noundef zeroext false, ptr noundef nonnull %19, i1 noundef zeroext %351)
+  %352 = call fastcc i32 @_pick_best_nodes(ptr noundef %349, i32 noundef %.0287.lcssa, ptr noundef %15, ptr noundef %3, ptr noundef %4, i32 noundef %307, i32 noundef %6, i32 noundef %307, i1 noundef zeroext %8, ptr noundef %136, ptr noundef %9, i1 noundef zeroext false, ptr noundef %19, i1 noundef zeroext %351)
   %353 = load ptr, ptr %119, align 8
   %354 = getelementptr inbounds i8, ptr %353, i64 296
   store i32 %310, ptr %354, align 8
@@ -5674,7 +5674,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph398, %340
   %461 = trunc nuw i8 %.0269 to i1
   %462 = load i8, ptr %18, align 1
   %463 = trunc i8 %462 to i1
-  %464 = call fastcc i32 @_pick_best_nodes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %.0258, i32 noundef %6, i32 noundef %.3, i1 noundef zeroext %8, ptr noundef %136, ptr noundef nonnull %9, i1 noundef zeroext %461, ptr noundef nonnull %19, i1 noundef zeroext %463)
+  %464 = call fastcc i32 @_pick_best_nodes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %.0258, i32 noundef %6, i32 noundef %.3, i1 noundef zeroext %8, ptr noundef %136, ptr noundef %9, i1 noundef zeroext %461, ptr noundef %19, i1 noundef zeroext %463)
   br label %465
 
 465:                                              ; preds = %.thread368, %460, %455
@@ -5754,7 +5754,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph398, %340
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_handle_exclusive_gres(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @_handle_exclusive_gres(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -5789,7 +5789,7 @@ define internal fastcc ptr @_handle_exclusive_gres(ptr nocapture noundef readonl
 
 20:                                               ; preds = %18, %15
   store i32 0, ptr %5, align 4
-  %21 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %5) #13
+  %21 = call ptr @next_node_bitmap(ptr noundef nonnull %1, ptr noundef nonnull %5) #13
   %.not1415 = icmp eq ptr %21, null
   br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
@@ -5808,7 +5808,7 @@ define internal fastcc ptr @_handle_exclusive_gres(ptr nocapture noundef readonl
   %31 = load i32, ptr %5, align 4
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %5, align 4
-  %33 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %5) #13
+  %33 = call ptr @next_node_bitmap(ptr noundef nonnull %1, ptr noundef nonnull %5) #13
   %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %._crit_edge, label %23, !llvm.loop !38
 
@@ -5836,7 +5836,7 @@ declare void @free_job_resources(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i64, ptr @_preempt_jobs.sched_update, align 8
   %6 = load i64, ptr @slurm_conf, align 8
   %.not = icmp eq i64 %5, %6
@@ -7753,7 +7753,7 @@ declare i32 @slurm_mcs_get_select(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_find_preemptable_jobs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2069) i32 @_pick_best_nodes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, ptr noundef %10, i1 noundef zeroext %11, ptr noundef %12, i1 noundef zeroext %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2069) i32 @_pick_best_nodes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, ptr noundef nonnull %10, i1 noundef zeroext %11, ptr noundef nonnull %12, i1 noundef zeroext %13) unnamed_addr #0 {
   %15 = alloca i32, align 4
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
@@ -7797,7 +7797,7 @@ define internal fastcc range(i32 0, 2069) i32 @_pick_best_nodes(ptr nocapture no
   %40 = sext i32 %39 to i64
   %41 = tail call ptr @bit_alloc(i64 noundef %40) #13
   store ptr %41, ptr %16, align 8
-  %42 = tail call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %41, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext %., ptr noundef %9, ptr noundef %10, ptr noundef %12) #13
+  %42 = tail call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %41, i32 noundef 0, i32 noundef 0, i32 noundef 0, i16 noundef zeroext %., ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %12) #13
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %45
 
@@ -8496,7 +8496,7 @@ _bit_or_cond.exit:                                ; preds = %331, %336, %341, %3
   %356 = getelementptr inbounds i8, ptr %355, i64 312
   store i64 %24, ptr %356, align 8
   %357 = load ptr, ptr %16, align 8
-  %358 = call i32 @select_g_job_test(ptr noundef %3, ptr noundef %357, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %., ptr noundef %.0288, ptr noundef nonnull %10, ptr noundef %12) #13
+  %358 = call i32 @select_g_job_test(ptr noundef %3, ptr noundef %357, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %., ptr noundef %.0288, ptr noundef nonnull %10, ptr noundef nonnull %12) #13
   %359 = load ptr, ptr %21, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 312
   %361 = load i64, ptr %360, align 8
@@ -8626,7 +8626,7 @@ _bit_or_cond.exit:                                ; preds = %331, %336, %341, %3
   %400 = getelementptr inbounds i8, ptr %399, i64 312
   store i64 %24, ptr %400, align 8
   %401 = load ptr, ptr %16, align 8
-  %402 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %401, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %., ptr noundef %9, ptr noundef nonnull %10, ptr noundef %12) #13
+  %402 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %401, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext %., ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %12) #13
   %403 = load ptr, ptr %21, align 8
   %404 = getelementptr inbounds i8, ptr %403, i64 312
   %405 = load i64, ptr %404, align 8
@@ -8753,7 +8753,7 @@ _bit_or_cond.exit:                                ; preds = %331, %336, %341, %3
   %451 = getelementptr inbounds i8, ptr %450, i64 312
   store i64 %24, ptr %451, align 8
   %452 = load ptr, ptr %16, align 8
-  %453 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %452, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext 1, ptr noundef %9, ptr noundef null, ptr noundef %12) #13
+  %453 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %452, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext 1, ptr noundef %9, ptr noundef null, ptr noundef nonnull %12) #13
   %454 = load ptr, ptr %21, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 312
   %456 = load i64, ptr %455, align 8
@@ -8801,7 +8801,7 @@ _bit_or_cond.exit:                                ; preds = %331, %336, %341, %3
   %471 = getelementptr inbounds i8, ptr %470, i64 312
   store i64 %24, ptr %471, align 8
   %472 = load ptr, ptr %17, align 8
-  %473 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %472, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext 1, ptr noundef %9, ptr noundef null, ptr noundef %12) #13
+  %473 = call i32 @select_g_job_test(ptr noundef nonnull %3, ptr noundef %472, i32 noundef %5, i32 noundef %6, i32 noundef %7, i16 noundef zeroext 1, ptr noundef %9, ptr noundef null, ptr noundef nonnull %12) #13
   %474 = load ptr, ptr %21, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 312
   %476 = load i64, ptr %475, align 8
@@ -9146,7 +9146,7 @@ declare i32 @adjust_cpus_nppcu(i16 noundef zeroext, i32 noundef, i32 noundef, i3
 declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_split_node_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_split_node_set(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 4) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8
   %10 = sext i32 %3 to i64
@@ -9199,7 +9199,7 @@ declare zeroext i1 @extra_constraints_test(ptr noundef, ptr noundef) local_unnam
 declare void @acct_policy_set_qos_order(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_find_qos_grp_node_bitmap(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @_find_qos_grp_node_bitmap(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %74, label %7
 

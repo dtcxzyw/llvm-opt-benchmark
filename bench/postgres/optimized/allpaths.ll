@@ -539,7 +539,7 @@ accumulate_append_subpath.exit249:                ; preds = %98, %94, %90, %accu
   br i1 %105, label %.split, label %107
 
 .split:                                           ; preds = %106
-  call fastcc void @accumulate_append_subpath(ptr noundef %.0194, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @accumulate_append_subpath(ptr noundef %.0194, ptr noundef %6, ptr noundef nonnull %7)
   br label %accumulate_append_subpath.exit250
 
 107:                                              ; preds = %106
@@ -554,7 +554,7 @@ accumulate_append_subpath.exit249:                ; preds = %98, %94, %90, %accu
   br i1 %113, label %.split204, label %114
 
 .split204:                                        ; preds = %108
-  call fastcc void @accumulate_append_subpath(ptr noundef nonnull %.0194, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @accumulate_append_subpath(ptr noundef nonnull %.0194, ptr noundef %6, ptr noundef nonnull %7)
   br label %accumulate_append_subpath.exit250
 
 114:                                              ; preds = %108, %107
@@ -1647,7 +1647,7 @@ list_length.exit266.thread:                       ; preds = %574, %553, %.lr.ph4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %35 [
     i32 274, label %5
@@ -3007,7 +3007,7 @@ list_length.exit.i:                               ; preds = %300, %289
   br i1 %.not.i47, label %444, label %313
 
 313:                                              ; preds = %list_length.exit.i
-  %314 = call fastcc zeroext i1 @subquery_is_pushdown_safe(ptr noundef nonnull %294, ptr noundef nonnull %294, ptr noundef nonnull %7)
+  %314 = call fastcc zeroext i1 @subquery_is_pushdown_safe(ptr noundef nonnull %294, ptr noundef nonnull %294, ptr noundef %7)
   br i1 %314, label %315, label %444
 
 315:                                              ; preds = %313
@@ -3195,7 +3195,7 @@ list_length.exit.i.i:                             ; preds = %378
   %406 = load ptr, ptr %405, align 8
   %407 = getelementptr inbounds i8, ptr %404, i64 16
   %408 = load i16, ptr %407, align 8
-  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %409 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %408, ptr noundef %406, ptr noundef nonnull %331, i1 noundef zeroext true, ptr noundef %6, ptr noundef %8)
   br i1 %409, label %410, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %397
@@ -3237,7 +3237,7 @@ list_length.exit.i.i:                             ; preds = %378
   %431 = load ptr, ptr %430, align 8
   %432 = getelementptr inbounds i8, ptr %429, i64 16
   %433 = load i16, ptr %432, align 8
-  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  %434 = call fastcc zeroext i1 @find_window_run_conditions(ptr noundef nonnull readonly %294, i16 noundef signext %433, ptr noundef %431, ptr noundef nonnull %331, i1 noundef zeroext false, ptr noundef %6, ptr noundef %8)
   br i1 %434, label %check_and_push_window_quals.exit.i, label %check_and_push_window_quals.exit.thread.i
 
 check_and_push_window_quals.exit.thread.i:        ; preds = %422, %418, %413, %383, %list_length.exit.i.i, %378, %375
@@ -3993,7 +3993,7 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4403,7 +4403,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #1
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3
@@ -4526,7 +4526,7 @@ declare void @set_opfuncid(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.SupportRequestWFuncMonotonic, align 8
   store i8 1, ptr %5, align 1
   br label %9

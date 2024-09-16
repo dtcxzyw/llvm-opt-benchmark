@@ -8626,7 +8626,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #29
-  invoke fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nonnull align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridname, ptr noundef %loc, ptr %alloc.coerce)
+  invoke fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias align 8 %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridname, ptr noundef %loc, ptr %alloc.coerce)
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %invoke.cont24
@@ -8765,7 +8765,7 @@ invoke.cont49:                                    ; preds = %invoke.cont47
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp45) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #29
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp41) #29
-  invoke fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nonnull align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %temperaturename, ptr noundef %loc, ptr %alloc.coerce)
+  invoke fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias align 8 %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %temperaturename, ptr noundef %loc, ptr %alloc.coerce)
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont49
@@ -9299,7 +9299,7 @@ eh.resume:                                        ; preds = %ehcleanup165, %ehcl
 declare void @_ZN4pbrt15ResolveFilenameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridName, ptr noundef %loc, ptr %alloc.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridName, ptr noundef %loc, ptr %alloc.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %buf = alloca %"class.pbrt::NanoVDBBuffer", align 8

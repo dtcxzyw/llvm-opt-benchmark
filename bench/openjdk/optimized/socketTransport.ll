@@ -334,7 +334,7 @@ setLastError.exit:                                ; preds = %18, %22
   br label %113
 
 24:                                               ; preds = %8
-  %25 = call fastcc i32 @parseAddress(ptr noundef nonnull %1, ptr noundef nonnull %6)
+  %25 = call fastcc i32 @parseAddress(ptr noundef nonnull %1, ptr noundef %6)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %26, label %113
 
@@ -584,7 +584,7 @@ define internal range(i32 0, 203) i32 @socketTransport_startListening(ptr nocapt
 
 19:                                               ; preds = %18, %15
   %.022 = phi ptr [ @.str.23, %18 ], [ %1, %15 ]
-  %20 = call fastcc i32 @parseAddress(ptr noundef nonnull %.022, ptr noundef nonnull %12)
+  %20 = call fastcc i32 @parseAddress(ptr noundef nonnull %.022, ptr noundef %12)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %109
 
@@ -1466,7 +1466,7 @@ recv_fully.exit67:                                ; preds = %115, %recv_fully.ex
 
 136:                                              ; preds = %129
   %137 = load i32, ptr @socketFD, align 4
-  %138 = call fastcc i32 @recv_fully(i32 noundef %137, ptr noundef nonnull %132, i32 noundef %122)
+  %138 = call fastcc i32 @recv_fully(i32 noundef %137, ptr noundef %132, i32 noundef %122)
   %139 = icmp slt i32 %138, %122
   br i1 %139, label %140, label %148
 
@@ -1863,7 +1863,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br label %171
 
 66:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr nonnull readonly align 1 %20, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 %22, i1 false)
   %67 = getelementptr inbounds i8, ptr %51, i64 %22
   store i8 0, ptr %67, align 1
   %68 = getelementptr inbounds i8, ptr %4, i64 11
@@ -2182,7 +2182,7 @@ define internal fastcc void @setLastError(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 203) i32 @parseAddress(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %struct.addrinfo, align 8
@@ -2771,7 +2771,7 @@ declare i32 @dbgsysSetSocketOption(i32 noundef, i32 noundef, i8 noundef zeroext,
 declare i32 @dbgsysPoll(i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -2147483646, -2147483648) %2) unnamed_addr #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -2781,7 +2781,7 @@ define internal fastcc i32 @recv_fully(i32 noundef %0, ptr noundef %1, i32 nound
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
   %7 = sub nsw i32 %2, %.01316
   %8 = sext i32 %7 to i64
-  %9 = tail call i32 @dbgsysRecv(i32 noundef %0, ptr noundef %6, i64 noundef %8, i32 noundef 0) #13
+  %9 = tail call i32 @dbgsysRecv(i32 noundef %0, ptr noundef nonnull %6, i64 noundef %8, i32 noundef 0) #13
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %._crit_edge, label %11
 

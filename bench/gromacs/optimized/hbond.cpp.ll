@@ -2475,18 +2475,18 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond12checkOverlapEv.exit: ; preds = %1
   store ptr %27, ptr %228, align 8
   %229 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %30, ptr %229, align 8
-  tail call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %52, ptr noundef nonnull %53)
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %52, ptr noundef nonnull %53)
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr noundef nonnull %52)
+  tail call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %52, ptr noundef %53)
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %52, ptr noundef %53)
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr noundef %52)
   %230 = getelementptr inbounds i8, ptr %0, i64 352
   %231 = load i8, ptr %230, align 8
   %232 = trunc i8 %231 to i1
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %227
-  tail call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %78, ptr noundef nonnull %79)
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull %78, ptr noundef nonnull %79)
-  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr noundef nonnull %78)
+  tail call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %78, ptr noundef %79)
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %78, ptr noundef %79)
+  tail call fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr noundef %78)
   br label %234
 
 234:                                              ; preds = %233, %227
@@ -5230,7 +5230,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_112HbondStorage7addDataEiRKSt6vectorINS1_5H
   br i1 %616, label %630, label %617
 
 617:                                              ; preds = %_ZN3gmx15analysismodules12_GLOBAL__N_112HbondStorage7addDataEiRKSt6vectorINS1_5HBondESaIS4_EE.exit
-  invoke fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr %.sroa.0297.6.ph, ptr %.sroa.11.2.ph)
+  invoke fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr %.sroa.0297.6.ph, ptr %.sroa.11.2.ph)
           to label %618 unwind label %98
 
 618:                                              ; preds = %617
@@ -6081,7 +6081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit166: ;
   %.val124 = load ptr, ptr %255, align 8
   %256 = getelementptr i8, ptr %.sroa.0203.0281, i64 16
   %.val125 = load ptr, ptr %256, align 8
-  invoke fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr %.val124, ptr %.val125)
+  invoke fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(520) %0, ptr %.val124, ptr %.val125)
           to label %257 unwind label %.loopexit
 
 257:                                              ; preds = %254
@@ -7293,7 +7293,7 @@ _ZN3gmx14UserInputErrorD2Ev.exit:                 ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond15searchAcceptorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = load ptr, ptr %3, align 8
@@ -7725,7 +7725,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searchDonorsERKNS_19TopologyInformationEPNS1_6t_infoEPKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::InconsistentInputError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9771,7 +9771,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit248:     ; preds = %.body244, %742
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr nocapture noundef readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond6linkDAEPNS1_6t_infoE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::InconsistentInputError", align 8
   %3 = alloca %"class.gmx::ExceptionInitializer", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12185,7 +12185,7 @@ _ZNSt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.gmx::analysismodules::(anonymous namespace)::HBond", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not21 = icmp eq ptr %.0.val, %.8.val
@@ -13766,7 +13766,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, i64 %3, i64 %4) unnamed_addr #19 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3gmx15analysismodules12_GLOBAL__N_15HBondESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_less_iterEEvT_T0_SE_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, i64 %3, i64 %4) unnamed_addr #19 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

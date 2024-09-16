@@ -1265,7 +1265,7 @@ wmem_block_gc.exit:                               ; preds = %39, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #2 {
   %4 = add nuw i64 %2, 15
   %5 = and i64 %4, -16
   %6 = getelementptr inbounds i8, ptr %1, i64 4

@@ -87,7 +87,7 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
   store ptr null, ptr %46, align 8
   %47 = load ptr, ptr %23, align 8
   store ptr %47, ptr %18, align 8
-  %48 = call fastcc ptr @LexizeExec(ptr noundef nonnull %7, ptr noundef null)
+  %48 = call fastcc ptr @LexizeExec(ptr noundef %7, ptr noundef null)
   %.not53 = icmp eq ptr %48, null
   br i1 %.not53, label %.loopexit, label %.lr.ph55
 
@@ -188,7 +188,7 @@ define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr n
 
 ._crit_edge:                                      ; preds = %71, %.lr.ph55
   call void @pfree(ptr noundef nonnull %49) #7
-  %109 = call fastcc ptr @LexizeExec(ptr noundef nonnull %7, ptr noundef null)
+  %109 = call fastcc ptr @LexizeExec(ptr noundef %7, ptr noundef null)
   %.not = icmp eq ptr %109, null
   br i1 %.not, label %.loopexit, label %.lr.ph55, !llvm.loop !7
 
@@ -220,7 +220,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @LexizeExec(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc ptr @LexizeExec(ptr noundef nonnull %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -673,7 +673,7 @@ RemoveHead.exit.i:                                ; preds = %.thread.i.i.i, %187
 
 196:                                              ; preds = %177
   %197 = load ptr, ptr %9, align 8
-  tail call fastcc void @moveToWaste(ptr noundef nonnull %0, ptr noundef %197)
+  tail call fastcc void @moveToWaste(ptr noundef %0, ptr noundef %197)
   br label %moveToWaste.exit
 
 moveToWaste.exit:                                 ; preds = %RemoveHead.exit.i, %.critedge, %196
@@ -813,7 +813,7 @@ define dso_local void @hlparsetext(i32 noundef %0, ptr nocapture noundef %1, ptr
   br label %50
 
 50:                                               ; preds = %addHLParsedLex.exit, %41
-  %51 = call fastcc ptr @LexizeExec(ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %51 = call fastcc ptr @LexizeExec(ptr noundef %8, ptr noundef nonnull %9)
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %56, label %52
 
@@ -1412,7 +1412,7 @@ declare ptr @lookup_ts_dictionary_cache(i32 noundef) local_unnamed_addr #1
 declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @moveToWaste(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @moveToWaste(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

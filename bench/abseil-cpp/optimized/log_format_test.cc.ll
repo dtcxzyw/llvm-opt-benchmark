@@ -2498,7 +2498,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2657,7 +2657,7 @@ nrvo.skipdtor:                                    ; preds = %if.else.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -126538,7 +126538,7 @@ invoke.cont.i3364:                                ; preds = %.noexc.i3362
 invoke.cont4.i3368:                               ; preds = %invoke.cont.i3364
   %line.i.i3369 = getelementptr inbounds i8, ptr %ref.tmp.i3353, i64 32
   store i32 272, ptr %line.i.i3369, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i3356)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i3356)
           to label %invoke.cont7.i3372 unwind label %lpad6.i
 
 invoke.cont7.i3372:                               ; preds = %invoke.cont4.i3368
@@ -127294,7 +127294,7 @@ invoke.cont.i3631:                                ; preds = %.noexc.i3629
 invoke.cont4.i3635:                               ; preds = %invoke.cont.i3631
   %line.i.i3636 = getelementptr inbounds i8, ptr %ref.tmp.i3620, i64 32
   store i32 289, ptr %line.i.i3636, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i3623)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_114MyUnsignedEnumEJNS4_17MyUnsignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i3623)
           to label %invoke.cont7.i3640 unwind label %lpad6.i3637
 
 invoke.cont7.i3640:                               ; preds = %invoke.cont4.i3635
@@ -128050,7 +128050,7 @@ invoke.cont.i3905:                                ; preds = %.noexc.i3903
 invoke.cont4.i3909:                               ; preds = %invoke.cont.i3905
   %line.i.i3910 = getelementptr inbounds i8, ptr %ref.tmp.i3894, i64 32
   store i32 331, ptr %line.i.i3910, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i3897)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i3897)
           to label %invoke.cont7.i3914 unwind label %lpad6.i3911
 
 invoke.cont7.i3914:                               ; preds = %invoke.cont4.i3909
@@ -128806,7 +128806,7 @@ invoke.cont.i4179:                                ; preds = %.noexc.i4177
 invoke.cont4.i4183:                               ; preds = %invoke.cont.i4179
   %line.i.i4184 = getelementptr inbounds i8, ptr %ref.tmp.i4168, i64 32
   store i32 348, ptr %line.i.i4184, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i4171)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i4171)
           to label %invoke.cont7.i4188 unwind label %lpad6.i4185
 
 invoke.cont7.i4188:                               ; preds = %invoke.cont4.i4183
@@ -129562,7 +129562,7 @@ invoke.cont.i4453:                                ; preds = %.noexc.i4451
 invoke.cont4.i4457:                               ; preds = %invoke.cont.i4453
   %line.i.i4458 = getelementptr inbounds i8, ptr %ref.tmp.i4442, i64 32
   store i32 366, ptr %line.i.i4458, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i4445)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i4445)
           to label %invoke.cont7.i4462 unwind label %lpad6.i4459
 
 invoke.cont7.i4462:                               ; preds = %invoke.cont4.i4457
@@ -130318,7 +130318,7 @@ invoke.cont.i4727:                                ; preds = %.noexc.i4725
 invoke.cont4.i4731:                               ; preds = %invoke.cont.i4727
   %line.i.i4732 = getelementptr inbounds i8, ptr %ref.tmp.i4716, i64 32
   store i32 385, ptr %line.i.i4732, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias nonnull align 8 %ref.tmp5.i4719)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_112MySignedEnumEJNS4_15MySignedIntEnumEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEv(ptr noalias align 8 %ref.tmp5.i4719)
           to label %invoke.cont7.i4736 unwind label %lpad6.i4733
 
 invoke.cont7.i4736:                               ; preds = %invoke.cont4.i4731

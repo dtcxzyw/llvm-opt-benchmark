@@ -5972,7 +5972,7 @@ _ZN4llvm5ErrorD2Ev.exit149:                       ; preds = %_ZL20ignoreStripped
 
 208:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit149
   call void @_ZN4llvm6object14COFFObjectFile23initDelayImportTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %11, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %11)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %11)
   %209 = load ptr, ptr %11, align 8
   %210 = icmp eq ptr %209, null
   br i1 %210, label %_ZN4llvm5ErrorD2Ev.exit151, label %211
@@ -5991,7 +5991,7 @@ _ZN4llvm5ErrorD2Ev.exit151:                       ; preds = %208, %211
 
 216:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit151
   call void @_ZN4llvm6object14COFFObjectFile18initExportTablePtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %12, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %12)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %12)
   %217 = load ptr, ptr %12, align 8
   %218 = icmp eq ptr %217, null
   br i1 %218, label %_ZN4llvm5ErrorD2Ev.exit153, label %219
@@ -6010,7 +6010,7 @@ _ZN4llvm5ErrorD2Ev.exit153:                       ; preds = %216, %219
 
 224:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit153
   call void @_ZN4llvm6object14COFFObjectFile16initBaseRelocPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %13, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %13)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %13)
   %225 = load ptr, ptr %13, align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %_ZN4llvm5ErrorD2Ev.exit155, label %227
@@ -6029,7 +6029,7 @@ _ZN4llvm5ErrorD2Ev.exit155:                       ; preds = %224, %227
 
 232:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit155
   call void @_ZN4llvm6object14COFFObjectFile21initDebugDirectoryPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %14, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %14)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %14)
   %233 = load ptr, ptr %14, align 8
   %234 = icmp eq ptr %233, null
   br i1 %234, label %_ZN4llvm5ErrorD2Ev.exit157, label %235
@@ -6048,7 +6048,7 @@ _ZN4llvm5ErrorD2Ev.exit157:                       ; preds = %232, %235
 
 240:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit157
   call void @_ZN4llvm6object14COFFObjectFile19initTLSDirectoryPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %15, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %15)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %15)
   %241 = load ptr, ptr %15, align 8
   %242 = icmp eq ptr %241, null
   br i1 %242, label %_ZN4llvm5ErrorD2Ev.exit159, label %243
@@ -6067,7 +6067,7 @@ _ZN4llvm5ErrorD2Ev.exit159:                       ; preds = %240, %243
 
 248:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit159
   call void @_ZN4llvm6object14COFFObjectFile17initLoadConfigPtrEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %16, ptr noundef nonnull align 8 dereferenceable(232) %1)
-  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %16)
+  call fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %16)
   %249 = load ptr, ptr %16, align 8
   %250 = icmp eq ptr %249, null
   br i1 %250, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %251
@@ -6135,7 +6135,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %6, %_ZN4llvm6object
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL20ignoreStrippedErrorsN4llvm5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %class.anon.130, align 1

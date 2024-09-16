@@ -948,7 +948,7 @@ define internal void @ascii_textsize(ptr nocapture readnone %0, ptr nocapture re
 declare ptr @tparm(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #12 {
+define internal fastcc void @merge(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 13) %3, i32 noundef range(i32 0, 9) %4, ptr noundef %5) unnamed_addr #12 {
   %7 = getelementptr inbounds i8, ptr %0, i64 20
   %8 = load i32, ptr %7, align 4
   %.not = icmp slt i32 %1, %8

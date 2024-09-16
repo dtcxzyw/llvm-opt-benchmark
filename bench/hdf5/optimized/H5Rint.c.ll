@@ -1386,7 +1386,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 89:                                               ; preds = %87
   store i64 %.071, ptr %4, align 8
   %90 = getelementptr inbounds i8, ptr %2, i64 24
-  %91 = call fastcc i32 @H5R__decode_region(ptr noundef nonnull %.068, ptr noundef nonnull %4, ptr noundef nonnull %90)
+  %91 = call fastcc i32 @H5R__decode_region(ptr noundef nonnull %.068, ptr noundef %4, ptr noundef nonnull %90)
   %92 = icmp slt i32 %91, 0
   br i1 %92, label %93, label %97
 
@@ -1404,7 +1404,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 100:                                              ; preds = %87
   store i64 %.071, ptr %5, align 8
   %101 = getelementptr inbounds i8, ptr %2, i64 24
-  %102 = call fastcc i32 @H5R__decode_string(ptr noundef nonnull %.068, ptr noundef nonnull %5, ptr noundef nonnull %101)
+  %102 = call fastcc i32 @H5R__decode_string(ptr noundef nonnull %.068, ptr noundef %5, ptr noundef nonnull %101)
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %104, label %108
 
@@ -1457,7 +1457,7 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5R__decode_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5R__decode_string(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = load i64, ptr %1, align 8
   %5 = icmp ult i64 %4, 2
   br i1 %5, label %6, label %10
@@ -1503,7 +1503,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5R__decode_string(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5R__decode_region(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5R__decode_region(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load i64, ptr %1, align 8

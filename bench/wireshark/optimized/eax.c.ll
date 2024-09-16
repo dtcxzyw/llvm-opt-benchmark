@@ -104,14 +104,14 @@ Dbl.exit45:                                       ; preds = %37, %38
 
 43:                                               ; preds = %Dbl.exit45
   %44 = trunc i32 %5 to i16
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef %2, i16 noundef zeroext %44)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef %2, i16 noundef zeroext %44)
   %45 = getelementptr inbounds i8, ptr %12, i64 12
   %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %45, i64 4)
   %.not37 = icmp eq i32 %bcmp36, 0
   br label %82
 
 46:                                               ; preds = %Dbl.exit45
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %12, ptr noundef readonly %0, i16 noundef zeroext %42, ptr noundef null, i16 noundef zeroext 0)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef %12, ptr noundef readonly %0, i16 noundef zeroext %42, ptr noundef null, i16 noundef zeroext 0)
   %47 = icmp eq i8 %7, 2
   br i1 %47, label %48, label %82
 
@@ -128,7 +128,7 @@ Dbl.exit45:                                       ; preds = %37, %38
 52:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) getelementptr inbounds (i8, ptr @instance, i64 32), i64 16, i1 false)
   %53 = trunc i32 %5 to i16
-  call fastcc void @dCMAC(ptr noundef %1, ptr noundef nonnull %13, ptr noundef readonly %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
+  call fastcc void @dCMAC(ptr noundef %1, ptr noundef %13, ptr noundef readonly %2, i16 noundef zeroext %53, ptr noundef null, i16 noundef zeroext 0)
   br label %54
 
 54:                                               ; preds = %52, %54
@@ -232,7 +232,7 @@ define hidden void @AesEncrypt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, ptr noundef readonly %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, ptr noundef readonly %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = add i16 %5, %3
   %.biased = add i16 %8, 15
@@ -330,7 +330,7 @@ define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr nocapture
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %7, align 8
-  %50 = call i32 @gcry_cipher_setiv(ptr noundef %49, ptr noundef %1, i64 noundef 16) #7
+  %50 = call i32 @gcry_cipher_setiv(ptr noundef %49, ptr noundef nonnull %1, i64 noundef 16) #7
   %.not66 = icmp eq i32 %50, 0
   br i1 %.not66, label %53, label %51
 

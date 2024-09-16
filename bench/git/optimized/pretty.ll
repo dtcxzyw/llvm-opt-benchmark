@@ -1168,7 +1168,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_rfc2047(ptr noundef %sb, ptr noundef %line, i64 noundef %len, ptr noundef %encoding, i32 noundef %type) unnamed_addr #1 {
+define internal fastcc void @add_rfc2047(ptr noundef %sb, ptr noundef %line, i64 noundef %len, ptr noundef %encoding, i32 noundef range(i32 0, 2) %type) unnamed_addr #1 {
 entry:
   %line.addr = alloca ptr, align 8
   %len.addr = alloca i64, align 8
@@ -1219,8 +1219,8 @@ while.body.lr.ph:                                 ; preds = %last_line_length.ex
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #19
   %9 = trunc i64 %call3 to i32
   %conv6 = add i32 %conv8.i, %9
-  %cmp23.not.i = icmp eq i32 %type, 1
-  br i1 %cmp23.not.i, label %while.body.us, label %while.body
+  %cmp23.not.not.i = icmp eq i32 %type, 0
+  br i1 %cmp23.not.not.i, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %for.end.us
   %line_len.045.us = phi i32 [ %add26.us, %for.end.us ], [ %conv6, %while.body.lr.ph ]
@@ -1239,48 +1239,31 @@ if.end.i.us:                                      ; preds = %lor.rhs.us
   %idxprom.i20.us = zext nneg i8 %11 to i64
   %arrayidx.i21.us = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i20.us
   %13 = load i8, ptr %arrayidx.i21.us, align 1
-  %conv6.i.us = zext i8 %13 to i32
-  %and.i.us = and i32 %conv6.i.us, 1
-  %cmp7.i.us = icmp ne i32 %and.i.us, 0
-  %14 = and i8 %11, 125
-  %15 = icmp eq i8 %14, 61
-  %or.cond3.i.us = or i1 %15, %cmp7.i.us
+  %14 = and i8 %13, 1
+  %cmp7.i.us = icmp ne i8 %14, 0
+  %15 = and i8 %11, 125
+  %16 = icmp eq i8 %15, 61
+  %or.cond3.i.us = or i1 %16, %cmp7.i.us
   %cmp19.i.us = icmp eq i8 %11, 95
   %or.cond4.i.us = or i1 %cmp19.i.us, %or.cond3.i.us
-  br i1 %or.cond4.i.us, label %.thread.us, label %if.end22.i.us
-
-if.end22.i.us:                                    ; preds = %if.end.i.us
-  %and30.i.us = and i32 %conv6.i.us, 6
-  %cmp31.i.us = icmp eq i32 %and30.i.us, 0
-  %cmp35.i.us = icmp ne i8 %11, 33
-  %or.cond5.not22.i.us = and i1 %cmp35.i.us, %cmp31.i.us
-  %16 = and i8 %11, 126
-  %17 = icmp ne i8 %16, 42
-  %or.cond7.not21.i.us = and i1 %17, %or.cond5.not22.i.us
-  %18 = icmp ne i8 %14, 45
-  %narrow.i.us = and i1 %18, %or.cond7.not21.i.us
-  %cond.fr22.us = freeze i1 %narrow.i.us
-  %mul1338.us = mul nsw i32 %call7.us, 3
-  %spec.select.us = select i1 %cond.fr22.us, ptr @.str.43, ptr @.str.44
-  %spec.select40.us = select i1 %cond.fr22.us, i32 %mul1338.us, i32 1
-  br label %.thread35.us
+  br i1 %or.cond4.i.us, label %.thread.us, label %.thread35.us
 
 .thread.us:                                       ; preds = %if.end.i.us, %lor.rhs.us, %while.body.us
   %mul1332.us = mul nsw i32 %call7.us, 3
   br label %.thread35.us
 
-.thread35.us:                                     ; preds = %.thread.us, %if.end22.i.us
-  %19 = phi ptr [ @.str.43, %.thread.us ], [ %spec.select.us, %if.end22.i.us ]
-  %20 = phi i32 [ %mul1332.us, %.thread.us ], [ %spec.select40.us, %if.end22.i.us ]
-  %add15.us = add nsw i32 %20, %line_len.045.us
+.thread35.us:                                     ; preds = %if.end.i.us, %.thread.us
+  %17 = phi ptr [ @.str.43, %.thread.us ], [ @.str.44, %if.end.i.us ]
+  %18 = phi i32 [ %mul1332.us, %.thread.us ], [ 1, %if.end.i.us ]
+  %add15.us = add nsw i32 %18, %line_len.045.us
   %cmp17.us = icmp sgt i32 %add15.us, 74
   br i1 %cmp17.us, label %if.then.us, label %if.end.us
 
 if.then.us:                                       ; preds = %.thread35.us
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull @.str.45, ptr noundef %encoding) #18
   %call19.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %encoding) #19
-  %21 = trunc i64 %call19.us to i32
-  %conv22.us = add i32 %21, 6
+  %19 = trunc i64 %call19.us to i32
+  %conv22.us = add i32 %19, 6
   br label %if.end.us
 
 if.end.us:                                        ; preds = %if.then.us, %.thread35.us
@@ -1293,54 +1276,71 @@ for.body.us.preheader:                            ; preds = %if.end.us
   br label %for.body.us
 
 for.end.us:                                       ; preds = %for.body.us, %if.end.us
-  %add26.us = add nsw i32 %line_len.1.us, %20
-  %22 = load i64, ptr %len.addr, align 8
-  %tobool.not.us = icmp eq i64 %22, 0
+  %add26.us = add nsw i32 %line_len.1.us, %18
+  %20 = load i64, ptr %len.addr, align 8
+  %tobool.not.us = icmp eq i64 %20, 0
   br i1 %tobool.not.us, label %while.end, label %while.body.us, !llvm.loop !15
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
   %indvars.iv49 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next50, %for.body.us ]
   %arrayidx.us = getelementptr inbounds i8, ptr %10, i64 %indvars.iv49
-  %23 = load i8, ptr %arrayidx.us, align 1
-  %conv25.us = zext i8 %23 to i32
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %19, i32 noundef %conv25.us) #18
+  %21 = load i8, ptr %arrayidx.us, align 1
+  %conv25.us = zext i8 %21 to i32
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %17, i32 noundef %conv25.us) #18
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %for.end.us, label %for.body.us, !llvm.loop !16
 
 while.body:                                       ; preds = %while.body.lr.ph, %for.end
   %line_len.045 = phi i32 [ %add26, %for.end ], [ %conv6, %while.body.lr.ph ]
-  %24 = load ptr, ptr %line.addr, align 8
+  %22 = load ptr, ptr %line.addr, align 8
   %call7 = call i32 @mbs_chrlen(ptr noundef nonnull %line.addr, ptr noundef nonnull %len.addr, ptr noundef %encoding) #18
   %cmp = icmp sgt i32 %call7, 1
   br i1 %cmp, label %.thread, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.body
-  %25 = load i8, ptr %24, align 1
-  %26 = add i8 %25, -32
-  %or.cond1.i = icmp ult i8 %26, 95
+  %23 = load i8, ptr %22, align 1
+  %24 = add i8 %23, -32
+  %or.cond1.i = icmp ult i8 %24, 95
   br i1 %or.cond1.i, label %if.end.i, label %.thread
 
 if.end.i:                                         ; preds = %lor.rhs
-  %idxprom.i20 = zext nneg i8 %25 to i64
+  %idxprom.i20 = zext nneg i8 %23 to i64
   %arrayidx.i21 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i20
-  %27 = load i8, ptr %arrayidx.i21, align 1
-  %28 = and i8 %27, 1
-  %cmp7.i = icmp ne i8 %28, 0
-  %29 = and i8 %25, 125
-  %30 = icmp eq i8 %29, 61
-  %or.cond3.i = or i1 %30, %cmp7.i
-  %cmp19.i = icmp eq i8 %25, 95
+  %25 = load i8, ptr %arrayidx.i21, align 1
+  %conv6.i = zext i8 %25 to i32
+  %and.i = and i32 %conv6.i, 1
+  %cmp7.i = icmp ne i32 %and.i, 0
+  %26 = and i8 %23, 125
+  %27 = icmp eq i8 %26, 61
+  %or.cond3.i = or i1 %27, %cmp7.i
+  %cmp19.i = icmp eq i8 %23, 95
   %or.cond4.i = or i1 %cmp19.i, %or.cond3.i
-  br i1 %or.cond4.i, label %.thread, label %.thread35
+  br i1 %or.cond4.i, label %.thread, label %if.end22.i
+
+if.end22.i:                                       ; preds = %if.end.i
+  %and30.i = and i32 %conv6.i, 6
+  %cmp31.i = icmp eq i32 %and30.i, 0
+  %cmp35.i = icmp ne i8 %23, 33
+  %or.cond5.not22.i = and i1 %cmp35.i, %cmp31.i
+  %28 = and i8 %23, 126
+  %29 = icmp ne i8 %28, 42
+  %or.cond7.not21.i = and i1 %29, %or.cond5.not22.i
+  %30 = icmp ne i8 %26, 45
+  %narrow.i = and i1 %30, %or.cond7.not21.i
+  %cond.fr22 = freeze i1 %narrow.i
+  %mul1338 = mul nsw i32 %call7, 3
+  %spec.select = select i1 %cond.fr22, ptr @.str.43, ptr @.str.44
+  %spec.select40 = select i1 %cond.fr22, i32 %mul1338, i32 1
+  br label %.thread35
 
 .thread:                                          ; preds = %while.body, %lor.rhs, %if.end.i
   %mul1332 = mul nsw i32 %call7, 3
   br label %.thread35
 
-.thread35:                                        ; preds = %if.end.i, %.thread
-  %31 = phi ptr [ @.str.43, %.thread ], [ @.str.44, %if.end.i ]
-  %32 = phi i32 [ %mul1332, %.thread ], [ 1, %if.end.i ]
+.thread35:                                        ; preds = %if.end22.i, %.thread
+  %31 = phi ptr [ @.str.43, %.thread ], [ %spec.select, %if.end22.i ]
+  %32 = phi i32 [ %mul1332, %.thread ], [ %spec.select40, %if.end22.i ]
   %add15 = add nsw i32 %32, %line_len.045
   %cmp17 = icmp sgt i32 %add15, 74
   br i1 %cmp17, label %if.then, label %if.end
@@ -1363,7 +1363,7 @@ for.body.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds i8, ptr %22, i64 %indvars.iv
   %34 = load i8, ptr %arrayidx, align 1
   %conv25 = zext i8 %34 to i32
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %sb, ptr noundef nonnull %31, i32 noundef %conv25) #18
@@ -1387,7 +1387,7 @@ declare void @strbuf_add_wrapped_bytes(ptr noundef, ptr noundef, i32 noundef, i3
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_addch(ptr noundef %sb, i32 noundef %c) unnamed_addr #1 {
+define internal fastcc void @strbuf_addch(ptr noundef %sb, i32 noundef range(i32 -128, 128) %c) unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %sb, align 8
   %tobool.not.i = icmp eq i64 %0, 0
@@ -1432,7 +1432,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @strbuf_addchars(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_line_with_color(ptr noundef %sb, ptr noundef %opt, ptr noundef %line, i64 noundef %linelen, i32 noundef %color, i32 noundef %ctx, i32 noundef %field) unnamed_addr #1 {
+define internal fastcc void @append_line_with_color(ptr noundef %sb, ptr noundef %opt, ptr noundef %line, i64 noundef %linelen, i32 noundef %color, i32 noundef range(i32 0, 2) %ctx, i32 noundef range(i32 0, 4) %field) unnamed_addr #1 {
 entry:
   %match = alloca %struct.regmatch_t, align 4
   %add.ptr = getelementptr inbounds i8, ptr %line, i64 %linelen
@@ -2983,7 +2983,7 @@ if.end.i:                                         ; preds = %if.then.i22, %if.el
   br i1 %cmp8.i, label %if.then10.i, label %if.else.i
 
 if.then10.i:                                      ; preds = %if.end.i
-  %call.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %sb, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef nonnull %context)
+  %call.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %sb, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef %context)
   br label %if.end12.i
 
 if.else.i:                                        ; preds = %if.end.i
@@ -3013,7 +3013,7 @@ if.end7.i.i:                                      ; preds = %if.then.i.i, %if.el
   %22 = phi i8 [ %.pre.i28, %if.then.i.i ], [ %14, %if.else.i ]
   %padding.0.i.i = phi i32 [ %sub6.i.i, %if.then.i.i ], [ %17, %if.else.i ]
   %cmp882.i.i = icmp eq i8 %22, 67
-  %call1083.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef nonnull %context)
+  %call1083.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %placeholder.addr.0.i, ptr noundef %context)
   br i1 %cmp882.i.i, label %if.end14.i.i, label %while.end.i.i
 
 if.end14.i.i:                                     ; preds = %if.end7.i.i, %if.end19.i.i
@@ -3030,7 +3030,7 @@ if.end19.i.i:                                     ; preds = %if.end14.i.i
   %inc.i.i = add i64 %add1186.i.i, 1
   %24 = load i8, ptr %incdec.ptr.i.i, align 1
   %cmp8.i.i = icmp eq i8 %24, 67
-  %call10.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %incdec.ptr.i.i, ptr noundef nonnull %context)
+  %call10.i.i = call fastcc i64 @format_commit_one(ptr noundef nonnull %local_sb.i.i, ptr noundef nonnull %incdec.ptr.i.i, ptr noundef %context)
   %add11.i.i = add i64 %inc.i.i, %call10.i.i
   br i1 %cmp8.i.i, label %if.end14.i.i, label %while.end.i.i
 
@@ -3331,7 +3331,7 @@ if.end9:                                          ; preds = %if.then7, %strbuf_a
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !28
 
 while.end:                                        ; preds = %if.end9, %entry
-  call fastcc void @rewrap_message_tail(ptr noundef %sb, ptr noundef nonnull %context, i64 noundef 0, i64 noundef 0, i64 noundef 0)
+  call fastcc void @rewrap_message_tail(ptr noundef %sb, ptr noundef %context, i64 noundef 0, i64 noundef 0, i64 noundef 0)
   %tobool10.not = icmp eq ptr %2, null
   br i1 %tobool10.not, label %if.else16, label %if.then11
 
@@ -3385,7 +3385,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @strbuf_expand_step(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rewrap_message_tail(ptr nocapture noundef %sb, ptr nocapture noundef %c, i64 noundef %new_width, i64 noundef %new_indent1, i64 noundef %new_indent2) unnamed_addr #1 {
+define internal fastcc void @rewrap_message_tail(ptr nocapture noundef %sb, ptr nocapture noundef nonnull %c, i64 noundef range(i64 0, 16385) %new_width, i64 noundef range(i64 0, 16385) %new_indent1, i64 noundef range(i64 0, 16385) %new_indent2) unnamed_addr #1 {
 entry:
   %_swap_buffer.i.i = alloca [24 x i8], align 16
   %tmp.i = alloca %struct.strbuf, align 8
@@ -4083,7 +4083,7 @@ for.end:                                          ; preds = %if.end8, %get_one_l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_add_tabexpand(ptr noundef %sb, ptr noundef %opt, i32 noundef %color, i32 noundef %tabwidth, ptr noundef %line, i32 noundef %linelen) unnamed_addr #1 {
+define internal fastcc void @strbuf_add_tabexpand(ptr noundef %sb, ptr noundef %opt, i32 noundef %color, i32 noundef range(i32 1, 0) %tabwidth, ptr noundef %line, i32 noundef %linelen) unnamed_addr #1 {
 entry:
   %start.addr.i = alloca ptr, align 8
   %remain.i = alloca i64, align 8
@@ -4879,7 +4879,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @git_parse_maybe_bool(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @format_commit_one(ptr noundef %sb, ptr noundef %placeholder, ptr noundef %context) unnamed_addr #1 {
+define internal fastcc i64 @format_commit_one(ptr noundef %sb, ptr noundef %placeholder, ptr noundef nonnull %context) unnamed_addr #1 {
 entry:
   %next.i = alloca ptr, align 8
   %color.i = alloca [75 x i8], align 16
@@ -5221,7 +5221,7 @@ if.end51:                                         ; preds = %if.end45, %if.end27
   br i1 %or.cond1, label %return, label %if.end60
 
 if.end60:                                         ; preds = %if.end51
-  tail call fastcc void @rewrap_message_tail(ptr noundef %sb, ptr noundef nonnull %context, i64 noundef %width.0, i64 noundef %indent1.0, i64 noundef %indent2.0)
+  tail call fastcc void @rewrap_message_tail(ptr noundef %sb, ptr noundef %context, i64 noundef %width.0, i64 noundef %indent1.0, i64 noundef %indent2.0)
   %sub.ptr.lhs.cast = ptrtoint ptr %call24 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %placeholder to i64
   %reass.sub286 = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -5402,7 +5402,7 @@ if.end74:                                         ; preds = %if.end72, %if.then6
 
 if.then79:                                        ; preds = %if.end74
   %incdec.ptr = getelementptr i8, ptr %placeholder, i64 10
-  %call81 = call fastcc i64 @parse_describe_args(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %cmd)
+  %call81 = call fastcc i64 @parse_describe_args(ptr noundef nonnull %incdec.ptr, ptr noundef %cmd)
   %add.ptr82 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %call81
   %.pre312 = load i8, ptr %add.ptr82, align 1
   br label %if.end83
@@ -5889,7 +5889,7 @@ if.then297:                                       ; preds = %do.body.i246
 if.then303:                                       ; preds = %if.then297
   %incdec.ptr304 = getelementptr i8, ptr %placeholder, i64 10
   store ptr %incdec.ptr304, ptr %arg, align 8
-  call fastcc void @parse_decoration_options(ptr noundef nonnull %arg, ptr noundef nonnull %opts298)
+  call fastcc void @parse_decoration_options(ptr noundef %arg, ptr noundef %opts298)
   %.pre310 = load ptr, ptr %arg, align 8
   %.pre311 = load i8, ptr %.pre310, align 1
   br label %if.end305
@@ -5912,7 +5912,7 @@ if.then309:                                       ; preds = %if.end305
 
 if.end315:                                        ; preds = %if.then309, %if.end305
   %ret299.0 = phi i64 [ %add314, %if.then309 ], [ 0, %if.end305 ]
-  call fastcc void @free_decoration_options(ptr noundef nonnull %opts298)
+  call fastcc void @free_decoration_options(ptr noundef %opts298)
   br label %return
 
 if.end316:                                        ; preds = %do.cond.i250
@@ -5927,7 +5927,7 @@ if.then321:                                       ; preds = %if.end316
   %commit_encoding = getelementptr inbounds i8, ptr %context, i64 144
   %call322 = tail call ptr @repo_logmsg_reencode(ptr noundef %107, ptr noundef nonnull %0, ptr noundef nonnull %commit_encoding, ptr noundef nonnull @.str.14)
   store ptr %call322, ptr %message, align 8
-  tail call fastcc void @parse_commit_header(ptr noundef nonnull %context)
+  tail call fastcc void @parse_commit_header(ptr noundef %context)
   %.pre307 = load i8, ptr %placeholder, align 1
   br label %if.end324
 
@@ -5998,7 +5998,7 @@ sw.epilog355:                                     ; preds = %if.end324
   br i1 %tobool359.not, label %if.then360, label %if.end361
 
 if.then360:                                       ; preds = %sw.epilog355
-  tail call fastcc void @parse_commit_message(ptr noundef nonnull %context)
+  tail call fastcc void @parse_commit_message(ptr noundef %context)
   %.pr = load i8, ptr %placeholder, align 1
   br label %if.end361
 
@@ -6109,7 +6109,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare ptr @strvec_push(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @parse_describe_args(ptr noundef %start, ptr noundef %args) unnamed_addr #1 {
+define internal fastcc i64 @parse_describe_args(ptr noundef %start, ptr noundef nonnull %args) unnamed_addr #1 {
 entry:
   %endptr = alloca ptr, align 8
   br label %for.body
@@ -6188,11 +6188,11 @@ if.end3.i:                                        ; preds = %if.end.i
   ]
 
 if.then7:                                         ; preds = %if.end3.i, %if.end.i
-  %call11 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %args, ptr noundef nonnull @.str.74, ptr noundef %1) #18
+  %call11 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.74, ptr noundef %1) #18
   br label %for.body.backedge
 
 if.else:                                          ; preds = %if.end3.i
-  %call15 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %args, ptr noundef nonnull @.str.75, ptr noundef %1) #18
+  %call15 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.75, ptr noundef %1) #18
   br label %for.body.backedge
 
 sw.bb17:                                          ; preds = %for.body
@@ -6258,7 +6258,7 @@ if.end26:                                         ; preds = %if.then23
 
 if.end31:                                         ; preds = %if.end26
   %conv35 = trunc i64 %arglen.2 to i32
-  %call36 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %args, ptr noundef nonnull @.str.76, ptr noundef %6, i32 noundef %conv35, ptr noundef %argval.3) #18
+  %call36 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.76, ptr noundef %6, i32 noundef %conv35, ptr noundef %argval.3) #18
   br label %for.body.backedge
 
 sw.bb38:                                          ; preds = %for.body
@@ -6315,7 +6315,7 @@ if.then44:                                        ; preds = %if.end15.i30, %if.t
 
 if.end47:                                         ; preds = %if.then44
   %conv51 = trunc i64 %arglen.4 to i32
-  %call52 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef %args, ptr noundef nonnull @.str.76, ptr noundef %12, i32 noundef %conv51, ptr noundef %argval.5) #18
+  %call52 = tail call ptr (ptr, ptr, ...) @strvec_pushf(ptr noundef nonnull %args, ptr noundef nonnull @.str.76, ptr noundef %12, i32 noundef %conv51, ptr noundef %argval.5) #18
   br label %for.body.backedge
 
 for.inc:                                          ; preds = %do.cond.i.i23, %do.cond.i.i, %do.cond.i.i.i, %if.end3.i, %if.end15.i30, %if.then1.i28, %if.end15.i, %if.then1.i, %if.end15.i.i, %if.then1.i.i, %for.body
@@ -6392,7 +6392,7 @@ declare i32 @check_commit_signature(ptr noundef, ptr noundef) local_unnamed_addr
 declare ptr @gpg_trust_level_to_str(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_decoration_options(ptr nocapture noundef %arg, ptr nocapture noundef writeonly %opts) unnamed_addr #1 {
+define internal fastcc void @parse_decoration_options(ptr nocapture noundef nonnull %arg, ptr nocapture noundef nonnull writeonly %opts) unnamed_addr #1 {
 entry:
   %format.i120 = alloca ptr, align 8
   %format.i = alloca ptr, align 8
@@ -6951,7 +6951,7 @@ while.end:                                        ; preds = %if.then1.i.i100, %i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @free_decoration_options(ptr nocapture noundef readonly %opts) unnamed_addr #13 {
+define internal fastcc void @free_decoration_options(ptr nocapture noundef nonnull readonly %opts) unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %opts, align 8
   tail call void @free(ptr noundef %0) #18
@@ -6971,7 +6971,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_commit_header(ptr nocapture noundef %context) unnamed_addr #14 {
+define internal fastcc void @parse_commit_header(ptr nocapture noundef nonnull %context) unnamed_addr #14 {
 entry:
   %message = getelementptr inbounds i8, ptr %context, i64 136
   %0 = load ptr, ptr %message, align 8
@@ -7294,7 +7294,7 @@ return:                                           ; preds = %if.end53, %if.end53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @parse_commit_message(ptr nocapture noundef %c) unnamed_addr #14 {
+define internal fastcc void @parse_commit_message(ptr nocapture noundef nonnull %c) unnamed_addr #14 {
 entry:
   %message = getelementptr inbounds i8, ptr %c, i64 136
   %0 = load ptr, ptr %message, align 8

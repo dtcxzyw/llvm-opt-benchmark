@@ -2382,7 +2382,7 @@ if.then:                                          ; preds = %for.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  invoke fastcc void @_ZL9qkind_strB5cxx1115quantifier_kind(ptr noalias nonnull align 8 %ref.tmp, i32 noundef %qkind)
+  invoke fastcc void @_ZL9qkind_strB5cxx1115quantifier_kind(ptr noalias align 8 %ref.tmp, i32 noundef %qkind)
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont
@@ -2471,7 +2471,7 @@ unreachable:                                      ; preds = %invoke.cont19
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9qkind_strB5cxx1115quantifier_kind(ptr noalias align 8 %agg.result, i32 noundef %qkind) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9qkind_strB5cxx1115quantifier_kind(ptr noalias nonnull align 8 %agg.result, i32 noundef %qkind) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1

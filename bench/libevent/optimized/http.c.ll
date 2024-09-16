@@ -1257,20 +1257,20 @@ while.body.i:                                     ; preds = %land.rhs.i
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %sw.bb
   %len.addr.0.lcssa.i = phi i64 [ %.pr, %sw.bb ], [ %len.addr.0164.i, %land.rhs.i ], [ %dec.i, %while.body.i ]
   %cmp5.i = icmp ult i64 %len.addr.0.lcssa.i, 14
-  br i1 %cmp5.i, label %101, label %if.end.i
+  br i1 %cmp5.i, label %103, label %if.end.i
 
 if.end.i:                                         ; preds = %while.end.i
   %call.i = call ptr @strsep(ptr noundef nonnull %line.addr.i, ptr noundef nonnull @.str.7) #19
   %6 = load ptr, ptr %line.addr.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i, label %101, label %if.end8.i
+  br i1 %tobool.not.i, label %103, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end.i
   %call9.i = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 32) #18
   %tobool10.not.i = icmp eq ptr %call9.i, null
   %cmp11.i = icmp eq ptr %6, %call9.i
   %or.cond119.i = or i1 %tobool10.not.i, %cmp11.i
-  br i1 %or.cond119.i, label %101, label %if.end14.i
+  br i1 %or.cond119.i, label %103, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.end8.i
   store i8 0, ptr %call9.i, align 1
@@ -1765,7 +1765,7 @@ if.then421.i:                                     ; preds = %land.lhs.true415.i
 
 if.then426.i:                                     ; preds = %if.then421.i
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__.evhttp_parse_request_line) #19
-  br label %101
+  br label %103
 
 if.end427.i:                                      ; preds = %if.then421.i
   %85 = load i16, ptr %flags.i, align 4
@@ -1774,7 +1774,7 @@ if.end427.i:                                      ; preds = %if.then421.i
 
 if.then432.i:                                     ; preds = %if.end427.i
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.53, ptr noundef nonnull @__func__.evhttp_parse_request_line) #19
-  br label %101
+  br label %103
 
 if.end433.i:                                      ; preds = %if.end427.i
   %86 = load i32, ptr %type413.i, align 8
@@ -1823,7 +1823,7 @@ evhttp_parse_http_version.exit.thread.i:          ; preds = %if.then2.i.i, %do.b
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i)
-  br label %101
+  br label %103
 
 if.end448.i:                                      ; preds = %if.end442.i
   %conv.i.i = trunc i32 %89 to i8
@@ -1845,11 +1845,11 @@ if.end448.i:                                      ; preds = %if.end442.i
 do.body454.i:                                     ; preds = %if.end448.i
   %93 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool455.not.i = icmp eq i32 %93, 0
-  br i1 %tobool455.not.i, label %101, label %if.then456.i
+  br i1 %tobool455.not.i, label %103, label %if.then456.i
 
 if.then456.i:                                     ; preds = %do.body454.i
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.55, ptr noundef nonnull @__func__.evhttp_parse_request_line) #19
-  br label %101
+  br label %103
 
 if.end459.i:                                      ; preds = %if.end448.i
   %cmp460.i = icmp eq i32 %type.1170.i, 128
@@ -1885,7 +1885,7 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i
   br label %while.cond.i.i.i, !llvm.loop !13
 
 end_of_authority.exit.i.i:                        ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
-  %call4.i.i = call fastcc i32 @parse_authority(ptr noundef nonnull %call.i151.i, ptr noundef nonnull %call449.i, ptr noundef nonnull %cp.addr.0.i.i.i, ptr noundef nonnull %call.i151.i)
+  %call4.i.i = call fastcc i32 @parse_authority(ptr noundef %call.i151.i, ptr noundef %call449.i, ptr noundef %cp.addr.0.i.i.i, ptr noundef %call.i151.i)
   %cmp5.i.i = icmp slt i32 %call4.i.i, 0
   br i1 %cmp5.i.i, label %if.then13.i.i, label %if.end7.i.i
 
@@ -1907,7 +1907,7 @@ if.then13.i.i:                                    ; preds = %err.thread11.i.i, %
 evhttp_uri_parse_authority.exit.thread.i:         ; preds = %if.then13.i.i, %err.thread.i.i
   %uri_elems159.i = getelementptr inbounds i8, ptr %req, i64 104
   store ptr null, ptr %uri_elems159.i, align 8
-  br label %101
+  br label %103
 
 evhttp_uri_parse_authority.exit.i:                ; preds = %if.end7.i.i
   %uri_elems.i = getelementptr inbounds i8, ptr %req, i64 104
@@ -1919,7 +1919,7 @@ if.else.i:                                        ; preds = %if.end459.i
   %uri_elems471.i = getelementptr inbounds i8, ptr %req, i64 104
   store ptr %call470.i, ptr %uri_elems471.i, align 8
   %cmp472.i = icmp eq ptr %call470.i, null
-  br i1 %cmp472.i, label %101, label %if.end476.i
+  br i1 %cmp472.i, label %103, label %if.end476.i
 
 if.end476.i:                                      ; preds = %if.else.i, %evhttp_uri_parse_authority.exit.i
   %95 = phi ptr [ %call.i151.i, %evhttp_uri_parse_authority.exit.i ], [ %call470.i, %if.else.i ]
@@ -1940,24 +1940,35 @@ lor.lhs.false485.i:                               ; preds = %land.lhs.true482.i
   %tobool487.i = icmp eq i32 %call486.i, 0
   %tobool489.i = icmp ne ptr %97, null
   %or.cond.i = select i1 %tobool487.i, i1 %tobool489.i, i1 false
-  br i1 %or.cond.i, label %land.lhs.true490.i, label %evhttp_parse_request_line.exit
+  br i1 %or.cond.i, label %lor.lhs.false485.split.i, label %evhttp_parse_request_line.exit
 
-land.lhs.true488.i:                               ; preds = %land.lhs.true482.i
-  %tobool489.old.not.i = icmp eq ptr %97, null
-  br i1 %tobool489.old.not.i, label %evhttp_parse_request_line.exit, label %land.lhs.true490.i
-
-land.lhs.true490.i:                               ; preds = %land.lhs.true488.i, %lor.lhs.false485.i
+lor.lhs.false485.split.i:                         ; preds = %lor.lhs.false485.i
   %98 = load ptr, ptr %evcon, align 8
   %http_server116.i = getelementptr inbounds i8, ptr %98, i64 288
   %99 = load ptr, ptr %http_server116.i, align 8
-  %call492117.i = call fastcc i32 @evhttp_find_vhost(ptr noundef %99, ptr noundef null, ptr noundef nonnull %97)
-  %tobool493.not.i = icmp eq i32 %call492117.i, 0
+  %call492117.i = call fastcc i32 @evhttp_find_vhost(ptr noundef %99, ptr noundef null, ptr noundef %97)
+  br label %land.lhs.true490.i
+
+land.lhs.true488.i:                               ; preds = %land.lhs.true482.i
+  %tobool489.old.not.i = icmp eq ptr %97, null
+  br i1 %tobool489.old.not.i, label %evhttp_parse_request_line.exit, label %land.lhs.true488.split.i
+
+land.lhs.true488.split.i:                         ; preds = %land.lhs.true488.i
+  %100 = load ptr, ptr %evcon, align 8
+  %http_server113.i = getelementptr inbounds i8, ptr %100, i64 288
+  %101 = load ptr, ptr %http_server113.i, align 8
+  %call492114.i = call fastcc i32 @evhttp_find_vhost(ptr noundef %101, ptr noundef null, ptr noundef nonnull %97)
+  br label %land.lhs.true490.i
+
+land.lhs.true490.i:                               ; preds = %land.lhs.true488.split.i, %lor.lhs.false485.split.i
+  %phi.call.i = phi i32 [ %call492114.i, %land.lhs.true488.split.i ], [ %call492117.i, %lor.lhs.false485.split.i ]
+  %tobool493.not.i = icmp eq i32 %phi.call.i, 0
   br i1 %tobool493.not.i, label %if.then494.i, label %evhttp_parse_request_line.exit
 
 if.then494.i:                                     ; preds = %land.lhs.true490.i
   %flags495.i = getelementptr inbounds i8, ptr %req, i64 24
-  %100 = load i32, ptr %flags495.i, align 8
-  %or.i = or i32 %100, 2
+  %102 = load i32, ptr %flags495.i, align 8
+  %or.i = or i32 %102, 2
   store i32 %or.i, ptr %flags495.i, align 8
   br label %evhttp_parse_request_line.exit
 
@@ -1966,7 +1977,7 @@ evhttp_parse_request_line.exit:                   ; preds = %if.end476.i, %lor.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ext_method.i)
   br label %sw.epilog
 
-101:                                              ; preds = %if.then426.i, %if.then432.i, %while.end.i, %if.end.i, %if.end8.i, %do.body454.i, %if.then456.i, %if.else.i, %evhttp_parse_http_version.exit.thread.i, %evhttp_uri_parse_authority.exit.thread.i
+103:                                              ; preds = %if.then426.i, %if.then432.i, %while.end.i, %if.end.i, %if.end8.i, %do.body454.i, %if.then456.i, %if.else.i, %evhttp_parse_http_version.exit.thread.i, %evhttp_uri_parse_authority.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ext_method.i)
   br label %sw.epilog
@@ -1975,48 +1986,48 @@ sw.bb18:                                          ; preds = %if.end13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %line.addr.i17)
   store ptr %call, ptr %line.addr.i17, align 8
   %call.i18 = call ptr @strsep(ptr noundef nonnull %line.addr.i17, ptr noundef nonnull @.str.7) #19
-  %102 = load ptr, ptr %line.addr.i17, align 8
-  %cmp.i19 = icmp eq ptr %102, null
-  br i1 %cmp.i19, label %110, label %if.end.i20
+  %104 = load ptr, ptr %line.addr.i17, align 8
+  %cmp.i19 = icmp eq ptr %104, null
+  br i1 %cmp.i19, label %112, label %if.end.i20
 
 if.end.i20:                                       ; preds = %sw.bb18
   %call1.i = call ptr @strsep(ptr noundef nonnull %line.addr.i17, ptr noundef nonnull @.str.7) #19
-  %103 = load ptr, ptr %line.addr.i17, align 8
-  %cmp2.not.i = icmp eq ptr %103, null
-  %spec.select.i = select i1 %cmp2.not.i, ptr @.str.14, ptr %103
+  %105 = load ptr, ptr %line.addr.i17, align 8
+  %cmp2.not.i = icmp eq ptr %105, null
+  %spec.select.i = select i1 %cmp2.not.i, ptr @.str.14, ptr %105
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %major.i.i14)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %minor.i.i15)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.i.i16)
   %call.i.i21 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %call.i18, ptr noundef nonnull @.str.58, ptr noundef nonnull %major.i.i14, ptr noundef nonnull %minor.i.i15, ptr noundef nonnull %ch.i.i16) #19
   %cmp.i.i22 = icmp ne i32 %call.i.i21, 2
-  %104 = load i32, ptr %major.i.i14, align 4
-  %cmp1.i.i23 = icmp sgt i32 %104, 1
+  %106 = load i32, ptr %major.i.i14, align 4
+  %cmp1.i.i23 = icmp sgt i32 %106, 1
   %or.cond.i.i24 = select i1 %cmp.i.i22, i1 true, i1 %cmp1.i.i23
   br i1 %or.cond.i.i24, label %do.body.i.i34, label %if.end8.i25
 
 do.body.i.i34:                                    ; preds = %if.end.i20
-  %105 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool.not.i.i35 = icmp eq i32 %105, 0
+  %107 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool.not.i.i35 = icmp eq i32 %107, 0
   br i1 %tobool.not.i.i35, label %evhttp_parse_http_version.exit.thread.i38, label %if.then2.i.i36
 
 if.then2.i.i36:                                   ; preds = %do.body.i.i34
   %remote_host.i.i37 = getelementptr inbounds i8, ptr %req, i64 48
-  %106 = load ptr, ptr %remote_host.i.i37, align 8
-  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %call.i18, ptr noundef nonnull %req, ptr noundef %106) #19
+  %108 = load ptr, ptr %remote_host.i.i37, align 8
+  call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.59, ptr noundef nonnull @__func__.evhttp_parse_http_version, ptr noundef %call.i18, ptr noundef nonnull %req, ptr noundef %108) #19
   br label %evhttp_parse_http_version.exit.thread.i38
 
 evhttp_parse_http_version.exit.thread.i38:        ; preds = %if.then2.i.i36, %do.body.i.i34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %minor.i.i15)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.i.i16)
-  br label %110
+  br label %112
 
 if.end8.i25:                                      ; preds = %if.end.i20
-  %conv.i.i26 = trunc i32 %104 to i8
+  %conv.i.i26 = trunc i32 %106 to i8
   %major4.i.i27 = getelementptr inbounds i8, ptr %req, i64 112
   store i8 %conv.i.i26, ptr %major4.i.i27, align 8
-  %107 = load i32, ptr %minor.i.i15, align 4
-  %conv5.i.i28 = trunc i32 %107 to i8
+  %109 = load i32, ptr %minor.i.i15, align 4
+  %conv5.i.i28 = trunc i32 %109 to i8
   %minor6.i.i29 = getelementptr inbounds i8, ptr %req, i64 113
   store i8 %conv5.i.i28, ptr %minor6.i.i29, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %major.i.i14)
@@ -2029,22 +2040,22 @@ if.end8.i25:                                      ; preds = %if.end.i20
   br i1 %cmp.i8.not.i, label %do.body.i, label %if.end16.i
 
 do.body.i:                                        ; preds = %if.end8.i25
-  %108 = load i32, ptr @event_debug_logging_mask_, align 4
-  %tobool13.not.i = icmp eq i32 %108, 0
-  br i1 %tobool13.not.i, label %110, label %if.then14.i
+  %110 = load i32, ptr @event_debug_logging_mask_, align 4
+  %tobool13.not.i = icmp eq i32 %110, 0
+  br i1 %tobool13.not.i, label %112, label %if.then14.i
 
 if.then14.i:                                      ; preds = %do.body.i
   call void (ptr, ...) @event_debugx_(ptr noundef nonnull @.str.60, ptr noundef nonnull @__func__.evhttp_parse_response_line, ptr noundef %call1.i) #19
-  br label %110
+  br label %112
 
 if.end16.i:                                       ; preds = %if.end8.i25
   %response_code_line.i = getelementptr inbounds i8, ptr %req, i64 120
-  %109 = load ptr, ptr %response_code_line.i, align 8
-  %cmp17.not.i31 = icmp eq ptr %109, null
+  %111 = load ptr, ptr %response_code_line.i, align 8
+  %cmp17.not.i31 = icmp eq ptr %111, null
   br i1 %cmp17.not.i31, label %if.end20.i32, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end16.i
-  call void @event_mm_free_(ptr noundef nonnull %109) #19
+  call void @event_mm_free_(ptr noundef nonnull %111) #19
   br label %if.end20.i32
 
 if.end20.i32:                                     ; preds = %if.then18.i, %if.end16.i
@@ -2055,18 +2066,18 @@ if.end20.i32:                                     ; preds = %if.then18.i, %if.en
 
 if.then24.i:                                      ; preds = %if.end20.i32
   call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.evhttp_parse_response_line) #19
-  br label %110
+  br label %112
 
 evhttp_parse_response_line.exit:                  ; preds = %if.end20.i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i17)
   br label %sw.epilog
 
-110:                                              ; preds = %if.then24.i, %sw.bb18, %do.body.i, %if.then14.i, %evhttp_parse_http_version.exit.thread.i38
+112:                                              ; preds = %if.then24.i, %sw.bb18, %do.body.i, %if.then14.i, %evhttp_parse_http_version.exit.thread.i38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %line.addr.i17)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %110, %evhttp_parse_response_line.exit, %101, %evhttp_parse_request_line.exit, %if.end13
-  %status.0 = phi i32 [ -1, %if.end13 ], [ -1, %101 ], [ 1, %evhttp_parse_request_line.exit ], [ -1, %110 ], [ 1, %evhttp_parse_response_line.exit ]
+sw.epilog:                                        ; preds = %112, %evhttp_parse_response_line.exit, %103, %evhttp_parse_request_line.exit, %if.end13
+  %status.0 = phi i32 [ -1, %if.end13 ], [ -1, %103 ], [ 1, %evhttp_parse_request_line.exit ], [ -1, %112 ], [ 1, %evhttp_parse_response_line.exit ]
   call void @event_mm_free_(ptr noundef nonnull %call) #19
   br label %return
 
@@ -2780,7 +2791,7 @@ entry:
 declare ptr @bufferevent_socket_get_conn_address_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bind_socket(ptr noundef %address, i16 noundef zeroext %port, i32 noundef %reuse) unnamed_addr #0 {
+define internal fastcc i32 @bind_socket(ptr noundef %address, i16 noundef zeroext %port, i32 noundef range(i32 0, 2) %reuse) unnamed_addr #0 {
 entry:
   %on.i7 = alloca i32, align 4
   %ai.i = alloca ptr, align 8
@@ -4342,7 +4353,7 @@ do.body.i.i:                                      ; preds = %for.body.i.i
 evhttp_remove_header.exit.i:                      ; preds = %for.cond.i.i, %do.body.i.i
   %type.i = getelementptr inbounds i8, ptr %req, i64 76
   %9 = load i32, ptr %type.i, align 4
-  %call1.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %9, ptr noundef nonnull %flags.i)
+  %call1.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %9, ptr noundef %flags.i)
   %tobool.not.i = icmp eq ptr %call1.i, null
   %spec.store.select.i = select i1 %tobool.not.i, ptr @.str.101, ptr %call1.i
   %10 = load ptr, ptr %bufev, align 8
@@ -5786,7 +5797,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @evhttp_parse_query_impl(ptr noundef %str, ptr noundef %headers, i32 noundef %is_whole_uri, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @evhttp_parse_query_impl(ptr noundef %str, ptr noundef %headers, i32 noundef range(i32 0, 2) %is_whole_uri, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [3 x i8], align 1
   %p = alloca ptr, align 8
@@ -7979,14 +7990,14 @@ if.end.i57:                                       ; preds = %while.cond.i
   br label %while.cond.i, !llvm.loop !13
 
 end_of_authority.exit:                            ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %call27 = tail call fastcc i32 @parse_authority(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr24, ptr noundef nonnull %cp.addr.0.i, ptr noundef nonnull %call)
+  %call27 = tail call fastcc i32 @parse_authority(ptr noundef %call, ptr noundef %add.ptr24, ptr noundef %cp.addr.0.i, ptr noundef %call)
   %cmp28 = icmp slt i32 %call27, 0
   br i1 %cmp28, label %if.then113, label %if.end32
 
 if.end32:                                         ; preds = %end_of_authority.exit, %land.lhs.true18, %if.end15
   %readp.1 = phi ptr [ %readp.0, %land.lhs.true18 ], [ %readp.0, %if.end15 ], [ %cp.addr.0.i, %end_of_authority.exit ]
   %tobool52.not = phi i1 [ true, %land.lhs.true18 ], [ true, %if.end15 ], [ false, %end_of_authority.exit ]
-  %call33 = tail call fastcc ptr @end_of_path(ptr noundef nonnull %readp.1, i32 noundef 0, i32 noundef %flags)
+  %call33 = tail call fastcc ptr @end_of_path(ptr noundef %readp.1, i32 noundef 0, i32 noundef %flags)
   %6 = load i8, ptr %call33, align 1
   %cmp35 = icmp eq i8 %6, 63
   br i1 %cmp35, label %if.then37, label %if.end39
@@ -7994,7 +8005,7 @@ if.end32:                                         ; preds = %end_of_authority.ex
 if.then37:                                        ; preds = %if.end32
   store i8 0, ptr %call33, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %call33, i64 1
-  %call38 = tail call fastcc ptr @end_of_path(ptr noundef nonnull %incdec.ptr, i32 noundef 1, i32 noundef %flags)
+  %call38 = tail call fastcc ptr @end_of_path(ptr noundef %incdec.ptr, i32 noundef 1, i32 noundef %flags)
   %.pr = load i8, ptr %call38, align 1
   br label %if.end39
 
@@ -8008,7 +8019,7 @@ if.end39:                                         ; preds = %if.then37, %if.end3
 if.then43:                                        ; preds = %if.end39
   store i8 0, ptr %readp.2, align 1
   %incdec.ptr44 = getelementptr inbounds i8, ptr %readp.2, i64 1
-  %call45 = tail call fastcc ptr @end_of_path(ptr noundef nonnull %incdec.ptr44, i32 noundef 2, i32 noundef %flags)
+  %call45 = tail call fastcc ptr @end_of_path(ptr noundef %incdec.ptr44, i32 noundef 2, i32 noundef %flags)
   %.pre = load i8, ptr %call45, align 1
   br label %if.end46
 
@@ -8107,7 +8118,7 @@ return:                                           ; preds = %if.then113.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr nocapture noundef %uri, ptr noundef %s, ptr noundef %eos, ptr nocapture noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_authority(ptr nocapture noundef nonnull %uri, ptr noundef nonnull %s, ptr noundef nonnull %eos, ptr nocapture noundef nonnull %flags) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %eos, %s
   br i1 %cmp, label %if.then, label %if.end4
@@ -8184,7 +8195,7 @@ if.end23.i:                                       ; preds = %land.lhs.true16.i, 
 if.end11:                                         ; preds = %if.end23.i, %if.then7
   %incdec.ptr = getelementptr inbounds i8, ptr %call5, i64 1
   store i8 0, ptr %call5, align 1
-  %call12 = tail call ptr @event_mm_strdup_(ptr noundef %s) #19
+  %call12 = tail call ptr @event_mm_strdup_(ptr noundef nonnull %s) #19
   %userinfo = getelementptr inbounds i8, ptr %uri, i64 16
   store ptr %call12, ptr %userinfo, align 8
   %cmp14 = icmp eq ptr %call12, null
@@ -8299,7 +8310,7 @@ land.lhs.true64:                                  ; preds = %do.end56
   br i1 %cmp67, label %if.then69, label %if.else81
 
 if.then69:                                        ; preds = %land.lhs.true64
-  %call70 = tail call fastcc i32 @bracket_addr_ok(ptr noundef nonnull %cp.0, ptr noundef nonnull %eos.addr.0)
+  %call70 = tail call fastcc i32 @bracket_addr_ok(ptr noundef %cp.0, ptr noundef %eos.addr.0)
   %tobool71.not = icmp eq i32 %call70, 0
   br i1 %tobool71.not, label %return, label %if.end73
 
@@ -8404,7 +8415,7 @@ return:                                           ; preds = %land.lhs.true16.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @end_of_path(ptr noundef readonly %cp, i32 noundef %part, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly %cp, i32 noundef range(i32 0, 3) %part, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -8467,7 +8478,7 @@ if.end67.us:                                      ; preds = %while.body22.us, %l
   br i1 %tobool21.not.us, label %return, label %while.body22.us, !llvm.loop !40
 
 if.then:                                          ; preds = %entry
-  switch i32 %part, label %default.unreachable [
+  switch i32 %part, label %default.unreachable42 [
     i32 0, label %while.cond
     i32 1, label %while.cond8
     i32 2, label %sw.bb19
@@ -8503,7 +8514,7 @@ sw.bb19:                                          ; preds = %if.then
   %add.ptr = getelementptr inbounds i8, ptr %cp, i64 %call
   br label %return
 
-default.unreachable:                              ; preds = %if.then
+default.unreachable42:                            ; preds = %if.then
   unreachable
 
 while.body22:                                     ; preds = %while.body22.lr.ph, %if.end67
@@ -8552,8 +8563,8 @@ if.else55:                                        ; preds = %switch.early.test, 
   br i1 %cmp57, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.else55, %land.lhs.true49, %while.body22, %lor.lhs.false, %switch.early.test, %switch.early.test, %switch.early.test
-  %.sink46 = phi i64 [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %lor.lhs.false ], [ 1, %while.body22 ], [ 3, %land.lhs.true49 ], [ 1, %if.else55 ]
-  %add.ptr54 = getelementptr inbounds i8, ptr %cp.addr.334, i64 %.sink46
+  %.sink47 = phi i64 [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %switch.early.test ], [ 1, %lor.lhs.false ], [ 1, %while.body22 ], [ 3, %land.lhs.true49 ], [ 1, %if.else55 ]
+  %add.ptr54 = getelementptr inbounds i8, ptr %cp.addr.334, i64 %.sink47
   %19 = load i8, ptr %add.ptr54, align 1
   %tobool21.not = icmp eq i8 %19, 0
   br i1 %tobool21.not, label %return, label %while.body22, !llvm.loop !40
@@ -8968,7 +8979,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call fastcc i32 @bracket_addr_ok(ptr noundef nonnull %host, ptr noundef nonnull %add.ptr)
+  %call3 = tail call fastcc i32 @bracket_addr_ok(ptr noundef %host, ptr noundef %add.ptr)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %return, label %land.lhs.true
 
@@ -9102,7 +9113,7 @@ return:                                           ; preds = %land.lhs.true10.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef %s, ptr noundef %eos) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @bracket_addr_ok(ptr noundef nonnull %s, ptr noundef nonnull %eos) unnamed_addr #0 {
 entry:
   %eos43 = ptrtoint ptr %eos to i64
   %s42 = ptrtoint ptr %s to i64
@@ -9287,7 +9298,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %uri, align 8
-  %call = tail call fastcc ptr @end_of_path(ptr noundef nonnull %path, i32 noundef 0, i32 noundef %0)
+  %call = tail call fastcc ptr @end_of_path(ptr noundef %path, i32 noundef 0, i32 noundef %0)
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #18
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %call1
   %cmp.not = icmp eq ptr %call, %add.ptr
@@ -9333,7 +9344,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %uri, align 8
-  %call = tail call fastcc ptr @end_of_path(ptr noundef nonnull %query, i32 noundef 1, i32 noundef %0)
+  %call = tail call fastcc ptr @end_of_path(ptr noundef %query, i32 noundef 1, i32 noundef %0)
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %query) #18
   %add.ptr = getelementptr inbounds i8, ptr %query, i64 %call1
   %cmp.not = icmp eq ptr %call, %add.ptr
@@ -9379,7 +9390,7 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %uri, align 8
-  %call = tail call fastcc ptr @end_of_path(ptr noundef nonnull %fragment, i32 noundef 2, i32 noundef %0)
+  %call = tail call fastcc ptr @end_of_path(ptr noundef %fragment, i32 noundef 2, i32 noundef %0)
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fragment) #18
   %add.ptr = getelementptr inbounds i8, ptr %fragment, i64 %call1
   %cmp.not = icmp eq ptr %call, %add.ptr
@@ -9426,7 +9437,7 @@ declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evhttp_find_vhost(ptr noundef %http, ptr noundef %outhttp, ptr noundef %hostname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evhttp_find_vhost(ptr noundef %http, ptr noundef %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @evhttp_find_alias(ptr noundef %http, ptr noundef %outhttp, ptr noundef %hostname)
   %tobool.not = icmp eq i32 %call, 0
@@ -9474,7 +9485,7 @@ return:                                           ; preds = %do.end, %if.then7, 
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %http, ptr noundef %outhttp, ptr noundef %hostname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @evhttp_find_alias(ptr noundef %http, ptr noundef %outhttp, ptr noundef nonnull %hostname) unnamed_addr #0 {
 entry:
   %aliases = getelementptr inbounds i8, ptr %http, i64 104
   br label %for.cond
@@ -9488,7 +9499,7 @@ for.cond:                                         ; preds = %for.body, %entry
 for.body:                                         ; preds = %for.cond
   %alias1 = getelementptr inbounds i8, ptr %alias.0, i64 16
   %0 = load ptr, ptr %alias1, align 8
-  %call = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %0, ptr noundef %hostname) #19
+  %call = tail call i32 @evutil_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull %hostname) #19
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.then, label %for.cond, !llvm.loop !47
 
@@ -9521,7 +9532,7 @@ return:                                           ; preds = %for.cond6, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match(ptr nocapture noundef readonly %pattern, ptr nocapture noundef readonly %name) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prefix_suffix_match(ptr nocapture noundef readonly %pattern, ptr nocapture noundef nonnull readonly %name) unnamed_addr #0 {
 entry:
   br label %while.body
 
@@ -9553,7 +9564,7 @@ while.cond4:                                      ; preds = %while.body8
 
 while.body8:                                      ; preds = %while.cond4.preheader, %while.cond4
   %name.addr.116 = phi ptr [ %incdec.ptr9, %while.cond4 ], [ %name.addr.0, %while.cond4.preheader ]
-  %call = tail call fastcc i32 @prefix_suffix_match(ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %name.addr.116)
+  %call = tail call fastcc i32 @prefix_suffix_match(ptr noundef nonnull %incdec.ptr, ptr noundef %name.addr.116)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %while.cond4, label %return
 
@@ -10155,7 +10166,7 @@ land.lhs.true:                                    ; preds = %entry
   %1 = load i32, ptr %type, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %flags.i)
   store i16 0, ptr %flags.i, align 2
-  %call.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %1, ptr noundef nonnull %flags.i)
+  %call.i = call fastcc ptr @evhttp_method_(ptr noundef readonly %evcon, i32 noundef %1, ptr noundef %flags.i)
   %2 = load i16, ptr %flags.i, align 2
   %3 = and i16 %2, 1
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %flags.i)
@@ -10599,7 +10610,7 @@ if.end50:                                         ; preds = %if.then.i, %if.end4
 declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @evhttp_method_(ptr nocapture noundef readonly %evcon, i32 noundef %type, ptr nocapture noundef writeonly %flags) unnamed_addr #0 {
+define internal fastcc ptr @evhttp_method_(ptr nocapture noundef readonly %evcon, i32 noundef %type, ptr nocapture noundef nonnull writeonly %flags) unnamed_addr #0 {
 entry:
   %ext_method = alloca %struct.evhttp_ext_method, align 8
   switch i32 %type, label %sw.default [
@@ -11006,7 +11017,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp9.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
-  %call.i = call fastcc i32 @evhttp_find_alias(ptr noundef nonnull %arg, ptr noundef nonnull %http, ptr noundef nonnull %call8)
+  %call.i = call fastcc i32 @evhttp_find_alias(ptr noundef nonnull %arg, ptr noundef nonnull %http, ptr noundef %call8)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %do.body.i, label %if.then10.if.end12_crit_edge
 
@@ -11028,7 +11039,7 @@ for.cond.i:                                       ; preds = %for.body.i, %do.bod
 for.body.i:                                       ; preds = %for.cond.i
   %vhost_pattern.i = getelementptr inbounds i8, ptr %vhost.0.i, i64 120
   %7 = load ptr, ptr %vhost_pattern.i, align 8
-  %call1.i = call fastcc i32 @prefix_suffix_match(ptr noundef %7, ptr noundef nonnull %call8)
+  %call1.i = call fastcc i32 @prefix_suffix_match(ptr noundef %7, ptr noundef %call8)
   %tobool2.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i, label %for.cond.i, label %do.cond.i, !llvm.loop !45
 

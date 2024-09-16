@@ -515,7 +515,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit.i: ; preds = %i
 if.then.i:                                        ; preds = %_ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNodeEED2Ev.exit.i
   store i64 %36, ptr %agg.tmp20.i, align 8, !noalias !4
   store i64 54, ptr %error.i, align 8, !noalias !4
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %ref.tmp, i64 31, ptr nonnull @.str.6, ptr noundef nonnull %agg.tmp20.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias align 8 %ref.tmp, i64 31, ptr nonnull @.str.6, ptr noundef %agg.tmp20.i)
           to label %invoke.cont22.i unwind label %ehcleanup54.i
 
 invoke.cont22.i:                                  ; preds = %if.then.i
@@ -607,7 +607,7 @@ if.then.i.i28.i:                                  ; preds = %if.then38.i
   br label %invoke.cont43.i
 
 invoke.cont43.i:                                  ; preds = %if.then.i.i28.i, %if.then38.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias nonnull align 8 %ref.tmp, i64 31, ptr nonnull @.str.10, ptr noundef nonnull %agg.tmp40.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias align 8 %ref.tmp, i64 31, ptr nonnull @.str.10, ptr noundef %agg.tmp40.i)
           to label %invoke.cont45.i unwind label %ehcleanup50.i
 
 invoke.cont45.i:                                  ; preds = %invoke.cont43.i
@@ -1215,7 +1215,7 @@ declare void @_ZN9grpc_core6Server14SetupTransportEPNS_9TransportEP12grpc_pollse
 declare void @_ZNK9grpc_core11ChannelArgs6RemoveESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.grpc_core::ChannelArgs") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias nocapture writeonly align 8 %agg.result, i64 %why.coerce0, ptr %why.coerce1, ptr nocapture noundef readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115MakeLameChannelESt17basic_string_viewIcSt11char_traitsIcEEN4absl12lts_202308026StatusE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, i64 %why.coerce0, ptr %why.coerce1, ptr nocapture noundef nonnull readonly %error) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i16 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8

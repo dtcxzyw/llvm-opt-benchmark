@@ -1099,7 +1099,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %l.09.us = phi ptr [ %l.0.us, %for.body.us ], [ %l.07, %for.body.lr.ph ]
   %0 = load ptr, ptr %l.09.us, align 8
-  call fastcc void @mark_one_parent_uninteresting(ptr noundef null, ptr noundef %0, ptr noundef nonnull %pending)
+  call fastcc void @mark_one_parent_uninteresting(ptr noundef null, ptr noundef %0, ptr noundef %pending)
   %next.us = getelementptr inbounds i8, ptr %l.09.us, i64 8
   %l.0.us = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %l.0.us, null
@@ -1108,7 +1108,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %l.09 = phi ptr [ %l.0, %for.inc ], [ %l.07, %for.body.lr.ph ]
   %1 = load ptr, ptr %l.09, align 8
-  call fastcc void @mark_one_parent_uninteresting(ptr noundef nonnull %revs, ptr noundef %1, ptr noundef nonnull %pending)
+  call fastcc void @mark_one_parent_uninteresting(ptr noundef nonnull %revs, ptr noundef %1, ptr noundef %pending)
   %bf.load = load i64, ptr %exclude_first_parent_only, align 8
   %2 = and i64 %bf.load, 549755813888
   %tobool2.not = icmp eq i64 %2, 0
@@ -1133,7 +1133,7 @@ commit_stack_pop.exit:                            ; preds = %for.end, %commit_st
   store i64 %dec.i, ptr %nr, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %5, i64 %dec.i
   %6 = load ptr, ptr %arrayidx.i, align 8
-  call fastcc void @mark_one_parent_uninteresting(ptr noundef %revs, ptr noundef %6, ptr noundef nonnull %pending)
+  call fastcc void @mark_one_parent_uninteresting(ptr noundef %revs, ptr noundef %6, ptr noundef %pending)
   %7 = load i64, ptr %nr, align 8
   %cmp.not = icmp eq i64 %7, 0
   br i1 %cmp.not, label %while.end, label %commit_stack_pop.exit, !llvm.loop !19
@@ -1148,7 +1148,7 @@ while.end:                                        ; preds = %commit_stack_pop.ex
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_one_parent_uninteresting(ptr noundef readonly %revs, ptr nocapture noundef %commit, ptr nocapture noundef %pending) unnamed_addr #1 {
+define internal fastcc void @mark_one_parent_uninteresting(ptr noundef readonly %revs, ptr nocapture noundef %commit, ptr nocapture noundef nonnull %pending) unnamed_addr #1 {
 entry:
   %bf.load = load i32, ptr %commit, align 8
   %0 = and i32 %bf.load, 32
@@ -1770,7 +1770,7 @@ for.end:                                          ; preds = %for.inc, %entry
 
 if.then8:                                         ; preds = %for.end
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.commit_match.buf, i64 24, i1 false)
-  call fastcc void @add_cache_tree(ptr noundef nonnull %9, ptr noundef %revs, ptr noundef nonnull %path, i32 noundef %flags)
+  call fastcc void @add_cache_tree(ptr noundef nonnull %9, ptr noundef %revs, ptr noundef %path, i32 noundef %flags)
   call void @strbuf_release(ptr noundef nonnull %path) #25
   br label %if.end10
 
@@ -3811,7 +3811,7 @@ do.cond.i319:                                     ; preds = %do.body.i315
   br i1 %cmp.i322, label %do.body.i315, label %if.else704, !llvm.loop !25
 
 if.then694:                                       ; preds = %do.body.i315
-  %call695 = call fastcc i32 @strtol_i(ptr noundef nonnull %scevgep485, ptr noundef nonnull %val)
+  %call695 = call fastcc i32 @strtol_i(ptr noundef nonnull %scevgep485, ptr noundef %val)
   %cmp696 = icmp slt i32 %call695, 0
   %78 = load i32, ptr %val, align 4
   %cmp699 = icmp slt i32 %78, 0
@@ -4770,7 +4770,7 @@ land.lhs.true35:                                  ; preds = %for.body30
   br i1 %cmp36, label %if.then38, label %if.end83
 
 if.then38:                                        ; preds = %land.lhs.true35
-  %call41 = call fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef nonnull %arrayidx33, ptr noundef nonnull %flags)
+  %call41 = call fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef nonnull %arrayidx33, ptr noundef %flags)
   %cmp42 = icmp sgt i32 %call41, 0
   br i1 %cmp42, label %if.then44, label %if.end46
 
@@ -4896,7 +4896,7 @@ if.end4.i:                                        ; preds = %if.end.tail.i, %sub
   br i1 %tobool26.not.i, label %while.cond.i, label %if.then27.i, !llvm.loop !27
 
 if.end15.i:                                       ; preds = %if.then9.split.us.i
-  %call16.i = call fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef nonnull %argv.i, ptr noundef nonnull %flags.i)
+  %call16.i = call fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef nonnull %argv.i, ptr noundef %flags.i)
   %cmp17.i = icmp sgt i32 %call16.i, 0
   br i1 %cmp17.i, label %while.cond.outer.backedge.i, label %if.end20.i
 
@@ -5672,7 +5672,7 @@ if.end350:                                        ; preds = %if.then345, %if.end
 declare void @strvec_pushv(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef %argv, ptr nocapture noundef %flags) unnamed_addr #1 {
+define internal fastcc i32 @handle_revision_pseudo_opt(ptr noundef %revs, ptr noundef %argv, ptr nocapture noundef nonnull %flags) unnamed_addr #1 {
 entry:
   %bisect_refs.i.i212 = alloca %struct.strbuf, align 8
   %bisect_refs.i.i = alloca %struct.strbuf, align 8
@@ -10660,7 +10660,7 @@ declare ptr @get_worktree_ref_store(ptr noundef) local_unnamed_addr #3
 declare void @ensure_full_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_cache_tree(ptr noundef %it, ptr noundef %revs, ptr noundef %path, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @add_cache_tree(ptr noundef %it, ptr noundef %revs, ptr noundef nonnull %path, i32 noundef %flags) unnamed_addr #1 {
 entry:
   %len = getelementptr inbounds i8, ptr %path, i64 8
   %0 = load i64, ptr %len, align 8
@@ -10703,7 +10703,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %st
   %name = getelementptr inbounds i8, ptr %6, i64 20
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %path, ptr noundef nonnull @.str.41, ptr noundef nonnull %cond, ptr noundef nonnull %name) #25
   %7 = load ptr, ptr %6, align 8
-  tail call fastcc void @add_cache_tree(ptr noundef %7, ptr noundef %revs, ptr noundef nonnull %path, i32 noundef %flags)
+  tail call fastcc void @add_cache_tree(ptr noundef %7, ptr noundef %revs, ptr noundef %path, i32 noundef %flags)
   %8 = load i64, ptr %path, align 8
   %spec.select.i = tail call i64 @llvm.usub.sat.i64(i64 %8, i64 1)
   %cmp.i = icmp ugt i64 %0, %spec.select.i
@@ -10916,7 +10916,7 @@ return:                                           ; preds = %if.then.i, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr nocapture noundef writeonly %result) unnamed_addr #19 {
+define internal fastcc range(i32 -1, 1) i32 @strtol_i(ptr noundef %s, ptr nocapture noundef nonnull writeonly %result) unnamed_addr #19 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #28

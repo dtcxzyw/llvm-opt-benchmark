@@ -845,7 +845,7 @@ define internal ptr @expert_add_info_internal(ptr noundef %0, ptr noundef %1, pt
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %18, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %22, i32 noundef %24, i32 noundef %27, i32 noundef 0, ptr noundef %29, ptr noundef nonnull %4)
+  %30 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %22, i32 noundef %24, i32 noundef %27, i32 noundef 0, ptr noundef %29, ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret ptr %30
 }
@@ -894,13 +894,13 @@ define ptr @expert_add_info_format(ptr noundef %0, ptr noundef %1, ptr nocapture
   %26 = getelementptr inbounds i8, ptr %19, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 4
-  %29 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %25, i32 noundef %28, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %5)
+  %29 = call fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %23, i32 noundef %25, i32 noundef %28, i32 noundef 1, ptr noundef %3, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc ptr @expert_set_info_vformat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca [240 x i8], align 16
   %10 = icmp eq ptr %0, null
   %11 = icmp ne ptr %1, null
@@ -1007,7 +1007,7 @@ expert_set_item_flags.exit.thread:                ; preds = %29, %28, %53, %expe
   br i1 %.not78, label %63, label %61
 
 61:                                               ; preds = %60
-  %62 = call i32 @vsnprintf(ptr noundef nonnull %9, i64 noundef 240, ptr noundef %6, ptr noundef %7) #12
+  %62 = call i32 @vsnprintf(ptr noundef nonnull %9, i64 noundef 240, ptr noundef %6, ptr noundef nonnull %7) #12
   br label %66
 
 63:                                               ; preds = %60
@@ -1274,7 +1274,7 @@ define internal noundef ptr @proto_tree_add_expert_internal(ptr noundef %0, ptr 
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr %26, align 8
-  %37 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %35, i32 noundef 0, ptr noundef %36, ptr noundef nonnull %7)
+  %37 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %28, i32 noundef %30, i32 noundef %32, i32 noundef %35, i32 noundef 0, ptr noundef %36, ptr noundef %7)
   call void @llvm.va_end.p0(ptr nonnull %7)
   %.not33 = icmp eq i32 %5, -1
   br i1 %.not33, label %39, label %38
@@ -1338,7 +1338,7 @@ define noundef ptr @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1,
   %32 = getelementptr inbounds i8, ptr %22, i64 48
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 4
-  %35 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %34, i32 noundef 1, ptr noundef %6, ptr noundef nonnull %8)
+  %35 = call fastcc ptr @expert_set_info_vformat(ptr noundef %1, ptr noundef %27, i32 noundef %29, i32 noundef %31, i32 noundef %34, i32 noundef 1, ptr noundef %6, ptr noundef %8)
   call void @llvm.va_end.p0(ptr nonnull %8)
   %.not33 = icmp eq i32 %5, -1
   br i1 %.not33, label %37, label %36

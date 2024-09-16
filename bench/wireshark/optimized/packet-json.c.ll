@@ -1874,7 +1874,7 @@ declare ptr @wmem_stack_peek(ptr noundef) local_unnamed_addr #1
 declare ptr @wmem_stack_pop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -2162,7 +2162,7 @@ json_string_unescape.exit:                        ; preds = %18, %30, %63, %70, 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @json_key_lookup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = load ptr, ptr @json_header_fields_hash, align 8
   %7 = tail call ptr @g_hash_table_lookup(ptr noundef %6, ptr noundef %2) #7
   %8 = icmp eq ptr %7, null

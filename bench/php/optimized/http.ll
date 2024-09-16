@@ -1726,7 +1726,7 @@ declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cache_request_parse_body_option(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cache_request_parse_body_option(ptr noundef %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %34, label %4

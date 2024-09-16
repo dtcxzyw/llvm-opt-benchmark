@@ -396,7 +396,7 @@ define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #6 {
 declare i32 @dt_conf_get_bool(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #6 {
+define internal fastcc noundef range(i32 0, 2) i32 @_check_camera(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 14, 19) %6) unnamed_addr #6 {
   %8 = zext nneg i32 %6 to i64
   br label %9
 
@@ -604,7 +604,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #6 {
 declare void @dt_database_start_transaction(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_presets(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc void @set_presets(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 14, 19) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #6 {
   %5 = alloca %struct.dt_iop_basecurve_params_t, align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 504
   %7 = getelementptr inbounds i8, ptr %5, i64 508
@@ -2807,7 +2807,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #8
 declare void @dt_iop_image_fill(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @apply_curve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef readonly %8) unnamed_addr #12 {
+define internal fastcc void @apply_curve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4, float noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef readonly %8) unnamed_addr #12 {
   %10 = sext i32 %2 to i64
   %11 = sext i32 %3 to i64
   %12 = shl nsw i64 %10, 2
@@ -3177,13 +3177,13 @@ define internal fastcc void @apply_curve(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @gauss_reduce(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #13 {
+define internal fastcc void @gauss_reduce(ptr noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #13 {
   %6 = add nsw i64 %3, -1
   %7 = lshr i64 %6, 1
   %8 = add nuw i64 %7, 1
-  %9 = add i64 %4, -1
+  %9 = add nsw i64 %4, -1
   %10 = lshr i64 %9, 1
-  %11 = shl i64 %3, 4
+  %11 = shl nsw i64 %3, 4
   %12 = mul i64 %11, %4
   %13 = tail call ptr @dt_alloc_aligned(i64 noundef %12) #27
   call void @llvm.assume(i1 true) [ "align"(ptr %13, i64 64) ]
@@ -3191,7 +3191,7 @@ define internal fastcc void @gauss_reduce(ptr noundef %0, ptr nocapture noundef 
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %5
-  tail call fastcc void @gauss_blur(ptr noundef %0, ptr noundef nonnull %13, i64 noundef %3, i64 noundef %4)
+  tail call fastcc void @gauss_blur(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %3, i64 noundef %4)
   br label %17
 
 16:                                               ; preds = %5
@@ -7501,8 +7501,8 @@ declare float @llvm.pow.f32(float, float) #10
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @gauss_blur(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #13 {
-  %5 = shl i64 %2, 4
+define internal fastcc void @gauss_blur(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i64 noundef range(i64 -2147483648, 2147483648) %3) unnamed_addr #13 {
+  %5 = shl nsw i64 %2, 4
   %6 = mul i64 %5, %3
   %7 = tail call ptr @dt_alloc_aligned(i64 noundef %6) #27
   call void @llvm.assume(i1 true) [ "align"(ptr %7, i64 64) ]

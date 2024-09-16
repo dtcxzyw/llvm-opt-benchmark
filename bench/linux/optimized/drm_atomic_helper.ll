@@ -9065,10 +9065,10 @@ define dso_local i32 @drm_atomic_helper_page_flip(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @page_flip_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @page_flip_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @drm_atomic_get_crtc_state(ptr noundef %0, ptr noundef %1) #9
+  %8 = tail call ptr @drm_atomic_get_crtc_state(ptr noundef nonnull %0, ptr noundef %1) #9
   %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
   br i1 %9, label %10, label %13
 
@@ -9085,7 +9085,7 @@ define internal fastcc i32 @page_flip_common(ptr noundef %0, ptr noundef %1, ptr
   %17 = lshr i8 %16, 1
   %18 = and i8 %17, 1
   store i8 %18, ptr %15, align 4
-  %19 = tail call ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %7) #9
+  %19 = tail call ptr @drm_atomic_get_plane_state(ptr noundef nonnull %0, ptr noundef %7) #9
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
   br i1 %20, label %21, label %24
 

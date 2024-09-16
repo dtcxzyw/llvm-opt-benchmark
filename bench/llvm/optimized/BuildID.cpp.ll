@@ -1500,7 +1500,7 @@ define dso_local void @_ZNK4llvm6object14BuildIDFetcher5fetchB5cxx11ENS_8ArrayRe
   br label %46
 
 26:                                               ; preds = %4
-  call fastcc void @"_ZZNK4llvm6object14BuildIDFetcher5fetchB5cxx11ENS_8ArrayRefIhEEENK3$_0clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr nonnull @.str, i64 14)
+  call fastcc void @"_ZZNK4llvm6object14BuildIDFetcher5fetchB5cxx11ENS_8ArrayRefIhEEENK3$_0clENS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr nonnull @.str, i64 14)
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 5, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 33
@@ -1552,7 +1552,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %38, %43
   %.sroa.010.016 = phi ptr [ %17, %.preheader ], [ %45, %44 ]
   %47 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.016) #15
   %48 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.010.016) #15
-  call fastcc void @"_ZZNK4llvm6object14BuildIDFetcher5fetchB5cxx11ENS_8ArrayRefIhEEENK3$_0clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr %47, i64 %48)
+  call fastcc void @"_ZZNK4llvm6object14BuildIDFetcher5fetchB5cxx11ENS_8ArrayRefIhEEENK3$_0clENS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr %47, i64 %48)
   store i8 5, ptr %21, align 8
   store i8 1, ptr %22, align 1
   %49 = load ptr, ptr %12, align 8

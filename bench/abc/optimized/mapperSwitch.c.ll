@@ -14,7 +14,7 @@ define float @Map_SwitchCutGetDerefed(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc float @Map_SwitchCutRefDeref(float %.56.val, ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   %5 = load i8, ptr %4, align 4
   %or.cond = icmp sgt i8 %5, 1

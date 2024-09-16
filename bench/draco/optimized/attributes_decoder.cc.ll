@@ -498,7 +498,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17AttributesDecoder35TransformA
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef range(i32 1, 7) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #9 {
   %4 = icmp ugt i32 %0, 5
   br i1 %4, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %5
 

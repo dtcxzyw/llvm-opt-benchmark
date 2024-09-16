@@ -5201,7 +5201,7 @@ define internal fastcc void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11ch
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl18_RegistrationValueESaISE_EEEELb1EEEEE18_M_deallocate_nodeEPSI_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %1
   %5 = getelementptr inbounds i8, ptr %.8.val, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
-  tail call void @_ZdlPvm(ptr noundef %.8.val, i64 noundef 72) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %.8.val, i64 noundef 72) #27
   br label %6
 
 6:                                                ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_4listIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_122Tf_RegistryManagerImpl18_RegistrationValueESaISE_EEEELb1EEEEE18_M_deallocate_nodeEPSI_.exit, %0

@@ -490,15 +490,15 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
   %88 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %87, ptr noundef %0, i32 noundef %85, i32 noundef %86, i32 noundef 0) #5
   %89 = load i32, ptr @ett_pppoed_tags, align 4
   %90 = call ptr @proto_item_add_subtree(ptr noundef %88, i32 noundef %89) #5
-  %91 = add nuw i32 %.0195.i, 6
-  %92 = add i32 %91, %86
-  %.not233.i.i = icmp sgt i32 %85, %92
+  %91 = add nuw nsw i32 %.0195.i, 6
+  %92 = add nuw nsw i32 %91, %86
+  %.not233.i.i = icmp ugt i32 %85, %92
   br i1 %.not233.i.i, label %dissect_pppoe_subtags_dslf.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %84, %295
   %.0234.i.i = phi i32 [ %298, %295 ], [ %85, %84 ]
   %93 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0234.i.i) #5
-  %94 = add nsw i32 %.0234.i.i, 1
+  %94 = add nuw nsw i32 %.0234.i.i, 1
   %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %94) #5
   %96 = load i32, ptr @global_pppoe_show_tags_and_lengths, align 4
   %.not229.i.i = icmp eq i32 %96, 0
@@ -544,7 +544,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 109:                                              ; preds = %103
   %110 = load i32, ptr @hf_pppoed_tag_vspec_circuit_id, align 4
-  %111 = add nsw i32 %.0234.i.i, 2
+  %111 = add nuw nsw i32 %.0234.i.i, 2
   %112 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef %104, i32 noundef 0) #5
   br label %295
 
@@ -560,7 +560,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 119:                                              ; preds = %113
   %120 = load i32, ptr @hf_pppoed_tag_vspec_remote_id, align 4
-  %121 = add nsw i32 %.0234.i.i, 2
+  %121 = add nuw nsw i32 %.0234.i.i, 2
   %122 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %120, ptr noundef %0, i32 noundef %121, i32 noundef %114, i32 noundef 0) #5
   br label %295
 
@@ -576,7 +576,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 129:                                              ; preds = %123
   %130 = load i32, ptr @hf_pppoed_tag_vspec_act_data_rate_up, align 4
-  %131 = add nsw i32 %.0234.i.i, 2
+  %131 = add nuw nsw i32 %.0234.i.i, 2
   %132 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %130, ptr noundef %0, i32 noundef %131, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -592,7 +592,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 139:                                              ; preds = %133
   %140 = load i32, ptr @hf_pppoed_tag_vspec_act_data_rate_down, align 4
-  %141 = add nsw i32 %.0234.i.i, 2
+  %141 = add nuw nsw i32 %.0234.i.i, 2
   %142 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -608,7 +608,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 149:                                              ; preds = %143
   %150 = load i32, ptr @hf_pppoed_tag_vspec_min_data_rate_up, align 4
-  %151 = add nsw i32 %.0234.i.i, 2
+  %151 = add nuw nsw i32 %.0234.i.i, 2
   %152 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -624,7 +624,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 159:                                              ; preds = %153
   %160 = load i32, ptr @hf_pppoed_tag_vspec_min_data_rate_down, align 4
-  %161 = add nsw i32 %.0234.i.i, 2
+  %161 = add nuw nsw i32 %.0234.i.i, 2
   %162 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %160, ptr noundef %0, i32 noundef %161, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -640,7 +640,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 169:                                              ; preds = %163
   %170 = load i32, ptr @hf_pppoed_tag_vspec_attainable_data_rate_up, align 4
-  %171 = add nsw i32 %.0234.i.i, 2
+  %171 = add nuw nsw i32 %.0234.i.i, 2
   %172 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %170, ptr noundef %0, i32 noundef %171, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -656,7 +656,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 179:                                              ; preds = %173
   %180 = load i32, ptr @hf_pppoed_tag_vspec_attainable_data_rate_down, align 4
-  %181 = add nsw i32 %.0234.i.i, 2
+  %181 = add nuw nsw i32 %.0234.i.i, 2
   %182 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %180, ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -672,7 +672,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 189:                                              ; preds = %183
   %190 = load i32, ptr @hf_pppoed_tag_vspec_max_data_rate_up, align 4
-  %191 = add nsw i32 %.0234.i.i, 2
+  %191 = add nuw nsw i32 %.0234.i.i, 2
   %192 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %190, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -688,7 +688,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 199:                                              ; preds = %193
   %200 = load i32, ptr @hf_pppoed_tag_vspec_max_data_rate_down, align 4
-  %201 = add nsw i32 %.0234.i.i, 2
+  %201 = add nuw nsw i32 %.0234.i.i, 2
   %202 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %200, ptr noundef %0, i32 noundef %201, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -704,7 +704,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 209:                                              ; preds = %203
   %210 = load i32, ptr @hf_pppoed_tag_vspec_min_data_rate_up_lp, align 4
-  %211 = add nsw i32 %.0234.i.i, 2
+  %211 = add nuw nsw i32 %.0234.i.i, 2
   %212 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %210, ptr noundef %0, i32 noundef %211, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -720,7 +720,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 219:                                              ; preds = %213
   %220 = load i32, ptr @hf_pppoed_tag_vspec_min_data_rate_down_lp, align 4
-  %221 = add nsw i32 %.0234.i.i, 2
+  %221 = add nuw nsw i32 %.0234.i.i, 2
   %222 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -736,7 +736,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 229:                                              ; preds = %223
   %230 = load i32, ptr @hf_pppoed_tag_vspec_max_int_delay_up, align 4
-  %231 = add nsw i32 %.0234.i.i, 2
+  %231 = add nuw nsw i32 %.0234.i.i, 2
   %232 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %230, ptr noundef %0, i32 noundef %231, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -752,7 +752,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 239:                                              ; preds = %233
   %240 = load i32, ptr @hf_pppoed_tag_vspec_act_int_delay_up, align 4
-  %241 = add nsw i32 %.0234.i.i, 2
+  %241 = add nuw nsw i32 %.0234.i.i, 2
   %242 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %240, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -768,7 +768,7 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 249:                                              ; preds = %243
   %250 = load i32, ptr @hf_pppoed_tag_vspec_max_int_delay_down, align 4
-  %251 = add nsw i32 %.0234.i.i, 2
+  %251 = add nuw nsw i32 %.0234.i.i, 2
   %252 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %250, ptr noundef %0, i32 noundef %251, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
@@ -784,13 +784,13 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 259:                                              ; preds = %253
   %260 = load i32, ptr @hf_pppoed_tag_vspec_act_int_delay_down, align 4
-  %261 = add nsw i32 %.0234.i.i, 2
+  %261 = add nuw nsw i32 %.0234.i.i, 2
   %262 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %260, ptr noundef %0, i32 noundef %261, i32 noundef 4, i32 noundef 0) #5
   br label %295
 
 263:                                              ; preds = %102
   %264 = load i32, ptr @hf_pppoed_tag_vspec_access_loop_encapsulation, align 4
-  %265 = add nsw i32 %.0234.i.i, 2
+  %265 = add nuw nsw i32 %.0234.i.i, 2
   %266 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %264, ptr noundef %0, i32 noundef %265, i32 noundef 3, i32 noundef 0) #5
   %.not230.i.i = icmp eq i8 %95, 3
   br i1 %.not230.i.i, label %271, label %267
@@ -807,10 +807,10 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
   %274 = load i32, ptr @hf_pppoed_tag_vspec_access_loop_encap_data_link, align 4
   %275 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %0, i32 noundef %265, i32 noundef 1, i32 noundef 0) #5
   %276 = load i32, ptr @hf_pppoed_tag_vspec_access_loop_encap_encap_1, align 4
-  %277 = add nsw i32 %.0234.i.i, 3
+  %277 = add nuw nsw i32 %.0234.i.i, 3
   %278 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %276, ptr noundef %0, i32 noundef %277, i32 noundef 1, i32 noundef 0) #5
   %279 = load i32, ptr @hf_pppoed_tag_vspec_access_loop_encap_encap_2, align 4
-  %280 = add nsw i32 %.0234.i.i, 4
+  %280 = add nuw nsw i32 %.0234.i.i, 4
   %281 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %279, ptr noundef %0, i32 noundef %280, i32 noundef 1, i32 noundef 0) #5
   br label %295
 
@@ -833,14 +833,14 @@ define internal i32 @dissect_pppoed(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 291:                                              ; preds = %286, %284
   %292 = load i32, ptr @hf_pppoed_tag_unknown_data, align 4
-  %293 = add nsw i32 %.0234.i.i, 2
+  %293 = add nuw nsw i32 %.0234.i.i, 2
   %294 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %292, ptr noundef %0, i32 noundef %293, i32 noundef %283, i32 noundef 0) #5
   br label %295
 
 295:                                              ; preds = %291, %282, %271, %259, %255, %249, %245, %239, %235, %229, %225, %219, %215, %209, %205, %199, %195, %189, %185, %179, %175, %169, %165, %159, %155, %149, %145, %139, %135, %129, %125, %119, %116, %109, %106
   %296 = zext i8 %95 to i32
-  %297 = add i32 %.0234.i.i, 2
-  %298 = add i32 %297, %296
+  %297 = add nuw nsw i32 %.0234.i.i, 2
+  %298 = add nuw nsw i32 %297, %296
   %.not.i.i = icmp sgt i32 %298, %92
   br i1 %.not.i.i, label %dissect_pppoe_subtags_dslf.exit.i, label %.lr.ph.i.i, !llvm.loop !4
 

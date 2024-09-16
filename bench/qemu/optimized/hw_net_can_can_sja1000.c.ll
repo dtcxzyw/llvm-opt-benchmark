@@ -198,7 +198,7 @@ sw.bb68:                                          ; preds = %if.then1
 
 if.then71:                                        ; preds = %sw.bb68
   %tx_buff = getelementptr inbounds i8, ptr %s, i64 15
-  call fastcc void @buff2frame_pel(ptr noundef nonnull %tx_buff, ptr noundef nonnull %frame)
+  call fastcc void @buff2frame_pel(ptr noundef nonnull %tx_buff, ptr noundef %frame)
   %status_pel = getelementptr inbounds i8, ptr %s, i64 1
   %10 = load i8, ptr %status_pel, align 1
   %11 = and i8 %10, -13
@@ -434,7 +434,7 @@ sw.bb228:                                         ; preds = %if.else188
 
 if.then231:                                       ; preds = %sw.bb228
   %tx_buff232 = getelementptr inbounds i8, ptr %s, i64 15
-  call fastcc void @buff2frame_bas(ptr noundef nonnull %tx_buff232, ptr noundef nonnull %frame)
+  call fastcc void @buff2frame_bas(ptr noundef nonnull %tx_buff232, ptr noundef %frame)
   %status_bas = getelementptr inbounds i8, ptr %s, i64 101
   %52 = load i8, ptr %status_bas, align 1
   %53 = and i8 %52, -13
@@ -584,7 +584,7 @@ if.end339:                                        ; preds = %if.else188, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @can_sja_single_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef %extended) unnamed_addr #1 {
+define internal fastcc void @can_sja_single_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
   %0 = load i8, ptr %acr, align 1
@@ -703,7 +703,7 @@ if.end87:                                         ; preds = %if.end87.sink.split
 declare i32 @can_bus_client_set_filters(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef %extended) unnamed_addr #1 {
+define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
   %0 = load i8, ptr %acr, align 1
@@ -779,7 +779,7 @@ if.end52:                                         ; preds = %if.end, %if.then48,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #3 {
+define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
@@ -901,7 +901,7 @@ if.end94:                                         ; preds = %if.end94.sink.split
 declare i64 @can_bus_client_send(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef writeonly %frame) unnamed_addr #3 {
+define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1

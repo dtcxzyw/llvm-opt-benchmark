@@ -5423,7 +5423,7 @@ get_errno.exit2191:                               ; preds = %sw.bb728, %if.then.
   br i1 %cmp.i2192, label %if.then735, label %return
 
 if.then735:                                       ; preds = %get_errno.exit2191
-  %call736 = call fastcc i64 @host_to_target_rusage(i64 noundef %arg2, ptr noundef nonnull %rusage)
+  %call736 = call fastcc i64 @host_to_target_rusage(i64 noundef %arg2, ptr noundef %rusage)
   br label %return
 
 sw.bb738:                                         ; preds = %entry
@@ -6493,7 +6493,7 @@ if.end1313:                                       ; preds = %do.body1305, %if.th
   br i1 %tobool1282.not, label %return, label %if.then1315
 
 if.then1315:                                      ; preds = %if.end1313
-  %call1316 = call fastcc i64 @host_to_target_rusage(i64 noundef %arg4, ptr noundef nonnull %rusage1281)
+  %call1316 = call fastcc i64 @host_to_target_rusage(i64 noundef %arg4, ptr noundef %rusage1281)
   %tobool1317.not = icmp eq i64 %call1316, 0
   %spec.select1785 = select i1 %tobool1317.not, i64 %retval.0.i2505, i64 %call1316
   br label %return
@@ -6799,7 +6799,7 @@ if.then1491:                                      ; preds = %land.lhs.true1488
   br label %return
 
 sw.bb1496:                                        ; preds = %entry
-  %call1497 = call fastcc i64 @target_to_host_timex(ptr noundef nonnull %host_buf, i64 noundef %arg1)
+  %call1497 = call fastcc i64 @target_to_host_timex(ptr noundef %host_buf, i64 noundef %arg1)
   %cmp1498.not = icmp eq i64 %call1497, 0
   br i1 %cmp1498.not, label %if.end1501, label %return
 
@@ -6821,7 +6821,7 @@ get_errno.exit2595:                               ; preds = %if.end1501, %if.the
   br i1 %cmp.i2596, label %if.then1507, label %if.end1513
 
 if.then1507:                                      ; preds = %get_errno.exit2595
-  %call1508 = call fastcc i64 @host_to_target_timex(i64 noundef %arg1, ptr noundef nonnull %host_buf)
+  %call1508 = call fastcc i64 @host_to_target_timex(i64 noundef %arg1, ptr noundef %host_buf)
   %cmp1509.not = icmp eq i64 %call1508, 0
   br i1 %cmp1509.not, label %if.end1513, label %return
 
@@ -6829,7 +6829,7 @@ if.end1513:                                       ; preds = %if.then1507, %get_e
   br label %return
 
 sw.bb1514:                                        ; preds = %entry
-  %call1515 = call fastcc i64 @target_to_host_timex(ptr noundef nonnull %htx, i64 noundef %arg2)
+  %call1515 = call fastcc i64 @target_to_host_timex(ptr noundef %htx, i64 noundef %arg2)
   %cmp1516.not = icmp eq i64 %call1515, 0
   br i1 %cmp1516.not, label %if.end1519, label %return
 
@@ -6852,7 +6852,7 @@ get_errno.exit2604:                               ; preds = %if.end1519, %if.the
   br i1 %cmp.i2605, label %land.lhs.true1526, label %if.end1530
 
 land.lhs.true1526:                                ; preds = %get_errno.exit2604
-  %call1527 = call fastcc i64 @host_to_target_timex(i64 noundef %arg2, ptr noundef nonnull %htx)
+  %call1527 = call fastcc i64 @host_to_target_timex(i64 noundef %arg2, ptr noundef %htx)
   %tobool1528.not = icmp eq i64 %call1527, 0
   br i1 %tobool1528.not, label %if.end1530, label %return
 
@@ -7153,7 +7153,7 @@ if.then1650:                                      ; preds = %if.then1647
 
 if.end1658:                                       ; preds = %if.then1650, %if.then1647
   %ret.21 = phi i64 [ %retval.0.i2703, %if.then1647 ], [ %arg2, %if.then1650 ]
-  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef nonnull %251, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.21)
+  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef %251, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.21)
   %tobool1661.not = icmp eq i32 %call1660, 0
   %spec.select1796 = select i1 %tobool1661.not, i64 %ret.21, i64 -14
   br label %return
@@ -7166,7 +7166,7 @@ sw.bb1665:                                        ; preds = %entry
 if.end1671:                                       ; preds = %sw.bb1665
   %conv1675 = and i64 %arg2, 4294967288
   %253 = alloca i8, i64 %conv1675, align 16
-  %call1677 = call fastcc i32 @target_to_host_cpu_mask(ptr noundef nonnull %253, i64 noundef %conv1675, i64 noundef %arg3, i64 noundef %arg2)
+  %call1677 = call fastcc i32 @target_to_host_cpu_mask(ptr noundef %253, i64 noundef %conv1675, i64 noundef %arg3, i64 noundef %arg2)
   %tobool1679.not = icmp eq i32 %call1677, 0
   br i1 %tobool1679.not, label %if.end1681, label %if.then1680
 
@@ -7932,7 +7932,7 @@ get_errno.exit2909:                               ; preds = %if.end2219, %if.the
   br i1 %cmp.i2910, label %if.then2228, label %return
 
 if.then2228:                                      ; preds = %get_errno.exit2909
-  %call2229 = call fastcc i64 @host_to_target_stat64(i64 noundef %arg3, ptr noundef nonnull %st)
+  %call2229 = call fastcc i64 @host_to_target_stat64(i64 noundef %arg3, ptr noundef %st)
   br label %return
 
 sw.bb2231:                                        ; preds = %entry
@@ -7963,7 +7963,7 @@ get_errno.exit2920:                               ; preds = %if.end2238, %if.the
   br i1 %cmp.i2921, label %if.then2246, label %if.end2252
 
 if.then2246:                                      ; preds = %get_errno.exit2920
-  %call2247 = call fastcc i64 @host_to_target_statx(ptr noundef nonnull %host_stx, i64 noundef %arg5)
+  %call2247 = call fastcc i64 @host_to_target_statx(ptr noundef %host_stx, i64 noundef %arg5)
   %cmp2248.not = icmp eq i64 %call2247, 0
   br i1 %cmp2248.not, label %if.end2252, label %return
 
@@ -9886,7 +9886,7 @@ next_free_host_timer.exit:                        ; preds = %while.end.i
   br i1 %tobool3404.not, label %if.end3411, label %if.then3405
 
 if.then3405:                                      ; preds = %next_free_host_timer.exit
-  %call3406 = call fastcc i64 @target_to_host_sigevent(ptr noundef nonnull %host_sevp, i64 noundef %arg2)
+  %call3406 = call fastcc i64 @target_to_host_sigevent(ptr noundef %host_sevp, i64 noundef %arg2)
   %cmp3407.not = icmp eq i64 %call3406, 0
   br i1 %cmp3407.not, label %if.end3411, label %if.then3409
 
@@ -9948,7 +9948,7 @@ if.else3446:                                      ; preds = %sw.bb3436
   %468 = load ptr, ptr %arrayidx3448, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hspec_new, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %hspec_old, i8 0, i64 32, i1 false)
-  %call3449 = call fastcc i64 @target_to_host_itimerspec(ptr noundef nonnull %hspec_new, i64 noundef %arg3)
+  %call3449 = call fastcc i64 @target_to_host_itimerspec(ptr noundef %hspec_new, i64 noundef %arg3)
   %tobool3450.not = icmp eq i64 %call3449, 0
   br i1 %tobool3450.not, label %if.end3452, label %return
 
@@ -9971,7 +9971,7 @@ get_errno.exit3590:                               ; preds = %if.end3452, %if.the
   br i1 %tobool3457.not, label %return, label %land.lhs.true3458
 
 land.lhs.true3458:                                ; preds = %get_errno.exit3590
-  %call3459 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg4, ptr noundef nonnull %hspec_old)
+  %call3459 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg4, ptr noundef %hspec_old)
   %tobool3460.not = icmp eq i64 %call3459, 0
   %spec.select1797 = select i1 %tobool3460.not, i64 %retval.0.i3585, i64 -14
   br label %return
@@ -10002,7 +10002,7 @@ if.then.i3601:                                    ; preds = %if.else3475
 get_errno.exit3605:                               ; preds = %if.else3475, %if.then.i3601
   %retval.0.i3600.in = phi i32 [ %sub.i3603, %if.then.i3601 ], [ %call3479, %if.else3475 ]
   %retval.0.i3600 = sext i32 %retval.0.i3600.in to i64
-  %call3482 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg2, ptr noundef nonnull %hspec)
+  %call3482 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg2, ptr noundef %hspec)
   %tobool3483.not = icmp eq i64 %call3482, 0
   %spec.select1795 = select i1 %tobool3483.not, i64 %retval.0.i3600, i64 -14
   br label %return
@@ -10097,7 +10097,7 @@ get_errno.exit3651:                               ; preds = %sw.bb3530, %if.then
   br i1 %tobool3535.not, label %if.end3540, label %land.lhs.true3536
 
 land.lhs.true3536:                                ; preds = %get_errno.exit3651
-  %call3537 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg2, ptr noundef nonnull %its_curr)
+  %call3537 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg2, ptr noundef %its_curr)
   %tobool3538.not = icmp eq i64 %call3537, 0
   br i1 %tobool3538.not, label %if.end3540, label %return
 
@@ -10109,7 +10109,7 @@ sw.bb3541:                                        ; preds = %entry
   br i1 %tobool3542.not, label %if.end3549, label %if.then3543
 
 if.then3543:                                      ; preds = %sw.bb3541
-  %call3544 = call fastcc i64 @target_to_host_itimerspec(ptr noundef nonnull %its_new, i64 noundef %arg3)
+  %call3544 = call fastcc i64 @target_to_host_itimerspec(ptr noundef %its_new, i64 noundef %arg3)
   %tobool3545.not = icmp eq i64 %call3544, 0
   br i1 %tobool3545.not, label %if.end3549, label %return
 
@@ -10134,7 +10134,7 @@ get_errno.exit3658:                               ; preds = %if.end3549, %if.the
   br i1 %tobool3555.not, label %if.end3560, label %land.lhs.true3556
 
 land.lhs.true3556:                                ; preds = %get_errno.exit3658
-  %call3557 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg4, ptr noundef nonnull %its_old)
+  %call3557 = call fastcc i64 @host_to_target_itimerspec(i64 noundef %arg4, ptr noundef %its_old)
   %tobool3558.not = icmp eq i64 %call3557, 0
   br i1 %tobool3558.not, label %if.end3560, label %return
 
@@ -11785,7 +11785,7 @@ get_errno.exit:                                   ; preds = %if.end3, %if.then.i
   br i1 %cmp6, label %if.then8, label %return
 
 if.then8:                                         ; preds = %get_errno.exit
-  %call9 = call fastcc i64 @copy_to_user_flock(i64 noundef %arg, ptr noundef nonnull %fl64)
+  %call9 = call fastcc i64 @copy_to_user_flock(i64 noundef %arg, ptr noundef %fl64)
   br label %return
 
 sw.bb11:                                          ; preds = %entry, %entry, %if.end, %if.end
@@ -11882,7 +11882,7 @@ get_errno.exit114:                                ; preds = %if.end24, %if.then.
   br i1 %cmp29, label %if.then31, label %return
 
 if.then31:                                        ; preds = %get_errno.exit114
-  %call32 = call fastcc i64 @copy_to_user_flock64(i64 noundef %arg, ptr noundef nonnull %fl64)
+  %call32 = call fastcc i64 @copy_to_user_flock64(i64 noundef %arg, ptr noundef %fl64)
   br label %return
 
 sw.bb34:                                          ; preds = %if.end, %if.end, %if.end, %if.end
@@ -12166,7 +12166,7 @@ declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_rusage(i64 noundef %target_addr, ptr nocapture noundef readonly %rusage) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_rusage(i64 noundef %target_addr, ptr nocapture noundef nonnull readonly %rusage) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 144, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -12539,7 +12539,7 @@ if.then54:                                        ; preds = %if.end51
   br i1 %tobool.not.i, label %if.end60, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then54
-  %call57 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg2, ptr noundef nonnull %rfds, i32 noundef %conv)
+  %call57 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg2, ptr noundef %rfds, i32 noundef %conv)
   %tobool58.not = icmp eq i64 %call57, 0
   br i1 %tobool58.not, label %if.end60, label %return
 
@@ -12547,7 +12547,7 @@ if.end60:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool.not.i37, label %if.end67, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %if.end60
-  %call64 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg3, ptr noundef nonnull %wfds, i32 noundef %conv)
+  %call64 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg3, ptr noundef %wfds, i32 noundef %conv)
   %tobool65.not = icmp eq i64 %call64, 0
   br i1 %tobool65.not, label %if.end67, label %return
 
@@ -12555,7 +12555,7 @@ if.end67:                                         ; preds = %land.lhs.true62, %i
   br i1 %tobool.not.i77, label %if.else83, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %if.end67
-  %call71 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg4, ptr noundef nonnull %efds, i32 noundef %conv)
+  %call71 = call fastcc i64 @copy_to_user_fdset(i64 noundef %arg4, ptr noundef %efds, i32 noundef %conv)
   %tobool72.not = icmp ne i64 %call71, 0
   %brmerge = or i1 %tobool11.not, %tobool72.not
   %.mux = select i1 %tobool72.not, i64 -14, i64 %retval.0.i120
@@ -12801,7 +12801,7 @@ if.end:                                           ; preds = %entry
   %add = add nuw i32 %addrlen, 1
   %conv = zext i32 %add to i64
   %0 = alloca i8, i64 %conv, align 16
-  %call = call fastcc i64 @target_to_host_sockaddr(i32 noundef %sockfd, ptr noundef nonnull %0, i64 noundef %target_addr, i32 noundef %addrlen)
+  %call = call fastcc i64 @target_to_host_sockaddr(i32 noundef %sockfd, ptr noundef %0, i64 noundef %target_addr, i32 noundef %addrlen)
   %tobool.not = icmp eq i64 %call, 0
   br i1 %tobool.not, label %if.end2, label %return
 
@@ -12833,7 +12833,7 @@ if.end:                                           ; preds = %entry
   %add = add nuw i32 %addrlen, 1
   %conv = zext i32 %add to i64
   %0 = alloca i8, i64 %conv, align 16
-  %call = call fastcc i64 @target_to_host_sockaddr(i32 noundef %sockfd, ptr noundef nonnull %0, i64 noundef %target_addr, i32 noundef %addrlen)
+  %call = call fastcc i64 @target_to_host_sockaddr(i32 noundef %sockfd, ptr noundef %0, i64 noundef %target_addr, i32 noundef %addrlen)
   %tobool.not = icmp eq i64 %call, 0
   br i1 %tobool.not, label %if.end2, label %return
 
@@ -13884,7 +13884,7 @@ return:                                           ; preds = %fd_trans_host_to_ta
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_sendrecvmsg(i32 noundef %fd, i64 noundef %target_msg, i32 noundef %flags, i32 noundef %send) unnamed_addr #2 {
+define internal fastcc i64 @do_sendrecvmsg(i32 noundef %fd, i64 noundef %target_msg, i32 noundef %flags, i32 noundef range(i32 0, 2) %send) unnamed_addr #2 {
 entry:
   %tobool = icmp ne i32 %send, 0
   %cond = select i1 %tobool, i32 1, i32 3
@@ -13902,7 +13902,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_sendrecvmmsg(i32 noundef %fd, i64 noundef %target_msgvec, i32 noundef %vlen, i32 noundef %flags, i32 noundef %send) unnamed_addr #2 {
+define internal fastcc i64 @do_sendrecvmmsg(i32 noundef %fd, i64 noundef %target_msgvec, i32 noundef %vlen, i32 noundef %flags, i32 noundef range(i32 0, 2) %send) unnamed_addr #2 {
 entry:
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %vlen, i32 1024)
   %0 = shl nuw nsw i32 %spec.store.select, 6
@@ -14035,7 +14035,7 @@ if.then14:                                        ; preds = %if.end12
   %add = add nuw i32 %addrlen, 1
   %conv = zext i32 %add to i64
   %12 = alloca i8, i64 %conv, align 16
-  %call15 = call fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef nonnull %12, i64 noundef %target_addr, i32 noundef %addrlen)
+  %call15 = call fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef %12, i64 noundef %target_addr, i32 noundef %addrlen)
   %tobool16.not = icmp eq i64 %call15, 0
   br i1 %tobool16.not, label %if.end18, label %fail
 
@@ -14950,7 +14950,8 @@ if.end10:                                         ; preds = %target_to_host_time
 if.end12:                                         ; preds = %if.end10
   %conv = zext nneg i32 %nsops to i64
   %call13 = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 6) #30
-  %mul.i = mul nuw nsw i64 %conv, 6
+  %narrow.i = mul nuw nsw i32 %nsops, 6
+  %mul.i = zext nneg i32 %narrow.i to i64
   %call.i11 = tail call ptr @lock_user(i32 noundef 1, i64 noundef %ptr, i64 noundef %mul.i, i1 noundef zeroext true) #27
   %tobool.not.i12 = icmp eq ptr %call.i11, null
   br i1 %tobool.not.i12, label %if.then16, label %for.cond.preheader.i
@@ -14994,19 +14995,19 @@ if.end17:                                         ; preds = %do.body.i13, %for.c
   br i1 %cmp.i, label %if.then.i, label %get_errno.exit
 
 if.then.i:                                        ; preds = %if.end17
-  %call.i18 = tail call ptr @__errno_location() #26
-  %3 = load i32, ptr %call.i18, align 4
+  %call.i17 = tail call ptr @__errno_location() #26
+  %3 = load i32, ptr %call.i17, align 4
   %sub.i = sub i32 0, %3
-  %conv.i19 = sext i32 %sub.i to i64
+  %conv.i18 = sext i32 %sub.i to i64
   br label %get_errno.exit
 
 get_errno.exit:                                   ; preds = %if.end17, %if.then.i
-  %retval.0.i17 = phi i64 [ %conv.i19, %if.then.i ], [ %conv19, %if.end17 ]
+  %retval.0.i16 = phi i64 [ %conv.i18, %if.then.i ], [ %conv19, %if.end17 ]
   call void @g_free(ptr noundef %call13) #27
   br label %return
 
 return:                                           ; preds = %if.else, %if.end10, %get_errno.exit, %if.then16
-  %retval.0 = phi i64 [ -14, %if.then16 ], [ %retval.0.i17, %get_errno.exit ], [ -7, %if.end10 ], [ -14, %if.else ]
+  %retval.0 = phi i64 [ -14, %if.then16 ], [ %retval.0.i16, %get_errno.exit ], [ -7, %if.end10 ], [ -14, %if.else ]
   ret i64 %retval.0
 }
 
@@ -16258,7 +16259,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @cpu_to_uname_machine(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @target_to_host_timex(ptr nocapture noundef writeonly %host_tx, i64 noundef %target_addr) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @target_to_host_timex(ptr nocapture noundef nonnull writeonly %host_tx, i64 noundef %target_addr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef 208, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call, null
@@ -16358,7 +16359,7 @@ return:                                           ; preds = %entry, %do.body
 declare i32 @adjtimex(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_timex(i64 noundef %target_addr, ptr nocapture noundef readonly %host_tx) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_timex(i64 noundef %target_addr, ptr nocapture noundef nonnull readonly %host_tx) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 208, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -16742,7 +16743,7 @@ return:                                           ; preds = %for.body91, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @lock_iovec(i32 noundef %type, i64 noundef %target_addr, i64 noundef %count, i32 noundef %copy) unnamed_addr #2 {
+define internal fastcc ptr @lock_iovec(i32 noundef range(i32 1, 4) %type, i64 noundef %target_addr, i64 noundef %count, i32 noundef range(i32 0, 2) %copy) unnamed_addr #2 {
 entry:
   %cmp = icmp eq i64 %count, 0
   br i1 %cmp, label %return.sink.split, label %if.end
@@ -16842,7 +16843,7 @@ declare i32 @getsid(i32 noundef) local_unnamed_addr #3
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 1) i32 @host_to_target_cpu_mask(ptr nocapture noundef readonly %host_mask, i64 noundef %host_size, i64 noundef %target_addr, i64 noundef %target_size) unnamed_addr #2 {
+define internal fastcc range(i32 -14, 1) i32 @host_to_target_cpu_mask(ptr nocapture noundef nonnull readonly %host_mask, i64 noundef range(i64 0, 4294967296) %host_size, i64 noundef %target_addr, i64 noundef %target_size) unnamed_addr #2 {
 entry:
   %cmp.not = icmp ult i64 %host_size, %target_size
   br i1 %cmp.not, label %if.else, label %if.end
@@ -16902,7 +16903,7 @@ return:                                           ; preds = %do.body, %for.cond.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 1) i32 @target_to_host_cpu_mask(ptr nocapture noundef %host_mask, i64 noundef %host_size, i64 noundef %target_addr, i64 noundef %target_size) unnamed_addr #2 {
+define internal fastcc range(i32 -14, 1) i32 @target_to_host_cpu_mask(ptr nocapture noundef nonnull %host_mask, i64 noundef range(i64 0, -7) %host_size, i64 noundef %target_addr, i64 noundef %target_size) unnamed_addr #2 {
 entry:
   %cmp.not = icmp ult i64 %host_size, %target_size
   br i1 %cmp.not, label %if.else, label %if.end
@@ -16917,7 +16918,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr align 8 %host_mask, i8 0, i64 %host_size, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %host_mask, i8 0, i64 %host_size, i1 false)
   %div17 = lshr i64 %target_size, 3
   %cmp321.not = icmp ult i64 %target_size, 8
   br i1 %cmp321.not, label %return, label %for.body
@@ -16968,7 +16969,7 @@ return:                                           ; preds = %for.inc19, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 2) i32 @check_zeroed_user(i64 noundef %addr, i64 noundef %usize) unnamed_addr #2 {
+define internal fastcc range(i32 -14, 2) i32 @check_zeroed_user(i64 noundef range(i64 1, 0) %addr, i64 noundef range(i64 48, 4294967296) %usize) unnamed_addr #2 {
 entry:
   %cmp = icmp ult i64 %usize, 57
   br i1 %cmp, label %return, label %for.body
@@ -17192,7 +17193,7 @@ declare i64 @sendfile64(i32 noundef, i32 noundef, ptr noundef, i64 noundef) loca
 declare i32 @fstatat64(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_stat64(i64 noundef %target_addr, ptr nocapture noundef readonly %host_st) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_stat64(i64 noundef %target_addr, ptr nocapture noundef nonnull readonly %host_st) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 128, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -17272,7 +17273,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_statx(ptr nocapture noundef readonly %host_stx, i64 noundef %target_addr) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_statx(ptr nocapture noundef nonnull readonly %host_stx, i64 noundef %target_addr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 256, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -17718,7 +17719,7 @@ declare i32 @epoll_create1(i32 noundef) local_unnamed_addr #3
 declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @target_to_host_sigevent(ptr nocapture noundef writeonly %host_sevp, i64 noundef %target_addr) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @target_to_host_sigevent(ptr nocapture noundef nonnull writeonly %host_sevp, i64 noundef range(i64 1, 0) %target_addr) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef 64, i1 noundef zeroext true) #27
   %tobool.not = icmp eq ptr %call, null
@@ -17755,7 +17756,7 @@ declare i32 @timer_create(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @timer_delete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @target_to_host_itimerspec(ptr nocapture noundef writeonly %host_its, i64 noundef %target_addr) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @target_to_host_itimerspec(ptr nocapture noundef nonnull writeonly %host_its, i64 noundef range(i64 1, 0) %target_addr) unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @lock_user(i32 noundef 1, i64 noundef %target_addr, i64 noundef 16, i1 noundef zeroext true) #27
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -17792,7 +17793,7 @@ return:                                           ; preds = %0, %lor.lhs.false, 
 declare i32 @timer_settime(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_itimerspec(i64 noundef %target_addr, ptr nocapture noundef readonly %host_its) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_itimerspec(i64 noundef range(i64 1, 0) %target_addr, ptr nocapture noundef nonnull readonly %host_its) unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_addr, i64 noundef 16, i1 noundef zeroext false) #27
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -17877,9 +17878,9 @@ if.end14:                                         ; preds = %if.end10
   %mul = shl i64 %arg2, 4
   %call15 = tail call ptr @lock_user(i32 noundef 3, i64 noundef %arg1, i64 noundef %mul, i1 noundef zeroext false) #27
   %cmp16 = icmp eq ptr %call15, null
-  br i1 %cmp16, label %return, label %do.body.lr.ph.i
+  br i1 %cmp16, label %return, label %if.end19
 
-do.body.lr.ph.i:                                  ; preds = %if.end14
+if.end19:                                         ; preds = %if.end14
   %cfg.i.i = getelementptr i8, ptr %cpu_env, i64 5136
   %ext_zicboz.i = getelementptr i8, ptr %cpu_env, i64 5164
   %cboz_blocksize.i = getelementptr i8, ptr %cpu_env, i64 5294
@@ -17891,12 +17892,12 @@ do.body.lr.ph.i:                                  ; preds = %if.end14
   %mvendorid.i = getelementptr i8, ptr %cpu_env, i64 5216
   br label %do.body.i
 
-do.body.i:                                        ; preds = %for.inc.i, %do.body.lr.ph.i
-  %pair.addr.067.i = phi ptr [ %call15, %do.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %pair_count.addr.066.i = phi i64 [ %arg2, %do.body.lr.ph.i ], [ %dec.i, %for.inc.i ]
-  %value1.i = getelementptr inbounds i8, ptr %pair.addr.067.i, i64 8
+do.body.i:                                        ; preds = %for.inc.i, %if.end19
+  %pair.addr.066.i = phi ptr [ %call15, %if.end19 ], [ %incdec.ptr.i, %for.inc.i ]
+  %pair_count.addr.065.i = phi i64 [ %arg2, %if.end19 ], [ %dec.i, %for.inc.i ]
+  %value1.i = getelementptr inbounds i8, ptr %pair.addr.066.i, i64 8
   store i64 0, ptr %value1.i, align 1
-  %pair.addr.0.val.i = load i64, ptr %pair.addr.067.i, align 1
+  %pair.addr.0.val.i = load i64, ptr %pair.addr.066.i, align 1
   switch i64 %pair.addr.0.val.i, label %do.body76.i [
     i64 0, label %do.body6.i
     i64 1, label %do.body10.i
@@ -17928,8 +17929,8 @@ sw.bb17.i:                                        ; preds = %do.body.i
   %4 = and i32 %env.val.i, 4352
   %or.cond.not.i = icmp eq i32 %4, 4352
   %5 = and i32 %env.val.i, 1
-  %narrow68.i = select i1 %or.cond.not.i, i32 %5, i32 0
-  %cond.i = zext nneg i32 %narrow68.i to i64
+  %narrow67.i = select i1 %or.cond.not.i, i32 %5, i32 0
+  %cond.i = zext nneg i32 %narrow67.i to i64
   store i64 %cond.i, ptr %value1.i, align 1
   br label %for.inc.i
 
@@ -17982,12 +17983,12 @@ cond.end.i:                                       ; preds = %cond.true.i, %sw.bb
   br label %for.inc.i
 
 do.body76.i:                                      ; preds = %do.body.i
-  store i64 -1, ptr %pair.addr.067.i, align 1
+  store i64 -1, ptr %pair.addr.066.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.body76.i, %cond.end.i, %do.body64.i, %sw.bb27.i, %sw.bb17.i, %do.body14.i, %do.body10.i, %do.body6.i
-  %dec.i = add i64 %pair_count.addr.066.i, -1
-  %incdec.ptr.i = getelementptr i8, ptr %pair.addr.067.i, i64 16
+  %dec.i = add i64 %pair_count.addr.065.i, -1
+  %incdec.ptr.i = getelementptr i8, ptr %pair.addr.066.i, i64 16
   %cmp.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.not.i, label %return, label %do.body.i, !llvm.loop !49
 
@@ -18020,7 +18021,7 @@ declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare i32 @pipe2(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @copy_to_user_flock(i64 noundef %target_flock_addr, ptr nocapture noundef readonly %fl) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @copy_to_user_flock(i64 noundef %target_flock_addr, ptr nocapture noundef nonnull readonly %fl) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_flock_addr, i64 noundef 32, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -18053,7 +18054,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @copy_to_user_flock64(i64 noundef %target_flock_addr, ptr nocapture noundef readonly %fl) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @copy_to_user_flock64(i64 noundef %target_flock_addr, ptr nocapture noundef nonnull readonly %fl) unnamed_addr #2 {
 entry:
   %call = tail call ptr @lock_user(i32 noundef 3, i64 noundef %target_flock_addr, i64 noundef 32, i1 noundef zeroext false) #27
   %tobool.not = icmp eq ptr %call, null
@@ -18086,7 +18087,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @copy_to_user_fdset(i64 noundef %target_fds_addr, ptr nocapture noundef readonly %fds, i32 noundef %n) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @copy_to_user_fdset(i64 noundef range(i64 1, 0) %target_fds_addr, ptr nocapture noundef nonnull readonly %fds, i32 noundef %n) unnamed_addr #2 {
 entry:
   %sub = add i32 %n, 63
   %div = sdiv i32 %sub, 64
@@ -18201,7 +18202,7 @@ return:                                           ; preds = %if.else26, %if.end1
 declare zeroext i1 @page_check_range(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef %addr, i64 noundef %target_addr, i32 noundef %len) unnamed_addr #2 {
+define internal fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef nonnull %addr, i64 noundef %target_addr, i32 noundef %len) unnamed_addr #2 {
 entry:
   %cmp.i = icmp slt i32 %fd, 0
   br i1 %cmp.i, label %if.end, label %if.end.i
@@ -18256,7 +18257,7 @@ if.then3.i43:                                     ; preds = %land.lhs.true.i39
 fd_trans_target_to_host_addr.exit45:              ; preds = %if.end.i34, %land.lhs.true.i39, %if.then3.i43
   %retval.1.i37 = phi ptr [ %11, %if.then3.i43 ], [ null, %land.lhs.true.i39 ], [ null, %if.end.i34 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
-  %call2 = tail call i64 %retval.1.i37(ptr noundef %addr, i64 noundef %target_addr, i32 noundef %len) #27
+  %call2 = tail call i64 %retval.1.i37(ptr noundef nonnull %addr, i64 noundef %target_addr, i32 noundef %len) #27
   br label %return
 
 if.end:                                           ; preds = %entry, %fd_trans_target_to_host_addr.exit.thread48, %fd_trans_target_to_host_addr.exit
@@ -18293,12 +18294,12 @@ if.end30.thread:                                  ; preds = %if.then11, %if.then
   %len.addr.1 = phi i32 [ %len, %if.then16 ], [ %len, %if.then11 ], [ %spec.select, %land.lhs.true19 ]
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len.addr.1, i32 110)
   %conv3152 = zext nneg i32 %spec.store.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %addr, ptr nonnull align 2 %call3, i64 %conv3152, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %addr, ptr nonnull align 2 %call3, i64 %conv3152, i1 false)
   store i16 1, ptr %addr, align 2
   br label %return
 
 if.end30:                                         ; preds = %if.end6
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %addr, ptr nonnull align 2 %call3, i64 %conv, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %addr, ptr nonnull align 2 %call3, i64 %conv, i1 false)
   store i16 %12, ptr %addr, align 2
   br label %return
 
@@ -18320,7 +18321,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #3
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @do_sendrecvmsg_locked(i32 noundef %fd, ptr nocapture noundef %msgp, i32 noundef %flags, i32 noundef %send) unnamed_addr #2 {
+define internal fastcc i64 @do_sendrecvmsg_locked(i32 noundef %fd, ptr nocapture noundef %msgp, i32 noundef %flags, i32 noundef range(i32 0, 2) %send) unnamed_addr #2 {
 entry:
   %msg = alloca %struct.msghdr, align 8
   %0 = load i64, ptr %msgp, align 8
@@ -18336,7 +18337,7 @@ if.then:                                          ; preds = %entry
   %conv = zext i32 %add to i64
   %2 = alloca i8, i64 %conv, align 16
   store ptr %2, ptr %msg, align 8
-  %call8 = call fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef nonnull %2, i64 noundef %0, i32 noundef %1)
+  %call8 = call fastcc i64 @target_to_host_sockaddr(i32 noundef %fd, ptr noundef %2, i64 noundef %0, i32 noundef %1)
   switch i64 %call8, label %out2 [
     i64 -14, label %if.then10
     i64 0, label %if.end18
@@ -18761,7 +18762,7 @@ if.end96:                                         ; preds = %if.then3.i115, %lan
   br i1 %cmp.i117, label %if.end101, label %if.then131
 
 if.end101:                                        ; preds = %if.then83, %fd_trans_host_to_target_data.exit.thread134, %fd_trans_host_to_target_data.exit, %if.end96
-  %call100 = call fastcc i64 @host_to_target_cmsg(ptr noundef nonnull %msgp, ptr noundef nonnull %msg)
+  %call100 = call fastcc i64 @host_to_target_cmsg(ptr noundef nonnull %msgp, ptr noundef %msg)
   %cmp.i119 = icmp ult i64 %call100, -4096
   br i1 %cmp.i119, label %if.then104, label %if.then131
 
@@ -18805,7 +18806,7 @@ out2:                                             ; preds = %if.end18, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -14, 1) i64 @host_to_target_cmsg(ptr nocapture noundef %target_msgh, ptr noundef %msgh) unnamed_addr #2 {
+define internal fastcc range(i64 -14, 1) i64 @host_to_target_cmsg(ptr nocapture noundef %target_msgh, ptr noundef nonnull %msgh) unnamed_addr #2 {
 entry:
   %msg_controllen = getelementptr inbounds i8, ptr %msgh, i64 40
   %0 = load i64, ptr %msg_controllen, align 8
@@ -19127,7 +19128,7 @@ sw.epilog238:                                     ; preds = %do.body, %sw.bb45, 
   %conv254 = sext i32 %spec.select124 to i64
   %sub255 = sub i64 %msg_controllen1.0145, %conv254
   %add256 = add i32 %spec.select124, %space.1143
-  %call257 = tail call ptr @__cmsg_nxthdr(ptr noundef %msgh, ptr noundef nonnull %cmsg.0146) #27
+  %call257 = tail call ptr @__cmsg_nxthdr(ptr noundef nonnull %msgh, ptr noundef nonnull %cmsg.0146) #27
   %target_msgh.val = load i64, ptr %msg_controllen2, align 8
   %51 = load i64, ptr %target_cmsg.0144, align 8
   %sub.i = add i64 %51, 7
@@ -19321,7 +19322,7 @@ declare i32 @prctl(i32 noundef, ...) local_unnamed_addr #3
 declare i32 @signalfd(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @cpu_set_valid(i64 noundef %arg3, i64 noundef %arg4) unnamed_addr #2 {
+define internal fastcc range(i32 -22, 1) i32 @cpu_set_valid(i64 noundef range(i64 1, 0) %arg3, i64 noundef %arg4) unnamed_addr #2 {
 entry:
   %sub = add i64 %arg3, 63
   %div = sdiv i64 %sub, 64

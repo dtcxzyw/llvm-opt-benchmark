@@ -2148,7 +2148,7 @@ if.then21:                                        ; preds = %if.end18
   %last_avail_wrap_counter.i = getelementptr inbounds i8, ptr %vq, i64 58
   %10 = load i8, ptr %last_avail_wrap_counter.i, align 2
   %desc2.i = getelementptr inbounds i8, ptr %4, i64 16
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %conv.i, i1 noundef zeroext true)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc2.i, i32 noundef %conv.i, i1 noundef zeroext true)
   %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
   %11 = load i16, ptr %flags.i, align 2
   %tobool383.i = trunc i8 %10 to i1
@@ -2212,7 +2212,7 @@ if.then23.i:                                      ; preds = %if.end15.i
 
 if.end24.i:                                       ; preds = %if.end15.i
   %div40.i = lshr i32 %21, 4
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %indirect_desc_cache.i, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %indirect_desc_cache.i, i32 noundef 0, i1 noundef zeroext false)
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end24.i, %if.end.i
@@ -2252,7 +2252,7 @@ if.end47.us.i:                                    ; preds = %if.end32.us.i
   br i1 %cmp.i.us.i, label %if.then55.split.us.i, label %virtqueue_packed_read_next_desc.exit.us.i
 
 virtqueue_packed_read_next_desc.exit.us.i:        ; preds = %if.end47.us.i
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %inc.i.us.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %inc.i.us.i, i1 noundef zeroext false)
   %inc.us.i = add i32 %inc79.us.i, 1
   %cmp29.us.i = icmp ugt i32 %inc.us.i, %max.0.i
   br i1 %cmp29.us.i, label %if.then31.i, label %if.end32.us.i, !llvm.loop !17
@@ -2302,7 +2302,7 @@ if.else.i.i:                                      ; preds = %if.end.thread.i.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %if.else.i.i, %if.end.thread.i.i
   %i.2.i = phi i32 [ %sub.i.i, %if.else.i.i ], [ %inc7.i.i, %if.end.thread.i.i ]
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
   %inc.i = add i32 %inc79.i, 1
   %cmp29.i = icmp ugt i32 %inc.i, %max.0.i
   br i1 %cmp29.i, label %if.then31.i, label %if.end32.i, !llvm.loop !17
@@ -2323,7 +2323,7 @@ if.end60.i:                                       ; preds = %if.else58.i, %if.th
   %wrap_counter.1.i = xor i8 %wrap_counter.091.i, %frombool72.i
   %sub68.i = select i1 %cmp63.not.i, i32 %30, i32 0
   %idx.2.i = sub nuw i32 %idx.1.i, %sub68.i
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc2.i, i32 noundef %idx.2.i, i1 noundef zeroext true)
   %31 = load i16, ptr %flags.i, align 2
   %tobool3.i = trunc i8 %wrap_counter.1.i to i1
   %32 = lshr i16 %31, 7
@@ -3067,7 +3067,7 @@ if.then16.i:                                      ; preds = %if.end10.i
 
 if.end17.i:                                       ; preds = %if.end10.i
   %desc11.i = getelementptr inbounds i8, ptr %20, i64 16
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc11.i, i32 noundef %conv.i, i1 noundef zeroext true)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc11.i, i32 noundef %conv.i, i1 noundef zeroext true)
   %id19.i = getelementptr inbounds i8, ptr %desc.i, i64 12
   %22 = load i16, ptr %id19.i, align 4
   %flags.i = getelementptr inbounds i8, ptr %desc.i, i64 14
@@ -3104,7 +3104,7 @@ if.then36.i:                                      ; preds = %if.end27.i
 
 if.end37.i:                                       ; preds = %if.end27.i
   %div54.i = lshr i32 %28, 4
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %indirect_desc_cache.i, i32 noundef 0, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %indirect_desc_cache.i, i32 noundef 0, i1 noundef zeroext false)
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end37.i, %if.end17.i
@@ -3132,7 +3132,7 @@ if.then46.i:                                      ; preds = %do.body.i
   %32 = load i64, ptr %desc.i, align 8
   %33 = load i32, ptr %len51.i, align 8
   %conv52.i = zext i32 %33 to i64
-  %call53.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef nonnull %in_num.i, ptr noundef %add.ptr.i, ptr noundef %add.ptr49.i, i32 noundef %sub.i, i1 noundef zeroext true, i64 noundef %32, i64 noundef %conv52.i)
+  %call53.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %in_num.i, ptr noundef %add.ptr.i, ptr noundef %add.ptr49.i, i32 noundef %sub.i, i1 noundef zeroext true, i64 noundef %32, i64 noundef %conv52.i)
   br i1 %call53.i, label %if.end67.i, label %err_undo_map.i
 
 if.else.i:                                        ; preds = %do.body.i
@@ -3144,7 +3144,7 @@ if.end64.i:                                       ; preds = %if.else.i
   %35 = load i64, ptr %desc.i, align 8
   %36 = load i32, ptr %len51.i, align 8
   %conv61.i = zext i32 %36 to i64
-  %call62.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef nonnull %out_num.i, ptr noundef nonnull %addr.i, ptr noundef nonnull %iov.i, i32 noundef 1024, i1 noundef zeroext false, i64 noundef %35, i64 noundef %conv61.i)
+  %call62.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %out_num.i, ptr noundef nonnull %addr.i, ptr noundef nonnull %iov.i, i32 noundef 1024, i1 noundef zeroext false, i64 noundef %35, i64 noundef %conv61.i)
   br i1 %call62.i, label %if.end67.i, label %err_undo_map.i
 
 if.end67.i:                                       ; preds = %if.end64.i, %if.then46.i
@@ -3178,7 +3178,7 @@ if.else.i.i:                                      ; preds = %if.end.thread.i.i
 
 virtqueue_packed_read_next_desc.exit.i:           ; preds = %if.else.i.i, %if.end.thread.i.i, %if.end.i59.i
   %i.2.i = phi i32 [ %inc.i.i, %if.end.i59.i ], [ %sub.i.i, %if.else.i.i ], [ %inc7.i.i, %if.end.thread.i.i ]
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc_cache.0.i, i32 noundef %i.2.i, i1 noundef zeroext false)
   br label %do.body.i, !llvm.loop !21
 
 do.end.i:                                         ; preds = %if.end.i59.i, %land.lhs.true.i.i
@@ -3663,7 +3663,7 @@ if.then44.i:                                      ; preds = %if.end35.i
 
 if.end45.i:                                       ; preds = %if.end35.i
   %div55.i = lshr i32 %108, 4
-  call fastcc void @vring_split_desc_read(ptr noundef nonnull %desc.i10, ptr noundef nonnull %indirect_desc_cache.i5, i32 noundef 0)
+  call fastcc void @vring_split_desc_read(ptr noundef %desc.i10, ptr noundef %indirect_desc_cache.i5, i32 noundef 0)
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.end45.i, %vring_split_desc_read.exit.i
@@ -3690,7 +3690,7 @@ if.then54.i:                                      ; preds = %do.body.i52
   %112 = load i64, ptr %desc.i10, align 8
   %113 = load i32, ptr %len59.i, align 8
   %conv60.i = zext i32 %113 to i64
-  %call61.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef nonnull %in_num.i7, ptr noundef %add.ptr.i55, ptr noundef %add.ptr57.i, i32 noundef %sub.i56, i1 noundef zeroext true, i64 noundef %112, i64 noundef %conv60.i)
+  %call61.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %in_num.i7, ptr noundef %add.ptr.i55, ptr noundef %add.ptr57.i, i32 noundef %sub.i56, i1 noundef zeroext true, i64 noundef %112, i64 noundef %conv60.i)
   br i1 %call61.i, label %if.end75.i, label %err_undo_map.i57
 
 if.else.i75:                                      ; preds = %do.body.i52
@@ -3706,7 +3706,7 @@ if.end72.i:                                       ; preds = %if.else.i75
   %115 = load i64, ptr %desc.i10, align 8
   %116 = load i32, ptr %len59.i, align 8
   %conv69.i = zext i32 %116 to i64
-  %call70.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef nonnull %out_num.i6, ptr noundef nonnull %addr.i8, ptr noundef nonnull %iov.i9, i32 noundef 1024, i1 noundef zeroext false, i64 noundef %115, i64 noundef %conv69.i)
+  %call70.i = call fastcc zeroext i1 @virtqueue_map_desc(ptr noundef %0, ptr noundef %out_num.i6, ptr noundef nonnull %addr.i8, ptr noundef nonnull %iov.i9, i32 noundef 1024, i1 noundef zeroext false, i64 noundef %115, i64 noundef %conv69.i)
   br i1 %call70.i, label %if.end75.i, label %err_undo_map.i57
 
 if.end75.i:                                       ; preds = %if.end72.i, %if.then54.i
@@ -3871,7 +3871,7 @@ while.end21.i.i.i.i.i36:                          ; preds = %while.end.i.i.i.i.i
 err_undo_map.i57:                                 ; preds = %if.end72.i, %if.then54.i, %virtqueue_split_read_next_desc.exit.thread94.i, %if.then79.i, %if.then63.i
   %136 = load i32, ptr %out_num.i6, align 4
   %137 = load i32, ptr %in_num.i7, align 4
-  call fastcc void @virtqueue_undo_map_desc(i32 noundef %136, i32 noundef %137, ptr noundef nonnull %iov.i9)
+  call fastcc void @virtqueue_undo_map_desc(i32 noundef %136, i32 noundef %137, ptr noundef %iov.i9)
   br label %if.then.i.i.i26
 
 virtqueue_split_pop.exit:                         ; preds = %if.end.i.i.i.i85.i, %while.end.i.i.i.i.i33, %while.end21.i.i.i.i.i36
@@ -3964,7 +3964,7 @@ while.body.i:                                     ; preds = %if.end39.i, %while.
   %10 = phi i16 [ %.pre.i, %while.body.lr.ph.i ], [ %29, %if.end39.i ]
   %dropped.027.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %inc18.i, %if.end39.i ]
   %conv.i = zext i16 %10 to i32
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc3.i, i32 noundef %conv.i, i1 noundef zeroext true)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc3.i, i32 noundef %conv.i, i1 noundef zeroext true)
   %11 = load i16, ptr %flags.i, align 2
   %12 = load i8, ptr %last_avail_wrap_counter.i, align 2
   %tobool6.i = trunc i8 %12 to i1
@@ -3992,7 +3992,7 @@ if.end.thread.i.i:                                ; preds = %if.end9.i, %if.end.
   %inc7.i.i = add i32 %idx.025.i, 1
   %cmp8.i.i = icmp eq i32 %inc7.i.i, %18
   %spec.select.i = select i1 %cmp8.i.i, i32 0, i32 %inc7.i.i
-  call fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc.i, ptr noundef nonnull %desc3.i, i32 noundef %spec.select.i, i1 noundef zeroext false)
+  call fastcc void @vring_packed_desc_read(ptr noundef %desc.i, ptr noundef %desc3.i, i32 noundef %spec.select.i, i1 noundef zeroext false)
   %19 = load i32, ptr %ndescs.i, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %ndescs.i, align 8
@@ -8744,7 +8744,7 @@ if.then49:                                        ; preds = %if.then40
 
 if.end50:                                         ; preds = %if.then40
   %div54 = lshr i32 %28, 4
-  call fastcc void @vring_split_desc_read(ptr noundef nonnull %desc, ptr noundef nonnull %indirect_desc_cache, i32 noundef 0)
+  call fastcc void @vring_split_desc_read(ptr noundef %desc, ptr noundef %indirect_desc_cache, i32 noundef 0)
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end50, %vring_split_desc_read.exit
@@ -9060,7 +9060,7 @@ return:                                           ; preds = %while.end21.i.i.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vring_split_desc_read(ptr noundef %desc, ptr noundef %cache, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @vring_split_desc_read(ptr noundef nonnull %desc, ptr noundef nonnull %cache, i32 noundef %i) unnamed_addr #0 {
 entry:
   %conv = sext i32 %i to i64
   %mul = shl nsw i64 %conv, 4
@@ -9087,7 +9087,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %address_space_read_cached.exit
 
 if.else8.i:                                       ; preds = %if.end.i
-  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul, ptr noundef %desc, i64 noundef 16) #23
+  %call.i = tail call i32 @address_space_read_cached_slow(ptr noundef nonnull %cache, i64 noundef %mul, ptr noundef nonnull %desc, i64 noundef 16) #23
   br label %address_space_read_cached.exit
 
 address_space_read_cached.exit:                   ; preds = %if.then6.i, %if.else8.i
@@ -9170,14 +9170,15 @@ if.end43:                                         ; preds = %if.end
   %conv18 = select i1 %cmp.not, i16 %8, i16 0
   %head.0 = sub i16 %conv10, %conv18
   %desc44 = getelementptr inbounds i8, ptr %7, i64 16
-  %conv.i.i = zext i16 %head.0 to i64
-  %mul.i.i = shl nuw nsw i64 %conv.i.i, 4
+  %conv45 = zext i16 %head.0 to i32
+  %9 = shl nuw nsw i32 %conv45, 4
+  %mul.i.i = zext nneg i32 %9 to i64
   %add.i.i = or disjoint i64 %mul.i.i, 12
   %add3.i.i = or disjoint i64 %mul.i.i, 8
   %len1.i.i.i = getelementptr inbounds i8, ptr %7, i64 32
-  %9 = load i64, ptr %len1.i.i.i, align 16
-  %cmp.i.i.i = icmp uge i64 %add.i.i, %9
-  %sub.i.i.i = sub nuw i64 %9, %add.i.i
+  %10 = load i64, ptr %len1.i.i.i, align 16
+  %cmp.i.i.i = icmp uge i64 %add.i.i, %10
+  %sub.i.i.i = sub nuw i64 %10, %add.i.i
   %cmp3.not.i.i.i = icmp ult i64 %sub.i.i.i, 2
   %or.cond.i.i.i = select i1 %cmp.i.i.i, i1 true, i1 %cmp3.not.i.i.i
   br i1 %or.cond.i.i.i, label %if.else.i.i.i, label %if.end.i.i.i
@@ -9187,12 +9188,12 @@ if.else.i.i.i:                                    ; preds = %if.end43
   unreachable
 
 if.end.i.i.i:                                     ; preds = %if.end43
-  %10 = load ptr, ptr %desc44, align 16
-  %tobool.not.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %desc44, align 16
+  %tobool.not.i.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i.i, label %if.else8.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
-  %add.ptr.i.i.i = getelementptr i8, ptr %10, i64 %add.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %11, i64 %add.i.i
   store i16 %conv, ptr %add.ptr.i.i.i, align 1
   br label %address_space_write_cached.exit.i.i
 
@@ -9202,9 +9203,9 @@ if.else8.i.i.i:                                   ; preds = %if.end.i.i.i
 
 address_space_write_cached.exit.i.i:              ; preds = %if.else8.i.i.i, %if.then6.i.i.i
   call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i.i, i64 noundef 2) #23
-  %11 = load i64, ptr %len1.i.i.i, align 16
-  %cmp.i12.i.i = icmp uge i64 %add3.i.i, %11
-  %sub.i13.i.i = sub nuw i64 %11, %add3.i.i
+  %12 = load i64, ptr %len1.i.i.i, align 16
+  %cmp.i12.i.i = icmp uge i64 %add3.i.i, %12
+  %sub.i13.i.i = sub nuw i64 %12, %add3.i.i
   %cmp3.not.i14.i.i = icmp ult i64 %sub.i13.i.i, 4
   %or.cond.i15.i.i = select i1 %cmp.i12.i.i, i1 true, i1 %cmp3.not.i14.i.i
   br i1 %or.cond.i15.i.i, label %if.else.i23.i.i, label %if.end.i16.i.i
@@ -9214,14 +9215,14 @@ if.else.i23.i.i:                                  ; preds = %address_space_write
   unreachable
 
 if.end.i16.i.i:                                   ; preds = %address_space_write_cached.exit.i.i
-  %12 = load ptr, ptr %desc44, align 16
-  %tobool.not.i17.i.i = icmp eq ptr %12, null
+  %13 = load ptr, ptr %desc44, align 16
+  %tobool.not.i17.i.i = icmp eq ptr %13, null
   br i1 %tobool.not.i17.i.i, label %if.else8.i21.i.i, label %if.then6.i18.i.i
 
 if.then6.i18.i.i:                                 ; preds = %if.end.i16.i.i
-  %add.ptr.i19.i.i = getelementptr i8, ptr %12, i64 %add3.i.i
-  %13 = load i32, ptr %len, align 8
-  store i32 %13, ptr %add.ptr.i19.i.i, align 1
+  %add.ptr.i19.i.i = getelementptr i8, ptr %13, i64 %add3.i.i
+  %14 = load i32, ptr %len, align 8
+  store i32 %14, ptr %add.ptr.i19.i.i, align 1
   br label %vring_packed_desc_write_data.exit.i
 
 if.else8.i21.i.i:                                 ; preds = %if.end.i16.i.i
@@ -9239,10 +9240,11 @@ if.then.i:                                        ; preds = %vring_packed_desc_w
 
 if.end.i:                                         ; preds = %if.then.i, %vring_packed_desc_write_data.exit.i
   %desc.val.i = load i16, ptr %flags, align 2
-  %add.i7.i = or disjoint i64 %mul.i.i, 14
-  %14 = load i64, ptr %len1.i.i.i, align 16
-  %cmp.i.i.i.i.i = icmp ult i64 %add.i7.i, %14
-  %sub.i.i.i.i.i = sub nuw i64 %14, %add.i7.i
+  %15 = or disjoint i32 %9, 14
+  %add.i5.i = zext nneg i32 %15 to i64
+  %16 = load i64, ptr %len1.i.i.i, align 16
+  %cmp.i.i.i.i.i = icmp ugt i64 %16, %add.i5.i
+  %sub.i.i.i.i.i = sub nuw i64 %16, %add.i5.i
   %cmp2.i.i.i.i.i = icmp ugt i64 %sub.i.i.i.i.i, 1
   %or.cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, i1 %cmp2.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i, label %if.end.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -9252,21 +9254,21 @@ if.else.i.i.i.i.i:                                ; preds = %if.end.i
   unreachable
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end.i
-  %15 = load ptr, ptr %desc44, align 16
-  %tobool.not.i.i.i.i.i = icmp eq ptr %15, null
+  %17 = load ptr, ptr %desc44, align 16
+  %tobool.not.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %tobool.not.i.i.i.i.i, label %if.else7.i.i.i.i.i, label %if.then5.i.i.i.i.i
 
 if.then5.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %15, i64 %add.i7.i
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %17, i64 %add.i5.i
   store i16 %desc.val.i, ptr %add.ptr.i.i.i.i.i, align 1
   br label %vring_packed_desc_write.exit
 
 if.else7.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
-  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #23
+  call void @address_space_stw_le_cached_slow(ptr noundef nonnull %desc44, i64 noundef %add.i5.i, i16 noundef zeroext %desc.val.i, i32 1, ptr noundef null) #23
   br label %vring_packed_desc_write.exit
 
 vring_packed_desc_write.exit:                     ; preds = %if.then5.i.i.i.i.i, %if.else7.i.i.i.i.i
-  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i7.i, i64 noundef 2) #23
+  call void @address_space_cache_invalidate(ptr noundef nonnull %desc44, i64 noundef %add.i5.i, i64 noundef 2) #23
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %vring_packed_desc_write.exit
@@ -9276,7 +9278,7 @@ return:                                           ; preds = %if.end, %entry, %vr
 declare ptr @get_ptr_rcu_reader() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vring_packed_desc_read(ptr noundef %desc, ptr noundef %cache, i32 noundef %i, i1 noundef zeroext %strict_order) unnamed_addr #0 {
+define internal fastcc void @vring_packed_desc_read(ptr noundef nonnull %desc, ptr noundef nonnull %cache, i32 noundef %i, i1 noundef zeroext %strict_order) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %desc, i64 14
   %conv.i = sext i32 %i to i64
@@ -9415,7 +9417,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #18
 declare ptr @address_space_map(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, i32) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %vdev, ptr nocapture noundef %p_num_sg, ptr nocapture noundef writeonly %addr, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i1 noundef zeroext %is_write, i64 noundef %pa, i64 noundef %sz) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @virtqueue_map_desc(ptr noundef %vdev, ptr nocapture noundef nonnull %p_num_sg, ptr nocapture noundef writeonly %addr, ptr nocapture noundef writeonly %iov, i32 noundef %max_num_sg, i1 noundef zeroext %is_write, i64 noundef %pa, i64 noundef range(i64 0, 4294967296) %sz) unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %0 = load i32, ptr %p_num_sg, align 4
@@ -9526,7 +9528,7 @@ _nocheck__trace_virtqueue_pop.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtqueue_undo_map_desc(i32 noundef %out_num, i32 noundef %in_num, ptr nocapture noundef readonly %iov) unnamed_addr #0 {
+define internal fastcc void @virtqueue_undo_map_desc(i32 noundef %out_num, i32 noundef %in_num, ptr nocapture noundef nonnull readonly %iov) unnamed_addr #0 {
 entry:
   %add = add i32 %in_num, %out_num
   %cmp6.not = icmp eq i32 %add, 0

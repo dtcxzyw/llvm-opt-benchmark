@@ -10191,7 +10191,7 @@ declare void @_ZN9Assembler5imulqE8RegisterS0_(ptr noundef nonnull align 8 deref
 declare void @_ZN9Assembler3orqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler(i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %2) unnamed_addr #0 {
 switch.lookup:
   %3 = alloca %class.Label, align 8
   %4 = alloca %class.Label, align 8
@@ -10223,10 +10223,10 @@ switch.lookup:
   store ptr null, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %5, i64 32
   store i8 0, ptr %20, align 8
-  %21 = sext i32 %0 to i64
+  %21 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZL24do_setmemory_atomic_loop8USM_TYPE8RegisterS0_S0_S0_R5LabelP14MacroAssembler, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.offset = add nsw i32 %0, 1
+  %switch.offset = add nuw nsw i32 %0, 1
   tail call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 6, i32 noundef %switch.offset) #8
   tail call void @_ZN9Assembler4movqE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 10, i32 6) #8
   tail call void @_ZN9Assembler4shrqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 10, i32 noundef 3) #8
@@ -10261,7 +10261,7 @@ switch.lookup:
     i32 1, label %.split.split.us78
   ]
 
-default.unreachable:                              ; preds = %.split77.us
+default.unreachable84:                            ; preds = %.split77.us
   unreachable
 
 .split.split.us:                                  ; preds = %switch.lookup, %.split.split.us
@@ -10323,7 +10323,7 @@ default.unreachable:                              ; preds = %.split77.us
   call void @_ZN9Assembler4andqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 6, i32 noundef 7) #8
   call void @_ZN9Assembler6jccb_0ENS_9ConditionER5LabelPKci(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull @.str.27, i32 noundef 2550) #8
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(33) %5) #8
-  switch i32 %0, label %default.unreachable [
+  switch i32 %0, label %default.unreachable84 [
     i32 0, label %52
     i32 1, label %61
     i32 2, label %70

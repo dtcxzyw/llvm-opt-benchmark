@@ -685,8 +685,8 @@ define internal void @_ZN2cv9videostabL49estimateGlobMotionLeastSquaresTranslati
   %19 = alloca %"class.cv::MatExpr", align 8
   %20 = alloca %"class.cv::MatExpr", align 8
   %21 = alloca %"class.cv::MatExpr", align 8
-  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %1, ptr noundef %2)
-  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %1, ptr noundef %3)
+  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %1, ptr noundef %2)
+  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %1, ptr noundef %3)
           to label %22 unwind label %58
 
 22:                                               ; preds = %5
@@ -1556,8 +1556,8 @@ define internal void @_ZN2cv9videostabL40estimateGlobMotionLeastSquaresSimilarit
   %19 = alloca %"class.cv::MatExpr", align 8
   %20 = alloca %"class.cv::MatExpr", align 8
   %21 = alloca %"class.cv::MatExpr", align 8
-  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %1, ptr noundef %2)
-  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %1, ptr noundef %3)
+  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %1, ptr noundef %2)
+  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %1, ptr noundef %3)
           to label %22 unwind label %61
 
 22:                                               ; preds = %5
@@ -1939,8 +1939,8 @@ define internal void @_ZN2cv9videostabL36estimateGlobMotionLeastSquaresAffineEiP
   %19 = alloca %"class.cv::MatExpr", align 8
   %20 = alloca %"class.cv::MatExpr", align 8
   %21 = alloca %"class.cv::MatExpr", align 8
-  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %1, ptr noundef %2)
-  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %1, ptr noundef %3)
+  call fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %1, ptr noundef %2)
+  invoke fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %1, ptr noundef %3)
           to label %22 unwind label %64
 
 22:                                               ; preds = %5
@@ -7534,7 +7534,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 declare float @sqrtf(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge60.thread

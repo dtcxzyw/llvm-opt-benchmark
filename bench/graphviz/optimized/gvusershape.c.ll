@@ -594,62 +594,62 @@ define internal fastcc void @gif_size(ptr nocapture noundef %0) unnamed_addr #5 
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef 6, i32 noundef 0)
   %6 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i
+  br label %7
 
-.lr.ph.i:                                         ; preds = %9, %1
-  %.015.i = phi i64 [ %13, %9 ], [ 0, %1 ]
-  %.01114.i = phi i32 [ %12, %9 ], [ 0, %1 ]
-  %7 = tail call i32 @fgetc(ptr noundef %6)
-  %8 = tail call i32 @feof(ptr noundef %6) #21
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %get_int_lsb_first.exit.thread
+7:                                                ; preds = %10, %1
+  %.015.i = phi i64 [ 0, %1 ], [ %14, %10 ]
+  %.01114.i = phi i32 [ 0, %1 ], [ %13, %10 ]
+  %8 = tail call i32 @fgetc(ptr noundef %6)
+  %9 = tail call i32 @feof(ptr noundef %6) #21
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %10, label %get_int_lsb_first.exit.thread
 
-9:                                                ; preds = %.lr.ph.i
+10:                                               ; preds = %7
   %.0.tr.i = trunc i64 %.015.i to i32
-  %10 = shl i32 %.0.tr.i, 3
-  %11 = shl i32 %7, %10
-  %12 = or i32 %11, %.01114.i
-  %13 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %13, 2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %11 = shl i32 %.0.tr.i, 3
+  %12 = shl i32 %8, %11
+  %13 = or i32 %12, %.01114.i
+  %14 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %14, 2
+  br i1 %exitcond.not.i, label %15, label %7
 
-._crit_edge.i:                                    ; preds = %9
-  %14 = icmp slt i32 %12, 0
-  br i1 %14, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
+15:                                               ; preds = %10
+  %16 = icmp slt i32 %13, 0
+  br i1 %16, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
 
-get_int_lsb_first.exit:                           ; preds = %._crit_edge.i
-  %15 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i6
+get_int_lsb_first.exit:                           ; preds = %15
+  %17 = load ptr, ptr %3, align 8
+  br label %18
 
-.lr.ph.i6:                                        ; preds = %18, %get_int_lsb_first.exit
-  %.015.i7 = phi i64 [ %22, %18 ], [ 0, %get_int_lsb_first.exit ]
-  %.01114.i8 = phi i32 [ %21, %18 ], [ 0, %get_int_lsb_first.exit ]
-  %16 = tail call i32 @fgetc(ptr noundef %15)
-  %17 = tail call i32 @feof(ptr noundef %15) #21
-  %.not.i9 = icmp eq i32 %17, 0
-  br i1 %.not.i9, label %18, label %get_int_lsb_first.exit.thread
+18:                                               ; preds = %21, %get_int_lsb_first.exit
+  %.015.i6 = phi i64 [ 0, %get_int_lsb_first.exit ], [ %25, %21 ]
+  %.01114.i7 = phi i32 [ 0, %get_int_lsb_first.exit ], [ %24, %21 ]
+  %19 = tail call i32 @fgetc(ptr noundef %17)
+  %20 = tail call i32 @feof(ptr noundef %17) #21
+  %.not.i8 = icmp eq i32 %20, 0
+  br i1 %.not.i8, label %21, label %get_int_lsb_first.exit.thread
 
-18:                                               ; preds = %.lr.ph.i6
-  %.0.tr.i11 = trunc i64 %.015.i7 to i32
-  %19 = shl i32 %.0.tr.i11, 3
-  %20 = shl i32 %16, %19
-  %21 = or i32 %20, %.01114.i8
-  %22 = add nuw nsw i64 %.015.i7, 1
-  %exitcond.not.i12 = icmp eq i64 %22, 2
-  br i1 %exitcond.not.i12, label %._crit_edge.i13, label %.lr.ph.i6
+21:                                               ; preds = %18
+  %.0.tr.i10 = trunc i64 %.015.i6 to i32
+  %22 = shl i32 %.0.tr.i10, 3
+  %23 = shl i32 %19, %22
+  %24 = or i32 %23, %.01114.i7
+  %25 = add nuw nsw i64 %.015.i6, 1
+  %exitcond.not.i11 = icmp eq i64 %25, 2
+  br i1 %exitcond.not.i11, label %26, label %18
 
-._crit_edge.i13:                                  ; preds = %18
-  %23 = icmp slt i32 %21, 0
-  br i1 %23, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit15
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %24, 0
+  br i1 %27, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit12
 
-get_int_lsb_first.exit15:                         ; preds = %._crit_edge.i13
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %12, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %21, ptr %25, align 4
+get_int_lsb_first.exit12:                         ; preds = %26
+  %28 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %13, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %24, ptr %29, align 4
   br label %get_int_lsb_first.exit.thread
 
-get_int_lsb_first.exit.thread:                    ; preds = %.lr.ph.i, %.lr.ph.i6, %._crit_edge.i13, %._crit_edge.i, %get_int_lsb_first.exit15
+get_int_lsb_first.exit.thread:                    ; preds = %7, %18, %26, %15, %get_int_lsb_first.exit12
   ret void
 }
 
@@ -661,58 +661,58 @@ define internal fastcc void @png_size(ptr nocapture noundef %0) unnamed_addr #5 
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef 16, i32 noundef 0)
   %6 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i
+  br label %7
 
-.lr.ph.i:                                         ; preds = %9, %1
-  %.015.i = phi i64 [ %12, %9 ], [ 0, %1 ]
-  %.01114.i = phi i32 [ %11, %9 ], [ 0, %1 ]
-  %7 = tail call i32 @fgetc(ptr noundef %6)
-  %8 = tail call i32 @feof(ptr noundef %6) #21
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %get_int_msb_first.exit.thread
+7:                                                ; preds = %10, %1
+  %.015.i = phi i64 [ 0, %1 ], [ %13, %10 ]
+  %.01114.i = phi i32 [ 0, %1 ], [ %12, %10 ]
+  %8 = tail call i32 @fgetc(ptr noundef %6)
+  %9 = tail call i32 @feof(ptr noundef %6) #21
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %10, label %get_int_msb_first.exit.thread
 
-9:                                                ; preds = %.lr.ph.i
-  %10 = shl i32 %.01114.i, 8
-  %11 = or i32 %7, %10
-  %12 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %12, 4
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+10:                                               ; preds = %7
+  %11 = shl i32 %.01114.i, 8
+  %12 = or i32 %8, %11
+  %13 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %13, 4
+  br i1 %exitcond.not.i, label %14, label %7
 
-._crit_edge.i:                                    ; preds = %9
-  %13 = icmp slt i32 %11, 0
-  br i1 %13, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
+14:                                               ; preds = %10
+  %15 = icmp slt i32 %12, 0
+  br i1 %15, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
 
-get_int_msb_first.exit:                           ; preds = %._crit_edge.i
-  %14 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i6
+get_int_msb_first.exit:                           ; preds = %14
+  %16 = load ptr, ptr %3, align 8
+  br label %17
 
-.lr.ph.i6:                                        ; preds = %17, %get_int_msb_first.exit
-  %.015.i7 = phi i64 [ %20, %17 ], [ 0, %get_int_msb_first.exit ]
-  %.01114.i8 = phi i32 [ %19, %17 ], [ 0, %get_int_msb_first.exit ]
-  %15 = tail call i32 @fgetc(ptr noundef %14)
-  %16 = tail call i32 @feof(ptr noundef %14) #21
-  %.not.i9 = icmp eq i32 %16, 0
-  br i1 %.not.i9, label %17, label %get_int_msb_first.exit.thread
+17:                                               ; preds = %20, %get_int_msb_first.exit
+  %.015.i6 = phi i64 [ 0, %get_int_msb_first.exit ], [ %23, %20 ]
+  %.01114.i7 = phi i32 [ 0, %get_int_msb_first.exit ], [ %22, %20 ]
+  %18 = tail call i32 @fgetc(ptr noundef %16)
+  %19 = tail call i32 @feof(ptr noundef %16) #21
+  %.not.i8 = icmp eq i32 %19, 0
+  br i1 %.not.i8, label %20, label %get_int_msb_first.exit.thread
 
-17:                                               ; preds = %.lr.ph.i6
-  %18 = shl i32 %.01114.i8, 8
-  %19 = or i32 %15, %18
-  %20 = add nuw nsw i64 %.015.i7, 1
-  %exitcond.not.i11 = icmp eq i64 %20, 4
-  br i1 %exitcond.not.i11, label %._crit_edge.i12, label %.lr.ph.i6
+20:                                               ; preds = %17
+  %21 = shl i32 %.01114.i7, 8
+  %22 = or i32 %18, %21
+  %23 = add nuw nsw i64 %.015.i6, 1
+  %exitcond.not.i10 = icmp eq i64 %23, 4
+  br i1 %exitcond.not.i10, label %24, label %17
 
-._crit_edge.i12:                                  ; preds = %17
-  %21 = icmp slt i32 %19, 0
-  br i1 %21, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit14
+24:                                               ; preds = %20
+  %25 = icmp slt i32 %22, 0
+  br i1 %25, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit11
 
-get_int_msb_first.exit14:                         ; preds = %._crit_edge.i12
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %11, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %19, ptr %23, align 4
+get_int_msb_first.exit11:                         ; preds = %24
+  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %12, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %22, ptr %27, align 4
   br label %get_int_msb_first.exit.thread
 
-get_int_msb_first.exit.thread:                    ; preds = %.lr.ph.i, %.lr.ph.i6, %._crit_edge.i12, %._crit_edge.i, %get_int_msb_first.exit14
+get_int_msb_first.exit.thread:                    ; preds = %7, %17, %24, %14, %get_int_msb_first.exit11
   ret void
 }
 
@@ -724,116 +724,116 @@ define internal fastcc void @bmp_size(ptr nocapture noundef %0) unnamed_addr #5 
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef 16, i32 noundef 0)
   %6 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i
+  br label %7
 
-.lr.ph.i:                                         ; preds = %9, %1
-  %.015.i = phi i64 [ %13, %9 ], [ 0, %1 ]
-  %.01114.i = phi i32 [ %12, %9 ], [ 0, %1 ]
-  %7 = tail call i32 @fgetc(ptr noundef %6)
-  %8 = tail call i32 @feof(ptr noundef %6) #21
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %9, label %get_int_lsb_first.exit.thread
+7:                                                ; preds = %10, %1
+  %.015.i = phi i64 [ 0, %1 ], [ %14, %10 ]
+  %.01114.i = phi i32 [ 0, %1 ], [ %13, %10 ]
+  %8 = tail call i32 @fgetc(ptr noundef %6)
+  %9 = tail call i32 @feof(ptr noundef %6) #21
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %10, label %get_int_lsb_first.exit.thread
 
-9:                                                ; preds = %.lr.ph.i
+10:                                               ; preds = %7
   %.0.tr.i = trunc i64 %.015.i to i32
-  %10 = shl i32 %.0.tr.i, 3
-  %11 = shl i32 %7, %10
-  %12 = or i32 %11, %.01114.i
-  %13 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %13, 2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %11 = shl i32 %.0.tr.i, 3
+  %12 = shl i32 %8, %11
+  %13 = or i32 %12, %.01114.i
+  %14 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %14, 2
+  br i1 %exitcond.not.i, label %15, label %7
 
-._crit_edge.i:                                    ; preds = %9
-  %14 = icmp slt i32 %12, 0
-  br i1 %14, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
+15:                                               ; preds = %10
+  %16 = icmp slt i32 %13, 0
+  br i1 %16, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
 
-get_int_lsb_first.exit:                           ; preds = %._crit_edge.i
-  %15 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i8
+get_int_lsb_first.exit:                           ; preds = %15
+  %17 = load ptr, ptr %3, align 8
+  br label %18
 
-.lr.ph.i8:                                        ; preds = %18, %get_int_lsb_first.exit
-  %.015.i9 = phi i64 [ %22, %18 ], [ 0, %get_int_lsb_first.exit ]
-  %.01114.i10 = phi i32 [ %21, %18 ], [ 0, %get_int_lsb_first.exit ]
-  %16 = tail call i32 @fgetc(ptr noundef %15)
-  %17 = tail call i32 @feof(ptr noundef %15) #21
-  %.not.i11 = icmp eq i32 %17, 0
-  br i1 %.not.i11, label %18, label %get_int_lsb_first.exit.thread
+18:                                               ; preds = %21, %get_int_lsb_first.exit
+  %.015.i8 = phi i64 [ 0, %get_int_lsb_first.exit ], [ %25, %21 ]
+  %.01114.i9 = phi i32 [ 0, %get_int_lsb_first.exit ], [ %24, %21 ]
+  %19 = tail call i32 @fgetc(ptr noundef %17)
+  %20 = tail call i32 @feof(ptr noundef %17) #21
+  %.not.i10 = icmp eq i32 %20, 0
+  br i1 %.not.i10, label %21, label %get_int_lsb_first.exit.thread
 
-18:                                               ; preds = %.lr.ph.i8
-  %.0.tr.i13 = trunc i64 %.015.i9 to i32
-  %19 = shl i32 %.0.tr.i13, 3
-  %20 = shl i32 %16, %19
-  %21 = or i32 %20, %.01114.i10
-  %22 = add nuw nsw i64 %.015.i9, 1
-  %exitcond.not.i14 = icmp eq i64 %22, 2
-  br i1 %exitcond.not.i14, label %._crit_edge.i15, label %.lr.ph.i8
+21:                                               ; preds = %18
+  %.0.tr.i12 = trunc i64 %.015.i8 to i32
+  %22 = shl i32 %.0.tr.i12, 3
+  %23 = shl i32 %19, %22
+  %24 = or i32 %23, %.01114.i9
+  %25 = add nuw nsw i64 %.015.i8, 1
+  %exitcond.not.i13 = icmp eq i64 %25, 2
+  br i1 %exitcond.not.i13, label %26, label %18
 
-._crit_edge.i15:                                  ; preds = %18
-  %23 = icmp slt i32 %21, 0
-  br i1 %23, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit17
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %24, 0
+  br i1 %27, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit14
 
-get_int_lsb_first.exit17:                         ; preds = %._crit_edge.i15
-  %24 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i18
+get_int_lsb_first.exit14:                         ; preds = %26
+  %28 = load ptr, ptr %3, align 8
+  br label %29
 
-.lr.ph.i18:                                       ; preds = %27, %get_int_lsb_first.exit17
-  %.015.i19 = phi i64 [ %31, %27 ], [ 0, %get_int_lsb_first.exit17 ]
-  %.01114.i20 = phi i32 [ %30, %27 ], [ 0, %get_int_lsb_first.exit17 ]
-  %25 = tail call i32 @fgetc(ptr noundef %24)
-  %26 = tail call i32 @feof(ptr noundef %24) #21
-  %.not.i21 = icmp eq i32 %26, 0
-  br i1 %.not.i21, label %27, label %get_int_lsb_first.exit.thread
+29:                                               ; preds = %32, %get_int_lsb_first.exit14
+  %.015.i15 = phi i64 [ 0, %get_int_lsb_first.exit14 ], [ %36, %32 ]
+  %.01114.i16 = phi i32 [ 0, %get_int_lsb_first.exit14 ], [ %35, %32 ]
+  %30 = tail call i32 @fgetc(ptr noundef %28)
+  %31 = tail call i32 @feof(ptr noundef %28) #21
+  %.not.i17 = icmp eq i32 %31, 0
+  br i1 %.not.i17, label %32, label %get_int_lsb_first.exit.thread
 
-27:                                               ; preds = %.lr.ph.i18
-  %.0.tr.i23 = trunc i64 %.015.i19 to i32
-  %28 = shl i32 %.0.tr.i23, 3
-  %29 = shl i32 %25, %28
-  %30 = or i32 %29, %.01114.i20
-  %31 = add nuw nsw i64 %.015.i19, 1
-  %exitcond.not.i24 = icmp eq i64 %31, 2
-  br i1 %exitcond.not.i24, label %._crit_edge.i25, label %.lr.ph.i18
+32:                                               ; preds = %29
+  %.0.tr.i19 = trunc i64 %.015.i15 to i32
+  %33 = shl i32 %.0.tr.i19, 3
+  %34 = shl i32 %30, %33
+  %35 = or i32 %34, %.01114.i16
+  %36 = add nuw nsw i64 %.015.i15, 1
+  %exitcond.not.i20 = icmp eq i64 %36, 2
+  br i1 %exitcond.not.i20, label %37, label %29
 
-._crit_edge.i25:                                  ; preds = %27
-  %32 = icmp slt i32 %30, 0
-  br i1 %32, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit27
+37:                                               ; preds = %32
+  %38 = icmp slt i32 %35, 0
+  br i1 %38, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit21
 
-get_int_lsb_first.exit27:                         ; preds = %._crit_edge.i25
-  %33 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i28
+get_int_lsb_first.exit21:                         ; preds = %37
+  %39 = load ptr, ptr %3, align 8
+  br label %40
 
-.lr.ph.i28:                                       ; preds = %36, %get_int_lsb_first.exit27
-  %.015.i29 = phi i64 [ %40, %36 ], [ 0, %get_int_lsb_first.exit27 ]
-  %.01114.i30 = phi i32 [ %39, %36 ], [ 0, %get_int_lsb_first.exit27 ]
-  %34 = tail call i32 @fgetc(ptr noundef %33)
-  %35 = tail call i32 @feof(ptr noundef %33) #21
-  %.not.i31 = icmp eq i32 %35, 0
-  br i1 %.not.i31, label %36, label %get_int_lsb_first.exit.thread
+40:                                               ; preds = %43, %get_int_lsb_first.exit21
+  %.015.i22 = phi i64 [ 0, %get_int_lsb_first.exit21 ], [ %47, %43 ]
+  %.01114.i23 = phi i32 [ 0, %get_int_lsb_first.exit21 ], [ %46, %43 ]
+  %41 = tail call i32 @fgetc(ptr noundef %39)
+  %42 = tail call i32 @feof(ptr noundef %39) #21
+  %.not.i24 = icmp eq i32 %42, 0
+  br i1 %.not.i24, label %43, label %get_int_lsb_first.exit.thread
 
-36:                                               ; preds = %.lr.ph.i28
-  %.0.tr.i33 = trunc i64 %.015.i29 to i32
-  %37 = shl i32 %.0.tr.i33, 3
-  %38 = shl i32 %34, %37
-  %39 = or i32 %38, %.01114.i30
-  %40 = add nuw nsw i64 %.015.i29, 1
-  %exitcond.not.i34 = icmp eq i64 %40, 2
-  br i1 %exitcond.not.i34, label %._crit_edge.i35, label %.lr.ph.i28
+43:                                               ; preds = %40
+  %.0.tr.i26 = trunc i64 %.015.i22 to i32
+  %44 = shl i32 %.0.tr.i26, 3
+  %45 = shl i32 %41, %44
+  %46 = or i32 %45, %.01114.i23
+  %47 = add nuw nsw i64 %.015.i22, 1
+  %exitcond.not.i27 = icmp eq i64 %47, 2
+  br i1 %exitcond.not.i27, label %48, label %40
 
-._crit_edge.i35:                                  ; preds = %36
-  %41 = icmp slt i32 %39, 0
-  br i1 %41, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit37
+48:                                               ; preds = %43
+  %49 = icmp slt i32 %46, 0
+  br i1 %49, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit28
 
-get_int_lsb_first.exit37:                         ; preds = %._crit_edge.i35
-  %42 = shl i32 %12, 16
-  %43 = or i32 %21, %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %43, ptr %44, align 8
-  %45 = shl i32 %30, 16
-  %46 = or i32 %39, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %46, ptr %47, align 4
+get_int_lsb_first.exit28:                         ; preds = %48
+  %50 = shl i32 %13, 16
+  %51 = or i32 %24, %50
+  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %51, ptr %52, align 8
+  %53 = shl i32 %35, 16
+  %54 = or i32 %46, %53
+  %55 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %54, ptr %55, align 4
   br label %get_int_lsb_first.exit.thread
 
-get_int_lsb_first.exit.thread:                    ; preds = %.lr.ph.i, %.lr.ph.i8, %.lr.ph.i18, %.lr.ph.i28, %._crit_edge.i35, %._crit_edge.i25, %._crit_edge.i15, %._crit_edge.i, %get_int_lsb_first.exit37
+get_int_lsb_first.exit.thread:                    ; preds = %7, %18, %29, %40, %48, %37, %26, %15, %get_int_lsb_first.exit28
   ret void
 }
 
@@ -847,13 +847,13 @@ define internal fastcc void @jpeg_size(ptr nocapture noundef %0) unnamed_addr #5
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @fgetc(ptr noundef %6)
   %8 = tail call i32 @feof(ptr noundef %6) #21
-  %.not.i63 = icmp ne i32 %8, 0
+  %.not.i60 = icmp ne i32 %8, 0
   %9 = icmp slt i32 %7, 0
-  %or.cond64 = or i1 %.not.i63, %9
-  br i1 %or.cond64, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
+  %or.cond61 = or i1 %.not.i60, %9
+  br i1 %or.cond61, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
 
 get_int_msb_first.exit:                           ; preds = %1, %.backedge
-  %10 = phi i32 [ %45, %.backedge ], [ %7, %1 ]
+  %10 = phi i32 [ %46, %.backedge ], [ %7, %1 ]
   %11 = icmp eq i32 %10, 255
   br i1 %11, label %.backedge, label %12
 
@@ -875,7 +875,7 @@ get_int_msb_first.exit:                           ; preds = %1, %.backedge
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %5, align 8
-  switch i32 %10, label %.lr.ph.i27 [
+  switch i32 %10, label %.preheader [
     i32 192, label %16
     i32 194, label %25
   ]
@@ -887,12 +887,12 @@ get_int_msb_first.exit:                           ; preds = %1, %.backedge
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %5, align 8
-  %21 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %20, i64 noundef 2, ptr noundef nonnull %2)
+  %21 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %20, i64 noundef 2, ptr noundef %2)
   br i1 %21, label %22, label %get_int_msb_first.exit.thread
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %5, align 8
-  %24 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %23, i64 noundef 2, ptr noundef nonnull %3)
+  %24 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %23, i64 noundef 2, ptr noundef %3)
   br i1 %24, label %get_int_msb_first.exit.thread.sink.split, label %get_int_msb_first.exit.thread
 
 25:                                               ; preds = %14
@@ -902,59 +902,59 @@ get_int_msb_first.exit:                           ; preds = %1, %.backedge
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %5, align 8
-  %29 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %28, i64 noundef 2, ptr noundef nonnull %2)
+  %29 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %28, i64 noundef 2, ptr noundef %2)
   br i1 %29, label %30, label %get_int_msb_first.exit.thread
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %5, align 8
-  %32 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %31, i64 noundef 2, ptr noundef nonnull %3)
+  %32 = call fastcc zeroext i1 @get_int_msb_first(ptr noundef %31, i64 noundef 2, ptr noundef %3)
   br i1 %32, label %get_int_msb_first.exit.thread.sink.split, label %get_int_msb_first.exit.thread
 
-.lr.ph.i27:                                       ; preds = %14, %35
-  %.015.i28 = phi i64 [ %38, %35 ], [ 0, %14 ]
-  %.01114.i29 = phi i32 [ %37, %35 ], [ 0, %14 ]
+.preheader:                                       ; preds = %14, %35
+  %.015.i27 = phi i64 [ %38, %35 ], [ 0, %14 ]
+  %.01114.i28 = phi i32 [ %37, %35 ], [ 0, %14 ]
   %33 = tail call i32 @fgetc(ptr noundef %15)
   %34 = tail call i32 @feof(ptr noundef %15) #21
-  %.not.i30 = icmp eq i32 %34, 0
-  br i1 %.not.i30, label %35, label %get_int_msb_first.exit.thread
+  %.not.i29 = icmp eq i32 %34, 0
+  br i1 %.not.i29, label %35, label %get_int_msb_first.exit.thread
 
-35:                                               ; preds = %.lr.ph.i27
-  %36 = shl i32 %.01114.i29, 8
+35:                                               ; preds = %.preheader
+  %36 = shl i32 %.01114.i28, 8
   %37 = or i32 %33, %36
-  %38 = add nuw nsw i64 %.015.i28, 1
-  %exitcond.not.i32 = icmp eq i64 %38, 2
-  br i1 %exitcond.not.i32, label %._crit_edge.i33, label %.lr.ph.i27
+  %38 = add nuw nsw i64 %.015.i27, 1
+  %exitcond.not.i31 = icmp eq i64 %38, 2
+  br i1 %exitcond.not.i31, label %39, label %.preheader
 
-._crit_edge.i33:                                  ; preds = %35
-  %39 = icmp slt i32 %37, 0
-  br i1 %39, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit35
+39:                                               ; preds = %35
+  %40 = icmp slt i32 %37, 0
+  br i1 %40, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit32
 
-get_int_msb_first.exit35:                         ; preds = %._crit_edge.i33
-  %40 = load ptr, ptr %5, align 8
-  %41 = add nsw i32 %37, -2
-  %42 = sext i32 %41 to i64
-  %43 = tail call i32 @fseek(ptr noundef %40, i64 noundef %42, i32 noundef 1)
+get_int_msb_first.exit32:                         ; preds = %39
+  %41 = load ptr, ptr %5, align 8
+  %42 = add nsw i32 %37, -2
+  %43 = sext i32 %42 to i64
+  %44 = tail call i32 @fseek(ptr noundef %41, i64 noundef %43, i32 noundef 1)
   br label %.backedge
 
-.backedge:                                        ; preds = %get_int_msb_first.exit35, %get_int_msb_first.exit, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
-  %44 = load ptr, ptr %5, align 8
-  %45 = tail call i32 @fgetc(ptr noundef %44)
-  %46 = tail call i32 @feof(ptr noundef %44) #21
-  %.not.i = icmp ne i32 %46, 0
-  %47 = icmp slt i32 %45, 0
-  %or.cond = or i1 %.not.i, %47
+.backedge:                                        ; preds = %get_int_msb_first.exit32, %get_int_msb_first.exit, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12
+  %45 = load ptr, ptr %5, align 8
+  %46 = tail call i32 @fgetc(ptr noundef %45)
+  %47 = tail call i32 @feof(ptr noundef %45) #21
+  %.not.i = icmp ne i32 %47, 0
+  %48 = icmp slt i32 %46, 0
+  %or.cond = or i1 %.not.i, %48
   br i1 %or.cond, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
 
 get_int_msb_first.exit.thread.sink.split:         ; preds = %30, %22
-  %48 = load i32, ptr %2, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %48, ptr %49, align 4
-  %50 = load i32, ptr %3, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %50, ptr %51, align 8
+  %49 = load i32, ptr %2, align 4
+  %50 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %49, ptr %50, align 4
+  %51 = load i32, ptr %3, align 4
+  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %51, ptr %52, align 8
   br label %get_int_msb_first.exit.thread
 
-get_int_msb_first.exit.thread:                    ; preds = %.backedge, %._crit_edge.i33, %.lr.ph.i27, %1, %get_int_msb_first.exit.thread.sink.split, %27, %30, %25, %16, %19, %22
+get_int_msb_first.exit.thread:                    ; preds = %.backedge, %39, %.preheader, %1, %get_int_msb_first.exit.thread.sink.split, %27, %30, %25, %16, %19, %22
   ret void
 }
 
@@ -1023,120 +1023,120 @@ define internal fastcc void @webp_size(ptr nocapture noundef %0) unnamed_addr #5
   %7 = tail call i32 @fgetc(ptr noundef %6)
   %8 = icmp eq i32 %7, 88
   %9 = load ptr, ptr %3, align 8
-  br i1 %8, label %10, label %30
+  br i1 %8, label %10, label %34
 
 10:                                               ; preds = %1
   %11 = tail call i32 @fseek(ptr noundef %9, i64 noundef 24, i32 noundef 0)
   %12 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i
+  br label %13
 
-.lr.ph.i:                                         ; preds = %15, %10
-  %.015.i = phi i64 [ %19, %15 ], [ 0, %10 ]
-  %.01114.i = phi i32 [ %18, %15 ], [ 0, %10 ]
-  %13 = tail call i32 @fgetc(ptr noundef %12)
-  %14 = tail call i32 @feof(ptr noundef %12) #21
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %get_int_lsb_first.exit.thread
+13:                                               ; preds = %16, %10
+  %.015.i = phi i64 [ 0, %10 ], [ %20, %16 ]
+  %.01114.i = phi i32 [ 0, %10 ], [ %19, %16 ]
+  %14 = tail call i32 @fgetc(ptr noundef %12)
+  %15 = tail call i32 @feof(ptr noundef %12) #21
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %16, label %get_int_lsb_first.exit.thread
 
-15:                                               ; preds = %.lr.ph.i
+16:                                               ; preds = %13
   %.0.tr.i = trunc i64 %.015.i to i32
-  %16 = shl i32 %.0.tr.i, 3
-  %17 = shl i32 %13, %16
-  %18 = or i32 %17, %.01114.i
-  %19 = add nuw nsw i64 %.015.i, 1
-  %exitcond.not.i = icmp eq i64 %19, 4
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %17 = shl i32 %.0.tr.i, 3
+  %18 = shl i32 %14, %17
+  %19 = or i32 %18, %.01114.i
+  %20 = add nuw nsw i64 %.015.i, 1
+  %exitcond.not.i = icmp eq i64 %20, 4
+  br i1 %exitcond.not.i, label %21, label %13
 
-._crit_edge.i:                                    ; preds = %15
-  %20 = icmp slt i32 %18, 0
-  br i1 %20, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
+21:                                               ; preds = %16
+  %22 = icmp slt i32 %19, 0
+  br i1 %22, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit
 
-get_int_lsb_first.exit:                           ; preds = %._crit_edge.i
-  %21 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i13
+get_int_lsb_first.exit:                           ; preds = %21
+  %23 = load ptr, ptr %3, align 8
+  br label %24
 
-.lr.ph.i13:                                       ; preds = %24, %get_int_lsb_first.exit
-  %.015.i14 = phi i64 [ %28, %24 ], [ 0, %get_int_lsb_first.exit ]
-  %.01114.i15 = phi i32 [ %27, %24 ], [ 0, %get_int_lsb_first.exit ]
-  %22 = tail call i32 @fgetc(ptr noundef %21)
-  %23 = tail call i32 @feof(ptr noundef %21) #21
-  %.not.i16 = icmp eq i32 %23, 0
-  br i1 %.not.i16, label %24, label %get_int_lsb_first.exit.thread
+24:                                               ; preds = %27, %get_int_lsb_first.exit
+  %.015.i13 = phi i64 [ 0, %get_int_lsb_first.exit ], [ %31, %27 ]
+  %.01114.i14 = phi i32 [ 0, %get_int_lsb_first.exit ], [ %30, %27 ]
+  %25 = tail call i32 @fgetc(ptr noundef %23)
+  %26 = tail call i32 @feof(ptr noundef %23) #21
+  %.not.i15 = icmp eq i32 %26, 0
+  br i1 %.not.i15, label %27, label %get_int_lsb_first.exit.thread
 
-24:                                               ; preds = %.lr.ph.i13
-  %.0.tr.i18 = trunc i64 %.015.i14 to i32
-  %25 = shl i32 %.0.tr.i18, 3
-  %26 = shl i32 %22, %25
-  %27 = or i32 %26, %.01114.i15
-  %28 = add nuw nsw i64 %.015.i14, 1
-  %exitcond.not.i19 = icmp eq i64 %28, 4
-  br i1 %exitcond.not.i19, label %._crit_edge.i20, label %.lr.ph.i13
+27:                                               ; preds = %24
+  %.0.tr.i17 = trunc i64 %.015.i13 to i32
+  %28 = shl i32 %.0.tr.i17, 3
+  %29 = shl i32 %25, %28
+  %30 = or i32 %29, %.01114.i14
+  %31 = add nuw nsw i64 %.015.i13, 1
+  %exitcond.not.i18 = icmp eq i64 %31, 4
+  br i1 %exitcond.not.i18, label %32, label %24
 
-._crit_edge.i20:                                  ; preds = %24
-  %29 = icmp slt i32 %27, 0
-  br i1 %29, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit.thread.sink.split
+32:                                               ; preds = %27
+  %33 = icmp slt i32 %30, 0
+  br i1 %33, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit.thread.sink.split
 
-30:                                               ; preds = %1
-  %31 = tail call i32 @fseek(ptr noundef %9, i64 noundef 26, i32 noundef 0)
-  %32 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i23
+34:                                               ; preds = %1
+  %35 = tail call i32 @fseek(ptr noundef %9, i64 noundef 26, i32 noundef 0)
+  %36 = load ptr, ptr %3, align 8
+  br label %37
 
-.lr.ph.i23:                                       ; preds = %35, %30
-  %.015.i24 = phi i64 [ %39, %35 ], [ 0, %30 ]
-  %.01114.i25 = phi i32 [ %38, %35 ], [ 0, %30 ]
-  %33 = tail call i32 @fgetc(ptr noundef %32)
-  %34 = tail call i32 @feof(ptr noundef %32) #21
-  %.not.i26 = icmp eq i32 %34, 0
-  br i1 %.not.i26, label %35, label %get_int_lsb_first.exit.thread
+37:                                               ; preds = %40, %34
+  %.015.i20 = phi i64 [ 0, %34 ], [ %44, %40 ]
+  %.01114.i21 = phi i32 [ 0, %34 ], [ %43, %40 ]
+  %38 = tail call i32 @fgetc(ptr noundef %36)
+  %39 = tail call i32 @feof(ptr noundef %36) #21
+  %.not.i22 = icmp eq i32 %39, 0
+  br i1 %.not.i22, label %40, label %get_int_lsb_first.exit.thread
 
-35:                                               ; preds = %.lr.ph.i23
-  %.0.tr.i28 = trunc i64 %.015.i24 to i32
-  %36 = shl i32 %.0.tr.i28, 3
-  %37 = shl i32 %33, %36
-  %38 = or i32 %37, %.01114.i25
-  %39 = add nuw nsw i64 %.015.i24, 1
-  %exitcond.not.i29 = icmp eq i64 %39, 2
-  br i1 %exitcond.not.i29, label %._crit_edge.i30, label %.lr.ph.i23
+40:                                               ; preds = %37
+  %.0.tr.i24 = trunc i64 %.015.i20 to i32
+  %41 = shl i32 %.0.tr.i24, 3
+  %42 = shl i32 %38, %41
+  %43 = or i32 %42, %.01114.i21
+  %44 = add nuw nsw i64 %.015.i20, 1
+  %exitcond.not.i25 = icmp eq i64 %44, 2
+  br i1 %exitcond.not.i25, label %45, label %37
 
-._crit_edge.i30:                                  ; preds = %35
-  %40 = icmp slt i32 %38, 0
-  br i1 %40, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit32
+45:                                               ; preds = %40
+  %46 = icmp slt i32 %43, 0
+  br i1 %46, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit26
 
-get_int_lsb_first.exit32:                         ; preds = %._crit_edge.i30
-  %41 = load ptr, ptr %3, align 8
-  br label %.lr.ph.i33
+get_int_lsb_first.exit26:                         ; preds = %45
+  %47 = load ptr, ptr %3, align 8
+  br label %48
 
-.lr.ph.i33:                                       ; preds = %44, %get_int_lsb_first.exit32
-  %.015.i34 = phi i64 [ %48, %44 ], [ 0, %get_int_lsb_first.exit32 ]
-  %.01114.i35 = phi i32 [ %47, %44 ], [ 0, %get_int_lsb_first.exit32 ]
-  %42 = tail call i32 @fgetc(ptr noundef %41)
-  %43 = tail call i32 @feof(ptr noundef %41) #21
-  %.not.i36 = icmp eq i32 %43, 0
-  br i1 %.not.i36, label %44, label %get_int_lsb_first.exit.thread
+48:                                               ; preds = %51, %get_int_lsb_first.exit26
+  %.015.i27 = phi i64 [ 0, %get_int_lsb_first.exit26 ], [ %55, %51 ]
+  %.01114.i28 = phi i32 [ 0, %get_int_lsb_first.exit26 ], [ %54, %51 ]
+  %49 = tail call i32 @fgetc(ptr noundef %47)
+  %50 = tail call i32 @feof(ptr noundef %47) #21
+  %.not.i29 = icmp eq i32 %50, 0
+  br i1 %.not.i29, label %51, label %get_int_lsb_first.exit.thread
 
-44:                                               ; preds = %.lr.ph.i33
-  %.0.tr.i38 = trunc i64 %.015.i34 to i32
-  %45 = shl i32 %.0.tr.i38, 3
-  %46 = shl i32 %42, %45
-  %47 = or i32 %46, %.01114.i35
-  %48 = add nuw nsw i64 %.015.i34, 1
-  %exitcond.not.i39 = icmp eq i64 %48, 2
-  br i1 %exitcond.not.i39, label %._crit_edge.i40, label %.lr.ph.i33
+51:                                               ; preds = %48
+  %.0.tr.i31 = trunc i64 %.015.i27 to i32
+  %52 = shl i32 %.0.tr.i31, 3
+  %53 = shl i32 %49, %52
+  %54 = or i32 %53, %.01114.i28
+  %55 = add nuw nsw i64 %.015.i27, 1
+  %exitcond.not.i32 = icmp eq i64 %55, 2
+  br i1 %exitcond.not.i32, label %56, label %48
 
-._crit_edge.i40:                                  ; preds = %44
-  %49 = icmp slt i32 %47, 0
-  br i1 %49, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit.thread.sink.split
+56:                                               ; preds = %51
+  %57 = icmp slt i32 %54, 0
+  br i1 %57, label %get_int_lsb_first.exit.thread, label %get_int_lsb_first.exit.thread.sink.split
 
-get_int_lsb_first.exit.thread.sink.split:         ; preds = %._crit_edge.i40, %._crit_edge.i20
-  %.lcssa73.sink = phi i32 [ %18, %._crit_edge.i20 ], [ %38, %._crit_edge.i40 ]
-  %.lcssa72.sink = phi i32 [ %27, %._crit_edge.i20 ], [ %47, %._crit_edge.i40 ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.lcssa73.sink, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %.lcssa72.sink, ptr %51, align 4
+get_int_lsb_first.exit.thread.sink.split:         ; preds = %56, %32
+  %.lcssa64.sink = phi i32 [ %19, %32 ], [ %43, %56 ]
+  %.lcssa63.sink = phi i32 [ %30, %32 ], [ %54, %56 ]
+  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %.lcssa64.sink, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %.lcssa63.sink, ptr %59, align 4
   br label %get_int_lsb_first.exit.thread
 
-get_int_lsb_first.exit.thread:                    ; preds = %.lr.ph.i23, %.lr.ph.i33, %.lr.ph.i, %.lr.ph.i13, %get_int_lsb_first.exit.thread.sink.split, %._crit_edge.i40, %._crit_edge.i30, %._crit_edge.i20, %._crit_edge.i
+get_int_lsb_first.exit.thread:                    ; preds = %37, %48, %13, %24, %get_int_lsb_first.exit.thread.sink.split, %56, %45, %32, %21
   ret void
 }
 
@@ -2333,37 +2333,36 @@ bboxPDF.exit.thread15:                            ; preds = %getNum.exit.i, %get
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @ico_size(ptr nocapture noundef %0) unnamed_addr #5 {
-.lr.ph.i:
-  %1 = getelementptr inbounds i8, ptr %0, i64 72
-  store i32 0, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @fseek(ptr noundef %3, i64 noundef 6, i32 noundef 0)
-  %5 = load ptr, ptr %2, align 8
-  %6 = tail call i32 @fgetc(ptr noundef %5)
-  %7 = tail call i32 @feof(ptr noundef %5) #21
-  %.not.i = icmp ne i32 %7, 0
-  %8 = icmp slt i32 %6, 0
-  %or.cond = or i1 %.not.i, %8
+  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = load ptr, ptr %3, align 8
+  %5 = tail call i32 @fseek(ptr noundef %4, i64 noundef 6, i32 noundef 0)
+  %6 = load ptr, ptr %3, align 8
+  %7 = tail call i32 @fgetc(ptr noundef %6)
+  %8 = tail call i32 @feof(ptr noundef %6) #21
+  %.not.i = icmp ne i32 %8, 0
+  %9 = icmp slt i32 %7, 0
+  %or.cond = or i1 %.not.i, %9
   br i1 %or.cond, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit
 
-get_int_msb_first.exit:                           ; preds = %.lr.ph.i
-  %9 = load ptr, ptr %2, align 8
-  %10 = tail call i32 @fgetc(ptr noundef %9)
-  %11 = tail call i32 @feof(ptr noundef %9) #21
-  %.not.i9 = icmp ne i32 %11, 0
-  %12 = icmp slt i32 %10, 0
-  %or.cond25 = or i1 %.not.i9, %12
-  br i1 %or.cond25, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit14
+get_int_msb_first.exit:                           ; preds = %1
+  %10 = load ptr, ptr %3, align 8
+  %11 = tail call i32 @fgetc(ptr noundef %10)
+  %12 = tail call i32 @feof(ptr noundef %10) #21
+  %.not.i8 = icmp ne i32 %12, 0
+  %13 = icmp slt i32 %11, 0
+  %or.cond22 = or i1 %.not.i8, %13
+  br i1 %or.cond22, label %get_int_msb_first.exit.thread, label %get_int_msb_first.exit11
 
-get_int_msb_first.exit14:                         ; preds = %get_int_msb_first.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %6, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %10, ptr %14, align 4
+get_int_msb_first.exit11:                         ; preds = %get_int_msb_first.exit
+  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %7, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 68
+  store i32 %11, ptr %15, align 4
   br label %get_int_msb_first.exit.thread
 
-get_int_msb_first.exit.thread:                    ; preds = %.lr.ph.i, %get_int_msb_first.exit, %get_int_msb_first.exit14
+get_int_msb_first.exit.thread:                    ; preds = %1, %get_int_msb_first.exit, %get_int_msb_first.exit11
   ret void
 }
 
@@ -2438,36 +2437,34 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_int_msb_first(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #5 {
-  %.not16 = icmp eq i64 %1, 0
-  br i1 %.not16, label %._crit_edge.thread, label %.lr.ph
+define internal fastcc noundef zeroext i1 @get_int_msb_first(ptr nocapture noundef %0, i64 noundef range(i64 1, 5) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #5 {
+  br label %4
 
-.lr.ph:                                           ; preds = %3, %6
-  %.015 = phi i64 [ %9, %6 ], [ 0, %3 ]
-  %.01114 = phi i32 [ %8, %6 ], [ 0, %3 ]
-  %4 = tail call i32 @fgetc(ptr noundef %0)
-  %5 = tail call i32 @feof(ptr noundef %0) #21
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %.loopexit
+4:                                                ; preds = %3, %7
+  %.015 = phi i64 [ 0, %3 ], [ %10, %7 ]
+  %.01114 = phi i32 [ 0, %3 ], [ %9, %7 ]
+  %5 = tail call i32 @fgetc(ptr noundef %0)
+  %6 = tail call i32 @feof(ptr noundef %0) #21
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %.loopexit
 
-6:                                                ; preds = %.lr.ph
-  %7 = shl i32 %.01114, 8
-  %8 = or i32 %4, %7
-  %9 = add nuw i64 %.015, 1
-  %exitcond.not = icmp eq i64 %9, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+7:                                                ; preds = %4
+  %8 = shl i32 %.01114, 8
+  %9 = or i32 %5, %8
+  %10 = add nuw nsw i64 %.015, 1
+  %exitcond.not = icmp eq i64 %10, %1
+  br i1 %exitcond.not, label %11, label %4
 
-._crit_edge:                                      ; preds = %6
-  %10 = icmp slt i32 %8, 0
-  br i1 %10, label %.loopexit, label %._crit_edge.thread
+11:                                               ; preds = %7
+  %12 = icmp slt i32 %9, 0
+  br i1 %12, label %.loopexit, label %13
 
-._crit_edge.thread:                               ; preds = %3, %._crit_edge
-  %.011.lcssa18 = phi i32 [ %8, %._crit_edge ], [ 0, %3 ]
-  store i32 %.011.lcssa18, ptr %2, align 4
+13:                                               ; preds = %11
+  store i32 %9, ptr %2, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %._crit_edge.thread
-  %.012 = phi i1 [ true, %._crit_edge.thread ], [ false, %._crit_edge ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %4, %11, %13
+  %.012 = phi i1 [ true, %13 ], [ false, %11 ], [ false, %4 ]
   ret i1 %.012
 }
 

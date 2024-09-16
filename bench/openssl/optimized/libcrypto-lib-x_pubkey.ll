@@ -607,7 +607,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef %force_legacy) unnamed_addr #0 {
+define internal fastcc ptr @d2i_PUBKEY_int(ptr noundef %a, ptr nocapture noundef %pp, i64 noundef %length, ptr noundef %libctx, ptr noundef %propq, i32 noundef range(i32 0, 2) %force_legacy) unnamed_addr #0 {
 entry:
   %xpk2 = alloca ptr, align 8
   %q = alloca ptr, align 8
@@ -645,7 +645,7 @@ if.then5.i:                                       ; preds = %if.then.i
 
 if.end8:                                          ; preds = %if.then5.i, %if.then.i
   %flag_force_legacy = getelementptr inbounds i8, ptr %call, i64 40
-  %2 = zext i1 %tobool to i8
+  %2 = trunc nuw nsw i32 %force_legacy to i8
   %bf.load = load i8, ptr %flag_force_legacy, align 8
   %bf.clear = and i8 %bf.load, -2
   %bf.set = or disjoint i8 %bf.clear, %2

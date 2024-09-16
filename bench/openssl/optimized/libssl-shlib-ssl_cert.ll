@@ -2084,19 +2084,15 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %uri, i32 noundef %depth) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %uri, i32 noundef range(i32 0, 2) %depth) unnamed_addr #0 {
 entry:
   %call = tail call ptr @OSSL_STORE_open(ptr noundef %uri, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %done, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %cmp12 = icmp sgt i32 %depth, 0
-  br i1 %cmp12, label %while.cond.outer.us, label %while.cond
-
-while.cond.outer.us:                              ; preds = %while.cond.preheader, %if.end42.us
-  %ok.0.ph.us = phi i32 [ %ok.1.us, %if.end42.us ], [ 1, %while.cond.preheader ]
-  br label %while.cond.us
+  %cmp12.not = icmp eq i32 %depth, 0
+  br i1 %cmp12.not, label %while.cond.us, label %while.cond.outer
 
 land.rhs.us:                                      ; preds = %while.cond.us
   %call2.us = tail call i32 @OSSL_STORE_error(ptr noundef nonnull %call) #13
@@ -2106,14 +2102,15 @@ land.rhs.us:                                      ; preds = %while.cond.us
 while.body.us:                                    ; preds = %land.rhs.us
   %call4.us = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %call) #13
   %cmp5.us = icmp eq ptr %call4.us, null
-  br i1 %cmp5.us, label %while.cond.us, label %if.end9.us, !llvm.loop !13
+  br i1 %cmp5.us, label %while.cond.us.backedge, label %if.end9.us
+
+while.cond.us.backedge:                           ; preds = %while.body.us, %if.end42.us
+  br label %while.cond.us, !llvm.loop !13
 
 if.end9.us:                                       ; preds = %while.body.us
   %call6.us = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %call4.us) #13
-  switch i32 %call6.us, label %if.end42.us [
-    i32 1, label %if.then11.us
-    i32 5, label %if.then18.us
-  ]
+  %cond = icmp eq i32 %call6.us, 5
+  br i1 %cond, label %if.then18.us, label %if.end42.us
 
 if.then18.us:                                     ; preds = %if.end9.us
   %call19.us = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %call4.us) #13
@@ -2144,22 +2141,20 @@ if.then32.us:                                     ; preds = %if.end27.us
   tail call void @X509_NAME_free(ptr noundef nonnull %call24.us) #13
   br label %if.end42.us
 
-if.then11.us:                                     ; preds = %if.end9.us
-  %call14.us = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %call4.us) #13
-  %call15.us = tail call fastcc i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %call14.us, i32 noundef 0)
-  br label %if.end42.us
-
-if.end42.us:                                      ; preds = %if.then11.us, %if.then32.us, %if.else33.us, %if.end9.us
-  %ok.1.us = phi i32 [ %call15.us, %if.then11.us ], [ %ok.0.ph.us, %if.then32.us ], [ %ok.0.ph.us, %if.else33.us ], [ %ok.0.ph.us, %if.end9.us ]
+if.end42.us:                                      ; preds = %if.end9.us, %if.then32.us, %if.else33.us
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call4.us) #13
-  br label %while.cond.outer.us, !llvm.loop !13
+  br label %while.cond.us.backedge
 
-while.cond.us:                                    ; preds = %while.body.us, %while.cond.outer.us
+while.cond.us:                                    ; preds = %while.cond.preheader, %while.cond.us.backedge
   %call1.us = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %call) #13
   %tobool.not.us = icmp eq i32 %call1.us, 0
   br i1 %tobool.not.us, label %land.rhs.us, label %while.end
 
-while.cond:                                       ; preds = %while.cond.preheader, %while.cond.backedge
+while.cond.outer:                                 ; preds = %while.cond.preheader, %if.end42
+  %ok.0.ph = phi i32 [ %ok.1, %if.end42 ], [ 1, %while.cond.preheader ]
+  br label %while.cond
+
+while.cond:                                       ; preds = %while.cond.outer, %while.body
   %call1 = tail call i32 @OSSL_STORE_eof(ptr noundef nonnull %call) #13
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %land.rhs, label %while.end
@@ -2172,15 +2167,19 @@ land.rhs:                                         ; preds = %while.cond
 while.body:                                       ; preds = %land.rhs
   %call4 = tail call ptr @OSSL_STORE_load(ptr noundef nonnull %call) #13
   %cmp5 = icmp eq ptr %call4, null
-  br i1 %cmp5, label %while.cond.backedge, label %if.end9
-
-while.cond.backedge:                              ; preds = %while.body, %if.end42
-  br label %while.cond, !llvm.loop !13
+  br i1 %cmp5, label %while.cond, label %if.end9, !llvm.loop !13
 
 if.end9:                                          ; preds = %while.body
   %call6 = tail call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %call4) #13
-  %cond = icmp eq i32 %call6, 5
-  br i1 %cond, label %if.then18, label %if.end42
+  switch i32 %call6, label %if.end42 [
+    i32 1, label %if.then11
+    i32 5, label %if.then18
+  ]
+
+if.then11:                                        ; preds = %if.end9
+  %call14 = tail call ptr @OSSL_STORE_INFO_get0_NAME(ptr noundef nonnull %call4) #13
+  %call15 = tail call fastcc i32 @add_uris_recursive(ptr noundef %stack, ptr noundef %call14, i32 noundef 0)
+  br label %if.end42
 
 if.then18:                                        ; preds = %if.end9
   %call19 = tail call ptr @OSSL_STORE_INFO_get0_CERT(ptr noundef nonnull %call4) #13
@@ -2216,12 +2215,13 @@ if.then38:                                        ; preds = %if.else33, %if.else
   tail call void @X509_NAME_free(ptr noundef nonnull %.us-phi21) #13
   br label %done
 
-if.end42:                                         ; preds = %if.end9, %if.else33, %if.then32
+if.end42:                                         ; preds = %if.end9, %if.else33, %if.then32, %if.then11
+  %ok.1 = phi i32 [ %call15, %if.then11 ], [ %ok.0.ph, %if.then32 ], [ %ok.0.ph, %if.else33 ], [ %ok.0.ph, %if.end9 ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call4) #13
-  br label %while.cond.backedge
+  br label %while.cond.outer, !llvm.loop !13
 
 while.end:                                        ; preds = %land.rhs, %while.cond, %land.rhs.us, %while.cond.us
-  %.us-phi = phi i32 [ %ok.0.ph.us, %while.cond.us ], [ %ok.0.ph.us, %land.rhs.us ], [ 1, %while.cond ], [ 1, %land.rhs ]
+  %.us-phi = phi i32 [ 1, %while.cond.us ], [ 1, %land.rhs.us ], [ %ok.0.ph, %while.cond ], [ %ok.0.ph, %land.rhs ]
   tail call void @ERR_clear_error() #13
   br label %done
 

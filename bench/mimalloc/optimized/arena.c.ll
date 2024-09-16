@@ -242,7 +242,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %arena_id, i1 noundef zeroext %match_numa_node, i32 noundef %numa_node, i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) unnamed_addr #2 {
+define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %arena_id, i1 noundef zeroext %match_numa_node, i32 noundef %numa_node, i64 noundef range(i64 16777216, 0) %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) unnamed_addr #2 {
 entry:
   %bitmap_index.i = alloca i64, align 8
   %any_uncommitted.i = alloca i8, align 1
@@ -594,7 +594,7 @@ if.then32:                                        ; preds = %if.then27
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then27, %if.then32, %if.else25
-  tail call fastcc void @mi_arena_schedule_purge(ptr noundef nonnull %4, i64 noundef %memid32.sroa.0.0.copyload, i64 noundef %div.i1.i, ptr noundef %stats) #12
+  tail call fastcc void @mi_arena_schedule_purge(ptr noundef %4, i64 noundef %memid32.sroa.0.0.copyload, i64 noundef %div.i1.i, ptr noundef %stats) #12
   %.pre = load i64, ptr %field_count, align 8
   br label %if.end36
 
@@ -625,7 +625,7 @@ declare void @_mi_error_message(i32 noundef, ptr noundef, ...) local_unnamed_add
 declare zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_arena_schedule_purge(ptr nocapture noundef %arena, i64 noundef %bitmap_idx, i64 noundef %blocks, ptr noundef %stats) unnamed_addr #2 {
+define internal fastcc void @mi_arena_schedule_purge(ptr nocapture noundef nonnull %arena, i64 noundef %bitmap_idx, i64 noundef %blocks, ptr noundef %stats) unnamed_addr #2 {
 entry:
   %call.i = tail call i64 @mi_option_get(i32 noundef 15) #11
   %call1.i = tail call i64 @mi_option_get(i32 noundef 24) #11
@@ -1618,7 +1618,7 @@ declare zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef, i64 noundef, i64 n
 declare zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_arena_purge(ptr nocapture noundef readonly %arena, i64 noundef %bitmap_idx, i64 noundef %blocks, ptr noundef %stats) unnamed_addr #2 {
+define internal fastcc void @mi_arena_purge(ptr nocapture noundef nonnull readonly %arena, i64 noundef %bitmap_idx, i64 noundef %blocks, ptr noundef %stats) unnamed_addr #2 {
 entry:
   %mul.i = shl i64 %blocks, 25
   %start.i = getelementptr inbounds i8, ptr %arena, i64 32

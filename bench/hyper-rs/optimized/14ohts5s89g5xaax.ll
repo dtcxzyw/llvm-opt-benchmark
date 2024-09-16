@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2420ac88b750fce21aa90c6b2405d348.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.2420ac88b750fce21aa90c6b2405d348.4, [16 x i8] c"p\00\00\00\00\00\00\00U\04\00\00\0D\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$17h363eab73103a5d6aE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$17h363eab73103a5d6aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %27, label %3
@@ -316,7 +316,7 @@ common.resume:                                    ; preds = %69, %25
   %70 = landingpad { ptr, i32 }
           cleanup
   store ptr null, ptr %1, align 8
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$17h363eab73103a5d6aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7) #8
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$17h363eab73103a5d6aE"(ptr noalias noundef align 8 dereferenceable(48) %7) #8
           to label %common.resume unwind label %72
 
 "_ZN4core3ptr182drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$core..result..Result$LT$hyper..upgrade..Upgraded$C$hyper..error..Error$GT$$GT$$GT$$GT$$GT$17h9ee397acd3e3fa21E.exit": ; preds = %.critedge, %68

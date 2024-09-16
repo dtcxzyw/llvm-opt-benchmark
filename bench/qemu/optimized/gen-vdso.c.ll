@@ -616,11 +616,11 @@ for.body128.i:                                    ; preds = %for.body128.i, %for
   %p_vaddr131.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %p_vaddr131.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i)
+  %call.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i)
   %p_paddr.i = getelementptr inbounds i8, ptr %arrayidx130.i, i64 12
   %sub.ptr.lhs.cast.i97.i = ptrtoint ptr %p_paddr.i to i64
   %sub.ptr.sub.i99.i = sub i64 %sub.ptr.lhs.cast.i97.i, %sub.ptr.rhs.cast.i.i
-  %call.i100.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i)
+  %call.i100.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i)
   %indvars.iv.next179.i = add nuw nsw i64 %indvars.iv178.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next179.i, %conv69.i
   br i1 %exitcond182.not.i, label %for.end136.i, label %for.body128.i, !llvm.loop !12
@@ -687,7 +687,7 @@ sw.bb145.i:                                       ; preds = %sw.caserange148.i, 
   %d_un.i = getelementptr inbounds i8, ptr %dyn.0.i, i64 4
   %sub.ptr.lhs.cast.i101.i = ptrtoint ptr %d_un.i to i64
   %sub.ptr.sub.i103.i = sub i64 %sub.ptr.lhs.cast.i101.i, %sub.ptr.rhs.cast.i.i
-  %call.i104.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i)
+  %call.i104.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i)
   br label %sw.epilog181.i
 
 sw.caserange148.i:                                ; preds = %if.end143.i
@@ -780,7 +780,7 @@ for.body202.i:                                    ; preds = %for.body202.i, %for
   %st_value.i = getelementptr inbounds %struct.Elf32_Sym, ptr %add.ptr193.i, i64 %indvars.iv183.i, i32 1
   %sub.ptr.lhs.cast.i105.i = ptrtoint ptr %st_value.i to i64
   %sub.ptr.sub.i107.i = sub i64 %sub.ptr.lhs.cast.i105.i, %sub.ptr.rhs.cast.i106.i
-  %call.i108.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i107.i)
+  %call.i108.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i107.i)
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond187.not.i = icmp eq i64 %indvars.iv.next184.i, %wide.trip.count186.i
   br i1 %exitcond187.not.i, label %if.then210.i, label %for.body202.i, !llvm.loop !14
@@ -1186,11 +1186,11 @@ for.body129.i:                                    ; preds = %for.body129.i, %for
   %p_vaddr132.i = getelementptr inbounds i8, ptr %arrayidx131.i, i64 16
   %sub.ptr.lhs.cast.i.i76 = ptrtoint ptr %p_vaddr132.i to i64
   %sub.ptr.sub.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i76, %sub.ptr.rhs.cast.i.i75
-  %call.i.i78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i77)
+  %call.i.i78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i.i77)
   %p_paddr.i79 = getelementptr inbounds i8, ptr %arrayidx131.i, i64 24
   %sub.ptr.lhs.cast.i97.i80 = ptrtoint ptr %p_paddr.i79 to i64
   %sub.ptr.sub.i99.i81 = sub i64 %sub.ptr.lhs.cast.i97.i80, %sub.ptr.rhs.cast.i.i75
-  %call.i100.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i81)
+  %call.i100.i82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i99.i81)
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %exitcond180.not.i = icmp eq i64 %indvars.iv.next177.i, %conv67.i
   br i1 %exitcond180.not.i, label %for.end137.i, label %for.body129.i, !llvm.loop !20
@@ -1257,7 +1257,7 @@ sw.bb146.i:                                       ; preds = %sw.caserange149.i, 
   %d_un.i111 = getelementptr inbounds i8, ptr %dyn.0.i87, i64 8
   %sub.ptr.lhs.cast.i101.i112 = ptrtoint ptr %d_un.i111 to i64
   %sub.ptr.sub.i103.i113 = sub i64 %sub.ptr.lhs.cast.i101.i112, %sub.ptr.rhs.cast.i.i75
-  %call.i104.i114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i113)
+  %call.i104.i114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i103.i113)
   br label %sw.epilog180.i
 
 sw.caserange149.i:                                ; preds = %if.end144.i
@@ -1348,7 +1348,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   %st_value.i97 = getelementptr inbounds %struct.Elf64_Sym, ptr %add.ptr191.i, i64 %indvars.iv181.i, i32 4
   %sub.ptr.lhs.cast.i105.i98 = ptrtoint ptr %st_value.i97 to i64
   %sub.ptr.sub.i107.i99 = sub i64 %sub.ptr.lhs.cast.i105.i98, %sub.ptr.rhs.cast.i106.i96
-  %call.i108.i100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i107.i99)
+  %call.i108.i100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call13, ptr noundef nonnull @.str.36, i64 noundef %sub.ptr.sub.i107.i99)
   %indvars.iv.next182.i = add nuw nsw i64 %indvars.iv181.i, 1
   %exitcond185.not.i = icmp eq i64 %indvars.iv.next182.i, %253
   br i1 %exitcond185.not.i, label %if.then207.i, label %for.body199.i, !llvm.loop !22
@@ -1434,7 +1434,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @elf32_search_symtab(ptr nocapture noundef readonly %shdr, i32 noundef %sym_idx, ptr nocapture noundef %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
+define internal fastcc void @elf32_search_symtab(ptr nocapture noundef nonnull readonly %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr nocapture noundef nonnull %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
   %arrayidx = getelementptr inbounds %struct.Elf32_Shdr, ptr %shdr, i64 %idxprom
@@ -1616,7 +1616,7 @@ declare i32 @llvm.bswap.i32(i32) #7
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @elf64_search_symtab(ptr nocapture noundef readonly %shdr, i32 noundef %sym_idx, ptr nocapture noundef %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
+define internal fastcc void @elf64_search_symtab(ptr nocapture noundef nonnull readonly %shdr, i32 noundef range(i32 1, 0) %sym_idx, ptr nocapture noundef nonnull %buf, i1 noundef zeroext %need_bswap) unnamed_addr #6 {
 entry:
   %idxprom = zext i32 %sym_idx to i64
   %arrayidx = getelementptr inbounds %struct.Elf64_Shdr, ptr %shdr, i64 %idxprom

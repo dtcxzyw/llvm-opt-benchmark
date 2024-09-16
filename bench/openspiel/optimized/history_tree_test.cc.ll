@@ -14064,7 +14064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124CheckCounterFactualProbsERKNS_4GameERKNS_13TabularPolicyERKN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS9_18container_internal10StringHashENSH_12StringHashEq2EqESaISt4pairIKSG_dEEEEi(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_124CheckCounterFactualProbsERKNS_4GameERKNS_13TabularPolicyERKN4absl7debian213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS9_18container_internal10StringHashENSH_12StringHashEq2EqESaISt4pairIKSG_dEEEEi(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.open_spiel::algorithms::HistoryTree", align 8
   %6 = alloca %"class.std::unique_ptr.23", align 8
   %7 = alloca %"class.absl::debian2::flat_hash_map.119", align 8

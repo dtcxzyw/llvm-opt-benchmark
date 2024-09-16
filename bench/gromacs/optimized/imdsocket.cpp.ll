@@ -47,7 +47,7 @@ define noundef ptr @_ZN3gmx14imdsock_createEv() local_unnamed_addr #1 {
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZN3gmxL15print_IMD_errorEPKciPc(i32 noundef range(i32 156, 437) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.2, ptr noundef nonnull @_ZN3gmxL6IMDstrE, ptr noundef nonnull @.str.1, i32 noundef %0) #15
   %.not = icmp eq ptr %1, null

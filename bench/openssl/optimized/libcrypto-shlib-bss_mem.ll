@@ -697,7 +697,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mem_init(ptr nocapture noundef writeonly %bi, i64 noundef %flags) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @mem_init(ptr nocapture noundef writeonly %bi, i64 noundef range(i64 0, 2) %flags) unnamed_addr #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 111) #6
   %cmp = icmp eq ptr %call, null

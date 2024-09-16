@@ -96,12 +96,12 @@ if.then42:                                        ; preds = %if.end40
   br i1 %tobool44.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %if.then42, %if.end40
-  %call48 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond14, ptr noundef nonnull %cond, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
+  %call48 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef %cond14, ptr noundef %cond, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
   %tobool49.not = icmp eq i32 %call48, 0
   br i1 %tobool49.not, label %err, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %if.end47
-  %call51 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %cond20, ptr noundef nonnull %cond8, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
+  %call51 = tail call fastcc i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef %cond20, ptr noundef %cond8, ptr noundef %ctx, i32 noundef %retval.0.i54, ptr noundef %cb)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %err, label %if.end54
 
@@ -164,21 +164,21 @@ declare ptr @BN_CTX_get(ptr noundef) local_unnamed_addr #1
 declare i32 @BN_priv_rand_ex(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef %Xp1, ptr noundef %p1, ptr noundef %ctx, i32 noundef %rounds, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_rsa_fips186_4_find_aux_prob_prime(ptr noundef nonnull %Xp1, ptr noundef nonnull %p1, ptr noundef %ctx, i32 noundef range(i32 0, 45) %rounds, ptr noundef %cb) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @BN_copy(ptr noundef %p1, ptr noundef %Xp1) #3
+  %call = tail call ptr @BN_copy(ptr noundef nonnull %p1, ptr noundef nonnull %Xp1) #3
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @BN_set_flags(ptr noundef %p1, i32 noundef 4) #3
+  tail call void @BN_set_flags(ptr noundef nonnull %p1, i32 noundef 4) #3
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end8, %if.end
   %i.0 = phi i32 [ 0, %if.end ], [ %inc, %if.end8 ]
   %inc = add nuw nsw i32 %i.0, 1
   %call1 = tail call i32 @BN_GENCB_call(ptr noundef %cb, i32 noundef 0, i32 noundef %inc) #3
-  %call2 = tail call i32 @ossl_bn_check_generated_prime(ptr noundef %p1, i32 noundef %rounds, ptr noundef %ctx, ptr noundef %cb) #3
+  %call2 = tail call i32 @ossl_bn_check_generated_prime(ptr noundef nonnull %p1, i32 noundef %rounds, ptr noundef %ctx, ptr noundef %cb) #3
   %cmp3 = icmp sgt i32 %call2, 0
   br i1 %cmp3, label %for.end, label %if.end5
 
@@ -187,7 +187,7 @@ if.end5:                                          ; preds = %for.cond
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %call9 = tail call i32 @BN_add_word(ptr noundef %p1, i64 noundef 2) #3
+  %call9 = tail call i32 @BN_add_word(ptr noundef nonnull %p1, i64 noundef 2) #3
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %return, label %for.cond
 

@@ -419,7 +419,7 @@ color_filters_add_tmp.exit:                       ; preds = %7
   br label %66
 
 56:                                               ; preds = %color_filters_add_tmp.exit
-  %57 = tail call fastcc i32 @read_filters_file(ptr noundef %45, ptr noundef nonnull %46, ptr noundef nonnull @color_filter_list, ptr noundef %1)
+  %57 = tail call fastcc i32 @read_filters_file(ptr noundef %45, ptr noundef %46, ptr noundef nonnull @color_filter_list, ptr noundef %1)
   %.not = icmp eq i32 %57, 0
   br i1 %.not, label %64, label %58
 
@@ -812,7 +812,7 @@ define range(i32 0, 2) i32 @color_filters_read_globals(ptr noundef %0, ptr nocap
   br label %23
 
 13:                                               ; preds = %3
-  %14 = tail call fastcc i32 @read_filters_file(ptr noundef %4, ptr noundef nonnull %5, ptr noundef %0, ptr noundef %2)
+  %14 = tail call fastcc i32 @read_filters_file(ptr noundef %4, ptr noundef %5, ptr noundef %0, ptr noundef %2)
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
@@ -847,7 +847,7 @@ declare ptr @__errno_location() local_unnamed_addr #8
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
@@ -884,7 +884,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not, label %.loopexit103, label %.preheader101
 
 .preheader101:                                    ; preds = %.backedge, %.preheader101
-  %17 = call i32 @getc_unlocked(ptr noundef %1)
+  %17 = call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %17, label %.preheader101 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit103
@@ -895,7 +895,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br label %18
 
 18:                                               ; preds = %20, %.loopexit103
-  %19 = call i32 @getc_unlocked(ptr noundef %1)
+  %19 = call i32 @getc_unlocked(ptr noundef nonnull %1)
   %cond = icmp eq i32 %19, -1
   br i1 %cond, label %.loopexit, label %20
 
@@ -926,7 +926,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %.182 = phi i32 [ %.283, %34 ], [ %.081.ph, %.critedge ]
   %.076 = phi i32 [ %36, %34 ], [ 0, %.critedge ]
   %.2 = phi ptr [ %.3, %34 ], [ %.0.ph, %.critedge ]
-  %27 = call i32 @getc_unlocked(ptr noundef %1)
+  %27 = call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %27, label %28 [
     i32 -1, label %39
     i32 64, label %39
@@ -968,7 +968,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   %.179 = phi i32 [ %.280, %52 ], [ %.078.ph.ph, %43 ]
   %.177 = phi i32 [ %54, %52 ], [ 0, %43 ]
   %.267 = phi ptr [ %.368, %52 ], [ %.065.ph.ph, %43 ]
-  %45 = call i32 @getc_unlocked(ptr noundef %1)
+  %45 = call i32 @getc_unlocked(ptr noundef nonnull %1)
   switch i32 %45, label %46 [
     i32 -1, label %57
     i32 64, label %57
@@ -1007,7 +1007,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
   br i1 %62, label %.outer.outer.backedge, label %63
 
 63:                                               ; preds = %61
-  %64 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
+  %64 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %1, ptr noundef nonnull @.str.16, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %65 = icmp eq i32 %64, 6
   br i1 %65, label %66, label %.outer.outer.backedge
 
@@ -1080,7 +1080,7 @@ define internal fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %1, pt
 .loopexit:                                        ; preds = %57, %39, %.preheader101, %18
   %.166 = phi ptr [ %.065.ph.ph, %18 ], [ %.065.ph.ph, %.preheader101 ], [ %.065.ph.ph, %39 ], [ %.267, %57 ]
   %.1 = phi ptr [ %.0.ph, %18 ], [ %.0.ph, %.preheader101 ], [ %.2, %39 ], [ %.2, %57 ]
-  %93 = call i32 @ferror(ptr noundef %1) #15
+  %93 = call i32 @ferror(ptr noundef nonnull %1) #15
   %.not96 = icmp eq i32 %93, 0
   br i1 %.not96, label %97, label %94
 
@@ -1114,7 +1114,7 @@ define range(i32 0, 2) i32 @color_filters_import(ptr noundef %0, ptr noundef %1,
   br label %22
 
 12:                                               ; preds = %4
-  %13 = tail call fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %3)
+  %13 = tail call fastcc i32 @read_filters_file(ptr noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef %3)
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %20, label %14
 

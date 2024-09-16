@@ -1300,7 +1300,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr %2) unnamed_addr #0 align 2 {
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i:
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr.743", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1309,7 +1309,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %1, ptr %3, align 8, !noalias !57
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #17, !noalias !57
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef %2) #17
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %5, ptr noundef nonnull %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef %2) #17
   %6 = load ptr, ptr %3, align 8, !noalias !57
   %.not.i.i2.i = icmp eq ptr %6, null
   br i1 %.not.i.i2.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %7
@@ -1376,7 +1376,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento22shouldCompletelyUnrollEPKNS
   ]
 
 _ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread: ; preds = %42, %42, %42
-  call fastcc void @_ZN5clang4entoL14forLoopMatcherEv(ptr dead_on_unwind noalias nonnull writable align 8 %30)
+  call fastcc void @_ZN5clang4entoL14forLoopMatcherEv(ptr dead_on_unwind noalias writable align 8 %30)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %30, i64 12, i1 false), !noalias !60
@@ -2216,7 +2216,7 @@ _ZNK5clang8DeclStmt5declsEv.exit.i44.i:           ; preds = %438, %434
   store i32 77, ptr %347, align 8, !alias.scope !103
   store ptr %461, ptr %348, align 8, !alias.scope !103
   %464 = atomicrmw add ptr %462, i32 1 monotonic, align 4, !noalias !103
-  call fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  call fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %465 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !104
   %466 = getelementptr inbounds i8, ptr %465, i64 8
@@ -2230,7 +2230,7 @@ _ZNK5clang8DeclStmt5declsEv.exit.i44.i:           ; preds = %438, %434
   store i32 77, ptr %350, align 8, !alias.scope !110
   store ptr %465, ptr %351, align 8, !alias.scope !110
   %468 = atomicrmw add ptr %466, i32 1 monotonic, align 4, !noalias !110
-  call fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  call fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %469 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19, !noalias !111
   %470 = getelementptr inbounds i8, ptr %469, i64 8
@@ -2244,7 +2244,7 @@ _ZNK5clang8DeclStmt5declsEv.exit.i44.i:           ; preds = %438, %434
   store i32 77, ptr %353, align 8, !alias.scope !117
   store ptr %469, ptr %354, align 8, !alias.scope !117
   %472 = atomicrmw add ptr %470, i32 1 monotonic, align 4, !noalias !117
-  call fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull %18)
+  call fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef %18)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %473 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !118
   store i32 %473, ptr %12, align 8, !alias.scope !118
@@ -2633,7 +2633,7 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4entoL14forLoopMatcherEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang4entoL14forLoopMatcherEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.993", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -6089,7 +6089,7 @@ _ZN5clang4entoL18changeIntBoundNodeENS_12ast_matchers8internal7MatcherINS_4DeclE
   %1513 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %1508, ptr %1513, align 8, !alias.scope !652, !noalias !503
   %1514 = atomicrmw add ptr %1509, i32 1 monotonic, align 4, !noalias !655
-  call fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull %60), !noalias !503
+  call fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef %60), !noalias !503
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %68) #17, !noalias !503
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !503
   %1515 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 11, ptr nonnull @.str.8) #17, !noalias !503
@@ -6117,7 +6117,7 @@ _ZN5clang4entoL18changeIntBoundNodeENS_12ast_matchers8internal7MatcherINS_4DeclE
   %1526 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %1521, ptr %1526, align 8, !alias.scope !656, !noalias !503
   %1527 = atomicrmw add ptr %1522, i32 1 monotonic, align 4, !noalias !659
-  call fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull %65), !noalias !503
+  call fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef %65), !noalias !503
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #17, !noalias !503
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !503
   %1528 = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 11, ptr nonnull @.str.8) #17, !noalias !503
@@ -6145,7 +6145,7 @@ _ZN5clang4entoL18changeIntBoundNodeENS_12ast_matchers8internal7MatcherINS_4DeclE
   %1539 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store ptr %1534, ptr %1539, align 8, !alias.scope !660, !noalias !503
   %1540 = atomicrmw add ptr %1535, i32 1 monotonic, align 4, !noalias !663
-  call fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr noundef nonnull %70), !noalias !503
+  call fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias writable align 8 %69, ptr noundef %70), !noalias !503
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
   %1541 = load i32, ptr @_ZN5clang12ast_matchers5anyOfE, align 4, !noalias !667
   store i32 %1541, ptr %53, align 8, !alias.scope !664, !noalias !503
@@ -7630,7 +7630,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19LoopStackEEENS0_17ProgramState
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40: ; preds = %34
   %36 = getelementptr i8, ptr %24, i64 40
   %.val.i = load ptr, ptr %36, align 8
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr %.val.i)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr %.val.i)
   %37 = load ptr, ptr %6, align 8
   store ptr %17, ptr %6, align 8
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %17) #17
@@ -7641,7 +7641,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40: ; preds =
   store ptr %20, ptr %39, align 8, !alias.scope !706
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 %4, ptr %40, align 8, !alias.scope !706
-  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %8)
+  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %8)
   %41 = load ptr, ptr %7, align 8
   store ptr %37, ptr %7, align 8
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49.sink.split
@@ -7666,7 +7666,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit42: ; preds =
   store ptr %20, ptr %47, align 8, !alias.scope !709
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %4, ptr %48, align 8, !alias.scope !709
-  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %11)
+  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %11)
   %49 = load ptr, ptr %10, align 8
   store ptr %17, ptr %10, align 8
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49.sink.split
@@ -7691,7 +7691,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit45: ; preds =
   store ptr %20, ptr %57, align 8, !alias.scope !712
   %58 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i32 %4, ptr %58, align 8, !alias.scope !712
-  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %13)
+  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %13)
   %59 = load ptr, ptr %12, align 8
   store ptr %17, ptr %12, align 8
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49.sink.split
@@ -7704,7 +7704,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47: ; preds =
   store ptr %20, ptr %61, align 8, !alias.scope !715
   %62 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i32 %54, ptr %62, align 8, !alias.scope !715
-  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %15)
+  call fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoopState") align 8 %15)
   %63 = load ptr, ptr %14, align 8
   store ptr %17, ptr %14, align 8
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49.sink.split
@@ -7721,7 +7721,7 @@ _ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread49: ; preds = %_ZN5clang4ento
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::LoopState") align 8 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3addIN12_GLOBAL__N_19LoopStackEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"struct.(anonymous namespace)::LoopState") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.743", align 8
@@ -7816,7 +7816,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm13ImmutableListIN12_GLOBAL__N_19LoopStateEEEvE3AddES6_S5_RNS2_20ImmutableListFactoryIS5_EE.exit.i: ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4), !noalias !718
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !718
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull %.0.i.i.i.i) #17
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %8, ptr noundef nonnull %6, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_19LoopStackEE8GDMIndexEvE5Index, ptr noundef nonnull %.0.i.i.i.i) #17
   %47 = load ptr, ptr %6, align 8, !noalias !718
   %.not.i.i4.i = icmp eq ptr %47, null
   br i1 %.not.i.i4.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %48
@@ -13431,7 +13431,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_7VarDeclEED2Ev.exit2: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang4entoL9callByRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1078", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
@@ -14095,7 +14095,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_7VarDeclEED2Ev.exit: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang4entoL9getAddrToENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1001", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.866", align 8
@@ -14351,7 +14351,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_13UnaryOperatorEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang4entoL13assignedToRefENS_12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.1169", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8

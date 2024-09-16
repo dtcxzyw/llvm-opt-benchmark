@@ -19709,7 +19709,7 @@ invoke.cont3.i.i1141:                             ; preds = %_ZNSt10shared_ptrIN
   store ptr %values.i.i1031, ptr %2917, align 8, !noalias !480
   %2918 = getelementptr inbounds i8, ptr %ref.tmp.i.i1034, i64 16
   store ptr %array, ptr %2918, align 8, !noalias !480
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_9ListArrayENS_8ListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nonnull align 8 %ref.tmp.i1036, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i1034)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_9ListArrayENS_8ListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias align 8 %ref.tmp.i1036, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i1034)
           to label %_ZN5arrow6StatusD2Ev.exit.i1158 unwind label %lpad2.i.i1140
 
 lpad.i.i1135:                                     ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit8474
@@ -20056,7 +20056,7 @@ invoke.cont3.i.i933:                              ; preds = %_ZNSt10shared_ptrIN
   store ptr %values.i.i823, ptr %2966, align 8, !noalias !494
   %2967 = getelementptr inbounds i8, ptr %ref.tmp.i.i826, i64 16
   store ptr %array, ptr %2967, align 8, !noalias !494
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_14LargeListArrayENS_13LargeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nonnull align 8 %ref.tmp.i828, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i826)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_14LargeListArrayENS_13LargeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias align 8 %ref.tmp.i828, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i826)
           to label %_ZN5arrow6StatusD2Ev.exit.i950 unwind label %lpad2.i.i932
 
 lpad.i.i927:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit8458
@@ -20403,7 +20403,7 @@ invoke.cont3.i.i725:                              ; preds = %_ZNSt10shared_ptrIN
   store ptr %values.i.i615, ptr %3015, align 8, !noalias !508
   %3016 = getelementptr inbounds i8, ptr %ref.tmp.i.i618, i64 16
   store ptr %array, ptr %3016, align 8, !noalias !508
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_13ListViewArrayENS_12ListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nonnull align 8 %ref.tmp.i620, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i618)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_13ListViewArrayENS_12ListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias align 8 %ref.tmp.i620, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i618)
           to label %_ZN5arrow6StatusD2Ev.exit.i742 unwind label %lpad2.i.i724
 
 lpad.i.i719:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit8442
@@ -20750,7 +20750,7 @@ invoke.cont3.i.i517:                              ; preds = %_ZNSt10shared_ptrIN
   store ptr %values.i.i407, ptr %3064, align 8, !noalias !522
   %3065 = getelementptr inbounds i8, ptr %ref.tmp.i.i410, i64 16
   store ptr %array, ptr %3065, align 8, !noalias !522
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18LargeListViewArrayENS_17LargeListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nonnull align 8 %ref.tmp.i412, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i410)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18LargeListViewArrayENS_17LargeListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias align 8 %ref.tmp.i412, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i410)
           to label %_ZN5arrow6StatusD2Ev.exit.i534 unwind label %lpad2.i.i516
 
 lpad.i.i511:                                      ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit8427
@@ -21129,7 +21129,7 @@ invoke.cont6.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   store ptr %array, ptr %3120, align 8, !noalias !536
   %3121 = getelementptr inbounds i8, ptr %ref.tmp.i.i296, i64 32
   store ptr %items.i.i, ptr %3121, align 8, !noalias !536
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesERKNS_8MapArrayEEUllE_EENS_6StatusERKNS_5ArrayEOT_bb(ptr noalias nonnull align 8 %ref.tmp.i298, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i.i296)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesERKNS_8MapArrayEEUllE_EENS_6StatusERKNS_5ArrayEOT_bb(ptr noalias align 8 %ref.tmp.i298, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp.i.i296)
           to label %_ZN5arrow6StatusD2Ev.exit.i363 unwind label %lpad5.i.i
 
 lpad3.i.i:                                        ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit8402
@@ -21482,7 +21482,7 @@ invoke.cont3.i.i:                                 ; preds = %_ZNSt10shared_ptrIN
   store ptr %values.i.i, ptr %3169, align 8, !noalias !550
   %3170 = getelementptr inbounds i8, ptr %ref.tmp.i.i, i64 16
   store ptr %array, ptr %3170, align 8, !noalias !550
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18FixedSizeListArrayENS_17FixedSizeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nonnull align 8 %ref.tmp.i239, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18FixedSizeListArrayENS_17FixedSizeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias align 8 %ref.tmp.i239, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i)
           to label %_ZN5arrow6StatusD2Ev.exit.i271 unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEEC2ERKS2_.exit
@@ -21657,7 +21657,7 @@ _ZN5arrow6StatusD2Ev.exit.i211:                   ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i194)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %children.i)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp.i194, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array), !noalias !561
+  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias align 8 %ref.tmp.i194, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array), !noalias !561
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
   %3194 = load ptr, ptr %ref.tmp.i194, align 8, !noalias !567
   store ptr %3194, ptr %ref.tmp, align 8, !alias.scope !567
@@ -21839,7 +21839,7 @@ for.end.i:                                        ; preds = %_ZNSt6vectorIPKN5ar
   %.lcssa8547 = phi ptr [ %_M_end_of_storage.i.i.i.promoted, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit.i ], [ %3204, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE12emplace_backIJPS1_EEERS3_DpOT_.exit.i ]
   store ptr %.lcssa8547, ptr %_M_end_of_storage.i.i.i, align 8, !noalias !561
   store ptr %3210, ptr %children.i, align 8, !noalias !561
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %children.i)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %children.i)
           to label %invoke.cont22.i unwind label %lpad9.i.loopexit.split-lp
 
 invoke.cont22.i:                                  ; preds = %for.end.i
@@ -21856,11 +21856,11 @@ _ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_11StructArrayE.exit: ; preds = 
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb76.i:                                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb78.i:                                        ; preds = %entry
-  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array)
   br label %_ZN5arrow6StatusD2Ev.exit
 
 sw.bb80.i:                                        ; preds = %entry
@@ -23456,7 +23456,7 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i.preh
 _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.body.i.i, %for.body.i12.i, %if.else.i, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit.i
   %call4.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow6Schema5fieldEi(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %i.065.i), !noalias !672
   %8 = load ptr, ptr %call4.i, align 8, !noalias !672
-  call fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %printer, ptr noundef nonnull align 8 dereferenceable(96) %8), !noalias !672
+  call fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %printer, ptr noundef nonnull align 8 dereferenceable(96) %8), !noalias !672
   tail call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %9 = load ptr, ptr %ref.tmp.i, align 8, !noalias !679
   store ptr %9, ptr %agg.result, align 8, !alias.scope !679
@@ -23948,7 +23948,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5VisitERKNS_10UnionArrayE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(72) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %printer.i212 = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8
   %printer.i = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8
@@ -23963,7 +23963,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp65 = alloca %"struct.arrow::PrettyPrintOptions", align 8
   %children = alloca %"class.std::vector.215", align 8
   %ref.tmp106 = alloca %"class.std::shared_ptr.20", align 8
-  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !689
   store ptr %0, ptr %agg.result, align 8, !alias.scope !689
@@ -24676,7 +24676,7 @@ lpad109:                                          ; preds = %lpad109.loopexit.sp
   br label %ehcleanup117
 
 for.end:                                          ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, %_ZNSt6vectorIPKN5arrow5ArrayESaIS3_EE7reserveEm.exit
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %children)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %children)
           to label %invoke.cont115 unwind label %lpad101.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %for.end
@@ -25844,7 +25844,7 @@ declare void @_ZNK5arrow15Decimal128Array11FormatValueB5cxx11El(ptr sret(%"class
 declare void @_ZNK5arrow15Decimal256Array11FormatValueB5cxx11El(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(44), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_9ListArrayENS_8ListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_9ListArrayENS_8ListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -26175,7 +26175,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 declare void @_ZNK5arrow5Array5SliceEll(ptr sret(%"class.std::shared_ptr.20") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_14LargeListArrayENS_13LargeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_14LargeListArrayENS_13LargeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -26502,7 +26502,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_13ListViewArrayENS_12ListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_13ListViewArrayENS_12ListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -26833,7 +26833,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18LargeListViewArrayENS_17LargeListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18LargeListViewArrayENS_17LargeListViewTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -27162,7 +27162,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesERKNS_8MapArrayEEUllE_EENS_6StatusERKNS_5ArrayEOT_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesERKNS_8MapArrayEEUllE_EENS_6StatusERKNS_5ArrayEOT_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp2.i = alloca %"class.std::shared_ptr.20", align 8
@@ -27713,7 +27713,7 @@ return:                                           ; preds = %_ZN5arrow12_GLOBAL_
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow18FixedSizeListArray6valuesEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18FixedSizeListArrayENS_17FixedSizeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter11WriteValuesIZNS1_15WriteDataValuesINS_18FixedSizeListArrayENS_17FixedSizeListTypeEEENSt9enable_ifIXoosr17is_list_like_typeIT0_EE5valuesr17is_list_view_typeIS7_EE5valueENS_6StatusEE4typeERKT_EUllE_EES8_RKNS_5ArrayEOSB_bb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %array, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %func) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -28037,7 +28037,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter19WriteValidityBitmapERKNS_5ArrayE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %array) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %printer.i = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8
   %is_valid = alloca %"class.arrow::BooleanArray", align 8
@@ -28201,7 +28201,7 @@ invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIN
   store i32 %storemerge.i, ptr %indent_.i.i, align 8, !noalias !782
   %sink_.i.i = getelementptr inbounds i8, ptr %printer.i, i64 16
   store ptr %26, ptr %sink_.i.i, align 8, !noalias !782
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %is_valid)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter5PrintERKNS_5ArrayE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %printer.i, ptr noundef nonnull align 8 dereferenceable(32) %is_valid)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -28333,7 +28333,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5arrow11StructArray5fieldEi(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ArrayPrinter13PrintChildrenERKSt6vectorIPKNS_5ArrayESaIS5_EEll(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %printer.i = alloca %"class.arrow::(anonymous namespace)::ArrayPrinter", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -29578,7 +29578,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(96) %field) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -29730,7 +29730,7 @@ invoke.cont16.i:                                  ; preds = %_ZN5arrow12_GLOBAL_
   %24 = load ptr, ptr %children_.i188, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.37", ptr %24, i64 %indvars.iv
   %25 = load ptr, ptr %add.ptr.i.i, align 8
-  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias nonnull align 8 %ref.tmp17.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(96) %25)
+  invoke fastcc void @_ZN5arrow12_GLOBAL__N_113SchemaPrinter10PrintFieldERKNS_5FieldE(ptr noalias align 8 %ref.tmp17.i, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(96) %25)
           to label %_ZN5arrow6StatusD2Ev.exit173 unwind label %lpad4.i
 
 _ZN5arrow6StatusD2Ev.exit173:                     ; preds = %invoke.cont16.i

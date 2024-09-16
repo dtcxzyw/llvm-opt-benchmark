@@ -257,7 +257,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr no
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call fastcc i32 @parse_crashkernel_suffix(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %4) #18, !range !8
+  %17 = tail call fastcc i32 @parse_crashkernel_suffix(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %4) #18, !range !8
   br label %30
 
 18:                                               ; preds = %13
@@ -273,11 +273,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr no
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %21
-  %27 = tail call fastcc i32 @parse_crashkernel_mem(ptr noundef %14, i64 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #18
+  %27 = tail call fastcc i32 @parse_crashkernel_mem(ptr noundef %14, i64 noundef %1, ptr noundef %2, ptr noundef %3) #18
   br label %30
 
 28:                                               ; preds = %21, %18
-  %29 = tail call fastcc i32 @parse_crashkernel_simple(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull %3) #18, !range !8
+  %29 = tail call fastcc i32 @parse_crashkernel_simple(ptr noundef %14, ptr noundef %2, ptr noundef %3) #18, !range !8
   br label %30
 
 30:                                               ; preds = %28, %26, %16, %10
@@ -378,7 +378,7 @@ declare dso_local i64 @memblock_phys_alloc_range(i64 noundef, i64 noundef, i64 n
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @reserve_crashkernel_low(i64 noundef %0) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @reserve_crashkernel_low(i64 noundef range(i64 1, 0) %0) unnamed_addr #0 section ".init.text" align 16 {
   %2 = tail call i64 @memblock_phys_alloc_range(i64 noundef %0, i64 noundef 16777216, i64 noundef 0, i64 noundef 4294967296) #19
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %4, label %6
@@ -1171,7 +1171,7 @@ define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_suffix(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_suffix(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store ptr %0, ptr %4, align 8
@@ -1186,8 +1186,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_suffix(p
   br label %24
 
 10:                                               ; preds = %3
-  %11 = call i64 @strlen(ptr noundef %2) #19
-  %12 = call i32 @strncmp(ptr noundef %6, ptr noundef %2, i64 noundef %11) #19
+  %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #19
+  %12 = call i32 @strncmp(ptr noundef %6, ptr noundef nonnull %2, i64 noundef %11) #19
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %18, label %14
 
@@ -1221,7 +1221,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_suffix(p
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_mem(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_mem(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8, !annotation !18
@@ -1335,7 +1335,7 @@ thread-pre-split11:                               ; preds = %41
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_simple(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_crashkernel_simple(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store ptr %0, ptr %4, align 8
@@ -1420,7 +1420,7 @@ define internal noundef i32 @crash_cpuhp_offline(i32 %0) #5 align 16 {
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @crash_handle_hotplug_event(i32 noundef %0) unnamed_addr #5 align 16 {
+define internal fastcc void @crash_handle_hotplug_event(i32 noundef range(i32 1, 3) %0) unnamed_addr #5 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @__crash_hotplug_lock) #19
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @__kexec_lock, i32 1, i32 0, ptr nonnull elementtype(i32) @__kexec_lock) #19, !srcloc !26
   %3 = icmp eq i32 %2, 0

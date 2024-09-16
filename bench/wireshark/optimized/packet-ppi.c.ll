@@ -907,7 +907,7 @@ ptvcursor_add_invalid_check.exit150.i:            ; preds = %222, %215
   br label %dissect_80211_common.exit
 
 223:                                              ; preds = %58
-  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %.0317, i32 noundef %.0325363, i32 noundef %63, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %.0317, i32 noundef %.0325363, i32 noundef %63, i32 noundef 1, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   br label %dissect_80211_common.exit
 
 224:                                              ; preds = %58
@@ -929,7 +929,7 @@ ptvcursor_add_invalid_check.exit150.i:            ; preds = %222, %215
   br label %dissect_80211_common.exit
 
 236:                                              ; preds = %224
-  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %233, i32 noundef 12, i32 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %226, i32 noundef %233, i32 noundef 12, i32 noundef 0, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %237 = add i32 %233, 9
   %238 = load ptr, ptr %44, align 8
   %239 = tail call ptr @ptvcursor_new(ptr noundef %238, ptr noundef %226, ptr noundef %0, i32 noundef %237) #3
@@ -1896,7 +1896,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef %8) unnamed_addr #0 {
+define internal fastcc void @dissect_80211n_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 4, 65540) %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 7, ptr %10, align 8
   %.not = icmp eq i32 %5, 0

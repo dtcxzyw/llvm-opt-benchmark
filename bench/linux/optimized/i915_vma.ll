@@ -596,7 +596,7 @@ define dso_local i32 @i915_vma_wait_for_bind(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @dma_fence_put(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @dma_fence_put(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #17, !srcloc !15
   %4 = icmp eq i32 %3, 1
@@ -3041,7 +3041,7 @@ force_unbind.exit:                                ; preds = %78, %87, %102, %104
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = load volatile i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %.thread, label %.preheader
@@ -3049,7 +3049,7 @@ define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0)
 .preheader:                                       ; preds = %1, %9
   %4 = phi i32 [ %10, %9 ], [ %2, %1 ]
   %5 = add i32 %4, 1
-  %6 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 %5, ptr elementtype(i32) %0, i32 %4) #17, !srcloc !12
+  %6 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 %5, ptr nonnull elementtype(i32) %0, i32 %4) #17, !srcloc !12
   %7 = extractvalue { i8, i32 } %6, 0
   %8 = icmp ult i8 %7, 2
   tail call void @llvm.assume(i1 %8)
@@ -3069,7 +3069,7 @@ define internal fastcc range(i32 0, 2) i32 @kref_get_unless_zero(ptr noundef %0)
   br i1 %15, label %17, label %16, !prof !14
 
 16:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 0) #17
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 0) #17
   br label %17
 
 17:                                               ; preds = %16, %.thread
@@ -3987,7 +3987,7 @@ define dso_local i32 @i915_vma_unbind_async(ptr noundef %0, i1 noundef zeroext %
 79:                                               ; preds = %69
   %80 = load ptr, ptr %7, align 8
   tail call void @dma_resv_add_fence(ptr noundef %80, ptr noundef nonnull %70, i32 noundef 2) #17
-  tail call fastcc void @dma_fence_put(ptr noundef nonnull %70)
+  tail call fastcc void @dma_fence_put(ptr noundef %70)
   br label %81
 
 81:                                               ; preds = %79, %75, %41, %38

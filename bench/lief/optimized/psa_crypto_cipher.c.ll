@@ -123,7 +123,7 @@ define hidden i32 @mbedtls_psa_cipher_encrypt_setup(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @psa_cipher_setup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca [24 x i8], align 16
   %7 = load i16, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

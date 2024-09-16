@@ -143,8 +143,8 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %strbu
 if.else.i:                                        ; preds = %for.cond.i
   %10 = load ptr, ptr %pw.0.i, align 8
   %11 = load i8, ptr %10, align 1
-  %idxprom.i.i = zext i8 %11 to i64
-  %arrayidx.i9.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i
+  %conv.i.i = zext i8 %11 to i64
+  %arrayidx.i9.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i.i
   %12 = load i8, ptr %arrayidx.i9.i, align 1
   %13 = and i8 %12, 4
   %cmp.not.i.i = icmp eq i8 %13, 0
@@ -152,38 +152,38 @@ if.else.i:                                        ; preds = %for.cond.i
   %spec.select.i.i = select i1 %cmp.not.i.i, i8 %11, i8 %and3.i.i
   %14 = load i64, ptr @git_default_name, align 8
   %tobool.not.i.i10.i = icmp eq i64 %14, 0
-  br i1 %tobool.not.i.i10.i, label %if.then.i17.i, label %strbuf_avail.exit.i11.i
+  br i1 %tobool.not.i.i10.i, label %if.then.i18.i, label %strbuf_avail.exit.i11.i
 
 strbuf_avail.exit.i11.i:                          ; preds = %if.else.i
   %15 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
   %.neg.i12.i = add i64 %15, 1
   %tobool.not.i13.i = icmp eq i64 %14, %.neg.i12.i
-  br i1 %tobool.not.i13.i, label %if.then.i17.i, label %strbuf_addch.exit20.i
+  br i1 %tobool.not.i13.i, label %if.then.i18.i, label %strbuf_addch.exit21.i
 
-if.then.i17.i:                                    ; preds = %strbuf_avail.exit.i11.i, %if.else.i
+if.then.i18.i:                                    ; preds = %strbuf_avail.exit.i11.i, %if.else.i
   tail call void @strbuf_grow(ptr noundef nonnull @git_default_name, i64 noundef 1) #18
-  %.pre.i18.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
-  %.pre8.i19.i = add i64 %.pre.i18.i, 1
-  br label %strbuf_addch.exit20.i
+  %.pre.i19.i = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
+  %.pre8.i20.i = add i64 %.pre.i19.i, 1
+  br label %strbuf_addch.exit21.i
 
-strbuf_addch.exit20.i:                            ; preds = %if.then.i17.i, %strbuf_avail.exit.i11.i
-  %inc.pre-phi.i14.i = phi i64 [ %.pre8.i19.i, %if.then.i17.i ], [ %.neg.i12.i, %strbuf_avail.exit.i11.i ]
-  %16 = phi i64 [ %.pre.i18.i, %if.then.i17.i ], [ %15, %strbuf_avail.exit.i11.i ]
+strbuf_addch.exit21.i:                            ; preds = %if.then.i18.i, %strbuf_avail.exit.i11.i
+  %inc.pre-phi.i14.i = phi i64 [ %.pre8.i20.i, %if.then.i18.i ], [ %.neg.i12.i, %strbuf_avail.exit.i11.i ]
+  %16 = phi i64 [ %.pre.i19.i, %if.then.i18.i ], [ %15, %strbuf_avail.exit.i11.i ]
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   store i64 %inc.pre-phi.i14.i, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
-  %arrayidx.i15.i = getelementptr inbounds i8, ptr %17, i64 %16
-  store i8 %spec.select.i.i, ptr %arrayidx.i15.i, align 1
+  %arrayidx.i16.i = getelementptr inbounds i8, ptr %17, i64 %16
+  store i8 %spec.select.i.i, ptr %arrayidx.i16.i, align 1
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 16), align 8
   %19 = load i64, ptr getelementptr inbounds (i8, ptr @git_default_name, i64 8), align 8
-  %arrayidx3.i16.i = getelementptr inbounds i8, ptr %18, i64 %19
-  store i8 0, ptr %arrayidx3.i16.i, align 1
+  %arrayidx3.i17.i = getelementptr inbounds i8, ptr %18, i64 %19
+  store i8 0, ptr %arrayidx3.i17.i, align 1
   %20 = load ptr, ptr %pw.0.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 1
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #19
   tail call void @strbuf_add(ptr noundef nonnull @git_default_name, ptr noundef nonnull %add.ptr.i, i64 noundef %call.i.i) #18
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %strbuf_addch.exit20.i, %strbuf_addch.exit.i
+for.inc.i:                                        ; preds = %strbuf_addch.exit21.i, %strbuf_addch.exit.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %src.0.i, i64 1
   br label %for.cond.i, !llvm.loop !5
 

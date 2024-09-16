@@ -1008,13 +1008,13 @@ _bt_pagestate.exit.i.i:                           ; preds = %538, %514
   br i1 %.0121.i.i, label %548, label %551
 
 548:                                              ; preds = %547
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0117.i.i, i64 noundef 0)
   %549 = load ptr, ptr %310, align 8
   %550 = call ptr @tuplesort_getindextuple(ptr noundef %549, i1 noundef zeroext true) #10
   br label %554
 
 551:                                              ; preds = %547
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0119.i.i, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.1.i.i, ptr noundef %.0119.i.i, i64 noundef 0)
   %552 = load ptr, ptr %309, align 8
   %553 = call ptr @tuplesort_getindextuple(ptr noundef %552, i1 noundef zeroext true) #10
   br label %554
@@ -1143,7 +1143,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %596, %572
   br i1 %615, label %617, label %618
 
 617:                                              ; preds = %613
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3198.i.i, ptr noundef %616, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.3198.i.i, ptr noundef %616, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
 618:                                              ; preds = %613
@@ -1162,7 +1162,7 @@ _bt_pagestate.exit151.i.i:                        ; preds = %596, %572
   %629 = zext i16 %.val17.i.i.i to i64
   %630 = or disjoint i64 %628, %629
   %631 = sub nsw i64 %625, %630
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.3198.i.i, ptr noundef nonnull %621, i64 noundef %631)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.3198.i.i, ptr noundef nonnull %621, i64 noundef %631)
   call void @pfree(ptr noundef nonnull %621) #10
   br label %_bt_sort_dedup_finish_pending.exit.i.i
 
@@ -1195,7 +1195,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %618, %617
   br i1 %639, label %641, label %642
 
 641:                                              ; preds = %._crit_edge200.i.i
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef %640, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.4.i.i, ptr noundef %640, i64 noundef 0)
   br label %_bt_sort_dedup_finish_pending.exit155.i.i
 
 642:                                              ; preds = %._crit_edge200.i.i
@@ -1214,7 +1214,7 @@ _bt_sort_dedup_finish_pending.exit.i.i:           ; preds = %618, %617
   %653 = zext i16 %.val17.i154.i.i to i64
   %654 = or disjoint i64 %652, %653
   %655 = sub nsw i64 %649, %654
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.4.i.i, ptr noundef nonnull %645, i64 noundef %655)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.4.i.i, ptr noundef nonnull %645, i64 noundef %655)
   call void @pfree(ptr noundef nonnull %645) #10
   br label %_bt_sort_dedup_finish_pending.exit155.i.i
 
@@ -1300,7 +1300,7 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
 
 693:                                              ; preds = %_bt_pagestate.exit159.i.i, %.lr.ph195.i.i
   %.6.i.i = phi ptr [ %661, %_bt_pagestate.exit159.i.i ], [ %.5194.i.i, %.lr.ph195.i.i ]
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %658, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef nonnull %.6.i.i, ptr noundef nonnull %658, i64 noundef 0)
   %694 = add i64 %.2129193.i.i, 1
   call void @pgstat_progress_update_param(i32 noundef 12, i64 noundef %694) #10
   %695 = load ptr, ptr %310, align 8
@@ -1353,7 +1353,7 @@ _bt_pagestate.exit159.i.i:                        ; preds = %684, %660
   store i16 %718, ptr %719, align 2
   %720 = load ptr, ptr %699, align 8
   %721 = load ptr, ptr %714, align 8
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %4, ptr noundef %720, ptr noundef %721, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %4, ptr noundef %720, ptr noundef %721, i64 noundef 0)
   %722 = load ptr, ptr %714, align 8
   call void @pfree(ptr noundef %722) #10
   store ptr null, ptr %714, align 8
@@ -1868,7 +1868,7 @@ declare void @PrepareSortSupportFromIndexRel(ptr noundef, i16 noundef signext, p
 declare i32 @ItemPointerCompare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_bt_buildadd(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_bt_buildadd(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef range(i64 -4294967295, 8192) %3) unnamed_addr #0 {
   %5 = alloca %struct.IndexTupleData, align 8
   %6 = alloca %struct.IndexTupleData, align 8
   %7 = load volatile i32, ptr @InterruptPending, align 4
@@ -2129,7 +2129,7 @@ _bt_pagestate.exit:                               ; preds = %119, %143, %148
   store i16 %161, ptr %162, align 2
   %163 = load ptr, ptr %116, align 8
   %164 = load ptr, ptr %157, align 8
-  call fastcc void @_bt_buildadd(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %164, i64 noundef 0)
+  call fastcc void @_bt_buildadd(ptr noundef %0, ptr noundef %163, ptr noundef %164, i64 noundef 0)
   %165 = load ptr, ptr %157, align 8
   call void @pfree(ptr noundef %165) #10
   %166 = call ptr @CopyIndexTuple(ptr noundef %.0106) #10

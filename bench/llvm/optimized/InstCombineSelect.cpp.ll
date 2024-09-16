@@ -16090,7 +16090,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %402, %_ZNK4llvm5Val
 
 526:                                              ; preds = %521
   %527 = load ptr, ptr %16, align 8
-  %528 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull %524, ptr noundef %527, i1 noundef zeroext false)
+  %528 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef %524, ptr noundef %527, i1 noundef zeroext false)
   %.not439 = icmp eq ptr %528, null
   br i1 %.not439, label %529, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -16102,7 +16102,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %402, %_ZNK4llvm5Val
 
 532:                                              ; preds = %529
   %533 = load ptr, ptr %15, align 8
-  %534 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull %530, ptr noundef %533, i1 noundef zeroext true)
+  %534 = call fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef %530, ptr noundef %533, i1 noundef zeroext true)
   %.not441 = icmp eq ptr %534, null
   br i1 %.not441, label %535, label %_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit
 
@@ -19805,7 +19805,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_7bind_tyIS2_EENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef readnone %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm16InstCombinerImpl15visitSelectInstERNS_10SelectInstEENK3$_0clEPNS_17GetElementPtrInstEPNS_5ValueEb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::InsertPosition", align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -27688,7 +27688,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit: ;
 declare void @_ZN4llvm11Instruction10setIsExactEb(ptr noundef nonnull align 8 dereferenceable(72), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL16foldSelectICmpEqRN4llvm10SelectInstEPNS_8ICmpInstERNS_16InstCombinerImplEENK3$_0clEjjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL16foldSelectICmpEqRN4llvm10SelectInstEPNS_8ICmpInstERNS_16InstCombinerImplEENK3$_0clEjjj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef range(i32 28, 31) %1, i32 noundef range(i32 28, 31) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::PatternMatch::SpecificBinaryOp_match.201", align 8
   %6 = alloca %"struct.llvm::PatternMatch::SpecificBinaryOp_match.206", align 8
   %7 = load ptr, ptr %0, align 8
@@ -27722,7 +27722,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL16foldSelectICmpEqRN4llvm10Selec
   store i32 %1, ptr %21, align 8, !alias.scope !329
   %22 = load i8, ptr %14, align 8
   %23 = zext i8 %22 to i32
-  %24 = add i32 %1, 29
+  %24 = add nuw nsw i32 %1, 29
   %25 = icmp eq i32 %24, %23
   br i1 %25, label %26, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb0EEENS3_INS0_14specificval_tyES9_Lb1EEELj30ELb1EEES9_Lb1EEEEEbPT_RKT0_.exit
 
@@ -27765,7 +27765,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL16foldSelectICmpEqRN4llvm10Selec
 43:                                               ; preds = %4
   %44 = load i8, ptr %14, align 8
   %45 = zext i8 %44 to i32
-  %46 = add i32 %1, 29
+  %46 = add nuw nsw i32 %1, 29
   %47 = icmp eq i32 %46, %45
   br i1 %47, label %48, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_22SpecificBinaryOp_matchINS0_14BinaryOp_matchINS0_14cstval_pred_tyINS0_11is_all_onesENS_11ConstantIntELb0EEENS3_INS0_14specificval_tyES9_Lb1EEELj30ELb1EEES9_Lb1EEEEEbPT_RKT0_.exit
 
@@ -27774,7 +27774,7 @@ define internal fastcc noundef zeroext i1 @"_ZZL16foldSelectICmpEqRN4llvm10Selec
   %50 = load ptr, ptr %49, align 8
   %51 = load i8, ptr %50, align 8
   %52 = zext i8 %51 to i32
-  %53 = add i32 %2, 29
+  %53 = add nuw nsw i32 %2, 29
   %54 = icmp eq i32 %53, %52
   br i1 %54, label %55, label %_ZN4llvm12PatternMatch22SpecificBinaryOp_matchINS0_14specificval_tyES2_Lb1EE5matchINS_5ValueEEEbPT_.exit.thread.i.i.i
 

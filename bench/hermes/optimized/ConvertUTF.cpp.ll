@@ -697,7 +697,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr nocapture noundef readonly %source, i32 noundef %length) unnamed_addr #1 {
+define internal fastcc noundef zeroext range(i8 0, 2) i8 @_ZN4llvhL11isLegalUTF8EPKhi(ptr nocapture noundef readonly %source, i32 noundef range(i32 -127, 65537) %length) unnamed_addr #1 {
 entry:
   %idx.ext = sext i32 %length to i64
   %add.ptr = getelementptr inbounds i8, ptr %source, i64 %idx.ext
@@ -1037,7 +1037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags, i8 noundef zeroext %InputIsPartial) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr nocapture noundef %sourceStart, ptr noundef %sourceEnd, ptr nocapture noundef %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags, i8 noundef zeroext range(i8 0, 2) %InputIsPartial) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8

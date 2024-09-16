@@ -643,7 +643,7 @@ declare noundef zeroext i1 @_ZN5vcpkg7Strings11starts_withENS_10StringViewES1_(p
 define dso_local void @_ZN5vcpkg27verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::ExpectedT.2", align 8
   %8 = alloca %"struct.vcpkg::LineInfo", align 8
-  call fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5)
+  call fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %4, i64 %5)
   store i32 357, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr @.str.1, ptr %9, align 8
@@ -672,7 +672,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg.34", align 8
   %8 = alloca %"struct.vcpkg::msg::TagArg.69", align 8
@@ -1196,7 +1196,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
 
 122:                                              ; preds = %114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %9) #23
-  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull %25, ptr %.0.val, i64 %.8.val)
+  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef %25, ptr %.0.val, i64 %.8.val)
           to label %123 unwind label %128
 
 123:                                              ; preds = %122
@@ -1205,7 +1205,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedT
           to label %124 unwind label %130
 
 124:                                              ; preds = %123
-  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull %27, ptr %.0.val, i64 %.8.val)
+  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27, ptr %.0.val, i64 %.8.val)
           to label %125 unwind label %132
 
 125:                                              ; preds = %124
@@ -2304,7 +2304,7 @@ _ZN5vcpkg7CommandC2ENS_10StringViewE.exit:        ; preds = %37
   %75 = ptrtoint ptr %71 to i64
   %76 = sub i64 %74, %75
   %77 = ashr exact i64 %76, 5
-  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %23, ptr %71, i64 %77)
+  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef %23, ptr %71, i64 %77)
           to label %78 unwind label %95
 
 78:                                               ; preds = %70
@@ -2783,7 +2783,7 @@ _ZN5vcpkg7Strings6concatIJA9_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr %2, i64 %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LocalizedString", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %.sroa.08.0.copyload = load i64, ptr @_ZN5vcpkg15msgSecretBannerE, align 8
@@ -3667,7 +3667,7 @@ _ZN5vcpkg8OptionalINS_11EnvironmentEED2Ev.exit:   ; preds = %_ZN5vcpkg8OptionalI
   %.val = load ptr, ptr %42, align 8
   %192 = getelementptr inbounds i8, ptr %42, i64 8
   %.val110 = load i64, ptr %192, align 8
-  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull @.str.32, i64 15, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr %.val, i64 %.val110)
+  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nonnull @.str.32, i64 15, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr %.val, i64 %.val110)
           to label %193 unwind label %212
 
 193:                                              ; preds = %191
@@ -4289,7 +4289,7 @@ _ZNSt8functionIFvN5vcpkg10StringViewEEED2Ev.exit: ; preds = %86, %88
   %98 = ptrtoint ptr %94 to i64
   %99 = sub i64 %97, %98
   %100 = ashr exact i64 %99, 5
-  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %28, ptr %94, i64 %100)
+  invoke fastcc void @_ZN5vcpkgL15replace_secretsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SpanIKS5_EE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %28, ptr %94, i64 %100)
           to label %101 unwind label %146
 
 101:                                              ; preds = %93
@@ -4447,7 +4447,7 @@ _ZNSt6vectorIN5vcpkg15LocalizedStringESaIS1_EE9push_backEOS1_.exit: ; preds = %1
   %.val.i = load ptr, ptr %10, align 8, !noalias !78
   %160 = getelementptr inbounds i8, ptr %10, i64 8
   %.val7.i = load i64, ptr %160, align 8, !noalias !78
-  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %153, i64 %155, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %.val.i, i64 %.val7.i)
+  invoke fastcc void @_ZN5vcpkgL31try_verify_downloaded_file_hashERKNS_18ReadOnlyFilesystemENS_10StringViewERKNS_4PathES3_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %153, i64 %155, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr %.val.i, i64 %.val7.i)
           to label %164 unwind label %148
 
 161:                                              ; preds = %152

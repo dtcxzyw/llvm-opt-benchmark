@@ -422,7 +422,7 @@ define internal i32 @dissect_icep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 54:                                               ; preds = %53, %51
   %55 = load ptr, ptr %8, align 8
-  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %1, ptr noundef %47, ptr noundef %55, ptr noundef nonnull %9)
+  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef 18, ptr noundef nonnull %1, ptr noundef %47, ptr noundef %55, ptr noundef %9)
   br label %dissect_icep_request.exit
 
 dissect_icep_request.exit:                        ; preds = %41, %54
@@ -487,7 +487,7 @@ dissect_icep_request.exit:                        ; preds = %41, %54
 
 79:                                               ; preds = %77, %.split.us.i
   %80 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %.03641.us.i, ptr noundef %1, ptr noundef %76, ptr noundef %80, ptr noundef nonnull %7)
+  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %.03641.us.i, ptr noundef %1, ptr noundef %76, ptr noundef %80, ptr noundef %7)
   %81 = load i32, ptr %7, align 4
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %dissect_icep_batch_request.exit, label %83
@@ -513,7 +513,7 @@ dissect_icep_request.exit:                        ; preds = %41, %54
 
 90:                                               ; preds = %88, %.split.i
   %91 = load ptr, ptr %6, align 8
-  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %.03641.i, ptr noundef %1, ptr noundef %87, ptr noundef %91, ptr noundef nonnull %7)
+  call fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %.03641.i, ptr noundef %1, ptr noundef %87, ptr noundef %91, ptr noundef %7)
   %92 = load i32, ptr %7, align 4
   %93 = icmp eq i32 %92, -1
   br i1 %93, label %dissect_icep_batch_request.exit, label %94
@@ -627,7 +627,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
@@ -654,7 +654,7 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
 
 21:                                               ; preds = %6
   %22 = load i32, ptr @hf_icep_id_name, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %22, ptr noundef %0, i32 noundef %1, ptr noundef %13, ptr noundef nonnull %14)
   %23 = load i32, ptr %13, align 4
   %24 = icmp eq i32 %23, -1
   br i1 %24, label %dissect_ice_params.exit.thread78, label %25
@@ -665,7 +665,7 @@ define internal fastcc void @dissect_icep_request_common(ptr noundef %0, i32 nou
   %28 = add i32 %27, %23
   store i32 %28, ptr %5, align 4
   %29 = load i32, ptr @hf_icep_id_category, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %29, ptr noundef %0, i32 noundef %26, ptr noundef nonnull %13, ptr noundef null)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %29, ptr noundef %0, i32 noundef %26, ptr noundef %13, ptr noundef null)
   %30 = load i32, ptr %13, align 4
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %dissect_ice_params.exit.thread78, label %32
@@ -697,7 +697,7 @@ dissect_ice_facet.exit.thread70:                  ; preds = %38
 41:                                               ; preds = %38
   %42 = add i32 %33, 1
   store i32 0, ptr %12, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %36, ptr noundef %0, i32 noundef %42, ptr noundef nonnull %12, ptr noundef null)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %36, ptr noundef %0, i32 noundef %42, ptr noundef %12, ptr noundef null)
   %43 = load i32, ptr %12, align 4
   %44 = icmp eq i32 %43, -1
   br i1 %44, label %dissect_ice_facet.exit.thread, label %dissect_ice_facet.exit
@@ -729,7 +729,7 @@ dissect_ice_facet.exit:                           ; preds = %41
   %54 = add i32 %53, %51
   store i32 %54, ptr %5, align 4
   %55 = load i32, ptr @hf_icep_operation, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %55, ptr noundef %0, i32 noundef %52, ptr noundef nonnull %13, ptr noundef nonnull %15)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %55, ptr noundef %0, i32 noundef %52, ptr noundef %13, ptr noundef nonnull %15)
   %56 = load i32, ptr %13, align 4
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %dissect_ice_params.exit.thread78, label %58
@@ -846,7 +846,7 @@ dissect_ice_context.exit.thread75:                ; preds = %101
   %108 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.160.i, i32 noundef -1, i32 noundef %107, ptr noundef nonnull %11, ptr noundef nonnull @.str.43) #3
   %109 = load ptr, ptr %11, align 8
   %110 = load i32, ptr @hf_icep_invocation_key, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %.160.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %109, i32 noundef %110, ptr noundef %0, i32 noundef %.160.i, ptr noundef %7, ptr noundef nonnull %8)
   %111 = load i32, ptr %7, align 4
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %dissect_ice_context.exit.thread, label %113
@@ -855,7 +855,7 @@ dissect_ice_context.exit.thread75:                ; preds = %101
   %114 = add i32 %111, %.160.i
   %115 = load ptr, ptr %11, align 8
   %116 = load i32, ptr @hf_icep_invocation_value, align 4
-  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef %114, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @dissect_ice_string(ptr noundef %2, ptr noundef %108, ptr noundef %115, i32 noundef %116, ptr noundef %0, i32 noundef %114, ptr noundef %9, ptr noundef nonnull %10)
   %117 = load i32, ptr %9, align 4
   %118 = icmp eq i32 %117, -1
   br i1 %118, label %dissect_ice_context.exit.thread, label %119
@@ -988,7 +988,7 @@ dissect_ice_params.exit.thread78:                 ; preds = %137, %144, %166, %d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_ice_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %6, align 4

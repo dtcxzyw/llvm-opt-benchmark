@@ -1578,7 +1578,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29PhoneNumberRegExpsAn
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #27
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #27
   %112 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %112, i1 noundef zeroext true)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %112, i1 noundef zeroext true)
           to label %113 unwind label %410
 
 113:                                              ; preds = %111
@@ -2011,7 +2011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit241: ;
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %58) #27
   call void @_ZN4i18n12phonenumbers12StringHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %57) #27
   %266 = getelementptr inbounds i8, ptr %0, i64 608
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %266, i1 noundef zeroext false)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %266, i1 noundef zeroext false)
           to label %267 unwind label %543
 
 267:                                              ; preds = %265
@@ -19807,7 +19807,7 @@ declare void @llvm.trap() #15
 declare void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_117CreateExtnPatternB5cxx11Eb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i1 noundef zeroext %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19932,7 +19932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122: ;
           to label %72 unwind label %136
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef 20)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef 20)
           to label %73 unwind label %138
 
 73:                                               ; preds = %72
@@ -19959,7 +19959,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122: ;
           to label %78 unwind label %150
 
 78:                                               ; preds = %77
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %18, i32 noundef 20)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %18, i32 noundef 20)
           to label %79 unwind label %152
 
 79:                                               ; preds = %78
@@ -19993,7 +19993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122: ;
           to label %85 unwind label %169
 
 85:                                               ; preds = %84
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %25, i32 noundef 9)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %25, i32 noundef 9)
           to label %86 unwind label %171
 
 86:                                               ; preds = %85
@@ -20019,7 +20019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit122: ;
           to label %90 unwind label %184
 
 90:                                               ; preds = %89
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %30, i32 noundef 6)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %30, i32 noundef 6)
           to label %91 unwind label %186
 
 91:                                               ; preds = %90
@@ -20133,7 +20133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit132: ;
           to label %112 unwind label %227
 
 112:                                              ; preds = %111
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %49, i32 noundef 15)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %49, i32 noundef 15)
           to label %113 unwind label %229
 
 113:                                              ; preds = %112
@@ -20167,7 +20167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit132: ;
           to label %119 unwind label %246
 
 119:                                              ; preds = %118
-  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %56, i32 noundef 9)
+  invoke fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %56, i32 noundef 9)
           to label %120 unwind label %248
 
 120:                                              ; preds = %119
@@ -20209,7 +20209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit132: ;
           to label %128 unwind label %269
 
 128:                                              ; preds = %127
-  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(48) %62)
+  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(48) %59, ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %61, ptr noundef nonnull align 8 dereferenceable(48) %62)
           to label %129 unwind label %271
 
 129:                                              ; preds = %128
@@ -21775,7 +21775,7 @@ _ZN5boost14checked_deleteIN4i18n12phonenumbers11RegExpCacheEEEvPT_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5cxx11Ei(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 6, 21) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %4 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %5 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -21799,7 +21799,7 @@ define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_110ExtnDigitsB5c
           to label %12 unwind label %20
 
 12:                                               ; preds = %11
-  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %7)
           to label %13 unwind label %22
 
 13:                                               ; preds = %12

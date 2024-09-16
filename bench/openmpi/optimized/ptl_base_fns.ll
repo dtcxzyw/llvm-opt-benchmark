@@ -3439,7 +3439,7 @@ define void @pmix_ptl_base_query_servers(i32 noundef %0, i16 noundef signext %1,
   br i1 %.not.i, label %pmix_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
-  call fastcc void @query_servers(ptr noundef null, ptr noundef nonnull %4)
+  call fastcc void @query_servers(ptr noundef null, ptr noundef %4)
   %17 = getelementptr inbounds i8, ptr %4, i64 264
   %18 = load volatile i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %2, i64 528
@@ -3581,7 +3581,7 @@ pmix_obj_run_destructors.exit47:                  ; preds = %.lr.ph.i44, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @query_servers(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @query_servers(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.pmix_lock_t, align 8
   %4 = alloca %struct.event, align 8
   %5 = alloca %struct.timeval, align 8

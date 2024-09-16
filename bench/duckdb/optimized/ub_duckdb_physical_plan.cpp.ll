@@ -35600,7 +35600,7 @@ cleanup.action:                                   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL27CreateNotDistinctComparisonERKNS_11LogicalTypeEm(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL27CreateNotDistinctComparisonERKNS_11LogicalTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i14 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
@@ -35691,7 +35691,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL33CreatePartitionedRowNumExpressionERKNS_6vectorINS_11LogicalTypeELb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %types) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL33CreatePartitionedRowNumExpressionERKNS_6vectorINS_11LogicalTypeELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %types) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %expr = alloca %"class.duckdb::unique_ptr.270", align 8

@@ -140,7 +140,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !64, !noundef !16
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -247,7 +247,7 @@ common.resume:                                    ; preds = %27, %36, %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !64, !noundef !16
   %.not = icmp eq i64 %2, -9223372036854775808
   br i1 %.not, label %4, label %3
@@ -307,7 +307,7 @@ define internal fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !14, !noundef !16
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -390,7 +390,7 @@ common.resume:                                    ; preds = %17, %26, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hab7e5a7e307a7479E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hab7e5a7e307a7479E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !118, !noundef !16
   %3 = icmp eq i64 %2, 3
   br i1 %3, label %"_ZN4core3ptr206drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17habf5b2dfc5e282fdE.exit", label %4
@@ -458,7 +458,7 @@ define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hecd7c4972748c282E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hecd7c4972748c282E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !118, !noundef !16
   %3 = icmp eq i64 %2, 3
   br i1 %3, label %"_ZN4core3ptr206drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h5e991b08bce8892fE.exit", label %4
@@ -536,7 +536,7 @@ define internal void @"_ZN4core3ptr399drop_in_place$LT$uu_sort..merge..merge_wit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h45c8211bba5417caE"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h45c8211bba5417caE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !147, !noundef !16
   %3 = icmp eq i64 %2, -9223372036854775806
   br i1 %3, label %"_ZN4core3ptr435drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$17hec411df019c3c2afE.exit", label %4
@@ -604,7 +604,7 @@ define internal fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr470drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc59c3941840e6b32E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr470drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc59c3941840e6b32E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !147, !noundef !16
   %3 = icmp eq i64 %2, -9223372036854775806
   br i1 %3, label %"_ZN4core3ptr442drop_in_place$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hef83bdc063831663E.exit", label %4
@@ -889,7 +889,7 @@ define hidden noundef zeroext i1 @_ZN7compare7Compare11compares_lt17h8bb7c83d336
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } } }, align 8
   %3 = alloca { i64, [9 x i64] }, align 8
   %.sroa.645.i = alloca [9 x i64], align 8
@@ -1180,7 +1180,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } } }, align 8
   %3 = alloca { i64, [9 x i64] }, align 8
   %.sroa.645.i = alloca [9 x i64], align 8
@@ -1479,7 +1479,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.637.i = alloca [3 x i64], align 8
@@ -1670,7 +1670,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   br i1 %78, label %"_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i", label %79
 
 79:                                               ; preds = %76
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %39)
           to label %"_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i" unwind label %66, !noalias !327
 
 "_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i": ; preds = %79, %76
@@ -1726,7 +1726,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
   %3 = alloca { i64, [2 x i64] }, align 8
@@ -1891,7 +1891,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   br i1 %70, label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i", label %71
 
 71:                                               ; preds = %68
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %38)
           to label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i" unwind label %58, !noalias !392
 
 "_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i": ; preds = %71, %68
@@ -1945,7 +1945,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i64, [2 x i64] }, align 8
   %.sroa.6.i = alloca [2 x i64], align 8
   %3 = alloca { i64, [2 x i64] }, align 8
@@ -2110,7 +2110,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   br i1 %70, label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i", label %71
 
 71:                                               ; preds = %68
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %38)
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %38)
           to label %"_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i" unwind label %58, !noalias !449
 
 "_ZN4core3ptr248drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17hbe0a4daa36727491E.exit9.i": ; preds = %71, %68
@@ -2164,7 +2164,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { { { { { { { i64, ptr, {} }, i64 } } } } } }, align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %.sroa.637.i = alloca [3 x i64], align 8
@@ -2347,7 +2347,7 @@ define internal fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$
   br i1 %72, label %"_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i", label %73
 
 73:                                               ; preds = %70
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %39)
           to label %"_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i" unwind label %60, !noalias !505
 
 "_ZN4core3ptr174drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$17h04534fdd20727964E.exit9.i": ; preds = %73, %70
@@ -2459,7 +2459,7 @@ define hidden { ptr, ptr } @"_ZN7uu_sort5merge5merge28_$u7b$$u7b$closure$u7d$$u7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { { { i64, ptr, {} }, i64 } } } }, align 8
   %7 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, { { { { ptr, ptr } }, {} }, {} } }, align 8
@@ -2493,7 +2493,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
 33:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  call fastcc void @_ZN7uu_sort5merge19merge_without_limit17h155ece9a315189e4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  call fastcc void @_ZN7uu_sort5merge19merge_without_limit17h155ece9a315189e4E(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   br label %64
 
@@ -2580,7 +2580,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
 
 48:                                               ; preds = %118
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr nonnull %21)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %9, ptr nonnull %21)
           to label %51 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %42, %118
@@ -2590,7 +2590,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %15, ptr nonnull %21)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6149a307a2cb1d4cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %15, ptr nonnull %21)
           to label %67 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %71, %49
@@ -2609,7 +2609,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
   br i1 %.not112, label %56, label %53
 
 53:                                               ; preds = %51
-  invoke fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h45c8211bba5417caE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %9)
+  invoke fastcc void @"_ZN4core3ptr463drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$$GT$17h45c8211bba5417caE"(ptr noalias noundef align 8 dereferenceable(48) %9)
           to label %54 unwind label %.loopexit.split-lp
 
 54:                                               ; preds = %53
@@ -2638,7 +2638,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
   store ptr inttoptr (i64 1 to ptr), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.15, ptr %59, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3)
           to label %"_ZN4core3ptr440drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedPlainTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$17hd05b2fdf31d9e546E.exit124" unwind label %60
 
 60:                                               ; preds = %56
@@ -2677,7 +2677,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
 71:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
-  invoke fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c295c28E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %17, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c295c28E(ptr noalias nocapture noundef align 8 dereferenceable(96) %17, ptr noalias nocapture noundef align 8 dereferenceable(48) %16, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %72 unwind label %.loopexit
 
 72:                                               ; preds = %71
@@ -2772,7 +2772,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c52408
   store i32 %.sroa.0.0.extract.trunc, ptr %.sroa.642.sroa.8.0..sroa.642.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 96, i1 false)
-  %99 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
+  %99 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef align 8 dereferenceable(96) %12, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
           to label %100 unwind label %142
 
 100:                                              ; preds = %96
@@ -3210,7 +3210,7 @@ common.resume:                                    ; preds = %691, %375, %698, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59), !noalias !619
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %58), !noalias !619
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %57), !noalias !619
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %57, ptr noalias noundef readonly align 8 dereferenceable(160) %3)
           to label %141 unwind label %.loopexit.split-lp209.i, !noalias !605
 
 139:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit79.i", %.lr.ph236.i
@@ -3882,7 +3882,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 315:                                              ; preds = %.body.i, %.loopexit213.i
   %.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit215.i, %.loopexit213.i ], [ %256, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %68) #19
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %68) #19
           to label %.thread202.i unwind label %231, !noalias !605
 
 .thread202.i:                                     ; preds = %315, %296, %275, %259, %245, %239, %154, %131, %.loopexit.split-lp209.i, %.loopexit208.i
@@ -4029,7 +4029,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
 
 363:                                              ; preds = %660
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %74)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %74, ptr nonnull %84)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %74, ptr nonnull %84)
           to label %366 unwind label %.loopexit.split-lp
 
 364:                                              ; preds = %_ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit, %660
@@ -4040,7 +4040,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %80)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %80, ptr nonnull %84)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haef10155a3f971e8E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %80, ptr nonnull %84)
           to label %388 unwind label %.loopexit266
 
 .loopexit266:                                     ; preds = %364
@@ -4059,7 +4059,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
   br i1 %.not109, label %371, label %368
 
 368:                                              ; preds = %366
-  invoke fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hecd7c4972748c282E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %74)
+  invoke fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hecd7c4972748c282E"(ptr noalias noundef align 8 dereferenceable(40) %74)
           to label %369 unwind label %.loopexit.split-lp
 
 369:                                              ; preds = %368
@@ -4088,7 +4088,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
   store ptr inttoptr (i64 1 to ptr), ptr %373, align 8
   %374 = getelementptr inbounds i8, ptr %73, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.17, ptr %374, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %73, ptr noalias noundef readonly align 8 dereferenceable(160) %3, ptr noalias noundef align 8 dereferenceable(56) %4)
           to label %377 unwind label %375
 
 375:                                              ; preds = %371
@@ -4369,7 +4369,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !772
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %25), !noalias !772
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %24), !noalias !772
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %24, ptr noalias noundef readonly align 8 dereferenceable(160) %3)
           to label %444 unwind label %.loopexit.split-lp229.i.loopexit, !noalias !777
 
 .lr.ph.i138:                                      ; preds = %"_ZN4core3ptr256drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h344f04e9362322bcE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit85.i"
@@ -5039,7 +5039,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
 
 617:                                              ; preds = %.body.i136, %.loopexit233.i
   %.pn.ph.i130 = phi { ptr, i32 } [ %lpad.loopexit235.i, %.loopexit233.i ], [ %539, %.body.i136 ]
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %35) #19
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %35) #19
           to label %.thread221.i unwind label %514, !noalias !777
 
 .loopexit.split-lp229.i:                          ; preds = %.loopexit.split-lp229.i.loopexit, %.loopexit.split-lp229.i.loopexit.split-lp, %598, %594, %522, %452, %432, %428, %.thread221.i, %.loopexit228.i
@@ -5169,7 +5169,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
   store i32 %.sroa.0.0.extract.trunc, ptr %.sroa.642.sroa.8.0..sroa.642.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %77)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %77, ptr noundef nonnull align 8 dereferenceable(96) %82, i64 96, i1 false)
-  %641 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
+  %641 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef align 8 dereferenceable(96) %77, ptr noalias noundef readonly align 8 dereferenceable(160) %3, ptr noalias noundef align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
           to label %642 unwind label %684
 
 642:                                              ; preds = %638
@@ -5371,7 +5371,7 @@ _ZN9itertools9Itertools6chunks17hdd2c292e361e6b6eE.exit: ; preds = %318
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, { { { { ptr, ptr } }, {} }, {} } }, align 8
   %6 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, { { { { ptr, ptr } }, {} }, {} } }, align 8
   %7 = alloca { i64, [11 x i64] }, align 8
@@ -5406,7 +5406,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
 34:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  call fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e4a2889E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  call fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e4a2889E(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   br label %69
 
@@ -5504,7 +5504,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
 
 54:                                               ; preds = %131
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %7, ptr nonnull %22)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %7, ptr nonnull %22)
           to label %57 unwind label %.loopexit.split-lp
 
 55:                                               ; preds = %43, %131
@@ -5514,7 +5514,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %16)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %16, ptr nonnull %22)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4ff8900fdd11ddbbE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %16, ptr nonnull %22)
           to label %72 unwind label %.loopexit
 
 .loopexit:                                        ; preds = %76, %55
@@ -5562,7 +5562,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
   store ptr inttoptr (i64 1 to ptr), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.18, ptr %64, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3)
           to label %"_ZN4core3ptr455drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$uu_sort..merge..ClosedCompressedTmpFile$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$$GT$$GT$$GT$17hda7d219debe107d7E.exit127" unwind label %65
 
 65:                                               ; preds = %61
@@ -5601,7 +5601,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
 76:                                               ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(96) %16, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %16)
-  invoke fastcc void @_ZN7uu_sort5merge19merge_without_limit17h2e110ae3fc34908eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @_ZN7uu_sort5merge19merge_without_limit17h2e110ae3fc34908eE(ptr noalias nocapture noundef align 8 dereferenceable(96) %18, ptr noalias nocapture noundef align 8 dereferenceable(96) %17, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %77 unwind label %.loopexit
 
 77:                                               ; preds = %76
@@ -5704,7 +5704,7 @@ define internal fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7
   store ptr %103, ptr %.sroa.541.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %19, i64 96, i1 false)
-  %108 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %53)
+  %108 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef align 8 dereferenceable(96) %11, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(32) %53)
           to label %109 unwind label %142
 
 109:                                              ; preds = %107
@@ -6170,7 +6170,7 @@ define hidden void @_ZN7uu_sort5merge21merge_with_file_limit17h9c22632d858ecee1E
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59), !noalias !1020
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %58), !noalias !1020
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %57), !noalias !1020
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %57, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %160 unwind label %.loopexit.split-lp245.i, !noalias !1026
 
 158:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit99.i", %.lr.ph.i
@@ -6860,7 +6860,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 339:                                              ; preds = %.body.i, %.loopexit249.i
   %.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit251.i, %.loopexit249.i ], [ %275, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %68) #19
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %68) #19
           to label %.thread237.i unwind label %250, !noalias !1026
 
 340:                                              ; preds = %258, %173, %.thread237.i, %.loopexit.split-lp245.i, %.loopexit244.i
@@ -7034,7 +7034,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 395:                                              ; preds = %689
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %76)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %76, ptr nonnull %87)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %76, ptr nonnull %87)
           to label %398 unwind label %.loopexit.split-lp
 
 396:                                              ; preds = %352, %689
@@ -7045,7 +7045,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %82)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %82, ptr nonnull %87)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf539d5ba8d009856E"(ptr noalias nocapture noundef align 8 dereferenceable(48) %82, ptr nonnull %87)
           to label %414 unwind label %.loopexit321
 
 .loopexit321:                                     ; preds = %396
@@ -7064,7 +7064,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   br i1 %.not112, label %403, label %400
 
 400:                                              ; preds = %398
-  invoke fastcc void @"_ZN4core3ptr470drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc59c3941840e6b32E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %76)
+  invoke fastcc void @"_ZN4core3ptr470drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc59c3941840e6b32E"(ptr noalias noundef align 8 dereferenceable(48) %76)
           to label %401 unwind label %.loopexit.split-lp
 
 401:                                              ; preds = %400
@@ -7093,7 +7093,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   store ptr inttoptr (i64 1 to ptr), ptr %405, align 8
   %406 = getelementptr inbounds i8, ptr %75, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.19, ptr %406, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h59c524089ed6845cE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3)
           to label %"_ZN4core3ptr447drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h3449d1cc0d4cecd8E.exit131" unwind label %407
 
 407:                                              ; preds = %403
@@ -7355,7 +7355,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25), !noalias !1184
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %24), !noalias !1184
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %23), !noalias !1184
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %23, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %470 unwind label %.loopexit.split-lp245.i178.loopexit, !noalias !1189
 
 .lr.ph.i185:                                      ; preds = %"_ZN4core3ptr492drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedPlainTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteablePlainTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h21f102164523e32fE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit99.i189"
@@ -8032,7 +8032,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 646:                                              ; preds = %.body.i183, %.loopexit249.i165
   %.pn.ph.i167 = phi { ptr, i32 } [ %lpad.loopexit251.i166, %.loopexit249.i165 ], [ %565, %.body.i183 ]
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %34) #19
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %34) #19
           to label %.thread237.i168 unwind label %540, !noalias !1189
 
 .loopexit.split-lp245.i178:                       ; preds = %.loopexit.split-lp245.i178.loopexit, %.loopexit.split-lp245.i178.loopexit.split-lp, %627, %623, %548, %478, %458, %454, %.thread237.i168, %.loopexit244.i187
@@ -8162,7 +8162,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   store i32 %.sroa.0.0.extract.trunc, ptr %.sroa.642.sroa.8.0..sroa.642.0..sroa_idx.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %79)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %79, ptr noundef nonnull align 8 dereferenceable(96) %84, i64 96, i1 false)
-  %670 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
+  %670 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef align 8 dereferenceable(96) %79, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(32) %.sroa.642.0..sroa_idx)
           to label %671 unwind label %713
 
 671:                                              ; preds = %667
@@ -8747,7 +8747,7 @@ define hidden void @_ZN7uu_sort5merge21merge_with_file_limit17ha3e30d6d680d5e6bE
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59), !noalias !1406
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %58), !noalias !1406
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %57), !noalias !1406
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %57, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %189 unwind label %.loopexit.split-lp259.i, !noalias !1412
 
 187:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit97.i", %.lr.ph.i
@@ -9492,7 +9492,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 391:                                              ; preds = %.body.i, %.loopexit263.i
   %.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit265.i, %.loopexit263.i ], [ %304, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %68) #19
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef align 8 dereferenceable(80) %68) #19
           to label %.thread251.i unwind label %279, !noalias !1412
 
 392:                                              ; preds = %.body.i166.i, %287, %202, %.body.i.i, %.thread251.i, %.loopexit.split-lp259.i, %.loopexit258.i
@@ -9677,7 +9677,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 452:                                              ; preds = %709
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %76)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %76, ptr nonnull %90)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %76, ptr nonnull %90)
           to label %455 unwind label %.loopexit.split-lp
 
 453:                                              ; preds = %404, %709
@@ -9688,7 +9688,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %86)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %85)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %85, ptr nonnull %90)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a06e2b3c254d1eeE"(ptr noalias nocapture noundef align 8 dereferenceable(96) %85, ptr nonnull %90)
           to label %470 unwind label %.loopexit279
 
 .loopexit279:                                     ; preds = %453
@@ -9736,7 +9736,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   store ptr inttoptr (i64 1 to ptr), ptr %461, align 8
   %462 = getelementptr inbounds i8, ptr %75, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.20, ptr %462, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %75, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(56) %3)
           to label %"_ZN4core3ptr457drop_in_place$LT$itertools..groupbylazy..IntoChunks$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteableCompressedTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hba599057d11d5608E.exit133" unwind label %463
 
 463:                                              ; preds = %459
@@ -9946,7 +9946,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !1601
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %22), !noalias !1601
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %21), !noalias !1601
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %21, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %504 unwind label %.loopexit.split-lp237.i.loopexit, !noalias !1606
 
 .lr.ph.i169:                                      ; preds = %"_ZN4core3ptr502drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uu_sort..merge..ClosedCompressedTmpFile$GT$$C$uu_sort..ext_sort..reader_writer$LT$$RF$mut$u20$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..open$LT$$RF$std..ffi..os_str..OsString$GT$$GT$$C$uu_sort..merge..WriteableCompressedTmpFile$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hf6fae725b5a584c7E.exit103.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit97.i170"
@@ -10570,7 +10570,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 658:                                              ; preds = %.body.i167, %.loopexit241.i
   %.pn.ph.i156 = phi { ptr, i32 } [ %lpad.loopexit243.i, %.loopexit241.i ], [ %599, %.body.i167 ]
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %32) #19
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef align 8 dereferenceable(80) %32) #19
           to label %.thread229.i unwind label %574, !noalias !1606
 
 .loopexit.split-lp237.i:                          ; preds = %.loopexit.split-lp237.i.loopexit, %.loopexit.split-lp237.i.loopexit.split-lp, %582, %512, %.thread229.i, %.loopexit236.i
@@ -10708,7 +10708,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
   store ptr %681, ptr %.sroa.541.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %80)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %80, ptr noundef nonnull align 8 dereferenceable(96) %87, i64 96, i1 false)
-  %686 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %451)
+  %686 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef align 8 dereferenceable(96) %80, ptr noalias noundef readonly align 8 dereferenceable(160) %2, ptr noalias noundef align 8 dereferenceable(32) %451)
           to label %687 unwind label %720
 
 687:                                              ; preds = %685
@@ -11107,7 +11107,7 @@ common.resume:                                    ; preds = %689, %381, %696, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57), !noalias !1749
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %56), !noalias !1749
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %55), !noalias !1749
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %55, ptr noalias noundef readonly align 8 dereferenceable(160) %3)
           to label %142 unwind label %.loopexit.split-lp209.i, !noalias !1735
 
 140:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit79.i", %.lr.ph236.i
@@ -11779,7 +11779,7 @@ default.unreachable:                              ; preds = %.critedge.i, %.crit
 
 316:                                              ; preds = %.body.i, %.loopexit213.i
   %.pn.ph.i = phi { ptr, i32 } [ %lpad.loopexit215.i, %.loopexit213.i ], [ %257, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %66) #19
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %66) #19
           to label %.thread202.i unwind label %232, !noalias !1735
 
 .thread202.i:                                     ; preds = %316, %297, %276, %260, %246, %240, %155, %132, %.loopexit.split-lp209.i, %.loopexit208.i
@@ -11937,7 +11937,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
 
 369:                                              ; preds = %674
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %72, ptr nonnull %85)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %72, ptr nonnull %85)
           to label %372 unwind label %.loopexit.split-lp
 
 370:                                              ; preds = %_ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit, %674
@@ -11948,7 +11948,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %82)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %81)
-  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %81, ptr nonnull %85)
+  invoke fastcc void @"_ZN98_$LT$itertools..groupbylazy..Chunks$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hafdc42b897039521E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %81, ptr nonnull %85)
           to label %394 unwind label %.loopexit253
 
 .loopexit253:                                     ; preds = %370
@@ -11967,7 +11967,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
   br i1 %.not112, label %377, label %374
 
 374:                                              ; preds = %372
-  invoke fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hab7e5a7e307a7479E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %72)
+  invoke fastcc void @"_ZN4core3ptr234drop_in_place$LT$core..option..Option$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hab7e5a7e307a7479E"(ptr noalias noundef align 8 dereferenceable(40) %72)
           to label %375 unwind label %.loopexit.split-lp
 
 375:                                              ; preds = %374
@@ -11996,7 +11996,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
   store ptr inttoptr (i64 1 to ptr), ptr %379, align 8
   %380 = getelementptr inbounds i8, ptr %71, i64 40
   store ptr @anon.cf92fe0164f41aabdb44b18f547d24e5.21, ptr %380, align 8
-  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %71, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  invoke fastcc void @_ZN7uu_sort5merge21merge_with_file_limit17h9416d9c7fc59451bE(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %71, ptr noalias noundef readonly align 8 dereferenceable(160) %3, ptr noalias noundef align 8 dereferenceable(56) %4)
           to label %383 unwind label %381
 
 381:                                              ; preds = %377
@@ -12277,7 +12277,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !1902
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %23), !noalias !1902
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %22), !noalias !1902
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %22, ptr noalias noundef readonly align 8 dereferenceable(160) %3)
           to label %450 unwind label %.loopexit.split-lp229.i.loopexit, !noalias !1907
 
 .lr.ph.i141:                                      ; preds = %"_ZN4core3ptr256drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$itertools..groupbylazy..Chunk$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Iter$LT$std..ffi..os_str..OsString$GT$$C$uu_sort..merge..merge..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h73ff004225a50a7cE.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit85.i"
@@ -12947,7 +12947,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
 
 623:                                              ; preds = %.body.i139, %.loopexit233.i
   %.pn.ph.i133 = phi { ptr, i32 } [ %lpad.loopexit235.i, %.loopexit233.i ], [ %545, %.body.i139 ]
-  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #19
+  invoke fastcc void @"_ZN4core3ptr220drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainMergeInput$LT$alloc..boxed..Box$LT$dyn$u20$std..io..Read$u2b$core..marker..Send$GT$$GT$$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h99a3537165746f80E"(ptr noalias noundef align 8 dereferenceable(24) %33) #19
           to label %.thread221.i unwind label %520, !noalias !1907
 
 .loopexit.split-lp229.i:                          ; preds = %.loopexit.split-lp229.i.loopexit, %.loopexit.split-lp229.i.loopexit.split-lp, %604, %600, %528, %458, %438, %434, %.thread221.i, %.loopexit228.i
@@ -13085,7 +13085,7 @@ _ZN9itertools9Itertools6chunks17ha6f5e146b764bc0dE.exit: ; preds = %319
   store ptr %646, ptr %.sroa.541.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %76)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(96) %83, i64 96, i1 false)
-  %651 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %76, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %368)
+  %651 = invoke fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef align 8 dereferenceable(96) %76, ptr noalias noundef readonly align 8 dereferenceable(160) %3, ptr noalias noundef align 8 dereferenceable(32) %368)
           to label %652 unwind label %685
 
 652:                                              ; preds = %650
@@ -13283,7 +13283,7 @@ define internal void @"_ZN7uu_sort5merge21merge_with_file_limit28_$u7b$$u7b$clos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c295c28E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c295c28E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [1 x i64] } } }, align 8
   %5 = alloca { i64, i64, ptr }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -13565,7 +13565,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h035bbca81c
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %20, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %111 unwind label %.loopexit.split-lp245
 
 109:                                              ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit99"
@@ -14307,7 +14307,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 
 309:                                              ; preds = %.body, %.loopexit249
   %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit251, %.loopexit249 ], [ %226, %.body ]
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %31) #19
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %31) #19
           to label %.thread237 unwind label %201
 
 310:                                              ; preds = %.loopexit244, %.loopexit.split-lp245, %.thread237, %96, %92, %124, %209, %290, %286
@@ -14340,7 +14340,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h155ece9a315189e4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h155ece9a315189e4E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [1 x i64] } } }, align 8
   %5 = alloca { i64, i64, ptr }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -14637,7 +14637,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h155ece9a31
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %21)
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %21, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %118 unwind label %.loopexit.split-lp251
 
 116:                                              ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit99"
@@ -15367,7 +15367,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 
 308:                                              ; preds = %.body, %.loopexit255
   %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit257, %.loopexit255 ], [ %233, %.body ]
-  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %32) #19
+  invoke fastcc void @"_ZN4core3ptr146drop_in_place$LT$core..result..Result$LT$uu_sort..merge..PlainTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h75f1e0e65e8c013bE"(ptr noalias noundef align 8 dereferenceable(32) %32) #19
           to label %.thread243 unwind label %208
 
 309:                                              ; preds = %.loopexit250, %.loopexit.split-lp251, %.thread243, %104, %96, %131, %216, %290, %285
@@ -15400,7 +15400,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h2e110ae3fc34908eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h2e110ae3fc34908eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [1 x i64] } } }, align 8
   %5 = alloca { i64, i64, ptr }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 }, ptr }, align 8
@@ -15630,7 +15630,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17h2e110ae3fc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %20)
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %20, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %89 unwind label %.loopexit.split-lp237
 
 87:                                               ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit97"
@@ -16319,7 +16319,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 
 265:                                              ; preds = %.body, %.loopexit241
   %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit243, %.loopexit241 ], [ %204, %.body ]
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %31) #19
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef align 8 dereferenceable(80) %31) #19
           to label %.thread229 unwind label %179
 
 266:                                              ; preds = %.loopexit236, %.loopexit.split-lp237, %.thread229, %102, %187
@@ -16352,7 +16352,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e4a2889E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e4a2889E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca { { { i64, [1 x i64] } } }, align 8
@@ -16732,7 +16732,7 @@ define internal fastcc void @_ZN7uu_sort5merge19merge_without_limit17hdbe0b67f5e
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %23)
-  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(160) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %2)
+  invoke fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef align 8 dereferenceable(160) %23, ptr noalias noundef readonly align 8 dereferenceable(160) %2)
           to label %145 unwind label %.loopexit.split-lp263
 
 143:                                              ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hcb8cdf2bbc770848E.exit97"
@@ -17521,7 +17521,7 @@ default.unreachable:                              ; preds = %.critedge, %"_ZN4co
 
 357:                                              ; preds = %.body, %.loopexit267
   %.pn.ph = phi { ptr, i32 } [ %lpad.loopexit269, %.loopexit267 ], [ %260, %.body ]
-  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %34) #19
+  invoke fastcc void @"_ZN4core3ptr151drop_in_place$LT$core..result..Result$LT$uu_sort..merge..CompressedTmpMergeInput$C$alloc..boxed..Box$LT$dyn$u20$uucore..mods..error..UError$GT$$GT$$GT$17h98441c15276daedeE"(ptr noalias noundef align 8 dereferenceable(80) %34) #19
           to label %.thread255 unwind label %235
 
 358:                                              ; preds = %.loopexit262, %.loopexit.split-lp263, %.thread255, %131, %.body168, %158, %243, %339, %.body176
@@ -18264,7 +18264,7 @@ default.unreachable.i35:                          ; preds = %57
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17h2ae7210c306e6dc2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca { i64, i64, ptr }, align 8
   %6 = alloca { { { { { i64, [1 x i64] } } }, ptr, i64, i64 } }, align 8
@@ -19023,7 +19023,7 @@ default.unreachable:                              ; preds = %12
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, ptr } @_ZN7uu_sort5merge10FileMerger12write_all_to17hf47801c0e8ea2c33E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca { i64, i64, ptr }, align 8
   %6 = alloca { { { { { i64, [1 x i64] } } }, ptr, i64, i64 } }, align 8
@@ -20028,7 +20028,7 @@ default.unreachable:                              ; preds = %53
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(160) %0, ptr noalias noundef readonly align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN62_$LT$uu_sort..GlobalSettings$u20$as$u20$core..clone..Clone$GT$5clone17h8caa2544922d89b6E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.53 = alloca [2 x i64], align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8

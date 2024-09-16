@@ -2638,7 +2638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit81: ; 
   br label %.body84
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; preds = %.noexc83
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull %160, double noundef 0x3EB0C6F7A0B5ED8D)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef %160, double noundef 0x3EB0C6F7A0B5ED8D)
           to label %849 unwind label %1948
 
 849:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86
@@ -2663,7 +2663,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86: ; 
   br label %.body89
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91: ; preds = %.noexc88
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull %162, double noundef 1.000000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef %162, double noundef 1.000000e+00)
           to label %853 unwind label %1952
 
 853:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91
@@ -2688,7 +2688,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91: ; 
   br label %.body94
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit96: ; preds = %.noexc93
-  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull %164, double noundef 3.000000e+00)
+  invoke fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_123CFRTest_OneShotGameTestEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef %164, double noundef 3.000000e+00)
           to label %857 unwind label %1956
 
 857:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit96
@@ -6138,7 +6138,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_133CFRTest_GeneralMultiplePlayerTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiid(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_133CFRTest_GeneralMultiplePlayerTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiid(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 2, 5) %1, double noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %6 = alloca %"class.std::shared_ptr", align 8

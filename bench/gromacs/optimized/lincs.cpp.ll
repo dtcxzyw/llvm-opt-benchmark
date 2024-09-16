@@ -733,7 +733,7 @@ declare noundef i32 @_Z20gmx_mtop_ftype_countRK10gmx_mtop_ti(ptr noundef nonnull
 declare noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE6resizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef range(i64 -2147483647, 2147483648) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %3, align 8
@@ -9234,7 +9234,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #20
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN3gmxL13lincs_warningEP12gmx_domdec_tNS_8ArrayRefIKNS_11BasicVectorIfEEEES6_P5t_pbciNS2_IKN12_GLOBAL__N_18AtomPairEEENS2_IKfEEfiPi(ptr noundef %0, ptr %1, ptr %2, ptr noundef %3, i32 noundef %4, i64 %.0.val, i64 %.0.val1, float noundef %5, i32 noundef %6, ptr nocapture noundef %7) unnamed_addr #26 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL13lincs_warningEP12gmx_domdec_tNS_8ArrayRefIKNS_11BasicVectorIfEEEES6_P5t_pbciNS2_IKN12_GLOBAL__N_18AtomPairEEENS2_IKfEEfiPi(ptr noundef %0, ptr %1, ptr %2, ptr noundef %3, i32 noundef %4, i64 %.0.val, i64 %.0.val1, float noundef %5, i32 noundef range(i32 -2147483648, 2147483647) %6, ptr nocapture noundef %7) unnamed_addr #26 personality ptr @__gxx_personality_v0 {
   %9 = alloca [3 x float], align 4
   %10 = alloca [3 x float], align 4
   %11 = alloca %"class.std::filesystem::__cxx11::path", align 8

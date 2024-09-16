@@ -1919,7 +1919,7 @@ _ZL16make_axis_labelsN3gmx8ArrayRefI8t_matrixEE.exit.i: ; preds = %_ZSt4iotaIN9_
   %indvars.iv127.i.i = phi i64 [ 0, %.lr.ph111.i.i ], [ %indvars.iv.next128.i.i, %836 ]
   %.063107.i.i = phi i32 [ 0, %.lr.ph111.i.i ], [ %.164.i.i, %836 ]
   %732 = trunc nuw nsw i64 %indvars.iv127.i.i to i32
-  %733 = srem i32 %732, %595
+  %733 = urem i32 %732, %595
   %734 = icmp eq i32 %733, 0
   br i1 %734, label %735, label %836
 
@@ -1970,7 +1970,7 @@ _ZL16make_axis_labelsN3gmx8ArrayRefI8t_matrixEE.exit.i: ; preds = %_ZSt4iotaIN9_
 
 760:                                              ; preds = %755, %.lr.ph.split.us.i.i
   %761 = trunc nuw nsw i64 %indvars.iv124.i.i to i32
-  %762 = srem i32 %761, %595
+  %762 = urem i32 %761, %595
   %763 = icmp eq i32 %762, 0
   br i1 %763, label %764, label %782
 
@@ -2016,7 +2016,7 @@ _ZL16make_axis_labelsN3gmx8ArrayRefI8t_matrixEE.exit.i: ; preds = %_ZSt4iotaIN9_
   %indvars.iv121.i.i = phi i64 [ %indvars.iv.next122.i.i, %802 ], [ 0, %.lr.ph.split.i.i ]
   %.061102.us105.i.i = phi i32 [ %.1.us106.i.i, %802 ], [ 0, %.lr.ph.split.i.i ]
   %787 = trunc nuw nsw i64 %indvars.iv121.i.i to i32
-  %788 = srem i32 %787, %595
+  %788 = urem i32 %787, %595
   %789 = icmp eq i32 %788, 0
   br i1 %789, label %790, label %802
 
@@ -2049,7 +2049,7 @@ _ZL16make_axis_labelsN3gmx8ArrayRefI8t_matrixEE.exit.i: ; preds = %_ZSt4iotaIN9_
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %831 ], [ 0, %.lr.ph.split.i.i ]
   %.061102.i.i = phi i32 [ %.1.i.i, %831 ], [ 0, %.lr.ph.split.i.i ]
   %807 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %808 = srem i32 %807, %595
+  %808 = urem i32 %807, %595
   %809 = icmp eq i32 %808, 0
   br i1 %809, label %810, label %831
 
@@ -2259,7 +2259,7 @@ _ZL10zero_linesN3gmx8ArrayRefI8t_matrixEES2_.exit.i: ; preds = %920, %.loopexit1
   br i1 %.not63.i, label %.noexc105, label %922
 
 922:                                              ; preds = %_ZL10zero_linesN3gmx8ArrayRefI8t_matrixEES2_.exit.i
-  invoke fastcc void @_ZL6ps_matPKcN3gmx8ArrayRefI8t_matrixEES4_bbbbbbifffS0_S0_i(ptr noundef nonnull %.1, ptr %378, ptr %577, ptr %373, ptr %581, i1 noundef zeroext %583, i1 noundef zeroext %196, i1 noundef zeroext %197, i1 noundef zeroext %288, i1 noundef zeroext %289, i1 noundef zeroext %587, i32 noundef %spec.store.select, float noundef %588, float noundef %589, float noundef %590, ptr noundef %591, ptr noundef %593, i32 noundef %596)
+  invoke fastcc void @_ZL6ps_matPKcN3gmx8ArrayRefI8t_matrixEES4_bbbbbbifffS0_S0_i(ptr noundef %.1, ptr %378, ptr %577, ptr %373, ptr %581, i1 noundef zeroext %583, i1 noundef zeroext %196, i1 noundef zeroext %197, i1 noundef zeroext %288, i1 noundef zeroext %289, i1 noundef zeroext %587, i32 noundef %spec.store.select, float noundef %588, float noundef %589, float noundef %590, ptr noundef %591, ptr noundef %593, i32 noundef %596)
           to label %.noexc105 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc105:                                        ; preds = %922, %_ZL10zero_linesN3gmx8ArrayRefI8t_matrixEES2_.exit.i
@@ -4065,7 +4065,7 @@ declare noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6ps_matPKcN3gmx8ArrayRefI8t_matrixEES4_bbbbbbifffS0_S0_i(ptr noundef %0, ptr %1, ptr %2, ptr %3, ptr readnone %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 noundef %11, float noundef %12, float noundef %13, float noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL6ps_matPKcN3gmx8ArrayRefI8t_matrixEES4_bbbbbbifffS0_S0_i(ptr noundef nonnull %0, ptr %1, ptr %2, ptr %3, ptr readnone %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i32 noundef %11, float noundef %12, float noundef %13, float noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %19 = alloca i64, align 8
   %20 = alloca %struct._Guard, align 8
   %21 = alloca i64, align 8
@@ -4806,7 +4806,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %332 = getelementptr inbounds i8, ptr %1, i64 152
   %333 = load ptr, ptr %332, align 8
   %334 = load float, ptr %182, align 4
-  call fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %331, ptr noundef %333, float noundef %334, i8 noundef signext 88, ptr noundef nonnull %170, ptr noundef nonnull %178)
+  call fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %331, ptr noundef %333, float noundef %334, i8 noundef signext 88, ptr noundef %170, ptr noundef %178)
   br label %335
 
 335:                                              ; preds = %326, %323
@@ -4835,7 +4835,7 @@ _ZSt8_DestroyIP9t_inpfileS0_EvT_S2_RSaIT0_E.exit.i90.i: ; preds = %_ZSt8_Destroy
   %351 = getelementptr inbounds i8, ptr %1, i64 176
   %352 = load ptr, ptr %351, align 8
   %353 = load float, ptr %230, align 4
-  call fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %350, ptr noundef %352, float noundef %353, i8 noundef signext 89, ptr noundef nonnull %217, ptr noundef nonnull %224)
+  call fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %350, ptr noundef %352, float noundef %353, i8 noundef signext 89, ptr noundef %217, ptr noundef %224)
   br label %354
 
 354:                                              ; preds = %344, %341
@@ -6823,7 +6823,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1206 = phi ptr [ %.sroa.0346.0430435, %.thread431 ], [ %.sroa.0364.0, %.noexc335 ]
   %1207 = phi ptr [ %1199, %.thread431 ], [ %1244, %.noexc335 ]
   %1208 = phi i32 [ %17, %.thread431 ], [ 0, %.noexc335 ]
-  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef nonnull %45, float noundef %1202, float noundef %1203, ptr noundef nonnull align 8 dereferenceable(32) %1204, float noundef %1205, ptr noundef nonnull %120, ptr %1206, ptr %1207, i32 noundef %1208)
+  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef %45, float noundef %1202, float noundef %1203, ptr noundef nonnull align 8 dereferenceable(32) %1204, float noundef %1205, ptr noundef %120, ptr %1206, ptr %1207, i32 noundef %1208)
           to label %_ZL12leg_discreteP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEE.exit unwind label %.loopexit.split-lp
 
 1209:                                             ; preds = %1194
@@ -6855,7 +6855,7 @@ _ZL14draw_zerolinesP8t_psdatafffN3gmx8ArrayRefI8t_matrixEEP7t_psrec.exit: ; pred
   %1235 = fptrunc double %1234 to float
   %1236 = fmul float %1212, 5.000000e-01
   %1237 = fsub float %1226, %1236
-  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef nonnull %45, float noundef %1235, float noundef %1237, ptr noundef nonnull align 8 dereferenceable(32) %431, float noundef %1212, ptr noundef nonnull %120, ptr %.sroa.0370.0.lcssa, ptr %1216, i32 noundef 0)
+  invoke fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef %45, float noundef %1235, float noundef %1237, ptr noundef nonnull align 8 dereferenceable(32) %431, float noundef %1212, ptr noundef %120, ptr %.sroa.0370.0.lcssa, ptr %1216, i32 noundef 0)
           to label %.noexc335 unwind label %.loopexit.split-lp
 
 .noexc335:                                        ; preds = %1209
@@ -7022,7 +7022,7 @@ declare float @llvm.fabs.f32(float) #15
 declare void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr nocapture noundef readonly %1, float noundef %2, i8 noundef signext %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @_ZL12tick_spacingiPffcS_S_(i32 noundef %0, ptr nocapture noundef readonly %1, float noundef %2, i8 noundef signext range(i8 88, 90) %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load float, ptr %7, align 4
   %9 = load float, ptr %1, align 4
@@ -7196,7 +7196,7 @@ declare void @_Z11ps_rgb_nboxP8t_psdataP5t_rgbf(ptr noundef, ptr noundef, float 
 declare void @_Z10ps_moverelP8t_psdataff(ptr noundef, float noundef, float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, float noundef %4, ptr noundef %5, ptr %6, ptr %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfPcN3gmx8ArrayRefIK9t_mappingEEi(ptr noundef nonnull %0, float noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, float noundef %4, ptr noundef nonnull %5, ptr %6, ptr %7, i32 noundef %8) unnamed_addr #0 {
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -7232,38 +7232,38 @@ define internal fastcc void @_ZL14leg_continuousP8t_psdatafffRKNSt7__cxx1112basi
 .lr.ph:                                           ; preds = %23, %.lr.ph
   %.067 = phi i64 [ %34, %.lr.ph ], [ 0, %23 ]
   %gep = getelementptr %struct.t_mapping, ptr %invariant.gep, i64 %.067
-  tail call void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef %0, ptr noundef nonnull %gep)
+  tail call void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %0, ptr noundef nonnull %gep)
   %32 = uitofp nneg i64 %.067 to float
   %33 = tail call float @llvm.fmuladd.f32(float %32, float %.058, float %29)
   %34 = add nuw nsw i64 %.067, 1
   %35 = uitofp nneg i64 %34 to float
   %36 = tail call float @llvm.fmuladd.f32(float %35, float %.058, float %29)
-  tail call void @_Z10ps_fillboxP8t_psdataffff(ptr noundef %0, float noundef %33, float noundef 2.000000e+00, float noundef %36, float noundef %31)
+  tail call void @_Z10ps_fillboxP8t_psdataffff(ptr noundef nonnull %0, float noundef %33, float noundef 2.000000e+00, float noundef %36, float noundef %31)
   %exitcond.not = icmp eq i64 %34, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
-  tail call void @_Z10ps_strfontP8t_psdataPcf(ptr noundef %0, ptr noundef %5, float noundef %4)
-  tail call void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef %0, ptr noundef nonnull @_ZL5black)
+  tail call void @_Z10ps_strfontP8t_psdataPcf(ptr noundef nonnull %0, ptr noundef nonnull %5, float noundef %4)
+  tail call void @_Z6ps_rgbP8t_psdataPK5t_rgb(ptr noundef nonnull %0, ptr noundef nonnull @_ZL5black)
   %37 = tail call float @llvm.fmuladd.f32(float %18, float %.058, float %29)
-  tail call void @_Z6ps_boxP8t_psdataffff(ptr noundef %0, float noundef %29, float noundef 2.000000e+00, float noundef %37, float noundef %31)
+  tail call void @_Z6ps_boxP8t_psdataffff(ptr noundef nonnull %0, float noundef %29, float noundef 2.000000e+00, float noundef %37, float noundef %31)
   %38 = fadd float %31, 6.000000e+00
   %39 = fmul float %.058, 5.000000e-01
   %40 = fadd float %39, %29
   %41 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %0, float noundef %40, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 0)
+  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %0, float noundef %40, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %41, i32 noundef 0)
   %42 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %._crit_edge
-  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %0, float noundef %1, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0)
+  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %0, float noundef %1, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 0)
   br label %44
 
 44:                                               ; preds = %43, %._crit_edge
   %45 = fsub float %37, %39
   %46 = getelementptr i8, ptr %6, i64 %12
   %47 = getelementptr i8, ptr %46, i64 -56
-  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef %0, float noundef %45, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 0)
+  tail call void @_Z8ps_ctextP8t_psdataffRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull %0, float noundef %45, float noundef %38, ptr noundef nonnull align 8 dereferenceable(32) %47, i32 noundef 0)
   ret void
 }
 

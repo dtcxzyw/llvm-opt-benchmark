@@ -1064,7 +1064,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   %30 = sext i32 %29 to i64
   %31 = sub nsw i64 0, %30
   %32 = getelementptr inbounds i8, ptr %3, i64 %31
-  %33 = call fastcc i32 @parsePseudoAttribute(ptr noundef %1, ptr noundef %28, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %33 = call fastcc i32 @parsePseudoAttribute(ptr noundef %1, ptr noundef %28, ptr noundef %32, ptr noundef %22, ptr noundef %23, ptr noundef %21, ptr noundef %20)
   %34 = icmp ne i32 %33, 0
   %35 = load ptr, ptr %22, align 8
   %36 = icmp ne ptr %35, null
@@ -1106,7 +1106,7 @@ define dso_local range(i32 0, 2) i32 @XmlParseXmlDecl(i32 noundef %0, ptr nounde
   br label %50
 
 50:                                               ; preds = %49, %48
-  %51 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %1, ptr noundef %.pre.i, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %51 = call fastcc i32 @parsePseudoAttribute(ptr noundef nonnull %1, ptr noundef %.pre.i, ptr noundef %32, ptr noundef %22, ptr noundef %23, ptr noundef %21, ptr noundef %20)
   %.not75.i = icmp eq i32 %51, 0
   br i1 %.not75.i, label %52, label %54
 
@@ -1278,7 +1278,7 @@ findEncoding.exit.i:                              ; preds = %110, %getEncodingIn
   br label %114
 
 114:                                              ; preds = %findEncoding.exit.i, %78
-  %115 = call fastcc i32 @parsePseudoAttribute(ptr noundef %1, ptr noundef %.pre8.i, ptr noundef %32, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %115 = call fastcc i32 @parsePseudoAttribute(ptr noundef %1, ptr noundef %.pre8.i, ptr noundef %32, ptr noundef %22, ptr noundef %23, ptr noundef %21, ptr noundef %20)
   %.not81.i = icmp eq i32 %115, 0
   br i1 %.not81.i, label %116, label %118
 
@@ -4391,7 +4391,7 @@ define internal range(i32 0, 3) i32 @latin1_toUtf16(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
+define internal fastcc range(i32 -27, 28) i32 @normal_scanLit(i32 noundef range(i32 12, 14) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -4991,7 +4991,7 @@ normal_checkPiTarget.exit:                        ; preds = %106, %109
   br i1 %162, label %.lr.ph191, label %.loopexit, !llvm.loop !31
 
 163:                                              ; preds = %62
-  %164 = call fastcc i32 @normal_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.1183, ptr noundef nonnull %5)
+  %164 = call fastcc i32 @normal_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.1183, ptr noundef %5)
   %.not148 = icmp eq i32 %164, 0
   br i1 %.not148, label %165, label %166
 
@@ -5361,7 +5361,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -9951,7 +9951,7 @@ define internal range(i32 0, 3) i32 @little2_toUtf16(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #3 {
+define internal fastcc range(i32 -27, 28) i32 @little2_scanLit(i32 noundef range(i32 12, 14) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #3 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -10567,7 +10567,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %116, %u
   br i1 %149, label %.lr.ph155, label %.loopexit, !llvm.loop !60
 
 150:                                              ; preds = %unicode_byte_type.exit110
-  %151 = call fastcc i32 @little2_checkPiTarget(ptr noundef %1, ptr noundef nonnull %.099153, ptr noundef nonnull %5)
+  %151 = call fastcc i32 @little2_checkPiTarget(ptr noundef %1, ptr noundef nonnull %.099153, ptr noundef %5)
   %.not104 = icmp eq i32 %151, 0
   br i1 %.not104, label %152, label %153
 
@@ -11113,7 +11113,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -11912,9 +11912,9 @@ unicode_byte_type.exit80.thread422:               ; preds = %.lr.ph254, %.lr.ph2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
   %.not = icmp ult ptr %2, %3
-  br i1 %.not, label %6, label %93
+  br i1 %.not, label %6, label %91
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %0, i64 128
@@ -11924,29 +11924,29 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %6
-  %.not105 = icmp eq i32 %1, 1
-  br i1 %.not105, label %12, label %93
+  %.not107.not = icmp eq i32 %1, 0
+  br i1 %.not107.not, label %91, label %12
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %0, i64 125
   %14 = load i8, ptr %13, align 1
   %.off = add i8 %14, -3
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %93, label %15
+  br i1 %switch, label %91, label %15
 
 15:                                               ; preds = %12
   %16 = load i8, ptr %2, align 1
-  switch i8 %16, label %83 [
+  switch i8 %16, label %81 [
     i8 -2, label %17
     i8 -1, label %17
     i8 -17, label %17
-    i8 0, label %93
-    i8 60, label %93
+    i8 0, label %91
+    i8 60, label %91
   ]
 
 17:                                               ; preds = %15, %15, %15
   %18 = icmp eq i8 %14, 0
-  br i1 %18, label %83, label %93
+  br i1 %18, label %81, label %91
 
 19:                                               ; preds = %6
   %20 = load i8, ptr %2, align 1
@@ -11955,7 +11955,7 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   %23 = load i8, ptr %9, align 1
   %24 = zext i8 %23 to i16
   %trunc = or disjoint i16 %22, %24
-  switch i16 %trunc, label %65 [
+  switch i16 %trunc, label %64 [
     i16 -257, label %25
     i16 15360, label %32
     i16 -2, label %45
@@ -11966,15 +11966,15 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   %26 = getelementptr inbounds i8, ptr %0, i64 125
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  %29 = icmp eq i32 %1, 1
+  %29 = icmp ne i32 %1, 0
   %or.cond3 = and i1 %29, %28
-  br i1 %or.cond3, label %83, label %30
+  br i1 %or.cond3, label %81, label %30
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %31, ptr %4, align 8
   store ptr @big2_encoding, ptr %8, align 8
-  br label %93
+  br label %91
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds i8, ptr %0, i64 125
@@ -11984,13 +11984,13 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
 
 36:                                               ; preds = %32
   %37 = icmp eq i8 %34, 3
-  %38 = icmp eq i32 %1, 1
+  %38 = icmp ne i32 %1, 0
   %or.cond5 = and i1 %38, %37
-  br i1 %or.cond5, label %83, label %40
+  br i1 %or.cond5, label %81, label %40
 
 39:                                               ; preds = %32
-  %.old4 = icmp eq i32 %1, 1
-  br i1 %.old4, label %83, label %40
+  %.old4.not = icmp eq i32 %1, 0
+  br i1 %.old4.not, label %40, label %81
 
 40:                                               ; preds = %39, %36
   store ptr @little2_encoding, ptr %8, align 8
@@ -11998,100 +11998,100 @@ define internal fastcc i32 @initScan(ptr nocapture noundef readonly %0, i32 noun
   %42 = getelementptr inbounds [3 x ptr], ptr @little2_encoding, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull @little2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
-  br label %93
+  br label %91
 
 45:                                               ; preds = %19
   %46 = getelementptr inbounds i8, ptr %0, i64 125
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
-  %49 = icmp eq i32 %1, 1
+  %49 = icmp ne i32 %1, 0
   %or.cond8 = and i1 %49, %48
-  br i1 %or.cond8, label %83, label %50
+  br i1 %or.cond8, label %81, label %50
 
 50:                                               ; preds = %45
   %51 = getelementptr inbounds i8, ptr %2, i64 2
   store ptr %51, ptr %4, align 8
   store ptr @little2_encoding, ptr %8, align 8
-  br label %93
+  br label %91
 
 52:                                               ; preds = %19
-  %53 = icmp eq i32 %1, 1
-  br i1 %53, label %54, label %57
+  %.not105 = icmp eq i32 %1, 0
+  br i1 %.not105, label %56, label %53
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %0, i64 125
-  %56 = load i8, ptr %55, align 1
-  switch i8 %56, label %57 [
-    i8 5, label %83
-    i8 4, label %83
-    i8 3, label %83
-    i8 0, label %83
+53:                                               ; preds = %52
+  %54 = getelementptr inbounds i8, ptr %0, i64 125
+  %55 = load i8, ptr %54, align 1
+  switch i8 %55, label %56 [
+    i8 5, label %81
+    i8 4, label %81
+    i8 3, label %81
+    i8 0, label %81
   ]
 
-57:                                               ; preds = %54, %52
-  %58 = getelementptr inbounds i8, ptr %2, i64 2
-  %59 = icmp eq ptr %58, %3
-  br i1 %59, label %93, label %60
+56:                                               ; preds = %53, %52
+  %57 = getelementptr inbounds i8, ptr %2, i64 2
+  %58 = icmp eq ptr %57, %3
+  br i1 %58, label %91, label %59
 
-60:                                               ; preds = %57
-  %61 = load i8, ptr %58, align 1
-  %62 = icmp eq i8 %61, -65
-  br i1 %62, label %63, label %83
+59:                                               ; preds = %56
+  %60 = load i8, ptr %57, align 1
+  %61 = icmp eq i8 %60, -65
+  br i1 %61, label %62, label %81
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %2, i64 3
-  store ptr %64, ptr %4, align 8
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %2, i64 3
+  store ptr %63, ptr %4, align 8
   store ptr @utf8_encoding, ptr %8, align 8
-  br label %93
+  br label %91
 
-65:                                               ; preds = %19
-  %66 = icmp eq i8 %20, 0
-  br i1 %66, label %67, label %78
+64:                                               ; preds = %19
+  %65 = icmp eq i8 %20, 0
+  br i1 %65, label %66, label %76
 
-67:                                               ; preds = %65
-  %68 = icmp eq i32 %1, 1
-  br i1 %68, label %69, label %73
+66:                                               ; preds = %64
+  %.not106 = icmp eq i32 %1, 0
+  br i1 %.not106, label %71, label %67
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %0, i64 125
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp eq i8 %71, 5
-  br i1 %72, label %83, label %73
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds i8, ptr %0, i64 125
+  %69 = load i8, ptr %68, align 1
+  %70 = icmp eq i8 %69, 5
+  br i1 %70, label %81, label %71
 
-73:                                               ; preds = %69, %67
+71:                                               ; preds = %67, %66
   store ptr @big2_encoding, ptr %8, align 8
-  %74 = zext nneg i32 %1 to i64
-  %75 = getelementptr inbounds [3 x ptr], ptr @big2_encoding, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 %76(ptr noundef nonnull @big2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
-  br label %93
+  %72 = zext nneg i32 %1 to i64
+  %73 = getelementptr inbounds [3 x ptr], ptr @big2_encoding, i64 0, i64 %72
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call i32 %74(ptr noundef nonnull @big2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
+  br label %91
 
-78:                                               ; preds = %65
-  %79 = icmp ne i8 %23, 0
-  %80 = icmp eq i32 %1, 1
-  %or.cond20 = or i1 %80, %79
-  br i1 %or.cond20, label %83, label %81
+76:                                               ; preds = %64
+  %77 = icmp ne i8 %23, 0
+  %78 = icmp ne i32 %1, 0
+  %or.cond20 = or i1 %78, %77
+  br i1 %or.cond20, label %81, label %79
 
-81:                                               ; preds = %78
+79:                                               ; preds = %76
   store ptr @little2_encoding, ptr %8, align 8
-  %82 = tail call i32 @little2_prologTok(ptr noundef nonnull @little2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4)
-  br label %93
+  %80 = tail call i32 @little2_prologTok(ptr noundef nonnull @little2_encoding, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4)
+  br label %91
 
-83:                                               ; preds = %54, %54, %54, %54, %25, %36, %39, %45, %60, %69, %78, %15, %17
-  %84 = getelementptr inbounds i8, ptr %0, i64 125
-  %85 = load i8, ptr %84, align 1
-  %86 = sext i8 %85 to i64
-  %87 = getelementptr inbounds ptr, ptr @encodings, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  store ptr %88, ptr %8, align 8
-  %89 = zext nneg i32 %1 to i64
-  %90 = getelementptr inbounds [3 x ptr], ptr %88, i64 0, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = tail call i32 %91(ptr noundef %88, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
-  br label %93
+81:                                               ; preds = %53, %53, %53, %53, %25, %36, %39, %45, %59, %67, %76, %15, %17
+  %82 = getelementptr inbounds i8, ptr %0, i64 125
+  %83 = load i8, ptr %82, align 1
+  %84 = sext i8 %83 to i64
+  %85 = getelementptr inbounds ptr, ptr @encodings, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  store ptr %86, ptr %8, align 8
+  %87 = zext nneg i32 %1 to i64
+  %88 = getelementptr inbounds [3 x ptr], ptr %86, i64 0, i64 %87
+  %89 = load ptr, ptr %88, align 8
+  %90 = tail call i32 %89(ptr noundef %86, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4) #13
+  br label %91
 
-93:                                               ; preds = %57, %15, %15, %17, %12, %11, %5, %83, %81, %73, %63, %50, %40, %30
-  %.0 = phi i32 [ %92, %83 ], [ %77, %73 ], [ %82, %81 ], [ 14, %63 ], [ 14, %50 ], [ %44, %40 ], [ 14, %30 ], [ -4, %5 ], [ -1, %11 ], [ -1, %12 ], [ -1, %17 ], [ -1, %15 ], [ -1, %15 ], [ -1, %57 ]
+91:                                               ; preds = %56, %15, %15, %17, %12, %11, %5, %81, %79, %71, %62, %50, %40, %30
+  %.0 = phi i32 [ %90, %81 ], [ %75, %71 ], [ %80, %79 ], [ 14, %62 ], [ 14, %50 ], [ %44, %40 ], [ 14, %30 ], [ -4, %5 ], [ -1, %11 ], [ -1, %12 ], [ -1, %17 ], [ -1, %15 ], [ -1, %15 ], [ -1, %56 ]
   ret i32 %.0
 }
 
@@ -15473,7 +15473,7 @@ define internal range(i32 0, 3) i32 @big2_toUtf16(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -27, 28) i32 @big2_scanLit(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #3 {
+define internal fastcc range(i32 -27, 28) i32 @big2_scanLit(i32 noundef range(i32 12, 14) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #3 {
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
@@ -16096,7 +16096,7 @@ unicode_byte_type.exit114.thread207:              ; preds = %.lr.ph155, %120, %u
   br i1 %155, label %.lr.ph155, label %.loopexit, !llvm.loop !89
 
 156:                                              ; preds = %unicode_byte_type.exit110
-  %157 = call fastcc i32 @big2_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.099153, ptr noundef nonnull %5)
+  %157 = call fastcc i32 @big2_checkPiTarget(ptr noundef nonnull %1, ptr noundef nonnull %.099153, ptr noundef %5)
   %.not104 = icmp eq i32 %157, 0
   br i1 %.not104, label %158, label %159
 
@@ -16651,7 +16651,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -17457,7 +17457,7 @@ unicode_byte_type.exit80.thread439:               ; preds = %.lr.ph262, %.lr.ph2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 2) i32 @parsePseudoAttribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #5 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x i8], align 1
   %10 = alloca ptr, align 8

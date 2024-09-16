@@ -1388,7 +1388,7 @@ define internal fastcc void @getRowDescriptions(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef range(i32 0, 2147483644) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1494,7 +1494,7 @@ define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef %1) unn
   call void @pqSaveErrorResult(ptr noundef %0) #16
   %50 = getelementptr inbounds i8, ptr %0, i64 900
   %51 = load i32, ptr %50, align 4
-  %52 = add i32 %1, 5
+  %52 = add nuw i32 %1, 5
   %53 = add i32 %52, %51
   %54 = getelementptr inbounds i8, ptr %0, i64 904
   store i32 %53, ptr %54, align 8
@@ -1505,7 +1505,7 @@ define internal fastcc void @getAnotherTuple(ptr noundef %0, i32 noundef %1) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @getCopyStart(ptr noundef %0, i32 noundef range(i32 3, 9) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call ptr @PQmakeEmptyPGresult(ptr noundef %0, i32 noundef %1) #16
   %.not = icmp eq ptr %4, null

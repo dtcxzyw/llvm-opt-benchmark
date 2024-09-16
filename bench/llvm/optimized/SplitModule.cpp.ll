@@ -3041,7 +3041,7 @@ _ZL21getGVPartitioningRootPKN4llvm11GlobalValueE.exit.thread: ; preds = %59, %65
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr i8, ptr %75, i64 16
   %.val = load ptr, ptr %80, align 8
-  call fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef nonnull %spec.select.i.i, ptr %.val)
+  call fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %spec.select.i.i, ptr %.val)
   br label %81
 
 81:                                               ; preds = %.lr.ph, %76, %78
@@ -3062,7 +3062,7 @@ _ZL21getGVPartitioningRootPKN4llvm11GlobalValueE.exit.thread: ; preds = %59, %65
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %1, i64 16
   %.val38 = load ptr, ptr %89, align 8
-  call fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull %1, ptr %.val38)
+  call fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef %1, ptr %.val38)
   br label %90
 
 90:                                               ; preds = %2, %87, %.loopexit
@@ -3263,7 +3263,7 @@ declare noundef ptr @_ZN4llvm12BlockAddress6lookupEPKNS_10BasicBlockE(ptr nounde
 declare noundef zeroext i1 @_ZNK4llvm8Constant14isConstantUsedEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr readonly %.16.val) unnamed_addr #0 {
+define internal fastcc void @_ZL22addAllGlobalValueUsersRN4llvm18EquivalenceClassesIPKNS_11GlobalValueESt4lessIS3_EEES3_PKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr readonly %.16.val) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4206,7 +4206,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i19.i.i: ; preds = %185
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, i32 %3, ptr %4) unnamed_addr #0 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

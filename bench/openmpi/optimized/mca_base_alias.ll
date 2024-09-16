@@ -277,7 +277,7 @@ mca_base_alias_setup.exit:                        ; preds = %.lr.ph.i.i
   br label %97
 
 mca_base_alias_setup.exit.thread:                 ; preds = %opal_obj_new.exit.thread8.i, %8
-  %46 = tail call fastcc ptr @mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  %46 = tail call fastcc ptr @mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
   %47 = load ptr, ptr @alias_hash_table, align 8
@@ -411,7 +411,7 @@ opal_obj_new.exit42.thread53:                     ; preds = %.lr.ph.i.i39, %77
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -468,7 +468,7 @@ define internal fastcc noundef ptr @mca_base_alias_generate_name(ptr noundef rea
 
 27:                                               ; preds = %24, %23
   %.1 = phi i64 [ %26, %24 ], [ %.029, %23 ]
-  %28 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %2, i64 noundef %.1) #12
+  %28 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull %2, i64 noundef %.1) #12
   br label %29
 
 29:                                               ; preds = %10, %27
@@ -493,7 +493,7 @@ define ptr @mca_base_alias_lookup(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call fastcc ptr @mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2)
+  %7 = tail call fastcc ptr @mca_base_alias_generate_name(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr null, ptr %4, align 8
   %8 = load ptr, ptr @alias_hash_table, align 8

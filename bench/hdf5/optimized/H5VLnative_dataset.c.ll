@@ -263,7 +263,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr nocap
 
 19:                                               ; preds = %11, %8
   %.023 = phi ptr [ %13, %11 ], [ %9, %8 ]
-  %20 = call fastcc i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %.023)
+  %20 = call fastcc i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %.023)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %26
 
@@ -315,7 +315,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_read(i64 noundef %0, ptr nocap
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = load ptr, ptr %1, align 8
@@ -653,7 +653,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_write(i64 noundef %0, ptr noca
 
 19:                                               ; preds = %11, %8
   %.023 = phi ptr [ %13, %11 ], [ %9, %8 ]
-  %20 = call fastcc i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef nonnull %.023)
+  %20 = call fastcc i32 @H5VL__native_dataset_io_setup(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %.023)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %26
 

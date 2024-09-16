@@ -58,7 +58,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.75 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"i\00\00\00" }>, align 4
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.76.llvm.10701424160139774282 = hidden unnamed_addr constant <{ [23 x i8] }> <{ [23 x i8] c"src/uu/sort/src/sort.rs" }>, align 1
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.78 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"d\00\00\00" }>, align 4
-@anon.a110fc8cc4a39fd147b5a3360eb1a23d.81 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a110fc8cc4a39fd147b5a3360eb1a23d.76.llvm.10701424160139774282, [16 x i8] c"\17\00\00\00\00\00\00\00\B5\01\00\00'\00\00\00" }>, align 8
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.82.llvm.10701424160139774282 = hidden unnamed_addr constant <{ [41 x i8] }> <{ [41 x i8] c"assertion failed: token_buffer.is_empty()" }>, align 1
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.83.llvm.10701424160139774282 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a110fc8cc4a39fd147b5a3360eb1a23d.76.llvm.10701424160139774282, [16 x i8] c"\17\00\00\00\00\00\00\00\A8\02\00\00\05\00\00\00" }>, align 8
 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.84 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a110fc8cc4a39fd147b5a3360eb1a23d.76.llvm.10701424160139774282, [16 x i8] c"\17\00\00\00\00\00\00\00\C2\02\00\00\1D\00\00\00" }>, align 8
@@ -240,7 +239,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5510db2c7e61de0b2d2879ef0cabf3d4.143.llvm.5712253741694332460 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }>, align 8
 @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E = external local_unnamed_addr global [256 x i8]
 @__rust_no_alloc_shim_is_unstable = external global i8
-@switch.table._ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E = private unnamed_addr constant [6 x i32] [i32 110, i32 104, i32 103, i32 77, i32 86, i32 82], align 4
+@switch.table._ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E.43 = private unnamed_addr constant [6 x i32] [i32 110, i32 104, i32 103, i32 77, i32 86, i32 82], align 4
 @switch.table._ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E = private unnamed_addr constant [4 x i32] [i32 110, i32 104, i32 103, i32 77], align 4
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -598,7 +597,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$core..str..error..Utf8
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$alloc..string..String$GT$$GT$17h5b5634f897eb2b94E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$alloc..string..String$GT$$GT$17h5b5634f897eb2b94E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !17, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -680,7 +679,7 @@ define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #1 {
+define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   %3 = load i8, ptr %2, align 1, !range !135, !noundef !4
   %4 = trunc nuw i8 %3 to i1
@@ -736,7 +735,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4
   br i1 %29, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.us.i
-  %31 = add nuw i64 %.05.i.us.i, 1
+  %31 = add nuw nsw i64 %.05.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %31, %.sroa.3.0.i47.us.i
   br i1 %exitcond.not.i.us.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i, label %.lr.ph.i.us.i
 
@@ -793,7 +792,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i: ; preds = %30
   br i1 %52, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %53
 
 53:                                               ; preds = %.lr.ph.i.i
-  %54 = add nuw i64 %.05.i.i, 1
+  %54 = add nuw nsw i64 %.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %54, %.sroa.3.0.i47.i
   br i1 %exitcond.not.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i, label %.lr.ph.i.i
 
@@ -2266,7 +2265,7 @@ define void @"_ZN66_$LT$uu_sort..GlobalSettings$u20$as$u20$core..default..Defaul
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, i8 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i8 noundef range(i8 0, 7) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i32, align 4
@@ -2355,7 +2354,7 @@ switch.lookup33:                                  ; preds = %15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 1 dereferenceable(6) %1, i8 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 1 dereferenceable(6) %1, i8 noundef range(i8 0, 6) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %.sroa.214 = alloca [16 x i8], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -2378,79 +2377,30 @@ define internal fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1
   %16 = getelementptr inbounds i8, ptr %1, i64 2
   %17 = load i8, ptr %16, align 1, !range !135, !noundef !4
   %18 = trunc nuw i8 %17 to i1
-  call fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, i8 noundef %2, i1 noundef zeroext %15, i1 noundef zeroext %18)
+  call fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, i8 noundef %2, i1 noundef zeroext %15, i1 noundef zeroext %18)
   %19 = load i64, ptr %5, align 8, !range !17, !noundef !4
   %20 = icmp eq i64 %19, -9223372036854775808
-  br i1 %20, label %22, label %23
+  br i1 %20, label %26, label %27
 
 switch.lookup:                                    ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %21 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E.43, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %7, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  switch i8 %2, label %default.unreachable.i20 [
-    i8 0, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-    i8 1, label %25
-    i8 2, label %26
-    i8 3, label %27
-    i8 4, label %28
-    i8 5, label %29
-    i8 6, label %_ZN7uu_sort8SortMode14get_short_name17hf1601fff3b2df9d0E.exit21
-  ]
-
-22:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  store i8 %2, ptr %10, align 1
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %24
-
-23:                                               ; preds = %12
-  %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.sroa.4.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  store i64 %19, ptr %0, align 8
-  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214, i64 16, i1 false)
-  br label %24
-
-24:                                               ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %23, %22
-  ret void
-
-default.unreachable.i20:                          ; preds = %switch.lookup
-  unreachable
-
-25:                                               ; preds = %switch.lookup
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-26:                                               ; preds = %switch.lookup
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-27:                                               ; preds = %switch.lookup
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-28:                                               ; preds = %switch.lookup
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-29:                                               ; preds = %switch.lookup
-  br label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit
-
-_ZN7uu_sort8SortMode14get_short_name17hf1601fff3b2df9d0E.exit21: ; preds = %switch.lookup
-  tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a110fc8cc4a39fd147b5a3360eb1a23d.81) #29
-  unreachable
-
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %29, %28, %27, %26, %25, %switch.lookup
-  %.0.i19.ph = phi i32 [ 110, %switch.lookup ], [ 104, %25 ], [ 103, %26 ], [ 77, %27 ], [ 86, %28 ], [ 82, %29 ]
-  store i32 %.0.i19.ph, ptr %6, align 4
+  %22 = zext nneg i8 %2 to i64
+  %switch.gep31 = getelementptr inbounds [6 x i32], ptr @switch.table._ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E.43, i64 0, i64 %22
+  %switch.load32 = load i32, ptr %switch.gep31, align 4
+  store i32 %switch.load32, ptr %6, align 4
   store ptr %7, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %6, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %32, align 8
+  %23 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %6, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17h522b74b1e908963bE", ptr %25, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !391
   store ptr @anon.a110fc8cc4a39fd147b5a3360eb1a23d.74, ptr %4, align 8, !noalias !402
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
@@ -2467,7 +2417,25 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %29, %28, %27, %26, 
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
-  br label %24
+  br label %28
+
+26:                                               ; preds = %12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  store i8 %2, ptr %10, align 1
+  store i64 -9223372036854775808, ptr %0, align 8
+  br label %28
+
+27:                                               ; preds = %12
+  %.sroa.010.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.010.sroa.4.0..sroa_idx, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
+  store i64 %19, ptr %0, align 8
+  %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.214, i64 16, i1 false)
+  br label %28
+
+28:                                               ; preds = %switch.lookup, %27, %26
+  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -3093,7 +3061,7 @@ define hidden void @_ZN7uu_sort23tokenize_with_separator17h557677e868b8ec32E.llv
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef range(i64 0, 2) %3, i1 noundef zeroext %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %8 = alloca [2 x { ptr, ptr }], align 8
@@ -3134,7 +3102,7 @@ define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(pt
   store i8 1, ptr %.sroa.646.0..sroa_idx, align 8
   %.sroa.747.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 65
   store i8 0, ptr %.sroa.747.0..sroa_idx, align 1
-  %24 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %23)
+  %24 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef align 8 dereferenceable(72) %23)
   %25 = extractvalue { ptr, i64 } %24, 0
   %26 = icmp eq ptr %25, null
   br i1 %26, label %28, label %.thread
@@ -3183,7 +3151,7 @@ define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(pt
 32:                                               ; preds = %.thread, %28
   %.sroa.6.0112 = phi ptr [ %25, %.thread ], [ %.sroa.6.0.copyload, %28 ]
   %.sroa.8.0111 = phi i64 [ %27, %.thread ], [ %.sroa.8.0.copyload, %28 ]
-  %33 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %23)
+  %33 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef align 8 dereferenceable(72) %23)
   %34 = extractvalue { ptr, i64 } %33, 0
   %35 = extractvalue { ptr, i64 } %33, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
@@ -3341,7 +3309,7 @@ define internal fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(pt
 71:                                               ; preds = %64, %60
   %72 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$alloc..string..String$GT$$GT$17h5b5634f897eb2b94E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #27
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$alloc..string..String$GT$$GT$17h5b5634f897eb2b94E"(ptr noalias noundef align 8 dereferenceable(24) %21) #27
           to label %73 unwind label %74, !noalias !535
 
 73:                                               ; preds = %71
@@ -3416,7 +3384,7 @@ define void @"_ZN63_$LT$uu_sort..KeyPosition$u20$as$u20$core..default..Default$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15222b9d314fbe66E.exit.thread, label %.lr.ph
@@ -3483,7 +3451,7 @@ define internal fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61
   %46 = ptrtoint ptr %.sink19.i to i64
   %47 = sub i64 %46, %8
   %48 = add i64 %47, %7
-  %49 = and i32 %.sroa.4.0.i.ph10.i17.i, -33
+  %49 = and i32 %.sroa.4.0.i.ph10.i17.i, 2097119
   %50 = add nsw i32 %49, -65
   %or.cond3.i.i.i.i = icmp ult i32 %50, 26
   br i1 %or.cond3.i.i.i.i, label %"_ZN7uu_sort13FieldSelector17split_key_options28_$u7b$$u7b$closure$u7d$$u7d$17hc7352679baed0f78E.exit.thread.i.i", label %51
@@ -3589,7 +3557,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 65
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
-  %18 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %17)
+  %18 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef align 8 dereferenceable(72) %17)
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %22
@@ -3600,7 +3568,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
 
 22:                                               ; preds = %4
   %23 = extractvalue { ptr, i64 } %18, 1
-  call fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %23)
+  call fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef align 8 dereferenceable(32) %16, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %23)
   %24 = load ptr, ptr %16, align 8, !nonnull !4, !align !136, !noundef !4
   %25 = getelementptr inbounds i8, ptr %16, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !4
@@ -3609,7 +3577,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   %29 = getelementptr inbounds i8, ptr %16, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  %31 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %17)
+  %31 = call fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h1952eea37ecacaf0E"(ptr noalias noundef align 8 dereferenceable(72) %17)
   %32 = extractvalue { ptr, i64 } %31, 0
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %34
@@ -3617,7 +3585,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
 34:                                               ; preds = %22
   %35 = extractvalue { ptr, i64 } %31, 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %35)
+  call fastcc void @_ZN7uu_sort13FieldSelector17split_key_options17he61131c5e84be370E(ptr noalias nocapture noundef align 8 dereferenceable(32) %15, ptr noalias noundef nonnull readonly align 1 %32, i64 noundef %35)
   %.sroa.0.0.copyload = load ptr, ptr %15, align 8
   %.sroa.7.0..sroa_idx115 = getelementptr inbounds i8, ptr %15, i64 8
   %.sroa.7.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx115, align 8
@@ -3681,7 +3649,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %11), !noalias !552
   store i48 6597069766656, ptr %14, align 8, !noalias !552
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !552
-  call fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %30, ptr noalias noundef nonnull align 1 dereferenceable(6) %14), !noalias !552
+  call fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 %28, i64 noundef %30, ptr noalias noundef align 1 dereferenceable(6) %14), !noalias !552
   call void @llvm.experimental.noalias.scope.decl(metadata !560)
   call void @llvm.experimental.noalias.scope.decl(metadata !563)
   %51 = load i64, ptr %13, align 8, !range !17, !alias.scope !565, !noalias !566, !noundef !4
@@ -3702,7 +3670,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   %54 = load i8, ptr %53, align 8, !range !135, !alias.scope !563, !noalias !569, !noundef !4
   %55 = trunc nuw i8 %54 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !570
-  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26, i64 noundef 1, i1 noundef zeroext %55), !noalias !571
+  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26, i64 noundef 1, i1 noundef zeroext %55), !noalias !571
   %.sroa.0.0.copyload.i = load i64, ptr %10, align 8, !noalias !572
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.5.sroa.0.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !572
@@ -3725,7 +3693,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   %58 = icmp ne ptr %.sroa.9.0126, null
   call void @llvm.assume(i1 %58)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !552
-  call fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.9.0126, i64 noundef %.sroa.11.0123, ptr noalias noundef nonnull align 1 dereferenceable(6) %14), !noalias !552
+  call fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %.sroa.9.0126, i64 noundef %.sroa.11.0123, ptr noalias noundef align 1 dereferenceable(6) %14), !noalias !552
   call void @llvm.experimental.noalias.scope.decl(metadata !573)
   call void @llvm.experimental.noalias.scope.decl(metadata !576)
   %59 = load i64, ptr %12, align 8, !range !17, !alias.scope !578, !noalias !579, !noundef !4
@@ -3746,7 +3714,7 @@ define void @_ZN7uu_sort13FieldSelector5parse17hae6db4a4e84c9724E(ptr noalias no
   %62 = load i8, ptr %61, align 8, !range !135, !alias.scope !576, !noalias !582, !noundef !4
   %63 = trunc nuw i8 %62 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !583
-  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0117132, i64 noundef %.sroa.7.0129, i64 noundef 0, i1 noundef zeroext %63), !noalias !584
+  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0117132, i64 noundef %.sroa.7.0129, i64 noundef 0, i1 noundef zeroext %63), !noalias !584
   %.sroa.055.0.copyload.i = load i64, ptr %9, align 8, !noalias !585
   %.sroa.556.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.556.sroa.0.i.sroa.0.0.copyload103 = load i64, ptr %.sroa.556.0..sroa_idx.i, align 8, !noalias !585
@@ -3834,7 +3802,7 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
   %81 = getelementptr inbounds i8, ptr %3, i64 125
   %82 = load i8, ptr %81, align 1, !range !135, !noalias !591, !noundef !4
   %83 = trunc nuw i8 %82 to i1
-  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26, i64 noundef 1, i1 noundef zeroext %83), !noalias !591
+  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %8, ptr noalias noundef nonnull readonly align 1 %24, i64 noundef %26, i64 noundef 1, i1 noundef zeroext %83), !noalias !591
   %84 = load i64, ptr %8, align 8, !range !595, !noalias !591, !noundef !4
   %trunc.i = trunc nuw i64 %84 to i1
   %85 = getelementptr inbounds i8, ptr %8, i64 8
@@ -3858,7 +3826,7 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
 
 88:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !591
-  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0117131139, i64 noundef %.sroa.7.0128141, i64 noundef 0, i1 noundef zeroext %83), !noalias !591
+  call fastcc void @_ZN7uu_sort11KeyPosition3new17h1b6633e9f10c9b8eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0117131139, i64 noundef %.sroa.7.0128141, i64 noundef 0, i1 noundef zeroext %83), !noalias !591
   %.sroa.06.0.copyload.i = load i64, ptr %7, align 8, !noalias !591
   %.sroa.68.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
   %.sroa.68.sroa.0.i.sroa.0.0.copyload = load i64, ptr %.sroa.68.0..sroa_idx.i, align 8, !noalias !591
@@ -4114,7 +4082,7 @@ _ZN7uu_sort13FieldSelector18parse_with_options17h6d08f08160314d92E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 1 dereferenceable(6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort13FieldSelector18parse_with_options18parse_key_settings17hf86510ef51726ac7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull align 1 dereferenceable(6) %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca i32, align 4
@@ -4272,7 +4240,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %66
 
 71:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 3)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %19, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 3)
   %72 = load i64, ptr %19, align 8, !range !17, !noundef !4
   %73 = icmp eq i64 %72, -9223372036854775808
   br i1 %73, label %101, label %102
@@ -4322,14 +4290,14 @@ switch.lookup:                                    ; preds = %74
 
 79:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 2)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %18, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 2)
   %80 = load i64, ptr %18, align 8, !range !17, !noundef !4
   %81 = icmp eq i64 %80, -9223372036854775808
   br i1 %81, label %107, label %108
 
 82:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %17, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 1)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %17, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 1)
   %83 = load i64, ptr %17, align 8, !range !17, !noundef !4
   %84 = icmp eq i64 %83, -9223372036854775808
   br i1 %84, label %109, label %110
@@ -4340,21 +4308,21 @@ switch.lookup:                                    ; preds = %74
   %86 = load i8, ptr %23, align 1, !range !358, !alias.scope !662, !noalias !667, !noundef !4
   %87 = load i8, ptr %24, align 1, !range !135, !alias.scope !662, !noalias !667, !noundef !4
   %88 = trunc nuw i8 %87 to i1
-  call fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5, i8 noundef %86, i1 noundef zeroext true, i1 noundef zeroext %88), !noalias !665
+  call fastcc void @_ZN7uu_sort11KeySettings19check_compatibility17h83c517b8dd1a6a91E(ptr noalias nocapture noundef align 8 dereferenceable(24) %5, i8 noundef %86, i1 noundef zeroext true, i1 noundef zeroext %88), !noalias !665
   %89 = load i64, ptr %5, align 8, !range !17, !noalias !665, !noundef !4
   %90 = icmp eq i64 %89, -9223372036854775808
   br i1 %90, label %111, label %112
 
 91:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 0)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %16, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 0)
   %92 = load i64, ptr %16, align 8, !range !17, !noundef !4
   %93 = icmp eq i64 %92, -9223372036854775808
   br i1 %93, label %113, label %114
 
 94:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %15, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 5)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %15, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 5)
   %95 = load i64, ptr %15, align 8, !range !17, !noundef !4
   %96 = icmp eq i64 %95, -9223372036854775808
   br i1 %96, label %115, label %116
@@ -4365,7 +4333,7 @@ switch.lookup:                                    ; preds = %74
 
 98:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 1 dereferenceable(6) %3, i8 noundef 4)
+  call fastcc void @_ZN7uu_sort11KeySettings13set_sort_mode17h1c2b48fb1cd0eec6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %14, ptr noalias noundef align 1 dereferenceable(6) %3, i8 noundef 4)
   %99 = load i64, ptr %14, align 8, !range !17, !noundef !4
   %100 = icmp eq i64 %99, -9223372036854775808
   br i1 %100, label %117, label %118
@@ -4793,7 +4761,7 @@ define hidden { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range17hb4cdee14e7586
   %6 = alloca [0 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = tail call fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 %3, i64 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  %9 = tail call fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 %3, i64 %4, ptr noalias noundef readonly align 8 dereferenceable(24) %8)
   %10 = extractvalue { i64, i64 } %9, 0
   %11 = extractvalue { i64, i64 } %9, 1
   switch i64 %10, label %default.unreachable [
@@ -4830,7 +4798,7 @@ default.unreachable:                              ; preds = %5
   unreachable
 
 22:                                               ; preds = %13
-  %23 = tail call fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 %3, i64 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  %23 = tail call fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 %3, i64 %4, ptr noalias noundef readonly align 8 dereferenceable(24) %0)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
   switch i64 %24, label %12 [
@@ -4960,7 +4928,7 @@ default.unreachable:                              ; preds = %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 %2, i64 %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc { i64, i64 } @_ZN7uu_sort13FieldSelector9get_range13resolve_index17h2afea1259a233ff0E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 %2, i64 %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.not = icmp ne ptr %2, null
   %6 = load i64, ptr %4, align 8
   %7 = icmp ult i64 %3, %6
@@ -5412,7 +5380,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he9c792244d01e32dE.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 10, 21) %2, i32 noundef range(i32 77, 111) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef range(i64 23, 56) %5) unnamed_addr #2 personality ptr @rust_eh_personality {
   %7 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %8 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %.sroa.410.i = alloca [2 x i64], align 8
@@ -5554,7 +5522,7 @@ _ZN12clap_builder7builder3arg3Arg4help17ha5a220c2fbe585b8E.exit: ; preds = %19, 
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit": ; preds = %39
-  %bcmp.i = call i32 @bcmp(ptr nonnull readonly %.pre, ptr nonnull readonly %1, i64 %2), !alias.scope !793
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(1) %.pre, ptr noundef nonnull readonly dereferenceable(1) %1, i64 %2), !alias.scope !793
   %42 = icmp eq i32 %bcmp.i, 0
   br i1 %42, label %51, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61b2384b9070e811E.exit.thread"
 
@@ -6392,7 +6360,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %104)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %187)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %172)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %172, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.119, i64 noundef 18, i32 noundef 104, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.139, i64 noundef 55)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %172, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.119, i64 noundef 18, i32 noundef 104, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.139, i64 noundef 55)
           to label %328 unwind label %1276
 
 328:                                              ; preds = %327
@@ -6421,7 +6389,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %172)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %188)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %171)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %171, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.120, i64 noundef 10, i32 noundef 77, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.140, i64 noundef 44)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %171, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.120, i64 noundef 10, i32 noundef 77, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.140, i64 noundef 44)
           to label %334 unwind label %1274
 
 334:                                              ; preds = %333
@@ -6450,7 +6418,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %171)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %189)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %170)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %170, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.121, i64 noundef 12, i32 noundef 110, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.141, i64 noundef 43)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %170, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.121, i64 noundef 12, i32 noundef 110, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.141, i64 noundef 43)
           to label %340 unwind label %1272
 
 340:                                              ; preds = %339
@@ -6479,7 +6447,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %170)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %190)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %169)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %169, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.118, i64 noundef 20, i32 noundef 103, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.142, i64 noundef 51)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %169, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.118, i64 noundef 20, i32 noundef 103, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.142, i64 noundef 51)
           to label %346 unwind label %1270
 
 346:                                              ; preds = %345
@@ -6508,7 +6476,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %169)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %191)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %168)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %168, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.122, i64 noundef 12, i32 noundef 86, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.143, i64 noundef 48)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %168, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.122, i64 noundef 12, i32 noundef 86, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.143, i64 noundef 48)
           to label %352 unwind label %1268
 
 352:                                              ; preds = %351
@@ -6537,7 +6505,7 @@ define void @_ZN7uu_sort6uu_app17hd4ffe96e1921543fE(ptr noalias nocapture nounde
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %168)
   call void @llvm.lifetime.end.p0(i64 712, ptr nonnull %192)
   call void @llvm.lifetime.start.p0(i64 592, ptr nonnull %167)
-  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(592) %167, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.123, i64 noundef 11, i32 noundef 82, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.144, i64 noundef 23)
+  invoke fastcc void @_ZN7uu_sort18make_sort_mode_arg17hc3fa74ffbb00024cE(ptr noalias nocapture noundef align 8 dereferenceable(592) %167, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.123, i64 noundef 11, i32 noundef 82, ptr noalias noundef nonnull readonly align 1 @anon.a110fc8cc4a39fd147b5a3360eb1a23d.144, i64 noundef 23)
           to label %358 unwind label %1266
 
 358:                                              ; preds = %357

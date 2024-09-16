@@ -38149,7 +38149,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vector
   %319 = ptrtoint ptr %313 to i64
   %320 = sub i64 %319, %299
   %321 = ashr exact i64 %320, 3
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_114FuncUnitSorterEEEEvT_T0_SG_T1_T2_(ptr nonnull %.sroa.0121.0.lcssa, i64 noundef 0, i64 noundef %321, ptr noundef %314, ptr noundef nonnull %4)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_114FuncUnitSorterEEEEvT_T0_SG_T1_T2_(ptr nonnull %.sroa.0121.0.lcssa, i64 noundef 0, i64 noundef %321, ptr noundef %314, ptr noundef %4)
   %.val.i.i.i = load ptr, ptr %300, align 8
   %.val2.i.i.i = load i32, ptr %301, align 8
   %322 = zext i32 %.val2.i.i.i to i64
@@ -58688,7 +58688,7 @@ _ZN4llvm15SmallVectorImplImE7reserveEm.exit:      ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_114FuncUnitSorterEEEEvT_T0_SG_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPN4llvm12MachineInstrESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_114FuncUnitSorterEEEEvT_T0_SG_T1_T2_(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_val.1128", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2

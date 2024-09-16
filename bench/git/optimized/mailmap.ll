@@ -160,15 +160,14 @@ entry:
 declare i32 @is_bare_repository() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_mailmap_file(ptr noundef %map, ptr noundef %filename, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_mailmap_file(ptr noundef %map, ptr noundef %filename, i32 noundef range(i32 0, 2) %flags) unnamed_addr #0 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %tobool.not = icmp eq ptr %filename, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %and = and i32 %flags, 1
-  %tobool1.not = icmp eq i32 %and, 0
+  %tobool1.not = icmp eq i32 %flags, 0
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.end

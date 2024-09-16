@@ -3682,7 +3682,7 @@ _ZN5alloc5alloc15exchange_malloc17h5339c734e5193bc1E.llvm.5387445467279837026.ex
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3dcb2db6a1fa6071E.exit.i": ; preds = %100
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !600
-  invoke fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %94)
+  invoke fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %7, ptr noalias noundef readonly align 8 dereferenceable(64) %94)
           to label %109 unwind label %105, !noalias !597
 
 105:                                              ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3dcb2db6a1fa6071E.exit.i"
@@ -8276,7 +8276,7 @@ define noundef zeroext i1 @"_ZN59_$LT$ockam_core..api..Error$u20$as$u20$core..fm
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, [2 x i64] }, { ptr, [2 x i64] }, ptr, i8, [7 x i8] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = alloca { ptr, [2 x i64] }, align 8
@@ -8348,7 +8348,7 @@ define internal fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..
 
 "_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3dcb2db6a1fa6071E.exit.i": ; preds = %27
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !1432
-  invoke fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %21)
+  invoke fastcc void @"_ZN61_$LT$ockam_core..api..Error$u20$as$u20$core..clone..Clone$GT$5clone17h7137733227acf7ebE"(ptr noalias nocapture noundef align 8 dereferenceable(64) %3, ptr noalias noundef readonly align 8 dereferenceable(64) %21)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h44ae0e64c7288c34E.exit" unwind label %32, !noalias !1429
 
 32:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h3dcb2db6a1fa6071E.exit.i"

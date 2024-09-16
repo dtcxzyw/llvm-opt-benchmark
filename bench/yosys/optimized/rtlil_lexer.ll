@@ -837,18 +837,18 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %276
   %.016.lcssa.i = phi i32 [ %284, %276 ], [ %327, %._crit_edge.i ]
-  %330 = sext i32 %.016.lcssa.i to i64
-  %331 = add nsw i64 %330, -185
-  %.not.i142 = icmp ult i64 %331, -180
-  br i1 %.not.i142, label %333, label %332
+  %330 = add nsw i32 %.016.lcssa.i, -185
+  %.not.i142 = icmp ult i32 %330, -180
+  br i1 %.not.i142, label %332, label %331
 
-332:                                              ; preds = %_ZL21yy_get_previous_statev.exit
+331:                                              ; preds = %_ZL21yy_get_previous_statev.exit
   store i32 %.016.lcssa.i, ptr @_ZL23yy_last_accepting_state, align 4
   store ptr %283, ptr @_ZL22yy_last_accepting_cpos, align 8
-  br label %333
+  br label %332
 
-333:                                              ; preds = %332, %_ZL21yy_get_previous_statev.exit
-  %334 = getelementptr inbounds [192 x i16], ptr @_ZL7yy_base, i64 0, i64 %330
+332:                                              ; preds = %331, %_ZL21yy_get_previous_statev.exit
+  %333 = sext i32 %.016.lcssa.i to i64
+  %334 = getelementptr inbounds [192 x i16], ptr @_ZL7yy_base, i64 0, i64 %333
   %335 = load i16, ptr %334, align 2
   %336 = sext i16 %335 to i64
   %337 = add nsw i64 %336, 1
@@ -858,8 +858,8 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %276
   %.not1415.i = icmp eq i32 %.016.lcssa.i, %340
   br i1 %.not1415.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i143
 
-.lr.ph.i143:                                      ; preds = %333, %.lr.ph.i143
-  %341 = phi i64 [ %344, %.lr.ph.i143 ], [ %330, %333 ]
+.lr.ph.i143:                                      ; preds = %332, %.lr.ph.i143
+  %341 = phi i64 [ %344, %.lr.ph.i143 ], [ %333, %332 ]
   %342 = getelementptr inbounds [192 x i16], ptr @_ZL6yy_def, i64 0, i64 %341
   %343 = load i16, ptr %342, align 2
   %344 = sext i16 %343 to i64
@@ -872,8 +872,8 @@ _ZL21yy_get_previous_statev.exit:                 ; preds = %._crit_edge.i, %276
   %.not14.i = icmp eq i16 %343, %350
   br i1 %.not14.i, label %_ZL16yy_try_NUL_transi.exit, label %.lr.ph.i143, !llvm.loop !14
 
-_ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i143, %333
-  %.lcssa.i145 = phi i64 [ %337, %333 ], [ %348, %.lr.ph.i143 ]
+_ZL16yy_try_NUL_transi.exit:                      ; preds = %.lr.ph.i143, %332
+  %.lcssa.i145 = phi i64 [ %337, %332 ], [ %348, %.lr.ph.i143 ]
   %351 = getelementptr inbounds [259 x i16], ptr @_ZL6yy_nxt, i64 0, i64 %.lcssa.i145
   %352 = load i16, ptr %351, align 2
   %353 = icmp eq i16 %352, 185

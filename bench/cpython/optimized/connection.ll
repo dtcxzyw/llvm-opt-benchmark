@@ -2382,7 +2382,7 @@ if.end27:                                         ; preds = %if.end23
 if.end27.split:                                   ; preds = %if.end27
   %arrayidx3618 = getelementptr i8, ptr %cond2427, i64 16
   %9 = load ptr, ptr %arrayidx3618, align 8
-  %call3719 = call fastcc ptr @pysqlite_connection_create_aggregate_impl(ptr noundef %self, ptr noundef %cls, ptr noundef nonnull %call20, i32 noundef %call29, ptr noundef %9)
+  %call3719 = call fastcc ptr @pysqlite_connection_create_aggregate_impl(ptr noundef %self, ptr noundef %cls, ptr noundef %call20, i32 noundef %call29, ptr noundef %9)
   br label %exit
 
 land.lhs.true31:                                  ; preds = %if.end27
@@ -2393,7 +2393,7 @@ land.lhs.true31:                                  ; preds = %if.end27
 land.lhs.true31.split:                            ; preds = %land.lhs.true31
   %arrayidx3620 = getelementptr i8, ptr %cond2427, i64 16
   %10 = load ptr, ptr %arrayidx3620, align 8
-  %call3721 = call fastcc ptr @pysqlite_connection_create_aggregate_impl(ptr noundef %self, ptr noundef %cls, ptr noundef nonnull %call20, i32 noundef -1, ptr noundef %10)
+  %call3721 = call fastcc ptr @pysqlite_connection_create_aggregate_impl(ptr noundef %self, ptr noundef %cls, ptr noundef %call20, i32 noundef -1, ptr noundef %10)
   br label %exit
 
 exit:                                             ; preds = %if.end27.split, %land.lhs.true31.split, %land.lhs.true31, %if.end18, %if.then7, %cond.end, %if.then26, %if.then16
@@ -4373,7 +4373,7 @@ if.end20:                                         ; preds = %if.end16
 if.end20.split:                                   ; preds = %if.end20
   %arrayidx2917 = getelementptr i8, ptr %cond23, i64 16
   %8 = load ptr, ptr %arrayidx2917, align 8
-  %call3018 = call fastcc ptr @create_window_function_impl(ptr noundef %self, ptr noundef %cls, ptr noundef nonnull %call13, i32 noundef %call22, ptr noundef %8)
+  %call3018 = call fastcc ptr @create_window_function_impl(ptr noundef %self, ptr noundef %cls, ptr noundef %call13, i32 noundef %call22, ptr noundef %8)
   br label %exit
 
 land.lhs.true24:                                  ; preds = %if.end20
@@ -4384,7 +4384,7 @@ land.lhs.true24:                                  ; preds = %if.end20
 land.lhs.true24.split:                            ; preds = %land.lhs.true24
   %arrayidx2919 = getelementptr i8, ptr %cond23, i64 16
   %9 = load ptr, ptr %arrayidx2919, align 8
-  %call3020 = call fastcc ptr @create_window_function_impl(ptr noundef %self, ptr noundef %cls, ptr noundef nonnull %call13, i32 noundef -1, ptr noundef %9)
+  %call3020 = call fastcc ptr @create_window_function_impl(ptr noundef %self, ptr noundef %cls, ptr noundef %call13, i32 noundef -1, ptr noundef %9)
   br label %exit
 
 exit:                                             ; preds = %if.end20.split, %land.lhs.true24.split, %land.lhs.true24, %if.end11, %cond.end, %if.then19, %if.then9
@@ -4559,7 +4559,7 @@ if.then77:                                        ; preds = %if.end74
 skip_optional_kwonly:                             ; preds = %if.end74, %if.end58, %if.end47
   %readonly.0 = phi i32 [ %readonly.1, %if.end74 ], [ %call55, %if.end58 ], [ 0, %if.end47 ]
   %name.0 = phi ptr [ %call71, %if.end74 ], [ @.str.37, %if.end58 ], [ @.str.37, %if.end47 ]
-  %call79 = call fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef nonnull %call19, ptr noundef nonnull %call35, i64 noundef %call2.i, i32 noundef %readonly.0, ptr noundef nonnull %name.0)
+  %call79 = call fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef %call19, ptr noundef %call35, i64 noundef %call2.i, i32 noundef %readonly.0, ptr noundef nonnull %name.0)
   br label %exit
 
 exit:                                             ; preds = %sqlite3_int64_converter.exit.thread, %if.end69, %if.then53, %sqlite3_int64_converter.exit, %if.end33, %if.end17, %cond.end9, %skip_optional_kwonly, %if.then77, %if.then67, %if.then41, %if.then31, %if.then25, %if.then15
@@ -4859,7 +4859,7 @@ return:                                           ; preds = %pysqlite_check_conn
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pysqlite_connection_create_aggregate_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %name, i32 noundef %n_arg, ptr noundef %aggregate_class) unnamed_addr #0 {
+define internal fastcc noundef ptr @pysqlite_connection_create_aggregate_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %n_arg, ptr noundef %aggregate_class) unnamed_addr #0 {
 entry:
   %check_same_thread.i = getelementptr inbounds i8, ptr %self, i64 52
   %0 = load i32, ptr %check_same_thread.i, align 4
@@ -4946,7 +4946,7 @@ if.end5:                                          ; preds = %if.end.i.i8.i, %_Py
   %state.i = getelementptr inbounds i8, ptr %call.i8, i64 16
   store ptr %call.i.i11, ptr %state.i, align 8
   %10 = load ptr, ptr %db.i, align 8
-  %call6 = tail call i32 @sqlite3_create_function_v2(ptr noundef %10, ptr noundef %name, i32 noundef %n_arg, i32 noundef 1, ptr noundef nonnull %call.i8, ptr noundef null, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @destructor_callback) #6
+  %call6 = tail call i32 @sqlite3_create_function_v2(ptr noundef %10, ptr noundef nonnull %name, i32 noundef %n_arg, i32 noundef 1, ptr noundef nonnull %call.i8, ptr noundef null, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @destructor_callback) #6
   %cmp7.not = icmp eq i32 %call6, 0
   br i1 %cmp7.not, label %return, label %if.then8
 
@@ -5117,7 +5117,7 @@ Py_DECREF.exit26:                                 ; preds = %if.end3, %if.then1.
   br i1 %tobool7.not, label %if.then13, label %if.then8
 
 if.then8:                                         ; preds = %Py_DECREF.exit26
-  %call9 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i)
+  %call9 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %call.i)
   %cmp10 = icmp eq i32 %call9, 0
   %7 = load i64, ptr %call.i, align 8
   %8 = and i64 %7, 2147483648
@@ -5436,7 +5436,7 @@ declare ptr @sqlite3_value_blob(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %py_val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %py_val) unnamed_addr #0 {
 entry:
   %sz = alloca i64, align 8
   %view = alloca %struct.Py_buffer, align 8
@@ -5457,7 +5457,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not, label %if.else8, label %if.then2
 
 if.then2:                                         ; preds = %if.else
-  %call3 = tail call i64 @_pysqlite_long_as_int64(ptr noundef %py_val) #6
+  %call3 = tail call i64 @_pysqlite_long_as_int64(ptr noundef nonnull %py_val) #6
   %cmp4 = icmp eq i64 %call3, -1
   br i1 %cmp4, label %land.lhs.true, label %if.end
 
@@ -5480,7 +5480,7 @@ PyObject_TypeCheck.exit:                          ; preds = %if.else8
   br i1 %tobool3.i.not, label %if.else20, label %if.then11
 
 if.then11:                                        ; preds = %if.else8, %PyObject_TypeCheck.exit
-  %call13 = tail call double @PyFloat_AsDouble(ptr noundef %py_val) #6
+  %call13 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %py_val) #6
   %cmp14 = fcmp oeq double %call13, -1.000000e+00
   br i1 %cmp14, label %land.lhs.true15, label %if.end19
 
@@ -5502,7 +5502,7 @@ if.else20:                                        ; preds = %PyObject_TypeCheck.
   br i1 %tobool23.not, label %if.else32, label %if.then24
 
 if.then24:                                        ; preds = %if.else20
-  %call25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %py_val, ptr noundef nonnull %sz) #6
+  %call25 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %py_val, ptr noundef nonnull %sz) #6
   %cmp26 = icmp eq ptr %call25, null
   br i1 %cmp26, label %return, label %if.end28
 
@@ -5522,12 +5522,12 @@ if.end31:                                         ; preds = %if.end28
   br label %return
 
 if.else32:                                        ; preds = %if.else20
-  %call33 = tail call i32 @PyObject_CheckBuffer(ptr noundef %py_val) #6
+  %call33 = tail call i32 @PyObject_CheckBuffer(ptr noundef nonnull %py_val) #6
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %if.else47, label %if.then35
 
 if.then35:                                        ; preds = %if.else32
-  %call36 = call i32 @PyObject_GetBuffer(ptr noundef %py_val, ptr noundef nonnull %view, i32 noundef 0) #6
+  %call36 = call i32 @PyObject_GetBuffer(ptr noundef nonnull %py_val, ptr noundef nonnull %view, i32 noundef 0) #6
   %cmp37.not = icmp eq i32 %call36, 0
   br i1 %cmp37.not, label %if.end40, label %return
 
@@ -5762,7 +5762,7 @@ if.end:                                           ; preds = %if.end.i14, %if.the
   br i1 %tobool4.not, label %if.then9, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call3)
+  %call6 = tail call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %call3)
   %cmp = icmp eq i32 %call6, 0
   %3 = load i64, ptr %call3, align 8
   %4 = and i64 %3, 2147483648
@@ -6702,7 +6702,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_window_function_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef %name, i32 noundef %num_params, ptr noundef %aggregate_class) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_window_function_impl(ptr nocapture noundef readonly %self, ptr noundef %cls, ptr noundef nonnull %name, i32 noundef %num_params, ptr noundef %aggregate_class) unnamed_addr #0 {
 entry:
   %call = tail call i32 @sqlite3_libversion_number() #6
   %cmp = icmp slt i32 %call, 3025000
@@ -6771,7 +6771,7 @@ if.end5:                                          ; preds = %if.end.i
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5
-  %call8 = tail call i32 @sqlite3_create_window_function(ptr noundef nonnull %6, ptr noundef %name, i32 noundef %num_params, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #6
+  %call8 = tail call i32 @sqlite3_create_window_function(ptr noundef nonnull %6, ptr noundef nonnull %name, i32 noundef %num_params, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #6
   br label %if.end15
 
 if.else:                                          ; preds = %if.end5
@@ -6808,7 +6808,7 @@ if.end12:                                         ; preds = %if.end.i.i8.i, %_Py
   %state.i = getelementptr inbounds i8, ptr %call.i15, i64 16
   store ptr %call.i.i18, ptr %state.i, align 8
   %11 = load ptr, ptr %db.i, align 8
-  %call14 = tail call i32 @sqlite3_create_window_function(ptr noundef %11, ptr noundef %name, i32 noundef %num_params, i32 noundef 1, ptr noundef nonnull %call.i15, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @value_callback, ptr noundef nonnull @inverse_callback, ptr noundef nonnull @destructor_callback) #6
+  %call14 = tail call i32 @sqlite3_create_window_function(ptr noundef %11, ptr noundef nonnull %name, i32 noundef %num_params, i32 noundef 1, ptr noundef nonnull %call.i15, ptr noundef nonnull @step_callback, ptr noundef nonnull @final_callback, ptr noundef nonnull @value_callback, ptr noundef nonnull @inverse_callback, ptr noundef nonnull @destructor_callback) #6
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end12, %if.then7
@@ -6859,7 +6859,7 @@ if.then:                                          ; preds = %entry
   br label %if.end8.sink.split
 
 if.else:                                          ; preds = %entry
-  %call5 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef nonnull %call.i)
+  %call5 = call fastcc i32 @_pysqlite_set_result(ptr noundef %context, ptr noundef %call.i)
   %4 = load i64, ptr %call.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i10.not = icmp eq i64 %5, 0
@@ -6982,7 +6982,7 @@ Py_XDECREF.exit:                                  ; preds = %exit, %if.then.i, %
 declare ptr @sqlite3_errstr(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef %table, ptr noundef %col, i64 noundef %row, i32 noundef %readonly, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef nonnull %table, ptr noundef nonnull %col, i64 noundef %row, i32 noundef range(i32 0, -2147483648) %readonly, ptr noundef %name) unnamed_addr #0 {
 entry:
   %blob = alloca ptr, align 8
   %check_same_thread.i = getelementptr inbounds i8, ptr %self, i64 52
@@ -7041,7 +7041,7 @@ if.end:                                           ; preds = %if.end.i26
   %8 = load ptr, ptr %db.i, align 8
   %tobool4.not = icmp eq i32 %readonly, 0
   %lnot.ext = zext i1 %tobool4.not to i32
-  %call5 = call i32 @sqlite3_blob_open(ptr noundef %8, ptr noundef %name, ptr noundef %table, ptr noundef %col, i64 noundef %row, i32 noundef %lnot.ext, ptr noundef nonnull %blob) #6
+  %call5 = call i32 @sqlite3_blob_open(ptr noundef %8, ptr noundef %name, ptr noundef nonnull %table, ptr noundef nonnull %col, i64 noundef %row, i32 noundef %lnot.ext, ptr noundef nonnull %blob) #6
   call void @PyEval_RestoreThread(ptr noundef %call3) #6
   %state11 = getelementptr inbounds i8, ptr %self, i64 24
   %9 = load ptr, ptr %state11, align 8

@@ -59,7 +59,7 @@ write_to_file.exit:                               ; preds = %21, %22
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @write_to_file(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @write_to_file(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 -2147483648, 4294967296) %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %0)
   %.not = icmp eq i64 %6, 1
   br i1 %.not, label %13, label %7
@@ -458,7 +458,7 @@ write_to_file.exit77:                             ; preds = %.lr.ph83, %104, %10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pcapng_write_string_option(ptr nocapture noundef %0, i16 noundef zeroext range(i16 1, 16) %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.ws_option, align 2
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4

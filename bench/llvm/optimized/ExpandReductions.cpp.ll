@@ -179,7 +179,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define dso_local void @_ZN4llvm20ExpandReductionsPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #13
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %6)
+  %7 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -230,7 +230,7 @@ define dso_local void @_ZN4llvm20ExpandReductionsPass3runERNS_8FunctionERNS_15An
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallVector.40", align 8
   %4 = alloca %"class.llvm::IRBuilder", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -879,7 +879,7 @@ _ZNK4llvm4Pass11getAnalysisINS_30TargetTransformInfoWrapperPassEEERT_v.exit: ; p
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(80) ptr %17(ptr noundef nonnull align 8 dereferenceable(28) %14, ptr noundef nonnull @_ZN4llvm30TargetTransformInfoWrapperPass2IDE) #13
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm30TargetTransformInfoWrapperPass6getTTIERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(136) %1) #13
-  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull %19)
+  %20 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116expandReductionsERN4llvm8FunctionEPKNS0_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %19)
   ret i1 %20
 }
 

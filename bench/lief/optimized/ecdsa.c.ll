@@ -93,7 +93,7 @@ define internal fastcc i32 @ecdsa_sign_restartable(ptr noundef %0, ptr noundef %
   br i1 %41, label %.preheader, label %42, !llvm.loop !4
 
 42:                                               ; preds = %39
-  %43 = call fastcc i32 @derive_mpi(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef %4, i64 noundef %5)
+  %43 = call fastcc i32 @derive_mpi(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %4, i64 noundef %5)
   %.not67 = icmp eq i32 %43, 0
   br i1 %.not67, label %44, label %.loopexit
 
@@ -636,13 +636,13 @@ declare i32 @mbedtls_ecp_mul_restartable(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @mbedtls_mpi_mod_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
   %9 = tail call i64 @llvm.umin.i64(i64 %3, i64 %8)
-  %10 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef %1, ptr noundef %2, i64 noundef %9) #7
+  %10 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %1, ptr noundef %2, i64 noundef %9) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %24
 
@@ -654,18 +654,18 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef %1, ptr nound
 
 15:                                               ; preds = %11
   %16 = sub nuw i64 %12, %13
-  %17 = tail call i32 @mbedtls_mpi_shift_r(ptr noundef %1, i64 noundef %16) #7
+  %17 = tail call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %1, i64 noundef %16) #7
   %.not24 = icmp eq i32 %17, 0
   br i1 %.not24, label %18, label %24
 
 18:                                               ; preds = %15, %11
   %19 = getelementptr inbounds i8, ptr %0, i64 152
-  %20 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef %1, ptr noundef nonnull %19) #7
+  %20 = tail call i32 @mbedtls_mpi_cmp_mpi(ptr noundef nonnull %1, ptr noundef nonnull %19) #7
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @mbedtls_mpi_sub_mpi(ptr noundef %1, ptr noundef %1, ptr noundef nonnull %19) #7
+  %23 = tail call i32 @mbedtls_mpi_sub_mpi(ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %19) #7
   br label %24
 
 24:                                               ; preds = %22, %18, %15, %4

@@ -1250,7 +1250,7 @@ spl_fixedarray_init_elems.exit.i:                 ; preds = %.lr.ph.i39.i, %45
 .lr.ph.i43.i:                                     ; preds = %.lr.ph.i43.i, %.lr.ph.preheader.i42.i
   %.09.i.i = phi ptr [ %57, %.lr.ph.i43.i ], [ %56, %.lr.ph.preheader.i42.i ]
   %57 = getelementptr inbounds i8, ptr %.09.i.i, i64 16
-  call void @zval_ptr_dtor(ptr noundef %.09.i.i) #12
+  call void @zval_ptr_dtor(ptr noundef nonnull %.09.i.i) #12
   %.not.i44.i = icmp eq ptr %57, %55
   br i1 %.not.i44.i, label %spl_fixedarray_dtor_range.exit.i, label %.lr.ph.i43.i
 

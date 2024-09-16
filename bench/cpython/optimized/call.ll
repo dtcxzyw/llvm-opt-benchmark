@@ -908,7 +908,7 @@ if.then5:                                         ; preds = %if.end
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %call10 = tail call fastcc ptr @_PyVectorcall_Call(ptr noundef %1, ptr noundef nonnull %func.0.copyload, ptr noundef nonnull %callable, ptr noundef %tuple, ptr noundef %kwargs)
+  %call10 = tail call fastcc ptr @_PyVectorcall_Call(ptr noundef %1, ptr noundef %func.0.copyload, ptr noundef nonnull %callable, ptr noundef %tuple, ptr noundef %kwargs)
   br label %return
 
 return:                                           ; preds = %if.end9, %if.then5, %if.then
@@ -920,7 +920,7 @@ return:                                           ; preds = %if.end9, %if.then5,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr nocapture noundef readonly %func, ptr noundef %callable, ptr noundef %tuple, ptr noundef %kwargs) unnamed_addr #0 {
+define internal fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr nocapture noundef nonnull readonly %func, ptr noundef %callable, ptr noundef %tuple, ptr noundef %kwargs) unnamed_addr #0 {
 entry:
   %kwnames = alloca ptr, align 8
   %0 = getelementptr i8, ptr %tuple, i64 16
@@ -1109,7 +1109,7 @@ PyVectorcall_Function.exit:                       ; preds = %entry
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %PyVectorcall_Function.exit
-  %call2 = tail call fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr noundef nonnull %ptr.0.copyload.i.i, ptr noundef nonnull %callable, ptr noundef %args, ptr noundef %kwargs)
+  %call2 = tail call fastcc ptr @_PyVectorcall_Call(ptr noundef %tstate, ptr noundef %ptr.0.copyload.i.i, ptr noundef nonnull %callable, ptr noundef %args, ptr noundef %kwargs)
   br label %return
 
 if.else:                                          ; preds = %entry, %PyVectorcall_Function.exit
@@ -1504,13 +1504,13 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
-  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
+  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef %va) unnamed_addr #0 {
+define internal fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va) unnamed_addr #0 {
 entry:
   %small_stack = alloca [5 x ptr], align 16
   %nargs = alloca i64, align 8
@@ -1548,7 +1548,7 @@ if.then2:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end4:                                          ; preds = %lor.lhs.false
-  %call5 = call ptr @_Py_VaBuildStack(ptr noundef nonnull %small_stack, i64 noundef 5, ptr noundef nonnull %format, ptr noundef %va, ptr noundef nonnull %nargs) #8
+  %call5 = call ptr @_Py_VaBuildStack(ptr noundef nonnull %small_stack, i64 noundef 5, ptr noundef nonnull %format, ptr noundef nonnull %va, ptr noundef nonnull %nargs) #8
   %cmp6 = icmp eq ptr %call5, null
   br i1 %cmp6, label %return, label %if.end8
 
@@ -1722,7 +1722,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
-  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
+  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
@@ -1734,7 +1734,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %va)
-  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
+  %call2 = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef %callable, ptr noundef %format, ptr noundef %va)
   call void @llvm.va_end.p0(ptr nonnull %va)
   ret ptr %call2
 }
@@ -1788,7 +1788,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -1865,7 +1865,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -1940,7 +1940,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -2017,7 +2017,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -2064,7 +2064,7 @@ if.then.i:                                        ; preds = %entry
   br label %callmethod.exit
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %tstate, ptr noundef %callable, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i, %if.end.i
@@ -2122,7 +2122,7 @@ if.then.i11:                                      ; preds = %if.end6
   br label %callmethod.exit
 
 if.end.i10:                                       ; preds = %if.end6
-  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef nonnull %va)
+  %call3.i = call fastcc ptr @_PyObject_CallFunctionVa(ptr noundef %1, ptr noundef nonnull %call3, ptr noundef %format, ptr noundef %va)
   br label %callmethod.exit
 
 callmethod.exit:                                  ; preds = %if.then.i11, %if.end.i10
@@ -2307,7 +2307,7 @@ if.end6:                                          ; preds = %if.end
   %cond = select i1 %tobool.not, ptr null, ptr %obj
   call void @llvm.va_start.p0(ptr nonnull %vargs)
   %6 = load ptr, ptr %callable, align 8
-  %call8 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef nonnull %vargs)
+  %call8 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   %7 = load ptr, ptr %callable, align 8
   %8 = load i64, ptr %7, align 8
@@ -2331,7 +2331,7 @@ return:                                           ; preds = %if.then.i, %_PyErr_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @object_vacall(ptr noundef %tstate, ptr noundef %base, ptr noundef %callable, ptr noundef %vargs) unnamed_addr #0 {
+define internal fastcc ptr @object_vacall(ptr noundef %tstate, ptr noundef %base, ptr noundef %callable, ptr noundef nonnull %vargs) unnamed_addr #0 {
 entry:
   %small_stack = alloca [5 x ptr], align 16
   %countva = alloca [1 x %struct.__va_list_tag], align 16
@@ -2356,7 +2356,7 @@ if.then.i:                                        ; preds = %_PyErr_Occurred.exi
   br label %return
 
 if.end:                                           ; preds = %entry
-  call void @llvm.va_copy.p0(ptr nonnull %countva, ptr %vargs)
+  call void @llvm.va_copy.p0(ptr nonnull %countva, ptr nonnull %vargs)
   %tobool.not = icmp ne ptr %base, null
   %conv = zext i1 %tobool.not to i64
   %countva.promoted = load i32, ptr %countva, align 16
@@ -2590,7 +2590,7 @@ if.end9:                                          ; preds = %if.end5
   %cond = select i1 %tobool10.not, ptr null, ptr %obj
   call void @llvm.va_start.p0(ptr nonnull %vargs)
   %6 = load ptr, ptr %callable, align 8
-  %call12 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef nonnull %vargs)
+  %call12 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef %cond, ptr noundef %6, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   %7 = load ptr, ptr %callable, align 8
   %8 = load i64, ptr %7, align 8
@@ -2622,7 +2622,7 @@ entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
   call void @llvm.va_start.p0(ptr nonnull %vargs)
-  %call2 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef null, ptr noundef %callable, ptr noundef nonnull %vargs)
+  %call2 = call fastcc ptr @object_vacall(ptr noundef %1, ptr noundef null, ptr noundef %callable, ptr noundef %vargs)
   call void @llvm.va_end.p0(ptr nonnull %vargs)
   ret ptr %call2
 }

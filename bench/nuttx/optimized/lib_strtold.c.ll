@@ -17,15 +17,15 @@ define float @strtof(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc x86_fp80 @strtox(ptr noundef %0, ptr noundef writeonly %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
 switch.lookup:
   %switch.tableidx = add nsw i32 %2, -1
   %3 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.strtox, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = sext i32 %switch.tableidx to i64
-  %switch.gep325 = getelementptr inbounds [3 x i32], ptr @switch.table.strtox.1, i64 0, i64 %4
-  %switch.load326 = load i32, ptr %switch.gep325, align 4
+  %switch.gep326 = getelementptr inbounds [3 x i32], ptr @switch.table.strtox.1, i64 0, i64 %4
+  %switch.load327 = load i32, ptr %switch.gep326, align 4
   br label %5
 
 5:                                                ; preds = %5, %switch.lookup
@@ -79,12 +79,12 @@ switch.lookup:
   ]
 
 .critedge.thread:                                 ; preds = %20, %.critedge, %.critedge
-  %.2.lcssa223 = phi ptr [ %.2152, %.critedge ], [ %.2152, %.critedge ], [ %scevgep, %20 ]
+  %.2.lcssa224 = phi ptr [ %.2152, %.critedge ], [ %.2152, %.critedge ], [ %scevgep, %20 ]
   %.not69 = icmp eq ptr %1, null
   br i1 %.not69, label %24, label %23
 
 23:                                               ; preds = %.critedge.thread
-  store ptr %.2.lcssa223, ptr %1, align 8
+  store ptr %.2.lcssa224, ptr %1, align 8
   br label %24
 
 24:                                               ; preds = %.critedge.thread, %23
@@ -271,19 +271,19 @@ switch.lookup:
   br i1 %.not122.i, label %93, label %95
 
 ._crit_edge.thread.i:                             ; preds = %.loopexit.i
-  %.not122240.i = icmp eq i32 %.1101.i, 0
-  br i1 %.not122240.i, label %93, label %.lr.ph210.preheader.i
+  %.not122241.i = icmp eq i32 %.1101.i, 0
+  br i1 %.not122241.i, label %93, label %.lr.ph210.preheader.i
 
 93:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
-  %.1106.lcssa243.i = phi i32 [ %.0105.i, %._crit_edge.thread.i ], [ %.1106.lcssa.i, %._crit_edge.i ]
-  %.2160.lcssa241.i = phi ptr [ %.0158.i, %._crit_edge.thread.i ], [ %.2160.lcssa.i, %._crit_edge.i ]
+  %.1106.lcssa244.i = phi i32 [ %.0105.i, %._crit_edge.thread.i ], [ %.1106.lcssa.i, %._crit_edge.i ]
+  %.2160.lcssa242.i = phi ptr [ %.0158.i, %._crit_edge.thread.i ], [ %.2160.lcssa.i, %._crit_edge.i ]
   %.not124.i = icmp eq ptr %1, null
   br i1 %.not124.i, label %hexfloat.exit, label %94
 
 94:                                               ; preds = %93
-  %.not123.i = icmp eq i32 %.1106.lcssa243.i, 0
+  %.not123.i = icmp eq i32 %.1106.lcssa244.i, 0
   %spec.select132.v.i = select i1 %.not123.i, i64 -1, i64 -2
-  %spec.select132.i = getelementptr inbounds i8, ptr %.2160.lcssa241.i, i64 %spec.select132.v.i
+  %spec.select132.i = getelementptr inbounds i8, ptr %.2160.lcssa242.i, i64 %spec.select132.v.i
   store ptr %spec.select132.i, ptr %1, align 8
   br label %hexfloat.exit
 
@@ -294,35 +294,35 @@ switch.lookup:
   br i1 %96, label %.lr.ph210.preheader.i, label %._crit_edge211.i
 
 .lr.ph210.preheader.i:                            ; preds = %._crit_edge.thread.i, %95
-  %spec.select133268.i = phi i64 [ %spec.select133.i, %95 ], [ %.082.i, %._crit_edge.thread.i ]
-  %.2160.lcssa242266.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.0158.i, %._crit_edge.thread.i ]
-  %.094.lcssa245264.i = phi i32 [ %.094.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
-  %.089.lcssa246263.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
-  %.080.lcssa248261.i = phi i64 [ %.080.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
-  %.3114.lcssa249260.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114177.i, %._crit_edge.thread.i ]
+  %spec.select133269.i = phi i64 [ %spec.select133.i, %95 ], [ %.082.i, %._crit_edge.thread.i ]
+  %.2160.lcssa243267.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.0158.i, %._crit_edge.thread.i ]
+  %.094.lcssa246265.i = phi i32 [ %.094.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
+  %.089.lcssa247264.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ 0xK00000000000000000000, %._crit_edge.thread.i ]
+  %.080.lcssa249262.i = phi i64 [ %.080.lcssa.i, %95 ], [ 0, %._crit_edge.thread.i ]
+  %.3114.lcssa250261.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114177.i, %._crit_edge.thread.i ]
   br label %.lr.ph210.i
 
 .lr.ph210.i:                                      ; preds = %.lr.ph210.i, %.lr.ph210.preheader.i
-  %.2208.i = phi i64 [ %98, %.lr.ph210.i ], [ %.080.lcssa248261.i, %.lr.ph210.preheader.i ]
-  %.397207.i = phi i32 [ %97, %.lr.ph210.i ], [ %.094.lcssa245264.i, %.lr.ph210.preheader.i ]
+  %.2208.i = phi i64 [ %98, %.lr.ph210.i ], [ %.080.lcssa249262.i, %.lr.ph210.preheader.i ]
+  %.397207.i = phi i32 [ %97, %.lr.ph210.i ], [ %.094.lcssa246265.i, %.lr.ph210.preheader.i ]
   %97 = shl i32 %.397207.i, 4
   %98 = add i64 %.2208.i, 1
   %exitcond.not.i = icmp eq i64 %98, 8
   br i1 %exitcond.not.i, label %._crit_edge211.i, label %.lr.ph210.i, !llvm.loop !13
 
 ._crit_edge211.i:                                 ; preds = %.lr.ph210.i, %95
-  %spec.select133267.i = phi i64 [ %spec.select133.i, %95 ], [ %spec.select133268.i, %.lr.ph210.i ]
-  %.2160.lcssa242265.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.2160.lcssa242266.i, %.lr.ph210.i ]
-  %.089.lcssa246262.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ %.089.lcssa246263.i, %.lr.ph210.i ]
-  %.3114.lcssa249259.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114.lcssa249260.i, %.lr.ph210.i ]
+  %spec.select133268.i = phi i64 [ %spec.select133.i, %95 ], [ %spec.select133269.i, %.lr.ph210.i ]
+  %.2160.lcssa243266.i = phi ptr [ %.2160.lcssa.i, %95 ], [ %.2160.lcssa243267.i, %.lr.ph210.i ]
+  %.089.lcssa247263.i = phi x86_fp80 [ %.089.lcssa.i, %95 ], [ %.089.lcssa247264.i, %.lr.ph210.i ]
+  %.3114.lcssa250260.i = phi i32 [ %.3114.lcssa.i, %95 ], [ %.3114.lcssa250261.i, %.lr.ph210.i ]
   %.397.lcssa.i = phi i32 [ %.094.lcssa.i, %95 ], [ %97, %.lr.ph210.i ]
-  %99 = and i32 %.3114.lcssa249259.i, -33
+  %99 = and i32 %.3114.lcssa250260.i, -33
   %100 = icmp eq i32 %99, 80
   br i1 %100, label %101, label %122
 
 101:                                              ; preds = %._crit_edge211.i
-  %102 = getelementptr inbounds i8, ptr %.2160.lcssa242265.i, i64 1
-  %103 = load i8, ptr %.2160.lcssa242265.i, align 1
+  %102 = getelementptr inbounds i8, ptr %.2160.lcssa243266.i, i64 1
+  %103 = load i8, ptr %.2160.lcssa243266.i, align 1
   %104 = sext i8 %103 to i32
   %105 = icmp eq i8 %103, 45
   switch i8 %103, label %111 [
@@ -338,7 +338,7 @@ switch.lookup:
   br i1 %isdigit.i.i, label %109, label %111
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %.2160.lcssa242265.i, i64 2
+  %110 = getelementptr inbounds i8, ptr %.2160.lcssa243266.i, i64 2
   br label %111
 
 111:                                              ; preds = %109, %106, %101
@@ -376,7 +376,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   br label %124
 
 122:                                              ; preds = %._crit_edge211.i
-  %123 = getelementptr inbounds i8, ptr %.2160.lcssa242265.i, i64 -1
+  %123 = getelementptr inbounds i8, ptr %.2160.lcssa243266.i, i64 -1
   br label %124
 
 124:                                              ; preds = %122, %scanexp.exit.i
@@ -390,14 +390,14 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   br label %126
 
 126:                                              ; preds = %125, %124
-  %127 = shl nsw i64 %spec.select133267.i, 2
+  %127 = shl nsw i64 %spec.select133268.i, 2
   %128 = add nsw i64 %127, -32
   %129 = add nsw i64 %128, %.079.i
   %.not127.i = icmp eq i32 %.397.lcssa.i, 0
   br i1 %.not127.i, label %hexfloat.exit, label %130
 
 130:                                              ; preds = %126
-  %131 = sub nsw i32 0, %switch.load326
+  %131 = sub nsw i32 0, %switch.load327
   %132 = zext nneg i32 %131 to i64
   %133 = icmp sgt i64 %129, %132
   br i1 %133, label %134, label %136
@@ -408,7 +408,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
   br label %hexfloat.exit
 
 136:                                              ; preds = %130
-  %137 = add nsw i32 %switch.load326, -106
+  %137 = add nsw i32 %switch.load327, -106
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %129, %138
   br i1 %139, label %141, label %.preheader.i
@@ -424,7 +424,7 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
 
 .lr.ph216.i:                                      ; preds = %.preheader.i, %.lr.ph216.i
   %.1215.i = phi i64 [ %146, %.lr.ph216.i ], [ %129, %.preheader.i ]
-  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa246262.i, %.preheader.i ]
+  %.392214.i = phi x86_fp80 [ %.493.i, %.lr.ph216.i ], [ %.089.lcssa247263.i, %.preheader.i ]
   %.498213.i = phi i32 [ %.599.i, %.lr.ph216.i ], [ %.397.lcssa.i, %.preheader.i ]
   %143 = fcmp oge x86_fp80 %.392214.i, 0xK3FFE8000000000000000
   %reass.add.i = shl nuw i32 %.498213.i, 1
@@ -439,12 +439,12 @@ scanexp.exit.i:                                   ; preds = %.lr.ph.i.i, %111
 
 ._crit_edge217.i:                                 ; preds = %.lr.ph216.i, %.preheader.i
   %.498.lcssa.i = phi i32 [ %.397.lcssa.i, %.preheader.i ], [ %.599.i, %.lr.ph216.i ]
-  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa246262.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
+  %.392.lcssa.i = phi x86_fp80 [ %.089.lcssa247263.i, %.preheader.i ], [ %.493.i, %.lr.ph216.i ]
   %.1.lcssa.i = phi i64 [ %129, %.preheader.i ], [ %146, %.lr.ph216.i ]
   %148 = zext nneg i32 %switch.load to i64
-  %149 = sext i32 %switch.load326 to i64
-  %reass.sub.i = sub i64 %.1.lcssa.i, %149
-  %150 = add i64 %reass.sub.i, 32
+  %narrow221.i = sub nsw i32 32, %switch.load327
+  %149 = zext nneg i32 %narrow221.i to i64
+  %150 = add i64 %.1.lcssa.i, %149
   %151 = icmp slt i64 %150, %148
   %152 = trunc i64 %150 to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %152, i32 0)

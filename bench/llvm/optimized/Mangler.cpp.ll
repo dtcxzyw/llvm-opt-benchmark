@@ -114,7 +114,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21getNameWithPrefixImplRN4llvm11raw_ostreamERKNS_5TwineEN12_GLOBAL__N_115ManglerPrefixTyERKNS_10DataLayoutEc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %3, i8 noundef signext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL21getNameWithPrefixImplRN4llvm11raw_ostreamERKNS_5TwineEN12_GLOBAL__N_115ManglerPrefixTyERKNS_10DataLayoutEc(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef range(i32 0, 3) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %3, i8 noundef signext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %7, i64 noundef 256) #10

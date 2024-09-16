@@ -216,7 +216,7 @@ thread-pre-split.thread:                          ; preds = %40, %thread-pre-spl
   br i1 %.not22.i, label %116, label %94
 
 94:                                               ; preds = %90
-  %95 = tail call i32 @png_handle_as_unknown(ptr noundef %0, ptr noundef nonnull %.024.i) #15, !noalias !7
+  %95 = tail call i32 @png_handle_as_unknown(ptr noundef nonnull %0, ptr noundef nonnull %.024.i) #15, !noalias !7
   %.not23.i = icmp eq i32 %95, 1
   br i1 %.not23.i, label %116, label %96
 
@@ -245,7 +245,7 @@ thread-pre-split.thread:                          ; preds = %40, %thread-pre-spl
   br i1 %110, label %111, label %112
 
 111:                                              ; preds = %107
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.22) #15, !noalias !7
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #15, !noalias !7
   %.pre.i = load i64, ptr %108, align 8, !noalias !7
   br label %112
 
@@ -253,7 +253,7 @@ thread-pre-split.thread:                          ; preds = %40, %thread-pre-spl
   %113 = phi i64 [ %.pre.i, %111 ], [ %109, %107 ]
   %114 = getelementptr inbounds i8, ptr %.024.i, i64 8
   %115 = load ptr, ptr %114, align 8, !noalias !7
-  tail call void @png_write_chunk(ptr noundef %0, ptr noundef nonnull %.024.i, ptr noundef %115, i64 noundef %113) #15, !noalias !7
+  tail call void @png_write_chunk(ptr noundef nonnull %0, ptr noundef nonnull %.024.i, ptr noundef %115, i64 noundef %113) #15, !noalias !7
   br label %116
 
 116:                                              ; preds = %112, %104, %102, %94, %90
@@ -660,7 +660,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   br i1 %.not22.i, label %230, label %208
 
 208:                                              ; preds = %204
-  %209 = tail call i32 @png_handle_as_unknown(ptr noundef %0, ptr noundef nonnull %.024.i) #15, !noalias !17
+  %209 = tail call i32 @png_handle_as_unknown(ptr noundef nonnull %0, ptr noundef nonnull %.024.i) #15, !noalias !17
   %.not23.i = icmp eq i32 %209, 1
   br i1 %.not23.i, label %230, label %210
 
@@ -689,7 +689,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   br i1 %224, label %225, label %226
 
 225:                                              ; preds = %221
-  tail call void @png_warning(ptr noundef %0, ptr noundef nonnull @.str.22) #15, !noalias !17
+  tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.22) #15, !noalias !17
   %.pre.i = load i64, ptr %222, align 8, !noalias !17
   br label %226
 
@@ -697,7 +697,7 @@ define void @png_write_info(ptr noalias noundef %0, ptr noalias noundef %1) loca
   %227 = phi i64 [ %.pre.i, %225 ], [ %223, %221 ]
   %228 = getelementptr inbounds i8, ptr %.024.i, i64 8
   %229 = load ptr, ptr %228, align 8, !noalias !17
-  tail call void @png_write_chunk(ptr noundef %0, ptr noundef nonnull %.024.i, ptr noundef %229, i64 noundef %227) #15, !noalias !17
+  tail call void @png_write_chunk(ptr noundef nonnull %0, ptr noundef nonnull %.024.i, ptr noundef %229, i64 noundef %227) #15, !noalias !17
   br label %230
 
 230:                                              ; preds = %226, %218, %216, %208, %204
@@ -2350,7 +2350,7 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %19
 
 19:                                               ; preds = %18, %16
-  %20 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0)
+  %20 = tail call fastcc i32 @png_image_write_init(ptr noundef %0)
   %.not32 = icmp eq i32 %20, 0
   br i1 %.not32, label %.critedge, label %21
 
@@ -2407,10 +2407,10 @@ define i32 @png_image_write_to_memory(ptr noundef %0, ptr noundef %1, ptr noalia
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_image_write_init(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @png_image_write_init(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = tail call noalias ptr @png_create_png_struct(ptr noundef nonnull @.str.23, ptr noundef %0, ptr noundef nonnull @png_safe_error, ptr noundef nonnull @png_safe_warning, ptr noundef null, ptr noundef null, ptr noundef null) #15
+  %4 = tail call noalias ptr @png_create_png_struct(ptr noundef nonnull @.str.23, ptr noundef nonnull %0, ptr noundef nonnull @png_safe_error, ptr noundef nonnull @png_safe_warning, ptr noundef null, ptr noundef null, ptr noundef null) #15
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %png_create_write_struct.exit.thread, label %5
 
@@ -2473,7 +2473,7 @@ png_create_write_struct.exit.thread:              ; preds = %1
   br label %26
 
 26:                                               ; preds = %png_create_write_struct.exit.thread, %25
-  %27 = call i32 @png_image_error(ptr noundef %0, ptr noundef nonnull @.str.24) #15
+  %27 = call i32 @png_image_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #15
   br label %28
 
 28:                                               ; preds = %26, %20
@@ -2516,7 +2516,7 @@ define i32 @png_image_write_to_stdio(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %or.cond, label %15, label %27
 
 15:                                               ; preds = %12
-  %16 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0)
+  %16 = tail call fastcc i32 @png_image_write_init(ptr noundef %0)
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %.critedge, label %17
 
@@ -3423,7 +3423,7 @@ define i32 @png_image_write_to_file(ptr noundef %0, ptr noundef readonly %1, i32
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %17
-  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef nonnull %0)
+  %21 = tail call fastcc i32 @png_image_write_init(ptr noundef %0)
   %.not22.i = icmp eq i32 %21, 0
   br i1 %.not22.i, label %png_image_write_to_stdio.exit.thread, label %22
 

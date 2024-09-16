@@ -334,7 +334,7 @@ if.end22.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %do.body.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end22.i
-  %call.i.i = call fastcc ptr @find_merge_parent(ptr noundef nonnull %merge_parents, ptr noundef nonnull readonly %oid24.i, ptr noundef nonnull readonly %oid25.i)
+  %call.i.i = call fastcc ptr @find_merge_parent(ptr noundef %merge_parents, ptr noundef nonnull readonly %oid24.i, ptr noundef nonnull readonly %oid25.i)
   %tobool1.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool1.not.i.i, label %do.body.i.i, label %while.cond.backedge.i
 
@@ -1052,12 +1052,12 @@ land.rhs.i.i:                                     ; preds = %for.body.i.i
 for.body.i.i:                                     ; preds = %for.end.i, %land.rhs.i.i
   %item.05.i49.i = phi ptr [ %incdec.ptr.i.i67, %land.rhs.i.i ], [ %89, %for.end.i ]
   %93 = load ptr, ptr %item.05.i49.i, align 8
-  %call.i40.i = call i32 @wildmatch(ptr noundef %93, ptr noundef %current_branch.0, i32 noundef 2) #14
+  %call.i40.i = call i32 @wildmatch(ptr noundef %93, ptr noundef nonnull %current_branch.0, i32 noundef 2) #14
   %tobool1.not.i.i66 = icmp eq i32 %call.i40.i, 0
   br i1 %tobool1.not.i.i66, label %if.end41.i, label %land.rhs.i.i
 
 if.then40.i:                                      ; preds = %land.rhs.i.i, %for.end.i
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.29, ptr noundef %current_branch.0) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.29, ptr noundef nonnull %current_branch.0) #14
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %for.body.i.i, %if.then40.i
@@ -1177,7 +1177,7 @@ if.end20.i:                                       ; preds = %if.else17.i, %if.th
   br i1 %tobool21.not.i, label %if.then22.i, label %if.else23.i
 
 if.then22.i:                                      ; preds = %if.end20.i
-  call fastcc void @fmt_tag_signature(ptr noundef nonnull %tagbuf.i, ptr noundef nonnull %sig.i, ptr noundef %buf.0.i, i64 noundef %len.0.i)
+  call fastcc void @fmt_tag_signature(ptr noundef %tagbuf.i, ptr noundef %sig.i, ptr noundef %buf.0.i, i64 noundef %len.0.i)
   %111 = trunc nuw nsw i64 %indvars.iv.i74 to i32
   br label %if.end43.i
 
@@ -1245,7 +1245,7 @@ strbuf_addch.exit30.i:                            ; preds = %if.then.i26.i, %str
   %call42.i81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %126) #13
   %127 = load i8, ptr @comment_line_char, align 1
   call void @strbuf_add_commented_lines(ptr noundef nonnull %tagbuf.i, ptr noundef %126, i64 noundef %call42.i81, i8 noundef signext %127) #14
-  call fastcc void @fmt_tag_signature(ptr noundef nonnull %tagbuf.i, ptr noundef nonnull %sig.i, ptr noundef %buf.0.i, i64 noundef %len.0.i)
+  call fastcc void @fmt_tag_signature(ptr noundef %tagbuf.i, ptr noundef %sig.i, ptr noundef %buf.0.i, i64 noundef %len.0.i)
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %strbuf_addch.exit30.i, %if.then22.i
@@ -1476,7 +1476,7 @@ if.then21.i117:                                   ; preds = %land.lhs.true.i114
   br i1 %tobool25.not.i118, label %if.end27.i, label %if.then26.i119
 
 if.then26.i119:                                   ; preds = %if.then21.i117
-  call fastcc void @record_person(i32 noundef 99, ptr noundef nonnull %committers.i, ptr noundef nonnull %call1546.i)
+  call fastcc void @record_person(i32 noundef 99, ptr noundef %committers.i, ptr noundef %call1546.i)
   br label %if.end27.i
 
 if.end27.i:                                       ; preds = %if.then26.i119, %if.then21.i117
@@ -1493,7 +1493,7 @@ if.end28.i140:                                    ; preds = %land.lhs.true.i114,
   br i1 %or.cond65.i, label %if.end37.i, label %if.then36.i
 
 if.then36.i:                                      ; preds = %if.end28.i140
-  call fastcc void @record_person(i32 noundef 99, ptr noundef nonnull %committers.i, ptr noundef nonnull %call1546.i)
+  call fastcc void @record_person(i32 noundef 99, ptr noundef %committers.i, ptr noundef %call1546.i)
   %bf.load38.pre.i = load i8, ptr %opts, align 8
   %.pre = and i8 %bf.load38.pre.i, 2
   br label %if.end37.i
@@ -1504,7 +1504,7 @@ if.end37.i:                                       ; preds = %if.then36.i, %if.en
   br i1 %tobool42.not.i, label %if.end44.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end37.i
-  call fastcc void @record_person(i32 noundef 97, ptr noundef nonnull %authors.i, ptr noundef nonnull %call1546.i)
+  call fastcc void @record_person(i32 noundef 97, ptr noundef %authors.i, ptr noundef %call1546.i)
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then43.i, %if.end37.i
@@ -1570,8 +1570,8 @@ if.then.i7.i.i:                                   ; preds = %sane_qsort.exit.i.i
   br label %add_people_info.exit.i
 
 add_people_info.exit.i:                           ; preds = %if.then.i7.i.i, %sane_qsort.exit.i.i
-  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull readonly %authors.i, i32 noundef 97)
-  call fastcc void @credit_people(ptr noundef %out, ptr noundef nonnull readonly %committers.i, i32 noundef 99)
+  call fastcc void @credit_people(ptr noundef %out, ptr noundef readonly %authors.i, i32 noundef 97)
+  call fastcc void @credit_people(ptr noundef %out, ptr noundef readonly %committers.i, i32 noundef 99)
   br label %if.end65.i
 
 if.end65.i:                                       ; preds = %add_people_info.exit.i, %while.end.i121
@@ -1825,7 +1825,7 @@ declare ptr @pop_commit(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @find_merge_parent(ptr nocapture noundef readonly %table, ptr noundef readonly %given, ptr noundef readonly %commit) unnamed_addr #7 {
+define internal fastcc ptr @find_merge_parent(ptr nocapture noundef nonnull readonly %table, ptr noundef readonly %given, ptr noundef readonly %commit) unnamed_addr #7 {
 entry:
   %nr = getelementptr inbounds i8, ptr %table, i64 4
   %0 = load i32, ptr %nr, align 4
@@ -2106,7 +2106,7 @@ declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @check_signature(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fmt_tag_signature(ptr noundef %tagbuf, ptr nocapture noundef readonly %sig, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc void @fmt_tag_signature(ptr noundef nonnull %tagbuf, ptr nocapture noundef nonnull readonly %sig, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull dereferenceable(1) @.str.33) #13
   %tobool.not = icmp eq ptr %call, null
@@ -2118,7 +2118,7 @@ if.then:                                          ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  tail call void @strbuf_add(ptr noundef %tagbuf, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #14
+  tail call void @strbuf_add(ptr noundef nonnull %tagbuf, ptr noundef nonnull %add.ptr, i64 noundef %sub.ptr.sub) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -2233,10 +2233,10 @@ declare i32 @prepare_revision_walk(ptr noundef) local_unnamed_addr #2
 declare ptr @get_revision(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @record_person(i32 noundef %which, ptr noundef %people, ptr noundef %commit) unnamed_addr #0 {
+define internal fastcc void @record_person(i32 noundef range(i32 97, 100) %which, ptr noundef nonnull %people, ptr noundef nonnull %commit) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
-  %call = tail call ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef %commit, ptr noundef null) #14
+  %call = tail call ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef nonnull %commit, ptr noundef null) #14
   %cmp.i = icmp eq i32 %which, 97
   %cond.i = select i1 %cmp.i, ptr @.str.41, ptr @.str.42
   %call.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %cond.i) #13
@@ -2276,7 +2276,7 @@ if.end14.i:                                       ; preds = %while.end.i
   %reass.sub = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add.i = add i64 %reass.sub, 1
   %call15.i = tail call ptr @xmemdupz(ptr noundef nonnull %add.ptr.i, i64 noundef %add.i) #14
-  %call16.i = tail call ptr @string_list_lookup(ptr noundef %people, ptr noundef %call15.i) #14
+  %call16.i = tail call ptr @string_list_lookup(ptr noundef nonnull %people, ptr noundef %call15.i) #14
   %tobool17.not.i = icmp eq ptr %call16.i, null
   br i1 %tobool17.not.i, label %if.then18.i, label %if.end14.if.end20_crit_edge.i
 
@@ -2288,7 +2288,7 @@ if.end14.if.end20_crit_edge.i:                    ; preds = %if.end14.i
   br label %if.end20.i
 
 if.then18.i:                                      ; preds = %if.end14.i
-  %call19.i = tail call ptr @string_list_insert(ptr noundef %people, ptr noundef %call15.i) #14
+  %call19.i = tail call ptr @string_list_insert(ptr noundef nonnull %people, ptr noundef %call15.i) #14
   %util.i = getelementptr inbounds i8, ptr %call19.i, i64 8
   store ptr null, ptr %util.i, align 8
   br label %if.end20.i
@@ -2304,7 +2304,7 @@ if.end20.i:                                       ; preds = %if.then18.i, %if.en
 
 record_person_from_buf.exit:                      ; preds = %entry, %while.end.i, %if.end20.i
   %9 = load ptr, ptr @the_repository, align 8
-  tail call void @repo_unuse_commit_buffer(ptr noundef %9, ptr noundef %commit, ptr noundef %call) #14
+  tail call void @repo_unuse_commit_buffer(ptr noundef %9, ptr noundef nonnull %commit, ptr noundef %call) #14
   ret void
 }
 
@@ -2344,7 +2344,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @credit_people(ptr noundef %out, ptr nocapture noundef readonly %them, i32 noundef %kind) unnamed_addr #0 {
+define internal fastcc void @credit_people(ptr noundef %out, ptr nocapture noundef nonnull readonly %them, i32 noundef range(i32 97, 100) %kind) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %kind, 97
   br i1 %cmp, label %if.then, label %if.else

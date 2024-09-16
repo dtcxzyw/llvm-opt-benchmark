@@ -512,7 +512,7 @@ if.then178:                                       ; preds = %if.end175.critedge
   br label %if.then243
 
 if.end180:                                        ; preds = %if.end175.critedge
-  %call181 = call fastcc i32 @do_mac(ptr noundef nonnull %call155, ptr noundef nonnull %call144, ptr noundef nonnull %call139, ptr noundef nonnull %module_mac, ptr noundef nonnull %module_mac_len)
+  %call181 = call fastcc i32 @do_mac(ptr noundef %call155, ptr noundef %call144, ptr noundef %call139, ptr noundef %module_mac, ptr noundef %module_mac_len)
   %tobool182.not = icmp eq i32 %call181, 0
   br i1 %tobool182.not, label %if.then243, label %if.end184
 
@@ -533,7 +533,7 @@ if.then191:                                       ; preds = %if.then188
   br label %if.then243
 
 if.end193:                                        ; preds = %if.then188
-  %call195 = call fastcc i32 @do_mac(ptr noundef nonnull %call176, ptr noundef nonnull %call144, ptr noundef nonnull %call189, ptr noundef nonnull %install_mac, ptr noundef nonnull %install_mac_len)
+  %call195 = call fastcc i32 @do_mac(ptr noundef %call176, ptr noundef %call144, ptr noundef %call189, ptr noundef %install_mac, ptr noundef %install_mac_len)
   %tobool196.not = icmp eq i32 %call195, 0
   br i1 %tobool196.not, label %if.then243, label %if.end200
 
@@ -548,7 +548,7 @@ if.end200:                                        ; preds = %if.end193, %if.else
 
 if.then202:                                       ; preds = %if.end200
   %16 = load i64, ptr %install_mac_len, align 8
-  %call205 = call fastcc i32 @verify_config(ptr noundef %in_fname.0, ptr noundef %section_name.0, ptr noundef nonnull %module_mac, i64 noundef %15, ptr noundef nonnull %install_mac, i64 noundef %16)
+  %call205 = call fastcc i32 @verify_config(ptr noundef %in_fname.0, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %15, ptr noundef %install_mac, i64 noundef %16)
   %tobool206.not = icmp eq i32 %call205, 0
   br i1 %tobool206.not, label %if.then243, label %if.end208
 
@@ -562,7 +562,7 @@ if.then210:                                       ; preds = %if.end208
   br label %cleanup
 
 if.else213:                                       ; preds = %if.end200
-  %call215 = call fastcc ptr @generate_config_and_load(ptr noundef %prov_name.0, ptr noundef %section_name.0, ptr noundef nonnull %module_mac, i64 noundef %15)
+  %call215 = call fastcc ptr @generate_config_and_load(ptr noundef %prov_name.0, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %15)
   %cmp216 = icmp eq ptr %call215, null
   br i1 %cmp216, label %if.then243, label %if.end218
 
@@ -596,7 +596,7 @@ if.then228:                                       ; preds = %cond.end
 if.end230:                                        ; preds = %cond.end
   %19 = load i64, ptr %module_mac_len, align 8
   %20 = load i64, ptr %install_mac_len, align 8
-  %call233 = call fastcc i32 @write_config_fips_section(ptr noundef nonnull %cond226, ptr noundef %section_name.0, ptr noundef nonnull %module_mac, i64 noundef %19, ptr noundef nonnull %install_mac, i64 noundef %20)
+  %call233 = call fastcc i32 @write_config_fips_section(ptr noundef %cond226, ptr noundef %section_name.0, ptr noundef %module_mac, i64 noundef %19, ptr noundef nonnull %install_mac, i64 noundef %20)
   %tobool234.not = icmp eq i32 %call233, 0
   br i1 %tobool234.not, label %if.then243, label %if.end236
 
@@ -837,20 +837,20 @@ declare void @app_params_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MAC_CTX_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_mac(ptr noundef %ctx, ptr noundef %tmp, ptr noundef %in, ptr noundef %out, ptr noundef %out_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_mac(ptr noundef nonnull %ctx, ptr noundef nonnull %tmp, ptr noundef nonnull %in, ptr noundef nonnull %out, ptr noundef nonnull %out_len) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %out_len, align 8
-  %call = tail call i32 @EVP_MAC_init(ptr noundef %ctx, ptr noundef null, i64 noundef 0, ptr noundef null) #5
+  %call = tail call i32 @EVP_MAC_init(ptr noundef nonnull %ctx, ptr noundef null, i64 noundef 0, ptr noundef null) #5
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i64 @EVP_MAC_CTX_get_mac_size(ptr noundef %ctx) #5
+  %call1 = tail call i64 @EVP_MAC_CTX_get_mac_size(ptr noundef nonnull %ctx) #5
   %cmp = icmp ugt i64 %call1, %0
   br i1 %cmp, label %end, label %while.cond
 
 while.cond:                                       ; preds = %if.end, %lor.lhs.false
-  %call4 = tail call i32 @BIO_read(ptr noundef %in, ptr noundef %tmp, i32 noundef 4096) #5
+  %call4 = tail call i32 @BIO_read(ptr noundef nonnull %in, ptr noundef nonnull %tmp, i32 noundef 4096) #5
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %end, label %while.body
 
@@ -860,12 +860,12 @@ while.body:                                       ; preds = %while.cond
 
 lor.lhs.false:                                    ; preds = %while.body
   %conv = zext nneg i32 %call4 to i64
-  %call7 = tail call i32 @EVP_MAC_update(ptr noundef %ctx, ptr noundef %tmp, i64 noundef %conv) #5
+  %call7 = tail call i32 @EVP_MAC_update(ptr noundef nonnull %ctx, ptr noundef nonnull %tmp, i64 noundef %conv) #5
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %err, label %while.cond, !llvm.loop !7
 
 end:                                              ; preds = %while.cond, %if.end
-  %call11 = tail call i32 @EVP_MAC_final(ptr noundef %ctx, ptr noundef %out, ptr noundef nonnull %out_len, i64 noundef %0) #5
+  %call11 = tail call i32 @EVP_MAC_final(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %out_len, i64 noundef %0) #5
   %tobool12.not = icmp ne i32 %call11, 0
   %spec.select = zext i1 %tobool12.not to i32
   br label %err
@@ -878,7 +878,7 @@ err:                                              ; preds = %while.body, %lor.lh
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef readonly %module_mac, i64 noundef %module_mac_len, ptr nocapture noundef readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @verify_config(ptr noundef %infile, ptr noundef %section, ptr nocapture noundef nonnull readonly %module_mac, i64 noundef %module_mac_len, ptr nocapture noundef nonnull readonly %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = tail call ptr @app_load_config_internal(ptr noundef %infile, i32 noundef 0) #5
@@ -925,7 +925,7 @@ if.end12:                                         ; preds = %if.end7
   br i1 %or.cond, label %lor.lhs.false17, label %if.then20
 
 lor.lhs.false17:                                  ; preds = %if.end12
-  %bcmp = call i32 @bcmp(ptr %module_mac, ptr nonnull %call13, i64 %module_mac_len)
+  %bcmp = call i32 @bcmp(ptr nonnull %module_mac, ptr nonnull %call13, i64 %module_mac_len)
   %cmp19.not = icmp eq i32 %bcmp, 0
   br i1 %cmp19.not, label %if.end22, label %if.then20
 
@@ -972,7 +972,7 @@ if.end38:                                         ; preds = %if.end33
   br i1 %or.cond25, label %lor.lhs.false43, label %if.then46
 
 lor.lhs.false43:                                  ; preds = %if.end38
-  %bcmp24 = call i32 @bcmp(ptr %install_mac, ptr nonnull %call39, i64 %install_mac_len)
+  %bcmp24 = call i32 @bcmp(ptr nonnull %install_mac, ptr nonnull %call39, i64 %install_mac_len)
   %cmp45.not = icmp eq i32 %bcmp24, 0
   br i1 %cmp45.not, label %end, label %if.then46
 
@@ -992,7 +992,7 @@ end:                                              ; preds = %if.end22, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_config_and_load(ptr noundef %prov_name, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len) unnamed_addr #0 {
+define internal fastcc ptr @generate_config_and_load(ptr noundef %prov_name, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_mem() #5
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #5
@@ -1025,7 +1025,7 @@ write_config_header.exit:                         ; preds = %land.lhs.true6.i
   br i1 %tobool10.i.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %write_config_header.exit
-  %call3 = tail call fastcc i32 @write_config_fips_section(ptr noundef nonnull %call1, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef null, i64 noundef 0)
+  %call3 = tail call fastcc i32 @write_config_fips_section(ptr noundef %call1, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef null, i64 noundef 0)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %end, label %if.end6
 
@@ -1144,19 +1144,19 @@ end:                                              ; preds = %if.end, %if.then30,
 declare ptr @dup_bio_out(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @write_config_fips_section(ptr noundef %out, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_config_fips_section(ptr noundef nonnull %out, ptr noundef %section, ptr noundef nonnull %module_mac, i64 noundef %module_mac_len, ptr noundef %install_mac, i64 noundef %install_mac_len) unnamed_addr #0 {
 entry:
-  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.100, ptr noundef %section) #5
+  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.100, ptr noundef %section) #5
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.101) #5
+  %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.101) #5
   %cmp2 = icmp slt i32 %call1, 1
   br i1 %cmp2, label %end, label %lor.lhs.false3
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
-  %call4 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75) #5
+  %call4 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75) #5
   %cmp5 = icmp slt i32 %call4, 1
   br i1 %cmp5, label %end, label %lor.lhs.false6
 
@@ -1165,7 +1165,7 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false3
   %0 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %0, 0
   %cond = select i1 %tobool.not, ptr @.str.104, ptr @.str.75
-  %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull %cond) #5
+  %call7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull %cond) #5
   %cmp8 = icmp slt i32 %call7, 1
   br i1 %cmp8, label %end, label %lor.lhs.false9
 
@@ -1174,7 +1174,7 @@ lor.lhs.false9:                                   ; preds = %lor.lhs.false6
   %1 = and i8 %bf.load10, 4
   %tobool14.not = icmp eq i8 %1, 0
   %cond15 = select i1 %tobool14.not, ptr @.str.104, ptr @.str.75
-  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull %cond15) #5
+  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull %cond15) #5
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %end, label %lor.lhs.false18
 
@@ -1183,7 +1183,7 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false9
   %2 = and i8 %bf.load19, 8
   %tobool23.not = icmp eq i8 %2, 0
   %cond24 = select i1 %tobool23.not, ptr @.str.104, ptr @.str.75
-  %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.106, ptr noundef nonnull %cond24) #5
+  %call25 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.106, ptr noundef nonnull %cond24) #5
   %cmp26 = icmp slt i32 %call25, 1
   br i1 %cmp26, label %end, label %lor.lhs.false27
 
@@ -1192,17 +1192,17 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false18
   %3 = and i8 %bf.load28, 16
   %tobool32.not = icmp eq i8 %3, 0
   %cond33 = select i1 %tobool32.not, ptr @.str.104, ptr @.str.75
-  %call34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.107, ptr noundef nonnull %cond33) #5
+  %call34 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.107, ptr noundef nonnull %cond33) #5
   %cmp35 = icmp slt i32 %call34, 1
   br i1 %cmp35, label %end, label %lor.lhs.false36
 
 lor.lhs.false36:                                  ; preds = %lor.lhs.false27
-  %call.i = tail call ptr @OPENSSL_buf2hexstr(ptr noundef %module_mac, i64 noundef %module_mac_len) #5
+  %call.i = tail call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %module_mac, i64 noundef %module_mac_len) #5
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %end, label %print_mac.exit
 
 print_mac.exit:                                   ; preds = %lor.lhs.false36
-  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.77, ptr noundef nonnull %call.i) #5
+  %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.77, ptr noundef nonnull %call.i) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.56, i32 noundef 190) #5
   %tobool38.not = icmp eq i32 %call1.i, 0
   br i1 %tobool38.not, label %end, label %if.end
@@ -1214,12 +1214,12 @@ if.end:                                           ; preds = %print_mac.exit
   br i1 %or.cond, label %if.then41, label %if.end49
 
 if.then41:                                        ; preds = %if.end
-  %call42 = tail call fastcc i32 @print_mac(ptr noundef %out, ptr noundef nonnull @.str.82, ptr noundef nonnull %install_mac, i64 noundef %install_mac_len)
+  %call42 = tail call fastcc i32 @print_mac(ptr noundef %out, ptr noundef nonnull @.str.82, ptr noundef %install_mac, i64 noundef %install_mac_len)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %end, label %lor.lhs.false44
 
 lor.lhs.false44:                                  ; preds = %if.then41
-  %call45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.65) #5
+  %call45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.65) #5
   %cmp46 = icmp slt i32 %call45, 1
   br i1 %cmp46, label %end, label %if.end49
 
@@ -1285,14 +1285,14 @@ declare i32 @OSSL_PARAM_modified(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_PROVIDER_unload(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_mac(ptr noundef %bio, ptr noundef %label, ptr noundef %mac, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc i32 @print_mac(ptr noundef nonnull %bio, ptr noundef %label, ptr noundef nonnull %mac, i64 noundef %len) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @OPENSSL_buf2hexstr(ptr noundef %mac, i64 noundef %len) #5
+  %call = tail call ptr @OPENSSL_buf2hexstr(ptr noundef nonnull %mac, i64 noundef %len) #5
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.102, ptr noundef %label, ptr noundef nonnull %call) #5
+  %call1 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %bio, ptr noundef nonnull @.str.102, ptr noundef %label, ptr noundef nonnull %call) #5
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str.56, i32 noundef 190) #5
   br label %return
 

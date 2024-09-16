@@ -701,7 +701,7 @@ makeItemBinary.exit421:                           ; preds = %248, %254
 258:                                              ; preds = %81
   %259 = getelementptr i8, ptr %.2357, i64 -32
   %260 = load ptr, ptr %259, align 8
-  %261 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %260, ptr noundef nonnull %.2357, ptr noundef null, ptr noundef nonnull %6, ptr noundef %1)
+  %261 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %260, ptr noundef nonnull %.2357, ptr noundef null, ptr noundef %6, ptr noundef %1)
   br i1 %261, label %262, label %.loopexit539
 
 262:                                              ; preds = %258
@@ -712,7 +712,7 @@ makeItemBinary.exit421:                           ; preds = %248, %254
   %265 = getelementptr i8, ptr %.2357, i64 -64
   %266 = load ptr, ptr %265, align 8
   %267 = getelementptr i8, ptr %.2357, i64 -32
-  %268 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %266, ptr noundef %267, ptr noundef nonnull %.2357, ptr noundef nonnull %7, ptr noundef %1)
+  %268 = call fastcc zeroext i1 @makeItemLikeRegex(ptr noundef %266, ptr noundef %267, ptr noundef nonnull %.2357, ptr noundef %7, ptr noundef %1)
   br i1 %268, label %269, label %.loopexit539
 
 269:                                              ; preds = %264
@@ -1873,7 +1873,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare i32 @jsonpath_yylex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @makeItemUnary(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @makeItemUnary(i32 noundef range(i32 6, 54) %0, ptr noundef %1) unnamed_addr #0 {
   switch i32 %0, label %26 [
     i32 19, label %3
     i32 20, label %9
@@ -1952,7 +1952,7 @@ makeItemType.exit16:                              ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @makeItemLikeRegex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.regex_t, align 8
   %7 = alloca [100 x i8], align 16
   %8 = tail call ptr @palloc(i64 noundef 40) #5

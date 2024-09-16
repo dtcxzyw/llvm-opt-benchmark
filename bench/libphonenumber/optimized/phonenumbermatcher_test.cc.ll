@@ -21856,7 +21856,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EE18_M_insert_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest30DoTestNumberMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest30DoTestNumberMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::scoped_ptr.38", align 8
   %5 = alloca %"class.testing::AssertionResult", align 8
   %6 = alloca %"class.testing::Message", align 8
@@ -21937,7 +21937,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit
           to label %_ZN7testing7MessagelsIA19_cEERS0_RKT_.exit unwind label %60
 
 _ZN7testing7MessagelsIA19_cEERS0_RKT_.exit:       ; preds = %36
-  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.056.072)
+  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.056.072)
           to label %40 unwind label %60
 
 40:                                               ; preds = %_ZN7testing7MessagelsIA19_cEERS0_RKT_.exit
@@ -22100,7 +22100,7 @@ _ZN7testing8internal8EqHelper7CompareINSt7__cxx1112basic_stringIcSt11char_traits
           to label %_ZN7testing7MessagelsIA27_cEERS0_RKT_.exit unwind label %118
 
 _ZN7testing7MessagelsIA27_cEERS0_RKT_.exit:       ; preds = %90
-  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.056.072)
+  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.056.072)
           to label %94 unwind label %118
 
 94:                                               ; preds = %_ZN7testing7MessagelsIA27_cEERS0_RKT_.exit
@@ -22331,7 +22331,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::scoped_ptr.38", align 8
   %5 = alloca %"class.testing::AssertionResult", align 8
   %6 = alloca %"class.testing::Message", align 8
@@ -22405,7 +22405,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers18PhoneNumberMatcherEE5resetEPS3_.exit
           to label %_ZN7testing7MessagelsIA16_cEERS0_RKT_.exit unwind label %53
 
 _ZN7testing7MessagelsIA16_cEERS0_RKT_.exit:       ; preds = %29
-  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.029.040)
+  invoke fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.029.040)
           to label %33 unwind label %53
 
 33:                                               ; preds = %_ZN7testing7MessagelsIA16_cEERS0_RKT_.exit
@@ -34482,7 +34482,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_113NumberContextESaIS3_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest15DoTestInContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaISC_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers22PhoneNumberMatcherTest15DoTestInContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_RKSt6vectorINS0_12_GLOBAL__N_113NumberContextESaISC_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -37063,7 +37063,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8ToStringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %4 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
   %5 = alloca %"class.i18n::phonenumbers::StringHolder", align 8
@@ -37082,7 +37082,7 @@ define internal fastcc void @_ZNK4i18n12phonenumbers12_GLOBAL__N_110NumberTest8T
           to label %10 unwind label %16
 
 10:                                               ; preds = %9
-  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
+  invoke void @_ZN4i18n12phonenumbers6StrCatB5cxx11ERKNS0_12StringHolderES3_S3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %6)
           to label %11 unwind label %18
 
 11:                                               ; preds = %10

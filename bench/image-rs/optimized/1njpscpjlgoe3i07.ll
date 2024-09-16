@@ -1703,7 +1703,7 @@ define hidden noalias noundef ptr @_ZN3std2io5Write9write_all17hda6d87d1c6cd9aea
 21:                                               ; preds = %.lr.ph.preheader.i.i.i.i.us, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h4775764c3360a65dE.exit.i.i.i.us"
   %22 = load ptr, ptr %7, align 8, !alias.scope !279, !noalias !280, !nonnull !5, !noundef !5
   %23 = getelementptr inbounds i8, ptr %22, i64 %.promoted
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !281
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %2, i1 false), !noalias !281
   %24 = add i64 %.promoted, %2
   %25 = load i64, ptr %6, align 8, !alias.scope !279, !noalias !280, !noundef !5
   %26 = icmp ugt i64 %24, %25
@@ -1756,7 +1756,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17hff15f0bbd5347798E(ptr no
   %17 = getelementptr inbounds i8, ptr %11, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !298, !noalias !301, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds i8, ptr %18, i64 %14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull readonly align 1 %.sroa.0.037, i64 %.sroa.4.036, i1 false), !noalias !304
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.037, i64 %.sroa.4.036, i1 false), !noalias !304
   %20 = add i64 %14, %.sroa.4.036
   store i64 %20, ptr %13, align 8, !alias.scope !298, !noalias !301
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !288
@@ -4845,7 +4845,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$png..common..BitDepth$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i8, ptr %0, align 8, !range !545, !noundef !5
   switch i8 %3, label %4 [
@@ -4904,7 +4904,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$tiff..decoder..ifd..Va
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i8, ptr %0, align 8, !range !145, !noundef !5
@@ -5000,7 +5000,7 @@ define internal void @"_ZN4core3ptr62drop_in_place$LT$$RF$tiff..tags..Photometri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -5134,7 +5134,7 @@ define internal void @"_ZN4core3ptr68drop_in_place$LT$std..io..cursor..Cursor$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !103, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -5486,7 +5486,7 @@ define hidden void @_ZN4lebe6Endian32convert_current_to_little_endian17hdbd6f122
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00edc8edf63E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00edc8edf63E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -5803,7 +5803,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00
 118:                                              ; preds = %117
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %15) #39
           to label %.body unwind label %120
 
 120:                                              ; preds = %118
@@ -5838,7 +5838,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af714b36384E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af714b36384E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -6147,7 +6147,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %116
 
 116:                                              ; preds = %114
@@ -6182,7 +6182,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05bb6b84566E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05bb6b84566E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -6495,7 +6495,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -6528,7 +6528,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042d88118b4dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042d88118b4dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -6841,7 +6841,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -6874,7 +6874,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaacbeaa7c46E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaacbeaa7c46E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7187,7 +7187,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -7220,7 +7220,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16dc12bfe83fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16dc12bfe83fE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [2 x i8], align 2
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7506,7 +7506,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16d
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -7541,7 +7541,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfeed81b8cb4E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfeed81b8cb4E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -7845,7 +7845,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfe
 111:                                              ; preds = %110
   %112 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %113
 
 113:                                              ; preds = %111
@@ -7880,7 +7880,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2358c3080cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2358c3080cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8169,7 +8169,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -8202,7 +8202,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3929100e6cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3929100e6cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8511,7 +8511,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %116
 
 116:                                              ; preds = %114
@@ -8546,7 +8546,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9e551e2549E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9e551e2549E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -8826,7 +8826,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9
 103:                                              ; preds = %102
   %104 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %105
 
 105:                                              ; preds = %103
@@ -8861,7 +8861,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae6672672ceE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae6672672ceE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9140,7 +9140,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae
 103:                                              ; preds = %102
   %104 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %105
 
 105:                                              ; preds = %103
@@ -9173,7 +9173,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225027648b02E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225027648b02E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9514,7 +9514,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 125:                                              ; preds = %124
   %126 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #39
           to label %.body unwind label %127
 
 127:                                              ; preds = %125
@@ -9549,7 +9549,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab44eecf78beE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab44eecf78beE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -9838,7 +9838,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab4
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -9871,7 +9871,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c612678bfe752bbE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c612678bfe752bbE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -10212,7 +10212,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 125:                                              ; preds = %124
   %126 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %17) #39
           to label %.body unwind label %127
 
 127:                                              ; preds = %125
@@ -10247,7 +10247,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c61267
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d03d93c69caE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d03d93c69caE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -10532,7 +10532,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d0
 107:                                              ; preds = %106
   %108 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %109
 
 109:                                              ; preds = %107
@@ -10567,7 +10567,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h830392918358eb0aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h830392918358eb0aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -10871,7 +10871,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8303929
 110:                                              ; preds = %109
   %111 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %112
 
 112:                                              ; preds = %110
@@ -10906,7 +10906,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8303929
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0879b38e10E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0879b38e10E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -11186,7 +11186,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0
 104:                                              ; preds = %103
   %105 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %106
 
 106:                                              ; preds = %104
@@ -11221,7 +11221,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a347d6287f6eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a347d6287f6eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [2 x i8], align 2
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -11531,7 +11531,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -11566,7 +11566,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a34
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f613d7e9cc0E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f613d7e9cc0E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -11851,7 +11851,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f6
 107:                                              ; preds = %106
   %108 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %109
 
 109:                                              ; preds = %107
@@ -11886,7 +11886,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f32e47546eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f32e47546eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [2 x i8], align 2
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12172,7 +12172,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -12207,7 +12207,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462313fa1defE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462313fa1defE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [1 x i8], align 1
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12510,7 +12510,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462
 110:                                              ; preds = %109
   %111 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %112
 
 112:                                              ; preds = %110
@@ -12543,7 +12543,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92df770784ceE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92df770784ceE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -12828,7 +12828,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92d
 107:                                              ; preds = %106
   %108 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %109
 
 109:                                              ; preds = %107
@@ -12863,7 +12863,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7608f5741cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7608f5741cE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -13176,7 +13176,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -13209,7 +13209,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1e4aedd89aE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1e4aedd89aE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -13498,7 +13498,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -13531,7 +13531,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf3ba856342E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf3ba856342E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -13840,7 +13840,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %116
 
 116:                                              ; preds = %114
@@ -13875,7 +13875,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fdb6fd87ddeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fdb6fd87ddeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -14184,7 +14184,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %116
 
 116:                                              ; preds = %114
@@ -14219,7 +14219,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9e8d0038c3E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9e8d0038c3E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [8 x i8], align 8
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -14504,7 +14504,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9
 107:                                              ; preds = %106
   %108 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %109
 
 109:                                              ; preds = %107
@@ -14539,7 +14539,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb5f4bb8f2fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb5f4bb8f2fE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [2 x i8], align 2
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -14849,7 +14849,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 115:                                              ; preds = %114
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %16) #39
           to label %.body unwind label %117
 
 117:                                              ; preds = %115
@@ -14884,7 +14884,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df878933c325E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df878933c325E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -15201,7 +15201,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df8
 118:                                              ; preds = %117
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %15) #39
           to label %.body unwind label %120
 
 120:                                              ; preds = %118
@@ -15236,7 +15236,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c429259d70E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c429259d70E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef range(i64 2, 1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i64 %.0.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [4 x i8], align 4
   %8 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %9 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -15525,7 +15525,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c
 108:                                              ; preds = %107
   %109 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %14) #39
           to label %.body unwind label %110
 
 110:                                              ; preds = %108
@@ -16846,77 +16846,77 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 
 459:                                              ; preds = %458
   %.val = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0879b38e10E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h86410f0879b38e10E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 460:                                              ; preds = %458
   %.val1049 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16dc12bfe83fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1049, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2f2c16dc12bfe83fE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1049, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 461:                                              ; preds = %458
   %.val1050 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2358c3080cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1050, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h57cedf2358c3080cE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1050, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 462:                                              ; preds = %458
   %.val1051 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00edc8edf63E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1051, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h03eca00edc8edf63E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1051, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 463:                                              ; preds = %458
   %.val1052 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9e551e2549E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1052, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5b74fb9e551e2549E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1052, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 464:                                              ; preds = %458
   %.val1053 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae6672672ceE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1053, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h619ecae6672672ceE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1053, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 465:                                              ; preds = %458
   %.val1054 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f32e47546eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1054, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17ha06b26f32e47546eE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1054, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 466:                                              ; preds = %458
   %.val1055 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1e4aedd89aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1055, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd2108e1e4aedd89aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1055, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 467:                                              ; preds = %458
   %.val1056 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df878933c325E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1056, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17heee3df878933c325E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1056, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 468:                                              ; preds = %458
   %.val1057 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab44eecf78beE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1057, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7b03ab44eecf78beE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1057, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 469:                                              ; preds = %458
   %.val1058 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d03d93c69caE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1058, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7cb09d03d93c69caE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1058, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 470:                                              ; preds = %458
   %.val1059 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c429259d70E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1059, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hf01bd1c429259d70E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1059, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 471:                                              ; preds = %458
   %.val1060 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9e8d0038c3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1060, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7170f9e8d0038c3E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1060, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 472:                                              ; preds = %458
   %.val1061 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92df770784ceE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1061, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb76f92df770784ceE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1061, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 473:                                              ; preds = %458
   %.val1062 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f613d7e9cc0E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1062, ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h9b395f613d7e9cc0E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %91, i1 noundef zeroext %97, i1 noundef zeroext %3, i64 %.val1062, ptr noalias noundef align 8 dereferenceable(32) %4)
   br label %104
 
 474:                                              ; preds = %458
@@ -17062,7 +17062,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
-  call fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %47, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %46)
+  call fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef align 8 dereferenceable(40) %47, ptr noalias nocapture noundef align 8 dereferenceable(24) %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   %528 = load i64, ptr %47, align 8, !range !103, !noundef !5
   %529 = icmp eq i64 %528, -9223372036854775808
@@ -17450,7 +17450,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 642:                                              ; preds = %641
   %643 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %66) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %66) #39
           to label %.body unwind label %644
 
 644:                                              ; preds = %642
@@ -17555,7 +17555,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 672:                                              ; preds = %671
   %673 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %60) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %60) #39
           to label %.body1115 unwind label %674
 
 674:                                              ; preds = %672
@@ -17661,7 +17661,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 703:                                              ; preds = %702
   %704 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %63) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %63) #39
           to label %.body1122 unwind label %705
 
 705:                                              ; preds = %703
@@ -17766,7 +17766,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 733:                                              ; preds = %732
   %734 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %57) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %57) #39
           to label %.body1129 unwind label %735
 
 735:                                              ; preds = %733
@@ -17871,7 +17871,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 763:                                              ; preds = %762
   %764 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %54) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %54) #39
           to label %.body1136 unwind label %765
 
 765:                                              ; preds = %763
@@ -17976,7 +17976,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h36c8e5a4d483dda5E.exit926.threa
 793:                                              ; preds = %792
   %794 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %51) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %51) #39
           to label %.body1143 unwind label %795
 
 795:                                              ; preds = %793
@@ -19447,77 +19447,77 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 
 511:                                              ; preds = %510
   %.val = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfeed81b8cb4E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5509bfeed81b8cb4E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 512:                                              ; preds = %510
   %.val1049 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb5f4bb8f2fE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1049, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he7c04bb5f4bb8f2fE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1049, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 513:                                              ; preds = %510
   %.val1050 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaacbeaa7c46E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1050, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2e63aaacbeaa7c46E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1050, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 514:                                              ; preds = %510
   %.val1051 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c612678bfe752bbE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1051, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7c612678bfe752bbE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1051, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 515:                                              ; preds = %510
   %.val1052 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h830392918358eb0aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1052, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h830392918358eb0aE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1052, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 516:                                              ; preds = %510
   %.val1053 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462313fa1defE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1053, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hb4a0462313fa1defE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1053, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 517:                                              ; preds = %510
   %.val1054 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a347d6287f6eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1054, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h8f13a347d6287f6eE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1054, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 518:                                              ; preds = %510
   %.val1055 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7608f5741cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1055, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hbd4b6c7608f5741cE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1055, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 519:                                              ; preds = %510
   %.val1056 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225027648b02E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1056, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h71bb225027648b02E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1056, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 520:                                              ; preds = %510
   %.val1057 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05bb6b84566E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1057, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1770e05bb6b84566E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1057, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 521:                                              ; preds = %510
   %.val1058 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf3ba856342E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1058, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hdbfaecf3ba856342E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1058, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 522:                                              ; preds = %510
   %.val1059 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042d88118b4dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1059, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abd042d88118b4dE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1059, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 523:                                              ; preds = %510
   %.val1060 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3929100e6cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1060, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h5a3f3f3929100e6cE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1060, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 524:                                              ; preds = %510
   %.val1061 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fdb6fd87ddeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1061, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17he3953fdb6fd87ddeE(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1061, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 525:                                              ; preds = %510
   %.val1062 = load i64, ptr %2, align 8, !noundef !5
-  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af714b36384E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1062, ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+  tail call fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0c162af714b36384E(ptr noalias nocapture noundef align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i64 noundef %107, i1 noundef zeroext %113, i1 noundef zeroext %3, i64 %.val1062, ptr noalias noundef align 8 dereferenceable(56) %4)
   br label %120
 
 526:                                              ; preds = %510
@@ -19703,7 +19703,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
-  call fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %63, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %62)
+  call fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef align 8 dereferenceable(40) %63, ptr noalias nocapture noundef align 8 dereferenceable(24) %62)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62)
   %592 = load i64, ptr %63, align 8, !range !103, !noundef !5
   %593 = icmp eq i64 %592, -9223372036854775808
@@ -20091,7 +20091,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 706:                                              ; preds = %705
   %707 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %82) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %82) #39
           to label %.body unwind label %708
 
 708:                                              ; preds = %706
@@ -20196,7 +20196,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 736:                                              ; preds = %735
   %737 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %76) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %76) #39
           to label %.body1144 unwind label %738
 
 738:                                              ; preds = %736
@@ -20302,7 +20302,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 767:                                              ; preds = %766
   %768 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %79) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %79) #39
           to label %.body1151 unwind label %769
 
 769:                                              ; preds = %767
@@ -20407,7 +20407,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 797:                                              ; preds = %796
   %798 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %73) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %73) #39
           to label %.body1158 unwind label %799
 
 799:                                              ; preds = %797
@@ -20512,7 +20512,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 827:                                              ; preds = %826
   %828 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %70) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %70) #39
           to label %.body1165 unwind label %829
 
 829:                                              ; preds = %827
@@ -20617,7 +20617,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217hb6d0d073602cef18E.exit945.threa
 857:                                              ; preds = %856
   %858 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %67) #39
+  invoke fastcc void @"_ZN4core3ptr46drop_in_place$LT$tiff..decoder..ifd..Value$GT$17hf269df3addec1aeeE"(ptr noalias noundef align 8 dereferenceable(32) %67) #39
           to label %.body1172 unwind label %859
 
 859:                                              ; preds = %857
@@ -21059,7 +21059,7 @@ define hidden void @_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.llvm.98706352026558
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String9from_utf817ha56d2fd69a46ed86E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr }, i64 }, { i64, { i8, i8 }, [6 x i8] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -25244,7 +25244,7 @@ switch.lookup:                                    ; preds = %177
 213:                                              ; preds = %191
   %214 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %23) #39
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef align 8 dereferenceable(32) %23) #39
           to label %184 unwind label %215
 
 215:                                              ; preds = %.thread337, %213, %184
@@ -25491,7 +25491,7 @@ common.resume:                                    ; preds = %498, %.body.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5039)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5042)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %41), !noalias !5044
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %41, ptr noalias noundef nonnull align 8 dereferenceable(24) %52), !noalias !5048
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef align 8 dereferenceable(64) %41, ptr noalias noundef align 8 dereferenceable(24) %52), !noalias !5048
   %81 = load i8, ptr %41, align 8, !range !4780, !noalias !5044, !noundef !5
   %82 = icmp eq i8 %81, 10
   br i1 %82, label %83, label %88
@@ -25501,7 +25501,7 @@ common.resume:                                    ; preds = %498, %.body.i.i.i.i
   %85 = load i32, ptr %84, align 4, !noalias !5044, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %41), !noalias !5044
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %40), !noalias !5044
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %40, ptr noalias noundef nonnull align 8 dereferenceable(24) %52), !noalias !5048
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef align 8 dereferenceable(64) %40, ptr noalias noundef align 8 dereferenceable(24) %52), !noalias !5048
   %86 = load i8, ptr %40, align 8, !range !4780, !noalias !5044, !noundef !5
   %87 = icmp eq i8 %86, 10
   br i1 %87, label %90, label %89
@@ -25636,7 +25636,7 @@ common.resume:                                    ; preds = %498, %.body.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5054)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39), !noalias !5056
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %37), !noalias !5056
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %37, ptr noalias noundef nonnull align 8 dereferenceable(24) %51, i1 noundef zeroext %.sroa.11.0.ph438), !noalias !5051
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef align 8 dereferenceable(64) %37, ptr noalias noundef align 8 dereferenceable(24) %51, i1 noundef zeroext %.sroa.11.0.ph438), !noalias !5051
   call void @llvm.experimental.noalias.scope.decl(metadata !5057)
   %95 = load i8, ptr %37, align 8, !range !4780, !alias.scope !5060, !noalias !5056, !noundef !5
   %96 = icmp eq i8 %95, 10
@@ -25783,7 +25783,7 @@ common.resume:                                    ; preds = %498, %.body.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5068)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !5070
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %35), !noalias !5070
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %35, ptr noalias noundef nonnull align 8 dereferenceable(24) %50, i1 noundef zeroext %.sroa.11.0.ph444), !noalias !5065
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef align 8 dereferenceable(64) %35, ptr noalias noundef align 8 dereferenceable(24) %50, i1 noundef zeroext %.sroa.11.0.ph444), !noalias !5065
   %107 = load i8, ptr %35, align 8, !range !4780, !noalias !5070, !noundef !5
   %108 = icmp eq i8 %107, 10
   br i1 %108, label %109, label %115
@@ -26023,7 +26023,7 @@ common.resume:                                    ; preds = %498, %.body.i.i.i.i
 
 .body.i.i61:                                      ; preds = %403, %390, %363, %.body.i.i.i, %.body.i.i57.i, %.body.i.i234.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.i, %.loopexit.i.i
   %.pn.i.i = phi { ptr, i32 } [ %391, %390 ], [ %404, %403 ], [ %154, %.body.i.i234.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit486.i.i, %.loopexit.split-lp.loopexit.i.i ], [ %lpad.loopexit.split-lp487.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %209, %.body.i.i57.i ], [ %346, %.body.i.i.i ], [ %364, %363 ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #39
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8f2e42a752c6911aE"(ptr noalias noundef align 8 dereferenceable(24) %26) #39
           to label %454 unwind label %466, !noalias !5126
 
 .loopexit.i.i:                                    ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hcd6ce4cadff41859E.llvm.9832446184049035033.exit.i._crit_edge.i.i.i.i", %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hcd6ce4cadff41859E.llvm.9832446184049035033.exit.i.i.i.i.i"
@@ -27491,7 +27491,7 @@ switch.lookup:                                    ; preds = %492
 513:                                              ; preds = %505
   %514 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %48) #39
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$image..error..ImageFormatHint$GT$17hb6ce94113d42d9faE"(ptr noalias noundef align 8 dereferenceable(32) %48) #39
           to label %498 unwind label %515
 
 515:                                              ; preds = %498, %513
@@ -27509,7 +27509,7 @@ define hidden noundef zeroext i1 @"_ZN5image6codecs3pnm7decoder12HeaderReader16r
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_next_string28_$u7b$$u7b$closure$u7d$$u7d$17h0a335fa3cadfb743E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0) unnamed_addr #25 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_next_string28_$u7b$$u7b$closure$u7d$$u7d$17h0a335fa3cadfb743E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #25 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -27562,7 +27562,7 @@ define internal fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [0 x { ptr, ptr }], align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
@@ -27988,7 +27988,7 @@ _ZN4core5slice5ascii8is_ascii17hd613dae18f560376E.exit.thread.i: ; preds = %.lr.
   store i64 %135, ptr %.sroa.451.sroa.5.0..sroa.451.0..sroa_idx.sroa_idx.i, align 8, !noalias !5391
   %.sroa.552.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 32
   store i64 %.sroa.655.24.copyload.i, ptr %.sroa.552.0..sroa_idx.i, align 8, !noalias !5391
-  call fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_next_string28_$u7b$$u7b$closure$u7d$$u7d$17h0a335fa3cadfb743E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14), !noalias !5407
+  call fastcc void @"_ZN5image6codecs3pnm7decoder12HeaderReader16read_next_string28_$u7b$$u7b$closure$u7d$$u7d$17h0a335fa3cadfb743E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %14), !noalias !5407
   unreachable
 
 common.resume:                                    ; preds = %158, %.body.i.i.i.i, %122, %.thread.i
@@ -28146,7 +28146,7 @@ common.resume:                                    ; preds = %158, %.body.i.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pixmap_header17hd1367aa8783db43bE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %.sroa.270 = alloca [3 x i8], align 1
   %.sroa.472 = alloca [56 x i8], align 8
   %.sroa.258 = alloca [3 x i8], align 1
@@ -28157,7 +28157,7 @@ define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pi
   %5 = alloca { i8, [63 x i8] }, align 8
   %6 = alloca { i8, [63 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef align 8 dereferenceable(64) %6, ptr noalias noundef align 8 dereferenceable(24) %1)
   %7 = load i8, ptr %6, align 8, !range !4780, !noundef !5
   %8 = icmp eq i8 %7, 10
   br i1 %8, label %9, label %14
@@ -28167,7 +28167,7 @@ define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pi
   %11 = load i32, ptr %10, align 4, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef align 8 dereferenceable(64) %5, ptr noalias noundef align 8 dereferenceable(24) %1)
   %12 = load i8, ptr %5, align 8, !range !4780, !noundef !5
   %13 = icmp eq i8 %12, 10
   br i1 %13, label %15, label %20
@@ -28194,7 +28194,7 @@ define internal fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader18read_pi
   %17 = load i32, ptr %16, align 4, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
-  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h23ab8dfd8e73e37dE(ptr noalias nocapture noundef align 8 dereferenceable(64) %4, ptr noalias noundef align 8 dereferenceable(24) %1)
   %18 = load i8, ptr %4, align 8, !range !4780, !noundef !5
   %19 = icmp eq i8 %18, 10
   br i1 %19, label %21, label %26
@@ -28861,7 +28861,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 51:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   store i8 18, ptr %10, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %10)
           to label %52 unwind label %26
 
 52:                                               ; preds = %51
@@ -29142,7 +29142,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 57:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   store i8 18, ptr %11, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %11)
           to label %58 unwind label %27
 
 58:                                               ; preds = %57
@@ -29430,7 +29430,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 53:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   store i8 18, ptr %11, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %11)
           to label %54 unwind label %27
 
 54:                                               ; preds = %53
@@ -29723,7 +29723,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   store i8 18, ptr %12, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %12)
           to label %55 unwind label %29
 
 55:                                               ; preds = %54
@@ -29992,7 +29992,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 53:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   store i8 18, ptr %11, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %11)
           to label %54 unwind label %27
 
 54:                                               ; preds = %53
@@ -30285,7 +30285,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 54:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
   store i8 18, ptr %12, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %12)
           to label %55 unwind label %29
 
 55:                                               ; preds = %54
@@ -30558,7 +30558,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 57:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   store i8 18, ptr %11, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %11)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %11)
           to label %58 unwind label %27
 
 58:                                               ; preds = %57
@@ -30843,7 +30843,7 @@ _ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E.exi
 51:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   store i8 18, ptr %10, align 8
-  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %10)
+  invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$image..codecs..pnm..decoder..DecoderError$GT$17he155f27dc7483e49E"(ptr noalias noundef align 8 dereferenceable(40) %10)
           to label %52 unwind label %26
 
 52:                                               ; preds = %51

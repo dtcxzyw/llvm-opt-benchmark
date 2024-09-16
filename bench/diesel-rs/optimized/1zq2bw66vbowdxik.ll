@@ -69,7 +69,7 @@ define void @_ZN13dsl_auto_type9auto_type25expression_type_inference21infer_expr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %7)
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull align 8 %7, ptr nonnull align 8 %14, ptr align 8 %1, ptr align 8 %2) #10
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias align 8 %7, ptr nonnull align 8 %14, ptr align 8 %1, ptr align 8 %2) #10
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %23
@@ -159,7 +159,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
   %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { i64, [28 x i64] }, align 8
-  call fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull align 8 %7, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
+  call fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias align 8 %7, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3)
   %8 = load i64, ptr %7, align 8, !range !3, !noundef !4
   %.not = icmp eq i64 %8, 17
   br i1 %.not, label %10, label %9
@@ -279,7 +279,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = alloca { { i64, [3 x i64] }, { {} } }, align 8
@@ -383,7 +383,7 @@ tailrecurse:                                      ; preds = %63, %4
 71:                                               ; preds = %62
   %72 = getelementptr inbounds i8, ptr %.tr255, i64 64
   %73 = load ptr, ptr %72, align 8, !nonnull !4, !align !6, !noundef !4
-  call fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias nonnull align 8 %41, ptr align 8 %1, ptr nonnull align 8 %73, ptr align 8 null)
+  call fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer25try_infer_expression_type17h65e42f83cbb26053E(ptr noalias align 8 %41, ptr align 8 %1, ptr nonnull align 8 %73, ptr align 8 null)
   %74 = load i64, ptr %41, align 8, !range !3, !noundef !4
   %.not203 = icmp eq i64 %74, 17
   %75 = getelementptr inbounds i8, ptr %41, i64 8
@@ -515,7 +515,7 @@ default.unreachable:                              ; preds = %168, %.thread226
 
 117:                                              ; preds = %.thread226, %114
   %.0188 = phi ptr [ %115, %114 ], [ null, %.thread226 ]
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nonnull align 8 %37, ptr nonnull align 8 %1, ptr nonnull align 8 %36, ptr nonnull align 8 %107, ptr align 8 %.0188)
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias align 8 %37, ptr nonnull align 8 %1, ptr align 8 %36, ptr nonnull align 8 %107, ptr align 8 %.0188)
           to label %120 unwind label %118
 
 118:                                              ; preds = %117
@@ -723,13 +723,13 @@ default.unreachable:                              ; preds = %168, %.thread226
 184:                                              ; preds = %168
   %185 = getelementptr inbounds i8, ptr %.tr255, i64 40
   call void @_ZN3syn3lit6LitInt5token17h553f2417d20ef5e8E(ptr nonnull sret({ { i64, [2 x i64] }, { {} } }) align 8 %15, ptr nonnull align 8 %185)
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias nonnull align 8 %16, ptr nonnull align 8 %15)
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias align 8 %16, ptr align 8 %15)
           to label %217 unwind label %215
 
 186:                                              ; preds = %168
   %187 = getelementptr inbounds i8, ptr %.tr255, i64 40
   call void @_ZN3syn3lit8LitFloat5token17h2cbec3760f6f30bfE(ptr nonnull sret({ { i64, [2 x i64] }, { {} } }) align 8 %13, ptr nonnull align 8 %187)
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias nonnull align 8 %14, ptr nonnull align 8 %13)
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias align 8 %14, ptr align 8 %13)
           to label %225 unwind label %223
 
 188:                                              ; preds = %168
@@ -957,7 +957,7 @@ default.unreachable:                              ; preds = %168, %.thread226
   %259 = load i64, ptr %258, align 8, !range !12, !noundef !4
   %260 = icmp eq i64 %259, -9223372036854775808
   %. = select i1 %260, ptr null, ptr %258
-  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nonnull align 8 %29, ptr nonnull align 8 %1, ptr nonnull align 8 %28, ptr nonnull align 8 %257, ptr align 8 %.)
+  invoke fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias align 8 %29, ptr nonnull align 8 %1, ptr align 8 %28, ptr nonnull align 8 %257, ptr align 8 %.)
           to label %263 unwind label %261
 
 261:                                              ; preds = %256
@@ -1217,7 +1217,7 @@ default.unreachable:                              ; preds = %168, %.thread226
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12TypeInferrer27infer_generics_or_use_hints17h84179f6bad77b7d0E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr align 8 %3, ptr align 8 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32 }, { ptr, ptr } }, align 8
   %7 = alloca { ptr, ptr }, align 8
   %8 = alloca { { { i32, i32 }, { ptr, ptr } }, { ptr, ptr }, i64, i64, i64 }, align 8
@@ -1372,7 +1372,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type25expression_type_inference12Typ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_inference12literal_type17h1cb523a602ddc46fE(ptr noalias nonnull align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [1 x { ptr, ptr }], align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -1380,7 +1380,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
   %7 = alloca { { { i64, ptr }, i64 } }, align 8
   %8 = alloca ptr, align 8
   store ptr %1, ptr %8, align 8
-  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17ha79458bfa7ff109dE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %7, ptr align 8 %1)
+  call void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17ha79458bfa7ff109dE"(ptr nonnull sret({ { { i64, ptr }, i64 } }) align 8 %7, ptr nonnull align 8 %1)
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds i8, ptr %7, i64 16
@@ -1445,7 +1445,7 @@ define internal fastcc void @_ZN13dsl_auto_type9auto_type25expression_type_infer
           to label %30 unwind label %14
 
 30:                                               ; preds = %27
-  invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h27d606ee774dabd9E"(ptr sret({ i64, [28 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %8)
+  invoke void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h27d606ee774dabd9E"(ptr nonnull sret({ i64, [28 x i64] }) align 8 %0, ptr nonnull align 8 %6, ptr nonnull align 8 %8)
           to label %31 unwind label %14
 
 31:                                               ; preds = %30, %25

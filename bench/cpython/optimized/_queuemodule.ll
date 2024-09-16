@@ -778,7 +778,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr nocapture noundef %self, ptr noundef %cls, i32 noundef %block, ptr noundef %timeout_obj) unnamed_addr #0 {
+define internal fastcc ptr @_queue_SimpleQueue_get_impl(ptr nocapture noundef %self, ptr noundef %cls, i32 noundef range(i32 0, -2147483648) %block, ptr noundef %timeout_obj) unnamed_addr #0 {
 entry:
   %timeout = alloca i64, align 8
   %call = tail call ptr @PyThreadState_Get() #2

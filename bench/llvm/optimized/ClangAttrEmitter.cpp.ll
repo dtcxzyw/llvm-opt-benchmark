@@ -1832,7 +1832,7 @@ define dso_local void @_Z22generateNameToAttrsMapRN4llvm12RecordKeeperE(ptr noun
 13:                                               ; preds = %.lr.ph79, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit
   %.sroa.048.074 = phi ptr [ %5, %.lr.ph79 ], [ %146, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ]
   %14 = load ptr, ptr %.sroa.048.074, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %14)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %14)
   %.val8 = load ptr, ptr %3, align 8
   %.val = load ptr, ptr %8, align 8
   %.not5466 = icmp eq ptr %.val8, %.val
@@ -2222,7 +2222,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %._crit_edge80, %148
 declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -3095,7 +3095,7 @@ define internal fastcc void @_ZL14emitAttributesRN4llvm12RecordKeeperERNS_11raw_
   %59 = zext i1 %2 to i8
   store i8 %59, ptr %33, align 1
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %34, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nonnull @.str.7, i64 4) #22
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3869,7 +3869,7 @@ _ZL22isVariadicExprArgumentPKN4llvm6RecordE.exit.thread: ; preds = %413, %410, %
   %.sroa.0.0.copyload.i.i286 = load ptr, ptr %440, align 8
   %.sroa.2.0..sroa_idx.i.i287 = getelementptr inbounds i8, ptr %439, i64 32
   %.sroa.2.0.copyload.i.i288 = load i64, ptr %.sroa.2.0..sroa_idx.i.i287, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %438, ptr %.sroa.0.0.copyload.i.i286, i64 %.sroa.2.0.copyload.i.i288, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %438, ptr %.sroa.0.0.copyload.i.i286, i64 %.sroa.2.0.copyload.i.i288, ptr noundef null)
   %441 = load ptr, ptr %171, align 8
   %442 = load ptr, ptr %170, align 8
   %.not.i291 = icmp eq ptr %441, %442
@@ -4086,7 +4086,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit306:              ; preds = %516, %514, %_ZNSt10
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit309
 
 _ZN4llvm11raw_ostreamlsEPKc.exit309:              ; preds = %530, %528, %_ZN4llvm11raw_ostreamlsEPKc.exit306
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(192) %222)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(192) %222)
   %.val = load ptr, ptr %47, align 8
   %.val151 = load ptr, ptr %172, align 8
   %533 = ptrtoint ptr %.val151 to i64
@@ -4120,7 +4120,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit309:              ; preds = %530, %528, %_ZN4llv
   br i1 %547, label %548, label %550
 
 548:                                              ; preds = %541
-  call fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(48) %49)
+  call fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(48) %49)
   %549 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %51) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #22
   br label %550
@@ -4770,7 +4770,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit346:              ; preds = %809, %807, %740, %7
   br i1 %817, label %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit39.i, label %818
 
 818:                                              ; preds = %814
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(192) %222)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(192) %222)
   %819 = load ptr, ptr %24, align 8
   %820 = load ptr, ptr %198, align 8
   %.not4750.i = icmp eq ptr %819, %820
@@ -4782,7 +4782,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit346:              ; preds = %809, %807, %740, %7
   %822 = call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %821, ptr nonnull @.str.59, i64 4) #22
   %823 = extractvalue { ptr, i64 } %822, 0
   %824 = extractvalue { ptr, i64 } %822, 1
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(192) %821)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(192) %821)
   %825 = load ptr, ptr %60, align 8
   %826 = load ptr, ptr %62, align 8
   %827 = ptrtoint ptr %825 to i64
@@ -8686,7 +8686,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit556:              ; preds = %2825, %2827
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %222)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(192) %222)
   %2830 = load ptr, ptr %60, align 8
   %2831 = load ptr, ptr %62, align 8
   %2832 = ptrtoint ptr %2830 to i64
@@ -10296,7 +10296,7 @@ _ZL24writePrettyPrintFunctionRKN4llvm6RecordERKSt6vectorISt10unique_ptrIN12_GLOB
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %222)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %222)
   %3626 = load ptr, ptr %60, align 8
   %3627 = load ptr, ptr %62, align 8
   %3628 = ptrtoint ptr %3626 to i64
@@ -11466,7 +11466,7 @@ _ZNK12_GLOBAL__N_118AttrClassHierarchy18emitDefaultDefinesERN4llvm11raw_ostreamE
 
 112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %110)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %110)
   %.val.i30 = load ptr, ptr %3, align 8
   %.val1.i = load ptr, ptr %107, align 8
   %113 = ptrtoint ptr %.val1.i to i64
@@ -12697,7 +12697,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37.i:             ; preds = %81, %79
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %89, %87
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i)
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.05.i)
   %92 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %93 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   %94 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %92, i64 noundef %93) #22
@@ -12859,7 +12859,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit48.i:             ; preds = %169, %167
   store ptr %172, ptr %10, align 8
   store ptr null, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !80
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %10), !noalias !80
   %173 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %173) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -13296,7 +13296,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS2_EESaI
   %.sroa.0.0.copyload.i.i86 = load ptr, ptr %148, align 8
   %.sroa.2.0..sroa_idx.i.i87 = getelementptr inbounds i8, ptr %147, i64 32
   %.sroa.2.0.copyload.i.i88 = load i64, ptr %.sroa.2.0..sroa_idx.i.i87, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %146, ptr %.sroa.0.0.copyload.i.i86, i64 %.sroa.2.0.copyload.i.i88, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %146, ptr %.sroa.0.0.copyload.i.i86, i64 %.sroa.2.0.copyload.i.i88, ptr noundef null)
   %.not.i91 = icmp eq ptr %.sroa.7.2228, %.sroa.16.2227
   br i1 %.not.i91, label %150, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.thread
 
@@ -13901,7 +13901,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 declare void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -14012,7 +14012,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit168.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %.val11.i.i = load ptr, ptr %59, align 8, !noalias !97
   %61 = getelementptr inbounds i8, ptr %52, i64 176
   %.val12.i.i = load ptr, ptr %61, align 8, !noalias !97
-  tail call fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr %.val11.i.i, ptr %.val12.i.i), !noalias !97
+  tail call fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %60, ptr %.val11.i.i, ptr %.val12.i.i), !noalias !97
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 216
   %63 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.657, i64 14) #22, !noalias !97
   %64 = zext i1 %63 to i8
@@ -14263,7 +14263,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_121DefaultSimpleArgumentESt14default_deleteIS1_E
   %153 = tail call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.540, i64 7) #22
   %154 = zext i1 %153 to i8
   store i8 %154, ptr %19, align 1
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %19)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(1) %19)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit211:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit182
@@ -14272,7 +14272,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit211:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %155, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit217, label %_ZN4llvmeqENS_9StringRefES0_.exit248
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit217: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit211
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit221:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit194
@@ -14283,7 +14283,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit221:             ; preds = %_ZN4llvmeqENS_9Stri
 _ZNSt10unique_ptrIN12_GLOBAL__N_121DefaultSimpleArgumentESt14default_deleteIS1_EED2Ev.exit227: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit221
   %157 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.540, i64 7) #22
   store i64 %157, ptr %22, align 8
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %22)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit231:             ; preds = %5
@@ -14292,7 +14292,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit231:             ; preds = %5
   br i1 %158, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit237, label %_ZN4llvmeqENS_9StringRefES0_.exit331
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit237: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit231
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit241:             ; preds = %5
@@ -14301,7 +14301,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit241:             ; preds = %5
   br i1 %159, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114StringArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114StringArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit241
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit248:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit211
@@ -14310,7 +14310,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit248:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %160, label %_ZNSt10unique_ptrIN12_GLOBAL__N_112TypeArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_112TypeArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit248
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit255:             ; preds = %5
@@ -14319,7 +14319,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit255:             ; preds = %5
   br i1 %161, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit261, label %_ZN4llvmeqENS_9StringRefES0_.exit307
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit261: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit255
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.547)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.547)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit265:             ; preds = %5
@@ -14328,7 +14328,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit265:             ; preds = %5
   br i1 %162, label %_ZNSt10unique_ptrIN12_GLOBAL__N_116VariadicArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit293
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_116VariadicArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit265
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit272:             ; preds = %5
@@ -14337,7 +14337,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit272:             ; preds = %5
   br i1 %163, label %_ZNSt10unique_ptrIN12_GLOBAL__N_122VariadicStringArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_122VariadicStringArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit272
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit279:             ; preds = %5
@@ -14346,7 +14346,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit279:             ; preds = %5
   br i1 %164, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicEnumArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit286
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicEnumArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit279
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit286:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit279
@@ -14355,7 +14355,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit286:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %165, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicExprArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit338
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicExprArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit286
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit293:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit265
@@ -14364,7 +14364,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit293:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %166, label %_ZNSt10unique_ptrIN12_GLOBAL__N_124VariadicParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_124VariadicParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit293
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit300:             ; preds = %5
@@ -14373,7 +14373,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit300:             ; preds = %5
   br i1 %167, label %_ZNSt10unique_ptrIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit300
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit307:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit255
@@ -14382,7 +14382,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit307:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %168, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit313, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit313: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit307
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.552)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.552)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit317:             ; preds = %5
@@ -14391,7 +14391,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit317:             ; preds = %5
   br i1 %169, label %_ZNSt10unique_ptrIN12_GLOBAL__N_126VariadicIdentifierArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_126VariadicIdentifierArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit317
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit324:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -14400,7 +14400,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit324:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %170, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115VersionArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_115VersionArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit324
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit331:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit231
@@ -14409,7 +14409,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit331:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %171, label %_ZNSt10unique_ptrIN12_GLOBAL__N_111WrappedAttrESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_111WrappedAttrESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit331
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit338:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit286
@@ -14418,7 +14418,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit338:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %172, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit344, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit344: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit338
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZN4llvmeqENS_9StringRefES0_.exit348:             ; preds = %5
@@ -14427,7 +14427,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit348:             ; preds = %5
   br i1 %173, label %_ZNSt10unique_ptrIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentESt14default_deleteIS1_EED2Ev.exit, label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit.thread536
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit348
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3)
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_121DefaultSimpleArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_121DefaultSimpleArgumentESt14default_deleteIS1_EED2Ev.exit227, %_ZNSt10unique_ptrIN12_GLOBAL__N_114StringArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit261, %_ZNSt10unique_ptrIN12_GLOBAL__N_122VariadicStringArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicExprArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_126VariadicIdentifierArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_111WrappedAttrESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit344, %_ZNSt10unique_ptrIN12_GLOBAL__N_115VersionArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit313, %_ZNSt10unique_ptrIN12_GLOBAL__N_124VariadicParamIdxArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_120VariadicEnumArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_116VariadicArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_112TypeArgumentESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit237, %_ZNSt10unique_ptrIN12_GLOBAL__N_114SimpleArgumentESt14default_deleteIS1_EED2Ev.exit217
@@ -14453,7 +14453,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115AlignedArgumentESt14default_deleteIS1_EED2Ev.
 180:                                              ; preds = %179
   %181 = getelementptr inbounds i8, ptr %.sroa.0356.0, i64 -24
   %182 = load ptr, ptr %181, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %182)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %182)
   %183 = load ptr, ptr %39, align 8
   %184 = load ptr, ptr %0, align 8
   store ptr %183, ptr %0, align 8
@@ -14894,7 +14894,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS1_EED2Ev.exit: ; 
   %.sroa.0.0.copyload.i.i78 = load ptr, ptr %192, align 8
   %.sroa.2.0..sroa_idx.i.i79 = getelementptr inbounds i8, ptr %191, i64 32
   %.sroa.2.0.copyload.i.i80 = load i64, ptr %.sroa.2.0..sroa_idx.i.i79, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %190, ptr %.sroa.0.0.copyload.i.i78, i64 %.sroa.2.0.copyload.i.i80, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %190, ptr %.sroa.0.0.copyload.i.i78, i64 %.sroa.2.0.copyload.i.i80, ptr noundef null)
   %.val = load ptr, ptr %7, align 8
   %193 = load ptr, ptr %.val, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 120
@@ -15229,7 +15229,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %81, %83
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %87 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #22
   %88 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #22
-  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %87, i64 %88, ptr nonnull @.str.906, i64 3)
+  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %3, ptr %87, i64 %88, ptr nonnull @.str.906, i64 3)
   %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %90 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %91 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i14, ptr noundef %89, i64 noundef %90) #22
@@ -15327,7 +15327,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
 36:                                               ; preds = %.lr.ph62, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit
   %.sroa.040.060 = phi ptr [ %7, %.lr.ph62 ], [ %45, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ]
   %37 = load ptr, ptr %.sroa.040.060, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %37)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %37)
   %.val12 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %10, align 8
   %.not4757 = icmp eq ptr %.val12, %.val
@@ -15708,7 +15708,7 @@ define dso_local void @_ZN5clang24EmitClangAttrHasAttrImplERN4llvm12RecordKeeper
 48:                                               ; preds = %.lr.ph197, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit
   %.sroa.0185.0195 = phi ptr [ %43, %.lr.ph197 ], [ %81, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ]
   %49 = load ptr, ptr %.sroa.0185.0195, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %49)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %49)
   %.val50 = load ptr, ptr %11, align 8
   %.val = load ptr, ptr %46, align 8
   %.not191192 = icmp eq ptr %.val50, %.val
@@ -17086,7 +17086,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %75, %79
 .lr.ph40:                                         ; preds = %84, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit
   %.sroa.06.039 = phi ptr [ %128, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ], [ %86, %84 ]
   %88 = load ptr, ptr %.sroa.06.039, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %88)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(192) %88)
   %.val55 = load ptr, ptr %11, align 8
   %.val = load ptr, ptr %22, align 8
   %.not3536 = icmp eq ptr %.val55, %.val
@@ -17786,7 +17786,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %46, %48
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit40
 
 _ZN4llvm11raw_ostreamlsEPKc.exit40:               ; preds = %57, %59
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %62 = load ptr, ptr %3, align 8
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load ptr, ptr %63, align 8
@@ -17802,7 +17802,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit40:               ; preds = %57, %59
   %.sroa.085.095 = phi ptr [ %62, %.lr.ph96 ], [ %236, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ]
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.085.095, i64 32
   %69 = load ptr, ptr %68, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %69)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(192) %69)
   %70 = load ptr, ptr %5, align 8
   %71 = load ptr, ptr %7, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -18202,7 +18202,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -19207,7 +19207,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS1_EED2Ev.exit: ; 
   %.sroa.0.0.copyload.i.i171 = load ptr, ptr %383, align 8
   %.sroa.2.0..sroa_idx.i.i172 = getelementptr inbounds i8, ptr %382, i64 32
   %.sroa.2.0.copyload.i.i173 = load i64, ptr %.sroa.2.0..sroa_idx.i.i172, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %381, ptr %.sroa.0.0.copyload.i.i171, i64 %.sroa.2.0.copyload.i.i173, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %381, ptr %.sroa.0.0.copyload.i.i171, i64 %.sroa.2.0.copyload.i.i173, ptr noundef null)
   %.val = load ptr, ptr %5, align 8
   %384 = load ptr, ptr %.val, align 8
   %385 = getelementptr inbounds i8, ptr %384, i64 32
@@ -20481,7 +20481,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit83:               ; preds = %144, %146
   %.sroa.0.0.copyload.i.i87 = load ptr, ptr %173, align 8
   %.sroa.2.0..sroa_idx.i.i88 = getelementptr inbounds i8, ptr %172, i64 32
   %.sroa.2.0.copyload.i.i89 = load i64, ptr %.sroa.2.0..sroa_idx.i.i88, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %171, ptr %.sroa.0.0.copyload.i.i87, i64 %.sroa.2.0.copyload.i.i89, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %171, ptr %.sroa.0.0.copyload.i.i87, i64 %.sroa.2.0.copyload.i.i89, ptr noundef null)
   %.not.i92 = icmp eq ptr %.sroa.10.2173, %.sroa.19.2171
   br i1 %.not.i92, label %175, label %_ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit.thread
 
@@ -21242,7 +21242,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %23, %25
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
 _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %34, %36
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %39 = load ptr, ptr %3, align 8
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -21797,7 +21797,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit56:               ; preds = %122, %124
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit59
 
 _ZN4llvm11raw_ostreamlsEPKc.exit59:               ; preds = %133, %135
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %138 = load ptr, ptr %3, align 8
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %140 = load ptr, ptr %139, align 8
@@ -22268,7 +22268,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit136:              ; preds = %124, %126
 
 _ZL25getPragmaAttributeSupportRN4llvm12RecordKeeperE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit136, %132, %134
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, i8 0, i64 24, i1 false)
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %90)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %90)
   %136 = load ptr, ptr %91, align 8
   %137 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %138 = load ptr, ptr %137, align 8
@@ -22602,7 +22602,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24.i:             ; preds = %265, %263
   %.val17.val.i = load ptr, ptr %268, align 8
   %269 = getelementptr i8, ptr %.val17.i, i64 32
   %.val17.val18.i = load i64, ptr %269, align 8
-  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %88, ptr %.val17.val.i, i64 %.val17.val18.i)
+  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %88, ptr %.val17.val.i, i64 %.val17.val18.i)
   %270 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #22
   %271 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #22
   %272 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %270, i64 noundef %271) #22
@@ -22921,7 +22921,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %153, %._crit_edge, 
   %.sroa.0910.01054 = phi ptr [ %381, %.lr.ph1056 ], [ %3484, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit ]
   %447 = getelementptr inbounds nuw i8, ptr %.sroa.0910.01054, i64 32
   %448 = load ptr, ptr %447, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(192) %448)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(192) %448)
   %.val130 = load ptr, ptr %97, align 8
   %.val131 = load ptr, ptr %383, align 8
   %449 = icmp eq ptr %.val130, %.val131
@@ -23591,7 +23591,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit216:              ; preds = %743, %745
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %759, i64 32
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %83)
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(192) %750, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(192) %750, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.2.0.copyload.i.i.i, ptr noundef null)
   %.val.i.i = load ptr, ptr %83, align 8
   %761 = load ptr, ptr %.val.i.i, align 8
   %762 = getelementptr inbounds i8, ptr %761, i64 184
@@ -24034,7 +24034,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit261:              ; preds = %994, %996
 
 _ZN4llvm11raw_ostreamlsEPKc.exit265:              ; preds = %1005, %1007
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(192) %448)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(192) %448)
   %.val.i266 = load ptr, ptr %82, align 8
   %.val1.i = load ptr, ptr %388, align 8
   %1010 = ptrtoint ptr %.val1.i to i64
@@ -25129,7 +25129,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit106.i:            ; preds = %1482, %1480
   %.val55.val.i = load ptr, ptr %1486, align 8
   %1487 = getelementptr i8, ptr %.val55.i, i64 32
   %.val55.val56.i = load i64, ptr %1487, align 8
-  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %79, ptr %.val55.val.i, i64 %.val55.val56.i)
+  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %79, ptr %.val55.val.i, i64 %.val55.val56.i)
   %1488 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %79) #22
   %1489 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %79) #22
   %1490 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i105.i, ptr noundef %1488, i64 noundef %1489) #22
@@ -25291,7 +25291,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit125.i:            ; preds = %1560, %1558
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit128.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit128.i:            ; preds = %1571, %1569
-  call fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(192) %1186)
+  call fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %80, ptr noundef nonnull align 8 dereferenceable(192) %1186)
   %1574 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #22
   %1575 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %80) #22
   %1576 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %1574, i64 noundef %1575) #22
@@ -25811,7 +25811,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit192.i:            ; preds = %1829, %1827
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit195.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit195.i:            ; preds = %1840, %1838
-  call fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(192) %1186)
+  call fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(192) %1186)
   %1843 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #22
   %1844 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %81) #22
   %1845 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %1843, i64 noundef %1844) #22
@@ -27713,7 +27713,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i:              ; preds = %2647, %2645
   %2653 = ptrtoint ptr %2650 to i64
   %2654 = sub i64 %2652, %2653
   %2655 = ashr exact i64 %2654, 3
-  call fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr %2650, i64 %2655)
+  call fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias writable align 8 %57, ptr %2650, i64 %2655)
   %2656 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #22
   %2657 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %57) #22
   %2658 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i5.i, ptr noundef %2656, i64 noundef %2657) #22
@@ -28012,7 +28012,7 @@ _ZN5clangL26GenerateTargetRequirementsERKN4llvm6RecordERKSt6vectorISt4pairINSt7_
 
 2799:                                             ; preds = %_ZN5clangL26GenerateTargetRequirementsERKN4llvm6RecordERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_ESaISD_EERNS0_11raw_ostreamE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #22
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %448)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(192) %448)
   %2800 = load ptr, ptr %423, align 8
   %2801 = load ptr, ptr %103, align 8
   %.not72.i = icmp eq ptr %2800, %2801
@@ -28025,7 +28025,7 @@ _ZN5clangL26GenerateTargetRequirementsERKN4llvm6RecordERKSt6vectorISt4pairINSt7_
   %.02466.i = phi i32 [ %2871, %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit.i ], [ 0, %2799 ]
   %2804 = getelementptr inbounds ptr, ptr %2802, i64 %2803
   %2805 = load ptr, ptr %2804, align 8
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(192) %2805)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(192) %2805)
   %2806 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull @.str.1021) #22
   %.val2961.i = load ptr, ptr %46, align 8
   %.val3062.i = load ptr, ptr %424, align 8
@@ -28415,7 +28415,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit402: ; preds = %_ZN5clangL34Generat
   br i1 %2966, label %2967, label %_ZN5clangL39GenerateSpellingIndexToSemanticSpellingERKN4llvm6RecordERNS0_11raw_ostreamE.exit
 
 2967:                                             ; preds = %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit402
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(192) %448)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(192) %448)
   %.val.i404 = load ptr, ptr %34, align 8
   %.val9.i = load ptr, ptr %434, align 8
   %2968 = ptrtoint ptr %.val9.i to i64
@@ -28435,7 +28435,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit402: ; preds = %_ZN5clangL34Generat
   store ptr %435, ptr %437, align 8
   store ptr %435, ptr %438, align 8
   store i64 0, ptr %439, align 8
-  call fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(48) %35)
+  call fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(48) %35)
   %2976 = load ptr, ptr %448, align 8
   %2977 = getelementptr inbounds nuw i8, ptr %2976, i64 24
   %.sroa.0.0.copyload.i.i.i405 = load ptr, ptr %2977, align 8
@@ -29099,7 +29099,7 @@ _ZNK12_GLOBAL__N_125AttributeSubjectMatchRule11getLangOptsEv.exit.i: ; preds = %
 _ZN4llvm11raw_ostreamlsEPKc.exit39.i434:          ; preds = %3239, %3237
   %.0.i.i38.i = phi ptr [ %3238, %3237 ], [ %1, %3239 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i), !noalias !258
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(16) %.016.i), !noalias !258
   %3242 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %28, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !261
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %3242) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #22
@@ -29136,7 +29136,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42.i:             ; preds = %3256, %3254
   %3262 = ptrtoint ptr %3259 to i64
   %3263 = sub i64 %3261, %3262
   %3264 = ashr exact i64 %3263, 3
-  call fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr %3259, i64 %3264)
+  call fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias writable align 8 %32, ptr %3259, i64 %3264)
   %3265 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   %3266 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #22
   %3267 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i41.i, ptr noundef %3265, i64 noundef %3266) #22
@@ -29841,7 +29841,7 @@ _ZNK12_GLOBAL__N_125AttributeSubjectMatchRule14isAbstractRuleEv.exit.i: ; preds 
 _ZN4llvm11raw_ostreamlsEPKc.exit43.i:             ; preds = %3609, %3607
   %.0.i.i42.i = phi ptr [ %3608, %3607 ], [ %1, %3609 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.011.018.i), !noalias !266
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.011.018.i), !noalias !266
   %3612 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !269
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %3612) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #22
@@ -29940,7 +29940,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i:             ; preds = %3637, %3635
 _ZN4llvm11raw_ostreamlsEPKc.exit55.i:             ; preds = %3661, %3659
   %.0.i.i54.i = phi ptr [ %3660, %3659 ], [ %1, %3661 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.011.018.i), !noalias !272
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.011.018.i), !noalias !272
   %3664 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %20, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !275
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %3664) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #22
@@ -30138,7 +30138,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit69.i:             ; preds = %3746, %3744
   %.val30.val.i = load ptr, ptr %3750, align 8
   %3751 = getelementptr i8, ptr %.val30.i, i64 32
   %.val30.val31.i = load i64, ptr %3751, align 8
-  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr %.val30.val.i, i64 %.val30.val31.i)
+  call fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %27, ptr %.val30.val.i, i64 %.val30.val31.i)
   %3752 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   %3753 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #22
   %3754 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i68.i, ptr noundef %3752, i64 noundef %3753) #22
@@ -30764,7 +30764,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127PragmaClangAttribu
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %1)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %1)
   %.val6.i = load ptr, ptr %3, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 8
   %.val.i = load ptr, ptr %12, align 8
@@ -31091,7 +31091,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %85, %86
   br label %88
 
 88:                                               ; preds = %63, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(192) %53)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(192) %53)
   %.val62 = load ptr, ptr %23, align 8
   %.val = load ptr, ptr %48, align 8
   %.not235236 = icmp eq ptr %.val62, %.val
@@ -32062,7 +32062,7 @@ define dso_local void @_ZN5clang25EmitClangAttrTextNodeDumpERN4llvm12RecordKeepe
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN4llvm18raw_string_ostreamE, i64 16), ptr %5, align 8
   store ptr %4, ptr %17, align 8
   call void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef null, i64 noundef 0, i32 noundef 0) #22
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %33)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %33)
   %.val = load ptr, ptr %6, align 8
   %.val31 = load ptr, ptr %18, align 8
   %36 = ptrtoint ptr %.val31 to i64
@@ -32134,7 +32134,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS1_EED2Ev.exit: ; 
   %.sroa.0.0.copyload.i.i = load ptr, ptr %68, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %67, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %66, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(192) %66, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, ptr noundef null)
   %.val32 = load ptr, ptr %8, align 8
   %69 = load ptr, ptr %.val32, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 144
@@ -32740,7 +32740,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_18ArgumentESt14default_deleteIS1_EED2Ev.exit: ; 
   %.sroa.0.0.copyload.i.i = load ptr, ptr %45, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %44, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8
-  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %43, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, ptr noundef null)
+  call fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(192) %43, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.2.0.copyload.i.i, ptr noundef null)
   %.val = load ptr, ptr %7, align 8
   %46 = load ptr, ptr %.val, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 152
@@ -33406,7 +33406,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %35, %33
   store ptr %38, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %23, i64 40
   store i64 0, ptr %42, align 8
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %43 = load ptr, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -34158,7 +34158,7 @@ _ZL37emitClangAttrThisIsaIdentifierArgListRN4llvm12RecordKeeperERNS_11raw_ostrea
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i65
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i65:             ; preds = %374, %372
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %377 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %10, i64 16
@@ -35497,7 +35497,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit159.i: ; preds = %294, %293, %291
 _ZN4llvm11raw_ostreamlsEPKc.exit162.i:            ; preds = %306, %304
   %.0.i.i161.i = phi ptr [ %305, %304 ], [ %.0.i158.i, %306 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.08.029.i), !noalias !321
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.08.029.i), !noalias !321
   %310 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !324
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %310) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
@@ -35671,7 +35671,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit178.i: ; preds = %380, %379, %377
 _ZN4llvm11raw_ostreamlsEPKc.exit181.i:            ; preds = %392, %390
   %.0.i.i180.i = phi ptr [ %391, %390 ], [ %.0.i177.i, %392 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.06.033.i), !noalias !327
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.06.033.i), !noalias !327
   %396 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !330
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %396) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
@@ -35971,7 +35971,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit205.i: ; preds = %528, %527, %525
 _ZN4llvm11raw_ostreamlsEPKc.exit208.i:            ; preds = %540, %538
   %.0.i.i207.i = phi ptr [ %539, %538 ], [ %.0.i204.i, %540 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.04.042.i), !noalias !337
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.04.042.i), !noalias !337
   %544 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !340
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %544) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -36206,7 +36206,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit236.i:            ; preds = %661, %659
   store ptr %664, ptr %18, align 8
   store ptr null, ptr %651, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !343
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %18), !noalias !343
   %665 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, ptr noundef nonnull @.str.325) #22, !noalias !346
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %665) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
@@ -37498,7 +37498,7 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIN5clang17DocumentationDataESaIS6_EEZNS5_17Em
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %29)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %106), !noalias !352
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(192) %106), !noalias !352
   %.val28.i = load ptr, ptr %19, align 8, !noalias !352
   %.val29.i = load ptr, ptr %85, align 8, !noalias !352
   %331 = icmp eq ptr %.val28.i, %.val29.i
@@ -39380,7 +39380,7 @@ _ZN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetC2ERKS1_.e
   br label %_ZN12_GLOBAL__N_127PragmaClangAttributeSupportC2ERKS0_.exit
 
 _ZN12_GLOBAL__N_127PragmaClangAttributeSupportC2ERKS0_.exit: ; preds = %69, %71
-  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
+  call fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef null)
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -39833,7 +39833,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAtt
 
 262:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findES4_.exit
   %.val35 = load ptr, ptr %259, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %.val35)
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %.val35)
   %263 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   %264 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #22
   %265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %263, i64 noundef %264) #22
@@ -39891,7 +39891,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit59:               ; preds = %270, %272
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit62
 
 _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %285, %283, %.lr.ph
-  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0139.0180)
+  call fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0139.0180)
   %288 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   %289 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #22
   %290 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %288, i64 noundef %289) #22
@@ -40115,7 +40115,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_125AttributeSubjectMatchRule16getEnumValueNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.llvm::SmallString.601", align 8
@@ -40717,7 +40717,7 @@ _ZN4llvm12StringSwitchIbbE4CaseENS_13StringLiteralEb.exit19: ; preds = %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL23CreateSemanticSpellingsRKSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EERSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjSC_EEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
@@ -47600,7 +47600,7 @@ _ZN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSet19getAggre
   store ptr %.sink.i.i.i, ptr %32, align 8, !alias.scope !450
   store ptr %.0.lcssa.i.i.i.i.i.i.i.i.i, ptr %33, align 8, !alias.scope !450
   store i8 0, ptr %34, align 8, !alias.scope !444
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZZL25getPragmaAttributeSupportRN4llvm12RecordKeeperEE8Instance, i64 24), ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(25) %8)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 1 dereferenceable(1) getelementptr inbounds nuw (i8, ptr @_ZZL25getPragmaAttributeSupportRN4llvm12RecordKeeperEE8Instance, i64 24), ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(25) %8)
   %114 = load i8, ptr %35, align 8
   %115 = trunc i8 %114 to i1
   %.val22 = load ptr, ptr %8, align 8
@@ -47805,7 +47805,7 @@ _ZNSt6vectorIN12_GLOBAL__N_125AttributeSubjectMatchRuleESaIS1_EE12emplace_backIJ
   store ptr %51, ptr %42, align 8, !alias.scope !464
   store ptr %51, ptr %43, align 8, !alias.scope !464
   store i8 1, ptr %44, align 8, !alias.scope !458
-  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(25) %7)
+  call fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %41, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(25) %7)
   %52 = load i8, ptr %45, align 8
   %53 = trunc i8 %52 to i1
   %.val5 = load ptr, ptr %7, align 8
@@ -47855,7 +47855,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %._crit_edge, %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(25) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(25) %3) unnamed_addr #0 align 2 {
   %.val9 = load ptr, ptr %1, align 8
   %5 = getelementptr i8, ptr %1, i64 16
   %.val10 = load i32, ptr %5, align 8
@@ -48346,7 +48346,7 @@ _ZNKSt4lessIvEclIRKN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -48379,7 +48379,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48401,7 +48401,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -48432,7 +48432,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48454,7 +48454,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %4 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.59, i64 4) #22
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -48466,7 +48466,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48504,7 +48504,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 1 dereferenceable(9) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 1 dereferenceable(9) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48528,7 +48528,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48536,7 +48536,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgument
   %6 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %6, ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.547, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.547, i64 8))
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   store ptr %5, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
@@ -48544,7 +48544,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgument
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48557,7 +48557,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringAr
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %8, ptr noundef nonnull @.str.725, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.725, i64 9)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 9) #22
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_122VariadicStringArgumentE, i64 16), ptr %5, align 8
@@ -48568,7 +48568,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringAr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48597,7 +48597,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgu
   %19 = load ptr, ptr %18, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 %17, ptr %19, ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %4)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %10, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_120VariadicEnumArgumentE, i64 16), ptr %10, align 8
@@ -48613,7 +48613,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgu
   %.val12.i = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %10, i64 304
   %.val13.i = load ptr, ptr %25, align 8
-  call fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr %.val12.i, ptr %.val13.i)
+  call fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias writable align 8 %24, ptr %.val12.i, ptr %.val13.i)
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 344
   %27 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.657, i64 14) #22
   %28 = zext i1 %27 to i8
@@ -48714,7 +48714,7 @@ _ZN12_GLOBAL__N_120VariadicEnumArgumentC2ERKN4llvm6RecordENS1_9StringRefE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48727,7 +48727,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgu
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %8, ptr noundef nonnull @.str.622, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.622, i64 6)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 6) #22
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_120VariadicExprArgumentE, i64 16), ptr %5, align 8
@@ -48738,7 +48738,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48751,7 +48751,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdx
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %8, ptr noundef nonnull @.str.552, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.552, i64 8)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 8) #22
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_124VariadicParamIdxArgumentE, i64 16), ptr %5, align 8
@@ -48762,7 +48762,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48775,7 +48775,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrP
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %8, ptr noundef nonnull @.str.543, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.543, i64 3)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 3) #22
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentE, i64 16), ptr %5, align 8
@@ -48786,7 +48786,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48807,7 +48807,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifi
   %11 = load i64, ptr %3, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %11) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %6, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %4)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %6, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_126VariadicIdentifierArgumentE, i64 16), ptr %6, align 8
@@ -48818,7 +48818,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %4 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.59, i64 4) #22
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -48830,7 +48830,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48860,7 +48860,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48882,7 +48882,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48895,7 +48895,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInter
   %8 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %8, ptr noundef nonnull @.str.889, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.889, i64 14)) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 14) #22
-  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #22
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentE, i64 16), ptr %5, align 8
@@ -54923,7 +54923,7 @@ declare void @llvm.trap() #14
 declare void @_ZNK4llvm6Record23getValueAsListOfStringsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector.214") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.llvm::SmallDenseSet", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -58164,7 +58164,7 @@ define internal void @_ZNK12_GLOBAL__N_114SimpleArgument17writePCHReadDeclsERN4l
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  call fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %5, i64 %6)
+  call fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %5, i64 %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -58349,7 +58349,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %35) #22
   %36 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %23, i64 %24, ptr %36, i64 %37)
+  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %4, ptr %23, i64 %24, ptr %36, i64 %37)
   %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %38, i64 noundef %39) #22
@@ -60102,7 +60102,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %366, %364, %316, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"class.llvm::StringSwitch.462", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -60359,7 +60359,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -64060,7 +64060,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %36) #22
   %37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   %38 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %24, i64 %25, ptr %37, i64 %38)
+  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %4, ptr %24, i64 %25, ptr %37, i64 %38)
   %39 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %40 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %41 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %39, i64 noundef %40) #22
@@ -64074,7 +64074,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -66455,7 +66455,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit92:    ; preds = %327, %329, %330
 _ZN4llvm11raw_ostreamlsEPKc.exit95:               ; preds = %340, %342
   %346 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #22
   %347 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %64) #22
-  call fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %346, i64 %347)
+  call fastcc void @_ZL13ReadPCHRecordB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr %346, i64 %347)
   %348 = load ptr, ptr %10, align 8
   %349 = load ptr, ptr %12, align 8
   %350 = ptrtoint ptr %348 to i64
@@ -68552,7 +68552,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit53:               ; preds = %180, %182
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %186 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %185) #22
   %187 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %185) #22
-  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %186, i64 %187, ptr nonnull @.str.849, i64 4)
+  call fastcc void @_ZL14WritePCHRecordB5cxx11N4llvm9StringRefES0_(ptr dead_on_unwind noalias writable align 8 %3, ptr %186, i64 %187, ptr nonnull @.str.849, i64 4)
   %188 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %189 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
   %190 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i52, ptr noundef %188, i64 noundef %189) #22
@@ -73793,7 +73793,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 declare noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val.24.val, i64 %.0.val.32.val) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL20GetSubjectWithSuffixB5cxx11EPKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val.24.val, i64 %.0.val.32.val) unnamed_addr #0 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -73841,7 +73841,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL19CalculateDiagnosticB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -73892,7 +73892,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit33:                ; preds = %2
   store i8 2, ptr %38, align 8, !alias.scope !677
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 33
   store i8 3, ptr %39, align 1, !alias.scope !677
-  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %11) #22
+  call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %11) #22
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 40:                                               ; preds = %2
@@ -73923,7 +73923,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit33:                ; preds = %2
   %.sroa.23.0113 = phi ptr [ null, %.lr.ph117 ], [ %.sroa.23.1, %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit ]
   %.sroa.068.0112 = phi ptr [ %41, %.lr.ph117 ], [ %110, %_ZN4llvm11SmallVectorINS_9StringRefELj2EED2Ev.exit ]
   %56 = load ptr, ptr %.sroa.068.0112, align 8
-  call fastcc void @_ZN5clangL21GetDiagnosticSpellingB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(192) %56)
+  call fastcc void @_ZN5clangL21GetDiagnosticSpellingB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(192) %56)
   %57 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #22
   br i1 %57, label %_ZN4llvmplERKNS_5TwineES2_.exit48, label %63
 
@@ -74229,7 +74229,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clangL21GetDiagnosticSpellingB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clangL21GetDiagnosticSpellingB5cxx11ERKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -74339,7 +74339,7 @@ define linkonce_odr hidden void @_ZN4llvm6detail9join_implIN9__gnu_cxx17__normal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL22GenerateTestExpressionB5cxx11N4llvm8ArrayRefIPNS_6RecordEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -74690,7 +74690,7 @@ define internal fastcc void @_ZL29generateFlattenedSpellingInfoRKN4llvm6RecordER
 
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %20, %16, %11, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %0)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(192) %0)
   %.val5.i = load ptr, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 8
   %.val.i = load ptr, ptr %26, align 8
@@ -75935,7 +75935,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL31emitClangAttrLateParsedListImplRN4llvm12RecordKeeperERNS_11raw_ostreamE17LateAttrParseKind(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL31emitClangAttrLateParsedListImplRN4llvm12RecordKeeperERNS_11raw_ostreamE17LateAttrParseKind(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector.25", align 8
   call void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %4, ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nonnull @.str.7, i64 4) #22
@@ -75960,7 +75960,7 @@ define internal fastcc void @_ZL31emitClangAttrLateParsedListImplRN4llvm12Record
   br i1 %.not, label %16, label %_ZNSt6vectorIN12_GLOBAL__N_117FlattenedSpellingESaIS1_EED2Ev.exit
 
 16:                                               ; preds = %13
-  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %14)
+  call fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %14)
   %.val11 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %9, align 8
   %.not2628 = icmp eq ptr %.val11, %.val
@@ -76448,7 +76448,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vecto
   tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIN5clang17DocumentationDataESaIS8_EEESt10_Select1stISB_EZNS7_17EmitClangAttrDocsERNS0_12RecordKeeperERNS0_11raw_ostreamEE12CategoryLessSaISB_EE8_M_eraseEPSt13_Rb_tree_nodeISB_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIN5clang17DocumentationDataESaIS8_EEESt10_Select1stISB_EZNS7_17EmitClangAttrDocsERNS0_12RecordKeeperERNS0_11raw_ostreamEE12CategoryLessSaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull %.02) #22
+  tail call fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIN5clang17DocumentationDataESaIS8_EEESt10_Select1stISB_EZNS7_17EmitClangAttrDocsERNS0_12RecordKeeperERNS0_11raw_ostreamEE12CategoryLessSaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E(ptr noundef %.02) #22
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !745
 
@@ -76457,7 +76457,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIN5clang17DocumentationDataESaIS8_EEESt10_Select1stISB_EZNS7_17EmitClangAttrDocsERNS0_12RecordKeeperERNS0_11raw_ostreamEE12CategoryLessSaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIPKN4llvm6RecordESt4pairIKS3_St6vectorIN5clang17DocumentationDataESaIS8_EEESt10_Select1stISB_EZNS7_17EmitClangAttrDocsERNS0_12RecordKeeperERNS0_11raw_ostreamEE12CategoryLessSaISB_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISB_E(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -77145,7 +77145,7 @@ _ZN5clang17DocumentationDataC2EOS0_.exit.i.i.i:   ; preds = %30
   br i1 %55, label %_ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i, label %43
 
 _ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i:  ; preds = %43
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %19, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %19, ptr noundef %7)
   br label %56
 
 56:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i.i.i, %_ZN5clang17DocumentationDataC2EOS0_.exit9.i.i.i
@@ -77355,7 +77355,7 @@ _ZN5clang17DocumentationDataaSEOS0_.exit.i:       ; preds = %_ZNSt6vectorINSt7__
 _ZN5clang17DocumentationDataC2EOS0_.exit2.i:      ; preds = %125
   %138 = sub i64 %124, %8
   %139 = sdiv exact i64 %138, 240
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef 0, i64 noundef %139, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef 0, i64 noundef %139, ptr noundef %5)
   br label %140
 
 140:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i, %_ZN5clang17DocumentationDataC2EOS0_.exit2.i
@@ -77524,7 +77524,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5clang17DocumentationDataESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_17EmitClangAttrDocsERN4llvm12RecordKeeperERNSB_11raw_ostreamEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::DocumentationData", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

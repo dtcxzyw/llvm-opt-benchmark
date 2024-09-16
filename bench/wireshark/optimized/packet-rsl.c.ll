@@ -1593,7 +1593,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
 64:                                               ; preds = %15
   %65 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   store i32 %65, ptr %5, align 4
-  %66 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %65, ptr noundef nonnull %6)
+  %66 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %65, ptr noundef %6)
   store i32 %66, ptr %5, align 4
   %67 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %66) #5
   %68 = icmp sgt i32 %67, 0
@@ -1690,7 +1690,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   br label %.sink.split638
 
 121:                                              ; preds = %15
-  %122 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %17, ptr noundef nonnull %6)
+  %122 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %17, ptr noundef %6)
   store i32 %122, ptr %5, align 4
   %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %122) #5
   %124 = icmp sgt i32 %123, 0
@@ -2315,7 +2315,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
 467:                                              ; preds = %15
   %468 = tail call fastcc i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef 1)
   store i32 %468, ptr %5, align 4
-  %469 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %468, ptr noundef nonnull %6)
+  %469 = call fastcc i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %2, i32 noundef %468, ptr noundef %6)
   store i32 %469, ptr %5, align 4
   %470 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %469) #5
   %471 = icmp sgt i32 %470, 0
@@ -2467,7 +2467,7 @@ define internal fastcc i32 @dissct_rsl_msg(ptr noundef %0, ptr noundef %1, ptr n
   br label %.sink.split638
 
 555:                                              ; preds = %15
-  %556 = call fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5)
+  %556 = call fastcc i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %2, ptr noundef %5)
   %557 = trunc nuw nsw i32 %556 to i8
   %558 = load i32, ptr %5, align 4
   %559 = tail call fastcc i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %558, i8 noundef zeroext %557)
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @dissct_rsl_ipaccess_msg(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -2845,7 +2845,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_ch_no(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -2887,7 +2887,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_link_id(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rsl_ie_L3_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = icmp eq i32 %4, 0
   br i1 %8, label %9, label %11
@@ -2987,7 +2987,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_rel_mode(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_ie_sys_info_type, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.725) #5
   %7 = load i32, ptr @hf_rsl_ie_id, align 4
@@ -3180,7 +3180,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_access_delay(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_access_delay(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -3529,7 +3529,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_resource_inf(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rsl_ie_cause(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %7, label %9
@@ -3954,7 +3954,7 @@ define internal fastcc i32 @dissect_rsl_ie_ch_id(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rsl_ie_enc_inf(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %7, label %9
@@ -4015,7 +4015,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_ho_ref(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -4045,7 +4045,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_bs_power(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -4073,7 +4073,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_ms_pow(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_timing_adv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_timing_adv(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -4201,7 +4201,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_main_ch_ref(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = icmp eq i32 %4, 0
   br i1 %7, label %8, label %10
@@ -4235,7 +4235,7 @@ define internal fastcc i32 @dissect_rsl_ie_multirate_conf(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_multirate_cntrl(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -4429,7 +4429,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_osmo_training_seq(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_frame_no(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %8
 
@@ -4647,7 +4647,7 @@ define internal fastcc i32 @dissect_rsl_ie_llp_apdu(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 16) i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 16) i32 @dissect_rsl_paging_package_number(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @ett_ie_paging_package_number, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.786) #5
@@ -4668,15 +4668,19 @@ define internal fastcc range(i32 0, 16) i32 @dissect_rsl_paging_package_number(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 16) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %.not31 = icmp eq i8 %4, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  br i1 %.not31, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %5, %dissect_rsl_paging_group_paras.exit
-  %.033 = phi i32 [ %.030.i, %dissect_rsl_paging_group_paras.exit ], [ %3, %5 ]
-  %.02932 = phi i8 [ %60, %dissect_rsl_paging_group_paras.exit ], [ 1, %5 ]
-  %7 = zext i8 %.02932 to i32
+.lr.ph.preheader:                                 ; preds = %5
+  %7 = add nuw nsw i8 %4, 1
+  %wide.trip.count = zext nneg i8 %7 to i32
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %dissect_rsl_paging_group_paras.exit
+  %indvars.iv = phi i32 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %dissect_rsl_paging_group_paras.exit ]
+  %.033 = phi i32 [ %3, %.lr.ph.preheader ], [ %.030.i, %dissect_rsl_paging_group_paras.exit ]
   %8 = add i32 %.033, 2
   %9 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #5
   %10 = add i8 %9, 3
@@ -4688,7 +4692,7 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
   %.028 = add i8 %.028.v, %9
   %15 = zext i8 %.028 to i32
   %16 = load i32, ptr @ett_ie_paging_package, align 4
-  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.033, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.787, i32 noundef %7) #5
+  %17 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.033, i32 noundef %15, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.787, i32 noundef %indvars.iv) #5
   %18 = load i32, ptr @ett_ie_paging_package_ch_a_emlpp, align 4
   %19 = call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %.033, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.788) #5
   %20 = load i32, ptr @hf_rsl_paging_package_ch_no, align 4
@@ -4749,9 +4753,9 @@ define internal fastcc noundef i32 @dissect_rsl_paging_package(ptr noundef %0, p
 
 dissect_rsl_paging_group_paras.exit:              ; preds = %56, %47
   %.030.i = phi i32 [ %52, %47 ], [ %.1.i, %56 ]
-  %60 = add i8 %.02932, 1
-  %.not = icmp ugt i8 %60, %4
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
+  %exitcond = icmp eq i32 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %dissect_rsl_paging_group_paras.exit, %5
   %.0.lcssa = phi i32 [ %3, %5 ], [ %.030.i, %dissect_rsl_paging_group_paras.exit ]

@@ -729,7 +729,7 @@ define internal void @_ZL25pj_deformation_forward_4dR8PJ_COORDP8PJconsts(ptr noc
 
 14:                                               ; preds = %2, %8
   %.0 = phi double [ %13, %8 ], [ %6, %2 ]
-  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.sroa.0.0.copyload = load double, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load double, ptr %.sroa.2.0..sroa_idx, align 8
@@ -768,7 +768,7 @@ define internal void @_ZL25pj_deformation_reverse_4dR8PJ_COORDP8PJconsts(ptr noc
 
 14:                                               ; preds = %2, %8
   %.0 = phi double [ %13, %8 ], [ %6, %2 ]
-  call fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, double noundef %.0)
+  call fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %1, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, double noundef %.0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   ret void
 }
@@ -801,7 +801,7 @@ define internal void @_ZL25pj_deformation_forward_3d6PJ_LPZP8PJconsts(ptr dead_o
   br label %19
 
 12:                                               ; preds = %3
-  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %4)
   %.sroa.0.0.copyload = load double, ptr %6, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8
@@ -847,7 +847,7 @@ define internal void @_ZL25pj_deformation_reverse_3d6PJ_XYZP8PJconsts(ptr dead_o
   br label %11
 
 10:                                               ; preds = %3
-  call fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias nonnull writable align 8 %.sroa.0, ptr noundef nonnull %2, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1, double noundef %7)
+  call fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias writable align 8 %.sroa.0, ptr noundef nonnull %2, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %1, double noundef %7)
   br label %11
 
 11:                                               ; preds = %10, %9
@@ -864,7 +864,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %struct.PJ_LPZ, align 8
   %6 = alloca double, align 8
@@ -1147,11 +1147,11 @@ declare noundef zeroext i1 @_ZN5osgeo4proj39pj_bilinear_interpolation_three_samp
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly byval(%struct.PJ_XYZ) align 8 %2, double noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly byval(%struct.PJ_XYZ) align 8 %2, double noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.PJ_XYZ, align 8
   %6 = alloca %struct.PJ_XYZ, align 8
   %7 = alloca %struct.PJ_XYZ, align 8
-  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %.sroa.03.0.copyload = load double, ptr %6, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
@@ -1192,7 +1192,7 @@ define internal fastcc void @_ZL28pj_deformation_reverse_shiftP8PJconsts6PJ_XYZd
   %24 = phi double [ %16, %10 ], [ %35, %38 ]
   %25 = phi double [ %13, %10 ], [ %34, %38 ]
   %.0 = phi i32 [ 10, %10 ], [ %37, %38 ]
-  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @_ZL29pj_deformation_get_grid_shiftP8PJconstsRK6PJ_XYZ(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %.sroa.03.0.copyload8 = load double, ptr %7, align 8
   %26 = fcmp oeq double %.sroa.03.0.copyload8, 0x7FF0000000000000
   br i1 %26, label %.critedge, label %27

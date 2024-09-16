@@ -1349,7 +1349,7 @@ declare void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS0_9Mem
 declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23setErrnoStateIrrelevantN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val) unnamed_addr #0 {
+define internal fastcc void @_ZL23setErrnoStateIrrelevantN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val) unnamed_addr #0 {
   %2 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   store ptr %.0.val, ptr %2, align 8
   %.not.i.i = icmp eq ptr %.0.val, null
@@ -1360,7 +1360,7 @@ define internal fastcc void @_ZL23setErrnoStateIrrelevantN4llvm18IntrusiveRefCnt
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %1, %3
-  call void @_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull %2, i32 noundef 0) #18
+  call void @_ZN5clang4ento14errno_modeling13setErrnoStateEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS1_15ErrnoCheckStateE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr noundef nonnull %2, i32 noundef 0) #18
   %4 = load ptr, ptr %2, align 8
   %.not.i.i1 = icmp eq ptr %4, null
   br i1 %.not.i.i1, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %5
@@ -1903,7 +1903,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i: ; preds
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22.i: ; preds = %58, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i
-  call fastcc void @_ZL23setErrnoStateIrrelevantN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %57)
+  call fastcc void @_ZL23setErrnoStateIrrelevantN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr %57)
   %59 = call noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #18
   %.val14.i = load ptr, ptr %7, align 8
   call fastcc void @_ZNK12_GLOBAL__N_112ErrnoChecker26generateErrnoNotCheckedBugERN5clang4ento14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_9MemRegionEPKNS2_9CallEventE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr %.val14.i, ptr noundef %59, ptr noundef nonnull %1)

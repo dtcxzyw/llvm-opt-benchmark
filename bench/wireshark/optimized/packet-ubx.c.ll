@@ -1446,42 +1446,42 @@ define internal i32 @dissect_ubx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %24 = add nuw nsw i32 %10, 4
   %25 = zext nneg i32 %24 to i64
   %26 = call ptr @tvb_memdup(ptr noundef %23, ptr noundef %0, i32 noundef 2, i64 noundef %25) #5
-  br label %.lr.ph.i
+  br label %27
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %4
-  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.0912.i = phi i8 [ 0, %4 ], [ %30, %.lr.ph.i ]
-  %.01011.i = phi i8 [ 0, %4 ], [ %29, %.lr.ph.i ]
-  %27 = getelementptr i8, ptr %26, i64 %indvars.iv.i
-  %28 = load i8, ptr %27, align 1
-  %29 = add i8 %28, %.01011.i
-  %30 = add i8 %29, %.0912.i
+27:                                               ; preds = %27, %4
+  %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %27 ]
+  %.0912.i = phi i8 [ 0, %4 ], [ %31, %27 ]
+  %.01011.i = phi i8 [ 0, %4 ], [ %30, %27 ]
+  %28 = getelementptr i8, ptr %26, i64 %indvars.iv.i
+  %29 = load i8, ptr %28, align 1
+  %30 = add i8 %29, %.01011.i
+  %31 = add i8 %30, %.0912.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
-  br i1 %exitcond.not.i, label %chksum_fletcher_8.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %chksum_fletcher_8.exit, label %27, !llvm.loop !10
 
-chksum_fletcher_8.exit:                           ; preds = %.lr.ph.i
-  %31 = add nuw nsw i32 %10, 6
-  %32 = zext i8 %30 to i32
-  %33 = shl nuw nsw i32 %32, 8
-  %34 = zext i8 %29 to i32
-  %35 = or disjoint i32 %33, %34
-  %36 = load i32, ptr @hf_ubx_chksum, align 4
-  %37 = call ptr @proto_tree_add_checksum(ptr noundef %15, ptr noundef %0, i32 noundef %31, i32 noundef %36, i32 noundef -1, ptr noundef nonnull @ei_ubx_chksum, ptr noundef null, i32 noundef %35, i32 noundef -2147483648, i32 noundef 1) #5
-  %38 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %10) #5
-  %39 = load ptr, ptr @ubx_class_id_dissector_table, align 8
-  %40 = load i32, ptr %5, align 4
-  %41 = call i32 @dissector_try_uint(ptr noundef %39, i32 noundef %40, ptr noundef %38, ptr noundef %1, ptr noundef %2) #5
-  %.not = icmp eq i32 %41, 0
-  br i1 %.not, label %42, label %44
+chksum_fletcher_8.exit:                           ; preds = %27
+  %32 = add nuw nsw i32 %10, 6
+  %33 = zext i8 %31 to i32
+  %34 = shl nuw nsw i32 %33, 8
+  %35 = zext i8 %30 to i32
+  %36 = or disjoint i32 %34, %35
+  %37 = load i32, ptr @hf_ubx_chksum, align 4
+  %38 = call ptr @proto_tree_add_checksum(ptr noundef %15, ptr noundef %0, i32 noundef %32, i32 noundef %37, i32 noundef -1, ptr noundef nonnull @ei_ubx_chksum, ptr noundef null, i32 noundef %36, i32 noundef -2147483648, i32 noundef 1) #5
+  %39 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %10) #5
+  %40 = load ptr, ptr @ubx_class_id_dissector_table, align 8
+  %41 = load i32, ptr %5, align 4
+  %42 = call i32 @dissector_try_uint(ptr noundef %40, i32 noundef %41, ptr noundef %39, ptr noundef %1, ptr noundef %2) #5
+  %.not = icmp eq i32 %42, 0
+  br i1 %.not, label %43, label %45
 
-42:                                               ; preds = %chksum_fletcher_8.exit
-  %43 = call i32 @call_data_dissector(ptr noundef %38, ptr noundef %1, ptr noundef %2) #5
-  br label %44
+43:                                               ; preds = %chksum_fletcher_8.exit
+  %44 = call i32 @call_data_dissector(ptr noundef %39, ptr noundef %1, ptr noundef %2) #5
+  br label %45
 
-44:                                               ; preds = %42, %chksum_fletcher_8.exit
-  %45 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %45
+45:                                               ; preds = %43, %chksum_fletcher_8.exit
+  %46 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %46
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

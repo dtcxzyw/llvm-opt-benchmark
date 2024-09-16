@@ -2904,101 +2904,107 @@ giop_getline.exit.i:                              ; preds = %string_to_IOR.exit.
 20:                                               ; preds = %giop_getline.exit.i
   %21 = and i64 %17, 2147483647
   %22 = tail call noalias ptr @wmem_alloc0(ptr noundef null, i64 noundef %21) #14
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %string_to_IOR.exit.thread.i, label %.preheader.i.i
+  %23 = icmp ne ptr %22, null
+  %24 = icmp ugt i32 %18, 5
+  %or.cond.i.i = and i1 %24, %23
+  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %string_to_IOR.exit.thread.i
 
-.preheader.i.i:                                   ; preds = %20
-  %24 = add nsw i32 %18, -1
-  %25 = icmp ugt i32 %24, 4
-  br i1 %25, label %.lr.ph.i.i, label %string_to_IOR.exit.thread.i
+.lr.ph.i.i:                                       ; preds = %20
+  %25 = add i64 %17, 4294967295
+  %26 = and i64 %25, 4294967295
+  %27 = and i32 %18, 2147483646
+  br label %28
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %26 = zext nneg i32 %24 to i64
-  br label %27
+28:                                               ; preds = %54, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 4, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
+  %29 = getelementptr i8, ptr %13, i64 %indvars.iv.i.i
+  %30 = load i8, ptr %29, align 1
+  %31 = zext i8 %30 to i64
+  %32 = getelementptr i16, ptr %16, i64 %31
+  %33 = load i16, ptr %32, align 2
+  %34 = and i16 %33, 1024
+  %.not.i.i = icmp eq i16 %34, 0
+  br i1 %.not.i.i, label %._crit_edge.loopexit.split.loop.exit.i.i, label %35
 
-27:                                               ; preds = %53, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 4, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %53 ]
-  %28 = getelementptr i8, ptr %13, i64 %indvars.iv.i.i
-  %29 = load i8, ptr %28, align 1
-  %30 = zext i8 %29 to i64
-  %31 = getelementptr i16, ptr %16, i64 %30
-  %32 = load i16, ptr %31, align 2
-  %33 = and i16 %32, 1024
-  %.not.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.i, label %string_to_IOR.exit.i, label %34
+35:                                               ; preds = %28
+  %36 = or disjoint i64 %indvars.iv.i.i, 1
+  %37 = getelementptr i8, ptr %13, i64 %36
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i64
+  %40 = getelementptr i16, ptr %16, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = and i16 %41, 1024
+  %.not29.i.i = icmp eq i16 %42, 0
+  br i1 %.not29.i.i, label %._crit_edge.loopexit.split.loop.exit38.i.i, label %43
 
-34:                                               ; preds = %27
-  %35 = or disjoint i64 %indvars.iv.i.i, 1
-  %36 = getelementptr i8, ptr %13, i64 %35
-  %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i64
-  %39 = getelementptr i16, ptr %16, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = and i16 %40, 1024
-  %.not29.i.i = icmp eq i16 %41, 0
-  br i1 %.not29.i.i, label %string_to_IOR.exit.i, label %42
+43:                                               ; preds = %35
+  %44 = tail call i32 @ws_xton(i8 noundef signext %30) #14
+  %sext.i.i = shl i32 %44, 24
+  %45 = ashr exact i32 %sext.i.i, 24
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %48
 
-42:                                               ; preds = %34
-  %43 = tail call i32 @ws_xton(i8 noundef signext %29) #14
-  %sext.i.i = shl i32 %43, 24
-  %44 = ashr exact i32 %sext.i.i, 24
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %47
+47:                                               ; preds = %43
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.557, i32 noundef %45) #14
+  br label %48
 
-46:                                               ; preds = %42
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.557, i32 noundef %44) #14
-  br label %47
+48:                                               ; preds = %47, %43
+  %49 = load i8, ptr %37, align 1
+  %50 = tail call i32 @ws_xton(i8 noundef signext %49) #14
+  %sext30.i.i = shl i32 %50, 24
+  %51 = ashr exact i32 %sext30.i.i, 24
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %54
 
-47:                                               ; preds = %46, %42
-  %48 = load i8, ptr %36, align 1
-  %49 = tail call i32 @ws_xton(i8 noundef signext %48) #14
-  %sext30.i.i = shl i32 %49, 24
-  %50 = ashr exact i32 %sext30.i.i, 24
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %53
+53:                                               ; preds = %48
+  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.557, i32 noundef %51) #14
+  br label %54
 
-52:                                               ; preds = %47
-  tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.557, i32 noundef %50) #14
-  br label %53
-
-53:                                               ; preds = %52, %47
-  %54 = shl i32 %43, 4
-  %55 = add i32 %49, %54
-  %56 = trunc i32 %55 to i8
-  %57 = add nsw i64 %indvars.iv.i.i, -4
-  %58 = lshr exact i64 %57, 1
-  %59 = getelementptr i8, ptr %22, i64 %58
-  store i8 %56, ptr %59, align 1
+54:                                               ; preds = %53, %48
+  %55 = shl i32 %44, 4
+  %56 = add i32 %50, %55
+  %57 = trunc i32 %56 to i8
+  %58 = add nsw i64 %indvars.iv.i.i, -4
+  %59 = lshr exact i64 %58, 1
+  %60 = getelementptr i8, ptr %22, i64 %59
+  store i8 %57, ptr %60, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %60 = icmp ult i64 %indvars.iv.next.i.i, %26
-  br i1 %60, label %27, label %string_to_IOR.exit.i, !llvm.loop !15
+  %61 = icmp ult i64 %indvars.iv.next.i.i, %26
+  br i1 %61, label %28, label %string_to_IOR.exit.i, !llvm.loop !15
 
-string_to_IOR.exit.i:                             ; preds = %53, %34, %27
-  %.0.lcssa.ph.in.i.i = phi i64 [ %indvars.iv.next.i.i, %53 ], [ %indvars.iv.i.i, %34 ], [ %indvars.iv.i.i, %27 ]
-  %.0.lcssa.ph.i.i = trunc i64 %.0.lcssa.ph.in.i.i to i32
-  %61 = add nsw i32 %.0.lcssa.ph.i.i, -4
-  %.not24.i = icmp eq i32 %61, 0
-  br i1 %.not24.i, label %string_to_IOR.exit.thread.i, label %62
+._crit_edge.loopexit.split.loop.exit.i.i:         ; preds = %28
+  %62 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  br label %string_to_IOR.exit.i
 
-62:                                               ; preds = %string_to_IOR.exit.i
-  %63 = lshr exact i32 %61, 1
-  %64 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %22, i32 noundef %63, i32 noundef %63) #14
-  %65 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %64, i32 noundef 0) #14
+._crit_edge.loopexit.split.loop.exit38.i.i:       ; preds = %35
+  %63 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  br label %string_to_IOR.exit.i
+
+string_to_IOR.exit.i:                             ; preds = %54, %._crit_edge.loopexit.split.loop.exit38.i.i, %._crit_edge.loopexit.split.loop.exit.i.i
+  %.0.lcssa.ph.i.i = phi i32 [ %62, %._crit_edge.loopexit.split.loop.exit.i.i ], [ %63, %._crit_edge.loopexit.split.loop.exit38.i.i ], [ %27, %54 ]
+  %64 = add nsw i32 %.0.lcssa.ph.i.i, -4
+  %.not24.i = icmp eq i32 %64, 0
+  br i1 %.not24.i, label %string_to_IOR.exit.thread.i, label %65
+
+65:                                               ; preds = %string_to_IOR.exit.i
+  %66 = lshr exact i32 %64, 1
+  %67 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %22, i32 noundef %66, i32 noundef %66) #14
+  %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %67, i32 noundef 0) #14
   store i32 1, ptr %1, align 4
-  %.not.i = icmp eq i8 %65, 0
-  %66 = zext i1 %.not.i to i32
-  call fastcc void @decode_IOR(ptr noundef %64, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %66)
-  tail call void @tvb_free(ptr noundef %64) #14
+  %.not.i = icmp eq i8 %68, 0
+  %69 = zext i1 %.not.i to i32
+  call fastcc void @decode_IOR(ptr noundef %67, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, i32 noundef 0, i32 noundef %69)
+  tail call void @tvb_free(ptr noundef %67) #14
   br label %string_to_IOR.exit.thread.i
 
-string_to_IOR.exit.thread.i:                      ; preds = %62, %string_to_IOR.exit.i, %.preheader.i.i, %20
+string_to_IOR.exit.thread.i:                      ; preds = %65, %string_to_IOR.exit.i, %20
   tail call void @wmem_free(ptr noundef null, ptr noundef %22) #14
-  %67 = tail call ptr @fgets(ptr noundef %13, i32 noundef 601, ptr noundef nonnull %5)
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !16
+  %70 = tail call ptr @fgets(ptr noundef %13, i32 noundef 601, ptr noundef nonnull %5)
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %giop_getline.exit.thread.i, label %giop_getline.exit.i, !llvm.loop !16
 
 giop_getline.exit.thread.i:                       ; preds = %string_to_IOR.exit.thread.i, %giop_getline.exit.i, %12
-  %69 = tail call i32 @fclose(ptr noundef nonnull %5)
+  %72 = tail call i32 @fclose(ptr noundef nonnull %5)
   tail call void @wmem_free(ptr noundef null, ptr noundef %13) #14
   br label %read_IOR_strings_from_file.exit
 
@@ -3148,9 +3154,9 @@ define internal fastcc void @dissect_tk_objref_params(ptr noundef %0, ptr nounde
   %10 = load i32, ptr %7, align 4
   %11 = load i32, ptr %6, align 4
   %12 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %8)
   %13 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef %8)
   ret void
 }
 
@@ -3167,11 +3173,11 @@ define internal fastcc void @dissect_tk_struct_params(ptr noundef %0, ptr nounde
   %16 = load i32, ptr %10, align 4
   %17 = load i32, ptr %9, align 4
   %18 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %16, i32 noundef %17, i32 noundef %18, ptr noundef %11)
   %19 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %19) #14
   %20 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %16, i32 noundef %17, i32 noundef %20, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %16, i32 noundef %17, i32 noundef %20, ptr noundef %11)
   %21 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %21) #14
   %.promoted.i = load i32, ptr %3, align 4
@@ -3225,7 +3231,7 @@ get_CDR_ulong.exit:                               ; preds = %26, %28
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %.044 = phi i32 [ %48, %.lr.ph ], [ 0, %39 ]
   %41 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %16, i32 noundef %17, i32 noundef %41, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %16, i32 noundef %17, i32 noundef %41, ptr noundef %11)
   %42 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %42) #14
   %43 = load ptr, ptr %12, align 8
@@ -3255,9 +3261,9 @@ define internal fastcc void @dissect_tk_union_params(ptr noundef %0, ptr noundef
   %13 = load i32, ptr %10, align 4
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %11)
   %16 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %16, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %4, i32 noundef %13, i32 noundef %14, i32 noundef %16, ptr noundef %11)
   %17 = getelementptr inbounds i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_list_new(ptr noundef %18) #14
@@ -3343,7 +3349,7 @@ get_CDR_ulong.exit:                               ; preds = %38, %40
 
 52:                                               ; preds = %.lr.ph
   %53 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %13, i32 noundef %14, i32 noundef %53, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %13, i32 noundef %14, i32 noundef %53, ptr noundef %11)
   %54 = load ptr, ptr %17, align 8
   %55 = tail call noalias ptr @wmem_list_new(ptr noundef %54) #14
   %56 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef %13, i32 noundef %14, ptr noundef %7, ptr noundef %55)
@@ -3367,11 +3373,11 @@ define internal fastcc void @dissect_tk_enum_params(ptr noundef %0, ptr %.408.va
   %12 = load i32, ptr %8, align 4
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %9)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %9)
   %15 = load ptr, ptr %9, align 8
   tail call void @wmem_list_append(ptr noundef %5, ptr noundef %15) #14
   %16 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %16, ptr noundef nonnull %9)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %12, i32 noundef %13, i32 noundef %16, ptr noundef %9)
   %17 = load ptr, ptr %9, align 8
   tail call void @wmem_list_append(ptr noundef %5, ptr noundef %17) #14
   %.promoted.i = load i32, ptr %2, align 4
@@ -3415,7 +3421,7 @@ get_CDR_ulong.exit:                               ; preds = %22, %24
 .lr.ph:                                           ; preds = %get_CDR_ulong.exit, %.lr.ph
   %.01 = phi i32 [ %34, %.lr.ph ], [ 0, %get_CDR_ulong.exit ]
   %32 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %13, i32 noundef %32, ptr noundef nonnull %9)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %12, i32 noundef %13, i32 noundef %32, ptr noundef %9)
   %33 = load ptr, ptr %9, align 8
   tail call void @wmem_list_append(ptr noundef %5, ptr noundef %33) #14
   %34 = add nuw i32 %.01, 1
@@ -3547,11 +3553,11 @@ define internal fastcc void @dissect_tk_alias_params(ptr noundef %0, ptr noundef
   %13 = load i32, ptr %10, align 4
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %14, i32 noundef %15, ptr noundef %11)
   %16 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %16) #14
   %17 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %14, i32 noundef %17, ptr noundef nonnull %11)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %13, i32 noundef %14, i32 noundef %17, ptr noundef %11)
   %18 = load ptr, ptr %11, align 8
   tail call void @wmem_list_append(ptr noundef %7, ptr noundef %18) #14
   %19 = getelementptr inbounds i8, ptr %1, i64 408
@@ -3575,9 +3581,9 @@ define internal fastcc void @dissect_tk_except_params(ptr noundef %0, ptr nounde
   %12 = load i32, ptr %9, align 4
   %13 = load i32, ptr %8, align 4
   %14 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %10)
   %15 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %10)
   %.promoted.i = load i32, ptr %3, align 4
   %16 = add i32 %.promoted.i, %13
   %17 = and i32 %16, 3
@@ -3627,7 +3633,7 @@ get_CDR_ulong.exit:                               ; preds = %20, %22
 32:                                               ; preds = %.lr.ph, %32
   %.029 = phi i32 [ 0, %.lr.ph ], [ %37, %32 ]
   %33 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %33, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %33, ptr noundef %10)
   %34 = load ptr, ptr %31, align 8
   %35 = tail call noalias ptr @wmem_list_new(ptr noundef %34) #14
   %36 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %35)
@@ -3649,9 +3655,9 @@ define internal fastcc void @dissect_tk_value_params(ptr noundef %0, ptr noundef
   %12 = load i32, ptr %9, align 4
   %13 = load i32, ptr %8, align 4
   %14 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %10)
   %15 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %10)
   %.promoted.i = load i32, ptr %3, align 4
   %16 = add i32 %.promoted.i, %5
   %17 = and i32 %16, 1
@@ -3734,7 +3740,7 @@ get_CDR_ulong.exit:                               ; preds = %37, %39
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %get_CDR_short.exit61.us.us
   %.062.us.us = phi i32 [ %56, %get_CDR_short.exit61.us.us ], [ 0, %.lr.ph.split.us ]
   %46 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %46, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %46, ptr noundef %10)
   %47 = load ptr, ptr %29, align 8
   %48 = tail call noalias ptr @wmem_list_new(ptr noundef %47) #14
   %49 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %48)
@@ -3763,7 +3769,7 @@ get_CDR_short.exit61.us.us:                       ; preds = %.lr.ph.preheader.i5
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %get_CDR_short.exit61.us
   %.062.us = phi i32 [ %67, %get_CDR_short.exit61.us ], [ 0, %.lr.ph.split.us ]
   %57 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %57, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %57, ptr noundef %10)
   %58 = load ptr, ptr %29, align 8
   %59 = tail call noalias ptr @wmem_list_new(ptr noundef %58) #14
   %60 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %59)
@@ -3795,7 +3801,7 @@ get_CDR_short.exit61.us:                          ; preds = %.lr.ph.preheader.i5
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %get_CDR_short.exit61.us68
   %.062.us63 = phi i32 [ %81, %get_CDR_short.exit61.us68 ], [ 0, %.lr.ph.split ]
   %68 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %68, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %68, ptr noundef %10)
   %69 = load ptr, ptr %29, align 8
   %70 = tail call noalias ptr @wmem_list_new(ptr noundef %69) #14
   %71 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %70)
@@ -3827,7 +3833,7 @@ get_CDR_short.exit61.us68:                        ; preds = %.lr.ph.preheader.i5
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %get_CDR_short.exit61
   %.062 = phi i32 [ %95, %get_CDR_short.exit61 ], [ 0, %.lr.ph.split ]
   %82 = load i32, ptr @hf_giop_typecode_member_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %82, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, i32 noundef %82, ptr noundef %10)
   %83 = load ptr, ptr %29, align 8
   %84 = tail call noalias ptr @wmem_list_new(ptr noundef %83) #14
   %85 = tail call fastcc i32 @get_CDR_typeCode_with_params(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %12, i32 noundef %13, ptr noundef %6, ptr noundef %84)
@@ -3869,9 +3875,9 @@ define internal fastcc void @dissect_tk_value_box_params(ptr noundef %0, ptr nou
   %12 = load i32, ptr %9, align 4
   %13 = load i32, ptr %8, align 4
   %14 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %14, ptr noundef %10)
   %15 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef nonnull %10)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef %13, i32 noundef %15, ptr noundef %10)
   %16 = getelementptr inbounds i8, ptr %1, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noalias ptr @wmem_list_new(ptr noundef %17) #14
@@ -3889,9 +3895,9 @@ define internal fastcc void @dissect_tk_native_params(ptr noundef %0, ptr nounde
   %10 = load i32, ptr %7, align 4
   %11 = load i32, ptr %6, align 4
   %12 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %8)
   %13 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef %8)
   ret void
 }
 
@@ -3904,14 +3910,14 @@ define internal fastcc void @dissect_tk_abstract_interface_params(ptr noundef %0
   %10 = load i32, ptr %7, align 4
   %11 = load i32, ptr %6, align 4
   %12 = load i32, ptr @hf_giop_repoid, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %12, ptr noundef %8)
   %13 = load i32, ptr @hf_giop_typecode_name, align 4
-  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef nonnull %8)
+  call fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10, i32 noundef %11, i32 noundef %13, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %.promoted.i.i = load i32, ptr %2, align 4
   %8 = add i32 %.promoted.i.i, %4
   %9 = and i32 %8, 3
@@ -4247,11 +4253,11 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br i1 %163, label %164, label %165
 
 164:                                              ; preds = %161
-  call fastcc void @dissect_giop_request_1_1(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_request_1_1(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 165:                                              ; preds = %161
-  call fastcc void @dissect_giop_request_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_request_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 166:                                              ; preds = %159
@@ -4260,11 +4266,11 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %166
-  call fastcc void @dissect_giop_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 170:                                              ; preds = %166
-  call fastcc void @dissect_giop_reply_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_reply_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 171:                                              ; preds = %159
@@ -4272,11 +4278,11 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br label %175
 
 172:                                              ; preds = %159
-  call fastcc void @dissect_giop_locate_request(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_locate_request(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 173:                                              ; preds = %159
-  call fastcc void @dissect_giop_locate_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_locate_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %5, i32 noundef %.0.i)
   br label %175
 
 174:                                              ; preds = %159
@@ -4343,14 +4349,14 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_request_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_request_1_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.giop_object_key, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   store i32 0, ptr %7, align 4
   %9 = load i32, ptr @ett_giop_request, align 4
   %10 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %9, ptr noundef nonnull %8, ptr noundef nonnull @.str.258) #14
-  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef nonnull %7, i32 noundef %4, i32 noundef 0)
+  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %7, i32 noundef %4, i32 noundef 0)
   %.promoted.i = load i32, ptr %7, align 4
   %11 = and i32 %.promoted.i, 3
   %.not10.i = icmp eq i32 %11, 0
@@ -4655,12 +4661,12 @@ get_repoid_from_objkey.exit:                      ; preds = %165
   br i1 %.not140, label %174, label %171
 
 171:                                              ; preds = %get_repoid_from_objkey.exit
-  %172 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %99, ptr noundef nonnull %170)
+  %172 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, ptr noundef %3, ptr noundef %99, ptr noundef %170)
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %.critedge144
 
 174:                                              ; preds = %171, %get_repoid_from_objkey.exit, %get_repoid_from_objkey.exit.thread
-  %175 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef %99)
+  %175 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, ptr noundef %3, ptr noundef %99)
   %176 = icmp eq i32 %175, 0
   br i1 %176, label %177, label %.critedge144
 
@@ -4730,7 +4736,7 @@ get_CDR_string.exit167:                           ; preds = %185, %187
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_request_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_request_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.giop_object_key, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -4769,7 +4775,7 @@ get_CDR_ulong.exit:                               ; preds = %12, %14
   store i32 8, ptr %7, align 4
   %28 = load i32, ptr @hf_giop_reserved, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef 5, i32 noundef 3, i32 noundef 0) #14
-  call fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %11, i32 noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %30 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %38, label %31
@@ -4837,7 +4843,7 @@ get_CDR_string.exit:                              ; preds = %42, %44
   br label %61
 
 61:                                               ; preds = %54, %get_CDR_string.exit
-  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, ptr noundef nonnull %7, i32 noundef %4, i32 noundef 12)
+  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %11, ptr noundef %7, i32 noundef %4, i32 noundef 12)
   %62 = load i32, ptr %7, align 4
   %63 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %62) #14
   %64 = icmp slt i32 %63, 1
@@ -4882,12 +4888,12 @@ set_new_alignment.exit:                           ; preds = %._crit_edge.i, %61
   br i1 %.not81, label %86, label %83
 
 83:                                               ; preds = %82
-  %84 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %50, ptr noundef nonnull %.0)
+  %84 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, ptr noundef %3, ptr noundef %50, ptr noundef %.0)
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %.critedge85
 
 86:                                               ; preds = %83, %82
-  %87 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %50)
+  %87 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %7, ptr noundef %3, ptr noundef %50)
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %.critedge85
 
@@ -4961,13 +4967,13 @@ get_CDR_string.exit95:                            ; preds = %97, %99
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.complete_reply_hash_key, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = load i32, ptr @ett_giop_reply, align 4
   %9 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %8, ptr noundef null, ptr noundef nonnull @.str.273) #14
-  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %4, i32 noundef 12)
+  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef %1, ptr noundef %9, ptr noundef %7, i32 noundef %4, i32 noundef 12)
   %.promoted.i = load i32, ptr %7, align 4
   %10 = and i32 %.promoted.i, 3
   %.not10.i = icmp eq i32 %10, 0
@@ -5131,7 +5137,7 @@ insert_in_complete_reply_hash.exit:               ; preds = %81, %84
   br i1 %95, label %96, label %97
 
 96:                                               ; preds = %91
-  call fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %1, ptr noundef %9, i32 noundef %4, i32 noundef %32, ptr noundef nonnull %3, ptr noundef %2)
+  call fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %1, ptr noundef %9, i32 noundef %4, i32 noundef %32, ptr noundef %3, ptr noundef %2)
   br label %97
 
 97:                                               ; preds = %96, %91
@@ -5139,7 +5145,7 @@ insert_in_complete_reply_hash.exit:               ; preds = %81, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_reply_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_reply_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.complete_reply_hash_key, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr @ett_giop_reply, align 4
@@ -5180,7 +5186,7 @@ get_CDR_ulong.exit47:                             ; preds = %20, %22
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.274, ptr noundef %26) #14
   %27 = load i32, ptr @hf_giop_reply_status, align 4
   %28 = tail call ptr @proto_tree_add_uint(ptr noundef %9, i32 noundef %27, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %24) #14
-  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %9, ptr noundef nonnull %7, i32 noundef %4, i32 noundef 12)
+  call fastcc void @decode_ServiceContextList(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %9, ptr noundef %7, i32 noundef %4, i32 noundef 12)
   %.promoted.i48 = load i32, ptr %7, align 4
   %29 = and i32 %.promoted.i48, 7
   %.not3.i = icmp eq i32 %29, 4
@@ -5309,7 +5315,7 @@ insert_in_complete_reply_hash.exit:               ; preds = %77, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_cancel_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_cancel_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_giop_cancel_request, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.276) #14
   %.not9.i = icmp eq i32 %3, 0
@@ -5334,7 +5340,7 @@ get_CDR_ulong.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_locate_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_locate_request(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @ett_giop_locate_request, align 4
@@ -5397,7 +5403,7 @@ get_CDR_ulong.exit31:                             ; preds = %23, %25
   br label %40
 
 39:                                               ; preds = %get_CDR_ulong.exit
-  call fastcc void @dissect_target_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %9, i32 noundef %4, ptr noundef null, ptr noundef null)
+  call fastcc void @dissect_target_address(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, ptr noundef %9, i32 noundef %4, ptr noundef null, ptr noundef null)
   br label %40
 
 40:                                               ; preds = %35, %36, %39, %32
@@ -5405,7 +5411,7 @@ get_CDR_ulong.exit31:                             ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_locate_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_locate_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @ett_giop_locate_reply, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.279) #14
@@ -5472,7 +5478,7 @@ get_CDR_ulong.exit33:                             ; preds = %19, %21
   br label %43
 
 34:                                               ; preds = %32
-  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %4)
+  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %2, ptr noundef %6, i32 noundef %4)
   br label %43
 
 35:                                               ; preds = %32
@@ -5498,7 +5504,7 @@ get_CDR_ushort.exit:                              ; preds = %36, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_fragment(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_fragment(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_giop_fragment, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.280) #14
   %.not9.i = icmp eq i32 %3, 0
@@ -5523,7 +5529,7 @@ get_CDR_ulong.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ServiceContextList(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @decode_ServiceContextList(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 13) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5640,7 +5646,7 @@ get_CDR_ulong.exit99:                             ; preds = %37, %39
 
 .thread106:                                       ; preds = %.thread
   %66 = add i32 %65, -1
-  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %66)
+  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %66)
   br label %113
 
 67:                                               ; preds = %57
@@ -5755,7 +5761,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
 
 111:                                              ; preds = %67
   %112 = add i32 %61, -1
-  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef nonnull %3, i32 noundef %112)
+  call fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr noundef %1, ptr noundef %47, ptr noundef %3, i32 noundef %112)
   br label %113
 
 113:                                              ; preds = %.thread, %.thread106, %111, %decode_RTCorbaPriority.exit, %decode_CodeSetServiceContext.exit, %57
@@ -6351,11 +6357,11 @@ copy_address_wmem.exit:                           ; preds = %6, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.giop_module_key, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull @.str.271, ptr noundef %6, i64 noundef 4) #14
+  %11 = tail call i32 @g_ascii_strncasecmp(ptr noundef nonnull @.str.271, ptr noundef nonnull %6, i64 noundef 4) #14
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %.preheader.i, label %get_modname_from_repoid.exit.thread
 
@@ -6424,7 +6430,7 @@ get_modname_from_repoid.exit:                     ; preds = %.preheader.i, %.pre
 find_fn_in_list.exit.i:                           ; preds = %.lr.ph.i.i
   %45 = getelementptr inbounds i8, ptr %39, i64 16
   store ptr %27, ptr %45, align 8
-  %46 = call noalias ptr @g_strdup(ptr noundef %6) #14
+  %46 = call noalias ptr @g_strdup(ptr noundef nonnull %6) #14
   %47 = getelementptr inbounds i8, ptr %39, i64 32
   store ptr %46, ptr %47, align 8
   br label %add_sub_handle_repoid_to_comp_req_list.exit
@@ -6448,7 +6454,7 @@ add_sub_handle_repoid_to_comp_req_list.exit:      ; preds = %42, %find_fn_in_lis
   %57 = call ptr @proto_get_protocol_short_name(ptr noundef %56) #14
   store ptr %57, ptr %1, align 8
   %58 = load ptr, ptr %27, align 8
-  %59 = call i32 %58(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %20) #14
+  %59 = call i32 %58(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %20) #14
   store ptr %55, ptr %1, align 8
   br label %get_modname_from_repoid.exit.thread
 
@@ -6458,7 +6464,7 @@ get_modname_from_repoid.exit.thread:              ; preds = %7, %26, %50, %54, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct._packet_info, align 8
   %8 = load ptr, ptr @giop_sub_list, align 8
   %9 = tail call i32 @g_slist_length(ptr noundef %8) #14
@@ -6549,7 +6555,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
   store ptr %55, ptr %1, align 8
   %56 = load i32, ptr %3, align 4
   %57 = load ptr, ptr %49, align 8
-  %58 = tail call i32 %57(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef null) #14
+  %58 = tail call i32 %57(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
   %.not49 = icmp eq i32 %58, 0
   br i1 %.not49, label %68, label %59
 
@@ -6566,7 +6572,7 @@ is_big_endian.exit.thread:                        ; preds = %11, %is_big_endian.
   %65 = tail call ptr @proto_get_protocol_short_name(ptr noundef %64) #14
   store ptr %65, ptr %1, align 8
   %66 = load ptr, ptr %49, align 8
-  %67 = tail call i32 %66(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef null) #14
+  %67 = tail call i32 %66(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef null) #14
   br label %73
 
 68:                                               ; preds = %59, %53
@@ -6596,7 +6602,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, -1) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %32, label %.lr.ph.i
 
@@ -6605,7 +6611,7 @@ define internal fastcc void @decode_UnknownServiceContext(ptr noundef %0, ptr no
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef %9, i32 noundef %4) #14
-  %10 = add i32 %4, 1
+  %10 = add nuw i32 %4, 1
   %11 = zext i32 %10 to i64
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef %11) #14
   %13 = load i32, ptr %3, align 4
@@ -6678,7 +6684,7 @@ declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 declare ptr @g_slist_nth_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc void @dissect_target_address(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %.promoted.i = load i32, ptr %2, align 4
   %8 = and i32 %.promoted.i, 1
   %.not10.i = icmp eq i32 %8, 0
@@ -6862,7 +6868,7 @@ get_CDR_ulong.exit68:                             ; preds = %73, %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, ptr noundef nonnull %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.complete_reply_hash_key, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -6877,7 +6883,7 @@ define internal fastcc void @dissect_reply_body(ptr noundef %0, i32 noundef %1, 
   ]
 
 12:                                               ; preds = %8
-  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef %4)
+  call fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %3, ptr noundef %10, i32 noundef %4)
   br label %.critedge77
 
 13:                                               ; preds = %8
@@ -6980,7 +6986,7 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i
   br i1 %.not72, label %65, label %62
 
 62:                                               ; preds = %59
-  %63 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %56, ptr noundef nonnull %61)
+  %63 = call fastcc i32 @try_explicit_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %10, ptr noundef %6, ptr noundef %56, ptr noundef %61)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %._crit_edge, label %.critedge77
 
@@ -6990,7 +6996,7 @@ find_fn_in_list.exit:                             ; preds = %.lr.ph.i
 
 65:                                               ; preds = %._crit_edge, %59
   %66 = phi ptr [ %.pre, %._crit_edge ], [ %56, %59 ]
-  %67 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %66)
+  %67 = call fastcc i32 @try_heuristic_giop_dissector(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %10, ptr noundef %6, ptr noundef %66)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %.critedge77
 
@@ -7068,7 +7074,7 @@ get_CDR_ushort.exit:                              ; preds = %92, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @decode_SystemExceptionReplyBody(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.promoted.i.i = load i32, ptr %2, align 4
   %5 = and i32 %.promoted.i.i, 3
   %.not10.i.i = icmp eq i32 %5, 0

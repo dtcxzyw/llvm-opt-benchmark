@@ -537,7 +537,7 @@ thread-pre-split:                                 ; preds = %3, %3
   store ptr %.sroa.11.0.i186, ptr %.sroa.11.0..sroa_idx.i190, align 8, !alias.scope !164, !noalias !167
   %60 = getelementptr inbounds i8, ptr %10, i64 24
   store ptr %59, ptr %60, align 8, !alias.scope !164, !noalias !167
-  call fastcc void @"_ZN126_$LT$diesel_demo_step_2_mysql..schema..posts..columns..published$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hd36c11bc0dfe8cbfE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10)
+  call fastcc void @"_ZN126_$LT$diesel_demo_step_2_mysql..schema..posts..columns..published$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hd36c11bc0dfe8cbfE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias nocapture noundef align 8 dereferenceable(32) %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   %61 = load i64, ptr %11, align 8, !range !24, !noundef !4
   %62 = icmp eq i64 %61, -9223372036854775798
@@ -699,7 +699,7 @@ define hidden void @"_ZN119_$LT$diesel_demo_step_2_mysql..schema..posts..columns
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN126_$LT$diesel_demo_step_2_mysql..schema..posts..columns..published$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hd36c11bc0dfe8cbfE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
+define internal fastcc void @"_ZN126_$LT$diesel_demo_step_2_mysql..schema..posts..columns..published$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hd36c11bc0dfe8cbfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
   %.sroa.28.i = alloca [3 x i64], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8

@@ -1425,7 +1425,7 @@ declare void @cairo_scale(ptr noundef, double noundef, double noundef) local_unn
 declare void @dt_print_pipe_ext(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc void @_darkroom_pickers_draw(ptr noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca [1 x double], align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -7012,7 +7012,7 @@ declare void @dt_guides_button_toggled(i32 noundef) local_unnamed_addr #5
 declare void @dt_guides_update_button_state(...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dt_dev_jump_image(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @dt_dev_jump_image(ptr noundef %0, i32 noundef range(i32 -1, 2) %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1968
@@ -7190,7 +7190,7 @@ declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dev_change_image(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @_dev_change_image(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #1 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca ptr, align 8
   tail call void @dt_dev_reset_chroma(ptr noundef %0) #19

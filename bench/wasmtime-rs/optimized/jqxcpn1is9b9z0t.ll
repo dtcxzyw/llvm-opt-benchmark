@@ -138,7 +138,7 @@ define internal noundef i64 @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$G
   %.sroa.01.012.i = phi i64 [ 0, %.lr.ph.i ], [ %15, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i" ]
   %15 = add nuw i64 %.sroa.01.012.i, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !5
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %6, ptr noalias noundef align 8 dereferenceable(56) %0)
   %16 = load i64, ptr %6, align 8, !range !8, !noalias !5, !noundef !4
   switch i64 %16, label %17 [
     i64 -9223372036854775807, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit8.i"
@@ -200,7 +200,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit: ; p
   %.sroa.01.012.i30 = phi i64 [ 0, %.lr.ph.i29 ], [ %36, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i31" ]
   %36 = add nuw i64 %.sroa.01.012.i30, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !25
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef align 8 dereferenceable(56) %0)
   %37 = load i64, ptr %4, align 8, !range !8, !noalias !25, !noundef !4
   switch i64 %37, label %38 [
     i64 -9223372036854775807, label %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit8.i34"
@@ -275,7 +275,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   %.sroa.01.012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %21, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i" ]
   %21 = add nuw i64 %.sroa.01.012.i.i, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !46
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !43
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %10, ptr noalias noundef align 8 dereferenceable(56) %1), !noalias !43
   %22 = load i64, ptr %10, align 8, !range !8, !noalias !46, !noundef !4
   switch i64 %22, label %23 [
     i64 -9223372036854775807, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i
@@ -314,7 +314,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i: ;
   br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i, label %30
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i, %15
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(56) %1)
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit
 
 30:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i
@@ -346,7 +346,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thre
   %.sroa.01.012.i.i12 = phi i64 [ 0, %.lr.ph.i.i11 ], [ %42, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i13" ]
   %42 = add nuw i64 %.sroa.01.012.i.i12, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !66
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !72
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %8, ptr noalias noundef align 8 dereferenceable(56) %1), !noalias !72
   %43 = load i64, ptr %8, align 8, !range !8, !noalias !66, !noundef !4
   switch i64 %43, label %44 [
     i64 -9223372036854775807, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i16
@@ -385,7 +385,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i16:
   br i1 %50, label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19, label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19.thread
 
 _ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i13", %35, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i16
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %11, ptr noalias noundef align 8 dereferenceable(56) %1)
   %.pr = load i64, ptr %11, align 8
   %51 = icmp eq i64 %.pr, -9223372036854775807
   br i1 %51, label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19.thread, label %52
@@ -450,7 +450,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit19.thread: ; 
   %.sroa.01.012.i.i22 = phi i64 [ 0, %.lr.ph.i.i21 ], [ %68, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i23" ]
   %68 = add nuw i64 %.sroa.01.012.i.i22, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !104
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !101
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %5, ptr noalias noundef align 8 dereferenceable(56) %1), !noalias !101
   %69 = load i64, ptr %5, align 8, !range !8, !noalias !104, !noundef !4
   switch i64 %69, label %70 [
     i64 -9223372036854775807, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26
@@ -489,7 +489,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26:
   br i1 %76, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i25, label %77
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i25: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i23", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26, %62
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(56) %1)
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit
 
 77:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i26
@@ -510,7 +510,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   br i1 %.not, label %7, label %.lr.ph.i.i
 
 7:                                                ; preds = %2
-  tail call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  tail call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(56) %1)
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit
 
 .lr.ph.i.i:                                       ; preds = %2
@@ -526,7 +526,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
   %.sroa.01.012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %13, %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i" ]
   %13 = add nuw i64 %.sroa.01.012.i.i, 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !127
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(56) %1), !noalias !124
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %4, ptr noalias noundef align 8 dereferenceable(56) %1), !noalias !124
   %14 = load i64, ptr %4, align 8, !range !8, !noalias !127, !noundef !4
   switch i64 %14, label %15 [
     i64 -9223372036854775807, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i
@@ -565,7 +565,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i: ;
   br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i, label %22
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.thread.i: ; preds = %"_ZN4core3ptr158drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$GT$$GT$17hca63dcab901c4dabE.exit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i
-  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(56) %1)
   br label %_ZN4core4iter6traits8iterator8Iterator3nth17h9d676e677bf7b2e9E.exit
 
 22:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h0391d879d1afe282E.exit.i
@@ -615,7 +615,7 @@ define internal void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h420ee733c3203a0cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, { [2 x i64], i64, [2 x i64] } } }, align 8
   %4 = alloca { { ptr, [5 x i64] } }, align 8
   %.sroa.613.i.i.i.i.i.i = alloca [4 x i64], align 8
@@ -706,7 +706,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd9c2801c48848db8E.exit.thread.
 .body.i.i.i:                                      ; preds = %31, %26
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %32, %31 ], [ %27, %26 ]
   store ptr null, ptr %1, align 8, !alias.scope !173, !noalias !174
-  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #23
+  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef align 8 dereferenceable(40) %8) #23
           to label %common.resume.i.i unwind label %33, !noalias !174
 
 "_ZN4core3ptr308drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$$GT$17h699d577e689c1badE.exit.i.i.i": ; preds = %"_ZN4core3ptr280drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17hf59e753349f6a65eE.exit.i.i.i.i"
@@ -793,7 +793,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd9c2801c48848db8E.exit.i.i: ; 
 50:                                               ; preds = %48, %40
   %51 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9) #23
+  invoke fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef align 8 dereferenceable(40) %9) #23
           to label %common.resume.i.i unwind label %52, !noalias !226
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hece1321520995843E.exit.thread22.i": ; preds = %_ZN4core4iter8adapters5chain17and_then_or_clear17hd9c2801c48848db8E.exit.i.i
@@ -861,7 +861,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hd9c2801c48848db8E.exit.i.i: ; 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(192) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i8, [15 x i8] }, align 8
@@ -1369,7 +1369,7 @@ common.ret:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$17h978acf973d885777E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$17h978acf973d885777E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1423,7 +1423,7 @@ define internal fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$GT$17h3ea266b2eaee0312E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1497,7 +1497,7 @@ define internal void @"_ZN4core3ptr53drop_in_place$LT$wasi_common..sync..stdio..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17habd8397e4be68b38E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17habd8397e4be68b38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = alloca { i8, [15 x i8] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !24, !noundef !4
@@ -1914,7 +1914,7 @@ _ZN11wasi_common9snapshots9preview_15types5Error7context17hd3507375539a111bE.exi
 83:                                               ; preds = %64
   store i32 %69, ptr %18, align 4
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %17)
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %17, ptr noalias noundef readonly align 4 dereferenceable(4) %18)
           to label %87 unwind label %122
 
 84:                                               ; preds = %64
@@ -4240,7 +4240,7 @@ default.unreachable102:                           ; preds = %3
   %15 = getelementptr inbounds i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %9)
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %9, ptr noalias noundef readonly align 4 dereferenceable(4) %14)
           to label %_ZN7cap_std2fs3dir3Dir12dir_metadata17he7c1e82851f2c565E.exit unwind label %17
 
 17:                                               ; preds = %13
@@ -4317,7 +4317,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.9870732553834023604.ex
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.67.sroa.0)
-  invoke fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$17h978acf973d885777E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #23
+  invoke fastcc void @"_ZN4core3ptr241drop_in_place$LT$core..result..Result$LT$$LP$wasi_common..file..FileType$C$u64$C$alloc..string..String$RP$$C$$LT$wasi_common..sync..dir..Dir$u20$as$u20$wasi_common..dir..WasiDir$GT$..readdir..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$17h978acf973d885777E"(ptr noalias noundef align 8 dereferenceable(40) %6) #23
           to label %87 unwind label %74
 
 42:                                               ; preds = %35
@@ -4870,7 +4870,7 @@ default.unreachable39:                            ; preds = %3
 20:                                               ; preds = %28, %19
   %21 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17habd8397e4be68b38E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #23
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$GT$17habd8397e4be68b38E"(ptr noalias noundef align 8 dereferenceable(24) %7) #23
           to label %.body unwind label %44, !noalias !619
 
 22:                                               ; preds = %19
@@ -5051,7 +5051,7 @@ default.unreachable152:                           ; preds = %3
 11:                                               ; preds = %3
   %12 = load ptr, ptr %1, align 8, !nonnull !4, !align !530, !noundef !4
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7)
-  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(192) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12)
+  invoke fastcc void @_ZN14cap_primitives2fs8metadata8Metadata9from_file17h73a45d30c4a153edE(ptr noalias nocapture noundef align 8 dereferenceable(192) %7, ptr noalias noundef readonly align 4 dereferenceable(4) %12)
           to label %_ZN7cap_std2fs3dir3Dir12dir_metadata17he7c1e82851f2c565E.exit unwind label %13
 
 13:                                               ; preds = %11

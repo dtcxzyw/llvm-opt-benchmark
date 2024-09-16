@@ -1130,7 +1130,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %83, %86
   store ptr %178, ptr %38, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3mcc20CCheckerDetectorImpl15_no_net_processERKNS0_11_InputArrayENS5_9TYPECHARTEiRKNS0_3PtrINS5_18DetectorParametersEEESt6vectorINS0_5Rect_IiEESaISI_EEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %137, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3mcc20CCheckerDetectorImpl15_no_net_processERKNS0_11_InputArrayENS5_9TYPECHARTEiRKNS0_3PtrINS5_18DetectorParametersEEESt6vectorINS0_5Rect_IiEESaISI_EEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %136, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef nonnull %38)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef %38)
           to label %180 unwind label %225
 
 180:                                              ; preds = %179
@@ -1396,7 +1396,7 @@ declare void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noun
 declare void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2353,7 +2353,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %131, %134
   store ptr %312, ptr %53, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3mcc20CCheckerDetectorImpl7processERKNS0_11_InputArrayENS5_9TYPECHARTERKSt6vectorINS0_5Rect_IiEESaISD_EEibRKNS0_3PtrINS5_18DetectorParametersEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %215, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3mcc20CCheckerDetectorImpl7processERKNS0_11_InputArrayENS5_9TYPECHARTERKSt6vectorINS0_5Rect_IiEESaISD_EEibRKNS0_3PtrINS5_18DetectorParametersEEEE3$_0E10_M_managerERSt9_Any_dataRKSP_St18_Manager_operation", ptr %214, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %52, ptr noundef nonnull %53)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %52, ptr noundef %53)
           to label %314 unwind label %359
 
 314:                                              ; preds = %313
@@ -3026,7 +3026,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
   store ptr %30, ptr %7, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_3mcc20CCheckerDetectorImpl16performThresholdERKNS0_11_InputArrayERKNS0_12_OutputArrayERKNS0_3PtrINS5_18DetectorParametersEEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %32, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_3mcc20CCheckerDetectorImpl16performThresholdERKNS0_11_InputArrayERKNS0_12_OutputArrayERKNS0_3PtrINS5_18DetectorParametersEEEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %29, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull %7)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef %7)
           to label %33 unwind label %49
 
 33:                                               ; preds = %31
@@ -17037,7 +17037,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr null, ptr %19, align 8
   store ptr %25, ptr %20, align 8
   store ptr null, ptr %6, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa46, ptr noundef nonnull %7)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa46, ptr noundef %7)
           to label %26 unwind label %98
 
 26:                                               ; preds = %21
@@ -17339,7 +17339,7 @@ _ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i:     ; preds = %_ZNSt16_Sp_counted_
   store ptr null, ptr %101, align 8
   store ptr %152, ptr %103, align 8
   store ptr null, ptr %4, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %156, ptr noundef nonnull %5)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %156, ptr noundef %5)
           to label %157 unwind label %228
 
 157:                                              ; preds = %_ZN2cv3PtrINS_3mcc8CCheckerEEaSERKS3_.exit.i
@@ -17627,7 +17627,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv3PtrINS2_3mcc8CCheckerEEESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS4_20CCheckerDetectorImpl24removeTooCloseDetectionsERKNS3_INS4_18DetectorParametersEEEE3$_0EEEvT_T0_SM_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::Ptr.92", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

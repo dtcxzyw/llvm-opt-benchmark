@@ -777,7 +777,7 @@ define internal i32 @dissect_bitcoin_msg_version(ptr noundef %0, ptr nocapture r
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %42, ptr noundef %0, i32 noundef 72, i32 noundef 8, i32 noundef -2147483648) #4
   store i32 80, ptr %5, align 4
   %44 = load i32, ptr @hf_msg_version_user_agent, align 4
-  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %44, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %44, ptr noundef %0, ptr noundef %5)
   %45 = icmp ugt i32 %10, 208
   %.pre = load i32, ptr %5, align 4
   br i1 %45, label %46, label %.thread28
@@ -1512,14 +1512,14 @@ define internal i32 @dissect_bitcoin_msg_reject(ptr noundef %0, ptr nocapture re
   %8 = load i32, ptr @ett_bitcoin_msg, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
   %10 = load i32, ptr @hf_msg_reject_message, align 4
-  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef %5)
   %11 = load i32, ptr @hf_msg_reject_ccode, align 4
   %12 = load i32, ptr %5, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef -2147483648) #4
   %14 = add i32 %12, 1
   store i32 %14, ptr %5, align 4
   %15 = load i32, ptr @hf_msg_reject_reason, align 4
-  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %15, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @create_string_tree(ptr noundef %9, i32 noundef %15, ptr noundef %0, ptr noundef %5)
   %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %17 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %16, %17
@@ -1669,7 +1669,7 @@ define internal noundef i32 @dissect_bitcoin_msg_filterload(ptr noundef %0, ptr 
   %8 = load i32, ptr @ett_bitcoin_msg, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
   %10 = load i32, ptr @hf_msg_filterload_filter, align 4
-  call fastcc void @create_data_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @create_data_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef %5)
   %11 = load i32, ptr @hf_msg_filterload_nhashfunc, align 4
   %12 = load i32, ptr %5, align 4
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 4, i32 noundef -2147483648) #4
@@ -1692,7 +1692,7 @@ define internal i32 @dissect_bitcoin_msg_filteradd(ptr noundef %0, ptr nocapture
   %8 = load i32, ptr @ett_bitcoin_msg, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
   %10 = load i32, ptr @hf_msg_filteradd_data, align 4
-  call fastcc void @create_data_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @create_data_tree(ptr noundef %9, i32 noundef %10, ptr noundef %0, ptr noundef %5)
   %11 = load i32, ptr %5, align 4
   ret i32 %11
 }
@@ -1938,7 +1938,7 @@ declare void @conversation_set_dissector(ptr noundef, ptr noundef) local_unnamed
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_string_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @create_string_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = icmp ult i8 %6, -3
@@ -2044,7 +2044,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0, i32 noundef range(i32 0, 2147483647) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   %7 = load i32, ptr @hf_bitcoin_msg_tx, align 4
   br i1 %6, label %8, label %10
@@ -2085,7 +2085,7 @@ define internal fastcc noundef i32 @dissect_bitcoin_msg_tx_common(ptr noundef %0
   br label %get_varint.exit
 
 29:                                               ; preds = %24
-  %30 = add i32 %.0130, 1
+  %30 = add nuw i32 %.0130, 1
   switch i8 %25, label %37 [
     i8 -3, label %31
     i8 -2, label %34
@@ -2113,7 +2113,7 @@ get_varint.exit:                                  ; preds = %27, %31, %34, %37
   %41 = load i32, ptr @hf_msg_tx_in_count32, align 4
   %42 = load i32, ptr @hf_msg_tx_in_count64, align 4
   tail call fastcc void @add_varint_item(ptr noundef %14, ptr noundef %0, i32 noundef %.0130, i32 noundef %.0175, i32 noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42)
-  %43 = add i32 %.0175, %.0130
+  %43 = add nuw i32 %.0175, %.0130
   %.not201 = icmp eq i64 %.sink.i, 0
   br i1 %.not201, label %._crit_edge, label %.lr.ph
 
@@ -2458,7 +2458,7 @@ add_varint_item.exit:                             ; preds = %179, %188, %199, %2
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_data_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @create_data_tree(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %5) #4
   %7 = icmp ult i8 %6, -3

@@ -538,7 +538,7 @@ rioRead.exit:                                     ; preds = %if.end12.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %r, ptr noundef %buf, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef %r, ptr noundef %buf, i64 noundef range(i64 0, -1) %len) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %r, i64 48
   %0 = load i64, ptr %flags, align 8

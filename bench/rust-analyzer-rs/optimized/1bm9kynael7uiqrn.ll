@@ -724,7 +724,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.79
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$syntax..ast..generated..nodes..Type$C$core..option..Option$LT$syntax..ast..generated..nodes..WhereClause$GT$$RP$$GT$17h1d6095550196ab29E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$syntax..ast..generated..nodes..Type$C$core..option..Option$LT$syntax..ast..generated..nodes..WhereClause$GT$$RP$$GT$17h1d6095550196ab29E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h679edb683ba0be6dE.llvm.7950680404849827918"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
           to label %12 unwind label %2
 
@@ -1059,7 +1059,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..f
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.llvm.7950680404849827918"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 {
-  tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  tail call fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
@@ -1150,7 +1150,7 @@ define hidden void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.79506804048498
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.0 = alloca i32, align 4
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %.critedge, label %4
@@ -3660,7 +3660,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit216: ; pre
   br i1 %550, label %551, label %.body237
 
 551:                                              ; preds = %549
-  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$syntax..ast..generated..nodes..Type$C$core..option..Option$LT$syntax..ast..generated..nodes..WhereClause$GT$$RP$$GT$17h1d6095550196ab29E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #14
+  invoke fastcc void @"_ZN4core3ptr137drop_in_place$LT$$LP$syntax..ast..generated..nodes..Type$C$core..option..Option$LT$syntax..ast..generated..nodes..WhereClause$GT$$RP$$GT$17h1d6095550196ab29E"(ptr noalias noundef align 8 dereferenceable(24) %5) #14
           to label %.body237 unwind label %158
 
 552:                                              ; preds = %.body237

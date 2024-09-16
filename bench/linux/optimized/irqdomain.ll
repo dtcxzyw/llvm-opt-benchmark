@@ -1549,7 +1549,7 @@ define dso_local i32 @irq_create_fwspec_mapping(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @irq_get_irq_data(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 16 {
+define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 16 {
   %8 = icmp sgt i32 %1, -1
   %9 = and i1 %8, %5
   br i1 %9, label %18, label %10
@@ -1665,7 +1665,7 @@ define internal fastcc i32 @irq_domain_alloc_irqs_locked(ptr noundef %0, i32 nou
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %.loopexit42
-  %73 = tail call i32 %70(ptr noundef %0, i32 noundef %19, i32 noundef %2, ptr noundef %4) #16
+  %73 = tail call i32 %70(ptr noundef nonnull %0, i32 noundef %19, i32 noundef %2, ptr noundef %4) #16
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.thread, label %75
 

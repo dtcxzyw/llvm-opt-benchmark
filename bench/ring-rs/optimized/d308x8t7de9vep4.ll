@@ -2705,7 +2705,7 @@ define void @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17h36e262e131b
   %26 = alloca { [6 x i64], {}, {} }, align 8
   %27 = alloca { [6 x i64], {}, {} }, align 8
   %28 = alloca { [6 x i64], {}, {} }, align 8
-  %.sroa.035 = alloca [6 x i64], align 8
+  %.sroa.029 = alloca [6 x i64], align 8
   %29 = alloca { [6 x i64], {}, {} }, align 8
   %30 = alloca [8 x { [6 x i64], {}, {} }], align 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %30)
@@ -2727,9 +2727,9 @@ define void @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17h36e262e131b
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %22, ptr noundef nonnull readonly %30, ptr noundef nonnull readonly %30), !noalias !395
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !noalias !396
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !391
-  br label %44
+  br label %50
 
-36:                                               ; preds = %44
+36:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %28)
   %37 = getelementptr inbounds i8, ptr %30, i64 336
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21), !noalias !397
@@ -2738,16 +2738,16 @@ define void @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17h36e262e131b
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %20, ptr noundef nonnull readonly %37, ptr noundef nonnull readonly %37), !noalias !406
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false), !noalias !407
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %20), !noalias !402
-  br label %.lr.ph.i
+  br label %38
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %36
-  %.sroa.01.07.i = phi i64 [ %38, %.lr.ph.i ], [ 1, %36 ]
-  %38 = add nuw nsw i64 %.sroa.01.07.i, 1
+38:                                               ; preds = %38, %36
+  %.sroa.01.07.i = phi i64 [ 1, %36 ], [ %39, %38 ]
+  %39 = add nuw nsw i64 %.sroa.01.07.i, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %21, ptr noundef nonnull %21, ptr noundef nonnull %21), !noalias !408
-  %exitcond.not.i = icmp eq i64 %38, 4
-  br i1 %exitcond.not.i, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit, label %.lr.ph.i
+  %exitcond.not.i = icmp eq i64 %39, 4
+  br i1 %exitcond.not.i, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit, label %38
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit: ; preds = %.lr.ph.i
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit: ; preds = %38
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19), !noalias !409
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %19, i8 0, i64 48, i1 false), !noalias !409
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %19, ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %37), !noalias !414
@@ -2761,16 +2761,16 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %17, ptr noundef nonnull readonly %28, ptr noundef nonnull readonly %28), !noalias !425
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false), !noalias !426
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !421
-  br label %.lr.ph.i12
+  br label %40
 
-.lr.ph.i12:                                       ; preds = %.lr.ph.i12, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit
-  %.sroa.01.07.i13 = phi i64 [ %39, %.lr.ph.i12 ], [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit ]
-  %39 = add nuw nsw i64 %.sroa.01.07.i13, 1
+40:                                               ; preds = %40, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit
+  %.sroa.01.07.i12 = phi i64 [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit ], [ %41, %40 ]
+  %41 = add nuw nsw i64 %.sroa.01.07.i12, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %18, ptr noundef nonnull %18, ptr noundef nonnull %18), !noalias !427
-  %exitcond.not.i14 = icmp eq i64 %39, 8
-  br i1 %exitcond.not.i14, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit15, label %.lr.ph.i12
+  %exitcond.not.i13 = icmp eq i64 %41, 8
+  br i1 %exitcond.not.i13, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit14, label %40
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit15: ; preds = %.lr.ph.i12
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit14: ; preds = %40
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16), !noalias !428
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false), !noalias !428
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %16, ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %28), !noalias !433
@@ -2784,16 +2784,16 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %14, ptr noundef nonnull readonly %27, ptr noundef nonnull readonly %27), !noalias !444
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %14, i64 48, i1 false), !noalias !445
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !440
-  br label %.lr.ph.i16
+  br label %42
 
-.lr.ph.i16:                                       ; preds = %.lr.ph.i16, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit15
-  %.sroa.01.07.i17 = phi i64 [ %40, %.lr.ph.i16 ], [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit15 ]
-  %40 = add nuw nsw i64 %.sroa.01.07.i17, 1
+42:                                               ; preds = %42, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit14
+  %.sroa.01.07.i15 = phi i64 [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit14 ], [ %43, %42 ]
+  %43 = add nuw nsw i64 %.sroa.01.07.i15, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %15, ptr noundef nonnull %15, ptr noundef nonnull %15), !noalias !446
-  %exitcond.not.i18 = icmp eq i64 %40, 16
-  br i1 %exitcond.not.i18, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit19, label %.lr.ph.i16
+  %exitcond.not.i16 = icmp eq i64 %43, 16
+  br i1 %exitcond.not.i16, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit17, label %42
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit19: ; preds = %.lr.ph.i16
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit17: ; preds = %42
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13), !noalias !447
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, i8 0, i64 48, i1 false), !noalias !447
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %13, ptr noundef nonnull readonly %15, ptr noundef nonnull readonly %27), !noalias !452
@@ -2807,16 +2807,16 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %11, ptr noundef nonnull readonly %26, ptr noundef nonnull readonly %26), !noalias !463
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %11, i64 48, i1 false), !noalias !464
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !459
-  br label %.lr.ph.i20
+  br label %44
 
-.lr.ph.i20:                                       ; preds = %.lr.ph.i20, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit19
-  %.sroa.01.07.i21 = phi i64 [ %41, %.lr.ph.i20 ], [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit19 ]
-  %41 = add nuw nsw i64 %.sroa.01.07.i21, 1
+44:                                               ; preds = %44, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit17
+  %.sroa.01.07.i18 = phi i64 [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit17 ], [ %45, %44 ]
+  %45 = add nuw nsw i64 %.sroa.01.07.i18, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef nonnull %12), !noalias !465
-  %exitcond.not.i22 = icmp eq i64 %41, 32
-  br i1 %exitcond.not.i22, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23, label %.lr.ph.i20
+  %exitcond.not.i19 = icmp eq i64 %45, 32
+  br i1 %exitcond.not.i19, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit20, label %44
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23: ; preds = %.lr.ph.i20
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit20: ; preds = %44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !466
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !noalias !466
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %10, ptr noundef nonnull readonly %12, ptr noundef nonnull readonly %26), !noalias !471
@@ -2830,16 +2830,16 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %8, ptr noundef nonnull readonly %25, ptr noundef nonnull readonly %25), !noalias !482
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false), !noalias !483
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !478
-  br label %.lr.ph.i24
+  br label %46
 
-.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23
-  %.sroa.01.07.i25 = phi i64 [ %42, %.lr.ph.i24 ], [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23 ]
-  %42 = add nuw nsw i64 %.sroa.01.07.i25, 1
+46:                                               ; preds = %46, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit20
+  %.sroa.01.07.i21 = phi i64 [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit20 ], [ %47, %46 ]
+  %47 = add nuw nsw i64 %.sroa.01.07.i21, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef nonnull %9), !noalias !484
-  %exitcond.not.i26 = icmp eq i64 %42, 32
-  br i1 %exitcond.not.i26, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit27, label %.lr.ph.i24
+  %exitcond.not.i22 = icmp eq i64 %47, 32
+  br i1 %exitcond.not.i22, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23, label %46
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit27: ; preds = %.lr.ph.i24
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23: ; preds = %46
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !485
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, i8 0, i64 48, i1 false), !noalias !485
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %7, ptr noundef nonnull readonly %9, ptr noundef nonnull readonly %26), !noalias !490
@@ -2853,42 +2853,42 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %5, ptr noundef nonnull readonly %24, ptr noundef nonnull readonly %24), !noalias !501
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !502
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !497
-  br label %.lr.ph.i28
+  br label %48
 
-.lr.ph.i28:                                       ; preds = %.lr.ph.i28, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit27
-  %.sroa.01.07.i29 = phi i64 [ %43, %.lr.ph.i28 ], [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit27 ]
-  %43 = add nuw nsw i64 %.sroa.01.07.i29, 1
+48:                                               ; preds = %48, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23
+  %.sroa.01.07.i24 = phi i64 [ 1, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit23 ], [ %49, %48 ]
+  %49 = add nuw nsw i64 %.sroa.01.07.i24, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %6), !noalias !503
-  %exitcond.not.i30 = icmp eq i64 %43, 96
-  br i1 %exitcond.not.i30, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit31, label %.lr.ph.i28
+  %exitcond.not.i25 = icmp eq i64 %49, 96
+  br i1 %exitcond.not.i25, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26, label %48
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit31: ; preds = %.lr.ph.i28
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26: ; preds = %48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !504
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false), !noalias !504
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %4, ptr noundef nonnull readonly %6, ptr noundef nonnull readonly %24), !noalias !509
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !510
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !504
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !492
-  br label %50
+  br label %56
 
-44:                                               ; preds = %35, %44
-  %.sroa.01.042 = phi i64 [ 1, %35 ], [ %46, %44 ]
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.035)
-  %45 = add nsw i64 %.sroa.01.042, -1
-  %46 = add nuw nsw i64 %.sroa.01.042, 1
-  %47 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %45
+50:                                               ; preds = %35, %50
+  %.sroa.01.036 = phi i64 [ 1, %35 ], [ %52, %50 ]
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.029)
+  %51 = add nsw i64 %.sroa.01.036, -1
+  %52 = add nuw nsw i64 %.sroa.01.036, 1
+  %53 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !511
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false), !noalias !511
-  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %47, ptr noundef nonnull readonly %29), !noalias !516
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.035, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !517
+  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %3, ptr noundef nonnull readonly %53, ptr noundef nonnull readonly %29), !noalias !516
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.029, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !517
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !511
-  %48 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %.sroa.01.042
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %48, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.035, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.035)
-  %exitcond46.not = icmp eq i64 %46, 8
-  br i1 %exitcond46.not, label %36, label %44
+  %54 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %.sroa.01.036
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %54, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.029, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.029)
+  %exitcond40.not = icmp eq i64 %52, 8
+  br i1 %exitcond40.not, label %36, label %50
 
-49:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
+55:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %23, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
@@ -2900,37 +2900,37 @@ _ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %30)
   ret void
 
-50:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit31, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
-  %.sroa.036.0.idx43 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit31 ], [ %.sroa.036.0.add, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit ]
-  %.sroa.036.0.ptr44 = getelementptr inbounds i8, ptr @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17REMAINING_WINDOWS17h15c939cce11bb523E, i64 %.sroa.036.0.idx43
-  %.sroa.036.0.add = add nuw nsw i64 %.sroa.036.0.idx43, 2
-  %51 = getelementptr inbounds i8, ptr %.sroa.036.0.ptr44, i64 1
-  %52 = load i8, ptr %51, align 1, !noundef !67
-  %53 = zext i8 %52 to i64
-  %54 = icmp ult i8 %52, 8
-  br i1 %54, label %55, label %61, !prof !518
+56:                                               ; preds = %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit
+  %.sroa.030.0.idx37 = phi i64 [ 0, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont7sqr_mul17h2b94711d9c498919E.exit26 ], [ %.sroa.030.0.add, %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit ]
+  %.sroa.030.0.ptr38 = getelementptr inbounds i8, ptr @_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont17REMAINING_WINDOWS17h15c939cce11bb523E, i64 %.sroa.030.0.idx37
+  %.sroa.030.0.add = add nuw nsw i64 %.sroa.030.0.idx37, 2
+  %57 = getelementptr inbounds i8, ptr %.sroa.030.0.ptr38, i64 1
+  %58 = load i8, ptr %57, align 1, !noundef !67
+  %59 = zext i8 %58 to i64
+  %60 = icmp ult i8 %58, 8
+  br i1 %60, label %61, label %67, !prof !518
 
-55:                                               ; preds = %50
-  %56 = load i8, ptr %.sroa.036.0.ptr44, align 1, !noundef !67
-  %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %53
-  %.not.i = icmp eq i8 %56, 0
-  br i1 %.not.i, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i32
+61:                                               ; preds = %56
+  %62 = load i8, ptr %.sroa.030.0.ptr38, align 1, !noundef !67
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr inbounds [8 x { [6 x i64], {}, {} }], ptr %30, i64 0, i64 %59
+  %.not.i = icmp eq i8 %62, 0
+  br i1 %.not.i, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i
 
-.lr.ph.i32:                                       ; preds = %55, %.lr.ph.i32
-  %.sroa.01.07.i33 = phi i64 [ %59, %.lr.ph.i32 ], [ 0, %55 ]
-  %59 = add nuw nsw i64 %.sroa.01.07.i33, 1
+.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
+  %.sroa.01.07.i27 = phi i64 [ %65, %.lr.ph.i ], [ 0, %61 ]
+  %65 = add nuw nsw i64 %.sroa.01.07.i27, 1
   call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull %23), !noalias !519
-  %exitcond.not.i34 = icmp eq i64 %59, %57
-  br i1 %exitcond.not.i34, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i32
+  %exitcond.not.i28 = icmp eq i64 %65, %63
+  br i1 %exitcond.not.i28, label %_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit, label %.lr.ph.i
 
-_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit: ; preds = %.lr.ph.i32, %55
-  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull readonly %58)
-  %60 = icmp eq i64 %.sroa.036.0.add, 78
-  br i1 %60, label %49, label %50
+_ZN4ring2ec7suite_b3ops4p38423p384_scalar_inv_to_mont11sqr_mul_acc17had9c200fe0814e9bE.exit: ; preds = %.lr.ph.i, %61
+  call void @ring_core_0_17_8__p384_scalar_mul_mont(ptr noundef nonnull %23, ptr noundef nonnull %23, ptr noundef nonnull readonly %64)
+  %66 = icmp eq i64 %.sroa.030.0.add, 78
+  br i1 %66, label %55, label %56
 
-61:                                               ; preds = %50
-  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %53, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.14) #11
+67:                                               ; preds = %56
+  call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %59, i64 noundef 8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bb7da592cc2a4db35d4d49e42ec38fbb.14) #11
   unreachable
 }
 

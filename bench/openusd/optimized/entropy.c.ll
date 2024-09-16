@@ -98,971 +98,971 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @av1_reset_cdf_symbol_counters(ptr noundef writeonly %0) local_unnamed_addr #2 {
   %invariant.gep.i = getelementptr i8, ptr %0, i64 4
-  br label %.lr.ph.i
+  br label %2
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+2:                                                ; preds = %2, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
   %gep.i.idx = mul nuw nsw i64 %indvars.iv.i, 6
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %gep.i.idx
   store i16 0, ptr %gep.i, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 65
-  br i1 %exitcond.not.i, label %reset_cdf_symbol_counter.exit, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %reset_cdf_symbol_counter.exit, label %2, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit:                    ; preds = %.lr.ph.i
+reset_cdf_symbol_counter.exit:                    ; preds = %2
   %invariant.gep.i320 = getelementptr i8, ptr %0, i64 394
-  br label %.lr.ph.i321
+  br label %3
 
-.lr.ph.i321:                                      ; preds = %.lr.ph.i321, %reset_cdf_symbol_counter.exit
-  %indvars.iv.i322 = phi i64 [ 0, %reset_cdf_symbol_counter.exit ], [ %indvars.iv.next.i324, %.lr.ph.i321 ]
-  %gep.i323.idx = mul nuw nsw i64 %indvars.iv.i322, 6
-  %gep.i323 = getelementptr i8, ptr %invariant.gep.i320, i64 %gep.i323.idx
-  store i16 0, ptr %gep.i323, align 2
-  %indvars.iv.next.i324 = add nuw nsw i64 %indvars.iv.i322, 1
-  %exitcond.not.i325 = icmp eq i64 %indvars.iv.next.i324, 90
-  br i1 %exitcond.not.i325, label %reset_cdf_symbol_counter.exit326, label %.lr.ph.i321, !llvm.loop !4
+3:                                                ; preds = %3, %reset_cdf_symbol_counter.exit
+  %indvars.iv.i321 = phi i64 [ 0, %reset_cdf_symbol_counter.exit ], [ %indvars.iv.next.i323, %3 ]
+  %gep.i322.idx = mul nuw nsw i64 %indvars.iv.i321, 6
+  %gep.i322 = getelementptr i8, ptr %invariant.gep.i320, i64 %gep.i322.idx
+  store i16 0, ptr %gep.i322, align 2
+  %indvars.iv.next.i323 = add nuw nsw i64 %indvars.iv.i321, 1
+  %exitcond.not.i324 = icmp eq i64 %indvars.iv.next.i323, 90
+  br i1 %exitcond.not.i324, label %reset_cdf_symbol_counter.exit325, label %3, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit326:                 ; preds = %.lr.ph.i321
-  %invariant.gep.i327 = getelementptr i8, ptr %0, i64 934
-  br label %.lr.ph.i328
+reset_cdf_symbol_counter.exit325:                 ; preds = %3
+  %invariant.gep.i326 = getelementptr i8, ptr %0, i64 934
+  br label %4
 
-.lr.ph.i328:                                      ; preds = %.lr.ph.i328, %reset_cdf_symbol_counter.exit326
-  %indvars.iv.i329 = phi i64 [ 0, %reset_cdf_symbol_counter.exit326 ], [ %indvars.iv.next.i331, %.lr.ph.i328 ]
-  %gep.i330.idx = mul nuw nsw i64 %indvars.iv.i329, 6
-  %gep.i330 = getelementptr i8, ptr %invariant.gep.i327, i64 %gep.i330.idx
-  store i16 0, ptr %gep.i330, align 2
-  %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i329, 1
-  %exitcond.not.i332 = icmp eq i64 %indvars.iv.next.i331, 6
-  br i1 %exitcond.not.i332, label %reset_cdf_symbol_counter.exit333, label %.lr.ph.i328, !llvm.loop !4
+4:                                                ; preds = %4, %reset_cdf_symbol_counter.exit325
+  %indvars.iv.i327 = phi i64 [ 0, %reset_cdf_symbol_counter.exit325 ], [ %indvars.iv.next.i329, %4 ]
+  %gep.i328.idx = mul nuw nsw i64 %indvars.iv.i327, 6
+  %gep.i328 = getelementptr i8, ptr %invariant.gep.i326, i64 %gep.i328.idx
+  store i16 0, ptr %gep.i328, align 2
+  %indvars.iv.next.i329 = add nuw nsw i64 %indvars.iv.i327, 1
+  %exitcond.not.i330 = icmp eq i64 %indvars.iv.next.i329, 6
+  br i1 %exitcond.not.i330, label %reset_cdf_symbol_counter.exit331, label %4, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit333:                 ; preds = %.lr.ph.i328
-  %invariant.gep.i334 = getelementptr i8, ptr %0, i64 976
-  br label %.lr.ph.i335
+reset_cdf_symbol_counter.exit331:                 ; preds = %4
+  %invariant.gep.i332 = getelementptr i8, ptr %0, i64 976
+  br label %5
 
-.lr.ph.i335:                                      ; preds = %.lr.ph.i335, %reset_cdf_symbol_counter.exit333
-  %indvars.iv.i336 = phi i64 [ 0, %reset_cdf_symbol_counter.exit333 ], [ %indvars.iv.next.i338, %.lr.ph.i335 ]
-  %gep.i337.idx = mul nuw nsw i64 %indvars.iv.i336, 12
-  %gep.i337 = getelementptr i8, ptr %invariant.gep.i334, i64 %gep.i337.idx
-  store i16 0, ptr %gep.i337, align 2
-  %indvars.iv.next.i338 = add nuw nsw i64 %indvars.iv.i336, 1
-  %exitcond.not.i339 = icmp eq i64 %indvars.iv.next.i338, 4
-  br i1 %exitcond.not.i339, label %reset_cdf_symbol_counter.exit340, label %.lr.ph.i335, !llvm.loop !4
+5:                                                ; preds = %5, %reset_cdf_symbol_counter.exit331
+  %indvars.iv.i333 = phi i64 [ 0, %reset_cdf_symbol_counter.exit331 ], [ %indvars.iv.next.i335, %5 ]
+  %gep.i334.idx = mul nuw nsw i64 %indvars.iv.i333, 12
+  %gep.i334 = getelementptr i8, ptr %invariant.gep.i332, i64 %gep.i334.idx
+  store i16 0, ptr %gep.i334, align 2
+  %indvars.iv.next.i335 = add nuw nsw i64 %indvars.iv.i333, 1
+  %exitcond.not.i336 = icmp eq i64 %indvars.iv.next.i335, 4
+  br i1 %exitcond.not.i336, label %reset_cdf_symbol_counter.exit337, label %5, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit340:                 ; preds = %.lr.ph.i335
-  %invariant.gep.i341 = getelementptr i8, ptr %0, i64 1026
-  br label %.lr.ph.i342
+reset_cdf_symbol_counter.exit337:                 ; preds = %5
+  %invariant.gep.i338 = getelementptr i8, ptr %0, i64 1026
+  br label %6
 
-.lr.ph.i342:                                      ; preds = %.lr.ph.i342, %reset_cdf_symbol_counter.exit340
-  %indvars.iv.i343 = phi i64 [ 0, %reset_cdf_symbol_counter.exit340 ], [ %indvars.iv.next.i345, %.lr.ph.i342 ]
-  %gep.i344.idx = mul nuw nsw i64 %indvars.iv.i343, 14
-  %gep.i344 = getelementptr i8, ptr %invariant.gep.i341, i64 %gep.i344.idx
-  store i16 0, ptr %gep.i344, align 2
-  %indvars.iv.next.i345 = add nuw nsw i64 %indvars.iv.i343, 1
-  %exitcond.not.i346 = icmp eq i64 %indvars.iv.next.i345, 4
-  br i1 %exitcond.not.i346, label %reset_cdf_symbol_counter.exit347, label %.lr.ph.i342, !llvm.loop !4
+6:                                                ; preds = %6, %reset_cdf_symbol_counter.exit337
+  %indvars.iv.i339 = phi i64 [ 0, %reset_cdf_symbol_counter.exit337 ], [ %indvars.iv.next.i341, %6 ]
+  %gep.i340.idx = mul nuw nsw i64 %indvars.iv.i339, 14
+  %gep.i340 = getelementptr i8, ptr %invariant.gep.i338, i64 %gep.i340.idx
+  store i16 0, ptr %gep.i340, align 2
+  %indvars.iv.next.i341 = add nuw nsw i64 %indvars.iv.i339, 1
+  %exitcond.not.i342 = icmp eq i64 %indvars.iv.next.i341, 4
+  br i1 %exitcond.not.i342, label %reset_cdf_symbol_counter.exit343, label %6, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit347:                 ; preds = %.lr.ph.i342
-  %invariant.gep.i348 = getelementptr i8, ptr %0, i64 1084
-  br label %.lr.ph.i349
+reset_cdf_symbol_counter.exit343:                 ; preds = %6
+  %invariant.gep.i344 = getelementptr i8, ptr %0, i64 1084
+  br label %7
 
-.lr.ph.i349:                                      ; preds = %.lr.ph.i349, %reset_cdf_symbol_counter.exit347
-  %indvars.iv.i350 = phi i64 [ 0, %reset_cdf_symbol_counter.exit347 ], [ %indvars.iv.next.i352, %.lr.ph.i349 ]
-  %gep.i351.idx = shl i64 %indvars.iv.i350, 4
-  %gep.i351 = getelementptr i8, ptr %invariant.gep.i348, i64 %gep.i351.idx
-  store i16 0, ptr %gep.i351, align 2
-  %indvars.iv.next.i352 = add nuw nsw i64 %indvars.iv.i350, 1
-  %exitcond.not.i353 = icmp eq i64 %indvars.iv.next.i352, 4
-  br i1 %exitcond.not.i353, label %reset_cdf_symbol_counter.exit354, label %.lr.ph.i349, !llvm.loop !4
+7:                                                ; preds = %7, %reset_cdf_symbol_counter.exit343
+  %indvars.iv.i345 = phi i64 [ 0, %reset_cdf_symbol_counter.exit343 ], [ %indvars.iv.next.i347, %7 ]
+  %gep.i346.idx = shl i64 %indvars.iv.i345, 4
+  %gep.i346 = getelementptr i8, ptr %invariant.gep.i344, i64 %gep.i346.idx
+  store i16 0, ptr %gep.i346, align 2
+  %indvars.iv.next.i347 = add nuw nsw i64 %indvars.iv.i345, 1
+  %exitcond.not.i348 = icmp eq i64 %indvars.iv.next.i347, 4
+  br i1 %exitcond.not.i348, label %reset_cdf_symbol_counter.exit349, label %7, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit354:                 ; preds = %.lr.ph.i349
-  %invariant.gep.i355 = getelementptr i8, ptr %0, i64 1150
-  br label %.lr.ph.i356
+reset_cdf_symbol_counter.exit349:                 ; preds = %7
+  %invariant.gep.i350 = getelementptr i8, ptr %0, i64 1150
+  br label %8
 
-.lr.ph.i356:                                      ; preds = %.lr.ph.i356, %reset_cdf_symbol_counter.exit354
-  %indvars.iv.i357 = phi i64 [ 0, %reset_cdf_symbol_counter.exit354 ], [ %indvars.iv.next.i359, %.lr.ph.i356 ]
-  %gep.i358.idx = mul nuw nsw i64 %indvars.iv.i357, 18
-  %gep.i358 = getelementptr i8, ptr %invariant.gep.i355, i64 %gep.i358.idx
+8:                                                ; preds = %8, %reset_cdf_symbol_counter.exit349
+  %indvars.iv.i351 = phi i64 [ 0, %reset_cdf_symbol_counter.exit349 ], [ %indvars.iv.next.i353, %8 ]
+  %gep.i352.idx = mul nuw nsw i64 %indvars.iv.i351, 18
+  %gep.i352 = getelementptr i8, ptr %invariant.gep.i350, i64 %gep.i352.idx
+  store i16 0, ptr %gep.i352, align 2
+  %indvars.iv.next.i353 = add nuw nsw i64 %indvars.iv.i351, 1
+  %exitcond.not.i354 = icmp eq i64 %indvars.iv.next.i353, 4
+  br i1 %exitcond.not.i354, label %reset_cdf_symbol_counter.exit355, label %8, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit355:                 ; preds = %8
+  %invariant.gep.i356 = getelementptr i8, ptr %0, i64 1224
+  br label %9
+
+9:                                                ; preds = %9, %reset_cdf_symbol_counter.exit355
+  %indvars.iv.i357 = phi i64 [ 0, %reset_cdf_symbol_counter.exit355 ], [ %indvars.iv.next.i359, %9 ]
+  %gep.i358.idx = mul nuw nsw i64 %indvars.iv.i357, 20
+  %gep.i358 = getelementptr i8, ptr %invariant.gep.i356, i64 %gep.i358.idx
   store i16 0, ptr %gep.i358, align 2
   %indvars.iv.next.i359 = add nuw nsw i64 %indvars.iv.i357, 1
   %exitcond.not.i360 = icmp eq i64 %indvars.iv.next.i359, 4
-  br i1 %exitcond.not.i360, label %reset_cdf_symbol_counter.exit361, label %.lr.ph.i356, !llvm.loop !4
+  br i1 %exitcond.not.i360, label %reset_cdf_symbol_counter.exit361, label %9, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit361:                 ; preds = %.lr.ph.i356
-  %invariant.gep.i362 = getelementptr i8, ptr %0, i64 1224
-  br label %.lr.ph.i363
+reset_cdf_symbol_counter.exit361:                 ; preds = %9
+  %invariant.gep.i362 = getelementptr i8, ptr %0, i64 1306
+  br label %10
 
-.lr.ph.i363:                                      ; preds = %.lr.ph.i363, %reset_cdf_symbol_counter.exit361
-  %indvars.iv.i364 = phi i64 [ 0, %reset_cdf_symbol_counter.exit361 ], [ %indvars.iv.next.i366, %.lr.ph.i363 ]
-  %gep.i365.idx = mul nuw nsw i64 %indvars.iv.i364, 20
-  %gep.i365 = getelementptr i8, ptr %invariant.gep.i362, i64 %gep.i365.idx
-  store i16 0, ptr %gep.i365, align 2
-  %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i364, 1
-  %exitcond.not.i367 = icmp eq i64 %indvars.iv.next.i366, 4
-  br i1 %exitcond.not.i367, label %reset_cdf_symbol_counter.exit368, label %.lr.ph.i363, !llvm.loop !4
+10:                                               ; preds = %10, %reset_cdf_symbol_counter.exit361
+  %indvars.iv.i363 = phi i64 [ 0, %reset_cdf_symbol_counter.exit361 ], [ %indvars.iv.next.i365, %10 ]
+  %gep.i364.idx = mul nuw nsw i64 %indvars.iv.i363, 22
+  %gep.i364 = getelementptr i8, ptr %invariant.gep.i362, i64 %gep.i364.idx
+  store i16 0, ptr %gep.i364, align 2
+  %indvars.iv.next.i365 = add nuw nsw i64 %indvars.iv.i363, 1
+  %exitcond.not.i366 = icmp eq i64 %indvars.iv.next.i365, 4
+  br i1 %exitcond.not.i366, label %reset_cdf_symbol_counter.exit367, label %10, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit368:                 ; preds = %.lr.ph.i363
-  %invariant.gep.i369 = getelementptr i8, ptr %0, i64 1306
-  br label %.lr.ph.i370
+reset_cdf_symbol_counter.exit367:                 ; preds = %10
+  %invariant.gep.i368 = getelementptr i8, ptr %0, i64 1396
+  br label %11
 
-.lr.ph.i370:                                      ; preds = %.lr.ph.i370, %reset_cdf_symbol_counter.exit368
-  %indvars.iv.i371 = phi i64 [ 0, %reset_cdf_symbol_counter.exit368 ], [ %indvars.iv.next.i373, %.lr.ph.i370 ]
-  %gep.i372.idx = mul nuw nsw i64 %indvars.iv.i371, 22
-  %gep.i372 = getelementptr i8, ptr %invariant.gep.i369, i64 %gep.i372.idx
-  store i16 0, ptr %gep.i372, align 2
-  %indvars.iv.next.i373 = add nuw nsw i64 %indvars.iv.i371, 1
-  %exitcond.not.i374 = icmp eq i64 %indvars.iv.next.i373, 4
-  br i1 %exitcond.not.i374, label %reset_cdf_symbol_counter.exit375, label %.lr.ph.i370, !llvm.loop !4
+11:                                               ; preds = %11, %reset_cdf_symbol_counter.exit367
+  %indvars.iv.i369 = phi i64 [ 0, %reset_cdf_symbol_counter.exit367 ], [ %indvars.iv.next.i371, %11 ]
+  %gep.i370.idx = mul nuw nsw i64 %indvars.iv.i369, 24
+  %gep.i370 = getelementptr i8, ptr %invariant.gep.i368, i64 %gep.i370.idx
+  store i16 0, ptr %gep.i370, align 2
+  %indvars.iv.next.i371 = add nuw nsw i64 %indvars.iv.i369, 1
+  %exitcond.not.i372 = icmp eq i64 %indvars.iv.next.i371, 4
+  br i1 %exitcond.not.i372, label %reset_cdf_symbol_counter.exit373, label %11, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit375:                 ; preds = %.lr.ph.i370
-  %invariant.gep.i376 = getelementptr i8, ptr %0, i64 1396
-  br label %.lr.ph.i377
+reset_cdf_symbol_counter.exit373:                 ; preds = %11
+  %invariant.gep.i374 = getelementptr i8, ptr %0, i64 1476
+  br label %12
 
-.lr.ph.i377:                                      ; preds = %.lr.ph.i377, %reset_cdf_symbol_counter.exit375
-  %indvars.iv.i378 = phi i64 [ 0, %reset_cdf_symbol_counter.exit375 ], [ %indvars.iv.next.i380, %.lr.ph.i377 ]
-  %gep.i379.idx = mul nuw nsw i64 %indvars.iv.i378, 24
-  %gep.i379 = getelementptr i8, ptr %invariant.gep.i376, i64 %gep.i379.idx
-  store i16 0, ptr %gep.i379, align 2
-  %indvars.iv.next.i380 = add nuw nsw i64 %indvars.iv.i378, 1
-  %exitcond.not.i381 = icmp eq i64 %indvars.iv.next.i380, 4
-  br i1 %exitcond.not.i381, label %reset_cdf_symbol_counter.exit382, label %.lr.ph.i377, !llvm.loop !4
+12:                                               ; preds = %12, %reset_cdf_symbol_counter.exit373
+  %indvars.iv.i375 = phi i64 [ 0, %reset_cdf_symbol_counter.exit373 ], [ %indvars.iv.next.i377, %12 ]
+  %gep.i376.idx = shl i64 %indvars.iv.i375, 3
+  %gep.i376 = getelementptr i8, ptr %invariant.gep.i374, i64 %gep.i376.idx
+  store i16 0, ptr %gep.i376, align 2
+  %indvars.iv.next.i377 = add nuw nsw i64 %indvars.iv.i375, 1
+  %exitcond.not.i378 = icmp eq i64 %indvars.iv.next.i377, 40
+  br i1 %exitcond.not.i378, label %reset_cdf_symbol_counter.exit379, label %12, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit382:                 ; preds = %.lr.ph.i377
-  %invariant.gep.i383 = getelementptr i8, ptr %0, i64 1476
-  br label %.lr.ph.i384
+reset_cdf_symbol_counter.exit379:                 ; preds = %12
+  %invariant.gep.i380 = getelementptr i8, ptr %0, i64 1798
+  br label %13
 
-.lr.ph.i384:                                      ; preds = %.lr.ph.i384, %reset_cdf_symbol_counter.exit382
-  %indvars.iv.i385 = phi i64 [ 0, %reset_cdf_symbol_counter.exit382 ], [ %indvars.iv.next.i387, %.lr.ph.i384 ]
-  %gep.i386.idx = shl i64 %indvars.iv.i385, 3
-  %gep.i386 = getelementptr i8, ptr %invariant.gep.i383, i64 %gep.i386.idx
-  store i16 0, ptr %gep.i386, align 2
-  %indvars.iv.next.i387 = add nuw nsw i64 %indvars.iv.i385, 1
-  %exitcond.not.i388 = icmp eq i64 %indvars.iv.next.i387, 40
-  br i1 %exitcond.not.i388, label %reset_cdf_symbol_counter.exit389, label %.lr.ph.i384, !llvm.loop !4
+13:                                               ; preds = %13, %reset_cdf_symbol_counter.exit379
+  %indvars.iv.i381 = phi i64 [ 0, %reset_cdf_symbol_counter.exit379 ], [ %indvars.iv.next.i383, %13 ]
+  %gep.i382.idx = mul nuw nsw i64 %indvars.iv.i381, 10
+  %gep.i382 = getelementptr i8, ptr %invariant.gep.i380, i64 %gep.i382.idx
+  store i16 0, ptr %gep.i382, align 2
+  %indvars.iv.next.i383 = add nuw nsw i64 %indvars.iv.i381, 1
+  %exitcond.not.i384 = icmp eq i64 %indvars.iv.next.i383, 420
+  br i1 %exitcond.not.i384, label %reset_cdf_symbol_counter.exit385, label %13, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit389:                 ; preds = %.lr.ph.i384
-  %invariant.gep.i390 = getelementptr i8, ptr %0, i64 1798
-  br label %.lr.ph.i391
+reset_cdf_symbol_counter.exit385:                 ; preds = %13
+  %invariant.gep.i386 = getelementptr i8, ptr %0, i64 5998
+  br label %14
 
-.lr.ph.i391:                                      ; preds = %.lr.ph.i391, %reset_cdf_symbol_counter.exit389
-  %indvars.iv.i392 = phi i64 [ 0, %reset_cdf_symbol_counter.exit389 ], [ %indvars.iv.next.i394, %.lr.ph.i391 ]
-  %gep.i393.idx = mul nuw nsw i64 %indvars.iv.i392, 10
-  %gep.i393 = getelementptr i8, ptr %invariant.gep.i390, i64 %gep.i393.idx
-  store i16 0, ptr %gep.i393, align 2
-  %indvars.iv.next.i394 = add nuw nsw i64 %indvars.iv.i392, 1
-  %exitcond.not.i395 = icmp eq i64 %indvars.iv.next.i394, 420
-  br i1 %exitcond.not.i395, label %reset_cdf_symbol_counter.exit396, label %.lr.ph.i391, !llvm.loop !4
+14:                                               ; preds = %14, %reset_cdf_symbol_counter.exit385
+  %indvars.iv.i387 = phi i64 [ 0, %reset_cdf_symbol_counter.exit385 ], [ %indvars.iv.next.i389, %14 ]
+  %gep.i388.idx = mul nuw nsw i64 %indvars.iv.i387, 10
+  %gep.i388 = getelementptr i8, ptr %invariant.gep.i386, i64 %gep.i388.idx
+  store i16 0, ptr %gep.i388, align 2
+  %indvars.iv.next.i389 = add nuw nsw i64 %indvars.iv.i387, 1
+  %exitcond.not.i390 = icmp eq i64 %indvars.iv.next.i389, 210
+  br i1 %exitcond.not.i390, label %reset_cdf_symbol_counter.exit391, label %14, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit396:                 ; preds = %.lr.ph.i391
-  %invariant.gep.i397 = getelementptr i8, ptr %0, i64 5998
-  br label %.lr.ph.i398
+reset_cdf_symbol_counter.exit391:                 ; preds = %14
+  %invariant.gep.i392 = getelementptr i8, ptr %0, i64 8094
+  br label %15
 
-.lr.ph.i398:                                      ; preds = %.lr.ph.i398, %reset_cdf_symbol_counter.exit396
-  %indvars.iv.i399 = phi i64 [ 0, %reset_cdf_symbol_counter.exit396 ], [ %indvars.iv.next.i401, %.lr.ph.i398 ]
-  %gep.i400.idx = mul nuw nsw i64 %indvars.iv.i399, 10
-  %gep.i400 = getelementptr i8, ptr %invariant.gep.i397, i64 %gep.i400.idx
+15:                                               ; preds = %15, %reset_cdf_symbol_counter.exit391
+  %indvars.iv.i393 = phi i64 [ 0, %reset_cdf_symbol_counter.exit391 ], [ %indvars.iv.next.i395, %15 ]
+  %gep.i394.idx = mul nuw nsw i64 %indvars.iv.i393, 6
+  %gep.i394 = getelementptr i8, ptr %invariant.gep.i392, i64 %gep.i394.idx
+  store i16 0, ptr %gep.i394, align 2
+  %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i393, 1
+  %exitcond.not.i396 = icmp eq i64 %indvars.iv.next.i395, 6
+  br i1 %exitcond.not.i396, label %reset_cdf_symbol_counter.exit397, label %15, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit397:                 ; preds = %15
+  %invariant.gep.i398 = getelementptr i8, ptr %0, i64 8130
+  br label %16
+
+16:                                               ; preds = %16, %reset_cdf_symbol_counter.exit397
+  %indvars.iv.i399 = phi i64 [ 0, %reset_cdf_symbol_counter.exit397 ], [ %indvars.iv.next.i401, %16 ]
+  %gep.i400.idx = mul nuw nsw i64 %indvars.iv.i399, 6
+  %gep.i400 = getelementptr i8, ptr %invariant.gep.i398, i64 %gep.i400.idx
   store i16 0, ptr %gep.i400, align 2
   %indvars.iv.next.i401 = add nuw nsw i64 %indvars.iv.i399, 1
-  %exitcond.not.i402 = icmp eq i64 %indvars.iv.next.i401, 210
-  br i1 %exitcond.not.i402, label %reset_cdf_symbol_counter.exit403, label %.lr.ph.i398, !llvm.loop !4
+  %exitcond.not.i402 = icmp eq i64 %indvars.iv.next.i401, 2
+  br i1 %exitcond.not.i402, label %reset_cdf_symbol_counter.exit403, label %16, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit403:                 ; preds = %.lr.ph.i398
-  %invariant.gep.i404 = getelementptr i8, ptr %0, i64 8094
-  br label %.lr.ph.i405
+reset_cdf_symbol_counter.exit403:                 ; preds = %16
+  %invariant.gep.i404 = getelementptr i8, ptr %0, i64 8142
+  br label %17
 
-.lr.ph.i405:                                      ; preds = %.lr.ph.i405, %reset_cdf_symbol_counter.exit403
-  %indvars.iv.i406 = phi i64 [ 0, %reset_cdf_symbol_counter.exit403 ], [ %indvars.iv.next.i408, %.lr.ph.i405 ]
-  %gep.i407.idx = mul nuw nsw i64 %indvars.iv.i406, 6
-  %gep.i407 = getelementptr i8, ptr %invariant.gep.i404, i64 %gep.i407.idx
-  store i16 0, ptr %gep.i407, align 2
-  %indvars.iv.next.i408 = add nuw nsw i64 %indvars.iv.i406, 1
-  %exitcond.not.i409 = icmp eq i64 %indvars.iv.next.i408, 6
-  br i1 %exitcond.not.i409, label %reset_cdf_symbol_counter.exit410, label %.lr.ph.i405, !llvm.loop !4
+17:                                               ; preds = %17, %reset_cdf_symbol_counter.exit403
+  %indvars.iv.i405 = phi i64 [ 0, %reset_cdf_symbol_counter.exit403 ], [ %indvars.iv.next.i407, %17 ]
+  %gep.i406.idx = mul nuw nsw i64 %indvars.iv.i405, 6
+  %gep.i406 = getelementptr i8, ptr %invariant.gep.i404, i64 %gep.i406.idx
+  store i16 0, ptr %gep.i406, align 2
+  %indvars.iv.next.i407 = add nuw nsw i64 %indvars.iv.i405, 1
+  %exitcond.not.i408 = icmp eq i64 %indvars.iv.next.i407, 6
+  br i1 %exitcond.not.i408, label %reset_cdf_symbol_counter.exit409, label %17, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit410:                 ; preds = %.lr.ph.i405
-  %invariant.gep.i411 = getelementptr i8, ptr %0, i64 8130
-  br label %.lr.ph.i412
+reset_cdf_symbol_counter.exit409:                 ; preds = %17
+  %invariant.gep.i410 = getelementptr i8, ptr %0, i64 8178
+  br label %18
 
-.lr.ph.i412:                                      ; preds = %.lr.ph.i412, %reset_cdf_symbol_counter.exit410
-  %indvars.iv.i413 = phi i64 [ 0, %reset_cdf_symbol_counter.exit410 ], [ %indvars.iv.next.i415, %.lr.ph.i412 ]
-  %gep.i414.idx = mul nuw nsw i64 %indvars.iv.i413, 6
-  %gep.i414 = getelementptr i8, ptr %invariant.gep.i411, i64 %gep.i414.idx
-  store i16 0, ptr %gep.i414, align 2
-  %indvars.iv.next.i415 = add nuw nsw i64 %indvars.iv.i413, 1
-  %exitcond.not.i416 = icmp eq i64 %indvars.iv.next.i415, 2
-  br i1 %exitcond.not.i416, label %reset_cdf_symbol_counter.exit417, label %.lr.ph.i412, !llvm.loop !4
+18:                                               ; preds = %18, %reset_cdf_symbol_counter.exit409
+  %indvars.iv.i411 = phi i64 [ 0, %reset_cdf_symbol_counter.exit409 ], [ %indvars.iv.next.i413, %18 ]
+  %gep.i412.idx = mul nuw nsw i64 %indvars.iv.i411, 6
+  %gep.i412 = getelementptr i8, ptr %invariant.gep.i410, i64 %gep.i412.idx
+  store i16 0, ptr %gep.i412, align 2
+  %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i411, 1
+  %exitcond.not.i414 = icmp eq i64 %indvars.iv.next.i413, 3
+  br i1 %exitcond.not.i414, label %reset_cdf_symbol_counter.exit415, label %18, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit417:                 ; preds = %.lr.ph.i412
-  %invariant.gep.i418 = getelementptr i8, ptr %0, i64 8142
-  br label %.lr.ph.i419
+reset_cdf_symbol_counter.exit415:                 ; preds = %18
+  %invariant.gep.i416 = getelementptr i8, ptr %0, i64 8208
+  br label %19
 
-.lr.ph.i419:                                      ; preds = %.lr.ph.i419, %reset_cdf_symbol_counter.exit417
-  %indvars.iv.i420 = phi i64 [ 0, %reset_cdf_symbol_counter.exit417 ], [ %indvars.iv.next.i422, %.lr.ph.i419 ]
-  %gep.i421.idx = mul nuw nsw i64 %indvars.iv.i420, 6
-  %gep.i421 = getelementptr i8, ptr %invariant.gep.i418, i64 %gep.i421.idx
-  store i16 0, ptr %gep.i421, align 2
-  %indvars.iv.next.i422 = add nuw nsw i64 %indvars.iv.i420, 1
-  %exitcond.not.i423 = icmp eq i64 %indvars.iv.next.i422, 6
-  br i1 %exitcond.not.i423, label %reset_cdf_symbol_counter.exit424, label %.lr.ph.i419, !llvm.loop !4
+19:                                               ; preds = %19, %reset_cdf_symbol_counter.exit415
+  %indvars.iv.i417 = phi i64 [ 0, %reset_cdf_symbol_counter.exit415 ], [ %indvars.iv.next.i419, %19 ]
+  %gep.i418.idx = mul nuw nsw i64 %indvars.iv.i417, 18
+  %gep.i418 = getelementptr i8, ptr %invariant.gep.i416, i64 %gep.i418.idx
+  store i16 0, ptr %gep.i418, align 2
+  %indvars.iv.next.i419 = add nuw nsw i64 %indvars.iv.i417, 1
+  %exitcond.not.i420 = icmp eq i64 %indvars.iv.next.i419, 8
+  br i1 %exitcond.not.i420, label %reset_cdf_symbol_counter.exit421, label %19, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit424:                 ; preds = %.lr.ph.i419
-  %invariant.gep.i425 = getelementptr i8, ptr %0, i64 8178
-  br label %.lr.ph.i426
+reset_cdf_symbol_counter.exit421:                 ; preds = %19
+  %invariant.gep.i422 = getelementptr i8, ptr %0, i64 8340
+  br label %20
 
-.lr.ph.i426:                                      ; preds = %.lr.ph.i426, %reset_cdf_symbol_counter.exit424
-  %indvars.iv.i427 = phi i64 [ 0, %reset_cdf_symbol_counter.exit424 ], [ %indvars.iv.next.i429, %.lr.ph.i426 ]
-  %gep.i428.idx = mul nuw nsw i64 %indvars.iv.i427, 6
-  %gep.i428 = getelementptr i8, ptr %invariant.gep.i425, i64 %gep.i428.idx
-  store i16 0, ptr %gep.i428, align 2
-  %indvars.iv.next.i429 = add nuw nsw i64 %indvars.iv.i427, 1
-  %exitcond.not.i430 = icmp eq i64 %indvars.iv.next.i429, 3
-  br i1 %exitcond.not.i430, label %reset_cdf_symbol_counter.exit431, label %.lr.ph.i426, !llvm.loop !4
+20:                                               ; preds = %20, %reset_cdf_symbol_counter.exit421
+  %indvars.iv.i423 = phi i64 [ 0, %reset_cdf_symbol_counter.exit421 ], [ %indvars.iv.next.i425, %20 ]
+  %gep.i424.idx = mul nuw nsw i64 %indvars.iv.i423, 6
+  %gep.i424 = getelementptr i8, ptr %invariant.gep.i422, i64 %gep.i424.idx
+  store i16 0, ptr %gep.i424, align 2
+  %indvars.iv.next.i425 = add nuw nsw i64 %indvars.iv.i423, 1
+  %exitcond.not.i426 = icmp eq i64 %indvars.iv.next.i425, 22
+  br i1 %exitcond.not.i426, label %reset_cdf_symbol_counter.exit427, label %20, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit431:                 ; preds = %.lr.ph.i426
-  %invariant.gep.i432 = getelementptr i8, ptr %0, i64 8208
-  br label %.lr.ph.i433
+reset_cdf_symbol_counter.exit427:                 ; preds = %20
+  %invariant.gep.i428 = getelementptr i8, ptr %0, i64 8500
+  br label %21
 
-.lr.ph.i433:                                      ; preds = %.lr.ph.i433, %reset_cdf_symbol_counter.exit431
-  %indvars.iv.i434 = phi i64 [ 0, %reset_cdf_symbol_counter.exit431 ], [ %indvars.iv.next.i436, %.lr.ph.i433 ]
-  %gep.i435.idx = mul nuw nsw i64 %indvars.iv.i434, 18
-  %gep.i435 = getelementptr i8, ptr %invariant.gep.i432, i64 %gep.i435.idx
-  store i16 0, ptr %gep.i435, align 2
-  %indvars.iv.next.i436 = add nuw nsw i64 %indvars.iv.i434, 1
-  %exitcond.not.i437 = icmp eq i64 %indvars.iv.next.i436, 8
-  br i1 %exitcond.not.i437, label %reset_cdf_symbol_counter.exit438, label %.lr.ph.i433, !llvm.loop !4
+21:                                               ; preds = %21, %reset_cdf_symbol_counter.exit427
+  %indvars.iv.i429 = phi i64 [ 0, %reset_cdf_symbol_counter.exit427 ], [ %indvars.iv.next.i431, %21 ]
+  %gep.i430.idx = mul nuw nsw i64 %indvars.iv.i429, 34
+  %gep.i430 = getelementptr i8, ptr %invariant.gep.i428, i64 %gep.i430.idx
+  store i16 0, ptr %gep.i430, align 2
+  %indvars.iv.next.i431 = add nuw nsw i64 %indvars.iv.i429, 1
+  %exitcond.not.i432 = icmp eq i64 %indvars.iv.next.i431, 22
+  br i1 %exitcond.not.i432, label %reset_cdf_symbol_counter.exit433, label %21, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit438:                 ; preds = %.lr.ph.i433
-  %invariant.gep.i439 = getelementptr i8, ptr %0, i64 8340
-  br label %.lr.ph.i440
+reset_cdf_symbol_counter.exit433:                 ; preds = %21
+  %invariant.gep.i434 = getelementptr i8, ptr %0, i64 9220
+  br label %22
 
-.lr.ph.i440:                                      ; preds = %.lr.ph.i440, %reset_cdf_symbol_counter.exit438
-  %indvars.iv.i441 = phi i64 [ 0, %reset_cdf_symbol_counter.exit438 ], [ %indvars.iv.next.i443, %.lr.ph.i440 ]
+22:                                               ; preds = %22, %reset_cdf_symbol_counter.exit433
+  %indvars.iv.i435 = phi i64 [ 0, %reset_cdf_symbol_counter.exit433 ], [ %indvars.iv.next.i437, %22 ]
+  %gep.i436.idx = mul nuw nsw i64 %indvars.iv.i435, 6
+  %gep.i436 = getelementptr i8, ptr %invariant.gep.i434, i64 %gep.i436.idx
+  store i16 0, ptr %gep.i436, align 2
+  %indvars.iv.next.i437 = add nuw nsw i64 %indvars.iv.i435, 1
+  %exitcond.not.i438 = icmp eq i64 %indvars.iv.next.i437, 4
+  br i1 %exitcond.not.i438, label %reset_cdf_symbol_counter.exit439, label %22, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit439:                 ; preds = %22
+  %invariant.gep.i440 = getelementptr i8, ptr %0, i64 9244
+  br label %23
+
+23:                                               ; preds = %23, %reset_cdf_symbol_counter.exit439
+  %indvars.iv.i441 = phi i64 [ 0, %reset_cdf_symbol_counter.exit439 ], [ %indvars.iv.next.i443, %23 ]
   %gep.i442.idx = mul nuw nsw i64 %indvars.iv.i441, 6
-  %gep.i442 = getelementptr i8, ptr %invariant.gep.i439, i64 %gep.i442.idx
+  %gep.i442 = getelementptr i8, ptr %invariant.gep.i440, i64 %gep.i442.idx
   store i16 0, ptr %gep.i442, align 2
   %indvars.iv.next.i443 = add nuw nsw i64 %indvars.iv.i441, 1
   %exitcond.not.i444 = icmp eq i64 %indvars.iv.next.i443, 22
-  br i1 %exitcond.not.i444, label %reset_cdf_symbol_counter.exit445, label %.lr.ph.i440, !llvm.loop !4
+  br i1 %exitcond.not.i444, label %reset_cdf_symbol_counter.exit445, label %23, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit445:                 ; preds = %.lr.ph.i440
-  %invariant.gep.i446 = getelementptr i8, ptr %0, i64 8500
-  br label %.lr.ph.i447
+reset_cdf_symbol_counter.exit445:                 ; preds = %23
+  %invariant.gep.i446 = getelementptr i8, ptr %0, i64 9380
+  br label %24
 
-.lr.ph.i447:                                      ; preds = %.lr.ph.i447, %reset_cdf_symbol_counter.exit445
-  %indvars.iv.i448 = phi i64 [ 0, %reset_cdf_symbol_counter.exit445 ], [ %indvars.iv.next.i450, %.lr.ph.i447 ]
-  %gep.i449.idx = mul nuw nsw i64 %indvars.iv.i448, 34
-  %gep.i449 = getelementptr i8, ptr %invariant.gep.i446, i64 %gep.i449.idx
-  store i16 0, ptr %gep.i449, align 2
-  %indvars.iv.next.i450 = add nuw nsw i64 %indvars.iv.i448, 1
-  %exitcond.not.i451 = icmp eq i64 %indvars.iv.next.i450, 22
-  br i1 %exitcond.not.i451, label %reset_cdf_symbol_counter.exit452, label %.lr.ph.i447, !llvm.loop !4
+24:                                               ; preds = %24, %reset_cdf_symbol_counter.exit445
+  %indvars.iv.i447 = phi i64 [ 0, %reset_cdf_symbol_counter.exit445 ], [ %indvars.iv.next.i449, %24 ]
+  %gep.i448.idx = mul nuw nsw i64 %indvars.iv.i447, 10
+  %gep.i448 = getelementptr i8, ptr %invariant.gep.i446, i64 %gep.i448.idx
+  store i16 0, ptr %gep.i448, align 2
+  %indvars.iv.next.i449 = add nuw nsw i64 %indvars.iv.i447, 1
+  %exitcond.not.i450 = icmp eq i64 %indvars.iv.next.i449, 4
+  br i1 %exitcond.not.i450, label %reset_cdf_symbol_counter.exit451, label %24, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit452:                 ; preds = %.lr.ph.i447
-  %invariant.gep.i453 = getelementptr i8, ptr %0, i64 9220
-  br label %.lr.ph.i454
+reset_cdf_symbol_counter.exit451:                 ; preds = %24
+  %invariant.gep.i452 = getelementptr i8, ptr %0, i64 9418
+  br label %25
 
-.lr.ph.i454:                                      ; preds = %.lr.ph.i454, %reset_cdf_symbol_counter.exit452
-  %indvars.iv.i455 = phi i64 [ 0, %reset_cdf_symbol_counter.exit452 ], [ %indvars.iv.next.i457, %.lr.ph.i454 ]
-  %gep.i456.idx = mul nuw nsw i64 %indvars.iv.i455, 6
-  %gep.i456 = getelementptr i8, ptr %invariant.gep.i453, i64 %gep.i456.idx
-  store i16 0, ptr %gep.i456, align 2
-  %indvars.iv.next.i457 = add nuw nsw i64 %indvars.iv.i455, 1
-  %exitcond.not.i458 = icmp eq i64 %indvars.iv.next.i457, 4
-  br i1 %exitcond.not.i458, label %reset_cdf_symbol_counter.exit459, label %.lr.ph.i454, !llvm.loop !4
+25:                                               ; preds = %25, %reset_cdf_symbol_counter.exit451
+  %indvars.iv.i453 = phi i64 [ 0, %reset_cdf_symbol_counter.exit451 ], [ %indvars.iv.next.i455, %25 ]
+  %gep.i454.idx = shl i64 %indvars.iv.i453, 3
+  %gep.i454 = getelementptr i8, ptr %invariant.gep.i452, i64 %gep.i454.idx
+  store i16 0, ptr %gep.i454, align 2
+  %indvars.iv.next.i455 = add nuw nsw i64 %indvars.iv.i453, 1
+  %exitcond.not.i456 = icmp eq i64 %indvars.iv.next.i455, 22
+  br i1 %exitcond.not.i456, label %reset_cdf_symbol_counter.exit457, label %25, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit459:                 ; preds = %.lr.ph.i454
-  %invariant.gep.i460 = getelementptr i8, ptr %0, i64 9244
-  br label %.lr.ph.i461
+reset_cdf_symbol_counter.exit457:                 ; preds = %25
+  %invariant.gep.i458 = getelementptr i8, ptr %0, i64 9592
+  br label %26
 
-.lr.ph.i461:                                      ; preds = %.lr.ph.i461, %reset_cdf_symbol_counter.exit459
-  %indvars.iv.i462 = phi i64 [ 0, %reset_cdf_symbol_counter.exit459 ], [ %indvars.iv.next.i464, %.lr.ph.i461 ]
-  %gep.i463.idx = mul nuw nsw i64 %indvars.iv.i462, 6
-  %gep.i463 = getelementptr i8, ptr %invariant.gep.i460, i64 %gep.i463.idx
-  store i16 0, ptr %gep.i463, align 2
-  %indvars.iv.next.i464 = add nuw nsw i64 %indvars.iv.i462, 1
-  %exitcond.not.i465 = icmp eq i64 %indvars.iv.next.i464, 22
-  br i1 %exitcond.not.i465, label %reset_cdf_symbol_counter.exit466, label %.lr.ph.i461, !llvm.loop !4
+26:                                               ; preds = %26, %reset_cdf_symbol_counter.exit457
+  %indvars.iv.i459 = phi i64 [ 0, %reset_cdf_symbol_counter.exit457 ], [ %indvars.iv.next.i461, %26 ]
+  %gep.i460.idx = mul nuw nsw i64 %indvars.iv.i459, 6
+  %gep.i460 = getelementptr i8, ptr %invariant.gep.i458, i64 %gep.i460.idx
+  store i16 0, ptr %gep.i460, align 2
+  %indvars.iv.next.i461 = add nuw nsw i64 %indvars.iv.i459, 1
+  %exitcond.not.i462 = icmp eq i64 %indvars.iv.next.i461, 22
+  br i1 %exitcond.not.i462, label %reset_cdf_symbol_counter.exit463, label %26, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit466:                 ; preds = %.lr.ph.i461
-  %invariant.gep.i467 = getelementptr i8, ptr %0, i64 9380
-  br label %.lr.ph.i468
+reset_cdf_symbol_counter.exit463:                 ; preds = %26
+  %invariant.gep.i464 = getelementptr i8, ptr %0, i64 9734
+  br label %27
 
-.lr.ph.i468:                                      ; preds = %.lr.ph.i468, %reset_cdf_symbol_counter.exit466
-  %indvars.iv.i469 = phi i64 [ 0, %reset_cdf_symbol_counter.exit466 ], [ %indvars.iv.next.i471, %.lr.ph.i468 ]
-  %gep.i470.idx = mul nuw nsw i64 %indvars.iv.i469, 10
-  %gep.i470 = getelementptr i8, ptr %invariant.gep.i467, i64 %gep.i470.idx
-  store i16 0, ptr %gep.i470, align 2
-  %indvars.iv.next.i471 = add nuw nsw i64 %indvars.iv.i469, 1
-  %exitcond.not.i472 = icmp eq i64 %indvars.iv.next.i471, 4
-  br i1 %exitcond.not.i472, label %reset_cdf_symbol_counter.exit473, label %.lr.ph.i468, !llvm.loop !4
+27:                                               ; preds = %27, %reset_cdf_symbol_counter.exit463
+  %indvars.iv.i465 = phi i64 [ 0, %reset_cdf_symbol_counter.exit463 ], [ %indvars.iv.next.i467, %27 ]
+  %gep.i466.idx = shl i64 %indvars.iv.i465, 4
+  %gep.i466 = getelementptr i8, ptr %invariant.gep.i464, i64 %gep.i466.idx
+  store i16 0, ptr %gep.i466, align 2
+  %indvars.iv.next.i467 = add nuw nsw i64 %indvars.iv.i465, 1
+  %exitcond.not.i468 = icmp eq i64 %indvars.iv.next.i467, 7
+  br i1 %exitcond.not.i468, label %reset_cdf_symbol_counter.exit469, label %27, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit473:                 ; preds = %.lr.ph.i468
-  %invariant.gep.i474 = getelementptr i8, ptr %0, i64 9418
-  br label %.lr.ph.i475
+reset_cdf_symbol_counter.exit469:                 ; preds = %27
+  %invariant.gep.i470 = getelementptr i8, ptr %0, i64 9846
+  br label %28
 
-.lr.ph.i475:                                      ; preds = %.lr.ph.i475, %reset_cdf_symbol_counter.exit473
-  %indvars.iv.i476 = phi i64 [ 0, %reset_cdf_symbol_counter.exit473 ], [ %indvars.iv.next.i478, %.lr.ph.i475 ]
-  %gep.i477.idx = shl i64 %indvars.iv.i476, 3
-  %gep.i477 = getelementptr i8, ptr %invariant.gep.i474, i64 %gep.i477.idx
-  store i16 0, ptr %gep.i477, align 2
-  %indvars.iv.next.i478 = add nuw nsw i64 %indvars.iv.i476, 1
-  %exitcond.not.i479 = icmp eq i64 %indvars.iv.next.i478, 22
-  br i1 %exitcond.not.i479, label %reset_cdf_symbol_counter.exit480, label %.lr.ph.i475, !llvm.loop !4
+28:                                               ; preds = %28, %reset_cdf_symbol_counter.exit469
+  %indvars.iv.i471 = phi i64 [ 0, %reset_cdf_symbol_counter.exit469 ], [ %indvars.iv.next.i473, %28 ]
+  %gep.i472.idx = shl i64 %indvars.iv.i471, 4
+  %gep.i472 = getelementptr i8, ptr %invariant.gep.i470, i64 %gep.i472.idx
+  store i16 0, ptr %gep.i472, align 2
+  %indvars.iv.next.i473 = add nuw nsw i64 %indvars.iv.i471, 1
+  %exitcond.not.i474 = icmp eq i64 %indvars.iv.next.i473, 7
+  br i1 %exitcond.not.i474, label %reset_cdf_symbol_counter.exit475.preheader, label %28, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit480:                 ; preds = %.lr.ph.i475
-  %invariant.gep.i481 = getelementptr i8, ptr %0, i64 9592
-  br label %.lr.ph.i482
+reset_cdf_symbol_counter.exit475.preheader:       ; preds = %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 9944
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 10574
+  br label %31
 
-.lr.ph.i482:                                      ; preds = %.lr.ph.i482, %reset_cdf_symbol_counter.exit480
-  %indvars.iv.i483 = phi i64 [ 0, %reset_cdf_symbol_counter.exit480 ], [ %indvars.iv.next.i485, %.lr.ph.i482 ]
-  %gep.i484.idx = mul nuw nsw i64 %indvars.iv.i483, 6
-  %gep.i484 = getelementptr i8, ptr %invariant.gep.i481, i64 %gep.i484.idx
+31:                                               ; preds = %reset_cdf_symbol_counter.exit475.preheader, %reset_cdf_symbol_counter.exit487
+  %indvars.iv = phi i64 [ 0, %reset_cdf_symbol_counter.exit475.preheader ], [ %indvars.iv.next, %reset_cdf_symbol_counter.exit487 ]
+  %32 = add nuw nsw i64 %indvars.iv, 2
+  %33 = getelementptr inbounds [7 x [5 x [9 x i16]]], ptr %29, i64 0, i64 %indvars.iv
+  %invariant.gep.i476 = getelementptr i16, ptr %33, i64 %32
+  br label %34
+
+34:                                               ; preds = %34, %31
+  %indvars.iv.i477 = phi i64 [ 0, %31 ], [ %indvars.iv.next.i479, %34 ]
+  %gep.i478.idx = mul nuw nsw i64 %indvars.iv.i477, 18
+  %gep.i478 = getelementptr i8, ptr %invariant.gep.i476, i64 %gep.i478.idx
+  store i16 0, ptr %gep.i478, align 2
+  %indvars.iv.next.i479 = add nuw nsw i64 %indvars.iv.i477, 1
+  %exitcond.not.i480 = icmp eq i64 %indvars.iv.next.i479, 5
+  br i1 %exitcond.not.i480, label %reset_cdf_symbol_counter.exit481, label %34, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit481:                 ; preds = %34
+  %35 = getelementptr inbounds [7 x [5 x [9 x i16]]], ptr %30, i64 0, i64 %indvars.iv
+  %invariant.gep.i482 = getelementptr i16, ptr %35, i64 %32
+  br label %36
+
+36:                                               ; preds = %36, %reset_cdf_symbol_counter.exit481
+  %indvars.iv.i483 = phi i64 [ 0, %reset_cdf_symbol_counter.exit481 ], [ %indvars.iv.next.i485, %36 ]
+  %gep.i484.idx = mul nuw nsw i64 %indvars.iv.i483, 18
+  %gep.i484 = getelementptr i8, ptr %invariant.gep.i482, i64 %gep.i484.idx
   store i16 0, ptr %gep.i484, align 2
   %indvars.iv.next.i485 = add nuw nsw i64 %indvars.iv.i483, 1
-  %exitcond.not.i486 = icmp eq i64 %indvars.iv.next.i485, 22
-  br i1 %exitcond.not.i486, label %reset_cdf_symbol_counter.exit487, label %.lr.ph.i482, !llvm.loop !4
+  %exitcond.not.i486 = icmp eq i64 %indvars.iv.next.i485, 5
+  br i1 %exitcond.not.i486, label %reset_cdf_symbol_counter.exit487, label %36, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit487:                 ; preds = %.lr.ph.i482
-  %invariant.gep.i488 = getelementptr i8, ptr %0, i64 9734
-  br label %.lr.ph.i489
-
-.lr.ph.i489:                                      ; preds = %.lr.ph.i489, %reset_cdf_symbol_counter.exit487
-  %indvars.iv.i490 = phi i64 [ 0, %reset_cdf_symbol_counter.exit487 ], [ %indvars.iv.next.i492, %.lr.ph.i489 ]
-  %gep.i491.idx = shl i64 %indvars.iv.i490, 4
-  %gep.i491 = getelementptr i8, ptr %invariant.gep.i488, i64 %gep.i491.idx
-  store i16 0, ptr %gep.i491, align 2
-  %indvars.iv.next.i492 = add nuw nsw i64 %indvars.iv.i490, 1
-  %exitcond.not.i493 = icmp eq i64 %indvars.iv.next.i492, 7
-  br i1 %exitcond.not.i493, label %reset_cdf_symbol_counter.exit494, label %.lr.ph.i489, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit494:                 ; preds = %.lr.ph.i489
-  %invariant.gep.i495 = getelementptr i8, ptr %0, i64 9846
-  br label %.lr.ph.i496
-
-.lr.ph.i496:                                      ; preds = %.lr.ph.i496, %reset_cdf_symbol_counter.exit494
-  %indvars.iv.i497 = phi i64 [ 0, %reset_cdf_symbol_counter.exit494 ], [ %indvars.iv.next.i499, %.lr.ph.i496 ]
-  %gep.i498.idx = shl i64 %indvars.iv.i497, 4
-  %gep.i498 = getelementptr i8, ptr %invariant.gep.i495, i64 %gep.i498.idx
-  store i16 0, ptr %gep.i498, align 2
-  %indvars.iv.next.i499 = add nuw nsw i64 %indvars.iv.i497, 1
-  %exitcond.not.i500 = icmp eq i64 %indvars.iv.next.i499, 7
-  br i1 %exitcond.not.i500, label %reset_cdf_symbol_counter.exit501.preheader, label %.lr.ph.i496, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit501.preheader:       ; preds = %.lr.ph.i496
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 9944
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 10574
-  br label %4
-
-4:                                                ; preds = %reset_cdf_symbol_counter.exit501.preheader, %reset_cdf_symbol_counter.exit515
-  %indvars.iv = phi i64 [ 0, %reset_cdf_symbol_counter.exit501.preheader ], [ %indvars.iv.next, %reset_cdf_symbol_counter.exit515 ]
-  %5 = add nuw nsw i64 %indvars.iv, 2
-  %6 = getelementptr inbounds [7 x [5 x [9 x i16]]], ptr %2, i64 0, i64 %indvars.iv
-  %invariant.gep.i502 = getelementptr i16, ptr %6, i64 %5
-  br label %.lr.ph.i503
-
-.lr.ph.i503:                                      ; preds = %.lr.ph.i503, %4
-  %indvars.iv.i504 = phi i64 [ 0, %4 ], [ %indvars.iv.next.i506, %.lr.ph.i503 ]
-  %gep.i505.idx = mul nuw nsw i64 %indvars.iv.i504, 18
-  %gep.i505 = getelementptr i8, ptr %invariant.gep.i502, i64 %gep.i505.idx
-  store i16 0, ptr %gep.i505, align 2
-  %indvars.iv.next.i506 = add nuw nsw i64 %indvars.iv.i504, 1
-  %exitcond.not.i507 = icmp eq i64 %indvars.iv.next.i506, 5
-  br i1 %exitcond.not.i507, label %reset_cdf_symbol_counter.exit508, label %.lr.ph.i503, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit508:                 ; preds = %.lr.ph.i503
-  %7 = getelementptr inbounds [7 x [5 x [9 x i16]]], ptr %3, i64 0, i64 %indvars.iv
-  %invariant.gep.i509 = getelementptr i16, ptr %7, i64 %5
-  br label %.lr.ph.i510
-
-.lr.ph.i510:                                      ; preds = %.lr.ph.i510, %reset_cdf_symbol_counter.exit508
-  %indvars.iv.i511 = phi i64 [ 0, %reset_cdf_symbol_counter.exit508 ], [ %indvars.iv.next.i513, %.lr.ph.i510 ]
-  %gep.i512.idx = mul nuw nsw i64 %indvars.iv.i511, 18
-  %gep.i512 = getelementptr i8, ptr %invariant.gep.i509, i64 %gep.i512.idx
-  store i16 0, ptr %gep.i512, align 2
-  %indvars.iv.next.i513 = add nuw nsw i64 %indvars.iv.i511, 1
-  %exitcond.not.i514 = icmp eq i64 %indvars.iv.next.i513, 5
-  br i1 %exitcond.not.i514, label %reset_cdf_symbol_counter.exit515, label %.lr.ph.i510, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit515:                 ; preds = %.lr.ph.i510
+reset_cdf_symbol_counter.exit487:                 ; preds = %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !6
+  br i1 %exitcond.not, label %37, label %31, !llvm.loop !6
 
-8:                                                ; preds = %reset_cdf_symbol_counter.exit515
-  %invariant.gep.i516 = getelementptr i8, ptr %0, i64 11208
-  br label %.lr.ph.i517
+37:                                               ; preds = %reset_cdf_symbol_counter.exit487
+  %invariant.gep.i488 = getelementptr i8, ptr %0, i64 11208
+  br label %38
 
-.lr.ph.i517:                                      ; preds = %.lr.ph.i517, %8
-  %indvars.iv.i518 = phi i64 [ 0, %8 ], [ %indvars.iv.next.i520, %.lr.ph.i517 ]
-  %gep.i519.idx = mul nuw nsw i64 %indvars.iv.i518, 6
-  %gep.i519 = getelementptr i8, ptr %invariant.gep.i516, i64 %gep.i519.idx
-  store i16 0, ptr %gep.i519, align 2
-  %indvars.iv.next.i520 = add nuw nsw i64 %indvars.iv.i518, 1
-  %exitcond.not.i521 = icmp eq i64 %indvars.iv.next.i520, 21
-  br i1 %exitcond.not.i521, label %reset_cdf_symbol_counter.exit522, label %.lr.ph.i517, !llvm.loop !4
+38:                                               ; preds = %38, %37
+  %indvars.iv.i489 = phi i64 [ 0, %37 ], [ %indvars.iv.next.i491, %38 ]
+  %gep.i490.idx = mul nuw nsw i64 %indvars.iv.i489, 6
+  %gep.i490 = getelementptr i8, ptr %invariant.gep.i488, i64 %gep.i490.idx
+  store i16 0, ptr %gep.i490, align 2
+  %indvars.iv.next.i491 = add nuw nsw i64 %indvars.iv.i489, 1
+  %exitcond.not.i492 = icmp eq i64 %indvars.iv.next.i491, 21
+  br i1 %exitcond.not.i492, label %reset_cdf_symbol_counter.exit493, label %38, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit522:                 ; preds = %.lr.ph.i517
-  %invariant.gep.i523 = getelementptr i8, ptr %0, i64 11334
-  br label %.lr.ph.i524
+reset_cdf_symbol_counter.exit493:                 ; preds = %38
+  %invariant.gep.i494 = getelementptr i8, ptr %0, i64 11334
+  br label %39
 
-.lr.ph.i524:                                      ; preds = %.lr.ph.i524, %reset_cdf_symbol_counter.exit522
-  %indvars.iv.i525 = phi i64 [ 0, %reset_cdf_symbol_counter.exit522 ], [ %indvars.iv.next.i527, %.lr.ph.i524 ]
+39:                                               ; preds = %39, %reset_cdf_symbol_counter.exit493
+  %indvars.iv.i495 = phi i64 [ 0, %reset_cdf_symbol_counter.exit493 ], [ %indvars.iv.next.i497, %39 ]
+  %gep.i496.idx = mul nuw nsw i64 %indvars.iv.i495, 6
+  %gep.i496 = getelementptr i8, ptr %invariant.gep.i494, i64 %gep.i496.idx
+  store i16 0, ptr %gep.i496, align 2
+  %indvars.iv.next.i497 = add nuw nsw i64 %indvars.iv.i495, 1
+  %exitcond.not.i498 = icmp eq i64 %indvars.iv.next.i497, 2
+  br i1 %exitcond.not.i498, label %reset_cdf_symbol_counter.exit499, label %39, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit499:                 ; preds = %39
+  %invariant.gep.i500 = getelementptr i8, ptr %0, i64 11346
+  br label %40
+
+40:                                               ; preds = %40, %reset_cdf_symbol_counter.exit499
+  %indvars.iv.i501 = phi i64 [ 0, %reset_cdf_symbol_counter.exit499 ], [ %indvars.iv.next.i503, %40 ]
+  %gep.i502.idx = mul nuw nsw i64 %indvars.iv.i501, 6
+  %gep.i502 = getelementptr i8, ptr %invariant.gep.i500, i64 %gep.i502.idx
+  store i16 0, ptr %gep.i502, align 2
+  %indvars.iv.next.i503 = add nuw nsw i64 %indvars.iv.i501, 1
+  %exitcond.not.i504 = icmp eq i64 %indvars.iv.next.i503, 5
+  br i1 %exitcond.not.i504, label %reset_cdf_symbol_counter.exit505, label %40, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit505:                 ; preds = %40
+  %invariant.gep.i506 = getelementptr i8, ptr %0, i64 11376
+  br label %41
+
+41:                                               ; preds = %41, %reset_cdf_symbol_counter.exit505
+  %indvars.iv.i507 = phi i64 [ 0, %reset_cdf_symbol_counter.exit505 ], [ %indvars.iv.next.i509, %41 ]
+  %gep.i508.idx = mul nuw nsw i64 %indvars.iv.i507, 6
+  %gep.i508 = getelementptr i8, ptr %invariant.gep.i506, i64 %gep.i508.idx
+  store i16 0, ptr %gep.i508, align 2
+  %indvars.iv.next.i509 = add nuw nsw i64 %indvars.iv.i507, 1
+  %exitcond.not.i510 = icmp eq i64 %indvars.iv.next.i509, 18
+  br i1 %exitcond.not.i510, label %reset_cdf_symbol_counter.exit511, label %41, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit511:                 ; preds = %41
+  %invariant.gep.i512 = getelementptr i8, ptr %0, i64 11484
+  br label %42
+
+42:                                               ; preds = %42, %reset_cdf_symbol_counter.exit511
+  %indvars.iv.i513 = phi i64 [ 0, %reset_cdf_symbol_counter.exit511 ], [ %indvars.iv.next.i515, %42 ]
+  %gep.i514.idx = mul nuw nsw i64 %indvars.iv.i513, 6
+  %gep.i514 = getelementptr i8, ptr %invariant.gep.i512, i64 %gep.i514.idx
+  store i16 0, ptr %gep.i514, align 2
+  %indvars.iv.next.i515 = add nuw nsw i64 %indvars.iv.i513, 1
+  %exitcond.not.i516 = icmp eq i64 %indvars.iv.next.i515, 5
+  br i1 %exitcond.not.i516, label %reset_cdf_symbol_counter.exit517, label %42, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit517:                 ; preds = %42
+  %invariant.gep.i518 = getelementptr i8, ptr %0, i64 11514
+  br label %43
+
+43:                                               ; preds = %43, %reset_cdf_symbol_counter.exit517
+  %indvars.iv.i519 = phi i64 [ 0, %reset_cdf_symbol_counter.exit517 ], [ %indvars.iv.next.i521, %43 ]
+  %gep.i520.idx = mul nuw nsw i64 %indvars.iv.i519, 6
+  %gep.i520 = getelementptr i8, ptr %invariant.gep.i518, i64 %gep.i520.idx
+  store i16 0, ptr %gep.i520, align 2
+  %indvars.iv.next.i521 = add nuw nsw i64 %indvars.iv.i519, 1
+  %exitcond.not.i522 = icmp eq i64 %indvars.iv.next.i521, 9
+  br i1 %exitcond.not.i522, label %reset_cdf_symbol_counter.exit523, label %43, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit523:                 ; preds = %43
+  %invariant.gep.i524 = getelementptr i8, ptr %0, i64 11568
+  br label %44
+
+44:                                               ; preds = %44, %reset_cdf_symbol_counter.exit523
+  %indvars.iv.i525 = phi i64 [ 0, %reset_cdf_symbol_counter.exit523 ], [ %indvars.iv.next.i527, %44 ]
   %gep.i526.idx = mul nuw nsw i64 %indvars.iv.i525, 6
-  %gep.i526 = getelementptr i8, ptr %invariant.gep.i523, i64 %gep.i526.idx
+  %gep.i526 = getelementptr i8, ptr %invariant.gep.i524, i64 %gep.i526.idx
   store i16 0, ptr %gep.i526, align 2
   %indvars.iv.next.i527 = add nuw nsw i64 %indvars.iv.i525, 1
-  %exitcond.not.i528 = icmp eq i64 %indvars.iv.next.i527, 2
-  br i1 %exitcond.not.i528, label %reset_cdf_symbol_counter.exit529, label %.lr.ph.i524, !llvm.loop !4
+  %exitcond.not.i528 = icmp eq i64 %indvars.iv.next.i527, 9
+  br i1 %exitcond.not.i528, label %reset_cdf_symbol_counter.exit529, label %44, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit529:                 ; preds = %.lr.ph.i524
-  %invariant.gep.i530 = getelementptr i8, ptr %0, i64 11346
-  br label %.lr.ph.i531
+reset_cdf_symbol_counter.exit529:                 ; preds = %44
+  %invariant.gep.i530 = getelementptr i8, ptr %0, i64 11622
+  br label %45
 
-.lr.ph.i531:                                      ; preds = %.lr.ph.i531, %reset_cdf_symbol_counter.exit529
-  %indvars.iv.i532 = phi i64 [ 0, %reset_cdf_symbol_counter.exit529 ], [ %indvars.iv.next.i534, %.lr.ph.i531 ]
-  %gep.i533.idx = mul nuw nsw i64 %indvars.iv.i532, 6
-  %gep.i533 = getelementptr i8, ptr %invariant.gep.i530, i64 %gep.i533.idx
-  store i16 0, ptr %gep.i533, align 2
-  %indvars.iv.next.i534 = add nuw nsw i64 %indvars.iv.i532, 1
-  %exitcond.not.i535 = icmp eq i64 %indvars.iv.next.i534, 5
-  br i1 %exitcond.not.i535, label %reset_cdf_symbol_counter.exit536, label %.lr.ph.i531, !llvm.loop !4
+45:                                               ; preds = %45, %reset_cdf_symbol_counter.exit529
+  %indvars.iv.i531 = phi i64 [ 0, %reset_cdf_symbol_counter.exit529 ], [ %indvars.iv.next.i533, %45 ]
+  %gep.i532.idx = mul nuw nsw i64 %indvars.iv.i531, 6
+  %gep.i532 = getelementptr i8, ptr %invariant.gep.i530, i64 %gep.i532.idx
+  store i16 0, ptr %gep.i532, align 2
+  %indvars.iv.next.i533 = add nuw nsw i64 %indvars.iv.i531, 1
+  %exitcond.not.i534 = icmp eq i64 %indvars.iv.next.i533, 6
+  br i1 %exitcond.not.i534, label %reset_cdf_symbol_counter.exit535, label %45, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit536:                 ; preds = %.lr.ph.i531
-  %invariant.gep.i537 = getelementptr i8, ptr %0, i64 11376
-  br label %.lr.ph.i538
+reset_cdf_symbol_counter.exit535:                 ; preds = %45
+  %invariant.gep.i536 = getelementptr i8, ptr %0, i64 11658
+  br label %46
 
-.lr.ph.i538:                                      ; preds = %.lr.ph.i538, %reset_cdf_symbol_counter.exit536
-  %indvars.iv.i539 = phi i64 [ 0, %reset_cdf_symbol_counter.exit536 ], [ %indvars.iv.next.i541, %.lr.ph.i538 ]
-  %gep.i540.idx = mul nuw nsw i64 %indvars.iv.i539, 6
-  %gep.i540 = getelementptr i8, ptr %invariant.gep.i537, i64 %gep.i540.idx
-  store i16 0, ptr %gep.i540, align 2
-  %indvars.iv.next.i541 = add nuw nsw i64 %indvars.iv.i539, 1
-  %exitcond.not.i542 = icmp eq i64 %indvars.iv.next.i541, 18
-  br i1 %exitcond.not.i542, label %reset_cdf_symbol_counter.exit543, label %.lr.ph.i538, !llvm.loop !4
+46:                                               ; preds = %46, %reset_cdf_symbol_counter.exit535
+  %indvars.iv.i537 = phi i64 [ 0, %reset_cdf_symbol_counter.exit535 ], [ %indvars.iv.next.i539, %46 ]
+  %gep.i538.idx = mul nuw nsw i64 %indvars.iv.i537, 6
+  %gep.i538 = getelementptr i8, ptr %invariant.gep.i536, i64 %gep.i538.idx
+  store i16 0, ptr %gep.i538, align 2
+  %indvars.iv.next.i539 = add nuw nsw i64 %indvars.iv.i537, 1
+  %exitcond.not.i540 = icmp eq i64 %indvars.iv.next.i539, 21
+  br i1 %exitcond.not.i540, label %reset_cdf_symbol_counter.exit541, label %46, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit543:                 ; preds = %.lr.ph.i538
-  %invariant.gep.i544 = getelementptr i8, ptr %0, i64 11484
-  br label %.lr.ph.i545
+reset_cdf_symbol_counter.exit541:                 ; preds = %46
+  %invariant.gep.i542 = getelementptr i8, ptr %0, i64 11784
+  br label %47
 
-.lr.ph.i545:                                      ; preds = %.lr.ph.i545, %reset_cdf_symbol_counter.exit543
-  %indvars.iv.i546 = phi i64 [ 0, %reset_cdf_symbol_counter.exit543 ], [ %indvars.iv.next.i548, %.lr.ph.i545 ]
-  %gep.i547.idx = mul nuw nsw i64 %indvars.iv.i546, 6
-  %gep.i547 = getelementptr i8, ptr %invariant.gep.i544, i64 %gep.i547.idx
-  store i16 0, ptr %gep.i547, align 2
-  %indvars.iv.next.i548 = add nuw nsw i64 %indvars.iv.i546, 1
-  %exitcond.not.i549 = icmp eq i64 %indvars.iv.next.i548, 5
-  br i1 %exitcond.not.i549, label %reset_cdf_symbol_counter.exit550, label %.lr.ph.i545, !llvm.loop !4
+47:                                               ; preds = %47, %reset_cdf_symbol_counter.exit541
+  %indvars.iv.i543 = phi i64 [ 0, %reset_cdf_symbol_counter.exit541 ], [ %indvars.iv.next.i545, %47 ]
+  %gep.i544.idx = mul nuw nsw i64 %indvars.iv.i543, 6
+  %gep.i544 = getelementptr i8, ptr %invariant.gep.i542, i64 %gep.i544.idx
+  store i16 0, ptr %gep.i544, align 2
+  %indvars.iv.next.i545 = add nuw nsw i64 %indvars.iv.i543, 1
+  %exitcond.not.i546 = icmp eq i64 %indvars.iv.next.i545, 6
+  br i1 %exitcond.not.i546, label %reset_cdf_symbol_counter.exit547, label %47, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit550:                 ; preds = %.lr.ph.i545
-  %invariant.gep.i551 = getelementptr i8, ptr %0, i64 11514
-  br label %.lr.ph.i552
+reset_cdf_symbol_counter.exit547:                 ; preds = %47
+  %invariant.gep.i548 = getelementptr i8, ptr %0, i64 11820
+  br label %48
 
-.lr.ph.i552:                                      ; preds = %.lr.ph.i552, %reset_cdf_symbol_counter.exit550
-  %indvars.iv.i553 = phi i64 [ 0, %reset_cdf_symbol_counter.exit550 ], [ %indvars.iv.next.i555, %.lr.ph.i552 ]
-  %gep.i554.idx = mul nuw nsw i64 %indvars.iv.i553, 6
-  %gep.i554 = getelementptr i8, ptr %invariant.gep.i551, i64 %gep.i554.idx
-  store i16 0, ptr %gep.i554, align 2
-  %indvars.iv.next.i555 = add nuw nsw i64 %indvars.iv.i553, 1
-  %exitcond.not.i556 = icmp eq i64 %indvars.iv.next.i555, 9
-  br i1 %exitcond.not.i556, label %reset_cdf_symbol_counter.exit557, label %.lr.ph.i552, !llvm.loop !4
+48:                                               ; preds = %48, %reset_cdf_symbol_counter.exit547
+  %indvars.iv.i549 = phi i64 [ 0, %reset_cdf_symbol_counter.exit547 ], [ %indvars.iv.next.i551, %48 ]
+  %gep.i550.idx = mul nuw nsw i64 %indvars.iv.i549, 6
+  %gep.i550 = getelementptr i8, ptr %invariant.gep.i548, i64 %gep.i550.idx
+  store i16 0, ptr %gep.i550, align 2
+  %indvars.iv.next.i551 = add nuw nsw i64 %indvars.iv.i549, 1
+  %exitcond.not.i552 = icmp eq i64 %indvars.iv.next.i551, 6
+  br i1 %exitcond.not.i552, label %reset_cdf_symbol_counter.exit553, label %48, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit557:                 ; preds = %.lr.ph.i552
-  %invariant.gep.i558 = getelementptr i8, ptr %0, i64 11568
-  br label %.lr.ph.i559
+reset_cdf_symbol_counter.exit553:                 ; preds = %48
+  %invariant.gep.i554 = getelementptr i8, ptr %0, i64 11856
+  br label %49
 
-.lr.ph.i559:                                      ; preds = %.lr.ph.i559, %reset_cdf_symbol_counter.exit557
-  %indvars.iv.i560 = phi i64 [ 0, %reset_cdf_symbol_counter.exit557 ], [ %indvars.iv.next.i562, %.lr.ph.i559 ]
-  %gep.i561.idx = mul nuw nsw i64 %indvars.iv.i560, 6
-  %gep.i561 = getelementptr i8, ptr %invariant.gep.i558, i64 %gep.i561.idx
-  store i16 0, ptr %gep.i561, align 2
-  %indvars.iv.next.i562 = add nuw nsw i64 %indvars.iv.i560, 1
-  %exitcond.not.i563 = icmp eq i64 %indvars.iv.next.i562, 9
-  br i1 %exitcond.not.i563, label %reset_cdf_symbol_counter.exit564, label %.lr.ph.i559, !llvm.loop !4
+49:                                               ; preds = %49, %reset_cdf_symbol_counter.exit553
+  %indvars.iv.i555 = phi i64 [ 0, %reset_cdf_symbol_counter.exit553 ], [ %indvars.iv.next.i557, %49 ]
+  %gep.i556.idx = mul nuw nsw i64 %indvars.iv.i555, 6
+  %gep.i556 = getelementptr i8, ptr %invariant.gep.i554, i64 %gep.i556.idx
+  store i16 0, ptr %gep.i556, align 2
+  %indvars.iv.next.i557 = add nuw nsw i64 %indvars.iv.i555, 1
+  %exitcond.not.i558 = icmp eq i64 %indvars.iv.next.i557, 3
+  br i1 %exitcond.not.i558, label %reset_cdf_symbol_counter.exit559, label %49, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit564:                 ; preds = %.lr.ph.i559
-  %invariant.gep.i565 = getelementptr i8, ptr %0, i64 11622
-  br label %.lr.ph.i566
+reset_cdf_symbol_counter.exit559:                 ; preds = %49
+  %invariant.gep.i560 = getelementptr i8, ptr %0, i64 11874
+  br label %50
 
-.lr.ph.i566:                                      ; preds = %.lr.ph.i566, %reset_cdf_symbol_counter.exit564
-  %indvars.iv.i567 = phi i64 [ 0, %reset_cdf_symbol_counter.exit564 ], [ %indvars.iv.next.i569, %.lr.ph.i566 ]
+50:                                               ; preds = %50, %reset_cdf_symbol_counter.exit559
+  %indvars.iv.i561 = phi i64 [ 0, %reset_cdf_symbol_counter.exit559 ], [ %indvars.iv.next.i563, %50 ]
+  %gep.i562.idx = mul nuw nsw i64 %indvars.iv.i561, 6
+  %gep.i562 = getelementptr i8, ptr %invariant.gep.i560, i64 %gep.i562.idx
+  store i16 0, ptr %gep.i562, align 2
+  %indvars.iv.next.i563 = add nuw nsw i64 %indvars.iv.i561, 1
+  %exitcond.not.i564 = icmp eq i64 %indvars.iv.next.i563, 3
+  br i1 %exitcond.not.i564, label %reset_cdf_symbol_counter.exit565, label %50, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit565:                 ; preds = %50
+  %invariant.gep.i566 = getelementptr i8, ptr %0, i64 11892
+  br label %51
+
+51:                                               ; preds = %51, %reset_cdf_symbol_counter.exit565
+  %indvars.iv.i567 = phi i64 [ 0, %reset_cdf_symbol_counter.exit565 ], [ %indvars.iv.next.i569, %51 ]
   %gep.i568.idx = mul nuw nsw i64 %indvars.iv.i567, 6
-  %gep.i568 = getelementptr i8, ptr %invariant.gep.i565, i64 %gep.i568.idx
+  %gep.i568 = getelementptr i8, ptr %invariant.gep.i566, i64 %gep.i568.idx
   store i16 0, ptr %gep.i568, align 2
   %indvars.iv.next.i569 = add nuw nsw i64 %indvars.iv.i567, 1
-  %exitcond.not.i570 = icmp eq i64 %indvars.iv.next.i569, 6
-  br i1 %exitcond.not.i570, label %reset_cdf_symbol_counter.exit571, label %.lr.ph.i566, !llvm.loop !4
+  %exitcond.not.i570 = icmp eq i64 %indvars.iv.next.i569, 4
+  br i1 %exitcond.not.i570, label %reset_cdf_symbol_counter.exit571, label %51, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit571:                 ; preds = %.lr.ph.i566
-  %invariant.gep.i572 = getelementptr i8, ptr %0, i64 11658
-  br label %.lr.ph.i573
-
-.lr.ph.i573:                                      ; preds = %.lr.ph.i573, %reset_cdf_symbol_counter.exit571
-  %indvars.iv.i574 = phi i64 [ 0, %reset_cdf_symbol_counter.exit571 ], [ %indvars.iv.next.i576, %.lr.ph.i573 ]
-  %gep.i575.idx = mul nuw nsw i64 %indvars.iv.i574, 6
-  %gep.i575 = getelementptr i8, ptr %invariant.gep.i572, i64 %gep.i575.idx
-  store i16 0, ptr %gep.i575, align 2
-  %indvars.iv.next.i576 = add nuw nsw i64 %indvars.iv.i574, 1
-  %exitcond.not.i577 = icmp eq i64 %indvars.iv.next.i576, 21
-  br i1 %exitcond.not.i577, label %reset_cdf_symbol_counter.exit578, label %.lr.ph.i573, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit578:                 ; preds = %.lr.ph.i573
-  %invariant.gep.i579 = getelementptr i8, ptr %0, i64 11784
-  br label %.lr.ph.i580
-
-.lr.ph.i580:                                      ; preds = %.lr.ph.i580, %reset_cdf_symbol_counter.exit578
-  %indvars.iv.i581 = phi i64 [ 0, %reset_cdf_symbol_counter.exit578 ], [ %indvars.iv.next.i583, %.lr.ph.i580 ]
-  %gep.i582.idx = mul nuw nsw i64 %indvars.iv.i581, 6
-  %gep.i582 = getelementptr i8, ptr %invariant.gep.i579, i64 %gep.i582.idx
-  store i16 0, ptr %gep.i582, align 2
-  %indvars.iv.next.i583 = add nuw nsw i64 %indvars.iv.i581, 1
-  %exitcond.not.i584 = icmp eq i64 %indvars.iv.next.i583, 6
-  br i1 %exitcond.not.i584, label %reset_cdf_symbol_counter.exit585, label %.lr.ph.i580, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit585:                 ; preds = %.lr.ph.i580
-  %invariant.gep.i586 = getelementptr i8, ptr %0, i64 11820
-  br label %.lr.ph.i587
-
-.lr.ph.i587:                                      ; preds = %.lr.ph.i587, %reset_cdf_symbol_counter.exit585
-  %indvars.iv.i588 = phi i64 [ 0, %reset_cdf_symbol_counter.exit585 ], [ %indvars.iv.next.i590, %.lr.ph.i587 ]
-  %gep.i589.idx = mul nuw nsw i64 %indvars.iv.i588, 6
-  %gep.i589 = getelementptr i8, ptr %invariant.gep.i586, i64 %gep.i589.idx
-  store i16 0, ptr %gep.i589, align 2
-  %indvars.iv.next.i590 = add nuw nsw i64 %indvars.iv.i588, 1
-  %exitcond.not.i591 = icmp eq i64 %indvars.iv.next.i590, 6
-  br i1 %exitcond.not.i591, label %reset_cdf_symbol_counter.exit592, label %.lr.ph.i587, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit592:                 ; preds = %.lr.ph.i587
-  %invariant.gep.i593 = getelementptr i8, ptr %0, i64 11856
-  br label %.lr.ph.i594
-
-.lr.ph.i594:                                      ; preds = %.lr.ph.i594, %reset_cdf_symbol_counter.exit592
-  %indvars.iv.i595 = phi i64 [ 0, %reset_cdf_symbol_counter.exit592 ], [ %indvars.iv.next.i597, %.lr.ph.i594 ]
-  %gep.i596.idx = mul nuw nsw i64 %indvars.iv.i595, 6
-  %gep.i596 = getelementptr i8, ptr %invariant.gep.i593, i64 %gep.i596.idx
-  store i16 0, ptr %gep.i596, align 2
-  %indvars.iv.next.i597 = add nuw nsw i64 %indvars.iv.i595, 1
-  %exitcond.not.i598 = icmp eq i64 %indvars.iv.next.i597, 3
-  br i1 %exitcond.not.i598, label %reset_cdf_symbol_counter.exit599, label %.lr.ph.i594, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit599:                 ; preds = %.lr.ph.i594
-  %invariant.gep.i600 = getelementptr i8, ptr %0, i64 11874
-  br label %.lr.ph.i601
-
-.lr.ph.i601:                                      ; preds = %.lr.ph.i601, %reset_cdf_symbol_counter.exit599
-  %indvars.iv.i602 = phi i64 [ 0, %reset_cdf_symbol_counter.exit599 ], [ %indvars.iv.next.i604, %.lr.ph.i601 ]
-  %gep.i603.idx = mul nuw nsw i64 %indvars.iv.i602, 6
-  %gep.i603 = getelementptr i8, ptr %invariant.gep.i600, i64 %gep.i603.idx
-  store i16 0, ptr %gep.i603, align 2
-  %indvars.iv.next.i604 = add nuw nsw i64 %indvars.iv.i602, 1
-  %exitcond.not.i605 = icmp eq i64 %indvars.iv.next.i604, 3
-  br i1 %exitcond.not.i605, label %reset_cdf_symbol_counter.exit606, label %.lr.ph.i601, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit606:                 ; preds = %.lr.ph.i601
-  %invariant.gep.i607 = getelementptr i8, ptr %0, i64 11892
-  br label %.lr.ph.i608
-
-.lr.ph.i608:                                      ; preds = %.lr.ph.i608, %reset_cdf_symbol_counter.exit606
-  %indvars.iv.i609 = phi i64 [ 0, %reset_cdf_symbol_counter.exit606 ], [ %indvars.iv.next.i611, %.lr.ph.i608 ]
-  %gep.i610.idx = mul nuw nsw i64 %indvars.iv.i609, 6
-  %gep.i610 = getelementptr i8, ptr %invariant.gep.i607, i64 %gep.i610.idx
-  store i16 0, ptr %gep.i610, align 2
-  %indvars.iv.next.i611 = add nuw nsw i64 %indvars.iv.i609, 1
-  %exitcond.not.i612 = icmp eq i64 %indvars.iv.next.i611, 4
-  br i1 %exitcond.not.i612, label %reset_cdf_symbol_counter.exit613, label %.lr.ph.i608, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit613:                 ; preds = %.lr.ph.i608
+reset_cdf_symbol_counter.exit571:                 ; preds = %51
   %invariant.gep.i.i = getelementptr i8, ptr %0, i64 11920
   store i16 0, ptr %invariant.gep.i.i, align 2
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 11922
-  br label %.lr.ph.i46.i
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 11922
+  br label %reset_cdf_symbol_counter.exit50.i
 
-.lr.ph.i46.i:                                     ; preds = %reset_cdf_symbol_counter.exit100.i, %reset_cdf_symbol_counter.exit613
-  %10 = phi i1 [ true, %reset_cdf_symbol_counter.exit613 ], [ false, %reset_cdf_symbol_counter.exit100.i ]
-  %indvars.iv.i614 = phi i64 [ 0, %reset_cdf_symbol_counter.exit613 ], [ 1, %reset_cdf_symbol_counter.exit100.i ]
-  %11 = getelementptr inbounds [2 x %struct.nmv_component], ptr %9, i64 0, i64 %indvars.iv.i614
-  %invariant.gep.i45.i = getelementptr i8, ptr %11, i64 22
+reset_cdf_symbol_counter.exit50.i:                ; preds = %reset_cdf_symbol_counter.exit92.i, %reset_cdf_symbol_counter.exit571
+  %53 = phi i1 [ true, %reset_cdf_symbol_counter.exit571 ], [ false, %reset_cdf_symbol_counter.exit92.i ]
+  %indvars.iv.i572 = phi i64 [ 0, %reset_cdf_symbol_counter.exit571 ], [ 1, %reset_cdf_symbol_counter.exit92.i ]
+  %54 = getelementptr inbounds [2 x %struct.nmv_component], ptr %52, i64 0, i64 %indvars.iv.i572
+  %invariant.gep.i45.i = getelementptr i8, ptr %54, i64 22
   store i16 0, ptr %invariant.gep.i45.i, align 2
-  %invariant.gep.i52.i = getelementptr i8, ptr %11, i64 32
-  br label %.lr.ph.i53.i
+  %invariant.gep.i51.i = getelementptr i8, ptr %54, i64 32
+  br label %55
 
-.lr.ph.i53.i:                                     ; preds = %.lr.ph.i53.i, %.lr.ph.i46.i
-  %indvars.iv.i54.i = phi i64 [ 0, %.lr.ph.i46.i ], [ %indvars.iv.next.i56.i, %.lr.ph.i53.i ]
-  %gep.i55.idx.i = mul nuw nsw i64 %indvars.iv.i54.i, 10
-  %gep.i55.i = getelementptr i8, ptr %invariant.gep.i52.i, i64 %gep.i55.idx.i
-  store i16 0, ptr %gep.i55.i, align 2
-  %indvars.iv.next.i56.i = add nuw nsw i64 %indvars.iv.i54.i, 1
-  %exitcond.not.i57.i = icmp eq i64 %indvars.iv.next.i56.i, 2
-  br i1 %exitcond.not.i57.i, label %reset_cdf_symbol_counter.exit58.i, label %.lr.ph.i53.i, !llvm.loop !4
+55:                                               ; preds = %55, %reset_cdf_symbol_counter.exit50.i
+  %indvars.iv.i52.i = phi i64 [ 0, %reset_cdf_symbol_counter.exit50.i ], [ %indvars.iv.next.i54.i, %55 ]
+  %gep.i53.idx.i = mul nuw nsw i64 %indvars.iv.i52.i, 10
+  %gep.i53.i = getelementptr i8, ptr %invariant.gep.i51.i, i64 %gep.i53.idx.i
+  store i16 0, ptr %gep.i53.i, align 2
+  %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i52.i, 1
+  %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 2
+  br i1 %exitcond.not.i55.i, label %reset_cdf_symbol_counter.exit56.i, label %55, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit58.i:                ; preds = %.lr.ph.i53.i
-  %invariant.gep.i59.i = getelementptr i8, ptr %11, i64 52
-  store i16 0, ptr %invariant.gep.i59.i, align 2
-  %invariant.gep.i66.i = getelementptr i8, ptr %11, i64 58
-  store i16 0, ptr %invariant.gep.i66.i, align 2
-  %invariant.gep.i73.i = getelementptr i8, ptr %11, i64 64
-  store i16 0, ptr %invariant.gep.i73.i, align 2
-  %invariant.gep.i80.i = getelementptr i8, ptr %11, i64 70
-  store i16 0, ptr %invariant.gep.i80.i, align 2
-  %invariant.gep.i87.i = getelementptr i8, ptr %11, i64 76
-  store i16 0, ptr %invariant.gep.i87.i, align 2
-  %invariant.gep.i94.i = getelementptr i8, ptr %11, i64 82
-  br label %.lr.ph.i95.i
+reset_cdf_symbol_counter.exit56.i:                ; preds = %55
+  %invariant.gep.i57.i = getelementptr i8, ptr %54, i64 52
+  store i16 0, ptr %invariant.gep.i57.i, align 2
+  %invariant.gep.i63.i = getelementptr i8, ptr %54, i64 58
+  store i16 0, ptr %invariant.gep.i63.i, align 2
+  %invariant.gep.i69.i = getelementptr i8, ptr %54, i64 64
+  store i16 0, ptr %invariant.gep.i69.i, align 2
+  %invariant.gep.i75.i = getelementptr i8, ptr %54, i64 70
+  store i16 0, ptr %invariant.gep.i75.i, align 2
+  %invariant.gep.i81.i = getelementptr i8, ptr %54, i64 76
+  store i16 0, ptr %invariant.gep.i81.i, align 2
+  %invariant.gep.i87.i = getelementptr i8, ptr %54, i64 82
+  br label %56
 
-.lr.ph.i95.i:                                     ; preds = %.lr.ph.i95.i, %reset_cdf_symbol_counter.exit58.i
-  %indvars.iv.i96.i = phi i64 [ 0, %reset_cdf_symbol_counter.exit58.i ], [ %indvars.iv.next.i98.i, %.lr.ph.i95.i ]
-  %gep.i97.idx.i = mul nuw nsw i64 %indvars.iv.i96.i, 6
-  %gep.i97.i = getelementptr i8, ptr %invariant.gep.i94.i, i64 %gep.i97.idx.i
-  store i16 0, ptr %gep.i97.i, align 2
-  %indvars.iv.next.i98.i = add nuw nsw i64 %indvars.iv.i96.i, 1
-  %exitcond.not.i99.i = icmp eq i64 %indvars.iv.next.i98.i, 10
-  br i1 %exitcond.not.i99.i, label %reset_cdf_symbol_counter.exit100.i, label %.lr.ph.i95.i, !llvm.loop !4
+56:                                               ; preds = %56, %reset_cdf_symbol_counter.exit56.i
+  %indvars.iv.i88.i = phi i64 [ 0, %reset_cdf_symbol_counter.exit56.i ], [ %indvars.iv.next.i90.i, %56 ]
+  %gep.i89.idx.i = mul nuw nsw i64 %indvars.iv.i88.i, 6
+  %gep.i89.i = getelementptr i8, ptr %invariant.gep.i87.i, i64 %gep.i89.idx.i
+  store i16 0, ptr %gep.i89.i, align 2
+  %indvars.iv.next.i90.i = add nuw nsw i64 %indvars.iv.i88.i, 1
+  %exitcond.not.i91.i = icmp eq i64 %indvars.iv.next.i90.i, 10
+  br i1 %exitcond.not.i91.i, label %reset_cdf_symbol_counter.exit92.i, label %56, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit100.i:               ; preds = %.lr.ph.i95.i
-  br i1 %10, label %.lr.ph.i46.i, label %reset_nmv_counter.exit, !llvm.loop !7
+reset_cdf_symbol_counter.exit92.i:                ; preds = %56
+  br i1 %53, label %reset_cdf_symbol_counter.exit50.i, label %reset_nmv_counter.exit, !llvm.loop !7
 
-reset_nmv_counter.exit:                           ; preds = %reset_cdf_symbol_counter.exit100.i
-  %invariant.gep.i.i615 = getelementptr i8, ptr %0, i64 12206
-  store i16 0, ptr %invariant.gep.i.i615, align 2
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12208
-  br label %.lr.ph.i46.i616
+reset_nmv_counter.exit:                           ; preds = %reset_cdf_symbol_counter.exit92.i
+  %invariant.gep.i.i573 = getelementptr i8, ptr %0, i64 12206
+  store i16 0, ptr %invariant.gep.i.i573, align 2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 12208
+  br label %reset_cdf_symbol_counter.exit50.i574
 
-.lr.ph.i46.i616:                                  ; preds = %reset_cdf_symbol_counter.exit100.i639, %reset_nmv_counter.exit
-  %13 = phi i1 [ true, %reset_nmv_counter.exit ], [ false, %reset_cdf_symbol_counter.exit100.i639 ]
-  %indvars.iv.i617 = phi i64 [ 0, %reset_nmv_counter.exit ], [ 1, %reset_cdf_symbol_counter.exit100.i639 ]
-  %14 = getelementptr inbounds [2 x %struct.nmv_component], ptr %12, i64 0, i64 %indvars.iv.i617
-  %invariant.gep.i45.i618 = getelementptr i8, ptr %14, i64 22
-  store i16 0, ptr %invariant.gep.i45.i618, align 2
-  %invariant.gep.i52.i619 = getelementptr i8, ptr %14, i64 32
-  br label %.lr.ph.i53.i620
+reset_cdf_symbol_counter.exit50.i574:             ; preds = %reset_cdf_symbol_counter.exit92.i595, %reset_nmv_counter.exit
+  %58 = phi i1 [ true, %reset_nmv_counter.exit ], [ false, %reset_cdf_symbol_counter.exit92.i595 ]
+  %indvars.iv.i575 = phi i64 [ 0, %reset_nmv_counter.exit ], [ 1, %reset_cdf_symbol_counter.exit92.i595 ]
+  %59 = getelementptr inbounds [2 x %struct.nmv_component], ptr %57, i64 0, i64 %indvars.iv.i575
+  %invariant.gep.i45.i576 = getelementptr i8, ptr %59, i64 22
+  store i16 0, ptr %invariant.gep.i45.i576, align 2
+  %invariant.gep.i51.i577 = getelementptr i8, ptr %59, i64 32
+  br label %60
 
-.lr.ph.i53.i620:                                  ; preds = %.lr.ph.i53.i620, %.lr.ph.i46.i616
-  %indvars.iv.i54.i621 = phi i64 [ 0, %.lr.ph.i46.i616 ], [ %indvars.iv.next.i56.i624, %.lr.ph.i53.i620 ]
-  %gep.i55.idx.i622 = mul nuw nsw i64 %indvars.iv.i54.i621, 10
-  %gep.i55.i623 = getelementptr i8, ptr %invariant.gep.i52.i619, i64 %gep.i55.idx.i622
-  store i16 0, ptr %gep.i55.i623, align 2
-  %indvars.iv.next.i56.i624 = add nuw nsw i64 %indvars.iv.i54.i621, 1
-  %exitcond.not.i57.i625 = icmp eq i64 %indvars.iv.next.i56.i624, 2
-  br i1 %exitcond.not.i57.i625, label %reset_cdf_symbol_counter.exit58.i626, label %.lr.ph.i53.i620, !llvm.loop !4
+60:                                               ; preds = %60, %reset_cdf_symbol_counter.exit50.i574
+  %indvars.iv.i52.i578 = phi i64 [ 0, %reset_cdf_symbol_counter.exit50.i574 ], [ %indvars.iv.next.i54.i581, %60 ]
+  %gep.i53.idx.i579 = mul nuw nsw i64 %indvars.iv.i52.i578, 10
+  %gep.i53.i580 = getelementptr i8, ptr %invariant.gep.i51.i577, i64 %gep.i53.idx.i579
+  store i16 0, ptr %gep.i53.i580, align 2
+  %indvars.iv.next.i54.i581 = add nuw nsw i64 %indvars.iv.i52.i578, 1
+  %exitcond.not.i55.i582 = icmp eq i64 %indvars.iv.next.i54.i581, 2
+  br i1 %exitcond.not.i55.i582, label %reset_cdf_symbol_counter.exit56.i583, label %60, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit58.i626:             ; preds = %.lr.ph.i53.i620
-  %invariant.gep.i59.i627 = getelementptr i8, ptr %14, i64 52
-  store i16 0, ptr %invariant.gep.i59.i627, align 2
-  %invariant.gep.i66.i628 = getelementptr i8, ptr %14, i64 58
-  store i16 0, ptr %invariant.gep.i66.i628, align 2
-  %invariant.gep.i73.i629 = getelementptr i8, ptr %14, i64 64
-  store i16 0, ptr %invariant.gep.i73.i629, align 2
-  %invariant.gep.i80.i630 = getelementptr i8, ptr %14, i64 70
-  store i16 0, ptr %invariant.gep.i80.i630, align 2
-  %invariant.gep.i87.i631 = getelementptr i8, ptr %14, i64 76
-  store i16 0, ptr %invariant.gep.i87.i631, align 2
-  %invariant.gep.i94.i632 = getelementptr i8, ptr %14, i64 82
-  br label %.lr.ph.i95.i633
+reset_cdf_symbol_counter.exit56.i583:             ; preds = %60
+  %invariant.gep.i57.i584 = getelementptr i8, ptr %59, i64 52
+  store i16 0, ptr %invariant.gep.i57.i584, align 2
+  %invariant.gep.i63.i585 = getelementptr i8, ptr %59, i64 58
+  store i16 0, ptr %invariant.gep.i63.i585, align 2
+  %invariant.gep.i69.i586 = getelementptr i8, ptr %59, i64 64
+  store i16 0, ptr %invariant.gep.i69.i586, align 2
+  %invariant.gep.i75.i587 = getelementptr i8, ptr %59, i64 70
+  store i16 0, ptr %invariant.gep.i75.i587, align 2
+  %invariant.gep.i81.i588 = getelementptr i8, ptr %59, i64 76
+  store i16 0, ptr %invariant.gep.i81.i588, align 2
+  %invariant.gep.i87.i589 = getelementptr i8, ptr %59, i64 82
+  br label %61
 
-.lr.ph.i95.i633:                                  ; preds = %.lr.ph.i95.i633, %reset_cdf_symbol_counter.exit58.i626
-  %indvars.iv.i96.i634 = phi i64 [ 0, %reset_cdf_symbol_counter.exit58.i626 ], [ %indvars.iv.next.i98.i637, %.lr.ph.i95.i633 ]
-  %gep.i97.idx.i635 = mul nuw nsw i64 %indvars.iv.i96.i634, 6
-  %gep.i97.i636 = getelementptr i8, ptr %invariant.gep.i94.i632, i64 %gep.i97.idx.i635
-  store i16 0, ptr %gep.i97.i636, align 2
-  %indvars.iv.next.i98.i637 = add nuw nsw i64 %indvars.iv.i96.i634, 1
-  %exitcond.not.i99.i638 = icmp eq i64 %indvars.iv.next.i98.i637, 10
-  br i1 %exitcond.not.i99.i638, label %reset_cdf_symbol_counter.exit100.i639, label %.lr.ph.i95.i633, !llvm.loop !4
+61:                                               ; preds = %61, %reset_cdf_symbol_counter.exit56.i583
+  %indvars.iv.i88.i590 = phi i64 [ 0, %reset_cdf_symbol_counter.exit56.i583 ], [ %indvars.iv.next.i90.i593, %61 ]
+  %gep.i89.idx.i591 = mul nuw nsw i64 %indvars.iv.i88.i590, 6
+  %gep.i89.i592 = getelementptr i8, ptr %invariant.gep.i87.i589, i64 %gep.i89.idx.i591
+  store i16 0, ptr %gep.i89.i592, align 2
+  %indvars.iv.next.i90.i593 = add nuw nsw i64 %indvars.iv.i88.i590, 1
+  %exitcond.not.i91.i594 = icmp eq i64 %indvars.iv.next.i90.i593, 10
+  br i1 %exitcond.not.i91.i594, label %reset_cdf_symbol_counter.exit92.i595, label %61, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit100.i639:            ; preds = %.lr.ph.i95.i633
-  br i1 %13, label %.lr.ph.i46.i616, label %reset_nmv_counter.exit640, !llvm.loop !7
+reset_cdf_symbol_counter.exit92.i595:             ; preds = %61
+  br i1 %58, label %reset_cdf_symbol_counter.exit50.i574, label %reset_nmv_counter.exit596, !llvm.loop !7
 
-reset_nmv_counter.exit640:                        ; preds = %reset_cdf_symbol_counter.exit100.i639
-  %invariant.gep.i641 = getelementptr i8, ptr %0, i64 12488
-  store i16 0, ptr %invariant.gep.i641, align 2
-  %invariant.gep.i648 = getelementptr i8, ptr %0, i64 12506
-  store i16 0, ptr %invariant.gep.i648, align 2
-  %invariant.gep.i655 = getelementptr i8, ptr %0, i64 12512
-  br label %.lr.ph.i656
+reset_nmv_counter.exit596:                        ; preds = %reset_cdf_symbol_counter.exit92.i595
+  %invariant.gep.i597 = getelementptr i8, ptr %0, i64 12488
+  store i16 0, ptr %invariant.gep.i597, align 2
+  %invariant.gep.i603 = getelementptr i8, ptr %0, i64 12506
+  store i16 0, ptr %invariant.gep.i603, align 2
+  %invariant.gep.i609 = getelementptr i8, ptr %0, i64 12512
+  br label %62
 
-.lr.ph.i656:                                      ; preds = %.lr.ph.i656, %reset_nmv_counter.exit640
-  %indvars.iv.i657 = phi i64 [ 0, %reset_nmv_counter.exit640 ], [ %indvars.iv.next.i659, %.lr.ph.i656 ]
-  %gep.i658.idx = mul nuw nsw i64 %indvars.iv.i657, 6
-  %gep.i658 = getelementptr i8, ptr %invariant.gep.i655, i64 %gep.i658.idx
-  store i16 0, ptr %gep.i658, align 2
-  %indvars.iv.next.i659 = add nuw nsw i64 %indvars.iv.i657, 1
-  %exitcond.not.i660 = icmp eq i64 %indvars.iv.next.i659, 3
-  br i1 %exitcond.not.i660, label %reset_cdf_symbol_counter.exit661, label %.lr.ph.i656, !llvm.loop !4
+62:                                               ; preds = %62, %reset_nmv_counter.exit596
+  %indvars.iv.i610 = phi i64 [ 0, %reset_nmv_counter.exit596 ], [ %indvars.iv.next.i612, %62 ]
+  %gep.i611.idx = mul nuw nsw i64 %indvars.iv.i610, 6
+  %gep.i611 = getelementptr i8, ptr %invariant.gep.i609, i64 %gep.i611.idx
+  store i16 0, ptr %gep.i611, align 2
+  %indvars.iv.next.i612 = add nuw nsw i64 %indvars.iv.i610, 1
+  %exitcond.not.i613 = icmp eq i64 %indvars.iv.next.i612, 3
+  br i1 %exitcond.not.i613, label %reset_cdf_symbol_counter.exit614, label %62, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit661:                 ; preds = %.lr.ph.i656
-  %invariant.gep.i662 = getelementptr i8, ptr %0, i64 12542
-  br label %.lr.ph.i663
+reset_cdf_symbol_counter.exit614:                 ; preds = %62
+  %invariant.gep.i615 = getelementptr i8, ptr %0, i64 12542
+  br label %63
 
-.lr.ph.i663:                                      ; preds = %.lr.ph.i663, %reset_cdf_symbol_counter.exit661
-  %indvars.iv.i664 = phi i64 [ 0, %reset_cdf_symbol_counter.exit661 ], [ %indvars.iv.next.i666, %.lr.ph.i663 ]
-  %gep.i665.idx = mul nuw nsw i64 %indvars.iv.i664, 18
-  %gep.i665 = getelementptr i8, ptr %invariant.gep.i662, i64 %gep.i665.idx
+63:                                               ; preds = %63, %reset_cdf_symbol_counter.exit614
+  %indvars.iv.i616 = phi i64 [ 0, %reset_cdf_symbol_counter.exit614 ], [ %indvars.iv.next.i618, %63 ]
+  %gep.i617.idx = mul nuw nsw i64 %indvars.iv.i616, 18
+  %gep.i617 = getelementptr i8, ptr %invariant.gep.i615, i64 %gep.i617.idx
+  store i16 0, ptr %gep.i617, align 2
+  %indvars.iv.next.i618 = add nuw nsw i64 %indvars.iv.i616, 1
+  %exitcond.not.i619 = icmp eq i64 %indvars.iv.next.i618, 3
+  br i1 %exitcond.not.i619, label %reset_cdf_symbol_counter.exit620, label %63, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit620:                 ; preds = %63
+  %invariant.gep.i621 = getelementptr i8, ptr %0, i64 12584
+  br label %64
+
+64:                                               ; preds = %64, %reset_cdf_symbol_counter.exit620
+  %indvars.iv.i622 = phi i64 [ 0, %reset_cdf_symbol_counter.exit620 ], [ %indvars.iv.next.i624, %64 ]
+  %gep.i623.idx = mul nuw nsw i64 %indvars.iv.i622, 6
+  %gep.i623 = getelementptr i8, ptr %invariant.gep.i621, i64 %gep.i623.idx
+  store i16 0, ptr %gep.i623, align 2
+  %indvars.iv.next.i624 = add nuw nsw i64 %indvars.iv.i622, 1
+  %exitcond.not.i625 = icmp eq i64 %indvars.iv.next.i624, 22
+  br i1 %exitcond.not.i625, label %reset_cdf_symbol_counter.exit626, label %64, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit626:                 ; preds = %64
+  %invariant.gep.i627 = getelementptr i8, ptr %0, i64 12722
+  store i16 0, ptr %invariant.gep.i627, align 2
+  %invariant.gep.i633 = getelementptr i8, ptr %0, i64 12730
+  store i16 0, ptr %invariant.gep.i633, align 2
+  %invariant.gep.i639 = getelementptr i8, ptr %0, i64 12736
+  store i16 0, ptr %invariant.gep.i639, align 2
+  %invariant.gep.i645 = getelementptr i8, ptr %0, i64 12742
+  store i16 0, ptr %invariant.gep.i645, align 2
+  %invariant.gep.i651 = getelementptr i8, ptr %0, i64 12770
+  br label %65
+
+65:                                               ; preds = %65, %reset_cdf_symbol_counter.exit626
+  %indvars.iv.i652 = phi i64 [ 0, %reset_cdf_symbol_counter.exit626 ], [ %indvars.iv.next.i654, %65 ]
+  %gep.i653.idx = mul nuw nsw i64 %indvars.iv.i652, 28
+  %gep.i653 = getelementptr i8, ptr %invariant.gep.i651, i64 %gep.i653.idx
+  store i16 0, ptr %gep.i653, align 2
+  %indvars.iv.next.i654 = add nuw nsw i64 %indvars.iv.i652, 1
+  %exitcond.not.i655 = icmp eq i64 %indvars.iv.next.i654, 4
+  br i1 %exitcond.not.i655, label %reset_cdf_symbol_counter.exit656, label %65, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit656:                 ; preds = %65
+  %invariant.gep.i657 = getelementptr i8, ptr %0, i64 12882
+  br label %66
+
+66:                                               ; preds = %66, %reset_cdf_symbol_counter.exit656
+  %indvars.iv.i658 = phi i64 [ 0, %reset_cdf_symbol_counter.exit656 ], [ %indvars.iv.next.i660, %66 ]
+  %gep.i659.idx = mul nuw nsw i64 %indvars.iv.i658, 30
+  %gep.i659 = getelementptr i8, ptr %invariant.gep.i657, i64 %gep.i659.idx
+  store i16 0, ptr %gep.i659, align 2
+  %indvars.iv.next.i660 = add nuw nsw i64 %indvars.iv.i658, 1
+  %exitcond.not.i661 = icmp eq i64 %indvars.iv.next.i660, 13
+  br i1 %exitcond.not.i661, label %reset_cdf_symbol_counter.exit662, label %66, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit662:                 ; preds = %66
+  %invariant.gep.i663 = getelementptr i8, ptr %0, i64 13274
+  br label %67
+
+67:                                               ; preds = %67, %reset_cdf_symbol_counter.exit662
+  %indvars.iv.i664 = phi i64 [ 0, %reset_cdf_symbol_counter.exit662 ], [ %indvars.iv.next.i666, %67 ]
+  %gep.i665.idx = mul nuw nsw i64 %indvars.iv.i664, 30
+  %gep.i665 = getelementptr i8, ptr %invariant.gep.i663, i64 %gep.i665.idx
   store i16 0, ptr %gep.i665, align 2
   %indvars.iv.next.i666 = add nuw nsw i64 %indvars.iv.i664, 1
-  %exitcond.not.i667 = icmp eq i64 %indvars.iv.next.i666, 3
-  br i1 %exitcond.not.i667, label %reset_cdf_symbol_counter.exit668, label %.lr.ph.i663, !llvm.loop !4
+  %exitcond.not.i667 = icmp eq i64 %indvars.iv.next.i666, 13
+  br i1 %exitcond.not.i667, label %reset_cdf_symbol_counter.exit668.preheader, label %67, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit668:                 ; preds = %.lr.ph.i663
-  %invariant.gep.i669 = getelementptr i8, ptr %0, i64 12584
-  br label %.lr.ph.i670
+reset_cdf_symbol_counter.exit668.preheader:       ; preds = %67
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 13636
+  br label %reset_cdf_symbol_counter.exit674
 
-.lr.ph.i670:                                      ; preds = %.lr.ph.i670, %reset_cdf_symbol_counter.exit668
-  %indvars.iv.i671 = phi i64 [ 0, %reset_cdf_symbol_counter.exit668 ], [ %indvars.iv.next.i673, %.lr.ph.i670 ]
-  %gep.i672.idx = mul nuw nsw i64 %indvars.iv.i671, 6
-  %gep.i672 = getelementptr i8, ptr %invariant.gep.i669, i64 %gep.i672.idx
-  store i16 0, ptr %gep.i672, align 2
-  %indvars.iv.next.i673 = add nuw nsw i64 %indvars.iv.i671, 1
-  %exitcond.not.i674 = icmp eq i64 %indvars.iv.next.i673, 22
-  br i1 %exitcond.not.i674, label %reset_cdf_symbol_counter.exit675, label %.lr.ph.i670, !llvm.loop !4
+reset_cdf_symbol_counter.exit674:                 ; preds = %reset_cdf_symbol_counter.exit668.preheader, %reset_cdf_symbol_counter.exit674
+  %indvars.iv797 = phi i64 [ 0, %reset_cdf_symbol_counter.exit668.preheader ], [ %indvars.iv.next798, %reset_cdf_symbol_counter.exit674 ]
+  %69 = icmp ult i64 %indvars.iv797, 4
+  %70 = icmp ult i64 %indvars.iv797, 16
+  %. = select i1 %70, i64 10, i64 8
+  %.sink = select i1 %69, i64 4, i64 %.
+  %invariant.gep.i681 = getelementptr [20 x [11 x i16]], ptr %68, i64 0, i64 %indvars.iv797, i64 %.sink
+  store i16 0, ptr %invariant.gep.i681, align 2
+  %indvars.iv.next798 = add nuw nsw i64 %indvars.iv797, 1
+  %exitcond800.not = icmp eq i64 %indvars.iv.next798, 20
+  br i1 %exitcond800.not, label %71, label %reset_cdf_symbol_counter.exit674, !llvm.loop !8
 
-reset_cdf_symbol_counter.exit675:                 ; preds = %.lr.ph.i670
-  %invariant.gep.i676 = getelementptr i8, ptr %0, i64 12722
-  store i16 0, ptr %invariant.gep.i676, align 2
-  %invariant.gep.i683 = getelementptr i8, ptr %0, i64 12730
-  store i16 0, ptr %invariant.gep.i683, align 2
-  %invariant.gep.i690 = getelementptr i8, ptr %0, i64 12736
-  store i16 0, ptr %invariant.gep.i690, align 2
-  %invariant.gep.i697 = getelementptr i8, ptr %0, i64 12742
-  store i16 0, ptr %invariant.gep.i697, align 2
-  %invariant.gep.i704 = getelementptr i8, ptr %0, i64 12770
-  br label %.lr.ph.i705
+71:                                               ; preds = %reset_cdf_symbol_counter.exit674
+  %invariant.gep.i687 = getelementptr i8, ptr %0, i64 14082
+  br label %72
 
-.lr.ph.i705:                                      ; preds = %.lr.ph.i705, %reset_cdf_symbol_counter.exit675
-  %indvars.iv.i706 = phi i64 [ 0, %reset_cdf_symbol_counter.exit675 ], [ %indvars.iv.next.i708, %.lr.ph.i705 ]
-  %gep.i707.idx = mul nuw nsw i64 %indvars.iv.i706, 28
-  %gep.i707 = getelementptr i8, ptr %invariant.gep.i704, i64 %gep.i707.idx
+72:                                               ; preds = %72, %71
+  %indvars.iv.i688 = phi i64 [ 0, %71 ], [ %indvars.iv.next.i690, %72 ]
+  %gep.i689.idx = shl i64 %indvars.iv.i688, 3
+  %gep.i689 = getelementptr i8, ptr %invariant.gep.i687, i64 %gep.i689.idx
+  store i16 0, ptr %gep.i689, align 2
+  %indvars.iv.next.i690 = add nuw nsw i64 %indvars.iv.i688, 1
+  %exitcond.not.i691 = icmp eq i64 %indvars.iv.next.i690, 16
+  br i1 %exitcond.not.i691, label %reset_cdf_symbol_counter.exit692, label %72, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit692:                 ; preds = %72
+  %invariant.gep.i693 = getelementptr i8, ptr %0, i64 14230
+  br label %73
+
+73:                                               ; preds = %73, %reset_cdf_symbol_counter.exit692
+  %indvars.iv.i694 = phi i64 [ 0, %reset_cdf_symbol_counter.exit692 ], [ %indvars.iv.next.i696, %73 ]
+  %gep.i695.idx = mul nuw nsw i64 %indvars.iv.i694, 28
+  %gep.i695 = getelementptr i8, ptr %invariant.gep.i693, i64 %gep.i695.idx
+  store i16 0, ptr %gep.i695, align 2
+  %indvars.iv.next.i696 = add nuw nsw i64 %indvars.iv.i694, 1
+  %exitcond.not.i697 = icmp eq i64 %indvars.iv.next.i696, 25
+  br i1 %exitcond.not.i697, label %reset_cdf_symbol_counter.exit698, label %73, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit698:                 ; preds = %73
+  %invariant.gep.i699 = getelementptr i8, ptr %0, i64 14918
+  br label %74
+
+74:                                               ; preds = %74, %reset_cdf_symbol_counter.exit698
+  %indvars.iv.i700 = phi i64 [ 0, %reset_cdf_symbol_counter.exit698 ], [ %indvars.iv.next.i702, %74 ]
+  %gep.i701.idx = shl i64 %indvars.iv.i700, 4
+  %gep.i701 = getelementptr i8, ptr %invariant.gep.i699, i64 %gep.i701.idx
+  store i16 0, ptr %gep.i701, align 2
+  %indvars.iv.next.i702 = add nuw nsw i64 %indvars.iv.i700, 1
+  %exitcond.not.i703 = icmp eq i64 %indvars.iv.next.i702, 8
+  br i1 %exitcond.not.i703, label %reset_cdf_symbol_counter.exit704, label %74, !llvm.loop !4
+
+reset_cdf_symbol_counter.exit704:                 ; preds = %74
+  %invariant.gep.i705 = getelementptr i8, ptr %0, i64 15036
+  br label %75
+
+75:                                               ; preds = %75, %reset_cdf_symbol_counter.exit704
+  %indvars.iv.i706 = phi i64 [ 0, %reset_cdf_symbol_counter.exit704 ], [ %indvars.iv.next.i708, %75 ]
+  %gep.i707.idx = shl i64 %indvars.iv.i706, 3
+  %gep.i707 = getelementptr i8, ptr %invariant.gep.i705, i64 %gep.i707.idx
   store i16 0, ptr %gep.i707, align 2
   %indvars.iv.next.i708 = add nuw nsw i64 %indvars.iv.i706, 1
-  %exitcond.not.i709 = icmp eq i64 %indvars.iv.next.i708, 4
-  br i1 %exitcond.not.i709, label %reset_cdf_symbol_counter.exit710, label %.lr.ph.i705, !llvm.loop !4
+  %exitcond.not.i709 = icmp eq i64 %indvars.iv.next.i708, 3
+  br i1 %exitcond.not.i709, label %reset_cdf_symbol_counter.exit710, label %75, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit710:                 ; preds = %.lr.ph.i705
-  %invariant.gep.i711 = getelementptr i8, ptr %0, i64 12882
-  br label %.lr.ph.i712
+reset_cdf_symbol_counter.exit710:                 ; preds = %75
+  %invariant.gep.i711 = getelementptr i8, ptr %0, i64 15062
+  br label %76
 
-.lr.ph.i712:                                      ; preds = %.lr.ph.i712, %reset_cdf_symbol_counter.exit710
-  %indvars.iv.i713 = phi i64 [ 0, %reset_cdf_symbol_counter.exit710 ], [ %indvars.iv.next.i715, %.lr.ph.i712 ]
-  %gep.i714.idx = mul nuw nsw i64 %indvars.iv.i713, 30
-  %gep.i714 = getelementptr i8, ptr %invariant.gep.i711, i64 %gep.i714.idx
-  store i16 0, ptr %gep.i714, align 2
-  %indvars.iv.next.i715 = add nuw nsw i64 %indvars.iv.i713, 1
-  %exitcond.not.i716 = icmp eq i64 %indvars.iv.next.i715, 13
-  br i1 %exitcond.not.i716, label %reset_cdf_symbol_counter.exit717, label %.lr.ph.i712, !llvm.loop !4
+76:                                               ; preds = %76, %reset_cdf_symbol_counter.exit710
+  %indvars.iv.i712 = phi i64 [ 0, %reset_cdf_symbol_counter.exit710 ], [ %indvars.iv.next.i714, %76 ]
+  %gep.i713.idx = shl i64 %indvars.iv.i712, 3
+  %gep.i713 = getelementptr i8, ptr %invariant.gep.i711, i64 %gep.i713.idx
+  store i16 0, ptr %gep.i713, align 2
+  %indvars.iv.next.i714 = add nuw nsw i64 %indvars.iv.i712, 1
+  %exitcond.not.i715 = icmp eq i64 %indvars.iv.next.i714, 3
+  br i1 %exitcond.not.i715, label %reset_cdf_symbol_counter.exit716, label %76, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit717:                 ; preds = %.lr.ph.i712
-  %invariant.gep.i718 = getelementptr i8, ptr %0, i64 13274
-  br label %.lr.ph.i719
+reset_cdf_symbol_counter.exit716:                 ; preds = %76
+  %invariant.gep.i717 = getelementptr i8, ptr %0, i64 15086
+  br label %77
 
-.lr.ph.i719:                                      ; preds = %.lr.ph.i719, %reset_cdf_symbol_counter.exit717
-  %indvars.iv.i720 = phi i64 [ 0, %reset_cdf_symbol_counter.exit717 ], [ %indvars.iv.next.i722, %.lr.ph.i719 ]
-  %gep.i721.idx = mul nuw nsw i64 %indvars.iv.i720, 30
-  %gep.i721 = getelementptr i8, ptr %invariant.gep.i718, i64 %gep.i721.idx
-  store i16 0, ptr %gep.i721, align 2
-  %indvars.iv.next.i722 = add nuw nsw i64 %indvars.iv.i720, 1
-  %exitcond.not.i723 = icmp eq i64 %indvars.iv.next.i722, 13
-  br i1 %exitcond.not.i723, label %reset_cdf_symbol_counter.exit724.preheader, label %.lr.ph.i719, !llvm.loop !4
+77:                                               ; preds = %77, %reset_cdf_symbol_counter.exit716
+  %indvars.iv.i718 = phi i64 [ 0, %reset_cdf_symbol_counter.exit716 ], [ %indvars.iv.next.i720, %77 ]
+  %gep.i719.idx = shl i64 %indvars.iv.i718, 3
+  %gep.i719 = getelementptr i8, ptr %invariant.gep.i717, i64 %gep.i719.idx
+  store i16 0, ptr %gep.i719, align 2
+  %indvars.iv.next.i720 = add nuw nsw i64 %indvars.iv.i718, 1
+  %exitcond.not.i721 = icmp eq i64 %indvars.iv.next.i720, 3
+  br i1 %exitcond.not.i721, label %reset_cdf_symbol_counter.exit722, label %77, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit724.preheader:       ; preds = %.lr.ph.i719
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 13636
-  br label %reset_cdf_symbol_counter.exit731
+reset_cdf_symbol_counter.exit722:                 ; preds = %77
+  %invariant.gep.i723 = getelementptr i8, ptr %0, i64 15110
+  br label %78
 
-reset_cdf_symbol_counter.exit731:                 ; preds = %reset_cdf_symbol_counter.exit724.preheader, %reset_cdf_symbol_counter.exit731
-  %indvars.iv873 = phi i64 [ 0, %reset_cdf_symbol_counter.exit724.preheader ], [ %indvars.iv.next874, %reset_cdf_symbol_counter.exit731 ]
-  %16 = icmp ult i64 %indvars.iv873, 4
-  %17 = icmp ult i64 %indvars.iv873, 16
-  %. = select i1 %17, i64 10, i64 8
-  %.sink = select i1 %16, i64 4, i64 %.
-  %invariant.gep.i739 = getelementptr [20 x [11 x i16]], ptr %15, i64 0, i64 %indvars.iv873, i64 %.sink
-  store i16 0, ptr %invariant.gep.i739, align 2
-  %indvars.iv.next874 = add nuw nsw i64 %indvars.iv873, 1
-  %exitcond876.not = icmp eq i64 %indvars.iv.next874, 20
-  br i1 %exitcond876.not, label %18, label %reset_cdf_symbol_counter.exit731, !llvm.loop !8
+78:                                               ; preds = %78, %reset_cdf_symbol_counter.exit722
+  %indvars.iv.i724 = phi i64 [ 0, %reset_cdf_symbol_counter.exit722 ], [ %indvars.iv.next.i726, %78 ]
+  %gep.i725.idx = shl i64 %indvars.iv.i724, 3
+  %gep.i725 = getelementptr i8, ptr %invariant.gep.i723, i64 %gep.i725.idx
+  store i16 0, ptr %gep.i725, align 2
+  %indvars.iv.next.i726 = add nuw nsw i64 %indvars.iv.i724, 1
+  %exitcond.not.i727 = icmp eq i64 %indvars.iv.next.i726, 3
+  br i1 %exitcond.not.i727, label %reset_cdf_symbol_counter.exit728, label %78, !llvm.loop !4
 
-18:                                               ; preds = %reset_cdf_symbol_counter.exit731
-  %invariant.gep.i746 = getelementptr i8, ptr %0, i64 14082
-  br label %.lr.ph.i747
+reset_cdf_symbol_counter.exit728:                 ; preds = %78
+  %invariant.gep.i729 = getelementptr i8, ptr %0, i64 15136
+  store i16 0, ptr %invariant.gep.i729, align 2
+  %invariant.gep.i735 = getelementptr i8, ptr %0, i64 15186
+  store i16 0, ptr %invariant.gep.i735, align 2
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 15138
+  br label %reset_cdf_symbol_counter.exit746
 
-.lr.ph.i747:                                      ; preds = %.lr.ph.i747, %18
-  %indvars.iv.i748 = phi i64 [ 0, %18 ], [ %indvars.iv.next.i750, %.lr.ph.i747 ]
-  %gep.i749.idx = shl i64 %indvars.iv.i748, 3
-  %gep.i749 = getelementptr i8, ptr %invariant.gep.i746, i64 %gep.i749.idx
+reset_cdf_symbol_counter.exit746:                 ; preds = %reset_cdf_symbol_counter.exit728, %reset_cdf_symbol_counter.exit746
+  %indvars.iv801 = phi i64 [ 0, %reset_cdf_symbol_counter.exit728 ], [ %indvars.iv.next802, %reset_cdf_symbol_counter.exit746 ]
+  %invariant.gep.i741 = getelementptr [4 x [5 x i16]], ptr %79, i64 0, i64 %indvars.iv801, i64 4
+  store i16 0, ptr %invariant.gep.i741, align 2
+  %indvars.iv.next802 = add nuw nsw i64 %indvars.iv801, 1
+  %exitcond804.not = icmp eq i64 %indvars.iv.next802, 4
+  br i1 %exitcond804.not, label %80, label %reset_cdf_symbol_counter.exit746, !llvm.loop !9
+
+80:                                               ; preds = %reset_cdf_symbol_counter.exit746
+  %invariant.gep.i747 = getelementptr i8, ptr %0, i64 16970
+  br label %81
+
+81:                                               ; preds = %81, %80
+  %indvars.iv.i748 = phi i64 [ 0, %80 ], [ %indvars.iv.next.i750, %81 ]
+  %gep.i749.idx = mul nuw nsw i64 %indvars.iv.i748, 34
+  %gep.i749 = getelementptr i8, ptr %invariant.gep.i747, i64 %gep.i749.idx
   store i16 0, ptr %gep.i749, align 2
   %indvars.iv.next.i750 = add nuw nsw i64 %indvars.iv.i748, 1
-  %exitcond.not.i751 = icmp eq i64 %indvars.iv.next.i750, 16
-  br i1 %exitcond.not.i751, label %reset_cdf_symbol_counter.exit752, label %.lr.ph.i747, !llvm.loop !4
+  %exitcond.not.i751 = icmp eq i64 %indvars.iv.next.i750, 52
+  br i1 %exitcond.not.i751, label %reset_cdf_symbol_counter.exit752, label %81, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit752:                 ; preds = %.lr.ph.i747
-  %invariant.gep.i753 = getelementptr i8, ptr %0, i64 14230
-  br label %.lr.ph.i754
+reset_cdf_symbol_counter.exit752:                 ; preds = %81
+  %invariant.gep.i753 = getelementptr i8, ptr %0, i64 18734
+  br label %82
 
-.lr.ph.i754:                                      ; preds = %.lr.ph.i754, %reset_cdf_symbol_counter.exit752
-  %indvars.iv.i755 = phi i64 [ 0, %reset_cdf_symbol_counter.exit752 ], [ %indvars.iv.next.i757, %.lr.ph.i754 ]
-  %gep.i756.idx = mul nuw nsw i64 %indvars.iv.i755, 28
-  %gep.i756 = getelementptr i8, ptr %invariant.gep.i753, i64 %gep.i756.idx
-  store i16 0, ptr %gep.i756, align 2
-  %indvars.iv.next.i757 = add nuw nsw i64 %indvars.iv.i755, 1
-  %exitcond.not.i758 = icmp eq i64 %indvars.iv.next.i757, 25
-  br i1 %exitcond.not.i758, label %reset_cdf_symbol_counter.exit759, label %.lr.ph.i754, !llvm.loop !4
+82:                                               ; preds = %82, %reset_cdf_symbol_counter.exit752
+  %indvars.iv.i754 = phi i64 [ 0, %reset_cdf_symbol_counter.exit752 ], [ %indvars.iv.next.i756, %82 ]
+  %gep.i755.idx = mul nuw nsw i64 %indvars.iv.i754, 34
+  %gep.i755 = getelementptr i8, ptr %invariant.gep.i753, i64 %gep.i755.idx
+  store i16 0, ptr %gep.i755, align 2
+  %indvars.iv.next.i756 = add nuw nsw i64 %indvars.iv.i754, 1
+  %exitcond.not.i757 = icmp eq i64 %indvars.iv.next.i756, 52
+  br i1 %exitcond.not.i757, label %reset_cdf_symbol_counter.exit758, label %82, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit759:                 ; preds = %.lr.ph.i754
-  %invariant.gep.i760 = getelementptr i8, ptr %0, i64 14918
-  br label %.lr.ph.i761
+reset_cdf_symbol_counter.exit758:                 ; preds = %82
+  %invariant.gep.i759 = getelementptr i8, ptr %0, i64 20660
+  br label %83
 
-.lr.ph.i761:                                      ; preds = %.lr.ph.i761, %reset_cdf_symbol_counter.exit759
-  %indvars.iv.i762 = phi i64 [ 0, %reset_cdf_symbol_counter.exit759 ], [ %indvars.iv.next.i764, %.lr.ph.i761 ]
-  %gep.i763.idx = shl i64 %indvars.iv.i762, 4
-  %gep.i763 = getelementptr i8, ptr %invariant.gep.i760, i64 %gep.i763.idx
-  store i16 0, ptr %gep.i763, align 2
-  %indvars.iv.next.i764 = add nuw nsw i64 %indvars.iv.i762, 1
-  %exitcond.not.i765 = icmp eq i64 %indvars.iv.next.i764, 8
-  br i1 %exitcond.not.i765, label %reset_cdf_symbol_counter.exit766, label %.lr.ph.i761, !llvm.loop !4
+83:                                               ; preds = %83, %reset_cdf_symbol_counter.exit758
+  %indvars.iv.i760 = phi i64 [ 0, %reset_cdf_symbol_counter.exit758 ], [ %indvars.iv.next.i762, %83 ]
+  %gep.i761.idx = mul nuw nsw i64 %indvars.iv.i760, 34
+  %gep.i761 = getelementptr i8, ptr %invariant.gep.i759, i64 %gep.i761.idx
+  store i16 0, ptr %gep.i761, align 2
+  %indvars.iv.next.i762 = add nuw nsw i64 %indvars.iv.i760, 1
+  %exitcond.not.i763 = icmp eq i64 %indvars.iv.next.i762, 4
+  br i1 %exitcond.not.i763, label %reset_cdf_symbol_counter.exit764, label %83, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit766:                 ; preds = %.lr.ph.i761
-  %invariant.gep.i767 = getelementptr i8, ptr %0, i64 15036
-  br label %.lr.ph.i768
+reset_cdf_symbol_counter.exit764:                 ; preds = %83
+  %invariant.gep.i765 = getelementptr i8, ptr %0, i64 20788
+  br label %84
 
-.lr.ph.i768:                                      ; preds = %.lr.ph.i768, %reset_cdf_symbol_counter.exit766
-  %indvars.iv.i769 = phi i64 [ 0, %reset_cdf_symbol_counter.exit766 ], [ %indvars.iv.next.i771, %.lr.ph.i768 ]
-  %gep.i770.idx = shl i64 %indvars.iv.i769, 3
-  %gep.i770 = getelementptr i8, ptr %invariant.gep.i767, i64 %gep.i770.idx
-  store i16 0, ptr %gep.i770, align 2
-  %indvars.iv.next.i771 = add nuw nsw i64 %indvars.iv.i769, 1
-  %exitcond.not.i772 = icmp eq i64 %indvars.iv.next.i771, 3
-  br i1 %exitcond.not.i772, label %reset_cdf_symbol_counter.exit773, label %.lr.ph.i768, !llvm.loop !4
+84:                                               ; preds = %84, %reset_cdf_symbol_counter.exit764
+  %indvars.iv.i766 = phi i64 [ 0, %reset_cdf_symbol_counter.exit764 ], [ %indvars.iv.next.i768, %84 ]
+  %gep.i767.idx = mul nuw nsw i64 %indvars.iv.i766, 34
+  %gep.i767 = getelementptr i8, ptr %invariant.gep.i765, i64 %gep.i767.idx
+  store i16 0, ptr %gep.i767, align 2
+  %indvars.iv.next.i768 = add nuw nsw i64 %indvars.iv.i766, 1
+  %exitcond.not.i769 = icmp eq i64 %indvars.iv.next.i768, 4
+  br i1 %exitcond.not.i769, label %reset_cdf_symbol_counter.exit770, label %84, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit773:                 ; preds = %.lr.ph.i768
-  %invariant.gep.i774 = getelementptr i8, ptr %0, i64 15062
-  br label %.lr.ph.i775
+reset_cdf_symbol_counter.exit770:                 ; preds = %84
+  %invariant.gep.i771 = getelementptr i8, ptr %0, i64 20904
+  br label %85
 
-.lr.ph.i775:                                      ; preds = %.lr.ph.i775, %reset_cdf_symbol_counter.exit773
-  %indvars.iv.i776 = phi i64 [ 0, %reset_cdf_symbol_counter.exit773 ], [ %indvars.iv.next.i778, %.lr.ph.i775 ]
-  %gep.i777.idx = shl i64 %indvars.iv.i776, 3
-  %gep.i777 = getelementptr i8, ptr %invariant.gep.i774, i64 %gep.i777.idx
-  store i16 0, ptr %gep.i777, align 2
-  %indvars.iv.next.i778 = add nuw nsw i64 %indvars.iv.i776, 1
-  %exitcond.not.i779 = icmp eq i64 %indvars.iv.next.i778, 3
-  br i1 %exitcond.not.i779, label %reset_cdf_symbol_counter.exit780, label %.lr.ph.i775, !llvm.loop !4
+85:                                               ; preds = %85, %reset_cdf_symbol_counter.exit770
+  %indvars.iv.i772 = phi i64 [ 0, %reset_cdf_symbol_counter.exit770 ], [ %indvars.iv.next.i774, %85 ]
+  %gep.i773.idx = mul nuw nsw i64 %indvars.iv.i772, 34
+  %gep.i773 = getelementptr i8, ptr %invariant.gep.i771, i64 %gep.i773.idx
+  store i16 0, ptr %gep.i773, align 2
+  %indvars.iv.next.i774 = add nuw nsw i64 %indvars.iv.i772, 1
+  %exitcond.not.i775 = icmp eq i64 %indvars.iv.next.i774, 4
+  br i1 %exitcond.not.i775, label %reset_cdf_symbol_counter.exit776, label %85, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit780:                 ; preds = %.lr.ph.i775
-  %invariant.gep.i781 = getelementptr i8, ptr %0, i64 15086
-  br label %.lr.ph.i782
+reset_cdf_symbol_counter.exit776:                 ; preds = %85
+  %invariant.gep.i777 = getelementptr i8, ptr %0, i64 21052
+  store i16 0, ptr %invariant.gep.i777, align 2
+  %invariant.gep.i783 = getelementptr i8, ptr %0, i64 21086
+  br label %86
 
-.lr.ph.i782:                                      ; preds = %.lr.ph.i782, %reset_cdf_symbol_counter.exit780
-  %indvars.iv.i783 = phi i64 [ 0, %reset_cdf_symbol_counter.exit780 ], [ %indvars.iv.next.i785, %.lr.ph.i782 ]
-  %gep.i784.idx = shl i64 %indvars.iv.i783, 3
-  %gep.i784 = getelementptr i8, ptr %invariant.gep.i781, i64 %gep.i784.idx
-  store i16 0, ptr %gep.i784, align 2
-  %indvars.iv.next.i785 = add nuw nsw i64 %indvars.iv.i783, 1
-  %exitcond.not.i786 = icmp eq i64 %indvars.iv.next.i785, 3
-  br i1 %exitcond.not.i786, label %reset_cdf_symbol_counter.exit787, label %.lr.ph.i782, !llvm.loop !4
+86:                                               ; preds = %86, %reset_cdf_symbol_counter.exit776
+  %indvars.iv.i784 = phi i64 [ 0, %reset_cdf_symbol_counter.exit776 ], [ %indvars.iv.next.i786, %86 ]
+  %gep.i785.idx = mul nuw nsw i64 %indvars.iv.i784, 34
+  %gep.i785 = getelementptr i8, ptr %invariant.gep.i783, i64 %gep.i785.idx
+  store i16 0, ptr %gep.i785, align 2
+  %indvars.iv.next.i786 = add nuw nsw i64 %indvars.iv.i784, 1
+  %exitcond.not.i787 = icmp eq i64 %indvars.iv.next.i786, 6
+  br i1 %exitcond.not.i787, label %reset_cdf_symbol_counter.exit788, label %86, !llvm.loop !4
 
-reset_cdf_symbol_counter.exit787:                 ; preds = %.lr.ph.i782
-  %invariant.gep.i788 = getelementptr i8, ptr %0, i64 15110
-  br label %.lr.ph.i789
-
-.lr.ph.i789:                                      ; preds = %.lr.ph.i789, %reset_cdf_symbol_counter.exit787
-  %indvars.iv.i790 = phi i64 [ 0, %reset_cdf_symbol_counter.exit787 ], [ %indvars.iv.next.i792, %.lr.ph.i789 ]
-  %gep.i791.idx = shl i64 %indvars.iv.i790, 3
-  %gep.i791 = getelementptr i8, ptr %invariant.gep.i788, i64 %gep.i791.idx
-  store i16 0, ptr %gep.i791, align 2
-  %indvars.iv.next.i792 = add nuw nsw i64 %indvars.iv.i790, 1
-  %exitcond.not.i793 = icmp eq i64 %indvars.iv.next.i792, 3
-  br i1 %exitcond.not.i793, label %reset_cdf_symbol_counter.exit794, label %.lr.ph.i789, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit794:                 ; preds = %.lr.ph.i789
-  %invariant.gep.i795 = getelementptr i8, ptr %0, i64 15136
-  store i16 0, ptr %invariant.gep.i795, align 2
-  %invariant.gep.i802 = getelementptr i8, ptr %0, i64 15186
-  store i16 0, ptr %invariant.gep.i802, align 2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 15138
-  br label %.lr.ph.i810
-
-.lr.ph.i810:                                      ; preds = %reset_cdf_symbol_counter.exit794, %.lr.ph.i810
-  %indvars.iv877 = phi i64 [ 0, %reset_cdf_symbol_counter.exit794 ], [ %indvars.iv.next878, %.lr.ph.i810 ]
-  %invariant.gep.i809 = getelementptr [4 x [5 x i16]], ptr %19, i64 0, i64 %indvars.iv877, i64 4
-  store i16 0, ptr %invariant.gep.i809, align 2
-  %indvars.iv.next878 = add nuw nsw i64 %indvars.iv877, 1
-  %exitcond880.not = icmp eq i64 %indvars.iv.next878, 4
-  br i1 %exitcond880.not, label %20, label %.lr.ph.i810, !llvm.loop !9
-
-20:                                               ; preds = %.lr.ph.i810
-  %invariant.gep.i816 = getelementptr i8, ptr %0, i64 16970
-  br label %.lr.ph.i817
-
-.lr.ph.i817:                                      ; preds = %.lr.ph.i817, %20
-  %indvars.iv.i818 = phi i64 [ 0, %20 ], [ %indvars.iv.next.i820, %.lr.ph.i817 ]
-  %gep.i819.idx = mul nuw nsw i64 %indvars.iv.i818, 34
-  %gep.i819 = getelementptr i8, ptr %invariant.gep.i816, i64 %gep.i819.idx
-  store i16 0, ptr %gep.i819, align 2
-  %indvars.iv.next.i820 = add nuw nsw i64 %indvars.iv.i818, 1
-  %exitcond.not.i821 = icmp eq i64 %indvars.iv.next.i820, 52
-  br i1 %exitcond.not.i821, label %reset_cdf_symbol_counter.exit822, label %.lr.ph.i817, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit822:                 ; preds = %.lr.ph.i817
-  %invariant.gep.i823 = getelementptr i8, ptr %0, i64 18734
-  br label %.lr.ph.i824
-
-.lr.ph.i824:                                      ; preds = %.lr.ph.i824, %reset_cdf_symbol_counter.exit822
-  %indvars.iv.i825 = phi i64 [ 0, %reset_cdf_symbol_counter.exit822 ], [ %indvars.iv.next.i827, %.lr.ph.i824 ]
-  %gep.i826.idx = mul nuw nsw i64 %indvars.iv.i825, 34
-  %gep.i826 = getelementptr i8, ptr %invariant.gep.i823, i64 %gep.i826.idx
-  store i16 0, ptr %gep.i826, align 2
-  %indvars.iv.next.i827 = add nuw nsw i64 %indvars.iv.i825, 1
-  %exitcond.not.i828 = icmp eq i64 %indvars.iv.next.i827, 52
-  br i1 %exitcond.not.i828, label %reset_cdf_symbol_counter.exit829, label %.lr.ph.i824, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit829:                 ; preds = %.lr.ph.i824
-  %invariant.gep.i830 = getelementptr i8, ptr %0, i64 20660
-  br label %.lr.ph.i831
-
-.lr.ph.i831:                                      ; preds = %.lr.ph.i831, %reset_cdf_symbol_counter.exit829
-  %indvars.iv.i832 = phi i64 [ 0, %reset_cdf_symbol_counter.exit829 ], [ %indvars.iv.next.i834, %.lr.ph.i831 ]
-  %gep.i833.idx = mul nuw nsw i64 %indvars.iv.i832, 34
-  %gep.i833 = getelementptr i8, ptr %invariant.gep.i830, i64 %gep.i833.idx
-  store i16 0, ptr %gep.i833, align 2
-  %indvars.iv.next.i834 = add nuw nsw i64 %indvars.iv.i832, 1
-  %exitcond.not.i835 = icmp eq i64 %indvars.iv.next.i834, 4
-  br i1 %exitcond.not.i835, label %reset_cdf_symbol_counter.exit836, label %.lr.ph.i831, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit836:                 ; preds = %.lr.ph.i831
-  %invariant.gep.i837 = getelementptr i8, ptr %0, i64 20788
-  br label %.lr.ph.i838
-
-.lr.ph.i838:                                      ; preds = %.lr.ph.i838, %reset_cdf_symbol_counter.exit836
-  %indvars.iv.i839 = phi i64 [ 0, %reset_cdf_symbol_counter.exit836 ], [ %indvars.iv.next.i841, %.lr.ph.i838 ]
-  %gep.i840.idx = mul nuw nsw i64 %indvars.iv.i839, 34
-  %gep.i840 = getelementptr i8, ptr %invariant.gep.i837, i64 %gep.i840.idx
-  store i16 0, ptr %gep.i840, align 2
-  %indvars.iv.next.i841 = add nuw nsw i64 %indvars.iv.i839, 1
-  %exitcond.not.i842 = icmp eq i64 %indvars.iv.next.i841, 4
-  br i1 %exitcond.not.i842, label %reset_cdf_symbol_counter.exit843, label %.lr.ph.i838, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit843:                 ; preds = %.lr.ph.i838
-  %invariant.gep.i844 = getelementptr i8, ptr %0, i64 20904
-  br label %.lr.ph.i845
-
-.lr.ph.i845:                                      ; preds = %.lr.ph.i845, %reset_cdf_symbol_counter.exit843
-  %indvars.iv.i846 = phi i64 [ 0, %reset_cdf_symbol_counter.exit843 ], [ %indvars.iv.next.i848, %.lr.ph.i845 ]
-  %gep.i847.idx = mul nuw nsw i64 %indvars.iv.i846, 34
-  %gep.i847 = getelementptr i8, ptr %invariant.gep.i844, i64 %gep.i847.idx
-  store i16 0, ptr %gep.i847, align 2
-  %indvars.iv.next.i848 = add nuw nsw i64 %indvars.iv.i846, 1
-  %exitcond.not.i849 = icmp eq i64 %indvars.iv.next.i848, 4
-  br i1 %exitcond.not.i849, label %reset_cdf_symbol_counter.exit850, label %.lr.ph.i845, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit850:                 ; preds = %.lr.ph.i845
-  %invariant.gep.i851 = getelementptr i8, ptr %0, i64 21052
-  store i16 0, ptr %invariant.gep.i851, align 2
-  %invariant.gep.i858 = getelementptr i8, ptr %0, i64 21086
-  br label %.lr.ph.i859
-
-.lr.ph.i859:                                      ; preds = %.lr.ph.i859, %reset_cdf_symbol_counter.exit850
-  %indvars.iv.i860 = phi i64 [ 0, %reset_cdf_symbol_counter.exit850 ], [ %indvars.iv.next.i862, %.lr.ph.i859 ]
-  %gep.i861.idx = mul nuw nsw i64 %indvars.iv.i860, 34
-  %gep.i861 = getelementptr i8, ptr %invariant.gep.i858, i64 %gep.i861.idx
-  store i16 0, ptr %gep.i861, align 2
-  %indvars.iv.next.i862 = add nuw nsw i64 %indvars.iv.i860, 1
-  %exitcond.not.i863 = icmp eq i64 %indvars.iv.next.i862, 6
-  br i1 %exitcond.not.i863, label %reset_cdf_symbol_counter.exit864, label %.lr.ph.i859, !llvm.loop !4
-
-reset_cdf_symbol_counter.exit864:                 ; preds = %.lr.ph.i859
+reset_cdf_symbol_counter.exit788:                 ; preds = %86
   ret void
 }
 

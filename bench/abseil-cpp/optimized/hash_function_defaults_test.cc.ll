@@ -930,7 +930,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i3.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -39735,7 +39735,7 @@ invoke.cont.i711:                                 ; preds = %.noexc.i709
 invoke.cont4.i715:                                ; preds = %invoke.cont.i711
   %line.i.i716 = getelementptr inbounds i8, ptr %ref.tmp.i700, i64 32
   store i32 303, ptr %line.i.i716, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias nonnull align 8 %ref.tmp5.i703)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias align 8 %ref.tmp5.i703)
           to label %invoke.cont7.i719 unwind label %lpad6.i
 
 invoke.cont7.i719:                                ; preds = %invoke.cont4.i715
@@ -40658,7 +40658,7 @@ invoke.cont.i1030:                                ; preds = %.noexc.i1028
 invoke.cont4.i1034:                               ; preds = %invoke.cont.i1030
   %line.i.i1035 = getelementptr inbounds i8, ptr %ref.tmp.i1019, i64 32
   store i32 353, ptr %line.i.i1035, align 8
-  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias nonnull align 8 %ref.tmp5.i1022)
+  invoke fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIPKiJPiSt10unique_ptrIS4_St14default_deleteIS4_EES7_IS4_N4absl18container_internal12_GLOBAL__N_19NoDeleterEES7_IiS8_IiEES7_IiSE_ESt10shared_ptrIS4_ESJ_IiEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEv(ptr noalias align 8 %ref.tmp5.i1022)
           to label %invoke.cont7.i1039 unwind label %lpad6.i1036
 
 invoke.cont7.i1039:                               ; preds = %invoke.cont4.i1034

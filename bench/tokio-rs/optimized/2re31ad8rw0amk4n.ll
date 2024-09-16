@@ -1061,7 +1061,7 @@ common.resume:                                    ; preds = %21, %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias nocapture noundef align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -1361,7 +1361,7 @@ define { i64, ptr } @"_ZN73_$LT$tokio_test..io..Mock$u20$as$u20$tokio..io..async
   %48 = extractvalue { ptr, i64 } %47, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.experimental.noalias.scope.decl(metadata !186)
-  %49 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0), !noalias !186
+  %49 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %0), !noalias !186
   %50 = icmp eq ptr %49, null
   br i1 %50, label %97, label %51
 
@@ -1611,7 +1611,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   br label %27
 
 133:                                              ; preds = %101
-  %134 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0)
+  %134 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %0)
           to label %.noexc59 unwind label %.loopexit83
 
 .noexc59:                                         ; preds = %133
@@ -1970,7 +1970,7 @@ thread-pre-split97:                               ; preds = %49
   br i1 %75, label %137, label %.thread96
 
 .thread96:                                        ; preds = %"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$tokio..time..sleep..Sleep$GT$$GT$$GT$$GT$17hdc88ea52445461c3E.exit", %74
-  %76 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1), !noalias !286
+  %76 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %1), !noalias !286
   %.not.i = icmp eq ptr %76, null
   br i1 %.not.i, label %80, label %77
 
@@ -1980,7 +1980,7 @@ thread-pre-split97:                               ; preds = %49
   br i1 %79, label %137, label %80
 
 80:                                               ; preds = %77, %.thread96
-  %81 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1), !noalias !286
+  %81 = call fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %1), !noalias !286
   %.not34.i = icmp eq ptr %81, null
   br i1 %.not34.i, label %85, label %82
 
@@ -2152,7 +2152,7 @@ thread-pre-split97:                               ; preds = %49
   %.sink.i110 = phi i64 [ 1, %137 ], [ 0, %135 ]
   %.sroa.11.0104 = phi i64 [ %.sroa.11.0, %137 ], [ %.sroa.11.0.ph, %135 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !320)
-  %144 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  %144 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %1)
           to label %.noexc66 unwind label %227
 
 .noexc66:                                         ; preds = %143
@@ -2284,7 +2284,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %.thre
   br label %.backedge
 
 182:                                              ; preds = %137
-  %183 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  %183 = invoke fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tokio_test2io5Inner6action17h621f3fa3ba6a1c3aE(ptr noalias noundef align 8 dereferenceable(80) %1)
           to label %.noexc78 unwind label %.loopexit
 
 .noexc78:                                         ; preds = %182

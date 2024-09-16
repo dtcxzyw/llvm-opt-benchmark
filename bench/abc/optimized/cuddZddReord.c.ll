@@ -1143,14 +1143,14 @@ declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sub nsw i32 %2, %1
-  %.not112 = icmp slt i32 %5, 0
-  br i1 %.not112, label %.loopexit, label %.lr.ph116
+  %.not110 = icmp slt i32 %5, 0
+  br i1 %.not110, label %.loopexit, label %.lr.ph114
 
-.lr.ph116:                                        ; preds = %4
+.lr.ph114:                                        ; preds = %4
   %6 = add nuw i32 %5, 1
   %7 = icmp eq i32 %3, 3
   %8 = zext nneg i32 %6 to i64
-  %.not78107 = icmp sgt i32 %1, %2
+  %.not78105 = icmp sgt i32 %1, %2
   %9 = getelementptr inbounds i8, ptr %0, i64 160
   %10 = xor i32 %1, -1
   %11 = getelementptr inbounds i8, ptr %0, i64 232
@@ -1160,35 +1160,35 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
   %15 = add i32 %2, 1
   br label %16
 
-16:                                               ; preds = %.lr.ph116, %160
-  %.060114 = phi i32 [ -1, %.lr.ph116 ], [ %.3, %160 ]
-  %.063113 = phi i32 [ 0, %.lr.ph116 ], [ %161, %160 ]
-  br i1 %7, label %.preheader94, label %39
+16:                                               ; preds = %.lr.ph114, %160
+  %.060112 = phi i32 [ -1, %.lr.ph114 ], [ %.3, %160 ]
+  %.063111 = phi i32 [ 0, %.lr.ph114 ], [ %161, %160 ]
+  br i1 %7, label %.preheader93, label %39
 
-.preheader94:                                     ; preds = %16
-  br i1 %.not78107, label %._crit_edge, label %.lr.ph
+.preheader93:                                     ; preds = %16
+  br i1 %.not78105, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader94
+.lr.ph:                                           ; preds = %.preheader93
   %17 = load ptr, ptr %9, align 8
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %.1110 = phi i32 [ %.060114, %.lr.ph ], [ %spec.select82, %18 ]
-  %.068108 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %18 ]
+  %.1108 = phi i32 [ %.060112, %.lr.ph ], [ %spec.select82, %18 ]
+  %.068106 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %18 ]
   %19 = getelementptr inbounds %struct.DdSubtable, ptr %17, i64 %indvars.iv, i32 3
   %20 = load i32, ptr %19, align 8
-  %21 = icmp sgt i32 %20, %.068108
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %20, i32 %.068108)
+  %21 = icmp sgt i32 %20, %.068106
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %20, i32 %.068106)
   %22 = trunc nsw i64 %indvars.iv to i32
-  %spec.select82 = select i1 %21, i32 %22, i32 %.1110
+  %spec.select82 = select i1 %21, i32 %22, i32 %.1108
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %15, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %18, %.preheader94
-  %.1.lcssa = phi i32 [ %.060114, %.preheader94 ], [ %spec.select82, %18 ]
+._crit_edge:                                      ; preds = %18, %.preheader93
+  %.1.lcssa = phi i32 [ %.060112, %.preheader93 ], [ %spec.select82, %18 ]
   %23 = icmp eq i32 %2, %.1.lcssa
   br i1 %23, label %32, label %24
 
@@ -1206,14 +1206,14 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
   %.065 = phi i32 [ %31, %24 ], [ %2, %._crit_edge ]
   %33 = add i32 %.1.lcssa, %10
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %.loopexit93, label %.preheader
+  br i1 %34, label %.loopexit92, label %.preheader
 
 .preheader:                                       ; preds = %32, %.preheader
   %35 = tail call i64 @Cudd_Random() #11
   %36 = trunc i64 %35 to i32
   %37 = srem i32 %36, %33
   %38 = icmp eq i32 %37, %.065
-  br i1 %38, label %.preheader, label %.loopexit93, !llvm.loop !22
+  br i1 %38, label %.preheader, label %.loopexit92, !llvm.loop !22
 
 39:                                               ; preds = %16
   %40 = tail call i64 @Cudd_Random() #11
@@ -1225,30 +1225,30 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
   %44 = tail call i64 @Cudd_Random() #11
   %45 = srem i64 %44, %8
   %46 = icmp eq i64 %41, %45
-  br i1 %46, label %43, label %.loopexit95, !llvm.loop !23
+  br i1 %46, label %43, label %.loopexit94, !llvm.loop !23
 
-.loopexit95:                                      ; preds = %43
+.loopexit94:                                      ; preds = %43
   %47 = add nsw i32 %1, %42
   %48 = trunc nsw i64 %45 to i32
   %49 = add nsw i32 %1, %48
-  br label %.loopexit93
+  br label %.loopexit92
 
-.loopexit93:                                      ; preds = %.preheader, %.loopexit95, %32
-  %.067 = phi i32 [ %1, %32 ], [ %47, %.loopexit95 ], [ %37, %.preheader ]
-  %.166 = phi i32 [ %.065, %32 ], [ %49, %.loopexit95 ], [ %.065, %.preheader ]
-  %.3 = phi i32 [ %.1.lcssa, %32 ], [ %.060114, %.loopexit95 ], [ %.1.lcssa, %.preheader ]
+.loopexit92:                                      ; preds = %.preheader, %.loopexit94, %32
+  %.067 = phi i32 [ %1, %32 ], [ %47, %.loopexit94 ], [ %37, %.preheader ]
+  %.166 = phi i32 [ %.065, %32 ], [ %49, %.loopexit94 ], [ %.065, %.preheader ]
+  %.3 = phi i32 [ %.1.lcssa, %32 ], [ %.060112, %.loopexit94 ], [ %.1.lcssa, %.preheader ]
   %50 = load i32, ptr %11, align 8
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.067, i32 %.166)
   %spec.select185.i = tail call i32 @llvm.smin.i32(i32 %.067, i32 %.166)
   %51 = add nsw i32 %spec.select.i, -1
   br label %52
 
-52:                                               ; preds = %113, %.loopexit93
-  %.1162.i = phi i32 [ %spec.select.i, %.loopexit93 ], [ %.2163.i, %113 ]
-  %.0158.i = phi ptr [ null, %.loopexit93 ], [ %.sink200.i, %113 ]
-  %.1156.i = phi i32 [ %spec.select185.i, %.loopexit93 ], [ %.2.i, %113 ]
-  %.0152.i = phi i32 [ %51, %.loopexit93 ], [ %106, %113 ]
-  %.0.i = phi i32 [ %50, %.loopexit93 ], [ %spec.select186.i, %113 ]
+52:                                               ; preds = %113, %.loopexit92
+  %.1162.i = phi i32 [ %spec.select.i, %.loopexit92 ], [ %.2163.i, %113 ]
+  %.0158.i = phi ptr [ null, %.loopexit92 ], [ %.sink200.i, %113 ]
+  %.1156.i = phi i32 [ %spec.select185.i, %.loopexit92 ], [ %.2.i, %113 ]
+  %.0152.i = phi i32 [ %51, %.loopexit92 ], [ %106, %113 ]
+  %.0.i = phi i32 [ %50, %.loopexit92 ], [ %spec.select186.i, %113 ]
   %.0153.i = add nsw i32 %.1156.i, 1
   %53 = icmp eq i32 %.0153.i, %.0152.i
   br i1 %53, label %54, label %79
@@ -1424,108 +1424,108 @@ define range(i32 0, 2) i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %1, i32 
 
 zddSwapAny.exit:                                  ; preds = %121, %114
   %.0154.i = phi ptr [ %119, %121 ], [ %.sink200.i, %114 ]
-  br label %.lr.ph.i83
+  br label %139
 
-.preheader.i:                                     ; preds = %.lr.ph.i83
-  switch i32 %142, label %.lr.ph44.split.us.i [
+.preheader.i:                                     ; preds = %139
+  switch i32 %spec.select32.fr.i, label %.lr.ph.split.us.i [
     i32 0, label %cuddZddSiftingBackward.exit.preheader
-    i32 -1, label %.lr.ph44.split.i
+    i32 -1, label %.lr.ph.split.i
   ]
 
-.lr.ph44.split.us.i:                              ; preds = %.preheader.i, %134
-  %.143.us.i = phi ptr [ %136, %134 ], [ %.0154.i, %.preheader.i ]
-  %.12542.us.i = phi i32 [ %137, %134 ], [ 0, %.preheader.i ]
-  %130 = load i32, ptr %.143.us.i, align 8
-  %131 = getelementptr inbounds i8, ptr %.143.us.i, i64 4
+.lr.ph.split.us.i:                                ; preds = %.preheader.i, %134
+  %.139.us.i = phi ptr [ %136, %134 ], [ %.0154.i, %.preheader.i ]
+  %.12538.us.i = phi i32 [ %137, %134 ], [ 0, %.preheader.i ]
+  %130 = load i32, ptr %.139.us.i, align 8
+  %131 = getelementptr inbounds i8, ptr %.139.us.i, i64 4
   %132 = load i32, ptr %131, align 4
   %133 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %130, i32 noundef %132)
   %.not31.us.i = icmp eq i32 %133, 0
-  br i1 %.not31.us.i, label %.lr.ph119.preheader, label %134
+  br i1 %.not31.us.i, label %.lr.ph117.preheader, label %134
 
-.lr.ph119.preheader:                              ; preds = %.lr.ph44.split.i, %.lr.ph44.split.us.i
-  br label %.lr.ph119
+.lr.ph117.preheader:                              ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i
+  br label %.lr.ph117
 
-134:                                              ; preds = %.lr.ph44.split.us.i
-  %135 = getelementptr inbounds i8, ptr %.143.us.i, i64 16
+134:                                              ; preds = %.lr.ph.split.us.i
+  %135 = getelementptr inbounds i8, ptr %.139.us.i, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = add nuw nsw i32 %.12542.us.i, 1
+  %137 = add nuw nsw i32 %.12538.us.i, 1
   %.not30.us.i = icmp eq ptr %136, null
-  %138 = icmp eq i32 %137, %142
+  %138 = icmp eq i32 %137, %spec.select32.fr.i
   %or.cond.us.i = select i1 %.not30.us.i, i1 true, i1 %138
-  br i1 %or.cond.us.i, label %cuddZddSiftingBackward.exit.preheader, label %.lr.ph44.split.us.i, !llvm.loop !25
+  br i1 %or.cond.us.i, label %cuddZddSiftingBackward.exit.preheader, label %.lr.ph.split.us.i, !llvm.loop !25
 
-.lr.ph.i83:                                       ; preds = %zddSwapAny.exit, %.lr.ph.i83
-  %.02138.i = phi ptr [ %144, %.lr.ph.i83 ], [ %.0154.i, %zddSwapAny.exit ]
-  %.02237.i = phi i32 [ %142, %.lr.ph.i83 ], [ -1, %zddSwapAny.exit ]
-  %.02436.i = phi i32 [ %145, %.lr.ph.i83 ], [ 0, %zddSwapAny.exit ]
-  %.02635.i = phi i32 [ %spec.select.i84, %.lr.ph.i83 ], [ %50, %zddSwapAny.exit ]
-  %139 = getelementptr inbounds i8, ptr %.02138.i, i64 12
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp slt i32 %140, %.02635.i
-  %spec.select.i84 = tail call i32 @llvm.smin.i32(i32 %140, i32 %.02635.i)
-  %spec.select32.i = select i1 %141, i32 %.02436.i, i32 %.02237.i
-  %142 = freeze i32 %spec.select32.i
-  %143 = getelementptr inbounds i8, ptr %.02138.i, i64 16
+139:                                              ; preds = %139, %zddSwapAny.exit
+  %.02137.i = phi ptr [ %.0154.i, %zddSwapAny.exit ], [ %144, %139 ]
+  %.02236.i = phi i32 [ -1, %zddSwapAny.exit ], [ %spec.select32.fr.i, %139 ]
+  %.02435.i = phi i32 [ 0, %zddSwapAny.exit ], [ %145, %139 ]
+  %.02634.i = phi i32 [ %50, %zddSwapAny.exit ], [ %spec.select.i83, %139 ]
+  %140 = getelementptr inbounds i8, ptr %.02137.i, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp slt i32 %141, %.02634.i
+  %spec.select.i83 = tail call i32 @llvm.smin.i32(i32 %141, i32 %.02634.i)
+  %spec.select32.i = select i1 %142, i32 %.02435.i, i32 %.02236.i
+  %spec.select32.fr.i = freeze i32 %spec.select32.i
+  %143 = getelementptr inbounds i8, ptr %.02137.i, i64 16
   %144 = load ptr, ptr %143, align 8
-  %145 = add nuw nsw i32 %.02436.i, 1
+  %145 = add nuw nsw i32 %.02435.i, 1
   %.not.i = icmp eq ptr %144, null
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i83, !llvm.loop !26
+  br i1 %.not.i, label %.preheader.i, label %139, !llvm.loop !26
 
-.lr.ph44.split.i:                                 ; preds = %.preheader.i, %152
-  %.143.i = phi ptr [ %154, %152 ], [ %.0154.i, %.preheader.i ]
-  %146 = load i32, ptr %.143.i, align 8
-  %147 = getelementptr inbounds i8, ptr %.143.i, i64 4
+.lr.ph.split.i:                                   ; preds = %.preheader.i, %152
+  %.139.i = phi ptr [ %154, %152 ], [ %.0154.i, %.preheader.i ]
+  %146 = load i32, ptr %.139.i, align 8
+  %147 = getelementptr inbounds i8, ptr %.139.i, i64 4
   %148 = load i32, ptr %147, align 4
   %149 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %146, i32 noundef %148)
   %.not31.i = icmp eq i32 %149, 0
-  br i1 %.not31.i, label %.lr.ph119.preheader, label %150
+  br i1 %.not31.i, label %.lr.ph117.preheader, label %150
 
-150:                                              ; preds = %.lr.ph44.split.i
-  %151 = icmp eq i32 %149, %spec.select.i84
+150:                                              ; preds = %.lr.ph.split.i
+  %151 = icmp eq i32 %149, %spec.select.i83
   br i1 %151, label %cuddZddSiftingBackward.exit.preheader, label %152
 
 152:                                              ; preds = %150
-  %153 = getelementptr inbounds i8, ptr %.143.i, i64 16
+  %153 = getelementptr inbounds i8, ptr %.139.i, i64 16
   %154 = load ptr, ptr %153, align 8
   %.not30.i = icmp eq ptr %154, null
-  br i1 %.not30.i, label %cuddZddSiftingBackward.exit.preheader, label %.lr.ph44.split.i, !llvm.loop !25
+  br i1 %.not30.i, label %cuddZddSiftingBackward.exit.preheader, label %.lr.ph.split.i, !llvm.loop !25
 
 cuddZddSiftingBackward.exit.preheader:            ; preds = %150, %152, %134, %.preheader.i
   br label %cuddZddSiftingBackward.exit
 
 cuddZddSiftingBackward.exit:                      ; preds = %cuddZddSiftingBackward.exit.preheader, %cuddZddSiftingBackward.exit
-  %.061111 = phi ptr [ %156, %cuddZddSiftingBackward.exit ], [ %.0154.i, %cuddZddSiftingBackward.exit.preheader ]
-  %155 = getelementptr inbounds i8, ptr %.061111, i64 16
+  %.061109 = phi ptr [ %156, %cuddZddSiftingBackward.exit ], [ %.0154.i, %cuddZddSiftingBackward.exit.preheader ]
+  %155 = getelementptr inbounds i8, ptr %.061109, i64 16
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %.061111, i64 4
+  %157 = getelementptr inbounds i8, ptr %.061109, i64 4
   store i32 0, ptr %157, align 4
   %158 = load ptr, ptr %13, align 8
-  %159 = getelementptr inbounds i8, ptr %.061111, i64 8
+  %159 = getelementptr inbounds i8, ptr %.061109, i64 8
   store ptr %158, ptr %159, align 8
-  store ptr %.061111, ptr %13, align 8
+  store ptr %.061109, ptr %13, align 8
   %.not80 = icmp eq ptr %156, null
   br i1 %.not80, label %160, label %cuddZddSiftingBackward.exit, !llvm.loop !27
 
 160:                                              ; preds = %cuddZddSiftingBackward.exit
-  %161 = add nuw i32 %.063113, 1
-  %exitcond136.not = icmp eq i32 %.063113, %5
-  br i1 %exitcond136.not, label %.loopexit, label %16, !llvm.loop !28
+  %161 = add nuw i32 %.063111, 1
+  %exitcond133.not = icmp eq i32 %.063111, %5
+  br i1 %exitcond133.not, label %.loopexit, label %16, !llvm.loop !28
 
-.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
-  %.162118 = phi ptr [ %163, %.lr.ph119 ], [ %.0154.i, %.lr.ph119.preheader ]
-  %162 = getelementptr inbounds i8, ptr %.162118, i64 16
+.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
+  %.162116 = phi ptr [ %163, %.lr.ph117 ], [ %.0154.i, %.lr.ph117.preheader ]
+  %162 = getelementptr inbounds i8, ptr %.162116, i64 16
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %.162118, i64 4
+  %164 = getelementptr inbounds i8, ptr %.162116, i64 4
   store i32 0, ptr %164, align 4
   %165 = load ptr, ptr %13, align 8
-  %166 = getelementptr inbounds i8, ptr %.162118, i64 8
+  %166 = getelementptr inbounds i8, ptr %.162116, i64 8
   store ptr %165, ptr %166, align 8
-  store ptr %.162118, ptr %13, align 8
+  store ptr %.162116, ptr %13, align 8
   %.not81 = icmp eq ptr %163, null
-  br i1 %.not81, label %.loopexit, label %.lr.ph119, !llvm.loop !29
+  br i1 %.not81, label %.loopexit, label %.lr.ph117, !llvm.loop !29
 
-.loopexit:                                        ; preds = %160, %.lr.ph119, %.lr.ph.i, %.loopexit188.i, %4
-  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit188.i ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph119 ], [ 1, %160 ]
+.loopexit:                                        ; preds = %160, %.lr.ph117, %.lr.ph.i, %.loopexit188.i, %4
+  %.0 = phi i32 [ 1, %4 ], [ 0, %.loopexit188.i ], [ 0, %.lr.ph.i ], [ 0, %.lr.ph117 ], [ 1, %160 ]
   ret i32 %.0
 }
 
@@ -1545,7 +1545,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
 .thread66:                                        ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 1, ptr %10, align 8
-  br label %314
+  br label %310
 
 11:                                               ; preds = %3
   %12 = tail call noalias ptr @malloc(i64 noundef %7) #12
@@ -1590,30 +1590,30 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @qsort(ptr noundef nonnull %12, i64 noundef %6, i64 noundef 4, ptr noundef nonnull @cuddZddUniqueCompare) #11
   %31 = getelementptr inbounds i8, ptr %0, i64 456
   %32 = load i32, ptr %31, align 8
-  %.121 = tail call i32 @llvm.smin.i32(i32 %5, i32 %32)
-  %33 = icmp sgt i32 %.121, 0
-  br i1 %33, label %.lr.ph124, label %._crit_edge125
+  %.117 = tail call i32 @llvm.smin.i32(i32 %5, i32 %32)
+  %33 = icmp sgt i32 %.117, 0
+  br i1 %33, label %.lr.ph120, label %._crit_edge121
 
-.lr.ph124:                                        ; preds = %._crit_edge
+.lr.ph120:                                        ; preds = %._crit_edge
   %34 = getelementptr inbounds i8, ptr %0, i64 460
   %35 = getelementptr inbounds i8, ptr %0, i64 320
   %36 = getelementptr inbounds i8, ptr %0, i64 232
   %37 = getelementptr inbounds i8, ptr %0, i64 464
   %38 = getelementptr inbounds i8, ptr %0, i64 400
-  %.not.not49.i117.i = icmp sgt i32 %2, %1
+  %.not.not49.i116.i = icmp sgt i32 %2, %1
   %.not.not49.i.i = icmp slt i32 %1, %2
   br label %39
 
-39:                                               ; preds = %.lr.ph124, %cuddZddSiftingAux.exit
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next180, %cuddZddSiftingAux.exit ]
+39:                                               ; preds = %.lr.ph120, %cuddZddSiftingAux.exit
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next172, %cuddZddSiftingAux.exit ]
   %40 = load i32, ptr @zddTotalNumberSwapping, align 4
   %41 = load i32, ptr %34, align 4
   %.not = icmp slt i32 %40, %41
-  br i1 %.not, label %42, label %._crit_edge125
+  br i1 %.not, label %42, label %._crit_edge121
 
 42:                                               ; preds = %39
   %43 = load ptr, ptr %35, align 8
-  %44 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv179
+  %44 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv171
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i32, ptr %43, i64 %46
@@ -1626,7 +1626,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
 51:                                               ; preds = %42
   %52 = load i32, ptr %36, align 8
   %53 = icmp eq i32 %48, %1
-  br i1 %53, label %54, label %100
+  br i1 %53, label %54, label %99
 
 54:                                               ; preds = %51
   br i1 %.not.not49.i.i, label %.lr.ph.i.i, label %cuddZddSiftingAux.exit.thread
@@ -1661,7 +1661,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %55, i32 %.052.i.i)
   %exitcond.not.i.i = icmp eq i32 %.03953.i.i, %2
   %or.cond.i.i = or i1 %exitcond.not.i.i, %68
-  br i1 %or.cond.i.i, label %.lr.ph.i115.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %or.cond.i.i, label %cuddZddSiftingDown.exit.i, label %.lr.ph.i.i, !llvm.loop !31
 
 69:                                               ; preds = %57, %.lr.ph.i.i
   %.not4556.i.i = icmp eq ptr %.04051.i.i, null
@@ -1680,638 +1680,638 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   %.not45.i.i = icmp eq ptr %71, null
   br i1 %.not45.i.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i.i, !llvm.loop !32
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i115.i
-  switch i32 %87, label %.lr.ph44.split.us.i.i [
+.preheader.i.i:                                   ; preds = %cuddZddSiftingDown.exit.i
+  switch i32 %spec.select32.fr.i.i, label %.lr.ph.split.us.i.i [
     i32 0, label %cuddZddSiftingBackward.exit.thread.i
-    i32 -1, label %.lr.ph44.split.i.i
+    i32 -1, label %.lr.ph.split.i.i
   ]
 
-.lr.ph44.split.us.i.i:                            ; preds = %.preheader.i.i, %79
-  %.143.us.i.i = phi ptr [ %81, %79 ], [ %58, %.preheader.i.i ]
-  %.12542.us.i.i = phi i32 [ %82, %79 ], [ 0, %.preheader.i.i ]
-  %75 = load i32, ptr %.143.us.i.i, align 8
-  %76 = getelementptr inbounds i8, ptr %.143.us.i.i, i64 4
+.lr.ph.split.us.i.i:                              ; preds = %.preheader.i.i, %79
+  %.139.us.i.i = phi ptr [ %81, %79 ], [ %58, %.preheader.i.i ]
+  %.12538.us.i.i = phi i32 [ %82, %79 ], [ 0, %.preheader.i.i ]
+  %75 = load i32, ptr %.139.us.i.i, align 8
+  %76 = getelementptr inbounds i8, ptr %.139.us.i.i, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %75, i32 noundef %77)
   %.not31.us.i.i = icmp eq i32 %78, 0
-  br i1 %.not31.us.i.i, label %.lr.ph317.i, label %79
+  br i1 %.not31.us.i.i, label %.lr.ph306.i, label %79
 
-79:                                               ; preds = %.lr.ph44.split.us.i.i
-  %80 = getelementptr inbounds i8, ptr %.143.us.i.i, i64 16
+79:                                               ; preds = %.lr.ph.split.us.i.i
+  %80 = getelementptr inbounds i8, ptr %.139.us.i.i, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = add nuw nsw i32 %.12542.us.i.i, 1
+  %82 = add nuw nsw i32 %.12538.us.i.i, 1
   %.not30.us.i.i = icmp eq ptr %81, null
-  %83 = icmp eq i32 %82, %87
+  %83 = icmp eq i32 %82, %spec.select32.fr.i.i
   %or.cond.us.i.i = select i1 %.not30.us.i.i, i1 true, i1 %83
-  br i1 %or.cond.us.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.us.i.i, !llvm.loop !25
+  br i1 %or.cond.us.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i.i, !llvm.loop !25
 
-.lr.ph.i115.i:                                    ; preds = %60, %.lr.ph.i115.i
-  %.02138.i.i = phi ptr [ %89, %.lr.ph.i115.i ], [ %58, %60 ]
-  %.02237.i.i = phi i32 [ %87, %.lr.ph.i115.i ], [ -1, %60 ]
-  %.02436.i.i = phi i32 [ %90, %.lr.ph.i115.i ], [ 0, %60 ]
-  %.02635.i.i = phi i32 [ %spec.select.i116.i, %.lr.ph.i115.i ], [ %52, %60 ]
-  %84 = getelementptr inbounds i8, ptr %.02138.i.i, i64 12
+cuddZddSiftingDown.exit.i:                        ; preds = %60, %cuddZddSiftingDown.exit.i
+  %.02137.i.i = phi ptr [ %88, %cuddZddSiftingDown.exit.i ], [ %58, %60 ]
+  %.02236.i.i = phi i32 [ %spec.select32.fr.i.i, %cuddZddSiftingDown.exit.i ], [ -1, %60 ]
+  %.02435.i.i = phi i32 [ %89, %cuddZddSiftingDown.exit.i ], [ 0, %60 ]
+  %.02634.i.i = phi i32 [ %spec.select.i115.i, %cuddZddSiftingDown.exit.i ], [ %52, %60 ]
+  %84 = getelementptr inbounds i8, ptr %.02137.i.i, i64 12
   %85 = load i32, ptr %84, align 4
-  %86 = icmp slt i32 %85, %.02635.i.i
-  %spec.select.i116.i = tail call i32 @llvm.smin.i32(i32 %85, i32 %.02635.i.i)
-  %spec.select32.i.i = select i1 %86, i32 %.02436.i.i, i32 %.02237.i.i
-  %87 = freeze i32 %spec.select32.i.i
-  %88 = getelementptr inbounds i8, ptr %.02138.i.i, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = add nuw nsw i32 %.02436.i.i, 1
-  %.not.i.i = icmp eq ptr %89, null
-  br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph.i115.i, !llvm.loop !26
+  %86 = icmp slt i32 %85, %.02634.i.i
+  %spec.select.i115.i = tail call i32 @llvm.smin.i32(i32 %85, i32 %.02634.i.i)
+  %spec.select32.i.i = select i1 %86, i32 %.02435.i.i, i32 %.02236.i.i
+  %spec.select32.fr.i.i = freeze i32 %spec.select32.i.i
+  %87 = getelementptr inbounds i8, ptr %.02137.i.i, i64 16
+  %88 = load ptr, ptr %87, align 8
+  %89 = add nuw nsw i32 %.02435.i.i, 1
+  %.not.i.i = icmp eq ptr %88, null
+  br i1 %.not.i.i, label %.preheader.i.i, label %cuddZddSiftingDown.exit.i, !llvm.loop !26
 
-.lr.ph44.split.i.i:                               ; preds = %.preheader.i.i, %97
-  %.143.i.i = phi ptr [ %99, %97 ], [ %58, %.preheader.i.i ]
-  %91 = load i32, ptr %.143.i.i, align 8
-  %92 = getelementptr inbounds i8, ptr %.143.i.i, i64 4
-  %93 = load i32, ptr %92, align 4
-  %94 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %91, i32 noundef %93)
-  %.not31.i.i = icmp eq i32 %94, 0
-  br i1 %.not31.i.i, label %.lr.ph317.i, label %95
+.lr.ph.split.i.i:                                 ; preds = %.preheader.i.i, %96
+  %.139.i.i = phi ptr [ %98, %96 ], [ %58, %.preheader.i.i ]
+  %90 = load i32, ptr %.139.i.i, align 8
+  %91 = getelementptr inbounds i8, ptr %.139.i.i, i64 4
+  %92 = load i32, ptr %91, align 4
+  %93 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %90, i32 noundef %92)
+  %.not31.i.i = icmp eq i32 %93, 0
+  br i1 %.not31.i.i, label %.lr.ph306.i, label %94
 
-95:                                               ; preds = %.lr.ph44.split.i.i
-  %96 = icmp eq i32 %94, %spec.select.i116.i
-  br i1 %96, label %cuddZddSiftingBackward.exit.thread.i, label %97
+94:                                               ; preds = %.lr.ph.split.i.i
+  %95 = icmp eq i32 %93, %spec.select.i115.i
+  br i1 %95, label %cuddZddSiftingBackward.exit.thread.i, label %96
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %.143.i.i, i64 16
-  %99 = load ptr, ptr %98, align 8
-  %.not30.i.i = icmp eq ptr %99, null
-  br i1 %.not30.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.i.i, !llvm.loop !25
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds i8, ptr %.139.i.i, i64 16
+  %98 = load ptr, ptr %97, align 8
+  %.not30.i.i = icmp eq ptr %98, null
+  br i1 %.not30.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !25
 
-100:                                              ; preds = %51
-  %101 = icmp eq i32 %48, %2
-  br i1 %101, label %102, label %148
+99:                                               ; preds = %51
+  %100 = icmp eq i32 %48, %2
+  br i1 %100, label %101, label %146
 
-102:                                              ; preds = %100
-  br i1 %.not.not49.i117.i, label %.lr.ph.i119.i, label %cuddZddSiftingAux.exit.thread
+101:                                              ; preds = %99
+  br i1 %.not.not49.i116.i, label %.lr.ph.i118.i, label %cuddZddSiftingAux.exit.thread
 
-.lr.ph.i119.i:                                    ; preds = %102, %108
-  %.052.i120.i = phi i32 [ %spec.select.i124.i, %108 ], [ %52, %102 ]
-  %.04051.i121.i = phi ptr [ %106, %108 ], [ null, %102 ]
-  %.04250.i122.i = phi i32 [ %.03953.i123.i, %108 ], [ %2, %102 ]
-  %.03953.i123.i = add nsw i32 %.04250.i122.i, -1
-  %103 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i123.i, i32 noundef %.04250.i122.i)
-  %104 = icmp eq i32 %103, 0
-  br i1 %104, label %117, label %105
+.lr.ph.i118.i:                                    ; preds = %101, %107
+  %.052.i119.i = phi i32 [ %spec.select.i123.i, %107 ], [ %52, %101 ]
+  %.04051.i120.i = phi ptr [ %105, %107 ], [ null, %101 ]
+  %.04250.i121.i = phi i32 [ %.03953.i122.i, %107 ], [ %2, %101 ]
+  %.03953.i122.i = add nsw i32 %.04250.i121.i, -1
+  %102 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i122.i, i32 noundef %.04250.i121.i)
+  %103 = icmp eq i32 %102, 0
+  br i1 %103, label %116, label %104
 
-105:                                              ; preds = %.lr.ph.i119.i
-  %106 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %117, label %108
+104:                                              ; preds = %.lr.ph.i118.i
+  %105 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %116, label %107
 
-108:                                              ; preds = %105
-  store i32 %.03953.i123.i, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %106, i64 4
-  store i32 %.04250.i122.i, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %106, i64 12
-  store i32 %103, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %106, i64 16
-  store ptr %.04051.i121.i, ptr %111, align 8
-  %112 = sitofp i32 %103 to double
-  %113 = sitofp i32 %.052.i120.i to double
-  %114 = load double, ptr %37, align 8
-  %115 = fmul double %114, %113
-  %116 = fcmp uge double %115, %112
-  %spec.select.i124.i = tail call i32 @llvm.smin.i32(i32 %103, i32 %.052.i120.i)
-  %.not.not.i.i = icmp sgt i32 %.03953.i123.i, %1
-  %or.cond.i125.i = and i1 %.not.not.i.i, %116
-  br i1 %or.cond.i125.i, label %.lr.ph.i119.i, label %.lr.ph.i131.i, !llvm.loop !33
+107:                                              ; preds = %104
+  store i32 %.03953.i122.i, ptr %105, align 8
+  %108 = getelementptr inbounds i8, ptr %105, i64 4
+  store i32 %.04250.i121.i, ptr %108, align 4
+  %109 = getelementptr inbounds i8, ptr %105, i64 12
+  store i32 %102, ptr %109, align 4
+  %110 = getelementptr inbounds i8, ptr %105, i64 16
+  store ptr %.04051.i120.i, ptr %110, align 8
+  %111 = sitofp i32 %102 to double
+  %112 = sitofp i32 %.052.i119.i to double
+  %113 = load double, ptr %37, align 8
+  %114 = fmul double %113, %112
+  %115 = fcmp uge double %114, %111
+  %spec.select.i123.i = tail call i32 @llvm.smin.i32(i32 %102, i32 %.052.i119.i)
+  %.not.not.i.i = icmp sgt i32 %.03953.i122.i, %1
+  %or.cond.i124.i = and i1 %.not.not.i.i, %115
+  br i1 %or.cond.i124.i, label %.lr.ph.i118.i, label %cuddZddSiftingUp.exit.i, !llvm.loop !33
 
-117:                                              ; preds = %105, %.lr.ph.i119.i
-  %.not4556.i126.i = icmp eq ptr %.04051.i121.i, null
-  br i1 %.not4556.i126.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i127.i
+116:                                              ; preds = %104, %.lr.ph.i118.i
+  %.not4556.i125.i = icmp eq ptr %.04051.i120.i, null
+  br i1 %.not4556.i125.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i126.i
 
-.lr.ph58.i127.i:                                  ; preds = %117, %.lr.ph58.i127.i
-  %.257.i128.i = phi ptr [ %119, %.lr.ph58.i127.i ], [ %.04051.i121.i, %117 ]
-  %118 = getelementptr inbounds i8, ptr %.257.i128.i, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %.257.i128.i, i64 4
-  store i32 0, ptr %120, align 4
-  %121 = load ptr, ptr %38, align 8
-  %122 = getelementptr inbounds i8, ptr %.257.i128.i, i64 8
-  store ptr %121, ptr %122, align 8
-  store ptr %.257.i128.i, ptr %38, align 8
-  %.not45.i129.i = icmp eq ptr %119, null
-  br i1 %.not45.i129.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i127.i, !llvm.loop !34
+.lr.ph58.i126.i:                                  ; preds = %116, %.lr.ph58.i126.i
+  %.257.i127.i = phi ptr [ %118, %.lr.ph58.i126.i ], [ %.04051.i120.i, %116 ]
+  %117 = getelementptr inbounds i8, ptr %.257.i127.i, i64 16
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %.257.i127.i, i64 4
+  store i32 0, ptr %119, align 4
+  %120 = load ptr, ptr %38, align 8
+  %121 = getelementptr inbounds i8, ptr %.257.i127.i, i64 8
+  store ptr %120, ptr %121, align 8
+  store ptr %.257.i127.i, ptr %38, align 8
+  %.not45.i128.i = icmp eq ptr %118, null
+  br i1 %.not45.i128.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i126.i, !llvm.loop !34
 
-.preheader.i139.i:                                ; preds = %.lr.ph.i131.i
-  switch i32 %135, label %.lr.ph44.split.us.i141.i [
-    i32 0, label %.preheader273.i
-    i32 -1, label %.lr.ph44.split.i148.i
+.preheader.i137.i:                                ; preds = %cuddZddSiftingUp.exit.i
+  switch i32 %spec.select32.fr.i135.i, label %.lr.ph.split.us.i143.i [
+    i32 0, label %.preheader266.i
+    i32 -1, label %.lr.ph.split.i138.i
   ]
 
-.lr.ph44.split.us.i141.i:                         ; preds = %.preheader.i139.i, %127
-  %.143.us.i142.i = phi ptr [ %129, %127 ], [ %106, %.preheader.i139.i ]
-  %.12542.us.i143.i = phi i32 [ %130, %127 ], [ 0, %.preheader.i139.i ]
-  %123 = load i32, ptr %.143.us.i142.i, align 8
-  %124 = getelementptr inbounds i8, ptr %.143.us.i142.i, i64 4
-  %125 = load i32, ptr %124, align 4
-  %126 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %123, i32 noundef %125)
-  %.not31.us.i144.i = icmp eq i32 %126, 0
-  br i1 %.not31.us.i144.i, label %.preheader.i, label %127
+.lr.ph.split.us.i143.i:                           ; preds = %.preheader.i137.i, %126
+  %.139.us.i144.i = phi ptr [ %128, %126 ], [ %105, %.preheader.i137.i ]
+  %.12538.us.i145.i = phi i32 [ %129, %126 ], [ 0, %.preheader.i137.i ]
+  %122 = load i32, ptr %.139.us.i144.i, align 8
+  %123 = getelementptr inbounds i8, ptr %.139.us.i144.i, i64 4
+  %124 = load i32, ptr %123, align 4
+  %125 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %122, i32 noundef %124)
+  %.not31.us.i146.i = icmp eq i32 %125, 0
+  br i1 %.not31.us.i146.i, label %.preheader.i, label %126
 
-127:                                              ; preds = %.lr.ph44.split.us.i141.i
-  %128 = getelementptr inbounds i8, ptr %.143.us.i142.i, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %130 = add nuw nsw i32 %.12542.us.i143.i, 1
-  %.not30.us.i145.i = icmp eq ptr %129, null
-  %131 = icmp eq i32 %130, %135
-  %or.cond.us.i146.i = select i1 %.not30.us.i145.i, i1 true, i1 %131
-  br i1 %or.cond.us.i146.i, label %.preheader273.i, label %.lr.ph44.split.us.i141.i, !llvm.loop !25
+126:                                              ; preds = %.lr.ph.split.us.i143.i
+  %127 = getelementptr inbounds i8, ptr %.139.us.i144.i, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = add nuw nsw i32 %.12538.us.i145.i, 1
+  %.not30.us.i147.i = icmp eq ptr %128, null
+  %130 = icmp eq i32 %129, %spec.select32.fr.i135.i
+  %or.cond.us.i148.i = select i1 %.not30.us.i147.i, i1 true, i1 %130
+  br i1 %or.cond.us.i148.i, label %.preheader266.i, label %.lr.ph.split.us.i143.i, !llvm.loop !25
 
-.lr.ph.i131.i:                                    ; preds = %108, %.lr.ph.i131.i
-  %.02138.i132.i = phi ptr [ %137, %.lr.ph.i131.i ], [ %106, %108 ]
-  %.02237.i133.i = phi i32 [ %135, %.lr.ph.i131.i ], [ -1, %108 ]
-  %.02436.i134.i = phi i32 [ %138, %.lr.ph.i131.i ], [ 0, %108 ]
-  %.02635.i135.i = phi i32 [ %spec.select.i136.i, %.lr.ph.i131.i ], [ %52, %108 ]
-  %132 = getelementptr inbounds i8, ptr %.02138.i132.i, i64 12
-  %133 = load i32, ptr %132, align 4
-  %134 = icmp slt i32 %133, %.02635.i135.i
-  %spec.select.i136.i = tail call i32 @llvm.smin.i32(i32 %133, i32 %.02635.i135.i)
-  %spec.select32.i137.i = select i1 %134, i32 %.02436.i134.i, i32 %.02237.i133.i
-  %135 = freeze i32 %spec.select32.i137.i
-  %136 = getelementptr inbounds i8, ptr %.02138.i132.i, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = add nuw nsw i32 %.02436.i134.i, 1
-  %.not.i138.i = icmp eq ptr %137, null
-  br i1 %.not.i138.i, label %.preheader.i139.i, label %.lr.ph.i131.i, !llvm.loop !26
+cuddZddSiftingUp.exit.i:                          ; preds = %107, %cuddZddSiftingUp.exit.i
+  %.02137.i129.i = phi ptr [ %135, %cuddZddSiftingUp.exit.i ], [ %105, %107 ]
+  %.02236.i130.i = phi i32 [ %spec.select32.fr.i135.i, %cuddZddSiftingUp.exit.i ], [ -1, %107 ]
+  %.02435.i131.i = phi i32 [ %136, %cuddZddSiftingUp.exit.i ], [ 0, %107 ]
+  %.02634.i132.i = phi i32 [ %spec.select.i133.i, %cuddZddSiftingUp.exit.i ], [ %52, %107 ]
+  %131 = getelementptr inbounds i8, ptr %.02137.i129.i, i64 12
+  %132 = load i32, ptr %131, align 4
+  %133 = icmp slt i32 %132, %.02634.i132.i
+  %spec.select.i133.i = tail call i32 @llvm.smin.i32(i32 %132, i32 %.02634.i132.i)
+  %spec.select32.i134.i = select i1 %133, i32 %.02435.i131.i, i32 %.02236.i130.i
+  %spec.select32.fr.i135.i = freeze i32 %spec.select32.i134.i
+  %134 = getelementptr inbounds i8, ptr %.02137.i129.i, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = add nuw nsw i32 %.02435.i131.i, 1
+  %.not.i136.i = icmp eq ptr %135, null
+  br i1 %.not.i136.i, label %.preheader.i137.i, label %cuddZddSiftingUp.exit.i, !llvm.loop !26
 
-.lr.ph44.split.i148.i:                            ; preds = %.preheader.i139.i, %145
-  %.143.i149.i = phi ptr [ %147, %145 ], [ %106, %.preheader.i139.i ]
-  %139 = load i32, ptr %.143.i149.i, align 8
-  %140 = getelementptr inbounds i8, ptr %.143.i149.i, i64 4
-  %141 = load i32, ptr %140, align 4
-  %142 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %139, i32 noundef %141)
-  %.not31.i150.i = icmp eq i32 %142, 0
-  br i1 %.not31.i150.i, label %.preheader.i, label %143
+.lr.ph.split.i138.i:                              ; preds = %.preheader.i137.i, %143
+  %.139.i139.i = phi ptr [ %145, %143 ], [ %105, %.preheader.i137.i ]
+  %137 = load i32, ptr %.139.i139.i, align 8
+  %138 = getelementptr inbounds i8, ptr %.139.i139.i, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %137, i32 noundef %139)
+  %.not31.i140.i = icmp eq i32 %140, 0
+  br i1 %.not31.i140.i, label %.preheader.i, label %141
 
-143:                                              ; preds = %.lr.ph44.split.i148.i
-  %144 = icmp eq i32 %142, %spec.select.i136.i
-  br i1 %144, label %.preheader273.i, label %145
+141:                                              ; preds = %.lr.ph.split.i138.i
+  %142 = icmp eq i32 %140, %spec.select.i133.i
+  br i1 %142, label %.preheader266.i, label %143
 
-145:                                              ; preds = %143
-  %146 = getelementptr inbounds i8, ptr %.143.i149.i, i64 16
-  %147 = load ptr, ptr %146, align 8
-  %.not30.i151.i = icmp eq ptr %147, null
-  br i1 %.not30.i151.i, label %.preheader273.i, label %.lr.ph44.split.i148.i, !llvm.loop !25
+143:                                              ; preds = %141
+  %144 = getelementptr inbounds i8, ptr %.139.i139.i, i64 16
+  %145 = load ptr, ptr %144, align 8
+  %.not30.i141.i = icmp eq ptr %145, null
+  br i1 %.not30.i141.i, label %.preheader266.i, label %.lr.ph.split.i138.i, !llvm.loop !25
 
-148:                                              ; preds = %100
-  %149 = sub nsw i32 %48, %1
-  %150 = sub nsw i32 %2, %48
-  %151 = icmp sgt i32 %149, %150
-  br i1 %151, label %152, label %218
+146:                                              ; preds = %99
+  %147 = sub nsw i32 %48, %1
+  %148 = sub nsw i32 %2, %48
+  %149 = icmp sgt i32 %147, %148
+  br i1 %149, label %150, label %215
 
-152:                                              ; preds = %148
-  %.not.not49.i153.i = icmp slt i32 %48, %2
-  br i1 %.not.not49.i153.i, label %.lr.ph.i155.i, label %cuddZddSiftingAux.exit.thread
+150:                                              ; preds = %146
+  %.not.not49.i150.i = icmp slt i32 %48, %2
+  br i1 %.not.not49.i150.i, label %.lr.ph.i152.i, label %cuddZddSiftingAux.exit.thread
 
-.lr.ph.i155.i:                                    ; preds = %152, %158
-  %.052.i156.i = phi i32 [ %spec.select.i160.i, %158 ], [ %52, %152 ]
-  %.04051.i157.i = phi ptr [ %156, %158 ], [ null, %152 ]
-  %.04250.i158.i = phi i32 [ %.03953.i159.i, %158 ], [ %48, %152 ]
-  %.03953.i159.i = add nsw i32 %.04250.i158.i, 1
-  %153 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.04250.i158.i, i32 noundef %.03953.i159.i)
-  %154 = icmp eq i32 %153, 0
-  br i1 %154, label %167, label %155
+.lr.ph.i152.i:                                    ; preds = %150, %156
+  %.052.i153.i = phi i32 [ %spec.select.i157.i, %156 ], [ %52, %150 ]
+  %.04051.i154.i = phi ptr [ %154, %156 ], [ null, %150 ]
+  %.04250.i155.i = phi i32 [ %.03953.i156.i, %156 ], [ %48, %150 ]
+  %.03953.i156.i = add nsw i32 %.04250.i155.i, 1
+  %151 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.04250.i155.i, i32 noundef %.03953.i156.i)
+  %152 = icmp eq i32 %151, 0
+  br i1 %152, label %165, label %153
 
-155:                                              ; preds = %.lr.ph.i155.i
-  %156 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %167, label %158
+153:                                              ; preds = %.lr.ph.i152.i
+  %154 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %155 = icmp eq ptr %154, null
+  br i1 %155, label %165, label %156
 
-158:                                              ; preds = %155
-  store i32 %.04250.i158.i, ptr %156, align 8
-  %159 = getelementptr inbounds i8, ptr %156, i64 4
-  store i32 %.03953.i159.i, ptr %159, align 4
-  %160 = getelementptr inbounds i8, ptr %156, i64 12
-  store i32 %153, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %156, i64 16
-  store ptr %.04051.i157.i, ptr %161, align 8
-  %162 = sitofp i32 %153 to double
-  %163 = sitofp i32 %.052.i156.i to double
-  %164 = load double, ptr %37, align 8
-  %165 = fmul double %164, %163
-  %166 = fcmp olt double %165, %162
-  %spec.select.i160.i = tail call i32 @llvm.smin.i32(i32 %153, i32 %.052.i156.i)
-  %exitcond.not.i161.i = icmp eq i32 %.03953.i159.i, %2
-  %or.cond.i162.i = or i1 %exitcond.not.i161.i, %166
-  br i1 %or.cond.i162.i, label %cuddZddSiftingDown.exit167.i, label %.lr.ph.i155.i, !llvm.loop !31
+156:                                              ; preds = %153
+  store i32 %.04250.i155.i, ptr %154, align 8
+  %157 = getelementptr inbounds i8, ptr %154, i64 4
+  store i32 %.03953.i156.i, ptr %157, align 4
+  %158 = getelementptr inbounds i8, ptr %154, i64 12
+  store i32 %151, ptr %158, align 4
+  %159 = getelementptr inbounds i8, ptr %154, i64 16
+  store ptr %.04051.i154.i, ptr %159, align 8
+  %160 = sitofp i32 %151 to double
+  %161 = sitofp i32 %.052.i153.i to double
+  %162 = load double, ptr %37, align 8
+  %163 = fmul double %162, %161
+  %164 = fcmp olt double %163, %160
+  %spec.select.i157.i = tail call i32 @llvm.smin.i32(i32 %151, i32 %.052.i153.i)
+  %exitcond.not.i158.i = icmp eq i32 %.03953.i156.i, %2
+  %or.cond.i159.i = or i1 %exitcond.not.i158.i, %164
+  br i1 %or.cond.i159.i, label %cuddZddSiftingDown.exit164.i, label %.lr.ph.i152.i, !llvm.loop !31
 
-167:                                              ; preds = %155, %.lr.ph.i155.i
-  %.not4556.i163.i = icmp eq ptr %.04051.i157.i, null
-  br i1 %.not4556.i163.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i164.i
+165:                                              ; preds = %153, %.lr.ph.i152.i
+  %.not4556.i160.i = icmp eq ptr %.04051.i154.i, null
+  br i1 %.not4556.i160.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i161.i
 
-.lr.ph58.i164.i:                                  ; preds = %167, %.lr.ph58.i164.i
-  %.257.i165.i = phi ptr [ %169, %.lr.ph58.i164.i ], [ %.04051.i157.i, %167 ]
-  %168 = getelementptr inbounds i8, ptr %.257.i165.i, i64 16
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %.257.i165.i, i64 4
-  store i32 0, ptr %170, align 4
-  %171 = load ptr, ptr %38, align 8
-  %172 = getelementptr inbounds i8, ptr %.257.i165.i, i64 8
-  store ptr %171, ptr %172, align 8
-  store ptr %.257.i165.i, ptr %38, align 8
-  %.not45.i166.i = icmp eq ptr %169, null
-  br i1 %.not45.i166.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i164.i, !llvm.loop !32
+.lr.ph58.i161.i:                                  ; preds = %165, %.lr.ph58.i161.i
+  %.257.i162.i = phi ptr [ %167, %.lr.ph58.i161.i ], [ %.04051.i154.i, %165 ]
+  %166 = getelementptr inbounds i8, ptr %.257.i162.i, i64 16
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %.257.i162.i, i64 4
+  store i32 0, ptr %168, align 4
+  %169 = load ptr, ptr %38, align 8
+  %170 = getelementptr inbounds i8, ptr %.257.i162.i, i64 8
+  store ptr %169, ptr %170, align 8
+  store ptr %.257.i162.i, ptr %38, align 8
+  %.not45.i163.i = icmp eq ptr %167, null
+  br i1 %.not45.i163.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i161.i, !llvm.loop !32
 
-cuddZddSiftingDown.exit167.i:                     ; preds = %158
-  %.not.not49.i168.not.i = icmp slt i32 %.04250.i158.i, %1
-  br i1 %.not.not49.i168.not.i, label %.lr.ph317.i, label %.lr.ph.i170.i
+cuddZddSiftingDown.exit164.i:                     ; preds = %156
+  %.not.not49.i165.not.i = icmp slt i32 %.04250.i155.i, %1
+  br i1 %.not.not49.i165.not.i, label %.lr.ph306.i, label %.lr.ph.i167.i
 
-.lr.ph.i170.i:                                    ; preds = %cuddZddSiftingDown.exit167.i, %178
-  %.052.i171.i = phi i32 [ %spec.select.i175.i, %178 ], [ %52, %cuddZddSiftingDown.exit167.i ]
-  %.04051.i172.i = phi ptr [ %176, %178 ], [ null, %cuddZddSiftingDown.exit167.i ]
-  %.04250.i173.i = phi i32 [ %.03953.i174.i, %178 ], [ %.03953.i159.i, %cuddZddSiftingDown.exit167.i ]
-  %.03953.i174.i = add nsw i32 %.04250.i173.i, -1
-  %173 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i174.i, i32 noundef %.04250.i173.i)
-  %174 = icmp eq i32 %173, 0
-  br i1 %174, label %187, label %175
+.lr.ph.i167.i:                                    ; preds = %cuddZddSiftingDown.exit164.i, %176
+  %.052.i168.i = phi i32 [ %spec.select.i172.i, %176 ], [ %52, %cuddZddSiftingDown.exit164.i ]
+  %.04051.i169.i = phi ptr [ %174, %176 ], [ null, %cuddZddSiftingDown.exit164.i ]
+  %.04250.i170.i = phi i32 [ %.03953.i171.i, %176 ], [ %.03953.i156.i, %cuddZddSiftingDown.exit164.i ]
+  %.03953.i171.i = add nsw i32 %.04250.i170.i, -1
+  %171 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i171.i, i32 noundef %.04250.i170.i)
+  %172 = icmp eq i32 %171, 0
+  br i1 %172, label %185, label %173
 
-175:                                              ; preds = %.lr.ph.i170.i
-  %176 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
-  %177 = icmp eq ptr %176, null
-  br i1 %177, label %187, label %178
+173:                                              ; preds = %.lr.ph.i167.i
+  %174 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %185, label %176
 
-178:                                              ; preds = %175
-  store i32 %.03953.i174.i, ptr %176, align 8
-  %179 = getelementptr inbounds i8, ptr %176, i64 4
-  store i32 %.04250.i173.i, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %176, i64 12
-  store i32 %173, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %176, i64 16
-  store ptr %.04051.i172.i, ptr %181, align 8
-  %182 = sitofp i32 %173 to double
-  %183 = sitofp i32 %.052.i171.i to double
-  %184 = load double, ptr %37, align 8
-  %185 = fmul double %184, %183
-  %186 = fcmp uge double %185, %182
-  %spec.select.i175.i = tail call i32 @llvm.smin.i32(i32 %173, i32 %.052.i171.i)
-  %.not.not.i176.i = icmp sgt i32 %.03953.i174.i, %1
-  %or.cond.i177.i = and i1 %.not.not.i176.i, %186
-  br i1 %or.cond.i177.i, label %.lr.ph.i170.i, label %.lr.ph.i184.i, !llvm.loop !33
+176:                                              ; preds = %173
+  store i32 %.03953.i171.i, ptr %174, align 8
+  %177 = getelementptr inbounds i8, ptr %174, i64 4
+  store i32 %.04250.i170.i, ptr %177, align 4
+  %178 = getelementptr inbounds i8, ptr %174, i64 12
+  store i32 %171, ptr %178, align 4
+  %179 = getelementptr inbounds i8, ptr %174, i64 16
+  store ptr %.04051.i169.i, ptr %179, align 8
+  %180 = sitofp i32 %171 to double
+  %181 = sitofp i32 %.052.i168.i to double
+  %182 = load double, ptr %37, align 8
+  %183 = fmul double %182, %181
+  %184 = fcmp uge double %183, %180
+  %spec.select.i172.i = tail call i32 @llvm.smin.i32(i32 %171, i32 %.052.i168.i)
+  %.not.not.i173.i = icmp sgt i32 %.03953.i171.i, %1
+  %or.cond.i174.i = and i1 %.not.not.i173.i, %184
+  br i1 %or.cond.i174.i, label %.lr.ph.i167.i, label %cuddZddSiftingUp.exit179.i, !llvm.loop !33
 
-187:                                              ; preds = %175, %.lr.ph.i170.i
-  %.not4556.i178.i = icmp eq ptr %.04051.i172.i, null
-  br i1 %.not4556.i178.i, label %.lr.ph317.i, label %.lr.ph58.i179.i
+185:                                              ; preds = %173, %.lr.ph.i167.i
+  %.not4556.i175.i = icmp eq ptr %.04051.i169.i, null
+  br i1 %.not4556.i175.i, label %.lr.ph306.i, label %.lr.ph58.i176.i
 
-.lr.ph58.i179.i:                                  ; preds = %187, %.lr.ph58.i179.i
-  %.257.i180.i = phi ptr [ %189, %.lr.ph58.i179.i ], [ %.04051.i172.i, %187 ]
-  %188 = getelementptr inbounds i8, ptr %.257.i180.i, i64 16
-  %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %.257.i180.i, i64 4
-  store i32 0, ptr %190, align 4
-  %191 = load ptr, ptr %38, align 8
-  %192 = getelementptr inbounds i8, ptr %.257.i180.i, i64 8
-  store ptr %191, ptr %192, align 8
-  store ptr %.257.i180.i, ptr %38, align 8
-  %.not45.i181.i = icmp eq ptr %189, null
-  br i1 %.not45.i181.i, label %.lr.ph317.i, label %.lr.ph58.i179.i, !llvm.loop !34
+.lr.ph58.i176.i:                                  ; preds = %185, %.lr.ph58.i176.i
+  %.257.i177.i = phi ptr [ %187, %.lr.ph58.i176.i ], [ %.04051.i169.i, %185 ]
+  %186 = getelementptr inbounds i8, ptr %.257.i177.i, i64 16
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds i8, ptr %.257.i177.i, i64 4
+  store i32 0, ptr %188, align 4
+  %189 = load ptr, ptr %38, align 8
+  %190 = getelementptr inbounds i8, ptr %.257.i177.i, i64 8
+  store ptr %189, ptr %190, align 8
+  store ptr %.257.i177.i, ptr %38, align 8
+  %.not45.i178.i = icmp eq ptr %187, null
+  br i1 %.not45.i178.i, label %.lr.ph306.i, label %.lr.ph58.i176.i, !llvm.loop !34
 
-.preheader.i192.i:                                ; preds = %.lr.ph.i184.i
-  switch i32 %205, label %.lr.ph44.split.us.i194.i [
+.preheader.i188.i:                                ; preds = %cuddZddSiftingUp.exit179.i
+  switch i32 %spec.select32.fr.i186.i, label %.lr.ph.split.us.i194.i [
     i32 0, label %cuddZddSiftingBackward.exit.thread.i
-    i32 -1, label %.lr.ph44.split.i201.i
+    i32 -1, label %.lr.ph.split.i189.i
   ]
 
-.lr.ph44.split.us.i194.i:                         ; preds = %.preheader.i192.i, %197
-  %.143.us.i195.i = phi ptr [ %199, %197 ], [ %176, %.preheader.i192.i ]
-  %.12542.us.i196.i = phi i32 [ %200, %197 ], [ 0, %.preheader.i192.i ]
-  %193 = load i32, ptr %.143.us.i195.i, align 8
-  %194 = getelementptr inbounds i8, ptr %.143.us.i195.i, i64 4
-  %195 = load i32, ptr %194, align 4
-  %196 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %193, i32 noundef %195)
-  %.not31.us.i197.i = icmp eq i32 %196, 0
-  br i1 %.not31.us.i197.i, label %.lr.ph317.i, label %197
+.lr.ph.split.us.i194.i:                           ; preds = %.preheader.i188.i, %195
+  %.139.us.i195.i = phi ptr [ %197, %195 ], [ %174, %.preheader.i188.i ]
+  %.12538.us.i196.i = phi i32 [ %198, %195 ], [ 0, %.preheader.i188.i ]
+  %191 = load i32, ptr %.139.us.i195.i, align 8
+  %192 = getelementptr inbounds i8, ptr %.139.us.i195.i, i64 4
+  %193 = load i32, ptr %192, align 4
+  %194 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %191, i32 noundef %193)
+  %.not31.us.i197.i = icmp eq i32 %194, 0
+  br i1 %.not31.us.i197.i, label %.lr.ph306.i, label %195
 
-197:                                              ; preds = %.lr.ph44.split.us.i194.i
-  %198 = getelementptr inbounds i8, ptr %.143.us.i195.i, i64 16
-  %199 = load ptr, ptr %198, align 8
-  %200 = add nuw nsw i32 %.12542.us.i196.i, 1
-  %.not30.us.i198.i = icmp eq ptr %199, null
-  %201 = icmp eq i32 %200, %205
-  %or.cond.us.i199.i = select i1 %.not30.us.i198.i, i1 true, i1 %201
-  br i1 %or.cond.us.i199.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.us.i194.i, !llvm.loop !25
+195:                                              ; preds = %.lr.ph.split.us.i194.i
+  %196 = getelementptr inbounds i8, ptr %.139.us.i195.i, i64 16
+  %197 = load ptr, ptr %196, align 8
+  %198 = add nuw nsw i32 %.12538.us.i196.i, 1
+  %.not30.us.i198.i = icmp eq ptr %197, null
+  %199 = icmp eq i32 %198, %spec.select32.fr.i186.i
+  %or.cond.us.i199.i = select i1 %.not30.us.i198.i, i1 true, i1 %199
+  br i1 %or.cond.us.i199.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i194.i, !llvm.loop !25
 
-.lr.ph.i184.i:                                    ; preds = %178, %.lr.ph.i184.i
-  %.02138.i185.i = phi ptr [ %207, %.lr.ph.i184.i ], [ %176, %178 ]
-  %.02237.i186.i = phi i32 [ %205, %.lr.ph.i184.i ], [ -1, %178 ]
-  %.02436.i187.i = phi i32 [ %208, %.lr.ph.i184.i ], [ 0, %178 ]
-  %.02635.i188.i = phi i32 [ %spec.select.i189.i, %.lr.ph.i184.i ], [ %52, %178 ]
-  %202 = getelementptr inbounds i8, ptr %.02138.i185.i, i64 12
-  %203 = load i32, ptr %202, align 4
-  %204 = icmp slt i32 %203, %.02635.i188.i
-  %spec.select.i189.i = tail call i32 @llvm.smin.i32(i32 %203, i32 %.02635.i188.i)
-  %spec.select32.i190.i = select i1 %204, i32 %.02436.i187.i, i32 %.02237.i186.i
-  %205 = freeze i32 %spec.select32.i190.i
-  %206 = getelementptr inbounds i8, ptr %.02138.i185.i, i64 16
-  %207 = load ptr, ptr %206, align 8
-  %208 = add nuw nsw i32 %.02436.i187.i, 1
-  %.not.i191.i = icmp eq ptr %207, null
-  br i1 %.not.i191.i, label %.preheader.i192.i, label %.lr.ph.i184.i, !llvm.loop !26
+cuddZddSiftingUp.exit179.i:                       ; preds = %176, %cuddZddSiftingUp.exit179.i
+  %.02137.i180.i = phi ptr [ %204, %cuddZddSiftingUp.exit179.i ], [ %174, %176 ]
+  %.02236.i181.i = phi i32 [ %spec.select32.fr.i186.i, %cuddZddSiftingUp.exit179.i ], [ -1, %176 ]
+  %.02435.i182.i = phi i32 [ %205, %cuddZddSiftingUp.exit179.i ], [ 0, %176 ]
+  %.02634.i183.i = phi i32 [ %spec.select.i184.i, %cuddZddSiftingUp.exit179.i ], [ %52, %176 ]
+  %200 = getelementptr inbounds i8, ptr %.02137.i180.i, i64 12
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp slt i32 %201, %.02634.i183.i
+  %spec.select.i184.i = tail call i32 @llvm.smin.i32(i32 %201, i32 %.02634.i183.i)
+  %spec.select32.i185.i = select i1 %202, i32 %.02435.i182.i, i32 %.02236.i181.i
+  %spec.select32.fr.i186.i = freeze i32 %spec.select32.i185.i
+  %203 = getelementptr inbounds i8, ptr %.02137.i180.i, i64 16
+  %204 = load ptr, ptr %203, align 8
+  %205 = add nuw nsw i32 %.02435.i182.i, 1
+  %.not.i187.i = icmp eq ptr %204, null
+  br i1 %.not.i187.i, label %.preheader.i188.i, label %cuddZddSiftingUp.exit179.i, !llvm.loop !26
 
-.lr.ph44.split.i201.i:                            ; preds = %.preheader.i192.i, %215
-  %.143.i202.i = phi ptr [ %217, %215 ], [ %176, %.preheader.i192.i ]
-  %209 = load i32, ptr %.143.i202.i, align 8
-  %210 = getelementptr inbounds i8, ptr %.143.i202.i, i64 4
-  %211 = load i32, ptr %210, align 4
-  %212 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %209, i32 noundef %211)
-  %.not31.i203.i = icmp eq i32 %212, 0
-  br i1 %.not31.i203.i, label %.lr.ph317.i, label %213
+.lr.ph.split.i189.i:                              ; preds = %.preheader.i188.i, %212
+  %.139.i190.i = phi ptr [ %214, %212 ], [ %174, %.preheader.i188.i ]
+  %206 = load i32, ptr %.139.i190.i, align 8
+  %207 = getelementptr inbounds i8, ptr %.139.i190.i, i64 4
+  %208 = load i32, ptr %207, align 4
+  %209 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %206, i32 noundef %208)
+  %.not31.i191.i = icmp eq i32 %209, 0
+  br i1 %.not31.i191.i, label %.lr.ph306.i, label %210
 
-213:                                              ; preds = %.lr.ph44.split.i201.i
-  %214 = icmp eq i32 %212, %spec.select.i189.i
-  br i1 %214, label %cuddZddSiftingBackward.exit.thread.i, label %215
+210:                                              ; preds = %.lr.ph.split.i189.i
+  %211 = icmp eq i32 %209, %spec.select.i184.i
+  br i1 %211, label %cuddZddSiftingBackward.exit.thread.i, label %212
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %.143.i202.i, i64 16
-  %217 = load ptr, ptr %216, align 8
-  %.not30.i204.i = icmp eq ptr %217, null
-  br i1 %.not30.i204.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.i201.i, !llvm.loop !25
+212:                                              ; preds = %210
+  %213 = getelementptr inbounds i8, ptr %.139.i190.i, i64 16
+  %214 = load ptr, ptr %213, align 8
+  %.not30.i192.i = icmp eq ptr %214, null
+  br i1 %.not30.i192.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i189.i, !llvm.loop !25
 
-218:                                              ; preds = %148
-  %.not.not49.i206.i = icmp sgt i32 %48, %1
-  br i1 %.not.not49.i206.i, label %.lr.ph.i208.i, label %cuddZddSiftingAux.exit.thread
+215:                                              ; preds = %146
+  %.not.not49.i201.i = icmp sgt i32 %48, %1
+  br i1 %.not.not49.i201.i, label %.lr.ph.i203.i, label %cuddZddSiftingAux.exit.thread
 
-.lr.ph.i208.i:                                    ; preds = %218, %224
-  %.052.i209.i = phi i32 [ %spec.select.i213.i, %224 ], [ %52, %218 ]
-  %.04051.i210.i = phi ptr [ %222, %224 ], [ null, %218 ]
-  %.04250.i211.i = phi i32 [ %.03953.i212.i, %224 ], [ %48, %218 ]
-  %.03953.i212.i = add nsw i32 %.04250.i211.i, -1
-  %219 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i212.i, i32 noundef %.04250.i211.i)
-  %220 = icmp eq i32 %219, 0
-  br i1 %220, label %233, label %221
+.lr.ph.i203.i:                                    ; preds = %215, %221
+  %.052.i204.i = phi i32 [ %spec.select.i208.i, %221 ], [ %52, %215 ]
+  %.04051.i205.i = phi ptr [ %219, %221 ], [ null, %215 ]
+  %.04250.i206.i = phi i32 [ %.03953.i207.i, %221 ], [ %48, %215 ]
+  %.03953.i207.i = add nsw i32 %.04250.i206.i, -1
+  %216 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.03953.i207.i, i32 noundef %.04250.i206.i)
+  %217 = icmp eq i32 %216, 0
+  br i1 %217, label %230, label %218
 
-221:                                              ; preds = %.lr.ph.i208.i
-  %222 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %233, label %224
+218:                                              ; preds = %.lr.ph.i203.i
+  %219 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %220 = icmp eq ptr %219, null
+  br i1 %220, label %230, label %221
 
-224:                                              ; preds = %221
-  store i32 %.03953.i212.i, ptr %222, align 8
-  %225 = getelementptr inbounds i8, ptr %222, i64 4
-  store i32 %.04250.i211.i, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %222, i64 12
-  store i32 %219, ptr %226, align 4
-  %227 = getelementptr inbounds i8, ptr %222, i64 16
-  store ptr %.04051.i210.i, ptr %227, align 8
-  %228 = sitofp i32 %219 to double
-  %229 = sitofp i32 %.052.i209.i to double
-  %230 = load double, ptr %37, align 8
-  %231 = fmul double %230, %229
-  %232 = fcmp uge double %231, %228
-  %spec.select.i213.i = tail call i32 @llvm.smin.i32(i32 %219, i32 %.052.i209.i)
-  %.not.not.i214.i = icmp sgt i32 %.03953.i212.i, %1
-  %or.cond.i215.i = and i1 %.not.not.i214.i, %232
-  br i1 %or.cond.i215.i, label %.lr.ph.i208.i, label %cuddZddSiftingUp.exit220.i, !llvm.loop !33
+221:                                              ; preds = %218
+  store i32 %.03953.i207.i, ptr %219, align 8
+  %222 = getelementptr inbounds i8, ptr %219, i64 4
+  store i32 %.04250.i206.i, ptr %222, align 4
+  %223 = getelementptr inbounds i8, ptr %219, i64 12
+  store i32 %216, ptr %223, align 4
+  %224 = getelementptr inbounds i8, ptr %219, i64 16
+  store ptr %.04051.i205.i, ptr %224, align 8
+  %225 = sitofp i32 %216 to double
+  %226 = sitofp i32 %.052.i204.i to double
+  %227 = load double, ptr %37, align 8
+  %228 = fmul double %227, %226
+  %229 = fcmp uge double %228, %225
+  %spec.select.i208.i = tail call i32 @llvm.smin.i32(i32 %216, i32 %.052.i204.i)
+  %.not.not.i209.i = icmp sgt i32 %.03953.i207.i, %1
+  %or.cond.i210.i = and i1 %.not.not.i209.i, %229
+  br i1 %or.cond.i210.i, label %.lr.ph.i203.i, label %cuddZddSiftingUp.exit215.i, !llvm.loop !33
 
-233:                                              ; preds = %221, %.lr.ph.i208.i
-  %.not4556.i216.i = icmp eq ptr %.04051.i210.i, null
-  br i1 %.not4556.i216.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i217.i
+230:                                              ; preds = %218, %.lr.ph.i203.i
+  %.not4556.i211.i = icmp eq ptr %.04051.i205.i, null
+  br i1 %.not4556.i211.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i212.i
 
-.lr.ph58.i217.i:                                  ; preds = %233, %.lr.ph58.i217.i
-  %.257.i218.i = phi ptr [ %235, %.lr.ph58.i217.i ], [ %.04051.i210.i, %233 ]
-  %234 = getelementptr inbounds i8, ptr %.257.i218.i, i64 16
-  %235 = load ptr, ptr %234, align 8
-  %236 = getelementptr inbounds i8, ptr %.257.i218.i, i64 4
-  store i32 0, ptr %236, align 4
-  %237 = load ptr, ptr %38, align 8
-  %238 = getelementptr inbounds i8, ptr %.257.i218.i, i64 8
-  store ptr %237, ptr %238, align 8
-  store ptr %.257.i218.i, ptr %38, align 8
-  %.not45.i219.i = icmp eq ptr %235, null
-  br i1 %.not45.i219.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i217.i, !llvm.loop !34
+.lr.ph58.i212.i:                                  ; preds = %230, %.lr.ph58.i212.i
+  %.257.i213.i = phi ptr [ %232, %.lr.ph58.i212.i ], [ %.04051.i205.i, %230 ]
+  %231 = getelementptr inbounds i8, ptr %.257.i213.i, i64 16
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %.257.i213.i, i64 4
+  store i32 0, ptr %233, align 4
+  %234 = load ptr, ptr %38, align 8
+  %235 = getelementptr inbounds i8, ptr %.257.i213.i, i64 8
+  store ptr %234, ptr %235, align 8
+  store ptr %.257.i213.i, ptr %38, align 8
+  %.not45.i214.i = icmp eq ptr %232, null
+  br i1 %.not45.i214.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph58.i212.i, !llvm.loop !34
 
-cuddZddSiftingUp.exit220.i:                       ; preds = %224
-  %.not.not49.i221.not.i = icmp sgt i32 %.04250.i211.i, %2
-  br i1 %.not.not49.i221.not.i, label %.lr.ph320.i.preheader, label %.lr.ph.i223.i
+cuddZddSiftingUp.exit215.i:                       ; preds = %221
+  %.not.not49.i216.not.i = icmp sgt i32 %.04250.i206.i, %2
+  br i1 %.not.not49.i216.not.i, label %.lr.ph309.i.preheader, label %.lr.ph.i218.i
 
-.lr.ph.i223.i:                                    ; preds = %cuddZddSiftingUp.exit220.i, %244
-  %.052.i224.i = phi i32 [ %spec.select.i228.i, %244 ], [ %52, %cuddZddSiftingUp.exit220.i ]
-  %.04051.i225.i = phi ptr [ %242, %244 ], [ null, %cuddZddSiftingUp.exit220.i ]
-  %.04250.i226.i = phi i32 [ %.03953.i227.i, %244 ], [ %.03953.i212.i, %cuddZddSiftingUp.exit220.i ]
-  %.03953.i227.i = add nsw i32 %.04250.i226.i, 1
-  %239 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.04250.i226.i, i32 noundef %.03953.i227.i)
-  %240 = icmp eq i32 %239, 0
-  br i1 %240, label %253, label %241
+.lr.ph.i218.i:                                    ; preds = %cuddZddSiftingUp.exit215.i, %241
+  %.052.i219.i = phi i32 [ %spec.select.i223.i, %241 ], [ %52, %cuddZddSiftingUp.exit215.i ]
+  %.04051.i220.i = phi ptr [ %239, %241 ], [ null, %cuddZddSiftingUp.exit215.i ]
+  %.04250.i221.i = phi i32 [ %.03953.i222.i, %241 ], [ %.03953.i207.i, %cuddZddSiftingUp.exit215.i ]
+  %.03953.i222.i = add nsw i32 %.04250.i221.i, 1
+  %236 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.04250.i221.i, i32 noundef %.03953.i222.i)
+  %237 = icmp eq i32 %236, 0
+  br i1 %237, label %250, label %238
 
-241:                                              ; preds = %.lr.ph.i223.i
-  %242 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
-  %243 = icmp eq ptr %242, null
-  br i1 %243, label %253, label %244
+238:                                              ; preds = %.lr.ph.i218.i
+  %239 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %240 = icmp eq ptr %239, null
+  br i1 %240, label %250, label %241
 
-244:                                              ; preds = %241
-  store i32 %.04250.i226.i, ptr %242, align 8
-  %245 = getelementptr inbounds i8, ptr %242, i64 4
-  store i32 %.03953.i227.i, ptr %245, align 4
-  %246 = getelementptr inbounds i8, ptr %242, i64 12
-  store i32 %239, ptr %246, align 4
-  %247 = getelementptr inbounds i8, ptr %242, i64 16
-  store ptr %.04051.i225.i, ptr %247, align 8
-  %248 = sitofp i32 %239 to double
-  %249 = sitofp i32 %.052.i224.i to double
-  %250 = load double, ptr %37, align 8
-  %251 = fmul double %250, %249
-  %252 = fcmp olt double %251, %248
-  %spec.select.i228.i = tail call i32 @llvm.smin.i32(i32 %239, i32 %.052.i224.i)
-  %exitcond.not.i229.i = icmp eq i32 %.03953.i227.i, %2
-  %or.cond.i230.i = or i1 %exitcond.not.i229.i, %252
-  br i1 %or.cond.i230.i, label %.lr.ph.i237.i, label %.lr.ph.i223.i, !llvm.loop !31
+241:                                              ; preds = %238
+  store i32 %.04250.i221.i, ptr %239, align 8
+  %242 = getelementptr inbounds i8, ptr %239, i64 4
+  store i32 %.03953.i222.i, ptr %242, align 4
+  %243 = getelementptr inbounds i8, ptr %239, i64 12
+  store i32 %236, ptr %243, align 4
+  %244 = getelementptr inbounds i8, ptr %239, i64 16
+  store ptr %.04051.i220.i, ptr %244, align 8
+  %245 = sitofp i32 %236 to double
+  %246 = sitofp i32 %.052.i219.i to double
+  %247 = load double, ptr %37, align 8
+  %248 = fmul double %247, %246
+  %249 = fcmp olt double %248, %245
+  %spec.select.i223.i = tail call i32 @llvm.smin.i32(i32 %236, i32 %.052.i219.i)
+  %exitcond.not.i224.i = icmp eq i32 %.03953.i222.i, %2
+  %or.cond.i225.i = or i1 %exitcond.not.i224.i, %249
+  br i1 %or.cond.i225.i, label %cuddZddSiftingDown.exit230.i, label %.lr.ph.i218.i, !llvm.loop !31
 
-253:                                              ; preds = %241, %.lr.ph.i223.i
-  %.not4556.i231.i = icmp eq ptr %.04051.i225.i, null
-  br i1 %.not4556.i231.i, label %.preheader.i, label %.lr.ph58.i232.i
+250:                                              ; preds = %238, %.lr.ph.i218.i
+  %.not4556.i226.i = icmp eq ptr %.04051.i220.i, null
+  br i1 %.not4556.i226.i, label %.preheader.i, label %.lr.ph58.i227.i
 
-.lr.ph58.i232.i:                                  ; preds = %253, %.lr.ph58.i232.i
-  %.257.i233.i = phi ptr [ %255, %.lr.ph58.i232.i ], [ %.04051.i225.i, %253 ]
-  %254 = getelementptr inbounds i8, ptr %.257.i233.i, i64 16
-  %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %.257.i233.i, i64 4
-  store i32 0, ptr %256, align 4
-  %257 = load ptr, ptr %38, align 8
-  %258 = getelementptr inbounds i8, ptr %.257.i233.i, i64 8
-  store ptr %257, ptr %258, align 8
-  store ptr %.257.i233.i, ptr %38, align 8
-  %.not45.i234.i = icmp eq ptr %255, null
-  br i1 %.not45.i234.i, label %.preheader.i, label %.lr.ph58.i232.i, !llvm.loop !32
+.lr.ph58.i227.i:                                  ; preds = %250, %.lr.ph58.i227.i
+  %.257.i228.i = phi ptr [ %252, %.lr.ph58.i227.i ], [ %.04051.i220.i, %250 ]
+  %251 = getelementptr inbounds i8, ptr %.257.i228.i, i64 16
+  %252 = load ptr, ptr %251, align 8
+  %253 = getelementptr inbounds i8, ptr %.257.i228.i, i64 4
+  store i32 0, ptr %253, align 4
+  %254 = load ptr, ptr %38, align 8
+  %255 = getelementptr inbounds i8, ptr %.257.i228.i, i64 8
+  store ptr %254, ptr %255, align 8
+  store ptr %.257.i228.i, ptr %38, align 8
+  %.not45.i229.i = icmp eq ptr %252, null
+  br i1 %.not45.i229.i, label %.preheader.i, label %.lr.ph58.i227.i, !llvm.loop !32
 
-.preheader.i245.i:                                ; preds = %.lr.ph.i237.i
-  switch i32 %271, label %.lr.ph44.split.us.i247.i [
+.preheader.i239.i:                                ; preds = %cuddZddSiftingDown.exit230.i
+  switch i32 %spec.select32.fr.i237.i, label %.lr.ph.split.us.i245.i [
     i32 0, label %cuddZddSiftingBackward.exit.thread.i
-    i32 -1, label %.lr.ph44.split.i254.i
+    i32 -1, label %.lr.ph.split.i240.i
   ]
 
-.lr.ph44.split.us.i247.i:                         ; preds = %.preheader.i245.i, %263
-  %.143.us.i248.i = phi ptr [ %265, %263 ], [ %242, %.preheader.i245.i ]
-  %.12542.us.i249.i = phi i32 [ %266, %263 ], [ 0, %.preheader.i245.i ]
-  %259 = load i32, ptr %.143.us.i248.i, align 8
-  %260 = getelementptr inbounds i8, ptr %.143.us.i248.i, i64 4
-  %261 = load i32, ptr %260, align 4
-  %262 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %259, i32 noundef %261)
-  %.not31.us.i250.i = icmp eq i32 %262, 0
-  br i1 %.not31.us.i250.i, label %.lr.ph317.i, label %263
+.lr.ph.split.us.i245.i:                           ; preds = %.preheader.i239.i, %260
+  %.139.us.i246.i = phi ptr [ %262, %260 ], [ %239, %.preheader.i239.i ]
+  %.12538.us.i247.i = phi i32 [ %263, %260 ], [ 0, %.preheader.i239.i ]
+  %256 = load i32, ptr %.139.us.i246.i, align 8
+  %257 = getelementptr inbounds i8, ptr %.139.us.i246.i, i64 4
+  %258 = load i32, ptr %257, align 4
+  %259 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %256, i32 noundef %258)
+  %.not31.us.i248.i = icmp eq i32 %259, 0
+  br i1 %.not31.us.i248.i, label %.lr.ph306.i, label %260
 
-263:                                              ; preds = %.lr.ph44.split.us.i247.i
-  %264 = getelementptr inbounds i8, ptr %.143.us.i248.i, i64 16
-  %265 = load ptr, ptr %264, align 8
-  %266 = add nuw nsw i32 %.12542.us.i249.i, 1
-  %.not30.us.i251.i = icmp eq ptr %265, null
-  %267 = icmp eq i32 %266, %271
-  %or.cond.us.i252.i = select i1 %.not30.us.i251.i, i1 true, i1 %267
-  br i1 %or.cond.us.i252.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.us.i247.i, !llvm.loop !25
+260:                                              ; preds = %.lr.ph.split.us.i245.i
+  %261 = getelementptr inbounds i8, ptr %.139.us.i246.i, i64 16
+  %262 = load ptr, ptr %261, align 8
+  %263 = add nuw nsw i32 %.12538.us.i247.i, 1
+  %.not30.us.i249.i = icmp eq ptr %262, null
+  %264 = icmp eq i32 %263, %spec.select32.fr.i237.i
+  %or.cond.us.i250.i = select i1 %.not30.us.i249.i, i1 true, i1 %264
+  br i1 %or.cond.us.i250.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i245.i, !llvm.loop !25
 
-.lr.ph.i237.i:                                    ; preds = %244, %.lr.ph.i237.i
-  %.02138.i238.i = phi ptr [ %273, %.lr.ph.i237.i ], [ %242, %244 ]
-  %.02237.i239.i = phi i32 [ %271, %.lr.ph.i237.i ], [ -1, %244 ]
-  %.02436.i240.i = phi i32 [ %274, %.lr.ph.i237.i ], [ 0, %244 ]
-  %.02635.i241.i = phi i32 [ %spec.select.i242.i, %.lr.ph.i237.i ], [ %52, %244 ]
-  %268 = getelementptr inbounds i8, ptr %.02138.i238.i, i64 12
-  %269 = load i32, ptr %268, align 4
-  %270 = icmp slt i32 %269, %.02635.i241.i
-  %spec.select.i242.i = tail call i32 @llvm.smin.i32(i32 %269, i32 %.02635.i241.i)
-  %spec.select32.i243.i = select i1 %270, i32 %.02436.i240.i, i32 %.02237.i239.i
-  %271 = freeze i32 %spec.select32.i243.i
-  %272 = getelementptr inbounds i8, ptr %.02138.i238.i, i64 16
-  %273 = load ptr, ptr %272, align 8
-  %274 = add nuw nsw i32 %.02436.i240.i, 1
-  %.not.i244.i = icmp eq ptr %273, null
-  br i1 %.not.i244.i, label %.preheader.i245.i, label %.lr.ph.i237.i, !llvm.loop !26
+cuddZddSiftingDown.exit230.i:                     ; preds = %241, %cuddZddSiftingDown.exit230.i
+  %.02137.i231.i = phi ptr [ %269, %cuddZddSiftingDown.exit230.i ], [ %239, %241 ]
+  %.02236.i232.i = phi i32 [ %spec.select32.fr.i237.i, %cuddZddSiftingDown.exit230.i ], [ -1, %241 ]
+  %.02435.i233.i = phi i32 [ %270, %cuddZddSiftingDown.exit230.i ], [ 0, %241 ]
+  %.02634.i234.i = phi i32 [ %spec.select.i235.i, %cuddZddSiftingDown.exit230.i ], [ %52, %241 ]
+  %265 = getelementptr inbounds i8, ptr %.02137.i231.i, i64 12
+  %266 = load i32, ptr %265, align 4
+  %267 = icmp slt i32 %266, %.02634.i234.i
+  %spec.select.i235.i = tail call i32 @llvm.smin.i32(i32 %266, i32 %.02634.i234.i)
+  %spec.select32.i236.i = select i1 %267, i32 %.02435.i233.i, i32 %.02236.i232.i
+  %spec.select32.fr.i237.i = freeze i32 %spec.select32.i236.i
+  %268 = getelementptr inbounds i8, ptr %.02137.i231.i, i64 16
+  %269 = load ptr, ptr %268, align 8
+  %270 = add nuw nsw i32 %.02435.i233.i, 1
+  %.not.i238.i = icmp eq ptr %269, null
+  br i1 %.not.i238.i, label %.preheader.i239.i, label %cuddZddSiftingDown.exit230.i, !llvm.loop !26
 
-.lr.ph44.split.i254.i:                            ; preds = %.preheader.i245.i, %281
-  %.143.i255.i = phi ptr [ %283, %281 ], [ %242, %.preheader.i245.i ]
-  %275 = load i32, ptr %.143.i255.i, align 8
-  %276 = getelementptr inbounds i8, ptr %.143.i255.i, i64 4
-  %277 = load i32, ptr %276, align 4
-  %278 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %275, i32 noundef %277)
-  %.not31.i256.i = icmp eq i32 %278, 0
-  br i1 %.not31.i256.i, label %.lr.ph317.i, label %279
+.lr.ph.split.i240.i:                              ; preds = %.preheader.i239.i, %277
+  %.139.i241.i = phi ptr [ %279, %277 ], [ %239, %.preheader.i239.i ]
+  %271 = load i32, ptr %.139.i241.i, align 8
+  %272 = getelementptr inbounds i8, ptr %.139.i241.i, i64 4
+  %273 = load i32, ptr %272, align 4
+  %274 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %271, i32 noundef %273)
+  %.not31.i242.i = icmp eq i32 %274, 0
+  br i1 %.not31.i242.i, label %.lr.ph306.i, label %275
 
-279:                                              ; preds = %.lr.ph44.split.i254.i
-  %280 = icmp eq i32 %278, %spec.select.i242.i
-  br i1 %280, label %cuddZddSiftingBackward.exit.thread.i, label %281
+275:                                              ; preds = %.lr.ph.split.i240.i
+  %276 = icmp eq i32 %274, %spec.select.i235.i
+  br i1 %276, label %cuddZddSiftingBackward.exit.thread.i, label %277
 
-281:                                              ; preds = %279
-  %282 = getelementptr inbounds i8, ptr %.143.i255.i, i64 16
-  %283 = load ptr, ptr %282, align 8
-  %.not30.i257.i = icmp eq ptr %283, null
-  br i1 %.not30.i257.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph44.split.i254.i, !llvm.loop !25
+277:                                              ; preds = %275
+  %278 = getelementptr inbounds i8, ptr %.139.i241.i, i64 16
+  %279 = load ptr, ptr %278, align 8
+  %.not30.i243.i = icmp eq ptr %279, null
+  br i1 %.not30.i243.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i240.i, !llvm.loop !25
 
-cuddZddSiftingBackward.exit.thread.i:             ; preds = %281, %279, %263, %215, %213, %197, %97, %95, %79, %.preheader.i245.i, %.preheader.i192.i, %.preheader.i.i
-  %.189.i = phi ptr [ null, %.preheader.i.i ], [ %176, %.preheader.i192.i ], [ %222, %.preheader.i245.i ], [ null, %79 ], [ null, %95 ], [ null, %97 ], [ %176, %197 ], [ %176, %213 ], [ %176, %215 ], [ %222, %263 ], [ %222, %279 ], [ %222, %281 ]
-  %.1.i = phi ptr [ %58, %.preheader.i.i ], [ %156, %.preheader.i192.i ], [ %242, %.preheader.i245.i ], [ %58, %79 ], [ %58, %95 ], [ %58, %97 ], [ %156, %197 ], [ %156, %213 ], [ %156, %215 ], [ %242, %263 ], [ %242, %279 ], [ %242, %281 ]
-  br label %284
+cuddZddSiftingBackward.exit.thread.i:             ; preds = %277, %275, %260, %212, %210, %195, %96, %94, %79, %.preheader.i239.i, %.preheader.i188.i, %.preheader.i.i
+  %.189.i = phi ptr [ null, %.preheader.i.i ], [ %174, %.preheader.i188.i ], [ %219, %.preheader.i239.i ], [ null, %79 ], [ null, %94 ], [ null, %96 ], [ %174, %195 ], [ %174, %210 ], [ %174, %212 ], [ %219, %260 ], [ %219, %275 ], [ %219, %277 ]
+  %.1.i = phi ptr [ %58, %.preheader.i.i ], [ %154, %.preheader.i188.i ], [ %239, %.preheader.i239.i ], [ %58, %79 ], [ %58, %94 ], [ %58, %96 ], [ %154, %195 ], [ %154, %210 ], [ %154, %212 ], [ %239, %260 ], [ %239, %275 ], [ %239, %277 ]
+  br label %280
 
-.preheader273.i:                                  ; preds = %145, %143, %127, %284, %.preheader.i139.i
-  %.189360.i = phi ptr [ %106, %.preheader.i139.i ], [ %.189.i, %284 ], [ %106, %127 ], [ %106, %143 ], [ %106, %145 ]
-  %.not112312.i = icmp eq ptr %.189360.i, null
-  br i1 %.not112312.i, label %cuddZddSiftingAux.exit, label %.lr.ph314.i
+.preheader266.i:                                  ; preds = %143, %141, %126, %280, %.preheader.i137.i
+  %.189345.i = phi ptr [ %105, %.preheader.i137.i ], [ %.189.i, %280 ], [ %105, %126 ], [ %105, %141 ], [ %105, %143 ]
+  %.not112301.i = icmp eq ptr %.189345.i, null
+  br i1 %.not112301.i, label %cuddZddSiftingAux.exit, label %.lr.ph303.i
 
-284:                                              ; preds = %284, %cuddZddSiftingBackward.exit.thread.i
-  %.2311.i = phi ptr [ %.1.i, %cuddZddSiftingBackward.exit.thread.i ], [ %286, %284 ]
-  %285 = getelementptr inbounds i8, ptr %.2311.i, i64 16
-  %286 = load ptr, ptr %285, align 8
-  %287 = getelementptr inbounds i8, ptr %.2311.i, i64 4
-  store i32 0, ptr %287, align 4
-  %288 = load ptr, ptr %38, align 8
-  %289 = getelementptr inbounds i8, ptr %.2311.i, i64 8
-  store ptr %288, ptr %289, align 8
-  store ptr %.2311.i, ptr %38, align 8
-  %.not111.i = icmp eq ptr %286, null
-  br i1 %.not111.i, label %.preheader273.i, label %284, !llvm.loop !35
+280:                                              ; preds = %280, %cuddZddSiftingBackward.exit.thread.i
+  %.2300.i = phi ptr [ %.1.i, %cuddZddSiftingBackward.exit.thread.i ], [ %282, %280 ]
+  %281 = getelementptr inbounds i8, ptr %.2300.i, i64 16
+  %282 = load ptr, ptr %281, align 8
+  %283 = getelementptr inbounds i8, ptr %.2300.i, i64 4
+  store i32 0, ptr %283, align 4
+  %284 = load ptr, ptr %38, align 8
+  %285 = getelementptr inbounds i8, ptr %.2300.i, i64 8
+  store ptr %284, ptr %285, align 8
+  store ptr %.2300.i, ptr %38, align 8
+  %.not111.i = icmp eq ptr %282, null
+  br i1 %.not111.i, label %.preheader266.i, label %280, !llvm.loop !35
 
-.lr.ph314.i:                                      ; preds = %.preheader273.i, %.lr.ph314.i
-  %.290313.i = phi ptr [ %291, %.lr.ph314.i ], [ %.189360.i, %.preheader273.i ]
-  %290 = getelementptr inbounds i8, ptr %.290313.i, i64 16
-  %291 = load ptr, ptr %290, align 8
-  %292 = getelementptr inbounds i8, ptr %.290313.i, i64 4
-  store i32 0, ptr %292, align 4
-  %293 = load ptr, ptr %38, align 8
-  %294 = getelementptr inbounds i8, ptr %.290313.i, i64 8
-  store ptr %293, ptr %294, align 8
-  store ptr %.290313.i, ptr %38, align 8
-  %.not112.i = icmp eq ptr %291, null
-  br i1 %.not112.i, label %cuddZddSiftingAux.exit, label %.lr.ph314.i, !llvm.loop !36
+.lr.ph303.i:                                      ; preds = %.preheader266.i, %.lr.ph303.i
+  %.290302.i = phi ptr [ %287, %.lr.ph303.i ], [ %.189345.i, %.preheader266.i ]
+  %286 = getelementptr inbounds i8, ptr %.290302.i, i64 16
+  %287 = load ptr, ptr %286, align 8
+  %288 = getelementptr inbounds i8, ptr %.290302.i, i64 4
+  store i32 0, ptr %288, align 4
+  %289 = load ptr, ptr %38, align 8
+  %290 = getelementptr inbounds i8, ptr %.290302.i, i64 8
+  store ptr %289, ptr %290, align 8
+  store ptr %.290302.i, ptr %38, align 8
+  %.not112.i = icmp eq ptr %287, null
+  br i1 %.not112.i, label %cuddZddSiftingAux.exit, label %.lr.ph303.i, !llvm.loop !36
 
-.lr.ph317.i:                                      ; preds = %cuddZddSiftingDown.exit167.i, %.lr.ph44.split.i254.i, %.lr.ph44.split.us.i247.i, %.lr.ph44.split.i201.i, %.lr.ph44.split.us.i194.i, %.lr.ph44.split.i.i, %.lr.ph44.split.us.i.i, %.lr.ph58.i179.i, %187
-  %.087371.i = phi ptr [ %156, %187 ], [ %156, %.lr.ph58.i179.i ], [ %58, %.lr.ph44.split.us.i.i ], [ %58, %.lr.ph44.split.i.i ], [ %156, %.lr.ph44.split.us.i194.i ], [ %156, %.lr.ph44.split.i201.i ], [ %242, %.lr.ph44.split.us.i247.i ], [ %242, %.lr.ph44.split.i254.i ], [ %156, %cuddZddSiftingDown.exit167.i ]
-  %.088370.i = phi ptr [ null, %187 ], [ null, %.lr.ph58.i179.i ], [ null, %.lr.ph44.split.us.i.i ], [ null, %.lr.ph44.split.i.i ], [ %176, %.lr.ph44.split.us.i194.i ], [ %176, %.lr.ph44.split.i201.i ], [ %222, %.lr.ph44.split.us.i247.i ], [ %222, %.lr.ph44.split.i254.i ], [ null, %cuddZddSiftingDown.exit167.i ]
-  br label %295
+.lr.ph306.i:                                      ; preds = %cuddZddSiftingDown.exit164.i, %.lr.ph.split.i240.i, %.lr.ph.split.us.i245.i, %.lr.ph.split.i189.i, %.lr.ph.split.us.i194.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %.lr.ph58.i176.i, %185
+  %.087356.i = phi ptr [ %154, %185 ], [ %154, %.lr.ph58.i176.i ], [ %58, %.lr.ph.split.us.i.i ], [ %58, %.lr.ph.split.i.i ], [ %154, %.lr.ph.split.us.i194.i ], [ %154, %.lr.ph.split.i189.i ], [ %239, %.lr.ph.split.us.i245.i ], [ %239, %.lr.ph.split.i240.i ], [ %154, %cuddZddSiftingDown.exit164.i ]
+  %.088355.i = phi ptr [ null, %185 ], [ null, %.lr.ph58.i176.i ], [ null, %.lr.ph.split.us.i.i ], [ null, %.lr.ph.split.i.i ], [ %174, %.lr.ph.split.us.i194.i ], [ %174, %.lr.ph.split.i189.i ], [ %219, %.lr.ph.split.us.i245.i ], [ %219, %.lr.ph.split.i240.i ], [ null, %cuddZddSiftingDown.exit164.i ]
+  br label %291
 
-.preheader.i:                                     ; preds = %.lr.ph44.split.i148.i, %.lr.ph44.split.us.i141.i, %.lr.ph58.i232.i, %295, %253
-  %.088365.i = phi ptr [ %222, %253 ], [ %.088370.i, %295 ], [ %222, %.lr.ph58.i232.i ], [ %106, %.lr.ph44.split.us.i141.i ], [ %106, %.lr.ph44.split.i148.i ]
-  %.not114318.i = icmp eq ptr %.088365.i, null
-  br i1 %.not114318.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph320.i.preheader
+.preheader.i:                                     ; preds = %.lr.ph.split.i138.i, %.lr.ph.split.us.i143.i, %.lr.ph58.i227.i, %291, %250
+  %.088350.i = phi ptr [ %219, %250 ], [ %.088355.i, %291 ], [ %219, %.lr.ph58.i227.i ], [ %105, %.lr.ph.split.us.i143.i ], [ %105, %.lr.ph.split.i138.i ]
+  %.not114307.i = icmp eq ptr %.088350.i, null
+  br i1 %.not114307.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph309.i.preheader
 
-.lr.ph320.i.preheader:                            ; preds = %cuddZddSiftingUp.exit220.i, %.preheader.i
-  %.391319.i.ph = phi ptr [ %.088365.i, %.preheader.i ], [ %222, %cuddZddSiftingUp.exit220.i ]
-  br label %.lr.ph320.i
+.lr.ph309.i.preheader:                            ; preds = %cuddZddSiftingUp.exit215.i, %.preheader.i
+  %.391308.i.ph = phi ptr [ %.088350.i, %.preheader.i ], [ %219, %cuddZddSiftingUp.exit215.i ]
+  br label %.lr.ph309.i
 
-295:                                              ; preds = %295, %.lr.ph317.i
-  %.3316.i = phi ptr [ %.087371.i, %.lr.ph317.i ], [ %297, %295 ]
-  %296 = getelementptr inbounds i8, ptr %.3316.i, i64 16
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %.3316.i, i64 4
-  store i32 0, ptr %298, align 4
-  %299 = load ptr, ptr %38, align 8
-  %300 = getelementptr inbounds i8, ptr %.3316.i, i64 8
-  store ptr %299, ptr %300, align 8
-  store ptr %.3316.i, ptr %38, align 8
-  %.not113.i = icmp eq ptr %297, null
-  br i1 %.not113.i, label %.preheader.i, label %295, !llvm.loop !37
+291:                                              ; preds = %291, %.lr.ph306.i
+  %.3305.i = phi ptr [ %.087356.i, %.lr.ph306.i ], [ %293, %291 ]
+  %292 = getelementptr inbounds i8, ptr %.3305.i, i64 16
+  %293 = load ptr, ptr %292, align 8
+  %294 = getelementptr inbounds i8, ptr %.3305.i, i64 4
+  store i32 0, ptr %294, align 4
+  %295 = load ptr, ptr %38, align 8
+  %296 = getelementptr inbounds i8, ptr %.3305.i, i64 8
+  store ptr %295, ptr %296, align 8
+  store ptr %.3305.i, ptr %38, align 8
+  %.not113.i = icmp eq ptr %293, null
+  br i1 %.not113.i, label %.preheader.i, label %291, !llvm.loop !37
 
-.lr.ph320.i:                                      ; preds = %.lr.ph320.i.preheader, %.lr.ph320.i
-  %.391319.i = phi ptr [ %302, %.lr.ph320.i ], [ %.391319.i.ph, %.lr.ph320.i.preheader ]
-  %301 = getelementptr inbounds i8, ptr %.391319.i, i64 16
-  %302 = load ptr, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %.391319.i, i64 4
-  store i32 0, ptr %303, align 4
-  %304 = load ptr, ptr %38, align 8
-  %305 = getelementptr inbounds i8, ptr %.391319.i, i64 8
-  store ptr %304, ptr %305, align 8
-  store ptr %.391319.i, ptr %38, align 8
-  %.not114.i = icmp eq ptr %302, null
-  br i1 %.not114.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph320.i, !llvm.loop !38
+.lr.ph309.i:                                      ; preds = %.lr.ph309.i.preheader, %.lr.ph309.i
+  %.391308.i = phi ptr [ %298, %.lr.ph309.i ], [ %.391308.i.ph, %.lr.ph309.i.preheader ]
+  %297 = getelementptr inbounds i8, ptr %.391308.i, i64 16
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr inbounds i8, ptr %.391308.i, i64 4
+  store i32 0, ptr %299, align 4
+  %300 = load ptr, ptr %38, align 8
+  %301 = getelementptr inbounds i8, ptr %.391308.i, i64 8
+  store ptr %300, ptr %301, align 8
+  store ptr %.391308.i, ptr %38, align 8
+  %.not114.i = icmp eq ptr %298, null
+  br i1 %.not114.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph309.i, !llvm.loop !38
 
-cuddZddSiftingAux.exit:                           ; preds = %.lr.ph314.i, %.preheader273.i, %42
-  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
-  %306 = load i32, ptr %31, align 8
-  %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %306)
-  %307 = sext i32 %. to i64
-  %308 = icmp slt i64 %indvars.iv.next180, %307
-  br i1 %308, label %39, label %._crit_edge125, !llvm.loop !39
+cuddZddSiftingAux.exit:                           ; preds = %.lr.ph303.i, %.preheader266.i, %42
+  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
+  %302 = load i32, ptr %31, align 8
+  %. = tail call i32 @llvm.smin.i32(i32 %5, i32 %302)
+  %303 = sext i32 %. to i64
+  %304 = icmp slt i64 %indvars.iv.next172, %303
+  br i1 %304, label %39, label %._crit_edge121, !llvm.loop !39
 
-._crit_edge125:                                   ; preds = %39, %cuddZddSiftingAux.exit, %._crit_edge
+._crit_edge121:                                   ; preds = %39, %cuddZddSiftingAux.exit, %._crit_edge
   tail call void @free(ptr noundef %12) #11
-  %309 = load ptr, ptr @zdd_entry, align 8
-  %.not58 = icmp eq ptr %309, null
-  br i1 %.not58, label %314, label %310
+  %305 = load ptr, ptr @zdd_entry, align 8
+  %.not58 = icmp eq ptr %305, null
+  br i1 %.not58, label %310, label %306
 
-310:                                              ; preds = %._crit_edge125
-  tail call void @free(ptr noundef nonnull %309) #11
+306:                                              ; preds = %._crit_edge121
+  tail call void @free(ptr noundef nonnull %305) #11
   store ptr null, ptr @zdd_entry, align 8
-  br label %314
+  br label %310
 
-cuddZddSiftingAux.exit.thread:                    ; preds = %54, %102, %152, %218, %.lr.ph58.i217.i, %.lr.ph58.i164.i, %.lr.ph58.i127.i, %.lr.ph320.i, %.lr.ph58.i.i, %69, %117, %167, %233, %.preheader.i, %17
+cuddZddSiftingAux.exit.thread:                    ; preds = %54, %101, %150, %215, %.lr.ph58.i212.i, %.lr.ph58.i161.i, %.lr.ph58.i126.i, %.lr.ph309.i, %.lr.ph58.i.i, %69, %116, %165, %230, %.preheader.i, %17
   %.pr = load ptr, ptr @zdd_entry, align 8
   %.not59 = icmp eq ptr %.pr, null
-  br i1 %.not59, label %312, label %311
+  br i1 %.not59, label %308, label %307
 
-311:                                              ; preds = %cuddZddSiftingAux.exit.thread
+307:                                              ; preds = %cuddZddSiftingAux.exit.thread
   tail call void @free(ptr noundef nonnull %.pr) #11
   store ptr null, ptr @zdd_entry, align 8
-  br label %312
+  br label %308
 
-312:                                              ; preds = %311, %cuddZddSiftingAux.exit.thread
-  br i1 %13, label %314, label %313
+308:                                              ; preds = %307, %cuddZddSiftingAux.exit.thread
+  br i1 %13, label %310, label %309
 
-313:                                              ; preds = %312
+309:                                              ; preds = %308
   tail call void @free(ptr noundef nonnull %12) #11
-  br label %314
+  br label %310
 
-314:                                              ; preds = %.thread66, %312, %313, %310, %._crit_edge125
-  %.0 = phi i32 [ 1, %._crit_edge125 ], [ 1, %310 ], [ 0, %313 ], [ 0, %312 ], [ 0, %.thread66 ]
+310:                                              ; preds = %.thread66, %308, %309, %306, %._crit_edge121
+  %.0 = phi i32 [ 1, %._crit_edge121 ], [ 1, %306 ], [ 0, %309 ], [ 0, %308 ], [ 0, %.thread66 ]
   ret i32 %.0
 }
 

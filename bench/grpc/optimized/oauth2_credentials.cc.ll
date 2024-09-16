@@ -11722,7 +11722,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont.i
   store i64 0, ptr %err.i, align 8, !noalias !462
   %subject_token_path_.i = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %subject_token_path_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %0, ptr noundef nonnull %subject_token.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias align 8 %ref.tmp.i, ptr noundef %0, ptr noundef %subject_token.i)
           to label %invoke.cont5.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont5.i:                                   ; preds = %invoke.cont3.i
@@ -11784,25 +11784,25 @@ invoke.cont21.i:                                  ; preds = %if.else.i.i.i, %if.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11.i) #29, !noalias !462
   %resource_.i = getelementptr inbounds i8, ptr %this, i64 352
   %10 = load ptr, ptr %resource_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.97, ptr noundef %10, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.97, ptr noundef %10, ptr noundef %body_parts.i)
           to label %invoke.cont23.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont23.i:                                  ; preds = %invoke.cont21.i
   %audience_.i = getelementptr inbounds i8, ptr %this, i64 360
   %11 = load ptr, ptr %audience_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.98, ptr noundef %11, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.98, ptr noundef %11, ptr noundef %body_parts.i)
           to label %invoke.cont25.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont25.i:                                  ; preds = %invoke.cont23.i
   %scope_.i = getelementptr inbounds i8, ptr %this, i64 368
   %12 = load ptr, ptr %scope_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.99, ptr noundef %12, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.99, ptr noundef %12, ptr noundef %body_parts.i)
           to label %invoke.cont27.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont27.i:                                  ; preds = %invoke.cont25.i
   %requested_token_type_.i = getelementptr inbounds i8, ptr %this, i64 376
   %13 = load ptr, ptr %requested_token_type_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.100, ptr noundef %13, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.100, ptr noundef %13, ptr noundef %body_parts.i)
           to label %invoke.cont29.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont29.i:                                  ; preds = %invoke.cont27.i
@@ -11817,7 +11817,7 @@ land.lhs.true.i:                                  ; preds = %invoke.cont29.i
   br i1 %cmp.not.i, label %if.then.i87, label %if.then33.i
 
 if.then33.i:                                      ; preds = %land.lhs.true.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias nonnull align 8 %ref.tmp34.i, ptr noundef nonnull %14, ptr noundef nonnull %actor_token.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias align 8 %ref.tmp34.i, ptr noundef nonnull %14, ptr noundef %actor_token.i)
           to label %invoke.cont37.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont37.i:                                  ; preds = %if.then33.i
@@ -11838,13 +11838,13 @@ if.end44.i:                                       ; preds = %invoke.cont37.i
   %19 = load ptr, ptr %bytes49.i, align 8, !noalias !462
   %bytes52.i = getelementptr inbounds i8, ptr %actor_token.i, i64 9
   %cond55.i = select i1 %tobool46.not.i, ptr %bytes52.i, ptr %19
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.101, ptr noundef %cond55.i, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.101, ptr noundef %cond55.i, ptr noundef %body_parts.i)
           to label %invoke.cont56.i unwind label %lpad4.i, !noalias !462
 
 invoke.cont56.i:                                  ; preds = %if.end44.i
   %actor_token_type_.i = getelementptr inbounds i8, ptr %this, i64 408
   %20 = load ptr, ptr %actor_token_type_.i, align 8, !noalias !462
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.102, ptr noundef %20, ptr noundef nonnull %body_parts.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull @.str.102, ptr noundef %20, ptr noundef %body_parts.i)
           to label %if.then.i87 unwind label %lpad4.i, !noalias !462
 
 if.end59.invoke.i:                                ; preds = %invoke.cont37.i, %invoke.cont5.i
@@ -12225,12 +12225,12 @@ declare void @_ZN9grpc_core3URIC1ERKS0_(ptr noundef nonnull align 8 dereferencea
 declare void @grpc_empty_slice(ptr sret(%struct.grpc_slice) align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias align 8 %agg.result, ptr noundef %path, ptr noundef %token) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113LoadTokenFileEPKcP10grpc_slice(ptr noalias nonnull align 8 %agg.result, ptr noundef %path, ptr noundef nonnull %token) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp4 = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp6 = alloca %"class.std::vector.177", align 8
-  tail call void @_Z14grpc_load_filePKciP10grpc_slice(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %path, i32 noundef 1, ptr noundef %token)
+  tail call void @_Z14grpc_load_filePKciP10grpc_slice(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %path, i32 noundef 1, ptr noundef nonnull %token)
   %0 = load i64, ptr %agg.result, align 8
   %cmp.i = icmp eq i64 %0, 0
   br i1 %cmp.i, label %if.end, label %nrvo.skipdtor
@@ -12376,7 +12376,7 @@ ehcleanup13:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef %field_name, ptr noundef %field, ptr noundef %body) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_114MaybeAddToBodyEPKcS2_PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef %field_name, ptr noundef %field, ptr noundef nonnull %body) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

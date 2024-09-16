@@ -535,7 +535,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @aead_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md, i8 noundef signext %implicit_iv) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @aead_tls_init(ptr nocapture noundef %ctx, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir, ptr noundef %cipher, ptr noundef %md, i8 noundef signext range(i8 0, 2) %implicit_iv) unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq i64 %tag_len, 0
   br i1 %cmp.not, label %if.end, label %land.lhs.true

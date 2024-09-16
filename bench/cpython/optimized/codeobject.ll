@@ -1333,7 +1333,7 @@ if.then95:                                        ; preds = %if.end87
   br label %return
 
 if.end96:                                         ; preds = %if.end87
-  call fastcc void @get_localsplus_counts(i64 %.val56, ptr noundef nonnull %21, ptr noundef nonnull %nlocals, ptr noundef null, ptr noundef null)
+  call fastcc void @get_localsplus_counts(i64 %.val56, ptr noundef nonnull %21, ptr noundef %nlocals, ptr noundef null, ptr noundef null)
   %51 = load i32, ptr %nlocals, align 4
   %52 = add i32 %2, %0
   %53 = shl i32 %4, 29
@@ -1359,7 +1359,7 @@ return:                                           ; preds = %if.end96, %if.then1
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
+define internal fastcc void @get_localsplus_counts(i64 %names.16.val, ptr nocapture noundef readonly %kinds, ptr nocapture noundef nonnull writeonly %pnlocals, ptr noundef writeonly %pncellvars, ptr noundef writeonly %pnfreevars) unnamed_addr #3 {
 entry:
   %cmp2 = icmp sgt i64 %names.16.val, 0
   br i1 %cmp2, label %for.body.lr.ph, label %if.then25
@@ -2065,12 +2065,12 @@ while.body.i.i:                                   ; preds = %if.end6.i.i, %while
 if.then.i95.i:                                    ; preds = %while.body.i.i
   %arrayidx.i.i = getelementptr [8 x ptr], ptr %code_watchers.i.i, i64 0, i64 %indvars.iv.i.i
   %78 = load ptr, ptr %arrayidx.i.i, align 8
-  %call2.i.i = call i32 %78(i32 noundef 0, ptr noundef %call18) #13
+  %call2.i.i = call i32 %78(i32 noundef 0, ptr noundef nonnull %call18) #13
   %cmp.i96.i = icmp slt i32 %call2.i.i, 0
   br i1 %cmp.i96.i, label %if.then4.i.i, label %if.end6.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i95.i
-  call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %call18) #13
+  call void (ptr, ...) @PyErr_FormatUnraisable(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef nonnull %call18) #13
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then4.i.i, %if.then.i95.i, %while.body.i.i
@@ -7101,7 +7101,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_localsplus_names(ptr nocapture noundef readonly %co, i8 noundef zeroext %kind, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc ptr @get_localsplus_names(ptr nocapture noundef readonly %co, i8 noundef zeroext range(i8 32, -127) %kind, i32 noundef %num) unnamed_addr #0 {
 entry:
   %conv = sext i32 %num to i64
   %call = tail call ptr @PyTuple_New(i64 noundef %conv) #13

@@ -1882,7 +1882,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -2248,7 +2248,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -2614,7 +2614,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -2980,7 +2980,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -3346,7 +3346,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -3712,7 +3712,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -4078,7 +4078,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -4444,7 +4444,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit110
 "_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h89a0a1d5baf59c97E.llvm.18186205388219339818.exit": ; preds = %109, %111
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %20, align 8, !nonnull !10, !align !11, !noundef !10
-  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %114)
+  %115 = invoke fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef align 16 dereferenceable(80) %113, ptr noalias noundef readonly align 8 dereferenceable(8) %114)
           to label %121 unwind label %117
 
 116:                                              ; preds = %.critedge95
@@ -5472,7 +5472,7 @@ define hidden void @"_ZN5salsa3lru15Lru$LT$Node$GT$5purge17hf52681bbf599f5dfE"(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -5606,7 +5606,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -5782,7 +5782,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !550, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -5881,7 +5881,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e71bed99b1d1e3aE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8e71bed99b1d1e3aE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h0177c8b0fd36800fE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h837d684fd1f0c16fE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -5958,7 +5958,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h837d684fd1f0c16fE.exit"
@@ -5967,7 +5967,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -6101,7 +6101,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -6277,7 +6277,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !593, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -6376,7 +6376,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3d5e16ec07c44a0aE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3d5e16ec07c44a0aE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h036e1cda64e3265bE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h62740f0f162d7a79E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -6453,7 +6453,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h62740f0f162d7a79E.exit"
@@ -6462,7 +6462,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -6596,7 +6596,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -6772,7 +6772,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !635, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -6871,7 +6871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h05fe662d82e7f51aE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h05fe662d82e7f51aE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h295a81f9d888d418E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb84b60a257e6cd89E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -6948,7 +6948,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hb84b60a257e6cd89E.exit"
@@ -6957,7 +6957,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -7091,7 +7091,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -7267,7 +7267,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !677, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -7366,7 +7366,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf046c72dc93b3c7dE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf046c72dc93b3c7dE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h43c7e08ef621a3cbE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h3f43c47a167c94feE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -7443,7 +7443,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17h3f43c47a167c94feE.exit"
@@ -7452,7 +7452,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -7586,7 +7586,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -7762,7 +7762,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !719, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -7861,7 +7861,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd94d81ca79e6f8fE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd94d81ca79e6f8fE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h5b37c9972a430b61E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he0380869d36f7862E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -7938,7 +7938,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17he0380869d36f7862E.exit"
@@ -7947,7 +7947,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -8081,7 +8081,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -8257,7 +8257,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !761, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -8356,7 +8356,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38458c098e8729deE.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h38458c098e8729deE.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17h9a1984e67e4d1b66E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hdf1b92a22de389bfE.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -8433,7 +8433,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hdf1b92a22de389bfE.exit"
@@ -8442,7 +8442,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -8576,7 +8576,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -8752,7 +8752,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !803, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -8851,7 +8851,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3997cc800bdcbf40E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3997cc800bdcbf40E.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hd28f17eeaa936f7dE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hbb976c1b15155da9E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -8928,7 +8928,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hbb976c1b15155da9E.exit"
@@ -8937,7 +8937,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
@@ -9071,7 +9071,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 64:                                               ; preds = %55
   %65 = load ptr, ptr %23, align 8, !nonnull !10, !align !11, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %65, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %65, i64 noundef %35)
   br label %188
 
 66:                                               ; preds = %59
@@ -9247,7 +9247,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.
 
 130:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit44.thread80
   %131 = load i64, ptr %11, align 8, !noalias !845, !noundef !10
-  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %131)
+  invoke fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %131)
           to label %132 unwind label %91
 
 132:                                              ; preds = %130
@@ -9346,7 +9346,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 
 .critedge78.i:                                    ; preds = %161, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33", %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5cd33c31533f8a27E.exit"
   %167 = phi ptr [ %63, %161 ], [ %.pre90, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit33" ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread ], [ %63, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35 ], [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5cd33c31533f8a27E.exit" ]
-  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %167)
+  %168 = call fastcc noundef ptr @"_ZN5salsa3lru19LruData$LT$Node$GT$10record_use17hfb64fb5abaee7e70E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %167)
   br label %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfec3efa3ae3d3595E.exit"
 
 169:                                              ; preds = %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.thread
@@ -9423,7 +9423,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
   br label %188
 
 187:                                              ; preds = %59
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %63, i64 noundef %35)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %63, i64 noundef %35)
   br label %188
 
 188:                                              ; preds = %.critedge, %64, %187, %"_ZN5salsa3lru19LruData$LT$Node$GT$10insert_new17hfec3efa3ae3d3595E.exit"
@@ -9432,7 +9432,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit35.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h21e83ca8911a203eE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9599,7 +9599,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 72
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -9609,7 +9609,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h39dea0be4c355394E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9776,7 +9776,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 88
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -9786,7 +9786,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h3a51f0933bf95532E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9953,7 +9953,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -9963,7 +9963,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h479b667eab2d1c41E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -10130,7 +10130,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 64
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -10140,7 +10140,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h5ea5de6511e69267E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -10307,7 +10307,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 80
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -10317,7 +10317,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17h9bed58dc2716ab4cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -10484,7 +10484,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -10494,7 +10494,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17he106a6ab840d6dd4E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -10661,7 +10661,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 56
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -10671,7 +10671,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$20promote_red_to_green17hfd3e71fcd133c946E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca [3 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -10838,7 +10838,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %73 = getelementptr inbounds i8, ptr %72, i64 96
   call void @_ZN5salsa3lru8LruIndex5store17hc1ee7ea3806b1818E(ptr noundef nonnull align 8 %73, i64 noundef %39)
   %74 = load i64, ptr %9, align 8, !noundef !10
-  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %74)
+  call fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %74)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   ret void
 
@@ -10848,7 +10848,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h220d9759ea4a2b6dE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -11122,7 +11122,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h38a2cbf7c5bfa94fE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -11396,7 +11396,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h6f6a8c90566045a2E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -11670,7 +11670,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17h8d776d0c65371530E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -11944,7 +11944,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hb096d7f3af3deec7E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -12218,7 +12218,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hc8918ca65cd6c237E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -12492,7 +12492,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hfac979ff80042a8cE"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8
@@ -12766,7 +12766,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit86.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef align 16 dereferenceable(80) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5salsa3lru19LruData$LT$Node$GT$23promote_yellow_to_green17hff5ef1a54324d038E"(ptr noalias noundef nonnull align 16 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, ptr }, align 8
   %5 = alloca { { ptr, i64 }, ptr }, align 8
   %6 = alloca [2 x { ptr, ptr }], align 8

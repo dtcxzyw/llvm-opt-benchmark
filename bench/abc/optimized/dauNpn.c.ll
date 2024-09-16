@@ -1693,7 +1693,7 @@ define i32 @Dau_CountSymms(i64 noundef %0, i32 noundef %1) local_unnamed_addr #6
 .lr.ph:                                           ; preds = %.lr.ph19, %.lr.ph
   %.116 = phi i32 [ %10, %.lr.ph ], [ %.018, %.lr.ph19 ]
   %.01215 = phi i32 [ %11, %.lr.ph ], [ %7, %.lr.ph19 ]
-  %9 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef nonnull %3, i32 noundef %1, i32 noundef %.01317, i32 noundef %.01215, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %9 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef %3, i32 noundef %1, i32 noundef %.01317, i32 noundef %.01215, ptr noundef %4, ptr noundef %5)
   %10 = add nsw i32 %9, %.116
   %11 = add nuw i32 %.01215, 1
   %exitcond.not = icmp eq i32 %11, %1
@@ -1705,7 +1705,7 @@ define i32 @Dau_CountSymms(i64 noundef %0, i32 noundef %1) local_unnamed_addr #6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_TtVarsAreSymmetric(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @Abc_TtVarsAreSymmetric(ptr noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #7 {
   %7 = icmp slt i32 %1, 7
   %8 = add nsw i32 %1, -6
   %9 = shl nuw i32 1, %8
@@ -2085,7 +2085,7 @@ define i32 @Dau_CountSymms2(i64 noundef %0, i32 noundef %1) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.lr.ph20, %.lr.ph
   %.117 = phi i32 [ %.2, %.lr.ph ], [ %.019, %.lr.ph20 ]
   %.01316 = phi i32 [ %12, %.lr.ph ], [ %7, %.lr.ph20 ]
-  %9 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef nonnull %3, i32 noundef %1, i32 noundef %.01418, i32 noundef %.01316, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %9 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef %3, i32 noundef %1, i32 noundef %.01418, i32 noundef %.01316, ptr noundef %4, ptr noundef %5)
   %.not = icmp eq i32 %9, 0
   %10 = shl nuw i32 1, %.01316
   %11 = select i1 %.not, i32 0, i32 %10
@@ -2526,8 +2526,8 @@ Vec_WrdFree.exit:                                 ; preds = %Vec_MemFreeP.exit, 
 }
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @Vec_MemHashAlloc(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #8 {
-  %3 = add i32 %1, -1
+define internal fastcc void @Vec_MemHashAlloc(ptr nocapture noundef writeonly %0, i32 noundef range(i32 1024, 65537) %1) unnamed_addr #8 {
+  %3 = add nsw i32 %1, -1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.i.backedge, %2
@@ -2581,26 +2581,16 @@ Vec_IntStartFull.exit:                            ; preds = %Abc_PrimeCudd.exit,
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %11, ptr %20, align 8
   %21 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
-  %or.cond.i = icmp ult i32 %3, 15
-  %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %1
   %22 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4
-  store i32 %spec.store.select.i, ptr %21, align 8
-  %.not.i4 = icmp eq i32 %spec.store.select.i, 0
-  br i1 %.not.i4, label %Vec_IntAlloc.exit, label %23
-
-23:                                               ; preds = %Vec_IntStartFull.exit
-  %24 = sext i32 %spec.store.select.i to i64
-  %25 = shl nsw i64 %24, 2
-  %26 = tail call noalias ptr @malloc(i64 noundef %25) #24
-  br label %Vec_IntAlloc.exit
-
-Vec_IntAlloc.exit:                                ; preds = %Vec_IntStartFull.exit, %23
-  %27 = phi ptr [ %26, %23 ], [ null, %Vec_IntStartFull.exit ]
-  %28 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %21, ptr %29, align 8
+  store i32 %1, ptr %21, align 8
+  %23 = shl nuw nsw i32 %1, 2
+  %24 = zext nneg i32 %23 to i64
+  %25 = tail call noalias ptr @malloc(i64 noundef %24) #24
+  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  store ptr %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %21, ptr %27, align 8
   ret void
 }
 
@@ -4093,7 +4083,7 @@ Dau_CountSymms2.exit.thread:                      ; preds = %.lr.ph491
 .lr.ph.i435:                                      ; preds = %.lr.ph20.i, %.lr.ph.i435
   %.117.i = phi i32 [ %.2.i, %.lr.ph.i435 ], [ %.019.i, %.lr.ph20.i ]
   %.01316.i = phi i32 [ %88, %.lr.ph.i435 ], [ %83, %.lr.ph20.i ]
-  %85 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef nonnull %8, i32 noundef %81, i32 noundef %.01418.i, i32 noundef %.01316.i, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %85 = call fastcc i32 @Abc_TtVarsAreSymmetric(ptr noundef %8, i32 noundef %81, i32 noundef %.01418.i, i32 noundef %.01316.i, ptr noundef %9, ptr noundef %10)
   %.not.i = icmp eq i32 %85, 0
   %86 = shl nuw i32 1, %.01316.i
   %87 = select i1 %.not.i, i32 0, i32 %86

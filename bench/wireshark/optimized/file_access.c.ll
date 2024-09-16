@@ -1181,7 +1181,7 @@ heuristic_uses_extension.exit.thread:             ; preds = %147, %.heuristic_us
 
 212:                                              ; preds = %.lr.ph188
   %213 = trunc nuw i64 %indvars.iv203 to i32
-  %214 = call fastcc i32 @heuristic_uses_extension(i32 noundef %213, ptr noundef nonnull %129)
+  %214 = call fastcc i32 @heuristic_uses_extension(i32 noundef %213, ptr noundef %129)
   %.not168 = icmp eq i32 %214, 0
   br i1 %.not168, label %215, label %229
 
@@ -1421,7 +1421,7 @@ define internal fastcc noalias ptr @get_file_extension(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @heuristic_uses_extension(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @heuristic_uses_extension(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #6 {
   %3 = load ptr, ptr @open_routines, align 8
   %4 = zext i32 %0 to i64
   %5 = getelementptr %struct.open_info, ptr %3, i64 %4

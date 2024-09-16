@@ -9295,7 +9295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
   %258 = getelementptr inbounds i8, ptr %2, i64 36
   %259 = load i8, ptr %258, align 4
   %260 = trunc i8 %259 to i1
-  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %255, i64 %.sroa.01.0.copyload, i8 %.sroa.22.0.copyload, i64 noundef %257, ptr noundef null, i1 noundef zeroext %260)
+  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias writable align 8 %39, i64 noundef %255, i64 %.sroa.01.0.copyload, i8 %.sroa.22.0.copyload, i64 noundef %257, ptr noundef null, i1 noundef zeroext %260)
           to label %261 unwind label %276
 
 261:                                              ; preds = %254
@@ -9363,7 +9363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit98: ; 
   %286 = getelementptr inbounds i8, ptr %2, i64 36
   %287 = load i8, ptr %286, align 4
   %288 = trunc i8 %287 to i1
-  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias nonnull writable align 8 %40, i64 noundef %283, i64 %.sroa.0.0.copyload, i8 %.sroa.2.0.copyload, i64 noundef %285, ptr noundef null, i1 noundef zeroext %288)
+  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias writable align 8 %40, i64 noundef %283, i64 %.sroa.0.0.copyload, i8 %.sroa.2.0.copyload, i64 noundef %285, ptr noundef null, i1 noundef zeroext %288)
           to label %289 unwind label %106
 
 289:                                              ; preds = %282
@@ -9584,7 +9584,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %46, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1, i64 %2, i8 %3, i64 noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef %1, i64 %2, i8 %3, i64 noundef %4, ptr noundef %5, i1 noundef zeroext %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10170,7 +10170,7 @@ define linkonce_odr dso_local void @_ZNK4Luau14ErrorConverterclB5cxx11ERKNS_30In
   %122 = getelementptr inbounds i8, ptr %2, i64 64
   %123 = load ptr, ptr %122, align 8
   %124 = icmp ne ptr %121, %123
-  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %118, i64 undef, i8 0, i64 noundef %119, ptr noundef nonnull @.str.151, i1 noundef zeroext %124)
+  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias writable align 8 %11, i64 noundef %118, i64 undef, i8 0, i64 noundef %119, ptr noundef nonnull @.str.151, i1 noundef zeroext %124)
           to label %125 unwind label %139
 
 125:                                              ; preds = %112
@@ -10240,7 +10240,7 @@ define linkonce_odr dso_local void @_ZNK4Luau14ErrorConverterclB5cxx11ERKNS_30In
   %156 = sdiv exact i64 %155, 24
   %157 = getelementptr inbounds i8, ptr %2, i64 96
   %158 = load i64, ptr %157, align 8
-  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias nonnull writable align 8 %14, i64 noundef %156, i64 undef, i8 0, i64 noundef %158, ptr noundef nonnull @.str.152, i1 noundef zeroext false)
+  invoke fastcc void @_ZL23wrongNumberOfArgsStringB5cxx11mSt8optionalImEmPKcb(ptr dead_on_unwind noalias writable align 8 %14, i64 noundef %156, i64 undef, i8 0, i64 noundef %158, ptr noundef nonnull @.str.152, i1 noundef zeroext false)
           to label %159 unwind label %173
 
 159:                                              ; preds = %148

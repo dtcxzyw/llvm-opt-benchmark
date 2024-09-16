@@ -2346,7 +2346,7 @@ declare dso_local ptr @free_irq(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare dso_local void @pci_disable_msi(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @azx_acquire_irq(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @azx_acquire_irq(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1408
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 916

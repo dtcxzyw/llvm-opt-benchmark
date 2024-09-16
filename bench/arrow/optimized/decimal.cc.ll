@@ -1726,7 +1726,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrowL28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef %scale, ptr noundef %str) unnamed_addr #0 {
+define internal fastcc void @_ZN5arrowL28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i32 noundef range(i32 -76, 77) %scale, ptr noundef %str) unnamed_addr #0 {
 entry:
   %buffer.i = alloca %"struct.std::array.10", align 1
   %cmp = icmp eq i32 %scale, 0
@@ -1844,7 +1844,7 @@ if.then39:                                        ; preds = %if.end37
 
 if.end53:                                         ; preds = %if.end37
   %conv54 = zext i1 %cmp13 to i64
-  %sub55 = add nuw i32 %scale, 2
+  %sub55 = add nuw nsw i32 %scale, 2
   %add = sub i32 %sub55, %sub
   %conv56 = sext i32 %add to i64
   %call57 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(32) %str, i64 noundef %conv54, i64 noundef %conv56, i8 noundef signext 48)
@@ -1884,7 +1884,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !28
-  %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !28
+  %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef %dec.i), !noalias !28
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -3259,7 +3259,7 @@ if.then.i:                                        ; preds = %entry
 
 if.end.i:                                         ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(38) %dec.i, i8 0, i64 38, i1 false), !noalias !87
-  %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef nonnull %dec.i), !noalias !87
+  %call3.i = call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s.coerce1, i64 noundef %s.coerce0, ptr noundef %dec.i), !noalias !87
   br i1 %call3.i, label %if.end5.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -6543,7 +6543,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s, i64 noundef %size, ptr noundef %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_122ParseDecimalComponentsEPKcmPNS0_17DecimalComponentsE(ptr noundef %s, i64 noundef %size, ptr noundef nonnull %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.arrow::internal::StringConverter", align 1
   %cmp = icmp eq i64 %size, 0
@@ -8104,7 +8104,7 @@ if.then11:                                        ; preds = %if.then8
   %idxprom.i = zext nneg i32 %scale to i64
   %arrayidx.i27 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %idxprom.i
   %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i27)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub9)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp14, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i64 32, i1 false)
   br label %if.end60
 
@@ -8128,7 +8128,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub35 = sub nsw i32 %43, %total_shift.0104
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %sub35, i32 %right_shift_by.0103)
   %add37 = add nsw i32 %.sroa.speculated, %total_shift.0104
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, i64 32, i1 false)
   %sub40 = sub nsw i32 %right_shift_by.0103, %.sroa.speculated
   %idxprom.i33 = zext nneg i32 %.sroa.speculated88 to i64
@@ -8153,7 +8153,7 @@ if.end49:                                         ; preds = %if.then46, %while.e
   br i1 %cmp23, label %if.then51, label %if.end60
 
 if.then51:                                        ; preds = %if.end49
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub40)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, i64 32, i1 false)
   br label %if.end60
 
@@ -8288,7 +8288,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %bits) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %bits) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array_le = alloca %"struct.std::array.3", align 8
   %shifted_le = alloca %"struct.std::array.3", align 8
@@ -8762,7 +8762,7 @@ if.then11:                                        ; preds = %if.then8
   %idxprom.i = zext nneg i32 %scale to i64
   %arrayidx.i27 = getelementptr inbounds %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %idxprom.i
   %call13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i27)
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub9)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp14, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp14, i64 32, i1 false)
   br label %if.end60
 
@@ -8786,7 +8786,7 @@ while.body:                                       ; preds = %while.body.preheade
   %sub35 = sub nsw i32 %41, %total_shift.0104
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %sub35, i32 %right_shift_by.0103)
   %add37 = add nsw i32 %.sroa.speculated, %total_shift.0104
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp38, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38, i64 32, i1 false)
   %sub40 = sub nsw i32 %right_shift_by.0103, %.sroa.speculated
   %idxprom.i33 = zext nneg i32 %.sroa.speculated88 to i64
@@ -8811,7 +8811,7 @@ if.end49:                                         ; preds = %if.then46, %while.e
   br i1 %cmp23, label %if.then51, label %if.end60
 
 if.then51:                                        ; preds = %if.end49
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %ref.tmp52, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub40)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias align 8 %ref.tmp52, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %sub40)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %x, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, i64 32, i1 false)
   br label %if.end60
 

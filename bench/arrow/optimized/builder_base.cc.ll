@@ -890,7 +890,7 @@ if.end:                                           ; preds = %_ZNSt10shared_ptrIN
   %builder_ = getelementptr inbounds i8, ptr %ref.tmp22, i64 24
   store ptr %this, ptr %builder_, align 8
   %34 = load ptr, ptr %type, align 8, !noalias !79
-  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef nonnull %ref.tmp22)
+  call fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %34, ptr noundef %ref.tmp22)
   br label %return
 
 return:                                           ; preds = %if.end, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit38
@@ -1210,7 +1210,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %this.val.val.i = load ptr, ptr %29, align 8, !noalias !88
   %type.i = getelementptr inbounds i8, ptr %this.val.val.i, i64 24
   %30 = load ptr, ptr %type.i, align 8, !noalias !88
-  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplINS1_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS8_SaIS8_EEEEEEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef nonnull %ref.tmp33)
+  invoke fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplINS1_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS8_SaIS8_EEEEEEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef %ref.tmp33)
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %for.end, %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
@@ -3790,7 +3790,7 @@ lpad:                                             ; preds = %call.i.i.i.i.noexc,
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef readonly %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplIPKNS_6ScalarEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull readonly %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3211 = alloca %"class.arrow::Status", align 8
   %ref.tmp19.i = alloca %"class.arrow::Status", align 8
@@ -13114,7 +13114,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplINS1_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS8_SaIS8_EEEEEEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef readonly %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow15VisitTypeInlineINS_12_GLOBAL__N_116AppendScalarImplINS1_18DerefConstIteratorIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_6ScalarEESt6vectorIS8_SaIS8_EEEEEEEEJEEENS_6StatusERKNS_8DataTypeEPT_DpOT0_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr noundef nonnull readonly %visitor) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i3446 = alloca %"class.arrow::Status", align 8
   %ref.tmp22.i = alloca %"class.arrow::Status", align 8

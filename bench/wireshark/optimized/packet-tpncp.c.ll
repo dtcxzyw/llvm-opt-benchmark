@@ -170,8 +170,8 @@ define hidden void @proto_reg_handoff_tpncp() #0 {
   br i1 %29, label %78, label %30
 
 30:                                               ; preds = %25
-  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_events_id_vals, ptr noundef nonnull %28)
-  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull %28)
+  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_events_id_vals, ptr noundef %28)
+  call fastcc void @fill_tpncp_id_vals(ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   store i32 0, ptr %1, align 4
   %31 = call noalias dereferenceable_or_null(3000) ptr @g_malloc(i64 noundef 3000) #14
@@ -292,8 +292,8 @@ init_tpncp_db.exit:                               ; preds = %30, %fgetline.exit.
   call void @g_free(ptr noundef nonnull %33) #13
   call void @g_free(ptr noundef nonnull %34) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_events_info_db, ptr noundef nonnull %28)
-  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_commands_info_db, ptr noundef nonnull %28)
+  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_events_info_db, ptr noundef %28)
+  call fastcc void @init_tpncp_data_fields_info(ptr noundef nonnull @tpncp_commands_info_db, ptr noundef %28)
   %77 = call i32 @fclose(ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(i64 3000, ptr nonnull %2)
   br label %79
@@ -582,7 +582,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %64 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_events_id_vals, ptr noundef nonnull @.str.58) #13
   %65 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef %63, ptr noundef null, ptr noundef nonnull @.str.57, ptr noundef %64, i32 noundef %35) #13
   %66 = load i32, ptr %8, align 4
-  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull @tpncp_events_info_db, i32 noundef %66, i32 noundef %14)
+  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %65, ptr noundef %5, ptr noundef nonnull @tpncp_events_info_db, i32 noundef %66, i32 noundef %14)
   br label %85
 
 67:                                               ; preds = %40
@@ -612,7 +612,7 @@ define internal i32 @dissect_tpncp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %82 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @tpncp_commands_id_vals, ptr noundef nonnull @.str.58) #13
   %83 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef %81, ptr noundef null, ptr noundef nonnull @.str.60, ptr noundef %82, i32 noundef %35) #13
   %84 = load i32, ptr %8, align 4
-  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %83, ptr noundef nonnull %5, ptr noundef nonnull @tpncp_commands_info_db, i32 noundef %84, i32 noundef %14)
+  call fastcc void @dissect_tpncp_data(i32 noundef %35, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %83, ptr noundef %5, ptr noundef nonnull @tpncp_commands_info_db, i32 noundef %84, i32 noundef %14)
   br label %85
 
 85:                                               ; preds = %67, %80, %73, %69, %43, %62, %55, %53
@@ -678,7 +678,7 @@ declare ptr @get_datafile_dir() local_unnamed_addr #1
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(3000) ptr @g_malloc(i64 noundef 3000) #14
@@ -686,7 +686,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
   %5 = tail call noalias dereferenceable_or_null(3000) ptr @g_malloc(i64 noundef 3000) #14
   store i8 0, ptr %5, align 1
   %invariant.gep = getelementptr i8, ptr %4, i64 -1
-  %6 = tail call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef %1)
+  %6 = tail call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef nonnull %1)
   %.not.i24 = icmp eq ptr %6, null
   br i1 %.not.i24, label %.critedge, label %.lr.ph
 
@@ -703,7 +703,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
   br label %11
 
 11:                                               ; preds = %10, %.lr.ph
-  %12 = call i32 @feof(ptr noundef %1) #13
+  %12 = call i32 @feof(ptr noundef nonnull %1) #13
   %.not20 = icmp eq i32 %12, 0
   br i1 %.not20, label %13, label %.critedge
 
@@ -735,7 +735,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
 
 28:                                               ; preds = %26, %15
   %.1 = phi i32 [ %27, %26 ], [ %.01825, %15 ]
-  %29 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef %1)
+  %29 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 3000, ptr noundef nonnull %1)
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %.critedge, label %.lr.ph, !llvm.loop !7
 
@@ -746,7 +746,7 @@ define internal fastcc void @fill_tpncp_id_vals(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [3000 x i8], align 16
   %4 = alloca [3000 x i8], align 16
   %5 = alloca %struct.hf_register_info, align 8
@@ -807,7 +807,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
 
 33:                                               ; preds = %32, %2
   %invariant.gep = getelementptr i8, ptr %3, i64 -1
-  %34 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 3000, ptr noundef %1)
+  %34 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 3000, ptr noundef nonnull %1)
   %.not.i166 = icmp eq ptr %34, null
   br i1 %.not.i166, label %fgetline.exit, label %.lr.ph
 
@@ -853,7 +853,7 @@ define internal fastcc void @init_tpncp_data_fields_info(ptr noundef %0, ptr noc
   %.0102.be = phi i32 [ %.0102168, %48 ], [ %.0102168, %55 ], [ %.0102168, %99 ], [ %.0102168, %105 ], [ %.0102168, %111 ], [ %.0102168, %118 ], [ 0, %139 ], [ 0, %145 ], [ %.1103, %205 ], [ %.0102168, %65 ], [ %.0102168, %129 ]
   %.098.be = phi i32 [ %.098169, %48 ], [ %.098169, %55 ], [ %.098169, %99 ], [ %.098169, %105 ], [ %.098169, %111 ], [ %.098169, %118 ], [ %.199, %139 ], [ %.199, %145 ], [ %.2, %205 ], [ %.098169, %65 ], [ %124, %129 ]
   %.097.be = phi ptr [ %.097170, %48 ], [ %.097170, %55 ], [ %.097170, %99 ], [ %.097170, %105 ], [ %.097170, %111 ], [ %.097170, %118 ], [ %.097170, %139 ], [ %.097170, %145 ], [ %.1, %205 ], [ %.097170, %65 ], [ %.097170, %129 ]
-  %49 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 3000, ptr noundef %1)
+  %49 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 3000, ptr noundef nonnull %1)
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %fgetline.exit, label %38, !llvm.loop !9
 
@@ -1232,7 +1232,7 @@ get_enum_name_val.exit.thread:                    ; preds = %160, %156, %get_enu
 190:                                              ; preds = %188
   store i32 0, ptr %35, align 4
   store i32 32, ptr %9, align 8
-  %191 = call fastcc i32 @add_hf(ptr noundef nonnull %5)
+  %191 = call fastcc i32 @add_hf(ptr noundef %5)
   %.not145 = icmp eq i32 %191, 0
   br i1 %.not145, label %fgetline.exit, label %192
 
@@ -1347,7 +1347,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_hf(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_hf(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = load i32, ptr @hf_size, align 4
   %3 = load i32, ptr @hf_allocated, align 4
   %.not = icmp slt i32 %2, %3
@@ -1414,7 +1414,7 @@ declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_tpncp_data(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_tpncp_data(i32 noundef range(i32 0, 5000) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef range(i32 -2147483648, 1) %7) unnamed_addr #0 {
   %9 = icmp eq i32 %7, -2147483648
   %10 = select i1 %9, i32 7, i32 0
   %11 = zext nneg i32 %0 to i64

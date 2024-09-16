@@ -1887,7 +1887,7 @@ print_string.exit:                                ; preds = %.preheader112
   %176 = call zeroext i1 @h5tools_render_element(ptr noundef %173, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %18, ptr noundef nonnull %17, ptr noundef nonnull %16, i64 noundef %175, i64 noundef 0, i64 noundef 0) #21
   %177 = call ptr @h5tools_str_reset(ptr noundef nonnull %17) #21
   %178 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %17, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.94) #21
-  call fastcc void @print_type(ptr noundef nonnull %17, i64 noundef %28, i32 noundef 15)
+  call fastcc void @print_type(ptr noundef %17, i64 noundef %28, i32 noundef 15)
   %179 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %17, ptr noundef nonnull @.str.69) #21
   %180 = load ptr, ptr @rawoutstream, align 8
   %181 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
@@ -2206,7 +2206,7 @@ define internal noundef i32 @datatype_list2(i64 noundef %0, ptr nocapture readno
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %9 = call ptr @h5tools_str_reset(ptr noundef nonnull %4) #21
   %10 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.94) #21
-  call fastcc void @print_type(ptr noundef nonnull %4, i64 noundef %0, i32 noundef 15)
+  call fastcc void @print_type(ptr noundef %4, i64 noundef %0, i32 noundef 15)
   %11 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %4, ptr noundef nonnull @.str.69) #21
   %12 = load ptr, ptr @rawoutstream, align 8
   %13 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8
@@ -3368,7 +3368,7 @@ declare i32 @H5Pget_filter2(i64 noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @print_type(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca %struct.H5O_info2_t, align 8
   %5 = alloca ptr, align 8
   %6 = tail call i32 @H5Tget_class(i64 noundef %1) #21
@@ -3376,7 +3376,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.105) #21
+  %9 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.105) #21
   br label %print_native_type.exit.thread
 
 10:                                               ; preds = %3
@@ -3395,13 +3395,13 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   %17 = call i32 @H5Otoken_to_str(i64 noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %5) #21
   %18 = load i64, ptr %4, align 8
   %19 = load ptr, ptr %5, align 8
-  %20 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.106, i64 noundef %18, ptr noundef %19) #21
+  %20 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.106, i64 noundef %18, ptr noundef %19) #21
   %21 = load ptr, ptr %5, align 8
   %22 = call i32 @H5free_memory(ptr noundef %21) #21
   br label %25
 
 23:                                               ; preds = %12
-  %24 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.107) #21
+  %24 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.107) #21
   br label %25
 
 25:                                               ; preds = %15, %23, %10
@@ -3415,7 +3415,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %26
-  %31 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.109) #21
+  %31 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.109) #21
   br label %print_native_type.exit.thread
 
 32:                                               ; preds = %26
@@ -3425,7 +3425,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.110) #21
+  %37 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.110) #21
   br label %print_native_type.exit.thread
 
 38:                                               ; preds = %32
@@ -3435,7 +3435,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %38
-  %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.111) #21
+  %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.111) #21
   br label %print_native_type.exit.thread
 
 44:                                               ; preds = %38
@@ -3445,7 +3445,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %44
-  %49 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.112) #21
+  %49 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.112) #21
   br label %print_native_type.exit.thread
 
 50:                                               ; preds = %44
@@ -3455,7 +3455,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %50
-  %55 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.113) #21
+  %55 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.113) #21
   br label %print_native_type.exit.thread
 
 56:                                               ; preds = %50
@@ -3465,7 +3465,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %56
-  %61 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.114) #21
+  %61 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.114) #21
   br label %print_native_type.exit.thread
 
 62:                                               ; preds = %56
@@ -3475,7 +3475,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %62
-  %67 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.115) #21
+  %67 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.115) #21
   br label %print_native_type.exit.thread
 
 68:                                               ; preds = %62
@@ -3485,7 +3485,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %68
-  %73 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.116) #21
+  %73 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.116) #21
   br label %print_native_type.exit.thread
 
 74:                                               ; preds = %68
@@ -3495,7 +3495,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %74
-  %79 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.117) #21
+  %79 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.117) #21
   br label %print_native_type.exit.thread
 
 80:                                               ; preds = %74
@@ -3505,7 +3505,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %80
-  %85 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.118) #21
+  %85 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.118) #21
   br label %print_native_type.exit.thread
 
 86:                                               ; preds = %80
@@ -3515,7 +3515,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %89, label %90, label %92
 
 90:                                               ; preds = %86
-  %91 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.119) #21
+  %91 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.119) #21
   br label %print_native_type.exit.thread
 
 92:                                               ; preds = %86
@@ -3525,7 +3525,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %92
-  %97 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.120) #21
+  %97 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.120) #21
   br label %print_native_type.exit.thread
 
 98:                                               ; preds = %92
@@ -3535,7 +3535,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %98
-  %103 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.121) #21
+  %103 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.121) #21
   br label %print_native_type.exit.thread
 
 104:                                              ; preds = %98
@@ -3545,7 +3545,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %104
-  %109 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.122) #21
+  %109 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.122) #21
   br label %print_native_type.exit.thread
 
 110:                                              ; preds = %104
@@ -3555,7 +3555,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %110
-  %115 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.123) #21
+  %115 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.123) #21
   br label %print_native_type.exit.thread
 
 116:                                              ; preds = %110
@@ -3565,7 +3565,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %116
-  %121 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.124) #21
+  %121 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.124) #21
   br label %print_native_type.exit.thread
 
 122:                                              ; preds = %116
@@ -3575,7 +3575,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %122
-  %127 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.125) #21
+  %127 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.125) #21
   br label %print_native_type.exit.thread
 
 128:                                              ; preds = %122
@@ -3585,7 +3585,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %128
-  %133 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.126) #21
+  %133 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.126) #21
   br label %print_native_type.exit.thread
 
 134:                                              ; preds = %128
@@ -3595,7 +3595,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %137, label %138, label %140
 
 138:                                              ; preds = %134
-  %139 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.127) #21
+  %139 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.127) #21
   br label %print_native_type.exit.thread
 
 140:                                              ; preds = %134
@@ -3605,7 +3605,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %140
-  %145 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.128) #21
+  %145 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.128) #21
   br label %print_native_type.exit.thread
 
 146:                                              ; preds = %140
@@ -3615,7 +3615,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %146
-  %151 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.129) #21
+  %151 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.129) #21
   br label %print_native_type.exit.thread
 
 152:                                              ; preds = %146
@@ -3625,7 +3625,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %152
-  %157 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.130) #21
+  %157 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.130) #21
   br label %print_native_type.exit.thread
 
 158:                                              ; preds = %152
@@ -3635,7 +3635,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %158
-  %163 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.131) #21
+  %163 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.131) #21
   br label %print_native_type.exit.thread
 
 164:                                              ; preds = %158
@@ -3645,7 +3645,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %167, label %168, label %170
 
 168:                                              ; preds = %164
-  %169 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.132) #21
+  %169 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.132) #21
   br label %print_native_type.exit.thread
 
 170:                                              ; preds = %164
@@ -3655,7 +3655,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %170
-  %175 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.133) #21
+  %175 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.133) #21
   br label %print_native_type.exit.thread
 
 176:                                              ; preds = %170
@@ -3665,7 +3665,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %179, label %180, label %182
 
 180:                                              ; preds = %176
-  %181 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.134) #21
+  %181 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.134) #21
   br label %print_native_type.exit.thread
 
 182:                                              ; preds = %176
@@ -3675,7 +3675,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %182
-  %187 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.135) #21
+  %187 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.135) #21
   br label %print_native_type.exit.thread
 
 188:                                              ; preds = %182
@@ -3685,7 +3685,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %188
-  %193 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.136) #21
+  %193 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.136) #21
   br label %print_native_type.exit.thread
 
 194:                                              ; preds = %188
@@ -3695,7 +3695,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %194
-  %199 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.137) #21
+  %199 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.137) #21
   br label %print_native_type.exit.thread
 
 200:                                              ; preds = %194
@@ -3705,7 +3705,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %203, label %204, label %206
 
 204:                                              ; preds = %200
-  %205 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.138) #21
+  %205 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.138) #21
   br label %print_native_type.exit.thread
 
 206:                                              ; preds = %200
@@ -3715,7 +3715,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %209, label %210, label %212
 
 210:                                              ; preds = %206
-  %211 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.139) #21
+  %211 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.139) #21
   br label %print_native_type.exit.thread
 
 212:                                              ; preds = %206
@@ -3725,7 +3725,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %212
-  %217 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.140) #21
+  %217 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.140) #21
   br label %print_native_type.exit.thread
 
 218:                                              ; preds = %212
@@ -3735,7 +3735,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %218
-  %223 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.141) #21
+  %223 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.141) #21
   br label %print_native_type.exit.thread
 
 224:                                              ; preds = %218
@@ -3745,7 +3745,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %224
-  %229 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.142) #21
+  %229 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.142) #21
   br label %print_native_type.exit.thread
 
 230:                                              ; preds = %224
@@ -3755,7 +3755,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %233, label %234, label %236
 
 234:                                              ; preds = %230
-  %235 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.143) #21
+  %235 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.143) #21
   br label %print_native_type.exit.thread
 
 236:                                              ; preds = %230
@@ -3765,7 +3765,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %236
-  %241 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.144) #21
+  %241 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.144) #21
   br label %print_native_type.exit.thread
 
 242:                                              ; preds = %236
@@ -3775,7 +3775,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %242
-  %247 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.145) #21
+  %247 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.145) #21
   br label %print_native_type.exit.thread
 
 248:                                              ; preds = %242
@@ -3785,7 +3785,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %251, label %252, label %254
 
 252:                                              ; preds = %248
-  %253 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.146) #21
+  %253 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.146) #21
   br label %print_native_type.exit.thread
 
 254:                                              ; preds = %248
@@ -3795,7 +3795,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %254
-  %259 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.147) #21
+  %259 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.147) #21
   br label %print_native_type.exit.thread
 
 260:                                              ; preds = %254
@@ -3805,7 +3805,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %263, label %264, label %266
 
 264:                                              ; preds = %260
-  %265 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.148) #21
+  %265 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.148) #21
   br label %print_native_type.exit.thread
 
 266:                                              ; preds = %260
@@ -3815,7 +3815,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %269, label %270, label %272
 
 270:                                              ; preds = %266
-  %271 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.149) #21
+  %271 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.149) #21
   br label %print_native_type.exit.thread
 
 272:                                              ; preds = %266
@@ -3825,7 +3825,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %272
-  %277 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.150) #21
+  %277 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.150) #21
   br label %print_native_type.exit.thread
 
 278:                                              ; preds = %272
@@ -3835,7 +3835,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %281, label %282, label %284
 
 282:                                              ; preds = %278
-  %283 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.151) #21
+  %283 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.151) #21
   br label %print_native_type.exit.thread
 
 284:                                              ; preds = %278
@@ -3845,7 +3845,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %287, label %288, label %290
 
 288:                                              ; preds = %284
-  %289 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.152) #21
+  %289 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.152) #21
   br label %print_native_type.exit.thread
 
 290:                                              ; preds = %284
@@ -3855,7 +3855,7 @@ define internal fastcc void @print_type(ptr noundef %0, i64 noundef %1, i32 noun
   br i1 %293, label %294, label %print_native_type.exit
 
 294:                                              ; preds = %290
-  %295 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.153) #21
+  %295 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.153) #21
   br label %print_native_type.exit.thread
 
 296:                                              ; preds = %25
@@ -3873,7 +3873,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %302, label %303, label %305
 
 303:                                              ; preds = %299
-  %304 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.170) #21
+  %304 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.170) #21
   br label %print_native_type.exit.thread
 
 305:                                              ; preds = %299
@@ -3883,7 +3883,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %308, label %309, label %311
 
 309:                                              ; preds = %305
-  %310 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.171) #21
+  %310 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.171) #21
   br label %print_native_type.exit.thread
 
 311:                                              ; preds = %305
@@ -3893,7 +3893,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %311
-  %316 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.172) #21
+  %316 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.172) #21
   br label %print_native_type.exit.thread
 
 317:                                              ; preds = %311
@@ -3903,7 +3903,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %320, label %321, label %323
 
 321:                                              ; preds = %317
-  %322 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.173) #21
+  %322 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.173) #21
   br label %print_native_type.exit.thread
 
 323:                                              ; preds = %317
@@ -3913,7 +3913,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %326, label %327, label %329
 
 327:                                              ; preds = %323
-  %328 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.174) #21
+  %328 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.174) #21
   br label %print_native_type.exit.thread
 
 329:                                              ; preds = %323
@@ -3923,7 +3923,7 @@ print_native_type.exit:                           ; preds = %290
   br i1 %332, label %333, label %print_ieee_type.exit
 
 333:                                              ; preds = %329
-  %334 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.175) #21
+  %334 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.175) #21
   br label %print_native_type.exit.thread
 
 print_ieee_type.exit:                             ; preds = %329
@@ -3941,7 +3941,7 @@ print_ieee_type.exit:                             ; preds = %329
   br i1 %340, label %360, label %341
 
 341:                                              ; preds = %338
-  %342 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.185) #21
+  %342 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.185) #21
   %.not58 = icmp eq i32 %339, 0
   br i1 %.not58, label %print_cmpd_type.exit, label %.lr.ph
 
@@ -3952,12 +3952,12 @@ print_ieee_type.exit:                             ; preds = %329
 344:                                              ; preds = %.lr.ph, %344
   %.0.i4151 = phi i32 [ 0, %.lr.ph ], [ %355, %344 ]
   %345 = call ptr @H5Tget_member_name(i64 noundef %1, i32 noundef %.0.i4151) #21
-  %346 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.186, i32 noundef %343, ptr noundef nonnull @.str.46) #21
-  %347 = call fastcc i32 @print_string(ptr noundef %0, ptr noundef %345, i1 noundef zeroext false)
+  %346 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.186, i32 noundef %343, ptr noundef nonnull @.str.46) #21
+  %347 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %345, i1 noundef zeroext false)
   %348 = sub nsw i32 16, %347
   %349 = call i32 @llvm.smax.i32(i32 %348, i32 0)
   %350 = call i64 @H5Tget_member_offset(i64 noundef %1, i32 noundef %.0.i4151) #21
-  %351 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.187, i32 noundef %349, ptr noundef nonnull @.str.46, i64 noundef %350) #21
+  %351 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.187, i32 noundef %349, ptr noundef nonnull @.str.46, i64 noundef %350) #21
   %352 = call i32 @H5free_memory(ptr noundef %345) #21
   %353 = call i64 @H5Tget_member_type(i64 noundef %1, i32 noundef %.0.i4151) #21
   call fastcc void @print_type(ptr noundef %0, i64 noundef %353, i32 noundef %343)
@@ -3970,7 +3970,7 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   %356 = call i64 @H5Tget_size(i64 noundef %1) #21
   %357 = icmp eq i64 %356, 1
   %358 = select i1 %357, ptr @.str.46, ptr @.str.58
-  %359 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.188, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %356, ptr noundef nonnull %358) #21
+  %359 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.188, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %356, ptr noundef nonnull %358) #21
   br label %print_native_type.exit.thread
 
 360:                                              ; preds = %336, %338
@@ -3985,10 +3985,10 @@ print_cmpd_type.exit:                             ; preds = %344, %341
 
 365:                                              ; preds = %362
   %366 = call i64 @H5Tget_super(i64 noundef %1) #21
-  %367 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.189) #21
+  %367 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.189) #21
   %368 = add nsw i32 %2, 4
   call fastcc void @print_type(ptr noundef %0, i64 noundef %366, i32 noundef %368)
-  %369 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.43) #21
+  %369 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #21
   %.not93.i = icmp eq i32 %363, 0
   br i1 %.not93.i, label %444, label %370
 
@@ -4082,14 +4082,14 @@ print_cmpd_type.exit:                             ; preds = %344, %341
 
 .split.us:                                        ; preds = %410, %.loopexit.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.loopexit.us ], [ 0, %410 ]
-  %412 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.190, i32 noundef %368, ptr noundef nonnull @.str.46) #21
+  %412 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.190, i32 noundef %368, ptr noundef nonnull @.str.46) #21
   %413 = getelementptr inbounds ptr, ptr %384, i64 %indvars.iv70
   %414 = load ptr, ptr %413, align 8
-  %415 = call fastcc i32 @print_string(ptr noundef %0, ptr noundef %414, i1 noundef zeroext true)
+  %415 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %414, i1 noundef zeroext true)
   %416 = sub nsw i32 16, %415
   %417 = call i32 @llvm.smax.i32(i32 %416, i32 0)
-  %418 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.191, i32 noundef %417, ptr noundef nonnull @.str.46) #21
-  %419 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.192) #21
+  %418 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.191, i32 noundef %417, ptr noundef nonnull @.str.46) #21
+  %419 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.192) #21
   br i1 %.not59, label %.loopexit.us, label %.lr.ph54.us
 
 420:                                              ; preds = %.lr.ph54.us, %420
@@ -4097,7 +4097,7 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   %421 = getelementptr i8, ptr %427, i64 %.089.i53.us
   %422 = load i8, ptr %421, align 1
   %423 = zext i8 %422 to i32
-  %424 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.193, i32 noundef %423) #21
+  %424 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.193, i32 noundef %423) #21
   %425 = add nuw i64 %.089.i53.us, 1
   %exitcond69.not = icmp eq i64 %425, %.090.i
   br i1 %exitcond69.not, label %.loopexit.us, label %420
@@ -4114,20 +4114,20 @@ print_cmpd_type.exit:                             ; preds = %344, %341
 
 .split:                                           ; preds = %.split.preheader, %.split
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %.split ], [ 0, %.split.preheader ]
-  %428 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.190, i32 noundef %368, ptr noundef nonnull @.str.46) #21
+  %428 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.190, i32 noundef %368, ptr noundef nonnull @.str.46) #21
   %429 = getelementptr inbounds ptr, ptr %384, i64 %indvars.iv63
   %430 = load ptr, ptr %429, align 8
-  %431 = call fastcc i32 @print_string(ptr noundef %0, ptr noundef %430, i1 noundef zeroext true)
+  %431 = call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef %430, i1 noundef zeroext true)
   %432 = sub nsw i32 16, %431
   %433 = call i32 @llvm.smax.i32(i32 %432, i32 0)
-  %434 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.191, i32 noundef %433, ptr noundef nonnull @.str.46) #21
+  %434 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.191, i32 noundef %433, ptr noundef nonnull @.str.46) #21
   %435 = call i32 @H5Tget_sign(i64 noundef %.088.i.fr) #21
   %436 = icmp eq i32 %435, 0
   %437 = mul i64 %.090.i, %indvars.iv63
   %438 = getelementptr inbounds i8, ptr %391, i64 %437
   %.0.copyload1.i = load i64, ptr %438, align 1
   %.str.194..str.195 = select i1 %436, ptr @.str.194, ptr @.str.195
-  %439 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull %.str.194..str.195, i64 noundef %.0.copyload1.i) #21
+  %439 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull %.str.194..str.195, i64 noundef %.0.copyload1.i) #21
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count
   br i1 %exitcond68.not, label %.preheader50.preheader, label %.split
@@ -4150,11 +4150,11 @@ print_cmpd_type.exit:                             ; preds = %344, %341
   br label %print_enum_type.exit
 
 444:                                              ; preds = %365
-  %445 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.196, i32 noundef %368, ptr noundef nonnull @.str.46) #21
+  %445 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.196, i32 noundef %368, ptr noundef nonnull @.str.46) #21
   br label %print_enum_type.exit
 
 print_enum_type.exit:                             ; preds = %443, %444
-  %446 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.197, i32 noundef %2, ptr noundef nonnull @.str.46) #21
+  %446 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.197, i32 noundef %2, ptr noundef nonnull @.str.46) #21
   %447 = call i32 @H5Tclose(i64 noundef %366) #21
   br label %print_native_type.exit.thread
 
@@ -4195,16 +4195,16 @@ switch.lookup90:                                  ; preds = %454
   br i1 %.not14.i, label %462, label %460
 
 460:                                              ; preds = %458
-  %461 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.205) #21
+  %461 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.205) #21
   br label %print_string_type.exit.thread
 
 462:                                              ; preds = %458
   %463 = call i64 @H5Tget_size(i64 noundef %1) #21
-  %464 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.206, i64 noundef %463) #21
+  %464 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.206, i64 noundef %463) #21
   br label %print_string_type.exit.thread
 
 print_string_type.exit.thread:                    ; preds = %460, %462
-  %465 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.207, ptr noundef %.013.i, ptr noundef %.0.i45) #21
+  %465 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.207, ptr noundef %.013.i, ptr noundef %.0.i45) #21
   br label %print_native_type.exit.thread
 
 print_string_type.exit:                           ; preds = %448
@@ -4229,7 +4229,7 @@ print_string_type.exit:                           ; preds = %448
 
 475:                                              ; preds = %473
   %476 = call i64 @H5Tget_size(i64 noundef %1) #21
-  %477 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.108, i64 noundef %476, i32 noundef %6) #21
+  %477 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.108, i64 noundef %476, i32 noundef %6) #21
   br label %print_native_type.exit.thread
 
 print_native_type.exit.thread:                    ; preds = %303, %315, %327, %333, %321, %309, %36, %48, %60, %72, %84, %96, %108, %120, %132, %144, %156, %168, %180, %192, %204, %216, %228, %240, %252, %264, %276, %288, %294, %282, %270, %258, %246, %234, %222, %210, %198, %186, %174, %162, %150, %138, %126, %114, %102, %90, %78, %66, %54, %42, %30, %print_string_type.exit.thread, %print_enum_type.exit, %print_cmpd_type.exit, %296, %print_native_type.exit, %print_ieee_type.exit, %print_string_type.exit, %467, %469, %471, %473, %475, %8
@@ -4252,7 +4252,7 @@ declare i32 @H5Otoken_to_str(i64 noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @H5free_memory(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1) unnamed_addr #3 {
   %3 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %3, 7
   br i1 %.not, label %4, label %25
@@ -4264,7 +4264,7 @@ define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef %0, 
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %4
-  %9 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.208) #21
+  %9 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.208) #21
   br label %25
 
 10:                                               ; preds = %4
@@ -4274,7 +4274,7 @@ define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef %0, 
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.209) #21
+  %15 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.209) #21
   br label %25
 
 16:                                               ; preds = %10
@@ -4284,12 +4284,12 @@ define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef %0, 
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.210) #21
+  %21 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.210) #21
   br label %25
 
 22:                                               ; preds = %16
   %23 = tail call i64 @H5Tget_size(i64 noundef %1) #21
-  %24 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.211, i64 noundef %23) #21
+  %24 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.211, i64 noundef %23) #21
   br label %25
 
 25:                                               ; preds = %8, %20, %22, %14, %2
@@ -4297,14 +4297,14 @@ define internal fastcc noundef zeroext i1 @print_reference_type(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_vlen_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_vlen_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %4, 9
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %3
   %6 = add nsw i32 %2, 4
-  %7 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.212, i32 noundef %6, ptr noundef nonnull @.str.46) #21
+  %7 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.212, i32 noundef %6, ptr noundef nonnull @.str.46) #21
   %8 = tail call i64 @H5Tget_super(i64 noundef %1) #21
   tail call fastcc void @print_type(ptr noundef %0, i64 noundef %8, i32 noundef %6)
   %9 = tail call i32 @H5Tclose(i64 noundef %8) #21
@@ -4315,7 +4315,7 @@ define internal fastcc noundef zeroext i1 @print_vlen_type(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %4, 10
   br i1 %.not, label %5, label %25
@@ -4339,22 +4339,22 @@ define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef %0, i64 
   %13 = select i1 %.not25, ptr @.str.214, ptr @.str.213
   %14 = getelementptr inbounds i64, ptr %10, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
-  %16 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %13, i64 noundef %15) #21
+  %16 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef nonnull %13, i64 noundef %15) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %17 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.215) #21
+  %17 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.215) #21
   tail call void @free(ptr noundef %10) #21
   br label %20
 
 18:                                               ; preds = %5
-  %19 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.216) #21
+  %19 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.216) #21
   br label %20
 
 20:                                               ; preds = %18, %._crit_edge
-  %21 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.78) #21
+  %21 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.78) #21
   %22 = tail call i64 @H5Tget_super(i64 noundef %1) #21
   %23 = add nsw i32 %2, 4
   tail call fastcc void @print_type(ptr noundef %0, i64 noundef %22, i32 noundef %23)
@@ -4366,22 +4366,22 @@ define internal fastcc noundef zeroext i1 @print_array_type(ptr noundef %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_opaque_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_opaque_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %5, label %14
 
 5:                                                ; preds = %3
   %6 = tail call i64 @H5Tget_size(i64 noundef %1) #21
-  %7 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef %6) #21
+  %7 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.217, i64 noundef %6) #21
   %8 = tail call ptr @H5Tget_tag(i64 noundef %1) #21
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %14, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.218, i32 noundef %2, ptr noundef nonnull @.str.46) #21
-  %11 = tail call fastcc i32 @print_string(ptr noundef %0, ptr noundef nonnull %8, i1 noundef zeroext false)
-  %12 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.219) #21
+  %10 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.218, i32 noundef %2, ptr noundef nonnull @.str.46) #21
+  %11 = tail call fastcc i32 @print_string(ptr noundef nonnull %0, ptr noundef nonnull %8, i1 noundef zeroext false)
+  %12 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.219) #21
   %13 = tail call i32 @H5free_memory(ptr noundef nonnull %8) #21
   br label %14
 
@@ -4390,7 +4390,7 @@ define internal fastcc noundef zeroext i1 @print_opaque_type(ptr noundef %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_bitfield_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_bitfield_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %5, label %16
@@ -4415,7 +4415,7 @@ switch.lookup:                                    ; preds = %8
   %.0 = phi ptr [ @.str.46, %5 ], [ %switch.load, %switch.lookup ], [ @.str.220, %8 ]
   %13 = tail call i64 @H5Tget_size(i64 noundef %1) #21
   %14 = shl i64 %13, 3
-  %15 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef %14, ptr noundef nonnull %.0) #21
+  %15 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.221, i64 noundef %14, ptr noundef nonnull %.0) #21
   tail call fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %16
 
@@ -4424,7 +4424,7 @@ switch.lookup:                                    ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_int_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_int_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = tail call i32 @H5Tget_class(i64 noundef %1) #21
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %18
@@ -4456,7 +4456,7 @@ switch.lookup:                                    ; preds = %8
   %.0 = select i1 %14, ptr %switch.select21, ptr @.str.159
   %15 = tail call i64 @H5Tget_size(i64 noundef %1) #21
   %16 = shl i64 %15, 3
-  %17 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef %16, ptr noundef nonnull %.017, ptr noundef nonnull %.0) #21
+  %17 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.160, i64 noundef %16, ptr noundef nonnull %.017, ptr noundef nonnull %.0) #21
   tail call fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %18
 
@@ -4469,7 +4469,7 @@ declare i32 @H5Tget_order(i64 noundef) local_unnamed_addr #2
 declare i32 @H5Tget_sign(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @print_precision(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call i64 @H5Tget_size(i64 noundef %1) #21
@@ -4483,7 +4483,7 @@ define internal fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32
   %11 = select i1 %10, ptr @.str.46, ptr @.str.58
   %12 = tail call i32 @H5Tget_offset(i64 noundef %1) #21
   %13 = sext i32 %12 to i64
-  %14 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.161, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %8, ptr noundef nonnull %11, i64 noundef %13) #21
+  %14 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.161, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %8, ptr noundef nonnull %11, i64 noundef %13) #21
   %15 = call i32 @H5Tget_pad(i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #21
   %16 = call i32 @H5Tget_offset(i64 noundef %1) #21
   %17 = icmp sgt i32 %16, 0
@@ -4532,14 +4532,14 @@ define internal fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32
   br i1 %25, label %.thread.thread, label %61
 
 .thread.thread:                                   ; preds = %35
-  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.166, i32 noundef %2, ptr noundef nonnull @.str.46) #21
+  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.166, i32 noundef %2, ptr noundef nonnull @.str.46) #21
   br label %39
 
 switch.lookup:                                    ; preds = %32
   %37 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.print_float_type.3, i64 0, i64 %37
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.166, i32 noundef %2, ptr noundef nonnull @.str.46) #21
+  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.166, i32 noundef %2, ptr noundef nonnull @.str.46) #21
   br i1 %25, label %39, label %.thread43
 
 39:                                               ; preds = %.thread.thread, %switch.lookup
@@ -4549,11 +4549,11 @@ switch.lookup:                                    ; preds = %32
   %42 = zext i32 %41 to i64
   %43 = icmp eq i32 %41, 1
   %44 = select i1 %43, ptr @.str.46, ptr @.str.58
-  %45 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.167, i64 noundef %42, ptr noundef %.038, ptr noundef nonnull %44) #21
+  %45 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.167, i64 noundef %42, ptr noundef %.038, ptr noundef nonnull %44) #21
   br i1 %40, label %46, label %.critedge
 
 46:                                               ; preds = %39
-  %47 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.45) #21
+  %47 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #21
   br label %.thread43
 
 .thread43:                                        ; preds = %46, %switch.lookup
@@ -4569,11 +4569,11 @@ switch.lookup:                                    ; preds = %32
   %56 = call i64 @H5Tget_size(i64 noundef %1) #21
   %57 = shl i64 %56, 3
   %58 = sub i64 %57, %53
-  %59 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.168, i64 noundef %53, ptr noundef %.04248, ptr noundef nonnull %55, i64 noundef %58) #21
+  %59 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.168, i64 noundef %53, ptr noundef %.04248, ptr noundef nonnull %55, i64 noundef %58) #21
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %.thread43
-  %60 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.169) #21
+  %60 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.169) #21
   br label %61
 
 61:                                               ; preds = %.critedge, %35, %3
@@ -4587,7 +4587,7 @@ declare i32 @H5Tget_offset(i64 noundef) local_unnamed_addr #2
 declare i32 @H5Tget_pad(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @print_float_type(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @print_float_type(ptr noundef nonnull %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4617,7 +4617,7 @@ switch.lookup:                                    ; preds = %13
   %.032 = phi ptr [ @.str.46, %10 ], [ %switch.load, %switch.lookup ], [ @.str.157, %13 ]
   %18 = tail call i64 @H5Tget_size(i64 noundef %1) #21
   %19 = shl i64 %18, 3
-  %20 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.176, i64 noundef %19, ptr noundef nonnull %.032) #21
+  %20 = tail call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.176, i64 noundef %19, ptr noundef nonnull %.032) #21
   tail call fastcc void @print_precision(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %21 = call i32 @H5Tget_fields(i64 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #21
   %22 = call i64 @H5Tget_ebias(i64 noundef %1) #21
@@ -4638,14 +4638,14 @@ switch.lookup34:                                  ; preds = %17
   %28 = icmp eq i64 %27, 1
   %29 = select i1 %28, ptr @.str.46, ptr @.str.58
   %30 = load i64, ptr %8, align 8
-  %31 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.181, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %27, ptr noundef nonnull %29, i64 noundef %30, ptr noundef %.031) #21
+  %31 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.181, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %27, ptr noundef nonnull %29, i64 noundef %30, ptr noundef %.031) #21
   %32 = load i64, ptr %5, align 8
   %33 = icmp eq i64 %32, 1
   %34 = select i1 %33, ptr @.str.46, ptr @.str.58
   %35 = load i64, ptr %6, align 8
-  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.182, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %32, ptr noundef nonnull %34, i64 noundef %35, i64 noundef %22) #21
+  %36 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.182, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %32, ptr noundef nonnull %34, i64 noundef %35, i64 noundef %22) #21
   %37 = load i64, ptr %4, align 8
-  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.183, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %37) #21
+  %38 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.183, i32 noundef %2, ptr noundef nonnull @.str.46, i64 noundef %37) #21
   %39 = load i64, ptr %5, align 8
   %40 = add i64 %39, 1
   %41 = load i64, ptr %7, align 8
@@ -4668,7 +4668,7 @@ switch.lookup37:                                  ; preds = %45
 
 49:                                               ; preds = %switch.lookup37, %45
   %.0 = phi ptr [ null, %45 ], [ %switch.load40, %switch.lookup37 ]
-  %50 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %0, ptr noundef nonnull @.str.184, i32 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %.0) #21
+  %50 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str.184, i32 noundef %2, ptr noundef nonnull @.str.46, ptr noundef %.0) #21
   br label %51
 
 51:                                               ; preds = %26, %49, %3
@@ -5132,7 +5132,7 @@ define internal noundef i32 @list_attr(i64 noundef %0, ptr noundef %1, ptr nocap
   %40 = call zeroext i1 @h5tools_render_element(ptr noundef %37, ptr noundef nonnull @ls_dataformat, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef %39, i64 noundef 0, i64 noundef 0) #21
   %41 = call ptr @h5tools_str_reset(ptr noundef nonnull %13) #21
   %42 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %13, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.94) #21
-  call fastcc void @print_type(ptr noundef nonnull %13, i64 noundef %24, i32 noundef 15)
+  call fastcc void @print_type(ptr noundef %13, i64 noundef %24, i32 noundef 15)
   %43 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %13, ptr noundef nonnull @.str.69) #21
   %44 = load ptr, ptr @rawoutstream, align 8
   %45 = load i32, ptr getelementptr inbounds (i8, ptr @ls_dataformat, i64 288), align 8

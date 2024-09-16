@@ -8710,7 +8710,7 @@ define internal fastcc noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %18 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   store ptr %2, ptr %11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %19 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry26_FindBehaviorForPrimTypeIdERKNS1_11_PrimTypeIdEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %12)
+  %19 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry26_FindBehaviorForPrimTypeIdERKNS1_11_PrimTypeIdEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %12)
           to label %20 unwind label %23
 
 20:                                               ; preds = %4
@@ -8806,7 +8806,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 
 .lr.ph:                                           ; preds = %59, %72
   %.sroa.0112.0153 = phi ptr [ %73, %72 ], [ %60, %59 ]
-  %63 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0112.0153, ptr noundef nonnull %12)
+  %63 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0112.0153, ptr noundef %12)
           to label %64 unwind label %.loopexit136
 
 64:                                               ; preds = %.lr.ph
@@ -8830,7 +8830,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   br i1 %66, label %68, label %72
 
 68:                                               ; preds = %67
-  %69 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0112.0153, ptr noundef nonnull %12)
+  %69 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0112.0153, ptr noundef %12)
           to label %70 unwind label %.loopexit.split-lp137
 
 70:                                               ; preds = %68
@@ -9331,7 +9331,7 @@ _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit: ; preds = %72, %59, %
   br i1 %293, label %294, label %287
 
 294:                                              ; preds = %.noexc56
-  %295 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %16)
+  %295 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %16)
           to label %.noexc57 unwind label %.loopexit.split-lp196
 
 .noexc57:                                         ; preds = %294
@@ -9923,7 +9923,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   br i1 %554, label %555, label %560
 
 555:                                              ; preds = %.noexc84
-  %556 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %12)
+  %556 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %12)
           to label %.noexc85 unwind label %.loopexit.split-lp
 
 .noexc85:                                         ; preds = %555
@@ -10124,7 +10124,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30UsdShadeConnectableAPIBeh
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry26_FindBehaviorForPrimTypeIdERKNS1_11_PrimTypeIdEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry26_FindBehaviorForPrimTypeIdERKNS1_11_PrimTypeIdEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.tbb::detail::d1::queuing_rw_mutex::scoped_lock", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
@@ -10504,7 +10504,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__6TfType19GetAllAncestorTypesEPSt6vectorIS0_SaIS0_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_BehaviorRegistry::_PrimTypeId", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry17GetSchemaTypeNameERKNS_6TfTypeE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

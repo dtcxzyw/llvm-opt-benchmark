@@ -2752,59 +2752,59 @@ zcl_dump_data.exit:                               ; preds = %96, %104
   br label %127
 
 113:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 114:                                              ; preds = %108
-  call fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 115:                                              ; preds = %108
-  call fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 116:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 117:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 118:                                              ; preds = %108
-  call fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6)
+  call fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 119:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6)
+  call fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 120:                                              ; preds = %108
-  call fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 121:                                              ; preds = %108
-  call fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 122:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 123:                                              ; preds = %108
-  call fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 124:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6)
+  call fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 125:                                              ; preds = %108, %108
-  call fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6)
+  call fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6)
   br label %127
 
 126:                                              ; preds = %108
-  call fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
+  call fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef %15, ptr noundef %6, i16 noundef zeroext %11, i16 noundef zeroext %53, i32 noundef %24)
   br label %127
 
 127:                                              ; preds = %108, %109, %110, %111, %112, %113, %114, %115, %116, %117, %118, %119, %120, %121, %122, %123, %124, %125, %126, %._crit_edge
@@ -2935,7 +2935,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -2947,7 +2947,7 @@ define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr nou
   %10 = phi i32 [ %48, %45 ], [ %8, %6 ]
   %11 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.672) #5
+  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.672) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %2, align 4
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #5
@@ -3027,7 +3027,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %32, %22, %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3044,7 +3044,7 @@ define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr nound
   %13 = phi i32 [ %8, %.lr.ph ], [ %110, %dissect_zcl_attr_data_general.exit ]
   %14 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.918) #5
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.918) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %2, align 4
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #5
@@ -3118,12 +3118,12 @@ dissect_zcl_attr_id.exit:                         ; preds = %37, %26, %39, %43
   %57 = add i32 %56, 1
   store i32 %57, ptr %2, align 4
   %58 = load i32, ptr @hf_zbee_zcl_attr_minint, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef -2147483648) #5
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 2, i32 noundef -2147483648) #5
   %60 = load i32, ptr %2, align 4
   %61 = add i32 %60, 2
   store i32 %61, ptr %2, align 4
   %62 = load i32, ptr @hf_zbee_zcl_attr_maxint, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef -2147483648) #5
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef -2147483648) #5
   %64 = load i32, ptr %2, align 4
   %65 = add i32 %64, 2
   store i32 %65, ptr %2, align 4
@@ -3227,7 +3227,7 @@ dissect_zcl_attr_id.exit72:                       ; preds = %93, %83, %95, %99
   %105 = add i32 %104, 2
   store i32 %105, ptr %2, align 4
   %106 = load i32, ptr @hf_zbee_zcl_attr_timeout, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef -2147483648) #5
+  %107 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %106, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef -2147483648) #5
   %108 = load i32, ptr %2, align 4
   %109 = add i32 %108, 2
   store i32 %109, ptr %2, align 4
@@ -3245,7 +3245,7 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %9 = load i32, ptr %3, align 4
   %10 = add i32 %8, -1
@@ -3257,7 +3257,7 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
   %14 = zext i8 %13 to i32
   %15 = load i32, ptr @hf_zbee_zcl_attr_status, align 4
   %16 = load i32, ptr %3, align 4
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %14) #5
+  %17 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %2, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %14) #5
   %18 = load i32, ptr %3, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %3, align 4
@@ -3286,7 +3286,7 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
   %30 = phi i32 [ %25, %.lr.ph ], [ %72, %dissect_zcl_attr_id.exit ]
   %31 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %30, i32 noundef 3, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.919) #5
+  %33 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %30, i32 noundef 3, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.919) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %3, align 4
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %34) #5
@@ -3368,7 +3368,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %60, %29, %62, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3384,7 +3384,7 @@ define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr 
   %13 = phi i32 [ %8, %.lr.ph ], [ %48, %dissect_zcl_attr_id.exit ]
   %14 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.919) #5
+  %16 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %13, i32 noundef 3, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.919) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %2, align 4
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %17) #5
@@ -3458,7 +3458,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %36, %12, %38, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
   %9 = icmp ult i32 %8, %7
@@ -3475,7 +3475,7 @@ define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0,
   %14 = phi i32 [ %8, %.lr.ph ], [ %100, %dissect_zcl_attr_data_general.exit ]
   %15 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.918) #5
+  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.918) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 4
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #5
@@ -3565,12 +3565,12 @@ dissect_zcl_attr_id.exit:                         ; preds = %46, %13, %48, %52
   %69 = add i32 %68, 1
   store i32 %69, ptr %2, align 4
   %70 = load i32, ptr @hf_zbee_zcl_attr_minint, align 4
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef -2147483648) #5
+  %71 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef -2147483648) #5
   %72 = load i32, ptr %2, align 4
   %73 = add i32 %72, 2
   store i32 %73, ptr %2, align 4
   %74 = load i32, ptr @hf_zbee_zcl_attr_maxint, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef -2147483648) #5
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %74, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef -2147483648) #5
   %76 = load i32, ptr %2, align 4
   %77 = add i32 %76, 2
   store i32 %77, ptr %2, align 4
@@ -3626,7 +3626,7 @@ zbee_zcl_get_cluster_desc.exit.thread.i:          ; preds = %90, %zbee_zcl_get_c
 
 95:                                               ; preds = %61
   %96 = load i32, ptr @hf_zbee_zcl_attr_timeout, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %96, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef -2147483648) #5
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %96, ptr noundef %0, i32 noundef %59, i32 noundef 2, i32 noundef -2147483648) #5
   %98 = load i32, ptr %2, align 4
   %99 = add i32 %98, 2
   store i32 %99, ptr %2, align 4
@@ -3644,10 +3644,10 @@ dissect_zcl_attr_data_general.exit:               ; preds = %zbee_zcl_get_cluste
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_cmd_id_rsp, align 4
   %5 = load i32, ptr %2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0) #5
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %2, align 4
@@ -3655,7 +3655,7 @@ define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr nounde
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr @hf_zbee_zcl_attr_status, align 4
   %12 = load i32, ptr %2, align 4
-  %13 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %10) #5
+  %13 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %10) #5
   %14 = load i32, ptr %2, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %2, align 4
@@ -3663,10 +3663,10 @@ define internal fastcc void @dissect_zcl_default_resp(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_attr_start, align 4
   %5 = load i32, ptr %2, align 4
-  %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
+  %6 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %7, 2
   store i32 %8, ptr %2, align 4
@@ -3674,7 +3674,7 @@ define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr nound
   %10 = zext i8 %9 to i32
   %11 = load i32, ptr @hf_zbee_zcl_attr_maxnum, align 4
   %12 = load i32, ptr %2, align 4
-  %13 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %10) #5
+  %13 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %11, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %10) #5
   %14 = load i32, ptr %2, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %2, align 4
@@ -3682,7 +3682,7 @@ define internal fastcc void @dissect_zcl_discover_attr(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = load i32, ptr %2, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
@@ -3703,7 +3703,7 @@ define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr 
   %18 = phi i32 [ %51, %dissect_zcl_attr_id.exit ], [ %16, %6 ]
   %19 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %21 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.919) #5
+  %21 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.919) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.089.i.i = load ptr, ptr @acluster_desc, align 8
@@ -3772,7 +3772,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %31, %.lr.ph, %33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 1
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3791,7 +3791,7 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
   %14 = phi i32 [ %10, %.loopexit ], [ %8, %6 ]
   %15 = getelementptr [16 x i32], ptr @ett_zbee_zcl_sel, i64 0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.920) #5
+  %17 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.920) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr @hf_zbee_zcl_attr_id, align 4
   %.089.i.i = load ptr, ptr @acluster_desc, align 8
@@ -3838,7 +3838,7 @@ zbee_zcl_get_cluster_desc.exit.i:                 ; preds = %23
 dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %29, %33
   %.0.i = phi i32 [ %spec.select.i, %29 ], [ %spec.select16.i, %33 ], [ %18, %.lr.ph5 ], [ %18, %27 ]
   %37 = load i32, ptr %2, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %.0.i, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef -2147483648) #5
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %1, i32 noundef %.0.i, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef -2147483648) #5
   %39 = load i32, ptr %2, align 4
   %40 = add i32 %39, 2
   store i32 %40, ptr %2, align 4
@@ -3870,7 +3870,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %27, %.lr.ph5, %29, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %5, 1
   %8 = zext i1 %7 to i32
   %9 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
@@ -3883,7 +3883,7 @@ define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr n
   %12 = phi i32 [ %57, %.loopexit ], [ %10, %6 ]
   %13 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %12, i32 noundef 0, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.921) #5
+  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %12, i32 noundef 0, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.921) #5
   %16 = load i32, ptr %2, align 4
   %17 = load i32, ptr %13, align 4
   %18 = tail call ptr @proto_tree_add_subtree(ptr noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 0, i32 noundef %17, ptr noundef null, ptr noundef nonnull @.str.920) #5
@@ -3982,7 +3982,7 @@ dissect_zcl_attr_id.exit:                         ; preds = %30, %.lr.ph4, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %.not1 = icmp eq i32 %5, 0
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %8 = load i32, ptr %2, align 4
@@ -3994,7 +3994,7 @@ define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, 
   %10 = phi i32 [ %61, %.loopexit ], [ %8, %6 ]
   %11 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.922) #5
+  %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.922) #5
   %14 = load i32, ptr %2, align 4
   %15 = load i32, ptr %11, align 4
   %16 = tail call ptr @proto_tree_add_subtree(ptr noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %15, ptr noundef null, ptr noundef nonnull @.str.920) #5
@@ -4098,13 +4098,13 @@ dissect_zcl_attr_id.exit:                         ; preds = %35, %25, %37, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
   %7 = load i32, ptr @hf_zbee_zcl_cmd_start, align 4
   %8 = load i32, ptr %2, align 4
-  %9 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %6) #5
+  %9 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %6) #5
   %10 = load i32, ptr %2, align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr %2, align 4
@@ -4112,7 +4112,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr no
   %13 = zext i8 %12 to i32
   %14 = load i32, ptr @hf_zbee_zcl_cmd_maxnum, align 4
   %15 = load i32, ptr %2, align 4
-  %16 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %13) #5
+  %16 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 1, i32 noundef %13) #5
   %17 = load i32, ptr %2, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %2, align 4
@@ -4120,13 +4120,13 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %4) #5
   %6 = zext i8 %5 to i32
   %7 = load i32, ptr @hf_zbee_zcl_attr_dis, align 4
   %8 = load i32, ptr %2, align 4
-  %9 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %6) #5
+  %9 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %6) #5
   %10 = load i32, ptr %2, align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr %2, align 4
@@ -4149,7 +4149,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, p
   %22 = zext i8 %21 to i32
   %23 = load i32, ptr @hf_zbee_zcl_cs_cmd_id, align 4
   %24 = load i32, ptr %2, align 4
-  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef %22) #5
+  %25 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %23, ptr noundef %0, i32 noundef %24, i32 noundef 1, i32 noundef %22) #5
   %26 = load i32, ptr %2, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %2, align 4
@@ -4164,7 +4164,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_rec_resp(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %5, 0
   %8 = zext i1 %7 to i32
   %9 = load i32, ptr %2, align 4
@@ -4172,7 +4172,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr nou
   %11 = zext i8 %10 to i32
   %12 = load i32, ptr @hf_zbee_zcl_attr_dis, align 4
   %13 = load i32, ptr %2, align 4
-  %14 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %11) #5
+  %14 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %11) #5
   %15 = load i32, ptr %2, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %2, align 4
@@ -4190,7 +4190,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr nou
   %22 = phi i32 [ %54, %dissect_zcl_attr_id.exit ], [ %20, %18 ]
   %23 = getelementptr [64 x i32], ptr @ett_zbee_zcl_attr, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
-  %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.923) #5
+  %25 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.923) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load i32, ptr %2, align 4
   %27 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %26) #5

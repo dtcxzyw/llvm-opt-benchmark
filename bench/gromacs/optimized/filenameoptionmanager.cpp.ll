@@ -483,7 +483,7 @@ define void @_ZN3gmx21FileNameOptionManager16completeFileNameERKNSt7__cxx1112bas
 107:                                              ; preds = %81
   %108 = load ptr, ptr %64, align 8
   %109 = load ptr, ptr %108, align 8
-  call fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %109)
+  call fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %109)
   %110 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   br i1 %110, label %112, label %111
 
@@ -1035,7 +1035,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef zeroext i1 @_ZNK3gmx18FileNameOptionInfo18isTrajectoryOptionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca ptr, align 8
   %7 = tail call { ptr, ptr } @_ZNK3gmx18FileNameOptionInfo9fileTypesEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -1199,7 +1199,7 @@ define void @_ZN3gmx21FileNameOptionManager23completeDefaultFileNameERKNSt7__cxx
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %37, align 8
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %42)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_121findExistingExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_18FileNameOptionInfoEPKNS_20IFileInputRedirectorE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %42)
           to label %43 unwind label %46
 
 43:                                               ; preds = %41

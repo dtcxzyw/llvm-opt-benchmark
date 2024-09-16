@@ -612,7 +612,7 @@ get_text_string.exit:                             ; preds = %54, %59
   br label %737
 
 85:                                               ; preds = %46
-  %86 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %86 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %87 = load i32, ptr @hf_mmse_bcc, align 4
   %88 = add i32 %86, 1
   %89 = load ptr, ptr %14, align 8
@@ -621,7 +621,7 @@ get_text_string.exit:                             ; preds = %54, %59
   br label %737
 
 92:                                               ; preds = %46
-  %93 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %93 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %94 = load i32, ptr @hf_mmse_cc, align 4
   %95 = add i32 %93, 1
   %96 = load ptr, ptr %14, align 8
@@ -927,7 +927,7 @@ get_value_length.exit521:                         ; preds = %241, %243
 257:                                              ; preds = %get_value_length.exit521
   %258 = load i32, ptr %15, align 4
   %259 = add i32 %238, %258
-  %260 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %259, ptr noundef nonnull %14, ptr noundef %1)
+  %260 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %259, ptr noundef %14, ptr noundef %1)
   %261 = load i32, ptr @hf_mmse_from, align 4
   %262 = load i32, ptr %15, align 4
   %263 = add i32 %.0.i520, 1
@@ -1127,7 +1127,7 @@ get_long_integer.exit529:                         ; preds = %310, %314, %317, %3
   br label %383
 
 377:                                              ; preds = %360
-  %378 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %378 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %379 = load i32, ptr @hf_mmse_response_text, align 4
   %380 = add i32 %378, 1
   %381 = load ptr, ptr %14, align 8
@@ -1156,7 +1156,7 @@ get_long_integer.exit529:                         ; preds = %310, %314, %317, %3
   br label %737
 
 397:                                              ; preds = %46
-  %398 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %398 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %399 = load i32, ptr @hf_mmse_subject, align 4
   %400 = add i32 %398, 1
   %401 = load ptr, ptr %14, align 8
@@ -1165,7 +1165,7 @@ get_long_integer.exit529:                         ; preds = %310, %314, %317, %3
   br label %737
 
 404:                                              ; preds = %46
-  %405 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %405 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %406 = load i32, ptr @hf_mmse_to, align 4
   %407 = add i32 %405, 1
   %408 = load ptr, ptr %14, align 8
@@ -1211,7 +1211,7 @@ get_long_integer.exit529:                         ; preds = %310, %314, %317, %3
   br label %440
 
 434:                                              ; preds = %417
-  %435 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef nonnull %14, ptr noundef %1)
+  %435 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %47, ptr noundef %14, ptr noundef %1)
   %436 = load i32, ptr @hf_mmse_retrieve_text, align 4
   %437 = add i32 %435, 1
   %438 = load ptr, ptr %14, align 8
@@ -1453,7 +1453,7 @@ get_integer_value.exit:                           ; preds = %544, %557
   %559 = load i32, ptr %15, align 4
   %560 = add i32 %storemerge.i543, %47
   %561 = add i32 %560, %559
-  %562 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %561, ptr noundef nonnull %14, ptr noundef %1)
+  %562 = call fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %561, ptr noundef %14, ptr noundef %1)
   %563 = load i32, ptr @hf_mmse_prev_sent_by, align 4
   %564 = load i32, ptr %15, align 4
   %565 = add i32 %.0.i541, 1
@@ -1797,7 +1797,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5

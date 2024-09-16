@@ -670,7 +670,7 @@ declare zeroext i1 @timer_pending(ptr noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @timer_cb(ptr noundef %tgm, i32 noundef %direction) unnamed_addr #0 {
+define internal fastcc void @timer_cb(ptr noundef %tgm, i32 noundef range(i32 0, 2) %direction) unnamed_addr #0 {
 entry:
   %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96
   %0 = load ptr, ptr %throttle_state, align 8

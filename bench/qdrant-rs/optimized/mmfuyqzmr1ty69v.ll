@@ -1086,7 +1086,7 @@ define void @_ZN6sparse5index14inverted_index26inverted_index_ram_builder20Inver
   %25 = zext i32 %14 to i64
   %26 = add nuw nsw i64 %25, 1
   %27 = load i64, ptr %9, align 8, !noundef !5
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %26, i64 %27)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %26, i64 %27)
   %.not = icmp ugt i64 %27, %25
   br i1 %.not, label %28, label %29
 

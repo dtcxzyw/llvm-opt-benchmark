@@ -539,78 +539,77 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @dissect_kerberos_main(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_pktc_app_specific_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 2, 6) %5) unnamed_addr #0 {
   %7 = load i32, ptr @hf_pktc_app_spec_data, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef -1, i32 noundef 0) #4
   %9 = load i32, ptr @ett_pktc_app_spec_data, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %9) #4
-  switch i8 %4, label %48 [
+  switch i8 %4, label %47 [
     i8 2, label %11
-    i8 1, label %41
+    i8 1, label %40
   ]
 
 11:                                               ; preds = %6
-  %12 = and i8 %5, -2
-  %switch = icmp eq i8 %12, 2
-  br i1 %switch, label %13, label %39
+  %switch = icmp ult i8 %5, 4
+  br i1 %switch, label %12, label %38
 
-13:                                               ; preds = %11
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
-  %15 = load i32, ptr @hf_pktc_snmpEngineID_len, align 4
-  %16 = zext i8 %14 to i32
-  %17 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %15, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %16) #4
-  %18 = add i32 %3, 1
-  %19 = load i32, ptr @hf_pktc_snmpEngineID, align 4
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %19, ptr noundef %2, i32 noundef %18, i32 noundef %16, i32 noundef 0) #4
-  %21 = load i32, ptr @ett_pktc_engineid, align 4
-  %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #4
-  %23 = tail call i32 @dissect_snmp_engineid(ptr noundef %22, ptr noundef %0, ptr noundef %2, i32 noundef %18, i32 noundef %16) #4
-  %24 = add i32 %18, %16
-  %25 = load i32, ptr @hf_pktc_snmpEngineBoots, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %25, ptr noundef %2, i32 noundef %24, i32 noundef 4, i32 noundef 0) #4
-  %27 = add i32 %24, 4
-  %28 = load i32, ptr @hf_pktc_snmpEngineTime, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %28, ptr noundef %2, i32 noundef %27, i32 noundef 4, i32 noundef 0) #4
-  %30 = add i32 %24, 8
-  %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %30) #4
-  %32 = load i32, ptr @hf_pktc_usmUserName_len, align 4
-  %33 = zext i8 %31 to i32
-  %34 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %32, ptr noundef %2, i32 noundef %30, i32 noundef 1, i32 noundef %33) #4
-  %35 = add i32 %24, 9
-  %36 = load i32, ptr @hf_pktc_usmUserName, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %36, ptr noundef %2, i32 noundef %35, i32 noundef %33, i32 noundef 0) #4
-  %38 = add i32 %35, %33
-  br label %50
+12:                                               ; preds = %11
+  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
+  %14 = load i32, ptr @hf_pktc_snmpEngineID_len, align 4
+  %15 = zext i8 %13 to i32
+  %16 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %15) #4
+  %17 = add i32 %3, 1
+  %18 = load i32, ptr @hf_pktc_snmpEngineID, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %18, ptr noundef %2, i32 noundef %17, i32 noundef %15, i32 noundef 0) #4
+  %20 = load i32, ptr @ett_pktc_engineid, align 4
+  %21 = tail call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %20) #4
+  %22 = tail call i32 @dissect_snmp_engineid(ptr noundef %21, ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %15) #4
+  %23 = add i32 %17, %15
+  %24 = load i32, ptr @hf_pktc_snmpEngineBoots, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %24, ptr noundef %2, i32 noundef %23, i32 noundef 4, i32 noundef 0) #4
+  %26 = add i32 %23, 4
+  %27 = load i32, ptr @hf_pktc_snmpEngineTime, align 4
+  %28 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %27, ptr noundef %2, i32 noundef %26, i32 noundef 4, i32 noundef 0) #4
+  %29 = add i32 %23, 8
+  %30 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %29) #4
+  %31 = load i32, ptr @hf_pktc_usmUserName_len, align 4
+  %32 = zext i8 %30 to i32
+  %33 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %31, ptr noundef %2, i32 noundef %29, i32 noundef 1, i32 noundef %32) #4
+  %34 = add i32 %23, 9
+  %35 = load i32, ptr @hf_pktc_usmUserName, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %35, ptr noundef %2, i32 noundef %34, i32 noundef %32, i32 noundef 0) #4
+  %37 = add i32 %34, %32
+  br label %49
 
-39:                                               ; preds = %11
-  %40 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
-  br label %50
+38:                                               ; preds = %11
+  %39 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
+  br label %49
 
-41:                                               ; preds = %6
-  switch i8 %5, label %46 [
-    i8 2, label %42
-    i8 3, label %42
-    i8 5, label %42
+40:                                               ; preds = %6
+  switch i8 %5, label %45 [
+    i8 2, label %41
+    i8 3, label %41
+    i8 5, label %41
   ]
 
-42:                                               ; preds = %41, %41, %41
-  %43 = load i32, ptr @hf_pktc_ipsec_spi, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %43, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #4
-  %45 = add i32 %3, 4
-  br label %50
+41:                                               ; preds = %40, %40, %40
+  %42 = load i32, ptr @hf_pktc_ipsec_spi, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %42, ptr noundef %2, i32 noundef %3, i32 noundef 4, i32 noundef 0) #4
+  %44 = add i32 %3, 4
+  br label %49
 
-46:                                               ; preds = %41
-  %47 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
-  br label %50
+45:                                               ; preds = %40
+  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_kmmid, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
+  br label %49
 
-48:                                               ; preds = %6
-  %49 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_doi, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
-  br label %50
+47:                                               ; preds = %6
+  %48 = tail call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %0, ptr noundef nonnull @ei_pktc_unknown_doi, ptr noundef %2, i32 noundef %3, i32 noundef 1) #4
+  br label %49
 
-50:                                               ; preds = %42, %46, %13, %39, %48
-  %.0 = phi i32 [ %3, %48 ], [ %3, %46 ], [ %45, %42 ], [ %3, %39 ], [ %38, %13 ]
-  %51 = sub i32 %.0, %3
-  tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %51) #4
+49:                                               ; preds = %41, %45, %12, %38, %47
+  %.0 = phi i32 [ %3, %47 ], [ %3, %45 ], [ %44, %41 ], [ %3, %38 ], [ %37, %12 ]
+  %50 = sub i32 %.0, %3
+  tail call void @proto_item_set_len(ptr noundef %8, i32 noundef %50) #4
   ret i32 %.0
 }
 

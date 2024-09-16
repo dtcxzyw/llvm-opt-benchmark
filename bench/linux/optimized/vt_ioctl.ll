@@ -1313,7 +1313,7 @@ define internal fastcc void @vt_disallocate_all() unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -16, 1) i32 @vt_disallocate(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -16, 1) i32 @vt_disallocate(i32 noundef range(i32 0, 63) %0) unnamed_addr #0 align 16 {
   tail call void @console_lock() #7
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [63 x %struct.vc], ptr @vc_cons, i64 0, i64 %2

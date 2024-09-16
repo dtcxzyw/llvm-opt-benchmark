@@ -364,7 +364,7 @@ define internal fastcc i32 @get_l4proto(ptr noundef %0, i32 noundef %1, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @nf_ct_get_tuple(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, -2147483648) %2, i16 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.anon.66, align 4
   %9 = alloca [8 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #17
@@ -1779,7 +1779,7 @@ define dso_local noundef range(i32 -28, 1) i32 @nf_conntrack_hash_check_insert(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef range(i32 0, -1) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = and i32 %0, 1023
   %5 = and i32 %1, 1023
   %6 = icmp ugt i32 %4, %5
@@ -1852,7 +1852,7 @@ define internal fastcc noundef zeroext i1 @nf_conntrack_double_lock(i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @nf_conntrack_double_unlock(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @nf_conntrack_double_unlock(i32 noundef range(i32 0, -1) %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #0 align 16 {
   %3 = and i32 %0, 1023
   %4 = and i32 %1, 1023
   %5 = zext nneg i32 %3 to i64
@@ -2429,7 +2429,7 @@ define dso_local noundef range(i32 0, 2) i32 @__nf_conntrack_confirm(ptr nocaptu
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 0, 2) i32 @nf_ct_resolve_clash(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @nf_ct_resolve_clash(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, -1) %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 55
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
@@ -3774,7 +3774,7 @@ init_conntrack.exit:                              ; preds = %127, %191
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @nf_conntrack_handle_icmp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 align 16 {
+define internal fastcc i32 @nf_conntrack_handle_icmp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, -2147483648) %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #5 align 16 {
   %6 = getelementptr inbounds i8, ptr %4, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 2

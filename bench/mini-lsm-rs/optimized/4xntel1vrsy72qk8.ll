@@ -3782,7 +3782,7 @@ _ZN4core3cmp10PartialOrd2ge17h72180d5828dabeabE.exit: ; preds = %111, %"_ZN122_$
 }
 
 ; Function Attrs: nofree nounwind nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !875)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !875, !noundef !4
@@ -3983,7 +3983,7 @@ default.unreachable.i.i.i.i.i:                    ; preds = %60
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4176,7 +4176,7 @@ default.unreachable.i.i.i.i:                      ; preds = %"_ZN122_$LT$mini_ls
 }
 
 ; Function Attrs: nofree nounwind nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !975)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !alias.scope !975, !noundef !4
@@ -5633,7 +5633,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
 50:                                               ; preds = %"_ZN4core3ptr145drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$GT$$GT$$GT$17h0872d02869e45417E.llvm.14689451251361528239.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1147
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %51 = invoke fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %51 = invoke fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef align 8 dereferenceable(24) %10)
           to label %52 unwind label %.thread86
 
 52:                                               ; preds = %50
@@ -5949,7 +5949,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
 
 "_ZN4core3ptr182drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$$GT$17hd49c494d1b1a1391E.exit42": ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
-  %27 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+  %27 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef align 8 dereferenceable(24) %7)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %27, 0
   %28 = icmp eq ptr %.fca.0.extract12, null
   br i1 %28, label %29, label %30
@@ -6326,7 +6326,7 @@ define hidden void @"_ZN13mini_lsm_mvcc9iterators14merge_iterator22MergeIterator
 37:                                               ; preds = %"_ZN4core3ptr162drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..boxed..Box$LT$mini_lsm_mvcc..mem_table..ouroboros_impl_mem_table_iterator..MemTableIterator$GT$$GT$$GT$17h0d7a3309856c9380E.llvm.14689451251361528239.exit.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !1288
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
-  %38 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10)
+  %38 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef align 8 dereferenceable(24) %10)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %38, 0
   %39 = icmp eq ptr %.fca.0.extract12, null
   br i1 %39, label %40, label %41
@@ -6939,7 +6939,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %41
 
 41:                                               ; preds = %40, %39
-  %42 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %42 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract.i = extractvalue { ptr, i64 } %42, 0
   %43 = icmp eq ptr %.fca.0.extract.i, null
   br i1 %43, label %44, label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h9be4cba456f4b9baE.exit"
@@ -6997,7 +6997,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %55
 
 55:                                               ; preds = %54, %53
-  %56 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %56 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract.i70 = extractvalue { ptr, i64 } %56, 0
   %57 = icmp eq ptr %.fca.0.extract.i70, null
   br i1 %57, label %.noexc71, label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h9be4cba456f4b9baE.exit72"
@@ -7059,7 +7059,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br i1 %.not145, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %72 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h731b46baae6b7022E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %72, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %72, 1
   %.not52 = icmp eq ptr %.fca.0.extract12, null
@@ -7239,7 +7239,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %41
 
 41:                                               ; preds = %40, %39
-  %42 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %42 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract.i = extractvalue { ptr, i64 } %42, 0
   %43 = icmp eq ptr %.fca.0.extract.i, null
   br i1 %43, label %44, label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha3517081c03b3359E.exit"
@@ -7323,7 +7323,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %63
 
 63:                                               ; preds = %62, %61
-  %64 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %64 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract.i70 = extractvalue { ptr, i64 } %64, 0
   %65 = icmp eq ptr %.fca.0.extract.i70, null
   br i1 %65, label %.noexc71, label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha3517081c03b3359E.exit72"
@@ -7401,7 +7401,7 @@ common.resume:                                    ; preds = %.body87, %.body, %4
   br i1 %.not161, label %83, label %85
 
 83:                                               ; preds = %79
-  %84 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %84 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h2df2efc8953445ecE"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %84, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %84, 1
   %.not52 = icmp eq ptr %.fca.0.extract12, null
@@ -7634,7 +7634,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %50
 
 50:                                               ; preds = %49, %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$4next17h889123c13d2c8ff2E.exit.thread"
-  %51 = invoke fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %51 = invoke fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef align 8 dereferenceable(24) %0)
           to label %.noexc71 unwind label %54
 
 .noexc71:                                         ; preds = %50
@@ -7735,7 +7735,7 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   br label %.noexc81
 
 .noexc81:                                         ; preds = %74, %73
-  %75 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %75 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract.i80 = extractvalue { ptr, i64 } %75, 0
   %76 = icmp eq ptr %.fca.0.extract.i80, null
   br i1 %76, label %.noexc82, label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h2bfb3dc79c1f8433E.exit83"
@@ -7849,7 +7849,7 @@ common.resume:                                    ; preds = %.body105, %.body, %
   br i1 %.not.i99, label %106, label %104
 
 104:                                              ; preds = %"_ZN122_$LT$mini_lsm_mvcc..iterators..concat_iterator..SstConcatIterator$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h01a5e459101b8849E.exit102"
-  %105 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
+  %105 = call fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h447a5994d6361134E"(ptr noalias noundef align 8 dereferenceable(24) %0)
   %.fca.0.extract12 = extractvalue { ptr, i64 } %105, 0
   %.fca.1.extract14 = extractvalue { ptr, i64 } %105, 1
   %.not52 = icmp eq ptr %.fca.0.extract12, null

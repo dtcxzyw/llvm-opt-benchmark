@@ -815,7 +815,7 @@ define dso_local void @BackgroundWorkerMain() local_unnamed_addr #6 {
   call void @BaseInit() #14
   %30 = getelementptr inbounds i8, ptr %2, i64 204
   %31 = getelementptr inbounds i8, ptr %2, i64 1228
-  %32 = call fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef nonnull %30, ptr noundef nonnull %31)
+  %32 = call fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %30, ptr noundef %31)
   %33 = getelementptr inbounds i8, ptr %2, i64 1328
   %34 = load i64, ptr %33, align 8
   call void %32(i64 noundef %34) #14
@@ -866,7 +866,7 @@ declare void @InitProcess() local_unnamed_addr #1
 declare void @BaseInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(9) @.str.21) #18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.preheader, label %16
@@ -892,12 +892,12 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
 13:                                               ; preds = %5
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef %1) #14
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.22, ptr noundef nonnull %1) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1269, ptr noundef nonnull @__func__.LookupBackgroundWorkerFunction) #14
   unreachable
 
 16:                                               ; preds = %2
-  %17 = tail call ptr @load_external_function(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true, ptr noundef null) #14
+  %17 = tail call ptr @load_external_function(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef null) #14
   br label %18
 
 18:                                               ; preds = %16, %10
@@ -1027,7 +1027,7 @@ define dso_local void @RegisterBackgroundWorker(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @SanityCheckBackgroundWorker(ptr noundef %0, i32 noundef range(i32 15, 22) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1

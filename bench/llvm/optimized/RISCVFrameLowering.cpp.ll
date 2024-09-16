@@ -1487,7 +1487,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadataD2Ev.exit, %504
   %.val188 = load ptr, ptr %84, align 8
-  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr %.val188, ptr noundef nonnull align 8 dereferenceable(24) %339)
+  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %59, ptr %.val188, ptr noundef nonnull align 8 dereferenceable(24) %339)
   %505 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #17
   %506 = icmp sgt i64 %505, 0
   br i1 %506, label %.preheader.i.i, label %.preheader13.i.i
@@ -2304,7 +2304,7 @@ _ZN4llvm10MIMetadataD2Ev.exit255:                 ; preds = %_ZN4llvm10MIMetadat
 
 _ZN4llvm8DebugLocD2Ev.exit257:                    ; preds = %862, %_ZN4llvm10MIMetadataD2Ev.exit255, %_ZNK4llvm18RISCVFrameLowering17adjustStackForRVVERNS_15MachineFunctionERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEERKNS_8DebugLocElNS6_6MIFlagE.exit
   %.val = load ptr, ptr %84, align 8
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %339)
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %75, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %339)
   %863 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #17
   %864 = icmp sgt i64 %863, 0
   br i1 %864, label %.preheader.i.i278, label %.preheader13.i.i258
@@ -3280,7 +3280,7 @@ define dso_local void @_ZNK4llvm18RISCVFrameLowering27emitCalleeSavedRVVPrologCF
   call void @_ZN4llvm17MachineBasicBlock12findDebugLocENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::DebugLoc") align 8 %17, ptr noundef nonnull align 8 dereferenceable(288) %1, ptr %2) #17
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %.val = load ptr, ptr %24, align 8
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %18, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %39)
   %40 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #17
   br i1 %40, label %.loopexit119, label %41
 
@@ -4180,7 +4180,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   %.sroa.0128.0 = phi ptr [ %45, %44 ], [ %56, %_ZN4llvm8DebugLocaSERKS0_.exit ], [ %.sroa.0128.1155, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i.thread176 ], [ %.sroa.0128.1155, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i.thread ], [ %.sroa.0.0.i.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit ], [ %.sroa.0128.1155, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit.i.i.i ]
   %79 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %.val = load ptr, ptr %35, align 8
-  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %79)
+  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %25, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %79)
   %80 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #17
   br i1 %80, label %_ZSt4prevIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit102, label %81
 
@@ -5053,7 +5053,7 @@ define dso_local { i64, i64 } @_ZNK4llvm18RISCVFrameLowering22getFrameIndexRefer
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %.val = load ptr, ptr %6, align 8
-  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %16)
+  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %16)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %19 = load i32, ptr %18, align 8
@@ -5547,7 +5547,7 @@ define dso_local { i64, i8 } @_ZNK4llvm18RISCVFrameLowering27assignRVVStackObjec
   store ptr %3, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %5, ptr %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
   %12 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #17
   br i1 %12, label %23, label %13
 
@@ -7494,7 +7494,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit80: ; preds = %_ZNSt6vecto
   store ptr %scevgep.i.i.i63, ptr %165, align 8, !alias.scope !163
   %166 = getelementptr i8, ptr %24, i64 48
   %.val43 = load ptr, ptr %166, align 8
-  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %.val43, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %17, ptr %.val43, ptr noundef nonnull align 8 dereferenceable(24) %18)
   call void @_ZdlPvm(ptr noundef nonnull %163, i64 noundef %.idx.i59128.pre-phi) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %167 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i59128.pre-phi) #20, !noalias !166
@@ -7507,7 +7507,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit80: ; preds = %_ZNSt6vecto
   %169 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %scevgep.i.i.i74, ptr %169, align 8, !alias.scope !166
   %.val = load ptr, ptr %166, align 8
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %19, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %20)
   call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef %.idx.i59128.pre-phi) #19
   %170 = load ptr, ptr %17, align 8
   %171 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #17
@@ -7670,7 +7670,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit46: ; preds = %.critedge
   store ptr %scevgep.i.i.i, ptr %49, align 8, !alias.scope !169
   %50 = getelementptr i8, ptr %24, i64 48
   %.val34 = load ptr, ptr %50, align 8
-  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val34, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  call fastcc void @_ZL15getUnmanagedCSIRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %12, ptr %.val34, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %.idx.i) #19
   call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %51 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx.i) #20, !noalias !172
@@ -7683,7 +7683,7 @@ _ZNSt6vectorIN4llvm15CalleeSavedInfoESaIS1_EED2Ev.exit46: ; preds = %.critedge
   %53 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %scevgep.i.i.i40, ptr %53, align 8, !alias.scope !172
   %.val = load ptr, ptr %50, align 8
-  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %15)
+  call fastcc void @_ZL21getRVVCalleeSavedInfoRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val, ptr noundef nonnull align 8 dereferenceable(24) %15)
   call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %.idx.i) #19
   %54 = load ptr, ptr %14, align 8
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #17

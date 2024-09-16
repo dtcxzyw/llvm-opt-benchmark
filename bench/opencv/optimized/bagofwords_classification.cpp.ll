@@ -14742,7 +14742,7 @@ _ZN2cv3PtrINS_9Feature2DEEC2ERKS2_.exit:          ; preds = %500, %508, %511
   br label %2155
 
 538:                                              ; preds = %527
-  invoke fastcc void @_ZN2cvL7makePtrINS_25BOWImgDescriptorExtractorEJNS_3PtrINS_9Feature2DEEENS2_INS_17DescriptorMatcherEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %171, ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %170)
+  invoke fastcc void @_ZN2cvL7makePtrINS_25BOWImgDescriptorExtractorEJNS_3PtrINS_9Feature2DEEENS2_INS_17DescriptorMatcherEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %171, ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(16) %170)
           to label %539 unwind label %536
 
 539:                                              ; preds = %538
@@ -19004,7 +19004,7 @@ declare void @_ZN2cv11FileStorage7releaseEv(ptr noundef nonnull align 8 derefere
 declare void @_ZN2cv17DescriptorMatcher6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.98") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_25BOWImgDescriptorExtractorEJNS_3PtrINS_9Feature2DEEENS2_INS_17DescriptorMatcherEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_25BOWImgDescriptorExtractorEJNS_3PtrINS_9Feature2DEEENS2_INS_17DescriptorMatcherEEEEEENS2_IT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #30, !noalias !128
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !noalias !128

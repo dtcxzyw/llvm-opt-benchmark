@@ -4340,7 +4340,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br i1 %366, label %367, label %380
 
 367:                                              ; preds = %364
-  invoke fastcc void @"_ZZN17cmDyndepCollation19WriteDyndepMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorI13cmScanDepInfoSaIS9_EERK21cmCxxModuleExportInfoRK25cmDyndepMetadataCallbacksENK3$_0clB5cxx11ES7_"(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %216)
+  invoke fastcc void @"_ZZN17cmDyndepCollation19WriteDyndepMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorI13cmScanDepInfoSaIS9_EERK21cmCxxModuleExportInfoRK25cmDyndepMetadataCallbacksENK3$_0clB5cxx11ES7_"(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %216)
           to label %368 unwind label %376
 
 368:                                              ; preds = %367
@@ -5358,7 +5358,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN17cmDyndepCollation19WriteDyndepMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorI13cmScanDepInfoSaIS9_EERK21cmCxxModuleExportInfoRK25cmDyndepMetadataCallbacksENK3$_0clB5cxx11ES7_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17cmDyndepCollation19WriteDyndepMetadataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorI13cmScanDepInfoSaIS9_EERK21cmCxxModuleExportInfoRK25cmDyndepMetadataCallbacksENK3$_0clB5cxx11ES7_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"struct.std::pair.495"], align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5647,7 +5647,7 @@ declare void @_ZNK9cmFileSet17EvaluateFileEntryERKSt6vectorINSt7__cxx1112basic_s
 declare void @_ZNK17cmGeneratorTarget16GetObjectSourcesERSt6vectorIPK12cmSourceFileSaIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2728), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_130CollationInformationCxxModulesEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacksENK3$_0clEPK12cmSourceFileZNS_30CollationInformationCxxModulesES2_SA_SD_E11CompileType"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_130CollationInformationCxxModulesEPK17cmGeneratorTargetRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK26cmDyndepGeneratorCallbacksENK3$_0clEPK12cmSourceFileZNS_30CollationInformationCxxModulesES2_SA_SD_E11CompileType"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.495"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

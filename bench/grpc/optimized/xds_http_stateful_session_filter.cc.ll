@@ -286,7 +286,7 @@ if.end10:                                         ; preds = %if.end.i
   %10 = extractvalue { i64, ptr } %call11, 1
   store ptr %10, ptr %9, align 8
   %config = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef %errors)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %add.ptr.i.i.i, ptr noundef %errors)
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 64
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !4
   %call.i = call noundef nonnull align 8 dereferenceable(49) ptr @_ZNSt7variantIJSt9monostatebN9grpc_core12experimental4Json11NumberValueENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3mapISA_S3_St4lessISA_ESaISt4pairIKSA_S3_EEESt6vectorIS3_SaIS3_EEEEaSISI_EENSt9enable_ifIXaaaa14__exactly_onceINSt9_Nth_typeIX16__accepted_indexIOT_EEJS0_bS4_SA_SI_SL_EE4typeEE18is_constructible_vIST_SQ_E15is_assignable_vIRST_SQ_EERSM_E4typeESR_(ptr noundef nonnull align 8 dereferenceable(49) %config, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp12) #20
@@ -376,7 +376,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %stateful_session, ptr noundef nonnull %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %stateful_session, ptr noundef nonnull %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i144 = alloca %"class.std::allocator.53", align 1
   %ref.tmp.i.i.i.i129 = alloca %class.anon, align 1
@@ -1192,7 +1192,7 @@ invoke.cont16:                                    ; preds = %invoke.cont14
 
 if.then19:                                        ; preds = %invoke.cont16
   %13 = inttoptr i64 %12 to ptr
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull %13, ptr noundef %errors)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef %13, ptr noundef %errors)
           to label %invoke.cont20 unwind label %lpad15
 
 invoke.cont20:                                    ; preds = %if.then19

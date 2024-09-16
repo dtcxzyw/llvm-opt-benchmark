@@ -1127,7 +1127,7 @@ declare double @late_double(ptr noundef, ptr noundef, double noundef, double nou
 ; Function Attrs: nounwind uwtable
 define internal { double, double } @arrow_type_normal(ptr noundef %0, double %1, double %2, double %3, double %4, double %5, double noundef %6, i32 noundef %7) #0 {
   %9 = alloca [5 x %struct.pointf_s], align 16
-  %10 = call fastcc { double, double } @arrow_type_normal0(double %1, double %2, double %3, double %4, double noundef %6, i32 noundef %7, ptr noundef nonnull %9)
+  %10 = call fastcc { double, double } @arrow_type_normal0(double %1, double %2, double %3, double %4, double noundef %6, i32 noundef %7, ptr noundef %9)
   %11 = and i32 %7, 64
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %15, label %12
@@ -1166,7 +1166,7 @@ define internal double @arrow_length_normal(double noundef %0, double noundef %1
   %5 = alloca [5 x %struct.pointf_s], align 16
   %6 = fmul double %0, %1
   %7 = fmul double %6, 1.000000e+01
-  %8 = call fastcc { double, double } @arrow_type_normal0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %2, i32 noundef %3, ptr noundef nonnull %5)
+  %8 = call fastcc { double, double } @arrow_type_normal0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.011.0.copyload = load double, ptr %10, align 16
@@ -1194,7 +1194,7 @@ define internal double @arrow_length_normal(double noundef %0, double noundef %1
 ; Function Attrs: nounwind uwtable
 define internal { double, double } @arrow_type_crow(ptr noundef %0, double %1, double %2, double %3, double %4, double noundef %5, double noundef %6, i32 noundef %7) #0 {
   %9 = alloca [9 x %struct.pointf_s], align 16
-  %10 = call fastcc { double, double } @arrow_type_crow0(double %1, double %2, double %3, double %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef nonnull %9)
+  %10 = call fastcc { double, double } @arrow_type_crow0(double %1, double %2, double %3, double %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef %9)
   %11 = and i32 %7, 64
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %13, label %12
@@ -1226,7 +1226,7 @@ define internal double @arrow_length_crow(double noundef %0, double noundef %1, 
   %5 = alloca [9 x %struct.pointf_s], align 16
   %6 = fmul double %0, %1
   %7 = fmul double %6, 1.000000e+01
-  %8 = call fastcc { double, double } @arrow_type_crow0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef nonnull %5)
+  %8 = call fastcc { double, double } @arrow_type_crow0(double 0.000000e+00, double 0.000000e+00, double %7, double 0.000000e+00, double noundef %1, double noundef %2, i32 noundef %3, ptr noundef %5)
   %9 = extractvalue { double, double } %8, 0
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.014.0.copyload = load double, ptr %10, align 16
@@ -1498,7 +1498,7 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   %26 = fadd double %1, %25
   %27 = fneg double %3
   %28 = fneg double %4
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %9, double %.sroa.026.0.i, double %.sroa.328.0.i, double %27, double %28, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %6)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.026.0.i, double %.sroa.328.0.i, double %27, double %28, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %6)
   %.sroa.014.0.copyload.i = load double, ptr %9, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.215.0.copyload.i = load double, ptr %.sroa.215.0..sroa_idx.i, align 8
@@ -1582,7 +1582,7 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
   %15 = fmul double %7, 5.000000e-01
   %16 = fadd double %15, 0.000000e+00
   %17 = fneg double %7
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %5, double %.sroa.026.0.i, double %.sroa.328.0.i, double %17, double -0.000000e+00, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %2)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %5, double %.sroa.026.0.i, double %.sroa.328.0.i, double %17, double -0.000000e+00, double %.sroa.021.0.i, double %.sroa.323.0.i, double noundef %2)
   %.sroa.014.0.copyload.i = load double, ptr %5, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
   %.sroa.215.0.copyload.i = load double, ptr %.sroa.215.0..sroa_idx.i, align 8
@@ -1829,7 +1829,7 @@ define internal noundef double @arrow_length_generic(double noundef %0, double n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca %struct.triangle, align 8
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
@@ -1878,7 +1878,7 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   br i1 %.not188, label %51, label %36
 
 36:                                               ; preds = %27
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %8, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %8, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
   %37 = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.036.0.copyload = load double, ptr %37, align 8
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
@@ -1902,7 +1902,7 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   br i1 %.not, label %67, label %52
 
 52:                                               ; preds = %51
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %9, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
   %53 = getelementptr inbounds i8, ptr %9, i64 32
   %.sroa.020.0.copyload = load double, ptr %53, align 8
   %.sroa.221.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
@@ -1923,7 +1923,7 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   br label %70
 
 67:                                               ; preds = %51
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %10, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.086.0, double %.sroa.590.0, double %.sroa.053.0, double %.sroa.11.0, double %.sroa.078.0, double %.sroa.5.0, double noundef %4)
   %.sroa.05.0.copyload = load double, ptr %10, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   %.sroa.26.0.copyload = load double, ptr %.sroa.26.0..sroa_idx, align 8
@@ -2006,7 +2006,7 @@ declare void @gvrender_polygon(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare double @acos(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #0 {
+define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #0 {
   %9 = fcmp oeq double %1, %3
   %10 = fcmp oeq double %2, %4
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -2117,7 +2117,7 @@ declare double @tan(double noundef) local_unnamed_addr #8
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef %7) unnamed_addr #0 {
+define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
   %11 = alloca %struct.triangle, align 8
@@ -2184,7 +2184,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   br i1 %or.cond311, label %63, label %48
 
 48:                                               ; preds = %38
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %9, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %9, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
   %49 = getelementptr inbounds i8, ptr %9, i64 32
   %.sroa.063.0.copyload = load double, ptr %49, align 8
   %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
@@ -2212,7 +2212,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   br i1 %or.cond312, label %80, label %65
 
 65:                                               ; preds = %63
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %10, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %10, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
   %66 = getelementptr inbounds i8, ptr %10, i64 16
   %.sroa.047.0.copyload = load double, ptr %66, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
@@ -2233,7 +2233,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   br label %83
 
 80:                                               ; preds = %63
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %11, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %11, double %.sroa.0116.0, double %.sroa.5120.0, double %.sroa.083.0, double %.sroa.11.0, double %.sroa.0108.0, double %.sroa.5.0, double noundef %5)
   %.sroa.031.0.copyload = load double, ptr %11, align 8
   %.sroa.232.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
   %.sroa.232.0.copyload = load double, ptr %.sroa.232.0..sroa_idx, align 8
@@ -2259,7 +2259,7 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %90 = fadd double %88, %26
   %91 = fsub double %23, %2
   %92 = fsub double %24, %3
-  call fastcc void @miter_shape(ptr dead_on_unwind noalias nonnull writable align 8 %12, double %89, double %90, double %91, double %92, double 0.000000e+00, double 0.000000e+00, double noundef %5)
+  call fastcc void @miter_shape(ptr dead_on_unwind noalias writable align 8 %12, double %89, double %90, double %91, double %92, double 0.000000e+00, double 0.000000e+00, double noundef %5)
   %93 = getelementptr inbounds i8, ptr %12, i64 16
   %.sroa.016.0.copyload = load double, ptr %93, align 8
   %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24

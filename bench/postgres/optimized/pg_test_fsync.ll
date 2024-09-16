@@ -565,7 +565,7 @@ declare void @pg_prng_seed(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @time(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @test_sync(i32 noundef range(i32 1, 3) %0) unnamed_addr #0 {
   %2 = icmp eq i32 %0, 1
   %.str.23..str.24 = select i1 %2, ptr @.str.23, ptr @.str.24
   %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull %.str.23..str.24, i32 noundef 8) #14
@@ -580,7 +580,7 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
 
 11:                                               ; preds = %1
   %12 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #14
-  br label %40
+  br label %41
 
 13:                                               ; preds = %1
   store i1 false, ptr @alarm_triggered, align 4
@@ -588,152 +588,137 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %15 = tail call i32 @alarm(i32 noundef %14) #14
   %16 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
   %.b4862 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b4862, label %._crit_edge64, label %.preheader55.lr.ph
+  br i1 %.b4862, label %._crit_edge, label %.preheader55.preheader
 
-.preheader55.lr.ph:                               ; preds = %13
-  %17 = icmp sgt i32 %0, 0
-  br i1 %17, label %.preheader55.us.preheader, label %.preheader55
-
-.preheader55.us.preheader:                        ; preds = %.preheader55.lr.ph
+.preheader55.preheader:                           ; preds = %13
   %wide.trip.count = zext nneg i32 %0 to i64
-  br label %.preheader55.us
-
-.preheader55.us:                                  ; preds = %.preheader55.us.preheader, %._crit_edge.us
-  %.03863.us = phi i32 [ %23, %._crit_edge.us ], [ 0, %.preheader55.us.preheader ]
-  br label %19
-
-18:                                               ; preds = %19
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !11
-
-19:                                               ; preds = %.preheader55.us, %18
-  %indvars.iv = phi i64 [ 0, %.preheader55.us ], [ %indvars.iv.next, %18 ]
-  %20 = load ptr, ptr @buf, align 8
-  %21 = shl nuw nsw i64 %indvars.iv, 13
-  %22 = tail call i64 @pwrite(i32 noundef %9, ptr noundef %20, i64 noundef 8192, i64 noundef %21) #14
-  %.not.us = icmp eq i64 %22, 8192
-  br i1 %.not.us, label %18, label %.split.us
-
-._crit_edge.us:                                   ; preds = %18
-  %23 = add i32 %.03863.us, 1
-  %.b48.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b48.us, label %._crit_edge64.loopexit, label %.preheader55.us, !llvm.loop !12
-
-.preheader55:                                     ; preds = %.preheader55.lr.ph, %.preheader55
   br label %.preheader55
 
-.split.us:                                        ; preds = %19
+.preheader55:                                     ; preds = %.preheader55.preheader, %23
+  %.03863 = phi i32 [ %24, %23 ], [ 0, %.preheader55.preheader ]
+  br label %18
+
+17:                                               ; preds = %18
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %23, label %18, !llvm.loop !11
+
+18:                                               ; preds = %.preheader55, %17
+  %indvars.iv = phi i64 [ 0, %.preheader55 ], [ %indvars.iv.next, %17 ]
+  %19 = load ptr, ptr @buf, align 8
+  %20 = shl nuw nsw i64 %indvars.iv, 13
+  %21 = tail call i64 @pwrite(i32 noundef %9, ptr noundef %19, i64 noundef 8192, i64 noundef %20) #14
+  %.not = icmp eq i64 %21, 8192
+  br i1 %.not, label %17, label %22
+
+22:                                               ; preds = %18
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-._crit_edge64.loopexit:                           ; preds = %._crit_edge.us
-  %24 = sitofp i32 %23 to double
-  br label %._crit_edge64
+23:                                               ; preds = %17
+  %24 = add i32 %.03863, 1
+  %.b48 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b48, label %._crit_edge.loopexit, label %.preheader55, !llvm.loop !12
 
-._crit_edge64:                                    ; preds = %._crit_edge64.loopexit, %13
-  %.038.lcssa = phi double [ 0.000000e+00, %13 ], [ %24, %._crit_edge64.loopexit ]
-  %25 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %26 = load i64, ptr @start_t, align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
-  %28 = load i64, ptr @stop_t, align 8
-  %29 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
-  %30 = sub i64 %28, %26
-  %31 = sitofp i64 %30 to double
-  %32 = sub i64 %29, %27
-  %33 = sitofp i64 %32 to double
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double 0x3EB0C6F7A0B5ED8D, double %31)
-  %35 = fdiv double %.038.lcssa, %34
-  %36 = fdiv double %34, %.038.lcssa
-  %37 = fmul double %36, 1.000000e+06
-  %38 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %35, double noundef %37) #14
-  %39 = tail call i32 @close(i32 noundef %9) #14
-  br label %40
+._crit_edge.loopexit:                             ; preds = %23
+  %25 = sitofp i32 %24 to double
+  br label %._crit_edge
 
-40:                                               ; preds = %._crit_edge64, %11
-  %41 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.30) #14
-  %42 = load ptr, ptr @stdout, align 8
-  %43 = tail call i32 @fflush(ptr noundef %42)
-  %44 = load ptr, ptr @filename, align 8
-  %45 = tail call i32 (ptr, i32, ...) @open(ptr noundef %44, i32 noundef 2, i32 noundef 0) #14
-  %46 = icmp eq i32 %45, -1
-  br i1 %46, label %47, label %48
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
+  %.038.lcssa = phi double [ 0.000000e+00, %13 ], [ %25, %._crit_edge.loopexit ]
+  %26 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %27 = load i64, ptr @start_t, align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
+  %29 = load i64, ptr @stop_t, align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
+  %31 = sub i64 %29, %27
+  %32 = sitofp i64 %31 to double
+  %33 = sub i64 %30, %28
+  %34 = sitofp i64 %33 to double
+  %35 = tail call double @llvm.fmuladd.f64(double %34, double 0x3EB0C6F7A0B5ED8D, double %32)
+  %36 = fdiv double %.038.lcssa, %35
+  %37 = fdiv double %35, %.038.lcssa
+  %38 = fmul double %37, 1.000000e+06
+  %39 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %36, double noundef %38) #14
+  %40 = tail call i32 @close(i32 noundef %9) #14
+  br label %41
 
-47:                                               ; preds = %40
+41:                                               ; preds = %._crit_edge, %11
+  %42 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.30) #14
+  %43 = load ptr, ptr @stdout, align 8
+  %44 = tail call i32 @fflush(ptr noundef %43)
+  %45 = load ptr, ptr @filename, align 8
+  %46 = tail call i32 (ptr, i32, ...) @open(ptr noundef %45, i32 noundef 2, i32 noundef 0) #14
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %48, label %49
+
+48:                                               ; preds = %41
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-48:                                               ; preds = %40
+49:                                               ; preds = %41
   store i1 false, ptr @alarm_triggered, align 4
-  %49 = load i32, ptr @secs_per_test, align 4
-  %50 = tail call i32 @alarm(i32 noundef %49) #14
-  %51 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
-  %.b4770 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b4770, label %._crit_edge72, label %.preheader54.lr.ph
+  %50 = load i32, ptr @secs_per_test, align 4
+  %51 = tail call i32 @alarm(i32 noundef %50) #14
+  %52 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
+  %.b4765 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b4765, label %._crit_edge67, label %.preheader54.preheader
 
-.preheader54.lr.ph:                               ; preds = %48
-  %52 = icmp sgt i32 %0, 0
-  br i1 %52, label %.preheader54.us.preheader, label %.preheader54
+.preheader54.preheader:                           ; preds = %49
+  %wide.trip.count86 = zext nneg i32 %0 to i64
+  br label %.preheader54
 
-.preheader54.us.preheader:                        ; preds = %.preheader54.lr.ph
-  %wide.trip.count112 = zext nneg i32 %0 to i64
-  br label %.preheader54.us
-
-.preheader54.us:                                  ; preds = %.preheader54.us.preheader, %._crit_edge.us73
-  %.13971.us = phi i32 [ %59, %._crit_edge.us73 ], [ 0, %.preheader54.us.preheader ]
+.preheader54:                                     ; preds = %.preheader54.preheader, %59
+  %.13966 = phi i32 [ %61, %59 ], [ 0, %.preheader54.preheader ]
   br label %54
 
 53:                                               ; preds = %54
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge.us73, label %54, !llvm.loop !13
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
+  br i1 %exitcond87.not, label %59, label %54, !llvm.loop !13
 
-54:                                               ; preds = %.preheader54.us, %53
-  %indvars.iv109 = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next110, %53 ]
+54:                                               ; preds = %.preheader54, %53
+  %indvars.iv83 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next84, %53 ]
   %55 = load ptr, ptr @buf, align 8
-  %56 = shl nuw nsw i64 %indvars.iv109, 13
-  %57 = tail call i64 @pwrite(i32 noundef %45, ptr noundef %55, i64 noundef 8192, i64 noundef %56) #14
-  %.not52.us = icmp eq i64 %57, 8192
-  br i1 %.not52.us, label %53, label %.split.us76
+  %56 = shl nuw nsw i64 %indvars.iv83, 13
+  %57 = tail call i64 @pwrite(i32 noundef %46, ptr noundef %55, i64 noundef 8192, i64 noundef %56) #14
+  %.not52 = icmp eq i64 %57, 8192
+  br i1 %.not52, label %53, label %58
 
-._crit_edge.us73:                                 ; preds = %53
-  %58 = tail call i32 @fdatasync(i32 noundef %45) #14
-  %59 = add i32 %.13971.us, 1
-  %.b47.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b47.us, label %._crit_edge72, label %.preheader54.us, !llvm.loop !14
-
-.preheader54:                                     ; preds = %.preheader54.lr.ph, %.preheader54
-  %.13971 = phi i32 [ %61, %.preheader54 ], [ 0, %.preheader54.lr.ph ]
-  %60 = tail call i32 @fdatasync(i32 noundef %45) #14
-  %61 = add i32 %.13971, 1
-  %.b47 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b47, label %._crit_edge72, label %.preheader54, !llvm.loop !14
-
-.split.us76:                                      ; preds = %54
+58:                                               ; preds = %54
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-._crit_edge72:                                    ; preds = %.preheader54, %._crit_edge.us73, %48
-  %.139.lcssa = phi i32 [ 0, %48 ], [ %59, %._crit_edge.us73 ], [ %61, %.preheader54 ]
-  %62 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %63 = load i64, ptr @start_t, align 8
-  %64 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
-  %65 = load i64, ptr @stop_t, align 8
-  %66 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
-  %67 = sub i64 %65, %63
-  %68 = sitofp i64 %67 to double
-  %69 = sub i64 %66, %64
-  %70 = sitofp i64 %69 to double
-  %71 = tail call double @llvm.fmuladd.f64(double %70, double 0x3EB0C6F7A0B5ED8D, double %68)
-  %72 = sitofp i32 %.139.lcssa to double
-  %73 = fdiv double %72, %71
-  %74 = fdiv double %71, %72
+59:                                               ; preds = %53
+  %60 = tail call i32 @fdatasync(i32 noundef %46) #14
+  %61 = add i32 %.13966, 1
+  %.b47 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b47, label %._crit_edge67.loopexit, label %.preheader54, !llvm.loop !14
+
+._crit_edge67.loopexit:                           ; preds = %59
+  %62 = sitofp i32 %61 to double
+  br label %._crit_edge67
+
+._crit_edge67:                                    ; preds = %._crit_edge67.loopexit, %49
+  %.139.lcssa = phi double [ 0.000000e+00, %49 ], [ %62, %._crit_edge67.loopexit ]
+  %63 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %64 = load i64, ptr @start_t, align 8
+  %65 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
+  %66 = load i64, ptr @stop_t, align 8
+  %67 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
+  %68 = sub i64 %66, %64
+  %69 = sitofp i64 %68 to double
+  %70 = sub i64 %67, %65
+  %71 = sitofp i64 %70 to double
+  %72 = tail call double @llvm.fmuladd.f64(double %71, double 0x3EB0C6F7A0B5ED8D, double %69)
+  %73 = fdiv double %.139.lcssa, %72
+  %74 = fdiv double %72, %.139.lcssa
   %75 = fmul double %74, 1.000000e+06
   %76 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %73, double noundef %75) #14
-  %77 = tail call i32 @close(i32 noundef %45) #14
+  %77 = tail call i32 @close(i32 noundef %46) #14
   %78 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #14
   %79 = load ptr, ptr @stdout, align 8
   %80 = tail call i32 @fflush(ptr noundef %79)
@@ -742,77 +727,66 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %85
 
-84:                                               ; preds = %._crit_edge72
+84:                                               ; preds = %._crit_edge67
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-85:                                               ; preds = %._crit_edge72
+85:                                               ; preds = %._crit_edge67
   store i1 false, ptr @alarm_triggered, align 4
   %86 = load i32, ptr @secs_per_test, align 4
   %87 = tail call i32 @alarm(i32 noundef %86) #14
   %88 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
-  %.b4678 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b4678, label %._crit_edge80, label %.preheader53.lr.ph
+  %.b4670 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b4670, label %._crit_edge72, label %.preheader53.preheader
 
-.preheader53.lr.ph:                               ; preds = %85
-  %89 = icmp sgt i32 %0, 0
-  br i1 %89, label %.preheader53.us.preheader, label %.preheader53
+.preheader53.preheader:                           ; preds = %85
+  %wide.trip.count91 = zext nneg i32 %0 to i64
+  br label %.preheader53
 
-.preheader53.us.preheader:                        ; preds = %.preheader53.lr.ph
-  %wide.trip.count117 = zext nneg i32 %0 to i64
-  br label %.preheader53.us
+.preheader53:                                     ; preds = %.preheader53.preheader, %98
+  %.24071 = phi i32 [ %99, %98 ], [ 0, %.preheader53.preheader ]
+  br label %90
 
-.preheader53.us:                                  ; preds = %.preheader53.us.preheader, %91
-  %.24079.us = phi i32 [ %92, %91 ], [ 0, %.preheader53.us.preheader ]
-  br label %93
+89:                                               ; preds = %90
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
+  br i1 %exitcond92.not, label %95, label %90, !llvm.loop !15
 
-90:                                               ; preds = %93
-  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
-  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge.us82, label %93, !llvm.loop !15
+90:                                               ; preds = %.preheader53, %89
+  %indvars.iv88 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next89, %89 ]
+  %91 = load ptr, ptr @buf, align 8
+  %92 = shl nuw nsw i64 %indvars.iv88, 13
+  %93 = tail call i64 @pwrite(i32 noundef %82, ptr noundef %91, i64 noundef 8192, i64 noundef %92) #14
+  %.not51 = icmp eq i64 %93, 8192
+  br i1 %.not51, label %89, label %94
 
-91:                                               ; preds = %._crit_edge.us82
-  %92 = add i32 %.24079.us, 1
-  %.b46.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b46.us, label %._crit_edge80, label %.preheader53.us, !llvm.loop !16
-
-93:                                               ; preds = %.preheader53.us, %90
-  %indvars.iv114 = phi i64 [ 0, %.preheader53.us ], [ %indvars.iv.next115, %90 ]
-  %94 = load ptr, ptr @buf, align 8
-  %95 = shl nuw nsw i64 %indvars.iv114, 13
-  %96 = tail call i64 @pwrite(i32 noundef %82, ptr noundef %94, i64 noundef 8192, i64 noundef %95) #14
-  %.not51.us = icmp eq i64 %96, 8192
-  br i1 %.not51.us, label %90, label %.split86.us
-
-._crit_edge.us82:                                 ; preds = %90
-  %97 = tail call i32 @fsync(i32 noundef %82) #14
-  %.not50.us = icmp eq i32 %97, 0
-  br i1 %.not50.us, label %91, label %.split.us83
-
-.preheader53:                                     ; preds = %.preheader53.lr.ph, %99
-  %.24079 = phi i32 [ %100, %99 ], [ 0, %.preheader53.lr.ph ]
-  %98 = tail call i32 @fsync(i32 noundef %82) #14
-  %.not50 = icmp eq i32 %98, 0
-  br i1 %.not50, label %99, label %.split.us83
-
-.split86.us:                                      ; preds = %93
+94:                                               ; preds = %90
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-.split.us83:                                      ; preds = %.preheader53, %._crit_edge.us82
+95:                                               ; preds = %89
+  %96 = tail call i32 @fsync(i32 noundef %82) #14
+  %.not50 = icmp eq i32 %96, 0
+  br i1 %.not50, label %98, label %97
+
+97:                                               ; preds = %95
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.22) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-99:                                               ; preds = %.preheader53
-  %100 = add i32 %.24079, 1
+98:                                               ; preds = %95
+  %99 = add i32 %.24071, 1
   %.b46 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b46, label %._crit_edge80, label %.preheader53, !llvm.loop !16
+  br i1 %.b46, label %._crit_edge72.loopexit, label %.preheader53, !llvm.loop !16
 
-._crit_edge80:                                    ; preds = %99, %91, %85
-  %.240.lcssa = phi i32 [ 0, %85 ], [ %92, %91 ], [ %100, %99 ]
+._crit_edge72.loopexit:                           ; preds = %98
+  %100 = sitofp i32 %99 to double
+  br label %._crit_edge72
+
+._crit_edge72:                                    ; preds = %._crit_edge72.loopexit, %85
+  %.240.lcssa = phi double [ 0.000000e+00, %85 ], [ %100, %._crit_edge72.loopexit ]
   %101 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
   %102 = load i64, ptr @start_t, align 8
   %103 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
@@ -823,80 +797,72 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %108 = sub i64 %105, %103
   %109 = sitofp i64 %108 to double
   %110 = tail call double @llvm.fmuladd.f64(double %109, double 0x3EB0C6F7A0B5ED8D, double %107)
-  %111 = sitofp i32 %.240.lcssa to double
-  %112 = fdiv double %111, %110
-  %113 = fdiv double %110, %111
-  %114 = fmul double %113, 1.000000e+06
-  %115 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %112, double noundef %114) #14
-  %116 = tail call i32 @close(i32 noundef %82) #14
-  %117 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.32) #14
-  %118 = load ptr, ptr @stdout, align 8
-  %119 = tail call i32 @fflush(ptr noundef %118)
-  %120 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.33) #14
-  %121 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.34) #14
-  %122 = load ptr, ptr @stdout, align 8
-  %123 = tail call i32 @fflush(ptr noundef %122)
-  %124 = load ptr, ptr @filename, align 8
-  %125 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %124, i32 noundef 1069058, i32 noundef 0) #14
-  %126 = icmp eq i32 %125, -1
-  br i1 %126, label %.critedge, label %128
+  %111 = fdiv double %.240.lcssa, %110
+  %112 = fdiv double %110, %.240.lcssa
+  %113 = fmul double %112, 1.000000e+06
+  %114 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %111, double noundef %113) #14
+  %115 = tail call i32 @close(i32 noundef %82) #14
+  %116 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.32) #14
+  %117 = load ptr, ptr @stdout, align 8
+  %118 = tail call i32 @fflush(ptr noundef %117)
+  %119 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.33) #14
+  %120 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.34) #14
+  %121 = load ptr, ptr @stdout, align 8
+  %122 = tail call i32 @fflush(ptr noundef %121)
+  %123 = load ptr, ptr @filename, align 8
+  %124 = tail call noundef i32 (ptr, i32, ...) @open(ptr noundef readonly %123, i32 noundef 1069058, i32 noundef 0) #14
+  %125 = icmp eq i32 %124, -1
+  br i1 %125, label %.critedge, label %127
 
-.critedge:                                        ; preds = %._crit_edge80
-  %127 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #14
+.critedge:                                        ; preds = %._crit_edge72
+  %126 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #14
   br label %155
 
-128:                                              ; preds = %._crit_edge80
+127:                                              ; preds = %._crit_edge72
   store i1 false, ptr @alarm_triggered, align 4
-  %129 = load i32, ptr @secs_per_test, align 4
-  %130 = tail call i32 @alarm(i32 noundef %129) #14
-  %131 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
-  %.b88 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b88, label %._crit_edge90, label %.preheader.lr.ph
+  %128 = load i32, ptr @secs_per_test, align 4
+  %129 = tail call i32 @alarm(i32 noundef %128) #14
+  %130 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
+  %.b75 = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b75, label %._crit_edge77, label %.preheader.preheader
 
-.preheader.lr.ph:                                 ; preds = %128
-  %132 = icmp sgt i32 %0, 0
-  br i1 %132, label %.preheader.us.preheader, label %.preheader
-
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %wide.trip.count122 = zext nneg i32 %0 to i64
-  br label %.preheader.us
-
-.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us92
-  %.34189.us = phi i32 [ %138, %._crit_edge.us92 ], [ 0, %.preheader.us.preheader ]
-  br label %134
-
-133:                                              ; preds = %134
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
-  br i1 %exitcond123.not, label %._crit_edge.us92, label %134, !llvm.loop !17
-
-134:                                              ; preds = %.preheader.us, %133
-  %indvars.iv119 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next120, %133 ]
-  %135 = load ptr, ptr @buf, align 8
-  %136 = shl nuw nsw i64 %indvars.iv119, 13
-  %137 = tail call i64 @pwrite(i32 noundef %125, ptr noundef %135, i64 noundef 8192, i64 noundef %136) #14
-  %.not49.us = icmp eq i64 %137, 8192
-  br i1 %.not49.us, label %133, label %.split95.us
-
-._crit_edge.us92:                                 ; preds = %133
-  %138 = add i32 %.34189.us, 1
-  %.b.us = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b.us, label %._crit_edge90.loopexit, label %.preheader.us, !llvm.loop !18
-
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
+.preheader.preheader:                             ; preds = %127
+  %wide.trip.count96 = zext nneg i32 %0 to i64
   br label %.preheader
 
-.split95.us:                                      ; preds = %134
+.preheader:                                       ; preds = %.preheader.preheader, %137
+  %.34176 = phi i32 [ %138, %137 ], [ 0, %.preheader.preheader ]
+  br label %132
+
+131:                                              ; preds = %132
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
+  br i1 %exitcond97.not, label %137, label %132, !llvm.loop !17
+
+132:                                              ; preds = %.preheader, %131
+  %indvars.iv93 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next94, %131 ]
+  %133 = load ptr, ptr @buf, align 8
+  %134 = shl nuw nsw i64 %indvars.iv93, 13
+  %135 = tail call i64 @pwrite(i32 noundef %124, ptr noundef %133, i64 noundef 8192, i64 noundef %134) #14
+  %.not49 = icmp eq i64 %135, 8192
+  br i1 %.not49, label %131, label %136
+
+136:                                              ; preds = %132
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
-._crit_edge90.loopexit:                           ; preds = %._crit_edge.us92
-  %139 = sitofp i32 %138 to double
-  br label %._crit_edge90
+137:                                              ; preds = %131
+  %138 = add i32 %.34176, 1
+  %.b = load i1, ptr @alarm_triggered, align 4
+  br i1 %.b, label %._crit_edge77.loopexit, label %.preheader, !llvm.loop !18
 
-._crit_edge90:                                    ; preds = %._crit_edge90.loopexit, %128
-  %.341.lcssa = phi double [ 0.000000e+00, %128 ], [ %139, %._crit_edge90.loopexit ]
+._crit_edge77.loopexit:                           ; preds = %137
+  %139 = sitofp i32 %138 to double
+  br label %._crit_edge77
+
+._crit_edge77:                                    ; preds = %._crit_edge77.loopexit, %127
+  %.341.lcssa = phi double [ 0.000000e+00, %127 ], [ %139, %._crit_edge77.loopexit ]
   %140 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
   %141 = load i64, ptr @start_t, align 8
   %142 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
@@ -911,14 +877,14 @@ define internal fastcc void @test_sync(i32 noundef %0) unnamed_addr #0 {
   %151 = fdiv double %149, %.341.lcssa
   %152 = fmul double %151, 1.000000e+06
   %153 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %150, double noundef %152) #14
-  %154 = tail call i32 @close(i32 noundef %125) #14
+  %154 = tail call i32 @close(i32 noundef %124) #14
   br i1 %10, label %155, label %157
 
-155:                                              ; preds = %.critedge, %._crit_edge90
+155:                                              ; preds = %.critedge, %._crit_edge77
   %156 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.35) #14
   br label %157
 
-157:                                              ; preds = %155, %._crit_edge90
+157:                                              ; preds = %155, %._crit_edge77
   ret void
 }
 
@@ -979,7 +945,7 @@ declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef range(i32 1, 17) %1) unnamed_addr #0 {
   %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.26, ptr noundef %0) #14
   %4 = load ptr, ptr @stdout, align 8
   %5 = tail call i32 @fflush(ptr noundef %4)
@@ -990,7 +956,7 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unna
 
 9:                                                ; preds = %2
   %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29) #14
-  br label %44
+  br label %41
 
 11:                                               ; preds = %2
   store i1 false, ptr @alarm_triggered, align 4
@@ -998,76 +964,68 @@ define internal fastcc void @test_open_sync(ptr noundef %0, i32 noundef %1) unna
   %13 = tail call i32 @alarm(i32 noundef %12) #14
   %14 = tail call i32 @gettimeofday(ptr noundef nonnull @start_t, ptr noundef null) #14
   %.b15 = load i1, ptr @alarm_triggered, align 4
-  br i1 %.b15, label %._crit_edge17, label %.preheader.lr.ph
+  br i1 %.b15, label %._crit_edge17, label %.preheader.us.preheader
 
-.preheader.lr.ph:                                 ; preds = %11
-  %.not = icmp ugt i32 %1, 16
-  %15 = shl i32 %1, 10
-  %16 = zext nneg i32 %15 to i64
-  br i1 %.not, label %.preheader, label %.preheader.us.preheader
-
-.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
-  %.rhs.trunc = trunc nuw i32 %1 to i8
-  %17 = udiv i8 16, %.rhs.trunc
-  %18 = zext nneg i8 %17 to i64
+.preheader.us.preheader:                          ; preds = %11
+  %.rhs.trunc = trunc nuw nsw i32 %1 to i8
+  %15 = udiv i8 16, %.rhs.trunc
+  %16 = shl nuw nsw i32 %1, 10
+  %17 = zext nneg i32 %16 to i64
+  %18 = zext nneg i32 %16 to i64
+  %wide.trip.count = zext nneg i8 %15 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.01116.us = phi i32 [ %27, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  br label %21
+  %.01116.us = phi i32 [ %24, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  br label %20
 
-19:                                               ; preds = %21
+19:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = icmp ult i64 %indvars.iv.next, %18
-  br i1 %20, label %21, label %._crit_edge.us, !llvm.loop !19
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !19
 
-21:                                               ; preds = %.preheader.us, %19
+20:                                               ; preds = %.preheader.us, %19
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %19 ]
-  %22 = load ptr, ptr @buf, align 8
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %24 = mul i32 %15, %23
-  %25 = sext i32 %24 to i64
-  %26 = tail call i64 @pwrite(i32 noundef %7, ptr noundef %22, i64 noundef %16, i64 noundef %25) #14
-  %.not.us = icmp eq i64 %26, %16
+  %21 = load ptr, ptr @buf, align 8
+  %22 = mul nuw nsw i64 %indvars.iv, %18
+  %23 = tail call i64 @pwrite(i32 noundef %7, ptr noundef %21, i64 noundef %17, i64 noundef %22) #14
+  %.not.us = icmp eq i64 %23, %17
   br i1 %.not.us, label %19, label %.split.us
 
 ._crit_edge.us:                                   ; preds = %19
-  %27 = add i32 %.01116.us, 1
+  %24 = add i32 %.01116.us, 1
   %.b.us = load i1, ptr @alarm_triggered, align 4
   br i1 %.b.us, label %._crit_edge17.loopexit, label %.preheader.us, !llvm.loop !20
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  br label %.preheader
-
-.split.us:                                        ; preds = %21
+.split.us:                                        ; preds = %20
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.21) #14
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
 ._crit_edge17.loopexit:                           ; preds = %._crit_edge.us
-  %28 = sitofp i32 %27 to double
+  %25 = sitofp i32 %24 to double
   br label %._crit_edge17
 
 ._crit_edge17:                                    ; preds = %._crit_edge17.loopexit, %11
-  %.011.lcssa = phi double [ 0.000000e+00, %11 ], [ %28, %._crit_edge17.loopexit ]
-  %29 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
-  %30 = load i64, ptr @start_t, align 8
-  %31 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
-  %32 = load i64, ptr @stop_t, align 8
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
-  %34 = sub i64 %32, %30
-  %35 = sitofp i64 %34 to double
-  %36 = sub i64 %33, %31
-  %37 = sitofp i64 %36 to double
-  %38 = tail call double @llvm.fmuladd.f64(double %37, double 0x3EB0C6F7A0B5ED8D, double %35)
-  %39 = fdiv double %.011.lcssa, %38
-  %40 = fdiv double %38, %.011.lcssa
-  %41 = fmul double %40, 1.000000e+06
-  %42 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %39, double noundef %41) #14
-  %43 = tail call i32 @close(i32 noundef %7) #14
-  br label %44
+  %.011.lcssa = phi double [ 0.000000e+00, %11 ], [ %25, %._crit_edge17.loopexit ]
+  %26 = tail call i32 @gettimeofday(ptr noundef nonnull @stop_t, ptr noundef null) #14
+  %27 = load i64, ptr @start_t, align 8
+  %28 = load i64, ptr getelementptr inbounds (i8, ptr @start_t, i64 8), align 8
+  %29 = load i64, ptr @stop_t, align 8
+  %30 = load i64, ptr getelementptr inbounds (i8, ptr @stop_t, i64 8), align 8
+  %31 = sub i64 %29, %27
+  %32 = sitofp i64 %31 to double
+  %33 = sub i64 %30, %28
+  %34 = sitofp i64 %33 to double
+  %35 = tail call double @llvm.fmuladd.f64(double %34, double 0x3EB0C6F7A0B5ED8D, double %32)
+  %36 = fdiv double %.011.lcssa, %35
+  %37 = fdiv double %35, %.011.lcssa
+  %38 = fmul double %37, 1.000000e+06
+  %39 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.36, double noundef %36, double noundef %38) #14
+  %40 = tail call i32 @close(i32 noundef %7) #14
+  br label %41
 
-44:                                               ; preds = %._crit_edge17, %9
+41:                                               ; preds = %._crit_edge17, %9
   ret void
 }
 

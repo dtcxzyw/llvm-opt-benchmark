@@ -2308,7 +2308,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St3mapINSt7__cxx11
 
 .loopexit.i.i189.i:                               ; preds = %.loopexit.i.i189.i.loopexit, %.critedge.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_IN4llvm3MVT15SimpleValueTypeES4_ISD_St8multimapIiNS0_15InstructionMemoESt4lessIiESaIS2_IKiSF_EEESG_ISD_ESaIS2_IKSD_SL_EEESM_SaIS2_ISN_SQ_EEESG_ISA_ESaIS2_IKSA_ST_EEEESt10_Select1stISZ_ESG_IS1_ESaISZ_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISZ_ERS3_.exit.thread10.i.i.i
   %837 = phi i1 [ true, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_IN4llvm3MVT15SimpleValueTypeES4_ISD_St8multimapIiNS0_15InstructionMemoESt4lessIiESaIS2_IKiSF_EEESG_ISD_ESaIS2_IKSD_SL_EEESM_SaIS2_ISN_SQ_EEESG_ISA_ESaIS2_IKSA_ST_EEEESt10_Select1stISZ_ESG_IS1_ESaISZ_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISZ_ERS3_.exit.thread10.i.i.i ], [ %835, %.critedge.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %836, %.loopexit.i.i189.i.loopexit ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %837, ptr noundef nonnull %738, ptr noundef %.sroa.12.0.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %55) #18
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %837, ptr noundef nonnull %738, ptr noundef nonnull %.sroa.12.0.i17.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %55) #18
   %838 = load i64, ptr %59, align 8
   %839 = add i64 %838, 1
   store i64 %839, ptr %59, align 8
@@ -3193,7 +3193,7 @@ _ZNSt8multimapIiN12_GLOBAL__N_115InstructionMemoESt4lessIiESaISt4pairIKiS1_EEE7e
   br i1 %or.cond.i.i, label %_ZNK12_GLOBAL__N_117OperandsSignature20hasAnyImmediateCodesEv.exit.i, label %1169
 
 _ZNK12_GLOBAL__N_117OperandsSignature20hasAnyImmediateCodesEv.exit.i: ; preds = %1170
-  call fastcc void @_ZNK12_GLOBAL__N_117OperandsSignature18getWithoutImmCodesEv(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  call fastcc void @_ZNK12_GLOBAL__N_117OperandsSignature18getWithoutImmCodesEv(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %16)
   %1172 = call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3mapIN12_GLOBAL__N_117OperandsSignatureESt6vectorIS1_SaIS1_EESt4lessIS1_ESaISt4pairIKS1_S4_EEEixEOS1_(ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef nonnull align 8 dereferenceable(32) %29)
   call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117OperandsSignatureESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %1172, ptr noundef nonnull align 8 dereferenceable(32) %16)
   call fastcc void @_ZN12_GLOBAL__N_117OperandsSignatureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
@@ -7625,7 +7625,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit659:              ; preds = %1889, %1891
 
 ._crit_edge887:                                   ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit659, %_ZNSt6vectorIN12_GLOBAL__N_117OperandsSignatureESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EES8_.exit
   %1894 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %78) #18
-  call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %1894) #18
+  call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %1894) #18
   %1895 = load i64, ptr %82, align 8
   %1896 = add i64 %1895, -1
   store i64 %1896, ptr %82, align 8
@@ -8800,7 +8800,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1
 
 .loopexit.i:                                      ; preds = %.loopexit.i.loopexit, %.critedge.i.i.i.i.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.thread10.i
   %134 = phi i1 [ true, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.thread10.i ], [ %132, %.critedge.i.i.i.i.i.i.i.i.i.i.i ], [ %133, %.loopexit.i.loopexit ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %134, ptr noundef nonnull %31, ptr noundef %.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %134, ptr noundef nonnull %31, ptr noundef nonnull %.sroa.12.0.i17.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   %135 = getelementptr inbounds i8, ptr %0, i64 40
   %136 = load i64, ptr %135, align 8
   %137 = add i64 %136, 1
@@ -8809,7 +8809,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1
 
 _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.thread.i: ; preds = %96, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit60.i.i
   %.sroa.01.0.ph.i = phi ptr [ %.sroa.097.0.i.i, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.i ], [ %.08.lcssa.i.i.i27, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit60.i.i ], [ %.08.lcssa.i.i.i27, %96 ]
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %31) #18
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %31) #18
   br label %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit
 
 _ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS1_EESI_IJEEEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_.exit: ; preds = %25, %_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS3_.exit.thread.i, %.loopexit.i, %_ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit
@@ -10282,7 +10282,7 @@ _ZNKSt4lessIN12_GLOBAL__N_117OperandsSignatureEEclERKS1_S4_.exit27.thread: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -11314,7 +11314,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit.i.i.i: ; preds = %28, %25
   br label %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit13.i.i.i
 
 _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit13.i.i.i: ; preds = %31, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit.i.i.i
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.07.i.i.i, i64 noundef %.lcssa72, ptr noundef nonnull %9)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.07.i.i.i, i64 noundef %.lcssa72, ptr noundef %9)
   %33 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #18
   %34 = load ptr, ptr %9, align 8
   %35 = icmp eq ptr %34, %24
@@ -11377,7 +11377,7 @@ _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit.i: ; preds = %47, %.lr.ph.i8.i
   br label %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit5.i
 
 _ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit5.i: ; preds = %54, %_ZN12_GLOBAL__N_117OperandsSignatureC2EOS0_.exit.i
-  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %7)
+  call fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %52, ptr noundef %7)
   %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   %57 = load ptr, ptr %7, align 8
   %58 = icmp eq ptr %57, %44
@@ -11771,7 +11771,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_117OperandsSignatureESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %1, i64 noundef range(i64 -288230376151711744, 288230376151711744) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"struct.(anonymous namespace)::OperandsSignature", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -12161,7 +12161,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureES
   tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.0.val6)
   %3 = getelementptr i8, ptr %.02, i64 16
   %.0.val = load ptr, ptr %3, align 8
-  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull %.02) #18
+  tail call fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_117OperandsSignatureESt4pairIKS1_St6vectorIS1_SaIS1_EEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS7_E(ptr noundef %.02) #18
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !140
 

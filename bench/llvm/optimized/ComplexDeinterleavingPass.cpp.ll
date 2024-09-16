@@ -1185,7 +1185,7 @@ _ZN4llvm9MapVectorIPNS_11InstructionESt4pairIPNS_7PHINodeES2_ENS_8DenseMapIS2_jN
   %378 = load ptr, ptr %377, align 8
   store ptr %378, ptr %78, align 8
   store i8 0, ptr %79, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef %285, ptr noundef %287)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef %285, ptr noundef %287)
   %.val29.i.i = load ptr, ptr %24, align 8
   %.not116.i.i = icmp eq ptr %.val29.i.i, null
   br i1 %.not116.i.i, label %379, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit.thread.i.i
@@ -1197,7 +1197,7 @@ _ZN4llvm9MapVectorIPNS_11InstructionESt4pairIPNS_7PHINodeES2_ENS_8DenseMapIS2_jN
   %381 = load ptr, ptr %78, align 8
   store ptr %381, ptr %62, align 8
   store ptr %380, ptr %78, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef %287, ptr noundef %285)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef %287, ptr noundef %285)
   %382 = load ptr, ptr %25, align 8
   %383 = load ptr, ptr %80, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
@@ -1718,7 +1718,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i7
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit80.i.i
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit80.i.i: ; preds = %617, %614
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull %27)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef %27)
   %.val24.i.i = load ptr, ptr %84, align 8
   %.not.i.i.i81.i.i = icmp eq ptr %.val24.i.i, null
   br i1 %.not.i.i.i81.i.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit87.i.i, label %619
@@ -2271,7 +2271,7 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i.i: ; pre
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyRootEPN4llvm11InstructionE.exit.thread.i.i
 
 864:                                              ; preds = %849
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull %856, ptr noundef nonnull %860)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull %856, ptr noundef nonnull %860)
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyRootEPN4llvm11InstructionE.exit.i.i
 
 select.unfold.i.i.i:                              ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %835, %832, %_ZNSt3mapIPN4llvm11InstructionESt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEESt4lessIS2_ESaISt4pairIKS2_S6_EEE4findERSA_.exit.thread.i.i
@@ -2367,7 +2367,7 @@ _ZNK4llvm4User10getOperandEj.exit7.i.i.i.i.i:     ; preds = %_ZNK4llvm4User10get
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyRootEPN4llvm11InstructionE.exit.thread.i.i
 
 909:                                              ; preds = %_ZNK4llvm4User10getOperandEj.exit7.i.i.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull %.0.i.i31.i, ptr noundef nonnull %905)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %30, ptr noundef nonnull %.0.i.i31.i, ptr noundef nonnull %905)
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyRootEPN4llvm11InstructionE.exit.i.i
 
 _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyRootEPN4llvm11InstructionE.exit.i.i: ; preds = %909, %864
@@ -5118,7 +5118,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional.289", align 8
   %6 = alloca %class.anon.338, align 8
   %7 = alloca %"class.std::vector.339", align 8
@@ -5540,7 +5540,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %.lr.ph.i.i.i,
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i: ; preds = %232, %229
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %43)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %43)
   %.val24.i = load ptr, ptr %227, align 8, !noalias !84
   %.not.i.i.i65.i = icmp eq ptr %.val24.i, null
   br i1 %.not.i.i.i65.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit.i, label %234
@@ -6004,7 +6004,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i112: ; preds = %.lr.ph.i.i
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i114
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i114: ; preds = %453, %450
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %38)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %38)
   %.val41.i = load ptr, ptr %448, align 8, !noalias !101
   %.not.i.i.i74.i = icmp eq ptr %.val41.i, null
   br i1 %.not.i.i.i74.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit.i116, label %455
@@ -6253,15 +6253,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %.not38.i, label %569, label %.thread219
 
 569:                                              ; preds = %564
-  %570 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef nonnull %spec.select.i.i.i103), !noalias !101
+  %570 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef %spec.select.i.i.i103), !noalias !101
   br i1 %570, label %571, label %.thread219
 
 571:                                              ; preds = %569
-  %572 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef nonnull %spec.select.i.i84.i), !noalias !101
+  %572 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef %spec.select.i.i84.i), !noalias !101
   br i1 %572, label %573, label %.thread219
 
 573:                                              ; preds = %571
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nonnull writable align 8 %39, i32 noundef 2, ptr noundef nonnull %spec.select.i.i.i103, ptr noundef nonnull %spec.select.i.i84.i), !noalias !101
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias writable align 8 %39, i32 noundef 2, ptr noundef nonnull %spec.select.i.i.i103, ptr noundef nonnull %spec.select.i.i84.i), !noalias !101
   %574 = load ptr, ptr %524, align 8, !noalias !101
   %.val42.i = load ptr, ptr %39, align 8, !noalias !101
   %575 = getelementptr inbounds nuw i8, ptr %.val42.i, i64 104
@@ -6296,7 +6296,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit100.i: ; preds = %586, %583, %573
   %.val.i = phi ptr [ null, %573 ], [ %579, %583 ], [ %.val.pre.i, %586 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %42)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %42)
   %.val39.i = load ptr, ptr %577, align 8, !noalias !101
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val39.i) #20, !noalias !101
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val.i) #20, !noalias !101
@@ -6453,7 +6453,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i133
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i133: ; preds = %647, %644
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %37)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %37)
   %.val8.i = load ptr, ptr %642, align 8, !noalias !119
   %.not.i.i.i9.i = icmp eq ptr %.val8.i, null
   br i1 %.not.i.i.i9.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit.i135, label %649
@@ -6802,7 +6802,7 @@ _ZNK4llvm4User10getOperandEj.exit11.i.i234:       ; preds = %_ZNK4llvm4User10get
   br i1 %spec.select.i159, label %822, label %.thread338
 
 822:                                              ; preds = %815
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %.0331, ptr noundef nonnull %.0330), !noalias !130
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %.0331, ptr noundef nonnull %.0330), !noalias !130
   %.val19.i = load ptr, ptr %31, align 8, !noalias !130
   %.not201 = icmp eq ptr %.val19.i, null
   br i1 %.not201, label %823, label %824
@@ -6812,7 +6812,7 @@ _ZNK4llvm4User10getOperandEj.exit11.i.i234:       ; preds = %_ZNK4llvm4User10get
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18identifySelectNodeEPN4llvm11InstructionES3_.exit
 
 824:                                              ; preds = %822
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %780, ptr noundef nonnull %809), !noalias !130
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %780, ptr noundef nonnull %809), !noalias !130
   %.val18.i = load ptr, ptr %32, align 8, !noalias !130
   %.not202 = icmp eq ptr %.val18.i, null
   br i1 %.not202, label %825, label %826
@@ -6822,7 +6822,7 @@ _ZNK4llvm4User10getOperandEj.exit11.i.i234:       ; preds = %_ZNK4llvm4User10get
   br label %861
 
 826:                                              ; preds = %824
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nonnull writable align 8 %33, i32 noundef 7, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %spec.select.i.i101), !noalias !130
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias writable align 8 %33, i32 noundef 7, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %spec.select.i.i101), !noalias !130
   %.val17.i = load ptr, ptr %33, align 8, !noalias !130
   %827 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %828 = load ptr, ptr %827, align 8, !noalias !130
@@ -6908,7 +6908,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit152: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit155, %856, %859
   %.val12.i = phi ptr [ null, %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit155 ], [ %852, %856 ], [ %.val12.i.pre, %859 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %36)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %36)
   %.val13.i = load ptr, ptr %850, align 8, !noalias !130
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val13.i) #20, !noalias !130
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val12.i) #20, !noalias !130
@@ -7302,7 +7302,7 @@ _ZNK4llvm4User10getOperandEj.exit103.i:           ; preds = %1030, %1027
   br i1 %or.cond9.i, label %1053, label %.thread185.critedge
 
 1053:                                             ; preds = %1043
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph27identifyNodeWithImplicitAddEPN4llvm11InstructionES3_RSt4pairIPNS1_5ValueES6_E(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %975, ptr noundef nonnull %992, ptr noundef nonnull align 8 dereferenceable(16) %25), !noalias !133
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph27identifyNodeWithImplicitAddEPN4llvm11InstructionES3_RSt4pairIPNS1_5ValueES6_E(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %975, ptr noundef %992, ptr noundef nonnull align 8 dereferenceable(16) %25), !noalias !133
   %.val81.i = load ptr, ptr %26, align 8, !noalias !133
   %.not.i246 = icmp eq ptr %.val81.i, null
   br i1 %.not.i246, label %1054, label %1055
@@ -7312,7 +7312,7 @@ _ZNK4llvm4User10getOperandEj.exit103.i:           ; preds = %1030, %1027
   br label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18identifyPartialMulEPN4llvm11InstructionES3_.exit
 
 1055:                                             ; preds = %1053
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.0134.i, ptr noundef %.0135.i), !noalias !133
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.0134.i, ptr noundef %.0135.i), !noalias !133
   %.val80.i = load ptr, ptr %27, align 8, !noalias !133
   %.not150.i = icmp eq ptr %.val80.i, null
   br i1 %.not150.i, label %1056, label %1057
@@ -7324,7 +7324,7 @@ _ZNK4llvm4User10getOperandEj.exit103.i:           ; preds = %1030, %1027
 1057:                                             ; preds = %1055
   %1058 = load ptr, ptr %25, align 8, !noalias !133
   %1059 = load ptr, ptr %1048, align 8, !noalias !133
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1058, ptr noundef %1059), !noalias !133
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1058, ptr noundef %1059), !noalias !133
   %.val79.i = load ptr, ptr %28, align 8, !noalias !133
   %.not151.i = icmp eq ptr %.val79.i, null
   br i1 %.not151.i, label %1060, label %1061
@@ -7334,7 +7334,7 @@ _ZNK4llvm4User10getOperandEj.exit103.i:           ; preds = %1030, %1027
   br label %1107
 
 1061:                                             ; preds = %1057
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nonnull writable align 8 %29, i32 noundef 1, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %spec.select.i.i101), !noalias !133
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias writable align 8 %29, i32 noundef 1, ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %spec.select.i.i101), !noalias !133
   %.val78.i = load ptr, ptr %29, align 8, !noalias !133
   %1062 = getelementptr inbounds nuw i8, ptr %.val78.i, i64 36
   store i32 %.0.i, ptr %1062, align 4, !noalias !133
@@ -7445,7 +7445,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit114.i: ; preds = %1105, %1102, %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit111.i
   %.val70.i = phi ptr [ null, %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit111.i ], [ %1098, %1102 ], [ %.val70.pre.i, %1105 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %30)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %30)
   %.val71.i = load ptr, ptr %1096, align 8, !noalias !133
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val71.i) #20, !noalias !133
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val70.i) #20, !noalias !133
@@ -7620,7 +7620,7 @@ _ZNK4llvm4User10getOperandEj.exit51.i:            ; preds = %1162, %1159
   br i1 %or.cond5.i256, label %1176, label %.thread187.thread
 
 1176:                                             ; preds = %_ZNK4llvm4User10getOperandEj.exit51.i
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %1149, ptr noundef nonnull %1167), !noalias !136
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %1149, ptr noundef nonnull %1167), !noalias !136
   %.val41.i257 = load ptr, ptr %22, align 8, !noalias !136
   %.not.i258 = icmp eq ptr %.val41.i257, null
   br i1 %.not.i258, label %1177, label %1178
@@ -7630,7 +7630,7 @@ _ZNK4llvm4User10getOperandEj.exit51.i:            ; preds = %1162, %1159
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit92.i
 
 1178:                                             ; preds = %1176
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %1171, ptr noundef nonnull %1153), !noalias !136
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %1171, ptr noundef nonnull %1153), !noalias !136
   %.val40.i = load ptr, ptr %23, align 8, !noalias !136
   %.not112.i = icmp eq ptr %.val40.i, null
   br i1 %.not112.i, label %1179, label %1180
@@ -7905,7 +7905,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit71.i
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit71.i: ; preds = %1305, %1302
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %24)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %24)
   %.val34.i = load ptr, ptr %1300, align 8, !noalias !136
   %.not.i.i.i72.i = icmp eq ptr %.val34.i, null
   br i1 %.not.i.i.i72.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit78.i, label %1307
@@ -8451,7 +8451,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread49.i: ; p
   br i1 %1522, label %1541, label %1523
 
 1523:                                             ; preds = %1520, %1517
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10), !noalias !147
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10), !noalias !147
   %1524 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12) #20, !noalias !147
   %1525 = getelementptr inbounds i8, ptr %12, i64 8
   %.val11.i372 = load ptr, ptr %1525, align 8, !noalias !147
@@ -8484,7 +8484,7 @@ _ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread49.i: ; p
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit.i375: ; preds = %1536, %1533, %1523
   %.val9.i = phi ptr [ null, %1523 ], [ %1529, %1533 ], [ %.val9.pre.i, %1536 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph23identifyMultiplicationsERSt6vectorINS0_7ProductESaIS2_EES5_St10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %14), !noalias !147
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph23identifyMultiplicationsERSt6vectorINS0_7ProductESaIS2_EES5_St10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef %14), !noalias !147
   %1538 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %13) #20, !noalias !147
   %1539 = getelementptr inbounds i8, ptr %13, i64 8
   %.val10.i = load ptr, ptr %1539, align 8, !noalias !147
@@ -8536,7 +8536,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit28.i: ; preds = %1557, %1554, %1547
   %.val7.i = phi ptr [ null, %1547 ], [ %1550, %1554 ], [ %.val7.pre.i, %1557 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph17identifyAdditionsERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_St8optionalINS4_13FastMathFlagsEESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 %.sroa.0.0.copyload.i, ptr noundef nonnull %16), !noalias !147
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph17identifyAdditionsERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_St8optionalINS4_13FastMathFlagsEESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 %.sroa.0.0.copyload.i, ptr noundef %16), !noalias !147
   %1559 = call fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %15) #20, !noalias !147
   %1560 = getelementptr inbounds i8, ptr %15, i64 8
   %.val8.i377 = load ptr, ptr %1560, align 8, !noalias !147
@@ -8581,7 +8581,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit31.i
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit31.i: ; preds = %1574, %1571, %1562
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %18), !noalias !147
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %18), !noalias !147
   %1576 = getelementptr inbounds i8, ptr %17, i64 8
   %.val6.i = load ptr, ptr %1576, align 8, !noalias !147
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val6.i) #20, !noalias !147
@@ -8803,7 +8803,7 @@ _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %1639, %1636
 _ZNK4llvm4User10getOperandEj.exit30.i:            ; preds = %1652, %1649
   %1657 = phi ptr [ %1651, %1649 ], [ %1656, %1652 ]
   %1658 = load ptr, ptr %1657, align 8, !noalias !152
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1645, ptr noundef %1658), !noalias !152
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1645, ptr noundef %1658), !noalias !152
   %.val25.i = load ptr, ptr %19, align 8, !noalias !152
   %.not.i.i270 = icmp eq ptr %.val25.i, null
   br i1 %.not.i.i270, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit79.thread.i, label %1659
@@ -8862,7 +8862,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit
   %1688 = phi ptr [ %1682, %1680 ], [ %1687, %1683 ]
   %1689 = getelementptr inbounds i8, ptr %1688, i64 32
   %1690 = load ptr, ptr %1689, align 8, !noalias !152
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1677, ptr noundef %1690), !noalias !152
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %1677, ptr noundef %1690), !noalias !152
   %1691 = load ptr, ptr %20, align 8, !noalias !152
   %1692 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %1693 = load ptr, ptr %1692, align 8, !noalias !152
@@ -9219,7 +9219,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit65.i
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit65.i: ; preds = %1824, %1821
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %21)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %21)
   %.val13.i277 = load ptr, ptr %1819, align 8, !noalias !152
   %.not.i.i.i66.i = icmp eq ptr %.val13.i277, null
   br i1 %.not.i.i.i66.i, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit72.i, label %1826
@@ -9843,7 +9843,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeELN9__gnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef range(i32 0, 8) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #22, !noalias !166
@@ -10156,7 +10156,7 @@ _ZNSt8_Rb_treeIPN4llvm11InstructionESt4pairIKS2_St10shared_ptrIN12_GLOBAL__N_134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.std::pair.242", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10848,7 +10848,7 @@ declare { ptr, i64 } @_ZNK4llvm12ConstantExpr14getShuffleMaskEv(ptr noundef nonn
 declare noundef zeroext i1 @_ZNK4llvm4Type12isScalableTyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef %0) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_126ComplexDeinterleavingGraph20identifyDeinterleaveEPN4llvm11InstructionES3_ENK3$_0clEPNS1_17ShuffleVectorInstE"(ptr noundef nonnull %0) unnamed_addr #0 align 2 {
   %2 = getelementptr i8, ptr %0, i64 -64
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 8
@@ -10926,7 +10926,7 @@ declare noundef ptr @_ZN4llvm10VectorType3getEPNS_4TypeENS_12ElementCountE(ptr n
 declare i32 @_ZNK4llvm11Instruction16getFastMathFlagsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph27identifyNodeWithImplicitAddEPN4llvm11InstructionES3_RSt4pairIPNS1_5ValueES6_E(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph27identifyNodeWithImplicitAddEPN4llvm11InstructionES3_RSt4pairIPNS1_5ValueES6_E(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::PatternMatch::FNeg_match", align 1
   %7 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.325", align 8
   %8 = alloca ptr, align 8
@@ -11239,7 +11239,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit123
 
 144:                                              ; preds = %140
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %139, ptr noundef nonnull %142)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %139, ptr noundef nonnull %142)
   %.val79 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.val79, null
   br i1 %.not, label %145, label %146
@@ -11249,7 +11249,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit
 
 146:                                              ; preds = %144
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.0132146, ptr noundef %.0133144)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.0132146, ptr noundef %.0133144)
   %.val78 = load ptr, ptr %13, align 8
   %.not151 = icmp eq ptr %.val78, null
   br i1 %.not151, label %147, label %148
@@ -11259,7 +11259,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14BinaryOp_matchINS0_14cstval_pred_ty
   br label %184
 
 148:                                              ; preds = %146
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias nonnull writable align 8 %14, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph20prepareCompositeNodeEN4llvm30ComplexDeinterleavingOperationEPNS1_5ValueES4_(ptr dead_on_unwind noalias writable align 8 %14, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %.val77 = load ptr, ptr %14, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.val77, i64 36
   store i32 %.1, ptr %149, align 4
@@ -11344,7 +11344,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit114: ; preds = %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit111, %179, %182
   %.val71 = phi ptr [ null, %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit111 ], [ %175, %179 ], [ %.val71.pre, %182 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %15)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %15)
   %.val72 = load ptr, ptr %173, align 8
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val72) #20
   call fastcc void @_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev(ptr %.val71) #20
@@ -12860,7 +12860,7 @@ _ZN4llvm11SmallVectorINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 {
   %.sroa.026.038 = load ptr, ptr %2, align 8
   %.not39 = icmp eq ptr %.sroa.026.038, %2
   br i1 %.not39, label %._crit_edge, label %.preheader.lr.ph
@@ -13012,7 +13012,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph23identifyMultiplicationsERSt6vectorINS0_7ProductESaIS2_EES5_St10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph23identifyMultiplicationsERSt6vectorINS0_7ProductESaIS2_EES5_St10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::shared_ptr.247", align 8
   %7 = alloca %"class.std::shared_ptr.247", align 8
   %8 = alloca %"class.std::map.374", align 8
@@ -13131,7 +13131,7 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS
   %53 = select i1 %52, ptr %.val61.i, ptr %.val62.i
   %54 = icmp eq ptr %.val64.i, %.0.i
   %55 = select i1 %54, ptr %.val63.i, ptr %.val64.i
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %53, ptr noundef %55)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %53, ptr noundef %55)
   %.val48.i = load ptr, ptr %6, align 8
   %.not540 = icmp eq ptr %.val48.i, null
   br i1 %.not540, label %_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateD2Ev.exit397, label %56
@@ -13257,7 +13257,7 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateD2Ev.exit397: 
   %.sroa.13.2 = phi ptr [ %.sroa.13.1578, %51 ], [ %100, %_ZNSt6vectorIN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i410 ], [ %70, %66 ]
   %.sroa.0475.2 = phi ptr [ %.sroa.0475.1579, %51 ], [ %84, %_ZNSt6vectorIN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i410 ], [ %.sroa.0475.1579, %66 ]
   %.2.i = phi i1 [ %.040.i582, %51 ], [ true, %_ZNSt6vectorIN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i410 ], [ true, %66 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %55, ptr noundef %53)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %55, ptr noundef %53)
   %103 = load ptr, ptr %7, align 8
   %104 = load ptr, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -13689,7 +13689,7 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS
   %290 = getelementptr inbounds %"struct.(anonymous namespace)::ComplexDeinterleavingGraph::PartialMulCandidate", ptr %.sroa.0475.0.lcssa, i64 %282
   %291 = load ptr, ptr %279, align 8
   %292 = load ptr, ptr %290, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %291, ptr noundef %292)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %291, ptr noundef %292)
   %.val71 = load ptr, ptr %9, align 8
   %.not548 = icmp eq ptr %.val71, null
   br i1 %.not548, label %293, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit.thread
@@ -13697,7 +13697,7 @@ _ZN12_GLOBAL__N_126ComplexDeinterleavingGraph18collectPartialMulsERKSt6vectorINS
 293:                                              ; preds = %289
   %294 = load ptr, ptr %290, align 8
   %295 = load ptr, ptr %279, align 8
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %294, ptr noundef %295)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %294, ptr noundef %295)
   %296 = load ptr, ptr %10, align 8
   %297 = load ptr, ptr %268, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -14805,7 +14805,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit211
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit211: ; preds = %800, %803
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %12)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %12)
   %.val58 = load ptr, ptr %553, align 8
   %.not.i.i.i212 = icmp eq ptr %.val58, null
   br i1 %.not.i.i.i212, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit218, label %805
@@ -15875,7 +15875,7 @@ _ZNSt6vectorIN12_GLOBAL__N_126ComplexDeinterleavingGraph19PartialMulCandidateESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph17identifyAdditionsERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_St8optionalINS4_13FastMathFlagsEESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph17identifyAdditionsERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_St8optionalINS4_13FastMathFlagsEESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::shared_ptr.247", align 8
   %8 = alloca %"class.std::shared_ptr.247", align 8
   %9 = alloca %"class.std::shared_ptr.247", align 8
@@ -15921,7 +15921,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph17iden
   br label %.preheader
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.exit: ; preds = %17
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph21extractPositiveAddendERNSt7__cxx114listISt4pairIPN4llvm5ValueEbESaIS7_EEESA_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %29 = load ptr, ptr %7, align 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -15979,7 +15979,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEaSERKS2_.
   br i1 %46, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit77.thread, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit77
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit77: ; preds = %47, %48
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.sroa.0238.0.copyload, ptr noundef %.sroa.0228.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.sroa.0238.0.copyload, ptr noundef %.sroa.0228.0.copyload)
   %49 = load ptr, ptr %8, align 8
   %50 = load ptr, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -15988,7 +15988,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit77.thread: ; preds = %47, %48
   %.030 = phi i32 [ 1, %48 ], [ 3, %47 ]
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.sroa.0228.0.copyload, ptr noundef %.sroa.0238.0.copyload)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph12identifyNodeEPN4llvm5ValueES3_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %.sroa.0228.0.copyload, ptr noundef %.sroa.0238.0.copyload)
   %51 = load ptr, ptr %9, align 8
   %52 = load ptr, ptr %32, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -16331,7 +16331,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit160
 
 _ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEEC2ERKS2_.exit160: ; preds = %196, %199
-  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef nonnull %11)
+  call fastcc void @_ZN12_GLOBAL__N_126ComplexDeinterleavingGraph19submitCompositeNodeESt10shared_ptrINS_34ComplexDeinterleavingCompositeNodeEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr noundef %11)
   %.val34 = load ptr, ptr %36, align 8
   %.not.i.i.i161 = icmp eq ptr %.val34, null
   br i1 %.not.i.i.i161, label %_ZNSt10shared_ptrIN12_GLOBAL__N_134ComplexDeinterleavingCompositeNodeEED2Ev.exit167, label %201

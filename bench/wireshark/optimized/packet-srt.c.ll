@@ -1164,41 +1164,41 @@ define internal fastcc void @srt_format_kmx(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @format_text_reorder_32(ptr noundef %0, ptr noundef %1, ptr %.408.val, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 262141) %4) unnamed_addr #0 {
   %6 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %.408.val, ptr noundef nonnull @.str.224) #5
-  %7 = icmp sgt i32 %4, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.01 = phi i32 [ %17, %.lr.ph ], [ 0, %5 ]
-  %8 = add i32 %.01, %3
-  %9 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %8) #5
-  %10 = trunc i32 %9 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %10) #5
-  %11 = lshr i32 %9, 8
-  %12 = trunc i32 %11 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %12) #5
-  %13 = lshr i32 %9, 16
-  %14 = trunc i32 %13 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %14) #5
-  %15 = lshr i32 %9, 24
-  %16 = trunc nuw i32 %15 to i8
-  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %16) #5
-  %17 = add nuw nsw i32 %.01, 4
-  %18 = icmp slt i32 %17, %4
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  %.01 = phi i32 [ %16, %.lr.ph ], [ 0, %5 ]
+  %7 = add i32 %.01, %3
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %7) #5
+  %9 = trunc i32 %8 to i8
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %9) #5
+  %10 = lshr i32 %8, 8
+  %11 = trunc i32 %10 to i8
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %11) #5
+  %12 = lshr i32 %8, 16
+  %13 = trunc i32 %12 to i8
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %13) #5
+  %14 = lshr i32 %8, 24
+  %15 = trunc nuw i32 %14 to i8
+  tail call void @wmem_strbuf_append_c(ptr noundef %6, i8 noundef signext %15) #5
+  %16 = add nuw nsw i32 %.01, 4
+  %17 = icmp ult i32 %16, %4
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
-  %19 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %6, ptr noundef null) #5
-  br i1 %19, label %21, label %20
+  %18 = tail call zeroext i1 @wmem_strbuf_utf8_validate(ptr noundef %6, ptr noundef null) #5
+  br i1 %18, label %20, label %19
 
-20:                                               ; preds = %._crit_edge
+19:                                               ; preds = %._crit_edge
   tail call void @wmem_strbuf_utf8_make_valid(ptr noundef %6) #5
-  br label %21
+  br label %20
 
-21:                                               ; preds = %20, %._crit_edge
-  %22 = tail call ptr @wmem_strbuf_get_str(ptr noundef %6) #5
-  %23 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef %22) #5
+20:                                               ; preds = %19, %._crit_edge
+  %21 = tail call ptr @wmem_strbuf_get_str(ptr noundef %6) #5
+  %22 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef %3, i32 noundef %4, ptr noundef %21) #5
   ret void
 }
 

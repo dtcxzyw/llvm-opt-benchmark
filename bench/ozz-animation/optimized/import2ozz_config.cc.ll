@@ -538,7 +538,7 @@ _ZN3ozz3log6LoggerlsIA43_cEERSoRKT_.exit:         ; preds = %91
   store i64 4, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %17, i64 20
   store i8 0, ptr %111, align 4
-  %112 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %17)
+  %112 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %17)
           to label %115 unwind label %128
 
 113:                                              ; preds = %162, %156, %137, %133, %130, %107
@@ -600,7 +600,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEED2Ev.exit
   br i1 %136, label %137, label %153
 
 137:                                              ; preds = %135
-  invoke fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %138 unwind label %113
 
 138:                                              ; preds = %137
@@ -723,7 +723,7 @@ _ZN3ozz3log6LoggerlsIA38_cEERSoRKT_.exit.i:       ; preds = %166
   br label %186
 
 180:                                              ; preds = %164
-  invoke fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %181 unwind label %176
 
 181:                                              ; preds = %180
@@ -1112,7 +1112,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_117SanitizeAnimationERN4Json5ValueEb.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ozz::log::Err", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string.10", align 8
@@ -1303,7 +1303,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_116JsonTypeToStringEN4Json9ValueTypeE.exit
           to label %85 unwind label %102
 
 85:                                               ; preds = %83
-  %86 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull %6)
+  %86 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef %6)
           to label %87 unwind label %104
 
 87:                                               ; preds = %85
@@ -1713,7 +1713,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE11_M_is_
   store ptr %121, ptr %16, align 8, !noalias !17
   store i64 0, ptr %120, align 8, !noalias !17
   store i8 0, ptr %121, align 8, !noalias !17
-  %241 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull %15)
+  %241 = invoke fastcc noundef zeroext i1 @_ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(32) %208, ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef %15)
           to label %242 unwind label %267
 
 242:                                              ; preds = %239
@@ -1867,7 +1867,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN3ozz12StdAllocatorIcEEE10_M_disp
 declare noundef i32 @_ZN3ozz3log8GetLevelEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5cxx11ERKN4Json5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Json::StreamWriterBuilder", align 8
   %4 = alloca %"class.Json::Value", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1916,7 +1916,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_18ToStringB5c
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  invoke void @_ZN4Json11writeStringB5cxx11ERKNS_12StreamWriter7FactoryERKNS_5ValueE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke void @_ZN4Json11writeStringB5cxx11ERKNS_12StreamWriter7FactoryERKNS_5ValueE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %22 unwind label %23
 
 22:                                               ; preds = %21

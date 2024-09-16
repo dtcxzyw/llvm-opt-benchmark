@@ -2151,7 +2151,7 @@ declare dso_local void @_raw_read_lock_bh(ptr noundef) local_unnamed_addr #3 sec
 declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @ndisc_redirect_opt_addr_space(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 16 {
+define internal fastcc i32 @ndisc_redirect_opt_addr_space(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #7 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 813
   %6 = load i8, ptr %5, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 552
@@ -2168,7 +2168,7 @@ define internal fastcc i32 @ndisc_redirect_opt_addr_space(ptr noundef %0, ptr no
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call i32 %14(ptr noundef %0, i8 noundef zeroext -119, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %17 = tail call i32 %14(ptr noundef %0, i8 noundef zeroext -119, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) #14
   br label %18
 
 18:                                               ; preds = %16, %12, %4
@@ -2183,7 +2183,7 @@ define internal fastcc i32 @ndisc_redirect_opt_addr_space(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @neigh_release(ptr noundef nonnull %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #14, !srcloc !8
   %4 = icmp eq i32 %3, 1
@@ -2199,7 +2199,7 @@ define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #7 align
 
 8:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
-  tail call void @neigh_destroy(ptr noundef %0) #14
+  tail call void @neigh_destroy(ptr noundef nonnull %0) #14
   br label %.thread
 
 .thread:                                          ; preds = %5, %7, %8
@@ -2207,7 +2207,7 @@ define internal fastcc void @neigh_release(ptr noundef %0) unnamed_addr #7 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #7 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 813
@@ -2221,7 +2221,7 @@ define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr
   %14 = or disjoint i32 %13, 9
   %15 = add nuw nsw i32 %14, %8
   %16 = and i32 %15, 504
-  %17 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %16) #14
+  %17 = tail call ptr @skb_put(ptr noundef nonnull %0, i32 noundef %16) #14
   store i8 2, ptr %17, align 1
   %18 = lshr i32 %15, 3
   %19 = trunc nuw nsw i32 %18 to i8
@@ -2233,7 +2233,7 @@ define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr
   %23 = getelementptr i8, ptr %17, i64 %22
   %24 = getelementptr i8, ptr %23, i64 2
   %25 = zext i8 %7 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %1, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %1, i64 %25, i1 false)
   %26 = sub nsw i32 %12, %8
   %27 = add nsw i32 %16, %26
   %28 = icmp sgt i32 %27, 2
@@ -2261,7 +2261,7 @@ define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %39
-  tail call void %41(ptr noundef %35, ptr noundef %0, i8 noundef zeroext -119, ptr noundef %2) #14
+  tail call void %41(ptr noundef %35, ptr noundef nonnull %0, i8 noundef zeroext -119, ptr noundef %2) #14
   br label %44
 
 44:                                               ; preds = %43, %39, %34
@@ -2269,8 +2269,8 @@ define internal fastcc void @ndisc_fill_redirect_addr_option(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ndisc_fill_redirect_hdr_option(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
-  %4 = tail call ptr @skb_put(ptr noundef %0, i32 noundef %2) #14
+define internal fastcc void @ndisc_fill_redirect_hdr_option(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 1, -7) %2) unnamed_addr #1 align 16 {
+  %4 = tail call ptr @skb_put(ptr noundef nonnull %0, i32 noundef %2) #14
   store i64 4, ptr %4, align 1
   %5 = getelementptr i8, ptr %4, i64 1
   %6 = lshr i32 %2, 3
@@ -5278,7 +5278,7 @@ declare dso_local ptr @rt6_get_dflt_router(ptr noundef, ptr noundef, ptr noundef
 declare dso_local ptr @ip6_neigh_lookup(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fib6_info_release(ptr noundef %0) unnamed_addr #7 align 16 {
+define internal fastcc void @fib6_info_release(ptr noundef nonnull %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #14, !srcloc !8
   %4 = icmp eq i32 %3, 1

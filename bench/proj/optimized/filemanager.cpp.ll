@@ -2570,7 +2570,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %61, label %62, label %.thread202
 
 62:                                               ; preds = %.critedge.thread
-  invoke fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %.080)
+  invoke fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %.080)
           to label %63 unwind label %73
 
 63:                                               ; preds = %62
@@ -2900,7 +2900,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br i1 %.not286, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread, label %172
 
 172:                                              ; preds = %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit150.thread
-  invoke fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %.080)
+  invoke fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %.080)
           to label %173 unwind label %73
 
 173:                                              ; preds = %172
@@ -4073,7 +4073,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12getDBcontextP6pj_ctx(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dropbox::oxygen::nn", align 8
   %4 = invoke noundef ptr @_ZN6pj_ctx15get_cpp_contextEv(ptr noundef nonnull align 8 dereferenceable(516) %1)
           to label %5 unwind label %10

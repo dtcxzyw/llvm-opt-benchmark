@@ -26244,7 +26244,7 @@ _ZSt17__rotate_adaptiveIPPN4pkpy8PyObjectES3_lET_S4_S4_S4_T1_S5_T0_S5_.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr %4) unnamed_addr #4 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4pkpy8PyObjectES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZZNS0_15__init_builtinsEPNS0_2VMEENK5$_110clES8_NS0_8ArgsViewEEUlS2_S2_E_EEEvT_SD_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr %4) unnamed_addr #4 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64

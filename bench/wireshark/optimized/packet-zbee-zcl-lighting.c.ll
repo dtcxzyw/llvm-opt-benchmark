@@ -517,75 +517,75 @@ define internal i32 @dissect_zbee_zcl_color_control(ptr noundef %0, ptr nocaptur
   ]
 
 28:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 29:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 30:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 31:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 32:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 33:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 34:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 0)
+  call fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 0)
   br label %46
 
 35:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 36:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 37:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 38:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 39:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 1)
   br label %46
 
 40:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 1)
   br label %46
 
 41:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 1)
   br label %46
 
 42:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5, i32 noundef 1)
+  call fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %27, ptr noundef %5, i32 noundef 1)
   br label %46
 
 43:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 44:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 45:                                               ; preds = %25
-  call fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %5)
+  call fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %27, ptr noundef %5)
   br label %46
 
 46:                                               ; preds = %11, %25, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %7
@@ -1191,7 +1191,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr %2, align 4
   %. = select i1 %.not, i32 1, i32 2
@@ -1216,7 +1216,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_hue(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zbee_zcl_color_control_move_mode, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1236,7 +1236,7 @@ define internal fastcc void @dissect_zcl_color_control_move_hue_saturation(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_zbee_zcl_color_control_step_mode, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1261,7 +1261,7 @@ define internal fastcc void @dissect_zcl_color_control_step_hue_saturation(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_saturation, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1277,7 +1277,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_saturation(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturation(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = load i32, ptr %2, align 4
   %. = select i1 %.not, i32 1, i32 2
@@ -1302,7 +1302,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_hue_and_saturatio
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_color_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1323,7 +1323,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_color(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_rate_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1339,7 +1339,7 @@ define internal fastcc void @dissect_zcl_color_control_move_color(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_step_X, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1360,7 +1360,7 @@ define internal fastcc void @dissect_zcl_color_control_step_color(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_color_temp, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 2, i32 noundef -2147483648) #5
@@ -1376,7 +1376,7 @@ define internal fastcc void @dissect_zcl_color_control_move_to_color_temp(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 4
   %5 = load i32, ptr @hf_zbee_zcl_color_control_color_loop_update_flags, align 4
   %6 = load i32, ptr @ett_zbee_zcl_color_control_color_loop_settings, align 4
@@ -1408,7 +1408,7 @@ define internal fastcc void @dissect_zcl_color_control_color_loop_set(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_move_mode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5
@@ -1434,7 +1434,7 @@ define internal fastcc void @dissect_zcl_color_control_move_color_temp(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_zcl_color_control_step_color_temp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_zbee_zcl_color_control_step_mode, align 4
   %5 = load i32, ptr %2, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #5

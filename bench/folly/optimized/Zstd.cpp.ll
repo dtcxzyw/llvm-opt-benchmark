@@ -519,7 +519,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN5folly2io4zstd12_GLOBAL__N_115ZSTDStreamCodecEJNS2_7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(20) %__args) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN5folly2io4zstd12_GLOBAL__N_115ZSTDStreamCodecEJNS2_7OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(20) %__args) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.folly::Optional.37", align 4
   %agg.tmp = alloca %"class.folly::io::zstd::Options", align 8

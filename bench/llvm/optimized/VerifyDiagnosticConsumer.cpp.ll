@@ -1490,7 +1490,7 @@ _ZNK4llvm9StringRef4findEcm.exit.thread:          ; preds = %_ZNSt11char_traitsI
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %10, i64 %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(696) %6, ptr noundef nonnull %1, i32 %.sroa.073.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(56) %23)
+  tail call fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %10, i64 %14, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(696) %6, ptr noundef %1, i32 %.sroa.073.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 8 dereferenceable(56) %23)
   br label %64
 
 24:                                               ; preds = %_ZNK4llvm9StringRef4findEcm.exit
@@ -1575,7 +1575,7 @@ _ZNK4llvm9StringRef4findEcm.exit54:               ; preds = %_ZNSt11char_traitsI
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load ptr, ptr %61, align 8
-  call fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %57, i64 %58, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(696) %6, ptr noundef nonnull %1, i32 %.sroa.073.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(56) %62)
+  call fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %57, i64 %58, ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(696) %6, ptr noundef %1, i32 %.sroa.073.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 8 dereferenceable(56) %62)
   br label %63
 
 63:                                               ; preds = %56, %._crit_edge
@@ -1592,7 +1592,7 @@ declare noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLoca
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %0, i64 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(696) %3, ptr noundef %4, i32 %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(56) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL14ParseDirectiveN4llvm9StringRefEPN5clang24VerifyDiagnosticConsumer12ExpectedDataERNS1_13SourceManagerEPNS1_12PreprocessorENS1_14SourceLocationERNS2_15DirectiveStatusERNS2_13MarkerTrackerE(ptr %0, i64 %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(696) %3, ptr noundef nonnull %4, i32 %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(56) %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::allocator.33", align 1
   %11 = alloca %"class.std::allocator.33", align 1

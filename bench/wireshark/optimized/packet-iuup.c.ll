@@ -3425,7 +3425,7 @@ define internal fastcc void @add_payload_crc(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_iuup_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_iuup_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 64) %3, i32 noundef range(i32 3, 5) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %8 = add i32 %7, -1
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
@@ -3679,7 +3679,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
 
 .thread68:                                        ; preds = %31
   store i32 5, ptr %5, align 4
-  %32 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %.067)
+  %32 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef null, ptr noundef %5, ptr noundef nonnull %.067)
   br label %73
 
 33:                                               ; preds = %31
@@ -3692,7 +3692,7 @@ define internal fastcc void @dissect_iuup_init(ptr noundef %0, ptr nocapture nou
   %40 = load i32, ptr @hf_iuup_init_chain_ind, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %40, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #8
   store i32 5, ptr %5, align 4
-  %42 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %5, ptr noundef nonnull %.067)
+  %42 = call fastcc i32 @dissect_rfcis(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %5, ptr noundef nonnull %.067)
   %.not62 = icmp eq i32 %10, 0
   %.pre = load i32, ptr %5, align 4
   br i1 %.not62, label %59, label %43
@@ -3784,7 +3784,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = getelementptr inbounds i8, ptr %3, i64 8

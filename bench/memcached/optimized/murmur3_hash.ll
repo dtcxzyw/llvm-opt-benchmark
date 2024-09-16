@@ -11,8 +11,8 @@ entry:
   %mul = shl nsw i32 %conv, 2
   %idx.ext = sext i32 %mul to i64
   %add.ptr = getelementptr inbounds i8, ptr %key, i64 %idx.ext
-  %tobool.not43 = icmp eq i32 %conv, 0
-  br i1 %tobool.not43, label %for.end, label %for.body.preheader
+  %tobool.not38 = icmp eq i32 %conv, 0
+  br i1 %tobool.not38, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %.neg = mul i64 %div35, -4294967296
@@ -21,17 +21,15 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %h1.045 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.body ]
+  %h1.040 = phi i32 [ 0, %for.body.preheader ], [ %add, %for.body ]
   %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx.i, align 4
   %mul1 = mul i32 %1, -862048943
-  %shl.i = mul i32 %1, 380141568
-  %shr.i36 = lshr i32 %mul1, 17
-  %or.i = or disjoint i32 %shr.i36, %shl.i
+  %or.i = tail call i32 @llvm.fshl.i32(i32 %mul1, i32 %mul1, i32 15)
   %mul3 = mul i32 %or.i, 461845907
-  %xor = xor i32 %mul3, %h1.045
-  %or.i39 = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 13)
-  %mul5 = mul i32 %or.i39, 5
+  %xor = xor i32 %mul3, %h1.040
+  %or.i36 = tail call i32 @llvm.fshl.i32(i32 %xor, i32 %xor, i32 13)
+  %mul5 = mul i32 %or.i36, 5
   %add = add i32 %mul5, -430675100
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %tobool.not = icmp eq i64 %indvars.iv.next, 0
@@ -40,7 +38,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.end:                                          ; preds = %for.body, %entry
   %h1.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]
   %and = and i64 %length, 3
-  switch i64 %and, label %default.unreachable47 [
+  switch i64 %and, label %default.unreachable42 [
     i64 3, label %sw.bb
     i64 2, label %sw.bb12
     i64 1, label %sw.bb17
@@ -69,14 +67,12 @@ sw.bb17:                                          ; preds = %for.end, %sw.bb12
   %conv19 = zext i8 %4 to i32
   %xor20 = xor i32 %k19.1, %conv19
   %mul21 = mul i32 %xor20, -862048943
-  %shl.i40 = mul i32 %xor20, 380141568
-  %shr.i41 = lshr i32 %mul21, 17
-  %or.i42 = or disjoint i32 %shr.i41, %shl.i40
-  %mul23 = mul i32 %or.i42, 461845907
+  %or.i37 = tail call i32 @llvm.fshl.i32(i32 %mul21, i32 %mul21, i32 15)
+  %mul23 = mul i32 %or.i37, 461845907
   %xor24 = xor i32 %mul23, %h1.0.lcssa
   br label %sw.epilog
 
-default.unreachable47:                            ; preds = %for.end
+default.unreachable42:                            ; preds = %for.end
   unreachable
 
 sw.epilog:                                        ; preds = %for.end, %sw.bb17

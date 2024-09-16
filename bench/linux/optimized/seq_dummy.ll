@@ -177,7 +177,7 @@ declare dso_local ptr @snd_seq_kernel_client_get(i32 noundef) local_unnamed_addr
 declare dso_local void @snd_seq_kernel_client_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef ptr @create_port(i32 noundef %0, i32 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef ptr @create_port(i32 noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = alloca %struct.snd_seq_port_info, align 8
   %4 = alloca %struct.snd_seq_port_callback, align 8
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %3) #9

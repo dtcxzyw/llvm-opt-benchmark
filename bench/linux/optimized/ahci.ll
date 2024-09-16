@@ -1355,7 +1355,7 @@ define internal fastcc i32 @ahci_pci_reset_controller(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ahci_pci_init_controller(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @ahci_pci_init_controller(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -1386,12 +1386,12 @@ define internal fastcc void @ahci_pci_init_controller(ptr noundef %0) unnamed_ad
   br label %23
 
 23:                                               ; preds = %22, %7, %1
-  tail call void @ahci_init_controller(ptr noundef %0) #13
+  tail call void @ahci_init_controller(ptr noundef nonnull %0) #13
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ahci_pci_print_info(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @ahci_pci_print_info(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = alloca i16, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1417,7 +1417,7 @@ define internal fastcc void @ahci_pci_print_info(ptr noundef %0) unnamed_addr #2
 
 11:                                               ; preds = %10, %9, %8, %1
   %12 = phi ptr [ @.str.59, %8 ], [ @.str.60, %9 ], [ @.str.61, %10 ], [ @.str.58, %1 ]
-  call void @ahci_print_info(ptr noundef %0, ptr noundef nonnull %12) #13
+  call void @ahci_print_info(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #13
   ret void
 }

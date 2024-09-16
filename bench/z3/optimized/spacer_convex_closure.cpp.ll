@@ -6041,7 +6041,7 @@ while.body.i.i.i:                                 ; preds = %_ZN8rationalD2Ev.ex
   store i8 %bf.set13.i12.i.i35.i.i.i, ptr %m_kind.i2.i.i25.i.i.i, align 4
   store ptr %3, ptr %m_ptr.i13.i.i36.i.i.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef %agg.tmp.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -6204,7 +6204,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   store i8 %bf.set13.i12.i.i31.i, ptr %m_kind.i2.i.i21.i, align 4
   store ptr %14, ptr %m_ptr.i13.i.i32.i, align 8
   store ptr null, ptr %m_ptr.i13.i.i.i, align 8
-  invoke fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i16, ptr noundef nonnull %agg.tmp.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef nonnull %__first, i64 noundef 0, i64 noundef %sub.ptr.div.i16, ptr noundef %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %while.body.i.i
@@ -6937,7 +6937,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIP8rationallS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef %__first, i64 noundef range(i64 0, 144115188075855871) %__holeIndex, i64 noundef range(i64 -288230376151711744, 288230376151711744) %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %class.rational, align 8
   %sub = add nsw i64 %__len, -1

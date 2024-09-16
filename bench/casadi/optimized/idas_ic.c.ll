@@ -695,7 +695,7 @@ IDANewy.exit.i.i.i:                               ; preds = %338, %331
   br i1 %405, label %406, label %IDANewyyp.exit.i.i.i
 
 406:                                              ; preds = %403
-  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull readonly %0, double noundef %.082.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef readonly %0, double noundef %.082.i.i.i)
   br label %IDANewyyp.exit.i.i.i
 
 IDANewyyp.exit.i.i.i:                             ; preds = %406, %403, %401
@@ -1160,7 +1160,7 @@ IDANlsIC.exit.thread324:                          ; preds = %622, %IDANlsIC.exit
   br label %656
 
 656:                                              ; preds = %651, %647
-  %657 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.1260)
+  %657 = tail call fastcc i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %.1260)
   br label %980
 
 658:                                              ; preds = %646
@@ -1386,7 +1386,7 @@ thread-pre-split.i:                               ; preds = %919
 
 779:                                              ; preds = %846, %.lr.ph79.i.i
   %.038.i.i.i = phi double [ 1.000000e+00, %.lr.ph79.i.i ], [ %847, %846 ]
-  tail call fastcc void @IDASensNewyyp(ptr noundef nonnull %0, double noundef %.038.i.i.i)
+  tail call fastcc void @IDASensNewyyp(ptr noundef %0, double noundef %.038.i.i.i)
   %780 = load ptr, ptr %160, align 8
   %781 = load i32, ptr %161, align 4
   %782 = load double, ptr %57, align 8
@@ -1749,7 +1749,7 @@ IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge454, %ID
   br i1 %.not290, label %980, label %978
 
 978:                                              ; preds = %971
-  %979 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.5264)
+  %979 = tail call fastcc i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %.5264)
   br label %980
 
 980:                                              ; preds = %971, %679, %668, %659, %663, %11, %978, %656, %115, %38, %24, %16, %10, %5
@@ -1782,7 +1782,7 @@ declare void @N_VDestroy(ptr noundef) local_unnamed_addr #1
 declare void @N_VDestroyVectorArray(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   switch i32 %1, label %13 [
     i32 -8, label %3
     i32 -12, label %4
@@ -1797,43 +1797,43 @@ define internal fastcc range(i32 -99, -3) i32 @IDAICFailFlag(ptr noundef %0, i32
   ]
 
 3:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -8, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.8) #3
   br label %13
 
 4:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #3
   br label %13
 
 5:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -6, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.10) #3
   br label %13
 
 6:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11) #3
   br label %13
 
 7:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -14, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.12) #3
   br label %13
 
 8:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -11, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13) #3
   br label %13
 
 9:                                                ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -13, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.14) #3
   br label %13
 
 10:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #3
   br label %13
 
 11:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #3
   br label %13
 
 12:                                               ; preds = %2
-  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef %0, i32 noundef -24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #3
+  tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -24, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.16) #3
   br label %13
 
 13:                                               ; preds = %2, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
@@ -1853,7 +1853,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDASensNewyyp(ptr nocapture noundef readonly %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @IDASensNewyyp(ptr nocapture noundef nonnull readonly %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1072
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1

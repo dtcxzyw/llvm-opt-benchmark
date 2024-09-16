@@ -446,7 +446,7 @@ define void @php_info_print_table_end() local_unnamed_addr #0 {
 define void @php_info_print_table_row(i32 noundef %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef nonnull @.str.127, ptr noundef nonnull %2)
+  call fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef nonnull @.str.127, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -1653,10 +1653,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_print_gpcse_array(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_print_gpcse_array(ptr noundef %0, i32 noundef range(i32 4, 9) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
-  %4 = add nuw nsw i64 %3, 32
-  %5 = and i64 %4, 4294967288
+  %4 = and i64 %3, 8
+  %5 = or disjoint i64 %4, 32
   %6 = tail call noalias ptr @_emalloc(i64 noundef %5) #15
   store i32 1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -1666,7 +1666,7 @@ define internal fastcc void @php_print_gpcse_array(ptr noundef %0, i32 noundef %
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 1 %0, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %3, i1 false)
   %11 = getelementptr inbounds [1 x i8], ptr %10, i64 0, i64 %3
   store i8 0, ptr %11, align 1
   %12 = tail call zeroext i1 @zend_is_auto_global(ptr noundef nonnull %6) #14
@@ -2023,7 +2023,7 @@ define void @php_info_print_table_colspan_header(i32 noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %7
@@ -2176,7 +2176,7 @@ php_info_print_html_esc.exit:                     ; preds = %54, %53, %42, %58, 
 define void @php_info_print_table_row_ex(i32 noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @php_info_print_table_row_internal(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }

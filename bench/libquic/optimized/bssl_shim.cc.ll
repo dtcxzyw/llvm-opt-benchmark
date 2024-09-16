@@ -642,7 +642,7 @@ lpad16:                                           ; preds = %if.then15
 
 if.end18:                                         ; preds = %invoke.cont13
   store ptr null, ptr %session, align 8
-  %call22 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef nonnull %session, ptr noundef nonnull %.pr, ptr noundef nonnull %config, i1 noundef zeroext false, ptr noundef null)
+  %call22 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef nonnull %session, ptr noundef nonnull %.pr, ptr noundef %config, i1 noundef zeroext false, ptr noundef null)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %if.end18
@@ -662,7 +662,7 @@ if.end25:                                         ; preds = %invoke.cont21
 
 land.lhs.true:                                    ; preds = %if.end25
   %30 = load ptr, ptr %session, align 8
-  %call29 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef null, ptr noundef nonnull %.pr, ptr noundef nonnull %config, i1 noundef zeroext true, ptr noundef %30)
+  %call29 = invoke fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef null, ptr noundef nonnull %.pr, ptr noundef %config, i1 noundef zeroext true, ptr noundef %30)
           to label %invoke.cont28 unwind label %lpad20
 
 invoke.cont28:                                    ; preds = %land.lhs.true
@@ -858,7 +858,7 @@ declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #2
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef %out_session, ptr noundef %ssl_ctx, ptr noundef %config, i1 noundef zeroext %is_resume, ptr noundef %session) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL10DoExchangePSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEEP10ssl_ctx_stPK10TestConfigbPS0_(ptr noundef %out_session, ptr noundef %ssl_ctx, ptr noundef nonnull %config, i1 noundef zeroext %is_resume, ptr noundef %session) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nodelay.i = alloca i32, align 4
   %sin.i = alloca %struct.sockaddr_in, align 4
@@ -881,7 +881,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr @_ZL14g_config_index, align 4
-  %call.i119 = invoke i32 @SSL_set_ex_data(ptr noundef nonnull %call, i32 noundef %0, ptr noundef %config)
+  %call.i119 = invoke i32 @SSL_set_ex_data(ptr noundef nonnull %call, i32 noundef %0, ptr noundef nonnull %config)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -1083,7 +1083,7 @@ invoke.cont103:                                   ; preds = %if.then101
   br i1 %tobool106, label %if.end120, label %if.then107
 
 if.then107:                                       ; preds = %invoke.cont103
-  invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %pkey, ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id)
+  invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %pkey, ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id)
           to label %invoke.cont109 unwind label %lpad
 
 invoke.cont109:                                   ; preds = %if.then107
@@ -2554,7 +2554,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   store ptr null, ptr %x509, align 8
   store ptr null, ptr %pkey, align 8
-  %call3 = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr noundef nonnull %x509, ptr noundef nonnull %pkey)
+  %call3 = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr noundef %x509, ptr noundef %pkey)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -3020,7 +3020,7 @@ entry:
   %pkey = alloca %"class.std::unique_ptr.10", align 8
   store ptr null, ptr %x509, align 8
   store ptr null, ptr %pkey, align 8
-  %call = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr noundef nonnull %x509, ptr noundef nonnull %pkey)
+  %call = invoke fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr noundef %x509, ptr noundef %pkey)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3145,7 +3145,7 @@ _ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev.exit: ; p
 declare void @X509_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr nocapture noundef %out_x509, ptr nocapture noundef %out_pkey) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14GetCertificateP6ssl_stPSt10unique_ptrI7x509_st14OpenSSLDeleterIS2_XadL_Z9X509_freeEEEEPS1_I11evp_pkey_stS3_IS7_XadL_Z13EVP_PKEY_freeEEEE(ptr noundef %ssl, ptr nocapture noundef nonnull %out_x509, ptr nocapture noundef nonnull %out_pkey) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %bio.i = alloca %"class.std::unique_ptr.54", align 8
   %ref.tmp24 = alloca %"class.std::unique_ptr.10", align 8
@@ -3324,7 +3324,7 @@ if.then23:                                        ; preds = %if.end21
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %if.then23
-  invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25)
+  invoke fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp24, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25)
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -3565,7 +3565,7 @@ declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #2
 declare i32 @SSL_set_private_key_digest_prefs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %bio = alloca %"class.std::unique_ptr.54", align 8
   %call = tail call ptr @BIO_s_file()
@@ -4501,7 +4501,7 @@ sw.bb39:                                          ; preds = %if.end34
   %13 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i27 = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %13)
   %send_channel_id = getelementptr inbounds i8, ptr %call.i27, i64 320
-  call fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %pkey, ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id)
+  call fastcc void @_ZL14LoadPrivateKeyRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %pkey, ptr noundef nonnull align 8 dereferenceable(32) %send_channel_id)
   %14 = load ptr, ptr %pkey, align 8
   %cmp.i = icmp ne ptr %14, null
   br i1 %cmp.i, label %if.end43, label %cleanup
@@ -5059,7 +5059,7 @@ declare i32 @SSL_get_tls_unique(ptr noundef, ptr noundef, ptr noundef, i64 nound
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef %ssl, ptr noundef %out, i64 noundef %max_out) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL6DoReadP6ssl_stPhm(ptr noundef %ssl, ptr noundef %out, i64 noundef range(i64 512, 16385) %max_out) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @_ZL14g_config_index, align 4
   %call.i = tail call noundef ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef %0)

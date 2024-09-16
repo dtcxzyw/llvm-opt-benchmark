@@ -95,7 +95,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %engine = getelementptr inbounds i8, ptr %pc, i64 16
-  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine)
+  %call = call fastcc i32 @load_common(ptr noundef %params, ptr noundef %propquery, ptr noundef nonnull %engine)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
@@ -165,10 +165,10 @@ return:                                           ; preds = %if.end6, %if.end2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @load_common(ptr noundef %params, ptr nocapture noundef writeonly %propquery, ptr nocapture noundef %engine) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_common(ptr noundef nonnull %params, ptr nocapture noundef nonnull writeonly %propquery, ptr nocapture noundef %engine) unnamed_addr #0 {
 entry:
   store ptr null, ptr %propquery, align 8
-  %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.3) #5
+  %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.3) #5
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %if.end3, label %if.then
 
@@ -188,7 +188,7 @@ if.end3:                                          ; preds = %if.end, %entry
   %2 = load ptr, ptr %engine, align 8
   %call4 = tail call i32 @ENGINE_finish(ptr noundef %2) #5
   store ptr null, ptr %engine, align 8
-  %call5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.2) #5
+  %call5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.2) #5
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %return, label %if.then7
 
@@ -339,7 +339,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %engine = getelementptr inbounds i8, ptr %pd, i64 16
-  %call = call fastcc i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull %propquery, ptr noundef nonnull %engine)
+  %call = call fastcc i32 @load_common(ptr noundef %params, ptr noundef %propquery, ptr noundef nonnull %engine)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 

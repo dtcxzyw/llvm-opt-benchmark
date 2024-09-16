@@ -869,7 +869,7 @@ define internal i64 @cf_h2_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   store ptr null, ptr %6, align 8
   call void @Curl_dynhds_init(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 1048576) #11
   %.val.i = load ptr, ptr %11, align 8
-  %66 = call fastcc i32 @http2_data_setup(ptr %.val.i, ptr noundef %1, ptr noundef nonnull %6)
+  %66 = call fastcc i32 @http2_data_setup(ptr %.val.i, ptr noundef %1, ptr noundef %6)
   store i32 %66, ptr %4, align 4
   %.not.i = icmp eq i32 %66, 0
   br i1 %.not.i, label %67, label %198
@@ -1463,7 +1463,7 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %21 = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %21, align 8
   store ptr %1, ptr %21, align 8
-  %22 = tail call fastcc i64 @stream_recv(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, ptr noundef %2, i64 noundef %3, ptr noundef %4)
+  %22 = tail call fastcc i64 @stream_recv(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %13, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %24, label %.critedge
 
@@ -1479,7 +1479,7 @@ define internal i64 @cf_h2_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %.not105, label %28, label %drain_stream.exit
 
 28:                                               ; preds = %26
-  %29 = tail call fastcc i64 @stream_recv(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %13, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
+  %29 = tail call fastcc i64 @stream_recv(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %13, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %20, %28
@@ -2077,7 +2077,7 @@ define internal zeroext i1 @cf_h2_is_alive(ptr noundef %0, ptr noundef %1, ptr n
   br label %35
 
 35:                                               ; preds = %34, %29, %25, %24
-  %36 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
+  %36 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4)
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %http2_connisalive.exit, label %38
 
@@ -2341,7 +2341,7 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
-  %6 = call fastcc i32 @http2_cfilter_add(ptr noundef nonnull %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  %6 = call fastcc i32 @http2_cfilter_add(ptr noundef %4, ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %23
 
@@ -2379,7 +2379,7 @@ define dso_local i32 @Curl_http2_switch(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @http2_cfilter_add(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @http2_cfilter_add(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr @Curl_ccalloc, align 8
@@ -2538,7 +2538,7 @@ h2_client_new.exit:                               ; preds = %18
 
 55:                                               ; preds = %38
   %.val = load ptr, ptr %10, align 8
-  %56 = call fastcc i32 @http2_data_setup(ptr %.val, ptr noundef nonnull %1, ptr noundef nonnull %6)
+  %56 = call fastcc i32 @http2_data_setup(ptr %.val, ptr noundef nonnull %1, ptr noundef %6)
   %.not74 = icmp eq i32 %56, 0
   br i1 %.not74, label %57, label %121
 
@@ -2765,7 +2765,7 @@ define dso_local i32 @Curl_http2_upgrade(ptr noundef %0, ptr noundef %1, i32 nou
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
-  %9 = call fastcc i32 @http2_cfilter_add(ptr noundef nonnull %6, ptr noundef %0, ptr noundef %1, i32 noundef %2)
+  %9 = call fastcc i32 @http2_cfilter_add(ptr noundef %6, ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %44
 
@@ -2923,7 +2923,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br label %20
 
 20:                                               ; preds = %8, %9, %13, %18
-  %21 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
+  %21 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %25
 
@@ -2959,7 +2959,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br i1 %37, label %.split79.us, label %38
 
 38:                                               ; preds = %36
-  %39 = call fastcc i32 @h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef nonnull %3)
+  %39 = call fastcc i32 @h2_process_pending_input(ptr noundef %0, ptr noundef null, ptr noundef %3)
   %.not66.us = icmp eq i32 %39, 0
   br i1 %.not66.us, label %.split.us, label %.split81.us, !llvm.loop !9
 
@@ -3068,7 +3068,7 @@ define internal fastcc i32 @h2_progress_ingress(ptr noundef %0, ptr noundef %1) 
   br label %90
 
 90:                                               ; preds = %83, %84, %89
-  %91 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %91 = call fastcc i32 @h2_process_pending_input(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %3)
   %.not66 = icmp eq i32 %91, 0
   br i1 %.not66, label %.split.split, label %.split81.us, !llvm.loop !9
 
@@ -3340,7 +3340,7 @@ declare zeroext i1 @Curl_bufq_is_empty(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3719,7 +3719,7 @@ define internal fastcc range(i64 -1, 1) i64 @http2_handle_stream_close(ptr nound
 declare void @Curl_dynhds_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @http2_data_setup(ptr %.16.val, ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3919,7 +3919,7 @@ declare i64 @Curl_dyn_len(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   store i32 81, ptr %5, align 4
@@ -4075,7 +4075,7 @@ define internal fastcc i64 @stream_recv(ptr noundef %0, ptr noundef %1, ptr noun
 declare i32 @nghttp2_session_consume(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drain_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @drain_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 337
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -4388,7 +4388,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %25
-  %31 = call fastcc i32 @fr_print(ptr noundef nonnull %1, ptr noundef nonnull %14)
+  %31 = call fastcc i32 @fr_print(ptr noundef nonnull %1, ptr noundef %14)
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [256 x i8], ptr %14, i64 0, i64 %32
   store i8 0, ptr %33, align 1
@@ -4528,7 +4528,7 @@ define internal range(i32 -902, 1) i32 @on_frame_recv(ptr noundef %0, ptr nounde
   br i1 %.not114, label %on_stream_frame.exit, label %104
 
 104:                                              ; preds = %101
-  call fastcc void @drain_stream(ptr noundef nonnull %2, ptr noundef nonnull %18, ptr noundef nonnull %103)
+  call fastcc void @drain_stream(ptr noundef nonnull %2, ptr noundef nonnull %18, ptr noundef %103)
   br label %on_stream_frame.exit
 
 105:                                              ; preds = %44
@@ -4827,7 +4827,7 @@ recvbuf_write_hds.exit.i:                         ; preds = %241
   br label %254
 
 254:                                              ; preds = %252, %250
-  call fastcc void @drain_stream(ptr noundef nonnull %2, ptr noundef nonnull %124, ptr noundef nonnull %143)
+  call fastcc void @drain_stream(ptr noundef nonnull %2, ptr noundef nonnull %124, ptr noundef %143)
   br label %on_stream_frame.exit
 
 255:                                              ; preds = %156
@@ -4883,7 +4883,7 @@ h2_duphandle.exit.thread120.i.i:                  ; preds = %274
   %277 = getelementptr inbounds i8, ptr %273, i64 384
   store ptr %276, ptr %277, align 8
   %.val.i.i.i = load ptr, ptr %15, align 8
-  %278 = call fastcc i32 @http2_data_setup(ptr %.val.i.i.i, ptr noundef nonnull %273, ptr noundef nonnull %10)
+  %278 = call fastcc i32 @http2_data_setup(ptr %.val.i.i.i, ptr noundef nonnull %273, ptr noundef %10)
   %279 = getelementptr inbounds i8, ptr %124, i64 4496
   %280 = load i32, ptr %279, align 8
   %281 = getelementptr inbounds i8, ptr %273, i64 4496
@@ -5051,7 +5051,7 @@ discard_newhandle.exit114.i.i:                    ; preds = %334, %331
   store ptr %339, ptr %340, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.val.i.i = load ptr, ptr %15, align 8
-  %341 = call fastcc i32 @http2_data_setup(ptr %.val.i.i, ptr noundef nonnull %288, ptr noundef nonnull %11)
+  %341 = call fastcc i32 @http2_data_setup(ptr %.val.i.i, ptr noundef nonnull %288, ptr noundef %11)
   %.not104.i.i = icmp eq i32 %341, 0
   br i1 %.not104.i.i, label %347, label %342
 
@@ -5157,7 +5157,7 @@ discard_newhandle.exit118.i.i:                    ; preds = %372, %369
   br label %387
 
 387:                                              ; preds = %386, %383
-  call fastcc void @discard_newhandle(ptr noundef nonnull %2, ptr noundef nonnull %288)
+  call fastcc void @discard_newhandle(ptr noundef nonnull %2, ptr noundef %288)
   br label %406
 
 388:                                              ; preds = %374
@@ -5373,7 +5373,7 @@ define internal noundef i32 @on_frame_send(ptr nocapture readnone %0, ptr nocapt
   br i1 %18, label %19, label %.thread
 
 19:                                               ; preds = %14
-  %20 = call fastcc i32 @fr_print(ptr noundef %1, ptr noundef nonnull %4)
+  %20 = call fastcc i32 @fr_print(ptr noundef %1, ptr noundef %4)
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %21
   store i8 0, ptr %22, align 1
@@ -6215,7 +6215,7 @@ declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_bufq_write_pass(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
@@ -6241,7 +6241,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
-  %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.74, i32 noundef %8, i32 noundef %12, i32 noundef %15) #11
+  %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.74, i32 noundef %8, i32 noundef %12, i32 noundef %15) #11
   br label %93
 
 17:                                               ; preds = %2
@@ -6253,7 +6253,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %23 = lshr i32 %22, 2
   %.lobit57 = and i32 %23, 1
   %24 = and i32 %22, 1
-  %25 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.75, i32 noundef %19, i32 noundef %.lobit57, i32 noundef %24) #11
+  %25 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.75, i32 noundef %19, i32 noundef %.lobit57, i32 noundef %24) #11
   br label %93
 
 26:                                               ; preds = %2
@@ -6262,7 +6262,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %29 = getelementptr inbounds i8, ptr %0, i64 13
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.76, i32 noundef %28, i32 noundef %31) #11
+  %32 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.76, i32 noundef %28, i32 noundef %31) #11
   br label %93
 
 33:                                               ; preds = %2
@@ -6273,7 +6273,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %38 = zext i8 %37 to i32
   %39 = getelementptr inbounds i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.77, i32 noundef %35, i32 noundef %38, i32 noundef %40) #11
+  %41 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.77, i32 noundef %35, i32 noundef %38, i32 noundef %40) #11
   br label %93
 
 42:                                               ; preds = %2
@@ -6284,13 +6284,13 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   br i1 %.not56, label %48, label %46
 
 46:                                               ; preds = %42
-  %47 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.78) #11
+  %47 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.78) #11
   br label %93
 
 48:                                               ; preds = %42
   %49 = load i64, ptr %0, align 8
   %50 = trunc i64 %49 to i32
-  %51 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.79, i32 noundef %50) #11
+  %51 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.79, i32 noundef %50) #11
   br label %93
 
 52:                                               ; preds = %2
@@ -6301,7 +6301,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %57 = lshr i8 %56, 2
   %.lobit = and i8 %57, 1
   %58 = zext nneg i8 %.lobit to i32
-  %59 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.80, i32 noundef %54, i32 noundef %58) #11
+  %59 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.80, i32 noundef %54, i32 noundef %58) #11
   br label %93
 
 60:                                               ; preds = %2
@@ -6311,7 +6311,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, 1
   %66 = zext nneg i8 %65 to i32
-  %67 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.81, i32 noundef %62, i32 noundef %66) #11
+  %67 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.81, i32 noundef %62, i32 noundef %66) #11
   br label %93
 
 68:                                               ; preds = %2
@@ -6334,13 +6334,13 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 8
-  %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.82, i32 noundef %77, ptr noundef nonnull %3, i32 noundef %79) #11
+  %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.82, i32 noundef %77, ptr noundef nonnull %3, i32 noundef %79) #11
   br label %93
 
 81:                                               ; preds = %2
   %82 = getelementptr inbounds i8, ptr %0, i64 16
   %83 = load i32, ptr %82, align 8
-  %84 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.83, i32 noundef %83) #11
+  %84 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.83, i32 noundef %83) #11
   br label %93
 
 85:                                               ; preds = %2
@@ -6350,7 +6350,7 @@ define internal fastcc i32 @fr_print(ptr nocapture noundef readonly %0, ptr noun
   %89 = getelementptr inbounds i8, ptr %0, i64 13
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %1, i64 noundef 255, ptr noundef nonnull @.str.84, i32 noundef %86, i32 noundef %88, i32 noundef %91) #11
+  %92 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.84, i32 noundef %86, i32 noundef %88, i32 noundef %91) #11
   br label %93
 
 93:                                               ; preds = %85, %81, %74, %60, %52, %48, %46, %33, %26, %17, %6
@@ -6397,7 +6397,7 @@ define internal fastcc i32 @recvbuf_write_hds(ptr readonly %.384.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @discard_newhandle(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @discard_newhandle(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 384

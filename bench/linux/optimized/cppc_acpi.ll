@@ -719,7 +719,7 @@ define dso_local i32 @acpi_cppc_processor_probe(ptr nocapture noundef readonly %
 declare dso_local i32 @acpi_evaluate_object_typed(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @pcc_data_alloc(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @pcc_data_alloc(i32 noundef range(i32 0, 256) %0) unnamed_addr #2 align 16 {
   %2 = zext nneg i32 %0 to i64
   %3 = getelementptr [256 x ptr], ptr @pcc_data, i64 0, i64 %2
   %4 = load ptr, ptr %3, align 8
@@ -753,7 +753,7 @@ declare dso_local ptr @ioremap(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -19, 1) i32 @acpi_get_psd(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -19, 1) i32 @acpi_get_psd(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.acpi_buffer, align 8
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = alloca %struct.acpi_buffer, align 8
@@ -832,7 +832,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_get_psd(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @register_pcc_channel(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @register_pcc_channel(i32 noundef range(i32 0, 256) %0) unnamed_addr #2 align 16 {
   %2 = tail call ptr @pcc_mbox_request_channel(ptr noundef nonnull @cppc_mbox_cl, i32 noundef %0) #13
   %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
   br i1 %3, label %4, label %6
@@ -1025,7 +1025,7 @@ define dso_local noundef range(i32 -19, 1) i32 @cppc_get_desired_perf(i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -19, 1) i32 @cppc_get_perf(i32 noundef %0, i32 noundef range(i32 1, 18) %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -1419,7 +1419,7 @@ define dso_local range(i32 -19, 1) i32 @cppc_get_perf_caps(i32 noundef %0, ptr n
 declare dso_local void @down_write(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext range(i16 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = alloca i16, align 2
   store i16 %1, ptr %3, align 2
   %4 = sext i32 %0 to i64
@@ -1560,76 +1560,76 @@ define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext %1)
   %89 = phi i32 [ %17, %16 ], [ %66, %68 ], [ %73, %86 ], [ %73, %87 ]
   %90 = load i16, ptr %3, align 2
   %91 = icmp eq i16 %90, 1
-  br i1 %91, label %93, label %132
+  br i1 %91, label %92, label %131
 
 .thread:                                          ; preds = %44
-  %92 = icmp eq i16 %1, 1
-  br i1 %92, label %.thread8, label %132
+  %.not = icmp eq i16 %1, 0
+  br i1 %.not, label %131, label %.thread8
 
-93:                                               ; preds = %88
-  %94 = icmp eq i32 %89, 0
-  br i1 %94, label %.thread9, label %.thread8, !prof !25
+92:                                               ; preds = %88
+  %93 = icmp eq i32 %89, 0
+  br i1 %93, label %.thread9, label %.thread8, !prof !25
 
-.thread8:                                         ; preds = %.thread, %93
-  %95 = phi i32 [ %89, %93 ], [ -5, %.thread ]
-  %96 = load i64, ptr @__cpu_possible_mask, align 8
-  %97 = getelementptr inbounds i8, ptr %6, i64 40
-  br label %98
+.thread8:                                         ; preds = %.thread, %92
+  %94 = phi i32 [ %89, %92 ], [ -5, %.thread ]
+  %95 = load i64, ptr @__cpu_possible_mask, align 8
+  %96 = getelementptr inbounds i8, ptr %6, i64 40
+  br label %97
 
-98:                                               ; preds = %.thread8, %122
-  %99 = phi i64 [ 0, %.thread8 ], [ %124, %122 ]
-  %100 = shl nsw i64 -1, %99
-  %101 = and i64 %100, %96
-  %102 = icmp eq i64 %101, 0
-  br i1 %102, label %.thread9, label %103
+97:                                               ; preds = %.thread8, %121
+  %98 = phi i64 [ 0, %.thread8 ], [ %123, %121 ]
+  %99 = shl nsw i64 -1, %98
+  %100 = and i64 %99, %95
+  %101 = icmp eq i64 %100, 0
+  br i1 %101, label %.thread9, label %102
 
-103:                                              ; preds = %98
-  %104 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %101) #12, !srcloc !6
-  %105 = and i64 %104, 4294967232
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %107, label %.thread9
+102:                                              ; preds = %97
+  %103 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %100) #12, !srcloc !6
+  %104 = and i64 %103, 4294967232
+  %105 = icmp eq i64 %104, 0
+  br i1 %105, label %106, label %.thread9
 
-107:                                              ; preds = %103
-  %108 = and i64 %104, 63
-  %109 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %108
-  %110 = load i64, ptr %109, align 8
-  %111 = add i64 %110, ptrtoint (ptr @cpc_desc_ptr to i64)
-  %112 = inttoptr i64 %111 to ptr
-  %113 = load ptr, ptr %112, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %122, label %115
+106:                                              ; preds = %102
+  %107 = and i64 %103, 63
+  %108 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %107
+  %109 = load i64, ptr %108, align 8
+  %110 = add i64 %109, ptrtoint (ptr @cpc_desc_ptr to i64)
+  %111 = inttoptr i64 %110 to ptr
+  %112 = load ptr, ptr %111, align 8
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %121, label %114
 
-115:                                              ; preds = %107
-  %116 = getelementptr inbounds i8, ptr %113, i64 16
-  %117 = load i32, ptr %116, align 8
-  %118 = load i32, ptr %97, align 8
-  %119 = icmp eq i32 %117, %118
-  br i1 %119, label %120, label %122
+114:                                              ; preds = %106
+  %115 = getelementptr inbounds i8, ptr %112, i64 16
+  %116 = load i32, ptr %115, align 8
+  %117 = load i32, ptr %96, align 8
+  %118 = icmp eq i32 %116, %117
+  br i1 %118, label %119, label %121
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %113, i64 12
-  store i32 %95, ptr %121, align 4
-  br label %122
+119:                                              ; preds = %114
+  %120 = getelementptr inbounds i8, ptr %112, i64 12
+  store i32 %94, ptr %120, align 4
+  br label %121
 
-122:                                              ; preds = %120, %115, %107
-  %123 = add nuw nsw i64 %104, 1
-  %124 = and i64 %123, 127
-  %125 = icmp ugt i64 %124, 63
-  br i1 %125, label %.thread9, label %98, !prof !10, !llvm.loop !26
+121:                                              ; preds = %119, %114, %106
+  %122 = add nuw nsw i64 %103, 1
+  %123 = and i64 %122, 127
+  %124 = icmp ugt i64 %123, 63
+  br i1 %124, label %.thread9, label %97, !prof !10, !llvm.loop !26
 
-.thread9:                                         ; preds = %98, %122, %103, %93
-  %126 = phi i32 [ 0, %93 ], [ %95, %103 ], [ %95, %122 ], [ %95, %98 ]
-  %127 = getelementptr inbounds i8, ptr %6, i64 40
-  %128 = load i32, ptr %127, align 8
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %127, align 8
-  %130 = getelementptr inbounds i8, ptr %6, i64 88
-  %131 = call i32 @__wake_up(ptr noundef %130, i32 noundef 3, i32 noundef 0, ptr noundef null) #13
-  br label %132
+.thread9:                                         ; preds = %97, %121, %102, %92
+  %125 = phi i32 [ 0, %92 ], [ %94, %102 ], [ %94, %121 ], [ %94, %97 ]
+  %126 = getelementptr inbounds i8, ptr %6, i64 40
+  %127 = load i32, ptr %126, align 8
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %126, align 8
+  %129 = getelementptr inbounds i8, ptr %6, i64 88
+  %130 = call i32 @__wake_up(ptr noundef %129, i32 noundef 3, i32 noundef 0, ptr noundef null) #13
+  br label %131
 
-132:                                              ; preds = %.thread, %.thread9, %88
-  %133 = phi i32 [ -5, %.thread ], [ %126, %.thread9 ], [ %89, %88 ]
-  ret i32 %133
+131:                                              ; preds = %.thread, %.thread9, %88
+  %132 = phi i32 [ -5, %.thread ], [ %125, %.thread9 ], [ %89, %88 ]
+  ret i32 %132
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2284,7 +2284,7 @@ define dso_local i32 @cppc_set_epp_perf(i32 noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @cpc_write(i32 noundef %0, ptr noundef %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #2 align 16 {
   %4 = sext i32 %0 to i64
   %5 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8

@@ -3705,7 +3705,7 @@ define hidden { ptr, i64 } @"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE"(ptr noalias noundef align 8 dereferenceable(64) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i8 noundef %2) unnamed_addr #1 {
   %4 = alloca [8 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i8, ptr %5, align 8, !noundef !4
@@ -3789,7 +3789,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   br i1 %18, label %63, label %65
 
 26:                                               ; preds = %._crit_edge
-  %27 = call fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.076.be)
+  %27 = call fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %.076.be)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %._crit_edge.thread, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit104"
 
@@ -3872,7 +3872,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %68 = trunc nuw nsw i64 %67 to i32
   %69 = lshr i32 %68, 3
   %70 = add i32 %69, %.076167
-  %71 = call fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %70)
+  %71 = call fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %70)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %77, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit104"
 
@@ -4328,7 +4328,7 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$3new17h5b294bcf7d
   br i1 %72, label %73, label %.preheader.i.preheader
 
 73:                                               ; preds = %.noexc15
-  %74 = invoke fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i64 noundef 8, i8 noundef 4)
+  %74 = invoke fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE"(ptr noalias noundef align 8 dereferenceable(64) %8, i64 noundef 8, i8 noundef 4)
           to label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$13write_headers17h59498915ecc3ad48E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit:                                        ; preds = %59
@@ -4640,7 +4640,7 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$6finish17h2914202
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9write_run17heb7dd34c41187b90E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
   %5 = alloca [8 x i8], align 8

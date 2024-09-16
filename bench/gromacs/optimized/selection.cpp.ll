@@ -1376,7 +1376,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %67, %69, %71, %73
 
 89:                                               ; preds = %_ZNSt6vectorIfSaIfEE7reserveEm.exit7
   %90 = getelementptr inbounds i8, ptr %0, i64 64
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(148) %90, ptr noundef nonnull %5, ptr noundef nonnull %34)
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(148) %90, ptr noundef %5, ptr noundef %34)
   br label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9
 
 _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %88, %86, %84, %82, %89
@@ -1384,7 +1384,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit9:           ; preds = %88, %86, %84, %82, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1867,7 +1867,7 @@ define void @_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mt
   %12 = getelementptr inbounds i8, ptr %0, i64 64
   %13 = getelementptr inbounds i8, ptr %0, i64 216
   %14 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(148) %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(148) %12, ptr noundef %13, ptr noundef %14)
   br label %15
 
 15:                                               ; preds = %11, %7, %3, %2
@@ -1956,7 +1956,7 @@ define void @_ZN3gmx8internal13SelectionData24restoreOriginalPositionsEPK10gmx_m
   %23 = getelementptr inbounds i8, ptr %0, i64 64
   %24 = getelementptr inbounds i8, ptr %0, i64 216
   %25 = getelementptr inbounds i8, ptr %0, i64 240
-  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  tail call fastcc void @_ZN3gmx8internal12_GLOBAL__N_123computeMassesAndChargesEPK10gmx_mtop_tRK13gmx_ana_pos_tPSt6vectorIfSaIfEESB_(ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(148) %23, ptr noundef %24, ptr noundef %25)
   br label %_ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit
 
 _ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit: ; preds = %22, %19, %16, %6, %2

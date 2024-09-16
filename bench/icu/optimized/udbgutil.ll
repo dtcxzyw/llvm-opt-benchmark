@@ -1307,7 +1307,7 @@ entry:
   %ref.tmp80 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp81 = alloca %"class.icu_75::CStr", align 8
   %ref.tmp86 = alloca %"class.std::allocator.0", align 1
-  call fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias nonnull align 8 %ticket, ptr noundef %ticketStr)
+  call fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias align 8 %ticket, ptr noundef %ticketStr)
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1861,7 +1861,7 @@ ehcleanup98:                                      ; preds = %ehcleanup97, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias align 8 %agg.result, ptr noundef %ticketStr) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias nonnull align 8 %agg.result, ptr noundef %ticketStr) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #23
@@ -2152,7 +2152,7 @@ entry:
   %ref.tmp68 = alloca %"class.std::allocator.0", align 1
   %ref.tmp76 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp77 = alloca %"class.std::allocator.0", align 1
-  call fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias nonnull align 8 %ticket, ptr noundef %ticketStr)
+  call fastcc void @_ZL11mapTicketIdB5cxx11PKc(ptr noalias align 8 %ticket, ptr noundef %ticketStr)
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -614,7 +614,7 @@ define dso_local i32 @intel_gt_mcr_read(ptr noundef %0, i32 %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rw_with_mcr_steering(ptr noundef %0, i32 %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rw_with_mcr_steering(ptr noundef %0, i32 %1, i8 noundef zeroext range(i8 1, 3) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -1234,7 +1234,7 @@ define dso_local i32 @intel_gt_mcr_read_any_fw(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.val, i32 %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rw_with_mcr_steering_fw(ptr nocapture readonly %.24.val, i32 %0, i8 noundef zeroext range(i8 1, 3) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %.24.val, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 7176

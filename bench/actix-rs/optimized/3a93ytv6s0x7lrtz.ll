@@ -481,7 +481,7 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$$RF$h2..proto..error..Init
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$core..option..Option$LT$mime..Mime$GT$$GT$17hdd7c867c45b2849dE"(ptr noalias noundef align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$core..option..Option$LT$mime..Mime$GT$$GT$17hdd7c867c45b2849dE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !59, !noundef !9
   %4 = icmp eq i64 %3, 2
@@ -1112,7 +1112,7 @@ common.ret:                                       ; preds = %161, %47
 147:                                              ; preds = %153, %144
   %148 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$core..option..Option$LT$mime..Mime$GT$$GT$17hdd7c867c45b2849dE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %12) #15
+  invoke fastcc void @"_ZN4core3ptr59drop_in_place$LT$core..option..Option$LT$mime..Mime$GT$$GT$17hdd7c867c45b2849dE"(ptr noalias noundef align 8 dereferenceable(88) %12) #15
           to label %162 unwind label %81
 
 149:                                              ; preds = %144

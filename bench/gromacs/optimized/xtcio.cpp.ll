@@ -70,7 +70,7 @@ define noundef range(i32 0, 2) i32 @_Z9write_xtcP8t_fileioilfPA3_KfS3_f(ptr noun
 
 16:                                               ; preds = %7
   %17 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef nonnull %0)
-  %18 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %17, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
+  %18 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %17, ptr noundef %12, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %13)
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread, label %20
 
@@ -136,9 +136,9 @@ _ZL9xtc_coordP3XDRPiPA3_fS3_Pfib.exit.thread:     ; preds = %27, %25, %32, %34, 
 declare noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
-  %8 = tail call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef %1)
+  %8 = tail call noundef i32 @_Z7xdr_intP3XDRPi(ptr noundef %0, ptr noundef nonnull %1)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %34, label %10
 
@@ -224,7 +224,7 @@ define noundef range(i32 0, 2) i32 @_Z14read_first_xtcP8t_fileioPiPlPfPA3_fPS5_S
   %10 = alloca i32, align 4
   store i8 1, ptr %7, align 1
   %11 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
-  %12 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %11, ptr noundef nonnull %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  %12 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %11, ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %38, label %13
 
@@ -442,7 +442,7 @@ define noundef range(i32 0, 2) i32 @_Z13read_next_xtcP8t_fileioiPlPfPA3_fS4_S2_P
   store i32 %1, ptr %10, align 4
   store i8 1, ptr %7, align 1
   %14 = tail call noundef ptr @_Z14gmx_fio_getxdrP8t_fileio(ptr noundef %0)
-  %15 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %14, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
+  %15 = call fastcc noundef i32 @_ZL10xtc_headerP3XDRPiS1_PlPfbPb(ptr noundef %14, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %7)
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %44, label %16
 

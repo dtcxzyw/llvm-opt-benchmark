@@ -823,7 +823,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  invoke fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp3, i64 %disk_path.coerce0, ptr %disk_path.coerce1)
+  invoke fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp3, i64 %disk_path.coerce0, ptr %disk_path.coerce1)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -888,7 +888,7 @@ ehcleanup12:                                      ; preds = %ehcleanup11, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
   %__begin2 = alloca %"class.absl::lts_20230802::strings_internal::SplitIterator", align 8
@@ -1369,7 +1369,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit92: ; pr
 define noundef range(i32 0, 4) i32 @_ZN6google8protobuf8compiler14DiskSourceTree21DiskFileToVirtualFileESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS5_SaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %disk_file.coerce0, ptr %disk_file.coerce1, ptr noundef %virtual_file, ptr noundef %shadowing_disk_file) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %canonical_disk_file = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %canonical_disk_file, i64 %disk_file.coerce0, ptr %disk_file.coerce1)
+  call fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %canonical_disk_file, i64 %disk_file.coerce0, ptr %disk_file.coerce1)
   %mappings_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -1909,7 +1909,7 @@ entry:
   %ref.tmp36 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp37 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp39 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  call fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp, i64 %virtual_file.coerce0, ptr %virtual_file.coerce1)
+  call fastcc void @_ZN6google8protobuf8compilerL16CanonicalizePathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp, i64 %virtual_file.coerce0, ptr %virtual_file.coerce1)
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1

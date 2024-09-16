@@ -358,7 +358,7 @@ if.end:                                           ; preds = %entry
   store i32 452984833, ptr %caps, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %caps, i64 4
   store i32 0, ptr %arrayidx1, align 4
-  call fastcc void @vnc_clipboard_send(ptr noundef nonnull %vs, i32 noundef 2, ptr noundef nonnull %caps)
+  call fastcc void @vnc_clipboard_send(ptr noundef nonnull %vs, i32 noundef 2, ptr noundef %caps)
   %notifier = getelementptr inbounds i8, ptr %vs, i64 66240
   %1 = load ptr, ptr %notifier, align 8
   %tobool2.not = icmp eq ptr %1, null
@@ -378,7 +378,7 @@ if.end10:                                         ; preds = %entry, %if.then3, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vnc_clipboard_send(ptr noundef %vs, i32 noundef %count, ptr nocapture noundef readonly %dwords) unnamed_addr #0 {
+define internal fastcc void @vnc_clipboard_send(ptr noundef %vs, i32 noundef range(i32 1, 3) %count, ptr nocapture noundef nonnull readonly %dwords) unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -388,17 +388,13 @@ entry:
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #6
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #6
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext 0) #6
-  %mul.neg = mul i32 %count, -4
-  tail call void @vnc_write_s32(ptr noundef %vs, i32 noundef %mul.neg) #6
-  %cmp13.not = icmp eq i32 %count, 0
-  br i1 %cmp13.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %entry
-  %wide.trip.count = zext i32 %count to i64
+  %.neg = mul nsw i32 %count, -4
+  tail call void @vnc_write_s32(ptr noundef %vs, i32 noundef %.neg) #6
+  %wide.trip.count = zext nneg i32 %count to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr i32, ptr %dwords, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx, align 4
   tail call void @vnc_write_u32(ptr noundef %vs, i32 noundef %2) #6
@@ -406,7 +402,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
-for.end:                                          ; preds = %for.body, %entry
+for.end:                                          ; preds = %for.body
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull %output_mutex.i, ptr noundef nonnull @.str.2, i32 noundef 65) #6
   tail call void @vnc_flush(ptr noundef %vs) #6
   ret void
@@ -448,7 +444,7 @@ if.then4.i:                                       ; preds = %if.then.i
   %tobool5.i = trunc i8 %5 to i1
   %spec.select.i = select i1 %tobool5.i, i32 134217729, i32 134217728
   store i32 %spec.select.i, ptr %flags.i, align 4
-  call fastcc void @vnc_clipboard_send(ptr noundef nonnull %add.ptr, i32 noundef 1, ptr noundef nonnull %flags.i)
+  call fastcc void @vnc_clipboard_send(ptr noundef nonnull %add.ptr, i32 noundef 1, ptr noundef %flags.i)
   br label %vnc_clipboard_update_info.exit
 
 if.end9.i:                                        ; preds = %sw.bb
@@ -487,7 +483,7 @@ if.end2:                                          ; preds = %entry
   %0 = load ptr, ptr %owner, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 -66232
   store i32 33554433, ptr %flags, align 4
-  call fastcc void @vnc_clipboard_send(ptr noundef %add.ptr, i32 noundef 1, ptr noundef nonnull %flags)
+  call fastcc void @vnc_clipboard_send(ptr noundef %add.ptr, i32 noundef 1, ptr noundef %flags)
   br label %return
 
 return:                                           ; preds = %entry, %if.end2

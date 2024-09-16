@@ -1341,7 +1341,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder8newLabelEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_10L28BaseBuilder_newLabelInternalEPNS0_11BaseBuilderEj(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_10L28BaseBuilder_newLabelInternalEPNS0_11BaseBuilderEj(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #3 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   %5 = getelementptr inbounds i8, ptr %0, i64 376

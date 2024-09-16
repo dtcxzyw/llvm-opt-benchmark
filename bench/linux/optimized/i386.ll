@@ -243,7 +243,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40

@@ -2539,7 +2539,7 @@ if.else127:                                       ; preds = %if.then121
 
 if.then129:                                       ; preds = %if.else127
   %49 = load ptr, ptr %name, align 8
-  call fastcc void @_ZN18OpenImageIO_v2_6_0L21add_exif_item_to_specERNS_9ImageSpecEPKcPK12TIFFDirEntryNS_4spanIKhLln1EEEbi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %49, ptr noundef nonnull %dir, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment)
+  call fastcc void @_ZN18OpenImageIO_v2_6_0L21add_exif_item_to_specERNS_9ImageSpecEPKcPK12TIFFDirEntryNS_4spanIKhLln1EEEbi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %49, ptr noundef %dir, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment)
   br label %if.end138
 
 if.end138:                                        ; preds = %for.body102, %for.body, %if.end85, %_ZN5boost9container8flat_mapIiPKN18OpenImageIO_v2_6_07TagInfoESt4lessIiEvE4findERKi.exit.i, %_ZNK18OpenImageIO_v2_6_03pvt6TagMap4findEi.exit, %_ZN18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit, %if.then123, %if.then129, %if.else127, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit111, %if.then65, %_ZNSt3setImSt4lessImESaImEE6insertEOm.exit, %_ZNSt3setImSt4lessImESaImEE4findERKm.exit, %if.then20, %entry
@@ -6293,7 +6293,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEE16_M_insert_uniqueImEESt4pairISt
 declare noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_014ParamValueList8containsENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18OpenImageIO_v2_6_0L21add_exif_item_to_specERNS_9ImageSpecEPKcPK12TIFFDirEntryNS_4spanIKhLln1EEEbi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %name, ptr noundef %dirp, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18OpenImageIO_v2_6_0L21add_exif_item_to_specERNS_9ImageSpecEPKcPK12TIFFDirEntryNS_4spanIKhLln1EEEbi(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %name, ptr noundef nonnull %dirp, ptr %buf.coerce0, i64 %buf.coerce1, i1 noundef zeroext %swab, i32 noundef %offset_adjustment) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i221 = alloca i32, align 4
   %agg.tmp.i222 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

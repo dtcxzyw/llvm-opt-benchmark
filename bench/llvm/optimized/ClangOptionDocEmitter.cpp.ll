@@ -1655,7 +1655,7 @@ _ZN12_GLOBAL__N_120extractDocumentationERN4llvm12RecordKeeperEPKNS0_6RecordE.exi
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %50)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %52)
-  call fastcc void @_ZN12_GLOBAL__N_117emitDocumentationEiRKNS_13DocumentationEPKN4llvm6RecordERNS3_11raw_ostreamE(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(48) %1)
+  call fastcc void @_ZN12_GLOBAL__N_117emitDocumentationEiRKNS_13DocumentationEPKN4llvm6RecordERNS3_11raw_ostreamE(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %569 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %570 = load ptr, ptr %569, align 8
   %571 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -1739,7 +1739,7 @@ declare void @_ZNK4llvm9StringRef5lowerB5cxx11Ev(ptr dead_on_unwind writable sre
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117emitDocumentationEiRKNS_13DocumentationEPKN4llvm6RecordERNS3_11raw_ostreamE(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117emitDocumentationEiRKNS_13DocumentationEPKN4llvm6RecordERNS3_11raw_ostreamE(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::vector.60", align 8
   %6 = alloca %"class.std::vector.60", align 8
   %7 = alloca %"class.std::vector.60", align 8
@@ -2695,7 +2695,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90.i:             ; preds = %349, %347
 
 _ZN4llvm11raw_ostreamlsEPKc.exit93.i:             ; preds = %360, %358
   store i8 0, ptr %21, align 1
-  call fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.093.0126, ptr noundef nonnull %2, ptr nonnull %21, ptr nonnull %3)
+  call fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.093.0126, ptr noundef %2, ptr %21, ptr %3)
   %363 = load ptr, ptr %51, align 8
   %364 = load ptr, ptr %52, align 8
   %365 = ptrtoint ptr %363 to i64
@@ -2739,7 +2739,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96.i:             ; preds = %371, %369
 
 _ZN4llvm11raw_ostreamlsEPKc.exit99.i:             ; preds = %380, %378
   store i8 0, ptr %21, align 1
-  call fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.093.0126, ptr noundef nonnull %2, ptr nonnull %21, ptr nonnull %3)
+  call fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr noundef nonnull readonly align 8 dereferenceable(32) %.sroa.093.0126, ptr noundef %2, ptr %21, ptr %3)
   br label %383
 
 383:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit99.i, %_ZN4llvm11raw_ostreamlsEPKc.exit96.i
@@ -2935,7 +2935,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit._crit_edge.i: ; preds = %_ZNSt6v
   br i1 %448, label %449, label %451
 
 449:                                              ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit._crit_edge.i
-  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %395, ptr nonnull @.str.16, i64 8, ptr nonnull @.str.17, i64 8)
+  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %395, ptr nonnull @.str.16, i64 8, ptr nonnull @.str.17, i64 8)
   %450 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %27) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #19
   br label %451
@@ -3150,7 +3150,7 @@ _ZN12_GLOBAL__N_110emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS3_11raw
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   %536 = getelementptr inbounds nuw i8, ptr %.sroa.091.0128, i64 48
   %537 = load ptr, ptr %536, align 8
-  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %537, ptr nonnull @.str.55, i64 7, ptr nonnull @.str.26, i64 4)
+  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %537, ptr nonnull @.str.55, i64 7, ptr nonnull @.str.26, i64 4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %538 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
@@ -3209,7 +3209,7 @@ _ZN12_GLOBAL__N_111emitHeadingEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   %565 = load ptr, ptr %536, align 8
-  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %565, ptr nonnull @.str.16, i64 8, ptr nonnull @.str.17, i64 8)
+  call fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %565, ptr nonnull @.str.16, i64 8, ptr nonnull @.str.17, i64 8)
   %566 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   br i1 %566, label %_ZN12_GLOBAL__N_19emitGroupEiRKNS_15DocumentedGroupEPKN4llvm6RecordERNS3_11raw_ostreamE.exit, label %567
 
@@ -3367,7 +3367,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr %2, ptr %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOptionERKNS_16DocumentedOptionEPKN4llvm6RecordERNS4_11raw_ostreamEE3$_2EEvS3_S7_T_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr nonnull %2, ptr nonnull %3) unnamed_addr #0 {
   %5 = alloca %class.anon.79, align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3384,7 +3384,7 @@ define internal fastcc void @"_ZN12_GLOBAL__N_117forEachOptionNameIZNS_10emitOpt
 .lr.ph:                                           ; preds = %4, %_ZN12_GLOBAL__N_123canSphinxCopeWithOptionEPKN4llvm6RecordE.exit.thread
   %.sroa.08.013 = phi ptr [ %25, %_ZN12_GLOBAL__N_123canSphinxCopeWithOptionEPKN4llvm6RecordE.exit.thread ], [ %9, %4 ]
   %12 = load ptr, ptr %.sroa.08.013, align 8
-  %13 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115isOptionVisibleEPKN4llvm6RecordES3_(ptr noundef %12, ptr noundef %1)
+  %13 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115isOptionVisibleEPKN4llvm6RecordES3_(ptr noundef %12, ptr noundef nonnull %1)
   br i1 %13, label %14, label %_ZN12_GLOBAL__N_123canSphinxCopeWithOptionEPKN4llvm6RecordE.exit.thread
 
 14:                                               ; preds = %.lr.ph
@@ -3438,7 +3438,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_128getRSTStringWithTextFallbackB5cxx11EPKN4llvm6RecordENS0_9StringRefES4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca [2 x %"class.llvm::StringRef"], align 8

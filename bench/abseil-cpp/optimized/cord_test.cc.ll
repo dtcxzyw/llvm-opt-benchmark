@@ -22074,7 +22074,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %s, ptr noundef nonnull %rng, i64 noundef 1024)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %s, ptr noundef %rng, i64 noundef 1024)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %a, i8 0, i64 16, i1 false)
   %call.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #33
   %div.i = udiv i64 %call.i, 5
@@ -22367,7 +22367,7 @@ _ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm
   br i1 %cmp.i.i.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %N.0.i, ptr %add.ptr.i, ptr noundef nonnull %a)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %N.0.i, ptr %add.ptr.i, ptr noundef %a)
           to label %if.end16.i unwind label %lpad.loopexit689
 
 if.else.i:                                        ; preds = %_ZNSt22bernoulli_distributionclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEbRT_.exit.i
@@ -24453,7 +24453,7 @@ ehcleanup389:                                     ; preds = %lpad.loopexit689, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %agg.result, ptr noundef %rng, i64 noundef %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %rng, i64 noundef range(i64 -2147483648, 15001) %length) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #33
@@ -38184,7 +38184,7 @@ for.body7:                                        ; preds = %for.body7.preheader
           to label %invoke.cont unwind label %lpad.loopexit
 
 invoke.cont:                                      ; preds = %for.body7
-  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %ref.tmp9, ptr noundef nonnull %rng, i64 noundef 10)
+  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %ref.tmp9, ptr noundef %rng, i64 noundef 10)
           to label %invoke.cont10 unwind label %lpad.loopexit
 
 invoke.cont10:                                    ; preds = %invoke.cont
@@ -45518,7 +45518,7 @@ entry:
   %agg.tmp28 = alloca %"class.absl::Cord", align 8
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -45564,7 +45564,7 @@ if.then.i.i:                                      ; preds = %call2.i.i.i.noexc, 
 invoke.cont6:                                     ; preds = %call2.i.i.i.noexc, %if.then.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false), !noalias !617
-  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef nonnull %agg.tmp2)
+  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef %agg.tmp2)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -45627,7 +45627,7 @@ if.then.i.i25:                                    ; preds = %call2.i.i.i.noexc28
 invoke.cont13:                                    ; preds = %call2.i.i.i.noexc28, %if.then.i.i25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp9, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp10, i8 0, i64 16, i1 false), !noalias !620
-  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef nonnull %agg.tmp9)
+  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef %agg.tmp9)
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
@@ -45696,7 +45696,7 @@ if.then.i.i43:                                    ; preds = %call2.i.i.i.noexc46
 invoke.cont22:                                    ; preds = %call2.i.i.i.noexc46, %if.then.i.i43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp19, i8 0, i64 16, i1 false), !noalias !626
-  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef nonnull %agg.tmp18)
+  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef %agg.tmp18)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %invoke.cont22
@@ -45755,7 +45755,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %ref.tmp29, ptr noundef nonnull %rng, i64 noundef 8192)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %ref.tmp29, ptr noundef %rng, i64 noundef 8192)
   invoke void @_ZN4absl4CordC1INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnNSt9enable_ifIXsr3std7is_sameIT_S7_EE5valueEiE4typeELi0EEEOS9_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29)
           to label %invoke.cont31 unwind label %lpad30
 
@@ -45784,7 +45784,7 @@ if.then.i.i61:                                    ; preds = %call2.i.i.i.noexc64
 invoke.cont33:                                    ; preds = %call2.i.i.i.noexc64, %if.then.i.i61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp27, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp28, i8 0, i64 16, i1 false), !noalias !629
-  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef nonnull %agg.tmp27)
+  invoke fastcc void @_ZL13VerifyFlattenN4absl4CordE(ptr noundef %agg.tmp27)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -50669,7 +50669,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %expected, ptr noundef nonnull %rng, i64 noundef 5000)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %expected, ptr noundef %rng, i64 noundef 5000)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord, i8 0, i64 16, i1 false)
   %call = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %expected) #33
   %call2 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %expected) #33
@@ -55470,7 +55470,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 invoke.cont56:                                    ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %ref.tmp57, ptr noundef nonnull %rng, i64 noundef 256)
+  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %ref.tmp57, ptr noundef %rng, i64 noundef 256)
           to label %invoke.cont58 unwind label %lpad39.loopexit.split-lp
 
 invoke.cont58:                                    ; preds = %invoke.cont56
@@ -58184,7 +58184,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %data, ptr noundef nonnull %rng, i64 noundef 2000)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %data, ptr noundef %rng, i64 noundef 2000)
   store i8 1, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 0, ptr %arrayinit.element, align 1
@@ -59661,7 +59661,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %data, ptr noundef nonnull %rng, i64 noundef 2500)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %data, ptr noundef %rng, i64 noundef 2500)
   store i8 1, ptr %ref.tmp2, align 1
   %arrayinit.element = getelementptr inbounds i8, ptr %ref.tmp2, i64 1
   store i8 0, ptr %arrayinit.element, align 1
@@ -61518,7 +61518,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 invoke.cont37:                                    ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %ref.tmp38, ptr noundef nonnull %rng, i64 noundef 256)
+  invoke fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %ref.tmp38, ptr noundef %rng, i64 noundef 256)
           to label %invoke.cont39 unwind label %lpad23.loopexit.split-lp
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -65577,7 +65577,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %en
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit: ; preds = %for.body.i.i.i
   %_M_p.i.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %data, ptr noundef nonnull %rng, i64 noundef 15000)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %data, ptr noundef %rng, i64 noundef 15000)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord, i8 0, i64 16, i1 false)
   br label %for.body
 
@@ -91014,7 +91014,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef %dst) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %s.coerce0, ptr %s.coerce1, ptr noundef nonnull %dst) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp3 = alloca %"class.absl::Cord", align 8
@@ -96180,7 +96180,7 @@ entry:
   %gtest_ar19 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp24 = alloca %"class.testing::Message", align 8
   %ref.tmp27 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %blob, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %blob, i64 noundef 10)
   %call.i.i8 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.noexc unwind label %lpad
 
@@ -96502,7 +96502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %agg.result, i64 noundef %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 0, 11) %size) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #35
   %cmp.not = icmp eq i64 %size, 0
@@ -97326,7 +97326,7 @@ entry:
   %gtest_ar45 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp50 = alloca %"class.testing::Message", align 8
   %ref.tmp53 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %blob, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %blob, i64 noundef 10)
   %call.i.i12 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.noexc unwind label %lpad
 
@@ -98002,7 +98002,7 @@ entry:
   %gtest_ar45 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp50 = alloca %"class.testing::Message", align 8
   %ref.tmp53 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %blob, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %blob, i64 noundef 10)
   %call.i.i12 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.noexc unwind label %lpad
 
@@ -98588,7 +98588,7 @@ entry:
   %zero = alloca %"class.absl::Cord", align 8
   %suffix = alloca %"class.absl::Cord", align 8
   %result = alloca %"class.absl::Cord", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %zero, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %zero, i64 noundef 10)
   %call.i.i3 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.noexc unwind label %lpad
 
@@ -98825,7 +98825,7 @@ entry:
   %prefix = alloca %"class.absl::Cord", align 8
   %suffix = alloca %"class.absl::Cord", align 8
   %result = alloca %"class.absl::Cord", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %zero, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %zero, i64 noundef 10)
   %call.i.i4 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.noexc unwind label %lpad
 
@@ -99151,7 +99151,7 @@ entry:
   %blob = alloca %"class.absl::Cord", align 8
   %block = alloca %"class.absl::Cord", align 8
   %ref.tmp = alloca %"class.absl::Cord", align 8
-  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias nonnull align 8 %blob, i64 noundef 10)
+  call fastcc void @_ZN12_GLOBAL__N_116CordWithZedBlockEm(ptr noalias align 8 %blob, i64 noundef 10)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #33, !noalias !1426
@@ -119595,7 +119595,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 for.body:                                         ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit, %_ZN4absl4CordD2Ev.exit
   %length.029 = phi i32 [ 1, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit ], [ %mul, %_ZN4absl4CordD2Ev.exit ]
   %conv2 = zext nneg i32 %length.029 to i64
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %data, ptr noundef nonnull %rng, i64 noundef %conv2)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %data, ptr noundef %rng, i64 noundef %conv2)
   %call = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #35
           to label %invoke.cont unwind label %lpad
 
@@ -120288,7 +120288,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
 _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit: ; preds = %for.body.i.i
   %_M_p.i.i = getelementptr inbounds i8, ptr %rng, i64 2496
   store i64 312, ptr %_M_p.i.i, align 8
-  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias nonnull align 8 %data, ptr noundef nonnull %rng, i64 noundef 256)
+  call fastcc void @_ZL21RandomLowercaseStringB5cxx11PSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEm(ptr noalias align 8 %data, ptr noundef %rng, i64 noundef 256)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em.exit, %invoke.cont
@@ -123070,7 +123070,7 @@ entry:
   %ref.tmp252 = alloca %"class.testing::internal::AssertHelper", align 8
   %invoked_as.i = getelementptr inbounds i8, ptr %tracker, i64 4
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.tmp, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i37 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc unwind label %lpad
 
@@ -123130,7 +123130,7 @@ terminate.lpad.i41:                               ; preds = %if.then.i40
 
 _ZN4absl4CordD2Ev.exit42:                         ; preds = %invoke.cont, %_ZN4absl4CordD2Ev.exit, %if.then.i40
   store i32 2, ptr %ref.tmp, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %10 = load i8, ptr %gtest_ar, align 8
   %tobool.i = trunc i8 %10 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -123228,7 +123228,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   store ptr null, ptr %message_.i, align 8
   store i32 2, ptr %ref.tmp15, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar14, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar14, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp15)
   %21 = load i8, ptr %gtest_ar14, align 8
   %tobool.i49 = trunc i8 %21 to i1
   br i1 %tobool.i49, label %if.end31, label %if.else18
@@ -123325,7 +123325,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %if.end31, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i68
   store ptr null, ptr %message_.i66, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.tmp34, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp34, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i77 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc76 unwind label %lpad36
 
@@ -123385,7 +123385,7 @@ terminate.lpad.i88:                               ; preds = %if.then.i87
 
 _ZN4absl4CordD2Ev.exit89:                         ; preds = %invoke.cont37, %_ZN4absl4CordD2Ev.exit85, %if.then.i87
   store i32 2, ptr %ref.tmp41, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar39, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp41)
   %41 = load i8, ptr %gtest_ar39, align 8
   %tobool.i90 = trunc i8 %41 to i1
   br i1 %tobool.i90, label %if.end57, label %if.else44
@@ -123488,7 +123488,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %if.end57, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i109
   store ptr null, ptr %message_.i107, align 8
   store i32 2, ptr %ref.tmp61, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar59, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp61)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar59, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp61)
   %52 = load i8, ptr %gtest_ar59, align 8
   %tobool.i111 = trunc i8 %52 to i1
   br i1 %tobool.i111, label %if.end77, label %if.else64
@@ -123585,7 +123585,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %if.end77, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i130
   store ptr null, ptr %message_.i128, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.tmp80, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp80, i64 0, ptr nonnull @.str.58, ptr nonnull %tracker)
   %call.i.i.i139 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc138 unwind label %lpad82
 
@@ -123645,7 +123645,7 @@ terminate.lpad.i150:                              ; preds = %if.then.i149
 
 _ZN4absl4CordD2Ev.exit151:                        ; preds = %invoke.cont83, %_ZN4absl4CordD2Ev.exit147, %if.then.i149
   store i32 1, ptr %ref.tmp87, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar85, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp87)
   %72 = load i8, ptr %gtest_ar85, align 8
   %tobool.i152 = trunc i8 %72 to i1
   br i1 %tobool.i152, label %if.end103, label %if.else90
@@ -123748,7 +123748,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit172:         ; preds = %if.end103, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i171
   store ptr null, ptr %message_.i169, align 8
   store i32 2, ptr %ref.tmp107, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar105, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp107)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar105, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp107)
   %83 = load i8, ptr %gtest_ar105, align 8
   %tobool.i173 = trunc i8 %83 to i1
   br i1 %tobool.i173, label %if.end123, label %if.else110
@@ -123956,7 +123956,7 @@ terminate.lpad.i216:                              ; preds = %if.then.i215
 
 _ZN4absl4CordD2Ev.exit217:                        ; preds = %invoke.cont129, %_ZN4absl4CordD2Ev.exit212, %if.then.i215
   store i32 2, ptr %ref.tmp133, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar131, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp133)
   %107 = load i8, ptr %gtest_ar131, align 8
   %tobool.i218 = trunc i8 %107 to i1
   br i1 %tobool.i218, label %if.end149, label %if.else136
@@ -124059,7 +124059,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit238:         ; preds = %if.end149, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i237
   store ptr null, ptr %message_.i235, align 8
   store i32 2, ptr %ref.tmp153, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar151, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp153)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar151, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp153)
   %118 = load i8, ptr %gtest_ar151, align 8
   %tobool.i239 = trunc i8 %118 to i1
   br i1 %tobool.i239, label %if.end169, label %if.else156
@@ -124156,7 +124156,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit259:         ; preds = %if.end169, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i258
   store ptr null, ptr %message_.i256, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.tmp172, i64 5, ptr nonnull @.str.708, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp172, i64 5, ptr nonnull @.str.708, ptr nonnull %tracker)
   %call.i.i.i267 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc266 unwind label %lpad174
 
@@ -124216,7 +124216,7 @@ terminate.lpad.i280:                              ; preds = %if.then.i279
 
 _ZN4absl4CordD2Ev.exit281:                        ; preds = %invoke.cont175, %_ZN4absl4CordD2Ev.exit276, %if.then.i279
   store i32 2, ptr %ref.tmp179, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar177, ptr noundef nonnull @.str.715, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp179)
   %138 = load i8, ptr %gtest_ar177, align 8
   %tobool.i282 = trunc i8 %138 to i1
   br i1 %tobool.i282, label %if.end195, label %if.else182
@@ -124319,7 +124319,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit302:         ; preds = %if.end195, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i301
   store ptr null, ptr %message_.i299, align 8
   store i32 2, ptr %ref.tmp199, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar197, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp199)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar197, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp199)
   %149 = load i8, ptr %gtest_ar197, align 8
   %tobool.i303 = trunc i8 %149 to i1
   br i1 %tobool.i303, label %if.end215, label %if.else202
@@ -124416,7 +124416,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit323:         ; preds = %if.end215, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i322
   store ptr null, ptr %message_.i320, align 8
   store i64 0, ptr %tracker, align 8
-  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.tmp218, i64 3, ptr nonnull @.str.42, ptr nonnull %tracker)
+  call fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.tmp218, i64 3, ptr nonnull @.str.42, ptr nonnull %tracker)
   %call.i.i.i331 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN7testing18WithParamInterfaceIiE8GetParamEv()
           to label %call.i.i.i.noexc330 unwind label %lpad220
 
@@ -124476,7 +124476,7 @@ terminate.lpad.i344:                              ; preds = %if.then.i343
 
 _ZN4absl4CordD2Ev.exit345:                        ; preds = %invoke.cont221, %_ZN4absl4CordD2Ev.exit340, %if.then.i343
   store i32 1, ptr %ref.tmp225, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp225)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar223, ptr noundef nonnull @.str.718, ptr noundef nonnull align 4 dereferenceable(4) %tracker, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp225)
   %169 = load i8, ptr %gtest_ar223, align 8
   %tobool.i346 = trunc i8 %169 to i1
   br i1 %tobool.i346, label %if.end241, label %if.else228
@@ -124579,7 +124579,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit366:         ; preds = %if.end241, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i365
   store ptr null, ptr %message_.i363, align 8
   store i32 2, ptr %ref.tmp245, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar243, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp245)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar243, ptr noundef nonnull @.str.716, ptr noundef nonnull @.str.717, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp245)
   %180 = load i8, ptr %gtest_ar243, align 8
   %tobool.i367 = trunc i8 %180 to i1
   br i1 %tobool.i367, label %if.end261, label %if.else248
@@ -124700,7 +124700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIRKZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -124762,7 +124762,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont4, %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -124774,7 +124774,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -124827,7 +124827,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #33, !noalias !1597
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !1598
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.714, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef nonnull @.str.714, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8CopiedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -124858,7 +124858,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExtern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %lhs, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -124870,7 +124870,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %_ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit
 
 if.end.i:                                         ; preds = %entry
@@ -124923,7 +124923,7 @@ lpad.i.i.i8.i.i:                                  ; preds = %invoke.cont.i.i.i9.
 invoke.cont.i.i:                                  ; preds = %invoke.cont.i.i.i9.i.i
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss.i.i.i4.i.i) #33, !noalias !1619
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %ss.i.i.i4.i.i), !noalias !1620
-  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
+  invoke void @_ZN7testing8internal9EqFailureEPKcS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_b(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i, i1 noundef zeroext false)
           to label %_ZN7testing8internal18CmpHelperEQFailureIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENS_15AssertionResultEPKcS7_RKT_RKT0_.exit.i unwind label %lpad2.i.i
 
 lpad.i.i:                                         ; preds = %_ZN7testing8internal33FormatForComparisonFailureMessageIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS4_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_.exit.i.i
@@ -124954,7 +124954,7 @@ _ZN7testing8internal11CmpHelperEQIZN12_GLOBAL__N_162CordTest_ConstructFromExtern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl20MakeCordFromExternalIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE8ReleaserEENS_4CordESt17basic_string_viewIcSt11char_traitsIcEEOT_(ptr noalias nonnull align 8 %agg.result, i64 %data.coerce0, ptr %data.coerce1, ptr %releaser.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %cmp.i = icmp eq i64 %data.coerce0, 0
@@ -125044,7 +125044,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp3.i.i.i.i.i)
   %invoked_as.i.i.i.i.i = getelementptr inbounds i8, ptr %releaser.0.val, i64 4
   store i32 0, ptr %ref.tmp.i.i.i.i.i, align 4
-  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias nonnull align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.720, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i.i.i.i)
+  call fastcc void @_ZN7testing8internal8EqHelper7CompareIZN12_GLOBAL__N_162CordTest_ConstructFromExternalReferenceQualifierOverloads_Test8TestBodyEvE9InvokedAsS5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_(ptr noalias align 8 %gtest_ar.i.i.i.i.i, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.720, ptr noundef nonnull align 4 dereferenceable(4) %invoked_as.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i.i.i.i)
   %0 = load i8, ptr %gtest_ar.i.i.i.i.i, align 8
   %tobool.i.i.i.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i.i.i.i, label %cleanup.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -125298,7 +125298,7 @@ if.then.i:                                        ; preds = %call2.i.i.noexc, %c
 
 invoke.cont:                                      ; preds = %call2.i.i.noexc, %if.then.i
   %call.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #33
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %call.i.i16, ptr %0, ptr noundef nonnull %dst)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %call.i.i16, ptr %0, ptr noundef %dst)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -125730,11 +125730,11 @@ entry:
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 12, ptr nonnull @.str.730, ptr noundef nonnull %cord)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 12, ptr nonnull @.str.730, ptr noundef %cord)
           to label %invoke.cont2.i unwind label %lpad.i
 
 invoke.cont2.i:                                   ; preds = %invoke.cont.i
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 11, ptr nonnull @.str.731, ptr noundef nonnull %cord)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 11, ptr nonnull @.str.731, ptr noundef %cord)
           to label %invoke.cont4.i unwind label %lpad.i
 
 invoke.cont4.i:                                   ; preds = %invoke.cont2.i
@@ -125742,7 +125742,7 @@ invoke.cont4.i:                                   ; preds = %invoke.cont2.i
           to label %invoke.cont6.i unwind label %lpad.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont4.i
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 9, ptr nonnull @.str.733, ptr noundef nonnull %full.i)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 9, ptr nonnull @.str.733, ptr noundef %full.i)
           to label %invoke.cont9.i unwind label %lpad8.i
 
 invoke.cont9.i:                                   ; preds = %invoke.cont6.i
@@ -126653,7 +126653,7 @@ entry:
   %ref.tmp19 = alloca %"class.testing::Message", align 8
   %ref.tmp22 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %cord, i64 5, ptr nonnull @.str.248, i32 noundef 9)
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 7, ptr nonnull @.str.736, ptr noundef nonnull %cord)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 7, ptr nonnull @.str.736, ptr noundef %cord)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -126679,7 +126679,7 @@ if.then.i:                                        ; preds = %call2.i.i.noexc, %c
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %call2.i.i.noexc, %if.then.i
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 9, ptr nonnull @.str.737, ptr noundef nonnull %cord)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 9, ptr nonnull @.str.737, ptr noundef %cord)
           to label %invoke.cont5 unwind label %lpad
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -127920,7 +127920,7 @@ invoke.cont:                                      ; preds = %.noexc
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #33
   %1 = extractvalue { i64, ptr } %call, 0
   %2 = extractvalue { i64, ptr } %call, 1
-  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %1, ptr %2, ptr noundef nonnull %cord)
+  invoke fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %1, ptr %2, ptr noundef %cord)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -128420,7 +128420,7 @@ invoke.cont:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %cord, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %cord, i64 noundef 1000)
   %0 = load i8, ptr %cord, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
@@ -128847,7 +128847,7 @@ ehcleanup70:                                      ; preds = %ehcleanup69, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %agg.result, i64 noundef %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %agg.result, i64 noundef range(i64 600, 2001) %n) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -128968,7 +128968,7 @@ invoke.cont:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %flat, i64 noundef 2000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flat, i64 noundef 2000)
   %0 = load i8, ptr %flat, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i = icmp eq i8 %1, 0
@@ -129502,7 +129502,7 @@ entry:
   %ref.tmp50 = alloca i64, align 8
   %ref.tmp56 = alloca %"class.testing::Message", align 8
   %ref.tmp59 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %shared, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %shared, i64 noundef 1000)
   %0 = load i8, ptr %shared, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %1, 0
@@ -130063,7 +130063,7 @@ entry:
   %ref.tmp101 = alloca i64, align 8
   %ref.tmp110 = alloca %"class.testing::Message", align 8
   %ref.tmp113 = alloca %"class.testing::internal::AssertHelper", align 8
-  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %shared, i64 noundef 1000)
+  call fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %shared, i64 noundef 1000)
   %0 = load i8, ptr %shared, align 8
   %1 = and i8 %0, 1
   %cmp.i.i.not.i.i.i = icmp eq i8 %1, 0
@@ -130974,7 +130974,7 @@ entry:
   %ref.tmp272 = alloca %"class.testing::Message", align 8
   %ref.tmp275 = alloca %"class.testing::internal::AssertHelper", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord1, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %flats1, i64 noundef 1000)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flats1, i64 noundef 1000)
           to label %invoke.cont unwind label %lpad.thread
 
 lpad.thread:                                      ; preds = %entry
@@ -130984,17 +130984,17 @@ lpad.thread:                                      ; preds = %entry
 
 invoke.cont:                                      ; preds = %entry
   %arrayinit.element = getelementptr inbounds i8, ptr %flats1, i64 16
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element, i64 noundef 1100)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element, i64 noundef 1100)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %arrayinit.element3 = getelementptr inbounds i8, ptr %flats1, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element3, i64 noundef 1200)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element3, i64 noundef 1200)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
   %arrayinit.element5 = getelementptr inbounds i8, ptr %flats1, i64 48
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element5, i64 noundef 1300)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element5, i64 noundef 1300)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -131518,7 +131518,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %if.end95, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i144
   store ptr null, ptr %message_.i142, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cord2, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %flats2, i64 noundef 600)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %flats2, i64 noundef 600)
           to label %invoke.cont100 unwind label %lpad99.thread
 
 lpad99.thread:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit145
@@ -131528,17 +131528,17 @@ lpad99.thread:                                    ; preds = %_ZN7testing15Assert
 
 invoke.cont100:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit145
   %arrayinit.element101 = getelementptr inbounds i8, ptr %flats2, i64 16
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element101, i64 noundef 700)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element101, i64 noundef 700)
           to label %invoke.cont102 unwind label %lpad99
 
 invoke.cont102:                                   ; preds = %invoke.cont100
   %arrayinit.element103 = getelementptr inbounds i8, ptr %flats2, i64 32
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element103, i64 noundef 800)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element103, i64 noundef 800)
           to label %invoke.cont104 unwind label %lpad99
 
 invoke.cont104:                                   ; preds = %invoke.cont102
   %arrayinit.element105 = getelementptr inbounds i8, ptr %flats2, i64 48
-  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias nonnull align 8 %arrayinit.element105, i64 noundef 900)
+  invoke fastcc void @_ZN12_GLOBAL__N_18MakeCordEmc(ptr noalias align 8 %arrayinit.element105, i64 noundef 900)
           to label %invoke.cont106 unwind label %lpad99
 
 invoke.cont106:                                   ; preds = %invoke.cont104

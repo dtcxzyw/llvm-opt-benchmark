@@ -5222,18 +5222,18 @@ if.then59:                                        ; preds = %if.else, %if.else
   %switch.selectcmp2.i.i = icmp eq i8 %1, 117
   %switch.select3.i.i = select i1 %switch.selectcmp2.i.i, i32 4, i32 %switch.select.i.i
   %cmp.i.i = icmp eq i32 %switch.select3.i.i, 0
-  br i1 %cmp.i.i, label %if.then62, label %if.end.i.i
+  br i1 %cmp.i.i, label %if.then62, label %for.body.preheader.i.i
 
-if.end.i.i:                                       ; preds = %if.then59
+for.body.preheader.i.i:                           ; preds = %if.then59
   %incdec.ptr.i.ptr = getelementptr inbounds i8, ptr %call6.pn, i64 3
   %19 = or disjoint i32 %switch.select3.i.i, 3
   %incdec.ptr.i.add = zext nneg i32 %19 to i64
   %add.ptr.i.i.ptr = getelementptr inbounds i8, ptr %call6.pn, i64 %incdec.ptr.i.add
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %if.end4.i.i, %if.end.i.i
-  %20 = phi i32 [ %add.i.i, %if.end4.i.i ], [ 0, %if.end.i.i ]
-  %ptr.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %if.end4.i.i ], [ %incdec.ptr.i.ptr, %if.end.i.i ]
+for.body.i.i:                                     ; preds = %if.end4.i.i, %for.body.preheader.i.i
+  %20 = phi i32 [ %add.i.i, %if.end4.i.i ], [ 0, %for.body.preheader.i.i ]
+  %ptr.addr.09.i.i = phi ptr [ %incdec.ptr.i.i, %if.end4.i.i ], [ %incdec.ptr.i.ptr, %for.body.preheader.i.i ]
   %21 = load i8, ptr %ptr.addr.09.i.i, align 1
   %cmp2.not.i.i = icmp eq i8 %21, 0
   br i1 %cmp2.not.i.i, label %if.then62, label %if.end4.i.i

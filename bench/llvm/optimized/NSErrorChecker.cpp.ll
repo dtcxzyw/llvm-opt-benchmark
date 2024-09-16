@@ -1341,7 +1341,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit35.i: ; p
   %68 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr nonnull %1, i8 4, i64 0) #19
   %.fca.0.extract10.i = extractvalue { ptr, i8 } %68, 0
   %.fca.1.extract11.i = extractvalue { ptr, i8 } %68, 1
-  call fastcc void @_ZL7setFlagIN12_GLOBAL__N_110NSErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr noundef nonnull %7, ptr %.fca.0.extract10.i, i8 %.fca.1.extract11.i, ptr noundef nonnull align 8 dereferenceable(81) %5)
+  call fastcc void @_ZL7setFlagIN12_GLOBAL__N_110NSErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr noundef %7, ptr %.fca.0.extract10.i, i8 %.fca.1.extract11.i, ptr noundef nonnull align 8 dereferenceable(81) %5)
   %69 = load ptr, ptr %7, align 8
   %.not.i.i36.i = icmp eq ptr %69, null
   br i1 %.not.i.i36.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.sink.split.i
@@ -1414,7 +1414,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit40.i: ; p
   %106 = tail call { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr nonnull %1, i8 4, i64 0) #19
   %.fca.0.extract.i = extractvalue { ptr, i8 } %106, 0
   %.fca.1.extract.i = extractvalue { ptr, i8 } %106, 1
-  call fastcc void @_ZL7setFlagIN12_GLOBAL__N_110CFErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr noundef nonnull %8, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef nonnull align 8 dereferenceable(81) %5)
+  call fastcc void @_ZL7setFlagIN12_GLOBAL__N_110CFErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr noundef %8, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef nonnull align 8 dereferenceable(81) %5)
   %107 = load ptr, ptr %8, align 8
   %.not.i.i46.i = icmp eq ptr %107, null
   br i1 %.not.i.i46.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.sink.split.i
@@ -1658,7 +1658,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %47, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7setFlagIN12_GLOBAL__N_110NSErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr nocapture noundef readonly %0, ptr %1, i8 %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL7setFlagIN12_GLOBAL__N_110NSErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr nocapture noundef nonnull readonly %0, ptr %1, i8 %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca ptr, align 8
@@ -1867,7 +1867,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare { ptr, i8 } @_ZNK5clang4ento12ProgramState7getSValENS0_3LocENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i8, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7setFlagIN12_GLOBAL__N_110CFErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr nocapture noundef readonly %0, ptr %1, i8 %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL7setFlagIN12_GLOBAL__N_110CFErrorOutEEvN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS5_4SValERNS5_14CheckerContextE(ptr nocapture noundef nonnull readonly %0, ptr %1, i8 %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca ptr, align 8

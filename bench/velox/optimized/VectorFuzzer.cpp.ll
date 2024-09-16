@@ -19349,7 +19349,7 @@ entry:
 define void @_ZN8facebook5velox8randTypeERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, i32 noundef %maxDepth) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.34", align 8
-  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias nonnull align 8 %ref.tmp)
+  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias align 8 %ref.tmp)
   invoke void @_ZN8facebook5velox8randTypeERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS8_EEi(ptr sret(%"class.std::shared_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %maxDepth)
           to label %invoke.cont unwind label %lpad
 
@@ -20339,7 +20339,7 @@ entry:
 define void @_ZN8facebook5velox11randRowTypeERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEi(ptr noalias sret(%"class.std::shared_ptr.53") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, i32 noundef %maxDepth) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.34", align 8
-  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias nonnull align 8 %ref.tmp)
+  call fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias align 8 %ref.tmp)
   invoke void @_ZN8facebook5velox11randRowTypeERSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EERKSt6vectorISt10shared_ptrIKNS0_4TypeEESaIS8_EEi(ptr sret(%"class.std::shared_ptr.53") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5000) %rng, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i32 noundef %maxDepth)
           to label %invoke.cont unwind label %lpad
 
@@ -23441,7 +23441,7 @@ return:                                           ; preds = %if.then.i.i.i152, %
 declare i32 @llvm.abs.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_118defaultScalarTypesEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [12 x %"class.std::shared_ptr.11"], align 8
   %ref.tmp1 = alloca %"class.std::shared_ptr.580", align 8
@@ -74154,7 +74154,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 declare void @_ZN8facebook5velox13DecodedVector6decodeERKNS0_10BaseVectorEPKNS0_17SelectivityVectorEb(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(99), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116VectorLoaderWrap25makeEncodingPreservedCopyERNS0_17SelectivityVectorEiE3$_0EEvPKmiibT_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #28 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_12_GLOBAL__N_116VectorLoaderWrap25makeEncodingPreservedCopyERNS0_17SelectivityVectorEiE3$_0EEvPKmiibT_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #28 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

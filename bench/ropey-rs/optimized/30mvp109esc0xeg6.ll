@@ -68,8 +68,8 @@ define internal { i64, i64 } @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id
 }
 
 ; Function Attrs: noreturn nonlazybind uwtable
-define internal fastcc void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h7ba3ca2c52c791f1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
-  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17ha0b9e5f3b37e9d81E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0) #23
+define internal fastcc void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h7ba3ca2c52c791f1E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
+  tail call fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17ha0b9e5f3b37e9d81E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) #23
   unreachable
 }
 
@@ -82,12 +82,12 @@ define hidden void @_ZN3std9panicking11begin_panic17he258bf5bf1f353c4E(ptr noali
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  call fastcc void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h7ba3ca2c52c791f1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4) #23
+  call fastcc void @_ZN3std10sys_common9backtrace26__rust_end_short_backtrace17h7ba3ca2c52c791f1E(ptr noalias nocapture noundef align 8 dereferenceable(24) %4) #23
   unreachable
 }
 
 ; Function Attrs: inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17ha0b9e5f3b37e9d81E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std9panicking11begin_panic28_$u7b$$u7b$closure$u7d$$u7d$17ha0b9e5f3b37e9d81E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !14, !noundef !4

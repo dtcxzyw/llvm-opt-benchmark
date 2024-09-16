@@ -951,12 +951,12 @@ entry:
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp2, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, ptr noundef nonnull @.str.4, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.4, i64 17))
-  call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
+  call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp1, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
   %call.i10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5, ptr noundef %call.i10, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 4))
-  call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
+  call fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(448) %1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
   %upgrade.val = load i8, ptr %upgrade, align 1
   %_M_finish.i = getelementptr inbounds i8, ptr %1, i64 320
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -1373,7 +1373,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_
   br i1 %cmp34.not.i.i, label %if.end36.i.i, label %_ZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread.i
 
 if.end36.i.i:                                     ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPcET0_T_SD_SC_.exit.i.i
-  %call40.i.i = call fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef nonnull %ipv6.i.i, ptr noundef nonnull %add.ptr.i.i)
+  %call40.i.i = call fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %ipv6.i.i, ptr noundef %add.ptr.i.i)
   call void @llvm.lifetime.end.p0(i64 46, ptr nonnull %ipv6_str.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ipv6.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ipv4.i.i)
@@ -1931,7 +1931,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK4node9inspector12_GLOBAL__N_111HttpHandler11HeaderValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(32) %header) unnamed_addr #0 align 2 {
 entry:
   %value = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -2539,9 +2539,9 @@ _ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.ex
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %output.i) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %output.i)
   %cmp = icmp sgt i32 %bytes_consumed.0.i, 0
-  br i1 %cmp, label %if.then.i.i.i, label %do.end
+  br i1 %cmp, label %if.then, label %do.end
 
-if.then.i.i.i:                                    ; preds = %_ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit
+if.then:                                          ; preds = %_ZN4node9inspector12_GLOBAL__N_19WsHandler13ParseWsFramesERKSt6vectorIcSaIcEE.exit
   %conv = zext nneg i32 %bytes_consumed.0.i to i64
   %28 = load ptr, ptr %data, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %28, i64 %conv
@@ -2550,7 +2550,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4node9inspector1
   %cmp.i1.not.i.i.i = icmp eq ptr %add.ptr.i.i, %29
   br i1 %cmp.i1.not.i.i.i, label %if.end.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
-_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i
+_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i, %sub.ptr.lhs.cast.i1.i.i
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr nonnull align 1 %add.ptr.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
@@ -2558,9 +2558,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.ex
   %.pre9.i.i.i = ptrtoint ptr %.pre.i.i.i to i64
   br label %if.end.i.i.i
 
-if.end.i.i.i:                                     ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i, %if.then.i.i.i
-  %30 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ %add.ptr.i.i, %if.then.i.i.i ]
-  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre9.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then.i.i.i ]
+if.end.i.i.i:                                     ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i, %if.then
+  %30 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ %add.ptr.i.i, %if.then ]
+  %sub.ptr.lhs.cast.i.pre-phi.i.i.i = phi i64 [ %.pre9.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEES6_ET0_T_S8_S7_.exit.i.i.i ], [ %sub.ptr.lhs.cast.i1.i.i, %if.then ]
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.pre-phi.i.i.i, %sub.ptr.lhs.cast.i1.i.i
   %add.ptr.i5.i.i = getelementptr inbounds i8, ptr %28, i64 %sub.ptr.sub.i.i.i.i
   %tobool.not.i.i.i.i5 = icmp eq ptr %30, %add.ptr.i5.i.i
@@ -3073,7 +3073,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr no
 declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef %__first, ptr noundef %__last) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIPhZN4node9inspector12_GLOBAL__N_111IsIPAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EbT_SD_T0_"(ptr noundef nonnull %__first, ptr noundef nonnull %__last) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %__first to i64

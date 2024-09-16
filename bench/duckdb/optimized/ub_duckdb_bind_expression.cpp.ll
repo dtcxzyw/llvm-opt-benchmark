@@ -48084,7 +48084,7 @@ _ZN6duckdb10unique_ptrINS_21BoundWindowExpressionESt14default_deleteIS1_ELb1EE13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL19BindRangeExpressionERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_10unique_ptrINS_16ParsedExpressionESt14default_deleteISB_ELb1EEESF_(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(8) %expr, ptr noundef nonnull align 8 dereferenceable(8) %order_expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL19BindRangeExpressionERNS_13ClientContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_10unique_ptrINS_16ParsedExpressionESt14default_deleteISB_ELb1EEESF_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(8) %expr, ptr noundef nonnull align 8 dereferenceable(8) %order_expr) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %children = alloca %"class.duckdb::vector.407", align 8
   %ref.tmp = alloca %"class.duckdb::unique_ptr", align 8
@@ -48429,7 +48429,7 @@ unreachable:                                      ; preds = %invoke.cont30
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL20CastWindowExpressionERNS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS1_ELb1EEERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %expr, ptr noundef nonnull align 8 dereferenceable(24) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL20CastWindowExpressionERNS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS1_ELb1EEERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %expr, ptr noundef nonnull align 8 dereferenceable(24) %type) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr", align 8
   %agg.tmp = alloca %"class.duckdb::unique_ptr", align 8
@@ -48731,7 +48731,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL21NegatePercentileValueERKNS_5ValueEb(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %v, i1 noundef zeroext %desc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL21NegatePercentileValueERKNS_5ValueEb(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %v, i1 noundef zeroext %desc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i101 = alloca i64, align 8
   %ref.tmp.i102 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48912,7 +48912,7 @@ unreachable.i:                                    ; preds = %invoke.cont3.i
 _ZN6duckdb4Cast9OperationINS_9hugeint_tEsEET0_T_.exit: ; preds = %sw.bb19
   %18 = load i16, ptr %result.i, align 2, !tbaa !980
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %result.i) #25
-  call void @_ZN6duckdb5Value7DECIMALEshh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, i16 noundef signext %18, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
+  call void @_ZN6duckdb5Value7DECIMALEshh(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, i16 noundef signext %18, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
   br label %cleanup
 
 sw.bb22:                                          ; preds = %sw.bb
@@ -48981,7 +48981,7 @@ unreachable.i100:                                 ; preds = %invoke.cont3.i99
 _ZN6duckdb4Cast9OperationINS_9hugeint_tEiEET0_T_.exit: ; preds = %sw.bb22
   %26 = load i32, ptr %result.i81, align 4, !tbaa !316
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %result.i81) #25
-  call void @_ZN6duckdb5Value7DECIMALEihh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, i32 noundef %26, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
+  call void @_ZN6duckdb5Value7DECIMALEihh(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, i32 noundef %26, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
   br label %cleanup
 
 sw.bb26:                                          ; preds = %sw.bb
@@ -49050,14 +49050,14 @@ unreachable.i120:                                 ; preds = %invoke.cont3.i119
 _ZN6duckdb4Cast9OperationINS_9hugeint_tElEET0_T_.exit: ; preds = %sw.bb26
   %34 = load i64, ptr %result.i101, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i101) #25
-  call void @_ZN6duckdb5Value7DECIMALElhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, i64 noundef %34, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
+  call void @_ZN6duckdb5Value7DECIMALElhh(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, i64 noundef %34, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
   br label %cleanup
 
 sw.bb30:                                          ; preds = %sw.bb
   %call32 = call { i64, i64 } @_ZNK6duckdb9hugeint_tngEv(ptr noundef nonnull align 8 dereferenceable(16) %integral)
   %35 = extractvalue { i64, i64 } %call32, 0
   %36 = extractvalue { i64, i64 } %call32, 1
-  call void @_ZN6duckdb5Value7DECIMALENS_9hugeint_tEhh(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, i64 %35, i64 %36, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
+  call void @_ZN6duckdb5Value7DECIMALENS_9hugeint_tEhh(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, i64 %35, i64 %36, i8 noundef zeroext %call16, i8 noundef zeroext %call17)
   br label %cleanup
 
 sw.default:                                       ; preds = %sw.bb
@@ -49123,7 +49123,7 @@ cleanup:                                          ; preds = %sw.bb30, %_ZN6duckd
 sw.default54:                                     ; preds = %if.end12
   %call55 = tail call noundef double @_ZNK6duckdb5Value8GetValueIdEET_v(ptr noundef nonnull align 8 dereferenceable(64) %v)
   %fneg = fneg double %call55
-  tail call void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind writable sret(%"class.duckdb::Value") align 8 %agg.result, double noundef %fneg)
+  tail call void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::Value") align 8 %agg.result, double noundef %fneg)
   br label %return
 
 return:                                           ; preds = %sw.default54, %cleanup, %if.then11, %if.then
@@ -49263,7 +49263,7 @@ declare void @_ZN6duckdb5Value6DOUBLEEd(ptr dead_on_unwind writable sret(%"class
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEsEEbT_RT0_b(i64, i64, ptr noundef nonnull align 2 dereferenceable(2), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tEsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tEsEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.then:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49548,7 +49548,7 @@ invoke.cont15:                                    ; preds = %if.else.i.i123, %if
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -50009,7 +50009,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tEiEEbT_RT0_b(i64, i64, ptr noundef nonnull align 4 dereferenceable(4), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tEiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tEiEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.then:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50294,7 +50294,7 @@ invoke.cont15:                                    ; preds = %if.else.i.i123, %if
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -50581,7 +50581,7 @@ eh.resume:                                        ; preds = %if.then.i.i215, %_Z
 declare noundef zeroext i1 @_ZN6duckdb7TryCast9OperationINS_9hugeint_tElEEbT_RT0_b(i64, i64, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL17CastExceptionTextINS_9hugeint_tElEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, i64 %input.coerce0, i64 %input.coerce1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.then:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50866,7 +50866,7 @@ invoke.cont15:                                    ; preds = %if.else.i.i123, %if
           to label %invoke.cont20 unwind label %lpad17
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp16)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont20
@@ -51842,7 +51842,7 @@ invoke.cont2:                                     ; preds = %_ZNSt8__detail16_Ha
 declare noundef zeroext i1 @_ZNK6duckdb11LogicalType7IsValidEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL13ResolveInTypeERNS_18OperatorExpressionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS4_ELb1EEELb1EEERNS_13ClientContextE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %op, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL13ResolveInTypeERNS_18OperatorExpressionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS4_ELb1EEELb1EEERNS_13ClientContextE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %op, ptr noundef nonnull align 8 dereferenceable(24) %children, ptr noundef nonnull align 8 dereferenceable(592) %context) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1

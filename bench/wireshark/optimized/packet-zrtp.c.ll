@@ -1164,7 +1164,7 @@ declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) loca
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_DHPart(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_DHPart(ptr noundef %0, ptr %.8.val, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #0 {
   %4 = icmp eq i32 %2, 1
   %5 = select i1 %4, ptr @.str.210, ptr @.str.211
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %.8.val, i32 noundef 25, ptr noundef nonnull %5) #4

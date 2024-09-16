@@ -74,7 +74,7 @@ declare dso_local ptr @pci_find_saved_ext_cap(ptr noundef, i16 noundef zeroext) 
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -254,11 +254,11 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   %117 = phi i32 [ %114, %113 ], [ 4, %45 ]
   %118 = phi ptr [ %115, %113 ], [ %46, %45 ]
   %119 = add nuw nsw i32 %1, 16
-  %120 = add nuw i32 %1, 20
+  %120 = add nuw nsw i32 %1, 20
   %121 = getelementptr inbounds i8, ptr %0, i64 184
   %122 = getelementptr inbounds i8, ptr %0, i64 100
   %123 = getelementptr inbounds i8, ptr %0, i64 106
-  %124 = add nuw i32 %1, 26
+  %124 = add nuw nsw i32 %1, 26
   %125 = getelementptr inbounds i8, ptr %0, i64 16
   br label %126
 
@@ -269,7 +269,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
   store i32 0, ptr %13, align 4, !annotation !8
   %130 = mul nuw nsw i32 %129, 12
-  %131 = add nuw i32 %119, %130
+  %131 = add nuw nsw i32 %119, %130
   %132 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %131, ptr noundef nonnull %13) #4
   %133 = load i32, ptr %13, align 4
   %134 = lshr i32 %133, 20
@@ -356,7 +356,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   br i1 %186, label %306, label %187
 
 187:                                              ; preds = %183
-  %188 = add nuw i32 %120, %130
+  %188 = add nuw nsw i32 %120, %130
   br i1 %3, label %189, label %191
 
 189:                                              ; preds = %187
@@ -381,7 +381,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
 201:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4, !annotation !8
-  %.reass22 = add nuw i32 %130, %124
+  %.reass22 = add nuw nsw i32 %130, %124
   %202 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %188, ptr noundef nonnull %9) #4
   %203 = load i32, ptr %9, align 4
   %204 = or i32 %203, 65536
@@ -427,7 +427,7 @@ define internal fastcc i32 @pci_vc_do_save_buffer(ptr noundef %0, i32 noundef %1
   br i1 %223, label %224, label %302
 
 224:                                              ; preds = %217
-  %225 = add nuw i32 %124, %130
+  %225 = add nuw nsw i32 %124, %130
   %226 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %188, ptr noundef nonnull %5) #4
   %227 = load i32, ptr %5, align 4
   %228 = and i32 %227, 117440512

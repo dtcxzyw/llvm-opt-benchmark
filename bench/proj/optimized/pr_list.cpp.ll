@@ -56,7 +56,7 @@ define void @_Z10pj_pr_listP8PJconsts(ptr nocapture noundef readonly %0) local_u
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL7pr_listP8PJconstsi(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call i32 @putchar(i32 noundef 35)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %.01722 = load ptr, ptr %4, align 8

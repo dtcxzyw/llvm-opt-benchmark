@@ -1989,7 +1989,7 @@ declare i32 @OSSL_STORE_register_loader(ptr noundef) local_unnamed_addr #2
 declare void @OSSL_STORE_LOADER_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ERR_ATTIC_error(i32 noundef %reason, i32 noundef %line) unnamed_addr #1 {
+define internal fastcc void @ERR_ATTIC_error(i32 noundef range(i32 100, 524551) %reason, i32 noundef range(i32 62, 1737) %line) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp = icmp eq i32 %0, 0
@@ -2136,7 +2136,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @file_get_pass(ptr noundef %ui_method, ptr noundef %pass, i64 noundef %maxsize, ptr noundef %desc, ptr noundef %info, ptr noundef %data) unnamed_addr #1 {
+define internal fastcc noundef ptr @file_get_pass(ptr noundef %ui_method, ptr noundef %pass, i64 noundef range(i64 -2147483648, 2147483648) %maxsize, ptr noundef %desc, ptr noundef %info, ptr noundef %data) unnamed_addr #1 {
 entry:
   %call = tail call ptr @UI_new() #10
   %cmp = icmp eq ptr %call, null
@@ -2180,7 +2180,7 @@ if.then8:                                         ; preds = %if.end4
   br i1 %cmp.i10, label %if.end17.sink.split.sink.split, label %if.end17.sink.split
 
 if.else:                                          ; preds = %if.end4
-  %3 = trunc i64 %maxsize to i32
+  %3 = trunc nsw i64 %maxsize to i32
   %conv = add i32 %3, -1
   %call9 = tail call i32 @UI_add_input_string(ptr noundef nonnull %call, ptr noundef nonnull %call6, i32 noundef 2, ptr noundef %pass, i32 noundef 0, i32 noundef %conv) #10
   %cmp10 = icmp slt i32 %call9, 1

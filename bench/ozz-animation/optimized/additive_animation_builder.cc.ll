@@ -424,7 +424,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
 
 _ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation14TranslationKeyENS_12StdAllocatorIS6_EEENS_4math6Float3EFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_.exit: ; preds = %_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE9push_backERKS4_.exit.i, %98
   %170 = getelementptr inbounds i8, ptr %73, i64 24
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull %170)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %84, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef %170)
   %171 = getelementptr inbounds i8, ptr %73, i64 48
   %172 = load ptr, ptr %93, align 8
   %173 = load ptr, ptr %92, align 8
@@ -1107,7 +1107,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation14
   %138 = getelementptr inbounds %"struct.ozz::math::Transform", ptr %137, i64 %.046, i32 1
   %139 = load ptr, ptr %3, align 8
   %140 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %139, i64 %.046, i32 1
-  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull %140)
+  call fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_19MakeDeltaISt6vectorINS1_12RawAnimation11RotationKeyENS_12StdAllocatorIS6_EEENS_4math10QuaternionEFSB_RKSB_SD_EEEvRKT_RKT0_RKT1_PSF_(ptr noundef nonnull align 8 dereferenceable(24) %136, ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef %140)
   %141 = load ptr, ptr %1, align 8
   %142 = getelementptr inbounds %"struct.ozz::animation::offline::RawAnimation::JointTrack", ptr %141, i64 %.046, i32 2
   %143 = load ptr, ptr %2, align 8

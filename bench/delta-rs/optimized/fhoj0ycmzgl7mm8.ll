@@ -4191,7 +4191,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 24:                                               ; preds = %16
   %25 = add nuw i64 %.0.i, 1
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %10, i64 %25)
+  %.0.sroa.speculated.i = tail call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %10, i64 %25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !787)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5), !noalias !790
   %26 = icmp ult i64 %.0.sroa.speculated.i, 8

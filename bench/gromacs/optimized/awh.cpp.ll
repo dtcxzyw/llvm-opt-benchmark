@@ -2702,7 +2702,7 @@ _ZNSt6vectorImSaImEED2Ev.exit188:                 ; preds = %425, %424, %378, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9AwhParamsENS_25AwhCoordinateProviderTypeE(ptr %.0.val, ptr %.8.val, i32 noundef %0) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZN3gmxL18anyDimUsesProviderERKNS_9AwhParamsENS_25AwhCoordinateProviderTypeE(ptr %.0.val, ptr %.8.val, i32 noundef range(i32 0, 2) %0) unnamed_addr #9 {
   %2 = ptrtoint ptr %.8.val to i64
   %3 = ptrtoint ptr %.0.val to i64
   %4 = sub i64 %2, %3

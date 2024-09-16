@@ -881,7 +881,7 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 168
   %8 = load double, ptr %7, align 8
-  %9 = call fastcc i32 @parseSegs(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %4)
+  %9 = call fastcc i32 @parseSegs(ptr noundef %2, i32 noundef 0, ptr noundef %4)
   %10 = add i32 %9, -1
   %or.cond = icmp ult i32 %10, 2
   br i1 %or.cond, label %56, label %11
@@ -973,7 +973,7 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr nocapture noundef readonly %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseSegs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @parseSegs(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call noalias ptr @strdup(ptr noundef readonly %0) #29
   %6 = icmp eq ptr %5, null
@@ -1267,7 +1267,7 @@ define i32 @stripedBox(ptr noundef %0, ptr nocapture noundef readonly %1, ptr no
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 168
   %10 = load double, ptr %9, align 8
-  %11 = call fastcc i32 @parseSegs(ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5)
+  %11 = call fastcc i32 @parseSegs(ptr noundef %2, i32 noundef 0, ptr noundef %5)
   %12 = add i32 %11, -1
   %or.cond = icmp ult i32 %12, 2
   br i1 %or.cond, label %62, label %13
@@ -4245,7 +4245,7 @@ emit_background.exit.i:                           ; preds = %emit_xdot.exit.i.i,
 
 .lr.ph130.i.i:                                    ; preds = %.lr.ph135.i.i, %.lr.ph130.i.i
   %.0128.i.i = phi ptr [ %871, %.lr.ph130.i.i ], [ %870, %.lr.ph135.i.i ]
-  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef nonnull %.0128.i.i)
+  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.0128.i.i)
   %871 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.0128.i.i) #29
   %.not113.i.i = icmp eq ptr %871, null
   br i1 %.not113.i.i, label %._crit_edge131.i.i, label %.lr.ph130.i.i
@@ -4278,7 +4278,7 @@ emit_background.exit.i:                           ; preds = %emit_xdot.exit.i.i,
 
 .lr.ph140.i.i:                                    ; preds = %.lr.ph145.i.i, %.lr.ph140.i.i
   %.1138.i.i = phi ptr [ %878, %.lr.ph140.i.i ], [ %877, %.lr.ph145.i.i ]
-  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef nonnull %.1138.i.i)
+  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.1138.i.i)
   %878 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.1138.i.i) #29
   %.not110.i.i = icmp eq ptr %878, null
   br i1 %.not110.i.i, label %._crit_edge141.i.i, label %.lr.ph140.i.i
@@ -4396,7 +4396,7 @@ write_node_test.exit.i.i:                         ; preds = %.lr.ph.i.i101.i, %.
   br i1 %.not8.i117.i.i, label %906, label %write_edge_test.exit.i.i
 
 .loopexit123.i.i:                                 ; preds = %906, %.lr.ph160.i.i
-  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef nonnull %.2158.i.i)
+  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.2158.i.i)
   br label %write_edge_test.exit.i.i
 
 write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.loopexit123.i.i
@@ -4435,7 +4435,7 @@ write_edge_test.exit.i.i:                         ; preds = %.lr.ph.i115.i.i, %.
   %926 = getelementptr inbounds i8, ptr %925, i64 56
   %927 = load ptr, ptr %926, align 8
   call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef %927)
-  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef nonnull %.3168.i.i)
+  call fastcc void @emit_edge(ptr noundef nonnull %0, ptr noundef %.3168.i.i)
   %928 = call ptr @agnxtout(ptr noundef %1, ptr noundef nonnull %.3168.i.i) #29
   %.not104.i104.i = icmp eq ptr %928, null
   br i1 %.not104.i104.i, label %._crit_edge171.i.i, label %.lr.ph170.i.i
@@ -4826,7 +4826,7 @@ emit_begin_cluster.exit:                          ; preds = %55, %74
 
 106:                                              ; preds = %92, %96
   store i32 0, ptr %4, align 4
-  %107 = call fastcc ptr @checkClusterStyle(ptr noundef nonnull %30, ptr noundef nonnull %4)
+  %107 = call fastcc ptr @checkClusterStyle(ptr noundef nonnull %30, ptr noundef %4)
   %.not162 = icmp eq ptr %107, null
   br i1 %.not162, label %112, label %108
 
@@ -5156,7 +5156,7 @@ select.unfold:                                    ; preds = %141, %139
 
 .lr.ph:                                           ; preds = %.lr.ph223, %.lr.ph
   %.0150219 = phi ptr [ %240, %.lr.ph ], [ %239, %.lr.ph223 ]
-  call fastcc void @emit_edge(ptr noundef %0, ptr noundef nonnull %.0150219)
+  call fastcc void @emit_edge(ptr noundef %0, ptr noundef %.0150219)
   %240 = call ptr @agnxtout(ptr noundef %30, ptr noundef nonnull %.0150219) #29
   %.not192 = icmp eq ptr %240, null
   br i1 %.not192, label %._crit_edge, label %.lr.ph
@@ -5199,7 +5199,7 @@ declare ptr @setColorScheme(ptr noundef) local_unnamed_addr #1
 declare void @gvrender_begin_anchor(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @checkClusterStyle(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @checkClusterStyle(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call ptr @agget(ptr noundef %0, ptr noundef nonnull @.str.60) #29
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit46, label %4
@@ -5305,7 +5305,7 @@ declare ptr @late_nnstring(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define noundef zeroext i1 @findStopColor(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.colorsegs_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = call fastcc i32 @parseSegs(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4)
+  %5 = call fastcc i32 @parseSegs(ptr noundef %0, i32 noundef 0, ptr noundef %4)
   %6 = icmp ne i32 %5, 0
   %7 = load i32, ptr %4, align 8
   %8 = icmp slt i32 %7, 2
@@ -6053,7 +6053,7 @@ emit_begin_node.exit:                             ; preds = %98, %106, %291
 declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_edge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_edge(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.bezier, align 8
   %4 = alloca %struct.bezier, align 8
   %5 = alloca %struct.bezier, align 8
@@ -7271,7 +7271,7 @@ gv_strdup.exit365.i:                              ; preds = %517
 preprocessTooltip.exit.i:                         ; preds = %577, %565
   %.014.lcssa.i.i.i = phi ptr [ %.0.i.i, %565 ], [ %.2.i.i.i, %577 ]
   store i8 0, ptr %.014.lcssa.i.i.i, align 1
-  %579 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i.i, ptr noundef %1) #29
+  %579 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %1) #29
   %580 = getelementptr inbounds i8, ptr %213, i64 280
   store ptr %579, ptr %580, align 8
   call void @free(ptr noundef %.0.i.i) #29
@@ -7306,7 +7306,7 @@ gv_strdup.exit367.i:                              ; preds = %587
   br label %596
 
 596:                                              ; preds = %gv_strdup.exit367.i, %584, %preprocessTooltip.exit.i
-  %597 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.83) #29
+  %597 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.83) #29
   %.not342.i = icmp eq ptr %597, null
   br i1 %.not342.i, label %629, label %598
 
@@ -7316,7 +7316,7 @@ gv_strdup.exit367.i:                              ; preds = %587
   br i1 %.not343.i, label %629, label %600
 
 600:                                              ; preds = %598
-  %601 = call ptr @agroot(ptr noundef %1) #29
+  %601 = call ptr @agroot(ptr noundef nonnull %1) #29
   %602 = getelementptr inbounds i8, ptr %601, i64 16
   %603 = load ptr, ptr %602, align 8
   %604 = getelementptr inbounds i8, ptr %603, i64 131
@@ -7384,7 +7384,7 @@ gv_strdup.exit367.i:                              ; preds = %587
 preprocessTooltip.exit381.i:                      ; preds = %622, %610
   %.014.lcssa.i.i378.i = phi ptr [ %.0.i369.i, %610 ], [ %.2.i.i375.i, %622 ]
   store i8 0, ptr %.014.lcssa.i.i378.i, align 1
-  %624 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i369.i, ptr noundef %1) #29
+  %624 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i369.i, ptr noundef nonnull %1) #29
   %625 = getelementptr inbounds i8, ptr %213, i64 288
   store ptr %624, ptr %625, align 8
   call void @free(ptr noundef %.0.i369.i) #29
@@ -7419,7 +7419,7 @@ gv_strdup.exit382.i:                              ; preds = %632
   br label %641
 
 641:                                              ; preds = %gv_strdup.exit382.i, %629, %preprocessTooltip.exit381.i
-  %642 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.84) #29
+  %642 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.84) #29
   %.not345.i = icmp eq ptr %642, null
   br i1 %.not345.i, label %674, label %643
 
@@ -7429,7 +7429,7 @@ gv_strdup.exit382.i:                              ; preds = %632
   br i1 %.not346.i, label %674, label %645
 
 645:                                              ; preds = %643
-  %646 = call ptr @agroot(ptr noundef %1) #29
+  %646 = call ptr @agroot(ptr noundef nonnull %1) #29
   %647 = getelementptr inbounds i8, ptr %646, i64 16
   %648 = load ptr, ptr %647, align 8
   %649 = getelementptr inbounds i8, ptr %648, i64 131
@@ -7497,7 +7497,7 @@ gv_strdup.exit382.i:                              ; preds = %632
 preprocessTooltip.exit396.i:                      ; preds = %667, %655
   %.014.lcssa.i.i393.i = phi ptr [ %.0.i384.i, %655 ], [ %.2.i.i390.i, %667 ]
   store i8 0, ptr %.014.lcssa.i.i393.i, align 1
-  %669 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i384.i, ptr noundef %1) #29
+  %669 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i384.i, ptr noundef nonnull %1) #29
   %670 = getelementptr inbounds i8, ptr %213, i64 296
   store ptr %669, ptr %670, align 8
   call void @free(ptr noundef %.0.i384.i) #29
@@ -7532,7 +7532,7 @@ gv_strdup.exit397.i:                              ; preds = %677
   br label %686
 
 686:                                              ; preds = %gv_strdup.exit397.i, %674, %preprocessTooltip.exit396.i
-  %687 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.85) #29
+  %687 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.85) #29
   %.not348.i = icmp eq ptr %687, null
   br i1 %.not348.i, label %719, label %688
 
@@ -7542,7 +7542,7 @@ gv_strdup.exit397.i:                              ; preds = %677
   br i1 %.not349.i, label %719, label %690
 
 690:                                              ; preds = %688
-  %691 = call ptr @agroot(ptr noundef %1) #29
+  %691 = call ptr @agroot(ptr noundef nonnull %1) #29
   %692 = getelementptr inbounds i8, ptr %691, i64 16
   %693 = load ptr, ptr %692, align 8
   %694 = getelementptr inbounds i8, ptr %693, i64 131
@@ -7610,7 +7610,7 @@ gv_strdup.exit397.i:                              ; preds = %677
 preprocessTooltip.exit411.i:                      ; preds = %712, %700
   %.014.lcssa.i.i408.i = phi ptr [ %.0.i399.i, %700 ], [ %.2.i.i405.i, %712 ]
   store i8 0, ptr %.014.lcssa.i.i408.i, align 1
-  %714 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i399.i, ptr noundef %1) #29
+  %714 = call ptr @strdup_and_subst_obj(ptr noundef nonnull %.0.i399.i, ptr noundef nonnull %1) #29
   %715 = getelementptr inbounds i8, ptr %213, i64 304
   store ptr %714, ptr %715, align 8
   call void @free(ptr noundef %.0.i399.i) #29
@@ -7741,7 +7741,7 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
   br i1 %exitcond.not.i.i, label %772, label %768
 
 772:                                              ; preds = %768
-  %773 = call fastcc ptr @approx_bezier(ptr noundef nonnull %9, ptr noundef %.04049.i.i)
+  %773 = call fastcc ptr @approx_bezier(ptr noundef %9, ptr noundef %.04049.i.i)
   %774 = add nuw nsw i64 %.03750.i.i, 1
   %exitcond56.not.i.i = icmp eq i64 %774, %765
   br i1 %exitcond56.not.i.i, label %.preheader46.i.i.preheader, label %.preheader47.i.i
@@ -8010,7 +8010,7 @@ emit_begin_edge.exit:                             ; preds = %868, %872
   %879 = load ptr, ptr %218, align 8
   %880 = getelementptr inbounds i8, ptr %879, i64 168
   %881 = load double, ptr %880, align 8
-  %882 = call ptr @agget(ptr noundef %1, ptr noundef nonnull @.str.14) #29
+  %882 = call ptr @agget(ptr noundef nonnull %1, ptr noundef nonnull @.str.14) #29
   %883 = call ptr @setColorScheme(ptr noundef %882) #29
   %884 = load ptr, ptr %16, align 8
   %885 = getelementptr inbounds i8, ptr %884, i64 16
@@ -8079,7 +8079,7 @@ emit_begin_edge.exit:                             ; preds = %868, %872
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %910 = call fastcc i32 @parseSegs(ptr noundef %891, i32 noundef %909, ptr noundef nonnull %7)
+  %910 = call fastcc i32 @parseSegs(ptr noundef %891, i32 noundef %909, ptr noundef %7)
   %911 = icmp sgt i32 %910, 1
   br i1 %911, label %912, label %939
 
@@ -8175,7 +8175,7 @@ emit_begin_edge.exit:                             ; preds = %868, %872
   br i1 %.not77.i.i, label %977, label %971
 
 971:                                              ; preds = %966
-  call fastcc void @splitBSpline(ptr noundef nonnull %3, float noundef %967, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @splitBSpline(ptr noundef %3, float noundef %967, ptr noundef %5, ptr noundef %6)
   %972 = load ptr, ptr %5, align 8
   %973 = load i64, ptr %947, align 8
   call void @gvrender_beziercurve(ptr noundef %0, ptr noundef %972, i64 noundef %973, i32 noundef 0) #29
@@ -8204,7 +8204,7 @@ emit_begin_edge.exit:                             ; preds = %868, %872
   %983 = fadd double %969, %968
   %984 = fdiv double %968, %983
   %985 = fptrunc double %984 to float
-  call fastcc void @splitBSpline(ptr noundef nonnull %4, float noundef %985, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @splitBSpline(ptr noundef %4, float noundef %985, ptr noundef %5, ptr noundef %6)
   %986 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %986) #29
   %987 = load ptr, ptr %5, align 8
@@ -12322,7 +12322,7 @@ declare ptr @agraphof(ptr noundef) local_unnamed_addr #1
 declare i32 @shapeOf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @pEllipse(double noundef %0, double noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc noalias noundef ptr @pEllipse(double noundef %0, double noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #2 {
   %4 = uitofp i64 %2 to double
   %5 = fdiv double 0x401921FB54442D18, %4
   %.not = icmp eq i64 %2, 0
@@ -12349,7 +12349,7 @@ gv_calloc.exit.thread:                            ; preds = %3
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @stderr, align 8
-  %16 = shl nuw i64 %2, 4
+  %16 = shl nuw nsw i64 %2, 4
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.41, i64 noundef %16) #31
   tail call fastcc void @graphviz_exit() #32
   unreachable
@@ -12394,7 +12394,7 @@ declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #1
 declare void @gvrender_begin_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @approx_bezier(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @approx_bezier(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x %struct.pointf_s], align 16
   %4 = alloca [4 x %struct.pointf_s], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -12456,8 +12456,8 @@ appendSeg.exit:                                   ; preds = %34
 
 42:                                               ; preds = %2
   %43 = call { double, double } @Bezier(ptr noundef nonnull %0, double noundef 5.000000e-01, ptr noundef nonnull %3, ptr noundef nonnull %4) #29
-  %44 = call fastcc ptr @approx_bezier(ptr noundef nonnull %3, ptr noundef %1)
-  %45 = call fastcc ptr @approx_bezier(ptr noundef nonnull %4, ptr noundef %44)
+  %44 = call fastcc ptr @approx_bezier(ptr noundef %3, ptr noundef %1)
+  %45 = call fastcc ptr @approx_bezier(ptr noundef %4, ptr noundef %44)
   br label %46
 
 46:                                               ; preds = %42, %appendSeg.exit
@@ -12472,7 +12472,7 @@ declare { i64, ptr } @taper(ptr noundef, ptr noundef, double noundef) local_unna
 declare void @arrow_gen(ptr noundef, i32 noundef, double, double, double, double, double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @splitBSpline(ptr nocapture noundef readonly %0, float noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @splitBSpline(ptr nocapture noundef nonnull readonly %0, float noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -1
@@ -12913,7 +12913,7 @@ map_point.exit:                                   ; preds = %52, %51, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @emit_edge_label(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 6, 12) %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [3 x %struct.pointf_s], align 16
   %11 = alloca %struct.agxbuf, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 272
@@ -13019,7 +13019,7 @@ agxbuse.exit:                                     ; preds = %42, %agxbclear.exit
   br i1 %or.cond49, label %51, label %52
 
 51:                                               ; preds = %agxbuse.exit
-  tail call fastcc void @map_label(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  tail call fastcc void @map_label(ptr noundef nonnull %0, ptr noundef %1)
   call void @gvrender_begin_anchor(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.042) #29
   br label %52
 
@@ -13099,7 +13099,7 @@ emit_attachment.exit:                             ; preds = %55, %gv_isspace.exi
   br i1 %.not46, label %82, label %81
 
 81:                                               ; preds = %80
-  call fastcc void @map_label(ptr noundef %0, ptr noundef nonnull %1)
+  call fastcc void @map_label(ptr noundef %0, ptr noundef %1)
   call void @gvrender_begin_anchor(ptr noundef %0, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %.042) #29
   br label %82
 
@@ -13131,7 +13131,7 @@ agxbfree.exit:                                    ; preds = %83, %86
 declare void @gvrender_end_edge(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @map_label(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @map_label(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4259840

@@ -601,7 +601,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 66:                                               ; preds = %62
   %67 = getelementptr inbounds i8, ptr %36, i64 %64
   %68 = sub i64 %29, %64
-  %69 = call fastcc zeroext i1 @initialize_encryption_key(ptr noundef nonnull %67, i64 noundef %68, ptr noundef nonnull %11)
+  %69 = call fastcc zeroext i1 @initialize_encryption_key(ptr noundef %67, i64 noundef %68, ptr noundef %11)
   %70 = zext i1 %69 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10, i32 noundef %70) #21
   %71 = getelementptr inbounds i8, ptr %1, i64 160
@@ -628,7 +628,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   %87 = trunc i64 %86 to i32
   %88 = getelementptr inbounds i8, ptr %7, i64 516
   store i32 %87, ptr %88, align 4
-  call fastcc void @print_ole2_header(ptr noundef nonnull %7)
+  call fastcc void @print_ole2_header(ptr noundef %7)
   %89 = and i64 %86, 4294967295
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i64 noundef %89) #21
   %90 = getelementptr inbounds i8, ptr %7, i64 552
@@ -637,7 +637,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   store i8 0, ptr %91, align 1
   %92 = getelementptr inbounds i8, ptr %7, i64 554
   store i8 0, ptr %92, align 2
-  %93 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_enum, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef null)
+  %93 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_enum, i32 noundef 0, ptr noundef %8, ptr noundef %1, ptr noundef %9, ptr noundef null)
   %94 = load ptr, ptr %14, align 8
   call void @cli_bitset_free(ptr noundef %94) #21
   store ptr null, ptr %14, align 8
@@ -701,7 +701,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 
 123:                                              ; preds = %118
   store i32 0, ptr %8, align 4
-  %124 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %7, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @handler_writefile, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef null)
+  %124 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %7, ptr noundef %0, i32 noundef 0, ptr noundef nonnull @handler_writefile, i32 noundef 0, ptr noundef %8, ptr noundef %1, ptr noundef %10, ptr noundef null)
   %125 = load ptr, ptr %121, align 8
   store ptr %125, ptr %2, align 8
   %.not71 = icmp eq ptr %3, null
@@ -742,11 +742,11 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
   br i1 %.0.shrunk, label %141, label %143
 
 141:                                              ; preds = %140
-  %142 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_otf_encrypted, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %142 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_otf_encrypted, i32 noundef 0, ptr noundef %8, ptr noundef %1, ptr noundef %10, ptr noundef nonnull %11)
   br label %145
 
 143:                                              ; preds = %140
-  %144 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_otf, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef null)
+  %144 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %7, ptr noundef null, i32 noundef 0, ptr noundef nonnull @handler_otf, i32 noundef 0, ptr noundef %8, ptr noundef %1, ptr noundef %10, ptr noundef null)
   br label %145
 
 145:                                              ; preds = %136, %135, %143, %141, %100, %122, %61, %54, %50, %45, %43
@@ -782,7 +782,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 declare ptr @cli_bitset_init() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca %struct.encryption_key_t, align 4
   %5 = alloca %struct.encryption_verifier_t, align 1
   %.sroa.0.0.copyload = load i16, ptr %0, align 1
@@ -990,12 +990,12 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5, ptr noundef nonnull readonly align 1 dereferenceable(72) %63, i64 72, i1 false)
   %64 = getelementptr inbounds i8, ptr %4, i64 256
   store i32 128, ptr %64, align 4
-  %65 = call fastcc i32 @generate_key_aes(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %65 = call fastcc i32 @generate_key_aes(ptr noundef %4, ptr noundef %5)
   %.not40 = icmp eq i32 %65, 0
   br i1 %.not40, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = call fastcc zeroext i1 @verify_key_aes(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %67 = call fastcc zeroext i1 @verify_key_aes(ptr noundef %4, ptr noundef %5)
   br i1 %67, label %69, label %68
 
 68:                                               ; preds = %66
@@ -1014,7 +1014,7 @@ define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocaptu
 declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_ole2_header(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @print_ole2_header(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
   %2 = load i8, ptr @cli_debug_flag, align 1
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %103, label %3
@@ -1142,7 +1142,7 @@ define internal fastcc void @print_ole2_header(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ole2_walk_property_tree(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, -1) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8) unnamed_addr #2 {
   %10 = alloca [4 x %struct.property_tag], align 16
   %11 = alloca %struct.ole2_list, align 8
   %12 = alloca i32, align 4
@@ -1211,7 +1211,7 @@ thread-pre-split:                                 ; preds = %thread-pre-splitthr
 
 41:                                               ; preds = %ole2_list_push.exit, %thread-pre-split
   %42 = phi ptr [ %26, %ole2_list_push.exit ], [ %.pr, %thread-pre-split ]
-  %43 = call i32 @cli_json_timeout_cycle_check(ptr noundef %6, ptr noundef nonnull %12) #21
+  %43 = call i32 @cli_json_timeout_cycle_check(ptr noundef nonnull %6, ptr noundef nonnull %12) #21
   %.not203 = icmp eq i32 %43, 0
   br i1 %.not203, label %ole2_list_pop.exit, label %ole2_list_pop.exit.i242
 
@@ -1253,7 +1253,7 @@ ole2_list_pop.exit:                               ; preds = %41
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.0167379 = phi i32 [ %62, %.lr.ph ], [ 0, %59 ]
   %.0168378 = phi i32 [ %61, %.lr.ph ], [ %49, %59 ]
-  %61 = call fastcc i32 @ole2_get_next_block_number(ptr noundef %0, i32 noundef %.0168378)
+  %61 = call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull %0, i32 noundef %.0168378)
   %62 = add nuw nsw i32 %.0167379, 1
   %exitcond.not = icmp eq i32 %62, %60
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
@@ -1390,7 +1390,7 @@ ole2_list_pop.exit.i250:                          ; preds = %109, %ole2_list_pop
   br i1 %.not235, label %132, label %126
 
 126:                                              ; preds = %123
-  %127 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %125, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %127 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %0, ptr noundef %1, i32 noundef %125, ptr noundef %3, i32 noundef 1, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not236 = icmp eq i32 %127, 0
   br i1 %.not236, label %132, label %128
 
@@ -1532,7 +1532,7 @@ ole2_list_pop.exit.i270:                          ; preds = %175, %ole2_list_pop
   br i1 %.not228, label %188, label %182
 
 182:                                              ; preds = %180
-  %183 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %181, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8)
+  %183 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %0, ptr noundef %1, i32 noundef %181, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not229 = icmp eq i32 %183, 0
   br i1 %.not229, label %188, label %184
 
@@ -1691,7 +1691,7 @@ ole2_list_pop.exit.i290:                          ; preds = %240, %ole2_list_pop
   br i1 %.not215, label %254, label %247
 
 247:                                              ; preds = %245
-  %248 = call fastcc i32 @ole2_walk_property_tree(ptr noundef nonnull %0, ptr noundef %.0166, i32 noundef %246, ptr noundef %3, i32 noundef %37, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
+  %248 = call fastcc i32 @ole2_walk_property_tree(ptr noundef %0, ptr noundef %.0166, i32 noundef %246, ptr noundef %3, i32 noundef %37, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not216 = icmp eq i32 %248, 0
   br i1 %.not216, label %254, label %249
 
@@ -1958,7 +1958,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr nocapture noundef %0, ptr
   br i1 %95, label %96, label %110
 
 96:                                               ; preds = %92
-  %97 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %80, i32 noundef %88)
+  %97 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef %80, i32 noundef %88)
   br i1 %97, label %98, label %126
 
 98:                                               ; preds = %96
@@ -1982,7 +1982,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr nocapture noundef %0, ptr
   %112 = zext nneg i16 %111 to i32
   %113 = shl nuw i32 1, %112
   %114 = sext i32 %113 to i64
-  %115 = tail call fastcc zeroext i1 @ole2_read_block(ptr noundef nonnull %0, ptr noundef nonnull %80, i64 noundef %114, i32 noundef %88)
+  %115 = tail call fastcc zeroext i1 @ole2_read_block(ptr noundef nonnull %0, ptr noundef %80, i64 noundef %114, i32 noundef %88)
   br i1 %115, label %116, label %126
 
 116:                                              ; preds = %110, %98
@@ -2131,7 +2131,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   br i1 %189, label %190, label %246
 
 190:                                              ; preds = %186
-  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull readonly %0, ptr noundef nonnull %158, i32 noundef %.065106.i)
+  %191 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull readonly %0, ptr noundef %158, i32 noundef %.065106.i)
   br i1 %191, label %193, label %192
 
 192:                                              ; preds = %190
@@ -2151,7 +2151,7 @@ ole2_read_block.exit.thread.thread.i:             ; preds = %164
   %203 = getelementptr inbounds i8, ptr %158, i64 %202
   %204 = sext i32 %195 to i64
   %.064..i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %204)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef %7, ptr noundef %203, i64 noundef %.064..i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
   %205 = load i32, ptr %174, align 8
   %206 = shl nuw i32 1, %205
   %207 = sext i32 %206 to i64
@@ -2299,7 +2299,7 @@ ole2_get_next_sbat_block.exit.i:                  ; preds = %241, %236, %.thread
   %278 = shl nuw i32 1, %277
   %279 = sext i32 %278 to i64
   %.064.81.i = tail call i64 @llvm.umin.i64(i64 %.064107.i, i64 %279)
-  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef nonnull %7, ptr noundef nonnull %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
+  call fastcc void @scan_biff_for_xlm_macros_and_images(ptr noundef %7, ptr noundef %158, i64 noundef %.064.81.i, ptr noundef readonly %3, ptr noundef nonnull %127, ptr noundef nonnull %145)
   %280 = tail call fastcc i32 @ole2_get_next_block_number(ptr noundef nonnull readonly %0, i32 noundef %.065106.i)
   %281 = load i16, ptr %153, align 2
   %282 = zext nneg i16 %281 to i32
@@ -2506,7 +2506,7 @@ define internal range(i32 0, 23) i32 @handler_writefile(ptr nocapture noundef re
   br i1 %82, label %83, label %142
 
 83:                                               ; preds = %79
-  %84 = call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %50, i32 noundef %.088171)
+  %84 = call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %.088171)
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %83
@@ -2897,7 +2897,7 @@ define internal range(i32 0, 23) i32 @handler_otf_encrypted(ptr nocapture nounde
   br i1 %79, label %80, label %142
 
 80:                                               ; preds = %76
-  %81 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %50, i32 noundef %.0188361)
+  %81 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef %50, i32 noundef %.0188361)
   br i1 %81, label %83, label %82
 
 82:                                               ; preds = %80
@@ -3458,7 +3458,7 @@ define internal range(i32 0, 23) i32 @handler_otf(ptr nocapture noundef readonly
   br i1 %62, label %63, label %121
 
 63:                                               ; preds = %59
-  %64 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef %.0117242)
+  %64 = tail call fastcc zeroext i1 @ole2_get_sbat_data_block(ptr noundef nonnull %0, ptr noundef %35, i32 noundef %.0117242)
   br i1 %64, label %66, label %65
 
 65:                                               ; preds = %63
@@ -3833,7 +3833,7 @@ ole2_read_block.exit.thread:                      ; preds = %167, %57, %138, %13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 35) i32 @generate_key_aes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 35) i32 @generate_key_aes(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #2 {
   %3 = alloca [28 x i8], align 16
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
@@ -3972,7 +3972,7 @@ key_length_valid_aes_bits.exit:                   ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @verify_key_aes(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @verify_key_aes(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #2 {
   %3 = alloca [44 x i32], align 16
   %4 = alloca [44 x i32], align 16
   %5 = alloca [20 x i8], align 16
@@ -4376,7 +4376,7 @@ ole2_get_next_bat_block.exit:                     ; preds = %120, %121, %136, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ole2_read_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @ole2_read_block(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef range(i64 -2147483648, 4294967296) %2, i32 noundef %3) unnamed_addr #2 {
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %39, label %6
 
@@ -4421,7 +4421,7 @@ define internal fastcc noundef zeroext i1 @ole2_read_block(ptr nocapture noundef
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 0, i64 %2, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %2, i1 false)
   %30 = load i64, ptr %25, align 8
   %31 = sub i64 %30, %.02839
   br label %32
@@ -4437,7 +4437,7 @@ define internal fastcc noundef zeroext i1 @ole2_read_block(ptr nocapture noundef
   br i1 %.not36, label %39, label %38
 
 38:                                               ; preds = %32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %37, i64 %.029, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %37, i64 %.029, i1 false)
   br label %39
 
 39:                                               ; preds = %32, %16, %24, %4, %38
@@ -4606,7 +4606,7 @@ declare i32 @cli_jsonstr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #2 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %ole2_read_block.exit, label %5
 
@@ -4703,7 +4703,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr nocaptur
   br i1 %.not36.i, label %ole2_read_block.exit, label %52
 
 52:                                               ; preds = %46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %51, i64 %.029.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %51, i64 %.029.i, i1 false)
   br label %ole2_read_block.exit
 
 ole2_read_block.exit:                             ; preds = %52, %46, %38, %32, %._crit_edge, %3, %9
@@ -4712,7 +4712,7 @@ ole2_read_block.exit:                             ; preds = %52, %46, %38, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scan_biff_for_xlm_macros_and_images(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
+define internal fastcc void @scan_biff_for_xlm_macros_and_images(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) unnamed_addr #2 {
   %.not95 = icmp eq i64 %2, 0
   br i1 %.not95, label %._crit_edge, label %.lr.ph
 
@@ -4982,7 +4982,7 @@ declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @likely_mso_stream(i32 noundef %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @likely_mso_stream(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #2 {
   %2 = alloca [2 x i8], align 1
   %3 = tail call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 2) #21
   %4 = icmp eq i64 %3, -1
@@ -5040,7 +5040,7 @@ declare i32 @cli_ole2_summary_json(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @cli_scanhwp5_stream(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scan_mso_stream(i32 noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc i32 @scan_mso_stream(i32 noundef range(i32 0, -2147483648) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.z_stream_s, align 8
   %5 = alloca ptr, align 8

@@ -942,14 +942,14 @@ select.unfold.i.i:                                ; preds = %59, %57, %55, %53
   br i1 %51, label %.sink.split.i.i, label %109
 
 109:                                              ; preds = %108
-  %110 = call fastcc i32 @remote_cvdhead(ptr noundef nonnull %15, i32 noundef %.0263, ptr noundef nonnull %2, i32 noundef %6, ptr noundef nonnull %16)
+  %110 = call fastcc i32 @remote_cvdhead(ptr noundef %15, i32 noundef %.0263, ptr noundef %2, i32 noundef %6, ptr noundef %16)
   %or.cond9.i.i = icmp ult i32 %110, 2
   br i1 %or.cond9.i.i, label %112, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %109, %108, %104, %102, %.thread119.i.i, %95, %86, %81
   %.177111127.ph.i.i = phi ptr [ null, %109 ], [ null, %108 ], [ %77, %.thread119.i.i ], [ %77, %104 ], [ %77, %81 ], [ %77, %86 ], [ %77, %95 ], [ %77, %102 ]
   %.175114125.ph.i.i = phi ptr [ null, %109 ], [ null, %108 ], [ %79, %.thread119.i.i ], [ %79, %104 ], [ null, %81 ], [ %79, %86 ], [ %79, %95 ], [ %79, %102 ]
-  %111 = call fastcc i32 @remote_cvdhead(ptr noundef nonnull %14, i32 noundef %.0263, ptr noundef nonnull %2, i32 noundef %6, ptr noundef nonnull %16)
+  %111 = call fastcc i32 @remote_cvdhead(ptr noundef %14, i32 noundef %.0263, ptr noundef %2, i32 noundef %6, ptr noundef %16)
   br label %112
 
 112:                                              ; preds = %.sink.split.i.i, %109
@@ -1160,7 +1160,7 @@ check_for_new_database_version.exit:              ; preds = %169, %170
   br i1 %or.cond11, label %190, label %182
 
 182:                                              ; preds = %179
-  %183 = call fastcc i32 @getcvd(ptr noundef %.3253, ptr noundef nonnull %178, ptr noundef nonnull %2, i32 noundef %.0263, i32 noundef %.1259, i32 noundef %6)
+  %183 = call fastcc i32 @getcvd(ptr noundef %.3253, ptr noundef %178, ptr noundef %2, i32 noundef %.0263, i32 noundef %.1259, i32 noundef %6)
   switch i32 %183, label %.thread284 [
     i32 1, label %184
     i32 12, label %186
@@ -1328,14 +1328,14 @@ check_for_new_database_version.exit:              ; preds = %169, %170
   br i1 %239, label %240, label %270
 
 240:                                              ; preds = %237
-  %241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 60, ptr noundef nonnull @.str.88, ptr noundef %0) #23
+  %241 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 60, ptr noundef nonnull @.str.88, ptr noundef nonnull %0) #23
   %242 = icmp sgt i32 %241, 59
   %243 = icmp eq i32 %241, -1
   %or.cond3.i.i = or i1 %242, %243
   br i1 %or.cond3.i.i, label %244, label %246
 
 244:                                              ; preds = %240
-  %245 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.205, ptr noundef %0) #23
+  %245 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.205, ptr noundef nonnull %0) #23
   br label %mkdir_and_chdir_for_cdiff_tmp.exit.thread.i
 
 246:                                              ; preds = %240
@@ -1344,14 +1344,14 @@ check_for_new_database_version.exit:              ; preds = %169, %170
   br i1 %248, label %249, label %260
 
 249:                                              ; preds = %246
-  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 60, ptr noundef nonnull @.str.45, ptr noundef %0) #23
+  %250 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 60, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #23
   %251 = icmp sgt i32 %250, 59
   %252 = icmp eq i32 %250, -1
   %or.cond5.i.i = or i1 %251, %252
   br i1 %or.cond5.i.i, label %253, label %255
 
 253:                                              ; preds = %249
-  %254 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.206, ptr noundef %0) #23
+  %254 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.206, ptr noundef nonnull %0) #23
   br label %mkdir_and_chdir_for_cdiff_tmp.exit.thread.i
 
 255:                                              ; preds = %249
@@ -1360,7 +1360,7 @@ check_for_new_database_version.exit:              ; preds = %169, %170
   br i1 %257, label %258, label %260
 
 258:                                              ; preds = %255
-  %259 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.207, ptr noundef %0) #23
+  %259 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.207, ptr noundef nonnull %0) #23
   br label %mkdir_and_chdir_for_cdiff_tmp.exit.thread.i
 
 260:                                              ; preds = %255, %246
@@ -1402,14 +1402,14 @@ mkdir_and_chdir_for_cdiff_tmp.exit.thread.i:      ; preds = %273, %267, %263, %2
   br i1 %277, label %309, label %278
 
 278:                                              ; preds = %275
-  %279 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 60, ptr noundef nonnull @.str.198, ptr noundef %0, i32 noundef %.0146382) #23
+  %279 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 60, ptr noundef nonnull @.str.198, ptr noundef nonnull %0, i32 noundef %.0146382) #23
   %280 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
   %281 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #27
   %282 = add i64 %280, 2
   %283 = add i64 %282, %281
   %284 = call noalias ptr @malloc(i64 noundef %283) #25
-  %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %284, i64 noundef %283, ptr noundef nonnull @.str.111, ptr noundef %2, ptr noundef nonnull %12) #23
-  %286 = call fastcc i32 @downloadFile(ptr noundef %284, ptr noundef nonnull %276, i32 noundef %.0143, i64 noundef 0)
+  %285 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %284, i64 noundef %283, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %12) #23
+  %286 = call fastcc i32 @downloadFile(ptr noundef %284, ptr noundef %276, i32 noundef %.0143, i64 noundef 0)
   switch i32 %286, label %289 [
     i32 0, label %292
     i32 6, label %287
@@ -1534,14 +1534,14 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   br label %329
 
 329:                                              ; preds = %327, %325
-  %330 = call fastcc i32 @getcvd(ptr noundef %.3253, ptr noundef nonnull %178, ptr noundef %2, i32 noundef %.0263, i32 noundef %.1259, i32 noundef %6)
+  %330 = call fastcc i32 @getcvd(ptr noundef %.3253, ptr noundef %178, ptr noundef %2, i32 noundef %.0263, i32 noundef %.1259, i32 noundef %6)
   switch i32 %330, label %.thread284 [
     i32 0, label %333
     i32 12, label %331
   ]
 
 331:                                              ; preds = %329
-  %332 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef %0) #23
+  %332 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull @.str.40, ptr noundef nonnull %0) #23
   br label %333
 
 333:                                              ; preds = %329, %331
@@ -1552,7 +1552,7 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   br i1 %321, label %.thread269.thread, label %338
 
 .thread269.thread:                                ; preds = %206, %.thread269, %335
-  %336 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef %0, i32 noundef %.1259) #23
+  %336 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.41, ptr noundef nonnull %0, i32 noundef %.1259) #23
   %337 = call ptr @cli_safer_strdup(ptr noundef %.2257) #23
   store ptr %337, ptr %8, align 8
   br label %.thread284
@@ -1564,13 +1564,13 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   br i1 %340, label %341, label %344
 
 341:                                              ; preds = %338
-  %342 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %.0144363, ptr noundef %0, i32 noundef %339) #23
+  %342 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.42, i32 noundef %.0144363, ptr noundef nonnull %0, i32 noundef %339) #23
   %343 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.43) #23
   br label %344
 
 344:                                              ; preds = %341, %338
   %345 = load i32, ptr @g_bCompressLocalDatabase, align 4
-  %346 = call fastcc i32 @buildcld(ptr noundef nonnull %192, ptr noundef %0, ptr noundef nonnull %178, i32 noundef %345)
+  %346 = call fastcc i32 @buildcld(ptr noundef %192, ptr noundef %0, ptr noundef %178, i32 noundef %345)
   %.not201 = icmp eq i32 %346, 0
   br i1 %.not201, label %349, label %347
 
@@ -1582,7 +1582,7 @@ downloadPatch.exit._crit_edge.thread:             ; preds = %downloadPatch.exit,
   %350 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
   %351 = add i64 %350, 5
   %352 = call noalias ptr @malloc(i64 noundef %351) #25
-  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %352, i64 noundef %351, ptr noundef nonnull @.str.45, ptr noundef %0) #23
+  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %352, i64 noundef %351, ptr noundef nonnull @.str.45, ptr noundef nonnull %0) #23
   br label %354
 
 354:                                              ; preds = %333, %349, %188
@@ -1784,7 +1784,7 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #3
 declare ptr @cli_gentemp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.thread109, label %9
 
@@ -1798,7 +1798,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   %12 = add i64 %10, 2
   %13 = add i64 %12, %11
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #25
-  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %13, ptr noundef nonnull @.str.111, ptr noundef %2, ptr noundef nonnull %0) #23
+  %15 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %14, i64 noundef %13, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %0) #23
   %16 = zext i32 %3 to i64
   %17 = tail call fastcc i32 @downloadFile(ptr noundef %14, ptr noundef %1, i32 noundef %5, i64 noundef %16)
   switch i32 %17, label %20 [
@@ -1817,7 +1817,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   br label %.thread100
 
 23:                                               ; preds = %9
-  %24 = tail call noalias ptr @strdup(ptr noundef %1) #23
+  %24 = tail call noalias ptr @strdup(ptr noundef nonnull %1) #23
   %.not75 = icmp eq ptr %24, null
   br i1 %.not75, label %25, label %27
 
@@ -1833,7 +1833,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   %32 = getelementptr inbounds i8, ptr %0, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -4
   %34 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %33, i64 noundef 4) #23
-  %35 = tail call i32 @rename(ptr noundef %1, ptr noundef nonnull %24) #23
+  %35 = tail call i32 @rename(ptr noundef nonnull %1, ptr noundef nonnull %24) #23
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %42
 
@@ -1841,7 +1841,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   %38 = tail call ptr @__errno_location() #24
   %39 = load i32, ptr %38, align 4
   %40 = tail call ptr @strerror(i32 noundef %39) #23
-  %41 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef %1, ptr noundef nonnull %24, ptr noundef %40) #23
+  %41 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef nonnull %1, ptr noundef nonnull %24, ptr noundef %40) #23
   br label %66
 
 42:                                               ; preds = %27
@@ -1864,7 +1864,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   br label %66
 
 52:                                               ; preds = %47
-  %53 = tail call i32 @rename(ptr noundef nonnull %24, ptr noundef %1) #23
+  %53 = tail call i32 @rename(ptr noundef nonnull %24, ptr noundef nonnull %1) #23
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %55, label %60
 
@@ -1872,7 +1872,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   %56 = tail call ptr @__errno_location() #24
   %57 = load i32, ptr %56, align 4
   %58 = tail call ptr @strerror(i32 noundef %57) #23
-  %59 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef nonnull %24, ptr noundef %1, ptr noundef %58) #23
+  %59 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.191, ptr noundef nonnull %24, ptr noundef nonnull %1, ptr noundef %58) #23
   br label %.thread89
 
 60:                                               ; preds = %52
@@ -1882,7 +1882,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
   br i1 %63, label %64, label %.thread89
 
 64:                                               ; preds = %60
-  %65 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.194, ptr noundef nonnull %0, ptr noundef %2) #23
+  %65 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.194, ptr noundef nonnull %0, ptr noundef nonnull %2) #23
   br label %.thread89
 
 .thread89:                                        ; preds = %60, %64, %55
@@ -1913,7 +1913,7 @@ define internal fastcc range(i32 0, 19) i32 @getcvd(ptr noundef %0, ptr noundef 
 
 70:                                               ; preds = %.thread109, %69
   %.0648698108112 = phi i32 [ 16, %.thread109 ], [ %.0648698, %69 ]
-  %71 = tail call i32 @unlink(ptr noundef %1) #23
+  %71 = tail call i32 @unlink(ptr noundef nonnull %1) #23
   br label %72
 
 72:                                               ; preds = %69, %69, %70
@@ -1930,7 +1930,7 @@ declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #12
 declare void @mprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [60 x i8], align 16
   %7 = alloca [513 x i8], align 16
@@ -1944,16 +1944,16 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br label %.thread122
 
 11:                                               ; preds = %4
-  %12 = call i32 @chdir(ptr noundef %0) #23
+  %12 = call i32 @chdir(ptr noundef nonnull %0) #23
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.213, ptr noundef %0) #23
+  %15 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.213, ptr noundef nonnull %0) #23
   br label %.thread122
 
 16:                                               ; preds = %11
-  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 60, ptr noundef nonnull @.str.214, ptr noundef %1) #23
+  %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 60, ptr noundef nonnull @.str.214, ptr noundef nonnull %1) #23
   %18 = getelementptr inbounds i8, ptr %6, i64 59
   store i8 0, ptr %18, align 1
   %19 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %6, i32 noundef 0) #23
@@ -1990,12 +1990,12 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   %37 = ptrtoint ptr %31 to i64
   %38 = sub i64 %36, %37
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 32, i64 %38, i1 false)
-  %39 = call i32 (ptr, i32, ...) @open(ptr noundef %2, i32 noundef 193, i32 noundef 420) #23
+  %39 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %2, i32 noundef 193, i32 noundef 420) #23
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %35
-  %42 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.218, ptr noundef %2) #23
+  %42 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.218, ptr noundef nonnull %2) #23
   br label %.thread122
 
 43:                                               ; preds = %35
@@ -2004,7 +2004,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br i1 %.not75, label %47, label %45
 
 45:                                               ; preds = %43
-  %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.219, ptr noundef %2) #23
+  %46 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.219, ptr noundef nonnull %2) #23
   br label %.thread100
 
 47:                                               ; preds = %43
@@ -2013,12 +2013,12 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
 
 48:                                               ; preds = %47
   %49 = call i32 @close(i32 noundef %39) #23
-  %50 = call ptr @gzopen(ptr noundef %2, ptr noundef nonnull @.str.220) #23
+  %50 = call ptr @gzopen(ptr noundef nonnull %2, ptr noundef nonnull @.str.220) #23
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %48
-  %53 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.221, ptr noundef %2) #23
+  %53 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.221, ptr noundef nonnull %2) #23
   br label %.thread122
 
 54:                                               ; preds = %48, %47
@@ -2038,7 +2038,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %59
-  %63 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.224, ptr noundef %1) #23
+  %63 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.224, ptr noundef nonnull %1) #23
   br label %.loopexit
 
 64:                                               ; preds = %59
@@ -2052,7 +2052,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %66
-  %70 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.225, ptr noundef nonnull %6, ptr noundef %1) #23
+  %70 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.225, ptr noundef nonnull %6, ptr noundef nonnull %1) #23
   br label %.loopexit
 
 71:                                               ; preds = %66, %64
@@ -2066,11 +2066,11 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.227, ptr noundef %1) #23
+  %77 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.227, ptr noundef nonnull %1) #23
   br label %.loopexit
 
 78:                                               ; preds = %73, %71
-  %79 = call ptr @opendir(ptr noundef %0)
+  %79 = call ptr @opendir(ptr noundef nonnull %0)
   %80 = icmp eq ptr %79, null
   br i1 %80, label %82, label %.preheader
 
@@ -2080,7 +2080,7 @@ define internal fastcc range(i32 0, 15) i32 @buildcld(ptr noundef %0, ptr nounde
   br i1 %.not79130, label %.loopexit, label %.lr.ph
 
 82:                                               ; preds = %78
-  %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.228, ptr noundef %0) #23
+  %83 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.228, ptr noundef nonnull %0) #23
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.backedge
@@ -2139,7 +2139,7 @@ sub_1128:                                         ; preds = %.tail
   br i1 %104, label %105, label %.backedge
 
 105:                                              ; preds = %102
-  %106 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.225, ptr noundef nonnull %86, ptr noundef %1) #23
+  %106 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.225, ptr noundef nonnull %86, ptr noundef nonnull %1) #23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %105, %82, %76, %69, %62, %57
@@ -2160,7 +2160,7 @@ sub_1128:                                         ; preds = %.tail
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.thread100
-  %112 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.230, ptr noundef %2) #23
+  %112 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.230, ptr noundef nonnull %2) #23
   br label %113
 
 113:                                              ; preds = %.thread100, %111, %.loopexit
@@ -2177,7 +2177,7 @@ sub_1128:                                         ; preds = %.tail
   br i1 %.not88, label %119, label %117
 
 117:                                              ; preds = %115
-  %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.231, ptr noundef %2) #23
+  %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.231, ptr noundef nonnull %2) #23
   br label %119
 
 119:                                              ; preds = %115, %117, %113
@@ -2193,7 +2193,7 @@ sub_1128:                                         ; preds = %.tail
 
 .thread122:                                       ; preds = %14, %21, %33, %41, %52, %9, %120, %122
   %.06096116121125 = phi i32 [ %.06096, %122 ], [ %.06096, %120 ], [ 3, %9 ], [ 14, %52 ], [ 4, %41 ], [ 14, %33 ], [ 4, %21 ], [ 3, %14 ]
-  %123 = call i32 @unlink(ptr noundef %2) #23
+  %123 = call i32 @unlink(ptr noundef nonnull %2) #23
   br label %124
 
 124:                                              ; preds = %120, %.thread122, %122
@@ -2350,7 +2350,7 @@ define i32 @updatecustomdb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %61 = getelementptr inbounds i8, ptr %7, i64 88
   %62 = load i64, ptr %61, align 8
   %63 = select i1 %.not109, i64 0, i64 %62
-  %64 = tail call fastcc i32 @downloadFile(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %2, i64 noundef %63)
+  %64 = tail call fastcc i32 @downloadFile(ptr noundef nonnull %0, ptr noundef %16, i32 noundef %2, i64 noundef %63)
   switch i32 %64, label %67 [
     i32 1, label %65
     i32 0, label %70
@@ -2512,7 +2512,7 @@ declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef)
 declare i32 @cli_filecopy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
   %7 = alloca %struct.xfer_progress, align 8
@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   %16 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.110, i64 noundef 4) #27
   %.not69 = icmp eq i32 %16, 0
   %.103 = zext i1 %.not69 to i32
-  %17 = call fastcc i32 @create_curl_handle(i32 noundef %.103, ptr noundef nonnull %5)
+  %17 = call fastcc i32 @create_curl_handle(i32 noundef %.103, ptr noundef %5)
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %20, label %18
 
@@ -2653,7 +2653,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 65:                                               ; preds = %.sink.split99, %62, %54
   %.1 = phi ptr [ %60, %62 ], [ null, %54 ], [ %.1.ph, %.sink.split99 ]
-  %66 = call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 193, i32 noundef 420) #23
+  %66 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 193, i32 noundef 420) #23
   store i32 %66, ptr %9, align 8
   %67 = icmp eq i32 %66, -1
   br i1 %67, label %68, label %78
@@ -2664,11 +2664,11 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br i1 %.not85, label %72, label %70
 
 70:                                               ; preds = %68
-  %71 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.245, ptr noundef %1, ptr noundef nonnull %10) #23
+  %71 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.245, ptr noundef nonnull %1, ptr noundef nonnull %10) #23
   br label %74
 
 72:                                               ; preds = %68
-  %73 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.246, ptr noundef %1) #23
+  %73 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.246, ptr noundef nonnull %1) #23
   br label %74
 
 74:                                               ; preds = %72, %70
@@ -2717,7 +2717,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
 
 95:                                               ; preds = %93, %91
   %96 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.251, ptr noundef nonnull %0) #23
-  %97 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.252, ptr noundef %1) #23
+  %97 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.252, ptr noundef nonnull %1) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %98 = call i32 @curl_easy_perform(ptr noundef %44) #23
   %.not77 = icmp eq i32 %98, 0
@@ -2858,7 +2858,7 @@ define internal fastcc range(i32 0, 19) i32 @downloadFile(ptr noundef %0, ptr no
   br i1 %161, label %162, label %164
 
 162:                                              ; preds = %160
-  %163 = call i32 @unlink(ptr noundef %1) #23
+  %163 = call i32 @unlink(ptr noundef nonnull %1) #23
   br label %164
 
 164:                                              ; preds = %162, %160
@@ -2884,7 +2884,7 @@ declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
 declare ptr @dnsquery(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca [513 x i8], align 16
   %7 = alloca %struct.MemoryStruct, align 8
   %8 = alloca ptr, align 8
@@ -2896,7 +2896,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef %0, i32 
   store ptr null, ptr %8, align 8
   store i64 0, ptr %11, align 8
   store ptr null, ptr %4, align 8
-  %13 = tail call i32 @strncasecmp(ptr noundef %2, ptr noundef nonnull @.str.110, i64 noundef 4) #27
+  %13 = tail call i32 @strncasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.110, i64 noundef 4) #27
   %.not76 = icmp eq i32 %13, 0
   %.052 = zext i1 %.not76 to i32
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
@@ -2904,9 +2904,9 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef %0, i32 
   %16 = add i64 %14, 2
   %17 = add i64 %16, %15
   %18 = tail call noalias ptr @malloc(i64 noundef %17) #25
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %17, ptr noundef nonnull @.str.111, ptr noundef %2, ptr noundef %0) #23
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %18, i64 noundef %17, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %0) #23
   %20 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.112, ptr noundef %18) #23
-  %21 = call fastcc i32 @create_curl_handle(i32 noundef %.052, ptr noundef nonnull %8)
+  %21 = call fastcc i32 @create_curl_handle(i32 noundef %.052, ptr noundef %8)
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %24, label %22
 
@@ -3139,11 +3139,11 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef %0, i32 
 123:                                              ; preds = %120
   %124 = load i16, ptr @g_proxyPort, align 2
   %125 = zext i16 %124 to i32
-  %126 = call i32 (i32, ptr, ...) @logg(i32 noundef %122, ptr noundef nonnull @.str.136, i64 noundef %100, ptr noundef %2, ptr noundef nonnull %121, i32 noundef %125) #23
+  %126 = call i32 (i32, ptr, ...) @logg(i32 noundef %122, ptr noundef nonnull @.str.136, i64 noundef %100, ptr noundef nonnull %2, ptr noundef nonnull %121, i32 noundef %125) #23
   br label %160
 
 127:                                              ; preds = %120
-  %128 = call i32 (i32, ptr, ...) @logg(i32 noundef %122, ptr noundef nonnull @.str.137, i64 noundef %100, ptr noundef %2) #23
+  %128 = call i32 (i32, ptr, ...) @logg(i32 noundef %122, ptr noundef nonnull @.str.137, i64 noundef %100, ptr noundef nonnull %2) #23
   br label %160
 
 .sink.split114:                                   ; preds = %101, %104
@@ -3262,7 +3262,7 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 17) i32 @create_curl_handle(i32 noundef range(i32 0, 2) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @curl_easy_init() #23

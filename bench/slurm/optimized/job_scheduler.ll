@@ -7426,7 +7426,7 @@ define dso_local range(i32 0, 2134) i32 @build_feature_list(ptr nocapture nounde
   %35 = getelementptr inbounds i8, ptr %0, i64 1064
   %36 = load i32, ptr %35, align 8
   %37 = tail call zeroext i1 @node_features_g_user_update(i32 noundef %36) #16
-  %38 = call fastcc i32 @_feature_string2list(ptr noundef nonnull %.054, ptr noundef %.sink, ptr noundef nonnull %.053, ptr noundef nonnull %6)
+  %38 = call fastcc i32 @_feature_string2list(ptr noundef nonnull %.054, ptr noundef %.sink, ptr noundef %.053, ptr noundef %6)
   %.not67 = icmp eq i32 %38, 0
   br i1 %.not67, label %39, label %139
 
@@ -7459,7 +7459,7 @@ define dso_local range(i32 0, 2134) i32 @build_feature_list(ptr nocapture nounde
 50:                                               ; preds = %49, %47
   store ptr null, ptr %.053, align 8
   %51 = load ptr, ptr %8, align 8
-  %52 = call fastcc i32 @_feature_string2list(ptr noundef %51, ptr noundef %.sink, ptr noundef nonnull %.053, ptr noundef nonnull %6)
+  %52 = call fastcc i32 @_feature_string2list(ptr noundef %51, ptr noundef %.sink, ptr noundef %.053, ptr noundef %6)
   %.not70 = icmp eq i32 %52, 0
   br i1 %.not70, label %56, label %53
 
@@ -7719,7 +7719,7 @@ _valid_batch_features.exit:                       ; preds = %._crit_edge.thread.
 
 136:                                              ; preds = %_valid_batch_features.exit.thread77, %_valid_batch_features.exit, %66
   %137 = load ptr, ptr %.053, align 8
-  %138 = call fastcc i32 @_valid_feature_list(ptr noundef %0, ptr noundef %137, i1 noundef zeroext %37, ptr noundef %.sink, ptr noundef nonnull %.054, i1 noundef zeroext %2)
+  %138 = call fastcc i32 @_valid_feature_list(ptr noundef %0, ptr noundef %137, i1 noundef zeroext %37, ptr noundef %.sink, ptr noundef %.054, i1 noundef zeroext %2)
   %.not74 = icmp eq i32 %138, 0
   %spec.select = select i1 %.not74, i32 0, i32 %.051
   br label %139
@@ -7737,7 +7737,7 @@ _valid_batch_features.exit:                       ; preds = %._crit_edge.thread.
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %strchr260 = tail call ptr @strchr(ptr nonnull dereferenceable(1) %0, i32 44)
@@ -8134,7 +8134,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i32 @job_features_set2str(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %8, label %12
 
@@ -8239,7 +8239,7 @@ _valid_node_feature.exit.thread:                  ; preds = %41
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.130, ptr noundef %3, ptr noundef %49, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.130, ptr noundef %3, ptr noundef %49, ptr noundef nonnull %4) #16
   br label %50
 
 50:                                               ; preds = %_valid_node_feature.exit.thread, %48, %45, %31, %._crit_edge105
@@ -8261,7 +8261,7 @@ _valid_node_feature.exit.thread:                  ; preds = %41
 
 59:                                               ; preds = %56
   %60 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.131, ptr noundef %3, ptr noundef %60, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.131, ptr noundef %3, ptr noundef %60, ptr noundef nonnull %4) #16
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %53, %59, %56
@@ -8288,7 +8288,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.132, ptr noundef %3, ptr noundef %71, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.132, ptr noundef %3, ptr noundef %71, ptr noundef nonnull %4) #16
   br label %72
 
 72:                                               ; preds = %67, %70, %64, %61
@@ -8318,7 +8318,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.131, ptr noundef %3, ptr noundef %85, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.131, ptr noundef %3, ptr noundef %85, ptr noundef nonnull %4) #16
   br label %86
 
 86:                                               ; preds = %81, %84, %78, %77
@@ -8338,7 +8338,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %21, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.132, ptr noundef %3, ptr noundef %94, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.132, ptr noundef %3, ptr noundef %94, ptr noundef nonnull %4) #16
   br label %95
 
 95:                                               ; preds = %74, %86, %87, %93, %90, %72
@@ -8366,7 +8366,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
   br i1 %103, label %104, label %115
 
 104:                                              ; preds = %101
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.133, ptr noundef %3, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.133, ptr noundef %3, ptr noundef nonnull %4) #16
   br label %115
 
 105:                                              ; preds = %._crit_edge
@@ -8378,7 +8378,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
   br i1 %107, label %109, label %115
 
 109:                                              ; preds = %108
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.134, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.134, ptr noundef nonnull %4) #16
   br label %115
 
 110:                                              ; preds = %105
@@ -8388,14 +8388,14 @@ thread-pre-split:                                 ; preds = %53, %59, %56
   br i1 %107, label %112, label %115
 
 112:                                              ; preds = %111
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.135, ptr noundef %3, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.135, ptr noundef %3, ptr noundef nonnull %4) #16
   br label %115
 
 113:                                              ; preds = %110
   br i1 %107, label %114, label %115
 
 114:                                              ; preds = %113
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef %3, ptr noundef %4) #16
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.136, ptr noundef %3, ptr noundef nonnull %4) #16
   br label %115
 
 115:                                              ; preds = %104, %101, %112, %111, %114, %113, %108, %109, %8, %11

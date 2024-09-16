@@ -916,9 +916,9 @@ sw.bb14.i.i.i:                                    ; preds = %vmxnet3_setup_tx_of
   br label %sw.epilog19.sink.split.i.i.i
 
 sw.epilog19.sink.split.i.i.i:                     ; preds = %sw.bb14.i.i.i, %if.then.i.i.i, %if.end.i.i
-  %.sink22.i.i.i = phi i64 [ 8, %if.then.i.i.i ], [ 64, %sw.bb14.i.i.i ], [ 72, %if.end.i.i ]
+  %.sink23.i.i.i = phi i64 [ 8, %if.then.i.i.i ], [ 64, %sw.bb14.i.i.i ], [ 72, %if.end.i.i ]
   %call.sink.i.i.i = phi i64 [ %call.i931.i.i, %if.then.i.i.i ], [ 1, %sw.bb14.i.i.i ], [ 1, %if.end.i.i ]
-  %TSOBytesTxOK.i.i.i = getelementptr inbounds i8, ptr %txq_stats.i34.i.i, i64 %.sink22.i.i.i
+  %TSOBytesTxOK.i.i.i = getelementptr inbounds i8, ptr %txq_stats.i34.i.i, i64 %.sink23.i.i.i
   br label %if.end29.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then17.i

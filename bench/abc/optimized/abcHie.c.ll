@@ -1239,12 +1239,12 @@ Vec_IntFillExtra.exit341:                         ; preds = %405, %._crit_edge.i
   br i1 %.not.i312, label %Abc_ObjMvVarNum.exit, label %573
 
 573:                                              ; preds = %566
-  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
+  %574 = call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %561)
   %.not3.i = icmp eq ptr %574, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %575
 
 575:                                              ; preds = %573
-  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %561)
+  %576 = call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %561)
   %577 = load i32, ptr %576, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -2872,12 +2872,12 @@ Vec_IntFillExtra.exit366:                         ; preds = %465, %._crit_edge.i
   br i1 %.not.i336, label %Abc_ObjMvVarNum.exit, label %640
 
 640:                                              ; preds = %633
-  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
+  %641 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %628)
   %.not3.i = icmp eq ptr %641, null
   br i1 %.not3.i, label %Abc_ObjMvVarNum.exit, label %642
 
 642:                                              ; preds = %640
-  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef nonnull readonly %628)
+  %643 = tail call fastcc ptr @Abc_ObjMvVar(ptr noundef readonly %628)
   %644 = load i32, ptr %643, align 4
   br label %Abc_ObjMvVarNum.exit
 
@@ -4892,7 +4892,7 @@ define ptr @Abc_NtkInsertNewLogic(ptr nocapture noundef %0, ptr noundef %1) loca
 declare ptr @Abc_NtkFindNet(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -4995,7 +4995,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @Abc_ObjMvVar(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 432
   %.val3 = load ptr, ptr %3, align 8

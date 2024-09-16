@@ -1907,7 +1907,7 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit: ; preds = %22, %32
 
 .lr.ph:                                           ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit
   %38 = phi ptr [ %89, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit ], [ %37, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit ]
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_119checkExternalGroupsERKSt10shared_ptrINS_20SelectionTreeElementEEiPNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %.0, ptr noundef nonnull %4)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_119checkExternalGroupsERKSt10shared_ptrINS_20SelectionTreeElementEEiPNS_20ExceptionInitializerE(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %.0, ptr noundef %4)
           to label %39 unwind label %90
 
 39:                                               ; preds = %.lr.ph
@@ -4390,7 +4390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_119checkExternalGroupsERKSt10shared_ptrINS_20SelectionTreeElementEEiPNS_20ExceptionInitializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_119checkExternalGroupsERKSt10shared_ptrINS_20SelectionTreeElementEEiPNS_20ExceptionInitializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = load i32, ptr %5, align 8
@@ -5401,7 +5401,7 @@ _ZNSt10shared_ptrIvEC2IvPFvPvEvEEPT_T0_.exit:     ; preds = %6
   br i1 %.not, label %82, label %79
 
 79:                                               ; preds = %78
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull %77, ptr noundef nonnull %44, ptr noundef %46, i64 noundef %55, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %77, ptr noundef nonnull %44, ptr noundef %46, i64 noundef %55, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true)
           to label %82 unwind label %.loopexit.split-lp174
 
 80:                                               ; preds = %311, %47, %45, %_ZNSt10shared_ptrIvEC2IvPFvPvEvEEPT_T0_.exit
@@ -5577,7 +5577,7 @@ _ZNSt10shared_ptrIvEC2IvPFvPvEvEEPT_T0_.exit:     ; preds = %6
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %127
-  invoke fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull %77, ptr noundef %44, ptr noundef %46, i64 noundef %55, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %77, ptr noundef %44, ptr noundef %46, i64 noundef %55, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext false)
           to label %.backedge.backedge unwind label %.loopexit.split-lp157.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .backedge.backedge:                               ; preds = %130, %221, %_ZN3gmx12_GLOBAL__N_19printHelpEPNS_10TextWriterEP23gmx_ana_selcollection_tRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
@@ -6472,7 +6472,7 @@ declare void @_Z24_gmx_sel_yypstate_deleteP17_gmx_sel_yypstate(ptr noundef) #2
 declare noundef ptr @_Z32_gmx_sel_lexer_get_status_writerPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_118printCurrentStatusEPNS_10TextWriterEP23gmx_ana_selcollection_tP19gmx_ana_indexgrps_tmiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

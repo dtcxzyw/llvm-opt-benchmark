@@ -9143,7 +9143,7 @@ return:                                           ; preds = %for.cond, %while.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -31, 3) i32 @DecodeContextMap(i64 noundef %context_map_size, ptr nocapture noundef %num_htrees, ptr nocapture noundef %context_map_arg, ptr noundef %s) unnamed_addr #1 {
+define internal fastcc range(i32 -31, 3) i32 @DecodeContextMap(i64 noundef range(i64 0, -3) %context_map_size, ptr nocapture noundef %num_htrees, ptr nocapture noundef %context_map_arg, ptr noundef %s) unnamed_addr #1 {
 entry:
   %br1 = getelementptr inbounds i8, ptr %s, i64 8
   %substate_context_map = getelementptr inbounds i8, ptr %s, i64 852

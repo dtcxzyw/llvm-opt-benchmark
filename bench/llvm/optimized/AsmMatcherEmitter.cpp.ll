@@ -1675,7 +1675,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117AsmMatcherEmitter3runERN4llvm11r
   %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %113, %109 ]
   %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
   %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %115 = shl nuw nsw i64 %storemerge26.i.i.i.i.i, 3
+  %115 = shl i64 %storemerge26.i.i.i.i.i, 3
   %116 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %115, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i.i = icmp eq ptr %116, null
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %117
@@ -32308,7 +32308,7 @@ _ZN4llvm16CachedHashStringD2Ev.exit365:           ; preds = %927, %927, %927, %9
 
 938:                                              ; preds = %_ZN4llvm16CachedHashStringD2Ev.exit365
   %939 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %118) #21
-  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr %920, i64 %921)
+  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %75, ptr %920, i64 %921)
   %940 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %75, i64 noundef 0, ptr noundef nonnull @.str.573) #21, !noalias !324
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 8 dereferenceable(32) %940) #21
   %941 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %74) #21
@@ -32514,7 +32514,7 @@ _ZNSt6vectorIhSaIhEE9push_backEOh.exit377:        ; preds = %991, %_ZNSt6vectorI
 
 _ZN4llvm11raw_ostreamlsEPKc.exit380:              ; preds = %1020, %1022
   %.0.i.i379 = phi ptr [ %1021, %1020 ], [ %63, %1022 ]
-  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %76, ptr %920, i64 %921)
+  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %76, ptr %920, i64 %921)
   %1025 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #21
   %1026 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #21
   %1027 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i379, ptr noundef %1025, i64 noundef %1026) #21
@@ -32912,7 +32912,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
 1189:                                             ; preds = %1182, %1177
   %1190 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #21
   %1191 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %86) #21
-  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %90, ptr %1190, i64 %1191)
+  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %90, ptr %1190, i64 %1191)
   %1192 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %90) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49)
@@ -35040,7 +35040,7 @@ _ZN4llvm6itostrB5cxx11El.exit564:                 ; preds = %_ZN4llvm6utostrB5cx
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #21
   %2133 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
   %2134 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %102) #21
-  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr %2133, i64 %2134)
+  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %104, ptr %2133, i64 %2134)
   %2135 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(32) %104) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #21
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %35)
@@ -40392,7 +40392,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN12_GLOBAL__N_19C
   %139 = load ptr, ptr %118, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %141 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull @.str.453) #21
-  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %1, i64 %2)
+  call fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %9, ptr %1, i64 %2)
   %142 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.437) #21, !noalias !480
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %142) #21
   %143 = load ptr, ptr %118, align 8
@@ -47435,7 +47435,7 @@ declare noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef non
 declare noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24emitMnemonicAliasVariantRN4llvm11raw_ostreamERKN12_GLOBAL__N_114AsmMatcherInfoERSt6vectorIPNS_6RecordESaIS8_EEjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(320) %1, ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL24emitMnemonicAliasVariantRN4llvm11raw_ostreamERKN12_GLOBAL__N_114AsmMatcherInfoERSt6vectorIPNS_6RecordESaIS8_EEjNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(320) %1, ptr readonly %.0.val, ptr readnone %.8.val, i32 noundef range(i32 0, 3) %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50860,7 +50860,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %25, ptr %5, align 8
   store ptr %27, ptr %21, align 8
   store ptr %29, ptr %22, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %18, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %18, ptr noundef %5)
   %30 = load ptr, ptr %5, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit10.i.i.i, label %31
@@ -50907,7 +50907,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit10.i.i.i: ; preds = %31, %23
   store ptr %41, ptr %4, align 8
   store ptr %43, ptr %37, align 8
   store ptr %45, ptr %38, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %51, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %51, ptr noundef %4)
   %52 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i10.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i10.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_SK_SK_RT0_.exit.i11.i", label %53
@@ -51509,7 +51509,7 @@ _ZN4llvmgtENS_9StringRefES0_.exit.i.i25.i.i:      ; preds = %_ZN4llvmltENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt6vectorIPN4llvm6RecordESaIS5_EES2_IS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_117AsmMatcherEmitter3runERNS3_11raw_ostreamEE3$_1EEEvT_T0_SL_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

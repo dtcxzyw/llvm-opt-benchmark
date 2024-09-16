@@ -1091,7 +1091,7 @@ define internal noundef range(i32 -22, 1) i32 @checksum(ptr noundef %0, ptr noun
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @do_validate_mem(ptr noundef %0, i64 noundef %1, i64 noundef range(i64 0, 4294967295) %2, ptr noundef readonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 368
@@ -1484,7 +1484,7 @@ define internal i64 @pcmcia_align(ptr nocapture noundef readonly %0, ptr nocaptu
 declare dso_local i32 @allocate_resource(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @adjust_memory(ptr noundef %0, i32 noundef range(i32 1, 3) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 368
   %6 = load ptr, ptr %5, align 8
   %7 = sub i64 %3, %2

@@ -756,12 +756,12 @@ if.end:                                           ; preds = %lor.lhs.false8
   br i1 %tobool.not.i, label %err, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc7.i = add nuw nsw i64 %i.04.i, 1
+  %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, 2
   br i1 %exitcond.not.i, label %if.end15, label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %if.end, %for.cond.i
-  %i.04.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %if.end ]
+  %i.03.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %if.end ]
   %4 = load i64, ptr @multi_num_threads, align 8
   %inc.i = add i64 %4, 1
   store i64 %inc.i, ptr @multi_num_threads, align 8
@@ -779,24 +779,24 @@ if.end15:                                         ; preds = %for.cond.i
   %cmp3.not.i = icmp eq i64 %5, 0
   br i1 %cmp3.not.i, label %lor.lhs.false18, label %for.body.i4
 
-for.cond.i10:                                     ; preds = %for.body.i4
-  %inc.i11 = add nuw i64 %i.04.i5, 1
+for.cond.i9:                                      ; preds = %for.body.i4
+  %inc.i10 = add nuw i64 %i.04.i, 1
   %6 = load i64, ptr @multi_num_threads, align 8
-  %cmp.i12 = icmp ult i64 %inc.i11, %6
-  br i1 %cmp.i12, label %for.body.i4, label %lor.lhs.false18, !llvm.loop !8
+  %cmp.i11 = icmp ult i64 %inc.i10, %6
+  br i1 %cmp.i11, label %for.body.i4, label %lor.lhs.false18, !llvm.loop !8
 
-for.body.i4:                                      ; preds = %if.end15, %for.cond.i10
-  %i.04.i5 = phi i64 [ %inc.i11, %for.cond.i10 ], [ 0, %if.end15 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i5
+for.body.i4:                                      ; preds = %if.end15, %for.cond.i9
+  %i.04.i = phi i64 [ %inc.i10, %for.cond.i9 ], [ 0, %if.end15 ]
+  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %7 = load i64, ptr %arrayidx.i, align 8
-  %call.i.i6 = tail call i32 @pthread_join(i64 noundef %7, ptr noundef null) #8
-  %cmp.i.i7 = icmp eq i32 %call.i.i6, 0
-  %conv.i.i8 = zext i1 %cmp.i.i7 to i32
-  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i8) #8
-  %tobool.not.i9 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i9, label %err, label %for.cond.i10
+  %call.i.i5 = tail call i32 @pthread_join(i64 noundef %7, ptr noundef null) #8
+  %cmp.i.i6 = icmp eq i32 %call.i.i5, 0
+  %conv.i.i7 = zext i1 %cmp.i.i6 to i32
+  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i7) #8
+  %tobool.not.i8 = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i8, label %err, label %for.cond.i9
 
-lor.lhs.false18:                                  ; preds = %for.cond.i10, %if.end15
+lor.lhs.false18:                                  ; preds = %for.cond.i9, %if.end15
   %.b = load i1, ptr @multi_success, align 4
   %conv20 = zext i1 %.b to i32
   %call21 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 587, ptr noundef nonnull @.str.40, i32 noundef %conv20) #8
@@ -812,18 +812,18 @@ err:                                              ; preds = %for.body.i, %for.bo
   tail call void @EVP_MD_free(ptr noundef %sha256.0) #8
   %8 = load ptr, ptr @multi_provider, align 16
   %cmp.not3.i = icmp eq ptr %8, null
-  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i14
+  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i13
 
-for.body.i14:                                     ; preds = %err, %for.body.i14
-  %9 = phi ptr [ %10, %for.body.i14 ], [ %8, %err ]
-  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i14 ], [ @multi_provider, %err ]
-  %call.i15 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %9) #8
+for.body.i13:                                     ; preds = %err, %for.body.i13
+  %9 = phi ptr [ %10, %for.body.i13 ], [ %8, %err ]
+  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i13 ], [ @multi_provider, %err ]
+  %call.i14 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %9) #8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %10 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i14, !llvm.loop !9
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i13, !llvm.loop !9
 
-thead_teardown_libctx.exit:                       ; preds = %for.body.i14, %err
+thead_teardown_libctx.exit:                       ; preds = %for.body.i13, %err
   %11 = load ptr, ptr @multi_libctx, align 8
   tail call void @OSSL_LIB_CTX_free(ptr noundef %11) #8
   store i1 true, ptr @multi_success, align 4
@@ -901,7 +901,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly %main_func, i64 noundef %num_threads, ptr noundef %thread_func, i32 noundef %libctx, ptr noundef %providers) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly %main_func, i64 noundef range(i64 2, 11) %num_threads, ptr noundef %thread_func, i32 noundef range(i32 0, 2) %libctx, ptr noundef %providers) unnamed_addr #1 {
 entry:
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8
@@ -917,19 +917,15 @@ lor.lhs.false:                                    ; preds = %entry
   %add.i = add i64 %0, %num_threads
   %call.i = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.18, i32 noundef 330, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %add.i, i64 noundef 10) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %err, label %for.cond.preheader.i
-
-for.cond.preheader.i:                             ; preds = %lor.lhs.false
-  %cmp3.not.i = icmp eq i64 %num_threads, 0
-  br i1 %cmp3.not.i, label %if.end, label %for.body.i
+  br i1 %tobool.not.i, label %err, label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc7.i = add nuw i64 %i.04.i, 1
+  %inc7.i = add nuw nsw i64 %i.03.i, 1
   %exitcond.not.i = icmp eq i64 %inc7.i, %num_threads
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !7
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
-  %i.04.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %lor.lhs.false, %for.cond.i
+  %i.03.i = phi i64 [ %inc7.i, %for.cond.i ], [ 0, %lor.lhs.false ]
   %1 = load i64, ptr @multi_num_threads, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr @multi_num_threads, align 8
@@ -941,7 +937,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %err, label %for.cond.i
 
-if.end:                                           ; preds = %for.cond.i, %for.cond.preheader.i
+if.end:                                           ; preds = %for.cond.i
   %cmp.not = icmp eq ptr %main_func, null
   br i1 %cmp.not, label %if.end4, label %if.then3
 
@@ -951,27 +947,27 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %2 = load i64, ptr @multi_num_threads, align 8
-  %cmp3.not.i2 = icmp eq i64 %2, 0
-  br i1 %cmp3.not.i2, label %lor.lhs.false7, label %for.body.i3
+  %cmp3.not.i = icmp eq i64 %2, 0
+  br i1 %cmp3.not.i, label %lor.lhs.false7, label %for.body.i2
 
-for.cond.i9:                                      ; preds = %for.body.i3
-  %inc.i10 = add nuw i64 %i.04.i4, 1
+for.cond.i7:                                      ; preds = %for.body.i2
+  %inc.i8 = add nuw i64 %i.04.i, 1
   %3 = load i64, ptr @multi_num_threads, align 8
-  %cmp.i = icmp ult i64 %inc.i10, %3
-  br i1 %cmp.i, label %for.body.i3, label %lor.lhs.false7, !llvm.loop !8
+  %cmp.i = icmp ult i64 %inc.i8, %3
+  br i1 %cmp.i, label %for.body.i2, label %lor.lhs.false7, !llvm.loop !8
 
-for.body.i3:                                      ; preds = %if.end4, %for.cond.i9
-  %i.04.i4 = phi i64 [ %inc.i10, %for.cond.i9 ], [ 0, %if.end4 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i4
+for.body.i2:                                      ; preds = %if.end4, %for.cond.i7
+  %i.04.i = phi i64 [ %inc.i8, %for.cond.i7 ], [ 0, %if.end4 ]
+  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %4 = load i64, ptr %arrayidx.i, align 8
-  %call.i.i5 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef null) #8
-  %cmp.i.i6 = icmp eq i32 %call.i.i5, 0
-  %conv.i.i7 = zext i1 %cmp.i.i6 to i32
-  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i7) #8
-  %tobool.not.i8 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i8, label %err, label %for.cond.i9
+  %call.i.i3 = tail call i32 @pthread_join(i64 noundef %4, ptr noundef null) #8
+  %cmp.i.i4 = icmp eq i32 %call.i.i3, 0
+  %conv.i.i5 = zext i1 %cmp.i.i4 to i32
+  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i5) #8
+  %tobool.not.i6 = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i6, label %err, label %for.cond.i7
 
-lor.lhs.false7:                                   ; preds = %for.cond.i9, %if.end4
+lor.lhs.false7:                                   ; preds = %for.cond.i7, %if.end4
   %.b = load i1, ptr @multi_success, align 4
   %conv = zext i1 %.b to i32
   %call9 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 355, ptr noundef nonnull @.str.40, i32 noundef %conv) #8
@@ -979,22 +975,22 @@ lor.lhs.false7:                                   ; preds = %for.cond.i9, %if.en
   %spec.select = zext i1 %tobool10.not to i32
   br label %err
 
-err:                                              ; preds = %for.body.i, %for.body.i3, %lor.lhs.false, %lor.lhs.false7, %entry
-  %testresult.0 = phi i32 [ 0, %entry ], [ %spec.select, %lor.lhs.false7 ], [ 0, %lor.lhs.false ], [ 0, %for.body.i3 ], [ 0, %for.body.i ]
+err:                                              ; preds = %for.body.i, %for.body.i2, %lor.lhs.false, %lor.lhs.false7, %entry
+  %testresult.0 = phi i32 [ 0, %entry ], [ %spec.select, %lor.lhs.false7 ], [ 0, %lor.lhs.false ], [ 0, %for.body.i2 ], [ 0, %for.body.i ]
   %5 = load ptr, ptr @multi_provider, align 16
   %cmp.not3.i = icmp eq ptr %5, null
-  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i12
+  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i10
 
-for.body.i12:                                     ; preds = %err, %for.body.i12
-  %6 = phi ptr [ %7, %for.body.i12 ], [ %5, %err ]
-  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i12 ], [ @multi_provider, %err ]
-  %call.i13 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
+for.body.i10:                                     ; preds = %err, %for.body.i10
+  %6 = phi ptr [ %7, %for.body.i10 ], [ %5, %err ]
+  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i10 ], [ @multi_provider, %err ]
+  %call.i11 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %6) #8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %7 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %7, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i12, !llvm.loop !9
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i10, !llvm.loop !9
 
-thead_teardown_libctx.exit:                       ; preds = %for.body.i12, %err
+thead_teardown_libctx.exit:                       ; preds = %for.body.i10, %err
   %8 = load ptr, ptr @multi_libctx, align 8
   tail call void @OSSL_LIB_CTX_free(ptr noundef %8) #8
   store i1 true, ptr @multi_success, align 4
@@ -1034,7 +1030,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef range(i32 0, 2) %libctx, ptr noundef readonly %providers) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %libctx, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -1486,44 +1482,44 @@ for.cond.i:                                       ; preds = %for.body.i.preheade
   %add.i2 = add i64 %4, 1
   %call.i3 = tail call i32 @test_size_t_le(ptr noundef nonnull @.str.18, i32 noundef 330, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %add.i2, i64 noundef 10) #8
   %tobool.not.i4 = icmp eq i32 %call.i3, 0
-  br i1 %tobool.not.i4, label %err, label %for.body.i6.preheader
+  br i1 %tobool.not.i4, label %err, label %for.body.i5.preheader
 
-for.body.i6.preheader:                            ; preds = %for.cond.i
+for.body.i5.preheader:                            ; preds = %for.cond.i
   %5 = load i64, ptr @multi_num_threads, align 8
-  %inc.i8 = add i64 %5, 1
-  store i64 %inc.i8, ptr @multi_num_threads, align 8
-  %add.ptr.i9 = getelementptr inbounds i64, ptr @multi_threads, i64 %5
-  %call.i.i10 = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i9, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %worker) #8
-  %cmp.i.i11 = icmp eq i32 %call.i.i10, 0
-  %conv.i.i12 = zext i1 %cmp.i.i11 to i32
-  %call3.i13 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 334, ptr noundef nonnull @.str.47, i32 noundef %conv.i.i12) #8
-  %tobool4.not.i14 = icmp eq i32 %call3.i13, 0
-  br i1 %tobool4.not.i14, label %err, label %for.cond.i15
+  %inc.i7 = add i64 %5, 1
+  store i64 %inc.i7, ptr @multi_num_threads, align 8
+  %add.ptr.i8 = getelementptr inbounds i64, ptr @multi_threads, i64 %5
+  %call.i.i9 = tail call i32 @pthread_create(ptr noundef nonnull %add.ptr.i8, ptr noundef null, ptr noundef nonnull @thread_run, ptr noundef %worker) #8
+  %cmp.i.i10 = icmp eq i32 %call.i.i9, 0
+  %conv.i.i11 = zext i1 %cmp.i.i10 to i32
+  %call3.i12 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 334, ptr noundef nonnull @.str.47, i32 noundef %conv.i.i11) #8
+  %tobool4.not.i13 = icmp eq i32 %call3.i12, 0
+  br i1 %tobool4.not.i13, label %err, label %for.cond.i14
 
-for.cond.i15:                                     ; preds = %for.body.i6.preheader
+for.cond.i14:                                     ; preds = %for.body.i5.preheader
   tail call void @thread_shared_evp_pkey()
   %6 = load i64, ptr @multi_num_threads, align 8
   %cmp3.not.i = icmp eq i64 %6, 0
-  br i1 %cmp3.not.i, label %lor.lhs.false13, label %for.body.i20
+  br i1 %cmp3.not.i, label %lor.lhs.false13, label %for.body.i19
 
-for.cond.i26:                                     ; preds = %for.body.i20
-  %inc.i27 = add nuw i64 %i.04.i21, 1
+for.cond.i24:                                     ; preds = %for.body.i19
+  %inc.i25 = add nuw i64 %i.04.i, 1
   %7 = load i64, ptr @multi_num_threads, align 8
-  %cmp.i = icmp ult i64 %inc.i27, %7
-  br i1 %cmp.i, label %for.body.i20, label %lor.lhs.false13, !llvm.loop !8
+  %cmp.i = icmp ult i64 %inc.i25, %7
+  br i1 %cmp.i, label %for.body.i19, label %lor.lhs.false13, !llvm.loop !8
 
-for.body.i20:                                     ; preds = %for.cond.i15, %for.cond.i26
-  %i.04.i21 = phi i64 [ %inc.i27, %for.cond.i26 ], [ 0, %for.cond.i15 ]
-  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i21
+for.body.i19:                                     ; preds = %for.cond.i14, %for.cond.i24
+  %i.04.i = phi i64 [ %inc.i25, %for.cond.i24 ], [ 0, %for.cond.i14 ]
+  %arrayidx.i = getelementptr inbounds [10 x i64], ptr @multi_threads, i64 0, i64 %i.04.i
   %8 = load i64, ptr %arrayidx.i, align 8
-  %call.i.i22 = tail call i32 @pthread_join(i64 noundef %8, ptr noundef null) #8
-  %cmp.i.i23 = icmp eq i32 %call.i.i22, 0
-  %conv.i.i24 = zext i1 %cmp.i.i23 to i32
-  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i24) #8
-  %tobool.not.i25 = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i25, label %err, label %for.cond.i26
+  %call.i.i20 = tail call i32 @pthread_join(i64 noundef %8, ptr noundef null) #8
+  %cmp.i.i21 = icmp eq i32 %call.i.i20, 0
+  %conv.i.i22 = zext i1 %cmp.i.i21 to i32
+  %call2.i = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 321, ptr noundef nonnull @.str.48, i32 noundef %conv.i.i22) #8
+  %tobool.not.i23 = icmp eq i32 %call2.i, 0
+  br i1 %tobool.not.i23, label %err, label %for.cond.i24
 
-lor.lhs.false13:                                  ; preds = %for.cond.i26, %for.cond.i15
+lor.lhs.false13:                                  ; preds = %for.cond.i24, %for.cond.i14
   %.b1 = load i1, ptr @multi_success, align 4
   %conv = zext i1 %.b1 to i32
   %call14 = tail call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 536, ptr noundef nonnull @.str.40, i32 noundef %conv) #8
@@ -1531,24 +1527,24 @@ lor.lhs.false13:                                  ; preds = %for.cond.i26, %for.
   %spec.select = zext i1 %tobool15.not to i32
   br label %err
 
-err:                                              ; preds = %for.body.i20, %for.body.i.preheader, %for.body.i6.preheader, %for.cond.i, %lor.lhs.false5, %lor.lhs.false13, %entry, %lor.lhs.false
-  %testresult.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false13 ], [ 0, %lor.lhs.false5 ], [ 0, %for.cond.i ], [ 0, %for.body.i6.preheader ], [ 0, %for.body.i.preheader ], [ 0, %for.body.i20 ]
+err:                                              ; preds = %for.body.i19, %for.body.i.preheader, %for.body.i5.preheader, %for.cond.i, %lor.lhs.false5, %lor.lhs.false13, %entry, %lor.lhs.false
+  %testresult.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %entry ], [ %spec.select, %lor.lhs.false13 ], [ 0, %lor.lhs.false5 ], [ 0, %for.cond.i ], [ 0, %for.body.i5.preheader ], [ 0, %for.body.i.preheader ], [ 0, %for.body.i19 ]
   %9 = load ptr, ptr @shared_evp_pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %9) #8
   %10 = load ptr, ptr @multi_provider, align 16
   %cmp.not3.i = icmp eq ptr %10, null
-  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i29
+  br i1 %cmp.not3.i, label %thead_teardown_libctx.exit, label %for.body.i27
 
-for.body.i29:                                     ; preds = %err, %for.body.i29
-  %11 = phi ptr [ %12, %for.body.i29 ], [ %10, %err ]
-  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i29 ], [ @multi_provider, %err ]
-  %call.i30 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %11) #8
+for.body.i27:                                     ; preds = %err, %for.body.i27
+  %11 = phi ptr [ %12, %for.body.i27 ], [ %10, %err ]
+  %p.04.i = phi ptr [ %incdec.ptr.i, %for.body.i27 ], [ @multi_provider, %err ]
+  %call.i28 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef nonnull %11) #8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.04.i, i64 8
   %12 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp.not.i = icmp eq ptr %12, null
-  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i29, !llvm.loop !9
+  br i1 %cmp.not.i, label %thead_teardown_libctx.exit, label %for.body.i27, !llvm.loop !9
 
-thead_teardown_libctx.exit:                       ; preds = %for.body.i29, %err
+thead_teardown_libctx.exit:                       ; preds = %for.body.i27, %err
   %13 = load ptr, ptr @multi_libctx, align 8
   tail call void @OSSL_LIB_CTX_free(ptr noundef %13) #8
   store i1 true, ptr @multi_success, align 4

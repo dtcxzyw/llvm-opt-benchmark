@@ -560,7 +560,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %.fr128 = freeze i32 %22
   %23 = and i32 %.fr128, 65535
   %24 = icmp eq i32 %23, 0
-  %25 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %23)
+  %25 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %23)
   %26 = icmp ugt i32 %25, 1
   br i1 %24, label %..critedge2_crit_edge.us, label %.lr.ph.split.us121.preheader
 
@@ -582,7 +582,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %or.cond104.us, label %101, label %34
 
 34:                                               ; preds = %.lr.ph.split.us121
-  %35 = tail call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %29)
+  %35 = tail call range(i32 1, 17) i32 @llvm.ctpop.i32(i32 %29)
   %36 = icmp ugt i32 %35, 1
   %or.cond111.us = select i1 %26, i1 true, i1 %36
   br i1 %or.cond111.us, label %37, label %101
@@ -603,7 +603,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %50 = add nuw nsw i32 %49, %47
   %51 = and i32 %50, 15
   %52 = lshr i32 %50, 8
-  %53 = add nuw nsw i32 %52, %51
+  %53 = add nuw nsw i32 %51, %52
   %54 = lshr i32 %38, 16
   %55 = and i32 %54, %38
   %56 = and i32 %55, 21845
@@ -620,7 +620,7 @@ define void @Lpk_ComposeSets(ptr nocapture noundef readonly %0, ptr nocapture no
   %67 = add nuw nsw i32 %66, %64
   %68 = and i32 %67, 15
   %69 = lshr i32 %67, 8
-  %70 = add nuw nsw i32 %69, %68
+  %70 = add nuw nsw i32 %68, %69
   %71 = xor i32 %70, -1
   %72 = add nsw i32 %53, %71
   %73 = icmp slt i32 %72, 1

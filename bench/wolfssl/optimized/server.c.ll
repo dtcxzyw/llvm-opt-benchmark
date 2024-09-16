@@ -2374,7 +2374,7 @@ if.then.i386:                                     ; preds = %if.end561
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len15.i.i)
-  call fastcc void @build_addr(ptr noundef nonnull %addr.i.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
+  call fastcc void @build_addr(ptr noundef %addr.i.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
   %call.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #25
   %cmp6.i.i.i = icmp slt i32 %call.i.i.i, -1
   br i1 %cmp6.i.i.i, label %if.then2.i.i.i, label %tcp_socket.exit.i.i
@@ -2497,7 +2497,7 @@ if.then2.i:                                       ; preds = %if.end.i387
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i27.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on2.i28.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len22.i.i)
-  call fastcc void @build_addr(ptr noundef nonnull %addr.i26.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
+  call fastcc void @build_addr(ptr noundef %addr.i26.i, ptr noundef %cond.i.i, i16 noundef zeroext %port.2)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %on.i.i.i)
   %call1.i.i.i = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #25
   %cmp.i.i.i = icmp slt i32 %call1.i.i.i, -1
@@ -3152,7 +3152,7 @@ if.end688:                                        ; preds = %if.end688.sink.spli
   br i1 %or.cond31, label %if.then694, label %if.end697
 
 if.then694:                                       ; preds = %if.end688
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef nonnull %input)
+  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
   %call696 = call i32 @wolfSSL_get_error(ptr noundef %call490, i32 noundef 0) #25
   br label %if.end697
 
@@ -3185,7 +3185,7 @@ if.end714:                                        ; preds = %if.else713.split, %
   br i1 %tobool707.not, label %if.end744, label %if.then718
 
 if.then718:                                       ; preds = %if.end714
-  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef nonnull %input)
+  call fastcc void @ServerRead(ptr noundef %call490, ptr noundef %input)
   br label %if.end744
 
 if.else721:                                       ; preds = %if.end697
@@ -3663,7 +3663,7 @@ declare ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext, i8 noundef z
 declare ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ServerRead(ptr noundef %ssl, ptr noundef %input) unnamed_addr #0 {
+define internal fastcc void @ServerRead(ptr noundef %ssl, ptr noundef nonnull %input) unnamed_addr #0 {
 entry:
   %fds.i.i = alloca %struct.fd_set, align 8
   %errfds.i.i = alloca %struct.fd_set, align 8
@@ -3672,7 +3672,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %do.body.backedge, %entry
-  %call = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef %input, i32 noundef 31) #25
+  %call = call i32 @wolfSSL_read(ptr noundef %ssl, ptr noundef nonnull %input, i32 noundef 31) #25
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -3832,7 +3832,7 @@ if.then53:                                        ; preds = %do.end50
   %idxprom = zext nneg i32 %ret.040 to i64
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %call54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.223, ptr noundef %input)
+  %call54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.223, ptr noundef nonnull %input)
   br label %if.end55
 
 if.end55:                                         ; preds = %if.then53, %do.end50
@@ -3842,7 +3842,7 @@ if.end55:                                         ; preds = %if.then53, %do.end5
 declare i32 @wolfSSL_update_keys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ServerWrite(ptr noundef %ssl, ptr noundef %output, i32 noundef %outputLen) unnamed_addr #0 {
+define internal fastcc void @ServerWrite(ptr noundef %ssl, ptr noundef %output, i32 noundef range(i32 22, 226) %outputLen) unnamed_addr #0 {
 entry:
   %buffer = alloca [80 x i8], align 16
   br label %do.body.outer
@@ -3953,7 +3953,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr nocapture noundef writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null

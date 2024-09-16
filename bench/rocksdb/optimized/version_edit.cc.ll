@@ -2913,7 +2913,7 @@ land.lhs.true7:                                   ; preds = %call2.i.noexc24
   store ptr %call2.i25, ptr %input, align 8
   store i64 %sub.ptr.sub.i23, ptr %size_.i.i.i, align 8
   %smallest = getelementptr inbounds i8, ptr %f, i64 40
-  %call9 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest)
+  %call9 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %smallest)
           to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
 
 invoke.cont8:                                     ; preds = %land.lhs.true7
@@ -2921,7 +2921,7 @@ invoke.cont8:                                     ; preds = %land.lhs.true7
 
 land.lhs.true10:                                  ; preds = %invoke.cont8
   %largest = getelementptr inbounds i8, ptr %f, i64 72
-  %call12 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %largest)
+  %call12 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %largest)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %land.lhs.true10
@@ -3466,7 +3466,7 @@ ehcleanup:                                        ; preds = %lpad7.body, %lpad4.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr nocapture noundef %input, ptr noundef %dst) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr nocapture noundef %input, ptr noundef nonnull %dst) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %parsed.i = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %ref.tmp.i = alloca %"class.rocksdb::Status", align 8
@@ -4088,7 +4088,7 @@ invoke.cont55:                                    ; preds = %call.i.i.i.noexc134
 
 land.lhs.true:                                    ; preds = %if.then.i124, %if.then2.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v.i)
-  %call58 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %key)
+  %call58 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %key)
           to label %invoke.cont57 unwind label %lpad3
 
 invoke.cont57:                                    ; preds = %land.lhs.true
@@ -4277,14 +4277,14 @@ land.lhs.true95:                                  ; preds = %call2.i.noexc216
   %sub.ptr.sub.i215 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i214
   store ptr %call2.i217, ptr %input, align 8
   store i64 %sub.ptr.sub.i215, ptr %size_.i.i, align 8
-  %call97 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
+  %call97 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %smallest173)
           to label %invoke.cont96 unwind label %lpad3
 
 invoke.cont96:                                    ; preds = %land.lhs.true95
   br i1 %call97, label %land.lhs.true98, label %_ZN7rocksdb5SliceC2EPKc.exit
 
 land.lhs.true98:                                  ; preds = %invoke.cont96
-  %call100 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %largest177)
+  %call100 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %largest177)
           to label %invoke.cont99 unwind label %lpad3
 
 invoke.cont99:                                    ; preds = %land.lhs.true98
@@ -4396,14 +4396,14 @@ land.lhs.true126:                                 ; preds = %call2.i.noexc263
   %sub.ptr.sub.i262 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i261
   store ptr %call2.i264, ptr %input, align 8
   store i64 %sub.ptr.sub.i262, ptr %size_.i.i, align 8
-  %call129 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
+  %call129 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %smallest173)
           to label %invoke.cont128 unwind label %lpad3
 
 invoke.cont128:                                   ; preds = %land.lhs.true126
   br i1 %call129, label %land.lhs.true130, label %_ZN7rocksdb5SliceC2EPKc.exit
 
 land.lhs.true130:                                 ; preds = %invoke.cont128
-  %call133 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %largest177)
+  %call133 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %largest177)
           to label %invoke.cont132 unwind label %lpad3
 
 invoke.cont132:                                   ; preds = %land.lhs.true130
@@ -4576,14 +4576,14 @@ land.lhs.true172:                                 ; preds = %call2.i.noexc363
   %sub.ptr.sub.i362 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i361
   store ptr %call2.i364, ptr %input, align 8
   store i64 %sub.ptr.sub.i362, ptr %size_.i.i, align 8
-  %call175 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %smallest173)
+  %call175 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %smallest173)
           to label %invoke.cont174 unwind label %lpad3
 
 invoke.cont174:                                   ; preds = %land.lhs.true172
   br i1 %call175, label %land.lhs.true176, label %_ZN7rocksdb5SliceC2EPKc.exit
 
 land.lhs.true176:                                 ; preds = %invoke.cont174
-  %call179 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef nonnull %largest177)
+  %call179 = invoke fastcc noundef zeroext i1 @_ZN7rocksdbL14GetInternalKeyEPNS_5SliceEPNS_11InternalKeyE(ptr noundef nonnull %input, ptr noundef %largest177)
           to label %invoke.cont178 unwind label %lpad3
 
 invoke.cont178:                                   ; preds = %land.lhs.true176

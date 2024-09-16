@@ -367,7 +367,7 @@ define dso_local i32 @cpuidle_enter_s2idle(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define internal fastcc void @enter_s2idle_proper(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #9 section ".noinstr.text" align 16 {
+define internal fastcc void @enter_s2idle_proper(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, -2147483648) %2) unnamed_addr #9 section ".noinstr.text" align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = zext nneg i32 %2 to i64
@@ -747,7 +747,7 @@ define internal fastcc void @tick_broadcast_exit() unnamed_addr #10 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_cpu_idle_miss(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #10 align 16 {
+define internal fastcc void @trace_cpu_idle_miss(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i1 noundef zeroext %2) unnamed_addr #10 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_cpu_idle_miss, i64 8), i32 2) #19
           to label %24 [label %4], !srcloc !43
 

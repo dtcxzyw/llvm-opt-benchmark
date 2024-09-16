@@ -951,9 +951,9 @@ UnquantizeRtt.exit:                               ; preds = %8, %12
   %24 = and i8 %23, 8
   %.not.i.not.not = icmp eq i8 %24, 0
   %25 = and i8 %23, 7
-  %narrow = add nuw nsw i8 %25, 1
+  %narrow.i = add nuw nsw i8 %25, 1
   %26 = select i1 %.not.i.not.not, double 1.000000e+00, double 5.000000e+00
-  %27 = uitofp nneg i8 %narrow to double
+  %27 = uitofp nneg i8 %narrow.i to double
   %28 = tail call double @pow(double noundef 1.000000e+01, double noundef %27) #6
   %29 = fmul double %28, %26
   %30 = load i32, ptr @hf_backoff, align 4
@@ -986,7 +986,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @lct_ext_decode(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_feccode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_feccode(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.fec_data_exchange, align 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #6
   %8 = tail call ptr @wmem_file_scope() #6

@@ -543,7 +543,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find(ptr noundef readonly %cid, ptr noundef readonly %cid_v2, i32 noundef %index, ptr noundef %certs) unnamed_addr #0 {
+define internal fastcc i32 @find(ptr noundef readonly %cid, ptr noundef readonly %cid_v2, i32 noundef range(i32 -2147483648, 2147483647) %index, ptr noundef %certs) unnamed_addr #0 {
 entry:
   %name = alloca [50 x i8], align 16
   %cert_digest = alloca [64 x i8], align 16

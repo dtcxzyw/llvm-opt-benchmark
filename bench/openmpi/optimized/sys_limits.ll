@@ -67,7 +67,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %20, label %21, label %.tail71.thread
 
 21:                                               ; preds = %.tail
-  %22 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %22 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef nonnull @.str, ptr noundef %2)
   %.not58 = icmp eq i32 %22, 0
   br i1 %.not58, label %25, label %23
 
@@ -79,7 +79,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   %26 = load i64, ptr %2, align 8
   %27 = trunc i64 %26 to i32
   store i32 %27, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 4), align 4
-  %28 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %28 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef nonnull @.str, ptr noundef %2)
   %.not59 = icmp eq i32 %28, 0
   br i1 %.not59, label %31, label %29
 
@@ -91,7 +91,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   %32 = load i64, ptr %2, align 8
   %33 = trunc i64 %32 to i32
   store i32 %33, ptr getelementptr inbounds (i8, ptr @prte_sys_limits, i64 8), align 8
-  %34 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef nonnull %2)
+  %34 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef nonnull @.str, ptr noundef %2)
   %.not60 = icmp eq i32 %34, 0
   br i1 %.not60, label %37, label %35
 
@@ -116,7 +116,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %.tail71.thread
-  %45 = call fastcc i32 @prte_setlimit(i32 noundef 4, ptr noundef %.046, ptr noundef nonnull %2)
+  %45 = call fastcc i32 @prte_setlimit(i32 noundef 4, ptr noundef %.046, ptr noundef %2)
   %.not57 = icmp eq i32 %45, 0
   br i1 %.not57, label %93, label %46
 
@@ -130,7 +130,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %50, label %51, label %57
 
 51:                                               ; preds = %48
-  %52 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef %.046, ptr noundef nonnull %2)
+  %52 = call fastcc i32 @prte_setlimit(i32 noundef 1, ptr noundef %.046, ptr noundef %2)
   %.not56 = icmp eq i32 %52, 0
   br i1 %.not56, label %55, label %53
 
@@ -149,7 +149,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %57
-  %61 = call fastcc i32 @prte_setlimit(i32 noundef 9, ptr noundef %.046, ptr noundef nonnull %2)
+  %61 = call fastcc i32 @prte_setlimit(i32 noundef 9, ptr noundef %.046, ptr noundef %2)
   %.not55 = icmp eq i32 %61, 0
   br i1 %.not55, label %93, label %62
 
@@ -163,7 +163,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %66, label %67, label %74
 
 67:                                               ; preds = %64
-  %68 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef %.046, ptr noundef nonnull %2)
+  %68 = call fastcc i32 @prte_setlimit(i32 noundef 7, ptr noundef %.046, ptr noundef %2)
   %.not54 = icmp eq i32 %68, 0
   br i1 %.not54, label %71, label %69
 
@@ -183,7 +183,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
-  %78 = call fastcc i32 @prte_setlimit(i32 noundef 3, ptr noundef %.046, ptr noundef nonnull %2)
+  %78 = call fastcc i32 @prte_setlimit(i32 noundef 3, ptr noundef %.046, ptr noundef %2)
   %.not53 = icmp eq i32 %78, 0
   br i1 %.not53, label %93, label %79
 
@@ -197,7 +197,7 @@ sub_0:                                            ; preds = %.lr.ph, %13
   br i1 %83, label %84, label %91
 
 84:                                               ; preds = %81
-  %85 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef %.046, ptr noundef nonnull %2)
+  %85 = call fastcc i32 @prte_setlimit(i32 noundef 6, ptr noundef %.046, ptr noundef %2)
   %.not52 = icmp eq i32 %85, 0
   br i1 %.not52, label %88, label %86
 
@@ -260,7 +260,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @prte_setlimit(i32 noundef range(i32 1, 10) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.rlimit, align 8
   %5 = alloca %struct.rlimit, align 8
   store i64 0, ptr %4, align 8

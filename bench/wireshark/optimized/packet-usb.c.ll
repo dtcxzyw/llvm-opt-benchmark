@@ -2017,7 +2017,7 @@ define hidden ptr @get_usb_iface_conv_info(ptr noundef %0, i8 noundef zeroext %1
 
 get_usb_conversation.exit:                        ; preds = %31, %22, %17, %10
   %.0 = phi ptr [ %21, %17 ], [ %16, %10 ], [ %35, %31 ], [ %30, %22 ]
-  %36 = tail call fastcc ptr @get_usb_conv_info(ptr noundef nonnull %.0)
+  %36 = tail call fastcc ptr @get_usb_conv_info(ptr noundef %.0)
   ret ptr %36
 }
 
@@ -2045,9 +2045,9 @@ define internal fastcc nonnull ptr @get_usb_conversation(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_usb_conv_info(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc ptr @get_usb_conv_info(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = load i32, ptr @proto_usb, align 4
-  %3 = tail call ptr @conversation_get_proto_data(ptr noundef %0, i32 noundef %2) #11
+  %3 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %0, i32 noundef %2) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %22
 
@@ -2079,7 +2079,7 @@ define internal fastcc ptr @get_usb_conv_info(ptr noundef %0) unnamed_addr #1 {
   %20 = getelementptr inbounds i8, ptr %6, i64 14
   store i16 0, ptr %20, align 2
   %21 = load i32, ptr @proto_usb, align 4
-  tail call void @conversation_add_proto_data(ptr noundef %0, i32 noundef %21, ptr noundef %6) #11
+  tail call void @conversation_add_proto_data(ptr noundef nonnull %0, i32 noundef %21, ptr noundef %6) #11
   br label %22
 
 22:                                               ; preds = %4, %1
@@ -2531,7 +2531,7 @@ sanitize_usb_max_packet_size.exit.thread:         ; preds = %122, %118, %136, %s
   br i1 %.not146, label %148, label %switch.lookup
 
 switch.lookup:                                    ; preds = %sanitize_usb_max_packet_size.exit.thread
-  %142 = call fastcc ptr @get_usb_conv_info(ptr noundef nonnull %.0135)
+  %142 = call fastcc ptr @get_usb_conv_info(ptr noundef %.0135)
   %143 = shl nuw nsw i8 %90, 3
   %switch.shiftamt = zext nneg i8 %143 to i32
   %switch.downshift = lshr i32 16973826, %switch.shiftamt
@@ -2794,7 +2794,6 @@ define hidden void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr nound
   %117 = tail call noalias ptr @wmem_alloc0(ptr noundef %116, i64 noundef 12) #11
   %118 = load ptr, ptr %115, align 8
   %119 = tail call noalias ptr @wmem_alloc0(ptr noundef %118, i64 noundef 12) #11
-  %.not.i = xor i1 %113, true
   %120 = zext i16 %.0257 to i32
   %..i = select i1 %113, i32 -1, i32 %120
   %.64.i = select i1 %113, i32 -1, i32 %spec.store.select
@@ -2849,7 +2848,7 @@ define hidden void @dissect_usb_common(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %.64.i, ptr %143, align 4
   %144 = getelementptr inbounds i8, ptr %1, i64 288
   store i32 %.66.i, ptr %144, align 8
-  %145 = zext i1 %.not.i to i32
+  %145 = xor i32 %114, 1
   %146 = getelementptr inbounds i8, ptr %1, i64 348
   store i32 %145, ptr %146, align 4
   %147 = load ptr, ptr %115, align 8
@@ -2951,7 +2950,7 @@ usb_set_addr.exit:                                ; preds = %proto_item_set_gene
 
 get_usb_conversation.exit:                        ; preds = %usb_set_addr.exit, %194
   %.0.i = phi ptr [ %198, %194 ], [ %193, %usb_set_addr.exit ]
-  %199 = tail call fastcc ptr @get_usb_conv_info(ptr noundef nonnull %.0.i)
+  %199 = tail call fastcc ptr @get_usb_conv_info(ptr noundef %.0.i)
   %200 = getelementptr inbounds i8, ptr %199, i64 8
   store i32 -1, ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %199, i64 12
@@ -5953,7 +5952,7 @@ is_usb_standard_setup_request.exit.thread:        ; preds = %110, %is_usb_standa
 
 161:                                              ; preds = %156, %151
   %.0160 = phi ptr [ %155, %151 ], [ %160, %156 ]
-  %162 = call fastcc ptr @get_usb_conv_info(ptr noundef nonnull %.0160)
+  %162 = call fastcc ptr @get_usb_conv_info(ptr noundef %.0160)
   %163 = getelementptr inbounds i8, ptr %162, i64 64
   store ptr %109, ptr %163, align 8
   br label %166

@@ -162,7 +162,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__46UsdGeom_GetPos
   store double 0.000000e+00, ptr %15, align 8
   store double 0.000000e+00, ptr %16, align 8
   store double 0.000000e+00, ptr %17, align 8
-  %40 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %3, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %5)
+  %40 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %3, ptr noundef nonnull %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %5)
   br i1 %40, label %115, label %41
 
 41:                                               ; preds = %10
@@ -460,7 +460,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit58: ; preds = %_Z
   br i1 %197, label %198, label %200
 
 198:                                              ; preds = %195
-  %199 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %3, ptr noundef %7, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %6)
+  %199 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %3, ptr noundef %7, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %6)
   br i1 %199, label %201, label %200
 
 200:                                              ; preds = %198, %195
@@ -908,7 +908,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit80: ; preds = %_ZN32pxrInt
   br i1 %408, label %411, label %409
 
 409:                                              ; preds = %406
-  %410 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %2, double %3, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef %8)
+  %410 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %2, double %3, ptr noundef nonnull %31, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %8)
   br i1 %410, label %412, label %411
 
 411:                                              ; preds = %409, %406, %403
@@ -1342,7 +1342,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %189, %176, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdTimeCode", align 8
@@ -1980,7 +1980,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %_ZN3
   br i1 %.065, label %165, label %167
 
 165:                                              ; preds = %164
-  %166 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, ptr noundef %6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %5)
+  %166 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, ptr noundef %6, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %5)
   br i1 %166, label %168, label %167
 
 167:                                              ; preds = %165, %164
@@ -2778,7 +2778,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject7GetPathEv.exit: ; preds = %_ZN3
   br i1 %.065, label %165, label %167
 
 165:                                              ; preds = %164
-  %166 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, ptr noundef %6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %5)
+  %166 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %1, double %2, ptr noundef %6, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %5)
   br i1 %166, label %168, label %167
 
 167:                                              ; preds = %165, %164
@@ -3238,7 +3238,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   store double 0.000000e+00, ptr %8, align 8
   store double 0.000000e+00, ptr %10, align 8
   store double 0.000000e+00, ptr %11, align 8
-  %23 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef %3)
+  %23 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_GetAttrForTransformsINS_7VtArrayINS_7GfVec3fEEEEEbRKNS_12UsdAttributeENS_11UsdTimeCodeEPS7_PdS9_PbPT_(ptr noundef nonnull align 8 dereferenceable(32) %0, double %1, ptr noundef nonnull %8, ptr noundef %10, ptr noundef %11, ptr noundef %9, ptr noundef %3)
           to label %24 unwind label %25
 
 24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit

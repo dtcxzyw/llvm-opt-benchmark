@@ -377,7 +377,7 @@ if.end33.i:                                       ; preds = %if.end28.i
   %20 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %21 = load ptr, ptr %sender_authkey.i, align 8
-  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef nonnull %recipient_pub.i)
+  %call38.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef %secret, ptr noundef nonnull %call.i.i, ptr noundef %20, ptr noundef %21, ptr noundef %20, ptr noundef nonnull %sender_pub.i, ptr noundef %recipient_pub.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %err.i, label %if.end41.i
 
@@ -510,7 +510,7 @@ if.end18.i:                                       ; preds = %if.end15.i
   %8 = load ptr, ptr %vctx, align 8
   %sender_authkey.i = getelementptr inbounds i8, ptr %vctx, i64 8
   %9 = load ptr, ptr %sender_authkey.i, align 8
-  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef nonnull %recipient_pub.i)
+  %call22.i = call fastcc i32 @derive_secret(ptr noundef nonnull readonly %vctx, ptr noundef nonnull %out, ptr noundef %8, ptr noundef nonnull %call2.i.i, ptr noundef %8, ptr noundef %9, ptr noundef %in, ptr noundef %recipient_pub.i)
   %tobool23.not.i = icmp eq i32 %call22.i, 0
   br i1 %tobool23.not.i, label %err.i, label %if.end25.i
 
@@ -661,7 +661,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @eckem_init(ptr nocapture noundef %vctx, i32 noundef %operation, ptr noundef %vec, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @eckem_init(ptr nocapture noundef %vctx, i32 noundef range(i32 4096, 8193) %operation, ptr noundef %vec, ptr noundef %vauth, ptr noundef %params) unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #5
   %tobool.not = icmp eq i32 %call, 0
@@ -771,7 +771,7 @@ return:                                           ; preds = %if.then.i15, %if.th
 declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @eckey_check(ptr noundef %ec, i32 noundef %requires_privatekey) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @eckey_check(ptr noundef %ec, i32 noundef range(i32 0, 2) %requires_privatekey) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_private_key(ptr noundef %ec) #5
   %call1 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %ec) #5
@@ -789,8 +789,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %if.then3, label %if.else
 
 if.then3:                                         ; preds = %if.end
-  %cmp4 = icmp eq i32 %requires_privatekey, 0
-  %conv = zext i1 %cmp4 to i32
+  %conv = xor i32 %requires_privatekey, 1
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -849,7 +848,7 @@ declare i32 @EC_KEY_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @EC_GROUP_cmp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef readonly %recipient_pub) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef nonnull readonly %recipient_pub) unnamed_addr #0 {
 entry:
   %suiteid.i = alloca [2 x i8], align 1
   %prk.i = alloca [64 x i8], align 16
@@ -865,7 +864,7 @@ entry:
   %sender_authkey = getelementptr inbounds i8, ptr %ctx, i64 8
   %3 = load ptr, ptr %sender_authkey, align 8
   %conv2 = trunc i64 %2 to i32
-  %call = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef nonnull %dhkm, i64 noundef 132, i32 noundef %conv2)
+  %call = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %dhkm, i64 noundef 132, i32 noundef %conv2)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %err, label %if.end
 
@@ -895,7 +894,7 @@ if.then13:                                        ; preds = %if.end10
 if.end14:                                         ; preds = %if.end10
   %add.ptr = getelementptr inbounds i8, ptr %dhkm, i64 %2
   %sub = sub i64 132, %2
-  %call17 = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey2, ptr noundef %peerkey2, ptr noundef nonnull %add.ptr, i64 noundef %sub, i32 noundef %conv2)
+  %call17 = call fastcc i32 @generate_ecdhkm(ptr noundef %privkey2, ptr noundef %peerkey2, ptr noundef %add.ptr, i64 noundef %sub, i32 noundef %conv2)
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %err, label %if.end22.thread
 
@@ -913,14 +912,14 @@ if.end26:                                         ; preds = %if.end22
   %5 = load i64, ptr %Npk, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %5, i1 false)
   %add.ptr31 = getelementptr inbounds i8, ptr %kemctx, i64 %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31, ptr align 1 %recipient_pub, i64 %5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr31, ptr nonnull align 1 %recipient_pub, i64 %5, i1 false)
   br label %if.end39
 
 if.then34:                                        ; preds = %if.end22.thread
   %6 = load i64, ptr %Npk, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %kemctx, ptr align 1 %sender_pub, i64 %6, i1 false)
   %add.ptr3145 = getelementptr inbounds i8, ptr %kemctx, i64 %6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr3145, ptr align 1 %recipient_pub, i64 %6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr3145, ptr nonnull align 1 %recipient_pub, i64 %6, i1 false)
   %add.ptr37 = getelementptr inbounds i8, ptr %kemctx, i64 %mul
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr37, ptr nonnull align 16 %sender_authpub, i64 %1, i1 false)
   br label %if.end39
@@ -1004,7 +1003,7 @@ declare i32 @ossl_ec_generate_key_dhkem(ptr noundef, ptr noundef, i64 noundef) l
 declare i64 @EC_POINT_point2oct(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_ecdhkm(ptr noundef %sender, ptr noundef %peer, ptr noundef %out, i64 noundef %maxout, i32 noundef %secretsz) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_ecdhkm(ptr noundef %sender, ptr noundef %peer, ptr noundef nonnull %out, i64 noundef %maxout, i32 noundef %secretsz) unnamed_addr #0 {
 entry:
   %call = tail call ptr @EC_KEY_get0_group(ptr noundef %sender) #5
   %call1 = tail call i32 @EC_GROUP_get_degree(ptr noundef %call) #5
@@ -1037,7 +1036,7 @@ check_publickey.exit:                             ; preds = %if.end
 
 if.end8:                                          ; preds = %check_publickey.exit
   %call9 = tail call ptr @EC_KEY_get0_public_key(ptr noundef %peer) #5
-  %call10 = tail call i32 @ECDH_compute_key(ptr noundef %out, i64 noundef %conv, ptr noundef %call9, ptr noundef %sender, ptr noundef null) #5
+  %call10 = tail call i32 @ECDH_compute_key(ptr noundef nonnull %out, i64 noundef %conv, ptr noundef %call9, ptr noundef %sender, ptr noundef null) #5
   %cmp11 = icmp sgt i32 %call10, 0
   %conv12 = zext i1 %cmp11 to i32
   br label %return

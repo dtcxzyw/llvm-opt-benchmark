@@ -1754,7 +1754,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.ata_taskfile, align 8
   %4 = alloca %struct.ata_taskfile, align 8
   %5 = alloca %struct.ata_taskfile, align 8

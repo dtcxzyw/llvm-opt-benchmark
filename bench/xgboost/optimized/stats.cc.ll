@@ -650,7 +650,7 @@ _ZNSt6vectorIN14__gnu_parallel6_PieceIlEESaIS2_EE17_M_default_appendEm.exit.i.i.
   store i64 0, ptr %160, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 8
   store i64 %151, ptr %161, align 8
-  invoke fastcc void @"_ZN14__gnu_parallel21parallel_sort_mwms_puILb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_EEvPNS_17_PMWMSSortingDataIT1_EERT2_"(ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke fastcc void @"_ZN14__gnu_parallel21parallel_sort_mwms_puILb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_EEvPNS_17_PMWMSSortingDataIT1_EERT2_"(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %.noexc49.i unwind label %137
 
 .noexc49.i:                                       ; preds = %.noexc48.i
@@ -13112,7 +13112,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN14__gnu_parallel21parallel_sort_mwms_puILb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_EEvPNS_17_PMWMSSortingDataIT1_EERT2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN14__gnu_parallel21parallel_sort_mwms_puILb1ELb1EN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEZN7xgboost6common16WeightedQuantileINS9_18IndexTransformIterIZNS8_6linalg6cbeginIKfLi1EEEDaRKNSC_10TensorViewIT_XT0_EEEEUlmE_EENSB_IZNS9_6MedianEPKNS8_7ContextERKNSC_6TensorIfLi2EEERKNS8_16HostDeviceVectorIfEEPNSP_IfLi1EEEE3$_0EEEEfSO_dSG_SG_T0_EUlmmE0_EEvPNS_17_PMWMSSortingDataIT1_EERT2_"(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.__gnu_parallel::_LoserTree.110", align 8
   %4 = alloca %class.anon.85, align 8
   %5 = alloca %"class.std::priority_queue.100", align 8
@@ -19964,7 +19964,7 @@ _ZSt17__rotate_adaptiveIPmS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %127, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS7_IZNS5_6MedianEPKNS4_7ContextERKNS8_6TensorIfLi2EEERKNS4_16HostDeviceVectorIfEEPNSL_IfLi1EEEE3$_0EEEEfSK_dSC_SC_T0_EUlmmE0_EEEvSC_SC_SX_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture readonly %4) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPmS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6common16WeightedQuantileINS5_18IndexTransformIterIZNS4_6linalg6cbeginIKfLi1EEEDaRKNS8_10TensorViewIT_XT0_EEEEUlmE_EENS7_IZNS5_6MedianEPKNS4_7ContextERKNS8_6TensorIfLi2EEERKNS4_16HostDeviceVectorIfEEPNSL_IfLi1EEEE3$_0EEEEfSK_dSC_SC_T0_EUlmmE0_EEEvSC_SC_SX_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr nocapture readonly %4) unnamed_addr #21 personality ptr @__gxx_personality_v0 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64

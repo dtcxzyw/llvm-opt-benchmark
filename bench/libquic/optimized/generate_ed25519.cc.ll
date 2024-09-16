@@ -97,7 +97,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
-  %call12 = call fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %call9, ptr noundef nonnull %public_key, i64 noundef 32)
+  %call12 = call fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %call9, ptr noundef %public_key, i64 noundef 32)
   br i1 %call12, label %land.rhs, label %cleanup.done29
 
 land.rhs:                                         ; preds = %invoke.cont8
@@ -110,7 +110,7 @@ invoke.cont16:                                    ; preds = %land.rhs
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %invoke.cont16
-  %call23 = call fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %call20, ptr noundef nonnull %private_key, i64 noundef 64)
+  %call23 = call fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %call20, ptr noundef %private_key, i64 noundef 64)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #11
   br label %cleanup.done29
@@ -188,7 +188,7 @@ declare void @_Z10PrintUsagePK8argument(ptr noundef) local_unnamed_addr #1
 declare void @ED25519_keypair(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef %in, i64 noundef %in_len) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef nonnull %in, i64 noundef range(i64 32, 65) %in_len) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %path) #11
   %call1 = tail call noalias ptr @fopen(ptr noundef %call, ptr noundef nonnull @.str.5)
@@ -196,7 +196,7 @@ entry:
   br i1 %cmp.i.not, label %cleanup, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call9 = tail call i64 @fwrite(ptr noundef %in, i64 noundef %in_len, i64 noundef 1, ptr noundef nonnull %call1)
+  %call9 = tail call i64 @fwrite(ptr noundef nonnull %in, i64 noundef %in_len, i64 noundef 1, ptr noundef nonnull %call1)
   %cmp.not = icmp eq i64 %call9, 1
   br i1 %cmp.not, label %if.then.i, label %if.then10
 

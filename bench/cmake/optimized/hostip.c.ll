@@ -969,7 +969,7 @@ get_localhost.exit:                               ; preds = %78, %84, %get_local
   br label %145
 
 144:                                              ; preds = %142
-  call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef nonnull %138)
+  call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef %138)
   br label %145
 
 145:                                              ; preds = %132, %128, %144, %143, %47
@@ -1038,7 +1038,7 @@ define dso_local i32 @Curl_resolv_check(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not7, label %13, label %12
 
 12:                                               ; preds = %10
-  tail call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call fastcc void @show_resolve_info(ptr noundef nonnull %0, ptr noundef %11)
   br label %13
 
 13:                                               ; preds = %12, %10
@@ -1048,7 +1048,7 @@ define dso_local i32 @Curl_resolv_check(ptr noundef %0, ptr noundef %1) local_un
 declare void @Curl_freeaddrinfo(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_resolve_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @show_resolve_info(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.in_addr, align 4
   %4 = alloca %struct.in6_addr, align 4
   %5 = alloca [2 x %struct.dynbuf], align 16

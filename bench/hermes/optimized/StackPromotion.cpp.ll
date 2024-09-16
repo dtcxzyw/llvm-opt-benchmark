@@ -899,7 +899,7 @@ entry:
   call void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72) %DT, ptr noundef %F) #12
   %scopeDesc_.i.i = getelementptr inbounds i8, ptr %F, i64 72
   %0 = load ptr, ptr %scopeDesc_.i.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr noundef %0, ptr nonnull %DT, ptr nonnull readonly %F.addr)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %0, ptr nonnull %DT, ptr nonnull readonly %F.addr)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %F.addr.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %changed.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %capturedVariableUsage.i)
@@ -3597,7 +3597,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   %240 = load ptr, ptr %F.addr.i, align 8
   %scopeDesc_.i.i.i = getelementptr inbounds i8, ptr %240, i64 72
   %241 = load ptr, ptr %scopeDesc_.i.i.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %240, ptr noundef %241, ptr nonnull %scopeCreation.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %240, ptr noundef %241, ptr nonnull %scopeCreation.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %needsOptimizing.i, i8 0, i64 20, i1 false)
   %242 = load ptr, ptr %F.addr.i, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp126.i)
@@ -3608,7 +3608,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage.i, ptr %agg.tmp1.sroa.3.0.agg.tmp126.sroa_idx.i, align 8
   %scopeDesc_.i.i27.i = getelementptr inbounds i8, ptr %242, i64 72
   %243 = load ptr, ptr %scopeDesc_.i.i27.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %242, ptr noundef %243, ptr noundef nonnull byval(%class.anon.136) align 8 %agg.tmp126.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef %242, ptr noundef %243, ptr noundef nonnull byval(%class.anon.136) align 8 %agg.tmp126.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp126.i)
   %244 = load ptr, ptr %F.addr.i, align 8
   %parent_.i.i.i = getelementptr inbounds i8, ptr %244, i64 56
@@ -3631,7 +3631,7 @@ _ZN12_GLOBAL__N_130determineCapturedVariableUsageEPN6hermes8FunctionERN4llvh8Den
   store ptr %capturedVariableUsage.i, ptr %agg.tmp2.sroa.6.0.agg.tmp229.sroa_idx.i, align 8
   %scopeDesc_.i.i30.i = getelementptr inbounds i8, ptr %244, i64 72
   %246 = load ptr, ptr %scopeDesc_.i.i30.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %244, ptr noundef %246, ptr noundef nonnull byval(%class.anon.140) align 8 %agg.tmp229.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef %244, ptr noundef %246, ptr noundef nonnull byval(%class.anon.140) align 8 %agg.tmp229.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp229.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %alreadyProcessed.i, i8 0, i64 20, i1 false)
   %247 = load ptr, ptr %F.addr.i, align 8
@@ -4219,7 +4219,7 @@ while.end.i:                                      ; preds = %while.cond.i
   store ptr %changed.i, ptr %agg.tmp62.sroa.7.0.agg.tmp62231.sroa_idx.i, align 8
   %scopeDesc_.i.i232.i = getelementptr inbounds i8, ptr %328, i64 72
   %329 = load ptr, ptr %scopeDesc_.i.i232.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %328, ptr noundef %329, ptr noundef nonnull byval(%class.anon.149) align 8 %agg.tmp62231.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef %328, ptr noundef %329, ptr noundef nonnull byval(%class.anon.149) align 8 %agg.tmp62231.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %agg.tmp62231.i)
   br label %cleanup.i
 
@@ -4473,7 +4473,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes10BasicBlockENS_8DenseSetIPNS2_8Var
   store ptr %__begin167.sroa.0.01027.i, ptr %agg.tmp91.sroa.8.0.agg.tmp91330.sroa_idx.i, align 8
   %scopeDesc_.i.i331.i = getelementptr inbounds i8, ptr %355, i64 72
   %356 = load ptr, ptr %scopeDesc_.i.i331.i, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %355, ptr noundef %356, ptr noundef nonnull byval(%class.anon.157) align 8 %agg.tmp91330.i)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef %355, ptr noundef %356, ptr noundef nonnull byval(%class.anon.157) align 8 %agg.tmp91330.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp91330.i)
   br label %for.inc92.i
 
@@ -5585,7 +5585,7 @@ _ZN12_GLOBAL__N_116promoteVariablesEPN6hermes8FunctionERN4llvh9SetVectorIS2_St6v
   %464 = load ptr, ptr %F.addr, align 8
   %scopeDesc_.i.i1 = getelementptr inbounds i8, ptr %464, i64 72
   %465 = load ptr, ptr %scopeDesc_.i.i1, align 8
-  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %464, ptr noundef %465)
+  call fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef %464, ptr noundef %465)
   %DomTreeNodes.i.i = getelementptr inbounds i8, ptr %DT, i64 24
   %NumBuckets.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %DT, i64 40
   %466 = load i32, ptr %NumBuckets.i.i.i.i.i.i2, align 8
@@ -5697,7 +5697,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6hermes13DominanceInfoC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef readonly %scopeDesc, ptr %handler.coerce0, ptr nocapture readonly %handler.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef readonly %scopeDesc, ptr %handler.coerce0, ptr nocapture readonly %handler.coerce1) unnamed_addr #0 align 2 {
 entry:
   %builder.i.i = alloca %"class.hermes::IRBuilder", align 8
   %destroyer.i.i = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
@@ -5756,8 +5756,8 @@ if.then.i:                                        ; preds = %for.body.i
   %9 = load i32, ptr %Size.i.i.i, align 8
   %conv.i.i.i = zext i32 %9 to i64
   %add.ptr.i75.i.i = getelementptr inbounds ptr, ptr %8, i64 %conv.i.i.i
-  %cmp.not9.i.i = icmp eq i32 %9, 0
-  br i1 %cmp.not9.i.i, label %if.then46.i.i, label %for.body.lr.ph.i.i
+  %cmp.not8.i.i = icmp eq i32 %9, 0
+  br i1 %cmp.not8.i.i, label %if.then46.i.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i
   %sub.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 -16
@@ -5765,9 +5765,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %needToKeepStores.011.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %needToKeepStores.1.i.i, %for.inc.i.i ]
-  %__begin1.010.i.i = phi ptr [ %8, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
-  %10 = load ptr, ptr %__begin1.010.i.i, align 8
+  %needToKeepStores.010.i.i = phi i1 [ false, %for.body.lr.ph.i.i ], [ %needToKeepStores.1.i.i, %for.inc.i.i ]
+  %__begin1.09.i.i = phi ptr [ %8, %for.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %for.inc.i.i ]
+  %10 = load ptr, ptr %__begin1.09.i.i, align 8
   %add.ptr.i.i.i.i.i.i25.i.i = getelementptr inbounds i8, ptr %10, i64 16
   %11 = load i8, ptr %add.ptr.i.i.i.i.i.i25.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp ne i8 %11, 49
@@ -5887,8 +5887,8 @@ if.end41.i.i:                                     ; preds = %for.body.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end41.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit51.i.i, %land.lhs.true.i.i, %if.then30.i.i, %if.end27.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit38.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i, %if.then15.i.i
-  %needToKeepStores.1.i.i = phi i1 [ %needToKeepStores.011.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i ], [ %needToKeepStores.011.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit38.i.i ], [ %needToKeepStores.011.i.i, %if.end27.i.i ], [ %needToKeepStores.011.i.i, %if.end41.i.i ], [ true, %if.then15.i.i ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit51.i.i ], [ true, %land.lhs.true.i.i ], [ true, %if.then30.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.010.i.i, i64 8
+  %needToKeepStores.1.i.i = phi i1 [ %needToKeepStores.010.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit.i.i ], [ %needToKeepStores.010.i.i, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit38.i.i ], [ %needToKeepStores.010.i.i, %if.end27.i.i ], [ %needToKeepStores.010.i.i, %if.end41.i.i ], [ true, %if.then15.i.i ], [ true, %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit51.i.i ], [ true, %land.lhs.true.i.i ], [ true, %if.then30.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin1.09.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i75.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i
 
@@ -5902,12 +5902,12 @@ if.then46.i.i:                                    ; preds = %for.end.i.i, %if.th
   %40 = load i32, ptr %Size.i54.i.i, align 8
   %conv.i55.i.i = zext i32 %40 to i64
   %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %39, i64 %conv.i55.i.i
-  %cmp51.not12.i.i = icmp eq i32 %40, 0
-  br i1 %cmp51.not12.i.i, label %if.end64.i.i, label %for.body52.i.i
+  %cmp51.not11.i.i = icmp eq i32 %40, 0
+  br i1 %cmp51.not11.i.i, label %if.end64.i.i, label %for.body52.i.i
 
 for.body52.i.i:                                   ; preds = %if.then46.i.i, %for.inc61.i.i
-  %__begin2.013.i.i = phi ptr [ %incdec.ptr62.i.i, %for.inc61.i.i ], [ %39, %if.then46.i.i ]
-  %41 = load ptr, ptr %__begin2.013.i.i, align 8
+  %__begin2.012.i.i = phi ptr [ %incdec.ptr62.i.i, %for.inc61.i.i ], [ %39, %if.then46.i.i ]
+  %41 = load ptr, ptr %__begin2.012.i.i, align 8
   %add.ptr.i.i.i.i.i56.i.i = getelementptr inbounds i8, ptr %41, i64 16
   %42 = load i8, ptr %add.ptr.i.i.i.i.i56.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i59.not.i.i = icmp eq i8 %42, 51
@@ -5937,7 +5937,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit70.i.i: ; 
   br label %for.inc61.i.i
 
 for.inc61.i.i:                                    ; preds = %_ZN6hermes9IRBuilder20InstructionDestroyer3addEPNS_11InstructionE.exit70.i.i, %for.body52.i.i
-  %incdec.ptr62.i.i = getelementptr inbounds i8, ptr %__begin2.013.i.i, i64 8
+  %incdec.ptr62.i.i = getelementptr inbounds i8, ptr %__begin2.012.i.i, i64 8
   %cmp51.not.i.i = icmp eq ptr %incdec.ptr62.i.i, %add.ptr.i.i.i
   br i1 %cmp51.not.i.i, label %if.end64.i.i, label %for.body52.i.i
 
@@ -6836,7 +6836,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr noundef %scopeDesc, ptr %handler.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_0EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr noundef %scopeDesc, ptr %handler.coerce1) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.183", align 8
   %function_.i = getelementptr inbounds i8, ptr %scopeDesc, i64 144
@@ -7260,7 +7260,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.136) align 8 %handler) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.136) align 8 %handler) unnamed_addr #0 align 2 {
 entry:
   %var.i = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -7586,7 +7586,7 @@ for.end:                                          ; preds = %for.body, %"_ZZN12_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.140) align 8 %handler) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_2EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.140) align 8 %handler) unnamed_addr #0 align 2 {
 entry:
   %var.i = alloca ptr, align 8
   %destroyer.i = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
@@ -8007,7 +8007,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_1
 declare noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.149) align 8 %handler) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_3EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.149) align 8 %handler) unnamed_addr #0 align 2 {
 entry:
   %ConstFoundBucket.i.i.i.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca ptr, align 8
@@ -8569,7 +8569,7 @@ return:                                           ; preds = %for.body.i, %if.the
 declare { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.157) align 8 %handler) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_116promoteVariablesEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_4EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef readonly %scopeDesc, ptr nocapture noundef readonly byval(%class.anon.157) align 8 %handler) unnamed_addr #0 align 2 {
 entry:
   %TheBucket.i.i.i = alloca ptr, align 8
   %ref.tmp.i = alloca %"struct.std::pair.192", align 8
@@ -9440,7 +9440,7 @@ return:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef %F, ptr nocapture noundef %scopeDesc) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN6hermes8Function16forEachScopeImplIZN12_GLOBAL__N_113runOnFunctionEPS0_RN4llvh9SetVectorIS3_St6vectorIS3_SaIS3_EENS4_8DenseSetIS3_NS4_12DenseMapInfoIS3_EEEEEEE3$_1EEvS3_PNS_9ScopeDescET_"(ptr noundef nonnull %F, ptr nocapture noundef %scopeDesc) unnamed_addr #0 align 2 {
 entry:
   %function_.i = getelementptr inbounds i8, ptr %scopeDesc, i64 144
   %0 = load ptr, ptr %function_.i, align 8

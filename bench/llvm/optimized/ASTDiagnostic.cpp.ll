@@ -2338,7 +2338,7 @@ _ZL22FormatTemplateTypeDiffRN5clang10ASTContextENS_8QualTypeES2_bbbbRN4llvm11raw
   %.sroa.0150.0.copyload = load ptr, ptr %9, align 8
   %.sroa.2151.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.2151.0.copyload = load i64, ptr %.sroa.2151.0..sroa_idx, align 8
-  call fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(23096) %8, i64 %.0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload, ptr %.sroa.0150.0.copyload, i64 %.sroa.2151.0.copyload)
+  call fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(23096) %8, i64 %.0, ptr %.sroa.018.0.copyload, i64 %.sroa.219.0.copyload, ptr %.sroa.0150.0.copyload, i64 %.sroa.2151.0.copyload)
   %361 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #15
   %362 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #15
   %363 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef %361, i64 noundef %362) #15
@@ -2595,7 +2595,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %478,
   %.sroa.0.0.copyload141 = load ptr, ptr %9, align 8
   %.sroa.2.0..sroa_idx142 = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.2.0.copyload143 = load i64, ptr %.sroa.2.0..sroa_idx142, align 8
-  call fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(23096) %8, i64 %.sroa.0.0.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.0.0.copyload141, i64 %.sroa.2.0.copyload143)
+  call fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(23096) %8, i64 %.sroa.0.0.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr %.sroa.0.0.copyload141, i64 %.sroa.2.0.copyload143)
   %483 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(32) %23)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #15
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit109.thread
@@ -2829,7 +2829,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNK5clang10Qualifiers11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, ptr readonly %3, i64 %4, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL29ConvertTypeToDiagnosticStringB5cxx11RN5clang10ASTContextENS_8QualTypeEN4llvm8ArrayRefISt4pairINS_17DiagnosticsEngine12ArgumentKindElEEENS4_IlEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, ptr readonly %3, i64 %4, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   %6 = alloca %"class.std::allocator.139", align 1
   %7 = alloca %"class.std::allocator.139", align 1
   %8 = alloca %"class.std::allocator.139", align 1
@@ -10208,7 +10208,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %263, %261, %11, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff14PrintElideArgsEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2784) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112TemplateDiff14PrintElideArgsEjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2784) %0, i32 noundef range(i32 1, 0) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1

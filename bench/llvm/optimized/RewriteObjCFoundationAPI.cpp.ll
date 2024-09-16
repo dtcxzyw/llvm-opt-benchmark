@@ -312,11 +312,11 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit28rewriteToObjCSubscriptSynta
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %28 = call i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9StringRefEEERNS_8SelectorE(ptr noundef nonnull align 8 dereferenceable(712) %1, ptr nonnull %4, i64 1, ptr noundef nonnull align 8 dereferenceable(8) %27) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %29 = call fastcc noundef zeroext i1 @_ZL27canRewriteToSubscriptSyntaxRPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERNS_10ASTContextENS_8SelectorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(23096) %25, i64 %28)
+  %29 = call fastcc noundef zeroext i1 @_ZL27canRewriteToSubscriptSyntaxRPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERNS_10ASTContextENS_8SelectorE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(23096) %25, i64 %28)
   br i1 %29, label %30, label %_ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
 
 30:                                               ; preds = %24
-  %31 = call fastcc noundef zeroext i1 @_ZL27rewriteToSubscriptGetCommonPKN5clang15ObjCMessageExprERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %31 = call fastcc noundef zeroext i1 @_ZL27rewriteToSubscriptGetCommonPKN5clang15ObjCMessageExprERNS_4edit6CommitE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %_ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
 
 _ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit: ; preds = %24, %30
@@ -331,7 +331,7 @@ _ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageEx
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = tail call fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %37 = tail call fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %17, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %53
 
 38:                                               ; preds = %32
@@ -347,7 +347,7 @@ _ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageEx
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %41
-  %46 = tail call fastcc noundef zeroext i1 @_ZL26rewriteToArraySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %46 = tail call fastcc noundef zeroext i1 @_ZL26rewriteToArraySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %17, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %53
 
 47:                                               ; preds = %41
@@ -357,7 +357,7 @@ _ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageEx
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
-  %52 = tail call fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %52 = tail call fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %17, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %53
 
 53:                                               ; preds = %47, %38, %14, %10, %3, %6, %51, %45, %36, %_ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
@@ -368,7 +368,7 @@ _ZL26rewriteToArraySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageEx
 declare noundef ptr @_ZNK5clang10ASTContext25getObjContainingInterfaceEPKNS_9NamedDeclE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptGetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -393,7 +393,7 @@ define internal fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptGetP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL26rewriteToArraySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL26rewriteToArraySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
   %5 = alloca [2 x %"class.llvm::StringRef"], align 16
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -445,7 +445,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 4, ptr %30, align 8
   %31 = call noundef zeroext i1 @_ZN5clang4edit6Commit10insertWrapEN4llvm9StringRefENS_15CharSourceRangeES3_(ptr noundef nonnull align 8 dereferenceable(600) %3, ptr nonnull @.str.4, i64 1, i64 %.sroa.0.0.insert.insert.i82, i8 0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %7) #14
-  call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(600) %3)
+  call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(600) %3)
   br label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit, %12, %4, %18
@@ -454,7 +454,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL31rewriteToDictionarySubscriptSetPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
   %5 = alloca [2 x %"class.llvm::StringRef"], align 16
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8
@@ -501,7 +501,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %11
   %29 = call noundef zeroext i1 @_ZN5clang4edit6Commit16replaceWithInnerENS_15CharSourceRangeES2_(ptr noundef nonnull align 8 dereferenceable(600) %3, i64 %.sroa.0.0.insert.insert.i, i8 0, i64 %19, i8 1) #14
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.ext.i, %.sroa.260.0.extract.shift
   %30 = call noundef zeroext i1 @_ZN5clang4edit6Commit16replaceWithInnerENS_15CharSourceRangeES2_(ptr noundef nonnull align 8 dereferenceable(600) %3, i64 %.sroa.0.0.insert.insert, i8 1, i64 %22, i8 1) #14
-  call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(600) %3)
+  call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(600) %3)
   br label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit, %11, %4, %17
@@ -1228,11 +1228,11 @@ _ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8
   br label %_ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
 
 386:                                              ; preds = %363
-  %387 = tail call fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %366, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %387 = tail call fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef %366, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %_ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
 
 388:                                              ; preds = %363
-  %389 = tail call fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %366, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
+  %389 = tail call fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef %366, ptr noundef nonnull align 8 dereferenceable(712) %1, ptr noundef nonnull align 8 dereferenceable(600) %2)
   br label %_ZL22rewriteToNumberLiteralPKN5clang15ObjCMessageExprERKNS_5NSAPIERNS_4edit6CommitE.exit
 
 390:                                              ; preds = %363
@@ -1599,7 +1599,7 @@ declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull a
 declare noundef zeroext i1 @_ZN5clang4edit6Commit16replaceWithInnerENS_15CharSourceRangeES2_(ptr noundef nonnull align 8 dereferenceable(600), i64, i8, i64, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL27canRewriteToSubscriptSyntaxRPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERNS_10ASTContextENS_8SelectorE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, i64 %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL27canRewriteToSubscriptSyntaxRPKN5clang17ObjCInterfaceDeclEPKNS_15ObjCMessageExprERNS_10ASTContextENS_8SelectorE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, i64 %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16711680
@@ -1843,7 +1843,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %4, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL27rewriteToSubscriptGetCommonPKN5clang15ObjCMessageExprERNS_4edit6CommitE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL27rewriteToSubscriptGetCommonPKN5clang15ObjCMessageExprERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
@@ -1877,7 +1877,7 @@ _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %2
   store i64 1, ptr %.sroa.29.0..sroa_idx.i, align 8
   %17 = tail call noundef zeroext i1 @_ZN5clang4edit6Commit10insertWrapEN4llvm9StringRefENS_15CharSourceRangeES3_(ptr noundef nonnull align 8 dereferenceable(600) %1, ptr nonnull @.str.4, i64 1, i64 %14, i8 1, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  tail call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(600) %1)
+  tail call fastcc void @_ZL24maybePutParensOnReceiverPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(600) %1)
   br label %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread
 
 _ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit.thread: ; preds = %_ZNK5clang15ObjCMessageExpr19getInstanceReceiverEv.exit, %2, %9
@@ -2368,7 +2368,7 @@ declare noundef zeroext i1 @_ZN5clang4edit6Commit6removeENS_15CharSourceRangeE(p
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20rewriteToBoolLiteralPKN5clang15ObjCMessageExprEPKNS_4ExprERKNS_5NSAPIERNS_4edit6CommitE(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(712) %2, ptr noundef nonnull align 8 dereferenceable(600) %3) unnamed_addr #0 {
   %5 = tail call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   %6 = tail call i64 @_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb(ptr noundef nonnull align 8 dereferenceable(712) %2, i32 noundef 12, i1 noundef zeroext false) #14
   %7 = inttoptr i64 %5 to ptr

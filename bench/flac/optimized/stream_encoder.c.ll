@@ -160,7 +160,7 @@ if.end37:                                         ; preds = %if.end21
   %file = getelementptr inbounds i8, ptr %call2.i80, i64 2624
   store ptr null, ptr %file, align 8
   store i32 1, ptr %call2.i79, align 8
-  tail call fastcc void @set_defaults_(ptr noundef nonnull %call2.i)
+  tail call fastcc void @set_defaults_(ptr noundef %call2.i)
   %is_being_deleted = getelementptr inbounds i8, ptr %call2.i80, i64 2792
   store i32 0, ptr %is_being_deleted, align 8
   br label %for.body
@@ -293,7 +293,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 declare ptr @FLAC__bitwriter_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @set_defaults_(ptr nocapture noundef readonly %encoder) unnamed_addr #0 {
+define internal fastcc void @set_defaults_(ptr nocapture noundef nonnull readonly %encoder) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %verify = getelementptr inbounds i8, ptr %0, i64 4
@@ -1010,7 +1010,7 @@ update_ogg_metadata_.exit:                        ; preds = %if.then161, %return
   br label %if.end163
 
 if.else162:                                       ; preds = %if.then158
-  tail call fastcc void @update_metadata_(ptr noundef nonnull %encoder)
+  tail call fastcc void @update_metadata_(ptr noundef %encoder)
   br label %if.end163
 
 if.end163:                                        ; preds = %if.else162, %update_ogg_metadata_.exit
@@ -1594,7 +1594,7 @@ for.inc390.i:                                     ; preds = %if.then376.i, %for.
   br i1 %cmp368.i, label %for.body369.i, label %free_.exit, !llvm.loop !26
 
 free_.exit:                                       ; preds = %for.inc390.i, %if.end361.i, %for.cond365.preheader.i
-  call fastcc void @set_defaults_(ptr noundef nonnull %encoder)
+  call fastcc void @set_defaults_(ptr noundef %encoder)
   %tobool221.not = icmp eq i32 %error.1, 0
   br i1 %tobool221.not, label %if.then222, label %if.end225
 
@@ -1626,7 +1626,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 14) i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @init_stream_internal_(ptr noundef %encoder, ptr noundef %read_callback, ptr noundef %write_callback, ptr noundef %seek_callback, ptr noundef %tell_callback, ptr noundef %metadata_callback, ptr noundef %client_data, i32 noundef range(i32 0, 2) %is_ogg) unnamed_addr #0 {
 entry:
   %vorbis_comment = alloca %struct.FLAC__StreamMetadata, align 8
   %0 = load ptr, ptr %encoder, align 8
@@ -3806,7 +3806,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 14) i32 @init_file_internal_(ptr noundef %encoder, ptr noundef readonly %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef %is_ogg) unnamed_addr #0 {
+define internal fastcc range(i32 0, 14) i32 @init_file_internal_(ptr noundef %encoder, ptr noundef readonly %filename, ptr noundef %progress_callback, ptr noundef %client_data, i32 noundef range(i32 0, 2) %is_ogg) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %encoder, align 8
   %1 = load i32, ptr %0, align 8
@@ -3905,7 +3905,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @sem_wait(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_bitbuffer_(ptr noundef %encoder, ptr nocapture noundef readonly %threadtask, i32 noundef %samples, i32 noundef %is_last_block) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_bitbuffer_(ptr noundef %encoder, ptr nocapture noundef readonly %threadtask, i32 noundef %samples, i32 noundef range(i32 0, 2) %is_last_block) unnamed_addr #0 {
 entry:
   %output_position.i = alloca i64, align 8
   %buffer = alloca ptr, align 8
@@ -4786,7 +4786,7 @@ return:                                           ; preds = %if.end575, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @process_frame_(ptr noundef %encoder, i32 noundef %is_last_block) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_frame_(ptr noundef %encoder, i32 noundef range(i32 0, 2) %is_last_block) unnamed_addr #0 {
 entry:
   %crc.i = alloca i16, align 2
   %crc = alloca i16, align 2
@@ -5300,7 +5300,7 @@ declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare void @FLAC__MD5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @update_metadata_(ptr noundef %encoder) unnamed_addr #0 {
+define internal fastcc void @update_metadata_(ptr noundef nonnull %encoder) unnamed_addr #0 {
 entry:
   %b = alloca [18 x i8], align 16
   %private_ = getelementptr inbounds i8, ptr %encoder, i64 8
@@ -8329,7 +8329,7 @@ if.end224:                                        ; preds = %if.then222, %for.bo
   %arrayidx237 = getelementptr inbounds [8 x [2 x ptr]], ptr %residual_workspace, i64 0, i64 %indvars.iv346
   %add.ptr = getelementptr inbounds i32, ptr %best_subframe, i64 %indvars.iv346
   %add.ptr242 = getelementptr inbounds i32, ptr %best_subframe_bits, i64 %indvars.iv346
-  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef nonnull %frame_header, i32 noundef %88, ptr noundef %89, ptr noundef nonnull %arrayidx232, ptr noundef nonnull %arrayidx234, ptr noundef nonnull %arrayidx237, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr242)
+  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %88, ptr noundef %89, ptr noundef nonnull %arrayidx232, ptr noundef nonnull %arrayidx234, ptr noundef nonnull %arrayidx237, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr242)
   %90 = load i32, ptr %add.ptr, align 4
   %idxprom253 = zext i32 %90 to i64
   %arrayidx254 = getelementptr inbounds [8 x [2 x %struct.FLAC__Subframe]], ptr %subframe_workspace247, i64 0, i64 %indvars.iv346, i64 %idxprom253
@@ -8371,7 +8371,7 @@ for.body268:                                      ; preds = %for.cond265.prehead
   %arrayidx291 = getelementptr inbounds [2 x [2 x ptr]], ptr %residual_workspace_mid_side, i64 0, i64 %indvars.iv349
   %add.ptr295 = getelementptr inbounds i32, ptr %best_subframe_mid_side, i64 %indvars.iv349
   %add.ptr298 = getelementptr inbounds i32, ptr %best_subframe_bits_mid_side, i64 %indvars.iv349
-  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef nonnull %frame_header, i32 noundef %95, ptr noundef %integer_signal_.0, ptr noundef nonnull %arrayidx285, ptr noundef nonnull %arrayidx288, ptr noundef nonnull %arrayidx291, ptr noundef nonnull %add.ptr295, ptr noundef nonnull %add.ptr298)
+  call fastcc void @process_subframe_(ptr noundef nonnull %encoder, ptr noundef nonnull %threadtask, i32 noundef %cond10, i32 noundef %call., ptr noundef %frame_header, i32 noundef %95, ptr noundef %integer_signal_.0, ptr noundef nonnull %arrayidx285, ptr noundef nonnull %arrayidx288, ptr noundef nonnull %arrayidx291, ptr noundef nonnull %add.ptr295, ptr noundef nonnull %add.ptr298)
   br i1 %cmp266, label %for.body268, label %if.then308, !llvm.loop !97
 
 if.then308:                                       ; preds = %for.body268
@@ -9298,7 +9298,7 @@ declare i32 @sem_trywait(ptr noundef) local_unnamed_addr #4
 declare i32 @FLAC__format_get_max_rice_partition_order_from_blocksize(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @process_subframe_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly %best_bits) unnamed_addr #0 {
+define internal fastcc void @process_subframe_(ptr nocapture noundef readonly %encoder, ptr noundef %threadtask, i32 noundef %min_partition_order, i32 noundef %max_partition_order, ptr nocapture noundef nonnull readonly %frame_header, i32 noundef %subframe_bps, ptr noundef %integer_signal, ptr nocapture noundef readonly %subframe, ptr nocapture noundef readonly %partitioned_rice_contents, ptr nocapture noundef readonly %residual, ptr nocapture noundef writeonly %best_subframe, ptr nocapture noundef writeonly %best_bits) unnamed_addr #0 {
 entry:
   %qlp_coeff.i = alloca [32 x i32], align 16
   %quantization.i = alloca i32, align 4
@@ -10499,7 +10499,7 @@ lor.lhs.false.i:                                  ; preds = %if.end9.i
 
 if.else16.i:                                      ; preds = %lor.lhs.false.i
   %shr12.i = lshr i64 %mul.i, 18
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %shr12.i, i1 true)
+  %15 = tail call range(i64 18, 65) i64 @llvm.ctlz.i64(i64 %shr12.i, i1 true)
   %cast.i.i = trunc nuw nsw i64 %15 to i32
   %add21.i = sub nuw nsw i32 64, %cast.i.i
   br label %if.end22.i

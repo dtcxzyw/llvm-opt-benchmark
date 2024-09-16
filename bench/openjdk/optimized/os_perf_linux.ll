@@ -345,7 +345,7 @@ _ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget.exit: ; preds = %3, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store double 0.000000e+00, ptr %2, align 8
@@ -472,7 +472,7 @@ _ZL13get_jvm_ticksPN2os5Linux12CPUPerfTicksE.exit: ; preds = %25
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance22cpu_load_total_processEPd(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
-  %4 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0)
+  %4 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %0, ptr noundef %3, i32 noundef 0)
   %5 = fcmp olt double %4, 0.000000e+00
   %6 = load double, ptr %3, align 8
   %7 = fadd double %4, %6
@@ -485,7 +485,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 1) i32 @_ZN23CPUPerformanceInterface14CPUPerformance17cpu_loads_processEPdS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca double, align 8
-  %6 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0)
+  %6 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %0, ptr noundef %5, i32 noundef 0)
   %7 = fcmp olt double %6, 0.000000e+00
   br i1 %7, label %45, label %8
 
@@ -678,7 +678,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZNK23CPUPerformanceInterface22cpu_l
   %3 = alloca double, align 8
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %5 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef 0)
+  %5 = call fastcc noundef double @_ZL12get_cpu_loadiP15CPUPerfCountersPd13CpuLoadTarget(i32 noundef -1, ptr noundef %4, ptr noundef %3, i32 noundef 0)
   %6 = fcmp olt double %5, 0.000000e+00
   %7 = load double, ptr %3, align 8
   %8 = fadd double %5, %7

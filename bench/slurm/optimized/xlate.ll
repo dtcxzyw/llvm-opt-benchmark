@@ -1594,7 +1594,7 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 487:                                              ; preds = %482
   %488 = add nsw i32 %486, 5
   store i32 %488, ptr %7, align 4
-  %489 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef nonnull %7, i8 noundef signext 44)
+  %489 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef %7, i8 noundef signext 44)
   store ptr %489, ptr %8, align 8
   %490 = load ptr, ptr getelementptr inbounds (i8, ptr @opt, i64 472), align 8
   %.not99.i = icmp eq ptr %490, null
@@ -1680,7 +1680,7 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 524:                                              ; preds = %519
   %525 = add nsw i32 %523, 7
   store i32 %525, ptr %7, align 4
-  %526 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef nonnull %7, i8 noundef signext 58)
+  %526 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef %7, i8 noundef signext 58)
   store ptr %526, ptr %8, align 8
   %.not102.i = icmp eq ptr %526, null
   br i1 %.not102.i, label %_get_next_pbs_option.exit.i, label %527
@@ -1772,7 +1772,7 @@ _get_pbs_option_value.exit235.i:                  ; preds = %460, %.critedge.i23
 566:                                              ; preds = %561
   %567 = add nsw i32 %565, 9
   store i32 %567, ptr %7, align 4
-  %568 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef nonnull %7, i8 noundef signext 44)
+  %568 = call fastcc ptr @_get_pbs_option_value(ptr noundef nonnull %27, ptr noundef %7, i8 noundef signext 44)
   store ptr %568, ptr %8, align 8
   %.not106.i = icmp eq ptr %568, null
   br i1 %.not106.i, label %569, label %572
@@ -2090,7 +2090,7 @@ declare void @slurm_process_option_or_exit(ptr noundef, i32 noundef, ptr noundef
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_pbs_option_value(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc ptr @_get_pbs_option_value(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i8 noundef signext range(i8 44, 59) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5

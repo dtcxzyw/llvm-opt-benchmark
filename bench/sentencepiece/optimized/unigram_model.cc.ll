@@ -7661,7 +7661,7 @@ _ZNSt12_Vector_baseIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_
   store float 0.000000e+00, ptr %25, align 4
   %26 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 8
   store i32 -1, ptr %26, align 4
-  %27 = add i64 %.057.i.i.i.i.i, -1
+  %27 = add nsw i64 %.057.i.i.i.i.i, -1
   %28 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i = icmp eq i64 %27, 0
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIZNK13sentencepiece7unigram5Model15EncodeOptimizedESt17basic_string_viewIcSt11char_traitsIcEEE12BestPathNodeSaIS7_EEC2EmRKS8_.exit.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !55

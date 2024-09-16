@@ -881,7 +881,7 @@ define dso_local noundef range(i32 -22, 1) i32 @thermal_register_governor(ptr no
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define internal fastcc ptr @__find_governor(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc ptr @__find_governor(ptr nocapture noundef nonnull readonly %0) unnamed_addr #4 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %.preheader
@@ -914,7 +914,7 @@ declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64
 declare dso_local i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @thermal_set_governor(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @thermal_set_governor(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 944
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -927,7 +927,7 @@ define internal fastcc i32 @thermal_set_governor(ptr noundef %0, ptr noundef %1)
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void %8(ptr noundef %0) #20
+  tail call void %8(ptr noundef nonnull %0) #20
   br label %11
 
 11:                                               ; preds = %10, %6, %2
@@ -941,7 +941,7 @@ define internal fastcc i32 @thermal_set_governor(ptr noundef %0, ptr noundef %1)
   br i1 %16, label %34, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call i32 %15(ptr noundef %0) #20
+  %18 = tail call i32 %15(ptr noundef nonnull %0) #20
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %34, label %20
 
@@ -957,7 +957,7 @@ define internal fastcc i32 @thermal_set_governor(ptr noundef %0, ptr noundef %1)
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %23
-  %28 = tail call i32 %25(ptr noundef %0) #20
+  %28 = tail call i32 %25(ptr noundef nonnull %0) #20
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %37, label %30
 
@@ -2972,7 +2972,7 @@ declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @thermal_add_hwmon_sysfs(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bind_tz(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @bind_tz(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2995,7 +2995,7 @@ define internal fastcc void @bind_tz(ptr noundef %0) unnamed_addr #1 align 16 {
   %14 = getelementptr i8, ptr %13, i64 -840
   %15 = load ptr, ptr %2, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call i32 %16(ptr noundef %0, ptr noundef %14) #20
+  %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef %14) #20
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %22, label %19
 
@@ -3019,7 +3019,7 @@ define internal fastcc void @bind_tz(ptr noundef %0) unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @thermal_zone_device_init(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @thermal_zone_device_init(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1040
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1048
@@ -3484,7 +3484,7 @@ declare dso_local ptr @kstrdup_const(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @thermal_cooling_device_setup_sysfs(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @bind_cdev(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @bind_cdev(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr @thermal_tz_list, align 8
   %3 = icmp eq ptr %2, @thermal_tz_list
   br i1 %3, label %.loopexit, label %4
@@ -3503,7 +3503,7 @@ define internal fastcc void @bind_cdev(ptr noundef %0) unnamed_addr #1 align 16 
 
 12:                                               ; preds = %6
   %13 = getelementptr i8, ptr %7, i64 -1024
-  %14 = tail call i32 %10(ptr noundef %13, ptr noundef %0) #20
+  %14 = tail call i32 %10(ptr noundef %13, ptr noundef nonnull %0) #20
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %16
 

@@ -351,9 +351,9 @@ _ZN10serde_json3ser10CharEscape17from_escape_table17h3b3d499412ce0113E.exit.thre
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h719861c695eeef04E.exit.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h719861c695eeef04E.exit.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit5.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit.i.i"
-  %.sink3.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit5.i.i" ]
+  %.sink4.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17h9a506a042129888cE.exit5.i.i" ]
   %97 = load i64, ptr %4, align 8, !noalias !20, !noundef !16
-  %98 = add i64 %97, %.sink3.i.i
+  %98 = add i64 %97, %.sink4.i.i
   store i64 %98, ptr %4, align 8, !noalias !20
   br label %.outer.i
 
@@ -2047,7 +2047,7 @@ define internal void @"_ZN4core3ptr75drop_in_place$LT$$RF$ockam_core..routing..a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$regex..regex..string..Captures$GT$$GT$17hb7ca955b29d70b95E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$regex..regex..string..Captures$GT$$GT$17hb7ca955b29d70b95E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !415, !noundef !16
   %4 = icmp eq i64 %3, 2
@@ -2595,7 +2595,7 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !16, !align !289, !noundef !16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3604,7 +3604,7 @@ define void @"_ZN65_$LT$bool$u20$as$u20$ockam_core..env..from_string..FromString
   store ptr %5, ptr %27, align 8, !alias.scope !689, !noalias !692
   %28 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 1, ptr %28, align 8, !alias.scope !689, !noalias !692
-  invoke fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  invoke fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %7, ptr noalias nocapture noundef align 8 dereferenceable(48) %6)
           to label %29 unwind label %12
 
 29:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h778d244e98dfbca8E.exit26.thread"
@@ -4178,8 +4178,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17he79f1fc897b88cdeE.exit.i
   br label %185
 
 115:                                              ; preds = %.noexc27.i.i, %108
-  %.sroa.0.040.i.i.i = phi i32 [ 0, %108 ], [ %116, %.noexc27.i.i ]
-  %116 = add nuw nsw i32 %.sroa.0.040.i.i.i, 1
+  %.sroa.0.039.i.i.i = phi i32 [ 0, %108 ], [ %116, %.noexc27.i.i ]
+  %116 = add nuw nsw i32 %.sroa.0.039.i.i.i, 1
   %.val11.i.i.i = load i64, ptr %105, align 8, !noalias !796, !noundef !16
   %117 = icmp ult i64 %109, %.val11.i.i.i
   br i1 %117, label %119, label %118, !prof !799
@@ -4844,7 +4844,7 @@ _ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit: ; preds = %.
 336:                                              ; preds = %_ZN5regex5regex6string5Regex11captures_at17h069c1123ade63726E.exit
   %337 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$regex..regex..string..Captures$GT$$GT$17hb7ca955b29d70b95E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %18) #27
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$regex..regex..string..Captures$GT$$GT$17hb7ca955b29d70b95E"(ptr noalias noundef align 8 dereferenceable(72) %18) #27
           to label %common.resume unwind label %334
 }
 

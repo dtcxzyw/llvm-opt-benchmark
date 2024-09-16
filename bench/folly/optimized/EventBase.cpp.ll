@@ -13945,7 +13945,7 @@ cleanup.action477:                                ; preds = %lpad459, %lpad456
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev"(ptr nocapture %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_9EventBase8loopBodyEibE3$_0Lb1EED2Ev"(ptr nocapture nonnull %this.8.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %threadIdCollector_.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 576
   %0 = load ptr, ptr %threadIdCollector_.i.i.i, align 8, !tbaa !144

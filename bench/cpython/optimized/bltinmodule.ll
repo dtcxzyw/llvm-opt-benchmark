@@ -3040,8 +3040,8 @@ if.end8:                                          ; preds = %if.end2
 
 if.end12:                                         ; preds = %if.end8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %meth.i)
-  %cmp67.i.not = icmp eq i64 %sub, 0
-  br i1 %cmp67.i.not, label %update_bases.exit.thread120, label %for.body.i
+  %cmp67.not.i = icmp eq i64 %sub, 0
+  br i1 %cmp67.not.i, label %update_bases.exit.thread120, label %for.body.i
 
 update_bases.exit.thread120:                      ; preds = %if.end12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %meth.i)
@@ -7818,7 +7818,7 @@ declare ptr @PyObject_GetAIter(ptr noundef) local_unnamed_addr #1
 declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @min_max(ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc ptr @min_max(ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames, i32 noundef range(i32 0, 5) %op) unnamed_addr #0 {
 entry:
   %keyfunc = alloca ptr, align 8
   %defaultval = alloca ptr, align 8

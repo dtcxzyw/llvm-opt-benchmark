@@ -1007,11 +1007,11 @@ ehcleanup42:                                      ; preds = %_ZN7testing7Message
   br label %ehcleanup805
 
 for.end:                                          ; preds = %for.inc, %for.body
-  invoke fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %graph_cycles)
+  invoke fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %graph_cycles)
           to label %invoke.cont44 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont44:                                    ; preds = %for.end
-  invoke fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %graph_cycles)
+  invoke fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %graph_cycles)
           to label %if.then.i.i162 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 if.then.i.i162:                                   ; preds = %invoke.cont44
@@ -1826,7 +1826,7 @@ if.else227:                                       ; preds = %invoke.cont217
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %97 = load i32, ptr %add.ptr.i403, align 4
   %98 = load i32, ptr %add.ptr.i402, align 4
-  %call235 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef nonnull %edges, i32 noundef %97, i32 noundef %98, ptr noundef nonnull %seen)
+  %call235 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %97, i32 noundef %98, ptr noundef %seen)
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %if.else227
@@ -2471,7 +2471,7 @@ invoke.cont383:                                   ; preds = %invoke.cont379
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i669, i8 0, i64 16, i1 false)
   %159 = load i32, ptr %add.ptr.i663, align 4
   %160 = load i32, ptr %add.ptr.i664, align 4
-  %call392 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef nonnull %edges, i32 noundef %159, i32 noundef %160, ptr noundef nonnull %seen385)
+  %call392 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %159, i32 noundef %160, ptr noundef %seen385)
           to label %invoke.cont391 unwind label %lpad390.loopexit.split-lp
 
 invoke.cont391:                                   ; preds = %invoke.cont383
@@ -3360,11 +3360,11 @@ invoke.cont611:                                   ; preds = %if.then.i.i.i.i905,
   br i1 %cmp.i.i906, label %if.then613, label %for.inc801
 
 if.then613:                                       ; preds = %invoke.cont611
-  invoke fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %graph_cycles)
+  invoke fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %graph_cycles)
           to label %invoke.cont614 unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont614:                                   ; preds = %if.then613
-  invoke fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %graph_cycles)
+  invoke fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %graph_cycles)
           to label %for.cond617.preheader unwind label %lpad2.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.cond617.preheader:                            ; preds = %invoke.cont614
@@ -4276,7 +4276,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef readonly %nodes, ptr nocapture noundef readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL10CheckEdgesEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i111 = alloca i64, align 8
   %v.addr.i49 = alloca i32, align 4
@@ -4375,8 +4375,8 @@ _ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4p
   br i1 %call12, label %for.cond, label %if.then
 
 if.then:                                          ; preds = %_ZN4absl24synchronization_internalL3GetERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS2_EEEi.exit46
-  tail call fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr noundef nonnull %edges)
-  tail call fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc)
+  tail call fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr noundef %edges)
+  tail call fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc)
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, ptr noundef nonnull @.str.3, i32 noundef 145) #28
   invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, i64 13, ptr nonnull @.str.75)
           to label %invoke.cont15 unwind label %lpad
@@ -4531,8 +4531,8 @@ for.end64:                                        ; preds = %for.inc62, %for.end
   br i1 %cmp.not, label %if.end82, label %if.then66
 
 if.then66:                                        ; preds = %for.end64
-  tail call fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr noundef nonnull %edges)
-  tail call fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc)
+  tail call fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr noundef %edges)
+  tail call fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc)
   call void @_ZN4absl12log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp68, ptr noundef nonnull @.str.3, i32 noundef 158) #28
   invoke void @_ZN4absl12log_internal10LogMessage19CopyToEncodedBufferILNS1_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp68, i64 14, ptr nonnull @.str.78)
           to label %invoke.cont72 unwind label %lpad69
@@ -4573,7 +4573,7 @@ if.end82:                                         ; preds = %for.end64
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef readonly %nodes, ptr nocapture noundef readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL22CheckTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiSA_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i53 = alloca i32, align 4
   %v.addr.i48 = alloca i8, align 1
@@ -4702,7 +4702,7 @@ invoke.cont16:                                    ; preds = %_ZNSt13unordered_se
 invoke.cont21:                                    ; preds = %invoke.cont16
   %15 = load i32, ptr %__begin2.sroa.0.075, align 4
   %16 = load i32, ptr %__begin3.sroa.0.073, align 4
-  %call24 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %15, i32 noundef %16, ptr noundef nonnull %seen)
+  %call24 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %15, i32 noundef %16, ptr noundef %seen)
           to label %invoke.cont23 unwind label %lpad.loopexit
 
 invoke.cont23:                                    ; preds = %invoke.cont21
@@ -4714,15 +4714,15 @@ if.then:                                          ; preds = %invoke.cont23
           to label %invoke.cont28 unwind label %lpad.loopexit.split-lp
 
 invoke.cont28:                                    ; preds = %if.then
-  invoke fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc)
+  invoke fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc)
           to label %invoke.cont29 unwind label %lpad.loopexit.split-lp
 
 invoke.cont29:                                    ; preds = %invoke.cont28
-  invoke fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr noundef nonnull %nodes, ptr noundef %edges)
+  invoke fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr noundef %nodes, ptr noundef %edges)
           to label %invoke.cont30 unwind label %lpad.loopexit.split-lp
 
 invoke.cont30:                                    ; preds = %invoke.cont29
-  invoke fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef nonnull %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef nonnull %gc)
+  invoke fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr noundef %nodes, ptr noundef nonnull align 8 dereferenceable(48) %id, ptr noundef %gc)
           to label %invoke.cont31 unwind label %lpad.loopexit.split-lp
 
 invoke.cont31:                                    ; preds = %invoke.cont30
@@ -5011,7 +5011,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr nocapture noundef readonly %edges, i32 noundef %from, i32 noundef %to, ptr noundef nonnull %seen) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr nocapture noundef nonnull readonly %edges, i32 noundef %from, i32 noundef %to, ptr noundef nonnull %seen) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %from.addr = alloca i32, align 4
@@ -5103,7 +5103,7 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
   br i1 %cmp.not.i.i.i.i, label %for.cond.i.i.i.i, label %land.rhs, !llvm.loop !59
 
 land.rhs:                                         ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %if.end15.i.i
-  %call22 = call fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef nonnull %edges, i32 noundef %5, i32 noundef %to, ptr noundef nonnull %seen)
+  %call22 = call fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %5, i32 noundef %to, ptr noundef %seen)
   br i1 %call22, label %return, label %for.inc
 
 for.inc:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.end.i.i.i.i, %for.body, %land.rhs
@@ -9726,7 +9726,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr nocapture noundef readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL10PrintEdgesEPSt6vectorINS0_4EdgeESaIS2_EE(ptr nocapture noundef nonnull readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i12 = alloca i32, align 4
   %v.addr.i8 = alloca i32, align 4
@@ -9824,7 +9824,7 @@ eh.resume:                                        ; preds = %lpad32, %lpad18, %l
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL12PrintGCEdgesEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10015,7 +10015,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS1_RKS4_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr nocapture noundef readonly %nodes, ptr nocapture noundef readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL22PrintTransitiveClosureEPSt6vectorIiSaIiEEPS1_INS0_4EdgeESaIS5_EE(ptr nocapture noundef nonnull readonly %nodes, ptr nocapture noundef nonnull readonly %edges) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i12 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4
@@ -10059,7 +10059,7 @@ for.body16:                                       ; preds = %for.body, %_ZNSt13u
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
-  %call20 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %seen)
+  %call20 = invoke fastcc noundef zeroext i1 @_ZN4absl24synchronization_internalL11IsReachableEPSt6vectorINS0_4EdgeESaIS2_EEiiPSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEE(ptr noundef %edges, i32 noundef %2, i32 noundef %5, ptr noundef %seen)
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %for.body16
@@ -10192,7 +10192,7 @@ eh.resume:                                        ; preds = %if.end.i.i.i.i25, %
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl24synchronization_internalL24PrintGCTransitiveClosureEPSt6vectorIiSaIiEERKSt3mapIiNS0_7GraphIdESt4lessIiESaISt4pairIKiS6_EEEPNS0_11GraphCyclesE(ptr nocapture noundef nonnull readonly %nodes, ptr noundef nonnull readonly align 8 dereferenceable(48) %id, ptr noundef nonnull %gc) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
 entry:
   %v.addr.i35 = alloca i32, align 4
   %v.addr.i = alloca i32, align 4

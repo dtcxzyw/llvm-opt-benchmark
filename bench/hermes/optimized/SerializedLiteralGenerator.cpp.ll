@@ -624,7 +624,7 @@ declare noundef i32 @_ZNK6hermes3hbc23BytecodeModuleGenerator11getStringIDEN4llv
 declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext %tag, i32 noundef %seqLength) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes3hbc12_GLOBAL__N_117appendTagToBufferERSt6vectorIhSaIhEEhi(ptr nocapture noundef nonnull align 8 dereferenceable(24) %buff, i8 noundef zeroext range(i8 0, 113) %tag, i32 noundef %seqLength) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %seqLength, 15
   br i1 %cmp, label %if.then, label %if.else

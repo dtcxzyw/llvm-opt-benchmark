@@ -2488,7 +2488,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %60, %_ZN4llvm10MIMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPNS_17MachineModuleInfoERNS_15SmallVectorImplIjEE15FrameHelperTypej(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPNS_17MachineModuleInfoERNS_15SmallVectorImplIjEE15FrameHelperTypej(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef range(i32 0, 4) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
   %8 = alloca %"class.llvm::MachineOperand", align 8
@@ -2514,7 +2514,7 @@ define internal fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPN
   %28 = alloca %"class.llvm::DebugLoc", align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %19)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %19) #14, !noalias !60
-  switch i32 %3, label %default.unreachable.i [
+  switch i32 %3, label %default.unreachable [
     i32 0, label %29
     i32 1, label %31
     i32 2, label %35
@@ -2539,7 +2539,7 @@ define internal fastcc noundef ptr @_ZL22getOrCreateFrameHelperPN4llvm6ModuleEPN
   %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.8) #14, !noalias !60
   br label %39
 
-default.unreachable.i:                            ; preds = %5
+default.unreachable:                              ; preds = %5
   unreachable
 
 39:                                               ; preds = %37, %35, %31, %29

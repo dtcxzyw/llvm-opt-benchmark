@@ -337,7 +337,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 6, 29) %2) unnamed_addr #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %3

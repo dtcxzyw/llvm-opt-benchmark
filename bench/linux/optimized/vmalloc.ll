@@ -2169,7 +2169,7 @@ define dso_local void @vm_unmap_aliases() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @_vm_unmap_aliases(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @_vm_unmap_aliases(i64 noundef range(i64 1, 0) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.list_head, align 8
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
@@ -2557,12 +2557,12 @@ define internal fastcc ptr @find_unlink_vmap_area(i64 noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_unmap_vmap_area(ptr noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @free_unmap_vmap_area(ptr noundef nonnull %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %2, align 8
   tail call void @__vunmap_range_noflush(i64 noundef %3, i64 noundef %4)
-  tail call fastcc void @free_vmap_area_noflush(ptr noundef %0)
+  tail call fastcc void @free_vmap_area_noflush(ptr noundef nonnull %0)
   ret void
 }
 
@@ -3350,7 +3350,7 @@ define dso_local ptr @vm_map_ram(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #1 align 16 {
+define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef range(i64 0, 4) %6) unnamed_addr #1 align 16 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
   %9 = icmp eq i64 %0, 0
@@ -4264,7 +4264,7 @@ define dso_local noundef ptr @__get_vm_area_caller(i64 noundef %0, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @__get_vm_area_node(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #1 align 16 {
+define internal fastcc noundef ptr @__get_vm_area_node(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 12, 22) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #1 align 16 {
   %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #22, !srcloc !159
   %11 = and i32 %10, 16776960
   %12 = icmp eq i32 %11, 0
@@ -4655,7 +4655,7 @@ define dso_local void @vfree(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @vm_reset_perms(ptr nocapture noundef readonly %0) unnamed_addr #1 align 16 {
+define internal fastcc void @vm_reset_perms(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -10197,7 +10197,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @insert_vmap_area_augment(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @insert_vmap_area_augment(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %29, label %4
 

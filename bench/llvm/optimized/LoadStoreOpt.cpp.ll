@@ -1062,8 +1062,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::MemoryLocation", align 8
   %9 = alloca %"class.llvm::MemoryLocation", align 8
-  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull %2, ptr noundef nonnull %0)
-  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr nonnull %2, ptr noundef nonnull %1)
+  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %2, ptr noundef %0)
+  call fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias writable align 8 %6, ptr nonnull %2, ptr noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
@@ -1253,7 +1253,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm15GISelAddressing12instMayAliasERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm15GISelAddressing12instMayAliasERKNS_12MachineInstrES3_RNS_19MachineRegisterInfoEPNS_9AAResultsEENK3$_0clEPS2_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   switch i16 %4, label %118 [

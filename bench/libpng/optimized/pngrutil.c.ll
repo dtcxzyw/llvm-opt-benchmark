@@ -1759,7 +1759,7 @@ png_crc_read.exit:                                ; preds = %28
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 %55, ptr %59, align 8
-  call fastcc void @png_inflate_read(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @png_inflate_read(ptr noundef %0, ptr noundef %7, ptr noundef %4, ptr noundef %6, ptr noundef %8, i32 noundef 0)
   %60 = load i64, ptr %8, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %.thread148.sink.split
@@ -1824,7 +1824,7 @@ png_crc_read.exit:                                ; preds = %28
   %109 = and i64 %108, 4294967292
   store i64 %109, ptr %8, align 8
   %110 = getelementptr inbounds i8, ptr %96, i64 132
-  call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %110, ptr noundef nonnull %8, i32 noundef 0)
+  call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %4, ptr noundef %110, ptr noundef %8, i32 noundef 0)
   %111 = load i64, ptr %8, align 8
   %112 = icmp eq i64 %111, 0
   br i1 %112, label %113, label %.thread148.sink.split
@@ -1839,7 +1839,7 @@ png_crc_read.exit:                                ; preds = %28
   %117 = sub nsw i64 %116, %109
   store i64 %117, ptr %8, align 8
   %118 = getelementptr inbounds i8, ptr %110, i64 %109
-  call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %118, ptr noundef nonnull %8, i32 noundef 1)
+  call fastcc void @png_inflate_read(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %4, ptr noundef %118, ptr noundef %8, i32 noundef 1)
   %119 = load i32, ptr %4, align 4
   %.not119 = icmp eq i32 %119, 0
   br i1 %.not119, label %124, label %120
@@ -2038,7 +2038,7 @@ define internal fastcc noundef i32 @png_inflate_claim(ptr noalias noundef %0, i3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 312
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 536
@@ -2074,8 +2074,8 @@ define internal fastcc void @png_inflate_read(ptr noalias noundef %0, ptr nounde
 
 png_crc_read.exit:                                ; preds = %21
   %24 = zext nneg i32 %spec.select to i64
-  tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #12
-  tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %24) #12
+  tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %24) #12
+  tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %24) #12
   br label %25
 
 25:                                               ; preds = %png_crc_read.exit, %21
@@ -2173,7 +2173,7 @@ declare i32 @png_icc_check_length(ptr noundef, ptr noundef, ptr noundef, i32 nou
 declare i32 @png_icc_check_header(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef range(i64 0, 4294967296) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1120
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2203,7 +2203,7 @@ define internal fastcc ptr @png_read_buffer(ptr noalias noundef %0, i64 noundef 
   br label %20
 
 15:                                               ; preds = %11
-  %16 = icmp slt i32 %2, 2
+  %16 = icmp ult i32 %2, 2
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
@@ -4247,7 +4247,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 53:                                               ; preds = %48
   store i64 -1, ptr %4, align 8
   %54 = add nuw nsw i32 %.0.lcssa, 2
-  %55 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %54, ptr noundef nonnull %4)
+  %55 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %54, ptr noundef %4)
   %56 = icmp eq i32 %55, 1
   br i1 %56, label %57, label %72
 
@@ -4293,7 +4293,7 @@ png_crc_read.exit:                                ; preds = %36, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef range(i32 4, 0) %1, i32 noundef range(i32 0, -1) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 1072
   %7 = load i64, ptr %6, align 8
@@ -4815,7 +4815,7 @@ png_crc_read.exit:                                ; preds = %37, %30
 
 81:                                               ; preds = %79
   store i64 -1, ptr %4, align 8
-  %82 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %75, ptr noundef nonnull %4)
+  %82 = call fastcc i32 @png_decompress_chunk(ptr noundef %0, i32 noundef %2, i32 noundef %75, ptr noundef %4)
   %83 = icmp eq i32 %82, 1
   br i1 %83, label %84, label %86
 

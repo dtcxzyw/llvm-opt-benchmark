@@ -387,7 +387,7 @@ define hidden void @zif_strspn(ptr noundef %0, ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_spn_common_handler(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_spn_common_handler(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca ptr, align 8
@@ -1030,7 +1030,7 @@ define ptr @php_trim(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef
   br i1 %24, label %.preheader186, label %.loopexit
 
 25:                                               ; preds = %10
-  call fastcc void @php_charmask(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull %6)
+  call fastcc void @php_charmask(ptr noundef nonnull %1, i64 noundef %2, ptr noundef %6)
   br i1 %or.cond, label %.loopexit193, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %30
@@ -1329,7 +1329,7 @@ define hidden void @zif_trim(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %54, label %50, label %.loopexit
 
 55:                                               ; preds = %36
-  call fastcc void @php_charmask(ptr noundef nonnull %31, i64 noundef %38, ptr noundef nonnull %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %31, i64 noundef %38, ptr noundef %3)
   br i1 %.not272324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %55, %60
@@ -1860,7 +1860,7 @@ define hidden void @zflf_trim_2(ptr nocapture noundef writeonly %0, ptr noundef 
   br i1 %70, label %66, label %.loopexit
 
 71:                                               ; preds = %48
-  call fastcc void @php_charmask(ptr noundef nonnull %52, i64 noundef %54, ptr noundef nonnull %4)
+  call fastcc void @php_charmask(ptr noundef nonnull %52, i64 noundef %54, ptr noundef %4)
   br i1 %.not246262, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %76
@@ -2095,7 +2095,7 @@ define hidden void @zif_rtrim(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %45, label %42, label %.loopexit
 
 46:                                               ; preds = %34
-  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %36, ptr noundef nonnull %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %36, ptr noundef %3)
   br label %47
 
 47:                                               ; preds = %48, %46
@@ -2314,7 +2314,7 @@ define hidden void @zif_ltrim(ptr noundef %0, ptr nocapture noundef writeonly %1
   br i1 %.not269, label %.loopexit, label %.lr.ph319
 
 48:                                               ; preds = %35
-  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %37, ptr noundef nonnull %3)
+  call fastcc void @php_charmask(ptr noundef nonnull %30, i64 noundef %37, ptr noundef %3)
   br i1 %.not269317, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48, %53
@@ -9648,7 +9648,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i
   %.069.i = phi ptr [ %84, %.lr.ph.i ], [ %80, %68 ]
   %.06568.i = phi ptr [ %85, %.lr.ph.i ], [ %.ptr, %68 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.069.i, ptr noundef align 1 %.06568.i, i64 noundef %41, i1 false) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.069.i, ptr noundef nonnull align 1 dereferenceable(1) %.06568.i, i64 noundef %41, i1 false) #28
   %83 = getelementptr inbounds i8, ptr %.069.i, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %83, ptr noundef nonnull readonly align 1 %.0179223, i64 noundef %.0180222, i1 false) #28
   %84 = getelementptr inbounds i8, ptr %83, i64 %.0180222
@@ -9662,7 +9662,7 @@ define hidden void @zif_chunk_split(ptr noundef %0, ptr nocapture noundef writeo
   br i1 %.not.i, label %87, label %php_chunk_split.exit
 
 87:                                               ; preds = %._crit_edge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.0.lcssa.i, ptr noundef align 1 %.065.lcssa.i, i64 noundef %.recomposed, i1 false) #28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %.0.lcssa.i, ptr noundef align 1 %.065.lcssa.i, i64 noundef %.recomposed, i1 false) #28
   %88 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 %.recomposed
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %88, ptr noundef nonnull readonly align 1 %.0179223, i64 noundef %.0180222, i1 false) #28
   %89 = getelementptr inbounds i8, ptr %88, i64 %.0180222
@@ -11812,7 +11812,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.loopexit
 
 38:                                               ; preds = %.thread199
-  call fastcc void @php_charmask(ptr noundef nonnull %.0172208, i64 noundef %.0173207, ptr noundef nonnull %5)
+  call fastcc void @php_charmask(ptr noundef nonnull %.0172208, i64 noundef %.0173207, ptr noundef %5)
   %39 = load ptr, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 24
   %41 = getelementptr inbounds i8, ptr %39, i64 16
@@ -11872,7 +11872,7 @@ define hidden void @zif_ucwords(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @php_charmask(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %2, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   %5 = icmp sgt i64 %1, 0
@@ -12914,7 +12914,7 @@ define internal fastcc void @php_strtr_array(ptr nocapture noundef writeonly %0,
   %80 = getelementptr inbounds i8, ptr %.0, i64 24
   %81 = getelementptr inbounds i8, ptr %.0, i64 16
   %82 = load i64, ptr %81, align 8
-  %83 = call fastcc ptr @php_str_to_str_ex(ptr noundef %1, ptr noundef nonnull %79, i64 noundef %59, ptr noundef nonnull %80, i64 noundef %82, ptr noundef nonnull %7)
+  %83 = call fastcc ptr @php_str_to_str_ex(ptr noundef %1, ptr noundef nonnull %79, i64 noundef %59, ptr noundef nonnull %80, i64 noundef %82, ptr noundef %7)
   store ptr %83, ptr %0, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
@@ -14670,7 +14670,7 @@ define ptr @php_addcslashes_str(ptr noundef readonly %0, i64 noundef %1, ptr nou
   %9 = shl i64 %1, 2
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 %9, ptr %10, align 8
-  call fastcc void @php_charmask(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %5)
+  call fastcc void @php_charmask(ptr noundef %2, i64 noundef %3, ptr noundef %5)
   %11 = getelementptr inbounds i8, ptr %0, i64 %1
   %12 = getelementptr inbounds i8, ptr %6, i64 24
   %13 = icmp sgt i64 %1, 0
@@ -17735,7 +17735,7 @@ define i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
   store i8 0, ptr %78, align 1
   %79 = ptrtoint ptr %78 to i64
   %80 = sub i64 %79, %.pre-phi
-  %81 = tail call fastcc zeroext i1 @php_tag_find(ptr noundef %.8, i64 noundef %80, ptr noundef nonnull %.0241)
+  %81 = tail call fastcc zeroext i1 @php_tag_find(ptr noundef %.8, i64 noundef %80, ptr noundef %.0241)
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %77
@@ -18671,7 +18671,7 @@ define i64 @php_strip_tags(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 n
 declare ptr @zend_str_tolower_dup_ex(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @php_tag_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @php_tag_find(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %32, label %5
 
@@ -20795,7 +20795,7 @@ define hidden void @zif_str_word_count(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  call fastcc void @php_charmask(ptr noundef nonnull %.0196245, i64 noundef %.0199244, ptr noundef nonnull %5)
+  call fastcc void @php_charmask(ptr noundef nonnull %.0196245, i64 noundef %.0199244, ptr noundef %5)
   %.pre252 = load ptr, ptr %4, align 8
   br label %66
 
@@ -22180,7 +22180,7 @@ define internal fastcc noundef ptr @php_char_to_str_ex(ptr noundef %0, i8 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 2, 0) %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %2, %8
@@ -22230,7 +22230,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %.0398520 = phi ptr [ %.0394528, %.lr.ph521 ], [ %45, %44 ]
   %35 = ptrtoint ptr %.0398520 to i64
   %36 = sub i64 %22, %35
-  %37 = tail call ptr @memchr(ptr noundef %.0398520, i32 noundef %33, i64 noundef %36) #30
+  %37 = tail call ptr @memchr(ptr noundef nonnull %.0398520, i32 noundef %33, i64 noundef %36) #30
   %.not434 = icmp eq ptr %37, null
   br i1 %.not434, label %.thread, label %38
 
@@ -22252,7 +22252,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not433, label %.thread, label %34
 
 46:                                               ; preds = %26
-  %47 = tail call ptr @zend_memnstr_ex(ptr noundef %.0394528, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
+  %47 = tail call ptr @zend_memnstr_ex(ptr noundef nonnull %.0394528, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
   %.not437 = icmp eq ptr %47, null
   br i1 %.not437, label %.thread, label %.thread443
 
@@ -22285,7 +22285,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %60 = ptrtoint ptr %.0390446 to i64
   %61 = sub i64 %60, %25
   %62 = getelementptr inbounds i8, ptr %59, i64 %61
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr align 1 %3, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 %2, i1 false)
   %63 = load i64, ptr %5, align 8
   %64 = add nsw i64 %63, 1
   store i64 %64, ptr %5, align 8
@@ -22318,7 +22318,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %.0400481.us = phi ptr [ %.0391487.us, %.lr.ph.us ], [ %83, %82 ]
   %73 = ptrtoint ptr %.0400481.us to i64
   %74 = sub i64 %22, %73
-  %75 = tail call ptr @memchr(ptr noundef %.0400481.us, i32 noundef %91, i64 noundef %74) #30
+  %75 = tail call ptr @memchr(ptr noundef nonnull %.0400481.us, i32 noundef %91, i64 noundef %74) #30
   %.not424.us = icmp eq ptr %75, null
   br i1 %.not424.us, label %.thread448, label %76
 
@@ -22375,7 +22375,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %.0400481 = phi ptr [ %.0391487, %.lr.ph ], [ %109, %108 ]
   %99 = ptrtoint ptr %.0400481 to i64
   %100 = sub i64 %22, %99
-  %101 = tail call ptr @memchr(ptr noundef %.0400481, i32 noundef %97, i64 noundef %100) #30
+  %101 = tail call ptr @memchr(ptr noundef nonnull %.0400481, i32 noundef %97, i64 noundef %100) #30
   %.not424 = icmp eq ptr %101, null
   br i1 %.not424, label %.thread448, label %102
 
@@ -22397,7 +22397,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not423, label %.thread448, label %98
 
 110:                                              ; preds = %.lr.ph488.split
-  %111 = tail call ptr @zend_memnstr_ex(ptr noundef %.0391487, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
+  %111 = tail call ptr @zend_memnstr_ex(ptr noundef nonnull %.0391487, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %13) #28
   %.not427 = icmp eq ptr %111, null
   br i1 %.not427, label %.thread448, label %.thread451
 
@@ -22500,7 +22500,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   %.0403496 = phi ptr [ %.1395509, %.lr.ph497 ], [ %178, %177 ]
   %168 = ptrtoint ptr %.0403496 to i64
   %169 = sub i64 %155, %168
-  %170 = tail call ptr @memchr(ptr noundef %.0403496, i32 noundef %166, i64 noundef %169) #30
+  %170 = tail call ptr @memchr(ptr noundef nonnull %.0403496, i32 noundef %166, i64 noundef %169) #30
   %.not429 = icmp eq ptr %170, null
   br i1 %.not429, label %.thread456, label %171
 
@@ -22522,7 +22522,7 @@ define internal fastcc ptr @php_str_to_str_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not428, label %.thread456, label %167
 
 179:                                              ; preds = %158
-  %180 = tail call ptr @zend_memnstr_ex(ptr noundef %.1395509, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %144) #28
+  %180 = tail call ptr @zend_memnstr_ex(ptr noundef nonnull %.1395509, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %144) #28
   %.not432 = icmp eq ptr %180, null
   br i1 %.not432, label %.thread456, label %.thread459
 
@@ -22877,7 +22877,7 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds i8, ptr %.0, i64 24
-  %109 = call fastcc ptr @php_str_to_str_ex(ptr noundef %.0263355, ptr noundef nonnull %108, i64 noundef %88, ptr noundef %.3, i64 noundef %.3270, ptr noundef nonnull %8)
+  %109 = call fastcc ptr @php_str_to_str_ex(ptr noundef %.0263355, ptr noundef nonnull %108, i64 noundef %88, ptr noundef %.3, i64 noundef %.3270, ptr noundef %8)
   br label %150
 
 110:                                              ; preds = %106
@@ -22892,7 +22892,7 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
 114:                                              ; preds = %112, %110
   %.3274 = phi ptr [ %.0271352, %110 ], [ %113, %112 ]
   %115 = getelementptr inbounds i8, ptr %.3274, i64 24
-  %116 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef %.0263355, ptr noundef nonnull %115, ptr noundef nonnull %.0, ptr noundef %.3, i64 noundef %.3270, ptr noundef nonnull %8)
+  %116 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef %.0263355, ptr noundef nonnull %115, ptr noundef nonnull %.0, ptr noundef %.3, i64 noundef %.3270, ptr noundef %8)
   %117 = load i64, ptr %8, align 8
   %.not316 = icmp eq i64 %117, %111
   br i1 %.not316, label %150, label %118
@@ -23188,7 +23188,7 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
   %255 = getelementptr inbounds i8, ptr %2, i64 24
   %256 = getelementptr inbounds i8, ptr %2, i64 16
   %257 = load i64, ptr %256, align 8
-  %258 = call fastcc ptr @php_str_to_str_ex(ptr noundef nonnull %4, ptr noundef nonnull %254, i64 noundef %239, ptr noundef nonnull %255, i64 noundef %257, ptr noundef nonnull %8)
+  %258 = call fastcc ptr @php_str_to_str_ex(ptr noundef nonnull %4, ptr noundef nonnull %254, i64 noundef %239, ptr noundef nonnull %255, i64 noundef %257, ptr noundef %8)
   store ptr %258, ptr %5, align 8
   %259 = getelementptr inbounds i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4
@@ -23205,7 +23205,7 @@ define internal fastcc i64 @php_str_replace_in_subject(ptr noundef %0, ptr nound
   %267 = getelementptr inbounds i8, ptr %2, i64 24
   %268 = getelementptr inbounds i8, ptr %2, i64 16
   %269 = load i64, ptr %268, align 8
-  %270 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef nonnull %4, ptr noundef nonnull %266, ptr noundef nonnull %0, ptr noundef nonnull %267, i64 noundef %269, ptr noundef nonnull %8)
+  %270 = call fastcc ptr @php_str_to_str_i_ex(ptr noundef nonnull %4, ptr noundef nonnull %266, ptr noundef nonnull %0, ptr noundef nonnull %267, i64 noundef %269, ptr noundef %8)
   store ptr %270, ptr %5, align 8
   %271 = getelementptr inbounds i8, ptr %270, i64 4
   %272 = load i32, ptr %271, align 4
@@ -23268,7 +23268,7 @@ declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @zend_try_assign_typed_ref_long(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_str_to_str_i_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @php_str_to_str_i_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16

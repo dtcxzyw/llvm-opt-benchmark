@@ -165,7 +165,7 @@ define internal range(i32 0, 2) i32 @dissect_gelf_heur_udp(ptr noundef %0, ptr n
 declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gelf(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [17 x i8], align 16

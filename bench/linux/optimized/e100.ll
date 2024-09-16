@@ -5592,7 +5592,7 @@ define internal fastcc void @e100_eeprom_write(ptr nocapture noundef readonly %0
 declare dso_local void @mii_ethtool_gset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @e100_loopback_test(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @e100_loopback_test(ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #2 align 16 {
   %3 = tail call fastcc i32 @e100_rx_alloc_list(ptr noundef %0), !range !15
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %176

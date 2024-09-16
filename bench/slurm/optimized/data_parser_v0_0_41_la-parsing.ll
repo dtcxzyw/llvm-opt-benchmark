@@ -1752,7 +1752,7 @@ define i32 @dump(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3,
   %62 = load ptr, ptr %60, align 8
   %63 = sext i8 %.01.i to i64
   %64 = getelementptr inbounds %struct.flag_bit_t, ptr %62, i64 %63
-  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %64, i1 noundef zeroext false, ptr noundef nonnull %8)
+  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %64, i1 noundef zeroext false, ptr noundef %8)
   %65 = add i8 %.01.i, 1
   %66 = sext i8 %65 to i32
   %67 = load i8, ptr %58, align 8
@@ -1929,7 +1929,7 @@ _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8
   %155 = tail call ptr @data_define_dict_path(ptr noundef %.082.i, ptr noundef %154) #6
-  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %spec.select.i, ptr noundef %155, ptr noundef nonnull %75, ptr noundef %152, i1 noundef zeroext true, ptr noundef nonnull %7)
+  call fastcc void @_dump_flag_bit_array_flag(ptr noundef %spec.select.i, ptr noundef %155, ptr noundef nonnull %75, ptr noundef %152, i1 noundef zeroext true, ptr noundef %7)
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %156 = load i8, ptr %147, align 8
   %157 = zext i8 %156 to i64
@@ -3001,7 +3001,7 @@ declare i32 @openapi_data_type_to_type_format(i32 noundef) local_unnamed_addr #1
 declare ptr @data_type_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %63 [

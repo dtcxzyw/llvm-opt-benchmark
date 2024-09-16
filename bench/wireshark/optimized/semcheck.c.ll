@@ -308,7 +308,7 @@ define hidden zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 nounde
   br i1 %.not28, label %28, label %19
 
 19:                                               ; preds = %18
-  %20 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %7, ptr noundef %2)
+  %20 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef %4, ptr noundef %7, ptr noundef %2)
   %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %28, label %21
 
@@ -343,7 +343,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @df_error_new(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %9 [
@@ -773,7 +773,7 @@ define hidden zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef
 
 21:                                               ; preds = %20
   %22 = load ptr, ptr %6, align 8
-  %23 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %2)
+  %23 = call fastcc i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef %3, ptr noundef %22, ptr noundef %2)
   %.not25 = icmp eq i32 %23, 0
   br i1 %.not25, label %26, label %24
 
@@ -4100,7 +4100,7 @@ op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6)
   %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !14
   br i1 %9, label %16, label %10
@@ -4395,7 +4395,7 @@ is_bytes_type.exit101.thread:                     ; preds = %61, %61, %61, %61, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_function(ptr noundef %0, ptr noundef %4, i32 noundef %6)
   %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !14
   br i1 %9, label %17, label %10

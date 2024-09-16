@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_pkcs5_pbe(ptr noundef %cipher, ptr noundef %md, ptr noundef %exp, i32 noundef %exp_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_pkcs5_pbe(ptr noundef %cipher, ptr noundef %md, ptr noundef %exp, i32 noundef range(i32 24, 33) %exp_len) unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %out = alloca [32 x i8], align 16

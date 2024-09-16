@@ -1812,7 +1812,7 @@ _ZNSt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEED2Ev.exit: ; preds = %1, %2
 define hidden void @_ZN5osgeo4proj5datum13PrimeMeridian15createGREENWICHEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::common::Angle", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.4, i32 noundef 8901)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.4, i32 noundef 8901)
   invoke void @_ZN5osgeo4proj6common5AngleC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0.000000e+00)
           to label %4 unwind label %8
 
@@ -1858,7 +1858,7 @@ _ZN5osgeo4proj5datum13PrimeMeridian6createERKNS0_4util11PropertyMapERKNS0_6commo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 6267, 8904) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   call void @_ZN5osgeo4proj4util11PropertyMapC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj4util11PropertyMap3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, ptr noundef %1)
@@ -1956,7 +1956,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj4util11Pro
 define hidden void @_ZN5osgeo4proj5datum13PrimeMeridian11createPARISEv(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::common::Angle", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.6, i32 noundef 8903)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.6, i32 noundef 8903)
   invoke void @_ZN5osgeo4proj6common5AngleC1EdRKNS1_13UnitOfMeasureE(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0x4004C67EACAE4954, ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj6common13UnitOfMeasure4GRADE)
           to label %4 unwind label %8
 
@@ -4157,7 +4157,7 @@ define hidden void @_ZN5osgeo4proj5datum9Ellipsoid17createCLARKE_1866Ev(ptr dead
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::common::Length", align 8
   %4 = alloca %"class.osgeo::proj::common::Length", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.15, i32 noundef 7008)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.15, i32 noundef 7008)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0x415854B79999999A)
           to label %5 unwind label %10
 
@@ -4227,7 +4227,7 @@ define hidden void @_ZN5osgeo4proj5datum9Ellipsoid11createWGS84Ev(ptr dead_on_un
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::common::Length", align 8
   %4 = alloca %"class.osgeo::proj::common::Scale", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.16, i32 noundef 7030)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.16, i32 noundef 7030)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0x415854A640000000)
           to label %5 unwind label %14
 
@@ -4307,7 +4307,7 @@ define hidden void @_ZN5osgeo4proj5datum9Ellipsoid13createGRS1980Ev(ptr dead_on_
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::common::Length", align 8
   %4 = alloca %"class.osgeo::proj::common::Scale", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.17, i32 noundef 7019)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.17, i32 noundef 7019)
   invoke void @_ZN5osgeo4proj6common6LengthC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef 0x415854A640000000)
           to label %5 unwind label %14
 
@@ -7079,7 +7079,7 @@ _ZN5osgeo4proj5datum5Datum9setAnchorERKNS0_4util8optionalINSt7__cxx1112basic_str
 define hidden void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame15createEPSG_6267Ev(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.180") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::util::optional", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.35, i32 noundef 6267)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.35, i32 noundef 6267)
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
@@ -7130,7 +7130,7 @@ _ZN5osgeo4proj5datum22GeodeticReferenceFrame6createERKNS0_4util11PropertyMapERKN
 define hidden void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame15createEPSG_6269Ev(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.180") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::util::optional", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.36, i32 noundef 6269)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.36, i32 noundef 6269)
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28
@@ -7181,7 +7181,7 @@ _ZN5osgeo4proj5datum22GeodeticReferenceFrame6createERKNS0_4util11PropertyMapERKN
 define hidden void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame15createEPSG_6326Ev(ptr dead_on_unwind noalias writable sret(%"class.dropbox::oxygen::nn.180") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.osgeo::proj::util::PropertyMap", align 8
   %3 = alloca %"class.osgeo::proj::util::optional", align 8
-  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull @.str.37, i32 noundef 6326)
+  call fastcc void @_ZN5osgeo4proj5datumL21createMapNameEPSGCodeEPKci(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull @.str.37, i32 noundef 6326)
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #28

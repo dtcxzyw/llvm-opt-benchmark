@@ -3110,7 +3110,7 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev(i8 %this.0.val, ptr %this.8.val.0.val) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly6detail14ScopeGuardImplIZNS_14ThreadLocalPtrINS_20SingletonThreadLocalINS_4test12_GLOBAL__N_114PerThreadStateENS0_10DefaultTagENS0_11DefaultMakeIS6_EEvE7WrapperEvvE5resetEPSB_EUlvE_Lb1EED2Ev(i8 range(i8 0, 2) %this.0.val, ptr %this.8.val.0.val) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp ne i8 %this.0.val, 0
   %isnull.i.i = icmp eq ptr %this.8.val.0.val, null
@@ -3841,7 +3841,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIS
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5folly4test21DeterministicSchedule7uniformEmEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5folly4test21DeterministicSchedule7uniformEmEN3$_0D2Ev"(ptr nonnull %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
   %0 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
@@ -4650,7 +4650,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5folly4test21DeterministicSchedule13uniformSubsetEmmmEN3$_0D2Ev"(ptr %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5folly4test21DeterministicSchedule13uniformSubsetEmmmEN3$_0D2Ev"(ptr nonnull %this.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 8
   %0 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8

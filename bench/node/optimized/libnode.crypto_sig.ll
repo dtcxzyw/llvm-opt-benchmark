@@ -3354,7 +3354,7 @@ if.then150:                                       ; preds = %_ZNK2v820FunctionCa
   %add.ptr.i.i71 = getelementptr inbounds i8, ptr %101, i64 %102
   %retval.0.i.i72 = select i1 %cmp.i.i68, ptr %hbuf, ptr %add.ptr.i.i71
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp152, ptr noundef %retval.0.i.i72, i64 noundef %100) #20
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias nonnull align 8 %ref.tmp151, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp152)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias align 8 %ref.tmp151, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp152)
   %call153 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %signature, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp151) #20
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp151) #20
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp152) #20
@@ -4211,7 +4211,7 @@ if.end63:                                         ; preds = %if.end63.sink.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr noundef nonnull align 8 dereferenceable(24) %out) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr noundef nonnull align 8 dereferenceable(24) %out) unnamed_addr #3 {
 entry:
   %data = alloca ptr, align 8
   %call = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_112GetBytesOfRSERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(32) %pkey)
@@ -4319,7 +4319,7 @@ do.body99:                                        ; preds = %do.body92
 
 do.end104:                                        ; preds = %do.body92
   %conv105 = zext nneg i32 %call88 to i64
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef nonnull %2, i64 noundef %conv105) #20
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef nonnull %2, i64 noundef %conv105) #20
   br label %_ZNSt10unique_ptrI12ECDSA_SIG_stN4node15FunctionDeleterIS0_XadL_Z14ECDSA_SIG_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI12ECDSA_SIG_stN4node15FunctionDeleterIS0_XadL_Z14ECDSA_SIG_freeEEEEED2Ev.exit: ; preds = %do.end104, %if.then90
@@ -5591,7 +5591,7 @@ if.then187:                                       ; preds = %_ZN4node6crypto12_G
   %add.ptr.i.i178 = getelementptr inbounds i8, ptr %134, i64 %135
   %retval.0.i.i179 = select i1 %cmp.i.i175, ptr %signature, ptr %add.ptr.i.i178
   call void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp189, ptr noundef %retval.0.i.i179, i64 noundef %133) #20
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias nonnull align 8 %ref.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %m_pkey, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp189)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_121ConvertSignatureToDERERKNS0_14ManagedEVPPKeyEONS0_10ByteSourceE(ptr noalias align 8 %ref.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %m_pkey, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp189)
   %signature190 = getelementptr inbounds i8, ptr %params, i64 72
   %call191 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %signature190, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp188) #20
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp188) #20
@@ -6186,7 +6186,7 @@ if.end73:                                         ; preds = %_ZN4node6crypto10By
 
 if.then76:                                        ; preds = %if.end73
   call void @_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(16) %buf67, i64 undef, i8 0)
-  call fastcc void @_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyERKNS0_10ByteSourceE(ptr noalias nonnull align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %key26, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79)
+  call fastcc void @_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyERKNS0_10ByteSourceE(ptr noalias align 8 %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %key26, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp79)
   %call82 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp77) #20
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp77) #20
   br label %cleanup88.thread
@@ -6309,7 +6309,7 @@ declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_u
 declare i32 @EVP_DigestSignFinal(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyERKNS0_10ByteSourceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signature) unnamed_addr #3 {
+define internal fastcc void @_ZN4node6crypto12_GLOBAL__N_123ConvertSignatureToP1363EPNS_11EnvironmentERKNS0_14ManagedEVPPKeyERKNS0_10ByteSourceE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %pkey, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signature) unnamed_addr #3 {
 entry:
   %sig_data.addr.i = alloca ptr, align 8
   %call = tail call fastcc noundef i32 @_ZN4node6crypto12_GLOBAL__N_112GetBytesOfRSERKNS0_14ManagedEVPPKeyE(ptr noundef nonnull align 8 dereferenceable(32) %pkey)
@@ -6374,7 +6374,7 @@ if.then9:                                         ; preds = %if.then9.sink.split
   br label %cleanup
 
 _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_112ExtractP1363EPKhPhmm.exit
-  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %call1.i.i, i64 noundef %conv) #20
+  call void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %call1.i.i, i64 noundef %conv) #20
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit, %if.then9

@@ -99,7 +99,7 @@ while.body.i:                                     ; preds = %sw.bb16, %if.end44.
 if.end.i:                                         ; preds = %while.body.i
   %0 = load i64, ptr %value.i, align 8
   %cmp.i.i = icmp ugt i64 %0, 1114111
-  %1 = and i64 %0, -2048
+  %1 = and i64 %0, 2095104
   %2 = icmp eq i64 %1, 55296
   %narrow.i.not.i = or i1 %cmp.i.i, %2
   br i1 %narrow.i.not.i, label %if.then20, label %if.end44.i
@@ -157,7 +157,7 @@ if.then36:                                        ; preds = %if.end29
   br label %return
 
 if.end37:                                         ; preds = %if.end29
-  %call38 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef nonnull @type_str, ptr noundef nonnull %mask.addr)
+  %call38 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef nonnull @type_str, ptr noundef %mask.addr)
   %cmp39 = icmp slt i32 %call38, 0
   br i1 %cmp39, label %if.then41, label %if.end42
 
@@ -272,7 +272,7 @@ sw.bb94:                                          ; preds = %if.end91
 
 sw.bb96:                                          ; preds = %if.end91
   store i32 0, ptr %outlen, align 4
-  %call97 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef nonnull @out_utf8, ptr noundef nonnull %outlen)
+  %call97 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef nonnull @out_utf8, ptr noundef %outlen)
   %.pre = load i32, ptr %outlen, align 4
   br label %sw.epilog98
 
@@ -301,7 +301,7 @@ if.end107:                                        ; preds = %sw.epilog98
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds i8, ptr %call100, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
-  %call108 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef %cpyfunc.0, ptr noundef nonnull %p)
+  %call108 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef %cpyfunc.0, ptr noundef %p)
   br label %return
 
 return:                                           ; preds = %if.then103, %if.then105, %if.then86, %if.end71, %if.end2, %if.end107, %if.then89, %if.then81, %if.then41, %if.then36, %if.then28, %sw.default, %if.then20, %if.then13, %if.then8
@@ -319,7 +319,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr noundef %p, i32 noundef %len, i32 noundef %inform, ptr noundef readonly %rfunc, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @traverse_string(ptr noundef %p, i32 noundef range(i32 0, -2147483648) %len, i32 noundef %inform, ptr noundef readonly %rfunc, ptr noundef nonnull %arg) unnamed_addr #0 {
 entry:
   %value = alloca i64, align 8
   %tobool.not21 = icmp eq i32 %len, 0
@@ -341,7 +341,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph.sp
   %len.addr.022.us = phi i32 [ %dec.us, %if.end44.us ], [ %len, %while.body.lr.ph.split.us ]
   %0 = load i8, ptr %p.addr.023.us, align 1
   %conv.us = zext i8 %0 to i64
-  %call39.us = tail call i32 %rfunc(i64 noundef %conv.us, ptr noundef %arg) #7
+  %call39.us = tail call i32 %rfunc(i64 noundef %conv.us, ptr noundef nonnull %arg) #7
   %cmp40.us = icmp slt i32 %call39.us, 1
   br i1 %cmp40.us, label %return, label %if.end44.us
 
@@ -364,7 +364,7 @@ while.body.us28:                                  ; preds = %while.body.lr.ph.sp
   %2 = load i8, ptr %incdec.ptr4.us, align 1
   %conv8.us = zext i8 %2 to i64
   %or.us = or disjoint i64 %shl.us, %conv8.us
-  %call39.us35 = tail call i32 %rfunc(i64 noundef %or.us, ptr noundef %arg) #7
+  %call39.us35 = tail call i32 %rfunc(i64 noundef %or.us, ptr noundef nonnull %arg) #7
   %cmp40.us36 = icmp slt i32 %call39.us35, 1
   br i1 %cmp40.us36, label %return, label %if.end44.us37
 
@@ -399,7 +399,7 @@ if.then38.us50:                                   ; preds = %while.body.us44
   %6 = load i8, ptr %incdec.ptr20.us, align 1
   %conv26.us = zext i8 %6 to i64
   %or27.us = or disjoint i64 %or24.us, %conv26.us
-  %call39.us51 = tail call i32 %rfunc(i64 noundef %or27.us, ptr noundef %arg) #7
+  %call39.us51 = tail call i32 %rfunc(i64 noundef %or27.us, ptr noundef nonnull %arg) #7
   %cmp40.us52 = icmp slt i32 %call39.us51, 1
   br i1 %cmp40.us52, label %return, label %if.end44.us53
 
@@ -433,7 +433,7 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
 
 if.end:                                           ; preds = %while.body
   %7 = load i64, ptr %value, align 8
-  %call39 = call i32 %rfunc(i64 noundef %7, ptr noundef %arg) #7
+  %call39 = call i32 %rfunc(i64 noundef %7, ptr noundef nonnull %arg) #7
   %cmp40 = icmp slt i32 %call39, 1
   br i1 %cmp40, label %return, label %if.end44
 
@@ -498,7 +498,7 @@ if.end12:                                         ; preds = %land.lhs.true7, %if
 
 land.lhs.true40:                                  ; preds = %if.end12
   %cmp.i = icmp ugt i64 %value, 1114111
-  %1 = and i64 %value, -2048
+  %1 = and i64 %value, 2095104
   %2 = icmp eq i64 %1, 55296
   %narrow.i.not = or i1 %cmp.i, %2
   %and44 = and i64 %types.4, -8193

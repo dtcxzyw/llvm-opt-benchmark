@@ -140,7 +140,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
           to label %40 unwind label %46
 
 40:                                               ; preds = %38
-  invoke fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %41 unwind label %48
 
 41:                                               ; preds = %40
@@ -251,7 +251,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
           to label %78 unwind label %92
 
 78:                                               ; preds = %76
-  invoke fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %79 unwind label %94
 
 79:                                               ; preds = %78
@@ -873,7 +873,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit52:   ; preds = %_ZNSt6vectorIfSaIfE
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -921,7 +921,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_110getHelpStrERKNSt7__cxx1112basic_
           to label %26 unwind label %28
 
 26:                                               ; preds = %24
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %27 unwind label %28
 
 27:                                               ; preds = %26

@@ -522,12 +522,12 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef %0
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %23, align 8
-  tail call fastcc void @Undo_Justification(ptr noundef nonnull %0, ptr noundef %58)
+  tail call fastcc void @Undo_Justification(ptr noundef %0, ptr noundef %58)
   br label %92
 
 59:                                               ; preds = %49, %41, %38
   %60 = load ptr, ptr %23, align 8
-  tail call fastcc void @Buffer_To_Window(ptr noundef nonnull %0, ptr noundef %60)
+  tail call fastcc void @Buffer_To_Window(ptr noundef %0, ptr noundef %60)
   br label %92
 
 61:                                               ; preds = %22
@@ -564,7 +564,7 @@ define dso_local range(i32 -2, 1) i32 @_nc_Synchronize_Attributes(ptr noundef %0
   %85 = tail call i32 @copywin(ptr noundef %70, ptr noundef %69, i32 noundef 0, i32 noundef 0, i32 noundef %73, i32 noundef %76, i32 noundef %80, i32 noundef %84, i32 noundef 0) #13
   tail call void @wsyncup(ptr noundef %69) #13
   %86 = load ptr, ptr %23, align 8
-  tail call fastcc void @Buffer_To_Window(ptr noundef nonnull %0, ptr noundef %86)
+  tail call fastcc void @Buffer_To_Window(ptr noundef %0, ptr noundef %86)
   %87 = load i16, ptr %0, align 8
   %88 = or i16 %87, 2
   store i16 %88, ptr %0, align 8
@@ -684,7 +684,7 @@ declare i32 @wattrset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @werase(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Undo_Justification(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Undo_Justification(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -743,7 +743,7 @@ After_End_Of_Data.exit:                           ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Buffer_To_Window(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Buffer_To_Window(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.thread
 
@@ -910,7 +910,7 @@ define internal fastcc range(i32 -1, 1) i32 @Display_Or_Erase_Field(ptr noundef 
   br i1 %or.cond, label %.thread.i, label %65
 
 65:                                               ; preds = %58
-  tail call fastcc void @Perform_Justification(ptr noundef nonnull %0, ptr noundef nonnull %26)
+  tail call fastcc void @Perform_Justification(ptr noundef %0, ptr noundef nonnull %26)
   br label %Buffer_To_Window.exit
 
 .thread.i:                                        ; preds = %48, %51, %58
@@ -1316,7 +1316,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, pt
   %73 = load ptr, ptr %21, align 8
   %74 = tail call i32 @werase(ptr noundef %73) #13
   %75 = load ptr, ptr %21, align 8
-  tail call fastcc void @Perform_Justification(ptr noundef nonnull %7, ptr noundef %75)
+  tail call fastcc void @Perform_Justification(ptr noundef %7, ptr noundef %75)
   %76 = load ptr, ptr %21, align 8
   tail call void @wsyncup(ptr noundef %76) #13
   br label %77
@@ -1430,7 +1430,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, pt
   %145 = load ptr, ptr %21, align 8
   %146 = tail call i32 @werase(ptr noundef %145) #13
   %147 = load ptr, ptr %21, align 8
-  tail call fastcc void @Buffer_To_Window(ptr noundef nonnull %1, ptr noundef %147)
+  tail call fastcc void @Buffer_To_Window(ptr noundef %1, ptr noundef %147)
   br label %163
 
 148:                                              ; preds = %137
@@ -1455,7 +1455,7 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Current_Field(ptr noundef %0, pt
   %159 = load ptr, ptr %21, align 8
   %160 = tail call i32 @werase(ptr noundef %159) #13
   %161 = load ptr, ptr %21, align 8
-  tail call fastcc void @Undo_Justification(ptr noundef nonnull %1, ptr noundef %161)
+  tail call fastcc void @Undo_Justification(ptr noundef %1, ptr noundef %161)
   %162 = load ptr, ptr %21, align 8
   tail call void @wsyncup(ptr noundef %162) #13
   br label %163
@@ -1563,7 +1563,7 @@ define internal fastcc void @Window_To_Buffer(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Perform_Justification(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Perform_Justification(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -2254,7 +2254,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %124, label %125, label %.thread51
 
 125:                                              ; preds = %117
-  %126 = tail call fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef %1)
+  %126 = tail call fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1)
   br label %.thread51
 
 .thread51:                                        ; preds = %87, %93, %97, %109, %110, %117, %125, %107, %103
@@ -2611,7 +2611,7 @@ define internal i32 @Field_Editing(ptr noundef readonly %0, ptr noundef %1) #0 {
 declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @Check_Char(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @Check_Char(ptr noundef readonly %0, i32 noundef range(i32 -291055, -291056) %1, ptr noundef %2) unnamed_addr #0 {
   %.not24 = icmp eq ptr %0, null
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
@@ -2665,7 +2665,7 @@ tailrecurse:                                      ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Data_Entry(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @Data_Entry(ptr noundef nonnull %0, i32 noundef range(i32 -291055, -291056) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 48
@@ -3539,12 +3539,12 @@ define internal fastcc range(i32 -2, 1) i32 @Synchronize_Field(ptr noundef %0) u
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %24, align 8
-  tail call fastcc void @Undo_Justification(ptr noundef nonnull %0, ptr noundef %49)
+  tail call fastcc void @Undo_Justification(ptr noundef %0, ptr noundef %49)
   br label %52
 
 50:                                               ; preds = %40, %32, %29, %22
   %51 = load ptr, ptr %24, align 8
-  tail call fastcc void @Buffer_To_Window(ptr noundef nonnull %0, ptr noundef %51)
+  tail call fastcc void @Buffer_To_Window(ptr noundef %0, ptr noundef %51)
   br label %52
 
 52:                                               ; preds = %50, %48
@@ -6558,7 +6558,7 @@ Window_To_Buffer.exit67:                          ; preds = %147, %.critedge.i58
 declare i32 @winch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @Insert_String(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @Insert_String(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104

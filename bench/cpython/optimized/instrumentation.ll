@@ -1089,7 +1089,7 @@ define hidden range(i32 -1, 1) i32 @_Py_call_instrumentation(ptr noundef %tstate
 entry:
   %args = alloca [3 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %args, i8 0, i64 24, i1 false)
-  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 2, ptr noundef nonnull %args)
+  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 2, ptr noundef %args)
   ret i32 %call
 }
 
@@ -1097,7 +1097,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr nocapture noundef readonly %frame, ptr noundef %instr, i64 noundef %nargs, ptr noundef %args) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr nocapture noundef readonly %frame, ptr noundef %instr, i64 noundef range(i64 2, 5) %nargs, ptr noundef nonnull %args) unnamed_addr #1 {
 entry:
   %tracing = getelementptr inbounds i8, ptr %tstate, i64 52
   %0 = load i32, ptr %tracing, align 4
@@ -1159,7 +1159,7 @@ if.else12.i:                                      ; preds = %if.end5
 get_tools_for_instruction.exit:                   ; preds = %if.then4.i, %if.else.i, %if.else12.i
   %tools.0.in.i = phi ptr [ %arrayidx.i, %if.then4.i ], [ %arrayidx10.i, %if.else.i ], [ %arrayidx15.i, %if.else12.i ]
   %tools.0.i = load i8, ptr %tools.0.in.i, align 1
-  %or = or i64 %nargs, -9223372036854775808
+  %or = or disjoint i64 %nargs, -9223372036854775808
   %tobool10.not36 = icmp eq i8 %tools.0.i, 0
   br i1 %tobool10.not36, label %while.end, label %while.body.lr.ph
 
@@ -1308,7 +1308,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 32, i1 false)
   %arrayinit.element2 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %arg, ptr %arrayinit.element2, align 8
-  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 3, ptr noundef nonnull %args)
+  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 3, ptr noundef %args)
   ret i32 %call
 }
 
@@ -1321,7 +1321,7 @@ entry:
   store ptr %arg0, ptr %arrayinit.element2, align 8
   %arrayinit.element3 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %arg1, ptr %arrayinit.element3, align 16
-  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 4, ptr noundef nonnull %args)
+  %call = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef %frame, ptr noundef %instr, i64 noundef 4, ptr noundef %args)
   ret i32 %call
 }
 
@@ -1345,7 +1345,7 @@ if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %args, i8 0, i64 32, i1 false)
   %arrayinit.element5 = getelementptr inbounds i8, ptr %args, i64 24
   store ptr %call2, ptr %arrayinit.element5, align 8
-  %call7 = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef nonnull %frame, ptr noundef %instr, i64 noundef 3, ptr noundef nonnull %args)
+  %call7 = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef nonnull %frame, ptr noundef %instr, i64 noundef 3, ptr noundef %args)
   %0 = load i64, ptr %call2, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i16.not = icmp eq i64 %1, 0
@@ -1389,7 +1389,7 @@ entry:
   %arrayinit.element3 = getelementptr inbounds i8, ptr %args, i64 32
   store ptr %arg1, ptr %arrayinit.element3, align 16
   %call.i = tail call ptr @_PyErr_GetRaisedException(ptr noundef %tstate) #9
-  %call1.i = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef readonly %frame, ptr noundef %instr, i64 noundef 4, ptr noundef nonnull %args)
+  %call1.i = call fastcc i32 @call_instrumentation_vector(ptr noundef %tstate, i32 noundef %event, ptr noundef readonly %frame, ptr noundef %instr, i64 noundef 4, ptr noundef %args)
   %tobool.not.i = icmp eq i32 %call1.i, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
@@ -1847,7 +1847,7 @@ return:                                           ; preds = %if.end.i110, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @call_one_instrument(ptr nocapture noundef readonly %interp, ptr noundef %tstate, ptr noundef %args, i64 noundef %nargsf, i8 noundef signext %tool, i32 noundef %event) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 2) i32 @call_one_instrument(ptr nocapture noundef readonly %interp, ptr noundef %tstate, ptr noundef %args, i64 noundef range(i64 -9223372036854775808, -9223372036854775800) %nargsf, i8 noundef signext %tool, i32 noundef %event) unnamed_addr #1 {
 entry:
   %monitoring_callables = getelementptr inbounds i8, ptr %interp, i64 414984
   %idxprom = sext i8 %tool to i64
@@ -1882,7 +1882,7 @@ _PyVectorcall_FunctionInline.exit.i:              ; preds = %if.end
   br i1 %cmp.i12, label %if.then.i, label %if.end.i13
 
 if.then.i:                                        ; preds = %_PyVectorcall_FunctionInline.exit.i, %if.end
-  %and.i.i = and i64 %nargsf, 9223372036854775807
+  %and.i.i = and i64 %nargsf, 7
   %call2.i = tail call ptr @_PyObject_MakeTpCall(ptr noundef nonnull %tstate, ptr noundef nonnull %0, ptr noundef %args, i64 noundef %and.i.i, ptr noundef null) #9
   br label %_PyObject_VectorcallTstate.exit
 
@@ -4549,7 +4549,7 @@ declare void @_Py_Executors_InvalidateDependency(ptr noundef, ptr noundef) local
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @remove_tools(ptr nocapture noundef %code, i32 noundef %offset, i32 noundef %event, i32 noundef %tools) unnamed_addr #4 {
+define internal fastcc void @remove_tools(ptr nocapture noundef %code, i32 noundef %offset, i32 noundef range(i32 -2147483648, 128) %event, i32 noundef %tools) unnamed_addr #4 {
 entry:
   %_co_monitoring = getelementptr inbounds i8, ptr %code, i64 176
   %0 = load ptr, ptr %_co_monitoring, align 8

@@ -1189,14 +1189,14 @@ H5VM_log2_gen.exit:                               ; preds = %255, %262, %268
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__accum_adjust(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__accum_adjust(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = icmp ugt i64 %7, %9
-  br i1 %10, label %11, label %135
+  br i1 %10, label %11, label %133
 
 11:                                               ; preds = %4
   %12 = add i64 %7, -1
@@ -1243,7 +1243,7 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28
   %33 = zext nneg i32 %32 to i64
   %34 = shl nuw i64 1, %33
   %35 = icmp ugt i32 %.0.i, 19
-  br i1 %35, label %H5VM_log2_gen.exit.thread, label %119
+  br i1 %35, label %H5VM_log2_gen.exit.thread, label %117
 
 H5VM_log2_gen.exit.thread:                        ; preds = %11, %15, %H5VM_log2_gen.exit
   %36 = icmp ugt i64 %3, 524288
@@ -1293,34 +1293,34 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   %.076 = phi i64 [ %54, %47 ], [ %57, %56 ], [ 0, %H5VM_log2_gen.exit.thread._crit_edge ]
   %60 = getelementptr inbounds i8, ptr %0, i64 48
   %61 = trunc i8 %59 to i1
-  br i1 %61, label %66, label %111
+  br i1 %61, label %66, label %110
 
 .thread:                                          ; preds = %37
   %62 = add i64 %6, -524288
   %63 = getelementptr inbounds i8, ptr %0, i64 48
   %64 = load i8, ptr %63, align 8
   %65 = trunc i8 %64 to i1
-  br i1 %65, label %.thread96, label %.thread103
+  br i1 %65, label %.thread97, label %.thread104
 
 66:                                               ; preds = %58
   %67 = icmp eq i32 %2, 0
-  br i1 %67, label %.thread96, label %89
+  br i1 %67, label %.thread97, label %89
 
-.thread96:                                        ; preds = %.thread, %66
-  %.17991102 = phi i64 [ %.179, %66 ], [ 524288, %.thread ]
-  %.07792101 = phi i64 [ %.077, %66 ], [ 524288, %.thread ]
-  %.07695100 = phi i64 [ %.076, %66 ], [ %62, %.thread ]
+.thread97:                                        ; preds = %.thread, %66
+  %.17992103 = phi i64 [ %.179, %66 ], [ 524288, %.thread ]
+  %.07793102 = phi i64 [ %.077, %66 ], [ 524288, %.thread ]
+  %.07696101 = phi i64 [ %.076, %66 ], [ %62, %.thread ]
   %68 = phi ptr [ %60, %66 ], [ %63, %.thread ]
-  %69 = sub i64 %6, %.07792101
+  %69 = sub i64 %6, %.07793102
   %70 = getelementptr inbounds i8, ptr %0, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 40
   %73 = load i64, ptr %72, align 8
   %74 = add i64 %73, %71
   %75 = icmp ult i64 %69, %74
-  br i1 %75, label %76, label %.thread103
+  br i1 %75, label %76, label %.thread104
 
-76:                                               ; preds = %.thread96
+76:                                               ; preds = %.thread97
   %77 = getelementptr inbounds i8, ptr %0, i64 8
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %71
@@ -1334,17 +1334,17 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   %85 = load i64, ptr @H5E_FILE_g, align 8
   %86 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %87 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_adjust, i32 noundef 334, i64 noundef %85, i64 noundef %86, ptr noundef nonnull @.str.4) #6
-  br label %135
+  br label %133
 
 88:                                               ; preds = %76
   store i8 0, ptr %68, align 8
-  br label %.thread103
+  br label %.thread104
 
 89:                                               ; preds = %66
   %90 = getelementptr inbounds i8, ptr %0, i64 32
   %91 = load i64, ptr %90, align 8
   %92 = icmp ugt i64 %.077, %91
-  br i1 %92, label %93, label %108
+  br i1 %92, label %93, label %.thread109
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1362,70 +1362,71 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
   %104 = load i64, ptr @H5E_FILE_g, align 8
   %105 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %106 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_adjust, i32 noundef 347, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.4) #6
-  br label %135
+  br label %133
 
 107:                                              ; preds = %93
   store i8 0, ptr %60, align 8
-  %.pre112 = load i64, ptr %90, align 8
-  br label %108
+  %.pre122 = load i64, ptr %90, align 8
+  br label %.thread109
 
-108:                                              ; preds = %107, %89
-  %109 = phi i64 [ %.pre112, %107 ], [ %91, %89 ]
-  %110 = sub i64 %109, %.077
-  store i64 %110, ptr %90, align 8
+.thread109:                                       ; preds = %89, %107
+  %108 = phi i64 [ %91, %89 ], [ %.pre122, %107 ]
+  %109 = sub i64 %108, %.077
+  store i64 %109, ptr %90, align 8
+  store i64 %.076, ptr %5, align 8
   br label %111
 
-.thread103:                                       ; preds = %.thread, %88, %.thread96
-  %.07694.ph = phi i64 [ %.07695100, %.thread96 ], [ %.07695100, %88 ], [ %62, %.thread ]
-  %.17990.ph = phi i64 [ %.17991102, %.thread96 ], [ %.17991102, %88 ], [ 524288, %.thread ]
-  store i64 %.07694.ph, ptr %5, align 8
-  br label %119
+.thread104:                                       ; preds = %.thread, %88, %.thread97
+  %.07695.ph = phi i64 [ %.07696101, %.thread97 ], [ %.07696101, %88 ], [ %62, %.thread ]
+  %.17991.ph = phi i64 [ %.17992103, %.thread97 ], [ %.17992103, %88 ], [ 524288, %.thread ]
+  store i64 %.07695.ph, ptr %5, align 8
+  br label %117
 
-111:                                              ; preds = %108, %58
+110:                                              ; preds = %58
   store i64 %.076, ptr %5, align 8
-  %112 = icmp eq i32 %2, 1
-  br i1 %112, label %113, label %119
+  %.not86 = icmp eq i32 %2, 0
+  br i1 %.not86, label %117, label %111
 
-113:                                              ; preds = %111
-  %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 %.077
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %114, ptr align 1 %115, i64 %.076, i1 false)
-  %116 = getelementptr inbounds i8, ptr %0, i64 8
-  %117 = load i64, ptr %116, align 8
-  %118 = add i64 %117, %.077
-  store i64 %118, ptr %116, align 8
-  br label %119
+111:                                              ; preds = %.thread109, %110
+  %112 = load ptr, ptr %0, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 %.077
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %112, ptr align 1 %113, i64 %.076, i1 false)
+  %114 = getelementptr inbounds i8, ptr %0, i64 8
+  %115 = load i64, ptr %114, align 8
+  %116 = add i64 %115, %.077
+  store i64 %116, ptr %114, align 8
+  br label %117
 
-119:                                              ; preds = %.thread103, %111, %113, %H5VM_log2_gen.exit
-  %.078 = phi i64 [ %.179, %113 ], [ %.179, %111 ], [ %34, %H5VM_log2_gen.exit ], [ %.17990.ph, %.thread103 ]
-  %120 = load i64, ptr %8, align 8
-  %121 = icmp ugt i64 %.078, %120
-  br i1 %121, label %122, label %135
+117:                                              ; preds = %.thread104, %110, %111, %H5VM_log2_gen.exit
+  %.078 = phi i64 [ %.179, %111 ], [ %.179, %110 ], [ %34, %H5VM_log2_gen.exit ], [ %.17991.ph, %.thread104 ]
+  %118 = load i64, ptr %8, align 8
+  %119 = icmp ugt i64 %.078, %118
+  br i1 %119, label %120, label %133
 
-122:                                              ; preds = %119
-  %123 = load ptr, ptr %0, align 8
-  %124 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_meta_accum_blk_free_list, ptr noundef %123, i64 noundef %.078) #6
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %126, label %130
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %0, align 8
+  %122 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_meta_accum_blk_free_list, ptr noundef %121, i64 noundef %.078) #6
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %124, label %128
 
-126:                                              ; preds = %122
-  %127 = load i64, ptr @H5E_FILE_g, align 8
-  %128 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %129 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_adjust, i32 noundef 377, i64 noundef %127, i64 noundef %128, ptr noundef nonnull @.str.1) #6
-  br label %135
+124:                                              ; preds = %120
+  %125 = load i64, ptr @H5E_FILE_g, align 8
+  %126 = load i64, ptr @H5E_CANTALLOC_g, align 8
+  %127 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F__accum_adjust, i32 noundef 377, i64 noundef %125, i64 noundef %126, ptr noundef nonnull @.str.1) #6
+  br label %133
 
-130:                                              ; preds = %122
-  store ptr %124, ptr %0, align 8
+128:                                              ; preds = %120
+  store ptr %122, ptr %0, align 8
   store i64 %.078, ptr %8, align 8
-  %131 = load i64, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %124, i64 %131
-  %133 = add i64 %3, %131
-  %134 = sub i64 %.078, %133
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %132, i8 0, i64 %134, i1 false)
-  br label %135
+  %129 = load i64, ptr %5, align 8
+  %130 = getelementptr inbounds i8, ptr %122, i64 %129
+  %131 = add i64 %3, %129
+  %132 = sub i64 %.078, %131
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %130, i8 0, i64 %132, i1 false)
+  br label %133
 
-135:                                              ; preds = %4, %130, %119, %126, %103, %84
-  %.0 = phi i32 [ -1, %84 ], [ -1, %126 ], [ 0, %130 ], [ 0, %119 ], [ -1, %103 ], [ 0, %4 ]
+133:                                              ; preds = %4, %128, %117, %124, %103, %84
+  %.0 = phi i32 [ -1, %84 ], [ -1, %124 ], [ 0, %128 ], [ 0, %117 ], [ -1, %103 ], [ 0, %4 ]
   ret i32 %.0
 }
 

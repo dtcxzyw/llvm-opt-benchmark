@@ -5137,7 +5137,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit36: ; preds = %120, %124
 132:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit36
   %133 = getelementptr inbounds i8, ptr %5, i64 8
   %.val12 = load ptr, ptr %133, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull %128, ptr %.val12, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull %128, ptr %.val12, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValueEED2Ev.exit unwind label %160
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValueEED2Ev.exit: ; preds = %132
@@ -5712,7 +5712,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.3", align 8
   %4 = alloca %"class.std::shared_ptr.6", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
@@ -6679,7 +6679,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit34: ; preds = %135, %139
   %.val = load ptr, ptr %5, align 8
   %157 = getelementptr inbounds i8, ptr %5, i64 8
   %.val8 = load ptr, ptr %157, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %.val, ptr %.val8, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValue3NewIJRSt10shared_ptrINS_19HdSampledDataSourceEERS3_INS_24HdTypedSampledDataSourceINS_7VtArrayIiEEEEEEEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %9, ptr %.val, ptr %.val8, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValueEED2Ev.exit unwind label %162
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_134_HdDataSourceFlattenedPrimvarValueEED2Ev.exit: ; preds = %156

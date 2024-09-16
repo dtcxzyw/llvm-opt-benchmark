@@ -430,7 +430,7 @@ define hidden { ptr, ptr } @_ZN17crossbeam_channel7counter3new17heed19b92831bf0c
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h4fc6f402415452afE(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h4fc6f402415452afE(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { { { { ptr, ptr } }, {} }, {} } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -1429,7 +1429,7 @@ define void @_ZN4stdx13panic_context5enter17h238231b1202b6deeE(ptr noalias nocap
   store i8 1, ptr %5, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %5, ptr %4, align 8
-  invoke fastcc void @_ZN3std10sys_common4once5futex4Once4call17h4fc6f402415452afE(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  invoke fastcc void @_ZN3std10sys_common4once5futex4Once4call17h4fc6f402415452afE(ptr noalias noundef align 8 dereferenceable(8) %4)
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %8

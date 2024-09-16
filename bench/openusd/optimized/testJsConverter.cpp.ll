@@ -1019,7 +1019,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcE
           to label %273 unwind label %611
 
 273:                                              ; preds = %271
-  invoke fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(16) %126)
+  invoke fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(16) %126)
           to label %274 unwind label %611
 
 274:                                              ; preds = %273
@@ -1180,7 +1180,7 @@ _ZN12_GLOBAL__N_19IsHoldingISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 315:                                              ; preds = %_ZN12_GLOBAL__N_19IsHoldingISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEEbRKS8_.exit250
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %105)
-  invoke fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(16) %295)
+  invoke fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias writable align 8 %130, ptr noundef nonnull align 8 dereferenceable(16) %295)
           to label %316 unwind label %615
 
 316:                                              ; preds = %315
@@ -7182,7 +7182,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_13GetISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anySt4lessIS7_ESaISt4pairIKS7_S8_EEEEET_RKS8_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::any>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::any>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"union.std::any::_Arg", align 8
   %5 = load ptr, ptr %1, align 8

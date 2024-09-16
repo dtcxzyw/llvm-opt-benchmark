@@ -93,7 +93,7 @@ entry:
   store ptr %tokens, ptr %buf, align 8
   %ap1 = getelementptr inbounds i8, ptr %ctxt, i64 24
   store ptr %ap, ptr %ap1, align 8
-  %call = call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
+  %call = call fastcc ptr @parse_value(ptr noundef %ctxt)
   %0 = load ptr, ptr %ctxt, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %lor.lhs.false, label %if.end
@@ -138,7 +138,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parse_value(ptr noundef %ctxt) unnamed_addr #0 {
+define internal fastcc ptr @parse_value(ptr noundef nonnull %ctxt) unnamed_addr #0 {
 entry:
   %end.i.i = alloca ptr, align 8
   %utf8_buf.i.i = alloca [5 x i8], align 1
@@ -151,7 +151,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -193,7 +193,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i
 
 if.end5.i:                                        ; preds = %if.end.i
@@ -202,17 +202,17 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp7.not.i, label %if.else31.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end5.i
-  %call9.i = tail call fastcc i32 @parse_pair(ptr noundef nonnull %ctxt, ptr noundef %call1.i)
+  %call9.i = tail call fastcc i32 @parse_pair(ptr noundef %ctxt, ptr noundef %call1.i)
   %cmp10.i = icmp eq i32 %call9.i, -1
   br i1 %cmp10.i, label %out.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then8.i
-  %call13.i = tail call fastcc ptr @parser_context_pop_token(ptr noundef nonnull %ctxt)
+  %call13.i = tail call fastcc ptr @parser_context_pop_token(ptr noundef %ctxt)
   %cmp14.i = icmp eq ptr %call13.i, null
   br i1 %cmp14.i, label %if.then15.i, label %while.cond.i
 
 if.then15.i:                                      ; preds = %if.end12.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i
 
 while.cond.i:                                     ; preds = %if.end12.i, %if.end26.i
@@ -224,11 +224,11 @@ while.cond.i:                                     ; preds = %if.end12.i, %if.end
   ]
 
 if.then21.i:                                      ; preds = %while.cond.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.6)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.6)
   br label %out.i
 
 if.end22.i:                                       ; preds = %while.cond.i
-  %call23.i = tail call fastcc i32 @parse_pair(ptr noundef nonnull %ctxt, ptr noundef %call1.i)
+  %call23.i = tail call fastcc i32 @parse_pair(ptr noundef %ctxt, ptr noundef %call1.i)
   %cmp24.i = icmp eq i32 %call23.i, -1
   br i1 %cmp24.i, label %out.i, label %if.end26.i
 
@@ -242,7 +242,7 @@ if.end26.i:                                       ; preds = %if.end22.i
   br i1 %cmp28.i, label %if.then29.i, label %while.cond.i, !llvm.loop !7
 
 if.then29.i:                                      ; preds = %if.end26.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i
 
 if.else31.i:                                      ; preds = %if.end5.i
@@ -304,7 +304,7 @@ if.end.i16:                                       ; preds = %land.lhs.true.i13
   br i1 %cmp3.i20, label %if.then4.i47, label %if.end5.i21
 
 if.then4.i47:                                     ; preds = %if.end.i16
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i38
 
 if.end5.i21:                                      ; preds = %if.end.i16
@@ -313,22 +313,22 @@ if.end5.i21:                                      ; preds = %if.end.i16
   br i1 %cmp7.not.i22, label %if.else31.i45, label %if.then8.i23
 
 if.then8.i23:                                     ; preds = %if.end5.i21
-  %call9.i24 = tail call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
+  %call9.i24 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp10.i25 = icmp eq ptr %call9.i24, null
   br i1 %cmp10.i25, label %if.then11.i, label %if.end12.i26
 
 if.then11.i:                                      ; preds = %if.then8.i23
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
   br label %out.i38
 
 if.end12.i26:                                     ; preds = %if.then8.i23
   tail call void @qlist_append_obj(ptr noundef %call1.i17, ptr noundef nonnull %call9.i24) #14
-  %call13.i27 = tail call fastcc ptr @parser_context_pop_token(ptr noundef nonnull %ctxt)
+  %call13.i27 = tail call fastcc ptr @parser_context_pop_token(ptr noundef %ctxt)
   %cmp14.i28 = icmp eq ptr %call13.i27, null
   br i1 %cmp14.i28, label %if.then15.i44, label %while.cond.i29
 
 if.then15.i44:                                    ; preds = %if.end12.i26
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i38
 
 while.cond.i29:                                   ; preds = %if.end12.i26, %if.end26.i34
@@ -340,16 +340,16 @@ while.cond.i29:                                   ; preds = %if.end12.i26, %if.e
   ]
 
 if.then21.i43:                                    ; preds = %while.cond.i29
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.15)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.15)
   br label %out.i38
 
 if.end22.i31:                                     ; preds = %while.cond.i29
-  %call23.i32 = tail call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
+  %call23.i32 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp24.i33 = icmp eq ptr %call23.i32, null
   br i1 %cmp24.i33, label %if.then25.i, label %if.end26.i34
 
 if.then25.i:                                      ; preds = %if.end22.i31
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
   br label %out.i38
 
 if.end26.i34:                                     ; preds = %if.end22.i31
@@ -363,7 +363,7 @@ if.end26.i34:                                     ; preds = %if.end22.i31
   br i1 %cmp28.i36, label %if.then29.i37, label %while.cond.i29, !llvm.loop !8
 
 if.then29.i37:                                    ; preds = %if.end26.i34
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %out.i38
 
 if.else31.i45:                                    ; preds = %if.end5.i21
@@ -802,7 +802,7 @@ vaarg.end313.i:                                   ; preds = %vaarg.in_mem309.i, 
   br label %return
 
 if.end337.i:                                      ; preds = %sub_161.i, %if.else269.tail.i, %if.else299.tail.i, %sub_060.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.27, ptr noundef nonnull %str.i)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.27, ptr noundef nonnull %str.i)
   br label %return
 
 sw.bb6:                                           ; preds = %if.end, %if.end, %if.end
@@ -1251,7 +1251,7 @@ if.then75.i.i:                                    ; preds = %sw.bb73.i.i
   br i1 %cmp78.not.i.i, label %sw.default84.i.i, label %if.then80.i.i
 
 if.then80.i.i:                                    ; preds = %if.then75.i.i
-  call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.34)
+  call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.34)
   br label %out.i.i
 
 sw.default84.i.i:                                 ; preds = %if.then75.i.i, %sw.bb73.i.i, %while.body.i.i
@@ -1402,11 +1402,11 @@ if.then29.i76:                                    ; preds = %if.else24.i
   br label %return
 
 if.end43.i:                                       ; preds = %if.else24.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.41, ptr noundef nonnull %str.i72)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.41, ptr noundef nonnull %str.i72)
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.3)
   br label %return
 
 return:                                           ; preds = %while.cond.i29, %while.cond.i, %if.end43.i, %if.then29.i76, %if.then12.i, %if.then3.i78, %if.end337.i, %vaarg.end313.i, %vaarg.end286.i, %vaarg.end226.i, %vaarg.end196.i, %vaarg.end165.i, %vaarg.end105.i, %vaarg.end75.i, %vaarg.end45.i, %vaarg.end22.i, %vaarg.end.i, %if.else31.i45, %out.i38, %land.lhs.true.i95, %if.then5.i98, %if.else31.i, %out.i, %land.lhs.true.i80, %if.then5.i, %sw.default, %parse_literal.exit, %if.then
@@ -1422,7 +1422,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parser_context_pop_token(ptr nocapture noundef %ctxt) unnamed_addr #0 {
+define internal fastcc ptr @parser_context_pop_token(ptr nocapture noundef nonnull %ctxt) unnamed_addr #0 {
 entry:
   %current = getelementptr inbounds i8, ptr %ctxt, i64 8
   %0 = load ptr, ptr %current, align 8
@@ -1437,7 +1437,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parse_error(ptr noundef %ctxt, ptr nocapture readnone %token, ptr nocapture noundef readonly %msg, ...) unnamed_addr #0 {
+define internal void @parse_error(ptr noundef nonnull %ctxt, ptr nocapture readnone %token, ptr nocapture noundef readonly %msg, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %message = alloca [1024 x i8], align 16
@@ -1466,7 +1466,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare ptr @qdict_new() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_pair(ptr noundef %ctxt, ptr noundef %dict) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_pair(ptr noundef nonnull %ctxt, ptr noundef %dict) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ctxt, i64 16
   %ctxt.val = load ptr, ptr %0, align 8
@@ -1475,16 +1475,16 @@ entry:
   br i1 %cmp, label %out.thread44, label %if.end
 
 out.thread44:                                     ; preds = %entry
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
+  %call1 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %tobool.not.i = icmp eq ptr %call1, null
   br i1 %tobool.not.i, label %out.thread47, label %land.lhs.true.i
 
 out.thread47:                                     ; preds = %if.end
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
   br label %return
 
 land.lhs.true.i:                                  ; preds = %if.end
@@ -1512,7 +1512,7 @@ if.end4:                                          ; preds = %qobject_type.exit.i
   br i1 %cmp6, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end4
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr poison, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr poison, ptr noundef nonnull @.str.2)
   br label %lor.lhs.false.i30
 
 if.end8:                                          ; preds = %if.end4
@@ -1521,16 +1521,16 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end8
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.8)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.8)
   br label %lor.lhs.false.i30
 
 if.end11:                                         ; preds = %if.end8
-  %call12 = tail call fastcc ptr @parse_value(ptr noundef nonnull %ctxt)
+  %call12 = tail call fastcc ptr @parse_value(ptr noundef %ctxt)
   %cmp13 = icmp eq ptr %call12, null
   br i1 %cmp13, label %if.then14, label %if.end15
 
 if.then14:                                        ; preds = %if.end11
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.9)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.9)
   br label %lor.lhs.false.i30
 
 if.end15:                                         ; preds = %if.end11
@@ -1540,7 +1540,7 @@ if.end15:                                         ; preds = %if.end11
   br i1 %tobool18.not, label %lor.lhs.false.i, label %if.then19
 
 if.then19:                                        ; preds = %if.end15
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.10)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.10)
   br label %lor.lhs.false.i30
 
 lor.lhs.false.i:                                  ; preds = %if.end15
@@ -1566,7 +1566,7 @@ if.then5.i:                                       ; preds = %land.lhs.true.i26
   br label %return
 
 out:                                              ; preds = %qobject_type.exit.i
-  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef nonnull %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
+  tail call void (ptr, ptr, ptr, ...) @parse_error(ptr noundef %ctxt, ptr nonnull poison, ptr noundef nonnull @.str.7)
   br label %lor.lhs.false.i30
 
 lor.lhs.false.i30:                                ; preds = %if.then19, %if.then14, %if.then10, %if.then7, %out

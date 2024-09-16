@@ -1957,7 +1957,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDe
           to label %17 unwind label %18
 
 17:                                               ; preds = %14
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointLocalRestTransformsINS_10GfMatrix4dEEEbPNS_7VtArrayIT_EE.exit unwind label %18
 
 18:                                               ; preds = %14, %17
@@ -1976,7 +1976,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointLocalRest
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %4 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %4)
@@ -2164,7 +2164,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDe
           to label %17 unwind label %18
 
 17:                                               ; preds = %14
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinition27GetJointWorldBindTransformsINS_10GfMatrix4dEEEbPNS_7VtArrayIT_EE.exit unwind label %18
 
 18:                                               ; preds = %14, %17
@@ -3123,7 +3123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %24 unwind label %25
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
           to label %.thread unwind label %25
 
 .thread:                                          ; preds = %24
@@ -3368,7 +3368,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 
 33:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %34)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %34)
           to label %35 unwind label %41
 
 35:                                               ; preds = %33
@@ -3437,7 +3437,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit9: ; preds = %50, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %4 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %4)
@@ -3508,7 +3508,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %23 unwind label %24
 
 23:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
           to label %.thread unwind label %24
 
 .thread:                                          ; preds = %23
@@ -3561,7 +3561,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 
 38:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %39)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %39)
           to label %40 unwind label %46
 
 40:                                               ; preds = %38
@@ -3630,7 +3630,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit10: ; preds = %54,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %4 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %4)
@@ -3733,7 +3733,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 
 33:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %34)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4dEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %34)
           to label %35 unwind label %41
 
 35:                                               ; preds = %33
@@ -3846,7 +3846,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %23 unwind label %24
 
 23:                                               ; preds = %20
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Convert4dXformsTo4fERKNS_7VtArrayINS_10GfMatrix4dEEEPNS1_INS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5)
           to label %.thread unwind label %24
 
 .thread:                                          ; preds = %23
@@ -3899,7 +3899,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.critedge
 
 38:                                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %39)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_InvertTransformsINS_10GfMatrix4fEEEvRKNS_7VtArrayIT_EEPS5_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %39)
           to label %40 unwind label %46
 
 40:                                               ; preds = %38

@@ -909,8 +909,8 @@ _ZL15check_predicate18CompileCommandEnumRK12methodHandle.exit9: ; preds = %25, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandEnumRK12methodHandle(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 {
-  %3 = and i32 %0, -2
+define internal fastcc noundef zeroext i1 @_ZL15check_predicate18CompileCommandEnumRK12methodHandle(i32 noundef range(i32 2, 10) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 {
+  %3 = and i32 %0, 14
   %or.cond = icmp eq i32 %3, 4
   br i1 %or.cond, label %4, label %55
 
@@ -1040,7 +1040,7 @@ _ZN14CompilerOracle16has_option_valueIbEEbRK12methodHandle18CompileCommandEnumRT
   br label %_ZL26resolve_inlining_predicate18CompileCommandEnumRK12methodHandle.exit
 
 55:                                               ; preds = %2
-  %56 = sext i32 %0 to i64
+  %56 = zext nneg i32 %0 to i64
   %57 = getelementptr inbounds [41 x i8], ptr @_ZL13option_filter, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = trunc i8 %58 to i1
@@ -1912,7 +1912,7 @@ _ZL17match_option_namePKcPiPci.exit.i:            ; preds = %.preheader.i.i
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 231:                                              ; preds = %219
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef nonnull %14)
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %190, ptr noundef %204, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef %183, i32 noundef %217, ptr noundef %14)
   br label %_ZL21scan_option_and_value10OptionTypePcRiP24TypedMethodOptionMatcherS0_i.exit
 
 232:                                              ; preds = %191
@@ -2093,7 +2093,7 @@ _ZL10skip_commaRPc.exit49:                        ; preds = %279, %285
   br label %313
 
 310:                                              ; preds = %290
-  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %282, ptr noundef nonnull %296, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %287, i32 noundef %47, ptr noundef nonnull %14)
+  call fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %282, ptr noundef nonnull %296, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull %287, i32 noundef %47, ptr noundef %14)
   %311 = load i8, ptr %14, align 16
   %.not = icmp eq i8 %311, 0
   br i1 %.not, label %313, label %312
@@ -2148,7 +2148,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #2 {
+define internal fastcc void @_ZL16register_commandIbEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, i1 noundef zeroext %2) unnamed_addr #2 {
   switch i32 %1, label %.split [
     i32 2, label %4
     i32 6, label %24
@@ -2268,7 +2268,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %34, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef %1, i64 noundef %2) unnamed_addr #2 {
+define internal fastcc void @_ZL16register_commandImEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, i64 noundef %2) unnamed_addr #2 {
   switch i32 %1, label %.split [
     i32 2, label %4
     i32 6, label %22
@@ -2385,7 +2385,7 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit:           ; preds = %31, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @_ZL10scan_value10OptionTypePcRiP24TypedMethodOptionMatcher18CompileCommandEnumS0_i(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef %3, i32 noundef range(i32 41, 40) %4, ptr noundef nonnull %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -2682,11 +2682,11 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit.i:         ; preds = %120, %113
 
 _ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split: ; preds = %72, %60
   %.str.130.sink = phi ptr [ @.str.130, %60 ], [ @.str.133, %72 ]
-  %129 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull %.str.130.sink) #19
+  %129 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull %.str.130.sink) #19
   br label %_ZL13parseMemLimitPKcRlRiPci.exit.thread
 
 _ZL13parseMemLimitPKcRlRiPci.exit.thread:         ; preds = %_ZL13parseMemLimitPKcRlRiPci.exit.thread.sink.split, %_ZL13parseMemLimitPKcRlRiPci.exit
-  %130 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %130 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 131:                                              ; preds = %6
@@ -2715,7 +2715,7 @@ _ZL13parseMemLimitPKcRlRiPci.exit.thread:         ; preds = %_ZL13parseMemLimitP
   br label %_ZL12parseMemStatPKcRmRiPci.exit.thread
 
 _ZL12parseMemStatPKcRmRiPci.exit.thread145:       ; preds = %137
-  %141 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.139) #19
+  %141 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.139) #19
   br label %148
 
 _ZL12parseMemStatPKcRmRiPci.exit:                 ; preds = %131
@@ -2739,7 +2739,7 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 148:                                              ; preds = %_ZL12parseMemStatPKcRmRiPci.exit.thread145, %_ZL12parseMemStatPKcRmRiPci.exit
-  %149 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %149 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 150:                                              ; preds = %6
@@ -2771,7 +2771,7 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
   br label %174
 
 172:                                              ; preds = %150
-  %173 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %173 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %174
 
 174:                                              ; preds = %172, %168
@@ -2862,7 +2862,7 @@ _ZL12parseMemStatPKcRmRiPci.exit.thread:          ; preds = %_ZL12parseMemStatPK
 224:                                              ; preds = %220
   %225 = getelementptr inbounds i8, ptr %12, i64 8
   %226 = load ptr, ptr %225, align 8
-  %227 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.125, ptr noundef %18, ptr noundef %226) #19
+  %227 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.125, ptr noundef %18, ptr noundef %226) #19
   br label %228
 
 228:                                              ; preds = %224, %220
@@ -2880,7 +2880,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   br label %234
 
 232:                                              ; preds = %180
-  %233 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %233 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %234
 
 234:                                              ; preds = %232, %_ZN25ControlIntrinsicValidatorD2Ev.exit
@@ -2945,11 +2945,11 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit:          ; preds = %231, %228, %._crit_
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 261:                                              ; preds = %254
-  %262 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %262 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 263:                                              ; preds = %244
-  %264 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %264 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 265:                                              ; preds = %6
@@ -3074,11 +3074,11 @@ _ZN24TypedMethodOptionMatcherD2Ev.exit.i102:      ; preds = %308, %301
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 317:                                              ; preds = %265
-  %318 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
+  %318 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.120, ptr noundef %18, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 319:                                              ; preds = %6
-  %320 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %5, i64 noundef 1024, ptr noundef nonnull @.str.129, ptr noundef %21) #19
+  %320 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %5, i64 noundef 1024, ptr noundef nonnull @.str.129, ptr noundef %21) #19
   br label %_ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit
 
 _ZL16register_commandIlEvP24TypedMethodOptionMatcher18CompileCommandEnumT_.exit: ; preds = %314, %311, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i102, %299, %239, %237, %179, %177, %126, %123, %_ZN24TypedMethodOptionMatcherD2Ev.exit.i, %111, %148, %_ZL12parseMemStatPKcRmRiPci.exit.thread, %317, %319, %261, %263, %257, %250, %243, %_ZL13parseMemLimitPKcRlRiPci.exit.thread
@@ -3505,7 +3505,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @_ZL16register_commandIPKcEvP24TypedMethodOptionMatcher18CompileCommandEnumT_(ptr noundef %0, i32 noundef range(i32 41, 40) %1, ptr noundef %2) unnamed_addr #2 {
   switch i32 %1, label %.split [
     i32 2, label %4
     i32 6, label %24

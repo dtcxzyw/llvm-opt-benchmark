@@ -2724,7 +2724,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %35, %37
   %66 = load float, ptr %65, align 4
   %67 = getelementptr inbounds i8, ptr %60, i64 8
   %68 = load float, ptr %67, align 4
-  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef nonnull %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef nonnull %16, ptr noundef nonnull %15)
+  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef %16, ptr noundef %15)
   %70 = load float, ptr %8, align 4
   %71 = fadd float %69, %70
   store float %71, ptr %8, align 4
@@ -3651,7 +3651,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
   %43 = sext i32 %38 to i64
   %44 = getelementptr inbounds [3 x float], ptr %3, i64 %43
-  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef %17, ptr noundef %18, ptr noundef %15, ptr noundef %16)
   %46 = sext i32 %31 to i64
   %47 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 4
@@ -5327,7 +5327,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %46, i64 8
   %54 = load float, ptr %53, align 4
-  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef nonnull %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef %21, ptr noundef %20)
   %56 = load float, ptr %8, align 4
   %57 = fadd float %55, %56
   store float %57, ptr %8, align 4
@@ -5495,7 +5495,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   br i1 %exitcond.not, label %71, label %37, !llvm.loop !43
 
 71:                                               ; preds = %67
-  call fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef %3, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %31, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  call fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef %3, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %31, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %20, ptr noundef %21)
   %.val = load <8 x float>, ptr %19, align 32
   %.val99 = load <8 x float>, ptr %32, align 32
   %.val100 = load <8 x float>, ptr %33, align 32
@@ -5552,7 +5552,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
   store <8 x float> %107, ptr %28, align 32
   %.sroa.07.0.copyload = load <8 x float>, ptr %20, align 32
   %.sroa.06.0.copyload = load <8 x float>, ptr %21, align 32
-  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %102, <8 x float> %103, <8 x float> %104, <8 x float> %105, <8 x float> %106, <8 x float> %107, ptr noundef %4)
+  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %102, <8 x float> %103, <8 x float> %104, <8 x float> %105, <8 x float> %106, <8 x float> %107, ptr noundef %4)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 40
   %108 = icmp ult i64 %indvars.iv.next119, %35
   br i1 %108, label %.preheader, label %._crit_edge, !llvm.loop !44
@@ -5660,7 +5660,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   br i1 %exitcond137.not, label %68, label %35, !llvm.loop !47
 
 68:                                               ; preds = %.loopexit
-  call fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef %3, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %31, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  call fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef %3, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %31, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %20, ptr noundef %21)
   %.sroa.051.0.copyload = load <8 x float>, ptr %22, align 32
   %69 = fadd <8 x float> %.sroa.051.0.copyload, <float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000, float 0xC00921FB60000000>
   store <8 x float> %69, ptr %22, align 32
@@ -5738,7 +5738,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
   store <8 x float> %115, ptr %28, align 32
   %.sroa.07.0.copyload = load <8 x float>, ptr %20, align 32
   %.sroa.06.0.copyload = load <8 x float>, ptr %21, align 32
-  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %110, <8 x float> %111, <8 x float> %112, <8 x float> %113, <8 x float> %114, <8 x float> %115, ptr noundef %4)
+  call x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, <8 x float> %.sroa.07.0.copyload, <8 x float> %.sroa.06.0.copyload, <8 x float> %110, <8 x float> %111, <8 x float> %112, <8 x float> %113, <8 x float> %114, <8 x float> %115, ptr noundef %4)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 40
   %116 = icmp ult i64 %indvars.iv.next143, %33
   br i1 %116, label %.preheader119, label %._crit_edge, !llvm.loop !49
@@ -6420,7 +6420,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
   %56 = fpext float %45 to double
   %57 = fadd double %56, 0x400921FB54442D18
   %58 = fptrunc double %57 to float
-  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef nonnull %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef nonnull %24, ptr noundef nonnull %23)
+  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef %24, ptr noundef %23)
   %60 = load float, ptr %8, align 4
   %61 = fadd float %59, %60
   store float %61, ptr %8, align 4
@@ -8233,7 +8233,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %35, %37
   %66 = load float, ptr %65, align 4
   %67 = getelementptr inbounds i8, ptr %60, i64 8
   %68 = load float, ptr %67, align 4
-  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef nonnull %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef nonnull %16, ptr noundef nonnull %15)
+  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef %16, ptr noundef %15)
   %70 = load float, ptr %8, align 4
   %71 = fadd float %69, %70
   store float %71, ptr %8, align 4
@@ -8681,7 +8681,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
   %43 = sext i32 %38 to i64
   %44 = getelementptr inbounds [3 x float], ptr %3, i64 %43
-  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef %17, ptr noundef %18, ptr noundef %15, ptr noundef %16)
   %46 = sext i32 %31 to i64
   %47 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 4
@@ -9917,7 +9917,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %46, i64 8
   %54 = load float, ptr %53, align 4
-  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef nonnull %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef %21, ptr noundef %20)
   %56 = load float, ptr %8, align 4
   %57 = fadd float %55, %56
   store float %57, ptr %8, align 4
@@ -10934,7 +10934,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
   %56 = fpext float %45 to double
   %57 = fadd double %56, 0x400921FB54442D18
   %58 = fptrunc double %57 to float
-  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef nonnull %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef nonnull %24, ptr noundef nonnull %23)
+  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef %24, ptr noundef %23)
   %60 = load float, ptr %8, align 4
   %61 = fadd float %59, %60
   store float %61, ptr %8, align 4
@@ -12811,7 +12811,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %36, %39
   %68 = load float, ptr %67, align 4
   %69 = getelementptr inbounds i8, ptr %62, i64 8
   %70 = load float, ptr %69, align 4
-  %71 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %63, ptr noundef nonnull %66, float noundef %68, float noundef %70, float noundef %60, float noundef %7, ptr noundef nonnull %16, ptr noundef nonnull %15)
+  %71 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %63, ptr noundef %66, float noundef %68, float noundef %70, float noundef %60, float noundef %7, ptr noundef %16, ptr noundef %15)
   %72 = load float, ptr %8, align 4
   %73 = fadd float %71, %72
   store float %73, ptr %8, align 4
@@ -13351,7 +13351,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
   %50 = getelementptr inbounds [3 x float], ptr %3, i64 %49
   %51 = sext i32 %46 to i64
   %52 = getelementptr inbounds [3 x float], ptr %3, i64 %51
-  %53 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %48, ptr noundef %50, ptr noundef %52, ptr noundef %6, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %53 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %48, ptr noundef %50, ptr noundef %52, ptr noundef %6, ptr noundef %17, ptr noundef %18, ptr noundef %15, ptr noundef %16)
   %54 = sext i32 %39 to i64
   %55 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 4
@@ -15030,7 +15030,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %64 = load float, ptr %63, align 4
   %65 = getelementptr inbounds i8, ptr %58, i64 8
   %66 = load float, ptr %65, align 4
-  %67 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %59, ptr noundef nonnull %62, float noundef %64, float noundef %66, float noundef %56, float noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %67 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %59, ptr noundef %62, float noundef %64, float noundef %66, float noundef %56, float noundef %7, ptr noundef %21, ptr noundef %20)
   %68 = load float, ptr %8, align 4
   %69 = fadd float %67, %68
   store float %69, ptr %8, align 4
@@ -16247,7 +16247,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
   %56 = fpext float %45 to double
   %57 = fadd double %56, 0x400921FB54442D18
   %58 = fptrunc double %57 to float
-  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef nonnull %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef nonnull %24, ptr noundef nonnull %23)
+  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef %24, ptr noundef %23)
   %60 = load float, ptr %8, align 4
   %61 = fadd float %59, %60
   store float %61, ptr %8, align 4
@@ -18089,7 +18089,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %35, %37
   %66 = load float, ptr %65, align 4
   %67 = getelementptr inbounds i8, ptr %60, i64 8
   %68 = load float, ptr %67, align 4
-  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef nonnull %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef nonnull %16, ptr noundef nonnull %15)
+  %69 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.9, i32 noundef %61, ptr noundef %64, float noundef %66, float noundef %68, float noundef %58, float noundef %7, ptr noundef %16, ptr noundef %15)
   %70 = load float, ptr %8, align 4
   %71 = fadd float %69, %70
   store float %71, ptr %8, align 4
@@ -18537,7 +18537,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
   %42 = getelementptr inbounds [3 x float], ptr %3, i64 %41
   %43 = sext i32 %38 to i64
   %44 = getelementptr inbounds [3 x float], ptr %3, i64 %43
-  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %45 = call fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %40, ptr noundef %42, ptr noundef %44, ptr noundef %6, ptr noundef %17, ptr noundef %18, ptr noundef %15, ptr noundef %16)
   %46 = sext i32 %31 to i64
   %47 = getelementptr inbounds %union.t_iparams, ptr %2, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 4
@@ -19773,7 +19773,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
   %52 = load float, ptr %51, align 4
   %53 = getelementptr inbounds i8, ptr %46, i64 8
   %54 = load float, ptr %53, align 4
-  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef nonnull %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %20)
+  %55 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.11, i32 noundef %47, ptr noundef %50, float noundef %52, float noundef %54, float noundef %44, float noundef %7, ptr noundef %21, ptr noundef %20)
   %56 = load float, ptr %8, align 4
   %57 = fadd float %55, %56
   store float %57, ptr %8, align 4
@@ -20807,7 +20807,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
   %56 = fpext float %45 to double
   %57 = fadd double %56, 0x400921FB54442D18
   %58 = fptrunc double %57 to float
-  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef nonnull %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef nonnull %24, ptr noundef nonnull %23)
+  %59 = call fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef nonnull @.str.12, i32 noundef %48, ptr noundef %51, float noundef %53, float noundef %55, float noundef %58, float noundef %7, ptr noundef %24, ptr noundef %23)
   %60 = load float, ptr %8, align 4
   %61 = fadd float %59, %60
   store float %61, ptr %8, align 4
@@ -21831,7 +21831,7 @@ declare noundef i32 @_Z6glatnrPKii(ptr noundef, i32 noundef) local_unnamed_addr 
 declare float @logf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4
@@ -21915,14 +21915,14 @@ declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #15
 declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %9
 
 9:                                                ; preds = %8
-  %10 = tail call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1, ptr noundef %4)
+  %10 = tail call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4)
   store i32 %10, ptr %6, align 4
-  %11 = tail call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %1, ptr noundef %5)
+  %11 = tail call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %5)
   br label %_ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit15
 
 12:                                               ; preds = %8
@@ -22010,7 +22010,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %51, %54
 declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef writeonly %16) unnamed_addr #17 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull %12, ptr nocapture noundef nonnull writeonly %13, ptr nocapture noundef nonnull writeonly %14, ptr nocapture noundef nonnull writeonly %15, ptr nocapture noundef nonnull writeonly %16) unnamed_addr #17 {
   %18 = load i32, ptr %1, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
@@ -22490,7 +22490,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr nocapture noundef %12) unnamed_addr #17 {
+define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr nocapture noundef %12) unnamed_addr #17 {
   %14 = fmul <8 x float> %4, %6
   %15 = fmul <8 x float> %5, %9
   %16 = fadd <8 x float> %14, %15

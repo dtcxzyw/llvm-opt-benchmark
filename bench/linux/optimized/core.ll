@@ -4218,7 +4218,7 @@ declare dso_local void @intel_pmu_pebs_data_source_mtl() local_unnamed_addr #0
 declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_pmu_check_num_counters(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @intel_pmu_check_num_counters(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef range(i64 0, -9223372036854775808) %3) unnamed_addr #1 align 16 {
   %5 = load i32, ptr %0, align 4
   %6 = icmp sgt i32 %5, 32
   br i1 %6, label %7, label %9
@@ -4265,7 +4265,7 @@ define internal fastcc void @intel_pmu_check_num_counters(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @check_msr(i64 noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @check_msr(i64 noundef range(i64 0, 4294967296) %0, i64 noundef range(i64 3, 65536) %1) unnamed_addr #1 align 16 {
   %3 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 56), align 8
   %4 = and i64 %3, 2147483648
   %5 = icmp eq i64 %4, 0
@@ -6201,7 +6201,7 @@ define internal range(i32 -22, 1) i32 @intel_pmu_check_period(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__x86_pmu_enable_event(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @__x86_pmu_enable_event(ptr nocapture noundef readonly %0, i64 noundef range(i64 4194304, 34363932673) %1) unnamed_addr #6 align 16 {
   %3 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_hw_events, i64 5160)) #24, !srcloc !98
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8

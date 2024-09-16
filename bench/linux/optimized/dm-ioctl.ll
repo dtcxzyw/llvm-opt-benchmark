@@ -3400,7 +3400,7 @@ __list_versions.exit:                             ; preds = %3, %.thread.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @filter_device(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #8 align 16 {
+define internal fastcc zeroext i1 @filter_device(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef %5) #21
@@ -3821,7 +3821,7 @@ declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @dm_wait_event(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @retrieve_status(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @retrieve_status(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 312
   %5 = ptrtoint ptr %4 to i64
   %6 = add i64 %5, 7

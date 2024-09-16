@@ -382,7 +382,7 @@ pool_free_older_than.exit:                        ; preds = %.thread8.i, %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noundef range(i64 0, 1001) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   br label %6
 

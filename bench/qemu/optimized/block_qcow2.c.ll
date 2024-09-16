@@ -8451,7 +8451,7 @@ return:                                           ; preds = %if.end15, %if.end96
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @report_unsupported_feature(ptr noundef %errp, ptr noundef %table, i64 noundef %mask) unnamed_addr #0 {
+define internal fastcc void @report_unsupported_feature(ptr noundef %errp, ptr noundef %table, i64 noundef range(i64 0, -31) %mask) unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_string_sized_new(i64 noundef 60) #23
   %tobool.not14 = icmp eq ptr %table, null
@@ -11017,7 +11017,7 @@ declare i64 @qemu_opt_get_size_del(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @bdrv_block_status_above(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define internal fastcc i64 @qcow2_calc_prealloc_size(i64 noundef %total_size, i64 noundef %cluster_size, i32 noundef %refcount_order, i1 noundef zeroext %extended_l2) unnamed_addr #17 {
+define internal fastcc i64 @qcow2_calc_prealloc_size(i64 noundef %total_size, i64 noundef %cluster_size, i32 noundef range(i32 0, 33) %refcount_order, i1 noundef zeroext %extended_l2) unnamed_addr #17 {
 entry:
   %add = add i64 %total_size, -1
   %sub = add i64 %add, %cluster_size

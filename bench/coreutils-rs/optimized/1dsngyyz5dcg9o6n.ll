@@ -2001,7 +2001,7 @@ define hidden void @_ZN7uu_head22find_nth_line_from_end17h6d64e78e6ee54cf6E(ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %32 = sub i64 %18, %.040
-  %.0.sroa.speculated.i55 = call noundef i64 @llvm.smin.i64(i64 %.0.sroa.speculated.i, i64 %32)
+  %.0.sroa.speculated.i55 = call noundef range(i64 -9223372036854775808, 65537) i64 @llvm.smin.i64(i64 %.0.sroa.speculated.i, i64 %32)
   %33 = sub i64 0, %.0.sroa.speculated.i55
   store i64 %33, ptr %20, align 8
   store i64 2, ptr %9, align 8

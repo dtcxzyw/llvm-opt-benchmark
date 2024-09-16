@@ -415,7 +415,7 @@ define void @Hop_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %43 = getelementptr inbounds i8, ptr %42, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = lshr i32 %44, 6
-  %46 = tail call i32 @llvm.umax.i32(i32 %39, i32 %45)
+  %46 = tail call range(i32 0, 67108864) i32 @llvm.umax.i32(i32 %39, i32 %45)
   %47 = add nuw nsw i32 %46, %33
   %48 = shl i32 %47, 6
   br label %.sink.split

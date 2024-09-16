@@ -772,7 +772,7 @@ declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 declare i32 @PyLong_AsInt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %num_threads, i32 noundef %use_pymutex, i32 noundef %critical_section_length, i32 noundef %time_ms) unnamed_addr #0 {
+define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %num_threads, i32 noundef range(i32 0, -2147483648) %use_pymutex, i32 noundef %critical_section_length, i32 noundef %time_ms) unnamed_addr #0 {
 entry:
   %bench_data = alloca %struct.bench_data_locks, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %bench_data, i8 0, i64 248, i1 false)

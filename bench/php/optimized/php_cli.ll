@@ -1259,18 +1259,18 @@ cli_seek_file_begin.exit.thread:                  ; preds = %165
   br i1 %184, label %279, label %286
 
 279:                                              ; preds = %278
-  %280 = call noalias ptr @fopen(ptr noundef %.6422, ptr noundef nonnull @.str.98)
+  %280 = call noalias ptr @fopen(ptr noundef nonnull %.6422, ptr noundef nonnull @.str.98)
   %.not.i418 = icmp eq ptr %280, null
   br i1 %.not.i418, label %281, label %284
 
 281:                                              ; preds = %279
   %282 = load ptr, ptr @stderr, align 8
-  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.99, ptr noundef %.6422) #29
+  %283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %282, ptr noundef nonnull @.str.99, ptr noundef nonnull %.6422) #29
   store i32 1, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 428), align 4
   br label %286
 
 284:                                              ; preds = %279
-  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %280, ptr noundef %.6422) #23
+  call void @zend_stream_init_fp(ptr noundef nonnull %5, ptr noundef nonnull %280, ptr noundef nonnull %.6422) #23
   store i8 1, ptr %256, align 1
   store i8 1, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 152), align 8
   %285 = call zeroext i1 @php_execute_script(ptr noundef nonnull %5) #23

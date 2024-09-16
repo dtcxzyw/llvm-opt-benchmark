@@ -659,7 +659,7 @@ define internal range(i32 0, 65558) i32 @dissect_solaredge(ptr noundef %0, ptr n
 
 13:                                               ; preds = %9, %4
   %14 = load i32, ptr @ett_solaredge_packet, align 4
-  %15 = tail call fastcc i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, ptr noundef nonnull %5)
+  %15 = tail call fastcc i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %14, ptr noundef %5)
   ret i32 %15
 }
 
@@ -688,7 +688,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -754,7 +754,7 @@ define internal fastcc range(i32 0, 65558) i32 @dissect_solaredge_recursive(ptr 
   %51 = load i32, ptr @hf_solaredge_payload_type, align 4
   %52 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %51, ptr noundef %0, i32 noundef 20, i32 noundef %28, i32 noundef 0) #5
   %53 = load i32, ptr @proto_solaredge, align 4
-  %54 = tail call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %53) #5
+  %54 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %53) #5
   %.not119 = icmp eq ptr %54, null
   br i1 %.not119, label %104, label %55
 
@@ -1234,7 +1234,7 @@ tailrecurse.i:                                    ; preds = %376, %106
 
 374:                                              ; preds = %372, %.thread279.i, %274, %272, %.thread277.i, %143
   %.0.i = phi i32 [ %373, %372 ], [ %371, %.thread279.i ], [ %341, %274 ], [ %273, %272 ], [ %271, %.thread277.i ], [ %162, %143 ]
-  %375 = icmp slt i32 %.0.i, %28
+  %375 = icmp ult i32 %.0.i, %28
   br i1 %375, label %376, label %dissect_solaredge_devicedata.exit
 
 376:                                              ; preds = %374
@@ -1290,7 +1290,7 @@ tailrecurse.i:                                    ; preds = %376, %106
 
 406:                                              ; preds = %400
   %407 = load i32, ptr @proto_solaredge, align 4
-  %408 = call ptr @conversation_get_proto_data(ptr noundef %4, i32 noundef %407) #5
+  %408 = call ptr @conversation_get_proto_data(ptr noundef nonnull %4, i32 noundef %407) #5
   %409 = getelementptr inbounds i8, ptr %408, i64 8
   %410 = call i32 @gcry_cipher_open(ptr noundef nonnull %409, i32 noundef 7, i32 noundef 1, i32 noundef 0) #5
   %.not117 = icmp eq i32 %410, 0

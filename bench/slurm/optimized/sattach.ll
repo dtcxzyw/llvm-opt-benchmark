@@ -180,7 +180,7 @@ _set_exit_code.exit:                              ; preds = %2, %20, %22
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %50
-  tail call fastcc void @print_layout_info(ptr noundef nonnull %45)
+  tail call fastcc void @print_layout_info(ptr noundef %45)
   tail call void @exit(i32 noundef 0) #16
   unreachable
 
@@ -801,7 +801,7 @@ declare i32 @cred_g_init() local_unnamed_addr #2
 declare ptr @slurm_job_step_layout_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_layout_info(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @print_layout_info(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8

@@ -1065,7 +1065,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit8:   ; preds = %_ZL12match_optionPK
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.0.val, ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.0.val, ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %4 = tail call i32 @strncmp(ptr noundef %.0.val, ptr noundef %0, i64 noundef %3) #30
   %5 = icmp eq i32 %4, 0
@@ -2185,11 +2185,11 @@ _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
-  %56 = call fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %18, i32 noundef %1)
+  %56 = call fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
   br label %75
 
 57:                                               ; preds = %53
-  %58 = call fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %18, i32 noundef %1)
+  %58 = call fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
   br label %75
 
 59:                                               ; preds = %49
@@ -2197,11 +2197,11 @@ _ZL13set_bool_flagP7JVMFlagb13JVMFlagOrigin.exit: ; preds = %41, %44
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = call fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %18, i32 noundef %1)
+  %62 = call fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
   br label %75
 
 63:                                               ; preds = %59
-  %64 = call fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %36, ptr noundef nonnull %18, i32 noundef %1)
+  %64 = call fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %36, ptr noundef nonnull %18, i32 noundef %1)
   br label %75
 
 65:                                               ; preds = %47
@@ -2238,64 +2238,59 @@ _ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin.exit: ; preds = %68, %73
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21append_to_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = icmp eq ptr %0, null
-  br i1 %5, label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread, label %6
+  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = load i32, ptr %5, align 4
+  %7 = and i32 %6, -2
+  %spec.select.i.i.i.i = icmp eq i32 %7, 8
+  br i1 %spec.select.i.i.i.i, label %8, label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, -2
-  %spec.select.i.i.i.i = icmp eq i32 %9, 8
-  br i1 %spec.select.i.i.i.i, label %10, label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread
+8:                                                ; preds = %3
+  %9 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %9, align 8
+  %.not20 = icmp eq ptr %10, null
+  br i1 %.not20, label %.thread, label %11
 
-10:                                               ; preds = %6
-  %11 = load ptr, ptr %0, align 8
-  %12 = load ptr, ptr %11, align 8
-  %.not20 = icmp eq ptr %12, null
-  br i1 %.not20, label %.thread, label %13
+11:                                               ; preds = %8
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #30
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
+  %14 = icmp eq i64 %12, 0
+  br i1 %14, label %.thread, label %15
 
-13:                                               ; preds = %10
-  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #30
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
-  %16 = icmp eq i64 %14, 0
+15:                                               ; preds = %11
+  %16 = icmp eq i64 %13, 0
   br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %13
-  %18 = icmp eq i64 %15, 0
-  br i1 %18, label %.thread, label %19
-
-19:                                               ; preds = %17
-  %20 = add i64 %14, 2
-  %21 = add i64 %20, %15
-  %22 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %21, i8 noundef zeroext 19, i32 noundef 0) #31
-  %23 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %22, i64 noundef %21, ptr noundef nonnull @.str.316, ptr noundef nonnull %12, ptr noundef %1) #31
+17:                                               ; preds = %15
+  %18 = add i64 %12, 2
+  %19 = add i64 %18, %13
+  %20 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %19, i8 noundef zeroext 19, i32 noundef 0) #31
+  %21 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %20, i64 noundef %19, ptr noundef nonnull @.str.316, ptr noundef nonnull %10, ptr noundef %1) #31
   br label %.thread
 
-.thread:                                          ; preds = %17, %13, %10, %19
-  %.sink = phi ptr [ %22, %19 ], [ %1, %10 ], [ %1, %13 ], [ %12, %17 ]
-  %.016 = phi ptr [ %22, %19 ], [ null, %10 ], [ null, %13 ], [ null, %17 ]
+.thread:                                          ; preds = %15, %11, %8, %17
+  %.sink = phi ptr [ %20, %17 ], [ %1, %8 ], [ %1, %11 ], [ %10, %15 ]
+  %.016 = phi ptr [ %20, %17 ], [ null, %8 ], [ null, %11 ], [ null, %15 ]
   store ptr %.sink, ptr %4, align 8
-  %24 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #31
-  %25 = load ptr, ptr %4, align 8
-  call void @_Z8FreeHeapPv(ptr noundef %25) #31
+  %22 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #31
+  %23 = load ptr, ptr %4, align 8
+  call void @_Z8FreeHeapPv(ptr noundef %23) #31
   call void @_Z8FreeHeapPv(ptr noundef %.016) #31
-  br label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread
+  br label %_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit
 
-_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit.thread: ; preds = %6, %3, %.thread
-  %.not26 = phi i1 [ true, %.thread ], [ false, %3 ], [ false, %6 ]
-  ret i1 %.not26
+_ZN13JVMFlagAccess9get_ccstrEPK7JVMFlagPPKc.exit: ; preds = %3, %.thread
+  ret i1 %spec.select.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 0
   %spec.store.select = select i1 %6, ptr null, ptr %1
   store ptr %spec.store.select, ptr %4, align 8
-  %7 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2) #31
+  %7 = call noundef i32 @_ZN13JVMFlagAccess9set_ccstrEP7JVMFlagPPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #31
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -2309,7 +2304,7 @@ define internal fastcc noundef zeroext i1 @_ZL15set_string_flagP7JVMFlagPKc13JVM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca double, align 8
   %6 = load i8, ptr %1, align 1
@@ -2338,28 +2333,26 @@ define internal fastcc noundef zeroext i1 @_ZL19set_fp_numeric_flagP7JVMFlagPKc1
   %18 = tail call double @llvm.fabs.f64(double %13)
   %19 = fcmp ueq double %18, 0x7FF0000000000000
   %or.cond10 = select i1 %.not6, i1 true, i1 %19
-  %20 = icmp eq ptr %0, null
-  %or.cond11 = or i1 %20, %or.cond10
-  br i1 %or.cond11, label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit, label %21
+  br i1 %or.cond10, label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit, label %20
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
-  %23 = load i32, ptr %22, align 4
-  %.not.i.i.i = icmp eq i32 %23, 7
-  br i1 %.not.i.i.i, label %24, label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = load i32, ptr %21, align 4
+  %.not.i.i.i = icmp eq i32 %22, 7
+  br i1 %.not.i.i.i, label %23, label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit
 
-24:                                               ; preds = %21
-  %25 = call noundef i32 @_ZN13JVMFlagAccess8set_implEP7JVMFlagPv13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %2) #31
-  %26 = icmp eq i32 %25, 0
+23:                                               ; preds = %20
+  %24 = call noundef i32 @_ZN13JVMFlagAccess8set_implEP7JVMFlagPv13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %2) #31
+  %25 = icmp eq i32 %24, 0
   br label %_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit
 
-_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit: ; preds = %24, %21, %11, %15, %3, %8
-  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %15 ], [ false, %11 ], [ %26, %24 ], [ false, %21 ]
+_ZN13JVMFlagAccess10set_doubleEP7JVMFlagPd13JVMFlagOrigin.exit: ; preds = %23, %20, %11, %15, %3, %8
+  %.0 = phi i1 [ false, %8 ], [ false, %3 ], [ false, %15 ], [ false, %11 ], [ %25, %23 ], [ false, %20 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16set_numeric_flagP7JVMFlagPKc13JVMFlagOrigin(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -2518,7 +2511,7 @@ _ZL13parse_integerIiEbPKcPT_.exit:                ; preds = %50, %63
   br label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 72:                                               ; preds = %3
-  %73 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %1, ptr noundef nonnull %7)
+  %73 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %1, ptr noundef %7)
   br i1 %73, label %74, label %_ZN13JVMFlagAccess7set_intEP7JVMFlagPi13JVMFlagOrigin.exit
 
 74:                                               ; preds = %72
@@ -4857,7 +4850,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments13is_bad_optionEPK12JavaVMOptionh
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden noundef zeroext i1 @_ZN9Arguments10parse_uintEPKcPjj(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = alloca i32, align 4
-  %5 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %0, ptr noundef nonnull %4)
+  %5 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %0, ptr noundef %4)
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
@@ -4875,7 +4868,7 @@ define hidden noundef zeroext i1 @_ZN9Arguments10parse_uintEPKcPjj(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #9 {
+define internal fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #9 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = load i8, ptr %0, align 1
@@ -5549,7 +5542,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit251: ; preds = %_ZL12match_optionPK
   br i1 %234, label %.critedge159, label %.loopexit293
 
 _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit251
-  %235 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val197, ptr noundef nonnull @.str.144, ptr noundef nonnull %43)
+  %235 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val197, ptr noundef nonnull @.str.144, ptr noundef %43)
   br i1 %235, label %236, label %239
 
 236:                                              ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252
@@ -5560,7 +5553,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 239:                                              ; preds = %_ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252
   %240 = load ptr, ptr %44, align 8
   %.val185 = load ptr, ptr %240, align 8
-  %241 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val185, ptr noundef nonnull @.str.146, ptr noundef nonnull %43)
+  %241 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val185, ptr noundef nonnull @.str.146, ptr noundef %43)
   br i1 %241, label %242, label %245
 
 242:                                              ; preds = %239
@@ -5571,7 +5564,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 245:                                              ; preds = %239
   %246 = load ptr, ptr %44, align 8
   %.val184 = load ptr, ptr %246, align 8
-  %247 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val184, ptr noundef nonnull @.str.148, ptr noundef nonnull %43)
+  %247 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val184, ptr noundef nonnull @.str.148, ptr noundef %43)
   br i1 %247, label %248, label %251
 
 248:                                              ; preds = %245
@@ -5583,7 +5576,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 251:                                              ; preds = %245
   %252 = load ptr, ptr %44, align 8
   %.val183 = load ptr, ptr %252, align 8
-  %253 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val183, ptr noundef nonnull @.str.149, ptr noundef nonnull %43)
+  %253 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val183, ptr noundef nonnull @.str.149, ptr noundef %43)
   br i1 %253, label %254, label %275
 
 254:                                              ; preds = %251
@@ -5623,7 +5616,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 275:                                              ; preds = %251
   %276 = load ptr, ptr %44, align 8
   %.val182 = load ptr, ptr %276, align 8
-  %277 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val182, ptr noundef nonnull @.str.156, ptr noundef nonnull %43)
+  %277 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val182, ptr noundef nonnull @.str.156, ptr noundef %43)
   br i1 %277, label %278, label %281
 
 278:                                              ; preds = %275
@@ -5638,13 +5631,13 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 281:                                              ; preds = %275
   %282 = load ptr, ptr %44, align 8
   %.val181 = load ptr, ptr %282, align 8
-  %283 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val181, ptr noundef nonnull @.str.157, ptr noundef nonnull %43)
+  %283 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val181, ptr noundef nonnull @.str.157, ptr noundef %43)
   br i1 %283, label %287, label %284
 
 284:                                              ; preds = %281
   %285 = load ptr, ptr %44, align 8
   %.val180 = load ptr, ptr %285, align 8
-  %286 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val180, ptr noundef nonnull @.str.158, ptr noundef nonnull %43)
+  %286 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val180, ptr noundef nonnull @.str.158, ptr noundef %43)
   br i1 %286, label %287, label %303
 
 287:                                              ; preds = %284, %281
@@ -5686,7 +5679,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
 303:                                              ; preds = %284
   %304 = load ptr, ptr %44, align 8
   %.val179 = load ptr, ptr %304, align 8
-  %305 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val179, ptr noundef nonnull @.str.159, ptr noundef nonnull %43)
+  %305 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val179, ptr noundef nonnull @.str.159, ptr noundef %43)
   br i1 %305, label %306, label %316
 
 306:                                              ; preds = %303
@@ -5744,7 +5737,7 @@ _ZL12match_optionPK12JavaVMOptionPKcPS3_.exit252: ; preds = %_ZL12match_optionPK
   br i1 %.not144, label %.critedge159, label %.loopexit293
 
 328:                                              ; preds = %324
-  %329 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val201, ptr noundef nonnull @.str.165, ptr noundef nonnull %43)
+  %329 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val201, ptr noundef nonnull @.str.165, ptr noundef %43)
   br i1 %329, label %330, label %347
 
 330:                                              ; preds = %328
@@ -5792,7 +5785,7 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit:    ; preds = %333
 347:                                              ; preds = %328
   %348 = load ptr, ptr %44, align 8
   %.val177 = load ptr, ptr %348, align 8
-  %349 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val177, ptr noundef nonnull @.str.167, ptr noundef nonnull %43)
+  %349 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val177, ptr noundef nonnull @.str.167, ptr noundef %43)
   br i1 %349, label %350, label %366
 
 350:                                              ; preds = %347
@@ -5835,13 +5828,13 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit255: ; preds = %350
 366:                                              ; preds = %347
   %367 = load ptr, ptr %44, align 8
   %.val176 = load ptr, ptr %367, align 8
-  %368 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val176, ptr noundef nonnull @.str.169, ptr noundef nonnull %43)
+  %368 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val176, ptr noundef nonnull @.str.169, ptr noundef %43)
   br i1 %368, label %372, label %369
 
 369:                                              ; preds = %366
   %370 = load ptr, ptr %44, align 8
   %.val175 = load ptr, ptr %370, align 8
-  %371 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val175, ptr noundef nonnull @.str.170, ptr noundef nonnull %43)
+  %371 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val175, ptr noundef nonnull @.str.170, ptr noundef %43)
   br i1 %371, label %372, label %387
 
 372:                                              ; preds = %369, %366
@@ -5880,7 +5873,7 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %375
 387:                                              ; preds = %369
   %388 = load ptr, ptr %44, align 8
   %.val174 = load ptr, ptr %388, align 8
-  %389 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val174, ptr noundef nonnull @.str.172, ptr noundef nonnull %43)
+  %389 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val174, ptr noundef nonnull @.str.172, ptr noundef %43)
   br i1 %389, label %390, label %412
 
 390:                                              ; preds = %387
@@ -5922,7 +5915,7 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %375
 412:                                              ; preds = %387
   %413 = load ptr, ptr %44, align 8
   %.val173 = load ptr, ptr %413, align 8
-  %414 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val173, ptr noundef nonnull @.str.174, ptr noundef nonnull %43)
+  %414 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val173, ptr noundef nonnull @.str.174, ptr noundef %43)
   br i1 %414, label %415, label %437
 
 415:                                              ; preds = %412
@@ -5964,7 +5957,7 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %375
 437:                                              ; preds = %412
   %438 = load ptr, ptr %44, align 8
   %.val172 = load ptr, ptr %438, align 8
-  %439 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val172, ptr noundef nonnull @.str.176, ptr noundef nonnull %43)
+  %439 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val172, ptr noundef nonnull @.str.176, ptr noundef %43)
   br i1 %439, label %440, label %447
 
 440:                                              ; preds = %437
@@ -5988,13 +5981,13 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit258: ; preds = %375
 447:                                              ; preds = %437
   %448 = load ptr, ptr %44, align 8
   %.val171 = load ptr, ptr %448, align 8
-  %449 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val171, ptr noundef nonnull @.str.177, ptr noundef nonnull %43)
+  %449 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val171, ptr noundef nonnull @.str.177, ptr noundef %43)
   br i1 %449, label %453, label %450
 
 450:                                              ; preds = %447
   %451 = load ptr, ptr %44, align 8
   %.val170 = load ptr, ptr %451, align 8
-  %452 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val170, ptr noundef nonnull @.str.178, ptr noundef nonnull %43)
+  %452 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val170, ptr noundef nonnull @.str.178, ptr noundef %43)
   br i1 %452, label %453, label %467
 
 453:                                              ; preds = %450, %447
@@ -6087,13 +6080,13 @@ _ZN9Arguments17parse_memory_sizeEPKcPmmm.exit261: ; preds = %453
   br label %.critedge159
 
 498:                                              ; preds = %488
-  %499 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val204, ptr noundef nonnull @.str.187, ptr noundef nonnull %43)
+  %499 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val204, ptr noundef nonnull @.str.187, ptr noundef %43)
   %500 = load ptr, ptr %44, align 8
   %.val168 = load ptr, ptr %500, align 8
   br i1 %499, label %501, label %551
 
 501:                                              ; preds = %498
-  %502 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val168, ptr noundef nonnull @.str.188, ptr noundef nonnull %56)
+  %502 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val168, ptr noundef nonnull @.str.188, ptr noundef %56)
   br i1 %502, label %503, label %517
 
 503:                                              ; preds = %501
@@ -6128,7 +6121,7 @@ sub_1:                                            ; preds = %503
 517:                                              ; preds = %503, %.tail, %501
   %518 = load ptr, ptr %44, align 8
   %.val167 = load ptr, ptr %518, align 8
-  %519 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val167, ptr noundef nonnull @.str.191, ptr noundef nonnull %56)
+  %519 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val167, ptr noundef nonnull @.str.191, ptr noundef %56)
   br i1 %519, label %520, label %534
 
 520:                                              ; preds = %517
@@ -6176,7 +6169,7 @@ sub_1289:                                         ; preds = %520
   %542 = call noundef zeroext i1 @_ZN9Arguments12add_propertyEPKcNS_17PropertyWriteableENS_16PropertyInternalE(ptr noundef %541, i32 noundef 0, i32 noundef 1)
   %543 = load ptr, ptr %44, align 8
   %.val166 = load ptr, ptr %543, align 8
-  %544 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val166, ptr noundef nonnull @.str.193, ptr noundef nonnull %43)
+  %544 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val166, ptr noundef nonnull @.str.193, ptr noundef %43)
   br i1 %544, label %545, label %.critedge159
 
 545:                                              ; preds = %540
@@ -6258,7 +6251,7 @@ sub_1289:                                         ; preds = %520
   br label %.critedge159
 
 572:                                              ; preds = %569
-  %573 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val168, ptr noundef nonnull @.str.202, ptr noundef nonnull %43)
+  %573 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val168, ptr noundef nonnull @.str.202, ptr noundef %43)
   br i1 %573, label %574, label %603
 
 574:                                              ; preds = %572
@@ -6357,7 +6350,7 @@ sub_1289:                                         ; preds = %520
   br label %.critedge159
 
 607:                                              ; preds = %603
-  %608 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val216, ptr noundef nonnull @.str.210, ptr noundef nonnull %43)
+  %608 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val216, ptr noundef nonnull @.str.210, ptr noundef %43)
   br i1 %608, label %609, label %614
 
 609:                                              ; preds = %607
@@ -6379,7 +6372,7 @@ sub_1289:                                         ; preds = %520
 614:                                              ; preds = %607
   %615 = load ptr, ptr %44, align 8
   %.val163 = load ptr, ptr %615, align 8
-  %616 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val163, ptr noundef nonnull @.str.212, ptr noundef nonnull %43)
+  %616 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val163, ptr noundef nonnull @.str.212, ptr noundef %43)
   br i1 %616, label %617, label %650
 
 617:                                              ; preds = %614
@@ -6451,7 +6444,7 @@ sub_1289:                                         ; preds = %520
 650:                                              ; preds = %614
   %651 = load ptr, ptr %44, align 8
   %.val162 = load ptr, ptr %651, align 8
-  %652 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val162, ptr noundef nonnull @.str.218, ptr noundef nonnull %43)
+  %652 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val162, ptr noundef nonnull @.str.218, ptr noundef %43)
   br i1 %652, label %653, label %661
 
 653:                                              ; preds = %650
@@ -6565,13 +6558,13 @@ sub_1289:                                         ; preds = %520
   br i1 %.not111, label %.critedge159, label %.loopexit293
 
 693:                                              ; preds = %685
-  %694 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val217, ptr noundef nonnull @.str.225, ptr noundef nonnull %43)
+  %694 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val217, ptr noundef nonnull @.str.225, ptr noundef %43)
   br i1 %694, label %695, label %719
 
 695:                                              ; preds = %693
   %696 = load ptr, ptr %43, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
-  %697 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %696, ptr noundef nonnull %17)
+  %697 = call fastcc noundef zeroext i1 @_ZL13parse_integerIjEbPKcPT_(ptr noundef %696, ptr noundef %17)
   br i1 %697, label %705, label %698
 
 698:                                              ; preds = %695
@@ -6726,7 +6719,7 @@ sub_1289:                                         ; preds = %520
   br i1 %.not97, label %.critedge159, label %.loopexit293
 
 744:                                              ; preds = %738
-  %745 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val222, ptr noundef nonnull @.str.231, ptr noundef nonnull %43)
+  %745 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val222, ptr noundef nonnull @.str.231, ptr noundef %43)
   br i1 %745, label %746, label %762
 
 746:                                              ; preds = %744
@@ -6850,13 +6843,13 @@ sub_1289:                                         ; preds = %520
   br i1 %815, label %.critedge159, label %.loopexit293
 
 816:                                              ; preds = %779
-  %817 = call fastcc noundef zeroext i1 @_ZL16match_jfr_optionPPK12JavaVMOption(ptr noundef nonnull %44)
+  %817 = call fastcc noundef zeroext i1 @_ZL16match_jfr_optionPPK12JavaVMOption(ptr noundef %44)
   br i1 %817, label %.loopexit293, label %818
 
 818:                                              ; preds = %816
   %819 = load ptr, ptr %44, align 8
   %.val = load ptr, ptr %819, align 8
-  %820 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val, ptr noundef nonnull @.str.247, ptr noundef nonnull %43)
+  %820 = call fastcc noundef zeroext i1 @_ZL12match_optionPK12JavaVMOptionPKcPS3_(ptr %.val, ptr noundef nonnull @.str.247, ptr noundef %43)
   br i1 %820, label %821, label %829
 
 821:                                              ; preds = %818
@@ -7300,7 +7293,7 @@ declare noundef zeroext i1 @_ZNK7JVMFlag11is_unlockedEv(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16match_jfr_optionPPK12JavaVMOption(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16match_jfr_optionPPK12JavaVMOption(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %2, align 8
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.val5, ptr noundef nonnull readonly dereferenceable(25) @.str.327, i64 noundef 24) #30

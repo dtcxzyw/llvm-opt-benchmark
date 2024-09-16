@@ -163,7 +163,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit.i: ; preds = %50, %48, %46, %44
 
 _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i: ; preds = %80, %78, %76, %74, %72, %70, %.lr.ph.i
   %.0.i154.i = phi i8 [ 1, %.lr.ph.i ], [ 2, %70 ], [ 3, %72 ], [ 4, %74 ], [ 5, %76 ], [ %..i153.i, %80 ], [ 6, %78 ]
-  %.0.sroa.speculated.i.i = tail call noundef i8 @llvm.umax.i8(i8 %.0126206.i, i8 %.0.i154.i)
+  %.0.sroa.speculated.i.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0126206.i, i8 %.0.i154.i)
   %82 = load i64, ptr %.sroa.0.0204.i, align 8, !noalias !11, !noundef !4
   %83 = icmp ult i64 %82, 256
   br i1 %83, label %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i, label %84
@@ -195,7 +195,7 @@ _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i: ; preds = %80, %78, %76, 
 
 _ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit158.i: ; preds = %94, %92, %90, %88, %86, %84, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i
   %.0.i157.i = phi i8 [ 1, %_ZN3fst5bytes9pack_size17hfe6a7ff0d64b0162E.exit155.i ], [ 2, %84 ], [ 3, %86 ], [ 4, %88 ], [ 5, %90 ], [ %..i156.i, %94 ], [ 6, %92 ]
-  %.0.sroa.speculated.i159.i = tail call noundef i8 @llvm.umax.i8(i8 %.0125207.i, i8 %.0.i157.i)
+  %.0.sroa.speculated.i159.i = tail call noundef range(i8 1, 0) i8 @llvm.umax.i8(i8 %.0125207.i, i8 %.0.i157.i)
   %96 = icmp ne i64 %82, 0
   %narrow.i = or i1 %.0129205.i, %96
   %97 = icmp eq ptr %64, %53

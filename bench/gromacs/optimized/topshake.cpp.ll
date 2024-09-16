@@ -460,13 +460,13 @@ define void @_Z10make_shakeN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsiRKNS_8
 .lr.ph519:                                        ; preds = %111
   %116 = icmp eq i64 %indvars.iv, 4
   %or.cond5 = or i1 %106, %116
-  br label %.lr.ph.i.preheader
+  br label %.preheader.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %.lr.ph519, %355
+.preheader.i.preheader:                           ; preds = %.lr.ph519, %355
   %.sroa.0268.0517 = phi ptr [ %113, %.lr.ph519 ], [ %.sroa.0268.1, %355 ]
   %117 = load ptr, ptr %.sroa.0268.0517, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  br label %.lr.ph.i
+  br label %.preheader.i
 
 118:                                              ; preds = %.lr.ph519.us.split.us
   unreachable
@@ -481,9 +481,9 @@ common.resume:                                    ; preds = %33, %46, %59, %72, 
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #18
   br label %common.resume
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.0911.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
+  %.0911.i = phi i32 [ %spec.select.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %121 = getelementptr inbounds i32, ptr %117, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 4
   %123 = sext i32 %122 to i64
@@ -498,9 +498,9 @@ common.resume:                                    ; preds = %33, %46, %59, %72, 
   %spec.select.i = add nuw nsw i32 %.0911.i, %131
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit, label %.preheader.i, !llvm.loop !8
 
-_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit: ; preds = %.lr.ph.i
+_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit: ; preds = %.preheader.i
   %132 = getelementptr inbounds i8, ptr %.sroa.0268.0517, i64 8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %133 = icmp ugt i32 %spec.select.i, 1
@@ -1028,7 +1028,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.loopexit291, %.loo
   %.sroa.0268.1 = phi ptr [ %.sroa.0268.0517, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %354, %353 ]
   %356 = load ptr, ptr %114, align 8
   %.not = icmp eq ptr %.sroa.0268.1, %356
-  br i1 %.not, label %.loopexit292, label %.lr.ph.i.preheader, !llvm.loop !9
+  br i1 %.not, label %.loopexit292, label %.preheader.i.preheader, !llvm.loop !9
 
 .loopexit292:                                     ; preds = %355, %111, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1076,7 +1076,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.loopexit291, %.loo
 369:                                              ; preds = %.lr.ph673
   %370 = load ptr, ptr %.sroa.0230.0668, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
-  br i1 %.not.i153, label %371, label %.lr.ph.i155
+  br i1 %.not.i153, label %371, label %.preheader.i155
 
 371:                                              ; preds = %369
   call void @_ZNSt10filesystem7__cxx114pathC2IA132_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(132) @.str.12, i8 noundef zeroext 2)
@@ -1092,9 +1092,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.loopexit291, %.loo
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #18
   br label %common.resume
 
-.lr.ph.i155:                                      ; preds = %369, %.lr.ph.i155
-  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i159, %.lr.ph.i155 ], [ 0, %369 ]
-  %.0911.i157 = phi i32 [ %spec.select.i158, %.lr.ph.i155 ], [ 0, %369 ]
+.preheader.i155:                                  ; preds = %369, %.preheader.i155
+  %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i159, %.preheader.i155 ], [ 0, %369 ]
+  %.0911.i157 = phi i32 [ %spec.select.i158, %.preheader.i155 ], [ 0, %369 ]
   %375 = getelementptr inbounds i32, ptr %370, i64 %indvars.iv.i156
   %376 = load i32, ptr %375, align 4
   %377 = sext i32 %376 to i64
@@ -1109,9 +1109,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit150:                 ; preds = %.loopexit291, %.loo
   %spec.select.i158 = add nuw nsw i32 %.0911.i157, %385
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i160 = icmp eq i64 %indvars.iv.next.i159, 2
-  br i1 %exitcond.not.i160, label %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161, label %.lr.ph.i155, !llvm.loop !8
+  br i1 %exitcond.not.i160, label %_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161, label %.preheader.i155, !llvm.loop !8
 
-_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161: ; preds = %.lr.ph.i155
+_ZL15count_hydrogensPPPciN3gmx8ArrayRefIKiEE.exit161: ; preds = %.preheader.i155
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   %.not289 = icmp eq i32 %spec.select.i158, 0
   br i1 %.not289, label %454, label %.critedge

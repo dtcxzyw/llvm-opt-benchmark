@@ -734,7 +734,7 @@ define internal void @"_ZN4core3ptr122drop_in_place$LT$$RF$alloc..boxed..Box$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$diesel..sqlite..connection..SqliteConnection$C$diesel..result..ConnectionError$GT$$GT$17h35857d6fbaa1b39aE"(ptr noalias noundef align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$diesel..sqlite..connection..SqliteConnection$C$diesel..result..ConnectionError$GT$$GT$17h35857d6fbaa1b39aE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1301,7 +1301,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$diesel..connection..instru
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$diesel..sqlite..connection..raw..SqliteCallbackError$GT$17h97e85877d7fb8509E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr73drop_in_place$LT$diesel..sqlite..connection..raw..SqliteCallbackError$GT$17h97e85877d7fb8509E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !156, !noundef !10
   %4 = add i64 %3, 9223372036854775798
@@ -1393,7 +1393,7 @@ define internal void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$al
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$diesel..mysql..connection..stmt..iterator..PrivateMysqlRow$GT$17h21ab4812d1deda81E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr79drop_in_place$LT$diesel..mysql..connection..stmt..iterator..PrivateMysqlRow$GT$17h21ab4812d1deda81E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !179, !noundef !10
@@ -1514,7 +1514,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !216, !noundef !10
   switch i32 %2, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17he9180d9fd4a9906eE.exit" [
     i32 3, label %7
@@ -1828,11 +1828,11 @@ define hidden { ptr, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h144e5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22a7feb15fd4b753E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i16 noundef %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22a7feb15fd4b753E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef range(i16 0, 2) %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i16 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i16 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1927,11 +1927,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h615d2ee97ce26173E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i16 noundef %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h615d2ee97ce26173E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef range(i16 0, 2) %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i16 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i16 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2026,11 +2026,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8468f8f1e6fdda02E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8468f8f1e6fdda02E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 2) %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i32 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i32 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2125,11 +2125,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8618bb1a3586a40cE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8618bb1a3586a40cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 2) %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i32 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i32 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2224,11 +2224,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3302c5cd85a71adE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i16 noundef %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3302c5cd85a71adE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef range(i16 0, 2) %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i16 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i16 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2323,11 +2323,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he22293087954f237E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i16 noundef %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he22293087954f237E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef range(i16 0, 2) %1, i16 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i16 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i16 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2422,11 +2422,11 @@ common.resume.i:                                  ; preds = %27, %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf91744d36acff444E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf91744d36acff444E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 2) %1, i32 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
-  %switch = icmp eq i32 %1, 0
-  br i1 %switch, label %6, label %8
+  %trunc = trunc nuw i32 %1 to i1
+  br i1 %trunc, label %8, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4981,7 +4981,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h7a6027e91b618805E.exit: ; preds = %_ZN5al
 122:                                              ; preds = %116, %59
   %123 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$diesel..mysql..connection..stmt..iterator..PrivateMysqlRow$GT$17h21ab4812d1deda81E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #29
+  invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$diesel..mysql..connection..stmt..iterator..PrivateMysqlRow$GT$17h21ab4812d1deda81E"(ptr noalias noundef align 8 dereferenceable(32) %8) #29
           to label %common.resume unwind label %113
 }
 
@@ -5490,7 +5490,7 @@ define void @"_ZN6diesel5mysql10connection4stmt116_$LT$impl$u20$diesel..connecti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = tail call float @llvm.fabs.f32(float %1)
@@ -5592,7 +5592,7 @@ common.resume:                                    ; preds = %25, %15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { i64, ptr }, i64 } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -5768,7 +5768,7 @@ default.unreachable:                              ; preds = %8
 26:                                               ; preds = %8
   %27 = bitcast i32 %.sroa.635.0.copyload to float
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, float noundef %27)
+  call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, float noundef %27)
   %28 = load ptr, ptr %4, align 8, !noundef !10
   %29 = icmp eq ptr %28, null
   %30 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5779,7 +5779,7 @@ default.unreachable:                              ; preds = %8
 32:                                               ; preds = %8
   %33 = bitcast i64 %9 to double
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, double noundef %33)
+  call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, double noundef %33)
   %34 = load ptr, ptr %3, align 8, !noundef !10
   %35 = icmp eq ptr %34, null
   %36 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5793,7 +5793,7 @@ default.unreachable:                              ; preds = %8
   br label %58
 
 .split44:                                         ; preds = %21
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h615d2ee97ce26173E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h615d2ee97ce26173E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
   br label %58
 
 .split:                                           ; preds = %21
@@ -5804,7 +5804,7 @@ default.unreachable:                              ; preds = %8
   br label %58
 
 .split48:                                         ; preds = %23
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3302c5cd85a71adE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hd3302c5cd85a71adE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
   br label %58
 
 .split46:                                         ; preds = %23
@@ -5827,7 +5827,7 @@ default.unreachable:                              ; preds = %8
   br label %58
 
 .split52:                                         ; preds = %44
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he22293087954f237E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17he22293087954f237E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
   br label %58
 
 .split50:                                         ; preds = %44
@@ -5850,7 +5850,7 @@ default.unreachable:                              ; preds = %8
   br label %58
 
 .split56:                                         ; preds = %51
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22a7feb15fd4b753E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h22a7feb15fd4b753E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i16 noundef 1, i16 undef)
   br label %58
 
 .split54:                                         ; preds = %51
@@ -5940,7 +5940,7 @@ default.unreachable:                              ; preds = %8
 
 27:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %4, float noundef %.sroa.6.0.copyload40)
+  call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %4, float noundef %.sroa.6.0.copyload40)
   %28 = load ptr, ptr %4, align 8, !noundef !10
   %29 = icmp eq ptr %28, null
   %30 = getelementptr inbounds i8, ptr %4, i64 8
@@ -5949,7 +5949,7 @@ default.unreachable:                              ; preds = %8
 31:                                               ; preds = %8
   %32 = bitcast i64 %9 to double
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %3, double noundef %32)
+  call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef align 8 dereferenceable(16) %3, double noundef %32)
   %33 = load ptr, ptr %3, align 8, !noundef !10
   %34 = icmp eq ptr %33, null
   %35 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5961,7 +5961,7 @@ default.unreachable:                              ; preds = %8
   br label %58
 
 .split28:                                         ; preds = %24
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf91744d36acff444E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hf91744d36acff444E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
   br label %58
 
 .split:                                           ; preds = %24
@@ -5985,7 +5985,7 @@ default.unreachable:                              ; preds = %8
   br label %48
 
 .split32:                                         ; preds = %40
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8468f8f1e6fdda02E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8468f8f1e6fdda02E"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
   br label %48
 
 .split30:                                         ; preds = %40
@@ -6013,7 +6013,7 @@ default.unreachable:                              ; preds = %8
   br label %57
 
 .split36:                                         ; preds = %49
-  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8618bb1a3586a40cE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
+  tail call fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8618bb1a3586a40cE"(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, i32 noundef 1, i32 undef)
   br label %57
 
 .split34:                                         ; preds = %49
@@ -6106,12 +6106,12 @@ default.unreachable:                              ; preds = %6
 
 25:                                               ; preds = %6
   %26 = bitcast i32 %.sroa.6.0.copyload to float
-  tail call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, float noundef %26)
+  tail call fastcc void @_ZN6diesel5mysql5types10primitives10f32_to_i6417h341c931197152c2eE(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, float noundef %26)
   br label %31
 
 27:                                               ; preds = %6
   %28 = bitcast i64 %7 to double
-  tail call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0, double noundef %28)
+  tail call fastcc void @_ZN6diesel5mysql5types10primitives10f64_to_i6417hd5f06c9ceb432553E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0, double noundef %28)
   br label %31
 
 29:                                               ; preds = %6
@@ -6770,7 +6770,7 @@ common.resume:                                    ; preds = %47, %24, %28, %36
 47:                                               ; preds = %"_ZN6diesel6sqlite10connection3raw19run_custom_function28_$u7b$$u7b$closure$u7d$$u7d$17h271eb062d0e3f0daE.exit.thread"
   %48 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$diesel..sqlite..connection..raw..SqliteCallbackError$GT$17h97e85877d7fb8509E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #29
+  invoke fastcc void @"_ZN4core3ptr73drop_in_place$LT$diesel..sqlite..connection..raw..SqliteCallbackError$GT$17h97e85877d7fb8509E"(ptr noalias noundef align 8 dereferenceable(32) %7) #29
           to label %common.resume unwind label %65
 
 49:                                               ; preds = %"_ZN6diesel6sqlite10connection3raw19run_custom_function28_$u7b$$u7b$closure$u7d$$u7d$17h271eb062d0e3f0daE.exit.thread"
@@ -7111,7 +7111,7 @@ _ZN6diesel6sqlite10connection4stmt16ensure_sqlite_ok17hf7b57340d2049842E.exit: ;
 
 .body:                                            ; preds = %89, %79
   %eh.lpad-body = phi { ptr, i32 } [ %80, %79 ], [ %90, %89 ]
-  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #29
+  call fastcc void @"_ZN4core3ptr88drop_in_place$LT$diesel..sqlite..connection..bind_collector..InternalSqliteBindValue$GT$17hafbe5a55418f1914E"(ptr noalias noundef align 8 dereferenceable(24) %11) #29
   resume { ptr, i32 } %eh.lpad-body
 
 81:                                               ; preds = %26, %22, %24, %20, %18, %16, %14
@@ -8605,7 +8605,7 @@ common.resume:                                    ; preds = %.thread, %.body30, 
 111:                                              ; preds = %58
   %112 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$diesel..sqlite..connection..SqliteConnection$C$diesel..result..ConnectionError$GT$$GT$17h35857d6fbaa1b39aE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %12) #29
+  invoke fastcc void @"_ZN4core3ptr127drop_in_place$LT$core..result..Result$LT$diesel..sqlite..connection..SqliteConnection$C$diesel..result..ConnectionError$GT$$GT$17h35857d6fbaa1b39aE"(ptr noalias noundef align 8 dereferenceable(80) %12) #29
           to label %.thread unwind label %109
 
 .thread:                                          ; preds = %111, %42, %51, %21

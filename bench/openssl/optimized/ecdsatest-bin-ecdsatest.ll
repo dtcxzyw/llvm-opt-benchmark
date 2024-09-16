@@ -4782,7 +4782,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_builtin(i32 noundef %n, i32 noundef %as) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_builtin(i32 noundef %n, i32 noundef range(i32 408, 1173) %as) unnamed_addr #0 {
 entry:
   %tbs = alloca [128 x i8], align 16
   %sig_len = alloca i64, align 8

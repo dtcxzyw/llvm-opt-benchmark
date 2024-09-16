@@ -194,7 +194,7 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing10DataMatrixL14CreateECCBlockERNS_9ByteArrayEiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing10DataMatrixL14CreateECCBlockERNS_9ByteArrayEiiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = sext i32 %4 to i64

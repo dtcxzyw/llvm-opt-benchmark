@@ -8892,7 +8892,7 @@ _Z8cvtToHexIPK7AstNodeENSt9enable_ifIXsr3std10is_pointerIT_EE5valueENSt7__cxx111
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc23
-  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %0, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %46 unwind label %72
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8919,7 +8919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %.body26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28: ; preds = %.noexc25
-  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %0, ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %52 unwind label %76
 
 52:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28
@@ -8946,7 +8946,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28: ; 
   br label %.body31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33: ; preds = %.noexc30
-  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %0, ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %58 unwind label %80
 
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33
@@ -8973,7 +8973,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33: ; 
   br label %.body36
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; preds = %.noexc35
-  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %0, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  invoke fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %0, ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %64 unwind label %84
 
 64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38
@@ -9063,7 +9063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit38: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -9083,7 +9083,7 @@ define internal fastcc void @_ZL12drawChildrenRSoPK7AstNodeS2_RKNSt7__cxx1112bas
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.691)
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %10)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10), !noalias !87
-  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %1)
+  %19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %1)
           to label %20 unwind label %21, !noalias !87
 
 20:                                               ; preds = %17

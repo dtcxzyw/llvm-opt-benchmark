@@ -57,7 +57,7 @@ define void @_ZN8WasmEdge3AOT5Cache7getPathB5cxx11EN5cxx204spanIKhLm184467440737
   store i64 %4, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %5, ptr %15, align 8
-  call fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %3)
+  call fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias writable align 8 %8, i32 noundef %3)
   %16 = icmp eq i64 %4, 0
   br i1 %16, label %27, label %17
 
@@ -217,7 +217,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit11:        ; preds = %_ZNSt10filesystem7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::basic_string_view", align 8
@@ -449,7 +449,7 @@ define void @_ZN8WasmEdge3AOT5Cache5clearENS1_12StorageScopeESt17basic_string_vi
   store i64 %1, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %2, ptr %8, align 8
-  call fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %0)
+  call fastcc void @_ZN8WasmEdge3AOT12_GLOBAL__N_17getRootB5cxx11ENS0_5Cache12StorageScopeE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %0)
   %9 = icmp eq i64 %1, 0
   br i1 %9, label %20, label %10
 

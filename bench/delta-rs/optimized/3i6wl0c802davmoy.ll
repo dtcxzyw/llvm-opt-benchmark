@@ -490,7 +490,7 @@ default.unreachable:                              ; preds = %4
 
 90:                                               ; preds = %92, %89
   %91 = getelementptr inbounds i8, ptr %1, i64 728
-  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..gcp..credential..GcpCredential$GT$$GT$$GT$17hb38e8e1d45462634E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %91) #23
+  invoke fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..gcp..credential..GcpCredential$GT$$GT$$GT$17hb38e8e1d45462634E"(ptr noalias noundef align 8 dereferenceable(16) %91) #23
           to label %93 unwind label %79
 
 92:                                               ; preds = %89
@@ -2633,7 +2633,7 @@ define internal void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..gcp..credential..GcpCredential$GT$$GT$$GT$17hb38e8e1d45462634E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #2 {
+define internal fastcc void @"_ZN4core3ptr195drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$object_store..client..CredentialProvider$u2b$Credential$u20$$u3d$$u20$object_store..gcp..credential..GcpCredential$GT$$GT$$GT$17hb38e8e1d45462634E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 {
   %2 = alloca { { { ptr, ptr } }, ptr }, align 8
   %3 = load ptr, ptr %0, align 8, !noundef !7
   %4 = icmp eq ptr %3, null

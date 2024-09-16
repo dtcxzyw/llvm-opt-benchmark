@@ -158,7 +158,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %78, label %79, label %92
 
 79:                                               ; preds = %77
-  call fastcc void @ompi_op_reduce(ptr noundef %5, ptr noundef nonnull %47, ptr noundef nonnull %66, i64 noundef %45, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef %5, ptr noundef %47, ptr noundef %66, i64 noundef %45, ptr noundef %3)
   br label %92
 
 80:                                               ; preds = %59
@@ -223,7 +223,7 @@ define i32 @ompi_comm_allreduce_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %98, label %119, label %120
 
 119:                                              ; preds = %118
-  call fastcc void @ompi_op_reduce(ptr noundef %5, ptr noundef nonnull %104, ptr noundef nonnull %109, i64 noundef %45, ptr noundef %3)
+  call fastcc void @ompi_op_reduce(ptr noundef %5, ptr noundef %104, ptr noundef %109, i64 noundef %45, ptr noundef %3)
   br label %120
 
 120:                                              ; preds = %119, %118
@@ -321,7 +321,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -388,7 +388,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %42 = getelementptr inbounds i8, ptr %0, i64 440
   %43 = getelementptr inbounds [43 x ptr], ptr %42, i64 0, i64 %39
   %44 = load ptr, ptr %43, align 8
-  call void %41(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #7
+  call void %41(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef %44) #7
   br label %.loopexit
 
 45:                                               ; preds = %28
@@ -403,7 +403,7 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   store i32 %10, ptr %8, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 96
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #7
+  call void %51(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %7) #7
   br label %.loopexit
 
 52:                                               ; preds = %45
@@ -420,11 +420,11 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 112
   %62 = load ptr, ptr %61, align 8
-  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #7
+  call void %55(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %6, i32 noundef %58, ptr noundef %60, ptr noundef %62) #7
   br label %.loopexit
 
 63:                                               ; preds = %52
-  call void %55(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #7
+  call void %55(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %6) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %63, %56, %47, %37

@@ -303,7 +303,7 @@ define dso_local void @trace_strbuf_fl(ptr noundef %file, i32 noundef %line, ptr
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf)
+  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef %buf)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -369,7 +369,7 @@ return:                                           ; preds = %entry, %print_trace
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr nocapture noundef %key, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr nocapture noundef %key, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %tv = alloca %struct.timeval, align 8
   %tm = alloca %struct.tm, align 8
@@ -395,7 +395,7 @@ if.end4:                                          ; preds = %if.end
   %3 = load i32, ptr %tm, align 8
   %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
   %4 = load i64, ptr %tv_usec, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %buf, ptr noundef nonnull @.str.20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %file, i32 noundef %line) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.20, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %file, i32 noundef %line) #14
   %len = getelementptr inbounds i8, ptr %buf, i64 8
   %5 = load i64, ptr %len, align 8
   %cmp6 = icmp ult i64 %5, 40
@@ -576,7 +576,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef nonnull %buf.i)
+  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef %key, ptr noundef %buf.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %trace_vprintf_fl.exit, label %if.end.i
 
@@ -648,7 +648,7 @@ entry:
   call void @llvm.va_start.p0(ptr nonnull %ap)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_default_key, ptr noundef nonnull %buf.i)
+  %call.i = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_default_key, ptr noundef %buf.i)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %trace_argv_vprintf_fl.exit, label %if.end.i
 
@@ -718,17 +718,17 @@ define dso_local void @trace_performance_fl(ptr noundef %file, i32 noundef %line
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  call fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %nanos, ptr noundef %format, ptr noundef nonnull %ap)
+  call fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %nanos, ptr noundef %format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %nanos, ptr noundef %format, ptr noundef %ap) unnamed_addr #0 {
+define internal fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %nanos, ptr noundef %format, ptr noundef nonnull %ap) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.trace_performance_vprintf_fl.buf, i64 24, i1 false)
-  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_perf_key, ptr noundef nonnull %buf)
+  %call = call fastcc i32 @prepare_trace_line(ptr noundef %file, i32 noundef %line, ptr noundef nonnull @trace_perf_key, ptr noundef %buf)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end
 
@@ -755,7 +755,7 @@ if.then7:                                         ; preds = %if.then4
 
 if.end8:                                          ; preds = %if.then4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf, ptr noundef nonnull @.str.22, i32 noundef %1, ptr noundef nonnull @trace_performance_vprintf_fl.space) #14
-  call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef nonnull %format, ptr noundef %ap) #14
+  call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef nonnull %format, ptr noundef nonnull %ap) #14
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end8, %land.lhs.true, %if.end
@@ -839,7 +839,7 @@ if.end3:                                          ; preds = %if.end
   %2 = load i64, ptr %arrayidx, align 8
   call void @llvm.va_start.p0(ptr nonnull %ap)
   %sub = sub i64 %nanos, %2
-  call fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %sub, ptr noundef nonnull %format, ptr noundef nonnull %ap)
+  call fastcc void @trace_performance_vprintf_fl(ptr noundef %file, i32 noundef %line, i64 noundef %sub, ptr noundef nonnull %format, ptr noundef %ap)
   call void @llvm.va_end.p0(ptr nonnull %ap)
   br label %return
 

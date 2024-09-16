@@ -2191,7 +2191,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit247:  ; preds = %.lr.ph.i.i.i243, %7
   call void @_ZNK4llvm6Record23getValueAsListOfStringsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.129") align 8 %110, ptr noundef nonnull align 8 dereferenceable(192) %320, ptr nonnull @.str.19, i64 10) #20
   %795 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %320, ptr nonnull @.str.21, i64 18) #20
   %796 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %320, ptr nonnull @.str.22, i64 21) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(304) %.val149.pre1008, ptr noundef %.0.i.i.i246, ptr %793, i64 %794, ptr noundef nonnull align 8 dereferenceable(24) %110, i1 noundef zeroext %795, i1 noundef zeroext %796)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(304) %.val149.pre1008, ptr noundef %.0.i.i.i246, ptr %793, i64 %794, ptr noundef nonnull align 8 dereferenceable(24) %110, i1 noundef zeroext %795, i1 noundef zeroext %796)
   %.val157 = load ptr, ptr %78, align 8
   %797 = getelementptr inbounds nuw i8, ptr %.val157, i64 264
   %798 = load ptr, ptr %109, align 8
@@ -2755,7 +2755,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit304:  ; preds = %.lr.ph.i.i.i300, %1
   %.sroa.2.0.copyload.i.i307 = load i64, ptr %.sroa.2.0..sroa_idx.i.i306, align 8
   call void @_ZNK4llvm6Record23getValueAsListOfStringsENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.129") align 8 %120, ptr noundef nonnull align 8 dereferenceable(192) %993, ptr nonnull @.str.27, i64 3) #20
   %1054 = call noundef zeroext i1 @_ZNK4llvm6Record13getValueAsBitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %993, ptr nonnull @.str.28, i64 8) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(304) %1039, ptr noundef %.0.i.i.i303, ptr %.sroa.0.0.copyload.i.i305, i64 %.sroa.2.0.copyload.i.i307, ptr noundef nonnull align 8 dereferenceable(24) %120, i1 noundef zeroext %1054, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(304) %1039, ptr noundef %.0.i.i.i303, ptr %.sroa.0.0.copyload.i.i305, i64 %.sroa.2.0.copyload.i.i307, ptr noundef nonnull align 8 dereferenceable(24) %120, i1 noundef zeroext %1054, i1 noundef zeroext false)
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_111SearchIndexESt14default_deleteIS3_EELb0EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %1040, ptr noundef nonnull align 8 dereferenceable(8) %119)
   %1055 = load ptr, ptr %119, align 8
   %.not.i310 = icmp eq ptr %1055, null
@@ -3253,7 +3253,7 @@ _ZN4llvm6Record8getValueENS_9StringRefE.exit448:  ; preds = %.lr.ph.i.i.i444, %1
   store ptr %1245, ptr %988, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1244, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0560, i64 16, i1 false)
   store ptr %1245, ptr %989, align 8
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias nonnull writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(304) %.val164, ptr noundef %.0.i.i.i447, ptr %1242, i64 %1243, ptr noundef nonnull align 8 dereferenceable(24) %142, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(304) %.val164, ptr noundef %.0.i.i.i447, ptr %1242, i64 %1243, ptr noundef nonnull align 8 dereferenceable(24) %142, i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_111SearchIndexESt14default_deleteIS3_EELb0EE9push_backEOS6_(ptr noundef nonnull align 8 dereferenceable(16) %1232, ptr noundef nonnull align 8 dereferenceable(8) %141)
   %1246 = load ptr, ptr %141, align 8
   %.not.i449 = icmp eq ptr %1246, null
@@ -3859,7 +3859,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i474: ; preds = %1523, %1521, %.lr.p
   %1527 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.063177.i) #20
   %1528 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.063177.i) #20
   %1529 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1501, ptr %1527, i64 %1528) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.0.0.copyload.i476, ptr noundef nonnull align 8 dereferenceable(56) %.063177.i, ptr noundef %1529)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.0.0.copyload.i476, ptr noundef nonnull align 8 dereferenceable(56) %.063177.i, ptr noundef %1529)
   %1530 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #20
   %1531 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #20
   %1532 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i475, ptr noundef %1530, i64 noundef %1531) #20
@@ -5372,7 +5372,7 @@ _ZN12_GLOBAL__N_111SearchIndexD2Ev.exit:          ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter16parseSearchIndexERNS_12GenericTableEPKN4llvm9RecordValENS3_9StringRefERKSt6vectorIS7_SaIS7_EEbb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #1 align 2 {
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.8", align 1
@@ -9708,9 +9708,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6RecordEPSt4pairINS_9StringRefElENS_12De
 
 208:                                              ; preds = %110
   %.sroa.03.0.copyload = load ptr, ptr %16, align 8
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.03.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.066152, ptr noundef %22)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.03.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.066152, ptr noundef %22)
   %.sroa.0.0.copyload = load ptr, ptr %16, align 8
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.066152, ptr noundef %25)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.066152, ptr noundef %25)
   %209 = load ptr, ptr %26, align 8
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load i32, ptr %210, align 8
@@ -9854,7 +9854,7 @@ _ZNSt10unique_ptrIN4llvm16CodeGenIntrinsicESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::allocator.8", align 1
   %7 = alloca [17 x i8], align 16
   %8 = alloca %"class.std::allocator.8", align 1
@@ -9919,7 +9919,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryR
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
-  tail call void %49(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %4) #20
+  tail call void %49(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %4) #20
   br label %127
 
 50:                                               ; preds = %5
@@ -10038,7 +10038,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %90, %91
   %100 = load ptr, ptr %4, align 8
   %101 = getelementptr inbounds i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8
-  tail call void %102(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(10) %4) #20
+  tail call void %102(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(10) %4) #20
   br label %127
 
 103:                                              ; preds = %95
@@ -12346,7 +12346,7 @@ _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit:   ; preds = %81
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %81, %88, %90
   %.0.i = phi ptr [ %89, %88 ], [ %2, %90 ], [ %2, %81 ]
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(114) %1, ptr noundef nonnull align 8 dereferenceable(56) %.017, i32 noundef 2)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(114) %1, ptr noundef nonnull align 8 dereferenceable(56) %.017, i32 noundef 2)
   %93 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %94 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i, ptr noundef %93, i64 noundef %94) #20
@@ -12530,7 +12530,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit212:              ; preds = %66, %68
 
 _ZN4llvm11raw_ostreamlsEPKc.exit215:              ; preds = %80, %82
   %.0.i.i214 = phi ptr [ %81, %80 ], [ %4, %82 ]
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %.0576, i32 noundef 0)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %.0576, i32 noundef 0)
   %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   %87 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i214, ptr noundef %85, i64 noundef %86) #20
@@ -12977,7 +12977,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit235:              ; preds = %258, %260
   %266 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0178587) #20
   %267 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.0178587) #20
   %268 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %265, ptr %266, i64 %267) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.060.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.0178587, ptr noundef %268)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.060.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.0178587, ptr noundef %268)
   %269 = getelementptr inbounds nuw i8, ptr %.0178587, i64 32
   %270 = load ptr, ptr %269, align 8
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
@@ -13185,7 +13185,7 @@ _ZNSt6vectorISt4pairIPN4llvm6RecordEjESaIS4_EED2Ev.exit: ; preds = %337, %_ZN4ll
   %370 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val204) #20
   %371 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.val204) #20
   %372 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %369, ptr %370, i64 %371) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.045.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val204, ptr noundef %372)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.045.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val204, ptr noundef %372)
   %.sroa.044.0.copyload = load ptr, ptr %368, align 8
   %373 = getelementptr ptr, ptr %.sroa.0514.0, i64 %.sroa.9520.0
   %374 = getelementptr i8, ptr %373, i64 -8
@@ -13193,7 +13193,7 @@ _ZNSt6vectorISt4pairIPN4llvm6RecordEjESaIS4_EED2Ev.exit: ; preds = %337, %_ZN4ll
   %376 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val204) #20
   %377 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.val204) #20
   %378 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %375, ptr %376, i64 %377) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.044.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val204, ptr noundef %378)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.044.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val204, ptr noundef %378)
   %379 = load ptr, ptr %25, align 8
   %380 = load ptr, ptr %27, align 8
   %381 = ptrtoint ptr %379 to i64
@@ -13649,7 +13649,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit304:              ; preds = %620, %622
   %631 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val206) #20
   %632 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.val206) #20
   %633 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %630, ptr %631, i64 %632) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.035.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val206, ptr noundef %633)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.035.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val206, ptr noundef %633)
   %.sroa.034.0.copyload = load ptr, ptr %629, align 8
   %634 = getelementptr ptr, ptr %.sroa.0514.0, i64 %.sroa.9520.0
   %635 = getelementptr i8, ptr %634, i64 -8
@@ -13657,7 +13657,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit304:              ; preds = %620, %622
   %637 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.val206) #20
   %638 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.val206) #20
   %639 = call noundef ptr @_ZNK4llvm6Record12getValueInitENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %636, ptr %637, i64 %638) #20
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.034.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val206, ptr noundef %639)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter21primaryRepresentationB5cxx11EN4llvm5SMLocERKNS_12GenericFieldEPNS1_4InitE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %.sroa.034.0.copyload, ptr noundef nonnull align 8 dereferenceable(56) %.val206, ptr noundef %639)
   %640 = load ptr, ptr %25, align 8
   %641 = load ptr, ptr %27, align 8
   %642 = ptrtoint ptr %640 to i64
@@ -13876,7 +13876,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit328:              ; preds = %744, %746
 
 _ZN4llvm11raw_ostreamlsEPKc.exit332:              ; preds = %757, %759
   %.0.i.i331 = phi ptr [ %758, %757 ], [ %4, %759 ]
-  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %.0182604, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %.0182604, i32 noundef 1)
   %762 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   %763 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
   %764 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i331, ptr noundef %762, i64 noundef %763) #20
@@ -14765,7 +14765,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122SearchableTableEmitter19searchableFieldTypeB5cxx11ERKNS_12GenericTableERKNS_11SearchIndexERKNS_12GenericFieldENS0_11TypeContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(304) %1, ptr noundef nonnull align 8 dereferenceable(114) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::allocator.8", align 1
   %7 = alloca %"class.std::allocator.8", align 1
   %8 = alloca %"class.std::allocator.8", align 1

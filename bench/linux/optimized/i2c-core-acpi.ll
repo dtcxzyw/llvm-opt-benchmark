@@ -1300,7 +1300,7 @@ declare dso_local i32 @i2c_smbus_read_block_data(ptr noundef, i8 noundef zeroext
 declare dso_local i32 @i2c_smbus_write_block_data(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(ptr nocapture noundef nonnull readonly %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
   %5 = alloca i8, align 1
   %6 = alloca [2 x %struct.i2c_msg], align 16
   store i8 %1, ptr %5, align 1
@@ -1373,7 +1373,7 @@ define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_read_bytes(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_write_bytes(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 5) i32 @acpi_gsb_i2c_write_bytes(ptr nocapture noundef nonnull readonly %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3) unnamed_addr #2 align 16 {
   %5 = alloca [1 x %struct.i2c_msg], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %6 = zext i8 %3 to i32

@@ -1076,7 +1076,7 @@ done:                                             ; preds = %strbuf_setlen.exit2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strbuf_complete(ptr noundef %sb, i8 noundef signext %term) unnamed_addr #0 {
+define internal fastcc void @strbuf_complete(ptr noundef %sb, i8 noundef signext range(i8 10, 48) %term) unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
@@ -2020,7 +2020,7 @@ entry:
 if.end:                                           ; preds = %entry
   %len2 = getelementptr inbounds i8, ptr %dir, i64 8
   %7 = load i64, ptr %len2, align 8
-  %call3 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef nonnull %dir, ptr noundef nonnull %gitdir, i32 noundef 0)
+  %call3 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 0)
   %cmp = icmp slt i32 %call3, 1
   br i1 %cmp, label %if.then4, label %if.end5
 
@@ -2220,7 +2220,7 @@ return:                                           ; preds = %entry, %if.end33, %
 declare i32 @strbuf_getcwd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 4) i32 @setup_git_directory_gently_1(ptr noundef %dir, ptr noundef %gitdir, i32 noundef %die_on_error) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 4) i32 @setup_git_directory_gently_1(ptr noundef nonnull %dir, ptr noundef %gitdir, i32 noundef range(i32 0, 2) %die_on_error) unnamed_addr #0 {
 entry:
   %buf.i109 = alloca %struct.stat, align 8
   %data.i81 = alloca %struct.safe_directory_data, align 8
@@ -2458,7 +2458,7 @@ land.lhs.true.i:                                  ; preds = %if.then62
   br i1 %tobool2.not.i, label %land.lhs.true5.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true.i
-  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull readonly %gitfile.0)
+  %call3.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef readonly %gitfile.0)
   %tobool4.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i, label %ensure_valid_ownership.exit, label %land.lhs.true5.i
 
@@ -2466,12 +2466,12 @@ land.lhs.true5.i:                                 ; preds = %lor.lhs.false.i, %l
   br i1 %tobool.not.i77, label %lor.lhs.false12.i, label %lor.lhs.false7.i
 
 lor.lhs.false7.i:                                 ; preds = %land.lhs.true5.i
-  %call8.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %30)
+  %call8.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %30)
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %ensure_valid_ownership.exit, label %lor.lhs.false12.i
 
 lor.lhs.false12.i:                                ; preds = %land.lhs.true5.i, %lor.lhs.false7.i
-  %call13.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %cond67)
+  %call13.i = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %cond67)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %ensure_valid_ownership.exit, label %ensure_valid_ownership.exit.thread
 
@@ -2529,7 +2529,7 @@ land.lhs.true.i88:                                ; preds = %if.end84
   br i1 %tobool11.not.i91, label %ensure_valid_ownership.exit95.thread, label %lor.lhs.false12.i92
 
 lor.lhs.false12.i92:                              ; preds = %land.lhs.true.i88
-  %call13.i93 = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef nonnull %35)
+  %call13.i93 = call fastcc i32 @is_path_owned_by_current_uid(ptr noundef %35)
   %tobool14.not.i94 = icmp eq i32 %call13.i93, 0
   br i1 %tobool14.not.i94, label %ensure_valid_ownership.exit95, label %ensure_valid_ownership.exit95.thread
 
@@ -2672,7 +2672,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   call void @strbuf_addbuf(ptr noundef nonnull %dir, ptr noundef nonnull @setup_git_directory_gently.cwd) #21
-  %call5 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef nonnull %dir, ptr noundef nonnull %gitdir, i32 noundef 1)
+  %call5 = call fastcc i32 @setup_git_directory_gently_1(ptr noundef %dir, ptr noundef nonnull %gitdir, i32 noundef 1)
   switch i32 %call5, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb7
@@ -2686,7 +2686,7 @@ if.end4:                                          ; preds = %if.end
 sw.bb:                                            ; preds = %if.end4
   %buf = getelementptr inbounds i8, ptr %gitdir, i64 16
   %5 = load ptr, ptr %buf, align 8
-  %call6 = call fastcc ptr @setup_explicit_git_dir(ptr noundef %5, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
+  %call6 = call fastcc ptr @setup_explicit_git_dir(ptr noundef %5, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   br label %sw.epilog
 
 sw.bb7:                                           ; preds = %if.end4
@@ -2760,7 +2760,7 @@ if.then13.i:                                      ; preds = %if.end10.i
   unreachable
 
 if.end15.i:                                       ; preds = %if.end10.i
-  %call16.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdir.addr.0.i, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
+  %call16.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdir.addr.0.i, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   call void @free(ptr noundef %to_free.0.i) #21
   br label %sw.epilog
 
@@ -2911,7 +2911,7 @@ if.then12.i:                                      ; preds = %cond.end.i
 
 if.end14.i:                                       ; preds = %cond.end.i
   %35 = load ptr, ptr @setup_bare_git_dir.gitdir, align 8
-  %call15.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %35, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
+  %call15.i = call fastcc ptr @setup_explicit_git_dir(ptr noundef %35, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
   br label %sw.epilog
 
 if.end16.i:                                       ; preds = %if.end.i23
@@ -3189,7 +3189,7 @@ setup_original_cwd.exit:                          ; preds = %if.end87, %if.then2
 declare void @git_config_clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdirenv, ptr noundef %repo_fmt, ptr noundef %nongit_ok) unnamed_addr #0 {
+define internal fastcc ptr @setup_explicit_git_dir(ptr noundef %gitdirenv, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok) unnamed_addr #0 {
 entry:
   %call = tail call ptr @getenv(ptr noundef nonnull @.str.20) #21
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %gitdirenv) #20
@@ -3232,7 +3232,7 @@ if.end12:                                         ; preds = %if.then9
   unreachable
 
 if.end14:                                         ; preds = %if.end6
-  %call15 = tail call fastcc i32 @check_repository_format_gently(ptr noundef %gitdirenv.addr.0, ptr noundef %repo_fmt, ptr noundef %nongit_ok)
+  %call15 = tail call fastcc i32 @check_repository_format_gently(ptr noundef %gitdirenv.addr.0, ptr noundef nonnull %repo_fmt, ptr noundef %nongit_ok)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
@@ -4415,7 +4415,7 @@ strbuf_addch.exit.i33.i.i:                        ; preds = %if.then.i.i38.i.i, 
   br label %strbuf_complete.exit42.i.i
 
 strbuf_complete.exit42.i.i:                       ; preds = %strbuf_addch.exit.i33.i.i, %land.lhs.true.i24.i.i, %if.end23.i.i
-  call fastcc void @copy_templates_1(ptr noundef nonnull %path.i.i, ptr noundef nonnull %template_path.i.i, ptr noundef nonnull %call11.i.i)
+  call fastcc void @copy_templates_1(ptr noundef %path.i.i, ptr noundef %template_path.i.i, ptr noundef %call11.i.i)
   br label %close_free_return.i.i
 
 close_free_return.i.i:                            ; preds = %strbuf_complete.exit42.i.i, %_.exit20.i.i
@@ -5018,11 +5018,11 @@ declare i32 @git_env_bool(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_data_string_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_path_owned_by_current_uid(ptr nocapture noundef readonly %path) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @is_path_owned_by_current_uid(ptr nocapture noundef nonnull readonly %path) unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %st = alloca %struct.stat, align 8
-  %call = call i32 @lstat64(ptr noundef %path, ptr noundef nonnull %st) #21
+  %call = call i32 @lstat64(ptr noundef nonnull %path, ptr noundef nonnull %st) #21
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -5239,7 +5239,7 @@ declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnam
 declare ptr @get_git_common_dir() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_templates_1(ptr noundef %path, ptr noundef %template_path, ptr noundef %dir) unnamed_addr #0 {
+define internal fastcc void @copy_templates_1(ptr noundef nonnull %path, ptr noundef nonnull %template_path, ptr noundef nonnull %dir) unnamed_addr #0 {
 entry:
   %st_git = alloca %struct.stat, align 8
   %st_template = alloca %struct.stat, align 8
@@ -5251,7 +5251,7 @@ entry:
   %buf = getelementptr inbounds i8, ptr %path, i64 16
   %2 = load ptr, ptr %buf, align 8
   tail call void @safe_create_dir(ptr noundef %2, i32 noundef 1) #21
-  %call67 = tail call ptr @readdir64(ptr noundef %dir) #21
+  %call67 = tail call ptr @readdir64(ptr noundef nonnull %dir) #21
   %cmp.not68 = icmp eq ptr %call67, null
   br i1 %cmp.not68, label %while.end, label %while.body.lr.ph
 
@@ -5418,7 +5418,7 @@ strbuf_addch.exit59:                              ; preds = %strbuf_avail.exit.i
   %27 = load i64, ptr %len1, align 8
   %arrayidx3.i54 = getelementptr inbounds i8, ptr %26, i64 %27
   store i8 0, ptr %arrayidx3.i54, align 1
-  call fastcc void @copy_templates_1(ptr noundef nonnull %path, ptr noundef nonnull %template_path, ptr noundef nonnull %call29)
+  call fastcc void @copy_templates_1(ptr noundef %path, ptr noundef %template_path, ptr noundef %call29)
   %call35 = call i32 @closedir(ptr noundef nonnull %call29)
   br label %while.cond.backedge
 
@@ -5494,7 +5494,7 @@ _.exit:                                           ; preds = %if.else78, %if.end3
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %strbuf_addch.exit59, %if.end61, %if.then67, %_.exit, %strbuf_setlen.exit38, %if.else36
-  %call = call ptr @readdir64(ptr noundef %dir) #21
+  %call = call ptr @readdir64(ptr noundef nonnull %dir) #21
   %cmp.not = icmp eq ptr %call, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !15
 

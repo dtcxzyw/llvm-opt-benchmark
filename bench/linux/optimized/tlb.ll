@@ -1644,7 +1644,7 @@ declare dso_local void @perf_clear_dirty_counters() local_unnamed_addr #2
 declare dso_local void @cr4_update_irqsoff(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @l1d_flush_evaluate(i64 noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @l1d_flush_evaluate(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = and i64 %0, 2
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %8, label %6
@@ -1674,7 +1674,7 @@ define internal fastcc void @l1d_flush_evaluate(i64 noundef %0, i64 noundef %1, 
   %16 = getelementptr inbounds i8, ptr %2, i64 2776
   %17 = getelementptr inbounds i8, ptr %2, i64 2784
   store ptr @l1d_flush_force_sigbus, ptr %17, align 8
-  %18 = tail call i32 @task_work_add(ptr noundef %2, ptr noundef %16, i32 noundef 1) #11
+  %18 = tail call i32 @task_work_add(ptr noundef nonnull %2, ptr noundef %16, i32 noundef 1) #11
   br label %19
 
 19:                                               ; preds = %14, %11, %8

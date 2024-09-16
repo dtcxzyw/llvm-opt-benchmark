@@ -637,7 +637,7 @@ for.body.us:                                      ; preds = %invoke.cont171.spli
   %__begin1.sroa.0.0.idx117.us = phi i64 [ %__begin1.sroa.0.0.add.us, %invoke.cont186.us ], [ 0, %invoke.cont171.split.us ]
   %__begin1.sroa.0.0.ptr.us = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us
   %21 = load i64, ptr %__begin1.sroa.0.0.ptr.us, align 8
-  %call187.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef nonnull %retval.0.i, i1 noundef zeroext false, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
+  %call187.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext false, i64 noundef %21, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont186.us unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.us
 
 invoke.cont186.us:                                ; preds = %for.body.us
@@ -658,7 +658,7 @@ for.body.us120:                                   ; preds = %invoke.cont171.spli
   %__begin1.sroa.0.0.idx117.us122 = phi i64 [ %__begin1.sroa.0.0.add.us126, %invoke.cont180.us ], [ 0, %invoke.cont171.split ]
   %__begin1.sroa.0.0.ptr.us123 = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117.us122
   %23 = load i64, ptr %__begin1.sroa.0.0.ptr.us123, align 8
-  %call181.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef nonnull %retval.0.i, i1 noundef zeroext true, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
+  %call181.us = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext true, i64 noundef %23, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont180.us unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.split.us
 
 invoke.cont180.us:                                ; preds = %for.body.us120
@@ -676,7 +676,7 @@ for.body:                                         ; preds = %invoke.cont171.spli
   %__begin1.sroa.0.0.idx117 = phi i64 [ %__begin1.sroa.0.0.add, %for.inc ], [ 0, %invoke.cont171.split ]
   %__begin1.sroa.0.0.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i, i64 %__begin1.sroa.0.0.idx117
   %25 = load i64, ptr %__begin1.sroa.0.0.ptr, align 8
-  %call181 = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef nonnull %retval.0.i, i1 noundef zeroext true, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
+  %call181 = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext true, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont180 unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.split
 
 invoke.cont180:                                   ; preds = %for.body
@@ -693,7 +693,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
   br label %ehcleanup193
 
 if.end183:                                        ; preds = %invoke.cont180
-  %call187 = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef nonnull %retval.0.i, i1 noundef zeroext false, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
+  %call187 = invoke fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef nonnull %t, ptr noundef %retval.0.i, i1 noundef zeroext false, i64 noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %key, ptr noundef nonnull align 8 dereferenceable(24) %iv, ptr noundef nonnull align 8 dereferenceable(24) %plaintext, ptr noundef nonnull align 8 dereferenceable(24) %ciphertext, ptr noundef nonnull align 8 dereferenceable(24) %aad, ptr noundef nonnull align 8 dereferenceable(24) %tag)
           to label %invoke.cont186 unwind label %_ZNSt6vectorImSaImEED2Ev.exit.split.split
 
 invoke.cont186:                                   ; preds = %if.end183
@@ -884,7 +884,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN8FileTest17GetAttrib
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef %t, ptr noundef %cipher, i1 noundef zeroext %encrypt, i64 noundef %chunk_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %iv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %plaintext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ciphertext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aad, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL13TestOperationP8FileTestPK13evp_cipher_stbmRKSt6vectorIhSaIhEES8_S8_S8_S8_S8_(ptr noundef %t, ptr noundef nonnull %cipher, i1 noundef zeroext %encrypt, i64 noundef %chunk_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %iv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %plaintext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ciphertext, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aad, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tag) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %class.ScopedOpenSSLContext, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -897,11 +897,11 @@ entry:
   %rtag = alloca [16 x i8], align 16
   %plaintext.ciphertext = select i1 %encrypt, ptr %plaintext, ptr %ciphertext
   %ciphertext.plaintext = select i1 %encrypt, ptr %ciphertext, ptr %plaintext
-  %call = tail call i32 @EVP_CIPHER_mode(ptr noundef %cipher)
+  %call = tail call i32 @EVP_CIPHER_mode(ptr noundef nonnull %cipher)
   %cmp = icmp ne i32 %call, 6
   call void @EVP_CIPHER_CTX_init(ptr noundef nonnull %ctx)
   %cond = zext i1 %encrypt to i32
-  %call5 = invoke i32 @EVP_CipherInit_ex(ptr noundef nonnull %ctx, ptr noundef %cipher, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %cond)
+  %call5 = invoke i32 @EVP_CipherInit_ex(ptr noundef nonnull %ctx, ptr noundef nonnull %cipher, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef %cond)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %entry

@@ -252,7 +252,7 @@ declare noundef zeroext i1 @_ZN4llvm24RemoveRedundantDbgInstrsEPNS_10BasicBlockE
 define dso_local void @_ZN4llvm7DCEPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #15
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = tail call fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull %6)
+  %7 = tail call fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -303,7 +303,7 @@ define dso_local void @_ZN4llvm7DCEPass3runERNS_8FunctionERNS_15AnalysisManagerI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallSetVector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1827,9 +1827,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14DCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14DCEInstructionPN4llvm11InstructionERNS_14SmallSetVectorIS1_Lj16EEEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef %2) #15
+  %5 = tail call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef %0, ptr noundef nonnull %2) #15
   br i1 %5, label %6, label %47
 
 6:                                                ; preds = %3
@@ -1905,7 +1905,7 @@ _ZN4llvm4User10setOperandEjPNS_5ValueE.exit:      ; preds = %_ZN4llvm4User14getO
   br i1 %.not22, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %spec.select.i.i, ptr noundef %2) #15
+  %42 = call noundef zeroext i1 @_ZN4llvm26isInstructionTriviallyDeadEPNS_11InstructionEPKNS_17TargetLibraryInfoE(ptr noundef nonnull %spec.select.i.i, ptr noundef nonnull %2) #15
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %41
@@ -2761,7 +2761,7 @@ _ZN4llvm28TargetLibraryInfoWrapperPass6getTLIERKNS_8FunctionE.exit: ; preds = %_
   call void @_ZN4llvm15AnalysisManagerINS_8FunctionEJEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #15
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
-  %29 = call fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull %24)
+  %29 = call fastcc noundef zeroext i1 @_ZL17eliminateDeadCodeRN4llvm8FunctionEPNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %24)
   br label %30
 
 30:                                               ; preds = %2, %_ZN4llvm28TargetLibraryInfoWrapperPass6getTLIERKNS_8FunctionE.exit

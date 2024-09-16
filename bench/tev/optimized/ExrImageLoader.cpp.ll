@@ -1571,7 +1571,7 @@ _ZN4tlog6StreamlsIA19_cEERS0_RKT_.exit:           ; preds = %_ZN4tlog6StreamlsIN
 
 185:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19) #23
-  invoke fastcc void @"_ZZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEiENK3$_0clEN7Imf_2_511ChannelList13ConstIteratorE"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %.sroa.0307.0)
+  invoke fastcc void @"_ZZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEiENK3$_0clEN7Imf_2_511ChannelList13ConstIteratorE"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr %.sroa.0307.0)
           to label %186 unwind label %212
 
 186:                                              ; preds = %185
@@ -1929,7 +1929,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %308, %305, %302
   %317 = sdiv exact i64 %316, 104
   %318 = trunc i64 %317 to i32
   %319 = load i32, ptr %44, align 4
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %318, ptr nonnull %51, i32 noundef %319)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %54, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %318, ptr %51, i32 noundef %319)
           to label %320 unwind label %342
 
 320:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit
@@ -4090,7 +4090,7 @@ declare noundef zeroext i1 @_ZN3tev12matchesFuzzyENSt3__112basic_stringIcNS0_11c
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, i32 noundef %2, ptr nonnull %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.std::__1::future.69", align 8
@@ -4292,7 +4292,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   %.sroa.02.0.copyload = load ptr, ptr %17, align 8
   %93 = load i32, ptr %18, align 4
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, i32 noundef %91, i32 noundef %90, ptr %.sroa.02.0.copyload, i32 noundef %93, ptr noundef %92)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %12, i32 noundef %91, i32 noundef %90, ptr %.sroa.02.0.copyload, i32 noundef %93, ptr noundef %92)
           to label %94 unwind label %122
 
 94:                                               ; preds = %88
@@ -49612,7 +49612,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 declare void @_ZNSt3__16futureIvE3getEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::__1::coroutine_handle.3", align 8
   %8 = alloca %"class.std::__1::future.69", align 8
   %9 = alloca %"class.std::__1::future.69", align 8
@@ -50292,7 +50292,7 @@ define internal fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrI
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23
   %.sroa.022.0.copyload = load ptr, ptr %9, align 8
   %63 = load i32, ptr %10, align 8
-  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i32 noundef %63, ptr noundef %62)
+  invoke fastcc void @"_ZZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_iENKUliiSK_iPS0_E_clEiiSK_iSP_"(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %61, i32 noundef %60, ptr %.sroa.022.0.copyload, i32 noundef %63, ptr noundef %62)
           to label %64 unwind label %92
 
 64:                                               ; preds = %58
@@ -54876,7 +54876,7 @@ _ZN4tlog6StreamlsIA19_cEERS0_RKT_.exit:           ; preds = %_ZN4tlog6StreamlsIN
 
 168:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25) #23
-  invoke fastcc void @"_ZZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEiENK3$_0clEN7Imf_2_511ChannelList13ConstIteratorE"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr %.sroa.0275.0)
+  invoke fastcc void @"_ZZNK3tev14ExrImageLoader4loadERNSt3__113basic_istreamIcNS1_11char_traitsIcEEEERKNS1_4__fs10filesystem4pathERKNS1_12basic_stringIcS4_NS1_9allocatorIcEEEEiENK3$_0clEN7Imf_2_511ChannelList13ConstIteratorE"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr %.sroa.0275.0)
           to label %169 unwind label %195
 
 169:                                              ; preds = %168
@@ -55234,7 +55234,7 @@ _ZN3tev10ThreadPool6globalEv.exit:                ; preds = %291, %288, %285
   %300 = sdiv exact i64 %299, 104
   %301 = trunc i64 %300 to i32
   %302 = load i32, ptr %35, align 8
-  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %301, ptr nonnull %42, i32 noundef %302)
+  invoke fastcc void @"_ZN3tev10ThreadPool16parallelForAsyncIiZNKS_14ExrImageLoader4loadERNSt3__113basic_istreamIcNS3_11char_traitsIcEEEERKNS3_4__fs10filesystem4pathERKNS3_12basic_stringIcS6_NS3_9allocatorIcEEEEiE3$_1EENS_4TaskIvEET_SN_T0_i"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(256) @_ZZN3tev10ThreadPool6globalEvE4pool, i32 noundef %301, ptr %42, i32 noundef %302)
           to label %303 unwind label %324
 
 303:                                              ; preds = %_ZN3tev10ThreadPool6globalEv.exit

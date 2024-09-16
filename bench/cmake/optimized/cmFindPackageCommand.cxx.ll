@@ -18465,7 +18465,7 @@ define internal fastcc noundef zeroext i1 @"_ZN12_GLOBAL__N_117TryGeneratedPaths
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32
   store i8 0, ptr %7, align 8
-  call fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br i1 %8, label %._crit_edge, label %.lr.ph
 
@@ -18514,7 +18514,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   resume { ptr, i32 } %eh.lpad-body
 
 18:                                               ; preds = %15
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(33) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %19 unwind label %16
 
 19:                                               ; preds = %18
@@ -18557,7 +18557,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %12 = phi ptr [ %8, %3 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %13 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %12, ptr %13, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -18606,7 +18606,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   resume { ptr, i32 } %eh.lpad-body
 
 24:                                               ; preds = %21
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %25 unwind label %22
 
 25:                                               ; preds = %24
@@ -18648,7 +18648,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %12 = phi ptr [ %8, %4 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %13 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %12, ptr %13, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %14 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br i1 %14, label %._crit_edge, label %.lr.ph
 
@@ -18671,7 +18671,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %18
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %22 unwind label %19
 
 22:                                               ; preds = %21
@@ -18715,7 +18715,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %15 = phi ptr [ %11, %5 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %16 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %15, ptr %16, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %17 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #24
   br i1 %17, label %.loopexit21, label %.lr.ph
 
@@ -18751,7 +18751,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store i8 0, ptr %18, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %26
@@ -18792,7 +18792,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body
 
 38:                                               ; preds = %35
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %39 unwind label %36
 
 39:                                               ; preds = %38
@@ -18821,7 +18821,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %45 unwind label %43
 
 45:                                               ; preds = %.loopexit
@@ -19639,7 +19639,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %14 = phi ptr [ %10, %6 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %15 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %14, ptr %15, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %16 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   br i1 %16, label %._crit_edge, label %.lr.ph
 
@@ -19689,7 +19689,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %31
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %35 unwind label %32
 
 35:                                               ; preds = %34
@@ -19731,7 +19731,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %13 = phi ptr [ %9, %5 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %14 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %13, ptr %14, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %15 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   br i1 %15, label %._crit_edge, label %.lr.ph
 
@@ -19779,7 +19779,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %31
 
 32:                                               ; preds = %29
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %33 unwind label %30
 
 33:                                               ; preds = %32
@@ -19821,7 +19821,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_31cmProjectDirectoryListGeneratorEEEvOT_.e
   %14 = phi ptr [ %10, %6 ], [ %.pre.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ]
   %15 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %14, ptr %15, align 8
-  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  call fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %16 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   br i1 %16, label %._crit_edge, label %.lr.ph
 
@@ -19871,7 +19871,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %33
 
 34:                                               ; preds = %31
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %35 unwind label %32
 
 35:                                               ; preds = %34
@@ -19997,7 +19997,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT
   %53 = getelementptr inbounds i8, ptr %41, i64 24
   %54 = getelementptr inbounds i8, ptr %41, i64 40
   store ptr null, ptr %54, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %.noexc unwind label %88
 
 .noexc:                                           ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i
@@ -20112,7 +20112,7 @@ _ZN12_GLOBAL__N_128cmAppendPathSegmentGenerator16GetNextCandidateERKNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %82 unwind label %80
 
 82:                                               ; preds = %.loopexit.i
@@ -20173,7 +20173,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i40: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i38, %.loopexit156
   %93 = phi ptr [ %90, %.loopexit156 ], [ %.pre.i.i.i39, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i38 ]
   store ptr %93, ptr %54, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %.noexc61 unwind label %88
 
 .noexc61:                                         ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i40
@@ -20229,7 +20229,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25)
   store i8 0, ptr %47, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %.noexc17.i unwind label %122
 
 .noexc17.i:                                       ; preds = %.lr.ph.i.i51
@@ -20280,7 +20280,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   br label %.body18.i
 
 118:                                              ; preds = %115
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %119 unwind label %116
 
 119:                                              ; preds = %118
@@ -20323,7 +20323,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %128 unwind label %126
 
 128:                                              ; preds = %.loopexit24.i
@@ -20370,7 +20370,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i70: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i68, %.loopexit155
   %135 = phi ptr [ %132, %.loopexit155 ], [ %.pre.i.i.i69, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i68 ]
   store ptr %135, ptr %54, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %.noexc92 unwind label %88
 
 .noexc92:                                         ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i70
@@ -20485,7 +20485,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_23cmFileListGeneratorGlobEEEvOT_.exit.i.i.i: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i, %160, %.thread.i.i
   %162 = phi ptr [ %.pre.i.i.i18.i, %160 ], [ %.pre.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i.i.i ], [ %157, %.thread.i.i ]
   store ptr %162, ptr %138, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %.noexc.i.i87 unwind label %177
 
 .noexc.i.i87:                                     ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_23cmFileListGeneratorGlobEEEvOT_.exit.i.i.i
@@ -20536,7 +20536,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   br label %.body.i.i85
 
 173:                                              ; preds = %170
-  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %174 unwind label %171
 
 174:                                              ; preds = %173
@@ -20579,7 +20579,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %183 unwind label %181
 
 183:                                              ; preds = %.loopexit.i90
@@ -20626,7 +20626,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i101: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i99, %.loopexit
   %190 = phi ptr [ %187, %.loopexit ], [ %.pre.i.i.i100, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i99 ]
   store ptr %190, ptr %54, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %.noexc130 unwind label %88
 
 .noexc130:                                        ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i101
@@ -20744,7 +20744,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_23cmFileListGeneratorGlobEEEvOT_.exit.i.i.i119: ; preds = %.thread, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i18.i.i, %215
   %217 = phi ptr [ %.pre.i.i.i.i21.i, %215 ], [ %.pre.i.i.i19.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i18.i.i ], [ %212, %.thread ]
   store ptr %217, ptr %193, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc.i.i122 unwind label %238
 
 .noexc.i.i122:                                    ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_23cmFileListGeneratorGlobEEEvOT_.exit.i.i.i119
@@ -20755,7 +20755,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_23cmFileListGeneratorGlobEEEvOT_.exit.i.i.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i8 0, ptr %47, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i.i.i126 unwind label %233
 
 .noexc.i.i.i126:                                  ; preds = %.lr.ph.i.i.i123
@@ -20806,7 +20806,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   br label %.body.i.i.i124
 
 229:                                              ; preds = %226
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %230 unwind label %227
 
 230:                                              ; preds = %229
@@ -20829,7 +20829,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %42, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %235 unwind label %233
 
 235:                                              ; preds = %.loopexit.i.i.i
@@ -20884,7 +20884,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %245 unwind label %243
 
 245:                                              ; preds = %.loopexit.i128
@@ -21073,7 +21073,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT
   %27 = getelementptr inbounds i8, ptr %19, i64 24
   %28 = getelementptr inbounds i8, ptr %19, i64 40
   store ptr null, ptr %28, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i
@@ -21188,7 +21188,7 @@ _ZN12_GLOBAL__N_128cmAppendPathSegmentGenerator16GetNextCandidateERKNSt7__cxx111
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %56 unwind label %54
 
 56:                                               ; preds = %.loopexit.i
@@ -21249,7 +21249,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i29: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i27, %62
   %69 = phi ptr [ %66, %62 ], [ %.pre.i.i.i28, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.i27 ]
   store ptr %69, ptr %28, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %.noexc46 unwind label %108
 
 .noexc46:                                         ; preds = %_ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT_.exit.i29
@@ -21305,7 +21305,7 @@ _ZN12_GLOBAL__N_114ResetGeneratorIRNS_34cmMacProjectDirectoryListGeneratorEEEvOT
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store i8 0, ptr %65, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %.noexc.i.i43 unwind label %98
 
 .noexc.i.i43:                                     ; preds = %.lr.ph.i.i40
@@ -21356,7 +21356,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   br label %.body.i.i41
 
 94:                                               ; preds = %91
-  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(33) %20, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %95 unwind label %92
 
 95:                                               ; preds = %94
@@ -21408,7 +21408,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %19, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %105 unwind label %103
 
 105:                                              ; preds = %.loopexit.i44
@@ -24129,7 +24129,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.010.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa44, ptr noundef nonnull %7)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa44, ptr noundef %7)
           to label %21 unwind label %23
 
 21:                                               ; preds = %19
@@ -24169,7 +24169,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt1
   %29 = sub i64 %28, %8
   %30 = ashr exact i64 %29, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %30, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %30, ptr noundef %5)
           to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_SK_SK_RT0_.exit unwind label %31
 
 31:                                               ; preds = %.lr.ph.i9.i
@@ -24259,7 +24259,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt7greaterEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -24470,7 +24470,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.010.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #24
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa44, ptr noundef nonnull %7)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa44, ptr noundef %7)
           to label %21 unwind label %23
 
 21:                                               ; preds = %19
@@ -24510,7 +24510,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt1
   %29 = sub i64 %28, %8
   %30 = ashr exact i64 %29, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #24
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %30, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %30, ptr noundef %5)
           to label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_SK_SK_RT0_.exit unwind label %31
 
 31:                                               ; preds = %.lr.ph.i9.i
@@ -24600,7 +24600,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIN12_GLOBAL__N_112StrverscmpOpISt4lessEEEEEvT_T0_SL_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -28733,7 +28733,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_139cmCaseInsensitiveDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.423"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -28825,7 +28825,7 @@ _ZN12_GLOBAL__N_118isDirentryToIgnoreEPKc.exit.thread: ; preds = %35, %29, %38
   store i64 %49, ptr %27, align 8, !alias.scope !1254, !noalias !1245
   store ptr %32, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1254, !noalias !1245
   store ptr null, ptr %28, align 8, !alias.scope !1254, !noalias !1245
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %50 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools15FileIsDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -28863,7 +28863,7 @@ declare i32 @cmsysString_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_124cmDirectoryListGenerator16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair.423"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca %"class.cmsys::Directory", align 8
@@ -29078,7 +29078,7 @@ _ZN12_GLOBAL__N_118isDirentryToIgnoreEPKc.exit.thread23: ; preds = %_ZNSt6vector
   store ptr %90, ptr %.sroa.2.0..sroa_idx.i16.i, align 8, !alias.scope !1268, !noalias !1259
   %91 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr null, ptr %91, align 8, !alias.scope !1268, !noalias !1259
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %4, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   br label %93
@@ -29359,7 +29359,7 @@ _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE13_M_deall
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123cmFileListGeneratorGlob16GetNextCandidateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.423"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.cmsys::Glob", align 8

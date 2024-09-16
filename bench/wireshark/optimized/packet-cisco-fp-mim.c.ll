@@ -214,7 +214,7 @@ declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 16, 21) %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._address, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -419,7 +419,7 @@ declare ptr @proto_tree_add_ether(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare ptr @proto_tree_add_none_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fp_add_hmac(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @fp_add_hmac(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %28, label %4
 

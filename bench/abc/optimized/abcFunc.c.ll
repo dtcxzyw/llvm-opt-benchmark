@@ -3826,10 +3826,10 @@ define ptr @Abc_ConvertAigToAig(ptr noundef %0, ptr nocapture noundef readonly %
   br label %34
 
 34:                                               ; preds = %.critedge, %16
-  %.sink = phi ptr [ %33, %.critedge ], [ %17, %16 ]
-  %35 = ptrtoint ptr %.sink to i64
-  %36 = and i64 %8, 1
-  %37 = xor i64 %36, %35
+  %.sink27 = phi ptr [ %33, %.critedge ], [ %17, %16 ]
+  %35 = and i64 %8, 1
+  %36 = ptrtoint ptr %.sink27 to i64
+  %37 = xor i64 %35, %36
   %.018 = inttoptr i64 %37 to ptr
   ret ptr %.018
 }

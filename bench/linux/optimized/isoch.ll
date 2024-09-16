@@ -596,7 +596,7 @@ declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr nounde
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.48.val, i32 %.144.val, ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @agp_3_5_nonisochronous_node_enable(ptr %.48.val, i32 %.144.val, ptr nocapture noundef nonnull readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #7

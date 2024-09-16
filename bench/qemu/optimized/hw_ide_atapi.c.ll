@@ -1154,24 +1154,24 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %5 = tail call i8 @llvm.umin.i8(i8 %0, i8 18)
-  %6 = zext nneg i8 %5 to i32
+  %spec.select.i = zext nneg i8 %5 to i32
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %6, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %6, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %7 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %7, 0
+  %6 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %6, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %8 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %8) #9
+  %7 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %7) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
   %conv.i = zext nneg i8 %5 to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
@@ -1243,12 +1243,12 @@ if.end:                                           ; preds = %sw.bb19
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %src.addr.07.i = phi ptr [ %drive_serial_str, %if.end ], [ %spec.select10.i, %for.body.i ]
-  %4 = load i8, ptr %src.addr.07.i, align 1
+  %src.addr.06.i = phi ptr [ %drive_serial_str, %if.end ], [ %spec.select9.i, %for.body.i ]
+  %4 = load i8, ptr %src.addr.06.i, align 1
   %tobool.not.i = icmp ne i8 %4, 0
   %spec.select.i = select i1 %tobool.not.i, i8 %4, i8 32
-  %spec.select10.idx.i = zext i1 %tobool.not.i to i64
-  %spec.select10.i = getelementptr i8, ptr %src.addr.07.i, i64 %spec.select10.idx.i
+  %spec.select9.idx.i = zext i1 %tobool.not.i to i64
+  %spec.select9.i = getelementptr i8, ptr %src.addr.06.i, i64 %spec.select9.idx.i
   %5 = getelementptr i8, ptr %add.ptr, i64 %indvars.iv.i
   store i8 %spec.select.i, ptr %5, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1273,12 +1273,12 @@ if.end39:                                         ; preds = %padstr8.exit
 
 for.body.i80:                                     ; preds = %for.body.i80, %if.end39
   %indvars.iv.i81 = phi i64 [ 0, %if.end39 ], [ %indvars.iv.next.i87, %for.body.i80 ]
-  %src.addr.07.i82 = phi ptr [ @.str.23, %if.end39 ], [ %spec.select10.i86, %for.body.i80 ]
-  %6 = load i8, ptr %src.addr.07.i82, align 1
+  %src.addr.06.i82 = phi ptr [ @.str.23, %if.end39 ], [ %spec.select9.i86, %for.body.i80 ]
+  %6 = load i8, ptr %src.addr.06.i82, align 1
   %tobool.not.i83 = icmp ne i8 %6, 0
   %spec.select.i84 = select i1 %tobool.not.i83, i8 %6, i8 32
-  %spec.select10.idx.i85 = zext i1 %tobool.not.i83 to i64
-  %spec.select10.i86 = getelementptr i8, ptr %src.addr.07.i82, i64 %spec.select10.idx.i85
+  %spec.select9.idx.i85 = zext i1 %tobool.not.i83 to i64
+  %spec.select9.i86 = getelementptr i8, ptr %src.addr.06.i82, i64 %spec.select9.idx.i85
   %7 = getelementptr i8, ptr %add.ptr53, i64 %indvars.iv.i81
   store i8 %spec.select.i84, ptr %7, align 1
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i81, 1
@@ -1292,12 +1292,12 @@ padstr8.exit89:                                   ; preds = %for.body.i80
 
 for.body.i90:                                     ; preds = %for.body.i90, %padstr8.exit89
   %indvars.iv.i91 = phi i64 [ 0, %padstr8.exit89 ], [ %indvars.iv.next.i97, %for.body.i90 ]
-  %src.addr.07.i92 = phi ptr [ %drive_model_str, %padstr8.exit89 ], [ %spec.select10.i96, %for.body.i90 ]
-  %8 = load i8, ptr %src.addr.07.i92, align 1
+  %src.addr.06.i92 = phi ptr [ %drive_model_str, %padstr8.exit89 ], [ %spec.select9.i96, %for.body.i90 ]
+  %8 = load i8, ptr %src.addr.06.i92, align 1
   %tobool.not.i93 = icmp ne i8 %8, 0
   %spec.select.i94 = select i1 %tobool.not.i93, i8 %8, i8 32
-  %spec.select10.idx.i95 = zext i1 %tobool.not.i93 to i64
-  %spec.select10.i96 = getelementptr i8, ptr %src.addr.07.i92, i64 %spec.select10.idx.i95
+  %spec.select9.idx.i95 = zext i1 %tobool.not.i93 to i64
+  %spec.select9.i96 = getelementptr i8, ptr %src.addr.06.i92, i64 %spec.select9.idx.i95
   %9 = getelementptr i8, ptr %add.ptr56, i64 %indvars.iv.i91
   store i8 %spec.select.i94, ptr %9, align 1
   %indvars.iv.next.i97 = add nuw nsw i64 %indvars.iv.i91, 1
@@ -1310,12 +1310,12 @@ padstr8.exit99:                                   ; preds = %for.body.i90
 
 for.body.i100:                                    ; preds = %for.body.i100, %padstr8.exit99
   %indvars.iv.i101 = phi i64 [ 0, %padstr8.exit99 ], [ %indvars.iv.next.i107, %for.body.i100 ]
-  %src.addr.07.i102 = phi ptr [ %drive_serial_str, %padstr8.exit99 ], [ %spec.select10.i106, %for.body.i100 ]
-  %10 = load i8, ptr %src.addr.07.i102, align 1
+  %src.addr.06.i102 = phi ptr [ %drive_serial_str, %padstr8.exit99 ], [ %spec.select9.i106, %for.body.i100 ]
+  %10 = load i8, ptr %src.addr.06.i102, align 1
   %tobool.not.i103 = icmp ne i8 %10, 0
   %spec.select.i104 = select i1 %tobool.not.i103, i8 %10, i8 32
-  %spec.select10.idx.i105 = zext i1 %tobool.not.i103 to i64
-  %spec.select10.i106 = getelementptr i8, ptr %src.addr.07.i102, i64 %spec.select10.idx.i105
+  %spec.select9.idx.i105 = zext i1 %tobool.not.i103 to i64
+  %spec.select9.i106 = getelementptr i8, ptr %src.addr.06.i102, i64 %spec.select9.idx.i105
   %11 = getelementptr i8, ptr %add.ptr60, i64 %indvars.iv.i101
   store i8 %spec.select.i104, ptr %11, align 1
   %indvars.iv.next.i107 = add nuw nsw i64 %indvars.iv.i101, 1
@@ -1366,12 +1366,12 @@ if.else:                                          ; preds = %entry
 
 for.body.i110:                                    ; preds = %for.body.i110, %if.else
   %indvars.iv.i111 = phi i64 [ 0, %if.else ], [ %indvars.iv.next.i117, %for.body.i110 ]
-  %src.addr.07.i112 = phi ptr [ @.str.24, %if.else ], [ %spec.select10.i116, %for.body.i110 ]
-  %15 = load i8, ptr %src.addr.07.i112, align 1
+  %src.addr.06.i112 = phi ptr [ @.str.24, %if.else ], [ %spec.select9.i116, %for.body.i110 ]
+  %15 = load i8, ptr %src.addr.06.i112, align 1
   %tobool.not.i113 = icmp ne i8 %15, 0
   %spec.select.i114 = select i1 %tobool.not.i113, i8 %15, i8 32
-  %spec.select10.idx.i115 = zext i1 %tobool.not.i113 to i64
-  %spec.select10.i116 = getelementptr i8, ptr %src.addr.07.i112, i64 %spec.select10.idx.i115
+  %spec.select9.idx.i115 = zext i1 %tobool.not.i113 to i64
+  %spec.select9.i116 = getelementptr i8, ptr %src.addr.06.i112, i64 %spec.select9.idx.i115
   %16 = getelementptr i8, ptr %add.ptr93, i64 %indvars.iv.i111
   store i8 %spec.select.i114, ptr %16, align 1
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i111, 1
@@ -1384,12 +1384,12 @@ padstr8.exit119:                                  ; preds = %for.body.i110
 
 for.body.i120:                                    ; preds = %for.body.i120, %padstr8.exit119
   %indvars.iv.i121 = phi i64 [ 0, %padstr8.exit119 ], [ %indvars.iv.next.i127, %for.body.i120 ]
-  %src.addr.07.i122 = phi ptr [ @.str.25, %padstr8.exit119 ], [ %spec.select10.i126, %for.body.i120 ]
-  %17 = load i8, ptr %src.addr.07.i122, align 1
+  %src.addr.06.i122 = phi ptr [ @.str.25, %padstr8.exit119 ], [ %spec.select9.i126, %for.body.i120 ]
+  %17 = load i8, ptr %src.addr.06.i122, align 1
   %tobool.not.i123 = icmp ne i8 %17, 0
   %spec.select.i124 = select i1 %tobool.not.i123, i8 %17, i8 32
-  %spec.select10.idx.i125 = zext i1 %tobool.not.i123 to i64
-  %spec.select10.i126 = getelementptr i8, ptr %src.addr.07.i122, i64 %spec.select10.idx.i125
+  %spec.select9.idx.i125 = zext i1 %tobool.not.i123 to i64
+  %spec.select9.i126 = getelementptr i8, ptr %src.addr.06.i122, i64 %spec.select9.idx.i125
   %18 = getelementptr i8, ptr %add.ptr94, i64 %indvars.iv.i121
   store i8 %spec.select.i124, ptr %18, align 1
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i121, 1
@@ -1403,12 +1403,12 @@ padstr8.exit129:                                  ; preds = %for.body.i120
 
 for.body.i130:                                    ; preds = %for.body.i130, %padstr8.exit129
   %indvars.iv.i131 = phi i64 [ 0, %padstr8.exit129 ], [ %indvars.iv.next.i137, %for.body.i130 ]
-  %src.addr.07.i132 = phi ptr [ %version, %padstr8.exit129 ], [ %spec.select10.i136, %for.body.i130 ]
-  %19 = load i8, ptr %src.addr.07.i132, align 1
+  %src.addr.06.i132 = phi ptr [ %version, %padstr8.exit129 ], [ %spec.select9.i136, %for.body.i130 ]
+  %19 = load i8, ptr %src.addr.06.i132, align 1
   %tobool.not.i133 = icmp ne i8 %19, 0
   %spec.select.i134 = select i1 %tobool.not.i133, i8 %19, i8 32
-  %spec.select10.idx.i135 = zext i1 %tobool.not.i133 to i64
-  %spec.select10.i136 = getelementptr i8, ptr %src.addr.07.i132, i64 %spec.select10.idx.i135
+  %spec.select9.idx.i135 = zext i1 %tobool.not.i133 to i64
+  %spec.select9.i136 = getelementptr i8, ptr %src.addr.06.i132, i64 %spec.select9.idx.i135
   %20 = getelementptr i8, ptr %add.ptr95, i64 %indvars.iv.i131
   store i8 %spec.select.i134, ptr %20, align 1
   %indvars.iv.next.i137 = add nuw nsw i64 %indvars.iv.i131, 1
@@ -1423,7 +1423,7 @@ out:                                              ; preds = %for.body.i130, %pad
   %conv98 = trunc nuw nsw i32 %sub to i8
   %arrayidx100 = getelementptr i8, ptr %buf, i64 %size_idx.0
   store i8 %conv98, ptr %arrayidx100, align 1
-  %spec.select.i140 = tail call i32 @llvm.smin.i32(i32 %idx.0, i32 %conv)
+  %spec.select.i140 = tail call i32 @llvm.umin.i32(i32 %idx.0, i32 %conv)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
@@ -1768,26 +1768,26 @@ sw.bb:                                            ; preds = %entry
   br i1 %cmp, label %error_cmd, label %if.end
 
 if.end:                                           ; preds = %sw.bb
-  %8 = tail call i32 @llvm.umin.i32(i32 %call8, i32 %conv1.i)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %call8, i32 %conv1.i)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %8, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %8, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %9 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %9, 0
+  %8 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %8, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %10 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %10) #9
+  %9 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %9) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i = zext nneg i32 %8 to i64
+  %conv.i = zext nneg i32 %spec.select.i to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
   %status.i = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i, align 1
@@ -1809,26 +1809,26 @@ sw.bb10:                                          ; preds = %entry
   store i8 1, ptr %arrayidx12, align 1
   %arrayidx13 = getelementptr i8, ptr %buf, i64 3
   store i8 1, ptr %arrayidx13, align 1
-  %11 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 12)
+  %spec.select.i22 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 12)
   %lba.i23 = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i23, align 4
   %packet_transfer_size.i24 = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %11, ptr %packet_transfer_size.i24, align 8
+  store i32 %spec.select.i22, ptr %packet_transfer_size.i24, align 8
   %io_buffer_size.i25 = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %11, ptr %io_buffer_size.i25, align 8
+  store i32 %spec.select.i22, ptr %io_buffer_size.i25, align 8
   %elementary_transfer_size.i26 = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i26, align 4
   %atapi_dma.i27 = getelementptr inbounds i8, ptr %s, i64 716
-  %12 = load i32, ptr %atapi_dma.i27, align 4
-  %tobool.not.i28 = icmp eq i32 %12, 0
+  %10 = load i32, ptr %atapi_dma.i27, align 4
+  %tobool.not.i28 = icmp eq i32 %10, 0
   br i1 %tobool.not.i28, label %if.else.i35, label %if.then1.i29
 
 if.then1.i29:                                     ; preds = %sw.bb10
   %blk.i30 = getelementptr inbounds i8, ptr %s, i64 672
-  %13 = load ptr, ptr %blk.i30, align 8
-  %call.i31 = tail call ptr @blk_get_stats(ptr noundef %13) #9
+  %11 = load ptr, ptr %blk.i30, align 8
+  %call.i31 = tail call ptr @blk_get_stats(ptr noundef %11) #9
   %acct.i32 = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i33 = zext nneg i32 %11 to i64
+  %conv.i33 = zext nneg i32 %spec.select.i22 to i64
   tail call void @block_acct_start(ptr noundef %call.i31, ptr noundef nonnull %acct.i32, i64 noundef %conv.i33, i32 noundef 1) #9
   %status.i34 = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i34, align 1
@@ -1850,26 +1850,26 @@ sw.bb14:                                          ; preds = %entry
   br i1 %cmp17, label %error_cmd, label %if.end20
 
 if.end20:                                         ; preds = %sw.bb14
-  %14 = tail call i32 @llvm.umin.i32(i32 %call16, i32 %conv1.i)
+  %spec.select.i39 = tail call i32 @llvm.umin.i32(i32 %call16, i32 %conv1.i)
   %lba.i40 = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i40, align 4
   %packet_transfer_size.i41 = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %14, ptr %packet_transfer_size.i41, align 8
+  store i32 %spec.select.i39, ptr %packet_transfer_size.i41, align 8
   %io_buffer_size.i42 = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %14, ptr %io_buffer_size.i42, align 8
+  store i32 %spec.select.i39, ptr %io_buffer_size.i42, align 8
   %elementary_transfer_size.i43 = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i43, align 4
   %atapi_dma.i44 = getelementptr inbounds i8, ptr %s, i64 716
-  %15 = load i32, ptr %atapi_dma.i44, align 4
-  %tobool.not.i45 = icmp eq i32 %15, 0
+  %12 = load i32, ptr %atapi_dma.i44, align 4
+  %tobool.not.i45 = icmp eq i32 %12, 0
   br i1 %tobool.not.i45, label %if.else.i52, label %if.then1.i46
 
 if.then1.i46:                                     ; preds = %if.end20
   %blk.i47 = getelementptr inbounds i8, ptr %s, i64 672
-  %16 = load ptr, ptr %blk.i47, align 8
-  %call.i48 = tail call ptr @blk_get_stats(ptr noundef %16) #9
+  %13 = load ptr, ptr %blk.i47, align 8
+  %call.i48 = tail call ptr @blk_get_stats(ptr noundef %13) #9
   %acct.i49 = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i50 = zext nneg i32 %14 to i64
+  %conv.i50 = zext nneg i32 %spec.select.i39 to i64
   tail call void @block_acct_start(ptr noundef %call.i48, ptr noundef nonnull %acct.i49, i64 noundef %conv.i50, i32 noundef 1) #9
   %status.i51 = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i51, align 1
@@ -1979,24 +1979,24 @@ ide_atapi_set_profile.exit42:                     ; preds = %ide_atapi_set_profi
   store i8 %add.i38, ptr %arrayidx14.i57, align 1
   store i32 268435456, ptr %buf, align 1
   %12 = tail call i16 @llvm.umin.i16(i16 %2, i16 20)
-  %13 = zext nneg i16 %12 to i32
+  %spec.select.i = zext nneg i16 %12 to i32
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %13, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %13, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %14 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %14, 0
+  %13 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %13, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %ide_atapi_set_profile.exit42
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %15 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %15) #9
+  %14 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %14) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
   %conv.i43 = zext nneg i16 %12 to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i43, i32 noundef 1) #9
@@ -2091,29 +2091,29 @@ if.else:                                          ; preds = %if.end
 if.end11:                                         ; preds = %if.else, %event_status_media.exit
   %used_len.0 = phi i32 [ 8, %event_status_media.exit ], [ 4, %if.else ]
   %conv12 = trunc nuw nsw i32 %used_len.0 to i16
-  %sub = add nsw i16 %conv12, -4
-  %10 = tail call noundef i16 @llvm.bswap.i16(i16 %sub)
+  %sub = shl nuw nsw i16 %conv12, 8
+  %10 = add nsw i16 %sub, -1024
   store i16 %10, ptr %buf, align 1
-  %11 = tail call i32 @llvm.umin.i32(i32 %used_len.0, i32 %conv)
+  %spec.select.i12 = tail call i32 @llvm.umin.i32(i32 %used_len.0, i32 %conv)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %11, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i12, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %11, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i12, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %12 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %12, 0
+  %11 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %11, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end11
   %blk.i13 = getelementptr inbounds i8, ptr %s, i64 672
-  %13 = load ptr, ptr %blk.i13, align 8
-  %call.i14 = tail call ptr @blk_get_stats(ptr noundef %13) #9
+  %12 = load ptr, ptr %blk.i13, align 8
+  %call.i14 = tail call ptr @blk_get_stats(ptr noundef %12) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i = zext nneg i32 %11 to i64
+  %conv.i = zext nneg i32 %spec.select.i12 to i64
   tail call void @block_acct_start(ptr noundef %call.i14, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
   %status.i = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i, align 1
@@ -2157,24 +2157,24 @@ if.end:                                           ; preds = %entry
   store i32 16843009, ptr %arrayidx6, align 1
   store i8 32, ptr %add.ptr, align 1
   %3 = tail call i16 @llvm.umin.i16(i16 %2, i16 34)
-  %4 = zext nneg i16 %3 to i32
+  %spec.select.i = zext nneg i16 %3 to i32
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %4, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %4, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %5 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %5, 0
+  %4 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %4, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %6 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %6) #9
+  %5 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %5) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
   %conv.i = zext nneg i16 %3 to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
@@ -2235,27 +2235,27 @@ sw.bb3:                                           ; preds = %sw.bb
   %arrayidx14 = getelementptr i8, ptr %buf, i64 11
   store i8 5, ptr %arrayidx14, align 1
   %arrayidx15 = getelementptr i8, ptr %buf, i64 12
-  %2 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 16)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 16)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 0, ptr %arrayidx15, align 1
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %2, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %2, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %3 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %sw.bb3
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %4 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %4) #9
+  %3 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %3) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i = zext nneg i32 %2 to i64
+  %conv.i = zext nneg i32 %spec.select.i to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
   %status.i = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i, align 1
@@ -2287,26 +2287,26 @@ sw.bb19:                                          ; preds = %sw.bb
   store i8 0, ptr %arrayidx31, align 1
   %arrayidx32 = getelementptr i8, ptr %buf, i64 23
   store i8 0, ptr %arrayidx32, align 1
-  %5 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 24)
+  %spec.select.i65 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 24)
   %lba.i66 = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i66, align 4
   %packet_transfer_size.i67 = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %5, ptr %packet_transfer_size.i67, align 8
+  store i32 %spec.select.i65, ptr %packet_transfer_size.i67, align 8
   %io_buffer_size.i68 = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %5, ptr %io_buffer_size.i68, align 8
+  store i32 %spec.select.i65, ptr %io_buffer_size.i68, align 8
   %elementary_transfer_size.i69 = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i69, align 4
   %atapi_dma.i70 = getelementptr inbounds i8, ptr %s, i64 716
-  %6 = load i32, ptr %atapi_dma.i70, align 4
-  %tobool.not.i71 = icmp eq i32 %6, 0
+  %4 = load i32, ptr %atapi_dma.i70, align 4
+  %tobool.not.i71 = icmp eq i32 %4, 0
   br i1 %tobool.not.i71, label %if.else.i78, label %if.then1.i72
 
 if.then1.i72:                                     ; preds = %sw.bb19
   %blk.i73 = getelementptr inbounds i8, ptr %s, i64 672
-  %7 = load ptr, ptr %blk.i73, align 8
-  %call.i74 = tail call ptr @blk_get_stats(ptr noundef %7) #9
+  %5 = load ptr, ptr %blk.i73, align 8
+  %call.i74 = tail call ptr @blk_get_stats(ptr noundef %5) #9
   %acct.i75 = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i76 = zext nneg i32 %5 to i64
+  %conv.i76 = zext nneg i32 %spec.select.i65 to i64
   tail call void @block_acct_start(ptr noundef %call.i74, ptr noundef nonnull %acct.i75, i64 noundef %conv.i76, i32 noundef 1) #9
   %status.i77 = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i77, align 1
@@ -2341,8 +2341,8 @@ sw.bb33:                                          ; preds = %sw.bb
   %arrayidx47 = getelementptr i8, ptr %buf, i64 14
   store i8 41, ptr %arrayidx47, align 1
   %tray_locked = getelementptr inbounds i8, ptr %s, i64 694
-  %8 = load i8, ptr %tray_locked, align 2
-  %tobool = trunc i8 %8 to i1
+  %6 = load i8, ptr %tray_locked, align 2
+  %tobool = trunc i8 %6 to i1
   %spec.store.select = select i1 %tobool, i8 43, i8 41
   store i8 %spec.store.select, ptr %arrayidx47, align 1
   %arrayidx51 = getelementptr i8, ptr %buf, i64 15
@@ -2358,27 +2358,27 @@ sw.bb33:                                          ; preds = %sw.bb
   %arrayidx56 = getelementptr i8, ptr %buf, i64 22
   store i16 -16382, ptr %arrayidx56, align 1
   %arrayidx57 = getelementptr i8, ptr %buf, i64 24
-  %9 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 30)
+  %spec.select.i82 = tail call i32 @llvm.umin.i32(i32 %conv1.i, i32 30)
   %lba.i83 = getelementptr inbounds i8, ptr %s, i64 708
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %arrayidx57, i8 0, i64 6, i1 false)
   store i32 -1, ptr %lba.i83, align 4
   %packet_transfer_size.i84 = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %9, ptr %packet_transfer_size.i84, align 8
+  store i32 %spec.select.i82, ptr %packet_transfer_size.i84, align 8
   %io_buffer_size.i85 = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %9, ptr %io_buffer_size.i85, align 8
+  store i32 %spec.select.i82, ptr %io_buffer_size.i85, align 8
   %elementary_transfer_size.i86 = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i86, align 4
   %atapi_dma.i87 = getelementptr inbounds i8, ptr %s, i64 716
-  %10 = load i32, ptr %atapi_dma.i87, align 4
-  %tobool.not.i88 = icmp eq i32 %10, 0
+  %7 = load i32, ptr %atapi_dma.i87, align 4
+  %tobool.not.i88 = icmp eq i32 %7, 0
   br i1 %tobool.not.i88, label %if.else.i95, label %if.then1.i89
 
 if.then1.i89:                                     ; preds = %sw.bb33
   %blk.i90 = getelementptr inbounds i8, ptr %s, i64 672
-  %11 = load ptr, ptr %blk.i90, align 8
-  %call.i91 = tail call ptr @blk_get_stats(ptr noundef %11) #9
+  %8 = load ptr, ptr %blk.i90, align 8
+  %call.i91 = tail call ptr @blk_get_stats(ptr noundef %8) #9
   %acct.i92 = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i93 = zext nneg i32 %9 to i64
+  %conv.i93 = zext nneg i32 %spec.select.i82 to i64
   tail call void @block_acct_start(ptr noundef %call.i91, ptr noundef nonnull %acct.i92, i64 noundef %conv.i93, i32 noundef 1) #9
   %status.i94 = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i94, align 1
@@ -2543,26 +2543,26 @@ if.else23:                                        ; preds = %if.then18, %sw.bb20
   %.sink.i = phi i16 [ 4608, %sw.bb20.i ], [ 1536, %sw.bb15.i ], [ 520, %if.end5.i ], [ 520, %if.then18 ]
   %retval.0.ph.i = phi i32 [ 20, %sw.bb20.i ], [ 8, %sw.bb15.i ], [ 2052, %if.end5.i ], [ 2052, %if.then18 ]
   store i16 %.sink.i, ptr %buf, align 1
-  %10 = tail call i32 @llvm.umin.i32(i32 %retval.0.ph.i, i32 %conv1.i)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %retval.0.ph.i, i32 %conv1.i)
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %10, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %10, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %11 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %11, 0
+  %10 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.else23
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %12 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %12) #9
+  %11 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %11) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
-  %conv.i = zext nneg i32 %10 to i64
+  %conv.i = zext nneg i32 %spec.select.i to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
   %status.i = getelementptr inbounds i8, ptr %s, i64 665
   store i8 88, ptr %status.i, align 1
@@ -2621,24 +2621,24 @@ entry:
   %add.ptr4 = getelementptr i8, ptr %buf, i64 6
   store i16 0, ptr %add.ptr4, align 1
   %1 = tail call i16 @llvm.umin.i16(i16 %0, i16 8)
-  %2 = zext nneg i16 %1 to i32
+  %spec.select.i = zext nneg i16 %1 to i32
   %lba.i = getelementptr inbounds i8, ptr %s, i64 708
   store i32 -1, ptr %lba.i, align 4
   %packet_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 696
-  store i32 %2, ptr %packet_transfer_size.i, align 8
+  store i32 %spec.select.i, ptr %packet_transfer_size.i, align 8
   %io_buffer_size.i = getelementptr inbounds i8, ptr %s, i64 808
-  store i32 %2, ptr %io_buffer_size.i, align 8
+  store i32 %spec.select.i, ptr %io_buffer_size.i, align 8
   %elementary_transfer_size.i = getelementptr inbounds i8, ptr %s, i64 700
   store i32 0, ptr %elementary_transfer_size.i, align 4
   %atapi_dma.i = getelementptr inbounds i8, ptr %s, i64 716
-  %3 = load i32, ptr %atapi_dma.i, align 4
-  %tobool.not.i = icmp eq i32 %3, 0
+  %2 = load i32, ptr %atapi_dma.i, align 4
+  %tobool.not.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %entry
   %blk.i = getelementptr inbounds i8, ptr %s, i64 672
-  %4 = load ptr, ptr %blk.i, align 8
-  %call.i = tail call ptr @blk_get_stats(ptr noundef %4) #9
+  %3 = load ptr, ptr %blk.i, align 8
+  %call.i = tail call ptr @blk_get_stats(ptr noundef %3) #9
   %acct.i = getelementptr inbounds i8, ptr %s, i64 720
   %conv.i = zext nneg i16 %1 to i64
   tail call void @block_acct_start(ptr noundef %call.i, ptr noundef nonnull %acct.i, i64 noundef %conv.i, i32 noundef 1) #9
@@ -3044,7 +3044,7 @@ declare void @blk_lock_medium(ptr noundef, i1 noundef zeroext) #1
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ide_atapi_cmd_read(ptr noundef %s, i32 noundef %lba, i32 noundef %nb_sectors, i32 noundef %sector_size) unnamed_addr #0 {
+define internal fastcc void @ide_atapi_cmd_read(ptr noundef %s, i32 noundef %lba, i32 noundef range(i32 1, 0) %nb_sectors, i32 noundef range(i32 2048, 2353) %sector_size) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %atapi_dma = getelementptr inbounds i8, ptr %s, i64 716

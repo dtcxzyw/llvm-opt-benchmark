@@ -1679,20 +1679,20 @@ Vec_IntAppend.exit:                               ; preds = %Vec_IntPush.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtMinBase(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
+define internal fastcc i32 @Abc_TtMinBase(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = icmp slt i32 %3, 7
-  %7 = add i32 %3, -6
-  %8 = shl nuw i32 1, %7
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i64, ptr %0, i64 %9
-  %smax55.i = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
+  %5 = icmp ult i32 %3, 7
+  %6 = add nsw i32 %3, -6
+  %7 = shl nuw i32 1, %6
+  %8 = sext i32 %7 to i64
+  %9 = getelementptr inbounds i64, ptr %0, i64 %8
+  %smax55.i = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %wide.trip.count56.i = zext nneg i32 %smax55.i to i64
   %.not26 = icmp eq ptr %1, null
-  br i1 %6, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %wide.trip.count82 = zext nneg i32 %2 to i64
@@ -1701,33 +1701,33 @@ define internal fastcc i32 @Abc_TtMinBase(ptr noundef %0, ptr noundef %1, i32 no
 Abc_TtHasVar.exit.us.us:                          ; preds = %.lr.ph.split.us, %Abc_TtHasVar.exit.thread.us.us
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %Abc_TtHasVar.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
   %.038.us.us = phi i32 [ %.1.us.us, %Abc_TtHasVar.exit.thread.us.us ], [ 0, %.lr.ph.split.us ]
-  %11 = load i64, ptr %0, align 8
-  %12 = trunc nuw nsw i64 %indvars.iv79 to i32
-  %13 = shl nuw i32 1, %12
-  %14 = zext nneg i32 %13 to i64
-  %15 = lshr i64 %11, %14
-  %16 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv79
-  %17 = load i64, ptr %16, align 8
-  %18 = xor i64 %15, %11
-  %19 = and i64 %18, %17
-  %.not33.us.us = icmp eq i64 %19, 0
+  %10 = load i64, ptr %0, align 8
+  %11 = trunc nuw nsw i64 %indvars.iv79 to i32
+  %12 = shl nuw i32 1, %11
+  %13 = zext nneg i32 %12 to i64
+  %14 = lshr i64 %10, %13
+  %15 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv79
+  %16 = load i64, ptr %15, align 8
+  %17 = xor i64 %14, %10
+  %18 = and i64 %17, %16
+  %.not33.us.us = icmp eq i64 %18, 0
   br i1 %.not33.us.us, label %Abc_TtHasVar.exit.thread.us.us, label %Abc_TtHasVar.exit.thread30.us.us
 
 Abc_TtHasVar.exit.thread30.us.us:                 ; preds = %Abc_TtHasVar.exit.us.us
-  %20 = sext i32 %.038.us.us to i64
-  %21 = icmp sgt i64 %indvars.iv79, %20
-  br i1 %21, label %22, label %23
+  %19 = sext i32 %.038.us.us to i64
+  %20 = icmp sgt i64 %indvars.iv79, %19
+  br i1 %20, label %21, label %22
 
-22:                                               ; preds = %Abc_TtHasVar.exit.thread30.us.us
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.038.us.us, i32 noundef %12)
-  br label %23
+21:                                               ; preds = %Abc_TtHasVar.exit.thread30.us.us
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.038.us.us, i32 noundef %11)
+  br label %22
 
-23:                                               ; preds = %22, %Abc_TtHasVar.exit.thread30.us.us
-  %24 = add nsw i32 %.038.us.us, 1
+22:                                               ; preds = %21, %Abc_TtHasVar.exit.thread30.us.us
+  %23 = add nsw i32 %.038.us.us, 1
   br label %Abc_TtHasVar.exit.thread.us.us
 
-Abc_TtHasVar.exit.thread.us.us:                   ; preds = %23, %Abc_TtHasVar.exit.us.us
-  %.1.us.us = phi i32 [ %24, %23 ], [ %.038.us.us, %Abc_TtHasVar.exit.us.us ]
+Abc_TtHasVar.exit.thread.us.us:                   ; preds = %22, %Abc_TtHasVar.exit.us.us
+  %.1.us.us = phi i32 [ %23, %22 ], [ %.038.us.us, %Abc_TtHasVar.exit.us.us ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
   br i1 %exitcond83.not, label %._crit_edge, label %Abc_TtHasVar.exit.us.us, !llvm.loop !27
@@ -1735,43 +1735,43 @@ Abc_TtHasVar.exit.thread.us.us:                   ; preds = %23, %Abc_TtHasVar.e
 Abc_TtHasVar.exit.us:                             ; preds = %.lr.ph.split.us, %Abc_TtHasVar.exit.thread.us
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %Abc_TtHasVar.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %.038.us = phi i32 [ %.1.us, %Abc_TtHasVar.exit.thread.us ], [ 0, %.lr.ph.split.us ]
-  %25 = load i64, ptr %0, align 8
-  %26 = trunc nuw nsw i64 %indvars.iv74 to i32
-  %27 = shl nuw i32 1, %26
-  %28 = zext nneg i32 %27 to i64
-  %29 = lshr i64 %25, %28
-  %30 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv74
-  %31 = load i64, ptr %30, align 8
-  %32 = xor i64 %29, %25
-  %33 = and i64 %32, %31
-  %.not33.us = icmp eq i64 %33, 0
+  %24 = load i64, ptr %0, align 8
+  %25 = trunc nuw nsw i64 %indvars.iv74 to i32
+  %26 = shl nuw i32 1, %25
+  %27 = zext nneg i32 %26 to i64
+  %28 = lshr i64 %24, %27
+  %29 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv74
+  %30 = load i64, ptr %29, align 8
+  %31 = xor i64 %28, %24
+  %32 = and i64 %31, %30
+  %.not33.us = icmp eq i64 %32, 0
   br i1 %.not33.us, label %Abc_TtHasVar.exit.thread.us, label %Abc_TtHasVar.exit.thread30.us
 
 Abc_TtHasVar.exit.thread30.us:                    ; preds = %Abc_TtHasVar.exit.us
-  %34 = sext i32 %.038.us to i64
-  %35 = icmp sgt i64 %indvars.iv74, %34
-  br i1 %35, label %36, label %40
+  %33 = sext i32 %.038.us to i64
+  %34 = icmp sgt i64 %indvars.iv74, %33
+  br i1 %34, label %35, label %39
 
-36:                                               ; preds = %Abc_TtHasVar.exit.thread30.us
-  %37 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv74
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %1, i64 %34
-  store i32 %38, ptr %39, align 4
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.038.us, i32 noundef %26)
-  br label %40
+35:                                               ; preds = %Abc_TtHasVar.exit.thread30.us
+  %36 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv74
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds i32, ptr %1, i64 %33
+  store i32 %37, ptr %38, align 4
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.038.us, i32 noundef %25)
+  br label %39
 
-40:                                               ; preds = %36, %Abc_TtHasVar.exit.thread30.us
-  %41 = add nsw i32 %.038.us, 1
+39:                                               ; preds = %35, %Abc_TtHasVar.exit.thread30.us
+  %40 = add nsw i32 %.038.us, 1
   br label %Abc_TtHasVar.exit.thread.us
 
-Abc_TtHasVar.exit.thread.us:                      ; preds = %40, %Abc_TtHasVar.exit.us
-  %.1.us = phi i32 [ %41, %40 ], [ %.038.us, %Abc_TtHasVar.exit.us ]
+Abc_TtHasVar.exit.thread.us:                      ; preds = %39, %Abc_TtHasVar.exit.us
+  %.1.us = phi i32 [ %40, %39 ], [ %.038.us, %Abc_TtHasVar.exit.us ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count82
   br i1 %exitcond78.not, label %._crit_edge, label %Abc_TtHasVar.exit.us, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not47.i = icmp eq i32 %7, 31
+  %.not47.i = icmp eq i32 %6, 31
   br i1 %.not47.i, label %._crit_edge, label %.lr.ph.split.split.split.preheader
 
 .lr.ph.split.split.split.preheader:               ; preds = %.lr.ph.split
@@ -1781,97 +1781,97 @@ Abc_TtHasVar.exit.thread.us:                      ; preds = %40, %Abc_TtHasVar.e
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split.split.preheader, %Abc_TtHasVar.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.split.preheader ], [ %indvars.iv.next, %Abc_TtHasVar.exit.thread ]
   %.038 = phi i32 [ 0, %.lr.ph.split.split.split.preheader ], [ %.1, %Abc_TtHasVar.exit.thread ]
-  %42 = icmp ult i64 %indvars.iv, 6
-  br i1 %42, label %.lr.ph.i, label %.preheader.lr.ph.i
+  %41 = icmp ult i64 %indvars.iv, 6
+  br i1 %41, label %.lr.ph.i, label %.preheader.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split.split.split
-  %43 = trunc nuw nsw i64 %indvars.iv to i32
-  %44 = shl nuw nsw i32 1, %43
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
-  %47 = load i64, ptr %46, align 8
-  br label %49
+  %42 = trunc nuw nsw i64 %indvars.iv to i32
+  %43 = shl nuw nsw i32 1, %42
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8
+  br label %48
 
-48:                                               ; preds = %49
+47:                                               ; preds = %48
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count56.i
-  br i1 %exitcond57.not.i, label %Abc_TtHasVar.exit.thread, label %49, !llvm.loop !28
+  br i1 %exitcond57.not.i, label %Abc_TtHasVar.exit.thread, label %48, !llvm.loop !28
 
-49:                                               ; preds = %48, %.lr.ph.i
-  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next53.i, %48 ]
-  %50 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv52.i
-  %51 = load i64, ptr %50, align 8
-  %52 = lshr i64 %51, %45
-  %53 = xor i64 %52, %51
-  %54 = and i64 %53, %47
-  %.not38.i = icmp eq i64 %54, 0
-  br i1 %.not38.i, label %48, label %Abc_TtHasVar.exit.thread30
+48:                                               ; preds = %47, %.lr.ph.i
+  %indvars.iv52.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next53.i, %47 ]
+  %49 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv52.i
+  %50 = load i64, ptr %49, align 8
+  %51 = lshr i64 %50, %44
+  %52 = xor i64 %51, %50
+  %53 = and i64 %52, %46
+  %.not38.i = icmp eq i64 %53, 0
+  br i1 %.not38.i, label %47, label %Abc_TtHasVar.exit.thread30
 
 .preheader.lr.ph.i:                               ; preds = %.lr.ph.split.split.split
-  %55 = add nsw i64 %indvars.iv, -6
-  %56 = icmp eq i64 %55, 31
-  %57 = trunc nsw i64 %55 to i32
-  %58 = shl i32 2, %57
-  %59 = sext i32 %58 to i64
-  br i1 %56, label %Abc_TtHasVar.exit.thread, label %.preheader.us.preheader.i
+  %54 = add nsw i64 %indvars.iv, -6
+  %55 = icmp eq i64 %54, 31
+  %56 = trunc nsw i64 %54 to i32
+  %57 = shl i32 2, %56
+  %58 = sext i32 %57 to i64
+  br i1 %55, label %Abc_TtHasVar.exit.thread, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %.preheader.lr.ph.i
-  %60 = shl nuw i32 1, %57
-  %61 = sext i32 %60 to i64
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %60, i32 1)
+  %59 = shl nuw i32 1, %56
+  %60 = sext i32 %59 to i64
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %59, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.03142.us.i = phi ptr [ %69, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
-  br label %63
+  %.03142.us.i = phi ptr [ %68, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
+  br label %62
 
-62:                                               ; preds = %63
+61:                                               ; preds = %62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %63, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %62, !llvm.loop !29
 
-63:                                               ; preds = %62, %.preheader.us.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %62 ]
-  %64 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %indvars.iv.i
-  %65 = load i64, ptr %64, align 8
-  %66 = add nuw nsw i64 %indvars.iv.i, %61
-  %67 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %66
-  %68 = load i64, ptr %67, align 8
-  %.not.us.i = icmp eq i64 %65, %68
-  br i1 %.not.us.i, label %62, label %Abc_TtHasVar.exit.thread30
+62:                                               ; preds = %61, %.preheader.us.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %61 ]
+  %63 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %indvars.iv.i
+  %64 = load i64, ptr %63, align 8
+  %65 = add nuw nsw i64 %indvars.iv.i, %60
+  %66 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %65
+  %67 = load i64, ptr %66, align 8
+  %.not.us.i = icmp eq i64 %64, %67
+  br i1 %.not.us.i, label %61, label %Abc_TtHasVar.exit.thread30
 
-._crit_edge.us.i:                                 ; preds = %62
-  %69 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %59
-  %70 = icmp ult ptr %69, %10
-  br i1 %70, label %.preheader.us.i, label %Abc_TtHasVar.exit.thread, !llvm.loop !30
+._crit_edge.us.i:                                 ; preds = %61
+  %68 = getelementptr inbounds i64, ptr %.03142.us.i, i64 %58
+  %69 = icmp ult ptr %68, %9
+  br i1 %69, label %.preheader.us.i, label %Abc_TtHasVar.exit.thread, !llvm.loop !30
 
-Abc_TtHasVar.exit.thread30:                       ; preds = %49, %63
-  %71 = sext i32 %.038 to i64
-  %72 = icmp sgt i64 %indvars.iv, %71
-  br i1 %72, label %73, label %80
+Abc_TtHasVar.exit.thread30:                       ; preds = %48, %62
+  %70 = sext i32 %.038 to i64
+  %71 = icmp sgt i64 %indvars.iv, %70
+  br i1 %71, label %72, label %79
 
-73:                                               ; preds = %Abc_TtHasVar.exit.thread30
-  br i1 %.not26, label %78, label %74
+72:                                               ; preds = %Abc_TtHasVar.exit.thread30
+  br i1 %.not26, label %77, label %73
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i32, ptr %1, i64 %71
-  store i32 %76, ptr %77, align 4
-  br label %78
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds i32, ptr %1, i64 %70
+  store i32 %75, ptr %76, align 4
+  br label %77
 
-78:                                               ; preds = %74, %73
-  %79 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %3, i32 noundef %.038, i32 noundef %79)
-  br label %80
+77:                                               ; preds = %73, %72
+  %78 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %3, i32 noundef %.038, i32 noundef %78)
+  br label %79
 
-80:                                               ; preds = %78, %Abc_TtHasVar.exit.thread30
-  %81 = add nsw i32 %.038, 1
+79:                                               ; preds = %77, %Abc_TtHasVar.exit.thread30
+  %80 = add nsw i32 %.038, 1
   br label %Abc_TtHasVar.exit.thread
 
-Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %48, %.preheader.lr.ph.i, %80
-  %.1 = phi i32 [ %81, %80 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %48 ], [ %.038, %._crit_edge.us.i ]
+Abc_TtHasVar.exit.thread:                         ; preds = %._crit_edge.us.i, %47, %.preheader.lr.ph.i, %79
+  %.1 = phi i32 [ %80, %79 ], [ %.038, %.preheader.lr.ph.i ], [ %.038, %47 ], [ %.038, %._crit_edge.us.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !27
@@ -2748,14 +2748,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 -2147483648, 255) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
   %spec.select = tail call i32 @llvm.smax.i32(i32 %3, i32 %2)
   %spec.select117 = tail call i32 @llvm.smin.i32(i32 %3, i32 %2)
-  %7 = icmp slt i32 %1, 7
+  %7 = icmp ult i32 %1, 7
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %6

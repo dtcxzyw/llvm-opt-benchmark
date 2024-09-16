@@ -1901,7 +1901,7 @@ define internal fastcc void @tuplesort_sort_memtuples(ptr noundef %0) unnamed_ad
   br i1 %.not26, label %39, label %38
 
 38:                                               ; preds = %32
-  tail call fastcc void @qsort_ssup(ptr noundef %36, i64 noundef %37, ptr noundef nonnull %34)
+  tail call fastcc void @qsort_ssup(ptr noundef %36, i64 noundef %37, ptr noundef %34)
   br label %41
 
 39:                                               ; preds = %32
@@ -3617,7 +3617,7 @@ declare i32 @errcode(i32 noundef) local_unnamed_addr #2
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @qsort_tuple_unsigned(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = alloca %struct.SortTuple, align 8
   %6 = alloca %struct.SortTuple, align 8
@@ -4176,7 +4176,7 @@ qsort_tuple_unsigned_swapn.exit203:               ; preds = %.lr.ph.i200, %qsort
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @qsort_tuple_signed(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = alloca %struct.SortTuple, align 8
   %6 = alloca %struct.SortTuple, align 8
@@ -4735,7 +4735,7 @@ qsort_tuple_signed_swapn.exit203:                 ; preds = %.lr.ph.i200, %qsort
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @qsort_tuple_int32(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = alloca %struct.SortTuple, align 8
   %6 = alloca %struct.SortTuple, align 8
@@ -5302,7 +5302,7 @@ qsort_tuple_int32_swapn.exit203:                  ; preds = %.lr.ph.i200, %qsort
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = alloca %struct.SortTuple, align 8
   %6 = alloca %struct.SortTuple, align 8
@@ -5380,7 +5380,7 @@ define internal fastcc void @qsort_ssup(ptr noundef %0, i64 noundef %1, ptr noun
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %11, align 8
-  %46 = tail call i32 %45(i64 noundef %27, i64 noundef %32, ptr noundef %2) #12
+  %46 = tail call i32 %45(i64 noundef %27, i64 noundef %32, ptr noundef nonnull %2) #12
   %47 = load i8, ptr %12, align 4
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %ApplySortComparator.exit
@@ -5454,7 +5454,7 @@ ApplySortComparator.exit.thread:                  ; preds = %41, %49, %37, %Appl
 
 78:                                               ; preds = %74
   %79 = load ptr, ptr %11, align 8
-  %80 = tail call i32 %79(i64 noundef %61, i64 noundef %66, ptr noundef %2) #12
+  %80 = tail call i32 %79(i64 noundef %61, i64 noundef %66, ptr noundef nonnull %2) #12
   %81 = load i8, ptr %12, align 4
   %82 = trunc i8 %81 to i1
   br i1 %82, label %83, label %ApplySortComparator.exit182
@@ -5491,22 +5491,22 @@ ApplySortComparator.exit182.thread:               ; preds = %75, %83, %71, %Appl
   %97 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %96
   %98 = shl nuw nsw i64 %96, 1
   %99 = getelementptr %struct.SortTuple, ptr %.0145.ph, i64 %98
-  %100 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.0145.ph, ptr noundef %97, ptr noundef %99, ptr noundef nonnull %2)
+  %100 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.0145.ph, ptr noundef %97, ptr noundef %99, ptr noundef %2)
   %101 = sub nsw i64 0, %96
   %102 = getelementptr %struct.SortTuple, ptr %90, i64 %101
   %103 = getelementptr %struct.SortTuple, ptr %90, i64 %96
-  %104 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %102, ptr noundef %90, ptr noundef %103, ptr noundef nonnull %2)
+  %104 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %102, ptr noundef %90, ptr noundef %103, ptr noundef %2)
   %105 = sub nsw i64 0, %98
   %106 = getelementptr %struct.SortTuple, ptr %93, i64 %105
   %107 = getelementptr %struct.SortTuple, ptr %93, i64 %101
-  %108 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %106, ptr noundef %107, ptr noundef %93, ptr noundef nonnull %2)
+  %108 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %106, ptr noundef %107, ptr noundef %93, ptr noundef %2)
   br label %109
 
 109:                                              ; preds = %95, %91
   %.1149 = phi ptr [ %100, %95 ], [ %.0145.ph, %91 ]
   %.3 = phi ptr [ %104, %95 ], [ %90, %91 ]
   %.0146 = phi ptr [ %108, %95 ], [ %93, %91 ]
-  %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.3, ptr noundef %.0146, ptr noundef nonnull %2)
+  %110 = tail call fastcc ptr @qsort_ssup_med3(ptr noundef %.1149, ptr noundef %.3, ptr noundef %.0146, ptr noundef %2)
   br label %ApplySortComparator.exit182.thread._crit_edge
 
 ApplySortComparator.exit182.thread._crit_edge:    ; preds = %ApplySortComparator.exit182.thread, %109
@@ -5559,7 +5559,7 @@ ApplySortComparator.exit182.thread._crit_edge:    ; preds = %ApplySortComparator
 
 129:                                              ; preds = %125
   %130 = load ptr, ptr %11, align 8
-  %131 = tail call i32 %130(i64 noundef %114, i64 noundef %118, ptr noundef %2) #12
+  %131 = tail call i32 %130(i64 noundef %114, i64 noundef %118, ptr noundef nonnull %2) #12
   %132 = load i8, ptr %12, align 4
   %133 = trunc i8 %132 to i1
   br i1 %133, label %134, label %ApplySortComparator.exit186
@@ -5639,7 +5639,7 @@ ApplySortComparator.exit186.thread.thread:        ; preds = %122, %126, %ApplySo
 
 160:                                              ; preds = %156
   %161 = load ptr, ptr %11, align 8
-  %162 = tail call i32 %161(i64 noundef %145, i64 noundef %149, ptr noundef %2) #12
+  %162 = tail call i32 %161(i64 noundef %145, i64 noundef %149, ptr noundef nonnull %2) #12
   %163 = load i8, ptr %12, align 4
   %164 = trunc i8 %163 to i1
   br i1 %164, label %165, label %ApplySortComparator.exit190
@@ -5788,7 +5788,7 @@ qsort_ssup_swapn.exit195:                         ; preds = %.lr.ph.i192, %qsort
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @qsort_tuple(ptr noundef %0, i64 noundef range(i64 -384307168202282325, 384307168202282326) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.SortTuple, align 8
   %6 = alloca %struct.SortTuple, align 8
   %7 = alloca %struct.SortTuple, align 8
@@ -7269,7 +7269,7 @@ qsort_tuple_int32_compare.exit29.thread66:        ; preds = %163, %174, %158, %A
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7303,7 +7303,7 @@ define internal fastcc noundef ptr @qsort_ssup_med3(ptr noundef readonly %0, ptr
 25:                                               ; preds = %20
   %26 = getelementptr inbounds i8, ptr %3, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %27(i64 noundef %6, i64 noundef %11, ptr noundef %3) #12
+  %28 = tail call i32 %27(i64 noundef %6, i64 noundef %11, ptr noundef nonnull %3) #12
   %29 = getelementptr inbounds i8, ptr %3, i64 12
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
@@ -7456,7 +7456,7 @@ ApplySortComparator.exit.thread:                  ; preds = %.ApplySortComparato
 110:                                              ; preds = %105
   %111 = getelementptr inbounds i8, ptr %3, i64 24
   %112 = load ptr, ptr %111, align 8
-  %113 = tail call i32 %112(i64 noundef %93, i64 noundef %96, ptr noundef %3) #12
+  %113 = tail call i32 %112(i64 noundef %93, i64 noundef %96, ptr noundef nonnull %3) #12
   %114 = getelementptr inbounds i8, ptr %3, i64 12
   %115 = load i8, ptr %114, align 4
   %116 = trunc i8 %115 to i1
@@ -7507,7 +7507,7 @@ ApplySortComparator.exit42.thread74:              ; preds = %ApplySortComparator
 137:                                              ; preds = %132
   %138 = getelementptr inbounds i8, ptr %3, i64 24
   %139 = load ptr, ptr %138, align 8
-  %140 = tail call i32 %139(i64 noundef %123, i64 noundef %122, ptr noundef %3) #12
+  %140 = tail call i32 %139(i64 noundef %123, i64 noundef %122, ptr noundef nonnull %3) #12
   %141 = getelementptr inbounds i8, ptr %3, i64 12
   %142 = load i8, ptr %141, align 4
   %143 = trunc i8 %142 to i1

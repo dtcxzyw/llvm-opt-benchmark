@@ -815,7 +815,7 @@ return:                                           ; preds = %if.then7.i.i, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @wctablet_queue_output(ptr noundef %tablet, ptr nocapture noundef readonly %buf, i32 noundef %count) unnamed_addr #0 {
+define internal fastcc void @wctablet_queue_output(ptr noundef %tablet, ptr nocapture noundef readonly %buf, i32 noundef range(i32 7, 19) %count) unnamed_addr #0 {
 entry:
   %outlen = getelementptr inbounds i8, ptr %tablet, i64 776
   %0 = load i32, ptr %outlen, align 8
@@ -828,7 +828,7 @@ if.end:                                           ; preds = %entry
   %idx.ext = sext i32 %0 to i64
   %add.ptr = getelementptr i8, ptr %outbuf, i64 %idx.ext
   %conv3 = zext nneg i32 %count to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf, i64 %conv3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr, ptr noundef nonnull align 1 dereferenceable(1) %buf, i64 %conv3, i1 false)
   %1 = load i32, ptr %outlen, align 8
   %add5 = add i32 %1, %count
   store i32 %add5, ptr %outlen, align 8
@@ -906,7 +906,7 @@ _nocheck__trace_wct_cmd_sp.exit:                  ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_wct_cmd_ts(i32 noundef %input) unnamed_addr #0 {
+define internal fastcc void @trace_wct_cmd_ts(i32 noundef range(i32 0, 256) %input) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)

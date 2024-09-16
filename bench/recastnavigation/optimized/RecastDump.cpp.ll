@@ -107,9 +107,9 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %13 = getelementptr inbounds i8, ptr %0, i64 84
   %14 = load float, ptr %13, align 4
   %15 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.2)
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.3)
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
@@ -145,7 +145,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %41 = fpext float %27 to double
   %42 = fpext float %35 to double
   %43 = fpext float %40 to double
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, double noundef %41, double noundef %42, double noundef %43)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.5, double noundef %41, double noundef %42, double noundef %43)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr %16, align 8
   %45 = sext i32 %44 to i64
@@ -153,7 +153,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   br i1 %46, label %21, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %21, %8
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
   %47 = getelementptr inbounds i8, ptr %0, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, 0
@@ -195,7 +195,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %69 = zext i16 %68 to i32
   %70 = add nuw nsw i32 %69, 1
   %71 = add nuw nsw i32 %63, 1
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i32 noundef %66, i32 noundef %70, i32 noundef %71)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %66, i32 noundef %70, i32 noundef %71)
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge55.us, label %58, !llvm.loop !6
@@ -221,7 +221,7 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
+define internal void @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #3 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -258,9 +258,9 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   br i1 %7, label %8, label %.loopexit.sink.split
 
 8:                                                ; preds = %3
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.2)
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.3)
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.2)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.3)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
   %9 = getelementptr inbounds i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = icmp sgt i32 %10, 0
@@ -283,7 +283,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %21 = getelementptr inbounds i8, ptr %15, i64 8
   %22 = load float, ptr %21, align 4
   %23 = fpext float %22 to double
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, double noundef %17, double noundef %20, double noundef %23)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.5, double noundef %17, double noundef %20, double noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %9, align 4
   %25 = sext i32 %24 to i64
@@ -291,7 +291,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   br i1 %26, label %13, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %13, %8
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.4)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.4)
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
@@ -345,7 +345,7 @@ define noundef zeroext i1 @_Z25duDumpPolyMeshDetailToObjR16rcPolyMeshDetailP8duF
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = add i32 %44, %63
-  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i32 noundef %52, i32 noundef %58, i32 noundef %64)
+  tail call void (ptr, ptr, ...) @_ZL8ioprintfP8duFileIOPKcz(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %52, i32 noundef %58, i32 noundef %64)
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge47.loopexit, label %45, !llvm.loop !9

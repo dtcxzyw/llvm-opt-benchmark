@@ -521,7 +521,7 @@ declare i32 @reftable_record_is_deletion(ptr noundef) local_unnamed_addr #1
 declare void @merged_iter_pqueue_remove(ptr sret(%struct.pq_entry) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @merged_iter_advance_subiter(ptr noundef %mi, i64 noundef %idx) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @merged_iter_advance_subiter(ptr noundef %mi, i64 noundef range(i64 -2147483648, 2147483648) %idx) unnamed_addr #0 {
 entry:
   %e.i = alloca %struct.pq_entry, align 8
   %0 = load ptr, ptr %mi, align 8

@@ -50,7 +50,7 @@ define noundef zeroext i1 @ecpg_register_prepared_stmt(ptr nocapture noundef rea
 ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.01121.i.lcssa = phi ptr [ %.01118.i, %.lr.ph.i.preheader ], [ %.011.i, %.lr.ph.i ]
   %.020.i.lcssa = phi ptr [ null, %.lr.ph.i.preheader ], [ %.01121.i47, %.lr.ph.i ]
-  %15 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %4, i32 noundef 0, ptr noundef %3, ptr noundef %.020.i.lcssa, ptr noundef nonnull %.01121.i.lcssa)
+  %15 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %4, i32 noundef 0, ptr noundef %3, ptr noundef %.020.i.lcssa, ptr noundef %.01121.i.lcssa)
   br i1 %15, label %ecpg_find_prepared_statement.exit.thread, label %33
 
 ecpg_find_prepared_statement.exit.thread:         ; preds = %.lr.ph, %1, %ecpg_find_prepared_statement.exit
@@ -139,7 +139,7 @@ define noundef ptr @ecpg_find_prepared_statement(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = load ptr, ptr %4, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.6, i32 noundef %0, ptr noundef %6) #11
   %7 = getelementptr inbounds i8, ptr %4, i64 8
@@ -260,7 +260,7 @@ define noundef zeroext i1 @ECPGprepare(i32 noundef %0, ptr noundef %1, i1 zeroex
 ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.01121.i.lcssa = phi ptr [ %.01118.i, %.lr.ph.i.preheader ], [ %.011.i, %.lr.ph.i ]
   %.020.i.lcssa = phi ptr [ null, %.lr.ph.i.preheader ], [ %.01121.i21, %.lr.ph.i ]
-  %17 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %.020.i.lcssa, ptr noundef nonnull %.01121.i.lcssa)
+  %17 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef 0, ptr noundef %6, ptr noundef %.020.i.lcssa, ptr noundef %.01121.i.lcssa)
   br i1 %17, label %ecpg_find_prepared_statement.exit.thread, label %19
 
 ecpg_find_prepared_statement.exit.thread:         ; preds = %.lr.ph, %8, %ecpg_find_prepared_statement.exit
@@ -519,7 +519,7 @@ define noundef zeroext i1 @ECPGdeallocate(i32 noundef %0, i32 noundef %1, ptr no
 ecpg_find_prepared_statement.exit:                ; preds = %.lr.ph.i, %.lr.ph.i.preheader
   %.01121.i.lcssa = phi ptr [ %.01118.i, %.lr.ph.i.preheader ], [ %.011.i, %.lr.ph.i ]
   %.020.i.lcssa = phi ptr [ null, %.lr.ph.i.preheader ], [ %.01121.i23, %.lr.ph.i ]
-  %16 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %.020.i.lcssa, ptr noundef nonnull %.01121.i.lcssa)
+  %16 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef %5, ptr noundef %.020.i.lcssa, ptr noundef %.01121.i.lcssa)
   br label %19
 
 .loopexit:                                        ; preds = %.lr.ph, %7
@@ -549,7 +549,7 @@ define noundef zeroext i1 @ecpg_deallocate_all_conn(i32 noundef %0, i32 noundef 
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %6)
+  %8 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef null, ptr noundef %6)
   br i1 %8, label %5, label %9, !llvm.loop !8
 
 9:                                                ; preds = %5, %7
@@ -568,7 +568,7 @@ define noundef zeroext i1 @ECPGdeallocate_all(i32 noundef %0, i32 noundef %1, pt
   br i1 %.not.i, label %ecpg_deallocate_all_conn.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %7)
+  %9 = tail call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef null, ptr noundef %7)
   br i1 %9, label %6, label %ecpg_deallocate_all_conn.exit, !llvm.loop !8
 
 ecpg_deallocate_all_conn.exit:                    ; preds = %6, %8
@@ -878,7 +878,7 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
 ecpg_find_prepared_statement.exit.i.i:            ; preds = %.lr.ph.i.i.i, %.lr.ph.i.preheader.i.i
   %.01121.i.lcssa.i.i = phi ptr [ %.01118.i.i.i, %.lr.ph.i.preheader.i.i ], [ %.011.i.i.i, %.lr.ph.i.i.i ]
   %.020.i.lcssa.i.i = phi ptr [ null, %.lr.ph.i.preheader.i.i ], [ %.01121.i26.i.i, %.lr.ph.i.i.i ]
-  %115 = call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %2, ptr noundef %106, ptr noundef %.020.i.lcssa.i.i, ptr noundef nonnull %.01121.i.lcssa.i.i)
+  %115 = call fastcc zeroext i1 @deallocate_one(i32 noundef %0, i32 noundef %2, ptr noundef %106, ptr noundef %.020.i.lcssa.i.i, ptr noundef %.01121.i.lcssa.i.i)
   br i1 %115, label %ecpg_find_prepared_statement.exit.thread.i.i, label %AddStmtToCache.exit.thread
 
 ecpg_find_prepared_statement.exit.thread.i.i:     ; preds = %.lr.ph.i34.i, %ecpg_find_prepared_statement.exit.i.i, %103

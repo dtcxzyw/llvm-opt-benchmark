@@ -491,7 +491,7 @@ declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__rcu_read_lock() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @packet_dev_mc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @packet_dev_mc(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   switch i16 %5, label %38 [
@@ -5414,7 +5414,7 @@ define internal i32 @packet_mmap(ptr nocapture readnone %0, ptr nocapture nounde
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @packet_set_ring(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.timespec64, align 8
   %6 = alloca %struct.ethtool_link_ksettings, align 8
   %7 = icmp ne i32 %3, 0
@@ -7029,7 +7029,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 declare dso_local void @bitmap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_pg_vec(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @free_pg_vec(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 align 16 {
   br label %4
 
 4:                                                ; preds = %3, %17
@@ -7064,7 +7064,7 @@ define internal fastcc void @free_pg_vec(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %19, label %20, label %4, !llvm.loop !91
 
 20:                                               ; preds = %17
-  tail call void @kfree(ptr noundef %0) #19
+  tail call void @kfree(ptr noundef nonnull %0) #19
   ret void
 }
 
@@ -7716,7 +7716,7 @@ define internal fastcc range(i32 0, 3) i32 @__packet_rcv_has_room(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc range(i32 0, 2) i32 @skb_csum_unnecessary(ptr nocapture noundef readonly %0) unnamed_addr #11 align 16 {
+define internal fastcc range(i32 0, 2) i32 @skb_csum_unnecessary(ptr nocapture noundef nonnull readonly %0) unnamed_addr #11 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 5
@@ -7783,14 +7783,14 @@ define internal fastcc noundef ptr @skb_get(ptr noundef returned %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_set_owner_r(ptr noundef %0, ptr noundef %1) unnamed_addr #12 align 16 {
+define internal fastcc void @skb_set_owner_r(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  tail call void %4(ptr noundef %0) #19
+  tail call void %4(ptr noundef nonnull %0) #19
   br label %12
 
 7:                                                ; preds = %2
@@ -7955,7 +7955,7 @@ define internal fastcc void @packet_increment_rx_head(i32 %.1248.val, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @skb_clear_delivery_time(ptr nocapture noundef %0) unnamed_addr #12 align 16 {
+define internal fastcc void @skb_clear_delivery_time(ptr nocapture noundef nonnull %0) unnamed_addr #12 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 129
   %3 = load i24, ptr %2, align 1
   %4 = and i24 %3, 1
@@ -7986,7 +7986,7 @@ define internal fastcc void @skb_clear_delivery_time(ptr nocapture noundef %0) u
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, -2147483647) i32 @tpacket_get_timestamp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, -2147483647) i32 @tpacket_get_timestamp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 16, 0) %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 188
@@ -8432,7 +8432,7 @@ declare i64 @llvm.read_register.i64(metadata) #14
 declare void @llvm.write_register.i64(metadata, i64) #15
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_from_sockptr(ptr noundef %0, ptr %1, i8 %2, i64 noundef %3) unnamed_addr #12 align 16 {
+define internal fastcc i32 @copy_from_sockptr(ptr noundef %0, ptr %1, i8 %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #12 align 16 {
   %5 = and i8 %2, 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %15
@@ -9602,7 +9602,7 @@ declare dso_local i32 @sock_cmsg_send(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local i64 @wait_for_completion_interruptible_timeout(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 16 {
   %3 = alloca %struct.flow_keys_basic, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1
@@ -9684,12 +9684,12 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 58:                                               ; preds = %56
   %59 = sub nsw i32 %49, %54
-  %60 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %59) #19
+  %60 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %59) #19
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.thread, label %62
 
 62:                                               ; preds = %58, %40
-  %63 = tail call zeroext i1 @skb_partial_csum_set(ptr noundef %0, i16 noundef zeroext %42, i16 noundef zeroext %45) #19
+  %63 = tail call zeroext i1 @skb_partial_csum_set(ptr noundef nonnull %0, i16 noundef zeroext %42, i16 noundef zeroext %45) #19
   br i1 %63, label %64, label %.thread
 
 64:                                               ; preds = %62
@@ -9717,7 +9717,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 83:                                               ; preds = %81
   %84 = sub i32 %76, %79
-  %85 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %84) #19
+  %85 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %84) #19
   %.not = icmp eq ptr %85, null
   br i1 %.not, label %.thread, label %.thread15
 
@@ -9753,7 +9753,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
   br i1 %105, label %.thread17, label %106
 
 106:                                              ; preds = %102
-  %107 = tail call zeroext i16 %104(ptr noundef %0) #19
+  %107 = tail call zeroext i16 %104(ptr noundef nonnull %0) #19
   %108 = icmp eq i16 %107, 0
   br i1 %108, label %.thread17, label %109
 
@@ -9791,7 +9791,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 118:                                              ; preds = %117, %.thread17, %92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %119 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  %119 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %119, label %.loopexit, label %120
 
 120:                                              ; preds = %118
@@ -9807,7 +9807,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 125:                                              ; preds = %.preheader
   store i16 -8826, ptr %93, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %126 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  %126 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %126, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %125, %118
@@ -9828,7 +9828,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 138:                                              ; preds = %136
   %139 = sub nsw i32 %129, %134
-  %140 = call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %139) #19
+  %140 = call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %139) #19
   %141 = icmp ne ptr %140, null
   br label %142
 
@@ -9875,7 +9875,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 
 169:                                              ; preds = %167
   %170 = sub nsw i32 %160, %165
-  %171 = tail call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %170) #19
+  %171 = tail call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %170) #19
   %172 = icmp eq ptr %171, null
   br i1 %172, label %.thread, label %.thread15
 
@@ -9955,7 +9955,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_to_skb(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @virtio_net_hdr_set_proto(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #17 align 16 {
+define internal fastcc void @virtio_net_hdr_set_proto(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 0
@@ -10167,7 +10167,7 @@ define internal void @tpacket_destruct_skb(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.nf_hook_state, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1208
   %5 = load volatile i64, ptr %4, align 8
@@ -10176,12 +10176,12 @@ define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_
   br i1 %7, label %8, label %10
 
 8:                                                ; preds = %2
-  %9 = tail call i32 @__dev_queue_xmit(ptr noundef %1, ptr noundef null) #19
-  br label %83
+  %9 = tail call i32 @__dev_queue_xmit(ptr noundef nonnull %1, ptr noundef null) #19
+  br label %81
 
 10:                                               ; preds = %2
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @nf_hooks_needed, i64 416), i32 2) #19
-          to label %46 [label %11], !srcloc !41
+          to label %44 [label %11], !srcloc !41
 
 11:                                               ; preds = %10
   tail call void @__rcu_read_lock() #19
@@ -10192,10 +10192,10 @@ define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_
   %16 = getelementptr inbounds i8, ptr %3, i64 40
   br label %17
 
-17:                                               ; preds = %41, %11
-  %18 = phi ptr [ null, %11 ], [ %43, %41 ]
-  %19 = phi ptr [ null, %11 ], [ %42, %41 ]
-  %20 = phi ptr [ %1, %11 ], [ %21, %41 ]
+17:                                               ; preds = %39, %11
+  %18 = phi ptr [ null, %11 ], [ %41, %39 ]
+  %19 = phi ptr [ null, %11 ], [ %40, %39 ]
+  %20 = phi ptr [ %1, %11 ], [ %21, %39 ]
   %21 = load ptr, ptr %20, align 8
   store ptr null, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 16
@@ -10206,13 +10206,13 @@ define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_
   %25 = load i24, ptr %24, align 1
   %26 = and i24 %25, 524288
   %27 = icmp eq i24 %26, 0
-  br i1 %27, label %28, label %select.unfold.i
+  br i1 %27, label %28, label %.critedge.i
 
 28:                                               ; preds = %17
   %29 = getelementptr inbounds i8, ptr %23, i64 144
   %30 = load volatile ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %select.unfold.i, label %32
+  br i1 %31, label %.critedge.i, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %23, i64 272
@@ -10225,94 +10225,90 @@ define internal fastcc i32 @packet_xmit(ptr noundef %0, ptr noundef %1) unnamed_
   call void @__rcu_read_lock() #19
   %35 = call i32 @nf_hook_slow(ptr noundef nonnull %20, ptr noundef nonnull %3, ptr noundef nonnull %30, i32 noundef 0) #19
   call void @__rcu_read_unlock() #19
-  %36 = icmp eq i32 %35, 1
-  br i1 %36, label %select.unfold.i, label %.thread.i
-
-.thread.i:                                        ; preds = %32
+  %.not.i = icmp eq i32 %35, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #19
-  br label %41
+  br i1 %.not.i, label %36, label %39
 
-select.unfold.i:                                  ; preds = %32, %28, %17
+.critedge.i:                                      ; preds = %28, %17
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #19
-  %37 = icmp eq ptr %20, null
-  br i1 %37, label %41, label %38
+  br label %36
 
-38:                                               ; preds = %select.unfold.i
-  %39 = icmp eq ptr %19, null
-  br i1 %39, label %41, label %40
+36:                                               ; preds = %.critedge.i, %32
+  %37 = icmp eq ptr %19, null
+  br i1 %37, label %39, label %38
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   store ptr %20, ptr %18, align 8
-  br label %41
+  br label %39
 
-41:                                               ; preds = %40, %38, %select.unfold.i, %.thread.i
-  %42 = phi ptr [ %19, %select.unfold.i ], [ %19, %40 ], [ %20, %38 ], [ %19, %.thread.i ]
-  %43 = phi ptr [ %18, %select.unfold.i ], [ %20, %40 ], [ %20, %38 ], [ %18, %.thread.i ]
-  %44 = icmp eq ptr %21, null
-  br i1 %44, label %nf_hook_direct_egress.exit, label %17, !llvm.loop !158
+39:                                               ; preds = %38, %36, %32
+  %40 = phi ptr [ %19, %32 ], [ %19, %38 ], [ %20, %36 ]
+  %41 = phi ptr [ %18, %32 ], [ %20, %38 ], [ %20, %36 ]
+  %42 = icmp eq ptr %21, null
+  br i1 %42, label %nf_hook_direct_egress.exit, label %17, !llvm.loop !158
 
-nf_hook_direct_egress.exit:                       ; preds = %41
+nf_hook_direct_egress.exit:                       ; preds = %39
   call void @__rcu_read_unlock() #19
-  %45 = icmp eq ptr %42, null
-  br i1 %45, label %83, label %46
+  %43 = icmp eq ptr %40, null
+  br i1 %43, label %81, label %44
 
-46:                                               ; preds = %nf_hook_direct_egress.exit, %10
-  %47 = phi ptr [ %42, %nf_hook_direct_egress.exit ], [ %1, %10 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
+44:                                               ; preds = %nf_hook_direct_egress.exit, %10
+  %45 = phi ptr [ %40, %nf_hook_direct_egress.exit ], [ %1, %10 ]
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !159
-  %53 = add i32 %52, 1
-  %54 = getelementptr inbounds i8, ptr %47, i64 156
-  store i32 %53, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %49, i64 40
-  %56 = load i32, ptr %55, align 8
-  %57 = urem i32 %52, %56
-  %58 = trunc i32 %57 to i16
-  %59 = add i16 %58, 1
-  %60 = getelementptr inbounds i8, ptr %47, i64 124
-  store i16 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %51, i64 48
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %76, label %64
+  %50 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !159
+  %51 = add i32 %50, 1
+  %52 = getelementptr inbounds i8, ptr %45, i64 156
+  store i32 %51, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %47, i64 40
+  %54 = load i32, ptr %53, align 8
+  %55 = urem i32 %50, %54
+  %56 = trunc i32 %55 to i16
+  %57 = add i16 %56, 1
+  %58 = getelementptr inbounds i8, ptr %45, i64 124
+  store i16 %57, ptr %58, align 4
+  %59 = getelementptr inbounds i8, ptr %49, i64 48
+  %60 = load ptr, ptr %59, align 8
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %74, label %62
 
-64:                                               ; preds = %46
-  %65 = tail call zeroext i16 %62(ptr noundef %49, ptr noundef %47, ptr noundef null) #19
-  %66 = zext i16 %65 to i32
-  %67 = load i32, ptr %55, align 8
-  %68 = icmp ugt i32 %67, %66
-  br i1 %68, label %78, label %69, !prof !22
+62:                                               ; preds = %44
+  %63 = tail call zeroext i16 %60(ptr noundef %47, ptr noundef nonnull %45, ptr noundef null) #19
+  %64 = zext i16 %63 to i32
+  %65 = load i32, ptr %53, align 8
+  %66 = icmp ugt i32 %65, %64
+  br i1 %66, label %76, label %67, !prof !22
 
-69:                                               ; preds = %64
-  %70 = tail call i32 @net_ratelimit() #19
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %78, label %72
+67:                                               ; preds = %62
+  %68 = tail call i32 @net_ratelimit() #19
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %76, label %70
 
-72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %49, i64 296
-  %74 = load i32, ptr %55, align 8
-  %75 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %73, i32 noundef %66, i32 noundef %74) #21
-  br label %78
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds i8, ptr %47, i64 296
+  %72 = load i32, ptr %53, align 8
+  %73 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, ptr noundef %71, i32 noundef %64, i32 noundef %72) #21
+  br label %76
 
-76:                                               ; preds = %46
-  %77 = tail call zeroext i16 @netdev_pick_tx(ptr noundef %49, ptr noundef %47, ptr noundef null) #19
-  br label %78
+74:                                               ; preds = %44
+  %75 = tail call zeroext i16 @netdev_pick_tx(ptr noundef %47, ptr noundef nonnull %45, ptr noundef null) #19
+  br label %76
 
-78:                                               ; preds = %76, %72, %69, %64
-  %79 = phi i16 [ %77, %76 ], [ 0, %69 ], [ 0, %72 ], [ %65, %64 ]
-  %80 = tail call i32 @__dev_direct_xmit(ptr noundef %47, i16 noundef zeroext %79) #19
-  %81 = icmp slt i32 %80, 15
-  br i1 %81, label %83, label %82
+76:                                               ; preds = %74, %70, %67, %62
+  %77 = phi i16 [ %75, %74 ], [ 0, %67 ], [ 0, %70 ], [ %63, %62 ]
+  %78 = tail call i32 @__dev_direct_xmit(ptr noundef nonnull %45, i16 noundef zeroext %77) #19
+  %79 = icmp slt i32 %78, 15
+  br i1 %79, label %81, label %80
 
-82:                                               ; preds = %78
-  tail call void @kfree_skb_reason(ptr noundef %47, i32 noundef 2) #19
-  br label %83
+80:                                               ; preds = %76
+  tail call void @kfree_skb_reason(ptr noundef nonnull %45, i32 noundef 2) #19
+  br label %81
 
-83:                                               ; preds = %82, %78, %nf_hook_direct_egress.exit, %8
-  %84 = phi i32 [ %9, %8 ], [ 1, %nf_hook_direct_egress.exit ], [ %80, %78 ], [ %80, %82 ]
-  ret i32 %84
+81:                                               ; preds = %80, %76, %nf_hook_direct_egress.exit, %8
+  %82 = phi i32 [ %9, %8 ], [ 1, %nf_hook_direct_egress.exit ], [ %78, %76 ], [ %78, %80 ]
+  ret i32 %82
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -10325,7 +10321,7 @@ declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @skb_store_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @packet_parse_headers(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc void @packet_parse_headers(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.flow_keys_basic, align 4
   %4 = alloca %struct.vlan_hdr, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -10366,7 +10362,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef %0, ptr nocapture 
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %26
-  %31 = tail call zeroext i16 %28(ptr noundef %0) #19
+  %31 = tail call zeroext i16 %28(ptr noundef nonnull %0) #19
   br label %32
 
 32:                                               ; preds = %30, %26, %11
@@ -10442,7 +10438,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef %0, ptr nocapture 
   br label %74
 
 70:                                               ; preds = %58
-  %71 = call i32 @skb_copy_bits(ptr noundef %0, i32 noundef %59, ptr noundef nonnull %4, i32 noundef 4) #19
+  %71 = call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %59, ptr noundef nonnull %4, i32 noundef 4) #19
   %72 = icmp slt i32 %71, 0
   %73 = select i1 %72, ptr null, ptr %4, !prof !18
   br label %74
@@ -10493,7 +10489,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef %0, ptr nocapture 
 
 96:                                               ; preds = %94
   %97 = sub i32 %84, %92
-  %98 = call ptr @__pskb_pull_tail(ptr noundef %0, i32 noundef %97) #19
+  %98 = call ptr @__pskb_pull_tail(ptr noundef nonnull %0, i32 noundef %97) #19
   %99 = icmp eq ptr %98, null
   br i1 %99, label %.thread8, label %100
 
@@ -10521,7 +10517,7 @@ define internal fastcc void @packet_parse_headers(ptr noundef %0, ptr nocapture 
 
 115:                                              ; preds = %.thread8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, i8 0, i64 12, i1 false)
-  %116 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
+  %116 = call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull @flow_keys_basic_dissector, ptr noundef nonnull %3, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
   br i1 %116, label %117, label %128
 
 117:                                              ; preds = %115

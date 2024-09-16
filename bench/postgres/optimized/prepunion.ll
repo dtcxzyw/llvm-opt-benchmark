@@ -95,7 +95,7 @@ define dso_local ptr @plan_set_operations(ptr noundef %0) local_unnamed_addr #0 
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %8, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc ptr @recurse_set_operations(ptr noundef %36, ptr noundef nonnull %0, ptr noundef %38, ptr noundef %40, i1 noundef zeroext false, i32 noundef -1, ptr noundef %28, ptr noundef nonnull %2, ptr noundef null)
+  %41 = call fastcc ptr @recurse_set_operations(ptr noundef %36, ptr noundef nonnull %0, ptr noundef %38, ptr noundef %40, i1 noundef zeroext false, i32 noundef -1, ptr noundef %28, ptr noundef %2, ptr noundef null)
   %42 = getelementptr inbounds i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 632
@@ -104,7 +104,7 @@ define dso_local ptr @plan_set_operations(ptr noundef %0) local_unnamed_addr #0 
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %37, align 8
   %48 = load ptr, ptr %39, align 8
-  %49 = call fastcc ptr @recurse_set_operations(ptr noundef %46, ptr noundef nonnull %0, ptr noundef %47, ptr noundef %48, i1 noundef zeroext false, i32 noundef -1, ptr noundef %28, ptr noundef nonnull %3, ptr noundef null)
+  %49 = call fastcc ptr @recurse_set_operations(ptr noundef %46, ptr noundef nonnull %0, ptr noundef %47, ptr noundef %48, i1 noundef zeroext false, i32 noundef -1, ptr noundef %28, ptr noundef %3, ptr noundef null)
   %50 = getelementptr inbounds i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8
   store ptr null, ptr %44, align 8
@@ -243,7 +243,7 @@ generate_recursion_path.exit:                     ; preds = %115, %121
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %22, i64 104
   %128 = load ptr, ptr %127, align 8
-  %129 = call fastcc ptr @recurse_set_operations(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %124, ptr noundef %126, i1 noundef zeroext true, i32 noundef -1, ptr noundef %128, ptr noundef nonnull %4, ptr noundef null)
+  %129 = call fastcc ptr @recurse_set_operations(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %124, ptr noundef %126, i1 noundef zeroext true, i32 noundef -1, ptr noundef %128, ptr noundef %4, ptr noundef null)
   %.pre = load ptr, ptr %4, align 8
   br label %130
 
@@ -258,7 +258,7 @@ generate_recursion_path.exit:                     ; preds = %115, %121
 declare void @setup_simple_rel_arrays(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i32 noundef range(i32 -1, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -307,7 +307,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
   %41 = load i32, ptr %21, align 4
   %42 = getelementptr inbounds i8, ptr %33, i64 520
   %43 = load ptr, ptr %42, align 8
-  %44 = call fastcc ptr @generate_setop_tlist(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %41, i1 noundef zeroext true, ptr noundef %43, ptr noundef %6, ptr noundef nonnull %15)
+  %44 = call fastcc ptr @generate_setop_tlist(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef %41, i1 noundef zeroext true, ptr noundef %43, ptr noundef %6, ptr noundef %15)
   %45 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %44) #7
   %46 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %45) #7
   %47 = getelementptr inbounds i8, ptr %28, i64 32
@@ -485,7 +485,7 @@ define internal fastcc ptr @recurse_set_operations(ptr noundef %0, ptr noundef %
 .outer:                                           ; preds = %136, %134, %122, %116
   %148 = load ptr, ptr %114, align 8
   %149 = load ptr, ptr %115, align 8
-  %150 = call fastcc ptr @recurse_set_operations(ptr noundef nonnull %118, ptr noundef %1, ptr noundef %148, ptr noundef %149, i1 noundef zeroext false, i32 noundef -1, ptr noundef %6, ptr noundef nonnull %10, ptr noundef null)
+  %150 = call fastcc ptr @recurse_set_operations(ptr noundef nonnull %118, ptr noundef %1, ptr noundef %148, ptr noundef %149, i1 noundef zeroext false, i32 noundef -1, ptr noundef %6, ptr noundef %10, ptr noundef null)
   %151 = tail call ptr @lappend(ptr noundef %.027.i.ph182, ptr noundef %150) #7
   %152 = load ptr, ptr %10, align 8
   %153 = tail call ptr @lappend(ptr noundef %.0155.ph181, ptr noundef %152) #7
@@ -689,14 +689,14 @@ generate_union_paths.exit:                        ; preds = %200, %238
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %0, i64 48
   %247 = load ptr, ptr %246, align 8
-  %248 = call fastcc ptr @recurse_set_operations(ptr noundef %243, ptr noundef %1, ptr noundef %245, ptr noundef %247, i1 noundef zeroext false, i32 noundef 0, ptr noundef %6, ptr noundef nonnull %11, ptr noundef nonnull %13)
+  %248 = call fastcc ptr @recurse_set_operations(ptr noundef %243, ptr noundef %1, ptr noundef %245, ptr noundef %247, i1 noundef zeroext false, i32 noundef 0, ptr noundef %6, ptr noundef %11, ptr noundef nonnull %13)
   %249 = getelementptr inbounds i8, ptr %248, i64 72
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 24
   %252 = load ptr, ptr %251, align 8
   %253 = load ptr, ptr %244, align 8
   %254 = load ptr, ptr %246, align 8
-  %255 = call fastcc ptr @recurse_set_operations(ptr noundef %252, ptr noundef %1, ptr noundef %253, ptr noundef %254, i1 noundef zeroext false, i32 noundef 1, ptr noundef %6, ptr noundef nonnull %12, ptr noundef nonnull %14)
+  %255 = call fastcc ptr @recurse_set_operations(ptr noundef %252, ptr noundef %1, ptr noundef %253, ptr noundef %254, i1 noundef zeroext false, i32 noundef 1, ptr noundef %6, ptr noundef %12, ptr noundef nonnull %14)
   %256 = getelementptr inbounds i8, ptr %255, i64 72
   %257 = load ptr, ptr %256, align 8
   store double %241, ptr %240, align 8
@@ -937,7 +937,7 @@ list_length.exit150:                              ; preds = %generate_nonunion_p
 
 388:                                              ; preds = %385, %382, %380
   %389 = load ptr, ptr %7, align 8
-  %390 = call fastcc ptr @generate_setop_tlist(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef 0, i1 noundef zeroext false, ptr noundef %389, ptr noundef %6, ptr noundef nonnull %16)
+  %390 = call fastcc ptr @generate_setop_tlist(ptr noundef %2, ptr noundef %3, i32 noundef %5, i32 noundef 0, i1 noundef zeroext false, ptr noundef %389, ptr noundef %6, ptr noundef %16)
   store ptr %390, ptr %7, align 8
   %391 = call ptr @make_pathtarget_from_tlist(ptr noundef %390) #7
   %392 = call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %391) #7
@@ -1045,7 +1045,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   store i8 1, ptr %7, align 1
   %.not = icmp eq ptr %0, null
   %.not84 = icmp eq ptr %1, null

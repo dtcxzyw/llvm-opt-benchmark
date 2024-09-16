@@ -1516,23 +1516,23 @@ spdy_save_stream_info.exit.i:                     ; preds = %536, %spdy_parse_co
   br label %dissect_spdy_header_payload.exit
 
 550:                                              ; preds = %311
-  call fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull %7)
+  call fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 551:                                              ; preds = %311
-  call fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull %7)
+  call fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 552:                                              ; preds = %311
-  call fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %7)
+  call fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 553:                                              ; preds = %311
-  call fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef nonnull %7)
+  call fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 554:                                              ; preds = %311
-  call fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %7)
+  call fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %43, ptr noundef %7)
   br label %dissect_spdy_header_payload.exit
 
 555:                                              ; preds = %311
@@ -1579,7 +1579,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_rst_stream_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_spdy_streamid, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
@@ -1611,7 +1611,7 @@ dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 4
@@ -1681,7 +1681,7 @@ define internal fastcc void @dissect_spdy_settings_payload(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %5 = load i32, ptr @hf_spdy_ping_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
@@ -1690,7 +1690,7 @@ define internal fastcc void @dissect_spdy_ping_payload(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_goaway_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_spdy_goaway_last_good_stream_id, align 4
   %6 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7
@@ -1722,7 +1722,7 @@ dissect_spdy_stream_id_field.exit:                ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_spdy_window_update_payload(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_spdy_streamid, align 4
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8) #7
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef 0) #7

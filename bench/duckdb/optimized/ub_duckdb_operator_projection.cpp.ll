@@ -6336,7 +6336,7 @@ declare noundef zeroext i1 @_ZNK6duckdb11LogicalTypeeqERKS0_(ptr noundef nonnull
 declare void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24), i8 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL10UnnestNullEmmRNS_6VectorE(i64 noundef %start, i64 noundef %end, ptr noundef nonnull align 8 dereferenceable(104) %result) unnamed_addr #2 {
+define internal fastcc void @_ZN6duckdbL10UnnestNullEmmRNS_6VectorE(i64 noundef range(i64 0, 2049) %start, i64 noundef range(i64 0, 2049) %end, ptr noundef nonnull align 8 dereferenceable(104) %result) unnamed_addr #2 {
 entry:
   %validity.i = getelementptr inbounds i8, ptr %result, i64 40
   %cmp26 = icmp ult i64 %start, %end

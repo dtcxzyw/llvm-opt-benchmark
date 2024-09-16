@@ -1099,7 +1099,7 @@ define dso_local void @FreeWaitEventSetAfterFork(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WaitEventAdjustEpoll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @WaitEventAdjustEpoll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.epoll_event, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store ptr %1, ptr %5, align 4

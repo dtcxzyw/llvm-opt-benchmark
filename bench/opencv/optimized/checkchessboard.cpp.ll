@@ -1150,7 +1150,7 @@ declare noundef double @_ZN2cv9thresholdERKNS_11_InputArrayERKNS_12_OutputArrayE
 declare void @_ZN2cv12findContoursERKNS_11_InputArrayERKNS_12_OutputArrayES5_iiNS_6Point_IiEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL26icvGetQuadrangleHypothesesRKSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EERKS_INS0_3VecIiLi4EEESaISA_EERS_ISt4pairIfiESaISG_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26icvGetQuadrangleHypothesesRKSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EERKS_INS0_3VecIiLi4EEESaISA_EERS_ISt4pairIfiESaISG_EEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::RotatedRect", align 4
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

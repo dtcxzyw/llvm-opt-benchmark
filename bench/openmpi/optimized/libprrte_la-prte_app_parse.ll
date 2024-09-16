@@ -96,7 +96,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %44
 25:                                               ; preds = %21
   store ptr null, ptr %7, align 8
   %26 = load ptr, ptr %6, align 8
-  %27 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %26, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %27 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %26, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not32 = icmp eq i32 %27, 0
   br i1 %.not32, label %28, label %.sink.split
 
@@ -148,7 +148,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %44
 50:                                               ; preds = %._crit_edge
   store ptr null, ptr %7, align 8
   %51 = load ptr, ptr %6, align 8
-  %52 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %51, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %3, ptr noundef %4)
+  %52 = call fastcc i32 @create_app(ptr noundef %0, ptr noundef %51, ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %4)
   %.not29 = icmp eq i32 %52, 0
   br i1 %.not29, label %53, label %68
 
@@ -196,7 +196,7 @@ declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @create_app(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca %struct.pmix_cli_result_t, align 8
   %9 = alloca %struct.pmix_value, align 8
@@ -486,7 +486,7 @@ pmix_cmd_line_get_param.exit228:                  ; preds = %.lr.ph.i223
   br label %148
 
 .loopexit:                                        ; preds = %125, %pmix_cmd_line_get_param.exit220.thread
-  %140 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %8)
+  %140 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %8)
   br i1 %140, label %141, label %145
 
 141:                                              ; preds = %.loopexit
@@ -936,7 +936,7 @@ pmix_cmd_line_get_param.exit292.thread:           ; preds = %293, %pmix_cmd_line
 .lr.ph.i294:                                      ; preds = %330, %.lr.ph.i294
   %336 = phi ptr [ %338, %.lr.ph.i294 ], [ %335, %330 ]
   %.07.i295 = phi ptr [ %337, %.lr.ph.i294 ], [ %334, %330 ]
-  call void %336(ptr noundef %56) #13
+  call void %336(ptr noundef nonnull %56) #13
   %337 = getelementptr inbounds i8, ptr %.07.i295, i64 8
   %338 = load ptr, ptr %337, align 8
   %.not.i296 = icmp eq ptr %338, null
@@ -1008,7 +1008,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare i32 @PMIx_Info_list_add(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0) unnamed_addr #6 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %3, align 8

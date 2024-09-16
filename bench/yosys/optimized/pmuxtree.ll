@@ -1274,7 +1274,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit102:              ; preds = %349, %_ZSt8_Destroy
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %57, i8 0, i64 56, i1 false)
   store i32 0, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %58, i8 0, i64 56, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull %79, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull %79, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %26)
           to label %383 unwind label %452
 
 383:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit102
@@ -1985,7 +1985,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -2057,7 +2057,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys
   store i32 0, ptr %28, align 8
   %54 = getelementptr inbounds i8, ptr %28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 56, i1 false)
-  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %26)
+  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %22, ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %26)
           to label %55 unwind label %402
 
 55:                                               ; preds = %51
@@ -2168,7 +2168,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_Z
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %90
-  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %4)
+  invoke fastcc void @_ZN12_GLOBAL__N_123recursive_mux_generatorEPN5Yosys5RTLIL6ModuleERKNS1_7SigSpecES6_RS4_(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %4)
           to label %91 unwind label %402
 
 91:                                               ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
@@ -2845,7 +2845,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit95:               ; preds = %_ZSt8_DestroyIPN5Yo
           to label %297 unwind label %410
 
 297:                                              ; preds = %296
-  invoke void @_ZN5Yosys5RTLIL6Module3MuxENS0_8IdStringERKNS0_7SigSpecES5_S5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  invoke void @_ZN5Yosys5RTLIL6Module3MuxENS0_8IdStringERKNS0_7SigSpecES5_S5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr noundef nonnull align 8 dereferenceable(560) %1, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(32) %37)
           to label %298 unwind label %412
 
 298:                                              ; preds = %297

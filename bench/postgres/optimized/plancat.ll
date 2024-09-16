@@ -938,8 +938,8 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
 
 525:                                              ; preds = %524, %519, %._crit_edge.i315
   %.039.i = phi ptr [ null, %._crit_edge.i315 ], [ %523, %524 ], [ %523, %519 ]
-  call fastcc void @get_relation_statistics_worker(ptr noundef nonnull %5, ptr noundef %3, i32 noundef %491, i1 noundef zeroext true, ptr noundef %.040.lcssa.i, ptr noundef %.039.i)
-  call fastcc void @get_relation_statistics_worker(ptr noundef nonnull %5, ptr noundef %3, i32 noundef %491, i1 noundef zeroext false, ptr noundef %.040.lcssa.i, ptr noundef %.039.i)
+  call fastcc void @get_relation_statistics_worker(ptr noundef %5, ptr noundef %3, i32 noundef %491, i1 noundef zeroext true, ptr noundef %.040.lcssa.i, ptr noundef %.039.i)
+  call fastcc void @get_relation_statistics_worker(ptr noundef %5, ptr noundef %3, i32 noundef %491, i1 noundef zeroext false, ptr noundef %.040.lcssa.i, ptr noundef %.039.i)
   call void @ReleaseSysCache(ptr noundef nonnull %493) #10
   call void @bms_free(ptr noundef %.040.lcssa.i) #10
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i358, 1
@@ -3450,7 +3450,7 @@ declare ptr @eval_const_expressions(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fix_opfuncids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_relation_statistics_worker(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @get_relation_statistics_worker(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = zext i32 %2 to i64
   %8 = zext i1 %3 to i64
   %9 = tail call ptr @SearchSysCache2(i32 noundef 60, i64 noundef %7, i64 noundef %8) #10

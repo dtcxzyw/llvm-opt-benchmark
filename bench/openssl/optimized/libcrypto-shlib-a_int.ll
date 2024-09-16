@@ -521,7 +521,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a, i32 noundef %itype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr nocapture noundef writeonly %pr, ptr noundef readonly %a, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.end
@@ -860,7 +860,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @bn_to_asn1_string(ptr noundef %bn, ptr noundef %ai, i32 noundef %atype) unnamed_addr #0 {
+define internal fastcc ptr @bn_to_asn1_string(ptr noundef %bn, ptr noundef %ai, i32 noundef range(i32 2, 11) %atype) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ai, null
   br i1 %cmp, label %if.end, label %if.end.thread
@@ -951,7 +951,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @asn1_string_to_bn(ptr nocapture noundef readonly %ai, ptr noundef %bn, i32 noundef %itype) unnamed_addr #0 {
+define internal fastcc ptr @asn1_string_to_bn(ptr nocapture noundef readonly %ai, ptr noundef %bn, i32 noundef range(i32 2, 11) %itype) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %ai, i64 4
   %0 = load i32, ptr %type, align 4

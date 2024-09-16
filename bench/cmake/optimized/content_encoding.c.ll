@@ -574,7 +574,7 @@ exit_zlib.exit:                                   ; preds = %process_zlib_error.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @inflate_stream(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8

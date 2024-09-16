@@ -2280,7 +2280,7 @@ define dso_local void @regulatory_hint_disconnect() local_unnamed_addr #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @is_wiphy_all_set_reg_flag(i32 noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @is_wiphy_all_set_reg_flag(i32 noundef range(i32 4, 17) %0) unnamed_addr #2 align 16 {
   %2 = tail call i32 @rtnl_is_locked() #23
   %3 = icmp ne i32 %2, 0
   %4 = load i1, ptr @for_each_rdev_check_rtnl.__already_done, align 1
@@ -3274,7 +3274,7 @@ define dso_local noundef i32 @set_regdom(ptr noundef %0, i32 noundef %1) local_u
   br i1 %115, label %.thread33, label %116
 
 116:                                              ; preds = %112
-  tail call void @kfree(ptr noundef %0) #23
+  tail call void @kfree(ptr noundef nonnull %0) #23
   tail call fastcc void @reset_regdomains(i1 noundef zeroext false, ptr noundef nonnull %114)
   br label %.thread36
 
@@ -5970,7 +5970,7 @@ declare i16 @llvm.bswap.i16(i16) #13
 declare i32 @llvm.bswap.i32(i32) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_wmm_rule(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
+define internal fastcc void @set_wmm_rule(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %3, i64 20
   %6 = getelementptr inbounds i8, ptr %2, i64 18
   %7 = load i16, ptr %6, align 2
@@ -7489,7 +7489,7 @@ define internal fastcc noundef zeroext i1 @reg_is_world_roaming(ptr noundef %0) 
 declare dso_local void @nl80211_send_beacon_hint_event(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noalias ptr @regdom_intersect(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noalias ptr @regdom_intersect(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.ieee80211_reg_rule, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %3, i8 0, i64 96, i1 false), !annotation !10
@@ -7845,7 +7845,7 @@ split:                                            ; preds = %41, %._crit_edge
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #22 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #22 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 12
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   %8 = getelementptr inbounds i8, ptr %4, i64 12

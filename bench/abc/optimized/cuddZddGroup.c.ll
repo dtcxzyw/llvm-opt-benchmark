@@ -145,7 +145,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
   br i1 %.not18, label %._crit_edge, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnull %.01420, i32 noundef 14)
+  %9 = tail call fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef %.01420, i32 noundef 14)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %._crit_edge, label %17
 
@@ -156,7 +156,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnull %.01420, i32 noundef %2)
+  %16 = tail call fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef %.01420, i32 noundef %2)
   %.not17 = icmp eq i32 %16, 0
   br i1 %.not17, label %._crit_edge, label %17
 
@@ -174,7 +174,7 @@ define internal fastcc range(i32 0, 2) i32 @zddTreeSiftingAux(ptr noundef %0, pt
 declare void @Cudd_FreeZddTree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @zddReorderChildren(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
@@ -419,7 +419,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %103, label %.loopexit112.i, label %124
 
 124:                                              ; preds = %123
-  %125 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2, ptr noundef nonnull %4)
+  %125 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2, ptr noundef %4)
   %.not86.i.i = icmp eq i32 %125, 0
   %.pr90.pre106.i.i = load ptr, ptr %4, align 8
   br i1 %.not86.i.i, label %187, label %126
@@ -439,7 +439,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   %133 = sext i32 %117 to i64
   %134 = getelementptr inbounds %struct.DdSubtable, ptr %132, i64 %133, i32 6
   %135 = load i32, ptr %134, align 4
-  %136 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %135, i32 noundef %16, ptr noundef nonnull %4)
+  %136 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %135, i32 noundef %16, ptr noundef %4)
   %.not84.i.i = icmp eq i32 %136, 0
   %.pr90.pre105.i.i = load ptr, ptr %4, align 8
   br i1 %.not84.i.i, label %187, label %137
@@ -456,7 +456,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %142, label %143, label %160
 
 143:                                              ; preds = %139
-  %144 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %117, i32 noundef %.2, ptr noundef nonnull %4)
+  %144 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %117, i32 noundef %.2, ptr noundef %4)
   %.not80.i.i = icmp eq i32 %144, 0
   %.pr90.pre104.i.i = load ptr, ptr %4, align 8
   br i1 %.not80.i.i, label %187, label %145
@@ -484,7 +484,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %155, label %151, label %156, !llvm.loop !10
 
 156:                                              ; preds = %151
-  %157 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %154, i32 noundef %16, ptr noundef nonnull %4)
+  %157 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %154, i32 noundef %16, ptr noundef %4)
   %.not82.i.i = icmp eq i32 %157, 0
   %.pr90.pre103.i.i = load ptr, ptr %4, align 8
   br i1 %.not82.i.i, label %187, label %158
@@ -499,7 +499,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   %162 = sext i32 %117 to i64
   %163 = getelementptr inbounds %struct.DdSubtable, ptr %161, i64 %162, i32 6
   %164 = load i32, ptr %163, align 4
-  %165 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %164, i32 noundef %16, ptr noundef nonnull %4)
+  %165 = call fastcc i32 @zddGroupSiftingUp(ptr noundef nonnull %0, i32 noundef %164, i32 noundef %16, ptr noundef %4)
   %.not.i.i = icmp eq i32 %165, 0
   %.pr90.pre102.i.i = load ptr, ptr %4, align 8
   br i1 %.not.i.i, label %187, label %166
@@ -526,7 +526,7 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %175, label %171, label %176, !llvm.loop !11
 
 176:                                              ; preds = %171
-  %177 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %.3.i.i, i32 noundef %.2, ptr noundef nonnull %4)
+  %177 = call fastcc i32 @zddGroupSiftingDown(ptr noundef nonnull %0, i32 noundef %.3.i.i, i32 noundef %.2, ptr noundef %4)
   %.not78.i.i = icmp eq i32 %177, 0
   %.pr90.pre.i.i = load ptr, ptr %4, align 8
   br i1 %.not78.i.i, label %187, label %178
@@ -757,7 +757,7 @@ define internal i32 @zddUniqueCompareGroup(ptr nocapture noundef readonly %0, pt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, -1) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @cuddZddNextHigh(ptr noundef %0, i32 noundef %1) #9
@@ -1064,7 +1064,7 @@ zddGroupMoveBackward.exit.thread:                 ; preds = %9, %27, %76, %47, %
 declare i32 @cuddZddNextHigh(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingUp(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 232
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %1) #9
@@ -1178,7 +1178,7 @@ declare i32 @cuddZddSwapInPlace(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare ptr @cuddDynamicAllocNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64

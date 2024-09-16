@@ -1519,7 +1519,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @encode_locale_ex(ptr noundef %text, ptr noundef %str, ptr noundef %error_pos, ptr noundef %reason, i32 noundef %raw_malloc, i32 noundef %current_locale, i32 noundef %errors) unnamed_addr #0 {
+define internal fastcc i32 @encode_locale_ex(ptr noundef %text, ptr noundef %str, ptr noundef %error_pos, ptr noundef %reason, i32 noundef range(i32 0, 2) %raw_malloc, i32 noundef %current_locale, i32 noundef %errors) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %current_locale, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1854,7 +1854,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_inheritable(i32 noundef %fd, i32 noundef %inheritable, i32 noundef %raise, ptr noundef %atomic_flag_works) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_inheritable(i32 noundef %fd, i32 noundef %inheritable, i32 noundef range(i32 0, 2) %raise, ptr noundef %atomic_flag_works) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %atomic_flag_works, null
   %tobool = icmp ne i32 %inheritable, 0
@@ -2020,7 +2020,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @_Py_open_impl(ptr noundef %pathname, i32 noundef %flags, i32 noundef %gil_held) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @_Py_open_impl(ptr noundef %pathname, i32 noundef %flags, i32 noundef range(i32 0, 2) %gil_held) unnamed_addr #0 {
 entry:
   %or = or i32 %flags, 524288
   %tobool.not = icmp eq i32 %gil_held, 0
@@ -2420,7 +2420,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @_Py_write_impl(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count, i32 noundef %gil_held) unnamed_addr #0 {
+define internal fastcc range(i64 -1, -9223372036854775808) i64 @_Py_write_impl(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count, i32 noundef range(i32 0, 2) %gil_held) unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %count, i64 9223372036854775807)
   %tobool.not = icmp eq i32 %gil_held, 0
@@ -3542,7 +3542,7 @@ declare i64 @mbstowcs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @mbrtowc(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr nocapture noundef readonly %text, ptr nocapture noundef writeonly %str, ptr noundef writeonly %error_pos, ptr noundef writeonly %reason, i32 noundef %raw_malloc, i32 noundef %errors) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr nocapture noundef readonly %text, ptr nocapture noundef writeonly %str, ptr noundef writeonly %error_pos, ptr noundef writeonly %reason, i32 noundef range(i32 0, 2) %raw_malloc, i32 noundef %errors) unnamed_addr #0 {
 entry:
   %buf = alloca [2 x i32], align 4
   %call = tail call i64 @wcslen(ptr noundef %text) #17

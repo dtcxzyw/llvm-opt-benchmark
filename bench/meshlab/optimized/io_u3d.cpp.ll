@@ -18289,7 +18289,7 @@ _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i20.i: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %153 unwind label %185
 
 153:                                              ; preds = %152
@@ -18932,7 +18932,7 @@ declare noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QStringList, align 8
   store ptr @_ZN9QListData11shared_nullE, ptr %3, align 8
   invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL13splitFilePathERK7QStringR11QStringList(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -19836,7 +19836,7 @@ define linkonce_odr void @_ZN3vcg3tri2io12TGA_Exporter28removeConvertedTexturesF
   br label %_ZN7QStringC2ERKS_.exit.i
 
 _ZN7QStringC2ERKS_.exit.i:                        ; preds = %21, %.lr.ph
-  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %17)
+  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %17)
           to label %23 unwind label %30, !noalias !434
 
 23:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i
@@ -19920,7 +19920,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %35, %_ZN9QtPrivate8
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %41, i64 %44
   %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
-  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %46)
+  invoke fastcc void @_ZN3vcg3tri2io18QtUtilityFunctionsL16fileNameFromPathERK7QString(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %46)
           to label %47 unwind label %64
 
 47:                                               ; preds = %_ZN7QStringD2Ev.exit

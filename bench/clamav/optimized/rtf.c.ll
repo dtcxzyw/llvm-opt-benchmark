@@ -263,7 +263,7 @@ push_state.exit:                                  ; preds = %85
 101:                                              ; preds = %99, %push_state.exit
   %.3 = phi i32 [ %100, %99 ], [ 20, %push_state.exit ]
   call void @tableDestroy(ptr noundef %22) #9
-  call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
+  call fastcc void @cleanup_stack(ptr noundef %3, ptr noundef %2, ptr noundef %0)
   %102 = getelementptr inbounds i8, ptr %0, i64 48
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 40
@@ -313,7 +313,7 @@ push_state.exit:                                  ; preds = %85
 126:                                              ; preds = %124, %119
   %.4 = phi i32 [ %125, %124 ], [ %118, %119 ]
   call void @tableDestroy(ptr noundef %22) #9
-  call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
+  call fastcc void @cleanup_stack(ptr noundef %3, ptr noundef %2, ptr noundef %0)
   %127 = getelementptr inbounds i8, ptr %0, i64 48
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 40
@@ -434,7 +434,7 @@ push_state.exit:                                  ; preds = %85
 179:                                              ; preds = %177, %172
   %.7 = phi i32 [ %178, %177 ], [ %171, %172 ]
   call void @tableDestroy(ptr noundef %22) #9
-  call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
+  call fastcc void @cleanup_stack(ptr noundef %3, ptr noundef %2, ptr noundef %0)
   %180 = getelementptr inbounds i8, ptr %0, i64 48
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 40
@@ -483,7 +483,7 @@ push_state.exit:                                  ; preds = %85
 .thread:                                          ; preds = %193, %200, %195
   %.8 = phi i32 [ %201, %200 ], [ %192, %195 ], [ %192, %193 ]
   call void @tableDestroy(ptr noundef %22) #9
-  call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %0)
+  call fastcc void @cleanup_stack(ptr noundef %3, ptr noundef %2, ptr noundef %0)
   %202 = getelementptr inbounds i8, ptr %0, i64 48
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 40
@@ -741,7 +741,7 @@ fmap_need_off_once_len.exit.thread:               ; preds = %fmap_need_off_once_
 fmap_need_off_once_len.exit.thread.thread:        ; preds = %39, %315, %fmap_need_off_once_len.exit.thread
   %.9 = phi i32 [ %316, %315 ], [ 0, %fmap_need_off_once_len.exit.thread ], [ 0, %39 ]
   call void @tableDestroy(ptr noundef %22) #9
-  call fastcc void @cleanup_stack(ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  call fastcc void @cleanup_stack(ptr noundef %3, ptr noundef %2, ptr noundef nonnull %0)
   %317 = getelementptr inbounds i8, ptr %0, i64 48
   %318 = load ptr, ptr %317, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 40
@@ -792,7 +792,7 @@ declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #1
 declare void @tableDestroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cleanup_stack(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @cleanup_stack(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %.preheader
@@ -1399,7 +1399,7 @@ define internal i32 @rtf_object_process(ptr nocapture noundef readonly %0, ptr n
 
 234:                                              ; preds = %230
   %235 = load ptr, ptr %79, align 8
-  %236 = call fastcc i32 @decode_and_scan(ptr noundef nonnull %7, ptr noundef %235)
+  %236 = call fastcc i32 @decode_and_scan(ptr noundef %7, ptr noundef %235)
   %.not231 = icmp eq i32 %236, 0
   br i1 %.not231, label %237, label %.critedge236
 
@@ -1433,7 +1433,7 @@ define internal i32 @rtf_object_end(ptr nocapture noundef %0, ptr noundef %1) #0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = tail call fastcc i32 @decode_and_scan(ptr noundef nonnull %4, ptr noundef %1)
+  %10 = tail call fastcc i32 @decode_and_scan(ptr noundef %4, ptr noundef %1)
   br label %11
 
 11:                                               ; preds = %9, %5
@@ -1474,7 +1474,7 @@ declare i32 @cli_gentempfd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decode_and_scan(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @decode_and_scan(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, ptr noundef %3) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 8

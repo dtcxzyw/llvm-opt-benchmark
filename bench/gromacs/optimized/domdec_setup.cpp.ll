@@ -948,7 +948,7 @@ define void @_Z30checkForValidRankCountRequestsibiRKN3gmx25SeparatePmeRanksPermi
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %.0, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %.0, ptr noundef %6, ptr noundef %7)
           to label %40 unwind label %49
 
 40:                                               ; preds = %39
@@ -1032,7 +1032,7 @@ declare void @_ZNK3gmx25SeparatePmeRanksPermitted18reasonsWhyDisabledB5cxx11Ev(p
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = icmp slt i32 %0, 1
   br i1 %5, label %6, label %10
@@ -1978,7 +1978,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit60.i: ; preds = %_ZN3gmx14L
 289:                                              ; preds = %286, %284
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %182, ptr noundef nonnull %24, ptr noundef nonnull %25)
+  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %182, ptr noundef %24, ptr noundef %25)
           to label %290 unwind label %313
 
 290:                                              ; preds = %289
@@ -2007,7 +2007,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit60.i: ; preds = %_ZN3gmx14L
   %307 = lshr exact i64 %306, 2
   %308 = trunc i64 %307 to i32
   %309 = load ptr, ptr %25, align 8
-  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef readonly %12, ptr noundef nonnull readonly align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef nonnull %26, ptr noundef nonnull %16)
+  invoke fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %8, float noundef %296, ptr noundef readonly %12, ptr noundef nonnull readonly align 4 dereferenceable(200) %14, i32 noundef %298, ptr noundef nonnull align 8 dereferenceable(856) %10, float noundef %300, i32 noundef %223, i32 noundef %308, ptr noundef %303, ptr noundef %309, ptr noundef %26, ptr noundef %16)
           to label %310 unwind label %313
 
 310:                                              ; preds = %290
@@ -2183,13 +2183,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef float @_Z17pme_load_estimateRK10gmx_mtop_tRK10t_inputrecPA3_Kf(ptr noundef nonnull align 8 dereferenceable(768), ptr noundef nonnull align 8 dereferenceable(856), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL16fits_pp_pme_perfiif(i32 noundef %0, i32 noundef %1, float noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL16fits_pp_pme_perfiif(i32 noundef %0, i32 noundef range(i32 -2147483648, 1073741824) %1, float noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.211", align 8
   %5 = alloca %"class.std::vector.211", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = sub nsw i32 %0, %1
-  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  invoke fastcc void @_ZL9factorizeiPSt6vectorIiSaIiEES2_(i32 noundef %6, ptr noundef %4, ptr noundef %5)
           to label %7 unwind label %22
 
 7:                                                ; preds = %3
@@ -2374,7 +2374,7 @@ declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, float noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef %11, ptr nocapture noundef %12) unnamed_addr #1 {
+define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_inputrecfiiPKiS9_PN3gmx11BasicVectorIiEESD_(float noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %3, i32 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, float noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull %12) unnamed_addr #1 {
   %14 = icmp eq i32 %8, 0
   br i1 %14, label %15, label %26
 
@@ -2550,7 +2550,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL13comm_cost_estffPA3_KfRK11gmx_ddbox_tlRK10t_inputrecfiRKN3gmx11BasicVectorIiEE(float noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %3, i64 noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, float noundef %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %8) unnamed_addr #1 {
+define internal fastcc noundef float @_ZL13comm_cost_estffPA3_KfRK11gmx_ddbox_tlRK10t_inputrecfiRKN3gmx11BasicVectorIiEE(float noundef %0, float noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(200) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, float noundef %6, i32 noundef %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %8) unnamed_addr #1 {
   %10 = alloca [3 x float], align 4
   %11 = getelementptr inbounds i8, ptr %5, i64 176
   %12 = load i32, ptr %11, align 8

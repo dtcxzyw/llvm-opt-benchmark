@@ -15001,7 +15001,7 @@ invoke.cont126:                                   ; preds = %invoke.cont123
   %44 = load i8, ptr %json_, align 1
   %tobool130 = trunc i8 %44 to i1
   %column_families_ = getelementptr inbounds i8, ptr %this, i64 1912
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef nonnull %agg.tmp121, ptr noundef nonnull %agg.tmp124, i1 noundef zeroext %tobool128, i1 noundef zeroext %tobool129, i1 noundef zeroext %tobool130, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef %agg.tmp121, ptr noundef %agg.tmp124, i1 noundef zeroext %tobool128, i1 noundef zeroext %tobool129, i1 noundef zeroext %tobool130, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
           to label %invoke.cont132 unwind label %lpad131
 
 invoke.cont132:                                   ; preds = %invoke.cont126
@@ -15100,7 +15100,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(pt
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef %options, ptr noundef %file, i1 noundef zeroext %verbose, i1 noundef zeroext %hex, i1 noundef zeroext %json, ptr noundef nonnull align 8 dereferenceable(24) %cf_descs) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef nonnull %options, ptr noundef nonnull %file, i1 noundef zeroext %verbose, i1 noundef zeroext %hex, i1 noundef zeroext %json, ptr noundef nonnull align 8 dereferenceable(24) %cf_descs) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::LRUCacheOptions", align 8
   %agg.tmp.i = alloca %"class.std::shared_ptr.188", align 8
@@ -22034,7 +22034,7 @@ invoke.cont19:                                    ; preds = %.noexc25
           to label %invoke.cont23 unwind label %lpad22
 
 invoke.cont23:                                    ; preds = %invoke.cont19
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef nonnull %agg.tmp18, ptr noundef nonnull %agg.tmp20, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %exec_state_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef %agg.tmp18, ptr noundef %agg.tmp20, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %exec_state_)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %invoke.cont23
@@ -22098,7 +22098,7 @@ invoke.cont41:                                    ; preds = %invoke.cont36
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont41
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef nonnull %agg.tmp30, ptr noundef nonnull %agg.tmp33, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, ptr noundef nonnull %agg.tmp39, ptr noundef nonnull %agg.tmp42)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef %agg.tmp30, ptr noundef %agg.tmp33, i1 noundef zeroext %tobool37, i1 noundef zeroext %tobool38, ptr noundef %agg.tmp39, ptr noundef %agg.tmp42)
           to label %invoke.cont46 unwind label %lpad45
 
 invoke.cont46:                                    ; preds = %invoke.cont44
@@ -22172,7 +22172,7 @@ invoke.cont58:                                    ; preds = %invoke.cont54
   %23 = load i8, ptr %is_key_hex_59, align 1
   %tobool60 = trunc i8 %23 to i1
   %column_families_ = getelementptr inbounds i8, ptr %this, i64 1912
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef nonnull %agg.tmp52, ptr noundef nonnull %agg.tmp55, i1 noundef zeroext false, i1 noundef zeroext %tobool60, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef %agg.tmp52, ptr noundef %agg.tmp55, i1 noundef zeroext false, i1 noundef zeroext %tobool60, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %invoke.cont58
@@ -22253,7 +22253,7 @@ if.end82:                                         ; preds = %cleanup, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef %options, ptr noundef %wal_file, i1 noundef zeroext %print_header, i1 noundef zeroext %print_values, i1 noundef zeroext %is_write_committed, ptr noundef %exec_state) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef nonnull %options, ptr noundef nonnull %wal_file, i1 noundef zeroext %print_header, i1 noundef zeroext %print_values, i1 noundef zeroext %is_write_committed, ptr noundef nonnull %exec_state) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %soptions = alloca %"struct.rocksdb::FileOptions", align 8
@@ -23204,7 +23204,7 @@ ehcleanup214:                                     ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef %options, ptr noundef nonnull %filename, i1 noundef zeroext %output_hex, i1 noundef zeroext %decode_blob_index, ptr noundef %from_key, ptr noundef %to_key) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef nonnull %options, ptr noundef nonnull %filename, i1 noundef zeroext %output_hex, i1 noundef zeroext %decode_blob_index, ptr noundef nonnull %from_key, ptr noundef nonnull %to_key) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %dumper = alloca %"class.rocksdb::SstFileDumper", align 8
   %ref.tmp = alloca %"struct.rocksdb::EnvOptions", align 8
@@ -24539,9 +24539,9 @@ for.end308:                                       ; preds = %cleanup.done, %invo
 land.lhs.true310:                                 ; preds = %for.end308
   %100 = load i8, ptr %is_db_ttl_, align 1
   %tobool312 = trunc i8 %100 to i1
-  br i1 %tobool312, label %for.body.preheader.i, label %if.else315
+  br i1 %tobool312, label %if.then313, label %if.else315
 
-for.body.preheader.i:                             ; preds = %land.lhs.true310
+if.then313:                                       ; preds = %land.lhs.true310
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp1.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8.i)
@@ -24550,9 +24550,9 @@ for.body.preheader.i:                             ; preds = %land.lhs.true310
   %wide.trip.count.i = zext nneg i32 %sub.i69 to i64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %invoke.cont.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %invoke.cont.i ]
-  %time_point.014.i = phi i32 [ %23, %for.body.preheader.i ], [ %add.i, %invoke.cont.i ]
+for.body.i:                                       ; preds = %invoke.cont.i, %if.then313
+  %indvars.iv.i = phi i64 [ 0, %if.then313 ], [ %indvars.iv.next.i, %invoke.cont.i ]
+  %time_point.014.i = phi i32 [ %23, %if.then313 ], [ %add.i, %invoke.cont.i ]
   %101 = load ptr, ptr @stdout, align 8
   invoke void @_ZN7rocksdb17TimeToHumanStringB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, i32 noundef %time_point.014.i)
           to label %.noexc73 unwind label %lpad101.loopexit
@@ -29840,7 +29840,7 @@ invoke.cont:                                      ; preds = %_ZN7rocksdb7Options
   %5 = load i8, ptr %is_write_committed_, align 1
   %tobool4 = trunc i8 %5 to i1
   %exec_state_ = getelementptr inbounds i8, ptr %this, i64 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, ptr noundef nonnull %exec_state_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef %agg.tmp, ptr noundef %agg.tmp2, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, ptr noundef %exec_state_)
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont
@@ -41602,7 +41602,7 @@ invoke.cont62:                                    ; preds = %.noexc32
 
 invoke.cont65:                                    ; preds = %invoke.cont62
   %column_families_ = getelementptr inbounds i8, ptr %this, i64 1912
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp63, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116DumpManifestFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS9_EE(ptr noundef %agg.tmp, ptr noundef %agg.tmp63, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(24) %column_families_)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -41806,7 +41806,7 @@ lpad.i61:                                         ; preds = %.noexc63
   br label %ehcleanup157
 
 invoke.cont153:                                   ; preds = %.noexc63
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef nonnull %agg.tmp139, ptr noundef nonnull %agg.tmp142, i1 noundef zeroext false, i1 noundef zeroext %tobool145, ptr noundef nonnull %agg.tmp146, ptr noundef nonnull %agg.tmp150)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpSstFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbS7_S7_(ptr noundef %agg.tmp139, ptr noundef %agg.tmp142, i1 noundef zeroext false, i1 noundef zeroext %tobool145, ptr noundef %agg.tmp146, ptr noundef %agg.tmp150)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont153
@@ -42215,7 +42215,7 @@ invoke.cont291:                                   ; preds = %.noexc113
           to label %invoke.cont294 unwind label %lpad293
 
 invoke.cont294:                                   ; preds = %invoke.cont291
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef nonnull %agg.tmp289, ptr noundef nonnull %agg.tmp292, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %exec_state_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_111DumpWalFileENS_7OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbPNS_23LDBCommandExecuteResultE(ptr noundef %agg.tmp289, ptr noundef %agg.tmp292, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %exec_state_)
           to label %invoke.cont296 unwind label %lpad295
 
 invoke.cont296:                                   ; preds = %invoke.cont294

@@ -790,7 +790,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_seq_port_connect(ptr nocaptu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = select i1 %3, i64 104, i64 192
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 24
@@ -896,7 +896,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(p
 73:                                               ; preds = %64
   %74 = getelementptr inbounds i8, ptr %1, i64 296
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 %69(ptr noundef %75, ptr noundef %2) #10
+  %76 = tail call i32 %69(ptr noundef %75, ptr noundef nonnull %2) #10
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread, label %81
 
@@ -922,7 +922,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @check_and_subscribe_port(p
   %88 = getelementptr inbounds i8, ptr %1, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
-  %91 = tail call i32 @snd_seq_client_notify_subscription(i32 noundef %87, i32 noundef %90, ptr noundef %2, i32 noundef 66) #10
+  %91 = tail call i32 @snd_seq_client_notify_subscription(i32 noundef %87, i32 noundef %90, ptr noundef nonnull %2, i32 noundef 66) #10
   br label %97
 
 92:                                               ; preds = %.loopexit, %.thread
@@ -1256,7 +1256,7 @@ declare dso_local void @__init_rwsem(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @snd_use_lock_sync_helper(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @clear_subscriber_list(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %1

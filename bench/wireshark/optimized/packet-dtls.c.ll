@@ -2974,7 +2974,7 @@ proto_item_set_generated.exit303:                 ; preds = %259, %256, %252, %2
   %303 = load ptr, ptr %10, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 32
   %305 = load ptr, ptr %304, align 8
-  call fastcc void @export_pdu_packet(ptr noundef nonnull %183, ptr noundef nonnull %1, i8 noundef zeroext 13, ptr noundef %305)
+  call fastcc void @export_pdu_packet(ptr noundef %183, ptr noundef nonnull %1, i8 noundef zeroext 13, ptr noundef %305)
   br label %.critedge
 
 .critedge297:                                     ; preds = %295
@@ -3114,7 +3114,7 @@ define internal fastcc void @dissect_dtls_alert(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i8 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i8 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = add i32 %4, %3
   %13 = icmp ult i32 %3, %12
@@ -3488,13 +3488,13 @@ declare void @ssl_print_data(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @export_pdu_packet(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @export_pdu_packet(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext range(i8 12, 14) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = zext nneg i8 %2 to i16
   %6 = tail call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef %3, i16 noundef zeroext %5) #6
-  %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
+  %7 = tail call i32 @tvb_captured_length(ptr noundef nonnull %0) #6
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %7, ptr %8, align 8
-  %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
+  %9 = tail call i32 @tvb_reported_length(ptr noundef nonnull %0) #6
   %10 = getelementptr inbounds i8, ptr %6, i64 20
   store i32 %9, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %6, i64 24
@@ -3511,7 +3511,7 @@ declare i32 @dissector_try_heuristic(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_dtls_heartbeat(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = load i32, ptr @hf_dtls_heartbeat_message, align 4
   %9 = add i32 %5, -32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %9, i32 noundef 0) #6

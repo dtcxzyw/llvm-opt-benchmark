@@ -1315,7 +1315,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdShadeOutputES1_EvT_S3_RSa
 
 82:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22
   %.sroa.023.037 = phi ptr [ %61, %.lr.ph ], [ %186, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit22 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.037)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.037)
           to label %83 unwind label %168
 
 83:                                               ; preds = %82
@@ -1556,7 +1556,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraph10GetOutp
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdShadeNodeGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdProperty12GetNamespaceEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -2468,7 +2468,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdShadeOutputESaIS1_EED2Ev.ex
 
 356:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit85.i, %.lr.ph575.i
   %.sroa.0388.0573.i = phi ptr [ %291, %.lr.ph575.i ], [ %1279, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit85.i ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0388.0573.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_GetRenderContextForShaderOutputERKNS_14UsdShadeOutputE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0388.0573.i)
           to label %357 unwind label %369, !noalias !17
 
 357:                                              ; preds = %356
@@ -3390,7 +3390,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdMaterialNetworkSchem
           to label %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i unwind label %.loopexit407.i, !noalias !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdMaterialNetworkSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 4 dereferenceable(8) %44)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(8) %154, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %79, ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull align 4 dereferenceable(8) %44)
           to label %744 unwind label %1267, !noalias !17
 
 744:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i
@@ -6153,7 +6153,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdMaterialNetworkSchem
 
 _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i61: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_45HdMaterialNetworkSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i59, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_7TfTokenELj6EE12_InitStorageEm.exit.i.i.i126
   store i64 0, ptr %9, align 8, !noalias !84
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef nonnull %7, ptr noundef nonnull align 8 dereferenceable(8) %1844, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(8) %1844, ptr noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull readonly align 4 dereferenceable(8) %82, ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %1911 unwind label %2013, !noalias !84
 
 1911:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorC2ERKS0_.exit.i61
@@ -10274,7 +10274,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdShadeOutput11GetBaseNam
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdShadeOutput19GetConnectedSourcesEPSt6vectorINS_7SdfPathESaIS2_EE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfSmallVector.56") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(8) %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(8) %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdShadeShader", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
@@ -11271,7 +11271,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit.i: ; preds = %480, %475
 485:                                              ; preds = %484
   store ptr null, ptr %378, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22UsdShadeConnectableAPIE, i64 16), ptr %16, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L10_WalkGraphERKNS_22UsdShadeConnectableAPIEPNS_14TfDenseHashMapINS_7TfTokenESt10shared_ptrINS_16HdDataSourceBaseEENS_6TfHashESt8equal_toIS4_ELj128EEERKNS_32UsdImagingDataSourceStageGlobalsERKS4_RKNS_7SdfPathERKNS_19HdDataSourceLocatorESK_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
           to label %486 unwind label %520
 
 486:                                              ; preds = %485
@@ -15950,7 +15950,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   br i1 %.not, label %114, label %97
 
 97:                                               ; preds = %95
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_14UsdLuxLightAPIEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_14UsdLuxLightAPIEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias writable align 8 %6)
           to label %98 unwind label %143
 
 98:                                               ; preds = %97
@@ -16348,7 +16348,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_14UsdLuxLightAPIEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_14UsdLuxLightAPIEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12UsdLuxTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i.i = icmp eq i64 %2, 0
@@ -18089,7 +18089,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
   br i1 %.not, label %114, label %97
 
 97:                                               ; preds = %95
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_17UsdLuxLightFilterEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_17UsdLuxLightFilterEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias writable align 8 %6)
           to label %98 unwind label %143
 
 98:                                               ; preds = %97
@@ -18449,7 +18449,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11: ; preds = %41, %36, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_17UsdLuxLightFilterEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_145_UsdImagingDataSourceRenderContextIdentifiersINS_17UsdLuxLightFilterEE17_GetTypedShaderIdEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12UsdLuxTokensE seq_cst, align 8
   %3 = inttoptr i64 %2 to ptr
   %.not.i.i = icmp eq i64 %2, 0

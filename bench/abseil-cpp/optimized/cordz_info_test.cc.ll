@@ -17856,7 +17856,7 @@ invoke.cont10:                                    ; preds = %if.then5.i20, %if.e
 invoke.cont11:                                    ; preds = %invoke.cont10
   %5 = extractvalue { ptr, i64 } %call12, 0
   %6 = extractvalue { ptr, i64 } %call12, 1
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %got_stack, ptr %5, i64 %6)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias align 8 %got_stack, ptr %5, i64 %6)
           to label %invoke.cont13 unwind label %ehcleanup41.thread126
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -17864,7 +17864,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   %sub.ptr.rhs.cast.i.i30 = ptrtoint ptr %local_stack.sroa.0.3 to i64
   %sub.ptr.sub.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i29, %sub.ptr.rhs.cast.i.i30
   %sub.ptr.div.i.i32 = ashr exact i64 %sub.ptr.sub.i.i31, 3
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %expected_stack, ptr nonnull %local_stack.sroa.0.3, i64 %sub.ptr.div.i.i32)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias align 8 %expected_stack, ptr nonnull %local_stack.sroa.0.3, i64 %sub.ptr.div.i.i32)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont13
@@ -18114,7 +18114,7 @@ ehcleanup42:                                      ; preds = %if.then.i.i.i48, %e
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias align 8 %agg.result, ptr readonly %raw_stack.coerce0, i64 %raw_stack.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %agg.result, ptr readonly %raw_stack.coerce0, i64 %raw_stack.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::AlphaNum", align 8
   %ref.tmp6 = alloca %"class.absl::AlphaNum", align 8
@@ -21210,7 +21210,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont8:                                     ; preds = %invoke.cont6
   %4 = extractvalue { ptr, i64 } %call9, 0
   %5 = extractvalue { ptr, i64 } %call9, 1
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %stack, ptr %4, i64 %5)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias align 8 %stack, ptr %4, i64 %5)
           to label %invoke.cont10 unwind label %lpad2
 
 invoke.cont10:                                    ; preds = %invoke.cont8
@@ -21220,7 +21220,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
 invoke.cont13:                                    ; preds = %invoke.cont10
   %6 = extractvalue { ptr, i64 } %call14, 0
   %7 = extractvalue { ptr, i64 } %call14, 1
-  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias nonnull align 8 %parent_stack, ptr %6, i64 %7)
+  invoke fastcc void @_ZN4absl13cord_internal12_GLOBAL__N_111FormatStackB5cxx11ENS_4SpanIKPvEE(ptr noalias align 8 %parent_stack, ptr %6, i64 %7)
           to label %invoke.cont15 unwind label %lpad12
 
 invoke.cont15:                                    ; preds = %invoke.cont13

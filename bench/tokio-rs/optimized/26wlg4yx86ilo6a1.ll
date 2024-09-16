@@ -1900,7 +1900,7 @@ define hidden void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h46ee
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -2013,7 +2013,7 @@ define hidden void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h8741
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -6723,7 +6723,7 @@ define void @_ZN5tokio3net3udp9UdpSocket9bind_addr17hcc6e710d56c95a54E(ptr noali
   br i1 %trunc, label %10, label %9
 
 9:                                                ; preds = %2
-  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.84)
+  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.84)
   br label %12
 
 10:                                               ; preds = %2
@@ -6737,7 +6737,7 @@ define void @_ZN5tokio3net3udp9UdpSocket9bind_addr17hcc6e710d56c95a54E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -6836,7 +6836,7 @@ _ZN5tokio7runtime9scheduler6Handle7current17h7aadd443a600c124E.exit.i.i: ; preds
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net3udp9UdpSocket8from_std17h3ca5d7b1a98b5a85E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
-  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   ret void
 }
 
@@ -8014,7 +8014,7 @@ define { i64, ptr } @_ZN5tokio3net3udp9UdpSocket10take_error17h97e6af1c8df76d82E
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN101_$LT$tokio..net..udp..UdpSocket$u20$as$u20$core..convert..TryFrom$LT$std..net..udp..UdpSocket$GT$$GT$8try_from17h0b08dbb5d9a29822E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #2 {
-  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.88)
+  tail call fastcc void @_ZN5tokio3net3udp9UdpSocket3new17hc10fc764e0b8aeeeE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.88)
   ret void
 }
 
@@ -8067,7 +8067,7 @@ define hidden void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram8from_mio17h
   %4 = alloca { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1647
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90), !noalias !1647
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90), !noalias !1647
   %5 = load i64, ptr %3, align 8, !range !151, !noalias !1647, !noundef !5
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -8299,7 +8299,7 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram4pair17h6d3f04d6629
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1669
-  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
+  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %13
@@ -8324,7 +8324,7 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram4pair17h6d3f04d6629
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1672
-  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
+  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %2, i32 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
           to label %.noexc43 unwind label %25
 
 .noexc43:                                         ; preds = %20
@@ -8445,7 +8445,7 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram8from_std17h2867c64
   %.sroa.5 = alloca [16 x i8], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %5 = load i64, ptr %4, align 8, !range !151, !noundef !5
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %4, i64 8
@@ -8664,7 +8664,7 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram3new17h40dc916ec332
   %.sroa.5 = alloca [16 x i8], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90)
   %4 = load i64, ptr %3, align 8, !range !151, !noundef !5
   %5 = icmp eq i64 %4, 2
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -8710,7 +8710,7 @@ define void @_ZN5tokio3net4unix8datagram6socket12UnixDatagram7unbound17hda8d804b
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1756
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90), !noalias !1756
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %2, i32 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.90), !noalias !1756
   %10 = load i64, ptr %2, align 8, !range !151, !noalias !1756, !noundef !5
   %11 = icmp eq i64 %10, 2
   %12 = getelementptr inbounds i8, ptr %2, i64 8
@@ -9160,7 +9160,7 @@ define void @"_ZN141_$LT$tokio..net..unix..datagram..socket..UnixDatagram$u20$as
   %3 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1795)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1798
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.93), !noalias !1795
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17hdcd0afbd57d59fb7E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.93), !noalias !1795
   %4 = load i64, ptr %3, align 8, !range !151, !noalias !1798, !noundef !5
   %5 = icmp eq i64 %4, 2
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -9581,7 +9581,7 @@ define void @_ZN5tokio3net4unix8listener12UnixListener11poll_accept17hb95274284f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.011.sroa.3, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.4.0..sroa_idx, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1883
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %.sroa.02.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98), !noalias !1883
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, i32 noundef %.sroa.02.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98), !noalias !1883
   %12 = load i64, ptr %4, align 8, !range !151, !noalias !1883, !noundef !5
   %13 = icmp eq i64 %12, 2
   %14 = getelementptr inbounds i8, ptr %4, i64 8
@@ -9867,7 +9867,7 @@ define void @_ZN5tokio3net4unix6stream10UnixStream8from_std17hcd1399f08686e7c8E(
   %.sroa.5 = alloca [16 x i8], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
   %5 = load i64, ptr %4, align 8, !range !151, !noundef !5
   %6 = icmp eq i64 %5, 2
   %7 = getelementptr inbounds i8, ptr %4, i64 8
@@ -10104,7 +10104,7 @@ define void @_ZN5tokio3net4unix6stream10UnixStream4pair17hf99bcac3c8d7c61dE(ptr 
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !1968
-  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
+  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
           to label %.noexc unwind label %55
 
 .noexc:                                           ; preds = %13
@@ -10129,7 +10129,7 @@ define void @_ZN5tokio3net4unix6stream10UnixStream4pair17hf99bcac3c8d7c61dE(ptr 
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !1971
-  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
+  invoke fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %2, i32 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
           to label %.noexc43 unwind label %25
 
 .noexc43:                                         ; preds = %20
@@ -10250,7 +10250,7 @@ define void @_ZN5tokio3net4unix6stream10UnixStream3new17h0a8e07f54ee32a3dE(ptr n
   %.sroa.5 = alloca [16 x i8], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.98)
   %4 = load i64, ptr %3, align 8, !range !151, !noundef !5
   %5 = icmp eq i64 %4, 2
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -10518,7 +10518,7 @@ define void @"_ZN125_$LT$tokio..net..unix..stream..UnixStream$u20$as$u20$core..c
   %3 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2050)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !2053
-  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.99), !noalias !2050
+  call fastcc void @"_ZN5tokio2io12poll_evented20PollEvented$LT$E$GT$3new17h47e5e67583582479E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.847b8f12f691ee51e4721496cb17e98d.99), !noalias !2050
   %4 = load i64, ptr %3, align 8, !range !151, !noalias !2053, !noundef !5
   %5 = icmp eq i64 %4, 2
   %6 = getelementptr inbounds i8, ptr %3, i64 8

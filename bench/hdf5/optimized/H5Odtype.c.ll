@@ -305,7 +305,7 @@ define internal ptr @H5O__dtype_shared_decode(ptr noundef %0, ptr noundef %1, i3
   br label %40
 
 40:                                               ; preds = %.sink.split.i, %35, %34
-  %41 = call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %22, i1 noundef zeroext %29, ptr noundef nonnull %21)
+  %41 = call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %3, ptr noundef %7, ptr noundef nonnull %22, i1 noundef zeroext %29, ptr noundef nonnull %21)
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %H5O__dtype_decode.exit
 
@@ -365,7 +365,7 @@ define internal range(i32 -1, 1) i32 @H5O__dtype_shared_encode(ptr noundef %0, i
 16:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %3, ptr %6, align 8
-  %17 = call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %6, ptr noundef nonnull readonly %4)
+  %17 = call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %6, ptr noundef nonnull readonly %4)
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %H5O__dtype_encode.exit
 
@@ -798,7 +798,7 @@ declare ptr @H5T__alloc() local_unnamed_addr #1
 declare i64 @H5F_get_rfic_flags(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [33 x i64], align 16
   %.pre = load ptr, ptr %1, align 8
   br i1 %3, label %19, label %7
@@ -2262,7 +2262,7 @@ default.unreachable1352:                          ; preds = %196
   br label %.thread1035
 
 950:                                              ; preds = %.loopexit1065
-  %951 = call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %928, i1 noundef zeroext %3, ptr noundef %4)
+  %951 = call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %928, i1 noundef zeroext %3, ptr noundef %4)
   %952 = icmp slt i32 %951, 0
   br i1 %952, label %953, label %980
 
@@ -2752,7 +2752,7 @@ default.unreachable1352:                          ; preds = %196
   %1259 = load ptr, ptr %38, align 8
   %1260 = getelementptr inbounds i8, ptr %1259, i64 32
   %1261 = load ptr, ptr %1260, align 8
-  %1262 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %1261, i1 noundef zeroext %3, ptr noundef %4)
+  %1262 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef %1, ptr noundef %1261, i1 noundef zeroext %3, ptr noundef %4)
   %1263 = icmp slt i32 %1262, 0
   br i1 %1263, label %1264, label %1268
 
@@ -3173,7 +3173,7 @@ default.unreachable1352:                          ; preds = %196
   %1504 = load ptr, ptr %38, align 8
   %1505 = getelementptr inbounds i8, ptr %1504, i64 32
   %1506 = load ptr, ptr %1505, align 8
-  %1507 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %1506, i1 noundef zeroext %3, ptr noundef %4)
+  %1507 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef %1, ptr noundef %1506, i1 noundef zeroext %3, ptr noundef %4)
   %1508 = icmp slt i32 %1507, 0
   br i1 %1508, label %1509, label %1513
 
@@ -3466,7 +3466,7 @@ default.unreachable1352:                          ; preds = %196
   %1681 = load ptr, ptr %38, align 8
   %1682 = getelementptr inbounds i8, ptr %1681, i64 32
   %1683 = load ptr, ptr %1682, align 8
-  %1684 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %1683, i1 noundef zeroext %3, ptr noundef %4)
+  %1684 = tail call fastcc i32 @H5O__dtype_decode_helper(ptr noundef %0, ptr noundef %1, ptr noundef %1683, i1 noundef zeroext %3, ptr noundef %4)
   %1685 = icmp slt i32 %1684, 0
   br i1 %1685, label %1686, label %1690
 
@@ -3735,7 +3735,7 @@ declare i32 @H5T__free(ptr noundef) local_unnamed_addr #1
 declare i32 @H5O__shared_encode(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__dtype_encode_helper(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__dtype_encode_helper(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store ptr %4, ptr %0, align 8
@@ -4584,7 +4584,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %500 = load ptr, ptr %499, align 8
   %501 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %500, i64 %indvars.iv397, i32 3
   %502 = load ptr, ptr %501, align 8
-  %503 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %0, ptr noundef %502)
+  %503 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %0, ptr noundef %502)
   %504 = icmp slt i32 %503, 0
   br i1 %504, label %505, label %378
 
@@ -4616,7 +4616,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %524 = load i32, ptr %523, align 4
   %525 = getelementptr inbounds i8, ptr %33, i64 32
   %526 = load ptr, ptr %525, align 8
-  %527 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %0, ptr noundef %526)
+  %527 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %0, ptr noundef %526)
   %528 = icmp slt i32 %527, 0
   br i1 %528, label %532, label %.preheader348
 
@@ -4751,7 +4751,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %.14 = phi i32 [ %607, %597 ], [ %595, %592 ]
   %609 = getelementptr inbounds i8, ptr %33, i64 32
   %610 = load ptr, ptr %609, align 8
-  %611 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %0, ptr noundef %610)
+  %611 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %0, ptr noundef %610)
   %612 = icmp slt i32 %611, 0
   br i1 %612, label %613, label %.loopexit346
 
@@ -4900,7 +4900,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %325, %331, %337, %3
   %699 = phi ptr [ %669, %._crit_edge ], [ %634, %633 ], [ %695, %.lr.ph356 ]
   %700 = getelementptr inbounds i8, ptr %699, i64 32
   %701 = load ptr, ptr %700, align 8
-  %702 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef nonnull %0, ptr noundef %701)
+  %702 = tail call fastcc i32 @H5O__dtype_encode_helper(ptr noundef %0, ptr noundef %701)
   %703 = icmp slt i32 %702, 0
   br i1 %703, label %704, label %.loopexit346
 

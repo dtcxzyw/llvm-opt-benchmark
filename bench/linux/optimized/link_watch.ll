@@ -223,7 +223,7 @@ define dso_local void @linkwatch_run_queue() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__linkwatch_run_queue(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__linkwatch_run_queue(i32 noundef range(i32 0, 2) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #4
   store ptr %2, ptr %2, align 8

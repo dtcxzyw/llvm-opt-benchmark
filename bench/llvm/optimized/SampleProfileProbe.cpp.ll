@@ -5273,7 +5273,7 @@ define dso_local void @_ZN4llvm21PseudoProbeUpdatePass13runOnFunctionERNS_8Funct
 
 31:                                               ; preds = %.lr.ph
   %32 = call fastcc noundef i64 @_ZL20computeCallStackHashRKN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %28)
-  %33 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %23, i1 noundef zeroext false) #21
+  %33 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %23, i1 noundef zeroext false) #21
   %34 = extractvalue { i64, i8 } %33, 0
   %35 = extractvalue { i64, i8 } %33, 1
   %36 = trunc i8 %35 to i1
@@ -5742,7 +5742,7 @@ _ZNSt8__detail9_Map_baseISt4pairImmES1_IKS2_fESaIS4_ENS_10_Select1stESt8equal_to
   br i1 %236, label %237, label %245
 
 237:                                              ; preds = %_ZNSt8__detail9_Map_baseISt4pairImmES1_IKS2_fESaIS4_ENS_10_Select1stESt8equal_toIS2_EN4llvm9pair_hashImmEENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS2_.exit58
-  %238 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %136, i1 noundef zeroext false) #21
+  %238 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %136, i1 noundef zeroext false) #21
   %239 = extractvalue { i64, i8 } %238, 0
   %240 = extractvalue { i64, i8 } %238, 1
   %241 = trunc i8 %240 to i1

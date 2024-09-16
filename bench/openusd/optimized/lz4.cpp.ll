@@ -16779,7 +16779,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L13LZ4_wildCopy8EPvPKvS1_.exit751: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L35LZ4_decompress_safe_withSmallPrefixEPKcPciim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L35LZ4_decompress_safe_withSmallPrefixEPKcPciim(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #1 {
   %6 = sub nsw i64 0, %4
   %7 = getelementptr inbounds i8, ptr %1, i64 %6
   %8 = icmp eq ptr %0, null
@@ -19020,7 +19020,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz420LZ4_slideInpu
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4_memcpy_using_offsetEPhPKhS1_m(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, i64 noundef %3) unnamed_addr #9 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_lz4L23LZ4_memcpy_using_offsetEPhPKhS1_m(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2, i64 noundef range(i64 0, 16) %3) unnamed_addr #9 {
   store i32 0, ptr %0, align 1
   switch i64 %3, label %10 [
     i64 1, label %5

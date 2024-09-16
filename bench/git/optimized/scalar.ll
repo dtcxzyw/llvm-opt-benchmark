@@ -1082,7 +1082,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %options, i8 0, i64 88, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_register.usage, i64 16, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef null, ptr noundef nonnull %options, ptr noundef nonnull %usage, i32 noundef 0) #17
-  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef null)
+  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   %call4 = call fastcc i32 @register_dir()
   ret i32 %call4
 }
@@ -1101,7 +1101,7 @@ entry:
   br i1 %cmp, label %if.then, label %entry.split
 
 entry.split:                                      ; preds = %entry
-  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef null)
+  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   br label %if.end19
 
 if.then:                                          ; preds = %entry
@@ -1220,7 +1220,7 @@ strbuf_strip_suffix.exit26:                       ; preds = %strbuf_strip_suffix
 if.end:                                           ; preds = %land.lhs.true, %if.then
   call void @strbuf_release(ptr noundef nonnull %src_path) #17
   call void @strbuf_release(ptr noundef nonnull %workdir_path) #17
-  call fastcc void @setup_enlistment_directory(i32 noundef 1, ptr noundef nonnull %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef null)
+  call fastcc void @setup_enlistment_directory(i32 noundef 1, ptr noundef nonnull %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   br label %if.end19
 
 if.end19:                                         ; preds = %entry.split, %if.end
@@ -1301,7 +1301,7 @@ if.end41:                                         ; preds = %if.end41.loopexit, 
   %i.1 = phi i32 [ -1, %if.end ], [ %7, %if.end41.loopexit ]
   %dec = add nsw i32 %call, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
-  call fastcc void @setup_enlistment_directory(i32 noundef %dec, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %usagestr, ptr noundef nonnull %options, ptr noundef null)
+  call fastcc void @setup_enlistment_directory(i32 noundef %dec, ptr noundef nonnull %incdec.ptr, ptr noundef %usagestr, ptr noundef %options, ptr noundef null)
   call void @strbuf_release(ptr noundef nonnull %buf) #17
   %cmp44 = icmp eq i32 %i.1, 0
   br i1 %cmp44, label %if.then45, label %if.end47
@@ -1390,7 +1390,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef null)
+  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef null)
   %call16 = call fastcc i32 @set_recommended_config(i32 noundef 1)
   br label %return
 
@@ -1635,7 +1635,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  call fastcc void @setup_enlistment_directory(i32 noundef 1, ptr noundef %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef nonnull %enlistment)
+  call fastcc void @setup_enlistment_directory(i32 noundef 1, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef nonnull %enlistment)
   %buf = getelementptr inbounds i8, ptr %enlistment, i64 16
   %0 = load ptr, ptr %buf, align 8
   %call7 = call i32 @dir_inside_of(ptr noundef %call, ptr noundef %0) #17
@@ -1810,7 +1810,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %usage, ptr noundef nonnull align 16 dereferenceable(16) @__const.cmd_diagnose.usage, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %diagnostics_root, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_diagnose.diagnostics_root, i64 24, i1 false)
   %call = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef null, ptr noundef nonnull %options, ptr noundef nonnull %usage, i32 noundef 0) #17
-  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef nonnull %usage, ptr noundef nonnull %options, ptr noundef nonnull %diagnostics_root)
+  call fastcc void @setup_enlistment_directory(i32 noundef %call, ptr noundef %argv, ptr noundef %usage, ptr noundef %options, ptr noundef nonnull %diagnostics_root)
   call void @strbuf_add(ptr noundef nonnull %diagnostics_root, ptr noundef nonnull @.str.180, i64 noundef 19) #17
   %buf = getelementptr inbounds i8, ptr %diagnostics_root, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -1930,10 +1930,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_recommended_config(i32 noundef %reconfigure) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @set_recommended_config(i32 noundef range(i32 0, 2) %reconfigure) unnamed_addr #2 {
 entry:
   %value = alloca ptr, align 8
-  %call32 = tail call fastcc i32 @set_scalar_config(ptr noundef nonnull @__const.set_recommended_config.config, i32 noundef %reconfigure)
+  %call32 = tail call fastcc i32 @set_scalar_config(ptr noundef @__const.set_recommended_config.config, i32 noundef %reconfigure)
   %tobool1.not33 = icmp eq i32 %call32, 0
   br i1 %tobool1.not33, label %for.cond, label %if.then
 
@@ -1945,7 +1945,7 @@ for.cond:                                         ; preds = %entry, %for.body
 
 for.body:                                         ; preds = %for.cond
   %add.ptr = getelementptr inbounds %struct.scalar_config, ptr @__const.set_recommended_config.config, i64 %indvars.iv.next
-  %call = tail call fastcc i32 @set_scalar_config(ptr noundef nonnull %add.ptr, i32 noundef %reconfigure)
+  %call = tail call fastcc i32 @set_scalar_config(ptr noundef %add.ptr, i32 noundef %reconfigure)
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %for.cond, label %if.then.loopexit, !llvm.loop !17
 
@@ -1984,7 +1984,7 @@ have_fsmonitor_support.exit:                      ; preds = %for.end
   br i1 %cmp.i.not, label %if.then13, label %if.end23
 
 if.then13:                                        ; preds = %have_fsmonitor_support.exit
-  %call14 = tail call fastcc i32 @set_scalar_config(ptr noundef nonnull @__const.set_recommended_config.fsmonitor, i32 noundef %reconfigure)
+  %call14 = tail call fastcc i32 @set_scalar_config(ptr noundef @__const.set_recommended_config.fsmonitor, i32 noundef %reconfigure)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.end23, label %if.then16
 
@@ -2181,7 +2181,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @git_config_set_gently(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @set_scalar_config(ptr nocapture noundef readonly %config, i32 noundef %reconfigure) unnamed_addr #2 {
+define internal fastcc i32 @set_scalar_config(ptr nocapture noundef nonnull readonly %config, i32 noundef range(i32 0, 2) %reconfigure) unnamed_addr #2 {
 entry:
   %value = alloca ptr, align 8
   store ptr null, ptr %value, align 8
@@ -2236,7 +2236,7 @@ declare i32 @fsm_settings__get_reason(ptr noundef) local_unnamed_addr #6
 declare i32 @fsmonitor_ipc__get_state() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setup_enlistment_directory(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %usagestr, ptr noundef %options, ptr noundef %enlistment_root) unnamed_addr #2 {
+define internal fastcc void @setup_enlistment_directory(i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef nonnull %usagestr, ptr noundef nonnull %options, ptr noundef %enlistment_root) unnamed_addr #2 {
 entry:
   %path = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %path, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_diagnose.diagnostics_root, i64 24, i1 false)
@@ -2254,7 +2254,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end2
 
 if.then1:                                         ; preds = %if.end
-  tail call void @usage_with_options(ptr noundef %usagestr, ptr noundef %options) #16
+  tail call void @usage_with_options(ptr noundef nonnull %usagestr, ptr noundef nonnull %options) #16
   unreachable
 
 if.end2:                                          ; preds = %if.end

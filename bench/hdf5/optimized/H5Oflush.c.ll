@@ -144,7 +144,7 @@ declare ptr @H5O__obj_class(ptr noundef) local_unnamed_addr #1
 define range(i32 -1, 1) i32 @H5O_flush_common(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
-  %4 = call fastcc i32 @H5O__oh_tag(ptr noundef %0, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @H5O__oh_tag(ptr noundef %0, ptr noundef %3)
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %10
 
@@ -185,7 +185,7 @@ define range(i32 -1, 1) i32 @H5O_flush_common(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__oh_tag(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__oh_tag(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call ptr @H5O_protect(ptr noundef %0, i32 noundef 128, i1 noundef zeroext false) #3
   %4 = icmp eq ptr %3, null
   br i1 %4, label %14, label %5
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata(ptr noundef %0, i64 noundef %1
   br label %100
 
 52:                                               ; preds = %45, %35
-  %53 = call fastcc i32 @H5O__oh_tag(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %53 = call fastcc i32 @H5O__oh_tag(ptr noundef nonnull %0, ptr noundef %3)
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %59
 

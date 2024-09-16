@@ -1402,7 +1402,7 @@ define hidden void @"_ZN4core3ptr135drop_in_place$LT$$LT$tokio..fs..file..File$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he8dba66d54f965d6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he8dba66d54f965d6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = icmp eq ptr %2, null
   br i1 %3, label %"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hcbe70498dbcd9ab2E.exit", label %4
@@ -3984,7 +3984,7 @@ define void @_ZN5tokio2io5stdin5stdin17hdcb5fa77af33e841E(ptr noalias nocapture 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { { i64, ptr }, i64 }, { i64, { i8, i8 }, [6 x i8] } }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -4167,7 +4167,7 @@ define void @_ZN5tokio2io4util9read_line18finish_string_read17hcb15df1af6c0aa8aE
 
 29:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %18)
+  call fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef align 8 dereferenceable(24) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %10, i64 noundef %18)
   %30 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc8019a83da382dfaE(i8 noundef 21, ptr noalias noundef nonnull readonly align 1 @anon.a04ce7f5fe84a8ff0b9c5affd729a942.65, i64 noundef 34)
   store i64 1, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -4223,7 +4223,7 @@ define void @_ZN5tokio2io4util9read_line18finish_string_read17hcb15df1af6c0aa8aE
   %47 = load ptr, ptr %16, align 8, !nonnull !5, !noundef !5
   store ptr %47, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  invoke fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %3)
+  invoke fastcc void @_ZN5tokio2io4util9read_line22put_back_original_data17h8ef3785fec7bc3d7E(ptr noalias noundef align 8 dereferenceable(24) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %9, i64 noundef %3)
           to label %70 unwind label %68
 
 48:                                               ; preds = %41, %36
@@ -5147,7 +5147,7 @@ _ZN5tokio7runtime9scheduler14current_thread4Core15next_local_task17h23337b13f7e7
 51:                                               ; preds = %48
   %52 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he8dba66d54f965d6E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3) #36
+  invoke fastcc void @"_ZN4core3ptr160drop_in_place$LT$core..option..Option$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17he8dba66d54f965d6E"(ptr noalias noundef align 8 dereferenceable(8) %3) #36
           to label %53 unwind label %54
 
 53:                                               ; preds = %51

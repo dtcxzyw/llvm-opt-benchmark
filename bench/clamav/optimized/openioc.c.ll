@@ -76,7 +76,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = call fastcc i32 @openioc_parse_indicator(ptr noundef nonnull %10, ptr noundef nonnull %5)
+  %22 = call fastcc i32 @openioc_parse_indicator(ptr noundef %10, ptr noundef %5)
   %.not119 = icmp eq i32 %22, 0
   br i1 %.not119, label %25, label %23
 
@@ -377,18 +377,18 @@ declare i32 @xmlStrEqual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlTextReaderNodeType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
-  %3 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
+define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+  %3 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %.not.i30 = icmp eq i32 %3, 1
   br i1 %.not.i30, label %.lr.ph, label %openioc_read.exit.thread
 
 .lr.ph:                                           ; preds = %2, %openioc_parse_indicatoritem.exit.thread
-  %4 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef %0) #6
+  %4 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef nonnull %0) #6
   %.not8.i = icmp eq ptr %4, null
   br i1 %.not8.i, label %openioc_read.exit.thread, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %6 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %7 = icmp eq i32 %6, 15
   %8 = select i1 %7, ptr @.str.16, ptr @.str.11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %4, ptr noundef nonnull %8) #6
@@ -397,7 +397,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %11 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %15
 
@@ -412,23 +412,23 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not22, label %94, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %18 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %20, label %94
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
+  %21 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %.not.i27.i = icmp eq i32 %21, 1
   br i1 %.not.i27.i, label %.lr.ph.i, label %openioc_parse_indicatoritem.exit.thread
 
 .lr.ph.i:                                         ; preds = %20, %openioc_is_context_hash.exit.i
   %.028.i = phi i32 [ %.1.i, %openioc_is_context_hash.exit.i ], [ 0, %20 ]
-  %22 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef %0) #6
+  %22 = tail call ptr @xmlTextReaderConstLocalName(ptr noundef nonnull %0) #6
   %.not8.i.i = icmp eq ptr %22, null
   br i1 %.not8.i.i, label %openioc_parse_indicatoritem.exit.thread, label %23
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %24 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %25 = icmp eq i32 %24, 15
   %26 = select i1 %25, ptr @.str.16, ptr @.str.11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, ptr noundef nonnull %22, ptr noundef nonnull %26) #6
@@ -437,13 +437,13 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not.i26, label %50, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %29 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %50
 
 31:                                               ; preds = %28
-  %32 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef %0, ptr noundef nonnull @.str.19) #6
-  %33 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef %0, ptr noundef nonnull @.str.20) #6
+  %32 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #6
+  %33 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.20) #6
   %34 = icmp ne ptr %32, null
   %35 = icmp ne ptr %33, null
   %or.cond.i.i = select i1 %34, i1 %35, i1 false
@@ -496,7 +496,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not18.i, label %88, label %52
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %53 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %55, label %88
 
@@ -505,7 +505,7 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %56, label %57, label %71
 
 57:                                               ; preds = %55
-  %58 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef %0, ptr noundef nonnull @.str.25) #6
+  %58 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.25) #6
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %61
 
@@ -539,17 +539,17 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br label %71
 
 71:                                               ; preds = %69, %55
-  %72 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
+  %72 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %73 = icmp eq i32 %72, 1
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %71
-  %75 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %75 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %76 = icmp eq i32 %75, 3
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %74
-  %78 = tail call ptr @xmlTextReaderConstValue(ptr noundef %0) #6
+  %78 = tail call ptr @xmlTextReaderConstValue(ptr noundef nonnull %0) #6
   %.not27.i.i = icmp eq ptr %78, null
   br i1 %.not27.i.i, label %86, label %79
 
@@ -581,13 +581,13 @@ define internal fastcc range(i32 0, 21) i32 @openioc_parse_indicator(ptr noundef
   br i1 %.not19.i, label %openioc_is_context_hash.exit.i, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %91 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %92 = icmp eq i32 %91, 15
   br i1 %92, label %openioc_parse_indicatoritem.exit.thread, label %openioc_is_context_hash.exit.i
 
 openioc_is_context_hash.exit.i:                   ; preds = %90, %88, %87, %86, %82, %67, %60, %48, %47
   %.1.i = phi i32 [ %.028.i, %90 ], [ %.028.i, %88 ], [ %.020.i.i, %47 ], [ %.020.i.i, %48 ], [ 0, %60 ], [ 0, %67 ], [ %.028.i, %82 ], [ %.028.i, %86 ], [ %.028.i, %87 ]
-  %93 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
+  %93 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %.not.i.i = icmp eq i32 %93, 1
   br i1 %.not.i.i, label %.lr.ph.i, label %openioc_parse_indicatoritem.exit.thread
 
@@ -597,12 +597,12 @@ openioc_is_context_hash.exit.i:                   ; preds = %90, %88, %87, %86, 
   br i1 %.not23, label %openioc_parse_indicatoritem.exit.thread, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @xmlTextReaderNodeType(ptr noundef %0) #6
+  %97 = tail call i32 @xmlTextReaderNodeType(ptr noundef nonnull %0) #6
   %98 = icmp eq i32 %97, 15
   br i1 %98, label %openioc_read.exit.thread, label %openioc_parse_indicatoritem.exit.thread
 
 openioc_parse_indicatoritem.exit.thread:          ; preds = %90, %openioc_is_context_hash.exit.i, %.lr.ph.i, %20, %96, %94, %13
-  %99 = tail call i32 @xmlTextReaderRead(ptr noundef %0) #6
+  %99 = tail call i32 @xmlTextReaderRead(ptr noundef nonnull %0) #6
   %.not.i = icmp eq i32 %99, 1
   br i1 %.not.i, label %.lr.ph, label %openioc_read.exit.thread
 

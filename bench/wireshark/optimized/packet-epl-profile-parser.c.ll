@@ -924,7 +924,7 @@ define internal noundef i32 @populate_object_list(ptr nocapture noundef readonly
   br i1 %.not33, label %22, label %72
 
 22:                                               ; preds = %19
-  %23 = call fastcc i32 @parse_obj_tag(ptr noundef %17, ptr noundef nonnull %3, ptr noundef %1)
+  %23 = call fastcc i32 @parse_obj_tag(ptr noundef %17, ptr noundef %3, ptr noundef %1)
   %24 = load i16, ptr %3, align 8
   %.not34 = icmp eq i16 %24, 0
   br i1 %.not34, label %72, label %25
@@ -978,7 +978,7 @@ epl_wmem_iarray_new.exit:                         ; preds = %29, %32
   br i1 %.not36, label %46, label %69
 
 46:                                               ; preds = %43
-  %47 = call fastcc i32 @parse_obj_tag(ptr noundef nonnull %.043, ptr noundef nonnull %10, ptr noundef %1)
+  %47 = call fastcc i32 @parse_obj_tag(ptr noundef nonnull %.043, ptr noundef %10, ptr noundef %1)
   %.not37 = icmp eq i32 %47, 0
   br i1 %.not37, label %61, label %48
 
@@ -1055,7 +1055,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1085,7 +1085,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
   br i1 %.not42, label %21, label %19
 
 19:                                               ; preds = %11
-  %20 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef %1) #10
+  %20 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %1) #10
   br i1 %20, label %50, label %.loopexit
 
 21:                                               ; preds = %11
@@ -1094,7 +1094,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_obj_tag(ptr nocapture noundef 
   br i1 %.not43, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef %1) #10
+  %24 = call zeroext i1 @ws_hexstrtou16(ptr noundef %17, ptr noundef nonnull %4, ptr noundef nonnull %1) #10
   br i1 %24, label %50, label %.loopexit
 
 25:                                               ; preds = %21

@@ -5541,7 +5541,7 @@ define ptr @zend_throw_error_exception(ptr noundef %0, ptr noundef %1, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_error_va(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
+define internal void @zend_error_va(i32 noundef range(i32 32768, 3) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ...) unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %5)
   %6 = call ptr @zend_vstrpprintf(i64 noundef 0, ptr noundef %3, ptr noundef nonnull %5) #15

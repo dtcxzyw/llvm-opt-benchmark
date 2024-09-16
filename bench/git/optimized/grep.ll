@@ -1937,7 +1937,7 @@ for.body.i73:                                     ; preds = %for.inc.i, %for.bod
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gs.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.grep_submodule.base, i64 24, i1 false)
-  call fastcc void @grep_source_name(ptr noundef nonnull %opt, ptr noundef nonnull %name.i, i32 noundef 0, ptr noundef nonnull %buf.i.i)
+  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef nonnull %name.i, i32 noundef 0, ptr noundef %buf.i.i)
   %123 = load ptr, ptr %buf1.i.i, align 8
   call void @grep_source_init_file(ptr noundef nonnull %gs.i.i, ptr noundef %123, ptr noundef nonnull %name.i) #13
   call void @strbuf_release(ptr noundef nonnull %buf.i.i) #13
@@ -1946,7 +1946,7 @@ for.body.i73:                                     ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i73
-  call fastcc void @add_work(ptr noundef nonnull %opt, ptr noundef nonnull %gs.i.i)
+  call fastcc void @add_work(ptr noundef %opt, ptr noundef %gs.i.i)
   br label %grep_file.exit.i
 
 if.else.i.i:                                      ; preds = %for.body.i73
@@ -2004,7 +2004,7 @@ if.then1005:                                      ; preds = %if.then1003
 
 if.end1006:                                       ; preds = %if.then1005, %if.then1003
   %130 = phi i32 [ %.pre, %if.then1005 ], [ %129, %if.then1003 ]
-  %call1007 = call fastcc i32 @grep_cache(ptr noundef nonnull %opt, ptr noundef nonnull %pathspec, i32 noundef %130)
+  %call1007 = call fastcc i32 @grep_cache(ptr noundef %opt, ptr noundef %pathspec, i32 noundef %130)
   br label %if.end1016
 
 if.else1008:                                      ; preds = %if.else1000
@@ -2125,7 +2125,7 @@ if.then.i30.i:                                    ; preds = %if.end20.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pathbuf.i.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gs.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pathbuf.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.grep_submodule.base, i64 24, i1 false)
-  call fastcc void @grep_source_name(ptr noundef nonnull %opt, ptr noundef %144, i32 noundef 0, ptr noundef nonnull %pathbuf.i.i.i)
+  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %144, i32 noundef 0, ptr noundef %pathbuf.i.i.i)
   %146 = load ptr, ptr %buf.i.i.i, align 8
   %147 = load ptr, ptr %repo.i79, align 8
   call void @grep_source_init_oid(ptr noundef nonnull %gs.i.i.i, ptr noundef %146, ptr noundef %145, ptr noundef nonnull %oid.i.i, ptr noundef %147) #13
@@ -2135,7 +2135,7 @@ if.then.i30.i:                                    ; preds = %if.end20.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i30.i
-  call fastcc void @add_work(ptr noundef nonnull %opt, ptr noundef nonnull %gs.i.i.i)
+  call fastcc void @add_work(ptr noundef %opt, ptr noundef %gs.i.i.i)
   br label %grep_oid.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i30.i
@@ -2220,7 +2220,7 @@ if.end24.i.i:                                     ; preds = %strbuf_addch.exit.i
   %159 = and i32 %bf.load27.i.i, 14
   %cmp30.i.i = icmp eq i32 %159, 2
   %conv31.i.i = zext i1 %cmp30.i.i to i32
-  %call32.i.i = call fastcc i32 @grep_tree(ptr noundef nonnull %opt, ptr noundef nonnull %pathspec, ptr noundef nonnull %tree.i.i, ptr noundef nonnull %base.i.i, i32 noundef %conv26.i.i, i32 noundef %conv31.i.i)
+  %call32.i.i = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef %tree.i.i, ptr noundef %base.i.i, i32 noundef %conv26.i.i, i32 noundef %conv31.i.i)
   call void @strbuf_release(ptr noundef nonnull %base.i.i) #13
   call void @free(ptr noundef nonnull %call11.i.i) #13
   br label %grep_object.exit.i
@@ -2841,7 +2841,7 @@ declare void @setup_pager() local_unnamed_addr #2
 declare void @setup_work_tree() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @grep_cache(ptr noundef %opt, ptr noundef %pathspec, i32 noundef %cached) unnamed_addr #0 {
+define internal fastcc i32 @grep_cache(ptr noundef nonnull %opt, ptr noundef nonnull %pathspec, i32 noundef %cached) unnamed_addr #0 {
 entry:
   %buf.i66 = alloca %struct.strbuf, align 8
   %gs.i67 = alloca %struct.grep_source, align 8
@@ -2947,7 +2947,7 @@ if.then20:                                        ; preds = %strbuf_setlen.exit
   %call21 = call ptr @repo_read_object_file(ptr noundef %12, ptr noundef nonnull %oid, ptr noundef nonnull %type, ptr noundef nonnull %size) #13
   %13 = load i64, ptr %size, align 8
   call void @init_tree_desc(ptr noundef nonnull %tree, ptr noundef %call21, i64 noundef %13) #13
-  %call22 = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef nonnull %tree, ptr noundef nonnull %name, i32 noundef 0, i32 noundef 0)
+  %call22 = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef %tree, ptr noundef %name, i32 noundef 0, i32 noundef 0)
   %14 = load i64, ptr %name, align 8
   %spec.select.i51 = call i64 @llvm.usub.sat.i64(i64 %14, i64 1)
   %cmp.i52 = icmp ugt i64 %name_base_len.0, %spec.select.i51
@@ -2984,7 +2984,7 @@ land.lhs.true30:                                  ; preds = %if.else
   %17 = load ptr, ptr %buf.i, align 8
   %18 = load i64, ptr %len2.i, align 8
   %conv32 = trunc i64 %18 to i32
-  %call41 = call i32 @match_pathspec(ptr noundef %16, ptr noundef %pathspec, ptr noundef %17, i32 noundef %conv32, i32 noundef 0, ptr noundef null, i32 noundef 0) #13
+  %call41 = call i32 @match_pathspec(ptr noundef %16, ptr noundef nonnull %pathspec, ptr noundef %17, i32 noundef %conv32, i32 noundef 0, ptr noundef null, i32 noundef 0) #13
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.else68, label %if.then43
 
@@ -3007,7 +3007,7 @@ if.end57:                                         ; preds = %if.then48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pathbuf.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gs.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pathbuf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.grep_submodule.base, i64 24, i1 false)
-  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %21, i32 noundef 0, ptr noundef nonnull %pathbuf.i)
+  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %21, i32 noundef 0, ptr noundef %pathbuf.i)
   %22 = load ptr, ptr %buf.i62, align 8
   %23 = load ptr, ptr %repo1, align 8
   call void @grep_source_init_oid(ptr noundef nonnull %gs.i, ptr noundef %22, ptr noundef %21, ptr noundef nonnull %oid58, ptr noundef %23) #13
@@ -3017,7 +3017,7 @@ if.end57:                                         ; preds = %if.then48
   br i1 %cmp.i63, label %if.then.i65, label %if.else.i
 
 if.then.i65:                                      ; preds = %if.end57
-  call fastcc void @add_work(ptr noundef nonnull %opt, ptr noundef nonnull %gs.i)
+  call fastcc void @add_work(ptr noundef %opt, ptr noundef %gs.i)
   br label %grep_oid.exit
 
 if.else.i:                                        ; preds = %if.end57
@@ -3036,7 +3036,7 @@ if.else63:                                        ; preds = %if.then43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i66)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gs.i67)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf.i66, ptr noundef nonnull align 8 dereferenceable(24) @__const.grep_submodule.base, i64 24, i1 false)
-  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %25, i32 noundef 0, ptr noundef nonnull %buf.i66)
+  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %25, i32 noundef 0, ptr noundef %buf.i66)
   %26 = load ptr, ptr %buf1.i, align 8
   call void @grep_source_init_file(ptr noundef nonnull %gs.i67, ptr noundef %26, ptr noundef %25) #13
   call void @strbuf_release(ptr noundef nonnull %buf.i66) #13
@@ -3045,11 +3045,11 @@ if.else63:                                        ; preds = %if.then43
   br i1 %cmp.i68, label %if.then.i72, label %if.else.i69
 
 if.then.i72:                                      ; preds = %if.else63
-  call fastcc void @add_work(ptr noundef %opt, ptr noundef nonnull %gs.i67)
+  call fastcc void @add_work(ptr noundef %opt, ptr noundef %gs.i67)
   br label %grep_file.exit
 
 if.else.i69:                                      ; preds = %if.else63
-  %call.i70 = call i32 @grep_source(ptr noundef %opt, ptr noundef nonnull %gs.i67) #13
+  %call.i70 = call i32 @grep_source(ptr noundef nonnull %opt, ptr noundef nonnull %gs.i67) #13
   call void @grep_source_clear(ptr noundef nonnull %gs.i67) #13
   br label %grep_file.exit
 
@@ -3073,7 +3073,7 @@ land.lhs.true70:                                  ; preds = %if.else68
 land.lhs.true75:                                  ; preds = %land.lhs.true70
   %30 = load ptr, ptr %index, align 8
   %31 = load ptr, ptr %buf.i, align 8
-  %call78 = call i32 @submodule_path_match(ptr noundef %30, ptr noundef %pathspec, ptr noundef %31, ptr noundef null) #13
+  %call78 = call i32 @submodule_path_match(ptr noundef %30, ptr noundef nonnull %pathspec, ptr noundef %31, ptr noundef null) #13
   %tobool79.not = icmp eq i32 %call78, 0
   br i1 %tobool79.not, label %for.inc, label %if.then80
 
@@ -3396,7 +3396,7 @@ declare i32 @fill_directory(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @dir_clear(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @grep_source_name(ptr nocapture noundef readonly %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef %out) unnamed_addr #0 {
+define internal fastcc void @grep_source_name(ptr nocapture noundef nonnull readonly %opt, ptr noundef %filename, i32 noundef %tree_name_len, ptr noundef nonnull %out) unnamed_addr #0 {
 entry:
   %rel_buf = alloca %struct.strbuf, align 8
   %len2.i = getelementptr inbounds i8, ptr %out, i64 8
@@ -3477,7 +3477,7 @@ if.end24:                                         ; preds = %if.end, %if.else, %
 declare void @grep_source_init_file(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_work(ptr nocapture noundef readonly %opt, ptr noundef %gs) unnamed_addr #0 {
+define internal fastcc void @add_work(ptr nocapture noundef nonnull readonly %opt, ptr noundef nonnull %gs) unnamed_addr #0 {
 entry:
   %binary = getelementptr inbounds i8, ptr %opt, i64 96
   %0 = load i32, ptr %binary, align 8
@@ -3489,7 +3489,7 @@ if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %repo, align 8
   %index = getelementptr inbounds i8, ptr %1, i64 240
   %2 = load ptr, ptr %index, align 8
-  tail call void @grep_source_load_driver(ptr noundef %gs, ptr noundef %2) #13
+  tail call void @grep_source_load_driver(ptr noundef nonnull %gs, ptr noundef %2) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -3554,7 +3554,7 @@ declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @init_tree_desc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef %tree, ptr noundef %base, i32 noundef %tn_len, i32 noundef %check_attr) unnamed_addr #0 {
+define internal fastcc i32 @grep_tree(ptr noundef nonnull %opt, ptr noundef nonnull %pathspec, ptr noundef nonnull %tree, ptr noundef nonnull %base, i32 noundef %tn_len, i32 noundef range(i32 0, 2) %check_attr) unnamed_addr #0 {
 entry:
   %pathbuf.i = alloca %struct.strbuf, align 8
   %gs.i = alloca %struct.grep_source, align 8
@@ -3607,7 +3607,7 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
 
 while.cond:                                       ; preds = %while.cond.outer, %strbuf_setlen.exit
   %match.0 = phi i1 [ false, %strbuf_setlen.exit ], [ %6, %while.cond.outer ]
-  %call = call i32 @tree_entry(ptr noundef %tree, ptr noundef nonnull %entry2) #13
+  %call = call i32 @tree_entry(ptr noundef nonnull %tree, ptr noundef nonnull %entry2) #13
   %tobool6.not = icmp eq i32 %call, 0
   br i1 %tobool6.not, label %while.end, label %while.body
 
@@ -3621,7 +3621,7 @@ if.then9:                                         ; preds = %while.body
   %call.i32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #15
   call void @strbuf_add(ptr noundef nonnull %name, ptr noundef %add.ptr, i64 noundef %call.i32) #13
   %8 = load ptr, ptr %index, align 8
-  %call10 = call i32 @tree_entry_interesting(ptr noundef %8, ptr noundef nonnull %entry2, ptr noundef nonnull %name, ptr noundef %pathspec) #13
+  %call10 = call i32 @tree_entry_interesting(ptr noundef %8, ptr noundef nonnull %entry2, ptr noundef nonnull %name, ptr noundef nonnull %pathspec) #13
   %9 = load i64, ptr %name, align 8
   %spec.select.i = call i64 @llvm.usub.sat.i64(i64 %9, i64 1)
   %cmp.i = icmp ugt i64 %name_base_len.0, %spec.select.i
@@ -3652,7 +3652,7 @@ if.end20:                                         ; preds = %strbuf_setlen.exit,
   %match.1 = phi i32 [ 2, %while.body ], [ %call10, %strbuf_setlen.exit ]
   %11 = load ptr, ptr %path, align 8
   %conv21 = sext i32 %entry2.val to i64
-  call void @strbuf_add(ptr noundef %base, ptr noundef %11, i64 noundef %conv21) #13
+  call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %11, i64 noundef %conv21) #13
   %12 = load i32, ptr %mode, align 4
   %and = and i32 %12, 61440
   %trunc = trunc nuw i32 %and to i16
@@ -3668,7 +3668,7 @@ if.then24:                                        ; preds = %if.end20
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %pathbuf.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %gs.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pathbuf.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.grep_submodule.base, i64 24, i1 false)
-  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %13, i32 noundef %tn_len, ptr noundef nonnull %pathbuf.i)
+  call fastcc void @grep_source_name(ptr noundef %opt, ptr noundef %13, i32 noundef %tn_len, ptr noundef %pathbuf.i)
   %14 = load ptr, ptr %buf.i33, align 8
   %15 = load ptr, ptr %repo1, align 8
   call void @grep_source_init_oid(ptr noundef nonnull %gs.i, ptr noundef %14, ptr noundef %cond, ptr noundef nonnull %entry2, ptr noundef %15) #13
@@ -3678,7 +3678,7 @@ if.then24:                                        ; preds = %if.end20
   br i1 %cmp.i34, label %if.then.i36, label %if.else.i
 
 if.then.i36:                                      ; preds = %if.then24
-  call fastcc void @add_work(ptr noundef nonnull %opt, ptr noundef nonnull %gs.i)
+  call fastcc void @add_work(ptr noundef %opt, ptr noundef %gs.i)
   br label %grep_oid.exit
 
 if.else.i:                                        ; preds = %if.then24
@@ -3735,7 +3735,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %arrayidx3.i, align 1
   %24 = load i64, ptr %size, align 8
   call void @init_tree_desc(ptr noundef nonnull %sub, ptr noundef nonnull %call37, i64 noundef %24) #13
-  %call44 = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef nonnull %sub, ptr noundef nonnull %base, i32 noundef %tn_len, i32 noundef %check_attr)
+  %call44 = call fastcc i32 @grep_tree(ptr noundef %opt, ptr noundef %pathspec, ptr noundef %sub, ptr noundef %base, i32 noundef %tn_len, i32 noundef %check_attr)
   %or45 = or i32 %call44, %hit.0.ph
   call void @free(ptr noundef nonnull %call37) #13
   br label %if.end62
@@ -3799,7 +3799,7 @@ declare i32 @match_pathspec(ptr noundef, ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @submodule_path_match(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @grep_submodule(ptr nocapture noundef readonly %opt, ptr noundef %pathspec, ptr noundef %oid, ptr noundef %filename, ptr noundef %path, i32 noundef %cached) unnamed_addr #0 {
+define internal fastcc i32 @grep_submodule(ptr nocapture noundef nonnull readonly %opt, ptr noundef nonnull %pathspec, ptr noundef %oid, ptr noundef %filename, ptr noundef %path, i32 noundef %cached) unnamed_addr #0 {
 entry:
   %subopt = alloca %struct.grep_opt, align 8
   %tree = alloca %struct.tree_desc, align 8
@@ -3964,13 +3964,13 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %conv = trunc i64 %21 to i32
   %cmp31 = icmp eq i32 %call24, 1
   %conv32 = zext i1 %cmp31 to i32
-  %call33 = call fastcc i32 @grep_tree(ptr noundef nonnull %subopt, ptr noundef %pathspec, ptr noundef nonnull %tree, ptr noundef nonnull %base, i32 noundef %conv, i32 noundef %conv32)
+  %call33 = call fastcc i32 @grep_tree(ptr noundef %subopt, ptr noundef %pathspec, ptr noundef %tree, ptr noundef %base, i32 noundef %conv, i32 noundef %conv32)
   call void @strbuf_release(ptr noundef nonnull %base) #13
   call void @free(ptr noundef nonnull %call25) #13
   br label %return
 
 if.else34:                                        ; preds = %obj_read_unlock.exit
-  %call35 = call fastcc i32 @grep_cache(ptr noundef nonnull %subopt, ptr noundef %pathspec, i32 noundef %cached)
+  %call35 = call fastcc i32 @grep_cache(ptr noundef %subopt, ptr noundef %pathspec, i32 noundef %cached)
   br label %return
 
 return:                                           ; preds = %strbuf_addch.exit, %if.else34, %entry, %if.then5

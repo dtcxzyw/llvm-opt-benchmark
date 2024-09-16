@@ -382,7 +382,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Hash_Int2ManInsert(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Hash_Int2ManInsert(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65) %1, i32 noundef range(i32 -2147483648, 65) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4

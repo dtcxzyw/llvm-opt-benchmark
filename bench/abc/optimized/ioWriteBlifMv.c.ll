@@ -42,7 +42,7 @@ define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr nocapture noundef reado
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr (...) @Extra_TimeStamp() #9
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %11) #9
-  tail call fastcc void @Io_NtkWriteBlifMv(ptr noundef nonnull %3, ptr noundef %0)
+  tail call fastcc void @Io_NtkWriteBlifMv(ptr noundef %3, ptr noundef %0)
   %13 = getelementptr inbounds i8, ptr %0, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
@@ -69,7 +69,7 @@ define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr nocapture noundef reado
 
 25:                                               ; preds = %.lr.ph
   %26 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 2, i64 1, ptr nonnull %3)
-  tail call fastcc void @Io_NtkWriteBlifMv(ptr noundef nonnull %3, ptr noundef %23)
+  tail call fastcc void @Io_NtkWriteBlifMv(ptr noundef %3, ptr noundef %23)
   %.pre = load ptr, ptr %13, align 8
   br label %27
 
@@ -101,11 +101,11 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWriteBlifMv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWriteBlifMv(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %3, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %.val) #9
-  %5 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 7, i64 1, ptr %0)
+  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, ptr noundef %.val) #9
+  %5 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 7, i64 1, ptr nonnull %0)
   %6 = getelementptr i8, ptr %1, i64 40
   %.val21.i.i = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %.val21.i.i, i64 4
@@ -146,14 +146,14 @@ define internal fastcc void @Io_NtkWriteBlifMv(ptr nocapture noundef %0, ptr noc
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr %0)
+  %26 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr nonnull %0)
   br label %27
 
 27:                                               ; preds = %25, %22, %.lr.ph.i.i
   %.117.i.i = phi i32 [ 0, %25 ], [ %.01623.i.i, %22 ], [ %.01623.i.i, %.lr.ph.i.i ]
   %.1.i.i = phi i32 [ 0, %25 ], [ %.01524.i.i, %22 ], [ 0, %.lr.ph.i.i ]
   %28 = tail call ptr @Abc_ObjName(ptr noundef %17) #9
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %28) #9
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %28) #9
   %30 = add nsw i32 %.117.i.i, %21
   %31 = add nsw i32 %.1.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -165,8 +165,8 @@ define internal fastcc void @Io_NtkWriteBlifMv(ptr nocapture noundef %0, ptr noc
   br i1 %34, label %.lr.ph.i.i, label %Io_NtkWriteBlifMvPis.exit.i, !llvm.loop !6
 
 Io_NtkWriteBlifMvPis.exit.i:                      ; preds = %27, %2
-  %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
-  %35 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 8, i64 1, ptr %0)
+  %fputc.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
+  %35 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 8, i64 1, ptr nonnull %0)
   %36 = getelementptr i8, ptr %1, i64 48
   %.val21.i112.i = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %.val21.i112.i, i64 4
@@ -207,14 +207,14 @@ Io_NtkWriteBlifMvPis.exit.i:                      ; preds = %27, %2
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  %56 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr %0)
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr nonnull %0)
   br label %57
 
 57:                                               ; preds = %55, %52, %.lr.ph.i114.i
   %.117.i126.i = phi i32 [ 0, %55 ], [ %.01623.i118.i, %52 ], [ %.01623.i118.i, %.lr.ph.i114.i ]
   %.1.i127.i = phi i32 [ 0, %55 ], [ %.01524.i117.i, %52 ], [ 0, %.lr.ph.i114.i ]
   %58 = tail call ptr @Abc_ObjName(ptr noundef %47) #9
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %58) #9
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %58) #9
   %60 = add nsw i32 %.117.i126.i, %51
   %61 = add nsw i32 %.1.i127.i, 1
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i115.i, 1
@@ -226,8 +226,8 @@ Io_NtkWriteBlifMvPis.exit.i:                      ; preds = %27, %2
   br i1 %64, label %.lr.ph.i114.i, label %Io_NtkWriteBlifMvPos.exit.i, !llvm.loop !7
 
 Io_NtkWriteBlifMvPos.exit.i:                      ; preds = %57, %Io_NtkWriteBlifMvPis.exit.i
-  %fputc73.i = tail call i32 @fputc(i32 10, ptr %0)
-  %fputc74.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc73.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
+  %fputc74.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %65 = getelementptr i8, ptr %1, i64 56
   %.val97190.i = load ptr, ptr %65, align 8
   %66 = getelementptr i8, ptr %.val97190.i, i64 4
@@ -326,7 +326,7 @@ Abc_ObjMvVarNum.exit.i:                           ; preds = %84
 
 Abc_ObjMvVarNum.exit139.i:                        ; preds = %107, %105, %89
   %110 = phi i32 [ %109, %107 ], [ 2, %105 ], [ 2, %89 ]
-  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %95, i32 noundef %110) #9
+  %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %95, i32 noundef %110) #9
   br label %Abc_ObjMvVarNum.exit.thread.i
 
 Abc_ObjMvVarNum.exit.thread.i:                    ; preds = %Abc_ObjMvVarNum.exit139.i, %Abc_ObjMvVarNum.exit.i, %84, %.lr.ph.i
@@ -421,7 +421,7 @@ Abc_ObjMvVarNum.exit145.i:                        ; preds = %128
 
 Abc_ObjMvVarNum.exit151.i:                        ; preds = %151, %149, %133
   %154 = phi i32 [ %153, %151 ], [ 2, %149 ], [ 2, %133 ]
-  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %139, i32 noundef %154) #9
+  %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %139, i32 noundef %154) #9
   br label %Abc_ObjMvVarNum.exit145.thread.i
 
 Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exit151.i, %Abc_ObjMvVarNum.exit145.i, %128, %.lr.ph198.i
@@ -440,7 +440,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not.i, label %160, label %162
 
 160:                                              ; preds = %.critedge2.i
-  %161 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 10, i64 1, ptr %0)
+  %161 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 10, i64 1, ptr nonnull %0)
   br label %Io_NtkWriteBlifMvOne.exit
 
 162:                                              ; preds = %.critedge2.i
@@ -450,7 +450,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   br i1 %.not185.i, label %215, label %164
 
 164:                                              ; preds = %162
-  %fputc76.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc76.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %165 = getelementptr inbounds i8, ptr %1, i64 80
   %166 = load ptr, ptr %165, align 8
   %167 = getelementptr i8, ptr %166, i64 4
@@ -515,16 +515,16 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   %.val19.i156.i = load ptr, ptr %198, align 8
   %199 = ptrtoint ptr %.val19.i156.i to i64
   %200 = trunc i64 %199 to i32
-  %201 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 6, i64 1, ptr %0)
+  %201 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 6, i64 1, ptr nonnull %0)
   %202 = tail call ptr @Abc_ObjName(ptr noundef %187) #9
-  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %202) #9
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef %202) #9
   %204 = tail call ptr @Abc_ObjName(ptr noundef %197) #9
-  %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %204) #9
-  %fputc.i.i = tail call i32 @fputc(i32 10, ptr %0)
+  %205 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, ptr noundef %204) #9
+  %fputc.i.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %206 = tail call ptr @Abc_ObjName(ptr noundef %197) #9
-  %207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %206) #9
+  %207 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, ptr noundef %206) #9
   %208 = add nsw i32 %200, -1
-  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %208) #9
+  %209 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, i32 noundef %208) #9
   %.pre.i = load ptr, ptr %165, align 8
   br label %210
 
@@ -538,7 +538,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   br i1 %214, label %.lr.ph201.i, label %.critedge4.i, !llvm.loop !10
 
 .critedge4.i:                                     ; preds = %210, %164
-  %fputc77.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc77.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %215
 
 215:                                              ; preds = %.critedge4.i, %162
@@ -554,7 +554,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
   br i1 %220, label %221, label %380
 
 221:                                              ; preds = %218, %215
-  %fputc79.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc79.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %222 = getelementptr inbounds i8, ptr %1, i64 80
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr i8, ptr %223, i64 4
@@ -578,7 +578,7 @@ Abc_ObjMvVarNum.exit145.thread.i:                 ; preds = %Abc_ObjMvVarNum.exi
 232:                                              ; preds = %.lr.ph204.i
   %233 = getelementptr inbounds i8, ptr %229, i64 56
   %234 = load ptr, ptr %233, align 8
-  %fputc.i157.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc.i157.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %235 = getelementptr i8, ptr %229, i64 28
   %.val6492.i.i = load i32, ptr %235, align 4
   %236 = icmp sgt i32 %.val6492.i.i, 0
@@ -656,7 +656,7 @@ Abc_ObjMvVarNum.exit.i.i:                         ; preds = %253
 
 Abc_ObjMvVarNum.exit79.i.i:                       ; preds = %266, %264, %258
   %269 = phi i32 [ %268, %266 ], [ 2, %264 ], [ 2, %258 ]
-  %270 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %259, i32 noundef %269) #9
+  %270 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %259, i32 noundef %269) #9
   br label %Abc_ObjMvVarNum.exit.thread.i.i
 
 Abc_ObjMvVarNum.exit.thread.i.i:                  ; preds = %Abc_ObjMvVarNum.exit79.i.i, %Abc_ObjMvVarNum.exit.i.i, %253, %241
@@ -724,7 +724,7 @@ Abc_ObjMvVarNum.exit85.i.i:                       ; preds = %285
 
 Abc_ObjMvVarNum.exit91.i.i:                       ; preds = %298, %296, %290
   %301 = phi i32 [ %300, %298 ], [ 2, %296 ], [ 2, %290 ]
-  %302 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %291, i32 noundef %301) #9
+  %302 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %291, i32 noundef %301) #9
   br label %Abc_ObjMvVarNum.exit85.thread.i.i
 
 Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exit91.i.i, %Abc_ObjMvVarNum.exit85.i.i, %285, %273
@@ -738,7 +738,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %305 = getelementptr i8, ptr %234, i64 8
   %.val.i158.i = load ptr, ptr %305, align 8
   %306 = tail call ptr @Abc_ObjName(ptr noundef nonnull %229) #9
-  %307 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %.val.i158.i, ptr noundef %306) #9
+  %307 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %.val.i158.i, ptr noundef %306) #9
   %308 = getelementptr i8, ptr %234, i64 40
   %.val5297.i.i = load ptr, ptr %308, align 8
   %309 = getelementptr i8, ptr %.val5297.i.i, i64 4
@@ -781,7 +781,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %324 = getelementptr inbounds ptr, ptr %.val56.val.val.i.i, i64 %323
   %325 = load ptr, ptr %324, align 8
   %326 = tail call ptr @Abc_ObjName(ptr noundef %325) #9
-  %327 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %326) #9
+  %327 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %326) #9
   %.val67.i.i = load ptr, ptr %229, align 8
   %.val68.i.i = load ptr, ptr %311, align 8
   %328 = getelementptr i8, ptr %.val67.i.i, i64 32
@@ -805,7 +805,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %339 = getelementptr inbounds ptr, ptr %.val62.val.val.i.i, i64 %338
   %340 = load ptr, ptr %339, align 8
   %341 = tail call ptr @Abc_ObjName(ptr noundef %340) #9
-  %342 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %341) #9
+  %342 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %341) #9
   %indvars.iv.next112.i.i = add nuw nsw i64 %indvars.iv111.i.i, 1
   %.val52.i.i = load ptr, ptr %308, align 8
   %343 = getelementptr i8, ptr %.val52.i.i, i64 4
@@ -833,7 +833,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %353 = getelementptr inbounds ptr, ptr %.val60.val.val.i.i, i64 %352
   %354 = load ptr, ptr %353, align 8
   %355 = tail call ptr @Abc_ObjName(ptr noundef %354) #9
-  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %355) #9
+  %356 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %355) #9
   %.val72.i.i = load ptr, ptr %229, align 8
   %.val73.i.i = load ptr, ptr %315, align 8
   %357 = getelementptr i8, ptr %.val72.i.i, i64 32
@@ -857,7 +857,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   %368 = getelementptr inbounds ptr, ptr %.val54.val.val.i.i, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = tail call ptr @Abc_ObjName(ptr noundef %369) #9
-  %371 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef %370) #9
+  %371 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %370) #9
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1
   %.val58.i.i = load ptr, ptr %312, align 8
   %372 = getelementptr i8, ptr %.val58.i.i, i64 4
@@ -867,7 +867,7 @@ Abc_ObjMvVarNum.exit85.thread.i.i:                ; preds = %Abc_ObjMvVarNum.exi
   br i1 %374, label %.critedge4.i.i, label %Io_NtkWriteBlifMvSubckt.exit.i, !llvm.loop !14
 
 Io_NtkWriteBlifMvSubckt.exit.i:                   ; preds = %.critedge4.i.i, %.critedge4.preheader.i.i
-  %fputc51.i.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc51.i.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %.pre223.i = load ptr, ptr %222, align 8
   br label %375
 
@@ -881,7 +881,7 @@ Io_NtkWriteBlifMvSubckt.exit.i:                   ; preds = %.critedge4.i.i, %.c
   br i1 %379, label %.lr.ph204.i, label %.critedge6.i, !llvm.loop !15
 
 .critedge6.i:                                     ; preds = %375, %221
-  %fputc80.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc80.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   br label %380
 
 380:                                              ; preds = %.critedge6.i, %218
@@ -933,7 +933,7 @@ Io_NtkWriteBlifMvSubckt.exit.i:                   ; preds = %.critedge4.i.i, %.c
   br label %Extra_ProgressBarUpdate.exit.i
 
 Extra_ProgressBarUpdate.exit.i:                   ; preds = %402, %398
-  %fputc.i163.i = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc.i163.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %404 = getelementptr i8, ptr %392, i64 28
   %.val5268.i.i = load i32, ptr %404, align 4
   %405 = icmp sgt i32 %.val5268.i.i, 0
@@ -979,7 +979,7 @@ Abc_ObjMvVarNum.exit.i181.i:                      ; preds = %419
 
 424:                                              ; preds = %Abc_ObjMvVarNum.exit.i181.i
   %425 = tail call ptr @Abc_ObjName(ptr noundef nonnull %414) #9
-  %426 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %425, i32 noundef %422) #9
+  %426 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %425, i32 noundef %422) #9
   br label %Abc_ObjMvVarNum.exit.thread.i182.i
 
 Abc_ObjMvVarNum.exit.thread.i182.i:               ; preds = %424, %Abc_ObjMvVarNum.exit.i181.i, %419, %407
@@ -1034,11 +1034,11 @@ Abc_ObjMvVarNum.exit62.i.i:                       ; preds = %439
   %448 = getelementptr inbounds ptr, ptr %.val.val.val.i171.i, i64 %447
   %449 = load ptr, ptr %448, align 8
   %450 = tail call ptr @Abc_ObjName(ptr noundef %449) #9
-  %451 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %450, i32 noundef %442) #9
+  %451 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %450, i32 noundef %442) #9
   br label %Abc_ObjMvVarNum.exit62.thread.i.i
 
 Abc_ObjMvVarNum.exit62.thread.i.i:                ; preds = %444, %Abc_ObjMvVarNum.exit62.i.i, %439, %.critedge.i.i
-  %452 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %0)
+  %452 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr nonnull %0)
   %.val2831.i.i.i = load i32, ptr %404, align 4
   %453 = icmp sgt i32 %.val2831.i.i.i, 0
   br i1 %453, label %.lr.ph.i.i.i, label %.critedge.i.i.i
@@ -1075,13 +1075,13 @@ Abc_ObjMvVarNum.exit62.thread.i.i:                ; preds = %444, %Abc_ObjMvVarN
   br i1 %469, label %470, label %472
 
 470:                                              ; preds = %467
-  %471 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr %0)
+  %471 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr nonnull %0)
   br label %472
 
 472:                                              ; preds = %470, %467, %455
   %.125.i.i.i = phi i32 [ 0, %470 ], [ %.02432.i.i.i, %467 ], [ %.02432.i.i.i, %455 ]
   %.1.i.i.i = phi i32 [ 0, %470 ], [ %.02333.i.i.i, %467 ], [ 0, %455 ]
-  %473 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %463) #9
+  %473 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %463) #9
   %474 = add nsw i32 %.125.i.i.i, %466
   %475 = add nsw i32 %.1.i.i.i, 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1119,12 +1119,12 @@ Abc_ObjMvVarNum.exit62.thread.i.i:                ; preds = %444, %Abc_ObjMvVarN
   br i1 %490, label %491, label %Io_NtkWriteBlifMvNodeFanins.exit.i.i
 
 491:                                              ; preds = %486
-  %492 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr %0)
+  %492 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 3, i64 1, ptr nonnull %0)
   br label %Io_NtkWriteBlifMvNodeFanins.exit.i.i
 
 Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.critedge.i.i.i
-  %493 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %485) #9
-  %fputc43.i.i = tail call i32 @fputc(i32 10, ptr %0)
+  %493 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13, ptr noundef %485) #9
+  %fputc43.i.i = tail call i32 @fputc(i32 10, ptr nonnull %0)
   %494 = getelementptr i8, ptr %392, i64 56
   %.val51.i.i = load ptr, ptr %494, align 8
   %495 = load i8, ptr %.val51.i.i, align 1
@@ -1132,7 +1132,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   br i1 %496, label %497, label %500
 
 497:                                              ; preds = %Io_NtkWriteBlifMvNodeFanins.exit.i.i
-  %498 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 9, i64 1, ptr %0)
+  %498 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 9, i64 1, ptr nonnull %0)
   %499 = getelementptr inbounds i8, ptr %.val51.i.i, i64 1
   %.pre.i.i = load i8, ptr %499, align 1
   br label %500
@@ -1151,7 +1151,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   %504 = phi i8 [ %501, %.lr.ph72.i.i ], [ %526, %524 ]
   %.171.i.i = phi ptr [ %.038.i.i, %.lr.ph72.i.i ], [ %525, %524 ]
   %505 = sext i8 %504 to i32
-  %fputc44.i.i = tail call i32 @fputc(i32 %505, ptr %0)
+  %fputc44.i.i = tail call i32 @fputc(i32 %505, ptr nonnull %0)
   %506 = load i8, ptr %.171.i.i, align 1
   %.not45.i.i = icmp eq i8 %506, 61
   br i1 %.not45.i.i, label %507, label %524
@@ -1172,7 +1172,7 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   %516 = getelementptr inbounds ptr, ptr %.val55.val.val.i.i, i64 %515
   %517 = load ptr, ptr %516, align 8
   %518 = tail call ptr @Abc_ObjName(ptr noundef %517) #9
-  %fputs.i.i = tail call i32 @fputs(ptr %518, ptr %0)
+  %fputs.i.i = tail call i32 @fputs(ptr %518, ptr nonnull %0)
   br label %519
 
 519:                                              ; preds = %521, %507
@@ -1222,7 +1222,7 @@ Io_NtkWriteBlifMvOne.exit:                        ; preds = %160, %.critedge8.i
   br label %533
 
 533:                                              ; preds = %532, %Io_NtkWriteBlifMvOne.exit
-  %534 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 7, i64 1, ptr %0)
+  %534 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 7, i64 1, ptr nonnull %0)
   ret void
 }
 

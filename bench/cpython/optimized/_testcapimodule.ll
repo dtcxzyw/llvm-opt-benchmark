@@ -5082,7 +5082,7 @@ if.end.i.i:                                       ; preds = %for.body.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.body.i
   %3 = phi ptr [ %1, %for.body.i ], [ %.pre.i, %if.end.i.i ]
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call.i, i64 noundef %i.012.i, ptr noundef %3)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call.i, i64 noundef %i.012.i, ptr noundef %3)
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nargs
   br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !15
@@ -5117,7 +5117,7 @@ if.end.i.i:                                       ; preds = %for.body.i
 
 Py_INCREF.exit.i:                                 ; preds = %if.end.i.i, %for.body.i
   %2 = phi ptr [ %0, %for.body.i ], [ %.pre.i, %if.end.i.i ]
-  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef nonnull %call.i, i64 noundef %i.012.i, ptr noundef %2)
+  tail call fastcc void @PyTuple_SET_ITEM(ptr noundef %call.i, i64 noundef %i.012.i, ptr noundef %2)
   %inc.i = add nuw nsw i64 %i.012.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %nargs
   br i1 %exitcond.not.i, label %_fastcall_to_tuple.exit, label %for.body.i, !llvm.loop !15
@@ -6558,7 +6558,7 @@ if.end.i103:                                      ; preds = %if.then28
   br i1 %cmp.i105, label %fail.sink.split, label %fail
 
 if.end29:                                         ; preds = %if.end25
-  %call30 = tail call fastcc i64 @PyTuple_GET_SIZE(ptr noundef nonnull %call22)
+  %call30 = tail call fastcc i64 @PyTuple_GET_SIZE(ptr noundef %call22)
   %cmp31.not = icmp eq i64 %call30, 0
   br i1 %cmp31.not, label %if.end33, label %if.then32
 
@@ -6618,7 +6618,7 @@ if.end.i76:                                       ; preds = %if.then40
   br i1 %cmp.i78, label %fail.sink.split, label %fail
 
 if.end41:                                         ; preds = %if.end37
-  %call42 = tail call fastcc i64 @PyTuple_GET_SIZE(ptr noundef nonnull %call34)
+  %call42 = tail call fastcc i64 @PyTuple_GET_SIZE(ptr noundef %call34)
   %cmp43.not = icmp eq i64 %call42, 0
   br i1 %cmp43.not, label %if.end45, label %if.then44
 
@@ -7968,7 +7968,7 @@ declare void @PyThread_tss_free(ptr noundef) local_unnamed_addr #2
 declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc void @PyTuple_SET_ITEM(ptr nocapture noundef nonnull %op, i64 noundef %index, ptr noundef %value) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -8084,7 +8084,7 @@ declare i64 @PyObject_Size(ptr noundef) local_unnamed_addr #2
 declare ptr @PyCode_GetVarnames(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @PyTuple_GET_SIZE(ptr nocapture noundef readonly %op) unnamed_addr #0 {
+define internal fastcc i64 @PyTuple_GET_SIZE(ptr nocapture noundef nonnull readonly %op) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8

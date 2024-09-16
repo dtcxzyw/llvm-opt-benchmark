@@ -1035,13 +1035,13 @@ define internal range(i32 0, 256) i32 @dissect_usb_vid_descriptor(ptr noundef %0
 83:                                               ; preds = %78
   %84 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_min, align 4
   %85 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %84, ptr noundef %10, i32 noundef %81, i32 noundef 2, i32 noundef -2147483648) #4
-  %86 = add nuw nsw i32 %.1.i, 3
+  %86 = or disjoint i32 %81, 2
   %87 = load i32, ptr @hf_usb_vid_cam_objective_focal_len_max, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %87, ptr noundef %10, i32 noundef %86, i32 noundef 2, i32 noundef -2147483648) #4
-  %89 = add nuw nsw i32 %.1.i, 5
+  %89 = or disjoint i32 %81, 4
   %90 = load i32, ptr @hf_usb_vid_cam_ocular_focal_len, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %.0135.i, i32 noundef %90, ptr noundef %10, i32 noundef %89, i32 noundef 2, i32 noundef -2147483648) #4
-  %92 = add nuw nsw i32 %.1.i, 7
+  %92 = or disjoint i32 %81, 6
   %93 = load i32, ptr @ett_camera_controls, align 4
   %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %10, i32 noundef %92) #4
   %95 = load i32, ptr @hf_usb_vid_bControlSize, align 4

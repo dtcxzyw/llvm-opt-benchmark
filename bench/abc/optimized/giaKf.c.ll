@@ -627,18 +627,18 @@ define internal fastcc void @Kf_SetMergeOrder(ptr noundef %0, ptr nocapture noun
   %54 = icmp eq i32 %50, %35
   %55 = icmp eq i32 %51, %35
   %or.cond.i = select i1 %54, i1 %55, i1 false
-  %.not = icmp eq i16 %34, 0
+  %.not143.i = icmp eq i16 %34, 0
   br i1 %or.cond.i, label %.preheader.i, label %.preheader104.i
 
 .preheader104.i:                                  ; preds = %44
-  br i1 %.not, label %Kf_SetMergeOrderOne.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not143.i, label %Kf_SetMergeOrderOne.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader104.i
   %56 = zext i16 %34 to i64
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %44
-  br i1 %.not, label %.loopexit, label %.lr.ph118.preheader.i
+  br i1 %.not143.i, label %.loopexit, label %.lr.ph118.preheader.i
 
 .lr.ph118.preheader.i:                            ; preds = %.preheader.i
   %wide.trip.count141.i = zext i16 %34 to i64
@@ -1090,7 +1090,7 @@ Kf_SetFilterOrder.exit:                           ; preds = %select.unfold._crit
   %253 = load i16, ptr %252, align 2
   %254 = zext i16 %253 to i32
   %255 = add nsw i32 %254, -1
-  %256 = tail call noundef i32 @llvm.smin.i32(i32 %251, i32 %255)
+  %256 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %251, i32 %255)
   %257 = sext i32 %256 to i64
   %258 = getelementptr inbounds i8, ptr %0, i64 106952
   %259 = load i64, ptr %258, align 8
@@ -3410,7 +3410,7 @@ Kf_SetMerge.exit:                                 ; preds = %select.unfold._crit
   %267 = load i16, ptr %83, align 2
   %268 = zext i16 %267 to i32
   %269 = add nsw i32 %268, -1
-  %270 = tail call noundef i32 @llvm.smin.i32(i32 %266, i32 %269)
+  %270 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %266, i32 %269)
   %271 = sext i32 %270 to i64
   %272 = load i64, ptr %84, align 8
   %273 = add i64 %272, %271
@@ -3920,7 +3920,7 @@ Kf_SetMergeSimple.exit:                           ; preds = %select.unfold._crit
   %507 = load i16, ptr %83, align 2
   %508 = zext i16 %507 to i32
   %509 = add nsw i32 %508, -1
-  %510 = tail call noundef i32 @llvm.smin.i32(i32 %506, i32 %509)
+  %510 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %506, i32 %509)
   %511 = sext i32 %510 to i64
   %512 = load i64, ptr %84, align 8
   %513 = add i64 %512, %511
@@ -5554,7 +5554,7 @@ Kf_CutCompare.exit.us.i.us.us:                    ; preds = %40, %38, %31
 
 Kf_CutCompare.exit.thread.i.us.us:                ; preds = %.lr.ph.split.us.i.us.us, %33, %40, %Kf_CutCompare.exit.us.i.us.us, %.preheader.i.us.us
   %45 = add nsw i32 %.159.us.us, 1
-  %46 = tail call noundef i32 @llvm.smin.i32(i32 %45, i32 %15)
+  %46 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %45, i32 %15)
   br label %Kf_SetStoreAddOne.exit.us.us
 
 Kf_SetStoreAddOne.exit.us.us:                     ; preds = %Kf_CutCompare.exit.thread.i.us.us, %.lr.ph.us
@@ -5639,7 +5639,7 @@ Kf_CutCompare.exit.i:                             ; preds = %79, %77, %70
 
 Kf_CutCompare.exit.thread.i:                      ; preds = %Kf_CutCompare.exit.i, %79, %72, %.lr.ph.split.i, %.preheader.i
   %85 = add nsw i32 %.159, 1
-  %86 = tail call noundef i32 @llvm.smin.i32(i32 %85, i32 %55)
+  %86 = tail call range(i32 -2147483648, 65535) i32 @llvm.smin.i32(i32 %85, i32 %55)
   br label %Kf_SetStoreAddOne.exit
 
 Kf_SetStoreAddOne.exit:                           ; preds = %.lr.ph, %Kf_CutCompare.exit.thread.i

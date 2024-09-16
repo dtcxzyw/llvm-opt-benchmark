@@ -368,11 +368,11 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 4294967296) i64 @get_ts_parser_func(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967296) i64 @get_ts_parser_func(ptr noundef %0, i32 noundef range(i32 4, 9) %1) unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #10
   store i32 2281, ptr %3, align 4
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable11 [
     i32 4, label %5
     i32 5, label %7
     i32 6, label %14
@@ -402,7 +402,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @get_ts_parser_func(ptr noun
 13:                                               ; preds = %2
   br label %14
 
-default.unreachable:                              ; preds = %2
+default.unreachable11:                            ; preds = %2
   unreachable
 
 14:                                               ; preds = %2, %13, %10, %7, %5
@@ -1540,7 +1540,7 @@ makeTSTemplateDependencies.exit:                  ; preds = %63, %84
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr noundef %0, i32 noundef range(i32 4, 6) %1) unnamed_addr #0 {
   %3 = alloca [4 x i32], align 16
   %4 = tail call ptr @defGetQualifiedName(ptr noundef %0) #10
   store i32 2281, ptr %3, align 16
@@ -1550,8 +1550,8 @@ define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr no
   store i32 2281, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 2281, ptr %7, align 4
-  %switch = icmp eq i32 %1, 4
-  %. = select i1 %switch, i32 1, i32 4
+  %switch.not.not = icmp eq i32 %1, 4
+  %. = select i1 %switch.not.not, i32 1, i32 4
   %8 = call i32 @LookupFuncName(ptr noundef %4, i32 noundef %., ptr noundef nonnull %3, i1 noundef zeroext false) #10
   %9 = call i32 @get_func_rettype(i32 noundef %8) #10
   %.not = icmp eq i32 %9, 2281

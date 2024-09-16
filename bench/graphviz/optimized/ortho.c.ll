@@ -2074,7 +2074,7 @@ assignTracks.exit.thread:                         ; preds = %188, %591, %588, %5
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef range(i64 16, 65) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -3387,7 +3387,7 @@ declare ptr @make_graph(i32 noundef) local_unnamed_addr #2
 declare void @insert_edge(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 3, 5) %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load double, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3599,11 +3599,11 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr nocapture noundef readon
 
 124:                                              ; preds = %70
   %125 = fcmp oeq double %12, %8
-  br i1 %125, label %126, label %224
+  br i1 %125, label %126, label %225
 
 126:                                              ; preds = %124
   %127 = fcmp oeq double %6, %14
-  br i1 %127, label %128, label %196
+  br i1 %127, label %128, label %197
 
 128:                                              ; preds = %126
   %129 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3709,7 +3709,7 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr nocapture noundef readon
 
 174:                                              ; preds = %166
   %175 = icmp eq i32 %132, 0
-  br i1 %175, label %177, label %.thread185
+  br i1 %175, label %177, label %.thread185.thread
 
 .thread183:                                       ; preds = %164
   %176 = icmp eq i32 %132, 0
@@ -3734,120 +3734,122 @@ define internal fastcc range(i32 -1, 2) i32 @segCmp(ptr nocapture noundef readon
   %.0.i161.neg = select i1 %185, i32 %..i160.neg, i32 -1
   br label %overlapSeg.exit
 
-.thread185:                                       ; preds = %.thread183, %174
+.thread185:                                       ; preds = %.thread183
   %187 = icmp eq i32 %141, 0
   %or.cond189 = and i1 %143, %187
-  %188 = getelementptr inbounds i8, ptr %0, i64 36
-  %189 = load i32, ptr %188, align 4
-  br i1 %or.cond189, label %190, label %193
+  br i1 %or.cond189, label %188, label %.thread185.thread
 
-190:                                              ; preds = %.thread185
-  %191 = icmp eq i32 %189, %2
+188:                                              ; preds = %.thread185
+  %189 = getelementptr inbounds i8, ptr %0, i64 36
+  %190 = load i32, ptr %189, align 4
+  %191 = icmp eq i32 %190, %2
   %192 = icmp eq i32 %130, %2
   %..i162 = sext i1 %192 to i32
   %.0.i163 = select i1 %191, i32 %..i162, i32 1
   br label %overlapSeg.exit
 
-193:                                              ; preds = %.thread185
-  %194 = icmp eq i32 %189, %3
-  %195 = icmp eq i32 %130, %3
-  %..i164.neg = zext i1 %195 to i32
-  %.0.i165.neg = select i1 %194, i32 %..i164.neg, i32 -1
+.thread185.thread:                                ; preds = %174, %.thread185
+  %193 = getelementptr inbounds i8, ptr %0, i64 36
+  %194 = load i32, ptr %193, align 4
+  %195 = icmp eq i32 %194, %3
+  %196 = icmp eq i32 %130, %3
+  %..i164.neg = zext i1 %196 to i32
+  %.0.i165.neg = select i1 %195, i32 %..i164.neg, i32 -1
   br label %overlapSeg.exit
 
-196:                                              ; preds = %126
-  %197 = fcmp olt double %6, %14
-  br i1 %197, label %198, label %211
+197:                                              ; preds = %126
+  %198 = fcmp olt double %6, %14
+  br i1 %198, label %199, label %212
 
-198:                                              ; preds = %196
-  %199 = getelementptr inbounds i8, ptr %0, i64 36
-  %200 = load i32, ptr %199, align 4
-  %201 = icmp eq i32 %200, %2
-  %202 = getelementptr inbounds i8, ptr %1, i64 32
-  %203 = load i32, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %0, i64 32
-  %205 = load i32, ptr %204, align 8
-  %206 = icmp ne i32 %203, %3
-  %.not.i = icmp eq i32 %205, %3
-  %or.cond.i = or i1 %206, %.not.i
-  %207 = icmp ne i32 %203, 0
-  %208 = icmp ne i32 %205, %2
-  %or.cond9.not.i = or i1 %207, %208
+199:                                              ; preds = %197
+  %200 = getelementptr inbounds i8, ptr %0, i64 36
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp eq i32 %201, %2
+  %203 = getelementptr inbounds i8, ptr %1, i64 32
+  %204 = load i32, ptr %203, align 8
+  %205 = getelementptr inbounds i8, ptr %0, i64 32
+  %206 = load i32, ptr %205, align 8
+  %207 = icmp ne i32 %204, %3
+  %.not.i = icmp eq i32 %206, %3
+  %or.cond.i = or i1 %207, %.not.i
+  %208 = icmp ne i32 %204, 0
+  %209 = icmp ne i32 %206, %2
+  %or.cond9.not.i = or i1 %208, %209
   %narrow.i = and i1 %or.cond9.not.i, %or.cond.i
-  br i1 %201, label %209, label %210
+  br i1 %202, label %210, label %211
 
-209:                                              ; preds = %198
+210:                                              ; preds = %199
   %.0.i166 = sext i1 %narrow.i to i32
   br label %overlapSeg.exit
 
-210:                                              ; preds = %198
+211:                                              ; preds = %199
   %.0.i171.neg = zext i1 %narrow.i to i32
   br label %overlapSeg.exit
 
-211:                                              ; preds = %196
-  %212 = getelementptr inbounds i8, ptr %1, i64 36
-  %213 = load i32, ptr %212, align 4
-  %214 = icmp eq i32 %213, %3
-  %215 = getelementptr inbounds i8, ptr %0, i64 32
-  %216 = load i32, ptr %215, align 8
-  %217 = getelementptr inbounds i8, ptr %1, i64 32
-  %218 = load i32, ptr %217, align 8
-  %219 = icmp ne i32 %216, %3
-  %.not.i172 = icmp eq i32 %218, %3
-  %or.cond.i173 = or i1 %219, %.not.i172
-  %220 = icmp ne i32 %216, 0
-  %221 = icmp ne i32 %218, %2
-  %or.cond9.not.i174 = or i1 %220, %221
+212:                                              ; preds = %197
+  %213 = getelementptr inbounds i8, ptr %1, i64 36
+  %214 = load i32, ptr %213, align 4
+  %215 = icmp eq i32 %214, %3
+  %216 = getelementptr inbounds i8, ptr %0, i64 32
+  %217 = load i32, ptr %216, align 8
+  %218 = getelementptr inbounds i8, ptr %1, i64 32
+  %219 = load i32, ptr %218, align 8
+  %220 = icmp ne i32 %217, %3
+  %.not.i172 = icmp eq i32 %219, %3
+  %or.cond.i173 = or i1 %220, %.not.i172
+  %221 = icmp ne i32 %217, 0
+  %222 = icmp ne i32 %219, %2
+  %or.cond9.not.i174 = or i1 %221, %222
   %narrow.i175 = and i1 %or.cond9.not.i174, %or.cond.i173
-  br i1 %214, label %222, label %223
+  br i1 %215, label %223, label %224
 
-222:                                              ; preds = %211
+223:                                              ; preds = %212
   %.0.i176 = sext i1 %narrow.i175 to i32
   br label %overlapSeg.exit
 
-223:                                              ; preds = %211
+224:                                              ; preds = %212
   %.0.i181.neg = zext i1 %narrow.i175 to i32
   br label %overlapSeg.exit
 
-224:                                              ; preds = %124
-  %225 = fcmp oeq double %6, %8
-  br i1 %225, label %226, label %234
+225:                                              ; preds = %124
+  %226 = fcmp oeq double %6, %8
+  br i1 %226, label %227, label %235
 
-226:                                              ; preds = %224
-  %227 = getelementptr inbounds i8, ptr %0, i64 36
-  %228 = load i32, ptr %227, align 4
-  %229 = getelementptr inbounds i8, ptr %1, i64 32
-  %230 = load i32, ptr %229, align 8
-  %231 = icmp eq i32 %228, %230
-  br i1 %231, label %overlapSeg.exit, label %232
+227:                                              ; preds = %225
+  %228 = getelementptr inbounds i8, ptr %0, i64 36
+  %229 = load i32, ptr %228, align 4
+  %230 = getelementptr inbounds i8, ptr %1, i64 32
+  %231 = load i32, ptr %230, align 8
+  %232 = icmp eq i32 %229, %231
+  br i1 %232, label %overlapSeg.exit, label %233
 
-232:                                              ; preds = %226
-  %233 = icmp eq i32 %228, %3
-  %. = select i1 %233, i32 1, i32 -1
+233:                                              ; preds = %227
+  %234 = icmp eq i32 %229, %3
+  %. = select i1 %234, i32 1, i32 -1
   br label %overlapSeg.exit
 
-234:                                              ; preds = %224
-  %235 = getelementptr inbounds i8, ptr %0, i64 32
-  %236 = load i32, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %1, i64 36
-  %238 = load i32, ptr %237, align 4
-  %239 = icmp eq i32 %236, %238
-  br i1 %239, label %overlapSeg.exit, label %240
+235:                                              ; preds = %225
+  %236 = getelementptr inbounds i8, ptr %0, i64 32
+  %237 = load i32, ptr %236, align 8
+  %238 = getelementptr inbounds i8, ptr %1, i64 36
+  %239 = load i32, ptr %238, align 4
+  %240 = icmp eq i32 %237, %239
+  br i1 %240, label %overlapSeg.exit, label %241
 
-240:                                              ; preds = %234
-  %241 = icmp eq i32 %236, %3
-  %.146 = select i1 %241, i32 1, i32 -1
+241:                                              ; preds = %235
+  %242 = icmp eq i32 %237, %3
+  %.146 = select i1 %242, i32 1, i32 -1
   br label %overlapSeg.exit
 
-overlapSeg.exit:                                  ; preds = %116, %108, %106, %102, %96, %89, %85, %79, %62, %54, %52, %48, %42, %35, %31, %25, %240, %234, %232, %226, %172, %171, %162, %161, %152, %148, %145, %144, %134, %4, %10, %223, %222, %210, %209, %193, %190, %182, %177, %173, %163, %155
-  %.0 = phi i32 [ 0, %155 ], [ 0, %163 ], [ 0, %173 ], [ %.0.i159, %177 ], [ %.0.i161.neg, %182 ], [ %.0.i163, %190 ], [ %.0.i165.neg, %193 ], [ %.0.i166, %209 ], [ %.0.i171.neg, %210 ], [ %.0.i176, %222 ], [ %.0.i181.neg, %223 ], [ 0, %10 ], [ 0, %4 ], [ 0, %134 ], [ 1, %144 ], [ -1, %145 ], [ 1, %148 ], [ -1, %152 ], [ 1, %161 ], [ -1, %162 ], [ 1, %171 ], [ -1, %172 ], [ 0, %226 ], [ %., %232 ], [ 0, %234 ], [ %.146, %240 ], [ 0, %35 ], [ 0, %52 ], [ %.0.i.i, %54 ], [ %.0.i38.neg.i, %62 ], [ -1, %25 ], [ 1, %31 ], [ -1, %42 ], [ 1, %48 ], [ 0, %89 ], [ 0, %106 ], [ %.0.i.i157.neg, %108 ], [ %.0.i38.neg.i151.neg, %116 ], [ 1, %79 ], [ -1, %85 ], [ 1, %96 ], [ -1, %102 ]
+overlapSeg.exit:                                  ; preds = %116, %108, %106, %102, %96, %89, %85, %79, %62, %54, %52, %48, %42, %35, %31, %25, %241, %235, %233, %227, %172, %171, %162, %161, %152, %148, %145, %144, %134, %4, %10, %224, %223, %211, %210, %.thread185.thread, %188, %182, %177, %173, %163, %155
+  %.0 = phi i32 [ 0, %155 ], [ 0, %163 ], [ 0, %173 ], [ %.0.i159, %177 ], [ %.0.i161.neg, %182 ], [ %.0.i163, %188 ], [ %.0.i165.neg, %.thread185.thread ], [ %.0.i166, %210 ], [ %.0.i171.neg, %211 ], [ %.0.i176, %223 ], [ %.0.i181.neg, %224 ], [ 0, %10 ], [ 0, %4 ], [ 0, %134 ], [ 1, %144 ], [ -1, %145 ], [ 1, %148 ], [ -1, %152 ], [ 1, %161 ], [ -1, %162 ], [ 1, %171 ], [ -1, %172 ], [ 0, %227 ], [ %., %233 ], [ 0, %235 ], [ %.146, %241 ], [ 0, %35 ], [ 0, %52 ], [ %.0.i.i, %54 ], [ %.0.i38.neg.i, %62 ], [ -1, %25 ], [ 1, %31 ], [ -1, %42 ], [ 1, %48 ], [ 0, %89 ], [ 0, %106 ], [ %.0.i.i157.neg, %108 ], [ %.0.i38.neg.i151.neg, %116 ], [ 1, %79 ], [ -1, %85 ], [ 1, %96 ], [ -1, %102 ]
   ret i32 %.0
 }
 
 declare zeroext i1 @edge_exists(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = load i8, ptr %0, align 8
   %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %0, i64 8

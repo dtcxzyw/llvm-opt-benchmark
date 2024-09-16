@@ -597,7 +597,7 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
 186:                                              ; preds = %185
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   %187 = getelementptr inbounds i8, ptr %71, i64 24
-  call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %128, ptr nonnull align 8 %21, ptr nonnull align 8 %187)
+  call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %128, ptr align 8 %21, ptr align 8 %187)
   br label %74
 
 188:                                              ; preds = %191, %190, %129
@@ -617,12 +617,12 @@ _ZN15wiggle_generate5types14define_builtin17h957e7ea78fd4c309E.exit: ; preds = %
 192:                                              ; preds = %191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   %193 = getelementptr inbounds i8, ptr %71, i64 24
-  call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %130, ptr nonnull align 8 %19, ptr nonnull align 8 %193)
+  call fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias align 8 %0, ptr nonnull align 8 %130, ptr align 8 %19, ptr align 8 %193)
   br label %74
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1b9a9baa50043d39E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr nonnull align 8 %2, ptr nonnull align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, [3 x i64] }, {} }, align 8
   %6 = alloca { { i64, [3 x i64] }, {} }, align 8
   %7 = alloca { { i64, [3 x i64] }, {} }, align 8
@@ -633,7 +633,7 @@ define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1
 
 10:                                               ; preds = %14, %11
   %.pn4 = phi { ptr, i32 } [ %12, %11 ], [ %.pn2, %14 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %2) #4
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %2) #4
           to label %46 unwind label %44
 
 11:                                               ; preds = %42, %4
@@ -667,7 +667,7 @@ define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1
 
 20:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
-  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %8, ptr align 8 %3, ptr nonnull align 8 %7)
+  invoke void @_ZN15wiggle_generate5names8type_ref17h5caf44ab7596050bE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %8, ptr nonnull align 8 %3, ptr nonnull align 8 %7)
           to label %21 unwind label %15
 
 21:                                               ; preds = %20
@@ -719,7 +719,7 @@ define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1
           to label %34 unwind label %26
 
 34:                                               ; preds = %33
-  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr align 8 %2, ptr nonnull align 8 %5)
+  invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %2, ptr nonnull align 8 %5)
           to label %35 unwind label %26
 
 35:                                               ; preds = %34
@@ -756,7 +756,7 @@ define internal fastcc void @_ZN15wiggle_generate5types19define_witx_pointer17h1
           to label %43 unwind label %11
 
 43:                                               ; preds = %42
-  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr align 8 %2)
+  call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %2)
   ret void
 
 44:                                               ; preds = %26, %22, %18, %14, %10

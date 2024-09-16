@@ -792,7 +792,7 @@ return:                                           ; preds = %entry, %qdist_sampl
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc double @qdist_pairwise_avg(ptr noundef %dist, i64 noundef %index, i64 noundef %n, i64 noundef %count) unnamed_addr #9 {
+define internal fastcc double @qdist_pairwise_avg(ptr noundef %dist, i64 noundef %index, i64 noundef %n, i64 noundef range(i64 1, 0) %count) unnamed_addr #9 {
 entry:
   %cmp = icmp ult i64 %n, 9
   br i1 %cmp, label %for.cond.preheader, label %if.else

@@ -4272,7 +4272,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit191:              ; preds = %420, %418, %405
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %425) #21
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 36
   %427 = load i32, ptr %426, align 4
-  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %14, i32 noundef %427)
+  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %14, i32 noundef %427)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   %428 = getelementptr inbounds i8, ptr %.sroa.0254.0310, i64 8
   %.not302 = icmp eq ptr %428, %424
@@ -4316,7 +4316,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit198:              ; preds = %440, %438, %._crit_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %446) #21
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 36
   %448 = load i32, ptr %447, align 4
-  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %15, i32 noundef %448)
+  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %15, i32 noundef %448)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #21
   %449 = getelementptr inbounds i8, ptr %.0109312, i64 8
   %.not115 = icmp eq ptr %449, %445
@@ -4371,7 +4371,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit201:              ; preds = %461, %459, %._crit_
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %471) #21
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 36
   %473 = load i32, ptr %472, align 4
-  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %16, i32 noundef %473)
+  call fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %16, i32 noundef %473)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   br label %474
 
@@ -4916,7 +4916,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang20DumpModuleInfoAction13ExecuteActionEvENK3$_1clENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Module10ModuleKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -47083,7 +47083,7 @@ define internal void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback15atTemplate
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   %38 = load i32, ptr %2, align 8, !noalias !2749
-  call fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %38)
+  call fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %38)
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.590) #21
@@ -47427,7 +47427,7 @@ define internal void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback13atTemplate
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #21
   %38 = load i32, ptr %2, align 8, !noalias !2776
-  call fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %38)
+  call fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %38)
   %39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.658) #21
@@ -47846,7 +47846,7 @@ declare void @_ZN4llvm4yaml6OutputD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_127DefaultTemplateInstCallback8toStringB5cxx11EN5clang4Sema20CodeSynthesisContext13SynthesisKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1

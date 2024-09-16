@@ -3679,7 +3679,7 @@ _ZNSt3setIN5osgeo4proj2io16AuthorityFactory10ObjectTypeESt4lessIS4_ESaIS4_EE6ins
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit: ; preds = %1317, %1325, %1328
-  invoke fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext false)
+  invoke fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef %94, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext false)
           to label %1330 unwind label %1379
 
 1330:                                             ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit
@@ -5012,7 +5012,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit855: ; preds = 
 1875:                                             ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit855
   %1876 = load i8, ptr %42, align 8
   %1877 = trunc i8 %1876 to i1
-  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull %105, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %107, i1 noundef zeroext %.0331.lcssa, i32 noundef %.0367.lcssa, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %1877)
+  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef %105, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %107, i1 noundef zeroext %.0331.lcssa, i32 noundef %.0367.lcssa, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %1877)
           to label %1878 unwind label %1922
 
 1878:                                             ; preds = %1875
@@ -5205,7 +5205,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit865: ; preds = 
   br label %_ZN5osgeo4proj4util15BaseObjectNNPtrC2ERKS2_.exit
 
 _ZN5osgeo4proj4util15BaseObjectNNPtrC2ERKS2_.exit: ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit865, %1953, %1956
-  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef nonnull %110, ptr noundef nonnull %111, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
+  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef %110, ptr noundef %111, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
           to label %1958 unwind label %1997
 
 1958:                                             ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2ERKS2_.exit
@@ -6017,7 +6017,7 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3C
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit904
 
 _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit904: ; preds = %2331, %2337, %2340
-  invoke fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull %117, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext true)
+  invoke fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef %117, ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext true)
           to label %2342 unwind label %3619
 
 2342:                                             ; preds = %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit904
@@ -6165,7 +6165,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit.i: ; preds = %
 2390:                                             ; preds = %2389
   %2391 = load i8, ptr %42, align 8
   %2392 = trunc i8 %2391 to i1
-  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false, i32 noundef 2, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %2392)
+  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext false, i32 noundef 2, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %2392)
           to label %2393 unwind label %2507
 
 2393:                                             ; preds = %2390
@@ -6700,7 +6700,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit136.i: ; preds 
 2617:                                             ; preds = %2616
   %2618 = load i8, ptr %42, align 8
   %2619 = trunc i8 %2618 to i1
-  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext false, i32 noundef 2, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %2619)
+  invoke fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext false, i32 noundef 2, i1 noundef zeroext %.0382.lcssa, i1 noundef zeroext %.0384.lcssa, i1 noundef zeroext %2619)
           to label %2620 unwind label %2734
 
 2620:                                             ; preds = %2617
@@ -7557,7 +7557,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %3213
 
 2997:                                             ; preds = %2983, %2981
-  invoke fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(40) %30)
+  invoke fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %2998 unwind label %2993
 
 2998:                                             ; preds = %2997
@@ -7775,7 +7775,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19Coordina
           to label %3090 unwind label %3122
 
 3090:                                             ; preds = %3088
-  invoke fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(40) %30)
+  invoke fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(40) %30)
           to label %3091 unwind label %3122
 
 3091:                                             ; preds = %3090
@@ -8150,7 +8150,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit232.i: ; preds 
   br label %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit.i
 
 _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit.i: ; preds = %3265, %3262, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit232.i
-  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
+  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef %33, ptr noundef %34, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
           to label %3267 unwind label %3303
 
 3267:                                             ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit.i
@@ -8427,7 +8427,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit244.i: ; preds 
   br label %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit247.i
 
 _ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit247.i: ; preds = %3379, %3376, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEC2ERKS4_.exit244.i
-  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
+  invoke fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef %35, ptr noundef %36, i32 noundef %.0367.lcssa, ptr noundef nonnull align 8 dereferenceable(104) %42)
           to label %3381 unwind label %3424
 
 3381:                                             ; preds = %_ZN5osgeo4proj4util15BaseObjectNNPtrC2INS0_9operation19CoordinateOperationEEERKN7dropbox6oxygen2nnISt10shared_ptrIT_EEE.exit247.i
@@ -9819,7 +9819,7 @@ declare void @_ZNK5osgeo4proj2io15DatabaseContext20getDatabaseStructureB5cxx11Ev
 declare void @_ZN5osgeo4proj8internal7tolowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14makeBboxFilterSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_b(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.dropbox::oxygen::nn.34", align 8
   %8 = alloca %"class.osgeo::proj::util::optional", align 8
@@ -12059,7 +12059,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj8metadata6ExtentELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11buildObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_SC_SC_bNS1_9operation26CoordinateOperationContext18IntermediateCRSUseEbbb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext %6, i32 noundef range(i32 0, 3) %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %12 = alloca ptr, align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15486,7 +15486,7 @@ declare noundef i32 @_ZN5osgeo4proj2io9WKTParser12guessDialectERKNSt7__cxx1112ba
 declare void @_ZN5osgeo4proj2io9WKTParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12outputObjectSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEENS1_4util15BaseObjectNNPtrENS1_9operation26CoordinateOperationContext18IntermediateCRSUseERKN12_GLOBAL__N_113OutputOptionsE(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 3) %2, ptr noundef nonnull align 8 dereferenceable(104) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::shared_ptr.169", align 8
@@ -16906,7 +16906,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit262: ; preds = %612
   br i1 %664, label %665, label %674
 
 665:                                              ; preds = %661
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(32) %20)
           to label %666 unwind label %672
 
 666:                                              ; preds = %665
@@ -17185,7 +17185,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit273: ; preds = %734
   br i1 %791, label %792, label %797
 
 792:                                              ; preds = %788
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %793 unwind label %795
 
 793:                                              ; preds = %792
@@ -17444,7 +17444,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit286: ; preds = %853
   br i1 %910, label %911, label %916
 
 911:                                              ; preds = %907
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %28)
           to label %912 unwind label %914
 
 912:                                              ; preds = %911
@@ -17703,7 +17703,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit299: ; preds = %972
   br i1 %1029, label %1030, label %1035
 
 1030:                                             ; preds = %1026
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %1031 unwind label %1033
 
 1031:                                             ; preds = %1030
@@ -18065,7 +18065,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit322: ; preds = %113
   br i1 %1200, label %1201, label %1206
 
 1201:                                             ; preds = %1197
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %1202 unwind label %1204
 
 1202:                                             ; preds = %1201
@@ -18402,7 +18402,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit347: ; preds = %131
   br i1 %1356, label %1357, label %1366
 
 1357:                                             ; preds = %1353
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %1358 unwind label %1364
 
 1358:                                             ; preds = %1357
@@ -18715,7 +18715,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit364: ; preds = %143
   br i1 %1491, label %1492, label %1497
 
 1492:                                             ; preds = %1488
-  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %45)
+  invoke fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %45)
           to label %1493 unwind label %1495
 
 1493:                                             ; preds = %1492
@@ -21066,7 +21066,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5osgeo4proj2io12WKTFo
 declare void @_ZNK5osgeo4proj2io14IWKTExportable11exportToWKTB5cxx11EPNS1_12WKTFormatterE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12c_ify_stringRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21816,7 +21816,7 @@ declare void @_ZN5osgeo4proj9operation26CoordinateOperationContext31setAllowBall
 declare void @_ZN5osgeo4proj9operation26CoordinateOperationContext18setDesiredAccuracyEd(ptr noundef nonnull align 8 dereferenceable(16), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL16outputOperationsRKSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_SE_SE_RKS_INS1_8metadata6ExtentEENS1_9operation26CoordinateOperationContext16SpatialCriterionEbNSL_24SourceTargetCRSExtentUseENSL_19GridAvailabilityUseENSL_18IntermediateCRSUseERKSt6vectorISt4pairISC_SC_ESaISS_EESE_bbbbdRKN12_GLOBAL__N_113OutputOptionsEbENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.dropbox::oxygen::nn.376", align 8
   %4 = alloca %"class.dropbox::oxygen::nn.176", align 8
   %5 = alloca %"class.dropbox::oxygen::nn.176", align 8
@@ -21900,7 +21900,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetada
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit6: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit, %44, %47
   %49 = getelementptr inbounds i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
-  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_11coordinates18CoordinateMetadataEEEESC_RKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISE_EEEE(ptr dead_on_unwind writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %50)
+  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_11coordinates18CoordinateMetadataEEEESC_RKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISE_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %50)
           to label %51 unwind label %123
 
 51:                                               ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit6
@@ -22123,7 +22123,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetada
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit21, %150, %153
   %155 = getelementptr inbounds i8, ptr %1, i64 16
   %156 = load ptr, ptr %155, align 8
-  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_11coordinates18CoordinateMetadataEEEERKNS5_IS6_INS0_3crs3CRSEEEERKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISK_EEEE(ptr dead_on_unwind writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %156)
+  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_11coordinates18CoordinateMetadataEEEERKNS5_IS6_INS0_3crs3CRSEEEERKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISK_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %156)
           to label %157 unwind label %229
 
 157:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit
@@ -22349,7 +22349,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit48: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit45, %257, %260
   %262 = getelementptr inbounds i8, ptr %1, i64 16
   %263 = load ptr, ptr %262, align 8
-  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS5_IS6_INS0_11coordinates18CoordinateMetadataEEEERKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISK_EEEE(ptr dead_on_unwind writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %263)
+  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEERKNS5_IS6_INS0_11coordinates18CoordinateMetadataEEEERKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISK_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %235, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(8) %263)
           to label %264 unwind label %336
 
 264:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj11coordinates18CoordinateMetadataEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit48
@@ -22572,7 +22572,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit74: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit71, %363, %366
   %368 = getelementptr inbounds i8, ptr %1, i64 16
   %369 = load ptr, ptr %368, align 8
-  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISE_EEEE(ptr dead_on_unwind writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %340, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %369)
+  invoke void @_ZNK5osgeo4proj9operation26CoordinateOperationFactory16createOperationsERKN7dropbox6oxygen2nnISt10shared_ptrINS0_3crs3CRSEEEESC_RKNS5_ISt10unique_ptrINS1_26CoordinateOperationContextESt14default_deleteISE_EEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.296") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %340, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(8) %369)
           to label %370 unwind label %442
 
 370:                                              ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs3CRSEEEC2ENS0_30i_promise_i_checked_for_null_tERKS7_.exit74
@@ -22866,7 +22866,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19C
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL22outputOperationSummaryRKN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEERKS2_INS4_2io15DatabaseContextEENS5_26CoordinateOperationContext19GridAvailabilityUseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL22outputOperationSummaryRKN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation19CoordinateOperationEEEERKS2_INS4_2io15DatabaseContextEENS5_26CoordinateOperationContext19GridAvailabilityUseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.99", align 8
   %5 = alloca %"class.std::set.260", align 8
   %6 = load ptr, ptr %0, align 8

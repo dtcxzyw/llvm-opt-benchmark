@@ -1052,7 +1052,7 @@ if.end67.i:                                       ; preds = %if.else64.i, %if.th
   %22 = load ptr, ptr %spacket22.i, align 8
   %add.ptr70.i = getelementptr inbounds i8, ptr %22, i64 %add44.i
   %state.val.i = load i32, ptr %blksize.i, align 4
-  %call71.i = call fastcc i32 @tftp_option_add(i32 %state.val.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr70.i, ptr noundef nonnull @.str.14)
+  %call71.i = call fastcc i32 @tftp_option_add(i32 %state.val.i, ptr noundef %sbytes.i, ptr noundef %add.ptr70.i, ptr noundef nonnull @.str.14)
   %cmp72.i = icmp eq i32 %call71.i, 0
   br i1 %cmp72.i, label %if.then74.i, label %if.end90.critedge.i
 
@@ -1061,7 +1061,7 @@ if.then74.i:                                      ; preds = %if.end67.i
   %24 = load i64, ptr %sbytes.i, align 8
   %add.ptr77.i = getelementptr inbounds i8, ptr %23, i64 %24
   %state.val68.i = load i32, ptr %blksize.i, align 4
-  %call79.i = call fastcc i32 @tftp_option_add(i32 %state.val68.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr77.i, ptr noundef nonnull %buf.i)
+  %call79.i = call fastcc i32 @tftp_option_add(i32 %state.val68.i, ptr noundef %sbytes.i, ptr noundef %add.ptr77.i, ptr noundef nonnull %buf.i)
   %25 = icmp eq i32 %call79.i, 0
   %requested_blksize.i = getelementptr inbounds i8, ptr %state, i64 320
   %26 = load i32, ptr %requested_blksize.i, align 8
@@ -1073,7 +1073,7 @@ if.then85.i:                                      ; preds = %if.then74.i
   %28 = load i64, ptr %sbytes.i, align 8
   %add.ptr88.i = getelementptr inbounds i8, ptr %27, i64 %28
   %state.val69.i = load i32, ptr %blksize.i, align 4
-  %call89.i = call fastcc i32 @tftp_option_add(i32 %state.val69.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr88.i, ptr noundef nonnull @.str.16)
+  %call89.i = call fastcc i32 @tftp_option_add(i32 %state.val69.i, ptr noundef %sbytes.i, ptr noundef %add.ptr88.i, ptr noundef nonnull @.str.16)
   %29 = icmp eq i32 %call89.i, 0
   br i1 %29, label %if.then93.i, label %if.end109.critedge.i
 
@@ -1088,7 +1088,7 @@ if.then93.i:                                      ; preds = %if.then85.i
   %32 = load i64, ptr %sbytes.i, align 8
   %add.ptr96.i = getelementptr inbounds i8, ptr %31, i64 %32
   %state.val70.i = load i32, ptr %blksize.i, align 4
-  %call98.i = call fastcc i32 @tftp_option_add(i32 %state.val70.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr96.i, ptr noundef nonnull %buf.i)
+  %call98.i = call fastcc i32 @tftp_option_add(i32 %state.val70.i, ptr noundef %sbytes.i, ptr noundef %add.ptr96.i, ptr noundef nonnull %buf.i)
   %33 = icmp eq i32 %call98.i, 0
   %retry_time.i = getelementptr inbounds i8, ptr %state, i64 32
   %34 = load i32, ptr %retry_time.i, align 8
@@ -1100,7 +1100,7 @@ if.then104.i:                                     ; preds = %if.then93.i
   %36 = load i64, ptr %sbytes.i, align 8
   %add.ptr107.i = getelementptr inbounds i8, ptr %35, i64 %36
   %state.val71.i = load i32, ptr %blksize.i, align 4
-  %call108.i = call fastcc i32 @tftp_option_add(i32 %state.val71.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr107.i, ptr noundef nonnull @.str.17)
+  %call108.i = call fastcc i32 @tftp_option_add(i32 %state.val71.i, ptr noundef %sbytes.i, ptr noundef %add.ptr107.i, ptr noundef nonnull @.str.17)
   %37 = icmp eq i32 %call108.i, 0
   br i1 %37, label %if.then112.i, label %if.then121.i
 
@@ -1115,7 +1115,7 @@ if.then112.i:                                     ; preds = %if.then104.i
   %40 = load i64, ptr %sbytes.i, align 8
   %add.ptr115.i = getelementptr inbounds i8, ptr %39, i64 %40
   %state.val72.i = load i32, ptr %blksize.i, align 4
-  %call117.i = call fastcc i32 @tftp_option_add(i32 %state.val72.i, ptr noundef nonnull %sbytes.i, ptr noundef %add.ptr115.i, ptr noundef nonnull %buf.i)
+  %call117.i = call fastcc i32 @tftp_option_add(i32 %state.val72.i, ptr noundef %sbytes.i, ptr noundef %add.ptr115.i, ptr noundef nonnull %buf.i)
   %41 = icmp eq i32 %call117.i, 0
   br i1 %41, label %if.then112.if.end123_crit_edge.i, label %if.then121.i
 
@@ -1881,7 +1881,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %state.316.val, ptr nocapture noundef %csize, ptr noundef %buf, ptr nocapture noundef readonly %option) unnamed_addr #8 {
+define internal fastcc range(i32 0, 72) i32 @tftp_option_add(i32 %state.316.val, ptr nocapture noundef nonnull %csize, ptr noundef %buf, ptr nocapture noundef readonly %option) unnamed_addr #8 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %option) #13
   %0 = load i64, ptr %csize, align 8

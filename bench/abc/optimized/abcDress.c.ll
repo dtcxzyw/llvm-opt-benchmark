@@ -97,9 +97,9 @@ define void @Abc_NtkDress(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 43:                                               ; preds = %36
   %44 = load ptr, ptr %37, align 8
   %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %31 to i64
-  %47 = and i64 %45, 1
-  %48 = xor i64 %47, %46
+  %46 = and i64 %45, 1
+  %47 = ptrtoint ptr %31 to i64
+  %48 = xor i64 %46, %47
   %49 = inttoptr i64 %48 to ptr
   %50 = tail call i32 @stmm_insert(ptr noundef %23, ptr noundef %41, ptr noundef %49) #4
   br label %51
@@ -165,9 +165,9 @@ Abc_NtkDressDeriveMapping.exit:                   ; preds = %51, %.split
 82:                                               ; preds = %75
   %83 = load ptr, ptr %76, align 8
   %84 = ptrtoint ptr %83 to i64
-  %85 = ptrtoint ptr %70 to i64
-  %86 = and i64 %84, 1
-  %87 = xor i64 %86, %85
+  %85 = and i64 %84, 1
+  %86 = ptrtoint ptr %70 to i64
+  %87 = xor i64 %85, %86
   %88 = inttoptr i64 %87 to ptr
   %89 = tail call i32 @stmm_insert(ptr noundef %62, ptr noundef %80, ptr noundef %88) #4
   br label %90
@@ -280,12 +280,12 @@ define internal fastcc void @Abc_NtkDressTransferNames(ptr nocapture noundef rea
   %35 = load ptr, ptr %4, align 8
   %36 = load ptr, ptr %28, align 8
   %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %35 to i64
-  %39 = and i64 %37, 1
-  %40 = xor i64 %39, %38
+  %38 = and i64 %37, 1
+  %39 = ptrtoint ptr %35 to i64
+  %40 = xor i64 %38, %39
   %41 = inttoptr i64 %40 to ptr
   store ptr %41, ptr %4, align 8
-  %42 = and i64 %38, -2
+  %42 = and i64 %39, -2
   %43 = inttoptr i64 %42 to ptr
   %.val39 = load ptr, ptr %43, align 8
   %44 = getelementptr i8, ptr %43, i64 48

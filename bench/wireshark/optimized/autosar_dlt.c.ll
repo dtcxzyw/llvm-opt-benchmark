@@ -117,7 +117,7 @@ define internal range(i32 0, 2) i32 @autosar_dlt_read(ptr noundef %0, ptr nounde
   store ptr %13, ptr %14, align 8
   %15 = tail call i64 @file_tell(ptr noundef %8) #8
   store i64 %15, ptr %5, align 8
-  %16 = call fastcc i32 @autosar_dlt_read_block(ptr noundef nonnull %7, i64 noundef %15, ptr noundef %3, ptr noundef %4)
+  %16 = call fastcc i32 @autosar_dlt_read_block(ptr noundef %7, i64 noundef %15, ptr noundef %3, ptr noundef %4)
   ret i32 %16
 }
 
@@ -142,7 +142,7 @@ define internal range(i32 0, 2) i32 @autosar_dlt_seek_read(ptr noundef %0, i64 n
   br i1 %17, label %20, label %18
 
 18:                                               ; preds = %6
-  %19 = call fastcc i32 @autosar_dlt_read_block(ptr noundef nonnull %7, i64 noundef %1, ptr noundef %4, ptr noundef %5)
+  %19 = call fastcc i32 @autosar_dlt_read_block(ptr noundef %7, i64 noundef %1, ptr noundef %4, ptr noundef %5)
   br label %20
 
 20:                                               ; preds = %18, %6
@@ -188,7 +188,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.autosar_dlt_blockheader, align 4
   %7 = alloca %struct.autosar_dlt_itemheader, align 2

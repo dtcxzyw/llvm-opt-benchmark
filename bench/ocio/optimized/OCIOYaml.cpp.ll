@@ -22618,7 +22618,7 @@ call.i61.i.noexc:                                 ; preds = %_ZN4YAMLlsERNS_7Emi
           to label %.noexc1290 unwind label %lpad655
 
 .noexc1290:                                       ; preds = %call.i61.i.noexc
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp.i, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp.i, i32 noundef %call)
           to label %invoke.cont31.i unwind label %lpad30.i
 
 invoke.cont31.i:                                  ; preds = %.noexc1290
@@ -22855,7 +22855,7 @@ call.i138.i.noexc:                                ; preds = %_ZN4YAMLlsERNS_7Emi
           to label %.noexc1294 unwind label %lpad655
 
 .noexc1294:                                       ; preds = %call.i138.i.noexc
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp40.i, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp40.i, i32 noundef %call)
           to label %invoke.cont43.i1273 unwind label %lpad42.i1272
 
 invoke.cont43.i1273:                              ; preds = %.noexc1294
@@ -23730,7 +23730,7 @@ if.else.i.i.i.i.i.i1456:                          ; preds = %if.then.i.i.i107.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i: ; preds = %if.else.i.i.i.i.i.i1456, %if.then.i.i.i.i.i.i1427, %invoke.cont67.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp.i1389, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp.i1389, i32 noundef %call)
           to label %invoke.cont70.i unwind label %lpad69.i
 
 invoke.cont70.i:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i
@@ -23889,7 +23889,7 @@ if.else.i.i.i.i.i140.i:                           ; preds = %if.then.i.i.i135.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit141.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit141.i: ; preds = %if.else.i.i.i.i.i140.i, %if.then.i.i.i.i.i138.i, %invoke.cont83.i1437
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp85.i, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp85.i, i32 noundef %call)
           to label %invoke.cont87.i unwind label %lpad86.i
 
 invoke.cont87.i:                                  ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit141.i
@@ -24542,7 +24542,7 @@ if.else.i.i.i.i.i1624:                            ; preds = %if.then.i.i.i1620
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit: ; preds = %for.body763, %if.then.i.i.i.i.i1622, %if.else.i.i.i.i.i1624
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp766, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp766, i32 noundef %call)
           to label %invoke.cont768 unwind label %lpad767
 
 invoke.cont768:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit
@@ -24717,7 +24717,7 @@ if.else.i.i.i.i.i1694:                            ; preds = %if.then.i.i.i1689
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit1695
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit1695: ; preds = %for.body792, %if.then.i.i.i.i.i1692, %if.else.i.i.i.i.i1694
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp795, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp795, i32 noundef %call)
           to label %invoke.cont797 unwind label %lpad796
 
 invoke.cont797:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEC2ERKS3_.exit1695
@@ -25751,7 +25751,7 @@ if.else.i.i.i.i.i.i1844:                          ; preds = %if.then.i.i.i188.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i1809
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i1809: ; preds = %if.else.i.i.i.i.i.i1844, %if.then.i.i.i.i.i.i1807, %invoke.cont123.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp.i1767, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp.i1767, i32 noundef %call)
           to label %invoke.cont126.i unwind label %lpad125.i
 
 invoke.cont126.i:                                 ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit.i1809
@@ -26066,7 +26066,7 @@ if.else.i.i.i.i.i257.i:                           ; preds = %if.then.i.i.i252.i
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit258.i
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit258.i: ; preds = %if.else.i.i.i.i.i257.i, %if.then.i.i.i.i.i255.i, %invoke.cont141.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp143.i, i32 noundef %call)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp143.i, i32 noundef %call)
           to label %invoke.cont145.i unwind label %lpad144.i
 
 invoke.cont145.i:                                 ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit258.i
@@ -104689,7 +104689,7 @@ declare noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config24getColorSpaceNameByIndexE
 declare noundef i32 @_ZNK19OpenColorIO_v2_4dev6Config19getDisplayAllByNameEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %cs, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_10ColorSpaceEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %cs, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i302 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i303 = alloca %"class.std::allocator", align 1
@@ -105785,7 +105785,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i289
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit: ; preds = %invoke.cont169, %if.then.i.i.i.i.i290, %if.else.i.i.i.i.i
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp, i32 noundef %majorVersion)
           to label %invoke.cont172 unwind label %lpad171
 
 invoke.cont172:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit
@@ -105948,7 +105948,7 @@ if.else.i.i.i.i.i323:                             ; preds = %if.then.i.i.i318
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit324
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit324: ; preds = %invoke.cont190, %if.then.i.i.i.i.i321, %if.else.i.i.i.i.i323
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp192, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp192, i32 noundef %majorVersion)
           to label %invoke.cont194 unwind label %lpad193
 
 invoke.cont194:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEEC2ERKS3_.exit324
@@ -106610,7 +106610,7 @@ declare noundef ptr @_ZNK19OpenColorIO_v2_4dev4Look14getDescriptionEv(ptr nounde
 declare void @_ZNK19OpenColorIO_v2_4dev4Look12getTransformEv(ptr sret(%"class.std::shared_ptr.129") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i83.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i84.i = alloca %"class.std::allocator", align 1
@@ -109503,7 +109503,7 @@ if.else.i.i.i.i.i608:                             ; preds = %if.then.i.i.i603
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17ExponentTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17ExponentTransformEEC2ERKS3_.exit: ; preds = %if.then34, %if.then.i.i.i.i.i606, %if.else.i.i.i.i.i608
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_17ExponentTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp35, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_17ExponentTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp35, i32 noundef %majorVersion)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev17ExponentTransformEEC2ERKS3_.exit
@@ -109548,7 +109548,7 @@ if.else.i.i.i.i.i618:                             ; preds = %if.then.i.i.i613
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEEC2ERKS3_.exit: ; preds = %if.then42, %if.then.i.i.i.i.i616, %if.else.i.i.i.i.i618
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp43)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp43)
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev27ExponentWithLinearTransformEEC2ERKS3_.exit
@@ -109593,7 +109593,7 @@ if.else.i.i.i.i.i628:                             ; preds = %if.then.i.i.i623
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13FileTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13FileTransformEEC2ERKS3_.exit: ; preds = %if.then50, %if.then.i.i.i.i.i626, %if.else.i.i.i.i.i628
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13FileTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp51, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13FileTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp51, i32 noundef %majorVersion)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13FileTransformEEC2ERKS3_.exit
@@ -109638,7 +109638,7 @@ if.else.i.i.i.i.i638:                             ; preds = %if.then.i.i.i633
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev25ExposureContrastTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev25ExposureContrastTransformEEC2ERKS3_.exit: ; preds = %if.then59, %if.then.i.i.i.i.i636, %if.else.i.i.i.i.i638
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp60)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp60)
           to label %invoke.cont62 unwind label %lpad61
 
 invoke.cont62:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev25ExposureContrastTransformEEC2ERKS3_.exit
@@ -109683,7 +109683,7 @@ if.else.i.i.i.i.i648:                             ; preds = %if.then.i.i.i643
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22FixedFunctionTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22FixedFunctionTransformEEC2ERKS3_.exit: ; preds = %if.then67, %if.then.i.i.i.i.i646, %if.else.i.i.i.i.i648
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp68)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp68)
           to label %invoke.cont70 unwind label %lpad69
 
 invoke.cont70:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev22FixedFunctionTransformEEC2ERKS3_.exit
@@ -109728,7 +109728,7 @@ if.else.i.i.i.i.i658:                             ; preds = %if.then.i.i.i653
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev23GradingPrimaryTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev23GradingPrimaryTransformEEC2ERKS3_.exit: ; preds = %if.then75, %if.then.i.i.i.i.i656, %if.else.i.i.i.i.i658
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp76)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp76)
           to label %invoke.cont78 unwind label %lpad77
 
 invoke.cont78:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev23GradingPrimaryTransformEEC2ERKS3_.exit
@@ -109773,7 +109773,7 @@ if.else.i.i.i.i.i668:                             ; preds = %if.then.i.i.i663
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24GradingRGBCurveTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24GradingRGBCurveTransformEEC2ERKS3_.exit: ; preds = %if.then83, %if.then.i.i.i.i.i666, %if.else.i.i.i.i.i668
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp84)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp84)
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev24GradingRGBCurveTransformEEC2ERKS3_.exit
@@ -109818,7 +109818,7 @@ if.else.i.i.i.i.i678:                             ; preds = %if.then.i.i.i673
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingToneTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingToneTransformEEC2ERKS3_.exit: ; preds = %if.then91, %if.then.i.i.i.i.i676, %if.else.i.i.i.i.i678
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp92)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp92)
           to label %invoke.cont94 unwind label %lpad93
 
 invoke.cont94:                                    ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev20GradingToneTransformEEC2ERKS3_.exit
@@ -109863,7 +109863,7 @@ if.else.i.i.i.i.i688:                             ; preds = %if.then.i.i.i683
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14GroupTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14GroupTransformEEC2ERKS3_.exit: ; preds = %if.then99, %if.then.i.i.i.i.i686, %if.else.i.i.i.i.i688
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14GroupTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp100, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14GroupTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp100, i32 noundef %majorVersion)
           to label %invoke.cont102 unwind label %lpad101
 
 invoke.cont102:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14GroupTransformEEC2ERKS3_.exit
@@ -109908,7 +109908,7 @@ if.else.i.i.i.i.i698:                             ; preds = %if.then.i.i.i693
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogAffineTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogAffineTransformEEC2ERKS3_.exit: ; preds = %if.then107, %if.then.i.i.i.i.i696, %if.else.i.i.i.i.i698
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp108)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp108)
           to label %invoke.cont110 unwind label %lpad109
 
 invoke.cont110:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogAffineTransformEEC2ERKS3_.exit
@@ -109953,7 +109953,7 @@ if.else.i.i.i.i.i708:                             ; preds = %if.then.i.i.i703
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogCameraTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogCameraTransformEEC2ERKS3_.exit: ; preds = %if.then116, %if.then.i.i.i.i.i706, %if.else.i.i.i.i.i708
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp117)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp117)
           to label %invoke.cont119 unwind label %lpad118
 
 invoke.cont119:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev18LogCameraTransformEEC2ERKS3_.exit
@@ -109998,7 +109998,7 @@ if.else.i.i.i.i.i718:                             ; preds = %if.then.i.i.i713
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12LogTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12LogTransformEEC2ERKS3_.exit: ; preds = %if.then125, %if.then.i.i.i.i.i716, %if.else.i.i.i.i.i718
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_12LogTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp126, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_12LogTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp126, i32 noundef %majorVersion)
           to label %invoke.cont128 unwind label %lpad127
 
 invoke.cont128:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev12LogTransformEEC2ERKS3_.exit
@@ -110043,7 +110043,7 @@ if.else.i.i.i.i.i728:                             ; preds = %if.then.i.i.i723
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13LookTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13LookTransformEEC2ERKS3_.exit: ; preds = %if.then133, %if.then.i.i.i.i.i726, %if.else.i.i.i.i.i728
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp134)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp134)
           to label %invoke.cont136 unwind label %lpad135
 
 invoke.cont136:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev13LookTransformEEC2ERKS3_.exit
@@ -110088,7 +110088,7 @@ if.else.i.i.i.i.i738:                             ; preds = %if.then.i.i.i733
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15MatrixTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15MatrixTransformEEC2ERKS3_.exit: ; preds = %if.then141, %if.then.i.i.i.i.i736, %if.else.i.i.i.i.i738
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_15MatrixTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp142, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_15MatrixTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp142, i32 noundef %majorVersion)
           to label %invoke.cont144 unwind label %lpad143
 
 invoke.cont144:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev15MatrixTransformEEC2ERKS3_.exit
@@ -110133,7 +110133,7 @@ if.else.i.i.i.i.i748:                             ; preds = %if.then.i.i.i743
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14RangeTransformEEC2ERKS3_.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14RangeTransformEEC2ERKS3_.exit: ; preds = %if.then149, %if.then.i.i.i.i.i746, %if.else.i.i.i.i.i748
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp150)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp150)
           to label %invoke.cont152 unwind label %lpad151
 
 invoke.cont152:                                   ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14RangeTransformEEC2ERKS3_.exit
@@ -111105,7 +111105,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev20DisplayViewTransformELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_17ExponentTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_17ExponentTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i60 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i61 = alloca %"class.std::allocator", align 1
@@ -111650,7 +111650,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev27ExponentWithLinearTransformE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i129 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i130 = alloca %"class.std::allocator", align 1
@@ -112392,7 +112392,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev13FileTransformEKNS0_9Transfor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13FileTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13FileTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::allocator", align 1
@@ -113006,7 +113006,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev25ExposureContrastTransformEKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i104 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i105 = alloca %"class.std::allocator", align 1
@@ -113684,7 +113684,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev22FixedFunctionTransformEKNS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i33 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i34 = alloca %"class.std::allocator", align 1
@@ -114175,7 +114175,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev23GradingPrimaryTransformEKNS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i.i = alloca %"class.std::allocator", align 1
@@ -114741,7 +114741,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev24GradingRGBCurveTransformEKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %stream.i192 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp.i193 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -116268,7 +116268,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev20GradingToneTransformEKNS0_9T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i32 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i33 = alloca %"class.std::allocator", align 1
@@ -116755,7 +116755,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev14GroupTransformEKNS0_9Transfo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14GroupTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14GroupTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
@@ -116984,7 +116984,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 72
   %26 = load ptr, ptr %vfn26, align 8
   call void %26(ptr nonnull sret(%"class.std::shared_ptr.129") align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(8) %25, i32 noundef %i.068)
-  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef nonnull %agg.tmp, i32 noundef %majorVersion)
+  invoke fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_9TransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr noundef %agg.tmp, i32 noundef %majorVersion)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %for.body
@@ -117215,7 +117215,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev18LogAffineTransformEKNS0_9Tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
@@ -117599,7 +117599,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev18LogCameraTransformEKNS0_9Tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
@@ -118005,7 +118005,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev12LogTransformEKNS0_9Transform
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_12LogTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_12LogTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i = alloca %"class.std::allocator", align 1
@@ -118366,7 +118366,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev13LookTransformEKNS0_9Transfor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i56 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i57 = alloca %"class.std::allocator", align 1
@@ -118874,7 +118874,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev15MatrixTransformEKNS0_9Transf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_15MatrixTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_15MatrixTransformEEj(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t, i32 noundef %majorVersion) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i46 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i47 = alloca %"class.std::allocator", align 1
@@ -119392,7 +119392,7 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_4dev14RangeTransformEKNS0_9Transfo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14saveERN4YAML7EmitterESt10shared_ptrIKNS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(72) %out, ptr nocapture noundef nonnull readonly %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i78 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1.i79 = alloca %"class.std::allocator", align 1

@@ -3006,7 +3006,7 @@ define internal void @lapic_cal_handler(ptr nocapture readnone %0) #0 section ".
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_by_pmtimer(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_by_pmtimer(i64 noundef range(i64 -16777215, 33554432) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 section ".init.text" align 16 {
   %4 = load i32, ptr @apic_verbosity, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %8

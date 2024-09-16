@@ -180,7 +180,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
   %72 = add nsw i32 %71, 1
   store ptr %.sroa.073.0106.i, ptr %8, align 8
   store ptr %69, ptr %20, align 8
-  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2256) %33, ptr %27, ptr %32, i1 noundef zeroext false, i32 noundef %.192.i, i32 noundef 0, i32 noundef %72, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %8, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2256) %33, ptr %27, ptr %32, i1 noundef zeroext false, i32 noundef %.192.i, i32 noundef 0, i32 noundef %72, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %8, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %5, ptr noundef %4)
   %73 = add nuw nsw i32 %.192.i, 1
   %exitcond.not.i = icmp eq i32 %73, %46
   br i1 %exitcond.not.i, label %._crit_edge95.i, label %70, !llvm.loop !5
@@ -219,7 +219,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIiSaIiE
   %84 = add nsw i32 %83, 1
   store ptr %.sroa.073.0106.i, ptr %9, align 8
   store ptr %69, ptr %21, align 8
-  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2256) %33, ptr %27, ptr %32, i1 noundef zeroext true, i32 noundef %.296.i, i32 noundef 0, i32 noundef %84, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %9, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull %6, ptr noundef nonnull %4)
+  call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(2256) %33, ptr %27, ptr %32, i1 noundef zeroext true, i32 noundef %.296.i, i32 noundef 0, i32 noundef %84, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %9, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef %6, ptr noundef %4)
   %85 = add nuw nsw i32 %.296.i, 1
   %exitcond101.not.i = icmp eq i32 %85, %46
   br i1 %exitcond101.not.i, label %._crit_edge99.i, label %82, !llvm.loop !7
@@ -382,7 +382,7 @@ declare void @_ZN3gmx11make_at2conERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEENS
 declare noundef i32 @_ZN3gmx27flexibleConstraintTreatmentEb(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2256) %1, ptr %2, ptr %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.102") align 8 %8, float noundef %9, float noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12) unnamed_addr #3 {
+define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2256) %1, ptr %2, ptr %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 -2147483647, -2147483648) %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.102") align 8 %8, float noundef %9, float noundef %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull %12) unnamed_addr #3 {
   %14 = alloca %"class.gmx::ArrayRef.102", align 8
   %15 = load i32, ptr %12, align 4
   %16 = add nsw i32 %15, 1
@@ -541,7 +541,7 @@ define internal fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5a
   store i32 %61, ptr %49, align 4
   store ptr %40, ptr %14, align 8
   store ptr %59, ptr %54, align 8
-  tail call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr %2, ptr %53, i1 noundef zeroext %4, i32 noundef %.0, i32 noundef %45, i32 noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %14, float noundef %.074, float noundef %.075, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  tail call fastcc void @_ZN3gmxL12constr_recurERKNS_11ListOfListsIiEERKSt5arrayI15InteractionListLm94EENS_8ArrayRefIK9t_iparamsEEbiiiNS9_IiEEffPfPi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(2256) %1, ptr %2, ptr %53, i1 noundef zeroext %4, i32 noundef %.0, i32 noundef %45, i32 noundef %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.102") align 8 %14, float noundef %.074, float noundef %.075, ptr noundef %11, ptr noundef %12)
   store i32 -1, ptr %49, align 4
   br label %112
 

@@ -1731,16 +1731,16 @@ define internal i32 @dissect_qnet6(ptr noundef %0, ptr nocapture noundef readonl
   %104 = add nsw i32 %101, -8
   %105 = load i32, ptr @hf_qnet6_qos_tcs_src_name_off, align 4
   %106 = load i32, ptr @hf_qnet6_qos_tcs_src_name_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef %20, i32 noundef %105, i32 noundef %106, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %105, i32 noundef %106, i32 noundef %104, i32 noundef 46)
   %107 = load i32, ptr @hf_qnet6_qos_tcs_src_domain_off, align 4
   %108 = load i32, ptr @hf_qnet6_qos_tcs_src_domain_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef %20, i32 noundef %107, i32 noundef %108, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %107, i32 noundef %108, i32 noundef %104, i32 noundef 46)
   %109 = load i32, ptr @hf_qnet6_qos_tcs_dst_name_off, align 4
   %110 = load i32, ptr @hf_qnet6_qos_tcs_dst_name_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef %20, i32 noundef %109, i32 noundef %110, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %109, i32 noundef %110, i32 noundef %104, i32 noundef 46)
   %111 = load i32, ptr @hf_qnet6_qos_tcs_dst_domain_off, align 4
   %112 = load i32, ptr @hf_qnet6_qos_tcs_dst_domain_generated, align 4
-  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef nonnull %6, i32 noundef %20, i32 noundef %111, i32 noundef %112, i32 noundef %104, i32 noundef 46)
+  call fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %100, ptr noundef %6, i32 noundef %20, i32 noundef %111, i32 noundef %112, i32 noundef %104, i32 noundef 46)
   br label %.sink.split.i
 
 113:                                              ; preds = %94
@@ -1784,7 +1784,7 @@ switch.lookup:                                    ; preds = %117
   br i1 %123, label %124, label %dissect_qnet6_qos.exit
 
 124:                                              ; preds = %122
-  call fastcc void @dissect_qnet6_kif(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %20)
+  call fastcc void @dissect_qnet6_kif(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6, i32 noundef %20)
   br label %dissect_qnet6_qos.exit
 
 125:                                              ; preds = %121
@@ -1792,7 +1792,7 @@ switch.lookup:                                    ; preds = %117
   br i1 %126, label %127, label %dissect_qnet6_qos.exit
 
 127:                                              ; preds = %125
-  call fastcc void @dissect_qnet6_nr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %20)
+  call fastcc void @dissect_qnet6_nr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6, i32 noundef %20)
   br label %dissect_qnet6_qos.exit
 
 128:                                              ; preds = %121
@@ -1800,7 +1800,7 @@ switch.lookup:                                    ; preds = %117
   br i1 %129, label %130, label %dissect_qnet6_qos.exit
 
 130:                                              ; preds = %128
-  call fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6, i32 noundef %20)
+  call fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %6, i32 noundef %20)
   br label %dissect_qnet6_qos.exit
 
 131:                                              ; preds = %121
@@ -1875,7 +1875,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare void @col_prepend_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_qnet6_kif(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_qnet6_kif(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4) unnamed_addr #0 {
   %6 = load i32, ptr @proto_qnet6_kif, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef %7, i32 noundef -1, i32 noundef 0) #5
@@ -2025,7 +2025,7 @@ display_channel_id.exit:                          ; preds = %52, %67
   br i1 %.not524, label %448, label %79
 
 79:                                               ; preds = %display_channel_id.exit
-  %80 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %3, i32 noundef %4)
+  %80 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef %3, i32 noundef %4)
   br label %448
 
 81:                                               ; preds = %.thread, %44
@@ -2115,7 +2115,7 @@ display_channel_id.exit540:                       ; preds = %98, %118
   br i1 %.not530, label %132, label %130
 
 130:                                              ; preds = %display_channel_id.exit540
-  %131 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %91, ptr noundef nonnull %3, i32 noundef %4)
+  %131 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %91, ptr noundef %3, i32 noundef %4)
   %.not531 = icmp eq i32 %131, 0
   br i1 %.not531, label %._crit_edge, label %448
 
@@ -2212,7 +2212,7 @@ display_channel_id.exit540:                       ; preds = %98, %118
   br i1 %.not524, label %448, label %186
 
 186:                                              ; preds = %164
-  %187 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %3, i32 noundef %4)
+  %187 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef %3, i32 noundef %4)
   br label %448
 
 188:                                              ; preds = %44
@@ -2348,7 +2348,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   %274 = load i32, ptr %3, align 4
   %275 = add i32 %274, 4
   store i32 %275, ptr %3, align 4
-  %276 = tail call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %.0507, ptr noundef nonnull %3, i32 noundef %4)
+  %276 = tail call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %.0507, ptr noundef %3, i32 noundef %4)
   %.not533 = icmp ne i32 %276, 0
   %277 = and i32 %269, 256
   %.not534 = icmp eq i32 %277, 0
@@ -2405,7 +2405,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   br i1 %.not534.old, label %448, label %314
 
 314:                                              ; preds = %271, %280
-  %315 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %.0507, ptr noundef nonnull %3, i32 noundef %4)
+  %315 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %.0507, ptr noundef %3, i32 noundef %4)
   br label %448
 
 316:                                              ; preds = %44
@@ -2578,7 +2578,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
   br i1 %.not524, label %448, label %438
 
 438:                                              ; preds = %412
-  %439 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %3, i32 noundef %4)
+  %439 = tail call fastcc i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %10, ptr noundef %3, i32 noundef %4)
   br label %448
 
 440:                                              ; preds = %44
@@ -2599,7 +2599,7 @@ display_coid.exit:                                ; preds = %214, %241, %242
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_qnet6_nr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_qnet6_nr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.1102) #5
@@ -2717,7 +2717,7 @@ define internal fastcc void @dissect_qnet6_nr(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_qnet6_lr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4) unnamed_addr #0 {
   %6 = alloca [6 x ptr], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -2998,13 +2998,13 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @qos_tcs_init_addtree(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 -2147483648, 1) %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2147483640) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = load i32, ptr %2, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef %3) #5
   %11 = load i32, ptr %2, align 4
   %12 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %11, i32 noundef %3) #5
   %13 = zext i16 %12 to i32
-  %14 = icmp sgt i32 %6, %13
+  %14 = icmp ugt i32 %6, %13
   br i1 %14, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %8, %18
@@ -3051,7 +3051,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 -2147483648, 1) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %5) #5
   %7 = icmp slt i32 %6, 44
@@ -3185,7 +3185,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 -2147483648, 1) %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca [20 x i8], align 16
   %8 = alloca [20 x i8], align 16
@@ -4292,7 +4292,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit367:      ; preds = %664, %682, %686
   store i32 %716, ptr %3, align 4
   %717 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %718 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %716, i32 noundef 48, i32 noundef %717, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %718, ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %718, ptr noundef %3, i32 noundef %4)
   %719 = load i32, ptr @hf_qnet6_kif_msg_openfd_reserved, align 4
   %720 = load i32, ptr %3, align 4
   %721 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %719, ptr noundef %0, i32 noundef %720, i32 noundef 4, i32 noundef %4) #5
@@ -4395,7 +4395,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit371:      ; preds = %743, %756, %760
   store i32 %786, ptr %3, align 4
   %787 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %788 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %786, i32 noundef 48, i32 noundef %787, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %788, ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %788, ptr noundef %3, i32 noundef %4)
   %789 = load i32, ptr @hf_qnet6_kif_zero, align 4
   %790 = load i32, ptr %3, align 4
   %791 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %789, ptr noundef %0, i32 noundef %790, i32 noundef 24, i32 noundef 0) #5
@@ -4717,7 +4717,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit377:      ; preds = %._crit_edge, %980, 
   br i1 %or.cond.i342, label %992, label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 992:                                              ; preds = %dissect_qnet6_kif_msgsend_msg_extra.exit377
-  %993 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %3, i32 noundef %4)
+  %993 = call fastcc i32 @dissect_qnet6_kif_msgsend_msg(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %3, i32 noundef %4)
   br label %dissect_qnet6_kif_msgsend_msg_notify.exit
 
 dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %920, %dissect_qnet6_kif_msgsend_msg_extra.exit377, %992
@@ -4740,7 +4740,7 @@ dissect_qnet6_kif_msgsend_msg_notify.exit:        ; preds = %920, %dissect_qnet6
   store i32 %1003, ptr %3, align 4
   %1004 = load i32, ptr @ett_qnet6_kif_msg_msginfo, align 4
   %1005 = tail call ptr @proto_tree_add_subtree(ptr noundef %17, ptr noundef %0, i32 noundef %1003, i32 noundef 48, i32 noundef %1004, ptr noundef null, ptr noundef nonnull @.str.1089) #5
-  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1005, ptr noundef nonnull %3, i32 noundef %4)
+  tail call fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1005, ptr noundef %3, i32 noundef %4)
   %1006 = load i32, ptr @hf_qnet6_kif_msg_io_dup_reserved, align 4
   %1007 = load i32, ptr %3, align 4
   %1008 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %1006, ptr noundef %0, i32 noundef %1007, i32 noundef 4, i32 noundef %4) #5
@@ -4800,7 +4800,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_qnet6_kif_msgsend_msg_msginfo(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 -2147483648, 1) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_qnet6_kif_msg_msginfo_nd, align 4
   %6 = load i32, ptr %2, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 4, i32 noundef %3) #5

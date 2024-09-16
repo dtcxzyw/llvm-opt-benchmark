@@ -5641,7 +5641,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %.not255, label %182, label %33
 
 33:                                               ; preds = %29
-  %34 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %2)
+  %34 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef %32, ptr noundef nonnull %2)
   store ptr %34, ptr %31, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %234, label %182
@@ -5656,7 +5656,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %.not254, label %182, label %40
 
 40:                                               ; preds = %36
-  %41 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %2)
+  %41 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %2)
   store ptr %41, ptr %38, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %234, label %182
@@ -5716,7 +5716,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %.not247, label %75, label %72
 
 72:                                               ; preds = %68
-  %73 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %2)
+  %73 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef %71, ptr noundef nonnull %2)
   store ptr %73, ptr %70, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %234, label %75
@@ -5857,7 +5857,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
   br i1 %.not246, label %182, label %155
 
 155:                                              ; preds = %151
-  %156 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef nonnull %154, ptr noundef nonnull %2)
+  %156 = tail call fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr noundef %154, ptr noundef nonnull %2)
   store ptr %156, ptr %153, align 8
   %157 = icmp eq ptr %156, null
   br i1 %157, label %234, label %182
@@ -5987,7 +5987,7 @@ define dso_local noundef ptr @reparameterize_path_by_child(ptr noundef %0, ptr n
 declare ptr @adjust_appendrel_attrs_multilevel(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc ptr @reparameterize_pathlist_by_child(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %.not21 = icmp sgt i32 %5, 0

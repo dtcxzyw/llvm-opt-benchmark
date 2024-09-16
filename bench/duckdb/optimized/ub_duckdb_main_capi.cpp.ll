@@ -12823,7 +12823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL30duckdb_parameter_name_internalB5cxx11P26_duckdb_prepared_statementm(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef %prepared_statement, i64 noundef %index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30duckdb_parameter_name_internalB5cxx11P26_duckdb_prepared_statementm(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef %prepared_statement, i64 noundef %index) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %tobool.not = icmp eq ptr %prepared_statement, null

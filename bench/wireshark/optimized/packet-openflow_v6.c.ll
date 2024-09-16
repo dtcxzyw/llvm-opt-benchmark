@@ -4590,7 +4590,7 @@ dissect_openflow_port_stats_v6.exit:              ; preds = %dissect_openflow_po
   %309 = call ptr @proto_tree_add_item(ptr noundef %260, i32 noundef %308, ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef 0) #4
   %310 = add nsw i32 %.051.i, 12
   %311 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_queue_stats_prop_undecoded, ptr noundef %0, i32 noundef %310, i32 noundef %60, ptr noundef nonnull @.str.1559) #4
-  %312 = add i32 %.051.i, %291
+  %312 = add nsw i32 %.051.i, %291
   br label %dissect_openflow_queue_stats_prop_v6.exit.i
 
 313:                                              ; preds = %.lr.ph.i155
@@ -4603,7 +4603,7 @@ dissect_openflow_port_stats_v6.exit:              ; preds = %dissect_openflow_po
 
 317:                                              ; preds = %313
   %318 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %260, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_queue_stats_prop_undecoded, ptr noundef %0, i32 noundef %298, i32 noundef %59, ptr noundef nonnull @.str.1057) #4
-  %319 = add i32 %.051.i, %291
+  %319 = add nsw i32 %.051.i, %291
   br label %dissect_openflow_queue_stats_prop_v6.exit.i
 
 dissect_openflow_queue_stats_prop_v6.exit.i:      ; preds = %317, %315, %304, %302
@@ -5167,7 +5167,7 @@ dissect_openflow_meter_desc_v6.exit:              ; preds = %.lr.ph.i165, %.lr.p
   %764 = add nsw i32 %.030.i, 16
   %765 = add nsw i32 %726, -16
   %766 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %720, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %0, i32 noundef %764, i32 noundef %765, ptr noundef nonnull @.str.1571) #4
-  %767 = add i32 %.030.i, %726
+  %767 = add nsw i32 %.030.i, %726
   br label %dissect_openflow_queue_desc_prop_v6.exit.i
 
 768:                                              ; preds = %737
@@ -5182,7 +5182,7 @@ dissect_openflow_meter_desc_v6.exit:              ; preds = %.lr.ph.i165, %.lr.p
 773:                                              ; preds = %768
   %774 = add nsw i32 %726, -8
   %775 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %720, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_queue_desc_prop_undecoded, ptr noundef %0, i32 noundef %732, i32 noundef %774, ptr noundef nonnull @.str.1063) #4
-  %776 = add i32 %.030.i, %726
+  %776 = add nsw i32 %.030.i, %726
   br label %dissect_openflow_queue_desc_prop_v6.exit.i
 
 dissect_openflow_queue_desc_prop_v6.exit.i:       ; preds = %773, %770, %758, %755, %746, %739, %734
@@ -6724,7 +6724,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @ett_openflow_v6_bucket, align 4
   %7 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.1534) #4
@@ -6749,8 +6749,8 @@ define internal fastcc i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr nound
   %24 = call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %23, ptr noundef %0, i32 noundef %22, i32 noundef 4, i32 noundef 0) #4
   %25 = add nsw i32 %3, 16
   %26 = zext i16 %spec.store.select to i32
-  %27 = add i32 %3, %26
-  %28 = icmp slt i32 %25, %27
+  %27 = add nsw i32 %3, %26
+  %28 = icmp ugt i16 %8, 16
   br i1 %28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
@@ -6894,7 +6894,7 @@ define internal fastcc void @dissect_openflow_flow_stats_request_v6(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_table_features_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65535) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7340,7 +7340,7 @@ define internal fastcc i32 @dissect_openflow_table_desc_v6(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 196604) i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = load i32, ptr @ett_openflow_v6_meter_band, align 4
@@ -7406,7 +7406,7 @@ define internal fastcc i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr n
 
 48:                                               ; preds = %45, %39, %33, %30
   %.pn = phi i32 [ %14, %45 ], [ %14, %39 ], [ 16, %33 ], [ 16, %30 ]
-  %.058 = add i32 %.pn, %3
+  %.058 = add nsw i32 %.pn, %3
   br label %49
 
 49:                                               ; preds = %48, %25
@@ -7415,7 +7415,7 @@ define internal fastcc i32 @dissect_openflow_meter_band_v6(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65535) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -7439,10 +7439,10 @@ define internal fastcc i32 @dissect_openflow_bundle_prop_v6(ptr noundef %0, ptr 
 20:                                               ; preds = %5
   %21 = load i32, ptr @hf_openflow_v6_time_seconds, align 4
   %22 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %18, i32 noundef 8, i32 noundef 0) #4
-  %23 = add i32 %3, 12
+  %23 = add nsw i32 %3, 12
   %24 = load i32, ptr @hf_openflow_v6_time_nanoseconds, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %23, i32 noundef 4, i32 noundef 0) #4
-  %26 = add i32 %3, 16
+  %26 = add nsw i32 %3, 16
   %27 = load i32, ptr @hf_openflow_v6_time_pad, align 4
   %28 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef 4, i32 noundef 0) #4
   %29 = load i32, ptr %8, align 4

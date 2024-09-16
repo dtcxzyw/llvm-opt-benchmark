@@ -13732,7 +13732,7 @@ declare void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 derefer
 declare noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19addTryBlockMapEntryRN4llvm13WinEHFuncInfoEiiiNS_8ArrayRefIPKNS_12CatchPadInstEEE(ptr noundef nonnull align 8 dereferenceable(720) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr readonly %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZL19addTryBlockMapEntryRN4llvm13WinEHFuncInfoEiiiNS_8ArrayRefIPKNS_12CatchPadInstEEE(ptr noundef nonnull align 8 dereferenceable(720) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 2147483647) %2, i32 noundef %3, ptr readonly %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %"struct.llvm::WinEHTryBlockMapEntry", align 8
   %8 = alloca %"struct.llvm::WinEHHandlerType", align 8
   store i32 -1, ptr %7, align 8

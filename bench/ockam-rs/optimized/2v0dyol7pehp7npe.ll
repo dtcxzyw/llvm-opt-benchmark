@@ -1124,7 +1124,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..boxed..Box$LT$ockam_core..api..Error$GT$$GT$$GT$$GT$17h6baa398f3989654aE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..boxed..Box$LT$ockam_core..api..Error$GT$$GT$$GT$$GT$17h6baa398f3989654aE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !289, !noundef !4
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$ockam_core..api..Error$GT$$GT$$GT$17hf4e4661049e55052E.llvm.6033709912731755232.exit", label %4
@@ -4996,7 +4996,7 @@ define hidden void @"_ZN78_$LT$ockam_core..api..Error$u20$as$u20$minicbor..decod
 
 .thread447:                                       ; preds = %.thread1068, %.thread1064, %.thread1060, %.thread1056, %.thread1052, %.thread, %.thread526.loopexit, %.thread526.loopexit.split-lp, %.thread464.loopexit, %.thread464.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %418, %386, %346, %320, %227, %195, %155, %124, %410, %378, %339, %312, %219, %187, %148, %116, %428, %396, %356, %330, %237, %205, %165, %139
   %.pn557 = phi { ptr, i32 } [ %.pn354, %219 ], [ %.pn354, %237 ], [ %.pn356, %187 ], [ %.pn356, %205 ], [ %lpad.thr_comm.split-lp, %165 ], [ %lpad.thr_comm.split-lp, %148 ], [ %.pn361, %116 ], [ %.pn361, %139 ], [ %.pn, %410 ], [ %.pn, %428 ], [ %.pn347, %378 ], [ %.pn347, %396 ], [ %lpad.thr_comm.split-lp525, %356 ], [ %lpad.thr_comm.split-lp525, %339 ], [ %.pn352, %312 ], [ %.pn352, %330 ], [ %125, %124 ], [ %156, %155 ], [ %196, %195 ], [ %228, %227 ], [ %321, %320 ], [ %347, %346 ], [ %387, %386 ], [ %419, %418 ], [ %lpad.phi, %.loopexit ], [ %lpad.loopexit586, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp587, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit600, %.thread464.loopexit ], [ %lpad.loopexit.split-lp601, %.thread464.loopexit.split-lp ], [ %lpad.loopexit576, %.thread526.loopexit ], [ %lpad.loopexit.split-lp577, %.thread526.loopexit.split-lp ], [ %lpad.loopexit.split-lp607, %.thread ], [ %lpad.loopexit.split-lp598, %.thread1052 ], [ %lpad.loopexit.split-lp, %.thread1056 ], [ %lpad.loopexit.split-lp583, %.thread1060 ], [ %lpad.loopexit.split-lp574, %.thread1064 ], [ %lpad.loopexit.split-lp568, %.thread1068 ]
-  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..boxed..Box$LT$ockam_core..api..Error$GT$$GT$$GT$$GT$17h6baa398f3989654aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41) #41
+  invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$core..option..Option$LT$core..option..Option$LT$alloc..boxed..Box$LT$ockam_core..api..Error$GT$$GT$$GT$$GT$17h6baa398f3989654aE"(ptr noalias noundef align 8 dereferenceable(16) %41) #41
           to label %269 unwind label %137
 
 .loopexit.loopexit.loopexit:                      ; preds = %77, %.critedge, %286, %287, %289

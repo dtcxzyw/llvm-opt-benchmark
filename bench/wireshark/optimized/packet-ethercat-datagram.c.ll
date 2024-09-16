@@ -1900,7 +1900,7 @@ proto_item_set_hidden.exit332:                    ; preds = %281, %278, %272, %p
 init_dc_measure.exit:                             ; preds = %.preheader
   %309 = load i32, ptr @ett_ecat_dc, align 4
   %310 = call ptr @proto_tree_add_subtree(ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, i32 noundef %309, ptr noundef null, ptr noundef nonnull @.str.836) #5
-  %311 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %310, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
+  %311 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %310, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef %9, i16 noundef zeroext %170)
   %312 = icmp ult i32 %.0294, 10
   br i1 %312, label %313, label %proto_item_set_hidden.exit341
 
@@ -2108,7 +2108,7 @@ proto_item_set_hidden.exit347.thread:             ; preds = %362, %366, %371, %3
   br i1 %.not5.i358, label %proto_item_set_hidden.exit356, label %proto_item_set_hidden.exit356.sink.split
 
 421:                                              ; preds = %300
-  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef nonnull %9, i16 noundef zeroext %170)
+  %422 = call fastcc i32 @dissect_esc_register(ptr noundef %1, ptr noundef %.0293, ptr noundef %0, i32 noundef %168, i32 noundef %167, ptr noundef %9, i16 noundef zeroext %170)
   %.not310 = icmp eq i32 %422, 0
   br i1 %.not310, label %proto_item_set_hidden.exit356, label %423
 
@@ -2293,7 +2293,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i16 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2048) %4, ptr nocapture noundef nonnull readonly %5, i16 noundef zeroext %6) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %8
 
@@ -2315,12 +2315,12 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_esc_register(ptr noundef %0
 
 .thread:                                          ; preds = %8, %8, %8, %8, %8, %8, %8, %8
   %10 = getelementptr inbounds i8, ptr %5, i64 6
-  %11 = trunc i32 %4 to i16
+  %11 = trunc nuw nsw i32 %4 to i16
   br label %.split.preheader
 
 12:                                               ; preds = %8, %8, %8
   %13 = getelementptr inbounds i8, ptr %5, i64 6
-  %14 = trunc i32 %4 to i16
+  %14 = trunc nuw nsw i32 %4 to i16
   %15 = icmp eq i16 %6, 0
   br i1 %15, label %.split.us, label %.split.preheader
 

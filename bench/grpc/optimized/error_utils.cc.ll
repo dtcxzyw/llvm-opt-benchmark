@@ -93,7 +93,7 @@ if.then.i.i:                                      ; preds = %if.end9
   br label %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
 
 _ZN4absl12lts_202308026StatusC2ERKS1_.exit:       ; preds = %if.end9, %if.then.i.i
-  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nonnull align 8 %found_error, ptr noundef nonnull %agg.tmp, i32 noundef 3)
+  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias align 8 %found_error, ptr noundef %agg.tmp, i32 noundef 3)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4absl12lts_202308026StatusC2ERKS1_.exit
@@ -132,7 +132,7 @@ if.then.i.i26:                                    ; preds = %if.then13
   br label %invoke.cont15
 
 invoke.cont15:                                    ; preds = %if.then.i.i26, %if.then13
-  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp14, i32 noundef 7)
+  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp14, i32 noundef 7)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
@@ -619,7 +619,7 @@ eh.resume:                                        ; preds = %lpad10, %ehcleanup,
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef %error, i32 noundef %which) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull %error, i32 noundef range(i32 3, 8) %which) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %unused = alloca i64, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -734,7 +734,7 @@ if.then.i.i20:                                    ; preds = %for.body
   br label %invoke.cont11
 
 invoke.cont11:                                    ; preds = %if.then.i.i20, %for.body
-  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp9, i32 noundef %which)
+  invoke fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp9, i32 noundef %which)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11

@@ -2360,7 +2360,7 @@ get_create_converstation_data.exit.i143:          ; preds = %178, %167
   %224 = call ptr @wmem_file_scope() #10
   %225 = load i32, ptr @proto_mswsp, align 4
   %226 = call ptr @p_get_proto_data(ptr noundef %224, ptr noundef nonnull %1, i32 noundef %225, i32 noundef 0) #10
-  %227 = call fastcc i32 @get_fid_and_frame(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %4)
+  %227 = call fastcc i32 @get_fid_and_frame(ptr noundef nonnull %1, ptr noundef %15, ptr noundef %16, ptr noundef readonly %4)
   %.017.i.i.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i.i = icmp eq ptr %.017.i.i.i, null
   br i1 %.not18.i.i.i, label %find_binding_msg_data.exit.i, label %.lr.ph.i.i.i
@@ -2421,7 +2421,7 @@ find_binding_msg_data.exit.i:                     ; preds = %251, %246, %221
   %254 = call ptr @wmem_file_scope() #10
   %255 = load i32, ptr @proto_mswsp, align 4
   %256 = call ptr @p_get_proto_data(ptr noundef %254, ptr noundef %1, i32 noundef %255, i32 noundef 0) #10
-  %257 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef readonly %4)
+  %257 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef %13, ptr noundef %14, ptr noundef readonly %4)
   %.017.i.i154.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i155.i = icmp eq ptr %.017.i.i154.i, null
   br i1 %.not18.i.i155.i, label %find_rowsin_msg_data.exit.i, label %.lr.ph.i.i156.i
@@ -2482,7 +2482,7 @@ find_rowsin_msg_data.exit.i:                      ; preds = %281, %276, %find_bi
   %284 = call ptr @wmem_file_scope() #10
   %285 = load i32, ptr @proto_mswsp, align 4
   %286 = call ptr @p_get_proto_data(ptr noundef %284, ptr noundef %1, i32 noundef %285, i32 noundef 0) #10
-  %287 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef readonly %4)
+  %287 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef %11, ptr noundef %12, ptr noundef readonly %4)
   %.017.i.i163.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i.i164.i = icmp eq ptr %.017.i.i163.i, null
   br i1 %.not18.i.i164.i, label %find_matching_request_by_fid.exit.thread.i.i, label %.lr.ph.i.i165.i
@@ -2547,7 +2547,7 @@ find_matching_request_by_fid.exit.thread.i.i:     ; preds = %311, %find_rowsin_m
   %316 = call ptr @wmem_file_scope() #10
   %317 = load i32, ptr @proto_mswsp, align 4
   %318 = call ptr @p_get_proto_data(ptr noundef %316, ptr noundef %1, i32 noundef %317, i32 noundef 0) #10
-  %319 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef readonly %4)
+  %319 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef %9, ptr noundef %10, ptr noundef readonly %4)
   %.017.i16.i.i = load ptr, ptr %.09.i.i144, align 8
   %.not18.i17.i.i = icmp eq ptr %.017.i16.i.i, null
   br i1 %.not18.i17.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %.lr.ph.i18.i.i
@@ -2656,7 +2656,7 @@ is_64bit_mode.exit.i:                             ; preds = %345, %find_matching
   %369 = getelementptr inbounds i8, ptr %.016.i.i160.i, i64 28
   %370 = load i32, ptr %369, align 4
   %371 = call i32 (ptr, i32, i32, ptr, ptr, ...) @parse_padding(ptr noundef %0, i32 noundef 28, i32 noundef %370, ptr noundef %223, ptr noundef nonnull @.str.1151)
-  %372 = call i32 (ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, ...) @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %371, i32 noundef %353, ptr noundef nonnull %253, ptr noundef nonnull %283, i32 noundef %.0.i, ptr noundef %172, ptr nonnull poison)
+  %372 = call i32 (ptr, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, ...) @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %371, i32 noundef %353, ptr noundef %253, ptr noundef %283, i32 noundef %.0.i, ptr noundef %172, ptr nonnull poison)
   br label %dissect_CPMGetRows.exit
 
 373:                                              ; preds = %367
@@ -3209,7 +3209,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_or_create_message_data(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc ptr @find_or_create_message_data(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 200, 209) %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.message_data, align 8
   %7 = tail call ptr @wmem_file_scope() #10
   %8 = load i32, ptr @proto_mswsp, align 4
@@ -3222,7 +3222,7 @@ define internal fastcc ptr @find_or_create_message_data(ptr noundef %0, ptr noun
   %13 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %12, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 4
-  %15 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %14, ptr noundef %4)
+  %15 = call fastcc i32 @get_fid_and_frame(ptr noundef %1, ptr noundef %6, ptr noundef %14, ptr noundef %4)
   %16 = icmp ne i32 %15, 0
   %17 = icmp ne ptr %0, null
   %or.cond = and i1 %17, %16
@@ -3353,7 +3353,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_fid_and_frame(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @get_fid_and_frame(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3930,7 +3930,7 @@ vType_get_type.exit:                              ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @str_CBaseStorageVariant(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @str_CBaseStorageVariant(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_packet_scope() #10
   %4 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %3, ptr noundef nonnull @.str.961) #10
   %5 = icmp eq ptr %0, null
@@ -5653,7 +5653,7 @@ define internal noundef i32 @parse_CColumnGroup(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5671,7 +5671,7 @@ define internal void @parse_CRowSeekNext(ptr noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5695,7 +5695,7 @@ define internal void @parse_CRowSeekAt(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5719,7 +5719,7 @@ define internal void @parse_CRowSeekAtRatio(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
+define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef range(i32 28, 57) %1, ptr noundef %2, ptr nocapture readnone %3, ...) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -5744,7 +5744,7 @@ define internal void @parse_CRowSeekByBookmark(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, i32 noundef %6, ptr noundef %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %11)
@@ -5770,7 +5770,7 @@ define internal noundef i32 @parse_RowsBuffer(ptr noundef %0, ptr noundef %1, i3
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.02526 = phi i32 [ %22, %.lr.ph ], [ 0, %17 ]
-  %21 = call i32 (ptr, ptr, i32, i32, i32, ptr, ptr, i32, ptr, ptr, ...) @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.027, i32 noundef %.02526, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %6, ptr noundef %19, ptr nonnull poison, i32 noundef %.02526)
+  %21 = call i32 (ptr, ptr, i32, i32, i32, ptr, ptr, i32, ptr, ptr, ...) @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %.027, i32 noundef %.02526, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %19, ptr nonnull poison, i32 noundef %.02526)
   %22 = add nuw i32 %.02526, 1
   %23 = load i32, ptr %16, align 8
   %24 = icmp ult i32 %22, %23
@@ -5821,7 +5821,7 @@ define internal noundef i32 @parse_UInt32Array(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i32 noundef %7, ptr noundef %8, ptr nocapture readnone %9, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1, i32 noundef returned %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, i32 noundef %7, ptr noundef %8, ptr nocapture readnone %9, ...) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [1 x %struct.__va_list_tag], align 16
   %13 = alloca %struct.CRowVariant, align 8
@@ -5906,7 +5906,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %67
-  call void (ptr, ptr, i32, ptr, i64, i32, i32, ptr, ptr, ...) @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef %25, i64 noundef %59, i32 poison, i32 noundef %7, ptr noundef nonnull %13, ptr nonnull poison)
+  call void (ptr, ptr, i32, ptr, i64, i32, i32, ptr, ptr, ...) @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %57, ptr noundef %25, i64 noundef %59, i32 poison, i32 noundef %7, ptr noundef %13, ptr nonnull poison)
   br label %71
 
 71:                                               ; preds = %67, %70, %50
@@ -5914,7 +5914,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 %5, i32 noundef %6, ptr noundef %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
+define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, i32 range(i32 -65535, 65536) %5, i32 noundef %6, ptr noundef nonnull %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
   %10 = alloca %union.vt_single, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [1 x %struct.__va_list_tag], align 16
@@ -6038,7 +6038,7 @@ get_fixed_vtype_dataize.exit:                     ; preds = %55, %vType_get_type
   %71 = load i32, ptr @hf_mswsp_arrayvector_address32, align 4
   %72 = call ptr @proto_tree_add_uint(ptr noundef %17, i32 noundef %71, ptr noundef %0, i32 noundef %68, i32 noundef 4, i32 noundef %69) #10
   %73 = load i32, ptr %70, align 4
-  %74 = trunc i64 %4 to i32
+  %74 = trunc nuw i64 %4 to i32
   %75 = sub i32 %73, %74
   %76 = load i32, ptr %63, align 8
   %77 = load i32, ptr @ett_CRowVariant_Vector, align 4

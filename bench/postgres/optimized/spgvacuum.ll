@@ -45,14 +45,14 @@ define dso_local ptr @spgbulkdelete(ptr noundef %0, ptr noundef %1, ptr noundef 
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %3, ptr %12, align 8
-  call fastcc void @spgvacuumscan(ptr noundef nonnull %5)
+  call fastcc void @spgvacuumscan(ptr noundef %5)
   ret ptr %.0
 }
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spgvacuumscan(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @spgvacuumscan(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.spgxlogVacuumRoot, align 4
   %3 = alloca [408 x i16], align 16
   %4 = load ptr, ptr %0, align 8
@@ -343,7 +343,7 @@ vacuumLeafRoot.exit.i:                            ; preds = %163, %._crit_edge.i
   br label %173
 
 .thread.i:                                        ; preds = %72
-  call fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr noundef %42, i32 noundef %46, i1 noundef zeroext false)
+  call fastcc void @vacuumLeafPage(ptr noundef %0, ptr noundef %42, i32 noundef %46, i1 noundef zeroext false)
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
@@ -480,7 +480,7 @@ BufferGetPage.exit.i36:                           ; preds = %210, %204
   unreachable
 
 236:                                              ; preds = %228
-  call fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr noundef %189, i32 noundef %202, i1 noundef zeroext true)
+  call fastcc void @vacuumLeafPage(ptr noundef %0, ptr noundef %189, i32 noundef %202, i1 noundef zeroext true)
   %237 = load ptr, ptr %0, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
@@ -751,7 +751,7 @@ define dso_local ptr @spgvacuumcleanup(ptr noundef %0, ptr noundef %1) local_unn
   store ptr @dummy_callback, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr null, ptr %13, align 8
-  call fastcc void @spgvacuumscan(ptr noundef nonnull %3)
+  call fastcc void @spgvacuumscan(ptr noundef %3)
   br label %14
 
 14:                                               ; preds = %9, %7
@@ -804,7 +804,7 @@ declare i32 @ReadBufferExtended(ptr noundef, i32 noundef, i32 noundef, i32 nound
 declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vacuumLeafPage(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.spgxlogVacuumLeaf, align 8
   %6 = alloca [408 x i16], align 16
   %7 = alloca [408 x i16], align 16

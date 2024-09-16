@@ -10593,7 +10593,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDa
   br i1 %35, label %36, label %239
 
 36:                                               ; preds = %3
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %37 = load ptr, ptr %4, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset7_SubsetcvbEv.exit.thread, label %39
@@ -11050,7 +11050,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubs
   br i1 %249, label %250, label %410
 
 250:                                              ; preds = %239
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %251 = load ptr, ptr %11, align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %_ZN32pxrInternal_v0_24__pxrReserved__18HdVisibilitySchema7BuilderD2Ev.exit, label %253
@@ -11405,7 +11405,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubs
   br i1 %420, label %421, label %767
 
 421:                                              ; preds = %410
-  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(104) %1)
+  call fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(104) %1)
   %422 = load ptr, ptr %16, align 8
   %423 = icmp eq ptr %422, null
   br i1 %423, label %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEESaIS3_EED2Ev.exit, label %424
@@ -12405,7 +12405,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE13_M_dea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_HdDataSourceLegacyGeomSubset11_FindSubsetEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdBasisCurvesTopology", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopology", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

@@ -152,7 +152,7 @@ _fdvec_resize.exit:                               ; preds = %23, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @mdopenfork(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 1, 33) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = getelementptr [4 x i32], ptr %4, i64 0, i64 %5
@@ -753,7 +753,7 @@ define dso_local void @mdextend(ptr nocapture noundef %0, i32 noundef %1, i32 no
 declare i32 @errcode(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 33) %4) unnamed_addr #0 {
   %6 = lshr i32 %2, 17
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = sext i32 %1 to i64
@@ -771,293 +771,291 @@ define internal fastcc ptr @_mdfd_getseg(ptr nocapture noundef %0, i32 noundef %
   br label %.loopexit
 
 18:                                               ; preds = %5
-  %19 = and i32 %4, 32
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %20, label %.loopexit
+  %.not = icmp ult i32 %4, 32
+  br i1 %.not, label %19, label %.loopexit
 
-20:                                               ; preds = %18
+19:                                               ; preds = %18
   %.not76 = icmp eq i32 %10, 0
-  br i1 %.not76, label %28, label %21
+  br i1 %.not76, label %27, label %20
 
-21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
-  %23 = getelementptr [4 x ptr], ptr %22, i64 0, i64 %8
-  %24 = load ptr, ptr %23, align 8
-  %25 = zext nneg i32 %10 to i64
-  %26 = getelementptr %struct._MdfdVec, ptr %24, i64 %25
-  %27 = getelementptr i8, ptr %26, i64 -8
-  br label %30
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr [4 x ptr], ptr %21, i64 0, i64 %8
+  %23 = load ptr, ptr %22, align 8
+  %24 = zext nneg i32 %10 to i64
+  %25 = getelementptr %struct._MdfdVec, ptr %23, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 -8
+  br label %29
 
-28:                                               ; preds = %20
-  %29 = tail call fastcc ptr @mdopenfork(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %4)
-  %.not67 = icmp eq ptr %29, null
+27:                                               ; preds = %19
+  %28 = tail call fastcc ptr @mdopenfork(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %4)
+  %.not67 = icmp eq ptr %28, null
   br i1 %.not67, label %.loopexit, label %._crit_edge
 
-._crit_edge:                                      ; preds = %28
+._crit_edge:                                      ; preds = %27
   %.pre = load i32, ptr %9, align 4
-  br label %30
+  br label %29
 
-30:                                               ; preds = %._crit_edge, %21
-  %31 = phi i32 [ %10, %21 ], [ %.pre, %._crit_edge ]
-  %.058 = phi ptr [ %27, %21 ], [ %29, %._crit_edge ]
-  %.not6887 = icmp ugt i32 %31, %6
+29:                                               ; preds = %._crit_edge, %20
+  %30 = phi i32 [ %10, %20 ], [ %.pre, %._crit_edge ]
+  %.058 = phi ptr [ %26, %20 ], [ %28, %._crit_edge ]
+  %.not6887 = icmp ugt i32 %30, %6
   br i1 %.not6887, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %30
-  %32 = and i32 %4, 4
-  %.not69 = icmp eq i32 %32, 0
-  %33 = and i32 %4, 16
-  %34 = icmp eq i32 %33, 0
+.lr.ph:                                           ; preds = %29
+  %31 = and i32 %4, 4
+  %.not69 = icmp eq i32 %31, 0
+  %32 = icmp ult i32 %4, 16
   br i1 %.not69, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %35 = and i32 %4, 8
-  %.not70.not = icmp eq i32 %35, 0
+  %33 = and i32 %4, 8
+  %.not70.not = icmp eq i32 %33, 0
   br i1 %.not70.not, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  br i1 %34, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.us.split.us
+  br i1 %32, label %.lr.ph.split.us.split.us.split, label %.lr.ph.split.us.split.us.split.us
 
-.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %44
-  %.189.us.us.us = phi ptr [ %42, %44 ], [ %.058, %.lr.ph.split.us.split.us ]
-  %.05988.us.us.us = phi i32 [ %45, %44 ], [ %31, %.lr.ph.split.us.split.us ]
-  %36 = load i32, ptr %.189.us.us.us, align 4
-  %37 = tail call i64 @FileSize(i32 noundef %36) #14
-  %38 = icmp slt i64 %37, 0
-  br i1 %38, label %.split91.us, label %_mdnblocks.exit.us.us.us
+.lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %42
+  %.189.us.us.us = phi ptr [ %40, %42 ], [ %.058, %.lr.ph.split.us.split.us ]
+  %.05988.us.us.us = phi i32 [ %43, %42 ], [ %30, %.lr.ph.split.us.split.us ]
+  %34 = load i32, ptr %.189.us.us.us, align 4
+  %35 = tail call i64 @FileSize(i32 noundef %34) #14
+  %36 = icmp slt i64 %35, 0
+  br i1 %36, label %.split91.us, label %_mdnblocks.exit.us.us.us
 
 _mdnblocks.exit.us.us.us:                         ; preds = %.lr.ph.split.us.split.us.split.us
-  %39 = lshr i64 %37, 13
-  %40 = trunc i64 %39 to i32
-  %41 = icmp ugt i32 %40, 131072
-  br i1 %41, label %.split93.us, label %.split.us.us.us
+  %37 = lshr i64 %35, 13
+  %38 = trunc i64 %37 to i32
+  %39 = icmp ugt i32 %38, 131072
+  br i1 %39, label %.split93.us, label %.split.us.us.us
 
 .split.us.us.us:                                  ; preds = %_mdnblocks.exit.us.us.us
-  %42 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us.us, i32 noundef 0)
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.split99.us, label %44
+  %40 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us.us, i32 noundef 0)
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.split99.us, label %42
 
-44:                                               ; preds = %.split.us.us.us
-  %45 = add i32 %.05988.us.us.us, 1
+42:                                               ; preds = %.split.us.us.us
+  %43 = add i32 %.05988.us.us.us, 1
   %exitcond190.not = icmp eq i32 %.05988.us.us.us, %6
   br i1 %exitcond190.not, label %.loopexit, label %.lr.ph.split.us.split.us.split.us, !llvm.loop !7
 
-.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %55
-  %.189.us.us = phi ptr [ %53, %55 ], [ %.058, %.lr.ph.split.us.split.us ]
-  %.05988.us.us = phi i32 [ %56, %55 ], [ %31, %.lr.ph.split.us.split.us ]
-  %46 = load i32, ptr %.189.us.us, align 4
-  %47 = tail call i64 @FileSize(i32 noundef %46) #14
-  %48 = icmp slt i64 %47, 0
-  br i1 %48, label %.split91.us, label %_mdnblocks.exit.us.us
+.lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %53
+  %.189.us.us = phi ptr [ %51, %53 ], [ %.058, %.lr.ph.split.us.split.us ]
+  %.05988.us.us = phi i32 [ %54, %53 ], [ %30, %.lr.ph.split.us.split.us ]
+  %44 = load i32, ptr %.189.us.us, align 4
+  %45 = tail call i64 @FileSize(i32 noundef %44) #14
+  %46 = icmp slt i64 %45, 0
+  br i1 %46, label %.split91.us, label %_mdnblocks.exit.us.us
 
 _mdnblocks.exit.us.us:                            ; preds = %.lr.ph.split.us.split.us.split
-  %49 = lshr i64 %47, 13
-  %50 = trunc i64 %49 to i32
-  %51 = icmp ugt i32 %50, 131072
-  br i1 %51, label %.split93.us, label %52
+  %47 = lshr i64 %45, 13
+  %48 = trunc i64 %47 to i32
+  %49 = icmp ugt i32 %48, 131072
+  br i1 %49, label %.split93.us, label %50
 
-52:                                               ; preds = %_mdnblocks.exit.us.us
-  %.not123 = icmp eq i32 %50, 131072
+50:                                               ; preds = %_mdnblocks.exit.us.us
+  %.not123 = icmp eq i32 %48, 131072
   br i1 %.not123, label %.split.us.us, label %.split95.us
 
-.split.us.us:                                     ; preds = %52
-  %53 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us, i32 noundef 0)
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %.split99.us, label %55
+.split.us.us:                                     ; preds = %50
+  %51 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us, i32 noundef 0)
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.split99.us, label %53
 
-55:                                               ; preds = %.split.us.us
-  %56 = add i32 %.05988.us.us, 1
+53:                                               ; preds = %.split.us.us
+  %54 = add i32 %.05988.us.us, 1
   %exitcond191.not = icmp eq i32 %.05988.us.us, %6
   br i1 %exitcond191.not, label %.loopexit, label %.lr.ph.split.us.split.us.split, !llvm.loop !7
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  br i1 %34, label %.lr.ph.split.us.split.split, label %.lr.ph.split.us.split.split.us
+  br i1 %32, label %.lr.ph.split.us.split.split, label %.lr.ph.split.us.split.split.us
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %73
-  %.189.us.us107 = phi ptr [ %71, %73 ], [ %.058, %.lr.ph.split.us.split ]
-  %.05988.us.us108 = phi i32 [ %74, %73 ], [ %31, %.lr.ph.split.us.split ]
-  %57 = load i32, ptr %.189.us.us107, align 4
-  %58 = tail call i64 @FileSize(i32 noundef %57) #14
-  %59 = icmp slt i64 %58, 0
-  br i1 %59, label %.split91.us, label %_mdnblocks.exit.us.us109
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %71
+  %.189.us.us107 = phi ptr [ %69, %71 ], [ %.058, %.lr.ph.split.us.split ]
+  %.05988.us.us108 = phi i32 [ %72, %71 ], [ %30, %.lr.ph.split.us.split ]
+  %55 = load i32, ptr %.189.us.us107, align 4
+  %56 = tail call i64 @FileSize(i32 noundef %55) #14
+  %57 = icmp slt i64 %56, 0
+  br i1 %57, label %.split91.us, label %_mdnblocks.exit.us.us109
 
 _mdnblocks.exit.us.us109:                         ; preds = %.lr.ph.split.us.split.split.us
-  %60 = lshr i64 %58, 13
-  %61 = trunc i64 %60 to i32
-  %62 = icmp ugt i32 %61, 131072
-  br i1 %62, label %.split93.us, label %63
+  %58 = lshr i64 %56, 13
+  %59 = trunc i64 %58 to i32
+  %60 = icmp ugt i32 %59, 131072
+  br i1 %60, label %.split93.us, label %61
 
-63:                                               ; preds = %_mdnblocks.exit.us.us109
-  %64 = load i8, ptr @InRecovery, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %66, label %.split.us.us111
+61:                                               ; preds = %_mdnblocks.exit.us.us109
+  %62 = load i8, ptr @InRecovery, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %64, label %.split.us.us111
 
-66:                                               ; preds = %63
-  %.not72.us.us = icmp eq i32 %61, 131072
-  br i1 %.not72.us.us, label %.split.us.us111, label %67
+64:                                               ; preds = %61
+  %.not72.us.us = icmp eq i32 %59, 131072
+  br i1 %.not72.us.us, label %.split.us.us111, label %65
 
-67:                                               ; preds = %66
-  %68 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %69 = shl nuw i32 %.05988.us.us108, 17
-  %70 = add i32 %69, -1
-  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %70, ptr noundef %68, i1 noundef zeroext %3)
-  tail call void @pfree(ptr noundef %68) #14
+65:                                               ; preds = %64
+  %66 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
+  %67 = shl nuw i32 %.05988.us.us108, 17
+  %68 = add i32 %67, -1
+  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %68, ptr noundef %66, i1 noundef zeroext %3)
+  tail call void @pfree(ptr noundef %66) #14
   br label %.split.us.us111
 
-.split.us.us111:                                  ; preds = %66, %67, %63
-  %.sink = phi i32 [ 0, %63 ], [ 64, %67 ], [ 64, %66 ]
-  %71 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us108, i32 noundef %.sink)
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.split99.us, label %73
+.split.us.us111:                                  ; preds = %64, %65, %61
+  %.sink = phi i32 [ 0, %61 ], [ 64, %65 ], [ 64, %64 ]
+  %69 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us.us108, i32 noundef %.sink)
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %.split99.us, label %71
 
-73:                                               ; preds = %.split.us.us111
-  %74 = add i32 %.05988.us.us108, 1
+71:                                               ; preds = %.split.us.us111
+  %72 = add i32 %.05988.us.us108, 1
   %exitcond188.not = icmp eq i32 %.05988.us.us108, %6
   br i1 %exitcond188.not, label %.loopexit, label %.lr.ph.split.us.split.split.us, !llvm.loop !7
 
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %92
-  %.189.us = phi ptr [ %90, %92 ], [ %.058, %.lr.ph.split.us.split ]
-  %.05988.us = phi i32 [ %93, %92 ], [ %31, %.lr.ph.split.us.split ]
-  %75 = load i32, ptr %.189.us, align 4
-  %76 = tail call i64 @FileSize(i32 noundef %75) #14
-  %77 = icmp slt i64 %76, 0
-  br i1 %77, label %.split91.us, label %_mdnblocks.exit.us
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %90
+  %.189.us = phi ptr [ %88, %90 ], [ %.058, %.lr.ph.split.us.split ]
+  %.05988.us = phi i32 [ %91, %90 ], [ %30, %.lr.ph.split.us.split ]
+  %73 = load i32, ptr %.189.us, align 4
+  %74 = tail call i64 @FileSize(i32 noundef %73) #14
+  %75 = icmp slt i64 %74, 0
+  br i1 %75, label %.split91.us, label %_mdnblocks.exit.us
 
 _mdnblocks.exit.us:                               ; preds = %.lr.ph.split.us.split.split
-  %78 = lshr i64 %76, 13
-  %79 = trunc i64 %78 to i32
-  %80 = icmp ugt i32 %79, 131072
-  br i1 %80, label %.split93.us, label %81
+  %76 = lshr i64 %74, 13
+  %77 = trunc i64 %76 to i32
+  %78 = icmp ugt i32 %77, 131072
+  br i1 %78, label %.split93.us, label %79
 
-81:                                               ; preds = %_mdnblocks.exit.us
-  %82 = load i8, ptr @InRecovery, align 1
-  %83 = trunc i8 %82 to i1
-  %.not72.us = icmp eq i32 %79, 131072
-  br i1 %83, label %85, label %84
+79:                                               ; preds = %_mdnblocks.exit.us
+  %80 = load i8, ptr @InRecovery, align 1
+  %81 = trunc i8 %80 to i1
+  %.not72.us = icmp eq i32 %77, 131072
+  br i1 %81, label %83, label %82
 
-84:                                               ; preds = %81
+82:                                               ; preds = %79
   br i1 %.not72.us, label %.split.us, label %.split95.us
 
-85:                                               ; preds = %81
-  br i1 %.not72.us, label %.split.us, label %86
+83:                                               ; preds = %79
+  br i1 %.not72.us, label %.split.us, label %84
 
-86:                                               ; preds = %85
-  %87 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %88 = shl nuw i32 %.05988.us, 17
-  %89 = add i32 %88, -1
-  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %89, ptr noundef %87, i1 noundef zeroext %3)
-  tail call void @pfree(ptr noundef %87) #14
+84:                                               ; preds = %83
+  %85 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
+  %86 = shl nuw i32 %.05988.us, 17
+  %87 = add i32 %86, -1
+  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %87, ptr noundef %85, i1 noundef zeroext %3)
+  tail call void @pfree(ptr noundef %85) #14
   br label %.split.us
 
-.split.us:                                        ; preds = %85, %86, %84
-  %.sink255 = phi i32 [ 0, %84 ], [ 64, %86 ], [ 64, %85 ]
-  %90 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us, i32 noundef %.sink255)
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.split99.us, label %92
+.split.us:                                        ; preds = %83, %84, %82
+  %.sink255 = phi i32 [ 0, %82 ], [ 64, %84 ], [ 64, %83 ]
+  %88 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988.us, i32 noundef %.sink255)
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.split99.us, label %90
 
-92:                                               ; preds = %.split.us
-  %93 = add i32 %.05988.us, 1
+90:                                               ; preds = %.split.us
+  %91 = add i32 %.05988.us, 1
   %exitcond189.not = icmp eq i32 %.05988.us, %6
   br i1 %exitcond189.not, label %.loopexit, label %.lr.ph.split.us.split.split, !llvm.loop !7
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %132
-  %.189 = phi ptr [ %112, %132 ], [ %.058, %.lr.ph ]
-  %.05988 = phi i32 [ %133, %132 ], [ %31, %.lr.ph ]
-  %94 = load i32, ptr %.189, align 4
-  %95 = tail call i64 @FileSize(i32 noundef %94) #14
-  %96 = icmp slt i64 %95, 0
-  br i1 %96, label %.split91.us, label %_mdnblocks.exit
+.lr.ph.split:                                     ; preds = %.lr.ph, %130
+  %.189 = phi ptr [ %110, %130 ], [ %.058, %.lr.ph ]
+  %.05988 = phi i32 [ %131, %130 ], [ %30, %.lr.ph ]
+  %92 = load i32, ptr %.189, align 4
+  %93 = tail call i64 @FileSize(i32 noundef %92) #14
+  %94 = icmp slt i64 %93, 0
+  br i1 %94, label %.split91.us, label %_mdnblocks.exit
 
 .split91.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.us.split.us, %.lr.ph.split.us.split.us.split
   %.us-phi = phi ptr [ %.189.us.us, %.lr.ph.split.us.split.us.split ], [ %.189.us.us.us, %.lr.ph.split.us.split.us.split.us ], [ %.189.us, %.lr.ph.split.us.split.split ], [ %.189.us.us107, %.lr.ph.split.us.split.split.us ], [ %.189, %.lr.ph.split ]
-  %97 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %97)
-  %98 = tail call i32 @errcode_for_file_access() #14
-  %99 = load i32, ptr %.us-phi, align 4
-  %100 = tail call ptr @FilePathName(i32 noundef %99) #14
-  %101 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %100) #14
+  %95 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %95)
+  %96 = tail call i32 @errcode_for_file_access() #14
+  %97 = load i32, ptr %.us-phi, align 4
+  %98 = tail call ptr @FilePathName(i32 noundef %97) #14
+  %99 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.22, ptr noundef %98) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1727, ptr noundef nonnull @__func__._mdnblocks) #14
   unreachable
 
 _mdnblocks.exit:                                  ; preds = %.lr.ph.split
-  %102 = lshr i64 %95, 13
-  %103 = trunc i64 %102 to i32
-  %104 = icmp ugt i32 %103, 131072
-  br i1 %104, label %.split93.us, label %107
+  %100 = lshr i64 %93, 13
+  %101 = trunc i64 %100 to i32
+  %102 = icmp ugt i32 %101, 131072
+  br i1 %102, label %.split93.us, label %105
 
 .split93.us:                                      ; preds = %_mdnblocks.exit, %_mdnblocks.exit.us.us109, %_mdnblocks.exit.us, %_mdnblocks.exit.us.us.us, %_mdnblocks.exit.us.us
-  %105 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %105)
-  %106 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
+  %103 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %103)
+  %104 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.11) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1637, ptr noundef nonnull @__func__._mdfd_getseg) #14
   unreachable
 
-107:                                              ; preds = %_mdnblocks.exit
-  %.not72 = icmp eq i32 %103, 131072
-  br i1 %.not72, label %.split61, label %108
+105:                                              ; preds = %_mdnblocks.exit
+  %.not72 = icmp eq i32 %101, 131072
+  br i1 %.not72, label %.split61, label %106
 
-108:                                              ; preds = %107
-  %109 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
-  %110 = shl nuw i32 %.05988, 17
-  %111 = add i32 %110, -1
-  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %111, ptr noundef %109, i1 noundef zeroext %3)
-  tail call void @pfree(ptr noundef %109) #14
+106:                                              ; preds = %105
+  %107 = tail call ptr @palloc_aligned(i64 noundef 8192, i64 noundef 4096, i32 noundef 4) #14
+  %108 = shl nuw i32 %.05988, 17
+  %109 = add i32 %108, -1
+  tail call void @mdextend(ptr noundef %0, i32 noundef %1, i32 noundef %109, ptr noundef %107, i1 noundef zeroext %3)
+  tail call void @pfree(ptr noundef %107) #14
   br label %.split61
 
-.split61:                                         ; preds = %107, %108
-  %112 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988, i32 noundef 64)
-  %113 = icmp eq ptr %112, null
-  br i1 %113, label %.split99.us, label %132
+.split61:                                         ; preds = %105, %106
+  %110 = tail call fastcc ptr @_mdfd_openseg(ptr noundef %0, i32 noundef %1, i32 noundef %.05988, i32 noundef 64)
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %.split99.us, label %130
 
-.split95.us:                                      ; preds = %84, %52
-  %.us-phi103 = phi i32 [ %50, %52 ], [ %79, %84 ]
-  %.us-phi104 = phi i32 [ %.05988.us.us, %52 ], [ %.05988.us, %84 ]
-  %114 = and i32 %4, 2
-  %.not71 = icmp eq i32 %114, 0
-  br i1 %.not71, label %117, label %115
+.split95.us:                                      ; preds = %82, %50
+  %.us-phi103 = phi i32 [ %48, %50 ], [ %77, %82 ]
+  %.us-phi104 = phi i32 [ %.05988.us.us, %50 ], [ %.05988.us, %82 ]
+  %112 = and i32 %4, 2
+  %.not71 = icmp eq i32 %112, 0
+  br i1 %.not71, label %115, label %113
 
-115:                                              ; preds = %.split95.us
-  %116 = tail call ptr @__errno_location() #15
-  store i32 2, ptr %116, align 4
+113:                                              ; preds = %.split95.us
+  %114 = tail call ptr @__errno_location() #15
+  store i32 2, ptr %114, align 4
   br label %.loopexit
 
-117:                                              ; preds = %.split95.us
-  %118 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %118)
-  %119 = tail call i32 @errcode_for_file_access() #14
-  %120 = tail call fastcc ptr @_mdfd_segpath(ptr noundef %0, i32 noundef %1, i32 noundef %.us-phi104)
-  %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %120, i32 noundef %2, i32 noundef %.us-phi103) #14
+115:                                              ; preds = %.split95.us
+  %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %116)
+  %117 = tail call i32 @errcode_for_file_access() #14
+  %118 = tail call fastcc ptr @_mdfd_segpath(ptr noundef %0, i32 noundef %1, i32 noundef %.us-phi104)
+  %119 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %118, i32 noundef %2, i32 noundef %.us-phi103) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1693, ptr noundef nonnull @__func__._mdfd_getseg) #14
   unreachable
 
 .split99.us:                                      ; preds = %.split61, %.split.us.us111, %.split.us, %.split.us.us.us, %.split.us.us
   %.us-phi100 = phi i32 [ %.05988.us.us, %.split.us.us ], [ %.05988.us.us.us, %.split.us.us.us ], [ %.05988.us, %.split.us ], [ %.05988.us.us108, %.split.us.us111 ], [ %.05988, %.split61 ]
-  %122 = and i32 %4, 2
-  %.not73 = icmp eq i32 %122, 0
-  br i1 %.not73, label %127, label %123
+  %120 = and i32 %4, 2
+  %.not73 = icmp eq i32 %120, 0
+  br i1 %.not73, label %125, label %121
 
-123:                                              ; preds = %.split99.us
-  %124 = tail call ptr @__errno_location() #15
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp eq i32 %125, 2
-  br i1 %126, label %.loopexit, label %127
+121:                                              ; preds = %.split99.us
+  %122 = tail call ptr @__errno_location() #15
+  %123 = load i32, ptr %122, align 4
+  %124 = icmp eq i32 %123, 2
+  br i1 %124, label %.loopexit, label %125
 
-127:                                              ; preds = %123, %.split99.us
-  %128 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  tail call void @llvm.assume(i1 %128)
-  %129 = tail call i32 @errcode_for_file_access() #14
-  %130 = tail call fastcc ptr @_mdfd_segpath(ptr noundef %0, i32 noundef %1, i32 noundef %.us-phi100)
-  %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %130, i32 noundef %2) #14
+125:                                              ; preds = %121, %.split99.us
+  %126 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  tail call void @llvm.assume(i1 %126)
+  %127 = tail call i32 @errcode_for_file_access() #14
+  %128 = tail call fastcc ptr @_mdfd_segpath(ptr noundef %0, i32 noundef %1, i32 noundef %.us-phi100)
+  %129 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.21, ptr noundef %128, i32 noundef %2) #14
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1707, ptr noundef nonnull @__func__._mdfd_getseg) #14
   unreachable
 
-132:                                              ; preds = %.split61
-  %133 = add i32 %.05988, 1
+130:                                              ; preds = %.split61
+  %131 = add i32 %.05988, 1
   %exitcond.not = icmp eq i32 %.05988, %6
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
-.loopexit:                                        ; preds = %132, %73, %92, %44, %55, %30, %123, %28, %18, %115, %12
-  %.0 = phi ptr [ %17, %12 ], [ null, %115 ], [ null, %18 ], [ null, %28 ], [ null, %123 ], [ %.058, %30 ], [ %53, %55 ], [ %42, %44 ], [ %90, %92 ], [ %71, %73 ], [ %112, %132 ]
+.loopexit:                                        ; preds = %130, %71, %90, %42, %53, %29, %121, %27, %18, %113, %12
+  %.0 = phi ptr [ %17, %12 ], [ null, %113 ], [ null, %18 ], [ null, %27 ], [ null, %121 ], [ %.058, %29 ], [ %51, %53 ], [ %40, %42 ], [ %88, %90 ], [ %69, %71 ], [ %110, %130 ]
   ret ptr %.0
 }
 
@@ -1699,7 +1697,7 @@ _mdnblocks.exit:                                  ; preds = %14
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_mdfd_openseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_mdfd_openseg(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8

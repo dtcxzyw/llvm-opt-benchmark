@@ -814,14 +814,14 @@ add_indent.exit102:                               ; preds = %64, %80
   br label %add_indent.exit104
 
 add_indent.exit104:                               ; preds = %100, %115
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef %6)
   call void @appendBinaryStringInfo(ptr noundef %.083, ptr noundef nonnull @.str.38, i32 noundef 2) #11
   %117 = call i32 @JsonbIteratorNext(ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext false) #11
   %118 = icmp eq i32 %117, 2
   br i1 %118, label %119, label %208
 
 119:                                              ; preds = %add_indent.exit104
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef %6)
   br label %208
 
 120:                                              ; preds = %.critedge
@@ -869,7 +869,7 @@ add_indent.exit104:                               ; preds = %100, %115
   br label %add_indent.exit106
 
 add_indent.exit106:                               ; preds = %123, %139
-  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef nonnull %6)
+  call fastcc void @jsonb_put_escaped_value(ptr noundef %.083, ptr noundef %6)
   br label %208
 
 141:                                              ; preds = %.critedge
@@ -1095,7 +1095,7 @@ define dso_local i64 @to_jsonb(ptr nocapture noundef readonly %0) local_unnamed_
   %16 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %6, i1 noundef zeroext false, ptr noundef nonnull %2, i32 noundef %15, i32 noundef %16, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %6, i1 noundef zeroext false, ptr noundef %2, i32 noundef %15, i32 noundef %16, i1 noundef zeroext false)
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @JsonbValueToJsonb(ptr noundef %18) #11
@@ -1114,7 +1114,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 define dso_local i64 @datum_to_jsonb(i64 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.JsonbInState, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %4, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef zeroext false, ptr noundef %4, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false)
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = call ptr @JsonbValueToJsonb(ptr noundef %6) #11
@@ -1126,7 +1126,7 @@ define dso_local i64 @datum_to_jsonb(i64 noundef %0, i32 noundef %1, i32 noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct.HeapTupleData, align 8
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -1220,10 +1220,10 @@ define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef 
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %34
-  %45 = tail call ptr @pushJsonbValue(ptr noundef %2, i32 noundef 4, ptr noundef null) #11
+  %45 = tail call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 4, ptr noundef null) #11
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %45, ptr %46, align 8
-  %47 = tail call ptr @pushJsonbValue(ptr noundef %2, i32 noundef 5, ptr noundef null) #11
+  %47 = tail call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 5, ptr noundef null) #11
   store ptr %47, ptr %46, align 8
   br label %array_to_jsonb_internal.exit
 
@@ -1240,7 +1240,7 @@ define internal fastcc void @datum_to_jsonb_internal(i64 noundef %0, i1 noundef 
   %55 = load ptr, ptr %15, align 8
   %56 = load i32, ptr %19, align 4
   %57 = load i32, ptr %20, align 4
-  call fastcc void @array_dim_to_jsonb(ptr noundef %2, i32 noundef 0, i32 noundef %40, ptr noundef %41, ptr noundef %54, ptr noundef %55, ptr noundef nonnull %13, i32 noundef %56, i32 noundef %57)
+  call fastcc void @array_dim_to_jsonb(ptr noundef %2, i32 noundef 0, i32 noundef %40, ptr noundef %41, ptr noundef %54, ptr noundef %55, ptr noundef %13, i32 noundef %56, i32 noundef %57)
   %58 = load ptr, ptr %14, align 8
   call void @pfree(ptr noundef %58) #11
   %59 = load ptr, ptr %15, align 8
@@ -1277,7 +1277,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   store i32 %69, ptr %7, align 8
   %70 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %62, ptr %70, align 8
-  %71 = tail call ptr @pushJsonbValue(ptr noundef %2, i32 noundef 6, ptr noundef null) #11
+  %71 = tail call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 6, ptr noundef null) #11
   %72 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load i32, ptr %67, align 8
@@ -1310,7 +1310,7 @@ array_to_jsonb_internal.exit:                     ; preds = %44, %48
   %87 = trunc i64 %86 to i32
   store i32 %87, ptr %76, align 8
   store ptr %85, ptr %77, align 8
-  %88 = call ptr @pushJsonbValue(ptr noundef %2, i32 noundef 1, ptr noundef nonnull %11) #11
+  %88 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %11) #11
   store ptr %88, ptr %72, align 8
   %89 = add nuw nsw i64 %indvars.iv, 1
   %90 = load ptr, ptr %70, align 8
@@ -1445,7 +1445,7 @@ heap_getattr.exit:                                ; preds = %95, %119, %122, %12
   %.pre-phi = phi i1 [ %.pre113, %156 ], [ true, %155 ]
   %160 = phi i32 [ %.pre111, %156 ], [ 0, %155 ]
   %161 = phi i32 [ %.pre110, %156 ], [ 0, %155 ]
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %.0.i96, i1 noundef zeroext %.pre-phi, ptr noundef nonnull %2, i32 noundef %161, i32 noundef %160, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %.0.i96, i1 noundef zeroext %.pre-phi, ptr noundef %2, i32 noundef %161, i32 noundef %160, i1 noundef zeroext false)
   %.pre112 = load i32, ptr %67, align 8
   br label %162
 
@@ -1457,7 +1457,7 @@ heap_getattr.exit:                                ; preds = %95, %119, %122, %12
   br i1 %165, label %78, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %162, %60
-  %166 = call ptr @pushJsonbValue(ptr noundef %2, i32 noundef 7, ptr noundef null) #11
+  %166 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef 7, ptr noundef null) #11
   store ptr %166, ptr %72, align 8
   %167 = getelementptr inbounds i8, ptr %67, i64 12
   %168 = load i32, ptr %167, align 4
@@ -1626,11 +1626,11 @@ composite_to_jsonb.exit:                          ; preds = %._crit_edge, %170
   ]
 
 244:                                              ; preds = %242, %242, %242, %242
-  %245 = call ptr @pushJsonbValue(ptr noundef %2, i32 noundef %243, ptr noundef null) #11
+  %245 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef %243, ptr noundef null) #11
   br label %248
 
 246:                                              ; preds = %242
-  %247 = call ptr @pushJsonbValue(ptr noundef %2, i32 noundef %243, ptr noundef nonnull %21) #11
+  %247 = call ptr @pushJsonbValue(ptr noundef nonnull %2, i32 noundef %243, ptr noundef nonnull %21) #11
   br label %248
 
 248:                                              ; preds = %246, %244
@@ -1784,7 +1784,7 @@ add_jsonb.exit.us.us:                             ; preds = %.critedge.us.us
   call void @json_categorize_type(i32 noundef %32, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i.us.us = load i32, ptr %7, align 4
   %.pre6.i.us.us = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %30, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us.us, i32 noundef %.pre6.i.us.us, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %30, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i.us.us, i32 noundef %.pre6.i.us.us, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %34 = or disjoint i32 %.026.us.us, 1
@@ -1796,7 +1796,7 @@ add_jsonb.exit.us.us:                             ; preds = %.critedge.us.us
   %40 = trunc i8 %39 to i1
   %41 = getelementptr i32, ptr %3, i64 %35
   %42 = load i32, ptr %41, align 4
-  call fastcc void @add_jsonb(i64 noundef %37, i1 noundef zeroext %40, ptr noundef nonnull %9, i32 noundef %42, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %37, i1 noundef zeroext %40, ptr noundef %9, i32 noundef %42, i1 noundef zeroext false)
   %43 = add i32 %.026.us.us, 2
   %44 = icmp slt i32 %43, %0
   br i1 %44, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !12
@@ -1831,7 +1831,7 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   call void @json_categorize_type(i32 noundef %58, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i.us = load i32, ptr %7, align 4
   %.pre6.i.us = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %56, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %56, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %60 = getelementptr i64, ptr %1, i64 %51
@@ -1840,7 +1840,7 @@ add_jsonb.exit.us:                                ; preds = %.critedge.us
   %63 = trunc i8 %62 to i1
   %64 = getelementptr i32, ptr %3, i64 %51
   %65 = load i32, ptr %64, align 4
-  call fastcc void @add_jsonb(i64 noundef %61, i1 noundef zeroext %63, ptr noundef nonnull %9, i32 noundef %65, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %61, i1 noundef zeroext %63, ptr noundef %9, i32 noundef %65, i1 noundef zeroext false)
   br label %66
 
 66:                                               ; preds = %add_jsonb.exit.us, %49
@@ -1888,7 +1888,7 @@ add_jsonb.exit:                                   ; preds = %.critedge
   call void @json_categorize_type(i32 noundef %80, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i = load i32, ptr %7, align 4
   %.pre6.i = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %78, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %78, i1 noundef zeroext false, ptr noundef %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %85 = or disjoint i32 %.026, 1
@@ -1900,7 +1900,7 @@ add_jsonb.exit:                                   ; preds = %.critedge
   %91 = trunc i8 %90 to i1
   %92 = getelementptr i32, ptr %3, i64 %86
   %93 = load i32, ptr %92, align 4
-  call fastcc void @add_jsonb(i64 noundef %88, i1 noundef zeroext %91, ptr noundef nonnull %9, i32 noundef %93, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %88, i1 noundef zeroext %91, ptr noundef %9, i32 noundef %93, i1 noundef zeroext false)
   %94 = add i32 %.026, 2
   %95 = icmp slt i32 %94, %0
   br i1 %95, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
@@ -1918,7 +1918,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @pushJsonbValue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_jsonb(i64 noundef %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @add_jsonb(i64 noundef %0, i1 noundef zeroext %1, ptr noundef nonnull %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = icmp eq i32 %3, 0
@@ -2020,7 +2020,7 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr nocapture nou
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr i32, ptr %3, i64 %indvars.iv14
   %17 = load i32, ptr %16, align 4
-  call fastcc void @add_jsonb(i64 noundef %15, i1 noundef zeroext false, ptr noundef nonnull %6, i32 noundef %17, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %15, i1 noundef zeroext false, ptr noundef %6, i32 noundef %17, i1 noundef zeroext false)
   br label %18
 
 18:                                               ; preds = %13, %.lr.ph.split.us
@@ -2037,7 +2037,7 @@ define dso_local i64 @jsonb_build_array_worker(i32 noundef %0, ptr nocapture nou
   %23 = trunc i8 %22 to i1
   %24 = getelementptr i32, ptr %3, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
-  call fastcc void @add_jsonb(i64 noundef %20, i1 noundef zeroext %23, ptr noundef nonnull %6, i32 noundef %25, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %20, i1 noundef zeroext %23, ptr noundef %6, i32 noundef %25, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
@@ -2090,7 +2090,7 @@ define dso_local i64 @jsonb_build_array(ptr noundef %0) local_unnamed_addr #0 {
   %20 = trunc i8 %19 to i1
   %21 = getelementptr i32, ptr %13, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
-  call fastcc void @add_jsonb(i64 noundef %17, i1 noundef zeroext %20, ptr noundef nonnull %2, i32 noundef %22, i1 noundef zeroext false)
+  call fastcc void @add_jsonb(i64 noundef %17, i1 noundef zeroext %20, ptr noundef %2, i32 noundef %22, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count17.i
   br i1 %exitcond.not.i, label %jsonb_build_array_worker.exit, label %.lr.ph.split.i, !llvm.loop !13
@@ -2505,7 +2505,7 @@ define internal fastcc i64 @jsonb_agg_transfn_worker(ptr noundef %0, i1 noundef 
   %49 = load i32, ptr %48, align 8
   %50 = getelementptr inbounds i8, ptr %.042, i64 20
   %51 = load i32, ptr %50, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %47, i1 noundef zeroext %42, ptr noundef nonnull %4, i32 noundef %49, i32 noundef %51, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %47, i1 noundef zeroext %42, ptr noundef %4, i32 noundef %49, i32 noundef %51, i1 noundef zeroext false)
   %52 = getelementptr inbounds i8, ptr %4, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call ptr @JsonbValueToJsonb(ptr noundef %53) #11
@@ -2840,7 +2840,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %71 = load i32, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %.070, i64 12
   %73 = load i32, ptr %72, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %69, i1 noundef zeroext false, ptr noundef nonnull %5, i32 noundef %71, i32 noundef %73, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %69, i1 noundef zeroext false, ptr noundef %5, i32 noundef %71, i32 noundef %73, i1 noundef zeroext true)
   %74 = getelementptr inbounds i8, ptr %5, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr @JsonbValueToJsonb(ptr noundef %75) #11
@@ -2861,7 +2861,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %86 = load i32, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %.070, i64 20
   %88 = load i32, ptr %87, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %84, i1 noundef zeroext %79, ptr noundef nonnull %5, i32 noundef %86, i32 noundef %88, i1 noundef zeroext false)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %84, i1 noundef zeroext %79, ptr noundef %5, i32 noundef %86, i32 noundef %88, i1 noundef zeroext false)
   %89 = load ptr, ptr %74, align 8
   %90 = call ptr @JsonbValueToJsonb(ptr noundef %89) #11
   %91 = getelementptr inbounds i8, ptr %76, i64 4
@@ -3933,7 +3933,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jsonb_put_escaped_value(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @jsonb_put_escaped_value(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   switch i32 %3, label %24 [
     i32 0, label %4
@@ -4026,8 +4026,8 @@ declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr no
 declare void @deconstruct_array(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i8 noundef signext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @array_dim_to_jsonb(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
-  %10 = tail call ptr @pushJsonbValue(ptr noundef %0, i32 noundef 4, ptr noundef null) #11
+define internal fastcc void @array_dim_to_jsonb(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+  %10 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 4, ptr noundef null) #11
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
   %12 = sext i32 %1 to i64
@@ -4072,7 +4072,7 @@ define internal fastcc void @array_dim_to_jsonb(ptr noundef %0, i32 noundef %1, 
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %9
-  %30 = tail call ptr @pushJsonbValue(ptr noundef %0, i32 noundef 5, ptr noundef null) #11
+  %30 = tail call ptr @pushJsonbValue(ptr noundef nonnull %0, i32 noundef 5, ptr noundef null) #11
   store ptr %30, ptr %11, align 8
   ret void
 }

@@ -455,7 +455,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @compat_ksys_old_msgctl(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @compat_ksys_msgctl(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 257) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.compat_msqid64_ds, align 4
   %6 = alloca %struct.compat_msqid_ds, align 4
   %7 = alloca %struct.msqid64_ds, align 8

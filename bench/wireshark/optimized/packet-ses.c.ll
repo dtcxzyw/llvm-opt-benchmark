@@ -590,7 +590,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_spdu(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca i8, align 1
   %8 = alloca %struct.SESSION_DATA_STRUCTURE, align 4
   store i8 3, ptr %7, align 1
@@ -736,14 +736,14 @@ get_item_len.exit:                                ; preds = %70, %73
 
 .split:                                           ; preds = %get_item_len.exit
   %76 = add i32 %storemerge.i, %67
-  %77 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %.0.i, ptr noundef null, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %77 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %76, i16 noundef zeroext %.0.i, ptr noundef null, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
   br label %82
 
 .split131:                                        ; preds = %get_item_len.exit
   %78 = load i32, ptr @hf_ses_length, align 4
   %79 = tail call ptr @proto_tree_add_uint(ptr noundef %.1125, i32 noundef %78, ptr noundef %0, i32 noundef %67, i32 noundef %storemerge.i, i32 noundef %75) #3
   %80 = add i32 %storemerge.i, %67
-  %81 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %80, i16 noundef zeroext %.0.i, ptr noundef nonnull %3, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %81 = call fastcc i32 @dissect_parameters(ptr noundef %0, i32 noundef %80, i16 noundef zeroext %.0.i, ptr noundef nonnull %3, ptr noundef %.1125, ptr noundef nonnull %2, ptr noundef %7, ptr noundef %8)
   br label %82
 
 82:                                               ; preds = %.split, %.split131
@@ -866,7 +866,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_parameters(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_parameters(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef nonnull %7) unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %.not136 = icmp eq i16 %2, 0
@@ -969,7 +969,7 @@ get_item_len.exit:                                ; preds = %24, %27
 60:                                               ; preds = %54
   %61 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %52, i32 noundef %29) #3
   %62 = load ptr, ptr @pres_handle, align 8
-  %63 = call i32 @call_dissector_with_data(ptr noundef %62, ptr noundef %61, ptr noundef %5, ptr noundef %3, ptr noundef %7) #3
+  %63 = call i32 @call_dissector_with_data(ptr noundef %62, ptr noundef %61, ptr noundef %5, ptr noundef %3, ptr noundef nonnull %7) #3
   br label %call_pres_dissector.exit
 
 64:                                               ; preds = %53
@@ -988,7 +988,7 @@ get_item_len.exit:                                ; preds = %24, %27
 70:                                               ; preds = %64
   %71 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %52, i32 noundef %29) #3
   %72 = load ptr, ptr @pres_handle, align 8
-  %73 = call i32 @call_dissector_with_data(ptr noundef %72, ptr noundef %71, ptr noundef %5, ptr noundef %3, ptr noundef %7) #3
+  %73 = call i32 @call_dissector_with_data(ptr noundef %72, ptr noundef %71, ptr noundef %5, ptr noundef %3, ptr noundef nonnull %7) #3
   br label %call_pres_dissector.exit
 
 74:                                               ; preds = %53, %53, %53
@@ -1148,7 +1148,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @call_pres_dissector(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc void @call_pres_dissector(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #1 {
   %8 = load ptr, ptr @pres_handle, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %14
@@ -1167,7 +1167,7 @@ define internal fastcc void @call_pres_dissector(ptr noundef %0, i32 noundef %1,
   %15 = zext i16 %2 to i32
   %16 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %1, i32 noundef %15) #3
   %17 = load ptr, ptr @pres_handle, align 8
-  %18 = tail call i32 @call_dissector_with_data(ptr noundef %17, ptr noundef %16, ptr noundef %3, ptr noundef %4, ptr noundef %6) #3
+  %18 = tail call i32 @call_dissector_with_data(ptr noundef %17, ptr noundef %16, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6) #3
   br label %19
 
 19:                                               ; preds = %9, %10, %14
@@ -1175,7 +1175,7 @@ define internal fastcc void @call_pres_dissector(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dissect_parameter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef writeonly %8, ptr noundef %9) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @dissect_parameter(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i16 noundef zeroext %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8, ptr noundef nonnull %9) unnamed_addr #1 {
   %11 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %11, i32 noundef 0, i1 noundef zeroext true, ptr noundef %4) #3
   switch i8 %5, label %180 [

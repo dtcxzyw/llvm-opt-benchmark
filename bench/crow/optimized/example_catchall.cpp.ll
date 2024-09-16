@@ -19889,7 +19889,7 @@ _ZNSt6vectorISt6futureIvESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__norm
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %0, align 8, !tbaa !5

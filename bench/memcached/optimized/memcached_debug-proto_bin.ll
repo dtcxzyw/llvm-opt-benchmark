@@ -925,7 +925,7 @@ sw.bb64.i:                                        ; preds = %sw.epilog.i, %sw.ep
   br i1 %or.cond113.i, label %if.then80.i, label %if.then232.i
 
 if.then80.i:                                      ; preds = %sw.bb64.i
-  call fastcc void @process_bin_flush(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
+  call fastcc void @process_bin_flush(ptr noundef nonnull %c, ptr noundef %extbuf)
   br label %return
 
 sw.bb83.i:                                        ; preds = %sw.epilog.i
@@ -956,7 +956,7 @@ sw.bb97.i:                                        ; preds = %sw.bb97.sink.split.
   br i1 %or.cond114.i, label %if.then232.i, label %if.then110.i
 
 if.then110.i:                                     ; preds = %sw.bb97.i
-  call fastcc void @process_bin_update(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
+  call fastcc void @process_bin_update(ptr noundef nonnull %c, ptr noundef %extbuf)
   br label %return
 
 sw.bb113.sink.split.i:                            ; preds = %sw.bb42.i, %if.end19.i
@@ -975,7 +975,7 @@ land.lhs.true117.i:                               ; preds = %sw.bb113.i
   br i1 %or.cond6.i, label %if.then125.i, label %if.then232.i
 
 if.then125.i:                                     ; preds = %land.lhs.true117.i
-  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
+  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef %extbuf)
   br label %return
 
 sw.bb128.i:                                       ; preds = %sw.epilog.i, %sw.epilog.thread139.i
@@ -1004,7 +1004,7 @@ sw.bb143.i:                                       ; preds = %sw.bb143.sink.split
   br i1 %or.cond116.i, label %if.then157.i, label %if.then232.i
 
 if.then157.i:                                     ; preds = %sw.bb143.i
-  call fastcc void @complete_incr_bin(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
+  call fastcc void @complete_incr_bin(ptr noundef nonnull %c, ptr noundef %extbuf)
   br label %return
 
 sw.bb160.sink.split.i:                            ; preds = %sw.bb38.i, %if.end19.i
@@ -1081,7 +1081,7 @@ sw.bb218.i:                                       ; preds = %sw.bb218.sink.split
   br i1 %or.cond15.i, label %if.then226.i, label %if.then232.i
 
 if.then226.i:                                     ; preds = %sw.bb218.i
-  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef nonnull %extbuf)
+  call fastcc void @process_bin_get_or_touch(ptr noundef nonnull %c, ptr noundef %extbuf)
   br label %return
 
 sw.default229.i:                                  ; preds = %sw.epilog.i
@@ -1208,7 +1208,7 @@ if.end23:                                         ; preds = %if.end19, %if.then2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_bin_header(ptr nocapture noundef readonly %c, i16 noundef zeroext %err, i8 noundef zeroext %hdr_len, i16 noundef zeroext %key_len, i32 noundef %body_len) unnamed_addr #0 {
+define internal fastcc void @add_bin_header(ptr nocapture noundef readonly %c, i16 noundef zeroext %err, i8 noundef zeroext range(i8 0, 5) %hdr_len, i16 noundef zeroext %key_len, i32 noundef %body_len) unnamed_addr #0 {
 entry:
   %resp1 = getelementptr inbounds i8, ptr %c, i64 192
   %0 = load ptr, ptr %resp1, align 8
@@ -1307,7 +1307,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 declare i32 @store_item(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_bin_response(ptr noundef %c, ptr noundef %d, i32 noundef %dlen) unnamed_addr #0 {
+define internal fastcc void @write_bin_response(ptr noundef %c, ptr noundef %d, i32 noundef range(i32 0, 14) %dlen) unnamed_addr #0 {
 entry:
   %noreply = getelementptr inbounds i8, ptr %c, i64 364
   %0 = load i8, ptr %noreply, align 4
@@ -1324,8 +1324,8 @@ lor.lhs.false:                                    ; preds = %entry
 
 if.then:                                          ; preds = %lor.lhs.false, %lor.lhs.false, %entry
   tail call fastcc void @add_bin_header(ptr noundef nonnull %c, i16 noundef zeroext 0, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef %dlen)
-  %cmp10 = icmp sgt i32 %dlen, 0
-  br i1 %cmp10, label %if.then12, label %if.end13
+  %cmp10.not = icmp eq i32 %dlen, 0
+  br i1 %cmp10.not, label %if.end13, label %if.then12
 
 if.then12:                                        ; preds = %if.then
   %resp9 = getelementptr inbounds i8, ptr %c, i64 192
@@ -1387,7 +1387,7 @@ if.end:                                           ; preds = %if.then, %if.end12.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_bin_flush(ptr noundef %c, ptr nocapture noundef readonly %extbuf) unnamed_addr #0 {
+define internal fastcc void @process_bin_flush(ptr noundef %c, ptr nocapture noundef nonnull readonly %extbuf) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds (i8, ptr @settings, i64 176), align 8
   %tobool = trunc i8 %0 to i1
@@ -1496,7 +1496,7 @@ return:                                           ; preds = %write_bin_response.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_bin_update(ptr noundef %c, ptr nocapture noundef %extbuf) unnamed_addr #0 {
+define internal fastcc void @process_bin_update(ptr noundef %c, ptr nocapture noundef nonnull %extbuf) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 176
   %c.val = load ptr, ptr %0, align 8
@@ -1756,7 +1756,7 @@ return:                                           ; preds = %if.end114, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_bin_get_or_touch(ptr noundef %c, ptr nocapture noundef readonly %extbuf) unnamed_addr #0 {
+define internal fastcc void @process_bin_get_or_touch(ptr noundef %c, ptr nocapture noundef nonnull readonly %extbuf) unnamed_addr #0 {
 entry:
   %resp = getelementptr inbounds i8, ptr %c, i64 192
   %0 = load ptr, ptr %resp, align 8
@@ -2273,7 +2273,7 @@ if.end50:                                         ; preds = %if.end12.i32, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @complete_incr_bin(ptr noundef %c, ptr nocapture noundef %extbuf) unnamed_addr #0 {
+define internal fastcc void @complete_incr_bin(ptr noundef %c, ptr nocapture noundef nonnull %extbuf) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [24 x i8], align 16
   %cas = alloca i64, align 8
@@ -3248,7 +3248,7 @@ declare i32 @storage_get_item(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @resp_add_chunked_iov(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_bin_miss_response(ptr noundef %c, ptr nocapture noundef readonly %key, i64 noundef %nkey) unnamed_addr #0 {
+define internal fastcc void @write_bin_miss_response(ptr noundef %c, ptr nocapture noundef readonly %key, i64 noundef range(i64 0, 65536) %nkey) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i64 %nkey, 0
   br i1 %tobool.not, label %if.else, label %if.then

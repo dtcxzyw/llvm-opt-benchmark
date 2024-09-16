@@ -3325,7 +3325,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -3535,7 +3535,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 23
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %5 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -3594,7 +3594,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i18 = getelementptr inbounds i8, ptr %agg.tmp6, i64 21
   store i8 0, ptr %arrayidx.i.i.i18, align 1
   %ctx.val5 = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef nonnull %agg.tmp6)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp5, i8 %ctx.val5, ptr noundef %agg.tmp6)
   %12 = load ptr, ptr %this, align 8
   %tobool.not.i31 = icmp eq ptr %12, null
   br i1 %tobool.not.i31, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit35, label %if.then.i32
@@ -13771,7 +13771,7 @@ return:                                           ; preds = %_ZN3tbb6detail2d014
 declare void @_ZN4mold11TimerRecord4stopEv(ptr noundef nonnull align 8 dereferenceable(145)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %agg.result, i8 %ctx.88.val, ptr noundef %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13780,7 +13780,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.81)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.81)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -13799,7 +13799,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.82, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.7)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.7)
   %3 = load ptr, ptr %ref.tmp1, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i1 = icmp eq ptr %3, %4
@@ -14729,7 +14729,7 @@ sw.bb:                                            ; preds = %if.end
   %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8
   store i8 0, ptr %3, align 8
-  %call5 = call fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull %mf, ptr noundef nonnull %agg.tmp)
+  %call5 = call fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull %mf, ptr noundef %agg.tmp)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ctx, i64 3288
   %4 = load ptr, ptr %_M_finish.i.i, align 8
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %ctx, i64 3296
@@ -15046,7 +15046,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 sw.bb22:                                          ; preds = %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %mf)
-  %call27 = call fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %37, ptr noundef nonnull %agg.tmp25)
+  %call27 = call fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %37, ptr noundef %agg.tmp25)
   %38 = load ptr, ptr %_M_finish.i124, align 8
   %39 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i.i80 = icmp eq ptr %38, %39
@@ -15135,7 +15135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit117: ; preds = %_Z
 
 sw.bb28:                                          ; preds = %for.body, %for.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp29, ptr noundef nonnull align 8 dereferenceable(32) %mf)
-  %call31 = call fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %37, ptr noundef nonnull %agg.tmp29)
+  %call31 = call fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %37, ptr noundef %agg.tmp29)
   %45 = load ptr, ptr %agg.tmp29, align 8
   %cmp.i.i.i118 = icmp eq ptr %45, %33
   br i1 %cmp.i.i.i118, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i120, label %if.then.i.i119
@@ -15284,7 +15284,7 @@ sw.bb54:                                          ; preds = %if.end, %if.end
   %_M_string_length.i.i.i.i161 = getelementptr inbounds i8, ptr %agg.tmp56, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i161, align 8
   store i8 0, ptr %56, align 8
-  %call58 = call fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull %mf, ptr noundef nonnull %agg.tmp56)
+  %call58 = call fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef nonnull %mf, ptr noundef %agg.tmp56)
   %57 = load ptr, ptr %agg.tmp56, align 8
   %cmp.i.i.i175 = icmp eq ptr %57, %56
   br i1 %cmp.i.i.i175, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i177, label %if.then.i.i176
@@ -15746,7 +15746,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 21
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val6 = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val6, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val6, ptr noundef %agg.tmp)
   %6 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -15807,7 +15807,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i19 = getelementptr inbounds i8, ptr %agg.tmp8, i64 23
   store i8 0, ptr %arrayidx.i.i.i19, align 1
   %ctx.val = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp7, i8 %ctx.val, ptr noundef nonnull %agg.tmp8)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_6RV64BEEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp7, i8 %ctx.val, ptr noundef %agg.tmp8)
   %13 = load ptr, ptr %this, align 8
   %tobool.not.i32 = icmp eq ptr %13, null
   br i1 %tobool.not.i32, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_6RV64BEEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit36, label %if.then.i33
@@ -15862,7 +15862,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %mf, ptr noundef %archive_name) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4mold3elfL15new_object_fileINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %mf, ptr noundef nonnull %archive_name) unnamed_addr #4 {
 entry:
   %alloc.i.i = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %exists.i.i = alloca i8, align 1
@@ -16020,7 +16020,7 @@ if.end:                                           ; preds = %_ZN4mold7SyncOutINS
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %mf, ptr noundef %archive_name) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN4mold3elfL11new_lto_objINS0_6RV64BEEEEPNS0_10ObjectFileIT_EERNS0_7ContextIS4_EEPNS_10MappedFileIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(4576) %ctx, ptr noundef %mf, ptr noundef nonnull %archive_name) unnamed_addr #4 {
 entry:
   %exists.i.i = alloca i8, align 1
   %ref.tmp = alloca %"class.std::basic_string_view", align 8

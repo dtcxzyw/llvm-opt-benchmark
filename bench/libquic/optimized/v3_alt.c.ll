@@ -112,7 +112,7 @@ land.lhs.true6:                                   ; preds = %land.lhs.true
   br i1 %tobool9.not, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %land.lhs.true6
-  %call11 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 0)
+  %call11 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef %call, i32 noundef 0)
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %for.inc
 
@@ -134,7 +134,7 @@ land.lhs.true21:                                  ; preds = %land.lhs.true18
   br i1 %tobool24.not, label %if.then25, label %if.else30
 
 if.then25:                                        ; preds = %land.lhs.true21
-  %call26 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef nonnull %call, i32 noundef 1)
+  %call26 = tail call fastcc i32 @copy_email(ptr noundef %ctx, ptr noundef %call, i32 noundef 1)
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %for.inc
 
@@ -959,7 +959,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef %gens, i32 noundef %move_p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %ctx, ptr noundef nonnull %gens, i32 noundef range(i32 0, 2) %move_p) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %ctx, null
   br i1 %cmp.not, label %if.then5, label %land.lhs.true
@@ -1022,7 +1022,7 @@ if.end27.us:                                      ; preds = %lor.lhs.false23.us
   %d.us = getelementptr inbounds i8, ptr %call24.us, i64 8
   store ptr %call17.us, ptr %d.us, align 8
   store i32 1, ptr %call24.us, align 8
-  %call28.us = tail call i64 @sk_push(ptr noundef %gens, ptr noundef nonnull %call24.us) #6
+  %call28.us = tail call i64 @sk_push(ptr noundef nonnull %gens, ptr noundef nonnull %call24.us) #6
   %tobool29.not.us = icmp eq i64 %call28.us, 0
   br i1 %tobool29.not.us, label %if.then30, label %while.cond.us, !llvm.loop !14
 
@@ -1056,7 +1056,7 @@ if.end27:                                         ; preds = %lor.lhs.false23
   %d = getelementptr inbounds i8, ptr %call24, i64 8
   store ptr %call17, ptr %d, align 8
   store i32 1, ptr %call24, align 8
-  %call28 = tail call i64 @sk_push(ptr noundef %gens, ptr noundef nonnull %call24) #6
+  %call28 = tail call i64 @sk_push(ptr noundef nonnull %gens, ptr noundef nonnull %call24) #6
   %tobool29.not = icmp eq i64 %call28, 0
   br i1 %tobool29.not, label %if.then30, label %while.cond, !llvm.loop !14
 

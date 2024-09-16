@@ -2022,19 +2022,19 @@ define dso_local void @ImportSnapshot(ptr noundef %0) local_unnamed_addr #0 {
 parseVxidFromText.exit:                           ; preds = %77
   %83 = getelementptr i8, ptr %78, i64 1
   store ptr %83, ptr %4, align 8
-  %84 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.39, ptr noundef nonnull %4, ptr noundef nonnull %2)
-  %85 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.40, ptr noundef nonnull %4, ptr noundef nonnull %2)
-  %86 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.41, ptr noundef nonnull %4, ptr noundef nonnull %2)
-  %87 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.42, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %84 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.39, ptr noundef %4, ptr noundef %2)
+  %85 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.40, ptr noundef %4, ptr noundef %2)
+  %86 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.41, ptr noundef %4, ptr noundef %2)
+  %87 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.42, ptr noundef %4, ptr noundef %2)
   %.not42 = icmp eq i32 %87, 0
   store i32 0, ptr %6, align 8
-  %88 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.43, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %88 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.43, ptr noundef %4, ptr noundef %2)
   %89 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %88, ptr %89, align 4
-  %90 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.44, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %90 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.44, ptr noundef %4, ptr noundef %2)
   %91 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %90, ptr %91, align 8
-  %92 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.45, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %92 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.45, ptr noundef %4, ptr noundef %2)
   %93 = getelementptr inbounds i8, ptr %6, i64 24
   store i32 %92, ptr %93, align 8
   %94 = icmp slt i32 %92, 0
@@ -2064,7 +2064,7 @@ parseVxidFromText.exit:                           ; preds = %77
 
 .lr.ph:                                           ; preds = %102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %102 ]
-  %107 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.47, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %107 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.47, ptr noundef %4, ptr noundef %2)
   %108 = getelementptr i32, ptr %105, i64 %indvars.iv
   store i32 %107, ptr %108, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2072,7 +2072,7 @@ parseVxidFromText.exit:                           ; preds = %77
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %102
-  %109 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.48, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %109 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.48, ptr noundef %4, ptr noundef %2)
   %110 = icmp ne i32 %109, 0
   %111 = getelementptr inbounds i8, ptr %6, i64 44
   %112 = zext i1 %110 to i8
@@ -2080,7 +2080,7 @@ parseVxidFromText.exit:                           ; preds = %77
   br i1 %110, label %131, label %113
 
 113:                                              ; preds = %._crit_edge
-  %114 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.49, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %114 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.49, ptr noundef %4, ptr noundef %2)
   %115 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 %114, ptr %115, align 8
   %116 = icmp slt i32 %114, 0
@@ -2110,7 +2110,7 @@ parseVxidFromText.exit:                           ; preds = %77
 
 .lr.ph48:                                         ; preds = %124, %.lr.ph48
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph48 ], [ 0, %124 ]
-  %129 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.50, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %129 = call fastcc i32 @parseXidFromText(ptr noundef nonnull @.str.50, ptr noundef %4, ptr noundef %2)
   %130 = getelementptr i32, ptr %127, i64 %indvars.iv52
   store i32 %129, ptr %130, align 4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -2125,7 +2125,7 @@ parseVxidFromText.exit:                           ; preds = %77
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph48, %124, %131
-  %134 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.51, ptr noundef nonnull %4, ptr noundef nonnull %2)
+  %134 = call fastcc i32 @parseIntFromText(ptr noundef nonnull @.str.51, ptr noundef %4, ptr noundef %2)
   %135 = icmp ne i32 %134, 0
   %136 = getelementptr inbounds i8, ptr %6, i64 45
   %137 = zext i1 %135 to i8
@@ -2221,7 +2221,7 @@ declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -2235,7 +2235,7 @@ define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, 
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 @errcode(i32 noundef 33685634) #16
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1303, ptr noundef nonnull @__func__.parseIntFromText) #16
   unreachable
 
@@ -2249,7 +2249,7 @@ define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, 
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %17)
   %18 = call i32 @errcode(i32 noundef 33685634) #16
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1308, ptr noundef nonnull @__func__.parseIntFromText) #16
   unreachable
 
@@ -2262,7 +2262,7 @@ define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, 
   %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %23)
   %24 = call i32 @errcode(i32 noundef 33685634) #16
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1313, ptr noundef nonnull @__func__.parseIntFromText) #16
   unreachable
 
@@ -2274,7 +2274,7 @@ define internal fastcc i32 @parseIntFromText(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseXidFromText(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @parseXidFromText(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -2288,7 +2288,7 @@ define internal fastcc i32 @parseXidFromText(ptr nocapture noundef readonly %0, 
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %10)
   %11 = tail call i32 @errcode(i32 noundef 33685634) #16
-  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %12 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1328, ptr noundef nonnull @__func__.parseXidFromText) #16
   unreachable
 
@@ -2302,7 +2302,7 @@ define internal fastcc i32 @parseXidFromText(ptr nocapture noundef readonly %0, 
   %17 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %17)
   %18 = call i32 @errcode(i32 noundef 33685634) #16
-  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %19 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1333, ptr noundef nonnull @__func__.parseXidFromText) #16
   unreachable
 
@@ -2315,7 +2315,7 @@ define internal fastcc i32 @parseXidFromText(ptr nocapture noundef readonly %0, 
   %23 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   call void @llvm.assume(i1 %23)
   %24 = call i32 @errcode(i32 noundef 33685634) #16
-  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef %2) #16
+  %25 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %2) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1338, ptr noundef nonnull @__func__.parseXidFromText) #16
   unreachable
 

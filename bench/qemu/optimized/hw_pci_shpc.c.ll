@@ -717,7 +717,7 @@ entry:
   %sub.i4.i = add nsw i64 %conv2, 7
   %cmp.i = icmp ult i64 %sub.i4.i, %conv
   %cmp2.i = icmp ult i64 %sub.i.i, %conv2
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -726,7 +726,7 @@ if.end:                                           ; preds = %entry
   %sub.i4.i15 = add nsw i64 %conv7, 3
   %cmp.i16 = icmp ult i64 %sub.i4.i15, %conv
   %cmp2.i17 = icmp ult i64 %sub.i.i, %conv7
-  %.not.i18.not = or i1 %cmp2.i17, %cmp.i16
+  %.not.i18.not = select i1 %cmp.i16, i1 true, i1 %cmp2.i17
   br i1 %.not.i18.not, label %if.end19, label %if.then10
 
 if.then10:                                        ; preds = %if.end
@@ -869,7 +869,7 @@ for.end:                                          ; preds = %if.end16, %if.end
   %sub.i.i = add nsw i64 %add.i.i, %conv39
   %cmp.i = icmp ugt i32 %addr, 21
   %cmp2.i = icmp ult i64 %sub.i.i, 20
-  %.not.i.not = or i1 %cmp.i, %cmp2.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %if.end42, label %if.then41
 
 if.then41:                                        ; preds = %for.end
@@ -1337,7 +1337,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @shpc_slot_command(ptr nocapture readonly %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext %state, i8 noundef zeroext %power, i8 noundef zeroext %attn) unnamed_addr #0 {
+define internal fastcc void @shpc_slot_command(ptr nocapture readonly %d.2248.val, i8 noundef zeroext %target, i8 noundef zeroext range(i8 0, 4) %state, i8 noundef zeroext range(i8 0, 13) %power, i8 noundef zeroext range(i8 0, 49) %attn) unnamed_addr #0 {
 entry:
   %conv = zext i8 %target to i32
   %sub = add nsw i32 %conv, -1
@@ -1387,8 +1387,8 @@ if.end15:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end15
   %and.i.i = and i16 %add.ptr.val.i, -13
-  %conv.i = zext i8 %power to i16
-  %shl.i = shl nuw nsw i16 %conv.i, 2
+  %4 = shl nuw nsw i8 %power, 2
+  %shl.i = zext nneg i8 %4 to i16
   %or.i.i73 = or i16 %and.i.i, %shl.i
   store i16 %or.i.i73, ptr %add.ptr.i, align 1
   br label %if.end20
@@ -1403,7 +1403,7 @@ if.else25:                                        ; preds = %if.end20
   %add.ptr.i77 = getelementptr i8, ptr %.val37, i64 %idx.ext.i
   %config.val.i.i78 = load i16, ptr %add.ptr.i77, align 1
   %and.i.i79 = and i16 %config.val.i.i78, -49
-  %conv.i80 = zext i8 %attn to i16
+  %conv.i80 = zext nneg i8 %attn to i16
   %shl.i81 = shl nuw nsw i16 %conv.i80, 4
   %or.i.i82 = or i16 %and.i.i79, %shl.i81
   store i16 %or.i.i82, ptr %add.ptr.i77, align 1
@@ -1418,48 +1418,48 @@ if.else31:                                        ; preds = %if.end26
   %add.ptr.i86 = getelementptr i8, ptr %.val36, i64 %idx.ext.i
   %config.val.i.i87 = load i16, ptr %add.ptr.i86, align 1
   %and.i.i88 = and i16 %config.val.i.i87, -4
-  %conv.i89 = zext i8 %state to i16
-  %or.i.i91 = or i16 %and.i.i88, %conv.i89
+  %conv.i89 = zext nneg i8 %state to i16
+  %or.i.i91 = or disjoint i16 %and.i.i88, %conv.i89
   store i16 %or.i.i91, ptr %add.ptr.i86, align 1
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end26, %if.else31
   %state.addr.0 = phi i8 [ %state, %if.else31 ], [ %conv8.i, %if.end26 ]
-  %4 = and i8 %conv8.i, %2
-  %5 = icmp eq i8 %4, 3
-  br i1 %5, label %if.end41, label %land.lhs.true34
+  %5 = and i8 %conv8.i, %2
+  %6 = icmp eq i8 %5, 3
+  br i1 %6, label %if.end41, label %land.lhs.true34
 
 land.lhs.true34:                                  ; preds = %if.end32
   %cmp.i93 = icmp eq i8 %state.addr.0, 3
   %cmp3.i94 = icmp eq i8 %power.addr.0, 3
-  %6 = and i1 %cmp3.i94, %cmp.i93
-  br i1 %6, label %if.then37, label %if.end41
+  %7 = and i1 %cmp3.i94, %cmp.i93
+  br i1 %7, label %if.then37, label %if.end41
 
 if.then37:                                        ; preds = %land.lhs.true34
   %add.i95 = shl nsw i32 %sub, 3
   %and.i96 = add nsw i32 %add.i95, 8
   %shl.i97 = and i32 %and.i96, 248
   %sec_bus.i = getelementptr inbounds i8, ptr %d.2248.val, i64 320
-  %7 = zext nneg i32 %shl.i97 to i64
-  %8 = add nuw nsw i32 %shl.i97, 8
-  %wide.trip.count.i = zext nneg i32 %8 to i64
+  %8 = zext nneg i32 %shl.i97 to i64
+  %9 = add nuw nsw i32 %shl.i97, 8
+  %wide.trip.count.i = zext nneg i32 %9 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then37
-  %indvars.iv.i = phi i64 [ %7, %if.then37 ], [ %indvars.iv.next.i, %for.inc.i ]
-  %9 = load ptr, ptr %sec_bus.i, align 16
-  %devices.i = getelementptr inbounds i8, ptr %9, i64 184
+  %indvars.iv.i = phi i64 [ %8, %if.then37 ], [ %indvars.iv.next.i, %for.inc.i ]
+  %10 = load ptr, ptr %sec_bus.i, align 16
+  %devices.i = getelementptr inbounds i8, ptr %10, i64 184
   %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %indvars.iv.i
-  %10 = load ptr, ptr %arrayidx.i, align 8
-  %tobool.not.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %arrayidx.i, align 8
+  %tobool.not.i = icmp eq ptr %11, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %10, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
+  %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %11, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   %call4.i = tail call ptr @qdev_get_hotplug_handler(ptr noundef %call.i.i) #10
-  %call.i7.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %10, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
+  %call.i7.i = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %11, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #10
   tail call void @hotplug_handler_unplug(ptr noundef %call4.i, ptr noundef %call.i7.i, ptr noundef nonnull @error_abort) #10
-  tail call void @object_unparent(ptr noundef nonnull %10) #10
+  tail call void @object_unparent(ptr noundef nonnull %11) #10
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
@@ -1478,13 +1478,13 @@ shpc_free_devices_in_slot.exit:                   ; preds = %for.inc.i
   %config.val.i.i109 = load i16, ptr %add.ptr.i108, align 1
   %or.i.i111 = or i16 %config.val.i.i109, 3072
   store i16 %or.i.i111, ptr %add.ptr.i108, align 1
-  %11 = load ptr, ptr %0, align 8
-  %12 = sext i32 %mul.i to i64
-  %13 = getelementptr i8, ptr %11, i64 %12
-  %arrayidx = getelementptr i8, ptr %13, i64 38
-  %14 = load i8, ptr %arrayidx, align 1
-  %15 = or i8 %14, 9
-  store i8 %15, ptr %arrayidx, align 1
+  %12 = load ptr, ptr %0, align 8
+  %13 = sext i32 %mul.i to i64
+  %14 = getelementptr i8, ptr %12, i64 %13
+  %arrayidx = getelementptr i8, ptr %14, i64 38
+  %15 = load i8, ptr %arrayidx, align 1
+  %16 = or i8 %15, 9
+  store i8 %16, ptr %arrayidx, align 1
   br label %if.end41
 
 if.end41:                                         ; preds = %shpc_free_devices_in_slot.exit, %land.lhs.true34, %if.end32, %if.then14, %if.then

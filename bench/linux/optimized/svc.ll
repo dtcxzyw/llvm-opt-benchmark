@@ -804,7 +804,7 @@ declare dso_local i32 @__ipv6_addr_type(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @svc_bind(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @create_lockd_family(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @create_lockd_family(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 11) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = load i32, ptr @nlm_udpport, align 4
   %6 = trunc nuw nsw i32 %2 to i16
   %7 = tail call ptr @svc_find_xprt(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %1, i16 noundef zeroext %6, i16 noundef zeroext 0) #8

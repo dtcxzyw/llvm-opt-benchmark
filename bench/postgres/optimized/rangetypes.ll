@@ -175,7 +175,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 53:                                               ; preds = %50, %48
   %.034 = phi i8 [ 0, %48 ], [ 2, %50 ]
   %.2.i = getelementptr i8, ptr %.067.lcssa.i, i64 1
-  %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %.2.i, ptr noundef nonnull %3, ptr noundef nonnull %2, ptr noundef %17)
+  %54 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %.2.i, ptr noundef %3, ptr noundef %2, ptr noundef %17)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %91, label %56
 
@@ -190,7 +190,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 62:                                               ; preds = %56
   %63 = getelementptr i8, ptr %54, i64 1
-  %64 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef %17)
+  %64 = call fastcc ptr @range_parse_bound(ptr noundef nonnull %9, ptr noundef %63, ptr noundef %4, ptr noundef %2, ptr noundef %17)
   %65 = icmp eq ptr %64, null
   br i1 %65, label %91, label %68
 
@@ -335,7 +335,7 @@ define dso_local i64 @range_in(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_range_io_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_range_io_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -7843,7 +7843,7 @@ declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @range_parse_bound(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.StringInfoData, align 8
   %7 = load i8, ptr %1, align 1
   switch i8 %7, label %8 [

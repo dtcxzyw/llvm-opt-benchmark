@@ -1552,7 +1552,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %64, %6
 
 99:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ChildrenUtilsINS_24Sdf_AttributeChildPolicyEE11IsValidNameERKNS_7TfTokenE.exit
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec7GetPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %11, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %10, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %10, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %100 unwind label %138
 
 100:                                              ; preds = %99
@@ -1874,7 +1874,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec7GetPathEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath13GetParentPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %4, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %5 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12IsTargetPathEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
@@ -1884,11 +1884,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRen
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %.noexc
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit unwind label %26
 
 7:                                                ; preds = %.noexc
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit unwind label %26
 
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %6, %7
@@ -2047,7 +2047,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %44, %4
   br label %369
 
 55:                                               ; preds = %35
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %12, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %56 unwind label %53
 
 56:                                               ; preds = %55
@@ -8487,7 +8487,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdfChildrenKeys_Static
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdfChildrenKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i, %54, %59
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %24, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %24, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %60 unwind label %90
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit
@@ -10200,7 +10200,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit283: ; preds = %_ZN32pxrIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -10246,11 +10246,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_24Sdf_Attribu
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 24:                                               ; preds = %21
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_AttributeChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %24, %23, %20
@@ -10526,7 +10526,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body
 
 115:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %16, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_24Sdf_AttributeChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %16, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %116 unwind label %65
 
 116:                                              ; preds = %115
@@ -50405,7 +50405,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %64, %6
 
 99:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ChildrenUtilsINS_23Sdf_PropertyChildPolicyEE11IsValidNameERKNS_7TfTokenE.exit
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec7GetPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %11, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %10, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %10, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %100 unwind label %138
 
 100:                                              ; preds = %99
@@ -50631,7 +50631,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit21: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath13GetParentPathEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %4, ptr noundef nonnull align 4 dereferenceable(8) %1)
   %5 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12IsTargetPathEv(ptr noundef nonnull align 4 dereferenceable(8) %4)
@@ -50641,11 +50641,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRen
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %.noexc
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit unwind label %26
 
 7:                                                ; preds = %.noexc
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit unwind label %26
 
 _ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %6, %7
@@ -50802,7 +50802,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %44, %4
   br label %369
 
 55:                                               ; preds = %35
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %12, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_ComputeRenamedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %12, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %56 unwind label %53
 
 56:                                               ; preds = %55
@@ -56578,7 +56578,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdfChildrenKeys_Static
   br label %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_31SdfChildrenKeys_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit.i, %54, %59
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %24, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %24, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %60 unwind label %90
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy16GetChildrenTokenERKNS_7SdfPathE.exit
@@ -58291,7 +58291,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit283: ; preds = %_ZN32pxrIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAllowed", align 8
   %5 = load ptr, ptr %2, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -58337,11 +58337,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__24Sdf_IsValidPathComponentINS_23Sdf_Propert
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %21
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath25AppendRelationalAttributeERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 24:                                               ; preds = %21
-  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath14AppendPropertyERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__23Sdf_PropertyChildPolicy12GetChildPathERKNS_7SdfPathERKNS_7TfTokenE.exit: ; preds = %24, %23, %20
@@ -58617,7 +58617,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
   br label %.body
 
 115:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias nonnull writable align 4 %16, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeMovedPathINS_23Sdf_PropertyChildPolicyEEENS_7SdfPathERKS2_RKNT_9FieldTypeE(ptr dead_on_unwind noalias writable align 4 %16, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %116 unwind label %65
 
 116:                                              ; preds = %115

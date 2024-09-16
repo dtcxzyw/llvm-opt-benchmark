@@ -239,7 +239,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %84
   br i1 %.not347, label %140, label %93
 
 93:                                               ; preds = %pmix_obj_run_constructors.exit
-  %94 = call fastcc i32 @process_file(ptr noundef nonnull %92, ptr noundef nonnull %3)
+  %94 = call fastcc i32 @process_file(ptr noundef nonnull %92, ptr noundef %3)
   %.not348 = icmp eq i32 %94, 0
   br i1 %.not348, label %140, label %.preheader588
 
@@ -433,7 +433,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %pmix_pointer_array_
 
 pmix_obj_run_constructors.exit412:                ; preds = %.lr.ph.i409, %184
   %190 = load ptr, ptr %6, align 8
-  %191 = call fastcc i32 @process_file(ptr noundef %190, ptr noundef nonnull %5)
+  %191 = call fastcc i32 @process_file(ptr noundef %190, ptr noundef %5)
   %.not362 = icmp eq i32 %191, 0
   br i1 %.not362, label %pmix_obj_run_destructors.exit449, label %.preheader
 
@@ -828,7 +828,7 @@ pmix_obj_run_destructors.exit443:                 ; preds = %.lr.ph.i440, %322
 
 pmix_obj_run_constructors.exit454:                ; preds = %.lr.ph.i451, %365
   %371 = load ptr, ptr %6, align 8
-  %372 = call fastcc i32 @process_file(ptr noundef %371, ptr noundef nonnull %5)
+  %372 = call fastcc i32 @process_file(ptr noundef %371, ptr noundef %5)
   %.not352 = icmp eq i32 %372, 0
   br i1 %.not352, label %pmix_obj_run_destructors.exit449, label %.preheader583
 
@@ -1779,7 +1779,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @process_file(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @process_file(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.22)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %.preheader

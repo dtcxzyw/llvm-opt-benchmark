@@ -686,7 +686,7 @@ _nvml_get_device_minor_number.exit.i:             ; preds = %_nvml_get_device_pc
 _nvml_get_device_affinity.exit.i:                 ; preds = %176, %174
   %179 = call ptr @slurm_bit_alloc(i64 noundef 32768) #12
   store ptr %179, ptr %129, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %179, ptr noundef nonnull %40)
+  call fastcc void @_set_cpu_set_bitstr(ptr noundef %179, ptr noundef %40)
   %180 = load ptr, ptr %30, align 8
   %.not43.i = icmp eq ptr %180, null
   br i1 %.not43.i, label %183, label %181
@@ -1522,7 +1522,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %418
   store i32 512, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %10, i8 0, i64 2048, i1 false)
-  %484 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnull readonly %37, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %484 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef readonly %37, ptr noundef %8, ptr noundef %9)
   br i1 %484, label %485, label %_nvml_print_freqs.exit.i
 
 485:                                              ; preds = %483
@@ -1543,7 +1543,7 @@ _nvml_use_mig_uuid.exit.i.i:                      ; preds = %418
   %491 = load i32, ptr %9, align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 512, ptr %7, align 4
-  %492 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %491, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  %492 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %491, ptr noundef %7, ptr noundef %10)
   br i1 %492, label %493, label %_nvml_print_gfx_freqs.exit.i.i
 
 493:                                              ; preds = %489
@@ -1558,7 +1558,7 @@ _nvml_print_gfx_freqs.exit.i.i:                   ; preds = %493, %489
   %496 = load i32, ptr %147, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 512, ptr %6, align 4
-  %497 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %496, ptr noundef nonnull %6, ptr noundef nonnull %10)
+  %497 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %496, ptr noundef %6, ptr noundef %10)
   br i1 %497, label %498, label %_nvml_print_gfx_freqs.exit38.i.i
 
 498:                                              ; preds = %_nvml_print_gfx_freqs.exit.i.i
@@ -1579,7 +1579,7 @@ _nvml_print_gfx_freqs.exit38.i.i:                 ; preds = %498, %_nvml_print_g
   %506 = load i32, ptr %504, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 512, ptr %5, align 4
-  %507 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %506, ptr noundef nonnull %5, ptr noundef nonnull %10)
+  %507 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %506, ptr noundef %5, ptr noundef %10)
   br i1 %507, label %508, label %_nvml_print_gfx_freqs.exit39.i.i
 
 508:                                              ; preds = %_nvml_print_gfx_freqs.exit38.i.i
@@ -1599,7 +1599,7 @@ _nvml_print_gfx_freqs.exit39.i.i:                 ; preds = %508, %_nvml_print_g
   %515 = load i32, ptr %513, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 512, ptr %4, align 4
-  %516 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %515, ptr noundef nonnull %4, ptr noundef nonnull %10)
+  %516 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %515, ptr noundef %4, ptr noundef %10)
   br i1 %516, label %517, label %_nvml_print_gfx_freqs.exit40.i.i
 
 517:                                              ; preds = %_nvml_print_gfx_freqs.exit39.i.i
@@ -1618,7 +1618,7 @@ _nvml_print_gfx_freqs.exit40.i.i:                 ; preds = %517, %_nvml_print_g
   %524 = load i32, ptr %522, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 512, ptr %3, align 4
-  %525 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %524, ptr noundef nonnull %3, ptr noundef nonnull %10)
+  %525 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %524, ptr noundef %3, ptr noundef %10)
   br i1 %525, label %526, label %_nvml_print_gfx_freqs.exit41.i.i
 
 526:                                              ; preds = %_nvml_print_gfx_freqs.exit40.i.i
@@ -1639,7 +1639,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %526, %_nvml_print_g
   %531 = load i32, ptr %528, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 512, ptr %2, align 4
-  %532 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %37, i32 noundef %531, ptr noundef nonnull %2, ptr noundef nonnull %10)
+  %532 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %37, i32 noundef %531, ptr noundef %2, ptr noundef %10)
   br i1 %532, label %533, label %_nvml_print_gfx_freqs.exit42.i.i
 
 533:                                              ; preds = %.lr.ph.i78.i
@@ -1980,14 +1980,14 @@ _nvml_get_handle.exit.i:                          ; preds = %92
   store i32 512, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %9, i8 0, i64 2048, i1 false)
   store i32 512, ptr %10, align 4
-  %103 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef nonnull readonly %15, ptr noundef nonnull %8, ptr noundef nonnull %7)
+  %103 = call fastcc zeroext i1 @_nvml_get_mem_freqs(ptr noundef readonly %15, ptr noundef %8, ptr noundef %7)
   br i1 %103, label %104, label %_nvml_get_nearest_freqs.exit.i
 
 104:                                              ; preds = %102
   %105 = load i32, ptr %8, align 4
   call void @gpu_common_get_nearest_freq(ptr noundef nonnull %17, i32 noundef %105, ptr noundef nonnull %7) #12
   %106 = load i32, ptr %17, align 4
-  %107 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef nonnull readonly %15, i32 noundef %106, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %107 = call fastcc zeroext i1 @_nvml_get_gfx_freqs(ptr noundef readonly %15, i32 noundef %106, ptr noundef %10, ptr noundef %9)
   br i1 %107, label %108, label %_nvml_get_nearest_freqs.exit.i
 
 108:                                              ; preds = %104
@@ -2005,7 +2005,7 @@ _nvml_get_nearest_freqs.exit.i:                   ; preds = %108, %104, %102
   br i1 %111, label %112, label %114
 
 112:                                              ; preds = %_nvml_get_nearest_freqs.exit.i
-  %113 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %15, i32 noundef 2)
+  %113 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %15, i32 noundef 2)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.126, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, i32 noundef %113) #12
   br label %114
 
@@ -2015,7 +2015,7 @@ _nvml_get_nearest_freqs.exit.i:                   ; preds = %108, %104, %102
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
-  %118 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %15, i32 noundef 0)
+  %118 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %15, i32 noundef 0)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.127, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, i32 noundef %118) #12
   br label %119
 
@@ -2060,7 +2060,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %_nvml_set_freqs.exit.i
-  %137 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %15, i32 noundef 2)
+  %137 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %15, i32 noundef 2)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.128, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, i32 noundef %137) #12
   br label %138
 
@@ -2070,7 +2070,7 @@ _nvml_set_freqs.exit.i:                           ; preds = %131, %130
   br i1 %140, label %141, label %143
 
 141:                                              ; preds = %138
-  %142 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %15, i32 noundef 0)
+  %142 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %15, i32 noundef 0)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.129, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, i32 noundef %142) #12
   br label %143
 
@@ -2317,7 +2317,7 @@ _nvml_get_handle.exit.i:                          ; preds = %12
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %18
-  %22 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %5, i32 noundef 2)
+  %22 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %5, i32 noundef 2)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.145, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_freq, i32 noundef %22) #12
   br label %23
 
@@ -2327,7 +2327,7 @@ _nvml_get_handle.exit.i:                          ; preds = %12
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %5, i32 noundef 0)
+  %27 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %5, i32 noundef 0)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.146, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_freq, i32 noundef %27) #12
   br label %28
 
@@ -2370,7 +2370,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %_nvml_reset_freqs.exit.i
-  %44 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %5, i32 noundef 2)
+  %44 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %5, i32 noundef 2)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.147, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_freq, i32 noundef %44) #12
   br label %45
 
@@ -2380,7 +2380,7 @@ _nvml_reset_freqs.exit.i:                         ; preds = %38, %37
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %45
-  %49 = call fastcc i32 @_nvml_get_freq(ptr noundef nonnull readonly %5, i32 noundef 0)
+  %49 = call fastcc i32 @_nvml_get_freq(ptr noundef readonly %5, i32 noundef 0)
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.148, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._reset_freq, i32 noundef %49) #12
   br label %50
 
@@ -2611,7 +2611,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %putchar = tail call i32 @putchar(i32 10)
   %63 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
   store ptr %63, ptr %3, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %63, ptr noundef nonnull %2)
+  call fastcc void @_set_cpu_set_bitstr(ptr noundef %63, ptr noundef %2)
   %64 = tail call ptr @slurm_bit_fmt_full(ptr noundef %63) #12
   %.not43 = icmp eq ptr %63, null
   br i1 %.not43, label %66, label %65
@@ -2636,7 +2636,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call i64 @slurm_bit_size(ptr noundef %0) #12
   %4 = and i64 %3, 4294967295
   %.not = icmp eq i64 %4, 32768
@@ -3312,7 +3312,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8
   %6 = alloca [20 x i8], align 16
@@ -3320,7 +3320,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr nocapture nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
   %8 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #12
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i32 @nvmlDeviceGetSupportedMemoryClocks(ptr noundef %9, ptr noundef %1, ptr noundef %2) #12
+  %10 = tail call i32 @nvmlDeviceGetSupportedMemoryClocks(ptr noundef %9, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
   %11 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #12
   call void @slurm_diff_tv_str(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #12
   %12 = call i32 @slurm_get_log_level() #12
@@ -3344,7 +3344,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_mem_freqs(ptr nocapture nou
 20:                                               ; preds = %16
   %21 = load i32, ptr %1, align 4
   %22 = zext i32 %21 to i64
-  call void @qsort(ptr noundef %2, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @gpu_common_sort_freq_descending) #12
+  call void @qsort(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 4, ptr noundef nonnull @gpu_common_sort_freq_descending) #12
   %23 = load i32, ptr %1, align 4
   %24 = icmp ugt i32 %23, 1
   br i1 %24, label %25, label %33
@@ -3375,7 +3375,7 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 declare i32 @gpu_common_sort_freq_descending(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.timeval, align 8
   %7 = alloca [20 x i8], align 16
@@ -3383,7 +3383,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr nocapture nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %9 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #12
   %10 = load ptr, ptr %0, align 8
-  %11 = tail call i32 @nvmlDeviceGetSupportedGraphicsClocks(ptr noundef %10, i32 noundef %1, ptr noundef %2, ptr noundef %3) #12
+  %11 = tail call i32 @nvmlDeviceGetSupportedGraphicsClocks(ptr noundef %10, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
   %12 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #12
   call void @slurm_diff_tv_str(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 20, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8) #12
   %13 = call i32 @slurm_get_log_level() #12
@@ -3407,7 +3407,7 @@ define internal fastcc noundef zeroext i1 @_nvml_get_gfx_freqs(ptr nocapture nou
 21:                                               ; preds = %17
   %22 = load i32, ptr %2, align 4
   %23 = zext i32 %22 to i64
-  call void @qsort(ptr noundef %3, i64 noundef %23, i64 noundef 4, ptr noundef nonnull @gpu_common_sort_freq_descending) #12
+  call void @qsort(ptr noundef nonnull %3, i64 noundef %23, i64 noundef 4, ptr noundef nonnull @gpu_common_sort_freq_descending) #12
   %24 = load i32, ptr %2, align 4
   %25 = icmp ugt i32 %24, 1
   br i1 %25, label %26, label %34
@@ -3459,7 +3459,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @gpu_common_get_nearest_freq(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_nvml_get_freq(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_nvml_get_freq(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.timeval, align 8

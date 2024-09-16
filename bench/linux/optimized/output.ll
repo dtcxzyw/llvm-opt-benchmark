@@ -422,7 +422,7 @@ define dso_local void @netfs_write_subrequest_terminated(ptr noundef %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_netfs_failure(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc void @trace_netfs_failure(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -4095, 0) %2) unnamed_addr #3 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_failure, i64 8), i32 2) #8
           to label %24 [label %4], !srcloc !8
 

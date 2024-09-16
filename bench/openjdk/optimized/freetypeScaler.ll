@@ -926,7 +926,7 @@ define float @Java_sun_font_FreetypeFontScaler_getGlyphAdvanceNative(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.FT_BBox_, align 8
   %9 = inttoptr i64 %3 to ptr
   %10 = inttoptr i64 %4 to ptr
@@ -1242,7 +1242,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %187 = getelementptr inbounds i8, ptr %45, i64 160
   %188 = load i32, ptr %187, align 8
   %189 = zext i16 %.0144 to i32
-  call fastcc void @CopyBW2Grey8(ptr noundef %186, i32 noundef %188, ptr noundef nonnull %180, i32 noundef %189, i32 noundef %189, i32 noundef %100)
+  call fastcc void @CopyBW2Grey8(ptr noundef %186, i32 noundef %188, ptr noundef %180, i32 noundef %189, i32 noundef %189, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
 190:                                              ; preds = %179
@@ -1257,7 +1257,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %196 = getelementptr inbounds i8, ptr %45, i64 160
   %197 = load i32, ptr %196, align 8
   %198 = zext i16 %.0144 to i32
-  call fastcc void @CopyGrey4ToGrey8(ptr noundef %195, i32 noundef %197, ptr noundef nonnull %180, i32 noundef %198, i32 noundef %198, i32 noundef %100)
+  call fastcc void @CopyGrey4ToGrey8(ptr noundef %195, i32 noundef %197, ptr noundef %180, i32 noundef %198, i32 noundef %198, i32 noundef %100)
   br label %CopyFTSubpixelToSubpixel.exit
 
 199:                                              ; preds = %179
@@ -1293,7 +1293,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %216 = load i32, ptr %215, align 8
   %217 = zext i16 %.0144 to i32
   %218 = mul nuw nsw i32 %217, 3
-  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %214, i32 noundef %216, ptr noundef nonnull %180, i32 noundef %218, i32 noundef %217, i32 noundef %100)
+  call fastcc void @CopyFTSubpixelVToSubpixel(ptr noundef %214, i32 noundef %216, ptr noundef %180, i32 noundef %218, i32 noundef %217, i32 noundef %100)
   %219 = load i16, ptr %111, align 4
   %220 = mul i16 %219, 3
   store i16 %220, ptr %111, align 4
@@ -1546,7 +1546,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphOutlineNative(ptr noundef %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %22 = load i16, ptr %12, align 8
   %23 = sext i16 %22 to i32
-  %24 = call fastcc i32 @allocateSpaceForGP(ptr noundef nonnull %9, i32 noundef %21, i32 noundef %23)
+  %24 = call fastcc i32 @allocateSpaceForGP(ptr noundef %9, i32 noundef %21, i32 noundef %23)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %getGlyphGeneralPath.exit.thread, label %25
 
@@ -1903,7 +1903,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphVectorOutlineNative(ptr nou
   %44 = sext i16 %43 to i32
   %45 = load i16, ptr %36, align 8
   %46 = sext i16 %45 to i32
-  %47 = call fastcc i32 @allocateSpaceForGP(ptr noundef nonnull %10, i32 noundef %44, i32 noundef %46)
+  %47 = call fastcc i32 @allocateSpaceForGP(ptr noundef %10, i32 noundef %44, i32 noundef %46)
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %._crit_edge, label %48
 
@@ -2002,12 +2002,12 @@ addToGP.exit:                                     ; preds = %61, %57, %35, %38, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
-  %4 = add i32 %2, %1
-  %5 = shl i32 %4, 1
-  %6 = shl i32 %2, 3
-  %7 = shl i32 %1, 2
-  %8 = add i32 %6, %7
+define internal fastcc range(i32 0, 2) i32 @allocateSpaceForGP(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef range(i32 -32768, 32768) %2) unnamed_addr #8 {
+  %4 = add nsw i32 %2, %1
+  %5 = shl nsw i32 %4, 1
+  %6 = shl nsw i32 %2, 3
+  %7 = shl nsw i32 %1, 2
+  %8 = add nsw i32 %6, %7
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -2341,7 +2341,7 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @FT_Render_Glyph(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #14 {
+define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
   %7 = lshr i32 %4, 3
   %8 = and i32 %4, 7
   %9 = add nsw i32 %5, -1
@@ -2496,48 +2496,48 @@ define internal fastcc void @CopyBW2Grey8(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #14 {
+define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
   %.not26 = icmp eq i32 %5, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %6
   %7 = sext i32 %1 to i64
   %8 = zext nneg i32 %3 to i64
-  %9 = icmp sgt i32 %4, 0
-  br i1 %9, label %.lr.ph.us, label %._crit_edge
+  %.not30 = icmp eq i32 %4, 0
+  br i1 %.not30, label %._crit_edge, label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph29, %..loopexit_crit_edge.us
-  %.in = phi i32 [ %10, %..loopexit_crit_edge.us ], [ %5, %.lr.ph29 ]
-  %.02128.us = phi ptr [ %25, %..loopexit_crit_edge.us ], [ %2, %.lr.ph29 ]
-  %.02227.us = phi ptr [ %11, %..loopexit_crit_edge.us ], [ %0, %.lr.ph29 ]
-  %10 = add nsw i32 %.in, -1
-  %11 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
-  br label %12
+  %.in = phi i32 [ %9, %..loopexit_crit_edge.us ], [ %5, %.lr.ph29 ]
+  %.02128.us = phi ptr [ %24, %..loopexit_crit_edge.us ], [ %2, %.lr.ph29 ]
+  %.02227.us = phi ptr [ %10, %..loopexit_crit_edge.us ], [ %0, %.lr.ph29 ]
+  %9 = add nsw i32 %.in, -1
+  %10 = getelementptr inbounds i8, ptr %.02227.us, i64 %7
+  br label %11
 
-12:                                               ; preds = %.lr.ph.us, %12
-  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %23, %12 ]
-  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %13, %12 ]
-  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %24, %12 ]
-  %13 = getelementptr inbounds i8, ptr %.01924.us, i64 1
-  %14 = load i8, ptr %.01924.us, align 1
-  %15 = shl i8 %14, 4
-  %16 = lshr i8 %14, 3
-  %17 = and i8 %16, 1
-  %18 = or disjoint i8 %17, %15
-  %19 = getelementptr inbounds i8, ptr %.01825.us, i64 1
-  store i8 %18, ptr %.01825.us, align 1
-  %20 = lshr i8 %14, 7
-  %21 = and i8 %14, -16
-  %22 = or disjoint i8 %21, %20
-  %23 = getelementptr inbounds i8, ptr %.01825.us, i64 2
-  store i8 %22, ptr %19, align 1
-  %24 = add nuw nsw i32 %.02023.us, 1
-  %exitcond.not = icmp eq i32 %24, %4
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %12, !llvm.loop !13
+11:                                               ; preds = %.lr.ph.us, %11
+  %.01825.us = phi ptr [ %.02128.us, %.lr.ph.us ], [ %22, %11 ]
+  %.01924.us = phi ptr [ %.02227.us, %.lr.ph.us ], [ %12, %11 ]
+  %.02023.us = phi i32 [ 0, %.lr.ph.us ], [ %23, %11 ]
+  %12 = getelementptr inbounds i8, ptr %.01924.us, i64 1
+  %13 = load i8, ptr %.01924.us, align 1
+  %14 = shl i8 %13, 4
+  %15 = lshr i8 %13, 3
+  %16 = and i8 %15, 1
+  %17 = or disjoint i8 %16, %14
+  %18 = getelementptr inbounds i8, ptr %.01825.us, i64 1
+  store i8 %17, ptr %.01825.us, align 1
+  %19 = lshr i8 %13, 7
+  %20 = and i8 %13, -16
+  %21 = or disjoint i8 %20, %19
+  %22 = getelementptr inbounds i8, ptr %.01825.us, i64 2
+  store i8 %21, ptr %18, align 1
+  %23 = add nuw nsw i32 %.02023.us, 1
+  %exitcond.not = icmp eq i32 %23, %4
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %11, !llvm.loop !13
 
-..loopexit_crit_edge.us:                          ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %.02128.us, i64 %8
-  %.not.us = icmp eq i32 %10, 0
+..loopexit_crit_edge.us:                          ; preds = %11
+  %24 = getelementptr inbounds i8, ptr %.02128.us, i64 %8
+  %.not.us = icmp eq i32 %9, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.us, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph29, %6
@@ -2545,52 +2545,52 @@ define internal fastcc void @CopyGrey4ToGrey8(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #14 {
-  %7 = icmp sgt i32 %5, 0
-  br i1 %7, label %.preheader.lr.ph, label %._crit_edge32
+define internal fastcc void @CopyFTSubpixelVToSubpixel(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 196606) %3, i32 noundef range(i32 0, 65536) %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #14 {
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge32, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %6
-  %8 = icmp sgt i32 %4, 0
-  %9 = sext i32 %1 to i64
-  %10 = shl nsw i32 %1, 1
+  %.not33 = icmp eq i32 %4, 0
+  %7 = sext i32 %1 to i64
+  %8 = shl nsw i32 %1, 1
+  %9 = sext i32 %8 to i64
+  %10 = mul nsw i32 %1, 3
   %11 = sext i32 %10 to i64
-  %12 = mul nsw i32 %1, 3
-  %13 = sext i32 %12 to i64
-  %14 = zext nneg i32 %3 to i64
-  br i1 %8, label %.preheader.us, label %._crit_edge32
+  %12 = zext nneg i32 %3 to i64
+  br i1 %.not33, label %._crit_edge32, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %.02231.us = phi ptr [ %27, %._crit_edge.us ], [ %2, %.preheader.lr.ph ]
-  %.02430.us = phi ptr [ %26, %._crit_edge.us ], [ %0, %.preheader.lr.ph ]
-  %.02529.us = phi i32 [ %28, %._crit_edge.us ], [ %5, %.preheader.lr.ph ]
-  br label %15
+  %.02231.us = phi ptr [ %25, %._crit_edge.us ], [ %2, %.preheader.lr.ph ]
+  %.02430.us = phi ptr [ %24, %._crit_edge.us ], [ %0, %.preheader.lr.ph ]
+  %.02529.us = phi i32 [ %26, %._crit_edge.us ], [ %5, %.preheader.lr.ph ]
+  br label %13
 
-15:                                               ; preds = %.preheader.us, %15
-  %.028.us = phi i32 [ 0, %.preheader.us ], [ %25, %15 ]
-  %.02127.us = phi ptr [ %.02231.us, %.preheader.us ], [ %23, %15 ]
-  %.02326.us = phi ptr [ %.02430.us, %.preheader.us ], [ %24, %15 ]
-  %16 = load i8, ptr %.02326.us, align 1
-  %17 = getelementptr inbounds i8, ptr %.02127.us, i64 1
-  store i8 %16, ptr %.02127.us, align 1
-  %18 = getelementptr inbounds i8, ptr %.02326.us, i64 %9
-  %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %.02127.us, i64 2
-  store i8 %19, ptr %17, align 1
-  %21 = getelementptr inbounds i8, ptr %.02326.us, i64 %11
-  %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds i8, ptr %.02127.us, i64 3
-  store i8 %22, ptr %20, align 1
-  %24 = getelementptr inbounds i8, ptr %.02326.us, i64 1
-  %25 = add nuw nsw i32 %.028.us, 1
-  %exitcond.not = icmp eq i32 %25, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !15
+13:                                               ; preds = %.preheader.us, %13
+  %.028.us = phi i32 [ 0, %.preheader.us ], [ %23, %13 ]
+  %.02127.us = phi ptr [ %.02231.us, %.preheader.us ], [ %21, %13 ]
+  %.02326.us = phi ptr [ %.02430.us, %.preheader.us ], [ %22, %13 ]
+  %14 = load i8, ptr %.02326.us, align 1
+  %15 = getelementptr inbounds i8, ptr %.02127.us, i64 1
+  store i8 %14, ptr %.02127.us, align 1
+  %16 = getelementptr inbounds i8, ptr %.02326.us, i64 %7
+  %17 = load i8, ptr %16, align 1
+  %18 = getelementptr inbounds i8, ptr %.02127.us, i64 2
+  store i8 %17, ptr %15, align 1
+  %19 = getelementptr inbounds i8, ptr %.02326.us, i64 %9
+  %20 = load i8, ptr %19, align 1
+  %21 = getelementptr inbounds i8, ptr %.02127.us, i64 3
+  store i8 %20, ptr %18, align 1
+  %22 = getelementptr inbounds i8, ptr %.02326.us, i64 1
+  %23 = add nuw nsw i32 %.028.us, 1
+  %exitcond.not = icmp eq i32 %23, %4
+  br i1 %exitcond.not, label %._crit_edge.us, label %13, !llvm.loop !15
 
-._crit_edge.us:                                   ; preds = %15
-  %26 = getelementptr inbounds i8, ptr %.02430.us, i64 %13
-  %27 = getelementptr inbounds i8, ptr %.02231.us, i64 %14
-  %28 = add nsw i32 %.02529.us, -3
-  %29 = icmp sgt i32 %.02529.us, 3
-  br i1 %29, label %.preheader.us, label %._crit_edge32, !llvm.loop !16
+._crit_edge.us:                                   ; preds = %13
+  %24 = getelementptr inbounds i8, ptr %.02430.us, i64 %11
+  %25 = getelementptr inbounds i8, ptr %.02231.us, i64 %12
+  %26 = add nsw i32 %.02529.us, -3
+  %27 = icmp sgt i32 %.02529.us, 3
+  br i1 %27, label %.preheader.us, label %._crit_edge32, !llvm.loop !16
 
 ._crit_edge32:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
   ret void

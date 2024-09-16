@@ -944,8 +944,8 @@ define internal fastcc void @drm_syncobj_fence_add_wait(ptr noundef %0, ptr noun
 declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @drm_syncobj_put(ptr noundef %0) unnamed_addr #3 align 16 {
-  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #11, !srcloc !15
+define internal fastcc void @drm_syncobj_put(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
+  %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #11, !srcloc !15
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
 
@@ -954,12 +954,12 @@ define internal fastcc void @drm_syncobj_put(ptr noundef %0) unnamed_addr #3 ali
   br i1 %5, label %.thread, label %6, !prof !8
 
 6:                                                ; preds = %4
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #11
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #11
   br label %.thread
 
 7:                                                ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
-  tail call void @drm_syncobj_free(ptr noundef %0) #11, !callees !17
+  tail call void @drm_syncobj_free(ptr noundef nonnull %0) #11, !callees !17
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %7
@@ -2238,7 +2238,7 @@ define dso_local i32 @drm_syncobj_wait_ioctl(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @drm_syncobj_array_find(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = zext i32 %2 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %6, i32 noundef 3264) #15
@@ -2608,7 +2608,7 @@ declare dso_local ptr @eventfd_ctx_fdget(i32 noundef) local_unnamed_addr #2
 declare dso_local void @eventfd_ctx_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_syncobj_add_eventfd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @drm_syncobj_add_eventfd(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_raw_spin_lock(ptr noundef %3) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2621,7 +2621,7 @@ define internal fastcc void @drm_syncobj_add_eventfd(ptr noundef %0, ptr noundef
   store volatile ptr %1, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %8, align 8
-  tail call fastcc void @syncobj_eventfd_entry_func(ptr %.val, ptr noundef %1)
+  tail call fastcc void @syncobj_eventfd_entry_func(ptr %.val, ptr noundef nonnull %1)
   tail call void @_raw_spin_unlock(ptr noundef %3) #11
   ret void
 }

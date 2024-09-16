@@ -2053,7 +2053,7 @@ Wlc_PrsSkipSpaces.exit.i:                         ; preds = %20
   %spec.select = zext i1 %.not.i.not.i to i32
   %spec.select114.idx = select i1 %.not.i.not.i, i64 6, i64 0
   %spec.select114 = getelementptr inbounds i8, ptr %.0.i.i, i64 %spec.select114.idx
-  %24 = call fastcc ptr @Wlc_PrsFindRange(ptr noundef nonnull %spec.select114, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %24 = call fastcc ptr @Wlc_PrsFindRange(ptr noundef nonnull %spec.select114, ptr noundef %5, ptr noundef %4)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %28
 
@@ -2388,7 +2388,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %131
 167:                                              ; preds = %164
   %168 = getelementptr inbounds i8, ptr %0, i64 40
   %169 = load ptr, ptr %168, align 8
-  %170 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef %0, ptr noundef nonnull %.0.i107, ptr noundef %169, ptr noundef nonnull %6)
+  %170 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef %0, ptr noundef nonnull %.0.i107, ptr noundef %169, ptr noundef %6)
   %.not77 = icmp eq i32 %170, 0
   br i1 %.not77, label %185, label %171
 
@@ -2418,7 +2418,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %131
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #12 {
+define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #12 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   br label %4
@@ -2566,7 +2566,7 @@ Wlc_PrsFindSymbol.exit45.thread:                  ; preds = %4, %22, %41, %Wlc_P
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 {
+define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #13 {
   store ptr @Wlc_PrsFindName.Buffer, ptr %1, align 8
   br label %3
 
@@ -2673,7 +2673,7 @@ declare i32 @Wlc_ObjAlloc(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare void @Wlc_ObjSetCo(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 53) i32 @Wlc_PrsFindDefinition(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 53) i32 @Wlc_PrsFindDefinition(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2831,7 +2831,7 @@ Wlc_PrsSkipSpaces.exit326:                        ; preds = %.preheader505, %41,
   br i1 %narrow.i, label %63, label %60
 
 60:                                               ; preds = %Wlc_PrsSkipSpaces.exit326
-  %61 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0237, ptr noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %3)
+  %61 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0237, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef %3)
   %62 = icmp eq ptr %61, null
   br i1 %62, label %Wlc_PrsFindName.exit.thread, label %309
 
@@ -3148,7 +3148,7 @@ Wlc_PrsSkipSpaces.exit394:                        ; preds = %Wlc_PrsFindSymbol.e
   br label %309
 
 162:                                              ; preds = %139
-  %163 = call fastcc ptr @Wlc_PrsFindRange(ptr noundef nonnull %138, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %163 = call fastcc ptr @Wlc_PrsFindRange(ptr noundef nonnull %138, ptr noundef %7, ptr noundef %8)
   %164 = icmp eq ptr %163, null
   br i1 %164, label %165, label %167
 
@@ -4896,7 +4896,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %530
 
 554:                                              ; preds = %.loopexit1966
   %555 = load ptr, ptr %36, align 8
-  %556 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef nonnull %0, ptr noundef nonnull %.020.lcssa.i, ptr noundef %555, ptr noundef nonnull %5)
+  %556 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef nonnull %0, ptr noundef nonnull %.020.lcssa.i, ptr noundef %555, ptr noundef %5)
   %.not960 = icmp eq i32 %556, 0
   br i1 %.not960, label %.loopexit1965, label %557
 
@@ -6193,7 +6193,7 @@ Wlc_PrsSkipSpaces.exit1444:                       ; preds = %Wlc_PrsFindSymbol.e
 
 1024:                                             ; preds = %Wlc_PrsSkipSpaces.exit1444
   %1025 = call fastcc ptr @Vec_IntAlloc(i32 noundef 100)
-  %1026 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0.i1441, ptr noundef %1025, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %1026 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0.i1441, ptr noundef %1025, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not940 = icmp eq ptr %1026, null
   br i1 %.not940, label %1036, label %1027
 
@@ -6229,7 +6229,7 @@ Wlc_PrsSkipSpaces.exit1444:                       ; preds = %Wlc_PrsFindSymbol.e
   br label %.backedge1974
 
 1039:                                             ; preds = %Wlc_PrsSkipSpaces.exit1444
-  %1040 = call fastcc ptr @Wlc_PrsFindName(ptr noundef nonnull %.0.i1441, ptr noundef nonnull %3)
+  %1040 = call fastcc ptr @Wlc_PrsFindName(ptr noundef nonnull %.0.i1441, ptr noundef %3)
   %1041 = icmp eq ptr %1040, null
   br i1 %1041, label %1042, label %1044
 
@@ -8301,7 +8301,7 @@ Wlc_PrsIsChar.exit32.thread.i1837:                ; preds = %1729
 
 Wlc_PrsFindLine.exit:                             ; preds = %1800, %.thread1909, %1797
   %.09.i1850 = phi i32 [ %1799, %1797 ], [ -1, %.thread1909 ], [ -1, %1800 ]
-  %1801 = call fastcc ptr @Wlc_PrsFindName(ptr noundef nonnull %.07292381, ptr noundef nonnull %3)
+  %1801 = call fastcc ptr @Wlc_PrsFindName(ptr noundef nonnull %.07292381, ptr noundef %3)
   %1802 = load ptr, ptr %3, align 8
   %.not908 = icmp eq ptr %1802, null
   br i1 %.not908, label %1805, label %1803
@@ -8506,7 +8506,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %9
   store i32 0, ptr %8, align 4
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %14 = getelementptr inbounds i8, ptr %calloc, i64 8
-  %15 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %calloc, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %15 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %calloc, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %20
 
@@ -8765,7 +8765,7 @@ Wlc_PrsSkipSpaces.exit42:                         ; preds = %117, %83, %75, %52,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @Wlc_PrsReadConstant(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @atoi(ptr nocapture noundef %1) #26
   store i32 -1, ptr %3, align 4
   store i32 0, ptr %4, align 4

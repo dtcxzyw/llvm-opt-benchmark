@@ -2426,7 +2426,7 @@ if.then.i.i3:                                     ; preds = %if.then.i
 _ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i: ; preds = %if.then.i.i3, %if.then.i
   %5 = load atomic i64, ptr @_ZN4llvh2cl18TopLevelSubCommandE monotonic, align 8
   %atomic-temp.i.0.i1.i.i2 = inttoptr i64 %5 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %this, ptr noundef nonnull %atomic-temp.i.0.i1.i.i2)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef %this, ptr noundef nonnull %atomic-temp.i.0.i1.i.i2)
   br label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit
 
 if.else.i:                                        ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
@@ -2538,7 +2538,7 @@ _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i: ; preds = %land
 for.body.i:                                       ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i
   %__begin4.sroa.0.063.i = phi ptr [ %__begin4.sroa.0.1.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i ], [ %retval.sroa.0.4.i13.i.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i ]
   %19 = load ptr, ptr %__begin4.sroa.0.063.i, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %this, ptr noundef %19)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef %this, ptr noundef %19)
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.063.i, i64 8
   %cmp.not2.i3.i.i = icmp eq ptr %incdec.ptr3.i.i, %cond.i9.i8.i.i
   br i1 %cmp.not2.i3.i.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %land.rhs.i4.i.i
@@ -2589,7 +2589,7 @@ _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit27.i: ; preds = %la
 for.body22.i:                                     ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit27.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit47.i
   %__begin414.sroa.0.065.i = phi ptr [ %__begin414.sroa.0.1.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit47.i ], [ %retval.sroa.0.4.i13.i21.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit27.i ]
   %26 = load ptr, ptr %__begin414.sroa.0.065.i, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %this, ptr noundef %26)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef %this, ptr noundef %26)
   %incdec.ptr3.i38.i = getelementptr inbounds i8, ptr %__begin414.sroa.0.065.i, i64 8
   %cmp.not2.i3.i40.i = icmp eq ptr %incdec.ptr3.i38.i, %cond.i9.i8.i16.i
   br i1 %cmp.not2.i3.i40.i, label %_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionE.exit, label %land.rhs.i4.i41.i
@@ -2652,7 +2652,7 @@ if.then.i.i3:                                     ; preds = %if.then.i
 _ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i: ; preds = %if.then.i.i3, %if.then.i
   %6 = load atomic i64, ptr @_ZN4llvh2cl18TopLevelSubCommandE monotonic, align 8
   %atomic-temp.i.0.i1.i.i2 = inttoptr i64 %6 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef nonnull %this, ptr %S.coerce0, i64 %S.coerce1, ptr noundef nonnull %atomic-temp.i.0.i1.i.i2)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef %this, ptr %S.coerce0, i64 %S.coerce1, ptr noundef nonnull %atomic-temp.i.0.i1.i.i2)
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit
@@ -2688,7 +2688,7 @@ _ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i: ; preds = %land
 for.body.i:                                       ; preds = %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i
   %__begin3.sroa.0.011.i = phi ptr [ %__begin3.sroa.0.1.i, %_ZN4llvh19SmallPtrSetIteratorIPNS_2cl10SubCommandEEppEv.exit.i ], [ %retval.sroa.0.4.i13.i.i, %_ZNK4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE5beginEv.exit.i ]
   %11 = load ptr, ptr %__begin3.sroa.0.011.i, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef nonnull %this, ptr %S.coerce0, i64 %S.coerce1, ptr noundef %11)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef %this, ptr %S.coerce0, i64 %S.coerce1, ptr noundef %11)
   %incdec.ptr3.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.011.i, i64 8
   %cmp.not2.i3.i.i = icmp eq ptr %incdec.ptr3.i.i, %cond.i9.i8.i.i
   br i1 %cmp.not2.i3.i.i, label %if.end, label %land.rhs.i4.i.i
@@ -2805,12 +2805,12 @@ if.then.i.i:                                      ; preds = %entry
 _ZN4llvh13ManagedStaticIN12_GLOBAL__N_117CommandLineParserENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEptEv.exit: ; preds = %entry, %if.then.i.i
   %1 = load atomic i64, ptr @_ZL12GlobalParser monotonic, align 8
   %atomic-temp.i.0.i1.i.i = inttoptr i64 %1 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef nonnull %this)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef %this)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %sub) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %sub) unnamed_addr #0 align 2 {
 entry:
   %RegisteredSubCommands = getelementptr inbounds i8, ptr %this, i64 232
   %CurArray.i.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -2866,7 +2866,7 @@ if.then19.i.i:                                    ; preds = %if.end16.i.i
   br label %_ZN4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE6insertES3_.exit
 
 if.end31.i.i:                                     ; preds = %if.end16.i.i, %entry
-  %call32.i.i = tail call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %RegisteredSubCommands, ptr noundef %sub) #27, !noalias !59
+  %call32.i.i = tail call { ptr, i8 } @_ZN4llvh19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %RegisteredSubCommands, ptr noundef nonnull %sub) #27, !noalias !59
   br label %_ZN4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE6insertES3_.exit
 
 _ZN4llvh15SmallPtrSetImplIPNS_2cl10SubCommandEE6insertES3_.exit: ; preds = %for.body.i.i, %if.then12.i.i, %if.then19.i.i, %if.end31.i.i
@@ -2955,13 +2955,13 @@ lor.lhs.false14:                                  ; preds = %for.body
   br i1 %cmp.i.i17.not, label %if.else, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false14, %for.body
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %14, ptr noundef %sub)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser9addOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %14, ptr noundef nonnull %sub)
   br label %while.cond.i.i.preheader
 
 if.else:                                          ; preds = %lor.lhs.false14
   %add.ptr.i.i18 = getelementptr inbounds i8, ptr %13, i64 16
   %18 = load i64, ptr %13, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser16addLiteralOptionERN4llvh2cl6OptionEPNS2_10SubCommandENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(145) %14, ptr noundef %sub, ptr nonnull %add.ptr.i.i18, i64 %18)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser16addLiteralOptionERN4llvh2cl6OptionEPNS2_10SubCommandENS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(145) %14, ptr noundef nonnull %sub, ptr nonnull %add.ptr.i.i18, i64 %18)
   br label %while.cond.i.i.preheader
 
 while.cond.i.i.preheader:                         ; preds = %if.then16, %if.else
@@ -12854,7 +12854,7 @@ if.then.i52.i:                                    ; preds = %_ZN4llvh2cl10SubCom
 _ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i: ; preds = %if.then.i52.i, %_ZN4llvh2cl10SubCommand5resetEv.exit50.i
   %42 = load atomic i64, ptr @_ZN4llvh2cl18TopLevelSubCommandE monotonic, align 8
   %atomic-temp.i.0.i1.i.i3 = inttoptr i64 %42 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef nonnull %atomic-temp.i.0.i1.i.i3)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef %atomic-temp.i.0.i1.i.i3)
   %43 = load atomic i64, ptr @_ZN4llvh2cl14AllSubCommandsE acquire, align 8
   %tobool.not.i53.i = icmp eq i64 %43, 0
   br i1 %tobool.not.i53.i, label %if.then.i56.i, label %_ZN12_GLOBAL__N_117CommandLineParser5resetEv.exit
@@ -12866,7 +12866,7 @@ if.then.i56.i:                                    ; preds = %_ZN4llvh13ManagedSt
 _ZN12_GLOBAL__N_117CommandLineParser5resetEv.exit: ; preds = %_ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i, %if.then.i56.i
   %44 = load atomic i64, ptr @_ZN4llvh2cl14AllSubCommandsE monotonic, align 8
   %atomic-temp.i.0.i1.i55.i = inttoptr i64 %44 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef nonnull %atomic-temp.i.0.i1.i55.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %atomic-temp.i.0.i1.i.i, ptr noundef %atomic-temp.i.0.i1.i55.i)
   ret void
 }
 
@@ -14003,7 +14003,7 @@ if.end48:                                         ; preds = %while.body.i6.i.i15
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef %O, ptr noundef %SC) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12removeOptionEPN4llvh2cl6OptionEPNS2_10SubCommandE(ptr noundef nonnull %O, ptr noundef %SC) unnamed_addr #0 align 2 {
 entry:
   %OptionNames = alloca %"class.llvh::SmallVector.130", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %OptionNames, i64 16
@@ -14206,7 +14206,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %O, ptr %NewName.coerce0, i64 %NewName.coerce1, ptr noundef %SC) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CommandLineParser12updateArgStrEPN4llvh2cl6OptionENS1_9StringRefEPNS2_10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %O, ptr %NewName.coerce0, i64 %NewName.coerce1, ptr noundef %SC) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp2 = alloca %"struct.std::pair.128", align 8
   %OptionsMap = getelementptr inbounds i8, ptr %SC, i64 128
@@ -16092,7 +16092,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i: ; preds = %if.then.i.i, %entry
   %1 = load atomic i64, ptr @_ZN4llvh2cl18TopLevelSubCommandE monotonic, align 8
   %atomic-temp.i.0.i1.i.i = inttoptr i64 %1 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %call, ptr noundef nonnull %atomic-temp.i.0.i1.i.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %call, ptr noundef %atomic-temp.i.0.i1.i.i)
   %2 = load atomic i64, ptr @_ZN4llvh2cl14AllSubCommandsE acquire, align 8
   %tobool.not.i6.i = icmp eq i64 %2, 0
   br i1 %tobool.not.i6.i, label %if.then.i8.i, label %_ZN12_GLOBAL__N_117CommandLineParserC2Ev.exit
@@ -16104,7 +16104,7 @@ if.then.i8.i:                                     ; preds = %_ZN4llvh13ManagedSt
 _ZN12_GLOBAL__N_117CommandLineParserC2Ev.exit:    ; preds = %_ZN4llvh13ManagedStaticINS_2cl10SubCommandENS_14object_creatorIS2_EENS_14object_deleterIS2_EEEdeEv.exit.i, %if.then.i8.i
   %3 = load atomic i64, ptr @_ZN4llvh2cl14AllSubCommandsE monotonic, align 8
   %atomic-temp.i.0.i1.i7.i = inttoptr i64 %3 to ptr
-  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %call, ptr noundef nonnull %atomic-temp.i.0.i1.i7.i)
+  tail call fastcc void @_ZN12_GLOBAL__N_117CommandLineParser18registerSubCommandEPN4llvh2cl10SubCommandE(ptr noundef nonnull align 8 dereferenceable(304) %call, ptr noundef %atomic-temp.i.0.i1.i7.i)
   ret ptr %call
 }
 

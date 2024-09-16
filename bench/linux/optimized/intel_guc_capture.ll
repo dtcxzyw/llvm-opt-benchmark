@@ -3827,7 +3827,7 @@ define internal fastcc range(i32 -1, 1) i32 @guc_capture_log_get_register(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc ptr @guc_capture_clone_node(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc ptr @guc_capture_clone_node(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #3 align 16 {
   %4 = alloca [3 x ptr], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 1000
   %6 = load ptr, ptr %5, align 8

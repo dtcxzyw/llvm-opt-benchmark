@@ -3815,7 +3815,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %.thread.i.i, %582, 
   br label %829
 
 _ZN4llvm5ErrorD2Ev.exit205.i:                     ; preds = %.lr.ph.i69.i.i, %_ZN4llvm11PassManagerINS_15MachineFunctionENS_15AnalysisManagerIS1_JEEEJEE7addPassINS_16FinalizeISelPassEEENSt9enable_ifIXntsr3stdE9is_same_vIT_S4_EEvE4typeEOS8_.exit.i.i.i, %_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE15runBeforeAddingENS_9StringRefE.exit.i64.i.i
-  call fastcc void @_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE16addMachinePassesERNS4_14AddMachinePassE(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(442) %50, ptr noundef nonnull align 8 dereferenceable(40) %48), !noalias !4
+  call fastcc void @_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE16addMachinePassesERNS4_14AddMachinePassE(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(442) %50, ptr noundef nonnull align 8 dereferenceable(40) %48), !noalias !4
   %751 = load ptr, ptr %49, align 8, !noalias !4
   %.not.i = icmp eq ptr %751, null
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit207.i, label %_ZN4llvm5ErrorD2Ev.exit206.i
@@ -10298,7 +10298,7 @@ _ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86Tar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE16addMachinePassesERNS4_14AddMachinePassE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(442) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK4llvm18CodeGenPassBuilderIN12_GLOBAL__N_121X86CodeGenPassBuilderENS_16X86TargetMachineEE16addMachinePassesERNS4_14AddMachinePassE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(442) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.531", align 8
   %5 = alloca %"class.std::unique_ptr.531", align 8
   %6 = alloca %"class.llvm::PassManager.308", align 8

@@ -2651,7 +2651,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
 declare void @prepare_repo_settings(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_path(ptr noundef %path, ptr noundef %prefix, i32 noundef %format, i32 noundef %def) unnamed_addr #0 {
+define internal fastcc void @print_path(ptr noundef %path, ptr noundef %prefix, i32 noundef %format, i32 noundef range(i32 0, 4) %def) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   %realbuf = alloca %struct.strbuf, align 8

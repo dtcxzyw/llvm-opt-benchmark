@@ -859,7 +859,7 @@ BufferGetPage.exit:                               ; preds = %84, %90
 
 .lr.ph:                                           ; preds = %.preheader85, %.lr.ph
   %.065122 = phi i16 [ %113, %.lr.ph ], [ 1, %.preheader85 ]
-  %112 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.065122, i1 noundef zeroext %102, i1 noundef zeroext true, ptr noundef nonnull %6, ptr noundef %3)
+  %112 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.065122, i1 noundef zeroext %102, i1 noundef zeroext true, ptr noundef %6, ptr noundef %3)
   %113 = add i16 %.065122, 1
   %.not73 = icmp ugt i16 %113, %111
   br i1 %.not73, label %.loopexit86, label %.lr.ph, !llvm.loop !13
@@ -870,7 +870,7 @@ BufferGetPage.exit:                               ; preds = %84, %90
   br i1 %.not72, label %.loopexit86, label %114
 
 114:                                              ; preds = %.preheader
-  %115 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.166, i1 noundef zeroext %102, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef %3)
+  %115 = call fastcc zeroext i16 @spgTestLeafTuple(ptr noundef %1, ptr noundef nonnull %46, ptr noundef %.0.i.i, i16 noundef zeroext %.166, i1 noundef zeroext %102, i1 noundef zeroext false, ptr noundef %6, ptr noundef %3)
   %116 = icmp eq i16 %115, 2049
   br i1 %116, label %.backedge.backedge, label %.preheader, !llvm.loop !14
 
@@ -1665,7 +1665,7 @@ declare i32 @BufferGetBlockNumber(i32 noundef) local_unnamed_addr #1
 declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 16384) i16 @spgTestLeafTuple(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
   %9 = alloca %struct.spgLeafConsistentIn, align 8
   %10 = alloca %struct.spgLeafConsistentOut, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 24

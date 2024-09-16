@@ -363,7 +363,7 @@ tailrecurse:                                      ; preds = %5, %1
   br label %_ZN4llvm11SmallPtrSetIPNS_4TypeELj4EED2Ev.exit
 
 19:                                               ; preds = %tailrecurse
-  %20 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull readonly %.tr)
+  %20 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef readonly %.tr)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8
@@ -510,7 +510,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Type21isScalableTargetExtTyEv(ptr
   br i1 %.not, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull readonly %0)
+  %6 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef readonly %0)
   %7 = extractvalue { ptr, i64 } %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
@@ -690,7 +690,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %28, %29
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZNK4llvm13TargetExtType13getLayoutTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
-  %2 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull %0)
+  %2 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef %0)
   %3 = extractvalue { ptr, i64 } %2, 0
   ret ptr %3
 }
@@ -1099,7 +1099,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15Sm
   br i1 %.not19, label %17, label %21
 
 17:                                               ; preds = %16
-  %18 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull readonly %0)
+  %18 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef readonly %0)
   %19 = extractvalue { ptr, i64 } %18, 0
   %20 = tail call noundef zeroext i1 @_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef %1)
   br label %23
@@ -1324,7 +1324,7 @@ _ZNK4llvm4Type12isScalableTyEv.exit.thread:       ; preds = %tailrecurse.i
   br label %.loopexit
 
 70:                                               ; preds = %tailrecurse.i
-  %71 = call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull readonly %.tr.i)
+  %71 = call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef readonly %.tr.i)
   %72 = extractvalue { ptr, i64 } %71, 0
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
@@ -3468,7 +3468,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr nocapture noundef readonly %0) unnamed_addr #1 {
+define internal fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #1 {
   %2 = alloca %"struct.std::pair.395", align 8
   %3 = alloca %"struct.std::pair.395", align 8
   %4 = load ptr, ptr %0, align 8
@@ -3782,7 +3782,7 @@ _ZN4llvm11PointerType3getERNS_11LLVMContextEj.exit: ; preds = %_ZnwIN4llvm15Mall
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm13TargetExtType11hasPropertyENS0_8PropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef nonnull %0)
+  %3 = tail call fastcc { ptr, i64 } @_ZL17getTargetTypeInfoPKN4llvm13TargetExtTypeE(ptr noundef %0)
   %4 = extractvalue { ptr, i64 } %3, 1
   %5 = zext i32 %1 to i64
   %6 = and i64 %4, %5

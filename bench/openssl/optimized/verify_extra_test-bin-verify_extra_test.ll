@@ -474,7 +474,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #2
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @test_self_signed(ptr noundef %filename, i32 noundef %use_trusted, i32 noundef %expected) unnamed_addr #1 {
+define internal fastcc i32 @test_self_signed(ptr noundef %filename, i32 noundef range(i32 0, 2) %use_trusted, i32 noundef range(i32 -1, 2) %expected) unnamed_addr #1 {
 entry:
   %call = tail call ptr @load_cert_pem(ptr noundef %filename, ptr noundef null) #3
   %call1 = tail call ptr @OPENSSL_sk_new_null() #3
@@ -573,7 +573,7 @@ declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_test_purpose(i32 noundef %purpose, i32 noundef %expected) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @do_test_purpose(i32 noundef range(i32 1, 8) %purpose, i32 noundef range(i32 0, 2) %expected) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @ee_cert, align 8
   %call = tail call ptr @load_cert_pem(ptr noundef %0, ptr noundef null) #3

@@ -543,8 +543,8 @@ NeedCompressedAlpha.exit.i:                       ; preds = %20, %17, %14, %Chec
   %70 = getelementptr inbounds i8, ptr %67, i64 %69
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %45
-  tail call fastcc void @DoRemap(ptr noundef nonnull %0, i64 noundef %72)
-  %73 = tail call fastcc i32 @IDecode(ptr noundef nonnull %0)
+  tail call fastcc void @DoRemap(ptr noundef %0, i64 noundef %72)
+  %73 = tail call fastcc i32 @IDecode(ptr noundef %0)
   br label %CheckMemBufferMode.exit.thread
 
 CheckMemBufferMode.exit.thread:                   ; preds = %7, %46, %35, %6, %3, %61
@@ -553,7 +553,7 @@ CheckMemBufferMode.exit.thread:                   ; preds = %7, %46, %35, %6, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @IDecode(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @IDecode(ptr noundef nonnull %0) unnamed_addr #0 {
   %.sroa.4.i = alloca %struct.VP8BitReader, align 8
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
@@ -1403,8 +1403,8 @@ CheckMemBufferMode.exit:                          ; preds = %7, %10
   %28 = getelementptr inbounds i8, ptr %1, i64 %27
   %29 = ptrtoint ptr %28 to i64
   %30 = sub i64 %29, %20
-  tail call fastcc void @DoRemap(ptr noundef nonnull %0, i64 noundef %30)
-  %31 = tail call fastcc i32 @IDecode(ptr noundef nonnull %0)
+  tail call fastcc void @DoRemap(ptr noundef %0, i64 noundef %30)
+  %31 = tail call fastcc i32 @IDecode(ptr noundef %0)
   br label %CheckMemBufferMode.exit.thread
 
 CheckMemBufferMode.exit.thread:                   ; preds = %7, %19, %6, %3, %24
@@ -1761,7 +1761,7 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DoRemap(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @DoRemap(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8

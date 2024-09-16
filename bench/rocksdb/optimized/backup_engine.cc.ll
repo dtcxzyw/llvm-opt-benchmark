@@ -1315,7 +1315,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(896) %call)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(896) %call)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -2052,7 +2052,7 @@ lpad3.body:                                       ; preds = %lpad.body.i.i, %ehc
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(896) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(896) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i50 = alloca %struct._Guard, align 8
   %__guard.i39 = alloca %struct._Guard, align 8
@@ -2387,7 +2387,7 @@ lpad.i45:                                         ; preds = %invoke.cont.i46, %i
 
 invoke.cont40.i:                                  ; preds = %invoke.cont.i46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i39)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp36.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp36.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37.i, i1 noundef zeroext false)
           to label %invoke.cont42.i unwind label %lpad41.i
 
 invoke.cont42.i:                                  ; preds = %invoke.cont40.i
@@ -2540,7 +2540,7 @@ lpad.i34:                                         ; preds = %invoke.cont.i35, %i
 
 invoke.cont58.i:                                  ; preds = %invoke.cont.i35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i28)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp54.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55.i, i1 noundef zeroext false)
           to label %invoke.cont60.i unwind label %lpad59.i
 
 invoke.cont60.i:                                  ; preds = %invoke.cont58.i
@@ -2763,7 +2763,7 @@ for.body.i:                                       ; preds = %_ZN7rocksdb8IOStatu
   %vtable.i = load ptr, ptr %59, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 280
   %60 = load ptr, ptr %vfn.i, align 8
-  invoke void %60(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0591.i, ptr noundef nonnull align 8 dereferenceable(83) %io_options_.i, ptr noundef null)
+  invoke void %60(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0591.i, ptr noundef nonnull align 8 dereferenceable(83) %io_options_.i, ptr noundef null)
           to label %invoke.cont91.i unwind label %lpad75.loopexit.i
 
 invoke.cont91.i:                                  ; preds = %for.body.i
@@ -3147,17 +3147,17 @@ if.end171.i:                                      ; preds = %cleanup.done.i, %cl
 
 invoke.cont174.i:                                 ; preds = %if.end171.i
   %100 = load i32, ptr %backup_id.i, align 4, !noalias !7
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias nonnull align 8 %ref.tmp176.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef %100, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias align 8 %ref.tmp176.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef %100, i1 noundef zeroext false)
           to label %invoke.cont178.i unwind label %ehcleanup194.thread.i
 
 invoke.cont178.i:                                 ; preds = %invoke.cont174.i
   %101 = load i32, ptr %backup_id.i, align 4, !noalias !7
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias nonnull align 8 %ref.tmp179.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef %101, i1 noundef zeroext true)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias align 8 %ref.tmp179.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef %101, i1 noundef zeroext true)
           to label %invoke.cont181.i unwind label %ehcleanup194.thread532.i
 
 invoke.cont181.i:                                 ; preds = %invoke.cont178.i
   %102 = load ptr, ptr %backup_env_.i, align 8, !noalias !7
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %call175.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179.i, ptr noundef nonnull %backuped_file_infos_.i, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %call175.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp176.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179.i, ptr noundef %backuped_file_infos_.i, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i)
           to label %invoke.cont186.i unwind label %lpad183.i
 
 invoke.cont186.i:                                 ; preds = %invoke.cont181.i
@@ -3233,7 +3233,7 @@ if.then203.i:                                     ; preds = %for.end200.i
           to label %invoke.cont207.i unwind label %lpad122.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont207.i:                                 ; preds = %if.then203.i
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl15PurgeOldBackupsEj(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef 0)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl15PurgeOldBackupsEj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, i32 noundef 0)
           to label %invoke.cont209.i unwind label %lpad122.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont209.i:                                 ; preds = %invoke.cont207.i
@@ -3383,7 +3383,7 @@ lpad.i23:                                         ; preds = %invoke.cont.i24, %i
 
 invoke.cont236.i:                                 ; preds = %invoke.cont.i24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i17)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp232.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp233.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp232.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp233.i, i1 noundef zeroext false)
           to label %invoke.cont238.i unwind label %lpad237.i
 
 invoke.cont238.i:                                 ; preds = %invoke.cont236.i
@@ -3428,7 +3428,7 @@ lpad.i12:                                         ; preds = %invoke.cont.i13, %i
 
 invoke.cont242.i:                                 ; preds = %invoke.cont.i13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i6)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %arrayinit.element.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %arrayinit.element.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp239.i, i1 noundef zeroext false)
           to label %invoke.cont244.i unwind label %lpad243.i
 
 invoke.cont244.i:                                 ; preds = %invoke.cont242.i
@@ -3520,7 +3520,7 @@ invoke.cont263.i:                                 ; preds = %_ZStplIcSt11char_tr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i12.i303.i) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i296.i) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i296.i), !noalias !7
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i, ptr noundef nonnull %abs_path_to_size.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i, ptr noundef %abs_path_to_size.i)
           to label %invoke.cont267.i unwind label %lpad266.i
 
 invoke.cont267.i:                                 ; preds = %invoke.cont263.i
@@ -3688,7 +3688,7 @@ lpad.i4:                                          ; preds = %invoke.cont.i, %if.
 
 invoke.cont328.i:                                 ; preds = %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp321.i, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp321.i, i32 noundef %145, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp325.i)
           to label %invoke.cont330.i unwind label %lpad329.i
 
 invoke.cont330.i:                                 ; preds = %invoke.cont328.i
@@ -3723,7 +3723,7 @@ invoke.cont332.i:                                 ; preds = %_ZStplIcSt11char_tr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i12.i334.i) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i327.i) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i327.i), !noalias !7
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i, ptr noundef nonnull %abs_path_to_size.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp320.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_117.i, ptr noundef %abs_path_to_size.i)
           to label %invoke.cont335.i unwind label %lpad334.i
 
 invoke.cont335.i:                                 ; preds = %invoke.cont332.i
@@ -3741,7 +3741,7 @@ invoke.cont345.i:                                 ; preds = %invoke.cont335.i
   %second347.val.i = load ptr, ptr %second347.i, align 8
   %152 = load ptr, ptr %backup_rate_limiter.i, align 8, !noalias !7
   %153 = load ptr, ptr %info_log4.i, align 8, !noalias !7
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta12LoadFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_mSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_mEEEPNS_11RateLimiterEPNS_6LoggerEPSt13unordered_setIS8_SD_SF_SaIS8_EE(ptr noalias nonnull align 8 %ref.tmp344.i, ptr noundef nonnull align 8 dereferenceable(304) %second347.val.i, ptr noundef nonnull align 8 dereferenceable(32) %options_2.i, ptr noundef nonnull align 8 dereferenceable(56) %abs_path_to_size.i, ptr noundef %152, ptr noundef %153, ptr noundef nonnull %reported_ignored_fields_.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta12LoadFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_mSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_mEEEPNS_11RateLimiterEPNS_6LoggerEPSt13unordered_setIS8_SD_SF_SaIS8_EE(ptr noalias align 8 %ref.tmp344.i, ptr noundef nonnull align 8 dereferenceable(304) %second347.val.i, ptr noundef nonnull align 8 dereferenceable(32) %options_2.i, ptr noundef nonnull align 8 dereferenceable(56) %abs_path_to_size.i, ptr noundef %152, ptr noundef %153, ptr noundef %reported_ignored_fields_.i)
           to label %invoke.cont354.i unwind label %lpad340.i
 
 invoke.cont354.i:                                 ; preds = %invoke.cont345.i
@@ -5071,7 +5071,7 @@ if.end:                                           ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias nonnull align 8 %s, ptr noundef nonnull align 8 dereferenceable(896) %call)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_126BackupEngineImplThreadSafe10InitializeEv(ptr noalias align 8 %s, ptr noundef nonnull align 8 dereferenceable(896) %call)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -6777,7 +6777,7 @@ lpad.i30:                                         ; preds = %invoke.cont.i31, %i
 
 invoke.cont.i:                                    ; preds = %invoke.cont.i31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i24)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp24.i, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp24.i, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i)
           to label %invoke.cont28.i unwind label %lpad27.i
 
 invoke.cont28.i:                                  ; preds = %invoke.cont.i
@@ -6822,7 +6822,7 @@ lpad.i19:                                         ; preds = %invoke.cont.i20, %i
 
 invoke.cont32.i:                                  ; preds = %invoke.cont.i20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i13)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %arrayinit.element.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %arrayinit.element.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i, i1 noundef zeroext false)
           to label %invoke.cont34.i unwind label %lpad33.i, !noalias !85
 
 invoke.cont34.i:                                  ; preds = %invoke.cont32.i
@@ -6867,7 +6867,7 @@ lpad.i9:                                          ; preds = %invoke.cont.i10, %i
 
 invoke.cont39.i:                                  ; preds = %invoke.cont.i10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i)
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %arrayinit.element35.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %arrayinit.element35.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i, i1 noundef zeroext false)
           to label %invoke.cont41.i unwind label %lpad40.i, !noalias !85
 
 invoke.cont41.i:                                  ; preds = %invoke.cont39.i
@@ -6985,7 +6985,7 @@ invoke.cont51.i:                                  ; preds = %_ZStplIcSt11char_tr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(32) %call.i12.i.i) #35, !noalias !85
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i) #35, !noalias !85
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i.i), !noalias !85
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias nonnull align 8 %ref.tmp52.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_.i, ptr noundef nonnull %curr_abs_path_to_size.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias align 8 %ref.tmp52.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_dir.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_.i, ptr noundef %curr_abs_path_to_size.i)
           to label %invoke.cont56.i unwind label %lpad53.i, !noalias !85
 
 invoke.cont56.i:                                  ; preds = %invoke.cont51.i
@@ -7334,7 +7334,7 @@ invoke.cont164.i:                                 ; preds = %if.then157.i
           to label %invoke.cont167.i unwind label %lpad163.i, !noalias !85
 
 invoke.cont167.i:                                 ; preds = %invoke.cont164.i
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias nonnull align 8 %io_s.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_path.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp166.i, i64 noundef 0, ptr noundef nonnull %checksum_hex158.i, i8 noundef zeroext 0)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias align 8 %io_s.i, ptr noundef nonnull align 8 dereferenceable(816) %impl_, ptr noundef nonnull align 8 dereferenceable(32) %abs_path.i, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_.i, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp166.i, i64 noundef 0, ptr noundef %checksum_hex158.i, i8 noundef zeroext 0)
           to label %invoke.cont168.i unwind label %lpad163.i, !noalias !85
 
 invoke.cont168.i:                                 ; preds = %invoke.cont167.i
@@ -11033,7 +11033,7 @@ lpad.i58:                                         ; preds = %.noexc60
   br label %ehcleanup58
 
 invoke.cont50:                                    ; preds = %.noexc60
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp46, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp46, i32 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %invoke.cont50
@@ -11223,7 +11223,7 @@ invoke.cont12.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i.i.
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %invoke.cont12.i.i.i.i.i.i.i.i.i
   %call9.val.i.i.i.i.i.i.i.i.i = load ptr, ptr %__begin3.sroa.0.037.i.i.i.i.i.i.i.i.i, align 8, !noalias !161
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfo13GetDbFileNameB5cxx11Ev(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(145) %call9.val.i.i.i.i.i.i.i.i.i)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfo13GetDbFileNameB5cxx11Ev(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(145) %call9.val.i.i.i.i.i.i.i.i.i)
           to label %invoke.cont16.i.i.i.i.i.i.i.i.i unwind label %lpad11.i.i.i.i.i.i.i.i.i, !noalias !161
 
 invoke.cont16.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i.i.i.i
@@ -12610,7 +12610,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16975,7 +16975,7 @@ invoke.cont229:                                   ; preds = %_ZStplIcSt11char_tr
   %68 = load ptr, ptr %__begin2215.sroa.0.0713, align 8
   %backup_env_ = getelementptr inbounds i8, ptr %68, i64 576
   %69 = load ptr, ptr %backup_env_, align 8
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfo13GetDbFileNameB5cxx11Ev(ptr noalias nonnull align 8 %dst, ptr noundef nonnull align 8 dereferenceable(145) %64)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfo13GetDbFileNameB5cxx11Ev(ptr noalias align 8 %dst, ptr noundef nonnull align 8 dereferenceable(145) %64)
           to label %invoke.cont232 unwind label %lpad231
 
 invoke.cont232:                                   ; preds = %invoke.cont229
@@ -17326,7 +17326,7 @@ lpad.i393:                                        ; preds = %.noexc395
   br label %ehcleanup361
 
 invoke.cont357:                                   ; preds = %.noexc395
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %copy_or_create_work_item, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp326, i8 noundef zeroext 0, i8 noundef zeroext %94, ptr noundef nonnull %agg.tmp329, ptr noundef %69, ptr noundef %96, ptr noundef nonnull byval(%"struct.rocksdb::EnvOptions") align 8 %agg.tmp333, i1 noundef zeroext %tobool338, ptr noundef %98, i64 noundef %99, ptr noundef null, ptr noundef nonnull %agg.tmp341, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp342, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp346, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp350, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %copy_or_create_work_item, ptr noundef %agg.tmp, ptr noundef %agg.tmp326, i8 noundef zeroext 0, i8 noundef zeroext %94, ptr noundef %agg.tmp329, ptr noundef %69, ptr noundef %96, ptr noundef nonnull byval(%"struct.rocksdb::EnvOptions") align 8 %agg.tmp333, i1 noundef zeroext %tobool338, ptr noundef %98, i64 noundef %99, ptr noundef null, ptr noundef %agg.tmp341, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp342, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp346, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp350, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp354)
           to label %invoke.cont359 unwind label %lpad358
 
 invoke.cont359:                                   ; preds = %invoke.cont357
@@ -17745,7 +17745,7 @@ call8.us.i.i.i.noexc:                             ; preds = %for.cond.us.i.i.i
   br i1 %or.cond.not.us.i.i.i, label %for.cond.us.i.i.i, label %invoke.cont407, !llvm.loop !340
 
 invoke.cont407:                                   ; preds = %call8.us.i.i.i.noexc, %.noexc436
-  invoke fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias nonnull align 8 %result408, ptr noundef nonnull align 8 dereferenceable(16) %__begin2395.sroa.0.0715)
+  invoke fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias align 8 %result408, ptr noundef nonnull align 8 dereferenceable(16) %__begin2395.sroa.0.0715)
           to label %invoke.cont410 unwind label %lpad406.loopexit.split-lp.loopexit
 
 invoke.cont410:                                   ; preds = %invoke.cont407
@@ -19067,7 +19067,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl14DeleteChildrenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, i32 noundef %file_type_filter) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl14DeleteChildrenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, i32 noundef range(i32 0, 2) %file_type_filter) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children = alloca %"class.std::vector.82", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -19511,7 +19511,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN7rocksdb10EnvOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %_src_path, ptr noundef %_dst_path, i8 noundef zeroext %_src_temperature, i8 noundef zeroext %_dst_temperature, ptr noundef %_contents, ptr noundef %_src_env, ptr noundef %_dst_env, ptr nocapture noundef readonly byval(%"struct.rocksdb::EnvOptions") align 8 %_src_env_options, i1 noundef zeroext %_sync, ptr noundef %_rate_limiter, i64 noundef %_size_limit, ptr noundef %_stats, ptr noundef %_progress_callback, ptr noundef nonnull align 8 dereferenceable(32) %_src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %_src_checksum_hex, ptr noundef nonnull align 8 dereferenceable(32) %_db_id, ptr noundef nonnull align 8 dereferenceable(32) %_db_session_id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull %_src_path, ptr noundef nonnull %_dst_path, i8 noundef zeroext %_src_temperature, i8 noundef zeroext %_dst_temperature, ptr noundef nonnull %_contents, ptr noundef %_src_env, ptr noundef %_dst_env, ptr nocapture noundef readonly byval(%"struct.rocksdb::EnvOptions") align 8 %_src_env_options, i1 noundef zeroext %_sync, ptr noundef %_rate_limiter, i64 noundef %_size_limit, ptr noundef %_stats, ptr noundef nonnull %_progress_callback, ptr noundef nonnull align 8 dereferenceable(32) %_src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %_src_checksum_hex, ptr noundef nonnull align 8 dereferenceable(32) %_db_id, ptr noundef nonnull align 8 dereferenceable(32) %_db_session_id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %_sync to i8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %_src_path) #35
@@ -20096,7 +20096,7 @@ _ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %this.val = load ptr, ptr %this, align 8
@@ -21109,7 +21109,7 @@ declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr no
 declare void @_ZNSt15__exception_ptr13exception_ptr9_M_addrefEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21197,7 +21197,7 @@ ehcleanup14:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %file, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21285,7 +21285,7 @@ ehcleanup14:                                      ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs, ptr noundef %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl25ReadChildFileCurrentSizesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEEPSt13unordered_mapIS7_mSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIS8_mEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs, ptr noundef nonnull %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %files_attrs = alloca %"class.std::vector.223", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -21297,7 +21297,7 @@ entry:
   %vtable = load ptr, ptr %0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
-  invoke void %1(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %io_options_, ptr noundef null)
+  invoke void %1(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull align 8 dereferenceable(83) %io_options_, ptr noundef null)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -21523,7 +21523,7 @@ ehcleanup35:                                      ; preds = %_ZN7rocksdb8IOStatu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src, ptr noundef nonnull align 8 dereferenceable(16) %src_fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef %checksum_hex, i8 noundef zeroext %src_temperature) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src, ptr noundef nonnull align 8 dereferenceable(16) %src_fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef nonnull %checksum_hex, i8 noundef zeroext %src_temperature) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %checksum_value = alloca i32, align 4
   %src_reader = alloca %"class.std::unique_ptr.365", align 8
@@ -21905,7 +21905,7 @@ invoke.cont54:                                    ; preds = %if.end50
   br i1 %45, label %do.body, label %do.end, !llvm.loop !366
 
 do.end:                                           ; preds = %invoke.cont54
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias nonnull align 8 %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias align 8 %ref.tmp59, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value)
           to label %invoke.cont60 unwind label %lpad28.loopexit.split-lp
 
 invoke.cont60:                                    ; preds = %do.end
@@ -22648,7 +22648,7 @@ declare noundef i32 @_ZN7rocksdb6crc32c6ExtendEjPKcm(i32 noundef, ptr noundef, i
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %checksum_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %checksum_value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
   %value.addr.i = alloca i32, align 4
@@ -22669,7 +22669,7 @@ invoke.cont1:                                     ; preds = %entry
   %size_.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
   %call2.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %checksum_str) #35, !noalias !371
   store i64 %call2.i.i, ptr %size_.i.i, align 8, !noalias !371
-  invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i1 noundef zeroext true)
+  invoke void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i1 noundef zeroext true)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
@@ -23391,7 +23391,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body.us:                                      ; preds = %for.body.lr.ph, %_ZN7rocksdb8IOStatusD2Ev.exit17.us
   %__begin2.sroa.0.094.us = phi ptr [ %incdec.ptr.i18.us, %_ZN7rocksdb8IOStatusD2Ev.exit17.us ], [ %to_delete.sroa.0.1, %for.body.lr.ph ]
   %3 = load i32, ptr %__begin2.sroa.0.094.us, align 4
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias nonnull align 8 %io_s, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %3)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias align 8 %io_s, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %3)
           to label %if.end.us unwind label %lpad7.loopexit.split.us
 
 if.end.us:                                        ; preds = %for.body.us
@@ -23519,7 +23519,7 @@ lpad7.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then.i.i.i, %if.
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN7rocksdb8IOStatusD2Ev.exit17
   %__begin2.sroa.0.094 = phi ptr [ %incdec.ptr.i18, %_ZN7rocksdb8IOStatusD2Ev.exit17 ], [ %to_delete.sroa.0.1, %for.body.lr.ph ]
   %9 = load i32, ptr %__begin2.sroa.0.094, align 4
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias nonnull align 8 %io_s, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %9)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias align 8 %io_s, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %9)
           to label %invoke.cont17 unwind label %lpad7.loopexit.split
 
 invoke.cont17:                                    ; preds = %for.body
@@ -23753,7 +23753,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit63:                  ; preds = %ehcleanup37, %_ZNKS
 declare void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i90 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24142,7 +24142,7 @@ lpad.i86:                                         ; preds = %.noexc88
   br label %ehcleanup126
 
 invoke.cont122:                                   ; preds = %.noexc88
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %private_dir, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %private_dir, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119)
           to label %invoke.cont124 unwind label %lpad123
 
 invoke.cont124:                                   ; preds = %invoke.cont122
@@ -24441,7 +24441,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup17
 
 invoke.cont11:                                    ; preds = %.noexc
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, i1 noundef zeroext false)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -24533,7 +24533,7 @@ lpad.i42:                                         ; preds = %.noexc45
   br label %ehcleanup31
 
 invoke.cont23:                                    ; preds = %.noexc45
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20, i1 noundef zeroext false)
           to label %invoke.cont25 unwind label %lpad24
 
 invoke.cont25:                                    ; preds = %invoke.cont23
@@ -24784,7 +24784,7 @@ for.body70:                                       ; preds = %_ZN7rocksdb8IOStatu
   br i1 %tobool, label %if.then73, label %if.else78
 
 if.then73:                                        ; preds = %for.body70
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0308, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0308, i1 noundef zeroext false)
           to label %if.end82 unwind label %lpad75
 
 lpad75:                                           ; preds = %if.then96, %if.then73, %if.else78
@@ -24793,7 +24793,7 @@ lpad75:                                           ; preds = %if.then96, %if.then
   br label %ehcleanup131
 
 if.else78:                                        ; preds = %for.body70
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0308, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp79, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0308, i1 noundef zeroext false)
           to label %if.end82 unwind label %lpad75
 
 if.end82:                                         ; preds = %if.else78, %if.then73
@@ -25285,7 +25285,7 @@ lpad.i188:                                        ; preds = %.noexc191
   br label %ehcleanup198
 
 invoke.cont191:                                   ; preds = %.noexc191
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp187, i32 noundef %.pre318, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp187, i32 noundef %.pre318, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188)
           to label %invoke.cont193 unwind label %lpad192
 
 invoke.cont193:                                   ; preds = %invoke.cont191
@@ -25663,7 +25663,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit269:                 ; preds = %ehcleanup286, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta6DeleteEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta6DeleteEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %ref.tmp14 = alloca %"class.rocksdb::IOStatus", align 8
@@ -26188,7 +26188,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl12Delete
 invoke.cont:
   %s1 = alloca %"class.rocksdb::IOStatus", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias nonnull align 8 %s1, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl16DeleteBackupNoGCEj(ptr noalias align 8 %s1, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id)
   %might_need_garbage_collect_ = getelementptr inbounds i8, ptr %this, i64 252
   %0 = load i8, ptr %might_need_garbage_collect_, align 4
   %tobool = trunc i8 %0 to i1
@@ -26556,7 +26556,7 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup25
 
 invoke.cont:                                      ; preds = %.noexc
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp18, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp18, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19)
           to label %invoke.cont22 unwind label %lpad21
 
 invoke.cont22:                                    ; preds = %invoke.cont
@@ -26737,19 +26737,19 @@ if.end43:                                         ; preds = %invoke.cont40, %_ZN
 
 invoke.cont46:                                    ; preds = %if.end43
   %37 = load i32, ptr %new_backup_id, align 4
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias nonnull align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %37, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias align 8 %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %37, i1 noundef zeroext false)
           to label %invoke.cont50 unwind label %ehcleanup66.thread
 
 invoke.cont50:                                    ; preds = %invoke.cont46
   %38 = load i32, ptr %new_backup_id, align 4
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias nonnull align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %38, i1 noundef zeroext true)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %38, i1 noundef zeroext true)
           to label %invoke.cont53 unwind label %ehcleanup66.thread755
 
 invoke.cont53:                                    ; preds = %invoke.cont50
   %backuped_file_infos_ = getelementptr inbounds i8, ptr %this, i64 360
   %backup_env_ = getelementptr inbounds i8, ptr %this, i64 576
   %39 = load ptr, ptr %backup_env_, align 8
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %call47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull %backuped_file_infos_, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %call47, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef %backuped_file_infos_, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(16) %backup_fs_)
           to label %invoke.cont58 unwind label %lpad55
 
 invoke.cont58:                                    ; preds = %invoke.cont53
@@ -27902,7 +27902,7 @@ if.end262:                                        ; preds = %for.inc260, %for.en
   %_M_node.i.i.i.i360 = getelementptr inbounds i8, ptr %agg.tmp2.i.i, i64 24
   %194 = load ptr, ptr %_M_node.i10.i.i.i, align 8, !noalias !439
   store ptr %194, ptr %_M_node.i.i.i.i360, align 8, !alias.scope !439
-  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp2.i.i)
+  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp2.i.i)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %if.end262
@@ -28052,7 +28052,7 @@ call8.us.i.i.i.noexc:                             ; preds = %for.cond.us.i.i.i
   br i1 %or.cond.not.us.i.i.i, label %for.cond.us.i.i.i, label %invoke.cont276, !llvm.loop !340
 
 invoke.cont276:                                   ; preds = %call8.us.i.i.i.noexc, %.noexc389
-  invoke fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias nonnull align 8 %result277, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.0828)
+  invoke fastcc void @_ZNSt6futureIN7rocksdb12_GLOBAL__N_116BackupEngineImpl18CopyOrCreateResultEE3getEv(ptr noalias align 8 %result277, ptr noundef nonnull align 8 dereferenceable(16) %__begin2.sroa.0.0828)
           to label %invoke.cont279 unwind label %lpad275.loopexit.split-lp.loopexit
 
 invoke.cont279:                                   ; preds = %invoke.cont276
@@ -28273,7 +28273,7 @@ invoke.cont315:                                   ; preds = %invoke.cont3.i.i.i.
   store i8 %temp.0, ptr %temp.i.i.i.i.i.i.i.i, align 8, !noalias !449
   store ptr %call5.i.i.i5.i.i.i.i432433, ptr %_M_refcount.i.i.i, align 8, !alias.scope !449
   store ptr %_M_impl.i.i.i.i.i.i, ptr %agg.tmp313, align 8, !alias.scope !449
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias nonnull align 8 %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(304) %second.val, ptr noundef nonnull %agg.tmp313)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias align 8 %ref.tmp311, ptr noundef nonnull align 8 dereferenceable(304) %second.val, ptr noundef %agg.tmp313)
           to label %invoke.cont317 unwind label %lpad316
 
 invoke.cont317:                                   ; preds = %invoke.cont315
@@ -29546,7 +29546,7 @@ lpad.i587:                                        ; preds = %.noexc589
   br label %ehcleanup391
 
 invoke.cont375:                                   ; preds = %.noexc589
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp371, i32 noundef %357, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp372)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp371, i32 noundef %357, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp372)
           to label %invoke.cont377 unwind label %lpad376
 
 invoke.cont377:                                   ; preds = %invoke.cont375
@@ -30159,7 +30159,7 @@ _ZN7rocksdb6StatusD2Ev.exit718:                   ; preds = %_ZN7rocksdb8IOStatu
   %_M_node.i.i5.i726 = getelementptr inbounds i8, ptr %agg.tmp2.i, i64 24
   %438 = load ptr, ptr %_M_node.i10.i.i.i, align 8, !noalias !468
   store ptr %438, ptr %_M_node.i.i5.i726, align 8, !alias.scope !468
-  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull %agg.tmp2.i)
+  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef %agg.tmp.i, ptr noundef %agg.tmp2.i)
           to label %invoke.cont.i728 unwind label %terminate.lpad.i727
 
 invoke.cont.i728:                                 ; preds = %_ZN7rocksdb6StatusD2Ev.exit718
@@ -30576,7 +30576,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetBackupMetaFileB5cxx11Ejb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %backup_id, i1 noundef zeroext %tmp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30696,7 +30696,7 @@ ehcleanup15:                                      ; preds = %ehcleanup, %lpad5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %meta_filename, ptr noundef nonnull align 8 dereferenceable(32) %meta_tmp_filename, ptr noundef %file_infos, ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMetaC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PSt13unordered_mapIS8_St10shared_ptrINS1_8FileInfoEESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_SE_EEEPNS_3EnvERKSC_INS_10FileSystemEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %meta_filename, ptr noundef nonnull align 8 dereferenceable(32) %meta_tmp_filename, ptr noundef nonnull %file_infos, ptr noundef %env, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %app_metadata_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
@@ -31056,7 +31056,7 @@ _ZNSt12_Vector_baseIN7rocksdb22MaybeExcludeBackupFileESaIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef readonly %file_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly %file_info) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"struct.std::pair.134", align 8
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -32914,7 +32914,7 @@ entry:
   %_M_node5.i.i6 = getelementptr inbounds i8, ptr %this, i64 72
   %7 = load ptr, ptr %_M_node5.i.i6, align 8, !noalias !513
   store ptr %7, ptr %_M_node.i.i5, align 8, !alias.scope !513
-  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
+  invoke fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr noundef %agg.tmp, ptr noundef %agg.tmp2)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -33409,7 +33409,7 @@ lpad.i3.i.i:                                      ; preds = %invoke.cont.i4.i.i,
 
 invoke.cont77.i.i.i:                              ; preds = %invoke.cont.i4.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !528
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias nonnull align 8 %ref.tmp58.i.i.i, ptr noundef nonnull align 8 dereferenceable(816) %0, ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %cond.i.i.i, i32 noundef %55, i1 noundef zeroext %57, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options.i.i.i, ptr noundef %60, i32 noundef %__args5.val, i64 noundef %61, ptr noundef %64, i64 noundef %__args3.val, i1 noundef zeroext %66, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args7, ptr noundef nonnull align 8 dereferenceable(32) %__args9, i8 noundef zeroext %__args11.val)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias align 8 %ref.tmp58.i.i.i, ptr noundef nonnull align 8 dereferenceable(816) %0, ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull align 8 dereferenceable(80) %47, ptr noundef %cond.i.i.i, i32 noundef %55, i1 noundef zeroext %57, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options.i.i.i, ptr noundef %60, i32 noundef %__args5.val, i64 noundef %61, ptr noundef %64, i64 noundef %__args3.val, i1 noundef zeroext %66, ptr noundef %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args7, ptr noundef nonnull align 8 dereferenceable(32) %__args9, i8 noundef zeroext %__args11.val)
           to label %invoke.cont79.i.i.i unwind label %lpad78.i.i.i, !noalias !519
 
 invoke.cont79.i.i.i:                              ; preds = %invoke.cont77.i.i.i
@@ -34433,7 +34433,7 @@ _ZNSt10shared_ptrIN7rocksdb11RateLimiterEED2Ev.exit: ; preds = %_ZNSt10shared_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(56) %live_dst_paths, ptr nocapture noundef nonnull align 8 dereferenceable(80) %backup_items_to_finish, ptr noundef %excludable_items, i32 noundef %backup_id, i1 noundef zeroext %shared, ptr noundef nonnull align 8 dereferenceable(32) %src_dir, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, ptr noundef %rate_limiter, i32 noundef %file_type, i64 noundef %size_bytes, ptr noundef %stats, i64 noundef %size_limit, i1 noundef zeroext %shared_checksum, ptr noundef %progress_callback, ptr noundef nonnull align 8 dereferenceable(32) %contents, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_str, i8 noundef zeroext %src_temperature) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(56) %live_dst_paths, ptr nocapture noundef nonnull align 8 dereferenceable(80) %backup_items_to_finish, ptr noundef %excludable_items, i32 noundef %backup_id, i1 noundef zeroext %shared, ptr noundef nonnull align 8 dereferenceable(32) %src_dir, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, ptr noundef %rate_limiter, i32 noundef %file_type, i64 noundef %size_bytes, ptr noundef %stats, i64 noundef %size_limit, i1 noundef zeroext %shared_checksum, ptr noundef nonnull %progress_callback, ptr noundef nonnull align 8 dereferenceable(32) %contents, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_str, i8 noundef zeroext %src_temperature) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.561", align 8
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
@@ -35221,7 +35221,7 @@ land.lhs.true35:                                  ; preds = %if.end33
 
 if.then37:                                        ; preds = %land.lhs.true35
   %db_fs_ = getelementptr inbounds i8, ptr %this, i64 688
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src_path, ptr noundef nonnull align 8 dereferenceable(16) %db_fs_, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef nonnull %checksum_hex, i8 noundef zeroext %src_temperature)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src_path, ptr noundef nonnull align 8 dereferenceable(16) %db_fs_, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef %checksum_hex, i8 noundef zeroext %src_temperature)
           to label %invoke.cont38 unwind label %lpad8
 
 invoke.cont38:                                    ; preds = %if.then37
@@ -35480,30 +35480,30 @@ invoke.cont60:                                    ; preds = %nrvo.skipdtor.sink.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp36.i)
   %call61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dst_relative, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp59) #35
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %dst_relative, i1 noundef zeroext true)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %dst_relative, i1 noundef zeroext true)
           to label %invoke.cont63 unwind label %lpad8
 
 invoke.cont63:                                    ; preds = %invoke.cont60
   %call64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dst_relative_tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #35
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(32) %dst_relative, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl28GetSharedFileWithChecksumRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(32) %dst_relative, i1 noundef zeroext false)
           to label %if.end81 unwind label %lpad8
 
 if.else:                                          ; preds = %if.end20
   br i1 %shared, label %if.then69, label %if.else76
 
 if.then69:                                        ; preds = %if.else
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %fname, i1 noundef zeroext true)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp70, ptr noundef nonnull align 8 dereferenceable(32) %fname, i1 noundef zeroext true)
           to label %invoke.cont71 unwind label %lpad8
 
 invoke.cont71:                                    ; preds = %if.then69
   %call72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dst_relative_tmp, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #35
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %fname, i1 noundef zeroext false)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl16GetSharedFileRelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %fname, i1 noundef zeroext false)
           to label %if.end81 unwind label %lpad8
 
 if.else76:                                        ; preds = %if.else
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp77, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %fname)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl17GetPrivateFileRelEjbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp77, i32 noundef %backup_id, ptr noundef nonnull align 8 dereferenceable(32) %fname)
           to label %if.end81 unwind label %lpad8
 
 if.end81:                                         ; preds = %if.else76, %invoke.cont71, %invoke.cont63
@@ -35609,7 +35609,7 @@ if.then105:                                       ; preds = %invoke.cont93
   %vtable = load ptr, ptr %89, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
   %90 = load ptr, ptr %vfn, align 8
-  invoke void %90(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %final_dest_path, ptr noundef nonnull align 8 dereferenceable(83) %io_options_, ptr noundef null)
+  invoke void %90(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %89, ptr noundef nonnull align 8 dereferenceable(32) %final_dest_path, ptr noundef nonnull align 8 dereferenceable(83) %io_options_, ptr noundef null)
           to label %invoke.cont108 unwind label %lpad87
 
 invoke.cont108:                                   ; preds = %if.then105
@@ -35702,7 +35702,7 @@ if.then170:                                       ; preds = %land.lhs.true165
 
 if.else177:                                       ; preds = %land.lhs.true165, %if.then163
   %db_fs_179 = getelementptr inbounds i8, ptr %this, i64 688
-  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src_path, ptr noundef nonnull align 8 dereferenceable(16) %db_fs_179, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef nonnull %checksum_hex, i8 noundef zeroext %src_temperature)
+  invoke fastcc void @_ZNK7rocksdb12_GLOBAL__N_116BackupEngineImpl26ReadFileAndComputeChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt10shared_ptrINS_10FileSystemEERKNS_10EnvOptionsEmPS7_NS_11TemperatureE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(32) %src_path, ptr noundef nonnull align 8 dereferenceable(16) %db_fs_179, ptr noundef nonnull align 8 dereferenceable(56) %src_env_options, i64 noundef %size_limit, ptr noundef %checksum_hex, i8 noundef zeroext %src_temperature)
           to label %invoke.cont180 unwind label %lpad87
 
 invoke.cont180:                                   ; preds = %if.else177
@@ -35838,7 +35838,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i225
 
 invoke.cont241:                                   ; preds = %invoke.cont.i227, %invoke.cont234
   %tobool238 = trunc i8 %103 to i1
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %copy_or_create_work_item, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp229, i8 noundef zeroext %src_temperature, i8 noundef zeroext 0, ptr noundef nonnull %agg.tmp232, ptr noundef %101, ptr noundef %102, ptr noundef nonnull byval(%"struct.rocksdb::EnvOptions") align 8 %agg.tmp236, i1 noundef zeroext %tobool238, ptr noundef %rate_limiter, i64 noundef %size_limit, ptr noundef %stats, ptr noundef nonnull %agg.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %checksum_hex, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_NS_11TemperatureES9_S8_PNS_3EnvESB_NS_10EnvOptionsEbPNS_11RateLimiterEmPNS_10StatisticsESt8functionIFvvEERKS8_SL_SL_SL_(ptr noundef nonnull align 8 dereferenceable(392) %copy_or_create_work_item, ptr noundef %agg.tmp, ptr noundef %agg.tmp229, i8 noundef zeroext %src_temperature, i8 noundef zeroext 0, ptr noundef %agg.tmp232, ptr noundef %101, ptr noundef %102, ptr noundef nonnull byval(%"struct.rocksdb::EnvOptions") align 8 %agg.tmp236, i1 noundef zeroext %tobool238, ptr noundef %rate_limiter, i64 noundef %size_limit, ptr noundef %stats, ptr noundef %agg.tmp239, ptr noundef nonnull align 8 dereferenceable(32) %src_checksum_func_name, ptr noundef nonnull align 8 dereferenceable(32) %checksum_hex, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id)
           to label %invoke.cont243 unwind label %lpad242
 
 invoke.cont243:                                   ; preds = %invoke.cont241
@@ -40353,7 +40353,7 @@ lpad.i1.i.i:                                      ; preds = %invoke.cont.i2.i.i,
 
 invoke.cont16.i.i.i:                              ; preds = %invoke.cont.i2.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i.i.i), !noalias !592
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(816) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %cond.i.i.i, i32 noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp3.i.i.i, ptr noundef %19, i32 noundef %__args3.val, i64 noundef %call6.i.i.i, ptr noundef %22, i64 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i.i.i, i8 noundef zeroext 0)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl21AddBackupFileWorkItemERSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS8_ESt8equal_toIS8_ESaIS8_EERSt5dequeINS1_31BackupAfterCopyOrCreateWorkItemESaISH_EEPSG_ISt4pairINS1_20CopyOrCreateWorkItemESH_ESaISN_EEjbRKS8_SS_RKNS_10EnvOptionsEPNS_11RateLimiterENS_8FileTypeEmPNS_10StatisticsEmbSt8functionIFvvEESS_SS_SS_NS_11TemperatureE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(816) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef %cond.i.i.i, i32 noundef %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp3.i.i.i, ptr noundef %19, i32 noundef %__args3.val, i64 noundef %call6.i.i.i, ptr noundef %22, i64 noundef 0, i1 noundef zeroext false, ptr noundef %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__args1, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i.i.i, i8 noundef zeroext 0)
           to label %invoke.cont18.i.i.i unwind label %lpad17.i.i.i, !noalias !589
 
 invoke.cont18.i.i.i:                              ; preds = %invoke.cont16.i.i.i
@@ -41023,7 +41023,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeISt4pairIN7rocksdb12_GLOBAL__N_116BackupEngineImpl20CopyOrCreateWorkItemENS3_31BackupAfterCopyOrCreateWorkItemEESaIS6_EE15_M_destroy_dataESt15_Deque_iteratorIS6_RS6_PS6_ESC_RKS7_(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr.172", align 8
   %0 = load ptr, ptr %__first, align 8
@@ -41846,7 +41846,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta12LoadFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_mSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_mEEEPNS_11RateLimiterEPNS_6LoggerEPSt13unordered_setIS8_SD_SF_SaIS8_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %backup_dir, ptr noundef nonnull align 8 dereferenceable(56) %abs_path_to_size, ptr noundef %rate_limiter, ptr noundef %info_log, ptr noundef %reported_ignored_fields) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta12LoadFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS8_mSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIS9_mEEEPNS_11RateLimiterEPNS_6LoggerEPSt13unordered_setIS8_SD_SF_SaIS8_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull align 8 dereferenceable(32) %backup_dir, ptr noundef nonnull align 8 dereferenceable(56) %abs_path_to_size, ptr noundef %rate_limiter, ptr noundef %info_log, ptr noundef nonnull %reported_ignored_fields) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i667 = alloca %"struct.std::__detail::_AllocNode", align 8
   %__guard.i4.i.i.i.i.i.i = alloca %struct._Guard, align 8
@@ -41961,7 +41961,7 @@ invoke.cont:                                      ; preds = %entry
   %handoff_checksum_type.i = getelementptr inbounds i8, ptr %ref.tmp, i64 145
   store i8 1, ptr %handoff_checksum_type.i, align 1
   %fs_ = getelementptr inbounds i8, ptr %this, i64 200
-  invoke void @_ZN7rocksdb14LineFileReader6CreateERKSt10shared_ptrINS_10FileSystemEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EEPNS_14IODebugContextEPNS_11RateLimiterE(ptr sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %fs_, ptr noundef nonnull align 8 dereferenceable(32) %meta_filename_, ptr noundef nonnull align 8 dereferenceable(146) %ref.tmp, ptr noundef nonnull %backup_meta_reader, ptr noundef null, ptr noundef %rate_limiter)
+  invoke void @_ZN7rocksdb14LineFileReader6CreateERKSt10shared_ptrINS_10FileSystemEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11FileOptionsEPSt10unique_ptrIS0_St14default_deleteIS0_EEPNS_14IODebugContextEPNS_11RateLimiterE(ptr nonnull sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %fs_, ptr noundef nonnull align 8 dereferenceable(32) %meta_filename_, ptr noundef nonnull align 8 dereferenceable(146) %ref.tmp, ptr noundef nonnull %backup_meta_reader, ptr noundef null, ptr noundef %rate_limiter)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -43050,7 +43050,7 @@ ehcleanup327:                                     ; preds = %ehcleanup326, %lpad
   br label %ehcleanup506
 
 if.end328:                                        ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit467.thread761, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit467
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias nonnull align 8 %ref.tmp329, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias align 8 %ref.tmp329, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value)
           to label %invoke.cont330 unwind label %lpad313.loopexit
 
 invoke.cont330:                                   ; preds = %if.end328
@@ -44125,7 +44125,7 @@ if.else.i.i.i.i.i693:                             ; preds = %if.then.i.i.i689
   br label %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEEC2ERKS4_.exit
 
 _ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEEC2ERKS4_.exit: ; preds = %for.body624, %if.then.i.i.i.i.i691, %if.else.i.i.i.i.i693
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_116BackupEngineImpl10BackupMeta7AddFileESt10shared_ptrINS1_8FileInfoEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %agg.tmp)
           to label %invoke.cont628 unwind label %lpad627
 
 invoke.cont628:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEEC2ERKS4_.exit
@@ -44661,7 +44661,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare void @_ZN7rocksdb11StringSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr sret(%"class.std::vector.82") align 8, ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEESaIS5_EE7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEESaIS5_EE7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef range(i64 -576460752303423488, 576460752303423488) %__n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ugt i64 %__n, 576460752303423487
   br i1 %cmp, label %if.then, label %if.end
@@ -47201,7 +47201,7 @@ land.lhs.true192.i:                               ; preds = %land.lhs.true190.i
   br i1 %or.cond.i42, label %do.body.i, label %if.then197.i, !llvm.loop !707
 
 if.then197.i:                                     ; preds = %land.lhs.true192.i, %land.lhs.true190.i, %do.cond.i
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias nonnull align 8 %ref.tmp198.i, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value.i)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_118ChecksumInt32ToHexB5cxx11ERKj(ptr noalias align 8 %ref.tmp198.i, ptr noundef nonnull align 4 dereferenceable(4) %checksum_value.i)
           to label %invoke.cont199.i unwind label %lpad63.loopexit.split-lp.loopexit.split-lp.i.loopexit, !noalias !698
 
 invoke.cont199.i:                                 ; preds = %if.then197.i

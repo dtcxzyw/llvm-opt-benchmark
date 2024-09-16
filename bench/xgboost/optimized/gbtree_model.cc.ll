@@ -1014,7 +1014,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %_ZNSt10unique_ptrIN7xgboost7RegTreeESt14default_deleteIS1_EED2Ev.exit42
 
 147:                                              ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit53, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef nonnull %0)
+  call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef %0)
   call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_18ValidateERKNS0_11GBTreeModelE(ptr noundef nonnull align 8 dereferenceable(280) %0)
   ret void
 
@@ -1358,7 +1358,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @_ZN7xgboost7RegTree4LoadEPN4dmlc6StreamE(ptr noundef nonnull align 8 dereferenceable(312), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef nonnull %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::unique_ptr", align 8
@@ -4974,7 +4974,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit106:            ; preds = %394, %396, %398, %4
   br i1 %.not.i107, label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPiS6_IiSaIiEEEEZNS2_3gbm11GBTreeModel9LoadModelERS4_E3$_1ET0_T_SJ_SI_T1_.exit", label %.lr.ph.i, !llvm.loop !38
 
 410:                                              ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit
-  call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef nonnull %0)
+  call fastcc void @_ZN7xgboost3gbm12_GLOBAL__N_110MakeIndptrEPNS0_11GBTreeModelE(ptr noundef %0)
   br label %"_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPiS6_IiSaIiEEEEZNS2_3gbm11GBTreeModel9LoadModelERS4_E3$_1ET0_T_SJ_SI_T1_.exit"
 
 "_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN7xgboost4JsonESt6vectorIS3_SaIS3_EEEENS1_IPiS6_IiSaIiEEEEZNS2_3gbm11GBTreeModel9LoadModelERS4_E3$_1ET0_T_SJ_SI_T1_.exit": ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit106, %410

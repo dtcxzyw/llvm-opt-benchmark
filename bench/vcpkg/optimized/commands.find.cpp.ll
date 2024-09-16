@@ -2203,7 +2203,7 @@ _ZN5vcpkg8OptionalINS_10StringViewEEC2ERKS2_.exit: ; preds = %132, %134
   br label %_ZN5vcpkg8OptionalINS_10StringViewEEC2INS0_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESF_EEiE4typeELi0EEEOSF_.exit
 
 _ZN5vcpkg8OptionalINS_10StringViewEEC2INS0_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESF_EEiE4typeELi0EEEOSF_.exit: ; preds = %137, %139
-  invoke fastcc void @_ZN12_GLOBAL__N_130perform_find_artifact_and_exitERKN5vcpkg10VcpkgPathsENS0_8OptionalINS0_10StringViewEEES6_(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  invoke fastcc void @_ZN12_GLOBAL__N_130perform_find_artifact_and_exitERKN5vcpkg10VcpkgPathsENS0_8OptionalINS0_10StringViewEEES6_(ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef %16, ptr noundef %17)
           to label %.unreachable131 unwind label %142
 
 .unreachable131:                                  ; preds = %_ZN5vcpkg8OptionalINS_10StringViewEEC2INS0_IRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEETnNSt9enable_ifIXaantsr3stdE9is_same_vINSt5decayIT_E4typeES2_Esr3stdE18is_constructible_vINS_7details15OptionalStorageIS1_Lb1EEESF_EEiE4typeELi0EEEOSF_.exit
@@ -2451,7 +2451,7 @@ declare noundef nonnull align 8 dereferenceable(240) ptr @_ZN5vcpkg28get_global_
 declare void @_ZN5vcpkg16MetricsCollector16track_submissionEONS_17MetricsSubmissionE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_130perform_find_artifact_and_exitERKN5vcpkg10VcpkgPathsENS0_8OptionalINS0_10StringViewEEES6_(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_130perform_find_artifact_and_exitERKN5vcpkg10VcpkgPathsENS0_8OptionalINS0_10StringViewEEES6_(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca ptr, align 8

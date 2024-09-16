@@ -156,7 +156,7 @@ return:                                           ; preds = %if.then.i, %HIST_co
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef %check, ptr nocapture noundef %workSpace) unnamed_addr #1 {
+define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(ptr nocapture noundef writeonly %count, ptr nocapture noundef %maxSymbolValuePtr, ptr noundef readonly %source, i64 noundef %sourceSize, i32 noundef range(i32 0, 2) %check, ptr nocapture noundef %workSpace) unnamed_addr #1 {
 entry:
   %add.ptr.ptr = getelementptr i8, ptr %source, i64 %sourceSize
   %0 = load i32, ptr %maxSymbolValuePtr, align 4

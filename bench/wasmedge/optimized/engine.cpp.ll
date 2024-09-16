@@ -1300,7 +1300,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   resume { ptr, i32 } %74
 
 _ZN8WasmEdge10Statistics10Statistics12addInstrCostENS_6OpCodeE.exit: ; preds = %43, %27, %16
-  call fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(24) %8)
+  call fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEv"(ptr dead_on_unwind noalias writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(24) %8)
   %75 = load i8, ptr %10, align 4
   %76 = trunc i8 %75 to i1
   br i1 %76, label %81, label %77
@@ -2481,7 +2481,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEv"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.260, align 8
   %4 = alloca %class.anon.261, align 8
   %5 = alloca i32, align 4
@@ -3218,7 +3218,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit463: ; preds = %90, %93
   br label %5018
 
 109:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor11runIfElseOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor11runIfElseOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 110:                                              ; preds = %2
@@ -3440,71 +3440,71 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   br label %5018
 
 215:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 216:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor10runThrowOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor10runThrowOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 217:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runThrowRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runThrowRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 218:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor7runBrOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor7runBrOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 219:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor9runBrIfOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor9runBrIfOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 220:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor12runBrTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor12runBrTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 221:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 222:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor16runBrOnNonNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor16runBrOnNonNullOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 223:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
   br label %5018
 
 224:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runBrOnCastOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
   br label %5018
 
 225:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor11runReturnOpERNS_7Runtime12StackManagerERPKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor11runReturnOpERNS_7Runtime12StackManagerERPKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 226:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
   br label %5018
 
 227:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
   br label %5018
 
 228:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor9runCallOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
   br label %5018
 
 229:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor17runCallIndirectOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
   br label %5018
 
 230:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext false) #24
   br label %5018
 
 231:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor12runCallRefOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_b(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59, i1 noundef zeroext true) #24
   br label %5018
 
 232:                                              ; preds = %2, %2
@@ -3526,23 +3526,23 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   br label %5018
 
 245:                                              ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
+  tail call void @_ZN8WasmEdge8Executor8Executor13runTryTableOpERNS_7Runtime12StackManagerERKNS_3AST11InstructionERPS7_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 8 dereferenceable(8) %59) #24
   br label %5018
 
 246:                                              ; preds = %2
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefNullOpERNS_7Runtime12StackManagerERKNS_7ValTypeE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 4 dereferenceable(8) %60) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefNullOpERNS_7Runtime12StackManagerERKNS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 4 dereferenceable(8) %60) #24
   br label %5018
 
 247:                                              ; preds = %2
   %248 = getelementptr inbounds i8, ptr %62, i64 8
   %249 = load ptr, ptr %248, align 8
   %250 = getelementptr inbounds i8, ptr %249, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor14runRefIsNullOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %250) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor14runRefIsNullOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %250) #24
   br label %5018
 
 251:                                              ; preds = %2
   %252 = load i32, ptr %60, align 16
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefFuncOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %252) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefFuncOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %252) #24
   br label %5018
 
 253:                                              ; preds = %2
@@ -3560,24 +3560,24 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %259 = getelementptr inbounds i8, ptr %258, i64 8
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds i8, ptr %260, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %261, ptr noundef nonnull align 16 dereferenceable(16) %17) #24
+  call void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %261, ptr noundef nonnull align 16 dereferenceable(16) %17) #24
   br label %5018
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds i8, ptr %62, i64 8
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %264, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor17runRefAsNonNullOpERNS_10RefVariantERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %265, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor17runRefAsNonNullOpERNS_10RefVariantERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %265, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   br label %5018
 
 266:                                              ; preds = %2
   %267 = load i32, ptr %60, align 16
-  tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %267, i1 noundef zeroext false) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %267, i1 noundef zeroext false) #24
   br label %5018
 
 268:                                              ; preds = %2
   %269 = load i32, ptr %60, align 16
-  tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %269, i1 noundef zeroext true) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12StackManagerEjb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %269, i1 noundef zeroext true) #24
   br label %5018
 
 270:                                              ; preds = %2, %2
@@ -3586,8 +3586,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %273 = getelementptr inbounds i8, ptr %272, i64 -16
   %274 = getelementptr inbounds i8, ptr %60, i64 4
   %275 = load i32, ptr %274, align 4
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %273, i32 noundef %275, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %273, i32 noundef %275, ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #24
   br label %5018
 
@@ -3597,8 +3597,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %279 = getelementptr inbounds i8, ptr %278, i64 -16
   %280 = getelementptr inbounds i8, ptr %60, i64 4
   %281 = load i32, ptr %280, align 4
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %279, i32 noundef %281, ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %279, i32 noundef %281, ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #24
   br label %5018
 
@@ -3624,10 +3624,10 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i487, ptr %21, align 16
   %.sroa.22471.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
   store i64 %.sroa.2.0.copyload.i489, ptr %.sroa.22471.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %291 = getelementptr inbounds i8, ptr %60, i64 4
   %292 = load i32, ptr %291, align 4
-  call void @_ZNK8WasmEdge8Executor8Executor14runStructSetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSD_RKNS_3AST13CompositeTypeEjRKNSK_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %292, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call void @_ZNK8WasmEdge8Executor8Executor14runStructSetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSD_RKNS_3AST13CompositeTypeEjRKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %292, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %22) #24
   br label %5018
 
@@ -3639,7 +3639,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.0.0.copyload.i492 = load i64, ptr %297, align 16
   store ptr %297, ptr %295, align 8
   %.sroa.02468.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i492 to i32
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %294, i32 noundef 1, i32 noundef %.sroa.02468.0.extract.trunc) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %294, i32 noundef 1, i32 noundef %.sroa.02468.0.extract.trunc) #24
   br label %5018
 
 298:                                              ; preds = %2
@@ -3650,28 +3650,28 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.0.0.copyload.i497 = load i64, ptr %302, align 16
   store ptr %302, ptr %300, align 8
   %.sroa.02466.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i497 to i32
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %299, i32 noundef 0, i32 noundef %.sroa.02466.0.extract.trunc) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %299, i32 noundef 0, i32 noundef %.sroa.02466.0.extract.trunc) #24
   br label %5018
 
 303:                                              ; preds = %2
   %304 = load i32, ptr %60, align 16
   %305 = getelementptr inbounds i8, ptr %60, i64 4
   %306 = load i32, ptr %305, align 4
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %304, i32 noundef %306, i32 noundef %306) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayNewOpERNS_7Runtime12StackManagerEjjj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %304, i32 noundef %306, i32 noundef %306) #24
   br label %5018
 
 307:                                              ; preds = %2
   %308 = getelementptr inbounds i8, ptr %60, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %309)
-  tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewDataOpERNS_7Runtime12StackManagerERKNS2_8Instance12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewDataOpERNS_7Runtime12StackManagerERKNS2_8Instance12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(32) %310, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   br label %5018
 
 311:                                              ; preds = %2
   %312 = getelementptr inbounds i8, ptr %60, i64 4
   %313 = load i32, ptr %312, align 4
   %314 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %313)
-  tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewElemOpERNS_7Runtime12StackManagerERKNS2_8Instance15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(40) %314, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor17runArrayNewElemOpERNS_7Runtime12StackManagerERKNS2_8Instance15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(40) %314, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   br label %5018
 
 315:                                              ; preds = %2, %2
@@ -3685,8 +3685,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %320 = getelementptr inbounds i8, ptr %319, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 -16
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %322, i32 noundef %.sroa.02464.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %322, i32 noundef %.sroa.02464.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %23, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %23) #24
   br label %5018
 
@@ -3701,8 +3701,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %328 = getelementptr inbounds i8, ptr %327, i64 8
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds i8, ptr %329, i64 -16
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %330, i32 noundef %.sroa.02462.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor13runArrayGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %330, i32 noundef %.sroa.02462.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(88) %24, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %24) #24
   br label %5018
 
@@ -3735,8 +3735,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i522, ptr %26, align 16
   %.sroa.22459.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   store i64 %.sroa.2.0.copyload.i524, ptr %.sroa.22459.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor13runArraySetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %25, i32 noundef %.sroa.02460.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor13runArraySetOpERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %25, i32 noundef %.sroa.02460.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %27) #24
   br label %5018
 
@@ -3744,7 +3744,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %345 = getelementptr inbounds i8, ptr %62, i64 8
   %346 = load ptr, ptr %345, align 8
   %347 = getelementptr inbounds i8, ptr %346, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayLenOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %347, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runArrayLenOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %347, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   br label %5018
 
 348:                                              ; preds = %2
@@ -3783,8 +3783,8 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i542, ptr %29, align 16
   %.sroa.22453.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store i64 %.sroa.2.0.copyload.i544, ptr %.sroa.22453.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %3)
-  call void @_ZNK8WasmEdge8Executor8Executor14runArrayFillOpEjRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02456.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %28, i32 noundef %.sroa.02454.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call void @_ZNK8WasmEdge8Executor8Executor14runArrayFillOpEjRKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKSD_RKNS_3AST13CompositeTypeERKNSK_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02456.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %28, i32 noundef %.sroa.02454.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(88) %30, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %30) #24
   br label %5018
 
@@ -3828,15 +3828,15 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i567, ptr %32, align 16
   %.sroa.22443.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   store i64 %.sroa.2.0.copyload.i569, ptr %.sroa.22443.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  invoke fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  invoke fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %385 unwind label %386
 
 385:                                              ; preds = %365
   %.sroa.02444.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i562 to i32
   %.sroa.02448.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i552 to i32
   %.sroa.02450.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i547 to i32
-  call void @_ZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02450.0.extract.trunc, i32 noundef %.sroa.02448.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %31, i32 noundef %.sroa.02444.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call void @_ZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02450.0.extract.trunc, i32 noundef %.sroa.02448.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %31, i32 noundef %.sroa.02444.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %34, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %34) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %33) #24
   br label %5018
@@ -3876,7 +3876,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i587, ptr %35, align 16
   %.sroa.22435.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
   store i64 %.sroa.2.0.copyload.i589, ptr %.sroa.22435.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %404 = load ptr, ptr %61, align 8
   %405 = getelementptr inbounds i8, ptr %60, i64 4
   %406 = load i32, ptr %405, align 4
@@ -3887,7 +3887,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.02436.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i582 to i32
   %.sroa.02438.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i577 to i32
   %.sroa.02440.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i572 to i32
-  call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02440.0.extract.trunc, i32 noundef %.sroa.02438.0.extract.trunc, i32 noundef %.sroa.02436.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(32) %407, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitDataOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance12DataInstanceERKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02440.0.extract.trunc, i32 noundef %.sroa.02438.0.extract.trunc, i32 noundef %.sroa.02436.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(88) %36, ptr noundef nonnull align 8 dereferenceable(32) %407, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %36) #24
   br label %5018
 
@@ -3926,7 +3926,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   store i64 %.sroa.0.0.copyload.i607, ptr %37, align 16
   %.sroa.22427.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   store i64 %.sroa.2.0.copyload.i609, ptr %.sroa.22427.0..sroa_idx, align 8
-  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  call fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %427 = load ptr, ptr %61, align 8
   %428 = getelementptr inbounds i8, ptr %60, i64 4
   %429 = load i32, ptr %428, align 4
@@ -3937,7 +3937,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %.sroa.02428.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i602 to i32
   %.sroa.02430.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i597 to i32
   %.sroa.02432.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i592 to i32
-  call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02432.0.extract.trunc, i32 noundef %.sroa.02430.0.extract.trunc, i32 noundef %.sroa.02428.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(40) %430, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
+  call void @_ZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, i32 noundef %.sroa.02432.0.extract.trunc, i32 noundef %.sroa.02430.0.extract.trunc, i32 noundef %.sroa.02428.0.extract.trunc, ptr noundef nonnull align 16 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(40) %430, ptr noundef nonnull align 16 dereferenceable(25) %60) #24
   call void @_ZN8WasmEdge3AST13CompositeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %38) #24
   br label %5018
 
@@ -3959,7 +3959,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %442 = getelementptr inbounds i8, ptr %62, i64 8
   %443 = load ptr, ptr %442, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %441, ptr noundef nonnull align 16 dereferenceable(16) %444, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %441, ptr noundef nonnull align 16 dereferenceable(16) %444, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   br label %5018
 
 445:                                              ; preds = %2, %2
@@ -3974,42 +3974,42 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %453 = getelementptr inbounds i8, ptr %62, i64 8
   %454 = load ptr, ptr %453, align 8
   %455 = getelementptr inbounds i8, ptr %454, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %452, ptr noundef nonnull align 16 dereferenceable(16) %455, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefTestOpEPKNS_7Runtime8Instance14ModuleInstanceERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef %452, ptr noundef nonnull align 16 dereferenceable(16) %455, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   br label %5018
 
 456:                                              ; preds = %2
   %457 = getelementptr inbounds i8, ptr %62, i64 8
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds i8, ptr %458, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %459, i8 noundef zeroext 110) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %459, i8 noundef zeroext 110) #24
   br label %5018
 
 460:                                              ; preds = %2
   %461 = getelementptr inbounds i8, ptr %62, i64 8
   %462 = load ptr, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr %462, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %463, i8 noundef zeroext 111) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %463, i8 noundef zeroext 111) #24
   br label %5018
 
 464:                                              ; preds = %2
   %465 = getelementptr inbounds i8, ptr %62, i64 8
   %466 = load ptr, ptr %465, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor11runRefI31OpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %467) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor11runRefI31OpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %467) #24
   br label %5018
 
 468:                                              ; preds = %2
   %469 = getelementptr inbounds i8, ptr %62, i64 8
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr inbounds i8, ptr %470, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %471, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %471, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext true) #24
   br label %5018
 
 472:                                              ; preds = %2
   %473 = getelementptr inbounds i8, ptr %62, i64 8
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %475, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor11runI31GetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKNS_3AST11InstructionEb(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %475, ptr noundef nonnull align 16 dereferenceable(25) %60, i1 noundef zeroext false) #24
   br label %5018
 
 476:                                              ; preds = %2
@@ -4059,41 +4059,41 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
 497:                                              ; preds = %2
   %498 = getelementptr inbounds i8, ptr %60, i64 8
   %499 = load i32, ptr %498, align 8
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %499) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %499) #24
   br label %5018
 
 500:                                              ; preds = %2
   %501 = getelementptr inbounds i8, ptr %60, i64 8
   %502 = load i32, ptr %501, align 8
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %502) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %502) #24
   br label %5018
 
 503:                                              ; preds = %2
   %504 = getelementptr inbounds i8, ptr %60, i64 8
   %505 = load i32, ptr %504, align 8
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalTeeOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %505) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runLocalTeeOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %505) #24
   br label %5018
 
 506:                                              ; preds = %2
   %507 = load i32, ptr %60, align 16
-  tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %507) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalGetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %507) #24
   br label %5018
 
 508:                                              ; preds = %2
   %509 = load i32, ptr %60, align 16
-  tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %509) #24
+  tail call void @_ZNK8WasmEdge8Executor8Executor14runGlobalSetOpERNS_7Runtime12StackManagerEj(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %509) #24
   br label %5018
 
 510:                                              ; preds = %2
   %511 = load i32, ptr %60, align 16
   %512 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %511)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runTableGetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %512, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runTableGetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %512, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 513:                                              ; preds = %2
   %514 = load i32, ptr %60, align 16
   %515 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %514)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runTableSetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %515, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runTableSetOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %515, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 516:                                              ; preds = %2
@@ -4103,13 +4103,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %520 = getelementptr inbounds i8, ptr %60, i64 4
   %521 = load i32, ptr %520, align 4
   %522 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %519, i32 noundef %521)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runTableInitOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERNS5_15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %518, ptr noundef nonnull align 8 dereferenceable(40) %522, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runTableInitOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERNS5_15ElementInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %518, ptr noundef nonnull align 8 dereferenceable(40) %522, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 523:                                              ; preds = %2
   %524 = load i32, ptr %60, align 16
   %525 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getElemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %524)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runElemDropOpERNS_7Runtime8Instance15ElementInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(40) %525)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runElemDropOpERNS_7Runtime8Instance15ElementInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(40) %525)
   br label %5018
 
 526:                                              ; preds = %2
@@ -4119,175 +4119,175 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %530 = getelementptr inbounds i8, ptr %60, i64 4
   %531 = load i32, ptr %530, align 4
   %532 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %529, i32 noundef %531)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runTableCopyOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %528, ptr noundef nonnull align 16 dereferenceable(64) %532, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runTableCopyOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %528, ptr noundef nonnull align 16 dereferenceable(64) %532, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 533:                                              ; preds = %2
   %534 = load i32, ptr %60, align 16
   %535 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %534)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %535)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %535)
   br label %5018
 
 536:                                              ; preds = %2
   %537 = load i32, ptr %60, align 16
   %538 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %537)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runTableSizeOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %538)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runTableSizeOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %538)
   br label %5018
 
 539:                                              ; preds = %2
   %540 = load i32, ptr %60, align 16
   %541 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getTabInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %540)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runTableFillOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %541, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runTableFillOpERNS_7Runtime12StackManagerERNS2_8Instance13TableInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 16 dereferenceable(64) %541, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 542:                                              ; preds = %2
   %543 = load i32, ptr %60, align 16
   %544 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %543)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %544, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %544, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 545:                                              ; preds = %2
   %546 = load i32, ptr %60, align 16
   %547 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %546)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %547, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %547, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 548:                                              ; preds = %2
   %549 = load i32, ptr %60, align 16
   %550 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %549)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIfLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %550, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIfLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %550, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 551:                                              ; preds = %2
   %552 = load i32, ptr %60, align 16
   %553 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %552)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIdLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %553, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIdLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %553, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 554:                                              ; preds = %2
   %555 = load i32, ptr %60, align 16
   %556 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %555)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %556, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %556, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 557:                                              ; preds = %2
   %558 = load i32, ptr %60, align 16
   %559 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %558)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %559, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %559, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 560:                                              ; preds = %2
   %561 = load i32, ptr %60, align 16
   %562 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %561)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %562, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIiLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %562, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 563:                                              ; preds = %2
   %564 = load i32, ptr %60, align 16
   %565 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %564)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %565, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIjLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %565, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 566:                                              ; preds = %2
   %567 = load i32, ptr %60, align 16
   %568 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %567)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %568, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %568, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 569:                                              ; preds = %2
   %570 = load i32, ptr %60, align 16
   %571 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %570)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %571, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj8EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %571, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 572:                                              ; preds = %2
   %573 = load i32, ptr %60, align 16
   %574 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %573)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %574, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %574, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 575:                                              ; preds = %2
   %576 = load i32, ptr %60, align 16
   %577 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %576)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %577, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj16EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %577, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 578:                                              ; preds = %2
   %579 = load i32, ptr %60, align 16
   %580 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %579)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %580, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIlLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %580, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 581:                                              ; preds = %2
   %582 = load i32, ptr %60, align 16
   %583 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %582)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %583, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpImLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %583, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 584:                                              ; preds = %2
   %585 = load i32, ptr %60, align 16
   %586 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %585)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %586, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %586, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 587:                                              ; preds = %2
   %588 = load i32, ptr %60, align 16
   %589 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %588)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %589, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %589, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 590:                                              ; preds = %2
   %591 = load i32, ptr %60, align 16
   %592 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %591)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIfLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %592, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIfLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %592, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 593:                                              ; preds = %2
   %594 = load i32, ptr %60, align 16
   %595 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %594)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIdLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %595, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIdLj64EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %595, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 596:                                              ; preds = %2
   %597 = load i32, ptr %60, align 16
   %598 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %597)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %598, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %598, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 599:                                              ; preds = %2
   %600 = load i32, ptr %60, align 16
   %601 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %600)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %601, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIjLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %601, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 602:                                              ; preds = %2
   %603 = load i32, ptr %60, align 16
   %604 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %603)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %604, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj8EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %604, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 605:                                              ; preds = %2
   %606 = load i32, ptr %60, align 16
   %607 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %606)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %607, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj16EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %607, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 608:                                              ; preds = %2
   %609 = load i32, ptr %60, align 16
   %610 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %609)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %610, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpImLj32EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %610, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 611:                                              ; preds = %2
   %612 = load i32, ptr %60, align 16
   %613 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %612)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryGrowOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %613)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryGrowOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %613)
   br label %5018
 
 614:                                              ; preds = %2
   %615 = load i32, ptr %60, align 16
   %616 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %615)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runMemorySizeOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %616)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runMemorySizeOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %616)
   br label %5018
 
 617:                                              ; preds = %2
@@ -4297,13 +4297,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %621 = getelementptr inbounds i8, ptr %60, i64 4
   %622 = load i32, ptr %621, align 4
   %623 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %620, i32 noundef %622)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryInitOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERNS5_12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %619, ptr noundef nonnull align 8 dereferenceable(32) %623, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryInitOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERNS5_12DataInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %619, ptr noundef nonnull align 8 dereferenceable(32) %623, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 624:                                              ; preds = %2
   %625 = load i32, ptr %60, align 16
   %626 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor16getDataInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %625)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runDataDropOpERNS_7Runtime8Instance12DataInstanceE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(32) %626)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runDataDropOpERNS_7Runtime8Instance12DataInstanceE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(32) %626)
   br label %5018
 
 627:                                              ; preds = %2
@@ -4313,13 +4313,13 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit479: ; preds = %189, %192
   %631 = getelementptr inbounds i8, ptr %60, i64 4
   %632 = load i32, ptr %631, align 4
   %633 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %630, i32 noundef %632)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryCopyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %629, ptr noundef nonnull align 8 dereferenceable(28) %633, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryCopyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceES7_RKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %629, ptr noundef nonnull align 8 dereferenceable(28) %633, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 634:                                              ; preds = %2
   %635 = load i32, ptr %60, align 16
   %636 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %635)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryFillOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %636, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runMemoryFillOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %636, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 637:                                              ; preds = %2, %2, %2, %2
@@ -4691,28 +4691,28 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %801 = getelementptr inbounds i8, ptr %62, i64 8
   %802 = load ptr, ptr %801, align 8
   %803 = getelementptr inbounds i8, ptr %802, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %803)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %803)
   br label %5018
 
 804:                                              ; preds = %2
   %805 = getelementptr inbounds i8, ptr %62, i64 8
   %806 = load ptr, ptr %805, align 8
   %807 = getelementptr inbounds i8, ptr %806, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %807)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %807)
   br label %5018
 
 808:                                              ; preds = %2
   %809 = getelementptr inbounds i8, ptr %62, i64 8
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %811)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdiEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %811)
   br label %5018
 
 812:                                              ; preds = %2
   %813 = getelementptr inbounds i8, ptr %62, i64 8
   %814 = load ptr, ptr %813, align 8
   %815 = getelementptr inbounds i8, ptr %814, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %815)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdjEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %815)
   br label %5018
 
 816:                                              ; preds = %2
@@ -4741,28 +4741,28 @@ _ZNK8WasmEdge8Executor8Executor11runPopcntOpImEENSt9enable_ifIX13IsWasmUnsignVIT
   %829 = getelementptr inbounds i8, ptr %62, i64 8
   %830 = load ptr, ptr %829, align 8
   %831 = getelementptr inbounds i8, ptr %830, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIflEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %831)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIflEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %831)
   br label %5018
 
 832:                                              ; preds = %2
   %833 = getelementptr inbounds i8, ptr %62, i64 8
   %834 = load ptr, ptr %833, align 8
   %835 = getelementptr inbounds i8, ptr %834, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %835)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIfmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %835)
   br label %5018
 
 836:                                              ; preds = %2
   %837 = getelementptr inbounds i8, ptr %62, i64 8
   %838 = load ptr, ptr %837, align 8
   %839 = getelementptr inbounds i8, ptr %838, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdlEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %839)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdlEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %839)
   br label %5018
 
 840:                                              ; preds = %2
   %841 = getelementptr inbounds i8, ptr %62, i64 8
   %842 = load ptr, ptr %841, align 8
   %843 = getelementptr inbounds i8, ptr %842, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %843)
+  tail call void @_ZNK8WasmEdge8Executor8Executor13runTruncateOpIdmEENSt9enable_ifIXaa12IsWasmFloatVIT_E10IsWasmIntVIT0_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %843)
   br label %5018
 
 844:                                              ; preds = %2
@@ -5922,7 +5922,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1466 = getelementptr inbounds i8, ptr %1465, i64 8
   %1467 = load ptr, ptr %1466, align 8
   %1468 = getelementptr inbounds i8, ptr %1467, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1468, ptr noundef nonnull align 16 dereferenceable(16) %42)
+  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1468, ptr noundef nonnull align 16 dereferenceable(16) %42)
   br label %5018
 
 1469:                                             ; preds = %2
@@ -5940,7 +5940,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1475 = getelementptr inbounds i8, ptr %1474, i64 8
   %1476 = load ptr, ptr %1475, align 8
   %1477 = getelementptr inbounds i8, ptr %1476, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1477, ptr noundef nonnull align 16 dereferenceable(16) %43)
+  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1477, ptr noundef nonnull align 16 dereferenceable(16) %43)
   br label %5018
 
 1478:                                             ; preds = %2
@@ -5958,7 +5958,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1484 = getelementptr inbounds i8, ptr %1483, i64 8
   %1485 = load ptr, ptr %1484, align 8
   %1486 = getelementptr inbounds i8, ptr %1485, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIiEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1486, ptr noundef nonnull align 16 dereferenceable(16) %44)
+  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIiEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1486, ptr noundef nonnull align 16 dereferenceable(16) %44)
   br label %5018
 
 1487:                                             ; preds = %2
@@ -5976,7 +5976,7 @@ _ZNK8WasmEdge8Executor8Executor16runTruncateSatOpIdmEENSt9enable_ifIXaa12IsWasmF
   %1493 = getelementptr inbounds i8, ptr %1492, i64 8
   %1494 = load ptr, ptr %1493, align 8
   %1495 = getelementptr inbounds i8, ptr %1494, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIjEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1495, ptr noundef nonnull align 16 dereferenceable(16) %45)
+  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIjEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1495, ptr noundef nonnull align 16 dereferenceable(16) %45)
   br label %5018
 
 1496:                                             ; preds = %2
@@ -6208,7 +6208,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1619 = getelementptr inbounds i8, ptr %1618, i64 8
   %1620 = load ptr, ptr %1619, align 8
   %1621 = getelementptr inbounds i8, ptr %1620, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1621, ptr noundef nonnull align 16 dereferenceable(16) %46)
+  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1621, ptr noundef nonnull align 16 dereferenceable(16) %46)
   br label %5018
 
 1622:                                             ; preds = %2
@@ -6226,7 +6226,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1628 = getelementptr inbounds i8, ptr %1627, i64 8
   %1629 = load ptr, ptr %1628, align 8
   %1630 = getelementptr inbounds i8, ptr %1629, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpImEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1630, ptr noundef nonnull align 16 dereferenceable(16) %47)
+  call void @_ZNK8WasmEdge8Executor8Executor8runDivOpImEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1630, ptr noundef nonnull align 16 dereferenceable(16) %47)
   br label %5018
 
 1631:                                             ; preds = %2
@@ -6244,7 +6244,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1637 = getelementptr inbounds i8, ptr %1636, i64 8
   %1638 = load ptr, ptr %1637, align 8
   %1639 = getelementptr inbounds i8, ptr %1638, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIlEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1639, ptr noundef nonnull align 16 dereferenceable(16) %48)
+  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpIlEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1639, ptr noundef nonnull align 16 dereferenceable(16) %48)
   br label %5018
 
 1640:                                             ; preds = %2
@@ -6262,7 +6262,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpIjEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1646 = getelementptr inbounds i8, ptr %1645, i64 8
   %1647 = load ptr, ptr %1646, align 8
   %1648 = getelementptr inbounds i8, ptr %1647, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpImEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1648, ptr noundef nonnull align 16 dereferenceable(16) %49)
+  call void @_ZNK8WasmEdge8Executor8Executor8runRemOpImEENSt9enable_ifIX10IsWasmIntVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERKNS_3AST11InstructionERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSS_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(25) %60, ptr noundef nonnull align 16 dereferenceable(16) %1648, ptr noundef nonnull align 16 dereferenceable(16) %49)
   br label %5018
 
 1649:                                             ; preds = %2
@@ -6511,7 +6511,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1786 = getelementptr inbounds i8, ptr %1785, i64 8
   %1787 = load ptr, ptr %1786, align 8
   %1788 = getelementptr inbounds i8, ptr %1787, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1788, ptr noundef nonnull align 16 dereferenceable(16) %50)
+  call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1788, ptr noundef nonnull align 16 dereferenceable(16) %50)
   br label %5018
 
 1789:                                             ; preds = %2
@@ -6529,7 +6529,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1795 = getelementptr inbounds i8, ptr %1794, i64 8
   %1796 = load ptr, ptr %1795, align 8
   %1797 = getelementptr inbounds i8, ptr %1796, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1797, ptr noundef nonnull align 16 dereferenceable(16) %51)
+  call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIfEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1797, ptr noundef nonnull align 16 dereferenceable(16) %51)
   br label %5018
 
 1798:                                             ; preds = %2
@@ -6634,7 +6634,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1855 = getelementptr inbounds i8, ptr %1854, i64 8
   %1856 = load ptr, ptr %1855, align 8
   %1857 = getelementptr inbounds i8, ptr %1856, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1857, ptr noundef nonnull align 16 dereferenceable(16) %52)
+  call void @_ZNK8WasmEdge8Executor8Executor8runMinOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1857, ptr noundef nonnull align 16 dereferenceable(16) %52)
   br label %5018
 
 1858:                                             ; preds = %2
@@ -6652,7 +6652,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %1864 = getelementptr inbounds i8, ptr %1863, i64 8
   %1865 = load ptr, ptr %1864, align 8
   %1866 = getelementptr inbounds i8, ptr %1865, i64 -16
-  call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1866, ptr noundef nonnull align 16 dereferenceable(16) %53)
+  call void @_ZNK8WasmEdge8Executor8Executor8runMaxOpIdEENSt9enable_ifIX12IsWasmFloatVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSO_(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %1866, ptr noundef nonnull align 16 dereferenceable(16) %53)
   br label %5018
 
 1867:                                             ; preds = %2
@@ -6675,133 +6675,133 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
 1877:                                             ; preds = %2
   %1878 = load i32, ptr %60, align 16
   %1879 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1878)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj128EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1879, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj128EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1879, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1880:                                             ; preds = %2
   %1881 = load i32, ptr %60, align 16
   %1882 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1881)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIasEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1882, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIasEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1882, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1883:                                             ; preds = %2
   %1884 = load i32, ptr %60, align 16
   %1885 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1884)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIhtEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1885, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIhtEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1885, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1886:                                             ; preds = %2
   %1887 = load i32, ptr %60, align 16
   %1888 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1887)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIsiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1888, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIsiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1888, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1889:                                             ; preds = %2
   %1890 = load i32, ptr %60, align 16
   %1891 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1890)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpItjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1891, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpItjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1891, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1892:                                             ; preds = %2
   %1893 = load i32, ptr %60, align 16
   %1894 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1893)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIilEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1894, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIilEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1894, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1895:                                             ; preds = %2
   %1896 = load i32, ptr %60, align 16
   %1897 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1896)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIjmEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1897, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runLoadExpandOpIjmEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1897, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1898:                                             ; preds = %2
   %1899 = load i32, ptr %60, align 16
   %1900 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1899)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1900, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1900, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1901:                                             ; preds = %2
   %1902 = load i32, ptr %60, align 16
   %1903 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1902)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1903, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1903, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1904:                                             ; preds = %2
   %1905 = load i32, ptr %60, align 16
   %1906 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1905)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1906, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1906, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1907:                                             ; preds = %2
   %1908 = load i32, ptr %60, align 16
   %1909 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1908)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1909, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runLoadSplatOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1909, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1910:                                             ; preds = %2
   %1911 = load i32, ptr %60, align 16
   %1912 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1911)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1912, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj32EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1912, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1913:                                             ; preds = %2
   %1914 = load i32, ptr %60, align 16
   %1915 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1914)
-  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1915, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor9runLoadOpIoLj64EEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1915, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1916:                                             ; preds = %2
   %1917 = load i32, ptr %60, align 16
   %1918 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1917)
-  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIoLj128EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1918, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor10runStoreOpIoLj128EEENSt9enable_ifIX16IsWasmNativeNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1918, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1919:                                             ; preds = %2
   %1920 = load i32, ptr %60, align 16
   %1921 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1920)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1921, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1921, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1922:                                             ; preds = %2
   %1923 = load i32, ptr %60, align 16
   %1924 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1923)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1924, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1924, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1925:                                             ; preds = %2
   %1926 = load i32, ptr %60, align 16
   %1927 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1926)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1927, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1927, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1928:                                             ; preds = %2
   %1929 = load i32, ptr %60, align 16
   %1930 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1929)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1930, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runLoadLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1930, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1931:                                             ; preds = %2
   %1932 = load i32, ptr %60, align 16
   %1933 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1932)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1933, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1933, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1934:                                             ; preds = %2
   %1935 = load i32, ptr %60, align 16
   %1936 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1935)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1936, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1936, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1937:                                             ; preds = %2
   %1938 = load i32, ptr %60, align 16
   %1939 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1938)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1939, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpIjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1939, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1940:                                             ; preds = %2
   %1941 = load i32, ptr %60, align 16
   %1942 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %1941)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1942, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runStoreLaneOpImEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7Runtime12StackManagerERNS7_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %1942, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 1943:                                             ; preds = %2
@@ -8532,14 +8532,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2907 = getelementptr inbounds i8, ptr %62, i64 8
   %2908 = load ptr, ptr %2907, align 8
   %2909 = getelementptr inbounds i8, ptr %2908, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2909)
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2909)
   br label %5018
 
 2910:                                             ; preds = %2
   %2911 = getelementptr inbounds i8, ptr %62, i64 8
   %2912 = load ptr, ptr %2911, align 8
   %2913 = getelementptr inbounds i8, ptr %2912, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2913)
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpIhEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %2913)
   br label %5018
 
 2914:                                             ; preds = %2
@@ -8951,14 +8951,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3144 = getelementptr inbounds i8, ptr %62, i64 8
   %3145 = load ptr, ptr %3144, align 8
   %3146 = getelementptr inbounds i8, ptr %3145, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3146)
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorAllTrueOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3146)
   br label %5018
 
 3147:                                             ; preds = %2
   %3148 = getelementptr inbounds i8, ptr %62, i64 8
   %3149 = load ptr, ptr %3148, align 8
   %3150 = getelementptr inbounds i8, ptr %3149, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3150)
+  tail call void @_ZNK8WasmEdge8Executor8Executor18runVectorBitMaskOpItEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %3150)
   br label %5018
 
 3151:                                             ; preds = %2
@@ -10810,14 +10810,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4214 = getelementptr inbounds i8, ptr %62, i64 8
   %4215 = load ptr, ptr %4214, align 8
   %4216 = getelementptr inbounds i8, ptr %4215, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4216)
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4216)
   br label %5018
 
 4217:                                             ; preds = %2
   %4218 = getelementptr inbounds i8, ptr %62, i64 8
   %4219 = load ptr, ptr %4218, align 8
   %4220 = getelementptr inbounds i8, ptr %4219, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4220)
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4220)
   br label %5018
 
 4221:                                             ; preds = %2
@@ -11169,14 +11169,14 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4453 = getelementptr inbounds i8, ptr %62, i64 8
   %4454 = load ptr, ptr %4453, align 8
   %4455 = getelementptr inbounds i8, ptr %4454, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4455)
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfiEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4455)
   br label %5018
 
 4456:                                             ; preds = %2
   %4457 = getelementptr inbounds i8, ptr %62, i64 8
   %4458 = load ptr, ptr %4457, align 8
   %4459 = getelementptr inbounds i8, ptr %4458, i64 -16
-  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4459)
+  tail call void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIfjEEN5cxx208expectedIvNS_7ErrCodeEEERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 16 dereferenceable(16) %4459)
   br label %5018
 
 4460:                                             ; preds = %2
@@ -11775,403 +11775,403 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   br label %5018
 
 4818:                                             ; preds = %2
-  tail call void @_ZN8WasmEdge8Executor8Executor16runMemoryFenceOpEv(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runMemoryFenceOpEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57)
   br label %5018
 
 4819:                                             ; preds = %2
   %4820 = load i32, ptr %60, align 16
   %4821 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4820)
-  tail call void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4821, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor17runAtomicNotifyOpERNS_7Runtime12StackManagerERNS2_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4821, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4822:                                             ; preds = %2
   %4823 = load i32, ptr %60, align 16
   %4824 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4823)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4824, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIiEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4824, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4825:                                             ; preds = %2
   %4826 = load i32, ptr %60, align 16
   %4827 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4826)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4827, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicWaitOpIlEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4827, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4828:                                             ; preds = %2
   %4829 = load i32, ptr %60, align 16
   %4830 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4829)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4830, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4830, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4831:                                             ; preds = %2
   %4832 = load i32, ptr %60, align 16
   %4833 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4832)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4833, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4833, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4834:                                             ; preds = %2
   %4835 = load i32, ptr %60, align 16
   %4836 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4835)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4836, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4836, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4837:                                             ; preds = %2
   %4838 = load i32, ptr %60, align 16
   %4839 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4838)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4839, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4839, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4840:                                             ; preds = %2
   %4841 = load i32, ptr %60, align 16
   %4842 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4841)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4842, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4842, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4843:                                             ; preds = %2
   %4844 = load i32, ptr %60, align 16
   %4845 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4844)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4845, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4845, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4846:                                             ; preds = %2
   %4847 = load i32, ptr %60, align 16
   %4848 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4847)
-  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4848, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor15runAtomicLoadOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4848, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4849:                                             ; preds = %2
   %4850 = load i32, ptr %60, align 16
   %4851 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4850)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4851, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4851, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4852:                                             ; preds = %2
   %4853 = load i32, ptr %60, align 16
   %4854 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4853)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4854, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4854, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4855:                                             ; preds = %2
   %4856 = load i32, ptr %60, align 16
   %4857 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4856)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4857, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4857, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4858:                                             ; preds = %2
   %4859 = load i32, ptr %60, align 16
   %4860 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4859)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4860, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4860, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4861:                                             ; preds = %2
   %4862 = load i32, ptr %60, align 16
   %4863 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4862)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4863, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4863, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4864:                                             ; preds = %2
   %4865 = load i32, ptr %60, align 16
   %4866 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4865)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4866, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4866, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4867:                                             ; preds = %2
   %4868 = load i32, ptr %60, align 16
   %4869 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4868)
-  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4869, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor16runAtomicStoreOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4869, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4870:                                             ; preds = %2
   %4871 = load i32, ptr %60, align 16
   %4872 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4871)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4872, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4872, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4873:                                             ; preds = %2
   %4874 = load i32, ptr %60, align 16
   %4875 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4874)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4875, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4875, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4876:                                             ; preds = %2
   %4877 = load i32, ptr %60, align 16
   %4878 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4877)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4878, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4878, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4879:                                             ; preds = %2
   %4880 = load i32, ptr %60, align 16
   %4881 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4880)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4881, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4881, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4882:                                             ; preds = %2
   %4883 = load i32, ptr %60, align 16
   %4884 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4883)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4884, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4884, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4885:                                             ; preds = %2
   %4886 = load i32, ptr %60, align 16
   %4887 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4886)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4887, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4887, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4888:                                             ; preds = %2
   %4889 = load i32, ptr %60, align 16
   %4890 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4889)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4890, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAddOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4890, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4891:                                             ; preds = %2
   %4892 = load i32, ptr %60, align 16
   %4893 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4892)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4893, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4893, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4894:                                             ; preds = %2
   %4895 = load i32, ptr %60, align 16
   %4896 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4895)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4896, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4896, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4897:                                             ; preds = %2
   %4898 = load i32, ptr %60, align 16
   %4899 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4898)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4899, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4899, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4900:                                             ; preds = %2
   %4901 = load i32, ptr %60, align 16
   %4902 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4901)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4902, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4902, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4903:                                             ; preds = %2
   %4904 = load i32, ptr %60, align 16
   %4905 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4904)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4905, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4905, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4906:                                             ; preds = %2
   %4907 = load i32, ptr %60, align 16
   %4908 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4907)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4908, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4908, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4909:                                             ; preds = %2
   %4910 = load i32, ptr %60, align 16
   %4911 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4910)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4911, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicSubOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4911, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4912:                                             ; preds = %2
   %4913 = load i32, ptr %60, align 16
   %4914 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4913)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4914, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4914, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4915:                                             ; preds = %2
   %4916 = load i32, ptr %60, align 16
   %4917 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4916)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4917, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4917, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4918:                                             ; preds = %2
   %4919 = load i32, ptr %60, align 16
   %4920 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4919)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4920, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4920, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4921:                                             ; preds = %2
   %4922 = load i32, ptr %60, align 16
   %4923 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4922)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4923, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4923, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4924:                                             ; preds = %2
   %4925 = load i32, ptr %60, align 16
   %4926 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4925)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4926, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4926, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4927:                                             ; preds = %2
   %4928 = load i32, ptr %60, align 16
   %4929 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4928)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4929, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4929, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4930:                                             ; preds = %2
   %4931 = load i32, ptr %60, align 16
   %4932 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4931)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4932, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicAndOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4932, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4933:                                             ; preds = %2
   %4934 = load i32, ptr %60, align 16
   %4935 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4934)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4935, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4935, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4936:                                             ; preds = %2
   %4937 = load i32, ptr %60, align 16
   %4938 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4937)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4938, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4938, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4939:                                             ; preds = %2
   %4940 = load i32, ptr %60, align 16
   %4941 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4940)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4941, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4941, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4942:                                             ; preds = %2
   %4943 = load i32, ptr %60, align 16
   %4944 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4943)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4944, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4944, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4945:                                             ; preds = %2
   %4946 = load i32, ptr %60, align 16
   %4947 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4946)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4947, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4947, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4948:                                             ; preds = %2
   %4949 = load i32, ptr %60, align 16
   %4950 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4949)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4950, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4950, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4951:                                             ; preds = %2
   %4952 = load i32, ptr %60, align 16
   %4953 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4952)
-  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4953, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor13runAtomicOrOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4953, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4954:                                             ; preds = %2
   %4955 = load i32, ptr %60, align 16
   %4956 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4955)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4956, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4956, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4957:                                             ; preds = %2
   %4958 = load i32, ptr %60, align 16
   %4959 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4958)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4959, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4959, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4960:                                             ; preds = %2
   %4961 = load i32, ptr %60, align 16
   %4962 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4961)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4962, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4962, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4963:                                             ; preds = %2
   %4964 = load i32, ptr %60, align 16
   %4965 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4964)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4965, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4965, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4966:                                             ; preds = %2
   %4967 = load i32, ptr %60, align 16
   %4968 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4967)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4968, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4968, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4969:                                             ; preds = %2
   %4970 = load i32, ptr %60, align 16
   %4971 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4970)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4971, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4971, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4972:                                             ; preds = %2
   %4973 = load i32, ptr %60, align 16
   %4974 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4973)
-  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4974, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor14runAtomicXorOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4974, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4975:                                             ; preds = %2
   %4976 = load i32, ptr %60, align 16
   %4977 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4976)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4977, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4977, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4978:                                             ; preds = %2
   %4979 = load i32, ptr %60, align 16
   %4980 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4979)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4980, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4980, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4981:                                             ; preds = %2
   %4982 = load i32, ptr %60, align 16
   %4983 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4982)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4983, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4983, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4984:                                             ; preds = %2
   %4985 = load i32, ptr %60, align 16
   %4986 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4985)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4986, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4986, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4987:                                             ; preds = %2
   %4988 = load i32, ptr %60, align 16
   %4989 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4988)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4989, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4989, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4990:                                             ; preds = %2
   %4991 = load i32, ptr %60, align 16
   %4992 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4991)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4992, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4992, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4993:                                             ; preds = %2
   %4994 = load i32, ptr %60, align 16
   %4995 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4994)
-  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4995, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor19runAtomicExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4995, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4996:                                             ; preds = %2
   %4997 = load i32, ptr %60, align 16
   %4998 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %4997)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4998, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIijEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %4998, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 4999:                                             ; preds = %2
   %5000 = load i32, ptr %60, align 16
   %5001 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5000)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5001, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIlmEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5001, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5002:                                             ; preds = %2
   %5003 = load i32, ptr %60, align 16
   %5004 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5003)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5004, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5004, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5005:                                             ; preds = %2
   %5006 = load i32, ptr %60, align 16
   %5007 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5006)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5007, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpIjtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5007, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5008:                                             ; preds = %2
   %5009 = load i32, ptr %60, align 16
   %5010 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5009)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5010, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImhEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5010, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5011:                                             ; preds = %2
   %5012 = load i32, ptr %60, align 16
   %5013 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5012)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5013, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImtEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5013, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5014:                                             ; preds = %2
   %5015 = load i32, ptr %60, align 16
   %5016 = tail call noundef ptr @_ZNK8WasmEdge8Executor8Executor15getMemInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, i32 noundef %5015)
-  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5016, ptr noundef nonnull align 16 dereferenceable(25) %60)
+  tail call void @_ZN8WasmEdge8Executor8Executor26runAtomicCompareExchangeOpImjEENSt9enable_ifIX10IsWasmNumVIT_EEN5cxx208expectedIvNS_7ErrCodeEEEE4typeERNS_7Runtime12StackManagerERNSB_8Instance14MemoryInstanceERKNS_3AST11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(408) %57, ptr noundef nonnull align 8 dereferenceable(48) %62, ptr noundef nonnull align 8 dereferenceable(28) %5016, ptr noundef nonnull align 16 dereferenceable(25) %60)
   br label %5018
 
 5017:                                             ; preds = %2
@@ -39132,7 +39132,7 @@ declare void @_ZNK8WasmEdge8Executor8Executor14runStructNewOpERNS_7Runtime12Stac
 declare void @_ZNK8WasmEdge8Executor8Executor14runStructGetOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEjRKNS_3AST13CompositeTypeERKNSH_11InstructionEb(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4, ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 16 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 16 dereferenceable(25), i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -39217,7 +39217,7 @@ declare void @_ZNK8WasmEdge8Executor8Executor14runArrayFillOpEjRKNS_7VariantIJji
 declare void @_ZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4, ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, i32 noundef, ptr noundef nonnull align 16 dereferenceable(16), i32 noundef, ptr noundef nonnull align 16 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 16 dereferenceable(25)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN8WasmEdge8Executor8Executor7executeERNS_7Runtime12StackManagerEPKNS_3AST11InstructionES8_ENK3$_0clEvENKUlvE0_clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

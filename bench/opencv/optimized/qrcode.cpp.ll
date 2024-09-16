@@ -1067,7 +1067,7 @@ _ZN2cv19QRCodeDetectorArucoD2Ev.exit.i:           ; preds = %_ZNSt16_Sp_counted_
           to label %.noexc46.i unwind label %421
 
 .noexc46.i:                                       ; preds = %.noexc.i
-  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %22)
+  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias writable align 8 %22)
           to label %.noexc47.i unwind label %421
 
 .noexc47.i:                                       ; preds = %.noexc46.i
@@ -1968,7 +1968,7 @@ _ZL16liveQRCodeDetectv.exit:                      ; preds = %202, %556, %574, %5
           to label %657 unwind label %775
 
 657:                                              ; preds = %.noexc159
-  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %4)
+  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias writable align 8 %4)
           to label %658 unwind label %775
 
 658:                                              ; preds = %657
@@ -2885,7 +2885,7 @@ declare void @_ZN2cv8cvtColorERKNS_11_InputArrayERKNS_12_OutputArrayEii(ptr noun
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %2)
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.42)
@@ -2906,7 +2906,7 @@ define internal fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noa
           to label %14 unwind label %16
 
 14:                                               ; preds = %9
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %2)
           to label %15 unwind label %16
 
 15:                                               ; preds = %14
@@ -3653,7 +3653,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %260, %262
           to label %280 unwind label %293
 
 280:                                              ; preds = %278
-  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %7)
+  invoke fastcc void @_ZL15getQRModeStringB5cxx11v(ptr dead_on_unwind noalias writable align 8 %7)
           to label %281 unwind label %293
 
 281:                                              ; preds = %280

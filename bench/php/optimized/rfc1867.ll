@@ -930,7 +930,7 @@ php_mime_get_hdr_value.exit:                      ; preds = %.lr.ph.i
 
 380:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 5120, ptr nonnull %4)
-  %381 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef nonnull %4, ptr noundef null)
+  %381 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
   %.not17.i = icmp eq i64 %381, 0
   br i1 %.not17.i, label %389, label %.lr.ph.i543
 
@@ -943,7 +943,7 @@ php_mime_get_hdr_value.exit:                      ; preds = %.lr.ph.i
   %385 = call ptr @_erealloc(ptr noundef %.01418.i, i64 noundef %384) #25
   %386 = getelementptr inbounds i8, ptr %385, i64 %.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %386, ptr noundef nonnull align 16 dereferenceable(1) %4, i64 %382, i1 false)
-  %387 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef nonnull %4, ptr noundef null)
+  %387 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %4, ptr noundef null)
   %.not.i544 = icmp eq i64 %387, 0
   br i1 %.not.i544, label %._crit_edge.i, label %.lr.ph.i543
 
@@ -1237,7 +1237,7 @@ safe_php_register_variable.exit:                  ; preds = %420, %.loopexit663,
   br i1 %.not490, label %501, label %490
 
 490:                                              ; preds = %487
-  %491 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef nonnull %13, ptr noundef nonnull %18)
+  %491 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
   store i64 %491, ptr %16, align 8
   %492 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 128), align 8
   %493 = call i32 @php_open_temporary_fd_ex(ptr noundef %492, ptr noundef nonnull @.str.17, ptr noundef nonnull %9, i32 noundef 1) #21
@@ -1330,7 +1330,7 @@ thread-pre-split:                                 ; preds = %517
   %.1407 = phi i64 [ %.2408, %520 ], [ %.0406.ph, %thread-pre-split ], [ %.0406.ph, %513 ], [ %.0406.ph, %517 ]
   %.1401 = phi i64 [ %526, %520 ], [ %.0400.ph, %thread-pre-split ], [ %.0400.ph, %513 ], [ %.0400.ph, %517 ]
   %.3392 = phi i32 [ %.4, %520 ], [ 0, %thread-pre-split ], [ 1, %513 ], [ 2, %517 ]
-  %528 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef nonnull %13, ptr noundef nonnull %18)
+  %528 = call fastcc i64 @multipart_buffer_read(ptr noundef nonnull %125, ptr noundef %13, ptr noundef nonnull %18)
   store i64 %528, ptr %16, align 8
   br label %.outer
 
@@ -2214,7 +2214,7 @@ declare noalias ptr @_emalloc_40() local_unnamed_addr #3
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 5120) i64 @multipart_buffer_read(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 5120
@@ -2358,7 +2358,7 @@ php_ap_memstr.exit50.thread:                      ; preds = %58, %70, %php_ap_me
 
 76:                                               ; preds = %php_ap_memstr.exit50.thread
   %77 = load ptr, ptr %39, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %77, i64 %75, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %77, i64 %75, i1 false)
   %78 = getelementptr inbounds i8, ptr %1, i64 %75
   store i8 0, ptr %78, align 1
   br i1 %.not53, label %86, label %79

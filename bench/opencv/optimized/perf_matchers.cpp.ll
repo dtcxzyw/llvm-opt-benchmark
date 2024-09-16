@@ -3719,7 +3719,7 @@ define hidden void @_ZN11opencv_test20match_bestOf2Nearest12PerfTestBodyEv(ptr n
           to label %73 unwind label %164
 
 73:                                               ; preds = %70
-  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %72)
+  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %72)
           to label %74 unwind label %164
 
 74:                                               ; preds = %73
@@ -4689,7 +4689,7 @@ declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereference
 declare void @_ZN2cv6resizeERKNS_11_InputArrayERKNS_12_OutputArrayENS_5Size_IiEEddi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i64, double noundef, double noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr.33", align 8
   %4 = alloca %"struct.cv::Ptr.170", align 8
   %5 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.39) #26
@@ -5549,7 +5549,7 @@ define hidden void @_ZN11opencv_test40matchVector_bestOf2NearestVectorFeatures12
 
 80:                                               ; preds = %78
   %81 = load i32, ptr %79, align 8
-  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %82 unwind label %176
 
 82:                                               ; preds = %80
@@ -7787,7 +7787,7 @@ define hidden void @_ZN11opencv_test26match_affineBestOf2Nearest12PerfTestBodyEv
           to label %85 unwind label %177
 
 85:                                               ; preds = %82
-  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %86 unwind label %177
 
 86:                                               ; preds = %85
@@ -10011,7 +10011,7 @@ define hidden void @_ZN11opencv_test46matchVector_affineBestOf2NearestVectorFeat
 
 80:                                               ; preds = %78
   %81 = load i32, ptr %79, align 8
-  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @_ZN2cvL16getFeatureFinderERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %82 unwind label %177
 
 82:                                               ; preds = %80

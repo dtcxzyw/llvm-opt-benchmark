@@ -918,8 +918,8 @@ dissect_session_init.exit:                        ; preds = %95, %101
   br label %550
 
 117:                                              ; preds = %92
-  %.not = icmp eq i16 %9, 8
-  br i1 %.not, label %dissect_pass_through.exit, label %.lr.ph.i
+  %.not213.i = icmp eq i32 %84, 0
+  br i1 %.not213.i, label %dissect_pass_through.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %117, %120
   %.0109210.i = phi i32 [ %121, %120 ], [ 0, %117 ]
@@ -931,27 +931,27 @@ dissect_session_init.exit:                        ; preds = %95, %101
 120:                                              ; preds = %.lr.ph.i
   %121 = add nuw nsw i32 %.0109210.i, 1
   %exitcond.not.i = icmp eq i32 %121, %84
-  br i1 %exitcond.not.i, label %._crit_edge.thread215.i.loopexit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %._crit_edge.thread216.i.loopexit, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not126.i = icmp eq i32 %.0109210.i, 0
-  br i1 %.not126.i, label %125, label %._crit_edge.thread215.i
+  br i1 %.not126.i, label %125, label %._crit_edge.thread216.i
 
-._crit_edge.thread215.i.loopexit:                 ; preds = %120
+._crit_edge.thread216.i.loopexit:                 ; preds = %120
   %.pre = add i32 %3, %11
-  br label %._crit_edge.thread215.i
+  br label %._crit_edge.thread216.i
 
-._crit_edge.thread215.i:                          ; preds = %._crit_edge.thread215.i.loopexit, %._crit_edge.i
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge.thread215.i.loopexit ], [ %118, %._crit_edge.i ]
-  %.0109.lcssa218.i = phi i32 [ %84, %._crit_edge.thread215.i.loopexit ], [ %.0109210.i, %._crit_edge.i ]
+._crit_edge.thread216.i:                          ; preds = %._crit_edge.thread216.i.loopexit, %._crit_edge.i
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge.thread216.i.loopexit ], [ %118, %._crit_edge.i ]
+  %.0109.lcssa219.i = phi i32 [ %84, %._crit_edge.thread216.i.loopexit ], [ %.0109210.i, %._crit_edge.i ]
   %122 = load i32, ptr @hf_hartip_pt_preambles, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %122, ptr noundef %0, i32 noundef %79, i32 noundef %.0109.lcssa218.i, i32 noundef 0) #4
-  %124 = sub nsw i32 %84, %.0109.lcssa218.i
+  %123 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %122, ptr noundef %0, i32 noundef %79, i32 noundef %.0109.lcssa219.i, i32 noundef 0) #4
+  %124 = sub nsw i32 %84, %.0109.lcssa219.i
   br label %125
 
-125:                                              ; preds = %._crit_edge.thread215.i, %._crit_edge.i
-  %.0114.i = phi i32 [ %124, %._crit_edge.thread215.i ], [ %84, %._crit_edge.i ]
-  %.0108.i = phi i32 [ %.pre-phi, %._crit_edge.thread215.i ], [ %79, %._crit_edge.i ]
+125:                                              ; preds = %._crit_edge.thread216.i, %._crit_edge.i
+  %.0114.i = phi i32 [ %124, %._crit_edge.thread216.i ], [ %84, %._crit_edge.i ]
+  %.0108.i = phi i32 [ %.pre-phi, %._crit_edge.thread216.i ], [ %79, %._crit_edge.i ]
   %126 = icmp sgt i32 %.0114.i, 0
   br i1 %126, label %127, label %dissect_pass_through.exit
 
@@ -1691,8 +1691,8 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %3, 23
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
+  %5 = icmp ugt i32 %3, 23
   br i1 %5, label %6, label %33
 
 6:                                                ; preds = %4
@@ -1730,8 +1730,8 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd3(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %3, 12
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd9(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
+  %5 = icmp ugt i32 %3, 12
   br i1 %5, label %6, label %155
 
 6:                                                ; preds = %4
@@ -1922,118 +1922,108 @@ dissect_timestamp.exit:                           ; preds = %.thread191, %147
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef returned %4) unnamed_addr #0 {
-  %6 = alloca [4 x i16], align 2
-  %7 = tail call ptr @wmem_packet_scope() #4
-  %8 = zext nneg i32 %4 to i64
-  %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %7, i64 noundef %8) #4
-  %10 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %9, i32 noundef %3, i64 noundef %8) #4
-  %11 = tail call ptr @wmem_packet_scope() #4
-  %12 = udiv i32 %4, 3
-  %13 = shl i32 %12, 2
-  %14 = or disjoint i32 %13, 1
-  %15 = zext nneg i32 %14 to i64
-  %16 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef %15) #4
-  %17 = and i32 %12, 65535
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+define internal fastcc noundef range(i32 6, 25) i32 @dissect_packAscii(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef returned range(i32 6, 25) %4) unnamed_addr #0 {
+.lr.ph:
+  %5 = alloca [4 x i16], align 2
+  %6 = tail call ptr @wmem_packet_scope() #4
+  %7 = zext nneg i32 %4 to i64
+  %8 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef %7) #4
+  %9 = tail call ptr @tvb_memcpy(ptr noundef %2, ptr noundef %8, i32 noundef %3, i64 noundef %7) #4
+  %10 = tail call ptr @wmem_packet_scope() #4
+  %.lhs.trunc = trunc nuw nsw i32 %4 to i8
+  %11 = udiv i8 %.lhs.trunc, 3
+  %12 = shl nuw nsw i8 %11, 2
+  %13 = or disjoint i8 %12, 1
+  %14 = zext nneg i8 %13 to i64
+  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %10, i64 noundef %14) #4
+  %16 = zext nneg i8 %11 to i16
+  %17 = getelementptr inbounds i8, ptr %5, i64 2
+  %18 = getelementptr inbounds i8, ptr %5, i64 4
+  %19 = getelementptr inbounds i8, ptr %5, i64 6
+  %invariant.gep = getelementptr i8, ptr %8, i64 1
+  %invariant.gep56 = getelementptr i8, ptr %8, i64 2
+  br label %20
 
-.lr.ph:                                           ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
-  %19 = getelementptr inbounds i8, ptr %6, i64 4
-  %20 = getelementptr inbounds i8, ptr %6, i64 6
-  %21 = trunc i32 %12 to i16
-  br label %22
-
-22:                                               ; preds = %.lr.ph, %64
-  %.03948 = phi i32 [ 0, %.lr.ph ], [ %65, %64 ]
-  %.04047 = phi i32 [ 0, %.lr.ph ], [ %50, %64 ]
-  %.04146 = phi i16 [ 0, %.lr.ph ], [ %66, %64 ]
-  %23 = sext i32 %.04047 to i64
-  %24 = getelementptr i8, ptr %9, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = lshr i8 %25, 2
-  %27 = zext nneg i8 %26 to i16
-  store i16 %27, ptr %6, align 2
-  %28 = zext i8 %25 to i16
-  %29 = shl nuw nsw i16 %28, 4
-  %30 = and i16 %29, 48
-  %31 = add i32 %.04047, 1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr i8, ptr %9, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = lshr i8 %34, 4
-  %36 = zext nneg i8 %35 to i16
-  %37 = or disjoint i16 %30, %36
-  store i16 %37, ptr %18, align 2
-  %38 = zext i8 %34 to i16
-  %39 = shl nuw nsw i16 %38, 2
-  %40 = and i16 %39, 60
-  %41 = add i32 %.04047, 2
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr i8, ptr %9, i64 %42
-  %44 = load i8, ptr %43, align 1
-  %45 = lshr i8 %44, 6
-  %46 = zext nneg i8 %45 to i16
-  %47 = or disjoint i16 %40, %46
-  store i16 %47, ptr %19, align 2
-  %48 = and i8 %44, 63
-  %49 = zext nneg i8 %48 to i16
-  store i16 %49, ptr %20, align 2
-  %50 = add i32 %.04047, 3
-  %51 = sext i32 %.03948 to i64
+20:                                               ; preds = %.lr.ph, %54
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next54, %54 ]
+  %.03948 = phi i32 [ 0, %.lr.ph ], [ %55, %54 ]
+  %.04146 = phi i16 [ 0, %.lr.ph ], [ %56, %54 ]
+  %21 = getelementptr i8, ptr %8, i64 %indvars.iv53
+  %22 = load i8, ptr %21, align 1
+  %23 = lshr i8 %22, 2
+  %24 = zext nneg i8 %23 to i16
+  store i16 %24, ptr %5, align 2
+  %25 = zext i8 %22 to i16
+  %26 = shl nuw nsw i16 %25, 4
+  %27 = and i16 %26, 48
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv53
+  %28 = load i8, ptr %gep, align 1
+  %29 = lshr i8 %28, 4
+  %30 = zext nneg i8 %29 to i16
+  %31 = or disjoint i16 %27, %30
+  store i16 %31, ptr %17, align 2
+  %32 = zext i8 %28 to i16
+  %33 = shl nuw nsw i16 %32, 2
+  %34 = and i16 %33, 60
+  %gep57 = getelementptr i8, ptr %invariant.gep56, i64 %indvars.iv53
+  %35 = load i8, ptr %gep57, align 1
+  %36 = lshr i8 %35, 6
+  %37 = zext nneg i8 %36 to i16
+  %38 = or disjoint i16 %34, %37
+  store i16 %38, ptr %18, align 2
+  %39 = and i8 %35, 63
+  %40 = zext nneg i8 %39 to i16
+  store i16 %40, ptr %19, align 2
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 3
+  %41 = sext i32 %.03948 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %.03948, i32 256)
-  %52 = sub i32 %smax, %.03948
-  %wide.trip.count = zext i32 %52 to i64
-  br label %53
+  %42 = sub i32 %smax, %.03948
+  %wide.trip.count = zext i32 %42 to i64
+  br label %43
 
-53:                                               ; preds = %22, %55
-  %indvars.iv49 = phi i64 [ %51, %22 ], [ %indvars.iv.next50, %55 ]
-  %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %55 ]
+43:                                               ; preds = %20, %45
+  %indvars.iv49 = phi i64 [ %41, %20 ], [ %indvars.iv.next50, %45 ]
+  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %45 ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
-  br i1 %exitcond.not, label %54, label %55
+  br i1 %exitcond.not, label %44, label %45
 
-54:                                               ; preds = %53
+44:                                               ; preds = %43
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.370, i32 noundef 517, ptr noundef nonnull @.str.371) #5
   unreachable
 
-55:                                               ; preds = %53
-  %56 = getelementptr [4 x i16], ptr %6, i64 0, i64 %indvars.iv
-  %57 = load i16, ptr %56, align 2
-  %58 = shl i16 %57, 1
-  %59 = and i16 %58, 64
-  %60 = xor i16 %59, 64
-  %61 = or i16 %60, %57
-  %62 = trunc i16 %61 to i8
+45:                                               ; preds = %43
+  %46 = getelementptr [4 x i16], ptr %5, i64 0, i64 %indvars.iv
+  %47 = load i16, ptr %46, align 2
+  %48 = shl i16 %47, 1
+  %49 = and i16 %48, 64
+  %50 = xor i16 %49, 64
+  %51 = or i16 %50, %47
+  %52 = trunc i16 %51 to i8
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, 1
-  %63 = getelementptr i8, ptr %16, i64 %indvars.iv49
-  store i8 %62, ptr %63, align 1
+  %53 = getelementptr i8, ptr %15, i64 %indvars.iv49
+  store i8 %52, ptr %53, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond52.not, label %64, label %53, !llvm.loop !8
+  br i1 %exitcond52.not, label %54, label %43, !llvm.loop !8
 
-64:                                               ; preds = %55
-  %65 = trunc nsw i64 %indvars.iv.next50 to i32
-  %66 = add nuw i16 %.04146, 1
-  %67 = icmp ult i16 %66, %21
-  br i1 %67, label %22, label %._crit_edge.loopexit, !llvm.loop !9
+54:                                               ; preds = %45
+  %55 = trunc nsw i64 %indvars.iv.next50 to i32
+  %56 = add nuw nsw i16 %.04146, 1
+  %exitcond55.not = icmp eq i16 %56, %16
+  br i1 %exitcond55.not, label %._crit_edge, label %20, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %64
+._crit_edge:                                      ; preds = %54
   %sext = shl i64 %indvars.iv.next50, 32
-  %68 = ashr exact i64 %sext, 32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.039.lcssa = phi i64 [ 0, %5 ], [ %68, %._crit_edge.loopexit ]
-  %69 = getelementptr i8, ptr %16, i64 %.039.lcssa
-  store i8 0, ptr %69, align 1
-  %70 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %16) #4
+  %57 = ashr exact i64 %sext, 32
+  %58 = getelementptr i8, ptr %15, i64 %57
+  store i8 0, ptr %58, align 1
+  %59 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %15) #4
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %3, 5
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
+  %5 = icmp ugt i32 %3, 5
   br i1 %5, label %6, label %.thread51
 
 6:                                                ; preds = %4
@@ -2090,8 +2080,8 @@ define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd48(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd203(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %3, 7
+define internal fastcc range(i32 0, 2147483647) i32 @dissect_cmd203(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 2147483647) %3) unnamed_addr #0 {
+  %5 = icmp ugt i32 %3, 7
   br i1 %5, label %6, label %.thread83
 
 6:                                                ; preds = %4

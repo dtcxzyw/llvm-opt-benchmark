@@ -2790,7 +2790,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tracemalloc_raw_alloc(i32 noundef %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
+define internal fastcc ptr @tracemalloc_raw_alloc(i32 noundef range(i32 0, 2) %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
@@ -2949,7 +2949,7 @@ return:                                           ; preds = %if.else, %if.end11,
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tracemalloc_alloc_gil(i32 noundef %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
+define internal fastcc ptr @tracemalloc_alloc_gil(i32 noundef range(i32 0, 2) %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null

@@ -1154,12 +1154,12 @@ _ZN4NodenwEm.exit87:                              ; preds = %472, %474
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN16CompressBitsNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr noundef %1, ptr noundef nonnull %0)
+  %3 = tail call fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr noundef %1, ptr noundef %0)
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -1781,7 +1781,7 @@ _ZN4NodenwEm.exit65:                              ; preds = %350, %352
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN14ExpandBitsNode8IdentityEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
-  %3 = tail call fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr noundef %1, ptr noundef nonnull %0)
+  %3 = tail call fastcc noundef ptr @_ZL24compress_expand_identityP8PhaseGVNP4Node(ptr noundef %1, ptr noundef %0)
   ret ptr %3
 }
 
@@ -1933,7 +1933,7 @@ declare noundef ptr @_ZN7TypeInt4makeEi(i32 noundef) local_unnamed_addr #2
 declare noundef ptr @_ZN8TypeLong4makeEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16bitshuffle_valuePK11TypeIntegerS1_i9BasicType(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL16bitshuffle_valuePK11TypeIntegerS1_i9BasicType(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 65, 67) %2, i8 noundef zeroext %3) unnamed_addr #1 {
   %5 = icmp eq i8 %3, 10
   %6 = select i1 %5, i64 2147483647, i64 9223372036854775807
   %7 = select i1 %5, i64 -2147483648, i64 -9223372036854775808

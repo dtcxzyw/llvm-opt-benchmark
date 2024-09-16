@@ -141,7 +141,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %26, ptr noundef nonnull %24, ptr noundef %11, ptr noundef nonnull @.str.1)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %26, ptr noundef %24, ptr noundef %11, ptr noundef nonnull @.str.1)
   br label %27
 
 27:                                               ; preds = %25, %21
@@ -153,7 +153,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %32, ptr noundef nonnull %30, ptr noundef %11, ptr noundef nonnull @.str.2)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %32, ptr noundef %30, ptr noundef %11, ptr noundef nonnull @.str.2)
   br label %33
 
 33:                                               ; preds = %31, %27
@@ -165,7 +165,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %38, ptr noundef nonnull %36, ptr noundef %11, ptr noundef nonnull @.str.3)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %38, ptr noundef %36, ptr noundef %11, ptr noundef nonnull @.str.3)
   br label %39
 
 39:                                               ; preds = %37, %33
@@ -177,7 +177,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %44, ptr noundef nonnull %42, ptr noundef %11, ptr noundef nonnull @.str.4)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %44, ptr noundef %42, ptr noundef %11, ptr noundef nonnull @.str.4)
   br label %45
 
 45:                                               ; preds = %43, %39
@@ -189,7 +189,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %50, ptr noundef nonnull %48, ptr noundef %11, ptr noundef nonnull @.str.5)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %50, ptr noundef %48, ptr noundef %11, ptr noundef nonnull @.str.5)
   br label %51
 
 51:                                               ; preds = %49, %45
@@ -201,7 +201,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %3, align 8
-  call fastcc void @tls_export_client_randoms_func(ptr noundef %56, ptr noundef nonnull %54, ptr noundef %11, ptr noundef nonnull @.str.6)
+  call fastcc void @tls_export_client_randoms_func(ptr noundef %56, ptr noundef %54, ptr noundef %11, ptr noundef nonnull @.str.6)
   br label %57
 
 57:                                               ; preds = %55, %51
@@ -228,7 +228,7 @@ declare ptr @g_string_sized_new(i64 noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tls_export_client_randoms_func(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @tls_export_client_randoms_func(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %3) #3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8

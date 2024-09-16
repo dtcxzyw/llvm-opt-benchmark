@@ -582,7 +582,7 @@ define range(i32 -1, 1) i32 @H5O__shared_delete(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__shared_link_adj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 -1, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.H5O_loc_t, align 8
   %7 = alloca i8, align 1
   %8 = load i32, ptr %3, align 8

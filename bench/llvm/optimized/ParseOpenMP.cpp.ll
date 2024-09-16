@@ -6473,7 +6473,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %323, %329, %216, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_121getNameFromIdOrStringERN5clang6ParserERNS0_5TokenENS_13OMPContextLvlE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_121getNameFromIdOrStringERN5clang6ParserERNS0_5TokenENS_13OMPContextLvlE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallString", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6549,7 +6549,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN5clang3t
 
 _ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_113OMPContextLvlEEERKS0_RKT_.exit: ; preds = %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
   %46 = phi ptr [ %45, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %42, %_ZN5clang3tok15isStringLiteralENS0_9TokenKindE.exit ]
-  %47 = sext i32 %2 to i64
+  %47 = zext nneg i32 %2 to i64
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %49 = load i8, ptr %46, align 8
   %50 = zext i8 %49 to i64
@@ -6634,7 +6634,7 @@ declare void @_ZN4llvm3omp32listOpenMPContextTraitPropertiesB5cxx11ENS0_8TraitSe
 declare noundef i32 @_ZN4llvm3omp33getOpenMPContextTraitPropertyKindENS0_8TraitSetENS0_13TraitSelectorENS_9StringRefE(i32 noundef, i32 noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118checkForDuplicatesERN5clang6ParserEN4llvm9StringRefENS0_14SourceLocationERNS3_9StringMapIS5_NS3_15MallocAllocatorEEENS_13OMPContextLvlE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_118checkForDuplicatesERN5clang6ParserEN4llvm9StringRefENS0_14SourceLocationERNS3_9StringMapIS5_NS3_15MallocAllocatorEEENS_13OMPContextLvlE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr %1, i64 %2, i32 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca %"class.clang::SourceLocation", align 4
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8
   %9 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -6662,7 +6662,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %13
 
 _ZNK5clang17DiagnosticBuilderlsIN12_GLOBAL__N_113OMPContextLvlEEERKS0_RKT_.exit: ; preds = %13, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i
   %18 = phi ptr [ %17, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %14, %13 ]
-  %19 = sext i32 %5 to i64
+  %19 = zext nneg i32 %5 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %21 = load i8, ptr %18, align 8
   %22 = zext i8 %21 to i64
@@ -17580,7 +17580,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %106, label %278, label %.thread158
 
 278:                                              ; preds = %277
-  call fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias nonnull writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 27)
+  call fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias writable align 4 %10, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 27)
   %.val = load i8, ptr %30, align 4
   %279 = trunc i8 %.val to i1
   br i1 %279, label %280, label %.outer
@@ -18089,7 +18089,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %50, %47, %44, %20, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.280", align 1
@@ -26027,7 +26027,7 @@ define dso_local noundef ptr @_ZN5clang6Parser27ParseOpenMPSingleExprClauseEN4ll
 define dso_local noundef ptr @_ZN5clang6Parser23ParseOpenMPSimpleClauseEN4llvm3omp6ClauseEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::optional.1389", align 4
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
-  call fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias nonnull writable align 4 %4, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1)
+  call fastcc void @_ZL23parseOpenMPSimpleClauseRN5clang6ParserEN4llvm3omp6ClauseE(ptr dead_on_unwind noalias writable align 4 %4, ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1)
   %6 = getelementptr inbounds i8, ptr %4, i64 20
   %.val = load i8, ptr %6, align 4
   %7 = trunc i8 %.val to i1

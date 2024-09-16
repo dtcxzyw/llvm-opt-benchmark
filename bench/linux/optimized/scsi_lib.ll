@@ -929,7 +929,7 @@ define dso_local void @scsi_io_completion(ptr noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @scsi_io_completion_nz_result(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.scsi_sense_hdr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 0, ptr %4, align 8, !annotation !28
@@ -1366,7 +1366,7 @@ declare dso_local zeroext i1 @scsi_noretry_cmd(ptr noundef) local_unnamed_addr #
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_mq_requeue_cmd(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @scsi_mq_requeue_cmd(ptr noundef %0, i64 noundef range(i64 0, 1001) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -248
   %4 = getelementptr i8, ptr %0, i64 -220
   %5 = load i32, ptr %4, align 4
@@ -1456,7 +1456,7 @@ define internal fastcc void @scsi_mq_requeue_cmd(ptr noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @scsi_io_completion_action(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.scsi_sense_hdr, align 8
   %4 = getelementptr i8, ptr %0, i64 -248
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16

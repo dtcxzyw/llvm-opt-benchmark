@@ -702,7 +702,7 @@ parse_hex_dump.exit155.thread:                    ; preds = %91, %.lr.ph.i142, %
   %244 = add i32 %.0116, %.0118
   %245 = sext i32 %244 to i64
   %246 = getelementptr i8, ptr %232, i64 %245
-  %247 = call fastcc i32 @parse_single_hex_dump_line(ptr noundef nonnull %6, ptr noundef %246, i32 noundef %.0116)
+  %247 = call fastcc i32 @parse_single_hex_dump_line(ptr noundef %6, ptr noundef %246, i32 noundef %.0116)
   %.not136 = icmp eq i32 %247, 0
   br i1 %.not136, label %248, label %250
 
@@ -744,7 +744,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @parse_hex_dump(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext %2, i8 noundef signext %3) unnamed_addr #4 {
+define internal fastcc i32 @parse_hex_dump(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i8 noundef signext range(i8 32, 46) %2, i8 noundef signext range(i8 32, 94) %3) unnamed_addr #4 {
   %5 = load i8, ptr %0, align 1
   %.not42 = icmp eq i8 %5, %3
   br i1 %.not42, label %._crit_edge, label %.lr.ph
@@ -853,7 +853,7 @@ declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #4 {
+define internal fastcc i32 @parse_single_hex_dump_line(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #4 {
   br label %5
 
 4:                                                ; preds = %5

@@ -93,9 +93,9 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   %61 = xor i64 %60, %58
   %62 = and i64 %61, 8
   %63 = icmp eq i64 %62, 0
-  %64 = shl nsw i32 %56, 1
-  %65 = zext i1 %63 to i32
-  %66 = or disjoint i32 %64, %65
+  %64 = zext i1 %63 to i32
+  %65 = shl nsw i32 %56, 1
+  %66 = or disjoint i32 %65, %64
   %67 = getelementptr inbounds i8, ptr %14, i64 4
   store i32 %66, ptr %67, align 4
   %68 = load ptr, ptr %0, align 8
@@ -296,11 +296,11 @@ Abc_Clock.exit98:                                 ; preds = %147, %150
   %177 = load i64, ptr %57, align 8
   %178 = load i64, ptr %59, align 8
   %179 = xor i64 %178, %177
-  %180 = shl nsw i32 %176, 1
-  %181 = trunc i64 %179 to i32
-  %182 = lshr i32 %181, 3
-  %183 = and i32 %182, 1
-  %184 = or disjoint i32 %183, %180
+  %180 = trunc i64 %179 to i32
+  %181 = lshr i32 %180, 3
+  %182 = and i32 %181, 1
+  %183 = shl nsw i32 %176, 1
+  %184 = or disjoint i32 %182, %183
   store i32 %184, ptr %67, align 4
   %185 = load ptr, ptr %0, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 16

@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
 34:                                               ; preds = %31
   %35 = load i32, ptr @hf_clique_rm_packet_id, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %21, i32 noundef %35, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0) #2
-  %37 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 16)
+  %37 = tail call fastcc i32 @dissect_depends(ptr noundef %21, ptr noundef %0, i32 noundef 16)
   %38 = add nuw nsw i32 %37, 16
   switch i8 %12, label %dissect_reliable_packet.exit [
     i8 15, label %39
@@ -317,7 +317,7 @@ define internal range(i32 0, 2) i32 @dissect_clique_rm(ptr noundef %0, ptr nocap
   br label %dissect_reliable_packet.exit
 
 112:                                              ; preds = %96
-  %113 = tail call fastcc i32 @dissect_depends(ptr noundef nonnull %21, ptr noundef %0, i32 noundef 12)
+  %113 = tail call fastcc i32 @dissect_depends(ptr noundef %21, ptr noundef %0, i32 noundef 12)
   br label %dissect_reliable_packet.exit
 
 dissect_reliable_packet.exit:                     ; preds = %.lr.ph.i23.i, %.lr.ph.i.i, %.lr.ph.i30.i, %112, %107, %100, %97, %96, %95, %81, %67, %53, %39, %34, %31, %9, %7, %4
@@ -346,13 +346,13 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 2042) i32 @dissect_depends(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 2042) i32 @dissect_depends(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 12, 17) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %5 = zext i8 %4 to i32
   %6 = shl nuw nsw i32 %5, 3
   %7 = or disjoint i32 %6, 1
   %8 = load i32, ptr @hf_clique_rm_depends, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %0, i32 noundef %8, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0) #2
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %7) #2
   %10 = load i32, ptr @ett_clique_rm_depends, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #2
@@ -372,9 +372,9 @@ define internal fastcc range(i32 1, 2042) i32 @dissect_depends(ptr noundef %0, p
   %16 = load i32, ptr @hf_clique_rm_depend_sender, align 4
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %1, i32 noundef %.026, i32 noundef 4, i32 noundef 0) #2
   %18 = load i32, ptr @hf_clique_rm_depend_packet_id, align 4
-  %19 = add i32 %.026, 4
+  %19 = add nuw nsw i32 %.026, 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef 4, i32 noundef 0) #2
-  %21 = add i32 %.026, 8
+  %21 = add nuw nsw i32 %.026, 8
   %exitcond.not = icmp eq i32 %14, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 

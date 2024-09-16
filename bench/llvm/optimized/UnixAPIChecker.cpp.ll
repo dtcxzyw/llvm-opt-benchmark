@@ -1562,13 +1562,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br i1 %.not.i.i.i3, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42.thread.i, label %265
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42.thread.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
-  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract15.i, i8 %.fca.1.extract16.i, ptr noundef %263, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %24, ptr nonnull @.str.28, i64 4, ptr undef, i8 0)
+  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract15.i, i8 %.fca.1.extract16.i, ptr noundef %263, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %24, ptr nonnull @.str.28, i64 4, ptr undef, i8 0)
   %264 = load ptr, ptr %23, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 265:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %254) #18
-  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract15.i, i8 %.fca.1.extract16.i, ptr noundef %263, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %24, ptr nonnull @.str.28, i64 4, ptr undef, i8 0)
+  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract15.i, i8 %.fca.1.extract16.i, ptr noundef %263, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %24, ptr nonnull @.str.28, i64 4, ptr undef, i8 0)
   %266 = load ptr, ptr %23, align 8
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %254) #18
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
@@ -1601,7 +1601,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49.i: ; preds
   %277 = tail call noundef ptr %276(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef 0) #18
   store ptr %267, ptr %26, align 8
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %267) #18
-  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %277, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull %26, ptr nonnull @.str.29, i64 4, ptr undef, i8 0)
+  call fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(464) %0, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, ptr noundef %277, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef %26, ptr nonnull @.str.29, i64 4, ptr undef, i8 0)
   %278 = load ptr, ptr %25, align 8
   store ptr %267, ptr %25, align 8
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %267) #18
@@ -1971,7 +1971,7 @@ declare { ptr, i64 } @_ZNK5clang4ento14CheckerContext13getCalleeNameEPKNS_12Func
 declare noundef ptr @_ZN5clang11DeclContext28getEnclosingNamespaceContextEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16CheckOpenVariantERN5clang4ento14CheckerContextERKNS2_9CallEventE11OpenVariant(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16CheckOpenVariantERN5clang4ento14CheckerContextERKNS2_9CallEventE11OpenVariant(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -1982,9 +1982,9 @@ define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16CheckOpen
   %12 = alloca %"struct.std::pair.203", align 8
   %13 = alloca %"class.llvm::SmallString", align 8
   %14 = alloca %"class.llvm::raw_svector_ostream", align 8
-  %switch = icmp eq i32 %3, 0
-  %.str.5..str.6 = select i1 %switch, ptr @.str.5, ptr @.str.6
-  %. = select i1 %switch, i32 1, i32 2
+  %trunc = trunc nuw i32 %3 to i1
+  %.str.5..str.6 = select i1 %trunc, ptr @.str.6, ptr @.str.5
+  %. = select i1 %trunc, i32 2, i32 1
   %15 = add nuw nsw i32 %., 1
   %16 = add nuw nsw i32 %., 2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2166,7 +2166,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %98, %100
 _ZN4llvm11raw_ostreamlsEPKc.exit90:               ; preds = %111, %113
   %117 = phi ptr [ %.pre198, %111 ], [ %116, %113 ]
   %.0.i.i89 = phi ptr [ %112, %111 ], [ %.0.i87, %113 ]
-  %118 = select i1 %switch, i64 4, i64 6
+  %118 = select i1 %trunc, i64 6, i64 4
   %119 = getelementptr inbounds nuw i8, ptr %.0.i.i89, i64 24
   %120 = load ptr, ptr %119, align 8
   %121 = ptrtoint ptr %120 to i64
@@ -2284,7 +2284,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 _ZN4llvm11raw_ostreamlsEPKc.exit103:              ; preds = %171, %173
   %176 = phi ptr [ %.pre, %171 ], [ %175, %173 ]
   %.0.i.i102 = phi ptr [ %172, %171 ], [ %9, %173 ]
-  %177 = select i1 %switch, i64 4, i64 6
+  %177 = select i1 %trunc, i64 6, i64 4
   %178 = getelementptr inbounds nuw i8, ptr %.0.i.i102, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = ptrtoint ptr %179 to i64
@@ -3017,7 +3017,7 @@ declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion14getMemorySpaceEv(ptr nou
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nocapture noundef %6, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i8 %.8.val3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nocapture noundef nonnull %6, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i8 %.8.val3) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.282", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -3200,7 +3200,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZN5clang4ento13getPointeeValENS0_4SValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind writable sret(%"class.std::optional.434") align 8, ptr, i8, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK12_GLOBAL__N_120UnixAPIMisuseChecker34EnsureGetdelimBufferAndSizeCorrectEN5clang4ento4SValES3_PKNS1_4ExprES6_RNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEENK3$_0clESD_NS9_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK12_GLOBAL__N_120UnixAPIMisuseChecker34EnsureGetdelimBufferAndSizeCorrectEN5clang4ento4SValES3_PKNS1_4ExprES6_RNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEENK3$_0clESD_NS9_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %.0.val, ptr %1, i64 range(i64 93, 109) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.282", align 8
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -3578,7 +3578,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.split.
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit21.thread.i.us.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.split.us.i
   %.fca.0.extract.i.us.i = extractvalue { ptr, i8 } %53, 0
-  %54 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr null, ptr %.fca.0.extract.i.us.i, i8 %.fca.1.extract.i.us.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %54 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr null, ptr %.fca.0.extract.i.us.i, i8 %.fca.1.extract.i.us.i, ptr noundef %7, ptr noundef %8)
   br i1 %54, label %55, label %61
 
 55:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit21.thread.i.us.i
@@ -3653,7 +3653,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.split.
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.split.i
   %.fca.0.extract.i.i = extractvalue { ptr, i8 } %84, 0
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %32) #18
-  %86 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr nonnull %32, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %86 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr nonnull %32, ptr %.fca.0.extract.i.i, i8 %.fca.1.extract.i.i, ptr noundef %7, ptr noundef %8)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %32) #18
   br i1 %86, label %87, label %93
 
@@ -3854,7 +3854,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang4ento5check7PreStmtINS_8
 declare noundef ptr @_ZNK5clang4ento14CheckerContext13getCalleeDeclEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(81), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr %.0.val, ptr %0, i8 %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr %.0.val, ptr %0, i8 %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"struct.std::pair.203", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
@@ -4182,7 +4182,7 @@ declare { ptr, i8 } @_ZNK5clang4ento11Environment7getSValERKNS0_16EnvironmentEnt
 declare void @_ZN5clang4ento16EnvironmentEntryC1EPKNS_4StmtEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_125UnixAPIPortabilityChecker20BasicAllocationCheckERN5clang4ento14CheckerContextEPKNS1_8CallExprEjjPKc(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_125UnixAPIPortabilityChecker20BasicAllocationCheckERN5clang4ento14CheckerContextEPKNS1_8CallExprEjjPKc(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 3) %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.clang::ProgramPoint", align 8
   %9 = alloca %"class.clang::ento::EnvironmentEntry", align 8
@@ -4222,7 +4222,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %28 = and i32 %27, 1
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds ptr, ptr %26, i64 %29
-  %31 = zext i32 %4 to i64
+  %31 = zext nneg i32 %4 to i64
   %32 = getelementptr inbounds ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %.sroa.1.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -4247,12 +4247,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread: ; preds = %42
-  %43 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr null, ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %43 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr null, ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef %10, ptr noundef %11)
   br i1 %43, label %45, label %50
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %42
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %18) #18
-  %44 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr nonnull %18, ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %44 = call fastcc noundef zeroext i1 @_ZL20IsZeroByteAllocationN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS2_4SValEPS5_S7_(ptr nonnull %18, ptr %.fca.0.extract, i8 %.fca.1.extract, ptr noundef %10, ptr noundef %11)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %18) #18
   br i1 %44, label %45, label %50
 

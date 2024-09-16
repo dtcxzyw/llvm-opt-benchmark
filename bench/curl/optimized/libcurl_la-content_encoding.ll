@@ -589,7 +589,7 @@ if.end13:                                         ; preds = %if.end8.i28, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @inflate_stream(ptr noundef %data, ptr noundef %writer, i32 noundef %type, i32 noundef %started) unnamed_addr #0 {
+define internal fastcc i32 @inflate_stream(ptr noundef %data, ptr noundef %writer, i32 noundef %type, i32 noundef range(i32 2, 7) %started) unnamed_addr #0 {
 entry:
   %z1 = getelementptr inbounds i8, ptr %writer, i64 32
   %avail_in = getelementptr inbounds i8, ptr %writer, i64 40

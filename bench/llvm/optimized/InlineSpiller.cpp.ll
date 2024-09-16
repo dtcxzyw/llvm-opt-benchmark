@@ -2335,7 +2335,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit74.i.i: ; preds = %734, %_ZN
   br i1 %744, label %746, label %745
 
 745:                                              ; preds = %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit74.i.i
-  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0.i.i12, ptr noundef nonnull %629)
+  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0.i.i12, ptr noundef %629)
   br label %.loopexit.i.i
 
 746:                                              ; preds = %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit74.i.i
@@ -2344,7 +2344,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit74.i.i: ; preds = %734, %_ZN
   br i1 %.not62.i.i, label %749, label %748
 
 748:                                              ; preds = %746
-  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0.i.i12, ptr noundef nonnull %629)
+  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0.i.i12, ptr noundef %629)
   br label %.loopexit.i.i
 
 749:                                              ; preds = %746
@@ -2466,7 +2466,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit74.i.i: ; preds = %734, %_ZN
   br i1 %exitcond.not.i.i, label %.loopexit106.i.i, label %.lr.ph.i.i.i50, !llvm.loop !43
 
 _ZN12_GLOBAL__N_113InlineSpiller32canGuaranteeAssignmentAfterRematEN4llvm8RegisterERNS1_12MachineInstrE.exit.i.i: ; preds = %816
-  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %.0.i.i12, ptr noundef nonnull %629)
+  call fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %.0.i.i12, ptr noundef %629)
   br label %.loopexit.i.i
 
 .loopexit106.i.i:                                 ; preds = %.critedge.i.i.i, %789, %785
@@ -6734,7 +6734,7 @@ _ZNK4llvm11SlotIndexes19getInstructionIndexERKNS_12MachineInstrEb.exit: ; preds 
 declare noundef zeroext i1 @_ZN4llvm13LiveRangeEdit18canRematerializeAtERNS0_5RematEPNS_6VNInfoENS_9SlotIndexEb(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113InlineSpiller13markValueUsedEPN4llvm12LiveIntervalEPNS1_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.449", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5, i64 noundef 8) #16

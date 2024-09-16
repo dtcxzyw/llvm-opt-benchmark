@@ -5580,7 +5580,7 @@ _ZN3tbb6detail2d216feeder_item_taskIZN4mold3elfL4markINS4_4M68KEEEvRNS4_7Context
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL5visitINS0_4M68KEEEvRNS0_7ContextIT_EEPNS0_12InputSectionIS4_EERN3tbb6detail2d16feederIS9_EEl(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr nocapture noundef readonly %isec, ptr noundef nonnull align 8 dereferenceable(8) %feeder, i64 noundef %depth) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL5visitINS0_4M68KEEEvRNS0_7ContextIT_EEPNS0_12InputSectionIS4_EERN3tbb6detail2d16feederIS9_EEl(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr nocapture noundef readonly %isec, ptr noundef nonnull align 8 dereferenceable(8) %feeder, i64 noundef range(i64 0, 4) %depth) unnamed_addr #4 {
 entry:
   %ref.tmp27 = alloca ptr, align 8
   %ref.tmp65 = alloca ptr, align 8
@@ -5769,9 +5769,9 @@ _ZNK4mold3elf12InputSectionINS0_4M68KEE8get_relsERNS0_7ContextIS2_EE.exit: ; pre
   br i1 %cmp.i54116, label %for.end71, label %for.body46.lr.ph
 
 for.body46.lr.ph:                                 ; preds = %_ZNK4mold3elf12InputSectionINS0_4M68KEE8get_relsERNS0_7ContextIS2_EE.exit
-  %cmp = icmp slt i64 %depth, 3
+  %cmp.not = icmp eq i64 %depth, 3
   %add = add nuw nsw i64 %depth, 1
-  br i1 %cmp, label %for.body46.us, label %for.body46
+  br i1 %cmp.not, label %for.body46.us, label %for.body46
 
 for.body46.us:                                    ; preds = %for.body46.lr.ph, %for.inc69.us
   %__begin037.sroa.0.0117.us = phi ptr [ %incdec.ptr.i97.us, %for.inc69.us ], [ %30, %for.body46.lr.ph ]
@@ -5832,12 +5832,16 @@ _ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84.us: ; p
 
 if.then62.us:                                     ; preds = %_ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84.us
   %43 = load i64, ptr %origin.i65.us, align 8
-  %and.i86.us = and i64 %43, 3
-  %cmp.i87.us = icmp eq i64 %and.i86.us, 1
-  %and3.i88.us = and i64 %43, -4
-  %44 = inttoptr i64 %and3.i88.us to ptr
-  %retval.0.i89.us = select i1 %cmp.i87.us, ptr %44, ptr null
-  call fastcc void @_ZN4mold3elfL5visitINS0_4M68KEEEvRNS0_7ContextIT_EEPNS0_12InputSectionIS4_EERN3tbb6detail2d16feederIS9_EEl(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %retval.0.i89.us, ptr noundef nonnull align 8 dereferenceable(8) %feeder, i64 noundef %add)
+  %and.i91.us = and i64 %43, 3
+  %cmp.i92.us = icmp eq i64 %and.i91.us, 1
+  %and3.i93.us = and i64 %43, -4
+  %44 = inttoptr i64 %and3.i93.us to ptr
+  %retval.0.i94.us = select i1 %cmp.i92.us, ptr %44, ptr null
+  store ptr %retval.0.i94.us, ptr %ref.tmp65, align 8
+  %vtable.i95.us = load ptr, ptr %feeder, align 8
+  %vfn.i96.us = getelementptr inbounds i8, ptr %vtable.i95.us, i64 24
+  %45 = load ptr, ptr %vfn.i96.us, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %feeder, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65) #11
   br label %for.inc69.us
 
 for.inc69.us:                                     ; preds = %if.then62.us, %_ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84.us, %land.rhs.i79.us, %land.lhs.true.i76.us, %if.end59.us, %if.then58.us
@@ -5847,36 +5851,36 @@ for.inc69.us:                                     ; preds = %if.then62.us, %_ZN4
 
 for.body46:                                       ; preds = %for.body46.lr.ph, %for.inc69
   %__begin037.sroa.0.0117 = phi ptr [ %incdec.ptr.i97, %for.inc69 ], [ %30, %for.body46.lr.ph ]
-  %45 = load ptr, ptr %isec, align 8
-  %symbols51 = getelementptr inbounds i8, ptr %45, i64 48
+  %46 = load ptr, ptr %isec, align 8
+  %symbols51 = getelementptr inbounds i8, ptr %46, i64 48
   %r_sym52 = getelementptr inbounds i8, ptr %__begin037.sroa.0.0117, i64 4
-  %46 = load i8, ptr %r_sym52, align 1
-  %conv.i55 = zext i8 %46 to i64
+  %47 = load i8, ptr %r_sym52, align 1
+  %conv.i55 = zext i8 %47 to i64
   %shl.i56 = shl nuw nsw i64 %conv.i55, 16
   %arrayidx3.i57 = getelementptr inbounds i8, ptr %__begin037.sroa.0.0117, i64 5
-  %47 = load i8, ptr %arrayidx3.i57, align 1
-  %conv4.i58 = zext i8 %47 to i64
+  %48 = load i8, ptr %arrayidx3.i57, align 1
+  %conv4.i58 = zext i8 %48 to i64
   %shl5.i59 = shl nuw nsw i64 %conv4.i58, 8
   %or.i60 = or disjoint i64 %shl5.i59, %shl.i56
   %arrayidx7.i61 = getelementptr inbounds i8, ptr %__begin037.sroa.0.0117, i64 6
-  %48 = load i8, ptr %arrayidx7.i61, align 1
-  %conv8.i62 = zext i8 %48 to i64
+  %49 = load i8, ptr %arrayidx7.i61, align 1
+  %conv8.i62 = zext i8 %49 to i64
   %or9.i63 = or disjoint i64 %or.i60, %conv8.i62
-  %49 = load ptr, ptr %symbols51, align 8
-  %add.ptr.i64 = getelementptr inbounds ptr, ptr %49, i64 %or9.i63
-  %50 = load ptr, ptr %add.ptr.i64, align 8
-  %origin.i65 = getelementptr inbounds i8, ptr %50, i64 8
-  %51 = load i64, ptr %origin.i65, align 8
-  %and.i66 = and i64 %51, 3
+  %50 = load ptr, ptr %symbols51, align 8
+  %add.ptr.i64 = getelementptr inbounds ptr, ptr %50, i64 %or9.i63
+  %51 = load ptr, ptr %add.ptr.i64, align 8
+  %origin.i65 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = load i64, ptr %origin.i65, align 8
+  %and.i66 = and i64 %52, 3
   %cmp.i67 = icmp ne i64 %and.i66, 3
-  %and3.i68 = and i64 %51, -4
-  %52 = inttoptr i64 %and3.i68 to ptr
+  %and3.i68 = and i64 %52, -4
+  %53 = inttoptr i64 %and3.i68 to ptr
   %tobool57.not108 = icmp eq i64 %and3.i68, 0
   %tobool57.not = or i1 %cmp.i67, %tobool57.not108
   br i1 %tobool57.not, label %if.end59, label %if.then58
 
 if.then58:                                        ; preds = %for.body46
-  %is_alive = getelementptr inbounds i8, ptr %52, i64 13
+  %is_alive = getelementptr inbounds i8, ptr %53, i64 13
   store atomic i8 1, ptr %is_alive monotonic, align 1
   br label %for.inc69
 
@@ -5886,34 +5890,30 @@ if.end59:                                         ; preds = %for.body46
   br i1 %tobool.not.i75, label %for.inc69, label %land.lhs.true.i76
 
 land.lhs.true.i76:                                ; preds = %if.end59
-  %is_alive.i77 = getelementptr inbounds i8, ptr %52, i64 69
-  %53 = load atomic i8, ptr %is_alive.i77 seq_cst, align 1
-  %tobool.i.i.i78 = trunc i8 %53 to i1
+  %is_alive.i77 = getelementptr inbounds i8, ptr %53, i64 69
+  %54 = load atomic i8, ptr %is_alive.i77 seq_cst, align 1
+  %tobool.i.i.i78 = trunc i8 %54 to i1
   br i1 %tobool.i.i.i78, label %land.rhs.i79, label %for.inc69
 
 land.rhs.i79:                                     ; preds = %land.lhs.true.i76
-  %is_visited.i80 = getelementptr inbounds i8, ptr %52, i64 72
-  %54 = load atomic i8, ptr %is_visited.i80 monotonic, align 4
-  %tobool.i.i.i.i.i81 = trunc i8 %54 to i1
+  %is_visited.i80 = getelementptr inbounds i8, ptr %53, i64 72
+  %55 = load atomic i8, ptr %is_visited.i80 monotonic, align 4
+  %tobool.i.i.i.i.i81 = trunc i8 %55 to i1
   br i1 %tobool.i.i.i.i.i81, label %for.inc69, label %_ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84
 
 _ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84: ; preds = %land.rhs.i79
-  %55 = atomicrmw xchg ptr %is_visited.i80, i8 1 monotonic, align 1
-  %tobool3.i.i.i.i.i83 = trunc i8 %55 to i1
+  %56 = atomicrmw xchg ptr %is_visited.i80, i8 1 monotonic, align 1
+  %tobool3.i.i.i.i.i83 = trunc i8 %56 to i1
   br i1 %tobool3.i.i.i.i.i83, label %for.inc69, label %if.then62
 
 if.then62:                                        ; preds = %_ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84
-  %56 = load i64, ptr %origin.i65, align 8
-  %and.i91 = and i64 %56, 3
-  %cmp.i92 = icmp eq i64 %and.i91, 1
-  %and3.i93 = and i64 %56, -4
-  %57 = inttoptr i64 %and3.i93 to ptr
-  %retval.0.i94 = select i1 %cmp.i92, ptr %57, ptr null
-  store ptr %retval.0.i94, ptr %ref.tmp65, align 8
-  %vtable.i95 = load ptr, ptr %feeder, align 8
-  %vfn.i96 = getelementptr inbounds i8, ptr %vtable.i95, i64 24
-  %58 = load ptr, ptr %vfn.i96, align 8
-  call void %58(ptr noundef nonnull align 8 dereferenceable(8) %feeder, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp65) #11
+  %57 = load i64, ptr %origin.i65, align 8
+  %and.i86 = and i64 %57, 3
+  %cmp.i87 = icmp eq i64 %and.i86, 1
+  %and3.i88 = and i64 %57, -4
+  %58 = inttoptr i64 %and3.i88 to ptr
+  %retval.0.i89 = select i1 %cmp.i87, ptr %58, ptr null
+  call fastcc void @_ZN4mold3elfL5visitINS0_4M68KEEEvRNS0_7ContextIT_EEPNS0_12InputSectionIS4_EERN3tbb6detail2d16feederIS9_EEl(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %retval.0.i89, ptr noundef nonnull align 8 dereferenceable(8) %feeder, i64 noundef %add)
   br label %for.inc69
 
 for.inc69:                                        ; preds = %land.rhs.i79, %if.end59, %land.lhs.true.i76, %_ZN4mold3elfL12mark_sectionINS0_4M68KEEEbPNS0_12InputSectionIT_EE.exit84, %if.then62, %if.then58

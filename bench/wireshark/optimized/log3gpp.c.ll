@@ -426,7 +426,7 @@ thread-pre-split.thread.i:                        ; preds = %thread-pre-split.i,
 
 46:                                               ; preds = %42, %thread-pre-split.thread.i, %thread-pre-split.i, %27
   %.2.ph = phi i32 [ %30, %27 ], [ 0, %thread-pre-split.i ], [ %.1, %thread-pre-split.thread.i ], [ %43, %42 ]
-  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef %.2.ph, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_read.linebuff, i32 noundef %.2.ph, ptr noundef %10, ptr noundef %11, ptr noundef %7, ptr noundef %12, ptr noundef %8, ptr noundef %9)
   %.not54 = icmp eq i32 %47, 0
   br i1 %.not54, label %18, label %48
 
@@ -732,7 +732,7 @@ read_new_line.exit:                               ; preds = %21
 
 46:                                               ; preds = %43, %thread-pre-split.thread.i, %thread-pre-split.i, %26
   %.1.ph = phi i32 [ %29, %26 ], [ 0, %thread-pre-split.i ], [ %.051, %thread-pre-split.thread.i ], [ %44, %43 ]
-  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %12)
+  %47 = call fastcc i32 @parse_line(ptr noundef nonnull @log3gpp_seek_read.linebuff, i32 noundef %.1.ph, ptr noundef %9, ptr noundef %10, ptr noundef %7, ptr noundef %11, ptr noundef %8, ptr noundef %12)
   %.not39 = icmp eq i32 %47, 0
   br i1 %.not39, label %146, label %48
 
@@ -947,7 +947,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #4 {
   %9 = alloca [17 x i8], align 16
   %10 = alloca [5 x i8], align 1
   %11 = load ptr, ptr @g_ascii_table, align 8

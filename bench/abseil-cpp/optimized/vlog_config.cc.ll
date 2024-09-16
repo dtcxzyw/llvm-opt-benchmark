@@ -632,13 +632,13 @@ if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   unreachable
 
 _ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %cond.true.i.i.i.i
-  %call5.i.i.i.i2.i10.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #22
+  %call5.i.i.i.i1.i9.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #22
   %__x.val5.i.pre = load ptr, ptr %2, align 8
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit
   %__x.val5.i = phi ptr [ %__x.val.i, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %__x.val5.i.pre, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i ]
-  %this.val.i = phi ptr [ null, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %call5.i.i.i.i2.i10.i, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i ]
+  %this.val.i = phi ptr [ null, %_ZN4absl12log_internal12_GLOBAL__N_116get_vmodule_infoEv.exit ], [ %call5.i.i.i.i1.i9.i, %_ZNSt16allocator_traitsISaIN4absl12log_internal12_GLOBAL__N_111VModuleInfoEEE8allocateERS4_m.exit.i.i.i.i ]
   store ptr %this.val.i, ptr %infos, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %infos, i64 8
   %add.ptr.i.i.i = getelementptr inbounds %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo", ptr %this.val.i, i64 %sub.ptr.div.i.i

@@ -60,7 +60,7 @@ entry:
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
   store i32 0, ptr %taglen, align 4
-  %call = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen)
+  %call = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %tag, ptr noundef %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
 
@@ -80,7 +80,7 @@ land.lhs.true5:                                   ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.lhs.true5
   %2 = load i32, ptr %ctlen, align 4
-  %call12 = call fastcc i32 @do_decrypt(ptr noundef nonnull @gcm_iv, ptr noundef nonnull %ct, i32 noundef %2, ptr noundef nonnull %tag, i32 noundef %1)
+  %call12 = call fastcc i32 @do_decrypt(ptr noundef nonnull @gcm_iv, ptr noundef %ct, i32 noundef %2, ptr noundef %tag, i32 noundef %1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %land.lhs.true5, %land.lhs.true, %entry
@@ -134,14 +134,14 @@ entry:
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
   store i32 0, ptr %taglen, align 4
-  %call = call fastcc i32 @do_encrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ctlen, ptr noundef nonnull %tag, ptr noundef nonnull %taglen)
+  %call = call fastcc i32 @do_encrypt(ptr noundef nonnull %iv_gen, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %tag, ptr noundef %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
   %0 = load i32, ptr %ctlen, align 4
   %1 = load i32, ptr %taglen, align 4
-  %call6 = call fastcc i32 @do_decrypt(ptr noundef nonnull %iv_gen, ptr noundef nonnull %ct, i32 noundef %0, ptr noundef nonnull %tag, i32 noundef %1)
+  %call6 = call fastcc i32 @do_decrypt(ptr noundef nonnull %iv_gen, ptr noundef %ct, i32 noundef %0, ptr noundef %tag, i32 noundef %1)
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %entry
@@ -150,7 +150,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef %ct, ptr noundef %ct_len, ptr noundef %tag, ptr nocapture noundef writeonly %tag_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_encrypt(ptr noundef %iv_gen, ptr noundef nonnull %ct, ptr noundef nonnull %ct_len, ptr noundef nonnull %tag, ptr nocapture noundef nonnull writeonly %tag_len) unnamed_addr #0 {
 entry:
   %outlen = alloca i32, align 4
   %outbuf = alloca [64 x i8], align 16
@@ -188,7 +188,7 @@ land.lhs.true18:                                  ; preds = %land.lhs.true8
   br i1 %tobool25.not, label %land.end, label %land.lhs.true26
 
 land.lhs.true26:                                  ; preds = %land.lhs.true18
-  %call27 = call i32 @EVP_EncryptUpdate(ptr noundef %call, ptr noundef %ct, ptr noundef %ct_len, ptr noundef nonnull @gcm_pt, i32 noundef 16) #2
+  %call27 = call i32 @EVP_EncryptUpdate(ptr noundef %call, ptr noundef nonnull %ct, ptr noundef nonnull %ct_len, ptr noundef nonnull @gcm_pt, i32 noundef 16) #2
   %cmp28 = icmp sgt i32 %call27, 0
   %conv29 = zext i1 %cmp28 to i32
   %call32 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 55, ptr noundef nonnull @.str.12, i32 noundef %conv29) #2
@@ -210,7 +210,7 @@ land.lhs.true42:                                  ; preds = %land.lhs.true34
   br i1 %tobool45.not, label %land.end, label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %land.lhs.true42
-  %call47 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %call, i32 noundef 16, i32 noundef 16, ptr noundef %tag) #2
+  %call47 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %call, i32 noundef 16, i32 noundef 16, ptr noundef nonnull %tag) #2
   %cmp48 = icmp sgt i32 %call47, 0
   %conv49 = zext i1 %cmp48 to i32
   %call52 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 59, ptr noundef nonnull @.str.16, i32 noundef %conv49) #2
@@ -242,7 +242,7 @@ land.end:                                         ; preds = %lor.end, %land.lhs.
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %iv, ptr noundef %ct, i32 noundef %ct_len, ptr noundef %tag, i32 noundef %tag_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_decrypt(ptr noundef %iv, ptr noundef nonnull %ct, i32 noundef %ct_len, ptr noundef nonnull %tag, i32 noundef %tag_len) unnamed_addr #0 {
 entry:
   %outlen = alloca i32, align 4
   %ptlen = alloca i32, align 4
@@ -285,7 +285,7 @@ land.lhs.true20:                                  ; preds = %land.lhs.true16
   br i1 %tobool27.not, label %land.end, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %land.lhs.true20
-  %call29 = call i32 @EVP_DecryptUpdate(ptr noundef %call, ptr noundef nonnull %pt, ptr noundef nonnull %ptlen, ptr noundef %ct, i32 noundef %ct_len) #2
+  %call29 = call i32 @EVP_DecryptUpdate(ptr noundef %call, ptr noundef nonnull %pt, ptr noundef nonnull %ptlen, ptr noundef nonnull %ct, i32 noundef %ct_len) #2
   %cmp30 = icmp sgt i32 %call29, 0
   %conv31 = zext i1 %cmp30 to i32
   %call34 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 83, ptr noundef nonnull @.str.21, i32 noundef %conv31) #2
@@ -293,7 +293,7 @@ land.lhs.true28:                                  ; preds = %land.lhs.true20
   br i1 %tobool35.not, label %land.end, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %land.lhs.true28
-  %call37 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %call, i32 noundef 17, i32 noundef %tag_len, ptr noundef %tag) #2
+  %call37 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef %call, i32 noundef 17, i32 noundef %tag_len, ptr noundef nonnull %tag) #2
   %cmp38 = icmp sgt i32 %call37, 0
   %conv39 = zext i1 %cmp38 to i32
   %call42 = call i32 @test_true(ptr noundef nonnull @.str.3, i32 noundef 85, ptr noundef nonnull @.str.22, i32 noundef %conv39) #2

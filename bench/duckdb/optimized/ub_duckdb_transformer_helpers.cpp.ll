@@ -6971,7 +6971,7 @@ unreachable:                                      ; preds = %invoke.cont102
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL19VectorToGroupingSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL19VectorToGroupingSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %indexes) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8, !tbaa !253

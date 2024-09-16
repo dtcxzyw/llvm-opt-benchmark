@@ -48,7 +48,7 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h238
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -289,7 +289,7 @@ define void @"_ZN65_$LT$uu_df..table..Row$u20$as$u20$core..ops..arith..AddAssign
 
 32:                                               ; preds = %40, %33
   %.pn.pn = phi { ptr, i32 } [ %.pn, %40 ], [ %34, %33 ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #16
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef align 8 dereferenceable(24) %5) #16
           to label %73 unwind label %74
 
 33:                                               ; preds = %2
@@ -623,7 +623,7 @@ define void @"_ZN94_$LT$uu_df..table..Row$u20$as$u20$core..convert..From$LT$uu_d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h9968265b69d086aaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr readonly %.8.val, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h9968265b69d086aaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr readonly %.8.val, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -711,7 +711,7 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h99682
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1327dd52570b8E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr readonly %.8.val, i128 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1327dd52570b8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr readonly %.8.val, i128 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { i64, [1 x i64] }, { i64, [1 x i64] }, { ptr, ptr }, i32, i32, i8, [7 x i8] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
@@ -790,7 +790,7 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { ptr, ptr, {} }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -830,19 +830,19 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05c
   %28 = getelementptr inbounds i8, ptr %3, i64 16
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = getelementptr inbounds i8, ptr %24, i64 24
+  %.sroa.48.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %13, i64 8
+  %.sroa.59.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %13, i64 16
   %31 = getelementptr inbounds i8, ptr %8, i64 8
-  %.sroa.5.0..sroa_idx.i37 = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.7.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %6, i64 32
-  %.sroa.8.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %6, i64 40
-  %.sroa.9.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %6, i64 44
-  %.sroa.10.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %6, i64 48
-  %.sroa.5.0..sroa_idx12.i42 = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.7.0..sroa_idx13.i43 = getelementptr inbounds i8, ptr %5, i64 16
-  %.sroa.8.0..sroa_idx14.i44 = getelementptr inbounds i8, ptr %5, i64 24
-  %.sroa.10.0..sroa_idx15.i45 = getelementptr inbounds i8, ptr %5, i64 32
-  %.sroa.1116.0..sroa_idx.i46 = getelementptr inbounds i8, ptr %5, i64 40
-  %.sroa.48.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sroa.59.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.5.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.7.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.8.0..sroa_idx.i41 = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.9.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %6, i64 44
+  %.sroa.10.0..sroa_idx.i43 = getelementptr inbounds i8, ptr %6, i64 48
+  %.sroa.5.0..sroa_idx12.i44 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.7.0..sroa_idx13.i45 = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.8.0..sroa_idx14.i46 = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.10.0..sroa_idx15.i47 = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.1116.0..sroa_idx.i48 = getelementptr inbounds i8, ptr %5, i64 40
   %32 = getelementptr inbounds i8, ptr %24, i64 64
   %33 = getelementptr inbounds i8, ptr %24, i64 48
   %34 = getelementptr inbounds i8, ptr %24, i64 32
@@ -879,7 +879,7 @@ define internal fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05c
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke59, %.invoke58, %.invoke, %81, %110, %77, %56, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %70, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36, %123
+.loopexit.split-lp:                               ; preds = %.invoke59, %.invoke58, %.invoke, %81, %110, %77, %56, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %70, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i38, %123
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -923,15 +923,15 @@ default.unreachable57:                            ; preds = %46
 .invoke58:                                        ; preds = %46, %50, %51
   %.in = phi ptr [ %42, %51 ], [ %43, %50 ], [ %44, %46 ]
   %52 = load i64, ptr %.in, align 8, !noundef !5
-  invoke fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h9968265b69d086aaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull %19, i64 noundef %52)
+  invoke fastcc void @_ZN5uu_df5table12RowFormatter12scaled_bytes17h9968265b69d086aaE(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr nonnull %19, i64 noundef %52)
           to label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit unwind label %.loopexit.split-lp
 
 53:                                               ; preds = %46
   %54 = load i64, ptr %24, align 16, !range !88, !noundef !5
   %55 = load double, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %switch.i = icmp eq i64 %54, 0
-  br i1 %switch.i, label %56, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i
+  %trunc.i = trunc nuw i64 %54 to i1
+  br i1 %trunc.i, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, label %56
 
 56:                                               ; preds = %53
   %57 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0b419c0b910f389bE"(i64 noundef 1, i1 noundef zeroext false)
@@ -944,8 +944,8 @@ default.unreachable57:                            ; preds = %46
   call void @llvm.assume(i1 %60)
   store i8 45, ptr %59, align 1
   store i64 %58, ptr %13, align 8, !alias.scope !89
-  store ptr %59, ptr %.sroa.48.0..sroa_idx.i47, align 8, !alias.scope !89
-  store i64 1, ptr %.sroa.59.0..sroa_idx.i48, align 8, !alias.scope !89
+  store ptr %59, ptr %.sroa.48.0..sroa_idx.i36, align 8, !alias.scope !89
+  store i64 1, ptr %.sroa.59.0..sroa_idx.i37, align 8, !alias.scope !89
   br label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit
 
 _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %53
@@ -992,15 +992,15 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %53
 .invoke59:                                        ; preds = %46, %64, %65
   %.sink = phi ptr [ %33, %64 ], [ %32, %65 ], [ %34, %46 ]
   %66 = load i128, ptr %.sink, align 16, !noundef !5
-  invoke fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1327dd52570b8E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13, ptr nonnull %19, i128 noundef %66)
+  invoke fastcc void @_ZN5uu_df5table12RowFormatter13scaled_inodes17h75f1327dd52570b8E(ptr noalias nocapture noundef align 8 dereferenceable(24) %13, ptr nonnull %19, i128 noundef %66)
           to label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit unwind label %.loopexit.split-lp
 
 67:                                               ; preds = %46
   %68 = load i64, ptr %29, align 16, !range !88, !noundef !5
   %69 = load double, ptr %30, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
-  %switch.i35 = icmp eq i64 %68, 0
-  br i1 %switch.i35, label %70, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36
+  %trunc.i35 = trunc nuw i64 %68 to i1
+  br i1 %trunc.i35, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i38, label %70
 
 70:                                               ; preds = %67
   %71 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0b419c0b910f389bE"(i64 noundef 1, i1 noundef zeroext false)
@@ -1013,11 +1013,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %53
   call void @llvm.assume(i1 %74)
   store i8 45, ptr %73, align 1
   store i64 %72, ptr %13, align 8, !alias.scope !104
-  store ptr %73, ptr %.sroa.48.0..sroa_idx.i47, align 8, !alias.scope !104
-  store i64 1, ptr %.sroa.59.0..sroa_idx.i48, align 8, !alias.scope !104
+  store ptr %73, ptr %.sroa.48.0..sroa_idx.i36, align 8, !alias.scope !104
+  store i64 1, ptr %.sroa.59.0..sroa_idx.i37, align 8, !alias.scope !104
   br label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit
 
-_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36: ; preds = %67
+_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i38: ; preds = %67
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !104
   %75 = fmul double %69, 1.000000e+02
@@ -1027,22 +1027,22 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36: ; preds = %67
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17ha6548b77360d9c6eE", ptr %31, align 8, !noalias !104
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !104
-  store i64 2, ptr %.sroa.5.0..sroa_idx.i37, align 8, !noalias !104
-  store i64 0, ptr %.sroa.7.0..sroa_idx.i38, align 8, !noalias !104
-  store i32 32, ptr %.sroa.8.0..sroa_idx.i39, align 8, !noalias !104
-  store i32 0, ptr %.sroa.9.0..sroa_idx.i40, align 4, !noalias !104
-  store i8 3, ptr %.sroa.10.0..sroa_idx.i41, align 8, !noalias !104
+  store i64 2, ptr %.sroa.5.0..sroa_idx.i39, align 8, !noalias !104
+  store i64 0, ptr %.sroa.7.0..sroa_idx.i40, align 8, !noalias !104
+  store i32 32, ptr %.sroa.8.0..sroa_idx.i41, align 8, !noalias !104
+  store i32 0, ptr %.sroa.9.0..sroa_idx.i42, align 4, !noalias !104
+  store i8 3, ptr %.sroa.10.0..sroa_idx.i43, align 8, !noalias !104
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !107
   store ptr @anon.0038b4077a4fc1436dad5fe124ddbe2e.30, ptr %5, align 8, !noalias !118
-  store i64 2, ptr %.sroa.5.0..sroa_idx12.i42, align 8, !noalias !118
-  store ptr %8, ptr %.sroa.7.0..sroa_idx13.i43, align 8, !noalias !118
-  store i64 1, ptr %.sroa.8.0..sroa_idx14.i44, align 8, !noalias !118
-  store ptr %6, ptr %.sroa.10.0..sroa_idx15.i45, align 8, !noalias !118
-  store i64 1, ptr %.sroa.1116.0..sroa_idx.i46, align 8, !noalias !118
+  store i64 2, ptr %.sroa.5.0..sroa_idx12.i44, align 8, !noalias !118
+  store ptr %8, ptr %.sroa.7.0..sroa_idx13.i45, align 8, !noalias !118
+  store i64 1, ptr %.sroa.8.0..sroa_idx14.i46, align 8, !noalias !118
+  store ptr %6, ptr %.sroa.10.0..sroa_idx15.i47, align 8, !noalias !118
+  store i64 1, ptr %.sroa.1116.0..sroa_idx.i48, align 8, !noalias !118
   invoke void @_ZN5alloc3fmt6format12format_inner17h20bbaee2ca87fbecE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
           to label %.noexc50 unwind label %.loopexit.split-lp
 
-.noexc50:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36
+.noexc50:                                         ; preds = %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i38
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !107
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6), !noalias !104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !104
@@ -1071,8 +1071,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i36: ; preds = %67
   call void @llvm.assume(i1 %86)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %85, ptr noundef nonnull align 1 dereferenceable(5) @anon.0038b4077a4fc1436dad5fe124ddbe2e.28, i64 5, i1 false)
   store i64 %84, ptr %13, align 8
-  store ptr %85, ptr %.sroa.48.0..sroa_idx.i47, align 8
-  store i64 5, ptr %.sroa.59.0..sroa_idx.i48, align 8
+  store ptr %85, ptr %.sroa.48.0..sroa_idx.i36, align 8
+  store i64 5, ptr %.sroa.59.0..sroa_idx.i37, align 8
   br label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit
 
 _ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit: ; preds = %.invoke59, %.invoke58, %.invoke, %.noexc50, %.noexc49, %.noexc34, %.noexc, %112, %83, %130
@@ -1150,8 +1150,8 @@ _ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit: ; preds = %.
   call void @llvm.assume(i1 %115)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %114, ptr noundef nonnull align 1 dereferenceable(5) @anon.0038b4077a4fc1436dad5fe124ddbe2e.28, i64 5, i1 false)
   store i64 %113, ptr %13, align 8
-  store ptr %114, ptr %.sroa.48.0..sroa_idx.i47, align 8
-  store i64 5, ptr %.sroa.59.0..sroa_idx.i48, align 8
+  store ptr %114, ptr %.sroa.48.0..sroa_idx.i36, align 8
+  store i64 5, ptr %.sroa.59.0..sroa_idx.i37, align 8
   br label %_ZN5uu_df5table12RowFormatter10percentage17hca67afb9ac9183cfE.exit
 
 116:                                              ; preds = %77
@@ -1695,7 +1695,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit97.i: ; preds = %102
 
 174:                                              ; preds = %182, %175
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %182 ], [ %176, %175 ]
-  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #16
+  invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hb846eb921d0bab40E"(ptr noalias noundef align 8 dereferenceable(24) %11) #16
           to label %.body88.thread unwind label %192, !noalias !196
 
 175:                                              ; preds = %170
@@ -1910,7 +1910,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit97.i: ; preds = %102
   %241 = getelementptr inbounds i8, ptr %23, i64 16
   store i8 1, ptr %241, align 8, !alias.scope !209, !noalias !212
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
-  invoke fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
+  invoke fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %22, ptr noalias noundef readonly align 8 dereferenceable(24) %23)
           to label %242 unwind label %195
 
 242:                                              ; preds = %239
@@ -2367,7 +2367,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hde8715c775152395E.exit120: ; preds
   store ptr %1, ptr %217, align 8, !alias.scope !240, !noalias !243
   store i8 0, ptr %218, align 8, !alias.scope !240, !noalias !243
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  invoke fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27)
+  invoke fastcc void @_ZN5uu_df5table12RowFormatter10get_values17h569e05cbe9a70aa2E(ptr noalias nocapture noundef align 8 dereferenceable(24) %26, ptr noalias noundef readonly align 8 dereferenceable(24) %27)
           to label %460 unwind label %494
 
 460:                                              ; preds = %459

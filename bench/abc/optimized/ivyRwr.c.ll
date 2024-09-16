@@ -1074,14 +1074,14 @@ Abc_Clock.exit76:                                 ; preds = %546, %551
   %556 = load i32, ptr %555, align 8
   %557 = xor i32 %556, 1
   store i32 %557, ptr %555, align 8
-  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %85, ptr noundef %547)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %547)
   %558 = load i32, ptr %555, align 8
   %559 = xor i32 %558, 1
   store i32 %559, ptr %555, align 8
   br label %560
 
 .critedge70:                                      ; preds = %Abc_Clock.exit76
-  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %85, ptr noundef %547)
+  call fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %85, ptr noundef %547)
   br label %560
 
 560:                                              ; preds = %.critedge70, %554
@@ -1203,7 +1203,7 @@ declare ptr @Rwt_ManReadDecs(ptr noundef) local_unnamed_addr #1
 declare i32 @Rwt_ManReadCompl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %.val29.i = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %.val29.i, 0
   %4 = getelementptr i8, ptr %2, i64 24
@@ -1295,7 +1295,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 Ivy_GraphToNetwork.exit:                          ; preds = %5, %20, %.critedge.i
   %.025.in.i = phi i64 [ %10, %5 ], [ %28, %20 ], [ %62, %.critedge.i ]
   %.025.i = inttoptr i64 %.025.in.i to ptr
-  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef %1, ptr noundef %.025.i, i32 noundef 1, i32 noundef 0, i32 noundef 1) #12
+  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.025.i, i32 noundef 1, i32 noundef 0, i32 noundef 1) #12
   %63 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef %0, i32 noundef 1) #12
   ret void
 }

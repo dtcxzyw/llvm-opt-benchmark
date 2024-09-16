@@ -420,7 +420,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h123219b9885d6cefE.l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$GT$$GT$17h5f3e33bf181e4344E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$GT$$GT$17h5f3e33bf181e4344E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !79, !noundef !7
   %4 = icmp eq i8 %3, 4
@@ -462,7 +462,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h9f42d1b6623a4dfeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h9f42d1b6623a4dfeE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !range !79, !noundef !7
   %4 = icmp eq i8 %3, 4
@@ -2471,7 +2471,7 @@ define hidden noundef range(i32 0, 65536) i32 @"_ZN84_$LT$object..pe..ImageFileH
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h2175826dd6c1eb4fE"(ptr %.0.val, i8 noundef %0) unnamed_addr #7 {
+define internal fastcc void @"_ZN86_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h2175826dd6c1eb4fE"(ptr %.0.val, i8 noundef range(i8 0, 3) %0) unnamed_addr #7 {
   %2 = icmp eq i8 %0, 0
   br i1 %2, label %19, label %3
 
@@ -3490,7 +3490,7 @@ default.unreachable48:                            ; preds = %122, %56, %51
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %62, %68, %73
   %.sroa.4.0.i = phi i64 [ %75, %73 ], [ %72, %68 ], [ %66, %62 ]
   %.sroa.0.0.i = phi ptr [ %76, %73 ], [ %70, %68 ], [ %67, %62 ]
-  %77 = call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
+  %77 = call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12)
   %78 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(20) %78, i64 20, i1 false)
@@ -3620,7 +3620,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %62, %68, %73
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit31: ; preds = %128, %134, %139
   %.sroa.4.0.i28 = phi i64 [ %141, %139 ], [ %138, %134 ], [ %132, %128 ]
   %.sroa.0.0.i29 = phi ptr [ %142, %139 ], [ %136, %134 ], [ %133, %128 ]
-  %143 = call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i29, i64 noundef %.sroa.4.0.i28)
+  %143 = call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i29, i64 noundef %.sroa.4.0.i28)
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10)
   %144 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) %144, i64 20, i1 false)
@@ -3862,7 +3862,7 @@ default.unreachable49:                            ; preds = %131, %76, %40
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %82, %88, %93
   %.sroa.4.0.i = phi i64 [ %95, %93 ], [ %92, %88 ], [ %86, %82 ]
   %.sroa.0.0.i = phi ptr [ %96, %93 ], [ %90, %88 ], [ %87, %82 ]
-  %97 = tail call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
+  %97 = tail call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.4.0.i)
   %98 = getelementptr inbounds i8, ptr %.sroa.0.042, i64 32
   %99 = load i32, ptr %98, align 8, !noundef !7
   %100 = load i64, ptr %32, align 8, !alias.scope !614, !noundef !7
@@ -3961,7 +3961,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit: ; preds = %82, %88, %93
 _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.exit32: ; preds = %137, %143, %148
   %.sroa.4.0.i29 = phi i64 [ %150, %148 ], [ %147, %143 ], [ %141, %137 ]
   %.sroa.0.0.i30 = phi ptr [ %151, %148 ], [ %145, %143 ], [ %142, %137 ]
-  %152 = tail call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.4.0.i29)
+  %152 = tail call fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i30, i64 noundef %.sroa.4.0.i29)
   %153 = getelementptr inbounds i8, ptr %.sroa.0.042, i64 32
   %154 = load i32, ptr %153, align 8, !noundef !7
   %155 = load i64, ptr %26, align 8, !alias.scope !625, !noundef !7
@@ -4181,7 +4181,7 @@ define hidden noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7enqueu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he683801d3dcf7e61E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -4307,7 +4307,7 @@ define internal fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$6intern17he8a75eaa40f4e257E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -4841,7 +4841,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Reader$LT$S$GT$4read17h0634f4
 148:                                              ; preds = %147
   %149 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h9f42d1b6623a4dfeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %9) #31
+  invoke fastcc void @"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h9f42d1b6623a4dfeE"(ptr noalias noundef align 8 dereferenceable(64) %9) #31
           to label %43 unwind label %150
 
 150:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h718852c3c1695541E.llvm.5062853439722839227.exit.i", %148, %.body
@@ -5230,7 +5230,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Reader$LT$S$GT$4read17h1ea1d8
 135:                                              ; preds = %134
   %136 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$GT$$GT$17h5f3e33bf181e4344E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #31
+  invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$GT$$GT$17h5f3e33bf181e4344E"(ptr noalias noundef align 8 dereferenceable(32) %9) #31
           to label %43 unwind label %137
 
 137:                                              ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3c2d55bdb82da232E.llvm.5062853439722839227.exit.i", %135, %.body

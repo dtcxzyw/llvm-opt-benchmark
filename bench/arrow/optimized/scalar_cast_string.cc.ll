@@ -38686,7 +38686,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0356.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1355.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0359.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1355.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1355.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -38815,7 +38815,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4348.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4348.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i
@@ -39249,7 +39249,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0356.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1355.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0359.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1355.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1355.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -39378,7 +39378,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4348.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4348.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i
@@ -40511,7 +40511,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0358.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1357.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0361.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1357.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1357.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -40640,7 +40640,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4350.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4350.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -41076,7 +41076,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0358.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1357.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0361.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1357.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1357.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -41205,7 +41205,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4350.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4350.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -41800,7 +41800,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0325.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1324.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0328.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1324.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1324.i.i.i)
           to label %.noexc172 unwind label %lpad7.loopexit
 
 .noexc172:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -41887,7 +41887,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit267.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4317.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4317.i.i.i)
           to label %.noexc173 unwind label %lpad7.loopexit.split-lp.loopexit
 
 .noexc173:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -42037,7 +42037,7 @@ lpad6.i:                                          ; preds = %init4.i
   br label %ehcleanup
 
 while.end11.i:                                    ; preds = %invoke.cont7.i, %init.check2.i, %init.end.i
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc275 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc275:                                        ; preds = %while.end11.i
@@ -42118,7 +42118,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
   br label %ehcleanup.i
 
 invoke.cont28.i:                                  ; preds = %.noexc.i
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp24.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i)
           to label %invoke.cont30.i unwind label %lpad29.i, !noalias !1837
 
 invoke.cont30.i:                                  ; preds = %invoke.cont28.i
@@ -42276,7 +42276,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0323.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1322.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0326.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1322.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1322.i.i.i.i)
           to label %.noexc51.i unwind label %lpad52.loopexit.i, !noalias !1837
 
 .noexc51.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -42372,7 +42372,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4315.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp50.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4315.i.i.i.i)
           to label %.noexc52.i unwind label %lpad52.loopexit.split-lp.loopexit.i, !noalias !1837
 
 .noexc52.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
@@ -42671,7 +42671,7 @@ lpad6.i547:                                       ; preds = %init4.i546
   br label %ehcleanup
 
 while.end11.i328:                                 ; preds = %invoke.cont7.i548, %init.check2.i544, %init.end.i326
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i321, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i321, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc554 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc554:                                        ; preds = %while.end11.i328
@@ -42752,7 +42752,7 @@ lpad.i.i393:                                      ; preds = %.noexc.i392
   br label %ehcleanup.i389
 
 invoke.cont26.i:                                  ; preds = %.noexc.i392
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
           to label %invoke.cont28.i395 unwind label %lpad27.i394, !noalias !1868
 
 invoke.cont28.i395:                               ; preds = %invoke.cont26.i
@@ -42910,7 +42910,7 @@ for.cond.preheader.i.i.i.i531:                    ; preds = %call.i.i.i.noexc.i4
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i534:             ; preds = %for.cond.preheader.i.i.i.i531, %for.inc.i.i.i.i540
   %i.0323.i.i.i.i535 = phi i64 [ %inc.i.i.i.i541, %for.inc.i.i.i.i540 ], [ 0, %for.cond.preheader.i.i.i.i531 ]
   %position.1322.i.i.i.i536 = phi i64 [ %inc12.i.i.i.i542, %for.inc.i.i.i.i540 ], [ %position.0326.i.i.i.i447, %for.cond.preheader.i.i.i.i531 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.1322.i.i.i.i536)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.1322.i.i.i.i536)
           to label %.noexc51.i538 unwind label %lpad47.loopexit.i, !noalias !1868
 
 .noexc51.i538:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i534
@@ -43006,7 +43006,7 @@ for.body52.i.i.i.i465:                            ; preds = %for.inc99.i.i.i.i47
   br i1 %tobool.i.not.i.i.i.i472, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i480, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i473
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i473:          ; preds = %for.body52.i.i.i.i465
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i316, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.4315.i.i.i.i466)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i316, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i439, i64 noundef %position.4315.i.i.i.i466)
           to label %.noexc52.i475 unwind label %lpad47.loopexit.split-lp.loopexit.i, !noalias !1868
 
 .noexc52.i475:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i473
@@ -43305,7 +43305,7 @@ lpad6.i849:                                       ; preds = %init4.i848
   br label %ehcleanup
 
 while.end11.i612:                                 ; preds = %invoke.cont7.i850, %init.check2.i846, %init.end.i610
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i602, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i602, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc856 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc856:                                        ; preds = %while.end11.i612
@@ -43386,7 +43386,7 @@ lpad.i.i682:                                      ; preds = %.noexc.i681
   br label %ehcleanup.i678
 
 invoke.cont26.i683:                               ; preds = %.noexc.i681
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i603, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i604)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i603, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i604)
           to label %invoke.cont28.i685 unwind label %lpad27.i684, !noalias !1898
 
 invoke.cont28.i685:                               ; preds = %invoke.cont26.i683
@@ -43544,7 +43544,7 @@ for.cond.preheader.i.i.i.i832:                    ; preds = %call.i.i.i.noexc.i7
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i835:             ; preds = %for.cond.preheader.i.i.i.i832, %for.inc.i.i.i.i842
   %i.0323.i.i.i.i836 = phi i64 [ %inc.i.i.i.i843, %for.inc.i.i.i.i842 ], [ 0, %for.cond.preheader.i.i.i.i832 ]
   %position.1322.i.i.i.i837 = phi i64 [ %inc12.i.i.i.i844, %for.inc.i.i.i.i842 ], [ %position.0326.i.i.i.i746, %for.cond.preheader.i.i.i.i832 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i596, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.1322.i.i.i.i837)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i596, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.1322.i.i.i.i837)
           to label %.noexc51.i840 unwind label %lpad47.loopexit.i838, !noalias !1898
 
 .noexc51.i840:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i835
@@ -43640,7 +43640,7 @@ for.body52.i.i.i.i765:                            ; preds = %for.inc99.i.i.i.i77
   br i1 %tobool.i.not.i.i.i.i772, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i781, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i773
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i773:          ; preds = %for.body52.i.i.i.i765
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i597, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.4315.i.i.i.i766)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i597, ptr nonnull readonly %ref.tmp45.i608, ptr %add.ptr.i.i.i.i.i735, i64 noundef %position.4315.i.i.i.i766)
           to label %.noexc52.i776 unwind label %lpad47.loopexit.split-lp.loopexit.i774, !noalias !1898
 
 .noexc52.i776:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i773
@@ -43939,7 +43939,7 @@ lpad6.i1151:                                      ; preds = %init4.i1150
   br label %ehcleanup
 
 while.end11.i914:                                 ; preds = %invoke.cont7.i1152, %init.check2.i1148, %init.end.i912
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i904, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i904, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc1158 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1158:                                       ; preds = %while.end11.i914
@@ -44020,7 +44020,7 @@ lpad.i.i984:                                      ; preds = %.noexc.i983
   br label %ehcleanup.i980
 
 invoke.cont26.i985:                               ; preds = %.noexc.i983
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i905, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i906)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i905, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i906)
           to label %invoke.cont28.i987 unwind label %lpad27.i986, !noalias !1928
 
 invoke.cont28.i987:                               ; preds = %invoke.cont26.i985
@@ -44178,7 +44178,7 @@ for.cond.preheader.i.i.i.i1134:                   ; preds = %call.i.i.i.noexc.i1
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i1137:            ; preds = %for.cond.preheader.i.i.i.i1134, %for.inc.i.i.i.i1144
   %i.0323.i.i.i.i1138 = phi i64 [ %inc.i.i.i.i1145, %for.inc.i.i.i.i1144 ], [ 0, %for.cond.preheader.i.i.i.i1134 ]
   %position.1322.i.i.i.i1139 = phi i64 [ %inc12.i.i.i.i1146, %for.inc.i.i.i.i1144 ], [ %position.0326.i.i.i.i1048, %for.cond.preheader.i.i.i.i1134 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i898, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.1322.i.i.i.i1139)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i898, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.1322.i.i.i.i1139)
           to label %.noexc51.i1142 unwind label %lpad47.loopexit.i1140, !noalias !1928
 
 .noexc51.i1142:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i1137
@@ -44274,7 +44274,7 @@ for.body52.i.i.i.i1067:                           ; preds = %for.inc99.i.i.i.i10
   br i1 %tobool.i.not.i.i.i.i1074, label %_ZN5arrow6StatusD2Ev.exit265.i.i.i.i1083, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075:         ; preds = %for.body52.i.i.i.i1067
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i899, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.4315.i.i.i.i1068)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i899, ptr nonnull readonly %ref.tmp45.i910, ptr %add.ptr.i.i.i.i.i1037, i64 noundef %position.4315.i.i.i.i1068)
           to label %.noexc52.i1078 unwind label %lpad47.loopexit.split-lp.loopexit.i1076, !noalias !1928
 
 .noexc52.i1078:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1075
@@ -44620,7 +44620,7 @@ ehcleanup:                                        ; preds = %lpad7.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca %"struct.std::array.285", align 1
   %formatted.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -44653,7 +44653,7 @@ invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
   %conv.i.i.i.i.i = trunc i64 %2 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i32 noundef %conv.i.i.i.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i32 noundef %conv.i.i.i.i.i)
           to label %_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Date32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_.exit.i.i unwind label %lpad4.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i
@@ -44804,7 +44804,7 @@ _ZN5arrow8internal26DateToStringFormatterMixin10FormatDaysIZZNS_7compute8interna
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cursor.1.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %conv.i.i1.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i32 noundef %conv.i.i1.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i32 noundef %conv.i.i1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buffer.i.i.i), !noalias !1964
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Date32TypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUliE_clEi.exit
 
@@ -45196,7 +45196,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca %"struct.std::array.285", align 1
   %formatted.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -45229,7 +45229,7 @@ invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
   %conv.i.i.i.i.i = trunc i64 %2 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i32 noundef %conv.i.i.i.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i32 noundef %conv.i.i.i.i.i)
           to label %_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Date64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_.exit.i.i unwind label %lpad4.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i
@@ -45382,7 +45382,7 @@ _ZN5arrow8internal26DateToStringFormatterMixin10FormatDaysIZZNS_7compute8interna
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cursor.1.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %conv.i.i1.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i32 noundef %conv.i.i1.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i32 noundef %conv.i.i1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buffer.i.i.i), !noalias !1977
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Date64TypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 
@@ -45740,7 +45740,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i140.i.i.i = alloca %"struct.std::array.317", align 1
   %buffer.i78.i.i.i = alloca %"struct.std::array.313", align 1
@@ -45893,7 +45893,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %conv.i.i.i.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -46027,7 +46027,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i51.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i49.i.i.i to i64
   %sub.ptr.sub.i.i52.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i50.i.i.i, %sub.ptr.rhs.cast.i.i51.i.i.i
   %conv.i.i.i54.i.i.i = trunc i64 %sub.ptr.sub.i.i52.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i49.i.i.i, i32 noundef %conv.i.i.i54.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i49.i.i.i, i32 noundef %conv.i.i.i54.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i12.i.i.i
@@ -46151,7 +46151,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i112.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i110.i.i.i to i64
   %sub.ptr.sub.i.i113.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i111.i.i.i, %sub.ptr.rhs.cast.i.i112.i.i.i
   %conv.i.i.i115.i.i.i = trunc i64 %sub.ptr.sub.i.i113.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i110.i.i.i, i32 noundef %conv.i.i.i115.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i110.i.i.i, i32 noundef %conv.i.i.i115.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i81.i.i.i
@@ -46210,7 +46210,7 @@ if.end.i143.i.i.i:                                ; preds = %sw.epilog.i.i.i
   %61 = load i8, ptr %arrayidx.i13.i.i.i.i.i, align 1, !noalias !2008
   %incdec.ptr.i3.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i140.i.i.i, i64 1
   store i8 %61, ptr %incdec.ptr.i3.i16.i.i.i.i.i, align 1, !noalias !2008
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i32 noundef 8)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i32 noundef 8)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %if.end.i143.i.i.i, %if.then.i142.i.i.i
@@ -46223,7 +46223,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10Stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46246,7 +46246,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
   %conv.i.i = trunc i64 %0 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -46277,7 +46277,7 @@ eh.resume:                                        ; preds = %lpad, %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i157.i.i.i = alloca %"struct.std::array.317", align 1
   %buffer.i81.i.i.i = alloca %"struct.std::array.313", align 1
@@ -46430,7 +46430,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %conv.i.i.i.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i32 noundef %conv.i.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -46568,7 +46568,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i54.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i52.i.i.i to i64
   %sub.ptr.sub.i.i55.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i53.i.i.i, %sub.ptr.rhs.cast.i.i54.i.i.i
   %conv.i.i.i57.i.i.i = trunc i64 %sub.ptr.sub.i.i55.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i52.i.i.i, i32 noundef %conv.i.i.i57.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i52.i.i.i, i32 noundef %conv.i.i.i57.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i12.i.i.i
@@ -46706,7 +46706,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.rhs.cast.i.i129.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i127.i.i.i to i64
   %sub.ptr.sub.i.i130.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i128.i.i.i, %sub.ptr.rhs.cast.i.i129.i.i.i
   %conv.i.i.i132.i.i.i = trunc i64 %sub.ptr.sub.i.i130.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i127.i.i.i, i32 noundef %conv.i.i.i132.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i127.i.i.i, i32 noundef %conv.i.i.i132.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i84.i.i.i
@@ -46765,7 +46765,7 @@ if.end.i160.i.i.i:                                ; preds = %sw.epilog.i.i.i
   %63 = load i8, ptr %arrayidx.i13.i.i.i.i.i, align 1, !noalias !2028
   %incdec.ptr.i3.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i157.i.i.i, i64 1
   store i8 %63, ptr %incdec.ptr.i3.i16.i.i.i.i.i, align 1, !noalias !2028
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i32 noundef 8)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i32 noundef 8)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %if.end.i160.i.i.i, %if.then.i159.i.i.i
@@ -46778,7 +46778,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10Stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -46801,7 +46801,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
   %conv.i.i = trunc i64 %0 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -46889,7 +46889,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i342.i.i.i = alloca %"struct.std::array.338", align 1
   %buffer.i180.i.i.i = alloca %"struct.std::array.336", align 1
@@ -47174,7 +47174,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %append.val.i.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2039
   %conv.i.i30.i.i.i.i = trunc i64 %sub.ptr.sub.i.i.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i32 noundef %conv.i.i30.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i32 noundef %conv.i.i30.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -47449,7 +47449,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.sub.i.i142.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i140.i.i.i, %sub.ptr.rhs.cast.i.i141.i.i.i
   %append.val.i143.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2042
   %conv.i.i30.i144.i.i.i = trunc i64 %sub.ptr.sub.i.i142.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i32 noundef %conv.i.i30.i144.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i32 noundef %conv.i.i30.i144.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i, %if.then.i13.i.i.i
@@ -47712,7 +47712,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
   %sub.ptr.sub.i.i305.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i303.i.i.i, %sub.ptr.rhs.cast.i.i304.i.i.i
   %append.val.i306.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !2045
   %conv.i.i30.i307.i.i.i = trunc i64 %sub.ptr.sub.i.i305.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i306.i.i.i, ptr noundef nonnull %cursor.4.i301.i.i.i, i32 noundef %conv.i.i30.i307.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i306.i.i.i, ptr noundef nonnull %cursor.4.i301.i.i.i, i32 noundef %conv.i.i30.i307.i.i.i)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %buffer.i180.i.i.i), !noalias !2034
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 
@@ -47906,7 +47906,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.rhs.cast.i.i433.i.i.i = ptrtoint ptr %cursor.1.i.i.i.i to i64
   %sub.ptr.sub.i.i434.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i432.i.i.i, %sub.ptr.rhs.cast.i.i433.i.i.i
   %conv.i.i20.i.i.i.i = trunc i64 %sub.ptr.sub.i.i434.i.i.i to i32
-  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i.i, i32 noundef %conv.i.i20.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i.i, i32 noundef %conv.i.i20.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i431.i.i.i, %if.then.i344.i.i.i
@@ -47919,7 +47919,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10Stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47942,7 +47942,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
   %conv.i.i = trunc i64 %0 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i32 noundef %conv.i.i)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -47973,7 +47973,7 @@ eh.resume:                                        ; preds = %lpad, %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %timezone) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %timezone) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.arrow::Status", align 8
   %ref.tmp3 = alloca ptr, align 8
@@ -48036,7 +48036,7 @@ terminate.lpad:                                   ; preds = %lpad5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %locale) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %locale) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::locale", align 8
   %ref.tmp1 = alloca %"class.arrow::Status", align 8
@@ -48717,7 +48717,7 @@ declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE10exceptionsESt12_Ios_Iostate(
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48797,7 +48797,7 @@ invoke.cont7.i:                                   ; preds = %entry
   %14 = extractvalue { i64, ptr } %call8.i, 0
   %15 = extractvalue { i64, ptr } %call8.i, 1
   %conv.i.i = trunc i64 %14 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
           to label %invoke.cont10.i unwind label %lpad9.i
 
 invoke.cont10.i:                                  ; preds = %invoke.cont7.i
@@ -54019,7 +54019,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -54099,7 +54099,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
   %conv.i.i = trunc i64 %14 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -58915,7 +58915,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZSt9use_facetINSt7__cx
 declare noundef signext i8 @_ZNKSt7__cxx118numpunctIcE13decimal_pointEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -58995,7 +58995,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
   %conv.i.i = trunc i64 %14 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -63805,7 +63805,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i28, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_10StringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_13StringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -63885,7 +63885,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
   %conv.i.i = trunc i64 %14 to i32
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6AppendEPKhi(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i32 noundef %conv.i.i)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -68790,7 +68790,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
   %2 = load ptr, ptr %values.i, align 8
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2096)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !2096
   store ptr %3, ptr %agg.result, align 8, !alias.scope !2096
@@ -68840,7 +68840,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 declare void @_ZN5arrow4util14InitializeUTF8Ev() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bit_counter.i.i = alloca %"class.arrow::internal::OptionalBitBlockCounter", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -68912,7 +68912,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5a
   %7 = load i32, ptr %offsets.5.i, align 4, !noalias !2117
   %sub.i.i.i = sub nsw i32 %7, %cur_offset.4.i
   %conv.i.i.i = sext i32 %sub.i.i.i to i64
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2116
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i.i, i64 %conv.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2116
   call void @llvm.experimental.noalias.scope.decl(metadata !2120)
   %8 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2123
   store ptr %8, ptr %agg.result, align 8, !alias.scope !2123
@@ -68975,7 +68975,7 @@ _ZN5arrow6StatusD2Ev.exit175.i.i:                 ; preds = %for.body52.i.i
   %17 = load i32, ptr %offsets.2.i, align 4, !noalias !2131
   %sub.i137.i.i = sub nsw i32 %17, %cur_offset.2.i
   %conv.i138.i.i = sext i32 %sub.i137.i.i to i64
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i138.i.i, ptr nonnull readonly %add.ptr.i136.i.i), !noalias !2116
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp57.i.i, i64 %conv.i138.i.i, ptr nonnull readonly %add.ptr.i136.i.i), !noalias !2116
   call void @llvm.experimental.noalias.scope.decl(metadata !2134)
   %18 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2137
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2137
@@ -69019,7 +69019,7 @@ _ZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE11VisitStatusIZNS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %str.coerce0, ptr nocapture readonly %str.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %str.coerce0, ptr nocapture readonly %str.coerce1) unnamed_addr #0 align 2 {
 entry:
   %cmp122.i.i = icmp sgt i64 %str.coerce0, 7
   br i1 %cmp122.i.i, label %while.body.i.i, label %while.end.i.i
@@ -69248,7 +69248,7 @@ _ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.e
   br i1 %42, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end32.i.i, %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(21) @.str.43)
+  tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(21) @.str.43)
   br label %return
 
 if.end:                                           ; preds = %if.else71.i.i, %if.then73.i.i, %if.then54.i.i, %if.then41.i.i, %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -69364,7 +69364,7 @@ entry:
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2159)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !2159
   store ptr %3, ptr %agg.result, align 8, !alias.scope !2159
@@ -69413,7 +69413,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bit_counter.i.i = alloca %"class.arrow::internal::OptionalBitBlockCounter", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -69483,7 +69483,7 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5a
   %add.ptr.i.i8.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %cur_offset.4.i
   %7 = load i64, ptr %offsets.5.i, align 8, !noalias !2175
   %sub.i.i.i = sub nsw i64 %7, %cur_offset.4.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %sub.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2174
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i.i, i64 %sub.i.i.i, ptr nonnull readonly %add.ptr.i.i8.i), !noalias !2174
   call void @llvm.experimental.noalias.scope.decl(metadata !2178)
   %8 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2181
   store ptr %8, ptr %agg.result, align 8, !alias.scope !2181
@@ -69544,7 +69544,7 @@ _ZN5arrow6StatusD2Ev.exit172.i.i:                 ; preds = %for.body52.i.i
   %add.ptr.i134.i.i = getelementptr inbounds i8, ptr %storemerge.i, i64 %cur_offset.2.i
   %17 = load i64, ptr %offsets.2.i, align 8, !noalias !2189
   %sub.i135.i.i = sub nsw i64 %17, %cur_offset.2.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %sub.i135.i.i, ptr nonnull readonly %add.ptr.i134.i.i), !noalias !2174
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp57.i.i, i64 %sub.i135.i.i, ptr nonnull readonly %add.ptr.i134.i.i), !noalias !2174
   call void @llvm.experimental.noalias.scope.decl(metadata !2192)
   %18 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2195
   store ptr %18, ptr %agg.result, align 8, !alias.scope !2195
@@ -69608,7 +69608,7 @@ entry:
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2207)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !2207
   store ptr %3, ptr %agg.result, align 8, !alias.scope !2207
@@ -70497,7 +70497,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %arr) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bit_counter.i.i = alloca %"class.arrow::internal::OptionalBitBlockCounter", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -70552,7 +70552,7 @@ _ZN5arrow6StatusD2Ev.exit.preheader.i.i:          ; preds = %for.cond.preheader.
 _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %for.inc.i.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i
   %data.5.i = phi ptr [ %data.0.i, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %add.ptr.i.i.i, %for.inc.i.i ]
   %i.0311.i.i = phi i64 [ 0, %_ZN5arrow6StatusD2Ev.exit.preheader.i.i ], [ %inc.i.i, %for.inc.i.i ]
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp.i.i, i64 %conv.i, ptr readonly %data.5.i), !noalias !2246
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp.i.i, i64 %conv.i, ptr readonly %data.5.i), !noalias !2246
   call void @llvm.experimental.noalias.scope.decl(metadata !2247)
   %7 = load ptr, ptr %ref.tmp.i.i, align 8, !noalias !2250
   store ptr %7, ptr %agg.result, align 8, !alias.scope !2250
@@ -70606,7 +70606,7 @@ for.body52.i.i:                                   ; preds = %for.inc99.i.i, %for
   br i1 %tobool.i.not.i.i, label %_ZN5arrow6StatusD2Ev.exit253.i.i, label %_ZN5arrow6StatusD2Ev.exit178.i.i
 
 _ZN5arrow6StatusD2Ev.exit178.i.i:                 ; preds = %for.body52.i.i
-  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp57.i.i, i64 %conv.i, ptr readonly %data.2.i), !noalias !2246
+  call fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_113Utf8Validator10VisitValueESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp57.i.i, i64 %conv.i, ptr readonly %data.2.i), !noalias !2246
   call void @llvm.experimental.noalias.scope.decl(metadata !2255)
   %15 = load ptr, ptr %ref.tmp57.i.i, align 8, !noalias !2258
   store ptr %15, ptr %agg.result, align 8, !alias.scope !2258
@@ -81497,7 +81497,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0355.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1354.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0358.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1354.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1354.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -81625,7 +81625,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4347.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4347.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i
@@ -82058,7 +82058,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0355.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1354.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0358.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1354.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1354.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -82186,7 +82186,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4347.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4347.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i
@@ -83314,7 +83314,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0357.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1356.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0360.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1356.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1356.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -83442,7 +83442,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4349.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4349.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -83877,7 +83877,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0357.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1356.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0360.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1356.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1356.i.i.i)
           to label %.noexc15 unwind label %lpad7.loopexit
 
 .noexc15:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -84005,7 +84005,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %do.body77.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4349.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %2, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4349.i.i.i)
           to label %.noexc18 unwind label %lpad7.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc18:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -84599,7 +84599,7 @@ for.cond.preheader.i.i.i:                         ; preds = %call.i.i.i.noexc
 _ZN5arrow6StatusD2Ev.exit.i.i.i:                  ; preds = %for.cond.preheader.i.i.i, %for.inc.i.i.i
   %i.0324.i.i.i = phi i64 [ %inc.i.i.i, %for.inc.i.i.i ], [ 0, %for.cond.preheader.i.i.i ]
   %position.1323.i.i.i = phi i64 [ %inc12.i.i.i, %for.inc.i.i.i ], [ %position.0327.i.i.i, %for.cond.preheader.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1323.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.1323.i.i.i)
           to label %.noexc172 unwind label %lpad24.loopexit
 
 .noexc172:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i
@@ -84685,7 +84685,7 @@ for.body52.i.i.i:                                 ; preds = %for.inc99.i.i.i, %f
   br i1 %tobool.i.not.i.i.i, label %_ZN5arrow6StatusD2Ev.exit266.i.i.i, label %_ZN5arrow6StatusD2Ev.exit174.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit174.i.i.i:               ; preds = %for.body52.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4316.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i, i32 %28, ptr nonnull %builder, ptr %add.ptr.i.i.i.i, i64 noundef %position.4316.i.i.i)
           to label %.noexc173 unwind label %lpad24.loopexit.split-lp.loopexit
 
 .noexc173:                                        ; preds = %_ZN5arrow6StatusD2Ev.exit174.i.i.i
@@ -84834,7 +84834,7 @@ lpad6.i:                                          ; preds = %init4.i
   br label %ehcleanup
 
 while.end11.i:                                    ; preds = %invoke.cont7.i, %init.check2.i, %init.end.i
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc274 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc274:                                        ; preds = %while.end11.i
@@ -84915,7 +84915,7 @@ lpad.i.i:                                         ; preds = %.noexc.i
   br label %ehcleanup.i
 
 invoke.cont26.i:                                  ; preds = %.noexc.i
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i)
           to label %invoke.cont28.i unwind label %lpad27.i, !noalias !3844
 
 invoke.cont28.i:                                  ; preds = %invoke.cont26.i
@@ -85073,7 +85073,7 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.noexc.i
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i:                ; preds = %for.cond.preheader.i.i.i.i, %for.inc.i.i.i.i
   %i.0322.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.inc.i.i.i.i ], [ 0, %for.cond.preheader.i.i.i.i ]
   %position.1321.i.i.i.i = phi i64 [ %inc12.i.i.i.i, %for.inc.i.i.i.i ], [ %position.0325.i.i.i.i, %for.cond.preheader.i.i.i.i ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1321.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.1321.i.i.i.i)
           to label %.noexc51.i unwind label %lpad47.loopexit.i, !noalias !3844
 
 .noexc51.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i
@@ -85168,7 +85168,7 @@ for.body52.i.i.i.i:                               ; preds = %for.inc99.i.i.i.i, 
   br i1 %tobool.i.not.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i:             ; preds = %for.body52.i.i.i.i
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4314.i.i.i.i)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i, ptr nonnull readonly %ref.tmp45.i, ptr %add.ptr.i.i.i.i.i, i64 noundef %position.4314.i.i.i.i)
           to label %.noexc52.i unwind label %lpad47.loopexit.split-lp.loopexit.i, !noalias !3844
 
 .noexc52.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i
@@ -85466,7 +85466,7 @@ lpad6.i565:                                       ; preds = %init4.i564
   br label %ehcleanup
 
 while.end11.i330:                                 ; preds = %invoke.cont7.i566, %init.check2.i562, %init.end.i328
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i320, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i320, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc572 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc572:                                        ; preds = %while.end11.i330
@@ -85547,7 +85547,7 @@ lpad.i.i400:                                      ; preds = %.noexc.i399
   br label %ehcleanup.i396
 
 invoke.cont26.i401:                               ; preds = %.noexc.i399
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i321, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i322)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i321, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i322)
           to label %invoke.cont28.i403 unwind label %lpad27.i402, !noalias !3874
 
 invoke.cont28.i403:                               ; preds = %invoke.cont26.i401
@@ -85705,7 +85705,7 @@ for.cond.preheader.i.i.i.i548:                    ; preds = %call.i.i.i.noexc.i4
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i551:             ; preds = %for.cond.preheader.i.i.i.i548, %for.inc.i.i.i.i558
   %i.0322.i.i.i.i552 = phi i64 [ %inc.i.i.i.i559, %for.inc.i.i.i.i558 ], [ 0, %for.cond.preheader.i.i.i.i548 ]
   %position.1321.i.i.i.i553 = phi i64 [ %inc12.i.i.i.i560, %for.inc.i.i.i.i558 ], [ %position.0325.i.i.i.i464, %for.cond.preheader.i.i.i.i548 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i314, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.1321.i.i.i.i553)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i314, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.1321.i.i.i.i553)
           to label %.noexc51.i556 unwind label %lpad47.loopexit.i554, !noalias !3874
 
 .noexc51.i556:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i551
@@ -85800,7 +85800,7 @@ for.body52.i.i.i.i483:                            ; preds = %for.inc99.i.i.i.i49
   br i1 %tobool.i.not.i.i.i.i490, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i499, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i491
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i491:          ; preds = %for.body52.i.i.i.i483
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.4314.i.i.i.i484)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i315, ptr nonnull readonly %ref.tmp45.i326, ptr %add.ptr.i.i.i.i.i453, i64 noundef %position.4314.i.i.i.i484)
           to label %.noexc52.i494 unwind label %lpad47.loopexit.split-lp.loopexit.i492, !noalias !3874
 
 .noexc52.i494:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i491
@@ -86098,7 +86098,7 @@ lpad6.i865:                                       ; preds = %init4.i864
   br label %ehcleanup
 
 while.end11.i630:                                 ; preds = %invoke.cont7.i866, %init.check2.i862, %init.end.i628
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i620, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i620, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc872 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc872:                                        ; preds = %while.end11.i630
@@ -86179,7 +86179,7 @@ lpad.i.i700:                                      ; preds = %.noexc.i699
   br label %ehcleanup.i696
 
 invoke.cont26.i701:                               ; preds = %.noexc.i699
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i621, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i622)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i621, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i622)
           to label %invoke.cont28.i703 unwind label %lpad27.i702, !noalias !3904
 
 invoke.cont28.i703:                               ; preds = %invoke.cont26.i701
@@ -86337,7 +86337,7 @@ for.cond.preheader.i.i.i.i848:                    ; preds = %call.i.i.i.noexc.i7
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i851:             ; preds = %for.cond.preheader.i.i.i.i848, %for.inc.i.i.i.i858
   %i.0322.i.i.i.i852 = phi i64 [ %inc.i.i.i.i859, %for.inc.i.i.i.i858 ], [ 0, %for.cond.preheader.i.i.i.i848 ]
   %position.1321.i.i.i.i853 = phi i64 [ %inc12.i.i.i.i860, %for.inc.i.i.i.i858 ], [ %position.0325.i.i.i.i764, %for.cond.preheader.i.i.i.i848 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i614, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.1321.i.i.i.i853)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i614, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.1321.i.i.i.i853)
           to label %.noexc51.i856 unwind label %lpad47.loopexit.i854, !noalias !3904
 
 .noexc51.i856:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i851
@@ -86432,7 +86432,7 @@ for.body52.i.i.i.i783:                            ; preds = %for.inc99.i.i.i.i79
   br i1 %tobool.i.not.i.i.i.i790, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i799, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i791
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i791:          ; preds = %for.body52.i.i.i.i783
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i615, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.4314.i.i.i.i784)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i615, ptr nonnull readonly %ref.tmp45.i626, ptr %add.ptr.i.i.i.i.i753, i64 noundef %position.4314.i.i.i.i784)
           to label %.noexc52.i794 unwind label %lpad47.loopexit.split-lp.loopexit.i792, !noalias !3904
 
 .noexc52.i794:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i791
@@ -86730,7 +86730,7 @@ lpad6.i1165:                                      ; preds = %init4.i1164
   br label %ehcleanup
 
 while.end11.i930:                                 ; preds = %invoke.cont7.i1166, %init.check2.i1162, %init.end.i928
-  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp12.i920, ptr noundef nonnull align 8 dereferenceable(32) %call1)
+  invoke fastcc void @_ZN5arrow7compute8internalL10LocateZoneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp12.i920, ptr noundef nonnull align 8 dereferenceable(32) %call1)
           to label %.noexc1172 unwind label %lpad24.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1172:                                       ; preds = %while.end11.i930
@@ -86811,7 +86811,7 @@ lpad.i.i1000:                                     ; preds = %.noexc.i999
   br label %ehcleanup.i996
 
 invoke.cont26.i1001:                              ; preds = %.noexc.i999
-  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp22.i921, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i922)
+  invoke fastcc void @_ZN5arrow7compute8internalL9GetLocaleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp22.i921, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23.i922)
           to label %invoke.cont28.i1003 unwind label %lpad27.i1002, !noalias !3934
 
 invoke.cont28.i1003:                              ; preds = %invoke.cont26.i1001
@@ -86969,7 +86969,7 @@ for.cond.preheader.i.i.i.i1148:                   ; preds = %call.i.i.i.noexc.i1
 _ZN5arrow6StatusD2Ev.exit.i.i.i.i1151:            ; preds = %for.cond.preheader.i.i.i.i1148, %for.inc.i.i.i.i1158
   %i.0322.i.i.i.i1152 = phi i64 [ %inc.i.i.i.i1159, %for.inc.i.i.i.i1158 ], [ 0, %for.cond.preheader.i.i.i.i1148 ]
   %position.1321.i.i.i.i1153 = phi i64 [ %inc12.i.i.i.i1160, %for.inc.i.i.i.i1158 ], [ %position.0325.i.i.i.i1064, %for.cond.preheader.i.i.i.i1148 ]
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i914, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.1321.i.i.i.i1153)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp.i.i.i.i914, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.1321.i.i.i.i1153)
           to label %.noexc51.i1156 unwind label %lpad47.loopexit.i1154, !noalias !3934
 
 .noexc51.i1156:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit.i.i.i.i1151
@@ -87064,7 +87064,7 @@ for.body52.i.i.i.i1083:                           ; preds = %for.inc99.i.i.i.i10
   br i1 %tobool.i.not.i.i.i.i1090, label %_ZN5arrow6StatusD2Ev.exit264.i.i.i.i1099, label %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091
 
 _ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091:         ; preds = %for.body52.i.i.i.i1083
-  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %ref.tmp57.i.i.i.i915, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.4314.i.i.i.i1084)
+  invoke fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %ref.tmp57.i.i.i.i915, ptr nonnull readonly %ref.tmp45.i926, ptr %add.ptr.i.i.i.i.i1053, i64 noundef %position.4314.i.i.i.i1084)
           to label %.noexc52.i1094 unwind label %lpad47.loopexit.split-lp.loopexit.i1092, !noalias !3934
 
 .noexc52.i1094:                                   ; preds = %_ZN5arrow6StatusD2Ev.exit172.i.i.i.i1091
@@ -87409,7 +87409,7 @@ ehcleanup:                                        ; preds = %lpad24.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca %"struct.std::array.285", align 1
   %formatted.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -87441,7 +87441,7 @@ invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i.i.i) #24, !noalias !3975
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i64 noundef %2)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i64 noundef %2)
           to label %_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Date32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_.exit.i.i unwind label %lpad4.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i
@@ -87591,7 +87591,7 @@ _ZN5arrow8internal26DateToStringFormatterMixin10FormatDaysIZZNS_7compute8interna
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cursor.1.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buffer.i.i.i), !noalias !3970
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Date32TypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUliE_clEi.exit
 
@@ -87600,7 +87600,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Date64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i.i.i = alloca %"struct.std::array.285", align 1
   %formatted.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -87632,7 +87632,7 @@ invoke.cont3.i.i.i:                               ; preds = %invoke.cont.i.i.i
   %call.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i.i.i) #24, !noalias !3986
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i64 noundef %2)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef %3, i64 noundef %2)
           to label %_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Date64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_.exit.i.i unwind label %lpad4.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i.i
@@ -87784,7 +87784,7 @@ _ZN5arrow8internal26DateToStringFormatterMixin10FormatDaysIZZNS_7compute8interna
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %cursor.1.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buffer.i.i.i), !noalias !3981
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Date64TypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 
@@ -87793,7 +87793,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time32TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUliE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i138.i.i.i = alloca %"struct.std::array.317", align 1
   %buffer.i77.i.i.i = alloca %"struct.std::array.313", align 1
@@ -87945,7 +87945,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -88078,7 +88078,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i50.i.i.i = ptrtoint ptr %add.ptr.ptr.i15.i.i.i to i64
   %sub.ptr.rhs.cast.i.i51.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i49.i.i.i to i64
   %sub.ptr.sub.i.i52.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i50.i.i.i, %sub.ptr.rhs.cast.i.i51.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i49.i.i.i, i64 noundef %sub.ptr.sub.i.i52.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i49.i.i.i, i64 noundef %sub.ptr.sub.i.i52.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i12.i.i.i
@@ -88201,7 +88201,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i110.i.i.i = ptrtoint ptr %add.ptr.ptr.i83.i.i.i to i64
   %sub.ptr.rhs.cast.i.i111.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i109.i.i.i to i64
   %sub.ptr.sub.i.i112.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i110.i.i.i, %sub.ptr.rhs.cast.i.i111.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i109.i.i.i, i64 noundef %sub.ptr.sub.i.i112.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i109.i.i.i, i64 noundef %sub.ptr.sub.i.i112.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i80.i.i.i
@@ -88260,7 +88260,7 @@ if.end.i141.i.i.i:                                ; preds = %sw.epilog.i.i.i
   %61 = load i8, ptr %arrayidx.i13.i.i.i.i.i, align 1, !noalias !4009
   %incdec.ptr.i3.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i138.i.i.i, i64 1
   store i8 %61, ptr %incdec.ptr.i3.i16.i.i.i.i.i, align 1, !noalias !4009
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i64 noundef 8)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i64 noundef 8)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time32TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_iOST_.exit.i.i.i: ; preds = %if.end.i141.i.i.i, %if.then.i140.i.i.i
@@ -88273,7 +88273,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i32 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRiRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time32TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUliE_clEiEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i32 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -88295,7 +88295,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -88326,7 +88326,7 @@ eh.resume:                                        ; preds = %lpad, %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10Time64TypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i155.i.i.i = alloca %"struct.std::array.317", align 1
   %buffer.i80.i.i.i = alloca %"struct.std::array.313", align 1
@@ -88478,7 +88478,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -88615,7 +88615,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i53.i.i.i = ptrtoint ptr %add.ptr.ptr.i14.i.i.i to i64
   %sub.ptr.rhs.cast.i.i54.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i52.i.i.i to i64
   %sub.ptr.sub.i.i55.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i53.i.i.i, %sub.ptr.rhs.cast.i.i54.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i52.i.i.i, i64 noundef %sub.ptr.sub.i.i55.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i52.i.i.i, i64 noundef %sub.ptr.sub.i.i55.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i12.i.i.i
@@ -88752,7 +88752,7 @@ _ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl10
   %sub.ptr.lhs.cast.i.i127.i.i.i = ptrtoint ptr %add.ptr.ptr.i85.i.i.i to i64
   %sub.ptr.rhs.cast.i.i128.i.i.i = ptrtoint ptr %incdec.ptr.i3.i21.i.i126.i.i.i to i64
   %sub.ptr.sub.i.i129.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i127.i.i.i, %sub.ptr.rhs.cast.i.i128.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i126.i.i.i, i64 noundef %sub.ptr.sub.i.i129.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i21.i.i126.i.i.i, i64 noundef %sub.ptr.sub.i.i129.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail14FormatHH_MM_SSINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEEvN14arrow_vendored4date8hh_mm_ssIT_EEPPc.exit.i.i.i.i, %if.then.i83.i.i.i
@@ -88811,7 +88811,7 @@ if.end.i158.i.i.i:                                ; preds = %sw.epilog.i.i.i
   %63 = load i8, ptr %arrayidx.i13.i.i.i.i.i, align 1, !noalias !4029
   %incdec.ptr.i3.i16.i.i.i.i.i = getelementptr inbounds i8, ptr %buffer.i155.i.i.i, i64 1
   store i8 %63, ptr %incdec.ptr.i3.i16.i.i.i.i.i, align 1, !noalias !4029
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i64 noundef 8)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %incdec.ptr.i3.i16.i.i.i.i.i, i64 noundef 8)
   br label %_ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_10Time64TypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %if.end.i158.i.i.i, %if.then.i157.i.i.i
@@ -88824,7 +88824,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_10Time64TypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -88846,7 +88846,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -88877,7 +88877,7 @@ eh.resume:                                        ; preds = %lpad, %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNS5_13KernelContextERKNS5_8ExecSpanEPNS5_10ExecResultEEUllE_ZNSA_4ExecESC_SF_SH_EUlvE_EENS_6StatusERKNS_9ArraySpanEOT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, i32 %this.0.val.0.val.0.val, ptr %this.0.val.8.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer.i340.i.i.i = alloca %"struct.std::array.338", align 1
   %buffer.i179.i.i.i = alloca %"struct.std::array.336", align 1
@@ -89161,7 +89161,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %cursor.4.i.i.i.i to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %append.val.i.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4040
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i.i.i.i, ptr noundef nonnull %cursor.4.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i.i.i.i, %if.then.i.i.i.i
@@ -89435,7 +89435,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.rhs.cast.i.i141.i.i.i = ptrtoint ptr %cursor.4.i139.i.i.i to i64
   %sub.ptr.sub.i.i142.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i140.i.i.i, %sub.ptr.rhs.cast.i.i141.i.i.i
   %append.val.i143.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4043
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i64 noundef %sub.ptr.sub.i.i142.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i143.i.i.i, ptr noundef nonnull %cursor.4.i139.i.i.i, i64 noundef %sub.ptr.sub.i.i142.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i138.i.i.i, %if.then.i13.i.i.i
@@ -89697,7 +89697,7 @@ _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationI
   %sub.ptr.rhs.cast.i.i303.i.i.i = ptrtoint ptr %cursor.4.i300.i.i.i to i64
   %sub.ptr.sub.i.i304.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i302.i.i.i, %sub.ptr.rhs.cast.i.i303.i.i.i
   %append.val.i305.i.i.i = load ptr, ptr %ref.tmp.i, align 8, !noalias !4046
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i305.i.i.i, ptr noundef nonnull %cursor.4.i300.i.i.i, i64 noundef %sub.ptr.sub.i.i304.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val.i305.i.i.i, ptr noundef nonnull %cursor.4.i300.i.i.i, i64 noundef %sub.ptr.sub.i.i304.i.i.i)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %buffer.i179.i.i.i), !noalias !4035
   br label %_ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultEENKUllE_clEl.exit
 
@@ -89890,7 +89890,7 @@ _ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_d
   %sub.ptr.lhs.cast.i.i430.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i to i64
   %sub.ptr.rhs.cast.i.i431.i.i.i = ptrtoint ptr %cursor.1.i.i.i.i to i64
   %sub.ptr.sub.i.i432.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i430.i.i.i, %sub.ptr.rhs.cast.i.i431.i.i.i
-  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i.i, i64 noundef %sub.ptr.sub.i.i432.i.i.i)
+  call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this.0.val.8.val, ptr noundef nonnull %cursor.1.i.i.i.i, i64 noundef %sub.ptr.sub.i.i432.i.i.i)
   br label %_ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i
 
 _ZN5arrow8internal15StringFormatterINS_13TimestampTypeEvEclINSt6chrono8durationIlSt5ratioILl1ELl1EEEEZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E4ExecEPNSA_13KernelContextERKNSA_8ExecSpanEPNSA_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSR_EEET_lOST_.exit.i.i.i: ; preds = %_ZN5arrow8internal6detail16FormatYYYY_MM_DDEN14arrow_vendored4date14year_month_dayEPPc.exit.i429.i.i.i, %if.then.i342.i.i.i
@@ -89903,7 +89903,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal6detail16FormatOutOfRangeIRlRZZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeENS_13TimestampTypeEE4ExecEPNS4_13KernelContextERKNS4_8ExecSpanEPNS4_10ExecResultEENKUllE_clElEUlSt17basic_string_viewIcSt11char_traitsIcEEE_EEDTclclsr3stdE7declvalIT0_EEtlSM_EEEOT_OSP_(ptr noalias nonnull align 8 %agg.result, i64 %raw_value.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %append) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %formatted = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -89925,7 +89925,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
   %append.val = load ptr, ptr %append, align 8
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %append.val, ptr noundef %1, i64 noundef %0)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
@@ -89956,7 +89956,7 @@ eh.resume:                                        ; preds = %lpad, %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -90035,7 +90035,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i) #24, !noalias !4052
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -90061,7 +90061,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -90140,7 +90140,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i) #24, !noalias !4055
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -90166,7 +90166,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -90245,7 +90245,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i) #24, !noalias !4058
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -90271,7 +90271,7 @@ _ZZN5arrow7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15Larg
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN5arrow8internal22ArraySpanInlineVisitorINS_13TimestampTypeEvE11VisitStatusIZNS_7compute8internal12_GLOBAL__N_127TemporalToStringCastFunctorINS_15LargeStringTypeES2_E12ConvertZonedINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEENS_6StatusERKNS_9ArraySpanERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18LargeStringBuilderEEUllE_ZNSB_ISG_EESH_SK_SS_SU_EUlvE_EESH_SK_OT_OT0_ENKUllE_clEl(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %this.0.val, ptr nocapture readonly %this.8.val.0.val, i64 noundef %i) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Result.351", align 8
   %formatted.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -90350,7 +90350,7 @@ invoke.cont5.i:                                   ; preds = %entry
   %call6.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %formatted.i) #24, !noalias !4061
   %14 = extractvalue { i64, ptr } %call6.i, 0
   %15 = extractvalue { i64, ptr } %call6.i, 1
-  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
+  invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6AppendEPKhl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef %15, i64 noundef %14)
           to label %invoke.cont8.i unwind label %lpad7.i
 
 invoke.cont8.i:                                   ; preds = %invoke.cont5.i
@@ -90437,7 +90437,7 @@ entry:
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_10BinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4067)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !4067
   store ptr %3, ptr %agg.result, align 8, !alias.scope !4067
@@ -90544,7 +90544,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   %values.i = getelementptr inbounds i8, ptr %batch, i64 8
   %2 = load ptr, ptr %values.i, align 8
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %2)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_15LargeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4081)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !4081
   store ptr %3, ptr %agg.result, align 8, !alias.scope !4081
@@ -90609,7 +90609,7 @@ entry:
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
   tail call void @_ZN5arrow4util14InitializeUTF8Ev()
-  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
+  call fastcc void @_ZN5arrow16ArraySpanVisitorINS_19FixedSizeBinaryTypeEE5VisitINS_7compute8internal12_GLOBAL__N_113Utf8ValidatorEEENS_6StatusERKNS_9ArraySpanEPT_(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(128) %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4092)
   %3 = load ptr, ptr %ref.tmp, align 8, !noalias !4092
   store ptr %3, ptr %agg.result, align 8, !alias.scope !4092

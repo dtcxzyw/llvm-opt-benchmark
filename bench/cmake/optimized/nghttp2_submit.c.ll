@@ -21,7 +21,7 @@ define dso_local i32 @nghttp2_submit_trailer(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @submit_headers_shared_nva(ptr noundef %0, i8 noundef zeroext range(i8 0, 34) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nghttp2_priority_spec, align 4
   %11 = getelementptr inbounds i8, ptr %0, i64 2528

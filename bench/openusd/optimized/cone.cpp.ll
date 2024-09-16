@@ -2102,7 +2102,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN32pxrInternal_v0_24_
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__11UsdGeomCone13ComputeExtentEddRKNS_7TfTokenEPNS_7VtArrayINS_7GfVec3fEEE(double noundef %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", align 4
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 2)
-  %6 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %5)
+  %6 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5)
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %4
@@ -2131,7 +2131,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__11UsdGeomCone13C
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomTokensE seq_cst, align 8
   %6 = inttoptr i64 %5 to ptr
   %.not.i.i = icmp eq i64 %5, 0
@@ -2308,7 +2308,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__11UsdGeomCone13C
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", align 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(40) %4, i64 noundef 2)
-  %9 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %6)
+  %9 = call fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %0, double noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6)
   br i1 %9, label %10, label %50
 
 10:                                               ; preds = %5
@@ -3624,7 +3624,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12UsdAttributeD2Ev.exit36: ; preds = %_ZN32
           to label %.noexc37 unwind label %140
 
 .noexc37:                                         ; preds = %149
-  %150 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %145, double noundef %146, ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef nonnull %5)
+  %150 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L17_ComputeExtentMaxEddRKNS_7TfTokenEPNS_7GfVec3fE(double noundef %145, double noundef %146, ptr noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noundef %5)
           to label %.noexc38 unwind label %140
 
 .noexc38:                                         ; preds = %.noexc37

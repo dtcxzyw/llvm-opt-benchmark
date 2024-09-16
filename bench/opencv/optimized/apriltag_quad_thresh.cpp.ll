@@ -1980,7 +1980,7 @@ _ZN2cv10AutoBufferINS_5aruco11line_fit_ptELm64EED2Ev.exit: ; preds = %106, %103,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32 noundef range(i32 -1073741817, -2147483648) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::AutoBuffer.36", align 8
   %4 = alloca %"struct.cv::aruco::pt", align 4
   %5 = alloca %"struct.cv::aruco::pt", align 4
@@ -2264,7 +2264,7 @@ define internal fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %0, i32
 
 _ZN2cv10AutoBufferINS_5aruco2ptELm1024EEC2Em.exit: ; preds = %124, %129
   %131 = phi ptr [ %130, %129 ], [ %126, %124 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %131, ptr align 4 %0, i64 %128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %131, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %128, i1 false)
   %132 = lshr i32 %1, 1
   %133 = sub nsw i32 %1, %132
   %134 = zext nneg i32 %132 to i64

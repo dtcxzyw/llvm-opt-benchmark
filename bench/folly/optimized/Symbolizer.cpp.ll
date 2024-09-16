@@ -1397,7 +1397,7 @@ terminate.lpad.i.i.i:                             ; preds = %.noexc.i.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev"(ptr %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_10symbolizer21SafeStackTracePrinter15printStackTraceEbE3$_0Lb1EED2Ev"(ptr nonnull %this.8.val) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %printer_.i.i.i = getelementptr inbounds i8, ptr %this.8.val, i64 16
   invoke void @_ZN5folly10symbolizer18FDSymbolizePrinter5flushEv(ptr noundef nonnull align 8 dereferenceable(32) %printer_.i.i.i)

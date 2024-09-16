@@ -2387,11 +2387,11 @@ flush_pending.exit398:                            ; preds = %flush_pending.exit3
   ]
 
 698:                                              ; preds = %695
-  %699 = tail call fastcc i32 @deflate_huff(ptr noundef nonnull %6, i32 noundef %1)
+  %699 = tail call fastcc i32 @deflate_huff(ptr noundef %6, i32 noundef %1)
   br label %709
 
 700:                                              ; preds = %695
-  %701 = tail call fastcc i32 @deflate_rle(ptr noundef nonnull %6, i32 noundef %1)
+  %701 = tail call fastcc i32 @deflate_rle(ptr noundef %6, i32 noundef %1)
   br label %709
 
 702:                                              ; preds = %695
@@ -2849,7 +2849,7 @@ define internal fastcc void @flush_pending(ptr nocapture noundef %0) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef nonnull %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -3149,7 +3149,7 @@ flush_pending.exit59:                             ; preds = %153, %168, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef nonnull %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = icmp eq i32 %1, 0
@@ -5311,7 +5311,7 @@ flush_pending.exit186:                            ; preds = %387, %401, %419
 declare void @_tr_flush_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef range(i32 1, 65536) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 172
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 80

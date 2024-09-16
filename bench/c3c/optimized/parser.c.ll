@@ -172,7 +172,7 @@ define dso_local zeroext i1 @parse_file(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %1
-  call fastcc void @parse_translation_unit(ptr noundef nonnull %2)
+  call fastcc void @parse_translation_unit(ptr noundef %2)
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
   %.not5 = icmp eq i32 %8, 0
   br label %9
@@ -190,7 +190,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @lexer_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_translation_unit(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @parse_translation_unit(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -885,7 +885,7 @@ define dso_local zeroext i1 @parse_stdin() local_unnamed_addr #0 {
   br i1 %.not34, label %29, label %31
 
 29:                                               ; preds = %24
-  call fastcc void @parse_translation_unit(ptr noundef nonnull %2)
+  call fastcc void @parse_translation_unit(ptr noundef %2)
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @global_context, i64 84), align 4
   %.not35 = icmp eq i32 %30, 0
   br label %31

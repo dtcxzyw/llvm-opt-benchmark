@@ -648,7 +648,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %list_l
   br i1 %.not111, label %198, label %192
 
 192:                                              ; preds = %190
-  call fastcc void @tupledesc_match(ptr noundef %3, ptr noundef nonnull %191)
+  call fastcc void @tupledesc_match(ptr noundef %3, ptr noundef %191)
   %193 = load ptr, ptr %20, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 12
   %195 = load i32, ptr %194, align 4
@@ -706,7 +706,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tupledesc_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @tupledesc_match(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, %4
@@ -1128,7 +1128,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph22.i, %57, %.
   br i1 %.not26.i, label %133, label %132
 
 132:                                              ; preds = %130
-  call fastcc void @tupledesc_match(ptr noundef nonnull %131, ptr noundef nonnull %113)
+  call fastcc void @tupledesc_match(ptr noundef nonnull %131, ptr noundef %113)
   br label %133
 
 133:                                              ; preds = %132, %130

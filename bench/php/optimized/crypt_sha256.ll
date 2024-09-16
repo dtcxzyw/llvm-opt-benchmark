@@ -164,8 +164,8 @@ sub_2:                                            ; preds = %sub_1
   store i32 0, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %6, i64 40
   store i32 0, ptr %71, align 4
-  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef nonnull %6)
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %6)
   store i32 1779033703, ptr %7, align 4
   %72 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 -1150833019, ptr %72, align 4
@@ -187,9 +187,9 @@ sub_2:                                            ; preds = %sub_1
   store i32 0, ptr %79, align 4
   %81 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 0, ptr %81, align 4
-  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef nonnull %7)
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef nonnull %7)
-  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %7)
+  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %7)
+  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %7)
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %79, align 4
   %84 = add i32 %83, %82
@@ -241,7 +241,7 @@ sub_2:                                            ; preds = %sub_1
   %120 = getelementptr inbounds [128 x i8], ptr %92, i64 0, i64 %106
   store i32 %119, ptr %120, align 1
   %121 = add nuw nsw i64 %106, 8
-  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %121, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %121, ptr noundef %7)
   br label %122
 
 122:                                              ; preds = %122, %89
@@ -261,14 +261,14 @@ sha256_finish_ctx.exit.preheader:                 ; preds = %122
 
 sha256_finish_ctx.exit:                           ; preds = %sha256_finish_ctx.exit.preheader, %sha256_finish_ctx.exit
   %.0388467 = phi i64 [ %128, %sha256_finish_ctx.exit ], [ %36, %sha256_finish_ctx.exit.preheader ]
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef %6)
   %128 = add i64 %.0388467, -32
   %129 = icmp ugt i64 %128, 32
   br i1 %129, label %sha256_finish_ctx.exit, label %sha256_finish_ctx.exit._crit_edge
 
 sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.exit, %sha256_finish_ctx.exit.preheader
   %.0388.lcssa = phi i64 [ %36, %sha256_finish_ctx.exit.preheader ], [ %128, %sha256_finish_ctx.exit ]
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef %.0388.lcssa, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef %.0388.lcssa, ptr noundef %6)
   %.not425468 = icmp eq i64 %36, 0
   br i1 %.not425468, label %._crit_edge, label %.lr.ph470
 
@@ -279,11 +279,11 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
   br i1 %.not433, label %132, label %131
 
 131:                                              ; preds = %.lr.ph470
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef %6)
   br label %133
 
 132:                                              ; preds = %.lr.ph470
-  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %6)
   br label %133
 
 133:                                              ; preds = %131, %132
@@ -343,7 +343,7 @@ sha256_finish_ctx.exit._crit_edge:                ; preds = %sha256_finish_ctx.e
   %173 = getelementptr inbounds [128 x i8], ptr %145, i64 0, i64 %159
   store i32 %172, ptr %173, align 1
   %174 = add nuw nsw i64 %159, 8
-  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef %174, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef %174, ptr noundef %6)
   br label %175
 
 175:                                              ; preds = %175, %142
@@ -373,7 +373,7 @@ sha256_finish_ctx.exit441:                        ; preds = %175
 
 .lr.ph472:                                        ; preds = %sha256_finish_ctx.exit441, %.lr.ph472
   %.2390471 = phi i64 [ %180, %.lr.ph472 ], [ 0, %sha256_finish_ctx.exit441 ]
-  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_bytes(ptr noundef %.0376, i64 noundef %36, ptr noundef %7)
   %180 = add nuw i64 %.2390471, 1
   %exitcond.not = icmp eq i64 %180, %36
   br i1 %exitcond.not, label %._crit_edge473, label %.lr.ph472
@@ -435,7 +435,7 @@ sha256_finish_ctx.exit441:                        ; preds = %175
   %218 = getelementptr inbounds [128 x i8], ptr %92, i64 0, i64 %204
   store i32 %217, ptr %218, align 1
   %219 = add nuw nsw i64 %204, 8
-  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %219, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %219, ptr noundef %7)
   br label %220
 
 220:                                              ; preds = %220, %.thread
@@ -495,7 +495,7 @@ sha256_finish_ctx.exit447:                        ; preds = %220
 
 236:                                              ; preds = %._crit_edge478, %236
   %.4392481 = phi i64 [ 0, %._crit_edge478 ], [ %237, %236 ]
-  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_bytes(ptr noundef %.2, i64 noundef %spec.select434, ptr noundef %7)
   %237 = add nuw nsw i64 %.4392481, 1
   %238 = load i8, ptr %4, align 4
   %239 = zext i8 %238 to i64
@@ -554,7 +554,7 @@ sha256_finish_ctx.exit447:                        ; preds = %220
   %280 = getelementptr inbounds [128 x i8], ptr %92, i64 0, i64 %266
   store i32 %279, ptr %280, align 1
   %281 = add nuw nsw i64 %266, 8
-  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %281, ptr noundef nonnull %7)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %92, i64 noundef %281, ptr noundef %7)
   br label %282
 
 282:                                              ; preds = %282, %250
@@ -592,11 +592,11 @@ sha256_finish_ctx.exit453:                        ; preds = %282
   br i1 %.not430, label %290, label %289
 
 289:                                              ; preds = %.lr.ph483
-  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef %6)
   br label %291
 
 290:                                              ; preds = %.lr.ph483
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef %6)
   br label %291
 
 291:                                              ; preds = %290, %289
@@ -605,7 +605,7 @@ sha256_finish_ctx.exit453:                        ; preds = %282
   br i1 %.not431, label %294, label %293
 
 293:                                              ; preds = %291
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %287, i64 noundef %spec.select434, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %287, i64 noundef %spec.select434, ptr noundef %6)
   br label %294
 
 294:                                              ; preds = %293, %291
@@ -614,18 +614,18 @@ sha256_finish_ctx.exit453:                        ; preds = %282
   br i1 %.not432, label %297, label %296
 
 296:                                              ; preds = %294
-  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef %6)
   br label %297
 
 297:                                              ; preds = %296, %294
   br i1 %.not430, label %299, label %298
 
 298:                                              ; preds = %297
-  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef nonnull %4, i64 noundef 32, ptr noundef %6)
   br label %300
 
 299:                                              ; preds = %297
-  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_bytes(ptr noundef %235, i64 noundef %36, ptr noundef %6)
   br label %300
 
 300:                                              ; preds = %299, %298
@@ -679,7 +679,7 @@ sha256_finish_ctx.exit453:                        ; preds = %282
   %338 = getelementptr inbounds [128 x i8], ptr %145, i64 0, i64 %324
   store i32 %337, ptr %338, align 1
   %339 = add nuw nsw i64 %324, 8
-  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef %339, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef %339, ptr noundef %6)
   br label %340
 
 340:                                              ; preds = %340, %308
@@ -1182,7 +1182,7 @@ sha256_finish_ctx.exit459:                        ; preds = %340
   store i32 0, ptr %628, align 4
   %629 = getelementptr inbounds i8, ptr %6, i64 100
   store i32 0, ptr %629, align 4
-  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef 64, ptr noundef nonnull %6)
+  call fastcc void @sha256_process_block(ptr noundef nonnull %145, i64 noundef 64, ptr noundef %6)
   br label %630
 
 630:                                              ; preds = %630, %627
@@ -1263,7 +1263,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -1286,7 +1286,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
 16:                                               ; preds = %6
   %17 = and i32 %14, -64
   %18 = zext i32 %17 to i64
-  tail call fastcc void @sha256_process_block(ptr noundef nonnull %10, i64 noundef %18, ptr noundef nonnull %2)
+  tail call fastcc void @sha256_process_block(ptr noundef nonnull %10, i64 noundef %18, ptr noundef %2)
   %19 = load i32, ptr %4, align 4
   %20 = and i32 %19, 63
   store i32 %20, ptr %4, align 4
@@ -1326,7 +1326,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   %.272 = phi ptr [ %.056, %.lr.ph ], [ %35, %34 ]
   %.25971 = phi i64 [ %.057, %.lr.ph ], [ %36, %34 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %33, ptr noundef nonnull align 1 dereferenceable(64) %.272, i64 64, i1 false)
-  tail call fastcc void @sha256_process_block(ptr noundef nonnull %33, i64 noundef 64, ptr noundef nonnull %2)
+  tail call fastcc void @sha256_process_block(ptr noundef nonnull %33, i64 noundef 64, ptr noundef %2)
   %35 = getelementptr inbounds i8, ptr %.272, i64 64
   %36 = add i64 %.25971, -64
   %37 = icmp ugt i64 %36, 64
@@ -1334,7 +1334,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
 
 38:                                               ; preds = %30
   %39 = and i64 %.057, -64
-  tail call fastcc void @sha256_process_block(ptr noundef %.056, i64 noundef %39, ptr noundef nonnull %2)
+  tail call fastcc void @sha256_process_block(ptr noundef %.056, i64 noundef %39, ptr noundef %2)
   %40 = getelementptr inbounds i8, ptr %.056, i64 %39
   %41 = and i64 %.057, 63
   br label %42
@@ -1358,7 +1358,7 @@ define internal fastcc void @sha256_process_bytes(ptr noundef %0, i64 noundef %1
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %.thread
-  tail call fastcc void @sha256_process_block(ptr noundef nonnull %45, i64 noundef 64, ptr noundef nonnull %2)
+  tail call fastcc void @sha256_process_block(ptr noundef nonnull %45, i64 noundef 64, ptr noundef %2)
   %50 = add nsw i64 %47, -64
   %51 = getelementptr inbounds i8, ptr %2, i64 108
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %45, ptr nonnull align 4 %51, i64 %50, i1 false)
@@ -1420,7 +1420,7 @@ define hidden noundef ptr @php_sha256_crypt(ptr noundef %0, ptr noundef %1) loca
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #7 {
+define internal fastcc void @sha256_process_block(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, -63) %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
   %4 = alloca [64 x i32], align 16
   %5 = lshr i64 %1, 2
   %6 = load i32, ptr %2, align 4

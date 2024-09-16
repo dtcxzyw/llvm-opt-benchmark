@@ -508,7 +508,7 @@ define dso_local range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %0, p
   br label %chunk_read.exit
 
 23:                                               ; preds = %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01829, ptr nonnull align 1 %17, i64 %.02028, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.01829, ptr noundef nonnull align 1 dereferenceable(1) %17, i64 %.02028, i1 false)
   %24 = load i64, ptr %15, align 8
   %25 = add i64 %24, %.02028
   store i64 %25, ptr %15, align 8

@@ -4175,8 +4175,8 @@ pfcp_fill_map.exit.i:                             ; preds = %._crit_edge.i.i, %1
   %187 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = call ptr @wmem_map_remove(ptr noundef %188, ptr noundef nonnull %6) #12
-  %.not71.i.i = icmp eq ptr %189, null
-  br i1 %.not71.i.i, label %190, label %193
+  %.not72.i.i = icmp eq ptr %189, null
+  br i1 %.not72.i.i, label %190, label %193
 
 190:                                              ; preds = %186
   %191 = call ptr @wmem_file_scope() #12
@@ -4206,14 +4206,14 @@ pfcp_fill_map.exit.i:                             ; preds = %._crit_edge.i.i, %1
   %203 = getelementptr inbounds i8, ptr %.0.i, i64 8
   %204 = load ptr, ptr %203, align 8
   %205 = call ptr @wmem_map_lookup(ptr noundef %204, ptr noundef nonnull %6) #12
-  %.not69.i.i = icmp eq ptr %205, null
-  br i1 %.not69.i.i, label %pfcp_match_response.exit.i, label %206
+  %.not70.i.i = icmp eq ptr %205, null
+  br i1 %.not70.i.i, label %pfcp_match_response.exit.i, label %206
 
 206:                                              ; preds = %202
   %207 = getelementptr inbounds i8, ptr %205, i64 24
   %208 = load i32, ptr %207, align 8
-  %.not70.i.i = icmp eq i32 %208, 0
-  br i1 %.not70.i.i, label %209, label %thread-pre-split.i.i
+  %.not71.i.i = icmp eq i32 %208, 0
+  br i1 %.not71.i.i, label %209, label %thread-pre-split.i.i
 
 209:                                              ; preds = %206
   %210 = load ptr, ptr %203, align 8
@@ -4232,8 +4232,8 @@ thread-pre-split.i.i:                             ; preds = %209, %206
 215:                                              ; preds = %thread-pre-split.i.i, %183
   %216 = phi i32 [ %.pr.i.i, %thread-pre-split.i.i ], [ %184, %183 ]
   %.0.ph.i.i = phi ptr [ %205, %thread-pre-split.i.i ], [ %182, %183 ]
-  %.not73.i.i = icmp eq i32 %216, 0
-  br i1 %.not73.i.i, label %229, label %217
+  %.not74.i.i = icmp eq i32 %216, 0
+  br i1 %.not74.i.i, label %229, label %217
 
 217:                                              ; preds = %215
   %218 = load i32, ptr @hf_pfcp_response_in, align 4
@@ -4261,55 +4261,55 @@ thread-pre-split.i.i:                             ; preds = %209, %206
   %231 = getelementptr inbounds i8, ptr %.0.ph.i.i, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = call ptr @proto_tree_add_uint(ptr noundef %75, i32 noundef %230, ptr noundef %36, i32 noundef 0, i32 noundef 0, i32 noundef %232) #12
-  %.not.i79.i.i = icmp eq ptr %233, null
-  br i1 %.not.i79.i.i, label %proto_item_set_generated.exit81.i.i, label %234
+  %.not.i80.i.i = icmp eq ptr %233, null
+  br i1 %.not.i80.i.i, label %proto_item_set_generated.exit82.i.i, label %234
 
 234:                                              ; preds = %229
   %235 = getelementptr inbounds i8, ptr %233, i64 32
   %236 = load ptr, ptr %235, align 8
-  %.not5.i80.i.i = icmp eq ptr %236, null
-  br i1 %.not5.i80.i.i, label %proto_item_set_generated.exit81.i.i, label %237
+  %.not5.i81.i.i = icmp eq ptr %236, null
+  br i1 %.not5.i81.i.i, label %proto_item_set_generated.exit82.i.i, label %237
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds i8, ptr %236, i64 28
   %239 = load i32, ptr %238, align 4
   %240 = or i32 %239, 2
   store i32 %240, ptr %238, align 4
-  br label %proto_item_set_generated.exit81.i.i
+  br label %proto_item_set_generated.exit82.i.i
 
-proto_item_set_generated.exit81.i.i:              ; preds = %237, %234, %229
+proto_item_set_generated.exit82.i.i:              ; preds = %237, %234, %229
   %241 = getelementptr inbounds i8, ptr %.0.ph.i.i, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %21, ptr noundef nonnull %241) #12
   %242 = load i32, ptr @hf_pfcp_response_time, align 4
   %243 = call ptr @proto_tree_add_time(ptr noundef %75, i32 noundef %242, ptr noundef %36, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #12
-  %.not.i82.i.i = icmp eq ptr %243, null
-  br i1 %.not.i82.i.i, label %proto_item_set_generated.exit84.i.i, label %244
+  %.not.i83.i.i = icmp eq ptr %243, null
+  br i1 %.not.i83.i.i, label %proto_item_set_generated.exit85.i.i, label %244
 
-244:                                              ; preds = %proto_item_set_generated.exit81.i.i
+244:                                              ; preds = %proto_item_set_generated.exit82.i.i
   %245 = getelementptr inbounds i8, ptr %243, i64 32
   %246 = load ptr, ptr %245, align 8
-  %.not5.i83.i.i = icmp eq ptr %246, null
-  br i1 %.not5.i83.i.i, label %proto_item_set_generated.exit84.i.i, label %247
+  %.not5.i84.i.i = icmp eq ptr %246, null
+  br i1 %.not5.i84.i.i, label %proto_item_set_generated.exit85.i.i, label %247
 
 247:                                              ; preds = %244
   %248 = getelementptr inbounds i8, ptr %246, i64 28
   %249 = load i32, ptr %248, align 4
   %250 = or i32 %249, 2
   store i32 %250, ptr %248, align 4
-  br label %proto_item_set_generated.exit84.i.i
+  br label %proto_item_set_generated.exit85.i.i
 
-proto_item_set_generated.exit84.i.i:              ; preds = %247, %244, %proto_item_set_generated.exit81.i.i
+proto_item_set_generated.exit85.i.i:              ; preds = %247, %244, %proto_item_set_generated.exit82.i.i
   %251 = load i32, ptr @g_pfcp_session, align 4
-  %.not74.i.i = icmp eq i32 %251, 0
-  br i1 %.not74.i.i, label %287, label %252
+  %.not75.i.i = icmp eq i32 %251, 0
+  br i1 %.not75.i.i, label %287, label %252
 
-252:                                              ; preds = %proto_item_set_generated.exit84.i.i
+252:                                              ; preds = %proto_item_set_generated.exit85.i.i
   %253 = load ptr, ptr %17, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 50
   %255 = load i16, ptr %254, align 2
   %256 = and i16 %255, 8
-  %.not75.i.i = icmp eq i16 %256, 0
-  br i1 %.not75.i.i, label %257, label %287
+  %.not76.i.i = icmp eq i16 %256, 0
+  br i1 %.not76.i.i, label %257, label %287
 
 257:                                              ; preds = %252
   %258 = load ptr, ptr @pfcp_session_table, align 8
@@ -4319,8 +4319,8 @@ proto_item_set_generated.exit84.i.i:              ; preds = %247, %244, %proto_i
   %262 = call ptr @g_hash_table_lookup(ptr noundef %258, ptr noundef %261) #12
   %263 = ptrtoint ptr %262 to i64
   %264 = and i64 %263, 4294967295
-  %.not76.i.i = icmp eq i64 %264, 0
-  br i1 %.not76.i.i, label %265, label %280
+  %.not77.i.i = icmp eq i64 %264, 0
+  br i1 %.not77.i.i, label %265, label %280
 
 265:                                              ; preds = %257
   %266 = load ptr, ptr @pfcp_session_table, align 8
@@ -4330,8 +4330,8 @@ proto_item_set_generated.exit84.i.i:              ; preds = %247, %244, %proto_i
   %270 = call ptr @g_hash_table_lookup(ptr noundef %266, ptr noundef %269) #12
   %271 = ptrtoint ptr %270 to i64
   %272 = and i64 %271, 4294967295
-  %.not77.i.i = icmp eq i64 %272, 0
-  br i1 %.not77.i.i, label %280, label %273
+  %.not78.i.i = icmp eq i64 %272, 0
+  br i1 %.not78.i.i, label %280, label %273
 
 273:                                              ; preds = %265
   %274 = load i32, ptr %18, align 4
@@ -4358,7 +4358,7 @@ pfcp_match_response.exit.i:                       ; preds = %202, %193, %185
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %289
 
-287:                                              ; preds = %281, %280, %252, %proto_item_set_generated.exit84.i.i, %225, %222, %217
+287:                                              ; preds = %281, %280, %252, %proto_item_set_generated.exit85.i.i, %225, %222, %217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %288 = load i32, ptr @pfcp_tap, align 4
@@ -4554,46 +4554,46 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pfcp_register_generic_ie_dissector(i16 noundef zeroext %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = zext i32 %5 to i64
-  %8 = shl nuw nsw i64 %7, 3
+define internal fastcc void @pfcp_register_generic_ie_dissector(i16 noundef zeroext range(i16 3561, 18682) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 14, 40) %5) unnamed_addr #0 {
+  %7 = shl nuw nsw i32 %5, 3
+  %8 = zext nneg i32 %7 to i64
   %9 = alloca i8, i64 %8, align 16
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %wide.trip.count = zext nneg i32 %5 to i64
+  br label %10
 
-.lr.ph:                                           ; preds = %6, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %6 ]
-  %10 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv, i32 4
-  store i32 -1, ptr %10, align 8
-  %11 = getelementptr ptr, ptr %9, i64 %indvars.iv
-  store ptr %10, ptr %11, align 8
+10:                                               ; preds = %6, %10
+  %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv, i32 4
+  store i32 -1, ptr %11, align 8
+  %12 = getelementptr ptr, ptr %9, i64 %indvars.iv
+  store ptr %11, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %13, label %10, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.lr.ph, %6
+13:                                               ; preds = %10
   call void @proto_register_subtree_array(ptr noundef nonnull %9, i32 noundef %5) #12
-  %12 = load i32, ptr @proto_pfcp, align 4
-  %13 = call ptr @register_dissector_table(ptr noundef %2, ptr noundef %3, i32 noundef %12, i32 noundef 5, i32 noundef 1) #12
-  br i1 %.not, label %._crit_edge31, label %.lr.ph30
+  %14 = load i32, ptr @proto_pfcp, align 4
+  %15 = call ptr @register_dissector_table(ptr noundef %2, ptr noundef %3, i32 noundef %14, i32 noundef 5, i32 noundef 1) #12
+  br label %16
 
-.lr.ph30:                                         ; preds = %._crit_edge, %.lr.ph30
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.lr.ph30 ], [ 0, %._crit_edge ]
-  %14 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv34
-  %15 = getelementptr inbounds i8, ptr %14, i64 2
-  %16 = load i16, ptr %15, align 2
-  %17 = zext i16 %16 to i32
-  %18 = call ptr @create_dissector_handle_with_data(ptr noundef nonnull @dissect_pfcp_generic_ie_cb, i32 noundef -1, ptr noundef %14) #12
-  call void @dissector_add_uint(ptr noundef %2, i32 noundef %17, ptr noundef %18) #12
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next35, %7
-  br i1 %exitcond38.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
+16:                                               ; preds = %13, %16
+  %indvars.iv30 = phi i64 [ 0, %13 ], [ %indvars.iv.next31, %16 ]
+  %17 = getelementptr %struct.pfcp_generic_ie, ptr %4, i64 %indvars.iv30
+  %18 = getelementptr inbounds i8, ptr %17, i64 2
+  %19 = load i16, ptr %18, align 2
+  %20 = zext i16 %19 to i32
+  %21 = call ptr @create_dissector_handle_with_data(ptr noundef nonnull @dissect_pfcp_generic_ie_cb, i32 noundef -1, ptr noundef %17) #12
+  call void @dissector_add_uint(ptr noundef %2, i32 noundef %20, ptr noundef %21) #12
+  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
+  br i1 %exitcond34.not, label %22, label %16, !llvm.loop !11
 
-._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge
-  %19 = load i32, ptr @proto_pfcp, align 4
-  %20 = call ptr @register_dissector_with_data(ptr noundef %1, ptr noundef nonnull @dissect_pfcp_generic_enterprise_ie, i32 noundef %19, ptr noundef %13) #12
-  %21 = zext nneg i16 %0 to i32
-  call void @dissector_add_uint(ptr noundef nonnull @.str.1848, i32 noundef %21, ptr noundef %20) #12
+22:                                               ; preds = %16
+  %23 = load i32, ptr @proto_pfcp, align 4
+  %24 = call ptr @register_dissector_with_data(ptr noundef %1, ptr noundef nonnull @dissect_pfcp_generic_enterprise_ie, i32 noundef %23, ptr noundef %15) #12
+  %25 = zext nneg i16 %0 to i32
+  call void @dissector_add_uint(ptr noundef nonnull @.str.1848, i32 noundef %25, ptr noundef %24) #12
   ret void
 }
 
@@ -4831,7 +4831,7 @@ declare i64 @tvb_get_ntohi64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 17) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
@@ -4840,7 +4840,7 @@ define internal fastcc void @dissect_pfcp_ies_common(ptr noundef %0, ptr noundef
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %6, ptr %12, align 8
   %13 = zext i16 %4 to i32
-  %14 = icmp slt i32 %3, %13
+  %14 = icmp ult i32 %3, %13
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %61
@@ -12587,7 +12587,7 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @proto_tree_add_item_ret_time_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_pfcp_destination_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef returned %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @decode_pfcp_destination_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 24) %4, i32 noundef returned %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_pfcp_spare_h1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #12

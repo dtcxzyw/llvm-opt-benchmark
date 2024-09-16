@@ -386,7 +386,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -921,7 +921,7 @@ define dso_local void @led_trigger_unregister_simple(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @led_trigger_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ...) unnamed_addr #0 align 16 {
+define internal i32 @led_trigger_snprintf(ptr noundef %0, i64 noundef range(i64 -4294967295, 4294967296) %1, ptr noundef %2, ...) unnamed_addr #0 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !18

@@ -931,7 +931,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @resolve_doip_payload_type(ptr noundef %0, i16 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @resolve_doip_payload_type(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr @data_doip_payload_types, align 8
   %5 = zext i16 %1 to i32
   %6 = icmp eq ptr %4, null
@@ -1009,7 +1009,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doip_prototree_add_with_resolv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @doip_prototree_add_with_resolv(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 8, 26) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #4
   %9 = load ptr, ptr @data_doip_diag_addresses, align 8

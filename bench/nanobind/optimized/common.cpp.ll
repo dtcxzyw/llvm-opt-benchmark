@@ -82,7 +82,7 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr nocapture noundef readonly %0, .
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca %"class.nanobind::builtin_exception", align 8
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef 0, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef 0, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #23
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #23
@@ -105,10 +105,10 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr nocapture noundef readonly %0, .
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 6) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [512 x i8], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_copy.p0(ptr nonnull %6, ptr %3)
+  call void @llvm.va_copy.p0(ptr nonnull %6, ptr nonnull %3)
   %7 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 512, ptr noundef %2, ptr noundef nonnull %6) #23
   call void @llvm.va_end.p0(ptr nonnull %6)
   %8 = icmp slt i32 %7, 512
@@ -130,7 +130,7 @@ define internal fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14excepti
   unreachable
 
 _ZN8nanobind6detail15scoped_pymallocIcEC2Em.exit: ; preds = %10
-  call void @llvm.va_copy.p0(ptr nonnull %6, ptr %3)
+  call void @llvm.va_copy.p0(ptr nonnull %6, ptr nonnull %3)
   %15 = call i32 @vsnprintf(ptr noundef nonnull %13, i64 noundef %12, ptr noundef %2, ptr noundef nonnull %6) #23
   call void @llvm.va_end.p0(ptr nonnull %6)
   invoke void @_ZN8nanobind17builtin_exceptionC1ENS_14exception_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef nonnull %13)
@@ -182,7 +182,7 @@ define void @_ZN8nanobind6detail16raise_type_errorEPKcz(ptr nocapture noundef re
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = alloca %"class.nanobind::builtin_exception", align 8
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef 5, ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @_ZN8nanobind6detailL16create_exceptionENS_14exception_typeEPKcP13__va_list_tag(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef 5, ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #23
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #23

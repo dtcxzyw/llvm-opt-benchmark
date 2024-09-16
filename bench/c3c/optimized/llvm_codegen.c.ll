@@ -3163,7 +3163,7 @@ llvm_call_convention_from_call.exit:              ; preds = %switch.lookup, %125
 declare ptr @type_get_resolved_prototype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i32 noundef range(i32 -32767, 32769) %4, i32 noundef range(i32 -32768, 32768) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %2, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 2

@@ -381,7 +381,7 @@ declare dso_local void @perf_aux_output_end(ptr noundef, i64 noundef) local_unna
 declare dso_local ptr @perf_aux_output_begin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @bts_buffer_reset(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @bts_buffer_reset(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = load i8, ptr %3, align 4, !range !11, !noundef !12
   %5 = icmp eq i8 %4, 0

@@ -50,7 +50,7 @@ if.end:                                           ; preds = %if.then, %if.else
   store i32 %conv12.sink, ptr %5, align 8
   %6 = load i16, ptr %fold, align 8
   %conv16 = zext i16 %6 to i32
-  %call = call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv16, i32 noundef 0)
+  %call = call fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %conv16, i32 noundef 0)
   %cmp17 = icmp ult i32 %call, 2
   br i1 %cmp17, label %if.then19, label %return
 
@@ -218,7 +218,7 @@ return:                                           ; preds = %entry, %if.end, %na
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %ref, i32 noundef %depth) unnamed_addr #1 {
+define internal fastcc range(i32 0, 11) i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef range(i32 0, 65536) %ref, i32 noundef %depth) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %ir2 = getelementptr inbounds i8, ptr %0, i64 32
@@ -258,7 +258,7 @@ if.then8:                                         ; preds = %land.lhs.true
 
 if.then12:                                        ; preds = %if.then8
   %add = add nsw i32 %depth, 1
-  tail call fastcc void @narrow_stripov_backprop(ptr noundef nonnull %nc, i32 noundef %conv13, i32 noundef %add)
+  tail call fastcc void @narrow_stripov_backprop(ptr noundef %nc, i32 noundef %conv13, i32 noundef %add)
   br label %if.end18
 
 if.else:                                          ; preds = %if.then8
@@ -513,11 +513,11 @@ if.then168:                                       ; preds = %if.end160
   %inc = add nsw i32 %depth, 1
   %37 = load i16, ptr %arrayidx, align 8
   %conv171 = zext i16 %37 to i32
-  %call172 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv171, i32 noundef %inc)
+  %call172 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %conv171, i32 noundef %inc)
   %op2173 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %38 = load i16, ptr %op2173, align 2
   %conv174 = zext i16 %38 to i32
-  %call175 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef nonnull %nc, i32 noundef %conv174, i32 noundef %inc)
+  %call175 = tail call fastcc i32 @narrow_conv_backprop(ptr noundef %nc, i32 noundef %conv174, i32 noundef %inc)
   %add176 = add nuw nsw i32 %call175, %call172
   %cmp177 = icmp ult i32 %add176, 2
   br i1 %cmp177, label %if.then179, label %if.end190
@@ -528,16 +528,16 @@ if.then179:                                       ; preds = %if.then168
   %40 = load i32, ptr %t142, align 4
   %41 = shl nuw i32 %conv181, 24
   %42 = shl i32 %40, 16
-  %shl183 = or i32 %41, %42
-  %add184 = add nuw i32 %shl183, %ref
-  %43 = load ptr, ptr %sp, align 8
-  %incdec.ptr186 = getelementptr inbounds i8, ptr %43, i64 4
+  %43 = or i32 %42, %41
+  %add184 = or disjoint i32 %43, %ref
+  %44 = load ptr, ptr %sp, align 8
+  %incdec.ptr186 = getelementptr inbounds i8, ptr %44, i64 4
   store ptr %incdec.ptr186, ptr %sp, align 8
-  store i32 %add184, ptr %43, align 4
+  store i32 %add184, ptr %44, align 4
   br label %return
 
 if.end190:                                        ; preds = %if.then168, %while.end, %if.end160
-  %add191 = add nuw nsw i32 %ref, 65536
+  %add191 = or disjoint i32 %ref, 65536
   %incdec.ptr193 = getelementptr inbounds i8, ptr %2, i64 4
   store ptr %incdec.ptr193, ptr %sp, align 8
   store i32 %add191, ptr %2, align 4
@@ -672,7 +672,7 @@ return:                                           ; preds = %if.end12, %if.then4
 declare hidden void @lj_trace_err(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @narrow_stripov(ptr noundef %J, i32 noundef %tr, i32 noundef %lastop, i32 noundef %mode) unnamed_addr #0 {
+define internal fastcc i32 @narrow_stripov(ptr noundef %J, i32 noundef %tr, i32 noundef range(i32 54, 56) %lastop, i32 noundef range(i32 627, 2740) %mode) unnamed_addr #0 {
 entry:
   %conv = trunc i32 %tr to i16
   %conv1 = and i32 %tr, 65535
@@ -684,7 +684,7 @@ entry:
   %1 = load i8, ptr %o, align 1
   %conv3 = zext i8 %1 to i32
   %cmp = icmp ult i8 %1, 53
-  %cmp5.not = icmp slt i32 %lastop, %conv3
+  %cmp5.not = icmp ult i32 %lastop, %conv3
   %or.cond = or i1 %cmp, %cmp5.not
   br i1 %or.cond, label %if.else30, label %if.then
 
@@ -702,21 +702,16 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 land.lhs.true.i:                                  ; preds = %for.body.i
   %mode5.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
   %3 = load i32, ptr %mode5.i, align 4
-  %cmp6.not.i = icmp ult i32 %3, %mode
-  br i1 %cmp6.not.i, label %for.inc.i, label %land.lhs.true8.i
-
-land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
-  %xor.i = xor i32 %3, %mode
-  %and.i = and i32 %xor.i, 4095
-  %cmp10.i = icmp eq i32 %and.i, 0
+  %.masked = and i32 %3, 4095
+  %cmp10.i = icmp eq i32 %.masked, %mode
   br i1 %cmp10.i, label %if.then8, label %for.inc.i
 
-for.inc.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true.i, %for.body.i
+for.inc.i:                                        ; preds = %land.lhs.true.i, %for.body.i
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 16
   br i1 %exitcond.not.i, label %if.else, label %for.body.i, !llvm.loop !7
 
-if.then8:                                         ; preds = %land.lhs.true8.i
+if.then8:                                         ; preds = %land.lhs.true.i
   %val = getelementptr inbounds i8, ptr %arrayidx.i, i64 2
   %4 = load i16, ptr %val, align 2
   %conv9 = zext i16 %4 to i32
@@ -727,11 +722,11 @@ if.then8:                                         ; preds = %land.lhs.true8.i
   %conv15 = zext i8 %5 to i32
   %shl = shl nuw i32 %conv15, 24
   %add = or disjoint i32 %shl, %conv9
-  br label %common.ret47
+  br label %common.ret48
 
-common.ret47:                                     ; preds = %if.then41, %land.lhs.true33, %if.else30, %if.then8, %if.else
-  %common.ret47.op = phi i32 [ %call27, %if.else ], [ %add, %if.then8 ], [ %tr, %land.lhs.true33 ], [ %call44, %if.then41 ], [ %tr, %if.else30 ]
-  ret i32 %common.ret47.op
+common.ret48:                                     ; preds = %if.then41, %land.lhs.true33, %if.else30, %if.then8, %if.else
+  %common.ret48.op = phi i32 [ %call27, %if.else ], [ %add, %if.then8 ], [ %tr, %land.lhs.true33 ], [ %call44, %if.then41 ], [ %tr, %if.else30 ]
+  ret i32 %common.ret48.op
 
 if.else:                                          ; preds = %for.inc.i
   %6 = load i16, ptr %arrayidx, align 8
@@ -769,12 +764,11 @@ if.else:                                          ; preds = %for.inc.i
   store i16 %conv29, ptr %val3.i, align 2
   %mode4.i = getelementptr inbounds i8, ptr %arrayidx.i37, i64 4
   store i32 %mode, ptr %mode4.i, align 4
-  br label %common.ret47
+  br label %common.ret48
 
 if.else30:                                        ; preds = %entry
-  %and31 = and i32 %mode, 2048
-  %tobool32.not = icmp eq i32 %and31, 0
-  br i1 %tobool32.not, label %common.ret47, label %land.lhs.true33
+  %tobool32.not = icmp ult i32 %mode, 2048
+  br i1 %tobool32.not, label %common.ret48, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.else30
   %t34 = getelementptr inbounds i8, ptr %arrayidx, i64 4
@@ -784,7 +778,7 @@ land.lhs.true33:                                  ; preds = %if.else30
   %11 = shl nuw i32 1, %and37
   %12 = and i32 %11, 6315993
   %tobool40.not = icmp eq i32 %12, 0
-  br i1 %tobool40.not, label %if.then41, label %common.ret47
+  br i1 %tobool40.not, label %if.then41, label %common.ret48
 
 if.then41:                                        ; preds = %land.lhs.true33
   %conv43 = trunc nuw nsw i32 %mode to i16
@@ -795,7 +789,7 @@ if.then41:                                        ; preds = %land.lhs.true33
   %op2.i = getelementptr inbounds i8, ptr %J, i64 186
   store i16 %conv43, ptr %op2.i, align 2
   %call44 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #5
-  br label %common.ret47
+  br label %common.ret48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1315,7 +1309,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @narrow_stripov_backprop(ptr noundef %nc, i32 noundef %ref, i32 noundef %depth) unnamed_addr #1 {
+define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %nc, i32 noundef range(i32 0, 65536) %ref, i32 noundef %depth) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %ir2 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1383,7 +1377,7 @@ land.lhs.true21:                                  ; preds = %if.else
 if.then24:                                        ; preds = %land.lhs.true21
   %9 = load i16, ptr %arrayidx, align 8
   %conv26 = zext i16 %9 to i32
-  tail call fastcc void @narrow_stripov_backprop(ptr noundef nonnull %nc, i32 noundef %conv26, i32 noundef %inc)
+  tail call fastcc void @narrow_stripov_backprop(ptr noundef %nc, i32 noundef %conv26, i32 noundef %inc)
   %10 = load ptr, ptr %sp, align 8
   %11 = load ptr, ptr %maxsp, align 8
   %cmp29 = icmp ult ptr %10, %11
@@ -1393,7 +1387,7 @@ if.then31:                                        ; preds = %if.then24
   %op2 = getelementptr inbounds i8, ptr %arrayidx, i64 2
   %12 = load i16, ptr %op2, align 2
   %conv32 = zext i16 %12 to i32
-  tail call fastcc void @narrow_stripov_backprop(ptr noundef nonnull %nc, i32 noundef %conv32, i32 noundef %inc)
+  tail call fastcc void @narrow_stripov_backprop(ptr noundef %nc, i32 noundef %conv32, i32 noundef %inc)
   %13 = load ptr, ptr %sp, align 8
   %14 = load ptr, ptr %maxsp, align 8
   %cmp35 = icmp ult ptr %13, %14
@@ -1403,8 +1397,8 @@ if.then37:                                        ; preds = %if.then31
   %15 = load i8, ptr %o, align 1
   %conv39 = zext i8 %15 to i32
   %add = shl nuw i32 %conv39, 24
-  %shl40 = add i32 %ref, -200081408
-  %add41 = add i32 %shl40, %add
+  %shl40 = add i32 %add, -200081408
+  %add41 = or disjoint i32 %shl40, %ref
   %incdec.ptr = getelementptr inbounds i8, ptr %13, i64 4
   store ptr %incdec.ptr, ptr %sp, align 8
   store i32 %add41, ptr %13, align 4

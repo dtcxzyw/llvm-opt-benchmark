@@ -2303,7 +2303,7 @@ if.then.i.i:                                      ; preds = %invoke.cont12
   %9 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i.i25, i1 true)
   %sub.i3.i.i = shl nuw nsw i64 %9, 1
   %mul.i.i = xor i64 %sub.i3.i.i, 126
-  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr noundef nonnull %agg.tmp.i.i, ptr noundef nonnull %agg.tmp1.i.i, i64 noundef %mul.i.i)
+  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr noundef %agg.tmp.i.i, ptr noundef %agg.tmp1.i.i, i64 noundef %mul.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp1.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp12.i.i.i)
@@ -2316,7 +2316,7 @@ invoke.cont4.lr.ph.i.i.i.i:                       ; preds = %if.then.i.i
   store i64 0, ptr %agg.tmp7.sroa.5.0.agg.tmp.i.sroa_idx.i.i, align 8
   store ptr %retval.0.i.i, ptr %agg.tmp1.i.i.i, align 8, !alias.scope !23
   store i64 16, ptr %index_.i.i.i.i.i, align 8, !alias.scope !23
-  call fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr noundef nonnull %agg.tmp.i.i.i, ptr noundef nonnull %agg.tmp1.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr noundef %agg.tmp.i.i.i, ptr noundef %agg.tmp1.i.i.i)
   %values_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 392
   br label %invoke.cont4.i.i.i.i
 
@@ -2395,7 +2395,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
   store i64 0, ptr %agg.tmp7.sroa.5.0.agg.tmp12.i.sroa_idx.i.i, align 8
   store ptr %retval.0.i.i, ptr %agg.tmp13.i.i.i, align 8
   store i64 %add.i.i25, ptr %agg.tmp8.sroa.2.0.agg.tmp13.i.sroa_idx.i.i, align 8
-  call fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr noundef nonnull %agg.tmp12.i.i.i, ptr noundef nonnull %agg.tmp13.i.i.i)
+  call fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr noundef %agg.tmp12.i.i.i, ptr noundef %agg.tmp13.i.i.i)
   br label %invoke.cont11.i.i
 
 invoke.cont11.i.i:                                ; preds = %invoke.cont5.i.i.i.i, %if.else.i.i.i
@@ -4534,7 +4534,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
 declare void @_ZN7rocksdb25ReleaseCacheHandleCleanupEPvS0_(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef %__last, i64 noundef %__depth_limit) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef %__depth_limit) unnamed_addr #13 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i16.i = alloca %"struct.rocksdb::BlobReadRequest", align 8
   %__tmp.i.i134.i.i = alloca %"struct.rocksdb::BlobReadRequest", align 8
@@ -4594,7 +4594,7 @@ if.end.i.i.i:                                     ; preds = %if.then
   %retval.0.i.i.i37.i.i = select i1 %cmp.i.i.i34.i.i, ptr %arrayidx.i.i.i35.i.i, ptr %add.ptr.i.i.i.i36.i.i
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %.fr.i35, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %retval.0.i.i.i37.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %div12.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %retval.0.i.i.i37.i.i)
   %cmp7.i38.i.i = icmp ult i64 %sub.i.i.i, 2
   br i1 %cmp7.i38.i.i, label %invoke.cont.i.i, label %if.end9.split.i.i.i
 
@@ -4611,7 +4611,7 @@ if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   %retval.0.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i.i, align 8
   store i64 %.fr.i35, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %retval.0.i.i.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %retval.0.i.i.i.i.i)
   %cmp7.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp7.i.i.i, label %invoke.cont.i.i, label %if.end9.split.i.i.i, !llvm.loop !60
 
@@ -4644,7 +4644,7 @@ invoke.cont.i6.i.us:                              ; preds = %invoke.cont.i.i, %i
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i2.i, align 8
   store i64 %.fr.i35, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i5.i, align 8
   %sub.i.i.i18.i.us = sub i64 %dec.i.i7.i.us, %.fr.i35
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i2.i, i64 noundef 0, i64 noundef %sub.i.i.i18.i.us, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %agg.tmp4.i.i3.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %agg.tmp.i.i2.i, i64 noundef 0, i64 noundef %sub.i.i.i18.i.us, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %agg.tmp4.i.i3.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i2.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp4.i.i3.i)
   %cmp.i.i.us = icmp sgt i64 %sub.i.i.i18.i.us, 1
@@ -4670,7 +4670,7 @@ invoke.cont.i6.i:                                 ; preds = %invoke.cont.i.i, %i
   store ptr %agg.tmp.sroa.0.0.copyload, ptr %agg.tmp.i.i2.i, align 8
   store i64 %.fr.i35, ptr %agg.tmp.sroa.3.0.agg.tmp.i.sroa_idx.i5.i, align 8
   %sub.i.i.i18.i = sub i64 %dec.i.i7.i, %.fr.i35
-  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef nonnull %agg.tmp.i.i2.i, i64 noundef 0, i64 noundef %sub.i.i.i18.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %agg.tmp4.i.i3.i)
+  call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef %agg.tmp.i.i2.i, i64 noundef 0, i64 noundef %sub.i.i.i18.i, ptr noundef nonnull byval(%"struct.rocksdb::BlobReadRequest") align 8 %agg.tmp4.i.i3.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i2.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp4.i.i3.i)
   %cmp.i.i = icmp sgt i64 %sub.i.i.i18.i, 1
@@ -4916,7 +4916,7 @@ invoke.cont9:                                     ; preds = %while.end14.i.i, %w
   store ptr %agg.tmp5.sroa.0.0.copyload, ptr %agg.tmp10, align 8
   store i64 %.us-phi.i, ptr %__cut.sroa.3.0.agg.tmp10.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp11, ptr noundef nonnull align 8 dereferenceable(16) %__last, i64 16, i1 false)
-  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr noundef nonnull %agg.tmp10, ptr noundef nonnull %agg.tmp11, i64 noundef %dec)
+  call fastcc void @"_ZSt16__introsort_loopIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_T1_"(ptr noundef %agg.tmp10, ptr noundef %agg.tmp11, i64 noundef %dec)
   store ptr %agg.tmp5.sroa.0.0.copyload, ptr %__last, align 8
   store i64 %.us-phi.i, ptr %index_.i, align 8
   %41 = load i64, ptr %index_2.i, align 8
@@ -4930,7 +4930,7 @@ while.end:                                        ; preds = %invoke.cont9, %invo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nocapture noundef readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.rocksdb::BlobReadRequest") align 8 %__value) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_T0_SL_T1_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly byval(%"struct.rocksdb::BlobReadRequest") align 8 %__value) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -5092,7 +5092,7 @@ invoke.cont39:                                    ; preds = %invoke.cont10.i, %c
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr nocapture noundef readonly %__first, ptr nocapture noundef readonly %__last) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN7rocksdb10autovectorINS0_15BlobReadRequestELm8EE13iterator_implIS3_S2_EEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10BlobSource12MultiGetBlobERKNS0_11ReadOptionsERNS1_ISt5tupleIJmmS3_EELm8EEEPmE3$_0EEEvT_SK_T0_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull readonly %__last) unnamed_addr #14 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.sroa.3.i = alloca { i64, i8, ptr, ptr }, align 8
   %__val = alloca %"struct.rocksdb::BlobReadRequest", align 8

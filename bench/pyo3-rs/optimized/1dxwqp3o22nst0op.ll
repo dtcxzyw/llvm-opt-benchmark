@@ -2917,7 +2917,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %124, label %130, label %128
 
 125:                                              ; preds = %.noexc.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nonnull align 8 %33, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.106, i64 3)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %33, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.106, i64 3)
           to label %.noexc18.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc18.i.i:                                     ; preds = %125
@@ -2945,7 +2945,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.noexc22.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc22.i.i:                                     ; preds = %.noexc21.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nonnull align 8 %32, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.107, i64 7)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %32, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.107, i64 7)
           to label %.noexc23.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc23.i.i:                                     ; preds = %.noexc22.i.i
@@ -2961,7 +2961,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %135, label %141, label %139
 
 136:                                              ; preds = %.noexc19.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nonnull align 8 %31, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.108, i64 11)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %31, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.108, i64 11)
           to label %.noexc25.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc25.i.i:                                     ; preds = %136
@@ -2977,7 +2977,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %140, label %146, label %144
 
 141:                                              ; preds = %.noexc24.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nonnull align 8 %30, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.109, i64 12)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %30, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.109, i64 12)
           to label %.noexc27.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc27.i.i:                                     ; preds = %141
@@ -2993,7 +2993,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %145, label %151, label %149
 
 146:                                              ; preds = %.noexc26.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nonnull align 8 %29, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.110, i64 9)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %29, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.110, i64 9)
           to label %.noexc29.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc29.i.i:                                     ; preds = %146
@@ -3009,7 +3009,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %150, label %154, label %181
 
 151:                                              ; preds = %.noexc28.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias nonnull align 8 %27, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %27, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
           to label %.noexc31.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc31.i.i:                                     ; preds = %151
@@ -3018,7 +3018,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %153, label %164, label %180
 
 154:                                              ; preds = %.noexc30.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias nonnull align 8 %25, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %25, ptr align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
           to label %.noexc32.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc32.i.i:                                     ; preds = %154
@@ -6955,7 +6955,7 @@ define hidden i32 @_ZN19pyo3_macros_backend6method19MethodTypeAttribute4span17h6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 1 %2, i64 range(i64 3, 13) %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = alloca [16 x i8], align 8
@@ -7076,7 +7076,7 @@ default.unreachable:                              ; preds = %4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 1 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8

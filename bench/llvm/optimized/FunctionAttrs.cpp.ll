@@ -784,7 +784,7 @@ _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_1
   br i1 %.not90, label %.critedge2, label %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE5countERKS2_.exit.thread84
 
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE5countERKS2_.exit.thread84: ; preds = %137, %124, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE5countERKS2_.exit
-  call fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull %51, i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %51, i8 noundef zeroext 3, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZL12addLocAccessRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEERKNS_14MemoryLocationENS_10ModRefInfoERNS_9AAResultsE.exit
 
 .critedge2:                                       ; preds = %.lr.ph.i.i.i.i.i.i, %120, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %71, %68, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE5countERKS2_.exit
@@ -843,7 +843,7 @@ _ZN4llvm3isaINS_15PseudoProbeInstENS_11InstructionEEEbRKT0_.exit.thread: ; preds
   br i1 %.not37, label %_ZL12addLocAccessRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEERKNS_14MemoryLocationENS_10ModRefInfoERNS_9AAResultsE.exit, label %180
 
 180:                                              ; preds = %_ZN4llvm3isaINS_15PseudoProbeInstENS_11InstructionEEEbRKT0_.exit.thread
-  call fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull %51, i8 noundef zeroext %179, ptr noundef nonnull align 8 dereferenceable(56) %2)
+  call fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef %51, i8 noundef zeroext %179, ptr noundef nonnull align 8 dereferenceable(56) %2)
   br label %_ZL12addLocAccessRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEERKNS_14MemoryLocationENS_10ModRefInfoERNS_9AAResultsE.exit
 
 181:                                              ; preds = %48
@@ -1473,7 +1473,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit, %_ZN4llvm13LazyCallGraph12EdgeSequence6lookupERNS0_4NodeE.exit
   %82 = load ptr, ptr %8, align 8
   %83 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
-  call fastcc void @"_ZL22deriveAttrsInPostOrderIRZN4llvm26PostOrderFunctionAttrsPass3runERNS0_13LazyCallGraph3SCCERNS0_15AnalysisManagerIS3_JRS2_EEES6_RNS0_17CGSCCUpdateResultEE3$_0ENS0_8SmallSetIPNS0_8FunctionELj8ESt4lessISF_EEENS0_8ArrayRefISF_EEOT_b"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %82, i64 %83, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %.0)
+  call fastcc void @"_ZL22deriveAttrsInPostOrderIRZN4llvm26PostOrderFunctionAttrsPass3runERNS0_13LazyCallGraph3SCCERNS0_15AnalysisManagerIS3_JRS2_EEES6_RNS0_17CGSCCUpdateResultEE3$_0ENS0_8SmallSetIPNS0_8FunctionELj8ESt4lessISF_EEENS0_8ArrayRefISF_EEOT_b"(ptr dead_on_unwind noalias writable align 8 %9, ptr %82, i64 %83, ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %.0)
   %84 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %85 = load i32, ptr %84, align 4
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1711,7 +1711,7 @@ _ZN4llvm11SmallVectorIPNS_8FunctionELj8EED2Ev.exit: ; preds = %_ZN4llvm8SmallSet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZL22deriveAttrsInPostOrderIRZN4llvm26PostOrderFunctionAttrsPass3runERNS0_13LazyCallGraph3SCCERNS0_15AnalysisManagerIS3_JRS2_EEES6_RNS0_17CGSCCUpdateResultEE3$_0ENS0_8SmallSetIPNS0_8FunctionELj8ESt4lessISF_EEENS0_8ArrayRefISF_EEOT_b"(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @"_ZL22deriveAttrsInPostOrderIRZN4llvm26PostOrderFunctionAttrsPass3runERNS0_13LazyCallGraph3SCCERNS0_15AnalysisManagerIS3_JRS2_EEES6_RNS0_17CGSCCUpdateResultEE3$_0ENS0_8SmallSetIPNS0_8FunctionELj8ESt4lessISF_EEENS0_8ArrayRefISF_EEOT_b"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::iterator_range.685", align 8
   %7 = alloca %"class.llvm::filter_iterator_impl", align 8
   %8 = alloca %"class.llvm::filter_iterator_impl", align 8
@@ -6015,7 +6015,7 @@ declare i32 @_ZN4llvm9AAResults16getMemoryEffectsEPKNS_8FunctionE(ptr noundef no
 declare noundef zeroext i1 @_ZNK4llvm13AttributeList16hasAttrSomewhereENS_9Attribute8AttrKindEPj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %1, i8 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL10addArgLocsRN4llvm17MemoryEffectsBaseINS_13IRMemLocationEEEPKNS_8CallBaseENS_10ModRefInfoERNS_9AAResultsE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull %1, i8 noundef zeroext range(i8 1, 0) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::MemoryLocation", align 8
   %6 = alloca %"struct.llvm::AAMDNodes", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4

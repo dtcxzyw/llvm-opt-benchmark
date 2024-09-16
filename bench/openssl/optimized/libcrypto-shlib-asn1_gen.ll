@@ -86,7 +86,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i)
   store i32 0, ptr %err.i, align 4
-  %call.i = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef null, i32 noundef 0, ptr noundef nonnull %err.i)
+  %call.i = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef null, i32 noundef 0, ptr noundef %err.i)
   %0 = load i32, ptr %err.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %ASN1_generate_v3.exit, label %if.then.i
@@ -105,7 +105,7 @@ if.end:                                           ; preds = %entry
   call void @X509V3_set_nconf(ptr noundef nonnull %cnf, ptr noundef nonnull %nconf) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %err.i3)
   store i32 0, ptr %err.i3, align 4
-  %call.i4 = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef nonnull %cnf, i32 noundef 0, ptr noundef nonnull %err.i3)
+  %call.i4 = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef nonnull %cnf, i32 noundef 0, ptr noundef %err.i3)
   %1 = load i32, ptr %err.i3, align 4
   %tobool.not.i5 = icmp eq i32 %1, 0
   br i1 %tobool.not.i5, label %ASN1_generate_v3.exit7, label %if.then.i6
@@ -130,7 +130,7 @@ define ptr @ASN1_generate_v3(ptr noundef %str, ptr noundef %cnf) local_unnamed_a
 entry:
   %err = alloca i32, align 4
   store i32 0, ptr %err, align 4
-  %call = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef 0, ptr noundef nonnull %err)
+  %call = call fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef 0, ptr noundef %err)
   %0 = load i32, ptr %err, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -148,7 +148,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @X509V3_set_nconf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef %depth, ptr nocapture noundef writeonly %perr) unnamed_addr #0 {
+define internal fastcc ptr @generate_v3(ptr noundef %str, ptr noundef %cnf, i32 noundef %depth, ptr nocapture noundef nonnull writeonly %perr) unnamed_addr #0 {
 entry:
   %vtmp.i = alloca %struct.CONF_VALUE, align 8
   %rdlen.i = alloca i64, align 8
@@ -1336,7 +1336,7 @@ return:                                           ; preds = %if.else24, %sw.bb22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef %exp_constructed, i32 noundef %exp_pad, i32 noundef %imp_ok) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_exp(ptr nocapture noundef %arg, i32 noundef %exp_tag, i32 noundef %exp_class, i32 noundef range(i32 0, 2) %exp_constructed, i32 noundef range(i32 0, 2) %exp_pad, i32 noundef range(i32 0, 2) %imp_ok) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %arg, align 8
   %cmp = icmp eq i32 %0, -1

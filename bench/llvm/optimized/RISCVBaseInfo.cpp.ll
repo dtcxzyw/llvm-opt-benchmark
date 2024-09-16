@@ -13847,7 +13847,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9MCOperandELb1EE9push_backES1_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForCompressERKNS_9MCOperandERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForCompressERKNS_9MCOperandERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef range(i32 1, 19) %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -13866,7 +13866,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForC
   %19 = alloca i64, align 8
   %20 = alloca i64, align 8
   %21 = alloca i64, align 8
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable28 [
     i32 1, label %22
     i32 2, label %30
     i32 3, label %39
@@ -13887,7 +13887,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL33RISCVValidateMCOperandForC
     i32 18, label %148
   ]
 
-default.unreachable:                              ; preds = %3
+default.unreachable28:                            ; preds = %3
   unreachable
 
 22:                                               ; preds = %3
@@ -14139,13 +14139,13 @@ declare noundef zeroext i1 @_ZNK4llvm9MCOperand21evaluateAsConstantImmERl(ptr no
 declare noundef zeroext i1 @_ZNK4llvm9MCOperand15isBareSymbolRefEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvmL35RISCVValidateMCOperandForUncompressERKNS_9MCOperandERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZN4llvmL35RISCVValidateMCOperandForUncompressERKNS_9MCOperandERKNS_15MCSubtargetInfoEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(288) %1, i32 noundef range(i32 1, 6) %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable11 [
     i32 1, label %9
     i32 2, label %17
     i32 3, label %28
@@ -14153,7 +14153,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvmL35RISCVValidateMCOperandForU
     i32 5, label %46
   ]
 
-default.unreachable:                              ; preds = %3
+default.unreachable11:                            ; preds = %3
   unreachable
 
 9:                                                ; preds = %3

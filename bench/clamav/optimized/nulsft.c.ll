@@ -121,7 +121,7 @@ define noundef i32 @cli_scannulsft(ptr noundef %0, i64 noundef %1) local_unnamed
   br i1 %.not.i, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = call fastcc i32 @nsis_unpack_next(ptr noundef nonnull %4, ptr noundef %0)
+  %38 = call fastcc i32 @nsis_unpack_next(ptr noundef %4, ptr noundef %0)
   br label %cli_nsis_unpack.exit
 
 39:                                               ; preds = %35
@@ -329,7 +329,7 @@ nsis_detcomp.exit83.i.i:                          ; preds = %105, %101
   %149 = load i64, ptr %5, align 8
   %150 = add nsw i64 %149, 28
   store i64 %150, ptr %4, align 8
-  %151 = call fastcc i32 @nsis_unpack_next(ptr noundef nonnull %4, ptr noundef %0)
+  %151 = call fastcc i32 @nsis_unpack_next(ptr noundef %4, ptr noundef %0)
   br label %nsis_headers.exit.i
 
 nsis_headers.exit.i:                              ; preds = %89, %71, %148, %39
@@ -489,7 +489,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nsis_shutdown(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @nsis_shutdown(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 54
   %3 = load i8, ptr %2, align 2
   %.not = icmp eq i8 %3, 0
@@ -524,7 +524,7 @@ define internal fastcc void @nsis_shutdown(ptr noundef %0) unnamed_addr #0 {
 declare i32 @cli_rmdirs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @nsis_unpack_next(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @nsis_unpack_next(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [8192 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 55
@@ -689,7 +689,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   br label %255
 
 81:                                               ; preds = %72
-  %82 = tail call fastcc i32 @nsis_init(ptr noundef nonnull %0)
+  %82 = tail call fastcc i32 @nsis_init(ptr noundef %0)
   %.not161 = icmp eq i32 %82, 0
   br i1 %.not161, label %86, label %83
 
@@ -708,7 +708,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   store ptr %4, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 8192, ptr %90, align 8
-  %91 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
+  %91 = call fastcc i32 @nsis_decomp(ptr noundef %0)
   %92 = icmp eq i32 %91, 0
   %93 = ptrtoint ptr %4 to i64
   br i1 %92, label %.lr.ph243, label %.loopexit
@@ -734,7 +734,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18) #10
   %103 = load i32, ptr %69, align 8
   %104 = call i32 @close(i32 noundef %103) #10
-  call fastcc void @nsis_shutdown(ptr noundef nonnull %0)
+  call fastcc void @nsis_shutdown(ptr noundef %0)
   br label %255
 
 105:                                              ; preds = %98
@@ -747,7 +747,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
 107:                                              ; preds = %105
   %108 = load i32, ptr %69, align 8
   %109 = call i32 @close(i32 noundef %108) #10
-  call fastcc void @nsis_shutdown(ptr noundef nonnull %0)
+  call fastcc void @nsis_shutdown(ptr noundef %0)
   br label %255
 
 110:                                              ; preds = %.lr.ph243
@@ -762,7 +762,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
 114:                                              ; preds = %110, %105
   %.1125 = phi i32 [ 0, %105 ], [ %111, %110 ]
   %.1 = phi i32 [ 1, %105 ], [ %.0118242, %110 ]
-  %115 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
+  %115 = call fastcc i32 @nsis_decomp(ptr noundef %0)
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %.lr.ph243, label %.loopexit
 
@@ -775,7 +775,7 @@ fmap_readn.exit.thread:                           ; preds = %32, %26, %fmap_read
 118:                                              ; preds = %.loopexit, %113
   %.0118218 = phi i32 [ %.0118.lcssa, %.loopexit ], [ %.0118242, %113 ]
   %.0119 = phi i1 [ %117, %.loopexit ], [ false, %113 ]
-  call fastcc void @nsis_shutdown(ptr noundef nonnull %0)
+  call fastcc void @nsis_shutdown(ptr noundef %0)
   %119 = load ptr, ptr %89, align 8
   %120 = ptrtoint ptr %119 to i64
   %121 = sub i64 %120, %93
@@ -929,7 +929,7 @@ nsis_init.exit:                                   ; preds = %146, %143
 
 185:                                              ; preds = %193, %181
   %.2126 = phi i32 [ 0, %181 ], [ %194, %193 ]
-  %186 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
+  %186 = call fastcc i32 @nsis_decomp(ptr noundef %0)
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %.loopexit210
 
@@ -991,7 +991,7 @@ nsis_init.exit:                                   ; preds = %146, %143
   %.3229 = phi i32 [ %.4, %231 ], [ 0, %.lr.ph.preheader ]
   %.3127228 = phi i32 [ %.4128, %231 ], [ 0, %.lr.ph.preheader ]
   %209 = phi i32 [ %232, %231 ], [ %196, %.lr.ph.preheader ]
-  %210 = call fastcc i32 @nsis_decomp(ptr noundef nonnull %0)
+  %210 = call fastcc i32 @nsis_decomp(ptr noundef %0)
   %211 = icmp eq i32 %210, 0
   br i1 %211, label %212, label %.critedge
 
@@ -1109,7 +1109,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4
   switch i8 %3, label %22 [
@@ -1166,7 +1166,7 @@ define internal fastcc range(i32 0, 8) i32 @nsis_init(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @nsis_decomp(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i8, ptr %2, align 4
   switch i8 %3, label %61 [

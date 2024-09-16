@@ -7144,7 +7144,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i8, ptr %memptr.offset.i, align 1
   %tobool = trunc i8 %2 to i1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -7270,7 +7270,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %agg.result, i1 noundef zeroext %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %agg.result, i1 noundef zeroext %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.25", align 1
   %cond = select i1 %value, ptr @.str.32, ptr @.str.33
@@ -9680,7 +9680,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !63
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !63
   store ptr null, ptr %storage_.i, align 8, !noalias !63
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -10205,7 +10205,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !66
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !66
   store ptr null, ptr %storage_.i, align 8, !noalias !66
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -10773,7 +10773,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -11461,7 +11461,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -13167,7 +13167,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !113
   store ptr null, ptr %storage_.i, align 8, !noalias !113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr readonly %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
           to label %.noexc unwind label %lpad25
 
 .noexc:                                           ; preds = %if.end24
@@ -14904,7 +14904,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i8, ptr %memptr.offset.i, align 1
   %tobool = trunc i8 %2 to i1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -17022,7 +17022,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !179
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !179
   store ptr null, ptr %storage_.i, align 8, !noalias !179
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -17547,7 +17547,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !182
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !182
   store ptr null, ptr %storage_.i, align 8, !noalias !182
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -18947,7 +18947,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i8, ptr %memptr.offset.i, align 1
   %tobool = trunc i8 %2 to i1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -21362,7 +21362,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !245
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !245
   store ptr null, ptr %storage_.i, align 8, !noalias !245
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -21887,7 +21887,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !248
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !248
   store ptr null, ptr %storage_.i, align 8, !noalias !248
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -23324,7 +23324,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %ptr_.i = getelementptr inbounds i8, ptr %prop, i64 16
   %1 = load i64, ptr %ptr_.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -23449,7 +23449,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i8, ptr %memptr.offset.i, align 1
   %tobool = trunc i8 %2 to i1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -23569,7 +23569,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -23653,7 +23653,7 @@ for.end:                                          ; preds = %invoke.cont13, %inv
           to label %invoke.cont18 unwind label %lpad.loopexit.split-lp
 
 invoke.cont18:                                    ; preds = %for.end
-  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %ss)
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %ss)
           to label %invoke.cont20 unwind label %lpad.loopexit.split-lp
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -23862,7 +23862,7 @@ invoke.cont:                                      ; preds = %entry
   %ptr_.i = getelementptr inbounds i8, ptr %prop, i64 16
   %3 = load i64, ptr %ptr_.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %2, i64 %3
-  call fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias nonnull align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
+  call fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
   %4 = load ptr, ptr %result, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.end14, label %if.then4
@@ -24626,7 +24626,7 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr", align 8
   %type = alloca %"class.std::shared_ptr.87", align 8
@@ -26780,7 +26780,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !339
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !339
   store ptr null, ptr %storage_.i, align 8, !noalias !339
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -27238,7 +27238,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !345
   store ptr null, ptr %storage_.i, align 8, !noalias !345
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %ref.tmp.i, ptr readonly %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %ref.tmp.i, ptr readonly %30)
           to label %.noexc unwind label %lpad25
 
 .noexc:                                           ; preds = %if.end24
@@ -27869,7 +27869,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !351
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !351
   store ptr null, ptr %storage_.i, align 8, !noalias !351
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -28394,7 +28394,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !354
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !354
   store ptr null, ptr %storage_.i, align 8, !noalias !354
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -28709,7 +28709,7 @@ eh.resume:                                        ; preds = %ehcleanup46, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture readonly %value.0.val) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
@@ -31099,7 +31099,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %ptr_.i = getelementptr inbounds i8, ptr %prop, i64 16
   %1 = load i64, ptr %ptr_.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISA_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -31243,7 +31243,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %1
   %2 = load i8, ptr %memptr.offset.i, align 1
   %tobool = trunc i8 %2 to i1
-  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias nonnull align 8 %ref.tmp, i1 noundef zeroext %tobool)
+  invoke fastcc void @_ZN5arrow7compute8internalL15GenericToStringB5cxx11Eb(ptr noalias align 8 %ref.tmp, i1 noundef zeroext %tobool)
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %invoke.cont4
@@ -31299,7 +31299,7 @@ invoke.cont:                                      ; preds = %entry
   %ptr_.i = getelementptr inbounds i8, ptr %prop, i64 16
   %3 = load i64, ptr %ptr_.i, align 8
   %memptr.offset.i = getelementptr inbounds i8, ptr %2, i64 %3
-  call fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias nonnull align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
+  call fastcc void @_ZN5arrow7compute8internalL15GenericToScalarIdEENS_6ResultISt10shared_ptrINS_6ScalarEEEERKSt6vectorIT_SaIS9_EE(ptr noalias align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %memptr.offset.i)
   %4 = load ptr, ptr %result, align 8
   %cmp.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i, label %if.end14, label %if.then4
@@ -32401,7 +32401,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !419
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !419
   store ptr null, ptr %storage_.i, align 8, !noalias !419
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarISt6vectorIdSaIdEEEENSt9enable_ifIXsr3std7is_sameINS_11CTypeTraitsIT_E9ArrowTypeENS_8ListTypeEEE5valueENS_6ResultIS8_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -32857,7 +32857,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !425
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !425
   store ptr null, ptr %storage_.i, align 8, !noalias !425
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIjEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24
@@ -33381,7 +33381,7 @@ if.end24:                                         ; preds = %invoke.cont11
   store ptr null, ptr %_M_refcount4.i.i.i, align 8, !noalias !428
   store ptr %31, ptr %_M_refcount.i.i.i, align 8, !alias.scope !428
   store ptr null, ptr %storage_.i, align 8, !noalias !428
-  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias nonnull align 8 %result, ptr %30)
+  invoke fastcc void @_ZN5arrow7compute8internalL17GenericFromScalarIbEENSt9enable_ifIXsr18is_primitive_ctypeINS_11CTypeTraitsIT_E9ArrowTypeEEE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE(ptr noalias align 8 %result, ptr %30)
           to label %invoke.cont26 unwind label %lpad25
 
 invoke.cont26:                                    ; preds = %if.end24

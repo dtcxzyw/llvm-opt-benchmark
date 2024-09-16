@@ -37,8 +37,8 @@ entry:
   store ptr %call1, ptr %add_prefix, align 8
   %call2 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 1) #9
   store ptr %call2, ptr %del_prefix, align 8
-  call fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr noundef nonnull %add_score, ptr noundef nonnull %add_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
-  call fastcc void @match_trees(ptr noundef %hash2, ptr noundef %hash1, ptr noundef nonnull %del_score, ptr noundef nonnull %del_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
+  call fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr noundef %add_score, ptr noundef %add_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
+  call fastcc void @match_trees(ptr noundef %hash2, ptr noundef %hash1, ptr noundef %del_score, ptr noundef %del_prefix, ptr noundef nonnull @.str, i32 noundef %spec.store.select)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %shifted, ptr noundef nonnull readonly align 4 dereferenceable(32) %hash2, i64 32, i1 false)
   %algo.i = getelementptr inbounds i8, ptr %hash2, i64 32
   %0 = load i32, ptr %algo.i, align 4
@@ -84,8 +84,8 @@ define internal fastcc i32 @score_trees(ptr noundef %hash1, ptr noundef %hash2) 
 entry:
   %one = alloca %struct.tree_desc, align 8
   %two = alloca %struct.tree_desc, align 8
-  %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %one, ptr noundef %hash1)
-  %call1 = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %two, ptr noundef %hash2)
+  %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef %one, ptr noundef %hash1)
+  %call1 = call fastcc ptr @fill_tree_desc_strict(ptr noundef %two, ptr noundef %hash2)
   %size = getelementptr inbounds i8, ptr %one, i64 64
   %size2 = getelementptr inbounds i8, ptr %two, i64 64
   %path.i = getelementptr inbounds i8, ptr %one, i64 48
@@ -238,10 +238,10 @@ for.end:                                          ; preds = %if.else
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr nocapture noundef %best_score, ptr nocapture noundef %best_match, ptr noundef %base, i32 noundef %recurse_limit) unnamed_addr #0 {
+define internal fastcc void @match_trees(ptr noundef %hash1, ptr noundef %hash2, ptr nocapture noundef nonnull %best_score, ptr nocapture noundef nonnull %best_match, ptr noundef %base, i32 noundef %recurse_limit) unnamed_addr #0 {
 entry:
   %one = alloca %struct.tree_desc, align 8
-  %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef nonnull %one, ptr noundef %hash1)
+  %call = call fastcc ptr @fill_tree_desc_strict(ptr noundef %one, ptr noundef %hash1)
   %size = getelementptr inbounds i8, ptr %one, i64 64
   %0 = load i32, ptr %size, align 8
   %tobool.not12 = icmp eq i32 %0, 0
@@ -305,7 +305,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end8:                                          ; preds = %if.then6, %if.end
   %call11 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.5, ptr noundef %base, ptr noundef %7) #9
-  call fastcc void @match_trees(ptr noundef nonnull %entry1.i, ptr noundef %hash2, ptr noundef nonnull %best_score, ptr noundef %best_match, ptr noundef %call11, i32 noundef %sub)
+  call fastcc void @match_trees(ptr noundef nonnull %entry1.i, ptr noundef %hash2, ptr noundef %best_score, ptr noundef %best_match, ptr noundef %call11, i32 noundef %sub)
   call void @free(ptr noundef %call11) #9
   br label %next
 
@@ -508,7 +508,7 @@ if.end34:                                         ; preds = %if.else, %if.then32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @fill_tree_desc_strict(ptr noundef %desc, ptr noundef %hash) unnamed_addr #0 {
+define internal fastcc nonnull ptr @fill_tree_desc_strict(ptr noundef nonnull %desc, ptr noundef %hash) unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %size = alloca i64, align 8
@@ -534,7 +534,7 @@ if.then2:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %2 = load i64, ptr %size, align 8
-  call void @init_tree_desc(ptr noundef %desc, ptr noundef nonnull %call, i64 noundef %2) #9
+  call void @init_tree_desc(ptr noundef nonnull %desc, ptr noundef nonnull %call, i64 noundef %2) #9
   ret ptr %call
 }
 

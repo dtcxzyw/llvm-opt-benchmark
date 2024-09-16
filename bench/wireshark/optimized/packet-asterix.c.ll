@@ -36173,8 +36173,8 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
 
 8:                                                ; preds = %4
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %.not32.i = icmp eq i32 %9, 0
-  br i1 %.not32.i, label %dissect_asterix_packet.exit, label %.lr.ph.i
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %dissect_asterix_packet.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %dissect_asterix_data_block.exit.i
   %.031.i = phi i32 [ %162, %dissect_asterix_data_block.exit.i ], [ 0, %8 ]
@@ -36201,8 +36201,8 @@ define internal i32 @dissect_asterix(ptr noundef %0, ptr noundef %1, ptr noundef
   %29 = load i32, ptr @hf_asterix_length, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %29, ptr noundef %0, i32 noundef %11, i32 noundef 2, i32 noundef 0) #3
   %31 = add i32 %.031.i, 3
-  %.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i, label %dissect_asterix_data_block.exit.i, label %.lr.ph.i.i
+  %.not.i.i = icmp eq i32 %21, 0
+  br i1 %.not.i.i, label %dissect_asterix_data_block.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
   %32 = icmp eq i8 %10, 1

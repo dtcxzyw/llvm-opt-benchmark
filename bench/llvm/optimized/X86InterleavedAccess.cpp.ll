@@ -3409,7 +3409,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorImplIPNS_5ValueEEENS_8ArrayRefIS3_EENS6_IiEEjjRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(i16 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture readonly %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(144) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorImplIPNS_5ValueEEENS_8ArrayRefIS3_EENS6_IiEEjjRNS_9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEE(i16 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture readonly %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef range(i32 3, 5) %6, ptr noundef nonnull align 8 dereferenceable(144) %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::SmallVector.110", align 8
   %11 = alloca [8 x ptr], align 16
@@ -3420,17 +3420,13 @@ define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorIm
   br i1 %14, label %.preheader, label %25
 
 .preheader:                                       ; preds = %8
-  %.not54 = icmp eq i32 %6, 0
-  br i1 %.not54, label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit, label %.lr.ph52
-
-.lr.ph52:                                         ; preds = %.preheader
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %wide.trip.count66 = zext i32 %6 to i64
+  %wide.trip.count62 = zext nneg i32 %6 to i64
   br label %16
 
-16:                                               ; preds = %.lr.ph52, %16
-  %indvars.iv63 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next64, %16 ]
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv63
+16:                                               ; preds = %.preheader, %16
+  %indvars.iv59 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next60, %16 ]
+  %17 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv59
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i16 257, ptr %15, align 8
@@ -3438,21 +3434,21 @@ define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorIm
   %21 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %20) #10
   %22 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull %18, ptr noundef %21, ptr %3, i64 %.fr, ptr noundef nonnull align 8 dereferenceable(34) %9)
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv63
+  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv59
   store ptr %22, ptr %24, align 8
-  %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
-  %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
-  br i1 %exitcond67.not, label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit, label %16, !llvm.loop !27
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
+  br i1 %exitcond63.not, label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit, label %16, !llvm.loop !27
 
 25:                                               ; preds = %8
   %26 = getelementptr inbounds i8, ptr %10, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull %26, i64 noundef 32) #10
-  %27 = lshr i32 %5, 4
-  %28 = mul nuw nsw i32 %27, %6
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp ult i32 %5, 16
+  br i1 %.not, label %.preheader47, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
+  %27 = lshr i32 %5, 4
+  %28 = mul nuw nsw i32 %27, %6
   %29 = add i16 %0, -137
   %spec.select.i.i.i = icmp ult i16 %29, 53
   %30 = zext i16 %0 to i64
@@ -3462,11 +3458,11 @@ define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorIm
   %.not28.i = icmp eq i64 %.fr, 0
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %36 = zext i32 %28 to i64
+  %36 = zext nneg i32 %28 to i64
   br i1 %.not28.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us ], [ 0, %.lr.ph ]
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us ], [ 0, %.lr.ph ]
   br i1 %spec.select.i.i.i, label %37, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us
 
 37:                                               ; preds = %.lr.ph.split.us
@@ -3474,12 +3470,12 @@ define internal fastcc void @_ZL16reorderSubVectorN4llvm3MVTERNS_15SmallVectorIm
   br label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us
 
 _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us:  ; preds = %37, %.lr.ph.split.us
-  %38 = trunc nuw nsw i64 %indvars.iv57 to i32
+  %38 = trunc nuw nsw i64 %indvars.iv53 to i32
   %39 = urem i32 %38, %6
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds ptr, ptr %2, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = trunc i64 %indvars.iv57 to i32
+  %43 = trunc i64 %indvars.iv53 to i32
   %44 = or disjoint i32 %43, 1
   %45 = urem i32 %44, %6
   %46 = zext nneg i32 %45 to i64
@@ -3489,13 +3485,13 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us:  ; preds = %37, %.lr.ph.split.u
   %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   store i16 257, ptr %34, align 8
   %51 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %42, ptr noundef %48, ptr %49, i64 %50, ptr noundef nonnull align 8 dereferenceable(34) %12)
-  %52 = lshr exact i64 %indvars.iv57, 1
+  %52 = lshr exact i64 %indvars.iv53, 1
   %53 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %52
   store ptr %51, ptr %53, align 8
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
   store i32 0, ptr %35, align 8
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 2
-  %55 = icmp ult i64 %indvars.iv.next58, %36
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
+  %55 = icmp ult i64 %indvars.iv.next54, %36
   br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit
@@ -3596,57 +3592,50 @@ _ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.
   %106 = icmp ult i64 %indvars.iv.next, %36
   br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us, %25
+._crit_edge:                                      ; preds = %_ZL15genShuffleBlandN4llvm3MVTENS_8ArrayRefIiEERNS_15SmallVectorImplIiEEii.exit.loopexit, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.us
   %107 = icmp eq i32 %5, 32
-  %.not.i.i.i.i.i = icmp eq i32 %6, 0
   br i1 %107, label %109, label %.preheader47
 
-.preheader47:                                     ; preds = %._crit_edge
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit, label %.lr.ph50
-
-.lr.ph50:                                         ; preds = %.preheader47
+.preheader47:                                     ; preds = %25, %._crit_edge
   %108 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %wide.trip.count = zext i32 %6 to i64
-  br label %113
+  %wide.trip.count = zext nneg i32 %6 to i64
+  br label %112
 
 109:                                              ; preds = %._crit_edge
-  br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit, label %110
-
-110:                                              ; preds = %109
-  %111 = zext nneg i32 %6 to i64
-  %.idx = shl nuw nsw i64 %111, 3
-  %112 = load ptr, ptr %1, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %112, ptr nonnull align 16 %11, i64 %.idx, i1 false)
+  %110 = shl nuw nsw i32 %6, 3
+  %.idx = zext nneg i32 %110 to i64
+  %111 = load ptr, ptr %1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %111, ptr noundef nonnull align 16 dereferenceable(1) %11, i64 %.idx, i1 false)
   br label %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit
 
-113:                                              ; preds = %.lr.ph50, %113
-  %indvars.iv60 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next61, %113 ]
-  %114 = shl nuw nsw i64 %indvars.iv60, 1
-  %115 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %114
-  %116 = load ptr, ptr %115, align 16
-  %117 = or disjoint i64 %114, 1
-  %118 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %117
-  %119 = load ptr, ptr %118, align 8
+112:                                              ; preds = %.preheader47, %112
+  %indvars.iv56 = phi i64 [ 0, %.preheader47 ], [ %indvars.iv.next57, %112 ]
+  %113 = shl nuw nsw i64 %indvars.iv56, 1
+  %114 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %113
+  %115 = load ptr, ptr %114, align 16
+  %116 = or disjoint i64 %113, 1
+  %117 = getelementptr inbounds [8 x ptr], ptr %11, i64 0, i64 %116
+  %118 = load ptr, ptr %117, align 8
   store i16 257, ptr %108, align 8
-  %120 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %116, ptr noundef %119, ptr nonnull @_ZL6Concat, i64 64, ptr noundef nonnull align 8 dereferenceable(34) %13)
-  %121 = load ptr, ptr %1, align 8
-  %122 = getelementptr inbounds ptr, ptr %121, i64 %indvars.iv60
-  store ptr %120, ptr %122, align 8
-  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count
-  br i1 %exitcond.not, label %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit, label %113, !llvm.loop !29
+  %119 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef %115, ptr noundef %118, ptr nonnull @_ZL6Concat, i64 64, ptr noundef nonnull align 8 dereferenceable(34) %13)
+  %120 = load ptr, ptr %1, align 8
+  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv56
+  store ptr %119, ptr %121, align 8
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
+  br i1 %exitcond.not, label %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit, label %112, !llvm.loop !29
 
-_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit:    ; preds = %113, %.preheader47, %110, %109
-  %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
-  %124 = load ptr, ptr %10, align 8
-  %125 = icmp eq ptr %124, %26
-  br i1 %125, label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit, label %126
+_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit:    ; preds = %112, %109
+  %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #10
+  %123 = load ptr, ptr %10, align 8
+  %124 = icmp eq ptr %123, %26
+  br i1 %124, label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit, label %125
 
-126:                                              ; preds = %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit
-  call void @free(ptr noundef %124) #10
+125:                                              ; preds = %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit
+  call void @free(ptr noundef %123) #10
   br label %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit
 
-_ZN4llvm11SmallVectorIiLj32EED2Ev.exit:           ; preds = %16, %.preheader, %126, %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit
+_ZN4llvm11SmallVectorIiLj32EED2Ev.exit:           ; preds = %16, %125, %_ZSt4copyIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit
   ret void
 }
 

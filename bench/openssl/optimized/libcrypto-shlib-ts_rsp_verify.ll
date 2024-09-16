@@ -129,7 +129,7 @@ lor.lhs.false36:                                  ; preds = %lor.lhs.false33
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %lor.lhs.false36
-  %call43 = call fastcc i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %call31, ptr noundef %call25, ptr noundef nonnull %chain)
+  %call43 = call fastcc i32 @ts_verify_cert(ptr noundef %store, ptr noundef %call31, ptr noundef %call25, ptr noundef %chain)
   %tobool44.not = icmp eq i32 %call43, 0
   %.pre = load ptr, ptr %chain, align 8
   br i1 %tobool44.not, label %err, label %if.end46
@@ -204,7 +204,7 @@ declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %store, ptr noundef %untrusted, ptr noundef %signer, ptr nocapture noundef writeonly %chain) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %untrusted, ptr noundef %signer, ptr nocapture noundef nonnull writeonly %chain) unnamed_addr #0 {
 entry:
   store ptr null, ptr %chain, align 8
   %call = tail call ptr @X509_STORE_CTX_new() #7
@@ -218,7 +218,7 @@ if.then:                                          ; preds = %entry
   br label %end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call, ptr noundef %store, ptr noundef %signer, ptr noundef %untrusted) #7
+  %call1 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call, ptr noundef %store, ptr noundef %signer, ptr noundef nonnull %untrusted) #7
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %end, label %if.end3
 

@@ -1316,7 +1316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef %type) unnamed_addr #3 {
+define internal fastcc ptr @qsp_entry_get(ptr noundef %obj, ptr noundef %file, i32 noundef %line, i32 noundef range(i32 0, 4) %type) unnamed_addr #3 {
 entry:
   %callsite = alloca %struct.QSPCallSite, align 8
   %orig = alloca %struct.QSPEntry, align 8

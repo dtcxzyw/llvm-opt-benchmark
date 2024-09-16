@@ -963,12 +963,12 @@ pg_verify_mbstr.exit:                             ; preds = %32, %23, %11, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %ToServerConvProc.val = load ptr, ptr @ToServerConvProc, align 8
   %ToClientConvProc.val = load ptr, ptr @ToClientConvProc, align 8
   %.020 = select i1 %2, ptr %ToServerConvProc.val, ptr %ToClientConvProc.val
   %4 = icmp eq ptr %.020, null
-  br i1 %4, label %29, label %5
+  br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
   %ClientEncoding.val27 = load ptr, ptr @ClientEncoding, align 8
@@ -988,32 +988,31 @@ define internal fastcc ptr @perform_default_encoding_conversion(ptr noundef %0, 
   %12 = sext i32 %.021 to i64
   %13 = ptrtoint ptr %0 to i64
   %14 = ptrtoint ptr %10 to i64
-  %15 = sext i32 %1 to i64
-  %16 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15, i64 noundef 0) #12
-  %17 = icmp sgt i32 %1, 1000000
-  br i1 %17, label %18, label %29
+  %15 = tail call i64 @FunctionCall6Coll(ptr noundef nonnull %.020, i32 noundef 0, i64 noundef %11, i64 noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %6, i64 noundef 0) #12
+  %16 = icmp ugt i32 %1, 1000000
+  br i1 %16, label %17, label %28
 
-18:                                               ; preds = %5
-  %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #15
-  %20 = icmp ugt i64 %19, 1073741822
-  br i1 %20, label %21, label %26
+17:                                               ; preds = %5
+  %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #15
+  %19 = icmp ugt i64 %18, 1073741822
+  br i1 %19, label %20, label %25
 
-21:                                               ; preds = %18
-  %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call i32 @errcode(i32 noundef 261) #12
-  %24 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
-  %25 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #12
+20:                                               ; preds = %17
+  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call i32 @errcode(i32 noundef 261) #12
+  %23 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #12
+  %24 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.5, i32 noundef %1) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 844, ptr noundef nonnull @__func__.perform_default_encoding_conversion) #12
   unreachable
 
-26:                                               ; preds = %18
-  %27 = add nuw nsw i64 %19, 1
-  %28 = tail call ptr @repalloc(ptr noundef %10, i64 noundef %27) #12
-  br label %29
+25:                                               ; preds = %17
+  %26 = add nuw nsw i64 %18, 1
+  %27 = tail call ptr @repalloc(ptr noundef %10, i64 noundef %26) #12
+  br label %28
 
-29:                                               ; preds = %5, %26, %3
-  %.0 = phi ptr [ %0, %3 ], [ %28, %26 ], [ %10, %5 ]
+28:                                               ; preds = %5, %25, %3
+  %.0 = phi ptr [ %0, %3 ], [ %27, %25 ], [ %10, %5 ]
   ret ptr %.0
 }
 

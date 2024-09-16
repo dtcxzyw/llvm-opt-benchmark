@@ -133,7 +133,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i.i
 lor.rhs.i:                                        ; preds = %cond.true.i.i.i.i.i
   %call5.i.i.i.i1.i5.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i1.i5.i.i, ptr align 1 %2, i64 %sub.ptr.sub.i.i.i, i1 false)
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
           to label %invoke.cont6.i unwind label %lpad.i
 
 invoke.cont6.i:                                   ; preds = %lor.rhs.i
@@ -169,7 +169,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool18.not.not.i, label %_ZN11flatbuffers12_GLOBAL__N_114GenerateBinaryERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_.exit.thread, label %invoke.cont28.i
 
 invoke.cont28.i:                                  ; preds = %if.end.i
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias align 8 %ref.tmp20.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filename)
   %call22.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20.i) #17
   %cur_.i.i.i = getelementptr inbounds i8, ptr %parser, i64 520
   %8 = load ptr, ptr %cur_.i.i.i, align 8
@@ -311,7 +311,7 @@ if.end.i:                                         ; preds = %entry
 
 invoke.cont3.i:                                   ; preds = %if.end.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i) #17, !noalias !5
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filebase.i)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias align 8 %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %filebase.i)
           to label %invoke.cont7.i unwind label %lpad6.i, !noalias !5
 
 invoke.cont7.i:                                   ; preds = %invoke.cont3.i
@@ -556,7 +556,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef zeroext i1 @_ZN11flatbuffers8SaveFileEPKcS1_mb(ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_114BinaryFileNameERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file_name) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ext = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

@@ -159,13 +159,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_results, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_results, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %result
@@ -186,13 +186,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %alert
@@ -213,13 +213,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_protocols, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_protocols, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %protocol
@@ -240,13 +240,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_verify_callbacks, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_verify_callbacks, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %callback
@@ -267,13 +267,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %server
@@ -294,13 +294,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername_callbacks, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername_callbacks, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %callback
@@ -321,13 +321,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %server
@@ -348,13 +348,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %server
@@ -375,13 +375,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_methods, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_methods, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %method
@@ -402,13 +402,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_handshake_modes, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_handshake_modes, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %mode
@@ -429,13 +429,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %mode
@@ -456,13 +456,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_certstatus, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_certstatus, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %cert_status
@@ -483,13 +483,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %enum_name.exit, label %for.body.i, !llvm.loop !5
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %i.05.i
   %value1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %0 = load i32, ptr %value1.i, align 8
   %cmp2.i = icmp eq i32 %0, %MFL_mode
@@ -534,9 +534,9 @@ entry:
 
 if.end:                                           ; preds = %entry
   %extra.i = getelementptr inbounds i8, ptr %ctx, i64 24
-  tail call fastcc void @ssl_test_extra_conf_free_data(ptr noundef nonnull readonly %extra.i)
+  tail call fastcc void @ssl_test_extra_conf_free_data(ptr noundef readonly %extra.i)
   %resume_extra.i = getelementptr inbounds i8, ptr %ctx, i64 224
-  tail call fastcc void @ssl_test_extra_conf_free_data(ptr noundef nonnull readonly %resume_extra.i)
+  tail call fastcc void @ssl_test_extra_conf_free_data(ptr noundef readonly %resume_extra.i)
   %expected_npn_protocol = getelementptr inbounds i8, ptr %ctx, i64 456
   %0 = load ptr, ptr %expected_npn_protocol, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 782) #7
@@ -882,7 +882,7 @@ return:                                           ; preds = %for.cond, %for.cond
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ssl_test_extra_conf_free_data(ptr nocapture noundef readonly %conf) unnamed_addr #1 {
+define internal fastcc void @ssl_test_extra_conf_free_data(ptr nocapture noundef nonnull readonly %conf) unnamed_addr #1 {
 entry:
   %npn_protocols = getelementptr inbounds i8, ptr %conf, i64 16
   %0 = load ptr, ptr %npn_protocols, align 8
@@ -938,13 +938,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_verify_callbacks, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_verify_callbacks, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -967,13 +967,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1021,13 +1021,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1087,13 +1087,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1183,13 +1183,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername_callbacks, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername_callbacks, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1266,13 +1266,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_certstatus, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_certstatus, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1362,13 +1362,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_results, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_results, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1393,13 +1393,13 @@ entry:
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 7
   br i1 %exitcond.not.i.i, label %parse_alert.exit, label %for.body.i.i, !llvm.loop !13
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.cond.i.i ]
+  %arrayidx.i.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.05.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 16
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i.i = icmp eq i32 %call.i.i, 0
@@ -1423,13 +1423,13 @@ entry:
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 7
   br i1 %exitcond.not.i.i, label %parse_alert.exit, label %for.body.i.i, !llvm.loop !13
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
-  %i.06.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %entry ]
-  %arrayidx.i.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.cond.i.i ]
+  %arrayidx.i.i = getelementptr inbounds %struct.test_enum, ptr @ssl_alerts, i64 %i.05.i.i
   %0 = load ptr, ptr %arrayidx.i.i, align 16
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i.i = icmp eq i32 %call.i.i, 0
@@ -1453,13 +1453,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %parse_enum.exit, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_protocols, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_protocols, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1482,13 +1482,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 4
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_servername, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1512,13 +1512,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1572,13 +1572,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_session_id, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1602,13 +1602,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_methods, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_test_methods, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1655,13 +1655,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 7
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_handshake_modes, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_handshake_modes, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0
@@ -1685,13 +1685,13 @@ entry:
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
-  %inc.i = add nuw nsw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 2
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
-  %i.06.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %entry ]
-  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_key_update_types, i64 %i.06.i
+  %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
+  %arrayidx.i = getelementptr inbounds %struct.test_enum, ptr @ssl_key_update_types, i64 %i.05.i
   %0 = load ptr, ptr %arrayidx.i, align 16
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull readonly dereferenceable(1) %value) #8
   %cmp2.i = icmp eq i32 %call.i, 0

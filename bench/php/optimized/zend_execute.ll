@@ -1131,7 +1131,7 @@ define dso_local zeroext i1 @zend_check_user_type_slow(ptr nocapture noundef rea
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %18, ptr noundef %22, ptr noundef nonnull %6)
+  %23 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %18, ptr noundef %22, ptr noundef %6)
   br label %.critedge
 
 24:                                               ; preds = %16
@@ -1160,7 +1160,7 @@ define dso_local zeroext i1 @zend_check_user_type_slow(ptr nocapture noundef rea
   %32 = load ptr, ptr %1, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %31, ptr noundef %34, ptr noundef nonnull %6)
+  %35 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %31, ptr noundef %34, ptr noundef %6)
   br i1 %35, label %.critedge, label %69
 
 36:                                               ; preds = %.lr.ph
@@ -2150,11 +2150,11 @@ define dso_local void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef %1
   br i1 %or.cond, label %88, label %90
 
 88:                                               ; preds = %86
-  %89 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null)
+  %89 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef %6, ptr noundef null)
   br label %92
 
 90:                                               ; preds = %86
-  %91 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef nonnull %6, ptr noundef null)
+  %91 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %12, ptr noundef nonnull %.0290, ptr noundef %6, ptr noundef null)
   br label %92
 
 92:                                               ; preds = %90, %88
@@ -29311,7 +29311,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread221: ; preds = %46
   br label %35
 
 58:                                               ; preds = %35
-  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
+  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef %3, ptr noundef nonnull readonly %0)
   switch i8 %59, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -29853,7 +29853,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread270: ; preds = %46
   br label %35
 
 58:                                               ; preds = %35
-  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef nonnull %2, ptr noundef nonnull readonly %0)
+  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef %2, ptr noundef nonnull readonly %0)
   switch i8 %59, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -30398,7 +30398,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread276: ; preds = %46
   br label %35
 
 58:                                               ; preds = %35
-  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef nonnull %2, ptr noundef nonnull readonly %0)
+  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef %2, ptr noundef nonnull readonly %0)
   switch i8 %59, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -30995,7 +30995,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread241: ; preds = %46
   br label %35
 
 58:                                               ; preds = %35
-  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
+  %59 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %30, ptr noundef nonnull %.083.i, ptr noundef %3, ptr noundef nonnull readonly %0)
   switch i8 %59, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -37471,7 +37471,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread203: ; preds = %41
   br label %30
 
 53:                                               ; preds = %30
-  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
+  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef %3, ptr noundef nonnull readonly %0)
   switch i8 %54, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -37977,7 +37977,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread252: ; preds = %41
   br label %30
 
 53:                                               ; preds = %30
-  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef nonnull %2, ptr noundef nonnull readonly %0)
+  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef %2, ptr noundef nonnull readonly %0)
   switch i8 %54, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -38486,7 +38486,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread258: ; preds = %41
   br label %30
 
 53:                                               ; preds = %30
-  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef nonnull %2, ptr noundef nonnull readonly %0)
+  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef %2, ptr noundef nonnull readonly %0)
   switch i8 %54, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -39047,7 +39047,7 @@ zend_fetch_dimension_address_inner_W_CONST.exit.thread223: ; preds = %41
   br label %30
 
 53:                                               ; preds = %30
-  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef nonnull %3, ptr noundef nonnull readonly %0)
+  %54 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %25, ptr noundef nonnull %.083.i, ptr noundef %3, ptr noundef nonnull readonly %0)
   switch i8 %54, label %zend_fetch_dimension_address_inner_W_CONST.exit.thread [
     i8 6, label %.loopexit93.i
     i8 4, label %.loopexit.i
@@ -45050,7 +45050,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_CONST_HANDLE
   br i1 %.not236, label %58, label %56
 
 56:                                               ; preds = %53
-  %57 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %19, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %57 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %19, ptr noundef %2, ptr noundef nonnull %0)
   br label %186
 
 58:                                               ; preds = %129, %53
@@ -45479,7 +45479,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_TMP_HANDLER(
   br i1 %.not242, label %57, label %55
 
 55:                                               ; preds = %52
-  %56 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %54, ptr noundef nonnull %49, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %56 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %54, ptr noundef nonnull %49, ptr noundef nonnull %18, ptr noundef %2, ptr noundef nonnull %0)
   br label %170
 
 57:                                               ; preds = %122, %52
@@ -45907,7 +45907,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_VAR_HANDLER(
   br i1 %.not267, label %58, label %56
 
 56:                                               ; preds = %53
-  %57 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %57 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %55, ptr noundef nonnull %50, ptr noundef nonnull %19, ptr noundef %3, ptr noundef nonnull %0)
   br label %224
 
 58:                                               ; preds = %145, %53
@@ -46452,7 +46452,7 @@ zval_undefined_cv.exit:                           ; preds = %24, %21, %13
   br i1 %.not258, label %74, label %72
 
 72:                                               ; preds = %69
-  %73 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %71, ptr noundef nonnull %66, ptr noundef %.0236, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %73 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %71, ptr noundef nonnull %66, ptr noundef %.0236, ptr noundef %2, ptr noundef nonnull %0)
   br label %222
 
 74:                                               ; preds = %152, %69
@@ -49111,7 +49111,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_CONST_OP_DATA_CONST_HAN
   br i1 %.not204, label %36, label %34
 
 34:                                               ; preds = %31
-  %35 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %33, ptr noundef nonnull %28, ptr noundef nonnull %10, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %35 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %33, ptr noundef nonnull %28, ptr noundef nonnull %10, ptr noundef %3, ptr noundef nonnull %0)
   br label %202
 
 36:                                               ; preds = %145, %31
@@ -49551,7 +49551,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_CONST_OP_DATA_TMP_HANDL
   br i1 %.not210, label %34, label %32
 
 32:                                               ; preds = %29
-  %33 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %31, ptr noundef nonnull %26, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %33 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %31, ptr noundef nonnull %26, ptr noundef nonnull %8, ptr noundef %2, ptr noundef nonnull %0)
   br label %147
 
 34:                                               ; preds = %99, %29
@@ -49912,7 +49912,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_CONST_OP_DATA_VAR_HANDL
   br i1 %.not235, label %35, label %33
 
 33:                                               ; preds = %30
-  %34 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %32, ptr noundef nonnull %27, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %34 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %32, ptr noundef nonnull %27, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull %0)
   br label %201
 
 35:                                               ; preds = %122, %30
@@ -50392,7 +50392,7 @@ zval_undefined_cv.exit:                           ; preds = %16, %13, %1
   br i1 %.not226, label %51, label %49
 
 49:                                               ; preds = %46
-  %50 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %48, ptr noundef nonnull %43, ptr noundef %.0206, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %50 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %48, ptr noundef nonnull %43, ptr noundef %.0206, ptr noundef %3, ptr noundef nonnull %0)
   br label %237
 
 51:                                               ; preds = %167, %46
@@ -52489,7 +52489,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_CONST_HANDLER
   br i1 %.not220, label %53, label %51
 
 51:                                               ; preds = %48
-  %52 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %50, ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %52 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %50, ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %0)
   br label %181
 
 53:                                               ; preds = %124, %48
@@ -52882,7 +52882,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_TMP_HANDLER(p
   br i1 %.not226, label %52, label %50
 
 50:                                               ; preds = %47
-  %51 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %49, ptr noundef nonnull %44, ptr noundef nonnull %11, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %51 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %49, ptr noundef nonnull %44, ptr noundef nonnull %11, ptr noundef %2, ptr noundef nonnull %0)
   br label %165
 
 52:                                               ; preds = %117, %47
@@ -53274,7 +53274,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_VAR_HANDLER(p
   br i1 %.not251, label %53, label %51
 
 51:                                               ; preds = %48
-  %52 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %50, ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %52 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %50, ptr noundef nonnull %45, ptr noundef nonnull %12, ptr noundef %3, ptr noundef nonnull %0)
   br label %219
 
 53:                                               ; preds = %140, %48
@@ -53784,7 +53784,7 @@ zval_undefined_cv.exit:                           ; preds = %18, %15, %1
   br i1 %.not242, label %68, label %66
 
 66:                                               ; preds = %63
-  %67 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %65, ptr noundef nonnull %60, ptr noundef %.0219, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %67 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %65, ptr noundef nonnull %60, ptr noundef %.0219, ptr noundef %2, ptr noundef nonnull %0)
   br label %216
 
 68:                                               ; preds = %146, %63
@@ -56136,7 +56136,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_CONST_HANDLER(
   br label %44
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %4, ptr noundef %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not140 = icmp eq i32 %30, 0
   br i1 %.not140, label %._crit_edge, label %31
 
@@ -56181,7 +56181,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_CONST_HANDLER(
   br i1 %.not142, label %57, label %55
 
 55:                                               ; preds = %44
-  %56 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %45, ptr noundef %54, ptr noundef nonnull %50, ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %56 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %45, ptr noundef %54, ptr noundef nonnull %50, ptr noundef %5, ptr noundef nonnull %0)
   br label %130
 
 57:                                               ; preds = %44
@@ -56441,7 +56441,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_TMP_HANDLER(pt
   br label %57
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %3, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not161 = icmp eq i32 %29, 0
   br i1 %.not161, label %._crit_edge, label %30
 
@@ -56510,7 +56510,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_TMP_HANDLER(pt
   br i1 %.not163, label %81, label %67
 
 67:                                               ; preds = %57
-  %68 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %58, ptr noundef %66, ptr noundef nonnull %62, ptr noundef nonnull %4, ptr noundef nonnull %0)
+  %68 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %58, ptr noundef %66, ptr noundef nonnull %62, ptr noundef %4, ptr noundef nonnull %0)
   %69 = load i32, ptr %59, align 8
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
@@ -56702,7 +56702,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_VAR_HANDLER(pt
   br label %57
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %3, ptr noundef %2, i32 noundef %7, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not161 = icmp eq i32 %29, 0
   br i1 %.not161, label %._crit_edge, label %30
 
@@ -56771,7 +56771,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_VAR_HANDLER(pt
   br i1 %.not163, label %81, label %67
 
 67:                                               ; preds = %57
-  %68 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %58, ptr noundef %66, ptr noundef nonnull %62, ptr noundef nonnull %4, ptr noundef nonnull %0)
+  %68 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %58, ptr noundef %66, ptr noundef nonnull %62, ptr noundef %4, ptr noundef nonnull %0)
   %69 = load i32, ptr %59, align 8
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %0, i64 %70
@@ -57005,7 +57005,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_SPEC_OP_DATA_CV_HANDLER(ptr
   br label %44
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %4, ptr noundef %3, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not149 = icmp eq i32 %30, 0
   br i1 %.not149, label %._crit_edge, label %31
 
@@ -57074,7 +57074,7 @@ zval_undefined_cv.exit:                           ; preds = %56, %53, %44
   br i1 %.not151, label %72, label %70
 
 70:                                               ; preds = %zval_undefined_cv.exit
-  %71 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %45, ptr noundef %69, ptr noundef %.0143, ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %71 = call fastcc ptr @zend_assign_to_typed_prop(ptr noundef nonnull %45, ptr noundef %69, ptr noundef %.0143, ptr noundef %5, ptr noundef nonnull %0)
   br label %152
 
 72:                                               ; preds = %zval_undefined_cv.exit
@@ -64509,7 +64509,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_OP_SPEC_HANDLER(ptr noundef
   br label %50
 
 48:                                               ; preds = %17, %14, %20, %1
-  %49 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %0)
+  %49 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %6, ptr noundef %5, i32 noundef %10, i32 noundef 2, ptr noundef nonnull %7, ptr noundef nonnull %0)
   %.not119 = icmp eq i32 %49, 0
   br i1 %.not119, label %._crit_edge, label %50
 
@@ -67277,7 +67277,7 @@ define internal noundef i32 @ZEND_ASSIGN_STATIC_PROP_REF_SPEC_HANDLER(ptr nounde
   br label %62
 
 29:                                               ; preds = %15, %12, %18, %1
-  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
+  %30 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %3, ptr noundef %2, i32 noundef %8, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %0)
   %.not102 = icmp eq i32 %30, 0
   br i1 %.not102, label %._crit_edge, label %31
 
@@ -67473,7 +67473,7 @@ _get_zval_ptr_ptr.exit.thread128:                 ; preds = %69, %87, %_get_zval
   %.val = load ptr, ptr %133, align 8
   %134 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %134, align 4
-  %135 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %63, ptr noundef %131, ptr noundef %.025.i126, ptr noundef nonnull %4, i32 %.val.val)
+  %135 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %63, ptr noundef %131, ptr noundef %.025.i126, ptr noundef %4, i32 %.val.val)
   store ptr %135, ptr %3, align 8
   br label %zend_wrong_assign_to_variable_reference.exit
 
@@ -68604,7 +68604,7 @@ define internal noundef i32 @ZEND_PRE_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef %
   br label %48
 
 46:                                               ; preds = %15, %12, %18, %1
-  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %5, ptr noundef %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %._crit_edge, label %48
 
@@ -68722,7 +68722,7 @@ define internal noundef i32 @ZEND_POST_INC_STATIC_PROP_SPEC_HANDLER(ptr noundef 
   br label %48
 
 46:                                               ; preds = %15, %12, %18, %1
-  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
+  %47 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %5, ptr noundef %4, i32 noundef %8, i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %47, 0
   br i1 %.not46, label %._crit_edge, label %48
 
@@ -81891,7 +81891,7 @@ define internal noundef i32 @ZEND_RECV_SPEC_UNUSED_HANDLER(ptr noundef %0) #1 {
   %63 = load ptr, ptr %.0144.i, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %61, ptr noundef %65, ptr noundef nonnull %2)
+  %66 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %61, ptr noundef %65, ptr noundef %2)
   br i1 %66, label %.critedge187.i, label %.critedge188.i
 
 67:                                               ; preds = %59
@@ -81920,7 +81920,7 @@ define internal noundef i32 @ZEND_RECV_SPEC_UNUSED_HANDLER(ptr noundef %0) #1 {
   %75 = load ptr, ptr %.0144.i, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8
-  %78 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %74, ptr noundef %77, ptr noundef nonnull %2)
+  %78 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %74, ptr noundef %77, ptr noundef %2)
   br i1 %78, label %.critedge187.i, label %112
 
 79:                                               ; preds = %.lr.ph.i
@@ -82378,7 +82378,7 @@ define internal noundef i32 @ZEND_RECV_INIT_SPEC_CONST_HANDLER(ptr noundef %0) #
   %122 = load ptr, ptr %.0205, align 8
   %123 = getelementptr inbounds i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %120, ptr noundef %124, ptr noundef nonnull %2)
+  %125 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %120, ptr noundef %124, ptr noundef %2)
   br i1 %125, label %.critedge259, label %.critedge260
 
 126:                                              ; preds = %118
@@ -82407,7 +82407,7 @@ define internal noundef i32 @ZEND_RECV_INIT_SPEC_CONST_HANDLER(ptr noundef %0) #
   %134 = load ptr, ptr %.0205, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
-  %137 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %133, ptr noundef %136, ptr noundef nonnull %2)
+  %137 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %133, ptr noundef %136, ptr noundef %2)
   br i1 %137, label %.critedge259, label %172
 
 138:                                              ; preds = %.lr.ph
@@ -97142,7 +97142,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
   br label %16
 
 44:                                               ; preds = %16
-  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0135, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0135, ptr noundef %2, ptr noundef nonnull %0)
   switch i8 %45, label %46 [
     i8 6, label %.loopexit156
     i8 4, label %.loopexit
@@ -97371,7 +97371,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nou
   br label %17
 
 65:                                               ; preds = %17
-  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0145, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0145, ptr noundef %3, ptr noundef nonnull %0)
   switch i8 %66, label %69 [
     i8 6, label %67
     i8 4, label %.sink.split
@@ -97623,7 +97623,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER(ptr noundef
   br label %17
 
 65:                                               ; preds = %17
-  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef %3, ptr noundef nonnull %0)
   switch i8 %66, label %69 [
     i8 6, label %67
     i8 4, label %.sink.split
@@ -97813,7 +97813,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
   br label %16
 
 44:                                               ; preds = %16
-  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0123, ptr noundef nonnull %2, ptr noundef nonnull %0)
+  %45 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %15, ptr noundef nonnull %.0123, ptr noundef %2, ptr noundef nonnull %0)
   switch i8 %45, label %46 [
     i8 6, label %.loopexit142
     i8 4, label %.loopexit
@@ -98018,7 +98018,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_TMPVAR_HANDLER(ptr noundef
   br label %17
 
 65:                                               ; preds = %17
-  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0133, ptr noundef %3, ptr noundef nonnull %0)
   switch i8 %66, label %69 [
     i8 6, label %67
     i8 4, label %.sink.split
@@ -98246,7 +98246,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CV_HANDLER(ptr noundef %0)
   br label %17
 
 65:                                               ; preds = %17
-  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0121, ptr noundef nonnull %3, ptr noundef nonnull %0)
+  %66 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %16, ptr noundef nonnull %.0121, ptr noundef %3, ptr noundef nonnull %0)
   switch i8 %66, label %69 [
     i8 6, label %67
     i8 4, label %.sink.split
@@ -135321,7 +135321,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_CONST_UNUSED_HANDLER(p
   %54 = load ptr, ptr %27, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %52, ptr noundef %56, ptr noundef nonnull %2)
+  %57 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %52, ptr noundef %56, ptr noundef %2)
   br i1 %57, label %.critedge213, label %.critedge.thread
 
 58:                                               ; preds = %50
@@ -135350,7 +135350,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_CONST_UNUSED_HANDLER(p
   %66 = load ptr, ptr %27, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %65, ptr noundef %68, ptr noundef nonnull %2)
+  %69 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %65, ptr noundef %68, ptr noundef %2)
   br i1 %69, label %.critedge213, label %103
 
 70:                                               ; preds = %.lr.ph
@@ -135626,7 +135626,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_TMP_UNUSED_HANDLER(ptr
   %38 = load ptr, ptr %11, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %36, ptr noundef %40, ptr noundef nonnull %2)
+  %41 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %36, ptr noundef %40, ptr noundef %2)
   br i1 %41, label %.critedge201, label %.critedge.thread
 
 42:                                               ; preds = %34
@@ -135655,7 +135655,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_TMP_UNUSED_HANDLER(ptr
   %50 = load ptr, ptr %11, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %49, ptr noundef %52, ptr noundef nonnull %2)
+  %53 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %49, ptr noundef %52, ptr noundef %2)
   br i1 %53, label %.critedge201, label %87
 
 54:                                               ; preds = %.lr.ph
@@ -136015,7 +136015,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_VAR_UNUSED_HANDLER(ptr
   %81 = load ptr, ptr %.2, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
-  %84 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %79, ptr noundef %83, ptr noundef nonnull %2)
+  %84 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %79, ptr noundef %83, ptr noundef %2)
   br i1 %84, label %.critedge213, label %.critedge214
 
 85:                                               ; preds = %77
@@ -136044,7 +136044,7 @@ define internal noundef i32 @ZEND_VERIFY_RETURN_TYPE_SPEC_VAR_UNUSED_HANDLER(ptr
   %93 = load ptr, ptr %.2, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %92, ptr noundef %95, ptr noundef nonnull %2)
+  %96 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %92, ptr noundef %95, ptr noundef %2)
   br i1 %96, label %.critedge213, label %130
 
 97:                                               ; preds = %.lr.ph
@@ -136512,7 +136512,7 @@ _zval_undefined_op1.exit:                         ; preds = %32
   %99 = load ptr, ptr %.2, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
-  %102 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %97, ptr noundef %101, ptr noundef nonnull %2)
+  %102 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %97, ptr noundef %101, ptr noundef %2)
   br i1 %102, label %.critedge215, label %.critedge216
 
 103:                                              ; preds = %95
@@ -136541,7 +136541,7 @@ _zval_undefined_op1.exit:                         ; preds = %32
   %111 = load ptr, ptr %.2, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %110, ptr noundef %113, ptr noundef nonnull %2)
+  %114 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %110, ptr noundef %113, ptr noundef %2)
   br i1 %114, label %.critedge215, label %148
 
 115:                                              ; preds = %.lr.ph
@@ -159620,7 +159620,7 @@ define internal noundef i32 @ZEND_RECV_VARIADIC_SPEC_UNUSED_HANDLER(ptr noundef 
   %92 = load ptr, ptr %.0437, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %90, ptr noundef %94, ptr noundef nonnull %2)
+  %95 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %90, ptr noundef %94, ptr noundef %2)
   br i1 %95, label %.critedge562, label %.critedge.thread589
 
 96:                                               ; preds = %88
@@ -159649,7 +159649,7 @@ define internal noundef i32 @ZEND_RECV_VARIADIC_SPEC_UNUSED_HANDLER(ptr noundef 
   %104 = load ptr, ptr %.0437, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8
-  %107 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %103, ptr noundef %106, ptr noundef nonnull %2)
+  %107 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %103, ptr noundef %106, ptr noundef %2)
   br i1 %107, label %.critedge562, label %141
 
 108:                                              ; preds = %.lr.ph
@@ -160105,7 +160105,7 @@ define internal noundef i32 @ZEND_RECV_VARIADIC_SPEC_UNUSED_HANDLER(ptr noundef 
   %343 = load ptr, ptr %.0449, align 8
   %344 = getelementptr inbounds i8, ptr %343, i64 16
   %345 = load ptr, ptr %344, align 8
-  %346 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %341, ptr noundef %345, ptr noundef nonnull %3)
+  %346 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %341, ptr noundef %345, ptr noundef %3)
   br i1 %346, label %.critedge568, label %.critedge4.thread607
 
 347:                                              ; preds = %339
@@ -160134,7 +160134,7 @@ define internal noundef i32 @ZEND_RECV_VARIADIC_SPEC_UNUSED_HANDLER(ptr noundef 
   %355 = load ptr, ptr %.0449, align 8
   %356 = getelementptr inbounds i8, ptr %355, i64 16
   %357 = load ptr, ptr %356, align 8
-  %358 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %354, ptr noundef %357, ptr noundef nonnull %3)
+  %358 = call fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef %354, ptr noundef %357, ptr noundef %3)
   br i1 %358, label %.critedge568, label %392
 
 359:                                              ; preds = %.lr.ph626
@@ -164778,7 +164778,7 @@ define internal range(i32 0, 2) i32 @ZEND_ISSET_ISEMPTY_STATIC_PROP_SPEC_HANDLER
   br label %30
 
 28:                                               ; preds = %14, %11, %17, %1
-  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %0)
+  %29 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %3, ptr noundef %2, i32 noundef %7, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %0)
   %.not89 = icmp eq i32 %29, 0
   %.pre = load i32, ptr %5, align 4
   br i1 %.not89, label %30, label %.thread
@@ -189634,7 +189634,7 @@ declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc zeroext i1 @zend_check_intersection_type_from_cache_slot(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = load i32, ptr %0, align 8
   %6 = zext i32 %5 to i64
@@ -190122,7 +190122,7 @@ declare ptr @zend_hash_index_lookup(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @zend_hash_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %101 [
@@ -190338,7 +190338,7 @@ _zval_undefined_op2.exit:                         ; preds = %14, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc zeroext range(i8 1, 7) i8 @slow_index_convert_w(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %101 [
@@ -193403,7 +193403,7 @@ zval_undefined_cv.exit:                           ; preds = %90, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc i64 @zend_check_string_offset(ptr noundef %0, i32 noundef range(i32 1, 6) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
   br label %6
@@ -193603,7 +193603,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_W(ptr noundef %0,
   br label %6
 
 48:                                               ; preds = %6
-  %49 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2)
+  %49 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef %5, ptr noundef %2)
   switch i8 %49, label %54 [
     i8 6, label %50
     i8 4, label %52
@@ -193710,7 +193710,7 @@ define internal fastcc void @zend_throw_non_object_error(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_assign_to_typed_prop(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc ptr @zend_assign_to_typed_prop(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct._zval_struct, align 8
@@ -193867,7 +193867,7 @@ zend_verify_scalar_type_hint.exit.thread:         ; preds = %.thread, %69, %67, 
   br i1 %.not118, label %92, label %90
 
 90:                                               ; preds = %86
-  %91 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext 2, i1 noundef zeroext %79, ptr noundef %3)
+  %91 = call ptr @zend_assign_to_typed_ref_ex(ptr noundef nonnull %1, ptr noundef nonnull %8, i8 noundef zeroext 2, i1 noundef zeroext %79, ptr noundef nonnull %3)
   br label %102
 
 92:                                               ; preds = %86
@@ -193902,7 +193902,7 @@ declare void @rebuild_object_properties(ptr noundef) local_unnamed_addr #3
 declare ptr @zval_get_string_func(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @zend_fetch_static_property_address_ex(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @zend_fetch_static_property_address_ex(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2, i32 noundef range(i32 0, 6) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 29
   %9 = load i8, ptr %8, align 1
@@ -194218,7 +194218,7 @@ zval_undefined_cv.exit.thread:                    ; preds = %105, %zval_undefine
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_handle_fetch_obj_flags(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @zend_handle_fetch_obj_flags(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 4) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -194588,7 +194588,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW_CONST(ptr noun
   br label %5
 
 51:                                               ; preds = %5
-  %52 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %4, ptr noundef %2)
+  %52 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef %4, ptr noundef %2)
   switch i8 %52, label %zend_undefined_offset_write.exit [
     i8 6, label %.loopexit93
     i8 4, label %.loopexit
@@ -195031,7 +195031,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW(ptr noundef %0
   br label %6
 
 72:                                               ; preds = %6
-  %73 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef nonnull %5, ptr noundef %2)
+  %73 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %0, ptr noundef nonnull %.083, ptr noundef %5, ptr noundef %2)
   switch i8 %73, label %zend_undefined_offset_write.exit [
     i8 6, label %74
     i8 4, label %.sink.split
@@ -195608,7 +195608,7 @@ define internal fastcc void @zend_assign_to_property_reference_var_const(ptr nou
   %.val = load ptr, ptr %176, align 8
   %177 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %177, align 4
-  %178 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %174, ptr noundef %129, ptr noundef %2, ptr noundef nonnull %7, i32 %.val.val)
+  %178 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %174, ptr noundef %129, ptr noundef %2, ptr noundef %7, i32 %.val.val)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 179:                                              ; preds = %172
@@ -195751,7 +195751,7 @@ zend_wrong_assign_to_variable_reference.exit:     ; preds = %201, %190, %168, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 %.24.val.4.val) unnamed_addr #1 {
+define internal fastcc noundef ptr @zend_assign_to_typed_property_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val.4.val) unnamed_addr #1 {
   %5 = icmp slt i32 %.24.val.4.val, 0
   %6 = tail call noundef zeroext i1 @zend_verify_prop_assignable_by_ref_ex(ptr noundef readonly %0, ptr noundef %2, i1 noundef zeroext %5, i32 noundef 0)
   br i1 %6, label %7, label %109
@@ -196259,7 +196259,7 @@ zend_object_fetch_property_type_info.exit:        ; preds = %156
   %.val = load ptr, ptr %160, align 8
   %161 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %161, align 4
-  %162 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %155, ptr noundef %80, ptr noundef %2, ptr noundef nonnull %7, i32 %.val.val)
+  %162 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %155, ptr noundef %80, ptr noundef %2, ptr noundef %7, i32 %.val.val)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 163:                                              ; preds = %145, %156, %130, %140, %137
@@ -196697,7 +196697,7 @@ define internal fastcc void @zend_assign_to_property_reference_this_const(ptr %.
   %.val = load ptr, ptr %161, align 8
   %162 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %162, align 4
-  %163 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %159, ptr noundef %114, ptr noundef %1, ptr noundef nonnull %6, i32 %.val.val)
+  %163 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %159, ptr noundef %114, ptr noundef %1, ptr noundef %6, i32 %.val.val)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 164:                                              ; preds = %157
@@ -197105,7 +197105,7 @@ zend_object_fetch_property_type_info.exit:        ; preds = %145
   %.val = load ptr, ptr %149, align 8
   %150 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %150, align 4
-  %151 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %144, ptr noundef %68, ptr noundef %2, ptr noundef nonnull %7, i32 %.val.val)
+  %151 = call fastcc ptr @zend_assign_to_typed_property_reference(ptr noundef nonnull %144, ptr noundef %68, ptr noundef %2, ptr noundef %7, i32 %.val.val)
   br label %zend_wrong_assign_to_variable_reference.exit
 
 152:                                              ; preds = %134, %145, %119, %129, %126
@@ -197894,7 +197894,7 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
   br i1 %.not56, label %22, label %41
 
 22:                                               ; preds = %18
-  %23 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %23 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef %1, ptr noundef nonnull %2)
   store i64 %23, ptr %0, align 8
   store i32 4, ptr %5, align 8
   br label %41
@@ -197917,7 +197917,7 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
   br i1 %.not55, label %32, label %31
 
 31:                                               ; preds = %30
-  tail call fastcc void @zend_incdec_typed_prop(ptr noundef nonnull %1, ptr noundef nonnull %.1, ptr noundef null, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @zend_incdec_typed_prop(ptr noundef %1, ptr noundef nonnull %.1, ptr noundef null, ptr noundef %2, ptr noundef %3)
   br label %41
 
 32:                                               ; preds = %30
@@ -197968,7 +197968,7 @@ define internal fastcc void @zend_pre_incdec_property_zval(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 9223372036854775807, -9223372036854775807) i64 @zend_throw_incdec_prop_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc range(i64 9223372036854775807, -9223372036854775807) i64 @zend_throw_incdec_prop_error(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -198061,7 +198061,7 @@ define internal fastcc range(i64 9223372036854775807, -9223372036854775807) i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_incdec_typed_prop(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @zend_incdec_typed_prop(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr %6, ptr %2
@@ -198115,7 +198115,7 @@ define internal fastcc void @zend_incdec_typed_prop(ptr nocapture noundef readon
   br i1 %.not40, label %33, label %75
 
 33:                                               ; preds = %29
-  %34 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %34 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef %0, ptr noundef nonnull %3)
   store i64 %34, ptr %1, align 8
   store i32 4, ptr %8, align 8
   br label %75
@@ -198257,7 +198257,7 @@ define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr 
   br i1 %.not64, label %28, label %64
 
 28:                                               ; preds = %24
-  %29 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %29 = tail call fastcc i64 @zend_throw_incdec_prop_error(ptr noundef %1, ptr noundef nonnull %2)
   store i64 %29, ptr %0, align 8
   store i32 4, ptr %5, align 8
   br label %64
@@ -198288,7 +198288,7 @@ define internal fastcc void @zend_post_incdec_property_zval(ptr noundef %0, ptr 
   br i1 %.not62, label %46, label %45
 
 45:                                               ; preds = %40
-  tail call fastcc void @zend_incdec_typed_prop(ptr noundef nonnull %1, ptr noundef nonnull %.0, ptr noundef %44, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @zend_incdec_typed_prop(ptr noundef %1, ptr noundef nonnull %.0, ptr noundef %44, ptr noundef %2, ptr noundef %3)
   br label %64
 
 46:                                               ; preds = %40
@@ -199813,7 +199813,7 @@ declare i32 @zend_hash_index_del(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @zend_hash_iterator_add(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_fe_reset_iterator(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc zeroext i1 @zend_fe_reset_iterator(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -200006,7 +200006,7 @@ declare i64 @zend_print_zval(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @zend_throw_unwind_exit() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32 noundef range(i32 0, 6) %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -200304,7 +200304,7 @@ zend_fetch_this_var.exit:                         ; preds = %68, %66, %64, %58, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_TMPVAR_UNUSED(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -200743,7 +200743,7 @@ zend_fetch_this_var.exit:                         ; preds = %78, %84, %90, %96, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_var_address_helper_SPEC_CV_UNUSED(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -201625,7 +201625,7 @@ _zval_undefined_op2.exit332:                      ; preds = %228, %_zval_undefin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 15) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = alloca i64, align 8
@@ -201743,7 +201743,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0,
   br label %15
 
 63:                                               ; preds = %15
-  %64 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
+  %64 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef %6, ptr noundef %3)
   switch i8 %64, label %67 [
     i8 6, label %65
     i8 4, label %.sink.split
@@ -202235,7 +202235,7 @@ _zval_undefined_op2.exit341:                      ; preds = %307, %_zval_undefin
 declare void @zend_wrong_property_read(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -202374,7 +202374,7 @@ define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture nounde
   br label %.preheader
 
 73:                                               ; preds = %.preheader
-  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
+  %74 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef %6, ptr noundef %3)
   switch i8 %74, label %.thread [
     i8 6, label %75
     i8 4, label %77
@@ -202722,7 +202722,7 @@ _zval_undefined_op2.exit:                         ; preds = %130, %127, %145, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -202913,7 +202913,7 @@ define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture nound
   br label %.preheader
 
 97:                                               ; preds = %.preheader
-  %98 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
+  %98 = call fastcc zeroext i8 @slow_index_convert_w(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef %6, ptr noundef %3)
   switch i8 %98, label %zend_undefined_offset_write.exit.thread [
     i8 6, label %99
     i8 4, label %.sink.split
@@ -203279,7 +203279,7 @@ _zval_undefined_op1.exit:                         ; preds = %232, %228
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = alloca i64, align 8
@@ -203384,7 +203384,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture 
   br label %15
 
 59:                                               ; preds = %15
-  %60 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
+  %60 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %14, ptr noundef nonnull %.0293, ptr noundef %6, ptr noundef %3)
   switch i8 %60, label %63 [
     i8 6, label %61
     i8 4, label %.sink.split
@@ -203823,7 +203823,7 @@ _zval_undefined_op2.exit341:                      ; preds = %282, %276
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -203961,7 +203961,7 @@ define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture no
   br label %.preheader
 
 75:                                               ; preds = %.preheader
-  %76 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef nonnull %6, ptr noundef %3)
+  %76 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %26, ptr noundef nonnull %.0238, ptr noundef %6, ptr noundef %3)
   switch i8 %76, label %79 [
     i8 6, label %77
     i8 4, label %.sink.split
@@ -204305,7 +204305,7 @@ _zval_undefined_op2.exit285:                      ; preds = %225, %219, %_zval_u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 9) %2, i32 %.16.val, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca %union._zend_value, align 8
   %7 = sext i32 %.16.val to i64
@@ -204421,7 +204421,7 @@ define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture n
   br label %13
 
 61:                                               ; preds = %13
-  %62 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0293, ptr noundef nonnull %6, ptr noundef %3)
+  %62 = call fastcc zeroext i8 @slow_index_convert(ptr noundef %12, ptr noundef nonnull %.0293, ptr noundef %6, ptr noundef %3)
   switch i8 %62, label %65 [
     i8 6, label %63
     i8 4, label %.sink.split
@@ -207080,7 +207080,7 @@ declare ptr @zend_generator_update_current(ptr noundef) local_unnamed_addr #3
 declare i32 @compare_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef range(i32 0, 6) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -207125,7 +207125,7 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
   %29 = getelementptr inbounds i8, ptr %24, i64 16
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %5, align 8
-  %31 = and i32 %0, -3
+  %31 = and i32 %0, 5
   %or.cond = icmp eq i32 %31, 0
   br i1 %or.cond, label %32, label %52
 
@@ -207156,7 +207156,7 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
   br label %.critedge
 
 50:                                               ; preds = %17, %14, %20, %2
-  %51 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1)
+  %51 = call fastcc i32 @zend_fetch_static_property_address_ex(ptr noundef %6, ptr noundef %5, i32 noundef %10, i32 noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %1)
   %.not72 = icmp eq i32 %51, 0
   br i1 %.not72, label %52, label %.critedge
 

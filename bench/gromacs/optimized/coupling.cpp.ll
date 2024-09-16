@@ -1503,7 +1503,7 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit: ; preds = %297
   br i1 %exitcond17.not.i158, label %_ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit159, label %.preheader.i152, !llvm.loop !29
 
 _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit159: ; preds = %308
-  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 4 dereferenceable(92) %2, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %24)
+  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 4 dereferenceable(92) %2, ptr noundef nonnull align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %24)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(36) %23, i64 36, i1 false)
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %9, ptr %.sroa.1.0..sroa_idx.i, align 8
@@ -1567,7 +1567,7 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit159: ; preds = %308
   br i1 %exitcond17.not.i.i, label %_ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA3_fS4_RKN3gmx13MultiDimArrayISt5arrayIfLm9EENS7_7extentsIJLl3ELl3EEEENS7_12layout_rightEEES4_f.exit, label %.preheader.i.i, !llvm.loop !29
 
 _ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA3_fS4_RKN3gmx13MultiDimArrayISt5arrayIfLm9EENS7_7extentsIJLl3ELl3EEEENS7_12layout_rightEEES4_f.exit: ; preds = %326
-  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 4 dereferenceable(92) %2, ptr noundef nonnull readonly align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %13)
+  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 4 dereferenceable(92) %2, ptr noundef nonnull readonly align 8 dereferenceable(56) %22, ptr noundef nonnull align 8 dereferenceable(56) %13)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull align 8 dereferenceable(36) %25, i64 36, i1 false)
@@ -2939,7 +2939,7 @@ define weak_odr void @_Z38pressureCouplingScaleBoxAndCoordinatesIL16PressureCoup
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 36, i1 false)
   %20 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr %17, ptr %20, align 8
-  call fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  call fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(56) %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull align 8 dereferenceable(36) %18, i64 36, i1 false)
   store ptr %17, ptr %20, align 8
   br i1 %12, label %21, label %23
@@ -3620,7 +3620,7 @@ define void @_Z21init_parrinellorahmanRK23PressureCouplingOptionsPA3_KffS4_PA3_f
   br i1 %exitcond17.not.i, label %_ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit, label %.preheader.i, !llvm.loop !29
 
 _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit: ; preds = %26
-  call fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %12)
+  call fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %12)
   call void @_Z16preserveBoxShapeRK23PressureCouplingOptionsPA3_KfPA3_fS6_(ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %.not.i15 = icmp eq ptr %5, null
@@ -3659,7 +3659,7 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit: ; preds = %26
   br i1 %exitcond17.not.i22, label %_ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit23, label %.preheader.i16, !llvm.loop !29
 
 _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit23: ; preds = %37
-  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %14)
+  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(36) %13, i64 36, i1 false)
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 48
   store ptr %6, ptr %.sroa.1.0..sroa_idx.i, align 8
@@ -3723,7 +3723,7 @@ _ZN3gmxL31createMatrix3x3FromLegacyMatrixEPA3_Kf.exit23: ; preds = %37
   br i1 %exitcond17.not.i.i, label %_ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA3_fS4_RKN3gmx13MultiDimArrayISt5arrayIfLm9EENS7_7extentsIJLl3ELl3EEEENS7_12layout_rightEEES4_f.exit, label %.preheader.i.i, !llvm.loop !29
 
 _ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA3_fS4_RKN3gmx13MultiDimArrayISt5arrayIfLm9EENS7_7extentsIJLl3ELl3EEEENS7_12layout_rightEEES4_f.exit: ; preds = %55
-  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10)
+  call fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 4 dereferenceable(92) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(56) %10)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %15, i64 36, i1 false)
@@ -3733,7 +3733,7 @@ _ZL11calculateMuRK23PressureCouplingOptionsPA3_KfPA3_fS4_RKN3gmx13MultiDimArrayI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5arrayIfLm9EENS_7extentsIJLl3ELl3EEEENS_12layout_rightEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::RangeError", align 8
   %4 = alloca %"class.gmx::ExceptionInitializer", align 8
   %5 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -3851,7 +3851,7 @@ define internal fastcc void @_ZN3gmxL15invertBoxMatrixERKNS_13MultiDimArrayISt5a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27productOfInvBoxAndBoxMatrixRK23PressureCouplingOptionsRKN3gmx13MultiDimArrayISt5arrayIfLm9EENS2_7extentsIJLl3ELl3EEEENS2_12layout_rightEEESB_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(92) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %3) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::MultiDimArray", align 8
   %6 = alloca %"class.gmx::MultiDimArray", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)

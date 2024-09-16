@@ -433,7 +433,7 @@ post_aggregator_comm.exit:                        ; preds = %post_aggregator_com
   %240 = phi i32 [ %206, %213 ], [ %206, %198 ], [ %206, %._crit_edge.i ], [ %206, %217 ], [ %.pre595, %post_aggregator_comm.exit.loopexit ]
   %.0490 = phi ptr [ null, %213 ], [ null, %198 ], [ null, %._crit_edge.i ], [ null, %217 ], [ %227, %post_aggregator_comm.exit.loopexit ]
   %.0482 = phi i32 [ 0, %213 ], [ 0, %198 ], [ 0, %._crit_edge.i ], [ 0, %217 ], [ %spec.select.i, %post_aggregator_comm.exit.loopexit ]
-  call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %240, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef nonnull %20)
+  call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %240, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef %20)
   %241 = load i32, ptr %20, align 4
   %.not428545 = icmp eq i32 %241, %29
   br i1 %.not428545, label %._crit_edge551, label %.lr.ph550
@@ -895,7 +895,7 @@ post_aggregator_comm.exit477:                     ; preds = %467, %._crit_edge.i
   %.4494 = phi ptr [ %.3493, %441 ], [ %.3493, %.loopexit ], [ %.3493, %._crit_edge.i467 ], [ %.3493, %444 ], [ %455, %467 ]
   %.4486 = phi i32 [ %.3485, %441 ], [ %.3485, %.loopexit ], [ 0, %._crit_edge.i467 ], [ 0, %444 ], [ %spec.select.i464, %467 ]
   %468 = load i32, ptr %13, align 4
-  call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %468, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef nonnull %20)
+  call fastcc void @Exch_data_amounts(ptr noundef %0, i32 noundef %468, ptr noundef %134, ptr noundef %154, ptr noundef %205, ptr noundef %208, ptr noundef %20)
   %469 = load i32, ptr %20, align 4
   %.not428 = icmp eq i32 %469, %29
   br i1 %.not428, label %._crit_edge551, label %243, !llvm.loop !16
@@ -1406,7 +1406,7 @@ declare i32 @ADIOI_Build_agg_reqs(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare i32 @ADIOI_Build_client_pre_req(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.ompi_status_public_t, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136

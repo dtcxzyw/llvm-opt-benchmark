@@ -2207,9 +2207,9 @@ _ZN4i18n12phonenumbers46AreaCodeMapTest_TestLookupInvalidNumberUS_TestD2Ev.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers15AreaCodeMapTest5SetUpEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef nonnull @_ZN4i18n12phonenumbers12_GLOBAL__N_111prefix_1_usE, ptr noundef nonnull %2)
+  tail call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef nonnull @_ZN4i18n12phonenumbers12_GLOBAL__N_111prefix_1_usE, ptr noundef %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  tail call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef nonnull @_ZN4i18n12phonenumbers12_GLOBAL__N_112prefix_39_itE, ptr noundef nonnull %3)
+  tail call fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef nonnull @_ZN4i18n12phonenumbers12_GLOBAL__N_112prefix_39_itE, ptr noundef %3)
   ret void
 }
 
@@ -3045,7 +3045,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_111MakeCodeMapEPKNS0_18PrefixDescriptionsEPN5boost10scoped_ptrINS0_11AreaCodeMapEEE(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::scoped_ptr.10", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #15
   invoke void @_ZN4i18n12phonenumbers11AreaCodeMapC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)

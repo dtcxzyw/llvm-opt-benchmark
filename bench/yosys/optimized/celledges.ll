@@ -3284,7 +3284,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit239:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br i1 %spec.select307, label %1438, label %1439
 
 1438:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit239
-  tail call fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef %1)
+  tail call fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef %1)
   br label %1564
 
 .body217:                                         ; preds = %1321, %.body222
@@ -3308,32 +3308,32 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit239:             ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %common.resume
 
 1439:                                             ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit239
-  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_21clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %38)
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_22clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %39)
+  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_21clEv"(ptr dead_on_unwind noalias writable align 4 %38)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_22clEv"(ptr dead_on_unwind noalias writable align 4 %39)
           to label %1440 unwind label %1465
 
 1440:                                             ; preds = %1439
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_23clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %40)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_23clEv"(ptr dead_on_unwind noalias writable align 4 %40)
           to label %1441 unwind label %1467
 
 1441:                                             ; preds = %1440
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_24clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %41)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_24clEv"(ptr dead_on_unwind noalias writable align 4 %41)
           to label %1442 unwind label %1469
 
 1442:                                             ; preds = %1441
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_25clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %42)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_25clEv"(ptr dead_on_unwind noalias writable align 4 %42)
           to label %1443 unwind label %1471
 
 1443:                                             ; preds = %1442
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_26clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %43)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_26clEv"(ptr dead_on_unwind noalias writable align 4 %43)
           to label %1444 unwind label %1473
 
 1444:                                             ; preds = %1443
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_27clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %44)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_27clEv"(ptr dead_on_unwind noalias writable align 4 %44)
           to label %1445 unwind label %1475
 
 1445:                                             ; preds = %1444
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_28clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %45)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_28clEv"(ptr dead_on_unwind noalias writable align 4 %45)
           to label %1446 unwind label %1477
 
 1446:                                             ; preds = %1445
@@ -3385,7 +3385,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit: ; preds = %
   br label %1464
 
 1464:                                             ; preds = %.critedge, %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit
-  call fastcc void @_ZN12_GLOBAL__N_110compare_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_110compare_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef %1)
   br label %1564
 
 1465:                                             ; preds = %1439
@@ -3455,8 +3455,8 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit: ; preds = %
   br label %common.resume
 
 1485:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_S1_S1_S1_S1_S1_S1_EEEbDpT_.exit
-  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_29clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %46)
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_30clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %47)
+  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_29clEv"(ptr dead_on_unwind noalias writable align 4 %46)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_30clEv"(ptr dead_on_unwind noalias writable align 4 %47)
           to label %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241 unwind label %1493
 
 _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241: ; preds = %1485
@@ -3471,7 +3471,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241: ; preds = %1485
   br i1 %1491, label %1492, label %1495
 
 1492:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241
-  call fastcc void @_ZN12_GLOBAL__N_16mux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_16mux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef %1)
   br label %1564
 
 1493:                                             ; preds = %1485
@@ -3481,7 +3481,7 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241: ; preds = %1485
   br label %common.resume
 
 1495:                                             ; preds = %_ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241
-  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_31clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %48)
+  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_31clEv"(ptr dead_on_unwind noalias writable align 4 %48)
   %1496 = load i32, ptr %60, align 4
   %1497 = load i32, ptr %48, align 4
   %1498 = icmp eq i32 %1496, %1497
@@ -3489,11 +3489,11 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241: ; preds = %1485
   br i1 %1498, label %1499, label %1500
 
 1499:                                             ; preds = %1495
-  call fastcc void @_ZN12_GLOBAL__N_17bmux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_17bmux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef %1)
   br label %1564
 
 1500:                                             ; preds = %1495
-  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %49)
+  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias writable align 4 %49)
   %1501 = load i32, ptr %60, align 4
   %1502 = load i32, ptr %49, align 4
   %1503 = icmp eq i32 %1501, %1502
@@ -3501,44 +3501,44 @@ _ZNK5Yosys5RTLIL8IdString2inIJS1_S1_EEEbDpT_.exit241: ; preds = %1485
   br i1 %1503, label %1504, label %1505
 
 1504:                                             ; preds = %1500
-  call fastcc void @_ZN12_GLOBAL__N_18demux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef %1)
+  call fastcc void @_ZN12_GLOBAL__N_18demux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef %1)
   br label %1564
 
 1505:                                             ; preds = %1500
-  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %50)
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %51)
+  call fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias writable align 4 %50)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias writable align 4 %51)
           to label %1506 unwind label %1538
 
 1506:                                             ; preds = %1505
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %52)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias writable align 4 %52)
           to label %1507 unwind label %1540
 
 1507:                                             ; preds = %1506
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %53)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias writable align 4 %53)
           to label %1508 unwind label %1542
 
 1508:                                             ; preds = %1507
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %54)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias writable align 4 %54)
           to label %1509 unwind label %1544
 
 1509:                                             ; preds = %1508
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %55)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias writable align 4 %55)
           to label %1510 unwind label %1546
 
 1510:                                             ; preds = %1509
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %56)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias writable align 4 %56)
           to label %1511 unwind label %1548
 
 1511:                                             ; preds = %1510
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %57)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias writable align 4 %57)
           to label %1512 unwind label %1550
 
 1512:                                             ; preds = %1511
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %58)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias writable align 4 %58)
           to label %1513 unwind label %1552
 
 1513:                                             ; preds = %1512
-  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias nonnull writable align 4 %59)
+  invoke fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias writable align 4 %59)
           to label %1514 unwind label %1554
 
 1514:                                             ; preds = %1513
@@ -3718,7 +3718,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit:   ; preds = %6, %1, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18shift_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -6423,7 +6423,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit270:             ; preds = %1205, %544, %1305, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_21clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_21clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_21clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6469,7 +6469,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_22clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_22clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_22clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6515,7 +6515,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_23clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_23clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_23clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6561,7 +6561,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_24clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_24clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_24clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6607,7 +6607,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_25clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_25clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_25clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6653,7 +6653,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_26clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_26clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_26clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6699,7 +6699,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_27clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_27clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_27clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6745,7 +6745,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_28clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_28clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_28clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -6791,7 +6791,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110compare_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110compare_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -7032,7 +7032,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_29clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_29clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_29clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -7078,7 +7078,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_30clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_30clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_30clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -7124,7 +7124,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16mux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_16mux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -7482,7 +7482,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit60:              ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_31clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_31clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_31clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -7528,7 +7528,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17bmux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17bmux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -7784,7 +7784,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit45:              ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_32clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_32clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -7830,7 +7830,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18demux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18demux_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -8077,7 +8077,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %_ZN5Yosys5RTLIL8IdS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_33clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_33clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8123,7 +8123,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_34clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_34clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8169,7 +8169,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_35clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_35clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8215,7 +8215,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_36clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_36clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8261,7 +8261,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_37clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_37clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8307,7 +8307,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_38clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_38clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8353,7 +8353,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_39clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_39clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8399,7 +8399,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_40clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_40clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8445,7 +8445,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_41clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_41clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9
@@ -8491,7 +8491,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit:            ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_42clEv"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @"_ZGVZZN5Yosys25AbstractCellEdgesDatabase19add_edges_from_cellEPNS_5RTLIL4CellEENK4$_42clEvE2id" acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %10, !prof !9

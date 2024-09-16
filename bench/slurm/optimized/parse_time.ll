@@ -260,7 +260,7 @@ switch.early.test:                                ; preds = %45
   %98 = trunc nsw i64 %indvars.iv to i32
   %99 = add nsw i32 %storemerge, %98
   store i32 %99, ptr %8, align 4
-  %100 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13)
+  %100 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %13)
   %.not82 = icmp eq i32 %100, 0
   br i1 %.not82, label %._crit_edge, label %.loopexit.loopexit
 
@@ -272,7 +272,7 @@ switch.early.test:                                ; preds = %45
   %102 = trunc nsw i64 %indvars.iv to i32
   %103 = add nsw i32 %storemerge, %102
   store i32 %103, ptr %8, align 4
-  %104 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %13)
+  %104 = call fastcc i32 @_get_delta(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %13)
   %.not81 = icmp eq i32 %104, 0
   br i1 %.not81, label %105, label %.loopexit.loopexit
 
@@ -516,7 +516,7 @@ _get_time.exit.split.loop.exit:                   ; preds = %146
   br label %.loopexit
 
 231:                                              ; preds = %142
-  %232 = call fastcc i32 @_get_date(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %232 = call fastcc i32 @_get_date(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %.not83 = icmp eq i32 %232, 0
   br i1 %.not83, label %233, label %.loopexit.loopexit
 
@@ -1008,7 +1008,7 @@ declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   br label %.outer
@@ -1109,7 +1109,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_delta(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @_get_date(ptr noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #6 {
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %163, label %7

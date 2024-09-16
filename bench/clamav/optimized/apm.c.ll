@@ -236,7 +236,7 @@ fmap_readn.exit142.thread:                        ; preds = %42, %39, %fmap_read
   br i1 %.not93, label %78, label %76
 
 76:                                               ; preds = %70
-  %77 = call fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %.050, i1 noundef zeroext %.051)
+  %77 = call fastcc i32 @apm_partition_intersection(ptr noundef %0, ptr noundef %3, i64 noundef %.050, i1 noundef zeroext %.051)
   %.not94 = icmp eq i32 %77, 0
   br i1 %.not94, label %78, label %.loopexit
 
@@ -448,7 +448,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apm_partition_intersection(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc i32 @apm_partition_intersection(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 65536) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.partition_intersection_list, align 8
   %6 = alloca %struct.apm_partition_info, align 1
   %7 = alloca i32, align 4

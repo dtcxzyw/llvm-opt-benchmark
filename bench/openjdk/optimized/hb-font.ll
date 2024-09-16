@@ -6334,10 +6334,10 @@ hb_font_reference.exit:                           ; preds = %7, %10
   %50 = getelementptr inbounds i8, ptr %spec.select, i64 128
   %51 = load ptr, ptr %50, align 8
   %52 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr readonly align 1 %51, i64 %52, i1 false), !alias.scope !13
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull readonly align 1 dereferenceable(1) %51, i64 %52, i1 false), !alias.scope !13
   %53 = getelementptr inbounds i8, ptr %spec.select, i64 136
   %54 = load ptr, ptr %53, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr readonly align 1 %54, i64 %52, i1 false), !alias.scope !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull readonly align 1 dereferenceable(1) %54, i64 %52, i1 false), !alias.scope !17
   %55 = getelementptr inbounds i8, ptr %4, i64 128
   %56 = load ptr, ptr %55, align 8
   tail call void @free(ptr noundef %56) #25
@@ -7491,8 +7491,8 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
 
 .split43:                                         ; preds = %11
   %24 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr readonly align 1 %1, i64 %24, i1 false), !alias.scope !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %1, i64 %24, i1 false), !alias.scope !28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %24, i1 false), !alias.scope !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %24, i1 false), !alias.scope !28
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 232
@@ -7816,7 +7816,7 @@ define hidden void @hb_font_set_var_coords_design(ptr noundef %0, ptr noundef %1
 
 18:                                               ; preds = %11
   %19 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr readonly align 1 %1, i64 %19, i1 false), !alias.scope !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 %19, i1 false), !alias.scope !37
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %18

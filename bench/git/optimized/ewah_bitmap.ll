@@ -496,7 +496,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @add_empty_word(ptr nocapture noundef %self, i32 noundef %v) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @add_empty_word(ptr nocapture noundef %self, i32 noundef range(i32 0, 2) %v) unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
@@ -509,9 +509,8 @@ entry:
   br i1 %or.cond, label %if.end.thread, label %if.end
 
 if.end.thread:                                    ; preds = %entry
-  %tobool.not.i = icmp ne i32 %v, 0
   %and.i17 = and i64 %.val15, 8589934590
-  %masksel.i = zext i1 %tobool.not.i to i64
+  %masksel.i = zext nneg i32 %v to i64
   %storemerge.i = or disjoint i64 %and.i17, %masksel.i
   store i64 %storemerge.i, ptr %0, align 8
   %.pre = load ptr, ptr %rlw, align 8
@@ -583,10 +582,9 @@ buffer_push_rlw.exit:                             ; preds = %if.else, %st_mult.e
   %add.ptr.i = getelementptr inbounds i64, ptr %9, i64 %10
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -8
   store ptr %add.ptr1.i, ptr %rlw, align 8
-  %tobool.not.i19 = icmp ne i32 %v, 0
   %11 = load i64, ptr %add.ptr1.i, align 8
   %and.i20 = and i64 %11, -2
-  %masksel.i21 = zext i1 %tobool.not.i19 to i64
+  %masksel.i21 = zext nneg i32 %v to i64
   %storemerge.i22 = or disjoint i64 %and.i20, %masksel.i21
   store i64 %storemerge.i22, ptr %add.ptr1.i, align 8
   %12 = load ptr, ptr %rlw, align 8
@@ -602,7 +600,7 @@ return:                                           ; preds = %buffer_push_rlw.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 1, 3) i64 @add_literal(ptr nocapture noundef %self, i64 noundef %new_data) unnamed_addr #0 {
+define internal fastcc range(i64 1, 3) i64 @add_literal(ptr nocapture noundef %self, i64 noundef range(i64 1, -1) %new_data) unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8

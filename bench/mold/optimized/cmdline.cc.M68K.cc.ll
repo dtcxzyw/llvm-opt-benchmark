@@ -3586,7 +3586,7 @@ if.else288:                                       ; preds = %if.else279
 if.then292:                                       ; preds = %if.else288
   %agg.tmp295.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp295.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  call fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.tmp294, i64 %agg.tmp295.sroa.0.0.copyload, ptr %agg.tmp295.sroa.2.0.copyload)
+  call fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.tmp294, i64 %agg.tmp295.sroa.0.0.copyload, ptr %agg.tmp295.sroa.2.0.copyload)
   %82 = load ptr, ptr %_M_finish.i.i986, align 8
   %83 = load ptr, ptr %agg.tmp294, align 8
   %84 = load ptr, ptr %_M_finish.i2.i, align 8
@@ -3821,7 +3821,7 @@ if.then450:                                       ; preds = %if.else446
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp451, ptr noundef nonnull @.str.68, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp452)
   %agg.tmp453.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp453.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call454 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp451, i64 %agg.tmp453.sroa.0.0.copyload, ptr %agg.tmp453.sroa.2.0.copyload)
+  %call454 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp451, i64 %agg.tmp453.sroa.0.0.copyload, ptr %agg.tmp453.sroa.2.0.copyload)
   store i64 %call454, ptr %spare_dynamic_tags, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp451) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp452) #22
@@ -3840,7 +3840,7 @@ if.then460:                                       ; preds = %if.else456
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp461, ptr noundef nonnull @.str.69, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp462)
   %agg.tmp463.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp463.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call464 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp461, i64 %agg.tmp463.sroa.0.0.copyload, ptr %agg.tmp463.sroa.2.0.copyload)
+  %call464 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp461, i64 %agg.tmp463.sroa.0.0.copyload, ptr %agg.tmp463.sroa.2.0.copyload)
   store i64 %call464, ptr %spare_program_headers, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp461) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp462) #22
@@ -4051,7 +4051,7 @@ if.then558:                                       ; preds = %if.else554
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp562, ptr noundef nonnull @.str.82, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp563)
   %agg.tmp564.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp564.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call565 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp562, i64 %agg.tmp564.sroa.0.0.copyload, ptr %agg.tmp564.sroa.2.0.copyload)
+  %call565 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp562, i64 %agg.tmp564.sroa.0.0.copyload, ptr %agg.tmp564.sroa.2.0.copyload)
   %tobool.i.i = trunc i8 %shuffle_sections_seed.sroa.2.02119 to i1
   %spec.select = select i1 %tobool.i.i, i8 %shuffle_sections_seed.sroa.2.02119, i8 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp562) #22
@@ -4132,7 +4132,7 @@ if.then610:                                       ; preds = %if.else606
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp611, ptr noundef nonnull @.str.88, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp612)
   %agg.tmp613.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp613.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call614 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp611, i64 %agg.tmp613.sroa.0.0.copyload, ptr %agg.tmp613.sroa.2.0.copyload)
+  %call614 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp611, i64 %agg.tmp613.sroa.0.0.copyload, ptr %agg.tmp613.sroa.2.0.copyload)
   store i64 %call614, ptr %filler, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp611) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp612) #22
@@ -5134,7 +5134,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit1203: ; preds = %if
   %sub.i1196 = sub nuw i64 %102, %add1234
   %103 = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
   %add.ptr.i1199 = getelementptr inbounds i8, ptr %103, i64 %add1234
-  %call1236 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1231, i64 %sub.i1196, ptr nonnull %add.ptr.i1199)
+  %call1236 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1231, i64 %sub.i1196, ptr nonnull %add.ptr.i1199)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1231) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1232) #22
   %104 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call1236)
@@ -5211,7 +5211,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit1235: ; preds = %if
   %sub.i1228 = sub nuw i64 %109, %add1268
   %110 = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
   %add.ptr.i1231 = getelementptr inbounds i8, ptr %110, i64 %add1268
-  %call1270 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1265, i64 %sub.i1228, ptr nonnull %add.ptr.i1231)
+  %call1270 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1265, i64 %sub.i1228, ptr nonnull %add.ptr.i1231)
   %111 = load i64, ptr %arg, align 8
   %.sroa.speculated.i1238 = call i64 @llvm.umin.i64(i64 %111, i64 %sub.ptr.sub.i1225)
   %112 = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
@@ -5234,7 +5234,7 @@ if.else1275:                                      ; preds = %if.else1248
 if.then1279:                                      ; preds = %if.else1275
   %agg.tmp1281.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1281.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  call fastcc void @_ZN4mold3elfL19parse_section_orderINS0_4M68KEEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp1280, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %agg.tmp1281.sroa.0.0.copyload, ptr %agg.tmp1281.sroa.2.0.copyload)
+  call fastcc void @_ZN4mold3elfL19parse_section_orderINS0_4M68KEEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp1280, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %agg.tmp1281.sroa.0.0.copyload, ptr %agg.tmp1281.sroa.2.0.copyload)
   %call1283 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4mold3elf12SectionOrderESaIS2_EEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(24) %section_order, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1280) #22
   call void @_ZNSt6vectorIN4mold3elf12SectionOrderESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1280) #22
   br label %if.end3010
@@ -5252,7 +5252,7 @@ if.then1288:                                      ; preds = %if.else1284
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1289, ptr noundef nonnull @.str.174, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1290)
   %agg.tmp1291.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1291.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1292 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1289, i64 %agg.tmp1291.sroa.0.0.copyload, ptr %agg.tmp1291.sroa.2.0.copyload)
+  %call1292 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1289, i64 %agg.tmp1291.sroa.0.0.copyload, ptr %agg.tmp1291.sroa.2.0.copyload)
   store i64 4, ptr %ref.tmp1295, align 8
   store ptr @.str.175, ptr %_M_str.i1246, align 8
   %call.i1247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %section_start1320, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1295)
@@ -5274,7 +5274,7 @@ if.then1301:                                      ; preds = %if.else1297
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1302, ptr noundef nonnull @.str.176, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1303)
   %agg.tmp1304.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1304.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1305 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1302, i64 %agg.tmp1304.sroa.0.0.copyload, ptr %agg.tmp1304.sroa.2.0.copyload)
+  %call1305 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1302, i64 %agg.tmp1304.sroa.0.0.copyload, ptr %agg.tmp1304.sroa.2.0.copyload)
   store i64 5, ptr %ref.tmp1308, align 8
   store ptr @.str.177, ptr %_M_str.i1249, align 8
   %call.i1250 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %section_start1320, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1308)
@@ -5296,7 +5296,7 @@ if.then1314:                                      ; preds = %if.else1310
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1315, ptr noundef nonnull @.str.178, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1316)
   %agg.tmp1317.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1317.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1318 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1315, i64 %agg.tmp1317.sroa.0.0.copyload, ptr %agg.tmp1317.sroa.2.0.copyload)
+  %call1318 = call fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1315, i64 %agg.tmp1317.sroa.0.0.copyload, ptr %agg.tmp1317.sroa.2.0.copyload)
   store i64 5, ptr %ref.tmp1321, align 8
   store ptr @.str.179, ptr %_M_str.i1252, align 8
   %call.i1253 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_mESaIS7_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %section_start1320, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp1321)
@@ -5414,7 +5414,7 @@ if.then1378:                                      ; preds = %if.else1374
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1379, ptr noundef nonnull @.str.189, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1380)
   %agg.tmp1381.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1381.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1382 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1379, i64 %agg.tmp1381.sroa.0.0.copyload, ptr %agg.tmp1381.sroa.2.0.copyload)
+  %call1382 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1379, i64 %agg.tmp1381.sroa.0.0.copyload, ptr %agg.tmp1381.sroa.2.0.copyload)
   store i64 %call1382, ptr %page_size, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1379) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1380) #22
@@ -5747,7 +5747,7 @@ if.then1575:                                      ; preds = %if.else1571
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1576, ptr noundef nonnull @.str.220, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1577)
   %agg.tmp1578.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1578.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1579 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1576, i64 %agg.tmp1578.sroa.0.0.copyload, ptr %agg.tmp1578.sroa.2.0.copyload)
+  %call1579 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1576, i64 %agg.tmp1578.sroa.0.0.copyload, ptr %agg.tmp1578.sroa.2.0.copyload)
   store i64 %call1579, ptr %z_stack_size, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1576) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1577) #22
@@ -6033,7 +6033,7 @@ if.then1734:                                      ; preds = %if.else1730
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1735, ptr noundef nonnull @.str.243, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1736)
   %agg.tmp1737.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1737.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1738 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1735, i64 %agg.tmp1737.sroa.0.0.copyload, ptr %agg.tmp1737.sroa.2.0.copyload)
+  %call1738 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1735, i64 %agg.tmp1737.sroa.0.0.copyload, ptr %agg.tmp1737.sroa.2.0.copyload)
   store i64 %call1738, ptr %image_base, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1735) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1736) #22
@@ -6052,7 +6052,7 @@ if.then1744:                                      ; preds = %if.else1740
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp1746, ptr noundef nonnull @.str.244, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1747)
   %agg.tmp1748.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp1748.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call1749 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp1746, i64 %agg.tmp1748.sroa.0.0.copyload, ptr %agg.tmp1748.sroa.2.0.copyload)
+  %call1749 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp1746, i64 %agg.tmp1748.sroa.0.0.copyload, ptr %agg.tmp1748.sroa.2.0.copyload)
   %115 = load i8, ptr %_M_engaged.i.i1301, align 8
   %tobool.i.i1302 = trunc i8 %115 to i1
   br i1 %tobool.i.i1302, label %_ZNSt8optionalImEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarImES4_ImNSt5decayIS7_E4typeEEEEESt16is_constructibleImJS7_EESt13is_assignableIRmS7_EEERS0_E4typeEOS7_.exit1304, label %if.else.i1303
@@ -6660,7 +6660,7 @@ if.then2075:                                      ; preds = %if.else2071
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2076, ptr noundef nonnull @.str.299, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2077)
   %agg.tmp2078.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp2078.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call2079 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp2076, i64 %agg.tmp2078.sroa.0.0.copyload, ptr %agg.tmp2078.sroa.2.0.copyload)
+  %call2079 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp2076, i64 %agg.tmp2078.sroa.0.0.copyload, ptr %agg.tmp2078.sroa.2.0.copyload)
   store i64 %call2079, ptr %thread_count2105, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2076) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2077) #22
@@ -6703,7 +6703,7 @@ if.then2099:                                      ; preds = %if.else2095
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2100, ptr noundef nonnull @.str.300, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2101)
   %agg.tmp2102.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp2102.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  %call2103 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %agg.tmp2100, i64 %agg.tmp2102.sroa.0.0.copyload, ptr %agg.tmp2102.sroa.2.0.copyload)
+  %call2103 = call fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %agg.tmp2100, i64 %agg.tmp2102.sroa.0.0.copyload, ptr %agg.tmp2102.sroa.2.0.copyload)
   store i64 %call2103, ptr %thread_count2105, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2100) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2101) #22
@@ -6989,7 +6989,7 @@ if.then2295:                                      ; preds = %lor.lhs.false2293, 
   store i32 1, ptr %ctx, align 8
   %agg.tmp2300.sroa.0.0.copyload = load i64, ptr %arg, align 8
   %agg.tmp2300.sroa.2.0.copyload = load ptr, ptr %agg.tmp2627.sroa.2.0.arg.sroa_idx, align 8
-  call fastcc void @_ZN4mold3elfL18parse_hex_build_idINS0_4M68KEEESt6vectorIhSaIhEERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp2299, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %agg.tmp2300.sroa.0.0.copyload, ptr %agg.tmp2300.sroa.2.0.copyload)
+  call fastcc void @_ZN4mold3elfL18parse_hex_build_idINS0_4M68KEEESt6vectorIhSaIhEERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp2299, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %agg.tmp2300.sroa.0.0.copyload, ptr %agg.tmp2300.sroa.2.0.copyload)
   %128 = load ptr, ptr %value2303, align 8
   %129 = load ptr, ptr %ref.tmp2299, align 8
   store ptr %129, ptr %value2303, align 8
@@ -9344,7 +9344,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %opt = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp)
   %0 = load ptr, ptr %agg.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -9695,7 +9695,7 @@ entry:
   %ref.tmp13 = alloca %"class.mold::Fatal", align 8
   %prefix = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp)
   %0 = load ptr, ptr %agg.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -10005,7 +10005,7 @@ entry:
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %3 = getelementptr inbounds i8, ptr %ctx, i64 88
   %ctx.val = load i8, ptr %3, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %4 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_4M68KEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -10154,7 +10154,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp5.i.i.not31 = icmp eq i64 %str.coerce0, 0
@@ -10363,7 +10363,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %_ZNSt6
 declare noundef ptr @_ZN4mold3elf10get_symbolINS0_4M68KEEEPNS0_6SymbolIT_EERNS0_7ContextIS4_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(4568), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %opt, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 {
+define internal fastcc noundef i64 @_ZN4mold3elfL12parse_numberINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %opt, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 {
 entry:
   %__endptr.i.i7 = alloca ptr, align 8
   %__endptr.i.i = alloca ptr, align 8
@@ -10864,7 +10864,7 @@ entry:
   %opt = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp)
   %0 = load ptr, ptr %agg.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -11172,7 +11172,7 @@ if.end:                                           ; preds = %_ZNSt6vectorISt17ba
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef %opt, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 {
+define internal fastcc noundef i64 @_ZN4mold3elfL9parse_hexINS0_4M68KEEElRNS0_7ContextIT_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcSA_E(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull %opt, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %m = alloca %"class.std::__cxx11::match_results", align 8
@@ -12029,7 +12029,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_4M68KEEEElsIRA29_KcEERS5_OT_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL19parse_section_orderINS0_4M68KEEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL19parse_section_orderINS0_4M68KEEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
 entry:
   %__endptr.i.i126 = alloca ptr, align 8
   %__endptr.i.i = alloca ptr, align 8
@@ -13589,7 +13589,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_4M68KEEEElsIRA53_KcEERS5_OT_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL18parse_hex_build_idINS0_4M68KEEESt6vectorIhSaIhEERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL18parse_hex_build_idINS0_4M68KEEESt6vectorIhSaIhEERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4568) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
 entry:
   %__what.i = alloca %"class.std::__cxx11::match_results", align 8
   %arg = alloca %"class.std::basic_string_view", align 8
@@ -13943,7 +13943,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 21
   store i8 0, ptr %arrayidx.i.i.i, align 1
   %ctx.val = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp, i8 %ctx.val, ptr noundef nonnull %agg.tmp)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp, i8 %ctx.val, ptr noundef %agg.tmp)
   %6 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_4M68KEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit, label %if.then.i
@@ -14004,7 +14004,7 @@ if.else:                                          ; preds = %entry
   %arrayidx.i.i.i19 = getelementptr inbounds i8, ptr %agg.tmp8, i64 23
   store i8 0, ptr %arrayidx.i.i.i19, align 1
   %ctx.val6 = load i8, ptr %4, align 8
-  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %ref.tmp7, i8 %ctx.val6, ptr noundef nonnull %agg.tmp8)
+  call fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %ref.tmp7, i8 %ctx.val6, ptr noundef %agg.tmp8)
   %13 = load ptr, ptr %this, align 8
   %tobool.not.i32 = icmp eq ptr %13, null
   br i1 %tobool.not.i32, label %_ZN4mold7SyncOutINS_3elf7ContextINS1_4M68KEEEElsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS5_OT_.exit36, label %if.then.i33
@@ -14413,7 +14413,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef %name) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull %name) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp7 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -16086,7 +16086,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEES3_SaIS3_ENSt8__deta
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias align 8 %agg.result, i8 %ctx.88.val, ptr noundef %msg) unnamed_addr #4 {
+define internal fastcc void @_ZN4moldL9add_colorINS_3elf7ContextINS1_4M68KEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_SA_(ptr noalias nonnull align 8 %agg.result, i8 %ctx.88.val, ptr noundef nonnull %msg) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16095,7 +16095,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull @.str.443, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.444)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull @.str.444)
   %0 = load ptr, ptr %ref.tmp, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %0, %1
@@ -16114,7 +16114,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp1, ptr noundef nonnull @.str.445, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.446)
+  call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1, ptr noundef nonnull @.str.446)
   %3 = load ptr, ptr %ref.tmp1, align 8
   %4 = getelementptr inbounds i8, ptr %ref.tmp1, i64 16
   %cmp.i.i.i1 = icmp eq ptr %3, %4

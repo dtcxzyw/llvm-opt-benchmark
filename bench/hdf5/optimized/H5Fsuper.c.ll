@@ -1671,7 +1671,7 @@ define range(i32 -1, 1) i32 @H5F__super_ext_write_msg(ptr noundef %0, i32 nounde
   br label %66
 
 26:                                               ; preds = %5
-  %27 = call fastcc i32 @H5F__super_ext_create(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  %27 = call fastcc i32 @H5F__super_ext_create(ptr noundef nonnull %0, ptr noundef %7)
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %H5F__super_ext_open.exit
 
@@ -2380,7 +2380,7 @@ define range(i32 -1, 1) i32 @H5F__super_init(ptr noundef %0) local_unnamed_addr 
   br label %249
 
 249:                                              ; preds = %248, %.critedge
-  %250 = call fastcc i32 @H5F__super_ext_create(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %250 = call fastcc i32 @H5F__super_ext_create(ptr noundef nonnull %0, ptr noundef %5)
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %256
 
@@ -2731,7 +2731,7 @@ declare i32 @H5AC_insert_entry(ptr noundef, ptr noundef, i64 noundef, ptr nounde
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__super_ext_create(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__super_ext_create(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2760,9 +2760,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__super_ext_create(ptr noundef %
   br label %37
 
 21:                                               ; preds = %14
-  %22 = tail call i32 @H5O_loc_reset(ptr noundef %1) #6
+  %22 = tail call i32 @H5O_loc_reset(ptr noundef nonnull %1) #6
   %23 = load i64, ptr @H5P_LST_GROUP_CREATE_ID_g, align 8
-  %24 = tail call i32 @H5O_create(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 1, i64 noundef %23, ptr noundef %1) #6
+  %24 = tail call i32 @H5O_create(ptr noundef nonnull %0, i64 noundef 0, i64 noundef 1, i64 noundef %23, ptr noundef nonnull %1) #6
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %30
 

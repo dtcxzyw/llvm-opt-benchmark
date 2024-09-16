@@ -2968,7 +2968,7 @@ do.end39:                                         ; preds = %while.body
   %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 %sp.0181
   %add.ptr48 = getelementptr inbounds i8, ptr %add.ptr47, i64 %idx.neg
   %sub = sub i64 %cond45, %sp.0181
-  %call49 = call fastcc signext i8 @nfaExecLimEx128_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr48, i64 noundef %sub, ptr noundef nonnull %ctx, i64 noundef %sp.0181, ptr noundef nonnull %final_look)
+  %call49 = call fastcc signext i8 @nfaExecLimEx128_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr48, i64 noundef %sub, ptr noundef %ctx, i64 noundef %sp.0181, ptr noundef %final_look)
   %cmp51 = icmp eq i8 %call49, 0
   br i1 %cmp51, label %do.end55, label %if.end71
 
@@ -3004,7 +3004,7 @@ if.end75:                                         ; preds = %if.end71
   %add.ptr77 = getelementptr inbounds i8, ptr %42, i64 %sp.1
   %add.ptr79 = getelementptr inbounds i8, ptr %add.ptr77, i64 %idx.neg
   %sub80 = sub nuw i64 %cond, %sp.1
-  %call81 = call fastcc signext i8 @nfaExecLimEx128_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr79, i64 noundef %sub80, ptr noundef nonnull %ctx, i64 noundef %sp.1, ptr noundef nonnull %final_look76)
+  %call81 = call fastcc signext i8 @nfaExecLimEx128_Stream_First(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr79, i64 noundef %sub80, ptr noundef %ctx, i64 noundef %sp.1, ptr noundef %final_look76)
   %cmp83 = icmp eq i8 %call81, 0
   %.pre202 = load i32, ptr %cur, align 8
   br i1 %cmp83, label %do.end87, label %scan_done
@@ -3276,7 +3276,7 @@ return:                                           ; preds = %if.end4, %if.end158
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx128_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset, ptr nocapture noundef writeonly %final_loc) unnamed_addr #0 {
+define internal fastcc signext range(i8 0, 2) i8 @nfaExecLimEx128_Stream_First(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %final_loc) unnamed_addr #0 {
 entry:
   %chunks.i1177 = alloca [2 x i64], align 16
   %emask_chunks.i1178 = alloca [2 x i64], align 16
@@ -4931,7 +4931,7 @@ do.end35:                                         ; preds = %if.end30
   %add.ptr39 = getelementptr inbounds i8, ptr %add.ptr38, i64 %sp.1
   %add.ptr40 = getelementptr inbounds i8, ptr %add.ptr39, i64 %idx.neg
   %sub41 = sub i64 %cond, %sp.1
-  call fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr40, i64 noundef %sub41, ptr noundef nonnull %ctx, i64 noundef %sp.1)
+  call fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr40, i64 noundef %sub41, ptr noundef %ctx, i64 noundef %sp.1)
   br label %if.end42
 
 if.end42:                                         ; preds = %do.end35, %if.end30
@@ -4944,7 +4944,7 @@ do.end48:                                         ; preds = %if.end42
   %add.ptr49 = getelementptr inbounds i8, ptr %13, i64 %sp.2
   %add.ptr51 = getelementptr inbounds i8, ptr %add.ptr49, i64 %idx.neg
   %sub52 = sub nuw i64 %add15, %sp.2
-  call fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr51, i64 noundef %sub52, ptr noundef nonnull %ctx, i64 noundef %sp.2)
+  call fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr51, i64 noundef %sub52, ptr noundef %ctx, i64 noundef %sp.2)
   br label %scan_done
 
 scan_done:                                        ; preds = %if.end42, %do.end48
@@ -5366,7 +5366,7 @@ return:                                           ; preds = %if.then.i399, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx128_Stream_Silent(ptr noundef %limex, ptr noundef %input, i64 noundef %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %chunks.i1177 = alloca [2 x i64], align 16
   %emask_chunks.i1178 = alloca [2 x i64], align 16
@@ -7230,7 +7230,7 @@ entry:
 
 do.end:                                           ; preds = %entry
   %sub = sub i64 %offset, %buflen
-  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef nonnull %ctx, i64 noundef %sub)
+  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %buf, i64 noundef %buflen, ptr noundef %ctx, i64 noundef %sub)
   br label %if.end
 
 if.end:                                           ; preds = %do.end, %entry
@@ -7240,7 +7240,7 @@ if.end:                                           ; preds = %do.end, %entry
 
 do.end7:                                          ; preds = %if.end
   %sub8 = sub i64 %offset.addr.0, %hlen
-  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef nonnull %ctx, i64 noundef %sub8)
+  call fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef nonnull %add.ptr, ptr noundef %hbuf, i64 noundef %hlen, ptr noundef %ctx, i64 noundef %sub8)
   br label %if.end10
 
 if.end10:                                         ; preds = %do.end7, %if.end
@@ -7452,7 +7452,7 @@ if.end21:                                         ; preds = %moProcessAcceptsNoS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef %length, ptr nocapture noundef %ctx, i64 noundef %offset) unnamed_addr #0 {
+define internal fastcc void @nfaExecLimEx128_Rev_Stream(ptr noundef %limex, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %length, ptr nocapture noundef nonnull %ctx, i64 noundef %offset) unnamed_addr #0 {
 entry:
   %mask_chunks.i.i.sroa.0 = alloca <2 x i64>, align 16
   %chunks.i = alloca [2 x i64], align 16
@@ -7469,10 +7469,6 @@ entry:
   %2 = load <2 x i64>, ptr %ctx, align 64
   %mask_chunks.i.i.sroa.0.8.gep267.sroa_idx15 = getelementptr inbounds i8, ptr %mask_chunks.i.i.sroa.0, i64 8
   %invariant.gep = getelementptr i8, ptr %input, i64 -1
-  %cmp.not303 = icmp eq i64 %length, 0
-  br i1 %cmp.not303, label %for.end, label %do.end.lr.ph
-
-do.end.lr.ph:                                     ; preds = %entry
   %shift = getelementptr inbounds i8, ptr %limex, i64 528
   %shiftAmount = getelementptr inbounds i8, ptr %limex, i64 660
   %shiftCount = getelementptr inbounds i8, ptr %limex, i64 656
@@ -7499,17 +7495,17 @@ do.end.lr.ph:                                     ; preds = %entry
   %cached_br.i = getelementptr inbounds i8, ptr %ctx, i64 64
   br label %do.end
 
-do.end:                                           ; preds = %do.end.lr.ph, %if.end87
-  %i.0306 = phi i64 [ %length, %do.end.lr.ph ], [ %dec, %if.end87 ]
-  %s.0305 = phi <2 x i64> [ %2, %do.end.lr.ph ], [ %and.i585, %if.end87 ]
-  %3 = bitcast <2 x i64> %s.0305 to <16 x i8>
+do.end:                                           ; preds = %entry, %if.end87
+  %i.0305 = phi i64 [ %length, %entry ], [ %dec, %if.end87 ]
+  %s.0304 = phi <2 x i64> [ %2, %entry ], [ %and.i585, %if.end87 ]
+  %3 = bitcast <2 x i64> %s.0304 to <16 x i8>
   %4 = icmp ne <16 x i8> %3, zeroinitializer
   %5 = bitcast <16 x i1> %4 to i16
   %tobool.i118.not = icmp eq i16 %5, 0
   br i1 %tobool.i118.not, label %do.end6, label %do.body8
 
 do.end6:                                          ; preds = %do.end
-  store <2 x i64> %s.0305, ptr %ctx, align 64
+  store <2 x i64> %s.0304, ptr %ctx, align 64
   br label %return
 
 do.body8:                                         ; preds = %do.end
@@ -7517,7 +7513,7 @@ do.body8:                                         ; preds = %do.end
   %6 = load i8, ptr %shiftAmount, align 4
   %conv = zext i8 %6 to i32
   %7 = load <2 x i64>, ptr %shift, align 16
-  %and.i561 = and <2 x i64> %7, %s.0305
+  %and.i561 = and <2 x i64> %7, %s.0304
   %vecinit3.i = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv, i64 0
   %8 = bitcast <4 x i32> %vecinit3.i to <2 x i64>
   %9 = tail call <2 x i64> @llvm.x86.sse2.psll.q(<2 x i64> %and.i561, <2 x i64> %8)
@@ -7535,7 +7531,7 @@ do.body8:                                         ; preds = %do.end
 sw.bb:                                            ; preds = %do.body8
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx14, i64 16) ]
   %11 = load <2 x i64>, ptr %arrayidx14, align 16
-  %and.i564 = and <2 x i64> %11, %s.0305
+  %and.i564 = and <2 x i64> %11, %s.0304
   %12 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %12 to i32
   %vecinit3.i331 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv19, i64 0
@@ -7548,7 +7544,7 @@ sw.bb22:                                          ; preds = %sw.bb, %do.body8
   %succ.0 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i, %sw.bb ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx24, i64 16) ]
   %15 = load <2 x i64>, ptr %arrayidx24, align 16
-  %and.i567 = and <2 x i64> %15, %s.0305
+  %and.i567 = and <2 x i64> %15, %s.0304
   %16 = load i8, ptr %arrayidx28, align 2
   %conv29 = zext i8 %16 to i32
   %vecinit3.i337 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv29, i64 0
@@ -7561,7 +7557,7 @@ sw.bb32:                                          ; preds = %sw.bb22, %do.body8
   %succ.1 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i193, %sw.bb22 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx34, i64 16) ]
   %19 = load <2 x i64>, ptr %arrayidx34, align 16
-  %and.i570 = and <2 x i64> %19, %s.0305
+  %and.i570 = and <2 x i64> %19, %s.0304
   %20 = load i8, ptr %arrayidx38, align 1
   %conv39 = zext i8 %20 to i32
   %vecinit3.i343 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv39, i64 0
@@ -7574,7 +7570,7 @@ sw.bb42:                                          ; preds = %sw.bb32, %do.body8
   %succ.2 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i196, %sw.bb32 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx44, i64 16) ]
   %23 = load <2 x i64>, ptr %arrayidx44, align 16
-  %and.i573 = and <2 x i64> %23, %s.0305
+  %and.i573 = and <2 x i64> %23, %s.0304
   %24 = load i8, ptr %arrayidx48, align 4
   %conv49 = zext i8 %24 to i32
   %vecinit3.i349 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv49, i64 0
@@ -7587,7 +7583,7 @@ sw.bb52:                                          ; preds = %sw.bb42, %do.body8
   %succ.3 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i199, %sw.bb42 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx54, i64 16) ]
   %27 = load <2 x i64>, ptr %arrayidx54, align 16
-  %and.i576 = and <2 x i64> %27, %s.0305
+  %and.i576 = and <2 x i64> %27, %s.0304
   %28 = load i8, ptr %arrayidx58, align 1
   %conv59 = zext i8 %28 to i32
   %vecinit3.i355 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv59, i64 0
@@ -7600,7 +7596,7 @@ sw.bb62:                                          ; preds = %sw.bb52, %do.body8
   %succ.4 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i202, %sw.bb52 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx64, i64 16) ]
   %31 = load <2 x i64>, ptr %arrayidx64, align 16
-  %and.i579 = and <2 x i64> %31, %s.0305
+  %and.i579 = and <2 x i64> %31, %s.0304
   %32 = load i8, ptr %arrayidx68, align 2
   %conv69 = zext i8 %32 to i32
   %vecinit3.i361 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv69, i64 0
@@ -7613,7 +7609,7 @@ sw.bb72:                                          ; preds = %sw.bb62, %do.body8
   %succ.5 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i205, %sw.bb62 ]
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx74, i64 16) ]
   %35 = load <2 x i64>, ptr %arrayidx74, align 16
-  %and.i582 = and <2 x i64> %35, %s.0305
+  %and.i582 = and <2 x i64> %35, %s.0304
   %36 = load i8, ptr %arrayidx78, align 1
   %conv79 = zext i8 %36 to i32
   %vecinit3.i367 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %conv79, i64 0
@@ -7624,7 +7620,7 @@ sw.bb72:                                          ; preds = %sw.bb62, %do.body8
 
 do.end83:                                         ; preds = %do.body8, %sw.bb72
   %succ.6 = phi <2 x i64> [ %9, %do.body8 ], [ %or.i208, %sw.bb72 ]
-  %and.i558 = and <2 x i64> %s.0305, %0
+  %and.i558 = and <2 x i64> %s.0304, %0
   %cmp.i414 = icmp eq <2 x i64> %and.i558, zeroinitializer
   %sext.i415 = sext <2 x i1> %cmp.i414 to <2 x i64>
   %39 = bitcast <2 x i64> %sext.i415 to <4 x i32>
@@ -7637,7 +7633,7 @@ do.end83:                                         ; preds = %do.body8, %sw.bb72
   br i1 %tobool.i303.not, label %if.end87, label %if.end25.i
 
 if.end25.i:                                       ; preds = %do.end83
-  %add.i = add i64 %i.0306, %offset
+  %add.i = add i64 %i.0305, %offset
   %44 = load <16 x i8>, ptr %cached_estate.i, align 32
   %45 = bitcast <2 x i64> %and.i558 to <16 x i8>
   %46 = icmp ne <16 x i8> %44, %45
@@ -7802,7 +7798,7 @@ if.then53.i:                                      ; preds = %do.end49.i
 
 if.end87:                                         ; preds = %for.cond.i.i, %if.then4.i, %if.then.i405, %if.then53.i, %do.end49.i, %do.end83
   %succ.7.ph = phi <2 x i64> [ %succ.6, %do.end83 ], [ %or.i.i, %if.then.i405 ], [ %or.i75.i, %if.then53.i ], [ %or.i75.i, %do.end49.i ], [ %or.i.i, %if.then4.i ], [ %or.i.i, %for.cond.i.i ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0306
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0305
   %72 = load i8, ptr %gep, align 1
   %idxprom = zext i8 %72 to i64
   %arrayidx89 = getelementptr inbounds [256 x i8], ptr %limex, i64 0, i64 %idxprom
@@ -7812,13 +7808,12 @@ if.end87:                                         ; preds = %for.cond.i.i, %if.t
   call void @llvm.assume(i1 true) [ "align"(ptr %arrayidx91, i64 16) ]
   %74 = load <2 x i64>, ptr %arrayidx91, align 16
   %and.i585 = and <2 x i64> %74, %succ.7.ph
-  %dec = add i64 %i.0306, -1
+  %dec = add i64 %i.0305, -1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %for.end, label %do.end, !llvm.loop !27
 
-for.end:                                          ; preds = %if.end87, %entry
-  %s.0.lcssa = phi <2 x i64> [ %2, %entry ], [ %and.i585, %if.end87 ]
-  store <2 x i64> %s.0.lcssa, ptr %ctx, align 64
+for.end:                                          ; preds = %if.end87
+  store <2 x i64> %and.i585, ptr %ctx, align 64
   %accept = getelementptr inbounds i8, ptr %limex, i64 368
   call void @llvm.assume(i1 true) [ "align"(ptr %accept, i64 16) ]
   %75 = load <2 x i64>, ptr %accept, align 16
@@ -7832,7 +7827,7 @@ for.end:                                          ; preds = %if.end87, %entry
   br i1 %tobool99.not, label %return, label %if.then100
 
 if.then100:                                       ; preds = %for.end
-  %and.i588 = and <2 x i64> %75, %s.0.lcssa
+  %and.i588 = and <2 x i64> %75, %and.i585
   %78 = bitcast <2 x i64> %and.i588 to <16 x i8>
   %79 = icmp ne <16 x i8> %78, zeroinitializer
   %80 = bitcast <16 x i1> %79 to i16
@@ -7840,10 +7835,8 @@ if.then100:                                       ; preds = %for.end
   br i1 %tobool.i.not, label %return, label %if.then107
 
 if.then107:                                       ; preds = %if.then100
-  %callback = getelementptr inbounds i8, ptr %ctx, i64 96
-  %81 = load ptr, ptr %callback, align 32
-  %context = getelementptr inbounds i8, ptr %ctx, i64 104
-  %82 = load ptr, ptr %context, align 8
+  %81 = load ptr, ptr %callback.i446, align 32
+  %82 = load ptr, ptr %context.i447, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %mask_chunks.i.i.sroa.0)
   store <2 x i64> %75, ptr %mask_chunks.i.i.sroa.0, align 16
   %chunks.i.i.sroa.0.0.vec.extract = extractelement <2 x i64> %and.i588, i64 0

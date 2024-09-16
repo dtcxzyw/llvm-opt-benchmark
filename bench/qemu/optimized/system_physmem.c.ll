@@ -359,7 +359,7 @@ entry:
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !7
   %2 = getelementptr i8, ptr %1, i64 40
   %call.val = load ptr, ptr %2, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp, ptr %call.val, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef null, ptr noundef nonnull %page_mask, i1 noundef zeroext %is_write, i1 noundef zeroext false, ptr noundef nonnull %as.addr, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp, ptr %call.val, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef null, ptr noundef nonnull %page_mask, i1 noundef zeroext %is_write, i1 noundef zeroext false, ptr noundef %as.addr, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %section.sroa.1.0.copyload = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx, align 16
   %cmp = icmp eq ptr %section.sroa.1.0.copyload, @io_mem_unassigned
@@ -398,7 +398,7 @@ return:                                           ; preds = %iotlb_fail, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flatview_do_translate(ptr noalias nocapture writeonly align 16 %agg.result, ptr nocapture %fv.40.val, i64 noundef %addr, ptr nocapture noundef %xlat, ptr noundef %plen_out, ptr noundef writeonly %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr nocapture noundef writeonly %target_as, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc void @flatview_do_translate(ptr noalias nocapture nonnull writeonly align 16 %agg.result, ptr nocapture %fv.40.val, i64 noundef %addr, ptr nocapture noundef %xlat, ptr noundef %plen_out, ptr noundef writeonly %page_mask_out, i1 noundef zeroext %is_write, i1 noundef zeroext %is_mmio, ptr nocapture noundef nonnull writeonly %target_as, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.IOMMUTLBEntry, align 8
   %plen = alloca i64, align 8
@@ -549,7 +549,7 @@ entry:
   %tmp = alloca %struct.MemoryRegionSection, align 16
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp, ptr %fv.val, i64 noundef %addr, ptr noundef %xlat, ptr noundef %plen, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp, ptr %fv.val, i64 noundef %addr, ptr noundef %xlat, ptr noundef %plen, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx = getelementptr inbounds i8, ptr %tmp, i64 16
   %section.sroa.1.0.copyload = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx, align 16
   ret ptr %section.sroa.1.0.copyload
@@ -1757,7 +1757,7 @@ if.then:                                          ; preds = %entry
   %a.sroa.0.0.insert.ext.i = zext i64 %sub4 to i128
   %cond.i = tail call i128 @llvm.smin.i128(i128 %a.sroa.0.0.insert.ext.i, i128 %1)
   store i128 %cond.i, ptr %now, align 16
-  call fastcc void @register_subpage(ptr noundef %fv, ptr noundef nonnull %now)
+  call fastcc void @register_subpage(ptr noundef %fv, ptr noundef %now)
   %2 = load i128, ptr %remain, align 16
   %coerce15.sroa.0.0.extract.trunc = trunc i128 %cond.i to i64
   %cmp.i = icmp eq i128 %2, %cond.i
@@ -1904,7 +1904,7 @@ register_multipage.exit:                          ; preds = %if.end.i, %if.then.
   %conv13.i.i = trunc i32 %12 to i16
   %map.i = getelementptr inbounds i8, ptr %fv.val, i64 16
   %phys_map.i.i = getelementptr inbounds i8, ptr %fv.val, i64 8
-  call fastcc void @phys_page_set_level(ptr noundef nonnull %map.i, ptr noundef nonnull %phys_map.i.i, ptr noundef nonnull %index.addr.i.i, ptr noundef nonnull %nb.addr.i.i, i16 noundef zeroext %conv13.i.i, i32 noundef 5)
+  call fastcc void @phys_page_set_level(ptr noundef nonnull %map.i, ptr noundef nonnull %phys_map.i.i, ptr noundef %index.addr.i.i, ptr noundef %nb.addr.i.i, i16 noundef zeroext %conv13.i.i, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nb.addr.i.i)
   %coerce53.sroa.0.0.extract.trunc = trunc i128 %coerce48.sroa.0.0.insert.insert to i64
@@ -1931,7 +1931,7 @@ int128_get64.exit76:                              ; preds = %if.end56
   br label %if.end74
 
 if.end74:                                         ; preds = %int128_get64.exit76, %if.end34
-  call fastcc void @register_subpage(ptr noundef %fv, ptr noundef nonnull %remain)
+  call fastcc void @register_subpage(ptr noundef %fv, ptr noundef %remain)
   br label %return
 
 return:                                           ; preds = %register_multipage.exit, %if.then, %if.end74
@@ -1939,7 +1939,7 @@ return:                                           ; preds = %register_multipage.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @register_subpage(ptr noundef %fv, ptr nocapture noundef readonly %section) unnamed_addr #0 {
+define internal fastcc void @register_subpage(ptr noundef %fv, ptr nocapture noundef nonnull readonly %section) unnamed_addr #0 {
 entry:
   %index.addr.i = alloca i64, align 8
   %nb.addr.i = alloca i64, align 8
@@ -2117,7 +2117,7 @@ if.then.i.i:                                      ; preds = %phys_section_add.ex
   br label %phys_page_set.exit
 
 phys_page_set.exit:                               ; preds = %phys_section_add.exit, %if.then.i.i
-  call fastcc void @phys_page_set_level(ptr noundef nonnull %map, ptr noundef nonnull %phys_map.i, ptr noundef nonnull %index.addr.i, ptr noundef nonnull %nb.addr.i, i16 noundef zeroext %conv13.i, i32 noundef 5)
+  call fastcc void @phys_page_set_level(ptr noundef nonnull %map, ptr noundef nonnull %phys_map.i, ptr noundef %index.addr.i, ptr noundef %nb.addr.i, i16 noundef zeroext %conv13.i, i32 noundef 5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %index.addr.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %nb.addr.i)
   br label %if.end18
@@ -2185,23 +2185,23 @@ phys_section_add.exit47:                          ; preds = %if.end.if.end9_crit
   %conv13.i39 = trunc i32 %28 to i16
   %cmp1.i = icmp ugt i32 %conv24, 4095
   %cmp6.not5.i = icmp ult i32 %conv24, %conv
-  %or.cond52 = select i1 %cmp1.i, i1 true, i1 %cmp6.not5.i
-  br i1 %or.cond52, label %subpage_register.exit, label %for.body.lr.ph.i
+  %or.cond51 = select i1 %cmp1.i, i1 true, i1 %cmp6.not5.i
+  br i1 %or.cond51, label %subpage_register.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %phys_section_add.exit47
   %sub_section.i = getelementptr inbounds i8, ptr %subpage.0, i64 288
   %wide.trip.count.i = and i64 %add, 4294967295
-  br label %for.body.i49
+  br label %for.body.i48
 
-for.body.i49:                                     ; preds = %for.body.i49, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ %and20, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i49 ]
-  %arrayidx.i50 = getelementptr [0 x i16], ptr %sub_section.i, i64 0, i64 %indvars.iv.i
-  store i16 %conv13.i39, ptr %arrayidx.i50, align 2
+for.body.i48:                                     ; preds = %for.body.i48, %for.body.lr.ph.i
+  %indvars.iv.i = phi i64 [ %and20, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i48 ]
+  %arrayidx.i49 = getelementptr [0 x i16], ptr %sub_section.i, i64 0, i64 %indvars.iv.i
+  store i16 %conv13.i39, ptr %arrayidx.i49, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %subpage_register.exit, label %for.body.i49, !llvm.loop !29
+  br i1 %exitcond.not.i, label %subpage_register.exit, label %for.body.i48, !llvm.loop !29
 
-subpage_register.exit:                            ; preds = %for.body.i49, %phys_section_add.exit47
+subpage_register.exit:                            ; preds = %for.body.i48, %phys_section_add.exit47
   ret void
 }
 
@@ -2822,7 +2822,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare void @ram_block_notify_resize(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %start, i64 noundef %length, i8 noundef zeroext %mask) unnamed_addr #0 {
+define internal fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %start, i64 noundef %length, i8 noundef zeroext range(i8 0, -2) %mask) unnamed_addr #0 {
 entry:
   %blocks = alloca [3 x ptr], align 16
   %tobool.not = icmp eq i8 %mask, 0
@@ -3395,7 +3395,7 @@ if.then20:                                        ; preds = %file_ram_alloc.exit
   br label %return
 
 if.end21:                                         ; preds = %file_ram_alloc.exit
-  call fastcc void @ram_block_add(ptr noundef nonnull %call15, ptr noundef nonnull %local_err)
+  call fastcc void @ram_block_add(ptr noundef nonnull %call15, ptr noundef %local_err)
   %11 = load ptr, ptr %local_err, align 8
   %tobool22.not = icmp eq ptr %11, null
   br i1 %tobool22.not, label %return, label %if.then23
@@ -3414,7 +3414,7 @@ return:                                           ; preds = %if.end21, %if.then2
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ram_block_add(ptr noundef %new_block, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @ram_block_add(ptr noundef %new_block, ptr noundef nonnull %errp) unnamed_addr #0 {
 entry:
   %_now.i.i27.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -3676,7 +3676,7 @@ if.then12:                                        ; preds = %if.then
   %37 = load i32, ptr %call13, align 4
   %38 = load ptr, ptr %mr, align 8
   %call15 = tail call ptr @memory_region_name(ptr noundef %38) #28
-  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 1836, ptr noundef nonnull @__func__.ram_block_add, i32 noundef %37, ptr noundef nonnull @.str.105, ptr noundef %call15) #28
+  tail call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %errp, ptr noundef nonnull @.str.1, i32 noundef 1836, ptr noundef nonnull @__func__.ram_block_add, i32 noundef %37, ptr noundef nonnull @.str.105, ptr noundef %call15) #28
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @ram_list, ptr noundef nonnull @.str.1, i32 noundef 1118) #28
   br label %if.end139
 
@@ -3715,8 +3715,8 @@ for.cond.preheader.i:                             ; preds = %if.then23
   br i1 %tobool.not.i75, label %while.end.us.us.i, label %while.end.us.i
 
 while.end.us.us.i:                                ; preds = %for.cond.preheader.i, %for.inc33.us.us.i
-  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %for.inc33.us.us.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv47.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %for.inc33.us.us.i ], [ 0, %for.cond.preheader.i ]
+  %arrayidx.us.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv46.i
   %43 = load atomic i64, ptr %arrayidx.us.us.i monotonic, align 8
   %44 = inttoptr i64 %43 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !51
@@ -3729,9 +3729,9 @@ if.then30.us.us.i:                                ; preds = %for.cond11.while.en
   br label %for.inc33.us.us.i
 
 for.inc33.us.us.i:                                ; preds = %for.cond11.while.end25_crit_edge.us.us.i, %if.then30.us.us.i
-  %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %exitcond50.not.i = icmp eq i64 %indvars.iv.next48.i, 3
-  br i1 %exitcond50.not.i, label %while.end, label %while.end.us.us.i, !llvm.loop !52
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond49.not.i = icmp eq i64 %indvars.iv.next47.i, 3
+  br i1 %exitcond49.not.i, label %while.end, label %while.end.us.us.i, !llvm.loop !52
 
 for.body15.us.us.i:                               ; preds = %bitmap_new.exit.us.us.i, %while.end.us.us.i
   %conv1220.us.us.i = phi i64 [ %div15.i, %while.end.us.us.i ], [ %conv12.us.us.i, %bitmap_new.exit.us.us.i ]
@@ -3755,8 +3755,8 @@ for.cond11.while.end25_crit_edge.us.us.i:         ; preds = %bitmap_new.exit.us.
   br i1 %tobool29.not.us.us.i, label %for.inc33.us.us.i, label %if.then30.us.us.i
 
 while.end.us.i:                                   ; preds = %for.cond.preheader.i, %for.inc33.us.i
-  %indvars.iv43.i = phi i64 [ %indvars.iv.next44.i, %for.inc33.us.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv43.i
+  %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %for.inc33.us.i ], [ 0, %for.cond.preheader.i ]
+  %arrayidx.us.i = getelementptr [3 x ptr], ptr getelementptr inbounds (i8, ptr @ram_list, i64 64), i64 0, i64 %indvars.iv42.i
   %46 = load atomic i64, ptr %arrayidx.us.i monotonic, align 8
   %47 = inttoptr i64 %46 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !51
@@ -3771,9 +3771,9 @@ if.then30.us.i:                                   ; preds = %for.cond11.while.en
   br label %for.inc33.us.i
 
 for.inc33.us.i:                                   ; preds = %for.cond11.while.end25_crit_edge.us.i, %if.then30.us.i
-  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
-  %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 3
-  br i1 %exitcond46.not.i, label %while.end, label %while.end.us.i, !llvm.loop !52
+  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
+  %exitcond45.not.i = icmp eq i64 %indvars.iv.next43.i, 3
+  br i1 %exitcond45.not.i, label %while.end, label %while.end.us.i, !llvm.loop !52
 
 for.body15.us.i:                                  ; preds = %bitmap_new.exit.us.i, %while.end.us.i
   %conv1220.us.i = phi i64 [ %div15.i, %while.end.us.i ], [ %conv12.us.i, %bitmap_new.exit.us.i ]
@@ -3803,32 +3803,32 @@ if.then.i.i:                                      ; preds = %for.body15.us.i, %f
 while.end:                                        ; preds = %for.inc33.us.i, %for.inc33.us.us.i, %if.then23, %if.end19
   %49 = load atomic i64, ptr getelementptr inbounds (i8, ptr @ram_list, i64 56) monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !54
-  %tobool26.not89 = icmp eq i64 %49, 0
-  br i1 %tobool26.not89, label %do.body94, label %for.body
+  %tobool26.not87 = icmp eq i64 %49, 0
+  br i1 %tobool26.not87, label %do.body94, label %for.body
 
 for.body:                                         ; preds = %while.end, %while.end36
-  %block.090.in = phi i64 [ %52, %while.end36 ], [ %49, %while.end ]
-  %block.090 = inttoptr i64 %block.090.in to ptr
-  %max_length27 = getelementptr inbounds i8, ptr %block.090, i64 56
+  %block.088.in = phi i64 [ %52, %while.end36 ], [ %49, %while.end ]
+  %block.088 = inttoptr i64 %block.088.in to ptr
+  %max_length27 = getelementptr inbounds i8, ptr %block.088, i64 56
   %50 = load i64, ptr %max_length27, align 8
   %51 = load i64, ptr %max_length, align 8
   %cmp29 = icmp ult i64 %50, %51
   br i1 %cmp29, label %do.body40, label %while.end36
 
 while.end36:                                      ; preds = %for.body
-  %next = getelementptr inbounds i8, ptr %block.090, i64 336
+  %next = getelementptr inbounds i8, ptr %block.088, i64 336
   %52 = load atomic i64, ptr %next monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #28, !srcloc !55
   %tobool26.not = icmp eq i64 %52, 0
   br i1 %tobool26.not, label %do.body62, label %for.body, !llvm.loop !56
 
 do.body40:                                        ; preds = %for.body
-  %le_prev = getelementptr inbounds i8, ptr %block.090, i64 344
+  %le_prev = getelementptr inbounds i8, ptr %block.088, i64 344
   %53 = load ptr, ptr %le_prev, align 8
   %next42 = getelementptr inbounds i8, ptr %new_block, i64 336
   %le_prev43 = getelementptr inbounds i8, ptr %new_block, i64 344
   store ptr %53, ptr %le_prev43, align 8
-  store ptr %block.090, ptr %next42, align 8
+  store ptr %block.088, ptr %next42, align 8
   %54 = load ptr, ptr %le_prev, align 8
   %55 = ptrtoint ptr %new_block to i64
   store atomic i64 %55, ptr %54 release, align 8
@@ -3836,7 +3836,7 @@ do.body40:                                        ; preds = %for.body
   br label %if.end120
 
 do.body62:                                        ; preds = %while.end36
-  %next63 = getelementptr inbounds i8, ptr %block.090, i64 336
+  %next63 = getelementptr inbounds i8, ptr %block.088, i64 336
   %56 = load ptr, ptr %next63, align 8
   %next65 = getelementptr inbounds i8, ptr %new_block, i64 336
   store ptr %56, ptr %next65, align 8
@@ -3888,13 +3888,13 @@ if.end120:                                        ; preds = %do.body62, %if.then
 if.then124:                                       ; preds = %if.end120
   %65 = load i64, ptr %max_length, align 8
   %66 = load ptr, ptr @current_machine, align 8
-  %call.i78 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %66) #28
-  br i1 %call.i78, label %qemu_ram_setup_dump.exit, label %if.then.i
+  %call.i76 = tail call zeroext i1 @machine_dump_guest_core(ptr noundef %66) #28
+  br i1 %call.i76, label %qemu_ram_setup_dump.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then124
-  %call1.i79 = tail call i32 @qemu_madvise(ptr noundef nonnull %64, i64 noundef %65, i32 noundef 16) #28
-  %tobool.not.i80 = icmp eq i32 %call1.i79, 0
-  br i1 %tobool.not.i80, label %qemu_ram_setup_dump.exit, label %if.then2.i
+  %call1.i77 = tail call i32 @qemu_madvise(ptr noundef nonnull %64, i64 noundef %65, i32 noundef 16) #28
+  %tobool.not.i78 = icmp eq i32 %call1.i77, 0
+  br i1 %tobool.not.i78, label %qemu_ram_setup_dump.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i
   tail call void @perror(ptr noundef nonnull @.str.116) #30
@@ -3907,8 +3907,8 @@ qemu_ram_setup_dump.exit:                         ; preds = %if.then124, %if.the
   %70 = load i64, ptr %max_length, align 8
   %call129 = tail call i32 @qemu_madvise(ptr noundef %69, i64 noundef %70, i32 noundef 14) #28
   %71 = load i8, ptr @qtest_allowed, align 1
-  %tobool.i81 = trunc i8 %71 to i1
-  br i1 %tobool.i81, label %if.end135, label %if.then131
+  %tobool.i79 = trunc i8 %71 to i1
+  br i1 %tobool.i79, label %if.end135, label %if.then131
 
 if.then131:                                       ; preds = %qemu_ram_setup_dump.exit
   %72 = load ptr, ptr %host, align 8
@@ -3936,7 +3936,7 @@ entry:
   %call = tail call ptr @memory_region_name(ptr noundef %mr) #28
   %and = and i32 %ram_flags, 2048
   %tobool = icmp ne i32 %and, 0
-  %call2 = call fastcc i32 @file_ram_open(ptr noundef %mem_path, ptr noundef %call, i1 noundef zeroext %tobool, ptr noundef nonnull %created)
+  %call2 = call fastcc i32 @file_ram_open(ptr noundef %mem_path, ptr noundef %call, i1 noundef zeroext %tobool, ptr noundef %created)
   %cmp = icmp slt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end19
 
@@ -3954,7 +3954,7 @@ land.lhs.true:                                    ; preds = %if.then
 
 if.then9:                                         ; preds = %land.lhs.true
   %call10 = tail call ptr @memory_region_name(ptr noundef %mr) #28
-  %call11 = call fastcc i32 @file_ram_open(ptr noundef %mem_path, ptr noundef %call10, i1 noundef zeroext true, ptr noundef nonnull %created)
+  %call11 = call fastcc i32 @file_ram_open(ptr noundef %mem_path, ptr noundef %call10, i1 noundef zeroext true, ptr noundef %created)
   %cmp12 = icmp slt i32 %call11, 0
   br i1 %cmp12, label %return, label %if.end
 
@@ -3996,7 +3996,7 @@ return:                                           ; preds = %if.end19, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef writeonly %created) unnamed_addr #0 {
+define internal fastcc i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef nonnull writeonly %created) unnamed_addr #0 {
 entry:
   %file_stat = alloca %struct.stat, align 8
   store i8 0, ptr %created, align 1
@@ -4249,7 +4249,7 @@ if.end17:                                         ; preds = %if.end5
   store ptr %host, ptr %host19, align 8
   %flags = getelementptr inbounds i8, ptr %call, i64 72
   store i32 %ram_flags, ptr %flags, align 8
-  call fastcc void @ram_block_add(ptr noundef nonnull %call, ptr noundef nonnull %local_err)
+  call fastcc void @ram_block_add(ptr noundef nonnull %call, ptr noundef %local_err)
   %3 = load ptr, ptr %local_err, align 8
   %tobool20.not = icmp eq ptr %3, null
   br i1 %tobool20.not, label %return, label %if.then21
@@ -5118,7 +5118,7 @@ if.end9:                                          ; preds = %if.then2, %entry
   %spec.select = tail call i32 @llvm.umin.i32(i32 %l, i32 %access_size_max.0)
   %conv14 = zext i32 %spec.select to i64
   %tobool.not.i = icmp eq i32 %spec.select, 0
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14, i1 true)
+  %4 = tail call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14, i1 true)
   %shr.i = lshr exact i64 -9223372036854775808, %4
   %5 = trunc nuw i64 %shr.i to i32
   %conv15 = select i1 %tobool.not.i, i32 0, i32 %5
@@ -5247,7 +5247,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %12 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
   %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
@@ -5315,7 +5315,7 @@ if.end25:                                         ; preds = %if.end22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %1, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -5510,7 +5510,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -5623,7 +5623,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %0 = getelementptr i8, ptr %fv, i64 40
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -5728,7 +5728,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_write_rom_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %ptr, i64 noundef %len, i32 noundef %type) unnamed_addr #0 {
+define internal fastcc void @address_space_write_rom_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr nocapture noundef readonly %ptr, i64 noundef %len, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -5757,7 +5757,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 while.body.lr.ph:                                 ; preds = %rcu_read_auto_lock.exit
   %current_map.i.i = getelementptr inbounds i8, ptr %as, i64 32
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
-  %switch = icmp eq i32 %type, 0
+  %trunc = trunc nuw i32 %type to i1
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -5772,7 +5772,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.016, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr.addr.016, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -5822,7 +5822,7 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %14 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %14 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %14
   %15 = shl nuw i64 %shr.i.i, 32
   %16 = ashr exact i64 %15, 32
@@ -5836,7 +5836,7 @@ if.else:                                          ; preds = %memory_region_is_ro
   %18 = load i64, ptr %addr1, align 8
   %call7 = call ptr @qemu_map_ram_ptr(ptr noundef %17, i64 noundef %18)
   %.pre19 = load i64, ptr %l, align 8
-  br i1 %switch, label %sw.bb, label %if.end
+  br i1 %trunc, label %if.end, label %sw.bb
 
 sw.bb:                                            ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call7, ptr align 1 %buf.017, i64 %.pre19, i1 false)
@@ -6120,7 +6120,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %0, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.015, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr.addr.015, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -6195,7 +6195,7 @@ memory_access_size.exit:                          ; preds = %if.then, %if.then2.
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %11 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %11 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %11
   %12 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %12
@@ -6263,7 +6263,7 @@ rcu_read_auto_lock.exit:                          ; preds = %if.end, %while.end.
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %5 = getelementptr i8, ptr %4, i64 40
   %fv.val.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %addr, ptr noundef nonnull %xlat, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i = getelementptr inbounds i8, ptr %tmp.i, i64 16
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
@@ -6342,7 +6342,7 @@ if.then19:                                        ; preds = %if.end14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %fv.val.i.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1.i, ptr noundef nonnull %l.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1.i, ptr noundef nonnull %l.i, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6386,7 +6386,7 @@ if.end.i:                                         ; preds = %for.cond.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i37)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i38)
   %fv.val.i.i40 = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i38, ptr %fv.val.i.i40, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i.i37, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i38, ptr %fv.val.i.i40, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i37, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i.i41 = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i39, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i37)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i38)
@@ -6564,7 +6564,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @address_space_ldl_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc i32 @address_space_ldl_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -6597,7 +6597,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6747,7 +6747,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @address_space_ldq_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc i64 @address_space_ldq_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -6780,7 +6780,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -6952,7 +6952,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7064,7 +7064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @address_space_lduw_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc zeroext i16 @address_space_lduw_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7097,7 +7097,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7272,7 +7272,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7395,7 +7395,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stl_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stl_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7427,7 +7427,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7586,7 +7586,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7696,7 +7696,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stw_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stw_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7728,7 +7728,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -7862,7 +7862,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stq_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stq_internal(ptr nocapture noundef readonly %as, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %as.i.i = alloca ptr, align 8
   %tmp.i.i = alloca %struct.MemoryRegionSection, align 16
@@ -7894,7 +7894,7 @@ rcu_read_lock.exit:                               ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %4 = getelementptr i8, ptr %3, i64 40
   %fv.val.i.i = load ptr, ptr %4, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i.i, i32 %attrs.coerce)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -8136,7 +8136,7 @@ if.end.i:                                         ; preds = %for.cond.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %fv.val.i.i = load ptr, ptr %13, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %add.i, ptr noundef nonnull %xlat.i, ptr noundef nonnull %len.addr.i, ptr noundef null, i1 noundef zeroext %is_write, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -8233,7 +8233,7 @@ entry:
   %addr1 = alloca i64, align 8
   %l = alloca i64, align 8
   store i64 %len, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext false, i32 1)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext false, i32 1)
   %fv = getelementptr inbounds i8, ptr %cache, i64 24
   %0 = load ptr, ptr %fv, align 8
   %1 = load i64, ptr %addr1, align 8
@@ -8243,7 +8243,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @address_space_translate_cached(ptr nocapture noundef readonly %cache, i64 noundef %addr, ptr nocapture noundef %xlat, ptr nocapture noundef %plen, i1 noundef zeroext %is_write, i32 %attrs.coerce) unnamed_addr #0 {
+define internal fastcc ptr @address_space_translate_cached(ptr nocapture noundef readonly %cache, i64 noundef %addr, ptr nocapture noundef nonnull %xlat, ptr nocapture noundef nonnull %plen, i1 noundef zeroext %is_write, i32 %attrs.coerce) unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.IOMMUTLBEntry, align 8
   %0 = load ptr, ptr %cache, align 16
@@ -8363,7 +8363,7 @@ entry:
   %addr1 = alloca i64, align 8
   %l = alloca i64, align 8
   store i64 %len, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 1)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 1)
   %fv = getelementptr inbounds i8, ptr %cache, i64 24
   %0 = load ptr, ptr %fv, align 8
   %1 = load i64, ptr %addr1, align 8
@@ -8474,7 +8474,7 @@ memory_access_size.exit:                          ; preds = %prepare_mmio_access
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv8, i32 %access_size_max.0.i)
   %conv14.i = zext i32 %spec.select.i to i64
   %tobool.not.i.i = icmp eq i32 %spec.select.i, 0
-  %12 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
+  %12 = call range(i64 32, 65) i64 @llvm.ctlz.i64(i64 %conv14.i, i1 true)
   %shr.i.i = lshr exact i64 -9223372036854775808, %12
   %13 = trunc nuw i64 %shr.i.i to i32
   %conv15.i = select i1 %tobool.not.i.i, i32 0, i32 %13
@@ -8545,7 +8545,7 @@ if.end26:                                         ; preds = %if.end23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   %fv.val.i = load ptr, ptr %1, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull %as.i, i32 %attrs.coerce)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i, ptr %fv.val.i, i64 noundef %add, ptr noundef nonnull %addr1.addr, ptr noundef nonnull %l.addr, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %as.i, i32 %attrs.coerce)
   %section.sroa.1.0.copyload.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
@@ -8565,13 +8565,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @address_space_ldl_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc i32 @address_space_ldl_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 4, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext false, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext false, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 4
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -8686,13 +8686,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @address_space_ldq_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc i64 @address_space_ldq_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 8, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext false, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext false, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 8
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -8802,7 +8802,7 @@ entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 1, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext false, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext false, i32 %attrs.coerce)
   %0 = getelementptr i8, ptr %call, i64 41
   %mr.val.i = load i8, ptr %0, align 1
   %tobool.i.i = trunc i8 %mr.val.i to i1
@@ -8879,13 +8879,13 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc zeroext i16 @address_space_lduw_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %val = alloca i64, align 8
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 2, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext false, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext false, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 2
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -8998,7 +8998,7 @@ entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 4, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 4
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -9082,12 +9082,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stl_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stl_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i32 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 4, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 4
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -9184,7 +9184,7 @@ entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 1, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 %attrs.coerce)
   %0 = getelementptr i8, ptr %call, i64 41
   %mr.val.i = load i8, ptr %0, align 1
   %tobool.i.i = trunc i8 %mr.val.i to i1
@@ -9259,12 +9259,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stw_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stw_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i16 noundef zeroext %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 2, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 2
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -9363,12 +9363,12 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @address_space_stq_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef %endian) unnamed_addr #0 {
+define internal fastcc void @address_space_stq_internal_cached_slow(ptr nocapture noundef readonly %cache, i64 noundef %addr, i64 noundef %val, i32 %attrs.coerce, ptr noundef writeonly %result, i32 noundef range(i32 0, 3) %endian) unnamed_addr #0 {
 entry:
   %l = alloca i64, align 8
   %addr1 = alloca i64, align 8
   store i64 8, ptr %l, align 8
-  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef nonnull %addr1, ptr noundef nonnull %l, i1 noundef zeroext true, i32 %attrs.coerce)
+  %call = call fastcc ptr @address_space_translate_cached(ptr noundef %cache, i64 noundef %addr, ptr noundef %addr1, ptr noundef %l, i1 noundef zeroext true, i32 %attrs.coerce)
   %0 = load i64, ptr %l, align 8
   %cmp = icmp ult i64 %0, 8
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -9585,7 +9585,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   %5 = getelementptr i8, ptr %4, i64 40
   %fv.val.i.i = load ptr, ptr %5, align 8
-  call fastcc void @flatview_do_translate(ptr noalias nonnull align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %2, ptr noundef nonnull %phys_addr.addr, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull %as.i.i, i32 1)
+  call fastcc void @flatview_do_translate(ptr noalias align 16 %tmp.i.i, ptr %fv.val.i.i, i64 noundef %2, ptr noundef nonnull %phys_addr.addr, ptr noundef nonnull %l, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef %as.i.i, i32 1)
   %section.sroa.1.0.tmp.sroa_idx.i.i = getelementptr inbounds i8, ptr %tmp.i.i, i64 16
   %section.sroa.1.0.copyload.i.i = load ptr, ptr %section.sroa.1.0.tmp.sroa_idx.i.i, align 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %as.i.i)
@@ -10481,7 +10481,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @phys_page_set_level(ptr nocapture noundef %map, ptr nocapture noundef %lp, ptr nocapture noundef %index, ptr nocapture noundef %nb, i16 noundef zeroext %leaf, i32 noundef %level) unnamed_addr #0 {
+define internal fastcc void @phys_page_set_level(ptr nocapture noundef %map, ptr nocapture noundef %lp, ptr nocapture noundef nonnull %index, ptr nocapture noundef nonnull %nb, i16 noundef zeroext %leaf, i32 noundef %level) unnamed_addr #0 {
 entry:
   %mul = mul i32 %level, 9
   %sh_prom = zext i32 %mul to i64
@@ -10588,7 +10588,7 @@ if.then17:                                        ; preds = %while.body
   br label %if.end28
 
 if.else:                                          ; preds = %while.body
-  tail call fastcc void @phys_page_set_level(ptr noundef %map, ptr noundef %lp.addr.028, ptr noundef nonnull %index, ptr noundef nonnull %nb, i16 noundef zeroext %leaf, i32 noundef %sub27)
+  tail call fastcc void @phys_page_set_level(ptr noundef %map, ptr noundef %lp.addr.028, ptr noundef %index, ptr noundef %nb, i16 noundef zeroext %leaf, i32 noundef %sub27)
   %.pre = load i64, ptr %nb, align 8
   br label %if.end28
 
@@ -10711,7 +10711,7 @@ entry:
 declare void @tb_invalidate_phys_range(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @cpu_physical_memory_all_dirty(i64 noundef %start, i64 noundef %length, i32 noundef %client) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cpu_physical_memory_all_dirty(i64 noundef %start, i64 noundef %length, i32 noundef range(i32 0, 3) %client) unnamed_addr #0 {
 entry:
   %add = add i64 %start, 4095
   %sub = add i64 %add, %length

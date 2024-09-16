@@ -89,9 +89,9 @@ AcquireDeletionLock.exit:                         ; preds = %9, %10, %11
   store ptr %15, ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 8
   store ptr null, ptr %16, align 8
-  call fastcc void @findDependentObjects(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %4)
+  call fastcc void @findDependentObjects(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %12, ptr noundef null, ptr noundef %4)
   call fastcc void @reportDependentObjects(ptr noundef nonnull %12, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %0)
-  call fastcc void @deleteObjectsInList(ptr noundef nonnull %12, ptr noundef nonnull %4, i32 noundef %2)
+  call fastcc void @deleteObjectsInList(ptr noundef nonnull %12, ptr noundef %4, i32 noundef %2)
   %17 = load ptr, ptr %12, align 8
   call void @pfree(ptr noundef %17) #10
   %18 = load ptr, ptr %16, align 8
@@ -165,7 +165,7 @@ define dso_local ptr @new_object_addresses() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @findDependentObjects(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca [3 x %struct.ScanKeyData], align 16
   %9 = alloca %struct.ObjectAddress, align 4
   %10 = alloca %struct.ObjectAddress, align 4
@@ -650,7 +650,7 @@ AcquireDeletionLock.exit:                         ; preds = %226, %227, %228
   br label %392
 
 231:                                              ; preds = %AcquireDeletionLock.exit
-  call fastcc void @findDependentObjects(ptr noundef nonnull %9, i32 noundef 64, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  call fastcc void @findDependentObjects(ptr noundef nonnull %9, i32 noundef 64, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %232 = call fastcc zeroext i1 @object_address_present_add_flags(ptr noundef nonnull %0, i32 noundef %.0.ph, ptr noundef %4)
   br i1 %232, label %392, label %233
 
@@ -927,7 +927,7 @@ AcquireDeletionLock.exit166:                      ; preds = %301, %302, %303
   %347 = getelementptr %struct.ObjectAddressAndFlags, ptr %.0120.ph.lcssa185, i64 %indvars.iv
   %348 = getelementptr inbounds i8, ptr %347, i64 12
   %349 = load i32, ptr %348, align 4
-  call fastcc void @findDependentObjects(ptr noundef %347, i32 noundef %349, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  call fastcc void @findDependentObjects(ptr noundef %347, i32 noundef %349, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.0119.ph.lcssa184250254
   br i1 %exitcond.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !11
@@ -1359,7 +1359,7 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deleteObjectsInList(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @deleteObjectsInList(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = alloca [3 x %struct.ScanKeyData], align 16
   %6 = tail call zeroext i1 @trackDroppedObjectsNeeded() #10
@@ -1631,7 +1631,7 @@ define dso_local void @performMultipleDeletions(ptr noundef %0, i32 noundef %1, 
   br label %AcquireDeletionLock.exit.us
 
 AcquireDeletionLock.exit.us:                      ; preds = %25, %24, %23
-  call fastcc void @findDependentObjects(ptr noundef nonnull %19, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  call fastcc void @findDependentObjects(ptr noundef nonnull %19, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef %4)
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
@@ -1663,7 +1663,7 @@ AcquireDeletionLock.exit.us:                      ; preds = %25, %24, %23
   br label %AcquireDeletionLock.exit
 
 AcquireDeletionLock.exit:                         ; preds = %34, %35, %36
-  call fastcc void @findDependentObjects(ptr noundef nonnull %30, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef nonnull %4)
+  call fastcc void @findDependentObjects(ptr noundef nonnull %30, i32 noundef 1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull %0, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %5, align 8
   %38 = sext i32 %37 to i64
@@ -1682,7 +1682,7 @@ AcquireDeletionLock.exit:                         ; preds = %34, %35, %36
 ._crit_edge.thread:                               ; preds = %8, %._crit_edge, %41
   %43 = phi ptr [ %42, %41 ], [ null, %._crit_edge ], [ null, %8 ]
   call fastcc void @reportDependentObjects(ptr noundef nonnull %10, i32 noundef %1, i32 noundef %2, ptr noundef %43)
-  call fastcc void @deleteObjectsInList(ptr noundef nonnull %10, ptr noundef nonnull %4, i32 noundef %2)
+  call fastcc void @deleteObjectsInList(ptr noundef nonnull %10, ptr noundef %4, i32 noundef %2)
   %44 = load ptr, ptr %10, align 8
   call void @pfree(ptr noundef %44) #10
   %45 = load ptr, ptr %14, align 8
@@ -4376,7 +4376,7 @@ declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_object_address(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_object_address(i32 noundef range(i32 1247, 3603) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 20

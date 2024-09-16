@@ -1498,14 +1498,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit93: ; preds = %_ZN32pxrInt
 97:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit93, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
   %98 = load ptr, ptr %0, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(8) %99)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(8) %99)
           to label %100 unwind label %90
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %103)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(8) %103)
           to label %104 unwind label %90
 
 104:                                              ; preds = %100
@@ -2769,7 +2769,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame20GetRightTangen
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame12GetLeftValueEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Ts_SplineChangedIntervalHelper23_GetPreviousNonFlatKnotERKNS_8TsSplineERKSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS8_SaIS8_EEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

@@ -65,7 +65,7 @@ trivial.exit.thread:                              ; preds = %entry, %lor.lhs.fal
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false17.i
   call void @pitem_free(ptr noundef nonnull %call1.i) #5
-  call fastcc void @clear_and_free_queue(ptr noundef nonnull %call.i)
+  call fastcc void @clear_and_free_queue(ptr noundef %call.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ordering.i)
@@ -157,7 +157,7 @@ fixed_random.exit.thread:                         ; preds = %lor.lhs.false.i4, %
   br label %return
 
 if.end:                                           ; preds = %while.body.i
-  call fastcc void @clear_and_free_queue(ptr noundef nonnull %call.i2)
+  call fastcc void @clear_and_free_queue(ptr noundef %call.i2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ordering.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %priority.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %iter.i)
@@ -186,21 +186,21 @@ declare ptr @pqueue_pop(ptr noundef) local_unnamed_addr #1
 declare void @pitem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_and_free_queue(ptr noundef %q) unnamed_addr #0 {
+define internal fastcc void @clear_and_free_queue(ptr noundef nonnull %q) unnamed_addr #0 {
 entry:
-  %call3 = tail call ptr @pqueue_pop(ptr noundef %q) #5
+  %call3 = tail call ptr @pqueue_pop(ptr noundef nonnull %q) #5
   %cmp4 = icmp eq ptr %call3, null
   br i1 %cmp4, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry, %if.end
   %call5 = phi ptr [ %call, %if.end ], [ %call3, %entry ]
   tail call void @pitem_free(ptr noundef nonnull %call5) #5
-  %call = tail call ptr @pqueue_pop(ptr noundef %q) #5
+  %call = tail call ptr @pqueue_pop(ptr noundef nonnull %q) #5
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %for.end, label %if.end
 
 for.end:                                          ; preds = %if.end, %entry
-  tail call void @pqueue_free(ptr noundef %q) #5
+  tail call void @pqueue_free(ptr noundef nonnull %q) #5
   ret void
 }
 

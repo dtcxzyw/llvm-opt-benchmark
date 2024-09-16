@@ -4218,7 +4218,7 @@ Abc_Clock.exit:                                   ; preds = %1, %11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %15 = getelementptr inbounds i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
-  call fastcc void @Abc_TtReadHex(ptr noundef nonnull %8, ptr noundef %16)
+  call fastcc void @Abc_TtReadHex(ptr noundef %8, ptr noundef %16)
   %17 = call ptr @Exa_ManAlloc(ptr noundef %0, ptr noundef nonnull %8)
   %18 = load i64, ptr %8, align 16
   %19 = and i64 %18, 1
@@ -4758,7 +4758,7 @@ Abc_Clock.exit44:                                 ; preds = %227, %230
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc void @Abc_TtReadHex(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %9
@@ -5003,7 +5003,7 @@ Abc_Clock.exit:                                   ; preds = %1, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %24 = getelementptr inbounds i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
-  call fastcc void @Abc_TtReadHex(ptr noundef nonnull %14, ptr noundef %25)
+  call fastcc void @Abc_TtReadHex(ptr noundef %14, ptr noundef %25)
   %26 = call noalias dereferenceable_or_null(98656) ptr @calloc(i64 noundef 1, i64 noundef 98656) #32
   store ptr %0, ptr %26, align 8
   %27 = load i32, ptr %0, align 8
@@ -8382,7 +8382,7 @@ define noalias ptr @Exa4_ManParse(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %23, label %.loopexit, label %24
 
 24:                                               ; preds = %21
-  %25 = call range(i32 0, -2147483648) i32 @llvm.abs.i32(i32 %22, i1 true)
+  %25 = call range(i32 1, -2147483648) i32 @llvm.abs.i32(i32 %22, i1 true)
   %26 = icmp sgt i32 %22, 0
   %27 = zext i1 %26 to i32
   %28 = add nuw nsw i32 %25, 1
@@ -8488,7 +8488,7 @@ Vec_IntSetEntryFull.exit:                         ; preds = %24, %._crit_edge.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
+define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #2 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -8942,7 +8942,7 @@ define noundef i32 @Exa4_ManGenStart(ptr noundef %0, i32 noundef %1, i32 noundef
 
 .split.us499:                                     ; preds = %._crit_edge488.us.us, %.preheader418.us
   %.us-phi.us = phi i32 [ 0, %.preheader418.us ], [ %.5.us.us, %._crit_edge488.us.us ]
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef %.us-phi.us)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.us-phi.us)
   %65 = load i32, ptr %16, align 8
   %66 = load i32, ptr %18, align 4
   %67 = add nsw i32 %66, %65
@@ -9688,7 +9688,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %305, %._crit_edge.i
   br i1 %39, label %.lr.ph470, label %._crit_edge471.thread
 
 ._crit_edge471.thread:                            ; preds = %.preheader436
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %.loopexit435
 
 .preheader434:                                    ; preds = %._crit_edge467
@@ -9710,7 +9710,7 @@ Exa4_ManAddClause4.exit312:                       ; preds = %305, %._crit_edge.i
   br i1 %exitcond576.not, label %.lr.ph478.preheader, label %.lr.ph470, !llvm.loop !171
 
 .lr.ph478.preheader:                              ; preds = %.lr.ph470
-  call fastcc void @Exa4_ManAddClause(ptr noundef %0, ptr noundef nonnull %15, i32 noundef %smax)
+  call fastcc void @Exa4_ManAddClause(ptr noundef %0, ptr noundef %15, i32 noundef %smax)
   br label %.lr.ph478
 
 .loopexit429:                                     ; preds = %Exa4_ManAddClause4.exit332, %.lr.ph478
@@ -10014,7 +10014,7 @@ Exa4_ManAddClause4.exit372:                       ; preds = %416, %._crit_edge.i
   br i1 %448, label %.preheader415.us, label %.preheader416.thread
 
 .preheader416.thread:                             ; preds = %.preheader418
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %.loopexit417
 
 .preheader415.us:                                 ; preds = %.preheader418, %._crit_edge488.us
@@ -10067,7 +10067,7 @@ Exa4_ManAddClause4.exit372:                       ; preds = %416, %._crit_edge.i
   br label %.preheader
 
 .preheader416:                                    ; preds = %._crit_edge488.us
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef %.5.us)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.5.us)
   %471 = icmp sgt i32 %.5.us, 0
   br i1 %471, label %.lr.ph496.preheader, label %.loopexit417
 
@@ -10197,7 +10197,7 @@ Exa4_ManAddClause4.exit392:                       ; preds = %481, %._crit_edge.i
   br i1 %514, label %.lr.ph506, label %._crit_edge507.thread
 
 ._crit_edge507.thread:                            ; preds = %.preheader
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef 0)
   br label %._crit_edge515
 
 .lr.ph506:                                        ; preds = %.preheader
@@ -10228,7 +10228,7 @@ Exa4_ManAddClause4.exit392:                       ; preds = %481, %._crit_edge.i
   br i1 %exitcond631.not, label %._crit_edge507, label %516, !llvm.loop !178
 
 ._crit_edge507:                                   ; preds = %524
-  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef %.7)
+  call fastcc void @Exa4_ManAddClause(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %.7)
   %525 = icmp sgt i32 %.7, 0
   br i1 %525, label %.lr.ph514.preheader, label %._crit_edge515
 
@@ -10353,7 +10353,7 @@ Exa4_ManAddClause4.exit412:                       ; preds = %535, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa4_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Exa4_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -13527,7 +13527,7 @@ define void @Exa_ManExactSynthesis4(ptr nocapture noundef readonly %0) local_unn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 0, i64 %12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @Abc_TtReadHex(ptr noundef nonnull %2, ptr noundef %18)
+  call fastcc void @Abc_TtReadHex(ptr noundef %2, ptr noundef %18)
   %19 = load i64, ptr %2, align 16
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -16849,7 +16849,7 @@ define void @Exa_ManExactSynthesis5(ptr nocapture noundef readonly %0) local_unn
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, i8 0, i64 %12, i1 false)
   %17 = getelementptr inbounds i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
-  call fastcc void @Abc_TtReadHex(ptr noundef nonnull %2, ptr noundef %18)
+  call fastcc void @Abc_TtReadHex(ptr noundef %2, ptr noundef %18)
   %19 = load i64, ptr %2, align 16
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
@@ -20670,7 +20670,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %310, %._crit_edge.i
   br i1 %39, label %.lr.ph448, label %._crit_edge449.thread
 
 ._crit_edge449.thread:                            ; preds = %.preheader414
-  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 0)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
   br label %.loopexit413
 
 .preheader412:                                    ; preds = %._crit_edge445
@@ -20692,7 +20692,7 @@ Exa6_ManAddClause4.exit310:                       ; preds = %310, %._crit_edge.i
   br i1 %exitcond553.not, label %.lr.ph456.preheader, label %.lr.ph448, !llvm.loop !319
 
 .lr.ph456.preheader:                              ; preds = %.lr.ph448
-  call fastcc void @Exa6_ManAddClause(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %smax)
+  call fastcc void @Exa6_ManAddClause(ptr noundef %0, ptr noundef %14, i32 noundef %smax)
   br label %.lr.ph456
 
 .loopexit407:                                     ; preds = %Exa6_ManAddClause4.exit330, %.lr.ph456
@@ -21112,7 +21112,7 @@ Exa6_ManAddClause4.exit370:                       ; preds = %470, %._crit_edge.i
   br i1 %505, label %.lr.ph484, label %._crit_edge485.thread
 
 ._crit_edge485.thread:                            ; preds = %.preheader
-  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef 0)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef 0)
   br label %._crit_edge493
 
 .lr.ph484:                                        ; preds = %.preheader
@@ -21143,7 +21143,7 @@ Exa6_ManAddClause4.exit370:                       ; preds = %470, %._crit_edge.i
   br i1 %exitcond608.not, label %._crit_edge485, label %507, !llvm.loop !326
 
 ._crit_edge485:                                   ; preds = %515
-  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %.7)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %.7)
   %516 = icmp sgt i32 %.7, 0
   br i1 %516, label %.lr.ph492.preheader, label %._crit_edge493
 
@@ -21270,7 +21270,7 @@ Exa6_ManAddClause4.exit390:                       ; preds = %526, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Exa6_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @Exa6_ManAddClause(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
 
@@ -21693,7 +21693,7 @@ Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit
   br i1 %.not151, label %.loopexit219, label %139
 
 139:                                              ; preds = %._crit_edge234
-  %140 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %.5.i167, i64 noundef %.5.i167, i32 noundef %75, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  %140 = call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %.5.i167, i64 noundef %.5.i167, i32 noundef %75, ptr noundef %10, ptr noundef %9)
   %141 = load i32, ptr %9, align 4
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.preheader218, label %.loopexit219
@@ -21739,7 +21739,7 @@ Abc_TtSuppOnlyOne.exit:                           ; preds = %4, %Abc_Tt6FirstBit
 
 ._crit_edge238:                                   ; preds = %161, %.preheader218
   %.0142.lcssa = phi i32 [ 0, %.preheader218 ], [ %.1143, %161 ]
-  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef %.0142.lcssa)
+  call fastcc void @Exa6_ManAddClause(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %.0142.lcssa)
   %indvars.iv.next278 = add nuw nsw i64 %indvars.iv277, 1
   %163 = load i32, ptr %9, align 4
   %164 = sext i32 %163 to i64
@@ -22198,7 +22198,7 @@ Exa6_ManAddClause4.exit207:                       ; preds = %319, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i64 @Abc_Tt6IsopCover(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #17 {
+define internal fastcc i64 @Abc_Tt6IsopCover(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #17 {
   %6 = icmp eq i64 %0, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -22276,11 +22276,11 @@ split:                                            ; preds = %18, %27, %.preheade
   %48 = load i32, ptr %4, align 4
   %49 = xor i64 %47, -1
   %50 = and i64 %36, %49
-  %51 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %50, i64 noundef %44, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef nonnull %4)
+  %51 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %50, i64 noundef %44, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef %4)
   %52 = load i32, ptr %4, align 4
   %53 = xor i64 %44, -1
   %54 = and i64 %41, %53
-  %55 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %54, i64 noundef %47, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef nonnull %4)
+  %55 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %54, i64 noundef %47, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef %4)
   %56 = load i32, ptr %4, align 4
   %57 = xor i64 %51, -1
   %58 = and i64 %36, %57
@@ -22288,7 +22288,7 @@ split:                                            ; preds = %18, %27, %.preheade
   %60 = and i64 %41, %59
   %61 = or i64 %60, %58
   %62 = and i64 %47, %44
-  %63 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %61, i64 noundef %62, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef nonnull %4)
+  %63 = tail call fastcc i64 @Abc_Tt6IsopCover(i64 noundef %61, i64 noundef %62, i32 noundef %.064.lcssa, ptr noundef %3, ptr noundef %4)
   %64 = and i64 %51, %33
   %65 = and i64 %55, %38
   %66 = or i64 %65, %64

@@ -1984,7 +1984,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #4
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @xhci_stop_device(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = sext i32 %1 to i64
   %5 = getelementptr [256 x ptr], ptr %3, i64 0, i64 %4
@@ -2176,7 +2176,7 @@ define internal fastcc void @xhci_set_port_power(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xhci_set_remote_wake_mask(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc void @xhci_set_remote_wake_mask(ptr nocapture noundef readonly %0, i16 noundef zeroext range(i16 0, -255) %1) unnamed_addr #3 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #13, !srcloc !11
   %5 = and i32 %4, 1275133929
@@ -2200,7 +2200,7 @@ define internal fastcc void @xhci_set_remote_wake_mask(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @xhci_enter_test_mode(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef %3) unnamed_addr #3 align 16 {
+define internal fastcc i32 @xhci_enter_test_mode(ptr noundef %0, i16 noundef zeroext range(i16 0, 256) %1, i16 noundef zeroext range(i16 0, 255) %2, ptr nocapture noundef %3) unnamed_addr #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 68
   %6 = load i64, ptr %3, align 8
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %5, i64 noundef %6) #13

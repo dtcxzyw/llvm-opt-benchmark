@@ -337,7 +337,7 @@ define dso_local noundef range(i32 -22, 2) i32 @xfrm_parse_spi(ptr noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef range(i32 4, 260) %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 116

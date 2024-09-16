@@ -9099,7 +9099,7 @@ declare void @_ZN7doctest6detail7SubcaseC1ERKNS_6StringEPKci(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK7doctest6detail7SubcasecvbEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_0clEfRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(float noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -45, 36) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %agg.tmp3.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
@@ -9425,7 +9425,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN7doctest6detail7SubcaseD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZL19DOCTEST_ANON_FUNC_2vENK3$_1clEdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi"(double noundef %number, ptr noundef nonnull align 8 dereferenceable(32) %digits, i32 noundef range(i32 -324, 302) %expected_exponent) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp1.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8
   %agg.tmp3.i = alloca %"struct.nlohmann::json_abi_v3_11_3::detail::dtoa_impl::diyfp", align 8

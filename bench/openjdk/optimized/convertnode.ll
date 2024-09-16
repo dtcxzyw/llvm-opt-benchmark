@@ -3634,9 +3634,9 @@ define hidden noundef ptr @_ZN11ConvI2LNode5IdealEP8PhaseGVNb(ptr noundef nonnul
   %38 = getelementptr inbounds i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %4, align 8
-  %41 = tail call fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef nonnull %..i, ptr noundef %37, ptr noundef %40)
+  %41 = tail call fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef %..i, ptr noundef %37, ptr noundef %40)
   %42 = load ptr, ptr %5, align 8
-  %43 = tail call fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef nonnull %..i, ptr noundef %39, ptr noundef %42)
+  %43 = tail call fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef %..i, ptr noundef %39, ptr noundef %42)
   switch i32 %33, label %90 [
     i32 23, label %44
     i32 342, label %67
@@ -3734,7 +3734,7 @@ _ZN4NodenwEm.exit27:                              ; preds = %83, %85
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL20find_or_make_convI2LP12PhaseIterGVNP4NodePK8TypeLong(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1808

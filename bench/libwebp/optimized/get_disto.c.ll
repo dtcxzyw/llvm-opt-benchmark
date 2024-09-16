@@ -179,8 +179,8 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   br label %166
 
 60:                                               ; preds = %._crit_edge
-  %61 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.168, ptr noundef nonnull %3)
-  %62 = call fastcc i64 @ReadPicture(ptr noundef nonnull %.166, ptr noundef nonnull %4)
+  %61 = call fastcc i64 @ReadPicture(ptr noundef %.168, ptr noundef %3)
+  %62 = call fastcc i64 @ReadPicture(ptr noundef %.166, ptr noundef %4)
   %63 = icmp eq i64 %61, 0
   %64 = icmp eq i64 %62, 0
   %or.cond5 = select i1 %63, i1 true, i1 %64
@@ -314,7 +314,7 @@ sub_1106:                                         ; preds = %.tail, %sub_1
   br i1 %53, label %150, label %147
 
 147:                                              ; preds = %.split138.us
-  call fastcc void @ConvertToGray(ptr noundef nonnull %3)
+  call fastcc void @ConvertToGray(ptr noundef %3)
   br label %150
 
 148:                                              ; preds = %106
@@ -373,12 +373,12 @@ define internal fastcc void @Help() unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @ReadPicture(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @ReadPicture(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
   store i64 0, ptr %4, align 8
-  %5 = call i32 @ImgIoUtilReadFile(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %5 = call i32 @ImgIoUtilReadFile(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
 
@@ -401,7 +401,7 @@ define internal fastcc i64 @ReadPicture(ptr noundef %0, ptr noundef %1) unnamed_
 
 17:                                               ; preds = %6, %2
   %18 = load ptr, ptr @stderr, align 8
-  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef %0) #15
+  %19 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.20, ptr noundef nonnull %0) #15
   %20 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %20) #12
   br label %21
@@ -419,7 +419,7 @@ declare i32 @WebPPictureDistortion(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @SSIMScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = shl nsw i32 %4, 1
   %9 = mul nsw i32 %8, %5
   %10 = sext i32 %9 to i64
@@ -670,58 +670,58 @@ SSIMGetClipped.exit.us:                           ; preds = %98, %._crit_edge91.
   br i1 %.not, label %RescalePlane.exit, label %129
 
 129:                                              ; preds = %._crit_edge93
-  %130 = icmp sgt i32 %.069.lcssa, 0
-  br i1 %130, label %131, label %133
+  %.not.i = icmp eq i32 %.069.lcssa, 0
+  br i1 %.not.i, label %132, label %130
 
-131:                                              ; preds = %129
-  %132 = udiv i32 16711680, %.069.lcssa
-  br label %133
+130:                                              ; preds = %129
+  %131 = udiv i32 16711680, %.069.lcssa
+  br label %132
 
-133:                                              ; preds = %131, %129
-  %134 = phi i32 [ %132, %131 ], [ 0, %129 ]
-  %135 = icmp sgt i32 %4, 0
-  %or.cond.i = and i1 %135, %16
+132:                                              ; preds = %130, %129
+  %133 = phi i32 [ %131, %130 ], [ 0, %129 ]
+  %134 = icmp sgt i32 %4, 0
+  %or.cond.i = and i1 %134, %16
   br i1 %or.cond.i, label %.lr.ph.us.preheader.i, label %RescalePlane.exit
 
-.lr.ph.us.preheader.i:                            ; preds = %133
-  %136 = shl nsw i32 %4, 2
-  %137 = zext nneg i32 %136 to i64
-  %138 = sext i32 %1 to i64
+.lr.ph.us.preheader.i:                            ; preds = %132
+  %135 = shl nsw i32 %4, 2
+  %136 = zext nneg i32 %135 to i64
+  %137 = sext i32 %1 to i64
   %wide.trip.count.i = zext nneg i32 %5 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv27.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next28.i, %._crit_edge.us.i ]
-  %139 = mul nsw i64 %indvars.iv27.i, %138
-  %140 = getelementptr inbounds i8, ptr %0, i64 %139
-  br label %141
+  %138 = mul nsw i64 %indvars.iv27.i, %137
+  %139 = getelementptr inbounds i8, ptr %0, i64 %138
+  br label %140
 
-141:                                              ; preds = %141, %.lr.ph.us.i
-  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %141 ]
-  %142 = getelementptr inbounds i8, ptr %140, i64 %indvars.iv.i76
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i32
-  %145 = mul nuw i32 %134, %144
-  %146 = add nuw i32 %145, 32768
-  %147 = lshr i32 %146, 16
-  %148 = trunc i32 %147 to i8
-  store i8 %148, ptr %142, align 1
+140:                                              ; preds = %140, %.lr.ph.us.i
+  %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i77, %140 ]
+  %141 = getelementptr inbounds i8, ptr %139, i64 %indvars.iv.i76
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i32
+  %144 = mul nuw i32 %133, %143
+  %145 = add nuw i32 %144, 32768
+  %146 = lshr i32 %145, 16
+  %147 = trunc i32 %146 to i8
+  store i8 %147, ptr %141, align 1
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 4
-  %149 = icmp ult i64 %indvars.iv.next.i77, %137
-  br i1 %149, label %141, label %._crit_edge.us.i, !llvm.loop !14
+  %148 = icmp ult i64 %indvars.iv.next.i77, %136
+  br i1 %148, label %140, label %._crit_edge.us.i, !llvm.loop !14
 
-._crit_edge.us.i:                                 ; preds = %141
+._crit_edge.us.i:                                 ; preds = %140
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %exitcond.not.i78 = icmp eq i64 %indvars.iv.next28.i, %wide.trip.count.i
   br i1 %exitcond.not.i78, label %RescalePlane.exit, label %.lr.ph.us.i, !llvm.loop !15
 
-RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %133, %._crit_edge93, %7
-  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %133 ], [ %.069.lcssa, %._crit_edge.us.i ]
+RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %132, %._crit_edge93, %7
+  %.065 = phi i32 [ -1, %7 ], [ %.069.lcssa, %._crit_edge93 ], [ %.069.lcssa, %132 ], [ %.069.lcssa, %._crit_edge.us.i ]
   ret i32 %.065
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #5 {
+define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
   %8 = icmp sgt i32 %5, 0
   %9 = icmp sgt i32 %4, 0
   %or.cond = and i1 %8, %9
@@ -773,8 +773,8 @@ define internal fastcc range(i32 0, 256) i32 @DiffScaleChannel(ptr nocapture nou
   br i1 %.not, label %RescalePlane.exit, label %29
 
 29:                                               ; preds = %._crit_edge41
-  %.not48 = icmp eq i32 %.032.lcssa, 0
-  br i1 %.not48, label %32, label %30
+  %.not.i = icmp eq i32 %.032.lcssa, 0
+  br i1 %.not.i, label %32, label %30
 
 30:                                               ; preds = %29
   %31 = udiv i32 16711680, %.032.lcssa
@@ -823,7 +823,7 @@ RescalePlane.exit:                                ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ConvertToGray(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc void @ConvertToGray(ptr nocapture noundef nonnull readonly %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0

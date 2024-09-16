@@ -398,7 +398,7 @@ define internal void @"_ZN4core3ptr77drop_in_place$LT$$RF$regex_automata..nfa..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef align 8 dereferenceable(16) %0) unnamed_addr #3 {
+define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = load ptr, ptr %0, align 8, !alias.scope !17, !nonnull !4, !noundef !4
@@ -1785,7 +1785,7 @@ _ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E.ex
 
 101:                                              ; preds = %90
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4), !noalias !249
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %4, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %97)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %4, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %97)
           to label %.noexc219 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc219:                                        ; preds = %101
@@ -1913,7 +1913,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   br i1 %164, label %165, label %.invoke785, !prof !29
 
 ._crit_edge:                                      ; preds = %.loopexit359, %.loopexit365
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder14shuffle_states17h3392e810fbe89a70E(ptr noalias noundef nonnull align 8 dereferenceable(800) %1)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder14shuffle_states17h3392e810fbe89a70E(ptr noalias noundef align 8 dereferenceable(800) %1)
           to label %345 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 165:                                              ; preds = %155
@@ -1923,7 +1923,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   store i8 0, ptr %138, align 8
   store i64 0, ptr %139, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %14, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %162, i64 noundef 0)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %14, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %162, i64 noundef 0)
           to label %168 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 168:                                              ; preds = %165
@@ -1998,7 +1998,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %196 = load i64, ptr %195, align 8, !noalias !272, !noundef !4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13)
   %197 = getelementptr inbounds i8, ptr %192, i64 4
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %13, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %197, i64 noundef %196)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %13, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef readonly align 4 dereferenceable(8) %197, i64 noundef %196)
           to label %235 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 198:                                              ; preds = %189
@@ -2037,7 +2037,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %221 = getelementptr inbounds i8, ptr %192, i64 8
   %222 = load i32, ptr %221, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %7, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %222, i64 noundef %218)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %7, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %222, i64 noundef %218)
           to label %303 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 223:                                              ; preds = %189
@@ -2087,7 +2087,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %.sroa.0268.0533 = phi ptr [ %244, %248 ], [ %202, %198 ]
   %244 = getelementptr inbounds i8, ptr %.sroa.0268.0533, i64 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %12, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %.sroa.0268.0533, i64 noundef %200)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %12, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef readonly align 4 dereferenceable(8) %.sroa.0268.0533, i64 noundef %200)
           to label %245 unwind label %.loopexit352
 
 245:                                              ; preds = %.lr.ph534
@@ -2145,7 +2145,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store i64 %.sroa.01.0.insert.insert.i.i.i, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %10, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %11, i64 noundef %254)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %10, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %167, ptr noalias noundef readonly align 4 dereferenceable(8) %11, i64 noundef %254)
           to label %269 unwind label %.loopexit.split-lp.loopexit
 
 269:                                              ; preds = %268
@@ -2184,7 +2184,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %285 = and i32 %283, 1023
   %286 = zext nneg i32 %285 to i64
   %287 = or disjoint i64 %284, %286
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %9, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %281, i64 noundef %287)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %9, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %281, i64 noundef %287)
           to label %288 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 288:                                              ; preds = %275
@@ -2212,7 +2212,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %294 = getelementptr inbounds i8, ptr %.sroa.5279.0531, i64 -4
   %295 = load i32, ptr %294, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %8, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %295, i64 noundef %209)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %8, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %295, i64 noundef %209)
           to label %296 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 296:                                              ; preds = %.lr.ph532
@@ -2244,7 +2244,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
 306:                                              ; preds = %303
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %6, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %220, i64 noundef %218)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %6, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %220, i64 noundef %218)
           to label %309 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 307:                                              ; preds = %303
@@ -2294,7 +2294,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
 326:                                              ; preds = %315, %223
   %.0 = phi i64 [ %225, %223 ], [ %325, %315 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5)
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %5, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %227, i64 noundef %.0)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef align 8 dereferenceable(128) %5, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %227, i64 noundef %.0)
           to label %327 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 327:                                              ; preds = %326
@@ -2327,7 +2327,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
   %339 = shl i64 %338, 42
   %340 = and i64 %335, 4398046511103
   %341 = or disjoint i64 %339, %340
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E(ptr noalias noundef nonnull align 8 dereferenceable(376) %1, i32 noundef %167, i64 noundef %341)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E(ptr noalias noundef align 8 dereferenceable(376) %1, i32 noundef %167, i64 noundef %341)
           to label %.outer.backedge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 342:                                              ; preds = %232
@@ -2419,7 +2419,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
 
 375:                                              ; preds = %367
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3), !noalias !289
-  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %3, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %371)
+  invoke fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %3, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %371)
           to label %.noexc237 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc237:                                        ; preds = %375
@@ -2507,7 +2507,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA8patterns17h040d108c81c2c8eeE.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder14shuffle_states17h3392e810fbe89a70E(ptr noalias noundef align 8 dereferenceable(800) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder14shuffle_states17h3392e810fbe89a70E(ptr noalias noundef nonnull align 8 dereferenceable(800) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca i64, align 8
   %3 = alloca { ptr, { i64, i64 } }, align 8
   %4 = alloca i64, align 8
@@ -2653,13 +2653,13 @@ define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder14s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder18compile_transition17hd622584587f845d6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %2, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.318 = alloca [116 x i8], align 4
   %6 = alloca { { { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }, {} }, align 8
   %7 = alloca { i64, [15 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7)
   %8 = load i32, ptr %3, align 4, !noundef !4
-  call fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(128) %7, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %8)
+  call fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef align 8 dereferenceable(128) %7, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %8)
   %9 = load i64, ptr %7, align 8, !range !250, !noundef !4
   %10 = icmp eq i64 %9, -9223372036854775794
   %11 = getelementptr inbounds i8, ptr %7, i64 8
@@ -2767,7 +2767,7 @@ _ZN14regex_automata3dfa7onepass3DFA14set_transition17he0b34ad8891b1d43E.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder27add_dfa_state_for_nfa_state17h8cf44debc07fdcf6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = zext i32 %2 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 432
   %6 = getelementptr inbounds i8, ptr %1, i64 440
@@ -2909,7 +2909,7 @@ _ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(128) %0, ptr noalias noundef align 8 dereferenceable(800) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata3dfa7onepass15InternalBuilder10stack_push17ha4daf9d6c9556b50E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(800) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca i64, align 8
   %6 = alloca [3 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -3646,7 +3646,7 @@ _ZN14regex_automata4util4look11LookMatcher18matches_set_inline17hca1c18cdd181b8e
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3e3cf4a4065f5b89E.exit.i": ; preds = %199
   %200 = sub nuw i64 %5, %24
   %201 = getelementptr inbounds i64, ptr %4, i64 %24
-  %202 = tail call fastcc { ptr, i64 } @_ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E(ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !478
+  %202 = tail call fastcc { ptr, i64 } @_ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E(ptr noalias noundef align 8 dereferenceable(32) %2), !noalias !478
   %203 = extractvalue { ptr, i64 } %202, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !479)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
@@ -4329,7 +4329,7 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E(ptr noalias nocapture noundef readonly align 8 dereferenceable(376) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14regex_automata3dfa7onepass3DFA20set_pattern_epsilons17hd7653d042860e1b5E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 344
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -5303,7 +5303,7 @@ define noundef range(i64 0, -7) i64 @_ZN14regex_automata3dfa7onepass5Cache12memo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN14regex_automata3dfa7onepass5Cache14explicit_slots17h1da135abf9459684E(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6693,7 +6693,7 @@ select.unfold:                                    ; preds = %45, %41, %43
   store ptr %51, ptr %5, align 8, !noalias !825
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %54, ptr %55, align 8, !noalias !825
-  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  %56 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %5)
   %.fca.0.extract30.i.i96 = extractvalue { i32, i32 } %56, 0
   %switch36.i.i97 = icmp eq i32 %.fca.0.extract30.i.i96, 0
   %.fca.1.extract31.i.i98 = extractvalue { i32, i32 } %56, 1
@@ -6813,7 +6813,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.i.thread.thread92:
   store ptr %96, ptr %7, align 8, !noalias !832
   %100 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %99, ptr %100, align 8, !noalias !832
-  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+  %101 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %7)
   %.fca.0.extract30.i.i = extractvalue { i32, i32 } %101, 0
   %switch36.i.i = icmp eq i32 %.fca.0.extract30.i.i, 0
   %.fca.1.extract31.i.i = extractvalue { i32, i32 } %101, 1
@@ -6900,7 +6900,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   store ptr %128, ptr %9, align 8, !noalias !833
   %132 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %131, ptr %132, align 8, !noalias !833
-  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
+  %133 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %9)
   %.fca.0.extract30.i57 = extractvalue { i32, i32 } %133, 0
   %switch36.i58 = icmp eq i32 %.fca.0.extract30.i57, 0
   %.fca.1.extract31.i59 = extractvalue { i32, i32 } %133, 1
@@ -6951,7 +6951,7 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74: ; preds 
   store ptr %149, ptr %11, align 8, !noalias !836
   %153 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %152, ptr %153, align 8, !noalias !836
-  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef align 8 dereferenceable(16) %11)
   %.fca.0.extract30.i = extractvalue { i32, i32 } %154, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
   %.fca.1.extract31.i = extractvalue { i32, i32 } %154, 1

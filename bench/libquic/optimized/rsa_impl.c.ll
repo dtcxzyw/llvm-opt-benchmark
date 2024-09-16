@@ -630,7 +630,7 @@ if.then22:                                        ; preds = %if.end18
   br label %if.end79
 
 if.end23:                                         ; preds = %if.end18
-  %call24 = call fastcc ptr @rsa_blinding_get(ptr noundef nonnull %rsa, ptr noundef nonnull %blinding_index)
+  %call24 = call fastcc ptr @rsa_blinding_get(ptr noundef nonnull %rsa, ptr noundef %blinding_index)
   %cmp25 = icmp eq ptr %call24, null
   br i1 %cmp25, label %if.then26, label %if.end27
 
@@ -683,7 +683,7 @@ land.lhs.true44:                                  ; preds = %land.lhs.true42
   br i1 %cmp45.not, label %if.else, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true44
-  %call47 = tail call fastcc i32 @mod_exp(ptr noundef nonnull %call2, ptr noundef nonnull %call1, ptr noundef nonnull %rsa, ptr noundef nonnull %call)
+  %call47 = tail call fastcc i32 @mod_exp(ptr noundef %call2, ptr noundef %call1, ptr noundef nonnull %rsa, ptr noundef %call)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.end79, label %if.end64
 
@@ -760,7 +760,7 @@ if.end82:                                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rsa_blinding_get(ptr noundef %rsa, ptr nocapture noundef writeonly %index_used) unnamed_addr #0 {
+define internal fastcc ptr @rsa_blinding_get(ptr noundef %rsa, ptr nocapture noundef nonnull writeonly %index_used) unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %rsa, i64 96
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %lock) #7
@@ -880,7 +880,7 @@ return:                                           ; preds = %if.end12, %err1, %i
 declare i32 @BN_BLINDING_convert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mod_exp(ptr noundef %r0, ptr noundef %I, ptr noundef %rsa, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mod_exp(ptr noundef nonnull %r0, ptr noundef nonnull %I, ptr noundef %rsa, ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %local_dmp1 = alloca %struct.bignum_st, align 8
   %local_dmq1 = alloca %struct.bignum_st, align 8
@@ -902,10 +902,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %num_additional_primes.0 = phi i64 [ %call, %if.then ], [ 0, %entry ]
-  tail call void @BN_CTX_start(ptr noundef %ctx) #7
-  %call2 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
-  %call3 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
-  %call4 = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx) #7
+  %call2 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #7
+  %call3 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #7
+  %call4 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx) #7
   %cmp5 = icmp eq ptr %call2, null
   %cmp6 = icmp eq ptr %call3, null
   %or.cond = select i1 %cmp5, i1 true, i1 %cmp6
@@ -924,13 +924,13 @@ if.end10:                                         ; preds = %if.end
   call void @BN_with_flags(ptr noundef nonnull %local_q, ptr noundef %2, i32 noundef 4) #7
   %mont_p = getelementptr inbounds i8, ptr %rsa, i64 160
   %lock = getelementptr inbounds i8, ptr %rsa, i64 96
-  %call13 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_p, ptr noundef nonnull %lock, ptr noundef nonnull %local_p, ptr noundef %ctx) #7
+  %call13 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_p, ptr noundef nonnull %lock, ptr noundef nonnull %local_p, ptr noundef nonnull %ctx) #7
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %lor.lhs.false14
 
 lor.lhs.false14:                                  ; preds = %if.end10
   %mont_q = getelementptr inbounds i8, ptr %rsa, i64 168
-  %call16 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_q, ptr noundef nonnull %lock, ptr noundef nonnull %local_q, ptr noundef %ctx) #7
+  %call16 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_q, ptr noundef nonnull %lock, ptr noundef nonnull %local_q, ptr noundef nonnull %ctx) #7
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %err, label %if.end19
 
@@ -938,14 +938,14 @@ if.end19:                                         ; preds = %lor.lhs.false14
   %mont_n = getelementptr inbounds i8, ptr %rsa, i64 152
   %n = getelementptr inbounds i8, ptr %rsa, i64 8
   %3 = load ptr, ptr %n, align 8
-  %call21 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_n, ptr noundef nonnull %lock, ptr noundef %3, ptr noundef %ctx) #7
+  %call21 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont_n, ptr noundef nonnull %lock, ptr noundef %3, ptr noundef nonnull %ctx) #7
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.end19
-  call void @BN_with_flags(ptr noundef nonnull %local_c, ptr noundef %I, i32 noundef 4) #7
+  call void @BN_with_flags(ptr noundef nonnull %local_c, ptr noundef nonnull %I, i32 noundef 4) #7
   %4 = load ptr, ptr %q12, align 8
-  %call26 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call2, ptr noundef nonnull %local_c, ptr noundef %4, ptr noundef %ctx) #7
+  %call26 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call2, ptr noundef nonnull %local_c, ptr noundef %4, ptr noundef nonnull %ctx) #7
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %if.end29
 
@@ -955,14 +955,14 @@ if.end29:                                         ; preds = %if.end24
   call void @BN_with_flags(ptr noundef nonnull %local_dmq1, ptr noundef %5, i32 noundef 4) #7
   %6 = load ptr, ptr %q12, align 8
   %7 = load ptr, ptr %mont_q, align 8
-  %call33 = call i32 @BN_mod_exp_mont_consttime(ptr noundef nonnull %call3, ptr noundef nonnull %call2, ptr noundef nonnull %local_dmq1, ptr noundef %6, ptr noundef %ctx, ptr noundef %7) #7
+  %call33 = call i32 @BN_mod_exp_mont_consttime(ptr noundef nonnull %call3, ptr noundef nonnull %call2, ptr noundef nonnull %local_dmq1, ptr noundef %6, ptr noundef nonnull %ctx, ptr noundef %7) #7
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.end29
-  call void @BN_with_flags(ptr noundef nonnull %local_c, ptr noundef %I, i32 noundef 4) #7
+  call void @BN_with_flags(ptr noundef nonnull %local_c, ptr noundef nonnull %I, i32 noundef 4) #7
   %8 = load ptr, ptr %p11, align 8
-  %call38 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call2, ptr noundef nonnull %local_c, ptr noundef %8, ptr noundef %ctx) #7
+  %call38 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %call2, ptr noundef nonnull %local_c, ptr noundef %8, ptr noundef nonnull %ctx) #7
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %err, label %if.end41
 
@@ -972,59 +972,59 @@ if.end41:                                         ; preds = %if.end36
   call void @BN_with_flags(ptr noundef nonnull %local_dmp1, ptr noundef %9, i32 noundef 4) #7
   %10 = load ptr, ptr %p11, align 8
   %11 = load ptr, ptr %mont_p, align 8
-  %call45 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %r0, ptr noundef nonnull %call2, ptr noundef nonnull %local_dmp1, ptr noundef %10, ptr noundef %ctx, ptr noundef %11) #7
+  %call45 = call i32 @BN_mod_exp_mont_consttime(ptr noundef nonnull %r0, ptr noundef nonnull %call2, ptr noundef nonnull %local_dmp1, ptr noundef %10, ptr noundef nonnull %ctx, ptr noundef %11) #7
   %tobool46.not = icmp eq i32 %call45, 0
   br i1 %tobool46.not, label %err, label %if.end48
 
 if.end48:                                         ; preds = %if.end41
-  %call49 = call i32 @BN_sub(ptr noundef %r0, ptr noundef %r0, ptr noundef nonnull %call3) #7
+  %call49 = call i32 @BN_sub(ptr noundef nonnull %r0, ptr noundef nonnull %r0, ptr noundef nonnull %call3) #7
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %err, label %if.end52
 
 if.end52:                                         ; preds = %if.end48
-  %call53 = call i32 @BN_is_negative(ptr noundef %r0) #7
+  %call53 = call i32 @BN_is_negative(ptr noundef nonnull %r0) #7
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %if.end61, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
   %12 = load ptr, ptr %p11, align 8
-  %call57 = call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %12) #7
+  %call57 = call i32 @BN_add(ptr noundef nonnull %r0, ptr noundef nonnull %r0, ptr noundef %12) #7
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %if.end61
 
 if.end61:                                         ; preds = %if.then55, %if.end52
   %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %13 = load ptr, ptr %iqmp, align 8
-  %call62 = call i32 @BN_mul(ptr noundef nonnull %call2, ptr noundef %r0, ptr noundef %13, ptr noundef %ctx) #7
+  %call62 = call i32 @BN_mul(ptr noundef nonnull %call2, ptr noundef nonnull %r0, ptr noundef %13, ptr noundef nonnull %ctx) #7
   %tobool63.not = icmp eq i32 %call62, 0
   br i1 %tobool63.not, label %err, label %if.end65
 
 if.end65:                                         ; preds = %if.end61
   call void @BN_with_flags(ptr noundef nonnull %local_r1, ptr noundef nonnull %call2, i32 noundef 4) #7
   %14 = load ptr, ptr %p11, align 8
-  %call67 = call i32 @BN_div(ptr noundef null, ptr noundef %r0, ptr noundef nonnull %local_r1, ptr noundef %14, ptr noundef %ctx) #7
+  %call67 = call i32 @BN_div(ptr noundef null, ptr noundef nonnull %r0, ptr noundef nonnull %local_r1, ptr noundef %14, ptr noundef nonnull %ctx) #7
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %err, label %if.end70
 
 if.end70:                                         ; preds = %if.end65
-  %call71 = call i32 @BN_is_negative(ptr noundef %r0) #7
+  %call71 = call i32 @BN_is_negative(ptr noundef nonnull %r0) #7
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.end79, label %if.then73
 
 if.then73:                                        ; preds = %if.end70
   %15 = load ptr, ptr %p11, align 8
-  %call75 = call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %15) #7
+  %call75 = call i32 @BN_add(ptr noundef nonnull %r0, ptr noundef nonnull %r0, ptr noundef %15) #7
   %tobool76.not = icmp eq i32 %call75, 0
   br i1 %tobool76.not, label %err, label %if.end79
 
 if.end79:                                         ; preds = %if.then73, %if.end70
   %16 = load ptr, ptr %q12, align 8
-  %call81 = call i32 @BN_mul(ptr noundef nonnull %call2, ptr noundef %r0, ptr noundef %16, ptr noundef %ctx) #7
+  %call81 = call i32 @BN_mul(ptr noundef nonnull %call2, ptr noundef nonnull %r0, ptr noundef %16, ptr noundef nonnull %ctx) #7
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %err, label %if.end84
 
 if.end84:                                         ; preds = %if.end79
-  %call85 = call i32 @BN_add(ptr noundef %r0, ptr noundef nonnull %call2, ptr noundef nonnull %call3) #7
+  %call85 = call i32 @BN_add(ptr noundef nonnull %r0, ptr noundef nonnull %call2, ptr noundef nonnull %call3) #7
   %tobool86.not = icmp eq i32 %call85, 0
   br i1 %tobool86.not, label %err, label %for.cond.preheader
 
@@ -1046,37 +1046,37 @@ for.body:                                         ; preds = %for.cond.preheader,
   call void @BN_with_flags(ptr noundef nonnull %local_exp, ptr noundef %18, i32 noundef 4) #7
   %19 = load ptr, ptr %call91, align 8
   call void @BN_with_flags(ptr noundef nonnull %local_prime, ptr noundef %19, i32 noundef 4) #7
-  %call94 = call i32 @BN_div(ptr noundef null, ptr noundef %call2, ptr noundef nonnull %local_c, ptr noundef nonnull %local_prime, ptr noundef %ctx) #7
+  %call94 = call i32 @BN_div(ptr noundef null, ptr noundef %call2, ptr noundef nonnull %local_c, ptr noundef nonnull %local_prime, ptr noundef nonnull %ctx) #7
   %tobool95.not = icmp eq i32 %call94, 0
   br i1 %tobool95.not, label %err, label %if.end97
 
 if.end97:                                         ; preds = %for.body
   %mont = getelementptr inbounds i8, ptr %call91, i64 32
-  %call99 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont, ptr noundef nonnull %lock, ptr noundef nonnull %local_prime, ptr noundef %ctx) #7
+  %call99 = call i32 @BN_MONT_CTX_set_locked(ptr noundef nonnull %mont, ptr noundef nonnull %lock, ptr noundef nonnull %local_prime, ptr noundef nonnull %ctx) #7
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %err, label %lor.lhs.false101
 
 lor.lhs.false101:                                 ; preds = %if.end97
   %20 = load ptr, ptr %mont, align 8
-  %call103 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %call3, ptr noundef %call2, ptr noundef nonnull %local_exp, ptr noundef nonnull %local_prime, ptr noundef %ctx, ptr noundef %20) #7
+  %call103 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %call3, ptr noundef %call2, ptr noundef nonnull %local_exp, ptr noundef nonnull %local_prime, ptr noundef nonnull %ctx, ptr noundef %20) #7
   %tobool104.not = icmp eq i32 %call103, 0
   br i1 %tobool104.not, label %err, label %if.end106
 
 if.end106:                                        ; preds = %lor.lhs.false101
   call void @BN_set_flags(ptr noundef %call3, i32 noundef 4) #7
-  %call107 = call i32 @BN_sub(ptr noundef %call3, ptr noundef %call3, ptr noundef %r0) #7
+  %call107 = call i32 @BN_sub(ptr noundef %call3, ptr noundef %call3, ptr noundef nonnull %r0) #7
   %tobool108.not = icmp eq i32 %call107, 0
   br i1 %tobool108.not, label %err, label %lor.lhs.false109
 
 lor.lhs.false109:                                 ; preds = %if.end106
   %coeff = getelementptr inbounds i8, ptr %call91, i64 16
   %21 = load ptr, ptr %coeff, align 8
-  %call110 = call i32 @BN_mul(ptr noundef %call3, ptr noundef %call3, ptr noundef %21, ptr noundef %ctx) #7
+  %call110 = call i32 @BN_mul(ptr noundef %call3, ptr noundef %call3, ptr noundef %21, ptr noundef nonnull %ctx) #7
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %err, label %lor.lhs.false112
 
 lor.lhs.false112:                                 ; preds = %lor.lhs.false109
-  %call113 = call i32 @BN_div(ptr noundef null, ptr noundef %call3, ptr noundef %call3, ptr noundef nonnull %local_prime, ptr noundef %ctx) #7
+  %call113 = call i32 @BN_div(ptr noundef null, ptr noundef %call3, ptr noundef %call3, ptr noundef nonnull %local_prime, ptr noundef nonnull %ctx) #7
   %tobool114.not = icmp eq i32 %call113, 0
   br i1 %tobool114.not, label %err, label %lor.lhs.false115
 
@@ -1093,12 +1093,12 @@ land.lhs.true:                                    ; preds = %lor.lhs.false115
 lor.lhs.false120:                                 ; preds = %land.lhs.true, %lor.lhs.false115
   %r = getelementptr inbounds i8, ptr %call91, i64 24
   %22 = load ptr, ptr %r, align 8
-  %call121 = call i32 @BN_mul(ptr noundef %call3, ptr noundef %call3, ptr noundef %22, ptr noundef %ctx) #7
+  %call121 = call i32 @BN_mul(ptr noundef %call3, ptr noundef %call3, ptr noundef %22, ptr noundef nonnull %ctx) #7
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %err, label %lor.lhs.false123
 
 lor.lhs.false123:                                 ; preds = %lor.lhs.false120
-  %call124 = call i32 @BN_add(ptr noundef %r0, ptr noundef %r0, ptr noundef %call3) #7
+  %call124 = call i32 @BN_add(ptr noundef nonnull %r0, ptr noundef nonnull %r0, ptr noundef %call3) #7
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %err, label %for.cond
 
@@ -1107,18 +1107,18 @@ for.end:                                          ; preds = %for.cond, %for.cond
   %23 = load ptr, ptr %e, align 8
   %24 = load ptr, ptr %n, align 8
   %25 = load ptr, ptr %mont_n, align 8
-  %call130 = call i32 @BN_mod_exp_mont(ptr noundef %call4, ptr noundef %r0, ptr noundef %23, ptr noundef %24, ptr noundef %ctx, ptr noundef %25) #7
+  %call130 = call i32 @BN_mod_exp_mont(ptr noundef %call4, ptr noundef nonnull %r0, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %ctx, ptr noundef %25) #7
   %tobool131.not = icmp eq i32 %call130, 0
   br i1 %tobool131.not, label %err, label %if.end133
 
 if.end133:                                        ; preds = %for.end
-  %call134 = call i32 @BN_sub(ptr noundef %call4, ptr noundef %call4, ptr noundef %I) #7
+  %call134 = call i32 @BN_sub(ptr noundef %call4, ptr noundef %call4, ptr noundef nonnull %I) #7
   %tobool135.not = icmp eq i32 %call134, 0
   br i1 %tobool135.not, label %err, label %if.end137
 
 if.end137:                                        ; preds = %if.end133
   %26 = load ptr, ptr %n, align 8
-  %call139 = call i32 @BN_div(ptr noundef null, ptr noundef %call4, ptr noundef %call4, ptr noundef %26, ptr noundef %ctx) #7
+  %call139 = call i32 @BN_div(ptr noundef null, ptr noundef %call4, ptr noundef %call4, ptr noundef %26, ptr noundef nonnull %ctx) #7
   %tobool140.not = icmp eq i32 %call139, 0
   br i1 %tobool140.not, label %err, label %if.end142
 
@@ -1144,7 +1144,7 @@ if.then154:                                       ; preds = %if.end151
   call void @BN_with_flags(ptr noundef nonnull %local_d, ptr noundef %28, i32 noundef 4) #7
   %29 = load ptr, ptr %n, align 8
   %30 = load ptr, ptr %mont_n, align 8
-  %call158 = call i32 @BN_mod_exp_mont_consttime(ptr noundef %r0, ptr noundef %I, ptr noundef nonnull %local_d, ptr noundef %29, ptr noundef %ctx, ptr noundef %30) #7
+  %call158 = call i32 @BN_mod_exp_mont_consttime(ptr noundef nonnull %r0, ptr noundef nonnull %I, ptr noundef nonnull %local_d, ptr noundef %29, ptr noundef nonnull %ctx, ptr noundef %30) #7
   %tobool159.not = icmp eq i32 %call158, 0
   br i1 %tobool159.not, label %err, label %if.end162
 
@@ -1153,7 +1153,7 @@ if.end162:                                        ; preds = %if.then154, %if.end
 
 err:                                              ; preds = %if.end106, %lor.lhs.false109, %lor.lhs.false112, %land.lhs.true, %lor.lhs.false120, %lor.lhs.false123, %if.end97, %lor.lhs.false101, %for.body, %if.then154, %if.then145, %if.end137, %if.end133, %for.end, %if.end84, %if.end79, %if.then73, %if.end65, %if.end61, %if.then55, %if.end48, %if.end41, %if.end36, %if.end29, %if.end24, %if.end19, %if.end10, %lor.lhs.false14, %if.end, %if.end162
   %ret.0 = phi i32 [ 0, %if.end ], [ 1, %if.end162 ], [ 0, %if.then154 ], [ 0, %if.then145 ], [ 0, %if.end137 ], [ 0, %if.end133 ], [ 0, %for.end ], [ 0, %if.end84 ], [ 0, %if.end79 ], [ 0, %if.then73 ], [ 0, %if.end65 ], [ 0, %if.end61 ], [ 0, %if.then55 ], [ 0, %if.end48 ], [ 0, %if.end41 ], [ 0, %if.end36 ], [ 0, %if.end29 ], [ 0, %if.end24 ], [ 0, %if.end19 ], [ 0, %lor.lhs.false14 ], [ 0, %if.end10 ], [ 0, %for.body ], [ 0, %lor.lhs.false101 ], [ 0, %if.end97 ], [ 0, %lor.lhs.false123 ], [ 0, %lor.lhs.false120 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false112 ], [ 0, %lor.lhs.false109 ], [ 0, %if.end106 ]
-  call void @BN_CTX_end(ptr noundef %ctx) #7
+  call void @BN_CTX_end(ptr noundef nonnull %ctx) #7
   ret i32 %ret.0
 }
 

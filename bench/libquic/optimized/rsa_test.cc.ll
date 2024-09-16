@@ -780,7 +780,7 @@ return:                                           ; preds = %_ZL10TestBadKeyv.ex
 declare void @CRYPTO_library_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %der, i64 noundef %der_len, ptr noundef %oaep_ciphertext, i64 noundef %oaep_ciphertext_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL7TestRSAPKhmS0_m(ptr noundef %der, i64 noundef range(i64 254, 608) %der_len, ptr noundef %oaep_ciphertext, i64 noundef range(i64 50, 129) %oaep_ciphertext_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.std::unique_ptr", align 8
   %ciphertext = alloca [256 x i8], align 16
@@ -936,13 +936,12 @@ if.then77:                                        ; preds = %invoke.cont68
   br label %if.then.i
 
 if.end80:                                         ; preds = %invoke.cont68
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %ciphertext, ptr align 1 %oaep_ciphertext, i64 %oaep_ciphertext_len, i1 false)
-  %cmp8233.not = icmp eq i64 %oaep_ciphertext_len, 0
-  br i1 %cmp8233.not, label %if.then.i, label %for.body
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %ciphertext, ptr noundef nonnull align 1 dereferenceable(1) %oaep_ciphertext, i64 %oaep_ciphertext_len, i1 false)
+  br label %for.body
 
 for.body:                                         ; preds = %if.end80, %invoke.cont95
-  %i.034 = phi i64 [ %inc, %invoke.cont95 ], [ 0, %if.end80 ]
-  %arrayidx = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 %i.034
+  %i.033 = phi i64 [ 0, %if.end80 ], [ %inc, %invoke.cont95 ]
+  %arrayidx = getelementptr inbounds [256 x i8], ptr %ciphertext, i64 0, i64 %i.033
   %19 = load i8, ptr %arrayidx, align 1
   %20 = xor i8 %19, 1
   store i8 %20, ptr %arrayidx, align 1
@@ -966,13 +965,13 @@ invoke.cont95:                                    ; preds = %if.end94
   %23 = load i8, ptr %arrayidx, align 1
   %24 = xor i8 %23, 1
   store i8 %24, ptr %arrayidx, align 1
-  %inc = add nuw i64 %i.034, 1
+  %inc = add nuw nsw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc, %oaep_ciphertext_len
   br i1 %exitcond.not, label %for.body102, label %for.body, !llvm.loop !7
 
 for.body102:                                      ; preds = %invoke.cont95, %for.inc114
-  %len.036 = phi i64 [ %inc115, %for.inc114 ], [ 0, %invoke.cont95 ]
-  %call107 = invoke i32 @RSA_decrypt(ptr noundef nonnull %call, ptr noundef nonnull %plaintext_len, ptr noundef nonnull %plaintext, i64 noundef 256, ptr noundef nonnull %ciphertext, i64 noundef %len.036, i32 noundef 4)
+  %len.034 = phi i64 [ %inc115, %for.inc114 ], [ 0, %invoke.cont95 ]
+  %call107 = invoke i32 @RSA_decrypt(ptr noundef nonnull %call, ptr noundef nonnull %plaintext_len, ptr noundef nonnull %plaintext, i64 noundef 256, ptr noundef nonnull %ciphertext, i64 noundef %len.034, i32 noundef 4)
           to label %invoke.cont106 unwind label %lpad.loopexit
 
 invoke.cont106:                                   ; preds = %for.body102
@@ -989,12 +988,12 @@ if.end112:                                        ; preds = %invoke.cont106
           to label %for.inc114 unwind label %lpad.loopexit
 
 for.inc114:                                       ; preds = %if.end112
-  %inc115 = add nuw i64 %len.036, 1
-  %exitcond37.not = icmp eq i64 %inc115, %oaep_ciphertext_len
-  br i1 %exitcond37.not, label %if.then.i, label %for.body102, !llvm.loop !9
+  %inc115 = add nuw nsw i64 %len.034, 1
+  %exitcond35.not = icmp eq i64 %inc115, %oaep_ciphertext_len
+  br i1 %exitcond35.not, label %if.then.i, label %for.body102, !llvm.loop !9
 
-if.then.i:                                        ; preds = %for.inc114, %if.end80, %if.then4, %if.then15, %if.then31, %if.then46, %if.then62, %if.then77, %if.then91, %if.then109
-  %retval.0.ph = phi i1 [ false, %if.then4 ], [ false, %if.then109 ], [ false, %if.then91 ], [ false, %if.then77 ], [ false, %if.then62 ], [ false, %if.then46 ], [ false, %if.then31 ], [ false, %if.then15 ], [ true, %if.end80 ], [ true, %for.inc114 ]
+if.then.i:                                        ; preds = %for.inc114, %if.then4, %if.then15, %if.then31, %if.then46, %if.then62, %if.then77, %if.then91, %if.then109
+  %retval.0.ph = phi i1 [ false, %if.then4 ], [ false, %if.then109 ], [ false, %if.then91 ], [ false, %if.then77 ], [ false, %if.then62 ], [ false, %if.then46 ], [ false, %if.then31 ], [ false, %if.then15 ], [ true, %for.inc114 ]
   invoke void @RSA_free(ptr noundef nonnull %call)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1011,7 +1010,7 @@ _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef %nprimes, ptr noundef %der, i64 noundef %der_size, ptr noundef %enc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL17TestMultiPrimeKeyiPKhmS0_m(i32 noundef range(i32 2, 7) %nprimes, ptr noundef %der, i64 noundef range(i64 1189, 1317) %der_size, ptr noundef %enc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %der.addr = alloca ptr, align 8
   %rsa = alloca %"class.std::unique_ptr", align 8

@@ -2885,7 +2885,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %12, align 8
   %24 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %21, i32 noundef 148, ptr nonnull %12, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %25
 
@@ -2903,7 +2903,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %33 = ptrtoint ptr %29 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
-  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %15, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %6, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %15, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %6, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %36 = load ptr, ptr %14, align 8
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -3020,7 +3020,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr %14, align 8
   %25 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %22, i32 noundef 148, ptr nonnull %14, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %5, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %26
 
@@ -3038,7 +3038,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %34 = ptrtoint ptr %30 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  call fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %7, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %7, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %37 = load ptr, ptr %16, align 8
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -3158,7 +3158,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase22CreateGCStatepointCallEmj
   %23 = load ptr, ptr %22, align 8
   store ptr %23, ptr %12, align 8
   %24 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %21, i32 noundef 148, ptr nonnull %12, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.010.0.copyload, i64 %.sroa.211.0.copyload)
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %25
 
@@ -3176,7 +3176,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %33 = ptrtoint ptr %29 to i64
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 3
-  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %15, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %6, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %15, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %6, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %36 = load ptr, ptr %14, align 8
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -3298,7 +3298,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %15, align 8
   %27 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %24, i32 noundef 148, ptr nonnull %15, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef 0, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %28
 
@@ -3316,7 +3316,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
-  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %18, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %18, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %39 = load ptr, ptr %17, align 8
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -3439,7 +3439,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %17, align 8
   %28 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %25, i32 noundef 148, ptr nonnull %17, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %7, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, i32 noundef %7, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %29
 
@@ -3457,7 +3457,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %37 = ptrtoint ptr %33 to i64
   %38 = sub i64 %36, %37
   %39 = ashr exact i64 %38, 3
-  call fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %9, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %10, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %9, ptr noundef nonnull byval(%"class.std::optional.134") align 8 %10, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %40 = load ptr, ptr %19, align 8
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %42 = load ptr, ptr %41, align 8
@@ -3583,7 +3583,7 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase24CreateGCStatepointInvokeE
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %15, align 8
   %27 = call noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef %24, i32 noundef 148, ptr nonnull %15, i64 1) #19
-  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
+  call fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i32 noundef %2, ptr noundef %4, ptr %.sroa.012.0.copyload, i64 %.sroa.213.0.copyload)
   %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i, label %28
 
@@ -3601,7 +3601,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit.i:
   %36 = ptrtoint ptr %32 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 3
-  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %18, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %18, ptr noundef nonnull byval(%"class.std::optional.126") align 8 %8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %39 = load ptr, ptr %17, align 8
   %40 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -7993,7 +7993,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE18uninitialized_copyIKS2_S2_EEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIPN4llvm5ValueEESt6vectorIS2_SaIS2_EERNS0_13IRBuilderBaseEmjS2_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %6, align 8
@@ -8322,7 +8322,7 @@ _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit53: ; preds = %129, %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getStatepointBundlesIPN4llvm5ValueES2_S2_ESt6vectorINS0_17OperandBundleDefTIS2_EESaIS5_EESt8optionalINS0_8ArrayRefIT_EEES8_INS9_IT0_EEENS9_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.126") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.217", align 8
   %7 = alloca %"class.llvm::SmallVector.217", align 8
   %8 = alloca %"class.llvm::SmallVector.217", align 8
@@ -9317,7 +9317,7 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEEC2ENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getStatepointBundlesIN4llvm3UseES1_PNS0_5ValueEESt6vectorINS0_17OperandBundleDefTIS3_EESaIS6_EESt8optionalINS0_8ArrayRefIT_EEES9_INSA_IT0_EEENSA_IT1_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %1, ptr nocapture noundef readonly byval(%"class.std::optional.134") align 8 %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallVector.217", align 8
   %7 = alloca %"class.llvm::SmallVector.217", align 8
   %8 = alloca %"class.llvm::SmallVector.217", align 8
@@ -9666,7 +9666,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyIPKNS_3Use
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL17getStatepointArgsIN4llvm3UseEESt6vectorIPNS0_5ValueESaIS4_EERNS0_13IRBuilderBaseEmjS4_jNS0_8ArrayRefIT_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
 _ZNSt6vectorIPN4llvm5ValueESaIS2_EE9push_backEOS2_.exit17:
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8

@@ -810,7 +810,7 @@ declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @write_marker(i32 noundef %0) unnamed_addr #7 {
+define internal fastcc void @write_marker(i32 noundef range(i32 0, -1) %0) unnamed_addr #7 {
   %2 = load ptr, ptr @outfile, align 8
   %3 = tail call i32 @putc(i32 noundef 255, ptr noundef %2)
   %4 = load ptr, ptr @outfile, align 8

@@ -24302,7 +24302,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelD
 
 428:                                              ; preds = %424
   %429 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %430 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %384, ptr noundef nonnull align 8 dereferenceable(400) %429, double %5, ptr noundef nonnull %18)
+  %430 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %384, ptr noundef nonnull align 8 dereferenceable(400) %429, double %5, ptr noundef %18)
           to label %431 unwind label %443
 
 431:                                              ; preds = %428
@@ -24402,7 +24402,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_7VtArrayINS_10GfMatrix4fEEEEE
           to label %479 unwind label %443
 
 479:                                              ; preds = %478
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef %20)
           to label %482 unwind label %480
 
 480:                                              ; preds = %479, %482
@@ -24441,7 +24441,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_7VtArrayINS_10GfMatrix4fEEEEE
           to label %498 unwind label %443
 
 498:                                              ; preds = %497
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef %21)
           to label %501 unwind label %499
 
 499:                                              ; preds = %498, %501
@@ -24495,7 +24495,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_7VtArrayINS_10GfMatrix4fEEEEE
 
 520:                                              ; preds = %518
   %521 = getelementptr inbounds nuw i8, ptr %326, i64 16
-  %522 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %384, ptr noundef nonnull align 8 dereferenceable(104) %519, ptr noundef nonnull align 8 dereferenceable(400) %521, double %5, ptr noundef nonnull %22)
+  %522 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %384, ptr noundef nonnull align 8 dereferenceable(104) %519, ptr noundef nonnull align 8 dereferenceable(400) %521, double %5, ptr noundef %22)
           to label %523 unwind label %534
 
 523:                                              ; preds = %520
@@ -25117,7 +25117,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfHashMapINS_7UsdPrimENS_17UsdGeomXformCac
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %1, double %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %1, double %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.106", align 8
@@ -25155,7 +25155,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
   br i1 %.not, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper15RemapTransformsINS_10GfMatrix4fEEEbRKNS_7VtArrayIT_EEPS5_i(ptr noundef nonnull align 8 dereferenceable(60) %22, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %3, i32 noundef 1)
+  %24 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelAnimMapper15RemapTransformsINS_10GfMatrix4fEEEbRKNS_7VtArrayIT_EEPS5_i(ptr noundef nonnull align 8 dereferenceable(60) %22, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %3, i32 noundef 1)
           to label %31 unwind label %27
 
 25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
@@ -25216,7 +25216,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNK32pxrInternal_v0_24
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
@@ -25297,7 +25297,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEED1E
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1) unnamed_addr #8 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", align 4
@@ -25418,7 +25418,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEED1Ev(pt
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %2, double %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %2, double %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.84", align 8
@@ -25511,7 +25511,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 46:                                               ; preds = %.noexc
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %45, ptr %47, align 8
-  %48 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery31ComputeFlattenedSubShapeWeightsERKNS_6TfSpanIKfEEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %4)
+  %48 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery31ComputeFlattenedSubShapeWeightsERKNS_6TfSpanIKfEEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %4)
           to label %49 unwind label %39
 
 49:                                               ; preds = %46, %34
@@ -26224,7 +26224,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2INS_10GfMatrix4fEEERKT_.exit: ; p
 
 289:                                              ; preds = %285
   %290 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %290, double %5, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %290, double %5, ptr noundef %14, ptr noundef %15, ptr noundef %16)
           to label %293 unwind label %291
 
 291:                                              ; preds = %289, %306, %293, %313, %331
@@ -26553,7 +26553,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fC1ERKNS_10GfMatri
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %0, double %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %0, double %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray.84", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfSpan.364", align 8
@@ -27700,7 +27700,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapter12_GetSkelD
   br label %684
 
 548:                                              ; preds = %547
-  %549 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %6, ptr noundef nonnull %26)
+  %549 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %6, ptr noundef %26)
           to label %.preheader unwind label %.loopexit.split-lp290
 
 .preheader:                                       ; preds = %548
@@ -27745,7 +27745,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %
   %567 = load ptr, ptr %26, align 8
   %568 = getelementptr inbounds double, ptr %567, i64 %.0114318
   %569 = load double, ptr %568, align 8
-  %570 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %498, ptr noundef nonnull align 8 dereferenceable(400) %550, double %569, ptr noundef nonnull %27)
+  %570 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_126_ComputeSkinningTransformsERKNS_20UsdSkelSkeletonQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_10GfMatrix4fEEE(ptr noundef nonnull align 8 dereferenceable(80) %498, ptr noundef nonnull align 8 dereferenceable(400) %550, double %569, ptr noundef %27)
           to label %571 unwind label %580
 
 571:                                              ; preds = %566
@@ -27874,7 +27874,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit183: ; preds = %_ZN32pxrIn
           to label %626 unwind label %580
 
 626:                                              ; preds = %625
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %29)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ExtractSkinningScaleXformsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_10GfMatrix3fEEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %29)
           to label %627 unwind label %644
 
 627:                                              ; preds = %626
@@ -27941,7 +27941,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit190: ; preds = %_ZN32pxrIn
           to label %647 unwind label %580
 
 647:                                              ; preds = %646
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull %31)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_ExtractSkinningDualQuatsERKNS_7VtArrayINS_10GfMatrix4fEEEPNS1_INS_7GfVec4fEEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %31)
           to label %648 unwind label %665
 
 648:                                              ; preds = %647
@@ -28202,7 +28202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit214: ; preds = %_ZN32pxrIn
   br label %796
 
 743:                                              ; preds = %742
-  %744 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %6, ptr noundef nonnull %36)
+  %744 = invoke fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %6, ptr noundef %36)
           to label %.preheader294 unwind label %.loopexit.split-lp296
 
 .preheader294:                                    ; preds = %743
@@ -28244,7 +28244,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit218: ; preds 
   %759 = load ptr, ptr %36, align 8
   %760 = getelementptr inbounds double, ptr %759, i64 %.0103315
   %761 = load double, ptr %760, align 8
-  %762 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %498, ptr noundef nonnull align 8 dereferenceable(104) %758, ptr noundef nonnull align 8 dereferenceable(400) %745, double %761, ptr noundef nonnull %37)
+  %762 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_ComputeSubShapeWeightsERKNS_20UsdSkelSkeletonQueryERKNS_22UsdSkelBlendShapeQueryERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayIfEE(ptr noundef nonnull align 8 dereferenceable(80) %498, ptr noundef nonnull align 8 dereferenceable(104) %758, ptr noundef nonnull align 8 dereferenceable(400) %745, double %761, ptr noundef %37)
           to label %763 unwind label %774
 
 763:                                              ; preds = %757
@@ -28731,7 +28731,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapter31_Get
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdSkelAnimQuery38GetJointTransformTimeSamplesInIntervalERKNS_10GfIntervalEPSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__L17_UnionTimeSamplesERKNS_10GfIntervalEmPSt6vectorIdSaIdEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = load double, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -29609,7 +29609,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit77: ; preds = %_ZN32pxrInt
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %353, double %4, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_GetInfluencesERKNS_20UsdSkelSkinningQueryENS_11UsdTimeCodeEPNS_7VtArrayINS_7GfVec2fEEEPiPb(ptr noundef nonnull align 8 dereferenceable(400) %353, double %4, ptr noundef %19, ptr noundef %20, ptr noundef %21)
           to label %356 unwind label %354
 
 354:                                              ; preds = %352, %356, %372, %391, %369

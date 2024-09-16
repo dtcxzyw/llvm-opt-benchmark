@@ -258,7 +258,7 @@ define dso_local ptr @oper(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
   %8 = alloca %struct.HASHCTL, align 8
   %9 = alloca %struct.OprCacheKey, align 4
   %10 = alloca [2 x i32], align 4
-  %11 = call fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5)
+  %11 = call fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef %9, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %5)
   br i1 %11, label %12, label %28
 
 12:                                               ; preds = %6
@@ -417,7 +417,7 @@ binary_oper_exact.exit:                           ; preds = %38, %.thread40.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.ParseCallbackState, align 8
@@ -440,7 +440,7 @@ define internal fastcc noundef zeroext i1 @make_oper_cache_key(ptr noundef %0, p
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -8
   %21 = add i64 %20, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 %21, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %1, i8 0, i64 %21, i1 false)
   br label %.loopexit
 
 22:                                               ; preds = %6
@@ -486,7 +486,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @OpernameGetCandidates(ptr noundef, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #4 {
+define internal fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4, i32 noundef %5) unnamed_addr #4 {
   %7 = alloca %struct.StringInfoData, align 8
   %8 = icmp eq i32 %4, 1
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -608,7 +608,7 @@ define dso_local ptr @left_oper(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %8 = alloca i32, align 4
   %9 = alloca %struct.OprCacheKey, align 4
   store i32 %2, ptr %8, align 4
-  %10 = call fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef %4)
+  %10 = call fastcc zeroext i1 @make_oper_cache_key(ptr noundef %0, ptr noundef %9, ptr noundef %1, i32 noundef 0, i32 noundef %2, i32 noundef %4)
   br i1 %10, label %11, label %27
 
 11:                                               ; preds = %5

@@ -157,7 +157,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.3, ptr noundef nonnull @git_version_string) #7
   call void @jw_end(ptr noundef nonnull %jw) #7
@@ -172,7 +172,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %jw.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw.i, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw.i, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw.i)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.12, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw.i)
   call void @jw_end(ptr noundef nonnull %jw.i) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw.i) #7
   call void @jw_release(ptr noundef nonnull %jw.i) #7
@@ -191,7 +191,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.13, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   call void @jw_object_inline_begin_array(ptr noundef nonnull %jw, ptr noundef nonnull @.str.15) #7
   call void @jw_array_argv(ptr noundef nonnull %jw, ptr noundef %argv) #7
@@ -210,7 +210,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.16, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.16, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   %conv1 = sext i32 %code to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.17, i64 noundef %conv1) #7
@@ -228,7 +228,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 189, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef 189, ptr noundef null, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   %conv1 = sext i32 %signo to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.20, i64 noundef %conv1) #7
@@ -246,7 +246,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_absolute to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19, i32 noundef 205, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.19, i32 noundef 205, ptr noundef null, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   %conv1 = sext i32 %code to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.17, i64 noundef %conv1) #7
@@ -264,7 +264,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.21, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.21, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %copy_ap.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buf.i)
   %tobool.not.i = icmp eq ptr %fmt, null
@@ -317,7 +317,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.24, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.24, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.25, ptr noundef %pathname) #7
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
@@ -331,7 +331,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.26, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.26, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_inline_begin_array(ptr noundef nonnull %jw, ptr noundef nonnull @.str.27) #7
   %0 = load ptr, ptr %parent_names, align 8
   %tobool.not1 = icmp eq ptr %0, null
@@ -360,7 +360,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.28, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.28, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.29, ptr noundef %name) #7
   %tobool.not = icmp eq ptr %hierarchy, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -387,7 +387,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.31, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.31, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.29, ptr noundef %mode) #7
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
@@ -401,7 +401,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.32, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.32, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.32, ptr noundef %alias) #7
   call void @jw_object_inline_begin_array(ptr noundef nonnull %jw, ptr noundef nonnull @.str.15) #7
   call void @jw_array_argv(ptr noundef nonnull %jw, ptr noundef %argv) #7
@@ -418,7 +418,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.33, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.33, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
   %0 = load i32, ptr %trace2_child_id, align 4
   %conv = sext i32 %0 to i64
@@ -487,7 +487,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_child to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.42, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.42, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   %conv1 = sext i32 %cid to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.34, i64 noundef %conv1) #7
   %conv2 = sext i32 %pid to i64
@@ -509,7 +509,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_child to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.45, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.45, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   %conv1 = sext i32 %cid to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.34, i64 noundef %conv1) #7
   %conv2 = sext i32 %pid to i64
@@ -528,7 +528,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.47, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.47, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
   call void @jw_release(ptr noundef nonnull %jw) #7
@@ -543,7 +543,7 @@ entry:
   %conv = uitofp i64 %us_elapsed_thread to double
   %div = fdiv double %conv, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.48, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.48, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.44, i32 noundef 6, double noundef %div) #7
   call void @jw_end(ptr noundef nonnull %jw) #7
   call void @tr2_dst_write_line(ptr noundef nonnull @tr2dst_event, ptr noundef nonnull %jw) #7
@@ -557,7 +557,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.49, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.49, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   %conv = sext i32 %exec_id to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.50, i64 noundef %conv) #7
   %tobool.not = icmp eq ptr %exe, null
@@ -583,7 +583,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.51, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.51, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   %conv = sext i32 %exec_id to i64
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.50, i64 noundef %conv) #7
   %conv1 = sext i32 %code to i64
@@ -603,7 +603,7 @@ entry:
   %0 = load i32, ptr %scope1, align 8
   %call = tail call ptr @config_scope_name(i32 noundef %0) #7
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.52, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.52, ptr noundef %file, i32 noundef %line, ptr noundef null, ptr noundef %jw)
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.53, ptr noundef %call) #7
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.54, ptr noundef %param) #7
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.55, ptr noundef %value) #7
@@ -619,7 +619,7 @@ entry:
   %jw = alloca %struct.json_writer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.56, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.56, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
   %worktree = getelementptr inbounds i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.57, ptr noundef %0) #7
@@ -646,7 +646,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.58, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.58, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
   %2 = load i64, ptr %nr_open_regions, align 8
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.59, i64 noundef %2) #7
   %tobool.not = icmp eq ptr %category, null
@@ -717,7 +717,7 @@ if.then:                                          ; preds = %entry
   %conv2 = uitofp i64 %us_elapsed_region to double
   %div = fdiv double %conv2, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.62, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.62, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.44, i32 noundef 6, double noundef %div) #7
   %2 = load i64, ptr %nr_open_regions, align 8
   call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.59, i64 noundef %2) #7
@@ -789,7 +789,7 @@ if.then:                                          ; preds = %entry
   %conv3 = uitofp i64 %us_elapsed_region to double
   %div4 = fdiv double %conv3, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.63, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.63, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.44, i32 noundef 6, double noundef %div4) #7
   %2 = load i64, ptr %nr_open_regions, align 8
@@ -825,7 +825,7 @@ if.then:                                          ; preds = %entry
   %conv3 = uitofp i64 %us_elapsed_region to double
   %div4 = fdiv double %conv3, 1.000000e+06
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.65, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull @.str.65, ptr noundef %file, i32 noundef %line, ptr noundef %repo, ptr noundef %jw)
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.14, i32 noundef 6, double noundef %div) #7
   call void @jw_object_double(ptr noundef nonnull %jw, ptr noundef nonnull @.str.44, i32 noundef 6, double noundef %div4) #7
   %2 = load i64, ptr %nr_open_regions, align 8
@@ -861,7 +861,7 @@ entry:
   %conv3 = uitofp i64 %2 to double
   %div4 = fdiv double %conv3, 1.000000e+09
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 636, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 636, ptr noundef null, ptr noundef %jw)
   %3 = load ptr, ptr %meta, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.60, ptr noundef %3) #7
   %name = getelementptr inbounds i8, ptr %meta, i64 8
@@ -887,7 +887,7 @@ entry:
   %cond = select i1 %tobool.not, ptr @.str.73, ptr @.str.72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.fn_counter.jw, i64 56, i1 false)
   call void @jw_object_begin(ptr noundef nonnull %jw, i32 noundef 0) #7
-  call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 657, ptr noundef null, ptr noundef nonnull %jw)
+  call fastcc void @event_fmt_prepare(ptr noundef nonnull %cond, ptr noundef nonnull @.str.19, i32 noundef 657, ptr noundef null, ptr noundef %jw)
   %0 = load ptr, ptr %meta, align 8
   call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.60, ptr noundef %0) #7
   %name = getelementptr inbounds i8, ptr %meta, i64 8
@@ -918,15 +918,15 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @jw_object_begin(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @event_fmt_prepare(ptr noundef %event_name, ptr noundef %file, i32 noundef %line, ptr noundef readonly %repo, ptr noundef %jw) unnamed_addr #0 {
+define internal fastcc void @event_fmt_prepare(ptr noundef %event_name, ptr noundef %file, i32 noundef %line, ptr noundef readonly %repo, ptr noundef nonnull %jw) unnamed_addr #0 {
 entry:
   %tb_now = alloca %struct.tr2_tbuf, align 1
   %call = tail call ptr @tr2tls_get_self() #7
-  tail call void @jw_object_string(ptr noundef %jw, ptr noundef nonnull @.str.4, ptr noundef %event_name) #7
+  tail call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.4, ptr noundef %event_name) #7
   %call1 = tail call ptr @tr2_sid_get() #7
-  tail call void @jw_object_string(ptr noundef %jw, ptr noundef nonnull @.str.5, ptr noundef %call1) #7
+  tail call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.5, ptr noundef %call1) #7
   %0 = load ptr, ptr %call, align 8
-  tail call void @jw_object_string(ptr noundef %jw, ptr noundef nonnull @.str.6, ptr noundef %0) #7
+  tail call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.6, ptr noundef %0) #7
   %1 = load i32, ptr @tr2env_event_be_brief, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %lor.lhs.false
@@ -943,7 +943,7 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry, %lor.lhs.false, %lor.lhs.false4
   call void @tr2_tbuf_utc_datetime_extended(ptr noundef nonnull %tb_now) #7
-  call void @jw_object_string(ptr noundef %jw, ptr noundef nonnull @.str.8, ptr noundef nonnull %tb_now) #7
+  call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.8, ptr noundef nonnull %tb_now) #7
   %.pre = load i32, ptr @tr2env_event_be_brief, align 4
   %2 = icmp eq i32 %.pre, 0
   %tobool8 = icmp ne ptr %file, null
@@ -956,9 +956,9 @@ land.lhs.true9:                                   ; preds = %if.end
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %land.lhs.true9
-  call void @jw_object_string(ptr noundef %jw, ptr noundef nonnull @.str.9, ptr noundef nonnull %file) #7
+  call void @jw_object_string(ptr noundef nonnull %jw, ptr noundef nonnull @.str.9, ptr noundef nonnull %file) #7
   %conv12 = sext i32 %line to i64
-  call void @jw_object_intmax(ptr noundef %jw, ptr noundef nonnull @.str.10, i64 noundef %conv12) #7
+  call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.10, i64 noundef %conv12) #7
   br label %if.end13
 
 if.end13:                                         ; preds = %lor.lhs.false4, %if.then11, %land.lhs.true9, %if.end
@@ -969,7 +969,7 @@ if.then15:                                        ; preds = %if.end13
   %trace2_repo_id = getelementptr inbounds i8, ptr %repo, i64 268
   %4 = load i32, ptr %trace2_repo_id, align 4
   %conv16 = sext i32 %4 to i64
-  call void @jw_object_intmax(ptr noundef %jw, ptr noundef nonnull @.str.11, i64 noundef %conv16) #7
+  call void @jw_object_intmax(ptr noundef nonnull %jw, ptr noundef nonnull @.str.11, i64 noundef %conv16) #7
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then15, %if.end13

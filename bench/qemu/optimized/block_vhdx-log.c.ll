@@ -139,7 +139,7 @@ for.cond.i:                                       ; preds = %if.end44.i, %if.end
   %candidate.sroa.8.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.8.1.i, %if.end44.i ]
   %candidate.sroa.9.0.i = phi i32 [ 0, %if.end34 ], [ %candidate.sroa.9.1.i, %if.end44.i ]
   %candidate.sroa.11.0.i = phi i64 [ 0, %if.end34 ], [ %candidate.sroa.11.1.i, %if.end44.i ]
-  %call.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef 0, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
+  %call.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef %curr_log.i, i64 noundef 0, ptr noundef %seq_valid.i, ptr noundef %hdr.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %vhdx_log_search.exit.thread, label %if.end.i
 
@@ -155,7 +155,7 @@ if.then3.i:                                       ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %current.sroa.11.64.hdr10.sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(16) %hdr.i, i64 16, i1 false)
   %current.sroa.12.64.copyload.i = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %current.sroa.13.i, ptr noundef nonnull align 1 dereferenceable(40) %current.sroa.13.64.hdr.sroa_idx.i, i64 40, i1 false)
-  %call1239.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef 0, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
+  %call1239.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef %curr_log.i, i64 noundef 0, ptr noundef %seq_valid.i, ptr noundef %hdr.i)
   %cmp1340.i = icmp slt i32 %call1239.i, 0
   br i1 %cmp1340.i, label %vhdx_log_search.exit.thread, label %if.end16.i.preheader
 
@@ -176,7 +176,7 @@ if.end22.i:                                       ; preds = %if.end16.i.preheade
   %current.sroa.41.241.i33 = phi i32 [ %inc.i, %if.end16.i ], [ 1, %if.end16.i.preheader ]
   %16 = load i32, ptr %read.i, align 4
   %17 = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
-  %call12.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef %17, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
+  %call12.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef %curr_log.i, i64 noundef %17, ptr noundef %seq_valid.i, ptr noundef %hdr.i)
   %cmp13.i = icmp slt i32 %call12.i, 0
   br i1 %cmp13.i, label %vhdx_log_search.exit.thread, label %if.end16.i
 
@@ -281,7 +281,7 @@ if.then43:                                        ; preds = %if.then41
   br label %exit
 
 if.end46:                                         ; preds = %if.then41
-  %call47 = call fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef nonnull %s, ptr noundef nonnull %logs)
+  %call47 = call fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef nonnull %s, ptr noundef %logs)
   %cmp48 = icmp slt i32 %call47, 0
   br i1 %cmp48, label %exit, label %if.end51
 
@@ -308,7 +308,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef %logs) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef nonnull %logs) unnamed_addr #0 {
 entry:
   %guid.i = alloca %struct.MSGUID, align 1
   %desc_entries = alloca ptr, align 8
@@ -384,7 +384,7 @@ if.end10:                                         ; preds = %if.end5
   br i1 %cmp11, label %exit, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  %call16 = call fastcc i32 @vhdx_log_read_desc(ptr noundef nonnull %bs, ptr noundef %s, ptr noundef nonnull %log, ptr noundef nonnull %desc_entries, i1 noundef zeroext true)
+  %call16 = call fastcc i32 @vhdx_log_read_desc(ptr noundef nonnull %bs, ptr noundef %s, ptr noundef %log, ptr noundef %desc_entries, i1 noundef zeroext true)
   %cmp17 = icmp slt i32 %call16, 0
   %.pre.pre = load ptr, ptr %desc_entries, align 8
   br i1 %cmp17, label %exit, label %for.cond.preheader
@@ -593,7 +593,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp7, label %exit, label %if.end9
 
 if.end9:                                          ; preds = %if.end4
-  %call10 = call fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef nonnull %s, ptr noundef nonnull %logs)
+  %call10 = call fastcc i32 @vhdx_log_flush(ptr noundef %bs, ptr noundef nonnull %s, ptr noundef %logs)
   %cmp11 = icmp slt i32 %call10, 0
   br i1 %cmp11, label %exit, label %if.end13
 
@@ -932,7 +932,7 @@ exit:                                             ; preds = %if.then80, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef %log, i64 noundef %seq, ptr nocapture noundef writeonly %valid, ptr nocapture noundef writeonly %entry1) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, i64 noundef %seq, ptr nocapture noundef nonnull writeonly %valid, ptr nocapture noundef nonnull writeonly %entry1) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %desc_buffer = alloca ptr, align 8
@@ -1023,7 +1023,7 @@ if.end14:                                         ; preds = %if.end6
   %inc.i = zext i1 %tobool.not.i32 to i32
   %spec.select.i = add nuw nsw i32 %div4.i, %inc.i
   %12 = lshr i32 %7, 12
-  %call18 = call fastcc i32 @vhdx_log_read_desc(ptr noundef nonnull %bs, ptr noundef nonnull %s, ptr noundef nonnull %log, ptr noundef nonnull %desc_buffer, i1 noundef zeroext false)
+  %call18 = call fastcc i32 @vhdx_log_read_desc(ptr noundef nonnull %bs, ptr noundef nonnull %s, ptr noundef %log, ptr noundef %desc_buffer, i1 noundef zeroext false)
   %cmp19 = icmp slt i32 %call18, 0
   %.pre = load ptr, ptr %desc_buffer, align 8
   br i1 %cmp19, label %free_and_exit, label %if.end22
@@ -1109,7 +1109,7 @@ free_and_exit:                                    ; preds = %for.body, %vhdx_log
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_log_read_desc(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef %log, ptr nocapture noundef %buffer, i1 noundef zeroext %convert_endian) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_log_read_desc(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, ptr nocapture noundef nonnull %buffer, i1 noundef zeroext %convert_endian) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %desc = alloca %struct.VHDXLogDescriptor, align 4

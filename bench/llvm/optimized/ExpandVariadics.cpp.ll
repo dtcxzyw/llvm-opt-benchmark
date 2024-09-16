@@ -1312,7 +1312,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.i: ; preds = %383, %383, %
 
 387:                                              ; preds = %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.i
   %388 = load ptr, ptr %375, align 8
-  %389 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef nonnull %380, ptr noundef %388, ptr noundef nonnull %199)
+  %389 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef %380, ptr noundef %388, ptr noundef nonnull %199)
   %390 = or i1 %.04896.i, %389
   br label %_ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit.thread.i
 
@@ -1478,7 +1478,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit: ; preds = %.lr.ph
   br i1 %458, label %459, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread
 
 459:                                              ; preds = %453
-  %460 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef nonnull %450, ptr noundef nonnull %455, ptr noundef null)
+  %460 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef %450, ptr noundef nonnull %455, ptr noundef null)
   %461 = or i1 %.5104, %460
   br label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread
 
@@ -2464,7 +2464,7 @@ declare noundef zeroext i1 @_ZNK4llvm11GlobalValue13isDeclarationEv(ptr noundef 
 declare noundef zeroext i1 @_ZNK4llvm8CallBase14isIndirectCallEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115ExpandVariadics10expandCallERN4llvm6ModuleERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_8CallBaseEPNS1_12FunctionTypeEPNS1_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::optional.219", align 8
   %8 = alloca %"class.std::optional.219", align 8
   %9 = alloca %"class.std::optional.219", align 8

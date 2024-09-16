@@ -905,7 +905,7 @@ invoke.cont38:                                    ; preds = %if.end22
 invoke.cont41:                                    ; preds = %invoke.cont38
   %24 = load i32, ptr %flags, align 16
   %25 = load i64, ptr %width, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias nonnull align 8 %ref.tmp43, i32 noundef %24, i64 noundef %25)
+  invoke fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias align 8 %ref.tmp43, i32 noundef %24, i64 noundef %25)
           to label %invoke.cont46 unwind label %lpad24
 
 invoke.cont46:                                    ; preds = %invoke.cont41
@@ -1127,7 +1127,7 @@ declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noun
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absllsERSoNS_7uint128E(ptr noundef nonnull align 8 dereferenceable(8), i64, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias align 8 %agg.result, i32 noundef %flags, i64 noundef %width) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias nonnull align 8 %agg.result, i32 noundef %flags, i64 noundef %width) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %msg = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %and.i = and i32 %flags, 74
@@ -1623,7 +1623,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
           to label %invoke.cont65 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %msg)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %msg)
           to label %invoke.cont67 unwind label %lpad40.loopexit.split-lp
 
 invoke.cont67:                                    ; preds = %invoke.cont65
@@ -2511,7 +2511,7 @@ invoke.cont35:                                    ; preds = %if.end21
 invoke.cont38:                                    ; preds = %invoke.cont35
   %24 = load i32, ptr %flags, align 16
   %25 = load i64, ptr %width, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias nonnull align 8 %ref.tmp40, i32 noundef %24, i64 noundef %25)
+  invoke fastcc void @_ZN12_GLOBAL__N_120StreamFormatToStringB5cxx11ESt13_Ios_Fmtflagsl(ptr noalias align 8 %ref.tmp40, i32 noundef %24, i64 noundef %25)
           to label %invoke.cont43 unwind label %lpad34
 
 invoke.cont43:                                    ; preds = %invoke.cont38

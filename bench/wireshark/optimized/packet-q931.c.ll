@@ -2084,7 +2084,7 @@ define internal range(i32 0, 2) i32 @dissect_q931_tpkt_heur(ptr noundef %0, ptr 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_q931_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 408
@@ -2438,7 +2438,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_IEs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 19) %5, i32 noundef range(i32 0, 8) %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
   %11 = alloca %struct.e164_info_t, align 8
@@ -3525,7 +3525,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef byval(%struct.e164_info_t) align 8 %6, ptr noundef writeonly %7) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_number_ie(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, i32 noundef %5, ptr noundef byval(%struct.e164_info_t) align 8 %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
   br i1 %9, label %77, label %10
 
@@ -3655,7 +3655,7 @@ declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr nou
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @dissect_q931_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -5, 256) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #5
   %.not = icmp sgt i8 %8, -1
   br i1 %.not, label %9, label %32

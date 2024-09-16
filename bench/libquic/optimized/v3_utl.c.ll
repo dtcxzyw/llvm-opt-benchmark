@@ -1185,7 +1185,7 @@ for.cond.preheader:                               ; preds = %while.cond
 while.body:                                       ; preds = %while.cond
   %call1 = tail call ptr @X509_NAME_get_entry(ptr noundef %name, i32 noundef %call) #19
   %call2 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call1) #19
-  %call3 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %call2)
+  %call3 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %call2)
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %return, label %while.cond, !llvm.loop !13
 
@@ -1199,7 +1199,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end9:                                          ; preds = %for.body
   %d = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %d, align 8
-  %call10 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %1)
+  %call10 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %1)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %for.inc
 
@@ -1254,7 +1254,7 @@ if.then5:                                         ; preds = %for.body
 if.then7:                                         ; preds = %if.then5
   %d = getelementptr inbounds i8, ptr %1, i64 8
   %3 = load ptr, ptr %d, align 8
-  %call9 = call fastcc i32 @append_ia5(ptr noundef nonnull %ret, ptr noundef %3)
+  %call9 = call fastcc i32 @append_ia5(ptr noundef %ret, ptr noundef %3)
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %for.end.loopexit, label %for.inc
 
@@ -1285,7 +1285,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_ia5(ptr nocapture noundef %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_ia5(ptr nocapture noundef nonnull %sk, ptr nocapture noundef readonly %email) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %email, i64 4
   %0 = load i32, ptr %type, align 4
@@ -1396,7 +1396,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 2, ptr noundef %peername)
+  %call3 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 2, ptr noundef %peername)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end2
@@ -1408,7 +1408,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef %check_type, ptr noundef %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef range(i32 1, 8) %check_type, ptr noundef %peername) unnamed_addr #0 {
 entry:
   %astr.i = alloca ptr, align 8
   %and = and i32 %flags, -32769
@@ -1537,7 +1537,7 @@ if.end.i.us:                                      ; preds = %lor.lhs.false.i.us
 if.end35.i.us:                                    ; preds = %if.end.i.us
   %5 = load ptr, ptr %astr.i, align 8
   %conv36.i.us = zext nneg i32 %call31.i.us to i64
-  %call37.i.us = call i32 %equal.046(ptr noundef %5, i64 noundef %conv36.i.us, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags.addr.049) #19, !callees !17
+  %call37.i.us = call i32 %equal.046(ptr noundef %5, i64 noundef %conv36.i.us, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags.addr.049) #19, !callees !17
   %6 = load ptr, ptr %astr.i, align 8
   call void @free(ptr noundef %6) #19
   br label %do_check_string.exit.us
@@ -1580,7 +1580,7 @@ do_check_string.exit.thread:                      ; preds = %if.end.i, %if.end.i
 if.end35.i:                                       ; preds = %if.end.i
   %9 = load ptr, ptr %astr.i, align 8
   %conv36.i = zext nneg i32 %call31.i to i64
-  %call37.i = call i32 %equal.046(ptr noundef %9, i64 noundef %conv36.i, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags.addr.049) #19, !callees !17
+  %call37.i = call i32 %equal.046(ptr noundef %9, i64 noundef %conv36.i, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags.addr.049) #19, !callees !17
   %cmp38.i = icmp sgt i32 %call37.i, 0
   br i1 %cmp38.i, label %if.then42.i, label %if.end45.i
 
@@ -1618,7 +1618,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 1, ptr noundef null)
+  %call3 = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 1, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end2
@@ -1633,7 +1633,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 7, ptr noundef null)
+  %call = tail call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %chk, i64 noundef %chklen, i32 noundef %flags, i32 noundef 7, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1655,7 +1655,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %conv = zext nneg i32 %call to i64
-  %call6 = call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef nonnull %ipout, i64 noundef %conv, i32 noundef %flags, i32 noundef 7, ptr noundef null)
+  %call6 = call fastcc i32 @do_x509_check(ptr noundef %x, ptr noundef %ipout, i64 noundef %conv, i32 noundef %flags, i32 noundef 7, ptr noundef null)
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end4
@@ -2668,7 +2668,7 @@ return:                                           ; preds = %skip_prefix.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef %cmp_type, ptr nocapture noundef readonly %equal, i32 noundef %flags, ptr noundef %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
+define internal fastcc i32 @do_check_string(ptr noundef %a, i32 noundef range(i32 -1, 23) %cmp_type, ptr nocapture noundef readonly %equal, i32 noundef %flags, ptr noundef nonnull %b, i64 noundef %blen, ptr noundef writeonly %peername) unnamed_addr #0 {
 entry:
   %astr = alloca ptr, align 8
   %data = getelementptr inbounds i8, ptr %a, i64 8
@@ -2697,7 +2697,7 @@ if.end5:                                          ; preds = %if.then2
 
 if.then7:                                         ; preds = %if.end5
   %conv = sext i32 %1 to i64
-  %call = tail call i32 %equal(ptr noundef nonnull %0, i64 noundef %conv, ptr noundef %b, i64 noundef %blen, i32 noundef %flags) #19, !callees !17
+  %call = tail call i32 %equal(ptr noundef nonnull %0, i64 noundef %conv, ptr noundef nonnull %b, i64 noundef %blen, i32 noundef %flags) #19, !callees !17
   br label %if.end19
 
 if.else:                                          ; preds = %if.end5
@@ -2706,7 +2706,7 @@ if.else:                                          ; preds = %if.end5
   br i1 %cmp12, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.else
-  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr %b, i64 %blen)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull %b, i64 %blen)
   %tobool16.not = icmp eq i32 %bcmp, 0
   %spec.select = zext i1 %tobool16.not to i32
   br label %if.end19
@@ -2734,7 +2734,7 @@ if.else30:                                        ; preds = %if.end
 if.end35:                                         ; preds = %if.else30
   %5 = load ptr, ptr %astr, align 8
   %conv36 = zext nneg i32 %call31 to i64
-  %call37 = call i32 %equal(ptr noundef %5, i64 noundef %conv36, ptr noundef %b, i64 noundef %blen, i32 noundef %flags) #19, !callees !17
+  %call37 = call i32 %equal(ptr noundef %5, i64 noundef %conv36, ptr noundef nonnull %b, i64 noundef %blen, i32 noundef %flags) #19, !callees !17
   %cmp38 = icmp sgt i32 %call37, 0
   %tobool41 = icmp ne ptr %peername, null
   %or.cond1 = and i1 %tobool41, %cmp38
@@ -2808,7 +2808,7 @@ if.end12:                                         ; preds = %if.else, %if.then4
 
 if.else13:                                        ; preds = %if.end
   %cmp14 = icmp sgt i32 %len, 4
-  br i1 %cmp14, label %if.then15, label %while.cond.preheader.i
+  br i1 %cmp14, label %if.then15, label %if.else27
 
 if.then15:                                        ; preds = %if.else13
   %cmp17 = icmp sgt i32 %0, 12
@@ -2874,19 +2874,19 @@ if.end25:                                         ; preds = %if.end.i
   store i32 %add, ptr %total, align 4
   br label %return
 
-while.cond.preheader.i:                           ; preds = %if.else13
+if.else27:                                        ; preds = %if.else13
   %idx.ext31 = sext i32 %0 to i64
   %add.ptr32 = getelementptr inbounds i8, ptr %usr, i64 %idx.ext31
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.cond.preheader.i, %if.end35.i
-  %dec23.in.i = phi i32 [ %dec23.i, %if.end35.i ], [ %len, %while.cond.preheader.i ]
-  %num.022.i = phi i32 [ %num.1.i, %if.end35.i ], [ 0, %while.cond.preheader.i ]
-  %in.addr.021.i = phi ptr [ %incdec.ptr.i, %if.end35.i ], [ %elem, %while.cond.preheader.i ]
-  %dec23.i = add nsw i32 %dec23.in.i, -1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.021.i, i64 1
-  %12 = load i8, ptr %in.addr.021.i, align 1
-  %shl.i = shl i32 %num.022.i, 4
+while.body.i:                                     ; preds = %if.else27, %if.end35.i
+  %dec22.in.i = phi i32 [ %dec22.i, %if.end35.i ], [ %len, %if.else27 ]
+  %num.021.i = phi i32 [ %num.1.i, %if.end35.i ], [ 0, %if.else27 ]
+  %in.addr.020.i = phi ptr [ %incdec.ptr.i, %if.end35.i ], [ %elem, %if.else27 ]
+  %dec22.i = add nsw i32 %dec22.in.i, -1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %in.addr.020.i, i64 1
+  %12 = load i8, ptr %in.addr.020.i, align 1
+  %shl.i = shl i32 %num.021.i, 4
   %conv.i20 = zext i8 %12 to i32
   %13 = add i8 %12, -48
   %or.cond.i21 = icmp ult i8 %13, 10
@@ -2906,7 +2906,7 @@ if.end35.i:                                       ; preds = %if.else19.i, %if.el
   %.sink.i = phi i32 [ -48, %while.body.i ], [ -55, %if.else.i ], [ -87, %if.else19.i ]
   %add.i = add nsw i32 %.sink.i, %conv.i20
   %num.1.i = or i32 %add.i, %shl.i
-  %tobool.not.i = icmp eq i32 %dec23.i, 0
+  %tobool.not.i = icmp eq i32 %dec22.i, 0
   br i1 %tobool.not.i, label %if.end36, label %while.body.i, !llvm.loop !26
 
 if.end36:                                         ; preds = %if.end35.i

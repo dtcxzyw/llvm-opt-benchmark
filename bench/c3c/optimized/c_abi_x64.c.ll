@@ -473,7 +473,7 @@ define dso_local ptr @x64_classify_reg_call_struct_type_check(ptr noundef %0, pt
   br label %59
 
 x64_type_is_structure.exit:                       ; preds = %48
-  %58 = call fastcc ptr @x64_classify_argument_type(ptr noundef nonnull %55, i32 noundef -1, ptr noundef nonnull %3, i32 noundef 1)
+  %58 = call fastcc ptr @x64_classify_argument_type(ptr noundef nonnull %55, i32 noundef -1, ptr noundef %3, i32 noundef 1)
   br label %59
 
 59:                                               ; preds = %x64_type_is_structure.exit, %56
@@ -548,10 +548,10 @@ x64_indirect_return_result.exit:                  ; preds = %.critedge.i32, %82,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @x64_classify_argument_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
-  call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %3)
+  call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef %6, ptr noundef %5, i32 noundef %3)
   store i32 0, ptr %2, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
@@ -892,7 +892,7 @@ define dso_local void @x64_classify_struct_union(ptr noundef %0, i64 noundef %1,
 
 55:                                               ; preds = %46
   %56 = load ptr, ptr %47, align 8
-  call fastcc void @x64_classify(ptr noundef %56, i64 noundef %35, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %5)
+  call fastcc void @x64_classify(ptr noundef %56, i64 noundef %35, ptr noundef %7, ptr noundef %8, i32 noundef %5)
   %57 = load i32, ptr %3, align 4
   %58 = load i32, ptr %7, align 4
   %59 = icmp eq i32 %57, %58
@@ -1004,7 +1004,7 @@ x64_classify_post_merge.exit:                     ; preds = %52, %86, %85, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @x64_classify(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #1 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %6 = icmp ult i64 %1, 8
@@ -1232,7 +1232,7 @@ define dso_local void @x64_classify_array(ptr noundef %0, i64 noundef %1, ptr no
 .lr.ph:                                           ; preds = %32, %35
   %.053 = phi i32 [ %36, %35 ], [ 0, %32 ]
   %.03352 = phi i64 [ %39, %35 ], [ %1, %32 ]
-  call fastcc void @x64_classify(ptr noundef %12, i64 noundef %.03352, ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef %5)
+  call fastcc void @x64_classify(ptr noundef %12, i64 noundef %.03352, ptr noundef %7, ptr noundef %8, i32 noundef %5)
   %39 = add i64 %.03352, %14
   %40 = load i32, ptr %3, align 4
   %41 = load i32, ptr %7, align 4
@@ -1804,7 +1804,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 define dso_local ptr @x64_classify_return(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef 1)
+  call fastcc void @x64_classify(ptr noundef %0, i64 noundef 0, ptr noundef %3, ptr noundef %2, i32 noundef 1)
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %59 [
     i32 0, label %5
@@ -1982,7 +1982,7 @@ declare ptr @abi_arg_ignore() local_unnamed_addr #2
 declare ptr @abi_arg_new_direct_coerce_int_ext(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @x64_get_sse_type_at_offset(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc ptr @x64_get_sse_type_at_offset(ptr noundef %0, i32 noundef range(i32 0, 9) %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #1 {
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %4
@@ -2642,7 +2642,7 @@ define dso_local void @c_abi_func_create_x64(ptr noundef %0) local_unnamed_addr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %22 = tail call fastcc ptr @type_lowering(ptr noundef readonly %21)
-  %23 = call fastcc ptr @x64_classify_argument_type(ptr noundef %22, i32 noundef %spec.select, ptr noundef nonnull %4, i32 noundef 1)
+  %23 = call fastcc ptr @x64_classify_argument_type(ptr noundef %22, i32 noundef %spec.select, ptr noundef %4, i32 noundef 1)
   %24 = load i32, ptr %4, align 8
   %25 = icmp ugt i32 %24, 8
   br i1 %25, label %32, label %26
@@ -2701,7 +2701,7 @@ x64_classify_parameter.exit:                      ; preds = %try_use_registers.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
   %49 = tail call fastcc ptr @type_lowering(ptr noundef readonly %48)
-  %50 = call fastcc ptr @x64_classify_argument_type(ptr noundef %49, i32 noundef %.sroa.7.368, ptr noundef nonnull %3, i32 noundef 1)
+  %50 = call fastcc ptr @x64_classify_argument_type(ptr noundef %49, i32 noundef %.sroa.7.368, ptr noundef %3, i32 noundef 1)
   %51 = load i32, ptr %3, align 8
   %52 = icmp ult i32 %.sroa.0.269, %51
   br i1 %52, label %58, label %53
@@ -2767,7 +2767,7 @@ x64_classify_parameter.exit53:                    ; preds = %try_use_registers.e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store i64 0, ptr %2, align 8
   %77 = tail call fastcc ptr @type_lowering(ptr noundef readonly %76)
-  %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.471, ptr noundef nonnull %2, i32 noundef 0)
+  %78 = call fastcc ptr @x64_classify_argument_type(ptr noundef %77, i32 noundef %.sroa.7.471, ptr noundef %2, i32 noundef 0)
   %79 = load i32, ptr %2, align 8
   %80 = icmp ult i32 %.sroa.0.372, %79
   br i1 %80, label %86, label %81

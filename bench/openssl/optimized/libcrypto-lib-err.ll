@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_error_values(i32 noundef %g, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %func, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
+define internal fastcc i64 @get_error_values(i32 noundef range(i32 0, 3) %g, ptr noundef writeonly %file, ptr noundef writeonly %line, ptr noundef writeonly %func, ptr noundef writeonly %data, ptr noundef writeonly %flags) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ossl_err_get_state_int()
   %cmp = icmp eq ptr %call, null

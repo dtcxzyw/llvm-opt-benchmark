@@ -1545,7 +1545,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit108.i: ; preds = %701, %699
   %709 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #13
   store i32 0, ptr %37, align 8
   store i32 %693, ptr %1, align 8
-  %710 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %708, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %12)
+  %710 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %708, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %12)
   br label %_ZN4llvmL17decodeInstructionIjEENS_14MCDisassembler12DecodeStatusEPKhRNS_6MCInstET_mPKS1_RKNS_15MCSubtargetInfoE.exit
 
 711:                                              ; preds = %_ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread.i
@@ -1631,7 +1631,7 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i: ; preds = %741, %739
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %35, i64 noundef 6) #13
   store i32 %732, ptr %13, align 8
-  %757 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %752, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  %757 = call fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %.048.i, i32 noundef %752, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(128) %13, i64 noundef %5, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %14)
   %758 = load i8, ptr %14, align 1
   %759 = trunc i8 %758 to i1
   br i1 %759, label %760, label %762
@@ -2189,7 +2189,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) unnamed_addr #0 {
   store i8 1, ptr %6, align 1
   switch i32 %1, label %8 [
     i32 0, label %9
@@ -21588,7 +21588,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi4EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %.not = icmp ult i64 %1, 16
   br i1 %.not, label %3, label %16
 
@@ -22702,7 +22702,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi5EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %.not = icmp ult i64 %1, 32
   br i1 %.not, label %3, label %16
 
@@ -22740,7 +22740,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi6EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %.not = icmp ult i64 %1, 64
   br i1 %.not, label %3, label %16
 
@@ -23128,7 +23128,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi8EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %.not = icmp ult i64 %1, 256
   br i1 %.not, label %3, label %16
 
@@ -23206,7 +23206,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL10DecodeSImmILi9EEN4llvm14MCDisassembler12DecodeStatusERNS0_6MCInstEmmPKS1_(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %.not = icmp ult i64 %1, 512
   br i1 %.not, label %3, label %16
 
@@ -25488,7 +25488,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20DecodeAdrInstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL20DecodeAdrInstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = and i32 %1, 31
   %6 = lshr i32 %1, 3
   %7 = and i32 %6, 2097148
@@ -25558,7 +25558,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %29, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL20DecodeAddSubImmShiftRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL20DecodeAddSubImmShiftRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = and i32 %1, 31
   %6 = lshr i32 %1, 5
   %7 = and i32 %6, 31
@@ -26155,7 +26155,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit35: ; preds = %_ZN4llvm6MCInst10a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL18DecodePCRelLabel16RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL18DecodePCRelLabel16RN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp ugt i32 %1, 65536
   br i1 %5, label %23, label %6
 
@@ -26279,7 +26279,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %12, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19DecodeTestAndBranchRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL19DecodeTestAndBranchRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = and i32 %1, 31
   %6 = lshr i32 %1, 26
   %7 = and i32 %6, 32
@@ -26431,7 +26431,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %5, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL36DecodeSystemPStateImm0_15InstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL36DecodeSystemPStateImm0_15InstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::FeatureBitset", align 8
   %5 = alloca %"class.llvm::FeatureBitset", align 8
   %6 = lshr i32 %1, 16
@@ -27606,7 +27606,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit8: ; preds = %_ZN4llvm6MCInst10ad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL29DecodeUnsignedLdStInstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL29DecodeUnsignedLdStInstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = and i32 %1, 31
   %6 = lshr i32 %1, 5
   %7 = and i32 %6, 31
@@ -28352,7 +28352,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZL25DecodeSimpleRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL35DecodeSystemPStateImm0_1InstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL35DecodeSystemPStateImm0_1InstructionRN4llvm6MCInstEjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::FeatureBitset", align 8
   %5 = alloca %"class.llvm::FeatureBitset", align 8
   %6 = lshr i32 %1, 16
@@ -28476,7 +28476,7 @@ _ZNK4llvm8SysAlias12haveFeaturesENS_13FeatureBitsetE.exit: ; preds = %52
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZL35DecodeGPRSeqPairsClassRegisterClassRN4llvm6MCInstEjjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZL35DecodeGPRSeqPairsClassRegisterClassRN4llvm6MCInstEjjmPKNS_14MCDisassemblerE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef range(i32 33, 62) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %24

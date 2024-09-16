@@ -2682,8 +2682,8 @@ declare i32 @g_signal_handlers_unblock_matched(ptr noundef, i32 noundef, i32 nou
 declare void @dt_bauhaus_combobox_clear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_watermarks(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
-  %3 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef %0, ptr noundef nonnull @.str.100, ptr noundef null) #18
+define internal fastcc void @load_watermarks(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #1 {
+  %3 = tail call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, ptr noundef null) #18
   %4 = tail call ptr @g_dir_open(ptr noundef %3, i32 noundef 0, ptr noundef null) #18
   %5 = icmp eq ptr %4, null
   br i1 %5, label %16, label %6

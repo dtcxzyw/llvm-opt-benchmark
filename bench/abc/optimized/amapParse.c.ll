@@ -1652,8 +1652,8 @@ Vec_IntGrow.exit.i309:                            ; preds = %631, %629
   br label %667
 
 667:                                              ; preds = %665, %666
-  call fastcc void @Vec_PtrFreeP(ptr noundef nonnull %6)
-  call fastcc void @Vec_IntFreeP(ptr noundef nonnull %7)
+  call fastcc void @Vec_PtrFreeP(ptr noundef %6)
+  call fastcc void @Vec_IntFreeP(ptr noundef %7)
   br label %Vec_IntFreeP.exit320
 
 668:                                              ; preds = %661
@@ -1735,7 +1735,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -1766,7 +1766,7 @@ define internal fastcc void @Vec_PtrFreeP(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4

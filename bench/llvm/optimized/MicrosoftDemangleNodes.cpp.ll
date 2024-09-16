@@ -7813,7 +7813,7 @@ declare void @abort() local_unnamed_addr #6
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersES4_b(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 33) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = and i8 %2, %1
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %_ZL21outputSingleQualifierRN4llvm16itanium_demangle12OutputBufferENS_11ms_demangle10QualifiersE.exit, label %6

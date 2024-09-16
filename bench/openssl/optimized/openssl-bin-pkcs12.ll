@@ -1121,7 +1121,7 @@ if.end398:                                        ; preds = %if.end394
 
 if.end402:                                        ; preds = %if.end398
   %51 = load ptr, ptr %untrusted_certs, align 8
-  %call403 = call fastcc i32 @get_cert_chain(ptr noundef nonnull %ee_cert_tmp.0, ptr noundef nonnull %call399, ptr noundef %51, ptr noundef nonnull %chain2)
+  %call403 = call fastcc i32 @get_cert_chain(ptr noundef %ee_cert_tmp.0, ptr noundef %call399, ptr noundef %51, ptr noundef %chain2)
   call void @X509_STORE_free(ptr noundef nonnull %call399) #5
   switch i32 %call403, label %if.then414 [
     i32 0, label %if.then405
@@ -1595,7 +1595,7 @@ declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_cert_chain(ptr noundef %cert, ptr noundef %store, ptr noundef %untrusted_certs, ptr nocapture noundef writeonly %chain) unnamed_addr #0 {
+define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %cert, ptr noundef nonnull %store, ptr noundef %untrusted_certs, ptr nocapture noundef nonnull writeonly %chain) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #5
   %call1 = tail call ptr @app_get0_propq() #5
@@ -1604,7 +1604,7 @@ entry:
   br i1 %cmp, label %end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call3 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call2, ptr noundef %store, ptr noundef %cert, ptr noundef %untrusted_certs) #5
+  %call3 = tail call i32 @X509_STORE_CTX_init(ptr noundef nonnull %call2, ptr noundef nonnull %store, ptr noundef nonnull %cert, ptr noundef %untrusted_certs) #5
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %end, label %if.end5
 

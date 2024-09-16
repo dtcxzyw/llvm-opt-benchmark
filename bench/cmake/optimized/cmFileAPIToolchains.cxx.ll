@@ -280,7 +280,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 79:                                               ; preds = %78
   store i8 0, ptr %47, align 8, !noalias !13
-  invoke fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, ptr nonnull %4)
+  invoke fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17CompilerVariables, ptr %4)
           to label %.preheader44.i.i unwind label %152
 
 .preheader44.i.i:                                 ; preds = %79, %.preheader44.i.i
@@ -360,7 +360,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 99:                                               ; preds = %98
   store i8 1, ptr %59, align 8, !noalias !13
-  invoke fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, ptr nonnull %13)
+  invoke fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN12_GLOBAL__N_110Toolchains13DumpToolchainERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE25CompilerImplicitVariables, ptr %13)
           to label %.preheader.i.i unwind label %183
 
 .preheader.i.i:                                   ; preds = %99, %.preheader.i.i
@@ -939,7 +939,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #17

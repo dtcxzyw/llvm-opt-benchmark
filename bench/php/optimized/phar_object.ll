@@ -1357,7 +1357,7 @@ thread-pre-split:                                 ; preds = %173, %201
   br i1 %.not248, label %._crit_edge, label %225
 
 225:                                              ; preds = %thread-pre-split
-  call fastcc void @phar_postprocess_ru_web(ptr noundef nonnull %62, i64 noundef %64, ptr %.val, ptr noundef nonnull %18, ptr noundef nonnull %10, ptr noundef nonnull %13)
+  call fastcc void @phar_postprocess_ru_web(ptr noundef nonnull %62, i64 noundef %64, ptr %.val, ptr noundef %18, ptr noundef %10, ptr noundef %13)
   %.pre = load i64, ptr %18, align 8
   switch i64 %.pre, label %288 [
     i64 0, label %._crit_edge
@@ -1597,7 +1597,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %.pr266 = load ptr, ptr %15, align 8
   %.not255 = icmp eq ptr %.pr266, null
   call void @llvm.assume(i1 %.not255)
-  %339 = call fastcc i32 @phar_file_type(ptr noundef %293, ptr noundef nonnull %15)
+  %339 = call fastcc i32 @phar_file_type(ptr noundef %293, ptr noundef %15)
   %.pre282 = load ptr, ptr %15, align 8
   br label %.thread
 
@@ -1606,7 +1606,7 @@ thread-pre-split:                                 ; preds = %173, %201
   %.1203 = phi i32 [ %339, %338 ], [ %318, %317 ], [ 2, %327 ]
   %341 = load ptr, ptr %19, align 8
   %342 = load i64, ptr %13, align 8
-  call fastcc void @phar_file_action(ptr noundef %341, ptr noundef nonnull %294, ptr noundef %340, i32 noundef %.1203, ptr noundef %293, i64 noundef %.pre, ptr noundef nonnull %62, ptr noundef %.1200, i64 noundef %342)
+  call fastcc void @phar_file_action(ptr noundef %341, ptr noundef %294, ptr noundef %340, i32 noundef %.1203, ptr noundef %293, i64 noundef %.pre, ptr noundef nonnull %62, ptr noundef %.1200, i64 noundef %342)
   br label %343
 
 343:                                              ; preds = %.critedge.thread, %84, %88, %91, %59, %42, %57, %36, %38, %.thread, %335, %324, %221, %137, %29
@@ -1677,7 +1677,7 @@ declare void @_zend_bailout(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @phar_postprocess_ru_web(ptr noundef %0, i64 noundef %1, ptr %.0.val, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %.0.val, i64 1
   %7 = load i64, ptr %2, align 8
   %8 = add i64 %7, -1
@@ -1784,7 +1784,7 @@ define internal fastcc void @phar_do_404(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %11, label %10
 
 10:                                               ; preds = %8
-  tail call fastcc void @phar_file_action(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.202, i32 noundef 0, ptr noundef %2, i64 noundef %3, ptr noundef %1, ptr noundef null, i64 noundef 0)
+  tail call fastcc void @phar_file_action(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull @.str.202, i32 noundef 0, ptr noundef %2, i64 noundef %3, ptr noundef %1, ptr noundef null, i64 noundef 0)
   br label %18
 
 11:                                               ; preds = %8, %4
@@ -1808,7 +1808,7 @@ declare i32 @sapi_header_op(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @sapi_send_headers() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #21
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -1843,7 +1843,7 @@ define internal fastcc range(i32 -128, 128) i32 @phar_file_type(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc void @phar_file_action(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct._zval_struct, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [8192 x i8], align 16
@@ -5010,7 +5010,7 @@ define hidden void @zim_Phar_convertToExecutable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @phar_convert_to_other(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @phar_convert_to_other(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 15728641) %3) unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
@@ -10335,7 +10335,7 @@ define hidden void @zim_Phar_setMetadata(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @serialize_metadata_or_throw(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @serialize_metadata_or_throw(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -10850,7 +10850,7 @@ thread-pre-split:                                 ; preds = %19
   %139 = load ptr, ptr %.0194, align 8
   %140 = load i8, ptr %6, align 1
   %141 = trunc i8 %140 to i1
-  %142 = call fastcc i32 @extract_helper(ptr noundef %138, ptr noundef %139, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %141, ptr noundef nonnull %7)
+  %142 = call fastcc i32 @extract_helper(ptr noundef %138, ptr noundef %139, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %141, ptr noundef %7)
   switch i32 %142, label %161 [
     i32 -1, label %143
     i32 0, label %152
@@ -10897,7 +10897,7 @@ thread-pre-split:                                 ; preds = %19
   %167 = load ptr, ptr %5, align 8
   %168 = load i8, ptr %6, align 1
   %169 = trunc i8 %168 to i1
-  %170 = call fastcc i32 @extract_helper(ptr noundef %166, ptr noundef %167, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %169, ptr noundef nonnull %7)
+  %170 = call fastcc i32 @extract_helper(ptr noundef %166, ptr noundef %167, ptr noundef nonnull %30, i64 noundef %29, i1 noundef zeroext %169, ptr noundef %7)
   %171 = icmp eq i32 %170, -1
   br i1 %171, label %172, label %179
 
@@ -10938,7 +10938,7 @@ thread-pre-split:                                 ; preds = %19
 declare i32 @_php_stream_mkdir(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @extract_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 4096) %3, i1 noundef zeroext %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %28
 
@@ -14079,7 +14079,7 @@ declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 nounde
 declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 4096) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._php_stream_statbuf, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct._cwd_state, align 8
@@ -14133,13 +14133,13 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 36:                                               ; preds = %33
   %37 = load ptr, ptr %23, align 8
   %38 = call noalias ptr @_estrndup(ptr noundef %37, i64 noundef 50) #19
-  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.273, ptr noundef %38, ptr noundef %2) #19
+  %39 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.273, ptr noundef %38, ptr noundef %2) #19
   call void @_efree(ptr noundef %38) #19
   br label %43
 
 40:                                               ; preds = %33, %29
   %41 = load ptr, ptr %23, align 8
-  %42 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.274, ptr noundef %41) #19
+  %42 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.274, ptr noundef %41) #19
   br label %43
 
 43:                                               ; preds = %40, %36
@@ -14167,12 +14167,12 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 57:                                               ; preds = %51
   %58 = call noalias ptr @_estrndup(ptr noundef %56, i64 noundef 50) #19
   %59 = load ptr, ptr %7, align 8
-  %60 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.273, ptr noundef %58, ptr noundef %59) #19
+  %60 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.273, ptr noundef %58, ptr noundef %59) #19
   call void @_efree(ptr noundef %58) #19
   br label %63
 
 61:                                               ; preds = %51
-  %62 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.276, ptr noundef %56, ptr noundef nonnull %52) #19
+  %62 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.276, ptr noundef %56, ptr noundef nonnull %52) #19
   br label %63
 
 63:                                               ; preds = %61, %57
@@ -14188,7 +14188,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 
 67:                                               ; preds = %66
   %68 = load ptr, ptr %23, align 8
-  %69 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.274, ptr noundef %68) #19
+  %69 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.274, ptr noundef %68) #19
   %70 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %70) #19
   %71 = load ptr, ptr %8, align 8
@@ -14204,7 +14204,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 75:                                               ; preds = %72
   %76 = load ptr, ptr %23, align 8
   %77 = load ptr, ptr %7, align 8
-  %78 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.277, ptr noundef %76, ptr noundef %77) #19
+  %78 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.277, ptr noundef %76, ptr noundef %77) #19
   %79 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %79) #19
   %80 = load ptr, ptr %8, align 8
@@ -14223,7 +14223,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 86:                                               ; preds = %82
   %87 = load ptr, ptr %23, align 8
   %88 = load ptr, ptr %7, align 8
-  %89 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.278, ptr noundef %87, ptr noundef %88) #19
+  %89 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.278, ptr noundef %87, ptr noundef %88) #19
   %90 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %90) #19
   %91 = load ptr, ptr %8, align 8
@@ -14266,7 +14266,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 114:                                              ; preds = %109
   %115 = load ptr, ptr %23, align 8
   %116 = load ptr, ptr %7, align 8
-  %117 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.279, ptr noundef %115, ptr noundef %116) #19
+  %117 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.279, ptr noundef %115, ptr noundef %116) #19
   %118 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %118) #19
   %119 = load ptr, ptr %8, align 8
@@ -14281,7 +14281,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 122:                                              ; preds = %120
   %123 = load ptr, ptr %23, align 8
   %124 = load ptr, ptr %7, align 8
-  %125 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.279, ptr noundef %123, ptr noundef %124) #19
+  %125 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.279, ptr noundef %123, ptr noundef %124) #19
   %126 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %126) #19
   %127 = load ptr, ptr %8, align 8
@@ -14319,7 +14319,7 @@ define internal fastcc range(i32 -1, 1) i32 @phar_extract_file(i1 noundef zeroex
 144:                                              ; preds = %142
   %145 = load ptr, ptr %23, align 8
   %146 = load ptr, ptr %7, align 8
-  %147 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.280, ptr noundef %145, ptr noundef %146) #19
+  %147 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.280, ptr noundef %145, ptr noundef %146) #19
   %148 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %148) #19
   br label %219
@@ -14368,7 +14368,7 @@ phar_get_fp_type.exit:                            ; preds = %152, %154
   br i1 %.not100, label %174, label %184
 
 174:                                              ; preds = %172, %168
-  %175 = call i32 @phar_open_entry_fp(ptr noundef nonnull %1, ptr noundef %4, i32 noundef 1) #19
+  %175 = call i32 @phar_open_entry_fp(ptr noundef nonnull %1, ptr noundef nonnull %4, i32 noundef 1) #19
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %177, label %184
 
@@ -14390,7 +14390,7 @@ phar_get_fp_type.exit:                            ; preds = %152, %154
 187:                                              ; preds = %184
   %188 = load ptr, ptr %23, align 8
   %189 = load ptr, ptr %7, align 8
-  %190 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.283, ptr noundef %188, ptr noundef %189) #19
+  %190 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.283, ptr noundef %188, ptr noundef %189) #19
   %191 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %191) #19
   %192 = call i32 @_php_stream_free(ptr noundef nonnull %143, i32 noundef 3) #19
@@ -14407,7 +14407,7 @@ phar_get_fp_type.exit:                            ; preds = %152, %154
 198:                                              ; preds = %193
   %199 = load ptr, ptr %23, align 8
   %200 = load ptr, ptr %7, align 8
-  %201 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.284, ptr noundef %199, ptr noundef %200) #19
+  %201 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.284, ptr noundef %199, ptr noundef %200) #19
   %202 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %202) #19
   %203 = call i32 @_php_stream_free(ptr noundef nonnull %143, i32 noundef 3) #19
@@ -14426,7 +14426,7 @@ phar_get_fp_type.exit:                            ; preds = %152, %154
 212:                                              ; preds = %204
   %213 = load ptr, ptr %23, align 8
   %214 = load ptr, ptr %7, align 8
-  %215 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %4, i64 noundef 4096, ptr noundef nonnull @.str.285, ptr noundef %213, ptr noundef %214) #19
+  %215 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %4, i64 noundef 4096, ptr noundef nonnull @.str.285, ptr noundef %213, ptr noundef %214) #19
   %216 = load ptr, ptr %7, align 8
   call void @_efree(ptr noundef %216) #19
   br label %219

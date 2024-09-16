@@ -447,7 +447,7 @@ define internal noundef i32 @irqpoll_setup(ptr nocapture readnone %0) #4 section
 declare dso_local ptr @irq_to_desc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   tail call void @_raw_spin_lock(ptr noundef %3) #6
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -497,7 +497,7 @@ define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef %0, i1 nound
 
 33:                                               ; preds = %33, %31
   %34 = phi i32 [ 0, %31 ], [ %37, %33 ]
-  %35 = tail call i32 @handle_irq_event(ptr noundef %0) #6
+  %35 = tail call i32 @handle_irq_event(ptr noundef nonnull %0) #6
   %36 = icmp eq i32 %35, 1
   %37 = select i1 %36, i32 1, i32 %34
   %38 = load ptr, ptr %16, align 16
@@ -605,7 +605,7 @@ define internal void @poll_spurious_irqs(ptr nocapture readnone %0) #0 align 16 
   br label %45
 
 45:                                               ; preds = %45, %43
-  %46 = tail call i32 @handle_irq_event(ptr noundef %9) #6
+  %46 = tail call i32 @handle_irq_event(ptr noundef nonnull %9) #6
   %47 = load ptr, ptr %29, align 16
   %48 = load i32, ptr %15, align 4
   %49 = and i32 %48, 512

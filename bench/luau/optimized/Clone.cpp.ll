@@ -4074,7 +4074,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
 24:                                               ; preds = %_ZN4Luau8PropertyD2Ev.exit.i.i, %.lr.ph.i.i
   %.sroa.031.037.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %39, %_ZN4Luau8PropertyD2Ev.exit.i.i ]
   %25 = getelementptr inbounds i8, ptr %.sroa.031.037.i.i, i64 64
-  call fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef nonnull align 8 dereferenceable(176) %25)
+  call fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef nonnull align 8 dereferenceable(176) %25)
   %26 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4Luau8PropertyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(176) %25, ptr noundef nonnull align 8 dereferenceable(176) %3) #19
   %27 = load i8, ptr %18, align 8
   %28 = trunc i8 %27 to i1
@@ -4196,7 +4196,7 @@ define internal void @_ZN4LuauL8fnVisitVIZNS_12_GLOBAL__N_110TypeCloner13cloneCh
 13:                                               ; preds = %_ZN4Luau8PropertyD2Ev.exit.i.i, %.lr.ph.i.i
   %.sroa.024.028.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %28, %_ZN4Luau8PropertyD2Ev.exit.i.i ]
   %14 = getelementptr inbounds i8, ptr %.sroa.024.028.i.i, i64 64
-  call fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef nonnull align 8 dereferenceable(176) %14)
+  call fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(60) %.val, ptr noundef nonnull align 8 dereferenceable(176) %14)
   %15 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4Luau8PropertyaSEOS0_(ptr noundef nonnull align 8 dereferenceable(176) %14, ptr noundef nonnull align 8 dereferenceable(176) %3) #19
   %16 = load i8, ptr %7, align 8
   %17 = trunc i8 %16 to i1
@@ -8436,7 +8436,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(176) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERKNS_8PropertyE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(176) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::optional.107", align 8
   %5 = load i8, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %6 = trunc i8 %5 to i1
@@ -8471,7 +8471,7 @@ define internal fastcc void @_ZN4Luau12_GLOBAL__N_110TypeCloner12shallowCloneERK
 17:                                               ; preds = %14, %12
   %.sroa.029.0 = phi ptr [ %16, %14 ], [ undef, %12 ]
   %.sroa.230.0 = phi i8 [ 1, %14 ], [ 0, %12 ]
-  tail call void @_ZN4Luau8Property6createESt8optionalIPKNS_4TypeEES5_(ptr dead_on_unwind writable sret(%"struct.Luau::Property") align 8 %0, ptr %.sroa.038.0, i8 %.sroa.239.0, ptr %.sroa.029.0, i8 %.sroa.230.0)
+  tail call void @_ZN4Luau8Property6createESt8optionalIPKNS_4TypeEES5_(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::Property") align 8 %0, ptr %.sroa.038.0, i8 %.sroa.239.0, ptr %.sroa.029.0, i8 %.sroa.230.0)
   %18 = load i8, ptr %2, align 8
   %19 = and i8 %18, 1
   store i8 %19, ptr %0, align 8

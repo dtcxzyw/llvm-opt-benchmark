@@ -820,7 +820,7 @@ epoll_head_from_fd.exit:                          ; preds = %16
   br i1 %or.cond, label %._crit_edge, label %65
 
 65:                                               ; preds = %61
-  %66 = call fastcc i32 @epoll_teardown(ptr noundef nonnull %21, ptr noundef %1, i32 noundef %2)
+  %66 = call fastcc i32 @epoll_teardown(ptr noundef %21, ptr noundef %1, i32 noundef %2)
   %67 = icmp eq i32 %66, 0
   %68 = icmp sgt i32 %.024, -1
   %or.cond3 = select i1 %67, i1 %68, i1 false
@@ -896,7 +896,7 @@ declare i32 @nxsem_tickwait(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @nxsem_wait(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @epoll_teardown(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call i32 @nxmutex_lock(ptr noundef nonnull %4) #9
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1078,7 +1078,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   br i1 %45, label %.thread.us, label %.lr.ph.split
 
 .thread.us:                                       ; preds = %.lr.ph
-  %52 = call fastcc i32 @epoll_teardown(ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2)
+  %52 = call fastcc i32 @epoll_teardown(ptr noundef %19, ptr noundef %1, i32 noundef %2)
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %epoll_setup.exit38
@@ -1100,7 +1100,7 @@ epoll_head_from_fd.exit:                          ; preds = %14
   br i1 %or.cond, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %57
-  %60 = call fastcc i32 @epoll_teardown(ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2)
+  %60 = call fastcc i32 @epoll_teardown(ptr noundef %19, ptr noundef %1, i32 noundef %2)
   %61 = icmp eq i32 %60, 0
   %62 = icmp sgt i32 %.023, -1
   %or.cond3 = and i1 %62, %61

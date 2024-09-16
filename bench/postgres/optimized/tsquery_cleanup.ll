@@ -35,7 +35,7 @@ define dso_local ptr @clean_NOT(ptr noundef %0, ptr nocapture noundef writeonly 
 12:                                               ; preds = %8
   %13 = tail call ptr @palloc(i64 noundef 192) #7
   store ptr %13, ptr %3, align 8
-  call fastcc void @plainnode(ptr noundef nonnull %3, ptr noundef nonnull %5)
+  call fastcc void @plainnode(ptr noundef %3, ptr noundef nonnull %5)
   %.pre.i = load i32, ptr %6, align 4
   %.pre6.i = load ptr, ptr %3, align 8
   br label %plaintree.exit
@@ -173,7 +173,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %0, i64 8
   %11 = tail call fastcc ptr @maketree(ptr noundef %10)
-  %12 = call fastcc ptr @clean_stopword_intree(ptr noundef %11, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %12 = call fastcc ptr @clean_stopword_intree(ptr noundef %11, ptr noundef %4, ptr noundef %5)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %22
 
@@ -213,7 +213,7 @@ define dso_local noundef ptr @cleanup_tsquery_stopwords(ptr noundef %0, i1 nound
 29:                                               ; preds = %22
   %30 = tail call ptr @palloc(i64 noundef 192) #7
   store ptr %30, ptr %3, align 8
-  call fastcc void @plainnode(ptr noundef nonnull %3, ptr noundef nonnull %12)
+  call fastcc void @plainnode(ptr noundef %3, ptr noundef nonnull %12)
   %.pre.i = load i32, ptr %24, align 4
   %.pre6.i = load ptr, ptr %3, align 8
   br label %plaintree.exit
@@ -302,7 +302,7 @@ plaintree.exit:                                   ; preds = %22, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -331,7 +331,7 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call fastcc ptr @clean_stopword_intree(ptr noundef %18, ptr noundef nonnull %1, ptr noundef nonnull %2)
+  %19 = tail call fastcc ptr @clean_stopword_intree(ptr noundef %18, ptr noundef %1, ptr noundef %2)
   store ptr %19, ptr %17, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %79
@@ -342,11 +342,11 @@ define internal fastcc ptr @clean_stopword_intree(ptr noundef %0, ptr nocapture 
 
 21:                                               ; preds = %12
   %22 = load ptr, ptr %0, align 8
-  %23 = call fastcc ptr @clean_stopword_intree(ptr noundef %22, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %23 = call fastcc ptr @clean_stopword_intree(ptr noundef %22, ptr noundef %4, ptr noundef %5)
   store ptr %23, ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = call fastcc ptr @clean_stopword_intree(ptr noundef %25, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %26 = call fastcc ptr @clean_stopword_intree(ptr noundef %25, ptr noundef %6, ptr noundef %7)
   store ptr %26, ptr %24, align 8
   %27 = load ptr, ptr %8, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 1
@@ -513,7 +513,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plainnode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   tail call void @check_stack_depth() #7
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
@@ -569,7 +569,7 @@ define internal fastcc void @plainnode(ptr noundef %0, ptr noundef %1) unnamed_a
   store i32 %36, ptr %3, align 4
   %37 = getelementptr inbounds i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
-  tail call fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %38)
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %38)
   br label %50
 
 39:                                               ; preds = %26
@@ -578,7 +578,7 @@ define internal fastcc void @plainnode(ptr noundef %0, ptr noundef %1) unnamed_a
   store i32 %41, ptr %3, align 4
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
-  tail call fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %43)
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %43)
   %44 = load i32, ptr %3, align 4
   %45 = sub i32 %44, %40
   %46 = load ptr, ptr %0, align 8
@@ -586,7 +586,7 @@ define internal fastcc void @plainnode(ptr noundef %0, ptr noundef %1) unnamed_a
   %48 = getelementptr %union.QueryItem, ptr %46, i64 %47, i32 0, i32 3
   store i32 %45, ptr %48, align 4
   %49 = load ptr, ptr %1, align 8
-  tail call fastcc void @plainnode(ptr noundef nonnull %0, ptr noundef %49)
+  tail call fastcc void @plainnode(ptr noundef %0, ptr noundef %49)
   br label %50
 
 50:                                               ; preds = %30, %39, %23

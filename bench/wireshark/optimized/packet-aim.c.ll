@@ -2980,7 +2980,7 @@ dissect_aim_tlv_list.exit:                        ; preds = %.lr.ph.i, %4
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @aim_get_message(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @aim_get_message(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef range(i32 36, 296) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %3, 999
   br i1 %5, label %.loopexit, label %6
 
@@ -3036,7 +3036,7 @@ define internal fastcc void @aim_get_message(ptr nocapture noundef writeonly %0,
 
 25:                                               ; preds = %23, %20
   %.1 = phi i32 [ %24, %23 ], [ %.0118138, %20 ]
-  %26 = add i32 %.0117139, 1
+  %26 = add nuw i32 %.0117139, 1
   %27 = add nsw i32 %.0140, -1
   %28 = icmp slt i32 %.1, 6
   %29 = icmp sgt i32 %.0140, 6

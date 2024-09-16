@@ -240,7 +240,7 @@ if.then48:                                        ; preds = %if.end44
   br label %err
 
 if.end49:                                         ; preds = %if.end44
-  %call50 = tail call fastcc i32 @digest_to_bn(ptr noundef nonnull %call10, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %call21)
+  %call50 = tail call fastcc i32 @digest_to_bn(ptr noundef %call10, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %call21)
   %tobool51.not = icmp eq i32 %call50, 0
   br i1 %tobool51.not, label %err, label %if.end53
 
@@ -626,7 +626,7 @@ declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @BN_mod_inverse(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @digest_to_bn(ptr noundef %out, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %order) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @digest_to_bn(ptr noundef nonnull %out, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %order) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_num_bits(ptr noundef %order) #4
   %conv = zext i32 %call to i64
@@ -635,7 +635,7 @@ entry:
   %add = add nuw nsw i64 %conv, 7
   %div8 = lshr i64 %add, 3
   %digest_len.addr.0 = select i1 %cmp, i64 %div8, i64 %digest_len
-  %call2 = tail call ptr @BN_bin2bn(ptr noundef %digest, i64 noundef %digest_len.addr.0, ptr noundef %out) #4
+  %call2 = tail call ptr @BN_bin2bn(ptr noundef %digest, i64 noundef %digest_len.addr.0, ptr noundef nonnull %out) #4
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return.sink.split, label %if.end4
 
@@ -647,7 +647,7 @@ if.end4:                                          ; preds = %entry
 land.lhs.true:                                    ; preds = %if.end4
   %and = and i32 %call, 7
   %sub = sub nuw nsw i32 8, %and
-  %call9 = tail call i32 @BN_rshift(ptr noundef %out, ptr noundef %out, i32 noundef %sub) #4
+  %call9 = tail call i32 @BN_rshift(ptr noundef nonnull %out, ptr noundef nonnull %out, i32 noundef %sub) #4
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %return.sink.split, label %return
 

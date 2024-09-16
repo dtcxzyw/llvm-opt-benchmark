@@ -141,7 +141,7 @@ declare dso_local i32 @ethnl_ops_begin(ptr noundef) local_unnamed_addr #3
 declare dso_local void @ethnl_ops_complete(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ethnl_cable_test_started(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ethnl_cable_test_started(ptr noundef %0, i8 noundef zeroext range(i8 27, 29) %1) unnamed_addr #0 align 16 {
   %3 = alloca i8, align 1
   %4 = tail call ptr @__alloc_skb(i32 noundef 3796, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #5
   %5 = icmp eq ptr %4, null

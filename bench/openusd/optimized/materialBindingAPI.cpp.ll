@@ -1350,7 +1350,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %8 unwind label %50
 
 8:                                                ; preds = %3
@@ -1465,7 +1465,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit6: ; preds = %57, %52, %50
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim15GetRelationshipERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14UsdShadeTokensE seq_cst, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -1748,7 +1748,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %9 unwind label %51
 
 9:                                                ; preds = %4
@@ -1861,7 +1861,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit7: ; preds = %58, %53, %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2417,7 +2417,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i: ; preds = %16,
 
 _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i, %34, %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %45 unwind label %96
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipC2ERKS0_.exit
@@ -2602,7 +2602,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %103, %98, %96
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.214", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__11UsdProperty9SplitNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.214") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3424,7 +3424,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %12)
   store ptr null, ptr %7, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %13 unwind label %151
 
 13:                                               ; preds = %3
@@ -3571,7 +3571,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %_ZN32pxrInter
           to label %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.exit unwind label %169
 
 _ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.exit: ; preds = %86
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_GetMaterialPurposeERKNS_15UsdRelationshipE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %90 unwind label %171
 
 90:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9UsdObject2AsINS_15UsdRelationshipEEET_v.exit
@@ -6391,7 +6391,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %8 unwind label %50
 
 8:                                                ; preds = %3
@@ -6509,7 +6509,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim18CreateRelationship
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI27_CreateCollectionBindingRelERKNS_7TfTokenES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
@@ -7778,7 +7778,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMater
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %9 unwind label %133
 
 9:                                                ; preds = %2
@@ -8092,7 +8092,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMater
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %10 unwind label %134
 
 10:                                               ; preds = %3
@@ -10027,7 +10027,7 @@ _ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEEED2Ev.exit: ; pr
   unreachable
 
 57:                                               ; preds = %_ZNSt8functionIFbRKN32pxrInternal_v0_24__pxrReserved__7TfTokenEEED2Ev.exit
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %58 unwind label %167
 
 58:                                               ; preds = %57
@@ -10379,7 +10379,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShade
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55: ; preds = %211, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i51, %201
   %214 = phi ptr [ %203, %201 ], [ %213, %211 ], [ %205, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i51 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %214)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L24_GetDirectBindingRelNameERKNS_7TfTokenE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %214)
           to label %215 unwind label %169
 
 215:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit55
@@ -10723,7 +10723,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_
   br i1 %.not182, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit, label %369
 
 369:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit103
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %370 unwind label %169
 
 370:                                              ; preds = %369
@@ -10905,7 +10905,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShade
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit120: ; preds = %433, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i116, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit
   %436 = phi ptr [ %425, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit ], [ %435, %433 ], [ %427, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_18UsdShadeTokensTypeEE3NewEv.exit.i.i.i116 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %436)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %436)
           to label %437 unwind label %169
 
 437:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_18UsdShadeTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit120
@@ -11335,11 +11335,11 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim24GetAuthoredPropert
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L34_GetCollectionBindingPropertyNamesERKSt6vectorINS_7TfTokenESaIS1_EERKS1_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   store ptr null, ptr %5, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L28_GetCollectionBindingRelNameERKNS_7TfTokenES2_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %6 unwind label %127
 
 6:                                                ; preds = %3

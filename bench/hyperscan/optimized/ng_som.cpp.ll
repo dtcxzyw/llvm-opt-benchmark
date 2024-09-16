@@ -2291,7 +2291,7 @@ invoke.cont128.invoke:                            ; preds = %if.then127.invoke
 
 do.end134:                                        ; preds = %while.body.i, %do.end76, %land.rhs
   %agg.tmp142.sroa.0.0.copyload = phi ptr [ %call66, %do.end76 ], [ %picked.val99, %land.rhs ], [ %picked.val99, %while.body.i ]
-  invoke fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias nonnull align 8 %ref.tmp135, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr noundef nonnull %depths, i1 noundef zeroext %cmp.i167, ptr noundef nonnull align 8 dereferenceable(505) %rm1)
+  invoke fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias align 8 %ref.tmp135, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr noundef %depths, i1 noundef zeroext %cmp.i167, ptr noundef nonnull align 8 dereferenceable(505) %rm1)
           to label %invoke.cont137 unwind label %lpad21
 
 invoke.cont137:                                   ; preds = %do.end134
@@ -2313,7 +2313,7 @@ _ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i: ; preds = %invoke.cont139
 invoke.cont141:                                   ; preds = %_ZNKSt14default_deleteIN3ue28NGHolderEEclEPS1_.exit.i, %invoke.cont139
   store ptr null, ptr %ref.tmp135, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %escapes, i8 0, i64 32, i1 false)
-  %call145 = call fastcc noundef zeroext i1 @_ZN3ue2L14isPossibleLockERKNS_8NGHolderESt23_Rb_tree_const_iteratorISt4pairIKjNS_12_GLOBAL__N_111region_infoEEERKSt3mapIjS7_St4lessIjESaIS8_EEPNS_9CharReachE(ptr %agg.tmp142.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull %escapes)
+  %call145 = call fastcc noundef zeroext i1 @_ZN3ue2L14isPossibleLockERKNS_8NGHolderESt23_Rb_tree_const_iteratorISt4pairIKjNS_12_GLOBAL__N_111region_infoEEERKSt3mapIjS7_St4lessIjESaIS8_EEPNS_9CharReachE(ptr %agg.tmp142.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef %escapes)
   br i1 %call145, label %do.end150, label %if.end198
 
 do.end150:                                        ; preds = %invoke.cont141
@@ -2321,7 +2321,7 @@ do.end150:                                        ; preds = %invoke.cont141
           to label %invoke.cont151 unwind label %lpad140
 
 invoke.cont151:                                   ; preds = %do.end150
-  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull %gg, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %agg.tmp142.sroa.0.0.copyload)
+  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef %gg, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %agg.tmp142.sroa.0.0.copyload)
           to label %invoke.cont155 unwind label %lpad154
 
 invoke.cont155:                                   ; preds = %invoke.cont151
@@ -2739,7 +2739,7 @@ if.then.i.i.i232:                                 ; preds = %_ZNSt6vectorIN3ue21
   br label %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit233
 
 _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit233: ; preds = %invoke.cont236, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EEaSEOS3_.exit230, %if.then.i.i.i232
-  invoke fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias nonnull align 8 %ref.tmp238, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr noundef nonnull %depths, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(505) %rm1)
+  invoke fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias align 8 %ref.tmp238, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr noundef %depths, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(505) %rm1)
           to label %invoke.cont240 unwind label %lpad200.loopexit
 
 invoke.cont240:                                   ; preds = %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EED2Ev.exit233
@@ -4882,7 +4882,7 @@ land.rhs:                                         ; preds = %if.end.i, %if.end11
 invoke.cont133:                                   ; preds = %while.body.i, %land.rhs
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %22) #28
   %second137 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
-  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nonnull align 8 %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second81, ptr noundef nonnull align 8 dereferenceable(74) %second137, i1 noundef zeroext false)
+  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias align 8 %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second81, ptr noundef nonnull align 8 dereferenceable(74) %second137, i1 noundef zeroext false)
           to label %invoke.cont138 unwind label %lpad54.loopexit.split-lp
 
 invoke.cont138:                                   ; preds = %invoke.cont133
@@ -5138,7 +5138,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ue212graph_detail17vertex_desc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %picked, ptr nocapture noundef %depths, i1 noundef zeroext %prefix_by_rev, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L18makePrefixForChainERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEERKSt23_Rb_tree_const_iteratorISR_EPSt6vectorINS_11DepthMinMaxESaIS11_EEbRNS_13ReportManagerE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %picked, ptr nocapture noundef nonnull %depths, i1 noundef zeroext %prefix_by_rev, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %r_new.i = alloca %"class.ue2::flat_set", align 8
   %ir.i86 = alloca %"struct.ue2::Report", align 8
@@ -5912,7 +5912,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L14isPossibleLockERKNS_8NGHolderESt23_Rb_tree_const_iteratorISt4pairIKjNS_12_GLOBAL__N_111region_infoEEERKSt3mapIjS7_St4lessIjESaIS8_EEPNS_9CharReachE(ptr readonly %region.coerce, ptr noundef nonnull readnone align 8 dereferenceable(48) %info, ptr nocapture noundef writeonly %escapes_out) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L14isPossibleLockERKNS_8NGHolderESt23_Rb_tree_const_iteratorISt4pairIKjNS_12_GLOBAL__N_111region_infoEEERKSt3mapIjS7_St4lessIjESaIS8_EEPNS_9CharReachE(ptr readonly %region.coerce, ptr noundef nonnull readnone align 8 dereferenceable(48) %info, ptr nocapture noundef nonnull writeonly %escapes_out) unnamed_addr #5 {
 entry:
   %ref.tmp10 = alloca %"class.ue2::CharReach", align 8
   %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %region.coerce) #28
@@ -5971,7 +5971,7 @@ return:                                           ; preds = %if.end7, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef %out, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr readonly %picked.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull %out, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr readonly %picked.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %ref.tmp.i567 = alloca %"struct.std::pair.367", align 8
   %ref.tmp9.i36 = alloca %"class.std::tuple.434", align 8
@@ -7812,7 +7812,7 @@ for.end19:                                        ; preds = %for.inc17, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19updatePrefixReportsERNS_13ReportManagerERNS_8NGHolderENS_10ReportTypeE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr readonly %g.104.val, i32 noundef %ir_type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19updatePrefixReportsERNS_13ReportManagerERNS_8NGHolderENS_10ReportTypeE(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr readonly %g.104.val, i32 noundef range(i32 2, 4) %ir_type) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ir = alloca %"struct.ue2::Report", align 8
   %rep = alloca i32, align 4
@@ -7853,7 +7853,7 @@ entry:
   %ref.tmp2 = alloca %"class.std::allocator.95", align 1
   %agg.tmp = alloca %"class.ue2::bytecode_ptr", align 8
   %call = tail call i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %g)
-  call fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias nonnull align 8 %nfa, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(320) %cc)
+  call fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias align 8 %nfa, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(320) %cc)
   %0 = load ptr, ptr %nfa, align 8
   %cmp.i.i.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.i.i.not, label %if.then, label %if.end
@@ -8118,7 +8118,7 @@ _ZNSt10shared_ptrIN3ue28NGHolderEED2Ev.exit:      ; preds = %_ZNSt6vectorIN3ue21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L13doSomPlanningERNS_8NGHolderEbRKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEESt23_Rb_tree_const_iteratorISR_ERSt6vectorINSM_8som_planESaISZ_EERKNS_4GreyENS_13dsp_behaviourE(ptr noundef nonnull align 8 dereferenceable(136) %g, i1 noundef zeroext %stuck_in, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %picked.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(24) %plan, i32 noundef %behaviour) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L13doSomPlanningERNS_8NGHolderEbRKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISE_IKjSN_EEESt23_Rb_tree_const_iteratorISR_ERSt6vectorINSM_8som_planESaISZ_EERKNS_4GreyENS_13dsp_behaviourE(ptr noundef nonnull align 8 dereferenceable(136) %g, i1 noundef zeroext %stuck_in, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %picked.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(24) %plan, i32 noundef range(i32 0, 2) %behaviour) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
   %ref.tmp10.i = alloca %"class.ue2::CharReach", align 8
@@ -8147,7 +8147,7 @@ invoke.cont:                                      ; preds = %entry
   br i1 %call2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont
-  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef nonnull %ap_temp, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %picked.coerce)
+  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef %ap_temp, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %picked.coerce)
           to label %if.end unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 lpad.loopexit:                                    ; preds = %invoke.cont257
@@ -8176,7 +8176,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %add.ptr.i.i84 = getelementptr inbounds i8, ptr %plan.val76, i64 -104
   %escapes = getelementptr inbounds i8, ptr %plan.val76, i64 -88
   %coerce.val.pi = ptrtoint ptr %picked.coerce to i64
-  %call12 = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %ap_pref.0, i1 noundef zeroext %stuck_in, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr %picked.coerce, i64 %coerce.val.pi, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i84, ptr noundef nonnull %bad_region)
+  %call12 = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %ap_pref.0, i1 noundef zeroext %stuck_in, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr %picked.coerce, i64 %coerce.val.pi, ptr noundef nonnull align 8 dereferenceable(32) %escapes, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i84, ptr noundef %bad_region)
           to label %invoke.cont11 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %if.end
@@ -8311,8 +8311,8 @@ if.end36:                                         ; preds = %invoke.cont21
 do_tree:                                          ; preds = %invoke.cont175, %if.end36
   %furthest.sroa.0.0 = phi ptr [ %call.i, %if.end36 ], [ %call.i114, %invoke.cont175 ]
   %prev_furthest.sroa.0.0 = phi ptr [ %13, %if.end36 ], [ %furthest.sroa.0.160, %invoke.cont175 ]
-  %cmp42 = icmp eq i32 %behaviour, 1
-  br i1 %cmp42, label %cleanup287, label %do.end47
+  %cmp42.not = icmp eq i32 %behaviour, 0
+  br i1 %cmp42.not, label %do.end47, label %cleanup287
 
 do.end47:                                         ; preds = %do_tree
   %plan.val = load ptr, ptr %plan, align 8
@@ -8490,7 +8490,7 @@ if.then133:                                       ; preds = %if.end128
           to label %invoke.cont134 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont134:                                   ; preds = %if.then133
-  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull %midfix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %furthest_lock.sroa.0.2)
+  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef %midfix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %furthest_lock.sroa.0.2)
           to label %do.end141 unwind label %lpad137
 
 do.end141:                                        ; preds = %invoke.cont134
@@ -8550,14 +8550,14 @@ if.then162:                                       ; preds = %invoke.cont157, %if
           to label %invoke.cont163 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont163:                                   ; preds = %if.then162
-  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef nonnull %conservative_midfix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %call.i114)
+  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef %conservative_midfix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %call.i114)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %invoke.cont163
   %plan.val72 = load ptr, ptr %0, align 8
   %add.ptr.i.i144 = getelementptr inbounds i8, ptr %plan.val72, i64 -104
   %coerce.val.pi174 = ptrtoint ptr %furthest_lock.sroa.0.2 to i64
-  %call176 = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %conservative_midfix, i1 noundef zeroext %stuck.1, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr %call.i114, i64 %coerce.val.pi174, ptr noundef nonnull align 8 dereferenceable(32) %next_escapes, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i144, ptr noundef nonnull %bad_region)
+  %call176 = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %conservative_midfix, i1 noundef zeroext %stuck.1, ptr noundef nonnull align 8 dereferenceable(8) %picked, ptr %call.i114, i64 %coerce.val.pi174, ptr noundef nonnull align 8 dereferenceable(32) %next_escapes, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i144, ptr noundef %bad_region)
           to label %invoke.cont175 unwind label %lpad166
 
 invoke.cont175:                                   ; preds = %invoke.cont167
@@ -8693,7 +8693,7 @@ invoke.cont238:                                   ; preds = %for.cond19.i.i155, 
   %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %call.i114) #28
   %second234 = getelementptr inbounds i8, ptr %call.i114, i64 40
   %second242 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
-  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nonnull align 8 %ref.tmp232, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second234, ptr noundef nonnull align 8 dereferenceable(74) %second242, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias align 8 %ref.tmp232, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second234, ptr noundef nonnull align 8 dereferenceable(74) %second242, i1 noundef zeroext true)
           to label %invoke.cont243 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont243:                                   ; preds = %invoke.cont238
@@ -9069,7 +9069,7 @@ if.end18.i:                                       ; preds = %if.end10.i
 
 invoke.cont20.i:                                  ; preds = %if.end18.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triggers.i, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %lit.i)
+  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(64) %lit.i)
           to label %invoke.cont25.i unwind label %lpad24.i
 
 invoke.cont25.i:                                  ; preds = %invoke.cont20.i
@@ -11145,7 +11145,7 @@ for.body21.i.i184.i:                              ; preds = %for.cond19.i.i180.i
 
 if.then160.i:                                     ; preds = %for.cond19.i.i180.i, %for.cond.i.i194.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %triggers.i14, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 %ref.tmp161.i, ptr noundef nonnull align 8 dereferenceable(64) %lit.i10)
+  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias align 8 %ref.tmp161.i, ptr noundef nonnull align 8 dereferenceable(64) %lit.i10)
           to label %invoke.cont163.i unwind label %lpad162.i
 
 invoke.cont163.i:                                 ; preds = %if.then160.i
@@ -13745,7 +13745,7 @@ for.body.i:                                       ; preds = %_ZNSt6vectorIN3ue29
   br i1 %cmp.i224, label %cleanup108.i, label %if.end25.i225
 
 if.end25.i225:                                    ; preds = %for.body.i
-  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 %ref.tmp.i181, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i)
+  invoke fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias align 8 %ref.tmp.i181, ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i)
           to label %invoke.cont27.i226 unwind label %lpad26.loopexit.i
 
 invoke.cont27.i226:                               ; preds = %if.end25.i225
@@ -16885,7 +16885,7 @@ call.i114.noexc.i:                                ; preds = %if.end115.i
   %second.i.i = getelementptr inbounds i8, ptr %call20.i, i64 40
   %call.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %call20.i) #28
   %second7.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 40
-  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nonnull align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second.i.i, ptr noundef nonnull align 8 dereferenceable(74) %second7.i.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias align 8 %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second.i.i, ptr noundef nonnull align 8 dereferenceable(74) %second7.i.i, i1 noundef zeroext true)
           to label %.noexc.i unwind label %lpad87.i
 
 .noexc.i:                                         ; preds = %call.i114.noexc.i
@@ -17022,7 +17022,7 @@ if.then42.i.i:                                    ; preds = %for.body.i.i.i.i.i.
           to label %invoke.cont43.i.i unwind label %lpad9.loopexit.split-lp.i.loopexit.i
 
 invoke.cont43.i.i:                                ; preds = %if.then42.i.i
-  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull %gg.i.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %call20.i)
+  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef %gg.i.i, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(48) %info, ptr %call20.i)
           to label %invoke.cont47.i.i unwind label %lpad46.i.i
 
 invoke.cont47.i.i:                                ; preds = %invoke.cont43.i.i
@@ -17183,7 +17183,7 @@ invoke.cont119.i:                                 ; preds = %if.end8.sink.split.
 land.rhs.i:                                       ; preds = %invoke.cont119.i
   %66 = load ptr, ptr %rose.i, align 8
   %67 = load i32, ptr %precision.i.i, align 4
-  %call128.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %67, ptr %haig_reg.sroa.0.0.i, ptr noundef nonnull %haig.i, ptr noundef nonnull %haig_prefix.i, ptr noundef nonnull align 8 dereferenceable(292) %grey.i)
+  %call128.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %67, ptr %haig_reg.sroa.0.0.i, ptr noundef %haig.i, ptr noundef %haig_prefix.i, ptr noundef nonnull align 8 dereferenceable(292) %grey.i)
           to label %land.end.i unwind label %lpad87.i
 
 land.end.i:                                       ; preds = %land.rhs.i
@@ -17302,7 +17302,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_18som_planESaIS2_EED2Ev.exit.i: ; preds = %if.the
 if.else149.i:                                     ; preds = %invoke.cont72.i
   %77 = load ptr, ptr %rose.i, align 8
   %78 = load i32, ptr %precision.i.i, align 4
-  %call157.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %78, ptr nonnull %haig_reg.sroa.0.0.i, ptr noundef nonnull %haig.i, ptr noundef nonnull %haig_prefix.i, ptr noundef nonnull align 8 dereferenceable(292) %grey.i)
+  %call157.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %78, ptr nonnull %haig_reg.sroa.0.0.i, ptr noundef %haig.i, ptr noundef %haig_prefix.i, ptr noundef nonnull align 8 dereferenceable(292) %grey.i)
           to label %invoke.cont156.i unwind label %lpad71.i
 
 invoke.cont156.i:                                 ; preds = %if.else149.i
@@ -19317,7 +19317,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L32replaceExternalReportsWithSomRepERNS_13ReportManagerERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_10ReportTypeEy(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr %v.coerce0, i32 noundef %ir_type, i64 noundef %param) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L32replaceExternalReportsWithSomRepERNS_13ReportManagerERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEENS_10ReportTypeEy(ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr %v.coerce0, i32 noundef range(i32 1, 13) %ir_type, i64 noundef range(i64 0, 4294967296) %param) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %r_new = alloca %"class.ue2::flat_set", align 8
   %ir = alloca %"struct.ue2::Report", align 8
@@ -21568,7 +21568,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i, %for.bo
   br i1 %cmp.i.i.i.i.not.i.i, label %invoke.cont14, label %for.body.i.i, !llvm.loop !114
 
 invoke.cont14:                                    ; preds = %for.inc.i.i, %if.end
-  invoke fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias nonnull align 8 %nfa, ptr noundef nonnull align 8 dereferenceable(136) %g2, ptr noundef nonnull align 8 dereferenceable(320) %cc)
+  invoke fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias align 8 %nfa, ptr noundef nonnull align 8 dereferenceable(136) %g2, ptr noundef nonnull align 8 dereferenceable(320) %cc)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont14
@@ -21819,7 +21819,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEED2Ev.exit: ; preds = %entry
 declare void @_ZN3ue220pruneAllOtherReportsERNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17makeBareSomRevNfaERKNS_8NGHolderERKNS_14CompileContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i13.i = alloca %"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::inv_adjacency_iterator", align 8
   %agg.tmp1.i14.i = alloca %"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::inv_adjacency_iterator", align 8
@@ -22067,7 +22067,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %do.end unwind label %lpad
 
 do.end:                                           ; preds = %invoke.cont4
-  invoke void @_ZN3ue220constructReversedNFAERKNS_8NGHolderERKNS_14CompileContextE(ptr sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g_rev, ptr noundef nonnull align 8 dereferenceable(320) %cc)
+  invoke void @_ZN3ue220constructReversedNFAERKNS_8NGHolderERKNS_14CompileContextE(ptr nonnull sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g_rev, ptr noundef nonnull align 8 dereferenceable(320) %cc)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %do.end
@@ -22795,7 +22795,7 @@ declare noundef i64 @_ZN3ue216compressAndScoreERSt3setINS_11ue2_literalESt4lessI
 declare noundef i64 @_ZN3ue215minStringPeriodERKNS_11ue2_literalE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nocapture align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %curr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %next, i1 noundef zeroext %renumber) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %curr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %next, i1 noundef zeroext %renumber) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::_Deque_iterator.420", align 8
   %agg.tmp1.i = alloca %"class.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::vertex_iterator", align 8
@@ -26835,7 +26835,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZN3ue212hasBigCyclesERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr readonly %picked.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef nonnull %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %info, ptr readonly %picked.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i683 = alloca %"class.std::tuple.434", align 8
   %ref.tmp10.i684 = alloca %"class.std::tuple.259", align 1
@@ -29426,7 +29426,7 @@ _ZNSt3mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %prefix, i1 noundef zeroext %stuck, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %picked, ptr %furthest.coerce, i64 %furthest_lock.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %next_escapes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %plan, ptr nocapture noundef writeonly %bad_region) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %prefix, i1 noundef zeroext %stuck, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %picked, ptr %furthest.coerce, i64 %furthest_lock.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %next_escapes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %plan, ptr nocapture noundef nonnull writeonly %bad_region) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %escapes_vec.i = alloca %"class.std::vector.450", align 8
   %notescapes_vec.i = alloca %"class.std::vector.450", align 8
@@ -34540,7 +34540,7 @@ if.then55.i:                                      ; preds = %if.end50.i
           to label %.noexc361 unwind label %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc361:                                        ; preds = %if.then55.i
-  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef nonnull %midfix.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(48) %path_info, ptr %furthest_lock.sroa.0.2.i)
+  invoke fastcc void @_ZN3ue2L22fillHolderForLockCheckEPNS_8NGHolderERKS0_RKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISt4pairIKjS6_EEESt23_Rb_tree_const_iteratorISB_E(ptr noundef %midfix.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(48) %path_info, ptr %furthest_lock.sroa.0.2.i)
           to label %invoke.cont.i353 unwind label %lpad.i
 
 invoke.cont.i353:                                 ; preds = %.noexc361
@@ -34591,14 +34591,14 @@ if.then78.i328:                                   ; preds = %_ZNK3ue29CharReach4
           to label %.noexc363 unwind label %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc363:                                        ; preds = %if.then78.i328
-  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef nonnull %conservative_midfix.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %path_info, ptr %call.i.i322)
+  invoke fastcc void @_ZN3ue2L15fillRoughMidfixEPNS_8NGHolderERKS0_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEERKSt3mapIjNS_12_GLOBAL__N_111region_infoESt4lessIjESaISG_IKjSP_EEESt23_Rb_tree_const_iteratorIST_E(ptr noundef %conservative_midfix.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(48) %path_info, ptr %call.i.i322)
           to label %invoke.cont82.i unwind label %lpad81.i
 
 invoke.cont82.i:                                  ; preds = %.noexc363
   %plan.val49.i = load ptr, ptr %2, align 8
   %add.ptr.i.i78.i = getelementptr inbounds i8, ptr %plan.val49.i, i64 -104
   %coerce.val.pi.i = ptrtoint ptr %furthest_lock.sroa.0.2.i to i64
-  %call90.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %conservative_midfix.i, i1 noundef zeroext %lock_found.1.i, ptr noundef nonnull align 8 dereferenceable(8) %picked.i, ptr %call.i.i322, i64 %coerce.val.pi.i, ptr noundef nonnull align 8 dereferenceable(32) %next_escapes.i, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i78.i, ptr noundef nonnull %bad_region.addr.i)
+  %call90.i = invoke fastcc noundef zeroext i1 @_ZN3ue2L11advancePlanERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEES2_bRSt23_Rb_tree_const_iteratorISF_IKjNS_12_GLOBAL__N_111region_infoEEESR_SR_RKNS_9CharReachERNSO_8som_planEPj(ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(136) %conservative_midfix.i, i1 noundef zeroext %lock_found.1.i, ptr noundef nonnull align 8 dereferenceable(8) %picked.i, ptr %call.i.i322, i64 %coerce.val.pi.i, ptr noundef nonnull align 8 dereferenceable(32) %next_escapes.i, ptr noundef nonnull align 8 dereferenceable(104) %add.ptr.i.i78.i, ptr noundef %bad_region.addr.i)
           to label %invoke.cont89.i unwind label %lpad81.i
 
 invoke.cont89.i:                                  ; preds = %invoke.cont82.i
@@ -34734,7 +34734,7 @@ if.end140.i:                                      ; preds = %for.cond19.i.i89.i,
   %second143.i = getelementptr inbounds i8, ptr %call.i.i322, i64 40
   %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %call.i.i322) #28
   %second150.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 40
-  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nonnull align 8 %ref.tmp141.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second143.i, ptr noundef nonnull align 8 dereferenceable(74) %second150.i, i1 noundef zeroext true)
+  invoke fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias align 8 %ref.tmp141.i, ptr noundef nonnull align 8 dereferenceable(136) %g_path, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second143.i, ptr noundef nonnull align 8 dereferenceable(74) %second150.i, i1 noundef zeroext true)
           to label %.noexc365 unwind label %lpad88.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc365:                                        ; preds = %if.end140.i
@@ -37286,7 +37286,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #24
@@ -43715,7 +43715,7 @@ declare noundef i32 @_ZN3ue218isImplementableNFAERKNS_8NGHolderEPKNS_13ReportMan
 declare void @_ZN3ue214SomSlotManager13rollbackSomToEj(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %somPrecision, ptr readonly %picked.coerce, ptr nocapture noundef %haig, ptr nocapture noundef %haig_prefix, ptr noundef nonnull align 8 dereferenceable(292) %grey) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L7tryHaigERNS_9RoseBuildERNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS2_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEENS_8som_typeEjSt23_Rb_tree_const_iteratorISG_IKjNS_12_GLOBAL__N_111region_infoEEEPSt10shared_ptrINS_11raw_som_dfaEEPSU_IS2_ERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(8) %rose, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %regions, i32 noundef %som, i32 noundef %somPrecision, ptr readonly %picked.coerce, ptr nocapture noundef nonnull %haig, ptr nocapture noundef nonnull %haig_prefix, ptr noundef nonnull align 8 dereferenceable(292) %grey) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.513", align 8
   %haig_report_id.i = alloca i32, align 4
@@ -43727,7 +43727,7 @@ entry:
   %second = getelementptr inbounds i8, ptr %picked.coerce, i64 40
   %call.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef readonly %picked.coerce) #28
   %second6 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 40
-  call fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second, ptr noundef nonnull align 8 dereferenceable(74) %second6, i1 noundef zeroext true)
+  call fastcc void @_ZN3ue2L10makePrefixERKNS_8NGHolderERKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_jEEERKNS_12_GLOBAL__N_111region_infoESP_b(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %regions, ptr noundef nonnull align 8 dereferenceable(74) %second, ptr noundef nonnull align 8 dereferenceable(74) %second6, i1 noundef zeroext true)
   invoke void @_ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EEC2IS1_St14default_deleteIS1_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %prefix, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

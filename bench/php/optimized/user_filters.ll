@@ -741,7 +741,7 @@ define hidden void @zif_stream_bucket_prepend(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_stream_bucket_attach(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_stream_bucket_attach(i32 noundef range(i32 0, 2) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 2

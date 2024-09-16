@@ -55,7 +55,7 @@ stream_read_bits.exit.i:                          ; preds = %28, %18
   %32 = and i32 %31, 63
   %33 = add nuw nsw i32 %32, 1
   %34 = add i32 %12, -6
-  %35 = call fastcc i32 @decode_ints_uint64(ptr noundef nonnull %9, i32 noundef %34, i32 noundef %33, ptr noundef nonnull %4)
+  %35 = call fastcc i32 @decode_ints_uint64(ptr noundef nonnull %9, i32 noundef %34, i32 noundef %33, ptr noundef %4)
   %36 = add i32 %35, 6
   %37 = icmp ult i32 %36, %10
   br i1 %37, label %38, label %60
@@ -114,8 +114,8 @@ stream_skip.exit.i:                               ; preds = %55, %38
   %69 = getelementptr inbounds i64, ptr %1, i64 %68
   store i64 %65, ptr %69, align 8
   %70 = add nsw i32 %.0.i16.i, -1
-  %.not.i17.i = icmp eq i32 %70, 0
-  br i1 %.not.i17.i, label %rev_decode_block_int64_1.exit, label %61
+  %.not.i.i = icmp eq i32 %70, 0
+  br i1 %.not.i.i, label %rev_decode_block_int64_1.exit, label %61
 
 rev_decode_block_int64_1.exit:                    ; preds = %61
   %71 = load i64, ptr %1, align 8
@@ -141,7 +141,7 @@ rev_decode_block_int64_1.exit:                    ; preds = %61
   %85 = getelementptr inbounds i8, ptr %0, i64 8
   %86 = load i32, ptr %85, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  %87 = call fastcc i32 @decode_ints_uint64(ptr noundef %9, i32 noundef %12, i32 noundef %86, ptr noundef nonnull %3)
+  %87 = call fastcc i32 @decode_ints_uint64(ptr noundef %9, i32 noundef %12, i32 noundef %86, ptr noundef %3)
   %88 = icmp ult i32 %87, %10
   br i1 %88, label %89, label %112
 
@@ -163,8 +163,8 @@ rev_decode_block_int64_1.exit:                    ; preds = %61
   %104 = lshr i64 %102, 6
   %105 = getelementptr inbounds i64, ptr %95, i64 %104
   store ptr %105, ptr %92, align 8
-  %.not.i.i.i13 = icmp eq i64 %103, 0
-  br i1 %.not.i.i.i13, label %stream_skip.exit.i14, label %106
+  %.not.i.i.i14 = icmp eq i64 %103, 0
+  br i1 %.not.i.i.i14, label %stream_skip.exit.i15, label %106
 
 106:                                              ; preds = %89
   %107 = getelementptr inbounds i8, ptr %105, i64 8
@@ -172,18 +172,18 @@ rev_decode_block_int64_1.exit:                    ; preds = %61
   %108 = load i64, ptr %105, align 8
   %109 = lshr i64 %108, %103
   %110 = sub nuw nsw i64 64, %103
-  br label %stream_skip.exit.i14
+  br label %stream_skip.exit.i15
 
-stream_skip.exit.i14:                             ; preds = %106, %89
-  %.sink.i.i.i15 = phi i64 [ %109, %106 ], [ 0, %89 ]
-  %storemerge.i.i.i16 = phi i64 [ %110, %106 ], [ 0, %89 ]
+stream_skip.exit.i15:                             ; preds = %106, %89
+  %.sink.i.i.i16 = phi i64 [ %109, %106 ], [ 0, %89 ]
+  %storemerge.i.i.i17 = phi i64 [ %110, %106 ], [ 0, %89 ]
   %111 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %.sink.i.i.i15, ptr %111, align 8
-  store i64 %storemerge.i.i.i16, ptr %9, align 8
+  store i64 %.sink.i.i.i16, ptr %111, align 8
+  store i64 %storemerge.i.i.i17, ptr %9, align 8
   br label %112
 
-112:                                              ; preds = %stream_skip.exit.i14, %84
-  %.0.i10 = phi i32 [ %10, %stream_skip.exit.i14 ], [ %87, %84 ]
+112:                                              ; preds = %stream_skip.exit.i15, %84
+  %.0.i10 = phi i32 [ %10, %stream_skip.exit.i15 ], [ %87, %84 ]
   br label %113
 
 113:                                              ; preds = %113, %112
@@ -200,8 +200,8 @@ stream_skip.exit.i14:                             ; preds = %106, %89
   %121 = getelementptr inbounds i64, ptr %1, i64 %120
   store i64 %117, ptr %121, align 8
   %122 = add nsw i32 %.0.i.i, -1
-  %.not.i.i = icmp eq i32 %122, 0
-  br i1 %.not.i.i, label %decode_block_int64_1.exit, label %113
+  %.not.i.i13 = icmp eq i32 %122, 0
+  br i1 %.not.i.i13, label %decode_block_int64_1.exit, label %113
 
 decode_block_int64_1.exit:                        ; preds = %113
   %123 = load i64, ptr %1, align 8
@@ -241,7 +241,7 @@ decode_block_int64_1.exit:                        ; preds = %113
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint64(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = shl i32 %2, 2
   %6 = or disjoint i32 %5, 3
   %.not = icmp ugt i32 %6, %1

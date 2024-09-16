@@ -541,17 +541,17 @@ struct_lconv_is_valid.exit.thread:                ; preds = %111
   %126 = load ptr, ptr @locale_numeric, align 8
   %127 = call i32 @pg_get_encoding_from_locale(ptr noundef %126, i1 noundef zeroext true) #22
   %spec.store.select = call i32 @llvm.smax.i32(i32 %127, i32 0)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef nonnull %1)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef nonnull %37)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef %1)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select, ptr noundef %37)
   %128 = load ptr, ptr @locale_monetary, align 8
   %129 = call i32 @pg_get_encoding_from_locale(ptr noundef %128, i1 noundef zeroext true) #22
   %spec.store.select1 = call i32 @llvm.smax.i32(i32 %129, i32 0)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %48)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %52)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %56)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %60)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %68)
-  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef nonnull %72)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %48)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %52)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %56)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %60)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %68)
+  call fastcc void @db_encoding_convert(i32 noundef %spec.store.select1, ptr noundef %72)
   store ptr %107, ptr @PG_exception_stack, align 8
   store ptr %108, ptr @error_context_stack, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @PGLC_localeconv.CurrentLocaleConv, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
@@ -623,7 +623,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @pg_get_encoding_from_locale(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @db_encoding_convert(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @db_encoding_convert(i32 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
   %5 = trunc i64 %4 to i32
@@ -1722,7 +1722,7 @@ pg_strcoll_libc.exit:                             ; preds = %5
   br label %17
 
 10:                                               ; preds = %5
-  %11 = tail call fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef -1, ptr noundef %1, i32 noundef -1, ptr noundef nonnull %2)
+  %11 = tail call fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef -1, ptr noundef %1, i32 noundef -1, ptr noundef %2)
   br label %17
 
 12:                                               ; preds = %5
@@ -1740,7 +1740,7 @@ pg_strcoll_libc.exit:                             ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1973,7 +1973,7 @@ pg_strncoll_libc.exit19:                          ; preds = %pg_strcoll_libc.exi
 35:                                               ; preds = %20
   %36 = trunc i64 %1 to i32
   %37 = trunc i64 %3 to i32
-  %38 = tail call fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %36, ptr noundef %2, i32 noundef %37, ptr noundef nonnull %4)
+  %38 = tail call fastcc i32 @pg_strncoll_icu(ptr noundef %0, i32 noundef %36, ptr noundef %2, i32 noundef %37, ptr noundef %4)
   br label %44
 
 39:                                               ; preds = %20
@@ -2041,7 +2041,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strxfrm(ptr noundef 
 
 7:                                                ; preds = %5
   %8 = trunc i64 %2 to i32
-  %9 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %3)
+  %9 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %8, ptr noundef %3)
   ret i64 %9
 
 10:                                               ; preds = %5
@@ -2066,7 +2066,7 @@ define internal fastcc void @pg_strxfrm_libc(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [1024 x i8], align 16
@@ -2162,7 +2162,7 @@ define dso_local range(i64 -2147483649, 2147483647) i64 @pg_strnxfrm(ptr noundef
 8:                                                ; preds = %6
   %9 = trunc i64 %3 to i32
   %10 = trunc i64 %1 to i32
-  %11 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %4)
+  %11 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %10, ptr noundef %4)
   ret i64 %11
 
 12:                                               ; preds = %6
@@ -2243,7 +2243,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr n
 
 11:                                               ; preds = %8
   %12 = trunc i64 %2 to i32
-  %13 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef nonnull %3)
+  %13 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %12, ptr noundef %3)
   ret i64 %13
 
 14:                                               ; preds = %8
@@ -2257,7 +2257,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strxfrm_prefix(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [1024 x i8], align 16
@@ -2404,7 +2404,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_strnxfrm_prefix(ptr 
 
 12:                                               ; preds = %9
   %13 = trunc i64 %1 to i32
-  %14 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %2, i32 noundef %13, ptr noundef nonnull %4)
+  %14 = tail call fastcc i64 @pg_strnxfrm_prefix_icu(ptr noundef %0, ptr noundef %2, i32 noundef %13, ptr noundef %4)
   ret i64 %14
 
 15:                                               ; preds = %9

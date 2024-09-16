@@ -917,7 +917,7 @@ declare dso_local i32 @lock_to_openmode(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @vfs_lock_file(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @nlmsvc_remove_block(ptr noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @nlmsvc_remove_block(ptr noundef nonnull %0) unnamed_addr #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @nlm_blocked_lock) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load volatile ptr, ptr %2, align 8
@@ -933,7 +933,7 @@ define internal fastcc void @nlmsvc_remove_block(ptr noundef %0) unnamed_addr #2
   store volatile ptr %2, ptr %2, align 8
   store volatile ptr %2, ptr %6, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @nlm_blocked_lock) #9
-  tail call fastcc void @nlmsvc_release_block(ptr noundef %0)
+  tail call fastcc void @nlmsvc_release_block(ptr noundef nonnull %0)
   br label %10
 
 9:                                                ; preds = %1
@@ -945,7 +945,7 @@ define internal fastcc void @nlmsvc_remove_block(ptr noundef %0) unnamed_addr #2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqst(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 1
@@ -957,12 +957,12 @@ define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqs
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %2
-  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 1, ptr elementtype(i32) %1) #9, !srcloc !5
+  %10 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %1, i32 1, ptr nonnull elementtype(i32) %1) #9, !srcloc !5
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %13, !prof !6
 
 12:                                               ; preds = %9
-  tail call void @refcount_warn_saturate(ptr noundef %1, i32 noundef 2) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %1, i32 noundef 2) #9
   br label %22
 
 13:                                               ; preds = %9
@@ -972,7 +972,7 @@ define internal fastcc range(i32 33554432, 812974081) i32 @nlmsvc_defer_lock_rqs
   br i1 %16, label %22, label %17, !prof !7
 
 17:                                               ; preds = %13
-  tail call void @refcount_warn_saturate(ptr noundef %1, i32 noundef 1) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %1, i32 noundef 1) #9
   br label %22
 
 18:                                               ; preds = %2

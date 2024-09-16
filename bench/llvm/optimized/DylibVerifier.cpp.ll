@@ -5888,7 +5888,7 @@ declare noundef nonnull align 8 dereferenceable(26) ptr @_ZN4llvm5MachOlsERKN5cl
 declare noundef nonnull align 8 dereferenceable(26) ptr @_ZN4llvm5MachOlsERKN5clang17DiagnosticBuilderERKNS0_13PackedVersionE(ptr noundef nonnull align 8 dereferenceable(26), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang10installapi13DylibVerifier17verifyBinaryAttrsEN4llvm8ArrayRefINS2_5MachO6TargetEEERKNS4_12RecordsSlice11BinaryAttrsERKNS2_9StringMapINS4_15ArchitectureSetENS2_15MallocAllocatorEEESG_SG_RKNS4_8FileTypeEENK3$_0clESG_SG_jjb"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang10installapi13DylibVerifier17verifyBinaryAttrsEN4llvm8ArrayRefINS2_5MachO6TargetEEERKNS4_12RecordsSlice11BinaryAttrsERKNS2_9StringMapINS4_15ArchitectureSetENS2_15MallocAllocatorEEESG_SG_RKNS4_8FileTypeEENK3$_0clESG_SG_jjb"(ptr nocapture readonly %.0.val, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 8722, 8768) %2, i32 noundef range(i32 8721, 8767) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = alloca %"class.clang::DiagnosticBuilder", align 8

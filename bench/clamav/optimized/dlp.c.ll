@@ -536,55 +536,55 @@ define i32 @dlp_get_stripped_ssn_count(ptr noundef %0, i64 noundef %1) local_unn
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %9
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %32, %.lr.ph.i
-  %.032.us.i = phi i32 [ %.1.us.i, %32 ], [ 0, %.lr.ph.i ]
-  %.02431.us.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %32, %.lr.ph.i
+  %.033.i = phi i32 [ %.1.i, %32 ], [ 0, %.lr.ph.i ]
+  %.02432.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.us.i, align 1
+  %11 = load i8, ptr %.02432.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.us.i = icmp eq i16 %15, 0
-  br i1 %.not.us.i, label %32, label %16
+  %.not.i = icmp eq i16 %15, 0
+  br i1 %.not.i, label %32, label %16
 
-16:                                               ; preds = %.lr.ph.split.us.i
-  %17 = icmp eq ptr %.02431.us.i, %0
+16:                                               ; preds = %.lr.ph.split.i
+  %17 = icmp eq ptr %.02432.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.us.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.us.i = icmp eq i16 %24, 0
-  br i1 %.not28.us.i, label %25, label %32
+  %.not28.i = icmp eq i16 %24, 0
+  br i1 %.not28.i, label %25, label %32
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.us.i to i64
+  %26 = ptrtoint ptr %.02432.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 1)
-  %.not29.us.i = icmp eq i32 %28, 0
-  br i1 %.not29.us.i, label %32, label %29
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.i, i64 noundef %27, i32 noundef 1)
+  %.not29.i = icmp eq i32 %28, 0
+  br i1 %.not29.i, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = add nsw i32 %.032.us.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02431.us.i, i64 9
+  %30 = add nsw i32 %.033.i, 1
+  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 9
   br label %32
 
-32:                                               ; preds = %29, %25, %18, %.lr.ph.split.us.i
-  %.125.us.i = phi ptr [ %31, %29 ], [ %.02431.us.i, %25 ], [ %.02431.us.i, %18 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
-  %.1.us.i = phi i32 [ %30, %29 ], [ %.032.us.i, %25 ], [ %.032.us.i, %18 ], [ %.032.us.i, %.lr.ph.split.us.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.us.i, i64 1
+32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i
+  %.125.i = phi ptr [ %31, %29 ], [ %.02432.i, %25 ], [ %.02432.i, %18 ], [ %.02432.i, %.lr.ph.split.i ]
+  %.1.i = phi i32 [ %30, %29 ], [ %.033.i, %25 ], [ %.033.i, %18 ], [ %.033.i, %.lr.ph.split.i ]
+  %33 = getelementptr inbounds i8, ptr %.125.i, i64 1
   %34 = icmp ult ptr %33, %6
-  br i1 %34, label %.lr.ph.split.us.i, label %contains_ssn.exit
+  br i1 %34, label %.lr.ph.split.i, label %contains_ssn.exit
 
 contains_ssn.exit:                                ; preds = %32, %2, %5
-  %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.us.i, %32 ]
+  %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.i, %32 ]
   ret i32 %.023.i
 }
 
@@ -604,55 +604,55 @@ define i32 @dlp_get_normal_ssn_count(ptr noundef %0, i64 noundef %1) local_unnam
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %9
-  br label %.lr.ph.split.us.i
+  br label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %32, %.lr.ph.i
-  %.032.us.i = phi i32 [ %.1.us.i, %32 ], [ 0, %.lr.ph.i ]
-  %.02431.us.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %32, %.lr.ph.i
+  %.033.i = phi i32 [ %.1.i, %32 ], [ 0, %.lr.ph.i ]
+  %.02432.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.us.i, align 1
+  %11 = load i8, ptr %.02432.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.us.i = icmp eq i16 %15, 0
-  br i1 %.not.us.i, label %32, label %16
+  %.not.i = icmp eq i16 %15, 0
+  br i1 %.not.i, label %32, label %16
 
-16:                                               ; preds = %.lr.ph.split.us.i
-  %17 = icmp eq ptr %.02431.us.i, %0
+16:                                               ; preds = %.lr.ph.split.i
+  %17 = icmp eq ptr %.02432.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.us.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.us.i = icmp eq i16 %24, 0
-  br i1 %.not28.us.i, label %25, label %32
+  %.not28.i = icmp eq i16 %24, 0
+  br i1 %.not28.i, label %25, label %32
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.us.i to i64
+  %26 = ptrtoint ptr %.02432.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i, i64 noundef %27, i32 noundef 0)
-  %.not29.us.i = icmp eq i32 %28, 0
-  br i1 %.not29.us.i, label %32, label %29
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.i, i64 noundef %27, i32 noundef 0)
+  %.not29.i = icmp eq i32 %28, 0
+  br i1 %.not29.i, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = add nsw i32 %.032.us.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02431.us.i, i64 11
+  %30 = add nsw i32 %.033.i, 1
+  %31 = getelementptr inbounds i8, ptr %.02432.i, i64 11
   br label %32
 
-32:                                               ; preds = %29, %25, %18, %.lr.ph.split.us.i
-  %.125.us.i = phi ptr [ %31, %29 ], [ %.02431.us.i, %25 ], [ %.02431.us.i, %18 ], [ %.02431.us.i, %.lr.ph.split.us.i ]
-  %.1.us.i = phi i32 [ %30, %29 ], [ %.032.us.i, %25 ], [ %.032.us.i, %18 ], [ %.032.us.i, %.lr.ph.split.us.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.us.i, i64 1
+32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i
+  %.125.i = phi ptr [ %31, %29 ], [ %.02432.i, %25 ], [ %.02432.i, %18 ], [ %.02432.i, %.lr.ph.split.i ]
+  %.1.i = phi i32 [ %30, %29 ], [ %.033.i, %25 ], [ %.033.i, %18 ], [ %.033.i, %.lr.ph.split.i ]
+  %33 = getelementptr inbounds i8, ptr %.125.i, i64 1
   %34 = icmp ult ptr %33, %6
-  br i1 %34, label %.lr.ph.split.us.i, label %contains_ssn.exit
+  br i1 %34, label %.lr.ph.split.i, label %contains_ssn.exit
 
 contains_ssn.exit:                                ; preds = %32, %2, %5
-  %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.us.i, %32 ]
+  %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.i, %32 ]
   ret i32 %.023.i
 }
 
@@ -672,101 +672,101 @@ define i32 @dlp_get_ssn_count(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i.i = add i64 %1, %9
-  br label %.lr.ph.split.us.i.i
+  br label %.lr.ph.split.i.i
 
-.lr.ph.split.us.i.i:                              ; preds = %32, %.lr.ph.i.i
-  %.032.us.i.i = phi i32 [ %.1.us.i.i, %32 ], [ 0, %.lr.ph.i.i ]
-  %.02431.us.i.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i.i ]
+.lr.ph.split.i.i:                                 ; preds = %32, %.lr.ph.i.i
+  %.033.i.i = phi i32 [ %.1.i.i, %32 ], [ 0, %.lr.ph.i.i ]
+  %.02432.i.i = phi ptr [ %33, %32 ], [ %0, %.lr.ph.i.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.us.i.i, align 1
+  %11 = load i8, ptr %.02432.i.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.us.i.i = icmp eq i16 %15, 0
-  br i1 %.not.us.i.i, label %32, label %16
+  %.not.i.i = icmp eq i16 %15, 0
+  br i1 %.not.i.i, label %32, label %16
 
-16:                                               ; preds = %.lr.ph.split.us.i.i
-  %17 = icmp eq ptr %.02431.us.i.i, %0
+16:                                               ; preds = %.lr.ph.split.i.i
+  %17 = icmp eq ptr %.02432.i.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.us.i.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.i.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.us.i.i = icmp eq i16 %24, 0
-  br i1 %.not28.us.i.i, label %25, label %32
+  %.not28.i.i = icmp eq i16 %24, 0
+  br i1 %.not28.i.i, label %25, label %32
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.us.i.i to i64
+  %26 = ptrtoint ptr %.02432.i.i to i64
   %27 = sub i64 %.neg.i.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i, i64 noundef %27, i32 noundef 1)
-  %.not29.us.i.i = icmp eq i32 %28, 0
-  br i1 %.not29.us.i.i, label %32, label %29
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.i.i, i64 noundef %27, i32 noundef 1)
+  %.not29.i.i = icmp eq i32 %28, 0
+  br i1 %.not29.i.i, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = add nsw i32 %.032.us.i.i, 1
-  %31 = getelementptr inbounds i8, ptr %.02431.us.i.i, i64 9
+  %30 = add nsw i32 %.033.i.i, 1
+  %31 = getelementptr inbounds i8, ptr %.02432.i.i, i64 9
   br label %32
 
-32:                                               ; preds = %29, %25, %18, %.lr.ph.split.us.i.i
-  %.125.us.i.i = phi ptr [ %31, %29 ], [ %.02431.us.i.i, %25 ], [ %.02431.us.i.i, %18 ], [ %.02431.us.i.i, %.lr.ph.split.us.i.i ]
-  %.1.us.i.i = phi i32 [ %30, %29 ], [ %.032.us.i.i, %25 ], [ %.032.us.i.i, %18 ], [ %.032.us.i.i, %.lr.ph.split.us.i.i ]
-  %33 = getelementptr inbounds i8, ptr %.125.us.i.i, i64 1
+32:                                               ; preds = %29, %25, %18, %.lr.ph.split.i.i
+  %.125.i.i = phi ptr [ %31, %29 ], [ %.02432.i.i, %25 ], [ %.02432.i.i, %18 ], [ %.02432.i.i, %.lr.ph.split.i.i ]
+  %.1.i.i = phi i32 [ %30, %29 ], [ %.033.i.i, %25 ], [ %.033.i.i, %18 ], [ %.033.i.i, %.lr.ph.split.i.i ]
+  %33 = getelementptr inbounds i8, ptr %.125.i.i, i64 1
   %34 = icmp ult ptr %33, %6
-  br i1 %34, label %.lr.ph.split.us.i.i, label %.lr.ph.split.us.i.i7
+  br i1 %34, label %.lr.ph.split.i.i, label %.lr.ph.split.i.i7
 
-.lr.ph.split.us.i.i7:                             ; preds = %32, %57
-  %.032.us.i.i8 = phi i32 [ %.1.us.i.i13, %57 ], [ 0, %32 ]
-  %.02431.us.i.i9 = phi ptr [ %58, %57 ], [ %0, %32 ]
+.lr.ph.split.i.i7:                                ; preds = %32, %57
+  %.033.i.i8 = phi i32 [ %.1.i.i13, %57 ], [ 0, %32 ]
+  %.02432.i.i9 = phi ptr [ %58, %57 ], [ %0, %32 ]
   %35 = load ptr, ptr %8, align 8
-  %36 = load i8, ptr %.02431.us.i.i9, align 1
+  %36 = load i8, ptr %.02432.i.i9, align 1
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds i16, ptr %35, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 2048
-  %.not.us.i.i10 = icmp eq i16 %40, 0
-  br i1 %.not.us.i.i10, label %57, label %41
+  %.not.i.i10 = icmp eq i16 %40, 0
+  br i1 %.not.i.i10, label %57, label %41
 
-41:                                               ; preds = %.lr.ph.split.us.i.i7
-  %42 = icmp eq ptr %.02431.us.i.i9, %0
+41:                                               ; preds = %.lr.ph.split.i.i7
+  %42 = icmp eq ptr %.02432.i.i9, %0
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.02431.us.i.i9, i64 -1
+  %44 = getelementptr inbounds i8, ptr %.02432.i.i9, i64 -1
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds i16, ptr %35, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 2048
-  %.not28.us.i.i11 = icmp eq i16 %49, 0
-  br i1 %.not28.us.i.i11, label %50, label %57
+  %.not28.i.i11 = icmp eq i16 %49, 0
+  br i1 %.not28.i.i11, label %50, label %57
 
 50:                                               ; preds = %43, %41
-  %51 = ptrtoint ptr %.02431.us.i.i9 to i64
+  %51 = ptrtoint ptr %.02432.i.i9 to i64
   %52 = sub i64 %.neg.i.i, %51
-  %53 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.us.i.i9, i64 noundef %52, i32 noundef 0)
-  %.not29.us.i.i14 = icmp eq i32 %53, 0
-  br i1 %.not29.us.i.i14, label %57, label %54
+  %53 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.i.i9, i64 noundef %52, i32 noundef 0)
+  %.not29.i.i14 = icmp eq i32 %53, 0
+  br i1 %.not29.i.i14, label %57, label %54
 
 54:                                               ; preds = %50
-  %55 = add nsw i32 %.032.us.i.i8, 1
-  %56 = getelementptr inbounds i8, ptr %.02431.us.i.i9, i64 11
+  %55 = add nsw i32 %.033.i.i8, 1
+  %56 = getelementptr inbounds i8, ptr %.02432.i.i9, i64 11
   br label %57
 
-57:                                               ; preds = %54, %50, %43, %.lr.ph.split.us.i.i7
-  %.125.us.i.i12 = phi ptr [ %56, %54 ], [ %.02431.us.i.i9, %50 ], [ %.02431.us.i.i9, %43 ], [ %.02431.us.i.i9, %.lr.ph.split.us.i.i7 ]
-  %.1.us.i.i13 = phi i32 [ %55, %54 ], [ %.032.us.i.i8, %50 ], [ %.032.us.i.i8, %43 ], [ %.032.us.i.i8, %.lr.ph.split.us.i.i7 ]
-  %58 = getelementptr inbounds i8, ptr %.125.us.i.i12, i64 1
+57:                                               ; preds = %54, %50, %43, %.lr.ph.split.i.i7
+  %.125.i.i12 = phi ptr [ %56, %54 ], [ %.02432.i.i9, %50 ], [ %.02432.i.i9, %43 ], [ %.02432.i.i9, %.lr.ph.split.i.i7 ]
+  %.1.i.i13 = phi i32 [ %55, %54 ], [ %.033.i.i8, %50 ], [ %.033.i.i8, %43 ], [ %.033.i.i8, %.lr.ph.split.i.i7 ]
+  %58 = getelementptr inbounds i8, ptr %.125.i.i12, i64 1
   %59 = icmp ult ptr %58, %6
-  br i1 %59, label %.lr.ph.split.us.i.i7, label %dlp_get_normal_ssn_count.exit
+  br i1 %59, label %.lr.ph.split.i.i7, label %dlp_get_normal_ssn_count.exit
 
 dlp_get_normal_ssn_count.exit:                    ; preds = %57, %5, %2
-  %.023.i.i16 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.us.i.i, %57 ]
-  %.023.i.i4 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.us.i.i13, %57 ]
+  %.023.i.i16 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.i.i, %57 ]
+  %.023.i.i4 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.1.i.i13, %57 ]
   %60 = add nsw i32 %.023.i.i4, %.023.i.i16
   ret i32 %60
 }
@@ -787,85 +787,85 @@ define range(i32 0, 2) i32 @dlp_has_ssn(ptr noundef %0, i64 noundef %1) local_un
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %9
-  br label %.lr.ph.split.i
+  br label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i
-  %.02431.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %29, %.lr.ph.i
+  %.02432.us.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.i, align 1
+  %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %29, label %16
+  %.not.us.i = icmp eq i16 %15, 0
+  br i1 %.not.us.i, label %29, label %16
 
-16:                                               ; preds = %.lr.ph.split.i
-  %17 = icmp eq ptr %.02431.i, %0
+16:                                               ; preds = %.lr.ph.split.us.i
+  %17 = icmp eq ptr %.02432.us.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.i = icmp eq i16 %24, 0
-  br i1 %.not28.i, label %25, label %29
+  %.not28.us.i = icmp eq i16 %24, 0
+  br i1 %.not28.us.i, label %25, label %29
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.i to i64
+  %26 = ptrtoint ptr %.02432.us.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0)
-  %.not29.i = icmp eq i32 %28, 0
-  br i1 %.not29.i, label %29, label %contains_ssn.exit
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.us.i, i64 noundef %27, i32 noundef 0)
+  %.not29.us.i = icmp eq i32 %28, 0
+  br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
-29:                                               ; preds = %25, %18, %.lr.ph.split.i
-  %30 = getelementptr inbounds i8, ptr %.02431.i, i64 1
+29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
-  br i1 %31, label %.lr.ph.split.i, label %contains_ssn.exit
+  br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
 contains_ssn.exit:                                ; preds = %29, %25
   %.023.i = phi i32 [ 1, %25 ], [ 0, %29 ]
-  br label %.lr.ph.split.i7
+  br label %.lr.ph.split.us.i7
 
-.lr.ph.split.i7:                                  ; preds = %51, %contains_ssn.exit
-  %.02431.i8 = phi ptr [ %52, %51 ], [ %0, %contains_ssn.exit ]
+.lr.ph.split.us.i7:                               ; preds = %51, %contains_ssn.exit
+  %.02432.us.i8 = phi ptr [ %52, %51 ], [ %0, %contains_ssn.exit ]
   %32 = load ptr, ptr %8, align 8
-  %33 = load i8, ptr %.02431.i8, align 1
+  %33 = load i8, ptr %.02432.us.i8, align 1
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds i16, ptr %32, i64 %34
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 2048
-  %.not.i9 = icmp eq i16 %37, 0
-  br i1 %.not.i9, label %51, label %38
+  %.not.us.i9 = icmp eq i16 %37, 0
+  br i1 %.not.us.i9, label %51, label %38
 
-38:                                               ; preds = %.lr.ph.split.i7
-  %39 = icmp eq ptr %.02431.i8, %0
+38:                                               ; preds = %.lr.ph.split.us.i7
+  %39 = icmp eq ptr %.02432.us.i8, %0
   br i1 %39, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.02431.i8, i64 -1
+  %41 = getelementptr inbounds i8, ptr %.02432.us.i8, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
   %44 = getelementptr inbounds i16, ptr %32, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 2048
-  %.not28.i10 = icmp eq i16 %46, 0
-  br i1 %.not28.i10, label %47, label %51
+  %.not28.us.i10 = icmp eq i16 %46, 0
+  br i1 %.not28.us.i10, label %47, label %51
 
 47:                                               ; preds = %40, %38
-  %48 = ptrtoint ptr %.02431.i8 to i64
+  %48 = ptrtoint ptr %.02432.us.i8 to i64
   %49 = sub i64 %.neg.i, %48
-  %50 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i8, i64 noundef %49, i32 noundef 1)
-  %.not29.i11 = icmp eq i32 %50, 0
-  br i1 %.not29.i11, label %51, label %contains_ssn.exit12
+  %50 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.us.i8, i64 noundef %49, i32 noundef 1)
+  %.not29.us.i11 = icmp eq i32 %50, 0
+  br i1 %.not29.us.i11, label %51, label %contains_ssn.exit12
 
-51:                                               ; preds = %47, %40, %.lr.ph.split.i7
-  %52 = getelementptr inbounds i8, ptr %.02431.i8, i64 1
+51:                                               ; preds = %47, %40, %.lr.ph.split.us.i7
+  %52 = getelementptr inbounds i8, ptr %.02432.us.i8, i64 1
   %53 = icmp ult ptr %52, %6
-  br i1 %53, label %.lr.ph.split.i7, label %contains_ssn.exit12
+  br i1 %53, label %.lr.ph.split.us.i7, label %contains_ssn.exit12
 
 contains_ssn.exit12:                              ; preds = %47, %51, %5, %2
   %.023.i14 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.023.i, %51 ], [ %.023.i, %47 ]
@@ -890,44 +890,44 @@ define range(i32 0, 2) i32 @dlp_has_stripped_ssn(ptr noundef %0, i64 noundef %1)
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %9
-  br label %.lr.ph.split.i
+  br label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i
-  %.02431.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %29, %.lr.ph.i
+  %.02432.us.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.i, align 1
+  %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %29, label %16
+  %.not.us.i = icmp eq i16 %15, 0
+  br i1 %.not.us.i, label %29, label %16
 
-16:                                               ; preds = %.lr.ph.split.i
-  %17 = icmp eq ptr %.02431.i, %0
+16:                                               ; preds = %.lr.ph.split.us.i
+  %17 = icmp eq ptr %.02432.us.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.i = icmp eq i16 %24, 0
-  br i1 %.not28.i, label %25, label %29
+  %.not28.us.i = icmp eq i16 %24, 0
+  br i1 %.not28.us.i, label %25, label %29
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.i to i64
+  %26 = ptrtoint ptr %.02432.us.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 1)
-  %.not29.i = icmp eq i32 %28, 0
-  br i1 %.not29.i, label %29, label %contains_ssn.exit
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.us.i, i64 noundef %27, i32 noundef 1)
+  %.not29.us.i = icmp eq i32 %28, 0
+  br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
-29:                                               ; preds = %25, %18, %.lr.ph.split.i
-  %30 = getelementptr inbounds i8, ptr %.02431.i, i64 1
+29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
-  br i1 %31, label %.lr.ph.split.i, label %contains_ssn.exit
+  br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
 contains_ssn.exit:                                ; preds = %25, %29, %2, %5
   %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %29 ], [ 1, %25 ]
@@ -950,44 +950,44 @@ define range(i32 0, 2) i32 @dlp_has_normal_ssn(ptr noundef %0, i64 noundef %1) l
   %8 = tail call ptr @__ctype_b_loc() #9
   %9 = ptrtoint ptr %0 to i64
   %.neg.i = add i64 %1, %9
-  br label %.lr.ph.split.i
+  br label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %29, %.lr.ph.i
-  %.02431.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %29, %.lr.ph.i
+  %.02432.us.i = phi ptr [ %30, %29 ], [ %0, %.lr.ph.i ]
   %10 = load ptr, ptr %8, align 8
-  %11 = load i8, ptr %.02431.i, align 1
+  %11 = load i8, ptr %.02432.us.i, align 1
   %12 = zext i8 %11 to i64
   %13 = getelementptr inbounds i16, ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2048
-  %.not.i = icmp eq i16 %15, 0
-  br i1 %.not.i, label %29, label %16
+  %.not.us.i = icmp eq i16 %15, 0
+  br i1 %.not.us.i, label %29, label %16
 
-16:                                               ; preds = %.lr.ph.split.i
-  %17 = icmp eq ptr %.02431.i, %0
+16:                                               ; preds = %.lr.ph.split.us.i
+  %17 = icmp eq ptr %.02432.us.i, %0
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.02431.i, i64 -1
+  %19 = getelementptr inbounds i8, ptr %.02432.us.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %10, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
-  %.not28.i = icmp eq i16 %24, 0
-  br i1 %.not28.i, label %25, label %29
+  %.not28.us.i = icmp eq i16 %24, 0
+  br i1 %.not28.us.i, label %25, label %29
 
 25:                                               ; preds = %18, %16
-  %26 = ptrtoint ptr %.02431.i to i64
+  %26 = ptrtoint ptr %.02432.us.i to i64
   %27 = sub i64 %.neg.i, %26
-  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02431.i, i64 noundef %27, i32 noundef 0)
-  %.not29.i = icmp eq i32 %28, 0
-  br i1 %.not29.i, label %29, label %contains_ssn.exit
+  %28 = tail call i32 @dlp_is_valid_ssn(ptr noundef nonnull %.02432.us.i, i64 noundef %27, i32 noundef 0)
+  %.not29.us.i = icmp eq i32 %28, 0
+  br i1 %.not29.us.i, label %29, label %contains_ssn.exit
 
-29:                                               ; preds = %25, %18, %.lr.ph.split.i
-  %30 = getelementptr inbounds i8, ptr %.02431.i, i64 1
+29:                                               ; preds = %25, %18, %.lr.ph.split.us.i
+  %30 = getelementptr inbounds i8, ptr %.02432.us.i, i64 1
   %31 = icmp ult ptr %30, %6
-  br i1 %31, label %.lr.ph.split.i, label %contains_ssn.exit
+  br i1 %31, label %.lr.ph.split.us.i, label %contains_ssn.exit
 
 contains_ssn.exit:                                ; preds = %25, %29, %2, %5
   %.023.i = phi i32 [ 0, %2 ], [ 0, %5 ], [ 0, %29 ], [ 1, %25 ]

@@ -1645,7 +1645,7 @@ define dso_local i32 @do_syslog(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %47, label %48, label %.thread, !prof !9
 
 48:                                               ; preds = %41
-  %49 = tail call fastcc i32 @syslog_print(ptr noundef nonnull %1, i32 noundef %2)
+  %49 = tail call fastcc i32 @syslog_print(ptr noundef %1, i32 noundef %2)
   br label %.thread
 
 50:                                               ; preds = %34
@@ -1672,7 +1672,7 @@ define dso_local i32 @do_syslog(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %64, label %65, label %.thread, !prof !9
 
 65:                                               ; preds = %58
-  %66 = tail call fastcc i32 @syslog_print_all(ptr noundef nonnull %1, i32 noundef %2, i1 noundef zeroext %52)
+  %66 = tail call fastcc i32 @syslog_print_all(ptr noundef %1, i32 noundef %2, i1 noundef zeroext %52)
   br label %.thread
 
 67:                                               ; preds = %34
@@ -1857,7 +1857,7 @@ define dso_local i32 @do_syslog(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @syslog_print(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @syslog_print(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.printk_info, align 8
   %4 = alloca %struct.printk_record, align 8
   %5 = alloca %struct.wait_queue_entry, align 8
@@ -1866,7 +1866,7 @@ define internal fastcc i32 @syslog_print(ptr noundef %0, i32 noundef %1) unnamed
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %7 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %6, i32 noundef 3264, i64 noundef 2048) #32
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %89, label %9
+  br i1 %8, label %86, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -1931,10 +1931,10 @@ define internal fastcc i32 @syslog_print(ptr noundef %0, i32 noundef %1) unnamed
   %32 = icmp eq i64 %31, %14
   br i1 %32, label %.preheader, label %13, !llvm.loop !35
 
-.preheader:                                       ; preds = %30, %82
-  %33 = phi i32 [ %85, %82 ], [ %1, %30 ]
-  %34 = phi i32 [ %84, %82 ], [ 0, %30 ]
-  %35 = phi ptr [ %86, %82 ], [ %0, %30 ]
+.preheader:                                       ; preds = %30, %79
+  %33 = phi i32 [ %82, %79 ], [ %1, %30 ]
+  %34 = phi i32 [ %81, %79 ], [ 0, %30 ]
+  %35 = phi ptr [ %83, %79 ], [ %0, %30 ]
   %36 = load ptr, ptr @prb, align 8
   %37 = load i64, ptr @syslog_seq, align 8
   %38 = call zeroext i1 @prb_read_valid(ptr noundef %36, i64 noundef %37, ptr noundef nonnull %4) #27
@@ -1975,81 +1975,78 @@ define internal fastcc i32 @syslog_print(ptr noundef %0, i32 noundef %1) unnamed
   %54 = sub i64 %52, %53
   %55 = sext i32 %33 to i64
   %56 = icmp ugt i64 %54, %55
-  br i1 %56, label %61, label %57
+  br i1 %56, label %57, label %60
 
 57:                                               ; preds = %48
-  %58 = load ptr, ptr %4, align 8
-  %59 = load i64, ptr %58, align 8
-  %60 = add i64 %59, 1
-  store i64 %60, ptr @syslog_seq, align 8
+  %58 = icmp eq i32 %34, 0
+  br i1 %58, label %.thread, label %.thread12
+
+.thread:                                          ; preds = %57
+  %59 = add i64 %53, %55
+  store i64 %59, ptr @syslog_partial, align 8
   br label %65
 
-61:                                               ; preds = %48
-  %62 = icmp eq i32 %34, 0
-  br i1 %62, label %63, label %.thread12
+60:                                               ; preds = %48
+  %61 = load ptr, ptr %4, align 8
+  %62 = load i64, ptr %61, align 8
+  %63 = add i64 %62, 1
+  store i64 %63, ptr @syslog_seq, align 8
+  store i64 0, ptr @syslog_partial, align 8
+  %64 = icmp eq i64 %54, 0
+  br i1 %64, label %.thread12, label %65
 
-63:                                               ; preds = %61
-  %64 = add i64 %53, %55
-  br label %65
-
-65:                                               ; preds = %57, %63
-  %66 = phi i64 [ %64, %63 ], [ 0, %57 ]
-  %67 = phi i64 [ %55, %63 ], [ %54, %57 ]
-  store i64 %66, ptr @syslog_partial, align 8
-  %68 = icmp eq i64 %67, 0
-  br i1 %68, label %.thread12, label %69
-
-69:                                               ; preds = %65
+65:                                               ; preds = %.thread, %60
+  %66 = phi i64 [ %55, %.thread ], [ %54, %60 ]
   call void @mutex_unlock(ptr noundef nonnull @syslog_lock) #27
-  %70 = icmp ugt i64 %67, 2147483647
-  br i1 %70, label %71, label %72, !prof !10
+  %67 = icmp ugt i64 %66, 2147483647
+  br i1 %67, label %68, label %69, !prof !10
 
-71:                                               ; preds = %69
+68:                                               ; preds = %65
   call void asm sideeffect "15: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 15b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 15) #27, !srcloc !18
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.76, i32 249, i32 2307, i64 12) #27, !srcloc !19
   call void asm sideeffect "16: nop\0A\09.pushsection .discard.instr_end\0A\09.long 16b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 16) #27, !srcloc !20
-  br label %75
+  br label %72
 
-72:                                               ; preds = %69
-  %73 = getelementptr i8, ptr %7, i64 %50
-  %74 = call i64 @_copy_to_user(ptr noundef %35, ptr noundef %73, i64 noundef %67) #27
-  br label %75
+69:                                               ; preds = %65
+  %70 = getelementptr i8, ptr %7, i64 %50
+  %71 = call i64 @_copy_to_user(ptr noundef %35, ptr noundef %70, i64 noundef %66) #27
+  br label %72
 
-75:                                               ; preds = %72, %71
-  %76 = phi i64 [ %74, %72 ], [ %67, %71 ]
+72:                                               ; preds = %69, %68
+  %73 = phi i64 [ %71, %69 ], [ %66, %68 ]
   call void @mutex_lock(ptr noundef nonnull @syslog_lock) #27
-  %77 = and i64 %76, 4294967295
-  %78 = icmp eq i64 %77, 0
-  br i1 %78, label %82, label %79
+  %74 = and i64 %73, 4294967295
+  %75 = icmp eq i64 %74, 0
+  br i1 %75, label %79, label %76
 
-79:                                               ; preds = %75
-  %80 = icmp eq i32 %34, 0
-  %81 = select i1 %80, i32 -14, i32 %34
+76:                                               ; preds = %72
+  %77 = icmp eq i32 %34, 0
+  %78 = select i1 %77, i32 -14, i32 %34
   br label %.thread12
 
-82:                                               ; preds = %75
-  %83 = trunc i64 %67 to i32
-  %84 = add i32 %34, %83
-  %85 = sub i32 %33, %83
-  %86 = getelementptr i8, ptr %35, i64 %67
-  %87 = icmp eq i32 %85, 0
-  br i1 %87, label %.thread12, label %.preheader, !llvm.loop !36
+79:                                               ; preds = %72
+  %80 = trunc i64 %66 to i32
+  %81 = add i32 %34, %80
+  %82 = sub i32 %33, %80
+  %83 = getelementptr i8, ptr %35, i64 %66
+  %84 = icmp eq i32 %82, 0
+  br i1 %84, label %.thread12, label %.preheader, !llvm.loop !36
 
-.thread12:                                        ; preds = %.thread8, %61, %65, %.preheader, %82, %79
-  %88 = phi i32 [ %81, %79 ], [ %34, %61 ], [ %34, %.preheader ], [ %34, %65 ], [ %84, %82 ], [ %28, %.thread8 ]
+.thread12:                                        ; preds = %.thread8, %57, %60, %.preheader, %79, %76
+  %85 = phi i32 [ %78, %76 ], [ %34, %57 ], [ %34, %.preheader ], [ %34, %60 ], [ %81, %79 ], [ %28, %.thread8 ]
   call void @mutex_unlock(ptr noundef nonnull @syslog_lock) #27
   call void @kfree(ptr noundef nonnull %7) #27
-  br label %89
+  br label %86
 
-89:                                               ; preds = %.thread12, %2
-  %90 = phi i32 [ %88, %.thread12 ], [ -12, %2 ]
+86:                                               ; preds = %.thread12, %2
+  %87 = phi i32 [ %85, %.thread12 ], [ -12, %2 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3) #27
-  ret i32 %90
+  ret i32 %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @syslog_print_all(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc i32 @syslog_print_all(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = alloca %struct.printk_info, align 8
   %5 = alloca %struct.printk_record, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #27
@@ -6334,7 +6331,7 @@ define dso_local noundef zeroext i1 @kmsg_dump_get_buffer(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @find_first_fitting_seq(i64 noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc noundef i64 @find_first_fitting_seq(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 0, -1) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = alloca [32 x i8], align 16
   %7 = alloca [32 x i8], align 16
   %8 = alloca %struct.printk_info, align 8
@@ -6710,7 +6707,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @devkmsg_emit(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #4 align 16 {
+define internal void @devkmsg_emit(i32 noundef range(i32 1, 256) %0, i32 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #4 align 16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !11

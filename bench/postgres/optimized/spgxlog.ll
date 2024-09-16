@@ -2024,7 +2024,7 @@ declare void @SpGistInitBuffer(i32 noundef, i16 noundef zeroext) local_unnamed_a
 declare i32 @XLogReadBufferForRedo(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addOrReplaceTuple(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @addOrReplaceTuple(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 1073741824) %2, i16 noundef zeroext %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %5, align 4
   %6 = icmp ult i16 %.val, 25

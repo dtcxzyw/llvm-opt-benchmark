@@ -819,7 +819,7 @@ declare i32 @PIDL_dissect_uint16(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @PIDL_dissect_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_counted_values(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_counted_values(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 -2147483644, 61) %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #4
   %8 = load i32, ptr @hf_tnef_values_count, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %8, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #4

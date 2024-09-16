@@ -332,37 +332,37 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
 
 99:                                               ; preds = %dissect_hcrt_header.exit.i
   %100 = icmp eq i32 %44, 0
-  %.not4549.i.i = icmp eq i16 %40, 0
+  %.not4650.i.i = icmp eq i16 %40, 0
   br i1 %100, label %101, label %109
 
 101:                                              ; preds = %99
   %102 = load i32, ptr @hf_hcrt_addr_32, align 4
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %102, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef -2147483648) #2
-  br i1 %.not4549.i.i, label %dissect_hcrt_message.exit, label %.lr.ph51.i.i
+  br i1 %.not4650.i.i, label %dissect_hcrt_message.exit, label %.lr.ph52.i.i
 
-.lr.ph51.i.i:                                     ; preds = %101, %.lr.ph51.i.i
-  %.050.i.i = phi i32 [ %108, %.lr.ph51.i.i ], [ 1, %101 ]
+.lr.ph52.i.i:                                     ; preds = %101, %.lr.ph52.i.i
+  %.051.i.i = phi i32 [ %108, %.lr.ph52.i.i ], [ 1, %101 ]
   %104 = load i32, ptr @hf_hcrt_data_32, align 4
-  %105 = shl i32 %.050.i.i, 2
+  %105 = shl i32 %.051.i.i, 2
   %106 = add i32 %105, %91
   %107 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %104, ptr noundef %0, i32 noundef %106, i32 noundef 4, i32 noundef -2147483648) #2
-  %108 = add nuw nsw i32 %.050.i.i, 1
-  %exitcond53.not.i.i = icmp eq i32 %.050.i.i, %41
-  br i1 %exitcond53.not.i.i, label %dissect_hcrt_message.exit, label %.lr.ph51.i.i, !llvm.loop !4
+  %108 = add nuw nsw i32 %.051.i.i, 1
+  %exitcond54.not.i.i = icmp eq i32 %.051.i.i, %41
+  br i1 %exitcond54.not.i.i, label %dissect_hcrt_message.exit, label %.lr.ph52.i.i, !llvm.loop !4
 
 109:                                              ; preds = %99
   %110 = load i32, ptr @hf_hcrt_addr_64, align 4
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %110, ptr noundef %0, i32 noundef %91, i32 noundef 8, i32 noundef -2147483648) #2
-  br i1 %.not4549.i.i, label %dissect_hcrt_message.exit, label %.lr.ph.i.i
+  br i1 %.not4650.i.i, label %dissect_hcrt_message.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %109, %.lr.ph.i.i
-  %.148.i.i = phi i32 [ %116, %.lr.ph.i.i ], [ 1, %109 ]
+  %.149.i.i = phi i32 [ %116, %.lr.ph.i.i ], [ 1, %109 ]
   %112 = load i32, ptr @hf_hcrt_data_64, align 4
-  %113 = shl i32 %.148.i.i, 3
+  %113 = shl i32 %.149.i.i, 3
   %114 = add i32 %113, %91
   %115 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %112, ptr noundef %0, i32 noundef %114, i32 noundef 8, i32 noundef -2147483648) #2
-  %116 = add nuw nsw i32 %.148.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %.148.i.i, %41
+  %116 = add nuw nsw i32 %.149.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %.149.i.i, %41
   br i1 %exitcond.not.i.i, label %dissect_hcrt_message.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 117:                                              ; preds = %dissect_hcrt_header.exit.i
@@ -380,15 +380,15 @@ dissect_hcrt_header.exit.i:                       ; preds = %70, %81
   br label %dissect_hcrt_message.exit
 
 125:                                              ; preds = %dissect_hcrt_header.exit.i
-  %.not.i = icmp eq i32 %.0.i, 0
-  br i1 %.not.i, label %dissect_hcrt_message.exit, label %126
+  %.not.i32.i = icmp eq i32 %.0.i, 0
+  br i1 %.not.i32.i, label %dissect_hcrt_message.exit, label %126
 
 126:                                              ; preds = %125
   %127 = load i32, ptr @hf_hcrt_command_nop, align 4
   %128 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %127, ptr noundef %0, i32 noundef %91, i32 noundef %.0.i, i32 noundef 0) #2
   br label %dissect_hcrt_message.exit
 
-dissect_hcrt_message.exit:                        ; preds = %.lr.ph.i.i, %.lr.ph51.i.i, %96, %101, %109, %119, %122, %125, %126
+dissect_hcrt_message.exit:                        ; preds = %.lr.ph.i.i, %.lr.ph52.i.i, %96, %101, %109, %119, %122, %125, %126
   %.not = icmp sgt i16 %90, -1
   br i1 %.not, label %129, label %132
 

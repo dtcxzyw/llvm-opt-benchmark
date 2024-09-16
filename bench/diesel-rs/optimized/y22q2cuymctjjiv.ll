@@ -49,7 +49,7 @@ define internal void @"_ZN4core3ptr1028drop_in_place$LT$diesel..query_builder..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i64 %2, -9223372036854775798
   br i1 %3, label %4, label %6
@@ -60,7 +60,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Resu
   br label %7
 
 6:                                                ; preds = %1
-  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
+  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %0)
   br label %7
 
 7:                                                ; preds = %6, %4
@@ -68,7 +68,7 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %16, label %3
@@ -110,7 +110,7 @@ define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Resu
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
+  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %17)
   br label %"_ZN4core3ptr61drop_in_place$LT$diesel..pg..connection..result..PgResult$GT$17h9789d4dcfac1898dE.exit"
 
 "_ZN4core3ptr61drop_in_place$LT$diesel..pg..connection..result..PgResult$GT$17h9789d4dcfac1898dE.exit": ; preds = %13, %"_ZN4core3ptr59drop_in_place$LT$diesel..pg..connection..raw..RawResult$GT$17h9dd5c55b56603f6eE.llvm.8259769641146142029.exit.i", %16
@@ -118,7 +118,7 @@ define internal fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !6, !noundef !5
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -229,7 +229,7 @@ define internal void @"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !44, !noundef !5
   %.not = icmp eq i64 %3, -9223372036854775807
@@ -287,7 +287,7 @@ define internal fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Resu
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %21)
+  tail call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %21)
   br label %"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E.exit"
 
 "_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E.exit": ; preds = %"_ZN4core3ptr60drop_in_place$LT$diesel..pg..connection..stmt..Statement$GT$17h7946309150c547a6E.exit.i", %4, %20
@@ -300,7 +300,7 @@ define internal void @"_ZN4core3ptr1857drop_in_place$LT$diesel..query_builder..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !65, !noundef !5
   %4 = icmp slt i64 %3, -9223372036854775798
@@ -526,7 +526,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %109, i64 noundef 32, i64 noundef 8) #13, !noalias !75
   %111 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h3070a1856bbcbb6dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #12
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h3070a1856bbcbb6dE"(ptr noalias noundef align 8 dereferenceable(8) %111) #12
           to label %common.resume unwind label %117
 
 112:                                              ; preds = %107
@@ -555,7 +555,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h3070a1856bbcbb6dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h3070a1856bbcbb6dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %2)
           to label %3 unwind label %4
@@ -671,7 +671,7 @@ define internal void @"_ZN67_$LT$T$u20$as$u20$diesel..pg..metadata_lookup..PgMet
 36:                                               ; preds = %38, %34
   %37 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #12
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %11) #12
           to label %.thread unwind label %41
 
 38:                                               ; preds = %34
@@ -684,7 +684,7 @@ define internal void @"_ZN67_$LT$T$u20$as$u20$diesel..pg..metadata_lookup..PgMet
   store i32 1, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %39, ptr %.sroa.412.0..sroa_idx, align 8
-  call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
+  call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h12f3e1ed8339db72E"(ptr noalias noundef align 8 dereferenceable(32) %11)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %35
 
@@ -888,7 +888,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 70:                                               ; preds = %69
   %71 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24) #12
+  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef align 8 dereferenceable(40) %24) #12
           to label %56 unwind label %72
 
 "_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit52": ; preds = %"._ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit52_crit_edge", %63
@@ -954,7 +954,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 88:                                               ; preds = %99, %86
   %89 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #12
+  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef align 8 dereferenceable(48) %17) #12
           to label %.body.thread.i unwind label %100, !noalias !129
 
 90:                                               ; preds = %86
@@ -1051,7 +1051,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 110:                                              ; preds = %124, %118, %107
   %111 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #12
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef align 8 dereferenceable(32) %12) #12
           to label %.body.i.i unwind label %125, !noalias !157
 
 112:                                              ; preds = %107
@@ -1137,7 +1137,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 131:                                              ; preds = %.body.thread43.i, %132
   %.pn19.i = phi { ptr, i32 } [ %133, %132 ], [ %.pn.i, %.body.thread43.i ]
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %76) #12
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef align 8 dereferenceable(40) %76) #12
           to label %.body unwind label %168, !noalias !172
 
 132:                                              ; preds = %"_ZN4core3ptr1223drop_in_place$LT$diesel..query_builder..select_statement..SelectStatement$LT$diesel..query_builder..from_clause..FromClause$LT$diesel..pg..metadata_lookup..pg_type..table$GT$$C$diesel..query_builder..select_clause..SelectClause$LT$$LP$diesel..pg..metadata_lookup..pg_type..columns..oid$C$diesel..pg..metadata_lookup..pg_type..columns..typarray$RP$$GT$$C$diesel..query_builder..distinct_clause..NoDistinctClause$C$diesel..query_builder..where_clause..WhereClause$LT$diesel..expression..grouped..Grouped$LT$diesel..expression..operators..Eq$LT$diesel..pg..metadata_lookup..pg_type..columns..oid$C$diesel..expression..sql_literal..SqlLiteral$LT$diesel..pg..types..sql_types..Oid$C$diesel..expression..sql_literal..UncheckedBind$LT$diesel..expression..sql_literal..SqlLiteral$LT$diesel..pg..types..sql_types..Oid$GT$$C$diesel..expression..bound..Bound$LT$diesel..sql_types..Text$C$$RF$str$GT$$GT$$GT$$GT$$GT$$GT$$C$diesel..query_builder..order_clause..NoOrderClause$C$diesel..query_builder..limit_offset_clause28", %"_ZN149_$LT$diesel..pg..connection..PgConnection$u20$as$u20$diesel..pg..connection..private..PgLoadingMode$LT$diesel..connection..DefaultLoadingMode$GT$$GT$10get_cursor17h06d1dbbf1a73b3a2E.exit.i"
@@ -1591,7 +1591,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 68:                                               ; preds = %67
   %69 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %24) #12
+  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef align 8 dereferenceable(40) %24) #12
           to label %54 unwind label %70
 
 "_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit46": ; preds = %"._ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit46_crit_edge", %61
@@ -1657,7 +1657,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 86:                                               ; preds = %97, %84
   %87 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #12
+  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef align 8 dereferenceable(48) %17) #12
           to label %.body.i unwind label %98, !noalias !283
 
 88:                                               ; preds = %84
@@ -1744,7 +1744,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 105:                                              ; preds = %119, %113, %.noexc22.i
   %106 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12) #12
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef align 8 dereferenceable(32) %12) #12
           to label %.body.i unwind label %120, !noalias !309
 
 107:                                              ; preds = %.noexc22.i
@@ -1820,7 +1820,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 124:                                              ; preds = %125, %.body.i
   %.pn.i = phi { ptr, i32 } [ %126, %125 ], [ %eh.lpad-body.i, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %74) #12
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef align 8 dereferenceable(40) %74) #12
           to label %.body unwind label %159, !noalias !272
 
 125:                                              ; preds = %123, %122
@@ -2247,7 +2247,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 72:                                               ; preds = %71
   %73 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26) #12
+  invoke fastcc void @"_ZN4core3ptr168drop_in_place$LT$core..result..Result$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$C$diesel..result..Error$GT$$GT$17h99fd5f677601f842E"(ptr noalias noundef align 8 dereferenceable(40) %26) #12
           to label %58 unwind label %74
 
 "_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit46": ; preds = %"._ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h715a1e1dbdcff422E.exit46_crit_edge", %65
@@ -2321,7 +2321,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 94:                                               ; preds = %105, %92
   %95 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %18) #12
+  invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..result..PgResult$C$diesel..result..Error$GT$$GT$17h97c319d73e5834b8E"(ptr noalias noundef align 8 dereferenceable(48) %18) #12
           to label %.body.i unwind label %106, !noalias !436
 
 96:                                               ; preds = %92
@@ -2412,7 +2412,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 116:                                              ; preds = %130, %124, %.noexc22.i
   %117 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #12
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$diesel..pg..connection..cursor..Cursor$C$diesel..result..Error$GT$$GT$17h96f5801722c4ce5eE"(ptr noalias noundef align 8 dereferenceable(32) %13) #12
           to label %.body.i unwind label %131, !noalias !461
 
 118:                                              ; preds = %.noexc22.i
@@ -2488,7 +2488,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
 
 135:                                              ; preds = %136, %.body.i
   %.pn.i = phi { ptr, i32 } [ %137, %136 ], [ %eh.lpad-body.i, %.body.i ]
-  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %79) #12
+  invoke fastcc void @"_ZN4core3ptr116drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..pg..connection..stmt..Statement$GT$$GT$17h4f7d5d36d1f54b19E"(ptr noalias noundef align 8 dereferenceable(40) %79) #12
           to label %.body unwind label %170, !noalias !425
 
 136:                                              ; preds = %134, %133

@@ -140,11 +140,11 @@ sw.epilog:                                        ; preds = %entry, %entry, %sw.
 
 for.body.i:                                       ; preds = %for.body.i, %sw.epilog
   %indvars.iv.i = phi i64 [ 0, %sw.epilog ], [ %indvars.iv.next.i, %for.body.i ]
-  %val.addr.05.i = phi i32 [ %6, %sw.epilog ], [ %shr.i, %for.body.i ]
-  %conv.i = trunc i32 %val.addr.05.i to i8
+  %val.addr.04.i = phi i32 [ %6, %sw.epilog ], [ %shr.i, %for.body.i ]
+  %conv.i = trunc i32 %val.addr.04.i to i8
   %arrayidx.i = getelementptr i8, ptr %add.ptr, i64 %indvars.iv.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
-  %shr.i = lshr i32 %val.addr.05.i, 8
+  %shr.i = lshr i32 %val.addr.04.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
   br i1 %exitcond.not.i, label %le_store.exit, label %for.body.i, !llvm.loop !5
@@ -157,11 +157,11 @@ le_store.exit:                                    ; preds = %for.body.i
 
 for.body.i14:                                     ; preds = %for.body.i14, %le_store.exit
   %indvars.iv.i15 = phi i64 [ 0, %le_store.exit ], [ %indvars.iv.next.i20, %for.body.i14 ]
-  %val.addr.05.i16 = phi i32 [ %7, %le_store.exit ], [ %shr.i19, %for.body.i14 ]
-  %conv.i17 = trunc i32 %val.addr.05.i16 to i8
+  %val.addr.04.i16 = phi i32 [ %7, %le_store.exit ], [ %shr.i19, %for.body.i14 ]
+  %conv.i17 = trunc i32 %val.addr.04.i16 to i8
   %arrayidx.i18 = getelementptr i8, ptr %add.ptr11, i64 %indvars.iv.i15
   store i8 %conv.i17, ptr %arrayidx.i18, align 1
-  %shr.i19 = lshr i32 %val.addr.05.i16, 8
+  %shr.i19 = lshr i32 %val.addr.04.i16, 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, 4
   br i1 %exitcond.not.i21, label %le_store.exit22, label %for.body.i14, !llvm.loop !5
@@ -174,11 +174,11 @@ le_store.exit22:                                  ; preds = %for.body.i14
 
 for.body.i23:                                     ; preds = %for.body.i23, %le_store.exit22
   %indvars.iv.i24 = phi i64 [ 0, %le_store.exit22 ], [ %indvars.iv.next.i29, %for.body.i23 ]
-  %val.addr.05.i25 = phi i32 [ %shl, %le_store.exit22 ], [ %shr.i28, %for.body.i23 ]
-  %conv.i26 = trunc i32 %val.addr.05.i25 to i8
+  %val.addr.04.i25 = phi i32 [ %shl, %le_store.exit22 ], [ %shr.i28, %for.body.i23 ]
+  %conv.i26 = trunc i32 %val.addr.04.i25 to i8
   %arrayidx.i27 = getelementptr i8, ptr %add.ptr14, i64 %indvars.iv.i24
   store i8 %conv.i26, ptr %arrayidx.i27, align 1
-  %shr.i28 = lshr i32 %val.addr.05.i25, 8
+  %shr.i28 = lshr i32 %val.addr.04.i25, 8
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next.i29, 4
   br i1 %exitcond.not.i30, label %le_store.exit31, label %for.body.i23, !llvm.loop !5
@@ -191,9 +191,9 @@ le_store.exit31:                                  ; preds = %for.body.i23
 
 for.body.i32:                                     ; preds = %for.body.i32, %le_store.exit31
   %indvars.iv.i33 = phi i64 [ 0, %le_store.exit31 ], [ %indvars.iv.next.i38, %for.body.i32 ]
-  %val.addr.05.i34 = phi i8 [ %8, %le_store.exit31 ], [ 0, %for.body.i32 ]
+  %val.addr.04.i34 = phi i8 [ %8, %le_store.exit31 ], [ 0, %for.body.i32 ]
   %arrayidx.i36 = getelementptr i8, ptr %add.ptr18, i64 %indvars.iv.i33
-  store i8 %val.addr.05.i34, ptr %arrayidx.i36, align 1
+  store i8 %val.addr.04.i34, ptr %arrayidx.i36, align 1
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, 2
   br i1 %exitcond.not.i39, label %le_store.exit40, label %for.body.i32, !llvm.loop !5
@@ -255,22 +255,22 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %val.addr.05.i = phi i32 [ %add, %if.end ], [ %shr.i, %for.body.i ]
-  %conv.i = trunc i32 %val.addr.05.i to i8
+  %val.addr.04.i = phi i32 [ %add, %if.end ], [ %shr.i, %for.body.i ]
+  %conv.i = trunc i32 %val.addr.04.i to i8
   %arrayidx.i = getelementptr i8, ptr %rlen, i64 %indvars.iv.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
-  %shr.i = lshr i32 %val.addr.05.i, 8
+  %shr.i = lshr i32 %val.addr.04.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %for.body.i11, label %for.body.i, !llvm.loop !5
 
 for.body.i11:                                     ; preds = %for.body.i, %for.body.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i17, %for.body.i11 ], [ 0, %for.body.i ]
-  %val.addr.05.i13 = phi i32 [ %shr.i16, %for.body.i11 ], [ %mul, %for.body.i ]
-  %conv.i14 = trunc i32 %val.addr.05.i13 to i8
+  %val.addr.04.i13 = phi i32 [ %shr.i16, %for.body.i11 ], [ %mul, %for.body.i ]
+  %conv.i14 = trunc i32 %val.addr.04.i13 to i8
   %arrayidx.i15 = getelementptr i8, ptr %dlen, i64 %indvars.iv.i12
   store i8 %conv.i14, ptr %arrayidx.i15, align 1
-  %shr.i16 = lshr i32 %val.addr.05.i13, 8
+  %shr.i16 = lshr i32 %val.addr.04.i13, 8
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 4
   br i1 %exitcond.not.i18, label %le_store.exit19, label %for.body.i11, !llvm.loop !5

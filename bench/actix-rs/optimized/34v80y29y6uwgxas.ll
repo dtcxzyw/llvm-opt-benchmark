@@ -1630,7 +1630,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   %19 = add i64 %14, 1
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
-  call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(200) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0)
+  call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef align 8 dereferenceable(200) %6, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6)
   br label %20
@@ -1679,7 +1679,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   br label %20
 
 36:                                               ; preds = %31
-  call fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(200) %4)
+  call fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5)
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h2c7e901fa1f36b94E"(ptr noalias nocapture noundef nonnull sret({ i64, [24 x i64] }) align 8 dereferenceable(200) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
@@ -1718,7 +1718,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   %19 = add i64 %14, 1
   store i64 %19, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6)
-  call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(200) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0)
+  call fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef align 8 dereferenceable(200) %6, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6)
   br label %20
@@ -1767,7 +1767,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   br label %20
 
 36:                                               ; preds = %31
-  call fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(200) %4)
+  call fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 8 dereferenceable(200) %4)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %5)
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hc0a9967eedbd568aE"(ptr noalias nocapture noundef nonnull sret({ i64, [24 x i64] }) align 8 dereferenceable(200) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
@@ -3828,7 +3828,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4a2d1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(200) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17h5e3f5efb4b013b27E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i.i.i = alloca { { i64, [23 x i64] }, i64 }, align 8
   %4 = alloca { { { i64, [23 x i64] }, i64 } }, align 8
   %.sroa.6 = alloca [24 x i64], align 8
@@ -4189,7 +4189,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(200) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h59d6d6aec1f373d9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.0.i = alloca { i64, [23 x i64] }, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4

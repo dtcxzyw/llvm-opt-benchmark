@@ -531,9 +531,9 @@ if.end:                                           ; preds = %entry
   %call.i.i = tail call ptr @base_ehooks_get(ptr noundef %pac.val.i) #8
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end, %edata_list_inactive_append.exit.i
+while.body.i:                                     ; preds = %edata_list_inactive_append.exit.i, %if.end
   %decay_extents.sroa.0.0 = phi ptr [ null, %if.end ], [ %11, %edata_list_inactive_append.exit.i ]
-  %nstashed.010.i = phi i64 [ 0, %if.end ], [ %add.i, %edata_list_inactive_append.exit.i ]
+  %nstashed.09.i = phi i64 [ 0, %if.end ], [ %add.i, %edata_list_inactive_append.exit.i ]
   %call2.i = tail call ptr @ecache_evict(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %call.i.i, ptr noundef %ecache, i64 noundef %npages_limit) #8
   %cmp3.i = icmp eq ptr %call2.i, null
   br i1 %cmp3.i, label %pac_stash_decayed.exit, label %if.end.i
@@ -569,12 +569,12 @@ edata_list_inactive_append.exit.i:                ; preds = %do.body2.i.i, %if.e
   %12 = getelementptr i8, ptr %call2.i, i64 16
   %call2.val.i = load i64, ptr %12, align 8
   %shr.i = lshr i64 %call2.val.i, 12
-  %add.i = add i64 %shr.i, %nstashed.010.i
+  %add.i = add i64 %shr.i, %nstashed.09.i
   %cmp.i = icmp ult i64 %add.i, %npages_decay_max
   br i1 %cmp.i, label %while.body.i, label %if.then4, !llvm.loop !5
 
 pac_stash_decayed.exit:                           ; preds = %while.body.i
-  %cmp3.not = icmp eq i64 %nstashed.010.i, 0
+  %cmp3.not = icmp eq i64 %nstashed.09.i, 0
   br i1 %cmp3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %edata_list_inactive_append.exit.i, %pac_stash_decayed.exit

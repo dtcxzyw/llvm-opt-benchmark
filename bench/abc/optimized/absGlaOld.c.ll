@@ -9240,9 +9240,9 @@ Gla_ManObj.exit:                                  ; preds = %4, %8
   %66 = getelementptr inbounds i32, ptr %63, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph65, label %.loopexit
+  br i1 %68, label %.lr.ph64, label %.loopexit
 
-.lr.ph65:                                         ; preds = %59
+.lr.ph64:                                         ; preds = %59
   %69 = getelementptr inbounds i8, ptr %61, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i32, ptr %70, i64 %65
@@ -9255,8 +9255,8 @@ Gla_ManObj.exit:                                  ; preds = %4, %8
   %77 = sext i32 %73 to i64
   br label %78
 
-78:                                               ; preds = %.lr.ph65, %._crit_edge
-  %indvars.iv = phi i64 [ %76, %.lr.ph65 ], [ %indvars.iv.next, %._crit_edge ]
+78:                                               ; preds = %.lr.ph64, %._crit_edge
+  %indvars.iv = phi i64 [ %76, %.lr.ph64 ], [ %indvars.iv.next, %._crit_edge ]
   store i32 0, ptr %74, align 4
   %79 = load ptr, ptr %60, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 24
@@ -9270,11 +9270,11 @@ Gla_ManObj.exit:                                  ; preds = %4, %8
   br i1 %86, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %78, %Vec_IntPush.exit
-  %.062 = phi ptr [ %122, %Vec_IntPush.exit ], [ %83, %78 ]
-  %87 = load i32, ptr %.062, align 4
+  %.061 = phi ptr [ %122, %Vec_IntPush.exit ], [ %83, %78 ]
+  %87 = load i32, ptr %.061, align 4
   %88 = ashr i32 %87, 1
   %89 = tail call fastcc i32 @Gla_ManGetVar(ptr noundef nonnull %0, i32 noundef %88, i32 noundef %2)
-  %90 = load i32, ptr %.062, align 4
+  %90 = load i32, ptr %.061, align 4
   %91 = and i32 %90, 1
   %92 = shl nsw i32 %89, 1
   %93 = or disjoint i32 %91, %92
@@ -9340,7 +9340,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %120 = sext i32 %118 to i64
   %121 = getelementptr inbounds i32, ptr %117, i64 %120
   store i32 %93, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %.062, i64 4
+  %122 = getelementptr inbounds i8, ptr %.061, i64 4
   %123 = load ptr, ptr %60, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
@@ -11554,7 +11554,7 @@ Vec_IntFill.exit:                                 ; preds = %458, %Vec_IntGrow.e
   %494 = zext i1 %493 to i32
   %495 = add nsw i32 %491, %494
   %496 = shl nsw i32 %487, 1
-  %497 = call noundef i32 @llvm.smax.i32(i32 %495, i32 %496)
+  %497 = call range(i32 -33554432, -2147483648) i32 @llvm.smax.i32(i32 %495, i32 %496)
   %498 = getelementptr i8, ptr %481, i64 24
   %.val30.i = load ptr, ptr %498, align 8
   %499 = getelementptr i8, ptr %.val30.i, i64 4
@@ -13026,7 +13026,7 @@ define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

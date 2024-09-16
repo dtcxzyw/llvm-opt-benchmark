@@ -375,7 +375,7 @@ define dso_local ptr @mgr_launch_tasks_setup(ptr noundef %0, ptr noundef %1, i16
   store i32 0, ptr %60, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 68
   %62 = load i32, ptr %61, align 4
-  %63 = call fastcc i32 @_send_srun_resp_msg(ptr noundef nonnull %4, i32 noundef %62)
+  %63 = call fastcc i32 @_send_srun_resp_msg(ptr noundef %4, i32 noundef %62)
   %.not19.i = icmp eq i32 %63, 0
   br i1 %.not19.i, label %66, label %64
 
@@ -4121,7 +4121,7 @@ declare void @attach_system_cgroup_pid(i32 noundef) local_unnamed_addr #1
 declare ptr @jobacct_gather_stat_task(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_send_launch_resp(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_send_launch_resp(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, -2147483648) %1) unnamed_addr #0 {
   %3 = alloca %struct.slurm_msg, align 8
   %4 = alloca %struct.launch_tasks_response_msg, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 488
@@ -4215,7 +4215,7 @@ define internal fastcc void @_send_launch_resp(ptr nocapture noundef readonly %0
 ._crit_edge:                                      ; preds = %44, %15
   %62 = getelementptr inbounds i8, ptr %0, i64 132
   %63 = load i32, ptr %62, align 4
-  %64 = call fastcc i32 @_send_srun_resp_msg(ptr noundef nonnull %3, i32 noundef %63)
+  %64 = call fastcc i32 @_send_srun_resp_msg(ptr noundef %3, i32 noundef %63)
   %.not = icmp eq i32 %64, 0
   br i1 %.not, label %67, label %65
 
@@ -4546,7 +4546,7 @@ _random_sleep.exit.i:                             ; preds = %94, %90, %66
   %109 = load i32, ptr %108, align 8
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %2, i32 noundef %109) #15
   %110 = load i32, ptr %71, align 4
-  %111 = call fastcc i32 @_send_srun_resp_msg(ptr noundef nonnull %2, i32 noundef %110)
+  %111 = call fastcc i32 @_send_srun_resp_msg(ptr noundef %2, i32 noundef %110)
   %.not19.i = icmp eq i32 %111, 0
   br i1 %.not19.i, label %.backedge.i, label %112
 
@@ -5170,7 +5170,7 @@ exec_wait_kill_child.exit:                        ; preds = %.lr.ph, %20, %23
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_become_user(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_become_user(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call i32 @geteuid() #15
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -5450,7 +5450,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare zeroext i1 @slurm_addr_is_unspec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_send_srun_resp_msg(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_send_srun_resp_msg(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i32 -1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 204
@@ -5835,7 +5835,7 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
 
 172:                                              ; preds = %_log_task_exit.exit
   %173 = load ptr, ptr %18, align 8
-  %174 = call fastcc i32 @_run_script_as_user(ptr noundef nonnull @.str.161, ptr noundef nonnull %171, ptr noundef nonnull %0, i32 noundef 5, ptr noundef %173)
+  %174 = call fastcc i32 @_run_script_as_user(ptr noundef nonnull @.str.161, ptr noundef %171, ptr noundef nonnull %0, i32 noundef 5, ptr noundef %173)
   %.not92 = icmp eq i32 %174, 0
   br i1 %.not92, label %177, label %175
 
@@ -5850,7 +5850,7 @@ _log_task_exit.exit:                              ; preds = %104, %107, %111, %1
 
 179:                                              ; preds = %177
   %180 = load ptr, ptr %18, align 8
-  %181 = call fastcc i32 @_run_script_as_user(ptr noundef nonnull @.str.163, ptr noundef nonnull %178, ptr noundef nonnull %0, i32 noundef -1, ptr noundef %180)
+  %181 = call fastcc i32 @_run_script_as_user(ptr noundef nonnull @.str.163, ptr noundef %178, ptr noundef nonnull %0, i32 noundef -1, ptr noundef %180)
   %.not94 = icmp eq i32 %181, 0
   br i1 %.not94, label %184, label %182
 
@@ -5949,7 +5949,7 @@ declare void @env_array_free(ptr noundef) local_unnamed_addr #1
 declare i32 @setenvf(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_run_script_as_user(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @_run_script_as_user(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 -1, 6) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca %struct.priv_state, align 8
@@ -6037,7 +6037,7 @@ define internal fastcc i32 @_run_script_as_user(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 53:                                               ; preds = %47
-  %54 = call fastcc i32 @_become_user(ptr noundef nonnull %2, ptr noundef nonnull %8)
+  %54 = call fastcc i32 @_become_user(ptr noundef nonnull %2, ptr noundef %8)
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %58
 

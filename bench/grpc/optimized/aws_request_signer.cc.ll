@@ -2627,7 +2627,7 @@ invoke.cont208:                                   ; preds = %.noexc316, %if.then
   %canonical_request_vector.sroa.26.9 = phi ptr [ %incdec.ptr.i1239, %.noexc316 ], [ %incdec.ptr.i311, %if.then.i308 ]
   %canonical_request_vector.sroa.0.21 = phi ptr [ %cond.i10.i1226, %.noexc316 ], [ %canonical_request_vector.sroa.0.20, %if.then.i308 ]
   %request_payload_ = getelementptr inbounds i8, ptr %this, i64 360
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %hashed_request_payload, ptr noundef nonnull align 8 dereferenceable(32) %request_payload_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %hashed_request_payload, ptr noundef nonnull align 8 dereferenceable(32) %request_payload_)
           to label %invoke.cont210 unwind label %lpad205
 
 invoke.cont210:                                   ; preds = %invoke.cont208
@@ -2923,7 +2923,7 @@ invoke.cont249:                                   ; preds = %_ZNSt6vectorISt17ba
   %__cur.07.i.i.i.i1585.pn = phi ptr [ %__cur.07.i.i.i.i1585, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i1600 ], [ %incdec.ptr1.i.i.i.i1537.ptr.le, %if.then.i437 ]
   %string_to_sign_vector.sroa.61.5 = phi ptr [ %add.ptr19.i1606, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit19.i1600 ], [ %add.ptr19.i1555, %if.then.i437 ]
   %string_to_sign_vector.sroa.18.5 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i1585.pn, i64 32
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %hashed_canonical_request, ptr noundef nonnull align 8 dereferenceable(32) %canonical_request)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %hashed_canonical_request, ptr noundef nonnull align 8 dereferenceable(32) %canonical_request)
           to label %invoke.cont251 unwind label %lpad246
 
 invoke.cont251:                                   ; preds = %invoke.cont249
@@ -3066,16 +3066,16 @@ invoke.cont256:                                   ; preds = %for.body21.i.i.i.i4
           to label %invoke.cont259 unwind label %lpad258
 
 invoke.cont259:                                   ; preds = %invoke.cont256
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %date, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp257, ptr noundef nonnull align 8 dereferenceable(32) %request_date_short)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %date, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp257, ptr noundef nonnull align 8 dereferenceable(32) %request_date_short)
           to label %invoke.cont261 unwind label %lpad260
 
 invoke.cont261:                                   ; preds = %invoke.cont259
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp257) #18
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %region, ptr noundef nonnull align 8 dereferenceable(32) %date, ptr noundef nonnull align 8 dereferenceable(32) %region_)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %region, ptr noundef nonnull align 8 dereferenceable(32) %date, ptr noundef nonnull align 8 dereferenceable(32) %region_)
           to label %invoke.cont265 unwind label %lpad264
 
 invoke.cont265:                                   ; preds = %invoke.cont261
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %service, ptr noundef nonnull align 8 dereferenceable(32) %region, ptr noundef nonnull align 8 dereferenceable(32) %service_name)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %service, ptr noundef nonnull align 8 dereferenceable(32) %region, ptr noundef nonnull align 8 dereferenceable(32) %service_name)
           to label %invoke.cont267 unwind label %lpad266
 
 invoke.cont267:                                   ; preds = %invoke.cont265
@@ -3098,13 +3098,13 @@ lpad.i498:                                        ; preds = %.noexc500
   br label %ehcleanup275
 
 invoke.cont271:                                   ; preds = %.noexc500
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %signing, ptr noundef nonnull align 8 dereferenceable(32) %service, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %signing, ptr noundef nonnull align 8 dereferenceable(32) %service, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268)
           to label %invoke.cont273 unwind label %lpad272
 
 invoke.cont273:                                   ; preds = %invoke.cont271
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp268) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp269) #18
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %signature_str, ptr noundef nonnull align 8 dereferenceable(32) %signing, ptr noundef nonnull align 8 dereferenceable(32) %string_to_sign)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %signature_str, ptr noundef nonnull align 8 dereferenceable(32) %signing, ptr noundef nonnull align 8 dereferenceable(32) %string_to_sign)
           to label %invoke.cont277 unwind label %lpad276
 
 invoke.cont277:                                   ; preds = %invoke.cont273
@@ -3784,7 +3784,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_19SHA256HexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %sha256.i = alloca %struct.sha256_state_st, align 4
   %hash = alloca [32 x i8], align 16
@@ -3806,7 +3806,7 @@ invoke.cont:                                      ; preds = %entry
   %call = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %hash_str) #18
   %0 = extractvalue { i64, ptr } %call, 0
   %1 = extractvalue { i64, ptr } %call, 1
-  invoke void @_ZN4absl12lts_2023080216BytesToHexStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %0, ptr %1)
+  invoke void @_ZN4absl12lts_2023080216BytesToHexStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i64 %0, ptr %1)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -3831,7 +3831,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_14HMACERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %len = alloca i32, align 4
   %digest = alloca [64 x i8], align 16

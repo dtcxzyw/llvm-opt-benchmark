@@ -1679,7 +1679,7 @@ while.end:                                        ; preds = %cond.end22, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr nocapture noundef %ls, ptr noundef writeonly %seminfo, i32 noundef %sep) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr nocapture noundef %ls, ptr noundef writeonly %seminfo, i32 noundef range(i32 0, -2147483648) %sep) unnamed_addr #0 {
 entry:
   %buff.i.i = alloca [80 x i8], align 16
   %buff.i = alloca [80 x i8], align 16

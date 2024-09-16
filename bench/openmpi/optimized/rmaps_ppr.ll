@@ -582,7 +582,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i384, %256
 .lr.ph.i388:                                      ; preds = %279, %.lr.ph.i388
   %285 = phi ptr [ %287, %.lr.ph.i388 ], [ %284, %279 ]
   %.07.i389 = phi ptr [ %286, %.lr.ph.i388 ], [ %283, %279 ]
-  call void %285(ptr noundef %240) #10
+  call void %285(ptr noundef nonnull %240) #10
   %286 = getelementptr inbounds i8, ptr %.07.i389, i64 8
   %287 = load ptr, ptr %286, align 8
   %.not.i390 = icmp eq ptr %287, null
@@ -831,7 +831,7 @@ pmix_obj_run_destructors.exit401:                 ; preds = %.lr.ph.i398, %375
 .lr.ph.i403:                                      ; preds = %398, %.lr.ph.i403
   %404 = phi ptr [ %406, %.lr.ph.i403 ], [ %403, %398 ]
   %.07.i404 = phi ptr [ %405, %.lr.ph.i403 ], [ %402, %398 ]
-  call void %404(ptr noundef %359) #10
+  call void %404(ptr noundef nonnull %359) #10
   %405 = getelementptr inbounds i8, ptr %.07.i404, i64 8
   %406 = load ptr, ptr %405, align 8
   %.not.i405 = icmp eq ptr %406, null
@@ -1005,7 +1005,7 @@ pmix_obj_run_destructors.exit411:                 ; preds = %.lr.ph.i408, %421
 .lr.ph.i414:                                      ; preds = %480, %.lr.ph.i414
   %486 = phi ptr [ %488, %.lr.ph.i414 ], [ %485, %480 ]
   %.07.i415 = phi ptr [ %487, %.lr.ph.i414 ], [ %484, %480 ]
-  call void %486(ptr noundef %463) #10
+  call void %486(ptr noundef nonnull %463) #10
   %487 = getelementptr inbounds i8, ptr %.07.i415, i64 8
   %488 = load ptr, ptr %487, align 8
   %.not.i416 = icmp eq ptr %488, null
@@ -1115,7 +1115,7 @@ pmix_obj_run_destructors.exit422:                 ; preds = %.lr.ph.i419, %._cri
 .lr.ph.i426:                                      ; preds = %532, %.lr.ph.i426
   %538 = phi ptr [ %540, %.lr.ph.i426 ], [ %537, %532 ]
   %.07.i427 = phi ptr [ %539, %.lr.ph.i426 ], [ %536, %532 ]
-  call void %538(ptr noundef %515) #10
+  call void %538(ptr noundef nonnull %515) #10
   %539 = getelementptr inbounds i8, ptr %.07.i427, i64 8
   %540 = load ptr, ptr %539, align 8
   %.not.i428 = icmp eq ptr %540, null

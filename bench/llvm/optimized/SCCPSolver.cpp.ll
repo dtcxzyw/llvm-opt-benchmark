@@ -1254,7 +1254,7 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i: ; preds = %_ZN4llvm8Deb
 _ZNK4llvm4User10getOperandEj.exit.i21:            ; preds = %297, %294
   %302 = phi ptr [ %296, %294 ], [ %301, %297 ]
   %303 = load ptr, ptr %302, align 8
-  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %303)
+  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %303)
   %304 = load i32, ptr %291, align 4
   %305 = and i32 %304, 1073741824
   %.not.i.i34.i = icmp eq i32 %305, 0
@@ -1276,7 +1276,7 @@ _ZNK4llvm4User10getOperandEj.exit35.i:            ; preds = %309, %306
   %314 = phi ptr [ %308, %306 ], [ %313, %309 ]
   %315 = getelementptr inbounds i8, ptr %314, i64 32
   %316 = load ptr, ptr %315, align 8
-  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %316)
+  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %316)
   %317 = call noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72) %48) #18
   br i1 %317, label %_ZN4llvm13ConstantRangeD2Ev.exit.i, label %318
 
@@ -1449,7 +1449,7 @@ _ZN4llvm3isaINS_25OverflowingBinaryOperatorENS_11InstructionEEEbRKT0_.exit.i: ; 
 _ZNK4llvm4User10getOperandEj.exit43.i:            ; preds = %389, %386
   %394 = phi ptr [ %388, %386 ], [ %393, %389 ]
   %395 = load ptr, ptr %394, align 8
-  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %395)
+  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %395)
   %396 = call noundef zeroext i1 @_ZNK4llvm13ConstantRange16isAllNonNegativeEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #17
   br i1 %396, label %397, label %398
 
@@ -1512,7 +1512,7 @@ _ZN4llvm5APIntD2Ev.exit.i44.i:                    ; preds = %404, %401, %398
 _ZNK4llvm4User10getOperandEj.exit47.i:            ; preds = %421, %418
   %426 = phi ptr [ %420, %418 ], [ %425, %421 ]
   %427 = load ptr, ptr %426, align 8
-  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %427)
+  call fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %427)
   %428 = load ptr, ptr %49, align 8
   %429 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %428) #18
   %430 = load i8, ptr %411, align 1
@@ -14902,7 +14902,7 @@ _ZN4llvm15SCCPInstVisitor12mergeInValueERNS_19ValueLatticeElementEPNS_5ValueES1_
   br label %_ZN4llvm15SCCPInstVisitor12markConstantERNS_19ValueLatticeElementEPNS_5ValueEPNS_8ConstantEb.exit
 
 _ZN4llvm10SCCPSolver10isConstantERKNS_19ValueLatticeElementE.exit.thread52: ; preds = %131, %188, %_ZN4llvm10SCCPSolver10isConstantERKNS_19ValueLatticeElementE.exit
-  call fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %1)
+  call fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef %1)
   %195 = call noundef zeroext i1 @_ZN4llvm15SCCPInstVisitor12mergeInValueEPNS_5ValueENS_19ValueLatticeElementENS3_12MergeOptionsE(ptr noundef nonnull align 8 dereferenceable(2456) %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i64 4294967296)
   %196 = load i16, ptr %7, align 8
   %197 = and i16 %196, 254
@@ -14986,7 +14986,7 @@ _ZN4llvm19ValueLatticeElementD2Ev.exit43:         ; preds = %233, %230, %_ZN4llv
 declare noundef ptr @_ZN4llvm28ConstantFoldLoadFromConstPtrEPNS_8ConstantEPNS_4TypeERKNS_10DataLayoutE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(512)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::optional.336", align 8
   %4 = alloca %"class.llvm::ConstantRange", align 8
   %5 = alloca %"class.llvm::ConstantRange", align 8
@@ -15065,7 +15065,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %29, %27
   br label %_ZN4llvm13ConstantRangeC2ERKS0_.exit
 
 _ZN4llvm13ConstantRangeC2ERKS0_.exit:             ; preds = %36, %38
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %4, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %4, i1 noundef zeroext false)
   %39 = load i32, ptr %32, align 8
   %40 = icmp ugt i32 %39, 64
   br i1 %40, label %41, label %_ZN4llvm5APIntD2Ev.exit.i
@@ -15194,7 +15194,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %90
 
 95:                                               ; preds = %_ZNK4llvm11Instruction11getMetadataEj.exit
   call void @_ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %94) #17
-  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %5, i1 noundef zeroext false)
+  call void @_ZN4llvm19ValueLatticeElement8getRangeENS_13ConstantRangeEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ValueLatticeElement") align 8 %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %97 = load i32, ptr %96, align 8
   %98 = icmp ugt i32 %97, 64
@@ -18218,7 +18218,7 @@ _ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit: ; preds = %139, %143
   br i1 %switch, label %144, label %_ZN4llvm19ValueLatticeElementD2Ev.exit43
 
 144:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_8ConstantELj8EED2Ev.exit, %24, %22, %21
-  call fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %1)
+  call fastcc void @_ZL20getValueFromMetadataPKN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %1)
   %145 = call noundef zeroext i1 @_ZN4llvm15SCCPInstVisitor12mergeInValueEPNS_5ValueENS_19ValueLatticeElementENS3_12MergeOptionsE(ptr noundef nonnull align 8 dereferenceable(2456) %0, ptr noundef nonnull %1, ptr noundef nonnull %5, i64 4294967296)
   %146 = load i16, ptr %5, align 8
   %147 = and i16 %146, 254
@@ -21721,13 +21721,13 @@ declare noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr nounde
 declare noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvmL17refineInstructionERNS_10SCCPSolverERKNS_15SmallPtrSetImplIPNS_5ValueEEERNS_11InstructionEENK3$_0clES4_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = load i8, ptr %2, align 8
   %5 = icmp ugt i8 %4, 21
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3
-  tail call void @_ZNK4llvm8Constant15toConstantRangeEv(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %2) #17
+  tail call void @_ZNK4llvm8Constant15toConstantRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %2) #17
   br label %78
 
 7:                                                ; preds = %3
@@ -21858,7 +21858,7 @@ _ZNK4llvm10SCCPSolver18getLatticeValueForEPNS_5ValueE.exit: ; preds = %65, %52, 
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %76) #18, !noalias !220
-  tail call void @_ZNK4llvm19ValueLatticeElement15asConstantRangeEjb(ptr dead_on_unwind writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %74, i32 noundef %77, i1 noundef zeroext false)
+  tail call void @_ZNK4llvm19ValueLatticeElement15asConstantRangeEjb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ConstantRange") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %74, i32 noundef %77, i1 noundef zeroext false)
   br label %78
 
 78:                                               ; preds = %_ZNK4llvm10SCCPSolver18getLatticeValueForEPNS_5ValueE.exit, %40, %6

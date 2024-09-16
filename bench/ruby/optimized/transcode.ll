@@ -433,7 +433,7 @@ decorator_names.exit:                             ; preds = %44, %42
   store ptr null, ptr %4, align 8
   %63 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %63, align 8
-  %64 = call fastcc i32 @transcode_search_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @trans_open_i, ptr noundef nonnull %4)
+  %64 = call fastcc i32 @transcode_search_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @trans_open_i, ptr noundef %4)
   %65 = load ptr, ptr %4, align 8
   %66 = icmp slt i32 %64, 0
   br i1 %66, label %67, label %68
@@ -443,8 +443,8 @@ decorator_names.exit:                             ; preds = %44, %42
   br label %rb_econv_open0.exit.thread
 
 68:                                               ; preds = %62
-  %.not45.i = icmp eq i32 %64, 0
-  br i1 %.not45.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
+  %.not41.i.i = icmp eq i32 %64, 0
+  br i1 %.not41.i.i, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %68
   %wide.trip.count.i.i = zext nneg i32 %64 to i64
@@ -505,93 +505,93 @@ load_transcoder_entry.exit.thread33.i.i:          ; preds = %load_transcoder_ent
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %load_transcoder_entry.exit.thread33.i.i, %68, %59
-  %88 = phi i1 [ false, %68 ], [ false, %59 ], [ true, %load_transcoder_entry.exit.thread33.i.i ]
-  %.02139.i = phi i32 [ 0, %68 ], [ 0, %59 ], [ %64, %load_transcoder_entry.exit.thread33.i.i ]
-  %.02238.i = phi ptr [ %65, %68 ], [ null, %59 ], [ %65, %load_transcoder_entry.exit.thread33.i.i ]
-  %.02336.i = phi ptr [ %0, %68 ], [ @.str.2, %59 ], [ %0, %load_transcoder_entry.exit.thread33.i.i ]
-  %.02434.i = phi ptr [ %1, %68 ], [ @.str.2, %59 ], [ %1, %load_transcoder_entry.exit.thread33.i.i ]
-  %spec.store.select.i.i.i = call i32 @llvm.smax.i32(i32 %.02139.i, i32 1)
-  %89 = call noalias nonnull dereferenceable(184) ptr @ruby_xmalloc(i64 noundef 184) #23
-  %90 = getelementptr inbounds i8, ptr %89, i64 88
-  store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %89, i64 92
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %89, i8 0, i64 80, i1 false)
-  store i32 %spec.store.select.i.i.i, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %89, i64 96
-  store i32 0, ptr %92, align 8
-  %93 = zext nneg i32 %spec.store.select.i.i.i to i64
-  %94 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %93, i64 noundef 48) #25
-  %95 = getelementptr inbounds i8, ptr %89, i64 80
-  store ptr %94, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %89, i64 100
-  store i32 0, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %89, i64 104
-  store ptr null, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 112
-  store i32 3, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %89, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %99, i8 0, i64 64, i1 false)
-  br i1 %88, label %.lr.ph40.preheader.i.i, label %rb_econv_open0.exit
+  %.not41.i41.i = phi i1 [ true, %68 ], [ true, %59 ], [ false, %load_transcoder_entry.exit.thread33.i.i ]
+  %.02140.i = phi i32 [ 0, %68 ], [ 0, %59 ], [ %64, %load_transcoder_entry.exit.thread33.i.i ]
+  %.02239.i = phi ptr [ %65, %68 ], [ null, %59 ], [ %65, %load_transcoder_entry.exit.thread33.i.i ]
+  %.02337.i = phi ptr [ %0, %68 ], [ @.str.2, %59 ], [ %0, %load_transcoder_entry.exit.thread33.i.i ]
+  %.02435.i = phi ptr [ %1, %68 ], [ @.str.2, %59 ], [ %1, %load_transcoder_entry.exit.thread33.i.i ]
+  %spec.store.select.i.i.i = call i32 @llvm.smax.i32(i32 %.02140.i, i32 1)
+  %88 = call noalias nonnull dereferenceable(184) ptr @ruby_xmalloc(i64 noundef 184) #23
+  %89 = getelementptr inbounds i8, ptr %88, i64 88
+  store i32 0, ptr %89, align 8
+  %90 = getelementptr inbounds i8, ptr %88, i64 92
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %88, i8 0, i64 80, i1 false)
+  store i32 %spec.store.select.i.i.i, ptr %90, align 4
+  %91 = getelementptr inbounds i8, ptr %88, i64 96
+  store i32 0, ptr %91, align 8
+  %92 = zext nneg i32 %spec.store.select.i.i.i to i64
+  %93 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %92, i64 noundef 48) #25
+  %94 = getelementptr inbounds i8, ptr %88, i64 80
+  store ptr %93, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %88, i64 100
+  store i32 0, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %88, i64 104
+  store ptr null, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %88, i64 112
+  store i32 3, ptr %97, align 8
+  %98 = getelementptr inbounds i8, ptr %88, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %98, i8 0, i64 64, i1 false)
+  br i1 %.not41.i41.i, label %rb_econv_open0.exit, label %.lr.ph40.preheader.i.i
 
 .lr.ph40.preheader.i.i:                           ; preds = %._crit_edge.i.i
-  %wide.trip.count46.i.i = zext nneg i32 %.02139.i to i64
+  %wide.trip.count48.i.i = zext nneg i32 %.02140.i to i64
   br label %.lr.ph40.i.i
 
 .lr.ph40.i.i:                                     ; preds = %load_transcoder_entry.exit30.i.i, %.lr.ph40.preheader.i.i
-  %indvars.iv43.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next44.i.i, %load_transcoder_entry.exit30.i.i ]
-  %100 = getelementptr ptr, ptr %.02238.i, i64 %indvars.iv43.i.i
-  %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
-  %103 = load ptr, ptr %102, align 8
-  %.not.i20.i.i = icmp eq ptr %103, null
-  br i1 %.not.i20.i.i, label %104, label %load_transcoder_entry.exit30.i.i
+  %indvars.iv45.i.i = phi i64 [ 0, %.lr.ph40.preheader.i.i ], [ %indvars.iv.next46.i.i, %load_transcoder_entry.exit30.i.i ]
+  %99 = getelementptr ptr, ptr %.02239.i, i64 %indvars.iv45.i.i
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds i8, ptr %100, i64 24
+  %102 = load ptr, ptr %101, align 8
+  %.not.i20.i.i = icmp eq ptr %102, null
+  br i1 %.not.i20.i.i, label %103, label %load_transcoder_entry.exit30.i.i
 
-104:                                              ; preds = %.lr.ph40.i.i
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %.not22.i22.i.i = icmp eq ptr %106, null
-  br i1 %.not22.i22.i.i, label %load_transcoder_entry.exit30.i.i, label %107
+103:                                              ; preds = %.lr.ph40.i.i
+  %104 = getelementptr inbounds i8, ptr %100, i64 16
+  %105 = load ptr, ptr %104, align 8
+  %.not22.i22.i.i = icmp eq ptr %105, null
+  br i1 %.not22.i22.i.i, label %load_transcoder_entry.exit30.i.i, label %106
 
-107:                                              ; preds = %104
-  %108 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #24
-  %109 = add i64 %108, 10
-  %110 = call i64 @rb_str_new(ptr noundef null, i64 noundef %109) #21, !callees !7
-  %111 = inttoptr i64 %110 to ptr
-  %112 = load i64, ptr %111, align 8, !noalias !13
-  %113 = and i64 %112, 8192
-  %.not.i.i.i23.i.i = icmp eq i64 %113, 0
-  %114 = getelementptr inbounds i8, ptr %111, i64 24
-  br i1 %.not.i.i.i23.i.i, label %RSTRING_PTR.exit.i25.i.i, label %115
+106:                                              ; preds = %103
+  %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %105) #24
+  %108 = add i64 %107, 10
+  %109 = call i64 @rb_str_new(ptr noundef null, i64 noundef %108) #21, !callees !7
+  %110 = inttoptr i64 %109 to ptr
+  %111 = load i64, ptr %110, align 8, !noalias !13
+  %112 = and i64 %111, 8192
+  %.not.i.i.i23.i.i = icmp eq i64 %112, 0
+  %113 = getelementptr inbounds i8, ptr %110, i64 24
+  br i1 %.not.i.i.i23.i.i, label %RSTRING_PTR.exit.i25.i.i, label %114
 
-115:                                              ; preds = %107
-  %.sroa.2.0.copyload.i.i24.i.i = load ptr, ptr %114, align 8
+114:                                              ; preds = %106
+  %.sroa.2.0.copyload.i.i24.i.i = load ptr, ptr %113, align 8
   br label %RSTRING_PTR.exit.i25.i.i
 
-RSTRING_PTR.exit.i25.i.i:                         ; preds = %115, %107
-  %.sroa.2.0.i.i26.i.i = phi ptr [ %.sroa.2.0.copyload.i.i24.i.i, %115 ], [ %114, %107 ]
+RSTRING_PTR.exit.i25.i.i:                         ; preds = %114, %106
+  %.sroa.2.0.i.i26.i.i = phi ptr [ %.sroa.2.0.copyload.i.i24.i.i, %114 ], [ %113, %106 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.sroa.2.0.i.i26.i.i, ptr noundef nonnull readonly align 1 dereferenceable(10) @transcoder_lib_prefix, i64 10, i1 false)
-  %.not.i.i27.i.i = icmp eq i64 %108, 0
-  br i1 %.not.i.i27.i.i, label %ruby_nonempty_memcpy.exit.i28.i.i, label %116
+  %.not.i.i27.i.i = icmp eq i64 %107, 0
+  br i1 %.not.i.i27.i.i, label %ruby_nonempty_memcpy.exit.i28.i.i, label %115
 
-116:                                              ; preds = %RSTRING_PTR.exit.i25.i.i
-  %117 = getelementptr i8, ptr %.sroa.2.0.i.i26.i.i, i64 10
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %117, ptr nonnull readonly align 1 %106, i64 %108, i1 false)
+115:                                              ; preds = %RSTRING_PTR.exit.i25.i.i
+  %116 = getelementptr i8, ptr %.sroa.2.0.i.i26.i.i, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr nonnull readonly align 1 %105, i64 %107, i1 false)
   br label %ruby_nonempty_memcpy.exit.i28.i.i
 
-ruby_nonempty_memcpy.exit.i28.i.i:                ; preds = %116, %RSTRING_PTR.exit.i25.i.i
-  call void @rb_str_set_len(i64 noundef %110, i64 noundef %109) #21
-  call void @rb_obj_freeze_inline(i64 noundef %110) #21
-  %118 = call i32 @rb_require_internal_silent(i64 noundef %110) #21
-  %.pre.i29.i.i = load ptr, ptr %102, align 8
+ruby_nonempty_memcpy.exit.i28.i.i:                ; preds = %115, %RSTRING_PTR.exit.i25.i.i
+  call void @rb_str_set_len(i64 noundef %109, i64 noundef %108) #21
+  call void @rb_obj_freeze_inline(i64 noundef %109) #21
+  %117 = call i32 @rb_require_internal_silent(i64 noundef %109) #21
+  %.pre.i29.i.i = load ptr, ptr %101, align 8
   br label %load_transcoder_entry.exit30.i.i
 
-load_transcoder_entry.exit30.i.i:                 ; preds = %ruby_nonempty_memcpy.exit.i28.i.i, %104, %.lr.ph40.i.i
-  %.0.i21.i.i = phi ptr [ %103, %.lr.ph40.i.i ], [ %.pre.i29.i.i, %ruby_nonempty_memcpy.exit.i28.i.i ], [ null, %104 ]
-  %119 = load i32, ptr %92, align 8
-  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %89, ptr noundef %.0.i21.i.i, i32 noundef %119)
-  %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
-  %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, %wide.trip.count46.i.i
-  br i1 %exitcond47.not.i.i, label %rb_econv_open0.exit, label %.lr.ph40.i.i, !llvm.loop !16
+load_transcoder_entry.exit30.i.i:                 ; preds = %ruby_nonempty_memcpy.exit.i28.i.i, %103, %.lr.ph40.i.i
+  %.0.i21.i.i = phi ptr [ %102, %.lr.ph40.i.i ], [ %.pre.i29.i.i, %ruby_nonempty_memcpy.exit.i28.i.i ], [ null, %103 ]
+  %118 = load i32, ptr %91, align 8
+  call fastcc void @rb_econv_add_transcoder_at(ptr noundef nonnull %88, ptr noundef %.0.i21.i.i, i32 noundef %118)
+  %indvars.iv.next46.i.i = add nuw nsw i64 %indvars.iv45.i.i, 1
+  %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next46.i.i, %wide.trip.count48.i.i
+  br i1 %exitcond49.not.i.i, label %rb_econv_open0.exit, label %.lr.ph40.i.i, !llvm.loop !16
 
 rb_econv_open_by_transcoder_entries.exit.thread.i: ; preds = %load_transcoder_entry.exit.i.i, %73
   call void @ruby_xfree(ptr noundef nonnull %65) #21
@@ -602,50 +602,50 @@ rb_econv_open0.exit.thread:                       ; preds = %67, %rb_econv_open_
   br label %decorator_names.exit.thread
 
 rb_econv_open0.exit:                              ; preds = %load_transcoder_entry.exit30.i.i, %._crit_edge.i.i
-  call void @ruby_xfree(ptr noundef %.02238.i) #21
-  store i32 %48, ptr %89, align 8
-  %120 = getelementptr inbounds i8, ptr %89, i64 8
-  store ptr %.02336.i, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %89, i64 16
-  store ptr %.02434.i, ptr %121, align 8
+  call void @ruby_xfree(ptr noundef %.02239.i) #21
+  store i32 %48, ptr %88, align 8
+  %119 = getelementptr inbounds i8, ptr %88, i64 8
+  store ptr %.02337.i, ptr %119, align 8
+  %120 = getelementptr inbounds i8, ptr %88, i64 16
+  store ptr %.02435.i, ptr %120, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %122 = icmp sgt i32 %.025.i, 0
-  br i1 %122, label %.lr.ph.preheader, label %._crit_edge
+  %121 = icmp sgt i32 %.025.i, 0
+  br i1 %121, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %rb_econv_open0.exit
   %wide.trip.count = zext nneg i32 %.025.i to i64
   br label %.lr.ph
 
-123:                                              ; preds = %.lr.ph
+122:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %123
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %123 ]
-  %124 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %125 = load ptr, ptr %124, align 8
-  %126 = call i32 @rb_econv_decorate_at_last(ptr noundef nonnull %89, ptr noundef %125)
-  %127 = icmp eq i32 %126, -1
-  br i1 %127, label %128, label %123
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %122
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %122 ]
+  %123 = getelementptr [32 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %124 = load ptr, ptr %123, align 8
+  %125 = call i32 @rb_econv_decorate_at_last(ptr noundef nonnull %88, ptr noundef %124)
+  %126 = icmp eq i32 %125, -1
+  br i1 %126, label %127, label %122
 
-128:                                              ; preds = %.lr.ph
-  call void @rb_econv_close(ptr noundef nonnull %89)
+127:                                              ; preds = %.lr.ph
+  call void @rb_econv_close(ptr noundef nonnull %88)
   br label %decorator_names.exit.thread
 
-._crit_edge.loopexit:                             ; preds = %123
-  %.pre = load i32, ptr %89, align 8
+._crit_edge.loopexit:                             ; preds = %122
+  %.pre = load i32, ptr %88, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %rb_econv_open0.exit
-  %129 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %48, %rb_econv_open0.exit ]
-  %130 = and i32 %2, -256
-  %131 = or i32 %129, %130
-  store i32 %131, ptr %89, align 8
+  %128 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %48, %rb_econv_open0.exit ]
+  %129 = and i32 %2, -256
+  %130 = or i32 %128, %129
+  store i32 %130, ptr %88, align 8
   br label %decorator_names.exit.thread
 
-decorator_names.exit.thread:                      ; preds = %7, %3, %rb_econv_open0.exit.thread, %._crit_edge, %128
-  %.015 = phi ptr [ null, %128 ], [ %89, %._crit_edge ], [ null, %rb_econv_open0.exit.thread ], [ null, %3 ], [ null, %7 ]
+decorator_names.exit.thread:                      ; preds = %7, %3, %rb_econv_open0.exit.thread, %._crit_edge, %127
+  %.015 = phi ptr [ null, %127 ], [ %88, %._crit_edge ], [ null, %rb_econv_open0.exit.thread ], [ null, %3 ], [ null, %7 ]
   ret ptr %.015
 }
 
@@ -1262,7 +1262,7 @@ ruby_nonempty_memcpy.exit188.i:                   ; preds = %87
   br i1 %.not166.i, label %125, label %123
 
 123:                                              ; preds = %120
-  %124 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %122, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %22, ptr noundef nonnull %10)
+  %124 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %122, ptr noundef %.020, ptr noundef %.019, i32 noundef %22, ptr noundef %10)
   %.not167.i = icmp eq i32 %124, 3
   br i1 %.not167.i, label %125, label %.loopexit.i
 
@@ -1276,7 +1276,7 @@ ruby_nonempty_memcpy.exit188.i:                   ; preds = %87
   br i1 %.not170.i, label %.thread.i, label %128
 
 128:                                              ; preds = %126
-  %129 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %127, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %5, ptr noundef nonnull %10)
+  %129 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %127, ptr noundef %.020, ptr noundef %.019, i32 noundef %5, ptr noundef %10)
   %130 = icmp eq i32 %129, 3
   br i1 %130, label %.thread190.i, label %.loopexit.i
 
@@ -1289,11 +1289,11 @@ ruby_nonempty_memcpy.exit188.i:                   ; preds = %87
   br i1 %134, label %.thread.i, label %.preheader65
 
 .thread.i:                                        ; preds = %132, %131, %126
-  %135 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %5, ptr noundef nonnull %10)
+  %135 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef %.020, ptr noundef %.019, i32 noundef %5, ptr noundef %10)
   br label %.loopexit.i
 
 .preheader65:                                     ; preds = %132, %.preheader65
-  %136 = call fastcc i32 @rb_trans_conv(ptr noundef %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %24, ptr noundef nonnull %10)
+  %136 = call fastcc i32 @rb_trans_conv(ptr noundef %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef %.020, ptr noundef %.019, i32 noundef %24, ptr noundef %10)
   %137 = icmp eq i32 %136, 5
   br i1 %137, label %.preheader65, label %.loopexit.i, !llvm.loop !28
 
@@ -1512,7 +1512,7 @@ make_replacement.exit45:                          ; preds = %.make_replacement.e
   br i1 %219, label %227, label %222
 
 222:                                              ; preds = %216
-  %223 = call fastcc ptr @allocate_converted_string(ptr noundef %217, ptr noundef nonnull @.str.80, ptr noundef %220, i64 noundef %221, ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull %8)
+  %223 = call fastcc ptr @allocate_converted_string(ptr noundef %217, ptr noundef nonnull @.str.80, ptr noundef %220, i64 noundef %221, ptr noundef nonnull %7, i64 noundef 1024, ptr noundef %8)
   %.not.i27 = icmp eq ptr %223, null
   br i1 %.not.i27, label %output_hex_charref.exit.thread, label %224
 
@@ -1662,7 +1662,7 @@ rb_econv_encoding_to_insert_output.exit:          ; preds = %4, %.sink.split.i
   br label %24
 
 21:                                               ; preds = %17
-  %22 = call fastcc ptr @allocate_converted_string(ptr noundef %3, ptr noundef %.0.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 4096, ptr noundef nonnull %6)
+  %22 = call fastcc ptr @allocate_converted_string(ptr noundef %3, ptr noundef %.0.i, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 4096, ptr noundef %6)
   %23 = icmp eq ptr %22, null
   br i1 %23, label %144, label %thread-pre-split
 
@@ -1892,7 +1892,7 @@ ruby_nonempty_memcpy.exit130:                     ; preds = %127, %131
 declare i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @allocate_converted_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc ptr @allocate_converted_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef range(i64 0, 4097) %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %.not = icmp eq ptr %4, null
@@ -3172,7 +3172,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %rbimpl_size_mul_or_
   br label %22
 
 20:                                               ; preds = %15
-  %21 = call fastcc ptr @allocate_converted_string(ptr noundef %3, ptr noundef nonnull %.0.i, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5)
+  %21 = call fastcc ptr @allocate_converted_string(ptr noundef %3, ptr noundef nonnull %.0.i, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef %5)
   %.not26 = icmp eq ptr %21, null
   br i1 %.not26, label %33, label %22
 
@@ -3652,14 +3652,14 @@ define dso_local i64 @rb_str_encode(i64 noundef %0, i64 noundef %1, i32 noundef 
   %6 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   store i64 %0, ptr %6, align 8
-  %7 = call fastcc i32 @str_transcode0(i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %2, i64 noundef %3)
+  %7 = call fastcc i32 @str_transcode0(i32 noundef 1, ptr noundef nonnull %5, ptr noundef %6, i32 noundef %2, i64 noundef %3)
   %8 = load i64, ptr %6, align 8
   %9 = tail call fastcc i64 @encoded_dup(i64 noundef %8, i64 noundef %0, i32 noundef %7)
   ret i64 %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @str_transcode0(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @str_transcode0(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -4284,7 +4284,7 @@ str_encode_associate.exit:                        ; preds = %RBASIC_SET_CLASS.ex
 define dso_local range(i32 0, 2) i32 @rb_econv_has_convpath_p(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 4, ptr %3, align 8
-  %4 = call fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @search_convpath_i, ptr noundef nonnull %3)
+  %4 = call fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @search_convpath_i, ptr noundef %3)
   %5 = load i64, ptr %3, align 8
   %6 = and i64 %5, -5
   %7 = icmp ne i64 %6, 0
@@ -4293,7 +4293,7 @@ define dso_local range(i32 0, 2) i32 @rb_econv_has_convpath_p(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.search_path_bfs_t, align 8
   %6 = alloca i64, align 8
   %7 = tail call i32 @rb_st_locale_insensitive_strcasecmp(ptr noundef %0, ptr noundef %1) #24
@@ -4404,7 +4404,7 @@ define internal fastcc i32 @transcode_search_path(ptr noundef %0, ptr noundef %1
   %.160 = phi ptr [ %55, %.lr.ph62 ], [ %1, %.preheader ]
   %52 = inttoptr i64 %51 to ptr
   %53 = add i32 %.061, -1
-  call void %2(ptr noundef nonnull %52, ptr noundef %.160, i32 noundef %53, ptr noundef %3) #21, !callees !86
+  call void %2(ptr noundef nonnull %52, ptr noundef %.160, i32 noundef %53, ptr noundef nonnull %3) #21, !callees !86
   %54 = load i64, ptr %6, align 8
   %55 = inttoptr i64 %54 to ptr
   %56 = load ptr, ptr %5, align 8
@@ -4978,7 +4978,7 @@ define internal i64 @str_encode(i32 noundef %0, ptr noundef %1, i64 noundef %2) 
 str_transcode.exit:                               ; preds = %3, %10
   %12 = phi i64 [ 4, %3 ], [ %.pre.i, %10 ]
   %.0.i = phi i32 [ 0, %3 ], [ %11, %10 ]
-  %13 = call fastcc i32 @str_transcode0(i32 noundef %7, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %.0.i, i64 noundef %12)
+  %13 = call fastcc i32 @str_transcode0(i32 noundef %7, ptr noundef %1, ptr noundef %6, i32 noundef %.0.i, i64 noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %14 = load i64, ptr %6, align 8
@@ -5030,7 +5030,7 @@ rb_check_frozen_inline.exit:                      ; preds = %12
 str_transcode.exit:                               ; preds = %rb_check_frozen_inline.exit, %22
   %24 = phi i64 [ 4, %rb_check_frozen_inline.exit ], [ %.pre.i, %22 ]
   %.0.i = phi i32 [ 0, %rb_check_frozen_inline.exit ], [ %23, %22 ]
-  %25 = call fastcc i32 @str_transcode0(i32 noundef %19, ptr noundef %1, ptr noundef nonnull %7, i32 noundef %.0.i, i64 noundef %24)
+  %25 = call fastcc i32 @str_transcode0(i32 noundef %19, ptr noundef %1, ptr noundef %7, i32 noundef %.0.i, i64 noundef %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %26 = icmp slt i32 %25, 0
@@ -5201,11 +5201,11 @@ define internal i64 @econv_s_search_convpath(i32 noundef %0, ptr noundef %1, i64
   %16 = alloca ptr, align 8
   %17 = alloca ptr, align 8
   %18 = alloca ptr, align 8
-  call fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   store i64 4, ptr %14, align 8
   %19 = load ptr, ptr %8, align 8
   %20 = load ptr, ptr %9, align 8
-  %21 = call fastcc i32 @transcode_search_path(ptr noundef %19, ptr noundef %20, ptr noundef nonnull @search_convpath_i, ptr noundef nonnull %14)
+  %21 = call fastcc i32 @transcode_search_path(ptr noundef %19, ptr noundef %20, ptr noundef nonnull @search_convpath_i, ptr noundef %14)
   %22 = load i64, ptr %14, align 8
   %23 = icmp eq i64 %22, 4
   %24 = load i32, ptr %12, align 4
@@ -5600,7 +5600,7 @@ define internal noundef i64 @econv_init(i32 noundef %0, ptr noundef %1, i64 noun
   br i1 %29, label %30, label %.split
 
 .split:                                           ; preds = %28
-  call fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %13)
+  call fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %13)
   br label %188
 
 30:                                               ; preds = %28
@@ -5610,7 +5610,7 @@ define internal noundef i64 @econv_init(i32 noundef %0, ptr noundef %1, i64 noun
   br i1 %33, label %.split17, label %34
 
 .split17:                                         ; preds = %30
-  call fastcc void @econv_args(i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %13)
+  call fastcc void @econv_args(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %13)
   br label %188
 
 34:                                               ; preds = %30
@@ -5899,7 +5899,7 @@ rb_econv_add_converter.exit.i:                    ; preds = %load_transcoder_ent
   store ptr %47, ptr %10, align 8
   store i32 %112, ptr %61, align 8
   store i32 0, ptr %62, align 4
-  %152 = call fastcc i32 @transcode_search_path(ptr noundef nonnull %.070.i, ptr noundef %.069.i, ptr noundef nonnull @rb_econv_init_by_convpath_i, ptr noundef nonnull %10)
+  %152 = call fastcc i32 @transcode_search_path(ptr noundef nonnull %.070.i, ptr noundef %.069.i, ptr noundef nonnull @rb_econv_init_by_convpath_i, ptr noundef %10)
   %153 = icmp eq i32 %152, -1
   %154 = load i32, ptr %62, align 4
   %155 = icmp eq i32 %154, -1
@@ -6885,7 +6885,7 @@ rb_econv_encoding_to_insert_output.exit:          ; preds = %check_econv.exit, %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %20, ptr %3, align 8
   store i64 %18, ptr %4, align 8
-  %21 = call fastcc i32 @str_transcode0(i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 0, i64 noundef 4)
+  %21 = call fastcc i32 @str_transcode0(i32 noundef 1, ptr noundef nonnull %3, ptr noundef %4, i32 noundef 0, i64 noundef 4)
   %22 = load i64, ptr %4, align 8
   %23 = call fastcc i64 @encoded_dup(i64 noundef %22, i64 noundef %18, i32 noundef %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -7648,7 +7648,7 @@ declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc i32 @rb_trans_conv(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   store ptr %8, ptr %9, align 8
@@ -10859,11 +10859,11 @@ define internal noundef i64 @econv_memsize(ptr nocapture readnone %0) #16 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc void @econv_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8
-  %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.111, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %12, ptr noundef nonnull %11) #21
+  %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.111, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %12, ptr noundef nonnull %11) #21
   %15 = load i64, ptr %12, align 8
   %16 = icmp eq i64 %15, 4
   %17 = load i64, ptr %11, align 8

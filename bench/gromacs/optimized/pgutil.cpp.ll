@@ -571,7 +571,7 @@ define noundef i32 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef %0, i32 no
 declare noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef range(i32 154, 194) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8

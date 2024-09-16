@@ -2268,8 +2268,8 @@ _ZN4llvm11SmallVectorIN5clang6FileIDELj4EED2Ev.exit.i: ; preds = %397, %_ZN4llvm
 _ZL37computeCommonMacroArgExpansionFileIDsN5clang14SourceLocationES0_PKNS_13SourceManagerERN4llvm15SmallVectorImplINS_6FileIDEEE.exit: ; preds = %_ZN4llvm11SmallVectorIN5clang6FileIDELj4EED2Ev.exit.i, %401
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
-  %402 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0149.1, i32 %374, i32 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext true, ptr noundef nonnull %16, ptr noundef nonnull align 1 dereferenceable(1) %10)
-  %403 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0140.0, i32 %374, i32 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext false, ptr noundef nonnull %16, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %402 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0149.1, i32 %374, i32 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext true, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %403 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %.sroa.0140.0, i32 %374, i32 %15, ptr noundef nonnull align 8 dereferenceable(16) %13, i1 noundef zeroext false, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %10)
   %404 = icmp eq i32 %402, 0
   %405 = icmp eq i32 %403, 0
   %or.cond168 = select i1 %404, i1 true, i1 %405
@@ -3612,7 +3612,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare i32 @_ZNK5clang13FullSourceLoc9getFileIDEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %0, i32 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, ptr noundef %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) %6) unnamed_addr #1 {
+define internal fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %0, i32 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) %6) unnamed_addr #1 {
   %8 = alloca i8, align 1
   %9 = icmp eq i32 %1, %2
   br i1 %9, label %.loopexit, label %.lr.ph
@@ -3762,7 +3762,7 @@ _ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit: ; preds = %_ZNK5c
   %.v = select i1 %4, i8 %64, i8 %.sroa.582.1
   %65 = and i8 %.v, 1
   store i8 %65, ptr %8, align 1
-  %66 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %spec.select, i32 %.sroa.02.0.i.i, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, ptr noundef nonnull %5, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  %66 = call fastcc i32 @_ZL21retrieveMacroLocationN5clang14SourceLocationENS_6FileIDES1_RKN4llvm15SmallVectorImplIS1_EEbPKNS_13SourceManagerERb(i32 %spec.select, i32 %.sroa.02.0.i.i, i32 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %.not102 = icmp eq i32 %66, 0
   br i1 %.not102, label %70, label %67
 
@@ -4366,7 +4366,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDENS2_14SourceLocationELj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27getMacroArgExpansionFileIDsN5clang14SourceLocationERN4llvm15SmallVectorImplINS_6FileIDEEEbPKNS_13SourceManagerE(i32 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL27getMacroArgExpansionFileIDsN5clang14SourceLocationERN4llvm15SmallVectorImplINS_6FileIDEEEbPKNS_13SourceManagerE(i32 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = icmp slt i32 %0, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 

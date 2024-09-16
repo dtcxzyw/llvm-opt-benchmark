@@ -1726,7 +1726,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_resv_rep(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_resv_rep(i32 noundef range(i32 1, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 @xstrncasecmp(ptr noundef %3, ptr noundef nonnull @.str.65, i64 noundef 1) #17
   %5 = icmp eq i32 %4, 0
@@ -1759,7 +1759,7 @@ define internal fastcc void @_resv_rep(i32 noundef %0, ptr noundef %1) unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_user_rep(i32 noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_user_rep(i32 noundef range(i32 1, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 @xstrncasecmp(ptr noundef %3, ptr noundef nonnull @.str.79, i64 noundef 1) #17
   %5 = icmp eq i32 %4, 0

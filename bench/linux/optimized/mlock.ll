@@ -1737,7 +1737,7 @@ declare dso_local void @release_pages(ptr, i32 noundef) local_unnamed_addr #1
 declare dso_local void @mod_zone_page_state(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef range(i64 8192, 532481) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.vma_iterator, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
   %6 = inttoptr i64 %5 to ptr
@@ -1915,7 +1915,7 @@ define internal fastcc i32 @do_mlock(i64 noundef %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @apply_vma_lock_flags(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @apply_vma_lock_flags(i64 noundef range(i64 0, -4095) %0, i64 noundef range(i64 0, -4095) %1, i64 noundef range(i64 0, 532481) %2) unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.vma_iterator, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
@@ -2456,7 +2456,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @apply_mlockall_flags(i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @apply_mlockall_flags(i32 noundef range(i32 0, 8) %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.vma_iterator, align 8
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
@@ -2478,7 +2478,7 @@ define internal fastcc void @apply_mlockall_flags(i32 noundef %0) unnamed_addr #
   store i64 %13, ptr %11, align 16
   %14 = and i32 %0, 2
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %33, label %16
+  br i1 %15, label %32, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr %6, align 8
@@ -2486,59 +2486,57 @@ define internal fastcc void @apply_mlockall_flags(i32 noundef %0) unnamed_addr #
   %19 = load i64, ptr %18, align 16
   %20 = or i64 %19, 8192
   store i64 %20, ptr %18, align 16
-  %21 = and i32 %0, 4
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %28, label %23
+  %21 = icmp ult i32 %0, 4
+  br i1 %21, label %27, label %22
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %6, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 304
-  %26 = load i64, ptr %25, align 16
-  %27 = or i64 %26, 524288
-  store i64 %27, ptr %25, align 16
-  br label %28
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 304
+  %25 = load i64, ptr %24, align 16
+  %26 = or i64 %25, 524288
+  store i64 %26, ptr %24, align 16
+  br label %27
 
-28:                                               ; preds = %23, %16
-  %29 = and i32 %0, 1
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %.loopexit, label %.thread
+27:                                               ; preds = %22, %16
+  %28 = and i32 %0, 1
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %28
-  %31 = icmp eq i32 %21, 0
-  %32 = select i1 %31, i64 8192, i64 532480
-  br label %37
+.thread:                                          ; preds = %27
+  %30 = icmp ult i32 %0, 4
+  %31 = select i1 %30, i64 8192, i64 532480
+  br label %36
 
-33:                                               ; preds = %1
+32:                                               ; preds = %1
   %.pre = and i32 %0, 1
-  %.pre1 = and i32 %0, 4
-  %34 = icmp eq i32 %.pre, 0
-  %35 = icmp eq i32 %.pre1, 0
-  %36 = select i1 %35, i64 8192, i64 532480
-  %spec.select = select i1 %34, i64 0, i64 %36
-  br label %37
+  %33 = icmp eq i32 %.pre, 0
+  %34 = icmp ult i32 %0, 4
+  %35 = select i1 %34, i64 8192, i64 532480
+  %spec.select = select i1 %33, i64 0, i64 %35
+  br label %36
 
-37:                                               ; preds = %33, %.thread
-  %38 = phi i64 [ %32, %.thread ], [ %spec.select, %33 ]
-  %39 = call ptr @mas_find(ptr noundef nonnull %2, i64 noundef -1) #10
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %.loopexit, label %.preheader
+36:                                               ; preds = %32, %.thread
+  %37 = phi i64 [ %31, %.thread ], [ %spec.select, %32 ]
+  %38 = call ptr @mas_find(ptr noundef nonnull %2, i64 noundef -1) #10
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %37, %.preheader
-  %41 = phi ptr [ %51, %.preheader ], [ %39, %37 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, -532481
-  %45 = or disjoint i64 %44, %38
-  %46 = load i64, ptr %41, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 8
-  %48 = load i64, ptr %47, align 8
-  %49 = call fastcc i32 @mlock_fixup(ptr noundef nonnull %2, ptr noundef nonnull %41, ptr noundef nonnull %3, i64 noundef %46, i64 noundef %48, i64 noundef %45)
-  %50 = call i32 @__SCT__cond_resched() #10
-  %51 = call ptr @mas_find(ptr noundef nonnull %2, i64 noundef -1) #10
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !52
+.preheader:                                       ; preds = %36, %.preheader
+  %40 = phi ptr [ %50, %.preheader ], [ %38, %36 ]
+  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = load i64, ptr %41, align 8
+  %43 = and i64 %42, -532481
+  %44 = or disjoint i64 %43, %37
+  %45 = load i64, ptr %40, align 8
+  %46 = getelementptr inbounds i8, ptr %40, i64 8
+  %47 = load i64, ptr %46, align 8
+  %48 = call fastcc i32 @mlock_fixup(ptr noundef nonnull %2, ptr noundef nonnull %40, ptr noundef nonnull %3, i64 noundef %45, i64 noundef %47, i64 noundef %44)
+  %49 = call i32 @__SCT__cond_resched() #10
+  %50 = call ptr @mas_find(ptr noundef nonnull %2, i64 noundef -1) #10
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !52
 
-.loopexit:                                        ; preds = %.preheader, %37, %28
+.loopexit:                                        ; preds = %.preheader, %36, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
   ret void

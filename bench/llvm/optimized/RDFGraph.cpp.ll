@@ -18516,10 +18516,10 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPN
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8
-  call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr nonnull %0, i32 noundef %9)
+  call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias writable align 8 %4, ptr nonnull %0, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %11 = load i32, ptr %10, align 4
-  call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull %0, i32 noundef %11)
+  call fastcc void @"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj"(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %0, i32 noundef %11)
   %12 = icmp eq i32 %7, 0
   br i1 %12, label %13, label %.loopexit89
 

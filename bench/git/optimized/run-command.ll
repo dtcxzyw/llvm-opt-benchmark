@@ -1199,7 +1199,7 @@ if.then.i172:                                     ; preds = %if.then167
   unreachable
 
 child_dup2.exit176:                               ; preds = %if.then167
-  call fastcc void @child_close_pair(ptr noundef nonnull %fdin)
+  call fastcc void @child_close_pair(ptr noundef %fdin)
   br label %if.end178
 
 if.else170:                                       ; preds = %if.else165
@@ -1258,7 +1258,7 @@ if.then.i190:                                     ; preds = %if.then188
   unreachable
 
 child_dup2.exit194:                               ; preds = %if.then188
-  call fastcc void @child_close_pair(ptr noundef nonnull %fderr)
+  call fastcc void @child_close_pair(ptr noundef %fderr)
   br label %if.end199
 
 if.else191:                                       ; preds = %if.else186
@@ -1323,7 +1323,7 @@ if.then217:                                       ; preds = %if.else215
   %arrayidx218 = getelementptr inbounds i8, ptr %fdout, i64 4
   %124 = load i32, ptr %arrayidx218, align 4
   call fastcc void @child_dup2(i32 noundef %124, i32 noundef 1)
-  call fastcc void @child_close_pair(ptr noundef nonnull %fdout)
+  call fastcc void @child_close_pair(ptr noundef %fdout)
   br label %if.end229
 
 if.else220:                                       ; preds = %if.else215
@@ -1773,7 +1773,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @child_dup2(i32 noundef %fd, i32 noundef %to) unnamed_addr #2 {
+define internal fastcc void @child_dup2(i32 noundef %fd, i32 noundef range(i32 0, 3) %to) unnamed_addr #2 {
 entry:
   %buf.i = alloca %struct.child_err, align 4
   %call = tail call i32 @dup2(i32 noundef %fd, i32 noundef %to) #21
@@ -1797,7 +1797,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @child_close_pair(ptr nocapture noundef readonly %fd) unnamed_addr #2 {
+define internal fastcc void @child_close_pair(ptr nocapture noundef nonnull readonly %fd) unnamed_addr #2 {
 entry:
   %buf.i.i2 = alloca %struct.child_err, align 4
   %buf.i.i = alloca %struct.child_err, align 4
@@ -1880,7 +1880,7 @@ declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 256) i32 @wait_or_whine(i32 noundef %pid, ptr noundef %argv0, i32 noundef %in_signal) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 256) i32 @wait_or_whine(i32 noundef %pid, ptr noundef %argv0, i32 noundef range(i32 0, 2) %in_signal) unnamed_addr #2 {
 entry:
   %status = alloca i32, align 4
   br label %while.cond
@@ -3270,7 +3270,7 @@ while.body.i:                                     ; preds = %while.cond.i
   br i1 %cmp2.i, label %while.cond.i, label %if.end.i, !llvm.loop !23
 
 if.end.i:                                         ; preds = %while.body.i
-  call fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr noundef nonnull readonly %opts)
+  call fastcc void @pp_cleanup(ptr noundef %pp, ptr noundef nonnull readonly %opts)
   call void (ptr, ...) @die_errno(ptr noundef nonnull @.str.68) #24
   unreachable
 
@@ -3579,7 +3579,7 @@ for.inc.i118:                                     ; preds = %if.then.i122, %for.
   br i1 %cmp.i120, label %for.body.i114, label %land.lhs.true.backedge, !llvm.loop !20
 
 while.end:                                        ; preds = %for.end
-  call fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr noundef nonnull %opts)
+  call fastcc void @pp_cleanup(ptr noundef %pp, ptr noundef nonnull %opts)
   br i1 %2, label %if.then51, label %if.end52
 
 if.then51:                                        ; preds = %while.end
@@ -3593,7 +3593,7 @@ if.end52:                                         ; preds = %if.then51, %while.e
 declare void @trace2_region_enter_printf_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pp_cleanup(ptr noundef %pp, ptr nocapture noundef readonly %opts) unnamed_addr #2 {
+define internal fastcc void @pp_cleanup(ptr noundef nonnull %pp, ptr nocapture noundef readonly %opts) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_default_key, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0

@@ -525,7 +525,7 @@ define internal fastcc void @_scan_slurm_job_list() unnamed_addr #0 {
   br i1 %exitcond.not.i, label %_find_job_index.exit.thread, label %56, !llvm.loop !10
 
 _find_job_index.exit.thread:                      ; preds = %64, %49
-  %65 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %47, ptr noundef nonnull %18)
+  %65 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef %47, ptr noundef nonnull %18)
   br label %_find_job_index.exit.backedge
 
 _find_job_index.exit.backedge:                    ; preds = %56, %_find_job_index.exit.thread, %68, %25, %32, %48, %67, %28
@@ -539,7 +539,7 @@ _find_job_index.exit.backedge:                    ; preds = %56, %_find_job_inde
 68:                                               ; preds = %67
   %69 = getelementptr inbounds i8, ptr %18, i64 392
   %70 = load i32, ptr %69, align 8
-  tail call fastcc void @_remove_job_from_part(i32 noundef %70, ptr noundef nonnull %47, i1 noundef zeroext false)
+  tail call fastcc void @_remove_job_from_part(i32 noundef %70, ptr noundef %47, i1 noundef zeroext false)
   br label %_find_job_index.exit.backedge
 
 _find_job_index.exit._crit_edge:                  ; preds = %_find_job_index.exit.backedge, %14
@@ -554,7 +554,7 @@ _find_job_index.exit._crit_edge:                  ; preds = %_find_job_index.exi
 
 .lr.ph.i39:                                       ; preds = %_find_job_index.exit._crit_edge, %.lr.ph.i39
   %75 = phi ptr [ %76, %.lr.ph.i39 ], [ %74, %_find_job_index.exit._crit_edge ]
-  tail call fastcc void @_update_active_row(ptr noundef nonnull %75, i32 noundef 1)
+  tail call fastcc void @_update_active_row(ptr noundef %75, i32 noundef 1)
   %76 = tail call ptr @list_next(ptr noundef %73) #9
   %.not.i40 = icmp eq ptr %76, null
   br i1 %.not.i40, label %_update_all_active_rows.exit, label %.lr.ph.i39, !llvm.loop !11
@@ -846,7 +846,7 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27, label %.thread32, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %28, ptr noundef nonnull %0)
+  %30 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef %28, ptr noundef nonnull %0)
   %31 = icmp eq i16 %30, 1
   br i1 %31, label %32, label %.thread
 
@@ -861,7 +861,7 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %37 = phi ptr [ %38, %.lr.ph.i ], [ %36, %32 ]
-  tail call fastcc void @_update_active_row(ptr noundef nonnull %37, i32 noundef 1)
+  tail call fastcc void @_update_active_row(ptr noundef %37, i32 noundef 1)
   %38 = tail call ptr @list_next(ptr noundef %35) #9
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
@@ -925,7 +925,7 @@ define internal range(i32 0, 2) i32 @_find_gs_part(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i16 @_add_job_to_part(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 8192
   %.not = icmp eq i64 %4, 0
@@ -1045,7 +1045,7 @@ _find_job_index.exit.thread:                      ; preds = %30, %16, %37
   br i1 %63, label %76, label %64
 
 64:                                               ; preds = %49
-  %65 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  %65 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %1, ptr noundef %0)
   %.not52 = icmp eq i32 %65, 0
   br i1 %.not52, label %76, label %66
 
@@ -1065,7 +1065,7 @@ _find_job_index.exit.thread:                      ; preds = %30, %16, %37
   br label %73
 
 73:                                               ; preds = %66, %69, %72
-  tail call fastcc void @_add_job_to_active(ptr noundef nonnull %1, ptr noundef nonnull %0)
+  tail call fastcc void @_add_job_to_active(ptr noundef nonnull %1, ptr noundef %0)
   store i16 6, ptr %54, align 2
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   %75 = load i16, ptr %74, align 8
@@ -1113,7 +1113,7 @@ _find_job_index.exit.thread:                      ; preds = %30, %16, %37
   br label %96
 
 96:                                               ; preds = %95, %73
-  tail call fastcc void @_print_jobs(ptr noundef nonnull %0)
+  tail call fastcc void @_print_jobs(ptr noundef %0)
   %97 = load i16, ptr %53, align 8
   ret i16 %97
 }
@@ -1445,7 +1445,7 @@ define dso_local void @gs_job_fini(ptr noundef %0) local_unnamed_addr #0 {
 39:                                               ; preds = %26
   %40 = getelementptr inbounds i8, ptr %0, i64 392
   %41 = load i32, ptr %40, align 8
-  tail call fastcc void @_remove_job_from_part(i32 noundef %41, ptr noundef nonnull %28, i1 noundef zeroext true)
+  tail call fastcc void @_remove_job_from_part(i32 noundef %41, ptr noundef %28, i1 noundef zeroext true)
   %42 = load ptr, ptr @gs_part_list, align 8
   tail call void @list_sort(ptr noundef %42, ptr noundef nonnull @_sort_partitions) #9
   %43 = load ptr, ptr @gs_part_list, align 8
@@ -1456,7 +1456,7 @@ define dso_local void @gs_job_fini(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %39, %.lr.ph.i
   %46 = phi ptr [ %47, %.lr.ph.i ], [ %45, %39 ]
-  tail call fastcc void @_update_active_row(ptr noundef nonnull %46, i32 noundef 1)
+  tail call fastcc void @_update_active_row(ptr noundef %46, i32 noundef 1)
   %47 = tail call ptr @list_next(ptr noundef %44) #9
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !11
@@ -1493,7 +1493,7 @@ _update_all_active_rows.exit:                     ; preds = %.lr.ph.i, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_remove_job_from_part(i32 noundef %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %_find_job_index.exit.thread, label %5
@@ -1796,7 +1796,7 @@ _get_gr_type.exit:                                ; preds = %16, %23, %26
   br i1 %switch, label %.thread, label %82
 
 .thread:                                          ; preds = %76, %80
-  %81 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef nonnull %33, ptr noundef nonnull %69)
+  %81 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef %33, ptr noundef nonnull %69)
   br label %82
 
 82:                                               ; preds = %80, %.thread, %76, %64
@@ -2222,7 +2222,7 @@ _slice_sleep.exit:                                ; preds = %36
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
-  call fastcc void @_add_job_to_active(ptr noundef %136, ptr noundef nonnull %56)
+  call fastcc void @_add_job_to_active(ptr noundef %136, ptr noundef %56)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %137 = load i32, ptr %73, align 4
   %138 = zext i32 %137 to i64
@@ -2242,13 +2242,13 @@ _slice_sleep.exit:                                ; preds = %36
   br i1 %148, label %154, label %149
 
 149:                                              ; preds = %140
-  %150 = call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %145, ptr noundef nonnull %56)
+  %150 = call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %145, ptr noundef %56)
   %.not19.i.i = icmp eq i32 %150, 0
   br i1 %.not19.i.i, label %154, label %151
 
 151:                                              ; preds = %149
   %152 = load ptr, ptr %144, align 8
-  call fastcc void @_add_job_to_active(ptr noundef %152, ptr noundef nonnull %56)
+  call fastcc void @_add_job_to_active(ptr noundef %152, ptr noundef %56)
   %153 = getelementptr inbounds i8, ptr %143, i64 18
   store i16 4, ptr %153, align 2
   br label %154
@@ -2291,7 +2291,7 @@ _build_active_row.exit.i:                         ; preds = %163, %160, %._crit_
   br label %170
 
 170:                                              ; preds = %169, %166, %_build_active_row.exit.i
-  call fastcc void @_print_jobs(ptr noundef nonnull %56)
+  call fastcc void @_print_jobs(ptr noundef %56)
   %171 = load i32, ptr %71, align 4
   %.not80.i = icmp eq i32 %171, 0
   br i1 %.not80.i, label %._crit_edge78.i, label %.lr.ph75.i
@@ -2758,7 +2758,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_print_jobs(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_print_jobs(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %3 = and i64 %2, 8192
   %.not = icmp eq i64 %3, 0
@@ -3146,7 +3146,7 @@ define internal fastcc void @_cast_shadow(ptr noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_job_to_active(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_add_job_to_active(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 664
@@ -3547,7 +3547,7 @@ _fill_sockets.exit.thread:                        ; preds = %.loopexit.i, %179, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_job_fits_in_active_row(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @_job_fits_in_active_row(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 440
@@ -3752,7 +3752,7 @@ declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_active_row(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_update_active_row(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 8192
   %.not = icmp eq i64 %4, 0
@@ -3787,7 +3787,7 @@ define internal fastcc void @_update_active_row(ptr noundef %0, i32 noundef %1) 
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @_add_job_to_active(ptr noundef %19, ptr noundef nonnull %0)
+  tail call fastcc void @_add_job_to_active(ptr noundef %19, ptr noundef %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load ptr, ptr %12, align 8
   %.not83 = icmp eq ptr %20, null
@@ -3828,13 +3828,13 @@ define internal fastcc void @_update_active_row(ptr noundef %0, i32 noundef %1) 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %33, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef %38, ptr noundef nonnull %0)
+  %39 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef %38, ptr noundef %0)
   %.not92 = icmp eq i32 %39, 0
   br i1 %.not92, label %43, label %40
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %37, align 8
-  tail call fastcc void @_add_job_to_active(ptr noundef %41, ptr noundef nonnull %0)
+  tail call fastcc void @_add_job_to_active(ptr noundef %41, ptr noundef %0)
   %42 = load i16, ptr %24, align 8
   tail call fastcc void @_cast_shadow(ptr noundef nonnull %33, i16 noundef zeroext %42)
   br label %61
@@ -3896,13 +3896,13 @@ define internal fastcc void @_update_active_row(ptr noundef %0, i32 noundef %1) 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds i8, ptr %68, i64 8
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef %73, ptr noundef nonnull %0)
+  %74 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef %73, ptr noundef %0)
   %.not89 = icmp eq i32 %74, 0
   br i1 %.not89, label %78, label %75
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %72, align 8
-  tail call fastcc void @_add_job_to_active(ptr noundef %76, ptr noundef nonnull %0)
+  tail call fastcc void @_add_job_to_active(ptr noundef %76, ptr noundef %0)
   %77 = load i16, ptr %28, align 8
   tail call fastcc void @_cast_shadow(ptr noundef nonnull %68, i16 noundef zeroext %77)
   br label %96
@@ -3985,13 +3985,13 @@ define internal fastcc void @_update_active_row(ptr noundef %0, i32 noundef %1) 
   br i1 %114, label %125, label %115
 
 115:                                              ; preds = %109
-  %116 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %111, ptr noundef nonnull %0)
+  %116 = tail call fastcc i32 @_job_fits_in_active_row(ptr noundef nonnull %111, ptr noundef %0)
   %.not87 = icmp eq i32 %116, 0
   br i1 %.not87, label %125, label %117
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %110, align 8
-  tail call fastcc void @_add_job_to_active(ptr noundef %118, ptr noundef nonnull %0)
+  tail call fastcc void @_add_job_to_active(ptr noundef %118, ptr noundef %0)
   %119 = load i16, ptr %102, align 8
   tail call fastcc void @_cast_shadow(ptr noundef nonnull %106, i16 noundef zeroext %119)
   store i16 6, ptr %107, align 2

@@ -313,7 +313,7 @@ entry:
 if.end:                                           ; preds = %entry
   %dec = add nsw i32 %0, -1
   store i32 %dec, ptr %crypto_ok, align 4
-  %call = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef %in, i64 noundef %len)
+  %call = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef %q, ptr noundef %in, i64 noundef %len)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
@@ -358,7 +358,7 @@ return:                                           ; preds = %siv128_do_encrypt.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @siv128_do_s2v_p(ptr nocapture noundef %ctx, ptr noundef nonnull %out, ptr noundef %in, i64 noundef %len) unnamed_addr #0 {
 entry:
   %t = alloca %union.siv_block_u, align 8
   %out_len = alloca i64, align 8
@@ -427,7 +427,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool15.not, label %err, label %if.end18
 
 if.end18:                                         ; preds = %if.else, %if.end5
-  %call20 = call i32 @EVP_MAC_final(ptr noundef nonnull %call, ptr noundef %out, ptr noundef nonnull %out_len, i64 noundef 16) #9
+  %call20 = call i32 @EVP_MAC_final(ptr noundef nonnull %call, ptr noundef nonnull %out, ptr noundef nonnull %out_len, i64 noundef 16) #9
   %tobool21 = icmp ne i32 %call20, 0
   %9 = load i64, ptr %out_len, align 8
   %cmp22 = icmp eq i64 %9, 16
@@ -489,7 +489,7 @@ siv128_do_encrypt.exit:                           ; preds = %if.end
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %siv128_do_encrypt.exit
-  %call7 = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef nonnull %t, ptr noundef %out, i64 noundef %len)
+  %call7 = call fastcc i32 @siv128_do_s2v_p(ptr noundef nonnull %ctx, ptr noundef %t, ptr noundef %out, i64 noundef %len)
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %return, label %for.body
 

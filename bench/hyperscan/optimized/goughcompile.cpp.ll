@@ -3010,7 +3010,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 do.end:                                           ; preds = %entry
-  call fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr noalias nonnull align 8 %cfg, ptr noundef nonnull align 8 dereferenceable(644) %raw)
+  call fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr noalias align 8 %cfg, ptr noundef nonnull align 8 dereferenceable(644) %raw)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #30
   %call.i42 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %call.i.noexc unwind label %lpad
@@ -5632,7 +5632,7 @@ lpad.body.i:                                      ; preds = %lpad.loopexit.split
 if.end61.i:                                       ; preds = %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit177.i, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit.i, %invoke.cont52.i
   %cur_base.0.i = phi i32 [ %call24, %invoke.cont52.i ], [ %add60.i, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit177.i ], [ %call24, %_ZN3ue2L17highest_slot_usedERKSt6vectorI9gough_insSaIS1_EE.exit.i ]
   %second.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0327.i, i64 56
-  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef nonnull %second.i139.i)
+  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef %second.i139.i)
           to label %.noexc.i131 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i130
 
 .noexc.i131:                                      ; preds = %if.end61.i
@@ -5811,7 +5811,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit48.i.i: ; preds = %_ZNSt6vect
           to label %.noexc192.i unwind label %lpad.loopexit.split-lp.loopexit.i138
 
 .noexc192.i:                                      ; preds = %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit48.i.i
-  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef nonnull %second.i139.i)
+  invoke fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %second.i, ptr noundef %second.i139.i)
           to label %.noexc193.i unwind label %lpad.loopexit.split-lp.loopexit.i138
 
 .noexc193.i:                                      ; preds = %.noexc192.i
@@ -7555,7 +7555,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr noalias align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(644) %raw) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L7makeCFGERKNS_11raw_som_dfaE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(644) %raw) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i1021 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>, std::_Select1st<std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>>, std::less<unsigned int>>::_Auto_node", align 8
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>, std::_Select1st<std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>>, std::less<unsigned int>>::_Auto_node", align 8
@@ -12775,7 +12775,7 @@ for.body.i470:                                    ; preds = %.noexc482, %for.bod
   %add.ptr.i15.i473 = getelementptr inbounds %"struct.ue2::dstate_som", ptr %600, i64 %conv29.i
   %601 = load ptr, ptr %m_vertices.i.i.i, align 8
   %reports8.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %601, i64 %598, i32 0, i32 2, i32 2
-  invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i14.i472, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i15.i473, ptr noundef nonnull %reports8.i)
+  invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i14.i472, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i15.i473, ptr noundef %reports8.i)
           to label %.noexc481 unwind label %lpad96.loopexit
 
 .noexc481:                                        ; preds = %for.body.i470
@@ -12783,7 +12783,7 @@ for.body.i470:                                    ; preds = %.noexc482, %for.bod
   %reports_eod.i = getelementptr inbounds %"struct.ue2::dstate_som", ptr %602, i64 %conv29.i, i32 1
   %603 = load ptr, ptr %m_vertices.i.i.i, align 8
   %reports_eod13.i = getelementptr inbounds %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %603, i64 %598, i32 0, i32 2, i32 3
-  invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i14.i472, ptr noundef nonnull align 8 dereferenceable(48) %reports_eod.i, ptr noundef nonnull %reports_eod13.i)
+  invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i14.i472, ptr noundef nonnull align 8 dereferenceable(48) %reports_eod.i, ptr noundef %reports_eod13.i)
           to label %.noexc482 unwind label %lpad96.loopexit
 
 .noexc482:                                        ; preds = %.noexc481
@@ -16916,7 +16916,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports_in, ptr nocapture noundef %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %joins_at_s, ptr noundef nonnull readonly align 8 dereferenceable(48) %reports_in, ptr nocapture noundef nonnull %reports_out) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %reports_in, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -18409,7 +18409,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIjSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %eji, ptr nocapture noundef %out) unnamed_addr #2 {
+define internal fastcc void @_ZN3ue2L16add_simple_joinsERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EE(ptr noundef nonnull align 8 dereferenceable(96) %eji, ptr nocapture noundef nonnull %out) unnamed_addr #2 {
 entry:
   %_M_left.i.i = getelementptr inbounds i8, ptr %eji, i64 72
   %add.ptr.i.i = getelementptr inbounds i8, ptr %eji, i64 56
@@ -21854,7 +21854,7 @@ for.end.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.inc.i.i.i.i.i.i
 
 cleanup.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22, %for.body.i.i.i.i.i.i.i.i.i.i.i.i16, %for.end.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i
   %75 = phi i1 [ true, %if.then.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i15, %for.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22 ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i.i.i16 ], [ false, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28 ], [ true, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %75, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef %retval.sroa.12.0.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #30
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %75, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.12.0.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #30
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %76 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %76, 1

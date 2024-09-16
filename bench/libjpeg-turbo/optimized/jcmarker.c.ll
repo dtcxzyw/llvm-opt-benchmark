@@ -3079,7 +3079,7 @@ emit_byte.exit37:                                 ; preds = %emit_byte.exit35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_sof(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_sof(ptr noundef %0, i32 noundef range(i32 192, 203) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3111,7 +3111,7 @@ define internal fastcc void @emit_sof(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 emit_byte.exit.i:                                 ; preds = %15, %11, %2
   %20 = load ptr, ptr %3, align 8
-  %21 = trunc i32 %1 to i8
+  %21 = trunc nuw i32 %1 to i8
   %22 = load ptr, ptr %20, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 1
   store ptr %23, ptr %20, align 8
@@ -3539,7 +3539,7 @@ emit_byte.exit47:                                 ; preds = %emit_byte.exit45, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_dht(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @emit_dht(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = sext i32 %1 to i64

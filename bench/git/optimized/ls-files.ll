@@ -1152,7 +1152,7 @@ if.end524:                                        ; preds = %if.then518
 
 if.end526:                                        ; preds = %if.end524, %if.end516
   %66 = load ptr, ptr @the_repository, align 8
-  call fastcc void @show_files(ptr noundef %66, ptr noundef nonnull %dir)
+  call fastcc void @show_files(ptr noundef %66, ptr noundef %dir)
   %67 = load i32, ptr @show_resolve_undo, align 4
   %tobool527.not = icmp eq i32 %67, 0
   br i1 %tobool527.not, label %if.end530, label %if.then528
@@ -1395,7 +1395,7 @@ declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @overlay_tree_on_index(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_files(ptr noundef %repo, ptr noundef %dir) unnamed_addr #0 {
+define internal fastcc void @show_files(ptr noundef %repo, ptr noundef nonnull %dir) unnamed_addr #0 {
 entry:
   %dtype.i = alloca i32, align 4
   %fullname = alloca %struct.strbuf, align 8
@@ -1420,7 +1420,7 @@ if.then3:                                         ; preds = %if.then
 if.end:                                           ; preds = %if.then3, %if.then
   %index = getelementptr inbounds i8, ptr %repo, i64 240
   %3 = load ptr, ptr %index, align 8
-  %call = tail call i32 @fill_directory(ptr noundef %dir, ptr noundef %3, ptr noundef nonnull @pathspec) #14
+  %call = tail call i32 @fill_directory(ptr noundef nonnull %dir, ptr noundef %3, ptr noundef nonnull @pathspec) #14
   %4 = load i32, ptr @show_others, align 4
   %tobool4.not = icmp eq i32 %4, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
@@ -1733,7 +1733,7 @@ cond.false:                                       ; preds = %if.then48
 
 cond.end59:                                       ; preds = %cond.false, %cond.true
   %cond60 = phi ptr [ %64, %cond.true ], [ %cond, %cond.false ]
-  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef nonnull %dir, ptr noundef nonnull %46, ptr noundef %63, ptr noundef %cond60)
+  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef %dir, ptr noundef nonnull %46, ptr noundef %63, ptr noundef %cond60)
   %67 = load i32, ptr @skipping_duplicates, align 4
   %tobool61.not = icmp eq i32 %67, 0
   br i1 %tobool61.not, label %if.end64, label %skip_to_next_name
@@ -1779,7 +1779,7 @@ if.end88:                                         ; preds = %land.lhs.true78, %l
 if.then92:                                        ; preds = %if.end88
   %75 = load ptr, ptr %buf.i.i, align 8
   %76 = load ptr, ptr @tag_removed, align 8
-  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef nonnull %dir, ptr noundef nonnull %46, ptr noundef %75, ptr noundef %76)
+  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef %dir, ptr noundef nonnull %46, ptr noundef %75, ptr noundef %76)
   %77 = load i32, ptr @skipping_duplicates, align 4
   %tobool94.not = icmp eq i32 %77, 0
   br i1 %tobool94.not, label %if.end97, label %skip_to_next_name
@@ -1803,7 +1803,7 @@ lor.lhs.false101:                                 ; preds = %if.end97.thread
 if.then105:                                       ; preds = %if.end97, %lor.lhs.false101
   %81 = load ptr, ptr %buf.i.i, align 8
   %82 = load ptr, ptr @tag_modified, align 8
-  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef nonnull %dir, ptr noundef nonnull %46, ptr noundef %81, ptr noundef %82)
+  call fastcc void @show_ce(ptr noundef nonnull %repo, ptr noundef %dir, ptr noundef nonnull %46, ptr noundef %81, ptr noundef %82)
   %83 = load i32, ptr @skipping_duplicates, align 4
   %tobool107.not = icmp eq i32 %83, 0
   br i1 %tobool107.not, label %for.inc127, label %skip_to_next_name
@@ -1891,7 +1891,7 @@ declare i32 @fill_directory(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare void @ensure_full_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_ce(ptr noundef %repo, ptr noundef %dir, ptr noundef %ce, ptr noundef %fullname, ptr noundef %tag) unnamed_addr #0 {
+define internal fastcc void @show_ce(ptr noundef %repo, ptr noundef nonnull %dir, ptr noundef %ce, ptr noundef %fullname, ptr noundef %tag) unnamed_addr #0 {
 entry:
   %st.i37 = alloca %struct.stat, align 8
   %size.i80.i = alloca i64, align 8
@@ -2417,7 +2417,7 @@ do.cond.i138.i:                                   ; preds = %do.body.i134.i
 
 if.then70.i:                                      ; preds = %do.body.i134.i
   store ptr %scevgep211.i, ptr %format.addr.i, align 8
-  call fastcc void @write_name_to_buf(ptr noundef nonnull %sb.i, ptr noundef %fullname)
+  call fastcc void @write_name_to_buf(ptr noundef %sb.i, ptr noundef %fullname)
   br label %if.end86.i
 
 if.else71.i:                                      ; preds = %do.cond.i138.i
@@ -2806,7 +2806,7 @@ declare void @strbuf_add_unique_abbrev(ptr noundef, ptr noundef, i32 noundef) lo
 declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @write_name_to_buf(ptr noundef %sb, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @write_name_to_buf(ptr noundef nonnull %sb, ptr noundef %name) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_name_to_buf.buf, i64 24, i1 false)
@@ -2820,12 +2820,12 @@ entry:
   br i1 %tobool1.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call2 = call i64 @quote_c_style(ptr noundef %call, ptr noundef %sb, ptr noundef null, i32 noundef 0) #14
+  %call2 = call i64 @quote_c_style(ptr noundef %call, ptr noundef nonnull %sb, ptr noundef null, i32 noundef 0) #14
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call) #15
-  call void @strbuf_add(ptr noundef %sb, ptr noundef %call, i64 noundef %call.i) #14
+  call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %call, i64 noundef %call.i) #14
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then

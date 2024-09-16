@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @add_old_custom_ext(ptr noundef %ctx, i32 noundef range(i32 0, 2) %role, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 433) #8
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 435) #8

@@ -1023,10 +1023,10 @@ define noundef range(i32 -1, 2) i32 @_ZN32pxrInternal_v0_24__pxrReserved__22PcpC
   br i1 %28, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EED2Ev.exit16, label %29
 
 29:                                               ; preds = %19
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %25, i64 %21)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias writable align 8 %4, ptr %25, i64 %21)
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0.copyload = load i64, ptr %22, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
           to label %30 unwind label %47
 
 30:                                               ; preds = %29
@@ -1106,7 +1106,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10PcpNodeRefESaIS1_EED2Ev.exit16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L27_CollectNodesFromNodeToRootENS_10PcpNodeRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

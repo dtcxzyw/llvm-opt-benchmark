@@ -5260,7 +5260,7 @@ define void @zend_hash_iterator_del(i32 noundef %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef %0) unnamed_addr #14 {
+define internal fastcc void @zend_hash_remove_iterator_copies(i32 noundef range(i32 0, -1) %0) unnamed_addr #14 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1016), align 8
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds %struct._HashTableIterator, ptr %2, i64 %3, i32 2

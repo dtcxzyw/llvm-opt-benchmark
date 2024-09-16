@@ -3950,7 +3950,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_sep(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_sep(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 2, 4) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -4082,7 +4082,7 @@ define internal fastcc noundef i32 @dissect_sep(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_seid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_seid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -4953,75 +4953,75 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %.sroa.96.0.insert.shift962.i = shl nuw nsw i32 %.sroa.96.0.insert.ext961.i, 16
   %164 = and i32 %163, -16711681
   %.sroa.0.0.insert.insert507.i = or disjoint i32 %.sroa.96.0.insert.shift962.i, %164
-  %.not1462.i = icmp eq i32 %.sroa.0.0.insert.insert507.i, 0
-  br i1 %.not1462.i, label %209, label %165
+  %.not1463.i = icmp eq i32 %.sroa.0.0.insert.insert507.i, 0
+  br i1 %.not1463.i, label %209, label %165
 
 165:                                              ; preds = %162
   %.sroa.98.0.extract.shift1201.i = lshr i32 %163, 24
   %166 = load ptr, ptr %29, align 8
   %167 = and i32 %163, 128
-  %.not1463.i = icmp eq i32 %167, 0
-  %168 = select i1 %.not1463.i, ptr @.str.519, ptr @.str.518
+  %.not1464.i = icmp eq i32 %167, 0
+  %168 = select i1 %.not1464.i, ptr @.str.519, ptr @.str.518
   %169 = and i32 %163, 64
-  %.not1464.i = icmp eq i32 %169, 0
-  %170 = select i1 %.not1464.i, ptr @.str.519, ptr @.str.520
+  %.not1465.i = icmp eq i32 %169, 0
+  %170 = select i1 %.not1465.i, ptr @.str.519, ptr @.str.520
   %171 = and i32 %163, 32
-  %.not1465.i = icmp eq i32 %171, 0
-  %172 = select i1 %.not1465.i, ptr @.str.519, ptr @.str.521
+  %.not1466.i = icmp eq i32 %171, 0
+  %172 = select i1 %.not1466.i, ptr @.str.519, ptr @.str.521
   %173 = and i32 %163, 16
-  %.not1466.i = icmp eq i32 %173, 0
-  %174 = select i1 %.not1466.i, ptr @.str.519, ptr @.str.522
+  %.not1467.i = icmp eq i32 %173, 0
+  %174 = select i1 %.not1467.i, ptr @.str.519, ptr @.str.522
   %175 = and i32 %163, 240
-  %.not1467.i = icmp eq i32 %175, 0
-  %176 = select i1 %.not1467.i, ptr @.str.523, ptr @.str.519
+  %.not1468.i = icmp eq i32 %175, 0
+  %176 = select i1 %.not1468.i, ptr @.str.523, ptr @.str.519
   %177 = and i32 %163, 8
-  %.not1468.i = icmp eq i32 %177, 0
-  %178 = select i1 %.not1468.i, ptr @.str.519, ptr @.str.524
+  %.not1469.i = icmp eq i32 %177, 0
+  %178 = select i1 %.not1469.i, ptr @.str.519, ptr @.str.524
   %179 = and i32 %163, 4
-  %.not1469.i = icmp eq i32 %179, 0
-  %180 = select i1 %.not1469.i, ptr @.str.519, ptr @.str.525
+  %.not1470.i = icmp eq i32 %179, 0
+  %180 = select i1 %.not1470.i, ptr @.str.519, ptr @.str.525
   %181 = and i32 %163, 2
-  %.not1470.i = icmp eq i32 %181, 0
-  %182 = select i1 %.not1470.i, ptr @.str.519, ptr @.str.526
+  %.not1471.i = icmp eq i32 %181, 0
+  %182 = select i1 %.not1471.i, ptr @.str.519, ptr @.str.526
   %183 = and i32 %163, 1
-  %.not1471.i = icmp eq i32 %183, 0
-  %184 = select i1 %.not1471.i, ptr @.str.519, ptr @.str.527
+  %.not1472.i = icmp eq i32 %183, 0
+  %184 = select i1 %.not1472.i, ptr @.str.519, ptr @.str.527
   %185 = and i32 %163, 15
-  %.not1472.i = icmp eq i32 %185, 0
-  %186 = select i1 %.not1472.i, ptr @.str.523, ptr @.str.519
+  %.not1473.i = icmp eq i32 %185, 0
+  %186 = select i1 %.not1473.i, ptr @.str.523, ptr @.str.519
   %187 = and i32 %163, 32768
-  %.not1473.i = icmp eq i32 %187, 0
-  %188 = select i1 %.not1473.i, ptr @.str.519, ptr @.str.528
+  %.not1474.i = icmp eq i32 %187, 0
+  %188 = select i1 %.not1474.i, ptr @.str.519, ptr @.str.528
   %189 = and i32 %163, 16384
-  %.not1474.i = icmp eq i32 %189, 0
-  %190 = select i1 %.not1474.i, ptr @.str.519, ptr @.str.529
+  %.not1475.i = icmp eq i32 %189, 0
+  %190 = select i1 %.not1475.i, ptr @.str.519, ptr @.str.529
   %191 = and i32 %163, 8192
-  %.not1475.i = icmp eq i32 %191, 0
-  %192 = select i1 %.not1475.i, ptr @.str.519, ptr @.str.530
+  %.not1476.i = icmp eq i32 %191, 0
+  %192 = select i1 %.not1476.i, ptr @.str.519, ptr @.str.530
   %193 = and i32 %163, 4096
-  %.not1476.i = icmp eq i32 %193, 0
-  %194 = select i1 %.not1476.i, ptr @.str.519, ptr @.str.531
+  %.not1477.i = icmp eq i32 %193, 0
+  %194 = select i1 %.not1477.i, ptr @.str.519, ptr @.str.531
   %195 = and i32 %163, 61440
-  %.not1477.i = icmp eq i32 %195, 0
-  %196 = select i1 %.not1477.i, ptr @.str.523, ptr @.str.519
+  %.not1478.i = icmp eq i32 %195, 0
+  %196 = select i1 %.not1478.i, ptr @.str.523, ptr @.str.519
   %197 = and i32 %163, 2048
-  %.not1478.i = icmp eq i32 %197, 0
-  %198 = select i1 %.not1478.i, ptr @.str.519, ptr @.str.528
+  %.not1479.i = icmp eq i32 %197, 0
+  %198 = select i1 %.not1479.i, ptr @.str.519, ptr @.str.528
   %199 = and i32 %163, 1024
-  %.not1479.i = icmp eq i32 %199, 0
-  %200 = select i1 %.not1479.i, ptr @.str.519, ptr @.str.529
+  %.not1480.i = icmp eq i32 %199, 0
+  %200 = select i1 %.not1480.i, ptr @.str.519, ptr @.str.529
   %201 = and i32 %163, 3072
-  %.not1480.i = icmp eq i32 %201, 0
-  %202 = select i1 %.not1480.i, ptr @.str.523, ptr @.str.519
+  %.not1481.i = icmp eq i32 %201, 0
+  %202 = select i1 %.not1481.i, ptr @.str.523, ptr @.str.519
   %203 = and i32 %163, 512
-  %.not1481.i = icmp eq i32 %203, 0
-  %204 = select i1 %.not1481.i, ptr @.str.519, ptr @.str.532
+  %.not1482.i = icmp eq i32 %203, 0
+  %204 = select i1 %.not1482.i, ptr @.str.519, ptr @.str.532
   %205 = and i32 %163, 256
-  %.not1482.i = icmp eq i32 %205, 0
-  %206 = select i1 %.not1482.i, ptr @.str.519, ptr @.str.533
+  %.not1483.i = icmp eq i32 %205, 0
+  %206 = select i1 %.not1483.i, ptr @.str.519, ptr @.str.533
   %207 = and i32 %163, 768
-  %.not1483.i = icmp eq i32 %207, 0
-  %208 = select i1 %.not1483.i, ptr @.str.523, ptr @.str.519
+  %.not1484.i = icmp eq i32 %207, 0
+  %208 = select i1 %.not1484.i, ptr @.str.523, ptr @.str.519
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %166, i32 noundef 25, ptr noundef nonnull @.str.517, ptr noundef nonnull %168, ptr noundef nonnull %170, ptr noundef nonnull %172, ptr noundef nonnull %174, ptr noundef nonnull %176, ptr noundef nonnull %178, ptr noundef nonnull %180, ptr noundef nonnull %182, ptr noundef nonnull %184, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %190, ptr noundef nonnull %192, ptr noundef nonnull %194, ptr noundef nonnull %196, ptr noundef nonnull %198, ptr noundef nonnull %200, ptr noundef nonnull %202, ptr noundef nonnull %204, ptr noundef nonnull %206, ptr noundef nonnull %208, i32 noundef %.sroa.96.0.insert.ext961.i, i32 noundef %.sroa.98.0.extract.shift1201.i) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.517, ptr noundef nonnull %168, ptr noundef nonnull %170, ptr noundef nonnull %172, ptr noundef nonnull %174, ptr noundef nonnull %176, ptr noundef nonnull %178, ptr noundef nonnull %180, ptr noundef nonnull %182, ptr noundef nonnull %184, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %190, ptr noundef nonnull %192, ptr noundef nonnull %194, ptr noundef nonnull %196, ptr noundef nonnull %198, ptr noundef nonnull %200, ptr noundef nonnull %202, ptr noundef nonnull %204, ptr noundef nonnull %206, ptr noundef nonnull %208, i32 noundef %.sroa.96.0.insert.ext961.i, i32 noundef %.sroa.98.0.extract.shift1201.i) #6
   br label %dissect_codec.exit
@@ -5241,40 +5241,40 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %384 = tail call ptr @val_to_str_const(i32 noundef %.sroa.0.0.insert.insert512.i, ptr noundef nonnull @vendor_apt_codec_vals, ptr noundef nonnull @.str.510) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.535, ptr noundef %384) #6
   %385 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %343) #6
-  %.not1451.i = icmp eq i8 %385, 0
-  br i1 %.not1451.i, label %407, label %386
+  %.not1452.i = icmp eq i8 %385, 0
+  br i1 %.not1452.i, label %407, label %386
 
 386:                                              ; preds = %381
   %387 = zext i8 %385 to i32
   %388 = load ptr, ptr %29, align 8
-  %.not1452.i = icmp sgt i8 %385, -1
-  %389 = select i1 %.not1452.i, ptr @.str.519, ptr @.str.537
+  %.not1453.i = icmp sgt i8 %385, -1
+  %389 = select i1 %.not1453.i, ptr @.str.519, ptr @.str.537
   %390 = and i32 %387, 64
-  %.not1453.i = icmp eq i32 %390, 0
-  %391 = select i1 %.not1453.i, ptr @.str.519, ptr @.str.538
+  %.not1454.i = icmp eq i32 %390, 0
+  %391 = select i1 %.not1454.i, ptr @.str.519, ptr @.str.538
   %392 = and i32 %387, 32
-  %.not1454.i = icmp eq i32 %392, 0
-  %393 = select i1 %.not1454.i, ptr @.str.519, ptr @.str.539
+  %.not1455.i = icmp eq i32 %392, 0
+  %393 = select i1 %.not1455.i, ptr @.str.519, ptr @.str.539
   %394 = and i32 %387, 16
-  %.not1455.i = icmp eq i32 %394, 0
-  %395 = select i1 %.not1455.i, ptr @.str.519, ptr @.str.540
-  %.not1456.i = icmp ult i8 %385, 16
-  %396 = select i1 %.not1456.i, ptr @.str.523, ptr @.str.519
+  %.not1456.i = icmp eq i32 %394, 0
+  %395 = select i1 %.not1456.i, ptr @.str.519, ptr @.str.540
+  %.not1457.i = icmp ult i8 %385, 16
+  %396 = select i1 %.not1457.i, ptr @.str.523, ptr @.str.519
   %397 = and i32 %387, 8
-  %.not1457.i = icmp eq i32 %397, 0
-  %398 = select i1 %.not1457.i, ptr @.str.519, ptr @.str.541
+  %.not1458.i = icmp eq i32 %397, 0
+  %398 = select i1 %.not1458.i, ptr @.str.519, ptr @.str.541
   %399 = and i32 %387, 4
-  %.not1458.i = icmp eq i32 %399, 0
-  %400 = select i1 %.not1458.i, ptr @.str.519, ptr @.str.542
+  %.not1459.i = icmp eq i32 %399, 0
+  %400 = select i1 %.not1459.i, ptr @.str.519, ptr @.str.542
   %401 = and i32 %387, 2
-  %.not1459.i = icmp eq i32 %401, 0
-  %402 = select i1 %.not1459.i, ptr @.str.519, ptr @.str.543
+  %.not1460.i = icmp eq i32 %401, 0
+  %402 = select i1 %.not1460.i, ptr @.str.519, ptr @.str.543
   %403 = and i32 %387, 1
-  %.not1460.i = icmp eq i32 %403, 0
-  %404 = select i1 %.not1460.i, ptr @.str.519, ptr @.str.544
+  %.not1461.i = icmp eq i32 %403, 0
+  %404 = select i1 %.not1461.i, ptr @.str.519, ptr @.str.544
   %405 = and i32 %387, 15
-  %.not1461.i = icmp eq i32 %405, 0
-  %406 = select i1 %.not1461.i, ptr @.str.523, ptr @.str.519
+  %.not1462.i = icmp eq i32 %405, 0
+  %406 = select i1 %.not1462.i, ptr @.str.523, ptr @.str.519
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %388, i32 noundef 25, ptr noundef nonnull @.str.536, ptr noundef nonnull %389, ptr noundef nonnull %391, ptr noundef nonnull %393, ptr noundef nonnull %395, ptr noundef nonnull %396, ptr noundef nonnull %398, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %406) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.536, ptr noundef nonnull %389, ptr noundef nonnull %391, ptr noundef nonnull %393, ptr noundef nonnull %395, ptr noundef nonnull %396, ptr noundef nonnull %398, ptr noundef nonnull %400, ptr noundef nonnull %402, ptr noundef nonnull %404, ptr noundef nonnull %406) #6
   br label %dissect_codec.exit
@@ -5341,32 +5341,32 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %453 = zext i8 %447 to i32
   %454 = load ptr, ptr %29, align 8
   %455 = and i32 %453, 32
-  %.not1441.i = icmp eq i32 %455, 0
-  %456 = select i1 %.not1441.i, ptr @.str.519, ptr @.str.539
+  %.not1442.i = icmp eq i32 %455, 0
+  %456 = select i1 %.not1442.i, ptr @.str.519, ptr @.str.539
   %457 = and i32 %453, 16
-  %.not1442.i = icmp eq i32 %457, 0
-  %458 = select i1 %.not1442.i, ptr @.str.519, ptr @.str.540
+  %.not1443.i = icmp eq i32 %457, 0
+  %458 = select i1 %.not1443.i, ptr @.str.519, ptr @.str.540
   %459 = and i32 %453, 8
-  %.not1443.i = icmp eq i32 %459, 0
-  %460 = select i1 %.not1443.i, ptr @.str.519, ptr @.str.547
+  %.not1444.i = icmp eq i32 %459, 0
+  %460 = select i1 %.not1444.i, ptr @.str.519, ptr @.str.547
   %461 = and i32 %453, 4
-  %.not1444.i = icmp eq i32 %461, 0
-  %462 = select i1 %.not1444.i, ptr @.str.519, ptr @.str.548
+  %.not1445.i = icmp eq i32 %461, 0
+  %462 = select i1 %.not1445.i, ptr @.str.519, ptr @.str.548
   %463 = and i32 %453, 2
-  %.not1445.i = icmp eq i32 %463, 0
-  %464 = select i1 %.not1445.i, ptr @.str.519, ptr @.str.549
+  %.not1446.i = icmp eq i32 %463, 0
+  %464 = select i1 %.not1446.i, ptr @.str.519, ptr @.str.549
   %465 = and i32 %453, 1
-  %.not1446.i = icmp eq i32 %465, 0
-  %466 = select i1 %.not1446.i, ptr @.str.519, ptr @.str.550
+  %.not1447.i = icmp eq i32 %465, 0
+  %466 = select i1 %.not1447.i, ptr @.str.519, ptr @.str.550
   %467 = and i32 %452, 4
-  %.not1447.i = icmp eq i32 %467, 0
-  %468 = select i1 %.not1447.i, ptr @.str.519, ptr @.str.541
+  %.not1448.i = icmp eq i32 %467, 0
+  %468 = select i1 %.not1448.i, ptr @.str.519, ptr @.str.541
   %469 = and i32 %452, 2
-  %.not1448.i = icmp eq i32 %469, 0
-  %470 = select i1 %.not1448.i, ptr @.str.519, ptr @.str.542
+  %.not1449.i = icmp eq i32 %469, 0
+  %470 = select i1 %.not1449.i, ptr @.str.519, ptr @.str.542
   %471 = and i32 %452, 1
-  %.not1449.i = icmp eq i32 %471, 0
-  %472 = select i1 %.not1449.i, ptr @.str.519, ptr @.str.543
+  %.not1450.i = icmp eq i32 %471, 0
+  %472 = select i1 %.not1450.i, ptr @.str.519, ptr @.str.543
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %454, i32 noundef 25, ptr noundef nonnull @.str.546, ptr noundef nonnull %456, ptr noundef nonnull %458, ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472) #6
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.546, ptr noundef nonnull %456, ptr noundef nonnull %458, ptr noundef nonnull %460, ptr noundef nonnull %462, ptr noundef nonnull %464, ptr noundef nonnull %466, ptr noundef nonnull %468, ptr noundef nonnull %470, ptr noundef nonnull %472) #6
   br label %dissect_codec.exit

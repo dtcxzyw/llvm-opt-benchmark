@@ -498,7 +498,7 @@ _bt_recsplitloc.exit222:                          ; preds = %190, %183, %._crit_
   br label %.loopexit
 
 231:                                              ; preds = %222
-  %232 = add i16 %2, -1
+  %232 = add nsw i16 %2, -1
   %233 = getelementptr inbounds i8, ptr %1, i64 24
   %234 = zext i16 %232 to i64
   %235 = add nsw i64 %234, -1
@@ -558,8 +558,8 @@ BTreeTupleIsPosting.exit.thread.i227:             ; preds = %BTreeTupleIsPosting
 
 _bt_afternewitemoff.exit:                         ; preds = %263
   %266 = uitofp i16 %2 to double
-  %267 = uitofp nneg i16 %.0.i to double
-  %268 = fadd double %267, 1.000000e+00
+  %267 = add nuw nsw i16 %.0.i, 1
+  %268 = uitofp nneg i16 %267 to double
   %269 = fdiv double %266, %268
   %270 = fdiv double %41, 1.000000e+02
   %271 = fcmp ogt double %269, %270

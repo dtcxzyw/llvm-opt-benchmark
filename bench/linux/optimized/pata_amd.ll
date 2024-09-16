@@ -359,7 +359,7 @@ define internal fastcc void @amd_fifo_setup(ptr noundef %0) unnamed_addr #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 64, 81) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 1, 5) %4) unnamed_addr #2 align 16 {
   %6 = alloca %struct.ata_timing, align 2
   %7 = alloca %struct.ata_timing, align 2
   %8 = alloca i8, align 1
@@ -381,7 +381,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %7, i8 0, i64 20, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #8
   store i8 0, ptr %8, align 1, !annotation !5
-  %21 = icmp sgt i32 %4, 1
+  %21 = icmp ugt i32 %4, 1
   %22 = select i1 %21, i32 15000, i32 30000
   %23 = trunc nuw nsw i32 %3 to i16
   %24 = call i32 @ata_timing_compute(ptr noundef %1, i16 noundef zeroext %23, ptr noundef nonnull %6, i32 noundef 30000, i32 noundef %22) #8
@@ -417,9 +417,10 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   br label %41
 
 41:                                               ; preds = %36, %27
-  switch i32 %3, label %46 [
-    i32 69, label %43
-    i32 70, label %42
+  %trunc = trunc nuw i32 %3 to i8
+  switch i8 %trunc, label %46 [
+    i8 69, label %43
+    i8 70, label %42
   ]
 
 42:                                               ; preds = %41
@@ -461,7 +462,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %68 = call i32 @pci_write_config_byte(ptr noundef %13, i32 noundef %47, i8 noundef zeroext %67) #8
   %69 = ashr i32 %20, 1
   %70 = add nuw nsw i32 %2, 15
-  %71 = sub i32 %70, %69
+  %71 = sub nsw i32 %70, %69
   %72 = getelementptr inbounds i8, ptr %6, i64 4
   %73 = load i16, ptr %72, align 2
   %74 = icmp ugt i16 %73, 15
@@ -507,7 +508,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %110 = getelementptr inbounds i8, ptr %6, i64 18
   %111 = load i16, ptr %110, align 2
   %112 = icmp eq i16 %111, 0
-  switch i32 %4, label %default.unreachable [
+  switch i32 %4, label %default.unreachable5 [
     i32 1, label %113
     i32 2, label %121
     i32 3, label %132
@@ -569,7 +570,7 @@ define internal fastcc void @timing_setup(ptr nocapture noundef readonly %0, ptr
   %145 = or i8 %144, -64
   br label %146
 
-default.unreachable:                              ; preds = %106
+default.unreachable5:                             ; preds = %106
   unreachable
 
 146:                                              ; preds = %139, %140, %132, %133, %121, %127, %113, %114, %116

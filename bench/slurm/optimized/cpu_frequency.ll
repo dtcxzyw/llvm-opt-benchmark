@@ -1493,7 +1493,7 @@ declare void @bit_or(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 65535) %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [100 x i8], align 16
   %5 = alloca [4096 x i8], align 16
@@ -2578,7 +2578,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65535) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.104, i32 noundef %1) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2613,7 +2613,7 @@ define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_scaling_freq(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_scaling_freq(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65535) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef %1, ptr noundef %3) #11
   %7 = getelementptr inbounds i8, ptr %0, i64 112
@@ -3570,7 +3570,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_def(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @_cpu_freq_check_gov(ptr noundef %0, i32 noundef range(i32 -2139095040, 1) %1) unnamed_addr #0 {
   %3 = tail call i32 @xstrncasecmp(ptr noundef %0, ptr noundef nonnull @.str.123, i64 noundef 2) #11
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %20, label %5
@@ -3985,7 +3985,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef range(i32 -2147483648, 65535) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca i32, align 4
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef %0, ptr noundef %1) #11
@@ -4021,7 +4021,7 @@ define internal fastcc i32 @_cpu_freq_get_scaling_freq(i32 noundef %0, ptr nound
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_set_cpu_owner_lock(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @_set_cpu_owner_lock(i32 noundef range(i32 -2147483648, 65535) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [4096 x i8], align 16
   store i32 %1, ptr %3, align 4

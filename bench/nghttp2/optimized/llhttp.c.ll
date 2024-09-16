@@ -9350,7 +9350,7 @@ return:                                           ; preds = %s_n_llhttp__interna
 declare i32 @llhttp__after_message_complete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr nocapture noundef %s, ptr noundef %p, ptr noundef readnone %endp, ptr nocapture noundef readonly %seq, i32 noundef %seq_len) unnamed_addr #6 {
+define internal fastcc { i32, ptr } @llparse__match_sequence_id(ptr nocapture noundef %s, ptr noundef %p, ptr noundef readnone %endp, ptr nocapture noundef readonly %seq, i32 noundef range(i32 2, 11) %seq_len) unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %s, align 8
   %cmp.not9 = icmp eq ptr %p, %endp

@@ -4859,7 +4859,7 @@ sub_0:                                            ; preds = %.loopexit, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_compressed_clut(ptr %0, ptr %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @get_compressed_clut(ptr %0, ptr %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct._GtkTreeIter, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

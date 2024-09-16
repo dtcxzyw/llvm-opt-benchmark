@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ba66670e107886fb46f812a430fe3510.57.llvm.7000602076408091711 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -129,7 +129,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -226,7 +226,7 @@ define internal fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..Defa
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 .noexc:
   %2 = alloca [32 x i8], align 8
   %3 = alloca [24 x i8], align 8
@@ -314,7 +314,7 @@ define internal fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$na
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -419,7 +419,7 @@ _ZN8nalgebra4base11blas_uninit11gemv_uninit17h8d102a69e0c6f30dE.exit.loopexit.i:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.24.val, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr %.8.val, i64 %.24.val, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 .noexc8:
   %2 = alloca [24 x i8], align 8
   %3 = alloca [32 x i8], align 8
@@ -429,7 +429,7 @@ define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..a
   %.val = load i64, ptr %4, align 8, !noundef !7
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %.val55 = load i64, ptr %5, align 8, !noundef !7
-  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.val55)
+  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i64 noundef %.val55)
   %6 = getelementptr inbounds i8, ptr %3, i64 24
   %.val59 = load i64, ptr %6, align 8, !noundef !7
   %.not = icmp eq i64 %.val59, 0
@@ -592,7 +592,7 @@ _ZN8nalgebra4base11blas_uninit11gemm_uninit17h4d4cb16ce8b489d0E.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [16 x i8], align 8
@@ -804,11 +804,11 @@ common.resume:                                    ; preds = %65, %58, %26, %32
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr readonly %.8.val, i64 %.24.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %.24.val)
+  call fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$R$C$nalgebra..base..dimension..Dyn$GT$$GT$15allocate_uninit17hc6b375538b356241E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i64 noundef %.24.val)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %.val4 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -902,7 +902,7 @@ define internal fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
@@ -1138,7 +1138,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal3n
   %8 = alloca [40 x i8], align 8
   %9 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
-  invoke fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %9, ptr noalias nocapture noundef align 8 dereferenceable(24) %1)
           to label %10 unwind label %37
 
 10:                                               ; preds = %3
@@ -1446,7 +1446,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !343
-  invoke fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %.val.i.i.i35, i64 noundef %.val1.i.i.i34)
+  invoke fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %14, i64 noundef %.val.i.i.i35, i64 noundef %.val1.i.i.i34)
           to label %.noexc49 unwind label %100
 
 .noexc49:                                         ; preds = %.loopexit101
@@ -1780,7 +1780,7 @@ define void @_ZN6statrs12distribution19multivariate_normal18MultivariateNormal17
   br i1 %or.cond98, label %219, label %.loopexit
 
 219:                                              ; preds = %218
-  %220 = invoke fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
+  %220 = invoke fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %2)
           to label %221 unwind label %32
 
 221:                                              ; preds = %219
@@ -2090,7 +2090,7 @@ define { i64, double } @_ZN6statrs12distribution19multivariate_normal18Multivari
   tail call void @llvm.experimental.noalias.scope.decl(metadata !533)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5), !noalias !539
-  invoke fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, i64 noundef %.val1.i.i, i64 noundef %.val.i.i)
+  invoke fastcc void @"_ZN154_$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$15allocate_uninit17h06eddb585e2fee33E"(ptr noalias nocapture noundef align 8 dereferenceable(40) %5, i64 noundef %.val1.i.i, i64 noundef %.val.i.i)
           to label %.noexc unwind label %48
 
 .noexc:                                           ; preds = %25
@@ -2182,7 +2182,7 @@ define { i64, double } @_ZN6statrs12distribution19multivariate_normal18Multivari
   store i64 %.sroa.7.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !556, !noalias !555
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 32
   store i64 %.sroa.9.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !556, !noalias !555
-  %51 = invoke fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %8)
+  %51 = invoke fastcc noundef double @"_ZN8nalgebra6linalg11determinant69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$D$C$D$C$S$GT$$GT$11determinant17h307b6d4d378036d9E"(ptr noalias noundef readonly align 8 dereferenceable(40) %8)
           to label %54 unwind label %52
 
 52:                                               ; preds = %50
@@ -2347,7 +2347,7 @@ define void @"_ZN381_$LT$statrs..distribution..multivariate_normal..Multivariate
 "_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h330d4b0118508540E.exit": ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !582
-  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
@@ -2404,7 +2404,7 @@ define void @"_ZN381_$LT$statrs..distribution..multivariate_normal..Multivariate
 "_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h330d4b0118508540E.exit": ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !585
-  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   ret void
 }
@@ -2726,14 +2726,14 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 40
-  call fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+  call fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %7, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %.val9 = load i64, ptr %10, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr %.val, i64 %.val9)
+  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val9)
           to label %14 unwind label %12
 
 11:                                               ; preds = %18, %12
@@ -2752,7 +2752,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val10 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val11 = load i64, ptr %17, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr %.val10, i64 %.val11, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15)
+  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val10, i64 %.val11, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %14
@@ -2764,7 +2764,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
 20:                                               ; preds = %14
   %.val12 = load ptr, ptr %9, align 8
   %.val13 = load i64, ptr %10, align 8, !noundef !7
-  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr %.val12, i64 %.val13)
+  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val12, i64 %.val13)
           to label %22 unwind label %18
 
 22:                                               ; preds = %20
@@ -2841,14 +2841,14 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %7 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %8 = getelementptr inbounds i8, ptr %0, i64 40
-  call fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+  call fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Sub$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3sub17h7a31a7d19b0f29d3E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %7, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   %.val8 = load i64, ptr %10, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr %.val, i64 %.val8)
+  invoke fastcc void @"_ZN8nalgebra4base6matrix27Matrix$LT$T$C$R$C$C$C$S$GT$9transpose17h23977e9b3dbefe82E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %5, ptr %.val, i64 %.val8)
           to label %14 unwind label %12
 
 11:                                               ; preds = %18, %12
@@ -2867,7 +2867,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
   %.val9 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 24
   %.val10 = load i64, ptr %17, align 8, !noundef !7
-  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr %.val9, i64 %.val10, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %15)
+  invoke fastcc void @"_ZN8nalgebra4base3ops176_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17h601ad098504b6e58E"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val9, i64 %.val10, ptr noalias noundef readonly align 8 dereferenceable(40) %15)
           to label %20 unwind label %18
 
 18:                                               ; preds = %20, %14
@@ -2879,7 +2879,7 @@ define noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..Mu
 20:                                               ; preds = %14
   %.val11 = load ptr, ptr %9, align 8
   %.val12 = load i64, ptr %10, align 8, !noundef !7
-  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6, ptr %.val11, i64 %.val12)
+  %21 = invoke fastcc i64 @"_ZN8nalgebra4base3ops172_$LT$impl$u20$core..ops..arith..Mul$LT$$RF$nalgebra..base..matrix..Matrix$LT$T$C$R2$C$C2$C$SB$GT$$GT$$u20$for$u20$nalgebra..base..matrix..Matrix$LT$T$C$R1$C$C1$C$SA$GT$$GT$3mul17hc68d323fd15ac1eaE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %6, ptr %.val11, i64 %.val12)
           to label %22 unwind label %18
 
 22:                                               ; preds = %20
@@ -2952,7 +2952,7 @@ define noundef double @"_ZN154_$LT$statrs..distribution..multivariate_normal..Mu
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %1)
   %5 = invoke noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..MultivariateNormal$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$3pdf17he7eba20c9b87f992E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
           to label %8 unwind label %6
 
@@ -3001,7 +3001,7 @@ define noundef double @"_ZN154_$LT$statrs..distribution..multivariate_normal..Mu
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
+  call fastcc void @"_ZN8nalgebra4base12construction258_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$nalgebra..base..dimension..Dyn$C$C$C$$LT$nalgebra..base..default_allocator..DefaultAllocator$u20$as$u20$nalgebra..base..allocator..Allocator$LT$T$C$nalgebra..base..dimension..Dyn$C$C$GT$$GT$..Buffer$GT$$GT$8from_vec17h64e38006ce8b435eE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %1)
   %5 = invoke noundef double @"_ZN392_$LT$statrs..distribution..multivariate_normal..MultivariateNormal$u20$as$u20$statrs..distribution..Continuous$LT$$RF$nalgebra..base..matrix..Matrix$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$C$nalgebra..base..vec_storage..VecStorage$LT$f64$C$nalgebra..base..dimension..Dyn$C$nalgebra..base..dimension..Const$LT$1_usize$GT$$GT$$GT$$C$f64$GT$$GT$3pdf17he7eba20c9b87f992E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(168) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
           to label %8 unwind label %6
 

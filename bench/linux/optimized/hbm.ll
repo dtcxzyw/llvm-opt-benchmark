@@ -2082,16 +2082,17 @@ define internal fastcc i32 @mei_hbm_enum_clients_req(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal fastcc noundef nonnull ptr @mei_hbm_status_str(i32 noundef %0) unnamed_addr #0 align 16 {
-  switch i32 %0, label %9 [
-    i32 0, label %10
-    i32 1, label %2
-    i32 2, label %3
-    i32 3, label %4
-    i32 4, label %5
-    i32 5, label %6
-    i32 6, label %7
-    i32 7, label %8
+define internal fastcc noundef nonnull ptr @mei_hbm_status_str(i32 noundef range(i32 0, 256) %0) unnamed_addr #0 align 16 {
+  %trunc = trunc nuw i32 %0 to i8
+  switch i8 %trunc, label %9 [
+    i8 0, label %10
+    i8 1, label %2
+    i8 2, label %3
+    i8 3, label %4
+    i8 4, label %5
+    i8 5, label %6
+    i8 6, label %7
+    i8 7, label %8
   ]
 
 2:                                                ; preds = %1
@@ -2356,7 +2357,7 @@ define internal fastcc void @mei_hbm_me_cl_add(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mei_hbm_prop_req(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @mei_hbm_prop_req(ptr noundef %0, i64 noundef range(i64 0, 257) %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.mei_msg_hdr, align 4
   %4 = alloca %struct.hbm_props_request, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #10

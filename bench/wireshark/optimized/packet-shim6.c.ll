@@ -653,7 +653,7 @@ dissect_shimctrl.exit:                            ; preds = %83, %86, %107, %114
 
 dissect_shimopts.exit.us:                         ; preds = %.lr.ph, %dissect_shimopts.exit.us
   %.094.us = phi i32 [ %320, %dissect_shimopts.exit.us ], [ %310, %.lr.ph ]
-  %312 = add i32 %.094.us, 6
+  %312 = add nsw i32 %.094.us, 6
   %313 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %312) #2
   %314 = zext i16 %313 to i32
   %315 = add nuw nsw i32 %314, 3
@@ -668,7 +668,7 @@ dissect_shimopts.exit.us:                         ; preds = %.lr.ph, %dissect_sh
 .lr.ph.split:                                     ; preds = %.lr.ph, %dissect_shimopts.exit
   %.094 = phi i32 [ %468, %dissect_shimopts.exit ], [ %310, %.lr.ph ]
   %322 = add nsw i32 %.094, 4
-  %323 = add i32 %.094, 6
+  %323 = add nsw i32 %.094, 6
   %324 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %323) #2
   %325 = zext i16 %324 to i32
   %326 = add nuw nsw i32 %325, 3
@@ -685,7 +685,7 @@ dissect_shimopts.exit.us:                         ; preds = %.lr.ph, %dissect_sh
   %337 = load i32, ptr @hf_shim6_opt_type, align 4
   %338 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %337, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef 0) #2
   %339 = load i32, ptr @hf_shim6_opt_critical, align 4
-  %340 = add i32 %.094, 5
+  %340 = add nsw i32 %.094, 5
   %341 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %339, ptr noundef %0, i32 noundef %340, i32 noundef 1, i32 noundef 0) #2
   %342 = load i32, ptr @hf_shim6_opt_len, align 4
   %343 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %342, ptr noundef %0, i32 noundef %323, i32 noundef 2, i32 noundef 0) #2
@@ -727,7 +727,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   br i1 %.not74.i, label %dissect_shimopts.exit, label %358
 
 358:                                              ; preds = %355
-  %359 = add i32 %322, %325
+  %359 = add nsw i32 %322, %325
   %360 = load i32, ptr @hf_shim6_padding, align 4
   %361 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %360, ptr noundef %0, i32 noundef %359, i32 noundef %328, i32 noundef 0) #2
   br label %dissect_shimopts.exit
@@ -735,12 +735,12 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
 362:                                              ; preds = %proto_item_set_generated.exit.i
   %363 = load i32, ptr @hf_shim6_opt_loclist, align 4
   %364 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %363, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef 0) #2
-  %365 = add i32 %.094, 8
+  %365 = add nsw i32 %.094, 8
   %366 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %365) #2
   %367 = zext i8 %366 to i32
   %368 = load i32, ptr @hf_shim6_opt_locnum, align 4
   %369 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %368, ptr noundef %0, i32 noundef %365, i32 noundef 1, i32 noundef 0) #2
-  %370 = add i32 %.094, 9
+  %370 = add nsw i32 %.094, 9
   %371 = load i32, ptr @ett_shim6_verif_methods, align 4
   %372 = call ptr @proto_tree_add_subtree(ptr noundef %336, ptr noundef %0, i32 noundef %370, i32 noundef %367, i32 noundef %371, ptr noundef null, ptr noundef nonnull @.str.147) #2
   %.not47.i.i = icmp eq i8 %366, 0
@@ -749,14 +749,14 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
 .lr.ph.i.i:                                       ; preds = %362, %.lr.ph.i.i
   %.042.i.i = phi i32 [ %376, %.lr.ph.i.i ], [ 0, %362 ]
   %373 = load i32, ptr @hf_shim6_opt_loc_verif_methods, align 4
-  %374 = add i32 %.042.i.i, %370
+  %374 = add nsw i32 %.042.i.i, %370
   %375 = call ptr @proto_tree_add_item(ptr noundef %372, i32 noundef %373, ptr noundef %0, i32 noundef %374, i32 noundef 1, i32 noundef 0) #2
   %376 = add nuw nsw i32 %.042.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %376, %367
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %377 = add i32 %370, %367
+  %377 = add nsw i32 %370, %367
   %378 = and i32 %367, 7
   %.not.i75.i = icmp eq i32 %378, 7
   br i1 %.not.i75.i, label %384, label %._crit_edge.thread.i.i
@@ -767,7 +767,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %380 = xor i32 %379, 7
   %381 = load i32, ptr @hf_shim6_padding, align 4
   %382 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %381, ptr noundef %0, i32 noundef %.0.i88, i32 noundef %380, i32 noundef 0) #2
-  %383 = add i32 %380, %.0.i88
+  %383 = add nsw i32 %380, %.0.i88
   br label %384
 
 384:                                              ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i
@@ -782,17 +782,17 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %.143.i.i = phi i32 [ %391, %.lr.ph45.i.i ], [ 0, %384 ]
   %388 = load i32, ptr @hf_shim6_locator, align 4
   %389 = call ptr @proto_tree_add_item(ptr noundef %387, i32 noundef %388, ptr noundef %0, i32 noundef %.2.i, i32 noundef 16, i32 noundef 0) #2
-  %390 = add i32 %.2.i, 16
+  %390 = add nsw i32 %.2.i, 16
   %391 = add nuw nsw i32 %.143.i.i, 1
   %exitcond49.not.i.i = icmp eq i32 %391, %367
   br i1 %exitcond49.not.i.i, label %dissect_shimopts.exit, label %.lr.ph45.i.i, !llvm.loop !7
 
 392:                                              ; preds = %proto_item_set_generated.exit.i
-  %393 = add i32 %322, %325
-  %394 = add i32 %393, 4
+  %393 = add nsw i32 %322, %325
+  %394 = add nsw i32 %393, 4
   %395 = load i32, ptr @hf_shim6_opt_loclist, align 4
   %396 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %395, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef 0) #2
-  %397 = add i32 %.094, 8
+  %397 = add nsw i32 %.094, 8
   %398 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %397) #2
   %.fr42.i.i = freeze i8 %398
   %399 = zext i8 %.fr42.i.i to i32
@@ -807,7 +807,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   br label %dissect_shim6_opt_loc_pref.exit.i
 
 405:                                              ; preds = %392
-  %406 = add i32 %.094, 9
+  %406 = add nsw i32 %.094, 9
   %407 = icmp slt i32 %406, %394
   br i1 %407, label %.lr.ph.i76.i, label %dissect_shim6_opt_loc_pref.exit.i
 
@@ -845,7 +845,7 @@ proto_item_set_generated.exit.i:                  ; preds = %349, %346, %.lr.ph.
   %424 = add nsw i32 %.4.i, 1
   %425 = call ptr @proto_tree_add_item(ptr noundef %420, i32 noundef %423, ptr noundef %0, i32 noundef %424, i32 noundef 1, i32 noundef 0) #2
   %426 = load i32, ptr @hf_shim6_loc_weight, align 4
-  %427 = add i32 %.4.i, 2
+  %427 = add nsw i32 %.4.i, 2
   %428 = call ptr @proto_tree_add_item(ptr noundef %420, i32 noundef %426, ptr noundef %0, i32 noundef %427, i32 noundef 1, i32 noundef 0) #2
   %429 = add i32 %.4.i, %399
   %430 = add i32 %.041.us.i.i, 1
@@ -881,7 +881,7 @@ dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i.i, %.thre
   br i1 %.not72.i, label %dissect_shimopts.exit, label %445
 
 445:                                              ; preds = %442
-  %446 = add i32 %322, %325
+  %446 = add nsw i32 %322, %325
   %447 = load i32, ptr @hf_shim6_padding, align 4
   %448 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %447, ptr noundef %0, i32 noundef %446, i32 noundef %328, i32 noundef 0) #2
   br label %dissect_shimopts.exit
@@ -893,7 +893,7 @@ dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i.i, %.thre
   br i1 %.not71.i, label %dissect_shimopts.exit, label %452
 
 452:                                              ; preds = %449
-  %453 = add i32 %322, %325
+  %453 = add nsw i32 %322, %325
   %454 = load i32, ptr @hf_shim6_padding, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %454, ptr noundef %0, i32 noundef %453, i32 noundef %328, i32 noundef 0) #2
   br label %dissect_shimopts.exit
@@ -901,10 +901,10 @@ dissect_shim6_opt_loc_pref.exit.i:                ; preds = %.thread.i.i, %.thre
 456:                                              ; preds = %proto_item_set_generated.exit.i
   %457 = load i32, ptr @hf_shim6_reserved, align 4
   %458 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %457, ptr noundef %0, i32 noundef %322, i32 noundef 4, i32 noundef 0) #2
-  %459 = add i32 %.094, 8
+  %459 = add nsw i32 %.094, 8
   %460 = load i32, ptr @hf_shim6_sulid, align 4
   %461 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %460, ptr noundef %0, i32 noundef %459, i32 noundef 16, i32 noundef 0) #2
-  %462 = add i32 %.094, 24
+  %462 = add nsw i32 %.094, 24
   %463 = load i32, ptr @hf_shim6_rulid, align 4
   %464 = call ptr @proto_tree_add_item(ptr noundef %336, i32 noundef %463, ptr noundef %0, i32 noundef %462, i32 noundef 16, i32 noundef 0) #2
   br label %dissect_shimopts.exit
@@ -978,7 +978,7 @@ declare void @ipv6_dissect_next(i32 noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_shim6_probes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_shim6_probes(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 15, 616) %2, ptr noundef %3, i32 noundef range(i32 1, 16) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %ett_shim6_probe_sent.val = load i32, ptr @ett_shim6_probe_sent, align 4
   %ett_shim6_probe_rcvd.val = load i32, ptr @ett_shim6_probe_rcvd, align 4
@@ -988,30 +988,29 @@ define internal fastcc void @dissect_shim6_probes(ptr noundef %0, ptr noundef %1
   %.031 = select i1 %.not, i32 %ett_shim6_probes_sent.val, i32 %ett_shim6_probes_rcvd.val
   %7 = mul nuw nsw i32 %4, 40
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %.031, ptr noundef null, ptr noundef %3) #2
-  %.not35 = icmp eq i32 %4, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  br label %9
 
-.lr.ph:                                           ; preds = %6, %.lr.ph
-  %.034 = phi i32 [ %9, %.lr.ph ], [ 0, %6 ]
-  %.03233 = phi i32 [ %22, %.lr.ph ], [ %2, %6 ]
-  %9 = add nuw nsw i32 %.034, 1
-  %10 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %1, i32 noundef %.03233, i32 noundef 40, i32 noundef %.030, ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef %9) #2
-  %11 = load i32, ptr @hf_shim6_psrc, align 4
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %11, ptr noundef %1, i32 noundef %.03233, i32 noundef 16, i32 noundef 0) #2
-  %13 = add i32 %.03233, 16
-  %14 = load i32, ptr @hf_shim6_pdst, align 4
-  %15 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %14, ptr noundef %1, i32 noundef %13, i32 noundef 16, i32 noundef 0) #2
-  %16 = add i32 %.03233, 32
-  %17 = load i32, ptr @hf_shim6_pnonce, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %17, ptr noundef %1, i32 noundef %16, i32 noundef 4, i32 noundef 0) #2
-  %19 = add i32 %.03233, 36
-  %20 = load i32, ptr @hf_shim6_pdata, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %20, ptr noundef %1, i32 noundef %19, i32 noundef 4, i32 noundef 0) #2
-  %22 = add i32 %.03233, 40
-  %exitcond.not = icmp eq i32 %9, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+9:                                                ; preds = %6, %9
+  %.034 = phi i32 [ 0, %6 ], [ %10, %9 ]
+  %.03233 = phi i32 [ %2, %6 ], [ %23, %9 ]
+  %10 = add nuw nsw i32 %.034, 1
+  %11 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %8, ptr noundef %1, i32 noundef %.03233, i32 noundef 40, i32 noundef %.030, ptr noundef null, ptr noundef nonnull @.str.145, i32 noundef %10) #2
+  %12 = load i32, ptr @hf_shim6_psrc, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %1, i32 noundef %.03233, i32 noundef 16, i32 noundef 0) #2
+  %14 = add nuw nsw i32 %.03233, 16
+  %15 = load i32, ptr @hf_shim6_pdst, align 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %15, ptr noundef %1, i32 noundef %14, i32 noundef 16, i32 noundef 0) #2
+  %17 = add nuw nsw i32 %.03233, 32
+  %18 = load i32, ptr @hf_shim6_pnonce, align 4
+  %19 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 4, i32 noundef 0) #2
+  %20 = add nuw nsw i32 %.03233, 36
+  %21 = load i32, ptr @hf_shim6_pdata, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %1, i32 noundef %20, i32 noundef 4, i32 noundef 0) #2
+  %23 = add nuw nsw i32 %.03233, 40
+  %exitcond.not = icmp eq i32 %10, %4
+  br i1 %exitcond.not, label %24, label %9, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph, %6
+24:                                               ; preds = %9
   ret void
 }
 

@@ -287,7 +287,7 @@ entry:
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ide_dev_initfn(ptr noundef %dev, i32 noundef %kind, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc void @ide_dev_initfn(ptr noundef %dev, i32 noundef range(i32 0, 3) %kind, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %parent_bus = getelementptr inbounds i8, ptr %dev, i64 88
   %0 = load ptr, ptr %parent_bus, align 8

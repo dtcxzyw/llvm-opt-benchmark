@@ -662,7 +662,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  invoke fastcc void @_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_115PosixFileSystemEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr noalias nonnull align 8 %ref.tmp)
+  invoke fastcc void @_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_115PosixFileSystemEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont
@@ -733,7 +733,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_115PosixFileSystemEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN7rocksdb12_GLOBAL__N_115PosixFileSystemEJEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #32
@@ -6723,7 +6723,7 @@ ehcleanup35:                                      ; preds = %ehcleanup34, %lpad2
 if.end:                                           ; preds = %call5.i.i.i.i.i.i.i.i.noexc
   %second.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i25, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second.i, i64 16, i1 false)
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %14, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i25, ptr noundef %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 8)) #30
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %14, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i25, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 8)) #30
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 40), align 8
   %inc.i.i.i = add i64 %28, 1
   store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN7rocksdb12_GLOBAL__N_112locked_filesB5cxx11E, i64 40), align 8
@@ -7062,8 +7062,8 @@ ehcleanup72:                                      ; preds = %lpad65, %lpad.i52, 
   br label %ehcleanup93
 
 if.else75:                                        ; preds = %invoke.cont58
-  %cmp2.old.i.not = icmp eq i32 %call43, 0
-  br i1 %cmp2.old.i.not, label %invoke.cont76, label %if.then.i79
+  %cmp2.old.not.i = icmp eq i32 %call43, 0
+  br i1 %cmp2.old.not.i, label %invoke.cont76, label %if.then.i79
 
 if.then.i79:                                      ; preds = %if.else75
   %call.i8082 = invoke i32 (i32, i32, ...) @fcntl(i32 noundef %call43, i32 noundef 1)

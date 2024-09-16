@@ -5497,7 +5497,7 @@ if.then.i.i.i10:                                  ; preds = %_ZNSt8optionalIN9gr
 _ZNSt8optionalIN9grpc_core14promise_detail3SeqINS0_11pipe_detail4NextISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEEJZNS0_12PipeReceiverIS9_E4NextEvEUlS_IS9_EE_EEEE5resetEv.exit: ; preds = %_ZNSt8optionalIN9grpc_core11pipe_detail4PushISt10unique_ptrINS0_7MessageENS0_5Arena13PooledDeleterEEEEE5resetEv.exit, %if.then.i.i.i10
   %intercepted_on_complete_ = getelementptr inbounds i8, ptr %this, i64 152
   %14 = load ptr, ptr %intercepted_on_complete_, align 8
-  call fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias nonnull align 8 %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(568) %metadata)
+  call fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias align 8 %agg.tmp34, ptr noundef nonnull align 8 dereferenceable(568) %metadata)
   invoke void @_ZN9grpc_core21promise_filter_detail12BaseCallData7Flusher10AddClosureEP12grpc_closureN4absl12lts_202308026StatusEPKc(ptr noundef nonnull align 8 dereferenceable(184) %flusher, ptr noundef %14, ptr noundef nonnull %agg.tmp34, ptr noundef nonnull @.str.57)
           to label %invoke.cont36 unwind label %lpad35
 
@@ -5564,7 +5564,7 @@ eh.resume:                                        ; preds = %lpad51, %lpad35, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %md) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(568) %md) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6 = alloca %"class.absl::lts_20230802::Status", align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 2
@@ -5606,7 +5606,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   %agg.tmp7.sroa.0.0 = phi i64 [ %cond.i2.i, %cond.false ], [ 0, %if.end ]
   call void @_ZN4absl12lts_202308026StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp6, i32 noundef %retval.0.i, i64 %agg.tmp7.sroa.0.0, ptr %agg.tmp7.sroa.3.0)
   %conv = sext i32 %retval.0.i to i64
-  invoke void @_Z18grpc_error_set_intN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyEl(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp6, i32 noundef 3, i64 noundef %conv)
+  invoke void @_Z18grpc_error_set_intN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyEl(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull %agg.tmp6, i32 noundef 3, i64 noundef %conv)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %cond.end
@@ -9404,7 +9404,7 @@ lpad289:                                          ; preds = %invoke.cont288
   br label %ehcleanup431
 
 if.else294:                                       ; preds = %if.end223
-  invoke fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias nonnull align 8 %ref.tmp295, ptr noundef nonnull align 8 dereferenceable(568) %134)
+  invoke fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias align 8 %ref.tmp295, ptr noundef nonnull align 8 dereferenceable(568) %134)
           to label %invoke.cont297 unwind label %lpad209
 
 invoke.cont297:                                   ; preds = %if.else294
@@ -16883,7 +16883,7 @@ invoke.cont375:                                   ; preds = %if.then374
   unreachable
 
 do.end378:                                        ; preds = %invoke.cont370
-  invoke fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias nonnull align 8 %agg.tmp379, ptr noundef nonnull align 8 dereferenceable(568) %156)
+  invoke fastcc void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_118StatusFromMetadataERK19grpc_metadata_batch(ptr noalias align 8 %agg.tmp379, ptr noundef nonnull align 8 dereferenceable(568) %156)
           to label %invoke.cont386 unwind label %lpad310
 
 invoke.cont386:                                   ; preds = %do.end378

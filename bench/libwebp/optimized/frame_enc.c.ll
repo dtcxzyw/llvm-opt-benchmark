@@ -609,7 +609,7 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   %333 = load i32, ptr %305, align 4
   %334 = load i32, ptr %301, align 8
   %335 = add nsw i32 %334, %333
-  %336 = call fastcc i32 @PutCoeffs(ptr noundef nonnull %319, i32 noundef %335, ptr noundef nonnull %2)
+  %336 = call fastcc i32 @PutCoeffs(ptr noundef nonnull %319, i32 noundef %335, ptr noundef %2)
   store i32 %336, ptr %301, align 8
   store i32 %336, ptr %305, align 4
   call void @VP8InitResidual(i32 noundef 1, i32 noundef 0, ptr noundef %324, ptr noundef nonnull %2) #7
@@ -638,7 +638,7 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   %346 = add nuw nsw i64 %indvars.iv.i18, %339
   %347 = getelementptr inbounds [16 x [16 x i16]], ptr %308, i64 0, i64 %346
   call void %345(ptr noundef nonnull %347, ptr noundef nonnull %2) #7
-  %348 = call fastcc i32 @PutCoeffs(ptr noundef %319, i32 noundef %344, ptr noundef nonnull %2)
+  %348 = call fastcc i32 @PutCoeffs(ptr noundef %319, i32 noundef %344, ptr noundef %2)
   store i32 %348, ptr %338, align 4
   store i32 %348, ptr %341, align 4
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
@@ -685,7 +685,7 @@ StatLoop.exit:                                    ; preds = %OneStatPass.exit.i,
   %369 = or disjoint i64 %indvars.iv90.i, %360
   %370 = getelementptr inbounds [8 x [16 x i16]], ptr %309, i64 0, i64 %369
   call void %368(ptr noundef nonnull %370, ptr noundef nonnull %2) #7
-  %371 = call fastcc i32 @PutCoeffs(ptr noundef %319, i32 noundef %367, ptr noundef nonnull %2)
+  %371 = call fastcc i32 @PutCoeffs(ptr noundef %319, i32 noundef %367, ptr noundef %2)
   store i32 %371, ptr %358, align 4
   store i32 %371, ptr %365, align 4
   br i1 %363, label %361, label %372, !llvm.loop !15
@@ -762,7 +762,7 @@ CodeResiduals.exit:                               ; preds = %373
   br label %ResetAfterSkip.exit
 
 ResetAfterSkip.exit:                              ; preds = %414, %413, %CodeResiduals.exit
-  call fastcc void @StoreSideInfo(ptr noundef nonnull %6)
+  call fastcc void @StoreSideInfo(ptr noundef %6)
   call void @VP8StoreFilterStats(ptr noundef nonnull %6) #7
   call void @VP8IteratorExport(ptr noundef nonnull %6) #7
   %417 = call i32 @VP8IteratorProgress(ptr noundef nonnull %6, i32 noundef 20) #7
@@ -777,7 +777,7 @@ ResetAfterSkip.exit:                              ; preds = %414, %413, %CodeRes
 
 .critedge:                                        ; preds = %CodeResiduals.exit, %ResetAfterSkip.exit, %418
   %.011 = phi i32 [ %417, %418 ], [ 0, %ResetAfterSkip.exit ], [ 0, %CodeResiduals.exit ]
-  %420 = call fastcc i32 @PostLoopFinalize(ptr noundef nonnull %6, i32 noundef %.011)
+  %420 = call fastcc i32 @PostLoopFinalize(ptr noundef %6, i32 noundef %.011)
   br label %421
 
 421:                                              ; preds = %PreLoopInitialize.exit, %.critedge
@@ -794,7 +794,7 @@ declare void @VP8IteratorImport(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @VP8Decimate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StoreSideInfo(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @StoreSideInfo(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -972,7 +972,7 @@ declare void @VP8IteratorSaveBoundary(ptr noundef) local_unnamed_addr #1
 declare i32 @VP8IteratorNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @PostLoopFinalize(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @PostLoopFinalize(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq i32 %1, 0
@@ -1045,7 +1045,7 @@ define internal fastcc i32 @PostLoopFinalize(ptr noundef %0, i32 noundef %1) unn
   br i1 %exitcond50.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %32, %._crit_edge.thread
-  tail call void @VP8AdjustFilterStrength(ptr noundef %0) #7
+  tail call void @VP8AdjustFilterStrength(ptr noundef nonnull %0) #7
   br label %36
 
 .thread:                                          ; preds = %2, %._crit_edge
@@ -1361,7 +1361,7 @@ RecordTokens.exit:                                ; preds = %157
   br i1 %101, label %168, label %.critedge100
 
 168:                                              ; preds = %163
-  call fastcc void @StoreSideInfo(ptr noundef nonnull %3)
+  call fastcc void @StoreSideInfo(ptr noundef %3)
   call void @VP8StoreFilterStats(ptr noundef nonnull %3) #7
   call void @VP8IteratorExport(ptr noundef nonnull %3) #7
   %169 = call i32 @VP8IteratorProgress(ptr noundef nonnull %3, i32 noundef %102) #7
@@ -1525,7 +1525,7 @@ ComputeNextQ.exit:                                ; preds = %210, %214, %216
 
 .critedge102:                                     ; preds = %168, %159, %241, %236
   %250 = phi i32 [ 0, %236 ], [ %249, %241 ], [ 0, %159 ], [ 0, %168 ]
-  %251 = call fastcc i32 @PostLoopFinalize(ptr noundef nonnull %3, i32 noundef %250)
+  %251 = call fastcc i32 @PostLoopFinalize(ptr noundef %3, i32 noundef %250)
   br label %252
 
 252:                                              ; preds = %PreLoopInitialize.exit, %.critedge102
@@ -1777,37 +1777,37 @@ declare void @VP8TBufferClear(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @FinalizeTokenProbas(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1060
   %3 = getelementptr inbounds i8, ptr %0, i64 4
-  br label %.preheader81
-
-.preheader81:                                     ; preds = %1, %54
-  %indvars.iv103 = phi i64 [ 0, %1 ], [ %indvars.iv.next104, %54 ]
-  %.093 = phi i32 [ 0, %1 ], [ %.4, %54 ]
-  %.05792 = phi i32 [ 0, %1 ], [ %.461, %54 ]
   br label %.preheader80
 
-.preheader80:                                     ; preds = %.preheader81, %53
-  %indvars.iv99 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next100, %53 ]
-  %.190 = phi i32 [ %.093, %.preheader81 ], [ %.4, %53 ]
-  %.15889 = phi i32 [ %.05792, %.preheader81 ], [ %.461, %53 ]
+.preheader80:                                     ; preds = %1, %53
+  %indvars.iv102 = phi i64 [ 0, %1 ], [ %indvars.iv.next103, %53 ]
+  %.092 = phi i32 [ 0, %1 ], [ %.4, %53 ]
+  %.05791 = phi i32 [ 0, %1 ], [ %.461, %53 ]
+  br label %.preheader79
+
+.preheader79:                                     ; preds = %.preheader80, %52
+  %indvars.iv98 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next99, %52 ]
+  %.189 = phi i32 [ %.092, %.preheader80 ], [ %.4, %52 ]
+  %.15888 = phi i32 [ %.05791, %.preheader80 ], [ %.461, %52 ]
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader80, %52
-  %indvars.iv95 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next96, %52 ]
-  %.287 = phi i32 [ %.190, %.preheader80 ], [ %.4, %52 ]
-  %.25986 = phi i32 [ %.15889, %.preheader80 ], [ %.461, %52 ]
+.preheader:                                       ; preds = %.preheader79, %51
+  %indvars.iv94 = phi i64 [ 0, %.preheader79 ], [ %indvars.iv.next95, %51 ]
+  %.286 = phi i32 [ %.189, %.preheader79 ], [ %.4, %51 ]
+  %.25985 = phi i32 [ %.15888, %.preheader79 ], [ %.461, %51 ]
   br label %4
 
-4:                                                ; preds = %.preheader, %51
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %51 ]
-  %.384 = phi i32 [ %.287, %.preheader ], [ %.4, %51 ]
-  %.36083 = phi i32 [ %.25986, %.preheader ], [ %.461, %51 ]
-  %5 = getelementptr inbounds [4 x [8 x [3 x [11 x i32]]]], ptr %2, i64 0, i64 %indvars.iv103, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
+4:                                                ; preds = %.preheader, %50
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %50 ]
+  %.383 = phi i32 [ %.286, %.preheader ], [ %.4, %50 ]
+  %.36082 = phi i32 [ %.25985, %.preheader ], [ %.461, %50 ]
+  %5 = getelementptr inbounds [4 x [8 x [3 x [11 x i32]]]], ptr %2, i64 0, i64 %indvars.iv102, i64 %indvars.iv98, i64 %indvars.iv94, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 65535
   %8 = lshr i32 %6, 16
-  %9 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv103, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
+  %9 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsUpdateProba, i64 0, i64 %indvars.iv102, i64 %indvars.iv98, i64 %indvars.iv94, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv103, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
+  %11 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr @VP8CoeffsProba0, i64 0, i64 %indvars.iv102, i64 %indvars.iv98, i64 %indvars.iv94, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %.not.i = icmp eq i32 %7, 0
@@ -1860,55 +1860,55 @@ CalcTokenProba.exit:                              ; preds = %4, %14
   %36 = add i32 %35, %33
   %37 = add i32 %36, %34
   %38 = icmp sgt i32 %27, %37
-  %39 = sext i1 %38 to i8
-  %.pn.in.i76 = xor i8 %10, %39
-  %.pn.i77 = zext i8 %.pn.in.i76 to i64
-  %.in.in.i78 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i77
-  %.in.i79 = load i16, ptr %.in.in.i78, align 2
-  %40 = zext i16 %.in.i79 to i32
-  %41 = add nsw i32 %.36083, %40
-  br i1 %38, label %42, label %49
+  %.neg = sext i1 %38 to i8
+  %.pn.in.i75 = xor i8 %10, %.neg
+  %.pn.i76 = zext i8 %.pn.in.i75 to i64
+  %.in.in.i77 = getelementptr inbounds [256 x i16], ptr @VP8EntropyCost, i64 0, i64 %.pn.i76
+  %.in.i78 = load i16, ptr %.in.in.i77, align 2
+  %39 = zext i16 %.in.i78 to i32
+  %40 = add nsw i32 %.36082, %39
+  br i1 %38, label %41, label %48
 
-42:                                               ; preds = %CalcTokenProba.exit
-  %43 = trunc i32 %18 to i8
-  %44 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv103, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
-  store i8 %43, ptr %44, align 1
-  %45 = icmp ne i32 %18, %13
-  %46 = zext i1 %45 to i32
-  %47 = or i32 %.384, %46
-  %48 = add nsw i32 %41, 2048
-  br label %51
+41:                                               ; preds = %CalcTokenProba.exit
+  %42 = trunc i32 %18 to i8
+  %43 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv102, i64 %indvars.iv98, i64 %indvars.iv94, i64 %indvars.iv
+  store i8 %42, ptr %43, align 1
+  %44 = icmp ne i32 %18, %13
+  %45 = zext i1 %44 to i32
+  %46 = or i32 %.383, %45
+  %47 = add nsw i32 %40, 2048
+  br label %50
 
-49:                                               ; preds = %CalcTokenProba.exit
-  %50 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv103, i64 %indvars.iv99, i64 %indvars.iv95, i64 %indvars.iv
-  store i8 %12, ptr %50, align 1
-  br label %51
+48:                                               ; preds = %CalcTokenProba.exit
+  %49 = getelementptr inbounds [4 x [8 x [3 x [11 x i8]]]], ptr %3, i64 0, i64 %indvars.iv102, i64 %indvars.iv98, i64 %indvars.iv94, i64 %indvars.iv
+  store i8 %12, ptr %49, align 1
+  br label %50
 
-51:                                               ; preds = %42, %49
-  %.461 = phi i32 [ %48, %42 ], [ %41, %49 ]
-  %.4 = phi i32 [ %47, %42 ], [ %.384, %49 ]
+50:                                               ; preds = %41, %48
+  %.461 = phi i32 [ %47, %41 ], [ %40, %48 ]
+  %.4 = phi i32 [ %46, %41 ], [ %.383, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %52, label %4, !llvm.loop !32
+  br i1 %exitcond.not, label %51, label %4, !llvm.loop !32
+
+51:                                               ; preds = %50
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next95, 3
+  br i1 %exitcond97.not, label %52, label %.preheader, !llvm.loop !33
 
 52:                                               ; preds = %51
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond98.not = icmp eq i64 %indvars.iv.next96, 3
-  br i1 %exitcond98.not, label %53, label %.preheader, !llvm.loop !33
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 8
+  br i1 %exitcond101.not, label %53, label %.preheader79, !llvm.loop !34
 
 53:                                               ; preds = %52
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %exitcond102.not = icmp eq i64 %indvars.iv.next100, 8
-  br i1 %exitcond102.not, label %54, label %.preheader80, !llvm.loop !34
+  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
+  %exitcond105.not = icmp eq i64 %indvars.iv.next103, 4
+  br i1 %exitcond105.not, label %54, label %.preheader80, !llvm.loop !35
 
 54:                                               ; preds = %53
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond106.not = icmp eq i64 %indvars.iv.next104, 4
-  br i1 %exitcond106.not, label %55, label %.preheader81, !llvm.loop !35
-
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 19880
-  store i32 %.4, ptr %56, align 8
+  %55 = getelementptr inbounds i8, ptr %0, i64 19880
+  store i32 %.4, ptr %55, align 8
   ret i32 %.461
 }
 
@@ -1935,7 +1935,7 @@ declare i32 @VP8RecordCoeffs(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @VP8IteratorBytesToNz(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PutCoeffs(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8

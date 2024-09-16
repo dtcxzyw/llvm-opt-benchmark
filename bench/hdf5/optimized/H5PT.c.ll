@@ -105,7 +105,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br label %.thread103
 
 54:                                               ; preds = %47
-  %55 = call fastcc i32 @H5PT_close(ptr noundef nonnull %17)
+  %55 = call fastcc i32 @H5PT_close(ptr noundef %17)
   br label %.thread103
 
 56:                                               ; preds = %19
@@ -184,7 +184,7 @@ declare i64 @H5Tcopy(i64 noundef) local_unnamed_addr #1
 declare i64 @H5Iregister(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca %union.anon.0, align 8
   %4 = alloca ptr, align 8
@@ -344,7 +344,7 @@ define i64 @H5PTcreate_fl(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 no
   br label %.thread103
 
 52:                                               ; preds = %45
-  %53 = call fastcc i32 @H5PT_close(ptr noundef nonnull %17)
+  %53 = call fastcc i32 @H5PT_close(ptr noundef %17)
   br label %.thread103
 
 54:                                               ; preds = %19
@@ -477,7 +477,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread87
 
 47:                                               ; preds = %39
-  %48 = call fastcc i32 @H5PT_close(ptr noundef nonnull %12)
+  %48 = call fastcc i32 @H5PT_close(ptr noundef %12)
   br label %.thread87
 
 49:                                               ; preds = %19
@@ -538,7 +538,7 @@ define range(i32 -1, 1) i32 @H5PTclose(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call fastcc i32 @H5PT_close(ptr noundef nonnull %3)
+  %6 = tail call fastcc i32 @H5PT_close(ptr noundef %3)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %15, label %8
 

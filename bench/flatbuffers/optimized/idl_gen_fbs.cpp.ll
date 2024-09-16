@@ -231,7 +231,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %fbs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp5.i)
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %fbs.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %tobool)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %fbs.i, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %tobool)
   %call.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %fbs.i) #23
   br i1 %call.i, label %_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_b.exit.thread, label %if.end.i
 
@@ -325,7 +325,7 @@ entry:
   %no_log_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %no_log_, align 8
   %tobool = trunc i8 %0 to i1
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %tobool)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %tobool)
   %call = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %output, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   ret i32 0
@@ -450,7 +450,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %file_name, i1 noundef zeroext %no_log) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_111GenerateFBSERKNS_6ParserERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %parser, ptr noundef nonnull align 8 dereferenceable(32) %file_name, i1 noundef zeroext %no_log) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -887,7 +887,7 @@ if.end136:                                        ; preds = %invoke.cont119, %in
   %ref.tmp126.sink = phi ptr [ %ref.tmp126, %invoke.cont132 ], [ %ref.tmp118, %invoke.cont119 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126.sink) #23
   %underlying_type = getelementptr inbounds i8, ptr %26, i64 208
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp138, ptr noundef nonnull align 8 dereferenceable(26) %underlying_type, i1 noundef zeroext true)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias align 8 %ref.tmp138, ptr noundef nonnull align 8 dereferenceable(26) %underlying_type, i1 noundef zeroext true)
           to label %invoke.cont139 unwind label %lpad.loopexit.split-lp320.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont139:                                   ; preds = %if.end136
@@ -923,7 +923,7 @@ invoke.cont162:                                   ; preds = %for.body159
 
 if.then165:                                       ; preds = %invoke.cont162
   %union_type = getelementptr inbounds i8, ptr %40, i64 56
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(26) %union_type, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias align 8 %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(26) %union_type, i1 noundef zeroext false)
           to label %invoke.cont169 unwind label %lpad.loopexit.split-lp320.loopexit
 
 invoke.cont169:                                   ; preds = %if.then165
@@ -1511,7 +1511,7 @@ if.then.i.i:                                      ; preds = %_ZN11flatbuffers14S
 if.end5.i.i:                                      ; preds = %for.inc.i.i.i, %init.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i), !noalias !27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %used_proto_ids.i.i.i), !noalias !27
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias align 8 %used_proto_ids.i.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
           to label %.noexc151 unwind label %lpad.loopexit319
 
 .noexc151:                                        ; preds = %if.end5.i.i
@@ -1844,7 +1844,7 @@ if.end23.i.i:                                     ; preds = %for.inc.i71.i.i, %i
 
 if.then24.i.i:                                    ; preds = %if.end23.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %used_proto_ids.i89.i.i), !noalias !27
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nonnull align 8 %used_proto_ids.i89.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias align 8 %used_proto_ids.i89.i.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %vec.i139)
           to label %.noexc152 unwind label %lpad.loopexit319
 
 .noexc152:                                        ; preds = %if.then24.i.i
@@ -2465,7 +2465,7 @@ invoke.cont276:                                   ; preds = %invoke.cont5.i188
 
 invoke.cont278:                                   ; preds = %invoke.cont276
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(32) %call.i192193) #23
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias align 8 %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(26) %value, i1 noundef zeroext false)
           to label %invoke.cont283 unwind label %lpad282
 
 invoke.cont283:                                   ; preds = %invoke.cont278
@@ -3093,7 +3093,7 @@ declare void @_ZN11flatbuffers9StripPathERKNSt7__cxx1112basic_stringIcSt11char_t
 declare void @_ZN11flatbuffers10GenCommentERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_PKNS_13CommentConfigEPKc(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %type, i1 noundef zeroext %underlying) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %type, i1 noundef zeroext %underlying) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3110,7 +3110,7 @@ sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %struct_def, align 8
   %defined_namespace = getelementptr inbounds i8, ptr %1, i64 168
   %2 = load ptr, ptr %defined_namespace, align 8
-  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1000)
+  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1000)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
@@ -3132,7 +3132,7 @@ sw.bb2:                                           ; preds = %entry
   store ptr %5, ptr %enum_def.i.i, align 8, !alias.scope !53
   %fixed_length.i.i = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
   store i16 %6, ptr %fixed_length.i.i, align 8, !alias.scope !53
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias nonnull align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp4, i1 noundef zeroext false)
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_17GenTypeB5cxx11ERKNS_4TypeEb(ptr noalias align 8 %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(26) %ref.tmp4, i1 noundef zeroext false)
   %call.i11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, i64 noundef 0, ptr noundef nonnull @.str.31)
           to label %invoke.cont unwind label %lpad
 
@@ -3173,7 +3173,7 @@ sw.default:                                       ; preds = %entry
 if.then:                                          ; preds = %sw.default
   %defined_namespace9 = getelementptr inbounds i8, ptr %9, i64 168
   %10 = load ptr, ptr %defined_namespace9, align 8
-  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1000)
+  tail call void @_ZNK11flatbuffers9Namespace21GetFullyQualifiedNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 1000)
   br label %return
 
 if.else:                                          ; preds = %sw.default
@@ -3652,7 +3652,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #15
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11flatbuffers12_GLOBAL__N_118ExtractProtobufIdsERKSt6vectorIPNS_8FieldDefESaIS3_EE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fields) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %endptr.i17.i.i = alloca ptr, align 8
   %endptr.i.i.i = alloca ptr, align 8
@@ -4736,7 +4736,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %1 = load i32, ptr %__value.i.i.i, align 8
   store i32 %1, ptr %agg.tmp6.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i9.i.i.i) #23
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
@@ -4768,7 +4768,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %"_
   %4 = load i32, ptr %__value.i.i1.i, align 8
   store i32 %4, ptr %agg.tmp7.i.i2.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %second.i3.i.i5.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i3.i) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i11.i, ptr noundef nonnull %agg.tmp7.i.i2.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i11.i, ptr noundef %agg.tmp7.i.i2.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i3.i.i5.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i3.i) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %__value.i.i1.i)
@@ -4887,7 +4887,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNSH_9StructDefENSH_10IDLOptions16ProtoIdGapActionEbE3$_0EEEvT_T0_SR_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp37 = alloca %"struct.std::pair.173", align 8
   %sub = add nsw i64 %__len, -1

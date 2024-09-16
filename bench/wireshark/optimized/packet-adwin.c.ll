@@ -595,11 +595,11 @@ define internal i32 @dissect_adwin(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 19:                                               ; preds = %7
-  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.416)
+  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef %5, ptr noundef nonnull @.str.416)
   br label %dissect_UDPH1_new.exit
 
 20:                                               ; preds = %7
-  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef nonnull %5, ptr noundef nonnull @.str.420)
+  call fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %14, ptr noundef %18, ptr noundef %5, ptr noundef nonnull @.str.420)
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %dissect_UDPH1_new.exit, label %21
 
@@ -1279,7 +1279,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_UDPH1_generic(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 0) #4
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -1562,7 +1562,7 @@ declare i32 @tvb_get_letohl(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adwin_request_response_handling(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @adwin_request_response_handling(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #4
   %8 = load i32, ptr @proto_adwin, align 4

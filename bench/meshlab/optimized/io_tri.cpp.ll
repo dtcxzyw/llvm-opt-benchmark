@@ -1644,7 +1644,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %72, %75
 .lr.ph.i.preheader.i.preheader.i.us:              ; preds = %.lr.ph, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i28.i.us
   %indvars.iv275 = phi i64 [ %indvars.iv.next276, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i28.i.us ], [ 0, %.lr.ph ]
   %85 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %86 = call i64 @fread(ptr noundef nonnull %85, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %86 = call i64 @fread(ptr noundef nonnull %85, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us, %.lr.ph.i.preheader.i.preheader.i.us
@@ -1661,7 +1661,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %72, %75
 _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i.us:  ; preds = %.lr.ph.i.i.i.us
   call void @_ZdaPv(ptr noundef nonnull %85) #22
   %91 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %92 = call i64 @fread(ptr noundef nonnull %91, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %92 = call i64 @fread(ptr noundef nonnull %91, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i14.i.us
 
 .lr.ph.i.i14.i.us:                                ; preds = %.lr.ph.i.i14.i.us, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i.us
@@ -1678,7 +1678,7 @@ _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i.us:  ; preds = %.lr.ph.i.i.i.us
 _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i18.i.us: ; preds = %.lr.ph.i.i14.i.us
   call void @_ZdaPv(ptr noundef nonnull %91) #22
   %97 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %98 = call i64 @fread(ptr noundef nonnull %97, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %98 = call i64 @fread(ptr noundef nonnull %97, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i24.i.us
 
 .lr.ph.i.i24.i.us:                                ; preds = %.lr.ph.i.i24.i.us, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i18.i.us
@@ -1722,9 +1722,9 @@ _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i28.i.us: ; preds = %.lr.ph.i.i24.i.us
 
 _ZL9readPointP8_IO_FILEbRfS1_S1_.exit:            ; preds = %.lr.ph, %_ZL9readPointP8_IO_FILEbRfS1_S1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL9readPointP8_IO_FILEbRfS1_S1_.exit ], [ 0, %.lr.ph ]
-  %113 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef %49)
-  %114 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef %49)
-  %115 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %113 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
+  %114 = call i64 @fread(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
+  %115 = call i64 @fread(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   %116 = load float, ptr %9, align 4
   %117 = load float, ptr %10, align 4
   %118 = load float, ptr %11, align 4
@@ -1745,7 +1745,7 @@ _ZL9readPointP8_IO_FILEbRfS1_S1_.exit:            ; preds = %.lr.ph, %_ZL9readPo
 
 .lr.ph.i.preheader.i.preheader.i126:              ; preds = %121
   %122 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %123 = call i64 @fread(ptr noundef nonnull %122, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %123 = call i64 @fread(ptr noundef nonnull %122, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i.i127
 
 .lr.ph.i.i.i127:                                  ; preds = %.lr.ph.i.i.i127, %.lr.ph.i.preheader.i.preheader.i126
@@ -1762,7 +1762,7 @@ _ZL9readPointP8_IO_FILEbRfS1_S1_.exit:            ; preds = %.lr.ph, %_ZL9readPo
 _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i131:  ; preds = %.lr.ph.i.i.i127
   call void @_ZdaPv(ptr noundef nonnull %122) #22
   %128 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %129 = call i64 @fread(ptr noundef nonnull %128, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %129 = call i64 @fread(ptr noundef nonnull %128, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i14.i132
 
 .lr.ph.i.i14.i132:                                ; preds = %.lr.ph.i.i14.i132, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i131
@@ -1779,7 +1779,7 @@ _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i.i131:  ; preds = %.lr.ph.i.i.i127
 _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i18.i136: ; preds = %.lr.ph.i.i14.i132
   call void @_ZdaPv(ptr noundef nonnull %128) #22
   %134 = call noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #26
-  %135 = call i64 @fread(ptr noundef nonnull %134, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %135 = call i64 @fread(ptr noundef nonnull %134, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %.lr.ph.i.i24.i137
 
 .lr.ph.i.i24.i137:                                ; preds = %.lr.ph.i.i24.i137, %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i18.i136
@@ -1798,9 +1798,9 @@ _ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i28.i141: ; preds = %.lr.ph.i.i24.i137
   br label %_ZL8readFaceP8_IO_FILEbRiS1_S1_.exit
 
 140:                                              ; preds = %121
-  %141 = call i64 @fread(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef %49)
-  %142 = call i64 @fread(ptr noundef nonnull %13, i64 noundef 4, i64 noundef 1, ptr noundef %49)
-  %143 = call i64 @fread(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef %49)
+  %141 = call i64 @fread(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
+  %142 = call i64 @fread(ptr noundef nonnull %13, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
+  %143 = call i64 @fread(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %49)
   br label %_ZL8readFaceP8_IO_FILEbRiS1_S1_.exit
 
 _ZL8readFaceP8_IO_FILEbRiS1_S1_.exit:             ; preds = %_ZL9readbeOnePvjP8_IO_FILE.exit.loopexit.i28.i141, %140

@@ -2465,14 +2465,14 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   %877 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %876, ptr noundef %616, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
   %878 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %879 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %878, ptr noundef %616, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
-  %880 = call fastcc i32 @decode_ht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 19, ptr noundef nonnull %8)
+  %880 = call fastcc i32 @decode_ht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 19, ptr noundef %8)
   %881 = load i32, ptr @hf_radiotap_ofdm_service, align 4
   %882 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %881, ptr noundef %616, i32 noundef %880, i32 noundef 2, i32 noundef -2147483648) #5
   %883 = add nuw nsw i32 %880, 6
   br label %964
 
 884:                                              ; preds = %834
-  %885 = call fastcc i32 @decode_ht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 16, ptr noundef nonnull %8)
+  %885 = call fastcc i32 @decode_ht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 16, ptr noundef %8)
   %886 = load i32, ptr @hf_radiotap_ofdm_service, align 4
   %887 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %886, ptr noundef %616, i32 noundef %885, i32 noundef 2, i32 noundef -2147483648) #5
   %888 = add nuw nsw i32 %885, 9
@@ -2489,7 +2489,7 @@ ethernettap_dissect.exit:                         ; preds = %644, %656, %661, %6
   %897 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %896, ptr noundef %616, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
   %898 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %899 = call ptr @proto_tree_add_item(ptr noundef %838, i32 noundef %898, ptr noundef %616, i32 noundef 16, i32 noundef 3, i32 noundef -2147483648) #5
-  %900 = call fastcc i32 @decode_vht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 19, ptr noundef nonnull %8)
+  %900 = call fastcc i32 @decode_vht_sig(ptr noundef %838, ptr noundef %616, i32 noundef 19, ptr noundef %8)
   br label %964
 
 901:                                              ; preds = %834
@@ -3075,7 +3075,7 @@ proto_item_set_generated.exit.i808:               ; preds = %1101, %1098, %1096
   %1292 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %1291, ptr noundef %618, i32 noundef 31, i32 noundef 3, i32 noundef -2147483648) #5
   %1293 = load i32, ptr @hf_radiotap_ofdm_tail, align 4
   %1294 = call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %1293, ptr noundef %618, i32 noundef 31, i32 noundef 3, i32 noundef -2147483648) #5
-  %1295 = call fastcc i32 @decode_vht_sig(ptr noundef %44, ptr noundef %618, i32 noundef 34, ptr noundef nonnull %6)
+  %1295 = call fastcc i32 @decode_vht_sig(ptr noundef %44, ptr noundef %618, i32 noundef 34, ptr noundef %6)
   br label %wlantap_dissect.exit
 
 wlantap_dissect.exit:                             ; preds = %1273, %1284
@@ -3177,7 +3177,7 @@ declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 35) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3267,7 +3267,7 @@ define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 19, 35) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

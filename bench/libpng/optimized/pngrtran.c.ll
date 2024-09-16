@@ -3621,64 +3621,64 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
   br i1 %87, label %88, label %png_do_expand_palette.exit
 
 88:                                               ; preds = %86, %.thread.i
-  %.not = icmp eq i16 %28, 0
-  br i1 %.not, label %121, label %89
+  %.not131.i = icmp eq i16 %28, 0
+  br i1 %.not131.i, label %121, label %89
 
 89:                                               ; preds = %88
-  %.not31.i = icmp eq i32 %29, 0
-  br i1 %.not31.i, label %._crit_edge27.i, label %.lr.ph26.preheader.i
+  %.not30.i = icmp eq i32 %29, 0
+  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph21.preheader.i
 
-.lr.ph26.preheader.i:                             ; preds = %89
+.lr.ph21.preheader.i:                             ; preds = %89
   %90 = zext i32 %29 to i64
   %91 = shl nuw nsw i64 %90, 2
   %92 = getelementptr inbounds i8, ptr %22, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 -1
   %94 = getelementptr inbounds i8, ptr %22, i64 %90
-  br label %.lr.ph26.i
+  br label %.lr.ph21.i
 
-.lr.ph26.i:                                       ; preds = %101, %.lr.ph26.preheader.i
-  %.624.pn.i = phi ptr [ %.624.i, %101 ], [ %94, %.lr.ph26.preheader.i ]
-  %.311223.i = phi i32 [ %117, %101 ], [ 0, %.lr.ph26.preheader.i ]
-  %.311722.i = phi ptr [ %116, %101 ], [ %93, %.lr.ph26.preheader.i ]
-  %.624.i = getelementptr inbounds i8, ptr %.624.pn.i, i64 -1
-  %95 = load i8, ptr %.624.i, align 1
+.lr.ph21.i:                                       ; preds = %101, %.lr.ph21.preheader.i
+  %.620.pn.i = phi ptr [ %.620.i, %101 ], [ %94, %.lr.ph21.preheader.i ]
+  %.311219.i = phi i32 [ %117, %101 ], [ 0, %.lr.ph21.preheader.i ]
+  %.311718.i = phi ptr [ %116, %101 ], [ %93, %.lr.ph21.preheader.i ]
+  %.620.i = getelementptr inbounds i8, ptr %.620.pn.i, i64 -1
+  %95 = load i8, ptr %.620.i, align 1
   %96 = zext i8 %95 to i16
-  %.not132.i = icmp ugt i16 %28, %96
-  br i1 %.not132.i, label %97, label %101
+  %.not133.i = icmp ugt i16 %28, %96
+  br i1 %.not133.i, label %97, label %101
 
-97:                                               ; preds = %.lr.ph26.i
+97:                                               ; preds = %.lr.ph21.i
   %98 = zext i8 %95 to i64
   %99 = getelementptr inbounds i8, ptr %26, i64 %98
   %100 = load i8, ptr %99, align 1
   br label %101
 
-101:                                              ; preds = %97, %.lr.ph26.i
-  %storemerge133.i = phi i8 [ %100, %97 ], [ -1, %.lr.ph26.i ]
-  %.4118.i = getelementptr inbounds i8, ptr %.311722.i, i64 -1
-  store i8 %storemerge133.i, ptr %.311722.i, align 1
-  %102 = load i8, ptr %.624.i, align 1
+101:                                              ; preds = %97, %.lr.ph21.i
+  %storemerge134.i = phi i8 [ %100, %97 ], [ -1, %.lr.ph21.i ]
+  %.4118.i = getelementptr inbounds i8, ptr %.311718.i, i64 -1
+  store i8 %storemerge134.i, ptr %.311718.i, align 1
+  %102 = load i8, ptr %.620.i, align 1
   %103 = zext i8 %102 to i64
   %104 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %103, i32 2
   %105 = load i8, ptr %104, align 1
-  %106 = getelementptr inbounds i8, ptr %.311722.i, i64 -2
+  %106 = getelementptr inbounds i8, ptr %.311718.i, i64 -2
   store i8 %105, ptr %.4118.i, align 1
-  %107 = load i8, ptr %.624.i, align 1
+  %107 = load i8, ptr %.620.i, align 1
   %108 = zext i8 %107 to i64
   %109 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %108, i32 1
   %110 = load i8, ptr %109, align 1
-  %111 = getelementptr inbounds i8, ptr %.311722.i, i64 -3
+  %111 = getelementptr inbounds i8, ptr %.311718.i, i64 -3
   store i8 %110, ptr %106, align 1
-  %112 = load i8, ptr %.624.i, align 1
+  %112 = load i8, ptr %.620.i, align 1
   %113 = zext i8 %112 to i64
   %114 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %113
   %115 = load i8, ptr %114, align 1
-  %116 = getelementptr inbounds i8, ptr %.311722.i, i64 -4
+  %116 = getelementptr inbounds i8, ptr %.311718.i, i64 -4
   store i8 %115, ptr %111, align 1
-  %117 = add nuw i32 %.311223.i, 1
-  %exitcond37.not.i = icmp eq i32 %117, %29
-  br i1 %exitcond37.not.i, label %._crit_edge27.i, label %.lr.ph26.i, !llvm.loop !108
+  %117 = add nuw i32 %.311219.i, 1
+  %exitcond36.not.i = icmp eq i32 %117, %29
+  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph21.i, !llvm.loop !108
 
-._crit_edge27.i:                                  ; preds = %101, %89
+._crit_edge.i:                                    ; preds = %101, %89
   store i8 8, ptr %30, align 1
   %118 = getelementptr inbounds i8, ptr %1, i64 19
   store i8 32, ptr %118, align 1
@@ -3689,53 +3689,53 @@ define void @png_do_read_transformations(ptr noalias noundef %0, ptr noundef %1)
 121:                                              ; preds = %88
   %122 = mul i32 %29, 3
   %123 = zext i32 %122 to i64
-  %.not30.i = icmp eq i32 %29, 0
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph20.preheader.i
+  %.not31.i = icmp eq i32 %29, 0
+  br i1 %.not31.i, label %._crit_edge27.i, label %.lr.ph26.preheader.i
 
-.lr.ph20.preheader.i:                             ; preds = %121
+.lr.ph26.preheader.i:                             ; preds = %121
   %124 = getelementptr inbounds i8, ptr %22, i64 %123
   %125 = getelementptr inbounds i8, ptr %124, i64 -1
   %126 = zext i32 %29 to i64
   %127 = getelementptr inbounds i8, ptr %22, i64 %126
-  br label %.lr.ph20.i
+  br label %.lr.ph26.i
 
-.lr.ph20.i:                                       ; preds = %.lr.ph20.i, %.lr.ph20.preheader.i
-  %.411319.i = phi i32 [ %143, %.lr.ph20.i ], [ 0, %.lr.ph20.preheader.i ]
-  %.511918.i = phi ptr [ %142, %.lr.ph20.i ], [ %125, %.lr.ph20.preheader.i ]
-  %.pn13117.i = phi ptr [ %.7.i, %.lr.ph20.i ], [ %127, %.lr.ph20.preheader.i ]
-  %.7.i = getelementptr inbounds i8, ptr %.pn13117.i, i64 -1
+.lr.ph26.i:                                       ; preds = %.lr.ph26.i, %.lr.ph26.preheader.i
+  %.411324.i = phi i32 [ %143, %.lr.ph26.i ], [ 0, %.lr.ph26.preheader.i ]
+  %.511923.i = phi ptr [ %142, %.lr.ph26.i ], [ %125, %.lr.ph26.preheader.i ]
+  %.pn13222.i = phi ptr [ %.7.i, %.lr.ph26.i ], [ %127, %.lr.ph26.preheader.i ]
+  %.7.i = getelementptr inbounds i8, ptr %.pn13222.i, i64 -1
   %128 = load i8, ptr %.7.i, align 1
   %129 = zext i8 %128 to i64
   %130 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %129, i32 2
   %131 = load i8, ptr %130, align 1
-  %132 = getelementptr inbounds i8, ptr %.511918.i, i64 -1
-  store i8 %131, ptr %.511918.i, align 1
+  %132 = getelementptr inbounds i8, ptr %.511923.i, i64 -1
+  store i8 %131, ptr %.511923.i, align 1
   %133 = load i8, ptr %.7.i, align 1
   %134 = zext i8 %133 to i64
   %135 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %134, i32 1
   %136 = load i8, ptr %135, align 1
-  %137 = getelementptr inbounds i8, ptr %.511918.i, i64 -2
+  %137 = getelementptr inbounds i8, ptr %.511923.i, i64 -2
   store i8 %136, ptr %132, align 1
   %138 = load i8, ptr %.7.i, align 1
   %139 = zext i8 %138 to i64
   %140 = getelementptr inbounds %struct.png_color_struct, ptr %24, i64 %139
   %141 = load i8, ptr %140, align 1
-  %142 = getelementptr inbounds i8, ptr %.511918.i, i64 -3
+  %142 = getelementptr inbounds i8, ptr %.511923.i, i64 -3
   store i8 %141, ptr %137, align 1
-  %143 = add nuw i32 %.411319.i, 1
-  %exitcond36.not.i = icmp eq i32 %143, %29
-  br i1 %exitcond36.not.i, label %._crit_edge.i, label %.lr.ph20.i, !llvm.loop !109
+  %143 = add nuw i32 %.411324.i, 1
+  %exitcond37.not.i = icmp eq i32 %143, %29
+  br i1 %exitcond37.not.i, label %._crit_edge27.i, label %.lr.ph26.i, !llvm.loop !109
 
-._crit_edge.i:                                    ; preds = %.lr.ph20.i, %121
+._crit_edge27.i:                                  ; preds = %.lr.ph26.i, %121
   store i8 8, ptr %30, align 1
   %144 = getelementptr inbounds i8, ptr %1, i64 19
   store i8 24, ptr %144, align 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %._crit_edge.i, %._crit_edge27.i
-  %.sink42.i = phi i64 [ %123, %._crit_edge.i ], [ %120, %._crit_edge27.i ]
-  %.sink41.i = phi i8 [ 2, %._crit_edge.i ], [ 6, %._crit_edge27.i ]
-  %.sink.i = phi i8 [ 3, %._crit_edge.i ], [ 4, %._crit_edge27.i ]
+.sink.split.i:                                    ; preds = %._crit_edge27.i, %._crit_edge.i
+  %.sink42.i = phi i64 [ %123, %._crit_edge27.i ], [ %120, %._crit_edge.i ]
+  %.sink41.i = phi i8 [ 2, %._crit_edge27.i ], [ 6, %._crit_edge.i ]
+  %.sink.i = phi i8 [ 3, %._crit_edge27.i ], [ 4, %._crit_edge.i ]
   %145 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %.sink42.i, ptr %145, align 8
   store i8 %.sink41.i, ptr %18, align 8

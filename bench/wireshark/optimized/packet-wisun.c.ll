@@ -2327,7 +2327,7 @@ declare ptr @ieee802154_create_pie_tree(ptr noundef, ptr noundef, i32 noundef, i
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 3, 12) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %6 = load i32, ptr @hf_wisun_usie_channel_control, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %3, ptr noundef %0, i32 noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef nonnull @dissect_wisun_schedule_common.fields_usie_channel, i32 noundef -2147483648, i32 noundef 0) #3
@@ -2386,14 +2386,14 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
 34:                                               ; preds = %27
   %35 = load i32, ptr @hf_wisun_usie_fixed_channel, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %31, i32 noundef 2, i32 noundef -2147483648) #3
-  %37 = add i32 %31, 2
+  %37 = add nuw nsw i32 %31, 2
   br label %.loopexit86
 
 38:                                               ; preds = %27
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %31) #3
   %40 = load i32, ptr @hf_wisun_usie_hop_count, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef -2147483648) #3
-  %.287 = add i32 %31, 1
+  %.287 = add nuw nsw i32 %31, 1
   %.not8488 = icmp eq i8 %39, 0
   br i1 %.not8488, label %.loopexit86, label %.lr.ph.preheader
 
@@ -2407,7 +2407,7 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %43 = add nsw i32 %.08289, -1
   %44 = load i32, ptr @hf_wisun_usie_hop_list, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %44, ptr noundef %0, i32 noundef %.290, i32 noundef 1, i32 noundef -2147483648) #3
-  %.2 = add i32 %.290, 1
+  %.2 = add nuw nsw i32 %.290, 1
   %.not84 = icmp eq i32 %43, 0
   br i1 %.not84, label %.loopexit86, label %.lr.ph, !llvm.loop !9
 
@@ -2436,10 +2436,10 @@ define internal fastcc void @dissect_wisun_schedule_common(ptr noundef %0, ptr n
   %.18392 = phi i32 [ %59, %.lr.ph94 ], [ %52, %.lr.ph94.preheader ]
   %53 = load i32, ptr @hf_wisun_usie_exclude_range_start, align 4
   %54 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %53, ptr noundef %0, i32 noundef %.393, i32 noundef 2, i32 noundef -2147483648) #3
-  %55 = add i32 %.393, 2
+  %55 = add nuw nsw i32 %.393, 2
   %56 = load i32, ptr @hf_wisun_usie_exclude_range_end, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef -2147483648) #3
-  %58 = add i32 %.393, 4
+  %58 = add nuw nsw i32 %.393, 4
   %59 = add nsw i32 %.18392, -1
   %.not85 = icmp eq i32 %59, 0
   br i1 %.not85, label %.loopexit, label %.lr.ph94, !llvm.loop !10

@@ -2763,7 +2763,7 @@ define hidden void @_ZN11ClassLoader19print_bootclasspathEv() local_unnamed_addr
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr noundef nonnull %2)
+  tail call fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr noundef %2)
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -2786,7 +2786,7 @@ define hidden void @_ZN11ClassLoader19print_bootclasspathEv() local_unnamed_addr
   br i1 %.not5, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr noundef nonnull %13)
+  tail call fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr noundef %13)
   br label %15
 
 15:                                               ; preds = %12, %14, %6
@@ -2816,7 +2816,7 @@ define hidden void @_ZN11ClassLoader19print_bootclasspathEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_ZL24print_module_entry_tablePK13GrowableArrayIP19ModuleClassPathListE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 800

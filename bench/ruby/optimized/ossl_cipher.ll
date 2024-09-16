@@ -1509,7 +1509,7 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef %1, i64 noundef returned %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @ossl_cipher_init(i32 noundef %0, ptr noundef %1, i64 noundef returned %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca [64 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca i64, align 8

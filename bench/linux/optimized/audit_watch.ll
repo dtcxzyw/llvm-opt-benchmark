@@ -1093,7 +1093,7 @@ define internal void @audit_watch_free_mark(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @audit_update_watch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @audit_filter_mutex) #8
   %6 = load ptr, ptr %0, align 8
   br label %7

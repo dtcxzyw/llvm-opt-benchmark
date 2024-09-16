@@ -222,7 +222,7 @@ define hidden void @_ZN10serde_json4read11next_or_eof17h9b9e12eaad060603E.llvm.1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
@@ -830,7 +830,7 @@ tailrecurse._crit_edge.i:                         ; preds = %61, %tailrecurse.i
 
 179:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !162
-  call fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %17, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  call fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef align 8 dereferenceable(16) %17, ptr noalias noundef align 8 dereferenceable(80) %1)
   %180 = load i8, ptr %17, align 8, !range !26, !noalias !162, !noundef !18
   %trunc20.i = trunc nuw i8 %180 to i1
   br i1 %trunc20.i, label %239, label %236
@@ -946,7 +946,7 @@ _ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit: ; preds = %186,
 242:                                              ; preds = %236
   store i8 0, ptr %29, align 8, !alias.scope !227, !noalias !160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16), !noalias !162
-  call fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %16, ptr noalias noundef nonnull align 8 dereferenceable(80) %1)
+  call fastcc void @_ZN10serde_json4read11peek_or_eof17hdc16b807409bf790E(ptr noalias nocapture noundef align 8 dereferenceable(16) %16, ptr noalias noundef align 8 dereferenceable(80) %1)
   %243 = load i8, ptr %16, align 8, !range !26, !noalias !162, !noundef !18
   %trunc21.i = trunc nuw i8 %243 to i1
   br i1 %trunc21.i, label %248, label %245

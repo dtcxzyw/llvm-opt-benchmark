@@ -1121,7 +1121,7 @@ if.then36:                                        ; preds = %if.else
   %defaultTZPosition = getelementptr inbounds i8, ptr %call34, i64 28
   store i32 0, ptr %defaultTZPosition, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %call34, i8 0, i64 25, i1 false)
-  %call37 = tail call fastcc noundef ptr @_ZL15searchForTZFilePKcP13DefaultTZInfo(ptr noundef nonnull @.str.4, ptr noundef nonnull %call34)
+  %call37 = tail call fastcc noundef ptr @_ZL15searchForTZFilePKcP13DefaultTZInfo(ptr noundef nonnull @.str.4, ptr noundef %call34)
   store ptr %call37, ptr @_ZL18gTimeZoneBufferPtr, align 8
   %2 = load ptr, ptr %call34, align 8
   %cmp39.not = icmp eq ptr %2, null
@@ -1313,7 +1313,7 @@ declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_ad
 declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15searchForTZFilePKcP13DefaultTZInfo(ptr noundef %path, ptr nocapture noundef %tzInfo) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL15searchForTZFilePKcP13DefaultTZInfo(ptr noundef %path, ptr nocapture noundef nonnull %tzInfo) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %bufferFile.i = alloca [512 x i8], align 16
   %status = alloca i32, align 4

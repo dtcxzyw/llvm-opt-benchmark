@@ -563,7 +563,7 @@ freeTransportInfo.exit:                           ; preds = %33, %43, %63, %72, 
 
 198:                                              ; preds = %196
   %199 = load ptr, ptr %14, align 8
-  %200 = call fastcc zeroext i16 @launch(ptr noundef nonnull %197, ptr noundef %1, ptr noundef %199)
+  %200 = call fastcc zeroext i16 @launch(ptr noundef %197, ptr noundef %1, ptr noundef %199)
   %.not106 = icmp eq i16 %200, 0
   br i1 %.not106, label %207, label %209
 
@@ -657,7 +657,7 @@ declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 declare void @error_message(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @printLastError(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @printLastError(ptr noundef %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -830,7 +830,7 @@ declare zeroext i16 @map2jdwpError(i32 noundef) local_unnamed_addr #1
 declare ptr @debugInit_launchOnInit() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i16 0, 511) i16 @launch(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 0, 511) i16 @launch(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %5 = trunc i64 %4 to i32
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7

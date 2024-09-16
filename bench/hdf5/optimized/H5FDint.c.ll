@@ -1382,7 +1382,7 @@ declare i64 @H5I_register(i32 noundef, ptr noundef, i1 noundef zeroext) local_un
 declare ptr @H5I_remove(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9) unnamed_addr #0 {
   %11 = alloca [8 x i64], align 16
   %12 = alloca [8 x i64], align 16
   %13 = alloca [8 x ptr], align 16
@@ -1409,21 +1409,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   %31 = and i1 %.not, %30
   %32 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list) #12
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.outer.us400.thread, label %34
+  br i1 %33, label %.outer.us394.thread, label %34
 
 34:                                               ; preds = %10
   %35 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list) #12
-  %.1157.ph.fr549 = freeze ptr %35
-  %36 = icmp eq ptr %.1157.ph.fr549, null
-  br i1 %36, label %37, label %.preheader226
+  %.1157.ph.fr542 = freeze ptr %35
+  %36 = icmp eq ptr %.1157.ph.fr542, null
+  br i1 %36, label %37, label %.preheader226.preheader
 
-.preheader226:                                    ; preds = %34
-  %.not434 = icmp eq i32 %4, 0
-  br i1 %.not434, label %._crit_edge384, label %.lr.ph383.preheader
-
-.lr.ph383.preheader:                              ; preds = %.preheader226
+.preheader226.preheader:                          ; preds = %34
   %wide.trip.count = zext i32 %4 to i64
-  br label %.lr.ph383
+  br label %.preheader226
 
 37:                                               ; preds = %34
   %38 = load i64, ptr @H5E_VFL_g, align 8
@@ -1434,22 +1430,22 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
 41:                                               ; preds = %226
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge384.loopexit, label %.lr.ph383
+  br i1 %exitcond.not, label %233, label %.preheader226
 
-.lr.ph383:                                        ; preds = %.lr.ph383.preheader, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph383.preheader ], [ %indvars.iv.next, %41 ]
-  %.0148382 = phi i64 [ 0, %.lr.ph383.preheader ], [ %.1.lcssa540, %41 ]
-  %.0149381 = phi i64 [ 8, %.lr.ph383.preheader ], [ %.1150.lcssa539, %41 ]
-  %.0161380 = phi i1 [ false, %.lr.ph383.preheader ], [ %.1162, %41 ]
-  %.0165379 = phi i1 [ false, %.lr.ph383.preheader ], [ %.1166, %41 ]
-  %.1174378 = phi ptr [ %13, %.lr.ph383.preheader ], [ %.2175.lcssa538, %41 ]
-  %.1178377 = phi ptr [ %12, %.lr.ph383.preheader ], [ %.2179.lcssa537, %41 ]
-  %.1184376 = phi ptr [ %11, %.lr.ph383.preheader ], [ %.2185.lcssa536, %41 ]
-  %.0189375 = phi ptr [ null, %.lr.ph383.preheader ], [ %.1190, %41 ]
-  %.0191374 = phi i64 [ 0, %.lr.ph383.preheader ], [ %.1192, %41 ]
+.preheader226:                                    ; preds = %.preheader226.preheader, %41
+  %indvars.iv = phi i64 [ 0, %.preheader226.preheader ], [ %indvars.iv.next, %41 ]
+  %.0148382 = phi i64 [ 0, %.preheader226.preheader ], [ %.1.lcssa533, %41 ]
+  %.0149381 = phi i64 [ 8, %.preheader226.preheader ], [ %.1150.lcssa532, %41 ]
+  %.0161380 = phi i1 [ false, %.preheader226.preheader ], [ %.1162, %41 ]
+  %.0165379 = phi i1 [ false, %.preheader226.preheader ], [ %.1166, %41 ]
+  %.1174378 = phi ptr [ %13, %.preheader226.preheader ], [ %.2175.lcssa531, %41 ]
+  %.1178377 = phi ptr [ %12, %.preheader226.preheader ], [ %.2179.lcssa530, %41 ]
+  %.1184376 = phi ptr [ %11, %.preheader226.preheader ], [ %.2185.lcssa529, %41 ]
+  %.0189375 = phi ptr [ null, %.preheader226.preheader ], [ %.1190, %41 ]
+  %.0191374 = phi i64 [ 0, %.preheader226.preheader ], [ %.1192, %41 ]
   br i1 %.0161380, label %51, label %42
 
-42:                                               ; preds = %.lr.ph383
+42:                                               ; preds = %.preheader226
   %43 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
@@ -1462,9 +1458,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   %50 = load i64, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %42, %46, %.lr.ph383
-  %.1192 = phi i64 [ %.0191374, %.lr.ph383 ], [ %50, %46 ], [ %44, %42 ]
-  %.1162 = phi i1 [ true, %.lr.ph383 ], [ true, %46 ], [ false, %42 ]
+51:                                               ; preds = %42, %46, %.preheader226
+  %.1192 = phi i64 [ %.0191374, %.preheader226 ], [ %50, %46 ], [ %44, %42 ]
+  %.1162 = phi i1 [ true, %.preheader226 ], [ true, %46 ], [ false, %42 ]
   br i1 %.0165379, label %61, label %52
 
 52:                                               ; preds = %51
@@ -1498,7 +1494,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
 70:                                               ; preds = %61
   %71 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @H5S_select_iter_init(ptr noundef nonnull %.1157.ph.fr549, ptr noundef %72, i64 noundef %.1192, i32 noundef 0) #12
+  %73 = call i32 @H5S_select_iter_init(ptr noundef nonnull %.1157.ph.fr542, ptr noundef %72, i64 noundef %.1192, i32 noundef 0) #12
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.preheader.split.us.thread, label %75
 
@@ -1517,8 +1513,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
 83:                                               ; preds = %75
   store i64 0, ptr %18, align 8
   store i64 0, ptr %19, align 8
-  %.not435 = icmp eq i64 %77, 0
-  br i1 %.not435, label %._crit_edge.thread, label %.lr.ph
+  %.not428 = icmp eq i64 %77, 0
+  br i1 %.not428, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83
   %84 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv
@@ -1559,7 +1555,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %97
-  %100 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %.1157.ph.fr549, i64 noundef 128, i64 noundef -1, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
+  %100 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %.1157.ph.fr542, i64 noundef 128, i64 noundef -1, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %106
 
@@ -1770,11 +1766,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   br label %.preheader.split.us
 
 ._crit_edge.thread:                               ; preds = %83, %._crit_edge
-  %.1.lcssa540 = phi i64 [ %.2, %._crit_edge ], [ %.0148382, %83 ]
-  %.1150.lcssa539 = phi i64 [ %.3, %._crit_edge ], [ %.0149381, %83 ]
-  %.2175.lcssa538 = phi ptr [ %.5, %._crit_edge ], [ %.1174378, %83 ]
-  %.2179.lcssa537 = phi ptr [ %.5182, %._crit_edge ], [ %.1178377, %83 ]
-  %.2185.lcssa536 = phi ptr [ %.5188, %._crit_edge ], [ %.1184376, %83 ]
+  %.1.lcssa533 = phi i64 [ %.2, %._crit_edge ], [ %.0148382, %83 ]
+  %.1150.lcssa532 = phi i64 [ %.3, %._crit_edge ], [ %.0149381, %83 ]
+  %.2175.lcssa531 = phi ptr [ %.5, %._crit_edge ], [ %.1174378, %83 ]
+  %.2179.lcssa530 = phi ptr [ %.5182, %._crit_edge ], [ %.1178377, %83 ]
+  %.2185.lcssa529 = phi ptr [ %.5188, %._crit_edge ], [ %.1184376, %83 ]
   %220 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %222, label %226
@@ -1786,7 +1782,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   br label %.preheader.split.us
 
 226:                                              ; preds = %._crit_edge.thread
-  %227 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
+  %227 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %229, label %41
 
@@ -1796,208 +1792,201 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__read_selection_translate(i32 
   %232 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1056, i64 noundef %230, i64 noundef %231, ptr noundef nonnull @.str.59) #12
   br label %.preheader.split
 
-._crit_edge384.loopexit:                          ; preds = %41
-  %233 = trunc i64 %.1.lcssa540 to i32
-  br label %._crit_edge384
+233:                                              ; preds = %41
+  br i1 %31, label %234, label %251
 
-._crit_edge384:                                   ; preds = %._crit_edge384.loopexit, %.preheader226
-  %.1184.lcssa = phi ptr [ %11, %.preheader226 ], [ %.2185.lcssa536, %._crit_edge384.loopexit ]
-  %.1178.lcssa = phi ptr [ %12, %.preheader226 ], [ %.2179.lcssa537, %._crit_edge384.loopexit ]
-  %.1174.lcssa = phi ptr [ %13, %.preheader226 ], [ %.2175.lcssa538, %._crit_edge384.loopexit ]
-  %.0148.lcssa = phi i32 [ 0, %.preheader226 ], [ %233, %._crit_edge384.loopexit ]
-  br i1 %31, label %234, label %250
-
-234:                                              ; preds = %._crit_edge384
+234:                                              ; preds = %233
   %235 = load ptr, ptr %26, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 224
   %237 = load ptr, ptr %236, align 8
-  %238 = call i32 %237(ptr noundef %1, i64 noundef %3, i32 noundef %.0148.lcssa, ptr noundef nonnull %21, ptr noundef %.1184.lcssa, ptr noundef %.1178.lcssa, ptr noundef %.1174.lcssa) #12
-  %239 = icmp slt i32 %238, 0
-  br i1 %239, label %240, label %244
+  %238 = trunc i64 %.1.lcssa533 to i32
+  %239 = call i32 %237(ptr noundef %1, i64 noundef %3, i32 noundef %238, ptr noundef nonnull %21, ptr noundef %.2185.lcssa529, ptr noundef %.2179.lcssa530, ptr noundef %.2175.lcssa531) #12
+  %240 = icmp slt i32 %239, 0
+  br i1 %240, label %241, label %245
 
-240:                                              ; preds = %234
-  %241 = load i64, ptr @H5E_VFL_g, align 8
-  %242 = load i64, ptr @H5E_READERROR_g, align 8
-  %243 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1067, i64 noundef %241, i64 noundef %242, ptr noundef nonnull @.str.12) #12
+241:                                              ; preds = %234
+  %242 = load i64, ptr @H5E_VFL_g, align 8
+  %243 = load i64, ptr @H5E_READERROR_g, align 8
+  %244 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1067, i64 noundef %242, i64 noundef %243, ptr noundef nonnull @.str.12) #12
   br label %.preheader.split
 
-244:                                              ; preds = %234
-  %245 = icmp eq i32 %2, 3
-  br i1 %245, label %246, label %.preheader.split
+245:                                              ; preds = %234
+  %246 = icmp eq i32 %2, 3
+  br i1 %246, label %247, label %.preheader.split
 
-246:                                              ; preds = %244
-  %247 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %22) #12
-  %248 = load i32, ptr %22, align 4
-  %249 = or i32 %248, 2
-  store i32 %249, ptr %22, align 4
-  call void @H5CX_set_actual_selection_io_mode(i32 noundef %249) #12
+247:                                              ; preds = %245
+  %248 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %22) #12
+  %249 = load i32, ptr %22, align 4
+  %250 = or i32 %249, 2
+  store i32 %250, ptr %22, align 4
+  call void @H5CX_set_actual_selection_io_mode(i32 noundef %250) #12
   br label %.preheader.split
 
-250:                                              ; preds = %._crit_edge384
-  %251 = call i32 @H5CX_get_no_selection_io_cause(ptr noundef nonnull %23) #12
-  %252 = load i32, ptr %23, align 4
-  %253 = or i32 %252, 8
-  store i32 %253, ptr %23, align 4
-  call void @H5CX_set_no_selection_io_cause(i32 noundef %253) #12
-  %254 = icmp eq i32 %2, 3
-  br i1 %254, label %255, label %.preheader.split
+251:                                              ; preds = %233
+  %252 = call i32 @H5CX_get_no_selection_io_cause(ptr noundef nonnull %23) #12
+  %253 = load i32, ptr %23, align 4
+  %254 = or i32 %253, 8
+  store i32 %254, ptr %23, align 4
+  call void @H5CX_set_no_selection_io_cause(i32 noundef %254) #12
+  %255 = icmp eq i32 %2, 3
+  br i1 %255, label %256, label %.preheader.split
 
-255:                                              ; preds = %250
-  %256 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %24) #12
-  %257 = load i32, ptr %24, align 4
-  %258 = or i32 %257, 1
-  store i32 %258, ptr %24, align 4
-  call void @H5CX_set_actual_selection_io_mode(i32 noundef %258) #12
+256:                                              ; preds = %251
+  %257 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %24) #12
+  %258 = load i32, ptr %24, align 4
+  %259 = or i32 %258, 1
+  store i32 %259, ptr %24, align 4
+  call void @H5CX_set_actual_selection_io_mode(i32 noundef %259) #12
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %222, %216, %186, %155, %148, %141, %132, %125, %118, %102, %90, %79
-  %.0183.ph.ph = phi ptr [ %.1184376, %79 ], [ %.2185360, %90 ], [ %.2185360, %102 ], [ null, %118 ], [ %116, %125 ], [ %116, %132 ], [ %.2185360, %141 ], [ %139, %148 ], [ %139, %155 ], [ %.2185360, %186 ], [ %.5188, %216 ], [ %.2185.lcssa536, %222 ]
-  %.0177.ph.ph = phi ptr [ %.1178377, %79 ], [ %.2179361, %90 ], [ %.2179361, %102 ], [ %.2179361, %118 ], [ null, %125 ], [ %123, %132 ], [ %.2179361, %141 ], [ %.2179361, %148 ], [ %146, %155 ], [ %.2179361, %186 ], [ %.5182, %216 ], [ %.2179.lcssa537, %222 ]
-  %.0173.ph.ph = phi ptr [ %.1174378, %79 ], [ %.2175362, %90 ], [ %.2175362, %102 ], [ %.2175362, %118 ], [ %.2175362, %125 ], [ null, %132 ], [ %.2175362, %141 ], [ %.2175362, %148 ], [ %.2175362, %155 ], [ %.2175362, %186 ], [ %.5, %216 ], [ %.2175.lcssa538, %222 ]
-  br label %.outer.us.us418
+  %.0183.ph.ph = phi ptr [ %.1184376, %79 ], [ %.2185360, %90 ], [ %.2185360, %102 ], [ null, %118 ], [ %116, %125 ], [ %116, %132 ], [ %.2185360, %141 ], [ %139, %148 ], [ %139, %155 ], [ %.2185360, %186 ], [ %.5188, %216 ], [ %.2185.lcssa529, %222 ]
+  %.0177.ph.ph = phi ptr [ %.1178377, %79 ], [ %.2179361, %90 ], [ %.2179361, %102 ], [ %.2179361, %118 ], [ null, %125 ], [ %123, %132 ], [ %.2179361, %141 ], [ %.2179361, %148 ], [ %146, %155 ], [ %.2179361, %186 ], [ %.5182, %216 ], [ %.2179.lcssa530, %222 ]
+  %.0173.ph.ph = phi ptr [ %.1174378, %79 ], [ %.2175362, %90 ], [ %.2175362, %102 ], [ %.2175362, %118 ], [ %.2175362, %125 ], [ null, %132 ], [ %.2175362, %141 ], [ %.2175362, %148 ], [ %.2175362, %155 ], [ %.2175362, %186 ], [ %.5, %216 ], [ %.2175.lcssa531, %222 ]
+  br label %.outer.us.us412
 
 .preheader.split.us.thread:                       ; preds = %70
-  %259 = load i64, ptr @H5E_VFL_g, align 8
-  %260 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %261 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 917, i64 noundef %259, i64 noundef %260, ptr noundef nonnull @.str.48) #12
-  %262 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
-  %263 = icmp slt i32 %262, 0
-  br i1 %263, label %.lr.ph393.split.us396, label %.split.us398.sink.split
+  %260 = load i64, ptr @H5E_VFL_g, align 8
+  %261 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %262 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 917, i64 noundef %260, i64 noundef %261, ptr noundef nonnull @.str.48) #12
+  %263 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
+  %264 = icmp slt i32 %263, 0
+  br i1 %264, label %.lr.ph387.split.us390, label %.split.us392.sink.split
 
-.outer.us.us418:                                  ; preds = %.preheader.split.us, %266
-  %.1159.ph220.us.us419 = phi ptr [ %.2160.us.us423, %266 ], [ %32, %.preheader.split.us ]
-  %.not215.us.us421 = icmp eq ptr %.1159.ph220.us.us419, null
-  br i1 %.not215.us.us421, label %.loopexit225.us.us424, label %.lr.ph390.us.us426
+.outer.us.us412:                                  ; preds = %.preheader.split.us, %267
+  %.1159.ph220.us.us413 = phi ptr [ %.2160.us.us417, %267 ], [ %32, %.preheader.split.us ]
+  %.not215.us.us415 = icmp eq ptr %.1159.ph220.us.us413, null
+  br i1 %.not215.us.us415, label %.loopexit225.us.us418, label %.lr.ph384.us.us420
 
-.loopexit225.us.us424:                            ; preds = %.outer.us.us418, %.split.us.us.us427
-  %.2160.us.us423 = phi ptr [ %277, %.split.us.us.us427 ], [ null, %.outer.us.us418 ]
-  %264 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
-  %265 = icmp slt i32 %264, 0
-  br i1 %265, label %266, label %.split.us398
+.loopexit225.us.us418:                            ; preds = %.outer.us.us412, %.split.us.us.us421
+  %.2160.us.us417 = phi ptr [ %278, %.split.us.us.us421 ], [ null, %.outer.us.us412 ]
+  %265 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
+  %266 = icmp slt i32 %265, 0
+  br i1 %266, label %267, label %.split.us392
 
-266:                                              ; preds = %.loopexit225.us.us424
-  %267 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %268 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1102, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.59) #12
-  br label %.outer.us.us418
+267:                                              ; preds = %.loopexit225.us.us418
+  %268 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %269 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %270 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1102, i64 noundef %268, i64 noundef %269, ptr noundef nonnull @.str.59) #12
+  br label %.outer.us.us412
 
-.lr.ph390.us.us426:                               ; preds = %.outer.us.us418
-  %270 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us419) #12
-  %271 = icmp slt i32 %270, 0
-  br i1 %271, label %.lr.ph393.split.us396.us431, label %.split.us.us.us427
+.lr.ph384.us.us420:                               ; preds = %.outer.us.us412
+  %271 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us413) #12
+  %272 = icmp slt i32 %271, 0
+  br i1 %272, label %.lr.ph387.split.us390.us425, label %.split.us.us.us421
 
-.lr.ph393.split.us396.us431:                      ; preds = %.lr.ph390.us.us426, %.lr.ph393.split.us396.us431
-  %272 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %273 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %274 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1097, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.58) #12
-  %275 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us419) #12
-  %276 = icmp slt i32 %275, 0
-  br i1 %276, label %.lr.ph393.split.us396.us431, label %.split.us.us.us427
+.lr.ph387.split.us390.us425:                      ; preds = %.lr.ph384.us.us420, %.lr.ph387.split.us390.us425
+  %273 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %274 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %275 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1097, i64 noundef %273, i64 noundef %274, ptr noundef nonnull @.str.58) #12
+  %276 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us413) #12
+  %277 = icmp slt i32 %276, 0
+  br i1 %277, label %.lr.ph387.split.us390.us425, label %.split.us.us.us421
 
-.split.us.us.us427:                               ; preds = %.lr.ph393.split.us396.us431, %.lr.ph390.us.us426
-  %277 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us.us419) #12
-  br label %.loopexit225.us.us424
+.split.us.us.us421:                               ; preds = %.lr.ph387.split.us390.us425, %.lr.ph384.us.us420
+  %278 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us.us413) #12
+  br label %.loopexit225.us.us418
 
-.lr.ph393.split.us396:                            ; preds = %.preheader.split.us.thread, %.lr.ph393.split.us396
-  %278 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %279 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %280 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1097, i64 noundef %278, i64 noundef %279, ptr noundef nonnull @.str.58) #12
-  %281 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %.lr.ph393.split.us396, label %.split.us398.sink.split
+.lr.ph387.split.us390:                            ; preds = %.preheader.split.us.thread, %.lr.ph387.split.us390
+  %279 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %280 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %281 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1097, i64 noundef %279, i64 noundef %280, ptr noundef nonnull @.str.58) #12
+  %282 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
+  %283 = icmp slt i32 %282, 0
+  br i1 %283, label %.lr.ph387.split.us390, label %.split.us392.sink.split
 
-.preheader.split:                                 ; preds = %240, %229, %66, %37, %255, %250, %244, %246
-  %.0183.ph = phi ptr [ %.1184.lcssa, %240 ], [ %.2185.lcssa536, %229 ], [ %.1184376, %66 ], [ %11, %37 ], [ %.1184.lcssa, %255 ], [ %.1184.lcssa, %250 ], [ %.1184.lcssa, %244 ], [ %.1184.lcssa, %246 ]
-  %.0177.ph = phi ptr [ %.1178.lcssa, %240 ], [ %.2179.lcssa537, %229 ], [ %.1178377, %66 ], [ %12, %37 ], [ %.1178.lcssa, %255 ], [ %.1178.lcssa, %250 ], [ %.1178.lcssa, %244 ], [ %.1178.lcssa, %246 ]
-  %.0173.ph = phi ptr [ %.1174.lcssa, %240 ], [ %.2175.lcssa538, %229 ], [ %.1174378, %66 ], [ %13, %37 ], [ %.1174.lcssa, %255 ], [ %.1174.lcssa, %250 ], [ %.1174.lcssa, %244 ], [ %.1174.lcssa, %246 ]
-  %.0152.ph = phi i1 [ false, %240 ], [ true, %229 ], [ false, %66 ], [ false, %37 ], [ false, %255 ], [ false, %250 ], [ false, %244 ], [ false, %246 ]
-  %.0.ph = phi i32 [ -1, %240 ], [ -1, %229 ], [ -1, %66 ], [ -1, %37 ], [ 0, %255 ], [ 0, %250 ], [ 0, %244 ], [ 0, %246 ]
-  %.not216 = icmp eq ptr %.1157.ph.fr549, null
-  br i1 %.not216, label %.lr.ph390.us406, label %.preheader.split.split
+.preheader.split:                                 ; preds = %241, %229, %66, %37, %256, %251, %245, %247
+  %.0183.ph = phi ptr [ %.2185.lcssa529, %241 ], [ %.2185.lcssa529, %229 ], [ %.1184376, %66 ], [ %11, %37 ], [ %.2185.lcssa529, %256 ], [ %.2185.lcssa529, %251 ], [ %.2185.lcssa529, %245 ], [ %.2185.lcssa529, %247 ]
+  %.0177.ph = phi ptr [ %.2179.lcssa530, %241 ], [ %.2179.lcssa530, %229 ], [ %.1178377, %66 ], [ %12, %37 ], [ %.2179.lcssa530, %256 ], [ %.2179.lcssa530, %251 ], [ %.2179.lcssa530, %245 ], [ %.2179.lcssa530, %247 ]
+  %.0173.ph = phi ptr [ %.2175.lcssa531, %241 ], [ %.2175.lcssa531, %229 ], [ %.1174378, %66 ], [ %13, %37 ], [ %.2175.lcssa531, %256 ], [ %.2175.lcssa531, %251 ], [ %.2175.lcssa531, %245 ], [ %.2175.lcssa531, %247 ]
+  %.0152.ph = phi i1 [ false, %241 ], [ true, %229 ], [ false, %66 ], [ false, %37 ], [ false, %256 ], [ false, %251 ], [ false, %245 ], [ false, %247 ]
+  %.0.ph = phi i32 [ -1, %241 ], [ -1, %229 ], [ -1, %66 ], [ -1, %37 ], [ 0, %256 ], [ 0, %251 ], [ 0, %245 ], [ 0, %247 ]
+  %.not216 = icmp eq ptr %.1157.ph.fr542, null
+  br i1 %.not216, label %.lr.ph384.us400, label %.preheader.split.split
 
-.outer.us400.thread:                              ; preds = %10
-  %283 = load i64, ptr @H5E_VFL_g, align 8
-  %284 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %285 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 875, i64 noundef %283, i64 noundef %284, ptr noundef nonnull @.str.45) #12
+.outer.us394.thread:                              ; preds = %10
+  %284 = load i64, ptr @H5E_VFL_g, align 8
+  %285 = load i64, ptr @H5E_CANTALLOC_g, align 8
+  %286 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 875, i64 noundef %284, i64 noundef %285, ptr noundef nonnull @.str.45) #12
   br label %.loopexit
 
-.lr.ph390.us406:                                  ; preds = %.preheader.split
-  %286 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
+.lr.ph384.us400:                                  ; preds = %.preheader.split
+  %287 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
   br label %.loopexit
 
 .preheader.split.split:                           ; preds = %.preheader.split
-  br i1 %.0152.ph, label %.outer.us408, label %.split.us398.sink.split
+  br i1 %.0152.ph, label %.outer.us402, label %.split.us392.sink.split
 
-.outer.us408:                                     ; preds = %.preheader.split.split, %289
-  %.1159.ph220.us409 = phi ptr [ %.2160.us412, %289 ], [ %32, %.preheader.split.split ]
-  %.0.ph224.us410 = phi i32 [ -1, %289 ], [ %.0.ph, %.preheader.split.split ]
-  %.not215.us411 = icmp eq ptr %.1159.ph220.us409, null
-  br i1 %.not215.us411, label %.loopexit225.us413, label %.lr.ph390.us414
+.outer.us402:                                     ; preds = %.preheader.split.split, %290
+  %.1159.ph220.us403 = phi ptr [ %.2160.us406, %290 ], [ %32, %.preheader.split.split ]
+  %.0.ph224.us404 = phi i32 [ -1, %290 ], [ %.0.ph, %.preheader.split.split ]
+  %.not215.us405 = icmp eq ptr %.1159.ph220.us403, null
+  br i1 %.not215.us405, label %.loopexit225.us407, label %.lr.ph384.us408
 
-.loopexit225.us413:                               ; preds = %.outer.us408, %.lr.ph390.us414
-  %.2160.us412 = phi ptr [ %293, %.lr.ph390.us414 ], [ null, %.outer.us408 ]
-  %287 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
-  %288 = icmp slt i32 %287, 0
-  br i1 %288, label %289, label %.split.us398
+.loopexit225.us407:                               ; preds = %.outer.us402, %.lr.ph384.us408
+  %.2160.us406 = phi ptr [ %294, %.lr.ph384.us408 ], [ null, %.outer.us402 ]
+  %288 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
+  %289 = icmp slt i32 %288, 0
+  br i1 %289, label %290, label %.split.us392
 
-289:                                              ; preds = %.loopexit225.us413
-  %290 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %291 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %292 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1102, i64 noundef %290, i64 noundef %291, ptr noundef nonnull @.str.59) #12
-  br label %.outer.us408
+290:                                              ; preds = %.loopexit225.us407
+  %291 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %292 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %293 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__read_selection_translate, i32 noundef 1102, i64 noundef %291, i64 noundef %292, ptr noundef nonnull @.str.59) #12
+  br label %.outer.us402
 
-.lr.ph390.us414:                                  ; preds = %.outer.us408
-  %293 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us409) #12
-  br label %.loopexit225.us413
+.lr.ph384.us408:                                  ; preds = %.outer.us402
+  %294 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us403) #12
+  br label %.loopexit225.us407
 
-.split.us398.sink.split:                          ; preds = %.lr.ph393.split.us396, %.preheader.split.split, %.preheader.split.us.thread
-  %.0173.ph558.ph = phi ptr [ %.1174378, %.preheader.split.us.thread ], [ %.0173.ph, %.preheader.split.split ], [ %.1174378, %.lr.ph393.split.us396 ]
-  %.0177.ph555.ph = phi ptr [ %.1178377, %.preheader.split.us.thread ], [ %.0177.ph, %.preheader.split.split ], [ %.1178377, %.lr.ph393.split.us396 ]
-  %.0183.ph552.ph = phi ptr [ %.1184376, %.preheader.split.us.thread ], [ %.0183.ph, %.preheader.split.split ], [ %.1184376, %.lr.ph393.split.us396 ]
-  %.us-phi399.ph = phi i32 [ -1, %.preheader.split.us.thread ], [ %.0.ph, %.preheader.split.split ], [ -1, %.lr.ph393.split.us396 ]
-  %294 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
-  br label %.split.us398
+.split.us392.sink.split:                          ; preds = %.lr.ph387.split.us390, %.preheader.split.split, %.preheader.split.us.thread
+  %.0173.ph551.ph = phi ptr [ %.1174378, %.preheader.split.us.thread ], [ %.0173.ph, %.preheader.split.split ], [ %.1174378, %.lr.ph387.split.us390 ]
+  %.0177.ph548.ph = phi ptr [ %.1178377, %.preheader.split.us.thread ], [ %.0177.ph, %.preheader.split.split ], [ %.1178377, %.lr.ph387.split.us390 ]
+  %.0183.ph545.ph = phi ptr [ %.1184376, %.preheader.split.us.thread ], [ %.0183.ph, %.preheader.split.split ], [ %.1184376, %.lr.ph387.split.us390 ]
+  %.us-phi393.ph = phi i32 [ -1, %.preheader.split.us.thread ], [ %.0.ph, %.preheader.split.split ], [ -1, %.lr.ph387.split.us390 ]
+  %295 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
+  br label %.split.us392
 
-.split.us398:                                     ; preds = %.loopexit225.us.us424, %.loopexit225.us413, %.split.us398.sink.split
-  %.0173.ph558 = phi ptr [ %.0173.ph558.ph, %.split.us398.sink.split ], [ %.0173.ph, %.loopexit225.us413 ], [ %.0173.ph.ph, %.loopexit225.us.us424 ]
-  %.0177.ph555 = phi ptr [ %.0177.ph555.ph, %.split.us398.sink.split ], [ %.0177.ph, %.loopexit225.us413 ], [ %.0177.ph.ph, %.loopexit225.us.us424 ]
-  %.0183.ph552 = phi ptr [ %.0183.ph552.ph, %.split.us398.sink.split ], [ %.0183.ph, %.loopexit225.us413 ], [ %.0183.ph.ph, %.loopexit225.us.us424 ]
-  %.us-phi399 = phi i32 [ %.us-phi399.ph, %.split.us398.sink.split ], [ %.0.ph224.us410, %.loopexit225.us413 ], [ -1, %.loopexit225.us.us424 ]
-  %295 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1157.ph.fr549) #12
+.split.us392:                                     ; preds = %.loopexit225.us.us418, %.loopexit225.us407, %.split.us392.sink.split
+  %.0173.ph551 = phi ptr [ %.0173.ph551.ph, %.split.us392.sink.split ], [ %.0173.ph, %.loopexit225.us407 ], [ %.0173.ph.ph, %.loopexit225.us.us418 ]
+  %.0177.ph548 = phi ptr [ %.0177.ph548.ph, %.split.us392.sink.split ], [ %.0177.ph, %.loopexit225.us407 ], [ %.0177.ph.ph, %.loopexit225.us.us418 ]
+  %.0183.ph545 = phi ptr [ %.0183.ph545.ph, %.split.us392.sink.split ], [ %.0183.ph, %.loopexit225.us407 ], [ %.0183.ph.ph, %.loopexit225.us.us418 ]
+  %.us-phi393 = phi i32 [ %.us-phi393.ph, %.split.us392.sink.split ], [ %.0.ph224.us404, %.loopexit225.us407 ], [ -1, %.loopexit225.us.us418 ]
+  %296 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1157.ph.fr542) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer.us400.thread, %.lr.ph390.us406, %.split.us398
-  %.0173.ph557 = phi ptr [ %.0173.ph558, %.split.us398 ], [ %.0173.ph, %.lr.ph390.us406 ], [ %13, %.outer.us400.thread ]
-  %.0177.ph554 = phi ptr [ %.0177.ph555, %.split.us398 ], [ %.0177.ph, %.lr.ph390.us406 ], [ %12, %.outer.us400.thread ]
-  %.0183.ph551 = phi ptr [ %.0183.ph552, %.split.us398 ], [ %.0183.ph, %.lr.ph390.us406 ], [ %11, %.outer.us400.thread ]
-  %.0228230 = phi i32 [ %.us-phi399, %.split.us398 ], [ %.0.ph, %.lr.ph390.us406 ], [ -1, %.outer.us400.thread ]
-  br i1 %31, label %296, label %305
+.loopexit:                                        ; preds = %.outer.us394.thread, %.lr.ph384.us400, %.split.us392
+  %.0173.ph550 = phi ptr [ %.0173.ph551, %.split.us392 ], [ %.0173.ph, %.lr.ph384.us400 ], [ %13, %.outer.us394.thread ]
+  %.0177.ph547 = phi ptr [ %.0177.ph548, %.split.us392 ], [ %.0177.ph, %.lr.ph384.us400 ], [ %12, %.outer.us394.thread ]
+  %.0183.ph544 = phi ptr [ %.0183.ph545, %.split.us392 ], [ %.0183.ph, %.lr.ph384.us400 ], [ %11, %.outer.us394.thread ]
+  %.0228230 = phi i32 [ %.us-phi393, %.split.us392 ], [ %.0.ph, %.lr.ph384.us400 ], [ -1, %.outer.us394.thread ]
+  br i1 %31, label %297, label %306
 
-296:                                              ; preds = %.loopexit
-  %.not217 = icmp eq ptr %.0183.ph551, %11
-  br i1 %.not217, label %299, label %297
+297:                                              ; preds = %.loopexit
+  %.not217 = icmp eq ptr %.0183.ph544, %11
+  br i1 %.not217, label %300, label %298
 
-297:                                              ; preds = %296
-  %298 = call ptr @H5MM_xfree(ptr noundef %.0183.ph551) #12
-  br label %299
+298:                                              ; preds = %297
+  %299 = call ptr @H5MM_xfree(ptr noundef %.0183.ph544) #12
+  br label %300
 
-299:                                              ; preds = %297, %296
-  %.not218 = icmp eq ptr %.0177.ph554, %12
-  br i1 %.not218, label %302, label %300
+300:                                              ; preds = %298, %297
+  %.not218 = icmp eq ptr %.0177.ph547, %12
+  br i1 %.not218, label %303, label %301
 
-300:                                              ; preds = %299
-  %301 = call ptr @H5MM_xfree(ptr noundef %.0177.ph554) #12
-  br label %302
+301:                                              ; preds = %300
+  %302 = call ptr @H5MM_xfree(ptr noundef %.0177.ph547) #12
+  br label %303
 
-302:                                              ; preds = %300, %299
-  %.not219 = icmp eq ptr %.0173.ph557, %13
-  br i1 %.not219, label %305, label %303
+303:                                              ; preds = %301, %300
+  %.not219 = icmp eq ptr %.0173.ph550, %13
+  br i1 %.not219, label %306, label %304
 
-303:                                              ; preds = %302
-  %304 = call ptr @H5MM_xfree(ptr noundef %.0173.ph557) #12
-  br label %305
+304:                                              ; preds = %303
+  %305 = call ptr @H5MM_xfree(ptr noundef %.0173.ph550) #12
+  br label %306
 
-305:                                              ; preds = %302, %303, %.loopexit
+306:                                              ; preds = %303, %304, %.loopexit
   ret i32 %.0228230
 }
 
@@ -2530,7 +2519,7 @@ define range(i32 -1, 1) i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32 noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32 noundef range(i32 0, 3) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9) unnamed_addr #0 {
   %11 = alloca [8 x i64], align 16
   %12 = alloca [8 x i64], align 16
   %13 = alloca [8 x ptr], align 16
@@ -2557,21 +2546,17 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   %31 = and i1 %.not, %30
   %32 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list) #12
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.outer.us400.thread, label %34
+  br i1 %33, label %.outer.us394.thread, label %34
 
 34:                                               ; preds = %10
   %35 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list) #12
-  %.1157.ph.fr549 = freeze ptr %35
-  %36 = icmp eq ptr %.1157.ph.fr549, null
-  br i1 %36, label %37, label %.preheader226
+  %.1157.ph.fr542 = freeze ptr %35
+  %36 = icmp eq ptr %.1157.ph.fr542, null
+  br i1 %36, label %37, label %.preheader226.preheader
 
-.preheader226:                                    ; preds = %34
-  %.not434 = icmp eq i32 %4, 0
-  br i1 %.not434, label %._crit_edge384, label %.lr.ph383.preheader
-
-.lr.ph383.preheader:                              ; preds = %.preheader226
+.preheader226.preheader:                          ; preds = %34
   %wide.trip.count = zext i32 %4 to i64
-  br label %.lr.ph383
+  br label %.preheader226
 
 37:                                               ; preds = %34
   %38 = load i64, ptr @H5E_VFL_g, align 8
@@ -2582,22 +2567,22 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
 41:                                               ; preds = %226
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge384.loopexit, label %.lr.ph383
+  br i1 %exitcond.not, label %233, label %.preheader226
 
-.lr.ph383:                                        ; preds = %.lr.ph383.preheader, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph383.preheader ], [ %indvars.iv.next, %41 ]
-  %.0148382 = phi i64 [ 0, %.lr.ph383.preheader ], [ %.1.lcssa540, %41 ]
-  %.0149381 = phi i64 [ 8, %.lr.ph383.preheader ], [ %.1150.lcssa539, %41 ]
-  %.0161380 = phi i1 [ false, %.lr.ph383.preheader ], [ %.1162, %41 ]
-  %.0165379 = phi i1 [ false, %.lr.ph383.preheader ], [ %.1166, %41 ]
-  %.1174378 = phi ptr [ %13, %.lr.ph383.preheader ], [ %.2175.lcssa538, %41 ]
-  %.1178377 = phi ptr [ %12, %.lr.ph383.preheader ], [ %.2179.lcssa537, %41 ]
-  %.1184376 = phi ptr [ %11, %.lr.ph383.preheader ], [ %.2185.lcssa536, %41 ]
-  %.0189375 = phi ptr [ null, %.lr.ph383.preheader ], [ %.1190, %41 ]
-  %.0191374 = phi i64 [ 0, %.lr.ph383.preheader ], [ %.1192, %41 ]
+.preheader226:                                    ; preds = %.preheader226.preheader, %41
+  %indvars.iv = phi i64 [ 0, %.preheader226.preheader ], [ %indvars.iv.next, %41 ]
+  %.0148382 = phi i64 [ 0, %.preheader226.preheader ], [ %.1.lcssa533, %41 ]
+  %.0149381 = phi i64 [ 8, %.preheader226.preheader ], [ %.1150.lcssa532, %41 ]
+  %.0161380 = phi i1 [ false, %.preheader226.preheader ], [ %.1162, %41 ]
+  %.0165379 = phi i1 [ false, %.preheader226.preheader ], [ %.1166, %41 ]
+  %.1174378 = phi ptr [ %13, %.preheader226.preheader ], [ %.2175.lcssa531, %41 ]
+  %.1178377 = phi ptr [ %12, %.preheader226.preheader ], [ %.2179.lcssa530, %41 ]
+  %.1184376 = phi ptr [ %11, %.preheader226.preheader ], [ %.2185.lcssa529, %41 ]
+  %.0189375 = phi ptr [ null, %.preheader226.preheader ], [ %.1190, %41 ]
+  %.0191374 = phi i64 [ 0, %.preheader226.preheader ], [ %.1192, %41 ]
   br i1 %.0161380, label %51, label %42
 
-42:                                               ; preds = %.lr.ph383
+42:                                               ; preds = %.preheader226
   %43 = getelementptr inbounds i64, ptr %8, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
@@ -2610,9 +2595,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   %50 = load i64, ptr %49, align 8
   br label %51
 
-51:                                               ; preds = %42, %46, %.lr.ph383
-  %.1192 = phi i64 [ %.0191374, %.lr.ph383 ], [ %50, %46 ], [ %44, %42 ]
-  %.1162 = phi i1 [ true, %.lr.ph383 ], [ true, %46 ], [ false, %42 ]
+51:                                               ; preds = %42, %46, %.preheader226
+  %.1192 = phi i64 [ %.0191374, %.preheader226 ], [ %50, %46 ], [ %44, %42 ]
+  %.1162 = phi i1 [ true, %.preheader226 ], [ true, %46 ], [ false, %42 ]
   br i1 %.0165379, label %61, label %52
 
 52:                                               ; preds = %51
@@ -2646,7 +2631,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
 70:                                               ; preds = %61
   %71 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
-  %73 = call i32 @H5S_select_iter_init(ptr noundef nonnull %.1157.ph.fr549, ptr noundef %72, i64 noundef %.1192, i32 noundef 0) #12
+  %73 = call i32 @H5S_select_iter_init(ptr noundef nonnull %.1157.ph.fr542, ptr noundef %72, i64 noundef %.1192, i32 noundef 0) #12
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.preheader.split.us.thread, label %75
 
@@ -2665,8 +2650,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
 83:                                               ; preds = %75
   store i64 0, ptr %18, align 8
   store i64 0, ptr %19, align 8
-  %.not435 = icmp eq i64 %77, 0
-  br i1 %.not435, label %._crit_edge.thread, label %.lr.ph
+  %.not428 = icmp eq i64 %77, 0
+  br i1 %.not428, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83
   %84 = getelementptr inbounds i64, ptr %7, i64 %indvars.iv
@@ -2707,7 +2692,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %97
-  %100 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %.1157.ph.fr549, i64 noundef 128, i64 noundef -1, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
+  %100 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %.1157.ph.fr542, i64 noundef 128, i64 noundef -1, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %16, ptr noundef nonnull %17) #12
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %106
 
@@ -2918,11 +2903,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   br label %.preheader.split.us
 
 ._crit_edge.thread:                               ; preds = %83, %._crit_edge
-  %.1.lcssa540 = phi i64 [ %.2, %._crit_edge ], [ %.0148382, %83 ]
-  %.1150.lcssa539 = phi i64 [ %.3, %._crit_edge ], [ %.0149381, %83 ]
-  %.2175.lcssa538 = phi ptr [ %.5, %._crit_edge ], [ %.1174378, %83 ]
-  %.2179.lcssa537 = phi ptr [ %.5182, %._crit_edge ], [ %.1178377, %83 ]
-  %.2185.lcssa536 = phi ptr [ %.5188, %._crit_edge ], [ %.1184376, %83 ]
+  %.1.lcssa533 = phi i64 [ %.2, %._crit_edge ], [ %.0148382, %83 ]
+  %.1150.lcssa532 = phi i64 [ %.3, %._crit_edge ], [ %.0149381, %83 ]
+  %.2175.lcssa531 = phi ptr [ %.5, %._crit_edge ], [ %.1174378, %83 ]
+  %.2179.lcssa530 = phi ptr [ %.5182, %._crit_edge ], [ %.1178377, %83 ]
+  %.2185.lcssa529 = phi ptr [ %.5188, %._crit_edge ], [ %.1184376, %83 ]
   %220 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
   %221 = icmp slt i32 %220, 0
   br i1 %221, label %222, label %226
@@ -2934,7 +2919,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   br label %.preheader.split.us
 
 226:                                              ; preds = %._crit_edge.thread
-  %227 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
+  %227 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
   %228 = icmp slt i32 %227, 0
   br i1 %228, label %229, label %41
 
@@ -2944,208 +2929,201 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__write_selection_translate(i32
   %232 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1748, i64 noundef %230, i64 noundef %231, ptr noundef nonnull @.str.59) #12
   br label %.preheader.split
 
-._crit_edge384.loopexit:                          ; preds = %41
-  %233 = trunc i64 %.1.lcssa540 to i32
-  br label %._crit_edge384
+233:                                              ; preds = %41
+  br i1 %31, label %234, label %251
 
-._crit_edge384:                                   ; preds = %._crit_edge384.loopexit, %.preheader226
-  %.1184.lcssa = phi ptr [ %11, %.preheader226 ], [ %.2185.lcssa536, %._crit_edge384.loopexit ]
-  %.1178.lcssa = phi ptr [ %12, %.preheader226 ], [ %.2179.lcssa537, %._crit_edge384.loopexit ]
-  %.1174.lcssa = phi ptr [ %13, %.preheader226 ], [ %.2175.lcssa538, %._crit_edge384.loopexit ]
-  %.0148.lcssa = phi i32 [ 0, %.preheader226 ], [ %233, %._crit_edge384.loopexit ]
-  br i1 %31, label %234, label %250
-
-234:                                              ; preds = %._crit_edge384
+234:                                              ; preds = %233
   %235 = load ptr, ptr %26, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 232
   %237 = load ptr, ptr %236, align 8
-  %238 = call i32 %237(ptr noundef %1, i64 noundef %3, i32 noundef %.0148.lcssa, ptr noundef nonnull %21, ptr noundef %.1184.lcssa, ptr noundef %.1178.lcssa, ptr noundef %.1174.lcssa) #12
-  %239 = icmp slt i32 %238, 0
-  br i1 %239, label %240, label %244
+  %238 = trunc i64 %.1.lcssa533 to i32
+  %239 = call i32 %237(ptr noundef %1, i64 noundef %3, i32 noundef %238, ptr noundef nonnull %21, ptr noundef %.2185.lcssa529, ptr noundef %.2179.lcssa530, ptr noundef %.2175.lcssa531) #12
+  %240 = icmp slt i32 %239, 0
+  br i1 %240, label %241, label %245
 
-240:                                              ; preds = %234
-  %241 = load i64, ptr @H5E_VFL_g, align 8
-  %242 = load i64, ptr @H5E_WRITEERROR_g, align 8
-  %243 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1759, i64 noundef %241, i64 noundef %242, ptr noundef nonnull @.str.14) #12
+241:                                              ; preds = %234
+  %242 = load i64, ptr @H5E_VFL_g, align 8
+  %243 = load i64, ptr @H5E_WRITEERROR_g, align 8
+  %244 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1759, i64 noundef %242, i64 noundef %243, ptr noundef nonnull @.str.14) #12
   br label %.preheader.split
 
-244:                                              ; preds = %234
-  %245 = icmp eq i32 %2, 3
-  br i1 %245, label %246, label %.preheader.split
+245:                                              ; preds = %234
+  %246 = icmp eq i32 %2, 3
+  br i1 %246, label %247, label %.preheader.split
 
-246:                                              ; preds = %244
-  %247 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %22) #12
-  %248 = load i32, ptr %22, align 4
-  %249 = or i32 %248, 2
-  store i32 %249, ptr %22, align 4
-  call void @H5CX_set_actual_selection_io_mode(i32 noundef %249) #12
+247:                                              ; preds = %245
+  %248 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %22) #12
+  %249 = load i32, ptr %22, align 4
+  %250 = or i32 %249, 2
+  store i32 %250, ptr %22, align 4
+  call void @H5CX_set_actual_selection_io_mode(i32 noundef %250) #12
   br label %.preheader.split
 
-250:                                              ; preds = %._crit_edge384
-  %251 = call i32 @H5CX_get_no_selection_io_cause(ptr noundef nonnull %23) #12
-  %252 = load i32, ptr %23, align 4
-  %253 = or i32 %252, 8
-  store i32 %253, ptr %23, align 4
-  call void @H5CX_set_no_selection_io_cause(i32 noundef %253) #12
-  %254 = icmp eq i32 %2, 3
-  br i1 %254, label %255, label %.preheader.split
+251:                                              ; preds = %233
+  %252 = call i32 @H5CX_get_no_selection_io_cause(ptr noundef nonnull %23) #12
+  %253 = load i32, ptr %23, align 4
+  %254 = or i32 %253, 8
+  store i32 %254, ptr %23, align 4
+  call void @H5CX_set_no_selection_io_cause(i32 noundef %254) #12
+  %255 = icmp eq i32 %2, 3
+  br i1 %255, label %256, label %.preheader.split
 
-255:                                              ; preds = %250
-  %256 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %24) #12
-  %257 = load i32, ptr %24, align 4
-  %258 = or i32 %257, 1
-  store i32 %258, ptr %24, align 4
-  call void @H5CX_set_actual_selection_io_mode(i32 noundef %258) #12
+256:                                              ; preds = %251
+  %257 = call i32 @H5CX_get_actual_selection_io_mode(ptr noundef nonnull %24) #12
+  %258 = load i32, ptr %24, align 4
+  %259 = or i32 %258, 1
+  store i32 %259, ptr %24, align 4
+  call void @H5CX_set_actual_selection_io_mode(i32 noundef %259) #12
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %222, %216, %186, %155, %148, %141, %132, %125, %118, %102, %90, %79
-  %.0183.ph.ph = phi ptr [ %.1184376, %79 ], [ %.2185360, %90 ], [ %.2185360, %102 ], [ null, %118 ], [ %116, %125 ], [ %116, %132 ], [ %.2185360, %141 ], [ %139, %148 ], [ %139, %155 ], [ %.2185360, %186 ], [ %.5188, %216 ], [ %.2185.lcssa536, %222 ]
-  %.0177.ph.ph = phi ptr [ %.1178377, %79 ], [ %.2179361, %90 ], [ %.2179361, %102 ], [ %.2179361, %118 ], [ null, %125 ], [ %123, %132 ], [ %.2179361, %141 ], [ %.2179361, %148 ], [ %146, %155 ], [ %.2179361, %186 ], [ %.5182, %216 ], [ %.2179.lcssa537, %222 ]
-  %.0173.ph.ph = phi ptr [ %.1174378, %79 ], [ %.2175362, %90 ], [ %.2175362, %102 ], [ %.2175362, %118 ], [ %.2175362, %125 ], [ null, %132 ], [ %.2175362, %141 ], [ %.2175362, %148 ], [ %.2175362, %155 ], [ %.2175362, %186 ], [ %.5, %216 ], [ %.2175.lcssa538, %222 ]
-  br label %.outer.us.us418
+  %.0183.ph.ph = phi ptr [ %.1184376, %79 ], [ %.2185360, %90 ], [ %.2185360, %102 ], [ null, %118 ], [ %116, %125 ], [ %116, %132 ], [ %.2185360, %141 ], [ %139, %148 ], [ %139, %155 ], [ %.2185360, %186 ], [ %.5188, %216 ], [ %.2185.lcssa529, %222 ]
+  %.0177.ph.ph = phi ptr [ %.1178377, %79 ], [ %.2179361, %90 ], [ %.2179361, %102 ], [ %.2179361, %118 ], [ null, %125 ], [ %123, %132 ], [ %.2179361, %141 ], [ %.2179361, %148 ], [ %146, %155 ], [ %.2179361, %186 ], [ %.5182, %216 ], [ %.2179.lcssa530, %222 ]
+  %.0173.ph.ph = phi ptr [ %.1174378, %79 ], [ %.2175362, %90 ], [ %.2175362, %102 ], [ %.2175362, %118 ], [ %.2175362, %125 ], [ null, %132 ], [ %.2175362, %141 ], [ %.2175362, %148 ], [ %.2175362, %155 ], [ %.2175362, %186 ], [ %.5, %216 ], [ %.2175.lcssa531, %222 ]
+  br label %.outer.us.us412
 
 .preheader.split.us.thread:                       ; preds = %70
-  %259 = load i64, ptr @H5E_VFL_g, align 8
-  %260 = load i64, ptr @H5E_CANTINIT_g, align 8
-  %261 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1609, i64 noundef %259, i64 noundef %260, ptr noundef nonnull @.str.48) #12
-  %262 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
-  %263 = icmp slt i32 %262, 0
-  br i1 %263, label %.lr.ph393.split.us396, label %.split.us398.sink.split
+  %260 = load i64, ptr @H5E_VFL_g, align 8
+  %261 = load i64, ptr @H5E_CANTINIT_g, align 8
+  %262 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1609, i64 noundef %260, i64 noundef %261, ptr noundef nonnull @.str.48) #12
+  %263 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
+  %264 = icmp slt i32 %263, 0
+  br i1 %264, label %.lr.ph387.split.us390, label %.split.us392.sink.split
 
-.outer.us.us418:                                  ; preds = %.preheader.split.us, %266
-  %.1159.ph220.us.us419 = phi ptr [ %.2160.us.us423, %266 ], [ %32, %.preheader.split.us ]
-  %.not215.us.us421 = icmp eq ptr %.1159.ph220.us.us419, null
-  br i1 %.not215.us.us421, label %.loopexit225.us.us424, label %.lr.ph390.us.us426
+.outer.us.us412:                                  ; preds = %.preheader.split.us, %267
+  %.1159.ph220.us.us413 = phi ptr [ %.2160.us.us417, %267 ], [ %32, %.preheader.split.us ]
+  %.not215.us.us415 = icmp eq ptr %.1159.ph220.us.us413, null
+  br i1 %.not215.us.us415, label %.loopexit225.us.us418, label %.lr.ph384.us.us420
 
-.loopexit225.us.us424:                            ; preds = %.outer.us.us418, %.split.us.us.us427
-  %.2160.us.us423 = phi ptr [ %277, %.split.us.us.us427 ], [ null, %.outer.us.us418 ]
-  %264 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
-  %265 = icmp slt i32 %264, 0
-  br i1 %265, label %266, label %.split.us398
+.loopexit225.us.us418:                            ; preds = %.outer.us.us412, %.split.us.us.us421
+  %.2160.us.us417 = phi ptr [ %278, %.split.us.us.us421 ], [ null, %.outer.us.us412 ]
+  %265 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
+  %266 = icmp slt i32 %265, 0
+  br i1 %266, label %267, label %.split.us392
 
-266:                                              ; preds = %.loopexit225.us.us424
-  %267 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %268 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %269 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1794, i64 noundef %267, i64 noundef %268, ptr noundef nonnull @.str.59) #12
-  br label %.outer.us.us418
+267:                                              ; preds = %.loopexit225.us.us418
+  %268 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %269 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %270 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1794, i64 noundef %268, i64 noundef %269, ptr noundef nonnull @.str.59) #12
+  br label %.outer.us.us412
 
-.lr.ph390.us.us426:                               ; preds = %.outer.us.us418
-  %270 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us419) #12
-  %271 = icmp slt i32 %270, 0
-  br i1 %271, label %.lr.ph393.split.us396.us431, label %.split.us.us.us427
+.lr.ph384.us.us420:                               ; preds = %.outer.us.us412
+  %271 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us413) #12
+  %272 = icmp slt i32 %271, 0
+  br i1 %272, label %.lr.ph387.split.us390.us425, label %.split.us.us.us421
 
-.lr.ph393.split.us396.us431:                      ; preds = %.lr.ph390.us.us426, %.lr.ph393.split.us396.us431
-  %272 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %273 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %274 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1789, i64 noundef %272, i64 noundef %273, ptr noundef nonnull @.str.58) #12
-  %275 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us419) #12
-  %276 = icmp slt i32 %275, 0
-  br i1 %276, label %.lr.ph393.split.us396.us431, label %.split.us.us.us427
+.lr.ph387.split.us390.us425:                      ; preds = %.lr.ph384.us.us420, %.lr.ph387.split.us390.us425
+  %273 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %274 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %275 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1789, i64 noundef %273, i64 noundef %274, ptr noundef nonnull @.str.58) #12
+  %276 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1159.ph220.us.us413) #12
+  %277 = icmp slt i32 %276, 0
+  br i1 %277, label %.lr.ph387.split.us390.us425, label %.split.us.us.us421
 
-.split.us.us.us427:                               ; preds = %.lr.ph393.split.us396.us431, %.lr.ph390.us.us426
-  %277 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us.us419) #12
-  br label %.loopexit225.us.us424
+.split.us.us.us421:                               ; preds = %.lr.ph387.split.us390.us425, %.lr.ph384.us.us420
+  %278 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us.us413) #12
+  br label %.loopexit225.us.us418
 
-.lr.ph393.split.us396:                            ; preds = %.preheader.split.us.thread, %.lr.ph393.split.us396
-  %278 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %279 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %280 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1789, i64 noundef %278, i64 noundef %279, ptr noundef nonnull @.str.58) #12
-  %281 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
-  %282 = icmp slt i32 %281, 0
-  br i1 %282, label %.lr.ph393.split.us396, label %.split.us398.sink.split
+.lr.ph387.split.us390:                            ; preds = %.preheader.split.us.thread, %.lr.ph387.split.us390
+  %279 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %280 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %281 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1789, i64 noundef %279, i64 noundef %280, ptr noundef nonnull @.str.58) #12
+  %282 = call i32 @H5S_select_iter_release(ptr noundef nonnull %32) #12
+  %283 = icmp slt i32 %282, 0
+  br i1 %283, label %.lr.ph387.split.us390, label %.split.us392.sink.split
 
-.preheader.split:                                 ; preds = %240, %229, %66, %37, %255, %250, %244, %246
-  %.0183.ph = phi ptr [ %.1184.lcssa, %240 ], [ %.2185.lcssa536, %229 ], [ %.1184376, %66 ], [ %11, %37 ], [ %.1184.lcssa, %255 ], [ %.1184.lcssa, %250 ], [ %.1184.lcssa, %244 ], [ %.1184.lcssa, %246 ]
-  %.0177.ph = phi ptr [ %.1178.lcssa, %240 ], [ %.2179.lcssa537, %229 ], [ %.1178377, %66 ], [ %12, %37 ], [ %.1178.lcssa, %255 ], [ %.1178.lcssa, %250 ], [ %.1178.lcssa, %244 ], [ %.1178.lcssa, %246 ]
-  %.0173.ph = phi ptr [ %.1174.lcssa, %240 ], [ %.2175.lcssa538, %229 ], [ %.1174378, %66 ], [ %13, %37 ], [ %.1174.lcssa, %255 ], [ %.1174.lcssa, %250 ], [ %.1174.lcssa, %244 ], [ %.1174.lcssa, %246 ]
-  %.0152.ph = phi i1 [ false, %240 ], [ true, %229 ], [ false, %66 ], [ false, %37 ], [ false, %255 ], [ false, %250 ], [ false, %244 ], [ false, %246 ]
-  %.0.ph = phi i32 [ -1, %240 ], [ -1, %229 ], [ -1, %66 ], [ -1, %37 ], [ 0, %255 ], [ 0, %250 ], [ 0, %244 ], [ 0, %246 ]
-  %.not216 = icmp eq ptr %.1157.ph.fr549, null
-  br i1 %.not216, label %.lr.ph390.us406, label %.preheader.split.split
+.preheader.split:                                 ; preds = %241, %229, %66, %37, %256, %251, %245, %247
+  %.0183.ph = phi ptr [ %.2185.lcssa529, %241 ], [ %.2185.lcssa529, %229 ], [ %.1184376, %66 ], [ %11, %37 ], [ %.2185.lcssa529, %256 ], [ %.2185.lcssa529, %251 ], [ %.2185.lcssa529, %245 ], [ %.2185.lcssa529, %247 ]
+  %.0177.ph = phi ptr [ %.2179.lcssa530, %241 ], [ %.2179.lcssa530, %229 ], [ %.1178377, %66 ], [ %12, %37 ], [ %.2179.lcssa530, %256 ], [ %.2179.lcssa530, %251 ], [ %.2179.lcssa530, %245 ], [ %.2179.lcssa530, %247 ]
+  %.0173.ph = phi ptr [ %.2175.lcssa531, %241 ], [ %.2175.lcssa531, %229 ], [ %.1174378, %66 ], [ %13, %37 ], [ %.2175.lcssa531, %256 ], [ %.2175.lcssa531, %251 ], [ %.2175.lcssa531, %245 ], [ %.2175.lcssa531, %247 ]
+  %.0152.ph = phi i1 [ false, %241 ], [ true, %229 ], [ false, %66 ], [ false, %37 ], [ false, %256 ], [ false, %251 ], [ false, %245 ], [ false, %247 ]
+  %.0.ph = phi i32 [ -1, %241 ], [ -1, %229 ], [ -1, %66 ], [ -1, %37 ], [ 0, %256 ], [ 0, %251 ], [ 0, %245 ], [ 0, %247 ]
+  %.not216 = icmp eq ptr %.1157.ph.fr542, null
+  br i1 %.not216, label %.lr.ph384.us400, label %.preheader.split.split
 
-.outer.us400.thread:                              ; preds = %10
-  %283 = load i64, ptr @H5E_VFL_g, align 8
-  %284 = load i64, ptr @H5E_CANTALLOC_g, align 8
-  %285 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1567, i64 noundef %283, i64 noundef %284, ptr noundef nonnull @.str.45) #12
+.outer.us394.thread:                              ; preds = %10
+  %284 = load i64, ptr @H5E_VFL_g, align 8
+  %285 = load i64, ptr @H5E_CANTALLOC_g, align 8
+  %286 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1567, i64 noundef %284, i64 noundef %285, ptr noundef nonnull @.str.45) #12
   br label %.loopexit
 
-.lr.ph390.us406:                                  ; preds = %.preheader.split
-  %286 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
+.lr.ph384.us400:                                  ; preds = %.preheader.split
+  %287 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
   br label %.loopexit
 
 .preheader.split.split:                           ; preds = %.preheader.split
-  br i1 %.0152.ph, label %.outer.us408, label %.split.us398.sink.split
+  br i1 %.0152.ph, label %.outer.us402, label %.split.us392.sink.split
 
-.outer.us408:                                     ; preds = %.preheader.split.split, %289
-  %.1159.ph220.us409 = phi ptr [ %.2160.us412, %289 ], [ %32, %.preheader.split.split ]
-  %.0.ph224.us410 = phi i32 [ -1, %289 ], [ %.0.ph, %.preheader.split.split ]
-  %.not215.us411 = icmp eq ptr %.1159.ph220.us409, null
-  br i1 %.not215.us411, label %.loopexit225.us413, label %.lr.ph390.us414
+.outer.us402:                                     ; preds = %.preheader.split.split, %290
+  %.1159.ph220.us403 = phi ptr [ %.2160.us406, %290 ], [ %32, %.preheader.split.split ]
+  %.0.ph224.us404 = phi i32 [ -1, %290 ], [ %.0.ph, %.preheader.split.split ]
+  %.not215.us405 = icmp eq ptr %.1159.ph220.us403, null
+  br i1 %.not215.us405, label %.loopexit225.us407, label %.lr.ph384.us408
 
-.loopexit225.us413:                               ; preds = %.outer.us408, %.lr.ph390.us414
-  %.2160.us412 = phi ptr [ %293, %.lr.ph390.us414 ], [ null, %.outer.us408 ]
-  %287 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr549) #12
-  %288 = icmp slt i32 %287, 0
-  br i1 %288, label %289, label %.split.us398
+.loopexit225.us407:                               ; preds = %.outer.us402, %.lr.ph384.us408
+  %.2160.us406 = phi ptr [ %294, %.lr.ph384.us408 ], [ null, %.outer.us402 ]
+  %288 = call i32 @H5S_select_iter_release(ptr noundef nonnull %.1157.ph.fr542) #12
+  %289 = icmp slt i32 %288, 0
+  br i1 %289, label %290, label %.split.us392
 
-289:                                              ; preds = %.loopexit225.us413
-  %290 = load i64, ptr @H5E_INTERNAL_g, align 8
-  %291 = load i64, ptr @H5E_CANTFREE_g, align 8
-  %292 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1794, i64 noundef %290, i64 noundef %291, ptr noundef nonnull @.str.59) #12
-  br label %.outer.us408
+290:                                              ; preds = %.loopexit225.us407
+  %291 = load i64, ptr @H5E_INTERNAL_g, align 8
+  %292 = load i64, ptr @H5E_CANTFREE_g, align 8
+  %293 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__write_selection_translate, i32 noundef 1794, i64 noundef %291, i64 noundef %292, ptr noundef nonnull @.str.59) #12
+  br label %.outer.us402
 
-.lr.ph390.us414:                                  ; preds = %.outer.us408
-  %293 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us409) #12
-  br label %.loopexit225.us413
+.lr.ph384.us408:                                  ; preds = %.outer.us402
+  %294 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1159.ph220.us403) #12
+  br label %.loopexit225.us407
 
-.split.us398.sink.split:                          ; preds = %.lr.ph393.split.us396, %.preheader.split.split, %.preheader.split.us.thread
-  %.0173.ph558.ph = phi ptr [ %.1174378, %.preheader.split.us.thread ], [ %.0173.ph, %.preheader.split.split ], [ %.1174378, %.lr.ph393.split.us396 ]
-  %.0177.ph555.ph = phi ptr [ %.1178377, %.preheader.split.us.thread ], [ %.0177.ph, %.preheader.split.split ], [ %.1178377, %.lr.ph393.split.us396 ]
-  %.0183.ph552.ph = phi ptr [ %.1184376, %.preheader.split.us.thread ], [ %.0183.ph, %.preheader.split.split ], [ %.1184376, %.lr.ph393.split.us396 ]
-  %.us-phi399.ph = phi i32 [ -1, %.preheader.split.us.thread ], [ %.0.ph, %.preheader.split.split ], [ -1, %.lr.ph393.split.us396 ]
-  %294 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
-  br label %.split.us398
+.split.us392.sink.split:                          ; preds = %.lr.ph387.split.us390, %.preheader.split.split, %.preheader.split.us.thread
+  %.0173.ph551.ph = phi ptr [ %.1174378, %.preheader.split.us.thread ], [ %.0173.ph, %.preheader.split.split ], [ %.1174378, %.lr.ph387.split.us390 ]
+  %.0177.ph548.ph = phi ptr [ %.1178377, %.preheader.split.us.thread ], [ %.0177.ph, %.preheader.split.split ], [ %.1178377, %.lr.ph387.split.us390 ]
+  %.0183.ph545.ph = phi ptr [ %.1184376, %.preheader.split.us.thread ], [ %.0183.ph, %.preheader.split.split ], [ %.1184376, %.lr.ph387.split.us390 ]
+  %.us-phi393.ph = phi i32 [ -1, %.preheader.split.us.thread ], [ %.0.ph, %.preheader.split.split ], [ -1, %.lr.ph387.split.us390 ]
+  %295 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %32) #12
+  br label %.split.us392
 
-.split.us398:                                     ; preds = %.loopexit225.us.us424, %.loopexit225.us413, %.split.us398.sink.split
-  %.0173.ph558 = phi ptr [ %.0173.ph558.ph, %.split.us398.sink.split ], [ %.0173.ph, %.loopexit225.us413 ], [ %.0173.ph.ph, %.loopexit225.us.us424 ]
-  %.0177.ph555 = phi ptr [ %.0177.ph555.ph, %.split.us398.sink.split ], [ %.0177.ph, %.loopexit225.us413 ], [ %.0177.ph.ph, %.loopexit225.us.us424 ]
-  %.0183.ph552 = phi ptr [ %.0183.ph552.ph, %.split.us398.sink.split ], [ %.0183.ph, %.loopexit225.us413 ], [ %.0183.ph.ph, %.loopexit225.us.us424 ]
-  %.us-phi399 = phi i32 [ %.us-phi399.ph, %.split.us398.sink.split ], [ %.0.ph224.us410, %.loopexit225.us413 ], [ -1, %.loopexit225.us.us424 ]
-  %295 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1157.ph.fr549) #12
+.split.us392:                                     ; preds = %.loopexit225.us.us418, %.loopexit225.us407, %.split.us392.sink.split
+  %.0173.ph551 = phi ptr [ %.0173.ph551.ph, %.split.us392.sink.split ], [ %.0173.ph, %.loopexit225.us407 ], [ %.0173.ph.ph, %.loopexit225.us.us418 ]
+  %.0177.ph548 = phi ptr [ %.0177.ph548.ph, %.split.us392.sink.split ], [ %.0177.ph, %.loopexit225.us407 ], [ %.0177.ph.ph, %.loopexit225.us.us418 ]
+  %.0183.ph545 = phi ptr [ %.0183.ph545.ph, %.split.us392.sink.split ], [ %.0183.ph, %.loopexit225.us407 ], [ %.0183.ph.ph, %.loopexit225.us.us418 ]
+  %.us-phi393 = phi i32 [ %.us-phi393.ph, %.split.us392.sink.split ], [ %.0.ph224.us404, %.loopexit225.us407 ], [ -1, %.loopexit225.us.us418 ]
+  %296 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_sel_iter_t_reg_free_list, ptr noundef nonnull %.1157.ph.fr542) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer.us400.thread, %.lr.ph390.us406, %.split.us398
-  %.0173.ph557 = phi ptr [ %.0173.ph558, %.split.us398 ], [ %.0173.ph, %.lr.ph390.us406 ], [ %13, %.outer.us400.thread ]
-  %.0177.ph554 = phi ptr [ %.0177.ph555, %.split.us398 ], [ %.0177.ph, %.lr.ph390.us406 ], [ %12, %.outer.us400.thread ]
-  %.0183.ph551 = phi ptr [ %.0183.ph552, %.split.us398 ], [ %.0183.ph, %.lr.ph390.us406 ], [ %11, %.outer.us400.thread ]
-  %.0228230 = phi i32 [ %.us-phi399, %.split.us398 ], [ %.0.ph, %.lr.ph390.us406 ], [ -1, %.outer.us400.thread ]
-  br i1 %31, label %296, label %305
+.loopexit:                                        ; preds = %.outer.us394.thread, %.lr.ph384.us400, %.split.us392
+  %.0173.ph550 = phi ptr [ %.0173.ph551, %.split.us392 ], [ %.0173.ph, %.lr.ph384.us400 ], [ %13, %.outer.us394.thread ]
+  %.0177.ph547 = phi ptr [ %.0177.ph548, %.split.us392 ], [ %.0177.ph, %.lr.ph384.us400 ], [ %12, %.outer.us394.thread ]
+  %.0183.ph544 = phi ptr [ %.0183.ph545, %.split.us392 ], [ %.0183.ph, %.lr.ph384.us400 ], [ %11, %.outer.us394.thread ]
+  %.0228230 = phi i32 [ %.us-phi393, %.split.us392 ], [ %.0.ph, %.lr.ph384.us400 ], [ -1, %.outer.us394.thread ]
+  br i1 %31, label %297, label %306
 
-296:                                              ; preds = %.loopexit
-  %.not217 = icmp eq ptr %.0183.ph551, %11
-  br i1 %.not217, label %299, label %297
+297:                                              ; preds = %.loopexit
+  %.not217 = icmp eq ptr %.0183.ph544, %11
+  br i1 %.not217, label %300, label %298
 
-297:                                              ; preds = %296
-  %298 = call ptr @H5MM_xfree(ptr noundef %.0183.ph551) #12
-  br label %299
+298:                                              ; preds = %297
+  %299 = call ptr @H5MM_xfree(ptr noundef %.0183.ph544) #12
+  br label %300
 
-299:                                              ; preds = %297, %296
-  %.not218 = icmp eq ptr %.0177.ph554, %12
-  br i1 %.not218, label %302, label %300
+300:                                              ; preds = %298, %297
+  %.not218 = icmp eq ptr %.0177.ph547, %12
+  br i1 %.not218, label %303, label %301
 
-300:                                              ; preds = %299
-  %301 = call ptr @H5MM_xfree(ptr noundef %.0177.ph554) #12
-  br label %302
+301:                                              ; preds = %300
+  %302 = call ptr @H5MM_xfree(ptr noundef %.0177.ph547) #12
+  br label %303
 
-302:                                              ; preds = %300, %299
-  %.not219 = icmp eq ptr %.0173.ph557, %13
-  br i1 %.not219, label %305, label %303
+303:                                              ; preds = %301, %300
+  %.not219 = icmp eq ptr %.0173.ph550, %13
+  br i1 %.not219, label %306, label %304
 
-303:                                              ; preds = %302
-  %304 = call ptr @H5MM_xfree(ptr noundef %.0173.ph557) #12
-  br label %305
+304:                                              ; preds = %303
+  %305 = call ptr @H5MM_xfree(ptr noundef %.0173.ph550) #12
+  br label %306
 
-305:                                              ; preds = %302, %303, %.loopexit
+306:                                              ; preds = %303, %304, %.loopexit
   ret i32 %.0228230
 }
 
@@ -3471,7 +3449,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_vector_io_req(ptr nocapture noundef %0, i
   %11 = alloca ptr, align 8
   %12 = zext i32 %1 to i64
   store ptr null, ptr %11, align 8
-  %13 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %12, ptr noundef %3, ptr noundef %0, ptr noundef nonnull %11)
+  %13 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %12, ptr noundef %3, ptr noundef %0, ptr noundef %11)
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -3671,7 +3649,7 @@ define range(i32 -1, 1) i32 @H5FD_sort_vector_io_req(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__sort_io_req_real(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__sort_io_req_real(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp ugt i64 %0, 1
   br i1 %5, label %.lr.ph, label %.thread59
 
@@ -3779,7 +3757,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 define range(i32 -1, 1) i32 @H5FD_sort_selection_io_req(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11) local_unnamed_addr #0 {
   %13 = alloca ptr, align 8
   store ptr null, ptr %13, align 8
-  %14 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %1, ptr noundef %4, ptr noundef %0, ptr noundef nonnull %13)
+  %14 = call fastcc i32 @H5FD__sort_io_req_real(i64 noundef %1, ptr noundef %4, ptr noundef %0, ptr noundef %13)
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %16, label %20
 

@@ -154,7 +154,7 @@ get_request_from_send_pending.exit:               ; preds = %opal_list_remove_fi
   br label %42
 
 42:                                               ; preds = %unlock_send_request.exit.i, %40
-  %43 = call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef %.0.i7.i) #6
+  %43 = call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef nonnull %.0.i7.i) #6
   %cond.i = icmp eq i32 %43, -2
   br i1 %cond.i, label %mca_pml_ob1_send_request_schedule_exclusive.exit, label %44
 

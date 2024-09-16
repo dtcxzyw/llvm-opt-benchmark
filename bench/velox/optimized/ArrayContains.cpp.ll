@@ -20098,7 +20098,7 @@ if.end16:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorESB_SB_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEEUlT_E_EEvPKmiibSI_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE7EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorESB_SB_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEEUlT_E_EEvPKmiibSI_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -20603,7 +20603,7 @@ if.end16:                                         ; preds = %_ZNK8facebook5velox
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorESB_SB_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEEUlT_E_EEvPKmiibSI_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_110applyTypedILNS0_8TypeKindE8EEEvRKNS0_17SelectivityVectorERNS0_13DecodedVectorESB_SB_RNS0_4exec7EvalCtxERNS0_10FlatVectorIbEEEUlT_E_EEvPKmiibSI_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8
@@ -22499,7 +22499,7 @@ declare void @_ZN8facebook5velox4exec7EvalCtx22setVeloxExceptionErrorEiRKNSt15__
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_116applyComplexTypeERKNS0_17SelectivityVectorERNS0_13DecodedVectorESC_SC_RS4_RNS0_10FlatVectorIbEEE3$_0EEvSA_T_EUlSI_E_EEvPKmiibSI_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions12_GLOBAL__N_116applyComplexTypeERKNS0_17SelectivityVectorERNS0_13DecodedVectorESC_SC_RS4_RNS0_10FlatVectorIbEEE3$_0EEvSA_T_EUlSI_E_EEvPKmiibSI_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

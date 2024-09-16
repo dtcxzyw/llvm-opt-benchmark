@@ -3207,7 +3207,7 @@ declare void @_ZN8facebook5velox9Timestamp5toGMTEs(ptr noundef nonnull align 8 d
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castFromTimestampERKNS0_12SimpleVectorINS0_9TimestampEEERS4_RKNS0_17SelectivityVectorERNS0_9RowVectorEE3$_0EEvSF_T_EUlSJ_E_EEvPKmiibSJ_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_117castFromTimestampERKNS0_12SimpleVectorINS0_9TimestampEEERS4_RKNS0_17SelectivityVectorERNS0_9RowVectorEE3$_0EEvSF_T_EUlSJ_E_EEvPKmiibSJ_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %"struct.facebook::velox::Timestamp", align 8
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -4065,7 +4065,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_115castToTimestampERKNS0_9RowVectorERS4_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_9TimestampEEEE3$_0EEvSD_T_EUlSJ_E_EEvPKmiibSJ_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_12_GLOBAL__N_115castToTimestampERKNS0_9RowVectorERS4_RKNS0_17SelectivityVectorERNS0_10FlatVectorINS0_9TimestampEEEE3$_0EEvSD_T_EUlSJ_E_EEvPKmiibSJ_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

@@ -149,13 +149,13 @@ define noalias ptr @wscbor_chunk_read(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 32:                                               ; preds = %21, %21, %21
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef nonnull %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef %1)
   %33 = load i8, ptr %31, align 1
   %34 = icmp ugt i8 %33, 27
   br i1 %34, label %.sink.split.i, label %wscbor_head_read.exit
 
 35:                                               ; preds = %21, %21, %21, %21, %21
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef nonnull %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %22, ptr noundef %1)
   %36 = load i8, ptr %31, align 1
   %37 = add i8 %36, -28
   %or.cond.i = icmp ult i8 %37, 3
@@ -293,13 +293,13 @@ wscbor_get_length.exit:                           ; preds = %71, %74
   ]
 
 96:                                               ; preds = %84, %84, %84
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef nonnull %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef %1)
   %97 = load i8, ptr %95, align 1
   %98 = icmp ugt i8 %97, 27
   br i1 %98, label %.sink.split.i121, label %wscbor_head_read.exit123
 
 99:                                               ; preds = %84, %84, %84, %84, %84
-  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef nonnull %1)
+  tail call fastcc void @wscbor_read_unsigned(ptr noundef nonnull %86, ptr noundef %1)
   %100 = load i8, ptr %95, align 1
   %101 = add i8 %100, -28
   %or.cond.i120 = icmp ult i8 %101, 3
@@ -1461,7 +1461,7 @@ define ptr @proto_tree_add_cbor_strlen(ptr noundef %0, i32 noundef %1, ptr nocap
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 17
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %44 [
@@ -1476,7 +1476,7 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, %6
-  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %9) #8
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %9) #8
   %11 = zext i8 %10 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %11, ptr %12, align 8
@@ -1490,7 +1490,7 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
   %17 = getelementptr inbounds i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, %16
-  %20 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %19, i32 noundef 0) #8
+  %20 = tail call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %1, i32 noundef %19, i32 noundef 0) #8
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %21, ptr %22, align 8
@@ -1504,7 +1504,7 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
   %27 = getelementptr inbounds i8, ptr %0, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, %26
-  %30 = tail call i32 @tvb_get_guint32(ptr noundef %1, i32 noundef %29, i32 noundef 0) #8
+  %30 = tail call i32 @tvb_get_guint32(ptr noundef nonnull %1, i32 noundef %29, i32 noundef 0) #8
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %31, ptr %32, align 8
@@ -1518,7 +1518,7 @@ define internal fastcc void @wscbor_read_unsigned(ptr nocapture noundef %0, ptr 
   %37 = getelementptr inbounds i8, ptr %0, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, %36
-  %40 = tail call i64 @tvb_get_guint64(ptr noundef %1, i32 noundef %39, i32 noundef 0) #8
+  %40 = tail call i64 @tvb_get_guint64(ptr noundef nonnull %1, i32 noundef %39, i32 noundef 0) #8
   %41 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %40, ptr %41, align 8
   %42 = load i32, ptr %37, align 4

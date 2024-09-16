@@ -215,7 +215,7 @@ define void @Abc_SclLoad(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %3)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %3)
   store ptr null, ptr %1, align 8
   br label %5
 
@@ -232,7 +232,7 @@ define void @Abc_SclLoad(ptr noundef %0, ptr nocapture noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_SclLibFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Abc_SclLibFree(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 52
   %.val108 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val108, 0
@@ -1112,20 +1112,20 @@ Scl_ReadLibraryFile.exit168:                      ; preds = %86, %.sink.split.i1
   br i1 %95, label %99, label %98
 
 98:                                               ; preds = %97
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %.0.i)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i)
   br label %99
 
 99:                                               ; preds = %98, %97
   br i1 %96, label %195, label %100
 
 100:                                              ; preds = %99
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %.0.i165)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i165)
   br label %195
 
 101:                                              ; preds = %94
   %102 = tail call ptr @Abc_SclMergeLibraries(ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i165) #10
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %.0.i)
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %.0.i165)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %.0.i165)
   br label %122
 
 103:                                              ; preds = %62
@@ -1186,7 +1186,7 @@ Scl_ReadLibraryFile.exit172:                      ; preds = %112, %.sink.split.i
   %129 = load ptr, ptr %128, align 8
   %130 = tail call i32 @Abc_SclLibClassNum(ptr noundef nonnull %.0111) #10
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %129, ptr noundef nonnull @.str.30, i32 noundef %130) #10
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %.0111)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %.0111)
   br label %195
 
 132:                                              ; preds = %124
@@ -1196,7 +1196,7 @@ Scl_ReadLibraryFile.exit172:                      ; preds = %112, %.sink.split.i
   br i1 %.not.i, label %Abc_SclLoad.exit, label %135
 
 135:                                              ; preds = %132
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %134)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %134)
   br label %Abc_SclLoad.exit
 
 Abc_SclLoad.exit:                                 ; preds = %135, %132
@@ -1670,7 +1670,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandReadScl(ptr nocapture noundef %0
   br i1 %.not.i, label %Abc_SclLoad.exit, label %32
 
 32:                                               ; preds = %29
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %31)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %31)
   br label %Abc_SclLoad.exit
 
 Abc_SclLoad.exit:                                 ; preds = %32, %29
@@ -3932,7 +3932,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandWriteConstr(ptr nocapture nounde
   br i1 %.not26, label %29, label %30
 
 29:                                               ; preds = %26
-  tail call fastcc void @Scl_ConWrite(ptr noundef nonnull %.val, ptr noundef %.022)
+  tail call fastcc void @Scl_ConWrite(ptr noundef %.val, ptr noundef %.022)
   br label %44
 
 30:                                               ; preds = %26
@@ -3984,7 +3984,7 @@ define internal range(i32 0, 2) i32 @Scl_CommandPrintConstr(ptr nocapture nounde
   br i1 %.not16, label %24, label %10
 
 10:                                               ; preds = %9
-  tail call fastcc void @Scl_ConWrite(ptr noundef nonnull %.val, ptr noundef null)
+  tail call fastcc void @Scl_ConWrite(ptr noundef %.val, ptr noundef null)
   br label %24
 
 11:                                               ; preds = %5
@@ -4060,7 +4060,7 @@ define void @Scl_End(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %Abc_SclLoad.exit, label %4
 
 4:                                                ; preds = %1
-  tail call fastcc void @Abc_SclLibFree(ptr noundef nonnull %3)
+  tail call fastcc void @Abc_SclLibFree(ptr noundef %3)
   store ptr null, ptr %2, align 8
   br label %Abc_SclLoad.exit
 
@@ -4493,7 +4493,7 @@ declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #1
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @Abc_Print(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @Abc_Print(i32 noundef range(i32 -1, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr @enable_dbg_outs, align 4
   %.not = icmp eq i32 %4, 0
@@ -4644,7 +4644,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Scl_ConWrite(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Scl_ConWrite(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 

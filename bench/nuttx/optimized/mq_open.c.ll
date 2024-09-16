@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @file_mq_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call fastcc i32 @file_mq_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %4, ptr noundef null)
+  %5 = call fastcc i32 @file_mq_vopen(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef %4, ptr noundef null)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @file_mq_vopen(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @file_mq_vopen(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -264,7 +264,7 @@ define i32 @nxmq_open(ptr noundef %0, i32 noundef %1, ...) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %6 = call i32 @getumask() #8
-  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %nxmq_vopen.exit, label %9
 
@@ -307,7 +307,7 @@ define range(i32 -1, -2147483648) i32 @mq_open(ptr noundef %0, i32 noundef %1, .
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %6 = call i32 @getumask() #8
-  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @file_mq_vopen(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, ptr noundef %5, ptr noundef nonnull %4)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %24, label %9
 

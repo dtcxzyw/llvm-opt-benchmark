@@ -1505,7 +1505,7 @@ define internal void @acpi_power_sysfs_remove(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_power_add_resource_to_list(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_power_add_resource_to_list(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @power_resource_list_lock) #10
   %2 = load volatile ptr, ptr @acpi_power_resource_list, align 8
   %3 = icmp eq ptr %2, @acpi_power_resource_list

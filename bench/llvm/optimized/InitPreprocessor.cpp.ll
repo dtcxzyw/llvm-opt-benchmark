@@ -10379,19 +10379,19 @@ _ZNK5clang10TargetInfo25getUnsignedLongAccumIBitsEv.exit: ; preds = %2006, %2009
 2023:                                             ; preds = %2018
   %2024 = getelementptr inbounds i8, ptr %0, i64 80
   %2025 = load ptr, ptr %2024, align 8
-  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.242, i64 5, ptr noundef nonnull %2025, ptr nonnull @.str.243, i64 3)
+  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.242, i64 5, ptr noundef %2025, ptr nonnull @.str.243, i64 3)
   br label %2026
 
 2026:                                             ; preds = %2023, %2018
   %2027 = getelementptr inbounds i8, ptr %0, i64 96
   %2028 = load ptr, ptr %2027, align 8
-  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.244, i64 3, ptr noundef nonnull %2028, ptr nonnull @.str.245, i64 1)
+  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.244, i64 3, ptr noundef %2028, ptr nonnull @.str.245, i64 1)
   %2029 = getelementptr inbounds i8, ptr %0, i64 104
   %2030 = load ptr, ptr %2029, align 8
-  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.246, i64 3, ptr noundef nonnull %2030, ptr nonnull @.str.124, i64 0)
+  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.246, i64 3, ptr noundef %2030, ptr nonnull @.str.124, i64 0)
   %2031 = getelementptr inbounds i8, ptr %0, i64 112
   %2032 = load ptr, ptr %2031, align 8
-  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.247, i64 4, ptr noundef nonnull %2032, ptr nonnull @.str.248, i64 1)
+  call fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr nonnull @.str.247, i64 4, ptr noundef %2032, ptr nonnull @.str.248, i64 1)
   %2033 = getelementptr inbounds nuw i8, ptr %435, i64 32
   %2034 = getelementptr inbounds nuw i8, ptr %435, i64 33
   store i8 1, ptr %2034, align 1
@@ -12339,7 +12339,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
   store ptr %1, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8
-  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr nonnull %16, i64 %17, ptr noundef nonnull byval(%class.anon.352) align 8 %6)
+  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias writable align 8 %7, ptr nonnull %16, i64 %17, ptr noundef nonnull byval(%class.anon.352) align 8 %6)
   %18 = load i64, ptr %0, align 8
   %19 = and i64 %18, 8
   %.not = icmp eq i64 %19, 0
@@ -12352,7 +12352,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
   store ptr %1, ptr %.sroa.3.0..sroa_idx3, align 8
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %5, ptr %.sroa.4.0..sroa_idx5, align 8
-  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr nonnull @.str.444, i64 2, ptr noundef nonnull byval(%class.anon.352) align 8 %8)
+  call fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias writable align 8 %9, ptr nonnull @.str.444, i64 2, ptr noundef nonnull byval(%class.anon.352) align 8 %8)
   br label %21
 
 21:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %20
@@ -12362,7 +12362,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %4, %11
 declare noundef ptr @_ZNK5clang10TargetInfo21getTypeConstantSuffixENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef readnone %3, ptr %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZL17DefineFloatMacrosRN5clang12MacroBuilderEN4llvm9StringRefEPKNS2_12fltSemanticsES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef nonnull readnone %3, ptr %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -13008,7 +13008,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %_ZN4llvmplERKNS_5Tw
 declare noundef zeroext i1 @_ZN5clang10TargetInfo12isTypeSignedENS_23TransferrableTargetInfo7IntTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL23DefineExactWidthIntTypeRKN5clang11LangOptionsENS_23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef range(i32 1, 11) %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -13189,7 +13189,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit103:               ; preds = %_ZN4llvm9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL27DefineExactWidthIntTypeSizeN5clang23TransferrableTargetInfo7IntTypeERKNS_10TargetInfoERNS_12MacroBuilderE(i32 noundef range(i32 1, 11) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call noundef i32 @_ZNK5clang10TargetInfo12getTypeWidthENS_23TransferrableTargetInfo7IntTypeE(ptr noundef nonnull align 8 dereferenceable(489) %1, i32 noundef %0) #13
@@ -13267,7 +13267,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %16, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23DefineLeastWidthIntTypeRKN5clang11LangOptionsEjbRKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL23DefineLeastWidthIntTypeRKN5clang11LangOptionsEjbRKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef range(i32 8, 65) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -13286,7 +13286,7 @@ define internal fastcc void @_ZL23DefineLeastWidthIntTypeRKN5clang11LangOptionsE
   %19 = select i1 %2, ptr @.str.492, ptr @.str.493
   %20 = load i8, ptr %19, align 1
   %.not.i = icmp eq i8 %20, 0
-  %.sroa.0164.0.insert.ext171 = zext i32 %1 to i64
+  %.sroa.0164.0.insert.ext171 = zext nneg i32 %1 to i64
   %21 = inttoptr i64 %.sroa.0164.0.insert.ext171 to ptr
   br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit40, label %22
 
@@ -13331,7 +13331,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store i8 %storemerge.i.i, ptr %31, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %.sroa.0144.0.insert.ext151 = zext i32 %1 to i64
+  %.sroa.0144.0.insert.ext151 = zext nneg i32 %1 to i64
   %32 = inttoptr i64 %.sroa.0144.0.insert.ext151 to ptr
   br i1 %2, label %33, label %36
 
@@ -13385,7 +13385,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit92:                ; preds = %36, %37
   br label %42
 
 42:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit92, %_ZN4llvmplERKNS_5TwineES2_.exit58
-  %.sroa.0.0.insert.ext120 = zext i32 %1 to i64
+  %.sroa.0.0.insert.ext120 = zext nneg i32 %1 to i64
   %43 = inttoptr i64 %.sroa.0.0.insert.ext120 to ptr
   br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit110, label %44
 
@@ -13411,7 +13411,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit110:               ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17DefineFastIntTypeRKN5clang11LangOptionsEjbRKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17DefineFastIntTypeRKN5clang11LangOptionsEjbRKNS_10TargetInfoERNS_12MacroBuilderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %0, i32 noundef range(i32 8, 65) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(489) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -13430,7 +13430,7 @@ define internal fastcc void @_ZL17DefineFastIntTypeRKN5clang11LangOptionsEjbRKNS
   %19 = select i1 %2, ptr @.str.494, ptr @.str.495
   %20 = load i8, ptr %19, align 1
   %.not.i = icmp eq i8 %20, 0
-  %.sroa.0164.0.insert.ext171 = zext i32 %1 to i64
+  %.sroa.0164.0.insert.ext171 = zext nneg i32 %1 to i64
   %21 = inttoptr i64 %.sroa.0164.0.insert.ext171 to ptr
   br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit40, label %22
 
@@ -13475,7 +13475,7 @@ _ZL10DefineTypeRKN4llvm5TwineEN5clang23TransferrableTargetInfo7IntTypeERNS3_12Ma
   store i8 %storemerge.i.i, ptr %31, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull align 8 dereferenceable(34) %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6)
-  %.sroa.0144.0.insert.ext151 = zext i32 %1 to i64
+  %.sroa.0144.0.insert.ext151 = zext nneg i32 %1 to i64
   %32 = inttoptr i64 %.sroa.0144.0.insert.ext151 to ptr
   br i1 %2, label %33, label %36
 
@@ -13529,7 +13529,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit92:                ; preds = %36, %37
   br label %42
 
 42:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit92, %_ZN4llvmplERKNS_5TwineES2_.exit58
-  %.sroa.0.0.insert.ext120 = zext i32 %1 to i64
+  %.sroa.0.0.insert.ext120 = zext nneg i32 %1 to i64
   %43 = inttoptr i64 %.sroa.0.0.insert.ext120 to ptr
   br i1 %.not.i, label %_ZN4llvmplERKNS_5TwineES2_.exit110, label %44
 
@@ -14370,7 +14370,7 @@ declare noundef ptr @_ZN5clang10TargetInfo11getTypeNameENS_23TransferrableTarget
 declare noundef ptr @_ZN5clang10TargetInfo21getTypeFormatModifierENS_23TransferrableTargetInfo7IntTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%class.anon.352) align 8 %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachINS_9StringRefEZL9DefineFmtRKN5clang11LangOptionsERKNS_5TwineENS2_23TransferrableTargetInfo7IntTypeERKNS2_10TargetInfoERNS2_12MacroBuilderEE3$_0EET0_OT_SH_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readonly %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%class.anon.352) align 8 %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8

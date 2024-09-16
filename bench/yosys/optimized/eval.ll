@@ -3326,7 +3326,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit291:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %618 unwind label %631
 
 618:                                              ; preds = %612
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
           to label %619 unwind label %633
 
 619:                                              ; preds = %618
@@ -3663,7 +3663,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i:              ; preds = %730, %723, %_ZNSt6v
   br label %1297
 
 736:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull %22)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %22)
           to label %737 unwind label %749
 
 737:                                              ; preds = %736
@@ -4629,7 +4629,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit95.i:            ; preds = %1182, %1175, %_ZNSt
   br label %1297
 
 1189:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit70.i
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %27)
           to label %1190 unwind label %1205
 
 1190:                                             ; preds = %1189
@@ -14254,7 +14254,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit941:                                     ; preds = %.lr.ph.i.i.i.i.i.i297, %.noexc7.i295.thread
   %.0.lcssa.i.i.i.i.i.i301 = phi ptr [ null, %.noexc7.i295.thread ], [ %1478, %.lr.ph.i.i.i.i.i.i297 ]
   store ptr %.0.lcssa.i.i.i.i.i.i301, ptr %132, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef %33, ptr noundef %34, ptr noundef %35, i1 noundef zeroext false)
           to label %1480 unwind label %1677
 
 1480:                                             ; preds = %.loopexit941
@@ -14848,7 +14848,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit939:                                     ; preds = %.lr.ph.i.i.i.i.i.i378, %.noexc7.i376.thread
   %.0.lcssa.i.i.i.i.i.i382 = phi ptr [ null, %.noexc7.i376.thread ], [ %1645, %.lr.ph.i.i.i.i.i.i378 ]
   store ptr %.0.lcssa.i.i.i.i.i.i382, ptr %147, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef nonnull %36, ptr noundef nonnull %37, ptr noundef nonnull %38, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef nonnull %177, ptr noundef %36, ptr noundef %37, ptr noundef %38, i1 noundef zeroext true)
           to label %1647 unwind label %1681
 
 1647:                                             ; preds = %.loopexit939
@@ -22257,7 +22257,7 @@ declare void @_ZNK5Yosys5RTLIL7SigSpec6unpackEv(ptr noundef nonnull align 8 dere
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter5splitENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -22961,7 +22961,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN5Yosys11log_warningEPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118VlogHammerReporter9sat_checkEPN5Yosys5RTLIL6ModuleENS2_7SigSpecENS2_5ConstES5_b(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.8", align 8
   %7 = alloca %"class.std::vector.8", align 8
   %8 = alloca %"class.std::vector.8", align 8

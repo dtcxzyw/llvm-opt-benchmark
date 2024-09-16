@@ -232,14 +232,14 @@ define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unn
   br i1 %.not, label %32, label %30
 
 30:                                               ; preds = %20
-  %31 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %24, i64 noundef %21)
+  %31 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef %0, i64 noundef %24, i64 noundef %21)
   %.not49 = icmp eq i32 %31, 0
   br i1 %.not49, label %35, label %.loopexit
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %24, ptr %33, align 8
-  %34 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef %21)
+  %34 = call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef %21)
   %.not48 = icmp eq i32 %34, 0
   br i1 %.not48, label %35, label %.loopexit
 
@@ -261,7 +261,7 @@ define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unn
   %43 = load i64, ptr %12, align 8
   %44 = add nsw i64 %39, %43
   store i64 %44, ptr %37, align 8
-  %45 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.03951, ptr noundef nonnull %4, i8 noundef zeroext 1)
+  %45 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.03951, ptr noundef %4, i8 noundef zeroext 1)
   %.not50 = icmp eq i32 %45, 0
   br i1 %.not50, label %46, label %.loopexit
 
@@ -296,7 +296,7 @@ declare i64 @FT_Atan2(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @FT_Vector_From_Polar(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_subpath_start(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_subpath_start(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
@@ -367,7 +367,7 @@ ft_stroke_border_moveto.exit:                     ; preds = %3, %25, %26
   store i32 %49, ptr %20, align 4
   %50 = getelementptr inbounds i8, ptr %0, i64 136
   store i8 0, ptr %50, align 8
-  %51 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %19, ptr noundef nonnull readonly %5, i8 noundef zeroext 0)
+  %51 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %19, ptr noundef readonly %5, i8 noundef zeroext 0)
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %52, label %95
 
@@ -432,7 +432,7 @@ ft_stroke_border_moveto.exit20:                   ; preds = %52, %65, %66
   store i32 %89, ptr %60, align 4
   %90 = getelementptr inbounds i8, ptr %0, i64 184
   store i8 0, ptr %90, align 8
-  %91 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %59, ptr noundef nonnull readonly %5, i8 noundef zeroext 0)
+  %91 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %59, ptr noundef readonly %5, i8 noundef zeroext 0)
   %92 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 40
@@ -447,7 +447,7 @@ ft_stroke_border_moveto.exit20:                   ; preds = %52, %65, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
@@ -547,7 +547,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr nocapture noundef %0, 
   br label %ft_stroker_inside.exit
 
 ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
-  %69 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %17, ptr noundef nonnull %9, i8 noundef zeroext 0)
+  %69 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %17, ptr noundef %9, i8 noundef zeroext 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %.not = icmp eq i32 %69, 0
@@ -569,7 +569,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 
 77:                                               ; preds = %70
   %78 = zext i1 %71 to i32
-  %79 = call fastcc i32 @ft_stroker_arcto(ptr noundef nonnull %0, i32 noundef %78)
+  %79 = call fastcc i32 @ft_stroker_arcto(ptr noundef %0, i32 noundef %78)
   br label %ft_stroker_outside.exit
 
 80:                                               ; preds = %70
@@ -626,7 +626,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   store i64 %114, ptr %112, align 8
   %115 = getelementptr inbounds i8, ptr %73, i64 24
   store i8 0, ptr %115, align 8
-  %116 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %4, i8 noundef zeroext 0)
+  %116 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %4, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
 117:                                              ; preds = %101
@@ -681,7 +681,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   store i64 %157, ptr %6, align 8
   %158 = add nsw i64 %149, %156
   store i64 %158, ptr %150, align 8
-  %159 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %159 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %6, i8 noundef zeroext 0)
   %.not73.i = icmp eq i32 %159, 0
   br i1 %.not73.i, label %160, label %ft_stroker_outside.exit
 
@@ -694,7 +694,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %factor90.i = shl i64 %163, 1
   %164 = sub i64 %factor90.i, %158
   store i64 %164, ptr %150, align 8
-  %165 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %165 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %6, i8 noundef zeroext 0)
   %166 = icmp eq i32 %165, 0
   %or.cond.i15 = and i1 %26, %166
   br i1 %or.cond.i15, label %167, label %ft_stroker_outside.exit
@@ -711,7 +711,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %174 = load i64, ptr %150, align 8
   %175 = add nsw i64 %174, %173
   store i64 %175, ptr %150, align 8
-  %176 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %176 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %6, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
 177:                                              ; preds = %101, %85
@@ -730,7 +730,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %188 = load i64, ptr %187, align 8
   %189 = add nsw i64 %188, %186
   store i64 %189, ptr %187, align 8
-  %190 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %7, i8 noundef zeroext 0)
+  %190 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %7, i8 noundef zeroext 0)
   %191 = icmp eq i32 %190, 0
   %or.cond3.i = and i1 %26, %191
   br i1 %or.cond3.i, label %192, label %ft_stroker_outside.exit
@@ -748,7 +748,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
   %200 = load i64, ptr %187, align 8
   %201 = add nsw i64 %200, %199
   store i64 %201, ptr %187, align 8
-  %202 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %73, ptr noundef nonnull %7, i8 noundef zeroext 0)
+  %202 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %73, ptr noundef %7, i8 noundef zeroext 0)
   br label %ft_stroker_outside.exit
 
 ft_stroker_outside.exit:                          ; preds = %77, %.thread77.i, %117, %160, %167, %177, %192
@@ -766,7 +766,7 @@ ft_stroker_outside.exit:                          ; preds = %77, %.thread77.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_lineto(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_lineto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
@@ -1087,12 +1087,12 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   br i1 %.not134, label %113, label %111
 
 111:                                              ; preds = %109
-  %112 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.0159, i64 noundef 0)
+  %112 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef %0, i64 noundef %.0159, i64 noundef 0)
   br label %124
 
 113:                                              ; preds = %109
   store i64 %.0159, ptr %40, align 8
-  %114 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
+  %114 = call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef 0)
   br label %124
 
 115:                                              ; preds = %ft_conic_is_small_enough.exit._crit_edge
@@ -1107,7 +1107,7 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
   store i64 %.0159, ptr %40, align 8
   store i32 0, ptr %41, align 8
-  %122 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
+  %122 = call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef 0)
   %123 = load i32, ptr %42, align 4
   store i32 %123, ptr %41, align 8
   br label %124
@@ -1233,27 +1233,27 @@ ft_conic_is_small_enough.exit._crit_edge:         ; preds = %90, %ft_conic_is_sm
   store i64 %206, ptr %50, align 8
   %207 = getelementptr inbounds i8, ptr %.0113174, i64 24
   store i8 0, ptr %207, align 8
-  %208 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %9, i8 noundef zeroext 0)
+  %208 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0113174, ptr noundef %9, i8 noundef zeroext 0)
   %.not139 = icmp eq i32 %208, 0
   br i1 %.not139, label %209, label %.loopexit
 
 209:                                              ; preds = %180
-  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %210 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0113174, ptr noundef %6, i8 noundef zeroext 0)
   %.not140 = icmp eq i32 %210, 0
   br i1 %.not140, label %211, label %.loopexit
 
 211:                                              ; preds = %209
-  %212 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %212 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0113174, ptr noundef %5, ptr noundef %7)
   %.not141 = icmp eq i32 %212, 0
   br i1 %.not141, label %213, label %.loopexit
 
 213:                                              ; preds = %211
-  %214 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0113174, ptr noundef nonnull %6, i8 noundef zeroext 0)
+  %214 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0113174, ptr noundef %6, i8 noundef zeroext 0)
   %.not142 = icmp eq i32 %214, 0
   br i1 %.not142, label %217, label %.loopexit
 
 215:                                              ; preds = %165, %149
-  %216 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef nonnull %.0113174, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %216 = call fastcc i32 @ft_stroke_border_conicto(ptr noundef %.0113174, ptr noundef %5, ptr noundef %6)
   %.not138 = icmp eq i32 %216, 0
   br i1 %.not138, label %217, label %.loopexit
 
@@ -1290,7 +1290,7 @@ declare i64 @FT_Sin(i64 noundef) local_unnamed_addr #1
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_conicto(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_conicto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1643,12 +1643,12 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   br i1 %.not156, label %165, label %163
 
 163:                                              ; preds = %161
-  %164 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull %0, i64 noundef %.0193, i64 noundef 0)
+  %164 = call fastcc i32 @ft_stroker_subpath_start(ptr noundef %0, i64 noundef %.0193, i64 noundef 0)
   br label %176
 
 165:                                              ; preds = %161
   store i64 %.0193, ptr %53, align 8
-  %166 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
+  %166 = call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef 0)
   br label %176
 
 167:                                              ; preds = %ft_cubic_is_small_enough.exit._crit_edge
@@ -1663,7 +1663,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false)
   store i64 %.0193, ptr %53, align 8
   store i32 0, ptr %54, align 8
-  %174 = call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef 0)
+  %174 = call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef 0)
   %175 = load i32, ptr %55, align 4
   store i32 %175, ptr %54, align 8
   br label %176
@@ -1809,27 +1809,27 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
   store i64 %279, ptr %64, align 8
   %280 = getelementptr inbounds i8, ptr %.0132213, i64 24
   store i8 0, ptr %280, align 8
-  %281 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %11, i8 noundef zeroext 0)
+  %281 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0132213, ptr noundef %11, i8 noundef zeroext 0)
   %.not161 = icmp eq i32 %281, 0
   br i1 %.not161, label %282, label %.loopexit
 
 282:                                              ; preds = %253
-  %283 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %8, i8 noundef zeroext 0)
+  %283 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0132213, ptr noundef %8, i8 noundef zeroext 0)
   %.not162 = icmp eq i32 %283, 0
   br i1 %.not162, label %284, label %.loopexit
 
 284:                                              ; preds = %282
-  %285 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132213, ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %9)
+  %285 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef %.0132213, ptr noundef %7, ptr noundef %6, ptr noundef %9)
   %.not163 = icmp eq i32 %285, 0
   br i1 %.not163, label %286, label %.loopexit
 
 286:                                              ; preds = %284
-  %287 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %.0132213, ptr noundef nonnull %8, i8 noundef zeroext 0)
+  %287 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %.0132213, ptr noundef %8, i8 noundef zeroext 0)
   %.not164 = icmp eq i32 %287, 0
   br i1 %.not164, label %290, label %.loopexit
 
 288:                                              ; preds = %238, %213
-  %289 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %.0132213, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %289 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef %.0132213, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %.not160 = icmp eq i32 %289, 0
   br i1 %.not160, label %290, label %.loopexit
 
@@ -1856,7 +1856,7 @@ ft_cubic_is_small_enough.exit._crit_edge:         ; preds = %130, %ft_cubic_is_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroke_border_cubicto(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroke_border_cubicto(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2006,7 +2006,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   %9 = load i64, ptr %0, align 8
-  %10 = tail call fastcc i32 @ft_stroker_cap(ptr noundef nonnull %0, i64 noundef %9)
+  %10 = tail call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %9)
   %.not44 = icmp eq i32 %10, 0
   br i1 %.not44, label %11, label %210
 
@@ -2149,7 +2149,7 @@ ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
   %80 = getelementptr inbounds i8, ptr %0, i64 48
   %81 = load i64, ptr %80, align 8
   %82 = add nsw i64 %81, 11796480
-  %83 = call fastcc i32 @ft_stroker_cap(ptr noundef nonnull %0, i64 noundef %82)
+  %83 = call fastcc i32 @ft_stroker_cap(ptr noundef %0, i64 noundef %82)
   %.not46 = icmp eq i32 %83, 0
   br i1 %.not46, label %84, label %210
 
@@ -2233,7 +2233,7 @@ ft_stroke_border_close.exit:                      ; preds = %89, %90
   store i64 %132, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %0, i64 72
   %135 = load i64, ptr %134, align 8
-  %136 = tail call fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull %0, i64 noundef %135)
+  %136 = tail call fastcc i32 @ft_stroker_process_corner(ptr noundef %0, i64 noundef %135)
   %.not43 = icmp eq i32 %136, 0
   br i1 %.not43, label %137, label %210
 
@@ -2385,7 +2385,7 @@ ft_stroke_border_close.exit54:                    ; preds = %173, %.loopexit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 84
@@ -2398,7 +2398,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef %0, i64 noundef
   %9 = add nsw i64 %1, 11796480
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %9, ptr %10, align 8
-  %11 = tail call fastcc i32 @ft_stroker_arcto(ptr noundef nonnull %0, i32 noundef 0)
+  %11 = tail call fastcc i32 @ft_stroker_arcto(ptr noundef %0, i32 noundef 0)
   br label %42
 
 12:                                               ; preds = %2
@@ -2437,7 +2437,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef %0, i64 noundef
   store i64 %33, ptr %4, align 8
   %34 = add nsw i64 %storemerge, %18
   store i64 %34, ptr %19, align 8
-  %35 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %15, ptr noundef nonnull %4, i8 noundef zeroext 0)
+  %35 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %15, ptr noundef %4, i8 noundef zeroext 0)
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %36, label %42
 
@@ -2450,7 +2450,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr nocapture noundef %0, i64 noundef
   %factor24 = shl i64 %39, 1
   %40 = sub i64 %factor24, %34
   store i64 %40, ptr %19, align 8
-  %41 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull %15, ptr noundef nonnull %4, i8 noundef zeroext 0)
+  %41 = call fastcc i32 @ft_stroke_border_lineto(ptr noundef %15, ptr noundef %4, i8 noundef zeroext 0)
   br label %42
 
 42:                                               ; preds = %8, %36, %32
@@ -3616,7 +3616,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @FT_Vector_Unit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
@@ -3632,7 +3632,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef %0, i32 nound
   %.neg16 = mul nuw nsw i64 %9, 23592960
   %15 = add nsw i64 %.neg16, -11796480
   %.0 = select i1 %14, i64 %15, i64 %13
-  %.neg = mul nsw i64 %9, -11796480
+  %.neg = mul nuw nsw i64 %9, -11796480
   %16 = getelementptr inbounds i8, ptr %0, i64 112
   %17 = getelementptr inbounds %struct.FT_StrokeBorderRec_, ptr %16, i64 %9
   %18 = load i64, ptr %0, align 8
@@ -3728,7 +3728,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr nocapture noundef %0, i32 nound
   store i64 %84, ptr %5, align 8
   %85 = add nsw i64 %79, %83
   store i64 %85, ptr %58, align 8
-  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef nonnull %17, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %86 = call fastcc i32 @ft_stroke_border_cubicto(ptr noundef %17, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %.not35.i = icmp eq i32 %86, 0
   br i1 %.not35.i, label %87, label %ft_stroke_border_arcto.exit
 

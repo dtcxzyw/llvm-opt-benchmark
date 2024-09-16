@@ -1566,7 +1566,7 @@ declare void @X509_free(ptr noundef) #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef %leaf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %roots, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %intermediates, i64 noundef %flags) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL6VerifyP7x509_stRKSt6vectorIS0_SaIS0_EES5_m(ptr noundef %leaf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %roots, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %intermediates, i64 noundef range(i64 0, 1048577) %flags) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %roots_stack = alloca %"class.std::unique_ptr.11", align 8
   %intermediates_stack = alloca %"class.std::unique_ptr.11", align 8

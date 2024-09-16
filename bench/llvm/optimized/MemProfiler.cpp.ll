@@ -951,7 +951,7 @@ _ZN12_GLOBAL__N_111MemProfiler19initializeCallbacksERN4llvm6ModuleE.exit.i: ; pr
   %200 = getelementptr inbounds i8, ptr %.sroa.056.077.i, i64 -24
   %201 = select i1 %199, ptr null, ptr %200
   %.val.i = load ptr, ptr %191, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr %.val.i, ptr noundef nonnull %201)
+  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %35, ptr %.val.i, ptr noundef nonnull %201)
   %.val47.i = load i8, ptr %192, align 8
   %202 = trunc i8 %.val47.i to i1
   br i1 %202, label %.critedge.i, label %203
@@ -1195,7 +1195,7 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_111MemProfiler13instrumentMopEPN4llvm11InstructionERKNS1_10DataLayoutERNS_23InterestingMemoryAccessE.exit.i, label %344
 
 344:                                              ; preds = %343, %340, %336
-  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr %272, ptr noundef %337)
+  call fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias writable align 8 %36, ptr %272, ptr noundef %337)
   %.val48.i = load i8, ptr %281, align 8
   %345 = trunc i8 %.val48.i to i1
   br i1 %345, label %346, label %404
@@ -1230,8 +1230,8 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %360 = load i32, ptr %359, align 8
   %361 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %261, i64 noundef 0, i1 noundef zeroext false) #19
-  %.not13.i.i.i = icmp eq i32 %360, 0
-  br i1 %.not13.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i, label %.lr.ph.i.i.i
+  %.not12.i.i.i = icmp eq i32 %360, 0
+  br i1 %.not12.i.i.i, label %_ZN12_GLOBAL__N_111MemProfiler27instrumentMaskedLoadOrStoreERKN4llvm10DataLayoutEPNS1_5ValueEPNS1_11InstructionES6_PNS1_4TypeEb.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %357
   %362 = getelementptr inbounds i8, ptr %337, i64 24
@@ -1254,8 +1254,8 @@ _ZN12_GLOBAL__N_111MemProfiler34insertDynamicShadowAtFunctionEntryERN4llvm8Funct
   %372 = getelementptr inbounds %"class.llvm::Use", ptr %371, i64 %indvars.iv.i.i.i
   %373 = load ptr, ptr %372, align 8
   %374 = load i8, ptr %373, align 8
-  %.not10.i.i.i = icmp eq i8 %374, 17
-  br i1 %.not10.i.i.i, label %375, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i
+  %.not9.i.i.i = icmp eq i8 %374, 17
+  br i1 %.not9.i.i.i, label %375, label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit.i.i.i
 
 375:                                              ; preds = %366
   %376 = getelementptr inbounds nuw i8, ptr %373, i64 24
@@ -2448,7 +2448,7 @@ _ZN4llvm5ErrorD2Ev.exit.i.i.i:                    ; preds = %274, %_ZN4llvm5Erro
   %280 = load i64, ptr %.sroa.015.027.i.i.i, align 8, !noalias !69
   store i64 %280, ptr %47, align 8, !noalias !69
   store ptr null, ptr %.sroa.015.027.i.i.i, align 8, !noalias !69
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull %47, ptr noundef nonnull readonly align 8 dereferenceable(32) %53), !noalias !69
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef %47, ptr noundef nonnull readonly align 8 dereferenceable(32) %53), !noalias !69
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %44, ptr noundef nonnull %45, ptr noundef nonnull %46), !noalias !69
   %281 = load ptr, ptr %44, align 8, !noalias !69
   store ptr null, ptr %44, align 8, !noalias !69
@@ -2495,7 +2495,7 @@ _ZN4llvm5ErrorD2Ev.exit8.i.i.i:                   ; preds = %294, %_ZNSt10unique
 
 299:                                              ; preds = %269
   store i64 %267, ptr %48, align 8, !noalias !69
-  call fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull %48, ptr noundef nonnull readonly align 8 dereferenceable(32) %53)
+  call fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef %48, ptr noundef nonnull readonly align 8 dereferenceable(32) %53)
   %300 = load ptr, ptr %48, align 8, !noalias !69
   %.not.i9.i.i.i = icmp eq ptr %300, null
   br i1 %.not.i9.i.i.i, label %.thread340.i, label %.thread340.sink.split.i
@@ -4622,7 +4622,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr readnone %.128.val, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_111MemProfiler25isInterestingMemoryAccessEPN4llvm11InstructionE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr readnone %.128.val, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.312, align 1
   %4 = alloca %"class.llvm::Triple", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -8534,7 +8534,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZL11readMemprofRNS_6ModuleERNS_8FunctionEPNS_22IndexedInstrProfReaderERKNS_17TargetLibraryInfoERSt3mapIm14AllocMatchInfoSt4lessImESaISt4pairIKmSB_EEEE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISN_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8

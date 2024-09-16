@@ -646,7 +646,7 @@ define dso_local i32 @v9fs_vfs_unlink(ptr noundef %0, ptr noundef %1) #4 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 513) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 872
@@ -662,7 +662,7 @@ define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noun
 14:                                               ; preds = %3
   %15 = ptrtoint ptr %12 to i64
   %16 = trunc i64 %15 to i32
-  br label %100
+  br label %99
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %7, align 8
@@ -756,7 +756,7 @@ define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noun
 60:                                               ; preds = %.thread10
   %61 = ptrtoint ptr %58 to i64
   %62 = trunc i64 %61 to i32
-  br label %100
+  br label %99
 
 63:                                               ; preds = %.thread10
   %64 = tail call i32 @p9_client_remove(ptr noundef %58) #14
@@ -765,62 +765,61 @@ define internal fastcc i32 @v9fs_remove(ptr noundef %0, ptr noundef %1, i32 noun
 65:                                               ; preds = %63, %.thread
   %66 = phi i32 [ %64, %63 ], [ %27, %.thread ]
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %100
+  br i1 %67, label %68, label %99
 
 68:                                               ; preds = %65
-  %69 = and i32 %2, 512
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %79, label %71
+  %69 = icmp ult i32 %2, 512
+  br i1 %69, label %78, label %70
 
-71:                                               ; preds = %68
+70:                                               ; preds = %68
   tail call void @clear_nlink(ptr noundef %9) #14
-  %72 = load i16, ptr %0, align 8
-  %73 = and i16 %72, -4096
-  %74 = icmp eq i16 %73, 16384
-  br i1 %74, label %75, label %87
+  %71 = load i16, ptr %0, align 8
+  %72 = and i16 %71, -4096
+  %73 = icmp eq i16 %72, 16384
+  br i1 %73, label %74, label %86
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 72
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp ugt i32 %77, 2
-  br i1 %78, label %87, label %89
+74:                                               ; preds = %70
+  %75 = getelementptr inbounds i8, ptr %0, i64 72
+  %76 = load i32, ptr %75, align 8
+  %77 = icmp ugt i32 %76, 2
+  br i1 %77, label %86, label %88
 
-79:                                               ; preds = %68
-  %80 = load i16, ptr %9, align 8
-  %81 = and i16 %80, -4096
-  %82 = icmp eq i16 %81, 16384
-  br i1 %82, label %83, label %87
+78:                                               ; preds = %68
+  %79 = load i16, ptr %9, align 8
+  %80 = and i16 %79, -4096
+  %81 = icmp eq i16 %80, 16384
+  br i1 %81, label %82, label %86
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %9, i64 72
-  %85 = load i32, ptr %84, align 8
-  %86 = icmp ugt i32 %85, 2
-  br i1 %86, label %87, label %89
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %9, i64 72
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp ugt i32 %84, 2
+  br i1 %85, label %86, label %88
 
-87:                                               ; preds = %83, %79, %75, %71
-  %88 = phi ptr [ %0, %75 ], [ %0, %71 ], [ %9, %83 ], [ %9, %79 ]
-  tail call void @drop_nlink(ptr noundef %88) #14
-  br label %89
+86:                                               ; preds = %82, %78, %74, %70
+  %87 = phi ptr [ %0, %74 ], [ %0, %70 ], [ %9, %82 ], [ %9, %78 ]
+  tail call void @drop_nlink(ptr noundef %87) #14
+  br label %88
 
-89:                                               ; preds = %87, %83, %75
-  %90 = getelementptr inbounds i8, ptr %9, i64 648
-  %91 = load i32, ptr %90, align 8
-  %92 = or i32 %91, 1
-  store i32 %92, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 648
-  %94 = load i32, ptr %93, align 8
-  %95 = or i32 %94, 1
-  store i32 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %1, i64 104
-  %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
-  %99 = load ptr, ptr %98, align 16
-  tail call void %99(ptr noundef %1) #14
-  br label %100
+88:                                               ; preds = %86, %82, %74
+  %89 = getelementptr inbounds i8, ptr %9, i64 648
+  %90 = load i32, ptr %89, align 8
+  %91 = or i32 %90, 1
+  store i32 %91, ptr %89, align 8
+  %92 = getelementptr inbounds i8, ptr %0, i64 648
+  %93 = load i32, ptr %92, align 8
+  %94 = or i32 %93, 1
+  store i32 %94, ptr %92, align 8
+  %95 = getelementptr inbounds i8, ptr %1, i64 104
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %96, i64 48
+  %98 = load ptr, ptr %97, align 16
+  tail call void %98(ptr noundef %1) #14
+  br label %99
 
-100:                                              ; preds = %89, %65, %60, %14
-  %101 = phi i32 [ %16, %14 ], [ %62, %60 ], [ 0, %89 ], [ %66, %65 ]
-  ret i32 %101
+99:                                               ; preds = %88, %65, %60, %14
+  %100 = phi i32 [ %16, %14 ], [ %62, %60 ], [ 0, %88 ], [ %66, %65 ]
+  ret i32 %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1049,7 +1049,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = alloca [2048 x i32], align 16
   %7 = alloca [2048 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %6, i8 0, i64 8192, i1 false)
@@ -1062,27 +1062,27 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %13 = add i32 %2, 3
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %13) #6
   %15 = zext i8 %8 to i32
-  %.not65 = icmp eq i8 %8, 0
-  br i1 %.not65, label %convert_oid_to_str.exit.thread, label %.lr.ph
+  %.not63 = icmp eq i8 %8, 0
+  br i1 %.not63, label %convert_oid_to_str.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %16 = and i8 %3, 16
   %.not55 = icmp eq i8 %16, 0
   %17 = add i32 %2, 4
-  %wide.trip.count71 = zext i8 %8 to i64
+  %wide.trip.count69 = zext i8 %8 to i64
   br i1 %.not55, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %indvars.iv68.tr = trunc i64 %indvars.iv68 to i32
-  %18 = shl i32 %indvars.iv68.tr, 2
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %indvars.iv66.tr = trunc i64 %indvars.iv66 to i32
+  %18 = shl i32 %indvars.iv66.tr, 2
   %19 = add i32 %17, %18
   %20 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %19) #6
-  %21 = getelementptr [2048 x i32], ptr %6, i64 0, i64 %indvars.iv68
+  %21 = getelementptr [2048 x i32], ptr %6, i64 0, i64 %indvars.iv66
   store i32 %20, ptr %21, align 4
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
+  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1093,7 +1093,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %25 = getelementptr [2048 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count71
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
@@ -1104,16 +1104,16 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %27 = sext i8 %10 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 2048, ptr noundef nonnull @.str.178, i32 noundef %27) #6
   %29 = icmp slt i32 %28, 2048
-  br i1 %29, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread60
+  br i1 %29, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread58
 
-.lr.ph.preheader.i:                               ; preds = %._crit_edge, %26
-  %.0.i57 = phi i32 [ %28, %26 ], [ 0, %._crit_edge ]
+.lr.ph.preheader.i:                               ; preds = %26, %._crit_edge
+  %.036.i = phi i32 [ %28, %26 ], [ 0, %._crit_edge ]
   %30 = zext i8 %8 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.133.i = phi i32 [ %.0.i57, %.lr.ph.preheader.i ], [ %38, %.lr.ph.i ]
+  %.133.i = phi i32 [ %.036.i, %.lr.ph.preheader.i ], [ %38, %.lr.ph.i ]
   %31 = sext i32 %.133.i to i64
   %32 = getelementptr i8, ptr %7, i64 %31
   %33 = sub i32 2048, %.133.i
@@ -1130,17 +1130,17 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %convert_oid_to_str.exit.thread, label %convert_oid_to_str.exit.thread60
+  br i1 %.not, label %convert_oid_to_str.exit.thread, label %convert_oid_to_str.exit.thread58
 
 convert_oid_to_str.exit.thread:                   ; preds = %5, %convert_oid_to_str.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.171, i64 7, i1 false)
-  br label %convert_oid_to_str.exit.thread60
+  br label %convert_oid_to_str.exit.thread58
 
-convert_oid_to_str.exit.thread60:                 ; preds = %26, %convert_oid_to_str.exit.thread, %convert_oid_to_str.exit
+convert_oid_to_str.exit.thread58:                 ; preds = %26, %convert_oid_to_str.exit.thread, %convert_oid_to_str.exit
   %.not53 = icmp eq ptr %1, null
   br i1 %.not53, label %62, label %42
 
-42:                                               ; preds = %convert_oid_to_str.exit.thread60
+42:                                               ; preds = %convert_oid_to_str.exit.thread58
   %.not54 = icmp eq i8 %12, 0
   %43 = select i1 %.not54, ptr @.str.174, ptr @.str.173
   switch i32 %4, label %45 [
@@ -1174,8 +1174,8 @@ convert_oid_to_str.exit.thread60:                 ; preds = %26, %convert_oid_to
   %61 = call ptr @proto_tree_add_string(ptr noundef %50, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef %47, ptr noundef nonnull %7) #6
   br label %62
 
-62:                                               ; preds = %convert_oid_to_str.exit.thread60, %46
-  %.050 = phi i32 [ %48, %46 ], [ %2, %convert_oid_to_str.exit.thread60 ]
+62:                                               ; preds = %convert_oid_to_str.exit.thread58, %46
+  %.050 = phi i32 [ %48, %46 ], [ %2, %convert_oid_to_str.exit.thread58 ]
   ret i32 %.050
 }
 

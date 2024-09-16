@@ -19633,7 +19633,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @freeRedisConfig(ptr noundef nonnull %call)
+  tail call fastcc void @freeRedisConfig(ptr noundef %call)
   tail call void @exit(i32 noundef 1) #25
   unreachable
 
@@ -19729,7 +19729,7 @@ if.else:                                          ; preds = %if.then38
 if.end46:                                         ; preds = %if.then40, %if.else
   call void @freeReplyObject(ptr noundef nonnull %0) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
-  call fastcc void @freeRedisConfig(ptr noundef nonnull %call)
+  call fastcc void @freeRedisConfig(ptr noundef %call)
   call void @exit(i32 noundef 1) #25
   unreachable
 
@@ -19857,7 +19857,7 @@ for.end:                                          ; preds = %createBenchmarkThre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @createClient(ptr noundef %cmd, i64 noundef %len, ptr noundef readonly %from, i32 noundef %thread_id) unnamed_addr #0 {
+define internal fastcc noundef ptr @createClient(ptr noundef %cmd, i64 noundef range(i64 -2147483648, 2147483648) %len, ptr noundef readonly %from, i32 noundef %thread_id) unnamed_addr #0 {
 entry:
   %err37 = alloca ptr, align 8
   %buf = alloca ptr, align 8
@@ -21067,7 +21067,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 declare void @hi_sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeRedisConfig(ptr noundef %cfg) unnamed_addr #0 {
+define internal fastcc void @freeRedisConfig(ptr noundef nonnull %cfg) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %cfg, align 8
   %tobool.not = icmp eq ptr %0, null

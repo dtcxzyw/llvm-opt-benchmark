@@ -7181,7 +7181,7 @@ find_parser_by_type.exit:
 ; Function Attrs: nounwind uwtable
 define internal i32 @_v41_parse_TIMESTAMP(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca i64, align 8
-  %7 = call fastcc i32 @_parse_timestamp(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %7 = call fastcc i32 @_parse_timestamp(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %14
 
@@ -7216,7 +7216,7 @@ find_parser_by_type.exit:
 ; Function Attrs: nounwind uwtable
 define internal i32 @_v41_parse_TIMESTAMP_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 {
   %6 = alloca i64, align 8
-  %7 = call fastcc i32 @_parse_timestamp(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %7 = call fastcc i32 @_parse_timestamp(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -13259,7 +13259,7 @@ declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @unfmt_job_id_string(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_parse_timestamp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc i32 @_parse_timestamp(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #3 {
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %8

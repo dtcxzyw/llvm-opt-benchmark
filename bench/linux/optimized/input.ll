@@ -521,7 +521,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare dso_local void @add_input_randomness(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef range(i32 0, 10) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
   %6 = and i32 %1, 2
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %14, label %8
@@ -540,7 +540,7 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef %1,
   %15 = getelementptr inbounds i8, ptr %0, i64 1312
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %70, label %18
+  br i1 %17, label %69, label %18
 
 18:                                               ; preds = %14
   %19 = and i32 %1, 1
@@ -589,48 +589,47 @@ define internal fastcc void @input_event_dispose(ptr noundef %0, i32 noundef %1,
   br label %47
 
 47:                                               ; preds = %36, %18
-  %48 = and i32 %1, 8
-  %49 = icmp eq i32 %48, 0
-  %50 = getelementptr inbounds i8, ptr %0, i64 1304
-  %51 = load i32, ptr %50, align 8
-  br i1 %49, label %58, label %52
+  %48 = icmp ult i32 %1, 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 1304
+  %50 = load i32, ptr %49, align 8
+  br i1 %48, label %57, label %51
 
-52:                                               ; preds = %47
-  %53 = icmp ugt i32 %51, 1
-  br i1 %53, label %54, label %56
+51:                                               ; preds = %47
+  %52 = icmp ugt i32 %50, 1
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %52
-  %55 = load ptr, ptr %15, align 8
-  tail call fastcc void @input_pass_values(ptr noundef %0, ptr noundef %55, i32 noundef %51)
-  br label %56
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %15, align 8
+  tail call fastcc void @input_pass_values(ptr noundef %0, ptr noundef %54, i32 noundef %50)
+  br label %55
 
-56:                                               ; preds = %54, %52
-  store i32 0, ptr %50, align 8
-  %57 = getelementptr i8, ptr %0, i64 1336
-  store i64 0, ptr %57, align 8
-  br label %70
+55:                                               ; preds = %53, %51
+  store i32 0, ptr %49, align 8
+  %56 = getelementptr i8, ptr %0, i64 1336
+  store i64 0, ptr %56, align 8
+  br label %69
 
-58:                                               ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %0, i64 1308
-  %60 = load i32, ptr %59, align 4
-  %61 = add i32 %60, -2
-  %62 = icmp ult i32 %51, %61
-  br i1 %62, label %70, label %63
+57:                                               ; preds = %47
+  %58 = getelementptr inbounds i8, ptr %0, i64 1308
+  %59 = load i32, ptr %58, align 4
+  %60 = add i32 %59, -2
+  %61 = icmp ult i32 %50, %60
+  br i1 %61, label %69, label %62
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %15, align 8
-  %65 = add i32 %51, 1
-  store i32 %65, ptr %50, align 8
-  %66 = zext i32 %51 to i64
-  %67 = getelementptr %struct.input_value, ptr %64, i64 %66
-  store i64 4294967296, ptr %67, align 4
-  %68 = load ptr, ptr %15, align 8
-  %69 = load i32, ptr %50, align 8
-  tail call fastcc void @input_pass_values(ptr noundef %0, ptr noundef %68, i32 noundef %69)
-  store i32 0, ptr %50, align 8
-  br label %70
+62:                                               ; preds = %57
+  %63 = load ptr, ptr %15, align 8
+  %64 = add i32 %50, 1
+  store i32 %64, ptr %49, align 8
+  %65 = zext i32 %50 to i64
+  %66 = getelementptr %struct.input_value, ptr %63, i64 %65
+  store i64 4294967296, ptr %66, align 4
+  %67 = load ptr, ptr %15, align 8
+  %68 = load i32, ptr %49, align 8
+  tail call fastcc void @input_pass_values(ptr noundef %0, ptr noundef %67, i32 noundef %68)
+  store i32 0, ptr %49, align 8
+  br label %69
 
-70:                                               ; preds = %63, %58, %56, %14
+69:                                               ; preds = %62, %57, %55, %14
   ret void
 }
 
@@ -3728,7 +3727,7 @@ define internal i32 @input_init() #9 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 0, 6) i32 @input_handle_abs_event(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 64) %1, ptr nocapture noundef %2) unnamed_addr #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i32 %1, 47
@@ -4482,7 +4481,7 @@ define internal range(i64 -2147483648, 4097) i64 @input_dev_show_modalias(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc i32 @input_print_modalias(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #14 align 16 {
+define internal fastcc i32 @input_print_modalias(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #14 align 16 {
   %5 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -4891,7 +4890,7 @@ define internal range(i64 -2147483648, 4097) i64 @input_dev_show_properties(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 7, 768) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = add nuw nsw i32 %3, 63
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #23, !srcloc !58
   %8 = inttoptr i64 %7 to ptr
@@ -4979,40 +4978,35 @@ define internal fastcc i32 @input_print_bitmap(ptr nocapture noundef writeonly %
   %65 = zext nneg i32 %64 to i64
   %66 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %62, i64 noundef %65, ptr noundef nonnull @.str.27) #19
   %67 = add i32 %66, %56
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %69, label %.outer, !llvm.loop !59
+  br label %.outer, !llvm.loop !59
 
 .thread:                                          ; preds = %54
   %68 = icmp ugt i64 %14, 1
   br i1 %68, label %13, label %.thread8, !llvm.loop !59
 
-69:                                               ; preds = %60
-  %70 = icmp eq i32 %67, 0
-  br i1 %70, label %.thread8, label %.thread3
-
-.thread8:                                         ; preds = %.thread, %69
-  %71 = sext i32 %1 to i64
-  %72 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %71, ptr noundef nonnull @.str.28, i32 noundef 0) #19
+.thread8:                                         ; preds = %.thread
+  %69 = sext i32 %1 to i64
+  %70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %69, ptr noundef nonnull @.str.28, i32 noundef 0) #19
   br label %.thread3
 
-.thread3:                                         ; preds = %58, %.thread8, %69
-  %73 = phi i32 [ %72, %.thread8 ], [ %67, %69 ], [ %56, %58 ]
-  %74 = icmp eq i32 %4, 0
-  br i1 %74, label %83, label %75
+.thread3:                                         ; preds = %58, %.thread8
+  %71 = phi i32 [ %70, %.thread8 ], [ %56, %58 ]
+  %72 = icmp eq i32 %4, 0
+  br i1 %72, label %81, label %73
 
-75:                                               ; preds = %.thread3
-  %76 = sext i32 %73 to i64
-  %77 = getelementptr i8, ptr %0, i64 %76
-  %78 = sub i32 %1, %73
-  %79 = tail call i32 @llvm.smax.i32(i32 %78, i32 0)
-  %80 = zext nneg i32 %79 to i64
-  %81 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %77, i64 noundef %80, ptr noundef nonnull @.str.23) #19
-  %82 = add i32 %81, %73
-  br label %83
+73:                                               ; preds = %.thread3
+  %74 = sext i32 %71 to i64
+  %75 = getelementptr i8, ptr %0, i64 %74
+  %76 = sub i32 %1, %71
+  %77 = tail call i32 @llvm.smax.i32(i32 %76, i32 0)
+  %78 = zext nneg i32 %77 to i64
+  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %75, i64 noundef %78, ptr noundef nonnull @.str.23) #19
+  %80 = add i32 %79, %71
+  br label %81
 
-83:                                               ; preds = %75, %.thread3
-  %84 = phi i32 [ %82, %75 ], [ %73, %.thread3 ]
-  ret i32 %84
+81:                                               ; preds = %73, %.thread3
+  %82 = phi i32 [ %80, %73 ], [ %71, %.thread3 ]
+  ret i32 %82
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -5316,7 +5310,7 @@ define internal range(i64 -2147483648, 4097) i64 @input_dev_show_cap_sw(ptr noca
 declare dso_local i32 @add_uevent_var(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @input_add_uevent_bm_var(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @input_add_uevent_bm_var(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 7, 768) %3) unnamed_addr #0 align 16 {
   %5 = tail call i32 (ptr, ptr, ...) @add_uevent_var(ptr noundef %0, ptr noundef nonnull @.str.64, ptr noundef %1) #19
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %23
@@ -5831,7 +5825,7 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local void @seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @input_seq_print_bitmap(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 7, 768) %3) unnamed_addr #0 align 16 {
   %5 = alloca [18 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %5, i8 0, i64 18, i1 false), !annotation !19

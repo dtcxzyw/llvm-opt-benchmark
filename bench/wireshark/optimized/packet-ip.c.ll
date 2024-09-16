@@ -2649,7 +2649,7 @@ define internal i32 @dissect_ipopt_security(ptr noundef %0, ptr noundef %1, ptr 
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_security, align 4
   %8 = load i32, ptr @ett_ip_option_sec, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = icmp eq i32 %6, 11
   br i1 %10, label %11, label %26
 
@@ -2739,7 +2739,7 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_timestamp, align 4
   %8 = load i32, ptr @ett_ip_option_timestamp, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #8
   %11 = zext i8 %10 to i32
   %12 = load i32, ptr @hf_ip_opt_ptr, align 4
@@ -2834,7 +2834,7 @@ define internal i32 @dissect_ipopt_ext_security(ptr noundef %0, ptr noundef %1, 
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_ext_security, align 4
   %8 = load i32, ptr @ett_ip_option_ext_security, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = load i32, ptr @hf_ip_opt_ext_sec_add_sec_info_format_code, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #8
   %12 = add i32 %6, -3
@@ -2857,7 +2857,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_cipso, align 4
   %8 = load i32, ptr @ett_ip_option_cipso, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = load i32, ptr @hf_ip_cipso_doi, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef 0) #8
   %12 = icmp sgt i32 %6, 6
@@ -3220,7 +3220,7 @@ define internal i32 @dissect_ipopt_record_route(ptr noundef %0, ptr noundef %1, 
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_record_route, align 4
   %8 = load i32, ptr @ett_ip_option_route, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #8
   %.fr = freeze i8 %10
   %11 = load i32, ptr @hf_ip_opt_ptr, align 4
@@ -3405,7 +3405,7 @@ define internal i32 @dissect_ipopt_sid(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = load i32, ptr @proto_ip_option_sid, align 4
   %7 = load i32, ptr @ett_ip_option_sid, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %8)
+  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %5, i32 noundef 4, i32 noundef %8)
   %10 = load ptr, ptr %5, align 8
   %11 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %10, ptr noundef nonnull @ei_ip_opt_deprecated) #8
   %12 = load i32, ptr @hf_ip_opt_sid, align 4
@@ -3428,7 +3428,7 @@ define internal i32 @dissect_ipopt_mtu_probe(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %7 = load i32, ptr @ett_ip_option_mtu, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %8)
+  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %5, i32 noundef 4, i32 noundef %8)
   %10 = load i32, ptr @hf_ip_opt_mtu, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -3443,7 +3443,7 @@ define internal i32 @dissect_ipopt_mtu_reply(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %7 = load i32, ptr @ett_ip_option_mtu, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %8)
+  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %5, i32 noundef 4, i32 noundef %8)
   %10 = load i32, ptr @hf_ip_opt_mtu, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %10, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #8
   %12 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
@@ -3457,7 +3457,7 @@ define internal i32 @dissect_ipopt_tr(ptr noundef %0, ptr noundef %1, ptr nounde
   %6 = load i32, ptr @proto_ip_option_traceroute, align 4
   %7 = load i32, ptr @ett_ip_option_tr, align 4
   %8 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %5, i32 noundef 12, i32 noundef %8)
+  %9 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %6, i32 noundef %7, ptr noundef %5, i32 noundef 12, i32 noundef %8)
   %10 = load ptr, ptr %5, align 8
   %11 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %10, ptr noundef nonnull @ei_ip_opt_deprecated) #8
   %12 = load i32, ptr @hf_ip_opt_id_number, align 4
@@ -3479,7 +3479,7 @@ define internal i32 @dissect_ipopt_ra(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = load i32, ptr @proto_ip_option_routeralert, align 4
   %8 = load i32, ptr @ett_ip_option_ra, align 4
   %9 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %10 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef 4, i32 noundef %9)
+  %10 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef 4, i32 noundef %9)
   %11 = load i32, ptr @hf_ip_opt_ra, align 4
   %12 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %11, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #8
   %13 = load ptr, ptr %5, align 8
@@ -3497,7 +3497,7 @@ define internal i32 @dissect_ipopt_sdb(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @proto_ip_option_sdb, align 4
   %8 = load i32, ptr @ett_ip_option_sdb, align 4
-  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %5, i32 noundef %6)
+  %9 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %7, i32 noundef %8, ptr noundef %5, i32 noundef %6)
   %10 = load ptr, ptr %5, align 8
   %11 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %10, ptr noundef nonnull @ei_ip_opt_deprecated) #8
   %12 = add i32 %6, -2
@@ -3539,7 +3539,7 @@ define internal i32 @dissect_ipopt_qs(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = load i32, ptr @proto_ip_option_qs, align 4
   %10 = load i32, ptr @ett_ip_option_qs, align 4
   %11 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %12 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %5, i32 noundef 8, i32 noundef %11)
+  %12 = call fastcc ptr @ip_fixed_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %9, i32 noundef %10, ptr noundef %5, i32 noundef 8, i32 noundef %11)
   %13 = load ptr, ptr %5, align 8
   %14 = zext nneg i8 %7 to i32
   %15 = tail call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @qs_func_vals, ptr noundef nonnull @.str.592) #8
@@ -3790,7 +3790,7 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #0
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc void @add_geoip_info_entry(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   store i32 %3, ptr %6, align 4
   %7 = call nonnull ptr @maxmind_db_lookup_ipv4(ptr noundef nonnull %6) #8
@@ -4268,7 +4268,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ip_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc ptr @ip_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef %6) unnamed_addr #1 {
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef %6, i32 noundef 0) #8
   store ptr %8, ptr %5, align 8
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %4) #8
@@ -4306,7 +4306,7 @@ define internal fastcc i32 @dissect_ipopt_route(ptr noundef %0, ptr noundef %1, 
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
   %7 = load i32, ptr @ett_ip_option_route, align 4
-  %8 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef %7, ptr noundef nonnull %5, i32 noundef %6)
+  %8 = call fastcc ptr @ip_var_option_header(ptr noundef %2, ptr noundef %1, ptr noundef %0, i32 noundef %3, i32 noundef %7, ptr noundef %5, i32 noundef %6)
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #8
   %.fr = freeze i8 %9
   %10 = load i32, ptr @hf_ip_opt_ptr, align 4
@@ -4570,7 +4570,7 @@ dissect_option_route.exit:                        ; preds = %80, %129, %125, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_option_route(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define internal fastcc void @dissect_option_route(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #1 {
   %8 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %3) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %9
@@ -4634,7 +4634,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ip_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc ptr @ip_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5, i32 noundef range(i32 4, 13) %6, i32 noundef %7) unnamed_addr #1 {
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef %7, i32 noundef 0) #8
   store ptr %9, ptr %5, align 8
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %4) #8

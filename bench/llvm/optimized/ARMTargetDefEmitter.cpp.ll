@@ -501,7 +501,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit214:              ; preds = %136, %138
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit217
 
 _ZN4llvm11raw_ostreamlsEPKc.exit217:              ; preds = %149, %151
-  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %0, ptr nonnull @.str.7, i64 13)
+  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %16, ptr %0, ptr nonnull @.str.7, i64 13)
   %155 = load ptr, ptr %16, align 8
   %156 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %157 = load i32, ptr %156, align 8
@@ -722,7 +722,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit235:              ; preds = %234, %236
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit238
 
 _ZN4llvm11raw_ostreamlsEPKc.exit238:              ; preds = %247, %249
-  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr %0, ptr nonnull @.str.13, i64 7)
+  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %17, ptr %0, ptr nonnull @.str.13, i64 7)
   %253 = load ptr, ptr %17, align 8
   %254 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %255 = load i32, ptr %254, align 8
@@ -2722,7 +2722,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %1259, %1260
 1274:                                             ; preds = %1266, %_ZNK4llvm9StringRef3strB5cxx11Ev.exit
   %1275 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
   %1276 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %31) #18
-  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %36, i32 noundef %1254, i32 noundef %1256, ptr %1275, i64 %1276)
+  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %36, i32 noundef %1254, i32 noundef %1256, ptr %1275, i64 %1276)
   %1277 = load ptr, ptr %74, align 8
   %1278 = load ptr, ptr %76, align 8
   %1279 = ptrtoint ptr %1277 to i64
@@ -4263,7 +4263,7 @@ _ZNK4llvm6Record12isSubClassOfENS_9StringRefE.exit703: ; preds = %1973, %1982, %
   %1994 = extractvalue { ptr, i64 } %1992, 1
   %1995 = trunc i64 %1990 to i32
   %1996 = trunc i64 %1991 to i32
-  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %68, i32 noundef %1995, i32 noundef %1996, ptr %1993, i64 %1994)
+  call fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %68, i32 noundef %1995, i32 noundef %1996, ptr %1993, i64 %1994)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -5028,7 +5028,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.0.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
@@ -5155,7 +5155,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_3clB5cxx11EiiNS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -300,7 +300,7 @@ _ZN2cv7quality13quality_utils10expand_matINS_4UMatEEET_RKNS_11_InputArrayEi.exit
 
 22:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  invoke fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %8)
+  invoke fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) %8)
           to label %23 unwind label %30
 
 23:                                               ; preds = %22
@@ -347,7 +347,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit:                   ; preds = %26, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::_InputArray", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -500,7 +500,7 @@ common.resume:                                    ; preds = %20, %22, %12
 _ZN2cv7quality13quality_utils10expand_matINS_4UMatEEET_RKNS_11_InputArrayEi.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %14 = getelementptr inbounds i8, ptr %1, i64 88
-  invoke fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %5)
+  invoke fastcc void @_ZN12_GLOBAL__N_17computeERKN2cv4UMatES3_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %14, ptr noundef nonnull align 8 dereferenceable(80) %5)
           to label %15 unwind label %20
 
 15:                                               ; preds = %_ZN2cv7quality13quality_utils10expand_matINS_4UMatEEET_RKNS_11_InputArrayEi.exit

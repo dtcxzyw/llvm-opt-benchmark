@@ -2289,51 +2289,50 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @add_dect_nwk_dect_charset_tree_item(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 86) #5
   %10 = load ptr, ptr %7, align 8
   %11 = zext nneg i32 %5 to i64
   %12 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %10, i64 noundef %11) #5
-  %13 = icmp sgt i32 %5, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %14 = load ptr, ptr @g_utf8_skip, align 8
-  br label %15
+  %13 = load ptr, ptr @g_utf8_skip, align 8
+  br label %14
 
-15:                                               ; preds = %.lr.ph, %21
-  %.028 = phi ptr [ %9, %.lr.ph ], [ %27, %21 ]
-  %.02427 = phi i8 [ 0, %.lr.ph ], [ %28, %21 ]
-  %16 = tail call i32 @g_utf8_get_char(ptr noundef %.028) #6
-  %17 = icmp ult i32 %16, 32
-  br i1 %17, label %18, label %20
+14:                                               ; preds = %.lr.ph, %20
+  %indvars.iv = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
+  %.028 = phi ptr [ %9, %.lr.ph ], [ %26, %20 ]
+  %15 = tail call i32 @g_utf8_get_char(ptr noundef %.028) #6
+  %16 = icmp ult i32 %15, 32
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %15
-  %19 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull @dect_charset_control_codes_val, ptr noundef nonnull @.str.835) #5
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %12, ptr noundef nonnull @.str.834, ptr noundef %19) #5
-  br label %21
+17:                                               ; preds = %14
+  %18 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull @dect_charset_control_codes_val, ptr noundef nonnull @.str.835) #5
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %12, ptr noundef nonnull @.str.834, ptr noundef %18) #5
+  br label %20
 
-20:                                               ; preds = %15
-  tail call void @wmem_strbuf_append_unichar(ptr noundef %12, i32 noundef %16) #5
-  br label %21
+19:                                               ; preds = %14
+  tail call void @wmem_strbuf_append_unichar(ptr noundef %12, i32 noundef %15) #5
+  br label %20
 
-21:                                               ; preds = %20, %18
-  %22 = load i8, ptr %.028, align 1
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr i8, ptr %14, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = sext i8 %25 to i64
-  %27 = getelementptr i8, ptr %.028, i64 %26
-  %28 = add i8 %.02427, 1
-  %29 = zext i8 %28 to i32
-  %30 = icmp ugt i32 %5, %29
-  br i1 %30, label %15, label %._crit_edge, !llvm.loop !17
+20:                                               ; preds = %19, %17
+  %21 = load i8, ptr %.028, align 1
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr i8, ptr %13, i64 %22
+  %24 = load i8, ptr %23, align 1
+  %25 = sext i8 %24 to i64
+  %26 = getelementptr i8, ptr %.028, i64 %25
+  %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
+  %exitcond.not = icmp eq i32 %indvars.iv.next, %5
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %21, %6
-  %31 = tail call ptr @wmem_strbuf_get_str(ptr noundef %12) #5
-  %32 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %9, ptr noundef nonnull @.str.831, ptr noundef %31) #5
+._crit_edge:                                      ; preds = %20, %6
+  %27 = tail call ptr @wmem_strbuf_get_str(ptr noundef %12) #5
+  %28 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %0, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %9, ptr noundef nonnull @.str.831, ptr noundef %27) #5
   ret void
 }
 

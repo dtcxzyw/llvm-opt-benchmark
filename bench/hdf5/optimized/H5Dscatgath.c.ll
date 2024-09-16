@@ -499,7 +499,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read(ptr nocapture noundef readonly %
   br label %.loopexit
 
 129:                                              ; preds = %120, %122, %115
-  %130 = call fastcc i64 @H5D__gather_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45, i64 noundef %.1115, ptr noundef %.0123)
+  %130 = call fastcc i64 @H5D__gather_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %45, i64 noundef %.1115, ptr noundef %.0123)
   %.not149 = icmp eq i64 %130, %.1115
   br i1 %.not149, label %135, label %131
 
@@ -521,7 +521,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read(ptr nocapture noundef readonly %
   br i1 %brmerge156, label %146, label %139
 
 139:                                              ; preds = %137
-  %140 = call fastcc i32 @H5D__compound_opt_read(i64 noundef %.1115, ptr noundef nonnull %31, ptr noundef nonnull %54, ptr noundef %.0123, ptr noundef %5)
+  %140 = call fastcc i32 @H5D__compound_opt_read(i64 noundef %.1115, ptr noundef %31, ptr noundef nonnull %54, ptr noundef %.0123, ptr noundef %5)
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %184
 
@@ -662,7 +662,7 @@ declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #1
 declare i32 @H5S_select_iter_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.H5D_io_info_t, align 8
   %7 = alloca %struct.H5D_dset_io_info_t, align 8
   %8 = alloca i64, align 8
@@ -726,7 +726,7 @@ define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, 
 
 41:                                               ; preds = %.lr.ph, %60
   %.02755 = phi i64 [ %3, %.lr.ph ], [ %64, %60 ]
-  %42 = call i32 @H5S_select_iter_get_seq_list(ptr noundef %2, i64 noundef %., i64 noundef %.02755, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %33, ptr noundef nonnull %26) #8
+  %42 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %2, i64 noundef %., i64 noundef %.02755, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %33, ptr noundef nonnull %26) #8
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %48
 
@@ -777,7 +777,7 @@ define internal fastcc i64 @H5D__gather_file(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -831,7 +831,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__compound_opt_read(i64 noundef 
 .lr.ph88:                                         ; preds = %30, %._crit_edge82
   %.04386 = phi i64 [ %58, %._crit_edge82 ], [ %0, %30 ]
   %.04485 = phi ptr [ %.1.lcssa, %._crit_edge82 ], [ %3, %30 ]
-  %39 = call i32 @H5S_select_iter_get_seq_list(ptr noundef %1, i64 noundef %., i64 noundef %.04386, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef nonnull %17) #8
+  %39 = call i32 @H5S_select_iter_get_seq_list(ptr noundef nonnull %1, i64 noundef %., i64 noundef %.04386, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef nonnull %17) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %42, label %.preheader
 
@@ -1169,7 +1169,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_write(ptr nocapture noundef readonly 
 
 159:                                              ; preds = %156
   %160 = load ptr, ptr %101, align 8
-  %161 = call fastcc i64 @H5D__gather_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %54, i64 noundef %.1114, ptr noundef %160)
+  %161 = call fastcc i64 @H5D__gather_file(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %54, i64 noundef %.1114, ptr noundef %160)
   %.not146 = icmp eq i64 %161, %.1114
   br i1 %.not146, label %166, label %162
 
@@ -1766,7 +1766,7 @@ define range(i32 -1, 1) i32 @H5D__scatgath_read_select(ptr nocapture noundef rea
   %211 = load ptr, ptr %167, align 8
   %212 = getelementptr inbounds ptr, ptr %211, i64 %.1170269
   %213 = load ptr, ptr %212, align 8
-  %214 = call fastcc i32 @H5D__compound_opt_read(i64 noundef %208, ptr noundef nonnull %13, ptr noundef nonnull %186, ptr noundef %210, ptr noundef %213)
+  %214 = call fastcc i32 @H5D__compound_opt_read(i64 noundef %208, ptr noundef %13, ptr noundef nonnull %186, ptr noundef %210, ptr noundef %213)
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %216, label %295
 

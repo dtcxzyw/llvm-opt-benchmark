@@ -120,7 +120,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_msgpack(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   %6 = load i32, ptr %5, align 4
   ret i32 %6
 }
@@ -143,7 +143,7 @@ define hidden void @proto_reg_handoff_msgpack() local_unnamed_addr #0 {
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #3
   %8 = zext i8 %7 to i32
@@ -437,11 +437,11 @@ dissect_msgpack_string.exit:                      ; preds = %164, %169
   ]
 
 183:                                              ; preds = %181
-  tail call fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %192
 
 184:                                              ; preds = %181
-  tail call fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %7, ptr noundef %3, ptr noundef %4)
   br label %192
 
 185:                                              ; preds = %181
@@ -457,7 +457,7 @@ dissect_msgpack_string.exit:                      ; preds = %164, %169
   ]
 
 186:                                              ; preds = %185, %185, %185, %185, %185, %185, %185, %185
-  tail call fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef %3, ptr noundef nonnull %4)
+  tail call fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %2, i32 noundef %8, ptr noundef %3, ptr noundef %4)
   br label %192
 
 187:                                              ; preds = %185
@@ -480,7 +480,7 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -504,7 +504,7 @@ define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.01 = phi i32 [ %23, %.lr.ph ], [ 0, %6 ]
-  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef %4, ptr noundef %5)
   %23 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %23, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -514,7 +514,7 @@ define internal fastcc void @dissect_msgpack_array(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = and i8 %3, 15
   %8 = getelementptr inbounds i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
@@ -541,8 +541,8 @@ define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1,
   %23 = load i32, ptr %5, align 4
   %24 = load i32, ptr @ett_msgpack_map_elem, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %20, ptr noundef %0, i32 noundef %23, i32 noundef 0, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.57) #3
-  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.61, ptr noundef nonnull %5)
-  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.63, ptr noundef nonnull %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.61, ptr noundef %5)
+  tail call fastcc void @dissect_msgpack_object(ptr noundef %0, ptr noundef %1, ptr noundef %25, ptr noundef nonnull @.str.63, ptr noundef %5)
   %26 = add nuw nsw i32 %.01, 1
   %exitcond.not = icmp eq i32 %26, %11
   br i1 %exitcond.not, label %._crit_edge, label %.split, !llvm.loop !6
@@ -552,7 +552,7 @@ define internal fastcc void @dissect_msgpack_map(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 128, 224) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %4, align 4
   %.not = icmp eq ptr %3, null
   %7 = select i1 %.not, ptr @.str.23, ptr %3
@@ -564,7 +564,7 @@ define internal fastcc void @dissect_msgpack_ext(ptr noundef %0, ptr noundef %1,
   %13 = load i32, ptr %4, align 4
   %14 = add i32 %13, 1
   store i32 %14, ptr %4, align 4
-  %15 = add i32 %2, -212
+  %15 = add nsw i32 %2, -212
   %or.cond = icmp ult i32 %15, 5
   br i1 %or.cond, label %16, label %28
 

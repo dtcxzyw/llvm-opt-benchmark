@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_116succinctDurationB5cxx11Emii(ptr noalias align 8 %agg.result, i64 noundef %duration, i32 noundef %unitOffset, i32 noundef %precision) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_116succinctDurationB5cxx11Emii(ptr noalias align 8 %agg.result, i64 noundef %duration, i32 noundef range(i32 0, 3) %unitOffset, i32 noundef %precision) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %idxprom = zext nneg i32 %unitOffset to i64
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_113succinctPrintB5cxx11EmPKSt17basic_string_viewIcSt11char_traitsIcEEiiii(ptr noalias align 8 %agg.result, i64 noundef %value, ptr nocapture noundef readonly %units, i32 noundef %unitsSize, i32 noundef %unitOffset, i32 noundef %unitScale, i32 noundef %precision) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_113succinctPrintB5cxx11EmPKSt17basic_string_viewIcSt11char_traitsIcEEiiii(ptr noalias align 8 %agg.result, i64 noundef %value, ptr nocapture noundef readonly %units, i32 noundef range(i32 4, 6) %unitsSize, i32 noundef range(i32 0, 3) %unitOffset, i32 noundef range(i32 1000, 1025) %unitScale, i32 noundef %precision) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out)
@@ -209,7 +209,7 @@ while.cond:                                       ; preds = %while.cond, %entry
   %offset.0 = phi i32 [ %unitOffset, %entry ], [ %inc, %while.cond ]
   %div = fdiv double %decimalValue.0, %conv1
   %cmp = fcmp oge double %div, 1.000000e+00
-  %cmp2 = icmp slt i32 %offset.0, %sub
+  %cmp2 = icmp ult i32 %offset.0, %sub
   %0 = select i1 %cmp, i1 %cmp2, i1 false
   %inc = add nuw nsw i32 %offset.0, 1
   br i1 %0, label %while.cond, label %while.end, !llvm.loop !7

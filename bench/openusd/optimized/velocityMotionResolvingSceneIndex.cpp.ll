@@ -16964,7 +16964,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %26, align 8
-  %27 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %21, ptr noundef nonnull %20, ptr noundef nonnull %22)
+  %27 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %21, ptr noundef nonnull %20, ptr noundef %22)
           to label %28 unwind label %35
 
 28:                                               ; preds = %3
@@ -18010,7 +18010,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7Gf
 
 455:                                              ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_7GfVec3fEEEEERKT_v.exit
   %456 = load float, ptr %22, align 4
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, float noundef %456)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(64) %1, float noundef %456)
           to label %457 unwind label %494
 
 457:                                              ; preds = %455
@@ -18250,7 +18250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %524, %529
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
   %6 = alloca %"class.std::shared_ptr.65", align 8
   %7 = alloca %"class.std::shared_ptr.50", align 8
@@ -19055,7 +19055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19HdDataSourceLocatorD2Ev.exit: ; preds = %
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.65", align 8
   %5 = alloca %"class.std::shared_ptr.50", align 8
   %6 = alloca %"class.std::vector.77", align 8
@@ -21126,7 +21126,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %18 = tail call noundef zeroext i1 %17(ptr noundef nonnull align 8 dereferenceable(8) %14, float noundef %1, float noundef %2, ptr noundef %3)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %19, align 8
-  %20 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %9)
+  %20 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper35_VelocityMotionValidForCurrentFrameEPNS_7VtValueEPNS_7VtArrayINS_7GfVec3fEEEPf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %8, ptr noundef null, ptr noundef %9)
           to label %21 unwind label %.loopexit.split-lp
 
 21:                                               ; preds = %4
@@ -21264,7 +21264,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33HdInstancerTokens_Stat
 
 71:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_33HdInstancerTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
   %72 = load float, ptr %9, align 4
-  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %0, float noundef %72)
+  invoke fastcc void @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_VelocityHelper17_GetAccelerationsEf(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(64) %0, float noundef %72)
           to label %73 unwind label %.loopexit.split-lp
 
 73:                                               ; preds = %71

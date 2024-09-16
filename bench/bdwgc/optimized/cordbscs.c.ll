@@ -443,7 +443,7 @@ CORD_init_min_len.exit:                           ; preds = %102
   unreachable
 
 CORD_init_forest.exit:                            ; preds = %108
-  call fastcc void @CORD_balance_insert(ptr noundef nonnull %78, i64 noundef %106, ptr noundef nonnull %4)
+  call fastcc void @CORD_balance_insert(ptr noundef nonnull %78, i64 noundef %106, ptr noundef %4)
   %.not.i105109 = icmp eq i64 %106, 0
   br i1 %.not.i105109, label %CORD_balance.exit, label %.lr.ph
 
@@ -562,7 +562,7 @@ CORD_init_min_len.exit:                           ; preds = %8
   unreachable
 
 CORD_init_forest.exit:                            ; preds = %15
-  call fastcc void @CORD_balance_insert(ptr noundef nonnull %0, i64 noundef %13, ptr noundef nonnull %2)
+  call fastcc void @CORD_balance_insert(ptr noundef nonnull %0, i64 noundef %13, ptr noundef %2)
   %.not.i12 = icmp eq i64 %13, 0
   br i1 %.not.i12, label %CORD_concat_forest.exit, label %.lr.ph
 
@@ -1702,7 +1702,7 @@ CORD_len.exit.thread:                             ; preds = %3, %CORD_len.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @CORD_balance_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %.not48 = icmp eq i8 %4, 0
   br i1 %.not48, label %.lr.ph, label %.preheader

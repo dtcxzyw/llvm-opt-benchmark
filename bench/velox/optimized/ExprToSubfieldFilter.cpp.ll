@@ -1450,7 +1450,7 @@ entry:
   %ref.tmp48 = alloca i8, align 1
   %filters = alloca %"class.std::vector.93", align 8
   %ref.tmp62 = alloca %"class.std::unique_ptr.98", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %value, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %value, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %value, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %cleanup72, label %if.end
@@ -1820,7 +1820,7 @@ entry:
   %ref.tmp34 = alloca %"class.std::unique_ptr.221", align 8
   %ref.tmp35 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp36 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %value, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %value, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %value, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -2321,7 +2321,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::unique_ptr.388", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp41 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %lower, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -2935,7 +2935,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::unique_ptr.388", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp41 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %upper, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -3520,7 +3520,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::unique_ptr.388", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp41 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %lower, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -4105,7 +4105,7 @@ entry:
   %ref.tmp39 = alloca %"class.std::unique_ptr.388", align 8
   %ref.tmp40 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp41 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %upper, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -4730,7 +4730,7 @@ entry:
   %ref.tmp93 = alloca %"class.std::unique_ptr.230", align 8
   %ref.tmp97 = alloca %"struct.facebook::velox::Timestamp", align 8
   %ref.tmp100 = alloca %"struct.facebook::velox::Timestamp", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %lower, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator)
   %0 = load ptr, ptr %lower, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %if.end
@@ -4740,7 +4740,7 @@ if.then:                                          ; preds = %entry
   br label %cleanup106
 
 if.end:                                           ; preds = %entry
-  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
+  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %upper, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -5236,7 +5236,7 @@ entry:
   %values72 = alloca %"class.std::vector.49", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp73 = alloca %"struct.facebook::velox::StringView", align 8
-  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull align 8 %vector, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator)
+  call fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias align 8 %vector, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator)
   %0 = load ptr, ptr %vector, align 8
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.then, label %invoke.cont4
@@ -6467,7 +6467,7 @@ if.end:                                           ; preds = %for.cond.i, %for.co
   %17 = load i64, ptr %second18, align 8
   store i64 %17, ptr %agg.tmp17, align 8
   store ptr null, ptr %second18, align 8
-  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp17)
+  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias align 8 %ref.tmp, ptr noundef %agg.tmp, ptr noundef %agg.tmp17)
           to label %_ZNSt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS3_EED2Ev.exit unwind label %lpad19
 
 _ZNSt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS3_EED2Ev.exit: ; preds = %if.end
@@ -6681,7 +6681,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef %a, ptr nocapture noundef %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %filters.i = alloca %"class.std::vector.93", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.85", align 8
@@ -7089,7 +7089,7 @@ if.then72:                                        ; preds = %_ZN8facebook5velox4
   %48 = load i64, ptr %a, align 8
   store i64 %48, ptr %agg.tmp74, align 8
   store ptr null, ptr %a, align 8
-  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp73, ptr noundef nonnull %agg.tmp74)
+  invoke fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp73, ptr noundef %agg.tmp74)
           to label %invoke.cont76 unwind label %lpad75
 
 invoke.cont76:                                    ; preds = %if.then72
@@ -7642,7 +7642,7 @@ declare void @__cxa_bad_cast() local_unnamed_addr
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i64, align 8
   %exprSet = alloca %"class.std::unique_ptr.106", align 8
@@ -15608,7 +15608,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %agg.tmp6.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef nonnull %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef %agg.tmp6.i.i.i)
   %1 = load ptr, ptr %agg.tmp6.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit11.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox6common11BigintRangeEEclEPS3_.exit.i.i.i.i
@@ -15650,7 +15650,7 @@ _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEa
   %sub.ptr.sub.i.i.i7.i = sub i64 %sub.ptr.lhs.cast.i.i.i6.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i8.i = ashr exact i64 %sub.ptr.sub.i.i.i7.i, 3
   store i64 %2, ptr %agg.tmp7.i.i1.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i8.i, ptr noundef nonnull %agg.tmp7.i.i1.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i8.i, ptr noundef %agg.tmp7.i.i1.i)
   %5 = load ptr, ptr %agg.tmp7.i.i1.i, align 8
   %cmp.not.i.i.i9.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i9.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i", label %_ZNKSt14default_deleteIN8facebook5velox6common11BigintRangeEEclEPS3_.exit.i.i.i10.i
@@ -15785,7 +15785,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

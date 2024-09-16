@@ -5786,7 +5786,7 @@ _ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit: ; preds = %59
   ]
 
 79:                                               ; preds = %74, %74
-  %80 = tail call fastcc noundef zeroext i1 @_ZL24checkExportedDeclContextRN5clang4SemaEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %61, i32 %2)
+  %80 = tail call fastcc noundef zeroext i1 @_ZL24checkExportedDeclContextRN5clang4SemaEPNS_11DeclContextENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %61, i32 %2)
   br label %.critedge
 
 .critedge:                                        ; preds = %74, %59, %_ZN4llvm8dyn_castIN5clang11DeclContextENS1_4DeclEEEDcPT0_.exit, %71, %67, %70, %62, %49, %58, %39, %43, %79, %25

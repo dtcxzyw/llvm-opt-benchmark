@@ -7983,7 +7983,7 @@ invoke.cont29:                                    ; preds = %sw.bb26
   br i1 %call30, label %if.then31, label %try.cont
 
 if.then31:                                        ; preds = %invoke.cont29
-  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %ref.tmp32, ptr nonnull %counter)
+  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp32, ptr nonnull %counter)
           to label %invoke.cont33 unwind label %lpad28
 
 invoke.cont33:                                    ; preds = %if.then31
@@ -7995,7 +7995,7 @@ cond.false:                                       ; preds = %invoke.cont33
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %cond.false
-  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %ref.tmp45, ptr nonnull %counter)
+  invoke fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp45, ptr nonnull %counter)
           to label %invoke.cont46 unwind label %lpad42
 
 invoke.cont46:                                    ; preds = %invoke.cont41
@@ -8293,7 +8293,7 @@ ehcleanup7:                                       ; preds = %lpad, %lpad.i, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN17absl_log_internal64CHECKDeachTest_TestOrderOfInvocationsBetweenCheckAndMessage_Test8TestBodyEvENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %agg.result, ptr nocapture %this.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %0 = load i32, ptr %this.0.val, align 4

@@ -352,7 +352,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
 
 .loopexit:                                        ; preds = %.lr.ph, %44
   %.1 = phi ptr [ %.04664, %44 ], [ %.267, %.lr.ph ]
-  %52 = call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.1)
+  %52 = call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef %.1)
   br label %.thread56
 
 .thread56:                                        ; preds = %41, %50, %45, %.loopexit
@@ -462,7 +462,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -774,7 +774,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr nocapture
 .lr.ph234:                                        ; preds = %.preheader, %193
   %.1176233 = phi ptr [ %.1176, %193 ], [ %.1176230, %.preheader ]
   %.0179232 = phi i32 [ %201, %193 ], [ 0, %.preheader ]
-  %191 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.1176233)
+  %191 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef %.1176233)
   %192 = icmp eq ptr %191, null
   br i1 %192, label %.loopexit, label %193
 
@@ -898,7 +898,7 @@ define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr nocap
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !15
 
 14:                                               ; preds = %.preheader
-  %15 = tail call fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef nonnull %.01318)
+  %15 = tail call fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef %.01318)
   br label %.critedge
 
 .critedge:                                        ; preds = %11, %14
@@ -1061,7 +1061,7 @@ openSocket.exit51.thread:                         ; preds = %9, %57, %54, %54, %
 declare i32 @getInetAddress_family(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 {
   %3 = alloca %struct.ifconf, align 8
   %4 = alloca %struct.sockaddr, align 2
   %5 = alloca %struct.sockaddr, align 2
@@ -1160,7 +1160,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef %1) u
 
 translateIPv4AddressToPrefix.exit:                ; preds = %.lr.ph.preheader.i, %39, %36
   %.0 = phi i16 [ 0, %36 ], [ 0, %39 ], [ %45, %.lr.ph.preheader.i ]
-  %46 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0413, ptr noundef %.0422, ptr noundef nonnull %4, ptr noundef %.039, i32 noundef 2, i16 noundef signext %.0)
+  %46 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %.0413, ptr noundef %.0422, ptr noundef %4, ptr noundef %.039, i32 noundef 2, i16 noundef signext %.0)
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
@@ -1201,7 +1201,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 2, 11) %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %.not57 = icmp eq ptr %1, null
   br i1 %.not57, label %.thread, label %.lr.ph61
@@ -1321,7 +1321,7 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
 declare i32 @ipv6_available(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca [8 x [5 x i8]], align 16
   %6 = alloca i32, align 4
@@ -1360,7 +1360,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   store i32 %27, ptr %21, align 4
   %28 = load i32, ptr %6, align 4
   %29 = trunc i32 %28 to i16
-  %30 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %.1, ptr noundef nonnull %11, ptr noundef null, i32 noundef 10, i16 noundef signext %29)
+  %30 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %.1, ptr noundef %11, ptr noundef null, i32 noundef 10, i16 noundef signext %29)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
@@ -1409,7 +1409,7 @@ define ptr @Java_java_net_NetworkInterface_getByInetAddress0(ptr noundef %0, ptr
   br i1 %.not22, label %18, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %15)
+  %17 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef %15)
   br label %18
 
 18:                                               ; preds = %16, %14
@@ -1448,7 +1448,7 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
 .preheader:                                       ; preds = %8, %16
   %.03040 = phi i32 [ %20, %16 ], [ 0, %8 ]
   %.139 = phi ptr [ %25, %16 ], [ %3, %8 ]
-  %14 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.139)
+  %14 = tail call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef %.139)
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.sink.split, label %16
 
@@ -1644,7 +1644,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocap
   br label %28
 
 28:                                               ; preds = %22, %24
-  %29 = call fastcc i32 @getMacAddress(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %7)
+  %29 = call fastcc i32 @getMacAddress(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %7)
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %41
 
@@ -1680,7 +1680,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nocap
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.ifreq, align 8
   %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
   %6 = icmp slt i32 %5, 0
@@ -1874,7 +1874,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5, i32 noundef %6, i16 noundef signext %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, ptr noundef readonly %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
   %9 = alloca %struct.ifreq, align 8
   %10 = alloca %struct.ifreq, align 8
   %11 = alloca %struct.ifreq, align 8

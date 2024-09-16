@@ -11313,7 +11313,7 @@ return:                                           ; preds = %if.then6, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper11AddOpReaderENS_14CTFReaderOpElt4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %type, ptr noundef %xmlTag) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper11AddOpReaderENS_14CTFReaderOpElt4TypeEPKc(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef range(i32 0, 17) %type, ptr noundef %xmlTag) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xmlTag.addr = alloca ptr, align 8
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -24107,7 +24107,7 @@ if.end8:                                          ; preds = %if.else, %_ZN19Open
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_17BuildOpERNS_10OpRcPtrVecERKNS_6ConfigERKSt10shared_ptrIKNS_7ContextEERKS6_IKNS_6OpDataEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(16) %opData, i32 noundef %dir) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_17BuildOpERNS_10OpRcPtrVecERKNS_6ConfigERKSt10shared_ptrIKNS_7ContextEERKS6_IKNS_6OpDataEENS_18TransformDirectionE(ptr noundef nonnull align 8 dereferenceable(144) %ops, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef nonnull align 8 dereferenceable(16) %opData, i32 noundef range(i32 0, 2) %dir) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref = alloca %"class.std::shared_ptr.372", align 8
   %fileTransform = alloca %"class.std::shared_ptr.375", align 8

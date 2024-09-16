@@ -3995,7 +3995,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 4 dereferenceable(66) %27)
+  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 4 dereferenceable(66) %27)
   %28 = load i32, ptr %6, align 8
   %29 = add i32 %28, 2147483647
   %30 = icmp ult i32 %29, -2
@@ -4624,7 +4624,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriority
   %114 = load ptr, ptr %66, align 8
   %115 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %88, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 4 dereferenceable(66) %115)
+  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %88, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 4 dereferenceable(66) %115)
   %116 = load i32, ptr %7, align 8
   %117 = load i8, ptr %69, align 8
   %118 = trunc i8 %117 to i1
@@ -5909,7 +5909,7 @@ _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 {
   %5 = alloca %class.anon.165, align 8
   %6 = alloca %class.anon.166, align 8
   %7 = alloca %class.anon.167, align 8
@@ -5971,7 +5971,7 @@ _ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8Fun
   %47 = ptrtoint ptr %6 to i64
   store i64 %47, ptr %46, align 8
   %48 = select i1 %42, ptr %25, ptr null
-  call void @_ZN4llvm13getInlineCostERNS_8CallBaseERKNS_12InlineParamsERNS_19TargetTransformInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRKNS_17TargetLibraryInfoESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEPNS_18ProfileSummaryInfoEPNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind writable sret(%"class.llvm::InlineCost") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 4 dereferenceable(66) %3, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr nonnull @"_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_120getInlineCostWrapperERNS_8CallBaseERNS_15AnalysisManagerIS3_JEEERKNS_12InlineParamsEE3$_0EES2_lS4_", i64 %43, ptr noundef nonnull byval(%"class.llvm::function_ref.177") align 8 %8, ptr noundef nonnull byval(%"class.llvm::function_ref.178") align 8 %9, ptr noundef %.0.i.i, ptr noundef %48) #18
+  call void @_ZN4llvm13getInlineCostERNS_8CallBaseERKNS_12InlineParamsERNS_19TargetTransformInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS7_IFRKNS_17TargetLibraryInfoESB_EEENS7_IFRNS_18BlockFrequencyInfoESB_EEEPNS_18ProfileSummaryInfoEPNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::InlineCost") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 4 dereferenceable(66) %3, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr nonnull @"_ZN4llvm12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEE11callback_fnIZN12_GLOBAL__N_120getInlineCostWrapperERNS_8CallBaseERNS_15AnalysisManagerIS3_JEEERKNS_12InlineParamsEE3$_0EES2_lS4_", i64 %43, ptr noundef nonnull byval(%"class.llvm::function_ref.177") align 8 %8, ptr noundef nonnull byval(%"class.llvm::function_ref.178") align 8 %9, ptr noundef %.0.i.i, ptr noundef %48) #18
   ret void
 }
 
@@ -8591,7 +8591,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CostBenefitPriorityC2EPKN4llvm8C
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %9, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3)
+  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3)
   %10 = load i32, ptr %5, align 8
   %11 = add i32 %10, 2147483647
   %12 = icmp ult i32 %11, -2
@@ -9198,7 +9198,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallBaseELb1EE9push_backES2_.exit: ; pred
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %27 = load ptr, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
-  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 4 dereferenceable(66) %27)
+  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(88) %9, ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull align 4 dereferenceable(66) %27)
   %28 = load i32, ptr %6, align 8
   %29 = add i32 %28, 2147483647
   %30 = icmp ult i32 %29, -2
@@ -9827,7 +9827,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityEN
   %114 = load ptr, ptr %66, align 8
   %115 = load ptr, ptr %67, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
-  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %88, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 4 dereferenceable(66) %115)
+  call fastcc void @_ZN12_GLOBAL__N_120getInlineCostWrapperERN4llvm8CallBaseERNS0_15AnalysisManagerINS0_8FunctionEJEEERKNS0_12InlineParamsE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %88, ptr noundef nonnull align 8 dereferenceable(72) %114, ptr noundef nonnull align 4 dereferenceable(66) %115)
   %116 = load i32, ptr %7, align 8
   %117 = load i8, ptr %69, align 8
   %118 = trunc i8 %117 to i1

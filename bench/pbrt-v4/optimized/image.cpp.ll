@@ -15052,7 +15052,7 @@ lpad.i260.i:                                      ; preds = %if.end.i.i.i.i.i.i.
   br label %ehcleanup366.i
 
 invoke.cont344.i:                                 ; preds = %for.body.i.i, %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i.i
-  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %ref.tmp341.i, ptr noundef nonnull align 8 dereferenceable(152) %image.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342.i, i32 %1, i32 %2)
+  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias align 8 %ref.tmp341.i, ptr noundef nonnull align 8 dereferenceable(152) %image.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp342.i, i32 %1, i32 %2)
           to label %invoke.cont346.i unwind label %lpad345.i, !noalias !151
 
 invoke.cont346.i:                                 ; preds = %invoke.cont344.i
@@ -24392,7 +24392,7 @@ lpad.i:                                           ; preds = %if.end.i.i.i.i.i.i
 invoke.cont90:                                    ; preds = %for.body.i, %_ZN4pbrt13InlinedVectorIiLi4EN4pstd3pmr21polymorphic_allocatorIiEEE6resizeEm.exit.i
   %dataWindow.val = load i32, ptr %dataWindow, align 4
   %dataWindow.val52 = load i32, ptr %y3.i.i.i55, align 4
-  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %fb, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89, i32 %dataWindow.val, i32 %dataWindow.val52)
+  invoke fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias align 8 %fb, ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp89, i32 %dataWindow.val, i32 %dataWindow.val52)
           to label %invoke.cont92 unwind label %lpad91
 
 invoke.cont92:                                    ; preds = %invoke.cont90
@@ -27317,7 +27317,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %image, ptr noundef nonnull readonly align 8 dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL18imageToFrameBufferERKNS_5ImageERKNS_16ImageChannelDescERKN9Imath_2_53BoxINS6_4Vec2IiEEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %image, ptr noundef nonnull readonly align 8 dereferenceable(48) %desc, i32 %dataWindow.0.val, i32 %dataWindow.4.val) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %channelNames = alloca %"class.std::vector.36", align 8
   %ref.tmp25 = alloca %"struct.Imf_2_5::Slice", align 8

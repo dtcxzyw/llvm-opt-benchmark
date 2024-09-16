@@ -85,7 +85,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare i32 @test_size_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_test_cert_table(i32 noundef %nid, i32 noundef %amask, i64 noundef %idx, ptr noundef %idxname) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_test_cert_table(i32 noundef range(i32 6, 1089) %nid, i32 noundef range(i32 1, 129) %amask, i64 noundef range(i64 0, 9) %idx, ptr noundef %idxname) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds [9 x %struct.SSL_CERT_LOOKUP], ptr @ssl_cert_info, i64 0, i64 %idx
   %0 = load i32, ptr %arrayidx, align 8

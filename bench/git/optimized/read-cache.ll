@@ -612,7 +612,8 @@ while.body.lr.ph.lr.ph.i.i.i:                     ; preds = %if.end.i.i
 
 while.body.lr.ph.us.i.i.i:                        ; preds = %while.body.lr.ph.lr.ph.i.i.i
   %26 = load ptr, ptr %istate, align 8
-  %27 = zext i32 %sub2758.i to i64
+  %27 = zext nneg i32 %sub2758.i to i64
+  %wide.trip.count.i.i.i = zext i32 %25 to i64
   br label %while.body.us.i.i.i
 
 while.body.us.i.i.i:                              ; preds = %while.cond.backedge.us.i.i.i, %while.body.lr.ph.us.i.i.i
@@ -649,8 +650,7 @@ if.end15.us.i.i.i:                                ; preds = %if.end8.us.i.i.i
   br i1 %or.cond.us.i.i.i, label %has_file_name.exit.i.i, label %while.cond.backedge.us.i.i.i
 
 while.cond.backedge.us.i.i.i:                     ; preds = %if.end15.us.i.i.i, %if.end8.us.i.i.i
-  %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next35.i.i.i to i32
-  %exitcond.not.i.i.i = icmp eq i32 %25, %lftr.wideiv.i.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next35.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %has_file_name.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !7
 
 while.body.lr.ph.i.i.i:                           ; preds = %while.body.lr.ph.lr.ph.i.i.i, %remove_index_entry_at.exit.i.i.i
@@ -798,7 +798,7 @@ if.end20.i.i.i:                                   ; preds = %for.cond16.i.i.i
   %cmp23.not.i.i.i = icmp sgt i64 %slash.1.idx.i.i.i, 109
   br i1 %cmp23.not.i.i.i, label %for.cond16.i.i.i.backedge, label %check_file_directory_conflict.exit.i
 
-for.cond16.i.i.i.backedge:                        ; preds = %while.cond.i.i.i, %while.body.i14.i.i, %lor.lhs.false.i.i.i, %lor.lhs.false74.i.i.i, %if.end20.i.i.i, %if.end58.i.i.i
+for.cond16.i.i.i.backedge:                        ; preds = %while.cond.i.i.i, %while.body.i15.i.i, %lor.lhs.false.i.i.i, %lor.lhs.false74.i.i.i, %if.end20.i.i.i, %if.end58.i.i.i
   br label %for.cond16.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.cond16.i.i.i
@@ -826,8 +826,8 @@ if.then43.i.i.i:                                  ; preds = %if.end38.i.i.i
   %ce_flags47.i.i.i = getelementptr inbounds i8, ptr %57, i64 56
   %58 = load i32, ptr %ce_flags47.i.i.i, align 8
   %and48.i.i.i = and i32 %58, 131072
-  %tobool.not.i20.i.i = icmp eq i32 %and48.i.i.i, 0
-  br i1 %tobool.not.i20.i.i, label %if.then49.i.i.i, label %if.end58.i.i.i
+  %tobool.not.i21.i.i = icmp eq i32 %and48.i.i.i, 0
+  br i1 %tobool.not.i21.i.i, label %if.then49.i.i.i, label %if.end58.i.i.i
 
 if.then49.i.i.i:                                  ; preds = %if.then43.i.i.i
   br i1 %tobool50.not.i.i.i, label %if.then75.i, label %if.end52.i.i.i
@@ -837,25 +837,25 @@ if.end52.i.i.i:                                   ; preds = %if.then49.i.i.i
   tail call void @remove_name_hash(ptr noundef nonnull %istate, ptr noundef nonnull %57) #28
   tail call void @save_or_free_index_entry(ptr noundef nonnull %istate, ptr noundef nonnull %57) #28
   %59 = load i32, ptr %cache_changed.i.i12.i.i, align 4
-  %or.i.i21.i.i = or i32 %59, 4
-  store i32 %or.i.i21.i.i, ptr %cache_changed.i.i12.i.i, align 4
+  %or.i.i22.i.i = or i32 %59, 4
+  store i32 %or.i.i22.i.i, ptr %cache_changed.i.i12.i.i, align 4
   %60 = load i32, ptr %cache_nr.i, align 4
-  %dec.i.i22.i.i = add i32 %60, -1
-  store i32 %dec.i.i22.i.i, ptr %cache_nr.i, align 4
-  %cmp.not.i.i23.i.i = icmp ult i32 %call40.i.i.i, %dec.i.i22.i.i
-  br i1 %cmp.not.i.i23.i.i, label %if.then.i.i.i25.i.i, label %for.cond.outer.i.i.i.backedge
+  %dec.i.i23.i.i = add i32 %60, -1
+  store i32 %dec.i.i23.i.i, ptr %cache_nr.i, align 4
+  %cmp.not.i.i24.i.i = icmp ult i32 %call40.i.i.i, %dec.i.i23.i.i
+  br i1 %cmp.not.i.i24.i.i, label %if.then.i.i.i26.i.i, label %for.cond.outer.i.i.i.backedge
 
-if.then.i.i.i25.i.i:                              ; preds = %if.end52.i.i.i
-  %sub.i43.i.i.i = sub nuw i32 %dec.i.i22.i.i, %call40.i.i.i
-  %conv.i.i26.i.i = zext i32 %sub.i43.i.i.i to i64
+if.then.i.i.i26.i.i:                              ; preds = %if.end52.i.i.i
+  %sub.i43.i.i.i = sub nuw i32 %dec.i.i23.i.i, %call40.i.i.i
+  %conv.i.i27.i.i = zext i32 %sub.i43.i.i.i to i64
   %61 = load ptr, ptr %istate, align 8
-  %add.ptr.i.i27.i.i = getelementptr inbounds ptr, ptr %61, i64 %idxprom45.i.i.i
-  %add.ptr6.i.i28.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i27.i.i, i64 8
-  %mul.i.i.i.i29.i.i = shl nuw nsw i64 %conv.i.i26.i.i, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i27.i.i, ptr nonnull readonly align 1 %add.ptr6.i.i28.i.i, i64 %mul.i.i.i.i29.i.i, i1 false)
+  %add.ptr.i.i28.i.i = getelementptr inbounds ptr, ptr %61, i64 %idxprom45.i.i.i
+  %add.ptr6.i.i29.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i28.i.i, i64 8
+  %mul.i.i.i.i30.i.i = shl nuw nsw i64 %conv.i.i27.i.i, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr.i.i28.i.i, ptr nonnull readonly align 1 %add.ptr6.i.i29.i.i, i64 %mul.i.i.i.i30.i.i, i1 false)
   br label %for.cond.outer.i.i.i.backedge
 
-for.cond.outer.i.i.i.backedge:                    ; preds = %if.then.i.i.i25.i.i, %if.end52.i.i.i
+for.cond.outer.i.i.i.backedge:                    ; preds = %if.then.i.i.i26.i.i, %if.end52.i.i.i
   br label %for.cond.outer.i.i.i
 
 if.else55.i.i.i:                                  ; preds = %if.end38.i.i.i
@@ -871,17 +871,17 @@ if.end58.i.i.i:                                   ; preds = %if.else55.i.i.i, %i
 while.body.lr.ph.i13.i.i:                         ; preds = %if.end58.i.i.i
   %63 = load ptr, ptr %istate, align 8
   %64 = zext nneg i32 %pos.addr.0.i.i.i to i64
-  %wide.trip.count.i.i.i = zext i32 %62 to i64
-  br label %while.body.i14.i.i
+  %wide.trip.count.i14.i.i = zext i32 %62 to i64
+  br label %while.body.i15.i.i
 
 while.cond.i.i.i:                                 ; preds = %if.end80.i.i.i
-  %indvars.iv.next.i18.i.i = add nuw nsw i64 %indvars.iv.i15.i.i, 1
-  %exitcond.not.i19.i.i = icmp eq i64 %indvars.iv.next.i18.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i19.i.i, label %for.cond16.i.i.i.backedge, label %while.body.i14.i.i, !llvm.loop !9
+  %indvars.iv.next.i19.i.i = add nuw nsw i64 %indvars.iv.i16.i.i, 1
+  %exitcond.not.i20.i.i = icmp eq i64 %indvars.iv.next.i19.i.i, %wide.trip.count.i14.i.i
+  br i1 %exitcond.not.i20.i.i, label %for.cond16.i.i.i.backedge, label %while.body.i15.i.i, !llvm.loop !9
 
-while.body.i14.i.i:                               ; preds = %while.cond.i.i.i, %while.body.lr.ph.i13.i.i
-  %indvars.iv.i15.i.i = phi i64 [ %64, %while.body.lr.ph.i13.i.i ], [ %indvars.iv.next.i18.i.i, %while.cond.i.i.i ]
-  %arrayidx64.i.i.i = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv.i15.i.i
+while.body.i15.i.i:                               ; preds = %while.cond.i.i.i, %while.body.lr.ph.i13.i.i
+  %indvars.iv.i16.i.i = phi i64 [ %64, %while.body.lr.ph.i13.i.i ], [ %indvars.iv.next.i19.i.i, %while.cond.i.i.i ]
+  %arrayidx64.i.i.i = getelementptr inbounds ptr, ptr %63, i64 %indvars.iv.i16.i.i
   %65 = load ptr, ptr %arrayidx64.i.i.i, align 8
   %ce_namelen65.i.i.i = getelementptr inbounds i8, ptr %65, i64 64
   %66 = load i32, ptr %ce_namelen65.i.i.i, align 8
@@ -889,7 +889,7 @@ while.body.i14.i.i:                               ; preds = %while.cond.i.i.i, %
   %cmp67.not.i.i.i = icmp ult i64 %gepdiff.i.i.i, %conv66.i.i.i
   br i1 %cmp67.not.i.i.i, label %lor.lhs.false.i.i.i, label %for.cond16.i.i.i.backedge
 
-lor.lhs.false.i.i.i:                              ; preds = %while.body.i14.i.i
+lor.lhs.false.i.i.i:                              ; preds = %while.body.i15.i.i
   %name69.i.i.i = getelementptr inbounds i8, ptr %65, i64 108
   %arrayidx70.i.i.i = getelementptr inbounds [0 x i8], ptr %name69.i.i.i, i64 0, i64 %gepdiff.i.i.i
   %67 = load i8, ptr %arrayidx70.i.i.i, align 1
@@ -897,8 +897,8 @@ lor.lhs.false.i.i.i:                              ; preds = %while.body.i14.i.i
   br i1 %cmp72.not.i.i.i, label %lor.lhs.false74.i.i.i, label %for.cond16.i.i.i.backedge
 
 lor.lhs.false74.i.i.i:                            ; preds = %lor.lhs.false.i.i.i
-  %bcmp.i16.i.i = tail call i32 @bcmp(ptr nonnull %name69.i.i.i, ptr nonnull %name57.i, i64 %gepdiff.i.i.i)
-  %tobool78.not.i.i.i = icmp eq i32 %bcmp.i16.i.i, 0
+  %bcmp.i17.i.i = tail call i32 @bcmp(ptr nonnull %name69.i.i.i, ptr nonnull %name57.i, i64 %gepdiff.i.i.i)
+  %tobool78.not.i.i.i = icmp eq i32 %bcmp.i17.i.i, 0
   br i1 %tobool78.not.i.i.i, label %if.end80.i.i.i, label %for.cond16.i.i.i.backedge
 
 if.end80.i.i.i:                                   ; preds = %lor.lhs.false74.i.i.i
@@ -909,8 +909,8 @@ if.end80.i.i.i:                                   ; preds = %lor.lhs.false74.i.i
   %cmp84.i.i.i = icmp eq i32 %shr83.i.i.i, %shr.i.i.i
   %and87.i.i.i = and i32 %68, 131072
   %tobool88.not.i.i.i = icmp eq i32 %and87.i.i.i, 0
-  %or.cond.i17.i.i = and i1 %tobool88.not.i.i.i, %cmp84.i.i.i
-  br i1 %or.cond.i17.i.i, label %check_file_directory_conflict.exit.i, label %while.cond.i.i.i
+  %or.cond.i18.i.i = and i1 %tobool88.not.i.i.i, %cmp84.i.i.i
+  br i1 %or.cond.i18.i.i, label %check_file_directory_conflict.exit.i, label %while.cond.i.i.i
 
 check_file_directory_conflict.exit.i:             ; preds = %if.then29.i.i.i, %if.end20.i.i.i, %if.end80.i.i.i, %if.then7.i.i.i
   %retval.0.i.i.i = phi i32 [ 0, %if.then7.i.i.i ], [ %retval1.0.ph.i.i.i, %if.end80.i.i.i ], [ %retval1.0.ph.i.i.i, %if.end20.i.i.i ], [ %retval1.0.ph.i.i.i, %if.then29.i.i.i ]
@@ -1841,16 +1841,16 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @index_name_stage_pos(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen, i32 noundef %stage, i32 noundef %search_mode) unnamed_addr #0 {
+define internal fastcc i32 @index_name_stage_pos(ptr noundef %istate, ptr noundef %name, i32 noundef %namelen, i32 noundef range(i32 0, 4) %stage, i32 noundef range(i32 0, 2) %search_mode) unnamed_addr #0 {
 entry:
   %cache_nr = getelementptr inbounds i8, ptr %istate, i64 12
   %conv.i = sext i32 %namelen to i64
   %sparse_index = getelementptr inbounds i8, ptr %istate, i64 60
-  %0 = icmp eq i32 %search_mode, 1
+  %0 = icmp eq i32 %search_mode, 0
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %if.then28, %entry
-  %search_mode.tr = phi i1 [ %0, %entry ], [ true, %if.then28 ]
+  %search_mode.tr = phi i1 [ %0, %entry ], [ false, %if.then28 ]
   %1 = load i32, ptr %cache_nr, align 4
   %cmp32 = icmp sgt i32 %1, 0
   br i1 %cmp32, label %while.body, label %while.end
@@ -1878,7 +1878,7 @@ while.body:                                       ; preds = %tailrecurse, %if.en
   br i1 %tobool.not.i, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %while.body
-  %cmp2.i = icmp slt i32 %stage, %shr3
+  %cmp2.i = icmp ult i32 %stage, %shr3
   br i1 %cmp2.i, label %if.end, label %cache_name_stage_compare.exit
 
 cache_name_stage_compare.exit:                    ; preds = %if.end.i
@@ -1896,7 +1896,7 @@ if.end:                                           ; preds = %if.end.i, %while.bo
 
 while.end:                                        ; preds = %if.end, %tailrecurse
   %first.0.lcssa = phi i32 [ 0, %tailrecurse ], [ %spec.select27, %if.end ]
-  br i1 %search_mode.tr, label %land.lhs.true, label %if.end31
+  br i1 %search_mode.tr, label %if.end31, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %while.end
   %6 = load i32, ptr %sparse_index, align 4
@@ -3162,7 +3162,7 @@ if.end34.i:                                       ; preds = %if.end23.i
 
 if.then37.i:                                      ; preds = %if.end34.i
   store ptr %arrayidx24.i, ptr %rest.addr.i, align 8
-  %call38.i = call fastcc i32 @skip_iprefix(ptr noundef nonnull %arrayidx24.i, ptr noundef nonnull %rest.addr.i)
+  %call38.i = call fastcc i32 @skip_iprefix(ptr noundef nonnull %arrayidx24.i, ptr noundef %rest.addr.i)
   %tobool39.not.i = icmp eq i32 %call38.i, 0
   br i1 %tobool39.not.i, label %verify_dotfile.exit.thread26, label %land.lhs.true40.i
 
@@ -6355,7 +6355,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #3
 declare ptr @dirname(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freshen_shared_index(ptr noundef %shared_index, i32 noundef %warn) unnamed_addr #0 {
+define internal fastcc void @freshen_shared_index(ptr noundef %shared_index, i32 noundef range(i32 0, 2) %warn) unnamed_addr #0 {
 entry:
   %call = tail call i32 @check_and_freshen_file(ptr noundef %shared_index, i32 noundef 1) #28
   %tobool = icmp eq i32 %call, 0
@@ -6971,7 +6971,7 @@ declare void @cache_tree_verify(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @fill_fsmonitor_bitmap(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_write_locked_index(ptr noundef %istate, ptr noundef %lock, i32 noundef %flags, i32 noundef %write_extensions) unnamed_addr #0 {
+define internal fastcc i32 @do_write_locked_index(ptr noundef %istate, ptr noundef %lock, i32 noundef %flags, i32 noundef range(i32 -2, 0) %write_extensions) unnamed_addr #0 {
 entry:
   %sparse_index = getelementptr inbounds i8, ptr %istate, i64 60
   %0 = load i32, ptr %sparse_index, align 4
@@ -7906,7 +7906,7 @@ declare i32 @is_ntfs_dotgit(ptr noundef) local_unnamed_addr #3
 declare i32 @is_ntfs_dotgitmodules(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @skip_iprefix(ptr noundef %str, ptr nocapture noundef writeonly %out) unnamed_addr #20 {
+define internal fastcc range(i32 0, 2) i32 @skip_iprefix(ptr noundef %str, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #20 {
 entry:
   %scevgep = getelementptr i8, ptr %str, i64 7
   br label %do.body
@@ -7926,15 +7926,15 @@ do.cond:                                          ; preds = %do.body
   %0 = load i8, ptr %prefix.addr.0.ptr, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0, i64 1
   %1 = load i8, ptr %str.addr.0, align 1
-  %idxprom.i = zext i8 %1 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %conv.i = zext i8 %1 to i64
+  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i
   %2 = load i8, ptr %arrayidx.i, align 1
   %3 = shl i8 %2, 3
   %4 = and i8 %3, 32
   %spec.select.i1 = or i8 %4, %1
   %prefix.addr.0.add = add nuw nsw i64 %prefix.addr.0.idx, 1
-  %idxprom.i3 = zext i8 %0 to i64
-  %arrayidx.i4 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i3
+  %conv.i3 = zext i8 %0 to i64
+  %arrayidx.i4 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv.i3
   %5 = load i8, ptr %arrayidx.i4, align 1
   %6 = shl i8 %5, 3
   %7 = and i8 %6, 32
@@ -8036,7 +8036,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @mem_pool_combine(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @load_cache_entry_block(ptr noundef %istate, ptr noundef %ce_mem_pool, i32 noundef %offset, i32 noundef %nr, ptr noundef %mmap, i64 noundef %start_offset) unnamed_addr #0 {
+define internal fastcc i64 @load_cache_entry_block(ptr noundef %istate, ptr noundef %ce_mem_pool, i32 noundef %offset, i32 noundef %nr, ptr noundef %mmap, i64 noundef range(i64 -2147483648, 2147483648) %start_offset) unnamed_addr #0 {
 entry:
   %cp.i = alloca ptr, align 8
   %cmp5 = icmp sgt i32 %nr, 0
@@ -8474,7 +8474,7 @@ declare i64 @pread_in_full(i32 noundef, ptr noundef, i64 noundef, i64 noundef) l
 declare i32 @convert_to_sparse(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %istate, ptr noundef %tempfile, i32 noundef %write_extensions, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_write_index(ptr noundef %istate, ptr noundef %tempfile, i32 noundef range(i32 -2, 1) %write_extensions, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %data.addr.i4.i359 = alloca i32, align 4
   %data.addr.i.i360 = alloca i32, align 4
@@ -8981,7 +8981,7 @@ land.lhs.true.i.preheader:                        ; preds = %for.cond.preheader.
 if.then9.i:                                       ; preds = %if.end.i180
   %ce_namelen10.i = getelementptr inbounds i8, ptr %35, i64 64
   %57 = load i32, ptr %ce_namelen10.i, align 8
-  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %ondisk, ptr noundef nonnull %35)
+  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef %ondisk, ptr noundef nonnull %35)
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %ondisk, i32 noundef %conv7.i) #28
   %name.i184 = getelementptr inbounds i8, ptr %35, i64 108
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %name.i184, i32 noundef %57) #28
@@ -9022,7 +9022,7 @@ for.end.i:                                        ; preds = %for.inc.i, %land.lh
   %conv33.i = sub i32 %.pre56.i, %common.0.lcssa.i
   %conv34.i = sext i32 %conv33.i to i64
   %call.i183 = call i32 @encode_varint(i64 noundef %conv34.i, ptr noundef nonnull %to_remove_vi.i) #28
-  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef nonnull %ondisk, ptr noundef nonnull %35)
+  call fastcc void @copy_cache_entry_to_ondisk(ptr noundef %ondisk, ptr noundef nonnull %35)
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %ondisk, i32 noundef %conv7.i) #28
   call void @hashwrite(ptr noundef %call3, ptr noundef nonnull %to_remove_vi.i, i32 noundef %call.i183) #28
   %add.ptr.i = getelementptr inbounds i8, ptr %name15.i, i64 %idxprom.lcssa.i
@@ -9787,7 +9787,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_cache_entry_to_ondisk(ptr nocapture noundef writeonly %ondisk, ptr nocapture noundef readonly %ce) unnamed_addr #22 {
+define internal fastcc void @copy_cache_entry_to_ondisk(ptr nocapture noundef nonnull writeonly %ondisk, ptr nocapture noundef readonly %ce) unnamed_addr #22 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256
@@ -9924,7 +9924,7 @@ declare void @prepare_to_write_split_index(ptr noundef) local_unnamed_addr #3
 declare void @finish_writing_split_index(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, 2) i32 @read_one_entry_opt(ptr noundef %istate, ptr nocapture noundef readonly %oid, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef %mode, i32 noundef %opt) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, 2) i32 @read_one_entry_opt(ptr noundef %istate, ptr nocapture noundef readonly %oid, ptr nocapture noundef readonly %base, ptr nocapture noundef readonly %pathname, i32 noundef %mode, i32 noundef range(i32 5, 9) %opt) unnamed_addr #0 {
 entry:
   %and = and i32 %mode, 61440
   %cmp = icmp eq i32 %and, 16384

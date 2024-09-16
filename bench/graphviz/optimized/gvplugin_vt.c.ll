@@ -35,7 +35,7 @@ define internal void @process3(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 572

@@ -1317,7 +1317,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @print_insn_riscv(i64 noundef %memaddr, ptr noundef %info, i32 noundef %isa) unnamed_addr #0 {
+define internal fastcc i32 @print_insn_riscv(i64 noundef %memaddr, ptr noundef %info, i32 noundef range(i32 0, 3) %isa) unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %packet = alloca [2 x i8], align 2
@@ -1423,7 +1423,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
   %inst.03651 = phi i64 [ %inst.036, %sw.default ], [ %inst.036, %sw.bb17 ], [ %inst.036, %sw.bb13 ], [ %inst.03650, %sw.bb ]
   %target_info = getelementptr inbounds i8, ptr %info, i64 184
   %13 = load ptr, ptr %target_info, align 8
-  call fastcc void @disasm_inst(ptr noundef nonnull %buf, i32 noundef %isa, i64 noundef %memaddr, i64 noundef %inst.03651, ptr noundef %13)
+  call fastcc void @disasm_inst(ptr noundef %buf, i32 noundef %isa, i64 noundef %memaddr, i64 noundef %inst.03651, ptr noundef %13)
   %14 = load ptr, ptr %info, align 8
   %stream26 = getelementptr inbounds i8, ptr %info, i64 8
   %15 = load ptr, ptr %stream26, align 8
@@ -1453,7 +1453,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @disasm_inst(ptr noundef %buf, i32 noundef %isa, i64 noundef %pc, i64 noundef %inst, ptr noundef %cfg) unnamed_addr #0 {
+define internal fastcc void @disasm_inst(ptr noundef nonnull %buf, i32 noundef range(i32 0, 3) %isa, i64 noundef %pc, i64 noundef %inst, ptr noundef %cfg) unnamed_addr #0 {
 entry:
   %tmp.i = alloca [64 x i8], align 16
   %nbuf.i = alloca [32 x i8], align 16
@@ -1470,8 +1470,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %for.body.backedge, %entry
-  %i.069 = phi i64 [ 0, %entry ], [ %i.069.be, %for.body.backedge ]
-  %arrayidx = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.069
+  %i.068 = phi i64 [ 0, %entry ], [ %i.068.be, %for.body.backedge ]
+  %arrayidx = getelementptr [13 x %struct.anon], ptr @disasm_inst.decoders, i64 0, i64 %i.068
   %1 = load ptr, ptr %arrayidx, align 8
   %opcode_data6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %2 = load ptr, ptr %opcode_data6, align 8
@@ -1485,12 +1485,12 @@ if.then:                                          ; preds = %for.body
   call void %3(ptr noundef nonnull %dec, i32 noundef %isa) #12
   %4 = load i16, ptr %op, align 8
   %cmp10.not = icmp eq i16 %4, 0
-  %cmp = icmp ult i64 %i.069, 12
-  %or.cond70 = and i1 %cmp10.not, %cmp
-  br i1 %or.cond70, label %for.body.backedge, label %for.end
+  %cmp = icmp ult i64 %i.068, 12
+  %or.cond69 = and i1 %cmp10.not, %cmp
+  br i1 %or.cond69, label %for.body.backedge, label %for.end
 
 for.inc:                                          ; preds = %for.body
-  %cmp.old = icmp ult i64 %i.069, 12
+  %cmp.old = icmp ult i64 %i.068, 12
   br i1 %cmp.old, label %for.body.backedge, label %for.inc.for.end_crit_edge
 
 for.inc.for.end_crit_edge:                        ; preds = %for.inc
@@ -1498,7 +1498,7 @@ for.inc.for.end_crit_edge:                        ; preds = %for.inc
   br label %for.end
 
 for.body.backedge:                                ; preds = %for.inc, %if.then
-  %i.069.be = add nuw nsw i64 %i.069, 1
+  %i.068.be = add nuw nsw i64 %i.068, 1
   br label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.then, %for.inc.for.end_crit_edge
@@ -1507,7 +1507,7 @@ for.end:                                          ; preds = %if.then, %for.inc.f
   br i1 %cmp16, label %if.then18, label %for.end.if.end20_crit_edge
 
 for.end.if.end20_crit_edge:                       ; preds = %for.end
-  %.pre75 = load ptr, ptr %opcode_data9, align 8
+  %.pre74 = load ptr, ptr %opcode_data9, align 8
   br label %if.end20
 
 if.then18:                                        ; preds = %for.end
@@ -1515,7 +1515,7 @@ if.then18:                                        ; preds = %for.end
   br label %if.end20
 
 if.end20:                                         ; preds = %for.end.if.end20_crit_edge, %if.then18
-  %6 = phi ptr [ %.pre75, %for.end.if.end20_crit_edge ], [ @rvi_opcode_data, %if.then18 ]
+  %6 = phi ptr [ %.pre74, %for.end.if.end20_crit_edge ], [ @rvi_opcode_data, %if.then18 ]
   %7 = load i64, ptr %inst2, align 8
   %idxprom.i = zext i16 %5 to i64
   %codec.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i, i32 1
@@ -3026,7 +3026,7 @@ sw.bb624.i:                                       ; preds = %if.end20
 
 decode_inst_operands.exit:                        ; preds = %if.end20, %sw.bb.i, %sw.bb6.i, %sw.bb13.i, %sw.bb21.i, %sw.bb31.i, %sw.bb41.i, %sw.bb51.i, %sw.bb61.i, %sw.bb71.i, %sw.bb81.i, %sw.bb91.i, %sw.bb102.i, %sw.bb115.i, %sw.bb131.i, %sw.bb146.i, %sw.bb161.i, %sw.bb170.i, %sw.bb178.i, %sw.bb187.i, %operand_cimmshr6.exit.i, %sw.bb205.i, %sw.bb213.i, %sw.bb221.i, %sw.bb229.i, %sw.bb235.i, %sw.bb243.i, %sw.bb251.i, %sw.bb259.i, %sw.bb267.i, %sw.bb275.i, %sw.bb280.i, %sw.bb289.i, %sw.bb295.i, %sw.bb301.i, %sw.bb313.i, %sw.bb325.i, %sw.bb337.i, %sw.bb346.i, %sw.bb355.i, %sw.bb362.i, %sw.bb369.i, %sw.bb380.i, %sw.bb392.i, %sw.bb404.i, %sw.bb416.i, %sw.bb424.i, %sw.bb432.i, %sw.bb440.i, %sw.bb449.i, %sw.bb458.i, %sw.bb470.i, %sw.bb480.i, %sw.bb492.i, %sw.bb504.i, %sw.bb512.i, %sw.bb520.i, %sw.bb531.i, %sw.bb542.i, %sw.bb547.i, %sw.bb556.i, %sw.bb561.i, %sw.bb568.i, %sw.bb571.i, %sw.bb577.i, %sw.bb586.i, %sw.bb593.i, %sw.bb602.i, %sw.bb614.i, %sw.bb624.i
   %arrayidx.i.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i
-  switch i32 %isa, label %default.unreachable.i [
+  switch i32 %isa, label %default.unreachable [
     i32 0, label %sw.bb.i8
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
@@ -3076,8 +3076,8 @@ if.then.i8.i:                                     ; preds = %sw.bb1.i
   %imm.i12.i = getelementptr inbounds i8, ptr %dec, i64 32
   %384 = load i32, ptr %imm.i12.i, align 8
   %cmp7.i13.i = icmp eq i32 %384, 0
-  %or.cond63 = select i1 %tobool.not.i10.i, i1 %cmp7.i13.i, i1 false
-  br i1 %or.cond63, label %if.then9.i19.i, label %if.else.i14.i
+  %or.cond62 = select i1 %tobool.not.i10.i, i1 %cmp7.i13.i, i1 false
+  br i1 %or.cond62, label %if.then9.i19.i, label %if.else.i14.i
 
 if.then9.i19.i:                                   ; preds = %if.then.i8.i
   store i16 0, ptr %op, align 8
@@ -3106,8 +3106,8 @@ if.then.i25.i:                                    ; preds = %sw.bb2.i
   %imm.i29.i = getelementptr inbounds i8, ptr %dec, i64 32
   %389 = load i32, ptr %imm.i29.i, align 8
   %cmp7.i30.i = icmp eq i32 %389, 0
-  %or.cond64 = select i1 %tobool.not.i27.i, i1 %cmp7.i30.i, i1 false
-  br i1 %or.cond64, label %if.then9.i36.i, label %if.else.i31.i
+  %or.cond63 = select i1 %tobool.not.i27.i, i1 %cmp7.i30.i, i1 false
+  br i1 %or.cond63, label %if.then9.i36.i, label %if.else.i31.i
 
 if.then9.i36.i:                                   ; preds = %if.then.i25.i
   store i16 0, ptr %op, align 8
@@ -3122,7 +3122,7 @@ if.else.i31.i:                                    ; preds = %if.then.i25.i
   store i8 %conv15.i34.i, ptr %codec3.i, align 2
   br label %decode_inst_decompress.exit
 
-default.unreachable.i:                            ; preds = %decode_inst_operands.exit
+default.unreachable:                              ; preds = %if.then279.i, %decode_inst_operands.exit
   unreachable
 
 decode_inst_decompress.exit:                      ; preds = %sw.bb.i8, %if.then9.i.i, %if.else.i.i, %sw.bb1.i, %if.then9.i19.i, %if.else.i14.i, %sw.bb2.i, %if.then9.i36.i, %if.else.i31.i
@@ -3269,7 +3269,7 @@ if.then4.i:                                       ; preds = %while.body.i, %sw.e
   %conv10.i = trunc i32 %403 to i8
   store i8 %conv10.i, ptr %codec3.i, align 2
   %conv.i15.mask = and i32 %402, 65535
-  %.pre76 = zext nneg i32 %conv.i15.mask to i64
+  %.pre75 = zext nneg i32 %conv.i15.mask to i64
   br label %decode_inst_lift_pseudo.exit
 
 if.end12.i:                                       ; preds = %sw.bb93.i.i, %sw.bb88.i.i, %sw.bb83.i.i, %sw.bb78.i.i, %sw.bb73.i.i, %sw.bb68.i.i, %sw.bb63.i.i, %sw.bb58.i.i, %sw.bb53.i.i, %sw.bb48.i.i, %sw.bb43.i.i, %sw.bb38.i.i, %sw.bb32.i.i, %sw.bb25.i.i, %sw.bb19.i.i, %sw.bb13.i.i, %sw.bb7.i.i, %sw.bb.i.i
@@ -3280,7 +3280,7 @@ if.end12.i:                                       ; preds = %sw.bb93.i.i, %sw.bb
   br i1 %tobool2.not.i, label %decode_inst_lift_pseudo.exit, label %while.body.i, !llvm.loop !9
 
 decode_inst_lift_pseudo.exit:                     ; preds = %if.end12.i, %decode_inst_decompress.exit, %while.cond.preheader.i, %if.then4.i
-  %idxprom.i19.pre-phi = phi i64 [ %idxprom.i13, %decode_inst_decompress.exit ], [ %idxprom.i13, %while.cond.preheader.i ], [ %.pre76, %if.then4.i ], [ %idxprom.i13, %if.end12.i ]
+  %idxprom.i19.pre-phi = phi i64 [ %idxprom.i13, %decode_inst_decompress.exit ], [ %idxprom.i13, %while.cond.preheader.i ], [ %.pre75, %if.then4.i ], [ %idxprom.i13, %if.end12.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %nbuf.i)
   %format.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom.i19.pre-phi, i32 2
@@ -3308,15 +3308,15 @@ while.cond.i:                                     ; preds = %sw.epilog321.i, %de
   %406 = load i8, ptr %fmt.0.i, align 1
   switch i8 %406, label %sw.epilog321.i [
     i8 0, label %format_inst.exit
-    i8 79, label %sw.bb.i60
+    i8 79, label %sw.bb.i59
     i8 40, label %sw.bb5.i
-    i8 44, label %sw.bb6.i59
+    i8 44, label %sw.bb6.i58
     i8 41, label %sw.bb7.i
     i8 45, label %sw.bb8.i
     i8 98, label %sw.bb9.i
     i8 110, label %sw.bb12.i
     i8 48, label %sw.bb17.i
-    i8 49, label %sw.bb21.i57
+    i8 49, label %sw.bb21.i56
     i8 50, label %sw.bb25.i
     i8 51, label %sw.bb29.i
     i8 52, label %sw.bb40.i
@@ -3333,14 +3333,14 @@ while.cond.i:                                     ; preds = %sw.epilog321.i, %de
     i8 112, label %sw.bb166.i
     i8 115, label %sw.bb190.i
     i8 9, label %while.cond215.preheader.i
-    i8 65, label %sw.bb221.i35
+    i8 65, label %sw.bb221.i34
     i8 82, label %sw.bb225.i
-    i8 108, label %sw.bb229.i34
+    i8 108, label %sw.bb229.i33
     i8 109, label %sw.bb230.i
     i8 68, label %sw.bb236.i
     i8 69, label %sw.bb241.i
     i8 70, label %sw.bb246.i
-    i8 71, label %sw.bb251.i33
+    i8 71, label %sw.bb251.i32
     i8 118, label %sw.bb256.i
     i8 120, label %sw.bb297.i
     i8 104, label %sw.bb315.i
@@ -3351,12 +3351,12 @@ while.cond215.preheader.i:                        ; preds = %while.cond.i
   %cmp217552.i = icmp ult i64 %call216551.i, 24
   br i1 %cmp217552.i, label %append.exit433.i, label %sw.epilog321.i
 
-sw.bb.i60:                                        ; preds = %while.cond.i
+sw.bb.i59:                                        ; preds = %while.cond.i
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
-  %cmp.not.i.i61 = icmp eq i64 %call.i.i, 127
-  br i1 %cmp.not.i.i61, label %sw.epilog321.i, label %if.then.i.i62
+  %cmp.not.i.i60 = icmp eq i64 %call.i.i, 127
+  br i1 %cmp.not.i.i60, label %sw.epilog321.i, label %if.then.i.i61
 
-if.then.i.i62:                                    ; preds = %sw.bb.i60
+if.then.i.i61:                                    ; preds = %sw.bb.i59
   %407 = load i16, ptr %op, align 8
   %idxprom3.i = zext i16 %407 to i64
   %arrayidx4.i = getelementptr %struct.rv_opcode_data, ptr %6, i64 %idxprom3.i
@@ -3375,12 +3375,12 @@ if.then.i190.i:                                   ; preds = %sw.bb5.i
   %call3.i192.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.954, i64 noundef %sub.i191.i) #12
   br label %sw.epilog321.i
 
-sw.bb6.i59:                                       ; preds = %while.cond.i
+sw.bb6.i58:                                       ; preds = %while.cond.i
   %call.i194.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i195.i = icmp eq i64 %call.i194.i, 127
   br i1 %cmp.not.i195.i, label %sw.epilog321.i, label %if.then.i196.i
 
-if.then.i196.i:                                   ; preds = %sw.bb6.i59
+if.then.i196.i:                                   ; preds = %sw.bb6.i58
   %sub.i197.i = sub i64 128, %call.i194.i
   %call3.i198.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.955, i64 noundef %sub.i197.i) #12
   br label %sw.epilog321.i
@@ -3407,8 +3407,8 @@ if.then.i208.i:                                   ; preds = %sw.bb8.i
 
 sw.bb9.i:                                         ; preds = %while.cond.i
   %409 = load i8, ptr %bs.i30, align 4
-  %conv10.i58 = zext i8 %409 to i32
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %conv10.i58) #12
+  %conv10.i57 = zext i8 %409 to i32
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %conv10.i57) #12
   %call.i212.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i213.i = icmp eq i64 %call.i212.i, 127
   br i1 %cmp.not.i213.i, label %sw.epilog321.i, label %if.then.i214.i
@@ -3444,12 +3444,12 @@ if.then.i226.i:                                   ; preds = %sw.bb17.i
   %call3.i228.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx19.i, i64 noundef %sub.i227.i) #12
   br label %sw.epilog321.i
 
-sw.bb21.i57:                                      ; preds = %while.cond.i
+sw.bb21.i56:                                      ; preds = %while.cond.i
   %call.i230.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i231.i = icmp eq i64 %call.i230.i, 127
   br i1 %cmp.not.i231.i, label %sw.epilog321.i, label %if.then.i232.i
 
-if.then.i232.i:                                   ; preds = %sw.bb21.i57
+if.then.i232.i:                                   ; preds = %sw.bb21.i56
   %412 = load i8, ptr %rs1242.i, align 4
   %idxprom22.i = zext i8 %412 to i64
   %arrayidx23.i = getelementptr [32 x [5 x i8]], ptr @rv_ireg_name_sym, i64 0, i64 %idxprom22.i
@@ -3544,8 +3544,8 @@ if.then.i262.i:                                   ; preds = %sw.bb74.i
 
 sw.bb90.i:                                        ; preds = %while.cond.i
   %426 = load i8, ptr %rs1242.i, align 4
-  %conv93.i56 = zext i8 %426 to i32
-  %call94.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %conv93.i56) #12
+  %conv93.i55 = zext i8 %426 to i32
+  %call94.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %conv93.i55) #12
   %call.i266.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i267.i = icmp eq i64 %call.i266.i, 127
   br i1 %cmp.not.i267.i, label %sw.epilog321.i, label %if.then.i268.i
@@ -3620,8 +3620,8 @@ append.exit301.i:                                 ; preds = %append.exit295.i, %
 while.end.i:                                      ; preds = %append.exit301.i, %append.exit295.i
   %431 = load i64, ptr %pc1, align 8
   %432 = load i32, ptr %imm316.i, align 8
-  %conv120.i55 = sext i32 %432 to i64
-  %add.i = add i64 %431, %conv120.i55
+  %conv120.i54 = sext i32 %432 to i64
+  %add.i = add i64 %431, %conv120.i54
   %call121.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.961, i64 noundef %add.i) #12
   %call.i302.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i303.i = icmp eq i64 %call.i302.i, 127
@@ -3633,7 +3633,7 @@ if.then.i304.i:                                   ; preds = %while.end.i
   br label %sw.epilog321.i
 
 sw.bb123.i:                                       ; preds = %while.cond.i
-  %incdec.ptr.i54 = getelementptr i8, ptr %fmt.0.i, i64 1
+  %incdec.ptr.i53 = getelementptr i8, ptr %fmt.0.i, i64 1
   %433 = load i32, ptr %imm316.i, align 8
   %shr.i = ashr i32 %433, 12
   %call126.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tmp.i, i64 noundef 64, ptr noundef nonnull @.str.958, i32 noundef %shr.i) #12
@@ -3647,7 +3647,7 @@ if.then.i310.i:                                   ; preds = %sw.bb123.i
   br label %append.exit313.i
 
 append.exit313.i:                                 ; preds = %if.then.i310.i, %sw.bb123.i
-  %434 = load i8, ptr %incdec.ptr.i54, align 1
+  %434 = load i8, ptr %incdec.ptr.i53, align 1
   %cmp129.i = icmp eq i8 %434, 111
   br i1 %cmp129.i, label %while.cond131.preheader.i, label %sw.epilog321.i
 
@@ -3690,93 +3690,93 @@ sw.bb145.i:                                       ; preds = %while.cond.i
     i32 4, label %sw.bb4.i.i
     i32 5, label %sw.bb5.i.i
     i32 8, label %sw.bb6.i.i
-    i32 9, label %sw.bb7.i.i53
+    i32 9, label %sw.bb7.i.i52
     i32 10, label %sw.bb8.i.i
     i32 15, label %sw.bb9.i.i
     i32 21, label %sw.bb10.i.i
     i32 23, label %sw.bb11.i.i
     i32 64, label %sw.bb12.i.i
-    i32 65, label %sw.bb13.i.i52
+    i32 65, label %sw.bb13.i.i51
     i32 66, label %sw.bb14.i.i
     i32 67, label %sw.bb15.i.i
     i32 68, label %sw.bb16.i.i
     i32 256, label %sw.bb17.i.i
     i32 260, label %sw.bb18.i.i
-    i32 261, label %sw.bb19.i.i51
+    i32 261, label %sw.bb19.i.i50
     i32 262, label %sw.bb20.i.i
     i32 320, label %sw.bb21.i.i
     i32 321, label %sw.bb22.i.i
     i32 322, label %sw.bb23.i.i
     i32 323, label %sw.bb24.i.i
-    i32 324, label %sw.bb25.i.i50
+    i32 324, label %sw.bb25.i.i49
     i32 384, label %sw.bb26.i.i
     i32 512, label %sw.bb27.i.i
     i32 514, label %sw.bb28.i.i
     i32 515, label %sw.bb29.i.i
     i32 516, label %sw.bb30.i.i
     i32 517, label %sw.bb31.i.i
-    i32 576, label %sw.bb32.i.i49
+    i32 576, label %sw.bb32.i.i48
     i32 577, label %sw.bb33.i.i
     i32 578, label %sw.bb34.i.i
     i32 579, label %sw.bb35.i.i
     i32 580, label %sw.bb36.i.i
     i32 768, label %sw.bb37.i.i
-    i32 769, label %sw.bb38.i.i48
+    i32 769, label %sw.bb38.i.i47
     i32 770, label %sw.bb39.i.i
     i32 771, label %sw.bb40.i.i
     i32 772, label %sw.bb41.i.i
     i32 773, label %sw.bb42.i.i
-    i32 774, label %sw.bb43.i.i47
+    i32 774, label %sw.bb43.i.i46
     i32 800, label %sw.bb44.i.i
     i32 801, label %sw.bb45.i.i
     i32 802, label %sw.bb46.i.i
     i32 803, label %sw.bb47.i.i
-    i32 804, label %sw.bb48.i.i46
+    i32 804, label %sw.bb48.i.i45
     i32 805, label %sw.bb49.i.i
     i32 806, label %sw.bb50.i.i
     i32 807, label %sw.bb51.i.i
     i32 808, label %sw.bb52.i.i
-    i32 809, label %sw.bb53.i.i45
+    i32 809, label %sw.bb53.i.i44
     i32 810, label %sw.bb54.i.i
     i32 811, label %sw.bb55.i.i
     i32 812, label %sw.bb56.i.i
     i32 813, label %sw.bb57.i.i
-    i32 814, label %sw.bb58.i.i44
+    i32 814, label %sw.bb58.i.i43
     i32 815, label %sw.bb59.i.i
     i32 816, label %sw.bb60.i.i
     i32 817, label %sw.bb61.i.i
     i32 818, label %sw.bb62.i.i
-    i32 819, label %sw.bb63.i.i43
+    i32 819, label %sw.bb63.i.i42
     i32 820, label %sw.bb64.i.i
     i32 821, label %sw.bb65.i.i
     i32 822, label %sw.bb66.i.i
     i32 823, label %sw.bb67.i.i
-    i32 824, label %sw.bb68.i.i42
+    i32 824, label %sw.bb68.i.i41
     i32 825, label %sw.bb69.i.i
     i32 826, label %sw.bb70.i.i
     i32 827, label %sw.bb71.i.i
     i32 828, label %sw.bb72.i.i
-    i32 829, label %sw.bb73.i.i41
+    i32 829, label %sw.bb73.i.i40
     i32 830, label %sw.bb74.i.i
     i32 831, label %sw.bb75.i.i
     i32 832, label %sw.bb76.i.i
     i32 833, label %sw.bb77.i.i
-    i32 834, label %sw.bb78.i.i40
+    i32 834, label %sw.bb78.i.i39
     i32 835, label %sw.bb79.i.i
     i32 836, label %sw.bb80.i.i
     i32 896, label %sw.bb81.i.i
     i32 897, label %sw.bb82.i.i
-    i32 898, label %sw.bb83.i.i39
+    i32 898, label %sw.bb83.i.i38
     i32 899, label %sw.bb84.i.i
     i32 900, label %sw.bb85.i.i
     i32 901, label %sw.bb86.i.i
     i32 928, label %sw.bb87.i.i
-    i32 944, label %sw.bb88.i.i38
+    i32 944, label %sw.bb88.i.i37
     i32 945, label %sw.bb89.i.i
     i32 946, label %sw.bb90.i.i
     i32 947, label %sw.bb91.i.i
     i32 948, label %sw.bb92.i.i
-    i32 949, label %sw.bb93.i.i37
+    i32 949, label %sw.bb93.i.i36
     i32 950, label %sw.bb94.i.i
     i32 951, label %sw.bb95.i.i
     i32 952, label %sw.bb96.i.i
@@ -3908,7 +3908,7 @@ sw.bb5.i.i:                                       ; preds = %sw.bb145.i
 sw.bb6.i.i:                                       ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb7.i.i53:                                     ; preds = %sw.bb145.i
+sw.bb7.i.i52:                                     ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb8.i.i:                                       ; preds = %sw.bb145.i
@@ -3926,7 +3926,7 @@ sw.bb11.i.i:                                      ; preds = %sw.bb145.i
 sw.bb12.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb13.i.i52:                                    ; preds = %sw.bb145.i
+sw.bb13.i.i51:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb14.i.i:                                      ; preds = %sw.bb145.i
@@ -3944,7 +3944,7 @@ sw.bb17.i.i:                                      ; preds = %sw.bb145.i
 sw.bb18.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb19.i.i51:                                    ; preds = %sw.bb145.i
+sw.bb19.i.i50:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb20.i.i:                                      ; preds = %sw.bb145.i
@@ -3962,7 +3962,7 @@ sw.bb23.i.i:                                      ; preds = %sw.bb145.i
 sw.bb24.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb25.i.i50:                                    ; preds = %sw.bb145.i
+sw.bb25.i.i49:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb26.i.i:                                      ; preds = %sw.bb145.i
@@ -3983,7 +3983,7 @@ sw.bb30.i.i:                                      ; preds = %sw.bb145.i
 sw.bb31.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb32.i.i49:                                    ; preds = %sw.bb145.i
+sw.bb32.i.i48:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb33.i.i:                                      ; preds = %sw.bb145.i
@@ -4001,7 +4001,7 @@ sw.bb36.i.i:                                      ; preds = %sw.bb145.i
 sw.bb37.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb38.i.i48:                                    ; preds = %sw.bb145.i
+sw.bb38.i.i47:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb39.i.i:                                      ; preds = %sw.bb145.i
@@ -4016,7 +4016,7 @@ sw.bb41.i.i:                                      ; preds = %sw.bb145.i
 sw.bb42.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb43.i.i47:                                    ; preds = %sw.bb145.i
+sw.bb43.i.i46:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb44.i.i:                                      ; preds = %sw.bb145.i
@@ -4031,7 +4031,7 @@ sw.bb46.i.i:                                      ; preds = %sw.bb145.i
 sw.bb47.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb48.i.i46:                                    ; preds = %sw.bb145.i
+sw.bb48.i.i45:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb49.i.i:                                      ; preds = %sw.bb145.i
@@ -4046,7 +4046,7 @@ sw.bb51.i.i:                                      ; preds = %sw.bb145.i
 sw.bb52.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb53.i.i45:                                    ; preds = %sw.bb145.i
+sw.bb53.i.i44:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb54.i.i:                                      ; preds = %sw.bb145.i
@@ -4061,7 +4061,7 @@ sw.bb56.i.i:                                      ; preds = %sw.bb145.i
 sw.bb57.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb58.i.i44:                                    ; preds = %sw.bb145.i
+sw.bb58.i.i43:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb59.i.i:                                      ; preds = %sw.bb145.i
@@ -4076,7 +4076,7 @@ sw.bb61.i.i:                                      ; preds = %sw.bb145.i
 sw.bb62.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb63.i.i43:                                    ; preds = %sw.bb145.i
+sw.bb63.i.i42:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb64.i.i:                                      ; preds = %sw.bb145.i
@@ -4091,7 +4091,7 @@ sw.bb66.i.i:                                      ; preds = %sw.bb145.i
 sw.bb67.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb68.i.i42:                                    ; preds = %sw.bb145.i
+sw.bb68.i.i41:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb69.i.i:                                      ; preds = %sw.bb145.i
@@ -4106,7 +4106,7 @@ sw.bb71.i.i:                                      ; preds = %sw.bb145.i
 sw.bb72.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb73.i.i41:                                    ; preds = %sw.bb145.i
+sw.bb73.i.i40:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb74.i.i:                                      ; preds = %sw.bb145.i
@@ -4121,7 +4121,7 @@ sw.bb76.i.i:                                      ; preds = %sw.bb145.i
 sw.bb77.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb78.i.i40:                                    ; preds = %sw.bb145.i
+sw.bb78.i.i39:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb79.i.i:                                      ; preds = %sw.bb145.i
@@ -4136,7 +4136,7 @@ sw.bb81.i.i:                                      ; preds = %sw.bb145.i
 sw.bb82.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb83.i.i39:                                    ; preds = %sw.bb145.i
+sw.bb83.i.i38:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb84.i.i:                                      ; preds = %sw.bb145.i
@@ -4151,7 +4151,7 @@ sw.bb86.i.i:                                      ; preds = %sw.bb145.i
 sw.bb87.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb88.i.i38:                                    ; preds = %sw.bb145.i
+sw.bb88.i.i37:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb89.i.i:                                      ; preds = %sw.bb145.i
@@ -4166,7 +4166,7 @@ sw.bb91.i.i:                                      ; preds = %sw.bb145.i
 sw.bb92.i.i:                                      ; preds = %sw.bb145.i
   br label %if.then151.i
 
-sw.bb93.i.i37:                                    ; preds = %sw.bb145.i
+sw.bb93.i.i36:                                    ; preds = %sw.bb145.i
   br label %if.then151.i
 
 sw.bb94.i.i:                                      ; preds = %sw.bb145.i
@@ -4502,8 +4502,8 @@ sw.bb203.i.i:                                     ; preds = %sw.bb145.i
 sw.bb204.i.i:                                     ; preds = %sw.bb145.i
   br label %if.then151.i
 
-if.then151.i:                                     ; preds = %sw.bb204.i.i, %sw.bb203.i.i, %sw.bb202.i.i, %sw.bb201.i.i, %sw.bb200.i.i, %sw.bb199.i.i, %sw.bb198.i.i, %sw.bb197.i.i, %sw.bb196.i.i, %sw.bb195.i.i, %sw.bb194.i.i, %sw.bb193.i.i, %sw.bb192.i.i, %sw.bb191.i.i, %sw.bb190.i.i, %sw.bb189.i.i, %sw.bb188.i.i, %sw.bb187.i.i, %sw.bb186.i.i, %sw.bb185.i.i, %sw.bb184.i.i, %sw.bb183.i.i, %sw.bb182.i.i, %sw.bb181.i.i, %sw.bb180.i.i, %sw.bb179.i.i, %sw.bb178.i.i, %sw.bb177.i.i, %sw.bb176.i.i, %sw.bb175.i.i, %sw.bb174.i.i, %sw.bb173.i.i, %sw.bb172.i.i, %sw.bb171.i.i, %sw.bb170.i.i, %sw.bb169.i.i, %sw.bb168.i.i, %sw.bb167.i.i, %sw.bb166.i.i, %sw.bb165.i.i, %sw.bb164.i.i, %sw.bb163.i.i, %sw.bb162.i.i, %sw.bb161.i.i, %sw.bb160.i.i, %sw.bb159.i.i, %sw.bb158.i.i, %sw.bb157.i.i, %sw.bb156.i.i, %sw.bb155.i.i, %sw.bb154.i.i, %sw.bb153.i.i, %sw.bb152.i.i, %sw.bb151.i.i, %sw.bb150.i.i, %sw.bb149.i.i, %sw.bb148.i.i, %sw.bb147.i.i, %sw.bb146.i.i, %sw.bb145.i.i, %sw.bb144.i.i, %sw.bb143.i.i, %sw.bb142.i.i, %sw.bb141.i.i, %sw.bb140.i.i, %sw.bb139.i.i, %sw.bb138.i.i, %sw.bb137.i.i, %sw.bb136.i.i, %sw.bb135.i.i, %sw.bb134.i.i, %sw.bb133.i.i, %sw.bb132.i.i, %sw.bb131.i.i, %sw.bb130.i.i, %sw.bb129.i.i, %sw.bb128.i.i, %sw.bb127.i.i, %sw.bb126.i.i, %sw.bb125.i.i, %sw.bb124.i.i, %sw.bb123.i.i, %sw.bb122.i.i, %sw.bb121.i.i, %sw.bb120.i.i, %sw.bb119.i.i, %sw.bb118.i.i, %sw.bb117.i.i, %sw.bb116.i.i, %sw.bb115.i.i, %sw.bb114.i.i, %sw.bb113.i.i, %sw.bb112.i.i, %sw.bb111.i.i, %sw.bb110.i.i, %sw.bb109.i.i, %sw.bb108.i.i, %sw.bb107.i.i, %sw.bb106.i.i, %sw.bb105.i.i, %sw.bb104.i.i, %sw.bb103.i.i, %sw.bb102.i.i, %sw.bb101.i.i, %sw.bb100.i.i, %sw.bb99.i.i, %sw.bb98.i.i, %sw.bb97.i.i, %sw.bb96.i.i, %sw.bb95.i.i, %sw.bb94.i.i, %sw.bb93.i.i37, %sw.bb92.i.i, %sw.bb91.i.i, %sw.bb90.i.i, %sw.bb89.i.i, %sw.bb88.i.i38, %sw.bb87.i.i, %sw.bb86.i.i, %sw.bb85.i.i, %sw.bb84.i.i, %sw.bb83.i.i39, %sw.bb82.i.i, %sw.bb81.i.i, %sw.bb80.i.i, %sw.bb79.i.i, %sw.bb78.i.i40, %sw.bb77.i.i, %sw.bb76.i.i, %sw.bb75.i.i, %sw.bb74.i.i, %sw.bb73.i.i41, %sw.bb72.i.i, %sw.bb71.i.i, %sw.bb70.i.i, %sw.bb69.i.i, %sw.bb68.i.i42, %sw.bb67.i.i, %sw.bb66.i.i, %sw.bb65.i.i, %sw.bb64.i.i, %sw.bb63.i.i43, %sw.bb62.i.i, %sw.bb61.i.i, %sw.bb60.i.i, %sw.bb59.i.i, %sw.bb58.i.i44, %sw.bb57.i.i, %sw.bb56.i.i, %sw.bb55.i.i, %sw.bb54.i.i, %sw.bb53.i.i45, %sw.bb52.i.i, %sw.bb51.i.i, %sw.bb50.i.i, %sw.bb49.i.i, %sw.bb48.i.i46, %sw.bb47.i.i, %sw.bb46.i.i, %sw.bb45.i.i, %sw.bb44.i.i, %sw.bb43.i.i47, %sw.bb42.i.i, %sw.bb41.i.i, %sw.bb40.i.i, %sw.bb39.i.i, %sw.bb38.i.i48, %sw.bb37.i.i, %sw.bb36.i.i, %sw.bb35.i.i, %sw.bb34.i.i, %sw.bb33.i.i, %sw.bb32.i.i49, %sw.bb31.i.i, %sw.bb30.i.i, %sw.bb29.i.i, %sw.bb28.i.i, %sw.bb27.i.i, %sw.bb26.i.i, %sw.bb25.i.i50, %sw.bb24.i.i, %sw.bb23.i.i, %sw.bb22.i.i, %sw.bb21.i.i, %sw.bb20.i.i, %sw.bb19.i.i51, %sw.bb18.i.i, %sw.bb17.i.i, %sw.bb16.i.i, %sw.bb15.i.i, %sw.bb14.i.i, %sw.bb13.i.i52, %sw.bb12.i.i, %sw.bb11.i.i, %sw.bb10.i.i, %sw.bb9.i.i, %sw.bb8.i.i, %sw.bb7.i.i53, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb145.i
-  %retval.0.i.ph.i = phi ptr [ @.str.991, %sw.bb145.i ], [ @.str.992, %sw.bb1.i.i ], [ @.str.993, %sw.bb2.i.i ], [ @.str.994, %sw.bb3.i.i ], [ @.str.995, %sw.bb4.i.i ], [ @.str.996, %sw.bb5.i.i ], [ @.str.997, %sw.bb6.i.i ], [ @.str.998, %sw.bb7.i.i53 ], [ @.str.999, %sw.bb8.i.i ], [ @.str.1000, %sw.bb9.i.i ], [ @.str.1001, %sw.bb10.i.i ], [ @.str.1002, %sw.bb11.i.i ], [ @.str.1003, %sw.bb12.i.i ], [ @.str.1004, %sw.bb13.i.i52 ], [ @.str.1005, %sw.bb14.i.i ], [ @.str.1006, %sw.bb15.i.i ], [ @.str.1007, %sw.bb16.i.i ], [ @.str.1008, %sw.bb17.i.i ], [ @.str.1009, %sw.bb18.i.i ], [ @.str.1010, %sw.bb19.i.i51 ], [ @.str.1011, %sw.bb20.i.i ], [ @.str.1012, %sw.bb21.i.i ], [ @.str.1013, %sw.bb22.i.i ], [ @.str.1014, %sw.bb23.i.i ], [ @.str.1015, %sw.bb24.i.i ], [ @.str.1016, %sw.bb25.i.i50 ], [ @.str.1017, %sw.bb26.i.i ], [ @.str.1018, %sw.bb27.i.i ], [ @.str.1019, %sw.bb28.i.i ], [ @.str.1020, %sw.bb29.i.i ], [ @.str.1021, %sw.bb30.i.i ], [ @.str.1022, %sw.bb31.i.i ], [ @.str.1023, %sw.bb32.i.i49 ], [ @.str.1024, %sw.bb33.i.i ], [ @.str.1025, %sw.bb34.i.i ], [ @.str.1026, %sw.bb35.i.i ], [ @.str.1027, %sw.bb36.i.i ], [ @.str.1028, %sw.bb37.i.i ], [ @.str.1029, %sw.bb38.i.i48 ], [ @.str.1030, %sw.bb39.i.i ], [ @.str.1031, %sw.bb40.i.i ], [ @.str.1032, %sw.bb41.i.i ], [ @.str.1033, %sw.bb42.i.i ], [ @.str.1034, %sw.bb43.i.i47 ], [ @.str.1035, %sw.bb44.i.i ], [ @.str.1036, %sw.bb45.i.i ], [ @.str.1037, %sw.bb46.i.i ], [ @.str.1038, %sw.bb47.i.i ], [ @.str.1039, %sw.bb48.i.i46 ], [ @.str.1040, %sw.bb49.i.i ], [ @.str.1041, %sw.bb50.i.i ], [ @.str.1042, %sw.bb51.i.i ], [ @.str.1043, %sw.bb52.i.i ], [ @.str.1044, %sw.bb53.i.i45 ], [ @.str.1045, %sw.bb54.i.i ], [ @.str.1046, %sw.bb55.i.i ], [ @.str.1047, %sw.bb56.i.i ], [ @.str.1048, %sw.bb57.i.i ], [ @.str.1049, %sw.bb58.i.i44 ], [ @.str.1050, %sw.bb59.i.i ], [ @.str.1051, %sw.bb60.i.i ], [ @.str.1052, %sw.bb61.i.i ], [ @.str.1053, %sw.bb62.i.i ], [ @.str.1054, %sw.bb63.i.i43 ], [ @.str.1055, %sw.bb64.i.i ], [ @.str.1056, %sw.bb65.i.i ], [ @.str.1057, %sw.bb66.i.i ], [ @.str.1058, %sw.bb67.i.i ], [ @.str.1059, %sw.bb68.i.i42 ], [ @.str.1060, %sw.bb69.i.i ], [ @.str.1061, %sw.bb70.i.i ], [ @.str.1062, %sw.bb71.i.i ], [ @.str.1063, %sw.bb72.i.i ], [ @.str.1064, %sw.bb73.i.i41 ], [ @.str.1065, %sw.bb74.i.i ], [ @.str.1066, %sw.bb75.i.i ], [ @.str.1067, %sw.bb76.i.i ], [ @.str.1068, %sw.bb77.i.i ], [ @.str.1069, %sw.bb78.i.i40 ], [ @.str.1070, %sw.bb79.i.i ], [ @.str.1071, %sw.bb80.i.i ], [ @.str.1072, %sw.bb81.i.i ], [ @.str.1073, %sw.bb82.i.i ], [ @.str.1074, %sw.bb83.i.i39 ], [ @.str.1075, %sw.bb84.i.i ], [ @.str.1076, %sw.bb85.i.i ], [ @.str.1077, %sw.bb86.i.i ], [ @.str.1078, %sw.bb87.i.i ], [ @.str.1079, %sw.bb88.i.i38 ], [ @.str.1080, %sw.bb89.i.i ], [ @.str.1081, %sw.bb90.i.i ], [ @.str.1082, %sw.bb91.i.i ], [ @.str.1083, %sw.bb92.i.i ], [ @.str.1084, %sw.bb93.i.i37 ], [ @.str.1085, %sw.bb94.i.i ], [ @.str.1086, %sw.bb95.i.i ], [ @.str.1087, %sw.bb96.i.i ], [ @.str.1088, %sw.bb97.i.i ], [ @.str.1089, %sw.bb98.i.i ], [ @.str.1090, %sw.bb99.i.i ], [ @.str.1091, %sw.bb100.i.i ], [ @.str.1092, %sw.bb101.i.i ], [ @.str.1093, %sw.bb102.i.i ], [ @.str.1094, %sw.bb103.i.i ], [ @.str.1095, %sw.bb104.i.i ], [ @.str.1096, %sw.bb105.i.i ], [ @.str.1097, %sw.bb106.i.i ], [ @.str.1098, %sw.bb107.i.i ], [ @.str.1099, %sw.bb108.i.i ], [ @.str.1100, %sw.bb109.i.i ], [ @.str.1101, %sw.bb110.i.i ], [ @.str.1102, %sw.bb111.i.i ], [ @.str.1103, %sw.bb112.i.i ], [ @.str.1104, %sw.bb113.i.i ], [ @.str.1105, %sw.bb114.i.i ], [ @.str.1106, %sw.bb115.i.i ], [ @.str.1107, %sw.bb116.i.i ], [ @.str.1108, %sw.bb117.i.i ], [ @.str.1109, %sw.bb118.i.i ], [ @.str.1110, %sw.bb119.i.i ], [ @.str.1111, %sw.bb120.i.i ], [ @.str.1112, %sw.bb121.i.i ], [ @.str.1113, %sw.bb122.i.i ], [ @.str.1114, %sw.bb123.i.i ], [ @.str.1115, %sw.bb124.i.i ], [ @.str.1116, %sw.bb125.i.i ], [ @.str.1117, %sw.bb126.i.i ], [ @.str.1118, %sw.bb127.i.i ], [ @.str.1119, %sw.bb128.i.i ], [ @.str.1120, %sw.bb129.i.i ], [ @.str.1121, %sw.bb130.i.i ], [ @.str.1122, %sw.bb131.i.i ], [ @.str.1123, %sw.bb132.i.i ], [ @.str.1124, %sw.bb133.i.i ], [ @.str.1125, %sw.bb134.i.i ], [ @.str.1126, %sw.bb135.i.i ], [ @.str.1127, %sw.bb136.i.i ], [ @.str.1128, %sw.bb137.i.i ], [ @.str.1129, %sw.bb138.i.i ], [ @.str.1130, %sw.bb139.i.i ], [ @.str.1131, %sw.bb140.i.i ], [ @.str.1132, %sw.bb141.i.i ], [ @.str.1133, %sw.bb142.i.i ], [ @.str.1134, %sw.bb143.i.i ], [ @.str.1135, %sw.bb144.i.i ], [ @.str.1136, %sw.bb145.i.i ], [ @.str.1137, %sw.bb146.i.i ], [ @.str.1138, %sw.bb147.i.i ], [ @.str.1139, %sw.bb148.i.i ], [ @.str.1140, %sw.bb149.i.i ], [ @.str.1141, %sw.bb150.i.i ], [ @.str.1142, %sw.bb151.i.i ], [ @.str.1143, %sw.bb152.i.i ], [ @.str.1144, %sw.bb153.i.i ], [ @.str.1145, %sw.bb154.i.i ], [ @.str.1146, %sw.bb155.i.i ], [ @.str.1147, %sw.bb156.i.i ], [ @.str.1148, %sw.bb157.i.i ], [ @.str.1149, %sw.bb158.i.i ], [ @.str.1150, %sw.bb159.i.i ], [ @.str.1151, %sw.bb160.i.i ], [ @.str.1152, %sw.bb161.i.i ], [ @.str.1153, %sw.bb162.i.i ], [ @.str.1154, %sw.bb163.i.i ], [ @.str.1155, %sw.bb164.i.i ], [ @.str.1156, %sw.bb165.i.i ], [ @.str.1157, %sw.bb166.i.i ], [ @.str.1158, %sw.bb167.i.i ], [ @.str.1159, %sw.bb168.i.i ], [ @.str.1160, %sw.bb169.i.i ], [ @.str.1161, %sw.bb170.i.i ], [ @.str.1162, %sw.bb171.i.i ], [ @.str.1163, %sw.bb172.i.i ], [ @.str.1164, %sw.bb173.i.i ], [ @.str.1165, %sw.bb174.i.i ], [ @.str.1166, %sw.bb175.i.i ], [ @.str.1167, %sw.bb176.i.i ], [ @.str.1168, %sw.bb177.i.i ], [ @.str.1169, %sw.bb178.i.i ], [ @.str.1170, %sw.bb179.i.i ], [ @.str.1171, %sw.bb180.i.i ], [ @.str.1172, %sw.bb181.i.i ], [ @.str.1173, %sw.bb182.i.i ], [ @.str.1174, %sw.bb183.i.i ], [ @.str.1175, %sw.bb184.i.i ], [ @.str.1176, %sw.bb185.i.i ], [ @.str.1177, %sw.bb186.i.i ], [ @.str.1178, %sw.bb187.i.i ], [ @.str.1179, %sw.bb188.i.i ], [ @.str.1180, %sw.bb189.i.i ], [ @.str.1181, %sw.bb190.i.i ], [ @.str.1182, %sw.bb191.i.i ], [ @.str.1183, %sw.bb192.i.i ], [ @.str.1184, %sw.bb193.i.i ], [ @.str.1185, %sw.bb194.i.i ], [ @.str.1186, %sw.bb195.i.i ], [ @.str.1187, %sw.bb196.i.i ], [ @.str.1188, %sw.bb197.i.i ], [ @.str.1189, %sw.bb198.i.i ], [ @.str.1190, %sw.bb199.i.i ], [ @.str.1191, %sw.bb200.i.i ], [ @.str.1192, %sw.bb201.i.i ], [ @.str.1193, %sw.bb202.i.i ], [ @.str.1194, %sw.bb203.i.i ], [ @.str.1195, %sw.bb204.i.i ]
+if.then151.i:                                     ; preds = %sw.bb204.i.i, %sw.bb203.i.i, %sw.bb202.i.i, %sw.bb201.i.i, %sw.bb200.i.i, %sw.bb199.i.i, %sw.bb198.i.i, %sw.bb197.i.i, %sw.bb196.i.i, %sw.bb195.i.i, %sw.bb194.i.i, %sw.bb193.i.i, %sw.bb192.i.i, %sw.bb191.i.i, %sw.bb190.i.i, %sw.bb189.i.i, %sw.bb188.i.i, %sw.bb187.i.i, %sw.bb186.i.i, %sw.bb185.i.i, %sw.bb184.i.i, %sw.bb183.i.i, %sw.bb182.i.i, %sw.bb181.i.i, %sw.bb180.i.i, %sw.bb179.i.i, %sw.bb178.i.i, %sw.bb177.i.i, %sw.bb176.i.i, %sw.bb175.i.i, %sw.bb174.i.i, %sw.bb173.i.i, %sw.bb172.i.i, %sw.bb171.i.i, %sw.bb170.i.i, %sw.bb169.i.i, %sw.bb168.i.i, %sw.bb167.i.i, %sw.bb166.i.i, %sw.bb165.i.i, %sw.bb164.i.i, %sw.bb163.i.i, %sw.bb162.i.i, %sw.bb161.i.i, %sw.bb160.i.i, %sw.bb159.i.i, %sw.bb158.i.i, %sw.bb157.i.i, %sw.bb156.i.i, %sw.bb155.i.i, %sw.bb154.i.i, %sw.bb153.i.i, %sw.bb152.i.i, %sw.bb151.i.i, %sw.bb150.i.i, %sw.bb149.i.i, %sw.bb148.i.i, %sw.bb147.i.i, %sw.bb146.i.i, %sw.bb145.i.i, %sw.bb144.i.i, %sw.bb143.i.i, %sw.bb142.i.i, %sw.bb141.i.i, %sw.bb140.i.i, %sw.bb139.i.i, %sw.bb138.i.i, %sw.bb137.i.i, %sw.bb136.i.i, %sw.bb135.i.i, %sw.bb134.i.i, %sw.bb133.i.i, %sw.bb132.i.i, %sw.bb131.i.i, %sw.bb130.i.i, %sw.bb129.i.i, %sw.bb128.i.i, %sw.bb127.i.i, %sw.bb126.i.i, %sw.bb125.i.i, %sw.bb124.i.i, %sw.bb123.i.i, %sw.bb122.i.i, %sw.bb121.i.i, %sw.bb120.i.i, %sw.bb119.i.i, %sw.bb118.i.i, %sw.bb117.i.i, %sw.bb116.i.i, %sw.bb115.i.i, %sw.bb114.i.i, %sw.bb113.i.i, %sw.bb112.i.i, %sw.bb111.i.i, %sw.bb110.i.i, %sw.bb109.i.i, %sw.bb108.i.i, %sw.bb107.i.i, %sw.bb106.i.i, %sw.bb105.i.i, %sw.bb104.i.i, %sw.bb103.i.i, %sw.bb102.i.i, %sw.bb101.i.i, %sw.bb100.i.i, %sw.bb99.i.i, %sw.bb98.i.i, %sw.bb97.i.i, %sw.bb96.i.i, %sw.bb95.i.i, %sw.bb94.i.i, %sw.bb93.i.i36, %sw.bb92.i.i, %sw.bb91.i.i, %sw.bb90.i.i, %sw.bb89.i.i, %sw.bb88.i.i37, %sw.bb87.i.i, %sw.bb86.i.i, %sw.bb85.i.i, %sw.bb84.i.i, %sw.bb83.i.i38, %sw.bb82.i.i, %sw.bb81.i.i, %sw.bb80.i.i, %sw.bb79.i.i, %sw.bb78.i.i39, %sw.bb77.i.i, %sw.bb76.i.i, %sw.bb75.i.i, %sw.bb74.i.i, %sw.bb73.i.i40, %sw.bb72.i.i, %sw.bb71.i.i, %sw.bb70.i.i, %sw.bb69.i.i, %sw.bb68.i.i41, %sw.bb67.i.i, %sw.bb66.i.i, %sw.bb65.i.i, %sw.bb64.i.i, %sw.bb63.i.i42, %sw.bb62.i.i, %sw.bb61.i.i, %sw.bb60.i.i, %sw.bb59.i.i, %sw.bb58.i.i43, %sw.bb57.i.i, %sw.bb56.i.i, %sw.bb55.i.i, %sw.bb54.i.i, %sw.bb53.i.i44, %sw.bb52.i.i, %sw.bb51.i.i, %sw.bb50.i.i, %sw.bb49.i.i, %sw.bb48.i.i45, %sw.bb47.i.i, %sw.bb46.i.i, %sw.bb45.i.i, %sw.bb44.i.i, %sw.bb43.i.i46, %sw.bb42.i.i, %sw.bb41.i.i, %sw.bb40.i.i, %sw.bb39.i.i, %sw.bb38.i.i47, %sw.bb37.i.i, %sw.bb36.i.i, %sw.bb35.i.i, %sw.bb34.i.i, %sw.bb33.i.i, %sw.bb32.i.i48, %sw.bb31.i.i, %sw.bb30.i.i, %sw.bb29.i.i, %sw.bb28.i.i, %sw.bb27.i.i, %sw.bb26.i.i, %sw.bb25.i.i49, %sw.bb24.i.i, %sw.bb23.i.i, %sw.bb22.i.i, %sw.bb21.i.i, %sw.bb20.i.i, %sw.bb19.i.i50, %sw.bb18.i.i, %sw.bb17.i.i, %sw.bb16.i.i, %sw.bb15.i.i, %sw.bb14.i.i, %sw.bb13.i.i51, %sw.bb12.i.i, %sw.bb11.i.i, %sw.bb10.i.i, %sw.bb9.i.i, %sw.bb8.i.i, %sw.bb7.i.i52, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb145.i
+  %retval.0.i.ph.i = phi ptr [ @.str.991, %sw.bb145.i ], [ @.str.992, %sw.bb1.i.i ], [ @.str.993, %sw.bb2.i.i ], [ @.str.994, %sw.bb3.i.i ], [ @.str.995, %sw.bb4.i.i ], [ @.str.996, %sw.bb5.i.i ], [ @.str.997, %sw.bb6.i.i ], [ @.str.998, %sw.bb7.i.i52 ], [ @.str.999, %sw.bb8.i.i ], [ @.str.1000, %sw.bb9.i.i ], [ @.str.1001, %sw.bb10.i.i ], [ @.str.1002, %sw.bb11.i.i ], [ @.str.1003, %sw.bb12.i.i ], [ @.str.1004, %sw.bb13.i.i51 ], [ @.str.1005, %sw.bb14.i.i ], [ @.str.1006, %sw.bb15.i.i ], [ @.str.1007, %sw.bb16.i.i ], [ @.str.1008, %sw.bb17.i.i ], [ @.str.1009, %sw.bb18.i.i ], [ @.str.1010, %sw.bb19.i.i50 ], [ @.str.1011, %sw.bb20.i.i ], [ @.str.1012, %sw.bb21.i.i ], [ @.str.1013, %sw.bb22.i.i ], [ @.str.1014, %sw.bb23.i.i ], [ @.str.1015, %sw.bb24.i.i ], [ @.str.1016, %sw.bb25.i.i49 ], [ @.str.1017, %sw.bb26.i.i ], [ @.str.1018, %sw.bb27.i.i ], [ @.str.1019, %sw.bb28.i.i ], [ @.str.1020, %sw.bb29.i.i ], [ @.str.1021, %sw.bb30.i.i ], [ @.str.1022, %sw.bb31.i.i ], [ @.str.1023, %sw.bb32.i.i48 ], [ @.str.1024, %sw.bb33.i.i ], [ @.str.1025, %sw.bb34.i.i ], [ @.str.1026, %sw.bb35.i.i ], [ @.str.1027, %sw.bb36.i.i ], [ @.str.1028, %sw.bb37.i.i ], [ @.str.1029, %sw.bb38.i.i47 ], [ @.str.1030, %sw.bb39.i.i ], [ @.str.1031, %sw.bb40.i.i ], [ @.str.1032, %sw.bb41.i.i ], [ @.str.1033, %sw.bb42.i.i ], [ @.str.1034, %sw.bb43.i.i46 ], [ @.str.1035, %sw.bb44.i.i ], [ @.str.1036, %sw.bb45.i.i ], [ @.str.1037, %sw.bb46.i.i ], [ @.str.1038, %sw.bb47.i.i ], [ @.str.1039, %sw.bb48.i.i45 ], [ @.str.1040, %sw.bb49.i.i ], [ @.str.1041, %sw.bb50.i.i ], [ @.str.1042, %sw.bb51.i.i ], [ @.str.1043, %sw.bb52.i.i ], [ @.str.1044, %sw.bb53.i.i44 ], [ @.str.1045, %sw.bb54.i.i ], [ @.str.1046, %sw.bb55.i.i ], [ @.str.1047, %sw.bb56.i.i ], [ @.str.1048, %sw.bb57.i.i ], [ @.str.1049, %sw.bb58.i.i43 ], [ @.str.1050, %sw.bb59.i.i ], [ @.str.1051, %sw.bb60.i.i ], [ @.str.1052, %sw.bb61.i.i ], [ @.str.1053, %sw.bb62.i.i ], [ @.str.1054, %sw.bb63.i.i42 ], [ @.str.1055, %sw.bb64.i.i ], [ @.str.1056, %sw.bb65.i.i ], [ @.str.1057, %sw.bb66.i.i ], [ @.str.1058, %sw.bb67.i.i ], [ @.str.1059, %sw.bb68.i.i41 ], [ @.str.1060, %sw.bb69.i.i ], [ @.str.1061, %sw.bb70.i.i ], [ @.str.1062, %sw.bb71.i.i ], [ @.str.1063, %sw.bb72.i.i ], [ @.str.1064, %sw.bb73.i.i40 ], [ @.str.1065, %sw.bb74.i.i ], [ @.str.1066, %sw.bb75.i.i ], [ @.str.1067, %sw.bb76.i.i ], [ @.str.1068, %sw.bb77.i.i ], [ @.str.1069, %sw.bb78.i.i39 ], [ @.str.1070, %sw.bb79.i.i ], [ @.str.1071, %sw.bb80.i.i ], [ @.str.1072, %sw.bb81.i.i ], [ @.str.1073, %sw.bb82.i.i ], [ @.str.1074, %sw.bb83.i.i38 ], [ @.str.1075, %sw.bb84.i.i ], [ @.str.1076, %sw.bb85.i.i ], [ @.str.1077, %sw.bb86.i.i ], [ @.str.1078, %sw.bb87.i.i ], [ @.str.1079, %sw.bb88.i.i37 ], [ @.str.1080, %sw.bb89.i.i ], [ @.str.1081, %sw.bb90.i.i ], [ @.str.1082, %sw.bb91.i.i ], [ @.str.1083, %sw.bb92.i.i ], [ @.str.1084, %sw.bb93.i.i36 ], [ @.str.1085, %sw.bb94.i.i ], [ @.str.1086, %sw.bb95.i.i ], [ @.str.1087, %sw.bb96.i.i ], [ @.str.1088, %sw.bb97.i.i ], [ @.str.1089, %sw.bb98.i.i ], [ @.str.1090, %sw.bb99.i.i ], [ @.str.1091, %sw.bb100.i.i ], [ @.str.1092, %sw.bb101.i.i ], [ @.str.1093, %sw.bb102.i.i ], [ @.str.1094, %sw.bb103.i.i ], [ @.str.1095, %sw.bb104.i.i ], [ @.str.1096, %sw.bb105.i.i ], [ @.str.1097, %sw.bb106.i.i ], [ @.str.1098, %sw.bb107.i.i ], [ @.str.1099, %sw.bb108.i.i ], [ @.str.1100, %sw.bb109.i.i ], [ @.str.1101, %sw.bb110.i.i ], [ @.str.1102, %sw.bb111.i.i ], [ @.str.1103, %sw.bb112.i.i ], [ @.str.1104, %sw.bb113.i.i ], [ @.str.1105, %sw.bb114.i.i ], [ @.str.1106, %sw.bb115.i.i ], [ @.str.1107, %sw.bb116.i.i ], [ @.str.1108, %sw.bb117.i.i ], [ @.str.1109, %sw.bb118.i.i ], [ @.str.1110, %sw.bb119.i.i ], [ @.str.1111, %sw.bb120.i.i ], [ @.str.1112, %sw.bb121.i.i ], [ @.str.1113, %sw.bb122.i.i ], [ @.str.1114, %sw.bb123.i.i ], [ @.str.1115, %sw.bb124.i.i ], [ @.str.1116, %sw.bb125.i.i ], [ @.str.1117, %sw.bb126.i.i ], [ @.str.1118, %sw.bb127.i.i ], [ @.str.1119, %sw.bb128.i.i ], [ @.str.1120, %sw.bb129.i.i ], [ @.str.1121, %sw.bb130.i.i ], [ @.str.1122, %sw.bb131.i.i ], [ @.str.1123, %sw.bb132.i.i ], [ @.str.1124, %sw.bb133.i.i ], [ @.str.1125, %sw.bb134.i.i ], [ @.str.1126, %sw.bb135.i.i ], [ @.str.1127, %sw.bb136.i.i ], [ @.str.1128, %sw.bb137.i.i ], [ @.str.1129, %sw.bb138.i.i ], [ @.str.1130, %sw.bb139.i.i ], [ @.str.1131, %sw.bb140.i.i ], [ @.str.1132, %sw.bb141.i.i ], [ @.str.1133, %sw.bb142.i.i ], [ @.str.1134, %sw.bb143.i.i ], [ @.str.1135, %sw.bb144.i.i ], [ @.str.1136, %sw.bb145.i.i ], [ @.str.1137, %sw.bb146.i.i ], [ @.str.1138, %sw.bb147.i.i ], [ @.str.1139, %sw.bb148.i.i ], [ @.str.1140, %sw.bb149.i.i ], [ @.str.1141, %sw.bb150.i.i ], [ @.str.1142, %sw.bb151.i.i ], [ @.str.1143, %sw.bb152.i.i ], [ @.str.1144, %sw.bb153.i.i ], [ @.str.1145, %sw.bb154.i.i ], [ @.str.1146, %sw.bb155.i.i ], [ @.str.1147, %sw.bb156.i.i ], [ @.str.1148, %sw.bb157.i.i ], [ @.str.1149, %sw.bb158.i.i ], [ @.str.1150, %sw.bb159.i.i ], [ @.str.1151, %sw.bb160.i.i ], [ @.str.1152, %sw.bb161.i.i ], [ @.str.1153, %sw.bb162.i.i ], [ @.str.1154, %sw.bb163.i.i ], [ @.str.1155, %sw.bb164.i.i ], [ @.str.1156, %sw.bb165.i.i ], [ @.str.1157, %sw.bb166.i.i ], [ @.str.1158, %sw.bb167.i.i ], [ @.str.1159, %sw.bb168.i.i ], [ @.str.1160, %sw.bb169.i.i ], [ @.str.1161, %sw.bb170.i.i ], [ @.str.1162, %sw.bb171.i.i ], [ @.str.1163, %sw.bb172.i.i ], [ @.str.1164, %sw.bb173.i.i ], [ @.str.1165, %sw.bb174.i.i ], [ @.str.1166, %sw.bb175.i.i ], [ @.str.1167, %sw.bb176.i.i ], [ @.str.1168, %sw.bb177.i.i ], [ @.str.1169, %sw.bb178.i.i ], [ @.str.1170, %sw.bb179.i.i ], [ @.str.1171, %sw.bb180.i.i ], [ @.str.1172, %sw.bb181.i.i ], [ @.str.1173, %sw.bb182.i.i ], [ @.str.1174, %sw.bb183.i.i ], [ @.str.1175, %sw.bb184.i.i ], [ @.str.1176, %sw.bb185.i.i ], [ @.str.1177, %sw.bb186.i.i ], [ @.str.1178, %sw.bb187.i.i ], [ @.str.1179, %sw.bb188.i.i ], [ @.str.1180, %sw.bb189.i.i ], [ @.str.1181, %sw.bb190.i.i ], [ @.str.1182, %sw.bb191.i.i ], [ @.str.1183, %sw.bb192.i.i ], [ @.str.1184, %sw.bb193.i.i ], [ @.str.1185, %sw.bb194.i.i ], [ @.str.1186, %sw.bb195.i.i ], [ @.str.1187, %sw.bb196.i.i ], [ @.str.1188, %sw.bb197.i.i ], [ @.str.1189, %sw.bb198.i.i ], [ @.str.1190, %sw.bb199.i.i ], [ @.str.1191, %sw.bb200.i.i ], [ @.str.1192, %sw.bb201.i.i ], [ @.str.1193, %sw.bb202.i.i ], [ @.str.1194, %sw.bb203.i.i ], [ @.str.1195, %sw.bb204.i.i ]
   %call.i326.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i327.i = icmp eq i64 %call.i326.i, 127
   br i1 %cmp.not.i327.i, label %sw.epilog321.i, label %if.then.i328.i
@@ -4530,7 +4530,7 @@ sw.bb158.i:                                       ; preds = %while.cond.i
   %cmp.not.i375.i = icmp eq i64 %call.i374.i, 127
   switch i8 %438, label %sw.default.i [
     i8 0, label %sw.bb160.i
-    i8 1, label %sw.bb161.i36
+    i8 1, label %sw.bb161.i35
     i8 2, label %sw.bb162.i
     i8 3, label %sw.bb163.i
     i8 4, label %sw.bb164.i
@@ -4545,10 +4545,10 @@ if.then.i340.i:                                   ; preds = %sw.bb160.i
   %call3.i342.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.963, i64 noundef %sub.i341.i) #12
   br label %sw.epilog321.i
 
-sw.bb161.i36:                                     ; preds = %sw.bb158.i
+sw.bb161.i35:                                     ; preds = %sw.bb158.i
   br i1 %cmp.not.i375.i, label %sw.epilog321.i, label %if.then.i346.i
 
-if.then.i346.i:                                   ; preds = %sw.bb161.i36
+if.then.i346.i:                                   ; preds = %sw.bb161.i35
   %sub.i347.i = sub i64 128, %call.i374.i
   %call3.i348.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.964, i64 noundef %sub.i347.i) #12
   br label %sw.epilog321.i
@@ -4723,12 +4723,12 @@ append.exit433.i:                                 ; preds = %while.cond215.prehe
   %cmp217.i = icmp ult i64 %call216.i, 24
   br i1 %cmp217.i, label %append.exit433.i, label %sw.epilog321.i, !llvm.loop !12
 
-sw.bb221.i35:                                     ; preds = %while.cond.i
+sw.bb221.i34:                                     ; preds = %while.cond.i
   %449 = load i8, ptr %aq.i24, align 2
   %tobool222.not.i = icmp eq i8 %449, 0
   br i1 %tobool222.not.i, label %sw.epilog321.i, label %if.then223.i
 
-if.then223.i:                                     ; preds = %sw.bb221.i35
+if.then223.i:                                     ; preds = %sw.bb221.i34
   %call.i434.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i435.i = icmp eq i64 %call.i434.i, 127
   br i1 %cmp.not.i435.i, label %sw.epilog321.i, label %if.then.i436.i
@@ -4753,12 +4753,12 @@ if.then.i442.i:                                   ; preds = %if.then227.i
   %call3.i444.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.975, i64 noundef %sub.i443.i) #12
   br label %sw.epilog321.i
 
-sw.bb229.i34:                                     ; preds = %while.cond.i
+sw.bb229.i33:                                     ; preds = %while.cond.i
   %call.i446.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i447.i = icmp eq i64 %call.i446.i, 127
   br i1 %cmp.not.i447.i, label %sw.epilog321.i, label %if.then.i448.i
 
-if.then.i448.i:                                   ; preds = %sw.bb229.i34
+if.then.i448.i:                                   ; preds = %sw.bb229.i33
   %sub.i449.i = sub i64 128, %call.i446.i
   %call3.i450.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef nonnull readonly @.str.976, i64 noundef %sub.i449.i) #12
   br label %sw.epilog321.i
@@ -4817,12 +4817,12 @@ if.then.i472.i:                                   ; preds = %sw.bb246.i
   %call3.i474.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx249.i, i64 noundef %sub.i473.i) #12
   br label %sw.epilog321.i
 
-sw.bb251.i33:                                     ; preds = %while.cond.i
+sw.bb251.i32:                                     ; preds = %while.cond.i
   %call.i476.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
   %cmp.not.i477.i = icmp eq i64 %call.i476.i, 127
   br i1 %cmp.not.i477.i, label %sw.epilog321.i, label %if.then.i478.i
 
-if.then.i478.i:                                   ; preds = %sw.bb251.i33
+if.then.i478.i:                                   ; preds = %sw.bb251.i32
   %455 = load i8, ptr %rs3252.i, align 2
   %idxprom253.i = zext i8 %455 to i64
   %arrayidx254.i = getelementptr [32 x [4 x i8]], ptr @rv_vreg_name_sym, i64 0, i64 %idxprom253.i
@@ -4898,9 +4898,6 @@ sw.bb283.i:                                       ; preds = %if.then279.i
 sw.bb286.i:                                       ; preds = %if.then279.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(3) %nbuf.i, ptr noundef nonnull align 1 dereferenceable(3) @.str.986, i64 3, i1 false)
   br label %sw.epilog289.i
-
-default.unreachable:                              ; preds = %if.then279.i
-  unreachable
 
 sw.epilog289.i:                                   ; preds = %sw.bb286.i, %sw.bb283.i, %sw.bb280.i31, %if.then279.i
   %call.i500.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #13
@@ -5009,8 +5006,8 @@ if.then.i544.i:                                   ; preds = %sw.bb315.i
   %call3.i546.i = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %buf, ptr noundef readonly %arrayidx318.i, i64 noundef %sub.i545.i) #12
   br label %sw.epilog321.i
 
-sw.epilog321.i:                                   ; preds = %append.exit433.i, %if.then.i544.i, %sw.bb315.i, %if.then.i538.i, %sw.epilog313.i, %if.then.i532.i, %append.exit529.i, %if.then.i478.i, %sw.bb251.i33, %if.then.i472.i, %sw.bb246.i, %if.then.i466.i, %sw.bb241.i, %if.then.i460.i, %sw.bb236.i, %if.then.i454.i, %if.then234.i, %sw.bb230.i, %if.then.i448.i, %sw.bb229.i34, %if.then.i442.i, %if.then227.i, %sw.bb225.i, %if.then.i436.i, %if.then223.i, %sw.bb221.i35, %if.then.i424.i, %if.then212.i, %if.end207.i, %if.then.i400.i, %if.then188.i, %if.end183.i, %if.then.i376.i, %sw.default.i, %if.then.i370.i, %sw.bb165.i, %if.then.i364.i, %sw.bb164.i, %if.then.i358.i, %sw.bb163.i, %if.then.i352.i, %sw.bb162.i, %if.then.i346.i, %sw.bb161.i36, %if.then.i340.i, %sw.bb160.i, %if.then.i334.i, %if.else.i, %if.then.i328.i, %if.then151.i, %if.then.i322.i, %while.end137.i, %append.exit313.i, %if.then.i304.i, %while.end.i, %if.then.i286.i, %sw.bb105.i, %if.then.i280.i, %sw.bb100.i, %if.then.i274.i, %sw.bb96.i, %if.then.i268.i, %sw.bb90.i, %if.then.i262.i, %sw.bb74.i, %if.then.i256.i, %sw.bb57.i, %if.then.i250.i, %sw.bb40.i, %if.then.i244.i, %sw.bb29.i, %if.then.i238.i, %sw.bb25.i, %if.then.i232.i, %sw.bb21.i57, %if.then.i226.i, %sw.bb17.i, %if.then.i220.i, %sw.bb12.i, %if.then.i214.i, %sw.bb9.i, %if.then.i208.i, %sw.bb8.i, %if.then.i202.i, %sw.bb7.i, %if.then.i196.i, %sw.bb6.i59, %if.then.i190.i, %sw.bb5.i, %if.then.i.i62, %sw.bb.i60, %while.cond215.preheader.i, %while.cond.i
-  %fmt.1.i = phi ptr [ %fmt.0.i, %sw.bb230.i ], [ %fmt.0.i, %sw.bb225.i ], [ %fmt.0.i, %sw.bb221.i35 ], [ %fmt.0.i, %if.end207.i ], [ %fmt.0.i, %if.end183.i ], [ %incdec.ptr.i54, %append.exit313.i ], [ %fmt.0.i, %while.cond.i ], [ %fmt.0.i, %sw.bb.i60 ], [ %fmt.0.i, %if.then.i.i62 ], [ %fmt.0.i, %sw.bb5.i ], [ %fmt.0.i, %if.then.i190.i ], [ %fmt.0.i, %sw.bb6.i59 ], [ %fmt.0.i, %if.then.i196.i ], [ %fmt.0.i, %sw.bb7.i ], [ %fmt.0.i, %if.then.i202.i ], [ %fmt.0.i, %sw.bb8.i ], [ %fmt.0.i, %if.then.i208.i ], [ %fmt.0.i, %sw.bb9.i ], [ %fmt.0.i, %if.then.i214.i ], [ %fmt.0.i, %sw.bb12.i ], [ %fmt.0.i, %if.then.i220.i ], [ %fmt.0.i, %sw.bb17.i ], [ %fmt.0.i, %if.then.i226.i ], [ %fmt.0.i, %sw.bb21.i57 ], [ %fmt.0.i, %if.then.i232.i ], [ %fmt.0.i, %sw.bb25.i ], [ %fmt.0.i, %if.then.i238.i ], [ %fmt.0.i, %sw.bb29.i ], [ %fmt.0.i, %if.then.i244.i ], [ %fmt.0.i, %sw.bb40.i ], [ %fmt.0.i, %if.then.i250.i ], [ %fmt.0.i, %sw.bb57.i ], [ %fmt.0.i, %if.then.i256.i ], [ %fmt.0.i, %sw.bb74.i ], [ %fmt.0.i, %if.then.i262.i ], [ %fmt.0.i, %sw.bb90.i ], [ %fmt.0.i, %if.then.i268.i ], [ %fmt.0.i, %sw.bb96.i ], [ %fmt.0.i, %if.then.i274.i ], [ %fmt.0.i, %sw.bb100.i ], [ %fmt.0.i, %if.then.i280.i ], [ %fmt.0.i, %sw.bb105.i ], [ %fmt.0.i, %if.then.i286.i ], [ %fmt.0.i, %while.end.i ], [ %fmt.0.i, %if.then.i304.i ], [ %incdec.ptr.i54, %while.end137.i ], [ %incdec.ptr.i54, %if.then.i322.i ], [ %fmt.0.i, %if.then151.i ], [ %fmt.0.i, %if.then.i328.i ], [ %fmt.0.i, %if.else.i ], [ %fmt.0.i, %if.then.i334.i ], [ %fmt.0.i, %sw.bb160.i ], [ %fmt.0.i, %if.then.i340.i ], [ %fmt.0.i, %sw.bb161.i36 ], [ %fmt.0.i, %if.then.i346.i ], [ %fmt.0.i, %sw.bb162.i ], [ %fmt.0.i, %if.then.i352.i ], [ %fmt.0.i, %sw.bb163.i ], [ %fmt.0.i, %if.then.i358.i ], [ %fmt.0.i, %sw.bb164.i ], [ %fmt.0.i, %if.then.i364.i ], [ %fmt.0.i, %sw.bb165.i ], [ %fmt.0.i, %if.then.i370.i ], [ %fmt.0.i, %sw.default.i ], [ %fmt.0.i, %if.then.i376.i ], [ %fmt.0.i, %if.then188.i ], [ %fmt.0.i, %if.then.i400.i ], [ %fmt.0.i, %if.then212.i ], [ %fmt.0.i, %if.then.i424.i ], [ %fmt.0.i, %if.then223.i ], [ %fmt.0.i, %if.then.i436.i ], [ %fmt.0.i, %if.then227.i ], [ %fmt.0.i, %if.then.i442.i ], [ %fmt.0.i, %sw.bb229.i34 ], [ %fmt.0.i, %if.then.i448.i ], [ %fmt.0.i, %if.then234.i ], [ %fmt.0.i, %if.then.i454.i ], [ %fmt.0.i, %sw.bb236.i ], [ %fmt.0.i, %if.then.i460.i ], [ %fmt.0.i, %sw.bb241.i ], [ %fmt.0.i, %if.then.i466.i ], [ %fmt.0.i, %sw.bb246.i ], [ %fmt.0.i, %if.then.i472.i ], [ %fmt.0.i, %sw.bb251.i33 ], [ %fmt.0.i, %if.then.i478.i ], [ %fmt.0.i, %append.exit529.i ], [ %fmt.0.i, %if.then.i532.i ], [ %fmt.0.i, %sw.epilog313.i ], [ %fmt.0.i, %if.then.i538.i ], [ %fmt.0.i, %sw.bb315.i ], [ %fmt.0.i, %if.then.i544.i ], [ %fmt.0.i, %while.cond215.preheader.i ], [ %fmt.0.i, %append.exit433.i ]
+sw.epilog321.i:                                   ; preds = %append.exit433.i, %if.then.i544.i, %sw.bb315.i, %if.then.i538.i, %sw.epilog313.i, %if.then.i532.i, %append.exit529.i, %if.then.i478.i, %sw.bb251.i32, %if.then.i472.i, %sw.bb246.i, %if.then.i466.i, %sw.bb241.i, %if.then.i460.i, %sw.bb236.i, %if.then.i454.i, %if.then234.i, %sw.bb230.i, %if.then.i448.i, %sw.bb229.i33, %if.then.i442.i, %if.then227.i, %sw.bb225.i, %if.then.i436.i, %if.then223.i, %sw.bb221.i34, %if.then.i424.i, %if.then212.i, %if.end207.i, %if.then.i400.i, %if.then188.i, %if.end183.i, %if.then.i376.i, %sw.default.i, %if.then.i370.i, %sw.bb165.i, %if.then.i364.i, %sw.bb164.i, %if.then.i358.i, %sw.bb163.i, %if.then.i352.i, %sw.bb162.i, %if.then.i346.i, %sw.bb161.i35, %if.then.i340.i, %sw.bb160.i, %if.then.i334.i, %if.else.i, %if.then.i328.i, %if.then151.i, %if.then.i322.i, %while.end137.i, %append.exit313.i, %if.then.i304.i, %while.end.i, %if.then.i286.i, %sw.bb105.i, %if.then.i280.i, %sw.bb100.i, %if.then.i274.i, %sw.bb96.i, %if.then.i268.i, %sw.bb90.i, %if.then.i262.i, %sw.bb74.i, %if.then.i256.i, %sw.bb57.i, %if.then.i250.i, %sw.bb40.i, %if.then.i244.i, %sw.bb29.i, %if.then.i238.i, %sw.bb25.i, %if.then.i232.i, %sw.bb21.i56, %if.then.i226.i, %sw.bb17.i, %if.then.i220.i, %sw.bb12.i, %if.then.i214.i, %sw.bb9.i, %if.then.i208.i, %sw.bb8.i, %if.then.i202.i, %sw.bb7.i, %if.then.i196.i, %sw.bb6.i58, %if.then.i190.i, %sw.bb5.i, %if.then.i.i61, %sw.bb.i59, %while.cond215.preheader.i, %while.cond.i
+  %fmt.1.i = phi ptr [ %fmt.0.i, %sw.bb230.i ], [ %fmt.0.i, %sw.bb225.i ], [ %fmt.0.i, %sw.bb221.i34 ], [ %fmt.0.i, %if.end207.i ], [ %fmt.0.i, %if.end183.i ], [ %incdec.ptr.i53, %append.exit313.i ], [ %fmt.0.i, %while.cond.i ], [ %fmt.0.i, %sw.bb.i59 ], [ %fmt.0.i, %if.then.i.i61 ], [ %fmt.0.i, %sw.bb5.i ], [ %fmt.0.i, %if.then.i190.i ], [ %fmt.0.i, %sw.bb6.i58 ], [ %fmt.0.i, %if.then.i196.i ], [ %fmt.0.i, %sw.bb7.i ], [ %fmt.0.i, %if.then.i202.i ], [ %fmt.0.i, %sw.bb8.i ], [ %fmt.0.i, %if.then.i208.i ], [ %fmt.0.i, %sw.bb9.i ], [ %fmt.0.i, %if.then.i214.i ], [ %fmt.0.i, %sw.bb12.i ], [ %fmt.0.i, %if.then.i220.i ], [ %fmt.0.i, %sw.bb17.i ], [ %fmt.0.i, %if.then.i226.i ], [ %fmt.0.i, %sw.bb21.i56 ], [ %fmt.0.i, %if.then.i232.i ], [ %fmt.0.i, %sw.bb25.i ], [ %fmt.0.i, %if.then.i238.i ], [ %fmt.0.i, %sw.bb29.i ], [ %fmt.0.i, %if.then.i244.i ], [ %fmt.0.i, %sw.bb40.i ], [ %fmt.0.i, %if.then.i250.i ], [ %fmt.0.i, %sw.bb57.i ], [ %fmt.0.i, %if.then.i256.i ], [ %fmt.0.i, %sw.bb74.i ], [ %fmt.0.i, %if.then.i262.i ], [ %fmt.0.i, %sw.bb90.i ], [ %fmt.0.i, %if.then.i268.i ], [ %fmt.0.i, %sw.bb96.i ], [ %fmt.0.i, %if.then.i274.i ], [ %fmt.0.i, %sw.bb100.i ], [ %fmt.0.i, %if.then.i280.i ], [ %fmt.0.i, %sw.bb105.i ], [ %fmt.0.i, %if.then.i286.i ], [ %fmt.0.i, %while.end.i ], [ %fmt.0.i, %if.then.i304.i ], [ %incdec.ptr.i53, %while.end137.i ], [ %incdec.ptr.i53, %if.then.i322.i ], [ %fmt.0.i, %if.then151.i ], [ %fmt.0.i, %if.then.i328.i ], [ %fmt.0.i, %if.else.i ], [ %fmt.0.i, %if.then.i334.i ], [ %fmt.0.i, %sw.bb160.i ], [ %fmt.0.i, %if.then.i340.i ], [ %fmt.0.i, %sw.bb161.i35 ], [ %fmt.0.i, %if.then.i346.i ], [ %fmt.0.i, %sw.bb162.i ], [ %fmt.0.i, %if.then.i352.i ], [ %fmt.0.i, %sw.bb163.i ], [ %fmt.0.i, %if.then.i358.i ], [ %fmt.0.i, %sw.bb164.i ], [ %fmt.0.i, %if.then.i364.i ], [ %fmt.0.i, %sw.bb165.i ], [ %fmt.0.i, %if.then.i370.i ], [ %fmt.0.i, %sw.default.i ], [ %fmt.0.i, %if.then.i376.i ], [ %fmt.0.i, %if.then188.i ], [ %fmt.0.i, %if.then.i400.i ], [ %fmt.0.i, %if.then212.i ], [ %fmt.0.i, %if.then.i424.i ], [ %fmt.0.i, %if.then223.i ], [ %fmt.0.i, %if.then.i436.i ], [ %fmt.0.i, %if.then227.i ], [ %fmt.0.i, %if.then.i442.i ], [ %fmt.0.i, %sw.bb229.i33 ], [ %fmt.0.i, %if.then.i448.i ], [ %fmt.0.i, %if.then234.i ], [ %fmt.0.i, %if.then.i454.i ], [ %fmt.0.i, %sw.bb236.i ], [ %fmt.0.i, %if.then.i460.i ], [ %fmt.0.i, %sw.bb241.i ], [ %fmt.0.i, %if.then.i466.i ], [ %fmt.0.i, %sw.bb246.i ], [ %fmt.0.i, %if.then.i472.i ], [ %fmt.0.i, %sw.bb251.i32 ], [ %fmt.0.i, %if.then.i478.i ], [ %fmt.0.i, %append.exit529.i ], [ %fmt.0.i, %if.then.i532.i ], [ %fmt.0.i, %sw.epilog313.i ], [ %fmt.0.i, %if.then.i538.i ], [ %fmt.0.i, %sw.bb315.i ], [ %fmt.0.i, %if.then.i544.i ], [ %fmt.0.i, %while.cond215.preheader.i ], [ %fmt.0.i, %append.exit433.i ]
   %incdec.ptr322.i = getelementptr i8, ptr %fmt.1.i, i64 1
   br label %while.cond.i, !llvm.loop !13
 

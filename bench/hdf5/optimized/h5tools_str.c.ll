@@ -1866,7 +1866,7 @@ h5tools_str_indent.exit689:                       ; preds = %365, %363, %357
   br i1 %393, label %394, label %397
 
 394:                                              ; preds = %391
-  %395 = call fastcc ptr @h5tools_escape(ptr noundef nonnull %7)
+  %395 = call fastcc ptr @h5tools_escape(ptr noundef %7)
   %396 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef %395)
   br label %.loopexit
 
@@ -2607,7 +2607,7 @@ declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #13
 declare i32 @H5Tenum_nameof(i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @h5tools_escape(ptr noundef %0) unnamed_addr #15 {
+define internal fastcc noundef ptr @h5tools_escape(ptr noundef nonnull %0) unnamed_addr #15 {
   %2 = alloca [8 x i8], align 1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
   %.not43 = icmp eq i64 %3, 0

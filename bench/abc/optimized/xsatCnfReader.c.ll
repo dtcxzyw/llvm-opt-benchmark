@@ -147,8 +147,8 @@ skipLine.exit.i:                                  ; preds = %skipLine.exit.i.bac
 
 45:                                               ; preds = %37
   store ptr %38, ptr %3, align 8
-  %46 = call fastcc i32 @xSAT_ReadInt(ptr noundef nonnull %3)
-  %47 = call fastcc i32 @xSAT_ReadInt(ptr noundef nonnull %3)
+  %46 = call fastcc i32 @xSAT_ReadInt(ptr noundef %3)
+  %47 = call fastcc i32 @xSAT_ReadInt(ptr noundef %3)
   %.promoted.i19.i = load ptr, ptr %3, align 8
   br label %48
 
@@ -204,7 +204,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %59, %skipLine.exit2
 
 67:                                               ; preds = %65
   store i32 0, ptr %16, align 4
-  %68 = call fastcc i32 @xSAT_ReadInt(ptr noundef nonnull %3)
+  %68 = call fastcc i32 @xSAT_ReadInt(ptr noundef %3)
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %xSAT_ReadClause.exit.i, label %.lr.ph.i.i
 
@@ -212,10 +212,10 @@ Vec_IntAlloc.exit.i:                              ; preds = %59, %skipLine.exit2
   %70 = phi i32 [ %144, %xSAT_ReadInt.exit.i ], [ %68, %67 ]
   %71 = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
   %72 = icmp slt i32 %70, 1
-  %73 = shl nuw i32 %71, 1
-  %74 = add i32 %73, -2
-  %75 = zext i1 %72 to i32
-  %76 = or disjoint i32 %74, %75
+  %73 = zext i1 %72 to i32
+  %74 = shl nuw i32 %71, 1
+  %75 = add i32 %74, -2
+  %76 = or disjoint i32 %75, %73
   %77 = load i32, ptr %16, align 4
   %78 = load i32, ptr %.013.i.ph, align 8
   %79 = icmp eq i32 %77, %78
@@ -436,7 +436,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @xSAT_ReadInt(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @xSAT_ReadInt(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = tail call ptr @__ctype_b_loc() #13
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

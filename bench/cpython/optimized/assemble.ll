@@ -487,7 +487,7 @@ while.cond.preheader.i.i.i:                       ; preds = %if.then.i25.i
 
 while.body.i.i.i:                                 ; preds = %while.cond.preheader.i.i.i, %if.end4.i.i.i
   %isize.addr.09.i.i.i = phi i32 [ %sub.i.i40.i, %if.end4.i.i.i ], [ %size.056.i.i, %while.cond.preheader.i.i.i ]
-  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8)
+  %call.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef 8)
   %cmp2.i.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.i, label %if.end9, label %if.end4.i.i.i
 
@@ -498,7 +498,7 @@ if.end4.i.i.i:                                    ; preds = %while.body.i.i.i
 
 assemble_emit_location.exit.i.i:                  ; preds = %if.end4.i.i.i, %while.cond.preheader.i.i.i
   %isize.addr.0.lcssa.i.i.i = phi i32 [ %size.056.i.i, %while.cond.preheader.i.i.i ], [ %sub.i.i40.i, %if.end4.i.i.i ]
-  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i)
+  %call5.i.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.055.i.i, i64 %loc.sroa.5.054.i.i, i32 noundef %isize.addr.0.lcssa.i.i.i)
   %cmp2.i.i = icmp slt i32 %call5.i.i.i, 0
   br i1 %cmp2.i.i, label %if.end9, label %assemble_emit_location.exit.if.end_crit_edge.i.i
 
@@ -546,7 +546,7 @@ while.cond.preheader.i20.i.i:                     ; preds = %for.end.i.i
 
 while.body.i26.i.i:                               ; preds = %while.cond.preheader.i20.i.i, %if.end4.i30.i.i
   %isize.addr.09.i27.i.i = phi i32 [ %sub.i31.i.i, %if.end4.i30.i.i ], [ %add.i37.i, %while.cond.preheader.i20.i.i ]
-  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8)
+  %call.i28.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef 8)
   %cmp2.i29.i.i = icmp slt i32 %call.i28.i.i, 0
   br i1 %cmp2.i29.i.i, label %if.end9, label %if.end4.i30.i.i
 
@@ -557,7 +557,7 @@ if.end4.i30.i.i:                                  ; preds = %while.body.i26.i.i
 
 assemble_emit_location.exit33.i.i:                ; preds = %if.end4.i30.i.i, %while.cond.preheader.i20.i.i
   %isize.addr.0.lcssa.i23.i.i = phi i32 [ %add.i37.i, %while.cond.preheader.i20.i.i ], [ %sub.i31.i.i, %if.end4.i30.i.i ]
-  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i)
+  %call5.i24.i.i = call fastcc i32 @write_location_info_entry(ptr noundef %a, i64 %loc.sroa.0.1.i.i, i64 %loc.sroa.5.1.i.i, i32 noundef %isize.addr.0.lcssa.i23.i.i)
   %call5.i24.fr.i.i = freeze i32 %call5.i24.i.i
   %cmp8.i39.i = icmp slt i32 %call5.i24.fr.i.i, 0
   br i1 %cmp8.i39.i, label %if.end9, label %assemble_emit_location.exit33.i.if.end9_crit_edge.i
@@ -603,7 +603,7 @@ if.then6.i.i:                                     ; preds = %if.then.i47.i
   %idxprom9.i.i = zext nneg i32 %69 to i64
   %i_offset.i.i = getelementptr %struct._PyCompile_Instruction, ptr %67, i64 %idxprom9.i.i, i32 5
   %70 = load i32, ptr %i_offset.i.i, align 4
-  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.019.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %70, ptr noundef nonnull %handler.i.i)
+  %call.i67.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start.019.i.i, i32 noundef %ioffset.020.i.i, i32 noundef %70, ptr noundef %handler.i.i)
   %cmp11.i68.i = icmp slt i32 %call.i67.i, 0
   br i1 %cmp11.i68.i, label %assemble_exception_table.exit.thread.i, label %if.then6.if.end13_crit_edge.i.i
 
@@ -652,7 +652,7 @@ if.then19.i.i:                                    ; preds = %for.end.i66.i
   %idxprom23.i.i = zext nneg i32 %.pre23.i.i to i64
   %i_offset25.i.i = getelementptr %struct._PyCompile_Instruction, ptr %75, i64 %idxprom23.i.i, i32 5
   %76 = load i32, ptr %i_offset25.i.i, align 4
-  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %76, ptr noundef nonnull %handler.i.i)
+  %call26.i.i = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start.1.i.i, i32 noundef %add.i63.i, i32 noundef %76, ptr noundef %handler.i.i)
   %cmp27.i.i = icmp slt i32 %call26.i.i, 0
   br i1 %cmp27.i.i, label %assemble_exception_table.exit.thread.i, label %if.end13.i
 
@@ -1211,7 +1211,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @write_location_info_entry(ptr noundef %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef %isize) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @write_location_info_entry(ptr noundef nonnull %a, i64 %loc.coerce0, i64 %loc.coerce1, i32 noundef range(i32 1, 0) %isize) unnamed_addr #0 {
 entry:
   %loc.sroa.0.0.extract.trunc = trunc i64 %loc.coerce0 to i32
   %loc.sroa.9.0.extract.shift = lshr i64 %loc.coerce0, 32
@@ -1354,7 +1354,7 @@ if.then45:                                        ; preds = %if.then33
   %16 = load i32, ptr %a_location_off, align 8
   %add.i.i62 = add i32 %16, 1
   store i32 %add.i.i62, ptr %a_location_off, align 8
-  %and.i = shl i32 %loc.sroa.12.8.extract.trunc, 4
+  %and.i = shl nuw nsw i32 %loc.sroa.12.8.extract.trunc, 4
   %shl.i = and i32 %and.i, 112
   %or.i = or i32 %shl.i, %sub39
   %conv.i.i = trunc i32 %or.i to i8
@@ -1384,7 +1384,7 @@ if.then58:                                        ; preds = %if.end46
   %add.ptr.i.i.i67 = getelementptr i8, ptr %ob_sval.i.i.i.i65, i64 %idx.ext.i.i.i66
   %add.i = shl nuw nsw i32 %sub, 3
   %conv.i.i.i = add nuw nsw i32 %add.i, 80
-  %conv2.i.i.i68 = add i32 %isize, 127
+  %conv2.i.i.i68 = add i32 %isize, 63
   %or.i.i.i69 = or i32 %conv.i.i.i, %conv2.i.i.i68
   %19 = trunc i32 %or.i.i.i69 to i8
   %conv5.i.i.i70 = or i8 %19, -128
@@ -1565,7 +1565,7 @@ return:                                           ; preds = %if.then, %write_loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @assemble_emit_exception_table_entry(ptr noundef %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef readonly %handler) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %a, i32 noundef %start, i32 noundef %end, i32 noundef %handler_offset, ptr nocapture noundef nonnull readonly %handler) unnamed_addr #0 {
 entry:
   %a_except_table = getelementptr inbounds i8, ptr %a, i64 16
   %0 = load ptr, ptr %a_except_table, align 8

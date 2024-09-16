@@ -349,7 +349,7 @@ if.end45.i:                                       ; preds = %if.end40.i
   br i1 %cmp46.not.i, label %if.end49.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end45.i
-  %call47.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %priv_key.0.i)
+  %call47.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef %call.i, ptr noundef nonnull @.str.36, ptr noundef nonnull %priv_key.0.i)
   %tobool.not.i = icmp eq i32 %call47.i, 0
   br i1 %tobool.not.i, label %dsa_to_text.exit, label %if.end49.i
 
@@ -358,7 +358,7 @@ if.end49.i:                                       ; preds = %land.lhs.true.i, %i
   br i1 %cmp50.not.i, label %if.end55.i, label %land.lhs.true51.i
 
 land.lhs.true51.i:                                ; preds = %if.end49.i
-  %call52.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull %pub_key.0.i)
+  %call52.i = tail call fastcc i32 @print_labeled_bignum(ptr noundef %call.i, ptr noundef nonnull @.str.37, ptr noundef nonnull %pub_key.0.i)
   %tobool53.not.i = icmp eq i32 %call52.i, 0
   br i1 %tobool53.not.i, label %dsa_to_text.exit, label %if.end55.i
 
@@ -367,7 +367,7 @@ if.end55.i:                                       ; preds = %land.lhs.true51.i, 
   br i1 %cmp56.not.i, label %if.end61.i, label %land.lhs.true57.i
 
 land.lhs.true57.i:                                ; preds = %if.end55.i
-  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %call.i, ptr noundef nonnull %params.0.i)
+  %call58.i = tail call fastcc i32 @ffc_params_to_text(ptr noundef %call.i, ptr noundef %params.0.i)
   %tobool59.not.i = icmp eq i32 %call58.i, 0
   br i1 %tobool59.not.i, label %dsa_to_text.exit, label %if.end61.i
 
@@ -821,7 +821,7 @@ if.end45:                                         ; preds = %if.end40
   br i1 %cmp46.not, label %if.end49, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end45
-  %call47 = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.5, ptr noundef nonnull %priv_key.0)
+  %call47 = tail call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.5, ptr noundef nonnull %priv_key.0)
   %tobool.not = icmp eq i32 %call47, 0
   br i1 %tobool.not, label %return, label %if.end49
 
@@ -830,7 +830,7 @@ if.end49:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp50.not, label %if.end55, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end49
-  %call52 = tail call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.6, ptr noundef nonnull %pub_key.0)
+  %call52 = tail call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.6, ptr noundef nonnull %pub_key.0)
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %if.end55
 
@@ -839,7 +839,7 @@ if.end55:                                         ; preds = %land.lhs.true51, %i
   br i1 %cmp56.not, label %if.end61, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %if.end55
-  %call58 = tail call fastcc i32 @ffc_params_to_text(ptr noundef nonnull %out, ptr noundef nonnull %params.0)
+  %call58 = tail call fastcc i32 @ffc_params_to_text(ptr noundef %out, ptr noundef %params.0)
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %return, label %if.end61
 
@@ -878,7 +878,7 @@ declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef %label, ptr noundef %bn) unnamed_addr #1 {
+define internal fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef %label, ptr noundef %bn) unnamed_addr #1 {
 entry:
   %spaces = alloca [5 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %spaces, ptr noundef nonnull align 1 dereferenceable(5) @.str.31, i64 5, i1 false)
@@ -894,7 +894,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.10, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select31) #6
+  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.10, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select31) #6
   br label %return
 
 if.end6:                                          ; preds = %if.end
@@ -908,7 +908,7 @@ if.then9:                                         ; preds = %if.end6
   %tobool12.not = icmp eq i32 %call11, 0
   %spec.select32 = select i1 %tobool12.not, ptr @.str.9, ptr @.str.11
   %0 = load i64, ptr %call10, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.12, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select31, ptr noundef nonnull %spec.select32, i64 noundef %0, ptr noundef nonnull %spec.select32, i64 noundef %0) #6
+  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.12, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select31, ptr noundef nonnull %spec.select32, i64 noundef %0, ptr noundef nonnull %spec.select32, i64 noundef %0) #6
   br label %return
 
 if.end17:                                         ; preds = %if.end6
@@ -922,12 +922,12 @@ if.end21:                                         ; preds = %if.end17
   %spec.select33.idx = zext i1 %cmp22 to i64
   %spec.select33 = getelementptr inbounds i8, ptr %call18, i64 %spec.select33.idx
   %spec.select34 = select i1 %cmp22, ptr @.str.13, ptr @.str.9
-  %call26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.14, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select34) #6
+  %call26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.14, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.select34) #6
   %cmp27 = icmp slt i32 %call26, 1
   br i1 %cmp27, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end21
-  %call31 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.15, ptr noundef nonnull %spaces) #6
+  %call31 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.15, ptr noundef nonnull %spaces) #6
   %cmp32 = icmp slt i32 %call31, 1
   br i1 %cmp32, label %err, label %if.end35
 
@@ -937,7 +937,7 @@ if.end35:                                         ; preds = %if.end30
   br i1 %cmp37, label %if.end45, label %if.then39
 
 if.then39:                                        ; preds = %if.end35
-  %call40 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.16, i32 noundef 0) #6
+  %call40 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.16, i32 noundef 0) #6
   %cmp41 = icmp slt i32 %call40, 1
   br i1 %cmp41, label %err, label %if.then39.if.end45_crit_edge
 
@@ -967,7 +967,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %or.cond, label %if.then53, label %if.end60.thread
 
 if.then53:                                        ; preds = %while.body
-  %call55 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.17, ptr noundef nonnull %spaces) #6
+  %call55 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.17, ptr noundef nonnull %spaces) #6
   %cmp56 = icmp slt i32 %call55, 1
   br i1 %cmp56, label %err, label %if.then53.if.end60.thread_crit_edge
 
@@ -984,7 +984,7 @@ if.end60.thread:                                  ; preds = %while.body, %if.the
   %8 = load i8, ptr %arrayidx65, align 1
   %conv66 = sext i8 %8 to i32
   %call67 = call i32 @tolower(i32 noundef %conv66) #7
-  %call68 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.18, ptr noundef nonnull %7, i32 noundef %call64, i32 noundef %call67) #6
+  %call68 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.18, ptr noundef nonnull %7, i32 noundef %call64, i32 noundef %call67) #6
   %cmp69 = icmp slt i32 %call68, 1
   br i1 %cmp69, label %err, label %if.end72
 
@@ -996,7 +996,7 @@ if.end72:                                         ; preds = %if.end60.thread
   br i1 %cmp47.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end72, %if.end45
-  %call74 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.20) #6
+  %call74 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.20) #6
   %cmp75 = icmp sgt i32 %call74, 0
   %spec.select35 = zext i1 %cmp75 to i32
   br label %err
@@ -1012,7 +1012,7 @@ return:                                           ; preds = %if.end17, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ffc_params_to_text(ptr noundef %out, ptr nocapture noundef readonly %ffc) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @ffc_params_to_text(ptr noundef nonnull %out, ptr nocapture noundef nonnull readonly %ffc) unnamed_addr #1 {
 entry:
   %nid = getelementptr inbounds i8, ptr %ffc, i64 52
   %0 = load i32, ptr %nid, align 4
@@ -1026,7 +1026,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp3, label %err, label %if.end
 
 if.end:                                           ; preds = %if.then
-  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.21, ptr noundef nonnull %call2) #6
+  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.21, ptr noundef nonnull %call2) #6
   %cmp6 = icmp slt i32 %call5, 1
   br i1 %cmp6, label %err, label %return
 
@@ -1085,7 +1085,7 @@ if.end40:                                         ; preds = %if.then34, %if.end3
   br i1 %cmp41.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
-  %call44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.27, i32 noundef %7) #6
+  %call44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.27, i32 noundef %7) #6
   %cmp45 = icmp slt i32 %call44, 1
   br i1 %cmp45, label %err, label %if.end48
 
@@ -1096,7 +1096,7 @@ if.end48:                                         ; preds = %if.then42, %if.end4
   br i1 %cmp49.not, label %if.end56, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %call52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.28, i32 noundef %8) #6
+  %call52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.28, i32 noundef %8) #6
   %cmp53 = icmp slt i32 %call52, 1
   br i1 %cmp53, label %err, label %if.end56
 
@@ -1107,7 +1107,7 @@ if.end56:                                         ; preds = %if.then50, %if.end4
   br i1 %cmp57.not, label %return, label %if.then58
 
 if.then58:                                        ; preds = %if.end56
-  %call60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.29, i32 noundef %9) #6
+  %call60 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.29, i32 noundef %9) #6
   %cmp61 = icmp slt i32 %call60, 1
   br i1 %cmp61, label %err, label %return
 
@@ -1142,9 +1142,9 @@ declare ptr @ossl_ffc_uid_to_dh_named_group(i32 noundef) local_unnamed_addr #2
 declare ptr @ossl_ffc_named_group_get_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_labeled_buf(ptr noundef %out, ptr noundef %label, ptr nocapture noundef readonly %buf, i64 noundef %buflen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef %label, ptr nocapture noundef readonly %buf, i64 noundef %buflen) unnamed_addr #1 {
 entry:
-  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.30, ptr noundef %label) #6
+  %call = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.30, ptr noundef %label) #6
   %cmp = icmp slt i32 %call, 1
   br i1 %cmp, label %return, label %for.cond.preheader
 
@@ -1172,12 +1172,12 @@ if.then3:                                         ; preds = %for.body
   br i1 %cmp4.not, label %if.end8, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then3
-  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.20) #6
+  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.20) #6
   %cmp6 = icmp slt i32 %call5, 1
   br i1 %cmp6, label %return, label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true, %if.then3
-  %call9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.31) #6
+  %call9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.31) #6
   %cmp10 = icmp slt i32 %call9, 1
   br i1 %cmp10, label %return, label %if.end13
 
@@ -1187,12 +1187,12 @@ if.end13:                                         ; preds = %if.end8, %for.body
   %conv = zext i8 %0 to i32
   %cmp14 = icmp eq i64 %i.012, %sub
   %cond = select i1 %cmp14, ptr @.str.9, ptr @.str.19
-  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.32, i32 noundef %conv, ptr noundef nonnull %cond) #6
+  %call16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.32, i32 noundef %conv, ptr noundef nonnull %cond) #6
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %return, label %for.cond
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
-  %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.20) #6
+  %call21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.20) #6
   %cmp22 = icmp sgt i32 %call21, 0
   %. = zext i1 %cmp22 to i32
   br label %return
@@ -1318,7 +1318,7 @@ if.end51:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp52.not, label %if.end56, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i64 noundef %priv_len.0)
+  %call54 = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.36, ptr noundef nonnull %0, i64 noundef %priv_len.0)
   %tobool.not = icmp eq i32 %call54, 0
   br i1 %tobool.not, label %err, label %if.end56
 
@@ -1328,7 +1328,7 @@ if.end56:                                         ; preds = %land.lhs.true53, %i
   br i1 %cmp57.not, label %if.end62, label %land.lhs.true58
 
 land.lhs.true58:                                  ; preds = %if.end56
-  %call59 = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %1, i64 noundef %pub_len.0)
+  %call59 = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %1, i64 noundef %pub_len.0)
   %tobool60.not = icmp eq i32 %call59, 0
   %and63 = and i32 %selection, 4
   %cmp64.not = icmp eq i32 %and63, 0
@@ -1428,17 +1428,17 @@ lor.lhs.false9.i.i.i:                             ; preds = %if.then6.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %lor.lhs.false9.i.i.i, %if.end.i.i.i
   %.str.47.sink.i.i.i = phi ptr [ @.str.47, %if.end.i.i.i ], [ @.str.49, %lor.lhs.false9.i.i.i ]
-  %call1615.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull %.str.47.sink.i.i.i, ptr noundef %call.i.i.i)
+  %call1615.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull %.str.47.sink.i.i.i, ptr noundef %call.i.i.i)
   %tobool17.not.i.i.i = icmp eq i32 %call1615.i.i.i, 0
   br i1 %tobool17.not.i.i.i, label %err.i.i, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end15.i.i.i
-  %call18.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.50, ptr noundef %call1.i.i.i)
+  %call18.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.50, ptr noundef %call1.i.i.i)
   %tobool19.not.i.i.i = icmp eq i32 %call18.i.i.i, 0
   br i1 %tobool19.not.i.i.i, label %err.i.i, label %ec_param_explicit_curve_to_text.exit.i.i
 
 ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %land.lhs.true.i.i.i
-  %call20.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2.i.i.i)
+  %call20.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2.i.i.i)
   %tobool21.i.not.i.i = icmp eq i32 %call20.i.i.i, 0
   br i1 %tobool21.i.not.i.i, label %err.i.i, label %lor.lhs.false16.i.i
 
@@ -1475,7 +1475,7 @@ ec_param_explicit_gen_to_text.exit.thread.i.i:    ; preds = %sw.epilog.i.i.i, %i
 
 ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %sw.epilog.i.i.i
   %3 = load ptr, ptr %buf.i.i.i, align 8
-  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i)
+  %call8.i.i.i = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull %glabel.0.i.i.i, ptr noundef %3, i64 noundef %call4.i25.i.i)
   %4 = load ptr, ptr %buf.i.i.i, align 8
   call void @CRYPTO_clear_free(ptr noundef %4, i64 noundef %call4.i25.i.i, ptr noundef nonnull @.str, i32 noundef 423) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %buf.i.i.i)
@@ -1483,7 +1483,7 @@ ec_param_explicit_gen_to_text.exit.i.i:           ; preds = %sw.epilog.i.i.i
   br i1 %tobool18.not.i.i, label %err.i.i, label %lor.lhs.false19.i.i
 
 lor.lhs.false19.i.i:                              ; preds = %ec_param_explicit_gen_to_text.exit.i.i
-  %call20.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.44, ptr noundef nonnull %call2.i.i)
+  %call20.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.44, ptr noundef nonnull %call2.i.i)
   %tobool21.not.i.i = icmp eq i32 %call20.i.i, 0
   br i1 %tobool21.not.i.i, label %err.i.i, label %lor.lhs.false22.i.i
 
@@ -1492,7 +1492,7 @@ lor.lhs.false22.i.i:                              ; preds = %lor.lhs.false19.i.i
   br i1 %cmp23.not.i.i, label %lor.lhs.false26.i.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %lor.lhs.false22.i.i
-  %call24.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %call11.i.i)
+  %call24.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %call11.i.i)
   %tobool25.not.i.i = icmp eq i32 %call24.i.i, 0
   br i1 %tobool25.not.i.i, label %err.i.i, label %lor.lhs.false26.i.i
 
@@ -1500,7 +1500,7 @@ lor.lhs.false26.i.i:                              ; preds = %land.lhs.true.i.i, 
   br i1 %cmp7.not.i.i, label %if.end32.i.i, label %land.lhs.true28.i.i
 
 land.lhs.true28.i.i:                              ; preds = %lor.lhs.false26.i.i
-  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i)
+  %call29.i.i = call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.46, ptr noundef nonnull %call6.i.i, i64 noundef %seed_len.0.i.i)
   %tobool30.not.i.i = icmp eq i32 %call29.i.i, 0
   br i1 %tobool30.not.i.i, label %err.i.i, label %if.end32.i.i
 
@@ -1636,7 +1636,7 @@ if.end12:                                         ; preds = %if.end9
   %4 = load ptr, ptr %privkey, align 8
   %keylen = getelementptr inbounds i8, ptr %key, i64 88
   %5 = load i64, ptr %keylen, align 8
-  %call14 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.36, ptr noundef %4, i64 noundef %5)
+  %call14 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.36, ptr noundef %4, i64 noundef %5)
   %tobool.not = icmp eq i32 %call14, 0
   br i1 %tobool.not, label %return, label %if.end28
 
@@ -1667,7 +1667,7 @@ if.end28:                                         ; preds = %if.else, %if.end22,
   %pubkey = getelementptr inbounds i8, ptr %key, i64 17
   %keylen29 = getelementptr inbounds i8, ptr %key, i64 88
   %6 = load i64, ptr %keylen29, align 8
-  %call30 = tail call fastcc i32 @print_labeled_buf(ptr noundef nonnull %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %pubkey, i64 noundef %6)
+  %call30 = tail call fastcc i32 @print_labeled_buf(ptr noundef %out, ptr noundef nonnull @.str.39, ptr noundef nonnull %pubkey, i64 noundef %6)
   br label %return
 
 return:                                           ; preds = %if.end28, %if.end22, %if.end12, %if.end9, %if.then21, %if.then8, %if.then
@@ -1749,13 +1749,13 @@ if.else29:                                        ; preds = %if.end18
 
 if.end35:                                         ; preds = %if.else29, %if.then23
   %1 = load ptr, ptr %rsa_n, align 8
-  %call36 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef %modulus_label.0, ptr noundef %1)
+  %call36 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef %modulus_label.0, ptr noundef %1)
   %tobool.not = icmp eq i32 %call36, 0
   br i1 %tobool.not, label %err, label %if.end38
 
 if.end38:                                         ; preds = %if.end35
   %2 = load ptr, ptr %rsa_e, align 8
-  %call39 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef %exponent_label.0, ptr noundef %2)
+  %call39 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef %exponent_label.0, ptr noundef %2)
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %if.end42
 
@@ -1764,77 +1764,77 @@ if.end42:                                         ; preds = %if.end38
 
 if.then45:                                        ; preds = %if.end42
   %3 = load ptr, ptr %rsa_d, align 8
-  %call46 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.67, ptr noundef %3)
+  %call46 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.67, ptr noundef %3)
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %if.then45
   %call.i72 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef 0) #6
-  %call51 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.68, ptr noundef %call.i72)
+  %call51 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.68, ptr noundef %call.i72)
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %err, label %if.end54
 
 if.end54:                                         ; preds = %if.end49
   %call.i73 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef 1) #6
-  %call56 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.69, ptr noundef %call.i73)
+  %call56 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.69, ptr noundef %call.i73)
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err, label %if.end59
 
 if.end59:                                         ; preds = %if.end54
   %call.i74 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i69, i32 noundef 0) #6
-  %call61 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.70, ptr noundef %call.i74)
+  %call61 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.70, ptr noundef %call.i74)
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err, label %if.end64
 
 if.end64:                                         ; preds = %if.end59
   %call.i75 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i69, i32 noundef 1) #6
-  %call66 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.71, ptr noundef %call.i75)
+  %call66 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.71, ptr noundef %call.i75)
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %err, label %if.end69
 
 if.end69:                                         ; preds = %if.end64
   %call.i76 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i70, i32 noundef 0) #6
-  %call71 = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.72, ptr noundef %call.i76)
+  %call71 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef nonnull @.str.72, ptr noundef %call.i76)
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %err, label %for.cond
 
 for.cond:                                         ; preds = %if.end69, %if.end100
   %i.0 = phi i32 [ %add, %if.end100 ], [ 2, %if.end69 ]
-  %call.i77 = call i32 @OPENSSL_sk_num(ptr noundef %call.i) #6
+  %call.i77 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call.i) #6
   %cmp76 = icmp slt i32 %i.0, %call.i77
   br i1 %cmp76, label %for.body, label %if.end106
 
 for.body:                                         ; preds = %for.cond
   %add = add nuw nsw i32 %i.0, 1
-  %call77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.73, i32 noundef %add) #6
+  %call77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.73, i32 noundef %add) #6
   %cmp78 = icmp slt i32 %call77, 1
   br i1 %cmp78, label %err, label %if.end80
 
 if.end80:                                         ; preds = %for.body
-  %call.i78 = call ptr @OPENSSL_sk_value(ptr noundef %call.i, i32 noundef %i.0) #6
+  %call.i78 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i, i32 noundef %i.0) #6
   %call82 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef null, ptr noundef %call.i78)
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %err, label %if.end85
 
 if.end85:                                         ; preds = %if.end80
-  %call87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.74, i32 noundef %add) #6
+  %call87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.74, i32 noundef %add) #6
   %cmp88 = icmp slt i32 %call87, 1
   br i1 %cmp88, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.end85
-  %call.i79 = call ptr @OPENSSL_sk_value(ptr noundef %call.i69, i32 noundef %i.0) #6
+  %call.i79 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i69, i32 noundef %i.0) #6
   %call92 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef null, ptr noundef %call.i79)
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %err, label %if.end95
 
 if.end95:                                         ; preds = %if.end90
-  %call97 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.75, i32 noundef %add) #6
+  %call97 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.75, i32 noundef %add) #6
   %cmp98 = icmp slt i32 %call97, 1
   br i1 %cmp98, label %err, label %if.end100
 
 if.end100:                                        ; preds = %if.end95
   %sub = add nsw i32 %i.0, -1
-  %call.i80 = call ptr @OPENSSL_sk_value(ptr noundef %call.i70, i32 noundef %sub) #6
+  %call.i80 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call.i70, i32 noundef %sub) #6
   %call102 = call fastcc i32 @print_labeled_bignum(ptr noundef %out, ptr noundef null, ptr noundef %call.i80)
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %err, label %for.cond, !llvm.loop !7
@@ -1857,7 +1857,7 @@ sw.bb:                                            ; preds = %if.then109
   br i1 %tobool112.not, label %if.then113, label %if.end165
 
 if.then113:                                       ; preds = %sw.bb
-  %call114 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.76) #6
+  %call114 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.76) #6
   %cmp115 = icmp slt i32 %call114, 1
   br i1 %cmp115, label %err, label %if.end165
 
@@ -1867,7 +1867,7 @@ sw.bb119:                                         ; preds = %if.then109
   br i1 %tobool121.not, label %if.else127, label %if.then122
 
 if.then122:                                       ; preds = %sw.bb119
-  %call123 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.77) #6
+  %call123 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.77) #6
   %cmp124 = icmp slt i32 %call123, 1
   br i1 %cmp124, label %err, label %if.end165
 
@@ -1877,7 +1877,7 @@ if.else127:                                       ; preds = %sw.bb119
   %call130 = call i32 @ossl_rsa_pss_params_30_maskgenhashalg(ptr noundef %call) #6
   %call131 = call i32 @ossl_rsa_pss_params_30_saltlen(ptr noundef %call) #6
   %call132 = call i32 @ossl_rsa_pss_params_30_trailerfield(ptr noundef %call) #6
-  %call133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.78) #6
+  %call133 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.78) #6
   %cmp134 = icmp slt i32 %call133, 1
   br i1 %cmp134, label %err, label %if.end136
 
@@ -1885,7 +1885,7 @@ if.end136:                                        ; preds = %if.else127
   %call137 = call ptr @ossl_rsa_oaeppss_nid2name(i32 noundef %call128) #6
   %cmp138 = icmp eq i32 %call128, 64
   %cond = select i1 %cmp138, ptr @.str.80, ptr @.str.9
-  %call139 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.79, ptr noundef %call137, ptr noundef nonnull %cond) #6
+  %call139 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.79, ptr noundef %call137, ptr noundef nonnull %cond) #6
   %cmp140 = icmp slt i32 %call139, 1
   br i1 %cmp140, label %err, label %if.end142
 
@@ -1896,21 +1896,21 @@ if.end142:                                        ; preds = %if.end136
   %cmp146 = icmp eq i32 %call130, 64
   %4 = select i1 %cmp145, i1 %cmp146, i1 false
   %cond147 = select i1 %4, ptr @.str.80, ptr @.str.9
-  %call148 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.81, ptr noundef %call143, ptr noundef %call144, ptr noundef nonnull %cond147) #6
+  %call148 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.81, ptr noundef %call143, ptr noundef %call144, ptr noundef nonnull %cond147) #6
   %cmp149 = icmp slt i32 %call148, 1
   br i1 %cmp149, label %err, label %if.end151
 
 if.end151:                                        ; preds = %if.end142
   %cmp152 = icmp eq i32 %call131, 20
   %cond153 = select i1 %cmp152, ptr @.str.80, ptr @.str.9
-  %call154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.82, i32 noundef %call131, ptr noundef nonnull %cond153) #6
+  %call154 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.82, i32 noundef %call131, ptr noundef nonnull %cond153) #6
   %cmp155 = icmp slt i32 %call154, 1
   br i1 %cmp155, label %err, label %if.end157
 
 if.end157:                                        ; preds = %if.end151
   %cmp158 = icmp eq i32 %call132, 1
   %cond159 = select i1 %cmp158, ptr @.str.80, ptr @.str.9
-  %call160 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.83, i32 noundef %call132, ptr noundef nonnull %cond159) #6
+  %call160 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %out, ptr noundef nonnull @.str.83, i32 noundef %call132, ptr noundef nonnull %cond159) #6
   %cmp161 = icmp slt i32 %call160, 1
   br i1 %cmp161, label %err, label %if.end165
 

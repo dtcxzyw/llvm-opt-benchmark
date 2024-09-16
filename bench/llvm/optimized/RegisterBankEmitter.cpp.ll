@@ -835,7 +835,7 @@ _ZN4llvm11SmallPtrSetIPKNS_20CodeGenRegisterClassELj8EED2Ev.exit: ; preds = %_ZN
   store i64 %72, ptr %38, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEZN12_GLOBAL__N_119RegisterBankEmitter3runERNS0_11raw_ostreamEE3$_0E9_M_invokeERKSt9_Any_dataOS3_OS4_", ptr %71, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEZN12_GLOBAL__N_119RegisterBankEmitter3runERNS0_11raw_ostreamEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %70, align 8
-  call fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %48, ptr noundef %290, ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(28) %35)
+  call fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %48, ptr noundef %290, ptr noundef nonnull align 8 dereferenceable(34) %37, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(28) %35)
   %291 = load ptr, ptr %70, align 8
   %.not.i.i = icmp eq ptr %291, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEED2Ev.exit, label %292
@@ -4767,7 +4767,7 @@ declare void @_ZN4llvm12RecordKeeper10startTimerENS_9StringRefE(ptr noundef nonn
 declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(28) %4) unnamed_addr #1 {
+define internal fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(28) %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.llvm::StringRef", align 8
@@ -5010,7 +5010,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit58:                ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZNSt8functionIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEEC2ERKS6_.exit
 
 _ZNSt8functionIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEEC2ERKS6_.exit: ; preds = %116, %121
-  call fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(28) %4)
+  call fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBankEPKNS_20CodeGenRegisterClassERKNS_5TwineESt8functionIFvS5_NS_9StringRefEEERNS_15SmallPtrSetImplIS5_EE(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %94, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(28) %4)
   %125 = load ptr, ptr %71, align 8
   %.not.i.i59 = icmp eq ptr %125, null
   br i1 %.not.i.i59, label %_ZNSt8functionIFvPKN4llvm20CodeGenRegisterClassENS0_9StringRefEEED2Ev.exit, label %126

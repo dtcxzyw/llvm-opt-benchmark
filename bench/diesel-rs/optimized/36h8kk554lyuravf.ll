@@ -250,7 +250,7 @@ define hidden { ptr, ptr } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %5 = alloca { { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } } }, align 8
@@ -276,7 +276,7 @@ define internal fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58
 16:                                               ; preds = %2
   %17 = getelementptr inbounds i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8, !nonnull !7, !align !9, !noundef !7
-  call fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %18)
+  call fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef align 8 dereferenceable(88) %13, ptr noalias noundef readonly align 8 dereferenceable(176) %18)
   br label %63
 
 19:                                               ; preds = %2
@@ -907,7 +907,7 @@ common.resume:                                    ; preds = %72, %80, %65, %37, 
   br i1 %trunc, label %71, label %74
 
 53:                                               ; preds = %2
-  call fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(176) %1)
+  call fastcc void @_ZN12darling_core9from_meta8FromMeta9from_expr17h58570e5f91dcf8f7E(ptr noalias nocapture noundef align 8 dereferenceable(88) %16, ptr noalias noundef readonly align 8 dereferenceable(176) %1)
   br label %54
 
 54:                                               ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$darling_core..ast..data..NestedMeta$GT$$GT$17h956b83cd15f57053E.exit", %53, %20

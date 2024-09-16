@@ -753,7 +753,7 @@ return:                                           ; preds = %if.end.i60, %PACKET
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %rbio, i8 noundef zeroext %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_record(ptr noundef %rbio, i8 noundef zeroext range(i8 22, 24) %type, i64 noundef %seqnr, ptr nocapture noundef readonly %msg, i64 noundef range(i64 8, 25) %len) unnamed_addr #0 {
 entry:
   %type.addr = alloca i8, align 1
   %lenbytes = alloca [2 x i8], align 1
@@ -780,7 +780,7 @@ entry:
   %conv14 = trunc i64 %seqnr to i8
   store i8 %conv14, ptr getelementptr inbounds (i8, ptr @send_record.seq, i64 5), align 1
   %add = add nuw nsw i64 %len, 20
-  %0 = trunc i64 %add to i8
+  %0 = trunc nuw nsw i64 %add to i8
   %1 = and i8 %0, 15
   %conv15 = xor i8 %1, 15
   %add17 = add nuw nsw i64 %len, 21
@@ -791,7 +791,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call, ptr align 1 %msg, i64 %len, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call, ptr noundef nonnull align 1 dereferenceable(1) %msg, i64 %len, i1 false)
   %call21 = tail call ptr @EVP_MAC_fetch(ptr noundef null, ptr noundef nonnull @.str.37, ptr noundef null) #6
   %call22 = tail call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 309, ptr noundef nonnull @.str.36, ptr noundef %call21) #6
   %tobool.not = icmp eq i32 %call22, 0
@@ -855,11 +855,11 @@ lor.lhs.false56:                                  ; preds = %lor.lhs.false53
 
 do.body.preheader:                                ; preds = %lor.lhs.false56
   %scevgep = getelementptr i8, ptr %call, i64 %add
-  %2 = sub i64 11, %len
+  %2 = sub nsw i64 11, %len
   %3 = and i64 %2, 15
   %4 = add nuw nsw i64 %3, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 %conv15, i64 %4, i1 false)
-  %5 = add i64 %len, %3
+  %5 = add nuw nsw i64 %len, %3
   %call66 = call i32 @RAND_bytes(ptr noundef nonnull %iv, i32 noundef 16) #6
   %call67 = call i32 @test_int_gt(ptr noundef nonnull @.str.1, i32 noundef 334, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.18, i32 noundef %call66, i32 noundef 0) #6
   %tobool68.not = icmp eq i32 %call67, 0
@@ -881,8 +881,8 @@ lor.lhs.false73:                                  ; preds = %lor.lhs.false69
   br i1 %tobool80.not, label %end, label %lor.lhs.false81
 
 lor.lhs.false81:                                  ; preds = %lor.lhs.false73
-  %6 = trunc i64 %5 to i32
-  %conv82 = add i32 %6, 21
+  %6 = trunc nuw nsw i64 %5 to i32
+  %conv82 = add nuw nsw i32 %6, 21
   %call83 = call i32 @EVP_Cipher(ptr noundef %call70, ptr noundef nonnull %call, ptr noundef nonnull %call, i32 noundef %conv82) #6
   %call84 = call i32 @test_int_ge(ptr noundef nonnull @.str.1, i32 noundef 338, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.18, i32 noundef %call83, i32 noundef 0) #6
   %tobool85.not = icmp eq i32 %call84, 0
@@ -893,11 +893,9 @@ if.end87:                                         ; preds = %lor.lhs.false81
   %call89 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull @send_record.ver, i32 noundef 2) #6
   %call90 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull @send_record.epoch, i32 noundef 2) #6
   %call91 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull @send_record.seq, i32 noundef 6) #6
-  %add92 = add i64 %5, 37
-  %shr93 = lshr i64 %add92, 8
-  %conv94 = trunc i64 %shr93 to i8
-  store i8 %conv94, ptr %lenbytes, align 1
-  %conv97 = trunc i64 %add92 to i8
+  store i8 0, ptr %lenbytes, align 1
+  %7 = trunc nuw nsw i64 %5 to i8
+  %conv97 = add nuw nsw i8 %7, 37
   store i8 %conv97, ptr %arrayidx34, align 1
   %call100 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull %lenbytes, i32 noundef 2) #6
   %call102 = call i32 @BIO_write(ptr noundef %rbio, ptr noundef nonnull %iv, i32 noundef 16) #6

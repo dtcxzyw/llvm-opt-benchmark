@@ -196,7 +196,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
 96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @initStringInfo(ptr noundef nonnull %7) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %1, ptr noundef nonnull %7)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %1, ptr noundef %7)
   %97 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %98 = call ptr @format_type_be(i32 noundef %94) #7
@@ -490,7 +490,7 @@ declare i32 @get_atttype(i32 noundef, i16 noundef signext) local_unnamed_addr #1
 define dso_local ptr @TypeNameToString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %2) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef %0, ptr noundef nonnull %2)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef %0, ptr noundef %2)
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -632,7 +632,7 @@ define dso_local void @typenameTypeIdAndMod(ptr noundef %0, ptr nocapture nounde
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @appendTypeNameToBuffer(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @appendTypeNameToBuffer(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -667,14 +667,14 @@ list_head.exit:                                   ; preds = %8, %12
   br i1 %.not21, label %17, label %16
 
 16:                                               ; preds = %list_head.exit
-  tail call void @appendStringInfoChar(ptr noundef %1, i8 noundef signext 46) #7
+  tail call void @appendStringInfoChar(ptr noundef nonnull %1, i8 noundef signext 46) #7
   br label %17
 
 17:                                               ; preds = %16, %list_head.exit
   %18 = load ptr, ptr %10, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef %20) #7
+  tail call void @appendStringInfoString(ptr noundef nonnull %1, ptr noundef %20) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %5, align 4
   %22 = sext i32 %21 to i64
@@ -685,7 +685,7 @@ list_head.exit:                                   ; preds = %8, %12
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = tail call ptr @format_type_be(i32 noundef %25) #7
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef %26) #7
+  tail call void @appendStringInfoString(ptr noundef nonnull %1, ptr noundef %26) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %.preheader, %23
@@ -695,7 +695,7 @@ list_head.exit:                                   ; preds = %8, %12
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %.loopexit
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.16) #7
+  tail call void @appendStringInfoString(ptr noundef nonnull %1, ptr noundef nonnull @.str.16) #7
   br label %31
 
 31:                                               ; preds = %30, %.loopexit
@@ -705,7 +705,7 @@ list_head.exit:                                   ; preds = %8, %12
   br i1 %.not20, label %35, label %34
 
 34:                                               ; preds = %31
-  tail call void @appendStringInfoString(ptr noundef %1, ptr noundef nonnull @.str.17) #7
+  tail call void @appendStringInfoString(ptr noundef nonnull %1, ptr noundef nonnull @.str.17) #7
   br label %35
 
 35:                                               ; preds = %34, %31
@@ -739,7 +739,7 @@ list_head.exit:                                   ; preds = %.lr.ph, %11
   br label %11
 
 11:                                               ; preds = %10, %list_head.exit
-  call fastcc void @appendTypeNameToBuffer(ptr noundef %9, ptr noundef nonnull %2)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef %9, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %3, align 4
   %13 = sext i32 %12 to i64
@@ -1133,7 +1133,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocaptu
   %20 = tail call i32 @errcode(i32 noundef 67137668) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @initStringInfo(ptr noundef nonnull %6) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef nonnull %6)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef %6)
   %21 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %22 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %21) #7
@@ -1161,7 +1161,7 @@ define dso_local noundef zeroext i1 @parseTypeString(ptr noundef %0, ptr nocaptu
   %36 = tail call i32 @errcode(i32 noundef 67137668) #7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @initStringInfo(ptr noundef nonnull %5) #7
-  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef nonnull %5)
+  call fastcc void @appendTypeNameToBuffer(ptr noundef nonnull readonly %7, ptr noundef %5)
   %37 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %38 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %37) #7

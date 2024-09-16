@@ -2908,7 +2908,7 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
@@ -3601,7 +3601,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @__parse_bitfield_probe_arg(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @__parse_bitfield_probe_arg(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16

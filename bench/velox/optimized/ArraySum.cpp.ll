@@ -19368,7 +19368,7 @@ if.end24:                                         ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKaPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKaPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -19634,7 +19634,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKaPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKaPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -20203,7 +20203,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -20529,7 +20529,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIalE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -25478,7 +25478,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKsPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKsPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -25741,7 +25741,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKsPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKsPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -26310,7 +26310,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -26636,7 +26636,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIslE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -31585,7 +31585,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKiPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKiPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -31848,7 +31848,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKiPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKiPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -32417,7 +32417,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -32743,7 +32743,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIilE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -37672,7 +37672,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKlPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKlPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -37934,7 +37934,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKlPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKlPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -38497,7 +38497,7 @@ for.end:                                          ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -38820,7 +38820,7 @@ _ZN8facebook5velox10FlatVectorIlE3setEil.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIllE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIlEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -47108,7 +47108,7 @@ if.end24:                                         ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKfPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKfPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -47362,7 +47362,7 @@ _ZN8facebook5velox10FlatVectorIdE3setEid.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKfPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKfPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -47966,7 +47966,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -48273,7 +48273,7 @@ _ZN8facebook5velox10FlatVectorIdE3setEid.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIfdE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -53176,7 +53176,7 @@ _ZN8facebook5velox10FlatVectorIdE3setEid.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKdPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb1EZNKS9_9applyFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKdPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -53429,7 +53429,7 @@ _ZN8facebook5velox10FlatVectorIdE3setEid.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKdPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0EZNKS9_9applyFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorEPKmPKdPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SL_SO_EUliE0_EEvSE_SF_PKSG_SO_OT0_OT1_EUlT_E_EEvSE_SX_EUlSX_E_EEvSJ_iibSX_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -54024,7 +54024,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb1EZNKS9_12applyNonFlatILb1EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb1EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -54328,7 +54328,7 @@ _ZN8facebook5velox10FlatVectorIdE3setEid.exit:    ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116ArraySumFunctionIddE9applyCoreILb0EZNKS9_12applyNonFlatILb0EEEvRKNS0_17SelectivityVectorERS4_PNS0_11ArrayVectorERNS3_18LocalDecodedVectorEPNS0_10FlatVectorIdEEEUliE_ZNKSB_ILb0EEEvSE_SF_SH_SJ_SM_EUliE0_EEvSE_SF_PKSG_SM_OT0_OT1_EUlT_E_EEvSE_SV_EUlSV_E_EEvPKmiibSV_ENKUlimE_clEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %ref.tmp11.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8

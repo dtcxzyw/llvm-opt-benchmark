@@ -371,7 +371,7 @@ define hidden void @zim_DirectoryIterator___construct(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_object_construct(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_object_construct(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 4098) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.zend_error_handling, align 8
@@ -381,7 +381,7 @@ define internal fastcc void @spl_filesystem_object_construct(ptr nocapture nound
   br i1 %.not, label %12, label %8
 
 8:                                                ; preds = %2
-  %9 = and i64 %1, -2
+  %9 = and i64 %1, 8190
   store i64 %9, ptr %4, align 8
   %10 = load i32, ptr %7, align 4
   %11 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %10, ptr noundef nonnull @.str.33, ptr noundef nonnull %3, ptr noundef nonnull %4) #18
@@ -2314,7 +2314,7 @@ define hidden void @zim_FilesystemIterator_current(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -2341,7 +2341,7 @@ define internal fastcc void @spl_filesystem_object_create_type(i32 noundef %0, p
   br label %217
 
 22:                                               ; preds = %5, %16
-  switch i32 %2, label %default.unreachable [
+  switch i32 %2, label %default.unreachable110 [
     i32 0, label %23
     i32 2, label %107
     i32 1, label %214
@@ -2701,7 +2701,7 @@ spl_filesystem_object_get_path.exit107:           ; preds = %173, %177, %186, %1
   %216 = tail call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef %215, i64 noundef 0, ptr noundef nonnull @.str.44) #18
   br label %217
 
-default.unreachable:                              ; preds = %22
+default.unreachable110:                           ; preds = %22
   unreachable
 
 217:                                              ; preds = %204, %spl_filesystem_object_get_path.exit, %63, %160, %116, %111, %27, %214, %213, %19
@@ -6380,7 +6380,7 @@ define hidden void @zim_SplFileObject_fgets(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef %0, i1 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_ex(ptr noundef %0, i1 noundef zeroext %1, i64 noundef range(i64 0, 2) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 120

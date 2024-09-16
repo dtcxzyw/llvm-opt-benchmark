@@ -565,7 +565,7 @@ iso_string.exit170:                               ; preds = %iso_string.exit167,
   %327 = add nsw i32 %323, %326
   %328 = getelementptr inbounds i8, ptr %.0130, i64 166
   %329 = load i32, ptr %328, align 1
-  %330 = call fastcc i32 @iso_parse_dir(ptr noundef nonnull %3, i32 noundef %327, i32 noundef %329)
+  %330 = call fastcc i32 @iso_parse_dir(ptr noundef %3, i32 noundef %327, i32 noundef %329)
   call void @cli_hashset_destroy(ptr noundef nonnull %73) #9
   switch i32 %330, label %332 [
     i32 0, label %331
@@ -598,7 +598,7 @@ declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @cli_hashset_init(ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @iso_parse_dir(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %0, align 8
@@ -825,7 +825,7 @@ iso_string.exit:                                  ; preds = %87, %96
   br i1 %.not118, label %134, label %132
 
 132:                                              ; preds = %129
-  %133 = call fastcc i32 @iso_parse_dir(ptr noundef nonnull %0, i32 noundef %106, i32 noundef %108)
+  %133 = call fastcc i32 @iso_parse_dir(ptr noundef %0, i32 noundef %106, i32 noundef %108)
   br label %197
 
 134:                                              ; preds = %129

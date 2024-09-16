@@ -1148,7 +1148,7 @@ _ZL9parse_intPPcPi.exit205.i:                     ; preds = %_ZL9parse_intPPcPi.
 
 301:                                              ; preds = %296
   store ptr %297, ptr %7, align 8
-  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %.0410.i, i32 noundef %.0412.i, ptr noundef nonnull %35)
+  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %.0410.i, i32 noundef %.0412.i, ptr noundef %35)
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 302:                                              ; preds = %296
@@ -1257,9 +1257,9 @@ _ZL9parse_intPPcPi.exit232.i:                     ; preds = %_ZL14parse_int_char
   %339 = sdiv exact i64 %338, 56
   %340 = trunc i64 %339 to i32
   %341 = add i32 %340, -1
-  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %333, i32 noundef %341, ptr noundef nonnull %35)
+  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %333, i32 noundef %341, ptr noundef %35)
   %342 = add nsw i32 %.3.i, -1
-  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef 0, i32 noundef %342, ptr noundef nonnull %35)
+  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef 0, i32 noundef %342, ptr noundef %35)
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 343:                                              ; preds = %.tail.thread.i
@@ -2308,7 +2308,7 @@ _ZL9parse_intPPcPi.exit351.i:                     ; preds = %_ZL14parse_int_char
 
 .invoke:                                          ; preds = %734, %694
   %743 = phi i32 [ %.12.i, %694 ], [ %.15.i, %734 ]
-  invoke fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupSaIS3_EEb(ptr noundef nonnull readonly %24, i32 noundef %743, ptr noundef nonnull %35, i1 noundef zeroext %665)
+  invoke fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupSaIS3_EEb(ptr noundef readonly %24, i32 noundef %743, ptr noundef %35, i1 noundef zeroext %665)
           to label %_ZL9parse_intPPcPi.exit.thread.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 744:                                              ; preds = %703
@@ -2321,7 +2321,7 @@ _ZL9parse_intPPcPi.exit351.i:                     ; preds = %_ZL14parse_int_char
   store i32 -1, ptr %12, align 4
   store ptr %13, ptr %15, align 8
   store ptr %171, ptr %175, align 8
-  %746 = invoke fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr noundef nonnull %7, i32 noundef %163, ptr noundef nonnull readonly %24, ptr noundef nonnull %35, ptr noundef nonnull %11, ptr noundef %168, ptr noundef nonnull %8, ptr noundef nonnull byval(%"class.gmx::ArrayRef.66") align 8 %15)
+  %746 = invoke fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr noundef %7, i32 noundef %163, ptr noundef readonly %24, ptr noundef %35, ptr noundef %11, ptr noundef %168, ptr noundef %8, ptr noundef nonnull byval(%"class.gmx::ArrayRef.66") align 8 %15)
           to label %.noexc57 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc57:                                         ; preds = %745
@@ -2374,7 +2374,7 @@ _ZL9parse_intPPcPi.exit351.i:                     ; preds = %_ZL14parse_int_char
   %759 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %8) #25
   store ptr %13, ptr %16, align 8
   store ptr %171, ptr %176, align 8
-  %760 = invoke fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr noundef nonnull %7, i32 noundef %163, ptr noundef nonnull readonly %24, ptr noundef nonnull %35, ptr noundef nonnull %12, ptr noundef %170, ptr noundef nonnull %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.66") align 8 %16)
+  %760 = invoke fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr noundef %7, i32 noundef %163, ptr noundef readonly %24, ptr noundef %35, ptr noundef %12, ptr noundef %170, ptr noundef %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.66") align 8 %16)
           to label %.noexc58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc58:                                         ; preds = %._crit_edge499.i
@@ -3948,7 +3948,7 @@ declare noundef i32 @getchar() local_unnamed_addr #6
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #13 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 32
@@ -4041,7 +4041,7 @@ _ZL14parse_int_charPPcPiPh.exit.thread:           ; preds = %.thread, %29, %28, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %.not20 = icmp slt i32 %1, %0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -4168,7 +4168,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupSaIS3_EEb(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupSaIS3_EEb(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct.IndexGroup, align 8
   %7 = alloca %"class.std::allocator.0", align 1
@@ -4343,7 +4343,7 @@ _ZN10IndexGroupD2Ev.exit:                         ; preds = %_ZNSt6vectorI10Inde
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.66") align 8 %7) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vectorI10IndexGroupSaIS5_EEPiS9_S_N3gmx8ArrayRefIS_EE(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef %5, ptr noundef nonnull %6, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.66") align 8 %7) unnamed_addr #0 {
   %9 = alloca [4096 x i8], align 16
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -4379,7 +4379,7 @@ define internal fastcc noundef zeroext i1 @_ZL11parse_entryPPciPK7t_atomsPSt6vec
   br i1 %23, label %.preheader207, label %.loopexit208, !llvm.loop !40
 
 .loopexit208:                                     ; preds = %.preheader207, %._crit_edge
-  %24 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  %24 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %13)
   br i1 %24, label %thread-pre-split, label %25
 
 25:                                               ; preds = %.loopexit208
@@ -4511,7 +4511,7 @@ _ZL12parse_stringPPcPiN3gmx8ArrayRefIK10IndexGroupEE.exit.thread: ; preds = %_ZL
 95:                                               ; preds = %_ZL12parse_stringPPcPiN3gmx8ArrayRefIK10IndexGroupEE.exit.thread
   %96 = getelementptr inbounds i8, ptr %93, i64 1
   store ptr %96, ptr %0, align 8
-  %97 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  %97 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %13)
   br i1 %97, label %98, label %155
 
 98:                                               ; preds = %95
@@ -4539,7 +4539,7 @@ _ZL12parse_stringPPcPiN3gmx8ArrayRefIK10IndexGroupEE.exit.thread: ; preds = %_ZL
 105:                                              ; preds = %100
   %106 = getelementptr inbounds i8, ptr %101, i64 1
   store ptr %106, ptr %0, align 8
-  %107 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  %107 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %11)
   %108 = icmp slt i32 %99, 1
   br i1 %108, label %116, label %109
 
@@ -4638,7 +4638,7 @@ thread-pre-split.i:                               ; preds = %151
   br i1 %.not38.i, label %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit, label %151
 
 151:                                              ; preds = %142
-  %152 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %10)
+  %152 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %10)
   br i1 %152, label %thread-pre-split.i, label %_ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit, !llvm.loop !45
 
 _ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit: ; preds = %142, %151, %116, %134, %.thread.i
@@ -4651,7 +4651,7 @@ _ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit: ; preds = %142, %151, %116, %
 
 155:                                              ; preds = %95
   %156 = load ptr, ptr %7, align 8
-  %157 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr %156)
+  %157 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef %0, ptr noundef %12, ptr %156)
   %.not144 = icmp eq i32 %157, 0
   br i1 %.not144, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread, label %158
 
@@ -4684,7 +4684,7 @@ _ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit: ; preds = %142, %151, %116, %
   %169 = getelementptr inbounds i8, ptr %93, i64 1
   store ptr %169, ptr %0, align 8
   %170 = load ptr, ptr %7, align 8
-  %171 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr %170)
+  %171 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef %0, ptr noundef %12, ptr %170)
   %.not143 = icmp eq i32 %171, 0
   br i1 %.not143, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread, label %172
 
@@ -4700,7 +4700,7 @@ _ZL18select_atomnumbersPPcPK7t_atomsiPiS4_S_.exit: ; preds = %142, %151, %116, %
 
 177:                                              ; preds = %172
   %178 = load i32, ptr %12, align 4
-  %179 = tail call fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr noundef nonnull %2, i32 noundef %178, ptr %170, ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
+  %179 = tail call fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr noundef %2, i32 noundef %178, ptr %170, ptr noundef %4, ptr noundef %5, i1 noundef zeroext true)
   %180 = icmp ne i32 %179, 0
   %181 = load ptr, ptr %170, align 8
   %182 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %181) #25
@@ -4738,7 +4738,7 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
 192:                                              ; preds = %.tail
   %193 = getelementptr inbounds i8, ptr %93, i64 3
   store ptr %193, ptr %0, align 8
-  %194 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  %194 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %13)
   %195 = load i32, ptr %13, align 4
   %196 = icmp sgt i32 %195, -1
   %or.cond = select i1 %194, i1 %196, i1 false
@@ -4773,32 +4773,32 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
 216:                                              ; preds = %.tail201
   %217 = getelementptr inbounds i8, ptr %93, i64 2
   store ptr %217, ptr %0, align 8
-  %218 = call fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %218 = call fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr noundef %0, ptr noundef %13, ptr noundef %14)
   br i1 %218, label %219, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread
 
 219:                                              ; preds = %216
   %220 = load i32, ptr %13, align 4
   %221 = load i8, ptr %14, align 1
-  %222 = tail call fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %220, i8 noundef zeroext %221, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %222 = tail call fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr noundef %0, ptr noundef %2, i32 noundef %220, i8 noundef zeroext %221, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %223 = icmp ne i32 %222, 0
   br label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
 
 224:                                              ; preds = %.tail201
   %225 = getelementptr inbounds i8, ptr %93, i64 1
   store ptr %225, ptr %0, align 8
-  %226 = call fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %226 = call fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr noundef %0, ptr noundef %13, ptr noundef %14)
   br i1 %226, label %227, label %232
 
 227:                                              ; preds = %224
   %228 = load i32, ptr %13, align 4
   %229 = load i8, ptr %14, align 1
-  %230 = tail call fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr noundef nonnull %0, ptr noundef %2, i32 noundef %228, i8 noundef zeroext %229, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  %230 = tail call fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr noundef %0, ptr noundef %2, i32 noundef %228, i8 noundef zeroext %229, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %231 = icmp ne i32 %230, 0
   br label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit
 
 232:                                              ; preds = %224
   %233 = load ptr, ptr %7, align 8
-  %234 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr %233)
+  %234 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef %0, ptr noundef %12, ptr %233)
   %.not142 = icmp eq i32 %234, 0
   br i1 %.not142, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread, label %235
 
@@ -4818,7 +4818,7 @@ sub_1:                                            ; preds = %_ZL12parse_stringPP
   %243 = getelementptr inbounds i8, ptr %93, i64 5
   store ptr %243, ptr %0, align 8
   %244 = load ptr, ptr %7, align 8
-  %245 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr %244)
+  %245 = call fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr noundef %0, ptr noundef %12, ptr %244)
   %.not = icmp eq i32 %245, 0
   br i1 %.not, label %_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_.exit.thread, label %246
 
@@ -4975,7 +4975,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #13 {
+define internal fastcc noundef zeroext i1 @_ZL14parse_int_charPPcPiPh(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 32
@@ -5075,7 +5075,7 @@ declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 n
 declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store i32 0, ptr %1, align 4
   %5 = load ptr, ptr %0, align 8
@@ -5200,7 +5200,7 @@ _ZL12is_name_charc.exit31.thread:                 ; preds = %_ZL12is_name_charc.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #17 {
   store i32 0, ptr %3, align 4
   %7 = load i32, ptr %0, align 8
   %8 = icmp sgt i32 %7, 0
@@ -5409,7 +5409,7 @@ _ZL9comp_namePKcS0_.exit.thread.us.us:            ; preds = %.thread.i.us.us
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_(i32 noundef %0, ptr nocapture readonly %1, ptr noundef %2) unnamed_addr #18 {
+define internal fastcc void @_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_(i32 noundef %0, ptr nocapture readonly %1, ptr noundef nonnull %2) unnamed_addr #18 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %4) #25
   %6 = icmp sgt i32 %0, 1
@@ -5436,7 +5436,7 @@ define internal fastcc void @_ZL10make_gnameiN3gmx8ArrayRefIPcEES1_(i32 noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_atomsRK10IndexGroupPiS5_(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_atomsRK10IndexGroupPiS5_(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef writeonly %3) unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -5552,7 +5552,7 @@ define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_at
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca i32, align 4
   store i32 0, ptr %4, align 4
@@ -5583,7 +5583,7 @@ define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 1
   store ptr %18, ptr %0, align 8
-  %19 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %19 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %9)
   %20 = load i32, ptr %1, align 8
   %21 = icmp sgt i32 %20, 0
   %.pre = load i32, ptr %9, align 4
@@ -5785,7 +5785,7 @@ _ZL14parse_int_charPPcPiPh.exit.thread:           ; preds = %._crit_edge.i, %107
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca i32, align 4
   store i32 0, ptr %4, align 4
@@ -5816,7 +5816,7 @@ define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS
 17:                                               ; preds = %15
   %18 = getelementptr inbounds i8, ptr %11, i64 1
   store ptr %18, ptr %0, align 8
-  %19 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %19 = call fastcc noundef zeroext i1 @_ZL9parse_intPPcPi(ptr noundef %0, ptr noundef %9)
   %20 = load i32, ptr %1, align 8
   %21 = icmp sgt i32 %20, 0
   %.pre = load i32, ptr %9, align 4
@@ -6024,7 +6024,7 @@ _ZL14parse_int_charPPcPiPh.exit.thread:           ; preds = %._crit_edge.i, %113
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
   store i32 0, ptr %3, align 4
   %6 = load i32, ptr %0, align 8
   %7 = icmp sgt i32 %6, 0
@@ -6238,7 +6238,7 @@ _ZL9comp_namePKcS0_.exit.thread.us.us:            ; preds = %.thread.i.us.us
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
   %6 = alloca [2 x i8], align 1
   %7 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 0, ptr %7, align 1

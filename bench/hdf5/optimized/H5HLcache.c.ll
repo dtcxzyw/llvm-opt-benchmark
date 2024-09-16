@@ -67,7 +67,7 @@ define internal noundef i32 @H5HL__cache_prefix_get_initial_load_size(ptr nocapt
 define internal range(i32 -1, 1) i32 @H5HL__cache_prefix_get_final_load_size(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #1 {
   %5 = alloca %struct.H5HL_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
-  %6 = call fastcc i32 @H5HL__hdr_deserialize(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %1, ptr noundef %2)
+  %6 = call fastcc i32 @H5HL__hdr_deserialize(ptr noundef %5, ptr noundef %0, i64 noundef %1, ptr noundef %2)
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -121,7 +121,7 @@ define internal ptr @H5HL__cache_prefix_deserialize(ptr noundef %0, i64 noundef 
   br i1 %13, label %82, label %14
 
 14:                                               ; preds = %4
-  %15 = tail call fastcc i32 @H5HL__hdr_deserialize(ptr noundef nonnull %12, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2)
+  %15 = tail call fastcc i32 @H5HL__hdr_deserialize(ptr noundef %12, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %2)
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %21
 
@@ -692,7 +692,7 @@ define internal range(i32 -1, 1) i32 @H5HL__cache_datablock_free_icr(ptr noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr i8, ptr %1, i64 %2
   %.ptr79 = getelementptr i8, ptr %6, i64 -1

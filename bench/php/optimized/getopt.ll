@@ -386,7 +386,7 @@ php_opt_error.exit:                               ; preds = %119, %118, %88, %86
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @php_opt_error(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @php_opt_error(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 1, 4) %3, i32 noundef %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %31, label %6
 
@@ -395,7 +395,7 @@ define internal fastcc void @php_opt_error(ptr nocapture noundef readonly %0, i3
   %8 = add nsw i32 %2, 1
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %1, i32 noundef %8) #6
   %10 = load ptr, ptr @stderr, align 8
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable9 [
     i32 1, label %11
     i32 2, label %13
     i32 3, label %22
@@ -427,7 +427,7 @@ define internal fastcc void @php_opt_error(ptr nocapture noundef readonly %0, i3
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.4, i32 noundef %29) #6
   br label %31
 
-default.unreachable:                              ; preds = %6
+default.unreachable9:                             ; preds = %6
   unreachable
 
 31:                                               ; preds = %11, %13, %22, %5

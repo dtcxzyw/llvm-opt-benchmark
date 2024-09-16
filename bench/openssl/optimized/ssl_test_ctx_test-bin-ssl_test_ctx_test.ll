@@ -201,7 +201,7 @@ if.end:                                           ; preds = %if.end.i
   %0 = load ptr, ptr %expected_ctx.i, align 8
   %expected_result = getelementptr inbounds i8, ptr %0, i64 424
   store i32 0, ptr %expected_result, align 8
-  %call3 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i)
+  %call3 = tail call fastcc i32 @execute_test(ptr noundef %call.i)
   %1 = load ptr, ptr %expected_ctx.i, align 8
   tail call void @SSL_TEST_CTX_free(ptr noundef %1) #3
   br label %return.sink.split
@@ -317,7 +317,7 @@ if.end45:                                         ; preds = %if.end27
   %24 = load ptr, ptr %expected_ctx.i, align 8
   %ct_validation = getelementptr inbounds i8, ptr %24, i64 256
   store i32 2, ptr %ct_validation, align 8
-  %call51 = tail call fastcc i32 @execute_test(ptr noundef nonnull %call.i)
+  %call51 = tail call fastcc i32 @execute_test(ptr noundef %call.i)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.end, %if.end27, %if.end45
@@ -371,7 +371,7 @@ entry:
 declare void @NCONF_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_test(ptr nocapture noundef readonly %fixture) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @execute_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @conf, align 8
   %test_section = getelementptr inbounds i8, ptr %fixture, i64 8

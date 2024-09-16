@@ -2043,7 +2043,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i174: ; preds = %.lr.ph.i.i18
 448:                                              ; preds = %444
   %449 = load ptr, ptr %185, align 8
   %450 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %447, ptr noundef nonnull %.sroa.0218.0273, ptr noundef %449, ptr noundef nonnull align 8 dereferenceable(8) %450)
+  call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %447, ptr noundef %.sroa.0218.0273, ptr noundef %449, ptr noundef nonnull align 8 dereferenceable(8) %450)
   br label %.critedge
 
 .critedge:                                        ; preds = %444, %448, %.lr.ph.i.i.i193, %209
@@ -3670,7 +3670,7 @@ define hidden void @_ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineB
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %9, align 8
-  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %17, ptr noundef nonnull %2, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %17, ptr noundef %2, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %20
 
 20:                                               ; preds = %18, %15
@@ -3698,7 +3698,7 @@ define hidden void @_ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 {
 .preheader.i.i.i:
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3769,7 +3769,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit:                   ; preds = %18, %_ZN4llvm13Trac
   %44 = load ptr, ptr %2, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 280
   %46 = load ptr, ptr %45, align 8
-  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef null, ptr %42, i64 %43, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #22
+  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %1, ptr noundef null, ptr %42, i64 %43, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #22
   br label %_ZN4llvm11SmallVectorINS_14MachineOperandELj0EED2Ev.exit
 
 .critedge:                                        ; preds = %_ZN4llvm8DebugLocaSERKS0_.exit, %28, %32, %21
@@ -3780,7 +3780,7 @@ _ZN4llvm8DebugLocaSERKS0_.exit:                   ; preds = %18, %_ZN4llvm13Trac
   %51 = load ptr, ptr %2, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 280
   %53 = load ptr, ptr %52, align 8
-  %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef %1, ptr noundef null, ptr %49, i64 %50, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #22
+  %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull %1, ptr noundef null, ptr %49, i64 %50, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef null) #22
   %55 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #22
   %56 = load ptr, ptr %8, align 8
   %57 = icmp eq ptr %56, %48
@@ -5235,7 +5235,7 @@ _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_12BranchFolder18Merg
 
 51:                                               ; preds = %48
   %52 = load ptr, ptr %21, align 8
-  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %50, ptr noundef nonnull %1, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %50, ptr noundef %1, ptr noundef %52, ptr noundef nonnull align 8 dereferenceable(8) %35)
   br label %53
 
 53:                                               ; preds = %51, %48
@@ -5492,7 +5492,7 @@ _ZN4llvm12BranchFolder20RemoveBlocksWithHashEjPNS_17MachineBasicBlockES2_RKNS_8D
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr %21, align 8
-  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %193, ptr noundef nonnull %1, ptr noundef %195, ptr noundef nonnull align 8 dereferenceable(8) %35)
+  tail call fastcc void @_ZL7FixTailPN4llvm17MachineBasicBlockES1_PKNS_15TargetInstrInfoERKNS_8DebugLocE(ptr noundef %193, ptr noundef %1, ptr noundef %195, ptr noundef nonnull align 8 dereferenceable(8) %35)
   br label %196
 
 196:                                              ; preds = %194, %191
@@ -7270,7 +7270,7 @@ _ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineIn
   %.not331 = icmp eq ptr %773, null
   %. = select i1 %.not331, ptr %6, ptr %7
   store ptr %1, ptr %., align 8
-  call fastcc void @_ZL17getBranchDebugLocRN4llvm17MachineBasicBlockE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(288) %216)
+  call fastcc void @_ZL17getBranchDebugLocRN4llvm17MachineBasicBlockE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(288) %216)
   %776 = load ptr, ptr %48, align 8
   %777 = load ptr, ptr %776, align 8
   %778 = getelementptr inbounds i8, ptr %777, i64 272
@@ -7746,7 +7746,7 @@ declare void @_ZN4llvm17MachineBasicBlock13copySuccessorEPKS0_PPS0_(ptr noundef 
 declare noundef zeroext i1 @_ZN4llvm20MachineJumpTableInfo22ReplaceMBBInJumpTablesEPNS_17MachineBasicBlockES2_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getBranchDebugLocRN4llvm17MachineBasicBlockE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17getBranchDebugLocRN4llvm17MachineBasicBlockE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 {
   %3 = tail call ptr @_ZN4llvm17MachineBasicBlock20getLastNonDebugInstrEb(ptr noundef nonnull align 8 dereferenceable(288) %1, i1 noundef zeroext true) #22
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %.not = icmp eq ptr %3, %4

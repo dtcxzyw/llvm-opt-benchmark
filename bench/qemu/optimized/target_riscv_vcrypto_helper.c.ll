@@ -172,7 +172,7 @@ entry:
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %vs2, i64 %idx.ext
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call i8 @llvm.fshr.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr4 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr4, align 1
   ret void
@@ -193,7 +193,7 @@ entry:
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i16, ptr %vs2, i64 %idx.ext
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call i16 @llvm.fshr.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr4 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr4, align 2
   ret void
@@ -255,7 +255,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
   %conv = trunc i64 %s1 to i8
-  %conv3.i = tail call noundef i8 @llvm.fshr.i8(i8 %0, i8 %0, i8 %conv)
+  %conv3.i = tail call i8 @llvm.fshr.i8(i8 %0, i8 %0, i8 %conv)
   %add.ptr3 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr3, align 1
   ret void
@@ -275,7 +275,7 @@ entry:
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
   %0 = load i16, ptr %add.ptr, align 2
   %conv = trunc i64 %s1 to i16
-  %conv3.i = tail call noundef i16 @llvm.fshr.i16(i16 %0, i16 %0, i16 %conv)
+  %conv3.i = tail call i16 @llvm.fshr.i16(i16 %0, i16 %0, i16 %conv)
   %add.ptr3 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr3, align 2
   ret void
@@ -335,7 +335,7 @@ entry:
   %0 = load i8, ptr %add.ptr, align 1
   %add.ptr2 = getelementptr i8, ptr %vs2, i64 %idx.ext
   %1 = load i8, ptr %add.ptr2, align 1
-  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
+  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %1, i8 %1, i8 %0)
   %add.ptr4 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr4, align 1
   ret void
@@ -356,7 +356,7 @@ entry:
   %0 = load i16, ptr %add.ptr, align 2
   %add.ptr2 = getelementptr i16, ptr %vs2, i64 %idx.ext
   %1 = load i16, ptr %add.ptr2, align 2
-  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
+  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %1, i16 %1, i16 %0)
   %add.ptr4 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr4, align 2
   ret void
@@ -418,7 +418,7 @@ entry:
   %add.ptr = getelementptr i8, ptr %vs2, i64 %idx.ext
   %0 = load i8, ptr %add.ptr, align 1
   %conv = trunc i64 %s1 to i8
-  %conv3.i = tail call noundef i8 @llvm.fshl.i8(i8 %0, i8 %0, i8 %conv)
+  %conv3.i = tail call i8 @llvm.fshl.i8(i8 %0, i8 %0, i8 %conv)
   %add.ptr3 = getelementptr i8, ptr %vd, i64 %idx.ext
   store i8 %conv3.i, ptr %add.ptr3, align 1
   ret void
@@ -438,7 +438,7 @@ entry:
   %add.ptr = getelementptr i16, ptr %vs2, i64 %idx.ext
   %0 = load i16, ptr %add.ptr, align 2
   %conv = trunc i64 %s1 to i16
-  %conv3.i = tail call noundef i16 @llvm.fshl.i16(i16 %0, i16 %0, i16 %conv)
+  %conv3.i = tail call i16 @llvm.fshl.i16(i16 %0, i16 %0, i16 %conv)
   %add.ptr3 = getelementptr i16, ptr %vd, i64 %idx.ext
   store i16 %conv3.i, ptr %add.ptr3, align 2
   ret void
@@ -3038,7 +3038,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3125,7 +3125,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesenc_SB_SR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3213,7 +3213,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3300,7 +3300,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3388,7 +3388,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3475,7 +3475,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesenc_SB_SR_MC_AK_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesenc_SB_SR_MC_AK.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3563,7 +3563,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -3650,7 +3650,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %ae
   br i1 %tobool.not.i, label %if.then7.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef nonnull %round_state, ptr noundef nonnull %round_state, ptr noundef nonnull %round_key)
+  call fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr noundef %round_state, ptr noundef %round_state, ptr noundef %round_key)
   br label %aesdec_ISB_ISR_AK_IMC.exit
 
 if.then7.i:                                       ; preds = %for.body
@@ -4808,19 +4808,19 @@ entry:
   %div29 = lshr i64 %1, 3
   %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %sext = shl i64 %div29, 32
-  %conv538 = ashr exact i64 %sext, 32
+  %conv537 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
-  %div63039 = lshr i64 %2, 3
-  %cmp40 = icmp ugt i64 %div63039, %conv538
-  br i1 %cmp40, label %for.cond8.preheader.preheader, label %for.end64
+  %div63038 = lshr i64 %2, 3
+  %cmp39 = icmp ugt i64 %div63038, %conv537
+  br i1 %cmp39, label %for.cond8.preheader.preheader, label %for.end64
 
 for.cond8.preheader.preheader:                    ; preds = %entry
   %conv4 = trunc i64 %div29 to i32
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.preheader, %for.inc62
-  %i.041 = phi i32 [ %inc63, %for.inc62 ], [ %conv4, %for.cond8.preheader.preheader ]
-  %mul = shl i32 %i.041, 3
+  %i.040 = phi i32 [ %inc63, %for.inc62 ], [ %conv4, %for.cond8.preheader.preheader ]
+  %mul = shl i32 %i.040, 3
   %3 = sext i32 %mul to i64
   br label %for.body11
 
@@ -4847,19 +4847,19 @@ for.cond48.preheader:                             ; preds = %for.body25
   br label %for.body51
 
 for.body25:                                       ; preds = %for.body11, %for.body25
-  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %for.body25 ], [ 0, %for.body11 ]
-  %arrayidx27 = getelementptr [24 x i32], ptr %w, i64 0, i64 %indvars.iv46
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %for.body25 ], [ 0, %for.body11 ]
+  %arrayidx27 = getelementptr [24 x i32], ptr %w, i64 0, i64 %indvars.iv45
   %10 = load i32, ptr %arrayidx27, align 4
-  %11 = add nuw nsw i64 %indvars.iv46, 7
+  %11 = add nuw nsw i64 %indvars.iv45, 7
   %arrayidx30 = getelementptr [24 x i32], ptr %w, i64 0, i64 %11
   %12 = load i32, ptr %arrayidx30, align 4
-  %13 = add nuw nsw i64 %indvars.iv46, 13
+  %13 = add nuw nsw i64 %indvars.iv45, 13
   %arrayidx33 = getelementptr [24 x i32], ptr %w, i64 0, i64 %13
   %14 = load i32, ptr %arrayidx33, align 4
-  %15 = add nuw nsw i64 %indvars.iv46, 3
+  %15 = add nuw nsw i64 %indvars.iv45, 3
   %arrayidx36 = getelementptr [24 x i32], ptr %w, i64 0, i64 %15
   %16 = load i32, ptr %arrayidx36, align 4
-  %17 = add nuw nsw i64 %indvars.iv46, 10
+  %17 = add nuw nsw i64 %indvars.iv45, 10
   %arrayidx39 = getelementptr [24 x i32], ptr %w, i64 0, i64 %17
   %18 = load i32, ptr %arrayidx39, align 4
   %xor.i = xor i32 %12, %10
@@ -4872,27 +4872,27 @@ for.body25:                                       ; preds = %for.body11, %for.bo
   %20 = xor i32 %19, %or.i.i.i
   %21 = xor i32 %20, %or.i3.i.i
   %xor5.i = xor i32 %21, %xor1.i
-  %22 = or disjoint i64 %indvars.iv46, 16
+  %22 = or disjoint i64 %indvars.iv45, 16
   %arrayidx43 = getelementptr [24 x i32], ptr %w, i64 0, i64 %22
   store i32 %xor5.i, ptr %arrayidx43, align 4
-  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next47, 8
-  br i1 %exitcond54.not, label %for.cond48.preheader, label %for.body25, !llvm.loop !49
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond53.not = icmp eq i64 %indvars.iv.next46, 8
+  br i1 %exitcond53.not, label %for.cond48.preheader, label %for.body25, !llvm.loop !49
 
 for.body51:                                       ; preds = %for.cond48.preheader, %for.body51
-  %indvars.iv55 = phi i64 [ 0, %for.cond48.preheader ], [ %indvars.iv.next56, %for.body51 ]
-  %23 = or disjoint i64 %indvars.iv55, 16
+  %indvars.iv54 = phi i64 [ 0, %for.cond48.preheader ], [ %indvars.iv.next55, %for.body51 ]
+  %23 = or disjoint i64 %indvars.iv54, 16
   %arrayidx54 = getelementptr [24 x i32], ptr %w, i64 0, i64 %23
   %24 = load i32, ptr %arrayidx54, align 4
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv55
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv54
   store i32 %25, ptr %gep, align 4
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next56, 8
-  br i1 %exitcond60.not, label %for.inc62, label %for.body51, !llvm.loop !50
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next55, 8
+  br i1 %exitcond59.not, label %for.inc62, label %for.body51, !llvm.loop !50
 
 for.inc62:                                        ; preds = %for.body51
-  %inc63 = add i32 %i.041, 1
+  %inc63 = add i32 %i.040, 1
   %conv5 = sext i32 %inc63 to i64
   %26 = load i64, ptr %vl, align 16
   %div630 = lshr i64 %26, 3
@@ -4914,10 +4914,10 @@ for.end64:                                        ; preds = %for.inc62, %entry
   %cond.i = tail call i32 @llvm.smax.i32(i32 %shr.i1.i.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %30 = trunc i64 %.lcssa to i32
-  %conv6833 = shl i32 %30, %conv
+  %conv6832 = shl i32 %30, %conv
   %31 = shl nsw i32 -1, %conv
-  %mul6934 = and i32 %shl17.i, %31
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv6833, i32 noundef %mul6934) #12
+  %mul6933 = and i32 %shl17.i, %31
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv6832, i32 noundef %mul6933) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -4938,11 +4938,11 @@ entry:
   %div23 = lshr i64 %1, 3
   %vl = getelementptr inbounds i8, ptr %env, i64 4624
   %sext = shl i64 %div23, 32
-  %conv533 = ashr exact i64 %sext, 32
+  %conv532 = ashr exact i64 %sext, 32
   %2 = load i64, ptr %vl, align 16
-  %div62434 = lshr i64 %2, 3
-  %cmp35 = icmp ugt i64 %div62434, %conv533
-  br i1 %cmp35, label %for.cond8.preheader.lr.ph, label %for.end38
+  %div62433 = lshr i64 %2, 3
+  %cmp34 = icmp ugt i64 %div62433, %conv532
+  br i1 %cmp34, label %for.cond8.preheader.lr.ph, label %for.end38
 
 for.cond8.preheader.lr.ph:                        ; preds = %entry
   %conv4 = trunc i64 %div23 to i32
@@ -4971,8 +4971,8 @@ for.cond8.preheader.lr.ph:                        ; preds = %entry
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.lr.ph, %for.inc36
-  %i.036 = phi i32 [ %conv4, %for.cond8.preheader.lr.ph ], [ %inc37, %for.inc36 ]
-  %mul = shl i32 %i.036, 3
+  %i.035 = phi i32 [ %conv4, %for.cond8.preheader.lr.ph ], [ %inc37, %for.inc36 ]
+  %mul = shl i32 %i.035, 3
   %3 = sext i32 %mul to i64
   br label %for.body11
 
@@ -5002,8 +5002,8 @@ for.end:                                          ; preds = %for.body11
   %13 = load i32, ptr %v2, align 16
   %or.i.i = tail call noundef i32 @llvm.fshl.i32(i32 %13, i32 %13, i32 12)
   %14 = load i32, ptr %arrayidx6.i, align 16
-  %add.i26 = add i32 %14, %or.i60.i
-  %add9.i = add i32 %add.i26, %or.i.i
+  %add.i25 = add i32 %14, %or.i60.i
+  %add9.i = add i32 %add.i25, %or.i.i
   %or.i61.i = tail call noundef i32 @llvm.fshl.i32(i32 %add9.i, i32 %add9.i, i32 7)
   %xor13.i = xor i32 %or.i61.i, %or.i.i
   %15 = load i32, ptr %arrayidx15.i, align 4
@@ -5030,10 +5030,10 @@ cond.false.i66.i:                                 ; preds = %for.end
   %add19.i = add i32 %21, %or3.i.i.i
   %22 = load i32, ptr %arrayidx23.i, align 4
   %23 = load i32, ptr %arrayidx24.i, align 8
-  %and.i.i.i27 = and i32 %22, %14
+  %and.i.i.i26 = and i32 %22, %14
   %not.i.i.i = xor i32 %14, -1
   %and1.i.i.i = and i32 %23, %not.i.i.i
-  %or.i.i67.i = or disjoint i32 %and1.i.i.i, %and.i.i.i27
+  %or.i.i67.i = or disjoint i32 %and1.i.i.i, %and.i.i.i26
   br label %gg_j.exit.i
 
 gg_j.exit.i:                                      ; preds = %cond.false.i66.i, %cond.true.i69.i
@@ -5112,18 +5112,18 @@ sm3c.exit:                                        ; preds = %cond.true.i99.i, %c
   br label %for.body26
 
 for.body26:                                       ; preds = %sm3c.exit, %for.body26
-  %indvars.iv40 = phi i64 [ 0, %sm3c.exit ], [ %indvars.iv.next41, %for.body26 ]
-  %arrayidx28 = getelementptr [8 x i32], ptr %v1, i64 0, i64 %indvars.iv40
+  %indvars.iv39 = phi i64 [ 0, %sm3c.exit ], [ %indvars.iv.next40, %for.body26 ]
+  %arrayidx28 = getelementptr [8 x i32], ptr %v1, i64 0, i64 %indvars.iv39
   %30 = load i32, ptr %arrayidx28, align 4
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv40
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv39
   store i32 %31, ptr %gep, align 4
-  %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %exitcond44.not = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond44.not, label %for.inc36, label %for.body26, !llvm.loop !53
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %exitcond43.not = icmp eq i64 %indvars.iv.next40, 8
+  br i1 %exitcond43.not, label %for.inc36, label %for.body26, !llvm.loop !53
 
 for.inc36:                                        ; preds = %for.body26
-  %inc37 = add i32 %i.036, 1
+  %inc37 = add i32 %i.035, 1
   %conv5 = sext i32 %inc37 to i64
   %32 = load i64, ptr %vl, align 16
   %div624 = lshr i64 %32, 3
@@ -5145,10 +5145,10 @@ for.end38:                                        ; preds = %for.inc36, %entry
   %cond.i = tail call i32 @llvm.smax.i32(i32 %shr.i1.i.i, i32 0)
   %shl17.i = shl nuw nsw i32 %add.i.i, %cond.i
   %36 = trunc i64 %.lcssa to i32
-  %conv4229 = shl i32 %36, %conv
+  %conv4228 = shl i32 %36, %conv
   %37 = shl nsw i32 -1, %conv
-  %mul4330 = and i32 %shl17.i, %37
-  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv4229, i32 noundef %mul4330) #12
+  %mul4329 = and i32 %shl17.i, %37
+  tail call void @vext_set_elems_1s(ptr noundef %vd_vptr, i32 noundef %and.i.i, i32 noundef %conv4228, i32 noundef %mul4329) #12
   store i64 0, ptr %vstart, align 8
   ret void
 }
@@ -6047,7 +6047,7 @@ declare i32 @llvm.ctpop.i32(i32) #7
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6062,7 +6062,7 @@ declare void @aesenc_SB_SR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local_u
 declare <2 x i64> @llvm.x86.aesni.aesenclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6077,7 +6077,7 @@ declare void @aesdec_ISB_ISR_AK_gen(ptr noundef, ptr noundef, ptr noundef) local
 declare <2 x i64> @llvm.x86.aesni.aesdeclast(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesenc_SB_SR_MC_AK_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16
@@ -6092,7 +6092,7 @@ declare void @aesenc_SB_SR_MC_AK_gen(ptr noundef, ptr noundef, ptr noundef) loca
 declare <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64>, <2 x i64>) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef writeonly %ret, ptr nocapture noundef readonly %st, ptr nocapture noundef readonly %rk) unnamed_addr #9 {
+define internal fastcc void @aesdec_ISB_ISR_AK_IMC_accel(ptr nocapture noundef nonnull writeonly %ret, ptr nocapture noundef nonnull readonly %st, ptr nocapture noundef nonnull readonly %rk) unnamed_addr #9 {
 entry:
   %0 = load <2 x i64>, ptr %st, align 16
   %1 = load <2 x i64>, ptr %rk, align 16

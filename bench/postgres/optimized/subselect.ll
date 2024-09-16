@@ -1903,7 +1903,7 @@ define dso_local void @SS_finalize_plan(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @finalize_plan(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, -2147483648) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.finalize_primnode_context, align 8
   %7 = alloca %struct.finalize_primnode_context, align 8
   %8 = alloca %struct.finalize_primnode_context, align 8

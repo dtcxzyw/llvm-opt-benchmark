@@ -801,8 +801,8 @@ sw.epilog:                                        ; preds = %if.end54, %if.end41
   br i1 %cmp.not.i, label %if.else.i, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %sw.epilog
-  %cmp136.i.not = icmp eq i64 %shr.i118, 0
-  br i1 %cmp136.i.not, label %if.end69, label %for.body.lr.ph.i
+  %cmp136.not.i = icmp eq i64 %shr.i118, 0
+  br i1 %cmp136.not.i, label %if.end69, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %38 = getelementptr i8, ptr %36, i64 360
@@ -828,14 +828,14 @@ for.body.i:                                       ; preds = %if.end32.i, %for.bo
   %40 = trunc i64 %.val.i to i32
   %41 = lshr i32 %40, 4
   %42 = and i32 %41, 1
-  %conv1.i.i126 = shl i32 %add3.i, %42
-  %idxprom.i.i = sext i32 %conv1.i.i126 to i64
+  %conv1.i.i125 = shl i32 %add3.i, %42
+  %idxprom.i.i = sext i32 %conv1.i.i125 to i64
   %arrayidx.i.i = getelementptr i64, ptr %35, i64 %idxprom.i.i
   %43 = load i64, ptr %arrayidx.i.i, align 8
   %44 = call noundef i64 @llvm.bswap.i64(i64 %43)
-  %and.i.i.i127 = and i64 %.val.i, 16
-  %tobool.i.not.i.i128 = icmp eq i64 %and.i.i.i127, 0
-  br i1 %tobool.i.not.i.i128, label %get_l2_bitmap.exit.i, label %if.then.i.i
+  %and.i.i.i126 = and i64 %.val.i, 16
+  %tobool.i.not.i.i127 = icmp eq i64 %and.i.i.i126, 0
+  br i1 %tobool.i.not.i.i127, label %get_l2_bitmap.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i
   %conv2.i.i = shl i32 %add3.i, 1
@@ -902,8 +902,8 @@ sw.bb17.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   %or19.i.i = or i64 %shr18.i.i, %retval.0.i.i
   %sh_prom20.i.i = zext nneg i32 %cond.i to i64
   %notmask.i.i = shl nsw i64 -1, %sh_prom20.i.i
-  %and.i.i129 = and i64 %or19.i.i, %notmask.i.i
-  %conv23.i.i = trunc i64 %and.i.i129 to i32
+  %and.i.i128 = and i64 %or19.i.i, %notmask.i.i
+  %conv23.i.i = trunc i64 %and.i.i128 to i32
   %52 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %conv23.i.i, i1 false)
   br label %qcow2_get_subcluster_range_type.exit.i
 
@@ -954,13 +954,13 @@ if.end32.i:                                       ; preds = %if.then23.i, %if.el
   %55 = load i32, ptr %subclusters_per_cluster.i, align 4
   %cmp35.i = icmp uge i32 %.pn.i, %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %cmp1.i = icmp slt i64 %indvars.iv.next, %shr.i118
-  %or.cond46.i = select i1 %cmp35.i, i1 %cmp1.i, i1 false
+  %56 = icmp ult i64 %indvars.iv.next, %shr.i118
+  %or.cond46.i = select i1 %cmp35.i, i1 %56, i1 false
   br i1 %or.cond46.i, label %for.body.i, label %count_contiguous_subclusters.exit, !llvm.loop !11
 
 count_contiguous_subclusters.exit:                ; preds = %if.else19.i, %if.then23.i, %if.end32.i
-  %retval.0.i125 = phi i32 [ %add33.i, %if.end32.i ], [ %count.040.i, %if.then23.i ], [ %count.040.i, %if.else19.i ]
-  %cmp66 = icmp slt i32 %retval.0.i125, 0
+  %retval.0.i129 = phi i32 [ %add33.i, %if.end32.i ], [ %count.040.i, %if.then23.i ], [ %count.040.i, %if.else19.i ]
+  %cmp66 = icmp slt i32 %retval.0.i129, 0
   br i1 %cmp66, label %if.then68, label %if.end69
 
 if.then68:                                        ; preds = %get_l2_bitmap.exit.i, %qcow2_get_subcluster_range_type.exit.i, %count_contiguous_subclusters.exit
@@ -969,15 +969,15 @@ if.then68:                                        ; preds = %get_l2_bitmap.exit.
   br label %fail
 
 if.end69:                                         ; preds = %if.then12.i, %for.cond.preheader.i, %count_contiguous_subclusters.exit
-  %retval.0.i125152 = phi i32 [ %retval.0.i125, %count_contiguous_subclusters.exit ], [ 0, %for.cond.preheader.i ], [ %retval.0.i30.i, %if.then12.i ]
+  %retval.0.i129152 = phi i32 [ %retval.0.i129, %count_contiguous_subclusters.exit ], [ 0, %for.cond.preheader.i ], [ %retval.0.i30.i, %if.then12.i ]
   %l2_table_cache = getelementptr inbounds i8, ptr %0, i64 80
-  %56 = load ptr, ptr %l2_table_cache, align 8
-  call void @qcow2_cache_put(ptr noundef %56, ptr noundef nonnull %l2_slice) #13
-  %conv70 = zext nneg i32 %retval.0.i125152 to i64
+  %57 = load ptr, ptr %l2_table_cache, align 8
+  call void @qcow2_cache_put(ptr noundef %57, ptr noundef nonnull %l2_slice) #13
+  %conv70 = zext nneg i32 %retval.0.i129152 to i64
   %conv71 = zext i32 %conv1.i109 to i64
   %add72 = add nuw nsw i64 %conv70, %conv71
-  %57 = load i32, ptr %17, align 4
-  %sh_prom73 = zext nneg i32 %57 to i64
+  %58 = load i32, ptr %17, align 4
+  %sh_prom73 = zext nneg i32 %58 to i64
   %shl74 = shl i64 %add72, %sh_prom73
   br label %out
 
@@ -1001,8 +1001,8 @@ if.end85:                                         ; preds = %out
 
 fail:                                             ; preds = %if.then68, %if.then60, %if.then53, %if.then44, %if.then40
   %l2_table_cache89 = getelementptr inbounds i8, ptr %0, i64 80
-  %58 = load ptr, ptr %l2_table_cache89, align 8
-  call void @qcow2_cache_put(ptr noundef %58, ptr noundef nonnull %l2_slice) #13
+  %59 = load ptr, ptr %l2_table_cache89, align 8
+  call void @qcow2_cache_put(ptr noundef %59, ptr noundef nonnull %l2_slice) #13
   br label %return
 
 return:                                           ; preds = %if.end18, %fail, %if.end85, %if.then17
@@ -1148,7 +1148,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call1 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp = icmp slt i32 %call1, 0
   br i1 %cmp, label %return, label %if.end3
 
@@ -1273,7 +1273,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef writeonly %new_l2_slice, ptr nocapture noundef writeonly %new_l2_index) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr nocapture noundef nonnull writeonly %new_l2_slice, ptr nocapture noundef nonnull writeonly %new_l2_index) unnamed_addr #0 {
 entry:
   %_now.i.i130.i = alloca %struct.timeval, align 8
   %_now.i.i116.i = alloca %struct.timeval, align 8
@@ -1923,7 +1923,7 @@ if.then17:                                        ; preds = %if.end15
 
 if.end19:                                         ; preds = %if.then17, %if.end15
   %14 = load i64, ptr %m, align 8
-  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %14, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call20 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %14, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %err, label %if.end24
 
@@ -2971,7 +2971,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %cond = tail call i64 @llvm.umin.i64(i64 %shr.i, i64 %conv)
   %shr = lshr i64 2147483136, %sh_prom.i
   %cond15 = tail call i64 @llvm.umin.i64(i64 %cond, i64 %shr)
-  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call16 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %return, label %if.end20
 
@@ -3180,7 +3180,7 @@ if.end:                                           ; preds = %trace_qcow2_handle_
   %12 = trunc i64 %shr.i58 to i32
   %conv1.i = and i32 %sub.i59, %12
   store i32 %conv1.i, ptr %l2_index, align 4
-  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call13 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %guest_offset, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp14 = icmp slt i32 %call13, 0
   br i1 %cmp14, label %return, label %if.end17
 
@@ -3341,8 +3341,8 @@ if.end11:                                         ; preds = %if.end, %lor.lhs.fa
   %shr.i = lshr i64 %add.i, %sh_prom.i
   %cache_discards = getelementptr inbounds i8, ptr %0, i64 424
   store i8 1, ptr %cache_discards, align 8
-  %cmp12.not32 = icmp eq i64 %shr.i, 0
-  br i1 %cmp12.not32, label %fail, label %while.body.lr.ph
+  %cmp12.not27 = icmp eq i64 %shr.i, 0
+  br i1 %cmp12.not27, label %fail, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end11
   %3 = getelementptr i8, ptr %bs, i64 16840
@@ -3351,13 +3351,13 @@ while.body.lr.ph:                                 ; preds = %if.end11
   %idxprom.i = zext i32 %type to i64
   br label %while.body
 
-while.body:                                       ; preds = %while.body.lr.ph, %if.end20
-  %offset.addr.034 = phi i64 [ %offset, %while.body.lr.ph ], [ %add23, %if.end20 ]
-  %nb_clusters.033 = phi i64 [ %shr.i, %while.body.lr.ph ], [ %sub, %if.end20 ]
+while.body:                                       ; preds = %while.body.lr.ph, %discard_in_l2_slice.exit
+  %offset.addr.029 = phi i64 [ %offset, %while.body.lr.ph ], [ %add23, %discard_in_l2_slice.exit ]
+  %nb_clusters.028 = phi i64 [ %shr.i, %while.body.lr.ph ], [ %sub, %discard_in_l2_slice.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %l2_index.i)
   %4 = load ptr, ptr %opaque, align 8
-  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.034, ptr noundef nonnull %l2_slice.i, ptr noundef nonnull %l2_index.i)
+  %call.i = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset.addr.029, ptr noundef %l2_slice.i, ptr noundef %l2_index.i)
   %cmp.i = icmp slt i32 %call.i, 0
   br i1 %cmp.i, label %discard_in_l2_slice.exit.thread, label %if.end.i
 
@@ -3372,17 +3372,13 @@ if.end.i:                                         ; preds = %while.body
   %6 = load i32, ptr %l2_index.i, align 4
   %sub.i21 = sub i32 %5, %6
   %conv.i22 = sext i32 %sub.i21 to i64
-  %cond.i = call i64 @llvm.umin.i64(i64 %nb_clusters.033, i64 %conv.i22)
+  %cond.i = call i64 @llvm.umin.i64(i64 %nb_clusters.028, i64 %conv.i22)
   %cmp3.i = icmp ult i64 %cond.i, 2147483648
   br i1 %cmp3.i, label %for.cond.preheader.i, label %if.else.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i
   %cmp877.not.i = icmp eq i32 %5, %6
-  br i1 %cmp877.not.i, label %discard_in_l2_slice.exit.thread26, label %for.body.lr.ph.i
-
-discard_in_l2_slice.exit.thread26:                ; preds = %for.cond.preheader.i
-  %l2_table_cache77.i27 = getelementptr inbounds i8, ptr %4, i64 80
-  br label %if.end20
+  br i1 %cmp877.not.i, label %discard_in_l2_slice.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %7 = getelementptr i8, ptr %4, i64 360
@@ -3569,25 +3565,24 @@ for.inc.i:                                        ; preds = %if.then72.i, %if.el
   %inc.i = add i32 %i.078.i, 1
   %conv7.i = sext i32 %inc.i to i64
   %cmp8.i = icmp ugt i64 %cond.i, %conv7.i
-  br i1 %cmp8.i, label %for.body.i, label %if.end20, !llvm.loop !16
+  br i1 %cmp8.i, label %for.body.i, label %discard_in_l2_slice.exit, !llvm.loop !16
 
-if.end20:                                         ; preds = %for.inc.i, %discard_in_l2_slice.exit.thread26
-  %l2_table_cache.i.sink = phi ptr [ %l2_table_cache77.i27, %discard_in_l2_slice.exit.thread26 ], [ %l2_table_cache.i, %for.inc.i ]
-  %conv78.i30 = phi i64 [ 0, %discard_in_l2_slice.exit.thread26 ], [ %cond.i, %for.inc.i ]
-  %36 = load ptr, ptr %l2_table_cache.i.sink, align 8
+discard_in_l2_slice.exit:                         ; preds = %for.inc.i, %for.cond.preheader.i
+  %l2_table_cache77.i = getelementptr inbounds i8, ptr %4, i64 80
+  %36 = load ptr, ptr %l2_table_cache77.i, align 8
   call void @qcow2_cache_put(ptr noundef %36, ptr noundef nonnull %l2_slice.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l2_slice.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %l2_index.i)
-  %sub = sub i64 %nb_clusters.033, %conv78.i30
+  %sub = sub i64 %nb_clusters.028, %cond.i
   %37 = load i32, ptr %cluster_size, align 4
   %conv22 = sext i32 %37 to i64
-  %mul = mul nsw i64 %conv78.i30, %conv22
-  %add23 = add i64 %mul, %offset.addr.034
+  %mul = mul nsw i64 %cond.i, %conv22
+  %add23 = add i64 %mul, %offset.addr.029
   %cmp12.not = icmp eq i64 %sub, 0
   br i1 %cmp12.not, label %fail, label %while.body, !llvm.loop !17
 
-fail:                                             ; preds = %if.end20, %if.end11, %discard_in_l2_slice.exit.thread
-  %ret.0 = phi i32 [ %call.i, %discard_in_l2_slice.exit.thread ], [ 0, %if.end11 ], [ 0, %if.end20 ]
+fail:                                             ; preds = %discard_in_l2_slice.exit, %if.end11, %discard_in_l2_slice.exit.thread
+  %ret.0 = phi i32 [ %call.i, %discard_in_l2_slice.exit.thread ], [ 0, %if.end11 ], [ 0, %discard_in_l2_slice.exit ]
   store i8 0, ptr %cache_discards, align 8
   call void @qcow2_process_discards(ptr noundef nonnull %bs, i32 noundef %ret.0) #13
   ret i32 %ret.0
@@ -3829,7 +3824,7 @@ if.else10:                                        ; preds = %if.end6
   unreachable
 
 if.end11:                                         ; preds = %if.end6
-  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call12 = call fastcc i32 @get_cluster_table(ptr noundef nonnull %bs, i64 noundef %offset, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp13 = icmp slt i32 %call12, 0
   br i1 %cmp13, label %return, label %if.end15
 
@@ -3933,7 +3928,7 @@ entry:
   %l2_index = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef nonnull %l2_slice, ptr noundef nonnull %l2_index)
+  %call = call fastcc i32 @get_cluster_table(ptr noundef %bs, i64 noundef %offset, ptr noundef %l2_slice, ptr noundef %l2_index)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -4152,7 +4147,7 @@ entry.split:                                      ; preds = %entry
   %1 = load ptr, ptr %l1_table446, align 8
   %l1_size547 = getelementptr inbounds i8, ptr %0, i64 32
   %2 = load i32, ptr %l1_size547, align 8
-  %call48 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef nonnull %bs, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %visited_l1_entries, i64 noundef 0, ptr noundef null, ptr noundef %cb_opaque)
+  %call48 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef nonnull %bs, ptr noundef %1, i32 noundef %2, ptr noundef %visited_l1_entries, i64 noundef 0, ptr noundef null, ptr noundef %cb_opaque)
   br label %if.end
 
 if.then:                                          ; preds = %entry
@@ -4173,7 +4168,7 @@ for.cond.split:                                   ; preds = %for.body, %if.then
   %l1_entries.1.lcssa = phi i64 [ %conv, %if.then ], [ %add, %for.body ]
   %l1_table449 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load ptr, ptr %l1_table449, align 8
-  %call51 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef %6, i32 noundef %3, ptr noundef nonnull %visited_l1_entries, i64 noundef %l1_entries.1.lcssa, ptr noundef nonnull %status_cb, ptr noundef %cb_opaque)
+  %call51 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef %6, i32 noundef %3, ptr noundef %visited_l1_entries, i64 noundef %l1_entries.1.lcssa, ptr noundef nonnull %status_cb, ptr noundef %cb_opaque)
   br label %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -4280,7 +4275,7 @@ for.body62:                                       ; preds = %for.cond55.preheade
 
 for.end67:                                        ; preds = %for.body62, %for.cond55.preheader
   %.lcssa = phi i32 [ 0, %for.cond55.preheader ], [ %25, %for.body62 ]
-  %call72 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef nonnull %call41, i32 noundef %.lcssa, ptr noundef nonnull %visited_l1_entries, i64 noundef %l1_entries.0, ptr noundef %status_cb, ptr noundef %cb_opaque)
+  %call72 = call fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef nonnull %call41, i32 noundef %.lcssa, ptr noundef %visited_l1_entries, i64 noundef %l1_entries.0, ptr noundef %status_cb, ptr noundef %cb_opaque)
   %cmp73 = icmp slt i32 %call72, 0
   br i1 %cmp73, label %fail, label %for.cond15
 
@@ -4292,7 +4287,7 @@ fail:                                             ; preds = %if.end44, %for.end6
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef readonly %l1_table, i32 noundef %l1_size, ptr nocapture noundef %visited_l1_entries, i64 noundef %l1_entries, ptr noundef readonly %status_cb, ptr noundef %cb_opaque) unnamed_addr #0 {
+define internal fastcc i32 @expand_zero_clusters_in_l1(ptr noundef %bs, ptr noundef readonly %l1_table, i32 noundef %l1_size, ptr nocapture noundef nonnull %visited_l1_entries, i64 noundef %l1_entries, ptr noundef readonly %status_cb, ptr noundef %cb_opaque) unnamed_addr #0 {
 entry:
   %l2_slice = alloca ptr, align 8
   %l2_refcount = alloca i64, align 8

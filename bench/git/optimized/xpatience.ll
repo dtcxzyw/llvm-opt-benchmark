@@ -81,26 +81,26 @@ while.body.i.preheader:                           ; preds = %if.end14
   %6 = sext i32 %line1 to i64
   br label %while.body.i
 
-while.body8.lr.ph.i:                              ; preds = %insert_record.exit
+while.cond5.preheader.i:                          ; preds = %insert_record.exit
   %7 = sext i32 %line2 to i64
   %recs2.i.i = getelementptr i8, ptr %env, i64 232
   br label %while.body8.i.outer
 
-while.body8.i.outer:                              ; preds = %insert_record.exit.i.thread, %while.body8.lr.ph.i
-  %tobool18.not = phi i1 [ false, %insert_record.exit.i.thread ], [ true, %while.body8.lr.ph.i ]
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i, %insert_record.exit.i.thread ], [ %7, %while.body8.lr.ph.i ]
-  %count2.addr.018.i.ph = phi i32 [ %dec6.i, %insert_record.exit.i.thread ], [ %count2, %while.body8.lr.ph.i ]
+while.body8.i.outer:                              ; preds = %insert_record.exit.i.thread, %while.cond5.preheader.i
+  %tobool18.not = phi i1 [ false, %insert_record.exit.i.thread ], [ true, %while.cond5.preheader.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i, %insert_record.exit.i.thread ], [ %7, %while.cond5.preheader.i ]
+  %count2.addr.016.i.ph = phi i32 [ %dec6.i, %insert_record.exit.i.thread ], [ %count2, %while.cond5.preheader.i ]
   %cond.i.i = load ptr, ptr %recs2.i.i, align 8
   %invariant.gep = getelementptr i8, ptr %cond.i.i, i64 -8
   br label %while.body8.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %insert_record.exit
   %indvars.iv = phi i64 [ %6, %while.body.i.preheader ], [ %indvars.iv.next, %insert_record.exit ]
-  %map.sroa.0.0 = phi i32 [ 0, %while.body.i.preheader ], [ %map.sroa.0.3, %insert_record.exit ]
-  %map.sroa.17.0 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.17.4, %insert_record.exit ]
+  %map.sroa.0.0 = phi i32 [ 0, %while.body.i.preheader ], [ %map.sroa.0.2, %insert_record.exit ]
+  %map.sroa.17.0 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.17.3, %insert_record.exit ]
   %map.sroa.20.0 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.20.1, %insert_record.exit ]
-  %count1.addr.013.i = phi i32 [ %count1, %while.body.i.preheader ], [ %dec.i, %insert_record.exit ]
-  %dec.i = add nsw i32 %count1.addr.013.i, -1
+  %count1.addr.012.i = phi i32 [ %count1, %while.body.i.preheader ], [ %dec.i, %insert_record.exit ]
+  %dec.i = add nsw i32 %count1.addr.012.i, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cond.i = load ptr, ptr %recs2.i, align 8
   %8 = add nsw i64 %indvars.iv, -1
@@ -208,16 +208,16 @@ if.end76.i:                                       ; preds = %if.then67.i, %is_an
   br label %insert_record.exit
 
 insert_record.exit:                               ; preds = %if.end16.i, %if.end76.i
-  %map.sroa.0.3 = phi i32 [ %inc81.i, %if.end76.i ], [ %map.sroa.0.0, %if.end16.i ]
-  %map.sroa.17.4 = phi ptr [ %spec.select, %if.end76.i ], [ %map.sroa.17.0, %if.end16.i ]
+  %map.sroa.0.2 = phi i32 [ %inc81.i, %if.end76.i ], [ %map.sroa.0.0, %if.end16.i ]
+  %map.sroa.17.3 = phi ptr [ %spec.select, %if.end76.i ], [ %map.sroa.17.0, %if.end16.i ]
   %map.sroa.20.1 = phi ptr [ %arrayidx50.i, %if.end76.i ], [ %map.sroa.20.0, %if.end16.i ]
   %tobool4.not.i = icmp eq i32 %dec.i, 0
-  br i1 %tobool4.not.i, label %while.body8.lr.ph.i, label %while.body.i, !llvm.loop !10
+  br i1 %tobool4.not.i, label %while.cond5.preheader.i, label %while.body.i, !llvm.loop !10
 
 while.body8.i:                                    ; preds = %while.body8.i.outer, %insert_record.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %insert_record.exit.i ], [ %indvars.iv.i.ph, %while.body8.i.outer ]
-  %count2.addr.018.i = phi i32 [ %dec6.i, %insert_record.exit.i ], [ %count2.addr.018.i.ph, %while.body8.i.outer ]
-  %dec6.i = add nsw i32 %count2.addr.018.i, -1
+  %count2.addr.016.i = phi i32 [ %dec6.i, %insert_record.exit.i ], [ %count2.addr.016.i.ph, %while.body8.i.outer ]
+  %dec6.i = add nsw i32 %count2.addr.016.i, -1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv.i
   %22 = load ptr, ptr %gep, align 8
@@ -235,8 +235,8 @@ while.body8.i:                                    ; preds = %while.body8.i.outer
 
 while.body.preheader.i.i:                         ; preds = %while.body8.i
   %25 = load i64, ptr %arrayidx550.i.i, align 8
-  %cmp10.not.i14.i = icmp eq i64 %25, %23
-  br i1 %cmp10.not.i14.i, label %insert_record.exit.i.thread, label %if.then.i.preheader.i
+  %cmp10.not.i13.i = icmp eq i64 %25, %23
+  br i1 %cmp10.not.i13.i, label %insert_record.exit.i.thread, label %if.then.i.preheader.i
 
 if.then.i.preheader.i:                            ; preds = %while.body.preheader.i.i
   %conv3.i.i = trunc i64 %rem.i.i to i32
@@ -248,8 +248,8 @@ while.body.i.i:                                   ; preds = %if.then.i.i
   br i1 %cmp10.not.i.i, label %insert_record.exit.i.thread, label %if.then.i.i, !llvm.loop !8
 
 if.then.i.i:                                      ; preds = %while.body.i.i, %if.then.i.preheader.i
-  %index.053.i15.i = phi i32 [ %spec.store.select.i.i, %while.body.i.i ], [ %conv3.i.i, %if.then.i.preheader.i ]
-  %inc.i.i = add nsw i32 %index.053.i15.i, 1
+  %index.053.i14.i = phi i32 [ %spec.store.select.i.i, %while.body.i.i ], [ %conv3.i.i, %if.then.i.preheader.i ]
+  %inc.i.i = add nsw i32 %index.053.i14.i, 1
   %cmp13.not.i.i = icmp slt i32 %inc.i.i, %mul.i
   %spec.store.select.i.i = select i1 %cmp13.not.i.i, i32 %inc.i.i, i32 0
   %idxprom4.i.i = sext i32 %spec.store.select.i.i to i64
@@ -313,22 +313,22 @@ while.end41:                                      ; preds = %while.body34
   br label %return
 
 if.end42:                                         ; preds = %insert_record.exit.i.thread, %if.end17
-  %cmp.i = icmp sgt i32 %map.sroa.0.3, -1
+  %cmp.i = icmp sgt i32 %map.sroa.0.2, -1
   br i1 %cmp.i, label %cond.end.i, label %out
 
 cond.end.i:                                       ; preds = %if.end42
-  %conv.i26 = zext nneg i32 %map.sroa.0.3 to i64
+  %conv.i26 = zext nneg i32 %map.sroa.0.2 to i64
   %mul.i27 = shl nuw nsw i64 %conv.i26, 3
   %call.i28 = tail call ptr @xmalloc(i64 noundef %mul.i27) #6
   %tobool.not.i29 = icmp eq ptr %call.i28, null
   br i1 %tobool.not.i29, label %out, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i
-  %tobool5.not40.i = icmp eq ptr %map.sroa.17.4, null
+  %tobool5.not40.i = icmp eq ptr %map.sroa.17.3, null
   br i1 %tobool5.not40.i, label %if.else50, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %entry1.043.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %map.sroa.17.4, %if.end.i ]
+  %entry1.043.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %map.sroa.17.3, %if.end.i ]
   %anchor_i.042.i = phi i32 [ %anchor_i.1.i, %for.inc.i ], [ -1, %if.end.i ]
   %longest.041.i = phi i32 [ %longest.1.i, %for.inc.i ], [ 0, %if.end.i ]
   %line2.i = getelementptr inbounds i8, ptr %entry1.043.i, i64 16

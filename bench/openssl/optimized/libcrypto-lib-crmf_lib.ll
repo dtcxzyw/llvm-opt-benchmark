@@ -94,7 +94,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef %msg, ptr noundef %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -115,7 +115,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare ptr @ASN1_STRING_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr nocapture noundef readonly %crm, ptr noundef %ctrl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr nocapture noundef nonnull readonly %crm, ptr noundef nonnull %ctrl) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %crm, align 8
   %cmp1 = icmp eq ptr %0, null
@@ -146,7 +146,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end14:                                         ; preds = %if.then6, %if.end
   %5 = phi ptr [ %4, %if.then6 ], [ %1, %if.end ]
-  %call.i9 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef %ctrl) #7
+  %call.i9 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %ctrl) #7
   %tobool.not = icmp ne i32 %call.i9, 0
   %brmerge = or i1 %cmp5.not, %tobool.not
   %.mux = zext i1 %tobool.not to i32
@@ -238,7 +238,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef %msg, ptr noundef %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -425,7 +425,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef %msg, ptr noundef %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -510,7 +510,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef %msg, ptr noundef %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -651,7 +651,7 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10, label %err, label %if.end12
 
 if.end12:                                         ; preds = %if.end8
-  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef nonnull %msg, ptr noundef nonnull %call)
+  %call13 = tail call fastcc i32 @OSSL_CRMF_MSG_push0_regCtrl(ptr noundef %msg, ptr noundef %call)
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %return
 
@@ -1235,7 +1235,7 @@ sw.bb13:                                          ; preds = %if.end8
 
 if.end17:                                         ; preds = %sw.bb13
   %0 = load ptr, ptr %crm, align 8
-  %call18 = tail call fastcc i32 @create_popo_signature(ptr noundef nonnull %call14, ptr noundef %0, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq)
+  %call18 = tail call fastcc i32 @create_popo_signature(ptr noundef %call14, ptr noundef %0, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq)
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %if.then19, label %if.end20
 
@@ -1300,7 +1300,7 @@ declare ptr @ASN1_NULL_new() local_unnamed_addr #1
 declare ptr @OSSL_CRMF_POPOSIGNINGKEY_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @create_popo_signature(ptr nocapture noundef readonly %ps, ptr noundef %cr, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
+define internal fastcc i32 @create_popo_signature(ptr nocapture noundef nonnull readonly %ps, ptr noundef %cr, ptr noundef %pkey, ptr noundef %digest, ptr noundef %libctx, ptr noundef %propq) unnamed_addr #0 {
 entry:
   %name = alloca [80 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %name, i8 0, i64 80, i1 false)

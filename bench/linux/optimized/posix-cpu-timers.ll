@@ -981,7 +981,7 @@ define dso_local void @run_posix_cpu_timers() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @cpu_clock_sample_group(i32 noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc i64 @cpu_clock_sample_group(i32 noundef range(i32 0, 4) %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = alloca %struct.task_cputime, align 8
   %4 = alloca [3 x i64], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 1880
@@ -2613,7 +2613,7 @@ declare dso_local i32 @send_signal_locked(i32 noundef, ptr noundef, ptr noundef,
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @check_cpu_itimer(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 16 {
+define internal fastcc void @check_cpu_itimer(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3, i32 noundef range(i32 26, 28) %4) unnamed_addr #1 align 16 {
   %6 = load i64, ptr %1, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %49, label %8

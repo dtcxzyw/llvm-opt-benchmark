@@ -239,7 +239,7 @@ define void @data_free(ptr noundef %0) local_unnamed_addr #0 {
   %.0.i38 = phi ptr [ %21, %.preheader ], [ %19, %15 ]
   %20 = getelementptr inbounds i8, ptr %.0.i38, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %17, ptr noundef nonnull %.0.i38)
+  tail call fastcc void @_release_data_list_node(ptr noundef %17, ptr noundef %.0.i38)
   %.not5.i4 = icmp eq ptr %21, null
   br i1 %.not5.i4, label %_release_data_list.exit5, label %.preheader, !llvm.loop !6
 
@@ -263,7 +263,7 @@ _release_data_list.exit5:                         ; preds = %.preheader, %15
   %.0.i7 = phi ptr [ %28, %.preheader6 ], [ %26, %22 ]
   %27 = getelementptr inbounds i8, ptr %.0.i7, i64 8
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %24, ptr noundef nonnull %.0.i7)
+  tail call fastcc void @_release_data_list_node(ptr noundef %24, ptr noundef %.0.i7)
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %_release_data_list.exit, label %.preheader6, !llvm.loop !6
 
@@ -314,7 +314,7 @@ define internal fastcc void @_release(ptr noundef %0) unnamed_addr #0 {
   %.06.i = phi ptr [ %12, %.preheader.i ], [ %10, %6 ]
   %11 = getelementptr inbounds i8, ptr %.06.i, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %8, ptr noundef nonnull %.06.i)
+  tail call fastcc void @_release_data_list_node(ptr noundef %8, ptr noundef %.06.i)
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %_release_data_list.exit, label %.preheader.i, !llvm.loop !6
 
@@ -338,7 +338,7 @@ _release_data_list.exit:                          ; preds = %.preheader.i, %6
   %.06.i8 = phi ptr [ %19, %.preheader.i7 ], [ %17, %13 ]
   %18 = getelementptr inbounds i8, ptr %.06.i8, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %15, ptr noundef nonnull %.06.i8)
+  tail call fastcc void @_release_data_list_node(ptr noundef %15, ptr noundef %.06.i8)
   %.not5.i9 = icmp eq ptr %19, null
   br i1 %.not5.i9, label %_release_data_list.exit10, label %.preheader.i7, !llvm.loop !6
 
@@ -1011,7 +1011,7 @@ define ptr @data_list_dequeue(ptr noundef %0) local_unnamed_addr #0 {
   %12 = load ptr, ptr %11, align 8
   store ptr null, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %13, ptr noundef nonnull %9)
+  tail call fastcc void @_release_data_list_node(ptr noundef %13, ptr noundef %9)
   %14 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %15 = and i64 %14, 256
   %.not20 = icmp eq i64 %15, 0
@@ -1035,7 +1035,7 @@ define ptr @data_list_dequeue(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_release_data_list_node(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_release_data_list_node(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -1819,7 +1819,7 @@ define noundef zeroext i1 @data_key_unset(ptr noundef %0, ptr noundef %1) local_
 
 33:                                               ; preds = %21, %25, %28
   %34 = load ptr, ptr %7, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %34, ptr noundef nonnull %.034)
+  tail call fastcc void @_release_data_list_node(ptr noundef %34, ptr noundef %.034)
   br label %35
 
 35:                                               ; preds = %20, %17, %.critedge, %3, %2, %33
@@ -2339,27 +2339,27 @@ _convert_data_string.exit:                        ; preds = %6
   br label %_convert_data_force_bool.exit
 
 28:                                               ; preds = %5
-  %29 = tail call fastcc i32 @_convert_data_null(ptr noundef nonnull %0)
+  %29 = tail call fastcc i32 @_convert_data_null(ptr noundef %0)
   %.not14.i = icmp eq i32 %29, 0
   br i1 %.not14.i, label %data_convert_type.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext false)
+  %31 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext false)
   %.not15.i = icmp eq i32 %31, 0
   br i1 %.not15.i, label %data_convert_type.exit, label %32
 
 32:                                               ; preds = %30
-  %33 = tail call fastcc i32 @_convert_data_float(ptr noundef nonnull %0)
+  %33 = tail call fastcc i32 @_convert_data_float(ptr noundef %0)
   %.not16.i = icmp eq i32 %33, 0
   br i1 %.not16.i, label %data_convert_type.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext true)
+  %35 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext true)
   %.not17.i = icmp eq i32 %35, 0
   br i1 %.not17.i, label %data_convert_type.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call fastcc i32 @_convert_data_bool(ptr noundef nonnull %0)
+  %37 = tail call fastcc i32 @_convert_data_bool(ptr noundef %0)
   br label %data_convert_type.exit
 
 data_convert_type.exit:                           ; preds = %28, %30, %32, %34, %36
@@ -2415,45 +2415,45 @@ data_convert_type.exit:                           ; preds = %28, %30, %32, %34, 
   br label %_convert_data_force_bool.exit
 
 61:                                               ; preds = %5
-  %62 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext true)
+  %62 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext true)
   %.not21 = icmp eq i32 %62, 0
   %63 = select i1 %.not21, i32 4, i32 0
   br label %_convert_data_force_bool.exit
 
 64:                                               ; preds = %5
-  %65 = tail call fastcc i32 @_convert_data_float(ptr noundef nonnull %0)
+  %65 = tail call fastcc i32 @_convert_data_float(ptr noundef %0)
   %.not20 = icmp eq i32 %65, 0
   %66 = select i1 %.not20, i32 6, i32 0
   br label %_convert_data_force_bool.exit
 
 67:                                               ; preds = %5
-  %68 = tail call fastcc i32 @_convert_data_null(ptr noundef nonnull %0)
+  %68 = tail call fastcc i32 @_convert_data_null(ptr noundef %0)
   %.not19 = icmp eq i32 %68, 0
   %69 = zext i1 %.not19 to i32
   br label %_convert_data_force_bool.exit
 
 70:                                               ; preds = %5
-  %71 = tail call fastcc i32 @_convert_data_null(ptr noundef nonnull %0)
+  %71 = tail call fastcc i32 @_convert_data_null(ptr noundef %0)
   %.not14 = icmp eq i32 %71, 0
   br i1 %.not14, label %_convert_data_force_bool.exit, label %72
 
 72:                                               ; preds = %70
-  %73 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext false)
+  %73 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext false)
   %.not15 = icmp eq i32 %73, 0
   br i1 %.not15, label %_convert_data_force_bool.exit, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call fastcc i32 @_convert_data_float(ptr noundef nonnull %0)
+  %75 = tail call fastcc i32 @_convert_data_float(ptr noundef %0)
   %.not16 = icmp eq i32 %75, 0
   br i1 %.not16, label %_convert_data_force_bool.exit, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext true)
+  %77 = tail call fastcc i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext true)
   %.not17 = icmp eq i32 %77, 0
   br i1 %.not17, label %_convert_data_force_bool.exit, label %78
 
 78:                                               ; preds = %76
-  %79 = tail call fastcc i32 @_convert_data_bool(ptr noundef nonnull %0)
+  %79 = tail call fastcc i32 @_convert_data_bool(ptr noundef %0)
   %.not18 = icmp eq i32 %79, 0
   %. = select i1 %.not18, i32 7, i32 0
   br label %_convert_data_force_bool.exit
@@ -2617,7 +2617,7 @@ define range(i32 0, 9203) i32 @data_get_int_converted(ptr noundef %0, ptr nounde
 
 data_convert_type.exit:                           ; preds = %8, %13, %16
   %17 = tail call ptr @data_copy(ptr noundef nonnull %9, ptr noundef nonnull %0)
-  %18 = tail call fastcc i32 @_convert_data_int(ptr noundef nonnull %9, i1 noundef zeroext true)
+  %18 = tail call fastcc i32 @_convert_data_int(ptr noundef %9, i1 noundef zeroext true)
   %.not21.i = icmp eq i32 %18, 0
   br i1 %.not21.i, label %19, label %25
 
@@ -2982,7 +2982,7 @@ define i32 @data_list_for_each(ptr noundef %0, ptr nocapture noundef readonly %1
   %22 = getelementptr inbounds i8, ptr %.02330, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %10, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %24, ptr noundef nonnull %.02330)
+  tail call fastcc void @_release_data_list_node(ptr noundef %24, ptr noundef %.02330)
   br label %28
 
 25:                                               ; preds = %.lr.ph
@@ -3147,7 +3147,7 @@ data_get_type.exit.thread:                        ; preds = %6, %data_get_type.e
   %29 = getelementptr inbounds i8, ptr %.02434, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %15, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %31, ptr noundef nonnull %.02434)
+  tail call fastcc void @_release_data_list_node(ptr noundef %31, ptr noundef %.02434)
   br label %35
 
 32:                                               ; preds = %.lr.ph
@@ -3169,7 +3169,7 @@ data_get_type.exit.thread:                        ; preds = %6, %data_get_type.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9203) i32 @_convert_data_int(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9203) i32 @_convert_data_int(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3235,7 +3235,7 @@ data_get_string.exit:                             ; preds = %7, %10
   call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %31, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.85, ptr noundef nonnull @__func__._convert_data_int, ptr noundef nonnull %0, i64 noundef %32) #16
   br label %33
 
-33:                                               ; preds = %30, %29
+33:                                               ; preds = %29, %30
   %34 = load i64, ptr %3, align 8
   call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65284, ptr %5, align 4
@@ -3264,9 +3264,9 @@ data_get_string.exit:                             ; preds = %7, %10
   br label %data_set_int.exit
 
 45:                                               ; preds = %data_get_string.exit
-  %.not4462 = icmp eq i8 %12, 0
-  %or.cond65 = or i1 %1, %.not4462
-  br i1 %or.cond65, label %.loopexit, label %.lr.ph.preheader
+  %.not4457 = icmp eq i8 %12, 0
+  %or.cond60 = or i1 %1, %.not4457
+  br i1 %or.cond60, label %.loopexit, label %.lr.ph.preheader
 
 .thread:                                          ; preds = %18
   br i1 %1, label %.loopexit, label %.lr.ph.preheader
@@ -3275,14 +3275,14 @@ data_get_string.exit:                             ; preds = %7, %10
   br label %.lr.ph
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds i8, ptr %.063, i64 1
+  %47 = getelementptr inbounds i8, ptr %.058, i64 1
   %48 = load i8, ptr %47, align 1
   %.not44 = icmp eq i8 %48, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
   %49 = phi i8 [ %48, %46 ], [ %12, %.lr.ph.preheader ]
-  %.063 = phi ptr [ %47, %46 ], [ %.0.i, %.lr.ph.preheader ]
+  %.058 = phi ptr [ %47, %46 ], [ %.0.i, %.lr.ph.preheader ]
   %50 = add i8 %49, -58
   %or.cond = icmp ult i8 %50, -10
   br i1 %or.cond, label %51, label %46
@@ -3295,7 +3295,7 @@ data_get_string.exit:                             ; preds = %7, %10
 
 54:                                               ; preds = %51
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %55, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__._convert_data_int, ptr noundef %0) #16
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %55, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.87, ptr noundef nonnull @__func__._convert_data_int, ptr noundef nonnull %0) #16
   br label %data_set_int.exit
 
 .loopexit:                                        ; preds = %46, %.thread, %45
@@ -3312,10 +3312,10 @@ data_get_string.exit:                             ; preds = %7, %10
 61:                                               ; preds = %60
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
   %63 = load i64, ptr %3, align 8
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %62, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__._convert_data_int, ptr noundef %0, i64 noundef %63) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %62, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.89, ptr noundef nonnull @__func__._convert_data_int, ptr noundef nonnull %0, i64 noundef %63) #16
   br label %64
 
-64:                                               ; preds = %61, %60
+64:                                               ; preds = %60, %61
   %65 = load i64, ptr %3, align 8
   call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65284, ptr %5, align 4
@@ -3323,8 +3323,8 @@ data_get_string.exit:                             ; preds = %7, %10
   store i64 %65, ptr %66, align 8
   %67 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %68 = and i64 %67, 256
-  %.not10.i52 = icmp eq i64 %68, 0
-  br i1 %.not10.i52, label %data_set_int.exit, label %69
+  %.not10.i50 = icmp eq i64 %68, 0
+  br i1 %.not10.i50, label %data_set_int.exit, label %69
 
 69:                                               ; preds = %64
   %70 = call i32 @get_log_level() #16
@@ -3340,7 +3340,7 @@ data_get_string.exit:                             ; preds = %7, %10
 
 74:                                               ; preds = %73
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %75, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.90, ptr noundef nonnull @__func__._convert_data_int, ptr noundef %0) #16
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %75, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.90, ptr noundef nonnull @__func__._convert_data_int, ptr noundef nonnull %0) #16
   br label %data_set_int.exit
 
 76:                                               ; preds = %2
@@ -3355,8 +3355,8 @@ data_get_string.exit:                             ; preds = %7, %10
   store i64 %80, ptr %78, align 8
   %81 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %82 = and i64 %81, 256
-  %.not10.i57 = icmp eq i64 %82, 0
-  br i1 %.not10.i57, label %data_set_int.exit, label %83
+  %.not10.i53 = icmp eq i64 %82, 0
+  br i1 %.not10.i53, label %data_set_int.exit, label %83
 
 83:                                               ; preds = %77
   %84 = tail call i32 @get_log_level() #16
@@ -3377,8 +3377,8 @@ data_get_string.exit:                             ; preds = %7, %10
   store i64 0, ptr %89, align 8
   %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %91 = and i64 %90, 256
-  %.not10.i60 = icmp eq i64 %91, 0
-  br i1 %.not10.i60, label %data_set_int.exit, label %92
+  %.not10.i55 = icmp eq i64 %91, 0
+  br i1 %.not10.i55, label %data_set_int.exit, label %92
 
 92:                                               ; preds = %88
   %93 = tail call i32 @get_log_level() #16
@@ -3398,7 +3398,7 @@ data_set_int.exit:                                ; preds = %2, %95, %92, %88, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9203) i32 @_convert_data_float(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9203) i32 @_convert_data_float(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3456,7 +3456,7 @@ data_get_string.exit.i:                           ; preds = %6, %8
 20:                                               ; preds = %17
   %21 = tail call i32 @xstrcasecmp(ptr noundef nonnull %18, ptr noundef nonnull @.str.92) #16
   %.not45.i = icmp eq i32 %21, 0
-  br i1 %.not45.i, label %22, label %81
+  br i1 %.not45.i, label %22, label %82
 
 22:                                               ; preds = %20, %17
   store i32 65287, ptr %4, align 4
@@ -3483,8 +3483,8 @@ data_get_string.exit.i:                           ; preds = %6, %8
   store double 0x7FF0000000000000, ptr %23, align 8
   %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %33 = and i64 %32, 256
-  %.not10.i50.i = icmp eq i64 %33, 0
-  br i1 %.not10.i50.i, label %data_set_float.exit.i, label %34
+  %.not10.i48.i = icmp eq i64 %33, 0
+  br i1 %.not10.i48.i, label %data_set_float.exit.i, label %34
 
 34:                                               ; preds = %31
   %35 = tail call i32 @get_log_level() #16
@@ -3499,7 +3499,7 @@ data_get_string.exit.i:                           ; preds = %6, %8
   %39 = getelementptr inbounds i8, ptr %13, i64 1
   %40 = tail call i32 @xstrcasecmp(ptr noundef nonnull %39, ptr noundef nonnull @.str.93) #16
   %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %41, label %81
+  br i1 %.not.i, label %41, label %82
 
 41:                                               ; preds = %38
   store i32 65287, ptr %4, align 4
@@ -3510,8 +3510,8 @@ data_get_string.exit.i:                           ; preds = %6, %8
   store double 0xFFF8000000000000, ptr %42, align 8
   %44 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %45 = and i64 %44, 256
-  %.not10.i53.i = icmp eq i64 %45, 0
-  br i1 %.not10.i53.i, label %data_set_float.exit.i, label %46
+  %.not10.i50.i = icmp eq i64 %45, 0
+  br i1 %.not10.i50.i, label %data_set_float.exit.i, label %46
 
 46:                                               ; preds = %43
   %47 = tail call i32 @get_log_level() #16
@@ -3526,8 +3526,8 @@ data_get_string.exit.i:                           ; preds = %6, %8
   store double 0x7FF8000000000000, ptr %42, align 8
   %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %52 = and i64 %51, 256
-  %.not10.i56.i = icmp eq i64 %52, 0
-  br i1 %.not10.i56.i, label %data_set_float.exit.i, label %53
+  %.not10.i52.i = icmp eq i64 %52, 0
+  br i1 %.not10.i52.i, label %data_set_float.exit.i, label %53
 
 53:                                               ; preds = %50
   %54 = tail call i32 @get_log_level() #16
@@ -3541,12 +3541,12 @@ data_get_string.exit.i:                           ; preds = %6, %8
 57:                                               ; preds = %12
   %58 = add i8 %14, -48
   %or.cond.i = icmp ult i8 %58, 10
-  br i1 %or.cond.i, label %59, label %81
+  br i1 %or.cond.i, label %59, label %82
 
 59:                                               ; preds = %57
   %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.94, ptr noundef nonnull %3, ptr noundef nonnull %2) #16
   %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %81
+  br i1 %61, label %62, label %82
 
 62:                                               ; preds = %59
   %.pre.i = load double, ptr %3, align 8
@@ -3557,15 +3557,15 @@ data_get_string.exit.i:                           ; preds = %6, %8
   store double %64, ptr %3, align 8
   br label %65
 
-65:                                               ; preds = %62, %63
+65:                                               ; preds = %63, %62
   %66 = phi double [ %64, %63 ], [ %.pre.i, %62 ]
   store i32 65287, ptr %4, align 4
   %67 = getelementptr inbounds i8, ptr %0, i64 8
   store double %66, ptr %67, align 8
   %68 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %69 = and i64 %68, 256
-  %.not10.i59.i = icmp eq i64 %69, 0
-  br i1 %.not10.i59.i, label %data_set_float.exit.i, label %70
+  %.not10.i54.i = icmp eq i64 %69, 0
+  br i1 %.not10.i54.i, label %data_set_float.exit.i, label %70
 
 70:                                               ; preds = %65
   %71 = call i32 @get_log_level() #16
@@ -3585,83 +3585,83 @@ data_set_float.exit.i:                            ; preds = %73, %70, %65, %56, 
 76:                                               ; preds = %data_set_float.exit.i
   %77 = call i32 @get_log_level() #16
   %78 = icmp sgt i32 %77, 3
-  br i1 %78, label %data_get_float.exit.i, label %_convert_data_float_from_string.exit
+  br i1 %78, label %79, label %_convert_data_float_from_string.exit
 
-data_get_float.exit.i:                            ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  %80 = load double, ptr %79, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, double noundef %80) #16
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = load double, ptr %80, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, double noundef %81) #16
   br label %_convert_data_float_from_string.exit
 
-81:                                               ; preds = %59, %57, %38, %20
-  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %83 = and i64 %82, 256
-  %.not47.i = icmp eq i64 %83, 0
-  br i1 %.not47.i, label %_convert_data_float_from_string.exit, label %84
+82:                                               ; preds = %59, %57, %38, %20
+  %83 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %84 = and i64 %83, 256
+  %.not47.i = icmp eq i64 %84, 0
+  br i1 %.not47.i, label %_convert_data_float_from_string.exit, label %85
 
-84:                                               ; preds = %81
-  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i.i, i64 noundef %85, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0) #16
+85:                                               ; preds = %82
+  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #17
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i.i, i64 noundef %86, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0) #16
   br label %_convert_data_float_from_string.exit
 
-_convert_data_float_from_string.exit:             ; preds = %data_set_float.exit.i, %76, %data_get_float.exit.i, %81, %84
-  %.040.i = phi i32 [ 0, %data_set_float.exit.i ], [ 0, %76 ], [ 0, %data_get_float.exit.i ], [ 9202, %81 ], [ 9202, %84 ]
+_convert_data_float_from_string.exit:             ; preds = %data_set_float.exit.i, %76, %79, %82, %85
+  %.040.i = phi i32 [ 0, %data_set_float.exit.i ], [ 0, %76 ], [ 0, %79 ], [ 9202, %82 ], [ 9202, %85 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %data_set_float.exit
 
 data_get_int.exit:                                ; preds = %1
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = load i64, ptr %86, align 8
-  switch i64 %87, label %102 [
-    i64 -1, label %88
-    i64 -2, label %95
+  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %88 = load i64, ptr %87, align 8
+  switch i64 %88, label %data_get_int.exit20 [
+    i64 -1, label %89
+    i64 -2, label %96
   ]
 
-88:                                               ; preds = %data_get_int.exit
+89:                                               ; preds = %data_get_int.exit
   store i32 65287, ptr %4, align 4
-  store double 0x7FF0000000000000, ptr %86, align 8
-  %89 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %90 = and i64 %89, 256
-  %.not10.i = icmp eq i64 %90, 0
-  br i1 %.not10.i, label %data_set_float.exit, label %91
+  store double 0x7FF0000000000000, ptr %87, align 8
+  %90 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %91 = and i64 %90, 256
+  %.not10.i = icmp eq i64 %91, 0
+  br i1 %.not10.i, label %data_set_float.exit, label %92
 
-91:                                               ; preds = %88
-  %92 = tail call i32 @get_log_level() #16
-  %93 = icmp sgt i32 %92, 3
-  br i1 %93, label %94, label %data_set_float.exit
+92:                                               ; preds = %89
+  %93 = tail call i32 @get_log_level() #16
+  %94 = icmp sgt i32 %93, 3
+  br i1 %94, label %95, label %data_set_float.exit
 
-94:                                               ; preds = %91
+95:                                               ; preds = %92
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF0000000000000) #16
   br label %data_set_float.exit
 
-95:                                               ; preds = %data_get_int.exit
+96:                                               ; preds = %data_get_int.exit
   store i32 65287, ptr %4, align 4
-  store double 0x7FF8000000000000, ptr %86, align 8
-  %96 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %97 = and i64 %96, 256
-  %.not10.i16 = icmp eq i64 %97, 0
-  br i1 %.not10.i16, label %data_set_float.exit, label %98
+  store double 0x7FF8000000000000, ptr %87, align 8
+  %97 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %98 = and i64 %97, 256
+  %.not10.i16 = icmp eq i64 %98, 0
+  br i1 %.not10.i16, label %data_set_float.exit, label %99
 
-98:                                               ; preds = %95
-  %99 = tail call i32 @get_log_level() #16
-  %100 = icmp sgt i32 %99, 3
-  br i1 %100, label %101, label %data_set_float.exit
+99:                                               ; preds = %96
+  %100 = tail call i32 @get_log_level() #16
+  %101 = icmp sgt i32 %100, 3
+  br i1 %101, label %102, label %data_set_float.exit
 
-101:                                              ; preds = %98
+102:                                              ; preds = %99
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF8000000000000) #16
   br label %data_set_float.exit
 
-102:                                              ; preds = %data_get_int.exit
-  %103 = sitofp i64 %87 to double
+data_get_int.exit20:                              ; preds = %data_get_int.exit
+  %103 = sitofp i64 %88 to double
   store i32 65287, ptr %4, align 4
-  store double %103, ptr %86, align 8
+  store double %103, ptr %87, align 8
   %104 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %105 = and i64 %104, 256
   %.not10.i22 = icmp eq i64 %105, 0
   br i1 %.not10.i22, label %data_set_float.exit, label %106
 
-106:                                              ; preds = %102
+106:                                              ; preds = %data_get_int.exit20
   %107 = tail call i32 @get_log_level() #16
   %108 = icmp sgt i32 %107, 3
   br i1 %108, label %109, label %data_set_float.exit
@@ -3673,13 +3673,13 @@ data_get_int.exit:                                ; preds = %1
 110:                                              ; preds = %1
   br label %data_set_float.exit
 
-data_set_float.exit:                              ; preds = %109, %106, %102, %101, %98, %95, %94, %91, %88, %1, %110, %_convert_data_float_from_string.exit
-  %.0 = phi i32 [ 9202, %110 ], [ %.040.i, %_convert_data_float_from_string.exit ], [ 0, %1 ], [ 0, %88 ], [ 0, %91 ], [ 0, %94 ], [ 0, %95 ], [ 0, %98 ], [ 0, %101 ], [ 0, %102 ], [ 0, %106 ], [ 0, %109 ]
+data_set_float.exit:                              ; preds = %109, %106, %data_get_int.exit20, %102, %99, %96, %95, %92, %89, %1, %110, %_convert_data_float_from_string.exit
+  %.0 = phi i32 [ 9202, %110 ], [ %.040.i, %_convert_data_float_from_string.exit ], [ 0, %1 ], [ 0, %89 ], [ 0, %92 ], [ 0, %95 ], [ 0, %96 ], [ 0, %99 ], [ 0, %102 ], [ 0, %data_get_int.exit20 ], [ 0, %106 ], [ 0, %109 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9203) i32 @_convert_data_null(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9203) i32 @_convert_data_null(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %12 [
@@ -3723,19 +3723,19 @@ data_get_string.exit:                             ; preds = %4, %7
   %17 = load i32, ptr %2, align 4
   %switch = icmp eq i32 %17, 65285
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %switch, label %data_get_string.exit15.thread, label %data_get_string.exit18
+  br i1 %switch, label %data_get_string.exit14.thread, label %data_get_string.exit16
 
-data_get_string.exit15.thread:                    ; preds = %16
+data_get_string.exit14.thread:                    ; preds = %16
   %19 = load ptr, ptr %18, align 8
-  br label %data_get_string.exit18
+  br label %data_get_string.exit16
 
-data_get_string.exit18:                           ; preds = %16, %data_get_string.exit15.thread
-  %.0.i1422 = phi ptr [ %19, %data_get_string.exit15.thread ], [ %18, %16 ]
-  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i1422) #17
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %.0.i1422, i64 noundef %20, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.97, ptr noundef nonnull @__func__._convert_data_null, ptr noundef nonnull %0) #16
+data_get_string.exit16:                           ; preds = %16, %data_get_string.exit14.thread
+  %.0.i1319 = phi ptr [ %19, %data_get_string.exit14.thread ], [ %18, %16 ]
+  %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i1319) #17
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef %.0.i1319, i64 noundef %20, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.97, ptr noundef nonnull @__func__._convert_data_null, ptr noundef nonnull %0) #16
   br label %21
 
-21:                                               ; preds = %data_get_string.exit18, %13
+21:                                               ; preds = %13, %data_get_string.exit16
   tail call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65281, ptr %2, align 4
   %22 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -3758,11 +3758,11 @@ data_set_null.exit:                               ; preds = %1, %27, %24, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9203) i32 @_convert_data_bool(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9203) i32 @_convert_data_bool(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
-  switch i32 %3, label %168 [
-    i32 65288, label %175
+  switch i32 %3, label %169 [
+    i32 65288, label %176
     i32 65285, label %4
     i32 65286, label %7
   ]
@@ -3781,7 +3781,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %9 = load i8, ptr %.0.i, align 1
   %10 = sext i8 %9 to i32
   %11 = tail call i32 @tolower(i32 noundef %10) #17
-  switch i32 %11, label %163 [
+  switch i32 %11, label %164 [
     i32 121, label %12
     i32 116, label %37
     i32 111, label %68
@@ -3799,7 +3799,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %16 = sext i8 %14 to i32
   %17 = tail call i32 @tolower(i32 noundef %16) #17
   %18 = icmp eq i32 %17, 101
-  br i1 %18, label %19, label %163
+  br i1 %18, label %19, label %164
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %.0.i, i64 2
@@ -3807,15 +3807,15 @@ data_get_string.exit:                             ; preds = %4, %7
   %22 = sext i8 %21 to i32
   %23 = tail call i32 @tolower(i32 noundef %22) #17
   %24 = icmp eq i32 %23, 115
-  br i1 %24, label %25, label %163
+  br i1 %24, label %25, label %164
 
 25:                                               ; preds = %19
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 3
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %163
+  br i1 %28, label %29, label %164
 
-29:                                               ; preds = %12, %25
+29:                                               ; preds = %25, %12
   tail call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65288, ptr %2, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3844,7 +3844,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %41 = sext i8 %39 to i32
   %42 = tail call i32 @tolower(i32 noundef %41) #17
   %43 = icmp eq i32 %42, 114
-  br i1 %43, label %44, label %163
+  br i1 %43, label %44, label %164
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %.0.i, i64 2
@@ -3852,7 +3852,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %47 = sext i8 %46 to i32
   %48 = tail call i32 @tolower(i32 noundef %47) #17
   %49 = icmp eq i32 %48, 117
-  br i1 %49, label %50, label %163
+  br i1 %49, label %50, label %164
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %.0.i, i64 3
@@ -3860,23 +3860,23 @@ data_get_string.exit:                             ; preds = %4, %7
   %53 = sext i8 %52 to i32
   %54 = tail call i32 @tolower(i32 noundef %53) #17
   %55 = icmp eq i32 %54, 101
-  br i1 %55, label %56, label %163
+  br i1 %55, label %56, label %164
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 0
-  br i1 %59, label %60, label %163
+  br i1 %59, label %60, label %164
 
-60:                                               ; preds = %37, %56
+60:                                               ; preds = %56, %37
   tail call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65288, ptr %2, align 4
   %61 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %61, align 8
   %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 256
-  %.not10.i63 = icmp eq i64 %63, 0
-  br i1 %.not10.i63, label %data_set_bool.exit, label %64
+  %.not10.i61 = icmp eq i64 %63, 0
+  br i1 %.not10.i61, label %data_set_bool.exit, label %64
 
 64:                                               ; preds = %60
   %65 = tail call i32 @get_log_level() #16
@@ -3908,8 +3908,8 @@ data_get_string.exit:                             ; preds = %4, %7
   store i8 1, ptr %79, align 8
   %80 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %81 = and i64 %80, 256
-  %.not10.i66 = icmp eq i64 %81, 0
-  br i1 %.not10.i66, label %data_set_bool.exit, label %82
+  %.not10.i63 = icmp eq i64 %81, 0
+  br i1 %.not10.i63, label %data_set_bool.exit, label %82
 
 82:                                               ; preds = %78
   %83 = tail call i32 @get_log_level() #16
@@ -3930,23 +3930,23 @@ data_get_string.exit:                             ; preds = %4, %7
   %90 = sext i8 %88 to i32
   %91 = tail call i32 @tolower(i32 noundef %90) #17
   %92 = icmp eq i32 %91, 111
-  br i1 %92, label %93, label %163
+  br i1 %92, label %93, label %164
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds i8, ptr %.0.i, i64 2
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %97, label %163
+  br i1 %96, label %97, label %164
 
-97:                                               ; preds = %86, %93
+97:                                               ; preds = %93, %86
   tail call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65288, ptr %2, align 4
   %98 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %98, align 8
   %99 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %100 = and i64 %99, 256
-  %.not10.i69 = icmp eq i64 %100, 0
-  br i1 %.not10.i69, label %data_set_bool.exit, label %101
+  %.not10.i65 = icmp eq i64 %100, 0
+  br i1 %.not10.i65, label %data_set_bool.exit, label %101
 
 101:                                              ; preds = %97
   %102 = tail call i32 @get_log_level() #16
@@ -3967,7 +3967,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %109 = sext i8 %107 to i32
   %110 = tail call i32 @tolower(i32 noundef %109) #17
   %111 = icmp eq i32 %110, 97
-  br i1 %111, label %112, label %163
+  br i1 %111, label %112, label %164
 
 112:                                              ; preds = %108
   %113 = getelementptr inbounds i8, ptr %.0.i, i64 2
@@ -3975,7 +3975,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %115 = sext i8 %114 to i32
   %116 = tail call i32 @tolower(i32 noundef %115) #17
   %117 = icmp eq i32 %116, 108
-  br i1 %117, label %118, label %163
+  br i1 %117, label %118, label %164
 
 118:                                              ; preds = %112
   %119 = getelementptr inbounds i8, ptr %.0.i, i64 3
@@ -3983,7 +3983,7 @@ data_get_string.exit:                             ; preds = %4, %7
   %121 = sext i8 %120 to i32
   %122 = tail call i32 @tolower(i32 noundef %121) #17
   %123 = icmp eq i32 %122, 115
-  br i1 %123, label %124, label %163
+  br i1 %123, label %124, label %164
 
 124:                                              ; preds = %118
   %125 = getelementptr inbounds i8, ptr %.0.i, i64 4
@@ -3991,23 +3991,23 @@ data_get_string.exit:                             ; preds = %4, %7
   %127 = sext i8 %126 to i32
   %128 = tail call i32 @tolower(i32 noundef %127) #17
   %129 = icmp eq i32 %128, 101
-  br i1 %129, label %130, label %163
+  br i1 %129, label %130, label %164
 
 130:                                              ; preds = %124
   %131 = getelementptr inbounds i8, ptr %.0.i, i64 5
   %132 = load i8, ptr %131, align 1
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %134, label %163
+  br i1 %133, label %134, label %164
 
-134:                                              ; preds = %105, %130
+134:                                              ; preds = %130, %105
   tail call fastcc void @_release(ptr noundef nonnull %0)
   store i32 65288, ptr %2, align 4
   %135 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %135, align 8
   %136 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %137 = and i64 %136, 256
-  %.not10.i72 = icmp eq i64 %137, 0
-  br i1 %.not10.i72, label %data_set_bool.exit, label %138
+  %.not10.i67 = icmp eq i64 %137, 0
+  br i1 %.not10.i67, label %data_set_bool.exit, label %138
 
 138:                                              ; preds = %134
   %139 = tail call i32 @get_log_level() #16
@@ -4021,7 +4021,7 @@ data_get_string.exit:                             ; preds = %4, %7
 .thread:                                          ; preds = %68, %74
   %142 = tail call i32 @tolower(i32 noundef %71) #17
   %143 = icmp eq i32 %142, 102
-  br i1 %143, label %144, label %163
+  br i1 %143, label %144, label %164
 
 144:                                              ; preds = %.thread
   %145 = getelementptr inbounds i8, ptr %.0.i, i64 2
@@ -4029,13 +4029,13 @@ data_get_string.exit:                             ; preds = %4, %7
   %147 = sext i8 %146 to i32
   %148 = tail call i32 @tolower(i32 noundef %147) #17
   %149 = icmp eq i32 %148, 102
-  br i1 %149, label %150, label %163
+  br i1 %149, label %150, label %164
 
 150:                                              ; preds = %144
   %151 = getelementptr inbounds i8, ptr %.0.i, i64 3
   %152 = load i8, ptr %151, align 1
   %153 = icmp eq i8 %152, 0
-  br i1 %153, label %154, label %163
+  br i1 %153, label %154, label %164
 
 154:                                              ; preds = %150
   %155 = tail call ptr @data_set_bool(ptr noundef nonnull %0, i1 noundef zeroext false)
@@ -4045,45 +4045,45 @@ data_set_bool.exit:                               ; preds = %141, %138, %134, %1
   %156 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %157 = and i64 %156, 256
   %.not57 = icmp eq i64 %157, 0
-  br i1 %.not57, label %175, label %data_get_bool.exit
+  br i1 %.not57, label %176, label %158
 
-data_get_bool.exit:                               ; preds = %data_set_bool.exit
-  %158 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
-  %159 = getelementptr inbounds i8, ptr %0, i64 8
-  %160 = load i8, ptr %159, align 8
-  %161 = trunc i8 %160 to i1
-  %162 = select i1 %161, ptr @.str.6, ptr @.str.7
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %158, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__._convert_data_bool, ptr noundef nonnull %0, ptr noundef nonnull %162) #16
-  br label %175
+158:                                              ; preds = %data_set_bool.exit
+  %159 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
+  %160 = getelementptr inbounds i8, ptr %0, i64 8
+  %161 = load i8, ptr %160, align 8
+  %162 = trunc i8 %161 to i1
+  %163 = select i1 %162, ptr @.str.6, ptr @.str.7
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %159, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.98, ptr noundef nonnull @__func__._convert_data_bool, ptr noundef nonnull %0, ptr noundef nonnull %163) #16
+  br label %176
 
-163:                                              ; preds = %data_get_string.exit, %25, %19, %15, %56, %50, %44, %40, %93, %89, %130, %124, %118, %112, %108, %150, %144, %.thread
-  %164 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %165 = and i64 %164, 256
-  %.not60 = icmp eq i64 %165, 0
-  br i1 %.not60, label %175, label %166
+164:                                              ; preds = %data_get_string.exit, %25, %19, %15, %56, %50, %44, %40, %93, %89, %130, %124, %118, %112, %108, %150, %144, %.thread
+  %165 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %166 = and i64 %165, 256
+  %.not60 = icmp eq i64 %166, 0
+  br i1 %.not60, label %176, label %167
 
-166:                                              ; preds = %163
-  %167 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %167, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._convert_data_bool, ptr noundef nonnull %0) #16
-  br label %175
+167:                                              ; preds = %164
+  %168 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #17
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i, i64 noundef %168, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._convert_data_bool, ptr noundef nonnull %0) #16
+  br label %176
 
-168:                                              ; preds = %1
-  %169 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %170 = and i64 %169, 256
-  %.not59 = icmp eq i64 %170, 0
-  br i1 %.not59, label %175, label %171
+169:                                              ; preds = %1
+  %170 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %171 = and i64 %170, 256
+  %.not59 = icmp eq i64 %171, 0
+  br i1 %.not59, label %176, label %172
 
-171:                                              ; preds = %168
-  %172 = tail call i32 @get_log_level() #16
-  %173 = icmp sgt i32 %172, 3
-  br i1 %173, label %174, label %175
+172:                                              ; preds = %169
+  %173 = tail call i32 @get_log_level() #16
+  %174 = icmp sgt i32 %173, 3
+  br i1 %174, label %175, label %176
 
-174:                                              ; preds = %171
+175:                                              ; preds = %172
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.99, ptr noundef nonnull @__func__._convert_data_bool, ptr noundef nonnull %0) #16
-  br label %175
+  br label %176
 
-175:                                              ; preds = %1, %163, %166, %168, %171, %174, %data_get_bool.exit, %data_set_bool.exit
-  %.047 = phi i32 [ 0, %1 ], [ 0, %data_set_bool.exit ], [ 0, %data_get_bool.exit ], [ 9202, %174 ], [ 9202, %171 ], [ 9202, %168 ], [ 9202, %166 ], [ 9202, %163 ]
+176:                                              ; preds = %1, %164, %167, %169, %172, %175, %158, %data_set_bool.exit
+  %.047 = phi i32 [ 0, %1 ], [ 0, %data_set_bool.exit ], [ 0, %158 ], [ 9202, %175 ], [ 9202, %172 ], [ 9202, %169 ], [ 9202, %167 ], [ 9202, %164 ]
   ret i32 %.047
 }
 
@@ -4482,7 +4482,7 @@ data_get_float.exit197:                           ; preds = %133
   br label %192
 
 146:                                              ; preds = %34
-  %147 = tail call fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %147 = tail call fastcc zeroext i1 @_data_match_dict(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %148 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %149 = and i64 %148, 256
   %.not101 = icmp eq i64 %149, 0
@@ -4513,7 +4513,7 @@ data_get_dict_length.exit202:                     ; preds = %150
   br label %192
 
 168:                                              ; preds = %34
-  %169 = tail call fastcc zeroext i1 @_data_match_lists(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2)
+  %169 = tail call fastcc zeroext i1 @_data_match_lists(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %170 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %171 = and i64 %170, 256
   %.not100 = icmp eq i64 %171, 0
@@ -4594,7 +4594,7 @@ data_type_to_string.exit:                         ; preds = %3, %switch.lookup
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_data_match_dict(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @_data_match_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.find_dict_match_t, align 8
   %5 = zext i1 %2 to i8
   store ptr %0, ptr %4, align 8
@@ -4636,7 +4636,7 @@ define internal fastcc zeroext i1 @_data_match_dict(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @_data_match_lists(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_data_match_lists(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 65282

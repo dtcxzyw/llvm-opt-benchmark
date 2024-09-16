@@ -2071,7 +2071,7 @@ declare void @scsi_req_unref(ptr noundef) local_unnamed_addr #1
 declare void @scsi_req_cancel_complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @scsi_handle_rw_error(ptr noundef %r, i32 noundef %ret, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scsi_handle_rw_error(ptr noundef %r, i32 noundef range(i32 -2147483648, 256) %ret, i1 noundef zeroext %acct_failed) unnamed_addr #0 {
 entry:
   %sense = alloca %struct.SCSISense, align 4
   %mode = getelementptr inbounds i8, ptr %r, i64 96
@@ -2946,13 +2946,13 @@ if.end120.i:                                      ; preds = %if.end116.i
 
 for.body.i:                                       ; preds = %if.end120.i, %for.body.i
   %page.044.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %if.end120.i ]
-  %call126.i = call fastcc i32 @mode_sense_page(ptr noundef %10, i32 noundef %page.044.i, ptr noundef nonnull %p.i, i32 noundef %shr.i)
+  %call126.i = call fastcc i32 @mode_sense_page(ptr noundef %10, i32 noundef %page.044.i, ptr noundef %p.i, i32 noundef %shr.i)
   %inc.i = add nuw nsw i32 %page.044.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 63
   br i1 %exitcond.not.i, label %if.end133.i, label %for.body.i, !llvm.loop !7
 
 if.else127.i:                                     ; preds = %if.end120.i
-  %call128.i = call fastcc i32 @mode_sense_page(ptr noundef nonnull %10, i32 noundef %and9.i, ptr noundef nonnull %p.i, i32 noundef %shr.i)
+  %call128.i = call fastcc i32 @mode_sense_page(ptr noundef nonnull %10, i32 noundef %and9.i, ptr noundef %p.i, i32 noundef %shr.i)
   %cmp129.i = icmp eq i32 %call128.i, -1
   br i1 %cmp129.i, label %scsi_disk_emulate_mode_sense.exit.thread, label %if.end133.i
 
@@ -3835,7 +3835,7 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
   store ptr %mode_current.i.i.i, ptr %p.i.i.i, align 8
   %conv.i.i.us.i = zext nneg i32 %add.i.i.us.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_current.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 0)
+  %call.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef %p.i.i.i, i32 noundef 0)
   %cmp6.i.i.us.i = icmp sgt i32 %call.i.i.us.i, -1
   %cmp8.not.i.i.us.i = icmp eq i32 %call.i.i.us.i, %add.i.i.us.i
   %or.cond.i.i.us.i = select i1 %cmp6.i.i.us.i, i1 %cmp8.not.i.i.us.i, i1 false
@@ -3844,14 +3844,14 @@ if.end3.i.i.us.i:                                 ; preds = %if.then33.i.us.i
 if.end11.i.i.us.i:                                ; preds = %if.end3.i.i.us.i
   store ptr %mode_changeable.i.i.i, ptr %p.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %mode_changeable.i.i.i, i8 0, i64 %conv.i.i.us.i, i1 false)
-  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef nonnull %p.i.i.i, i32 noundef 1)
+  %call16.i.i.us.i = call fastcc i32 @mode_sense_page(ptr noundef readonly %20, i32 noundef %and.i.us.i, ptr noundef %p.i.i.i, i32 noundef 1)
   %cmp17.i.i.us.i = icmp eq i32 %call16.i.i.us.i, %add.i.i.us.i
   br i1 %cmp17.i.i.us.i, label %for.cond.preheader.i.i.us.i, label %if.else.i.i.i
 
 for.cond.preheader.i.i.us.i:                      ; preds = %if.end11.i.i.us.i
   %invariant.gep.i.i.us.i = getelementptr i8, ptr %p.addr.134.i.us.i, i64 -2
-  %cmp2116.i.not.i.us.i = icmp eq i32 %page_len.033.i.us.i, 0
-  br i1 %cmp2116.i.not.i.us.i, label %scsi_disk_check_mode_select.exit.i.us.i, label %for.body.i.i.us.i
+  %cmp2116.not.i.i.us.i = icmp eq i32 %page_len.033.i.us.i, 0
+  br i1 %cmp2116.not.i.i.us.i, label %scsi_disk_check_mode_select.exit.i.us.i, label %for.body.i.i.us.i
 
 for.body.i.i.us.i:                                ; preds = %for.cond.preheader.i.i.us.i, %for.cond.i.i.us.i
   %indvars.iv.i.i.us.i = phi i64 [ %indvars.iv.next.i.i.us.i, %for.cond.i.i.us.i ], [ 2, %for.cond.preheader.i.i.us.i ]
@@ -5629,7 +5629,7 @@ _nocheck__trace_scsi_disk_emulate_command_FORMAT_UNIT.exit: ; preds = %entry, %l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_scsi_disk_emulate_command_UNKNOWN(i32 noundef %cmd, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @trace_scsi_disk_emulate_command_UNKNOWN(i32 noundef range(i32 0, 256) %cmd, ptr noundef %name) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -5687,7 +5687,7 @@ declare i64 @llvm.bswap.i64(i64) #11
 declare i16 @llvm.bswap.i16(i16) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 33) i32 @mode_sense_page(ptr nocapture noundef readonly %s, i32 noundef %page, ptr nocapture noundef %p_outbuf, i32 noundef %page_control) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 33) i32 @mode_sense_page(ptr nocapture noundef readonly %s, i32 noundef range(i32 -2147483648, 63) %page, ptr nocapture noundef nonnull %p_outbuf, i32 noundef range(i32 0, 3) %page_control) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %p_outbuf, align 8
   %add.ptr = getelementptr i8, ptr %0, i64 2
@@ -6020,7 +6020,7 @@ declare void @blk_eject(ptr noundef, i1 noundef zeroext) #1
 declare i32 @llvm.bswap.i32(i32) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @trace_scsi_disk_mode_select_set_blocksize(i32 noundef %blocksize) unnamed_addr #0 {
+define internal fastcc void @trace_scsi_disk_mode_select_set_blocksize(i32 noundef range(i32 1, 16777216) %blocksize) unnamed_addr #0 {
 entry:
   %_now.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i)
@@ -6786,7 +6786,7 @@ declare i32 @scsi_bus_parse_cdb(ptr noundef, ptr noundef, ptr noundef, i64 nound
 declare i32 @scsi_req_parse_cdb(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @scsi_block_do_sgio(ptr noundef %req, i64 noundef %offset, ptr nocapture noundef readonly %iov, i32 noundef %direction, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
+define internal fastcc nonnull ptr @scsi_block_do_sgio(ptr noundef %req, i64 noundef %offset, ptr nocapture noundef readonly %iov, i32 noundef range(i32 -3, -1) %direction, ptr noundef %cb, ptr noundef %opaque) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %io_header1 = getelementptr inbounds i8, ptr %req, i64 512

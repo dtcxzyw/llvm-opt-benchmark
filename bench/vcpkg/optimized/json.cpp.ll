@@ -5857,7 +5857,7 @@ define dso_local void @_ZN5vcpkg4Json5parseENS_10StringViewES1_(ptr dead_on_unwi
   %13 = getelementptr inbounds i8, ptr %7, i64 176
   store i64 0, ptr %12, align 8, !noalias !167
   store i64 2, ptr %13, align 8, !noalias !167
-  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %7) #27, !noalias !167
+  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %7) #27, !noalias !167
   %14 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %7)
           to label %15 unwind label %23, !noalias !167
 
@@ -9287,7 +9287,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNO5vcpkg15LocalizedSt
 declare void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct._Guard.107, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -9723,7 +9723,7 @@ _ZN5vcpkg4Json5ValueD2Ev.exit.i28:                ; preds = %168
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser13parse_kv_pairB5cxx11Ev.exit
 
 176:                                              ; preds = %_ZN5vcpkg4Json5ValueD2Ev.exit.i28
-  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !295
+  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !295
   %177 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %8) #27, !noalias !295
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #27, !noalias !295
   %178 = invoke { ptr, i64 } @_ZN5vcpkg10ParserBase15skip_whitespaceEv(ptr noundef nonnull align 8 dereferenceable(168) %1)
@@ -9749,7 +9749,7 @@ _ZN5vcpkg4Json5ValueD2Ev.exit.i28:                ; preds = %168
   unreachable
 
 _ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit.i32: ; preds = %181
-  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !295
+  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !295
   %186 = load ptr, ptr %12, align 8, !noalias !315
   store ptr null, ptr %12, align 8, !noalias !315
   call void @_ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef %186) #27, !noalias !295
@@ -10149,7 +10149,7 @@ _ZN5vcpkg4Json12_GLOBAL__N_16Parser4nextEv.exit51: ; preds = %273
 
 288:                                              ; preds = %287
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #27, !noalias !326
-  call void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %46) #27
+  call void @_ZN5vcpkg4Json5Value5arrayEONS0_5ArrayE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %46) #27
   %.pre = load ptr, ptr %46, align 8
   %.pre85 = load ptr, ptr %247, align 8
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
@@ -10192,7 +10192,7 @@ _ZNO5vcpkg15LocalizedString6appendIJEJEEEOS0_NS_3msg8MessageTIJDpT_EEEDpNS3_6Tag
   br label %_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_arrayEv.exit
 
 297:                                              ; preds = %293, %281, %271
-  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !326
+  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser11parse_valueEv(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(184) %1) #27, !noalias !326
   %298 = load ptr, ptr %248, align 8, !noalias !339
   %.not.i.i47 = icmp eq ptr %251, %298
   br i1 %.not.i.i47, label %301, label %_ZN5vcpkg4Json5Array9push_backEONS0_5ValueE.exit.thread
@@ -10346,8 +10346,8 @@ _ZN5vcpkg4Json5ArrayD2Ev.exit:                    ; preds = %_ZSt8_DestroyIPN5vc
   br label %584
 
 335:                                              ; preds = %72
-  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(184) %1) #27
-  call void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %68) #27
+  call fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %68, ptr noundef nonnull align 8 dereferenceable(184) %1) #27
+  call void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Json::Value") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %68) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #27
   br label %584
 
@@ -11282,7 +11282,7 @@ _ZN5vcpkg10ParserBaseD2Ev.exit:                   ; preds = %_ZNSt6vectorIN5vcpk
 declare void @_ZN5vcpkg10ParserBaseC2ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168), ptr, i64, ptr, i64, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg4Json12_GLOBAL__N_16Parser12parse_stringB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
@@ -16600,7 +16600,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %26 = load i64, ptr %20, align 8
   store i64 %26, ptr %21, align 8
   store ptr null, ptr %20, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %17, ptr noundef %7)
   %27 = load ptr, ptr %21, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit.i.i.i, label %28
@@ -16655,7 +16655,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5Valu
   %42 = load i64, ptr %32, align 8
   store i64 %42, ptr %33, align 8
   store ptr null, ptr %32, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %41, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %41, ptr noundef %5)
   %43 = load ptr, ptr %33, align 8
   %.not.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEED2Ev.exit.i, label %44
@@ -17047,7 +17047,7 @@ _ZNSt15__uniq_ptr_implIN5vcpkg4Json4impl9ValueImplESt14default_deleteIS3_EE5rese
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESt6vectorISC_SaISC_EEEElSC_NS0_5__ops15_Iter_comp_iterIZNSA_6Object9sort_keysEvE3$_0EEEvT_T0_SO_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

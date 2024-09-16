@@ -3724,7 +3724,7 @@ declare dso_local i32 @csum_partial_copy_to_xdr(ptr noundef, ptr noundef) local_
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @xs_create_sock(ptr %.1376.val, ptr nocapture noundef %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 6, 18) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sockaddr_storage, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12

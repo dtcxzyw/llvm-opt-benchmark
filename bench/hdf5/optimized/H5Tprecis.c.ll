@@ -291,7 +291,7 @@ define range(i32 -1, 1) i32 @H5Tset_precision(i64 noundef %0, i64 noundef %1) lo
   br label %.thread45
 
 .thread:                                          ; preds = %52, %55
-  %70 = tail call fastcc i32 @H5T__set_precision(ptr noundef nonnull %24, i64 noundef %1)
+  %70 = tail call fastcc i32 @H5T__set_precision(ptr noundef %24, i64 noundef %1)
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %72, label %77
 
@@ -319,7 +319,7 @@ define range(i32 -1, 1) i32 @H5Tset_precision(i64 noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr nocapture noundef nonnull readonly %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -328,7 +328,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__set_precision(ptr nocapture no
   br i1 %.not, label %37, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call fastcc i32 @H5T__set_precision(ptr noundef nonnull %6, i64 noundef %1)
+  %8 = tail call fastcc i32 @H5T__set_precision(ptr noundef %6, i64 noundef %1)
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %14
 

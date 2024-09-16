@@ -3580,7 +3580,7 @@ lpad.i56.i.i.i.i.i:                               ; preds = %invoke.cont.i57.i.i
 
 invoke.cont9.i.i.i.i.i.i:                         ; preds = %invoke.cont.i57.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i51.i.i.i.i.i)
-  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias nonnull align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias align 8 %ref.tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3.i.i.i.i.i.i)
           to label %invoke.cont11.i.i.i.i.i.i unwind label %lpad10.i.i.i.i.i.i
 
 invoke.cont11.i.i.i.i.i.i:                        ; preds = %invoke.cont9.i.i.i.i.i.i
@@ -3752,7 +3752,7 @@ lpad.i36.i.i.i.i.i:                               ; preds = %invoke.cont.i37.i.i
 
 invoke.cont32.i.i.i.i.i.i:                        ; preds = %invoke.cont.i37.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i31.i.i.i.i.i)
-  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias nonnull align 8 %ref.tmp20.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias align 8 %ref.tmp20.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26.i.i.i.i.i.i)
           to label %invoke.cont34.i.i.i.i.i.i unwind label %lpad33.i.i.i.i.i.i
 
 invoke.cont34.i.i.i.i.i.i:                        ; preds = %invoke.cont32.i.i.i.i.i.i
@@ -3903,7 +3903,7 @@ lpad.i26.i.i.i.i.i:                               ; preds = %invoke.cont.i27.i.i
 
 invoke.cont54.i.i.i.i.i.i:                        ; preds = %invoke.cont.i27.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i21.i.i.i.i.i)
-  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias nonnull align 8 %ref.tmp46.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias align 8 %ref.tmp46.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51.i.i.i.i.i.i)
           to label %invoke.cont56.i.i.i.i.i.i unwind label %lpad55.i.i.i.i.i.i
 
 invoke.cont56.i.i.i.i.i.i:                        ; preds = %invoke.cont54.i.i.i.i.i.i
@@ -4054,7 +4054,7 @@ lpad.i16.i.i.i.i.i:                               ; preds = %invoke.cont.i17.i.i
 
 invoke.cont76.i.i.i.i.i.i:                        ; preds = %invoke.cont.i17.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__guard.i11.i.i.i.i.i)
-  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias nonnull align 8 %ref.tmp68.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73.i.i.i.i.i.i)
+  invoke fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias align 8 %ref.tmp68.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73.i.i.i.i.i.i)
           to label %invoke.cont78.i.i.i.i.i.i unwind label %lpad77.i.i.i.i.i.i
 
 invoke.cont78.i.i.i.i.i.i:                        ; preds = %invoke.cont76.i.i.i.i.i.i
@@ -4672,7 +4672,7 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %alt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN7rocksdbL33RegisterBuiltinMemTableRepFactoryERNS_13ObjectLibraryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_5clES9_S9_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %alt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i32, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

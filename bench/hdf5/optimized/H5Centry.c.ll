@@ -5277,7 +5277,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
 542:                                              ; preds = %538
   %543 = getelementptr i8, ptr %1, i64 16
   %.val.i = load i32, ptr %543, align 8
-  %544 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val.i, i64 noundef %2, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %544 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val.i, i64 noundef %2, ptr noundef %7, i1 noundef zeroext false)
   %545 = icmp slt i32 %544, 0
   br i1 %545, label %546, label %550
 
@@ -5375,7 +5375,7 @@ H5C__deserialize_prefetched_entry.exit:           ; preds = %506
 
 597:                                              ; preds = %594
   %.val147.i = load i32, ptr %564, align 8
-  %598 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val147.i, i64 noundef %2, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %598 = call fastcc i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.val147.i, i64 noundef %2, ptr noundef %8, i1 noundef zeroext true)
   %599 = icmp slt i32 %598, 0
   br i1 %599, label %600, label %604
 
@@ -8210,7 +8210,7 @@ declare ptr @H5MM_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.16.val, i64 noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5C__verify_len_eoa(ptr noundef %0, i32 %.16.val, i64 noundef %1, ptr nocapture noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = icmp eq i32 %.16.val, 4
   %spec.select = select i1 %5, i32 3, i32 %.16.val
   %6 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef %spec.select) #9

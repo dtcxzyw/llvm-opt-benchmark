@@ -468,7 +468,7 @@ return:                                           ; preds = %if.end20, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_loc(ptr noundef %spec, ptr nocapture noundef readonly %nth_line, ptr noundef %data, i64 noundef %lines, i64 noundef %begin, ptr noundef writeonly %ret) unnamed_addr #0 {
+define internal fastcc ptr @parse_loc(ptr noundef %spec, ptr nocapture noundef readonly %nth_line, ptr noundef %data, i64 noundef %lines, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %begin, ptr noundef writeonly %ret) unnamed_addr #0 {
 entry:
   %term = alloca ptr, align 8
   %regexp = alloca %struct.re_pattern_buffer, align 8

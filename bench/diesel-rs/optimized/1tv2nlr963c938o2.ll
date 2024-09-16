@@ -47,7 +47,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$std..env..VarError$GT$17h6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !17, !noundef !5
   %4 = icmp slt i64 %3, -9223372036854775798
@@ -273,7 +273,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %109, i64 noundef 32, i64 noundef 8) #11, !noalias !30
   %111 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h84d61be9cb05477dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #12
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h84d61be9cb05477dE"(ptr noalias noundef align 8 dereferenceable(8) %111) #12
           to label %common.resume unwind label %117
 
 112:                                              ; preds = %107
@@ -307,7 +307,7 @@ define internal void @"_ZN4core3ptr51drop_in_place$LT$$RF$std..ffi..os_str..OsSt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h84d61be9cb05477dE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h84d61be9cb05477dE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef align 8 dereferenceable(32) %2)
           to label %3 unwind label %4
@@ -564,7 +564,7 @@ common.resume:                                    ; preds = %69, %29
 78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
-  invoke fastcc void @"_ZN21diesel_demo_step_1_pg20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17h0e6d9988c3e6f97eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
+  invoke fastcc void @"_ZN21diesel_demo_step_1_pg20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17h0e6d9988c3e6f97eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %11, ptr noalias nocapture noundef align 8 dereferenceable(40) %8)
           to label %.unreachable unwind label %69
 
 79:                                               ; preds = %75
@@ -590,7 +590,7 @@ common.resume:                                    ; preds = %69, %29
 }
 
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
-define internal fastcc void @"_ZN21diesel_demo_step_1_pg20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17h0e6d9988c3e6f97eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN21diesel_demo_step_1_pg20establish_connection28_$u7b$$u7b$closure$u7d$$u7d$17h0e6d9988c3e6f97eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %13
   unreachable
 
 17:                                               ; preds = %13
-  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16)
+  invoke fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h7d0a99da83777a3bE"(ptr noalias noundef align 8 dereferenceable(32) %16)
           to label %"_ZN4core3ptr52drop_in_place$LT$diesel..result..ConnectionError$GT$17h87d061eebcd54551E.exit" unwind label %43
 
 18:                                               ; preds = %13

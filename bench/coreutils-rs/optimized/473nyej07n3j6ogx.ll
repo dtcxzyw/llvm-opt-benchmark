@@ -114,7 +114,7 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$glob..PatternError$GT$17h1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hb14ab136d055e323E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hb14ab136d055e323E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = load i64, ptr %0, align 8, !range !5, !noundef !4
@@ -229,7 +229,7 @@ define noundef range(i8 0, 4) i8 @_ZN12uu_dircolors12guess_syntax17hd83973f4f50b
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hb14ab136d055e323E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #13
+  invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hb14ab136d055e323E"(ptr noalias noundef align 8 dereferenceable(32) %3) #13
           to label %50 unwind label %48
 
 17:                                               ; preds = %11

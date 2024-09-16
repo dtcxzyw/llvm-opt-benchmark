@@ -1876,7 +1876,7 @@ if.then152:                                       ; preds = %_ZL9getWindowPKjj.e
   br label %outputBytes
 
 if.else160:                                       ; preds = %for.inc.i348, %_ZL9getWindowPKjj.exit354
-  %call161 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv11, ptr noundef nonnull %offset)
+  %call161 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv11, ptr noundef %offset)
   %cmp162 = icmp sgt i32 %call161, -1
   br i1 %cmp162, label %if.then163, label %if.else176
 
@@ -2095,7 +2095,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit404:         ; preds = %while.body.i390, %d
   br label %outputBytes
 
 if.else259:                                       ; preds = %for.inc.i367, %_ZL9getWindowPKjj.exit373
-  %call260 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv206, ptr noundef nonnull %offset)
+  %call260 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv206, ptr noundef %offset)
   %cmp261 = icmp sgt i32 %call260, -1
   br i1 %cmp261, label %if.then262, label %outputBytes
 
@@ -3096,7 +3096,7 @@ if.then175:                                       ; preds = %_ZL9getWindowPKjj.e
   br label %outputBytes
 
 if.else183:                                       ; preds = %for.inc.i402, %_ZL9getWindowPKjj.exit408
-  %call184 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv13, ptr noundef nonnull %offset)
+  %call184 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv13, ptr noundef %offset)
   %cmp185 = icmp sgt i32 %call184, -1
   br i1 %cmp185, label %if.then186, label %if.else199
 
@@ -3323,7 +3323,7 @@ _ZL16useDynamicWindowP8SCSUDataa.exit458:         ; preds = %while.body.i444, %d
   br label %outputBytes
 
 if.else288:                                       ; preds = %for.inc.i421, %_ZL9getWindowPKjj.exit427
-  %call289 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv229, ptr noundef nonnull %offset)
+  %call289 = call fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %conv229, ptr noundef %offset)
   %cmp290 = icmp sgt i32 %call289, -1
   br i1 %cmp290, label %if.then291, label %outputBytes
 
@@ -3968,7 +3968,7 @@ while.end:                                        ; preds = %while.body, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef %c, ptr nocapture noundef writeonly %pOffset) unnamed_addr #8 {
+define internal fastcc noundef i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %c, ptr nocapture noundef nonnull writeonly %pOffset) unnamed_addr #8 {
 entry:
   br label %for.body
 

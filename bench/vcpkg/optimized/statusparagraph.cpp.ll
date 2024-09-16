@@ -1149,7 +1149,7 @@ define dso_local void @_ZNK5vcpkg20InstalledPackageView20feature_dependenciesB5c
   store i64 0, ptr %9, align 8
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 184
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %12 unwind label %.loopexit.split-lp
 
 12:                                               ; preds = %2
@@ -1201,7 +1201,7 @@ _ZNSt6vectorIN5vcpkg11FeatureSpecESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN
   %.sroa.022.026 = phi ptr [ %22, %.lr.ph ], [ %54, %_ZNSt6vectorIN5vcpkg11FeatureSpecESaIS1_EED2Ev.exit21 ]
   %27 = load ptr, ptr %.sroa.022.026, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 184
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %29 unwind label %.loopexit
 
 29:                                               ; preds = %26

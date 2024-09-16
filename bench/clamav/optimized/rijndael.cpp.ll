@@ -52,228 +52,228 @@ define void @_ZN8Rijndael14GenerateTablesEv(ptr nocapture nonnull readnone align
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !4
 
-.preheader:                                       ; preds = %2, %_ZL4gmulhh.exit108
-  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %_ZL4gmulhh.exit108 ], [ 0, %2 ]
-  %8 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv112
+.preheader:                                       ; preds = %2, %_ZL4gmulhh.exit103
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %_ZL4gmulhh.exit103 ], [ 0, %2 ]
+  %8 = getelementptr inbounds [256 x i8], ptr @_ZL1S, i64 0, i64 %indvars.iv107
   %9 = load i8, ptr %8, align 1
-  %10 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %indvars.iv112
+  %10 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T4, i64 0, i64 %indvars.iv107
   %11 = getelementptr inbounds i8, ptr %10, i64 1
   store i8 %9, ptr %11, align 1
   store i8 %9, ptr %10, align 4
-  %12 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %indvars.iv112
+  %12 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T3, i64 0, i64 %indvars.iv107
   %13 = getelementptr inbounds i8, ptr %12, i64 3
   store i8 %9, ptr %13, align 1
   store i8 %9, ptr %12, align 4
-  %14 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %indvars.iv112
+  %14 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T2, i64 0, i64 %indvars.iv107
   %15 = getelementptr inbounds i8, ptr %14, i64 3
   store i8 %9, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %14, i64 2
   store i8 %9, ptr %16, align 2
-  %17 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %indvars.iv112
+  %17 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T1, i64 0, i64 %indvars.iv107
   %18 = getelementptr inbounds i8, ptr %17, i64 2
   store i8 %9, ptr %18, align 2
   %19 = getelementptr inbounds i8, ptr %17, i64 1
   store i8 %9, ptr %19, align 1
-  br label %.lr.ph.i
+  br label %20
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.preheader
-  %.018.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ 0, %.preheader ]
-  %.0917.i = phi i8 [ %24, %.lr.ph.i ], [ %9, %.preheader ]
-  %.01016.i = phi i8 [ %25, %.lr.ph.i ], [ 2, %.preheader ]
-  %20 = and i8 %.01016.i, 1
-  %.not12.i = icmp eq i8 %20, 0
-  %21 = select i1 %.not12.i, i8 0, i8 %.0917.i
-  %spec.select.i = xor i8 %21, %.018.i
-  %22 = shl i8 %.0917.i, 1
-  %23 = xor i8 %22, 27
-  %.not1314.i = icmp slt i8 %.0917.i, 0
-  %24 = select i1 %.not1314.i, i8 %23, i8 %22
-  %25 = lshr i8 %.01016.i, 1
-  %.not.i = icmp ult i8 %.01016.i, 2
-  br i1 %.not.i, label %_ZL4gmulhh.exit, label %.lr.ph.i, !llvm.loop !6
+20:                                               ; preds = %20, %.preheader
+  %.017.i = phi i8 [ 0, %.preheader ], [ %spec.select.i, %20 ]
+  %.0916.i = phi i8 [ %9, %.preheader ], [ %25, %20 ]
+  %.01015.i = phi i8 [ 2, %.preheader ], [ %26, %20 ]
+  %21 = and i8 %.01015.i, 1
+  %.not12.i = icmp eq i8 %21, 0
+  %22 = select i1 %.not12.i, i8 0, i8 %.0916.i
+  %spec.select.i = xor i8 %22, %.017.i
+  %23 = shl i8 %.0916.i, 1
+  %24 = xor i8 %23, 27
+  %.not1314.i = icmp slt i8 %.0916.i, 0
+  %25 = select i1 %.not1314.i, i8 %24, i8 %23
+  %26 = lshr i8 %.01015.i, 1
+  %.not.i = icmp ult i8 %.01015.i, 2
+  br i1 %.not.i, label %_ZL4gmulhh.exit, label %20, !llvm.loop !6
 
-_ZL4gmulhh.exit:                                  ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %10, i64 3
-  store i8 %spec.select.i, ptr %26, align 1
-  %27 = getelementptr inbounds i8, ptr %12, i64 2
-  store i8 %spec.select.i, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %14, i64 1
-  store i8 %spec.select.i, ptr %28, align 1
+_ZL4gmulhh.exit:                                  ; preds = %20
+  %27 = getelementptr inbounds i8, ptr %10, i64 3
+  store i8 %spec.select.i, ptr %27, align 1
+  %28 = getelementptr inbounds i8, ptr %12, i64 2
+  store i8 %spec.select.i, ptr %28, align 2
+  %29 = getelementptr inbounds i8, ptr %14, i64 1
+  store i8 %spec.select.i, ptr %29, align 1
   store i8 %spec.select.i, ptr %17, align 4
-  br label %.lr.ph.i64
+  br label %30
 
-.lr.ph.i64:                                       ; preds = %.lr.ph.i64, %_ZL4gmulhh.exit
-  %.018.i65 = phi i8 [ %spec.select.i69, %.lr.ph.i64 ], [ 0, %_ZL4gmulhh.exit ]
-  %.0917.i66 = phi i8 [ %33, %.lr.ph.i64 ], [ %9, %_ZL4gmulhh.exit ]
-  %.01016.i67 = phi i8 [ %34, %.lr.ph.i64 ], [ 3, %_ZL4gmulhh.exit ]
-  %29 = and i8 %.01016.i67, 1
-  %.not12.i68 = icmp eq i8 %29, 0
-  %30 = select i1 %.not12.i68, i8 0, i8 %.0917.i66
-  %spec.select.i69 = xor i8 %30, %.018.i65
-  %31 = shl i8 %.0917.i66, 1
-  %32 = xor i8 %31, 27
-  %.not1314.i70 = icmp slt i8 %.0917.i66, 0
-  %33 = select i1 %.not1314.i70, i8 %32, i8 %31
-  %34 = lshr i8 %.01016.i67, 1
-  %.not.i71 = icmp ult i8 %.01016.i67, 2
-  br i1 %.not.i71, label %_ZL4gmulhh.exit72, label %.lr.ph.i64, !llvm.loop !6
+30:                                               ; preds = %30, %_ZL4gmulhh.exit
+  %.017.i64 = phi i8 [ 0, %_ZL4gmulhh.exit ], [ %spec.select.i68, %30 ]
+  %.0916.i65 = phi i8 [ %9, %_ZL4gmulhh.exit ], [ %35, %30 ]
+  %.01015.i66 = phi i8 [ 3, %_ZL4gmulhh.exit ], [ %36, %30 ]
+  %31 = and i8 %.01015.i66, 1
+  %.not12.i67 = icmp eq i8 %31, 0
+  %32 = select i1 %.not12.i67, i8 0, i8 %.0916.i65
+  %spec.select.i68 = xor i8 %32, %.017.i64
+  %33 = shl i8 %.0916.i65, 1
+  %34 = xor i8 %33, 27
+  %.not1314.i69 = icmp slt i8 %.0916.i65, 0
+  %35 = select i1 %.not1314.i69, i8 %34, i8 %33
+  %36 = lshr i8 %.01015.i66, 1
+  %.not.i70 = icmp ult i8 %.01015.i66, 2
+  br i1 %.not.i70, label %_ZL4gmulhh.exit71, label %30, !llvm.loop !6
 
-_ZL4gmulhh.exit72:                                ; preds = %.lr.ph.i64
-  %35 = getelementptr inbounds i8, ptr %10, i64 2
-  store i8 %spec.select.i69, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %12, i64 1
-  store i8 %spec.select.i69, ptr %36, align 1
-  store i8 %spec.select.i69, ptr %14, align 4
-  %37 = getelementptr inbounds i8, ptr %17, i64 3
-  store i8 %spec.select.i69, ptr %37, align 1
-  %38 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %indvars.iv112
-  %39 = load i8, ptr %38, align 1
-  br label %.lr.ph.i73
+_ZL4gmulhh.exit71:                                ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %10, i64 2
+  store i8 %spec.select.i68, ptr %37, align 2
+  %38 = getelementptr inbounds i8, ptr %12, i64 1
+  store i8 %spec.select.i68, ptr %38, align 1
+  store i8 %spec.select.i68, ptr %14, align 4
+  %39 = getelementptr inbounds i8, ptr %17, i64 3
+  store i8 %spec.select.i68, ptr %39, align 1
+  %40 = getelementptr inbounds [256 x i8], ptr @_ZL2S5, i64 0, i64 %indvars.iv107
+  %41 = load i8, ptr %40, align 1
+  br label %42
 
-.lr.ph.i73:                                       ; preds = %.lr.ph.i73, %_ZL4gmulhh.exit72
-  %.018.i74 = phi i8 [ %spec.select.i78, %.lr.ph.i73 ], [ 0, %_ZL4gmulhh.exit72 ]
-  %.0917.i75 = phi i8 [ %44, %.lr.ph.i73 ], [ %39, %_ZL4gmulhh.exit72 ]
-  %.01016.i76 = phi i8 [ %45, %.lr.ph.i73 ], [ 11, %_ZL4gmulhh.exit72 ]
-  %40 = and i8 %.01016.i76, 1
-  %.not12.i77 = icmp eq i8 %40, 0
-  %41 = select i1 %.not12.i77, i8 0, i8 %.0917.i75
-  %spec.select.i78 = xor i8 %41, %.018.i74
-  %42 = shl i8 %.0917.i75, 1
-  %43 = xor i8 %42, 27
-  %.not1314.i79 = icmp slt i8 %.0917.i75, 0
-  %44 = select i1 %.not1314.i79, i8 %43, i8 %42
-  %45 = lshr i8 %.01016.i76, 1
-  %.not.i80 = icmp ult i8 %.01016.i76, 2
-  br i1 %.not.i80, label %_ZL4gmulhh.exit81, label %.lr.ph.i73, !llvm.loop !6
+42:                                               ; preds = %42, %_ZL4gmulhh.exit71
+  %.017.i72 = phi i8 [ 0, %_ZL4gmulhh.exit71 ], [ %spec.select.i76, %42 ]
+  %.0916.i73 = phi i8 [ %41, %_ZL4gmulhh.exit71 ], [ %47, %42 ]
+  %.01015.i74 = phi i8 [ 11, %_ZL4gmulhh.exit71 ], [ %48, %42 ]
+  %43 = and i8 %.01015.i74, 1
+  %.not12.i75 = icmp eq i8 %43, 0
+  %44 = select i1 %.not12.i75, i8 0, i8 %.0916.i73
+  %spec.select.i76 = xor i8 %44, %.017.i72
+  %45 = shl i8 %.0916.i73, 1
+  %46 = xor i8 %45, 27
+  %.not1314.i77 = icmp slt i8 %.0916.i73, 0
+  %47 = select i1 %.not1314.i77, i8 %46, i8 %45
+  %48 = lshr i8 %.01015.i74, 1
+  %.not.i78 = icmp ult i8 %.01015.i74, 2
+  br i1 %.not.i78, label %_ZL4gmulhh.exit79, label %42, !llvm.loop !6
 
-_ZL4gmulhh.exit81:                                ; preds = %.lr.ph.i73
-  %46 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %indvars.iv112
-  %47 = getelementptr inbounds i8, ptr %46, i64 2
-  store i8 %spec.select.i78, ptr %47, align 2
-  %48 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %indvars.iv112
-  %49 = getelementptr inbounds i8, ptr %48, i64 1
-  store i8 %spec.select.i78, ptr %49, align 1
-  %50 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %indvars.iv112
-  store i8 %spec.select.i78, ptr %50, align 4
-  %51 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %indvars.iv112
-  %52 = getelementptr inbounds i8, ptr %51, i64 3
-  store i8 %spec.select.i78, ptr %52, align 1
-  %53 = zext i8 %39 to i64
-  %54 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %53
-  %55 = getelementptr inbounds i8, ptr %54, i64 2
-  store i8 %spec.select.i78, ptr %55, align 2
-  %56 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %53
-  %57 = getelementptr inbounds i8, ptr %56, i64 1
-  store i8 %spec.select.i78, ptr %57, align 1
-  %58 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %53
-  store i8 %spec.select.i78, ptr %58, align 4
-  %59 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %53
-  %60 = getelementptr inbounds i8, ptr %59, i64 3
-  store i8 %spec.select.i78, ptr %60, align 1
-  br label %.lr.ph.i82
+_ZL4gmulhh.exit79:                                ; preds = %42
+  %49 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T8, i64 0, i64 %indvars.iv107
+  %50 = getelementptr inbounds i8, ptr %49, i64 2
+  store i8 %spec.select.i76, ptr %50, align 2
+  %51 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T7, i64 0, i64 %indvars.iv107
+  %52 = getelementptr inbounds i8, ptr %51, i64 1
+  store i8 %spec.select.i76, ptr %52, align 1
+  %53 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T6, i64 0, i64 %indvars.iv107
+  store i8 %spec.select.i76, ptr %53, align 4
+  %54 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2T5, i64 0, i64 %indvars.iv107
+  %55 = getelementptr inbounds i8, ptr %54, i64 3
+  store i8 %spec.select.i76, ptr %55, align 1
+  %56 = zext i8 %41 to i64
+  %57 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U4, i64 0, i64 %56
+  %58 = getelementptr inbounds i8, ptr %57, i64 2
+  store i8 %spec.select.i76, ptr %58, align 2
+  %59 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U3, i64 0, i64 %56
+  %60 = getelementptr inbounds i8, ptr %59, i64 1
+  store i8 %spec.select.i76, ptr %60, align 1
+  %61 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U2, i64 0, i64 %56
+  store i8 %spec.select.i76, ptr %61, align 4
+  %62 = getelementptr inbounds [256 x [4 x i8]], ptr @_ZL2U1, i64 0, i64 %56
+  %63 = getelementptr inbounds i8, ptr %62, i64 3
+  store i8 %spec.select.i76, ptr %63, align 1
+  br label %64
 
-.lr.ph.i82:                                       ; preds = %.lr.ph.i82, %_ZL4gmulhh.exit81
-  %.018.i83 = phi i8 [ %spec.select.i87, %.lr.ph.i82 ], [ 0, %_ZL4gmulhh.exit81 ]
-  %.0917.i84 = phi i8 [ %65, %.lr.ph.i82 ], [ %39, %_ZL4gmulhh.exit81 ]
-  %.01016.i85 = phi i8 [ %66, %.lr.ph.i82 ], [ 9, %_ZL4gmulhh.exit81 ]
-  %61 = and i8 %.01016.i85, 1
-  %.not12.i86 = icmp eq i8 %61, 0
-  %62 = select i1 %.not12.i86, i8 0, i8 %.0917.i84
-  %spec.select.i87 = xor i8 %62, %.018.i83
-  %63 = shl i8 %.0917.i84, 1
-  %64 = xor i8 %63, 27
-  %.not1314.i88 = icmp slt i8 %.0917.i84, 0
-  %65 = select i1 %.not1314.i88, i8 %64, i8 %63
-  %66 = lshr i8 %.01016.i85, 1
-  %.not.i89 = icmp ult i8 %.01016.i85, 2
-  br i1 %.not.i89, label %_ZL4gmulhh.exit90, label %.lr.ph.i82, !llvm.loop !6
+64:                                               ; preds = %64, %_ZL4gmulhh.exit79
+  %.017.i80 = phi i8 [ 0, %_ZL4gmulhh.exit79 ], [ %spec.select.i84, %64 ]
+  %.0916.i81 = phi i8 [ %41, %_ZL4gmulhh.exit79 ], [ %69, %64 ]
+  %.01015.i82 = phi i8 [ 9, %_ZL4gmulhh.exit79 ], [ %70, %64 ]
+  %65 = and i8 %.01015.i82, 1
+  %.not12.i83 = icmp eq i8 %65, 0
+  %66 = select i1 %.not12.i83, i8 0, i8 %.0916.i81
+  %spec.select.i84 = xor i8 %66, %.017.i80
+  %67 = shl i8 %.0916.i81, 1
+  %68 = xor i8 %67, 27
+  %.not1314.i85 = icmp slt i8 %.0916.i81, 0
+  %69 = select i1 %.not1314.i85, i8 %68, i8 %67
+  %70 = lshr i8 %.01015.i82, 1
+  %.not.i86 = icmp ult i8 %.01015.i82, 2
+  br i1 %.not.i86, label %_ZL4gmulhh.exit87, label %64, !llvm.loop !6
 
-_ZL4gmulhh.exit90:                                ; preds = %.lr.ph.i82
-  store i8 %spec.select.i87, ptr %46, align 4
-  %67 = getelementptr inbounds i8, ptr %48, i64 3
-  store i8 %spec.select.i87, ptr %67, align 1
-  %68 = getelementptr inbounds i8, ptr %50, i64 2
-  store i8 %spec.select.i87, ptr %68, align 2
-  %69 = getelementptr inbounds i8, ptr %51, i64 1
-  store i8 %spec.select.i87, ptr %69, align 1
-  store i8 %spec.select.i87, ptr %54, align 4
-  %70 = getelementptr inbounds i8, ptr %56, i64 3
-  store i8 %spec.select.i87, ptr %70, align 1
-  %71 = getelementptr inbounds i8, ptr %58, i64 2
-  store i8 %spec.select.i87, ptr %71, align 2
-  %72 = getelementptr inbounds i8, ptr %59, i64 1
-  store i8 %spec.select.i87, ptr %72, align 1
-  br label %.lr.ph.i91
+_ZL4gmulhh.exit87:                                ; preds = %64
+  store i8 %spec.select.i84, ptr %49, align 4
+  %71 = getelementptr inbounds i8, ptr %51, i64 3
+  store i8 %spec.select.i84, ptr %71, align 1
+  %72 = getelementptr inbounds i8, ptr %53, i64 2
+  store i8 %spec.select.i84, ptr %72, align 2
+  %73 = getelementptr inbounds i8, ptr %54, i64 1
+  store i8 %spec.select.i84, ptr %73, align 1
+  store i8 %spec.select.i84, ptr %57, align 4
+  %74 = getelementptr inbounds i8, ptr %59, i64 3
+  store i8 %spec.select.i84, ptr %74, align 1
+  %75 = getelementptr inbounds i8, ptr %61, i64 2
+  store i8 %spec.select.i84, ptr %75, align 2
+  %76 = getelementptr inbounds i8, ptr %62, i64 1
+  store i8 %spec.select.i84, ptr %76, align 1
+  br label %77
 
-.lr.ph.i91:                                       ; preds = %.lr.ph.i91, %_ZL4gmulhh.exit90
-  %.018.i92 = phi i8 [ %spec.select.i96, %.lr.ph.i91 ], [ 0, %_ZL4gmulhh.exit90 ]
-  %.0917.i93 = phi i8 [ %77, %.lr.ph.i91 ], [ %39, %_ZL4gmulhh.exit90 ]
-  %.01016.i94 = phi i8 [ %78, %.lr.ph.i91 ], [ 13, %_ZL4gmulhh.exit90 ]
-  %73 = and i8 %.01016.i94, 1
-  %.not12.i95 = icmp eq i8 %73, 0
-  %74 = select i1 %.not12.i95, i8 0, i8 %.0917.i93
-  %spec.select.i96 = xor i8 %74, %.018.i92
-  %75 = shl i8 %.0917.i93, 1
-  %76 = xor i8 %75, 27
-  %.not1314.i97 = icmp slt i8 %.0917.i93, 0
-  %77 = select i1 %.not1314.i97, i8 %76, i8 %75
-  %78 = lshr i8 %.01016.i94, 1
-  %.not.i98 = icmp ult i8 %.01016.i94, 2
-  br i1 %.not.i98, label %_ZL4gmulhh.exit99, label %.lr.ph.i91, !llvm.loop !6
+77:                                               ; preds = %77, %_ZL4gmulhh.exit87
+  %.017.i88 = phi i8 [ 0, %_ZL4gmulhh.exit87 ], [ %spec.select.i92, %77 ]
+  %.0916.i89 = phi i8 [ %41, %_ZL4gmulhh.exit87 ], [ %82, %77 ]
+  %.01015.i90 = phi i8 [ 13, %_ZL4gmulhh.exit87 ], [ %83, %77 ]
+  %78 = and i8 %.01015.i90, 1
+  %.not12.i91 = icmp eq i8 %78, 0
+  %79 = select i1 %.not12.i91, i8 0, i8 %.0916.i89
+  %spec.select.i92 = xor i8 %79, %.017.i88
+  %80 = shl i8 %.0916.i89, 1
+  %81 = xor i8 %80, 27
+  %.not1314.i93 = icmp slt i8 %.0916.i89, 0
+  %82 = select i1 %.not1314.i93, i8 %81, i8 %80
+  %83 = lshr i8 %.01015.i90, 1
+  %.not.i94 = icmp ult i8 %.01015.i90, 2
+  br i1 %.not.i94, label %_ZL4gmulhh.exit95, label %77, !llvm.loop !6
 
-_ZL4gmulhh.exit99:                                ; preds = %.lr.ph.i91
-  %79 = getelementptr inbounds i8, ptr %46, i64 1
-  store i8 %spec.select.i96, ptr %79, align 1
-  store i8 %spec.select.i96, ptr %48, align 4
-  %80 = getelementptr inbounds i8, ptr %50, i64 3
-  store i8 %spec.select.i96, ptr %80, align 1
-  %81 = getelementptr inbounds i8, ptr %51, i64 2
-  store i8 %spec.select.i96, ptr %81, align 2
-  %82 = getelementptr inbounds i8, ptr %54, i64 1
-  store i8 %spec.select.i96, ptr %82, align 1
-  store i8 %spec.select.i96, ptr %56, align 4
-  %83 = getelementptr inbounds i8, ptr %58, i64 3
-  store i8 %spec.select.i96, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %59, i64 2
-  store i8 %spec.select.i96, ptr %84, align 2
-  br label %.lr.ph.i100
+_ZL4gmulhh.exit95:                                ; preds = %77
+  %84 = getelementptr inbounds i8, ptr %49, i64 1
+  store i8 %spec.select.i92, ptr %84, align 1
+  store i8 %spec.select.i92, ptr %51, align 4
+  %85 = getelementptr inbounds i8, ptr %53, i64 3
+  store i8 %spec.select.i92, ptr %85, align 1
+  %86 = getelementptr inbounds i8, ptr %54, i64 2
+  store i8 %spec.select.i92, ptr %86, align 2
+  %87 = getelementptr inbounds i8, ptr %57, i64 1
+  store i8 %spec.select.i92, ptr %87, align 1
+  store i8 %spec.select.i92, ptr %59, align 4
+  %88 = getelementptr inbounds i8, ptr %61, i64 3
+  store i8 %spec.select.i92, ptr %88, align 1
+  %89 = getelementptr inbounds i8, ptr %62, i64 2
+  store i8 %spec.select.i92, ptr %89, align 2
+  br label %90
 
-.lr.ph.i100:                                      ; preds = %.lr.ph.i100, %_ZL4gmulhh.exit99
-  %.018.i101 = phi i8 [ %spec.select.i105, %.lr.ph.i100 ], [ 0, %_ZL4gmulhh.exit99 ]
-  %.0917.i102 = phi i8 [ %89, %.lr.ph.i100 ], [ %39, %_ZL4gmulhh.exit99 ]
-  %.01016.i103 = phi i8 [ %90, %.lr.ph.i100 ], [ 14, %_ZL4gmulhh.exit99 ]
-  %85 = and i8 %.01016.i103, 1
-  %.not12.i104 = icmp eq i8 %85, 0
-  %86 = select i1 %.not12.i104, i8 0, i8 %.0917.i102
-  %spec.select.i105 = xor i8 %86, %.018.i101
-  %87 = shl i8 %.0917.i102, 1
-  %88 = xor i8 %87, 27
-  %.not1314.i106 = icmp slt i8 %.0917.i102, 0
-  %89 = select i1 %.not1314.i106, i8 %88, i8 %87
-  %90 = lshr i8 %.01016.i103, 1
-  %.not.i107 = icmp ult i8 %.01016.i103, 2
-  br i1 %.not.i107, label %_ZL4gmulhh.exit108, label %.lr.ph.i100, !llvm.loop !6
+90:                                               ; preds = %90, %_ZL4gmulhh.exit95
+  %.017.i96 = phi i8 [ 0, %_ZL4gmulhh.exit95 ], [ %spec.select.i100, %90 ]
+  %.0916.i97 = phi i8 [ %41, %_ZL4gmulhh.exit95 ], [ %95, %90 ]
+  %.01015.i98 = phi i8 [ 14, %_ZL4gmulhh.exit95 ], [ %96, %90 ]
+  %91 = and i8 %.01015.i98, 1
+  %.not12.i99 = icmp eq i8 %91, 0
+  %92 = select i1 %.not12.i99, i8 0, i8 %.0916.i97
+  %spec.select.i100 = xor i8 %92, %.017.i96
+  %93 = shl i8 %.0916.i97, 1
+  %94 = xor i8 %93, 27
+  %.not1314.i101 = icmp slt i8 %.0916.i97, 0
+  %95 = select i1 %.not1314.i101, i8 %94, i8 %93
+  %96 = lshr i8 %.01015.i98, 1
+  %.not.i102 = icmp ult i8 %.01015.i98, 2
+  br i1 %.not.i102, label %_ZL4gmulhh.exit103, label %90, !llvm.loop !6
 
-_ZL4gmulhh.exit108:                               ; preds = %.lr.ph.i100
-  %91 = getelementptr inbounds i8, ptr %46, i64 3
-  store i8 %spec.select.i105, ptr %91, align 1
-  %92 = getelementptr inbounds i8, ptr %48, i64 2
-  store i8 %spec.select.i105, ptr %92, align 2
-  %93 = getelementptr inbounds i8, ptr %50, i64 1
-  store i8 %spec.select.i105, ptr %93, align 1
-  store i8 %spec.select.i105, ptr %51, align 4
-  %94 = getelementptr inbounds i8, ptr %54, i64 3
-  store i8 %spec.select.i105, ptr %94, align 1
-  %95 = getelementptr inbounds i8, ptr %56, i64 2
-  store i8 %spec.select.i105, ptr %95, align 2
-  %96 = getelementptr inbounds i8, ptr %58, i64 1
-  store i8 %spec.select.i105, ptr %96, align 1
-  store i8 %spec.select.i105, ptr %59, align 4
-  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next113, 256
-  br i1 %exitcond115.not, label %97, label %.preheader, !llvm.loop !7
+_ZL4gmulhh.exit103:                               ; preds = %90
+  %97 = getelementptr inbounds i8, ptr %49, i64 3
+  store i8 %spec.select.i100, ptr %97, align 1
+  %98 = getelementptr inbounds i8, ptr %51, i64 2
+  store i8 %spec.select.i100, ptr %98, align 2
+  %99 = getelementptr inbounds i8, ptr %53, i64 1
+  store i8 %spec.select.i100, ptr %99, align 1
+  store i8 %spec.select.i100, ptr %54, align 4
+  %100 = getelementptr inbounds i8, ptr %57, i64 3
+  store i8 %spec.select.i100, ptr %100, align 1
+  %101 = getelementptr inbounds i8, ptr %59, i64 2
+  store i8 %spec.select.i100, ptr %101, align 2
+  %102 = getelementptr inbounds i8, ptr %61, i64 1
+  store i8 %spec.select.i100, ptr %102, align 1
+  store i8 %spec.select.i100, ptr %62, align 4
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %exitcond110.not = icmp eq i64 %indvars.iv.next108, 256
+  br i1 %exitcond110.not, label %103, label %.preheader, !llvm.loop !7
 
-97:                                               ; preds = %_ZL4gmulhh.exit108
+103:                                              ; preds = %_ZL4gmulhh.exit103
   ret void
 }
 

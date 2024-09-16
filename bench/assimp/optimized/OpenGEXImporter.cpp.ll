@@ -3927,7 +3927,7 @@ _ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EE12emplace_bac
 if.then:                                          ; preds = %_ZNSt6vectorISt10unique_ptrI6aiMeshSt14default_deleteIS1_EESaIS4_EE12emplace_backIJRPS1_EEERS4_DpOT_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propKey) #27
-  invoke fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull %call6, ptr noundef nonnull align 8 dereferenceable(32) %propName, ptr noundef nonnull align 8 dereferenceable(32) %propKey)
+  invoke fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(32) %propName, ptr noundef nonnull align 8 dereferenceable(32) %propKey)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -4031,7 +4031,7 @@ if.end:                                           ; preds = %entry
 if.then3:                                         ; preds = %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propName) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %propKey) #27
-  invoke fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull %call, ptr noundef nonnull align 8 dereferenceable(32) %propName, ptr noundef nonnull align 8 dereferenceable(32) %propKey)
+  invoke fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %propName, ptr noundef nonnull align 8 dereferenceable(32) %propKey)
           to label %invoke.cont5 unwind label %lpad4.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont5:                                     ; preds = %if.then3
@@ -4093,21 +4093,21 @@ if.end11:                                         ; preds = %if.else8.i, %invoke
 
 invoke.cont12:                                    ; preds = %if.end11
   %cmp14 = icmp eq ptr %call13, null
-  br i1 %cmp14, label %cleanup, label %while.body.lr.ph.i
+  br i1 %cmp14, label %cleanup, label %if.end16
 
-while.body.lr.ph.i:                               ; preds = %invoke.cont12
+if.end16:                                         ; preds = %invoke.cont12
   %m_dataList.i = getelementptr inbounds i8, ptr %call13, i64 8
   %2 = load ptr, ptr %m_dataList.i, align 8
   %cmp2.not.i = icmp ne ptr %2, null
   %inc.i = zext i1 %cmp2.not.i to i64
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %indvar = phi i64 [ %indvar.next, %while.body.i ], [ 0, %while.body.lr.ph.i ]
-  %next.08.i = phi ptr [ %3, %while.body.i ], [ %call13, %while.body.lr.ph.i ]
-  %numItems.07.i = phi i64 [ %spec.select.i, %while.body.i ], [ 0, %while.body.lr.ph.i ]
-  %spec.select.i = add i64 %numItems.07.i, %inc.i
-  %m_next.i = getelementptr inbounds i8, ptr %next.08.i, i64 16
+while.body.i:                                     ; preds = %while.body.i, %if.end16
+  %indvar = phi i64 [ %indvar.next, %while.body.i ], [ 0, %if.end16 ]
+  %next.07.i = phi ptr [ %3, %while.body.i ], [ %call13, %if.end16 ]
+  %numItems.06.i = phi i64 [ %spec.select.i, %while.body.i ], [ 0, %if.end16 ]
+  %spec.select.i = add i64 %numItems.06.i, %inc.i
+  %m_next.i = getelementptr inbounds i8, ptr %next.07.i, i64 16
   %3 = load ptr, ptr %m_next.i, align 8
   %cmp1.not.i = icmp eq ptr %3, null
   %indvar.next = add i64 %indvar, 1
@@ -4191,8 +4191,8 @@ new.ctorloop:                                     ; preds = %invoke.cont29
   store ptr %call30, ptr %m_colors, align 8
   br label %for.body.i30
 
-for.body.i30:                                     ; preds = %call17.i.i.noexc, %new.ctorloop
-  %i.04.i = phi i64 [ 0, %new.ctorloop ], [ %inc.i34, %call17.i.i.noexc ]
+for.body.i30:                                     ; preds = %new.ctorloop, %call17.i.i.noexc
+  %i.04.i = phi i64 [ %inc.i34, %call17.i.i.noexc ], [ 0, %new.ctorloop ]
   %15 = load ptr, ptr %m_dataList.i, align 8
   %arrayidx.i31 = getelementptr inbounds %class.aiColor4t, ptr %call30, i64 %i.04.i
   %call.i.i38 = invoke noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %15)
@@ -4464,20 +4464,20 @@ lpad5:                                            ; preds = %if.then3
 if.end7:                                          ; preds = %if.end
   %call = tail call noundef ptr @_ZNK10ODDLParser7DDLNode16getDataArrayListEv(ptr noundef nonnull align 8 dereferenceable(136) %node)
   %cmp8 = icmp eq ptr %call, null
-  br i1 %cmp8, label %for.end148, label %while.body.lr.ph.i
+  br i1 %cmp8, label %for.end148, label %if.end10
 
-while.body.lr.ph.i:                               ; preds = %if.end7
+if.end10:                                         ; preds = %if.end7
   %m_dataList.i = getelementptr inbounds i8, ptr %call, i64 8
   %4 = load ptr, ptr %m_dataList.i, align 8
   %cmp2.not.i = icmp ne ptr %4, null
   %inc.i = zext i1 %cmp2.not.i to i64
   br label %while.body.i
 
-while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %next.08.i = phi ptr [ %call, %while.body.lr.ph.i ], [ %5, %while.body.i ]
-  %numItems.07.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %spec.select.i, %while.body.i ]
-  %spec.select.i = add i64 %numItems.07.i, %inc.i
-  %m_next.i = getelementptr inbounds i8, ptr %next.08.i, i64 16
+while.body.i:                                     ; preds = %while.body.i, %if.end10
+  %next.07.i = phi ptr [ %call, %if.end10 ], [ %5, %while.body.i ]
+  %numItems.06.i = phi i64 [ 0, %if.end10 ], [ %spec.select.i, %while.body.i ]
+  %spec.select.i = add i64 %numItems.06.i, %inc.i
+  %m_next.i = getelementptr inbounds i8, ptr %next.07.i, i64 16
   %5 = load ptr, ptr %m_next.i, align 8
   %cmp1.not.i = icmp eq ptr %5, null
   br i1 %cmp1.not.i, label %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit, label %while.body.i, !llvm.loop !36
@@ -6158,7 +6158,7 @@ declare noundef ptr @_ZNK10ODDLParser7DDLNode16getDataArrayListEv(ptr noundef no
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr nocapture noundef readonly %prop, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6Assimp7OpenGEXL16propId2StdStringEPN10ODDLParser8PropertyERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr nocapture noundef nonnull readonly %prop, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %key) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #27

@@ -138,7 +138,7 @@ if.end13.tail:                                    ; preds = %sub_1
 
 if.then17:                                        ; preds = %if.end13.tail
   call void @lua_createtable(ptr noundef %L, i32 noundef 0, i32 noundef 9) #12
-  call fastcc void @setallfields(ptr noundef %L, ptr noundef nonnull %stm.0)
+  call fastcc void @setallfields(ptr noundef %L, ptr noundef %stm.0)
   br label %return
 
 if.else18:                                        ; preds = %sub_1, %sub_0, %if.end13.tail
@@ -545,7 +545,7 @@ getboolfield.exit:                                ; preds = %getfield.exit59, %c
   %tm_isdst = getelementptr inbounds i8, ptr %ts, i64 32
   store i32 %cond.i, ptr %tm_isdst, align 8
   %call9 = call i64 @mktime(ptr noundef nonnull %ts) #12
-  call fastcc void @setallfields(ptr noundef %L, ptr noundef nonnull %ts)
+  call fastcc void @setallfields(ptr noundef %L, ptr noundef %ts)
   br label %if.end
 
 if.end:                                           ; preds = %getboolfield.exit, %if.then
@@ -608,7 +608,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #2
 declare i32 @luaL_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setallfields(ptr noundef %L, ptr nocapture noundef readonly %stm) unnamed_addr #0 {
+define internal fastcc void @setallfields(ptr noundef %L, ptr nocapture noundef nonnull readonly %stm) unnamed_addr #0 {
 entry:
   %tm_year = getelementptr inbounds i8, ptr %stm, i64 20
   %0 = load i32, ptr %tm_year, align 4
@@ -736,7 +736,7 @@ declare void @luaL_checktype(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare void @lua_settop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getfield(ptr noundef %L, ptr noundef %key, i32 noundef %d, i32 noundef %delta) unnamed_addr #0 {
+define internal fastcc i32 @getfield(ptr noundef %L, ptr noundef %key, i32 noundef range(i32 -1, 13) %d, i32 noundef range(i32 0, 1901) %delta) unnamed_addr #0 {
 entry:
   %isnum = alloca i32, align 4
   %call = tail call i32 @lua_getfield(ptr noundef %L, i32 noundef -1, ptr noundef %key) #12
@@ -772,7 +772,7 @@ cond.true:                                        ; preds = %if.else18
   br i1 %cmp22, label %if.end29, label %if.then27
 
 cond.false:                                       ; preds = %if.else18
-  %add = or i32 %delta, -2147483648
+  %add = or disjoint i32 %delta, -2147483648
   %conv24 = sext i32 %add to i64
   %cmp25.not = icmp ult i64 %call1, %conv24
   br i1 %cmp25.not, label %if.then27, label %if.end29

@@ -554,659 +554,659 @@ define internal range(i32 0, 2) i32 @dissect_waveagent_heur(ptr noundef %0, ptr 
 16:                                               ; preds = %10
   %17 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #2
   %.mask.i = and i32 %17, -268435456
-  %18 = icmp eq i32 %.mask.i, 268435456
-  %19 = select i1 %18, i8 3, i8 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.338) #2
-  %22 = load ptr, ptr %20, align 8
-  tail call void @col_clear(ptr noundef %22, i32 noundef 25) #2
-  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #2
-  %24 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20) #2
-  %25 = load ptr, ptr %20, align 8
-  %26 = tail call ptr @val_to_str_ext_const(i32 noundef %23, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.339, ptr noundef %26, i32 noundef %23) #2
+  %.not64.not.not.i = icmp eq i32 %.mask.i, 268435456
+  %18 = select i1 %.not64.not.not.i, i8 3, i8 2
+  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = load ptr, ptr %19, align 8
+  tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.338) #2
+  %21 = load ptr, ptr %19, align 8
+  tail call void @col_clear(ptr noundef %21, i32 noundef 25) #2
+  %22 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 28) #2
+  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 20) #2
+  %24 = load ptr, ptr %19, align 8
+  %25 = tail call ptr @val_to_str_ext_const(i32 noundef %22, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.339, ptr noundef %25, i32 noundef %22) #2
   %.not63.i = icmp eq ptr %2, null
-  br i1 %.not63.i, label %dissect_wa_payload.exit.i, label %27
+  br i1 %.not63.i, label %dissect_wa_payload.exit.i, label %26
 
-27:                                               ; preds = %16
-  %28 = load i32, ptr @proto_waveagent, align 4
-  %29 = tail call ptr @val_to_str_ext_const(i32 noundef %23, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.340, ptr noundef %29, i32 noundef %23, i32 noundef %24) #2
-  %31 = load i32, ptr @ett_waveagent, align 4
-  %32 = tail call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31) #2
-  %33 = tail call fastcc i32 @dissect_wa_header(i32 noundef 0, ptr noundef %32, ptr noundef %0, i8 noundef zeroext %19)
-  %34 = icmp eq i32 %23, 62
-  br i1 %34, label %35, label %50
+26:                                               ; preds = %16
+  %27 = load i32, ptr @proto_waveagent, align 4
+  %28 = tail call ptr @val_to_str_ext_const(i32 noundef %22, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
+  %29 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef nonnull %2, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.340, ptr noundef %28, i32 noundef %22, i32 noundef %23) #2
+  %30 = load i32, ptr @ett_waveagent, align 4
+  %31 = tail call ptr @proto_item_add_subtree(ptr noundef %29, i32 noundef %30) #2
+  %32 = tail call fastcc i32 @dissect_wa_header(i32 noundef 0, ptr noundef %31, ptr noundef %0, i8 noundef zeroext %18)
+  %33 = icmp eq i32 %22, 62
+  br i1 %33, label %34, label %49
 
-35:                                               ; preds = %27
-  %36 = load i32, ptr @hf_waveagent_relaydestid, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef 4, i32 noundef 0) #2
-  %38 = load i32, ptr @hf_waveagent_relaysrcid, align 4
-  %39 = add i32 %33, 4
-  %40 = tail call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #2
-  %41 = add i32 %33, 12
-  %42 = add i32 %33, 40
-  %43 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %42) #2
-  %44 = load i32, ptr @hf_waveagent_relaymessagest, align 4
-  %45 = tail call ptr @val_to_str_ext_const(i32 noundef %43, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
-  %46 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %32, i32 noundef %44, ptr noundef %0, i32 noundef %42, i32 noundef 0, ptr noundef nonnull @.str.341, ptr noundef %45, i32 noundef %43) #2
-  %47 = load i32, ptr @ett_relaymessage, align 4
-  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #2
-  %49 = tail call fastcc i32 @dissect_wa_header(i32 noundef %41, ptr noundef %48, ptr noundef %0, i8 noundef zeroext %19)
-  br label %50
+34:                                               ; preds = %26
+  %35 = load i32, ptr @hf_waveagent_relaydestid, align 4
+  %36 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %35, ptr noundef %0, i32 noundef %32, i32 noundef 4, i32 noundef 0) #2
+  %37 = load i32, ptr @hf_waveagent_relaysrcid, align 4
+  %38 = add i32 %32, 4
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #2
+  %40 = add i32 %32, 12
+  %41 = add i32 %32, 40
+  %42 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %41) #2
+  %43 = load i32, ptr @hf_waveagent_relaymessagest, align 4
+  %44 = tail call ptr @val_to_str_ext_const(i32 noundef %42, ptr noundef nonnull @control_words_ext, ptr noundef nonnull @.str.46) #2
+  %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %31, i32 noundef %43, ptr noundef %0, i32 noundef %41, i32 noundef 0, ptr noundef nonnull @.str.341, ptr noundef %44, i32 noundef %42) #2
+  %46 = load i32, ptr @ett_relaymessage, align 4
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #2
+  %48 = tail call fastcc i32 @dissect_wa_header(i32 noundef %40, ptr noundef %47, ptr noundef %0, i8 noundef zeroext %18)
+  br label %49
 
-50:                                               ; preds = %35, %27
-  %.060.i = phi ptr [ %48, %35 ], [ %32, %27 ]
-  %.059.i = phi i32 [ %43, %35 ], [ %23, %27 ]
-  %.0.i = phi i32 [ %49, %35 ], [ %33, %27 ]
+49:                                               ; preds = %34, %26
+  %.060.i = phi ptr [ %47, %34 ], [ %31, %26 ]
+  %.059.i = phi i32 [ %42, %34 ], [ %22, %26 ]
+  %.0.i = phi i32 [ %48, %34 ], [ %32, %26 ]
   switch i32 %.059.i, label %dissect_wa_payload.exit.i [
-    i32 17, label %51
-    i32 35, label %63
-    i32 36, label %72
-    i32 37, label %72
-    i32 138, label %72
-    i32 38, label %75
-    i32 48, label %81
-    i32 49, label %121
-    i32 50, label %164
-    i32 46, label %173
-    i32 47, label %235
-    i32 64, label %348
-    i32 65, label %377
-    i32 129, label %383
-    i32 130, label %424
-    i32 133, label %433
-    i32 139, label %485
-    i32 63, label %494
-    i32 143, label %494
+    i32 17, label %50
+    i32 35, label %62
+    i32 36, label %71
+    i32 37, label %71
+    i32 138, label %71
+    i32 38, label %74
+    i32 48, label %80
+    i32 49, label %120
+    i32 50, label %163
+    i32 46, label %172
+    i32 47, label %234
+    i32 64, label %347
+    i32 65, label %376
+    i32 129, label %382
+    i32 130, label %423
+    i32 133, label %432
+    i32 139, label %484
+    i32 63, label %493
+    i32 143, label %493
   ]
 
-51:                                               ; preds = %50
-  %52 = load i32, ptr @hf_waveagent_payfill, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %52, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %54 = load i32, ptr @hf_waveagent_paysize, align 4
-  %55 = add i32 %.0.i, 4
-  %56 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #2
-  %57 = load i32, ptr @hf_waveagent_avgrate, align 4
-  %58 = add i32 %.0.i, 8
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 4, i32 noundef 0) #2
-  %60 = load i32, ptr @hf_waveagent_totalframes, align 4
-  %61 = add i32 %.0.i, 12
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 4, i32 noundef 0) #2
+50:                                               ; preds = %49
+  %51 = load i32, ptr @hf_waveagent_payfill, align 4
+  %52 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %51, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %53 = load i32, ptr @hf_waveagent_paysize, align 4
+  %54 = add i32 %.0.i, 4
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #2
+  %56 = load i32, ptr @hf_waveagent_avgrate, align 4
+  %57 = add i32 %.0.i, 8
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %56, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef 0) #2
+  %59 = load i32, ptr @hf_waveagent_totalframes, align 4
+  %60 = add i32 %.0.i, 12
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-63:                                               ; preds = %50
-  %64 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %65 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %64, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %66 = load i32, ptr @hf_waveagent_bssidstartindex, align 4
-  %67 = add i32 %.0.i, 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %66, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef 0) #2
-  %69 = load i32, ptr @hf_waveagent_bssidstopindex, align 4
-  %70 = add i32 %.0.i, 8
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef 4, i32 noundef 0) #2
+62:                                               ; preds = %49
+  %63 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %63, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %65 = load i32, ptr @hf_waveagent_bssidstartindex, align 4
+  %66 = add i32 %.0.i, 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %65, ptr noundef %0, i32 noundef %66, i32 noundef 4, i32 noundef 0) #2
+  %68 = load i32, ptr @hf_waveagent_bssidstopindex, align 4
+  %69 = add i32 %.0.i, 8
+  %70 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-72:                                               ; preds = %50, %50, %50
-  %73 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %74 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %73, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+71:                                               ; preds = %49, %49, %49
+  %72 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %72, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-75:                                               ; preds = %50
-  %76 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %77 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %76, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %78 = load i32, ptr @hf_waveagent_oidcode, align 4
-  %79 = add i32 %.0.i, 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %78, ptr noundef %0, i32 noundef %79, i32 noundef 4, i32 noundef 0) #2
+74:                                               ; preds = %49
+  %75 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %75, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %77 = load i32, ptr @hf_waveagent_oidcode, align 4
+  %78 = add i32 %.0.i, 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %77, ptr noundef %0, i32 noundef %78, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-81:                                               ; preds = %50
-  %82 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %82, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %84 = add i32 %.0.i, 4
-  %85 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %84) #2
-  %86 = load i32, ptr @hf_waveagent_iftype, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %86, ptr noundef %0, i32 noundef %84, i32 noundef 4, i32 noundef 0) #2
-  %88 = load i32, ptr @hf_waveagent_ifdhcp, align 4
-  %89 = add i32 %.0.i, 8
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %88, ptr noundef %0, i32 noundef %89, i32 noundef 4, i32 noundef 0) #2
-  %91 = load i32, ptr @hf_waveagent_ifmacaddr, align 4
-  %92 = add i32 %.0.i, 12
-  %93 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %91, ptr noundef %0, i32 noundef %92, i32 noundef 6, i32 noundef 0) #2
-  %94 = load i32, ptr @hf_waveagent_iflinkspeed, align 4
-  %95 = add i32 %.0.i, 20
-  %96 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %94, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #2
-  %97 = load i32, ptr @hf_waveagent_ifdescription, align 4
-  %98 = add i32 %.0.i, 24
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %97, ptr noundef %0, i32 noundef %98, i32 noundef 128, i32 noundef 0) #2
-  %100 = icmp eq i32 %85, 2
-  br i1 %100, label %101, label %103
+80:                                               ; preds = %49
+  %81 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %81, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %83 = add i32 %.0.i, 4
+  %84 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %83) #2
+  %85 = load i32, ptr @hf_waveagent_iftype, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %85, ptr noundef %0, i32 noundef %83, i32 noundef 4, i32 noundef 0) #2
+  %87 = load i32, ptr @hf_waveagent_ifdhcp, align 4
+  %88 = add i32 %.0.i, 8
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %87, ptr noundef %0, i32 noundef %88, i32 noundef 4, i32 noundef 0) #2
+  %90 = load i32, ptr @hf_waveagent_ifmacaddr, align 4
+  %91 = add i32 %.0.i, 12
+  %92 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef 6, i32 noundef 0) #2
+  %93 = load i32, ptr @hf_waveagent_iflinkspeed, align 4
+  %94 = add i32 %.0.i, 20
+  %95 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %93, ptr noundef %0, i32 noundef %94, i32 noundef 4, i32 noundef 0) #2
+  %96 = load i32, ptr @hf_waveagent_ifdescription, align 4
+  %97 = add i32 %.0.i, 24
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 128, i32 noundef 0) #2
+  %99 = icmp eq i32 %84, 2
+  br i1 %99, label %100, label %102
 
-101:                                              ; preds = %81
-  %102 = add i32 %.0.i, 156
-  tail call fastcc void @dissect_wlan_if_stats(i32 noundef %102, ptr noundef %.060.i, ptr noundef %0)
-  br label %103
+100:                                              ; preds = %80
+  %101 = add i32 %.0.i, 156
+  tail call fastcc void @dissect_wlan_if_stats(i32 noundef %101, ptr noundef %.060.i, ptr noundef %0)
+  br label %102
 
-103:                                              ; preds = %101, %81
-  %104 = load i32, ptr @hf_waveagent_ifiptype, align 4
-  %105 = add i32 %.0.i, 252
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %104, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0) #2
-  %107 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %105) #2
-  %108 = icmp eq i16 %107, 2
-  %109 = add i32 %.0.i, 260
-  %..i.i = select i1 %108, i32 4, i32 16
-  %hf_waveagent_ifipv4.val514.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
-  %hf_waveagent_ifipv6.val515.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
-  %110 = select i1 %108, i32 %hf_waveagent_ifipv4.val514.i.i, i32 %hf_waveagent_ifipv6.val515.i.i
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef %..i.i, i32 noundef 0) #2
-  %112 = load i32, ptr @hf_waveagent_ifdhcpserver, align 4
-  %113 = add i32 %.0.i, 284
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %112, ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef 0) #2
-  %115 = load i32, ptr @hf_waveagent_ifgateway, align 4
-  %116 = add i32 %.0.i, 308
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %115, ptr noundef %0, i32 noundef %116, i32 noundef 4, i32 noundef 0) #2
-  %118 = load i32, ptr @hf_waveagent_ifdnsserver, align 4
-  %119 = add i32 %.0.i, 332
-  %120 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %118, ptr noundef %0, i32 noundef %119, i32 noundef 4, i32 noundef 0) #2
+102:                                              ; preds = %100, %80
+  %103 = load i32, ptr @hf_waveagent_ifiptype, align 4
+  %104 = add i32 %.0.i, 252
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %103, ptr noundef %0, i32 noundef %104, i32 noundef 2, i32 noundef 0) #2
+  %106 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %104) #2
+  %107 = icmp eq i16 %106, 2
+  %108 = add i32 %.0.i, 260
+  %..i.i = select i1 %107, i32 4, i32 16
+  %hf_waveagent_ifipv4.val520.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
+  %hf_waveagent_ifipv6.val521.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
+  %109 = select i1 %107, i32 %hf_waveagent_ifipv4.val520.i.i, i32 %hf_waveagent_ifipv6.val521.i.i
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %109, ptr noundef %0, i32 noundef %108, i32 noundef %..i.i, i32 noundef 0) #2
+  %111 = load i32, ptr @hf_waveagent_ifdhcpserver, align 4
+  %112 = add i32 %.0.i, 284
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef 0) #2
+  %114 = load i32, ptr @hf_waveagent_ifgateway, align 4
+  %115 = add i32 %.0.i, 308
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0) #2
+  %117 = load i32, ptr @hf_waveagent_ifdnsserver, align 4
+  %118 = add i32 %.0.i, 332
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-121:                                              ; preds = %50
-  %122 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %122, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %124 = add i32 %.0.i, 4
-  %125 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %124) #2
-  %126 = load i32, ptr @hf_waveagent_iftype, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %126, ptr noundef %0, i32 noundef %124, i32 noundef 4, i32 noundef 0) #2
-  %128 = add i32 %.0.i, 8
-  %129 = icmp eq i32 %125, 2
-  br label %130
+120:                                              ; preds = %49
+  %121 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %121, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %123 = add i32 %.0.i, 4
+  %124 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %123) #2
+  %125 = load i32, ptr @hf_waveagent_iftype, align 4
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %125, ptr noundef %0, i32 noundef %123, i32 noundef 4, i32 noundef 0) #2
+  %127 = add i32 %.0.i, 8
+  %128 = icmp eq i32 %124, 2
+  br label %129
 
-130:                                              ; preds = %163, %121
-  %indvars.iv505.i.i = phi i64 [ 0, %121 ], [ %indvars.iv.next506.i.i, %163 ]
-  %131 = trunc i64 %indvars.iv505.i.i to i32
-  %132 = mul i32 %131, 156
-  %133 = add i32 %128, %132
-  %134 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %133) #2
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %163, label %136
+129:                                              ; preds = %162, %120
+  %indvars.iv511.i.i = phi i64 [ 0, %120 ], [ %indvars.iv.next512.i.i, %162 ]
+  %130 = trunc i64 %indvars.iv511.i.i to i32
+  %131 = mul i32 %130, 156
+  %132 = add i32 %127, %131
+  %133 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %132) #2
+  %134 = icmp eq i32 %133, 0
+  br i1 %134, label %162, label %135
 
-136:                                              ; preds = %130
-  %137 = load i32, ptr @hf_waveagent_ifwlanl2status, align 4
-  %138 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.060.i, i32 noundef %137, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef %134, ptr noundef nonnull @.str.342, i32 noundef %131) #2
-  %139 = getelementptr [8 x i32], ptr @ett_scindex, i64 0, i64 %indvars.iv505.i.i
-  %140 = load i32, ptr %139, align 4
-  %141 = tail call ptr @proto_item_add_subtree(ptr noundef %138, i32 noundef %140) #2
+135:                                              ; preds = %129
+  %136 = load i32, ptr @hf_waveagent_ifwlanl2status, align 4
+  %137 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.060.i, i32 noundef %136, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef %133, ptr noundef nonnull @.str.342, i32 noundef %130) #2
+  %138 = getelementptr [8 x i32], ptr @ett_scindex, i64 0, i64 %indvars.iv511.i.i
+  %139 = load i32, ptr %138, align 4
+  %140 = tail call ptr @proto_item_add_subtree(ptr noundef %137, i32 noundef %139) #2
   %hf_waveagent_ifwlanl2status.val.i.i = load i32, ptr @hf_waveagent_ifwlanl2status, align 4
   %hf_waveagent_ifethl2status.val.i.i = load i32, ptr @hf_waveagent_ifethl2status, align 4
-  %142 = select i1 %129, i32 %hf_waveagent_ifwlanl2status.val.i.i, i32 %hf_waveagent_ifethl2status.val.i.i
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %142, ptr noundef %0, i32 noundef %133, i32 noundef 4, i32 noundef 0) #2
-  %144 = load i32, ptr @hf_waveagent_ifl3status, align 4
-  %145 = add i32 %133, 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %144, ptr noundef %0, i32 noundef %145, i32 noundef 4, i32 noundef 0) #2
-  %147 = load i32, ptr @hf_waveagent_iflinkspeed, align 4
-  %148 = add i32 %133, 8
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %147, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef 0) #2
-  br i1 %129, label %150, label %.sink.split.i.i
+  %141 = select i1 %128, i32 %hf_waveagent_ifwlanl2status.val.i.i, i32 %hf_waveagent_ifethl2status.val.i.i
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %141, ptr noundef %0, i32 noundef %132, i32 noundef 4, i32 noundef 0) #2
+  %143 = load i32, ptr @hf_waveagent_ifl3status, align 4
+  %144 = add i32 %132, 4
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %143, ptr noundef %0, i32 noundef %144, i32 noundef 4, i32 noundef 0) #2
+  %146 = load i32, ptr @hf_waveagent_iflinkspeed, align 4
+  %147 = add i32 %132, 8
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %146, ptr noundef %0, i32 noundef %147, i32 noundef 4, i32 noundef 0) #2
+  br i1 %128, label %149, label %.sink.split.i.i
 
-150:                                              ; preds = %136
-  %151 = add i32 %133, 12
-  tail call fastcc void @dissect_wlan_if_stats(i32 noundef %151, ptr noundef %141, ptr noundef %0)
+149:                                              ; preds = %135
+  %150 = add i32 %132, 12
+  tail call fastcc void @dissect_wlan_if_stats(i32 noundef %150, ptr noundef %140, ptr noundef %0)
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %150, %136
-  %152 = load i32, ptr @hf_waveagent_snap, align 4
-  %153 = add i32 %133, 108
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef 8, i32 noundef 0) #2
-  %155 = load i32, ptr @hf_waveagent_ifiptype, align 4
-  %156 = add i32 %133, 116
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %155, ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef 0) #2
-  %158 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %156) #2
-  %159 = icmp eq i16 %158, 2
-  %160 = add i32 %133, 124
-  %.513.i.i = select i1 %159, i32 4, i32 16
+.sink.split.i.i:                                  ; preds = %149, %135
+  %151 = load i32, ptr @hf_waveagent_snap, align 4
+  %152 = add i32 %132, 108
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 8, i32 noundef 0) #2
+  %154 = load i32, ptr @hf_waveagent_ifiptype, align 4
+  %155 = add i32 %132, 116
+  %156 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %154, ptr noundef %0, i32 noundef %155, i32 noundef 2, i32 noundef 0) #2
+  %157 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %155) #2
+  %158 = icmp eq i16 %157, 2
+  %159 = add i32 %132, 124
+  %.519.i.i = select i1 %158, i32 4, i32 16
   %hf_waveagent_ifipv4.val.i.i = load i32, ptr @hf_waveagent_ifipv4, align 4
   %hf_waveagent_ifipv6.val.i.i = load i32, ptr @hf_waveagent_ifipv6, align 4
-  %161 = select i1 %159, i32 %hf_waveagent_ifipv4.val.i.i, i32 %hf_waveagent_ifipv6.val.i.i
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef %.513.i.i, i32 noundef 0) #2
-  br label %163
+  %160 = select i1 %158, i32 %hf_waveagent_ifipv4.val.i.i, i32 %hf_waveagent_ifipv6.val.i.i
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %140, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef %.519.i.i, i32 noundef 0) #2
+  br label %162
 
-163:                                              ; preds = %.sink.split.i.i, %130
-  %indvars.iv.next506.i.i = add nuw nsw i64 %indvars.iv505.i.i, 1
-  %exitcond508.not.i.i = icmp eq i64 %indvars.iv.next506.i.i, 8
-  br i1 %exitcond508.not.i.i, label %dissect_wa_payload.exit.i, label %130, !llvm.loop !4
+162:                                              ; preds = %.sink.split.i.i, %129
+  %indvars.iv.next512.i.i = add nuw nsw i64 %indvars.iv511.i.i, 1
+  %exitcond514.not.i.i = icmp eq i64 %indvars.iv.next512.i.i, 8
+  br i1 %exitcond514.not.i.i, label %dissect_wa_payload.exit.i, label %129, !llvm.loop !4
 
-164:                                              ; preds = %50
-  %165 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %165, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %167 = load i32, ptr @hf_waveagent_oidcode, align 4
-  %168 = add i32 %.0.i, 4
-  %169 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %167, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef 0) #2
-  %170 = load i32, ptr @hf_waveagent_oidvalue, align 4
-  %171 = add i32 %.0.i, 12
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %170, ptr noundef %0, i32 noundef %171, i32 noundef 1024, i32 noundef 0) #2
+163:                                              ; preds = %49
+  %164 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %164, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %166 = load i32, ptr @hf_waveagent_oidcode, align 4
+  %167 = add i32 %.0.i, 4
+  %168 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %166, ptr noundef %0, i32 noundef %167, i32 noundef 4, i32 noundef 0) #2
+  %169 = load i32, ptr @hf_waveagent_oidvalue, align 4
+  %170 = add i32 %.0.i, 12
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %169, ptr noundef %0, i32 noundef %170, i32 noundef 1024, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-173:                                              ; preds = %50
-  %174 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %174, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %176 = load i32, ptr @hf_waveagent_totalbssid, align 4
-  %177 = add i32 %.0.i, 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %176, ptr noundef %0, i32 noundef %177, i32 noundef 4, i32 noundef 0) #2
-  %179 = load i32, ptr @hf_waveagent_returnedbssid, align 4
-  %180 = add i32 %.0.i, 8
-  %181 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %179, ptr noundef %0, i32 noundef %180, i32 noundef 4, i32 noundef 0) #2
-  %182 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %180) #2
-  %183 = icmp ugt i32 %182, 8
-  br i1 %183, label %184, label %185
+172:                                              ; preds = %49
+  %173 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %174 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %173, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %175 = load i32, ptr @hf_waveagent_totalbssid, align 4
+  %176 = add i32 %.0.i, 4
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %175, ptr noundef %0, i32 noundef %176, i32 noundef 4, i32 noundef 0) #2
+  %178 = load i32, ptr @hf_waveagent_returnedbssid, align 4
+  %179 = add i32 %.0.i, 8
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %178, ptr noundef %0, i32 noundef %179, i32 noundef 4, i32 noundef 0) #2
+  %181 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %179) #2
+  %182 = icmp ugt i32 %181, 8
+  br i1 %182, label %183, label %184
 
-184:                                              ; preds = %173
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %181, ptr noundef nonnull @.str.343) #2
-  br label %185
+183:                                              ; preds = %172
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %180, ptr noundef nonnull @.str.343) #2
+  br label %184
 
-185:                                              ; preds = %184, %173
-  %.0483.i.i = phi i32 [ 8, %184 ], [ %182, %173 ]
-  %186 = add i32 %.0.i, 16
-  %187 = tail call ptr @wmem_packet_scope() #2
-  %188 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %187, i64 noundef 8) #2
-  %.not500.i.i = icmp eq i32 %.0483.i.i, 0
-  br i1 %.not500.i.i, label %dissect_wa_payload.exit.i, label %.lr.ph497.i.i
+184:                                              ; preds = %183, %172
+  %.0483.i.i = phi i32 [ 8, %183 ], [ %181, %172 ]
+  %185 = add i32 %.0.i, 16
+  %186 = tail call ptr @wmem_packet_scope() #2
+  %187 = tail call noalias ptr @wmem_strbuf_new_sized(ptr noundef %186, i64 noundef 8) #2
+  %.not506.i.i = icmp eq i32 %.0483.i.i, 0
+  br i1 %.not506.i.i, label %dissect_wa_payload.exit.i, label %.lr.ph503.i.i
 
-.lr.ph497.i.i:                                    ; preds = %185
-  %189 = add i32 %.0.i, 52
+.lr.ph503.i.i:                                    ; preds = %184
+  %188 = add i32 %.0.i, 52
   %wide.trip.count.i.i = zext nneg i32 %.0483.i.i to i64
-  br label %190
+  br label %189
 
-190:                                              ; preds = %.loopexit.i, %.lr.ph497.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph497.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i ]
-  tail call void @wmem_strbuf_truncate(ptr noundef %188, i64 noundef 0) #2
-  %191 = trunc i64 %indvars.iv.i.i to i32
-  %192 = mul i32 %191, 148
-  %193 = add i32 %186, %192
-  %194 = load i32, ptr @hf_waveagent_scanssid, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %194, ptr noundef %0, i32 noundef %193, i32 noundef 32, i32 noundef 0) #2
-  %196 = getelementptr [8 x i32], ptr @ett_bss, i64 0, i64 %indvars.iv.i.i
-  %197 = load i32, ptr %196, align 4
-  %198 = tail call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %197) #2
-  %199 = add i32 %193, 52
-  %200 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %199) #2
-  %.not.i.i = icmp eq i32 %200, 0
-  br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
+189:                                              ; preds = %.loopexit.i, %.lr.ph503.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph503.i.i ], [ %indvars.iv.next.i.i, %.loopexit.i ]
+  tail call void @wmem_strbuf_truncate(ptr noundef %187, i64 noundef 0) #2
+  %190 = trunc i64 %indvars.iv.i.i to i32
+  %191 = mul i32 %190, 148
+  %192 = add i32 %185, %191
+  %193 = load i32, ptr @hf_waveagent_scanssid, align 4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 32, i32 noundef 0) #2
+  %195 = getelementptr [8 x i32], ptr @ett_bss, i64 0, i64 %indvars.iv.i.i
+  %196 = load i32, ptr %195, align 4
+  %197 = tail call ptr @proto_item_add_subtree(ptr noundef %194, i32 noundef %196) #2
+  %198 = add i32 %192, 52
+  %199 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %198) #2
+  %.not496.i.i = icmp eq i32 %199, 0
+  br i1 %.not496.i.i, label %.loopexit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %190, %212
-  %.0485494.i.i = phi i32 [ %213, %212 ], [ 0, %190 ]
-  %201 = add i32 %.0485494.i.i, %189
-  %202 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %201) #2
-  %203 = icmp eq i8 %202, -1
-  br i1 %203, label %204, label %207
+.preheader.i.i:                                   ; preds = %189, %211
+  %.0485500.i.i = phi i32 [ %212, %211 ], [ 0, %189 ]
+  %200 = add i32 %.0485500.i.i, %188
+  %201 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %200) #2
+  %202 = icmp eq i8 %201, -1
+  br i1 %202, label %203, label %206
 
-204:                                              ; preds = %.preheader.i.i
-  %205 = load i32, ptr @hf_waveagent_ifwlansupprates, align 4
-  %206 = tail call ptr @proto_tree_add_string(ptr noundef %198, i32 noundef %205, ptr noundef %0, i32 noundef %201, i32 noundef 1, ptr noundef nonnull @.str.344) #2
-  br label %212
+203:                                              ; preds = %.preheader.i.i
+  %204 = load i32, ptr @hf_waveagent_ifwlansupprates, align 4
+  %205 = tail call ptr @proto_tree_add_string(ptr noundef %197, i32 noundef %204, ptr noundef %0, i32 noundef %200, i32 noundef 1, ptr noundef nonnull @.str.344) #2
+  br label %211
 
-207:                                              ; preds = %.preheader.i.i
-  %208 = and i8 %202, 127
-  %209 = uitofp nneg i8 %208 to double
-  %210 = fmul double %209, 5.000000e-01
-  %.not491.i.i = icmp sgt i8 %202, -1
-  %211 = select i1 %.not491.i.i, ptr @.str.347, ptr @.str.346
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %188, ptr noundef nonnull @.str.345, double noundef %210, ptr noundef nonnull %211) #2
-  br label %212
+206:                                              ; preds = %.preheader.i.i
+  %207 = and i8 %201, 127
+  %208 = uitofp nneg i8 %207 to double
+  %209 = fmul double %208, 5.000000e-01
+  %.not497.i.i = icmp sgt i8 %201, -1
+  %210 = select i1 %.not497.i.i, ptr @.str.347, ptr @.str.346
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %187, ptr noundef nonnull @.str.345, double noundef %209, ptr noundef nonnull %210) #2
+  br label %211
 
-212:                                              ; preds = %207, %204
-  %213 = add nuw i32 %.0485494.i.i, 1
-  %exitcond502.not.i.i = icmp eq i32 %213, %200
-  br i1 %exitcond502.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !6
+211:                                              ; preds = %206, %203
+  %212 = add nuw i32 %.0485500.i.i, 1
+  %exitcond508.not.i.i = icmp eq i32 %212, %199
+  br i1 %exitcond508.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !6
 
-.loopexit.i:                                      ; preds = %212, %190
-  %.str.349.sink.i.i = phi ptr [ @.str.349, %190 ], [ @.str.348, %212 ]
-  tail call void @wmem_strbuf_append(ptr noundef %188, ptr noundef nonnull %.str.349.sink.i.i) #2
-  %214 = load i32, ptr @hf_waveagent_ifwlansupprates, align 4
-  %215 = tail call ptr @wmem_strbuf_get_str(ptr noundef %188) #2
-  %216 = tail call ptr @proto_tree_add_string(ptr noundef %198, i32 noundef %214, ptr noundef %0, i32 noundef %189, i32 noundef %200, ptr noundef %215) #2
-  %217 = load i32, ptr @hf_waveagent_scanbssid, align 4
-  %218 = add i32 %193, 56
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %217, ptr noundef %0, i32 noundef %218, i32 noundef 6, i32 noundef 0) #2
-  %220 = load i32, ptr @hf_waveagent_ifwlancapabilities, align 4
-  %221 = add i32 %193, 62
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %220, ptr noundef %0, i32 noundef %221, i32 noundef 2, i32 noundef 0) #2
-  %223 = load i32, ptr @hf_waveagent_ifwlanrssi, align 4
-  %224 = add i32 %193, 64
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %223, ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef 0) #2
-  %226 = load i32, ptr @hf_waveagent_ifwlanchannel, align 4
-  %227 = add i32 %193, 72
-  %228 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %226, ptr noundef %0, i32 noundef %227, i32 noundef 4, i32 noundef 0) #2
-  %229 = load i32, ptr @hf_waveagent_ifwlanprivacy, align 4
-  %230 = add i32 %193, 76
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %229, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef 0) #2
-  %232 = load i32, ptr @hf_waveagent_ifwlanbssmode, align 4
-  %233 = add i32 %193, 80
-  %234 = tail call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %232, ptr noundef %0, i32 noundef %233, i32 noundef 4, i32 noundef 0) #2
+.loopexit.i:                                      ; preds = %211, %189
+  %.str.349.sink.i.i = phi ptr [ @.str.349, %189 ], [ @.str.348, %211 ]
+  tail call void @wmem_strbuf_append(ptr noundef %187, ptr noundef nonnull %.str.349.sink.i.i) #2
+  %213 = load i32, ptr @hf_waveagent_ifwlansupprates, align 4
+  %214 = tail call ptr @wmem_strbuf_get_str(ptr noundef %187) #2
+  %215 = tail call ptr @proto_tree_add_string(ptr noundef %197, i32 noundef %213, ptr noundef %0, i32 noundef %188, i32 noundef %199, ptr noundef %214) #2
+  %216 = load i32, ptr @hf_waveagent_scanbssid, align 4
+  %217 = add i32 %192, 56
+  %218 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %216, ptr noundef %0, i32 noundef %217, i32 noundef 6, i32 noundef 0) #2
+  %219 = load i32, ptr @hf_waveagent_ifwlancapabilities, align 4
+  %220 = add i32 %192, 62
+  %221 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %219, ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef 0) #2
+  %222 = load i32, ptr @hf_waveagent_ifwlanrssi, align 4
+  %223 = add i32 %192, 64
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %222, ptr noundef %0, i32 noundef %223, i32 noundef 4, i32 noundef 0) #2
+  %225 = load i32, ptr @hf_waveagent_ifwlanchannel, align 4
+  %226 = add i32 %192, 72
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %225, ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef 0) #2
+  %228 = load i32, ptr @hf_waveagent_ifwlanprivacy, align 4
+  %229 = add i32 %192, 76
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %228, ptr noundef %0, i32 noundef %229, i32 noundef 4, i32 noundef 0) #2
+  %231 = load i32, ptr @hf_waveagent_ifwlanbssmode, align 4
+  %232 = add i32 %192, 80
+  %233 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %231, ptr noundef %0, i32 noundef %232, i32 noundef 4, i32 noundef 0) #2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond504.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond504.not.i.i, label %dissect_wa_payload.exit.i, label %190, !llvm.loop !7
+  %exitcond510.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
+  br i1 %exitcond510.not.i.i, label %dissect_wa_payload.exit.i, label %189, !llvm.loop !7
 
-235:                                              ; preds = %50
-  br i1 %18, label %242, label %236
+234:                                              ; preds = %49
+  br i1 %.not64.not.not.i, label %241, label %235
 
-236:                                              ; preds = %235
-  %237 = load i32, ptr @hf_waveagent_capstatus, align 4
-  %238 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %237, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %239 = load i32, ptr @hf_waveagent_protocolversion, align 4
-  %240 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %239, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #2
-  %241 = add i32 %.0.i, 4
-  br label %242
+235:                                              ; preds = %234
+  %236 = load i32, ptr @hf_waveagent_capstatus, align 4
+  %237 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %236, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %238 = load i32, ptr @hf_waveagent_protocolversion, align 4
+  %239 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %238, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #2
+  %240 = add i32 %.0.i, 4
+  br label %241
 
-242:                                              ; preds = %236, %235
-  %.0.i.i = phi i32 [ %241, %236 ], [ %.0.i, %235 ]
-  %243 = load i32, ptr @hf_waveagent_capimpl, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %243, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef 0) #2
-  %245 = load i32, ptr @hf_waveagent_state, align 4
-  %246 = add i32 %.0.i.i, 4
-  %247 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %245, ptr noundef %0, i32 noundef %246, i32 noundef 4, i32 noundef 0) #2
-  %248 = load i32, ptr @hf_waveagent_appstate, align 4
-  %249 = add i32 %.0.i.i, 8
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %248, ptr noundef %0, i32 noundef %249, i32 noundef 4, i32 noundef 0) #2
-  %251 = load i32, ptr @hf_waveagent_rxdatapckts, align 4
-  %252 = add i32 %.0.i.i, 12
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 8, i32 noundef 0) #2
-  %254 = load i32, ptr @hf_waveagent_rxdatabytes, align 4
-  %255 = add i32 %.0.i.i, 20
-  %256 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %254, ptr noundef %0, i32 noundef %255, i32 noundef 8, i32 noundef 0) #2
-  %257 = load i32, ptr @hf_waveagent_rxpcktrate, align 4
-  %258 = add i32 %.0.i.i, 28
-  %259 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %257, ptr noundef %0, i32 noundef %258, i32 noundef 8, i32 noundef 0) #2
-  %260 = load i32, ptr @hf_waveagent_rxbyterate, align 4
-  %261 = add i32 %.0.i.i, 36
-  %262 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %260, ptr noundef %0, i32 noundef %261, i32 noundef 8, i32 noundef 0) #2
-  %263 = load i32, ptr @hf_waveagent_txdatapckts, align 4
-  %264 = add i32 %.0.i.i, 44
-  %265 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %263, ptr noundef %0, i32 noundef %264, i32 noundef 8, i32 noundef 0) #2
-  %266 = load i32, ptr @hf_waveagent_txdatabytes, align 4
-  %267 = add i32 %.0.i.i, 52
-  %268 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %266, ptr noundef %0, i32 noundef %267, i32 noundef 8, i32 noundef 0) #2
-  %269 = load i32, ptr @hf_waveagent_txpcktrate, align 4
-  %270 = add i32 %.0.i.i, 60
-  %271 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %269, ptr noundef %0, i32 noundef %270, i32 noundef 8, i32 noundef 0) #2
-  %272 = load i32, ptr @hf_waveagent_txbyterate, align 4
-  %273 = add i32 %.0.i.i, 68
-  %274 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %272, ptr noundef %0, i32 noundef %273, i32 noundef 8, i32 noundef 0) #2
-  %275 = load i32, ptr @hf_waveagent_looppckts, align 4
-  %276 = add i32 %.0.i.i, 76
-  %277 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %275, ptr noundef %0, i32 noundef %276, i32 noundef 8, i32 noundef 0) #2
-  %278 = load i32, ptr @hf_waveagent_loopbytes, align 4
-  %279 = add i32 %.0.i.i, 84
-  %280 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %278, ptr noundef %0, i32 noundef %279, i32 noundef 8, i32 noundef 0) #2
-  %281 = load i32, ptr @hf_waveagent_rxctlpckts, align 4
-  %282 = add i32 %.0.i.i, 92
-  %283 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %281, ptr noundef %0, i32 noundef %282, i32 noundef 8, i32 noundef 0) #2
-  %284 = load i32, ptr @hf_waveagent_rxctlbytes, align 4
-  %285 = add i32 %.0.i.i, 100
-  %286 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %284, ptr noundef %0, i32 noundef %285, i32 noundef 8, i32 noundef 0) #2
-  %287 = load i32, ptr @hf_waveagent_txctlpckts, align 4
-  %288 = add i32 %.0.i.i, 108
-  %289 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %287, ptr noundef %0, i32 noundef %288, i32 noundef 8, i32 noundef 0) #2
-  %290 = load i32, ptr @hf_waveagent_txctlbytes, align 4
-  %291 = add i32 %.0.i.i, 116
-  %292 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %290, ptr noundef %0, i32 noundef %291, i32 noundef 8, i32 noundef 0) #2
-  %293 = load i32, ptr @hf_waveagent_unknowncmds, align 4
-  %294 = add i32 %.0.i.i, 124
-  %295 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %293, ptr noundef %0, i32 noundef %294, i32 noundef 8, i32 noundef 0) #2
-  %296 = load i32, ptr @hf_waveagent_snap, align 4
-  %297 = add i32 %.0.i.i, 132
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %296, ptr noundef %0, i32 noundef %297, i32 noundef 8, i32 noundef 0) #2
-  %299 = load i32, ptr @hf_waveagent_rx1pl, align 4
-  %300 = add i32 %.0.i.i, 284
-  %301 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %299, ptr noundef %0, i32 noundef %300, i32 noundef 8, i32 noundef 0) #2
-  %302 = load i32, ptr @hf_waveagent_rx2pl, align 4
-  %303 = add i32 %.0.i.i, 292
-  %304 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %302, ptr noundef %0, i32 noundef %303, i32 noundef 8, i32 noundef 0) #2
-  %305 = load i32, ptr @hf_waveagent_rx3pl, align 4
-  %306 = add i32 %.0.i.i, 300
-  %307 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %305, ptr noundef %0, i32 noundef %306, i32 noundef 8, i32 noundef 0) #2
-  %308 = load i32, ptr @hf_waveagent_rx4pl, align 4
-  %309 = add i32 %.0.i.i, 308
-  %310 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %308, ptr noundef %0, i32 noundef %309, i32 noundef 8, i32 noundef 0) #2
-  %311 = load i32, ptr @hf_waveagent_rx5pl, align 4
-  %312 = add i32 %.0.i.i, 316
-  %313 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %311, ptr noundef %0, i32 noundef %312, i32 noundef 8, i32 noundef 0) #2
-  %314 = load i32, ptr @hf_waveagent_rxoospkts, align 4
-  %315 = add i32 %.0.i.i, 324
-  %316 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %314, ptr noundef %0, i32 noundef %315, i32 noundef 8, i32 noundef 0) #2
-  %317 = load i32, ptr @hf_waveagent_jitter, align 4
-  %318 = add i32 %.0.i.i, 356
-  %319 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %317, ptr noundef %0, i32 noundef %318, i32 noundef 8, i32 noundef 0) #2
-  br i1 %18, label %320, label %dissect_wa_payload.exit.i
+241:                                              ; preds = %235, %234
+  %.0.i.i = phi i32 [ %240, %235 ], [ %.0.i, %234 ]
+  %242 = load i32, ptr @hf_waveagent_capimpl, align 4
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %242, ptr noundef %0, i32 noundef %.0.i.i, i32 noundef 4, i32 noundef 0) #2
+  %244 = load i32, ptr @hf_waveagent_state, align 4
+  %245 = add i32 %.0.i.i, 4
+  %246 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %244, ptr noundef %0, i32 noundef %245, i32 noundef 4, i32 noundef 0) #2
+  %247 = load i32, ptr @hf_waveagent_appstate, align 4
+  %248 = add i32 %.0.i.i, 8
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %247, ptr noundef %0, i32 noundef %248, i32 noundef 4, i32 noundef 0) #2
+  %250 = load i32, ptr @hf_waveagent_rxdatapckts, align 4
+  %251 = add i32 %.0.i.i, 12
+  %252 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %250, ptr noundef %0, i32 noundef %251, i32 noundef 8, i32 noundef 0) #2
+  %253 = load i32, ptr @hf_waveagent_rxdatabytes, align 4
+  %254 = add i32 %.0.i.i, 20
+  %255 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %253, ptr noundef %0, i32 noundef %254, i32 noundef 8, i32 noundef 0) #2
+  %256 = load i32, ptr @hf_waveagent_rxpcktrate, align 4
+  %257 = add i32 %.0.i.i, 28
+  %258 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %256, ptr noundef %0, i32 noundef %257, i32 noundef 8, i32 noundef 0) #2
+  %259 = load i32, ptr @hf_waveagent_rxbyterate, align 4
+  %260 = add i32 %.0.i.i, 36
+  %261 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %259, ptr noundef %0, i32 noundef %260, i32 noundef 8, i32 noundef 0) #2
+  %262 = load i32, ptr @hf_waveagent_txdatapckts, align 4
+  %263 = add i32 %.0.i.i, 44
+  %264 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %262, ptr noundef %0, i32 noundef %263, i32 noundef 8, i32 noundef 0) #2
+  %265 = load i32, ptr @hf_waveagent_txdatabytes, align 4
+  %266 = add i32 %.0.i.i, 52
+  %267 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %265, ptr noundef %0, i32 noundef %266, i32 noundef 8, i32 noundef 0) #2
+  %268 = load i32, ptr @hf_waveagent_txpcktrate, align 4
+  %269 = add i32 %.0.i.i, 60
+  %270 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %268, ptr noundef %0, i32 noundef %269, i32 noundef 8, i32 noundef 0) #2
+  %271 = load i32, ptr @hf_waveagent_txbyterate, align 4
+  %272 = add i32 %.0.i.i, 68
+  %273 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %271, ptr noundef %0, i32 noundef %272, i32 noundef 8, i32 noundef 0) #2
+  %274 = load i32, ptr @hf_waveagent_looppckts, align 4
+  %275 = add i32 %.0.i.i, 76
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %274, ptr noundef %0, i32 noundef %275, i32 noundef 8, i32 noundef 0) #2
+  %277 = load i32, ptr @hf_waveagent_loopbytes, align 4
+  %278 = add i32 %.0.i.i, 84
+  %279 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %277, ptr noundef %0, i32 noundef %278, i32 noundef 8, i32 noundef 0) #2
+  %280 = load i32, ptr @hf_waveagent_rxctlpckts, align 4
+  %281 = add i32 %.0.i.i, 92
+  %282 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %280, ptr noundef %0, i32 noundef %281, i32 noundef 8, i32 noundef 0) #2
+  %283 = load i32, ptr @hf_waveagent_rxctlbytes, align 4
+  %284 = add i32 %.0.i.i, 100
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %283, ptr noundef %0, i32 noundef %284, i32 noundef 8, i32 noundef 0) #2
+  %286 = load i32, ptr @hf_waveagent_txctlpckts, align 4
+  %287 = add i32 %.0.i.i, 108
+  %288 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %286, ptr noundef %0, i32 noundef %287, i32 noundef 8, i32 noundef 0) #2
+  %289 = load i32, ptr @hf_waveagent_txctlbytes, align 4
+  %290 = add i32 %.0.i.i, 116
+  %291 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %289, ptr noundef %0, i32 noundef %290, i32 noundef 8, i32 noundef 0) #2
+  %292 = load i32, ptr @hf_waveagent_unknowncmds, align 4
+  %293 = add i32 %.0.i.i, 124
+  %294 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %292, ptr noundef %0, i32 noundef %293, i32 noundef 8, i32 noundef 0) #2
+  %295 = load i32, ptr @hf_waveagent_snap, align 4
+  %296 = add i32 %.0.i.i, 132
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %295, ptr noundef %0, i32 noundef %296, i32 noundef 8, i32 noundef 0) #2
+  %298 = load i32, ptr @hf_waveagent_rx1pl, align 4
+  %299 = add i32 %.0.i.i, 284
+  %300 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %298, ptr noundef %0, i32 noundef %299, i32 noundef 8, i32 noundef 0) #2
+  %301 = load i32, ptr @hf_waveagent_rx2pl, align 4
+  %302 = add i32 %.0.i.i, 292
+  %303 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %301, ptr noundef %0, i32 noundef %302, i32 noundef 8, i32 noundef 0) #2
+  %304 = load i32, ptr @hf_waveagent_rx3pl, align 4
+  %305 = add i32 %.0.i.i, 300
+  %306 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %304, ptr noundef %0, i32 noundef %305, i32 noundef 8, i32 noundef 0) #2
+  %307 = load i32, ptr @hf_waveagent_rx4pl, align 4
+  %308 = add i32 %.0.i.i, 308
+  %309 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %307, ptr noundef %0, i32 noundef %308, i32 noundef 8, i32 noundef 0) #2
+  %310 = load i32, ptr @hf_waveagent_rx5pl, align 4
+  %311 = add i32 %.0.i.i, 316
+  %312 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %310, ptr noundef %0, i32 noundef %311, i32 noundef 8, i32 noundef 0) #2
+  %313 = load i32, ptr @hf_waveagent_rxoospkts, align 4
+  %314 = add i32 %.0.i.i, 324
+  %315 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %313, ptr noundef %0, i32 noundef %314, i32 noundef 8, i32 noundef 0) #2
+  %316 = load i32, ptr @hf_waveagent_jitter, align 4
+  %317 = add i32 %.0.i.i, 356
+  %318 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %316, ptr noundef %0, i32 noundef %317, i32 noundef 8, i32 noundef 0) #2
+  br i1 %.not64.not.not.i, label %319, label %dissect_wa_payload.exit.i
 
-320:                                              ; preds = %242
-  %321 = load i32, ptr @hf_waveagent_delayfactor, align 4
-  %322 = add i32 %.0.i.i, 364
-  %323 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %321, ptr noundef %0, i32 noundef %322, i32 noundef 8, i32 noundef 0) #2
-  %324 = load i32, ptr @hf_waveagent_medialossrate, align 4
-  %325 = add i32 %.0.i.i, 372
-  %326 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %324, ptr noundef %0, i32 noundef %325, i32 noundef 8, i32 noundef 0) #2
-  %327 = load i32, ptr @hf_waveagent_txstartts, align 4
-  %328 = add i32 %.0.i.i, 380
-  %329 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %327, ptr noundef %0, i32 noundef %328, i32 noundef 8, i32 noundef 0) #2
-  %330 = load i32, ptr @hf_waveagent_txendts, align 4
-  %331 = add i32 %.0.i.i, 388
-  %332 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %330, ptr noundef %0, i32 noundef %331, i32 noundef 8, i32 noundef 0) #2
-  %333 = load i32, ptr @hf_waveagent_rxstartts, align 4
-  %334 = add i32 %.0.i.i, 396
-  %335 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %333, ptr noundef %0, i32 noundef %334, i32 noundef 8, i32 noundef 0) #2
-  %336 = load i32, ptr @hf_waveagent_rxendts, align 4
-  %337 = add i32 %.0.i.i, 404
-  %338 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %336, ptr noundef %0, i32 noundef %337, i32 noundef 8, i32 noundef 0) #2
-  %339 = load i32, ptr @hf_waveagent_latencysum, align 4
-  %340 = add i32 %.0.i.i, 412
-  %341 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %339, ptr noundef %0, i32 noundef %340, i32 noundef 8, i32 noundef 0) #2
-  %342 = load i32, ptr @hf_waveagent_latencycount, align 4
-  %343 = add i32 %.0.i.i, 420
-  %344 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %342, ptr noundef %0, i32 noundef %343, i32 noundef 8, i32 noundef 0) #2
-  %345 = load i32, ptr @hf_waveagent_txflowstop, align 4
-  %346 = add i32 %.0.i.i, 428
-  %347 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %345, ptr noundef %0, i32 noundef %346, i32 noundef 8, i32 noundef 0) #2
+319:                                              ; preds = %241
+  %320 = load i32, ptr @hf_waveagent_delayfactor, align 4
+  %321 = add i32 %.0.i.i, 364
+  %322 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %320, ptr noundef %0, i32 noundef %321, i32 noundef 8, i32 noundef 0) #2
+  %323 = load i32, ptr @hf_waveagent_medialossrate, align 4
+  %324 = add i32 %.0.i.i, 372
+  %325 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %323, ptr noundef %0, i32 noundef %324, i32 noundef 8, i32 noundef 0) #2
+  %326 = load i32, ptr @hf_waveagent_txstartts, align 4
+  %327 = add i32 %.0.i.i, 380
+  %328 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %326, ptr noundef %0, i32 noundef %327, i32 noundef 8, i32 noundef 0) #2
+  %329 = load i32, ptr @hf_waveagent_txendts, align 4
+  %330 = add i32 %.0.i.i, 388
+  %331 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %329, ptr noundef %0, i32 noundef %330, i32 noundef 8, i32 noundef 0) #2
+  %332 = load i32, ptr @hf_waveagent_rxstartts, align 4
+  %333 = add i32 %.0.i.i, 396
+  %334 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %332, ptr noundef %0, i32 noundef %333, i32 noundef 8, i32 noundef 0) #2
+  %335 = load i32, ptr @hf_waveagent_rxendts, align 4
+  %336 = add i32 %.0.i.i, 404
+  %337 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %335, ptr noundef %0, i32 noundef %336, i32 noundef 8, i32 noundef 0) #2
+  %338 = load i32, ptr @hf_waveagent_latencysum, align 4
+  %339 = add i32 %.0.i.i, 412
+  %340 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %338, ptr noundef %0, i32 noundef %339, i32 noundef 8, i32 noundef 0) #2
+  %341 = load i32, ptr @hf_waveagent_latencycount, align 4
+  %342 = add i32 %.0.i.i, 420
+  %343 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %341, ptr noundef %0, i32 noundef %342, i32 noundef 8, i32 noundef 0) #2
+  %344 = load i32, ptr @hf_waveagent_txflowstop, align 4
+  %345 = add i32 %.0.i.i, 428
+  %346 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %344, ptr noundef %0, i32 noundef %345, i32 noundef 8, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-348:                                              ; preds = %50
-  %349 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %350 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %349, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %351 = load i32, ptr @hf_waveagent_connectflags, align 4
-  %352 = add i32 %.0.i, 4
-  %353 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %351, ptr noundef %0, i32 noundef %352, i32 noundef 4, i32 noundef 0) #2
-  %354 = load i32, ptr @hf_waveagent_connecttype, align 4
-  %355 = add i32 %.0.i, 8
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %354, ptr noundef %0, i32 noundef %355, i32 noundef 4, i32 noundef 0) #2
-  %357 = load i32, ptr @hf_waveagent_scanssid, align 4
-  %358 = add i32 %.0.i, 12
-  %359 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %357, ptr noundef %0, i32 noundef %358, i32 noundef 32, i32 noundef 0) #2
-  %360 = add i32 %.0.i, 142
-  %361 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %360) #2
-  %362 = add i32 %.0.i, 46
-  %.not499.i.i = icmp eq i32 %361, 0
-  br i1 %.not499.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+347:                                              ; preds = %49
+  %348 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %349 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %348, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %350 = load i32, ptr @hf_waveagent_connectflags, align 4
+  %351 = add i32 %.0.i, 4
+  %352 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %350, ptr noundef %0, i32 noundef %351, i32 noundef 4, i32 noundef 0) #2
+  %353 = load i32, ptr @hf_waveagent_connecttype, align 4
+  %354 = add i32 %.0.i, 8
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %353, ptr noundef %0, i32 noundef %354, i32 noundef 4, i32 noundef 0) #2
+  %356 = load i32, ptr @hf_waveagent_scanssid, align 4
+  %357 = add i32 %.0.i, 12
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %356, ptr noundef %0, i32 noundef %357, i32 noundef 32, i32 noundef 0) #2
+  %359 = add i32 %.0.i, 142
+  %360 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %359) #2
+  %361 = add i32 %.0.i, 46
+  %.not505.i.i = icmp eq i32 %360, 0
+  br i1 %.not505.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %348, %.lr.ph.i.i
-  %.0486493.i.i = phi i32 [ %367, %.lr.ph.i.i ], [ 0, %348 ]
-  %363 = mul i32 %.0486493.i.i, 6
-  %364 = add i32 %362, %363
-  %365 = load i32, ptr @hf_waveagent_scanbssid, align 4
-  %366 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %365, ptr noundef %0, i32 noundef %364, i32 noundef 6, i32 noundef 0) #2
-  %367 = add nuw i32 %.0486493.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %367, %361
+.lr.ph.i.i:                                       ; preds = %347, %.lr.ph.i.i
+  %.0486499.i.i = phi i32 [ %366, %.lr.ph.i.i ], [ 0, %347 ]
+  %362 = mul i32 %.0486499.i.i, 6
+  %363 = add i32 %361, %362
+  %364 = load i32, ptr @hf_waveagent_scanbssid, align 4
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %364, ptr noundef %0, i32 noundef %363, i32 noundef 6, i32 noundef 0) #2
+  %366 = add nuw i32 %.0486499.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %366, %360
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %348
-  %368 = load i32, ptr @hf_waveagent_minrssi, align 4
-  %369 = add i32 %.0.i, 146
-  %370 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %368, ptr noundef %0, i32 noundef %369, i32 noundef 4, i32 noundef 0) #2
-  %371 = load i32, ptr @hf_waveagent_connecttimeout, align 4
-  %372 = add i32 %.0.i, 150
-  %373 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %371, ptr noundef %0, i32 noundef %372, i32 noundef 4, i32 noundef 0) #2
-  %374 = load i32, ptr @hf_waveagent_connectattempts, align 4
-  %375 = add i32 %.0.i, 154
-  %376 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %374, ptr noundef %0, i32 noundef %375, i32 noundef 4, i32 noundef 0) #2
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %347
+  %367 = load i32, ptr @hf_waveagent_minrssi, align 4
+  %368 = add i32 %.0.i, 146
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %367, ptr noundef %0, i32 noundef %368, i32 noundef 4, i32 noundef 0) #2
+  %370 = load i32, ptr @hf_waveagent_connecttimeout, align 4
+  %371 = add i32 %.0.i, 150
+  %372 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %370, ptr noundef %0, i32 noundef %371, i32 noundef 4, i32 noundef 0) #2
+  %373 = load i32, ptr @hf_waveagent_connectattempts, align 4
+  %374 = add i32 %.0.i, 154
+  %375 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %373, ptr noundef %0, i32 noundef %374, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-377:                                              ; preds = %50
-  %378 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %379 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %378, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %380 = load i32, ptr @hf_waveagent_reason, align 4
-  %381 = add i32 %.0.i, 4
-  %382 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %380, ptr noundef %0, i32 noundef %381, i32 noundef 4, i32 noundef 0) #2
+376:                                              ; preds = %49
+  %377 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %378 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %377, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %379 = load i32, ptr @hf_waveagent_reason, align 4
+  %380 = add i32 %.0.i, 4
+  %381 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %379, ptr noundef %0, i32 noundef %380, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-383:                                              ; preds = %50
-  br i1 %18, label %390, label %384
+382:                                              ; preds = %49
+  br i1 %.not64.not.not.i, label %389, label %383
 
-384:                                              ; preds = %383
-  %385 = load i32, ptr @hf_waveagent_capstatus, align 4
-  %386 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %385, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %387 = load i32, ptr @hf_waveagent_protocolversion, align 4
-  %388 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %387, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #2
-  %389 = add i32 %.0.i, 4
-  br label %390
+383:                                              ; preds = %382
+  %384 = load i32, ptr @hf_waveagent_capstatus, align 4
+  %385 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %384, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %386 = load i32, ptr @hf_waveagent_protocolversion, align 4
+  %387 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %386, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #2
+  %388 = add i32 %.0.i, 4
+  br label %389
 
-390:                                              ; preds = %384, %383
-  %.1.i.i = phi i32 [ %389, %384 ], [ %.0.i, %383 ]
-  %391 = load i32, ptr @hf_waveagent_capimpl, align 4
-  %392 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %391, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef 4, i32 noundef 0) #2
-  %393 = load i32, ptr @hf_waveagent_id, align 4
-  %394 = add i32 %.1.i.i, 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %393, ptr noundef %0, i32 noundef %394, i32 noundef 128, i32 noundef 0) #2
-  %396 = load i32, ptr @hf_waveagent_bindtag, align 4
-  %397 = add i32 %.1.i.i, 136
-  %398 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %396, ptr noundef %0, i32 noundef %397, i32 noundef 128, i32 noundef 0) #2
-  %399 = load i32, ptr @hf_waveagent_version, align 4
-  %400 = add i32 %.1.i.i, 268
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %399, ptr noundef %0, i32 noundef %400, i32 noundef 128, i32 noundef 0) #2
-  %402 = load i32, ptr @hf_waveagent_brokerip, align 4
-  %403 = add i32 %.1.i.i, 400
-  %404 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %402, ptr noundef %0, i32 noundef %403, i32 noundef 4, i32 noundef 0) #2
-  %405 = load i32, ptr @hf_waveagent_brokerport, align 4
-  %406 = add i32 %.1.i.i, 404
-  %407 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %405, ptr noundef %0, i32 noundef %406, i32 noundef 4, i32 noundef 0) #2
-  %408 = load i32, ptr @hf_waveagent_bindlevel, align 4
-  %409 = add i32 %.1.i.i, 408
-  %410 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %408, ptr noundef %0, i32 noundef %409, i32 noundef 4, i32 noundef 0) #2
-  %411 = load i32, ptr @hf_waveagent_bindport, align 4
-  %412 = add i32 %.1.i.i, 412
-  %413 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %411, ptr noundef %0, i32 noundef %412, i32 noundef 4, i32 noundef 0) #2
-  br i1 %18, label %414, label %dissect_wa_payload.exit.i
+389:                                              ; preds = %383, %382
+  %.1.i.i = phi i32 [ %388, %383 ], [ %.0.i, %382 ]
+  %390 = load i32, ptr @hf_waveagent_capimpl, align 4
+  %391 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %390, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef 4, i32 noundef 0) #2
+  %392 = load i32, ptr @hf_waveagent_id, align 4
+  %393 = add i32 %.1.i.i, 4
+  %394 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %392, ptr noundef %0, i32 noundef %393, i32 noundef 128, i32 noundef 0) #2
+  %395 = load i32, ptr @hf_waveagent_bindtag, align 4
+  %396 = add i32 %.1.i.i, 136
+  %397 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %395, ptr noundef %0, i32 noundef %396, i32 noundef 128, i32 noundef 0) #2
+  %398 = load i32, ptr @hf_waveagent_version, align 4
+  %399 = add i32 %.1.i.i, 268
+  %400 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %398, ptr noundef %0, i32 noundef %399, i32 noundef 128, i32 noundef 0) #2
+  %401 = load i32, ptr @hf_waveagent_brokerip, align 4
+  %402 = add i32 %.1.i.i, 400
+  %403 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %401, ptr noundef %0, i32 noundef %402, i32 noundef 4, i32 noundef 0) #2
+  %404 = load i32, ptr @hf_waveagent_brokerport, align 4
+  %405 = add i32 %.1.i.i, 404
+  %406 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %404, ptr noundef %0, i32 noundef %405, i32 noundef 4, i32 noundef 0) #2
+  %407 = load i32, ptr @hf_waveagent_bindlevel, align 4
+  %408 = add i32 %.1.i.i, 408
+  %409 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %407, ptr noundef %0, i32 noundef %408, i32 noundef 4, i32 noundef 0) #2
+  %410 = load i32, ptr @hf_waveagent_bindport, align 4
+  %411 = add i32 %.1.i.i, 412
+  %412 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %410, ptr noundef %0, i32 noundef %411, i32 noundef 4, i32 noundef 0) #2
+  br i1 %.not64.not.not.i, label %413, label %dissect_wa_payload.exit.i
 
-414:                                              ; preds = %390
-  %415 = load i32, ptr @hf_waveagent_capabilities2, align 4
-  %416 = add i32 %.1.i.i, 416
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %415, ptr noundef %0, i32 noundef %416, i32 noundef 4, i32 noundef 0) #2
-  %418 = load i32, ptr @hf_waveagent_numinterfaces, align 4
-  %419 = add i32 %.1.i.i, 420
-  %420 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %418, ptr noundef %0, i32 noundef %419, i32 noundef 4, i32 noundef 0) #2
-  %421 = load i32, ptr @hf_waveagent_ifmask, align 4
-  %422 = add i32 %.1.i.i, 424
-  %423 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %421, ptr noundef %0, i32 noundef %422, i32 noundef 4, i32 noundef 0) #2
+413:                                              ; preds = %389
+  %414 = load i32, ptr @hf_waveagent_capabilities2, align 4
+  %415 = add i32 %.1.i.i, 416
+  %416 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %414, ptr noundef %0, i32 noundef %415, i32 noundef 4, i32 noundef 0) #2
+  %417 = load i32, ptr @hf_waveagent_numinterfaces, align 4
+  %418 = add i32 %.1.i.i, 420
+  %419 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %417, ptr noundef %0, i32 noundef %418, i32 noundef 4, i32 noundef 0) #2
+  %420 = load i32, ptr @hf_waveagent_ifmask, align 4
+  %421 = add i32 %.1.i.i, 424
+  %422 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %420, ptr noundef %0, i32 noundef %421, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-424:                                              ; preds = %50
-  %425 = load i32, ptr @hf_waveagent_bindtag, align 4
-  %426 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %425, ptr noundef %0, i32 noundef %.0.i, i32 noundef 128, i32 noundef 0) #2
-  %427 = load i32, ptr @hf_waveagent_brokerip, align 4
-  %428 = add i32 %.0.i, 132
-  %429 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %427, ptr noundef %0, i32 noundef %428, i32 noundef 4, i32 noundef 0) #2
-  %430 = load i32, ptr @hf_waveagent_brokerport, align 4
-  %431 = add i32 %.0.i, 136
-  %432 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %430, ptr noundef %0, i32 noundef %431, i32 noundef 4, i32 noundef 0) #2
+423:                                              ; preds = %49
+  %424 = load i32, ptr @hf_waveagent_bindtag, align 4
+  %425 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %424, ptr noundef %0, i32 noundef %.0.i, i32 noundef 128, i32 noundef 0) #2
+  %426 = load i32, ptr @hf_waveagent_brokerip, align 4
+  %427 = add i32 %.0.i, 132
+  %428 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %426, ptr noundef %0, i32 noundef %427, i32 noundef 4, i32 noundef 0) #2
+  %429 = load i32, ptr @hf_waveagent_brokerport, align 4
+  %430 = add i32 %.0.i, 136
+  %431 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %429, ptr noundef %0, i32 noundef %430, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-433:                                              ; preds = %50
-  br i1 %18, label %437, label %434
+432:                                              ; preds = %49
+  br i1 %.not64.not.not.i, label %436, label %433
 
-434:                                              ; preds = %433
-  %435 = load i32, ptr @hf_waveagent_rxflownum, align 4
-  %436 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %435, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  br label %437
+433:                                              ; preds = %432
+  %434 = load i32, ptr @hf_waveagent_rxflownum, align 4
+  %435 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %434, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  br label %436
 
-437:                                              ; preds = %434, %433
-  %438 = load i32, ptr @hf_waveagent_mode, align 4
-  %439 = add i32 %.0.i, 7
-  %440 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %438, ptr noundef %0, i32 noundef %439, i32 noundef 1, i32 noundef 0) #2
-  %441 = load i32, ptr @hf_waveagent_endpointtype, align 4
-  %442 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %441, ptr noundef %0, i32 noundef %439, i32 noundef 1, i32 noundef 0) #2
-  %443 = load i32, ptr @hf_waveagent_bindport, align 4
-  %444 = add i32 %.0.i, 8
-  %445 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %443, ptr noundef %0, i32 noundef %444, i32 noundef 4, i32 noundef 0) #2
-  %446 = load i32, ptr @hf_waveagent_bindlevel, align 4
-  %447 = add i32 %.0.i, 12
-  %448 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %446, ptr noundef %0, i32 noundef %447, i32 noundef 4, i32 noundef 0) #2
-  %449 = load i32, ptr @hf_waveagent_remoteport, align 4
-  %450 = add i32 %.0.i, 16
-  %451 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %449, ptr noundef %0, i32 noundef %450, i32 noundef 4, i32 noundef 0) #2
-  %452 = load i32, ptr @hf_waveagent_remoteaddr, align 4
-  %453 = add i32 %.0.i, 24
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %452, ptr noundef %0, i32 noundef %453, i32 noundef 4, i32 noundef 0) #2
-  %455 = load i32, ptr @hf_waveagent_dscp, align 4
-  %456 = add i32 %.0.i, 40
-  %457 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %455, ptr noundef %0, i32 noundef %456, i32 noundef 4, i32 noundef 0) #2
-  %458 = add i32 %.0.i, 44
-  %459 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %458) #2
-  %460 = load i32, ptr @hf_waveagent_fsflags, align 4
-  %461 = tail call ptr @proto_tree_add_uint(ptr noundef %.060.i, i32 noundef %460, ptr noundef %0, i32 noundef %458, i32 noundef 4, i32 noundef %459) #2
-  %462 = load i32, ptr @ett_fsflags, align 4
-  %463 = tail call ptr @proto_item_add_subtree(ptr noundef %461, i32 noundef %462) #2
-  %464 = load i32, ptr @hf_waveagent_fscbrflag, align 4
-  %465 = add i32 %.0.i, 47
-  %466 = tail call ptr @proto_tree_add_item(ptr noundef %463, i32 noundef %464, ptr noundef %0, i32 noundef %465, i32 noundef 1, i32 noundef -2147483648) #2
-  %467 = load i32, ptr @hf_waveagent_fscombinedsetupflag, align 4
-  %468 = tail call ptr @proto_tree_add_item(ptr noundef %463, i32 noundef %467, ptr noundef %0, i32 noundef %465, i32 noundef 1, i32 noundef -2147483648) #2
-  br i1 %18, label %469, label %dissect_wa_payload.exit.i
+436:                                              ; preds = %433, %432
+  %437 = load i32, ptr @hf_waveagent_mode, align 4
+  %438 = add i32 %.0.i, 7
+  %439 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %437, ptr noundef %0, i32 noundef %438, i32 noundef 1, i32 noundef 0) #2
+  %440 = load i32, ptr @hf_waveagent_endpointtype, align 4
+  %441 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %440, ptr noundef %0, i32 noundef %438, i32 noundef 1, i32 noundef 0) #2
+  %442 = load i32, ptr @hf_waveagent_bindport, align 4
+  %443 = add i32 %.0.i, 8
+  %444 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %442, ptr noundef %0, i32 noundef %443, i32 noundef 4, i32 noundef 0) #2
+  %445 = load i32, ptr @hf_waveagent_bindlevel, align 4
+  %446 = add i32 %.0.i, 12
+  %447 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %445, ptr noundef %0, i32 noundef %446, i32 noundef 4, i32 noundef 0) #2
+  %448 = load i32, ptr @hf_waveagent_remoteport, align 4
+  %449 = add i32 %.0.i, 16
+  %450 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %448, ptr noundef %0, i32 noundef %449, i32 noundef 4, i32 noundef 0) #2
+  %451 = load i32, ptr @hf_waveagent_remoteaddr, align 4
+  %452 = add i32 %.0.i, 24
+  %453 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %451, ptr noundef %0, i32 noundef %452, i32 noundef 4, i32 noundef 0) #2
+  %454 = load i32, ptr @hf_waveagent_dscp, align 4
+  %455 = add i32 %.0.i, 40
+  %456 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %454, ptr noundef %0, i32 noundef %455, i32 noundef 4, i32 noundef 0) #2
+  %457 = add i32 %.0.i, 44
+  %458 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %457) #2
+  %459 = load i32, ptr @hf_waveagent_fsflags, align 4
+  %460 = tail call ptr @proto_tree_add_uint(ptr noundef %.060.i, i32 noundef %459, ptr noundef %0, i32 noundef %457, i32 noundef 4, i32 noundef %458) #2
+  %461 = load i32, ptr @ett_fsflags, align 4
+  %462 = tail call ptr @proto_item_add_subtree(ptr noundef %460, i32 noundef %461) #2
+  %463 = load i32, ptr @hf_waveagent_fscbrflag, align 4
+  %464 = add i32 %.0.i, 47
+  %465 = tail call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %463, ptr noundef %0, i32 noundef %464, i32 noundef 1, i32 noundef -2147483648) #2
+  %466 = load i32, ptr @hf_waveagent_fscombinedsetupflag, align 4
+  %467 = tail call ptr @proto_tree_add_item(ptr noundef %462, i32 noundef %466, ptr noundef %0, i32 noundef %464, i32 noundef 1, i32 noundef -2147483648) #2
+  br i1 %.not64.not.not.i, label %468, label %dissect_wa_payload.exit.i
 
-469:                                              ; preds = %437
-  %470 = load i32, ptr @hf_waveagent_ifindex, align 4
-  %471 = add i32 %.0.i, 48
-  %472 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %470, ptr noundef %0, i32 noundef %471, i32 noundef 4, i32 noundef 0) #2
-  %473 = load i32, ptr @hf_waveagent_payfill, align 4
-  %474 = add i32 %.0.i, 52
-  %475 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %473, ptr noundef %0, i32 noundef %474, i32 noundef 4, i32 noundef 0) #2
-  %476 = load i32, ptr @hf_waveagent_paysize, align 4
-  %477 = add i32 %.0.i, 56
-  %478 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %476, ptr noundef %0, i32 noundef %477, i32 noundef 4, i32 noundef 0) #2
-  %479 = load i32, ptr @hf_waveagent_avgrate, align 4
-  %480 = add i32 %.0.i, 60
-  %481 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %479, ptr noundef %0, i32 noundef %480, i32 noundef 4, i32 noundef 0) #2
-  %482 = load i32, ptr @hf_waveagent_totalframes, align 4
-  %483 = add i32 %.0.i, 64
-  %484 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %482, ptr noundef %0, i32 noundef %483, i32 noundef 4, i32 noundef 0) #2
+468:                                              ; preds = %436
+  %469 = load i32, ptr @hf_waveagent_ifindex, align 4
+  %470 = add i32 %.0.i, 48
+  %471 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %469, ptr noundef %0, i32 noundef %470, i32 noundef 4, i32 noundef 0) #2
+  %472 = load i32, ptr @hf_waveagent_payfill, align 4
+  %473 = add i32 %.0.i, 52
+  %474 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %472, ptr noundef %0, i32 noundef %473, i32 noundef 4, i32 noundef 0) #2
+  %475 = load i32, ptr @hf_waveagent_paysize, align 4
+  %476 = add i32 %.0.i, 56
+  %477 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %475, ptr noundef %0, i32 noundef %476, i32 noundef 4, i32 noundef 0) #2
+  %478 = load i32, ptr @hf_waveagent_avgrate, align 4
+  %479 = add i32 %.0.i, 60
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %478, ptr noundef %0, i32 noundef %479, i32 noundef 4, i32 noundef 0) #2
+  %481 = load i32, ptr @hf_waveagent_totalframes, align 4
+  %482 = add i32 %.0.i, 64
+  %483 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %481, ptr noundef %0, i32 noundef %482, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-485:                                              ; preds = %50
-  %486 = load i32, ptr @hf_waveagent_destip, align 4
-  %487 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %486, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %488 = load i32, ptr @hf_waveagent_destport, align 4
-  %489 = add i32 %.0.i, 4
-  %490 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %488, ptr noundef %0, i32 noundef %489, i32 noundef 4, i32 noundef 0) #2
-  %491 = load i32, ptr @hf_waveagent_connectflags, align 4
-  %492 = add i32 %.0.i, 8
-  %493 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %491, ptr noundef %0, i32 noundef %492, i32 noundef 4, i32 noundef 0) #2
+484:                                              ; preds = %49
+  %485 = load i32, ptr @hf_waveagent_destip, align 4
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %485, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %487 = load i32, ptr @hf_waveagent_destport, align 4
+  %488 = add i32 %.0.i, 4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %487, ptr noundef %0, i32 noundef %488, i32 noundef 4, i32 noundef 0) #2
+  %490 = load i32, ptr @hf_waveagent_connectflags, align 4
+  %491 = add i32 %.0.i, 8
+  %492 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %490, ptr noundef %0, i32 noundef %491, i32 noundef 4, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-494:                                              ; preds = %50, %50
-  %495 = load i32, ptr @hf_waveagent_commandstatus, align 4
-  %496 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %495, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
-  %497 = load i32, ptr @hf_waveagent_syserrno, align 4
-  %498 = add i32 %.0.i, 4
-  %499 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %497, ptr noundef %0, i32 noundef %498, i32 noundef 4, i32 noundef 0) #2
-  %500 = load i32, ptr @hf_waveagent_statusstring, align 4
-  %501 = add i32 %.0.i, 8
-  %502 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %500, ptr noundef %0, i32 noundef %501, i32 noundef 128, i32 noundef 0) #2
+493:                                              ; preds = %49, %49
+  %494 = load i32, ptr @hf_waveagent_commandstatus, align 4
+  %495 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %494, ptr noundef %0, i32 noundef %.0.i, i32 noundef 4, i32 noundef 0) #2
+  %496 = load i32, ptr @hf_waveagent_syserrno, align 4
+  %497 = add i32 %.0.i, 4
+  %498 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %496, ptr noundef %0, i32 noundef %497, i32 noundef 4, i32 noundef 0) #2
+  %499 = load i32, ptr @hf_waveagent_statusstring, align 4
+  %500 = add i32 %.0.i, 8
+  %501 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %499, ptr noundef %0, i32 noundef %500, i32 noundef 128, i32 noundef 0) #2
   br label %dissect_wa_payload.exit.i
 
-dissect_wa_payload.exit.i:                        ; preds = %.loopexit.i, %163, %494, %485, %469, %437, %424, %414, %390, %377, %._crit_edge.i.i, %320, %242, %185, %164, %103, %75, %72, %63, %51, %50, %16
-  %503 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  %504 = icmp sgt i32 %503, 0
-  %505 = zext i1 %504 to i32
+dissect_wa_payload.exit.i:                        ; preds = %.loopexit.i, %162, %493, %484, %468, %436, %423, %413, %389, %376, %._crit_edge.i.i, %319, %241, %184, %163, %102, %74, %71, %62, %50, %49, %16
+  %502 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  %503 = icmp sgt i32 %502, 0
+  %504 = zext i1 %503 to i32
   br label %dissect_waveagent.exit
 
 dissect_waveagent.exit:                           ; preds = %4, %7, %10, %dissect_wa_payload.exit.i
-  %.058.i = phi i32 [ %505, %dissect_wa_payload.exit.i ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
+  %.058.i = phi i32 [ %504, %dissect_wa_payload.exit.i ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
   ret i32 %.058.i
 }
 
@@ -1231,7 +1231,7 @@ declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_wa_header(i32 noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_wa_header(i32 noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef zeroext range(i8 2, 4) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_waveagent_controlword, align 4
   %6 = add i32 %0, 30
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %2, i32 noundef %6, i32 noundef 2, i32 noundef 0) #2
@@ -1247,24 +1247,24 @@ define internal fastcc noundef i32 @dissect_wa_header(i32 noundef %0, ptr nounde
   %17 = load i32, ptr @hf_waveagent_flowid, align 4
   %18 = add i32 %0, 36
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %17, ptr noundef %2, i32 noundef %18, i32 noundef 4, i32 noundef 0) #2
-  %20 = icmp ugt i8 %3, 2
-  br i1 %20, label %21, label %27
+  %.not = icmp eq i8 %3, 2
+  br i1 %.not, label %26, label %20
 
-21:                                               ; preds = %4
-  %22 = load i32, ptr @hf_waveagent_capstatus, align 4
-  %23 = add i32 %0, 40
-  %24 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %22, ptr noundef %2, i32 noundef %23, i32 noundef 4, i32 noundef 0) #2
-  %25 = load i32, ptr @hf_waveagent_protocolversion, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %2, i32 noundef %23, i32 noundef 1, i32 noundef 0) #2
-  br label %27
+20:                                               ; preds = %4
+  %21 = load i32, ptr @hf_waveagent_capstatus, align 4
+  %22 = add i32 %0, 40
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %2, i32 noundef %22, i32 noundef 4, i32 noundef 0) #2
+  %24 = load i32, ptr @hf_waveagent_protocolversion, align 4
+  %25 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %24, ptr noundef %2, i32 noundef %22, i32 noundef 1, i32 noundef 0) #2
+  br label %26
 
-27:                                               ; preds = %4, %21
-  %.sink = phi i32 [ 44, %21 ], [ 40, %4 ]
-  %28 = add i32 %0, %.sink
-  %29 = load i32, ptr @hf_waveagent_sigsequencenum, align 4
-  %30 = add i32 %0, 4
-  %31 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %29, ptr noundef %2, i32 noundef %30, i32 noundef 1, i32 noundef 0) #2
-  ret i32 %28
+26:                                               ; preds = %4, %20
+  %.sink = phi i32 [ 44, %20 ], [ 40, %4 ]
+  %27 = add i32 %0, %.sink
+  %28 = load i32, ptr @hf_waveagent_sigsequencenum, align 4
+  %29 = add i32 %0, 4
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 1, i32 noundef 0) #2
+  ret i32 %27
 }
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

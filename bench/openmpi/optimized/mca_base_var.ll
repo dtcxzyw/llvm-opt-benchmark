@@ -1157,7 +1157,7 @@ define noundef i32 @mca_base_var_process_env_list(ptr noundef %0, ptr noundef %1
   br i1 %.not10, label %14, label %13
 
 13:                                               ; preds = %12
-  tail call fastcc void @process_env_list(ptr noundef nonnull %0, ptr noundef %1, i8 noundef signext %.0)
+  tail call fastcc void @process_env_list(ptr noundef %0, ptr noundef %1, i8 noundef signext %.0)
   br label %17
 
 14:                                               ; preds = %12
@@ -1166,7 +1166,7 @@ define noundef i32 @mca_base_var_process_env_list(ptr noundef %0, ptr noundef %1
   br i1 %.not11, label %17, label %16
 
 16:                                               ; preds = %14
-  tail call fastcc void @process_env_list(ptr noundef nonnull %15, ptr noundef %1, i8 noundef signext %.0)
+  tail call fastcc void @process_env_list(ptr noundef %15, ptr noundef %1, i8 noundef signext %.0)
   br label %17
 
 17:                                               ; preds = %13, %16, %14, %9
@@ -1174,9 +1174,9 @@ define noundef i32 @mca_base_var_process_env_list(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_env_list(ptr noundef %0, ptr noundef %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc void @process_env_list(ptr noundef nonnull %0, ptr noundef %1, i8 noundef signext %2) unnamed_addr #0 {
   %4 = sext i8 %2 to i32
-  %5 = tail call noalias ptr @opal_argv_split(ptr noundef %0, i32 noundef %4) #22
+  %5 = tail call noalias ptr @opal_argv_split(ptr noundef nonnull %0, i32 noundef %4) #22
   %6 = icmp eq ptr %5, null
   br i1 %6, label %34, label %.preheader
 
@@ -1199,7 +1199,7 @@ define internal fastcc void @process_env_list(ptr noundef %0, ptr noundef %1, i8
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr @opal_show_help, align 8
-  %16 = tail call i32 (ptr, ptr, i32, ...) %15(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.84, i32 noundef 1, ptr noundef nonnull %8, ptr noundef %0) #22
+  %16 = tail call i32 (ptr, ptr, i32, ...) %15(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.84, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %0) #22
   br label %.loopexit
 
 17:                                               ; preds = %11
@@ -1254,7 +1254,7 @@ define noundef i32 @mca_base_var_process_env_list_from_file(ptr noundef %0) loca
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
-  tail call fastcc void @process_env_list(ptr noundef nonnull %2, ptr noundef %0, i8 noundef signext 59)
+  tail call fastcc void @process_env_list(ptr noundef %2, ptr noundef %0, i8 noundef signext 59)
   br label %4
 
 4:                                                ; preds = %3, %1
@@ -1275,7 +1275,7 @@ define noundef i32 @mca_base_var_load_extra_files(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resolve_relative_paths(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i8 noundef signext %4) unnamed_addr #0 {
+define internal fastcc void @resolve_relative_paths(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i8 noundef signext range(i8 44, 59) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -1428,7 +1428,7 @@ fixup_files.exit:                                 ; preds = %57, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_files(ptr noundef %0, ptr noundef %1, i8 noundef signext %2) unnamed_addr #0 {
+define internal fastcc void @read_files(ptr noundef %0, ptr noundef %1, i8 noundef signext range(i8 44, 59) %2) unnamed_addr #0 {
   %4 = zext nneg i8 %2 to i32
   %5 = tail call noalias ptr @opal_argv_split(ptr noundef %0, i32 noundef %4) #22
   %.not = icmp eq ptr %5, null
@@ -3046,7 +3046,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %21, %28
   br i1 %47, label %opal_pointer_array_get_item.exit.thread, label %48
 
 48:                                               ; preds = %40, %43
-  %49 = call fastcc i32 @var_value_string(ptr noundef nonnull %26, ptr noundef nonnull %4)
+  %49 = call fastcc i32 @var_value_string(ptr noundef nonnull %26, ptr noundef %4)
   %.not31 = icmp eq i32 %49, 0
   br i1 %.not31, label %50, label %79
 
@@ -3142,7 +3142,7 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph, %.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @var_value_string(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @var_value_string(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
@@ -3157,7 +3157,7 @@ define internal fastcc i32 @var_value_string(ptr nocapture noundef readonly %0, 
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.109) #22
+  %12 = tail call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.109) #22
   br label %87
 
 13:                                               ; preds = %7, %2
@@ -3216,71 +3216,71 @@ mca_base_var_get_value.exit:                      ; preds = %17
 
 32:                                               ; preds = %31
   %33 = load i32, ptr %23, align 8
-  %34 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.110, i32 noundef %33) #22
+  %34 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i32 noundef %33) #22
   br label %73
 
 35:                                               ; preds = %31
   %36 = load i32, ptr %23, align 8
-  %37 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.110, i32 noundef %36) #22
+  %37 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i32 noundef %36) #22
   br label %73
 
 38:                                               ; preds = %31
   %39 = load i32, ptr %23, align 8
-  %40 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.111, i32 noundef %39) #22
+  %40 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.111, i32 noundef %39) #22
   br label %73
 
 41:                                               ; preds = %31
   %42 = load i64, ptr %23, align 8
-  %43 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.112, i64 noundef %42) #22
+  %43 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.112, i64 noundef %42) #22
   br label %73
 
 44:                                               ; preds = %31
   %45 = load i64, ptr %23, align 8
-  %46 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.113, i64 noundef %45) #22
+  %46 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.113, i64 noundef %45) #22
   br label %73
 
 47:                                               ; preds = %31
   %48 = load i64, ptr %23, align 8
-  %49 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.112, i64 noundef %48) #22
+  %49 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.112, i64 noundef %48) #22
   br label %73
 
 50:                                               ; preds = %31
   %51 = load i32, ptr %23, align 8
-  %52 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.111, i32 noundef %51) #22
+  %52 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.111, i32 noundef %51) #22
   br label %73
 
 53:                                               ; preds = %31
   %54 = load i64, ptr %23, align 8
-  %55 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.113, i64 noundef %54) #22
+  %55 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.113, i64 noundef %54) #22
   br label %73
 
 56:                                               ; preds = %31
   %57 = load i64, ptr %23, align 8
-  %58 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.114, i64 noundef %57) #22
+  %58 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.114, i64 noundef %57) #22
   br label %73
 
 59:                                               ; preds = %31
   %60 = load i64, ptr %23, align 8
-  %61 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.113, i64 noundef %60) #22
+  %61 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.113, i64 noundef %60) #22
   br label %73
 
 62:                                               ; preds = %31, %31
   %63 = load ptr, ptr %23, align 8
   %.not35 = icmp eq ptr %63, null
   %spec.select = select i1 %.not35, ptr @.str.70, ptr %63
-  %64 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select) #22
+  %64 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.81, ptr noundef nonnull %spec.select) #22
   br label %73
 
 65:                                               ; preds = %31
   %66 = load i8, ptr %23, align 8
   %67 = and i8 %66, 1
   %68 = zext nneg i8 %67 to i32
-  %69 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.110, i32 noundef %68) #22
+  %69 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i32 noundef %68) #22
   br label %73
 
 70:                                               ; preds = %31
   %71 = load double, ptr %23, align 8
-  %72 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef %1, ptr noundef nonnull @.str.115, double noundef %71) #22
+  %72 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.115, double noundef %71) #22
   br label %73
 
 73:                                               ; preds = %70, %65, %62, %59, %56, %53, %50, %47, %44, %41, %38, %35, %32
@@ -3302,12 +3302,12 @@ mca_base_var_get_value.exit:                      ; preds = %17
   %80 = load i8, ptr %23, align 8
   %81 = and i8 %80, 1
   %82 = zext nneg i8 %81 to i32
-  %83 = call i32 %78(ptr noundef nonnull %27, i32 noundef %82, ptr noundef %1) #22
+  %83 = call i32 %78(ptr noundef nonnull %27, i32 noundef %82, ptr noundef nonnull %1) #22
   br label %87
 
 84:                                               ; preds = %75
   %85 = load i32, ptr %23, align 8
-  %86 = call i32 %78(ptr noundef nonnull %27, i32 noundef %85, ptr noundef %1) #22
+  %86 = call i32 %78(ptr noundef nonnull %27, i32 noundef %85, ptr noundef nonnull %1) #22
   br label %87
 
 87:                                               ; preds = %.thread, %73, %mca_base_var_get_value.exit.thread, %84, %79, %mca_base_var_get_value.exit, %11
@@ -4360,7 +4360,7 @@ opal_pointer_array_get_item.exit.i148:            ; preds = %62, %55
 
 78:                                               ; preds = %75, %65
   %.0103 = phi ptr [ %77, %75 ], [ null, %65 ]
-  %79 = call fastcc i32 @var_value_string(ptr noundef nonnull %28, ptr noundef nonnull %6)
+  %79 = call fastcc i32 @var_value_string(ptr noundef nonnull %28, ptr noundef %6)
   %.not126 = icmp eq i32 %79, 0
   br i1 %.not126, label %80, label %var_get.exit.thread
 
@@ -5029,12 +5029,12 @@ define internal fastcc range(i32 -18, 1) i32 @var_set_initial(ptr nocapture noun
   %.not.i = icmp eq i32 %31, 0
   %32 = and i32 %26, 131072
   %.not37.i = icmp eq i32 %32, 0
-  %33 = call fastcc i32 @var_get_env(ptr noundef %30, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %33 = call fastcc i32 @var_get_env(ptr noundef %30, ptr noundef %3, ptr noundef %4)
   %.not38.i = icmp eq i32 %33, 0
   br i1 %.not38.i, label %.thread.i, label %34
 
 34:                                               ; preds = %._crit_edge
-  %35 = call fastcc i32 @var_get_env(ptr noundef %28, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %35 = call fastcc i32 @var_get_env(ptr noundef %28, ptr noundef %3, ptr noundef %4)
   %.not39.i = icmp eq i32 %35, 0
   br i1 %.not39.i, label %.thread.i, label %var_set_from_env.exit
 
@@ -5563,7 +5563,7 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @var_get_env(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -13, 1) i32 @var_get_env(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
   %4 = alloca [8 x i8], align 8
   store i64 26816278233960275, ptr %4, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24

@@ -1107,7 +1107,7 @@ Cbs2_ManPropagateTwo.exit.thread:                 ; preds = %138, %Cbs2_ManAssig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManPropagateOne(ptr nocapture noundef %0, i32 noundef range(i32 -1073741824, 1073741824) %1, i32 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 32
@@ -2643,7 +2643,7 @@ define internal fastcc void @Cbs2_ManCancelUntil(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Cbs2_ManResolve(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @Cbs2_ManResolve(ptr nocapture noundef %0, i32 noundef range(i32 1, 0) %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = getelementptr inbounds i8, ptr %0, i64 108
   %6 = load i32, ptr %5, align 4

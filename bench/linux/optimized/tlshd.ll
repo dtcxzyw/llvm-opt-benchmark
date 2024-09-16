@@ -671,7 +671,7 @@ declare dso_local ptr @handshake_req_private(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @handshake_genl_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = getelementptr inbounds i8, ptr %1, i64 52
@@ -692,7 +692,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
   %15 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 %15, ptr %3, align 4
-  %16 = call i32 @nla_put(ptr noundef %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %3) #6
+  %16 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %.loopexit, label %8
@@ -703,7 +703,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 44
@@ -724,7 +724,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = tail call i32 @nla_put(ptr noundef %0, i32 noundef 32775, i32 noundef 0, ptr noundef null) #6
+  %19 = tail call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 32775, i32 noundef 0, ptr noundef null) #6
   %20 = icmp slt i32 %19, 0
   %21 = icmp eq ptr %18, null
   %22 = select i1 %20, i1 true, i1 %21
@@ -734,7 +734,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   %24 = load i32, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   store i32 %24, ptr %4, align 4
-  %25 = call i32 @nla_put(ptr noundef %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4) #6
+  %25 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #6
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %32
@@ -744,7 +744,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   %29 = load i32, ptr %28, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
   store i32 %29, ptr %3, align 4
-  %30 = call i32 @nla_put(ptr noundef %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #6
+  %30 = call i32 @nla_put(ptr noundef nonnull %0, i32 noundef 2, i32 noundef 4, ptr noundef nonnull %3) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %43, label %32
@@ -768,7 +768,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certific
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = trunc i64 %41 to i32
-  call void @skb_trim(ptr noundef %0, i32 noundef %42) #6
+  call void @skb_trim(ptr noundef nonnull %0, i32 noundef %42) #6
   br label %52
 
 43:                                               ; preds = %27

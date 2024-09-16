@@ -20061,7 +20061,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %25, %31, %_ZNK4llvm
   br label %81
 
 80:                                               ; preds = %41
-  call fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2)
+  call fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2)
   br label %81
 
 81:                                               ; preds = %80, %68
@@ -20094,7 +20094,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %25, %31, %_ZNK4llvm
 
 _ZN4llvm7APFloatC2ERKS0_.exit.i:                  ; preds = %92, %91
   %93 = load ptr, ptr %12, align 8
-  call fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef nonnull %7, ptr noundef %93, ptr noundef nonnull readonly align 8 dereferenceable(785) %2)
+  call fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef %7, ptr noundef %93, ptr noundef nonnull readonly align 8 dereferenceable(785) %2)
   %94 = load ptr, ptr %87, align 8
   %.not.i.i100 = icmp eq ptr %94, %90
   br i1 %.not.i.i100, label %96, label %95
@@ -20127,7 +20127,7 @@ _ZL20emitGlobalConstantFPPKN4llvm10ConstantFPERNS_10AsmPrinterE.exit: ; preds = 
   br i1 %spec.select.i.i.i.i.i.i.i.i101, label %107, label %106
 
 106:                                              ; preds = %104
-  call fastcc void @_ZL32emitGlobalConstantDataSequentialRKN4llvm10DataLayoutEPKNS_22ConstantDataSequentialERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %5)
+  call fastcc void @_ZL32emitGlobalConstantDataSequentialRKN4llvm10DataLayoutEPKNS_22ConstantDataSequentialERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %5)
   br label %149
 
 107:                                              ; preds = %104
@@ -20138,11 +20138,11 @@ _ZL20emitGlobalConstantFPPKN4llvm10ConstantFPERNS_10AsmPrinterE.exit: ; preds = 
   ]
 
 108:                                              ; preds = %107
-  call fastcc void @_ZL23emitGlobalConstantArrayRKN4llvm10DataLayoutEPKNS_13ConstantArrayERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %.0, i64 noundef %4, ptr noundef %5)
+  call fastcc void @_ZL23emitGlobalConstantArrayRKN4llvm10DataLayoutEPKNS_13ConstantArrayERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %.0, i64 noundef %4, ptr noundef %5)
   br label %149
 
 109:                                              ; preds = %107
-  call fastcc void @_ZL24emitGlobalConstantStructRKN4llvm10DataLayoutEPKNS_14ConstantStructERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %.0, i64 noundef %4, ptr noundef %5)
+  call fastcc void @_ZL24emitGlobalConstantStructRKN4llvm10DataLayoutEPKNS_14ConstantStructERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %.0, i64 noundef %4, ptr noundef %5)
   br label %149
 
 110:                                              ; preds = %107
@@ -20185,7 +20185,7 @@ _ZL20emitGlobalConstantFPPKN4llvm10ConstantFPERNS_10AsmPrinterE.exit: ; preds = 
   br i1 %.not135, label %129, label %.thread
 
 129:                                              ; preds = %127
-  call fastcc void @_ZL24emitGlobalConstantVectorRKN4llvm10DataLayoutEPKNS_14ConstantVectorERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %5)
+  call fastcc void @_ZL24emitGlobalConstantVectorRKN4llvm10DataLayoutEPKNS_14ConstantVectorERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %5)
   br label %149
 
 .thread:                                          ; preds = %122, %127
@@ -20206,7 +20206,7 @@ _ZL20emitGlobalConstantFPPKN4llvm10ConstantFPERNS_10AsmPrinterE.exit: ; preds = 
   br i1 %142, label %143, label %144
 
 143:                                              ; preds = %.thread
-  call fastcc void @_ZL28handleIndirectSymViaGOTPCRelRN4llvm10AsmPrinterEPPKNS_6MCExprEPKNS_8ConstantEm(ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef nonnull %11, ptr noundef %.0, i64 noundef %4)
+  call fastcc void @_ZL28handleIndirectSymViaGOTPCRelRN4llvm10AsmPrinterEPPKNS_6MCExprEPKNS_8ConstantEm(ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %11, ptr noundef %.0, i64 noundef %4)
   %.pre132 = load ptr, ptr %11, align 8
   br label %144
 
@@ -23724,7 +23724,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEEN
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -23906,13 +23906,13 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %92, %95, %98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32emitGlobalConstantDataSequentialRKN4llvm10DataLayoutEPKNS_22ConstantDataSequentialERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL32emitGlobalConstantDataSequentialRKN4llvm10DataLayoutEPKNS_22ConstantDataSequentialERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::format_object", align 8
   %7 = alloca %"class.llvm::APFloat", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
-  %10 = tail call fastcc noundef i32 @_ZL22isRepeatedByteSequencePKN4llvm5ValueERKNS_10DataLayoutE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %0)
+  %10 = tail call fastcc noundef i32 @_ZL22isRepeatedByteSequencePKN4llvm5ValueERKNS_10DataLayoutE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %0)
   %.not = icmp eq i32 %10, -1
   br i1 %.not, label %30, label %11
 
@@ -24037,7 +24037,7 @@ define internal fastcc void @_ZL32emitGlobalConstantDataSequentialRKN4llvm10Data
   %84 = and i64 %83, 4294967295
   call fastcc void @_ZL21emitGlobalAliasInlineRN4llvm10AsmPrinterEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS7_EEEE(ptr noundef nonnull align 8 dereferenceable(785) %2, i64 noundef %84, ptr noundef %3)
   call void @_ZNK4llvm22ConstantDataSequential19getElementAsAPFloatEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFloat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %82) #33
-  call fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef nonnull %7, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(785) %2)
+  call fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef %7, ptr noundef %77, ptr noundef nonnull align 8 dereferenceable(785) %2)
   %85 = load ptr, ptr %79, align 8
   %86 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase15PPCDoubleDoubleEv() #37
   %.not.i73 = icmp eq ptr %85, %86
@@ -24115,10 +24115,10 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %87, %88
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23emitGlobalConstantArrayRKN4llvm10DataLayoutEPKNS_13ConstantArrayERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL23emitGlobalConstantArrayRKN4llvm10DataLayoutEPKNS_13ConstantArrayERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
-  %9 = tail call fastcc noundef i32 @_ZL22isRepeatedByteSequencePKN4llvm5ValueERKNS_10DataLayoutE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %0)
+  %9 = tail call fastcc noundef i32 @_ZL22isRepeatedByteSequencePKN4llvm5ValueERKNS_10DataLayoutE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(512) %0)
   %.not = icmp eq i32 %9, -1
   br i1 %.not, label %27, label %10
 
@@ -24206,7 +24206,7 @@ define internal fastcc void @_ZL23emitGlobalConstantArrayRKN4llvm10DataLayoutEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24emitGlobalConstantStructRKN4llvm10DataLayoutEPKNS_14ConstantStructERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL24emitGlobalConstantStructRKN4llvm10DataLayoutEPKNS_14ConstantStructERNS_10AsmPrinterEPKNS_8ConstantEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSG_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::TypeSize", align 8
@@ -24315,7 +24315,7 @@ define internal fastcc void @_ZL24emitGlobalConstantStructRKN4llvm10DataLayoutEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24emitGlobalConstantVectorRKN4llvm10DataLayoutEPKNS_14ConstantVectorERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL24emitGlobalConstantVectorRKN4llvm10DataLayoutEPKNS_14ConstantVectorERNS_10AsmPrinterEPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSD_EEEE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(785) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -24385,7 +24385,7 @@ define internal fastcc void @_ZL24emitGlobalConstantVectorRKN4llvm10DataLayoutEP
 
 _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds = %39
   call fastcc void @_ZL21emitGlobalAliasInlineRN4llvm10AsmPrinterEmPNS_8DenseMapImNS_11SmallVectorIPKNS_11GlobalAliasELj1EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS7_EEEE(ptr noundef nonnull align 8 dereferenceable(785) %2, i64 noundef 0, ptr noundef %3)
-  call fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef nonnull %38, ptr noundef nonnull align 8 dereferenceable(785) %2)
+  call fastcc void @_ZL26emitGlobalConstantLargeIntPKN4llvm11ConstantIntERNS_10AsmPrinterE(ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(785) %2)
   %43 = load ptr, ptr %12, align 8
   %44 = call { i64, i8 } @_ZNK4llvm10DataLayout17getTypeSizeInBitsEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %43)
   %.fca.0.extract.i.i = extractvalue { i64, i8 } %44, 0
@@ -24502,7 +24502,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11ConstantIntENS_8ConstantEEEDaPT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28handleIndirectSymViaGOTPCRelRN4llvm10AsmPrinterEPPKNS_6MCExprEPKNS_8ConstantEm(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28handleIndirectSymViaGOTPCRelRN4llvm10AsmPrinterEPPKNS_6MCExprEPKNS_8ConstantEm(ptr noundef nonnull align 8 dereferenceable(785) %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::MCValue", align 8
   %6 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, i8 0, i64 28, i1 false)
@@ -24667,7 +24667,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @_ZN4llvm5APInt12lshrSlowCaseEj(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL20emitGlobalConstantFPN4llvm7APFloatEPNS_4TypeERNS_10AsmPrinterE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(785) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::SmallString.1491", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
@@ -28897,7 +28897,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i26.i.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly byval(%"struct.std::pair.1052") align 8 %3) unnamed_addr #23 {
+define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr nocapture noundef readonly byval(%"struct.std::pair.1052") align 8 %3) unnamed_addr #23 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

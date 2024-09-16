@@ -1076,7 +1076,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %.loopexit680, %234
 244:                                              ; preds = %201
   %245 = load i32, ptr %85, align 4
   %246 = load ptr, ptr %84, align 8
-  %247 = invoke fastcc noundef ptr @_ZL14select_by_nameiP11gmx_enxnm_tPi(i32 noundef %245, ptr noundef %246, ptr noundef nonnull %87)
+  %247 = invoke fastcc noundef ptr @_ZL14select_by_nameiP11gmx_enxnm_tPi(i32 noundef %245, ptr noundef %246, ptr noundef %87)
           to label %..loopexit681_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 ..loopexit681_crit_edge:                          ; preds = %244
@@ -6477,7 +6477,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc noundef ptr @_ZL14select_by_nameiP11gmx_enxnm_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL14select_by_nameiP11gmx_enxnm_tPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8

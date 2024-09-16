@@ -5218,7 +5218,7 @@ declare dso_local void @intel_execlists_show_requests(ptr noundef, ptr noundef, 
 declare dso_local void @i915_request_show(ptr noundef, ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hexdump(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @hexdump(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 align 16 {
   %4 = alloca [128 x i8], align 16
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %.loopexit, label %.preheader

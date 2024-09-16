@@ -11235,7 +11235,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN32pxrInternal_v0_2
   store i32 0, ptr %25, align 4
   store i32 %38, ptr %29, align 4
   store i32 0, ptr %26, align 4
-  invoke fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef nonnull %0, i64 noundef %.015.i.i.i, i64 noundef %21, ptr noundef nonnull %7)
+  invoke fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef nonnull %0, i64 noundef %.015.i.i.i, i64 noundef %21, ptr noundef %7)
           to label %39 unwind label %113
 
 39:                                               ; preds = %30
@@ -11419,7 +11419,7 @@ _ZSt11__make_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9__g
   store i32 0, ptr %116, align 4
   store i32 %128, ptr %120, align 4
   store i32 0, ptr %117, align 4
-  invoke fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %132, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef nonnull %0, i64 noundef 0, i64 noundef %132, ptr noundef %5)
           to label %133 unwind label %206
 
 133:                                              ; preds = %.lr.ph.i5.i
@@ -11860,7 +11860,7 @@ _ZSt14__partial_sortIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EN9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SC_T1_T2_(ptr noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -14229,7 +14229,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   store i32 0, ptr %24, align 4
   store i32 %37, ptr %28, align 4
   store i32 0, ptr %25, align 4
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa41, ptr noundef nonnull %7)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa41, ptr noundef %7)
           to label %38 unwind label %112
 
 38:                                               ; preds = %29
@@ -14417,7 +14417,7 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__
   store i32 0, ptr %116, align 4
   store i32 %128, ptr %120, align 4
   store i32 0, ptr %117, align 4
-  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %132, ptr noundef nonnull %5)
+  invoke fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %132, ptr noundef %5)
           to label %133 unwind label %206
 
 133:                                              ; preds = %.lr.ph.i9.i
@@ -14862,7 +14862,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES4_ESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_114_PathPairOrderEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

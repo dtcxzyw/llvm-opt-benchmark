@@ -5656,7 +5656,7 @@ _ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit24: 
 
 if.then:                                          ; preds = %if.then.i.i21, %_ZN9grpc_core13RefCountedPtrINS_19XdsEndpointResource10DropConfigEED2Ev.exit24
   %picker_ = getelementptr inbounds i8, ptr %this, i64 120
-  call fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias nonnull align 8 %drop_picker, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %picker_)
+  call fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias align 8 %drop_picker, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %picker_)
   %10 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core30grpc_xds_cluster_impl_lb_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %10 to i1
   %.pre = load ptr, ptr %drop_picker, align 8
@@ -5781,7 +5781,7 @@ if.end30:                                         ; preds = %entry, %_ZNK9grpc_c
   br i1 %cmp.i55.not, label %if.end62, label %if.then33
 
 if.then33:                                        ; preds = %if.end30
-  call fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias nonnull align 8 %drop_picker34, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %picker_31)
+  call fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias align 8 %drop_picker34, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(8) %picker_31)
   %31 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core30grpc_xds_cluster_impl_lb_traceE, i64 16) monotonic, align 8
   %tobool.i.i.i56 = trunc i8 %31 to i1
   br i1 %tobool.i.i.i56, label %if.then38, label %if.then33.if.end50_crit_edge
@@ -6187,7 +6187,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias nocapture writeonly align 8 %agg.result, ptr %args.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_116XdsClusterImplLb6PickerEJPS2_RNS_13RefCountedPtrINS_19LoadBalancingPolicy16SubchannelPickerEEEEEENS5_IT_EEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %args.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %args1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.276", align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #25

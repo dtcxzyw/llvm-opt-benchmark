@@ -7510,7 +7510,7 @@ if.then81:                                        ; preds = %if.else77
   %disable_auto_compactions89 = getelementptr inbounds i8, ptr %mutable_cf_options, i64 88
   %67 = load i8, ptr %disable_auto_compactions89, align 8
   %tobool90 = trunc i8 %67 to i1
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias nonnull align 8 %ref.tmp85, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %65, i1 noundef zeroext %66, i1 noundef zeroext %tobool90)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias align 8 %ref.tmp85, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %65, i1 noundef zeroext %66, i1 noundef zeroext %tobool90)
   %write_controller_token_91 = getelementptr inbounds i8, ptr %this, i64 2520
   %68 = load ptr, ptr %ref.tmp85, align 8
   store ptr null, ptr %ref.tmp85, align 8
@@ -7609,7 +7609,7 @@ land.end:                                         ; preds = %land.rhs, %if.then1
   %disable_auto_compactions128 = getelementptr inbounds i8, ptr %mutable_cf_options, i64 88
   %88 = load i8, ptr %disable_auto_compactions128, align 8
   %tobool129 = trunc i8 %88 to i1
-  call fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias nonnull align 8 %ref.tmp122, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %86, i1 noundef zeroext %87, i1 noundef zeroext %tobool129)
+  call fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias align 8 %ref.tmp122, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %86, i1 noundef zeroext %87, i1 noundef zeroext %tobool129)
   %write_controller_token_130 = getelementptr inbounds i8, ptr %this, i64 2520
   %89 = load ptr, ptr %ref.tmp122, align 8
   store ptr null, ptr %ref.tmp122, align 8
@@ -9226,7 +9226,7 @@ declare noundef zeroext i1 @_ZNK7rocksdb15WriteController9IsStoppedEv(ptr nounde
 declare void @_ZN7rocksdb15WriteController12GetStopTokenEv(ptr sret(%"class.std::unique_ptr.134") align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias align 8 %agg.result, ptr noundef %write_controller, i64 noundef %compaction_needed_bytes, i64 noundef %prev_compaction_need_bytes, i1 noundef zeroext %penalize_stop, i1 noundef zeroext %auto_compactions_disabled) unnamed_addr #8 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb(ptr noalias nonnull align 8 %agg.result, ptr noundef %write_controller, i64 noundef %compaction_needed_bytes, i64 noundef %prev_compaction_need_bytes, i1 noundef zeroext %penalize_stop, i1 noundef zeroext %auto_compactions_disabled) unnamed_addr #8 {
 entry:
   %max_delayed_write_rate_.i = getelementptr inbounds i8, ptr %write_controller, i64 32
   %0 = load i64, ptr %max_delayed_write_rate_.i, align 8
@@ -9277,7 +9277,7 @@ if.then23:                                        ; preds = %if.else21
 
 if.end34:                                         ; preds = %if.then23, %entry, %if.else, %if.then14, %if.else21, %if.then6
   %write_rate.0 = phi i64 [ %spec.store.select, %if.then6 ], [ %spec.store.select1, %if.then14 ], [ %1, %if.else21 ], [ %1, %if.else ], [ %0, %entry ], [ %spec.select, %if.then23 ]
-  tail call void @_ZN7rocksdb15WriteController13GetDelayTokenEm(ptr sret(%"class.std::unique_ptr.134") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %write_controller, i64 noundef %write_rate.0)
+  tail call void @_ZN7rocksdb15WriteController13GetDelayTokenEm(ptr nonnull sret(%"class.std::unique_ptr.134") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %write_controller, i64 noundef %write_rate.0)
   ret void
 }
 

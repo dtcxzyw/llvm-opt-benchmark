@@ -598,7 +598,7 @@ init_extra_data.exit:                             ; preds = %4, %10
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 -100
-  %22 = tail call fastcc i64 @retreive_size(ptr noundef nonnull %21)
+  %22 = tail call fastcc i64 @retreive_size(ptr noundef %21)
   %23 = getelementptr inbounds i8, ptr %12, i64 100
   %24 = add i64 %22, -200
   %25 = tail call i64 @llvm.umin.i64(i64 %24, i64 %1)
@@ -668,7 +668,7 @@ init_extra_data.exit:                             ; preds = %4, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
+define internal fastcc i64 @retreive_size(ptr noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr @size_hash, align 8
@@ -800,7 +800,7 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
 
 97:                                               ; preds = %.loopexit
   %98 = load ptr, ptr @stderr, align 8
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.13, ptr noundef %0) #17
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %98, ptr noundef nonnull @.str.13, ptr noundef nonnull %0) #17
   br label %100
 
 100:                                              ; preds = %97, %.loopexit
@@ -815,7 +815,7 @@ define internal fastcc i64 @retreive_size(ptr noundef %0) unnamed_addr #1 {
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %101
-  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %0, i64 noundef %103)
+  %107 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %0, i64 noundef %103)
   br label %108
 
 108:                                              ; preds = %106, %101
@@ -982,7 +982,7 @@ define hidden void @tm_free(ptr noundef %0) local_unnamed_addr #1 {
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 -100
-  %4 = tail call fastcc i64 @retreive_size(ptr noundef nonnull %3)
+  %4 = tail call fastcc i64 @retreive_size(ptr noundef %3)
   %5 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(100) %3, ptr noundef nonnull dereferenceable(100) @extra_data, i64 noundef 100) #15
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %14, label %6

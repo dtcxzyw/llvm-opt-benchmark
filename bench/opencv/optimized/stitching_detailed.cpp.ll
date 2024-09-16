@@ -3262,7 +3262,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %712, label %713, label %716
 
 713:                                              ; preds = %710
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail21BestOf2NearestMatcherEJbfEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %22)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail21BestOf2NearestMatcherEJbfEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %22)
           to label %714 unwind label %708
 
 714:                                              ; preds = %713
@@ -4306,7 +4306,7 @@ _ZN2cv6detail9EstimatorclERKSt6vectorINS0_13ImageFeaturesESaIS3_EERKS2_INS0_11Ma
   br i1 %1161, label %1162, label %1167
 
 1162:                                             ; preds = %._crit_edge1013
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %35)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %35)
           to label %1163 unwind label %1165
 
 1163:                                             ; preds = %1162
@@ -4325,7 +4325,7 @@ _ZN2cv6detail9EstimatorclERKSt6vectorINS0_13ImageFeaturesESaIS3_EERKS2_INS0_11Ma
   br i1 %1169, label %1170, label %1173
 
 1170:                                             ; preds = %1167
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %36)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %36)
           to label %1171 unwind label %1165
 
 1171:                                             ; preds = %1170
@@ -4339,7 +4339,7 @@ _ZN2cv6detail9EstimatorclERKSt6vectorINS0_13ImageFeaturesESaIS3_EERKS2_INS0_11Ma
   br i1 %1175, label %1176, label %1179
 
 1176:                                             ; preds = %1173
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePartialEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %37)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePartialEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %37)
           to label %1177 unwind label %1165
 
 1177:                                             ; preds = %1176
@@ -4353,7 +4353,7 @@ _ZN2cv6detail9EstimatorclERKSt6vectorINS0_13ImageFeaturesESaIS3_EERKS2_INS0_11Ma
   br i1 %1181, label %1182, label %1185
 
 1182:                                             ; preds = %1179
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail16NoBundleAdjusterEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %38)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail16NoBundleAdjusterEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %38)
           to label %1183 unwind label %1165
 
 1183:                                             ; preds = %1182
@@ -5818,7 +5818,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1360, %1363
   br i1 %1857, label %1858, label %1861
 
 1858:                                             ; preds = %1855
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %92, i32 0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %92, i32 0)
           to label %1859 unwind label %1841
 
 1859:                                             ; preds = %1858
@@ -5832,7 +5832,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1360, %1363
   br i1 %1863, label %1864, label %1867
 
 1864:                                             ; preds = %1861
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %93, i32 1)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %93, i32 1)
           to label %1865 unwind label %1841
 
 1865:                                             ; preds = %1864
@@ -5846,7 +5846,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1360, %1363
   br i1 %1869, label %1870, label %1873
 
 1870:                                             ; preds = %1867
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %94, i32 0)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %94, i32 0)
           to label %1871 unwind label %1841
 
 1871:                                             ; preds = %1870
@@ -5860,7 +5860,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %1360, %1363
   br i1 %1875, label %1876, label %1879
 
 1876:                                             ; preds = %1873
-  invoke fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nonnull writable align 8 %95, i32 1)
+  invoke fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias writable align 8 %95, i32 1)
           to label %1877 unwind label %1841
 
 1877:                                             ; preds = %1876
@@ -10012,7 +10012,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare noundef double @_ZN2cv16getTickFrequencyEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail21BestOf2NearestMatcherEJbfEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail21BestOf2NearestMatcherEJbfEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27, !noalias !173
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !173
@@ -10886,7 +10886,7 @@ _ZN2cv3PtrINS_9FormatterEED2Ev.exit:              ; preds = %_ZN2cv3PtrINS_9Form
 declare void @_ZNK2cv6detail12CameraParams1KEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail20BundleAdjusterReprojEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #27, !noalias !185
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !185
@@ -11111,7 +11111,7 @@ _ZNSt10shared_ptrIN2cv6detail20BundleAdjusterReprojEED2Ev.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail17BundleAdjusterRayEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #27, !noalias !188
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !188
@@ -11336,7 +11336,7 @@ _ZNSt10shared_ptrIN2cv6detail17BundleAdjusterRayEED2Ev.exit: ; preds = %1, %20, 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePartialEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail27BundleAdjusterAffinePartialEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(488) ptr @_Znwm(i64 noundef 488) #27, !noalias !191
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !191
@@ -11561,7 +11561,7 @@ _ZNSt10shared_ptrIN2cv6detail27BundleAdjusterAffinePartialEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail16NoBundleAdjusterEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail16NoBundleAdjusterEJEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #27, !noalias !194
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !194
@@ -14767,7 +14767,7 @@ _ZNSt10shared_ptrIN2cv6detail17VoronoiSeamFinderEED2Ev.exit: ; preds = %1, %20, 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail18GraphCutSeamFinderEJNS1_22GraphCutSeamFinderBase8CostTypeEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27, !noalias !201
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !201
@@ -14987,7 +14987,7 @@ _ZNSt10shared_ptrIN2cv6detail18GraphCutSeamFinderEED2Ev.exit: ; preds = %1, %20,
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7makePtrINS_6detail12DpSeamFinderEJNS2_12CostFunctionEEEENS_3PtrIT_EEDpRKT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.0.val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1072) ptr @_Znwm(i64 noundef 1072) #27, !noalias !204
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 1, ptr %3, align 8, !noalias !204

@@ -1822,7 +1822,7 @@ BufferGetPage.exit123:                            ; preds = %250, %256
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_bt_restore_meta(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_bt_restore_meta(ptr noundef %0, i8 noundef zeroext range(i8 0, 5) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -2071,76 +2071,72 @@ declare i64 @_bt_dedup_finish_pending(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @XLogReadBufferForRedoExtended(ptr noundef, i8 noundef zeroext, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = icmp sgt i32 %3, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+define internal fastcc void @btree_xlog_updates(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 1, 65536) %3) unnamed_addr #0 {
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %7
+  br label %6
 
-7:                                                ; preds = %.lr.ph, %40
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %.02930 = phi ptr [ %2, %.lr.ph ], [ %45, %40 ]
-  %8 = getelementptr i16, ptr %1, i64 %indvars.iv
-  %9 = load i16, ptr %8, align 2
-  %10 = zext i16 %9 to i64
-  %11 = add nsw i64 %10, -1
-  %12 = getelementptr [0 x %struct.ItemIdData], ptr %6, i64 0, i64 %11
-  %.val = load i32, ptr %12, align 4
-  %13 = and i32 %.val, 32767
-  %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i8, ptr %0, i64 %14
-  %16 = load i16, ptr %.02930, align 2
-  %17 = zext i16 %16 to i64
-  %18 = shl nuw nsw i64 %17, 1
-  %19 = add nuw nsw i64 %18, 12
-  %20 = tail call ptr @palloc(i64 noundef %19) #7
-  %21 = load i16, ptr %8, align 2
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  store i16 %21, ptr %22, align 8
-  store ptr %15, ptr %20, align 8
-  %23 = load i16, ptr %.02930, align 2
-  %24 = getelementptr inbounds i8, ptr %20, i64 10
-  store i16 %23, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %20, i64 12
-  %26 = getelementptr i8, ptr %.02930, i64 2
-  %27 = zext i16 %23 to i64
-  %28 = shl nuw nsw i64 %27, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr align 1 %26, i64 %28, i1 false)
-  tail call void @_bt_update_posting(ptr noundef nonnull %20) #7
-  %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 6
-  %31 = load i16, ptr %30, align 2
-  %32 = and i16 %31, 8191
-  %narrow = add nuw nsw i16 %32, 7
-  %33 = and i16 %narrow, 16376
-  %34 = zext nneg i16 %33 to i64
-  %35 = load i16, ptr %8, align 2
-  %36 = tail call zeroext i1 @PageIndexTupleOverwrite(ptr noundef %0, i16 noundef zeroext %35, ptr noundef %29, i64 noundef %34) #7
-  br i1 %36, label %40, label %37
+6:                                                ; preds = %4, %39
+  %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %39 ]
+  %.02930 = phi ptr [ %2, %4 ], [ %44, %39 ]
+  %7 = getelementptr i16, ptr %1, i64 %indvars.iv
+  %8 = load i16, ptr %7, align 2
+  %9 = zext i16 %8 to i64
+  %10 = add nsw i64 %9, -1
+  %11 = getelementptr [0 x %struct.ItemIdData], ptr %5, i64 0, i64 %10
+  %.val = load i32, ptr %11, align 4
+  %12 = and i32 %.val, 32767
+  %13 = zext nneg i32 %12 to i64
+  %14 = getelementptr i8, ptr %0, i64 %13
+  %15 = load i16, ptr %.02930, align 2
+  %16 = zext i16 %15 to i64
+  %17 = shl nuw nsw i64 %16, 1
+  %18 = add nuw nsw i64 %17, 12
+  %19 = tail call ptr @palloc(i64 noundef %18) #7
+  %20 = load i16, ptr %7, align 2
+  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  store i16 %20, ptr %21, align 8
+  store ptr %14, ptr %19, align 8
+  %22 = load i16, ptr %.02930, align 2
+  %23 = getelementptr inbounds i8, ptr %19, i64 10
+  store i16 %22, ptr %23, align 2
+  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  %25 = getelementptr i8, ptr %.02930, i64 2
+  %26 = zext i16 %22 to i64
+  %27 = shl nuw nsw i64 %26, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %24, ptr align 1 %25, i64 %27, i1 false)
+  tail call void @_bt_update_posting(ptr noundef nonnull %19) #7
+  %28 = load ptr, ptr %19, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 6
+  %30 = load i16, ptr %29, align 2
+  %31 = and i16 %30, 8191
+  %narrow = add nuw nsw i16 %31, 7
+  %32 = and i16 %narrow, 16376
+  %33 = zext nneg i16 %32 to i64
+  %34 = load i16, ptr %7, align 2
+  %35 = tail call zeroext i1 @PageIndexTupleOverwrite(ptr noundef %0, i16 noundef zeroext %34, ptr noundef %28, i64 noundef %33) #7
+  br i1 %35, label %39, label %36
 
-37:                                               ; preds = %7
-  %38 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %38)
-  %39 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #7
+36:                                               ; preds = %6
+  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %37)
+  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 587, ptr noundef nonnull @__func__.btree_xlog_updates) #7
   unreachable
 
-40:                                               ; preds = %7
-  %41 = load ptr, ptr %20, align 8
-  tail call void @pfree(ptr noundef %41) #7
-  tail call void @pfree(ptr noundef nonnull %20) #7
-  %42 = load i16, ptr %.02930, align 2
-  %43 = zext i16 %42 to i64
-  %44 = shl nuw nsw i64 %43, 1
-  %45 = getelementptr i8, ptr %26, i64 %44
+39:                                               ; preds = %6
+  %40 = load ptr, ptr %19, align 8
+  tail call void @pfree(ptr noundef %40) #7
+  tail call void @pfree(ptr noundef nonnull %19) #7
+  %41 = load i16, ptr %.02930, align 2
+  %42 = zext i16 %41 to i64
+  %43 = shl nuw nsw i64 %42, 1
+  %44 = getelementptr i8, ptr %25, i64 %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %45, label %6, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %40, %4
+45:                                               ; preds = %39
   ret void
 }
 

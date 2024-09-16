@@ -132,7 +132,7 @@ for.end:                                          ; preds = %for.body
   %cond20 = zext i1 %narrow to i64
   %n_thp = getelementptr inbounds i8, ptr %2, i64 3952
   store i64 %cond20, ptr %n_thp, align 16
-  call fastcc void @base_extent_bump_alloc_post(ptr noundef nonnull %2, ptr noundef nonnull %edata, i64 noundef %sub5.i, ptr noundef nonnull %2, i64 noundef 3968)
+  call fastcc void @base_extent_bump_alloc_post(ptr noundef nonnull %2, ptr noundef %edata, i64 noundef %sub5.i, ptr noundef nonnull %2, i64 noundef 3968)
   br label %return
 
 return:                                           ; preds = %entry, %for.end, %if.then9
@@ -143,7 +143,7 @@ return:                                           ; preds = %entry, %for.end, %i
 declare void @ehooks_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef %alignment) unnamed_addr #1 {
+define internal fastcc ptr @base_block_alloc(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %pind_last, ptr nocapture noundef %extent_sn_next, i64 noundef %size, i64 noundef range(i64 0, -7) %alignment) unnamed_addr #1 {
 entry:
   %zero.i = alloca i8, align 1
   %commit.i = alloca i8, align 1
@@ -844,7 +844,7 @@ if.end30:                                         ; preds = %do.end28, %label_do
 declare void @edata_heap_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata, i64 noundef %gap_size, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
+define internal fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata, i64 noundef %gap_size, ptr noundef %addr, i64 noundef %size) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 16
   %edata.val = load i64, ptr %0, align 8
@@ -872,12 +872,12 @@ if.end5.i:                                        ; preds = %if.end.i
   %shl.i = shl nuw i64 %add, 1
   %sub.i17 = add i64 %shl.i, -1
   %2 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i17, i1 true)
-  %3 = shl nuw nsw i64 %2, 2
   %sub15.i = sub nuw nsw i64 60, %2
   %shl18.i = shl nsw i64 -1, %sub15.i
   %and.i = and i64 %shl18.i, %edata.val
   %shr.i18 = lshr i64 %and.i, %sub15.i
   %conv22.i = and i64 %shr.i18, 3
+  %3 = shl nuw nsw i64 %2, 2
   %reass.sub = sub nsw i64 %conv22.i, %3
   %add23.i = add nsw i64 %reass.sub, 232
   br label %sz_size2index.exit
@@ -1055,22 +1055,22 @@ if.end5.i:                                        ; preds = %if.end.i
   %sub.i26 = add i64 %shl.i, -1
   %4 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i26, i1 true)
   %5 = trunc nuw nsw i64 %4 to i32
-  %6 = shl nuw nsw i32 %5, 2
   %sub15.i = sub nuw nsw i64 60, %4
   %shl18.i = shl nsw i64 -1, %sub15.i
   %sub19.i = add nsw i64 %add4, -9
   %and.i = and i64 %shl18.i, %sub19.i
   %shr.i27 = lshr i64 %and.i, %sub15.i
-  %7 = trunc i64 %shr.i27 to i32
-  %conv22.i = and i32 %7, 3
-  %reass.sub = sub nsw i32 %conv22.i, %6
+  %6 = trunc i64 %shr.i27 to i32
+  %conv22.i = and i32 %6, 3
+  %7 = shl nuw nsw i32 %5, 2
+  %reass.sub = sub nsw i32 %conv22.i, %7
   %add23.i = add nsw i32 %reass.sub, 232
   br label %sz_size2index.exit
 
 sz_size2index.exit:                               ; preds = %if.end5.i, %if.then.i
   %retval.i.0 = phi i32 [ %conv.i29, %if.then.i ], [ %add23.i, %if.end5.i ]
-  %cmp41 = icmp ult i32 %retval.i.0, 235
-  br i1 %cmp41, label %for.body.lr.ph, label %if.then12
+  %cmp40 = icmp ult i32 %retval.i.0, 235
+  br i1 %cmp40, label %for.body.lr.ph, label %if.then12
 
 for.body.lr.ph:                                   ; preds = %sz_size2index.exit
   %avail = getelementptr inbounds i8, ptr %base, i64 168
@@ -1153,8 +1153,8 @@ if.end.i31:                                       ; preds = %malloc_mutex_lock.e
   br i1 %19, label %land.lhs.true.i, label %do.end20.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i31
-  %cmp10.i33 = icmp eq i32 %17, 1
-  br i1 %cmp10.i33, label %land.lhs.true11.i, label %do.end.i
+  %cmp10.i = icmp eq i32 %17, 1
+  br i1 %cmp10.i, label %land.lhs.true11.i, label %do.end.i
 
 land.lhs.true11.i:                                ; preds = %land.lhs.true.i
   %auto_thp_switched.i = getelementptr inbounds i8, ptr %base, i64 144
@@ -1194,7 +1194,7 @@ if.end18:                                         ; preds = %for.body, %do.end20
   %or.i12.i.i.i = and i64 %28, -268435456
   %or.i16.i.i.i = or disjoint i64 %or.i12.i.i.i, 246460415
   store i64 %or.i16.i.i.i, ptr %edata.2.ph, align 8
-  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef nonnull %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %24, i64 noundef %and3)
+  tail call fastcc void @base_extent_bump_alloc_post(ptr noundef %base, ptr noundef %edata.2.ph, i64 noundef %sub5.i.i, ptr noundef %24, i64 noundef %and3)
   %cmp20.not = icmp eq ptr %esn, null
   br i1 %cmp20.not, label %label_return, label %if.then22
 
@@ -1206,8 +1206,8 @@ if.then22:                                        ; preds = %if.end18
 
 label_return:                                     ; preds = %malloc_mutex_lock.exit.i, %if.end18, %if.then22
   %ret.0 = phi ptr [ %24, %if.then22 ], [ %24, %if.end18 ], [ null, %malloc_mutex_lock.exit.i ]
-  %locked.i34 = getelementptr inbounds i8, ptr %base, i64 136
-  store atomic i8 0, ptr %locked.i34 monotonic, align 1
+  %locked.i33 = getelementptr inbounds i8, ptr %base, i64 136
+  store atomic i8 0, ptr %locked.i33 monotonic, align 1
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #9
   ret ptr %ret.0
 }

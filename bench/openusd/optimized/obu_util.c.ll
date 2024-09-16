@@ -24,7 +24,7 @@ define hidden range(i32 0, 9) i32 @aom_read_obu_header(ptr noundef %0, i64 nound
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = call fastcc i32 @read_obu_header(ptr noundef nonnull %6, i32 noundef %4, ptr noundef nonnull %3)
+  %15 = call fastcc i32 @read_obu_header(ptr noundef %6, i32 noundef %4, ptr noundef nonnull %3)
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -39,7 +39,7 @@ define hidden range(i32 0, 9) i32 @aom_read_obu_header(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9) i32 @read_obu_header(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %39, label %4
 
@@ -154,7 +154,7 @@ read_obu_size.exit:                               ; preds = %14
   store i32 0, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %24 = call fastcc i32 @read_obu_header(ptr noundef nonnull %11, i32 noundef %2, ptr noundef %3)
+  %24 = call fastcc i32 @read_obu_header(ptr noundef %11, i32 noundef %2, ptr noundef %3)
   %.not31 = icmp eq i32 %24, 0
   br i1 %.not31, label %25, label %50
 

@@ -32,10 +32,10 @@ define range(i32 -1, 2) i32 @Cgt_CheckImplication(ptr nocapture noundef %0, ptr 
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i32, ptr %19, i64 %25
   %27 = load i32, ptr %26, align 4
-  %28 = shl nsw i32 %27, 1
-  %29 = trunc i64 %20 to i32
-  %30 = and i32 %29, 1
-  %31 = or disjoint i32 %28, %30
+  %28 = trunc i64 %20 to i32
+  %29 = and i32 %28, 1
+  %30 = shl nsw i32 %27, 1
+  %31 = or disjoint i32 %30, %29
   store i32 %31, ptr %9, align 4
   %32 = getelementptr inbounds i8, ptr %2, i64 36
   %33 = load i32, ptr %32, align 4

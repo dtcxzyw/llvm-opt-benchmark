@@ -4347,7 +4347,7 @@ define hidden noundef zeroext i16 @de_rr_meas_res(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gsm_rr_padding_bits(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc void @gsm_rr_padding_bits(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext range(i8 0, 44) %4) unnamed_addr #2 {
   %6 = zext i16 %2 to i32
   %7 = zext i8 %3 to i32
   %8 = shl nuw nsw i32 %7, 3
@@ -11749,7 +11749,7 @@ define internal fastcc noundef zeroext i16 @dissect_arfcn_list_core(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 128, 1025) %5) unnamed_addr #2 {
   %7 = alloca [64 x i32], align 16
   %8 = alloca [1024 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
@@ -11864,7 +11864,7 @@ define internal fastcc void @dissect_channel_list_n_range(ptr noundef %0, ptr no
   br i1 %.not8597, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.loopexit
-  %63 = add i32 %5, -1
+  %63 = add nsw i32 %5, -1
   %64 = add nuw i32 %.170, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %64, i32 2)
   %wide.trip.count107 = zext nneg i32 %smax to i64
@@ -12204,7 +12204,7 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @gsm_rr_csn_HL_flag(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -7) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca [13 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %6, ptr noundef nonnull align 1 dereferenceable(13) @__const.gsm_rr_csn_HL_flag.bits_str, i64 13, i1 false)
   %7 = add i32 %2, -1
@@ -12597,7 +12597,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 13, 9) %2, i32 noundef range(i32 5, 42) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
@@ -12881,7 +12881,7 @@ define internal fastcc i32 @de_rr_rtd_desc(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @de_rr_bsic_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc noundef i32 @de_rr_bsic_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 6, 43) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
@@ -12946,7 +12946,7 @@ define internal fastcc noundef i32 @de_rr_bsic_desc(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @de_rr_report_priority_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc noundef i32 @de_rr_report_priority_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 7, 44) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
@@ -12985,7 +12985,7 @@ define internal fastcc noundef i32 @de_rr_report_priority_desc(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @de_rr_meas_param_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @de_rr_meas_param_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 4, 9) %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = ashr i32 %2, 3
   %7 = zext nneg i32 %3 to i64
@@ -14957,7 +14957,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @de_rr_rest_oct_opt_sel_param(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc i32 @de_rr_rest_oct_opt_sel_param(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -7) %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = add nuw i32 %2, 1
   %6 = load i32, ptr @hf_gsm_a_rr_selection_parameters, align 4

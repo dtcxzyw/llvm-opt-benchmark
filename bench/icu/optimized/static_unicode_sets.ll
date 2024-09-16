@@ -570,7 +570,7 @@ declare void @ures_getAllItemsWithFallback_75(ptr noundef, ptr noundef, ptr noun
 declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef %k1, i32 noundef %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_S2_(i32 noundef range(i32 3, 6) %k1, i32 noundef range(i32 4, 7) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull = icmp eq ptr %call, null
@@ -587,13 +587,13 @@ lpad:                                             ; preds = %new.notnull
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %new.notnull
-  %idxprom.i = sext i32 %k1 to i64
+  %idxprom.i = zext nneg i32 %k1 to i64
   %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i = icmp eq ptr %1, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %1
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
-  %idxprom.i6 = sext i32 %k2 to i64
+  %idxprom.i6 = zext nneg i32 %k2 to i64
   %arrayidx.i7 = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i6
   %2 = load ptr, ptr %arrayidx.i7, align 8
   %cmp.i8 = icmp eq ptr %2, null
@@ -611,7 +611,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_112computeUnionEN6icu_757unisets3KeyES2_(i32 noundef range(i32 9, 11) %k2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull = icmp eq ptr %call, null
@@ -632,7 +632,7 @@ if.end:                                           ; preds = %new.notnull
   %cmp.i = icmp eq ptr %1, null
   %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i = select i1 %cmp.i, ptr @_ZN12_GLOBAL__N_116gEmptyUnicodeSetE, ptr %1
   %call2 = tail call noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet6addAllERKS0_(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(200) %_ZN12_GLOBAL__N_116gEmptyUnicodeSetE..i)
-  %idxprom.i = sext i32 %k2 to i64
+  %idxprom.i = zext nneg i32 %k2 to i64
   %arrayidx.i = getelementptr inbounds [24 x ptr], ptr @_ZN12_GLOBAL__N_112gUnicodeSetsE, i64 0, i64 %idxprom.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %cmp.i5 = icmp eq ptr %2, null
@@ -1132,7 +1132,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef signext i8 @_ZNK6icu_7513ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17saveSetEN6icu_757unisets3KeyERKNS0_13UnicodeStringER10UErrorCode(i32 noundef %key, ptr noundef nonnull align 8 dereferenceable(64) %unicodeSetPattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_17saveSetEN6icu_757unisets3KeyERKNS0_13UnicodeStringER10UErrorCode(i32 noundef range(i32 3, 21) %key, ptr noundef nonnull align 8 dereferenceable(64) %unicodeSetPattern, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 200) #8
   %new.isnull = icmp eq ptr %call, null

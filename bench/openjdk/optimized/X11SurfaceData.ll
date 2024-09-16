@@ -3449,7 +3449,7 @@ declare i32 @XUngrabServer(ptr noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @X11SD_SwapBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #14 {
+define internal fastcc void @X11SD_SwapBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 9, -2147483648) %2, i32 noundef %3) unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64

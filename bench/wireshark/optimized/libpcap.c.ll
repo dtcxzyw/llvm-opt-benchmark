@@ -509,92 +509,84 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @libpcap_try_variants(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 4) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i64 @file_tell(ptr noundef %9) #7
-  %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
-
-.lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds i8, ptr %8, i64 12
-  br label %13
+  br label %12
 
-.lr.ph44:                                         ; preds = %28
-  %12 = getelementptr inbounds i8, ptr %8, i64 12
-  br label %30
-
-13:                                               ; preds = %.lr.ph, %28
-  %.02941 = phi i64 [ 0, %.lr.ph ], [ %29, %28 ]
-  %14 = getelementptr i32, ptr %1, i64 %.02941
-  %15 = load i32, ptr %14, align 4
-  store i32 %15, ptr %11, align 4
-  %16 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
-  %.not.i = icmp eq i32 %16, 0
+12:                                               ; preds = %5, %27
+  %.02941 = phi i64 [ 0, %5 ], [ %28, %27 ]
+  %13 = getelementptr i32, ptr %1, i64 %.02941
+  %14 = load i32, ptr %13, align 4
+  store i32 %14, ptr %11, align 4
+  %15 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
+  %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %.preheader.i, label %libpcap_try.exit
 
-17:                                               ; preds = %.preheader.i
-  %18 = add nuw nsw i32 %.016.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 3
+16:                                               ; preds = %.preheader.i
+  %17 = add nuw nsw i32 %.016.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 3
   br i1 %exitcond.not.i, label %.loopexit36, label %.preheader.i, !llvm.loop !4
 
-.preheader.i:                                     ; preds = %13, %17
-  %.016.i = phi i32 [ %18, %17 ], [ 1, %13 ]
-  %19 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
-  %.not15.i = icmp eq i32 %19, 0
-  br i1 %.not15.i, label %17, label %libpcap_try.exit
+.preheader.i:                                     ; preds = %12, %16
+  %.016.i = phi i32 [ %17, %16 ], [ 1, %12 ]
+  %18 = tail call fastcc i32 @libpcap_try_record(ptr noundef nonnull readonly %0, ptr noundef %3, ptr noundef %4)
+  %.not15.i = icmp eq i32 %18, 0
+  br i1 %.not15.i, label %16, label %libpcap_try.exit
 
-libpcap_try.exit:                                 ; preds = %.preheader.i, %13
-  %.012.i = phi i32 [ %16, %13 ], [ %19, %.preheader.i ]
-  %20 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.02941
-  store i32 %.012.i, ptr %20, align 4
-  switch i32 %.012.i, label %24 [
+libpcap_try.exit:                                 ; preds = %.preheader.i, %12
+  %.012.i = phi i32 [ %15, %12 ], [ %18, %.preheader.i ]
+  %19 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.02941
+  store i32 %.012.i, ptr %19, align 4
+  switch i32 %.012.i, label %23 [
     i32 -1, label %.loopexit
     i32 0, label %.loopexit36
   ]
 
-.loopexit36:                                      ; preds = %libpcap_try.exit, %17
-  %21 = load ptr, ptr %0, align 8
-  %22 = tail call i64 @file_seek(ptr noundef %21, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
-  %23 = icmp ne i64 %22, -1
-  %. = zext i1 %23 to i32
+.loopexit36:                                      ; preds = %libpcap_try.exit, %16
+  %20 = load ptr, ptr %0, align 8
+  %21 = tail call i64 @file_seek(ptr noundef %20, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
+  %22 = icmp ne i64 %21, -1
+  %. = zext i1 %22 to i32
   br label %.loopexit
 
-24:                                               ; preds = %libpcap_try.exit
-  %25 = load ptr, ptr %0, align 8
-  %26 = tail call i64 @file_seek(ptr noundef %25, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
-  %27 = icmp eq i64 %26, -1
-  br i1 %27, label %.loopexit, label %28
+23:                                               ; preds = %libpcap_try.exit
+  %24 = load ptr, ptr %0, align 8
+  %25 = tail call i64 @file_seek(ptr noundef %24, i64 noundef %10, i32 noundef 0, ptr noundef %3) #7
+  %26 = icmp eq i64 %25, -1
+  br i1 %26, label %.loopexit, label %27
 
-28:                                               ; preds = %24
-  %29 = add nuw i64 %.02941, 1
-  %exitcond.not = icmp eq i64 %29, %2
-  br i1 %exitcond.not, label %.lr.ph44, label %13, !llvm.loop !6
+27:                                               ; preds = %23
+  %28 = add nuw nsw i64 %.02941, 1
+  %exitcond.not = icmp eq i64 %28, %2
+  br i1 %exitcond.not, label %.preheader, label %12, !llvm.loop !6
 
-30:                                               ; preds = %.lr.ph44, %37
-  %.043 = phi i64 [ 0, %.lr.ph44 ], [ %38, %37 ]
-  %.03142 = phi i32 [ 2147483647, %.lr.ph44 ], [ %.1, %37 ]
-  %31 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.043
-  %32 = load i32, ptr %31, align 4
-  %33 = icmp slt i32 %32, %.03142
-  br i1 %33, label %34, label %37
+.preheader:                                       ; preds = %27, %35
+  %.043 = phi i64 [ %36, %35 ], [ 0, %27 ]
+  %.03142 = phi i32 [ %.1, %35 ], [ 2147483647, %27 ]
+  %29 = getelementptr [3 x i32], ptr %6, i64 0, i64 %.043
+  %30 = load i32, ptr %29, align 4
+  %31 = icmp slt i32 %30, %.03142
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = getelementptr i32, ptr %1, i64 %.043
-  %36 = load i32, ptr %35, align 4
-  store i32 %36, ptr %12, align 4
-  br label %37
+32:                                               ; preds = %.preheader
+  %33 = getelementptr i32, ptr %1, i64 %.043
+  %34 = load i32, ptr %33, align 4
+  store i32 %34, ptr %11, align 4
+  br label %35
 
-37:                                               ; preds = %30, %34
-  %.1 = phi i32 [ %32, %34 ], [ %.03142, %30 ]
-  %38 = add nuw nsw i64 %.043, 1
-  %exitcond51.not = icmp eq i64 %38, %2
-  br i1 %exitcond51.not, label %.loopexit, label %30, !llvm.loop !7
+35:                                               ; preds = %.preheader, %32
+  %.1 = phi i32 [ %30, %32 ], [ %.03142, %.preheader ]
+  %36 = add nuw nsw i64 %.043, 1
+  %exitcond49.not = icmp eq i64 %36, %2
+  br i1 %exitcond49.not, label %.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %24, %libpcap_try.exit, %37, %5, %.loopexit36
-  %.030 = phi i32 [ %., %.loopexit36 ], [ 1, %5 ], [ 1, %37 ], [ 0, %libpcap_try.exit ], [ 0, %24 ]
+.loopexit:                                        ; preds = %23, %libpcap_try.exit, %35, %.loopexit36
+  %.030 = phi i32 [ %., %.loopexit36 ], [ 1, %35 ], [ 0, %libpcap_try.exit ], [ 0, %23 ]
   ret i32 %.030
 }
 
@@ -663,7 +655,7 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %6, align 8
-  %7 = call fastcc i32 @libpcap_read_header(ptr %.val, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @libpcap_read_header(ptr %.val, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %10
 
@@ -723,7 +715,7 @@ define internal fastcc range(i32 -1, 6) i32 @libpcap_try_record(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @libpcap_read_header(ptr nocapture readonly %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @libpcap_read_header(ptr nocapture readonly %.96.val, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %.96.val, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %6, 7
@@ -737,7 +729,7 @@ switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.libpcap_read_header, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
-  %10 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef %3, i32 noundef %switch.load, ptr noundef %1, ptr noundef %2) #7
+  %10 = tail call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %switch.load, ptr noundef %1, ptr noundef %2) #7
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %38, label %11
 
@@ -810,7 +802,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_read_packet(ptr noundef %0, 
   %7 = alloca %struct.pcaprec_ss990915_hdr, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = call fastcc i32 @libpcap_read_header(ptr %9, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7)
+  %10 = call fastcc i32 @libpcap_read_header(ptr %9, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %7)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %83, label %11
 
@@ -1055,7 +1047,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap(ptr noundef %0, ptr nound
   %14 = sdiv i32 %13, 1000
   %15 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %14, ptr %15, align 4
-  %16 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
+  %16 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   br label %17
 
 17:                                               ; preds = %10, %9
@@ -1064,7 +1056,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 16, 29) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   %9 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1113,7 +1105,7 @@ define internal fastcc range(i32 0, 2) i32 @libpcap_dump_write_packet(ptr nounde
   %34 = add i32 %33, %11
   %35 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 %34, ptr %35, align 4
-  %36 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef %2, i64 noundef %3, ptr noundef %5) #7
+  %36 = tail call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %2, i64 noundef %3, ptr noundef %5) #7
   %.not32 = icmp eq i32 %36, 0
   br i1 %.not32, label %44, label %37
 
@@ -1214,7 +1206,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nsec(ptr noundef %0, ptr 
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
+  %15 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 16, ptr noundef %2, ptr noundef %3)
   br label %16
 
 16:                                               ; preds = %10, %9
@@ -1301,7 +1293,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990417(ptr noundef %0, 
   store i16 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %6, i64 22
   store i8 0, ptr %18, align 2
-  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
+  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   br label %20
 
 20:                                               ; preds = %10, %9
@@ -1384,7 +1376,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss990915(ptr noundef %0, 
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %16, i8 0, i64 9, i1 false)
-  %17 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 28, ptr noundef %2, ptr noundef %3)
+  %17 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 28, ptr noundef %2, ptr noundef %3)
   br label %18
 
 18:                                               ; preds = %10, %9
@@ -1471,7 +1463,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_ss991029(ptr noundef %0, 
   store i16 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %6, i64 22
   store i8 0, ptr %18, align 2
-  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
+  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 24, ptr noundef %2, ptr noundef %3)
   br label %20
 
 20:                                               ; preds = %10, %9
@@ -1556,7 +1548,7 @@ define internal range(i32 0, 2) i32 @libpcap_dump_pcap_nokia(ptr noundef %0, ptr
   %17 = getelementptr inbounds i8, ptr %1, i64 84
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 4
-  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, i64 noundef 20, ptr noundef %2, ptr noundef %3)
+  %19 = call fastcc i32 @libpcap_dump_write_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6, i64 noundef 20, ptr noundef %2, ptr noundef %3)
   br label %20
 
 20:                                               ; preds = %10, %9

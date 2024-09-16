@@ -12121,7 +12121,7 @@ define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL21yy_get_previou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_transi(i32 noundef %0) unnamed_addr #19 {
+define internal fastcc noundef range(i32 -32768, 32768) i32 @_ZL16yy_try_NUL_transi(i32 noundef range(i32 -32768, 32768) %0) unnamed_addr #19 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [980 x i16], ptr @_ZL7yy_base, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2

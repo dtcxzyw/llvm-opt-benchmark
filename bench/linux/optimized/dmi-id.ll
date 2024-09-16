@@ -474,7 +474,7 @@ define internal noundef i64 @sys_dmi_modalias_show(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i64 @get_modalias(ptr noundef %0, i64 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef i64 @get_modalias(ptr noundef %0, i64 noundef range(i64 -2147481599, 2147485697) %1) unnamed_addr #2 align 16 {
   store i32 6909284, ptr %0, align 1
   %3 = getelementptr i8, ptr %0, i64 3
   %4 = icmp sgt i64 %1, 4

@@ -1027,7 +1027,7 @@ declare void @ustr_init(ptr noundef) local_unnamed_addr #6
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %state, i32 noundef %expectedToken, ptr noundef writeonly %tokenValue, ptr noundef %comment, ptr noundef writeonly %linenumber, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc void @_ZL6expectP10ParseState10ETokenTypePP7UStringS3_PjP10UErrorCode(ptr noundef %state, i32 noundef range(i32 0, 3) %expectedToken, ptr noundef writeonly %tokenValue, ptr noundef %comment, ptr noundef writeonly %linenumber, ptr noundef %status) unnamed_addr #1 {
 entry:
   %lookaheadPosition.i = getelementptr inbounds i8, ptr %state, i64 192
   %0 = load i32, ptr %lookaheadPosition.i, align 8
@@ -4047,11 +4047,11 @@ invoke.cont149:                                   ; preds = %invoke.cont147
   br i1 %or.cond, label %if.then157, label %if.end169
 
 if.then157:                                       ; preds = %invoke.cont149
-  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnull %preContext, ptr noundef nonnull %preBuffer)
+  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef %preContext, ptr noundef %preBuffer)
           to label %invoke.cont161 unwind label %lpad140
 
 invoke.cont161:                                   ; preds = %if.then157
-  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnull %postContext, ptr noundef nonnull %postBuffer)
+  invoke fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef %postContext, ptr noundef %postBuffer)
           to label %invoke.cont165 unwind label %lpad140
 
 invoke.cont165:                                   ; preds = %invoke.cont161
@@ -4105,7 +4105,7 @@ if.end192:                                        ; preds = %invoke.cont187
   %37 = load ptr, ptr %data, align 8
   %settings = getelementptr inbounds i8, ptr %call135, i64 32
   %38 = load ptr, ptr %settings, align 8
-  invoke fastcc void @_ZL18writeCollationTOMLPKcS0_S0_PKN6icu_7513CollationDataEPKNS1_17CollationSettingsEP10UErrorCode(ptr noundef %36, ptr noundef nonnull %call188, ptr noundef %collationType, ptr noundef %37, ptr noundef %38, ptr noundef %status)
+  invoke fastcc void @_ZL18writeCollationTOMLPKcS0_S0_PKN6icu_7513CollationDataEPKNS1_17CollationSettingsEP10UErrorCode(ptr noundef %36, ptr noundef %call188, ptr noundef %collationType, ptr noundef %37, ptr noundef %38, ptr noundef %status)
           to label %invoke.cont201 unwind label %lpad140
 
 invoke.cont201:                                   ; preds = %if.end192
@@ -4497,9 +4497,9 @@ declare void @_ZN6icu_7516CollationBuilderC1EPKNS_18CollationTailoringEaR10UErro
 declare noundef ptr @_ZN6icu_7516CollationBuilder13parseAndBuildERKNS_13UnicodeStringEPKhPNS_19CollationRuleParser8ImporterEP11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef %s, ptr nocapture noundef writeonly %buffer) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_16escapeEPKDsPcm(ptr noundef nonnull %s, ptr nocapture noundef nonnull writeonly %buffer) unnamed_addr #1 {
 entry:
-  %call = tail call i32 @u_strlen_75(ptr noundef %s)
+  %call = tail call i32 @u_strlen_75(ptr noundef nonnull %s)
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
@@ -4571,7 +4571,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18writeCollationTOMLPKcS0_S0_PKN6icu_7513CollationDataEPKNS1_17CollationSettingsEP10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef %data, ptr nocapture noundef readonly %settings, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18writeCollationTOMLPKcS0_S0_PKN6icu_7513CollationDataEPKNS1_17CollationSettingsEP10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef %data, ptr nocapture noundef readonly %settings, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %tailoringSet.i = alloca %"class.icu_75::UnicodeSet", align 8
   %builder.i = alloca %"class.icu_75::LocalUMutableCPTriePointer", align 8
@@ -4605,14 +4605,14 @@ entry.tail:                                       ; preds = %entry, %sub_1, %sub
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry.tail
-  %call5 = tail call fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull %data, ptr noundef %status)
+  %call5 = tail call fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull %data, ptr noundef %status)
   %7 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %7, 1
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %jamo.i)
-  %call.i = tail call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.76, ptr noundef nonnull %status)
+  %call.i = tail call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.76, ptr noundef nonnull %status)
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %if.then.i, label %for.cond.preheader.i
 
@@ -4682,7 +4682,7 @@ _ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit
 
 if.end12:                                         ; preds = %_ZL22writeCollationJamoTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lastPrimaries.i)
-  %call.i79 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.79, ptr noundef nonnull %status)
+  %call.i79 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.79, ptr noundef nonnull %status)
   %tobool.not.i80 = icmp eq ptr %call.i79, null
   br i1 %tobool.not.i80, label %_ZL34writeCollationSpecialPrimariesTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode.exit, label %for.body.i
 
@@ -4775,7 +4775,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit141:     ; preds = %_ZNK6icu_7513Collat
   br i1 %cmp36.not, label %for.inc, label %if.then37
 
 if.then37:                                        ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit141
-  %call38 = tail call fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull %data, ptr noundef %status)
+  %call38 = tail call fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull %data, ptr noundef %status)
   %36 = load i32, ptr %status, align 4
   %cmp.i142 = icmp slt i32 %36, 1
   br i1 %cmp.i142, label %if.end45, label %return
@@ -4794,7 +4794,7 @@ if.end45:                                         ; preds = %for.inc, %if.else, 
   br i1 %cmp.i144.not, label %if.end53, label %if.then48
 
 if.then48:                                        ; preds = %if.end45
-  %call.i146 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.83, ptr noundef %status)
+  %call.i146 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.83, ptr noundef %status)
   %tobool.not.i147 = icmp eq ptr %call.i146, null
   br i1 %tobool.not.i147, label %_ZL28writeCollationReorderingTOMLPKcS0_S0_PKN6icu_7517CollationSettingsEP10UErrorCode.exit, label %if.end.i
 
@@ -4827,7 +4827,7 @@ if.then58:                                        ; preds = %if.end53
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %tailoringSet.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %builder.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %utrie.i)
-  %call.i152 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.87, ptr noundef %status)
+  %call.i152 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.87, ptr noundef %status)
   %tobool.not.i153 = icmp eq ptr %call.i152, null
   br i1 %tobool.not.i153, label %_ZL22writeCollationDataTOMLPKcS0_S0_PKN6icu_7513CollationDataEaiP10UErrorCode.exit, label %if.end.i154
 
@@ -5137,7 +5137,7 @@ sw.default:                                       ; preds = %if.end74
 
 sw.epilog:                                        ; preds = %if.end74, %sw.bb103, %sw.bb100
   %metadataBits.6 = phi i32 [ %or104, %sw.bb103 ], [ %or102, %sw.bb100 ], [ %metadataBits.5, %if.end74 ]
-  %call.i185 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef nonnull @.str.93, ptr noundef %status)
+  %call.i185 = call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.93, ptr noundef %status)
   %tobool.not.i186 = icmp eq ptr %call.i185, null
   br i1 %tobool.not.i186, label %return, label %if.end.i187
 
@@ -5688,7 +5688,7 @@ declare void @ucbuf_close(ptr noundef) local_unnamed_addr #6
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr nocapture noundef readonly %data, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc noundef i32 @_ZL28writeCollationDiacriticsTOMLPKcS0_S0_PKN6icu_7513CollationDataEP10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr nocapture noundef readonly %data, ptr noundef %status) unnamed_addr #1 {
 entry:
   %secondaries = alloca [79 x i16], align 16
   %call = tail call fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef nonnull @.str.66, ptr noundef %status)
@@ -5831,7 +5831,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef %name, ptr noundef %collationType, ptr noundef %structType, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL8openTOMLPKcS0_S0_S0_P10UErrorCode(ptr noundef %outputdir, ptr noundef nonnull %name, ptr noundef %collationType, ptr noundef %structType, ptr noundef %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %baseName = alloca %"class.icu_75::CharString", align 8
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
@@ -5847,7 +5847,7 @@ entry:
   store i32 0, ptr %len.i, align 8
   %0 = load ptr, ptr %baseName, align 8
   store i8 0, ptr %0, align 1
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef %name)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp, ptr noundef nonnull %name)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry

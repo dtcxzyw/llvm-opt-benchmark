@@ -7322,7 +7322,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEEaSIN
   br i1 %cmp.i.i.not, label %if.end18, label %if.then11
 
 if.then11:                                        ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_126XdsClusterResolverLbConfigEEaSINS_19LoadBalancingPolicy6ConfigEEERS3_ONS0_IT_EE.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias nonnull align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(120) %this)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias align 8 %ref.tmp12, ptr noundef nonnull align 8 dereferenceable(120) %this)
           to label %invoke.cont14 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont14:                                    ; preds = %if.then11
@@ -8190,7 +8190,7 @@ declare noundef zeroext i1 @_ZNK9grpc_core11ChannelArgseqERKS0_(ptr noundef nonn
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lb_policy_args.i = alloca %"struct.grpc_core::LoadBalancingPolicy::Args", align 8
   %lb_policy.i = alloca %"class.std::unique_ptr.211", align 8
@@ -8252,7 +8252,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicy6ConfigEED2Ev.exit.i: ; pre
   br label %common.resume
 
 _ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2Ev.exit: ; preds = %if.end
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb29CreateChildPolicyConfigLockedEv(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %this)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb29CreateChildPolicyConfigLockedEv(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(120) %this)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2Ev.exit
@@ -9356,7 +9356,7 @@ _ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2EOS1_.exit: ; preds = %invoke.co
   %vtable = load ptr, ptr %137, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %144 = load ptr, ptr %vfn, align 8
-  invoke void %144(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull %agg.tmp)
+  invoke void %144(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %137, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont36 unwind label %lpad35
 
 invoke.cont36:                                    ; preds = %_ZN9grpc_core19LoadBalancingPolicy10UpdateArgsC2EOS1_.exit
@@ -9605,7 +9605,7 @@ return:                                           ; preds = %if.then.i.i3.i107, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb29CreateChildPolicyConfigLockedEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb29CreateChildPolicyConfigLockedEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i3872 = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i.i.i.i3873 = alloca %class.anon, align 1
@@ -23607,7 +23607,7 @@ entry:
 
 invoke.cont16.i.i.i.i:                            ; preds = %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp.i.i.i.i.i)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb7OnErrorEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val.val.i.i.i, i64 noundef %call.val.val1.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb7OnErrorEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val.val.i.i.i, i64 noundef %call.val.val1.i.i.i, ptr noundef %agg.tmp.i.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad17.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %.noexc.i.i.i
@@ -23807,7 +23807,7 @@ if.then4:                                         ; preds = %if.end
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %ref.tmp, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5, ptr noundef nonnull align 8 dereferenceable(32) %resolution_note) #29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp5)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr noundef %agg.tmp, ptr noundef %agg.tmp5)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then4
@@ -23970,7 +23970,7 @@ if.end6:                                          ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr nocapture noundef %update, ptr noundef %resolution_note) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr nocapture noundef nonnull %update, ptr noundef nonnull %resolution_note) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i345 = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>, std::_Select1st<std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>>, std::less<unsigned long>>::_Auto_node", align 8
   %__z.i = alloca %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>, std::_Select1st<std::pair<const unsigned long, std::set<grpc_core::XdsLocalityName *, grpc_core::XdsLocalityName::Less>>>, std::less<unsigned long>>::_Auto_node", align 8
@@ -25384,7 +25384,7 @@ for.body137:                                      ; preds = %_ZNSt6vectorImSaImE
   br i1 %cmp.i.not.i, label %_ZNSt6vectorImSaImEED2Ev.exit196, label %for.cond135
 
 for.end145:                                       ; preds = %for.cond135, %_ZNSt6vectorImSaImEEaSEOS1_.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias nonnull align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(120) %this)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb23UpdateChildPolicyLockedEv(ptr noalias align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(120) %this)
           to label %invoke.cont146 unwind label %lpad57.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont146:                                   ; preds = %for.end145
@@ -26811,7 +26811,7 @@ entry:
   %8 = getelementptr inbounds i8, ptr %ref.tmp11.i.i.i.i, i64 8
   store ptr @.str.102, ptr %8, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp11.i.i.i.i)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb22OnResourceDoesNotExistEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val.val.val, i64 noundef %call.val.val.val1, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb22OnResourceDoesNotExistEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val.val.val, i64 noundef %call.val.val.val1, ptr noundef %agg.tmp.i.i.i.i)
           to label %_ZSt10__invoke_rIvRZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb21EdsDiscoveryMechanism15EndpointWatcher22OnResourceDoesNotExistEvEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %entry
@@ -26933,7 +26933,7 @@ if.end:                                           ; preds = %entry
   store ptr %call5.i.i.i3.i.i.i.i, ptr %_M_refcount.i.i, align 8
   store ptr null, ptr %ref.tmp, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %resolution_note) #29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp2)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, i64 noundef %index, ptr noundef %agg.tmp, ptr noundef %agg.tmp2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -27588,7 +27588,7 @@ invoke.cont67.i.i.i.i:                            ; preds = %if.end63.i.invoke.c
   store ptr %52, ptr %_M_refcount.i.i.i.i.i.i, align 8
   store ptr null, ptr %agg.tmp.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp73.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %resolution_note.i.i.i.i) #29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call66.val.i.i.i.i, i64 noundef %call70.val.i.i.i.i, ptr noundef nonnull %agg.tmp72.i.i.i.i, ptr noundef nonnull %agg.tmp73.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call66.val.i.i.i.i, i64 noundef %call70.val.i.i.i.i, ptr noundef %agg.tmp72.i.i.i.i, ptr noundef %agg.tmp73.i.i.i.i)
           to label %invoke.cont75.i.i.i.i unwind label %lpad74.i.i.i.i
 
 invoke.cont75.i.i.i.i:                            ; preds = %invoke.cont67.i.i.i.i
@@ -28527,7 +28527,7 @@ invoke.cont68:                                    ; preds = %_ZNSt10shared_ptrIN
           to label %invoke.cont71 unwind label %lpad3
 
 invoke.cont71:                                    ; preds = %invoke.cont68
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb22OnResourceDoesNotExistEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this.val7, i64 noundef %this.val12, ptr noundef nonnull %agg.tmp63)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb22OnResourceDoesNotExistEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this.val7, i64 noundef %this.val12, ptr noundef %agg.tmp63)
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
@@ -28998,7 +28998,7 @@ lpad:                                             ; preds = %invoke.cont20
 
 if.end:                                           ; preds = %invoke.cont21, %if.then
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp24, ptr noundef nonnull align 8 dereferenceable(32) %resolution_note)
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb7OnErrorEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val, i64 noundef %call4.val, ptr noundef nonnull %agg.tmp24)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb7OnErrorEmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val, i64 noundef %call4.val, ptr noundef %agg.tmp24)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %if.end
@@ -29214,7 +29214,7 @@ invoke.cont47:                                    ; preds = %if.else.i, %_ZNSt16
   store ptr null, ptr %update, align 8
   %resolution_note51 = getelementptr inbounds i8, ptr %result, i64 48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp50, ptr noundef nonnull align 8 dereferenceable(32) %resolution_note51) #29
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val, i64 noundef %call4.val, ptr noundef nonnull %agg.tmp49, ptr noundef nonnull %agg.tmp50)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_120XdsClusterResolverLb17OnEndpointChangedEmSt10shared_ptrIKNS_19XdsEndpointResourceEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %call.val, i64 noundef %call4.val, ptr noundef %agg.tmp49, ptr noundef %agg.tmp50)
           to label %invoke.cont53 unwind label %lpad52
 
 invoke.cont53:                                    ; preds = %invoke.cont47

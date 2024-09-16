@@ -985,7 +985,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
   %26 = getelementptr inbounds [68 x i8], ptr %9, i64 0, i64 %25
   store i8 1, ptr %26, align 1
   %27 = add i64 %3, 4
-  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, i64 noundef %27, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %9, i64 noundef %27, ptr noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, ptr noundef nonnull align 16 dereferenceable(32) %10, i64 32, i1 false)
   %28 = add i32 %7, -1
   store i32 %28, ptr %12, align 4
@@ -1011,7 +1011,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
 
 .lr.ph:                                           ; preds = %.preheader, %41
   %.02529 = phi i32 [ %42, %41 ], [ 0, %.preheader ]
-  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef 32, ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17)
+  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, i64 noundef 32, ptr noundef %18, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, ptr noundef nonnull align 16 dereferenceable(32) %18, i64 32, i1 false)
   br label %35
 
@@ -1049,7 +1049,7 @@ define void @_Z6pbkdf2PKhmS0_mPhS1_S1_j(ptr noundef %0, i64 noundef %1, ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
+define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca %struct.sha256_context, align 8
   %12 = alloca [64 x i8], align 16
@@ -1185,7 +1185,7 @@ define internal fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_
 
 50:                                               ; preds = %49, %46, %._crit_edge60
   call void @_Z14sha256_processP14sha256_contextPKvm(ptr noundef nonnull %15, ptr noundef nonnull %14, i64 noundef 32)
-  call void @_Z11sha256_doneP14sha256_contextPh(ptr noundef nonnull %15, ptr noundef %4)
+  call void @_Z11sha256_doneP14sha256_contextPh(ptr noundef nonnull %15, ptr noundef nonnull %4)
   ret void
 }
 
@@ -1351,7 +1351,7 @@ define void @_Z16ConvertHashToMACP9HashValuePh(ptr noundef %0, ptr noundef %1) l
   %9 = getelementptr inbounds i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %3, align 4
-  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %1, i64 noundef 32, ptr noundef nonnull %3, i64 noundef 4, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %1, i64 noundef 32, ptr noundef nonnull %3, i64 noundef 4, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %11
 
 11:                                               ; preds = %8, %11
@@ -1381,7 +1381,7 @@ thread-pre-split:                                 ; preds = %11
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds i8, ptr %0, i64 4
-  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %1, i64 noundef 32, ptr noundef nonnull %24, i64 noundef 32, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  call fastcc void @_ZL11hmac_sha256PKhmS0_mPhP14sha256_contextPbS3_S4_(ptr noundef %1, i64 noundef 32, ptr noundef nonnull %24, i64 noundef 32, ptr noundef %5, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %24, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
   br label %25
 

@@ -5641,7 +5641,7 @@ _ZN2os5Linux18commit_memory_implEPcmmb.exit:      ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23warn_fail_commit_memoryPcmmbi(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL23warn_fail_commit_memoryPcmmbi(ptr noundef %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = ptrtoint ptr %0 to i64
   %7 = zext i1 %3 to i32
   %8 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %4) #26
@@ -8108,7 +8108,7 @@ _ZL17anon_mmap_alignedPcmm.exit.i:                ; preds = %66, %55, %53, %22
 68:                                               ; preds = %_ZL17anon_mmap_alignedPcmm.exit.i
   %69 = sub i64 0, %2
   %70 = and i64 %0, %69
-  %71 = tail call fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %70, i64 noundef %2, ptr noundef nonnull %.045.i.i, i1 noundef zeroext %4)
+  %71 = tail call fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %70, i64 noundef %2, ptr noundef %.045.i.i, i1 noundef zeroext %4)
   %72 = icmp eq i64 %0, %70
   %or.cond.i = and i1 %72, %71
   br i1 %or.cond.i, label %_ZL33reserve_memory_special_huge_tlbfsmmmPcb.exit, label %73
@@ -8144,7 +8144,7 @@ _ZL17anon_mmap_alignedPcmm.exit.i:                ; preds = %66, %55, %53, %22
 
 88:                                               ; preds = %73
   %89 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %90 = tail call fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %75, i64 noundef %89, ptr noundef nonnull %74, i1 noundef zeroext %4)
+  %90 = tail call fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %75, i64 noundef %89, ptr noundef %74, i1 noundef zeroext %4)
   br i1 %90, label %_ZL33reserve_memory_special_huge_tlbfsmmmPcb.exit, label %91
 
 91:                                               ; preds = %88
@@ -10909,7 +10909,7 @@ declare noundef zeroext i1 @_ZNK15ShmemTHPSupport9is_forcedEv(ptr noundef nonnul
 declare noundef i32 @_ZNK15ShmemTHPSupport4modeEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 noundef %0, i64 noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = select i1 %3, i32 7, i32 3
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %7 = icmp ugt i64 %1, %6
@@ -10927,7 +10927,7 @@ define internal fastcc noundef zeroext i1 @_ZL21commit_memory_specialmmPcb(i64 n
 
 15:                                               ; preds = %8, %4
   %.017 = phi i32 [ %14, %8 ], [ 50, %4 ]
-  %16 = tail call ptr @mmap64(ptr noundef %2, i64 noundef %0, i32 noundef %5, i32 noundef %.017, i32 noundef -1, i64 noundef 0) #26
+  %16 = tail call ptr @mmap64(ptr noundef nonnull %2, i64 noundef %0, i32 noundef %5, i32 noundef %.017, i32 noundef -1, i64 noundef 0) #26
   %17 = icmp ne ptr %16, inttoptr (i64 -1 to ptr)
   br i1 %17, label %52, label %18
 

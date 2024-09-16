@@ -1091,10 +1091,10 @@ link_sib.exit.i:                                  ; preds = %if.end.i
   br label %for.body.i.i31
 
 for.body.i.i31:                                   ; preds = %for.body.i.i31, %link_sib.exit.i
-  %stream.addr.04.i.i = phi ptr [ %25, %for.body.i.i31 ], [ %23, %link_sib.exit.i ]
-  %dep_prev.i.i32 = getelementptr inbounds i8, ptr %stream.addr.04.i.i, i64 96
+  %stream.addr.03.i.i = phi ptr [ %23, %link_sib.exit.i ], [ %25, %for.body.i.i31 ]
+  %dep_prev.i.i32 = getelementptr inbounds i8, ptr %stream.addr.03.i.i, i64 96
   store ptr %24, ptr %dep_prev.i.i32, align 8
-  %sib_next.i16.i = getelementptr inbounds i8, ptr %stream.addr.04.i.i, i64 120
+  %sib_next.i16.i = getelementptr inbounds i8, ptr %stream.addr.03.i.i, i64 120
   %25 = load ptr, ptr %sib_next.i16.i, align 8
   %tobool.not.i17.i = icmp eq ptr %25, null
   br i1 %tobool.not.i17.i, label %set_dep_prev.exit.i, label %for.body.i.i31, !llvm.loop !10
@@ -1155,10 +1155,10 @@ link_dep.exit.i:                                  ; preds = %if.end.i37
   br label %for.body.i.i40
 
 for.body.i.i40:                                   ; preds = %for.body.i.i40, %link_dep.exit.i
-  %stream.addr.04.i.i41 = phi ptr [ %32, %for.body.i.i40 ], [ %30, %link_dep.exit.i ]
-  %dep_prev.i16.i = getelementptr inbounds i8, ptr %stream.addr.04.i.i41, i64 96
+  %stream.addr.03.i.i41 = phi ptr [ %30, %link_dep.exit.i ], [ %32, %for.body.i.i40 ]
+  %dep_prev.i16.i = getelementptr inbounds i8, ptr %stream.addr.03.i.i41, i64 96
   store ptr %31, ptr %dep_prev.i16.i, align 8
-  %sib_next.i.i42 = getelementptr inbounds i8, ptr %stream.addr.04.i.i41, i64 120
+  %sib_next.i.i42 = getelementptr inbounds i8, ptr %stream.addr.03.i.i41, i64 120
   %32 = load ptr, ptr %sib_next.i.i42, align 8
   %tobool.not.i17.i43 = icmp eq ptr %32, null
   br i1 %tobool.not.i17.i43, label %set_dep_prev.exit.i44, label %for.body.i.i40, !llvm.loop !10

@@ -32,7 +32,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %err.sink.split, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call fastcc i32 @ct_base64_decode(ptr noundef %logid_base64, ptr noundef nonnull %dec)
+  %call4 = call fastcc i32 @ct_base64_decode(ptr noundef %logid_base64, ptr noundef %dec)
   %cmp5 = icmp slt i32 %call4, 0
   br i1 %cmp5, label %err.sink.split, label %if.end8
 
@@ -45,7 +45,7 @@ if.end8:                                          ; preds = %if.end3
 
 if.end13:                                         ; preds = %if.end8
   store ptr null, ptr %dec, align 8
-  %call14 = call fastcc i32 @ct_base64_decode(ptr noundef %extensions_base64, ptr noundef nonnull %dec)
+  %call14 = call fastcc i32 @ct_base64_decode(ptr noundef %extensions_base64, ptr noundef %dec)
   %cmp15 = icmp slt i32 %call14, 0
   br i1 %cmp15, label %err.sink.split, label %if.end18
 
@@ -54,7 +54,7 @@ if.end18:                                         ; preds = %if.end13
   %conv19 = zext nneg i32 %call14 to i64
   tail call void @SCT_set0_extensions(ptr noundef nonnull %call, ptr noundef %1, i64 noundef %conv19) #3
   store ptr null, ptr %dec, align 8
-  %call20 = call fastcc i32 @ct_base64_decode(ptr noundef %signature_base64, ptr noundef nonnull %dec)
+  %call20 = call fastcc i32 @ct_base64_decode(ptr noundef %signature_base64, ptr noundef %dec)
   %cmp21 = icmp slt i32 %call20, 0
   br i1 %cmp21, label %err.sink.split, label %if.end24
 
@@ -104,7 +104,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @SCT_set_version(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ct_base64_decode(ptr noundef %in, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc i32 @ct_base64_decode(ptr noundef %in, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #4
   %cmp = icmp eq i64 %call, 0
@@ -193,7 +193,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = call fastcc i32 @ct_base64_decode(ptr noundef %pkey_base64, ptr noundef nonnull %pkey_der)
+  %call = call fastcc i32 @ct_base64_decode(ptr noundef %pkey_base64, ptr noundef %pkey_der)
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %if.then2, label %if.end3
 

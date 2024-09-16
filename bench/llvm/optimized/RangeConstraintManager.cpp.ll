@@ -6217,12 +6217,12 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_
   br i1 %.not.i.i8, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %68
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %9)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %9)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 68:                                               ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS4_S7_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_S7_ElPSF_RSF_EneERKSB_.exit.thread
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %67) #22
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %9)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %9)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %67) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -6346,7 +6346,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::ImmutableSet", align 8
   %5 = load ptr, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -6430,7 +6430,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   store ptr null, ptr %4, align 8, !alias.scope !366
   %.val = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %29 = inttoptr i64 %.val to ptr
-  call void @_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEE7Factory3addES8_S5_(ptr dead_on_unwind writable sret(%"class.llvm::ImmutableSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %28, ptr noundef nonnull %4, ptr noundef %29)
+  call void @_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEE7Factory3addES8_S5_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ImmutableSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %28, ptr noundef nonnull %4, ptr noundef %29)
   %30 = load ptr, ptr %4, align 8
   %.not.i.i.i8 = icmp eq ptr %30, null
   br i1 %.not.i.i.i8, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit, label %31
@@ -13146,12 +13146,12 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_122RangeConstraintManager9getSymVa
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %7
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %3
-  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 7:                                                ; preds = %3
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
-  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -13190,12 +13190,12 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_122RangeConstraintManager12getSymM
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %7
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %3
-  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 7:                                                ; preds = %3
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
-  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -13229,12 +13229,12 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_122RangeConstraintManager12getSymM
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %7
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %3
-  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %6 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 7:                                                ; preds = %3
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
-  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %4, ptr noundef %2)
+  %8 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %4, ptr noundef %2)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %5) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -13726,7 +13726,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIPKN5
   %202 = load i32, ptr %201, align 4
   %203 = add i32 %202, 1
   store i32 %203, ptr %201, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %71, ptr nonnull %.sroa.0199.0, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %71, ptr nonnull %.sroa.0199.0, ptr noundef nonnull align 8 dereferenceable(8) %17)
   %204 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   %205 = load i32, ptr %201, align 4
@@ -13754,7 +13754,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEEaSEOSA_.exit.thread
 
 _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit: ; preds = %199
-  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %71, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %71, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %17)
   %214 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit99
@@ -14081,7 +14081,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit129: ; preds = %342, %343
   %.val61 = load i64, ptr %189, align 8
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr %.sroa.0202.0, i64 %.val61)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr %.sroa.0202.0, i64 %.val61)
   %347 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   br i1 %.not.i.i.i128, label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit141.thread242, label %348
@@ -14136,7 +14136,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   %366 = load i32, ptr %365, align 4
   %367 = add i32 %366, 1
   store i32 %367, ptr %365, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %.sroa.0202.0, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull %.sroa.0185.0)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %.sroa.0202.0, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull %.sroa.0185.0)
   %368 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   %369 = load i32, ptr %365, align 4
@@ -14164,7 +14164,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEaSEOSE_.exit137.thread
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit139: ; preds = %363
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull %.sroa.0185.0)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr nonnull %.sroa.0185.0)
   %378 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit141.thread
@@ -14232,7 +14232,7 @@ _ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIPKN5clang4ento
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit146
 
 _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit146: ; preds = %395, %397
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %396, ptr noundef nonnull %27)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(48) %396, ptr noundef %27)
   %401 = load ptr, ptr %26, align 8
   %402 = load ptr, ptr %2, align 8
   store ptr %402, ptr %26, align 8
@@ -14276,7 +14276,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit152
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit152: ; preds = %410, %412
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(48) %411, ptr noundef nonnull %29)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(48) %411, ptr noundef %29)
   %416 = load ptr, ptr %28, align 8
   %417 = load ptr, ptr %2, align 8
   store ptr %417, ptr %28, align 8
@@ -14323,7 +14323,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit158
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit158: ; preds = %427, %429
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %428, ptr noundef nonnull %31)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %428, ptr noundef %31)
   %433 = load ptr, ptr %30, align 8
   %434 = load ptr, ptr %2, align 8
   store ptr %434, ptr %30, align 8
@@ -14370,7 +14370,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit: ; preds = %444, %446
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %445, ptr noundef nonnull %33)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %445, ptr noundef %33)
   %450 = load ptr, ptr %32, align 8
   %451 = load ptr, ptr %2, align 8
   store ptr %451, ptr %32, align 8
@@ -14866,7 +14866,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %178, i64 24, i1 false)
   store ptr %39, ptr %33, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #22
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %33)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %33)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %39) #22
   %179 = load ptr, ptr %32, align 8, !noalias !539
   call void @_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS6_EEEEEC2EPNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(176) %34, ptr noundef %179)
@@ -15658,7 +15658,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i28: ; preds
   %521 = add i32 %520, 1
   store i32 %521, ptr %519, align 4
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %391) #22
-  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr nonnull %391, ptr %.sroa.05.0.copyload.i, i64 %.sroa.2.0.copyload7.i)
+  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull %391, ptr %.sroa.05.0.copyload.i, i64 %.sroa.2.0.copyload7.i)
   %522 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(32) %25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %391) #22
@@ -15674,7 +15674,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i28: ; preds
 
 _ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS2_17ImutContainerInfoIS8_EEEEED2Ev.exit.i.critedge: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoISA_EEEENS_16ImutKeyValueInfoIS4_SD_EEEEEESt26bidirectional_iterator_tagKSt4pairIS4_SD_ElPSL_RSL_EneERKSH_.exit.thread.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %391) #22
-  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr nonnull %391, ptr %.sroa.05.0.copyload.i, i64 %.sroa.2.0.copyload7.i)
+  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias writable align 8 %25, ptr nonnull %391, ptr %.sroa.05.0.copyload.i, i64 %.sroa.2.0.copyload7.i)
   %527 = call { ptr, i8 } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE16_M_insert_uniqueIS5_EESt4pairISt17_Rb_tree_iteratorIS5_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(32) %25)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #22
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %391) #22
@@ -16313,7 +16313,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i78: ; preds = %800, %_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS3_EEEEED2Ev.exit.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %627) #22
-  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr nonnull %627, ptr %.sroa.011.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias writable align 8 %19, ptr nonnull %627, ptr %.sroa.011.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   store i32 0, ptr %713, align 8
   store ptr null, ptr %714, align 8
@@ -16408,7 +16408,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit109.i: ; 
   %.sroa.220.0..sroa_idx.i = getelementptr inbounds i8, ptr %832, i64 56
   %.sroa.220.0.copyload.i = load i64, ptr %.sroa.220.0..sroa_idx.i, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %627) #22
-  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr nonnull %627, ptr %.sroa.019.0.copyload.i, i64 %.sroa.220.0.copyload.i)
+  call fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias writable align 8 %17, ptr nonnull %627, ptr %.sroa.019.0.copyload.i, i64 %.sroa.220.0.copyload.i)
   %.02022.i.i.i64 = load ptr, ptr %706, align 8
   %.not23.i.i.i65 = icmp eq ptr %.02022.i.i.i64, null
   br i1 %.not23.i.i.i65, label %._crit_edge.thread.i.i.i76, label %.lr.ph.i.i.i66
@@ -17425,12 +17425,12 @@ define internal range(i16 0, 512) i16 @_ZN12_GLOBAL__N_122RangeConstraintManager
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %10
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %3
-  %9 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %5, ptr noundef %2)
+  %9 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %5, ptr noundef %2)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 10:                                               ; preds = %3
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
-  %11 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %5, ptr noundef %2)
+  %11 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %5, ptr noundef %2)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -17889,12 +17889,12 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManager11assumeSymLTEN4l
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %10
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %6
-  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
-  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -17927,12 +17927,12 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManager11assumeSymGTEN4l
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %10
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %6
-  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
-  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -18019,12 +18019,12 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManager11assumeSymGEEN4l
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %10
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %6
-  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %9 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
-  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
+  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %7, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %5)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -18059,12 +18059,12 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManager29assumeSymWithin
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %13
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %7
-  %12 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %12 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 13:                                               ; preds = %7
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %11) #22
-  %14 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %14 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %11) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -18110,12 +18110,12 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManager30assumeSymOutsid
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %12
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %7
-  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %11 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %8, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 12:                                               ; preds = %7
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %10) #22
-  %13 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %8, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %13 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %8, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %4, ptr noundef nonnull align 8 dereferenceable(13) %6)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %10) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -18127,12 +18127,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   br i1 %.not.i.i14, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread, label %17
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit15.thread: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %16 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %16 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17
 
 17:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %15) #22
-  %18 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6)
+  %18 = call fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %9, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %15) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit17
 
@@ -19232,7 +19232,7 @@ _ZN4llvm8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit3, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
@@ -19387,7 +19387,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_122RangeConstraintManager18remove
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit: ; preds = %2, %15
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(81) %13, ptr %.val21, i64 %1)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(81) %13, ptr %.val21, i64 %1)
   %19 = load ptr, ptr %0, align 8
   %20 = load ptr, ptr %4, align 8
   store ptr null, ptr %4, align 8
@@ -19575,7 +19575,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit49
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit49: ; preds = %_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS3_EEEEED2Ev.exit47, %85
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %83, ptr %.val29, i64 %1)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %83, ptr %.val29, i64 %1)
   %89 = load ptr, ptr %36, align 8
   %90 = load ptr, ptr %11, align 8
   %91 = load ptr, ptr %89, align 8
@@ -19687,7 +19687,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit.thread: ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70.thread, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70
   %.ph = phi ptr [ %131, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70 ], [ %113, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70.thread ]
   %.val7119123129.ph = phi i64 [ %.val7, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70 ], [ %.val7118, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70.thread ]
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %.ph, ptr null, i64 %1)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %.ph, ptr null, i64 %1)
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit
 
 132:                                              ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit70
@@ -19695,7 +19695,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   %134 = load i32, ptr %133, align 4
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr nonnull %.sroa.0101.0, i64 %1)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr nonnull %.sroa.0101.0, i64 %1)
   %136 = load i32, ptr %133, align 4
   %137 = add i32 %136, -1
   store i32 %137, ptr %133, align 4
@@ -19729,7 +19729,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit75
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit75: ; preds = %142, %143
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %140, ptr %.val27, i64 %.val7119123129135)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %140, ptr %.val27, i64 %.val7119123129135)
   %147 = load ptr, ptr %36, align 8
   %148 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
@@ -19776,7 +19776,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit83
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit83: ; preds = %162, %163
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %140, ptr %.val27, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %.val31)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %140, ptr %.val27, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull %.val31)
   %167 = load ptr, ptr %36, align 8
   %168 = load ptr, ptr %10, align 8
   store ptr null, ptr %10, align 8
@@ -19877,7 +19877,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 {
   %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS6_PNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS9_EE(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20054,7 +20054,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2EPN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
   %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS9_EEEEEEE13markImmutableEPNS_11ImutAVLTreeISD_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -20142,7 +20142,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.544", align 8
   %.sroa.0 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -20286,7 +20286,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20299,7 +20299,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_7SymExprEN12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !631
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #22, !noalias !631
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_18ClassMapEE8GDMIndexEvE5Index, ptr noundef null) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_18ClassMapEE8GDMIndexEvE5Index, ptr noundef null) #22
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit.i
 
 7:                                                ; preds = %3
@@ -20313,7 +20313,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_7SymExprEN12
   %11 = load i32, ptr %8, align 4, !noalias !634
   %12 = add i32 %11, 2
   store i32 %12, ptr %8, align 4, !noalias !634
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_18ClassMapEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_18ClassMapEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
   %13 = load i32, ptr %8, align 4
   %14 = add i32 %13, -1
   store i32 %14, ptr %8, align 4
@@ -20355,7 +20355,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20368,7 +20368,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !636
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #22, !noalias !636
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_112ClassMembersEE8GDMIndexEvE5Index, ptr noundef null) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_112ClassMembersEE8GDMIndexEvE5Index, ptr noundef null) #22
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit.i
 
 7:                                                ; preds = %3
@@ -20382,7 +20382,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   %11 = load i32, ptr %8, align 4, !noalias !639
   %12 = add i32 %11, 2
   store i32 %12, ptr %8, align 4, !noalias !639
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_112ClassMembersEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_112ClassMembersEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
   %13 = load i32, ptr %8, align 4
   %14 = add i32 %13, -1
   store i32 %14, ptr %8, align 4
@@ -20424,7 +20424,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20437,7 +20437,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !641
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #22, !noalias !641
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115ConstraintRangeEE8GDMIndexEvE5Index, ptr noundef null) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115ConstraintRangeEE8GDMIndexEvE5Index, ptr noundef null) #22
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit.i
 
 7:                                                ; preds = %3
@@ -20451,7 +20451,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   %11 = load i32, ptr %8, align 4, !noalias !644
   %12 = add i32 %11, 2
   store i32 %12, ptr %8, align 4, !noalias !644
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115ConstraintRangeEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115ConstraintRangeEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
   %13 = load i32, ptr %8, align 4
   %14 = add i32 %13, -1
   store i32 %14, ptr %8, align 4
@@ -20493,7 +20493,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -20506,7 +20506,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !noalias !646
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %1) #22, !noalias !646
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DisequalityMapEE8GDMIndexEvE5Index, ptr noundef null) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DisequalityMapEE8GDMIndexEvE5Index, ptr noundef null) #22
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit.i
 
 7:                                                ; preds = %3
@@ -20520,7 +20520,7 @@ _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116E
   %11 = load i32, ptr %8, align 4, !noalias !649
   %12 = add i32 %11, 2
   store i32 %12, ptr %8, align 4, !noalias !649
-  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DisequalityMapEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
+  call void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.106") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %6, ptr noundef nonnull %4, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_114DisequalityMapEE8GDMIndexEvE5Index, ptr noundef nonnull %.val1) #22
   %13 = load i32, ptr %8, align 4
   %14 = add i32 %13, -1
   store i32 %14, ptr %8, align 4
@@ -20947,7 +20947,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
   %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -21035,7 +21035,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
   %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -21123,7 +21123,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #1 align 2 {
   %3 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS8_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, i64 %.8.val, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE13markImmutableEPNS_11ImutAVLTreeIS8_EE(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -21211,7 +21211,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.637", align 8
   %.sroa.0 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -21996,7 +21996,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClas
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -22880,7 +22880,7 @@ _ZNK4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceCla
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -24375,7 +24375,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClas
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -25956,7 +25956,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBA
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -26920,7 +26920,7 @@ _ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClas
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, -2147483648
-  %52 = or disjoint i32 %45, %51
+  %52 = or disjoint i32 %51, %45
   %53 = or i32 %52, 268435456
   store i32 %53, ptr %49, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.0, i64 48
@@ -27454,7 +27454,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #1 {
+define internal fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr %1, i64 %2) unnamed_addr #1 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -27475,12 +27475,12 @@ define internal fastcc void @_ZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5cl
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %17
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %3
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %11)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %11)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 17:                                               ; preds = %3
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.0.val) #22
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %11)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %11)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.0.val) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -30052,7 +30052,7 @@ define internal fastcc ptr @_ZN12_GLOBAL__N_121SymbolicRangeInferrer5inferEPKN5c
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %2, %15
-  %16 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %10, ptr noundef %1)
+  %16 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %10, ptr noundef %1)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %369 [
@@ -30104,12 +30104,12 @@ _ZZN12_GLOBAL__N_121SymbolicRangeInferrer26getRangeForNegatedUnarySymEPKN5clang4
   br i1 %.not.i.i.i.i.i9, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i.i13, label %40
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i.i13: ; preds = %37
-  %39 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %3, ptr noundef nonnull %36)
+  %39 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %3, ptr noundef nonnull %36)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i10
 
 40:                                               ; preds = %37
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %38) #22
-  %41 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %3, ptr noundef nonnull %36)
+  %41 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %3, ptr noundef nonnull %36)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %38) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i10
 
@@ -30226,12 +30226,12 @@ _ZZN12_GLOBAL__N_121SymbolicRangeInferrer24getRangeForNegatedSymSymEPKN5clang4en
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i.i, label %116
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i.i: ; preds = %113
-  %115 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %9, ptr noundef nonnull %112)
+  %115 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %9, ptr noundef nonnull %112)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
 
 116:                                              ; preds = %113
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %114) #22
-  %117 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %9, ptr noundef nonnull %112)
+  %117 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %9, ptr noundef nonnull %112)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %114) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i
 
@@ -30307,12 +30307,12 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer24getRangeForNegatedSymSymEPKN5clang4ent
   br i1 %.not.i.i.i10.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i, label %152
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i: ; preds = %146
-  %151 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %7, ptr noundef %149)
+  %151 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %7, ptr noundef %149)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
 
 152:                                              ; preds = %146
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %150) #22
-  %153 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %7, ptr noundef %149)
+  %153 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %7, ptr noundef %149)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %150) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
 
@@ -30355,12 +30355,12 @@ _ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.i.i
   br i1 %.not.i.i61.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit62.thread.i.i, label %164
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit62.thread.i.i: ; preds = %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.i.i
-  %163 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %8, ptr noundef %161)
+  %163 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %8, ptr noundef %161)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit64.i.i
 
 164:                                              ; preds = %_ZN5clang14BinaryOperator19reverseComparisonOpENS_18BinaryOperatorKindE.exit.i.i
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %162) #22
-  %165 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %8, ptr noundef %161)
+  %165 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %8, ptr noundef %161)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %162) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit64.i.i
 
@@ -31552,8 +31552,8 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOp
   %288 = load ptr, ptr %0, align 8
   %289 = tail call i64 @_ZNK5clang4ento17BasicValueFactory13getAPSIntTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %288, i64 %4)
   %.sroa.08.0.insert.ext9.i = and i64 %289, 1099511627775
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 %.sroa.08.0.insert.ext9.i)
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 %.sroa.08.0.insert.ext9.i)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 %.sroa.08.0.insert.ext9.i)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 %.sroa.08.0.insert.ext9.i)
   %290 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %291 = load i8, ptr %290, align 8
   %292 = trunc i8 %291 to i1
@@ -31889,8 +31889,8 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOp
   %439 = load ptr, ptr %0, align 8
   %440 = tail call i64 @_ZNK5clang4ento17BasicValueFactory13getAPSIntTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %439, i64 %4)
   %.sroa.08.0.insert.ext9.i23 = and i64 %440, 1099511627775
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 %.sroa.08.0.insert.ext9.i23)
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 %.sroa.08.0.insert.ext9.i23)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 %.sroa.08.0.insert.ext9.i23)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 %.sroa.08.0.insert.ext9.i23)
   %441 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %442 = load i8, ptr %441, align 8
   %443 = trunc i8 %442 to i1
@@ -32108,8 +32108,8 @@ _ZN12_GLOBAL__N_121SymbolicRangeInferrer19VisitBinaryOperatorILN5clang18BinaryOp
   %538 = load ptr, ptr %0, align 8
   %539 = tail call i64 @_ZNK5clang4ento17BasicValueFactory13getAPSIntTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %538, i64 %4)
   %.sroa.08.0.insert.ext9.i40 = and i64 %539, 1099511627775
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %.sroa.08.0.insert.ext9.i40)
-  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 %.sroa.08.0.insert.ext9.i40)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 %.sroa.08.0.insert.ext9.i40)
+  call fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 %.sroa.08.0.insert.ext9.i40)
   %540 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %541 = load i8, ptr %540, align 8
   %542 = trunc i8 %541 to i1
@@ -32843,7 +32843,7 @@ _ZNK5clang4ento10APSIntType5applyERN4llvm6APSIntE.exit: ; preds = %_ZNK4llvm6APS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 %3) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 range(i64 0, 1099511627776) %3) unnamed_addr #1 align 2 {
   %5 = alloca %"class.clang::ento::APSIntType", align 8
   %6 = alloca %"class.llvm::APSInt", align 8
   %7 = alloca %"class.clang::ento::APSIntType", align 8
@@ -32875,7 +32875,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERK
 
 _ZNK5clang4ento10APSIntTypeeqERKS1_.exit.i:       ; preds = %16
   %22 = lshr i64 %3, 32
-  %23 = trunc i64 %22 to i8
+  %23 = trunc nuw i64 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %25 = load i8, ptr %24, align 4
   %26 = xor i8 %25, %23
@@ -33211,12 +33211,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i, label %30
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread.i.i: ; preds = %27
-  %29 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %3, ptr noundef nonnull %26)
+  %29 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %3, ptr noundef nonnull %26)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
 
 30:                                               ; preds = %27
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %28) #22
-  %31 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef nonnull %3, ptr noundef nonnull %26)
+  %31 = call fastcc noundef ptr @_ZN12_GLOBAL__N_113getConstraintEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS3_7SymExprE(ptr noundef %3, ptr noundef nonnull %26)
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %28) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i
 
@@ -33452,7 +33452,7 @@ _ZN12_GLOBAL__N_116EquivalenceClass4findEN4llvm18IntrusiveRefCntPtrIKN5clang4ent
   %84 = add i32 %83, 1
   store i32 %84, ptr %78, align 4, !noalias !907
   %85 = ptrtoint ptr %3 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(81) %82, ptr nonnull %76, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %85), !noalias !907
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(81) %82, ptr nonnull %76, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %85), !noalias !907
   %86 = load ptr, ptr %34, align 8, !noalias !907
   store ptr null, ptr %34, align 8, !noalias !907
   %87 = load i32, ptr %78, align 4, !noalias !907
@@ -33471,7 +33471,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   %.val20.i.i10.i = load ptr, ptr %91, align 8, !noalias !907
   %92 = tail call noundef nonnull align 8 dereferenceable(81) ptr @_ZN5clang4ento19ProgramStateManager14FindGDMContextEPvPFS2_RN4llvm20BumpPtrAllocatorImplINS3_15MallocAllocatorELm4096ELm4096ELm128EEEEPFvS2_E(ptr noundef nonnull align 8 dereferenceable(288) %.val20.i.i10.i, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_115ConstraintRangeEE8GDMIndexEvE5Index, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS0_8RangeSetENS2_16ImutKeyValueInfoIS5_S6_EEEEvE13CreateContextERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS0_8RangeSetENS2_16ImutKeyValueInfoIS5_S6_EEEEvE13DeleteContextEPv) #22, !noalias !907
   %93 = ptrtoint ptr %3 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(81) %92, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %93), !noalias !907
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull align 8 dereferenceable(81) %92, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 %93), !noalias !907
   %94 = load ptr, ptr %34, align 8, !noalias !907
   store ptr null, ptr %34, align 8, !noalias !907
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
@@ -33774,7 +33774,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
   %198 = add i32 %197, 1
   store i32 %198, ptr %196, align 4, !noalias !907
   %199 = ptrtoint ptr %177 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(81) %100, ptr nonnull %.sroa.090.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 %199), !noalias !907
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(81) %100, ptr nonnull %.sroa.090.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 %199), !noalias !907
   %200 = load ptr, ptr %38, align 8, !noalias !907
   store ptr null, ptr %38, align 8, !noalias !907
   %201 = load i32, ptr %196, align 4, !noalias !907
@@ -33790,7 +33790,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit56.i.i.i: ; preds = %194
   %205 = ptrtoint ptr %177 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(81) %100, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 %205), !noalias !907
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(81) %100, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 %205), !noalias !907
   %206 = load ptr, ptr %38, align 8, !noalias !907
   store ptr null, ptr %38, align 8, !noalias !907
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit58.i.i.i
@@ -33881,7 +33881,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit65.i.i.i:
   store ptr %.sroa.090.0.i.i.i, ptr %30, align 8, !noalias !935
   %242 = add i32 %241, 2
   store i32 %242, ptr %240, align 4, !noalias !935
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef nonnull %30), !noalias !900
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef %30), !noalias !900
   %243 = load i32, ptr %240, align 4, !noalias !938
   %244 = add i32 %243, -1
   store i32 %244, ptr %240, align 4, !noalias !938
@@ -33896,7 +33896,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit65.i.i.i:
 _ZN12_GLOBAL__N_114setConstraintsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS0_12ImmutableMapINS_16EquivalenceClassENS3_8RangeSetENS0_16ImutKeyValueInfoIS8_S9_EEEE.exit.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit65.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30), !noalias !907
   store ptr null, ptr %30, align 8, !noalias !939
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef nonnull %30), !noalias !900
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %237, ptr noundef %30), !noalias !900
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30), !noalias !907
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit70.i.i.i
 
@@ -33961,7 +33961,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   %265 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.3.0.i.i.i, ptr %265, align 8, !noalias !955
   %266 = ptrtoint ptr %3 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(81) %261, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 %266), !noalias !946
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(81) %261, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 %266), !noalias !946
   br label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS0_8RangeSetENS2_16ImutKeyValueInfoIS5_S6_EEEEvE3SetES9_S5_S6_RNS9_7FactoryE.exit.i.i.i.i.i.i
 
 267:                                              ; preds = %263
@@ -33974,7 +33974,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   %271 = add i32 %269, 2
   store i32 %271, ptr %268, align 4, !noalias !958
   %272 = ptrtoint ptr %3 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(81) %261, ptr nonnull %264, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 %272), !noalias !946
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(81) %261, ptr nonnull %264, ptr noundef nonnull align 8 dereferenceable(16) %27, i64 %272), !noalias !946
   %273 = load i32, ptr %268, align 4, !noalias !958
   %274 = add i32 %273, -1
   store i32 %274, ptr %268, align 4, !noalias !958
@@ -34473,7 +34473,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.i.i.i.i.i:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !900
   store ptr %415, ptr %15, align 8, !noalias !975
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !975
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef nonnull %15, ptr noundef %465, ptr noundef %467), !noalias !900
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef %15, ptr noundef %465, ptr noundef %467), !noalias !900
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !975
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !900
   %468 = load ptr, ptr %22, align 8, !noalias !900
@@ -34680,7 +34680,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i.i.
   store ptr %.sroa.0.0.i29.i.i.i.i.i.i.i.i, ptr %8, align 8, !noalias !1004
   %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sroa.3.0.i28.i.i.i.i.i.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1004
-  %518 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef nonnull %7, ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %8), !noalias !1004
+  %518 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef %7, ptr %.sroa.0.0.i.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %8), !noalias !1004
   br i1 %518, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.thread.i.i.i.i.i.i.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i.i.i.i.i.i.i.i
@@ -34690,7 +34690,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.thread.i
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i.i.i.i.i.i.i.i
   store ptr %415, ptr %9, align 8, !noalias !1004
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !1004
-  %519 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef nonnull %9, ptr %.sroa.0.0.i29.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i28.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %14), !noalias !1004
+  %519 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(120) %.val10.i.i.i.i.i.i, ptr noundef %9, ptr %.sroa.0.0.i29.i.i.i.i.i.i.i.i, i64 %.sroa.3.0.i28.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %14), !noalias !1004
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !1004
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !1004
   br i1 %519, label %520, label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
@@ -34709,7 +34709,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit20.i.i.i.i.i.
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i.i.i.i.i.i.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit22.i.i.i.i.i.i.i.i.i.i: ; preds = %521, %520
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %415, ptr noundef nonnull %11), !noalias !1004
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %415, ptr noundef %11), !noalias !1004
   %525 = load ptr, ptr %10, align 8, !noalias !1004
   store ptr %415, ptr %10, align 8, !noalias !1004
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %415) #22, !noalias !1004
@@ -34741,7 +34741,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i.i.i.i.i.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26.i.i.i.i.i.i.i.i.i.i: ; preds = %532, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit.i.i.i.i.i.i.i.i.i.i
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %525, ptr noundef nonnull %13), !noalias !1004
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %525, ptr noundef %13), !noalias !1004
   %536 = load ptr, ptr %12, align 8, !noalias !1004
   store ptr %525, ptr %12, align 8, !noalias !1004
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %525) #22, !noalias !1004
@@ -34923,7 +34923,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 %.0.val1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i64 %.0.val1) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::pair.127", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -35227,7 +35227,7 @@ _ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIPKN5clang4ento
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %76, %_ZNSt4pairIN12_GLOBAL__N_116EquivalenceClassEN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS2_17ImutContainerInfoIS8_EEEEEC2ERKSC_.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(120) %74, ptr noundef nonnull %10, ptr %.sroa.025.0.copyload.i, i64 %.sroa.226.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(120) %74, ptr noundef %10, ptr %.sroa.025.0.copyload.i, i64 %.sroa.226.0.copyload.i)
   %77 = load ptr, ptr %9, align 8
   %78 = load ptr, ptr %0, align 8
   store ptr %78, ptr %9, align 8
@@ -35753,7 +35753,7 @@ _ZNK4llvm8SmallSetIN12_GLOBAL__N_116EquivalenceClassELj4ESt4lessIS2_EE5countERKS
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit81.i: ; preds = %246, %_ZNK4llvm8SmallSetIN12_GLOBAL__N_116EquivalenceClassELj4ESt4lessIS2_EE5countERKS2_.exit.thread.i
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(120) %244, ptr noundef nonnull %14, ptr %.sroa.07.0.copyload.i, i64 %.sroa.28.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(120) %244, ptr noundef %14, ptr %.sroa.07.0.copyload.i, i64 %.sroa.28.0.copyload.i)
   %247 = load ptr, ptr %13, align 8
   %248 = load ptr, ptr %0, align 8
   store ptr %248, ptr %13, align 8
@@ -35941,7 +35941,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit101.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit101.i: ; preds = %320, %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(120) %318, ptr noundef nonnull %18, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(120) %318, ptr noundef %18, ptr %.sroa.01.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %321 = load ptr, ptr %17, align 8
   %322 = load ptr, ptr %0, align 8
   store ptr %322, ptr %17, align 8
@@ -36124,7 +36124,7 @@ _ZNK5clang4ento8RangeSet16getConcreteValueEv.exit.thread: ; preds = %2, %21, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5clang4ento11SValBuilderERNS2_8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEES0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::ImmutableSet", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
@@ -36158,12 +36158,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass8simplifyERN5cla
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread, label %32
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.thread: ; preds = %5
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %19)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %19)
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 32:                                               ; preds = %5
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %31) #22
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %19)
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %19)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %31) #22
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
@@ -36378,7 +36378,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit42: ; pre
   %.not.i.i4134 = phi i1 [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit40.thread ], [ true, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit40 ], [ false, %98 ]
   %99 = phi ptr [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit40.thread ], [ null, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit40 ], [ %.pr, %98 ]
   %100 = load ptr, ptr %51, align 8
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %26, ptr noundef %100, ptr noundef nonnull %58)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %26, ptr noundef %100, ptr noundef nonnull %58)
   %101 = load ptr, ptr %25, align 8
   %102 = load ptr, ptr %2, align 8
   store ptr %102, ptr %25, align 8
@@ -36492,7 +36492,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.thread: ; 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   store ptr %125, ptr %6, align 8, !noalias !1076
   store ptr null, ptr %8, align 8, !noalias !1076
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noundef nonnull %8), !noalias !1079
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noundef %8), !noalias !1079
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit25.i
 
 126:                                              ; preds = %_ZN12_GLOBAL__N_116EquivalenceClass4findEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprE.exit
@@ -36512,7 +36512,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i.thread: ; 
   store ptr %127, ptr %6, align 8, !noalias !1079
   store ptr %124, ptr %8, align 8, !noalias !1079
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %124) #22, !noalias !1079
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noundef nonnull %8), !noalias !1079
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noundef %8), !noalias !1079
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %124) #22, !noalias !1079
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %124) #22, !noalias !1079
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit25.i
@@ -36601,7 +36601,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit.i.thread: ; preds = %158, %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit29.i
   %.val17.i37 = load ptr, ptr %7, align 8, !noalias !1079
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr null, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr %.val17.i37), !noalias !1079
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr null, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr %.val17.i37), !noalias !1079
   %160 = load ptr, ptr %11, align 8, !noalias !1079
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit35.i
 
@@ -36611,7 +36611,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   %164 = add i32 %163, 2
   store i32 %164, ptr %162, align 4, !noalias !1079
   %.val17.i = load ptr, ptr %7, align 8, !noalias !1079
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr nonnull %159, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr %.val17.i), !noalias !1079
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %131, ptr nonnull %159, ptr noundef nonnull readonly align 8 dereferenceable(16) %27, ptr %.val17.i), !noalias !1079
   %165 = load ptr, ptr %11, align 8, !noalias !1079
   %166 = load i32, ptr %162, align 4, !noalias !1079
   %167 = add i32 %166, -1
@@ -36649,7 +36649,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit39.i: ; preds = %176, %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit35.i
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %124, ptr noundef nonnull %13), !noalias !1079
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %124, ptr noundef %13), !noalias !1079
   %180 = load ptr, ptr %12, align 8, !noalias !1079
   store ptr %124, ptr %12, align 8, !noalias !1079
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %124) #22, !noalias !1079
@@ -36688,7 +36688,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   %196 = load i32, ptr %191, align 4, !noalias !1079
   %197 = add i32 %196, 1
   store i32 %197, ptr %191, align 4, !noalias !1079
-  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(81) %195, ptr nonnull %189, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !1079
+  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(81) %195, ptr nonnull %189, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !1079
   %198 = load ptr, ptr %14, align 8, !noalias !1079
   %199 = load i32, ptr %191, align 4, !noalias !1079
   %200 = add i32 %199, -1
@@ -36705,7 +36705,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   %203 = getelementptr i8, ptr %180, i64 8
   %.val12.i39 = load ptr, ptr %203, align 8, !noalias !1079
   %204 = call noundef nonnull align 8 dereferenceable(81) ptr @_ZN5clang4ento19ProgramStateManager14FindGDMContextEPvPFS2_RN4llvm20BumpPtrAllocatorImplINS3_15MallocAllocatorELm4096ELm4096ELm128EEEEPFvS2_E(ptr noundef nonnull align 8 dereferenceable(288) %.val12.i39, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_18ClassMapEE8GDMIndexEvE5Index, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_7SymExprEN12_GLOBAL__N_116EquivalenceClassENS2_16ImutKeyValueInfoIS6_S8_EEEEvE13CreateContextERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE, ptr noundef nonnull @_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_7SymExprEN12_GLOBAL__N_116EquivalenceClassENS2_16ImutKeyValueInfoIS6_S8_EEEEvE13DeleteContextEPv) #22, !noalias !1079
-  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(81) %204, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !1079
+  call fastcc void @_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEE7Factory6removeESA_RKS5_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(81) %204, ptr null, ptr noundef nonnull align 8 dereferenceable(8) %6), !noalias !1079
   %205 = load ptr, ptr %14, align 8, !noalias !1079
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit48.i
 
@@ -36734,7 +36734,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52.i: ; preds = %212, %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit48.i
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %180, ptr noundef nonnull %16), !noalias !1079
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %180, ptr noundef %16), !noalias !1079
   %216 = load ptr, ptr %15, align 8, !noalias !1079
   store ptr %180, ptr %15, align 8, !noalias !1079
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %180) #22, !noalias !1079
@@ -37024,7 +37024,7 @@ declare { ptr, i8 } @_ZN5clang4ento14simplifyToSValEN4llvm18IntrusiveRefCntPtrIK
 declare noundef ptr @_ZNK5clang4ento4SVal11getAsSymbolEb(ptr noundef nonnull align 8 dereferenceable(9), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass5mergeERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEEPKNS2_7SymExprESD_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   %7 = alloca %"class.llvm::ImmutableSet", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.106", align 8
@@ -37242,18 +37242,18 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit36: ; pre
   br i1 %.not.i.i35, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit13.thread.i, label %79
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit13.thread.i: ; preds = %78
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %8), !noalias !1102
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %8), !noalias !1102
   store ptr null, ptr %10, align 8, !noalias !1102
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %10), !noalias !1102
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %10), !noalias !1102
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i
 
 79:                                               ; preds = %78
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %53) #22, !noalias !1102
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %8), !noalias !1102
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef %8), !noalias !1102
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %53) #22, !noalias !1102
   store ptr %53, ptr %10, align 8, !noalias !1102
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %53) #22, !noalias !1102
-  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %10), !noalias !1102
+  call fastcc void @_ZNK12_GLOBAL__N_116EquivalenceClass15getClassMembersEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef %10), !noalias !1102
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %53) #22, !noalias !1102
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit15.i
 
@@ -37314,7 +37314,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERK
   br i1 %.not.i.i.i20.i, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit21.thread.i, label %100
 
 _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit21.thread.i: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit.i
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 %.sroa.3.0.i26, ptr noundef nonnull %13)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %11, ptr noundef %12, i64 %.sroa.3.0.i26, ptr noundef %13)
   br label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit.i
 
 100:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit.i
@@ -37322,7 +37322,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERK
   %102 = load i32, ptr %101, align 4, !noalias !1102
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4, !noalias !1102
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 %.sroa.3.0.i26, ptr noundef nonnull %13)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %11, ptr noundef %12, i64 %.sroa.3.0.i26, ptr noundef %13)
   %104 = load i32, ptr %101, align 4, !noalias !1102
   %105 = add i32 %104, -1
   store i32 %105, ptr %101, align 4, !noalias !1102
@@ -37382,7 +37382,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERK
   br i1 %.not.i.i.i31.i, label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit32.thread.i, label %123
 
 _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit32.thread.i: ; preds = %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit30.i
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 %.sroa.1.0.copyload.i, ptr noundef nonnull %16)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %14, ptr noundef %15, i64 %.sroa.1.0.copyload.i, ptr noundef %16)
   br label %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEED2Ev.exit34.i
 
 123:                                              ; preds = %_ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERKS8_.exit30.i
@@ -37390,7 +37390,7 @@ _ZN4llvm12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS5_EEEC2ERK
   %125 = load i32, ptr %124, align 4, !noalias !1102
   %126 = add i32 %125, 1
   store i32 %126, ptr %124, align 4, !noalias !1102
-  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i64 %.sroa.1.0.copyload.i, ptr noundef nonnull %16)
+  call fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %14, ptr noundef %15, i64 %.sroa.1.0.copyload.i, ptr noundef %16)
   %127 = load i32, ptr %124, align 4, !noalias !1102
   %128 = add i32 %127, -1
   store i32 %128, ptr %124, align 4, !noalias !1102
@@ -37498,7 +37498,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit41: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4, i64 %.8.val, ptr nocapture noundef readonly %5) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116EquivalenceClass9mergeImplERN5clang4ento8RangeSet7FactoryEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS6_12ImmutableSetIPKNS2_7SymExprENS6_17ImutContainerInfoISE_EEEES0_SH_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull readonly %4, i64 %.8.val, ptr nocapture noundef nonnull readonly %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::ImutAVLTreeInOrderIterator.650", align 8
   %8 = alloca %"struct.std::pair.574", align 8
   %9 = alloca %"class.llvm::ImmutableMap.120", align 8
@@ -37709,7 +37709,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134: ; preds 
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %.sroa.030.0, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %.sroa.030.0, i64 %.8.val)
   %90 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   %91 = load i32, ptr %87, align 4
@@ -37724,7 +37724,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit134: ; preds 
   br label %96
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit: ; preds = %85
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory6removeES8_RKS2_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, i64 %.8.val)
   %95 = load ptr, ptr %9, align 8
   store ptr null, ptr %9, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit139
@@ -37751,7 +37751,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
   %106 = ptrtoint ptr %.sroa.07.0.i to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %101, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %106)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr nonnull %101, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %106)
   %107 = load ptr, ptr %10, align 8
   store ptr null, ptr %10, align 8
   %108 = load i32, ptr %103, align 4
@@ -37767,7 +37767,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit145: ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit139
   %112 = ptrtoint ptr %.sroa.07.0.i to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %112)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %44, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 %112)
   %113 = load ptr, ptr %10, align 8
   store ptr null, ptr %10, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit147
@@ -37798,7 +37798,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit149
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit149: ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEED2Ev.exit147, %121
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %120, ptr noundef nonnull %12)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_115ConstraintRangeEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(48) %120, ptr noundef %12)
   %125 = load ptr, ptr %11, align 8
   %126 = load ptr, ptr %3, align 8
   store ptr %126, ptr %11, align 8
@@ -37990,7 +37990,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17Imu
   %202 = load i32, ptr %201, align 4
   %203 = add i32 %202, 1
   store i32 %203, ptr %201, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr nonnull %.sroa.022.0, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr nonnull %.sroa.022.0, i64 %.8.val)
   %204 = load ptr, ptr %17, align 8
   store ptr null, ptr %17, align 8
   %205 = load i32, ptr %201, align 4
@@ -38005,7 +38005,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17Imu
   br label %210
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit: ; preds = %_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS6_EEEEED2Ev.exit166
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr null, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory6removeESE_RKS2_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr null, i64 %.8.val)
   %209 = load ptr, ptr %17, align 8
   store ptr null, ptr %17, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit171
@@ -38031,7 +38031,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   %218 = load i32, ptr %217, align 4
   %219 = add i32 %218, 1
   store i32 %219, ptr %217, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr nonnull %215, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.015.0)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr nonnull %215, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.015.0)
   %220 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   %221 = load i32, ptr %217, align 4
@@ -38046,7 +38046,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5c
   br label %226
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit177: ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit171
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.015.0)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEE7Factory3addESE_RKS2_RKSB_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(81) %155, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.015.0)
   %225 = load ptr, ptr %18, align 8
   store ptr null, ptr %18, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEED2Ev.exit179
@@ -38401,7 +38401,7 @@ _ZNK12_GLOBAL__N_116EquivalenceClass18getDisequalClassesEN4llvm12ImmutableMapIS0
   %355 = phi i32 [ %.pre89, %353 ], [ %351, %_ZNK12_GLOBAL__N_116EquivalenceClass18getDisequalClassesEN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS6_7FactoryE.exit220 ]
   %356 = add i32 %355, 1
   store i32 %356, ptr %232, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.0, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory6removeES9_RKS2_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.0, i64 %.8.val)
   %357 = load ptr, ptr %19, align 8
   store ptr null, ptr %19, align 8
   %358 = load i32, ptr %232, align 4
@@ -38510,7 +38510,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
   %394 = load i32, ptr %393, align 4
   %395 = add i32 %394, 1
   store i32 %395, ptr %393, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.08.1)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.1, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.08.1)
   %396 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   %397 = load i32, ptr %393, align 4
@@ -38525,7 +38525,7 @@ _ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceCla
   br label %402
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit242: ; preds = %_ZN4llvm20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS3_EEEEED2Ev.exit236
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.08.1)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %.sroa.08.1)
   %401 = load ptr, ptr %27, align 8
   store ptr null, ptr %27, align 8
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit244
@@ -38556,7 +38556,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit246
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit246: ; preds = %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEED2Ev.exit244, %409
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(48) %408, ptr noundef nonnull %29)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_114DisequalityMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(48) %408, ptr noundef %29)
   %413 = load ptr, ptr %28, align 8
   %414 = load ptr, ptr %3, align 8
   store ptr %414, ptr %28, align 8
@@ -38617,7 +38617,7 @@ _ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN12_
   %438 = load i32, ptr %437, align 4
   %439 = add i32 %438, 1
   store i32 %439, ptr %437, align 4
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr nonnull %.sroa.08.1, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr nonnull %.sroa.08.1, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %440 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   %441 = load i32, ptr %437, align 4
@@ -38645,7 +38645,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEaSEOS5_.exit.thread
 
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit255: ; preds = %_ZNK4llvm20iterator_facade_baseINS_20ImutAVLValueIteratorINS_12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS4_EEEEEESt26bidirectional_iterator_tagKS4_lPSA_RSA_EneERKS8_.exit.thread
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %22)
   %450 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit257
@@ -38691,7 +38691,7 @@ _ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS
   br i1 %.not.i.i.i261, label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit264.thread, label %462
 
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit264.thread: ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE4findERKS3_.exit.i
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr null, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr null, i64 %.8.val)
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit266
 
 462:                                              ; preds = %_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS3_NS_17ImutContainerInfoIS3_EEEEEEE4findERKS3_.exit.i
@@ -38699,7 +38699,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   %464 = load i32, ptr %463, align 4
   %465 = add i32 %464, 2
   store i32 %465, ptr %463, align 4
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr nonnull %.val38, i64 %.8.val)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory6removeES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr nonnull %.val38, i64 %.8.val)
   %466 = load i32, ptr %463, align 4
   %467 = add i32 %466, -1
   store i32 %467, ptr %463, align 4
@@ -38723,7 +38723,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit268
 
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEEC2ERKS5_.exit268: ; preds = %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit266, %470
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr %.val36, ptr noundef nonnull align 8 dereferenceable(16) %1)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(81) %169, ptr %.val36, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %474 = load ptr, ptr %25, align 8
   store ptr null, ptr %25, align 8
   store ptr %474, ptr %24, align 8
@@ -38758,7 +38758,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   %487 = load i32, ptr %486, align 4
   %488 = add i32 %487, 1
   store i32 %488, ptr %486, align 4
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.1, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr %474)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(81) %166, ptr nonnull %.sroa.019.1, ptr noundef nonnull align 8 dereferenceable(16) %22, ptr %474)
   %489 = load ptr, ptr %26, align 8
   store ptr null, ptr %26, align 8
   %490 = load i32, ptr %486, align 4
@@ -38849,7 +38849,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit289
 
 _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEEC2ERKSA_.exit289: ; preds = %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit, %521
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %520, ptr noundef nonnull %31)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_18ClassMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(48) %520, ptr noundef %31)
   %525 = load ptr, ptr %30, align 8
   %526 = load ptr, ptr %3, align 8
   store ptr %526, ptr %30, align 8
@@ -38890,7 +38890,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassE
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit295
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoIS8_EEEENS_16ImutKeyValueInfoIS2_SB_EEEC2ERKSE_.exit295: ; preds = %_ZN4llvm12ImmutableMapIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassENS_16ImutKeyValueInfoIS5_S7_EEED2Ev.exit293, %535
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %534, ptr noundef nonnull %33)
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_112ClassMembersEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E9data_typeE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %534, ptr noundef %33)
   %539 = load ptr, ptr %32, align 8
   %540 = load ptr, ptr %3, align 8
   store ptr %540, ptr %32, align 8
@@ -39024,7 +39024,7 @@ _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(81) %1, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 {
   %4 = tail call fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE12add_internalERKS3_PNS_11ImutAVLTreeIS4_EE(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %.0.val)
   tail call fastcc void @_ZN4llvm14ImutAVLFactoryINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEE13markImmutableEPNS_11ImutAVLTreeIS4_EE(ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -39234,7 +39234,7 @@ define internal fastcc void @_ZNSt8_Rb_treeIN12_GLOBAL__N_116EquivalenceClassES1
 declare noundef ptr @_ZN5clang4ento16MemRegionManager17getSymbolicRegionEPKNS0_7SymExprEPKNS0_14MemSpaceRegionE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef readonly %3, ptr %4, i64 %5, ptr noundef byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %6) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20addToDisequalityInfoERN4llvm12ImmutableMapIS0_NS1_12ImmutableSetIS0_NS1_17ImutContainerInfoIS0_EEEENS1_16ImutKeyValueInfoIS0_S6_EEEERNS2_IS0_N5clang4ento8RangeSetENS7_IS0_SD_EEEERNSD_7FactoryENS1_18IntrusiveRefCntPtrIKNSC_12ProgramStateEEES0_S0_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull readonly %3, ptr %4, i64 %5, ptr noundef byval(%"class.(anonymous namespace)::EquivalenceClass") align 8 %6) unnamed_addr #1 align 2 {
   %8 = alloca %"class.(anonymous namespace)::SymbolicRangeInferrer", align 8
   %9 = alloca %"class.(anonymous namespace)::EquivalenceClass", align 8
   %10 = alloca %"class.llvm::ImmutableSet.639", align 8
@@ -39285,7 +39285,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, 2
   store i32 %32, ptr %30, align 4
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %19, ptr nonnull %.val32, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %19, ptr nonnull %.val32, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %33 = load ptr, ptr %10, align 8
   %34 = load i32, ptr %30, align 4
   %35 = add i32 %34, -1
@@ -39299,7 +39299,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116EquivalenceClass20
   br label %39
 
 _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit: ; preds = %25, %7, %27
-  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %19, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call fastcc void @_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEE7Factory3addES5_RKS2_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(81) %19, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %38 = load ptr, ptr %10, align 8
   br label %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit54
 
@@ -39328,7 +39328,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
   br label %_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEEC2ERKS9_.exit: ; preds = %_ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoIS2_EEED2Ev.exit54, %45
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %16, ptr %.val45, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr %44)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS2_NS_17ImutContainerInfoIS2_EEEENS_16ImutKeyValueInfoIS2_S6_EEE7Factory3addES9_RKS2_RKS6_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(81) %16, ptr %.val45, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr %44)
   %49 = load ptr, ptr %11, align 8
   %50 = load ptr, ptr %0, align 8
   store ptr %49, ptr %0, align 8
@@ -39459,7 +39459,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 _ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEEC2ERKS8_.exit: ; preds = %96, %97
   %101 = ptrtoint ptr %94 to i64
-  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(81) %22, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %101)
+  call fastcc void @_ZN4llvm12ImmutableMapIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetENS_16ImutKeyValueInfoIS2_S5_EEE7Factory3addES8_RKS2_RKS5_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(81) %22, ptr %.val40, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 %101)
   %102 = load ptr, ptr %12, align 8
   %103 = load ptr, ptr %1, align 8
   store ptr %102, ptr %1, align 8
@@ -39515,7 +39515,7 @@ _ZN4llvm12ImmutableSetIN12_GLOBAL__N_116EquivalenceClassENS_17ImutContainerInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
+define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymLTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -39843,7 +39843,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
+define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGTRangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -40655,7 +40655,7 @@ _ZN12_GLOBAL__N_122RangeConstraintManager8getRangeEN4llvm18IntrusiveRefCntPtrIKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
+define internal fastcc ptr @_ZN12_GLOBAL__N_122RangeConstraintManager13getSymGERangeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEPKNS4_7SymExprERKNS1_6APSIntESD_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8

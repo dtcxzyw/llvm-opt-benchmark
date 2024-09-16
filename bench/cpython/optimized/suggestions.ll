@@ -1224,7 +1224,7 @@ if.end19:                                         ; preds = %if.end14
   %div = sdiv i64 %mul, 6
   %sub = add i64 %suggestion_distance.026, -1
   %cond = call i64 @llvm.smin.i64(i64 %div, i64 %sub)
-  %call24 = call fastcc i64 @levenshtein_distance(ptr noundef nonnull %call1, i64 noundef %3, ptr noundef nonnull %call15, i64 noundef %4, i64 noundef %cond, ptr noundef nonnull %call5)
+  %call24 = call fastcc i64 @levenshtein_distance(ptr noundef %call1, i64 noundef %3, ptr noundef %call15, i64 noundef %4, i64 noundef %cond, ptr noundef %call5)
   %cmp25 = icmp sgt i64 %call24, %cond
   br i1 %cmp25, label %for.inc, label %if.end28
 
@@ -1275,7 +1275,7 @@ declare i32 @_PyUnicode_Equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @levenshtein_distance(ptr noundef readonly %a, i64 noundef %a_size, ptr noundef readonly %b, i64 noundef %b_size, i64 noundef %max_cost, ptr nocapture noundef %buffer) unnamed_addr #2 {
+define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly %a, i64 noundef %a_size, ptr noundef nonnull readonly %b, i64 noundef %b_size, i64 noundef %max_cost, ptr nocapture noundef nonnull %buffer) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -2000,7 +2000,7 @@ if.then11:                                        ; preds = %if.end8
 if.end13:                                         ; preds = %if.end8
   %2 = load i64, ptr %size_a, align 8
   %3 = load i64, ptr %size_b, align 8
-  %call14 = call fastcc i64 @levenshtein_distance(ptr noundef nonnull %call, i64 noundef %2, ptr noundef nonnull %call1, i64 noundef %3, i64 noundef %max_cost.addr.0, ptr noundef nonnull %call9)
+  %call14 = call fastcc i64 @levenshtein_distance(ptr noundef %call, i64 noundef %2, ptr noundef %call1, i64 noundef %3, i64 noundef %max_cost.addr.0, ptr noundef %call9)
   call void @PyMem_Free(ptr noundef nonnull %call9) #5
   br label %return
 

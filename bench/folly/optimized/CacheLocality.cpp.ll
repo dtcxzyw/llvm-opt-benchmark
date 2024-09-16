@@ -2500,7 +2500,7 @@ _ZNSt12_Vector_baseISt6vectorImSaImEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZN5folly13CacheLocality17readFromSysfsTreeERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_EEE3$_0EEEvT_SO_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #14 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZN5folly13CacheLocality17readFromSysfsTreeERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_EEE3$_0EEEvT_SO_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #14 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.lhs.cast.i69 = ptrtoint ptr %__last.coerce to i64
@@ -2881,7 +2881,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZN5folly13CacheLocality17readFromSysfsTreeERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_EEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, i64 noundef %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #15 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZN5folly13CacheLocality17readFromSysfsTreeERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_EEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %__len, i64 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #15 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

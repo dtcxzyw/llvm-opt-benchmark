@@ -66,7 +66,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %.sink26 = phi ptr [ %34, %.lr.ph ], [ %32, %26 ]
   %33 = getelementptr inbounds i8, ptr %.sink26, i64 72
   %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @H5I__id_dump_cb(ptr noundef nonnull %.sink26, i32 %0)
+  tail call fastcc void @H5I__id_dump_cb(ptr noundef %.sink26, i32 %0)
   %.not20 = icmp eq ptr %34, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
@@ -82,7 +82,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef readonly %0, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef nonnull readonly %0, i32 %.0.val) unnamed_addr #0 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load i64, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.8, i64 noundef %3) #4

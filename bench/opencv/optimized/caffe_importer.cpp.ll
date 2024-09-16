@@ -533,7 +533,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporterC2EPKcS5_.exit: ; preds =
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
 _ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %45, %53, %56
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %5, ptr noundef nonnull %6)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %5, ptr noundef %6)
           to label %58 unwind label %61
 
 58:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
@@ -567,7 +567,7 @@ declare void @_ZN2cv3dnn14dnn4_v202405213NetC1Ev(ptr noundef nonnull align 8 der
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1165,7 +1165,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IiSa
   %278 = getelementptr inbounds i8, ptr %277, i64 8
   %279 = getelementptr inbounds [268435454 x ptr], ptr %278, i64 0, i64 %indvars.iv733
   %280 = load ptr, ptr %279, align 8
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(40) %280)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(40) %280)
           to label %281 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 281:                                              ; preds = %276
@@ -1707,7 +1707,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit35.i.i.i:   ; preds = %489
 507:                                              ; preds = %501
   %.not.i.i45.i.i.i = icmp eq ptr %504, null
   %508 = select i1 %.not.i.i45.i.i.i, ptr @_ZN12opencv_caffe28_BlobShape_default_instance_E, ptr %504
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %508)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %508)
           to label %.noexc56.i.i unwind label %532
 
 .noexc56.i.i:                                     ; preds = %507
@@ -4642,7 +4642,7 @@ _ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporterC2EPKcmS5_m.exit: ; preds
   br label %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
 
 _ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit:      ; preds = %45, %53, %56
-  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %7, ptr noundef nonnull %8)
+  invoke fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_113CaffeImporter11populateNetENS1_3NetE(ptr noundef nonnull align 8 dereferenceable(456) %7, ptr noundef %8)
           to label %58 unwind label %61
 
 58:                                               ; preds = %_ZN2cv3dnn14dnn4_v202405213NetC2ERKS2_.exit
@@ -4921,7 +4921,7 @@ declare void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 nounde
 declare void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8

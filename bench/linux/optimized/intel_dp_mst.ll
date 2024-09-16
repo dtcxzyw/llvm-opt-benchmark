@@ -2730,7 +2730,7 @@ declare dso_local void @intel_dp_adjust_compliance_config(ptr noundef, ptr nound
 declare dso_local zeroext i1 @intel_dp_compute_config_link_bpp_limits(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr %.0.val, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @intel_dp_mst_find_vcpi_slots_for_bpp(ptr %.392.val, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr %.0.val, i32 noundef range(i32 1, 7) %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %.392.val, i64 392

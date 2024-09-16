@@ -1220,7 +1220,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @evdev_ioctl_handler(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.input_keymap_entry, align 4
   %6 = alloca %struct.input_keymap_entry, align 4
   %7 = alloca %struct.input_keymap_entry, align 4
@@ -2110,7 +2110,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare dso_local i32 @input_ff_erase(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(ptr readonly %.320.val, i32 noundef range(i32 0, 16384) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = tail call i64 @llvm.read_register.i64(metadata !0)
   %4 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 4, i64 %3) #14, !srcloc !40
   %5 = extractvalue { ptr, i32, i64 } %4, 0
@@ -2172,7 +2172,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @evdev_handle_mt_request(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 536870913) i32 @evdev_handle_get_val(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -14, 104) i32 @evdev_handle_get_val(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 19) %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 7, 768) %4, i32 noundef range(i32 0, 16384) %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7) unnamed_addr #2 align 16 {
   %9 = tail call ptr @bitmap_alloc(i32 noundef %4, i32 noundef 3264) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %110, label %11
@@ -2182,9 +2182,9 @@ define internal fastcc range(i32 -14, 536870913) i32 @evdev_handle_get_val(ptr n
   tail call void @_raw_spin_lock_irq(ptr noundef %12) #14
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @_raw_spin_lock(ptr noundef %13) #14
-  %14 = add i32 %4, 63
+  %14 = add nuw nsw i32 %4, 63
   %15 = lshr i32 %14, 3
-  %16 = and i32 %15, 536870904
+  %16 = and i32 %15, 248
   %17 = zext nneg i32 %16 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %3, i64 %17, i1 false)
   tail call void @_raw_spin_unlock(ptr noundef %12) #14
@@ -2335,7 +2335,7 @@ define internal fastcc range(i32 -14, 536870913) i32 @evdev_handle_get_val(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -14, 16384) i32 @str_to_user(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -14, 16384) i32 @str_to_user(ptr noundef %0, i32 noundef range(i32 0, 16384) %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -2362,7 +2362,7 @@ declare dso_local i32 @input_ff_effect_from_user(ptr noundef, i64 noundef, ptr n
 declare dso_local i32 @input_ff_upload(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 104) i32 @handle_eviocgbit(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -22, 104) i32 @handle_eviocgbit(ptr noundef %0, i32 noundef range(i32 0, 32) %1, i32 noundef range(i32 0, 16384) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 align 16 {
   switch i32 %1, label %35 [
     i32 0, label %14
     i32 1, label %6

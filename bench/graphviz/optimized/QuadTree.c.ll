@@ -71,7 +71,7 @@ define void @QuadTree_get_supernodes(ptr noundef %0, double noundef %1, ptr noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -2147483648, 2147483648) %0, i64 noundef range(i64 8, 81) %1) unnamed_addr #1 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1791,7 +1791,7 @@ define void @QuadTree_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %10
 
 10:                                               ; preds = %8, %6
-  tail call fastcc void @QuadTree_print_internal(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 0)
+  tail call fastcc void @QuadTree_print_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   %11 = load i32, ptr %4, align 8
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %15
@@ -1812,7 +1812,7 @@ define void @QuadTree_print(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -1828,7 +1828,7 @@ define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef %0, p
   br i1 %or.cond.i, label %draw_polygon.exit, label %12
 
 12:                                               ; preds = %4
-  %13 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr %0)
+  %13 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr nonnull %0)
   %14 = icmp eq i32 %6, 2
   br i1 %14, label %15, label %42
 
@@ -1838,31 +1838,31 @@ define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef %0, p
   %18 = getelementptr inbounds i8, ptr %8, i64 8
   %19 = load double, ptr %18, align 8
   %20 = fadd double %10, %19
-  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, double noundef %17, double noundef %20) #18
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.14, double noundef %17, double noundef %20) #18
   %22 = load double, ptr %8, align 8
   %23 = fsub double %22, %10
   %24 = load double, ptr %18, align 8
   %25 = fadd double %10, %24
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %23, double noundef %25) #18
+  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, double noundef %23, double noundef %25) #18
   %27 = load double, ptr %8, align 8
   %28 = fsub double %27, %10
   %29 = load double, ptr %18, align 8
   %30 = fsub double %29, %10
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %28, double noundef %30) #18
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, double noundef %28, double noundef %30) #18
   %32 = load double, ptr %8, align 8
   %33 = fadd double %10, %32
   %34 = load double, ptr %18, align 8
   %35 = fsub double %34, %10
-  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %33, double noundef %35) #18
+  %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, double noundef %33, double noundef %35) #18
   %37 = load double, ptr %8, align 8
   %38 = fadd double %10, %37
   %39 = load double, ptr %18, align 8
   %40 = fadd double %10, %39
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, double noundef %38, double noundef %40) #18
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.15, double noundef %38, double noundef %40) #18
   br label %176
 
 42:                                               ; preds = %12
-  %fputc.i = tail call i32 @fputc(i32 123, ptr %0)
+  %fputc.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %43 = load double, ptr %8, align 8
   %44 = fadd double %10, %43
   %45 = getelementptr inbounds i8, ptr %8, i64 8
@@ -1871,141 +1871,141 @@ define internal fastcc void @QuadTree_print_internal(ptr nocapture noundef %0, p
   %48 = getelementptr inbounds i8, ptr %8, i64 16
   %49 = load double, ptr %48, align 8
   %50 = fadd double %10, %49
-  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %44, double noundef %47, double noundef %50) #18
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %44, double noundef %47, double noundef %50) #18
   %52 = load double, ptr %8, align 8
   %53 = fsub double %52, %10
   %54 = load double, ptr %45, align 8
   %55 = fadd double %10, %54
   %56 = load double, ptr %48, align 8
   %57 = fadd double %10, %56
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %53, double noundef %55, double noundef %57) #18
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %53, double noundef %55, double noundef %57) #18
   %59 = load double, ptr %8, align 8
   %60 = fsub double %59, %10
   %61 = load double, ptr %45, align 8
   %62 = fsub double %61, %10
   %63 = load double, ptr %48, align 8
   %64 = fadd double %10, %63
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %60, double noundef %62, double noundef %64) #18
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %60, double noundef %62, double noundef %64) #18
   %66 = load double, ptr %8, align 8
   %67 = fadd double %10, %66
   %68 = load double, ptr %45, align 8
   %69 = fsub double %68, %10
   %70 = load double, ptr %48, align 8
   %71 = fadd double %10, %70
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %67, double noundef %69, double noundef %71) #18
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %67, double noundef %69, double noundef %71) #18
   %73 = load double, ptr %8, align 8
   %74 = fadd double %10, %73
   %75 = load double, ptr %45, align 8
   %76 = fadd double %10, %75
   %77 = load double, ptr %48, align 8
   %78 = fadd double %10, %77
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %74, double noundef %76, double noundef %78) #18
-  %80 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %0)
-  %fputc169.i = tail call i32 @fputc(i32 123, ptr %0)
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %74, double noundef %76, double noundef %78) #18
+  %80 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %0)
+  %fputc169.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %81 = load double, ptr %8, align 8
   %82 = fadd double %10, %81
   %83 = load double, ptr %45, align 8
   %84 = fadd double %10, %83
   %85 = load double, ptr %48, align 8
   %86 = fsub double %85, %10
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %82, double noundef %84, double noundef %86) #18
+  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %82, double noundef %84, double noundef %86) #18
   %88 = load double, ptr %8, align 8
   %89 = fsub double %88, %10
   %90 = load double, ptr %45, align 8
   %91 = fadd double %10, %90
   %92 = load double, ptr %48, align 8
   %93 = fsub double %92, %10
-  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %89, double noundef %91, double noundef %93) #18
+  %94 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %89, double noundef %91, double noundef %93) #18
   %95 = load double, ptr %8, align 8
   %96 = fsub double %95, %10
   %97 = load double, ptr %45, align 8
   %98 = fsub double %97, %10
   %99 = load double, ptr %48, align 8
   %100 = fsub double %99, %10
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %96, double noundef %98, double noundef %100) #18
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %96, double noundef %98, double noundef %100) #18
   %102 = load double, ptr %8, align 8
   %103 = fadd double %10, %102
   %104 = load double, ptr %45, align 8
   %105 = fsub double %104, %10
   %106 = load double, ptr %48, align 8
   %107 = fsub double %106, %10
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %103, double noundef %105, double noundef %107) #18
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %103, double noundef %105, double noundef %107) #18
   %109 = load double, ptr %8, align 8
   %110 = fadd double %10, %109
   %111 = load double, ptr %45, align 8
   %112 = fadd double %10, %111
   %113 = load double, ptr %48, align 8
   %114 = fsub double %113, %10
-  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %110, double noundef %112, double noundef %114) #18
-  %116 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %0)
-  %fputc170.i = tail call i32 @fputc(i32 123, ptr %0)
+  %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %110, double noundef %112, double noundef %114) #18
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %0)
+  %fputc170.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %117 = load double, ptr %8, align 8
   %118 = fadd double %10, %117
   %119 = load double, ptr %45, align 8
   %120 = fadd double %10, %119
   %121 = load double, ptr %48, align 8
   %122 = fsub double %121, %10
-  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %118, double noundef %120, double noundef %122) #18
+  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %118, double noundef %120, double noundef %122) #18
   %124 = load double, ptr %8, align 8
   %125 = fadd double %10, %124
   %126 = load double, ptr %45, align 8
   %127 = fadd double %10, %126
   %128 = load double, ptr %48, align 8
   %129 = fadd double %10, %128
-  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %125, double noundef %127, double noundef %129) #18
-  %131 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %0)
-  %fputc171.i = tail call i32 @fputc(i32 123, ptr %0)
+  %130 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %125, double noundef %127, double noundef %129) #18
+  %131 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %0)
+  %fputc171.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %132 = load double, ptr %8, align 8
   %133 = fsub double %132, %10
   %134 = load double, ptr %45, align 8
   %135 = fadd double %10, %134
   %136 = load double, ptr %48, align 8
   %137 = fsub double %136, %10
-  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %133, double noundef %135, double noundef %137) #18
+  %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %133, double noundef %135, double noundef %137) #18
   %139 = load double, ptr %8, align 8
   %140 = fsub double %139, %10
   %141 = load double, ptr %45, align 8
   %142 = fadd double %10, %141
   %143 = load double, ptr %48, align 8
   %144 = fadd double %10, %143
-  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %140, double noundef %142, double noundef %144) #18
-  %146 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %0)
-  %fputc172.i = tail call i32 @fputc(i32 123, ptr %0)
+  %145 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %140, double noundef %142, double noundef %144) #18
+  %146 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %0)
+  %fputc172.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %147 = load double, ptr %8, align 8
   %148 = fadd double %10, %147
   %149 = load double, ptr %45, align 8
   %150 = fsub double %149, %10
   %151 = load double, ptr %48, align 8
   %152 = fsub double %151, %10
-  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %148, double noundef %150, double noundef %152) #18
+  %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %148, double noundef %150, double noundef %152) #18
   %154 = load double, ptr %8, align 8
   %155 = fadd double %10, %154
   %156 = load double, ptr %45, align 8
   %157 = fsub double %156, %10
   %158 = load double, ptr %48, align 8
   %159 = fadd double %10, %158
-  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %155, double noundef %157, double noundef %159) #18
-  %161 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr %0)
-  %fputc173.i = tail call i32 @fputc(i32 123, ptr %0)
+  %160 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %155, double noundef %157, double noundef %159) #18
+  %161 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 2, i64 1, ptr nonnull %0)
+  %fputc173.i = tail call i32 @fputc(i32 123, ptr nonnull %0)
   %162 = load double, ptr %8, align 8
   %163 = fsub double %162, %10
   %164 = load double, ptr %45, align 8
   %165 = fsub double %164, %10
   %166 = load double, ptr %48, align 8
   %167 = fsub double %166, %10
-  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, double noundef %163, double noundef %165, double noundef %167) #18
+  %168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, double noundef %163, double noundef %165, double noundef %167) #18
   %169 = load double, ptr %8, align 8
   %170 = fsub double %169, %10
   %171 = load double, ptr %45, align 8
   %172 = fsub double %171, %10
   %173 = load double, ptr %48, align 8
   %174 = fadd double %10, %173
-  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.18, double noundef %170, double noundef %172, double noundef %174) #18
-  %fputc174.i = tail call i32 @fputc(i32 125, ptr %0)
+  %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, double noundef %170, double noundef %172, double noundef %174) #18
+  %fputc174.i = tail call i32 @fputc(i32 125, ptr nonnull %0)
   br label %176
 
 176:                                              ; preds = %42, %15
-  %177 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 12, i64 1, ptr %0)
+  %177 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 12, i64 1, ptr nonnull %0)
   %.pre = load i32, ptr %5, align 8
   br label %draw_polygon.exit
 
@@ -2040,7 +2040,7 @@ draw_polygon.exit:                                ; preds = %4, %176
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr inbounds i8, ptr %.044.us, i64 16
   %188 = load i32, ptr %187, align 8
-  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %188) #18
+  %189 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %188) #18
   br label %190
 
 190:                                              ; preds = %.lr.ph.us, %192
@@ -2055,13 +2055,13 @@ draw_polygon.exit:                                ; preds = %4, %176
 192:                                              ; preds = %191, %190
   %193 = getelementptr inbounds double, ptr %186, i64 %indvars.iv
   %194 = load double, ptr %193, align 8
-  %195 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.9, double noundef %194) #18
+  %195 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, double noundef %194) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %190
 
 ._crit_edge.us:                                   ; preds = %192
-  %196 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %0)
+  %196 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %0)
   %197 = getelementptr inbounds i8, ptr %.044.us, i64 32
   %198 = load ptr, ptr %197, align 8
   %.not37.us = icmp eq ptr %198, null
@@ -2079,15 +2079,15 @@ draw_polygon.exit:                                ; preds = %4, %176
 200:                                              ; preds = %199, %.split
   %201 = getelementptr inbounds i8, ptr %.044, i64 16
   %202 = load i32, ptr %201, align 8
-  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %202) #18
-  %204 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr %0)
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %202) #18
+  %204 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 2, i64 1, ptr nonnull %0)
   %205 = getelementptr inbounds i8, ptr %.044, i64 32
   %206 = load ptr, ptr %205, align 8
   %.not37 = icmp eq ptr %206, null
   br i1 %.not37, label %.split46.us, label %.split
 
 .split46.us:                                      ; preds = %200, %._crit_edge.us
-  %fputc = tail call i32 @fputc(i32 125, ptr %0)
+  %fputc = tail call i32 @fputc(i32 125, ptr nonnull %0)
   br label %207
 
 207:                                              ; preds = %.split46.us, %draw_polygon.exit
@@ -2106,12 +2106,12 @@ draw_polygon.exit:                                ; preds = %4, %176
 
 212:                                              ; preds = %.lr.ph, %212
   %indvars.iv52 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next53, %212 ]
-  %213 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 7, i64 1, ptr %0)
+  %213 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 7, i64 1, ptr nonnull %0)
   %214 = load ptr, ptr %208, align 8
   %215 = getelementptr inbounds ptr, ptr %214, i64 %indvars.iv52
   %216 = load ptr, ptr %215, align 8
   tail call fastcc void @QuadTree_print_internal(ptr noundef %0, ptr noundef %216, i32 noundef %211)
-  %fputc39 = tail call i32 @fputc(i32 125, ptr %0)
+  %fputc39 = tail call i32 @fputc(i32 125, ptr nonnull %0)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
   br i1 %exitcond56.not, label %.loopexit, label %212
@@ -2326,7 +2326,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #7
 declare double @point_distance(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @gv_recalloc(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, i64 noundef range(i64 -2147483648, 2147483648) %2) unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 2305843009213693951
   br i1 %4, label %5, label %8
 

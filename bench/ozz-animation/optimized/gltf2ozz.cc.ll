@@ -7975,7 +7975,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
   %549 = trunc i8 %548 to i1
   %550 = load ptr, ptr %0, align 8
   %551 = load i64, ptr %534, align 8
-  %552 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseBufferEPNS_6BufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEEPNS_11FsCallbacksERKS7_bPKhm(ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull %532, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %549, ptr noundef %550, i64 noundef %551)
+  %552 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseBufferEPNS_6BufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEEPNS_11FsCallbacksERKS7_bPKhm(ptr noundef %44, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef %532, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext %549, ptr noundef %550, i64 noundef %551)
           to label %553 unwind label %557
 
 553:                                              ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit
@@ -8203,7 +8203,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit570 unwind label %639
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit570: ; preds = %635
-  %636 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10BufferViewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %51, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %52)
+  %636 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10BufferViewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %51, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %52)
           to label %637 unwind label %641
 
 637:                                              ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit570
@@ -8432,7 +8432,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit588 unwind label %722
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit588: ; preds = %718
-  %719 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8AccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %58, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %59)
+  %719 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8AccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %58, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %59)
           to label %720 unwind label %724
 
 720:                                              ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit588
@@ -8659,7 +8659,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit606 unwind label %804
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit606: ; preds = %801
-  invoke fastcc void @_ZN8tinygltfL9ParseMeshEPNS_4MeshEPNS_5ModelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS9_blmdSaNSB_14adl_serializerEEE(ptr noundef nonnull %65, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %66)
+  invoke fastcc void @_ZN8tinygltfL9ParseMeshEPNS_4MeshEPNS_5ModelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS9_blmdSaNSB_14adl_serializerEEE(ptr noundef %65, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %66)
           to label %802 unwind label %806
 
 802:                                              ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit606
@@ -9031,7 +9031,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit626 unwind label %948
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit626: ; preds = %945
-  invoke fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %75, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %76)
+  invoke fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %75, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %76)
           to label %946 unwind label %950
 
 946:                                              ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit626
@@ -9270,7 +9270,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %1035 unwind label %1040
 
 1035:                                             ; preds = %1034
-  %1036 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %83, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(32) %84)
+  %1036 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %83, ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %1037 unwind label %1042
 
 1037:                                             ; preds = %1035
@@ -9682,7 +9682,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #32
-  invoke fastcc void @_ZN8tinygltfL13ParseMaterialEPNS_8MaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %101, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %100)
+  invoke fastcc void @_ZN8tinygltfL13ParseMaterialEPNS_8MaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %101, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %100)
           to label %1181 unwind label %1179
 
 1172:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit673
@@ -9978,7 +9978,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
 
 _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE5valueEv.exit695: ; preds = %1278
   %1280 = load ptr, ptr %1247, align 8
-  %1281 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL10ParseImageEPNS_5ImageEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_PNS_11FsCallbacksEPPFbS1_iS8_S8_iiPKhiPvESN_(ptr noundef nonnull %113, i32 noundef %.0349, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %1279, ptr noundef nonnull %1246, ptr noundef %1280)
+  %1281 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL10ParseImageEPNS_5ImageEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_PNS_11FsCallbacksEPPFbS1_iS8_S8_iiPKhiPvESN_(ptr noundef %113, i32 noundef %.0349, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %1279, ptr noundef %1246, ptr noundef %1280)
           to label %1282 unwind label %.loopexit944
 
 1282:                                             ; preds = %_ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE5valueEv.exit695
@@ -10381,7 +10381,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit713 unwind label %1452
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit713: ; preds = %1449
-  invoke fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_(ptr noundef nonnull %123, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %124)
+  invoke fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_(ptr noundef %123, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %124)
           to label %1450 unwind label %1454
 
 1450:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit713
@@ -10606,7 +10606,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit731 unwind label %1535
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit731: ; preds = %1531
-  %1532 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL14ParseAnimationEPNS_9AnimationEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %130, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %131)
+  %1532 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL14ParseAnimationEPNS_9AnimationEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %130, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %131)
           to label %1533 unwind label %1537
 
 1533:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit731
@@ -10837,7 +10837,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit746 unwind label %1621
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit746: ; preds = %1617
-  %1618 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %137, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %138)
+  %1618 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %137, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %138)
           to label %1619 unwind label %1623
 
 1619:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit746
@@ -11066,7 +11066,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit764 unwind label %1705
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit764: ; preds = %1702
-  invoke fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %144, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %145)
+  invoke fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %144, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %145)
           to label %1703 unwind label %1707
 
 1703:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit764
@@ -11292,7 +11292,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit782 unwind label %1787
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit782: ; preds = %1783
-  %1784 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseCameraEPNS_6CameraEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %151, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %152)
+  %1784 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseCameraEPNS_6CameraEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %151, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %152)
           to label %1785 unwind label %1789
 
 1785:                                             ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3getISA_TnNSt9enable_ifIXsr3std7is_sameINSt12remove_constIT_E4typeESA_EE5valueEiE4typeELi0EEESA_v.exit782
@@ -11670,7 +11670,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %_ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE5valueEv.exit811 unwind label %1928
 
 _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE5valueEv.exit811: ; preds = %1926
-  invoke fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %162, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %1927)
+  invoke fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %162, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %1927)
           to label %1930 unwind label %1928
 
 1928:                                             ; preds = %_ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE5valueEv.exit811, %1926, %1930
@@ -13352,7 +13352,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf6BufferC2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseBufferEPNS_6BufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEEPNS_11FsCallbacksERKS7_bPKhm(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, ptr noundef readonly %6, i64 noundef %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseBufferEPNS_6BufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEEPNS_11FsCallbacksERKS7_bPKhm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5, ptr noundef readonly %6, i64 noundef %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -13386,7 +13386,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseBufferEPNS_6Buffe
           to label %33 unwind label %38
 
 33:                                               ; preds = %32
-  %34 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %34 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %35 unwind label %40
 
 35:                                               ; preds = %33
@@ -13623,7 +13623,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 113:                                              ; preds = %91
   %114 = getelementptr inbounds i8, ptr %0, i64 32
   %115 = load i64, ptr %9, align 8
-  %116 = call fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef nonnull %114, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %115, ptr noundef %3)
+  %116 = call fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %114, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %115, ptr noundef %3)
   br i1 %116, label %179, label %188
 
 117:                                              ; preds = %89
@@ -13784,7 +13784,7 @@ _ZNSt6vectorIhSaIhEE2atEm.exit:                   ; preds = %147
 175:                                              ; preds = %153
   %176 = getelementptr inbounds i8, ptr %0, i64 32
   %177 = load i64, ptr %9, align 8
-  %178 = call fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef nonnull %176, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %177, ptr noundef %3)
+  %178 = call fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr noundef %176, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %177, ptr noundef %3)
   br i1 %178, label %179, label %188
 
 179:                                              ; preds = %173, %111, %175, %_ZNSt6vectorIhSaIhEE2atEm.exit, %113
@@ -13794,7 +13794,7 @@ _ZNSt6vectorIhSaIhEE2atEm.exit:                   ; preds = %147
 
 180:                                              ; preds = %179
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #32
-  %181 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %29, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %31)
+  %181 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %29, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %31)
           to label %182 unwind label %185
 
 182:                                              ; preds = %180
@@ -13971,7 +13971,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf10BufferViewC2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10BufferViewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10BufferViewEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -14013,7 +14013,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10
           to label %35 unwind label %40
 
 35:                                               ; preds = %34
-  %36 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %36 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %37 unwind label %42
 
 37:                                               ; preds = %35
@@ -14062,7 +14062,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10
           to label %48 unwind label %57
 
 48:                                               ; preds = %47
-  %49 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %49 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %50 unwind label %59
 
 50:                                               ; preds = %48
@@ -14081,7 +14081,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10
           to label %52 unwind label %65
 
 52:                                               ; preds = %51
-  %53 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %17)
+  %53 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %15, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %54 unwind label %67
 
 54:                                               ; preds = %52
@@ -14157,7 +14157,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10
           to label %73 unwind label %81
 
 73:                                               ; preds = %72
-  %74 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %20, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %74 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %20, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %75 unwind label %83
 
 75:                                               ; preds = %73
@@ -14259,7 +14259,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL15ParseBufferViewEPNS_10
           to label %106 unwind label %114
 
 106:                                              ; preds = %105
-  %107 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %26, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  %107 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %26, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %27, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %29)
           to label %108 unwind label %116
 
 108:                                              ; preds = %106
@@ -14425,7 +14425,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf8AccessorC2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8AccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8AccessorEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -14520,7 +14520,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8Acc
           to label %88 unwind label %105
 
 88:                                               ; preds = %87
-  %89 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %40, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  %89 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %40, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %41, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %90 unwind label %107
 
 90:                                               ; preds = %88
@@ -14539,7 +14539,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8Acc
           to label %92 unwind label %113
 
 92:                                               ; preds = %91
-  %93 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %45, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %93 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %45, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %94 unwind label %115
 
 94:                                               ; preds = %92
@@ -14558,7 +14558,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8Acc
           to label %96 unwind label %121
 
 96:                                               ; preds = %95
-  %97 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseBooleanPropertyEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %50, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  %97 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseBooleanPropertyEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %51)
           to label %98 unwind label %123
 
 98:                                               ; preds = %96
@@ -14577,7 +14577,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8Acc
           to label %100 unwind label %129
 
 100:                                              ; preds = %99
-  %101 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %55, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %56, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %58)
+  %101 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %55, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %56, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %58)
           to label %102 unwind label %131
 
 102:                                              ; preds = %100
@@ -14707,7 +14707,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL13ParseAccessorEPNS_8Acc
           to label %137 unwind label %142
 
 137:                                              ; preds = %136
-  %138 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %60, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %61, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %63)
+  %138 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %60, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %61, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %63)
           to label %139 unwind label %144
 
 139:                                              ; preds = %137
@@ -14938,7 +14938,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit108:             ; preds = %_ZNSt6vectorIdSaIdE
           to label %220 unwind label %266
 
 220:                                              ; preds = %219
-  %221 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %209, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %75)
+  %221 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %209, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %75)
           to label %222 unwind label %268
 
 222:                                              ; preds = %220
@@ -14956,7 +14956,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit108:             ; preds = %_ZNSt6vectorIdSaIdE
           to label %224 unwind label %274
 
 224:                                              ; preds = %223
-  %225 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %214, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %79)
+  %225 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %214, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %79)
           to label %226 unwind label %276
 
 226:                                              ; preds = %224
@@ -15264,7 +15264,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %323 unwind label %343
 
 323:                                              ; preds = %322
-  %324 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %318, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %324 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %4, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %318, ptr noundef nonnull align 8 dereferenceable(32) %5, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %325 unwind label %345
 
 325:                                              ; preds = %323
@@ -15410,7 +15410,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %370 unwind label %402
 
 370:                                              ; preds = %369
-  %371 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %16, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %371 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %16, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %372 unwind label %404
 
 372:                                              ; preds = %370
@@ -15428,7 +15428,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %374 unwind label %409
 
 374:                                              ; preds = %373
-  %375 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %20, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %375 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %20, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %376 unwind label %411
 
 376:                                              ; preds = %374
@@ -15446,7 +15446,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %378 unwind label %416
 
 378:                                              ; preds = %377
-  %379 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %24, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %379 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %367, ptr noundef nonnull align 8 dereferenceable(32) %24, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %380 unwind label %418
 
 380:                                              ; preds = %378
@@ -15466,7 +15466,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %382 unwind label %423
 
 382:                                              ; preds = %381
-  %383 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %28, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull align 8 dereferenceable(32) %30, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %32)
+  %383 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %28, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull align 8 dereferenceable(32) %30, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %32)
           to label %384 unwind label %425
 
 384:                                              ; preds = %382
@@ -15484,7 +15484,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %386 unwind label %430
 
 386:                                              ; preds = %385
-  %387 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull align 8 dereferenceable(32) %34, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  %387 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %29, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %368, ptr noundef nonnull align 8 dereferenceable(32) %34, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %36)
           to label %388 unwind label %432
 
 388:                                              ; preds = %386
@@ -15772,7 +15772,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf4MeshC2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL9ParseMeshEPNS_4MeshEPNS_5ModelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS9_blmdSaNSB_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL9ParseMeshEPNS_4MeshEPNS_5ModelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS9_blmdSaNSB_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -15857,7 +15857,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseMeshEPNS_4MeshEPNS_5ModelEPNSt7_
 
 82:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #32
-  %83 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %64, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %66)
+  %83 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %64, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %84 unwind label %569
 
 84:                                               ; preds = %82
@@ -16131,7 +16131,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %204 unwind label %351
 
 204:                                              ; preds = %203
-  %205 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %39, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %40, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %42)
+  %205 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %39, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %40, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %42)
           to label %206 unwind label %353
 
 206:                                              ; preds = %204
@@ -16152,7 +16152,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %209 unwind label %359
 
 209:                                              ; preds = %208
-  %210 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %44, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %47)
+  %210 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %44, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %45, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %47)
           to label %211 unwind label %361
 
 211:                                              ; preds = %209
@@ -16173,7 +16173,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %214 unwind label %367
 
 214:                                              ; preds = %213
-  %215 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %49, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %52)
+  %215 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %49, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %52)
           to label %216 unwind label %369
 
 216:                                              ; preds = %214
@@ -18086,7 +18086,7 @@ _ZN8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic
           to label %769 unwind label %794
 
 769:                                              ; preds = %768
-  %770 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %767, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %78)
+  %770 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %767, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %78)
           to label %771 unwind label %796
 
 771:                                              ; preds = %769
@@ -18466,7 +18466,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf4NodeC2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18532,7 +18532,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %49 unwind label %81
 
 49:                                               ; preds = %48
-  %50 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %50 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %10, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %51 unwind label %83
 
 51:                                               ; preds = %49
@@ -18554,7 +18554,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %56 unwind label %88
 
 56:                                               ; preds = %55
-  %57 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %54, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %57 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %54, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %58 unwind label %90
 
 58:                                               ; preds = %56
@@ -18576,7 +18576,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %62 unwind label %95
 
 62:                                               ; preds = %61
-  %63 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %60, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  %63 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %18)
           to label %64 unwind label %97
 
 64:                                               ; preds = %62
@@ -18595,7 +18595,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %67 unwind label %102
 
 67:                                               ; preds = %66
-  %68 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %65, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %22)
+  %68 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %65, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %69 unwind label %104
 
 69:                                               ; preds = %67
@@ -18614,7 +18614,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %72 unwind label %109
 
 72:                                               ; preds = %71
-  %73 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %70, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %73 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %74 unwind label %111
 
 74:                                               ; preds = %72
@@ -18758,7 +18758,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %116 unwind label %157
 
 116:                                              ; preds = %115
-  %117 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %31, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %33)
+  %117 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %31, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %118 unwind label %159
 
 118:                                              ; preds = %116
@@ -18779,7 +18779,7 @@ define internal fastcc void @_ZN8tinygltfL9ParseNodeEPNS_4NodeEPNSt7__cxx1112bas
           to label %121 unwind label %164
 
 121:                                              ; preds = %120
-  %122 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %36, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  %122 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %36, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %123 unwind label %166
 
 123:                                              ; preds = %121
@@ -18812,7 +18812,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %123, %130
           to label %132 unwind label %171
 
 132:                                              ; preds = %131
-  %133 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %126, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %40)
+  %133 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %126, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %40)
           to label %134 unwind label %173
 
 134:                                              ; preds = %132
@@ -19054,7 +19054,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr nocapture noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr nocapture noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -20176,7 +20176,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf8MaterialC2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL13ParseMaterialEPNS_8MaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL13ParseMaterialEPNS_8MaterialEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.std::tuple", align 8
@@ -20486,7 +20486,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
   %131 = getelementptr inbounds i8, ptr %.sroa.6.1, i64 32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  %132 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(32) %131)
+  %132 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef %14, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %100, ptr noundef nonnull align 8 dereferenceable(32) %131)
           to label %133 unwind label %174
 
 133:                                              ; preds = %130
@@ -20692,7 +20692,7 @@ _ZSt7advanceISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_
           to label %199 unwind label %216
 
 199:                                              ; preds = %197
-  %200 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef nonnull %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %198)
+  %200 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef %15, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %198)
           to label %201 unwind label %216
 
 201:                                              ; preds = %199
@@ -20972,7 +20972,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf5ImageC2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL10ParseImageEPNS_5ImageEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_PNS_11FsCallbacksEPPFbS1_iS8_S8_iiPKhiPvESN_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL10ParseImageEPNS_5ImageEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_PNS_11FsCallbacksEPPFbS1_iS8_S8_iiPKhiPvESN_(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly %5, ptr noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %9 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %10 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -21110,7 +21110,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 
 97:                                               ; preds = %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE3endEv.exit159
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #32
-  %98 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %98 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %99 unwind label %114
 
 99:                                               ; preds = %97
@@ -21371,7 +21371,7 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
           to label %181 unwind label %198
 
 181:                                              ; preds = %180
-  %182 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %27, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  %182 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %27, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %28, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %183 unwind label %200
 
 183:                                              ; preds = %181
@@ -21516,7 +21516,7 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
           to label %223 unwind label %246
 
 223:                                              ; preds = %222
-  %224 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %41, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %42, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %44)
+  %224 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %41, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %42, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %44)
           to label %225 unwind label %248
 
 225:                                              ; preds = %223
@@ -21535,7 +21535,7 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
           to label %227 unwind label %254
 
 227:                                              ; preds = %226
-  %228 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %46, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %47, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %49)
+  %228 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %46, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %47, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %229 unwind label %256
 
 229:                                              ; preds = %227
@@ -21899,7 +21899,7 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
 
 _ZNSt6vectorIhSaIhEE2atEm.exit:                   ; preds = %342
   %350 = trunc i64 %348 to i32
-  %351 = invoke noundef zeroext i1 %337(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %345, i32 noundef %350, ptr noundef %6)
+  %351 = invoke noundef zeroext i1 %337(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %345, i32 noundef %350, ptr noundef %6)
           to label %352 unwind label %317
 
 352:                                              ; preds = %_ZNSt6vectorIhSaIhEE2atEm.exit, %339, %340, %333, %305, %316
@@ -22165,7 +22165,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf7TextureC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca i32, align 4
@@ -22193,7 +22193,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx
           to label %20 unwind label %56
 
 20:                                               ; preds = %19
-  %21 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %21 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %22 unwind label %58
 
 22:                                               ; preds = %20
@@ -22211,7 +22211,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseTextureEPNS_7TextureEPNSt7__cxx
           to label %24 unwind label %63
 
 24:                                               ; preds = %23
-  %25 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %25 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %7, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %12, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %26 unwind label %65
 
 26:                                               ; preds = %24
@@ -22528,7 +22528,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf9AnimationC2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL14ParseAnimationEPNS_9AnimationEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL14ParseAnimationEPNS_9AnimationEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -22768,7 +22768,7 @@ _ZNK8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basi
           to label %128 unwind label %134
 
 128:                                              ; preds = %127
-  %129 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %129 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %11, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %130 unwind label %136
 
 130:                                              ; preds = %128
@@ -22869,7 +22869,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %159 unwind label %165
 
 159:                                              ; preds = %158
-  %160 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  %160 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %12, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %161 unwind label %167
 
 161:                                              ; preds = %159
@@ -23300,7 +23300,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %297 unwind label %305
 
 297:                                              ; preds = %296
-  %298 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %37, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %39, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %41)
+  %298 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %37, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %39, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %299 unwind label %307
 
 299:                                              ; preds = %297
@@ -23380,7 +23380,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %316 unwind label %327
 
 316:                                              ; preds = %315
-  %317 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %38, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %317 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %38, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %318 unwind label %329
 
 318:                                              ; preds = %316
@@ -23581,7 +23581,7 @@ _ZN8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic
 
 373:                                              ; preds = %.critedge2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #32
-  %374 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %52)
+  %374 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %52)
           to label %375 unwind label %397
 
 375:                                              ; preds = %373
@@ -23767,7 +23767,7 @@ _ZNSt6vectorIN8tinygltf16AnimationChannelESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23797,7 +23797,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNS
           to label %24 unwind label %33
 
 24:                                               ; preds = %23
-  %25 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %25 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %26 unwind label %35
 
 26:                                               ; preds = %24
@@ -23816,7 +23816,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL9ParseSkinEPNS_4SkinEPNS
           to label %28 unwind label %40
 
 28:                                               ; preds = %27
-  %29 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  %29 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL25ParseIntegerArrayPropertyEPSt6vectorIiSaIiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %9)
           to label %30 unwind label %42
 
 30:                                               ; preds = %28
@@ -23903,7 +23903,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %44, %53
           to label %55 unwind label %67
 
 55:                                               ; preds = %54
-  %56 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %56 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %57 unwind label %69
 
 57:                                               ; preds = %55
@@ -23925,7 +23925,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %44, %53
           to label %61 unwind label %75
 
 61:                                               ; preds = %60
-  %62 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  %62 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %.thread unwind label %77
 
 .thread:                                          ; preds = %61
@@ -24155,7 +24155,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf7SamplerC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24187,7 +24187,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx
 
 29:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #32
-  %30 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %30 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %31 unwind label %77
 
 31:                                               ; preds = %29
@@ -24208,7 +24208,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx
           to label %33 unwind label %81
 
 33:                                               ; preds = %32
-  %34 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %34 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %9, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %13, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %35 unwind label %83
 
 35:                                               ; preds = %33
@@ -24226,7 +24226,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx
           to label %37 unwind label %88
 
 37:                                               ; preds = %36
-  %38 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %17, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %38 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %10, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %17, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %39 unwind label %90
 
 39:                                               ; preds = %37
@@ -24244,7 +24244,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx
           to label %41 unwind label %95
 
 41:                                               ; preds = %40
-  %42 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %21, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  %42 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %11, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %21, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %43 unwind label %97
 
 43:                                               ; preds = %41
@@ -24262,7 +24262,7 @@ define internal fastcc void @_ZN8tinygltfL12ParseSamplerEPNS_7SamplerEPNSt7__cxx
           to label %45 unwind label %102
 
 45:                                               ; preds = %44
-  %46 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  %46 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %12, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %25, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %27)
           to label %47 unwind label %104
 
 47:                                               ; preds = %45
@@ -24570,7 +24570,7 @@ define linkonce_odr dso_local void @_ZN8tinygltf6CameraC2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseCameraEPNS_6CameraEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseCameraEPNS_6CameraEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -24654,7 +24654,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ParseCameraEPNS_6Camer
           to label %76 unwind label %81
 
 76:                                               ; preds = %75
-  %77 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %52)
+  %77 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %50, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %52)
           to label %78 unwind label %83
 
 78:                                               ; preds = %76
@@ -24862,7 +24862,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %143 unwind label %148
 
 143:                                              ; preds = %142
-  %144 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %31, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %33)
+  %144 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %30, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %31, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %33)
           to label %145 unwind label %150
 
 145:                                              ; preds = %143
@@ -24906,7 +24906,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %155 unwind label %160
 
 155:                                              ; preds = %154
-  %156 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %36, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  %156 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %36, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %157 unwind label %162
 
 157:                                              ; preds = %155
@@ -24950,7 +24950,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %167 unwind label %172
 
 167:                                              ; preds = %166
-  %168 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %40, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %41, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %43)
+  %168 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %40, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %41, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %169 unwind label %174
 
 169:                                              ; preds = %167
@@ -24994,7 +24994,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %179 unwind label %184
 
 179:                                              ; preds = %178
-  %180 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %45, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %48)
+  %180 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %45, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(32) %46, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %48)
           to label %181 unwind label %186
 
 181:                                              ; preds = %179
@@ -25338,7 +25338,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %281 unwind label %286
 
 281:                                              ; preds = %280
-  %282 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %282 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %8, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %9, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %283 unwind label %288
 
 283:                                              ; preds = %281
@@ -25382,7 +25382,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %293 unwind label %298
 
 293:                                              ; preds = %292
-  %294 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %294 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %14, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %295 unwind label %300
 
 295:                                              ; preds = %293
@@ -25426,7 +25426,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %305 unwind label %341
 
 305:                                              ; preds = %304
-  %306 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  %306 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %19, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %307 unwind label %343
 
 307:                                              ; preds = %305
@@ -25445,7 +25445,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
           to label %309 unwind label %348
 
 309:                                              ; preds = %308
-  %310 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %23, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %24, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  %310 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %23, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(32) %24, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %26)
           to label %311 unwind label %350
 
 311:                                              ; preds = %309
@@ -26116,7 +26116,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8nlohmann6detail9iter_impl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26133,7 +26133,7 @@ define internal fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112
 
 14:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #32
-  %15 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %15 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseStringPropertyEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKN8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS7_14adl_serializerEEERKS5_bSG_(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %16 unwind label %28
 
 16:                                               ; preds = %14
@@ -26151,7 +26151,7 @@ define internal fastcc void @_ZN8tinygltfL10ParseLightEPNS_5LightEPNSt7__cxx1112
           to label %19 unwind label %32
 
 19:                                               ; preds = %18
-  %20 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %17, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %20 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %17, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %21 unwind label %34
 
 21:                                               ; preds = %19
@@ -26392,7 +26392,7 @@ define dso_local noundef zeroext i1 @_ZN8tinygltf8TinyGLTF17LoadASCIIFromFileEPN
           to label %74 unwind label %52
 
 62:                                               ; preds = %54
-  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %63 unwind label %52
 
 63:                                               ; preds = %62
@@ -26465,7 +26465,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit33:                  ; preds = %79, %77, %29
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.237, i64 noundef -1) #32
   %.not = icmp eq i64 %4, -1
@@ -26473,7 +26473,7 @@ define internal fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stri
 
 5:                                                ; preds = %2
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull @.str.237, i64 noundef -1) #32
-  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %6)
+  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %6)
   br label %11
 
 7:                                                ; preds = %2
@@ -26716,7 +26716,7 @@ define dso_local noundef zeroext i1 @_ZN8tinygltf8TinyGLTF18LoadBinaryFromFileEP
   br label %70
 
 54:                                               ; preds = %36
-  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %55 unwind label %52
 
 55:                                               ; preds = %54
@@ -28303,7 +28303,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   store i8 0, ptr %18, align 8
   store ptr null, ptr %578, align 8
-  %757 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %559, ptr noundef nonnull %18)
+  %757 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %559, ptr noundef %18)
           to label %758 unwind label %805
 
 758:                                              ; preds = %756
@@ -29066,7 +29066,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23)
   store i8 0, ptr %22, align 8
   store ptr null, ptr %602, align 8
-  %985 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %585, ptr noundef nonnull %22)
+  %985 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %585, ptr noundef %22)
           to label %986 unwind label %1033
 
 986:                                              ; preds = %984
@@ -29942,7 +29942,7 @@ _ZN8tinygltfL15GetBaseFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %3385
 
 1262:                                             ; preds = %1250, %1246
-  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %321, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN8tinygltfL10GetBaseDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %321, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %1263 unwind label %1260
 
 1263:                                             ; preds = %1262
@@ -30475,7 +30475,7 @@ _ZNSt7__cxx119to_stringEi.exit:                   ; preds = %1419, %1429
           to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit unwind label %.loopexit.split-lp
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %.noexc285, %1451
-  invoke fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %331, ptr noundef nonnull align 8 dereferenceable(32) %321, ptr noundef nonnull align 8 dereferenceable(32) %326)
+  invoke fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %331, ptr noundef nonnull align 8 dereferenceable(32) %321, ptr noundef nonnull align 8 dereferenceable(32) %326)
           to label %1452 unwind label %.loopexit.split-lp
 
 1452:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
@@ -31305,7 +31305,7 @@ _ZN8tinygltfL15GetBaseFilenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br i1 %.not16.i, label %1741, label %1730
 
 1730:                                             ; preds = %1727
-  invoke fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(32) %1729)
+  invoke fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %190, ptr noundef nonnull align 8 dereferenceable(32) %1729)
           to label %1731 unwind label %1725
 
 1731:                                             ; preds = %1730
@@ -31341,7 +31341,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.body.i304
 
 1741:                                             ; preds = %1727
-  invoke fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(32) %1729)
+  invoke fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %193, ptr noundef nonnull align 8 dereferenceable(32) %1729)
           to label %1742 unwind label %1725
 
 1742:                                             ; preds = %1741
@@ -32687,7 +32687,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   store i8 0, ptr %13, align 8
   store ptr null, ptr %1957, align 8
-  %2199 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %1956, ptr noundef nonnull %13)
+  %2199 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %1956, ptr noundef %13)
           to label %2200 unwind label %2247
 
 2200:                                             ; preds = %2198
@@ -36648,7 +36648,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::reverse_iterator", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -36895,7 +36895,7 @@ define internal fastcc void @_ZN8tinygltfL21SerializeExtensionMapERSt3mapINSt7__
   store ptr null, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %.sroa.012.025, i64 32
   %22 = getelementptr inbounds i8, ptr %.sroa.012.025, i64 64
-  %23 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %22, ptr noundef nonnull %5)
+  %23 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %22, ptr noundef %5)
           to label %24 unwind label %33
 
 24:                                               ; preds = %20
@@ -37042,7 +37042,7 @@ define internal fastcc void @_ZN8tinygltfL14SerializeValueERKNSt7__cxx1112basic_
   store i8 0, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %6, align 8
-  %7 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %1, ptr noundef nonnull %4)
+  %7 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %1, ptr noundef %4)
           to label %8 unwind label %18
 
 8:                                                ; preds = %3
@@ -38444,7 +38444,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare i32 @isalnum(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL21ParseUnsignedPropertyEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %9 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -38797,7 +38797,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL16LoadExternalFileEPSt6vectorIhSaIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKS9_SC_bmbPNS_11FsCallbacksE(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::vector.113", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38907,7 +38907,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %.01923.i = phi i64 [ 0, %.lr.ph.i ], [ %75, %74 ]
   %62 = load ptr, ptr %27, align 8, !noalias !968
   %63 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %61, i64 %.01923.i
-  invoke fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %2)
+  invoke fastcc void @_ZN8tinygltfL8JoinPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %.noexc79 unwind label %.loopexit
 
 .noexc79:                                         ; preds = %60
@@ -39650,7 +39650,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseIntegerPropertyEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %9 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -40008,7 +40008,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseBooleanPropertyEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL20ParseBooleanPropertyEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -40162,7 +40162,7 @@ _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr nocapture noundef %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr nocapture noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -45625,7 +45625,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterPropertyEPNS_9ParameterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS7_blmdSaNS9_14adl_serializerEEERKS7_b(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca double, align 8
   %6 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %7 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -45661,7 +45661,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterProperty
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %0, i64 40
-  %26 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %26 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL24ParseNumberArrayPropertyEPSt6vectorIdSaIdEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapS0_S9_blmdSaNSB_14adl_serializerEEERKS9_bSJ_(ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %27 unwind label %30
 
 27:                                               ; preds = %24
@@ -45692,7 +45692,7 @@ define internal fastcc noundef zeroext i1 @_ZN8tinygltfL22ParseParameterProperty
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds i8, ptr %0, i64 112
-  %36 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef nonnull %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %36 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr noundef %35, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %37 unwind label %42
 
 37:                                               ; preds = %34
@@ -46152,7 +46152,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL19ParseNumberPropertyEPdPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8nlohmann10basic_jsonISt3mapSt6vectorS6_blmdSaNS8_14adl_serializerEEERKS6_bSH_(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca double, align 8
   %8 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %9 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -49633,7 +49633,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(pt
 declare noundef zeroext i1 @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8tinygltfL9MimeToExtERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -50146,7 +50146,7 @@ define internal fastcc void @_ZN8tinygltfL28SerializeNumberArrayPropertyIiEEvRKN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr nocapture noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, tinygltf::Value>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, tinygltf::Value>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"class.nlohmann::basic_json", align 8
   %5 = alloca %"class.nlohmann::basic_json", align 8
@@ -50342,7 +50342,7 @@ _ZNK8tinygltf5Value8ArrayLenEv.exit:              ; preds = %_ZNK8tinygltf5Value
   %83 = icmp ugt i64 %82, %60
   %84 = getelementptr inbounds %"class.tinygltf::Value", ptr %78, i64 %60
   %spec.select.i31 = select i1 %83, ptr %84, ptr @_ZZNK8tinygltf5Value3GetEiE10null_value
-  %85 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %spec.select.i31, ptr noundef nonnull %10)
+  %85 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %spec.select.i31, ptr noundef %10)
           to label %86 unwind label %88
 
 86:                                               ; preds = %76
@@ -50430,7 +50430,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8tinygltf5ValueES
   store i8 0, ptr %12, align 8
   store ptr null, ptr %112, align 8
   %116 = getelementptr inbounds i8, ptr %.sroa.037.044, i64 64
-  %117 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %116, ptr noundef nonnull %12)
+  %117 = invoke fastcc noundef zeroext i1 @_ZN8tinygltfL11ValueToJsonERKNS_5ValueEPN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS3_14adl_serializerEEE(ptr noundef nonnull align 8 dereferenceable(145) %116, ptr noundef %12)
           to label %118 unwind label %127
 
 118:                                              ; preds = %114

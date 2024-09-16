@@ -1345,7 +1345,7 @@ tcpcl_frame_loc_equal.exit.thread:                ; preds = %120, %tcpcl_frame_l
   br label %136
 
 136:                                              ; preds = %118, %tcpcl_frame_loc_equal.exit.thread, %tcpcl_frame_loc_equal.exit, %131
-  call fastcc void @try_negotiate(ptr noundef nonnull %10, ptr noundef nonnull %1)
+  call fastcc void @try_negotiate(ptr noundef %10, ptr noundef nonnull %1)
   %137 = getelementptr inbounds i8, ptr %64, i64 24
   %138 = load i32, ptr %137, align 8
   %.not164 = icmp eq i32 %138, 0
@@ -1565,7 +1565,7 @@ proto_item_set_generated.exit.i:                  ; preds = %245, %242, %tcpcl_p
   %253 = load i64, ptr %.0149.i, align 8
   %254 = and i8 %178, 3
   %255 = load i64, ptr %7, align 8
-  call fastcc void @transfer_add_segment(ptr noundef nonnull %10, i64 noundef %253, i8 noundef zeroext %254, i64 noundef %255, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef %191)
+  call fastcc void @transfer_add_segment(ptr noundef %10, i64 noundef %253, i8 noundef zeroext %254, i64 noundef %255, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef %191)
   br label %256
 
 256:                                              ; preds = %252, %proto_item_set_generated.exit.i
@@ -1671,7 +1671,7 @@ proto_item_set_generated.exit173.i:               ; preds = %306, %303, %tcpcl_p
 311:                                              ; preds = %proto_item_set_generated.exit173.i
   %312 = load i64, ptr %.1150.i, align 8
   %313 = load i64, ptr %7, align 8
-  call fastcc void @transfer_add_ack(ptr noundef nonnull %10, i64 noundef %312, i8 noundef zeroext 0, i64 noundef %313, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef null)
+  call fastcc void @transfer_add_ack(ptr noundef %10, i64 noundef %312, i8 noundef zeroext 0, i64 noundef %313, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %177, ptr noundef %175, ptr noundef null)
   br label %dissect_v3_msg.exit
 
 314:                                              ; preds = %173
@@ -2343,7 +2343,7 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   br i1 %.not484.i, label %684, label %683
 
 683:                                              ; preds = %681
-  tail call fastcc void @transfer_add_segment(ptr noundef nonnull %10, i64 noundef %561, i8 noundef zeroext %557, i64 noundef %652, ptr noundef %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %560)
+  tail call fastcc void @transfer_add_segment(ptr noundef %10, i64 noundef %561, i8 noundef zeroext %557, i64 noundef %652, ptr noundef %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %560)
   br label %684
 
 684:                                              ; preds = %683, %681
@@ -2408,7 +2408,7 @@ get_clamped_length.exit.i178:                     ; preds = %670, %668, %665
   br i1 %.not479.i, label %.thread.i, label %714
 
 714:                                              ; preds = %712
-  tail call fastcc void @transfer_add_ack(ptr noundef nonnull %10, i64 noundef %698, i8 noundef zeroext %694, i64 noundef %701, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %697)
+  tail call fastcc void @transfer_add_ack(ptr noundef %10, i64 noundef %698, i8 noundef zeroext %694, i64 noundef %701, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %385, ptr noundef %383, ptr noundef %697)
   br label %.thread.i
 
 715:                                              ; preds = %381
@@ -2952,7 +2952,7 @@ declare ptr @proto_tree_add_item_ret_varint(ptr noundef, i32 noundef, ptr nounde
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @try_negotiate(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @try_negotiate(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3109,7 +3109,7 @@ define internal fastcc ptr @get_or_create_transfer_t(ptr noundef %0, i64 noundef
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transfer_add_segment(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @transfer_add_segment(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.nstime_t, align 8
   %11 = alloca %struct.nstime_t, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3420,7 +3420,7 @@ declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr
 declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @transfer_add_ack(ptr nocapture noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc void @transfer_add_ack(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, i8 noundef zeroext %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.nstime_t, align 8
   %11 = alloca %struct.nstime_t, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 32

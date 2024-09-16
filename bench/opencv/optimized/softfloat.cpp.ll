@@ -93,41 +93,99 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN2cv9softfloatC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = alloca %"struct.cv::softfloat", align 4
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %_ZN2cvL11ui32_to_f32Ej.exit, label %4
+  br i1 %.not.i, label %_ZN2cvL11ui32_to_f32Ej.exit, label %3
 
-4:                                                ; preds = %2
+3:                                                ; preds = %2
   %.not5.i = icmp sgt i32 %1, -1
-  br i1 %.not5.i, label %16, label %5
+  br i1 %.not5.i, label %15, label %4
 
-5:                                                ; preds = %4
-  %6 = lshr i32 %1, 1
-  %7 = and i32 %1, 1
-  %narrow.i = add nuw i32 %6, 64
-  %8 = lshr i32 %narrow.i, 7
-  %9 = zext nneg i32 %8 to i64
-  %.masked.i = and i32 %6, 127
-  %.039.i6.i = or i32 %.masked.i, %7
+4:                                                ; preds = %3
+  %5 = lshr i32 %1, 1
+  %6 = and i32 %1, 1
+  %narrow.i = add nuw i32 %5, 64
+  %7 = lshr i32 %narrow.i, 7
+  %8 = zext nneg i32 %7 to i64
+  %.masked.i = and i32 %5, 127
+  %.039.i6.i = or i32 %.masked.i, %6
   %.not48.i.i = icmp eq i32 %.039.i6.i, 64
-  %10 = zext i1 %.not48.i.i to i64
-  %11 = xor i64 %10, -1
-  %12 = and i64 %11, %9
-  %.not49.i.i = icmp eq i64 %12, 0
-  %13 = select i1 %.not49.i.i, i64 0, i64 1317011456
-  %14 = add nuw nsw i64 %13, %12
-  %15 = trunc nuw nsw i64 %14 to i32
+  %9 = zext i1 %.not48.i.i to i64
+  %10 = xor i64 %9, -1
+  %11 = and i64 %10, %8
+  %.not49.i.i = icmp eq i64 %11, 0
+  %12 = select i1 %.not49.i.i, i64 0, i64 1317011456
+  %13 = add nuw nsw i64 %12, %11
+  %14 = trunc nuw nsw i64 %13 to i32
   br label %_ZN2cvL11ui32_to_f32Ej.exit
 
-16:                                               ; preds = %4
-  %17 = zext nneg i32 %1 to i64
-  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nonnull writable align 4 %3, i1 noundef zeroext false, i64 noundef 156, i64 noundef %17), !alias.scope !4
-  %.pre = load i32, ptr %3, align 4
+15:                                               ; preds = %3
+  %16 = zext nneg i32 %1 to i64
+  %17 = icmp ult i32 %1, 65536
+  %18 = shl nuw i32 %1, 16
+  %spec.select.i.i = select i1 %17, i32 %18, i32 %1
+  %spec.select12.i.i = select i1 %17, i8 16, i8 0
+  %19 = icmp ult i32 %spec.select.i.i, 16777216
+  %20 = or disjoint i8 %spec.select12.i.i, 8
+  %21 = shl nuw i32 %spec.select.i.i, 8
+  %.19.i.i = select i1 %19, i32 %21, i32 %spec.select.i.i
+  %.1.i.i = select i1 %19, i8 %20, i8 %spec.select12.i.i
+  %22 = lshr i32 %.19.i.i, 24
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %23
+  %25 = load i8, ptr %24, align 1, !alias.scope !4, !noalias !7
+  %26 = add nsw i8 %.1.i.i, -1
+  %27 = add i8 %26, %25
+  %28 = sext i8 %27 to i64
+  %29 = sub nsw i64 156, %28
+  %30 = sext i8 %27 to i32
+  %31 = icmp sgt i8 %27, 6
+  %32 = icmp ult i64 %29, 253
+  %or.cond.i = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond.i, label %33, label %39
+
+33:                                               ; preds = %15
+  %34 = shl nuw nsw i64 %29, 23
+  %35 = add nsw i32 %30, -7
+  %36 = zext nneg i32 %35 to i64
+  %37 = shl i64 %16, %36
+  %38 = add i64 %37, %34
+  br label %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit
+
+39:                                               ; preds = %15
+  %40 = zext nneg i32 %30 to i64
+  %41 = shl i64 %16, %40
+  %42 = icmp ugt i64 %29, 252
+  br i1 %42, label %43, label %47
+
+43:                                               ; preds = %39
+  %44 = icmp ne i8 %27, -97
+  %45 = add i64 %41, -2147483584
+  %46 = icmp ult i64 %45, -2147483648
+  %or.cond.i.i = or i1 %44, %46
+  br i1 %or.cond.i.i, label %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit, label %47
+
+47:                                               ; preds = %43, %39
+  %48 = add i64 %41, 64
+  %49 = lshr i64 %48, 7
+  %.039.i.i5 = and i64 %41, 127
+  %.not48.i.i2 = icmp eq i64 %.039.i.i5, 64
+  %50 = zext i1 %.not48.i.i2 to i64
+  %51 = xor i64 %50, -1
+  %52 = and i64 %49, %51
+  %.not49.i.i3 = icmp eq i64 %52, 0
+  %53 = shl nuw nsw i64 %29, 23
+  %54 = select i1 %.not49.i.i3, i64 0, i64 %53
+  %55 = add nuw nsw i64 %54, %52
+  br label %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit
+
+_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit:   ; preds = %43, %33, %47
+  %storemerge.in.i = phi i64 [ %38, %33 ], [ %55, %47 ], [ 2139095040, %43 ]
+  %storemerge.i = trunc i64 %storemerge.in.i to i32
   br label %_ZN2cvL11ui32_to_f32Ej.exit
 
-_ZN2cvL11ui32_to_f32Ej.exit:                      ; preds = %2, %16, %5
-  %18 = phi i32 [ %.pre, %16 ], [ %15, %5 ], [ 0, %2 ]
-  store i32 %18, ptr %0, align 4
+_ZN2cvL11ui32_to_f32Ej.exit:                      ; preds = %2, %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit, %4
+  %.sroa.0.0 = phi i32 [ %storemerge.i, %_ZN2cvL28softfloat_normRoundPackToF32Eblm.exit ], [ %14, %4 ], [ 0, %2 ]
+  store i32 %.sroa.0.0, ptr %0, align 4
   ret void
 }
 
@@ -151,7 +209,7 @@ define void @_ZN2cv9softfloatC2Em(ptr nocapture noundef nonnull writeonly align 
   %10 = lshr i32 %.2.i.i, 24
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !noalias !7
+  %13 = load i8, ptr %12, align 1, !noalias !10
   %14 = add i8 %13, %.214.i.i
   %15 = add i8 %14, -40
   %16 = icmp sgt i8 %15, -1
@@ -243,7 +301,7 @@ define void @_ZN2cv9softfloatC2Ei(ptr nocapture noundef nonnull writeonly align 
 8:                                                ; preds = %2
   %9 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %10 = zext i32 %9 to i64
-  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nonnull writable align 4 %3, i1 noundef zeroext %4, i64 noundef 156, i64 noundef %10), !alias.scope !10
+  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nonnull writable align 4 %3, i1 noundef zeroext %4, i64 noundef 156, i64 noundef %10), !alias.scope !13
   %.pre = load i32, ptr %3, align 4
   br label %_ZN2cvL10i32_to_f32Ei.exit
 
@@ -275,7 +333,7 @@ define void @_ZN2cv9softfloatC2El(ptr nocapture noundef nonnull writeonly align 
   %12 = lshr i32 %.2.i.i, 24
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !noalias !13
+  %15 = load i8, ptr %14, align 1, !noalias !16
   %16 = add i8 %15, %.214.i.i
   %17 = add i8 %16, -40
   %18 = sext i8 %17 to i32
@@ -373,7 +431,7 @@ _ZN2cvL10i64_to_f32El.exit:                       ; preds = %_ZN2cvL24softfloat_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %4 = zext i32 %3 to i64
   %5 = lshr i64 %4, 23
   %6 = and i64 %5, 255
@@ -425,7 +483,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
   %28 = lshr i32 %.19.i.i.i, 24
   %29 = zext nneg i32 %28 to i64
   %30 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1, !noalias !16
+  %31 = load i8, ptr %30, align 1, !noalias !19
   %32 = add nsw i8 %.1.i.i.i, -8
   %33 = add i8 %32, %31
   %34 = sext i8 %33 to i32
@@ -450,7 +508,7 @@ define void @_ZNK2cv9softfloatcvNS_10softdoubleEEv(ptr dead_on_unwind noalias no
 
 _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %11, %15, %18, %38
   %.018.i = phi i64 [ %14, %11 ], [ %16, %15 ], [ %45, %38 ], [ %20, %18 ]
-  store i64 %.018.i, ptr %0, align 8, !alias.scope !19
+  store i64 %.018.i, ptr %0, align 8, !alias.scope !22
   ret void
 }
 
@@ -465,11 +523,11 @@ define void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind noalias nocapture writ
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !22
+  tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
   br label %_ZN2cvL7f32_addENS_9softfloatES0_.exit
 
 10:                                               ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !22
+  tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
   br label %_ZN2cvL7f32_addENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_addENS_9softfloatES0_.exit:           ; preds = %9, %10
@@ -487,11 +545,11 @@ define void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind noalias nocapture writ
   br i1 %.not.i, label %10, label %9
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
+  tail call fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !28
   br label %_ZN2cvL7f32_subENS_9softfloatES0_.exit
 
 10:                                               ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !25
+  tail call fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias writable align 4 %0, i64 noundef %6, i64 noundef %7), !alias.scope !28
   br label %_ZN2cvL7f32_subENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_subENS_9softfloatES0_.exit:           ; preds = %9, %10
@@ -502,7 +560,7 @@ _ZN2cvL7f32_subENS_9softfloatES0_.exit:           ; preds = %9, %10
 define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %6 = zext i32 %4 to i64
   %7 = lshr i64 %6, 23
   %8 = and i64 %7, 255
@@ -564,7 +622,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
   %36 = lshr i32 %.19.i.i.i, 24
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %37
-  %39 = load i8, ptr %38, align 1, !noalias !28
+  %39 = load i8, ptr %38, align 1, !noalias !31
   %40 = add nsw i8 %.1.i.i.i, -8
   %41 = add i8 %40, %39
   %42 = sext i8 %41 to i32
@@ -598,7 +656,7 @@ define void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind noalias nocapture writ
   %56 = lshr i32 %.19.i.i71.i, 24
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !noalias !28
+  %59 = load i8, ptr %58, align 1, !noalias !31
   %60 = add nsw i8 %.1.i.i72.i, -8
   %61 = add i8 %60, %59
   %62 = sext i8 %61 to i32
@@ -736,7 +794,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %129, %123
 
 _ZN2cvL7f32_mulENS_9softfloatES0_.exit:           ; preds = %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %133, %134, %136
   %storemerge.i = phi i32 [ %122, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i75.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %135, %134 ], [ %.lobit61.lobit.i, %136 ], [ -4194304, %133 ]
-  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !28
+  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !31
   ret void
 }
 
@@ -744,7 +802,7 @@ _ZN2cvL7f32_mulENS_9softfloatES0_.exit:           ; preds = %_ZN2cvL24softfloat_
 define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %6 = zext i32 %4 to i64
   %7 = lshr i64 %6, 23
   %8 = and i64 %7, 255
@@ -804,7 +862,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !noalias !31
+  %35 = load i8, ptr %34, align 1, !noalias !34
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
   %38 = sext i8 %37 to i32
@@ -838,7 +896,7 @@ define void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind noalias nocapture writ
   %52 = lshr i32 %.19.i.i76.i, 24
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !noalias !31
+  %55 = load i8, ptr %54, align 1, !noalias !34
   %56 = add nsw i8 %.1.i.i77.i, -8
   %57 = add i8 %56, %55
   %58 = sext i8 %57 to i32
@@ -977,7 +1035,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %124, %118
 
 _ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %128, %130
   %storemerge.i = phi i32 [ %117, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %.0.i80.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ %129, %128 ], [ %.lobit64.lobit.i, %130 ], [ -4194304, %23 ], [ -4194304, %19 ]
-  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !31
+  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !34
   ret void
 }
 
@@ -985,7 +1043,7 @@ _ZN2cvL7f32_divENS_9softfloatES0_.exit:           ; preds = %19, %23, %_ZN2cvL24
 define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = load i32, ptr %1, align 4
   %5 = load i32, ptr %2, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %6 = zext i32 %4 to i64
   %7 = lshr i64 %6, 23
   %8 = and i64 %7, 255
@@ -1019,7 +1077,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   br i1 %.not102.i, label %21, label %123
 
 21:                                               ; preds = %20
-  store i32 %4, ptr %0, align 4, !alias.scope !34
+  store i32 %4, ptr %0, align 4, !alias.scope !37
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
 22:                                               ; preds = %19
@@ -1040,7 +1098,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %30 = lshr i32 %.19.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !noalias !34
+  %33 = load i8, ptr %32, align 1, !noalias !37
   %34 = add nsw i8 %.1.i.i.i, -8
   %35 = add i8 %34, %33
   %36 = sext i8 %35 to i32
@@ -1061,7 +1119,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   br i1 %.not96.i, label %43, label %44
 
 43:                                               ; preds = %42
-  store i32 %4, ptr %0, align 4, !alias.scope !34
+  store i32 %4, ptr %0, align 4, !alias.scope !37
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
 44:                                               ; preds = %42
@@ -1078,7 +1136,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %51 = lshr i32 %.19.i.i108.i, 24
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !noalias !34
+  %54 = load i8, ptr %53, align 1, !noalias !37
   %55 = add nsw i8 %.1.i.i109.i, -8
   %56 = add i8 %55, %54
   %57 = sext i8 %56 to i32
@@ -1103,7 +1161,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %68
-  store i32 %4, ptr %0, align 4, !alias.scope !34
+  store i32 %4, ptr %0, align 4, !alias.scope !37
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
 71:                                               ; preds = %68
@@ -1152,7 +1210,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %99 = lshr i64 %98, 32
   %100 = trunc nuw i64 %99 to i32
   %101 = icmp ult i64 %.0844.i, 29
-  br i1 %101, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %101, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %81
   %.084.lcssa.i = phi i64 [ %86, %81 ], [ %96, %.lr.ph.i ]
@@ -1181,7 +1239,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %113 = add i32 %.183.i, 1
   %114 = sub i32 %.2.i, %111
   %.not98.i = icmp sgt i32 %114, -1
-  br i1 %.not98.i, label %112, label %115, !llvm.loop !39
+  br i1 %.not98.i, label %112, label %115, !llvm.loop !42
 
 115:                                              ; preds = %112
   %116 = add i32 %114, %.2.i
@@ -1204,7 +1262,7 @@ define void @_ZNK2cv9softfloatrmERKS0_(ptr dead_on_unwind noalias nocapture writ
   %121 = xor i32 %.3.i, %4
   %spec.select105.i = icmp slt i32 %121, 0
   %122 = zext i32 %spec.select.i to i64
-  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %spec.select105.i, i64 noundef %.076.i, i64 noundef %122), !alias.scope !34
+  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %spec.select105.i, i64 noundef %.076.i, i64 noundef %122), !alias.scope !37
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
 123:                                              ; preds = %20, %16, %15
@@ -1230,7 +1288,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %129, %123
 
 133:                                              ; preds = %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %22, %16
   %.078.i = phi i32 [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %22 ], [ -4194304, %16 ]
-  store i32 %.078.i, ptr %0, align 4, !alias.scope !40
+  store i32 %.078.i, ptr %0, align 4, !alias.scope !43
   br label %_ZN2cvL7f32_remENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_remENS_9softfloatES0_.exit:           ; preds = %21, %43, %70, %120, %133
@@ -1527,7 +1585,7 @@ define void @_ZN2cv10softdoubleC2Ej(ptr nocapture noundef nonnull writeonly alig
   %9 = lshr i32 %.19.i.i, 24
   %10 = zext nneg i32 %9 to i64
   %11 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !noalias !43
+  %12 = load i8, ptr %11, align 1, !noalias !46
   %13 = add nuw nsw i8 %.1.i.i, 21
   %14 = add i8 %13, %12
   %15 = sext i8 %14 to i32
@@ -1573,7 +1631,7 @@ define void @_ZN2cv10softdoubleC2Em(ptr nocapture noundef nonnull writeonly alig
   br label %_ZN2cvL11ui64_to_f64Em.exit
 
 15:                                               ; preds = %4
-  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nonnull writable align 8 %3, i1 noundef zeroext false, i64 noundef 1084, i64 noundef %1), !alias.scope !46
+  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nonnull writable align 8 %3, i1 noundef zeroext false, i64 noundef 1084, i64 noundef %1), !alias.scope !49
   %.pre = load i64, ptr %3, align 8
   br label %_ZN2cvL11ui64_to_f64Em.exit
 
@@ -1603,7 +1661,7 @@ define void @_ZN2cv10softdoubleC2Ei(ptr nocapture noundef nonnull writeonly alig
   %11 = lshr i32 %.19.i.i, 24
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %12
-  %14 = load i8, ptr %13, align 1, !noalias !49
+  %14 = load i8, ptr %13, align 1, !noalias !52
   %15 = add nuw nsw i8 %.1.i.i, 21
   %16 = add i8 %15, %14
   %.lobit.i = lshr i32 %1, 31
@@ -1639,7 +1697,7 @@ define void @_ZN2cv10softdoubleC2El(ptr nocapture noundef nonnull writeonly alig
 
 8:                                                ; preds = %2
   %9 = tail call i64 @llvm.abs.i64(i64 %1, i1 false)
-  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nonnull writable align 8 %3, i1 noundef zeroext %4, i64 noundef 1084, i64 noundef %9), !alias.scope !52
+  call fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nonnull writable align 8 %3, i1 noundef zeroext %4, i64 noundef 1084, i64 noundef %9), !alias.scope !55
   %.pre = load i64, ptr %3, align 8
   br label %_ZN2cvL10i64_to_f64El.exit
 
@@ -2333,7 +2391,7 @@ _ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i.i:   ; preds = %36, %34
 _ZN2cvL10f64_to_f32ENS_10softdoubleE.exit:        ; preds = %11, %16, %25, %53, %55
   %storemerge.in.i = phi i64 [ %66, %55 ], [ %54, %53 ], [ %15, %11 ], [ %17, %16 ], [ %26, %25 ]
   %storemerge.i = trunc i64 %storemerge.in.i to i32
-  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !55
+  store i32 %storemerge.i, ptr %0, align 4, !alias.scope !58
   ret void
 }
 
@@ -2347,11 +2405,11 @@ define void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind noalias nocapture wr
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !58
+  tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
   br label %_ZN2cvL7f64_addENS_10softdoubleES0_.exit
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !58
+  tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
   br label %_ZN2cvL7f64_addENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_addENS_10softdoubleES0_.exit:         ; preds = %8, %9
@@ -2368,11 +2426,11 @@ define void @_ZNK2cv10softdoublemiERKS0_(ptr dead_on_unwind noalias nocapture wr
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
+  tail call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !64
   br label %_ZN2cvL7f64_subENS_10softdoubleES0_.exit
 
 9:                                                ; preds = %3
-  tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !61
+  tail call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6), !alias.scope !64
   br label %_ZN2cvL7f64_subENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_subENS_10softdoubleES0_.exit:         ; preds = %8, %9
@@ -2383,7 +2441,7 @@ _ZN2cvL7f64_subENS_10softdoubleES0_.exit:         ; preds = %8, %9
 define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   %6 = lshr i64 %4, 52
   %7 = and i64 %6, 2047
   %8 = and i64 %4, 4503599627370495
@@ -2447,7 +2505,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   %34 = lshr i32 %.2.i.i.i, 24
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !noalias !64
+  %37 = load i8, ptr %36, align 1, !noalias !67
   %38 = add nsw i8 %.214.i.i.i, -11
   %39 = add i8 %38, %37
   %40 = sext i8 %39 to i32
@@ -2486,7 +2544,7 @@ define void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind noalias nocapture wr
   %55 = lshr i32 %.2.i.i80.i, 24
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1, !noalias !64
+  %58 = load i8, ptr %57, align 1, !noalias !67
   %59 = add nsw i8 %.214.i.i79.i, -11
   %60 = add i8 %59, %58
   %61 = sext i8 %60 to i32
@@ -2624,7 +2682,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %135, %129
 
 _ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %139, %140, %142
   %storemerge.i = phi i64 [ %128, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %118, %116 ], [ %.0.i85.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %141, %140 ], [ %.lobit65.lobit.i, %142 ], [ -2251799813685248, %139 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !64
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !67
   ret void
 }
 
@@ -2632,7 +2690,7 @@ _ZN2cvL7f64_mulENS_10softdoubleES0_.exit:         ; preds = %116, %_ZN2cvL25soft
 define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %6 = lshr i64 %4, 52
   %7 = and i64 %6, 2047
   %8 = and i64 %4, 4503599627370495
@@ -2693,7 +2751,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
   %30 = lshr i32 %.2.i.i.i, 24
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !noalias !67
+  %33 = load i8, ptr %32, align 1, !noalias !70
   %34 = add nsw i8 %.214.i.i.i, -11
   %35 = add i8 %34, %33
   %36 = sext i8 %35 to i32
@@ -2732,7 +2790,7 @@ define void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind noalias nocapture wr
   %51 = lshr i32 %.2.i.i102.i, 24
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %52
-  %54 = load i8, ptr %53, align 1, !noalias !67
+  %54 = load i8, ptr %53, align 1, !noalias !70
   %55 = add nsw i8 %.214.i.i101.i, -11
   %56 = add i8 %55, %54
   %57 = sext i8 %56 to i32
@@ -2896,7 +2954,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %149, %143
 
 _ZN2cvL7f64_divENS_10softdoubleES0_.exit:         ; preds = %16, %20, %130, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %153, %155
   %storemerge.i = phi i64 [ %142, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %132, %130 ], [ %.0.i105.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ %154, %153 ], [ %.lobit84.lobit.i, %155 ], [ -2251799813685248, %20 ], [ -2251799813685248, %16 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !67
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !70
   ret void
 }
 
@@ -3092,7 +3150,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %99 = lshr i64 %spec.select121, 32
   %100 = mul nuw i64 %99, %84
   %101 = icmp ult i64 %.0977, 29
-  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %101, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %81
   %.097.lcssa = phi i64 [ %86, %81 ], [ %98, %.lr.ph ]
@@ -3128,7 +3186,7 @@ define internal fastcc void @_ZN2cvL7f64_remENS_10softdoubleES0_(ptr dead_on_unw
   %117 = add i32 %.296, 1
   %118 = sub i64 %.4, %.1
   %.not114 = icmp sgt i64 %118, -1
-  br i1 %.not114, label %116, label %.loopexit, !llvm.loop !71
+  br i1 %.not114, label %116, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %116, %113
   %.195 = phi i32 [ %107, %113 ], [ %117, %116 ]
@@ -3179,7 +3237,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %125, %131
 
 135:                                              ; preds = %10, %22, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit
   %.089 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ -2251799813685248, %22 ], [ -2251799813685248, %10 ]
-  store i64 %.089, ptr %0, align 8, !alias.scope !72
+  store i64 %.089, ptr %0, align 8, !alias.scope !75
   br label %136
 
 136:                                              ; preds = %135, %123, %71, %44, %20, %16
@@ -3451,11 +3509,11 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %7 = load i32, ptr %3, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %8 = zext i32 %5 to i64
   %9 = zext i32 %6 to i64
   %10 = zext i32 %7 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %11 = lshr i64 %8, 23
   %12 = and i64 %11, 255
   %13 = and i64 %8, 8388607
@@ -3527,7 +3585,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %47 = lshr i32 %.19.i.i.i.i, 24
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !noalias !81
+  %50 = load i8, ptr %49, align 1, !noalias !84
   %51 = add nsw i8 %.1.i.i.i.i, -8
   %52 = add i8 %51, %50
   %53 = sext i8 %52 to i32
@@ -3561,7 +3619,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %67 = lshr i32 %.19.i.i171.i.i, 24
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %68
-  %70 = load i8, ptr %69, align 1, !noalias !81
+  %70 = load i8, ptr %69, align 1, !noalias !84
   %71 = add nsw i8 %.1.i.i172.i.i, -8
   %72 = add i8 %71, %70
   %73 = sext i8 %72 to i32
@@ -3615,7 +3673,7 @@ define void @_ZN2cv6mulAddERKNS_9softfloatES2_S2_(ptr dead_on_unwind noalias noc
   %102 = lshr i32 %.19.i.i177.i.i, 24
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %103
-  %105 = load i8, ptr %104, align 1, !noalias !81
+  %105 = load i8, ptr %104, align 1, !noalias !84
   %106 = add nsw i8 %.1.i.i178.i.i, -8
   %107 = add i8 %106, %105
   %108 = sext i8 %107 to i32
@@ -3777,7 +3835,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit183.i.i: ; preds = %180, %178
   %198 = lshr i32 %.2.i.i.i, 24
   %199 = zext nneg i32 %198 to i64
   %200 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %199
-  %201 = load i8, ptr %200, align 1, !noalias !81
+  %201 = load i8, ptr %200, align 1, !noalias !84
   %202 = add i8 %.214.i.i.i, %201
   %203 = add i8 %202, -1
   %204 = sext i8 %203 to i64
@@ -3951,7 +4009,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i: ; preds = %.thread.i.i, %27
 _ZN2cvL10f32_mulAddENS_9softfloatES0_S0_.exit:    ; preds = %37, %249, %251, %274, %277, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i, %289, %292
   %storemerge.in.i.i = phi i64 [ %262, %251 ], [ %250, %249 ], [ %.0.i189.i.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit190.i.i ], [ %275, %274 ], [ %275, %277 ], [ 0, %292 ], [ %10, %289 ], [ %10, %37 ]
   %storemerge.i.i = trunc i64 %storemerge.in.i.i to i32
-  store i32 %storemerge.i.i, ptr %0, align 4, !alias.scope !81
+  store i32 %storemerge.i.i, ptr %0, align 4, !alias.scope !84
   ret void
 }
 
@@ -3960,8 +4018,8 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %5 = load i64, ptr %1, align 8
   %6 = load i64, ptr %2, align 8
   %7 = load i64, ptr %3, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   %8 = lshr i64 %5, 52
   %9 = and i64 %8, 2047
   %10 = and i64 %5, 4503599627370495
@@ -4039,7 +4097,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %45 = lshr i32 %.2.i.i.i.i, 24
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !noalias !88
+  %48 = load i8, ptr %47, align 1, !noalias !91
   %49 = add nsw i8 %.214.i.i.i.i, -11
   %50 = add i8 %49, %48
   %51 = sext i8 %50 to i32
@@ -4078,7 +4136,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %66 = lshr i32 %.2.i.i226.i.i, 24
   %67 = zext nneg i32 %66 to i64
   %68 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %67
-  %69 = load i8, ptr %68, align 1, !noalias !88
+  %69 = load i8, ptr %68, align 1, !noalias !91
   %70 = add nsw i8 %.214.i.i225.i.i, -11
   %71 = add i8 %70, %69
   %72 = sext i8 %71 to i32
@@ -4162,7 +4220,7 @@ define void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind noalias n
   %123 = lshr i32 %.2.i.i240.i.i, 24
   %124 = zext nneg i32 %123 to i64
   %125 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %124
-  %126 = load i8, ptr %125, align 1, !noalias !88
+  %126 = load i8, ptr %125, align 1, !noalias !91
   %127 = add nsw i8 %.214.i.i239.i.i, -11
   %128 = add i8 %127, %126
   %129 = sext i8 %128 to i32
@@ -4354,7 +4412,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.thread.i.i: ; preds = %139
   %222 = lshr i32 %.2.i.i.i, 24
   %223 = zext nneg i32 %222 to i64
   %224 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %223
-  %225 = load i8, ptr %224, align 1, !noalias !88
+  %225 = load i8, ptr %224, align 1, !noalias !91
   %226 = add i8 %.214.i.i.i, %225
   %227 = add i8 %226, -1
   %228 = sext i8 %227 to i64
@@ -4531,14 +4589,14 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i: ; preds = %.thread302.i.i, 
 
 _ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_.exit:  ; preds = %34, %275, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i, %298, %301, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i, %313, %315
   %storemerge.i.i = phi i64 [ %286, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i.i ], [ %276, %275 ], [ %.0.i265.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit266.i.i ], [ %299, %298 ], [ %299, %301 ], [ 0, %315 ], [ %7, %313 ], [ %7, %34 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !88
+  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !91
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN2cv4sqrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softfloat") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %1, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %4 = zext i32 %3 to i64
   %.not.i = icmp sgt i32 %3, -1
   %5 = lshr i64 %4, 23
@@ -4597,7 +4655,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %32 = lshr i32 %.19.i.i.i, 24
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !noalias !89
+  %35 = load i8, ptr %34, align 1, !noalias !92
   %36 = add nsw i8 %.1.i.i.i, -8
   %37 = add i8 %36, %35
   %38 = sext i8 %37 to i32
@@ -4622,9 +4680,9 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %53 = or disjoint i64 %52, %47
   %54 = lshr i32 %50, 12
   %55 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %53
-  %56 = load i16, ptr %55, align 2, !noalias !89
+  %56 = load i16, ptr %55, align 2, !noalias !92
   %57 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %53
-  %58 = load i16, ptr %57, align 2, !noalias !89
+  %58 = load i16, ptr %57, align 2, !noalias !92
   %59 = zext i16 %58 to i32
   %60 = and i32 %54, 65535
   %61 = mul nuw i32 %60, %59
@@ -4731,14 +4789,14 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %_ZN2cvL25softfloat_
 
 _ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
   %.037.sink.i = phi i32 [ %.037.i, %128 ], [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %19 ], [ %3, %21 ], [ %3, %24 ]
-  store i32 %.037.sink.i, ptr %0, align 4, !alias.scope !89
+  store i32 %.037.sink.i, ptr %0, align 4, !alias.scope !92
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZN2cv4sqrtERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::softdouble") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %.not.i = icmp sgt i64 %3, -1
   %4 = lshr i64 %3, 52
   %5 = and i64 %4, 2047
@@ -4801,7 +4859,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %31 = lshr i32 %.2.i.i.i, 24
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !noalias !92
+  %34 = load i8, ptr %33, align 1, !noalias !95
   %35 = add nsw i8 %.214.i.i.i, -11
   %36 = add i8 %35, %34
   %37 = sext i8 %36 to i32
@@ -4823,9 +4881,9 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %49 = or disjoint i64 %48, %43
   %50 = lshr i32 %46, 12
   %51 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 0, i64 %49
-  %52 = load i16, ptr %51, align 2, !noalias !92
+  %52 = load i16, ptr %51, align 2, !noalias !95
   %53 = getelementptr inbounds [16 x i16], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 0, i64 %49
-  %54 = load i16, ptr %53, align 2, !noalias !92
+  %54 = load i16, ptr %53, align 2, !noalias !95
   %55 = zext i16 %54 to i32
   %56 = and i32 %50, 65535
   %57 = mul nuw i32 %56, %55
@@ -4926,7 +4984,7 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %113, %111, %42
 
 _ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
   %.048.sink.i = phi i64 [ %.048.i, %126 ], [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %17 ], [ %3, %19 ], [ %3, %22 ]
-  store i64 %.048.sink.i, ptr %0, align 8, !alias.scope !92
+  store i64 %.048.sink.i, ptr %0, align 8, !alias.scope !95
   ret void
 }
 
@@ -4935,12 +4993,12 @@ define void @_ZN2cv3expERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture wr
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
-  call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -4968,7 +5026,7 @@ define internal fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind n
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %2
-  store i32 2147483647, ptr %0, align 4, !alias.scope !95
+  store i32 2147483647, ptr %0, align 4, !alias.scope !98
   br label %207
 
 28:                                               ; preds = %2
@@ -4984,13 +5042,13 @@ _ZNK2cv9softfloateqERKS0_.exit:                   ; preds = %28
   br label %207
 
 _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit
-  store i32 0, ptr %0, align 4, !alias.scope !100
+  store i32 0, ptr %0, align 4, !alias.scope !103
   br label %207
 
 32:                                               ; preds = %28
   %33 = load atomic i8, ptr @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4 acquire, align 8
   %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %38, !prof !105
+  br i1 %34, label %35, label %38, !prof !108
 
 35:                                               ; preds = %32
   %36 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #15
@@ -4998,7 +5056,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not, label %38, label %37
 
 37:                                               ; preds = %35
-  store i64 4607182418800017408, ptr %3, align 8, !alias.scope !106
+  store i64 4607182418800017408, ptr %3, align 8, !alias.scope !109
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A4) #15
   br label %38
@@ -5006,7 +5064,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 38:                                               ; preds = %37, %35, %32
   %39 = load atomic i8, ptr @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3 acquire, align 8
   %40 = icmp eq i8 %39, 0
-  br i1 %40, label %41, label %44, !prof !105
+  br i1 %40, label %41, label %44, !prof !108
 
 41:                                               ; preds = %38
   %42 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #15
@@ -5014,7 +5072,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not8, label %44, label %43
 
 43:                                               ; preds = %41
-  store i64 4604418534313371515, ptr %4, align 8, !alias.scope !111
+  store i64 4604418534313371515, ptr %4, align 8, !alias.scope !114
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A3) #15
   br label %44
@@ -5022,7 +5080,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 44:                                               ; preds = %43, %41, %38
   %45 = load atomic i8, ptr @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2 acquire, align 8
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %47, label %50, !prof !105
+  br i1 %46, label %47, label %50, !prof !108
 
 47:                                               ; preds = %44
   %48 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #15
@@ -5030,7 +5088,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not9, label %50, label %49
 
 49:                                               ; preds = %47
-  store i64 4597823092492174823, ptr %5, align 8, !alias.scope !114
+  store i64 4597823092492174823, ptr %5, align 8, !alias.scope !117
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A2) #15
   br label %50
@@ -5038,7 +5096,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 50:                                               ; preds = %49, %47, %44
   %51 = load atomic i8, ptr @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1 acquire, align 8
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %56, !prof !105
+  br i1 %52, label %53, label %56, !prof !108
 
 53:                                               ; preds = %50
   %54 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #15
@@ -5046,7 +5104,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not10, label %56, label %55
 
 55:                                               ; preds = %53
-  store i64 4588159703053038966, ptr %6, align 8, !alias.scope !117
+  store i64 4588159703053038966, ptr %6, align 8, !alias.scope !120
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f32_expENS_9softfloatEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_expENS_9softfloatEE2A1) #15
   br label %56
@@ -5063,7 +5121,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br label %105
 
 61:                                               ; preds = %56
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %62 = zext i32 %57 to i64
   %63 = lshr i64 %62, 23
   %64 = and i64 %63, 255
@@ -5115,7 +5173,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   %86 = lshr i32 %.19.i.i.i, 24
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %87
-  %89 = load i8, ptr %88, align 1, !noalias !120
+  %89 = load i8, ptr %88, align 1, !noalias !123
   %90 = add nsw i8 %.1.i.i.i, -8
   %91 = add i8 %90, %89
   %92 = sext i8 %91 to i32
@@ -5140,7 +5198,7 @@ _ZNK2cv9softfloateqERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
 
 _ZN2cvL10f32_to_f64ENS_9softfloatE.exit:          ; preds = %69, %73, %76, %96
   %.018.i = phi i64 [ %72, %69 ], [ %74, %73 ], [ %103, %96 ], [ %78, %76 ]
-  store i64 %.018.i, ptr %9, align 8, !alias.scope !123
+  store i64 %.018.i, ptr %9, align 8, !alias.scope !126
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL12exp_prescaleE)
   %104 = load i64, ptr %8, align 8
   br label %105
@@ -5278,11 +5336,11 @@ _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %147, %149, %156, %_
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !126
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 179:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !126
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %106), !alias.scope !129
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %178, %179
@@ -5293,75 +5351,75 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %178, %179
   %181 = and i64 %.0.i.i16, 63
   %182 = getelementptr inbounds [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %181
   %183 = load i64, ptr %182, align 8
-  store i64 %183, ptr %16, align 8, !alias.scope !131
+  store i64 %183, ptr %16, align 8, !alias.scope !134
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  %184 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A1, align 8, !noalias !134
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  %184 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A1, align 8, !noalias !137
   %185 = icmp slt i64 %180, 0
   %.unshifted.i.i22 = xor i64 %184, %180
   %186 = icmp sgt i64 %.unshifted.i.i22, -1
   br i1 %186, label %187, label %188
 
 187:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !137
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !140
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 188:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !137
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %23, i64 noundef %180, i64 noundef %184, i1 noundef zeroext %185), !alias.scope !140
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %187, %188
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
-  %189 = load i64, ptr %22, align 8, !noalias !140
-  %190 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A2, align 8, !noalias !140
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !143)
+  %189 = load i64, ptr %22, align 8, !noalias !143
+  %190 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A2, align 8, !noalias !143
   %191 = icmp slt i64 %189, 0
   %.unshifted.i.i23 = xor i64 %190, %189
   %192 = icmp sgt i64 %.unshifted.i.i23, -1
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !143
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !146
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 194:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !143
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %189, i64 noundef %190, i1 noundef zeroext %191), !alias.scope !146
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 _ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %193, %194
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
-  %195 = load i64, ptr %20, align 8, !noalias !146
-  %196 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A3, align 8, !noalias !146
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  %195 = load i64, ptr %20, align 8, !noalias !149
+  %196 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A3, align 8, !noalias !149
   %197 = icmp slt i64 %195, 0
   %.unshifted.i.i25 = xor i64 %196, %195
   %198 = icmp sgt i64 %.unshifted.i.i25, -1
   br i1 %198, label %199, label %200
 
 199:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !149
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !152
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 200:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !149
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %195, i64 noundef %196, i1 noundef zeroext %197), !alias.scope !152
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %199, %200
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
-  %201 = load i64, ptr %18, align 8, !noalias !152
-  %202 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A4, align 8, !noalias !152
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
+  %201 = load i64, ptr %18, align 8, !noalias !155
+  %202 = load i64, ptr @_ZZN2cvL7f32_expENS_9softfloatEE2A4, align 8, !noalias !155
   %203 = icmp slt i64 %201, 0
   %.unshifted.i.i27 = xor i64 %202, %201
   %204 = icmp sgt i64 %.unshifted.i.i27, -1
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !155
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !158
   br label %_ZNK2cv10softdoubleplERKS0_.exit28
 
 206:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !155
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %201, i64 noundef %202, i1 noundef zeroext %203), !alias.scope !158
   br label %_ZNK2cv10softdoubleplERKS0_.exit28
 
 _ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %205, %206
@@ -5378,12 +5436,12 @@ define void @_ZN2cv3expERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
-  call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5413,7 +5471,7 @@ define internal fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %2
-  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !158
+  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !161
   br label %186
 
 30:                                               ; preds = %2
@@ -5429,13 +5487,13 @@ _ZNK2cv10softdoubleeqERKS0_.exit:                 ; preds = %30
   br label %186
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit
-  store i64 0, ptr %0, align 8, !alias.scope !163
+  store i64 0, ptr %0, align 8, !alias.scope !166
   br label %186
 
 34:                                               ; preds = %30
   %35 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5 acquire, align 8
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %40, !prof !105
+  br i1 %36, label %37, label %40, !prof !108
 
 37:                                               ; preds = %34
   %38 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #15
@@ -5443,7 +5501,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not, label %40, label %39
 
 39:                                               ; preds = %37
-  store i64 4607182418800017408, ptr %3, align 8, !alias.scope !168
+  store i64 4607182418800017408, ptr %3, align 8, !alias.scope !171
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A5) #15
   br label %40
@@ -5451,7 +5509,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 40:                                               ; preds = %39, %37, %34
   %41 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4 acquire, align 8
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %43, label %46, !prof !105
+  br i1 %42, label %43, label %46, !prof !108
 
 43:                                               ; preds = %40
   %44 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #15
@@ -5459,7 +5517,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not8, label %46, label %45
 
 45:                                               ; preds = %43
-  store i64 4604418534313441777, ptr %4, align 8, !alias.scope !173
+  store i64 4604418534313441777, ptr %4, align 8, !alias.scope !176
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A4) #15
   br label %46
@@ -5467,7 +5525,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 46:                                               ; preds = %45, %43, %40
   %47 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3 acquire, align 8
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %49, label %52, !prof !105
+  br i1 %48, label %49, label %52, !prof !108
 
 49:                                               ; preds = %46
   %50 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #15
@@ -5475,7 +5533,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not9, label %52, label %51
 
 51:                                               ; preds = %49
-  store i64 4597823092348331098, ptr %5, align 8, !alias.scope !176
+  store i64 4597823092348331098, ptr %5, align 8, !alias.scope !179
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A3) #15
   br label %52
@@ -5483,7 +5541,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 52:                                               ; preds = %51, %49, %46
   %53 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2 acquire, align 8
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %58, !prof !105
+  br i1 %54, label %55, label %58, !prof !108
 
 55:                                               ; preds = %52
   %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #15
@@ -5491,7 +5549,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not10, label %58, label %57
 
 57:                                               ; preds = %55
-  store i64 4588159806113574005, ptr %6, align 8, !alias.scope !179
+  store i64 4588159806113574005, ptr %6, align 8, !alias.scope !182
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A2) #15
   br label %58
@@ -5499,7 +5557,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 58:                                               ; preds = %57, %55, %52
   %59 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1 acquire, align 8
   %60 = icmp eq i8 %59, 0
-  br i1 %60, label %61, label %64, !prof !105
+  br i1 %60, label %61, label %64, !prof !108
 
 61:                                               ; preds = %58
   %62 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #15
@@ -5507,7 +5565,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not11, label %64, label %63
 
 63:                                               ; preds = %61
-  store i64 4576698077394451667, ptr %7, align 8, !alias.scope !182
+  store i64 4576698077394451667, ptr %7, align 8, !alias.scope !185
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A1) #15
   br label %64
@@ -5515,7 +5573,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 64:                                               ; preds = %63, %61, %58
   %65 = load atomic i8, ptr @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0 acquire, align 8
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %67, label %70, !prof !105
+  br i1 %66, label %67, label %70, !prof !108
 
 67:                                               ; preds = %64
   %68 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #15
@@ -5523,7 +5581,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not12, label %70, label %69
 
 69:                                               ; preds = %67
-  store i64 4563808515099378340, ptr %8, align 8, !alias.scope !185
+  store i64 4563808515099378340, ptr %8, align 8, !alias.scope !188
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_expENS_10softdoubleEE2A0) #15
   br label %70
@@ -5678,11 +5736,11 @@ _ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit:  ; preds = %120, %122, %129, %_
   br i1 %150, label %151, label %152
 
 151:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !188
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 152:                                              ; preds = %_ZN2cvL14f64_roundToIntENS_10softdoubleEhb.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !188
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %storemerge, i64 noundef %.0.sink.i, i1 noundef zeroext %79), !alias.scope !191
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %151, %152
@@ -5691,95 +5749,95 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %151, %152
   %153 = and i64 %.0.i.i.i, 63
   %154 = getelementptr inbounds [64 x i64], ptr @_ZN2cvL6expTabE, i64 0, i64 %153
   %155 = load i64, ptr %154, align 8
-  store i64 %155, ptr %15, align 8, !alias.scope !193
+  store i64 %155, ptr %15, align 8, !alias.scope !196
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_expENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  %156 = load i64, ptr %25, align 8, !noalias !196
-  %157 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, align 8, !noalias !196
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  %156 = load i64, ptr %25, align 8, !noalias !199
+  %157 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A1, align 8, !noalias !199
   %158 = icmp slt i64 %156, 0
   %.unshifted.i.i18 = xor i64 %157, %156
   %159 = icmp sgt i64 %.unshifted.i.i18, -1
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !199
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !202
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 161:                                              ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !199
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %24, i64 noundef %156, i64 noundef %157, i1 noundef zeroext %158), !alias.scope !202
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %160, %161
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !202)
-  %162 = load i64, ptr %23, align 8, !noalias !202
-  %163 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, align 8, !noalias !202
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
+  %162 = load i64, ptr %23, align 8, !noalias !205
+  %163 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A2, align 8, !noalias !205
   %164 = icmp slt i64 %162, 0
   %.unshifted.i.i19 = xor i64 %163, %162
   %165 = icmp sgt i64 %.unshifted.i.i19, -1
   br i1 %165, label %166, label %167
 
 166:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !205
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !208
   br label %_ZNK2cv10softdoubleplERKS0_.exit20
 
 167:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !205
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %22, i64 noundef %162, i64 noundef %163, i1 noundef zeroext %164), !alias.scope !208
   br label %_ZNK2cv10softdoubleplERKS0_.exit20
 
 _ZNK2cv10softdoubleplERKS0_.exit20:               ; preds = %166, %167
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
-  %168 = load i64, ptr %21, align 8, !noalias !208
-  %169 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, align 8, !noalias !208
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
+  %168 = load i64, ptr %21, align 8, !noalias !211
+  %169 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A3, align 8, !noalias !211
   %170 = icmp slt i64 %168, 0
   %.unshifted.i.i21 = xor i64 %169, %168
   %171 = icmp sgt i64 %.unshifted.i.i21, -1
   br i1 %171, label %172, label %173
 
 172:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !211
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !214
   br label %_ZNK2cv10softdoubleplERKS0_.exit22
 
 173:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !211
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %168, i64 noundef %169, i1 noundef zeroext %170), !alias.scope !214
   br label %_ZNK2cv10softdoubleplERKS0_.exit22
 
 _ZNK2cv10softdoubleplERKS0_.exit22:               ; preds = %172, %173
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
-  %174 = load i64, ptr %19, align 8, !noalias !214
-  %175 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, align 8, !noalias !214
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
+  %174 = load i64, ptr %19, align 8, !noalias !217
+  %175 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A4, align 8, !noalias !217
   %176 = icmp slt i64 %174, 0
   %.unshifted.i.i23 = xor i64 %175, %174
   %177 = icmp sgt i64 %.unshifted.i.i23, -1
   br i1 %177, label %178, label %179
 
 178:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !217
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !220
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 179:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !217
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %174, i64 noundef %175, i1 noundef zeroext %176), !alias.scope !220
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 _ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %178, %179
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
-  %180 = load i64, ptr %17, align 8, !noalias !220
-  %181 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, align 8, !noalias !220
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  %180 = load i64, ptr %17, align 8, !noalias !223
+  %181 = load i64, ptr @_ZZN2cvL7f64_expENS_10softdoubleEE2A5, align 8, !noalias !223
   %182 = icmp slt i64 %180, 0
   %.unshifted.i.i25 = xor i64 %181, %180
   %183 = icmp sgt i64 %.unshifted.i.i25, -1
   br i1 %183, label %184, label %185
 
 184:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !223
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !226
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 185:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !223
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %16, i64 noundef %180, i64 noundef %181, i1 noundef zeroext %182), !alias.scope !226
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %184, %185
@@ -5795,12 +5853,12 @@ define void @_ZN2cv3logERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture wr
   %3 = alloca %"struct.cv::softfloat", align 4
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 4
-  call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef readonly %1) unnamed_addr #8 {
+define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -5848,11 +5906,11 @@ define internal fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind n
   br i1 %cond, label %_ZNK2cv9softfloateqERKS0_.exit.thread25, label %_ZN2cv10softdoublemIERKS0_.exit
 
 .critedge:                                        ; preds = %32, %2
-  store i32 2147483647, ptr %0, align 4, !alias.scope !226
+  store i32 2147483647, ptr %0, align 4, !alias.scope !229
   br label %85
 
 _ZNK2cv9softfloateqERKS0_.exit.thread25:          ; preds = %33, %32
-  store i32 -8388608, ptr %0, align 4, !alias.scope !231
+  store i32 -8388608, ptr %0, align 4, !alias.scope !234
   br label %85
 
 _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
@@ -5871,30 +5929,30 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %44
   %46 = load i64, ptr %45, align 8
-  store i64 %46, ptr %5, align 8, !alias.scope !234
+  store i64 %46, ptr %5, align 8, !alias.scope !237
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %47 = icmp eq i32 %35, 255
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %_ZN2cv10softdoublemIERKS0_.exit
-  store i64 -4616189618054758400, ptr %8, align 8, !alias.scope !237
+  store i64 -4616189618054758400, ptr %8, align 8, !alias.scope !240
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 512)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.experimental.noalias.scope.decl(metadata !240)
-  %49 = load i64, ptr %6, align 8, !noalias !240
-  %50 = load i64, ptr %7, align 8, !noalias !240
+  call void @llvm.experimental.noalias.scope.decl(metadata !243)
+  %49 = load i64, ptr %6, align 8, !noalias !243
+  %50 = load i64, ptr %7, align 8, !noalias !243
   %51 = icmp slt i64 %49, 0
   %.unshifted.i.i.i7 = xor i64 %50, %49
   %52 = icmp sgt i64 %.unshifted.i.i.i7, -1
   br i1 %52, label %53, label %54
 
 53:                                               ; preds = %48
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !243
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !246
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
 54:                                               ; preds = %48
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !243
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %49, i64 noundef %50, i1 noundef zeroext %51), !alias.scope !246
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
 _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %53, %54
@@ -5912,19 +5970,19 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %53, %54
   %61 = add nsw i64 %60, -127
   call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %15, i64 noundef %61)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  call void @llvm.experimental.noalias.scope.decl(metadata !246)
-  %62 = load i64, ptr %14, align 8, !noalias !246
+  call void @llvm.experimental.noalias.scope.decl(metadata !249)
+  %62 = load i64, ptr %14, align 8, !noalias !249
   %63 = icmp slt i64 %62, 0
   %.unshifted.i.i = xor i64 %62, %42
   %64 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %56
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !249
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !252
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 66:                                               ; preds = %56
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !249
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %62, i64 noundef %42, i1 noundef zeroext %63), !alias.scope !252
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
@@ -5932,57 +5990,57 @@ _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %65, %66
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %17, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 3)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %67 = load i64, ptr %13, align 8, !noalias !252
-  %68 = load i64, ptr %16, align 8, !noalias !252
+  call void @llvm.experimental.noalias.scope.decl(metadata !255)
+  %67 = load i64, ptr %13, align 8, !noalias !255
+  %68 = load i64, ptr %16, align 8, !noalias !255
   %69 = icmp slt i64 %67, 0
   %.unshifted.i.i8 = xor i64 %68, %67
   %70 = icmp sgt i64 %.unshifted.i.i8, -1
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !255
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !258
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
 72:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !255
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %12, i64 noundef %67, i64 noundef %68, i1 noundef zeroext %69), !alias.scope !258
   br label %_ZNK2cv10softdoubleplERKS0_.exit9
 
 _ZNK2cv10softdoubleplERKS0_.exit9:                ; preds = %71, %72
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef 2)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  %73 = load i64, ptr %12, align 8, !noalias !258
-  %74 = load i64, ptr %20, align 8, !noalias !258
+  call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  %73 = load i64, ptr %12, align 8, !noalias !261
+  %74 = load i64, ptr %20, align 8, !noalias !261
   %75 = icmp slt i64 %73, 0
   %.unshifted.i.i10 = xor i64 %74, %73
   %76 = icmp sgt i64 %.unshifted.i.i10, -1
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !261
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !264
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 78:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !261
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %73, i64 noundef %74, i1 noundef zeroext %75), !alias.scope !264
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %77, %78
-  call void @llvm.experimental.noalias.scope.decl(metadata !264)
-  %79 = load i64, ptr %11, align 8, !noalias !264
-  %80 = load i64, ptr %6, align 8, !noalias !264
+  call void @llvm.experimental.noalias.scope.decl(metadata !267)
+  %79 = load i64, ptr %11, align 8, !noalias !267
+  %80 = load i64, ptr %6, align 8, !noalias !267
   %81 = icmp slt i64 %79, 0
   %.unshifted.i.i11 = xor i64 %80, %79
   %82 = icmp sgt i64 %.unshifted.i.i11, -1
   br i1 %82, label %83, label %84
 
 83:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !267
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !270
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
 84:                                               ; preds = %_ZNK2cv10softdoublemiERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !267
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %79, i64 noundef %80, i1 noundef zeroext %81), !alias.scope !270
   br label %_ZNK2cv10softdoubleplERKS0_.exit12
 
 _ZNK2cv10softdoubleplERKS0_.exit12:               ; preds = %83, %84
@@ -5998,12 +6056,12 @@ define void @_ZN2cv3logERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
-  call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %3)
+  call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -6070,17 +6128,17 @@ define internal fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind
   br i1 %cond, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread49, label %_ZNK2cv10softdoubleeqERKS0_.exit.thread
 
 .critedge:                                        ; preds = %51, %2
-  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !270
+  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !273
   br label %_ZNK2cv10softdoubleplERKS0_.exit32
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread49:        ; preds = %52, %51
-  store i64 -4503599627370496, ptr %0, align 8, !alias.scope !275
+  store i64 -4503599627370496, ptr %0, align 8, !alias.scope !278
   br label %_ZNK2cv10softdoubleplERKS0_.exit32
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   %53 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7 acquire, align 8
   %54 = icmp eq i8 %53, 0
-  br i1 %54, label %55, label %59, !prof !105
+  br i1 %54, label %55, label %59, !prof !108
 
 55:                                               ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread
   %56 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A7) #15
@@ -6098,7 +6156,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 59:                                               ; preds = %58, %55, %_ZNK2cv10softdoubleeqERKS0_.exit.thread
   %60 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6 acquire, align 8
   %61 = icmp eq i8 %60, 0
-  br i1 %61, label %62, label %66, !prof !105
+  br i1 %61, label %62, label %66, !prof !108
 
 62:                                               ; preds = %59
   %63 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A6) #15
@@ -6106,7 +6164,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not5, label %66, label %64
 
 64:                                               ; preds = %62
-  store i64 -4616189618054758400, ptr %4, align 8, !alias.scope !278
+  store i64 -4616189618054758400, ptr %4, align 8, !alias.scope !281
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 2)
           to label %65 unwind label %133
 
@@ -6118,7 +6176,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 66:                                               ; preds = %65, %62, %59
   %67 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5 acquire, align 8
   %68 = icmp eq i8 %67, 0
-  br i1 %68, label %69, label %73, !prof !105
+  br i1 %68, label %69, label %73, !prof !108
 
 69:                                               ; preds = %66
   %70 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A5) #15
@@ -6126,7 +6184,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not6, label %73, label %71
 
 71:                                               ; preds = %69
-  store i64 4607182418800017408, ptr %6, align 8, !alias.scope !281
+  store i64 4607182418800017408, ptr %6, align 8, !alias.scope !284
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef 3)
           to label %72 unwind label %135
 
@@ -6138,7 +6196,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 73:                                               ; preds = %72, %69, %66
   %74 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4 acquire, align 8
   %75 = icmp eq i8 %74, 0
-  br i1 %75, label %76, label %80, !prof !105
+  br i1 %75, label %76, label %80, !prof !108
 
 76:                                               ; preds = %73
   %77 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A4) #15
@@ -6146,7 +6204,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not7, label %80, label %78
 
 78:                                               ; preds = %76
-  store i64 -4616189618054758400, ptr %8, align 8, !alias.scope !286
+  store i64 -4616189618054758400, ptr %8, align 8, !alias.scope !289
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef 4)
           to label %79 unwind label %137
 
@@ -6158,7 +6216,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 80:                                               ; preds = %79, %76, %73
   %81 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3 acquire, align 8
   %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %87, !prof !105
+  br i1 %82, label %83, label %87, !prof !108
 
 83:                                               ; preds = %80
   %84 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A3) #15
@@ -6166,7 +6224,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not8, label %87, label %85
 
 85:                                               ; preds = %83
-  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !289
+  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !292
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %11, i32 noundef 5)
           to label %86 unwind label %139
 
@@ -6178,7 +6236,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 87:                                               ; preds = %86, %83, %80
   %88 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2 acquire, align 8
   %89 = icmp eq i8 %88, 0
-  br i1 %89, label %90, label %94, !prof !105
+  br i1 %89, label %90, label %94, !prof !108
 
 90:                                               ; preds = %87
   %91 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A2) #15
@@ -6186,7 +6244,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not9, label %94, label %92
 
 92:                                               ; preds = %90
-  store i64 -4616189618054758400, ptr %12, align 8, !alias.scope !294
+  store i64 -4616189618054758400, ptr %12, align 8, !alias.scope !297
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef 6)
           to label %93 unwind label %141
 
@@ -6198,7 +6256,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 94:                                               ; preds = %93, %90, %87
   %95 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1 acquire, align 8
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %97, label %101, !prof !105
+  br i1 %96, label %97, label %101, !prof !108
 
 97:                                               ; preds = %94
   %98 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A1) #15
@@ -6206,7 +6264,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not10, label %101, label %99
 
 99:                                               ; preds = %97
-  store i64 4607182418800017408, ptr %14, align 8, !alias.scope !297
+  store i64 4607182418800017408, ptr %14, align 8, !alias.scope !300
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef 7)
           to label %100 unwind label %143
 
@@ -6218,7 +6276,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
 101:                                              ; preds = %100, %97, %94
   %102 = load atomic i8, ptr @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0 acquire, align 8
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %_ZN2cv10softdoublemIERKS0_.exit, !prof !105
+  br i1 %103, label %104, label %_ZN2cv10softdoublemIERKS0_.exit, !prof !108
 
 104:                                              ; preds = %101
   %105 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_logENS_10softdoubleEE2A0) #15
@@ -6226,7 +6284,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %52, %46
   br i1 %.not11, label %_ZN2cv10softdoublemIERKS0_.exit, label %106
 
 106:                                              ; preds = %104
-  store i64 -4616189618054758400, ptr %16, align 8, !alias.scope !302
+  store i64 -4616189618054758400, ptr %16, align 8, !alias.scope !305
   invoke void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef 8)
           to label %107 unwind label %145
 
@@ -6252,30 +6310,30 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %107, %104, %101
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds [512 x i64], ptr @_ZN2cvL9icvLogTabE, i64 0, i64 %119
   %121 = load i64, ptr %120, align 8
-  store i64 %121, ptr %19, align 8, !alias.scope !305
+  store i64 %121, ptr %19, align 8, !alias.scope !308
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19)
   %122 = icmp eq i32 %111, 255
   br i1 %122, label %123, label %147
 
 123:                                              ; preds = %_ZN2cv10softdoublemIERKS0_.exit
-  store i64 -4616189618054758400, ptr %22, align 8, !alias.scope !308
+  store i64 -4616189618054758400, ptr %22, align 8, !alias.scope !311
   call void @_ZN2cv10softdoubleC1Ei(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 noundef 512)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  %124 = load i64, ptr %20, align 8, !noalias !311
-  %125 = load i64, ptr %21, align 8, !noalias !311
+  call void @llvm.experimental.noalias.scope.decl(metadata !314)
+  %124 = load i64, ptr %20, align 8, !noalias !314
+  %125 = load i64, ptr %21, align 8, !noalias !314
   %126 = icmp slt i64 %124, 0
   %.unshifted.i.i.i16 = xor i64 %125, %124
   %127 = icmp sgt i64 %.unshifted.i.i.i16, -1
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %123
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %124, i64 noundef %125, i1 noundef zeroext %126), !alias.scope !314
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %124, i64 noundef %125, i1 noundef zeroext %126), !alias.scope !317
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
 129:                                              ; preds = %123
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %124, i64 noundef %125, i1 noundef zeroext %126), !alias.scope !314
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %3, i64 noundef %124, i64 noundef %125, i1 noundef zeroext %126), !alias.scope !317
   br label %_ZN2cv10softdoublepLERKS0_.exit
 
 _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %128, %129
@@ -6341,163 +6399,163 @@ _ZN2cv10softdoublepLERKS0_.exit:                  ; preds = %128, %129
   %151 = add nsw i64 %150, -1023
   call void @_ZN2cv10softdoubleC1El(ptr noundef nonnull align 8 dereferenceable(8) %28, i64 noundef %151)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL4ln_2E, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  call void @llvm.experimental.noalias.scope.decl(metadata !317)
-  %152 = load i64, ptr %27, align 8, !noalias !317
+  call void @llvm.experimental.noalias.scope.decl(metadata !320)
+  %152 = load i64, ptr %27, align 8, !noalias !320
   %153 = icmp slt i64 %152, 0
   %.unshifted.i.i = xor i64 %152, %117
   %154 = icmp sgt i64 %.unshifted.i.i, -1
   br i1 %154, label %155, label %156
 
 155:                                              ; preds = %147
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %152, i64 noundef %117, i1 noundef zeroext %153), !alias.scope !320
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %152, i64 noundef %117, i1 noundef zeroext %153), !alias.scope !323
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 156:                                              ; preds = %147
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %152, i64 noundef %117, i1 noundef zeroext %153), !alias.scope !320
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %26, i64 noundef %152, i64 noundef %117, i1 noundef zeroext %153), !alias.scope !323
   br label %_ZNK2cv10softdoubleplERKS0_.exit
 
 _ZNK2cv10softdoubleplERKS0_.exit:                 ; preds = %155, %156
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %35, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A0, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  %157 = load i64, ptr %35, align 8, !noalias !323
-  %158 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !noalias !323
+  call void @llvm.experimental.noalias.scope.decl(metadata !326)
+  %157 = load i64, ptr %35, align 8, !noalias !326
+  %158 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A2, align 8, !noalias !326
   %159 = icmp slt i64 %157, 0
   %.unshifted.i.i17 = xor i64 %158, %157
   %160 = icmp sgt i64 %.unshifted.i.i17, -1
   br i1 %160, label %161, label %162
 
 161:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !326
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !329
   br label %_ZNK2cv10softdoubleplERKS0_.exit18
 
 162:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !326
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %34, i64 noundef %157, i64 noundef %158, i1 noundef zeroext %159), !alias.scope !329
   br label %_ZNK2cv10softdoubleplERKS0_.exit18
 
 _ZNK2cv10softdoubleplERKS0_.exit18:               ; preds = %161, %162
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %33, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !329)
-  %163 = load i64, ptr %33, align 8, !noalias !329
-  %164 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !noalias !329
+  call void @llvm.experimental.noalias.scope.decl(metadata !332)
+  %163 = load i64, ptr %33, align 8, !noalias !332
+  %164 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A4, align 8, !noalias !332
   %165 = icmp slt i64 %163, 0
   %.unshifted.i.i19 = xor i64 %164, %163
   %166 = icmp sgt i64 %.unshifted.i.i19, -1
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit18
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !332
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !335
   br label %_ZNK2cv10softdoubleplERKS0_.exit20
 
 168:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit18
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !332
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %32, i64 noundef %163, i64 noundef %164, i1 noundef zeroext %165), !alias.scope !335
   br label %_ZNK2cv10softdoubleplERKS0_.exit20
 
 _ZNK2cv10softdoubleplERKS0_.exit20:               ; preds = %167, %168
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %31, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !335)
-  %169 = load i64, ptr %31, align 8, !noalias !335
-  %170 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !noalias !335
+  call void @llvm.experimental.noalias.scope.decl(metadata !338)
+  %169 = load i64, ptr %31, align 8, !noalias !338
+  %170 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A6, align 8, !noalias !338
   %171 = icmp slt i64 %169, 0
   %.unshifted.i.i21 = xor i64 %170, %169
   %172 = icmp sgt i64 %.unshifted.i.i21, -1
   br i1 %172, label %173, label %174
 
 173:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !338
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !341
   br label %_ZNK2cv10softdoubleplERKS0_.exit22
 
 174:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit20
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !338
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %30, i64 noundef %169, i64 noundef %170, i1 noundef zeroext %171), !alias.scope !341
   br label %_ZNK2cv10softdoubleplERKS0_.exit22
 
 _ZNK2cv10softdoubleplERKS0_.exit22:               ; preds = %173, %174
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %175 = load i64, ptr %26, align 8, !noalias !341
-  %176 = load i64, ptr %29, align 8, !noalias !341
+  call void @llvm.experimental.noalias.scope.decl(metadata !344)
+  %175 = load i64, ptr %26, align 8, !noalias !344
+  %176 = load i64, ptr %29, align 8, !noalias !344
   %177 = icmp slt i64 %175, 0
   %.unshifted.i.i23 = xor i64 %176, %175
   %178 = icmp sgt i64 %.unshifted.i.i23, -1
   br i1 %178, label %179, label %180
 
 179:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !344
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !347
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 180:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit22
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !344
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %25, i64 noundef %175, i64 noundef %176, i1 noundef zeroext %177), !alias.scope !347
   br label %_ZNK2cv10softdoubleplERKS0_.exit24
 
 _ZNK2cv10softdoubleplERKS0_.exit24:               ; preds = %179, %180
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %42, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_logENS_10softdoubleEE2A1, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  %181 = load i64, ptr %42, align 8, !noalias !347
-  %182 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !noalias !347
+  call void @llvm.experimental.noalias.scope.decl(metadata !350)
+  %181 = load i64, ptr %42, align 8, !noalias !350
+  %182 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A3, align 8, !noalias !350
   %183 = icmp slt i64 %181, 0
   %.unshifted.i.i25 = xor i64 %182, %181
   %184 = icmp sgt i64 %.unshifted.i.i25, -1
   br i1 %184, label %185, label %186
 
 185:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !350
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !353
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 186:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit24
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !350
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %41, i64 noundef %181, i64 noundef %182, i1 noundef zeroext %183), !alias.scope !353
   br label %_ZNK2cv10softdoubleplERKS0_.exit26
 
 _ZNK2cv10softdoubleplERKS0_.exit26:               ; preds = %185, %186
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %40, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !353)
-  %187 = load i64, ptr %40, align 8, !noalias !353
-  %188 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !noalias !353
+  call void @llvm.experimental.noalias.scope.decl(metadata !356)
+  %187 = load i64, ptr %40, align 8, !noalias !356
+  %188 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A5, align 8, !noalias !356
   %189 = icmp slt i64 %187, 0
   %.unshifted.i.i27 = xor i64 %188, %187
   %190 = icmp sgt i64 %.unshifted.i.i27, -1
   br i1 %190, label %191, label %192
 
 191:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !356
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !359
   br label %_ZNK2cv10softdoubleplERKS0_.exit28
 
 192:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit26
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !356
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %39, i64 noundef %187, i64 noundef %188, i1 noundef zeroext %189), !alias.scope !359
   br label %_ZNK2cv10softdoubleplERKS0_.exit28
 
 _ZNK2cv10softdoubleplERKS0_.exit28:               ; preds = %191, %192
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  call void @llvm.experimental.noalias.scope.decl(metadata !359)
-  %193 = load i64, ptr %38, align 8, !noalias !359
-  %194 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !noalias !359
+  call void @llvm.experimental.noalias.scope.decl(metadata !362)
+  %193 = load i64, ptr %38, align 8, !noalias !362
+  %194 = load i64, ptr @_ZZN2cvL7f64_logENS_10softdoubleEE2A7, align 8, !noalias !362
   %195 = icmp slt i64 %193, 0
   %.unshifted.i.i29 = xor i64 %194, %193
   %196 = icmp sgt i64 %.unshifted.i.i29, -1
   br i1 %196, label %197, label %198
 
 197:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit28
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !362
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !365
   br label %_ZNK2cv10softdoubleplERKS0_.exit30
 
 198:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit28
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !362
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %37, i64 noundef %193, i64 noundef %194, i1 noundef zeroext %195), !alias.scope !365
   br label %_ZNK2cv10softdoubleplERKS0_.exit30
 
 _ZNK2cv10softdoubleplERKS0_.exit30:               ; preds = %197, %198
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %36, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %20)
-  call void @llvm.experimental.noalias.scope.decl(metadata !365)
-  %199 = load i64, ptr %25, align 8, !noalias !365
-  %200 = load i64, ptr %36, align 8, !noalias !365
+  call void @llvm.experimental.noalias.scope.decl(metadata !368)
+  %199 = load i64, ptr %25, align 8, !noalias !368
+  %200 = load i64, ptr %36, align 8, !noalias !368
   %201 = icmp slt i64 %199, 0
   %.unshifted.i.i31 = xor i64 %200, %199
   %202 = icmp sgt i64 %.unshifted.i.i31, -1
   br i1 %202, label %203, label %204
 
 203:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit30
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !368
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !371
   br label %_ZNK2cv10softdoubleplERKS0_.exit32
 
 204:                                              ; preds = %_ZNK2cv10softdoubleplERKS0_.exit30
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !368
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %199, i64 noundef %200, i1 noundef zeroext %201), !alias.scope !371
   br label %_ZNK2cv10softdoubleplERKS0_.exit32
 
 _ZNK2cv10softdoubleplERKS0_.exit32:               ; preds = %204, %203, %_ZNK2cv10softdoubleeqERKS0_.exit.thread49, %.critedge
@@ -6527,80 +6585,80 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
   store i32 %17, ptr %15, align 4
   %18 = load i32, ptr %2, align 4
   store i32 %18, ptr %16, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
-  %19 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero acquire, align 8, !noalias !371
+  %19 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero acquire, align 8, !noalias !374
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %24, !prof !105
+  br i1 %20, label %21, label %24, !prof !108
 
 21:                                               ; preds = %3
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !371
+  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !374
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %21
-  store i32 0, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !alias.scope !374, !noalias !371
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !371
+  store i32 0, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !alias.scope !377, !noalias !374
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E4zero) #15, !noalias !374
   br label %24
 
 24:                                               ; preds = %23, %21, %3
-  %25 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one acquire, align 8, !noalias !371
+  %25 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one acquire, align 8, !noalias !374
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %30, !prof !105
+  br i1 %26, label %27, label %30, !prof !108
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !371
+  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !374
   %.not8.i = icmp eq i32 %28, 0
   br i1 %.not8.i, label %30, label %29
 
 29:                                               ; preds = %27
-  store i32 1065353216, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !alias.scope !379, !noalias !371
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !371
+  store i32 1065353216, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !alias.scope !382, !noalias !374
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3one) #15, !noalias !374
   br label %30
 
 30:                                               ; preds = %29, %27, %24
-  %31 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf acquire, align 8, !noalias !371
+  %31 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf acquire, align 8, !noalias !374
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %36, !prof !105
+  br i1 %32, label %33, label %36, !prof !108
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !371
+  %34 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !374
   %.not9.i = icmp eq i32 %34, 0
   br i1 %.not9.i, label %36, label %35
 
 35:                                               ; preds = %33
-  store i32 2139095040, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, align 4, !alias.scope !384, !noalias !371
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !371
+  store i32 2139095040, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3inf, align 4, !alias.scope !387, !noalias !374
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3inf) #15, !noalias !374
   br label %36
 
 36:                                               ; preds = %35, %33, %30
-  %37 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan acquire, align 8, !noalias !371
+  %37 = load atomic i8, ptr @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan acquire, align 8, !noalias !374
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %42, !prof !105
+  br i1 %38, label %39, label %42, !prof !108
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !371
+  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !374
   %.not10.i = icmp eq i32 %40, 0
   br i1 %.not10.i, label %42, label %41
 
 41:                                               ; preds = %39
-  store i32 2147483647, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !alias.scope !389, !noalias !371
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !371
+  store i32 2147483647, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !alias.scope !392, !noalias !374
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f32_powENS_9softfloatES0_E3nan) #15, !noalias !374
   br label %42
 
 42:                                               ; preds = %41, %39, %36
-  %43 = load i32, ptr %15, align 4, !noalias !371
+  %43 = load i32, ptr %15, align 4, !noalias !374
   %44 = and i32 %43, 2147483647
   %45 = icmp eq i32 %44, 2139095040
-  %46 = load i32, ptr %16, align 4, !noalias !371
+  %46 = load i32, ptr %16, align 4, !noalias !374
   %47 = and i32 %46, 2147483647
   %48 = icmp eq i32 %47, 2139095040
   %49 = icmp ugt i32 %44, 2139095040
   %50 = icmp ugt i32 %47, 2139095040
-  %51 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !noalias !371
+  %51 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero, align 4, !noalias !374
   %52 = zext i32 %51 to i64
   %53 = and i64 %52, 2139095040
   %54 = icmp eq i64 %53, 2139095040
@@ -6645,7 +6703,7 @@ define void @_ZN2cv3powERKNS_9softfloatES2_(ptr dead_on_unwind noalias writable 
 
 _ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %68, %67, %64, %62, %56, %42
   %.0.i.i.i = phi i1 [ false, %62 ], [ %66, %64 ], [ false, %67 ], [ %71, %68 ], [ false, %56 ], [ false, %42 ]
-  %72 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !noalias !371
+  %72 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, align 4, !noalias !374
   %73 = zext i32 %72 to i64
   %74 = and i64 %73, 2139095040
   %75 = icmp eq i64 %74, 2139095040
@@ -6680,7 +6738,7 @@ _ZNK2cv9softfloatgtERKS0_.exit.i:                 ; preds = %68, %67, %64, %62, 
 _ZNK2cv9softfloatgtERKS0_.exit23.i:               ; preds = %86, %83, %77, %_ZNK2cv9softfloatgtERKS0_.exit.i
   %.0.i.i16.i = phi i1 [ %85, %83 ], [ false, %77 ], [ false, %_ZNK2cv9softfloatgtERKS0_.exit.i ], [ %87, %86 ]
   %88 = xor i1 %.0.i.i.i, %.0.i.i16.i
-  store i32 0, ptr %0, align 4, !alias.scope !371
+  store i32 0, ptr %0, align 4, !alias.scope !374
   br i1 %50, label %89, label %92
 
 89:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
@@ -6688,7 +6746,7 @@ _ZNK2cv9softfloatgtERKS0_.exit23.i:               ; preds = %86, %83, %77, %_ZNK
   br i1 %.not.i.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %90
 
 90:                                               ; preds = %89
-  %91 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !371
+  %91 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 92:                                               ; preds = %_ZNK2cv9softfloatgtERKS0_.exit23.i
@@ -6727,7 +6785,7 @@ _ZNK2cv9softfloateqERKS0_.exit.i:                 ; preds = %93
   br i1 %.not.i28.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %104
 
 104:                                              ; preds = %102
-  %105 = load i32, ptr %103, align 4, !noalias !371
+  %105 = load i32, ptr %103, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 106:                                              ; preds = %92
@@ -6773,7 +6831,7 @@ _ZNK2cv9softfloateqERKS0_.exit47.thread.i:        ; preds = %_ZNK2cv9softfloateq
   br i1 %.not.i50.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %120
 
 120:                                              ; preds = %119
-  %121 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !371
+  %121 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 122:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.thread.i
@@ -6820,7 +6878,7 @@ _ZNK2cv9softfloatltERKS0_.exit32.thread:          ; preds = %123, %129, %125, %1
   br i1 %.not.i52.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %135
 
 135:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit32.thread
-  %136 = load i32, ptr %134, align 4, !noalias !371
+  %136 = load i32, ptr %134, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 137:                                              ; preds = %122
@@ -6992,17 +7050,17 @@ _ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit:        ; preds = %199, %210
 
 _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32ENS_9softfloatEhb.exit
   %220 = trunc nsw i64 %.0.i.i12 to i32
-  store i32 1065353216, ptr %6, align 4, !alias.scope !394, !noalias !399
-  store i32 %43, ptr %7, align 4, !noalias !399
+  store i32 1065353216, ptr %6, align 4, !alias.scope !397, !noalias !402
+  store i32 %43, ptr %7, align 4, !noalias !402
   %221 = tail call i32 @llvm.abs.i32(i32 %220, i1 true)
   %222 = icmp slt i64 %.0.i.i12, 0
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
-  store i32 1065353216, ptr %9, align 4, !alias.scope !402, !noalias !399
-  call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !399
-  %224 = load i32, ptr %8, align 4, !noalias !399
-  store i32 %224, ptr %7, align 4, !noalias !399
+  store i32 1065353216, ptr %9, align 4, !alias.scope !405, !noalias !402
+  call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
+  %224 = load i32, ptr %8, align 4, !noalias !402
+  store i32 %224, ptr %7, align 4, !noalias !402
   br label %225
 
 225:                                              ; preds = %223, %_ZNK2cv9softfloateqERKS0_.exit.thread.i7
@@ -7016,26 +7074,26 @@ _ZNK2cv9softfloateqERKS0_.exit.thread.i7:         ; preds = %_ZN2cvL10f32_to_i32
   br i1 %.not.i8, label %230, label %228
 
 228:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !399
-  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !399
-  %229 = load i32, ptr %5, align 4, !noalias !399
-  store i32 %229, ptr %6, align 4, !noalias !399
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !399
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !402
+  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
+  %229 = load i32, ptr %5, align 4, !noalias !402
+  store i32 %229, ptr %6, align 4, !noalias !402
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !402
   br label %230
 
 230:                                              ; preds = %228, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !399
-  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !399
-  %231 = load i32, ptr %4, align 4, !noalias !399
-  store i32 %231, ptr %7, align 4, !noalias !399
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !399
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !402
+  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %4, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
+  %231 = load i32, ptr %4, align 4, !noalias !402
+  store i32 %231, ptr %7, align 4, !noalias !402
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !402
   %232 = lshr i32 %.02.i, 1
   %233 = icmp ugt i32 %.02.i, 3
-  br i1 %233, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !407
+  br i1 %233, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !410
 
 ._crit_edge.i:                                    ; preds = %230, %225
-  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !399
-  %234 = load i32, ptr %10, align 4, !noalias !399
+  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7), !noalias !402
+  %234 = load i32, ptr %10, align 4, !noalias !402
   br label %_ZN2cvL8f32_powiENS_9softfloatEi.exit
 
 _ZN2cvL8f32_powiENS_9softfloatEi.exit:            ; preds = %216, %218, %._crit_edge.i
@@ -7087,19 +7145,19 @@ _ZNK2cv9softfloatltERKS0_.exit:                   ; preds = %244
   br i1 %.not.i56.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %249
 
 249:                                              ; preds = %248
-  %250 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !371
+  %250 = load i32, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3nan, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 _ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateqERKS0_.exit.thread, %244, %240, %242, %_ZNK2cv9softfloatltERKS0_.exit
-  %251 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !371
+  %251 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
   br i1 %251, label %252, label %260
 
 252:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
-  %253 = call noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !371
+  %253 = call noundef zeroext i1 @_ZNK2cv9softfloatltERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
   br i1 %253, label %256, label %254
 
 254:                                              ; preds = %252
-  %255 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !371
+  %255 = call noundef zeroext i1 @_ZNK2cv9softfloateqERKS0_(ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero), !noalias !374
   %_ZZN2cvL7f32_powENS_9softfloatES0_E3one._ZZN2cvL7f32_powENS_9softfloatES0_E4zero.i = select i1 %255, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E3one, ptr @_ZZN2cvL7f32_powENS_9softfloatES0_E4zero
   br label %256
 
@@ -7109,20 +7167,20 @@ _ZNK2cv9softfloatltERKS0_.exit.thread:            ; preds = %_ZNK2cv9softfloateq
   br i1 %.not.i58.i, label %_ZN2cvL7f32_powENS_9softfloatES0_.exit, label %258
 
 258:                                              ; preds = %256
-  %259 = load i32, ptr %257, align 4, !noalias !371
+  %259 = load i32, ptr %257, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 260:                                              ; preds = %_ZNK2cv9softfloatltERKS0_.exit.thread
-  store i32 %43, ptr %14, align 4, !noalias !371
-  call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %13, ptr noundef nonnull %14), !noalias !371
-  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %13), !noalias !371
-  call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %11, ptr noundef nonnull %12), !noalias !371
-  %261 = load i32, ptr %11, align 4, !noalias !371
+  store i32 %43, ptr %14, align 4, !noalias !374
+  call fastcc void @_ZN2cvL7f32_logENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %13, ptr noundef %14), !noalias !374
+  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull readonly align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %13), !noalias !374
+  call fastcc void @_ZN2cvL7f32_expENS_9softfloatE(ptr dead_on_unwind noalias nonnull writable align 4 %11, ptr noundef %12), !noalias !374
+  %261 = load i32, ptr %11, align 4, !noalias !374
   br label %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
 
 _ZN2cv9softfloataSERKS0_.exit.sink.split.i:       ; preds = %_ZNK2cv9softfloateqERKS0_.exit47.i, %260, %258, %249, %_ZN2cvL8f32_powiENS_9softfloatEi.exit, %135, %120, %115, %104, %90
   %.sink.i = phi i32 [ %261, %260 ], [ %259, %258 ], [ %250, %249 ], [ %storemerge.i, %_ZN2cvL8f32_powiENS_9softfloatEi.exit ], [ %136, %135 ], [ %121, %120 ], [ %105, %104 ], [ %91, %90 ], [ %72, %115 ], [ %43, %_ZNK2cv9softfloateqERKS0_.exit47.i ]
-  store i32 %.sink.i, ptr %0, align 4, !alias.scope !371
+  store i32 %.sink.i, ptr %0, align 4, !alias.scope !374
   br label %_ZN2cvL7f32_powENS_9softfloatES0_.exit
 
 _ZN2cvL7f32_powENS_9softfloatES0_.exit:           ; preds = %89, %102, %115, %119, %_ZNK2cv9softfloatltERKS0_.exit32.thread, %248, %256, %_ZN2cv9softfloataSERKS0_.exit.sink.split.i
@@ -7152,80 +7210,80 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
   store i64 %17, ptr %15, align 8
   %18 = load i64, ptr %2, align 8
   store i64 %18, ptr %16, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !411)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  %19 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero acquire, align 8, !noalias !408
+  %19 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero acquire, align 8, !noalias !411
   %20 = icmp eq i8 %19, 0
-  br i1 %20, label %21, label %24, !prof !105
+  br i1 %20, label %21, label %24, !prof !108
 
 21:                                               ; preds = %3
-  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !408
+  %22 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !411
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %21
-  store i64 0, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !alias.scope !411, !noalias !408
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !408
+  store i64 0, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !alias.scope !414, !noalias !411
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E4zero) #15, !noalias !411
   br label %24
 
 24:                                               ; preds = %23, %21, %3
-  %25 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one acquire, align 8, !noalias !408
+  %25 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one acquire, align 8, !noalias !411
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %30, !prof !105
+  br i1 %26, label %27, label %30, !prof !108
 
 27:                                               ; preds = %24
-  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !408
+  %28 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !411
   %.not8.i = icmp eq i32 %28, 0
   br i1 %.not8.i, label %30, label %29
 
 29:                                               ; preds = %27
-  store i64 4607182418800017408, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !alias.scope !416, !noalias !408
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !408
+  store i64 4607182418800017408, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !alias.scope !419, !noalias !411
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3one) #15, !noalias !411
   br label %30
 
 30:                                               ; preds = %29, %27, %24
-  %31 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf acquire, align 8, !noalias !408
+  %31 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf acquire, align 8, !noalias !411
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %36, !prof !105
+  br i1 %32, label %33, label %36, !prof !108
 
 33:                                               ; preds = %30
-  %34 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !408
+  %34 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !411
   %.not9.i = icmp eq i32 %34, 0
   br i1 %.not9.i, label %36, label %35
 
 35:                                               ; preds = %33
-  store i64 9218868437227405312, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, align 8, !alias.scope !421, !noalias !408
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !408
+  store i64 9218868437227405312, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3inf, align 8, !alias.scope !424, !noalias !411
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3inf) #15, !noalias !411
   br label %36
 
 36:                                               ; preds = %35, %33, %30
-  %37 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan acquire, align 8, !noalias !408
+  %37 = load atomic i8, ptr @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan acquire, align 8, !noalias !411
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %42, !prof !105
+  br i1 %38, label %39, label %42, !prof !108
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !408
+  %40 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !411
   %.not10.i = icmp eq i32 %40, 0
   br i1 %.not10.i, label %42, label %41
 
 41:                                               ; preds = %39
-  store i64 9223372036854775807, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !alias.scope !426, !noalias !408
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !408
+  store i64 9223372036854775807, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !alias.scope !429, !noalias !411
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2cvL7f64_powENS_10softdoubleES0_E3nan) #15, !noalias !411
   br label %42
 
 42:                                               ; preds = %41, %39, %36
-  %43 = load i64, ptr %15, align 8, !noalias !408
+  %43 = load i64, ptr %15, align 8, !noalias !411
   %44 = and i64 %43, 9223372036854775807
   %45 = icmp eq i64 %44, 9218868437227405312
-  %46 = load i64, ptr %16, align 8, !noalias !408
+  %46 = load i64, ptr %16, align 8, !noalias !411
   %47 = and i64 %46, 9223372036854775807
   %48 = icmp eq i64 %47, 9218868437227405312
   %49 = icmp ugt i64 %44, 9218868437227405312
   %50 = icmp ugt i64 %47, 9218868437227405312
-  %51 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !noalias !408
+  %51 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero, align 8, !noalias !411
   %52 = and i64 %51, 9218868437227405312
   %53 = icmp eq i64 %52, 9218868437227405312
   %54 = and i64 %51, 4503599627370495
@@ -7268,7 +7326,7 @@ define void @_ZN2cv3powERKNS_10softdoubleES2_(ptr dead_on_unwind noalias writabl
 
 _ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %67, %66, %62, %60, %55, %42
   %.0.i.i.i = phi i1 [ false, %60 ], [ %65, %62 ], [ false, %66 ], [ %70, %67 ], [ false, %55 ], [ false, %42 ]
-  %71 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !noalias !408
+  %71 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, align 8, !noalias !411
   %72 = and i64 %71, 9218868437227405312
   %73 = icmp eq i64 %72, 9218868437227405312
   %74 = and i64 %71, 4503599627370495
@@ -7301,7 +7359,7 @@ _ZNK2cv10softdoublegtERKS0_.exit.i:               ; preds = %67, %66, %62, %60, 
 _ZNK2cv10softdoublegtERKS0_.exit22.i:             ; preds = %84, %80, %75, %_ZNK2cv10softdoublegtERKS0_.exit.i
   %.0.i.i16.i = phi i1 [ %83, %80 ], [ false, %75 ], [ false, %_ZNK2cv10softdoublegtERKS0_.exit.i ], [ %85, %84 ]
   %86 = xor i1 %.0.i.i.i, %.0.i.i16.i
-  store i64 0, ptr %0, align 8, !alias.scope !408
+  store i64 0, ptr %0, align 8, !alias.scope !411
   br i1 %50, label %87, label %90
 
 87:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
@@ -7309,7 +7367,7 @@ _ZNK2cv10softdoublegtERKS0_.exit22.i:             ; preds = %84, %80, %75, %_ZNK
   br i1 %.not.i.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %88
 
 88:                                               ; preds = %87
-  %89 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !408
+  %89 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 90:                                               ; preds = %_ZNK2cv10softdoublegtERKS0_.exit22.i
@@ -7347,7 +7405,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit.i:               ; preds = %91
   br i1 %.not.i26.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %102
 
 102:                                              ; preds = %100
-  %103 = load i64, ptr %101, align 8, !noalias !408
+  %103 = load i64, ptr %101, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 104:                                              ; preds = %90
@@ -7392,7 +7450,7 @@ _ZNK2cv10softdoubleeqERKS0_.exit43.thread.i:      ; preds = %_ZNK2cv10softdouble
   br i1 %.not.i46.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %119
 
 119:                                              ; preds = %118
-  %120 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !408
+  %120 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 121:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.thread.i
@@ -7439,7 +7497,7 @@ _ZNK2cv10softdoubleltERKS0_.exit28.thread:        ; preds = %122, %129, %124, %1
   br i1 %.not.i48.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %135
 
 135:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit28.thread
-  %136 = load i64, ptr %134, align 8, !noalias !408
+  %136 = load i64, ptr %134, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 137:                                              ; preds = %121
@@ -7603,17 +7661,17 @@ _ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit:      ; preds = %195, %206
 
 _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32ENS_10softdoubleEhb.exit
   %215 = trunc nsw i64 %.0.i.i11 to i32
-  store i64 4607182418800017408, ptr %6, align 8, !alias.scope !431, !noalias !436
-  store i64 %43, ptr %7, align 8, !noalias !436
+  store i64 4607182418800017408, ptr %6, align 8, !alias.scope !434, !noalias !439
+  store i64 %43, ptr %7, align 8, !noalias !439
   %216 = tail call i32 @llvm.abs.i32(i32 %215, i1 true)
   %217 = icmp slt i64 %.0.i.i11, 0
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
-  store i64 4607182418800017408, ptr %9, align 8, !alias.scope !439, !noalias !436
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !436
-  %219 = load i64, ptr %8, align 8, !noalias !436
-  store i64 %219, ptr %7, align 8, !noalias !436
+  store i64 4607182418800017408, ptr %9, align 8, !alias.scope !442, !noalias !439
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
+  %219 = load i64, ptr %8, align 8, !noalias !439
+  store i64 %219, ptr %7, align 8, !noalias !439
   br label %220
 
 220:                                              ; preds = %218, %_ZNK2cv10softdoubleeqERKS0_.exit.thread.i6
@@ -7627,26 +7685,26 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread.i6:       ; preds = %_ZN2cvL10f64_to_i32
   br i1 %.not.i7, label %225, label %223
 
 223:                                              ; preds = %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !436
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !436
-  %224 = load i64, ptr %5, align 8, !noalias !436
-  store i64 %224, ptr %6, align 8, !noalias !436
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !436
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !439
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
+  %224 = load i64, ptr %5, align 8, !noalias !439
+  store i64 %224, ptr %6, align 8, !noalias !439
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !439
   br label %225
 
 225:                                              ; preds = %223, %.lr.ph.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !436
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !436
-  %226 = load i64, ptr %4, align 8, !noalias !436
-  store i64 %226, ptr %7, align 8, !noalias !436
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !436
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !439
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
+  %226 = load i64, ptr %4, align 8, !noalias !439
+  store i64 %226, ptr %7, align 8, !noalias !439
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !439
   %227 = lshr i32 %.02.i, 1
   %228 = icmp ugt i32 %.02.i, 3
-  br i1 %228, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !444
+  br i1 %228, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !447
 
 ._crit_edge.i:                                    ; preds = %225, %220
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !436
-  %229 = load i64, ptr %10, align 8, !noalias !436
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7), !noalias !439
+  %229 = load i64, ptr %10, align 8, !noalias !439
   br label %_ZN2cvL8f64_powiENS_10softdoubleEi.exit
 
 _ZN2cvL8f64_powiENS_10softdoubleEi.exit:          ; preds = %211, %213, %._crit_edge.i
@@ -7697,19 +7755,19 @@ _ZNK2cv10softdoubleltERKS0_.exit:                 ; preds = %239
   br i1 %.not.i52.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %244
 
 244:                                              ; preds = %243
-  %245 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !408
+  %245 = load i64, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3nan, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit.thread, %239, %234, %236, %_ZNK2cv10softdoubleltERKS0_.exit
-  %246 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !408
+  %246 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
   br i1 %246, label %247, label %255
 
 247:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  %248 = call noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !408
+  %248 = call noundef zeroext i1 @_ZNK2cv10softdoubleltERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
   br i1 %248, label %251, label %249
 
 249:                                              ; preds = %247
-  %250 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !408
+  %250 = call noundef zeroext i1 @_ZNK2cv10softdoubleeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero), !noalias !411
   %_ZZN2cvL7f64_powENS_10softdoubleES0_E3one._ZZN2cvL7f64_powENS_10softdoubleES0_E4zero.i = select i1 %250, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E3one, ptr @_ZZN2cvL7f64_powENS_10softdoubleES0_E4zero
   br label %251
 
@@ -7719,20 +7777,20 @@ _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
   br i1 %.not.i54.i, label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit, label %253
 
 253:                                              ; preds = %251
-  %254 = load i64, ptr %252, align 8, !noalias !408
+  %254 = load i64, ptr %252, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 255:                                              ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  store i64 %43, ptr %14, align 8, !noalias !408
-  call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14), !noalias !408
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %13), !noalias !408
-  call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull %12), !noalias !408
-  %256 = load i64, ptr %11, align 8, !noalias !408
+  store i64 %43, ptr %14, align 8, !noalias !411
+  call fastcc void @_ZN2cvL7f64_logENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %14), !noalias !411
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull readonly align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %13), !noalias !411
+  call fastcc void @_ZN2cvL7f64_expENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %12), !noalias !411
+  %256 = load i64, ptr %11, align 8, !noalias !411
   br label %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
 
 _ZN2cv10softdoubleaSERKS0_.exit.sink.split.i:     ; preds = %_ZNK2cv10softdoubleeqERKS0_.exit43.i, %255, %253, %244, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit, %135, %119, %113, %102, %88
   %.sink.i = phi i64 [ %256, %255 ], [ %254, %253 ], [ %245, %244 ], [ %storemerge.i, %_ZN2cvL8f64_powiENS_10softdoubleEi.exit ], [ %136, %135 ], [ %120, %119 ], [ %103, %102 ], [ %89, %88 ], [ %71, %113 ], [ %43, %_ZNK2cv10softdoubleeqERKS0_.exit43.i ]
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !408
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !411
   br label %_ZN2cvL7f64_powENS_10softdoubleES0_.exit
 
 _ZN2cvL7f64_powENS_10softdoubleES0_.exit:         ; preds = %87, %100, %113, %118, %_ZNK2cv10softdoubleltERKS0_.exit28.thread, %243, %251, %_ZN2cv10softdoubleaSERKS0_.exit.sink.split.i
@@ -7766,7 +7824,7 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture w
   %21 = alloca %"struct.cv::softdouble", align 8
   %22 = alloca %"struct.cv::softdouble", align 8
   %23 = load i32, ptr %1, align 4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -7812,135 +7870,135 @@ define void @_ZN2cv4cbrtERKNS_9softfloatE(ptr dead_on_unwind noalias nocapture w
   %38 = zext nneg i32 %37 to i64
   %39 = shl nuw nsw i64 %38, 29
   %40 = or disjoint i64 %36, %39
-  store i64 %40, ptr %3, align 8, !noalias !445
-  store i64 4631565868979174000, ptr %4, align 8, !alias.scope !448, !noalias !445
-  store i64 4624526254367759137, ptr %5, align 8, !alias.scope !451, !noalias !445
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
-  %41 = load i64, ptr %14, align 8, !noalias !457
+  store i64 %40, ptr %3, align 8, !noalias !448
+  store i64 4631565868979174000, ptr %4, align 8, !alias.scope !451, !noalias !448
+  store i64 4624526254367759137, ptr %5, align 8, !alias.scope !454, !noalias !448
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
+  %41 = load i64, ptr %14, align 8, !noalias !460
   %42 = icmp sgt i64 %41, -1
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %28
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %41, i64 noundef 4640969261888640736, i1 noundef zeroext false), !alias.scope !458, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %41, i64 noundef 4640969261888640736, i1 noundef zeroext false), !alias.scope !461, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit.i
 
 44:                                               ; preds = %28
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %41, i64 noundef 4640969261888640736, i1 noundef zeroext true), !alias.scope !458, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %13, i64 noundef %41, i64 noundef 4640969261888640736, i1 noundef zeroext true), !alias.scope !461, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit.i
 
 _ZNK2cv10softdoubleplERKS0_.exit.i:               ; preds = %44, %43
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
-  %45 = load i64, ptr %12, align 8, !noalias !464
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
+  %45 = load i64, ptr %12, align 8, !noalias !467
   %46 = icmp sgt i64 %45, -1
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %45, i64 noundef 4638085942284693012, i1 noundef zeroext false), !alias.scope !465, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %45, i64 noundef 4638085942284693012, i1 noundef zeroext false), !alias.scope !468, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit9.i
 
 48:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %45, i64 noundef 4638085942284693012, i1 noundef zeroext true), !alias.scope !465, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %45, i64 noundef 4638085942284693012, i1 noundef zeroext true), !alias.scope !468, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit9.i
 
 _ZNK2cv10softdoubleplERKS0_.exit9.i:              ; preds = %48, %47
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  %49 = load i64, ptr %10, align 8, !noalias !471
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !471)
+  %49 = load i64, ptr %10, align 8, !noalias !474
   %50 = icmp sgt i64 %49, -1
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %49, i64 noundef 4623751444087076096, i1 noundef zeroext false), !alias.scope !472, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %49, i64 noundef 4623751444087076096, i1 noundef zeroext false), !alias.scope !475, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit11.i
 
 52:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit9.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %49, i64 noundef 4623751444087076096, i1 noundef zeroext true), !alias.scope !472, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %49, i64 noundef 4623751444087076096, i1 noundef zeroext true), !alias.scope !475, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit11.i
 
 _ZNK2cv10softdoubleplERKS0_.exit11.i:             ; preds = %52, %51
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
-  %53 = load i64, ptr %8, align 8, !noalias !478
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
+  %53 = load i64, ptr %8, align 8, !noalias !481
   %54 = icmp sgt i64 %53, -1
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit11.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef %53, i64 noundef 4595062912362831149, i1 noundef zeroext false), !alias.scope !479, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef %53, i64 noundef 4595062912362831149, i1 noundef zeroext false), !alias.scope !482, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit13.i
 
 56:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit11.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef %53, i64 noundef 4595062912362831149, i1 noundef zeroext true), !alias.scope !479, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %7, i64 noundef %53, i64 noundef 4595062912362831149, i1 noundef zeroext true), !alias.scope !482, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit13.i
 
 _ZNK2cv10softdoubleplERKS0_.exit13.i:             ; preds = %56, %55
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
-  %57 = load i64, ptr %22, align 8, !noalias !485
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
+  %57 = load i64, ptr %22, align 8, !noalias !488
   %58 = icmp sgt i64 %57, -1
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit13.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %57, i64 noundef 4639551035028297749, i1 noundef zeroext false), !alias.scope !486, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %57, i64 noundef 4639551035028297749, i1 noundef zeroext false), !alias.scope !489, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit15.i
 
 60:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit13.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %57, i64 noundef 4639551035028297749, i1 noundef zeroext true), !alias.scope !486, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %57, i64 noundef 4639551035028297749, i1 noundef zeroext true), !alias.scope !489, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit15.i
 
 _ZNK2cv10softdoubleplERKS0_.exit15.i:             ; preds = %60, %59
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
-  %61 = load i64, ptr %20, align 8, !noalias !492
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
+  %61 = load i64, ptr %20, align 8, !noalias !495
   %62 = icmp sgt i64 %61, -1
   br i1 %62, label %63, label %64
 
 63:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit15.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %61, i64 noundef 4640133478401249998, i1 noundef zeroext false), !alias.scope !493, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %61, i64 noundef 4640133478401249998, i1 noundef zeroext false), !alias.scope !496, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit17.i
 
 64:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit15.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %61, i64 noundef 4640133478401249998, i1 noundef zeroext true), !alias.scope !493, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %19, i64 noundef %61, i64 noundef 4640133478401249998, i1 noundef zeroext true), !alias.scope !496, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit17.i
 
 _ZNK2cv10softdoubleplERKS0_.exit17.i:             ; preds = %64, %63
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
-  %65 = load i64, ptr %18, align 8, !noalias !499
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !499)
+  %65 = load i64, ptr %18, align 8, !noalias !502
   %66 = icmp sgt i64 %65, -1
   br i1 %66, label %67, label %68
 
 67:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit17.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %65, i64 noundef 4629980568155767669, i1 noundef zeroext false), !alias.scope !500, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %65, i64 noundef 4629980568155767669, i1 noundef zeroext false), !alias.scope !503, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit19.i
 
 68:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit17.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %65, i64 noundef 4629980568155767669, i1 noundef zeroext true), !alias.scope !500, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %65, i64 noundef 4629980568155767669, i1 noundef zeroext true), !alias.scope !503, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit19.i
 
 _ZNK2cv10softdoubleplERKS0_.exit19.i:             ; preds = %68, %67
-  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !445
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
-  %69 = load i64, ptr %16, align 8, !noalias !506
+  call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %3), !noalias !448
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
+  %69 = load i64, ptr %16, align 8, !noalias !509
   %70 = icmp sgt i64 %69, -1
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit19.i
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %15, i64 noundef %69, i64 noundef 4607182418800017408, i1 noundef zeroext false), !alias.scope !507, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %15, i64 noundef %69, i64 noundef 4607182418800017408, i1 noundef zeroext false), !alias.scope !510, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit21.i
 
 72:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit19.i
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %15, i64 noundef %69, i64 noundef 4607182418800017408, i1 noundef zeroext true), !alias.scope !507, !noalias !445
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %15, i64 noundef %69, i64 noundef 4607182418800017408, i1 noundef zeroext true), !alias.scope !510, !noalias !448
   br label %_ZNK2cv10softdoubleplERKS0_.exit21.i
 
 _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %72, %71
-  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %15), !noalias !445
+  call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %15), !noalias !448
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %_ZN2cvL8f32_cbrtENS_9softfloatE.exit, label %73
 
 73:                                               ; preds = %_ZNK2cv10softdoubleplERKS0_.exit21.i
-  %74 = load i64, ptr %6, align 8, !noalias !445
+  %74 = load i64, ptr %6, align 8, !noalias !448
   %75 = sub nsw i32 %31, %33
   %.lhs.trunc8.i = trunc nsw i32 %75 to i16
   %76 = sdiv i16 %.lhs.trunc8.i, 3
@@ -7957,7 +8015,7 @@ _ZNK2cv10softdoubleplERKS0_.exit21.i:             ; preds = %72, %71
 
 _ZN2cvL8f32_cbrtENS_9softfloatE.exit:             ; preds = %2, %26, %_ZNK2cv10softdoubleplERKS0_.exit21.i, %73
   %.sink.i = phi i32 [ 2147483647, %2 ], [ %23, %26 ], [ %83, %73 ], [ 0, %_ZNK2cv10softdoubleplERKS0_.exit21.i ]
-  store i32 %.sink.i, ptr %0, align 4, !alias.scope !445
+  store i32 %.sink.i, ptr %0, align 4, !alias.scope !448
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -7994,7 +8052,7 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   %11 = alloca %"struct.cv::softdouble", align 8
   %12 = load i64, ptr %1, align 8
   store i64 %12, ptr %11, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8008,14 +8066,14 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   br i1 %or.cond.i, label %14, label %15
 
 14:                                               ; preds = %2
-  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !513
+  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !516
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 15:                                               ; preds = %2
-  store i64 0, ptr %3, align 8, !noalias !510
-  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !510
-  %16 = load i32, ptr %4, align 4, !noalias !510
-  %17 = load i64, ptr %3, align 8, !noalias !510
+  store i64 0, ptr %3, align 8, !noalias !513
+  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !513
+  %16 = load i32, ptr %4, align 4, !noalias !513
+  %17 = load i64, ptr %3, align 8, !noalias !513
   switch i32 %16, label %23 [
     i32 0, label %18
     i32 1, label %19
@@ -8023,31 +8081,31 @@ define void @_ZN2cv3sinERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   ]
 
 18:                                               ; preds = %15
-  store i64 %17, ptr %5, align 8, !noalias !510
-  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %5)
+  store i64 %17, ptr %5, align 8, !noalias !513
+  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %5)
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 19:                                               ; preds = %15
-  store i64 %17, ptr %6, align 8, !noalias !510
-  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %6)
+  store i64 %17, ptr %6, align 8, !noalias !513
+  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %6)
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 20:                                               ; preds = %15
-  store i64 %17, ptr %8, align 8, !noalias !510
-  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull %8), !noalias !510
-  call void @llvm.experimental.noalias.scope.decl(metadata !518)
-  %21 = load i64, ptr %7, align 8, !noalias !521
+  store i64 %17, ptr %8, align 8, !noalias !513
+  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef %8), !noalias !513
+  call void @llvm.experimental.noalias.scope.decl(metadata !521)
+  %21 = load i64, ptr %7, align 8, !noalias !524
   %22 = xor i64 %21, -9223372036854775808
-  store i64 %22, ptr %0, align 8, !alias.scope !521
+  store i64 %22, ptr %0, align 8, !alias.scope !524
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 23:                                               ; preds = %15
-  store i64 %17, ptr %10, align 8, !noalias !510
-  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull %10), !noalias !510
-  call void @llvm.experimental.noalias.scope.decl(metadata !522)
-  %24 = load i64, ptr %9, align 8, !noalias !525
+  store i64 %17, ptr %10, align 8, !noalias !513
+  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %10), !noalias !513
+  call void @llvm.experimental.noalias.scope.decl(metadata !525)
+  %24 = load i64, ptr %9, align 8, !noalias !528
   %25 = xor i64 %24, -9223372036854775808
-  store i64 %25, ptr %0, align 8, !alias.scope !525
+  store i64 %25, ptr %0, align 8, !alias.scope !528
   br label %_ZN2cvL7f64_sinENS_10softdoubleE.exit
 
 _ZN2cvL7f64_sinENS_10softdoubleE.exit:            ; preds = %14, %18, %19, %20, %23
@@ -8075,7 +8133,7 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   %11 = alloca %"struct.cv::softdouble", align 8
   %12 = load i64, ptr %1, align 8
   store i64 %12, ptr %11, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !526)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -8089,14 +8147,14 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   br i1 %or.cond.i, label %14, label %15
 
 14:                                               ; preds = %2
-  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !529
+  store i64 9223372036854775807, ptr %0, align 8, !alias.scope !532
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 15:                                               ; preds = %2
-  store i64 0, ptr %3, align 8, !noalias !526
-  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !526
-  %16 = load i32, ptr %4, align 4, !noalias !526
-  %17 = load i64, ptr %3, align 8, !noalias !526
+  store i64 0, ptr %3, align 8, !noalias !529
+  call fastcc void @_ZN2cvL17f64_sincos_reduceERKNS_10softdoubleERS0_Ri(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4), !noalias !529
+  %16 = load i32, ptr %4, align 4, !noalias !529
+  %17 = load i64, ptr %3, align 8, !noalias !529
   switch i32 %16, label %25 [
     i32 0, label %18
     i32 1, label %19
@@ -8104,31 +8162,31 @@ define void @_ZN2cv3cosERKNS_10softdoubleE(ptr dead_on_unwind noalias nocapture 
   ]
 
 18:                                               ; preds = %15
-  store i64 %17, ptr %5, align 8, !noalias !526
-  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %5)
+  store i64 %17, ptr %5, align 8, !noalias !529
+  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %5)
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 19:                                               ; preds = %15
-  store i64 %17, ptr %7, align 8, !noalias !526
-  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7), !noalias !526
-  call void @llvm.experimental.noalias.scope.decl(metadata !534)
-  %20 = load i64, ptr %6, align 8, !noalias !537
+  store i64 %17, ptr %7, align 8, !noalias !529
+  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %7), !noalias !529
+  call void @llvm.experimental.noalias.scope.decl(metadata !537)
+  %20 = load i64, ptr %6, align 8, !noalias !540
   %21 = xor i64 %20, -9223372036854775808
-  store i64 %21, ptr %0, align 8, !alias.scope !537
+  store i64 %21, ptr %0, align 8, !alias.scope !540
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 22:                                               ; preds = %15
-  store i64 %17, ptr %9, align 8, !noalias !526
-  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull %9), !noalias !526
-  call void @llvm.experimental.noalias.scope.decl(metadata !538)
-  %23 = load i64, ptr %8, align 8, !noalias !541
+  store i64 %17, ptr %9, align 8, !noalias !529
+  call fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %9), !noalias !529
+  call void @llvm.experimental.noalias.scope.decl(metadata !541)
+  %23 = load i64, ptr %8, align 8, !noalias !544
   %24 = xor i64 %23, -9223372036854775808
-  store i64 %24, ptr %0, align 8, !alias.scope !541
+  store i64 %24, ptr %0, align 8, !alias.scope !544
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 25:                                               ; preds = %15
-  store i64 %17, ptr %10, align 8, !noalias !526
-  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %10)
+  store i64 %17, ptr %10, align 8, !noalias !529
+  call fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %10)
   br label %_ZN2cvL7f64_cosENS_10softdoubleE.exit
 
 _ZN2cvL7f64_cosENS_10softdoubleE.exit:            ; preds = %14, %18, %19, %22, %25
@@ -8144,7 +8202,7 @@ _ZN2cvL7f64_cosENS_10softdoubleE.exit:            ; preds = %14, %18, %19, %22, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
   %4 = lshr i64 %1, 23
   %5 = and i64 %4, 255
   %6 = and i64 %1, 8388607
@@ -8153,7 +8211,7 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
   %9 = and i64 %2, 8388607
   %10 = sub nsw i64 %5, %8
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %11, label %45
+  br i1 %.not, label %11, label %44
 
 11:                                               ; preds = %3
   %12 = icmp eq i64 %5, 255
@@ -8161,165 +8219,161 @@ define internal fastcc void @_ZN2cvL20softfloat_subMagsF32Emm(ptr dead_on_unwind
 
 13:                                               ; preds = %11
   %14 = or i64 %9, %6
-  %.not76 = icmp eq i64 %14, 0
-  br i1 %.not76, label %96, label %86
+  %.not75 = icmp eq i64 %14, 0
+  br i1 %.not75, label %93, label %83
 
 15:                                               ; preds = %11
   %.not73 = icmp eq i64 %6, %9
-  br i1 %.not73, label %96, label %16
+  br i1 %.not73, label %93, label %16
 
 16:                                               ; preds = %15
   %17 = sub nsw i64 %6, %9
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 1)
-  %18 = and i64 %1, 2147483648
-  %19 = icmp ne i64 %18, 0
-  %20 = icmp slt i64 %17, 0
+  %18 = icmp ugt i64 %1, 2147483647
+  %19 = icmp slt i64 %17, 0
   %.063 = tail call i64 @llvm.abs.i64(i64 %17, i1 true)
-  %.061 = xor i1 %19, %20
-  %21 = trunc nuw nsw i64 %.063 to i32
-  %22 = icmp ult i64 %.063, 65536
-  %23 = shl nuw i32 %21, 16
-  %spec.select.i = select i1 %22, i32 %23, i32 %21
-  %spec.select12.i = select i1 %22, i8 16, i8 0
-  %24 = icmp ult i32 %spec.select.i, 16777216
-  %25 = or disjoint i8 %spec.select12.i, 8
-  %26 = shl nuw i32 %spec.select.i, 8
-  %.19.i = select i1 %24, i32 %26, i32 %spec.select.i
-  %.1.i = select i1 %24, i8 %25, i8 %spec.select12.i
-  %27 = lshr i32 %.19.i, 24
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1
-  %31 = add nsw i8 %.1.i, -8
-  %32 = add i8 %31, %30
-  %33 = sext i8 %32 to i64
-  %34 = sub nsw i64 %spec.select, %33
-  %35 = icmp slt i64 %34, 0
-  %36 = trunc nuw i64 %spec.select to i8
-  %.060 = select i1 %35, i8 %36, i8 %32
-  %.059 = tail call i64 @llvm.smax.i64(i64 %34, i64 0)
-  %37 = select i1 %.061, i64 2147483648, i64 0
-  %38 = shl nuw nsw i64 %.059, 23
-  %39 = add nuw nsw i64 %38, %37
-  %40 = and i64 %39, 4286578688
-  %41 = sext i8 %.060 to i64
-  %42 = and i64 %41, 4294967295
-  %43 = shl i64 %.063, %42
-  %44 = add nsw i64 %43, %40
-  br label %96
+  %.061.in = xor i1 %18, %19
+  %20 = trunc nuw nsw i64 %.063 to i32
+  %21 = icmp ult i64 %.063, 65536
+  %22 = shl nuw i32 %20, 16
+  %spec.select.i = select i1 %21, i32 %22, i32 %20
+  %spec.select12.i = select i1 %21, i8 16, i8 0
+  %23 = icmp ult i32 %spec.select.i, 16777216
+  %24 = or disjoint i8 %spec.select12.i, 8
+  %25 = shl nuw i32 %spec.select.i, 8
+  %.19.i = select i1 %23, i32 %25, i32 %spec.select.i
+  %.1.i = select i1 %23, i8 %24, i8 %spec.select12.i
+  %26 = lshr i32 %.19.i, 24
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds [256 x i8], ptr @_ZN2cvL28softfloat_countLeadingZeros8E, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1
+  %30 = add nsw i8 %.1.i, -8
+  %31 = add i8 %30, %29
+  %32 = sext i8 %31 to i64
+  %33 = sub nsw i64 %spec.select, %32
+  %34 = icmp slt i64 %33, 0
+  %35 = trunc nuw i64 %spec.select to i8
+  %.060 = select i1 %34, i8 %35, i8 %31
+  %.059 = tail call i64 @llvm.smax.i64(i64 %33, i64 0)
+  %36 = select i1 %.061.in, i64 2147483648, i64 0
+  %37 = shl nuw nsw i64 %.059, 23
+  %38 = add nuw nsw i64 %37, %36
+  %39 = and i64 %38, 4286578688
+  %40 = sext i8 %.060 to i64
+  %41 = and i64 %40, 4294967295
+  %42 = shl i64 %.063, %41
+  %43 = add nsw i64 %42, %39
+  br label %93
 
-45:                                               ; preds = %3
+44:                                               ; preds = %3
+  %45 = icmp ugt i64 %1, 2147483647
   %46 = shl nuw nsw i64 %6, 7
   %47 = shl nuw nsw i64 %9, 7
   %48 = icmp slt i64 %10, 0
-  br i1 %48, label %49, label %60
+  br i1 %48, label %49, label %59
 
-49:                                               ; preds = %45
-  %50 = and i64 %1, 2147483648
-  %51 = icmp eq i64 %8, 255
-  br i1 %51, label %52, label %56
+49:                                               ; preds = %44
+  %50 = icmp eq i64 %8, 255
+  br i1 %50, label %51, label %54
 
-52:                                               ; preds = %49
-  %.not81 = icmp eq i64 %9, 0
-  br i1 %.not81, label %53, label %86
+51:                                               ; preds = %49
+  %.not79 = icmp eq i64 %9, 0
+  br i1 %.not79, label %52, label %83
 
-53:                                               ; preds = %52
-  %54 = add nuw nsw i64 %50, 4286578688
-  %55 = and i64 %54, 4286578688
-  br label %96
+52:                                               ; preds = %51
+  %53 = select i1 %45, i64 2139095040, i64 4286578688
+  br label %93
 
-56:                                               ; preds = %49
-  %.not77 = icmp eq i64 %50, 0
-  %.not80 = icmp eq i64 %5, 0
-  %57 = select i1 %.not80, i64 %46, i64 1073741824
-  %58 = add nuw nsw i64 %57, %46
-  %59 = sub nsw i64 0, %10
-  br label %68
+54:                                               ; preds = %49
+  %55 = xor i1 %45, true
+  %.not78 = icmp eq i64 %5, 0
+  %56 = select i1 %.not78, i64 %46, i64 1073741824
+  %57 = add nuw nsw i64 %56, %46
+  %58 = sub nsw i64 0, %10
+  br label %65
 
-60:                                               ; preds = %45
-  %61 = icmp eq i64 %5, 255
-  br i1 %61, label %62, label %63
+59:                                               ; preds = %44
+  %60 = icmp eq i64 %5, 255
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %60
-  %.not79 = icmp eq i64 %6, 0
-  br i1 %.not79, label %96, label %86
+61:                                               ; preds = %59
+  %.not77 = icmp eq i64 %6, 0
+  br i1 %.not77, label %93, label %83
 
-63:                                               ; preds = %60
-  %.not78 = icmp eq i64 %8, 0
-  %64 = select i1 %.not78, i64 %47, i64 1073741824
-  %65 = add nuw nsw i64 %64, %47
-  %66 = and i64 %1, 2147483648
-  %67 = icmp ne i64 %66, 0
-  br label %68
+62:                                               ; preds = %59
+  %.not76 = icmp eq i64 %8, 0
+  %63 = select i1 %.not76, i64 %47, i64 1073741824
+  %64 = add nuw nsw i64 %63, %47
+  br label %65
 
-68:                                               ; preds = %63, %56
-  %.065 = phi i64 [ %59, %56 ], [ %10, %63 ]
-  %.162 = phi i1 [ %.not77, %56 ], [ %67, %63 ]
-  %.1.in = phi i64 [ %8, %56 ], [ %5, %63 ]
-  %.058.in = phi i64 [ %47, %56 ], [ %46, %63 ]
-  %.0 = phi i64 [ %58, %56 ], [ %65, %63 ]
+65:                                               ; preds = %62, %54
+  %.065 = phi i64 [ %58, %54 ], [ %10, %62 ]
+  %.162.in = phi i1 [ %55, %54 ], [ %45, %62 ]
+  %.1.in = phi i64 [ %8, %54 ], [ %5, %62 ]
+  %.058.in = phi i64 [ %47, %54 ], [ %46, %62 ]
+  %.0 = phi i64 [ %57, %54 ], [ %64, %62 ]
   %.058 = add nuw nsw i64 %.058.in, 1073741824
   %.1 = add nsw i64 %.1.in, -1
-  %69 = icmp ult i64 %.065, 31
-  br i1 %69, label %70, label %80
+  %66 = icmp ult i64 %.065, 31
+  br i1 %66, label %67, label %77
 
-70:                                               ; preds = %68
-  %71 = trunc nuw nsw i64 %.0 to i32
-  %72 = trunc nuw nsw i64 %.065 to i32
-  %73 = lshr i32 %71, %72
-  %74 = sub nsw i32 0, %72
-  %75 = and i32 %74, 31
-  %76 = shl i32 %71, %75
-  %77 = icmp ne i32 %76, 0
-  %78 = zext i1 %77 to i32
-  %79 = or i32 %73, %78
+67:                                               ; preds = %65
+  %68 = trunc nuw nsw i64 %.0 to i32
+  %69 = trunc nuw nsw i64 %.065 to i32
+  %70 = lshr i32 %68, %69
+  %71 = sub nsw i32 0, %69
+  %72 = and i32 %71, 31
+  %73 = shl i32 %68, %72
+  %74 = icmp ne i32 %73, 0
+  %75 = zext i1 %74 to i32
+  %76 = or i32 %70, %75
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
 
-80:                                               ; preds = %68
-  %81 = icmp ne i64 %.0, 0
-  %82 = zext i1 %81 to i32
+77:                                               ; preds = %65
+  %78 = icmp ne i64 %.0, 0
+  %79 = zext i1 %78 to i32
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
 
-_ZN2cvL25softfloat_shiftRightJam32Ejm.exit:       ; preds = %70, %80
-  %83 = phi i32 [ %79, %70 ], [ %82, %80 ]
-  %84 = zext nneg i32 %83 to i64
-  %85 = sub nsw i64 %.058, %84
-  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %.162, i64 noundef %.1, i64 noundef %85)
-  br label %98
+_ZN2cvL25softfloat_shiftRightJam32Ejm.exit:       ; preds = %67, %77
+  %80 = phi i32 [ %76, %67 ], [ %79, %77 ]
+  %81 = zext nneg i32 %80 to i64
+  %82 = sub nsw i64 %.058, %81
+  tail call fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias writable align 4 %0, i1 noundef zeroext %.162.in, i64 noundef %.1, i64 noundef %82)
+  br label %95
 
-86:                                               ; preds = %62, %52, %13
-  %87 = and i64 %1, 2143289344
-  %88 = icmp eq i64 %87, 2139095040
-  %89 = and i64 %1, 4194303
-  %90 = icmp ne i64 %89, 0
-  %91 = and i1 %88, %90
-  br i1 %91, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, label %92
+83:                                               ; preds = %61, %51, %13
+  %84 = and i64 %1, 2143289344
+  %85 = icmp eq i64 %84, 2139095040
+  %86 = and i64 %1, 4194303
+  %87 = icmp ne i64 %86, 0
+  %88 = and i1 %85, %87
+  br i1 %88, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, label %89
 
-92:                                               ; preds = %86
-  %93 = and i64 %1, 2139095040
-  %94 = icmp ne i64 %93, 2139095040
+89:                                               ; preds = %83
+  %90 = and i64 %1, 2139095040
+  %91 = icmp ne i64 %90, 2139095040
   %.not12.i = icmp eq i64 %6, 0
-  %or.cond13.i = or i1 %94, %.not12.i
-  %95 = select i1 %or.cond13.i, i64 %2, i64 %1
+  %or.cond13.i = or i1 %91, %.not12.i
+  %92 = select i1 %or.cond13.i, i64 %2, i64 %1
   br label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit
 
-_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %86, %92
-  %.0.in.i = phi i64 [ %95, %92 ], [ %1, %86 ]
+_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %83, %89
+  %.0.in.i = phi i64 [ %92, %89 ], [ %1, %83 ]
   %.0.i = or i64 %.0.in.i, 4194304
-  br label %96
+  br label %93
 
-96:                                               ; preds = %13, %62, %15, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %53, %16
-  %.064 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %55, %53 ], [ %44, %16 ], [ 0, %15 ], [ %1, %62 ], [ 4290772992, %13 ]
-  %97 = trunc i64 %.064 to i32
-  store i32 %97, ptr %0, align 4, !alias.scope !542
-  br label %98
+93:                                               ; preds = %13, %61, %15, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %52, %16
+  %.064 = phi i64 [ %.0.i, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %53, %52 ], [ %43, %16 ], [ 0, %15 ], [ %1, %61 ], [ 4290772992, %13 ]
+  %94 = trunc i64 %.064 to i32
+  store i32 %94, ptr %0, align 4, !alias.scope !545
+  br label %95
 
-98:                                               ; preds = %96, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
+95:                                               ; preds = %93, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i64 noundef range(i64 0, 4294967296) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
   %4 = lshr i64 %1, 23
   %5 = and i64 %4, 255
   %6 = and i64 %1, 8388607
@@ -8328,7 +8382,7 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
   %9 = and i64 %2, 8388607
   %10 = sub nsw i64 %5, %8
   %.not = icmp eq i64 %5, %8
-  br i1 %.not, label %11, label %30
+  br i1 %.not, label %11, label %31
 
 11:                                               ; preds = %3
   %trunc = trunc i64 %4 to i8
@@ -8343,217 +8397,217 @@ define internal fastcc void @_ZN2cvL20softfloat_addMagsF32Emm(ptr dead_on_unwind
 
 14:                                               ; preds = %11
   %15 = or i64 %9, %6
-  %.not71 = icmp eq i64 %15, 0
-  br i1 %.not71, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %122
+  %.not70 = icmp eq i64 %15, 0
+  br i1 %.not70, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %123
 
 16:                                               ; preds = %11
-  %17 = and i64 %1, 2147483648
+  %17 = icmp ugt i64 %1, 2147483647
   %18 = or disjoint i64 %6, 16777216
   %19 = add nuw nsw i64 %18, %9
   %20 = and i64 %19, 1
   %21 = icmp eq i64 %20, 0
   %22 = icmp ult i64 %5, 254
   %or.cond = and i1 %22, %21
-  br i1 %or.cond, label %23, label %28
+  br i1 %or.cond, label %23, label %29
 
 23:                                               ; preds = %16
-  %24 = shl nuw nsw i64 %5, 23
-  %25 = or disjoint i64 %24, %17
-  %26 = lshr exact i64 %19, 1
-  %27 = add nuw nsw i64 %25, %26
+  %24 = select i1 %17, i64 2147483648, i64 0
+  %25 = shl nuw nsw i64 %5, 23
+  %26 = or disjoint i64 %25, %24
+  %27 = lshr exact i64 %19, 1
+  %28 = add nuw nsw i64 %26, %27
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-28:                                               ; preds = %16
-  %29 = shl nuw nsw i64 %19, 6
-  br label %89
+29:                                               ; preds = %16
+  %30 = shl nuw nsw i64 %19, 6
+  br label %90
 
-30:                                               ; preds = %3
-  %31 = and i64 %1, 2147483648
-  %32 = shl nuw nsw i64 %6, 6
-  %33 = shl nuw nsw i64 %9, 6
-  %34 = icmp slt i64 %10, 0
-  br i1 %34, label %35, label %60
+31:                                               ; preds = %3
+  %32 = icmp ugt i64 %1, 2147483647
+  %33 = shl nuw nsw i64 %6, 6
+  %34 = shl nuw nsw i64 %9, 6
+  %35 = icmp slt i64 %10, 0
+  br i1 %35, label %36, label %61
 
-35:                                               ; preds = %30
-  %36 = icmp eq i64 %8, 255
-  br i1 %36, label %37, label %40
+36:                                               ; preds = %31
+  %37 = icmp eq i64 %8, 255
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %35
-  %.not76 = icmp eq i64 %9, 0
-  br i1 %.not76, label %38, label %122
+38:                                               ; preds = %36
+  %.not74 = icmp eq i64 %9, 0
+  br i1 %.not74, label %39, label %123
 
-38:                                               ; preds = %37
-  %39 = or disjoint i64 %31, 2139095040
+39:                                               ; preds = %38
+  %40 = select i1 %32, i64 4286578688, i64 2139095040
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-40:                                               ; preds = %35
-  %.not75 = icmp eq i64 %5, 0
-  %41 = select i1 %.not75, i64 %32, i64 536870912
-  %42 = add nuw nsw i64 %41, %32
-  %43 = sub nsw i64 0, %10
-  %44 = icmp ult i64 %43, 31
-  br i1 %44, label %45, label %55
+41:                                               ; preds = %36
+  %.not73 = icmp eq i64 %5, 0
+  %42 = select i1 %.not73, i64 %33, i64 536870912
+  %43 = add nuw nsw i64 %42, %33
+  %44 = sub nsw i64 0, %10
+  %45 = icmp ult i64 %44, 31
+  br i1 %45, label %46, label %56
 
-45:                                               ; preds = %40
-  %46 = trunc nuw nsw i64 %42 to i32
+46:                                               ; preds = %41
   %47 = trunc nuw nsw i64 %43 to i32
-  %48 = lshr i32 %46, %47
-  %49 = sub nsw i32 0, %47
-  %50 = and i32 %49, 31
-  %51 = shl i32 %46, %50
-  %52 = icmp ne i32 %51, 0
-  %53 = zext i1 %52 to i32
-  %54 = or i32 %48, %53
+  %48 = trunc nuw nsw i64 %44 to i32
+  %49 = lshr i32 %47, %48
+  %50 = sub nsw i32 0, %48
+  %51 = and i32 %50, 31
+  %52 = shl i32 %47, %51
+  %53 = icmp ne i32 %52, 0
+  %54 = zext i1 %53 to i32
+  %55 = or i32 %49, %54
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
 
-55:                                               ; preds = %40
-  %56 = icmp ne i64 %42, 0
-  %57 = zext i1 %56 to i32
+56:                                               ; preds = %41
+  %57 = icmp ne i64 %43, 0
+  %58 = zext i1 %57 to i32
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
 
-_ZN2cvL25softfloat_shiftRightJam32Ejm.exit:       ; preds = %45, %55
-  %58 = phi i32 [ %54, %45 ], [ %57, %55 ]
-  %59 = zext nneg i32 %58 to i64
-  br label %82
+_ZN2cvL25softfloat_shiftRightJam32Ejm.exit:       ; preds = %46, %56
+  %59 = phi i32 [ %55, %46 ], [ %58, %56 ]
+  %60 = zext nneg i32 %59 to i64
+  br label %83
 
-60:                                               ; preds = %30
-  %61 = icmp eq i64 %5, 255
-  br i1 %61, label %62, label %63
+61:                                               ; preds = %31
+  %62 = icmp eq i64 %5, 255
+  br i1 %62, label %63, label %64
 
-62:                                               ; preds = %60
-  %.not74 = icmp eq i64 %6, 0
-  br i1 %.not74, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %122
+63:                                               ; preds = %61
+  %.not72 = icmp eq i64 %6, 0
+  br i1 %.not72, label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit, label %123
 
-63:                                               ; preds = %60
-  %.not73 = icmp eq i64 %8, 0
-  %64 = select i1 %.not73, i64 %33, i64 536870912
-  %65 = add nuw nsw i64 %64, %33
-  %66 = icmp ult i64 %10, 31
-  br i1 %66, label %67, label %77
+64:                                               ; preds = %61
+  %.not71 = icmp eq i64 %8, 0
+  %65 = select i1 %.not71, i64 %34, i64 536870912
+  %66 = add nuw nsw i64 %65, %34
+  %67 = icmp ult i64 %10, 31
+  br i1 %67, label %68, label %78
 
-67:                                               ; preds = %63
-  %68 = trunc nuw nsw i64 %65 to i32
-  %69 = trunc nuw nsw i64 %10 to i32
-  %70 = lshr i32 %68, %69
-  %71 = sub nsw i32 0, %69
-  %72 = and i32 %71, 31
-  %73 = shl i32 %68, %72
-  %74 = icmp ne i32 %73, 0
-  %75 = zext i1 %74 to i32
-  %76 = or i32 %70, %75
-  br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78
+68:                                               ; preds = %64
+  %69 = trunc nuw nsw i64 %66 to i32
+  %70 = trunc nuw nsw i64 %10 to i32
+  %71 = lshr i32 %69, %70
+  %72 = sub nsw i32 0, %70
+  %73 = and i32 %72, 31
+  %74 = shl i32 %69, %73
+  %75 = icmp ne i32 %74, 0
+  %76 = zext i1 %75 to i32
+  %77 = or i32 %71, %76
+  br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75
 
-77:                                               ; preds = %63
-  %78 = icmp ne i64 %65, 0
-  %79 = zext i1 %78 to i32
-  br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78
+78:                                               ; preds = %64
+  %79 = icmp ne i64 %66, 0
+  %80 = zext i1 %79 to i32
+  br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75
 
-_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78:     ; preds = %67, %77
-  %80 = phi i32 [ %76, %67 ], [ %79, %77 ]
-  %81 = zext nneg i32 %80 to i64
-  br label %82
+_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75:     ; preds = %68, %78
+  %81 = phi i32 [ %77, %68 ], [ %80, %78 ]
+  %82 = zext nneg i32 %81 to i64
+  br label %83
 
-82:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
-  %.062 = phi i64 [ %33, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %81, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
-  %.061 = phi i64 [ %59, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %32, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
-  %.1 = phi i64 [ %8, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %5, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit78 ]
-  %83 = add nuw nsw i64 %.062, 536870912
-  %84 = add nuw nsw i64 %83, %.061
-  %85 = icmp ult i64 %84, 1073741824
-  br i1 %85, label %86, label %89
+83:                                               ; preds = %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit
+  %.062 = phi i64 [ %34, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %82, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75 ]
+  %.061 = phi i64 [ %60, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %33, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75 ]
+  %.1 = phi i64 [ %8, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit ], [ %5, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit75 ]
+  %84 = add nuw nsw i64 %.062, 536870912
+  %85 = add nuw nsw i64 %84, %.061
+  %86 = icmp ult i64 %85, 1073741824
+  br i1 %86, label %87, label %90
 
-86:                                               ; preds = %82
-  %87 = add nsw i64 %.1, -1
-  %88 = shl nuw nsw i64 %84, 1
-  br label %89
+87:                                               ; preds = %83
+  %88 = add nsw i64 %.1, -1
+  %89 = shl nuw nsw i64 %85, 1
+  br label %90
 
-89:                                               ; preds = %82, %86, %28
-  %.059.in.in = phi i64 [ %31, %86 ], [ %31, %82 ], [ %17, %28 ]
-  %.058 = phi i64 [ %87, %86 ], [ %.1, %82 ], [ %5, %28 ]
-  %.0 = phi i64 [ %88, %86 ], [ %84, %82 ], [ %29, %28 ]
-  %.not80 = icmp eq i64 %.059.in.in, 0
-  %90 = trunc i64 %.0 to i8
-  %91 = icmp ugt i64 %.058, 252
-  br i1 %91, label %92, label %111
+90:                                               ; preds = %83, %87, %29
+  %.059.in = phi i1 [ %32, %87 ], [ %32, %83 ], [ %17, %29 ]
+  %.058 = phi i64 [ %88, %87 ], [ %.1, %83 ], [ %5, %29 ]
+  %.0 = phi i64 [ %89, %87 ], [ %85, %83 ], [ %30, %29 ]
+  %91 = trunc i64 %.0 to i8
+  %92 = icmp ugt i64 %.058, 252
+  br i1 %92, label %93, label %112
 
-92:                                               ; preds = %89
-  %93 = icmp slt i64 %.058, 0
-  br i1 %93, label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, label %105
+93:                                               ; preds = %90
+  %94 = icmp slt i64 %.058, 0
+  br i1 %94, label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, label %106
 
-_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %92
-  %94 = trunc i64 %.0 to i32
-  %95 = trunc nsw i64 %.058 to i32
-  %96 = sub nsw i32 0, %95
-  %97 = lshr i32 %94, %96
-  %98 = and i32 %95, 31
-  %99 = shl i32 %94, %98
-  %100 = icmp ne i32 %99, 0
-  %101 = zext i1 %100 to i32
-  %102 = or i32 %97, %101
-  %103 = zext nneg i32 %102 to i64
-  %104 = trunc i32 %102 to i8
-  br label %111
+_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %93
+  %95 = trunc i64 %.0 to i32
+  %96 = trunc nsw i64 %.058 to i32
+  %97 = sub nsw i32 0, %96
+  %98 = lshr i32 %95, %97
+  %99 = and i32 %96, 31
+  %100 = shl i32 %95, %99
+  %101 = icmp ne i32 %100, 0
+  %102 = zext i1 %101 to i32
+  %103 = or i32 %98, %102
+  %104 = zext nneg i32 %103 to i64
+  %105 = trunc i32 %103 to i8
+  br label %112
 
-105:                                              ; preds = %92
-  %106 = icmp ne i64 %.058, 253
-  %107 = add nsw i64 %.0, -2147483584
-  %108 = icmp ult i64 %107, -2147483648
-  %or.cond.i = or i1 %106, %108
-  br i1 %or.cond.i, label %109, label %111
+106:                                              ; preds = %93
+  %107 = icmp ne i64 %.058, 253
+  %108 = add nsw i64 %.0, -2147483584
+  %109 = icmp ult i64 %108, -2147483648
+  %or.cond.i = or i1 %107, %109
+  br i1 %or.cond.i, label %110, label %112
 
-109:                                              ; preds = %105
-  %110 = select i1 %.not80, i64 2139095040, i64 4286578688
+110:                                              ; preds = %106
+  %111 = select i1 %.059.in, i64 4286578688, i64 2139095040
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-111:                                              ; preds = %105, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %89
-  %.041.i = phi i64 [ %.0, %89 ], [ %.0, %105 ], [ %103, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
-  %.039.in.i = phi i8 [ %90, %89 ], [ %90, %105 ], [ %104, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
-  %.038.i = phi i64 [ %.058, %89 ], [ 253, %105 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+112:                                              ; preds = %106, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %90
+  %.041.i = phi i64 [ %.0, %90 ], [ %.0, %106 ], [ %104, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.039.in.i = phi i8 [ %91, %90 ], [ %91, %106 ], [ %105, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.038.i = phi i64 [ %.058, %90 ], [ 253, %106 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.i = and i8 %.039.in.i, 127
-  %112 = add nuw nsw i64 %.041.i, 64
-  %113 = lshr i64 %112, 7
+  %113 = add nuw nsw i64 %.041.i, 64
+  %114 = lshr i64 %113, 7
   %.not48.i = icmp eq i8 %.039.i, 64
-  %114 = zext i1 %.not48.i to i64
-  %115 = xor i64 %114, -1
-  %116 = and i64 %113, %115
-  %.not49.i = icmp eq i64 %116, 0
-  %117 = shl nuw nsw i64 %.038.i, 23
-  %118 = select i1 %.not80, i64 0, i64 2147483648
-  %119 = select i1 %.not49.i, i64 0, i64 %117
-  %120 = add nuw nsw i64 %116, %118
-  %121 = add nuw nsw i64 %120, %119
+  %115 = zext i1 %.not48.i to i64
+  %116 = xor i64 %115, -1
+  %117 = and i64 %114, %116
+  %.not49.i = icmp eq i64 %117, 0
+  %118 = shl nuw nsw i64 %.038.i, 23
+  %119 = select i1 %.059.in, i64 2147483648, i64 0
+  %120 = select i1 %.not49.i, i64 0, i64 %118
+  %121 = add nuw nsw i64 %117, %119
+  %122 = add nuw nsw i64 %121, %120
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-122:                                              ; preds = %62, %37, %14
-  %123 = and i64 %1, 2143289344
-  %124 = icmp eq i64 %123, 2139095040
-  %125 = and i64 %1, 4194303
-  %126 = icmp ne i64 %125, 0
-  %127 = and i1 %124, %126
-  br i1 %127, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, label %128
+123:                                              ; preds = %63, %38, %14
+  %124 = and i64 %1, 2143289344
+  %125 = icmp eq i64 %124, 2139095040
+  %126 = and i64 %1, 4194303
+  %127 = icmp ne i64 %126, 0
+  %128 = and i1 %125, %127
+  br i1 %128, label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, label %129
 
-128:                                              ; preds = %122
-  %129 = and i64 %1, 2139095040
-  %130 = icmp ne i64 %129, 2139095040
+129:                                              ; preds = %123
+  %130 = and i64 %1, 2139095040
+  %131 = icmp ne i64 %130, 2139095040
   %.not12.i = icmp eq i64 %6, 0
-  %or.cond13.i = or i1 %130, %.not12.i
-  %131 = select i1 %or.cond13.i, i64 %2, i64 %1
+  %or.cond13.i = or i1 %131, %.not12.i
+  %132 = select i1 %or.cond13.i, i64 %2, i64 %1
   br label %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit
 
-_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %122, %128
-  %.0.in.i = phi i64 [ %131, %128 ], [ %1, %122 ]
-  %.0.i79 = or i64 %.0.in.i, 4194304
+_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit:     ; preds = %123, %129
+  %.0.in.i = phi i64 [ %132, %129 ], [ %1, %123 ]
+  %.0.i76 = or i64 %.0.in.i, 4194304
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %23, %38, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %14, %62, %111, %109
-  %storemerge.in = phi i64 [ %121, %111 ], [ %110, %109 ], [ %.0.i79, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %39, %38 ], [ %27, %23 ], [ %13, %12 ], [ %1, %14 ], [ %1, %62 ]
+_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %12, %23, %39, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit, %14, %63, %112, %110
+  %storemerge.in = phi i64 [ %122, %112 ], [ %111, %110 ], [ %.0.i76, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit ], [ %40, %39 ], [ %28, %23 ], [ %13, %12 ], [ %1, %14 ], [ %1, %63 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 255) %2, i64 noundef range(i64 -3221225471, 4294967296) %3) unnamed_addr #0 {
   %5 = trunc i64 %3 to i32
   %6 = icmp ult i32 %5, 65536
   %7 = shl nuw i32 %5, 16
@@ -8594,75 +8648,73 @@ define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF32Eblm(ptr dead_
   %32 = zext nneg i32 %19 to i64
   %33 = shl i64 %3, %32
   %34 = trunc i64 %33 to i8
-  %35 = trunc i64 %18 to i32
-  %36 = icmp ugt i32 %35, 252
-  br i1 %36, label %37, label %64
+  %35 = icmp ugt i64 %18, 252
+  br i1 %35, label %36, label %63
 
-37:                                               ; preds = %31
-  %38 = icmp slt i64 %18, 0
-  br i1 %38, label %39, label %58
+36:                                               ; preds = %31
+  %37 = icmp slt i64 %18, 0
+  br i1 %37, label %38, label %57
 
-39:                                               ; preds = %37
-  %40 = trunc i64 %33 to i32
-  %41 = sub nsw i64 0, %18
-  %42 = icmp ult i64 %41, 31
-  br i1 %42, label %43, label %52
+38:                                               ; preds = %36
+  %39 = trunc i64 %33 to i32
+  %40 = sub nsw i64 0, %18
+  %41 = icmp ult i64 %40, 31
+  br i1 %41, label %42, label %51
 
-43:                                               ; preds = %39
-  %44 = trunc nuw i64 %41 to i32
-  %45 = lshr i32 %40, %44
-  %46 = sub nsw i32 0, %44
-  %47 = and i32 %46, 31
-  %48 = shl i32 %40, %47
-  %49 = icmp ne i32 %48, 0
-  %50 = zext i1 %49 to i32
-  %51 = or i32 %45, %50
+42:                                               ; preds = %38
+  %43 = trunc nuw nsw i64 %40 to i32
+  %44 = lshr i32 %39, %43
+  %45 = sub nsw i32 0, %43
+  %46 = and i32 %45, 31
+  %47 = shl i32 %39, %46
+  %48 = icmp ne i32 %47, 0
+  %49 = zext i1 %48 to i32
+  %50 = or i32 %44, %49
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i
 
-52:                                               ; preds = %39
-  %53 = icmp ne i32 %40, 0
-  %54 = zext i1 %53 to i32
+51:                                               ; preds = %38
+  %52 = icmp ne i32 %39, 0
+  %53 = zext i1 %52 to i32
   br label %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i
 
-_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %52, %43
-  %55 = phi i32 [ %51, %43 ], [ %54, %52 ]
-  %56 = zext nneg i32 %55 to i64
-  %57 = trunc i32 %55 to i8
-  br label %64
+_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i:     ; preds = %51, %42
+  %54 = phi i32 [ %50, %42 ], [ %53, %51 ]
+  %55 = zext nneg i32 %54 to i64
+  %56 = trunc i32 %54 to i8
+  br label %63
 
-58:                                               ; preds = %37
-  %59 = icmp ugt i64 %18, 253
-  %60 = add i64 %33, -2147483584
-  %61 = icmp ult i64 %60, -2147483648
-  %or.cond.i = or i1 %59, %61
-  br i1 %or.cond.i, label %62, label %64
+57:                                               ; preds = %36
+  %58 = icmp ne i64 %18, 253
+  %59 = add i64 %33, -2147483584
+  %60 = icmp ult i64 %59, -2147483648
+  %or.cond.i = or i1 %58, %60
+  br i1 %or.cond.i, label %61, label %63
 
-62:                                               ; preds = %58
-  %63 = select i1 %1, i64 4286578688, i64 2139095040
+61:                                               ; preds = %57
+  %62 = select i1 %1, i64 4286578688, i64 2139095040
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-64:                                               ; preds = %58, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %31
-  %.041.i = phi i64 [ %33, %31 ], [ %33, %58 ], [ %56, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
-  %.039.in.i = phi i8 [ %34, %31 ], [ %34, %58 ], [ %57, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
-  %.038.i = phi i64 [ %18, %31 ], [ 253, %58 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+63:                                               ; preds = %57, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i, %31
+  %.041.i = phi i64 [ %33, %31 ], [ %33, %57 ], [ %55, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.039.in.i = phi i8 [ %34, %31 ], [ %34, %57 ], [ %56, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
+  %.038.i = phi i64 [ %18, %31 ], [ 253, %57 ], [ 0, %_ZN2cvL25softfloat_shiftRightJam32Ejm.exit.i ]
   %.039.i = and i8 %.039.in.i, 127
-  %65 = add i64 %.041.i, 64
-  %66 = lshr i64 %65, 7
+  %64 = add i64 %.041.i, 64
+  %65 = lshr i64 %64, 7
   %.not48.i = icmp eq i8 %.039.i, 64
-  %67 = zext i1 %.not48.i to i64
-  %68 = xor i64 %67, -1
-  %69 = and i64 %66, %68
-  %.not49.i = icmp eq i64 %69, 0
-  %70 = shl i64 %.038.i, 23
-  %71 = select i1 %1, i64 2147483648, i64 0
-  %72 = select i1 %.not49.i, i64 0, i64 %70
-  %73 = add i64 %72, %71
-  %74 = and i64 %73, 4286578688
-  %75 = add nuw nsw i64 %74, %69
+  %66 = zext i1 %.not48.i to i64
+  %67 = xor i64 %66, -1
+  %68 = and i64 %65, %67
+  %.not49.i = icmp eq i64 %68, 0
+  %69 = shl nuw nsw i64 %.038.i, 23
+  %70 = select i1 %1, i64 2147483648, i64 0
+  %71 = select i1 %.not49.i, i64 0, i64 %69
+  %72 = or disjoint i64 %71, %70
+  %73 = add nuw nsw i64 %72, %68
   br label %_ZN2cvL24softfloat_roundPackToF32Eblm.exit
 
-_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %64, %62, %22
-  %storemerge.in = phi i64 [ %30, %22 ], [ %75, %64 ], [ %63, %62 ]
+_ZN2cvL24softfloat_roundPackToF32Eblm.exit:       ; preds = %63, %61, %22
+  %storemerge.in = phi i64 [ %30, %22 ], [ %73, %63 ], [ %62, %61 ]
   %storemerge = trunc i64 %storemerge.in to i32
   store i32 %storemerge, ptr %0, align 4
   ret void
@@ -9044,7 +9096,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %94, %100
 
 104:                                              ; preds = %14, %75, %16, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit, %55, %23
   %.064 = phi i64 [ %.0.i84, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit ], [ %56, %55 ], [ %47, %23 ], [ 0, %16 ], [ %1, %75 ], [ -2251799813685248, %14 ]
-  store i64 %.064, ptr %0, align 8, !alias.scope !545
+  store i64 %.064, ptr %0, align 8, !alias.scope !548
   br label %105
 
 105:                                              ; preds = %104, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit
@@ -9052,7 +9104,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit:     ; preds = %94, %100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i1 noundef zeroext %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN2cvL28softfloat_normRoundPackToF64Eblm(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i1 noundef zeroext %1, i64 noundef range(i64 -126, 2047) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = lshr i64 %3, 32
   %.not.i = icmp ult i64 %3, 4294967296
   %spec.select.i = select i1 %.not.i, i8 32, i8 0
@@ -9222,11 +9274,11 @@ _ZNK2cv10softdoubleltERKS0_.exit.thread:          ; preds = %3, %17
   br i1 %28, label %30, label %31
 
 30:                                               ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %27, i64 noundef 4562146422526312448, i1 noundef zeroext false), !alias.scope !548
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %27, i64 noundef 4562146422526312448, i1 noundef zeroext false), !alias.scope !551
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 31:                                               ; preds = %_ZNK2cv10softdoubleltERKS0_.exit.thread
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %27, i64 noundef 4562146422526312448, i1 noundef zeroext true), !alias.scope !548
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %5, i64 noundef %27, i64 noundef 4562146422526312448, i1 noundef zeroext true), !alias.scope !551
   br label %_ZNK2cv10softdoublemiERKS0_.exit
 
 _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %30, %31
@@ -9305,22 +9357,22 @@ _ZNK2cv10softdoubleleERKS0_.exit35.thread71:      ; preds = %53, %51
   br i1 %57, label %59, label %60
 
 59:                                               ; preds = %58
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !553
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !556
   br label %64
 
 60:                                               ; preds = %58
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !553
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !556
   br label %64
 
 61:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit35.thread71
   br i1 %57, label %62, label %63
 
 62:                                               ; preds = %61
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !558
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !561
   br label %71
 
 63:                                               ; preds = %61
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !558
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %8, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %56), !alias.scope !561
   br label %71
 
 64:                                               ; preds = %59, %60
@@ -9332,11 +9384,11 @@ _ZNK2cv10softdoubleleERKS0_.exit35.thread71:      ; preds = %53, %51
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %64
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %66), !alias.scope !563
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %66), !alias.scope !566
   br label %_ZNK2cv10softdoublemiERKS0_.exit42
 
 69:                                               ; preds = %64
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %66), !alias.scope !563
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %9, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %66), !alias.scope !566
   br label %_ZNK2cv10softdoublemiERKS0_.exit42
 
 _ZNK2cv10softdoublemiERKS0_.exit42:               ; preds = %69, %68
@@ -9352,11 +9404,11 @@ _ZNK2cv10softdoublemiERKS0_.exit42:               ; preds = %69, %68
   br i1 %74, label %75, label %76
 
 75:                                               ; preds = %71
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %73), !alias.scope !568
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %73), !alias.scope !571
   br label %_ZNK2cv10softdoubleplERKS0_.exit46
 
 76:                                               ; preds = %71
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %73), !alias.scope !568
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %27, i64 noundef 4609753056924675352, i1 noundef zeroext %73), !alias.scope !571
   br label %_ZNK2cv10softdoubleplERKS0_.exit46
 
 _ZNK2cv10softdoubleplERKS0_.exit46:               ; preds = %76, %75
@@ -9372,22 +9424,22 @@ _ZNK2cv10softdoubleleERKS0_.exit35.thread:        ; preds = %53, %_ZNK2cv10softd
   br i1 %28, label %80, label %81
 
 80:                                               ; preds = %79
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !573
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !576
   br label %_ZNK2cv10softdoublemiERKS0_.exit50
 
 81:                                               ; preds = %79
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !573
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !576
   br label %_ZNK2cv10softdoublemiERKS0_.exit50
 
 82:                                               ; preds = %_ZNK2cv10softdoubleleERKS0_.exit35.thread
   br i1 %28, label %83, label %84
 
 83:                                               ; preds = %82
-  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !578
+  call fastcc void @_ZN2cvL20softfloat_addMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext false), !alias.scope !581
   br label %_ZNK2cv10softdoublemiERKS0_.exit50
 
 84:                                               ; preds = %82
-  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !578
+  call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %27, i64 noundef 4614256656552045848, i1 noundef zeroext true), !alias.scope !581
   br label %_ZNK2cv10softdoublemiERKS0_.exit50
 
 _ZNK2cv10softdoublemiERKS0_.exit50:               ; preds = %80, %81, %83, %84
@@ -9404,7 +9456,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cv10softdoublea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #11 {
+define internal fastcc void @_ZN2cvL14f64_sin_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9429,7 +9481,7 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S3E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S2E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2S1E)
-  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !583
+  store i64 4607182418800017408, ptr %10, align 8, !alias.scope !586
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br label %15
@@ -9439,7 +9491,7 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #11 {
+define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #11 {
   %3 = alloca %"struct.cv::softdouble", align 8
   %4 = alloca %"struct.cv::softdouble", align 8
   %5 = alloca %"struct.cv::softdouble", align 8
@@ -9455,7 +9507,7 @@ define internal fastcc void @_ZN2cvL14f64_cos_kernelENS_10softdoubleE(ptr dead_o
   br i1 %14, label %_ZNK2cv10softdoubleneERKS0_.exit.thread, label %15
 
 _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
-  store i64 4607182418800017408, ptr %0, align 8, !alias.scope !588
+  store i64 4607182418800017408, ptr %0, align 8, !alias.scope !591
   br label %16
 
 15:                                               ; preds = %2
@@ -9465,9 +9517,9 @@ _ZNK2cv10softdoubleneERKS0_.exit.thread:          ; preds = %2
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C3E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C2E)
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL2C1E)
-  store i64 -4620693217682128896, ptr %10, align 8, !alias.scope !593
+  store i64 -4620693217682128896, ptr %10, align 8, !alias.scope !596
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store i64 4607182418800017408, ptr %11, align 8, !alias.scope !596
+  store i64 4607182418800017408, ptr %11, align 8, !alias.scope !599
   call void @_ZN2cv6mulAddERKNS_10softdoubleES2_S2_(ptr dead_on_unwind writable sret(%"struct.cv::softdouble") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %11)
   br label %16
 
@@ -9529,112 +9581,112 @@ attributes #15 = { nounwind }
 !5 = distinct !{!5, !6, !"_ZN2cvL11ui32_to_f32Ej: argument 0"}
 !6 = distinct !{!6, !"_ZN2cvL11ui32_to_f32Ej"}
 !7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZN2cvL11ui64_to_f32Em: argument 0"}
-!9 = distinct !{!9, !"_ZN2cvL11ui64_to_f32Em"}
+!8 = distinct !{!8, !9, !"_ZN2cvL28softfloat_normRoundPackToF32Eblm: argument 0"}
+!9 = distinct !{!9, !"_ZN2cvL28softfloat_normRoundPackToF32Eblm"}
 !10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN2cvL10i32_to_f32Ei: argument 0"}
-!12 = distinct !{!12, !"_ZN2cvL10i32_to_f32Ei"}
+!11 = distinct !{!11, !12, !"_ZN2cvL11ui64_to_f32Em: argument 0"}
+!12 = distinct !{!12, !"_ZN2cvL11ui64_to_f32Em"}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN2cvL10i64_to_f32El: argument 0"}
-!15 = distinct !{!15, !"_ZN2cvL10i64_to_f32El"}
+!14 = distinct !{!14, !15, !"_ZN2cvL10i32_to_f32Ei: argument 0"}
+!15 = distinct !{!15, !"_ZN2cvL10i32_to_f32Ei"}
 !16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
-!18 = distinct !{!18, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
-!19 = !{!20, !17}
-!20 = distinct !{!20, !21, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!21 = distinct !{!21, !"_ZN2cv10softdouble7fromRawEm"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"_ZN2cvL7f32_addENS_9softfloatES0_: argument 0"}
-!24 = distinct !{!24, !"_ZN2cvL7f32_addENS_9softfloatES0_"}
+!17 = distinct !{!17, !18, !"_ZN2cvL10i64_to_f32El: argument 0"}
+!18 = distinct !{!18, !"_ZN2cvL10i64_to_f32El"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
+!21 = distinct !{!21, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
+!22 = !{!23, !20}
+!23 = distinct !{!23, !24, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!24 = distinct !{!24, !"_ZN2cv10softdouble7fromRawEm"}
 !25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN2cvL7f32_subENS_9softfloatES0_: argument 0"}
-!27 = distinct !{!27, !"_ZN2cvL7f32_subENS_9softfloatES0_"}
+!26 = distinct !{!26, !27, !"_ZN2cvL7f32_addENS_9softfloatES0_: argument 0"}
+!27 = distinct !{!27, !"_ZN2cvL7f32_addENS_9softfloatES0_"}
 !28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN2cvL7f32_mulENS_9softfloatES0_: argument 0"}
-!30 = distinct !{!30, !"_ZN2cvL7f32_mulENS_9softfloatES0_"}
+!29 = distinct !{!29, !30, !"_ZN2cvL7f32_subENS_9softfloatES0_: argument 0"}
+!30 = distinct !{!30, !"_ZN2cvL7f32_subENS_9softfloatES0_"}
 !31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN2cvL7f32_divENS_9softfloatES0_: argument 0"}
-!33 = distinct !{!33, !"_ZN2cvL7f32_divENS_9softfloatES0_"}
+!32 = distinct !{!32, !33, !"_ZN2cvL7f32_mulENS_9softfloatES0_: argument 0"}
+!33 = distinct !{!33, !"_ZN2cvL7f32_mulENS_9softfloatES0_"}
 !34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN2cvL7f32_remENS_9softfloatES0_: argument 0"}
-!36 = distinct !{!36, !"_ZN2cvL7f32_remENS_9softfloatES0_"}
-!37 = distinct !{!37, !38}
-!38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = !{!41, !35}
-!41 = distinct !{!41, !42, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!42 = distinct !{!42, !"_ZN2cv9softfloat7fromRawEj"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN2cvL11ui32_to_f64Ej: argument 0"}
-!45 = distinct !{!45, !"_ZN2cvL11ui32_to_f64Ej"}
+!35 = distinct !{!35, !36, !"_ZN2cvL7f32_divENS_9softfloatES0_: argument 0"}
+!36 = distinct !{!36, !"_ZN2cvL7f32_divENS_9softfloatES0_"}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"_ZN2cvL7f32_remENS_9softfloatES0_: argument 0"}
+!39 = distinct !{!39, !"_ZN2cvL7f32_remENS_9softfloatES0_"}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = distinct !{!42, !41}
+!43 = !{!44, !38}
+!44 = distinct !{!44, !45, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!45 = distinct !{!45, !"_ZN2cv9softfloat7fromRawEj"}
 !46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN2cvL11ui64_to_f64Em: argument 0"}
-!48 = distinct !{!48, !"_ZN2cvL11ui64_to_f64Em"}
+!47 = distinct !{!47, !48, !"_ZN2cvL11ui32_to_f64Ej: argument 0"}
+!48 = distinct !{!48, !"_ZN2cvL11ui32_to_f64Ej"}
 !49 = !{!50}
-!50 = distinct !{!50, !51, !"_ZN2cvL10i32_to_f64Ei: argument 0"}
-!51 = distinct !{!51, !"_ZN2cvL10i32_to_f64Ei"}
+!50 = distinct !{!50, !51, !"_ZN2cvL11ui64_to_f64Em: argument 0"}
+!51 = distinct !{!51, !"_ZN2cvL11ui64_to_f64Em"}
 !52 = !{!53}
-!53 = distinct !{!53, !54, !"_ZN2cvL10i64_to_f64El: argument 0"}
-!54 = distinct !{!54, !"_ZN2cvL10i64_to_f64El"}
+!53 = distinct !{!53, !54, !"_ZN2cvL10i32_to_f64Ei: argument 0"}
+!54 = distinct !{!54, !"_ZN2cvL10i32_to_f64Ei"}
 !55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE: argument 0"}
-!57 = distinct !{!57, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE"}
+!56 = distinct !{!56, !57, !"_ZN2cvL10i64_to_f64El: argument 0"}
+!57 = distinct !{!57, !"_ZN2cvL10i64_to_f64El"}
 !58 = !{!59}
-!59 = distinct !{!59, !60, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!60 = distinct !{!60, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!59 = distinct !{!59, !60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE: argument 0"}
+!60 = distinct !{!60, !"_ZN2cvL10f64_to_f32ENS_10softdoubleE"}
 !61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!63 = distinct !{!63, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!62 = distinct !{!62, !63, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!63 = distinct !{!63, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN2cvL7f64_mulENS_10softdoubleES0_: argument 0"}
-!66 = distinct !{!66, !"_ZN2cvL7f64_mulENS_10softdoubleES0_"}
+!65 = distinct !{!65, !66, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!66 = distinct !{!66, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
 !67 = !{!68}
-!68 = distinct !{!68, !69, !"_ZN2cvL7f64_divENS_10softdoubleES0_: argument 0"}
-!69 = distinct !{!69, !"_ZN2cvL7f64_divENS_10softdoubleES0_"}
-!70 = distinct !{!70, !38}
-!71 = distinct !{!71, !38}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!74 = distinct !{!74, !"_ZN2cv10softdouble7fromRawEm"}
+!68 = distinct !{!68, !69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_: argument 0"}
+!69 = distinct !{!69, !"_ZN2cvL7f64_mulENS_10softdoubleES0_"}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN2cvL7f64_divENS_10softdoubleES0_: argument 0"}
+!72 = distinct !{!72, !"_ZN2cvL7f64_divENS_10softdoubleES0_"}
+!73 = distinct !{!73, !41}
+!74 = distinct !{!74, !41}
 !75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_: argument 0"}
-!77 = distinct !{!77, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_"}
+!76 = distinct !{!76, !77, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!77 = distinct !{!77, !"_ZN2cv10softdouble7fromRawEm"}
 !78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN2cvL19softfloat_mulAddF32Emmmh: argument 0"}
-!80 = distinct !{!80, !"_ZN2cvL19softfloat_mulAddF32Emmmh"}
-!81 = !{!79, !76}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_: argument 0"}
-!84 = distinct !{!84, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_"}
+!79 = distinct !{!79, !80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_: argument 0"}
+!80 = distinct !{!80, !"_ZN2cvL10f32_mulAddENS_9softfloatES0_S0_"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZN2cvL19softfloat_mulAddF32Emmmh: argument 0"}
+!83 = distinct !{!83, !"_ZN2cvL19softfloat_mulAddF32Emmmh"}
+!84 = !{!82, !79}
 !85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZN2cvL19softfloat_mulAddF64Emmmh: argument 0"}
-!87 = distinct !{!87, !"_ZN2cvL19softfloat_mulAddF64Emmmh"}
-!88 = !{!86, !83}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN2cvL8f32_sqrtENS_9softfloatE: argument 0"}
-!91 = distinct !{!91, !"_ZN2cvL8f32_sqrtENS_9softfloatE"}
+!86 = distinct !{!86, !87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_: argument 0"}
+!87 = distinct !{!87, !"_ZN2cvL10f64_mulAddENS_10softdoubleES0_S0_"}
+!88 = !{!89}
+!89 = distinct !{!89, !90, !"_ZN2cvL19softfloat_mulAddF64Emmmh: argument 0"}
+!90 = distinct !{!90, !"_ZN2cvL19softfloat_mulAddF64Emmmh"}
+!91 = !{!89, !86}
 !92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZN2cvL8f64_sqrtENS_10softdoubleE: argument 0"}
-!94 = distinct !{!94, !"_ZN2cvL8f64_sqrtENS_10softdoubleE"}
-!95 = !{!96, !98}
-!96 = distinct !{!96, !97, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!97 = distinct !{!97, !"_ZN2cv9softfloat7fromRawEj"}
-!98 = distinct !{!98, !99, !"_ZN2cv9softfloat3nanEv: argument 0"}
-!99 = distinct !{!99, !"_ZN2cv9softfloat3nanEv"}
-!100 = !{!101, !103}
-!101 = distinct !{!101, !102, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!102 = distinct !{!102, !"_ZN2cv9softfloat7fromRawEj"}
-!103 = distinct !{!103, !104, !"_ZN2cv9softfloat4zeroEv: argument 0"}
-!104 = distinct !{!104, !"_ZN2cv9softfloat4zeroEv"}
-!105 = !{!"branch_weights", i32 1, i32 1048575}
-!106 = !{!107, !109}
-!107 = distinct !{!107, !108, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!108 = distinct !{!108, !"_ZN2cv10softdouble7fromRawEm"}
-!109 = distinct !{!109, !110, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!110 = distinct !{!110, !"_ZN2cv10softdouble3oneEv"}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!113 = distinct !{!113, !"_ZN2cv10softdouble7fromRawEm"}
+!93 = distinct !{!93, !94, !"_ZN2cvL8f32_sqrtENS_9softfloatE: argument 0"}
+!94 = distinct !{!94, !"_ZN2cvL8f32_sqrtENS_9softfloatE"}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE: argument 0"}
+!97 = distinct !{!97, !"_ZN2cvL8f64_sqrtENS_10softdoubleE"}
+!98 = !{!99, !101}
+!99 = distinct !{!99, !100, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!100 = distinct !{!100, !"_ZN2cv9softfloat7fromRawEj"}
+!101 = distinct !{!101, !102, !"_ZN2cv9softfloat3nanEv: argument 0"}
+!102 = distinct !{!102, !"_ZN2cv9softfloat3nanEv"}
+!103 = !{!104, !106}
+!104 = distinct !{!104, !105, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!105 = distinct !{!105, !"_ZN2cv9softfloat7fromRawEj"}
+!106 = distinct !{!106, !107, !"_ZN2cv9softfloat4zeroEv: argument 0"}
+!107 = distinct !{!107, !"_ZN2cv9softfloat4zeroEv"}
+!108 = !{!"branch_weights", i32 1, i32 1048575}
+!109 = !{!110, !112}
+!110 = distinct !{!110, !111, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!111 = distinct !{!111, !"_ZN2cv10softdouble7fromRawEm"}
+!112 = distinct !{!112, !113, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!113 = distinct !{!113, !"_ZN2cv10softdouble3oneEv"}
 !114 = !{!115}
 !115 = distinct !{!115, !116, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !116 = distinct !{!116, !"_ZN2cv10softdouble7fromRawEm"}
@@ -9642,61 +9694,61 @@ attributes #15 = { nounwind }
 !118 = distinct !{!118, !119, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !119 = distinct !{!119, !"_ZN2cv10softdouble7fromRawEm"}
 !120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
-!122 = distinct !{!122, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
-!123 = !{!124, !121}
-!124 = distinct !{!124, !125, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!125 = distinct !{!125, !"_ZN2cv10softdouble7fromRawEm"}
-!126 = !{!127, !129}
-!127 = distinct !{!127, !128, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!128 = distinct !{!128, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!129 = distinct !{!129, !130, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!130 = distinct !{!130, !"_ZNK2cv10softdoublemiERKS0_"}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!133 = distinct !{!133, !"_ZN2cv10softdouble7fromRawEm"}
+!121 = distinct !{!121, !122, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!122 = distinct !{!122, !"_ZN2cv10softdouble7fromRawEm"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE: argument 0"}
+!125 = distinct !{!125, !"_ZN2cvL10f32_to_f64ENS_9softfloatE"}
+!126 = !{!127, !124}
+!127 = distinct !{!127, !128, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!128 = distinct !{!128, !"_ZN2cv10softdouble7fromRawEm"}
+!129 = !{!130, !132}
+!130 = distinct !{!130, !131, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!131 = distinct !{!131, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!132 = distinct !{!132, !133, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!133 = distinct !{!133, !"_ZNK2cv10softdoublemiERKS0_"}
 !134 = !{!135}
-!135 = distinct !{!135, !136, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!136 = distinct !{!136, !"_ZNK2cv10softdoubleplERKS0_"}
-!137 = !{!138, !135}
-!138 = distinct !{!138, !139, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!139 = distinct !{!139, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!140 = !{!141}
-!141 = distinct !{!141, !142, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!142 = distinct !{!142, !"_ZNK2cv10softdoubleplERKS0_"}
-!143 = !{!144, !141}
-!144 = distinct !{!144, !145, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!145 = distinct !{!145, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!148 = distinct !{!148, !"_ZNK2cv10softdoubleplERKS0_"}
-!149 = !{!150, !147}
-!150 = distinct !{!150, !151, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!151 = distinct !{!151, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!152 = !{!153}
-!153 = distinct !{!153, !154, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!154 = distinct !{!154, !"_ZNK2cv10softdoubleplERKS0_"}
-!155 = !{!156, !153}
-!156 = distinct !{!156, !157, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!157 = distinct !{!157, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!158 = !{!159, !161}
-!159 = distinct !{!159, !160, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!160 = distinct !{!160, !"_ZN2cv10softdouble7fromRawEm"}
-!161 = distinct !{!161, !162, !"_ZN2cv10softdouble3nanEv: argument 0"}
-!162 = distinct !{!162, !"_ZN2cv10softdouble3nanEv"}
-!163 = !{!164, !166}
-!164 = distinct !{!164, !165, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!165 = distinct !{!165, !"_ZN2cv10softdouble7fromRawEm"}
-!166 = distinct !{!166, !167, !"_ZN2cv10softdouble4zeroEv: argument 0"}
-!167 = distinct !{!167, !"_ZN2cv10softdouble4zeroEv"}
-!168 = !{!169, !171}
-!169 = distinct !{!169, !170, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!170 = distinct !{!170, !"_ZN2cv10softdouble7fromRawEm"}
-!171 = distinct !{!171, !172, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!172 = distinct !{!172, !"_ZN2cv10softdouble3oneEv"}
-!173 = !{!174}
-!174 = distinct !{!174, !175, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!175 = distinct !{!175, !"_ZN2cv10softdouble7fromRawEm"}
+!135 = distinct !{!135, !136, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!136 = distinct !{!136, !"_ZN2cv10softdouble7fromRawEm"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!139 = distinct !{!139, !"_ZNK2cv10softdoubleplERKS0_"}
+!140 = !{!141, !138}
+!141 = distinct !{!141, !142, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!142 = distinct !{!142, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!145 = distinct !{!145, !"_ZNK2cv10softdoubleplERKS0_"}
+!146 = !{!147, !144}
+!147 = distinct !{!147, !148, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!148 = distinct !{!148, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!151 = distinct !{!151, !"_ZNK2cv10softdoubleplERKS0_"}
+!152 = !{!153, !150}
+!153 = distinct !{!153, !154, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!154 = distinct !{!154, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!157 = distinct !{!157, !"_ZNK2cv10softdoubleplERKS0_"}
+!158 = !{!159, !156}
+!159 = distinct !{!159, !160, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!160 = distinct !{!160, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!161 = !{!162, !164}
+!162 = distinct !{!162, !163, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!163 = distinct !{!163, !"_ZN2cv10softdouble7fromRawEm"}
+!164 = distinct !{!164, !165, !"_ZN2cv10softdouble3nanEv: argument 0"}
+!165 = distinct !{!165, !"_ZN2cv10softdouble3nanEv"}
+!166 = !{!167, !169}
+!167 = distinct !{!167, !168, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!168 = distinct !{!168, !"_ZN2cv10softdouble7fromRawEm"}
+!169 = distinct !{!169, !170, !"_ZN2cv10softdouble4zeroEv: argument 0"}
+!170 = distinct !{!170, !"_ZN2cv10softdouble4zeroEv"}
+!171 = !{!172, !174}
+!172 = distinct !{!172, !173, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!173 = distinct !{!173, !"_ZN2cv10softdouble7fromRawEm"}
+!174 = distinct !{!174, !175, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!175 = distinct !{!175, !"_ZN2cv10softdouble3oneEv"}
 !176 = !{!177}
 !177 = distinct !{!177, !178, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !178 = distinct !{!178, !"_ZN2cv10softdouble7fromRawEm"}
@@ -9709,416 +9761,419 @@ attributes #15 = { nounwind }
 !185 = !{!186}
 !186 = distinct !{!186, !187, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !187 = distinct !{!187, !"_ZN2cv10softdouble7fromRawEm"}
-!188 = !{!189, !191}
-!189 = distinct !{!189, !190, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!190 = distinct !{!190, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!191 = distinct !{!191, !192, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!192 = distinct !{!192, !"_ZNK2cv10softdoublemiERKS0_"}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!195 = distinct !{!195, !"_ZN2cv10softdouble7fromRawEm"}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!190 = distinct !{!190, !"_ZN2cv10softdouble7fromRawEm"}
+!191 = !{!192, !194}
+!192 = distinct !{!192, !193, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!193 = distinct !{!193, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!194 = distinct !{!194, !195, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!195 = distinct !{!195, !"_ZNK2cv10softdoublemiERKS0_"}
 !196 = !{!197}
-!197 = distinct !{!197, !198, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!198 = distinct !{!198, !"_ZNK2cv10softdoubleplERKS0_"}
-!199 = !{!200, !197}
-!200 = distinct !{!200, !201, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!201 = distinct !{!201, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!202 = !{!203}
-!203 = distinct !{!203, !204, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!204 = distinct !{!204, !"_ZNK2cv10softdoubleplERKS0_"}
-!205 = !{!206, !203}
-!206 = distinct !{!206, !207, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!207 = distinct !{!207, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!208 = !{!209}
-!209 = distinct !{!209, !210, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!210 = distinct !{!210, !"_ZNK2cv10softdoubleplERKS0_"}
-!211 = !{!212, !209}
-!212 = distinct !{!212, !213, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!213 = distinct !{!213, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!214 = !{!215}
-!215 = distinct !{!215, !216, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!216 = distinct !{!216, !"_ZNK2cv10softdoubleplERKS0_"}
-!217 = !{!218, !215}
-!218 = distinct !{!218, !219, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!219 = distinct !{!219, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!222 = distinct !{!222, !"_ZNK2cv10softdoubleplERKS0_"}
-!223 = !{!224, !221}
-!224 = distinct !{!224, !225, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!225 = distinct !{!225, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!226 = !{!227, !229}
-!227 = distinct !{!227, !228, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!228 = distinct !{!228, !"_ZN2cv9softfloat7fromRawEj"}
-!229 = distinct !{!229, !230, !"_ZN2cv9softfloat3nanEv: argument 0"}
-!230 = distinct !{!230, !"_ZN2cv9softfloat3nanEv"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"_ZNK2cv9softfloatngEv: argument 0"}
-!233 = distinct !{!233, !"_ZNK2cv9softfloatngEv"}
+!197 = distinct !{!197, !198, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!198 = distinct !{!198, !"_ZN2cv10softdouble7fromRawEm"}
+!199 = !{!200}
+!200 = distinct !{!200, !201, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!201 = distinct !{!201, !"_ZNK2cv10softdoubleplERKS0_"}
+!202 = !{!203, !200}
+!203 = distinct !{!203, !204, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!204 = distinct !{!204, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!207 = distinct !{!207, !"_ZNK2cv10softdoubleplERKS0_"}
+!208 = !{!209, !206}
+!209 = distinct !{!209, !210, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!210 = distinct !{!210, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!213 = distinct !{!213, !"_ZNK2cv10softdoubleplERKS0_"}
+!214 = !{!215, !212}
+!215 = distinct !{!215, !216, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!216 = distinct !{!216, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!219 = distinct !{!219, !"_ZNK2cv10softdoubleplERKS0_"}
+!220 = !{!221, !218}
+!221 = distinct !{!221, !222, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!222 = distinct !{!222, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!225 = distinct !{!225, !"_ZNK2cv10softdoubleplERKS0_"}
+!226 = !{!227, !224}
+!227 = distinct !{!227, !228, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!228 = distinct !{!228, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!229 = !{!230, !232}
+!230 = distinct !{!230, !231, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!231 = distinct !{!231, !"_ZN2cv9softfloat7fromRawEj"}
+!232 = distinct !{!232, !233, !"_ZN2cv9softfloat3nanEv: argument 0"}
+!233 = distinct !{!233, !"_ZN2cv9softfloat3nanEv"}
 !234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!236 = distinct !{!236, !"_ZN2cv10softdouble7fromRawEm"}
+!235 = distinct !{!235, !236, !"_ZNK2cv9softfloatngEv: argument 0"}
+!236 = distinct !{!236, !"_ZNK2cv9softfloatngEv"}
 !237 = !{!238}
-!238 = distinct !{!238, !239, !"_ZNK2cv10softdoublengEv: argument 0"}
-!239 = distinct !{!239, !"_ZNK2cv10softdoublengEv"}
+!238 = distinct !{!238, !239, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!239 = distinct !{!239, !"_ZN2cv10softdouble7fromRawEm"}
 !240 = !{!241}
-!241 = distinct !{!241, !242, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!242 = distinct !{!242, !"_ZNK2cv10softdoubleplERKS0_"}
-!243 = !{!244, !241}
-!244 = distinct !{!244, !245, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!245 = distinct !{!245, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!246 = !{!247}
-!247 = distinct !{!247, !248, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!248 = distinct !{!248, !"_ZNK2cv10softdoubleplERKS0_"}
-!249 = !{!250, !247}
-!250 = distinct !{!250, !251, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!251 = distinct !{!251, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!252 = !{!253}
-!253 = distinct !{!253, !254, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!254 = distinct !{!254, !"_ZNK2cv10softdoubleplERKS0_"}
-!255 = !{!256, !253}
-!256 = distinct !{!256, !257, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!257 = distinct !{!257, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!258 = !{!259}
-!259 = distinct !{!259, !260, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!260 = distinct !{!260, !"_ZNK2cv10softdoublemiERKS0_"}
-!261 = !{!262, !259}
-!262 = distinct !{!262, !263, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!263 = distinct !{!263, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!264 = !{!265}
-!265 = distinct !{!265, !266, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!266 = distinct !{!266, !"_ZNK2cv10softdoubleplERKS0_"}
-!267 = !{!268, !265}
-!268 = distinct !{!268, !269, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!269 = distinct !{!269, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!270 = !{!271, !273}
-!271 = distinct !{!271, !272, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!272 = distinct !{!272, !"_ZN2cv10softdouble7fromRawEm"}
-!273 = distinct !{!273, !274, !"_ZN2cv10softdouble3nanEv: argument 0"}
-!274 = distinct !{!274, !"_ZN2cv10softdouble3nanEv"}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"_ZNK2cv10softdoublengEv: argument 0"}
-!277 = distinct !{!277, !"_ZNK2cv10softdoublengEv"}
+!241 = distinct !{!241, !242, !"_ZNK2cv10softdoublengEv: argument 0"}
+!242 = distinct !{!242, !"_ZNK2cv10softdoublengEv"}
+!243 = !{!244}
+!244 = distinct !{!244, !245, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!245 = distinct !{!245, !"_ZNK2cv10softdoubleplERKS0_"}
+!246 = !{!247, !244}
+!247 = distinct !{!247, !248, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!248 = distinct !{!248, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!249 = !{!250}
+!250 = distinct !{!250, !251, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!251 = distinct !{!251, !"_ZNK2cv10softdoubleplERKS0_"}
+!252 = !{!253, !250}
+!253 = distinct !{!253, !254, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!254 = distinct !{!254, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!255 = !{!256}
+!256 = distinct !{!256, !257, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!257 = distinct !{!257, !"_ZNK2cv10softdoubleplERKS0_"}
+!258 = !{!259, !256}
+!259 = distinct !{!259, !260, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!260 = distinct !{!260, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!261 = !{!262}
+!262 = distinct !{!262, !263, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!263 = distinct !{!263, !"_ZNK2cv10softdoublemiERKS0_"}
+!264 = !{!265, !262}
+!265 = distinct !{!265, !266, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!266 = distinct !{!266, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!267 = !{!268}
+!268 = distinct !{!268, !269, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!269 = distinct !{!269, !"_ZNK2cv10softdoubleplERKS0_"}
+!270 = !{!271, !268}
+!271 = distinct !{!271, !272, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!272 = distinct !{!272, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!273 = !{!274, !276}
+!274 = distinct !{!274, !275, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!275 = distinct !{!275, !"_ZN2cv10softdouble7fromRawEm"}
+!276 = distinct !{!276, !277, !"_ZN2cv10softdouble3nanEv: argument 0"}
+!277 = distinct !{!277, !"_ZN2cv10softdouble3nanEv"}
 !278 = !{!279}
 !279 = distinct !{!279, !280, !"_ZNK2cv10softdoublengEv: argument 0"}
 !280 = distinct !{!280, !"_ZNK2cv10softdoublengEv"}
-!281 = !{!282, !284}
-!282 = distinct !{!282, !283, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!283 = distinct !{!283, !"_ZN2cv10softdouble7fromRawEm"}
-!284 = distinct !{!284, !285, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!285 = distinct !{!285, !"_ZN2cv10softdouble3oneEv"}
-!286 = !{!287}
-!287 = distinct !{!287, !288, !"_ZNK2cv10softdoublengEv: argument 0"}
-!288 = distinct !{!288, !"_ZNK2cv10softdoublengEv"}
-!289 = !{!290, !292}
-!290 = distinct !{!290, !291, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!291 = distinct !{!291, !"_ZN2cv10softdouble7fromRawEm"}
-!292 = distinct !{!292, !293, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!293 = distinct !{!293, !"_ZN2cv10softdouble3oneEv"}
-!294 = !{!295}
-!295 = distinct !{!295, !296, !"_ZNK2cv10softdoublengEv: argument 0"}
-!296 = distinct !{!296, !"_ZNK2cv10softdoublengEv"}
-!297 = !{!298, !300}
-!298 = distinct !{!298, !299, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!299 = distinct !{!299, !"_ZN2cv10softdouble7fromRawEm"}
-!300 = distinct !{!300, !301, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!301 = distinct !{!301, !"_ZN2cv10softdouble3oneEv"}
-!302 = !{!303}
-!303 = distinct !{!303, !304, !"_ZNK2cv10softdoublengEv: argument 0"}
-!304 = distinct !{!304, !"_ZNK2cv10softdoublengEv"}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"_ZNK2cv10softdoublengEv: argument 0"}
+!283 = distinct !{!283, !"_ZNK2cv10softdoublengEv"}
+!284 = !{!285, !287}
+!285 = distinct !{!285, !286, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!286 = distinct !{!286, !"_ZN2cv10softdouble7fromRawEm"}
+!287 = distinct !{!287, !288, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!288 = distinct !{!288, !"_ZN2cv10softdouble3oneEv"}
+!289 = !{!290}
+!290 = distinct !{!290, !291, !"_ZNK2cv10softdoublengEv: argument 0"}
+!291 = distinct !{!291, !"_ZNK2cv10softdoublengEv"}
+!292 = !{!293, !295}
+!293 = distinct !{!293, !294, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!294 = distinct !{!294, !"_ZN2cv10softdouble7fromRawEm"}
+!295 = distinct !{!295, !296, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!296 = distinct !{!296, !"_ZN2cv10softdouble3oneEv"}
+!297 = !{!298}
+!298 = distinct !{!298, !299, !"_ZNK2cv10softdoublengEv: argument 0"}
+!299 = distinct !{!299, !"_ZNK2cv10softdoublengEv"}
+!300 = !{!301, !303}
+!301 = distinct !{!301, !302, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!302 = distinct !{!302, !"_ZN2cv10softdouble7fromRawEm"}
+!303 = distinct !{!303, !304, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!304 = distinct !{!304, !"_ZN2cv10softdouble3oneEv"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!307 = distinct !{!307, !"_ZN2cv10softdouble7fromRawEm"}
+!306 = distinct !{!306, !307, !"_ZNK2cv10softdoublengEv: argument 0"}
+!307 = distinct !{!307, !"_ZNK2cv10softdoublengEv"}
 !308 = !{!309}
-!309 = distinct !{!309, !310, !"_ZNK2cv10softdoublengEv: argument 0"}
-!310 = distinct !{!310, !"_ZNK2cv10softdoublengEv"}
+!309 = distinct !{!309, !310, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!310 = distinct !{!310, !"_ZN2cv10softdouble7fromRawEm"}
 !311 = !{!312}
-!312 = distinct !{!312, !313, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!313 = distinct !{!313, !"_ZNK2cv10softdoubleplERKS0_"}
-!314 = !{!315, !312}
-!315 = distinct !{!315, !316, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!316 = distinct !{!316, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!317 = !{!318}
-!318 = distinct !{!318, !319, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!319 = distinct !{!319, !"_ZNK2cv10softdoubleplERKS0_"}
-!320 = !{!321, !318}
-!321 = distinct !{!321, !322, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!322 = distinct !{!322, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!325 = distinct !{!325, !"_ZNK2cv10softdoubleplERKS0_"}
-!326 = !{!327, !324}
-!327 = distinct !{!327, !328, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!328 = distinct !{!328, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!331 = distinct !{!331, !"_ZNK2cv10softdoubleplERKS0_"}
-!332 = !{!333, !330}
-!333 = distinct !{!333, !334, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!334 = distinct !{!334, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!337 = distinct !{!337, !"_ZNK2cv10softdoubleplERKS0_"}
-!338 = !{!339, !336}
-!339 = distinct !{!339, !340, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!340 = distinct !{!340, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!341 = !{!342}
-!342 = distinct !{!342, !343, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!343 = distinct !{!343, !"_ZNK2cv10softdoubleplERKS0_"}
-!344 = !{!345, !342}
-!345 = distinct !{!345, !346, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!346 = distinct !{!346, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!347 = !{!348}
-!348 = distinct !{!348, !349, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!349 = distinct !{!349, !"_ZNK2cv10softdoubleplERKS0_"}
-!350 = !{!351, !348}
-!351 = distinct !{!351, !352, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!352 = distinct !{!352, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!355 = distinct !{!355, !"_ZNK2cv10softdoubleplERKS0_"}
-!356 = !{!357, !354}
-!357 = distinct !{!357, !358, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!358 = distinct !{!358, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!361 = distinct !{!361, !"_ZNK2cv10softdoubleplERKS0_"}
-!362 = !{!363, !360}
-!363 = distinct !{!363, !364, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!364 = distinct !{!364, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!365 = !{!366}
-!366 = distinct !{!366, !367, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!367 = distinct !{!367, !"_ZNK2cv10softdoubleplERKS0_"}
-!368 = !{!369, !366}
-!369 = distinct !{!369, !370, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!370 = distinct !{!370, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!371 = !{!372}
-!372 = distinct !{!372, !373, !"_ZN2cvL7f32_powENS_9softfloatES0_: argument 0"}
-!373 = distinct !{!373, !"_ZN2cvL7f32_powENS_9softfloatES0_"}
-!374 = !{!375, !377}
-!375 = distinct !{!375, !376, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!376 = distinct !{!376, !"_ZN2cv9softfloat7fromRawEj"}
-!377 = distinct !{!377, !378, !"_ZN2cv9softfloat4zeroEv: argument 0"}
-!378 = distinct !{!378, !"_ZN2cv9softfloat4zeroEv"}
-!379 = !{!380, !382}
-!380 = distinct !{!380, !381, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!381 = distinct !{!381, !"_ZN2cv9softfloat7fromRawEj"}
-!382 = distinct !{!382, !383, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!383 = distinct !{!383, !"_ZN2cv9softfloat3oneEv"}
-!384 = !{!385, !387}
-!385 = distinct !{!385, !386, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!386 = distinct !{!386, !"_ZN2cv9softfloat7fromRawEj"}
-!387 = distinct !{!387, !388, !"_ZN2cv9softfloat3infEv: argument 0"}
-!388 = distinct !{!388, !"_ZN2cv9softfloat3infEv"}
-!389 = !{!390, !392}
-!390 = distinct !{!390, !391, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!391 = distinct !{!391, !"_ZN2cv9softfloat7fromRawEj"}
-!392 = distinct !{!392, !393, !"_ZN2cv9softfloat3nanEv: argument 0"}
-!393 = distinct !{!393, !"_ZN2cv9softfloat3nanEv"}
-!394 = !{!395, !397}
-!395 = distinct !{!395, !396, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!396 = distinct !{!396, !"_ZN2cv9softfloat7fromRawEj"}
-!397 = distinct !{!397, !398, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!398 = distinct !{!398, !"_ZN2cv9softfloat3oneEv"}
-!399 = !{!400, !372}
-!400 = distinct !{!400, !401, !"_ZN2cvL8f32_powiENS_9softfloatEi: argument 0"}
-!401 = distinct !{!401, !"_ZN2cvL8f32_powiENS_9softfloatEi"}
-!402 = !{!403, !405}
-!403 = distinct !{!403, !404, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!404 = distinct !{!404, !"_ZN2cv9softfloat7fromRawEj"}
-!405 = distinct !{!405, !406, !"_ZN2cv9softfloat3oneEv: argument 0"}
-!406 = distinct !{!406, !"_ZN2cv9softfloat3oneEv"}
-!407 = distinct !{!407, !38}
-!408 = !{!409}
-!409 = distinct !{!409, !410, !"_ZN2cvL7f64_powENS_10softdoubleES0_: argument 0"}
-!410 = distinct !{!410, !"_ZN2cvL7f64_powENS_10softdoubleES0_"}
-!411 = !{!412, !414}
-!412 = distinct !{!412, !413, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!413 = distinct !{!413, !"_ZN2cv10softdouble7fromRawEm"}
-!414 = distinct !{!414, !415, !"_ZN2cv10softdouble4zeroEv: argument 0"}
-!415 = distinct !{!415, !"_ZN2cv10softdouble4zeroEv"}
-!416 = !{!417, !419}
-!417 = distinct !{!417, !418, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!418 = distinct !{!418, !"_ZN2cv10softdouble7fromRawEm"}
-!419 = distinct !{!419, !420, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!420 = distinct !{!420, !"_ZN2cv10softdouble3oneEv"}
-!421 = !{!422, !424}
-!422 = distinct !{!422, !423, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!423 = distinct !{!423, !"_ZN2cv10softdouble7fromRawEm"}
-!424 = distinct !{!424, !425, !"_ZN2cv10softdouble3infEv: argument 0"}
-!425 = distinct !{!425, !"_ZN2cv10softdouble3infEv"}
-!426 = !{!427, !429}
-!427 = distinct !{!427, !428, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!428 = distinct !{!428, !"_ZN2cv10softdouble7fromRawEm"}
-!429 = distinct !{!429, !430, !"_ZN2cv10softdouble3nanEv: argument 0"}
-!430 = distinct !{!430, !"_ZN2cv10softdouble3nanEv"}
-!431 = !{!432, !434}
-!432 = distinct !{!432, !433, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!433 = distinct !{!433, !"_ZN2cv10softdouble7fromRawEm"}
-!434 = distinct !{!434, !435, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!435 = distinct !{!435, !"_ZN2cv10softdouble3oneEv"}
-!436 = !{!437, !409}
-!437 = distinct !{!437, !438, !"_ZN2cvL8f64_powiENS_10softdoubleEi: argument 0"}
-!438 = distinct !{!438, !"_ZN2cvL8f64_powiENS_10softdoubleEi"}
-!439 = !{!440, !442}
-!440 = distinct !{!440, !441, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!441 = distinct !{!441, !"_ZN2cv10softdouble7fromRawEm"}
-!442 = distinct !{!442, !443, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!443 = distinct !{!443, !"_ZN2cv10softdouble3oneEv"}
-!444 = distinct !{!444, !38}
-!445 = !{!446}
-!446 = distinct !{!446, !447, !"_ZN2cvL8f32_cbrtENS_9softfloatE: argument 0"}
-!447 = distinct !{!447, !"_ZN2cvL8f32_cbrtENS_9softfloatE"}
+!312 = distinct !{!312, !313, !"_ZNK2cv10softdoublengEv: argument 0"}
+!313 = distinct !{!313, !"_ZNK2cv10softdoublengEv"}
+!314 = !{!315}
+!315 = distinct !{!315, !316, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!316 = distinct !{!316, !"_ZNK2cv10softdoubleplERKS0_"}
+!317 = !{!318, !315}
+!318 = distinct !{!318, !319, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!319 = distinct !{!319, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!320 = !{!321}
+!321 = distinct !{!321, !322, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!322 = distinct !{!322, !"_ZNK2cv10softdoubleplERKS0_"}
+!323 = !{!324, !321}
+!324 = distinct !{!324, !325, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!325 = distinct !{!325, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!326 = !{!327}
+!327 = distinct !{!327, !328, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!328 = distinct !{!328, !"_ZNK2cv10softdoubleplERKS0_"}
+!329 = !{!330, !327}
+!330 = distinct !{!330, !331, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!331 = distinct !{!331, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!332 = !{!333}
+!333 = distinct !{!333, !334, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!334 = distinct !{!334, !"_ZNK2cv10softdoubleplERKS0_"}
+!335 = !{!336, !333}
+!336 = distinct !{!336, !337, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!337 = distinct !{!337, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!338 = !{!339}
+!339 = distinct !{!339, !340, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!340 = distinct !{!340, !"_ZNK2cv10softdoubleplERKS0_"}
+!341 = !{!342, !339}
+!342 = distinct !{!342, !343, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!343 = distinct !{!343, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!344 = !{!345}
+!345 = distinct !{!345, !346, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!346 = distinct !{!346, !"_ZNK2cv10softdoubleplERKS0_"}
+!347 = !{!348, !345}
+!348 = distinct !{!348, !349, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!349 = distinct !{!349, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!350 = !{!351}
+!351 = distinct !{!351, !352, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!352 = distinct !{!352, !"_ZNK2cv10softdoubleplERKS0_"}
+!353 = !{!354, !351}
+!354 = distinct !{!354, !355, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!355 = distinct !{!355, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!356 = !{!357}
+!357 = distinct !{!357, !358, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!358 = distinct !{!358, !"_ZNK2cv10softdoubleplERKS0_"}
+!359 = !{!360, !357}
+!360 = distinct !{!360, !361, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!361 = distinct !{!361, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!362 = !{!363}
+!363 = distinct !{!363, !364, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!364 = distinct !{!364, !"_ZNK2cv10softdoubleplERKS0_"}
+!365 = !{!366, !363}
+!366 = distinct !{!366, !367, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!367 = distinct !{!367, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!370 = distinct !{!370, !"_ZNK2cv10softdoubleplERKS0_"}
+!371 = !{!372, !369}
+!372 = distinct !{!372, !373, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!373 = distinct !{!373, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!374 = !{!375}
+!375 = distinct !{!375, !376, !"_ZN2cvL7f32_powENS_9softfloatES0_: argument 0"}
+!376 = distinct !{!376, !"_ZN2cvL7f32_powENS_9softfloatES0_"}
+!377 = !{!378, !380}
+!378 = distinct !{!378, !379, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!379 = distinct !{!379, !"_ZN2cv9softfloat7fromRawEj"}
+!380 = distinct !{!380, !381, !"_ZN2cv9softfloat4zeroEv: argument 0"}
+!381 = distinct !{!381, !"_ZN2cv9softfloat4zeroEv"}
+!382 = !{!383, !385}
+!383 = distinct !{!383, !384, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!384 = distinct !{!384, !"_ZN2cv9softfloat7fromRawEj"}
+!385 = distinct !{!385, !386, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!386 = distinct !{!386, !"_ZN2cv9softfloat3oneEv"}
+!387 = !{!388, !390}
+!388 = distinct !{!388, !389, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!389 = distinct !{!389, !"_ZN2cv9softfloat7fromRawEj"}
+!390 = distinct !{!390, !391, !"_ZN2cv9softfloat3infEv: argument 0"}
+!391 = distinct !{!391, !"_ZN2cv9softfloat3infEv"}
+!392 = !{!393, !395}
+!393 = distinct !{!393, !394, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!394 = distinct !{!394, !"_ZN2cv9softfloat7fromRawEj"}
+!395 = distinct !{!395, !396, !"_ZN2cv9softfloat3nanEv: argument 0"}
+!396 = distinct !{!396, !"_ZN2cv9softfloat3nanEv"}
+!397 = !{!398, !400}
+!398 = distinct !{!398, !399, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!399 = distinct !{!399, !"_ZN2cv9softfloat7fromRawEj"}
+!400 = distinct !{!400, !401, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!401 = distinct !{!401, !"_ZN2cv9softfloat3oneEv"}
+!402 = !{!403, !375}
+!403 = distinct !{!403, !404, !"_ZN2cvL8f32_powiENS_9softfloatEi: argument 0"}
+!404 = distinct !{!404, !"_ZN2cvL8f32_powiENS_9softfloatEi"}
+!405 = !{!406, !408}
+!406 = distinct !{!406, !407, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!407 = distinct !{!407, !"_ZN2cv9softfloat7fromRawEj"}
+!408 = distinct !{!408, !409, !"_ZN2cv9softfloat3oneEv: argument 0"}
+!409 = distinct !{!409, !"_ZN2cv9softfloat3oneEv"}
+!410 = distinct !{!410, !41}
+!411 = !{!412}
+!412 = distinct !{!412, !413, !"_ZN2cvL7f64_powENS_10softdoubleES0_: argument 0"}
+!413 = distinct !{!413, !"_ZN2cvL7f64_powENS_10softdoubleES0_"}
+!414 = !{!415, !417}
+!415 = distinct !{!415, !416, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!416 = distinct !{!416, !"_ZN2cv10softdouble7fromRawEm"}
+!417 = distinct !{!417, !418, !"_ZN2cv10softdouble4zeroEv: argument 0"}
+!418 = distinct !{!418, !"_ZN2cv10softdouble4zeroEv"}
+!419 = !{!420, !422}
+!420 = distinct !{!420, !421, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!421 = distinct !{!421, !"_ZN2cv10softdouble7fromRawEm"}
+!422 = distinct !{!422, !423, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!423 = distinct !{!423, !"_ZN2cv10softdouble3oneEv"}
+!424 = !{!425, !427}
+!425 = distinct !{!425, !426, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!426 = distinct !{!426, !"_ZN2cv10softdouble7fromRawEm"}
+!427 = distinct !{!427, !428, !"_ZN2cv10softdouble3infEv: argument 0"}
+!428 = distinct !{!428, !"_ZN2cv10softdouble3infEv"}
+!429 = !{!430, !432}
+!430 = distinct !{!430, !431, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!431 = distinct !{!431, !"_ZN2cv10softdouble7fromRawEm"}
+!432 = distinct !{!432, !433, !"_ZN2cv10softdouble3nanEv: argument 0"}
+!433 = distinct !{!433, !"_ZN2cv10softdouble3nanEv"}
+!434 = !{!435, !437}
+!435 = distinct !{!435, !436, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!436 = distinct !{!436, !"_ZN2cv10softdouble7fromRawEm"}
+!437 = distinct !{!437, !438, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!438 = distinct !{!438, !"_ZN2cv10softdouble3oneEv"}
+!439 = !{!440, !412}
+!440 = distinct !{!440, !441, !"_ZN2cvL8f64_powiENS_10softdoubleEi: argument 0"}
+!441 = distinct !{!441, !"_ZN2cvL8f64_powiENS_10softdoubleEi"}
+!442 = !{!443, !445}
+!443 = distinct !{!443, !444, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!444 = distinct !{!444, !"_ZN2cv10softdouble7fromRawEm"}
+!445 = distinct !{!445, !446, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!446 = distinct !{!446, !"_ZN2cv10softdouble3oneEv"}
+!447 = distinct !{!447, !41}
 !448 = !{!449}
-!449 = distinct !{!449, !450, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!450 = distinct !{!450, !"_ZN2cv10softdouble7fromRawEm"}
+!449 = distinct !{!449, !450, !"_ZN2cvL8f32_cbrtENS_9softfloatE: argument 0"}
+!450 = distinct !{!450, !"_ZN2cvL8f32_cbrtENS_9softfloatE"}
 !451 = !{!452}
 !452 = distinct !{!452, !453, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
 !453 = distinct !{!453, !"_ZN2cv10softdouble7fromRawEm"}
 !454 = !{!455}
-!455 = distinct !{!455, !456, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!456 = distinct !{!456, !"_ZNK2cv10softdoubleplERKS0_"}
-!457 = !{!455, !446}
-!458 = !{!459, !455}
-!459 = distinct !{!459, !460, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!460 = distinct !{!460, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!461 = !{!462}
-!462 = distinct !{!462, !463, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!463 = distinct !{!463, !"_ZNK2cv10softdoubleplERKS0_"}
-!464 = !{!462, !446}
-!465 = !{!466, !462}
-!466 = distinct !{!466, !467, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!467 = distinct !{!467, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!468 = !{!469}
-!469 = distinct !{!469, !470, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!470 = distinct !{!470, !"_ZNK2cv10softdoubleplERKS0_"}
-!471 = !{!469, !446}
-!472 = !{!473, !469}
-!473 = distinct !{!473, !474, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!474 = distinct !{!474, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!475 = !{!476}
-!476 = distinct !{!476, !477, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!477 = distinct !{!477, !"_ZNK2cv10softdoubleplERKS0_"}
-!478 = !{!476, !446}
-!479 = !{!480, !476}
-!480 = distinct !{!480, !481, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!481 = distinct !{!481, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!482 = !{!483}
-!483 = distinct !{!483, !484, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!484 = distinct !{!484, !"_ZNK2cv10softdoubleplERKS0_"}
-!485 = !{!483, !446}
-!486 = !{!487, !483}
-!487 = distinct !{!487, !488, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!488 = distinct !{!488, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!489 = !{!490}
-!490 = distinct !{!490, !491, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!491 = distinct !{!491, !"_ZNK2cv10softdoubleplERKS0_"}
-!492 = !{!490, !446}
-!493 = !{!494, !490}
-!494 = distinct !{!494, !495, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!495 = distinct !{!495, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!496 = !{!497}
-!497 = distinct !{!497, !498, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!498 = distinct !{!498, !"_ZNK2cv10softdoubleplERKS0_"}
-!499 = !{!497, !446}
-!500 = !{!501, !497}
-!501 = distinct !{!501, !502, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!502 = distinct !{!502, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!503 = !{!504}
-!504 = distinct !{!504, !505, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!505 = distinct !{!505, !"_ZNK2cv10softdoubleplERKS0_"}
-!506 = !{!504, !446}
-!507 = !{!508, !504}
-!508 = distinct !{!508, !509, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!509 = distinct !{!509, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!510 = !{!511}
-!511 = distinct !{!511, !512, !"_ZN2cvL7f64_sinENS_10softdoubleE: argument 0"}
-!512 = distinct !{!512, !"_ZN2cvL7f64_sinENS_10softdoubleE"}
-!513 = !{!514, !516, !511}
-!514 = distinct !{!514, !515, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!515 = distinct !{!515, !"_ZN2cv10softdouble7fromRawEm"}
-!516 = distinct !{!516, !517, !"_ZN2cv10softdouble3nanEv: argument 0"}
-!517 = distinct !{!517, !"_ZN2cv10softdouble3nanEv"}
-!518 = !{!519}
-!519 = distinct !{!519, !520, !"_ZNK2cv10softdoublengEv: argument 0"}
-!520 = distinct !{!520, !"_ZNK2cv10softdoublengEv"}
-!521 = !{!519, !511}
-!522 = !{!523}
-!523 = distinct !{!523, !524, !"_ZNK2cv10softdoublengEv: argument 0"}
-!524 = distinct !{!524, !"_ZNK2cv10softdoublengEv"}
-!525 = !{!523, !511}
-!526 = !{!527}
-!527 = distinct !{!527, !528, !"_ZN2cvL7f64_cosENS_10softdoubleE: argument 0"}
-!528 = distinct !{!528, !"_ZN2cvL7f64_cosENS_10softdoubleE"}
-!529 = !{!530, !532, !527}
-!530 = distinct !{!530, !531, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!531 = distinct !{!531, !"_ZN2cv10softdouble7fromRawEm"}
-!532 = distinct !{!532, !533, !"_ZN2cv10softdouble3nanEv: argument 0"}
-!533 = distinct !{!533, !"_ZN2cv10softdouble3nanEv"}
-!534 = !{!535}
-!535 = distinct !{!535, !536, !"_ZNK2cv10softdoublengEv: argument 0"}
-!536 = distinct !{!536, !"_ZNK2cv10softdoublengEv"}
-!537 = !{!535, !527}
-!538 = !{!539}
-!539 = distinct !{!539, !540, !"_ZNK2cv10softdoublengEv: argument 0"}
-!540 = distinct !{!540, !"_ZNK2cv10softdoublengEv"}
-!541 = !{!539, !527}
-!542 = !{!543}
-!543 = distinct !{!543, !544, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
-!544 = distinct !{!544, !"_ZN2cv9softfloat7fromRawEj"}
+!455 = distinct !{!455, !456, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!456 = distinct !{!456, !"_ZN2cv10softdouble7fromRawEm"}
+!457 = !{!458}
+!458 = distinct !{!458, !459, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!459 = distinct !{!459, !"_ZNK2cv10softdoubleplERKS0_"}
+!460 = !{!458, !449}
+!461 = !{!462, !458}
+!462 = distinct !{!462, !463, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!463 = distinct !{!463, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!464 = !{!465}
+!465 = distinct !{!465, !466, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!466 = distinct !{!466, !"_ZNK2cv10softdoubleplERKS0_"}
+!467 = !{!465, !449}
+!468 = !{!469, !465}
+!469 = distinct !{!469, !470, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!470 = distinct !{!470, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!471 = !{!472}
+!472 = distinct !{!472, !473, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!473 = distinct !{!473, !"_ZNK2cv10softdoubleplERKS0_"}
+!474 = !{!472, !449}
+!475 = !{!476, !472}
+!476 = distinct !{!476, !477, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!477 = distinct !{!477, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!478 = !{!479}
+!479 = distinct !{!479, !480, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!480 = distinct !{!480, !"_ZNK2cv10softdoubleplERKS0_"}
+!481 = !{!479, !449}
+!482 = !{!483, !479}
+!483 = distinct !{!483, !484, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!484 = distinct !{!484, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!485 = !{!486}
+!486 = distinct !{!486, !487, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!487 = distinct !{!487, !"_ZNK2cv10softdoubleplERKS0_"}
+!488 = !{!486, !449}
+!489 = !{!490, !486}
+!490 = distinct !{!490, !491, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!491 = distinct !{!491, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!492 = !{!493}
+!493 = distinct !{!493, !494, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!494 = distinct !{!494, !"_ZNK2cv10softdoubleplERKS0_"}
+!495 = !{!493, !449}
+!496 = !{!497, !493}
+!497 = distinct !{!497, !498, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!498 = distinct !{!498, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!499 = !{!500}
+!500 = distinct !{!500, !501, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!501 = distinct !{!501, !"_ZNK2cv10softdoubleplERKS0_"}
+!502 = !{!500, !449}
+!503 = !{!504, !500}
+!504 = distinct !{!504, !505, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!505 = distinct !{!505, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!506 = !{!507}
+!507 = distinct !{!507, !508, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!508 = distinct !{!508, !"_ZNK2cv10softdoubleplERKS0_"}
+!509 = !{!507, !449}
+!510 = !{!511, !507}
+!511 = distinct !{!511, !512, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!512 = distinct !{!512, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!513 = !{!514}
+!514 = distinct !{!514, !515, !"_ZN2cvL7f64_sinENS_10softdoubleE: argument 0"}
+!515 = distinct !{!515, !"_ZN2cvL7f64_sinENS_10softdoubleE"}
+!516 = !{!517, !519, !514}
+!517 = distinct !{!517, !518, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!518 = distinct !{!518, !"_ZN2cv10softdouble7fromRawEm"}
+!519 = distinct !{!519, !520, !"_ZN2cv10softdouble3nanEv: argument 0"}
+!520 = distinct !{!520, !"_ZN2cv10softdouble3nanEv"}
+!521 = !{!522}
+!522 = distinct !{!522, !523, !"_ZNK2cv10softdoublengEv: argument 0"}
+!523 = distinct !{!523, !"_ZNK2cv10softdoublengEv"}
+!524 = !{!522, !514}
+!525 = !{!526}
+!526 = distinct !{!526, !527, !"_ZNK2cv10softdoublengEv: argument 0"}
+!527 = distinct !{!527, !"_ZNK2cv10softdoublengEv"}
+!528 = !{!526, !514}
+!529 = !{!530}
+!530 = distinct !{!530, !531, !"_ZN2cvL7f64_cosENS_10softdoubleE: argument 0"}
+!531 = distinct !{!531, !"_ZN2cvL7f64_cosENS_10softdoubleE"}
+!532 = !{!533, !535, !530}
+!533 = distinct !{!533, !534, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!534 = distinct !{!534, !"_ZN2cv10softdouble7fromRawEm"}
+!535 = distinct !{!535, !536, !"_ZN2cv10softdouble3nanEv: argument 0"}
+!536 = distinct !{!536, !"_ZN2cv10softdouble3nanEv"}
+!537 = !{!538}
+!538 = distinct !{!538, !539, !"_ZNK2cv10softdoublengEv: argument 0"}
+!539 = distinct !{!539, !"_ZNK2cv10softdoublengEv"}
+!540 = !{!538, !530}
+!541 = !{!542}
+!542 = distinct !{!542, !543, !"_ZNK2cv10softdoublengEv: argument 0"}
+!543 = distinct !{!543, !"_ZNK2cv10softdoublengEv"}
+!544 = !{!542, !530}
 !545 = !{!546}
-!546 = distinct !{!546, !547, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!547 = distinct !{!547, !"_ZN2cv10softdouble7fromRawEm"}
-!548 = !{!549, !551}
-!549 = distinct !{!549, !550, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!550 = distinct !{!550, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!551 = distinct !{!551, !552, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!552 = distinct !{!552, !"_ZNK2cv10softdoublemiERKS0_"}
-!553 = !{!554, !556}
-!554 = distinct !{!554, !555, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!555 = distinct !{!555, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!556 = distinct !{!556, !557, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!557 = distinct !{!557, !"_ZNK2cv10softdoublemiERKS0_"}
-!558 = !{!559, !561}
-!559 = distinct !{!559, !560, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!560 = distinct !{!560, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!561 = distinct !{!561, !562, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!562 = distinct !{!562, !"_ZNK2cv10softdoubleplERKS0_"}
-!563 = !{!564, !566}
-!564 = distinct !{!564, !565, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!565 = distinct !{!565, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!566 = distinct !{!566, !567, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!567 = distinct !{!567, !"_ZNK2cv10softdoublemiERKS0_"}
-!568 = !{!569, !571}
-!569 = distinct !{!569, !570, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!570 = distinct !{!570, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!571 = distinct !{!571, !572, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!572 = distinct !{!572, !"_ZNK2cv10softdoubleplERKS0_"}
-!573 = !{!574, !576}
-!574 = distinct !{!574, !575, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
-!575 = distinct !{!575, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
-!576 = distinct !{!576, !577, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
-!577 = distinct !{!577, !"_ZNK2cv10softdoublemiERKS0_"}
-!578 = !{!579, !581}
-!579 = distinct !{!579, !580, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
-!580 = distinct !{!580, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
-!581 = distinct !{!581, !582, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
-!582 = distinct !{!582, !"_ZNK2cv10softdoubleplERKS0_"}
-!583 = !{!584, !586}
-!584 = distinct !{!584, !585, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!585 = distinct !{!585, !"_ZN2cv10softdouble7fromRawEm"}
-!586 = distinct !{!586, !587, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!587 = distinct !{!587, !"_ZN2cv10softdouble3oneEv"}
-!588 = !{!589, !591}
-!589 = distinct !{!589, !590, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!590 = distinct !{!590, !"_ZN2cv10softdouble7fromRawEm"}
-!591 = distinct !{!591, !592, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!592 = distinct !{!592, !"_ZN2cv10softdouble3oneEv"}
-!593 = !{!594}
-!594 = distinct !{!594, !595, !"_ZNK2cv10softdoublengEv: argument 0"}
-!595 = distinct !{!595, !"_ZNK2cv10softdoublengEv"}
-!596 = !{!597, !599}
-!597 = distinct !{!597, !598, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
-!598 = distinct !{!598, !"_ZN2cv10softdouble7fromRawEm"}
-!599 = distinct !{!599, !600, !"_ZN2cv10softdouble3oneEv: argument 0"}
-!600 = distinct !{!600, !"_ZN2cv10softdouble3oneEv"}
+!546 = distinct !{!546, !547, !"_ZN2cv9softfloat7fromRawEj: argument 0"}
+!547 = distinct !{!547, !"_ZN2cv9softfloat7fromRawEj"}
+!548 = !{!549}
+!549 = distinct !{!549, !550, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!550 = distinct !{!550, !"_ZN2cv10softdouble7fromRawEm"}
+!551 = !{!552, !554}
+!552 = distinct !{!552, !553, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!553 = distinct !{!553, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!554 = distinct !{!554, !555, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!555 = distinct !{!555, !"_ZNK2cv10softdoublemiERKS0_"}
+!556 = !{!557, !559}
+!557 = distinct !{!557, !558, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!558 = distinct !{!558, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!559 = distinct !{!559, !560, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!560 = distinct !{!560, !"_ZNK2cv10softdoublemiERKS0_"}
+!561 = !{!562, !564}
+!562 = distinct !{!562, !563, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!563 = distinct !{!563, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!564 = distinct !{!564, !565, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!565 = distinct !{!565, !"_ZNK2cv10softdoubleplERKS0_"}
+!566 = !{!567, !569}
+!567 = distinct !{!567, !568, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!568 = distinct !{!568, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!569 = distinct !{!569, !570, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!570 = distinct !{!570, !"_ZNK2cv10softdoublemiERKS0_"}
+!571 = !{!572, !574}
+!572 = distinct !{!572, !573, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!573 = distinct !{!573, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!574 = distinct !{!574, !575, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!575 = distinct !{!575, !"_ZNK2cv10softdoubleplERKS0_"}
+!576 = !{!577, !579}
+!577 = distinct !{!577, !578, !"_ZN2cvL7f64_subENS_10softdoubleES0_: argument 0"}
+!578 = distinct !{!578, !"_ZN2cvL7f64_subENS_10softdoubleES0_"}
+!579 = distinct !{!579, !580, !"_ZNK2cv10softdoublemiERKS0_: argument 0"}
+!580 = distinct !{!580, !"_ZNK2cv10softdoublemiERKS0_"}
+!581 = !{!582, !584}
+!582 = distinct !{!582, !583, !"_ZN2cvL7f64_addENS_10softdoubleES0_: argument 0"}
+!583 = distinct !{!583, !"_ZN2cvL7f64_addENS_10softdoubleES0_"}
+!584 = distinct !{!584, !585, !"_ZNK2cv10softdoubleplERKS0_: argument 0"}
+!585 = distinct !{!585, !"_ZNK2cv10softdoubleplERKS0_"}
+!586 = !{!587, !589}
+!587 = distinct !{!587, !588, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!588 = distinct !{!588, !"_ZN2cv10softdouble7fromRawEm"}
+!589 = distinct !{!589, !590, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!590 = distinct !{!590, !"_ZN2cv10softdouble3oneEv"}
+!591 = !{!592, !594}
+!592 = distinct !{!592, !593, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!593 = distinct !{!593, !"_ZN2cv10softdouble7fromRawEm"}
+!594 = distinct !{!594, !595, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!595 = distinct !{!595, !"_ZN2cv10softdouble3oneEv"}
+!596 = !{!597}
+!597 = distinct !{!597, !598, !"_ZNK2cv10softdoublengEv: argument 0"}
+!598 = distinct !{!598, !"_ZNK2cv10softdoublengEv"}
+!599 = !{!600, !602}
+!600 = distinct !{!600, !601, !"_ZN2cv10softdouble7fromRawEm: argument 0"}
+!601 = distinct !{!601, !"_ZN2cv10softdouble7fromRawEm"}
+!602 = distinct !{!602, !603, !"_ZN2cv10softdouble3oneEv: argument 0"}
+!603 = distinct !{!603, !"_ZN2cv10softdouble3oneEv"}

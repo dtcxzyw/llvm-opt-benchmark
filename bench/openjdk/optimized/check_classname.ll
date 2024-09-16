@@ -8,88 +8,88 @@ define hidden zeroext range(i8 0, 2) i8 @verifyClassname(ptr noundef %0, i8 noun
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #5
   %4 = trunc i64 %3 to i32
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %29, label %5
+  br i1 %.not, label %31, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 91
-  br i1 %7, label %8, label %29
+  br i1 %7, label %8, label %31
 
 8:                                                ; preds = %5
   %.not15 = icmp eq i8 %1, 0
-  br i1 %.not15, label %37, label %.lr.ph.preheader.i
+  br i1 %.not15, label %39, label %9
 
-.lr.ph.preheader.i:                               ; preds = %8
-  %9 = add i32 %4, -1
-  %umin.i = tail call i32 @llvm.umin.i32(i32 %9, i32 255)
-  br label %.lr.ph.i
+9:                                                ; preds = %8
+  %10 = add i32 %4, -1
+  %umin.i = tail call i32 @llvm.umin.i32(i32 %10, i32 255)
+  br label %11
 
-.lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
-  %.01532.i = phi i32 [ %26, %25 ], [ 0, %.lr.ph.preheader.i ]
-  %.01631.i = phi i32 [ %28, %25 ], [ %4, %.lr.ph.preheader.i ]
-  %.01830.i = phi ptr [ %27, %25 ], [ %0, %.lr.ph.preheader.i ]
-  %10 = load i8, ptr %.01830.i, align 1
-  switch i8 %10, label %skip_over_field_signature.exit [
-    i8 91, label %25
-    i8 90, label %11
-    i8 66, label %11
-    i8 67, label %11
-    i8 83, label %11
-    i8 73, label %11
-    i8 70, label %11
-    i8 74, label %11
-    i8 68, label %11
-    i8 76, label %13
+11:                                               ; preds = %27, %9
+  %.01531.i = phi i32 [ 0, %9 ], [ %28, %27 ]
+  %.01630.i = phi i32 [ %4, %9 ], [ %30, %27 ]
+  %.01829.i = phi ptr [ %0, %9 ], [ %29, %27 ]
+  %12 = load i8, ptr %.01829.i, align 1
+  switch i8 %12, label %skip_over_field_signature.exit [
+    i8 91, label %27
+    i8 90, label %13
+    i8 66, label %13
+    i8 67, label %13
+    i8 83, label %13
+    i8 73, label %13
+    i8 70, label %13
+    i8 74, label %13
+    i8 68, label %13
+    i8 76, label %15
   ]
 
-11:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %.01830.i, i64 1
+13:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
+  %14 = getelementptr inbounds i8, ptr %.01829.i, i64 1
   br label %skip_over_field_signature.exit
 
-13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.01830.i, i64 1
-  %15 = add i32 %.01631.i, -1
-  %16 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %14, i32 noundef %15)
-  %.not21.i = icmp ne ptr %16, null
-  %17 = ptrtoint ptr %16 to i64
-  %18 = ptrtoint ptr %.01830.i to i64
-  %19 = sub i64 %18, %17
-  %20 = icmp slt i64 %19, -1
-  %or.cond.i = and i1 %.not21.i, %20
-  br i1 %or.cond.i, label %21, label %skip_over_field_signature.exit
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds i8, ptr %.01829.i, i64 1
+  %17 = add i32 %.01630.i, -1
+  %18 = tail call fastcc ptr @skip_over_fieldname(ptr noundef nonnull %16, i32 noundef %17)
+  %.not21.i = icmp ne ptr %18, null
+  %19 = ptrtoint ptr %18 to i64
+  %20 = ptrtoint ptr %.01829.i to i64
+  %21 = sub i64 %20, %19
+  %22 = icmp slt i64 %21, -1
+  %or.cond.i = and i1 %.not21.i, %22
+  br i1 %or.cond.i, label %23, label %skip_over_field_signature.exit
 
-21:                                               ; preds = %13
-  %22 = load i8, ptr %16, align 1
-  %23 = icmp eq i8 %22, 59
-  %24 = getelementptr inbounds i8, ptr %16, i64 1
-  %spec.select.i = select i1 %23, ptr %24, ptr null
+23:                                               ; preds = %15
+  %24 = load i8, ptr %18, align 1
+  %25 = icmp eq i8 %24, 59
+  %26 = getelementptr inbounds i8, ptr %18, i64 1
+  %spec.select.i = select i1 %25, ptr %26, ptr null
   br label %skip_over_field_signature.exit
 
-25:                                               ; preds = %.lr.ph.i
-  %26 = add nuw nsw i32 %.01532.i, 1
-  %27 = getelementptr inbounds i8, ptr %.01830.i, i64 1
-  %28 = add i32 %.01631.i, -1
-  %exitcond.i = icmp eq i32 %.01532.i, %umin.i
-  br i1 %exitcond.i, label %skip_over_field_signature.exit, label %.lr.ph.i, !llvm.loop !6
+27:                                               ; preds = %11
+  %28 = add nuw nsw i32 %.01531.i, 1
+  %29 = getelementptr inbounds i8, ptr %.01829.i, i64 1
+  %30 = add i32 %.01630.i, -1
+  %exitcond.i = icmp eq i32 %.01531.i, %umin.i
+  br i1 %exitcond.i, label %skip_over_field_signature.exit, label %11, !llvm.loop !6
 
-29:                                               ; preds = %5, %2
-  %30 = tail call fastcc ptr @skip_over_fieldname(ptr noundef %0, i32 noundef %4)
+31:                                               ; preds = %5, %2
+  %32 = tail call fastcc ptr @skip_over_fieldname(ptr noundef %0, i32 noundef %4)
   br label %skip_over_field_signature.exit
 
-skip_over_field_signature.exit:                   ; preds = %25, %.lr.ph.i, %21, %13, %11, %29
-  %.0 = phi ptr [ %30, %29 ], [ %12, %11 ], [ null, %13 ], [ %spec.select.i, %21 ], [ null, %.lr.ph.i ], [ null, %25 ]
+skip_over_field_signature.exit:                   ; preds = %27, %11, %23, %15, %13, %31
+  %.0 = phi ptr [ %32, %31 ], [ %14, %13 ], [ null, %15 ], [ %spec.select.i, %23 ], [ null, %11 ], [ null, %27 ]
   %.not16 = icmp ne ptr %.0, null
-  %31 = ptrtoint ptr %.0 to i64
-  %32 = ptrtoint ptr %0 to i64
-  %33 = sub i64 %31, %32
-  %34 = and i64 %3, 4294967295
-  %35 = icmp eq i64 %33, %34
-  %narrow = select i1 %.not16, i1 %35, i1 false
-  %36 = zext i1 %narrow to i8
-  br label %37
+  %33 = ptrtoint ptr %.0 to i64
+  %34 = ptrtoint ptr %0 to i64
+  %35 = sub i64 %33, %34
+  %36 = and i64 %3, 4294967295
+  %37 = icmp eq i64 %35, %36
+  %narrow = select i1 %.not16, i1 %37, i1 false
+  %38 = zext i1 %narrow to i8
+  br label %39
 
-37:                                               ; preds = %8, %skip_over_field_signature.exit
-  %.013 = phi i8 [ %36, %skip_over_field_signature.exit ], [ 0, %8 ]
+39:                                               ; preds = %8, %skip_over_field_signature.exit
+  %.013 = phi i8 [ %38, %skip_over_field_signature.exit ], [ 0, %8 ]
   ret i8 %.013
 }
 

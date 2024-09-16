@@ -204,7 +204,7 @@ if.end82:                                         ; preds = %if.end78
 
 safe_realloc_nofree_add_2op_.exit:                ; preds = %if.end82
   %add.i = add nuw i64 %sub.ptr.sub85, 1
-  %call.i = call ptr @realloc(ptr noundef %utfbuf.1.lcssa, i64 noundef %add.i) #9
+  %call.i = call ptr @realloc(ptr noundef nonnull %utfbuf.1.lcssa, i64 noundef %add.i) #9
   %tobool87.not = icmp eq ptr %call.i, null
   br i1 %tobool87.not, label %fail, label %if.end89
 

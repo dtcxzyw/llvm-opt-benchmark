@@ -2588,7 +2588,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$$u5b$$LP$wasmtime_runtime..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime_types..DataIndex$C$core..ops..range..Range$LT$u32$GT$$GT$$GT$17h297fbd4e048925f6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime_types..DataIndex$C$core..ops..range..Range$LT$u32$GT$$GT$$GT$17h297fbd4e048925f6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca { ptr, [2 x i64] }, align 8
   %3 = alloca { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64, {} }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
@@ -4194,7 +4194,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14031171042790067460.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1568)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !alias.scope !1571, !nonnull !4, !noundef !4
@@ -6937,7 +6937,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_environ..module..Mo
 
 "_ZN4core3ptr103drop_in_place$LT$indexmap..map..IndexMap$LT$alloc..string..String$C$wasmtime_types..EntityIndex$GT$$GT$17hea611a9ed60b00f8E.exit": ; preds = %57, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd64ef2f93ce3531dE.exit.i.i.i"
   %59 = getelementptr inbounds i8, ptr %0, i64 128
-  tail call fastcc void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..module..TableInitialization$GT$17hfe66a09dd50a200bE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %59)
+  tail call fastcc void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..module..TableInitialization$GT$17hfe66a09dd50a200bE"(ptr noalias noundef align 8 dereferenceable(48) %59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2823)
   %60 = load i64, ptr %0, align 8, !range !359, !alias.scope !2823, !noundef !4
   %61 = icmp eq i64 %60, 0
@@ -7080,7 +7080,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_environ..module..Mo
 94:                                               ; preds = %.loopexit.split-lp84, %.loopexit83
   %lpad.phi87 = phi { ptr, i32 } [ %lpad.loopexit85, %.loopexit83 ], [ %lpad.loopexit.split-lp86, %.loopexit.split-lp84 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 400
-  invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime_types..DataIndex$C$core..ops..range..Range$LT$u32$GT$$GT$$GT$17h297fbd4e048925f6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %95) #28
+  invoke fastcc void @"_ZN4core3ptr131drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$wasmtime_types..DataIndex$C$core..ops..range..Range$LT$u32$GT$$GT$$GT$17h297fbd4e048925f6E"(ptr noalias noundef align 8 dereferenceable(24) %95) #28
           to label %102 unwind label %163
 
 .loopexit88:                                      ; preds = %.noexc56, %.noexc
@@ -7904,7 +7904,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$std..sys_common..once..futex
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..module..TableInitialization$GT$17hfe66a09dd50a200bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$wasmtime_environ..module..TableInitialization$GT$17hfe66a09dd50a200bE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3059)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3062)
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13614,7 +13614,7 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
 
 "_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit": ; preds = %14, %18, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %15, %18 ], [ %15, %14 ]
-  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #28
+  invoke fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias noundef align 8 dereferenceable(32) %4) #28
           to label %29 unwind label %27
 
 11:                                               ; preds = %25
@@ -13629,7 +13629,7 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
 
 13:                                               ; preds = %._crit_edge, %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.510)
-  call fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @"_ZN4core3ptr157drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$$GT$17ha1c098c916109e6bE"(ptr noalias noundef align 8 dereferenceable(32) %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 

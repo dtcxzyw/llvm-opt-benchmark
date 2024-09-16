@@ -25303,7 +25303,7 @@ _ZN4llvm9Intrinsic11getBaseNameEj.exit:           ; preds = %6, %16
 .lr.ph:                                           ; preds = %_ZN4llvm9Intrinsic11getBaseNameEj.exit, %.lr.ph
   %.01322 = phi ptr [ %29, %.lr.ph ], [ %2, %_ZN4llvm9Intrinsic11getBaseNameEj.exit ]
   %26 = load ptr, ptr %.01322, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %8)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %27 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef 0, ptr noundef nonnull @.str.14340) #27, !noalias !43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %27) #27
   %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11) #27
@@ -25437,7 +25437,7 @@ _ZN4llvm11SmallVectorIhLj8EED2Ev.exit:            ; preds = %.critedge, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13DecodeIITTypeRjN4llvm8ArrayRefIhEE8IIT_InfoRNS0_15SmallVectorImplINS0_9Intrinsic13IITDescriptorEEE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture readonly %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL13DecodeIITTypeRjN4llvm8ArrayRefIhEE8IIT_InfoRNS0_15SmallVectorImplINS0_9Intrinsic13IITDescriptorEEE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture readonly %1, i64 %2, i32 noundef range(i32 0, 256) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 {
   %.sroa.03.i839 = alloca [9 x i8], align 8
   %.sroa.03.i832 = alloca [9 x i8], align 8
   %.sroa.03.i825 = alloca [9 x i8], align 8
@@ -26551,7 +26551,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeENS_8ArrayRefIS2_EEb(ptr noundef, ptr, i64, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 94) %1) unnamed_addr #0 {
   %3 = alloca [7 x %"class.llvm::Attribute"], align 8
   %4 = alloca [6 x %"class.llvm::Attribute"], align 8
   %5 = alloca [6 x %"class.llvm::Attribute"], align 8
@@ -26646,7 +26646,7 @@ define internal fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextE
   %94 = alloca [1 x %"class.llvm::Attribute"], align 8
   %95 = alloca [2 x %"class.llvm::Attribute"], align 8
   %96 = alloca [2 x %"class.llvm::Attribute"], align 8
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable1106 [
     i32 0, label %97
     i32 1, label %112
     i32 2, label %125
@@ -26743,7 +26743,7 @@ define internal fastcc ptr @_ZL26getIntrinsicFnAttributeSetRN4llvm11LLVMContextE
     i32 93, label %958
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable1106:                          ; preds = %2
   unreachable
 
 97:                                               ; preds = %2
@@ -28192,7 +28192,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef range(i32 0, 17) %1) unnamed_addr #0 {
   %3 = alloca [1 x %"class.llvm::Attribute"], align 8
   %4 = alloca [1 x %"class.llvm::Attribute"], align 8
   %5 = alloca [1 x %"class.llvm::Attribute"], align 8
@@ -28210,7 +28210,7 @@ define internal fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContext
   %17 = alloca [2 x %"class.llvm::Attribute"], align 8
   %18 = alloca [2 x %"class.llvm::Attribute"], align 8
   %19 = alloca [2 x %"class.llvm::Attribute"], align 8
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable145 [
     i32 0, label %20
     i32 1, label %23
     i32 2, label %26
@@ -28230,7 +28230,7 @@ define internal fastcc ptr @_ZL27getIntrinsicArgAttributeSetRN4llvm11LLVMContext
     i32 16, label %90
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable145:                           ; preds = %2
   unreachable
 
 20:                                               ; preds = %2
@@ -31805,7 +31805,7 @@ _ZN4llvm6utostrB5cxx11Emb.exit90:                 ; preds = %.lr.ph.i84, %.threa
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %64) #27
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %66, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %67 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #27, !noalias !92
   %68 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27, !noalias !92
   %69 = add i64 %68, %67
@@ -31878,7 +31878,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 .lr.ph:                                           ; preds = %93, %.lr.ph
   %.0128 = phi ptr [ %103, %.lr.ph ], [ %96, %93 ]
   %101 = load ptr, ptr %.0128, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %101, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %101, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #27
   %103 = getelementptr inbounds i8, ptr %.0128, i64 8
@@ -31898,7 +31898,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %109, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef %110, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef %110, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %111 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, i64 noundef 0, ptr noundef nonnull @.str.14346) #27, !noalias !95
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %111) #27
   %112 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %17) #27
@@ -31915,7 +31915,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   %116 = add nuw nsw i64 %.065129, 1
   %117 = getelementptr inbounds ptr, ptr %115, i64 %116
   %118 = load ptr, ptr %117, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef %118, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %19) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #27
   %120 = load i32, ptr %113, align 4
@@ -31960,7 +31960,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %140) #27
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %142 = load ptr, ptr %141, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef %142, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef %142, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23)
   %143 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %20) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #27
@@ -31993,7 +31993,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 .lr.ph134:                                        ; preds = %146, %.lr.ph134
   %.066132 = phi ptr [ %159, %.lr.ph134 ], [ %151, %146 ]
   %156 = load ptr, ptr %.066132, align 8
-  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %156, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  call fastcc void @_ZL17getMangledTypeStrB5cxx11PN4llvm4TypeERb(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %156, ptr noundef nonnull align 1 dereferenceable(1) %2)
   %157 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef 0, ptr noundef nonnull @.str.53) #27, !noalias !102
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %157) #27
   %158 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %24) #27

@@ -2857,7 +2857,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit42:               ; preds = %350, %352
 _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %363, %361
   %.0.i.i.i = phi ptr [ %362, %361 ], [ %1, %363 ]
   %.val.i = load ptr, ptr %43, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val.i)
+  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val.i)
   %366 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %367 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
   %368 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i.i, ptr noundef %366, i64 noundef %367) #27
@@ -3887,7 +3887,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit150.i:            ; preds = %881, %879
 _ZN4llvm11raw_ostreamlsEPKc.exit153.i:            ; preds = %897, %895
   %.0.i.i152.i = phi ptr [ %896, %895 ], [ %1, %897 ]
   %.val37.i = load ptr, ptr %43, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val37.i)
+  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %11, ptr %.val37.i)
   %900 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   %901 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %11) #27
   %902 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i152.i, ptr noundef %900, i64 noundef %901) #27
@@ -5374,7 +5374,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit319.i:            ; preds = %1645, %1643
 _ZN4llvm11raw_ostreamlsEPKc.exit322.i:            ; preds = %1658, %1656
   %.0.i.i321.i = phi ptr [ %1657, %1656 ], [ %.0.i.i318.i, %1658 ]
   %.val38.i = load ptr, ptr %43, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val38.i)
+  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val38.i)
   %1662 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #27
   %1663 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #27
   %1664 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i321.i, ptr noundef %1662, i64 noundef %1663) #27
@@ -5477,7 +5477,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit331.i:            ; preds = %1700, %1698
 _ZN4llvm11raw_ostreamlsEPKc.exit334.i:            ; preds = %1713, %1711
   %.0.i.i333.i = phi ptr [ %1712, %1711 ], [ %.0.i.i330.i, %1713 ]
   %.val39.i = load ptr, ptr %43, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.val39.i)
+  call fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15, ptr %.val39.i)
   %1717 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %1718 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %1719 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i333.i, ptr noundef %1717, i64 noundef %1718) #27
@@ -6962,7 +6962,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %20, %22
 _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %32, %34
   %.0.i.i25 = phi ptr [ %33, %32 ], [ %1, %34 ]
   %37 = load i32, ptr %.sroa.042.046, align 4
-  call fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %37)
+  call fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %37)
   %38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i25, ptr noundef %38, i64 noundef %39) #27
@@ -11017,7 +11017,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN4llvm9StringRefE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14806,7 +14806,7 @@ _ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker16getRuleEqClassesEv.exit.i.i: 
   %.sroa.2.0..sroa_idx.i59.i.i = getelementptr inbounds i8, ptr %470, i64 24
   %.sroa.0.0.copyload.i64.i.i = load ptr, ptr %487, align 8
   %.sroa.2.0.copyload.i66.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i59.i.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %23, ptr %.sroa.0.0.copyload.i64.i.i, i64 %.sroa.2.0.copyload.i66.i.i, ptr noundef nonnull align 8 dereferenceable(48) %9, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(360) %23, ptr %.sroa.0.0.copyload.i64.i.i, i64 %.sroa.2.0.copyload.i66.i.i, ptr noundef nonnull align 8 dereferenceable(48) %9, i1 noundef zeroext false)
   %496 = load i8, ptr %10, align 8
   %.not134.i.i = icmp eq i8 %496, 0
   br i1 %.not134.i.i, label %.critedge.i.i, label %497
@@ -14917,7 +14917,7 @@ _ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker18inferImmediateTypeERKN4llvm2g
   br label %.critedge.i.i
 
 547:                                              ; preds = %545
-  call fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(328) %462), !noalias !219
+  call fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(328) %462), !noalias !219
   %548 = load ptr, ptr %8, align 8, !noalias !219
   %549 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %548, i64 %indvars.iv.i.i
   %550 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %549) #27, !noalias !219
@@ -14963,7 +14963,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 566:                                              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i
   %567 = getelementptr inbounds nuw i8, ptr %563, i64 16
   %.sroa.0.0.copyload.i.i.i.i28 = load ptr, ptr %567, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(360) %23, ptr %.sroa.0.0.copyload.i.i.i.i28, i64 %565, ptr noundef nonnull align 8 dereferenceable(48) %9, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly align 8 dereferenceable(360) %23, ptr %.sroa.0.0.copyload.i.i.i.i28, i64 %565, ptr noundef nonnull align 8 dereferenceable(48) %9, i1 noundef zeroext true)
   %568 = load i8, ptr %13, align 8, !alias.scope !219
   %.not41.i.i.i = icmp eq i8 %568, 0
   br i1 %.not41.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread36.i.i.i, label %.loopexit.i.i.i
@@ -19445,7 +19445,7 @@ declare noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr nounde
 declare void @_ZN4llvm2gi18OperandTypeChecker14propagateTypesEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, ptr nocapture readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker21inferNamedOperandTypeERKN4llvm2gi18InstructionPatternENS1_9StringRefERKNS1_18EquivalenceClassesIS6_St4lessIS6_EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, ptr nocapture readonly %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %.0810.i.i.i.i = load ptr, ptr %7, align 8
@@ -19623,7 +19623,7 @@ _ZNK4llvm2gi12OperandTable6lookupENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_
   %.us-phi33 = phi ptr [ %.sroa.24.0..sroa_idx.us, %_ZNK4llvm2gi12OperandTable6lookupENS_9StringRefE.exit.us ], [ %.sroa.210.0..sroa_idx, %_ZNK4llvm2gi12OperandTable6lookupENS_9StringRefE.exit ]
   %.sroa.01.0.copyload = load ptr, ptr %.us-phi, align 8
   %.sroa.22.0.copyload = load i64, ptr %.us-phi33, align 8
-  tail call void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::gi::PatternType") align 8 %0, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #27
+  tail call void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::gi::PatternType") align 8 %0, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload) #27
   br label %72
 
 _ZNK4llvm2gi12OperandTable6lookupENS_9StringRefE.exit.thread: ; preds = %_ZNK4llvm2gi12OperandTable6lookupENS_9StringRefE.exit
@@ -19654,7 +19654,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %69, label %._crit_edge.thread, label %70
 
 70:                                               ; preds = %._crit_edge
-  tail call void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::gi::PatternType") align 8 %0, ptr %.sroa.07.0.lcssa, i64 %.sroa.3.0.lcssa) #27
+  tail call void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::gi::PatternType") align 8 %0, ptr %.sroa.07.0.lcssa, i64 %.sroa.3.0.lcssa) #27
   br label %72
 
 ._crit_edge.thread:                               ; preds = %_ZNKSt8_Rb_treeIN4llvm18EquivalenceClassesINS0_9StringRefESt4lessIS2_EE7ECValueES6_St9_IdentityIS6_ENS5_17ECValueComparatorESaIS6_EE17_M_lower_bound_trIS2_vEESt23_Rb_tree_const_iteratorIS6_ERKT_.exit.i.i.i, %21, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE17ECValueComparatorclIS1_EEbRKT_RKNS4_7ECValueE.exit.i.i.i, %6, %_ZNK4llvm18EquivalenceClassesINS_9StringRefESt4lessIS1_EE10findLeaderERKS1_.exit, %._crit_edge
@@ -19760,7 +19760,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_129CombineRuleOperandTypeChecker16
   br i1 %.not23, label %14, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 14:                                               ; preds = %11
-  call fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(328) %0)
+  call fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(328) %0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %16 = getelementptr inbounds i8, ptr %7, i64 40
@@ -20258,7 +20258,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129CombineRuleOperandTypeChecker19getMCOIOperandTypesB5cxx11ERKN4llvm2gi25CodeGenInstructionPatternE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -24935,7 +24935,7 @@ _ZN12_GLOBAL__N_118CombineRuleBuilder20addFeaturePredicatesERN4llvm2gi11RuleMatc
   store i16 1, ptr %82, align 4
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %84 = load i32, ptr %83, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias nonnull writable align 8 %8, i32 noundef %84)
+  call fastcc void @_ZN12_GLOBAL__N_129getIsEnabledPredicateEnumNameB5cxx11Ej(ptr dead_on_unwind noalias writable align 8 %8, i32 noundef %84)
   %85 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   %86 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #27
   call void @_ZN4llvm2gi11RuleMatcher26addRequiredSimplePredicateENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(448) %19, ptr %85, i64 %86) #27
@@ -25827,7 +25827,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder17emitCXXMatch
   %.sroa.0.0.copyload.i = load ptr, ptr %.012.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.012.i, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
+  call fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %12, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
   %25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
@@ -25922,7 +25922,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %56, %58
   %.0.val = load ptr, ptr %.0109, align 8, !noalias !630
   %62 = getelementptr i8, ptr %.0109, i64 8
   %.0.val41 = load i64, ptr %62, align 8
-  call fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr %.0.val, i64 %.0.val41)
+  call fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %15, ptr %.0.val, i64 %.0.val41)
   %63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #27
   %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %63, i64 noundef %64) #27
@@ -32500,7 +32500,7 @@ _ZNSt5dequeISt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS3_EES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_112MatchDataDef10getVarNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::allocator.17", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -33393,7 +33393,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_11ImmRendererEJlEEERT_DpOT0_.exit.i:
   br label %_ZN12_GLOBAL__N_118CombineRuleBuilder37emitCodeGenInstructionApplyImmOperandERN4llvm2gi11RuleMatcherERNS2_13BuildMIActionERKNS2_25CodeGenInstructionPatternERKNS2_18InstructionOperandE.exit.thread
 
 422:                                              ; preds = %382
-  call fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(448) %2)
+  call fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull readonly align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(448) %2)
   %423 = load i8, ptr %324, align 8
   %424 = trunc i8 %423 to i1
   br i1 %424, label %425, label %_ZN12_GLOBAL__N_118CombineRuleBuilder37emitCodeGenInstructionApplyImmOperandERN4llvm2gi11RuleMatcherERNS2_13BuildMIActionERKNS2_25CodeGenInstructionPatternERKNS2_18InstructionOperandE.exit
@@ -33870,7 +33870,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_12CopyRendererEJRNS_9StringRefEEEERT
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)
-  call fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(448) %2)
+  call fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(448) %2)
   %601 = load i8, ptr %322, align 8
   %602 = trunc i8 %601 to i1
   br i1 %602, label %603, label %.loopexit462
@@ -34420,7 +34420,7 @@ _ZN4llvm2gi13BuildMIAction11addRendererINS0_19IntrinsicIDRendererEJPKNS_16CodeGe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(448) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118CombineRuleBuilder23getLLTCodeGenOrTempTypeERKN4llvm2gi11PatternTypeERNS2_11RuleMatcherE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(448) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -40079,7 +40079,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm25array_pod_sort_comparatorINS_2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.136.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_117GICombinerEmitter22getRuleConfigClassNameB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.136.val) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::allocator.17", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %.136.val, ptr nonnull @.str.20, i64 9) #27

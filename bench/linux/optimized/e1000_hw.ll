@@ -4849,7 +4849,7 @@ define dso_local noundef range(i32 -2, 1) i32 @e1000_get_speed_and_duplex(ptr no
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2, 1) i32 @e1000_write_phy_reg_ex(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @e1000_write_phy_reg_ex(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 32) %1, i16 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 9
@@ -4866,7 +4866,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_write_phy_reg_ex(ptr 
   %13 = shl nuw nsw i32 %1, 16
   %14 = or disjoint i32 %13, %12
   %15 = shl i32 %11, 21
-  %16 = or i32 %14, %15
+  %16 = or disjoint i32 %15, %14
   %17 = or i32 %16, -2080374784
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -4892,7 +4892,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @e1000_write_phy_reg_ex(ptr 
   %31 = zext i16 %2 to i32
   %32 = shl nuw nsw i32 %1, 16
   %33 = or disjoint i32 %32, %31
-  %34 = or i32 %33, 69206016
+  %34 = or disjoint i32 %33, 69206016
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr i8, ptr %35, i64 32
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %34, ptr elementtype(i32) %36) #7, !srcloc !6
@@ -4955,7 +4955,7 @@ e1000_shift_out_mdi_bits.exit:                    ; preds = %53
   %75 = shl nuw nsw i32 %1, 18
   %76 = zext i16 %2 to i32
   %77 = or disjoint i32 %75, %76
-  %78 = or i32 %77, 1350696960
+  %78 = or disjoint i32 %77, 1350696960
   %79 = load ptr, ptr %0, align 8
   %80 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79) #7, !srcloc !5
   %81 = and i32 %80, -51380225

@@ -1212,7 +1212,7 @@ define i64 @Sfm_LibTruth6Two(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define internal fastcc i64 @Exp_Truth6(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #6 {
+define internal fastcc i64 @Exp_Truth6(i32 noundef range(i32 0, 16) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #6 {
   %4 = icmp eq ptr %2, null
   %spec.store.select = select i1 %4, ptr @Exp_Truth6.Truth6, ptr %2
   %5 = getelementptr i8, ptr %1, i64 4
@@ -1450,7 +1450,7 @@ define void @Sfm_LibTruth8Two(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Exp_Truth8(i32 noundef %0, i32 %.4.val, ptr nocapture readonly %.8.val, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @Exp_Truth8(i32 noundef range(i32 0, 16) %0, i32 %.4.val, ptr nocapture readonly %.8.val, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca [8 x [4 x i64]], align 16
   %5 = alloca [8 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %4, ptr noundef nonnull align 16 dereferenceable(256) @__const.Exp_Truth8.Truth8, i64 256, i1 false)

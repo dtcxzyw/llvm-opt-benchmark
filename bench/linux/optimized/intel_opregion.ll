@@ -224,7 +224,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonly %0, i32 noundef range(i32 8, 2061) %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 6608
   %7 = load ptr, ptr %6, align 8
@@ -239,171 +239,170 @@ define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonl
   %13 = lshr i32 %1, 1
   %14 = and i32 %13, 15
   %15 = lshr i32 %1, 8
-  %16 = and i32 %15, 255
-  switch i32 %14, label %29 [
-    i32 6, label %17
-    i32 4, label %23
+  switch i32 %14, label %28 [
+    i32 6, label %16
+    i32 4, label %22
   ]
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 6620
-  %19 = load i32, ptr %18, align 4
-  %20 = shl nuw nsw i32 1, %16
-  %21 = and i32 %19, %20
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %.thread, label %29
+16:                                               ; preds = %12
+  %17 = getelementptr inbounds i8, ptr %0, i64 6620
+  %18 = load i32, ptr %17, align 4
+  %19 = shl nuw nsw i32 1, %15
+  %20 = and i32 %18, %19
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %.thread, label %28
 
-23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 6616
-  %25 = load i32, ptr %24, align 8
-  %26 = shl nuw nsw i32 1, %16
-  %27 = and i32 %25, %26
-  %28 = icmp eq i32 %27, 0
-  br i1 %28, label %.thread, label %29
+22:                                               ; preds = %12
+  %23 = getelementptr inbounds i8, ptr %0, i64 6616
+  %24 = load i32, ptr %23, align 8
+  %25 = shl nuw nsw i32 1, %15
+  %26 = and i32 %24, %25
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %.thread, label %28
 
-29:                                               ; preds = %23, %17, %12
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
-  %31 = load i32, ptr %30, align 1
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %39, label %33
+28:                                               ; preds = %22, %16, %12
+  %29 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = load i32, ptr %29, align 1
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %38, label %32
 
-33:                                               ; preds = %29
-  %34 = icmp ugt i32 %31, 1500
-  br i1 %34, label %35, label %39
+32:                                               ; preds = %28
+  %33 = icmp ugt i32 %30, 1500
+  br i1 %33, label %34, label %38
 
-35:                                               ; preds = %33
-  %36 = load i1, ptr @swsci.__already_done, align 1
-  br i1 %36, label %39, label %37, !prof !5
+34:                                               ; preds = %32
+  %35 = load i1, ptr @swsci.__already_done, align 1
+  br i1 %35, label %38, label %36, !prof !5
 
-37:                                               ; preds = %35
+36:                                               ; preds = %34
   store i1 true, ptr @swsci.__already_done, align 1
-  %38 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %31, i32 noundef 1500) #13
-  br label %39
+  %37 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, i32 noundef %30, i32 noundef 1500) #13
+  br label %38
 
-39:                                               ; preds = %37, %35, %33, %29
-  %40 = phi i32 [ %31, %33 ], [ 50, %29 ], [ 1500, %35 ], [ 1500, %37 ]
-  %41 = load i32, ptr %7, align 1
-  %42 = and i32 %41, 1
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %50, label %44
+38:                                               ; preds = %36, %34, %32, %28
+  %39 = phi i32 [ %30, %32 ], [ 50, %28 ], [ 1500, %34 ], [ 1500, %36 ]
+  %40 = load i32, ptr %7, align 1
+  %41 = and i32 %40, 1
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %49, label %43
 
-44:                                               ; preds = %39
-  %45 = icmp eq ptr %0, null
-  br i1 %45, label %48, label %46
+43:                                               ; preds = %38
+  %44 = icmp eq ptr %0, null
+  br i1 %44, label %47, label %45
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %8, align 8
-  br label %48
+45:                                               ; preds = %43
+  %46 = load ptr, ptr %8, align 8
+  br label %47
 
-48:                                               ; preds = %46, %44
-  %49 = phi ptr [ %47, %46 ], [ null, %44 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %49, i32 noundef 1, ptr noundef nonnull @.str.26) #12
+47:                                               ; preds = %45, %43
+  %48 = phi ptr [ %46, %45 ], [ null, %43 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %48, i32 noundef 1, ptr noundef nonnull @.str.26) #12
   br label %.thread
 
-50:                                               ; preds = %39
+49:                                               ; preds = %38
   store i16 0, ptr %5, align 2, !annotation !12
-  %51 = or i32 %1, 1
-  %52 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %2, ptr %52, align 1
-  store i32 %51, ptr %7, align 1
-  %53 = call i32 @pci_read_config_word(ptr noundef %10, i32 noundef 232, ptr noundef nonnull %5) #12
-  %54 = load i16, ptr %5, align 2
-  %55 = and i16 %54, -32767
-  %56 = icmp eq i16 %55, -32768
-  br i1 %56, label %61, label %57
+  %50 = or i32 %1, 1
+  %51 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %2, ptr %51, align 1
+  store i32 %50, ptr %7, align 1
+  %52 = call i32 @pci_read_config_word(ptr noundef %10, i32 noundef 232, ptr noundef nonnull %5) #12
+  %53 = load i16, ptr %5, align 2
+  %54 = and i16 %53, -32767
+  %55 = icmp eq i16 %54, -32768
+  br i1 %55, label %60, label %56
 
-57:                                               ; preds = %50
-  %58 = and i16 %54, 32766
-  %59 = or disjoint i16 %58, -32768
-  store i16 %59, ptr %5, align 2
-  %60 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 232, i16 noundef zeroext %59) #12
+56:                                               ; preds = %49
+  %57 = and i16 %53, 32766
+  %58 = or disjoint i16 %57, -32768
+  store i16 %58, ptr %5, align 2
+  %59 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 232, i16 noundef zeroext %58) #12
   %.pre = load i16, ptr %5, align 2
-  br label %61
+  br label %60
 
-61:                                               ; preds = %57, %50
-  %62 = phi i16 [ %.pre, %57 ], [ %54, %50 ]
-  %63 = or i16 %62, 1
-  store i16 %63, ptr %5, align 2
-  %64 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 232, i16 noundef zeroext %63) #12
-  %65 = call i64 @ktime_get_raw() #12
-  %66 = mul nuw nsw i32 %40, 1000000
-  %67 = zext nneg i32 %66 to i64
-  %68 = add i64 %65, %67
-  %69 = call i32 @__SCT__might_resched() #12
-  %70 = call i64 @ktime_get_raw() #12
-  %71 = icmp sle i64 %70, %68
+60:                                               ; preds = %56, %49
+  %61 = phi i16 [ %.pre, %56 ], [ %53, %49 ]
+  %62 = or i16 %61, 1
+  store i16 %62, ptr %5, align 2
+  %63 = call i32 @pci_write_config_word(ptr noundef %10, i32 noundef 232, i16 noundef zeroext %62) #12
+  %64 = call i64 @ktime_get_raw() #12
+  %65 = mul nuw nsw i32 %39, 1000000
+  %66 = zext nneg i32 %65 to i64
+  %67 = add i64 %64, %66
+  %68 = call i32 @__SCT__might_resched() #12
+  %69 = call i64 @ktime_get_raw() #12
+  %70 = icmp sle i64 %69, %67
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %72 = load i32, ptr %7, align 1
-  %73 = and i32 %72, 1
-  %74 = icmp ne i32 %73, 0
-  %75 = select i1 %74, i1 %71, i1 false
-  br i1 %75, label %.lr.ph, label %._crit_edge
+  %71 = load i32, ptr %7, align 1
+  %72 = and i32 %71, 1
+  %73 = icmp ne i32 %72, 0
+  %74 = select i1 %73, i1 %70, i1 false
+  br i1 %74, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %61, %.lr.ph
-  %76 = phi i64 [ %79, %.lr.ph ], [ 10, %61 ]
-  %77 = shl i64 %76, 1
-  call void @usleep_range_state(i64 noundef %76, i64 noundef %77, i32 noundef 2) #12
-  %78 = icmp slt i64 %76, 1000
-  %79 = select i1 %78, i64 %77, i64 %76
-  %80 = call i64 @ktime_get_raw() #12
-  %81 = icmp sle i64 %80, %68
+.lr.ph:                                           ; preds = %60, %.lr.ph
+  %75 = phi i64 [ %78, %.lr.ph ], [ 10, %60 ]
+  %76 = shl i64 %75, 1
+  call void @usleep_range_state(i64 noundef %75, i64 noundef %76, i32 noundef 2) #12
+  %77 = icmp slt i64 %75, 1000
+  %78 = select i1 %77, i64 %76, i64 %75
+  %79 = call i64 @ktime_get_raw() #12
+  %80 = icmp sle i64 %79, %67
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !13
-  %82 = load i32, ptr %7, align 1
-  %83 = and i32 %82, 1
-  %84 = icmp ne i32 %83, 0
-  %85 = select i1 %84, i1 %81, i1 false
-  br i1 %85, label %.lr.ph, label %._crit_edge
+  %81 = load i32, ptr %7, align 1
+  %82 = and i32 %81, 1
+  %83 = icmp ne i32 %82, 0
+  %84 = select i1 %83, i1 %80, i1 false
+  br i1 %84, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %61
-  %.lcssa4 = phi i32 [ %72, %61 ], [ %82, %.lr.ph ]
-  %.lcssa = phi i1 [ %74, %61 ], [ %84, %.lr.ph ]
-  br i1 %.lcssa, label %86, label %92
+._crit_edge:                                      ; preds = %.lr.ph, %60
+  %.lcssa4 = phi i32 [ %71, %60 ], [ %81, %.lr.ph ]
+  %.lcssa = phi i1 [ %73, %60 ], [ %83, %.lr.ph ]
+  br i1 %.lcssa, label %85, label %91
 
-86:                                               ; preds = %._crit_edge
-  %87 = icmp eq ptr %0, null
-  br i1 %87, label %90, label %88
+85:                                               ; preds = %._crit_edge
+  %86 = icmp eq ptr %0, null
+  br i1 %86, label %89, label %87
 
-88:                                               ; preds = %86
-  %89 = load ptr, ptr %8, align 8
-  br label %90
+87:                                               ; preds = %85
+  %88 = load ptr, ptr %8, align 8
+  br label %89
 
-90:                                               ; preds = %88, %86
-  %91 = phi ptr [ %89, %88 ], [ null, %86 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %91, i32 noundef 1, ptr noundef nonnull @.str.27) #12
+89:                                               ; preds = %87, %85
+  %90 = phi ptr [ %88, %87 ], [ null, %85 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %90, i32 noundef 1, ptr noundef nonnull @.str.27) #12
   br label %.thread
 
-92:                                               ; preds = %._crit_edge
-  %93 = lshr i32 %.lcssa4, 5
-  %94 = and i32 %93, 7
-  %95 = icmp eq i32 %94, 1
-  br i1 %95, label %102, label %96
+91:                                               ; preds = %._crit_edge
+  %92 = lshr i32 %.lcssa4, 5
+  %93 = and i32 %92, 7
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %101, label %95
 
-96:                                               ; preds = %92
-  %97 = icmp eq ptr %0, null
-  br i1 %97, label %100, label %98
+95:                                               ; preds = %91
+  %96 = icmp eq ptr %0, null
+  br i1 %96, label %99, label %97
 
-98:                                               ; preds = %96
-  %99 = load ptr, ptr %8, align 8
-  br label %100
+97:                                               ; preds = %95
+  %98 = load ptr, ptr %8, align 8
+  br label %99
 
-100:                                              ; preds = %98, %96
-  %101 = phi ptr [ %99, %98 ], [ null, %96 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %101, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %94) #12
+99:                                               ; preds = %97, %95
+  %100 = phi ptr [ %98, %97 ], [ null, %95 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %100, i32 noundef 1, ptr noundef nonnull @.str.28, i32 noundef %93) #12
   br label %.thread
 
-102:                                              ; preds = %92
-  %103 = icmp eq ptr %3, null
-  br i1 %103, label %.thread, label %104
+101:                                              ; preds = %91
+  %102 = icmp eq ptr %3, null
+  br i1 %102, label %.thread, label %103
 
-104:                                              ; preds = %102
-  %105 = load i32, ptr %52, align 1
-  store i32 %105, ptr %3, align 4
+103:                                              ; preds = %101
+  %104 = load i32, ptr %51, align 1
+  store i32 %104, ptr %3, align 4
   br label %.thread
 
-.thread:                                          ; preds = %23, %17, %4, %104, %102, %100, %90, %48
-  %106 = phi i32 [ -16, %48 ], [ -110, %90 ], [ -5, %100 ], [ 0, %104 ], [ 0, %102 ], [ -22, %23 ], [ -22, %17 ], [ -19, %4 ]
+.thread:                                          ; preds = %22, %16, %4, %103, %101, %99, %89, %47
+  %105 = phi i32 [ -16, %47 ], [ -110, %89 ], [ -5, %99 ], [ 0, %103 ], [ 0, %101 ], [ -22, %22 ], [ -22, %16 ], [ -19, %4 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #12
-  ret i32 %106
+  ret i32 %105
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

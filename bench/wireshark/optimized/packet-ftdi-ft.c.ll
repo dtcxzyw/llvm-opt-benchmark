@@ -482,7 +482,7 @@ define internal i32 @dissect_ftdi_ft(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %.thread
 
 58:                                               ; preds = %46
-  %59 = call fastcc i32 @identify_chip(ptr noundef nonnull %3)
+  %59 = call fastcc i32 @identify_chip(ptr noundef %3)
   call fastcc void @dissect_request_set_baud_rate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %33, i32 noundef %59)
   br label %.thread
 
@@ -598,7 +598,7 @@ lindex_to_interface.exit:                         ; preds = %105, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %105 ]
   %110 = getelementptr inbounds i8, ptr %84, i64 9
   %111 = load i8, ptr %110, align 1
-  call fastcc void @record_interface_mode(ptr noundef nonnull %1, ptr noundef nonnull %3, i32 noundef %.0.i, i8 noundef zeroext %111)
+  call fastcc void @record_interface_mode(ptr noundef nonnull %1, ptr noundef %3, i32 noundef %.0.i, i8 noundef zeroext %111)
   br label %114
 
 112:                                              ; preds = %89, %85, %82
@@ -712,7 +712,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %146, %149, %147
   %162 = load ptr, ptr %126, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %162, i32 noundef 25, ptr noundef nonnull @.str.183, i32 noundef %150) #8
   call void @add_new_data_source(ptr noundef %1, ptr noundef %132, ptr noundef nonnull @.str.184) #8
-  call fastcc void @dissect_serial_payload(ptr noundef %132, ptr noundef %1, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %3, i32 noundef %switch.load228)
+  call fastcc void @dissect_serial_payload(ptr noundef %132, ptr noundef %1, ptr noundef %2, ptr noundef %33, ptr noundef %3, i32 noundef %switch.load228)
   br label %endpoint_to_interface.exit.thread
 
 163:                                              ; preds = %159
@@ -732,7 +732,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %146, %149, %147
   %170 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %.0197, ptr noundef %0, i32 noundef 0, i32 noundef %166, i32 noundef 0) #8
   %171 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %166) #8
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %171, ptr noundef nonnull @.str.186) #8
-  call fastcc void @dissect_serial_payload(ptr noundef %171, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %3, i32 noundef %switch.load228)
+  call fastcc void @dissect_serial_payload(ptr noundef %171, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %33, ptr noundef %3, i32 noundef %switch.load228)
   br label %endpoint_to_interface.exit.thread
 
 endpoint_to_interface.exit.thread:                ; preds = %119, %114, %117, %.thread, %164, %168, %161, %163, %12, %4
@@ -843,7 +843,7 @@ define internal fastcc void @dissect_request_set_flow_ctrl(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 9) i32 @identify_chip(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc range(i32 0, 9) i32 @identify_chip(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -879,7 +879,7 @@ define internal fastcc range(i32 0, 9) i32 @identify_chip(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_request_set_baud_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_request_set_baud_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 9) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_setup_lvalue_baud_low, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #8
   %7 = load i32, ptr @hf_setup_hvalue_baud_mid, align 4
@@ -1079,7 +1079,7 @@ define internal fastcc void @dissect_modem_status_bytes(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @record_interface_mode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @record_interface_mode(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 5) %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1145,7 +1145,7 @@ declare void @tvb_composite_finalize(ptr noundef) local_unnamed_addr #1
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_serial_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_serial_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

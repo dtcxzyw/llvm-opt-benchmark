@@ -131,7 +131,7 @@ return:                                           ; preds = %_ZN9grpc_core9CSlic
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL15zlib_decompressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds i8, ptr %output, i64 16
@@ -154,7 +154,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @inflate)
+  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @inflate)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %for.cond.preheader, label %if.end8
 
@@ -205,7 +205,7 @@ if.end8:                                          ; preds = %for.end, %do.end
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef %gzip) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL13zlib_compressP17grpc_slice_bufferS0_i(ptr nocapture noundef readonly %input, ptr noundef %output, i32 noundef range(i32 0, 2) %gzip) unnamed_addr #0 {
 entry:
   %zs = alloca %struct.z_stream_s, align 8
   %count = getelementptr inbounds i8, ptr %output, i64 16
@@ -228,7 +228,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @deflate)
+  %call1 = call fastcc noundef i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef %zs, ptr noundef %input, ptr noundef nonnull %output, ptr noundef nonnull @deflate)
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %for.cond.preheader, label %land.rhs
 
@@ -309,7 +309,7 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef %zs, ptr nocapture noundef readonly %input, ptr noundef %output, ptr nocapture noundef readonly %flate) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP17grpc_slice_bufferS2_PFiS0_iE(ptr noundef nonnull %zs, ptr nocapture noundef readonly %input, ptr noundef %output, ptr nocapture noundef readonly %flate) unnamed_addr #0 {
 entry:
   %outbuf = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %struct.grpc_slice, align 8

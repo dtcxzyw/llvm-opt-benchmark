@@ -2389,7 +2389,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
   br label %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5countEPKS1_.exit.i
 
 903:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E6insertEOSt4pairIS3_jE.exit
-  %904 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef %890) #16
+  %904 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef nonnull %890) #16
   %.not.i.i.i59 = icmp eq ptr %904, null
   %.pre.i.i60 = load ptr, ptr %54, align 8
   %.pre4.i.i61 = load ptr, ptr %53, align 8
@@ -2611,7 +2611,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   br label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl11processCopyEPN4llvm12MachineInstrE.exit
 
 1007:                                             ; preds = %._crit_edge.i.i28.i, %.thread.i
-  %1008 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef %890) #16, !noalias !51
+  %1008 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %53, ptr noundef nonnull %890) #16, !noalias !51
   br label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl11processCopyEPN4llvm12MachineInstrE.exit
 
 _ZN12_GLOBAL__N_125TwoAddressInstructionImpl11processCopyEPN4llvm12MachineInstrE.exit: ; preds = %.lr.ph.i.i26.i, %_ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5countEPKS1_.exit.i, %916, %1005, %1007
@@ -3113,7 +3113,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
 1258:                                             ; preds = %1256
   call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E5clearEv(ptr noundef nonnull align 1 dereferenceable(1) %22)
   %1259 = load ptr, ptr %24, align 8
-  call fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull %1259)
+  call fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1259)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %3627, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.thread.i220, %_ZNK12_GLOBAL__N_125TwoAddressInstructionImpl17regsAreCompatibleEN4llvm8RegisterES2_.exit.i240, %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234, %3577, %1258, %1746
@@ -8875,7 +8875,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24removeClobberedSrcRegMapEPN4llvm12MachineInstrE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 19

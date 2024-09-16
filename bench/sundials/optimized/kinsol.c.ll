@@ -1584,7 +1584,7 @@ KINFP.exit.thread:                                ; preds = %109, %26
   %80 = load ptr, ptr %14, align 8
   %81 = load ptr, ptr %42, align 8
   %82 = load ptr, ptr %43, align 8
-  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.062.i, ptr noundef %81, ptr noundef %82)
+  tail call fastcc void @AndersonAcc(ptr noundef %0, ptr noundef %78, ptr noundef %35, ptr noundef %79, ptr noundef %80, i64 noundef %.062.i, ptr noundef %81, ptr noundef %82)
   %83 = icmp eq i64 %.062.i, 0
   br i1 %83, label %84, label %88
 
@@ -1866,7 +1866,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
 217:                                              ; preds = %215
   %218 = load ptr, ptr %206, align 8
   %219 = load ptr, ptr %16, align 8
-  %220 = tail call fastcc double @KINScFNorm(ptr noundef nonnull %0, ptr noundef %218, ptr noundef %219)
+  %220 = tail call fastcc double @KINScFNorm(ptr noundef %0, ptr noundef %218, ptr noundef %219)
   %221 = load double, ptr %172, align 8
   %222 = fmul double %221, 1.000000e-02
   %223 = fcmp ugt double %220, %222
@@ -2184,7 +2184,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   %408 = load ptr, ptr %14, align 8
   %409 = load ptr, ptr %342, align 8
   %410 = load ptr, ptr %343, align 8
-  tail call fastcc void @AndersonAcc(ptr noundef nonnull %0, ptr noundef %406, ptr noundef %318, ptr noundef %407, ptr noundef %408, i64 noundef %.076.i, ptr noundef %409, ptr noundef %410)
+  tail call fastcc void @AndersonAcc(ptr noundef %0, ptr noundef %406, ptr noundef %318, ptr noundef %407, ptr noundef %408, i64 noundef %.076.i, ptr noundef %409, ptr noundef %410)
   br label %411
 
 411:                                              ; preds = %403, %400, %394
@@ -2233,7 +2233,7 @@ KINFP.exit:                                       ; preds = %105, %.thread69.i
   %440 = load ptr, ptr %206, align 8
   %441 = load ptr, ptr %16, align 8
   %442 = tail call double @N_VWL2Norm(ptr noundef %440, ptr noundef %441) #14
-  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %442)
+  tail call fastcc void @KINForcingTerm(ptr noundef %0, double noundef %442)
   br label %443
 
 443:                                              ; preds = %439, %437
@@ -2388,7 +2388,7 @@ KINLinSolDrv.exit:                                ; preds = %471
   br label %511
 
 496:                                              ; preds = %494
-  %497 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
+  %497 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
   %498 = icmp eq i32 %497, -996
   br i1 %498, label %499, label %.preheader512
 
@@ -2561,7 +2561,7 @@ KINLinSolDrv.exit167:                             ; preds = %556
   br label %596
 
 581:                                              ; preds = %579
-  %582 = tail call fastcc i32 @KINConstraint(ptr noundef nonnull %0)
+  %582 = tail call fastcc i32 @KINConstraint(ptr noundef %0)
   %583 = icmp eq i32 %582, -996
   br i1 %583, label %584, label %.preheader516
 
@@ -2978,7 +2978,7 @@ KINFullNewton.exit.thread:                        ; preds = %530, %543, %507, %4
   br i1 %.not144, label %828, label %827
 
 827:                                              ; preds = %825
-  tail call fastcc void @KINForcingTerm(ptr noundef nonnull %0, double noundef %.2205)
+  tail call fastcc void @KINForcingTerm(ptr noundef %0, double noundef %.2205)
   br label %828
 
 828:                                              ; preds = %827, %825
@@ -3392,7 +3392,7 @@ define void @KINPrintInfo(ptr nocapture readnone %0, i32 noundef %1, ptr nocaptu
 declare ptr @N_VClone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @KINForcingTerm(ptr nocapture noundef %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @KINForcingTerm(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -3925,7 +3925,7 @@ declare i32 @N_VConstrMask(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare double @N_VWL2Norm(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @KINScFNorm(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc double @KINScFNorm(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   tail call void @N_VProd(ptr noundef %2, ptr noundef %1, ptr noundef %5) #14
@@ -3939,7 +3939,7 @@ declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare double @N_VMaxNorm(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -996, 1) i32 @KINConstraint(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 -996, 1) i32 @KINConstraint(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 312
@@ -4005,7 +4005,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AndersonAcc(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 496
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 504

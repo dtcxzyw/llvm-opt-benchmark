@@ -4114,7 +4114,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i239:   ; preds = %102
   br i1 %38, label %111, label %112
 
 111:                                              ; preds = %105
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %10, i64 noundef %110)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %10, i64 noundef %110)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %10)
           to label %113 unwind label %118
 
@@ -4448,7 +4448,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i295:   ; preds = %226
   br i1 %38, label %232, label %233
 
 232:                                              ; preds = %229
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %17, i64 noundef %231)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %17, i64 noundef %231)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %234 unwind label %239
 
@@ -4572,7 +4572,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i319:   ; preds = %268
   br i1 %38, label %274, label %275
 
 274:                                              ; preds = %271
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %20, i64 noundef %273)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %20, i64 noundef %273)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %20)
           to label %276 unwind label %281
 
@@ -4857,10 +4857,10 @@ declare void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind writable sret(%class
 declare void @_ZN8QVariantC1Ex(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %0, i64 noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QLocale, align 8
   call void @_ZN7QLocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  invoke void @_ZNK7QLocale17formattedDataSizeExi6QFlagsINS_14DataSizeFormatEE(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef 0, i32 3)
+  invoke void @_ZNK7QLocale17formattedDataSizeExi6QFlagsINS_14DataSizeFormatEE(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %1, i32 noundef 0, i32 3)
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
@@ -6220,7 +6220,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i288:   ; preds = %181
   br i1 %68, label %192, label %193
 
 192:                                              ; preds = %186
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %11, i64 noundef %191)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %11, i64 noundef %191)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %194 unwind label %199
 
@@ -6578,7 +6578,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i344:   ; preds = %314
   br i1 %68, label %322, label %323
 
 322:                                              ; preds = %319
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %321)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %18, i64 noundef %321)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %18)
           to label %324 unwind label %329
 
@@ -6710,7 +6710,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i368:   ; preds = %358
   br i1 %68, label %366, label %367
 
 366:                                              ; preds = %363
-  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias nonnull writable align 8 %21, i64 noundef %365)
+  call fastcc void @_ZL12formatStringx(ptr dead_on_unwind noalias writable align 8 %21, i64 noundef %365)
   invoke void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %368 unwind label %373
 

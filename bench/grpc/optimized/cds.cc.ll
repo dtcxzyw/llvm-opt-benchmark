@@ -4522,7 +4522,7 @@ entry:
   %1 = load i64, ptr %0, align 8
   store i64 %1, ptr %agg.tmp.i.i.i, align 8
   store i64 54, ptr %0, align 8
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry
@@ -4660,7 +4660,7 @@ sw.epilog:                                        ; preds = %_ZZN9grpc_core12_GL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6633,7 +6633,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then21.i.i.i.i
   br label %invoke.cont23.i.i.i.i
 
 invoke.cont23.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i, %if.then21.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp.i.i.i.i)
           to label %invoke.cont25.i.i.i.i unwind label %lpad24.i.i.i.i
 
 invoke.cont25.i.i.i.i:                            ; preds = %invoke.cont23.i.i.i.i
@@ -6674,7 +6674,7 @@ if.end26.i.i.i.i:                                 ; preds = %_ZN9grpc_core12_GLO
   %config_.i.i.i.i = getelementptr inbounds i8, ptr %parent_.val.i.i.i, i64 56
   %config_.val33.i.i.i.i = load ptr, ptr %config_.i.i.i.i, align 8
   %cluster_.i.i.i.i.i = getelementptr inbounds i8, ptr %config_.val33.i.i.i.i, i64 16
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias nonnull align 8 %result.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cluster_.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull %discovery_mechanisms.i.i.i.i, ptr noundef nonnull %clusters_added.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias align 8 %result.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cluster_.i.i.i.i.i, i32 noundef 0, ptr noundef %discovery_mechanisms.i.i.i.i, ptr noundef %clusters_added.i.i.i.i)
           to label %invoke.cont30.i.i.i.i unwind label %lpad29.i.i.i.i
 
 invoke.cont30.i.i.i.i:                            ; preds = %if.end26.i.i.i.i
@@ -6695,7 +6695,7 @@ if.then.i.i54.i.i.i.i:                            ; preds = %if.then34.i.i.i.i
   br label %invoke.cont38.i.i.i.i
 
 invoke.cont38.i.i.i.i:                            ; preds = %if.then.i.i54.i.i.i.i, %if.then34.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp35.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp35.i.i.i.i)
           to label %invoke.cont40.i.i.i.i unwind label %lpad39.i.i.i.i
 
 invoke.cont40.i.i.i.i:                            ; preds = %invoke.cont38.i.i.i.i
@@ -6754,7 +6754,7 @@ if.then46.i.i.i.i:                                ; preds = %if.then44.i.i.i.i
           to label %invoke.cont49.i.i.i.i unwind label %lpad31.loopexit.split-lp.i.i.i.i
 
 invoke.cont49.i.i.i.i:                            ; preds = %if.then46.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp47.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp47.i.i.i.i)
           to label %invoke.cont51.i.i.i.i unwind label %lpad50.i.i.i.i
 
 invoke.cont51.i.i.i.i:                            ; preds = %invoke.cont49.i.i.i.i
@@ -7429,7 +7429,7 @@ invoke.cont213.i.i.i.i:                           ; preds = %if.then208.i.i.i.i
           to label %invoke.cont215.i.i.i.i unwind label %lpad205.i.i.i.i
 
 invoke.cont215.i.i.i.i:                           ; preds = %invoke.cont213.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp209.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp209.i.i.i.i)
           to label %invoke.cont217.i.i.i.i unwind label %lpad216.i.i.i.i
 
 invoke.cont217.i.i.i.i:                           ; preds = %invoke.cont215.i.i.i.i
@@ -7600,7 +7600,7 @@ if.then256.i.i.i.i:                               ; preds = %_ZNSt10unique_ptrIN
           to label %invoke.cont259.i.i.i.i unwind label %lpad226.i.i.i.i
 
 invoke.cont259.i.i.i.i:                           ; preds = %if.then256.i.i.i.i
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef nonnull %agg.tmp257.i.i.i.i)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb7OnErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(161) %parent_.val.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %name_.i.i.i, ptr noundef %agg.tmp257.i.i.i.i)
           to label %cleanup.i.i.i.i unwind label %lpad260.i.i.i.i
 
 lpad226.i.i.i.i:                                  ; preds = %invoke.cont273.i.i.i.i, %if.then.i.i234.invoke.i.i.i.i, %if.end263.i.i.i.i, %if.then256.i.i.i.i, %invoke.cont242.i.i.i.i, %if.end.i202.i.i.i.i, %_ZNK9grpc_core19LoadBalancingPolicy15work_serializerEv.exit.i.i.i.i
@@ -8452,7 +8452,7 @@ sw.epilog:                                        ; preds = %_ZZN9grpc_core12_GL
 declare void @_ZNK9grpc_core18XdsClusterResource8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %depth, ptr noundef %discovery_mechanisms, ptr noundef %clusters_added) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %depth, ptr noundef nonnull %discovery_mechanisms, ptr noundef nonnull %clusters_added) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %ref.tmp.i.i.i.i200 = alloca %class.anon.468, align 1
@@ -8752,7 +8752,7 @@ for.body.lr.ph:                                   ; preds = %if.then39
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %missing_cluster.0257 = phi i8 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
   %__begin3.sroa.0.0256 = phi ptr [ %29, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0256, i32 noundef %add, ptr noundef %discovery_mechanisms, ptr noundef nonnull %clusters_added)
+  tail call fastcc void @_ZN9grpc_core12_GLOBAL__N_15CdsLb36GenerateDiscoveryMechanismForClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPSt6vectorINS_12experimental4JsonESaISC_EEPSt3setIS7_St4lessIS7_ESaIS7_EE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(161) %this, ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0256, i32 noundef %add, ptr noundef %discovery_mechanisms, ptr noundef %clusters_added)
   %32 = load i64, ptr %agg.result, align 8
   %cmp.i.i128 = icmp eq i64 %32, 0
   br i1 %cmp.i.i128, label %for.inc, label %return

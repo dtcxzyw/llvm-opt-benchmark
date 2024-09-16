@@ -1304,8 +1304,8 @@ invoke.cont27:                                    ; preds = %invoke.cont15
   %conv.i = zext i1 %cmp.i90 to i64
   %add.i = add nsw i64 %shr.i, %conv.i
   call void @llvm.memset.p0.i64(ptr align 1 %cond.i, i8 0, i64 %add.i, i1 false)
-  %cmp254 = icmp sgt i32 %length, 0
-  br i1 %cmp254, label %for.body.preheader, label %for.end
+  %cmp250 = icmp sgt i32 %length, 0
+  br i1 %cmp250, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %invoke.cont27
   %wide.trip.count = zext nneg i32 %length to i64
@@ -1318,13 +1318,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %22 = load i8, ptr %21, align 1
   %cmp38 = icmp ne i8 %22, 0
   %conv1.neg.i = sext i1 %cmp38 to i8
-  %div.i249250253 = lshr i64 %indvars.iv, 3
-  %div.i249.zext = and i64 %div.i249250253, 536870911
-  %arrayidx.i = getelementptr inbounds i8, ptr %cond.i, i64 %div.i249.zext
+  %div6.i249 = lshr i64 %indvars.iv, 3
+  %div.sext.i = and i64 %div6.i249, 536870911
+  %arrayidx.i = getelementptr inbounds i8, ptr %cond.i, i64 %div.sext.i
   %23 = load i8, ptr %arrayidx.i, align 1
   %xor.i = xor i8 %23, %conv1.neg.i
-  %rem.i251252 = and i64 %indvars.iv, 7
-  %arrayidx5.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem.i251252
+  %rem7.i = and i64 %indvars.iv, 7
+  %arrayidx5.i = getelementptr inbounds [8 x i8], ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 0, i64 %rem7.i
   %24 = load i8, ptr %arrayidx5.i, align 1
   %and4.i = and i8 %xor.i, %24
   %xor105.i = xor i8 %and4.i, %23
@@ -1370,11 +1370,11 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i
 if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %31 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre = load ptr, ptr %key_buf, align 8
-  %.pre257 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
+  %.pre253 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %invoke.cont41, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  %32 = phi ptr [ %16, %invoke.cont41 ], [ %16, %if.then.i.i.i.i.i ], [ %.pre257, %if.else.i.i.i.i.i ]
+  %32 = phi ptr [ %16, %invoke.cont41 ], [ %16, %if.then.i.i.i.i.i ], [ %.pre253, %if.else.i.i.i.i.i ]
   %33 = phi ptr [ %15, %invoke.cont41 ], [ %15, %if.then.i.i.i.i.i ], [ %.pre, %if.else.i.i.i.i.i ]
   %34 = load ptr, ptr %null_buf, align 8
   store ptr %34, ptr %ref.tmp46, align 8

@@ -49,7 +49,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dev_pm_set_wake_irq(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %24, label %4
 
@@ -90,7 +90,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @dev_pm_attach_wake_irq(ptr
 
 21:                                               ; preds = %20
   store ptr %1, ptr %7, align 8
-  tail call void @device_wakeup_attach_irq(ptr noundef nonnull %0, ptr noundef %1) #5
+  tail call void @device_wakeup_attach_irq(ptr noundef nonnull %0, ptr noundef nonnull %1) #5
   br label %22
 
 22:                                               ; preds = %.thread, %21, %20
@@ -161,7 +161,7 @@ define dso_local i32 @dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__dev_pm_set_dedicated_wake_irq(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 align 16 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %38, label %5
 

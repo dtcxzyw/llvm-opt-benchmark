@@ -53428,7 +53428,7 @@ invoke.cont76:                                    ; preds = %if.else73
   br i1 %call77, label %if.then78, label %invoke.cont86
 
 if.then78:                                        ; preds = %invoke.cont76
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp79, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp79, ptr nonnull %this, ptr %r)
           to label %invoke.cont80 unwind label %lpad56
 
 invoke.cont80:                                    ; preds = %if.then78
@@ -53453,7 +53453,7 @@ invoke.cont92:                                    ; preds = %invoke.cont86
 
 invoke.cont96:                                    ; preds = %invoke.cont92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i304)
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp98, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp98, ptr nonnull %this, ptr %r)
           to label %invoke.cont99 unwind label %lpad56
 
 invoke.cont99:                                    ; preds = %invoke.cont96
@@ -53528,7 +53528,7 @@ invoke.cont134:                                   ; preds = %invoke.cont129
   br i1 %cmp.i321, label %if.then140, label %invoke.cont149
 
 if.then140:                                       ; preds = %invoke.cont134
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp141, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp141, ptr nonnull %this, ptr %r)
           to label %invoke.cont142 unwind label %lpad56
 
 invoke.cont142:                                   ; preds = %if.then140
@@ -53559,7 +53559,7 @@ invoke.cont152:                                   ; preds = %invoke.cont149
 
 invoke.cont156:                                   ; preds = %invoke.cont152
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %s.addr.i323)
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp158, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp158, ptr nonnull %this, ptr %r)
           to label %invoke.cont159 unwind label %lpad153
 
 invoke.cont159:                                   ; preds = %invoke.cont156
@@ -53677,7 +53677,7 @@ invoke.cont210:                                   ; preds = %invoke.cont204
   br i1 %cmp.i350, label %if.then216, label %invoke.cont228
 
 if.then216:                                       ; preds = %invoke.cont210
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp217, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp217, ptr nonnull %this, ptr %r)
           to label %invoke.cont218 unwind label %lpad9
 
 invoke.cont218:                                   ; preds = %if.then216
@@ -53714,7 +53714,7 @@ invoke.cont235:                                   ; preds = %invoke.cont231
           to label %invoke.cont237 unwind label %lpad232
 
 invoke.cont237:                                   ; preds = %invoke.cont235
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp239, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp239, ptr nonnull %this, ptr %r)
           to label %invoke.cont240 unwind label %lpad232
 
 invoke.cont240:                                   ; preds = %invoke.cont237
@@ -53866,7 +53866,7 @@ invoke.cont319:                                   ; preds = %invoke.cont305
 
 invoke.cont324:                                   ; preds = %invoke.cont319
   %138 = load ptr, ptr %ref.tmp323, align 8
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp328, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp328, ptr nonnull %this, ptr %r)
           to label %invoke.cont329 unwind label %lpad325
 
 invoke.cont329:                                   ; preds = %invoke.cont324
@@ -54909,7 +54909,7 @@ invoke.cont777:                                   ; preds = %invoke.cont777.sink
   br i1 %cmp.i671, label %if.then783, label %invoke.cont789
 
 if.then783:                                       ; preds = %invoke.cont777
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp784, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp784, ptr nonnull %this, ptr %r)
           to label %invoke.cont785 unwind label %lpad435
 
 invoke.cont785:                                   ; preds = %if.then783
@@ -54938,7 +54938,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i.i.i676:     ; preds = %call2.i.noexc679
   br label %invoke.cont794
 
 invoke.cont794:                                   ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i.i676, %call2.i.noexc679
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp798, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp798, ptr nonnull %this, ptr %r)
           to label %invoke.cont799 unwind label %lpad795
 
 invoke.cont799:                                   ; preds = %invoke.cont794
@@ -55179,7 +55179,7 @@ if.then913:                                       ; preds = %invoke.cont911
   br i1 %or.cond, label %if.then919, label %if.else923
 
 if.then919:                                       ; preds = %if.then913
-  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nonnull align 8 %ref.tmp920, ptr nonnull %this, ptr %r)
+  invoke fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias align 8 %ref.tmp920, ptr nonnull %this, ptr %r)
           to label %invoke.cont921 unwind label %lpad9
 
 invoke.cont921:                                   ; preds = %if.then919
@@ -55438,7 +55438,7 @@ ehcleanup1038:                                    ; preds = %ehcleanup995, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
+define internal fastcc void @"_ZZN12seq_rewriter22mk_antimirov_deriv_recEP4exprS1_S1_R7obj_refIS0_11ast_managerEENK3$_0clEv"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr nonnull %this.8.val.0.val) unnamed_addr #3 align 2 {
 entry:
   %re.i = getelementptr inbounds i8, ptr %this.0.val, i64 56
   %call2 = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %this.8.val.0.val)

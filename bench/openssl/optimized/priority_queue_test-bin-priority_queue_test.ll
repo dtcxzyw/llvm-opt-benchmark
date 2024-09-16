@@ -312,7 +312,7 @@ err:                                              ; preds = %lor.lhs.false162, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef %reserve, i32 noundef %order, i32 noundef %count, i32 noundef %remove, i32 noundef %random, i32 noundef %popfree) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_size_t_priority_queue_int(i32 noundef range(i32 -1, 2) %reserve, i32 noundef range(i32 -2, 3) %order, i32 noundef %count, i32 noundef range(i32 -5, 5001) %remove, i32 noundef range(i32 -1, 2) %random, i32 noundef range(i32 -1, 2) %popfree) unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %order to i64
   %arrayidx = getelementptr inbounds [3 x ptr], ptr @test_size_t_priority_queue_int.orders, i64 0, i64 %idxprom

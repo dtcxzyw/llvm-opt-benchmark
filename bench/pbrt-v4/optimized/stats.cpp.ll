@@ -6516,7 +6516,7 @@ if.end:                                           ; preds = %for.body
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0168, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull %category, ptr noundef nonnull %title)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %category, ptr noundef %title)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -6606,7 +6606,7 @@ if.end31:                                         ; preds = %for.body25
   %add = add i64 %13, %totalMemoryReported.0171
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category33) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title34) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i55, ptr noundef nonnull %category33, ptr noundef nonnull %title34)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i55, ptr noundef %category33, ptr noundef %title34)
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %if.end31
@@ -6615,7 +6615,7 @@ invoke.cont37:                                    ; preds = %if.end31
 
 invoke.cont38:                                    ; preds = %invoke.cont37
   %14 = load i64, ptr %second28, align 8
-  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias nonnull align 8 %ref.tmp41, i64 noundef %14)
+  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias align 8 %ref.tmp41, i64 noundef %14)
           to label %invoke.cont43 unwind label %lpad36
 
 invoke.cont43:                                    ; preds = %invoke.cont38
@@ -6716,7 +6716,7 @@ invoke.cont63:                                    ; preds = %.noexc70
           to label %invoke.cont65 unwind label %lpad64
 
 invoke.cont65:                                    ; preds = %invoke.cont63
-  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias nonnull align 8 %ref.tmp68, i64 noundef %sub)
+  invoke fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias align 8 %ref.tmp68, i64 noundef %sub)
           to label %invoke.cont69 unwind label %lpad64
 
 invoke.cont69:                                    ; preds = %invoke.cont65
@@ -6810,7 +6810,7 @@ if.end95:                                         ; preds = %for.body89
   %_M_storage.i.i85 = getelementptr inbounds i8, ptr %__begin181.sroa.0.0173, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category96) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title97) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i85, ptr noundef nonnull %category96, ptr noundef nonnull %title97)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i85, ptr noundef %category96, ptr noundef %title97)
           to label %invoke.cont99 unwind label %lpad98
 
 invoke.cont99:                                    ; preds = %if.end95
@@ -6907,7 +6907,7 @@ if.end137:                                        ; preds = %for.body128
   %_M_storage.i.i100 = getelementptr inbounds i8, ptr %__begin1120.sroa.0.0175, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category138) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title139) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i100, ptr noundef nonnull %category138, ptr noundef nonnull %title139)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i100, ptr noundef %category138, ptr noundef %title139)
           to label %invoke.cont141 unwind label %lpad140
 
 invoke.cont141:                                   ; preds = %if.end137
@@ -7007,7 +7007,7 @@ if.end181:                                        ; preds = %for.body175
   store i64 %54, ptr %denom, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category186) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title187) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i115, ptr noundef nonnull %category186, ptr noundef nonnull %title187)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i115, ptr noundef %category186, ptr noundef %title187)
           to label %invoke.cont190 unwind label %lpad189
 
 invoke.cont190:                                   ; preds = %if.end181
@@ -7106,7 +7106,7 @@ if.end223:                                        ; preds = %for.body217
   store i64 %66, ptr %denom227, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %category230) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %title231) #23
-  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i130, ptr noundef nonnull %category230, ptr noundef nonnull %title231)
+  invoke fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i130, ptr noundef %category230, ptr noundef %title231)
           to label %invoke.cont234 unwind label %lpad233
 
 invoke.cont234:                                   ; preds = %if.end223
@@ -7449,7 +7449,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIllESt4less
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef %category, ptr noundef %title) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL19getCategoryAndTitleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_S8_(ptr noundef nonnull align 8 dereferenceable(32) %str, ptr noundef nonnull %category, ptr noundef nonnull %title) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %comps = alloca %"class.std::vector.14", align 8
   %va = alloca i64, align 8
@@ -7598,7 +7598,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias align 8 %agg.result, i64 noundef %bytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_0clB5cxx11Em"(ptr noalias nonnull align 8 %agg.result, i64 noundef %bytes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %kb = alloca float, align 4
   %mib = alloca float, align 4

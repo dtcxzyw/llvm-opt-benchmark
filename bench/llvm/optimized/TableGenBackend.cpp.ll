@@ -351,7 +351,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %60, %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9printLineRN4llvm11raw_ostreamERKNS_5TwineEcNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i8 noundef signext %2, ptr %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL9printLineRN4llvm11raw_ostreamERKNS_5TwineEcNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i8 noundef signext range(i8 32, 46) %2, ptr %3, i64 %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8

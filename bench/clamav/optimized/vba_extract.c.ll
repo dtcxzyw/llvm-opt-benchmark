@@ -2904,7 +2904,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not123, label %63, label %57
 
 63:                                               ; preds = %61
-  %64 = call fastcc i32 @seekandread(i32 noundef %24, i64 noundef -3, i32 noundef 1, ptr noundef nonnull %5, i64 noundef 2)
+  %64 = call fastcc i32 @seekandread(i32 noundef %24, i64 noundef -3, i32 noundef 1, ptr noundef %5, i64 noundef 2)
   %.not124 = icmp eq i32 %64, 0
   br i1 %.not124, label %65, label %67
 
@@ -3285,7 +3285,7 @@ read_uint16.exit156.thread.thread:                ; preds = %.preheader, %219, %
 declare i64 @cli_readn(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @vba_read_project_strings(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @vba_read_project_strings(i32 noundef range(i32 0, -1) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca i16, align 2
   store i16 0, ptr %4, align 2
@@ -3484,7 +3484,7 @@ read_uint16.exit.thread:                          ; preds = %57, %5, %17, %33, %
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @seekandread(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @seekandread(i32 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3, i64 noundef range(i64 1, 4294967296) %4) unnamed_addr #0 {
   %6 = tail call i64 @lseek(i32 noundef %0, i64 noundef %1, i32 noundef %2) #17
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %8, label %9
@@ -3494,7 +3494,7 @@ define internal fastcc range(i32 0, 2) i32 @seekandread(i32 noundef %0, i64 noun
   br label %13
 
 9:                                                ; preds = %5
-  %10 = tail call i64 @cli_readn(i32 noundef %0, ptr noundef %3, i64 noundef %4) #17
+  %10 = tail call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %3, i64 noundef %4) #17
   %11 = icmp eq i64 %10, %4
   %12 = zext i1 %11 to i32
   br label %13
@@ -3505,7 +3505,7 @@ define internal fastcc range(i32 0, 2) i32 @seekandread(i32 noundef %0, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_vba_project(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_vba_project(i32 noundef range(i32 1, 65536) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -3560,16 +3560,16 @@ define internal fastcc noundef ptr @create_vba_project(i32 noundef %0, ptr nound
 declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 noundef range(i32 0, 65536) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %77, label %5
+  br i1 %4, label %76, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
-  %8 = icmp slt i32 %1, 1
+  %8 = icmp eq i32 %1, 0
   %or.cond = or i1 %8, %7
-  br i1 %or.cond, label %77, label %9
+  br i1 %or.cond, label %76, label %9
 
 9:                                                ; preds = %5
   %10 = mul nuw nsw i32 %1, 7
@@ -3581,7 +3581,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
 
 15:                                               ; preds = %9
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.169) #17
-  br label %77
+  br label %76
 
 16:                                               ; preds = %9
   %.not = icmp eq i32 %2, 0
@@ -3601,59 +3601,59 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
 .lr.ph.preheader:                                 ; preds = %17, %16, %19
   %.05778 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
   %21 = phi i64 [ 2, %19 ], [ 1, %16 ], [ 2, %17 ]
-  %sext = zext nneg i32 %.05778 to i64
+  %22 = zext nneg i32 %.05778 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
   %.05673 = phi ptr [ %13, %.lr.ph.preheader ], [ %.2, %69 ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i8 %23 to i32
-  %25 = and i32 %24, 128
-  %.not66 = icmp eq i32 %25, 0
-  br i1 %.not66, label %26, label %36
+  %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %24 = load i8, ptr %23, align 1
+  %25 = sext i8 %24 to i32
+  %26 = and i32 %25, 128
+  %.not66 = icmp eq i32 %26, 0
+  br i1 %.not66, label %27, label %37
 
-26:                                               ; preds = %.lr.ph
-  %27 = tail call ptr @__ctype_b_loc() #20
-  %28 = load ptr, ptr %27, align 8
-  %29 = sext i8 %23 to i64
-  %30 = getelementptr inbounds i16, ptr %28, i64 %29
-  %31 = load i16, ptr %30, align 2
-  %32 = and i16 %31, 16384
-  %.not67 = icmp eq i16 %32, 0
-  br i1 %.not67, label %36, label %33
+27:                                               ; preds = %.lr.ph
+  %28 = tail call ptr @__ctype_b_loc() #20
+  %29 = load ptr, ptr %28, align 8
+  %30 = sext i8 %24 to i64
+  %31 = getelementptr inbounds i16, ptr %29, i64 %30
+  %32 = load i16, ptr %31, align 2
+  %33 = and i16 %32, 16384
+  %.not67 = icmp eq i16 %33, 0
+  br i1 %.not67, label %37, label %34
 
-33:                                               ; preds = %26
-  %34 = tail call i32 @tolower(i32 noundef %24) #18
-  %35 = trunc i32 %34 to i8
-  store i8 %35, ptr %.05673, align 1
+34:                                               ; preds = %27
+  %35 = tail call i32 @tolower(i32 noundef %25) #18
+  %36 = trunc i32 %35 to i8
+  store i8 %36, ptr %.05673, align 1
   br label %69
 
-36:                                               ; preds = %26, %.lr.ph
-  %or.cond70 = icmp ult i8 %23, 10
-  br i1 %or.cond70, label %37, label %42
+37:                                               ; preds = %27, %.lr.ph
+  %or.cond70 = icmp ult i8 %24, 10
+  br i1 %or.cond70, label %38, label %43
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.05673, i64 1
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds i8, ptr %.05673, i64 1
   store i8 95, ptr %.05673, align 1
-  %39 = load i8, ptr %22, align 1
-  %40 = add i8 %39, 48
-  %41 = getelementptr inbounds i8, ptr %.05673, i64 2
-  store i8 %40, ptr %38, align 1
+  %40 = load i8, ptr %23, align 1
+  %41 = add i8 %40, 48
+  %42 = getelementptr inbounds i8, ptr %.05673, i64 2
+  store i8 %41, ptr %39, align 1
   br label %68
 
-42:                                               ; preds = %36
-  %43 = add nuw nsw i64 %indvars.iv, 1
-  %44 = icmp ult i64 %43, %sext
-  br i1 %44, label %45, label %._crit_edge
+43:                                               ; preds = %37
+  %44 = add nuw nsw i64 %indvars.iv, 1
+  %.not68 = icmp ult i64 %44, %22
+  br i1 %.not68, label %45, label %._crit_edge
 
-45:                                               ; preds = %42
-  %46 = icmp slt i8 %23, 0
-  %47 = zext nneg i8 %23 to i32
+45:                                               ; preds = %43
+  %46 = icmp slt i8 %24, 0
+  %47 = zext nneg i8 %24 to i32
   %48 = shl nuw nsw i32 %47, 8
   %49 = select i1 %46, i32 0, i32 %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 %43
+  %50 = getelementptr inbounds i8, ptr %0, i64 %44
   %51 = load i8, ptr %50, align 1
   %52 = sext i8 %51 to i32
   %53 = or i32 %49, %52
@@ -3679,33 +3679,32 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly %0, i32 nounde
   store i8 97, ptr %66, align 1
   br label %68
 
-68:                                               ; preds = %45, %37
-  %.1 = phi ptr [ %41, %37 ], [ %67, %45 ]
+68:                                               ; preds = %45, %38
+  %.1 = phi ptr [ %42, %38 ], [ %67, %45 ]
   store i8 95, ptr %.1, align 1
   br label %69
 
-69:                                               ; preds = %33, %68
-  %.1.pn = phi ptr [ %.1, %68 ], [ %.05673, %33 ]
+69:                                               ; preds = %34, %68
+  %.1.pn = phi ptr [ %.1, %68 ], [ %.05673, %34 ]
   %.2 = getelementptr inbounds i8, ptr %.1.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
-  %70 = trunc nuw i64 %indvars.iv.next to i32
-  %71 = icmp sgt i32 %.05778, %70
-  br i1 %71, label %.lr.ph, label %._crit_edge
+  %70 = icmp ult i64 %indvars.iv.next, %22
+  br i1 %70, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %69, %42, %19
-  %.056.lcssa = phi ptr [ %13, %19 ], [ %.05673, %42 ], [ %.2, %69 ]
+._crit_edge:                                      ; preds = %69, %43, %19
+  %.056.lcssa = phi ptr [ %13, %19 ], [ %.05673, %43 ], [ %.2, %69 ]
   store i8 0, ptr %.056.lcssa, align 1
-  %72 = ptrtoint ptr %.056.lcssa to i64
-  %73 = ptrtoint ptr %13 to i64
-  %reass.sub = sub i64 %72, %73
-  %74 = add i64 %reass.sub, 1
-  %75 = tail call ptr @cli_max_realloc(ptr noundef nonnull %13, i64 noundef %74) #17
-  %.not69 = icmp eq ptr %75, null
-  %76 = select i1 %.not69, ptr %13, ptr %75
-  br label %77
+  %71 = ptrtoint ptr %.056.lcssa to i64
+  %72 = ptrtoint ptr %13 to i64
+  %reass.sub = sub i64 %71, %72
+  %73 = add i64 %reass.sub, 1
+  %74 = tail call ptr @cli_max_realloc(ptr noundef nonnull %13, i64 noundef %73) #17
+  %.not69 = icmp eq ptr %74, null
+  %75 = select i1 %.not69, ptr %13, ptr %74
+  br label %76
 
-77:                                               ; preds = %3, %5, %._crit_edge, %15
-  %.0 = phi ptr [ null, %15 ], [ %76, %._crit_edge ], [ null, %5 ], [ null, %3 ]
+76:                                               ; preds = %3, %5, %._crit_edge, %15
+  %.0 = phi ptr [ null, %15 ], [ %75, %._crit_edge ], [ null, %5 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -3917,7 +3916,7 @@ read_uint32.exit.thread:                          ; preds = %54, %9, %skip_past_
 declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @skip_past_nul(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @skip_past_nul(i32 noundef range(i32 0, -2147483648) %0) unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   br label %3
 

@@ -7458,7 +7458,7 @@ declare void @gtk_notebook_set_show_tabs(ptr noundef, i32 noundef) local_unnamed
 declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #19 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #19 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2
@@ -7653,7 +7653,7 @@ declare void @cairo_scale(ptr noundef, double noundef, double noundef) local_unn
 declare void @cairo_set_operator(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @dt_draw_histogram_8_zoomed(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) unnamed_addr #21 {
+define internal fastcc void @dt_draw_histogram_8_zoomed(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, i32 noundef %6) unnamed_addr #21 {
   %8 = fneg reassoc nsz arcp contract afn float %4
   %9 = fpext float %8 to double
   %10 = fneg reassoc nsz arcp contract afn float %5
@@ -7728,7 +7728,7 @@ declare ptr @dt_ioppr_get_histogram_profile_info(ptr noundef) local_unnamed_addr
 declare void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @picker_scale(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #22 {
+define internal fastcc void @picker_scale(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #22 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
   %7 = alloca [4 x float], align 16

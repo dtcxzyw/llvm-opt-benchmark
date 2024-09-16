@@ -9504,7 +9504,7 @@ invoke.cont27:                                    ; preds = %call.i.i2.i.noexc52
   store ptr %call.i.i2.i53, ptr %agg.tmp22, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i51, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_St8functionIFbvEEE3$_1E10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation", ptr %_M_manager.i.i42, align 8
-  invoke fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef nonnull %agg.tmp11, ptr noundef nonnull %agg.tmp12, ptr noundef nonnull %agg.tmp22, i1 noundef zeroext false)
+  invoke fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp10, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef %agg.tmp11, ptr noundef %agg.tmp12, ptr noundef %agg.tmp22, i1 noundef zeroext false)
           to label %invoke.cont29 unwind label %lpad28
 
 invoke.cont29:                                    ; preds = %invoke.cont27
@@ -9741,7 +9741,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i2, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZN8facebook6hermes7tracing24makeTracingHermesRuntimeESt10unique_ptrINS2_13HermesRuntimeESt14default_deleteIS5_EERKN6hermes2vm13RuntimeConfigES4_IN4llvh11raw_ostreamES6_ISF_EEbE3$_1E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %_M_manager.i.i1, align 8
-  invoke fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef nonnull %agg.tmp1, ptr noundef nonnull %agg.tmp2, ptr noundef nonnull %agg.tmp3, i1 noundef zeroext %forReplay)
+  invoke fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef %agg.tmp, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef %agg.tmp1, ptr noundef %agg.tmp2, ptr noundef %agg.tmp3, i1 noundef zeroext %forReplay)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -9868,7 +9868,7 @@ _ZNSt10unique_ptrIN8facebook6hermes13HermesRuntimeESt14default_deleteIS2_EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef %traceStream, ptr noundef %commitAction, ptr noundef %rollbackAction, i1 noundef zeroext %forReplay) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook6hermes7tracingL28makeTracingHermesRuntimeImplESt10unique_ptrINS0_13HermesRuntimeESt14default_deleteIS3_EERKN6hermes2vm13RuntimeConfigES2_IN4llvh11raw_ostreamES4_ISD_EESt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESG_IFvvEEb(ptr noalias align 8 %agg.result, ptr noundef nonnull %hermesRuntime, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig, ptr noundef nonnull %traceStream, ptr noundef nonnull %commitAction, ptr noundef nonnull %rollbackAction, i1 noundef zeroext %forReplay) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.facebook::jsi::Value", align 8
   %agg.tmp.i.i = alloca %"class.std::function.31", align 8

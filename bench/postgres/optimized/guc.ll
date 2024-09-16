@@ -2157,7 +2157,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   %23 = and i8 %22, 1
   store i8 %23, ptr %2, align 1
   store ptr null, ptr %3, align 8
-  %24 = call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 15)
+  %24 = call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef 15)
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %20
@@ -2199,7 +2199,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   %47 = load i32, ptr %46, align 8
   store i32 %47, ptr %4, align 4
   store ptr null, ptr %5, align 8
-  %48 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 15)
+  %48 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef 0, i32 noundef 15)
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %45
@@ -2237,7 +2237,7 @@ define internal fastcc void @InitializeOneGUCOption(ptr nocapture noundef %0) un
   %67 = load double, ptr %66, align 8
   store double %67, ptr %6, align 8
   store ptr null, ptr %7, align 8
-  %68 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 15)
+  %68 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, i32 noundef 0, i32 noundef 15)
   br i1 %68, label %74, label %69
 
 69:                                               ; preds = %65
@@ -2300,7 +2300,7 @@ guc_malloc.exit.i:                                ; preds = %88
 guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, %85
   %storemerge = phi ptr [ null, %85 ], [ %92, %guc_malloc.exit.i ]
   store ptr %storemerge, ptr %8, align 8
-  %98 = call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0, i32 noundef 15)
+  %98 = call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %9, i32 noundef 0, i32 noundef 15)
   br i1 %98, label %105, label %99
 
 99:                                               ; preds = %guc_strdup.exit
@@ -2340,7 +2340,7 @@ guc_strdup.exit:                                  ; preds = %guc_malloc.exit.i, 
   %118 = load i32, ptr %117, align 8
   store i32 %118, ptr %10, align 4
   store ptr null, ptr %11, align 8
-  %119 = call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 15)
+  %119 = call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, i32 noundef 0, i32 noundef 15)
   br i1 %119, label %125, label %120
 
 120:                                              ; preds = %116
@@ -2675,7 +2675,7 @@ define dso_local void @ResetAllOptions() local_unnamed_addr #0 {
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds i8, ptr %18, i64 56
-  tail call fastcc void @discard_stack_value(ptr noundef nonnull %2, ptr noundef nonnull %27)
+  tail call fastcc void @discard_stack_value(ptr noundef nonnull %2, ptr noundef %27)
   br label %28
 
 28:                                               ; preds = %26, %22
@@ -3290,7 +3290,7 @@ define internal fastcc void @push_old_value(ptr noundef %0, i32 noundef %1) unna
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds i8, ptr %7, i64 56
-  tail call fastcc void @discard_stack_value(ptr noundef nonnull %0, ptr noundef nonnull %17)
+  tail call fastcc void @discard_stack_value(ptr noundef nonnull %0, ptr noundef %17)
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -3648,12 +3648,12 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 49:                                               ; preds = %.split.us
   %50 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %50)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %50)
   br label %436
 
 51:                                               ; preds = %.split290.us
   %52 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %52)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %52)
   %53 = getelementptr inbounds i8, ptr %31, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 3
@@ -3661,7 +3661,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %31, i64 56
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %57)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %57)
   br label %58
 
 58:                                               ; preds = %56, %51
@@ -3691,12 +3691,12 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 72:                                               ; preds = %59
   %73 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %73)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %73)
   br label %.thread338
 
 74:                                               ; preds = %.split290.us
   %75 = getelementptr inbounds i8, ptr %27, i64 40
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %75)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %75)
   %76 = getelementptr inbounds i8, ptr %27, i64 24
   %77 = load i32, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %31, i64 24
@@ -3712,7 +3712,7 @@ define dso_local void @AtEOXact_GUC(i1 noundef zeroext %0, i32 noundef %1) local
 
 85:                                               ; preds = %74
   %86 = getelementptr inbounds i8, ptr %31, i64 56
-  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef nonnull %86)
+  tail call fastcc void @discard_stack_value(ptr noundef %5, ptr noundef %86)
   br label %87
 
 87:                                               ; preds = %85, %74
@@ -4600,7 +4600,7 @@ set_guc_source.exit:                              ; preds = %423, %dlist_push_ta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @discard_stack_value(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @discard_stack_value(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 3
@@ -5036,7 +5036,7 @@ define dso_local noundef zeroext i1 @parse_int(ptr noundef %0, ptr noundef write
   br i1 %41, label %59, label %42
 
 42:                                               ; preds = %39
-  %43 = call fastcc zeroext i1 @convert_to_base_unit(double noundef %22, ptr noundef nonnull %31, i32 noundef %40, ptr noundef nonnull %5)
+  %43 = call fastcc zeroext i1 @convert_to_base_unit(double noundef %22, ptr noundef nonnull %31, i32 noundef %40, ptr noundef %5)
   br i1 %43, label %._crit_edge, label %44
 
 ._crit_edge:                                      ; preds = %42
@@ -5097,7 +5097,7 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #15 {
+define internal fastcc noundef zeroext i1 @convert_to_base_unit(double noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 2130706433) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #15 {
   %5 = alloca [4 x i8], align 1
   %6 = load i8, ptr %1, align 1
   %.not47 = icmp eq i8 %6, 0
@@ -5293,7 +5293,7 @@ define dso_local noundef zeroext i1 @parse_real(ptr noundef %0, ptr noundef writ
   br i1 %32, label %43, label %33
 
 33:                                               ; preds = %30
-  %34 = call fastcc zeroext i1 @convert_to_base_unit(double noundef %12, ptr noundef nonnull %22, i32 noundef %31, ptr noundef nonnull %5)
+  %34 = call fastcc zeroext i1 @convert_to_base_unit(double noundef %12, ptr noundef nonnull %22, i32 noundef %31, ptr noundef %5)
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %33
@@ -5774,7 +5774,7 @@ switch.early.test:                                ; preds = %.thread
   br i1 %.not676, label %140, label %138
 
 138:                                              ; preds = %137
-  %139 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %.0601, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %.0600, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %139 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %.0601, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %.0600, ptr noundef %11, ptr noundef %12)
   br i1 %139, label %159, label %guc_free.exit715
 
 140:                                              ; preds = %137
@@ -5786,7 +5786,7 @@ switch.early.test:                                ; preds = %.thread
   %144 = load i8, ptr %143, align 8
   %145 = and i8 %144, 1
   store i8 %145, ptr %11, align 8
-  %146 = call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %.0601, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %.0600)
+  %146 = call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %.0601, ptr noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %.0600)
   br i1 %146, label %159, label %guc_free.exit715
 
 147:                                              ; preds = %140
@@ -5817,7 +5817,7 @@ switch.early.test:                                ; preds = %.thread
   br i1 %.not682, label %164, label %162
 
 162:                                              ; preds = %160
-  %163 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %161)
+  %163 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %161)
   br i1 %163, label %164, label %guc_free.exit
 
 guc_free.exit:                                    ; preds = %162
@@ -6033,7 +6033,7 @@ set_extra_field.exit:                             ; preds = %248, %252, %220, %2
   br i1 %.not680, label %775, label %260
 
 260:                                              ; preds = %.loopexit
-  %261 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %259)
+  %261 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %259)
   br i1 %261, label %775, label %.sink.split
 
 262:                                              ; preds = %134
@@ -6041,7 +6041,7 @@ set_extra_field.exit:                             ; preds = %248, %252, %220, %2
   br i1 %.not668, label %265, label %263
 
 263:                                              ; preds = %262
-  %264 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %.0601, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %.0600, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %264 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %.0601, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %.0600, ptr noundef %11, ptr noundef %12)
   br i1 %264, label %282, label %guc_free.exit715
 
 265:                                              ; preds = %262
@@ -6052,7 +6052,7 @@ set_extra_field.exit:                             ; preds = %248, %252, %220, %2
   %268 = getelementptr inbounds i8, ptr %.0601, i64 152
   %269 = load i32, ptr %268, align 8
   store i32 %269, ptr %11, align 8
-  %270 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %.0601, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %.0600)
+  %270 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %.0601, ptr noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %.0600)
   br i1 %270, label %282, label %guc_free.exit715
 
 271:                                              ; preds = %265
@@ -6082,7 +6082,7 @@ set_extra_field.exit:                             ; preds = %248, %252, %220, %2
   br i1 %.not674, label %287, label %285
 
 285:                                              ; preds = %283
-  %286 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %284)
+  %286 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %284)
   br i1 %286, label %287, label %guc_free.exit695
 
 guc_free.exit695:                                 ; preds = %285
@@ -6292,7 +6292,7 @@ set_extra_field.exit701:                          ; preds = %365, %369, %338, %3
   br i1 %.not672, label %775, label %377
 
 377:                                              ; preds = %.loopexit747
-  %378 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %376)
+  %378 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %376)
   br i1 %378, label %775, label %.sink.split
 
 379:                                              ; preds = %134
@@ -6300,7 +6300,7 @@ set_extra_field.exit701:                          ; preds = %365, %369, %338, %3
   br i1 %.not661, label %382, label %380
 
 380:                                              ; preds = %379
-  %381 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %.0601, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %.0600, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %381 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %.0601, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %.0600, ptr noundef %11, ptr noundef %12)
   br i1 %381, label %399, label %guc_free.exit715
 
 382:                                              ; preds = %379
@@ -6311,7 +6311,7 @@ set_extra_field.exit701:                          ; preds = %365, %369, %338, %3
   %385 = getelementptr inbounds i8, ptr %.0601, i64 152
   %386 = load double, ptr %385, align 8
   store double %386, ptr %11, align 8
-  %387 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %.0601, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %.0600)
+  %387 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %.0601, ptr noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %.0600)
   br i1 %387, label %399, label %guc_free.exit715
 
 388:                                              ; preds = %382
@@ -6341,7 +6341,7 @@ set_extra_field.exit701:                          ; preds = %365, %369, %338, %3
   br i1 %.not667, label %404, label %402
 
 402:                                              ; preds = %400
-  %403 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %401)
+  %403 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %401)
   br i1 %403, label %404, label %guc_free.exit705
 
 guc_free.exit705:                                 ; preds = %402
@@ -6551,7 +6551,7 @@ set_extra_field.exit711:                          ; preds = %483, %487, %456, %4
   br i1 %.not665, label %775, label %495
 
 495:                                              ; preds = %.loopexit748
-  %496 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %494)
+  %496 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %494)
   br i1 %496, label %775, label %.sink.split
 
 497:                                              ; preds = %134
@@ -6559,7 +6559,7 @@ set_extra_field.exit711:                          ; preds = %483, %487, %456, %4
   br i1 %.not651, label %500, label %498
 
 498:                                              ; preds = %497
-  %499 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %.0601, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %.0600, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %499 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %.0601, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %.0600, ptr noundef %11, ptr noundef %12)
   br i1 %499, label %525, label %guc_free.exit715
 
 500:                                              ; preds = %497
@@ -6583,7 +6583,7 @@ set_extra_field.exit711:                          ; preds = %483, %487, %456, %4
   br label %509
 
 509:                                              ; preds = %505, %508
-  %510 = call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %.0601, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %.0600)
+  %510 = call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %.0601, ptr noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %.0600)
   br i1 %510, label %525, label %511
 
 511:                                              ; preds = %509
@@ -6636,7 +6636,7 @@ set_extra_field.exit711:                          ; preds = %483, %487, %456, %4
 
 536:                                              ; preds = %.thread745, %535
   %537 = phi i1 [ %534, %.thread745 ], [ true, %535 ]
-  %538 = call fastcc zeroext i1 @string_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %531)
+  %538 = call fastcc zeroext i1 @string_field_used(ptr noundef nonnull %.0601, ptr noundef %531)
   br i1 %538, label %539, label %guc_free.exit717
 
 guc_free.exit717:                                 ; preds = %536
@@ -6650,7 +6650,7 @@ guc_free.exit717:                                 ; preds = %536
   br i1 %.not660, label %544, label %542
 
 542:                                              ; preds = %539
-  %543 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %541)
+  %543 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %541)
   br i1 %543, label %544, label %guc_free.exit719
 
 guc_free.exit719:                                 ; preds = %542
@@ -6901,7 +6901,7 @@ set_extra_field.exit730:                          ; preds = %640, %644, %set_str
   br i1 %.not656, label %654, label %652
 
 652:                                              ; preds = %.loopexit749
-  %653 = call fastcc zeroext i1 @string_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %651)
+  %653 = call fastcc zeroext i1 @string_field_used(ptr noundef nonnull %.0601, ptr noundef %651)
   br i1 %653, label %654, label %guc_free.exit732
 
 guc_free.exit732:                                 ; preds = %652
@@ -6914,7 +6914,7 @@ guc_free.exit732:                                 ; preds = %652
   br i1 %.not657, label %775, label %656
 
 656:                                              ; preds = %654
-  %657 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %655)
+  %657 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %655)
   br i1 %657, label %775, label %.sink.split
 
 658:                                              ; preds = %134
@@ -6922,7 +6922,7 @@ guc_free.exit732:                                 ; preds = %652
   br i1 %.not643, label %661, label %659
 
 659:                                              ; preds = %658
-  %660 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %.0601, ptr noundef %0, ptr noundef nonnull %2, i32 noundef %4, i32 noundef %.0600, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %660 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %.0601, ptr noundef %0, ptr noundef %2, i32 noundef %4, i32 noundef %.0600, ptr noundef %11, ptr noundef %12)
   br i1 %660, label %678, label %guc_free.exit715
 
 661:                                              ; preds = %658
@@ -6933,7 +6933,7 @@ guc_free.exit732:                                 ; preds = %652
   %664 = getelementptr inbounds i8, ptr %.0601, i64 152
   %665 = load i32, ptr %664, align 8
   store i32 %665, ptr %11, align 8
-  %666 = call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %.0601, ptr noundef nonnull %11, ptr noundef nonnull %12, i32 noundef 0, i32 noundef %.0600)
+  %666 = call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %.0601, ptr noundef %11, ptr noundef %12, i32 noundef 0, i32 noundef %.0600)
   br i1 %666, label %678, label %guc_free.exit715
 
 667:                                              ; preds = %661
@@ -6963,7 +6963,7 @@ guc_free.exit732:                                 ; preds = %652
   br i1 %.not649, label %683, label %681
 
 681:                                              ; preds = %679
-  %682 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %680)
+  %682 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %680)
   br i1 %682, label %683, label %guc_free.exit736
 
 guc_free.exit736:                                 ; preds = %681
@@ -7173,7 +7173,7 @@ set_extra_field.exit742:                          ; preds = %761, %765, %734, %7
   br i1 %.not647, label %775, label %773
 
 773:                                              ; preds = %.loopexit750
-  %774 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef nonnull %772)
+  %774 = call fastcc zeroext i1 @extra_field_used(ptr noundef nonnull %.0601, ptr noundef %772)
   br i1 %774, label %775, label %.sink.split
 
 .sink.split:                                      ; preds = %773, %656, %495, %377, %260
@@ -7226,7 +7226,7 @@ declare zeroext i1 @InLocalUserIdChange() local_unnamed_addr #1
 declare zeroext i1 @InSecurityRestrictedOperation() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4, ptr noundef nonnull %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 36
@@ -7240,7 +7240,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
   ]
 
 12:                                               ; preds = %7
-  %13 = tail call zeroext i1 @parse_bool(ptr noundef %2, ptr noundef %5) #29
+  %13 = tail call zeroext i1 @parse_bool(ptr noundef nonnull %2, ptr noundef nonnull %5) #29
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %12
@@ -7260,7 +7260,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
 21:                                               ; preds = %7
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   %23 = load i32, ptr %22, align 8
-  %24 = call zeroext i1 @parse_int(ptr noundef %2, ptr noundef %5, i32 noundef %23, ptr noundef nonnull %8)
+  %24 = call zeroext i1 @parse_int(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef %23, ptr noundef nonnull %8)
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %21
@@ -7269,7 +7269,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
 
 27:                                               ; preds = %25
   %28 = call i32 @errcode(i32 noundef 50856066) #29
-  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef %2) #29
+  %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef nonnull %2) #29
   %30 = load ptr, ptr %8, align 8
   %.not158 = icmp eq ptr %30, null
   br i1 %.not158, label %33, label %31
@@ -7315,13 +7315,13 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
   br label %142
 
 56:                                               ; preds = %39
-  %57 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
+  %57 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
   br i1 %57, label %141, label %142
 
 58:                                               ; preds = %7
   %59 = getelementptr inbounds i8, ptr %0, i64 32
   %60 = load i32, ptr %59, align 8
-  %61 = call zeroext i1 @parse_real(ptr noundef %2, ptr noundef %5, i32 noundef %60, ptr noundef nonnull %9)
+  %61 = call zeroext i1 @parse_real(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef %60, ptr noundef nonnull %9)
   br i1 %61, label %71, label %62
 
 62:                                               ; preds = %58
@@ -7330,7 +7330,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
 
 64:                                               ; preds = %62
   %65 = call i32 @errcode(i32 noundef 50856066) #29
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef %2) #29
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef nonnull %2) #29
   %67 = load ptr, ptr %9, align 8
   %.not156 = icmp eq ptr %67, null
   br i1 %.not156, label %70, label %68
@@ -7376,7 +7376,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr nocaptur
   br label %142
 
 93:                                               ; preds = %76
-  %94 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
+  %94 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
   br i1 %94, label %141, label %142
 
 95:                                               ; preds = %7
@@ -7402,7 +7402,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
   br label %142
 
 106:                                              ; preds = %95
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr readonly align 1 %2, i64 %97, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull readonly align 1 %2, i64 %97, i1 false)
   store ptr %99, ptr %5, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 32
   %108 = load i32, ptr %107, align 8
@@ -7417,7 +7417,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
   br label %113
 
 113:                                              ; preds = %110, %106
-  %114 = tail call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
+  %114 = tail call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
   br i1 %114, label %141, label %115
 
 115:                                              ; preds = %113
@@ -7446,7 +7446,7 @@ guc_free.exit:                                    ; preds = %115, %117
   br i1 %.not12.i, label %.loopexit, label %122
 
 122:                                              ; preds = %.lr.ph.i
-  %123 = tail call i32 @pg_strcasecmp(ptr noundef %2, ptr noundef nonnull %121) #29
+  %123 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %2, ptr noundef nonnull %121) #29
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %137, label %125
 
@@ -7457,13 +7457,13 @@ guc_free.exit:                                    ; preds = %115, %117
 
 .loopexit:                                        ; preds = %.lr.ph.i, %125, %118
   store i32 0, ptr %5, align 4
-  %127 = tail call ptr @config_enum_get_options(ptr noundef %0, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
+  %127 = tail call ptr @config_enum_get_options(ptr noundef nonnull %0, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.119)
   %128 = tail call zeroext i1 @errstart(i32 noundef %4, ptr noundef null) #29
   br i1 %128, label %129, label %135
 
 129:                                              ; preds = %.loopexit
   %130 = tail call i32 @errcode(i32 noundef 50856066) #29
-  %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef %2) #29
+  %131 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.73, ptr noundef %1, ptr noundef nonnull %2) #29
   %.not = icmp eq ptr %127, null
   br i1 %.not, label %134, label %132
 
@@ -7487,7 +7487,7 @@ guc_free.exit:                                    ; preds = %115, %117
   %138 = getelementptr inbounds i8, ptr %.015.i, i64 8
   %139 = load i32, ptr %138, align 8
   store i32 %139, ptr %5, align 4
-  %140 = tail call fastcc zeroext i1 @call_enum_check_hook(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
+  %140 = tail call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %6, i32 noundef %3, i32 noundef %4)
   br i1 %140, label %141, label %142
 
 141:                                              ; preds = %137, %113, %93, %56, %19, %7
@@ -7499,7 +7499,7 @@ guc_free.exit:                                    ; preds = %115, %117
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 160
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7510,7 +7510,7 @@ define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr nocapture no
   store ptr null, ptr @GUC_check_errmsg_string, align 8
   store ptr null, ptr @GUC_check_errdetail_string, align 8
   store ptr null, ptr @GUC_check_errhint_string, align 8
-  %9 = tail call zeroext i1 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #29
+  %9 = tail call zeroext i1 %7(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #29
   br i1 %9, label %34, label %10
 
 10:                                               ; preds = %8
@@ -7568,7 +7568,7 @@ define internal fastcc noundef zeroext i1 @call_bool_check_hook(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture noundef readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -7643,7 +7643,7 @@ define internal fastcc noundef zeroext i1 @extra_field_used(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @call_int_check_hook(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @call_int_check_hook(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7654,7 +7654,7 @@ define internal fastcc noundef zeroext i1 @call_int_check_hook(ptr nocapture nou
   store ptr null, ptr @GUC_check_errmsg_string, align 8
   store ptr null, ptr @GUC_check_errdetail_string, align 8
   store ptr null, ptr @GUC_check_errhint_string, align 8
-  %9 = tail call zeroext i1 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #29
+  %9 = tail call zeroext i1 %7(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #29
   br i1 %9, label %32, label %10
 
 10:                                               ; preds = %8
@@ -7710,7 +7710,7 @@ define internal fastcc noundef zeroext i1 @call_int_check_hook(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @call_real_check_hook(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @call_real_check_hook(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7721,7 +7721,7 @@ define internal fastcc noundef zeroext i1 @call_real_check_hook(ptr nocapture no
   store ptr null, ptr @GUC_check_errmsg_string, align 8
   store ptr null, ptr @GUC_check_errdetail_string, align 8
   store ptr null, ptr @GUC_check_errhint_string, align 8
-  %9 = tail call zeroext i1 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #29
+  %9 = tail call zeroext i1 %7(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #29
   br i1 %9, label %32, label %10
 
 10:                                               ; preds = %8
@@ -7777,7 +7777,7 @@ define internal fastcc noundef zeroext i1 @call_real_check_hook(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @call_string_check_hook(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @call_string_check_hook(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca [1 x %struct.__jmp_buf_tag], align 16
   store volatile i8 1, ptr %6, align 1
@@ -7800,7 +7800,7 @@ define internal fastcc zeroext i1 @call_string_check_hook(ptr nocapture noundef 
   store ptr null, ptr @GUC_check_errdetail_string, align 8
   store ptr null, ptr @GUC_check_errhint_string, align 8
   %16 = load ptr, ptr %8, align 8
-  %17 = call zeroext i1 %16(ptr noundef %1, ptr noundef %2, i32 noundef %3) #29
+  %17 = call zeroext i1 %16(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #29
   br i1 %17, label %42, label %18
 
 18:                                               ; preds = %15
@@ -7874,7 +7874,7 @@ define internal fastcc zeroext i1 @call_string_check_hook(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture noundef readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7921,7 +7921,7 @@ define internal fastcc noundef zeroext i1 @string_field_used(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @call_enum_check_hook(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @call_enum_check_hook(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 1, 0) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7932,7 +7932,7 @@ define internal fastcc noundef zeroext i1 @call_enum_check_hook(ptr nocapture no
   store ptr null, ptr @GUC_check_errmsg_string, align 8
   store ptr null, ptr @GUC_check_errdetail_string, align 8
   store ptr null, ptr @GUC_check_errhint_string, align 8
-  %9 = tail call zeroext i1 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #29
+  %9 = tail call zeroext i1 %7(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) #29
   br i1 %9, label %44, label %10
 
 10:                                               ; preds = %8
@@ -8253,7 +8253,7 @@ define dso_local void @AlterSystemSetConfigFile(ptr nocapture noundef readonly %
 
 55:                                               ; preds = %54
   store ptr null, ptr %9, align 8
-  %56 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef nonnull %41, ptr noundef %15, ptr noundef nonnull %.0, i32 noundef 3, i32 noundef 21, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %56 = call fastcc zeroext i1 @parse_and_validate_value(ptr noundef %41, ptr noundef %15, ptr noundef %.0, i32 noundef 3, i32 noundef 21, ptr noundef %8, ptr noundef %9)
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %55
@@ -8689,7 +8689,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @DefineCustomBoolVariable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = zext i1 %4 to i8
-  %12 = tail call fastcc ptr @init_custom_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef 0, i64 noundef 200)
+  %12 = tail call fastcc ptr @init_custom_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef 0, i64 noundef 200)
   %13 = getelementptr inbounds i8, ptr %12, i64 144
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 152
@@ -8707,7 +8707,7 @@ define dso_local void @DefineCustomBoolVariable(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @init_custom_variable(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @init_custom_variable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 5) %5, i64 noundef range(i64 200, 217) %6) unnamed_addr #0 {
   %8 = icmp eq i32 %3, 1
   br i1 %8, label %9, label %15
 
@@ -8773,7 +8773,7 @@ define internal fastcc ptr @init_custom_variable(ptr nocapture noundef readonly 
   unreachable
 
 guc_malloc.exit:                                  ; preds = %.thread23
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %6, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %31, i8 0, i64 %6, i1 false)
   %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #30
   %38 = add i64 %37, 1
   %39 = load ptr, ptr @GUCMemoryContext, align 8
@@ -8790,7 +8790,7 @@ guc_malloc.exit:                                  ; preds = %.thread23
   unreachable
 
 guc_malloc.exit.i:                                ; preds = %guc_malloc.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr readonly align 1 %0, i64 %38, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull readonly align 1 %0, i64 %38, i1 false)
   store ptr %40, ptr %31, align 8
   %46 = getelementptr inbounds i8, ptr %31, i64 8
   store i32 %.0, ptr %46, align 8
@@ -9046,7 +9046,7 @@ guc_free.exit:                                    ; preds = %set_string_field.ex
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DefineCustomIntVariable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
-  %13 = tail call fastcc ptr @init_custom_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 1, i64 noundef 208)
+  %13 = tail call fastcc ptr @init_custom_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 1, i64 noundef 208)
   %14 = getelementptr inbounds i8, ptr %13, i64 144
   store ptr %3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 152
@@ -9069,7 +9069,7 @@ define dso_local void @DefineCustomIntVariable(ptr nocapture noundef nonnull rea
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DefineCustomRealVariable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
-  %13 = tail call fastcc ptr @init_custom_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, i64 noundef 216)
+  %13 = tail call fastcc ptr @init_custom_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef %8, i32 noundef 2, i64 noundef 216)
   %14 = getelementptr inbounds i8, ptr %13, i64 144
   store ptr %3, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 152
@@ -9092,7 +9092,7 @@ define dso_local void @DefineCustomRealVariable(ptr nocapture noundef nonnull re
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DefineCustomStringVariable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
-  %11 = tail call fastcc ptr @init_custom_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef 3, i64 noundef 200)
+  %11 = tail call fastcc ptr @init_custom_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, i32 noundef 3, i64 noundef 200)
   %12 = getelementptr inbounds i8, ptr %11, i64 144
   store ptr %3, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 152
@@ -9109,7 +9109,7 @@ define dso_local void @DefineCustomStringVariable(ptr nocapture noundef nonnull 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @DefineCustomEnumVariable(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
-  %12 = tail call fastcc ptr @init_custom_variable(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef %7, i32 noundef 4, i64 noundef 208)
+  %12 = tail call fastcc ptr @init_custom_variable(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %6, i32 noundef %7, i32 noundef 4, i64 noundef 208)
   %13 = getelementptr inbounds i8, ptr %12, i64 144
   store ptr %3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 152
@@ -9473,7 +9473,7 @@ define dso_local ptr @ShowGUCOption(ptr nocapture noundef readonly %0, i1 nounde
   br i1 %.not49, label %37, label %36
 
 36:                                               ; preds = %32
-  call fastcc void @convert_int_from_base_unit(i64 noundef %30, i32 noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @convert_int_from_base_unit(i64 noundef %30, i32 noundef %35, ptr noundef %4, ptr noundef %5)
   %.pre54 = load i64, ptr %4, align 8
   %.pre55 = load ptr, ptr %5, align 8
   br label %37
@@ -9511,7 +9511,7 @@ define dso_local ptr @ShowGUCOption(ptr nocapture noundef readonly %0, i1 nounde
   br i1 %.not47, label %56, label %55
 
 55:                                               ; preds = %51
-  call fastcc void @convert_real_from_base_unit(double noundef %49, i32 noundef %54, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  call fastcc void @convert_real_from_base_unit(double noundef %49, i32 noundef %54, ptr noundef %6, ptr noundef %7)
   %.pre = load double, ptr %6, align 8
   %.pre53 = load ptr, ptr %7, align 8
   br label %56
@@ -9598,7 +9598,7 @@ config_enum_lookup_by_value.exit:                 ; preds = %86, %2, %69, %75, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @convert_int_from_base_unit(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #19 {
+define internal fastcc void @convert_int_from_base_unit(i64 noundef range(i64 1, 2147483648) %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #19 {
   store ptr null, ptr %3, align 8
   %5 = and i32 %1, 251658240
   %.not = icmp eq i32 %5, 0
@@ -9649,7 +9649,7 @@ define internal fastcc void @convert_int_from_base_unit(i64 noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #20 {
+define internal fastcc void @convert_real_from_base_unit(double noundef %0, i32 noundef range(i32 1, 2130706433) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #20 {
   store ptr null, ptr %3, align 8
   %5 = and i32 %1, 251658240
   %.not = icmp eq i32 %5, 0
@@ -9890,7 +9890,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   br i1 %18, label %serialize_variable.exit, label %19
 
 19:                                               ; preds = %can_skip_gucvar.exit.i
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef %16)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef %16)
   %20 = getelementptr i8, ptr %.sroa.0.020, i64 -52
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %56 [
@@ -9907,21 +9907,21 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   %27 = select i1 %26, ptr @.str.40, ptr @.str.41
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %27)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull %27)
   br label %56
 
 28:                                               ; preds = %19
   %29 = getelementptr i8, ptr %.sroa.0.020, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.69, i32 noundef %31)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.69, i32 noundef %31)
   br label %56
 
 32:                                               ; preds = %19
   %33 = getelementptr i8, ptr %.sroa.0.020, i64 56
   %34 = load ptr, ptr %33, align 8
   %35 = load double, ptr %34, align 8
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.131, i32 noundef 17, double noundef %35)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.131, i32 noundef 17, double noundef %35)
   br label %56
 
 36:                                               ; preds = %19
@@ -9930,7 +9930,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq ptr %39, null
   %spec.select.i = select i1 %.not.i, ptr @.str.8, ptr %39
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select.i)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select.i)
   br label %56
 
 40:                                               ; preds = %19
@@ -9968,7 +9968,7 @@ can_skip_gucvar.exit.i:                           ; preds = %12
   unreachable
 
 config_enum_lookup_by_value.exit.i:               ; preds = %49
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %48)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %48)
   br label %56
 
 56:                                               ; preds = %config_enum_lookup_by_value.exit.i, %36, %32, %28, %22, %19
@@ -9976,7 +9976,7 @@ config_enum_lookup_by_value.exit.i:               ; preds = %49
   %58 = load ptr, ptr %57, align 8
   %.not47.i = icmp eq ptr %58, null
   %spec.select50.i = select i1 %.not47.i, ptr @.str.8, ptr %58
-  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select50.i)
+  call void (ptr, ptr, ptr, ...) @do_serialize(ptr noundef %3, ptr noundef %4, ptr noundef nonnull @.str.75, ptr noundef nonnull %spec.select50.i)
   %59 = load ptr, ptr %57, align 8
   %.not48.i = icmp eq ptr %59, null
   br i1 %.not48.i, label %thread-pre-split.i, label %60
@@ -11384,7 +11384,7 @@ declare double @llvm.fabs.f64(double) #16
 declare i32 @llvm.abs.i32(i32, i1 immarg) #16
 
 ; Function Attrs: nounwind uwtable
-define internal void @do_serialize(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @do_serialize(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = load i64, ptr %1, align 8
   %6 = icmp eq i64 %5, 0

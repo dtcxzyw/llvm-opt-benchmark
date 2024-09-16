@@ -1647,7 +1647,7 @@ handle_biggest_offenders.exit:                    ; preds = %.loopexit.i, %.lr.p
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @add_color(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc void @add_color(i32 noundef range(i32 -2147483648, 256) %0, i32 noundef range(i32 -2147483648, 256) %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @total, align 4
   %6 = load i32, ptr @cmapmax, align 4
   %.not = icmp slt i32 %5, %6

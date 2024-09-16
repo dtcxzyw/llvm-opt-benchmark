@@ -370,44 +370,44 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 181:                                              ; preds = %180
-  %182 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
+  %182 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
   br label %calc_hist_selectivity.exit.i
 
 183:                                              ; preds = %180
-  %184 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
+  %184 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
   br label %calc_hist_selectivity.exit.i
 
 185:                                              ; preds = %180
-  %186 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
+  %186 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
   %187 = fsub double 1.000000e+00, %186
   br label %calc_hist_selectivity.exit.i
 
 188:                                              ; preds = %180
-  %189 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
+  %189 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
   %190 = fsub double 1.000000e+00, %189
   br label %calc_hist_selectivity.exit.i
 
 191:                                              ; preds = %180
-  %192 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %154, i32 noundef %148, i1 noundef zeroext false)
+  %192 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %154, i32 noundef %148, i1 noundef zeroext false)
   br label %calc_hist_selectivity.exit.i
 
 193:                                              ; preds = %180
-  %194 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %5, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
+  %194 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %5, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
   %195 = fsub double 1.000000e+00, %194
   br label %calc_hist_selectivity.exit.i
 
 196:                                              ; preds = %180
-  %197 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
+  %197 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
   %198 = fsub double 1.000000e+00, %197
   br label %calc_hist_selectivity.exit.i
 
 199:                                              ; preds = %180
-  %200 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %5, ptr noundef %154, i32 noundef %148, i1 noundef zeroext true)
+  %200 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %5, ptr noundef %154, i32 noundef %148, i1 noundef zeroext true)
   br label %calc_hist_selectivity.exit.i
 
 201:                                              ; preds = %180, %180
-  %202 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %154, i32 noundef %148, i1 noundef zeroext false)
-  %203 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %5, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
+  %202 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %154, i32 noundef %148, i1 noundef zeroext false)
+  %203 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %5, ptr noundef %153, i32 noundef %148, i1 noundef zeroext true)
   %204 = fsub double 1.000000e+00, %203
   %205 = fadd double %202, %204
   %206 = fsub double 1.000000e+00, %205
@@ -418,7 +418,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr inbounds i8, ptr %3, i64 24
   %211 = load i32, ptr %210, align 8
-  %212 = call fastcc double @calc_hist_selectivity_contains(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %153, i32 noundef %148, ptr noundef %209, i32 noundef %211)
+  %212 = call fastcc double @calc_hist_selectivity_contains(ptr noundef %.026, ptr noundef %4, ptr noundef %5, ptr noundef %153, i32 noundef %148, ptr noundef %209, i32 noundef %211)
   br label %calc_hist_selectivity.exit.i
 
 213:                                              ; preds = %180
@@ -428,7 +428,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %216, label %217, label %219
 
 217:                                              ; preds = %213
-  %218 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %5, ptr noundef %154, i32 noundef %148, i1 noundef zeroext true)
+  %218 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %5, ptr noundef %154, i32 noundef %148, i1 noundef zeroext true)
   br label %calc_hist_selectivity.exit.i
 
 219:                                              ; preds = %213
@@ -438,7 +438,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %222, label %223, label %226
 
 223:                                              ; preds = %219
-  %224 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
+  %224 = call fastcc double @calc_hist_selectivity_scalar(ptr noundef %.026, ptr noundef %4, ptr noundef %153, i32 noundef %148, i1 noundef zeroext false)
   %225 = fsub double 1.000000e+00, %224
   br label %calc_hist_selectivity.exit.i
 
@@ -447,7 +447,7 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %3, i64 24
   %230 = load i32, ptr %229, align 8
-  %231 = call fastcc double @calc_hist_selectivity_contained(ptr noundef %.026, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %153, i32 noundef %148, ptr noundef %228, i32 noundef %230)
+  %231 = call fastcc double @calc_hist_selectivity_contained(ptr noundef %.026, ptr noundef %4, ptr noundef %5, ptr noundef %153, i32 noundef %148, ptr noundef %228, i32 noundef %230)
   br label %calc_hist_selectivity.exit.i
 
 232:                                              ; preds = %180
@@ -622,20 +622,19 @@ declare void @range_deserialize(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
-  %6 = icmp sgt i32 %3, 0
-  %7 = add nsw i32 %3, -1
-  br i1 %6, label %.lr.ph.i, label %rbound_bsearch.exit
+define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 2, -2147483648) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+  %6 = add nsw i32 %3, -1
+  br label %7
 
-.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %5 ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %7, %5 ]
+7:                                                ; preds = %7, %5
+  %.020.i = phi i32 [ -1, %5 ], [ %.1.i, %7 ]
+  %.01519.i = phi i32 [ %6, %5 ], [ %.116.i, %7 ]
   %8 = add nsw i32 %.020.i, 1
   %9 = add i32 %8, %.01519.i
   %10 = sdiv i32 %9, 2
   %11 = sext i32 %10 to i64
   %12 = getelementptr %struct.RangeBound, ptr %2, i64 %11
-  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef %1) #10
+  %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #10
   %14 = icmp slt i32 %13, 0
   %15 = icmp eq i32 %13, 0
   %or.cond.i = and i1 %4, %15
@@ -644,21 +643,20 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
   %.1.i = select i1 %or.cond18.i, i32 %10, i32 %.020.i
   %17 = icmp slt i32 %.1.i, %.116.i
-  br i1 %17, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
+  br i1 %17, label %7, label %rbound_bsearch.exit, !llvm.loop !7
 
-rbound_bsearch.exit:                              ; preds = %.lr.ph.i, %5
-  %.0.lcssa.i = phi i32 [ -1, %5 ], [ %.1.i, %.lr.ph.i ]
-  %18 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 0)
+rbound_bsearch.exit:                              ; preds = %7
+  %18 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
   %19 = uitofp nneg i32 %18 to double
-  %20 = uitofp nneg i32 %7 to double
+  %20 = uitofp nneg i32 %6 to double
   %21 = fdiv double %19, %20
-  %22 = icmp sgt i32 %.0.lcssa.i, -1
-  %23 = icmp slt i32 %.0.lcssa.i, %7
+  %22 = icmp sgt i32 %.1.i, -1
+  %23 = icmp slt i32 %.1.i, %6
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %24, label %80
 
 24:                                               ; preds = %rbound_bsearch.exit
-  %25 = zext nneg i32 %.0.lcssa.i to i64
+  %25 = zext nneg i32 %.1.i to i64
   %26 = getelementptr %struct.RangeBound, ptr %2, i64 %25
   %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds i8, ptr %0, i64 392
@@ -748,33 +746,29 @@ get_position.exit:                                ; preds = %41, %42, %49, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = icmp sgt i32 %4, 0
-  br i1 %8, label %.lr.ph.preheader.i, label %rbound_bsearch.exit.thread
+define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, i32 noundef range(i32 2, -2147483648) %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+  %8 = add nsw i32 %4, -1
+  br label %9
 
-.lr.ph.preheader.i:                               ; preds = %7
-  %9 = add nsw i32 %4, -1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
+9:                                                ; preds = %9, %7
+  %.020.i = phi i32 [ -1, %7 ], [ %.1.i, %9 ]
+  %.01519.i = phi i32 [ %8, %7 ], [ %.116.i, %9 ]
   %10 = add nsw i32 %.020.i, 1
   %11 = add i32 %10, %.01519.i
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct.RangeBound, ptr %3, i64 %13
-  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef %1) #10
+  %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #10
   %or.cond18.i = icmp slt i32 %15, 1
   %16 = add nsw i32 %12, -1
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
   %.1.i = select i1 %or.cond18.i, i32 %12, i32 %.020.i
   %17 = icmp slt i32 %.1.i, %.116.i
-  br i1 %17, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
+  br i1 %17, label %9, label %rbound_bsearch.exit, !llvm.loop !7
 
-rbound_bsearch.exit:                              ; preds = %.lr.ph.i
+rbound_bsearch.exit:                              ; preds = %9
   %18 = icmp slt i32 %.1.i, 0
-  br i1 %18, label %rbound_bsearch.exit.thread, label %19
+  br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %rbound_bsearch.exit
   %20 = add nsw i32 %4, -2
@@ -909,20 +903,20 @@ get_position.exit:                                ; preds = %40, %41, %48, %56, 
 get_distance.exit:                                ; preds = %80, %85, %92, %96, %104
   %.0.i44 = phi double [ 0x7FF0000000000000, %104 ], [ %..i, %85 ], [ 0.000000e+00, %96 ], [ %.mux.i, %80 ], [ 0x7FF0000000000000, %92 ]
   %105 = icmp sgt i32 %21, -1
-  br i1 %105, label %.lr.ph, label %rbound_bsearch.exit.thread
+  br i1 %105, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %get_distance.exit
   %106 = getelementptr inbounds i8, ptr %2, i64 8
   %107 = getelementptr inbounds i8, ptr %0, i64 292
   %108 = getelementptr inbounds i8, ptr %2, i64 10
-  %109 = uitofp nneg i32 %9 to double
+  %109 = uitofp nneg i32 %8 to double
   br label %110
 
 110:                                              ; preds = %.lr.ph, %get_distance.exit51
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %get_distance.exit51 ]
-  %.03755 = phi double [ %.0.i44, %.lr.ph ], [ %.0.i50, %get_distance.exit51 ]
-  %.03854 = phi double [ 0.000000e+00, %.lr.ph ], [ %140, %get_distance.exit51 ]
-  %.03953 = phi double [ %.0.i, %.lr.ph ], [ 1.000000e+00, %get_distance.exit51 ]
+  %.03754 = phi double [ %.0.i44, %.lr.ph ], [ %.0.i50, %get_distance.exit51 ]
+  %.03853 = phi double [ 0.000000e+00, %.lr.ph ], [ %140, %get_distance.exit51 ]
+  %.03952 = phi double [ %.0.i, %.lr.ph ], [ 1.000000e+00, %get_distance.exit51 ]
   %111 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
   %112 = getelementptr inbounds i8, ptr %111, i64 8
   %113 = load i8, ptr %112, align 8
@@ -967,22 +961,22 @@ get_distance.exit:                                ; preds = %80, %85, %92, %96, 
 
 get_distance.exit51:                              ; preds = %115, %119, %125, %128, %135
   %.0.i50 = phi double [ 0x7FF0000000000000, %135 ], [ %..i49, %119 ], [ 0.000000e+00, %128 ], [ %.mux.i47, %115 ], [ 0x7FF0000000000000, %125 ]
-  %136 = tail call fastcc double @calc_length_hist_frac(ptr noundef %5, i32 noundef %6, double noundef %.03755, double noundef %.0.i50, i1 noundef zeroext false)
+  %136 = tail call fastcc double @calc_length_hist_frac(ptr noundef %5, i32 noundef %6, double noundef %.03754, double noundef %.0.i50, i1 noundef zeroext false)
   %137 = fsub double 1.000000e+00, %136
-  %138 = fmul double %.03953, %137
+  %138 = fmul double %.03952, %137
   %139 = fdiv double %138, %109
-  %140 = fadd double %.03854, %139
+  %140 = fadd double %.03853, %139
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %141 = icmp sgt i64 %indvars.iv, 0
-  br i1 %141, label %110, label %rbound_bsearch.exit.thread, !llvm.loop !8
+  br i1 %141, label %110, label %.loopexit, !llvm.loop !8
 
-rbound_bsearch.exit.thread:                       ; preds = %get_distance.exit51, %get_distance.exit, %7, %rbound_bsearch.exit
-  %.0 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %get_distance.exit ], [ %140, %get_distance.exit51 ]
+.loopexit:                                        ; preds = %get_distance.exit51, %get_distance.exit, %rbound_bsearch.exit
+  %.0 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ 0.000000e+00, %get_distance.exit ], [ %140, %get_distance.exit51 ]
   ret double %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 2, -2147483648) %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1
@@ -990,32 +984,28 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   store i8 %11, ptr %8, align 1
   %12 = getelementptr inbounds i8, ptr %2, i64 10
   store i8 1, ptr %12, align 2
-  %13 = icmp sgt i32 %4, 0
-  br i1 %13, label %.lr.ph.preheader.i, label %rbound_bsearch.exit.thread
+  %13 = add nsw i32 %4, -1
+  br label %14
 
-.lr.ph.preheader.i:                               ; preds = %7
-  %14 = add nsw i32 %4, -1
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.020.i = phi i32 [ %.1.i, %.lr.ph.i ], [ -1, %.lr.ph.preheader.i ]
-  %.01519.i = phi i32 [ %.116.i, %.lr.ph.i ], [ %14, %.lr.ph.preheader.i ]
+14:                                               ; preds = %14, %7
+  %.020.i = phi i32 [ -1, %7 ], [ %.1.i, %14 ]
+  %.01519.i = phi i32 [ %13, %7 ], [ %.116.i, %14 ]
   %15 = add nsw i32 %.020.i, 1
   %16 = add i32 %15, %.01519.i
   %17 = sdiv i32 %16, 2
   %18 = sext i32 %17 to i64
   %19 = getelementptr %struct.RangeBound, ptr %3, i64 %18
-  %20 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %19, ptr noundef %2) #10
+  %20 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %2) #10
   %21 = icmp slt i32 %20, 0
   %22 = add nsw i32 %17, -1
   %.116.i = select i1 %21, i32 %.01519.i, i32 %22
   %.1.i = select i1 %21, i32 %17, i32 %.020.i
   %23 = icmp slt i32 %.1.i, %.116.i
-  br i1 %23, label %.lr.ph.i, label %rbound_bsearch.exit, !llvm.loop !7
+  br i1 %23, label %14, label %rbound_bsearch.exit, !llvm.loop !7
 
-rbound_bsearch.exit:                              ; preds = %.lr.ph.i
+rbound_bsearch.exit:                              ; preds = %14
   %24 = icmp slt i32 %.1.i, 0
-  br i1 %24, label %rbound_bsearch.exit.thread, label %25
+  br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %rbound_bsearch.exit
   %26 = add nsw i32 %4, -2
@@ -1101,81 +1091,80 @@ rbound_bsearch.exit:                              ; preds = %.lr.ph.i
 get_position.exit:                                ; preds = %46, %47, %54, %62, %67, %68, %72, %76, %77
   %.0.i = phi double [ %66, %62 ], [ 5.000000e-01, %46 ], [ 5.000000e-01, %47 ], [ 5.000000e-01, %54 ], [ 1.000000e+00, %68 ], [ %75, %72 ], [ 0.000000e+00, %76 ], [ %80, %77 ], [ 5.000000e-01, %67 ]
   %81 = icmp sgt i32 %27, -1
-  br i1 %81, label %.lr.ph, label %rbound_bsearch.exit.thread
+  br i1 %81, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %get_position.exit
   %82 = getelementptr inbounds i8, ptr %2, i64 8
   %83 = getelementptr inbounds i8, ptr %0, i64 292
   %84 = getelementptr inbounds i8, ptr %1, i64 8
   %85 = getelementptr inbounds i8, ptr %1, i64 10
-  %86 = uitofp nneg i32 %14 to double
-  %87 = zext nneg i32 %.1.i to i64
-  %88 = sext i32 %26 to i64
-  %smin = tail call i64 @llvm.smin.i64(i64 %87, i64 %88)
-  br label %89
+  %86 = uitofp nneg i32 %13 to double
+  %87 = zext nneg i32 %4 to i64
+  %88 = add nsw i64 %87, -2
+  %89 = zext nneg i32 %.1.i to i64
+  %smin = tail call i64 @llvm.smin.i64(i64 %88, i64 %89)
+  br label %90
 
-89:                                               ; preds = %get_distance.exit76, %.lr.ph
+90:                                               ; preds = %get_distance.exit76, %.lr.ph
   %indvars.iv = phi i64 [ %smin, %.lr.ph ], [ %indvars.iv.next, %get_distance.exit76 ]
-  %.05481 = phi double [ 0.000000e+00, %.lr.ph ], [ %192, %get_distance.exit76 ]
-  %.05679 = phi double [ %.0.i, %.lr.ph ], [ 1.000000e+00, %get_distance.exit76 ]
-  %.05878 = phi double [ 0.000000e+00, %.lr.ph ], [ %.053, %get_distance.exit76 ]
-  %90 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
-  %91 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %90, ptr noundef %1) #10
-  %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %164, label %93
+  %.05480 = phi double [ 0.000000e+00, %.lr.ph ], [ %192, %get_distance.exit76 ]
+  %.05678 = phi double [ %.0.i, %.lr.ph ], [ 1.000000e+00, %get_distance.exit76 ]
+  %.05877 = phi double [ 0.000000e+00, %.lr.ph ], [ %.053, %get_distance.exit76 ]
+  %91 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
+  %92 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %91, ptr noundef nonnull %1) #10
+  %93 = icmp sgt i32 %92, -1
+  br i1 %93, label %164, label %94
 
-93:                                               ; preds = %89
-  %94 = load i8, ptr %84, align 8
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %106, label %96
+94:                                               ; preds = %90
+  %95 = load i8, ptr %84, align 8
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %107, label %97
 
-96:                                               ; preds = %93
-  %97 = load i32, ptr %34, align 8
-  %.not.i61 = icmp eq i32 %97, 0
-  %98 = load i8, ptr %82, align 8
-  %99 = trunc i8 %98 to i1
-  %brmerge.i62 = select i1 %99, i1 true, i1 %.not.i61
-  %.mux.i = select i1 %99, double 0x7FF0000000000000, double 1.000000e+00
-  br i1 %brmerge.i62, label %get_distance.exit, label %100
+97:                                               ; preds = %94
+  %98 = load i32, ptr %34, align 8
+  %.not.i61 = icmp eq i32 %98, 0
+  %99 = load i8, ptr %82, align 8
+  %100 = trunc i8 %99 to i1
+  %brmerge.i62 = select i1 %100, i1 true, i1 %.not.i61
+  %.mux.i = select i1 %100, double 0x7FF0000000000000, double 1.000000e+00
+  br i1 %brmerge.i62, label %get_distance.exit, label %101
 
-100:                                              ; preds = %96
-  %101 = load i32, ptr %83, align 4
-  %102 = load i64, ptr %2, align 8
-  %103 = load i64, ptr %1, align 8
-  %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %33, i32 noundef %101, i64 noundef %102, i64 noundef %103) #10
-  %105 = bitcast i64 %104 to double
-  %or.cond.i63 = fcmp ult double %105, 0.000000e+00
-  %..i = select i1 %or.cond.i63, double 1.000000e+00, double %105
+101:                                              ; preds = %97
+  %102 = load i32, ptr %83, align 4
+  %103 = load i64, ptr %2, align 8
+  %104 = load i64, ptr %1, align 8
+  %105 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %33, i32 noundef %102, i64 noundef %103, i64 noundef %104) #10
+  %106 = bitcast i64 %105 to double
+  %or.cond.i63 = fcmp ult double %106, 0.000000e+00
+  %..i = select i1 %or.cond.i63, double 1.000000e+00, double %106
   br label %get_distance.exit
 
-106:                                              ; preds = %93
-  %107 = load i8, ptr %82, align 8
-  %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %get_distance.exit
+107:                                              ; preds = %94
+  %108 = load i8, ptr %82, align 8
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %get_distance.exit
 
-109:                                              ; preds = %106
-  %110 = load i8, ptr %85, align 2
-  %111 = load i8, ptr %12, align 2
-  %112 = xor i8 %111, %110
-  %113 = and i8 %112, 1
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %get_distance.exit, label %115
+110:                                              ; preds = %107
+  %111 = load i8, ptr %85, align 2
+  %112 = load i8, ptr %12, align 2
+  %113 = xor i8 %112, %111
+  %114 = and i8 %113, 1
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %get_distance.exit, label %116
 
-115:                                              ; preds = %109
+116:                                              ; preds = %110
   br label %get_distance.exit
 
-get_distance.exit:                                ; preds = %96, %100, %106, %109, %115
-  %.0.i64 = phi double [ 0x7FF0000000000000, %115 ], [ %..i, %100 ], [ 0.000000e+00, %109 ], [ %.mux.i, %96 ], [ 0x7FF0000000000000, %106 ]
-  %116 = shl i64 %indvars.iv, 32
-  %sext = add i64 %116, 4294967296
-  %117 = ashr exact i64 %sext, 28
-  %118 = getelementptr i8, ptr %3, i64 %117
+get_distance.exit:                                ; preds = %97, %101, %107, %110, %116
+  %.0.i64 = phi double [ 0x7FF0000000000000, %116 ], [ %..i, %101 ], [ 0.000000e+00, %110 ], [ %.mux.i, %97 ], [ 0x7FF0000000000000, %107 ]
+  %117 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
+  %118 = getelementptr i8, ptr %117, i64 16
   %119 = load i32, ptr %34, align 8
   %.not.i65 = icmp eq i32 %119, 0
-  %120 = getelementptr inbounds i8, ptr %90, i64 8
+  %120 = getelementptr inbounds i8, ptr %91, i64 8
   %121 = load i8, ptr %120, align 8
   %122 = trunc i8 %121 to i1
-  %123 = getelementptr inbounds i8, ptr %118, i64 8
+  %123 = getelementptr i8, ptr %117, i64 24
   %124 = load i8, ptr %123, align 8
   %125 = trunc i8 %124 to i1
   br i1 %122, label %149, label %126
@@ -1192,7 +1181,7 @@ get_distance.exit:                                ; preds = %96, %100, %106, %10
 130:                                              ; preds = %129
   %131 = load i32, ptr %83, align 4
   %132 = load i64, ptr %118, align 8
-  %133 = load i64, ptr %90, align 8
+  %133 = load i64, ptr %91, align 8
   %134 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %33, i32 noundef %131, i64 noundef %132, i64 noundef %133) #10
   %135 = bitcast i64 %134 to double
   %or.cond.i67 = fcmp ule double %135, 0.000000e+00
@@ -1201,7 +1190,7 @@ get_distance.exit:                                ; preds = %96, %100, %106, %10
 136:                                              ; preds = %130
   %137 = load i32, ptr %83, align 4
   %138 = load i64, ptr %1, align 8
-  %139 = load i64, ptr %90, align 8
+  %139 = load i64, ptr %91, align 8
   %140 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %33, i32 noundef %137, i64 noundef %138, i64 noundef %139) #10
   %141 = bitcast i64 %140 to double
   %142 = fdiv double %141, %135
@@ -1240,13 +1229,13 @@ get_distance.exit:                                ; preds = %96, %100, %106, %10
 
 get_position.exit69:                              ; preds = %129, %130, %136, %144, %149, %150, %153, %157, %158
   %.0.i68 = phi double [ %148, %144 ], [ 5.000000e-01, %129 ], [ 5.000000e-01, %130 ], [ 5.000000e-01, %136 ], [ 1.000000e+00, %150 ], [ %156, %153 ], [ 0.000000e+00, %157 ], [ %161, %158 ], [ 5.000000e-01, %149 ]
-  %162 = fsub double %.05679, %.0.i68
+  %162 = fsub double %.05678, %.0.i68
   %163 = fcmp olt double %162, 0.000000e+00
   %.157 = select i1 %163, double 0.000000e+00, double %162
   br label %get_distance.exit76
 
-164:                                              ; preds = %89
-  %165 = getelementptr inbounds i8, ptr %90, i64 8
+164:                                              ; preds = %90
+  %165 = getelementptr inbounds i8, ptr %91, i64 8
   %166 = load i8, ptr %165, align 8
   %167 = trunc i8 %166 to i1
   br i1 %167, label %178, label %168
@@ -1263,7 +1252,7 @@ get_position.exit69:                              ; preds = %129, %130, %136, %1
 172:                                              ; preds = %168
   %173 = load i32, ptr %83, align 4
   %174 = load i64, ptr %2, align 8
-  %175 = load i64, ptr %90, align 8
+  %175 = load i64, ptr %91, align 8
   %176 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %33, i32 noundef %173, i64 noundef %174, i64 noundef %175) #10
   %177 = bitcast i64 %176 to double
   %or.cond.i73 = fcmp ult double %177, 0.000000e+00
@@ -1276,7 +1265,7 @@ get_position.exit69:                              ; preds = %129, %130, %136, %1
   br i1 %180, label %181, label %get_distance.exit76
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds i8, ptr %90, i64 10
+  %182 = getelementptr inbounds i8, ptr %91, i64 10
   %183 = load i8, ptr %182, align 2
   %184 = load i8, ptr %12, align 2
   %185 = xor i8 %184, %183
@@ -1288,19 +1277,19 @@ get_position.exit69:                              ; preds = %129, %130, %136, %1
   br label %get_distance.exit76
 
 get_distance.exit76:                              ; preds = %188, %181, %178, %172, %168, %get_position.exit69
-  %.2 = phi double [ %.157, %get_position.exit69 ], [ %.05679, %168 ], [ %.05679, %172 ], [ %.05679, %178 ], [ %.05679, %181 ], [ %.05679, %188 ]
+  %.2 = phi double [ %.157, %get_position.exit69 ], [ %.05678, %168 ], [ %.05678, %172 ], [ %.05678, %178 ], [ %.05678, %181 ], [ %.05678, %188 ]
   %.053 = phi double [ %.0.i64, %get_position.exit69 ], [ %.mux.i72, %168 ], [ %..i74, %172 ], [ 0x7FF0000000000000, %178 ], [ 0.000000e+00, %181 ], [ 0x7FF0000000000000, %188 ]
-  %189 = tail call fastcc double @calc_length_hist_frac(ptr noundef %5, i32 noundef %6, double noundef %.05878, double noundef %.053, i1 noundef zeroext true)
+  %189 = tail call fastcc double @calc_length_hist_frac(ptr noundef %5, i32 noundef %6, double noundef %.05877, double noundef %.053, i1 noundef zeroext true)
   %190 = fmul double %.2, %189
   %191 = fdiv double %190, %86
-  %192 = fadd double %.05481, %191
+  %192 = fadd double %.05480, %191
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %193 = icmp sgt i64 %indvars.iv, 0
-  %or.cond = and i1 %92, %193
-  br i1 %or.cond, label %89, label %rbound_bsearch.exit.thread, !llvm.loop !9
+  %or.cond = and i1 %93, %193
+  br i1 %or.cond, label %90, label %.loopexit, !llvm.loop !9
 
-rbound_bsearch.exit.thread:                       ; preds = %get_distance.exit76, %get_position.exit, %7, %rbound_bsearch.exit
-  %.052 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ 0.000000e+00, %7 ], [ 0.000000e+00, %get_position.exit ], [ %192, %get_distance.exit76 ]
+.loopexit:                                        ; preds = %get_distance.exit76, %get_position.exit, %rbound_bsearch.exit
+  %.052 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ 0.000000e+00, %get_position.exit ], [ %192, %get_distance.exit76 ]
   ret double %.052
 }
 

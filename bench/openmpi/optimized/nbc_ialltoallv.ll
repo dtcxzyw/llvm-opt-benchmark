@@ -351,7 +351,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 157:                                              ; preds = %.lr.ph.split.i
   %158 = zext nneg i32 %155 to i64
-  %159 = tail call i32 @NBC_Sched_copy(ptr noundef %153, i8 noundef signext 0, i64 noundef %158, ptr noundef %7, ptr noundef %137, i8 noundef signext 1, i64 noundef %158, ptr noundef %7, ptr noundef %78, i1 noundef zeroext true) #5
+  %159 = tail call i32 @NBC_Sched_copy(ptr noundef %153, i8 noundef signext 0, i64 noundef %158, ptr noundef %7, ptr noundef %137, i8 noundef signext 1, i64 noundef %158, ptr noundef %7, ptr noundef nonnull %78, i1 noundef zeroext true) #5
   %.not129.i = icmp eq i32 %159, 0
   br i1 %.not129.i, label %160, label %.loopexit
 
@@ -363,7 +363,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 164:                                              ; preds = %160
   %165 = zext nneg i32 %162 to i64
-  %166 = tail call i32 @NBC_Sched_send(ptr noundef %147, i8 noundef signext 0, i64 noundef %165, ptr noundef %7, i32 noundef %139, ptr noundef %78, i1 noundef zeroext false) #5
+  %166 = tail call i32 @NBC_Sched_send(ptr noundef %147, i8 noundef signext 0, i64 noundef %165, ptr noundef %7, i32 noundef %139, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not130.i = icmp eq i32 %166, 0
   br i1 %.not130.i, label %167, label %.loopexit
 
@@ -374,7 +374,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 170:                                              ; preds = %167
   %171 = zext nneg i32 %168 to i64
-  %172 = tail call i32 @NBC_Sched_recv(ptr noundef %153, i8 noundef signext 0, i64 noundef %171, ptr noundef %7, i32 noundef %141, ptr noundef %78, i1 noundef zeroext true) #5
+  %172 = tail call i32 @NBC_Sched_recv(ptr noundef %153, i8 noundef signext 0, i64 noundef %171, ptr noundef %7, i32 noundef %141, ptr noundef nonnull %78, i1 noundef zeroext true) #5
   %.not131.i = icmp eq i32 %172, 0
   br i1 %.not131.i, label %173, label %.loopexit
 
@@ -385,7 +385,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 175:                                              ; preds = %173
   %176 = zext nneg i32 %.pr.i to i64
-  %177 = tail call i32 @NBC_Sched_send(ptr noundef %137, i8 noundef signext 1, i64 noundef %176, ptr noundef %7, i32 noundef %141, ptr noundef %78, i1 noundef zeroext false) #5
+  %177 = tail call i32 @NBC_Sched_send(ptr noundef %137, i8 noundef signext 1, i64 noundef %176, ptr noundef %7, i32 noundef %141, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not132.i = icmp eq i32 %177, 0
   br i1 %.not132.i, label %.thread.i, label %.loopexit
 
@@ -396,7 +396,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 180:                                              ; preds = %.thread.i
   %181 = zext nneg i32 %178 to i64
-  %182 = tail call i32 @NBC_Sched_recv(ptr noundef %147, i8 noundef signext 0, i64 noundef %181, ptr noundef %7, i32 noundef %139, ptr noundef %78, i1 noundef zeroext true) #5
+  %182 = tail call i32 @NBC_Sched_recv(ptr noundef %147, i8 noundef signext 0, i64 noundef %181, ptr noundef %7, i32 noundef %139, ptr noundef nonnull %78, i1 noundef zeroext true) #5
   %.not133.i = icmp eq i32 %182, 0
   br i1 %.not133.i, label %183, label %.loopexit
 
@@ -429,7 +429,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   %201 = zext nneg i32 %198 to i64
   %202 = sub nsw i64 0, %.0201
   %203 = inttoptr i64 %202 to ptr
-  %204 = tail call i32 @NBC_Sched_copy(ptr noundef %196, i8 noundef signext 0, i64 noundef %201, ptr noundef %7, ptr noundef %203, i8 noundef signext 1, i64 noundef %201, ptr noundef %7, ptr noundef %78, i1 noundef zeroext true) #5
+  %204 = tail call i32 @NBC_Sched_copy(ptr noundef %196, i8 noundef signext 0, i64 noundef %201, ptr noundef %7, ptr noundef %203, i8 noundef signext 1, i64 noundef %201, ptr noundef %7, ptr noundef nonnull %78, i1 noundef zeroext true) #5
   %.not.i158 = icmp eq i32 %204, 0
   br i1 %.not.i158, label %205, label %.loopexit
 
@@ -440,14 +440,14 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 207:                                              ; preds = %205
   %208 = zext nneg i32 %.pr135.i to i64
-  %209 = tail call i32 @NBC_Sched_send(ptr noundef %203, i8 noundef signext 1, i64 noundef %208, ptr noundef %7, i32 noundef %190, ptr noundef %78, i1 noundef zeroext false) #5
+  %209 = tail call i32 @NBC_Sched_send(ptr noundef %203, i8 noundef signext 1, i64 noundef %208, ptr noundef %7, i32 noundef %190, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not127.i = icmp eq i32 %209, 0
   br i1 %.not127.i, label %210, label %.loopexit
 
 210:                                              ; preds = %207
   %211 = load i32, ptr %197, align 4
   %212 = sext i32 %211 to i64
-  %213 = tail call i32 @NBC_Sched_recv(ptr noundef %196, i8 noundef signext 0, i64 noundef %212, ptr noundef %7, i32 noundef %190, ptr noundef %78, i1 noundef zeroext true) #5
+  %213 = tail call i32 @NBC_Sched_recv(ptr noundef %196, i8 noundef signext 0, i64 noundef %212, ptr noundef %7, i32 noundef %190, ptr noundef nonnull %78, i1 noundef zeroext true) #5
   %.not128.i = icmp eq i32 %213, 0
   br i1 %.not128.i, label %a2av_sched_inplace.exit, label %.loopexit
 
@@ -487,7 +487,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   %227 = getelementptr inbounds i8, ptr %.0127, i64 %226
   %228 = zext nneg i32 %220 to i64
   %229 = trunc nuw nsw i64 %indvars.iv69.i to i32
-  %230 = tail call i32 @NBC_Sched_recv(ptr noundef %227, i8 noundef signext 0, i64 noundef %228, ptr noundef %7, i32 noundef %229, ptr noundef %78, i1 noundef zeroext false) #5
+  %230 = tail call i32 @NBC_Sched_recv(ptr noundef %227, i8 noundef signext 0, i64 noundef %228, ptr noundef %7, i32 noundef %229, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not43.us.i = icmp eq i32 %230, 0
   br i1 %.not43.us.i, label %231, label %.loopexit
 
@@ -520,7 +520,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   %243 = getelementptr inbounds i8, ptr %.0122, i64 %242
   %244 = zext nneg i32 %236 to i64
   %245 = trunc nuw nsw i64 %indvars.iv64.i to i32
-  %246 = tail call i32 @NBC_Sched_send(ptr noundef %243, i8 noundef signext 0, i64 noundef %244, ptr noundef %3, i32 noundef %245, ptr noundef %78, i1 noundef zeroext false) #5
+  %246 = tail call i32 @NBC_Sched_send(ptr noundef %243, i8 noundef signext 0, i64 noundef %244, ptr noundef %3, i32 noundef %245, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not.us.i = icmp eq i32 %246, 0
   br i1 %.not.us.i, label %247, label %.loopexit
 
@@ -548,7 +548,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   %258 = getelementptr inbounds i8, ptr %.0122, i64 %257
   %259 = zext nneg i32 %251 to i64
   %260 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %261 = tail call i32 @NBC_Sched_send(ptr noundef %258, i8 noundef signext 0, i64 noundef %259, ptr noundef %3, i32 noundef %260, ptr noundef %78, i1 noundef zeroext false) #5
+  %261 = tail call i32 @NBC_Sched_send(ptr noundef %258, i8 noundef signext 0, i64 noundef %259, ptr noundef %3, i32 noundef %260, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not.i165 = icmp eq i32 %261, 0
   br i1 %.not.i165, label %262, label %.loopexit
 
@@ -566,7 +566,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
   %271 = getelementptr inbounds i8, ptr %.0127, i64 %270
   %272 = zext nneg i32 %264 to i64
   %273 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %274 = tail call i32 @NBC_Sched_recv(ptr noundef %271, i8 noundef signext 0, i64 noundef %272, ptr noundef %7, i32 noundef %273, ptr noundef %78, i1 noundef zeroext false) #5
+  %274 = tail call i32 @NBC_Sched_recv(ptr noundef %271, i8 noundef signext 0, i64 noundef %272, ptr noundef %7, i32 noundef %273, ptr noundef nonnull %78, i1 noundef zeroext false) #5
   %.not43.i = icmp eq i32 %274, 0
   br i1 %.not43.i, label %275, label %.loopexit
 

@@ -985,7 +985,7 @@ define internal void @cos_i(i64 noundef %0, ptr nocapture noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @type2sym(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @type2sym(i32 noundef range(i32 0, 32) %0) unnamed_addr #0 {
   switch i32 %0, label %56 [
     i32 0, label %2
     i32 1, label %4

@@ -14489,7 +14489,7 @@ define dso_local void @_ZNK4llvm2gi26OperandImmPredicateMatcher20emitPredicateOp
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !855
   call void @_ZN4llvm2gi10MatchTable9push_backERKNS0_16MatchTableRecordE(ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %68)
+  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %68)
   %69 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
   %70 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !858)
@@ -14531,7 +14531,7 @@ define dso_local void @_ZNK4llvm2gi26OperandImmPredicateMatcher20emitPredicateOp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator.27", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16986,7 +16986,7 @@ _ZN4llvm2gi12_GLOBAL__N_129getMatchOpcodeForImmPredicateB5cxx11ERKNS_15TreePredi
   store i64 -9223372036854775808, ptr %64, align 8, !alias.scope !1063
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7), !noalias !1063
   call void @_ZN4llvm2gi10MatchTable9push_backERKNS0_16MatchTableRecordE(ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(56) %19)
-  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
   %66 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #30
   call void @llvm.experimental.noalias.scope.decl(metadata !1066)
@@ -18144,7 +18144,7 @@ define dso_local void @_ZN4llvm2gi34GenericInstructionPredicateMatcherC2EjNS_15T
   %4 = alloca %"class.llvm::TreePredicateFn", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %2, ptr %4, align 8
-  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @_ZN4llvm2gi12_GLOBAL__N_123getEnumNameForPredicateB5cxx11ERKNS_15TreePredicateFnE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 12, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -37036,7 +37036,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %19 = load i64, ptr %18, align 8
   store ptr null, ptr %18, align 8
   store i64 %19, ptr %5, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa39, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa39, ptr noundef %5)
   %20 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i
@@ -37084,7 +37084,7 @@ _ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EEaSEOS5_.ex
   %34 = sub i64 %33, %6
   %35 = ashr exact i64 %34, 3
   store i64 %27, ptr %4, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %35, ptr noundef nonnull %4)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %35, ptr noundef %4)
   %36 = load ptr, ptr %4, align 8
   %.not.i.i.i13.i = icmp eq ptr %36, null
   br i1 %.not.i.i.i13.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i", label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i
@@ -37338,7 +37338,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr nocapture %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
   %7 = icmp slt i64 %1, %6

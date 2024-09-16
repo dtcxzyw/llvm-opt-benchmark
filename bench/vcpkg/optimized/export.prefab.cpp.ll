@@ -906,7 +906,7 @@ define dso_local void @_ZNK5vcpkg6Prefab22PlatformModuleMetadata7to_jsonB5cxx11E
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   %15 = getelementptr inbounds i8, ptr %1, i64 24
-  invoke fastcc void @_ZN5vcpkg6PrefabL13null_if_emptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  invoke fastcc void @_ZN5vcpkg6PrefabL13null_if_emptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %16 unwind label %43
 
 16:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -919,7 +919,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 20:                                               ; preds = %16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
-  invoke fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %21 unwind label %47
 
 21:                                               ; preds = %20
@@ -1090,7 +1090,7 @@ define internal fastcc void @_ZN5vcpkg6PrefabL13null_if_emptyERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1292,7 +1292,7 @@ define dso_local void @_ZNK5vcpkg6Prefab14ModuleMetadata7to_jsonB5cxx11Ev(ptr de
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc9
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #20
   %14 = getelementptr inbounds i8, ptr %1, i64 24
-  invoke fastcc void @_ZN5vcpkg6PrefabL13null_if_emptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  invoke fastcc void @_ZN5vcpkg6PrefabL13null_if_emptyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %15 unwind label %33
 
 15:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -1305,7 +1305,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 19:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #20
-  invoke fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  invoke fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %20 unwind label %37
 
 20:                                               ; preds = %19
@@ -1399,7 +1399,7 @@ define dso_local void @_ZNK5vcpkg6Prefab15PackageMetadata7to_jsonB5cxx11Ev(ptr d
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = alloca %"struct.vcpkg::StringView", align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 40
-  call fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  call fastcc void @_ZN5vcpkg6PrefabL7jsonifyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #20
   %12 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %33
@@ -2566,7 +2566,7 @@ define dso_local void @_ZN5vcpkg6Prefab9do_exportERKSt6vectorINS_16ExportPlanAct
   %230 = alloca %"struct.vcpkg::StringView", align 8
   %231 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5vcpkg9CMakeVars31make_triplet_cmake_var_providerERKNS_10VcpkgPathsE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %55, ptr noundef nonnull align 8 dereferenceable(400) %1)
-  invoke fastcc void @_ZN5vcpkg6PrefabL23build_info_from_tripletERKNS_10VcpkgPathsERKSt10unique_ptrINS_9CMakeVars16CMakeVarProviderESt14default_deleteIS6_EERKNS_7TripletE(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  invoke fastcc void @_ZN5vcpkg6PrefabL23build_info_from_tripletERKNS_10VcpkgPathsERKSt10unique_ptrINS_9CMakeVars16CMakeVarProviderESt14default_deleteIS6_EERKNS_7TripletE(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %232 unwind label %439
 
 232:                                              ; preds = %4
@@ -5690,7 +5690,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
   br label %.body835
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit837: ; preds = %.noexc834
-  invoke fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %169, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %170)
+  invoke fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %169, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %170)
           to label %1379 unwind label %1415
 
 1379:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit837
@@ -5847,7 +5847,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc848, %
   br label %.body852
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit854: ; preds = %.noexc851
-  invoke fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %173)
+  invoke fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %172, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %167, ptr noundef nonnull align 8 dereferenceable(32) %173)
           to label %1420 unwind label %1432
 
 1420:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit854
@@ -8639,7 +8639,7 @@ _ZNSt10unique_ptrIN5vcpkg9CMakeVars16CMakeVarProviderESt14default_deleteIS2_EED2
 declare void @_ZN5vcpkg9CMakeVars31make_triplet_cmake_var_providerERKNS_10VcpkgPathsE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg6PrefabL23build_info_from_tripletERKNS_10VcpkgPathsERKSt10unique_ptrINS_9CMakeVars16CMakeVarProviderESt14default_deleteIS6_EERKNS_7TripletE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg6PrefabL23build_info_from_tripletERKNS_10VcpkgPathsERKSt10unique_ptrINS_9CMakeVars16CMakeVarProviderESt14default_deleteIS6_EERKNS_7TripletE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = load ptr, ptr %2, align 8
   %.sroa.01.0.copyload = load ptr, ptr %3, align 8
@@ -9213,7 +9213,7 @@ _ZN5vcpkg3msg7printlnENS_5ColorERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 declare void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsERKNS_4PathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %6 = alloca %"class.std::error_code", align 8
   %7 = alloca %"class.std::error_condition", align 8
@@ -9230,7 +9230,7 @@ define internal fastcc void @_ZN5vcpkg6PrefabL12find_modulesERKNS_10VcpkgPathsER
   %16 = load ptr, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
-  call void %18(ptr dead_on_unwind writable sret(%"class.std::vector.214") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
+  call void %18(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.214") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
   %19 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %61, label %20

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e42a06f4e499df7b6e4d59e8d3b47580.7.llvm.4500447028308574437 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %.not = icmp eq i64 %2, -9223372036854775807
   br i1 %.not, label %"_ZN4core3ptr63drop_in_place$LT$diesel..mysql..connection..stmt..Statement$GT$17h065ccf409e9156b8E.exit", label %3
@@ -392,7 +392,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %109, i64 noundef 32, i64 noundef 8) #12, !noalias !29
   %111 = getelementptr inbounds i8, ptr %0, i64 16
-  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h0c7e6e733d0adcdfE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %111) #13
+  invoke fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h0c7e6e733d0adcdfE"(ptr noalias noundef align 8 dereferenceable(8) %111) #13
           to label %common.resume unwind label %117
 
 112:                                              ; preds = %107
@@ -421,7 +421,7 @@ common.resume:                                    ; preds = %.body, %88, %97, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h0c7e6e733d0adcdfE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diesel..result..Error$GT$$GT$17h0c7e6e733d0adcdfE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   invoke void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17hca09607754b6e178E.llvm.12585936276960360436"(ptr noalias noundef align 8 dereferenceable(32) %2)
           to label %3 unwind label %4
@@ -704,7 +704,7 @@ common.resume:                                    ; preds = %73, %61, %65
 
 73:                                               ; preds = %78, %.thread80, %57, %74
   %.pn = phi { ptr, i32 } [ %75, %74 ], [ %58, %57 ], [ %lpad.thr_comm.split-lp, %.thread80 ], [ %lpad.thr_comm, %78 ]
-  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #13
+  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %17) #13
           to label %common.resume unwind label %76
 
 74:                                               ; preds = %72
@@ -970,7 +970,7 @@ common.resume:                                    ; preds = %72, %60, %64
 
 72:                                               ; preds = %77, %.thread80, %56, %73
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %57, %56 ], [ %lpad.thr_comm.split-lp, %.thread80 ], [ %lpad.thr_comm, %77 ]
-  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17) #13
+  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %17) #13
           to label %common.resume unwind label %75
 
 73:                                               ; preds = %71
@@ -1544,7 +1544,7 @@ define hidden void @"_ZN97_$LT$diesel..mysql..connection..MysqlConnection$u20$as
   resume { ptr, i32 } %14
 
 28:                                               ; preds = %23
-  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1) #13
+  invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$diesel..connection..statement_cache..MaybeCached$LT$diesel..mysql..connection..stmt..Statement$GT$$GT$17h6c0131ecb0cd3a33E"(ptr noalias noundef align 8 dereferenceable(32) %1) #13
           to label %27 unwind label %25
 }
 

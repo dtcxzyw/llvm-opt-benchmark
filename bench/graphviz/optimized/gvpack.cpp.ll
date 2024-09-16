@@ -1187,7 +1187,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
           to label %390 unwind label %.loopexit.split-lp.loopexit.i
 
 390:                                              ; preds = %388
-  invoke fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %389)
+  invoke fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %389)
           to label %391 unwind label %.loopexit.split-lp.loopexit.i
 
 391:                                              ; preds = %390
@@ -1356,7 +1356,7 @@ _ZL9initAttrsP8Agraph_sRSt6vectorIS0_SaIS0_EE.exit.i: ; preds = %.noexc32.i.i, %
           to label %489 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 489:                                              ; preds = %487
-  invoke fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %488)
+  invoke fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %488)
           to label %490 unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
 490:                                              ; preds = %489
@@ -1597,7 +1597,7 @@ _ZL6compBBRSt6vectorIP8Agraph_sSaIS1_EE.exit:     ; preds = %.lr.ph.i28, %559
 declare ptr @gvContextPlugins(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree noreturn nounwind uwtable
-define internal fastcc void @_ZL13graphviz_exiti(i32 noundef %0) unnamed_addr #5 {
+define internal fastcc void @_ZL13graphviz_exiti(i32 noundef range(i32 0, 2) %0) unnamed_addr #5 {
   tail call void @exit(i32 noundef %0) #34
   unreachable
 }
@@ -1865,7 +1865,7 @@ declare ptr @agnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.5", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2059,7 +2059,7 @@ define internal fastcc void @_ZL9cloneSubgP8Agraph_sS0_P7Agsym_sRSt8multisetINSt
 .lr.ph:                                           ; preds = %10, %24
   %.05158 = phi ptr [ %25, %24 ], [ %11, %10 ]
   %12 = call ptr @agnameof(ptr noundef nonnull %.05158)
-  call fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %12)
+  call fastcc void @_ZL5xNameRSt8multisetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEPc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %12)
   %13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   %14 = invoke ptr @agsubg(ptr noundef %1, ptr noundef %13, i32 noundef 1)
           to label %15 unwind label %22
@@ -2355,7 +2355,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL8fillDictRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114AttributeValueESt4lessIS5_ESaISt4pairIKS5_S7_EEEP8Agraph_si(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL8fillDictRSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12_GLOBAL__N_114AttributeValueESt4lessIS5_ESaISt4pairIKS5_S7_EEEP8Agraph_si(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.5", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.5", align 1
@@ -3080,7 +3080,7 @@ declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @agedge(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL14cloneDfltAttrsP8Agraph_sS0_i(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #17 {
+define internal fastcc void @_ZL14cloneDfltAttrsP8Agraph_sS0_i(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 3) %2) unnamed_addr #17 {
   %4 = tail call ptr @agnxtattr(ptr noundef %0, i32 noundef %2, ptr noundef null)
   %.not19 = icmp eq ptr %4, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph

@@ -7524,7 +7524,7 @@ _ZNK4llvm8SmallSetIjLj4ESt4lessIjEE5countERKj.exit.thread: ; preds = %133, %_ZNK
   br i1 %156, label %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit, label %_ZN4llvm8SmallSetIjLj4ESt4lessIjEED2Ev.exit.sink.split
 
 157:                                              ; preds = %31
-  call fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 %1, ptr noundef nonnull %6, ptr noundef nonnull %19)
+  call fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias writable align 8 %15, i32 %1, ptr noundef nonnull %6, ptr noundef nonnull %19)
   store ptr %11, ptr %16, align 8
   %158 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %4, ptr %158, align 8
@@ -8035,7 +8035,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplItEENS_8RegisterEEEbOT_RKT0_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias writable align 8 %0, i32 %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
+define internal fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %"class.llvm::ShapeT", align 8
   %7 = alloca i32, align 4
@@ -8336,7 +8336,7 @@ _ZN4llvm23SmallVectorTemplateBaseItLb1EE9push_backEt.exit: ; preds = %9, %15
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  call fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 %7, ptr noundef %25, ptr noundef %28)
+  call fastcc void @_ZL12getTileShapeN4llvm8RegisterEPNS_10VirtRegMapEPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias writable align 8 %3, i32 %7, ptr noundef %25, ptr noundef %28)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8

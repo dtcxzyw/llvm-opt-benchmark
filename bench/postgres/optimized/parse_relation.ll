@@ -189,7 +189,7 @@ define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not22.i.us.us, label %40, label %.split.i40
 
 40:                                               ; preds = %39
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %0, ptr noundef nonnull %22, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef %0, ptr noundef nonnull %22, i32 noundef %3)
   %.pre.i41.us.us = load i32, ptr %14, align 4
   br label %41
 
@@ -252,7 +252,7 @@ define dso_local ptr @refnameNamespaceItem(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not22.i.us, label %73, label %.split.i40
 
 73:                                               ; preds = %72
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %.02346.us, ptr noundef nonnull %55, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef %.02346.us, ptr noundef nonnull %55, i32 noundef %3)
   %.pre.i41.us = load i32, ptr %47, align 4
   br label %74
 
@@ -341,7 +341,7 @@ scanNameSpaceForRelid.exit.us.thread:             ; preds = %.lr.ph.i35.us, %.lr
   br i1 %.not26.i.us, label %117, label %.split.i
 
 117:                                              ; preds = %116
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %0, ptr noundef nonnull %91, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef %0, ptr noundef nonnull %91, i32 noundef %3)
   %.pre.i.us = load i32, ptr %83, align 4
   br label %118
 
@@ -426,7 +426,7 @@ scanNameSpaceForRelid.exit.us.thread:             ; preds = %.lr.ph.i35.us, %.lr
   unreachable
 
 162:                                              ; preds = %157
-  tail call fastcc void @check_lateral_ref_ok(ptr noundef nonnull %.02346, ptr noundef nonnull %132, i32 noundef %3)
+  tail call fastcc void @check_lateral_ref_ok(ptr noundef %.02346, ptr noundef nonnull %132, i32 noundef %3)
   %.pre.i = load i32, ptr %124, align 4
   br label %163
 
@@ -1429,7 +1429,7 @@ check_lateral_ref_ok.exit:                        ; preds = %34, %31, %24, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_lateral_ref_ok(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @check_lateral_ref_ok(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 42
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1

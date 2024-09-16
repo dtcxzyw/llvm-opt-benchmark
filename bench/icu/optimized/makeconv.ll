@@ -877,7 +877,7 @@ if.end123:                                        ; preds = %invoke.cont117
   store i32 296, ptr %sharedData.i, align 8
   store i32 100, ptr %staticData.i, align 8
   store ptr %staticData.i, ptr %staticData4.i, align 8
-  %call1.i59 = invoke fastcc noundef signext i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef nonnull %data, ptr noundef %arg.0, ptr noundef nonnull %localError)
+  %call1.i59 = invoke fastcc noundef signext i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef %data, ptr noundef %arg.0, ptr noundef %localError)
           to label %call1.i.noexc unwind label %lpad47.loopexit.split-lp
 
 call1.i.noexc:                                    ; preds = %if.end123
@@ -1053,7 +1053,7 @@ call103.i.noexc:                                  ; preds = %if.else99.i
   %strlen.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call103.i69)
   %endptr.i = getelementptr inbounds i8, ptr %call103.i69, i64 %strlen.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %endptr.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.29, i64 5, i1 false)
-  %call109.i70 = invoke fastcc noundef signext i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef nonnull %baseData.i, ptr noundef nonnull %baseFilename.i, ptr noundef nonnull %localError)
+  %call109.i70 = invoke fastcc noundef signext i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef %baseData.i, ptr noundef nonnull %baseFilename.i, ptr noundef %localError)
           to label %call109.i.noexc unwind label %lpad47.loopexit.split-lp
 
 call109.i.noexc:                                  ; preds = %call103.i.noexc
@@ -1707,7 +1707,7 @@ declare i32 @udata_finish(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare void @ucm_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef %data, ptr noundef %converterName, ptr noundef %pErrorCode) unnamed_addr #7 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL8readFileP8ConvDataPKcP10UErrorCode(ptr noundef nonnull %data, ptr noundef %converterName, ptr noundef nonnull %pErrorCode) unnamed_addr #7 {
 entry:
   %line.i = alloca [1024 x i8], align 16
   %s.i = alloca ptr, align 8

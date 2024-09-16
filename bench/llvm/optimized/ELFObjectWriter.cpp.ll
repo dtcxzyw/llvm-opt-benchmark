@@ -7498,7 +7498,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter16WriteSecHdrEntryEjjmmmmjjN4llvm10MaybeAlignEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i16 %8, i64 noundef %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter16WriteSecHdrEntryEjjmmmmjjN4llvm10MaybeAlignEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2, i64 noundef range(i64 0, 4294967296) %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i16 %8, i64 noundef range(i64 0, 4294967296) %9) unnamed_addr #0 align 2 {
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = alloca i32, align 4
@@ -7557,7 +7557,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter16WriteSecHdrEntryEjjmmm
   br label %_ZN12_GLOBAL__N_19ELFWriter9WriteWordEm.exit
 
 45:                                               ; preds = %10
-  %46 = trunc i64 %3 to i32
+  %46 = trunc nuw i64 %3 to i32
   %47 = load ptr, ptr %27, align 8
   %48 = load i32, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
@@ -7746,7 +7746,7 @@ _ZN12_GLOBAL__N_19ELFWriter9WriteWordEm.exit50:   ; preds = %103, %108
   br label %_ZN12_GLOBAL__N_19ELFWriter9WriteWordEm.exit59
 
 122:                                              ; preds = %_ZN12_GLOBAL__N_19ELFWriter9WriteWordEm.exit50
-  %123 = trunc i64 %9 to i32
+  %123 = trunc nuw i64 %9 to i32
   %124 = load ptr, ptr %27, align 8
   %125 = load i32, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)

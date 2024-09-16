@@ -1009,7 +1009,7 @@ define internal void @"_ZNSt17_Function_handlerIFvR16cmLocalGeneratorRK19cmListF
 41:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i.i.i, %.lr.ph86.i.i.i.i
   %.sroa.069.184.i.i.i.i = phi ptr [ %spec.select.i.i.i.i, %.lr.ph86.i.i.i.i ], [ %50, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i.i.i.i ]
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.069.184.i.i.i.i) #16
-  invoke fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(3520) %.val3, ptr noundef %42)
+  invoke fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(3520) %.val3, ptr noundef %42)
           to label %43 unwind label %.loopexit.i.i.i.i
 
 43:                                               ; preds = %41
@@ -1077,7 +1077,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 64:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit37.i.i.i.i, %.lr.ph.i.i.i.i
   %.sroa.065.082.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i ], [ %73, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit37.i.i.i.i ]
   %65 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.065.082.i.i.i.i) #16
-  invoke fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(3520) %.val3, ptr noundef %65)
+  invoke fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(3520) %.val3, ptr noundef %65)
           to label %66 unwind label %.loopexit74.i.i.i.i
 
 66:                                               ; preds = %64
@@ -1587,7 +1587,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3520) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17FindInstallSourceB5cxx11R10cmMakefilePKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3520) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x %"struct.std::pair"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca [3 x %"struct.std::pair"], align 8

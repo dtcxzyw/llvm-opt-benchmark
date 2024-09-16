@@ -67333,12 +67333,12 @@ if.then44:                                        ; preds = %if.end35
 
 if.end45:                                         ; preds = %if.end35
   %incdec.ptr41 = getelementptr inbounds i8, ptr %buf, i64 13
-  %call46 = tail call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef nonnull %incdec.ptr41, ptr noundef %buf_end, ptr noundef %msg, ptr noundef %msg_len, ptr noundef %ret)
+  %call46 = tail call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef %incdec.ptr41, ptr noundef %buf_end, ptr noundef %msg, ptr noundef %msg_len, ptr noundef %ret)
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.end45
-  %call50 = tail call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %call46, ptr noundef %buf_end, ptr noundef %headers, ptr noundef %num_headers, i64 noundef %max_headers, ptr noundef %ret)
+  %call50 = tail call fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %call46, ptr noundef %buf_end, ptr noundef %headers, ptr noundef %num_headers, i64 noundef %max_headers, ptr noundef %ret)
   br label %return
 
 return:                                           ; preds = %if.then38.i, %if.then32.i, %if.then27.i, %if.then22.i, %if.then17.i, %if.then12.i, %if.then7.i, %if.then2.i, %if.then.i, %if.end45, %if.end49, %if.then44, %if.then33, %if.then21, %if.then11, %if.then5, %if.then2
@@ -67347,7 +67347,7 @@ return:                                           ; preds = %if.then38.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %token, ptr nocapture noundef writeonly %token_len, ptr nocapture noundef writeonly %ret) unnamed_addr #31 {
+define internal fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef nonnull %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %token, ptr nocapture noundef writeonly %token_len, ptr nocapture noundef writeonly %ret) unnamed_addr #31 {
 entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %buf_end to i64
   %sub.ptr.rhs.cast53 = ptrtoint ptr %buf to i64
@@ -67529,7 +67529,7 @@ return:                                           ; preds = %if.end168, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef writeonly %ret) unnamed_addr #32 {
+define internal fastcc noundef ptr @_ZN7cinatra6detailL13parse_headersEPKcS2_PNS_11http_headerEPmmPi(ptr noundef nonnull %buf, ptr noundef %buf_end, ptr nocapture noundef writeonly %headers, ptr nocapture noundef %num_headers, i64 noundef %max_headers, ptr nocapture noundef writeonly %ret) unnamed_addr #32 {
 entry:
   %value = alloca ptr, align 8
   %value_len = alloca i64, align 8
@@ -67656,7 +67656,7 @@ if.end60:                                         ; preds = %if.end50, %land.lhs
   %buf.addr.4 = phi ptr [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.059, %land.lhs.true ], [ %buf.addr.357, %if.end50 ]
   %name.0 = phi ptr [ null, %land.lhs.true ], [ null, %land.lhs.true ], [ %buf.addr.059, %if.end50 ]
   %name_len.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %land.lhs.true ], [ %sub.ptr.sub, %if.end50 ]
-  %call61 = call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef nonnull %buf.addr.4, ptr noundef %buf_end, ptr noundef nonnull %value, ptr noundef nonnull %value_len, ptr noundef %ret)
+  %call61 = call fastcc noundef ptr @_ZN7cinatra6detailL16get_token_to_eolEPKcS2_PS2_PmPi(ptr noundef %buf.addr.4, ptr noundef %buf_end, ptr noundef nonnull %value, ptr noundef nonnull %value_len, ptr noundef %ret)
   %cmp62 = icmp eq ptr %call61, null
   br i1 %cmp62, label %return, label %if.end64
 

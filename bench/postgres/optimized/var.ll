@@ -929,7 +929,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
   %86 = getelementptr inbounds i8, ptr %78, i64 32
   store i32 %85, ptr %86, align 8
   %87 = load ptr, ptr %1, align 8
-  %88 = tail call fastcc ptr @add_nullingrels_if_needed(ptr noundef %87, ptr noundef nonnull %78, ptr noundef nonnull %0)
+  %88 = tail call fastcc ptr @add_nullingrels_if_needed(ptr noundef %87, ptr noundef nonnull %78, ptr noundef %0)
   br label %176
 
 89:                                               ; preds = %25
@@ -983,7 +983,7 @@ define internal ptr @flatten_join_alias_vars_mutator(ptr noundef %0, ptr noundef
 
 119:                                              ; preds = %116, %112, %107
   %120 = load ptr, ptr %1, align 8
-  %121 = tail call fastcc ptr @add_nullingrels_if_needed(ptr noundef %120, ptr noundef %108, ptr noundef nonnull %0)
+  %121 = tail call fastcc ptr @add_nullingrels_if_needed(ptr noundef %120, ptr noundef %108, ptr noundef %0)
   br label %176
 
 122:                                              ; preds = %4
@@ -1105,7 +1105,7 @@ declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 declare void @IncrementVarSublevelsUp(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.pull_varnos_context, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1113,11 +1113,11 @@ define internal fastcc ptr @add_nullingrels_if_needed(ptr noundef %0, ptr nounde
   br i1 %7, label %41, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call fastcc zeroext i1 @is_standard_join_alias_expression(ptr noundef %1, ptr noundef nonnull %2)
+  %9 = tail call fastcc zeroext i1 @is_standard_join_alias_expression(ptr noundef %1, ptr noundef %2)
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  tail call fastcc void @adjust_standard_join_alias_expression(ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @adjust_standard_join_alias_expression(ptr noundef %1, ptr noundef %2)
   br label %41
 
 11:                                               ; preds = %8
@@ -1192,7 +1192,7 @@ declare ptr @query_tree_mutator_impl(ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @is_standard_join_alias_expression(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread44, label %.lr.ph
 
@@ -1297,7 +1297,7 @@ tailrecurse.backedge:                             ; preds = %24, %27, %29, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_standard_join_alias_expression(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @adjust_standard_join_alias_expression(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2

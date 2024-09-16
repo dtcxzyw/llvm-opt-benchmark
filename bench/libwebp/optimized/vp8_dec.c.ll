@@ -581,7 +581,7 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
 123:                                              ; preds = %116, %109
   %124 = getelementptr inbounds i8, ptr %0, i64 132
   %125 = getelementptr inbounds i8, ptr %0, i64 1192
-  %126 = tail call fastcc i32 @ParseSegmentHeader(ptr noundef nonnull %110, ptr noundef nonnull %124, ptr noundef nonnull %125)
+  %126 = tail call fastcc i32 @ParseSegmentHeader(ptr noundef %110, ptr noundef %124, ptr noundef %125)
   %.not119 = icmp eq i32 %126, 0
   br i1 %.not119, label %127, label %131
 
@@ -596,7 +596,7 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   br label %VP8SetError.exit128.sink.split
 
 131:                                              ; preds = %123
-  %132 = tail call fastcc i32 @ParseFilterHeader(ptr noundef nonnull %110, ptr noundef nonnull %0)
+  %132 = tail call fastcc i32 @ParseFilterHeader(ptr noundef %110, ptr noundef %0)
   %.not120 = icmp eq i32 %132, 0
   br i1 %.not120, label %133, label %137
 
@@ -611,7 +611,7 @@ VP8SetError.exit127:                              ; preds = %40, %43, %VP8CheckS
   br label %VP8SetError.exit128.sink.split
 
 137:                                              ; preds = %131
-  %138 = tail call fastcc i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef nonnull %113, i64 noundef %114)
+  %138 = tail call fastcc i32 @ParsePartitions(ptr noundef %0, ptr noundef nonnull %113, i64 noundef %114)
   %.not121 = icmp eq i32 %138, 0
   br i1 %.not121, label %143, label %139
 
@@ -664,22 +664,22 @@ declare void @VP8InitBitReader(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare i32 @VP8GetValue(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 {
-  %4 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
+  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %1, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %38, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %6, ptr %7, align 4
-  %8 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %8 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not29 = icmp eq i32 %8, 0
   br i1 %.not29, label %.loopexit36, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %10 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %1, i64 12
@@ -691,12 +691,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
 
 14:                                               ; preds = %9, %19
   %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next, %19 ]
-  %15 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %15 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not34 = icmp eq i32 %15, 0
   br i1 %.not34, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 7) #13
+  %17 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 7) #13
   %18 = trunc i32 %17 to i8
   br label %19
 
@@ -710,12 +710,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
 
 22:                                               ; preds = %.preheader35, %27
   %indvars.iv41 = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next42, %27 ]
-  %23 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %23 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not33 = icmp eq i32 %23, 0
   br i1 %.not33, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 6) #13
+  %25 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
   %26 = trunc i32 %25 to i8
   br label %27
 
@@ -734,12 +734,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
 
 .preheader:                                       ; preds = %.loopexit36, %35
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %35 ], [ 0, %.loopexit36 ]
-  %31 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %31 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not32 = icmp eq i32 %31, 0
   br i1 %.not32, label %35, label %32
 
 32:                                               ; preds = %.preheader
-  %33 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 8) #13
+  %33 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 8) #13
   %34 = trunc i32 %33 to i8
   br label %35
 
@@ -765,24 +765,24 @@ define internal fastcc range(i32 0, 2) i32 @ParseSegmentHeader(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 84
-  %4 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %4 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   store i32 %4, ptr %3, align 4
-  %5 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 6) #13
+  %5 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 6) #13
   %6 = getelementptr inbounds i8, ptr %1, i64 88
   store i32 %5, ptr %6, align 4
-  %7 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 3) #13
+  %7 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 3) #13
   %8 = getelementptr inbounds i8, ptr %1, i64 92
   store i32 %7, ptr %8, align 4
-  %9 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %9 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %10 = getelementptr inbounds i8, ptr %1, i64 96
   store i32 %9, ptr %10, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %.loopexit, label %11
 
 11:                                               ; preds = %2
-  %12 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %12 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not26 = icmp eq i32 %12, 0
   br i1 %.not26, label %.loopexit, label %.preheader31
 
@@ -796,12 +796,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef %0, pt
 
 15:                                               ; preds = %.preheader31, %20
   %indvars.iv = phi i64 [ 0, %.preheader31 ], [ %indvars.iv.next, %20 ]
-  %16 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %16 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not30 = icmp eq i32 %16, 0
   br i1 %.not30, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 6) #13
+  %18 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
   %19 = getelementptr inbounds [4 x i32], ptr %13, i64 0, i64 %indvars.iv
   store i32 %18, ptr %19, align 4
   br label %20
@@ -813,12 +813,12 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef %0, pt
 
 21:                                               ; preds = %.preheader, %26
   %indvars.iv35 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next36, %26 ]
-  %22 = tail call i32 @VP8GetValue(ptr noundef %0, i32 noundef 1) #13
+  %22 = tail call i32 @VP8GetValue(ptr noundef nonnull %0, i32 noundef 1) #13
   %.not29 = icmp eq i32 %22, 0
   br i1 %.not29, label %26, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @VP8GetSignedValue(ptr noundef %0, i32 noundef 6) #13
+  %24 = tail call i32 @VP8GetSignedValue(ptr noundef nonnull %0, i32 noundef 6) #13
   %25 = getelementptr inbounds [4 x i32], ptr %14, i64 0, i64 %indvars.iv35
   store i32 %24, ptr %25, align 4
   br label %26
@@ -851,7 +851,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseFilterHeader(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 8) i32 @ParsePartitions(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = tail call i32 @VP8GetValue(ptr noundef nonnull %4, i32 noundef 2) #13

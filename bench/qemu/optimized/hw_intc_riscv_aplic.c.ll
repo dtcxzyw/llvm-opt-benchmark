@@ -1681,7 +1681,7 @@ return:                                           ; preds = %if.end, %for.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @riscv_aplic_idc_claimi(ptr nocapture noundef readonly %aplic, i32 noundef %idc) unnamed_addr #0 {
+define internal fastcc i32 @riscv_aplic_idc_claimi(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 134217216) %idc) unnamed_addr #0 {
 entry:
   %num_harts.i = getelementptr inbounds i8, ptr %aplic, i64 1332
   %0 = load i32, ptr %num_harts.i, align 4
@@ -1697,7 +1697,7 @@ if.end.i:                                         ; preds = %entry
 for.body.lr.ph.i:                                 ; preds = %if.end.i
   %ithreshold.i = getelementptr inbounds i8, ptr %aplic, i64 1176
   %2 = load ptr, ptr %ithreshold.i, align 8
-  %idxprom.i = zext i32 %idc to i64
+  %idxprom.i = zext nneg i32 %idc to i64
   %arrayidx.i = getelementptr i32, ptr %2, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %state.i = getelementptr inbounds i8, ptr %aplic, i64 1144
@@ -1944,7 +1944,7 @@ if.end15:                                         ; preds = %if.end15.sink.split
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_pending_word(ptr nocapture noundef readonly %aplic, i32 noundef %word, i32 noundef %value, i1 noundef zeroext %pending) unnamed_addr #7 {
+define internal fastcc void @riscv_aplic_set_pending_word(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 1073740032) %word, i32 noundef %value, i1 noundef zeroext %pending) unnamed_addr #7 {
 entry:
   %mul = shl i32 %word, 5
   %num_irqs = getelementptr inbounds i8, ptr %aplic, i64 1340
@@ -2063,7 +2063,7 @@ return:                                           ; preds = %lor.lhs.false7, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @riscv_aplic_set_enabled_word(ptr nocapture noundef readonly %aplic, i32 noundef %word, i32 noundef %value, i1 noundef zeroext %enabled) unnamed_addr #7 {
+define internal fastcc void @riscv_aplic_set_enabled_word(ptr nocapture noundef readonly %aplic, i32 noundef range(i32 0, 1073739904) %word, i32 noundef %value, i1 noundef zeroext %enabled) unnamed_addr #7 {
 entry:
   %mul = shl i32 %word, 5
   %num_irqs = getelementptr inbounds i8, ptr %aplic, i64 1340
@@ -2165,7 +2165,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_aplic_msi_send(ptr noundef readonly %aplic, i32 noundef %hart_idx, i32 noundef %guest_idx, i32 noundef %eiid) unnamed_addr #0 {
+define internal fastcc void @riscv_aplic_msi_send(ptr noundef readonly %aplic, i32 noundef %hart_idx, i32 noundef range(i32 0, 64) %guest_idx, i32 noundef range(i32 0, 2048) %eiid) unnamed_addr #0 {
 entry:
   %result = alloca i32, align 4
   %tobool.not41 = icmp eq ptr %aplic, null

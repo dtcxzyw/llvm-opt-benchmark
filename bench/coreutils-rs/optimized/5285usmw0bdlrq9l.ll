@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.e1a996404b19bc149ff383b4450a68f6.21 = private unnamed_addr constant <{ [39 x i8] }> <{ [39 x i8] c"Couldn't write the whole buffer to file" }>, align 1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -478,7 +478,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit129.i: ; preds = %105
   store ptr %45, ptr %162, align 8, !alias.scope !140, !noalias !143
   %163 = getelementptr inbounds i8, ptr %46, i64 24
   store i64 1, ptr %163, align 8, !alias.scope !140, !noalias !143
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %47, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46), !noalias !63
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %47, ptr noalias nocapture noundef align 8 dereferenceable(48) %46), !noalias !63
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %46), !noalias !63
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45), !noalias !63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %44), !noalias !63
@@ -1461,7 +1461,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit54.i: ; preds = %86
   store ptr %25, ptr %136, align 8, !alias.scope !416, !noalias !419
   %137 = getelementptr inbounds i8, ptr %26, i64 24
   store i64 1, ptr %137, align 8, !alias.scope !416, !noalias !419
-  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %27, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %26), !noalias !345
+  call fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef align 8 dereferenceable(24) %27, ptr noalias nocapture noundef align 8 dereferenceable(48) %26), !noalias !345
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %26), !noalias !345
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !345
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24), !noalias !345

@@ -238,8 +238,8 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
 check_max_alignment.exit.i:                       ; preds = %do.body.i.i, %get_alignment_bits.exit.i
   %and.i = and i32 %memop, 7
   %cmp.i = icmp eq i32 %a.0.i.i, %and.i
-  %or.i18 = or i32 %memop, 224
-  %spec.select.i = select i1 %cmp.i, i32 %or.i18, i32 %memop
+  %or.i = or i32 %memop, 224
+  %spec.select.i = select i1 %cmp.i, i32 %or.i, i32 %memop
   %and3.i = and i32 %spec.select.i, 7
   switch i32 %and3.i, label %do.body.i [
     i32 0, label %sw.bb.i
@@ -273,7 +273,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.3.i = select i1 %tobool20.not.i, i32 %or23.i, i32 %op.addr.1.i
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %op.addr.3.i, 4
-  %or.i19 = or i32 %shl.i, %conv
+  %or.i18 = or i32 %shl.i, %conv
   %and = and i32 %op.addr.3.i, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end10, label %land.lhs.true
@@ -287,24 +287,24 @@ if.then:                                          ; preds = %land.lhs.true
   %cmp = icmp eq i32 %and4, 9
   %spec.select.v = select i1 %cmp, i32 -31, i32 -17
   %spec.select = and i32 %spec.select.v, %op.addr.3.i
-  %shl.i20 = shl i32 %spec.select, 4
-  %or.i21 = or i32 %shl.i20, %conv
+  %shl.i19 = shl i32 %spec.select, 4
+  %or.i20 = or i32 %shl.i19, %conv
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %oi.0 = phi i32 [ %or.i19, %land.lhs.true ], [ %or.i21, %if.then ], [ %or.i19, %tcg_canonicalize_memop.exit ]
+  %oi.0 = phi i32 [ %or.i18, %land.lhs.true ], [ %or.i20, %if.then ], [ %or.i18, %tcg_canonicalize_memop.exit ]
   %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %spec.select, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %if.end10.plugin_maybe_preserve_addr.exit_crit_edge, label %if.then.i22
+  br i1 %cmp.not.i, label %if.end10.plugin_maybe_preserve_addr.exit_crit_edge, label %if.then.i21
 
 if.end10.plugin_maybe_preserve_addr.exit_crit_edge: ; preds = %if.end10
   %.pre = ptrtoint ptr %addr to i64
   br label %plugin_maybe_preserve_addr.exit
 
-if.then.i22:                                      ; preds = %if.end10
+if.then.i21:                                      ; preds = %if.end10
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %11 = load ptr, ptr %0, align 8
   %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
@@ -316,11 +316,11 @@ if.then.i22:                                      ; preds = %if.end10
   %13 = inttoptr i64 %sub.ptr.sub.i.i to ptr
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %if.then.i22
+if.then2.i:                                       ; preds = %if.then.i21
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
-if.else.i:                                        ; preds = %if.then.i22
+if.else.i:                                        ; preds = %if.then.i21
   tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
@@ -337,7 +337,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end10.plugin_may
   %17 = ptrtoint ptr %add.ptr.i to i64
   %conv5.i = zext i32 %oi.0 to i64
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %.pre-phi, i64 noundef %conv5.i) #5
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i19, i32 noundef 1)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i18, i32 noundef 1)
   %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and17 = and i32 %xor, 16
   %tobool18.not = icmp eq i32 %and17, 0
@@ -612,8 +612,8 @@ do.body.i.i:                                      ; preds = %get_alignment_bits.
 check_max_alignment.exit.i:                       ; preds = %do.body.i.i, %get_alignment_bits.exit.i
   %and.i = and i32 %memop, 7
   %cmp.i = icmp eq i32 %a.0.i.i, %and.i
-  %or.i22 = or i32 %memop, 224
-  %spec.select.i = select i1 %cmp.i, i32 %or.i22, i32 %memop
+  %or.i = or i32 %memop, 224
+  %spec.select.i = select i1 %cmp.i, i32 %or.i, i32 %memop
   %and3.i = and i32 %spec.select.i, 7
   switch i32 %and3.i, label %do.body.i [
     i32 0, label %sw.bb.i
@@ -648,7 +648,7 @@ tcg_canonicalize_memop.exit:                      ; preds = %check_max_alignment
   %op.addr.3.i = select i1 %tobool20.not.i, i32 %or23.i, i32 %op.addr.1.i
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %op.addr.3.i, 4
-  %or.i23 = or i32 %shl.i, %conv
+  %or.i22 = or i32 %shl.i, %conv
   %and = and i32 %op.addr.3.i, 16
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end13, label %land.lhs.true
@@ -665,20 +665,20 @@ if.then:                                          ; preds = %land.lhs.true
   %or.cond = and i1 %tobool5.not, %cmp
   %memop.addr.1.v = select i1 %or.cond, i32 -25, i32 -17
   %memop.addr.1 = and i32 %memop.addr.1.v, %op.addr.3.i
-  %shl.i24 = shl i32 %memop.addr.1, 4
-  %or.i25 = or i32 %shl.i24, %conv
+  %shl.i23 = shl i32 %memop.addr.1, 4
+  %or.i24 = or i32 %shl.i23, %conv
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %land.lhs.true, %tcg_canonicalize_memop.exit
-  %oi.0 = phi i32 [ %or.i23, %land.lhs.true ], [ %or.i25, %if.then ], [ %or.i23, %tcg_canonicalize_memop.exit ]
+  %oi.0 = phi i32 [ %or.i22, %land.lhs.true ], [ %or.i24, %if.then ], [ %or.i22, %tcg_canonicalize_memop.exit ]
   %memop.addr.0 = phi i32 [ %op.addr.3.i, %land.lhs.true ], [ %memop.addr.1, %if.then ], [ %op.addr.3.i, %tcg_canonicalize_memop.exit ]
   %9 = load ptr, ptr %0, align 8
   %plugin_insn.i = getelementptr inbounds i8, ptr %9, i64 224
   %10 = load ptr, ptr %plugin_insn.i, align 8
   %cmp.not.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i, label %plugin_maybe_preserve_addr.exit, label %if.then.i26
+  br i1 %cmp.not.i, label %plugin_maybe_preserve_addr.exit, label %if.then.i25
 
-if.then.i26:                                      ; preds = %if.end13
+if.then.i25:                                      ; preds = %if.end13
   %call.i = tail call ptr @tcg_temp_ebb_new_i64() #5
   %11 = load ptr, ptr %0, align 8
   %addr_type.i = getelementptr inbounds i8, ptr %11, i64 60
@@ -690,11 +690,11 @@ if.then.i26:                                      ; preds = %if.end13
   %13 = inttoptr i64 %sub.ptr.sub.i.i to ptr
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
-if.then2.i:                                       ; preds = %if.then.i26
+if.then2.i:                                       ; preds = %if.then.i25
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
-if.else.i:                                        ; preds = %if.then.i26
+if.else.i:                                        ; preds = %if.then.i25
   tail call void @tcg_gen_mov_i64(ptr noundef %call.i, ptr noundef %13) #5
   br label %plugin_maybe_preserve_addr.exit
 
@@ -711,7 +711,7 @@ plugin_maybe_preserve_addr.exit:                  ; preds = %if.end13, %if.then2
   %conv5.i.i = zext i32 %oi.0 to i64
   %. = select i1 %cmp15, i32 137, i32 141
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %conv5.i.i) #5
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i23, i32 noundef 1)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %retval.0.i, ptr noundef %addr, i32 noundef %or.i22, i32 noundef 1)
   %xor = xor i32 %memop.addr.0, %op.addr.3.i
   %and19 = and i32 %xor, 16
   %tobool20.not = icmp eq i32 %and19, 0
@@ -977,7 +977,7 @@ get_alignment_bits.exit:                          ; preds = %entry, %if.then2.i,
   br i1 %tobool.i, label %do.body.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 get_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %get_alignment_bits.exit
-  %.pre102 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre101 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 do.body.i:                                        ; preds = %get_alignment_bits.exit
@@ -992,8 +992,8 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
-  %.pre-phi103 = phi ptr [ %.pre102, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
-  %4 = load ptr, ptr %.pre-phi103, align 8
+  %.pre-phi102 = phi ptr [ %.pre101, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
+  %4 = load ptr, ptr %.pre-phi102, align 8
   %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %5, 2
@@ -1002,7 +1002,7 @@ check_max_alignment.exit:                         ; preds = %get_alignment_bits.
 
 if.then.i:                                        ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #5
-  %.pre = load ptr, ptr %.pre-phi103, align 8
+  %.pre = load ptr, ptr %.pre-phi102, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
@@ -1018,7 +1018,7 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
   %memop.addr.0 = select i1 %tobool.not, i32 %or, i32 %memop
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %memop.addr.0, 4
-  %or.i47 = or i32 %shl.i, %conv
+  %or.i = or i32 %shl.i, %conv
   %9 = load i32, ptr @cpuinfo, align 4
   %and3 = and i32 %9, 65536
   %tobool4.not = icmp eq i32 %and3, 0
@@ -1031,55 +1031,55 @@ if.then5:                                         ; preds = %tcg_gen_req_mo.exit
 
 land.lhs.true:                                    ; preds = %if.then5
   %call8 = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %memop.addr.0) #5
-  %.pre98 = load ptr, ptr %.pre-phi103, align 8
+  %.pre97 = load ptr, ptr %.pre-phi102, align 8
   br i1 %call8, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
   %10 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %.pre98, i64 %10
+  %add.ptr.i.i.i = getelementptr i8, ptr %.pre97, i64 %10
   %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre98 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.pre97 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %11 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
-  %shl.i48 = and i32 %shl.i, -272
-  %or.i49 = or i32 %shl.i48, %conv
+  %shl.i47 = and i32 %shl.i, -272
+  %or.i48 = or i32 %shl.i47, %conv
   br label %if.end17
 
 if.else:                                          ; preds = %land.lhs.true, %if.then5
-  %12 = phi ptr [ %.pre98, %land.lhs.true ], [ %6, %if.then5 ]
+  %12 = phi ptr [ %.pre97, %land.lhs.true ], [ %6, %if.then5 ]
   %13 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i50 = getelementptr i8, ptr %12, i64 %13
-  %add.ptr.i51 = getelementptr i8, ptr %add.ptr.i.i.i50, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i52 = ptrtoint ptr %add.ptr.i51 to i64
-  %sub.ptr.rhs.cast.i.i.i53 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i.i54 = sub i64 %sub.ptr.lhs.cast.i.i.i.i52, %sub.ptr.rhs.cast.i.i.i53
-  %14 = inttoptr i64 %sub.ptr.sub.i.i.i54 to ptr
+  %add.ptr.i.i.i49 = getelementptr i8, ptr %12, i64 %13
+  %add.ptr.i50 = getelementptr i8, ptr %add.ptr.i.i.i49, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i51 = ptrtoint ptr %add.ptr.i50 to i64
+  %sub.ptr.rhs.cast.i.i.i52 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i.i53 = sub i64 %sub.ptr.lhs.cast.i.i.i.i51, %sub.ptr.rhs.cast.i.i.i52
+  %14 = inttoptr i64 %sub.ptr.sub.i.i.i53 to ptr
   br label %if.end17
 
 if.end17:                                         ; preds = %if.else, %if.then9
-  %.pre-phi101 = phi i64 [ %sub.ptr.sub.i.i.i54, %if.else ], [ %10, %if.then9 ]
+  %.pre-phi100 = phi i64 [ %sub.ptr.sub.i.i.i53, %if.else ], [ %10, %if.then9 ]
   %.pre-phi = phi i64 [ %13, %if.else ], [ %sub.ptr.sub.i.i.i, %if.then9 ]
-  %15 = phi ptr [ %12, %if.else ], [ %.pre98, %if.then9 ]
+  %15 = phi ptr [ %12, %if.else ], [ %.pre97, %if.then9 ]
   %lo.0 = phi ptr [ %val, %if.else ], [ %11, %if.then9 ]
   %hi.0 = phi ptr [ %14, %if.else ], [ %val, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
-  %oi.0 = phi i32 [ %or.i47, %if.else ], [ %or.i49, %if.then9 ]
+  %oi.0 = phi i32 [ %or.i, %if.else ], [ %or.i48, %if.then9 ]
   %addr_type = getelementptr inbounds i8, ptr %15, i64 60
   %16 = load i32, ptr %addr_type, align 4
   %cmp = icmp eq i32 %16, 0
   %. = select i1 %cmp, i32 145, i32 146
   %add.ptr.i.i = getelementptr i8, ptr %15, i64 %.pre-phi
-  %add.ptr.i.i55 = getelementptr i8, ptr %15, i64 %.pre-phi101
-  %tobool.not.i56 = icmp eq ptr %add.ptr.i.i55, null
+  %add.ptr.i.i54 = getelementptr i8, ptr %15, i64 %.pre-phi100
+  %tobool.not.i55 = icmp eq ptr %add.ptr.i.i54, null
   %17 = ptrtoint ptr %add.ptr.i.i to i64
-  br i1 %tobool.not.i56, label %if.else.i, label %if.then.i57
+  br i1 %tobool.not.i55, label %if.else.i, label %if.then.i56
 
-if.then.i57:                                      ; preds = %if.end17
-  %18 = ptrtoint ptr %add.ptr.i.i55 to i64
+if.then.i56:                                      ; preds = %if.end17
+  %18 = ptrtoint ptr %add.ptr.i.i54 to i64
   %19 = ptrtoint ptr %addr to i64
-  %conv.i58 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i58) #5
+  %conv.i57 = zext i32 %oi.0 to i64
+  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %17, i64 noundef %18, i64 noundef %19, i64 noundef %conv.i57) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end17
@@ -1088,7 +1088,7 @@ if.else.i:                                        ; preds = %if.end17
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %17, i64 noundef %20, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %if.then.i57, %if.else.i
+gen_ldst.exit:                                    ; preds = %if.then.i56, %if.else.i
   br i1 %need_bswap.0, label %if.then25, label %if.end86
 
 if.then25:                                        ; preds = %gen_ldst.exit
@@ -1098,13 +1098,13 @@ if.then25:                                        ; preds = %gen_ldst.exit
 
 if.else27:                                        ; preds = %tcg_gen_req_mo.exit
   %21 = load i8, ptr @tcg_use_softmmu, align 1
-  %tobool.i59 = trunc i8 %21 to i1
-  br i1 %tobool.i59, label %if.else74, label %if.end.i
+  %tobool.i58 = trunc i8 %21 to i1
+  br i1 %tobool.i58, label %if.else74, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else27
-  %and.i60 = lshr i32 %memop.addr.0, 8
-  %22 = and i32 %and.i60, 7
-  switch i32 %22, label %do.body.i61 [
+  %and.i59 = lshr i32 %memop.addr.0, 8
+  %22 = and i32 %and.i59, 7
+  switch i32 %22, label %do.body.i60 [
     i32 5, label %if.then29
     i32 1, label %if.then29
     i32 0, label %if.else74
@@ -1113,15 +1113,15 @@ if.end.i:                                         ; preds = %if.else27
     i32 3, label %if.else74
   ]
 
-do.body.i61:                                      ; preds = %if.end.i
+do.body.i60:                                      ; preds = %if.end.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #6
   unreachable
 
 if.then29:                                        ; preds = %if.end.i, %if.end.i
-  %and.i62 = and i32 %memop.addr.0, -8
-  %or.i63 = or disjoint i32 %and.i62, 3
-  %and1.i64 = lshr i32 %memop.addr.0, 5
-  %23 = and i32 %and1.i64, 7
+  %and.i61 = and i32 %memop.addr.0, -8
+  %or.i62 = or disjoint i32 %and.i61, 3
+  %and1.i63 = lshr i32 %memop.addr.0, 5
+  %23 = and i32 %and1.i63, 7
   switch i32 %23, label %default.unreachable [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.epilog.i
@@ -1134,64 +1134,64 @@ if.then29:                                        ; preds = %if.end.i, %if.end.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.then29
-  %or4.i = or i32 %and.i62, 227
+  %or4.i = or i32 %and.i61, 227
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %if.then29
-  %and6.i = and i32 %or.i63, -229
+  %and6.i = and i32 %or.i62, -229
   %or7.i = or disjoint i32 %and6.i, 128
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.then29, %if.then29, %if.then29
-  %or10.i = or i32 %and.i62, 227
+  %or10.i = or i32 %and.i61, 227
   br label %sw.epilog.i
 
 default.unreachable:                              ; preds = %if.then29
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %if.then29, %if.then29, %if.then29
-  %mop_1.0.i = phi i32 [ %or.i63, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ]
-  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i63, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ], [ %or.i63, %if.then29 ]
+  %mop_1.0.i = phi i32 [ %or.i62, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i62, %if.then29 ], [ %or.i62, %if.then29 ], [ %or.i62, %if.then29 ]
+  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i62, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i62, %if.then29 ], [ %or.i62, %if.then29 ], [ %or.i62, %if.then29 ]
   %and11.i = and i32 %memop.addr.0, 16
-  %tobool.not.i65 = icmp eq i32 %and11.i, 0
-  br i1 %tobool.not.i65, label %canonicalize_memop_i128_as_i64.exit, label %land.lhs.true.i
+  %tobool.not.i64 = icmp eq i32 %and11.i, 0
+  br i1 %tobool.not.i64, label %canonicalize_memop_i128_as_i64.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %call.i = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %mop_1.0.i) #5
-  br i1 %call.i, label %canonicalize_memop_i128_as_i64.exit, label %if.then.i66
+  br i1 %call.i, label %canonicalize_memop_i128_as_i64.exit, label %if.then.i65
 
-if.then.i66:                                      ; preds = %land.lhs.true.i
+if.then.i65:                                      ; preds = %land.lhs.true.i
   %and12.i = and i32 %mop_1.0.i, -17
   %and13.i = and i32 %mop_2.0.i, -17
   br label %canonicalize_memop_i128_as_i64.exit
 
-canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.lhs.true.i, %if.then.i66
-  %mop_1.1.i = phi i32 [ %mop_1.0.i, %land.lhs.true.i ], [ %and12.i, %if.then.i66 ], [ %mop_1.0.i, %sw.epilog.i ]
-  %mop_2.1.i = phi i32 [ %mop_2.0.i, %land.lhs.true.i ], [ %and13.i, %if.then.i66 ], [ %mop_2.0.i, %sw.epilog.i ]
+canonicalize_memop_i128_as_i64.exit:              ; preds = %sw.epilog.i, %land.lhs.true.i, %if.then.i65
+  %mop_1.1.i = phi i32 [ %mop_1.0.i, %land.lhs.true.i ], [ %and12.i, %if.then.i65 ], [ %mop_1.0.i, %sw.epilog.i ]
+  %mop_2.1.i = phi i32 [ %mop_2.0.i, %land.lhs.true.i ], [ %and13.i, %if.then.i65 ], [ %mop_2.0.i, %sw.epilog.i ]
   %xor = xor i32 %mop_1.1.i, %memop.addr.0
   %and31 = and i32 %xor, 16
   %tobool32.not = icmp eq i32 %and31, 0
-  %24 = load ptr, ptr %.pre-phi103, align 8
+  %24 = load ptr, ptr %.pre-phi102, align 8
   %addr_type33 = getelementptr inbounds i8, ptr %24, i64 60
   %25 = load i32, ptr %addr_type33, align 4
   %cmp34 = icmp eq i32 %25, 0
   %.46 = select i1 %cmp34, i32 137, i32 141
   %26 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i68 = getelementptr i8, ptr %24, i64 %26
-  %add.ptr.i69 = getelementptr i8, ptr %add.ptr.i.i.i68, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i70 = ptrtoint ptr %add.ptr.i69 to i64
-  %sub.ptr.rhs.cast.i.i.i71 = ptrtoint ptr %24 to i64
-  %sub.ptr.sub.i.i.i72 = sub i64 %sub.ptr.lhs.cast.i.i.i.i70, %sub.ptr.rhs.cast.i.i.i71
-  %27 = inttoptr i64 %sub.ptr.sub.i.i.i72 to ptr
-  %x.0 = select i1 %tobool.not.i65, ptr %val, ptr %27
-  %y.0 = select i1 %tobool.not.i65, ptr %27, ptr %val
-  %shl.i78 = shl i32 %mop_1.1.i, 4
-  %or.i79 = or i32 %shl.i78, %conv
+  %add.ptr.i.i.i67 = getelementptr i8, ptr %24, i64 %26
+  %add.ptr.i68 = getelementptr i8, ptr %add.ptr.i.i.i67, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i69 = ptrtoint ptr %add.ptr.i68 to i64
+  %sub.ptr.rhs.cast.i.i.i70 = ptrtoint ptr %24 to i64
+  %sub.ptr.sub.i.i.i71 = sub i64 %sub.ptr.lhs.cast.i.i.i.i69, %sub.ptr.rhs.cast.i.i.i70
+  %27 = inttoptr i64 %sub.ptr.sub.i.i.i71 to ptr
+  %x.0 = select i1 %tobool.not.i64, ptr %val, ptr %27
+  %y.0 = select i1 %tobool.not.i64, ptr %27, ptr %val
+  %shl.i77 = shl i32 %mop_1.1.i, 4
+  %or.i78 = or i32 %shl.i77, %conv
   %28 = ptrtoint ptr %x.0 to i64
-  %add.ptr.i.i.i80 = getelementptr i8, ptr %24, i64 %28
-  %29 = ptrtoint ptr %add.ptr.i.i.i80 to i64
+  %add.ptr.i.i.i79 = getelementptr i8, ptr %24, i64 %28
+  %29 = ptrtoint ptr %add.ptr.i.i.i79 to i64
   %30 = ptrtoint ptr %addr to i64
-  %conv5.i.i = zext i32 %or.i79 to i64
+  %conv5.i.i = zext i32 %or.i78 to i64
   tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %29, i64 noundef %30, i64 noundef %conv5.i.i) #5
   br i1 %tobool32.not, label %if.end54, label %if.then53
 
@@ -1200,7 +1200,7 @@ if.then53:                                        ; preds = %canonicalize_memop_
   br label %if.end54
 
 if.end54:                                         ; preds = %if.then53, %canonicalize_memop_i128_as_i64.exit
-  %31 = load ptr, ptr %.pre-phi103, align 8
+  %31 = load ptr, ptr %.pre-phi102, align 8
   %addr_type55 = getelementptr inbounds i8, ptr %31, i64 60
   %32 = load i32, ptr %addr_type55, align 4
   %cmp56 = icmp eq i32 %32, 0
@@ -1208,7 +1208,7 @@ if.end54:                                         ; preds = %if.then53, %canonic
 
 if.then58:                                        ; preds = %if.end54
   %call59 = tail call ptr @tcg_temp_ebb_new_i32() #5
-  %33 = load ptr, ptr %.pre-phi103, align 8
+  %33 = load ptr, ptr %.pre-phi102, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i = sub i64 %30, %sub.ptr.rhs.cast.i
   %34 = inttoptr i64 %sub.ptr.sub.i to ptr
@@ -1217,7 +1217,7 @@ if.then58:                                        ; preds = %if.end54
 
 if.else62:                                        ; preds = %if.end54
   %call64 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %35 = load ptr, ptr %.pre-phi103, align 8
+  %35 = load ptr, ptr %.pre-phi102, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %35 to i64
   %sub.ptr.sub.i.i = sub i64 %30, %sub.ptr.rhs.cast.i.i
   %36 = inttoptr i64 %sub.ptr.sub.i.i to ptr
@@ -1226,18 +1226,18 @@ if.else62:                                        ; preds = %if.end54
 
 if.end67:                                         ; preds = %if.else62, %if.then58
   %call64.sink = phi ptr [ %call64, %if.else62 ], [ %call59, %if.then58 ]
-  %37 = load ptr, ptr %.pre-phi103, align 8
+  %37 = load ptr, ptr %.pre-phi102, align 8
   %38 = ptrtoint ptr %call64.sink to i64
-  %add.ptr.i.i82 = getelementptr i8, ptr %37, i64 %38
-  %shl.i83 = shl i32 %mop_2.1.i, 4
-  %or.i84 = or i32 %shl.i83, %conv
+  %add.ptr.i.i81 = getelementptr i8, ptr %37, i64 %38
+  %shl.i82 = shl i32 %mop_2.1.i, 4
+  %or.i83 = or i32 %shl.i82, %conv
   %39 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i85 = getelementptr i8, ptr %37, i64 %39
-  %40 = ptrtoint ptr %add.ptr.i.i.i85 to i64
-  %41 = ptrtoint ptr %add.ptr.i.i82 to i64
-  %conv5.i.i86 = zext i32 %or.i84 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %40, i64 noundef %41, i64 noundef %conv5.i.i86) #5
-  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i82) #5
+  %add.ptr.i.i.i84 = getelementptr i8, ptr %37, i64 %39
+  %40 = ptrtoint ptr %add.ptr.i.i.i84 to i64
+  %41 = ptrtoint ptr %add.ptr.i.i81 to i64
+  %conv5.i.i85 = zext i32 %or.i83 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %40, i64 noundef %41, i64 noundef %conv5.i.i85) #5
+  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i81) #5
   br i1 %tobool32.not, label %if.end86, label %if.then72
 
 if.then72:                                        ; preds = %if.end67
@@ -1252,41 +1252,41 @@ if.else74:                                        ; preds = %if.end.i, %if.end.i
 
 if.then78:                                        ; preds = %if.else74
   %call79 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %43 = load ptr, ptr %.pre-phi103, align 8
-  %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %43 to i64
-  %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i.i87, %sub.ptr.rhs.cast.i88
-  %44 = inttoptr i64 %sub.ptr.sub.i89 to ptr
+  %43 = load ptr, ptr %.pre-phi102, align 8
+  %sub.ptr.lhs.cast.i.i86 = ptrtoint ptr %addr to i64
+  %sub.ptr.rhs.cast.i87 = ptrtoint ptr %43 to i64
+  %sub.ptr.sub.i88 = sub i64 %sub.ptr.lhs.cast.i.i86, %sub.ptr.rhs.cast.i87
+  %44 = inttoptr i64 %sub.ptr.sub.i88 to ptr
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call79, ptr noundef %44) #5
-  %45 = load ptr, ptr %.pre-phi103, align 8
+  %45 = load ptr, ptr %.pre-phi102, align 8
   %46 = ptrtoint ptr %call79 to i64
-  %add.ptr.i.i90 = getelementptr i8, ptr %45, i64 %46
+  %add.ptr.i.i89 = getelementptr i8, ptr %45, i64 %46
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then78, %if.else74
   %47 = phi ptr [ %45, %if.then78 ], [ %6, %if.else74 ]
   %ext_addr.1 = phi ptr [ %call79, %if.then78 ], [ null, %if.else74 ]
-  %addr.addr.1 = phi ptr [ %add.ptr.i.i90, %if.then78 ], [ %addr, %if.else74 ]
+  %addr.addr.1 = phi ptr [ %add.ptr.i.i89, %if.then78 ], [ %addr, %if.else74 ]
   %48 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i91 = ptrtoint ptr %addr.addr.1 to i64
-  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %47 to i64
-  %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i91, %sub.ptr.rhs.cast.i.i92
-  %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i47) #5
-  %49 = load ptr, ptr %.pre-phi103, align 8
+  %sub.ptr.lhs.cast.i.i.i90 = ptrtoint ptr %addr.addr.1 to i64
+  %sub.ptr.rhs.cast.i.i91 = ptrtoint ptr %47 to i64
+  %sub.ptr.sub.i.i92 = sub i64 %sub.ptr.lhs.cast.i.i.i90, %sub.ptr.rhs.cast.i.i91
+  %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i) #5
+  %49 = load ptr, ptr %.pre-phi102, align 8
   %50 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i94 = getelementptr i8, ptr %49, i64 %50
+  %add.ptr.i.i.i93 = getelementptr i8, ptr %49, i64 %50
   %51 = ptrtoint ptr %48 to i64
   %add.ptr.i.i1.i = getelementptr i8, ptr %49, i64 %51
-  %add.ptr.i.i2.i = getelementptr i8, ptr %49, i64 %sub.ptr.sub.i.i93
+  %add.ptr.i.i2.i = getelementptr i8, ptr %49, i64 %sub.ptr.sub.i.i92
   %52 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i95 = getelementptr i8, ptr %49, i64 %52
-  tail call void @tcg_gen_call3(ptr noundef nonnull @helper_info_ld_i128, ptr noundef %add.ptr.i.i.i94, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i95) #5
+  %add.ptr.i.i94 = getelementptr i8, ptr %49, i64 %52
+  tail call void @tcg_gen_call3(ptr noundef nonnull @helper_info_ld_i128, ptr noundef %add.ptr.i.i.i93, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i94) #5
   br label %if.end86
 
 if.end86:                                         ; preds = %if.end82, %if.then72, %if.end67, %gen_ldst.exit, %if.then25
   %ext_addr.0 = phi ptr [ null, %if.then25 ], [ null, %gen_ldst.exit ], [ null, %if.then72 ], [ null, %if.end67 ], [ %ext_addr.1, %if.end82 ]
   %addr.addr.0 = phi ptr [ %addr, %if.then25 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.then72 ], [ %addr, %if.end67 ], [ %addr.addr.1, %if.end82 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i47, i32 noundef 1)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i, i32 noundef 1)
   ret void
 }
 
@@ -1334,7 +1334,7 @@ get_alignment_bits.exit:                          ; preds = %entry, %if.then2.i,
   br i1 %tobool.i, label %do.body.i, label %get_alignment_bits.exit.check_max_alignment.exit_crit_edge
 
 get_alignment_bits.exit.check_max_alignment.exit_crit_edge: ; preds = %get_alignment_bits.exit
-  %.pre123 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %.pre122 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   br label %check_max_alignment.exit
 
 do.body.i:                                        ; preds = %get_alignment_bits.exit
@@ -1349,8 +1349,8 @@ do.body.i:                                        ; preds = %get_alignment_bits.
   br label %check_max_alignment.exit
 
 check_max_alignment.exit:                         ; preds = %get_alignment_bits.exit.check_max_alignment.exit_crit_edge, %do.body.i
-  %.pre-phi124 = phi ptr [ %.pre123, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
-  %4 = load ptr, ptr %.pre-phi124, align 8
+  %.pre-phi123 = phi ptr [ %.pre122, %get_alignment_bits.exit.check_max_alignment.exit_crit_edge ], [ %1, %do.body.i ]
+  %4 = load ptr, ptr %.pre-phi123, align 8
   %guest_mo.i = getelementptr inbounds i8, ptr %4, i64 72
   %5 = load i32, ptr %guest_mo.i, align 8
   %and1.i = and i32 %5, 2
@@ -1359,7 +1359,7 @@ check_max_alignment.exit:                         ; preds = %get_alignment_bits.
 
 if.then.i:                                        ; preds = %check_max_alignment.exit
   tail call void @tcg_gen_mb(i32 noundef 50) #5
-  %.pre = load ptr, ptr %.pre-phi124, align 8
+  %.pre = load ptr, ptr %.pre-phi123, align 8
   br label %tcg_gen_req_mo.exit
 
 tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment.exit, %if.then.i
@@ -1375,7 +1375,7 @@ tcg_gen_req_mo.exit:                              ; preds = %check_max_alignment
   %memop.addr.0 = select i1 %tobool.not, i32 %or, i32 %memop
   %conv = trunc i64 %idx to i32
   %shl.i = shl i32 %memop.addr.0, 4
-  %or.i52 = or i32 %shl.i, %conv
+  %or.i = or i32 %shl.i, %conv
   %9 = load i32, ptr @cpuinfo, align 4
   %and3 = and i32 %9, 65536
   %tobool4.not = icmp eq i32 %and3, 0
@@ -1391,13 +1391,13 @@ land.lhs.true:                                    ; preds = %if.then5
   br i1 %call8, label %land.lhs.true.if.else_crit_edge, label %if.then9
 
 land.lhs.true.if.else_crit_edge:                  ; preds = %land.lhs.true
-  %.pre119 = load ptr, ptr %.pre-phi124, align 8
+  %.pre118 = load ptr, ptr %.pre-phi123, align 8
   br label %if.else
 
 if.then9:                                         ; preds = %land.lhs.true
   %call10 = tail call ptr @tcg_temp_ebb_new_i64() #5
   %call11 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %10 = load ptr, ptr %.pre-phi124, align 8
+  %10 = load ptr, ptr %.pre-phi123, align 8
   %11 = ptrtoint ptr %val to i64
   %add.ptr.i.i.i = getelementptr i8, ptr %10, i64 %11
   %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
@@ -1407,29 +1407,29 @@ if.then9:                                         ; preds = %land.lhs.true
   %12 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   tail call void @tcg_gen_bswap64_i64(ptr noundef %call10, ptr noundef %12) #5
   tail call void @tcg_gen_bswap64_i64(ptr noundef %call11, ptr noundef %val) #5
-  %shl.i53 = and i32 %shl.i, -272
-  %or.i54 = or i32 %shl.i53, %conv
-  %.pre120 = load ptr, ptr %.pre-phi124, align 8
-  %.pre122 = ptrtoint ptr %call10 to i64
+  %shl.i52 = and i32 %shl.i, -272
+  %or.i53 = or i32 %shl.i52, %conv
+  %.pre119 = load ptr, ptr %.pre-phi123, align 8
+  %.pre121 = ptrtoint ptr %call10 to i64
   br label %if.end19
 
 if.else:                                          ; preds = %land.lhs.true.if.else_crit_edge, %if.then5
-  %13 = phi ptr [ %.pre119, %land.lhs.true.if.else_crit_edge ], [ %6, %if.then5 ]
+  %13 = phi ptr [ %.pre118, %land.lhs.true.if.else_crit_edge ], [ %6, %if.then5 ]
   %14 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i55 = getelementptr i8, ptr %13, i64 %14
-  %add.ptr.i56 = getelementptr i8, ptr %add.ptr.i.i.i55, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i57 = ptrtoint ptr %add.ptr.i56 to i64
-  %sub.ptr.rhs.cast.i.i.i58 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i.i.i57, %sub.ptr.rhs.cast.i.i.i58
-  %15 = inttoptr i64 %sub.ptr.sub.i.i.i59 to ptr
+  %add.ptr.i.i.i54 = getelementptr i8, ptr %13, i64 %14
+  %add.ptr.i55 = getelementptr i8, ptr %add.ptr.i.i.i54, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i56 = ptrtoint ptr %add.ptr.i55 to i64
+  %sub.ptr.rhs.cast.i.i.i57 = ptrtoint ptr %13 to i64
+  %sub.ptr.sub.i.i.i58 = sub i64 %sub.ptr.lhs.cast.i.i.i.i56, %sub.ptr.rhs.cast.i.i.i57
+  %15 = inttoptr i64 %sub.ptr.sub.i.i.i58 to ptr
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.then9
-  %.pre-phi = phi i64 [ %14, %if.else ], [ %.pre122, %if.then9 ]
-  %16 = phi ptr [ %13, %if.else ], [ %.pre120, %if.then9 ]
+  %.pre-phi = phi i64 [ %14, %if.else ], [ %.pre121, %if.then9 ]
+  %16 = phi ptr [ %13, %if.else ], [ %.pre119, %if.then9 ]
   %lo.0 = phi ptr [ %val, %if.else ], [ %call10, %if.then9 ]
   %hi.0 = phi ptr [ %15, %if.else ], [ %call11, %if.then9 ]
-  %oi.0 = phi i32 [ %or.i52, %if.else ], [ %or.i54, %if.then9 ]
+  %oi.0 = phi i32 [ %or.i, %if.else ], [ %or.i53, %if.then9 ]
   %need_bswap.0 = phi i1 [ false, %if.else ], [ true, %if.then9 ]
   %addr_type = getelementptr inbounds i8, ptr %16, i64 60
   %17 = load i32, ptr %addr_type, align 4
@@ -1437,16 +1437,16 @@ if.end19:                                         ; preds = %if.else, %if.then9
   %. = select i1 %cmp, i32 147, i32 148
   %add.ptr.i.i = getelementptr i8, ptr %16, i64 %.pre-phi
   %18 = ptrtoint ptr %hi.0 to i64
-  %add.ptr.i.i60 = getelementptr i8, ptr %16, i64 %18
-  %tobool.not.i61 = icmp eq ptr %add.ptr.i.i60, null
+  %add.ptr.i.i59 = getelementptr i8, ptr %16, i64 %18
+  %tobool.not.i60 = icmp eq ptr %add.ptr.i.i59, null
   %19 = ptrtoint ptr %add.ptr.i.i to i64
-  br i1 %tobool.not.i61, label %if.else.i, label %if.then.i62
+  br i1 %tobool.not.i60, label %if.else.i, label %if.then.i61
 
-if.then.i62:                                      ; preds = %if.end19
-  %20 = ptrtoint ptr %add.ptr.i.i60 to i64
+if.then.i61:                                      ; preds = %if.end19
+  %20 = ptrtoint ptr %add.ptr.i.i59 to i64
   %21 = ptrtoint ptr %addr to i64
-  %conv.i63 = zext i32 %oi.0 to i64
-  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %conv.i63) #5
+  %conv.i62 = zext i32 %oi.0 to i64
+  tail call void @tcg_gen_op4(i32 noundef %., i64 noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef %conv.i62) #5
   br label %gen_ldst.exit
 
 if.else.i:                                        ; preds = %if.end19
@@ -1455,7 +1455,7 @@ if.else.i:                                        ; preds = %if.end19
   tail call void @tcg_gen_op3(i32 noundef %., i64 noundef %19, i64 noundef %22, i64 noundef %conv5.i) #5
   br label %gen_ldst.exit
 
-gen_ldst.exit:                                    ; preds = %if.then.i62, %if.else.i
+gen_ldst.exit:                                    ; preds = %if.then.i61, %if.else.i
   br i1 %need_bswap.0, label %if.then27, label %if.end91
 
 if.then27:                                        ; preds = %gen_ldst.exit
@@ -1465,13 +1465,13 @@ if.then27:                                        ; preds = %gen_ldst.exit
 
 if.else29:                                        ; preds = %tcg_gen_req_mo.exit
   %23 = load i8, ptr @tcg_use_softmmu, align 1
-  %tobool.i64 = trunc i8 %23 to i1
-  br i1 %tobool.i64, label %if.else79, label %if.end.i
+  %tobool.i63 = trunc i8 %23 to i1
+  br i1 %tobool.i63, label %if.else79, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else29
-  %and.i65 = lshr i32 %memop.addr.0, 8
-  %24 = and i32 %and.i65, 7
-  switch i32 %24, label %do.body.i66 [
+  %and.i64 = lshr i32 %memop.addr.0, 8
+  %24 = and i32 %and.i64, 7
+  switch i32 %24, label %do.body.i65 [
     i32 5, label %if.then31
     i32 1, label %if.then31
     i32 0, label %if.else79
@@ -1480,15 +1480,15 @@ if.end.i:                                         ; preds = %if.else29
     i32 3, label %if.else79
   ]
 
-do.body.i66:                                      ; preds = %if.end.i
+do.body.i65:                                      ; preds = %if.end.i
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.use_two_i64_for_i128, ptr noundef null) #6
   unreachable
 
 if.then31:                                        ; preds = %if.end.i, %if.end.i
-  %and.i67 = and i32 %memop.addr.0, -8
-  %or.i68 = or disjoint i32 %and.i67, 3
-  %and1.i69 = lshr i32 %memop.addr.0, 5
-  %25 = and i32 %and1.i69, 7
+  %and.i66 = and i32 %memop.addr.0, -8
+  %or.i67 = or disjoint i32 %and.i66, 3
+  %and1.i68 = lshr i32 %memop.addr.0, 5
+  %25 = and i32 %and1.i68, 7
   switch i32 %25, label %default.unreachable [
     i32 0, label %sw.epilog.i
     i32 1, label %sw.epilog.i
@@ -1501,27 +1501,27 @@ if.then31:                                        ; preds = %if.end.i, %if.end.i
   ]
 
 sw.bb2.i:                                         ; preds = %if.then31
-  %or4.i = or i32 %and.i67, 227
+  %or4.i = or i32 %and.i66, 227
   br label %sw.epilog.i
 
 sw.bb5.i:                                         ; preds = %if.then31
-  %and6.i = and i32 %or.i68, -229
+  %and6.i = and i32 %or.i67, -229
   %or7.i = or disjoint i32 %and6.i, 128
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.then31, %if.then31, %if.then31
-  %or10.i = or i32 %and.i67, 227
+  %or10.i = or i32 %and.i66, 227
   br label %sw.epilog.i
 
 default.unreachable:                              ; preds = %if.then31
   unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb8.i, %sw.bb5.i, %sw.bb2.i, %if.then31, %if.then31, %if.then31
-  %mop_1.0.i = phi i32 [ %or.i68, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ]
-  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i68, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ], [ %or.i68, %if.then31 ]
+  %mop_1.0.i = phi i32 [ %or.i67, %sw.bb8.i ], [ %or7.i, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i67, %if.then31 ], [ %or.i67, %if.then31 ], [ %or.i67, %if.then31 ]
+  %mop_2.0.i = phi i32 [ %or10.i, %sw.bb8.i ], [ %or.i67, %sw.bb5.i ], [ %or4.i, %sw.bb2.i ], [ %or.i67, %if.then31 ], [ %or.i67, %if.then31 ], [ %or.i67, %if.then31 ]
   %and11.i = and i32 %memop.addr.0, 16
-  %tobool.not.i70 = icmp eq i32 %and11.i, 0
-  br i1 %tobool.not.i70, label %if.then41, label %land.lhs.true.i
+  %tobool.not.i69 = icmp eq i32 %and11.i, 0
+  br i1 %tobool.not.i69, label %if.then41, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %call.i = tail call zeroext i1 @tcg_target_has_memory_bswap(i32 noundef %mop_1.0.i) #5
@@ -1529,18 +1529,18 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %and13.i = and i32 %mop_2.0.i, -17
   %mop_1.1.i.ph = select i1 %call.i, i32 %mop_1.0.i, i32 %and12.i
   %mop_2.1.i.ph = select i1 %call.i, i32 %mop_2.0.i, i32 %and13.i
-  %26 = load ptr, ptr %.pre-phi124, align 8
-  %addr_type32110 = getelementptr inbounds i8, ptr %26, i64 60
-  %27 = load i32, ptr %addr_type32110, align 4
-  %cmp33111 = icmp eq i32 %27, 0
-  %.51112 = select i1 %cmp33111, i32 138, i32 142
+  %26 = load ptr, ptr %.pre-phi123, align 8
+  %addr_type32109 = getelementptr inbounds i8, ptr %26, i64 60
+  %27 = load i32, ptr %addr_type32109, align 4
+  %cmp33110 = icmp eq i32 %27, 0
+  %.51111 = select i1 %cmp33110, i32 138, i32 142
   %28 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i78 = getelementptr i8, ptr %26, i64 %28
-  %add.ptr.i79 = getelementptr i8, ptr %add.ptr.i.i.i78, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i80 = ptrtoint ptr %add.ptr.i79 to i64
-  %sub.ptr.rhs.cast.i.i.i81 = ptrtoint ptr %26 to i64
-  %sub.ptr.sub.i.i.i82 = sub i64 %sub.ptr.lhs.cast.i.i.i.i80, %sub.ptr.rhs.cast.i.i.i81
-  %29 = inttoptr i64 %sub.ptr.sub.i.i.i82 to ptr
+  %add.ptr.i.i.i77 = getelementptr i8, ptr %26, i64 %28
+  %add.ptr.i78 = getelementptr i8, ptr %add.ptr.i.i.i77, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i79 = ptrtoint ptr %add.ptr.i78 to i64
+  %sub.ptr.rhs.cast.i.i.i80 = ptrtoint ptr %26 to i64
+  %sub.ptr.sub.i.i.i81 = sub i64 %sub.ptr.lhs.cast.i.i.i.i79, %sub.ptr.rhs.cast.i.i.i80
+  %29 = inttoptr i64 %sub.ptr.sub.i.i.i81 to ptr
   br label %if.end47
 
 if.then41:                                        ; preds = %sw.epilog.i
@@ -1549,22 +1549,22 @@ if.then41:                                        ; preds = %sw.epilog.i
   %cmp33 = icmp eq i32 %30, 0
   %.51 = select i1 %cmp33, i32 138, i32 142
   %31 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i73 = getelementptr i8, ptr %6, i64 %31
-  %add.ptr.i74 = getelementptr i8, ptr %add.ptr.i.i.i73, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i75 = ptrtoint ptr %add.ptr.i74 to i64
-  %sub.ptr.rhs.cast.i.i.i76 = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i.i.i77 = sub i64 %sub.ptr.lhs.cast.i.i.i.i75, %sub.ptr.rhs.cast.i.i.i76
-  %32 = inttoptr i64 %sub.ptr.sub.i.i.i77 to ptr
+  %add.ptr.i.i.i72 = getelementptr i8, ptr %6, i64 %31
+  %add.ptr.i73 = getelementptr i8, ptr %add.ptr.i.i.i72, i64 56
+  %sub.ptr.lhs.cast.i.i.i.i74 = ptrtoint ptr %add.ptr.i73 to i64
+  %sub.ptr.rhs.cast.i.i.i75 = ptrtoint ptr %6 to i64
+  %sub.ptr.sub.i.i.i76 = sub i64 %sub.ptr.lhs.cast.i.i.i.i74, %sub.ptr.rhs.cast.i.i.i75
+  %32 = inttoptr i64 %sub.ptr.sub.i.i.i76 to ptr
   br label %if.end47
 
 if.end47:                                         ; preds = %land.lhs.true.i, %if.then41
   %33 = phi ptr [ %6, %if.then41 ], [ %26, %land.lhs.true.i ]
-  %.51117 = phi i32 [ %.51, %if.then41 ], [ %.51112, %land.lhs.true.i ]
-  %mop_2.1.i115 = phi i32 [ %mop_2.0.i, %if.then41 ], [ %mop_2.1.i.ph, %land.lhs.true.i ]
-  %mop_1.1.i113 = phi i32 [ %mop_1.0.i, %if.then41 ], [ %mop_1.1.i.ph, %land.lhs.true.i ]
+  %.51116 = phi i32 [ %.51, %if.then41 ], [ %.51111, %land.lhs.true.i ]
+  %mop_2.1.i114 = phi i32 [ %mop_2.0.i, %if.then41 ], [ %mop_2.1.i.ph, %land.lhs.true.i ]
+  %mop_1.1.i112 = phi i32 [ %mop_1.0.i, %if.then41 ], [ %mop_1.1.i.ph, %land.lhs.true.i ]
   %x.0 = phi ptr [ %val, %if.then41 ], [ %29, %land.lhs.true.i ]
   %y.0 = phi ptr [ %32, %if.then41 ], [ %val, %land.lhs.true.i ]
-  %xor = xor i32 %mop_1.1.i113, %memop.addr.0
+  %xor = xor i32 %mop_1.1.i112, %memop.addr.0
   %and48 = and i32 %xor, 16
   %tobool49.not = icmp eq i32 %and48, 0
   br i1 %tobool49.not, label %if.end52, label %if.then50
@@ -1572,22 +1572,22 @@ if.end47:                                         ; preds = %land.lhs.true.i, %i
 if.then50:                                        ; preds = %if.end47
   %call51 = tail call ptr @tcg_temp_ebb_new_i64() #5
   tail call void @tcg_gen_bswap64_i64(ptr noundef %call51, ptr noundef %x.0) #5
-  %.pre121 = load ptr, ptr %.pre-phi124, align 8
+  %.pre120 = load ptr, ptr %.pre-phi123, align 8
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then50, %if.end47
-  %34 = phi ptr [ %.pre121, %if.then50 ], [ %33, %if.end47 ]
+  %34 = phi ptr [ %.pre120, %if.then50 ], [ %33, %if.end47 ]
   %x.1 = phi ptr [ %call51, %if.then50 ], [ %x.0, %if.end47 ]
   %b.0 = phi ptr [ %call51, %if.then50 ], [ null, %if.end47 ]
-  %shl.i83 = shl i32 %mop_1.1.i113, 4
-  %or.i84 = or i32 %shl.i83, %conv
+  %shl.i82 = shl i32 %mop_1.1.i112, 4
+  %or.i83 = or i32 %shl.i82, %conv
   %35 = ptrtoint ptr %x.1 to i64
-  %add.ptr.i.i.i85 = getelementptr i8, ptr %34, i64 %35
-  %36 = ptrtoint ptr %add.ptr.i.i.i85 to i64
+  %add.ptr.i.i.i84 = getelementptr i8, ptr %34, i64 %35
+  %36 = ptrtoint ptr %add.ptr.i.i.i84 to i64
   %37 = ptrtoint ptr %addr to i64
-  %conv5.i.i = zext i32 %or.i84 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
-  %38 = load ptr, ptr %.pre-phi124, align 8
+  %conv5.i.i = zext i32 %or.i83 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %36, i64 noundef %37, i64 noundef %conv5.i.i) #5
+  %38 = load ptr, ptr %.pre-phi123, align 8
   %addr_type56 = getelementptr inbounds i8, ptr %38, i64 60
   %39 = load i32, ptr %addr_type56, align 4
   %cmp57 = icmp eq i32 %39, 0
@@ -1595,7 +1595,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
 
 if.then59:                                        ; preds = %if.end52
   %call60 = tail call ptr @tcg_temp_ebb_new_i32() #5
-  %40 = load ptr, ptr %.pre-phi124, align 8
+  %40 = load ptr, ptr %.pre-phi123, align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i = sub i64 %37, %sub.ptr.rhs.cast.i
   %41 = inttoptr i64 %sub.ptr.sub.i to ptr
@@ -1604,7 +1604,7 @@ if.then59:                                        ; preds = %if.end52
 
 if.else63:                                        ; preds = %if.end52
   %call65 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %42 = load ptr, ptr %.pre-phi124, align 8
+  %42 = load ptr, ptr %.pre-phi123, align 8
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i.i = sub i64 %37, %sub.ptr.rhs.cast.i.i
   %43 = inttoptr i64 %sub.ptr.sub.i.i to ptr
@@ -1613,39 +1613,39 @@ if.else63:                                        ; preds = %if.end52
 
 if.end68:                                         ; preds = %if.else63, %if.then59
   %call65.sink = phi ptr [ %call65, %if.else63 ], [ %call60, %if.then59 ]
-  %44 = load ptr, ptr %.pre-phi124, align 8
+  %44 = load ptr, ptr %.pre-phi123, align 8
   %45 = ptrtoint ptr %call65.sink to i64
-  %add.ptr.i.i87 = getelementptr i8, ptr %44, i64 %45
+  %add.ptr.i.i86 = getelementptr i8, ptr %44, i64 %45
   %tobool69.not = icmp eq ptr %b.0, null
   br i1 %tobool69.not, label %if.else74, label %if.then70
 
 if.then70:                                        ; preds = %if.end68
   tail call void @tcg_gen_bswap64_i64(ptr noundef nonnull %b.0, ptr noundef %y.0) #5
-  %shl.i88 = shl i32 %mop_2.1.i115, 4
-  %or.i89 = or i32 %shl.i88, %conv
-  %46 = load ptr, ptr %.pre-phi124, align 8
+  %shl.i87 = shl i32 %mop_2.1.i114, 4
+  %or.i88 = or i32 %shl.i87, %conv
+  %46 = load ptr, ptr %.pre-phi123, align 8
   %47 = ptrtoint ptr %b.0 to i64
-  %add.ptr.i.i.i90 = getelementptr i8, ptr %46, i64 %47
-  %48 = ptrtoint ptr %add.ptr.i.i.i90 to i64
-  %49 = ptrtoint ptr %add.ptr.i.i87 to i64
-  %conv5.i.i91 = zext i32 %or.i89 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %48, i64 noundef %49, i64 noundef %conv5.i.i91) #5
+  %add.ptr.i.i.i89 = getelementptr i8, ptr %46, i64 %47
+  %48 = ptrtoint ptr %add.ptr.i.i.i89 to i64
+  %49 = ptrtoint ptr %add.ptr.i.i86 to i64
+  %conv5.i.i90 = zext i32 %or.i88 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %48, i64 noundef %49, i64 noundef %conv5.i.i90) #5
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %b.0) #5
   br label %if.end78
 
 if.else74:                                        ; preds = %if.end68
-  %shl.i92 = shl i32 %mop_2.1.i115, 4
-  %or.i93 = or i32 %shl.i92, %conv
+  %shl.i91 = shl i32 %mop_2.1.i114, 4
+  %or.i92 = or i32 %shl.i91, %conv
   %50 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i94 = getelementptr i8, ptr %44, i64 %50
-  %51 = ptrtoint ptr %add.ptr.i.i.i94 to i64
-  %52 = ptrtoint ptr %add.ptr.i.i87 to i64
-  %conv5.i.i95 = zext i32 %or.i93 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %51, i64 noundef %52, i64 noundef %conv5.i.i95) #5
+  %add.ptr.i.i.i93 = getelementptr i8, ptr %44, i64 %50
+  %51 = ptrtoint ptr %add.ptr.i.i.i93 to i64
+  %52 = ptrtoint ptr %add.ptr.i.i86 to i64
+  %conv5.i.i94 = zext i32 %or.i92 to i64
+  tail call void @tcg_gen_op3(i32 noundef %.51116, i64 noundef %51, i64 noundef %52, i64 noundef %conv5.i.i94) #5
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else74, %if.then70
-  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i87) #5
+  tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i86) #5
   br label %if.end91
 
 if.else79:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else29
@@ -1656,41 +1656,41 @@ if.else79:                                        ; preds = %if.end.i, %if.end.i
 
 if.then83:                                        ; preds = %if.else79
   %call84 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %54 = load ptr, ptr %.pre-phi124, align 8
-  %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i97 = ptrtoint ptr %54 to i64
-  %sub.ptr.sub.i98 = sub i64 %sub.ptr.lhs.cast.i.i96, %sub.ptr.rhs.cast.i97
-  %55 = inttoptr i64 %sub.ptr.sub.i98 to ptr
+  %54 = load ptr, ptr %.pre-phi123, align 8
+  %sub.ptr.lhs.cast.i.i95 = ptrtoint ptr %addr to i64
+  %sub.ptr.rhs.cast.i96 = ptrtoint ptr %54 to i64
+  %sub.ptr.sub.i97 = sub i64 %sub.ptr.lhs.cast.i.i95, %sub.ptr.rhs.cast.i96
+  %55 = inttoptr i64 %sub.ptr.sub.i97 to ptr
   tail call void @tcg_gen_extu_i32_i64(ptr noundef %call84, ptr noundef %55) #5
-  %56 = load ptr, ptr %.pre-phi124, align 8
+  %56 = load ptr, ptr %.pre-phi123, align 8
   %57 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i99 = getelementptr i8, ptr %56, i64 %57
+  %add.ptr.i.i98 = getelementptr i8, ptr %56, i64 %57
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then83, %if.else79
   %58 = phi ptr [ %56, %if.then83 ], [ %6, %if.else79 ]
   %ext_addr.1 = phi ptr [ %call84, %if.then83 ], [ null, %if.else79 ]
-  %addr.addr.1 = phi ptr [ %add.ptr.i.i99, %if.then83 ], [ %addr, %if.else79 ]
+  %addr.addr.1 = phi ptr [ %add.ptr.i.i98, %if.then83 ], [ %addr, %if.else79 ]
   %59 = load ptr, ptr @tcg_env, align 8
-  %sub.ptr.lhs.cast.i.i.i100 = ptrtoint ptr %addr.addr.1 to i64
-  %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %58 to i64
-  %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i.i100, %sub.ptr.rhs.cast.i.i101
-  %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i52) #5
-  %60 = load ptr, ptr %.pre-phi124, align 8
+  %sub.ptr.lhs.cast.i.i.i99 = ptrtoint ptr %addr.addr.1 to i64
+  %sub.ptr.rhs.cast.i.i100 = ptrtoint ptr %58 to i64
+  %sub.ptr.sub.i.i101 = sub i64 %sub.ptr.lhs.cast.i.i.i99, %sub.ptr.rhs.cast.i.i100
+  %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i) #5
+  %60 = load ptr, ptr %.pre-phi123, align 8
   %61 = ptrtoint ptr %59 to i64
-  %add.ptr.i.i.i103 = getelementptr i8, ptr %60, i64 %61
-  %add.ptr.i.i1.i = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i102
+  %add.ptr.i.i.i102 = getelementptr i8, ptr %60, i64 %61
+  %add.ptr.i.i1.i = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i101
   %62 = ptrtoint ptr %val to i64
   %add.ptr.i.i2.i = getelementptr i8, ptr %60, i64 %62
   %63 = ptrtoint ptr %call89 to i64
-  %add.ptr.i.i104 = getelementptr i8, ptr %60, i64 %63
-  tail call void @tcg_gen_call4(ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %add.ptr.i.i.i103, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i104) #5
+  %add.ptr.i.i103 = getelementptr i8, ptr %60, i64 %63
+  tail call void @tcg_gen_call4(ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %add.ptr.i.i.i102, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i103) #5
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end78, %if.end87, %gen_ldst.exit, %if.then27
   %ext_addr.0 = phi ptr [ null, %if.then27 ], [ null, %gen_ldst.exit ], [ null, %if.end78 ], [ %ext_addr.1, %if.end87 ]
   %addr.addr.0 = phi ptr [ %addr, %if.then27 ], [ %addr, %gen_ldst.exit ], [ %addr, %if.end78 ], [ %addr.addr.1, %if.end87 ]
-  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i52, i32 noundef 2)
+  tail call fastcc void @plugin_gen_mem_callbacks(ptr noundef %ext_addr.0, ptr noundef %addr.addr.0, i32 noundef %or.i, i32 noundef 2)
   ret void
 }
 
@@ -6266,7 +6266,7 @@ if.end9:                                          ; preds = %do_nonatomic_op_i64
 declare zeroext i1 @tcg_target_has_memory_bswap(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @plugin_gen_mem_callbacks(ptr noundef %copy_addr, ptr noundef %orig_addr, i32 noundef %oi, i32 noundef %rw) unnamed_addr #0 {
+define internal fastcc void @plugin_gen_mem_callbacks(ptr noundef %copy_addr, ptr noundef %orig_addr, i32 noundef %oi, i32 noundef range(i32 1, 3) %rw) unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %1 = load ptr, ptr %0, align 8

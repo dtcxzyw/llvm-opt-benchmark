@@ -3267,7 +3267,7 @@ define i32 @ompi_dpm_disconnect(ptr nocapture noundef readonly %0) local_unnamed
 opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %13 = getelementptr inbounds i8, ptr %0, i64 248
   %14 = load ptr, ptr %13, align 8
-  %15 = call fastcc i32 @construct_peers(ptr noundef %14, ptr noundef nonnull %2)
+  %15 = call fastcc i32 @construct_peers(ptr noundef %14, ptr noundef %2)
   %.not58 = icmp eq i32 %15, 0
   br i1 %.not58, label %63, label %16
 
@@ -3369,7 +3369,7 @@ opal_list_remove_first.exit.thread:               ; preds = %53, %.preheader111,
 63:                                               ; preds = %opal_obj_run_constructors.exit
   %64 = getelementptr inbounds i8, ptr %0, i64 256
   %65 = load ptr, ptr %64, align 8
-  %66 = call fastcc i32 @construct_peers(ptr noundef %65, ptr noundef nonnull %2)
+  %66 = call fastcc i32 @construct_peers(ptr noundef %65, ptr noundef %2)
   %.not59 = icmp eq i32 %66, 0
   br i1 %.not59, label %114, label %67
 
@@ -3607,7 +3607,7 @@ opal_obj_run_destructors.exit74:                  ; preds = %.lr.ph.i71, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @construct_peers(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @construct_peers(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -6967,7 +6967,7 @@ opal_obj_new.exit1069:                            ; preds = %.lr.ph.i.i1066, %14
   %1491 = getelementptr inbounds i8, ptr %1490, i64 25
   %1492 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %16, ptr noundef nonnull @.str.50, ptr noundef nonnull %1491) #22
   %1493 = load ptr, ptr %16, align 8
-  %1494 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.51, ptr noundef %1493, i1 noundef zeroext true)
+  %1494 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.51, ptr noundef %1493, i1 noundef zeroext true)
   %1495 = load ptr, ptr %16, align 8
   call void @free(ptr noundef %1495) #22
   %1496 = load ptr, ptr %14, align 8
@@ -7231,7 +7231,7 @@ opal_obj_run_destructors.exit1103:                ; preds = %.lr.ph.i1100, %opal
   br i1 %.not639, label %1730, label %1614
 
 1614:                                             ; preds = %1610
-  %1615 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.53, i1 noundef zeroext true)
+  %1615 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.53, i1 noundef zeroext true)
   %1616 = load ptr, ptr %14, align 8
   %1617 = getelementptr inbounds i8, ptr %1616, i64 8
   %1618 = load i8, ptr @opal_uses_threads, align 1
@@ -8010,7 +8010,7 @@ opal_obj_run_destructors.exit1208:                ; preds = %opal_obj_run_destru
   br label %3604
 
 1975:                                             ; preds = %1855
-  %1976 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.51, ptr noundef nonnull %1736, i1 noundef zeroext true)
+  %1976 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.51, ptr noundef nonnull %1736, i1 noundef zeroext true)
   %1977 = load ptr, ptr %14, align 8
   %1978 = getelementptr inbounds i8, ptr %1977, i64 8
   %1979 = load i8, ptr @opal_uses_threads, align 1
@@ -8274,7 +8274,7 @@ opal_obj_run_destructors.exit1243:                ; preds = %.lr.ph.i1240, %opal
 2095:                                             ; preds = %2091
   %2096 = load ptr, ptr %14, align 8
   %2097 = getelementptr inbounds i8, ptr %2096, i64 25
-  %2098 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.51, ptr noundef nonnull %2097, i1 noundef zeroext false)
+  %2098 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.51, ptr noundef nonnull %2097, i1 noundef zeroext false)
   %2099 = load ptr, ptr %14, align 8
   %2100 = getelementptr inbounds i8, ptr %2099, i64 8
   %2101 = load i8, ptr @opal_uses_threads, align 1
@@ -8755,7 +8755,7 @@ opal_obj_run_destructors.exit1306:                ; preds = %opal_obj_run_destru
 2318:                                             ; preds = %2314
   %2319 = load ptr, ptr %14, align 8
   %2320 = getelementptr inbounds i8, ptr %2319, i64 25
-  %2321 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %2320, i1 noundef zeroext false)
+  %2321 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull %2320, i1 noundef zeroext false)
   %2322 = load ptr, ptr %14, align 8
   %2323 = getelementptr inbounds i8, ptr %2322, i64 8
   %2324 = load i8, ptr @opal_uses_threads, align 1
@@ -9221,7 +9221,7 @@ opal_obj_run_destructors.exit1369:                ; preds = %opal_obj_run_destru
 2536:                                             ; preds = %2532
   %2537 = load ptr, ptr %14, align 8
   %2538 = getelementptr inbounds i8, ptr %2537, i64 25
-  %2539 = call fastcc i32 @dpm_convert(ptr noundef nonnull %17, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull %2538, i1 noundef zeroext false)
+  %2539 = call fastcc i32 @dpm_convert(ptr noundef %17, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62, ptr noundef nonnull %2538, i1 noundef zeroext false)
   %2540 = load ptr, ptr %14, align 8
   %2541 = getelementptr inbounds i8, ptr %2540, i64 8
   %2542 = load i8, ptr @opal_uses_threads, align 1
@@ -11505,7 +11505,7 @@ declare ptr @PMIx_Get_attribute_string(ptr noundef) local_unnamed_addr #2
 declare i32 @ompi_info_get_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @dpm_convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @dpm_convert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12228,7 +12228,7 @@ disconnect_waitall.exit:                          ; preds = %85, %97, %._crit_ed
 
 .sink.split:                                      ; preds = %79, %118, %disconnect_waitall.exit, %72, %8
   %.016.ph = phi i32 [ -1, %8 ], [ -1, %72 ], [ 0, %disconnect_waitall.exit ], [ 0, %118 ], [ -1, %79 ]
-  tail call void @free(ptr noundef %6) #22
+  tail call void @free(ptr noundef nonnull %6) #22
   br label %119
 
 119:                                              ; preds = %.sink.split, %0, %3
@@ -12398,7 +12398,7 @@ declare ptr @ompi_pmix_print_id(ptr noundef) local_unnamed_addr #2
 declare i32 @fork() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_handler_default(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @set_handler_default(i32 noundef range(i32 1, 18) %0) unnamed_addr #0 {
   %2 = alloca %struct.sigaction, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 136

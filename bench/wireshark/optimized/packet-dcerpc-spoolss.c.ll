@@ -3013,7 +3013,7 @@ define internal void @notify_job_time_cb(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef writeonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_SYSTEM_TIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef range(i32 0, 2) %7, ptr noundef writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2

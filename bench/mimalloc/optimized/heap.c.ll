@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_heap_collect_ex(ptr noundef %heap, i32 noundef %collect) unnamed_addr #0 {
+define internal fastcc void @mi_heap_collect_ex(ptr noundef %heap, i32 noundef range(i32 0, 3) %collect) unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %heap, null
   %cmp.i = icmp ne ptr %heap, @_mi_heap_empty

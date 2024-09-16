@@ -9541,7 +9541,7 @@ Symbol_find.exit.i:                               ; preds = %.lr.ph.i.i
   br label %956, !llvm.loop !125
 
 962:                                              ; preds = %956
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.328, i32 noundef %948)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.328, i32 noundef %948)
   %963 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #45
   %964 = trunc i64 %963 to i32
   %965 = load ptr, ptr %3, align 8
@@ -10909,7 +10909,7 @@ file_open.exit.thread:                            ; preds = %6
 34:                                               ; preds = %.lr.ph
   %35 = getelementptr inbounds i8, ptr %30, i64 92
   %36 = load i32, ptr %35, align 4
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.108, i32 noundef %36)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.108, i32 noundef %36)
   %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.109, ptr noundef nonnull %2) #42
   br label %40
 
@@ -11400,7 +11400,7 @@ file_open.exit944:                                ; preds = %43
   %93 = getelementptr inbounds i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %45, ptr noundef nonnull @.str.173, i32 noundef %91, i32 noundef %94) #42
-  tail call fastcc void @writeRuleText(ptr noundef nonnull %45, ptr noundef nonnull %.07901002)
+  tail call fastcc void @writeRuleText(ptr noundef %45, ptr noundef %.07901002)
   %96 = tail call i64 @fwrite(ptr nonnull @.str.174, i64 4, i64 1, ptr nonnull %45)
   %97 = getelementptr inbounds i8, ptr %.07901002, i64 24
   %98 = load i32, ptr %97, align 8
@@ -13141,7 +13141,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   %.27921148 = phi ptr [ %.2792, %.lr.ph1150 ], [ %.27921145, %._crit_edge1144 ]
   %.211147 = phi i32 [ %1003, %.lr.ph1150 ], [ 0, %._crit_edge1144 ]
   %998 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.242, i32 noundef %.211147) #42
-  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef nonnull %.27921148)
+  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef %.27921148)
   %999 = call i64 @fwrite(ptr nonnull @.str.243, i64 3, i64 1, ptr %29)
   %1000 = load i32, ptr %5, align 4
   %1001 = add i32 %1000, 1
@@ -13574,7 +13574,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   %1205 = getelementptr inbounds i8, ptr %.61204, i64 92
   %1206 = load i32, ptr %1205, align 4
   %1207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.252, i32 noundef %1206) #42
-  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef nonnull %.61204)
+  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef %.61204)
   %1208 = call i64 @fwrite(ptr nonnull @.str.249, i64 4, i64 1, ptr %29)
   %1209 = load i32, ptr %5, align 4
   %1210 = add i32 %1209, 1
@@ -13616,7 +13616,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   %1230 = getelementptr inbounds i8, ptr %.01198, i64 92
   %1231 = load i32, ptr %1230, align 4
   %1232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.252, i32 noundef %1231) #42
-  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef nonnull %.01198)
+  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef %.01198)
   %1233 = load i32, ptr %1230, align 4
   %1234 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.253, i32 noundef %1233) #42
   %1235 = load i32, ptr %5, align 4
@@ -13667,7 +13667,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   %1250 = getelementptr inbounds i8, ptr %.71210, i64 92
   %1251 = load i32, ptr %1250, align 4
   %1252 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.256, i32 noundef %1251) #42
-  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef nonnull %.71210)
+  call fastcc void @writeRuleText(ptr noundef %29, ptr noundef %.71210)
   %1253 = getelementptr inbounds i8, ptr %.71210, i64 112
   %1254 = load i32, ptr %1253, align 8
   %.not908 = icmp eq i32 %1254, 0
@@ -13793,7 +13793,7 @@ file_open.exit:                                   ; preds = %8, %1
   %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.259, ptr noundef nonnull %.str.70., ptr noundef %22, i32 noundef %17)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %3, ptr noundef nonnull @.str.259, ptr noundef nonnull %.str.70., ptr noundef %22, i32 noundef %17)
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #45
   %.not34 = icmp eq i32 %23, 0
   br i1 %.not34, label %24, label %.critedge
@@ -14695,7 +14695,7 @@ define hidden range(i32 0, 2) i32 @PrintAction(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @lemon_sprintf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @lemon_sprintf(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -15400,7 +15400,7 @@ define hidden noalias noundef ptr @pathsearch(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not52, label %14, label %13
 
 13:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.124, ptr noundef %0, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %12, ptr noundef nonnull @.str.124, ptr noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %13, %5
@@ -15459,7 +15459,7 @@ lemon_strcpy.exit:                                ; preds = %.preheader, %46
   %.0 = phi ptr [ %39, %36 ], [ %34, %33 ]
   %41 = load i8, ptr %.0, align 1
   store i8 0, ptr %.0, align 1
-  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef %1)
   store i8 %41, ptr %.0, align 1
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %44
@@ -15781,11 +15781,11 @@ define hidden noalias noundef ptr @tplt_open(ptr nocapture noundef %0) local_unn
   %31 = ptrtoint ptr %27 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef %27)
   br label %35
 
 34:                                               ; preds = %25
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str.132, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.132, ptr noundef %27)
   br label %35
 
 35:                                               ; preds = %34, %29
@@ -16266,7 +16266,7 @@ thread-pre-split:                                 ; preds = %24
   br i1 %46, label %47, label %61
 
 47:                                               ; preds = %44
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.138, i32 noundef %.02131)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %5, ptr noundef nonnull @.str.138, i32 noundef %.02131)
   %48 = load ptr, ptr @append_str.z, align 8
   %49 = load i32, ptr @append_str.used, align 4
   %50 = sext i32 %49 to i64
@@ -16479,7 +16479,7 @@ append_str.exit217:                               ; preds = %append_str.exit, %5
   br label %.thread
 
 84:                                               ; preds = %62
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.141, ptr noundef nonnull %60, ptr noundef nonnull %23)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %5, ptr noundef nonnull @.str.141, ptr noundef nonnull %60, ptr noundef nonnull %23)
   %85 = load ptr, ptr %10, align 8
   %86 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(1) %5) #45
   %.not = icmp eq ptr %86, null
@@ -17652,10 +17652,10 @@ lemon_strcpy.exit:                                ; preds = %.preheader, %lemon_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @writeRuleText(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @writeRuleText(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.93, ptr noundef %4) #42
+  %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, ptr noundef %4) #42
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
@@ -17677,7 +17677,7 @@ define internal fastcc void @writeRuleText(ptr nocapture noundef %0, ptr nocaptu
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %13, align 8
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef %17) #42
+  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.86, ptr noundef %17) #42
   br label %.loopexit
 
 19:                                               ; preds = %10
@@ -17685,7 +17685,7 @@ define internal fastcc void @writeRuleText(ptr nocapture noundef %0, ptr nocaptu
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.86, ptr noundef %23) #42
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.86, ptr noundef %23) #42
   %25 = getelementptr inbounds i8, ptr %13, i64 88
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %26, 1
@@ -17697,7 +17697,7 @@ define internal fastcc void @writeRuleText(ptr nocapture noundef %0, ptr nocaptu
   %29 = getelementptr ptr, ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.87, ptr noundef %31) #42
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87, ptr noundef %31) #42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %25, align 8
   %34 = sext i32 %33 to i64

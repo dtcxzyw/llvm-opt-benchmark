@@ -3816,7 +3816,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_(ptr d
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %10, ptr align 1 %13, i64 %11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %13, i64 %11, i1 false)
   %14 = load i64, ptr %4, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
   br label %16
@@ -3867,7 +3867,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_(pt
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %17, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %17, i64 %15, i1 false)
   %18 = load i64, ptr %5, align 8
   %19 = getelementptr inbounds i8, ptr %14, i64 %18
   br label %20
@@ -3893,7 +3893,7 @@ _ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit: ; preds = %22, 
 
 27:                                               ; preds = %_ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit
   %28 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr align 1 %28, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i, ptr align 1 %28, i64 %26, i1 false)
   br label %_ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit
 
 29:                                               ; preds = %4
@@ -3931,7 +3931,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %18, ptr align 1 %21, i64 %19, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %21, i64 %19, i1 false)
   %22 = load i64, ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 %22
   br label %24
@@ -4011,7 +4011,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %25, i64 %23, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr align 1 %25, i64 %23, i1 false)
   %26 = load i64, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
   br label %28
@@ -4063,7 +4063,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit: ; preds =
 
 47:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit
   %48 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i, ptr align 1 %48, i64 %46, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i, ptr align 1 %48, i64 %46, i1 false)
   br label %_ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit
 
 49:                                               ; preds = %6
@@ -4107,7 +4107,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %29, i64 %27, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr align 1 %29, i64 %27, i1 false)
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds i8, ptr %26, i64 %30
   br label %32
@@ -4159,7 +4159,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit: ; preds =
 
 51:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit
   %52 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i, ptr align 1 %52, i64 %50, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i, ptr align 1 %52, i64 %50, i1 false)
   %53 = load i64, ptr %19, align 8
   %54 = getelementptr inbounds i8, ptr %.3.i, i64 %53
   br label %55
@@ -4219,7 +4219,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %33, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 1 %33, i64 %31, i1 false)
   %34 = load i64, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %30, i64 %34
   br label %36
@@ -4271,7 +4271,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit: ; preds =
 
 55:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit
   %56 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i, ptr align 1 %56, i64 %54, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i, ptr align 1 %56, i64 %54, i1 false)
   %57 = load i64, ptr %20, align 8
   %58 = getelementptr inbounds i8, ptr %.3.i, i64 %57
   br label %59
@@ -4297,7 +4297,7 @@ _ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit: ; preds = %61, 
 
 66:                                               ; preds = %_ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit
   %67 = load ptr, ptr %7, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i21, ptr align 1 %67, i64 %65, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i21, ptr align 1 %67, i64 %65, i1 false)
   br label %_ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit
 
 68:                                               ; preds = %8
@@ -4347,7 +4347,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 36:                                               ; preds = %33
   %37 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %37, i64 %35, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %34, ptr align 1 %37, i64 %35, i1 false)
   %38 = load i64, ptr %10, align 8
   %39 = getelementptr inbounds i8, ptr %34, i64 %38
   br label %40
@@ -4399,7 +4399,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit: ; preds =
 
 59:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit
   %60 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i, ptr align 1 %60, i64 %58, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i, ptr align 1 %60, i64 %58, i1 false)
   %61 = load i64, ptr %21, align 8
   %62 = getelementptr inbounds i8, ptr %.3.i, i64 %61
   br label %63
@@ -4491,7 +4491,7 @@ define void @_ZN6google8protobuf6StrCatB5cxx11ERKNS0_7strings8AlphaNumES4_S4_S4_
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %41, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %41, i64 %39, i1 false)
   %42 = load i64, ptr %11, align 8
   %43 = getelementptr inbounds i8, ptr %38, i64 %42
   br label %44
@@ -4543,7 +4543,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit: ; preds =
 
 63:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit
   %64 = load ptr, ptr %5, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i, ptr align 1 %64, i64 %62, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i, ptr align 1 %64, i64 %62, i1 false)
   %65 = load i64, ptr %22, align 8
   %66 = getelementptr inbounds i8, ptr %.3.i, i64 %65
   br label %67
@@ -4595,7 +4595,7 @@ _ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit31: ; preds
 
 86:                                               ; preds = %_ZN6google8protobufL7Append4EPcRKNS0_7strings8AlphaNumES5_S5_S5_.exit31
   %87 = load ptr, ptr %9, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.i30, ptr align 1 %87, i64 %85, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3.i30, ptr align 1 %87, i64 %85, i1 false)
   br label %_ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit
 
 88:                                               ; preds = %10
@@ -4638,7 +4638,7 @@ define void @_ZN6google8protobuf9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr align 1 %15, i64 %13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %12, ptr align 1 %15, i64 %13, i1 false)
   %16 = load i64, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 %16
   br label %18
@@ -4679,7 +4679,7 @@ define void @_ZN6google8protobuf9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_
 
 18:                                               ; preds = %4
   %19 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %19, i64 %17, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %19, i64 %17, i1 false)
   %20 = load i64, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %16, i64 %20
   br label %22
@@ -4705,7 +4705,7 @@ _ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit: ; preds = %22, 
 
 29:                                               ; preds = %_ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit
   %30 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr align 1 %30, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1.i, ptr align 1 %30, i64 %28, i1 false)
   br label %_ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit
 
 _ZN6google8protobufL7Append1EPcRKNS0_7strings8AlphaNumE.exit: ; preds = %_ZN6google8protobufL7Append2EPcRKNS0_7strings8AlphaNumES5_.exit, %29
@@ -4736,7 +4736,7 @@ define void @_ZN6google8protobuf9StrAppendEPNSt7__cxx1112basic_stringIcSt11char_
 
 22:                                               ; preds = %5
   %23 = load ptr, ptr %1, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr align 1 %23, i64 %21, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %23, i64 %21, i1 false)
   %24 = load i64, ptr %7, align 8
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
   br label %26

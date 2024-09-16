@@ -1376,7 +1376,7 @@ sw.bb241:                                         ; preds = %while.body225
 
 sw.bb243.invoke:                                  ; preds = %while.body225, %sw.bb234
   %34 = load i8, ptr %p.512029, align 1
-  invoke fastcc void @_ZN3ue2L7pushOctEPjc(ptr noundef nonnull %octAccumulator, i8 noundef signext %34)
+  invoke fastcc void @_ZN3ue2L7pushOctEPjc(ptr noundef %octAccumulator, i8 noundef signext %34)
           to label %sw.epilog5283 unwind label %lpad230.loopexit.split-lp.loopexit
 
 sw.bb245:                                         ; preds = %while.body225
@@ -1385,7 +1385,7 @@ sw.bb245:                                         ; preds = %while.body225
 sw.bb245.invoke:                                  ; preds = %while.body225, %sw.bb236, %sw.bb241, %sw.bb245
   %35 = phi ptr [ %accumulator, %sw.bb245 ], [ %repeatM, %sw.bb241 ], [ %accumulator, %sw.bb236 ], [ %repeatN, %while.body225 ]
   %36 = load i8, ptr %p.512029, align 1
-  invoke fastcc void @_ZN3ue2L7pushDecEPjc(ptr noundef nonnull %35, i8 noundef signext %36)
+  invoke fastcc void @_ZN3ue2L7pushDecEPjc(ptr noundef %35, i8 noundef signext %36)
           to label %sw.epilog5283 unwind label %lpad230.loopexit.split-lp.loopexit
 
 sw.bb247:                                         ; preds = %while.body225
@@ -16564,7 +16564,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L7pushOctEPjc(ptr nocapture noundef %acc, i8 noundef signext %raw_digit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L7pushOctEPjc(ptr nocapture noundef nonnull %acc, i8 noundef signext %raw_digit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.2", align 1
@@ -16625,7 +16625,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L7pushDecEPjc(ptr nocapture noundef %acc, i8 noundef signext %raw_digit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L7pushDecEPjc(ptr nocapture noundef nonnull %acc, i8 noundef signext %raw_digit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.2", align 1

@@ -2133,7 +2133,7 @@ if.then7:                                         ; preds = %lor.lhs.false17.i
   %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %p.i)
-  %call8 = call fastcc i32 @add_cacheinfo(i32 noundef %conv8.i, ptr noundef nonnull %oid, ptr noundef nonnull %add.ptr.i, i32 noundef 0)
+  %call8 = call fastcc i32 @add_cacheinfo(i32 noundef %conv8.i, ptr noundef %oid, ptr noundef nonnull %add.ptr.i, i32 noundef 0)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end11, label %if.then10
 
@@ -2211,7 +2211,7 @@ lor.lhs.false27:                                  ; preds = %lor.lhs.false
   %incdec.ptr29 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %incdec.ptr29, ptr %ctx, align 8
   %18 = load ptr, ptr %incdec.ptr29, align 8
-  %call30 = call fastcc i32 @add_cacheinfo(i32 noundef %conv9.i, ptr noundef nonnull %oid, ptr noundef %18, i32 noundef 0)
+  %call30 = call fastcc i32 @add_cacheinfo(i32 noundef %conv9.i, ptr noundef %oid, ptr noundef %18, i32 noundef 0)
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end34, label %if.then32
 
@@ -2528,7 +2528,7 @@ if.else83.i:                                      ; preds = %if.end76.i
   store i8 0, ptr %arrayidx84.i, align 1
   %arrayidx88.i = getelementptr inbounds i8, ptr %17, i64 %idxprom87.i
   store i8 0, ptr %arrayidx88.i, align 1
-  %call89.i = call fastcc i32 @add_cacheinfo(i32 noundef %conv16.i, ptr noundef nonnull %oid.i, ptr noundef %path_name.0.i, i32 noundef %stage.0.i)
+  %call89.i = call fastcc i32 @add_cacheinfo(i32 noundef %conv16.i, ptr noundef %oid.i, ptr noundef %path_name.0.i, i32 noundef %stage.0.i)
   %tobool90.not.i = icmp eq i32 %call89.i, 0
   br i1 %tobool90.not.i, label %while.cond.backedge.i, label %if.then91.i
 
@@ -3167,7 +3167,7 @@ if.end47:                                         ; preds = %if.then43
   br label %return
 
 if.end48:                                         ; preds = %if.end41
-  %call49 = call fastcc i32 @process_path(ptr noundef %path, ptr noundef nonnull %st, i32 noundef %stat_errno.0)
+  %call49 = call fastcc i32 @process_path(ptr noundef %path, ptr noundef %st, i32 noundef %stat_errno.0)
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %if.end52, label %if.then51
 
@@ -3286,7 +3286,7 @@ declare i32 @refresh_index(ptr noundef, i32 noundef, ptr noundef, ptr noundef, p
 declare i32 @has_racy_timestamp(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_cacheinfo(i32 noundef %mode, ptr nocapture noundef readonly %oid, ptr noundef %path, i32 noundef %stage) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_cacheinfo(i32 noundef %mode, ptr nocapture noundef nonnull readonly %oid, ptr noundef %path, i32 noundef range(i32 0, 4) %stage) unnamed_addr #0 {
 entry:
   %call = tail call i32 @verify_path(ptr noundef %path, i32 noundef %mode) #18
   %tobool.not = icmp eq i32 %call, 0
@@ -3345,7 +3345,7 @@ create_ce_mode.exit:                              ; preds = %if.end, %if.end.i, 
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %create_ce_mode.exit
-  %or = or i32 %shl.i, 32768
+  %or = or disjoint i32 %shl.i, 32768
   store i32 %or, ptr %ce_flags, align 8
   br label %if.end13
 
@@ -3421,7 +3421,7 @@ declare void @resolve_undo_clear_index(ptr noundef) local_unnamed_addr #4
 declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @mark_ce_flags(ptr noundef %path, i32 noundef %flag, i32 noundef %mark) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @mark_ce_flags(ptr noundef %path, i32 noundef range(i32 32768, 1073741825) %flag, i32 noundef range(i32 0, 2) %mark) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #16
   %conv = trunc i64 %call to i32
@@ -3503,7 +3503,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @process_path(ptr noundef %path, ptr noundef %st, i32 noundef %stat_errno) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @process_path(ptr noundef %path, ptr noundef nonnull %st, i32 noundef %stat_errno) unnamed_addr #0 {
 entry:
   %oid.i = alloca %struct.object_id, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #16
@@ -3611,7 +3611,7 @@ if.then2.i:                                       ; preds = %if.then.i19
   br i1 %cmp4.i, label %process_directory.exit, label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.then2.i
-  %call6.i = call fastcc i32 @add_one_path(ptr noundef nonnull %8, ptr noundef %path, i32 noundef %conv, ptr noundef nonnull %st)
+  %call6.i = call fastcc i32 @add_one_path(ptr noundef nonnull %8, ptr noundef %path, i32 noundef %conv, ptr noundef %st)
   br label %process_directory.exit
 
 if.end7.i:                                        ; preds = %if.then.i19
@@ -3687,7 +3687,7 @@ process_directory.exit:                           ; preds = %if.then2.i, %if.end
   br label %return
 
 if.end29:                                         ; preds = %if.end23
-  %call30 = tail call fastcc i32 @add_one_path(ptr noundef %cond31, ptr noundef %path, i32 noundef %conv, ptr noundef nonnull %st)
+  %call30 = tail call fastcc i32 @add_one_path(ptr noundef %cond31, ptr noundef %path, i32 noundef %conv, ptr noundef %st)
   br label %return
 
 return:                                           ; preds = %if.end.i, %return.sink.split.i.i, %if.end.i.i, %if.then8, %land.lhs.true12, %if.end29, %process_directory.exit, %if.then15, %if.then
@@ -3706,7 +3706,7 @@ declare void @trace_printf_key_fl(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare i32 @has_symlink_leading_path(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_one_path(ptr noundef %old, ptr noundef %path, i32 noundef %len, ptr noundef %st) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_one_path(ptr noundef %old, ptr noundef %path, i32 noundef %len, ptr noundef nonnull %st) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %old, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -3719,7 +3719,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool1.not, label %land.lhs.true2, label %if.end
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
-  %call = tail call i32 @ie_match_stat(ptr noundef nonnull @the_index, ptr noundef nonnull %old, ptr noundef %st, i32 noundef 0) #18
+  %call = tail call i32 @ie_match_stat(ptr noundef nonnull @the_index, ptr noundef nonnull %old, ptr noundef nonnull %st, i32 noundef 0) #18
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %return, label %if.end
 
@@ -3732,7 +3732,7 @@ if.end:                                           ; preds = %land.lhs.true2, %la
   store i32 0, ptr %ce_flags7, align 8
   %ce_namelen = getelementptr inbounds i8, ptr %call4, i64 64
   store i32 %len, ptr %ce_namelen, align 8
-  tail call void @fill_stat_cache_info(ptr noundef nonnull @the_index, ptr noundef %call4, ptr noundef %st) #18
+  tail call void @fill_stat_cache_info(ptr noundef nonnull @the_index, ptr noundef %call4, ptr noundef nonnull %st) #18
   %st_mode = getelementptr inbounds i8, ptr %st, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %3 = load i32, ptr @has_symlinks, align 4

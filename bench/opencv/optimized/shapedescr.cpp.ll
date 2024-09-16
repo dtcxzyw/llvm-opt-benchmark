@@ -4160,7 +4160,7 @@ common.resume:                                    ; preds = %59, %31, %70, %56
   br i1 %.not167.i, label %133, label %132
 
 132:                                              ; preds = %122
-  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5)
+  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %5)
   br label %133
 
 133:                                              ; preds = %132, %122
@@ -4217,7 +4217,7 @@ common.resume:                                    ; preds = %59, %31, %70, %56
   br i1 %.not166.i, label %171, label %170
 
 170:                                              ; preds = %158
-  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5)
+  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %5)
   %.pre.i = load ptr, ptr %8, align 8
   br label %171
 
@@ -4270,7 +4270,7 @@ common.resume:                                    ; preds = %59, %31, %70, %56
   br i1 %.not161.i, label %195, label %194
 
 194:                                              ; preds = %._crit_edge.i
-  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %5)
+  call fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %5)
   br label %195
 
 195:                                              ; preds = %194, %._crit_edge.i
@@ -4711,7 +4711,7 @@ declare float @llvm.fabs.f32(float) #7
 declare ptr @cvAlloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10icvMemCopyPPdS0_S0_Pi(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = load ptr, ptr %0, align 8

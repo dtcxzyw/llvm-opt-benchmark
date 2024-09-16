@@ -176,7 +176,7 @@ define noundef range(i32 0, 280) i32 @_Z30_gmx_sel_lexer_process_pendingP7YYSTYP
 
 48:                                               ; preds = %45
   store ptr null, ptr %46, align 8
-  %49 = tail call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %47, i1 noundef zeroext true, ptr noundef nonnull %2)
+  %49 = tail call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef %47, i1 noundef zeroext true, ptr noundef nonnull %2)
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 _ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit: ; preds = %37, %24, %45, %48, %10
@@ -1175,7 +1175,7 @@ define noundef range(i32 258, 280) i32 @_Z33_gmx_sel_lexer_process_identifierP7Y
   %131 = getelementptr inbounds i8, ptr %4, i64 136
   %132 = load i32, ptr %131, align 8
   %133 = icmp sgt i32 %132, 0
-  %134 = call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %117, i1 noundef zeroext %133, ptr noundef nonnull %4)
+  %134 = call fastcc noundef i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr noundef %0, ptr noundef %1, ptr noundef %117, i1 noundef zeroext %133, ptr noundef nonnull %4)
   br label %_ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit
 
 135:                                              ; preds = %127

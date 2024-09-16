@@ -853,7 +853,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %vpm, i32 noundef %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @int_x509_param_set_hosts(ptr nocapture noundef %vpm, i32 noundef range(i32 0, 2) %mode, ptr noundef %name, i64 noundef %namelen) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %namelen, 0
   %cmp1 = icmp eq ptr %name, null

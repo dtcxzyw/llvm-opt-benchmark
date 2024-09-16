@@ -315,7 +315,7 @@ define range(i32 -1, 1) i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture read
   br i1 %.not19, label %.loopexit, label %15, !llvm.loop !11
 
 27:                                               ; preds = %20
-  %28 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %5, i1 noundef zeroext %3)
+  %28 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %18, ptr noundef %5, i1 noundef zeroext %3)
   %.not20 = icmp eq i32 %28, 0
   br i1 %.not20, label %29, label %30
 
@@ -920,7 +920,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   br i1 %.not48, label %223, label %.thread68
 
 223:                                              ; preds = %_parse_include_directive.exit
-  %224 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %136, ptr noundef nonnull %12, i1 noundef zeroext %18)
+  %224 = call fastcc i32 @_parse_next_key(ptr noundef %0, ptr noundef nonnull %136, ptr noundef %12, i1 noundef zeroext %18)
   %.not49 = icmp eq i32 %224, 0
   br i1 %.not49, label %.outer.backedge, label %.thread68
 
@@ -1053,7 +1053,7 @@ define range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr n
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
-  %8 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %8 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.lr.ph, label %.loopexit11
 
@@ -1112,7 +1112,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %6, align 8
-  %32 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %6)
+  %32 = call fastcc i32 @_handle_keyvalue_match(ptr noundef %.014.i, ptr noundef %30, ptr noundef %31, ptr noundef %6)
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %.loopexit11.sink.split, label %34
 
@@ -1121,7 +1121,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store ptr %35, ptr %2, align 8
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   call void @slurm_xfree(ptr noundef nonnull %5) #14
-  %36 = call fastcc i32 @_keyvalue_regex(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %36 = call fastcc i32 @_keyvalue_regex(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.lr.ph.split, label %.loopexit11, !llvm.loop !25
 
@@ -2816,7 +2816,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca [8 x %struct.regmatch_t], align 16
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -2925,7 +2925,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2989,7 +2989,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   %29 = getelementptr inbounds i8, ptr %0, i64 24
   %30 = load i32, ptr %8, align 8
   %31 = load ptr, ptr %0, align 8
-  %32 = tail call i32 %27(ptr noundef nonnull %29, i32 noundef %30, ptr noundef %31, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %32 = tail call i32 %27(ptr noundef nonnull %29, i32 noundef %30, ptr noundef %31, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   %.not25.i = icmp eq i32 %32, 1
   br i1 %.not25.i, label %39, label %33
 
@@ -3010,19 +3010,19 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %_handle_common.exit
 
 40:                                               ; preds = %4
-  %41 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_long)
+  %41 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_long)
   br label %_handle_common.exit
 
 42:                                               ; preds = %4
-  %43 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint16)
+  %43 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint16)
   br label %_handle_common.exit
 
 44:                                               ; preds = %4
-  %45 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint32)
+  %45 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint32)
   br label %_handle_common.exit
 
 46:                                               ; preds = %4
-  %47 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint64)
+  %47 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_uint64)
   br label %_handle_common.exit
 
 48:                                               ; preds = %4
@@ -3034,7 +3034,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds i8, ptr %0, i64 24
   %53 = load ptr, ptr %0, align 8
-  %54 = tail call i32 %50(ptr noundef nonnull %52, i32 noundef 6, ptr noundef %53, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %54 = tail call i32 %50(ptr noundef nonnull %52, i32 noundef 6, ptr noundef %53, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   %.not21.i = icmp eq i32 %54, 1
   br i1 %.not21.i, label %76, label %55
 
@@ -3094,7 +3094,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
 
 81:                                               ; preds = %78
   %82 = load ptr, ptr %0, align 8
-  %83 = call i32 %80(ptr noundef nonnull %7, i32 noundef 7, ptr noundef %82, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %83 = call i32 %80(ptr noundef nonnull %7, i32 noundef 7, ptr noundef %82, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   %.not19.i = icmp eq i32 %83, 1
   br i1 %.not19.i, label %89, label %84
 
@@ -3132,7 +3132,7 @@ _handle_array.exit:                               ; preds = %84, %89
   br label %_handle_common.exit
 
 102:                                              ; preds = %4
-  %103 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_boolean)
+  %103 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_boolean)
   br label %_handle_common.exit
 
 104:                                              ; preds = %4
@@ -3167,7 +3167,7 @@ _handle_array.exit:                               ; preds = %84, %89
 s_p_parse_line_complete.exit:                     ; preds = %113
   %120 = getelementptr inbounds i8, ptr %0, i64 16
   %121 = load ptr, ptr %0, align 8
-  tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %106, ptr noundef nonnull %120, ptr noundef %121, ptr noundef %108)
+  tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %106, ptr noundef %120, ptr noundef %121, ptr noundef %108)
   br label %_handle_common.exit
 
 122:                                              ; preds = %4
@@ -3177,7 +3177,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %0, align 8
-  %127 = call i32 @s_p_parse_line_expanded(ptr noundef %125, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %126, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  %127 = call i32 @s_p_parse_line_expanded(ptr noundef %125, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %126, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %_handle_expline.exit, label %.preheader
 
@@ -3197,7 +3197,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
   %134 = load ptr, ptr %0, align 8
   %135 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8
-  tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %124, ptr noundef nonnull %131, ptr noundef %134, ptr noundef %136)
+  tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %124, ptr noundef %131, ptr noundef %134, ptr noundef %136)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %133, !llvm.loop !33
@@ -3213,15 +3213,15 @@ _handle_expline.exit:                             ; preds = %122, %._crit_edge
   br label %_handle_common.exit
 
 137:                                              ; preds = %4
-  %138 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_float)
+  %138 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_float)
   br label %_handle_common.exit
 
 139:                                              ; preds = %4
-  %140 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_double)
+  %140 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_double)
   br label %_handle_common.exit
 
 141:                                              ; preds = %4
-  %142 = tail call fastcc i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_ldouble)
+  %142 = tail call fastcc i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @_handle_ldouble)
   br label %_handle_common.exit
 
 143:                                              ; preds = %4
@@ -3250,12 +3250,12 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
-  %9 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %9 = call fastcc i32 @_keyvalue_regex(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8)
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %47
 
@@ -3314,7 +3314,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
-  %35 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %33, ptr noundef %34, ptr noundef nonnull %7)
+  %35 = call fastcc i32 @_handle_keyvalue_match(ptr noundef %.014.i, ptr noundef %33, ptr noundef %34, ptr noundef %7)
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %38
 
@@ -4343,7 +4343,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 .critedge4:                                       ; preds = %70, %77, %.critedge2, %67
   %.lcssa = phi ptr [ %68, %67 ], [ %61, %.critedge2 ], [ %78, %77 ], [ %72, %70 ]
-  %80 = call fastcc i32 @_handle_keyvalue_match(ptr noundef nonnull %.014.i, ptr noundef %65, ptr noundef nonnull %.lcssa, ptr noundef nonnull %6)
+  %80 = call fastcc i32 @_handle_keyvalue_match(ptr noundef %.014.i, ptr noundef %65, ptr noundef nonnull %.lcssa, ptr noundef %6)
   %81 = icmp eq i32 %80, -1
   call void @slurm_xfree(ptr noundef nonnull %5) #14
   br i1 %81, label %82, label %83
@@ -5154,7 +5154,7 @@ declare void @dump_regex_error(i32 noundef, ptr noundef, ptr noundef, ...) local
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -5196,7 +5196,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef %0, ptr 
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = load ptr, ptr %0, align 8
-  %28 = tail call i32 %22(ptr noundef nonnull %24, i32 noundef %26, ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef %3) #14
+  %28 = tail call i32 %22(ptr noundef nonnull %24, i32 noundef %26, ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   %.not25 = icmp eq i32 %28, 1
   br i1 %.not25, label %36, label %29
 
@@ -5379,7 +5379,7 @@ declare i32 @s_p_handle_uint64(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare i32 @s_p_handle_boolean(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not.i = icmp ne ptr %3, null
   tail call void @llvm.assume(i1 %.not.i)
   %5 = load i8, ptr %2, align 1

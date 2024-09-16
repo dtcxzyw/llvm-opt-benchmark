@@ -96,17 +96,17 @@ define dso_local void @advise(ptr noundef %advice, ...) local_unnamed_addr #0 {
 entry:
   %params = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %params)
-  call fastcc void @vadvise(ptr noundef %advice, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull %params)
+  call fastcc void @vadvise(ptr noundef %advice, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %params)
   call void @llvm.va_end.p0(ptr nonnull %params)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vadvise(ptr noundef %advice, i32 noundef %display_instructions, ptr noundef %key, ptr noundef %params) unnamed_addr #0 {
+define internal fastcc void @vadvise(ptr noundef %advice, i32 noundef range(i32 0, 2) %display_instructions, ptr noundef %key, ptr noundef nonnull %params) unnamed_addr #0 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.vadvise.buf, i64 24, i1 false)
-  call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %advice, ptr noundef %params) #11
+  call void @strbuf_vaddf(ptr noundef nonnull %buf, ptr noundef %advice, ptr noundef nonnull %params) #11
   %tobool.not = icmp eq i32 %display_instructions, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -219,7 +219,7 @@ if.end:                                           ; preds = %advice_enabled.exit
   %idxprom = zext i32 %type to i64
   %arrayidx = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 16
-  call fastcc void @vadvise(ptr noundef %advice, i32 noundef 1, ptr noundef %4, ptr noundef nonnull %params)
+  call fastcc void @vadvise(ptr noundef %advice, i32 noundef 1, ptr noundef %4, ptr noundef %params)
   call void @llvm.va_end.p0(ptr nonnull %params)
   br label %return
 

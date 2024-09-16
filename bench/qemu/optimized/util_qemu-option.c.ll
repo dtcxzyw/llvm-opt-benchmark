@@ -1931,7 +1931,7 @@ for.cond:                                         ; preds = %for.body, %entry
   br i1 %tobool.not.not.not.not.not.not, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
-  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.0, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %ret, ptr noundef nonnull %name, ptr noundef nonnull %value)
+  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.0, ptr noundef null, i1 noundef zeroext false, ptr noundef nonnull %ret, ptr noundef %name, ptr noundef %value)
   %1 = load ptr, ptr %name, align 8
   call void @g_free(ptr noundef %1) #20
   %2 = load ptr, ptr %value, align 8
@@ -1945,7 +1945,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly %help_wanted, ptr nocapture noundef %name, ptr nocapture noundef %value) unnamed_addr #0 {
+define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly %help_wanted, ptr nocapture noundef nonnull %name, ptr nocapture noundef nonnull %value) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strcspn(ptr noundef %params, ptr noundef nonnull @.str.42) #19
   %arrayidx = getelementptr i8, ptr %params, i64 %call
@@ -2203,7 +2203,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond.backedge
   %p.041 = phi ptr [ %params, %for.body.lr.ph ], [ %call, %for.cond.backedge ]
   %firstname.addr.040 = phi ptr [ %firstname, %for.body.lr.ph ], [ null, %for.cond.backedge ]
-  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.041, ptr noundef %firstname.addr.040, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef nonnull %option, ptr noundef nonnull %value)
+  %call = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.041, ptr noundef %firstname.addr.040, i1 noundef zeroext %warn_on_flag, ptr noundef %help_wanted, ptr noundef %option, ptr noundef %value)
   br i1 %tobool2.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
@@ -2356,7 +2356,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %if.end.i
   %p.03.i = phi ptr [ %call.i, %if.end.i ], [ %params, %entry ]
-  %call.i = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.03.i, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef nonnull %name.i, ptr noundef nonnull %value.i)
+  %call.i = call fastcc ptr @get_opt_name_value(ptr noundef nonnull %p.03.i, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef %name.i, ptr noundef %value.i)
   %1 = load ptr, ptr %name.i, align 8
   %2 = load i8, ptr %1, align 1
   %.not.i = icmp eq i8 %2, 105
@@ -2491,7 +2491,7 @@ if.end:                                           ; preds = %entry
 
 for.body:                                         ; preds = %if.end, %for.inc
   %entry1.010 = phi ptr [ %call8, %for.inc ], [ %call3, %if.end ]
-  %call5 = tail call fastcc zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef nonnull %call2, ptr noundef nonnull %entry1.010, ptr noundef %errp)
+  %call5 = tail call fastcc zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef nonnull %call2, ptr noundef %entry1.010, ptr noundef %errp)
   br i1 %call5, label %for.inc, label %if.then6
 
 if.then6:                                         ; preds = %for.body
@@ -2513,11 +2513,11 @@ declare ptr @qdict_get_try_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @qdict_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef %opts, ptr noundef %entry1, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef %opts, ptr noundef nonnull %entry1, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
-  %call = tail call ptr @qdict_entry_key(ptr noundef %entry1) #20
-  %call2 = tail call ptr @qdict_entry_value(ptr noundef %entry1) #20
+  %call = tail call ptr @qdict_entry_key(ptr noundef nonnull %entry1) #20
+  %call2 = tail call ptr @qdict_entry_value(ptr noundef nonnull %entry1) #20
   %0 = load i8, ptr %call, align 1
   %.not = icmp eq i8 %0, 105
   br i1 %.not, label %sub_1, label %if.end
@@ -2620,7 +2620,7 @@ for.body.i:                                       ; preds = %lor.lhs.false, %for
   br i1 %cmp5.i, label %if.then, label %for.cond.i
 
 if.then:                                          ; preds = %for.body.i, %while.body
-  %call6 = tail call fastcc zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef %opts, ptr noundef nonnull %entry1.012, ptr noundef %errp)
+  %call6 = tail call fastcc zeroext i1 @qemu_opts_from_qdict_entry(ptr noundef %opts, ptr noundef %entry1.012, ptr noundef %errp)
   br i1 %call6, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then

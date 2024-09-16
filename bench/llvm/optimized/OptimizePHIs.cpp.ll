@@ -308,7 +308,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   store i32 16, ptr %22, align 8
   store i32 0, ptr %23, align 4
   store i32 0, ptr %24, align 8
-  %43 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull %.sroa.024.033.i, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
+  %43 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %.sroa.024.033.i, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(160) %4)
   %44 = load i32, ptr %3, align 4
   %45 = icmp ne i32 %44, 0
   %or.cond.i = select i1 %43, i1 %45, i1 false
@@ -374,7 +374,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   br label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
 
 _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %80, %76
-  %81 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull %.sroa.024.033.i, ptr noundef nonnull align 8 dereferenceable(160) %4)
+  %81 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %.sroa.024.033.i, ptr noundef nonnull align 8 dereferenceable(160) %4)
   br i1 %81, label %82, label %.loopexit.i
 
 82:                                               ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
@@ -524,7 +524,7 @@ declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsa
 declare noundef zeroext i1 @_ZNK4llvm12FunctionPass12skipFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 1) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(160) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(160) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -568,7 +568,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSi
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 28:                                               ; preds = %._crit_edge.i.i, %4
-  %29 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef %1) #11, !noalias !8
+  %29 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull %1) #11, !noalias !8
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %29, 1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %3, i64 20
   %.pre8.i = load i32, ptr %.phi.trans.insert.i, align 4
@@ -657,7 +657,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   ]
 
 68:                                               ; preds = %.critedge.thread, %.critedge.thread
-  %69 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %.02746, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(160) %3)
+  %69 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSingleValuePHICycleEPN4llvm12MachineInstrERjRNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %.02746, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(160) %3)
   br i1 %69, label %72, label %.critedge.thread47
 
 .critedge.thread.thread:                          ; preds = %61, %57, %52, %.critedge.thread
@@ -693,7 +693,7 @@ declare void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull alig
 declare void @_ZNK4llvm19MachineRegisterInfo14clearKillFlagsENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -737,7 +737,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDe
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit
 
 27:                                               ; preds = %._crit_edge.i.i, %3
-  %28 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %1) #11, !noalias !13
+  %28 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %1) #11, !noalias !13
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %28, 1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.pre8.i = load i32, ptr %.phi.trans.insert.i, align 4
@@ -809,7 +809,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
   ]
 
 59:                                               ; preds = %.lr.ph, %.lr.ph
-  %60 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %56, ptr noundef nonnull align 8 dereferenceable(160) %2)
+  %60 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDeadPHICycleEPN4llvm12MachineInstrERNS1_11SmallPtrSetIS3_Lj16EEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %56, ptr noundef nonnull align 8 dereferenceable(160) %2)
   br i1 %60, label %61, label %.loopexit
 
 61:                                               ; preds = %59

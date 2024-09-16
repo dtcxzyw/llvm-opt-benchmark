@@ -2883,7 +2883,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc37, %_ZNSt6ve
   %32 = load ptr, ptr %3, align 8
   %33 = getelementptr inbounds %"class.cv::Point_", ptr %32, i64 %.03057
   %.sroa.06.0.copyload = load <2 x float>, ptr %33, align 4
-  invoke fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull %11, i64 %.sroa.07.0.copyload, <2 x float> %.sroa.06.0.copyload)
+  invoke fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %11, i64 %.sroa.07.0.copyload, <2 x float> %.sroa.06.0.copyload)
           to label %34 unwind label %55
 
 34:                                               ; preds = %31
@@ -2901,7 +2901,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.noexc37, %_ZNSt6ve
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr inbounds %"class.cv::Point_", ptr %38, i64 %.03057
   %.sroa.0.0.copyload = load <2 x float>, ptr %39, align 4
-  invoke fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull %13, i64 %.sroa.05.0.copyload, <2 x float> %.sroa.0.0.copyload)
+  invoke fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %13, i64 %.sroa.05.0.copyload, <2 x float> %.sroa.0.0.copyload)
           to label %40 unwind label %60
 
 40:                                               ; preds = %37
@@ -3881,7 +3881,7 @@ _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i64 %2, <2 x float> %3) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiEENS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i64 %2, <2 x float> %3) unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Rect_.75", align 4
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.cv::_InputArray", align 8

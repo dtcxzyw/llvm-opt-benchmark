@@ -186,7 +186,7 @@ cleanup:                                          ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes8oscompatL15vm_mmap_alignedEPvmmii(ptr noalias nocapture align 8 %agg.result, ptr noundef %addr, i64 noundef %sz, i64 noundef %alignment, i32 noundef %prot, i32 noundef %flags) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes8oscompatL15vm_mmap_alignedEPvmmii(ptr noalias nocapture align 8 %agg.result, ptr noundef %addr, i64 noundef %sz, i64 noundef %alignment, i32 noundef range(i32 0, 4) %prot, i32 noundef range(i32 34, 16419) %flags) unnamed_addr #1 {
 entry:
   %add = add i64 %alignment, %sz
   %call.i = tail call i32 @getpagesize() #21

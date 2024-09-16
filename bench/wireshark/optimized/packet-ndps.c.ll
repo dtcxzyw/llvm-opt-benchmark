@@ -4520,7 +4520,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_ndps_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 20, 25) %3) unnamed_addr #0 {
   %5 = alloca %struct.ndps_req_hash_key, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5621,10 +5621,10 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %567 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.2017862054, i32 noundef -1, i32 noundef %565, ptr noundef nonnull %6, ptr noundef nonnull @.str.1733, i32 noundef %566) #6
   %568 = load i32, ptr @hf_ndps_service_type, align 4
   %569 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %568, ptr noundef %0, i32 noundef %.2017862054, i32 noundef 4, i32 noundef 0) #6
-  %570 = add i32 %.2017862054, 4
+  %570 = add nuw nsw i32 %.2017862054, 4
   %571 = load i32, ptr @hf_ndps_service_enabled, align 4
   %572 = call ptr @proto_tree_add_item(ptr noundef %567, i32 noundef %571, ptr noundef %0, i32 noundef %570, i32 noundef 4, i32 noundef 0) #6
-  %573 = add i32 %.2017862054, 8
+  %573 = add nuw nsw i32 %.2017862054, 8
   %574 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %574, ptr noundef %0, i32 noundef %573) #6
   %exitcond2283.not = icmp eq i32 %566, %558
@@ -5687,7 +5687,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %595 = add nuw nsw i32 %.102051, 1
   %596 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.2117872050, i32 noundef -1, i32 noundef %594, ptr noundef nonnull %6, ptr noundef nonnull @.str.1711, i32 noundef %595) #6
   %597 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2117872050) #6
-  %598 = add i32 %.2117872050, 4
+  %598 = add nuw nsw i32 %.2117872050, 4
   %.not1834 = icmp eq i32 %597, 0
   br i1 %.not1834, label %602, label %599
 
@@ -5865,7 +5865,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %676 = add nuw nsw i32 %.132039, 1
   %677 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.2417902038, i32 noundef -1, i32 noundef %675, ptr noundef nonnull %6, ptr noundef nonnull @.str.1711, i32 noundef %676) #6
   %678 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2417902038) #6
-  %679 = add i32 %.2417902038, 4
+  %679 = add nuw nsw i32 %.2417902038, 4
   %.not1831 = icmp eq i32 %678, 0
   br i1 %.not1831, label %683, label %680
 
@@ -6657,7 +6657,7 @@ qualifiedname.exit1863:                           ; preds = %.loopexit1867, %.si
   %1090 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.431973, i32 noundef -1, i32 noundef %1088, ptr noundef nonnull %6, ptr noundef nonnull @.str.1747, i32 noundef %1089) #6
   %1091 = load i32, ptr @hf_ndps_language_id, align 4
   %1092 = call ptr @proto_tree_add_item(ptr noundef %1090, i32 noundef %1091, ptr noundef %0, i32 noundef %.431973, i32 noundef 4, i32 noundef 0) #6
-  %1093 = add i32 %.431973, 4
+  %1093 = add nuw nsw i32 %.431973, 4
   %1094 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %1094, ptr noundef %0, i32 noundef %1093) #6
   %exitcond2243.not = icmp eq i32 %1089, %1081
@@ -13627,7 +13627,7 @@ define internal fastcc noundef i32 @cardinal_seq(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @res_add_input_data(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @res_add_input_data(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 44, 57) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %2) #6
   %5 = load i32, ptr @hf_res_type, align 4
   %6 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef %4) #6

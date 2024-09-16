@@ -737,7 +737,7 @@ define void @_ZN2cv12reduceArgMinERKNS_11_InputArrayERKNS_12_OutputArrayEib(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12reduceMinMaxRKN2cv11_InputArrayERKNS_12_OutputArrayE10ReduceModei(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12reduceMinMaxRKN2cv11_InputArrayERKNS_12_OutputArrayE10ReduceModei(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef range(i32 0, 4) %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.cv::utils::trace::details::Region", align 8
@@ -777,8 +777,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %18, %21
   %28 = icmp eq i32 %27, 0
   %29 = or i32 %25, %23
   %30 = icmp sgt i32 %29, -1
-  %or.cond71 = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond71, label %41, label %33
+  %or.cond77 = select i1 %28, i1 %30, i1 false
+  br i1 %or.cond77, label %41, label %33
 
 31:                                               ; preds = %21, %18, %4
   %32 = landingpad { ptr, i32 }
@@ -919,8 +919,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
 82:                                               ; preds = %71, %65
   %83 = load i32, ptr %11, align 8
   %84 = and i32 %83, 16384
-  %.not73 = icmp eq i32 %84, 0
-  br i1 %.not73, label %85, label %91
+  %.not79 = icmp eq i32 %84, 0
+  br i1 %.not79, label %85, label %91
 
 85:                                               ; preds = %82
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %15, ptr noundef nonnull align 8 dereferenceable(96) %11)
@@ -945,7 +945,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
   %93 = and i32 %92, 7
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  switch i32 %93, label %default.unreachable [
+  switch i32 %93, label %default.unreachable80 [
     i32 0, label %94
     i32 1, label %99
     i32 2, label %104
@@ -957,7 +957,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
   ]
 
 94:                                               ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %95
     i32 1, label %96
     i32 2, label %97
@@ -981,7 +981,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 99:                                               ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %100
     i32 1, label %101
     i32 2, label %102
@@ -1005,7 +1005,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 104:                                              ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %105
     i32 1, label %106
     i32 2, label %107
@@ -1029,7 +1029,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 109:                                              ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %110
     i32 1, label %111
     i32 2, label %112
@@ -1053,7 +1053,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 114:                                              ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %115
     i32 1, label %116
     i32 2, label %117
@@ -1077,7 +1077,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 119:                                              ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %120
     i32 1, label %121
     i32 2, label %122
@@ -1101,7 +1101,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
           to label %137 unwind label %76
 
 124:                                              ; preds = %91
-  switch i32 %2, label %137 [
+  switch i32 %2, label %default.unreachable80 [
     i32 0, label %125
     i32 1, label %126
     i32 2, label %127
@@ -1124,7 +1124,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc25, %_ZSt6fil
   invoke void @_ZN16reduceMinMaxImplIdE17reduceMinMaxApplyISt13greater_equalEEvRKN2cv3MatERS4_i(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %11, i32 noundef %25)
           to label %137 unwind label %76
 
-default.unreachable:                              ; preds = %91
+default.unreachable80:                            ; preds = %124, %119, %114, %109, %104, %99, %94, %91
   unreachable
 
 129:                                              ; preds = %91
@@ -1155,10 +1155,10 @@ default.unreachable:                              ; preds = %91
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
   br label %.body
 
-137:                                              ; preds = %124, %119, %114, %109, %104, %99, %94, %95, %96, %97, %98, %100, %101, %102, %103, %105, %106, %107, %108, %110, %111, %112, %113, %115, %116, %117, %118, %120, %121, %122, %123, %125, %126, %127, %128
+137:                                              ; preds = %95, %96, %97, %98, %100, %101, %102, %103, %105, %106, %107, %108, %110, %111, %112, %113, %115, %116, %117, %118, %120, %121, %122, %123, %125, %126, %127, %128
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br i1 %.not73, label %138, label %_ZNSt6vectorIiSaIiEED2Ev.exit
+  br i1 %.not79, label %138, label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 138:                                              ; preds = %137
   invoke void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)

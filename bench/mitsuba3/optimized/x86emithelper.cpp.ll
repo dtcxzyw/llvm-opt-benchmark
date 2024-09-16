@@ -1019,8 +1019,8 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_103x8616EmitterExplici
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
-  switch i8 %0, label %default.unreachable [
+define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRestoreInfoENS0_8RegGroupERKNS0_9FuncFrameERNS1_3RegERjS8_(i8 noundef zeroext range(i8 1, 4) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(100) %1, ptr nocapture noundef nonnull align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+  switch i8 %0, label %default.unreachable1 [
     i8 1, label %6
     i8 2, label %15
     i8 3, label %16
@@ -1054,7 +1054,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_103x86L32X86Internal_setupSaveRes
   store i32 %20, ptr %4, align 4, !tbaa !4
   ret void
 
-default.unreachable:                              ; preds = %5
+default.unreachable1:                             ; preds = %5
   unreachable
 }
 

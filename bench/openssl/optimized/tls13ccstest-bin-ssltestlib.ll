@@ -221,10 +221,10 @@ if.then:                                          ; preds = %entry
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.then, %if.end114.i
-  %rec.057.i = phi ptr [ %add.ptr111.i, %if.end114.i ], [ %out, %if.then ]
-  %rem.056.i = phi i32 [ %sub112.i, %if.end114.i ], [ %call1, %if.then ]
-  %cmp1.not.i = icmp eq i32 %rem.056.i, %call1
+while.body.i:                                     ; preds = %if.end114.i, %if.then
+  %rec.056.i = phi ptr [ %out, %if.then ], [ %add.ptr111.i, %if.end114.i ]
+  %rem.055.i = phi i32 [ %call1, %if.then ], [ %sub112.i, %if.end114.i ]
+  %cmp1.not.i = icmp eq i32 %rem.055.i, %call1
   br i1 %cmp1.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
@@ -233,25 +233,25 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %puts43.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %cmp4.i = icmp ult i32 %rem.056.i, 13
+  %cmp4.i = icmp ult i32 %rem.055.i, 13
   br i1 %cmp4.i, label %while.end.sink.split.i, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %0 = load i8, ptr %rec.057.i, align 1
+  %0 = load i8, ptr %rec.056.i, align 1
   %conv.i = zext i8 %0 to i32
   %call8.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.88, i32 noundef %conv.i)
-  %arrayidx9.i = getelementptr inbounds i8, ptr %rec.057.i, i64 1
+  %arrayidx9.i = getelementptr inbounds i8, ptr %rec.056.i, i64 1
   %1 = load i8, ptr %arrayidx9.i, align 1
   %conv10.i = zext i8 %1 to i32
-  %arrayidx11.i = getelementptr inbounds i8, ptr %rec.057.i, i64 2
+  %arrayidx11.i = getelementptr inbounds i8, ptr %rec.056.i, i64 2
   %2 = load i8, ptr %arrayidx11.i, align 1
   %conv12.i = zext i8 %2 to i32
   %call13.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.89, i32 noundef %conv10.i, i32 noundef %conv12.i)
-  %arrayidx14.i = getelementptr inbounds i8, ptr %rec.057.i, i64 3
+  %arrayidx14.i = getelementptr inbounds i8, ptr %rec.056.i, i64 3
   %3 = load i8, ptr %arrayidx14.i, align 1
   %conv15.i = zext i8 %3 to i32
   %shl.i = shl nuw nsw i32 %conv15.i, 8
-  %arrayidx16.i = getelementptr inbounds i8, ptr %rec.057.i, i64 4
+  %arrayidx16.i = getelementptr inbounds i8, ptr %rec.056.i, i64 4
   %4 = load i8, ptr %arrayidx16.i, align 1
   %conv17.i = zext i8 %4 to i32
   %or.i = or disjoint i32 %shl.i, %conv17.i
@@ -261,7 +261,7 @@ if.end7.i:                                        ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end7.i
   %indvars.iv.i = phi i64 [ 5, %if.end7.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx22.i = getelementptr inbounds i8, ptr %rec.057.i, i64 %indvars.iv.i
+  %arrayidx22.i = getelementptr inbounds i8, ptr %rec.056.i, i64 %indvars.iv.i
   %5 = load i8, ptr %arrayidx22.i, align 1
   %conv23.i = zext i8 %5 to i32
   %call24.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, i32 noundef %conv23.i)
@@ -270,17 +270,17 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.body.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %rec.057.i, i64 11
+  %arrayidx25.i = getelementptr inbounds i8, ptr %rec.056.i, i64 11
   %6 = load i8, ptr %arrayidx25.i, align 1
   %conv26.i = zext i8 %6 to i32
   %shl27.i = shl nuw nsw i32 %conv26.i, 8
-  %arrayidx28.i = getelementptr inbounds i8, ptr %rec.057.i, i64 12
+  %arrayidx28.i = getelementptr inbounds i8, ptr %rec.056.i, i64 12
   %7 = load i8, ptr %arrayidx28.i, align 1
   %conv29.i = zext i8 %7 to i32
   %or30.i = or disjoint i32 %shl27.i, %conv29.i
   %call31.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.93, i32 noundef %or30.i)
-  %add.ptr.i = getelementptr inbounds i8, ptr %rec.057.i, i64 13
-  %sub.i = add nsw i32 %rem.056.i, -13
+  %add.ptr.i = getelementptr inbounds i8, ptr %rec.056.i, i64 13
+  %sub.i = add nsw i32 %rem.055.i, -13
   %cmp32.i = icmp eq i8 %0, 22
   br i1 %cmp32.i, label %if.then34.i, label %if.end105.i
 
@@ -290,7 +290,7 @@ if.then34.i:                                      ; preds = %for.end.i
   br i1 %cmp36.not.i, label %if.else.i, label %if.end105.sink.split.i
 
 if.else.i:                                        ; preds = %if.then34.i
-  %cmp40.i = icmp ult i32 %rem.056.i, 25
+  %cmp40.i = icmp ult i32 %rem.055.i, 25
   %cmp42.i = icmp ult i32 %or30.i, 12
   %or.cond.i = or i1 %cmp40.i, %cmp42.i
   br i1 %or.cond.i, label %if.end105.sink.split.i, label %if.else46.i
@@ -299,53 +299,53 @@ if.else46.i:                                      ; preds = %if.else.i
   %8 = load i8, ptr %add.ptr.i, align 1
   %conv48.i = zext i8 %8 to i32
   %call49.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.97, i32 noundef %conv48.i)
-  %arrayidx50.i = getelementptr inbounds i8, ptr %rec.057.i, i64 14
+  %arrayidx50.i = getelementptr inbounds i8, ptr %rec.056.i, i64 14
   %9 = load i8, ptr %arrayidx50.i, align 1
   %conv51.i = zext i8 %9 to i32
   %shl52.i = shl nuw nsw i32 %conv51.i, 16
-  %arrayidx53.i = getelementptr inbounds i8, ptr %rec.057.i, i64 15
+  %arrayidx53.i = getelementptr inbounds i8, ptr %rec.056.i, i64 15
   %10 = load i8, ptr %arrayidx53.i, align 1
   %conv54.i = zext i8 %10 to i32
   %shl55.i = shl nuw nsw i32 %conv54.i, 8
   %or56.i = or disjoint i32 %shl55.i, %shl52.i
-  %arrayidx57.i = getelementptr inbounds i8, ptr %rec.057.i, i64 16
+  %arrayidx57.i = getelementptr inbounds i8, ptr %rec.056.i, i64 16
   %11 = load i8, ptr %arrayidx57.i, align 1
   %conv58.i = zext i8 %11 to i32
   %or59.i = or disjoint i32 %or56.i, %conv58.i
   %call60.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.98, i32 noundef %or59.i)
-  %arrayidx61.i = getelementptr inbounds i8, ptr %rec.057.i, i64 17
+  %arrayidx61.i = getelementptr inbounds i8, ptr %rec.056.i, i64 17
   %12 = load i8, ptr %arrayidx61.i, align 1
   %conv62.i = zext i8 %12 to i32
   %shl63.i = shl nuw nsw i32 %conv62.i, 8
-  %arrayidx64.i = getelementptr inbounds i8, ptr %rec.057.i, i64 18
+  %arrayidx64.i = getelementptr inbounds i8, ptr %rec.056.i, i64 18
   %13 = load i8, ptr %arrayidx64.i, align 1
   %conv65.i = zext i8 %13 to i32
   %or66.i = or disjoint i32 %shl63.i, %conv65.i
   %call67.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, i32 noundef %or66.i)
-  %arrayidx68.i = getelementptr inbounds i8, ptr %rec.057.i, i64 19
+  %arrayidx68.i = getelementptr inbounds i8, ptr %rec.056.i, i64 19
   %14 = load i8, ptr %arrayidx68.i, align 1
   %conv69.i = zext i8 %14 to i32
   %shl70.i = shl nuw nsw i32 %conv69.i, 16
-  %arrayidx71.i = getelementptr inbounds i8, ptr %rec.057.i, i64 20
+  %arrayidx71.i = getelementptr inbounds i8, ptr %rec.056.i, i64 20
   %15 = load i8, ptr %arrayidx71.i, align 1
   %conv72.i = zext i8 %15 to i32
   %shl73.i = shl nuw nsw i32 %conv72.i, 8
   %or74.i = or disjoint i32 %shl73.i, %shl70.i
-  %arrayidx75.i = getelementptr inbounds i8, ptr %rec.057.i, i64 21
+  %arrayidx75.i = getelementptr inbounds i8, ptr %rec.056.i, i64 21
   %16 = load i8, ptr %arrayidx75.i, align 1
   %conv76.i = zext i8 %16 to i32
   %or77.i = or disjoint i32 %or74.i, %conv76.i
   %call78.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.100, i32 noundef %or77.i)
-  %arrayidx79.i = getelementptr inbounds i8, ptr %rec.057.i, i64 22
+  %arrayidx79.i = getelementptr inbounds i8, ptr %rec.056.i, i64 22
   %17 = load i8, ptr %arrayidx79.i, align 1
   %conv80.i = zext i8 %17 to i32
   %shl81.i = shl nuw nsw i32 %conv80.i, 16
-  %arrayidx82.i = getelementptr inbounds i8, ptr %rec.057.i, i64 23
+  %arrayidx82.i = getelementptr inbounds i8, ptr %rec.056.i, i64 23
   %18 = load i8, ptr %arrayidx82.i, align 1
   %conv83.i = zext i8 %18 to i32
   %shl84.i = shl nuw nsw i32 %conv83.i, 8
   %or85.i = or disjoint i32 %shl84.i, %shl81.i
-  %arrayidx86.i = getelementptr inbounds i8, ptr %rec.057.i, i64 24
+  %arrayidx86.i = getelementptr inbounds i8, ptr %rec.056.i, i64 24
   %19 = load i8, ptr %arrayidx86.i, align 1
   %conv87.i = zext i8 %19 to i32
   %or88.i = or disjoint i32 %or85.i, %conv87.i

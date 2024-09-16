@@ -4498,7 +4498,7 @@ declare dso_local ptr @grab_cache_page_write_begin(ptr noundef, i64 noundef) loc
 declare dso_local void @unlock_page(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @put_page(ptr noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @put_page(ptr noundef nonnull %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8
   %4 = and i64 %3, 1

@@ -90,7 +90,7 @@ stream_read_bit.exit47.i:                         ; preds = %29, %._crit_edge.i4
   %42 = getelementptr inbounds i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, -2
-  %45 = call fastcc i32 @rev_decode_block_int32_1(ptr noundef %38, i32 noundef %41, i32 noundef %44, ptr noundef nonnull %5)
+  %45 = call fastcc i32 @rev_decode_block_int32_1(ptr noundef %38, i32 noundef %41, i32 noundef %44, ptr noundef %5)
   br label %46
 
 46:                                               ; preds = %52, %39
@@ -154,7 +154,7 @@ stream_read_bits.exit.i:                          ; preds = %69, %59
   %77 = getelementptr inbounds i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, -10
-  %80 = call fastcc i32 @rev_decode_block_int32_1(ptr noundef %74, i32 noundef %76, i32 noundef %79, ptr noundef nonnull %5)
+  %80 = call fastcc i32 @rev_decode_block_int32_1(ptr noundef %74, i32 noundef %76, i32 noundef %79, ptr noundef %5)
   %81 = add i32 %80, 10
   %.not.i49.i = icmp eq i32 %73, 0
   br i1 %.not.i49.i, label %.preheader.preheader.i.i, label %82
@@ -313,7 +313,7 @@ stream_read_bits.exit.i11:                        ; preds = %148, %138
   %165 = load i32, ptr %164, align 4
   %166 = add i32 %165, -9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %167 = call fastcc i32 @decode_ints_uint32(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef nonnull %3)
+  %167 = call fastcc i32 @decode_ints_uint32(ptr noundef %161, i32 noundef %166, i32 noundef %160, ptr noundef %3)
   %168 = icmp ult i32 %167, %163
   br i1 %168, label %169, label %192
 
@@ -477,7 +477,7 @@ decode_block_float_1.exit:                        ; preds = %.preheader.preheade
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @rev_decode_block_int32_1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @rev_decode_block_int32_1(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca [4 x i32], align 256
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -513,7 +513,7 @@ stream_read_bits.exit:                            ; preds = %10, %20
   %24 = and i32 %23, 31
   %25 = add nuw nsw i32 %24, 1
   %26 = add i32 %2, -5
-  %27 = call fastcc i32 @decode_ints_uint32(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef nonnull %5)
+  %27 = call fastcc i32 @decode_ints_uint32(ptr noundef nonnull %0, i32 noundef %26, i32 noundef %25, ptr noundef %5)
   %28 = add i32 %27, 5
   %29 = icmp ult i32 %28, %1
   br i1 %29, label %30, label %52
@@ -572,8 +572,8 @@ stream_skip.exit:                                 ; preds = %30, %47
   %61 = getelementptr inbounds i32, ptr %3, i64 %60
   store i32 %57, ptr %61, align 4
   %62 = add nsw i32 %.0.i16, -1
-  %.not.i17 = icmp eq i32 %62, 0
-  br i1 %.not.i17, label %inv_order_int32.exit, label %53
+  %.not.i = icmp eq i32 %62, 0
+  br i1 %.not.i, label %inv_order_int32.exit, label %53
 
 inv_order_int32.exit:                             ; preds = %53
   %63 = load i32, ptr %3, align 4
@@ -596,7 +596,7 @@ inv_order_int32.exit:                             ; preds = %53
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @decode_ints_uint32(ptr noalias nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noalias nocapture noundef nonnull %3) unnamed_addr #1 {
   %5 = shl i32 %2, 2
   %6 = or disjoint i32 %5, 3
   %.not = icmp ugt i32 %6, %1

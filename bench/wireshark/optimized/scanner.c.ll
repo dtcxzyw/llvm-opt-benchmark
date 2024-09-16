@@ -1879,7 +1879,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not588, label %1165, label %1164
 
 1164:                                             ; preds = %1148
-  tail call fastcc void @set_lval_field(ptr noundef %1162, ptr noundef nonnull %1161, ptr noundef %1163)
+  tail call fastcc void @set_lval_field(ptr noundef %1162, ptr noundef %1161, ptr noundef %1163)
   br label %.loopexit
 
 1165:                                             ; preds = %1148
@@ -1940,7 +1940,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
   br i1 %.not587, label %1208, label %1207
 
 1207:                                             ; preds = %1191
-  tail call fastcc void @set_lval_field(ptr noundef %1205, ptr noundef nonnull %1204, ptr noundef %1206)
+  tail call fastcc void @set_lval_field(ptr noundef %1205, ptr noundef %1204, ptr noundef %1206)
   br label %.loopexit
 
 1208:                                             ; preds = %1191
@@ -2087,7 +2087,7 @@ df_yyensure_buffer_stack.exit:                    ; preds = %30, %33, %42
 
 1307:                                             ; preds = %1285
   %1308 = load ptr, ptr %74, align 8
-  tail call fastcc void @set_lval_field(ptr noundef %1301, ptr noundef nonnull %1299, ptr noundef %1308)
+  tail call fastcc void @set_lval_field(ptr noundef %1301, ptr noundef %1299, ptr noundef %1308)
   br label %.loopexit
 
 1309:                                             ; preds = %137
@@ -2791,7 +2791,7 @@ df_yy_init_buffer.exit:                           ; preds = %45, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_simple(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_simple(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 15) %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
@@ -3433,13 +3433,13 @@ define internal fastcc void @set_lval_literal(ptr nocapture noundef %0, ptr noun
 declare ptr @dfilter_resolve_unparsed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_lval_field(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noalias ptr @g_strdup(ptr noundef %2) #33
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 80
   %8 = load i64, ptr %7, align 8
-  %9 = tail call ptr @stnode_new(i32 noundef 8, ptr noundef %1, ptr noundef %4, i64 %6, i64 %8) #33
+  %9 = tail call ptr @stnode_new(i32 noundef 8, ptr noundef nonnull %1, ptr noundef %4, i64 %6, i64 %8) #33
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
   ret void

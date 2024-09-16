@@ -1490,7 +1490,7 @@ declare noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__23WorkGetConcurrencyLi
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__30WorkSetMaximumConcurrencyLimitEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL16_TestThreadLimitim(i32 noundef %0, i64 noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16_TestThreadLimitim(i32 noundef %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::_Bind", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %.not.i = icmp eq i32 %0, 0

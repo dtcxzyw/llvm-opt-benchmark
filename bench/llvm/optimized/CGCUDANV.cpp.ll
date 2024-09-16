@@ -9633,7 +9633,7 @@ declare void @_ZN4llvm3vfs10FileSystem16getBufferForFileERKNS_5TwineElbb(ptr dea
 declare noundef ptr @_ZN4llvm12FunctionType3getEPNS_4TypeEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(840) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeConstantArrayEN4llvm9StringRefES2_S2_jb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(840) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %.0.val, i64 %.8.val, i32 noundef range(i32 8, 4097) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
@@ -9664,9 +9664,9 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_115CGNVCUDARuntime17makeCons
 
 25:                                               ; preds = %7, %21
   %26 = zext nneg i32 %5 to i64
-  %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 false)
+  %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
   %28 = trunc nuw nsw i64 %27 to i8
-  %29 = sub nsw i8 63, %28
+  %29 = xor i8 %28, 63
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 %29) #19
   ret ptr %12
 }

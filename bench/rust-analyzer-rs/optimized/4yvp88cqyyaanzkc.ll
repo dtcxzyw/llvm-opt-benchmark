@@ -4225,7 +4225,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8d
   br i1 %31, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i, label %32
 
 32:                                               ; preds = %.lr.ph.i.us.i.i.i
-  %33 = add nuw i64 %.05.i.us.i.i.i, 1
+  %33 = add nuw nsw i64 %.05.i.us.i.i.i, 1
   %exitcond.not.i.us.i.i.i = icmp eq i64 %33, %.sroa.3.0.i47.us.i.i.i
   br i1 %exitcond.not.i.us.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i, label %.lr.ph.i.us.i.i.i
 
@@ -4282,7 +4282,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us.i.i.i: ; preds =
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %55
 
 55:                                               ; preds = %.lr.ph.i.i.i.i
-  %56 = add nuw i64 %.05.i.i.i.i, 1
+  %56 = add nuw nsw i64 %.05.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %56, %.sroa.3.0.i47.i.i.i
   br i1 %exitcond.not.i.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i.i, label %.lr.ph.i.i.i.i
 

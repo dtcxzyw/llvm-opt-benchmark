@@ -900,7 +900,7 @@ declare void @ASN1_STRING_free(ptr noundef) local_unnamed_addr #3
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef %ptype) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_dsa_print(ptr noundef %bp, ptr noundef %x, i32 noundef %off, i32 noundef range(i32 0, 3) %ptype) unnamed_addr #0 {
 entry:
   %params = getelementptr inbounds i8, ptr %x, i64 8
   %0 = load ptr, ptr %params, align 8
@@ -913,14 +913,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %mod_len.0 = phi i32 [ %call, %if.then ], [ 0, %entry ]
-  %cmp1 = icmp eq i32 %ptype, 2
-  br i1 %cmp1, label %if.end9, label %if.end4
+  switch i32 %ptype, label %if.end9.thread32 [
+    i32 2, label %if.end9
+    i32 0, label %if.else27
+  ]
 
-if.end4:                                          ; preds = %if.end
-  %cmp5 = icmp sgt i32 %ptype, 0
-  br i1 %cmp5, label %if.end9.thread32, label %if.else27
-
-if.end9.thread32:                                 ; preds = %if.end4
+if.end9.thread32:                                 ; preds = %if.end
   %pub_key734 = getelementptr inbounds i8, ptr %x, i64 104
   %1 = load ptr, ptr %pub_key734, align 8
   br label %if.else27
@@ -943,16 +941,16 @@ if.end22:                                         ; preds = %if.then19
   %cmp24 = icmp slt i32 %call23, 1
   br i1 %cmp24, label %err, label %if.end32
 
-if.else27:                                        ; preds = %if.end4, %if.end9.thread32, %if.end9
-  %pub_key.031 = phi ptr [ %3, %if.end9 ], [ %1, %if.end9.thread32 ], [ null, %if.end4 ]
+if.else27:                                        ; preds = %if.end, %if.end9.thread32, %if.end9
+  %pub_key.031 = phi ptr [ %3, %if.end9 ], [ %1, %if.end9.thread32 ], [ null, %if.end ]
   %call28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bp, ptr noundef nonnull @.str.7, i32 noundef %mod_len.0) #4
   %cmp29 = icmp slt i32 %call28, 1
   br i1 %cmp29, label %err, label %if.end32
 
 if.end32:                                         ; preds = %if.else27, %if.end22
   %pub_key.030 = phi ptr [ %pub_key.031, %if.else27 ], [ %3, %if.end22 ]
-  %priv_key.02028 = phi ptr [ null, %if.else27 ], [ %2, %if.end22 ]
-  %call33 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.8, ptr noundef %priv_key.02028, ptr noundef null, i32 noundef %off) #4
+  %priv_key.02128 = phi ptr [ null, %if.else27 ], [ %2, %if.end22 ]
+  %call33 = tail call i32 @ASN1_bn_print(ptr noundef %bp, ptr noundef nonnull @.str.8, ptr noundef %priv_key.02128, ptr noundef null, i32 noundef %off) #4
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %if.end36
 

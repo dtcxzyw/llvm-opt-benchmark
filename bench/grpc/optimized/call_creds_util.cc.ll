@@ -43,14 +43,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN9grpc_core17MakeJwtServiceUrlB5cxx11ERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %initial_metadata, ptr nocapture noundef readonly %args) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", align 8
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %initial_metadata, ptr noundef %args)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %initial_metadata, ptr noundef %args)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %initial_metadata, ptr nocapture noundef readonly %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %initial_metadata, ptr nocapture noundef readonly %args) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp36 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp38 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -179,7 +179,7 @@ if.end35:                                         ; preds = %for.cond.i.i46, %_Z
   store i64 %service.sroa.0.0, ptr %ref.tmp41, align 8
   %pc.sroa.2.0.piece_.sroa_idx.i83 = getelementptr inbounds i8, ptr %ref.tmp41, i64 8
   store ptr %service.sroa.7.0, ptr %pc.sroa.2.0.piece_.sroa_idx.i83, align 8
-  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp41)
+  call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp36, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp38, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp39, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp41)
   %method_name43 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %method_name.sroa.0.0, ptr %method_name43, align 8
   %method_name.sroa.5.0.method_name43.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -197,7 +197,7 @@ entry:
   %fields = alloca %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::allocator", align 1
-  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nonnull align 8 %fields, ptr noundef nonnull align 8 dereferenceable(16) %initial_metadata, ptr noundef %args)
+  call fastcc void @_ZN9grpc_core12_GLOBAL__N_123MakeServiceUrlAndMethodERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias align 8 %fields, ptr noundef nonnull align 8 dereferenceable(16) %initial_metadata, ptr noundef %args)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %auth_context = getelementptr inbounds i8, ptr %args, i64 8
   %0 = load ptr, ptr %auth_context, align 8

@@ -6874,7 +6874,7 @@ _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp122 = alloca %"class.arrow::Status", align 8
   %ref.tmp123 = alloca i32, align 4
   %key_types_ = getelementptr inbounds i8, ptr %this, i64 8
-  call fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %key_types_)
+  call fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %key_types_)
   call void @llvm.experimental.noalias.scope.decl(metadata !142)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !142
   store ptr %0, ptr %__s, align 8, !alias.scope !142
@@ -7840,7 +7840,7 @@ _ZNSt12_Vector_baseIN5arrow10TypeHolderESaIS1_EED2Ev.exit: ; preds = %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %key_types) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %key_types) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i34.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7862,7 +7862,7 @@ entry:
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  call void @_ZN5arrow6Status8FromArgsIJRA36_KcRlEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(36) @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i)
+  call void @_ZN5arrow6Status8FromArgsIJRA36_KcRlEEES0_NS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(36) @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %offset.addr.i)
   br label %_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_9ExecValueEEENS_6StatusERKSt6vectorIT_SaIS6_EEllRKS5_INS_10TypeHolderESaISB_EE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -8917,7 +8917,7 @@ entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp2 = alloca %"class.std::vector", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %_ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit unwind label %lpad
 
 _ZNSt6vectorIN5arrow10TypeHolderESaIS1_EED2Ev.exit: ; preds = %entry
@@ -9331,7 +9331,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %if.then.i.i.i.i.i.i
 _ZSt10_ConstructIN5arrow10TypeHolderEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
   %_M_finish.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_122CheckForGetNextSegmentINS0_8ExecSpanEEENSt9enable_ifIXoosr3std7is_sameIT_S3_EE5valuesr3std7is_sameIS5_NS0_9ExecBatchEEE5valueENS_6StatusEE4typeERKS5_lRKSt6vectorINS_10TypeHolderESaISD_EE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %batch, i64 noundef %offset, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2)
           to label %_ZN5arrow6StatusD2Ev.exit unwind label %lpad5
 
 lpad.i:                                           ; preds = %_ZN5arrow10TypeHolderC2ERKS0_.exit
@@ -12118,7 +12118,7 @@ lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
 if.end:                                           ; preds = %for.body
   %this.val = load ptr, ptr %6, align 8
   %this.val.val = load ptr, ptr %this.val, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias nonnull align 8 %ref.tmp21, ptr %this.val.val, i64 noundef %2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias align 8 %ref.tmp21, ptr %this.val.val, i64 noundef %2)
           to label %invoke.cont22 unwind label %lpad18.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont22:                                    ; preds = %if.end
@@ -12238,7 +12238,7 @@ if.then44:                                        ; preds = %land.lhs.true
 if.then48:                                        ; preds = %if.then44
   %this.val120 = load ptr, ptr %6, align 8
   %this.val120.val = load ptr, ptr %this.val120, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias nonnull align 8 %ref.tmp49, ptr %this.val120.val, i64 noundef %2)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias align 8 %ref.tmp49, ptr %this.val120.val, i64 noundef %2)
           to label %invoke.cont50 unwind label %lpad23
 
 invoke.cont50:                                    ; preds = %if.then48
@@ -12320,7 +12320,7 @@ if.else:                                          ; preds = %if.then44
   %mul = mul nsw i64 %2, %conv73
   %this.val121 = load ptr, ptr %6, align 8
   %this.val121.val = load ptr, ptr %this.val121, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias nonnull align 8 %ref.tmp69, ptr %this.val121.val, i64 noundef %mul)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp69, ptr %this.val121.val, i64 noundef %mul)
           to label %invoke.cont74 unwind label %lpad23
 
 invoke.cont74:                                    ; preds = %if.else
@@ -12400,7 +12400,7 @@ cleanup93:                                        ; preds = %invoke.cont74
 if.else97:                                        ; preds = %land.lhs.true, %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit
   %this.val122 = load ptr, ptr %6, align 8
   %this.val122.val = load ptr, ptr %this.val122, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias nonnull align 8 %ref.tmp98, ptr %this.val122.val, i64 noundef %mul99)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp98, ptr %this.val122.val, i64 noundef %mul99)
           to label %invoke.cont100 unwind label %lpad23
 
 invoke.cont100:                                   ; preds = %if.else97
@@ -12609,7 +12609,7 @@ if.then166:                                       ; preds = %for.body161
   %conv171 = zext i32 %100 to i64
   %this.val123 = load ptr, ptr %93, align 8
   %this.val123.val = load ptr, ptr %this.val123, align 8
-  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias nonnull align 8 %ref.tmp170, ptr %this.val123.val, i64 noundef %conv171)
+  invoke fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %ref.tmp170, ptr %this.val123.val, i64 noundef %conv171)
           to label %invoke.cont172 unwind label %lpad18.loopexit.split-lp.loopexit
 
 invoke.cont172:                                   ; preds = %if.then166
@@ -20568,7 +20568,7 @@ declare void @_ZN5arrow5DatumC2ERKSt10shared_ptrINS_5ArrayEE(ptr noundef nonnull
 declare void @_ZN5arrow7compute14KeyColumnArrayC1ERKNS0_17KeyColumnMetadataElPhS5_S5_ii(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(8), i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %length) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBitmapEl(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %length) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.92", align 8
   %buf = alloca %"class.std::shared_ptr.74", align 8
@@ -20835,7 +20835,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute12_GLOBAL__N_115GrouperFastImpl20AllocatePaddedBufferEl(ptr noalias nonnull align 8 %agg.result, ptr %this.16.val.0.val, i64 noundef %size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.77", align 8
   %buf = alloca %"class.std::shared_ptr.74", align 8

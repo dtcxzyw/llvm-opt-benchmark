@@ -8960,7 +8960,7 @@ invoke.cont13:                                    ; preds = %for.inc.i66, %land.
   %m_len.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i64 1, ptr %m_len.i.i, align 8
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i) #30
-  %call2.i = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i)
+  %call2.i = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i, ptr noundef %call.i)
           to label %invoke.cont16 unwind label %lpad.i
 
 lpad.i:                                           ; preds = %.noexc
@@ -8985,7 +8985,7 @@ invoke.cont16:                                    ; preds = %.noexc
   %m_len.i.i82 = getelementptr inbounds i8, ptr %agg.tmp.i81, i64 8
   store i64 1, ptr %m_len.i.i82, align 8
   %call.i84 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i80) #30
-  %call2.i85 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i81, ptr noundef %call.i84)
+  %call2.i85 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i81, ptr noundef %call.i84)
           to label %invoke.cont20 unwind label %lpad.i86
 
 lpad.i86:                                         ; preds = %.noexc87
@@ -9010,7 +9010,7 @@ invoke.cont20:                                    ; preds = %.noexc87
   %m_len.i.i98 = getelementptr inbounds i8, ptr %agg.tmp.i97, i64 8
   store i64 1, ptr %m_len.i.i98, align 8
   %call.i100 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i96) #30
-  %call2.i101 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i97, ptr noundef %call.i100)
+  %call2.i101 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i97, ptr noundef %call.i100)
           to label %invoke.cont25 unwind label %lpad.i102
 
 lpad.i102:                                        ; preds = %.noexc103
@@ -9035,7 +9035,7 @@ invoke.cont25:                                    ; preds = %.noexc103
   %m_len.i.i114 = getelementptr inbounds i8, ptr %agg.tmp.i113, i64 8
   store i64 5, ptr %m_len.i.i114, align 8
   %call.i116 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i112) #30
-  %call2.i117 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i113, ptr noundef %call.i116)
+  %call2.i117 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i113, ptr noundef %call.i116)
           to label %invoke.cont30 unwind label %lpad.i118
 
 lpad.i118:                                        ; preds = %.noexc119
@@ -9060,7 +9060,7 @@ invoke.cont30:                                    ; preds = %.noexc119
   %m_len.i.i130 = getelementptr inbounds i8, ptr %agg.tmp.i129, i64 8
   store i64 6, ptr %m_len.i.i130, align 8
   %call.i132 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i128) #30
-  %call2.i133 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i129, ptr noundef %call.i132)
+  %call2.i133 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i129, ptr noundef %call.i132)
           to label %invoke.cont35 unwind label %lpad.i134
 
 lpad.i134:                                        ; preds = %.noexc135
@@ -9085,7 +9085,7 @@ invoke.cont35:                                    ; preds = %.noexc135
   %m_len.i.i146 = getelementptr inbounds i8, ptr %agg.tmp.i145, i64 8
   store i64 5, ptr %m_len.i.i146, align 8
   %call.i148 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i144) #30
-  %call2.i149 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i145, ptr noundef %call.i148)
+  %call2.i149 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i145, ptr noundef %call.i148)
           to label %invoke.cont40 unwind label %lpad.i150
 
 lpad.i150:                                        ; preds = %.noexc151
@@ -9110,7 +9110,7 @@ invoke.cont40:                                    ; preds = %.noexc151
   %m_len.i.i162 = getelementptr inbounds i8, ptr %agg.tmp.i161, i64 8
   store i64 6, ptr %m_len.i.i162, align 8
   %call.i164 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i160) #30
-  %call2.i165 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i161, ptr noundef %call.i164)
+  %call2.i165 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i161, ptr noundef %call.i164)
           to label %invoke.cont45 unwind label %lpad.i166
 
 lpad.i166:                                        ; preds = %.noexc167
@@ -9135,7 +9135,7 @@ invoke.cont45:                                    ; preds = %.noexc167
   %m_len.i.i178 = getelementptr inbounds i8, ptr %agg.tmp.i177, i64 8
   store i64 6, ptr %m_len.i.i178, align 8
   %call.i180 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i176) #30
-  %call2.i181 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i177, ptr noundef %call.i180)
+  %call2.i181 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i177, ptr noundef %call.i180)
           to label %invoke.cont50 unwind label %lpad.i182
 
 lpad.i182:                                        ; preds = %.noexc183
@@ -9160,7 +9160,7 @@ invoke.cont50:                                    ; preds = %.noexc183
   %m_len.i.i194 = getelementptr inbounds i8, ptr %agg.tmp.i193, i64 8
   store i64 6, ptr %m_len.i.i194, align 8
   %call.i196 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i192) #30
-  %call2.i197 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i193, ptr noundef %call.i196)
+  %call2.i197 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i193, ptr noundef %call.i196)
           to label %invoke.cont55 unwind label %lpad.i198
 
 lpad.i198:                                        ; preds = %.noexc199
@@ -9185,7 +9185,7 @@ invoke.cont55:                                    ; preds = %.noexc199
   %m_len.i.i210 = getelementptr inbounds i8, ptr %agg.tmp.i209, i64 8
   store i64 10, ptr %m_len.i.i210, align 8
   %call.i212 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i208) #30
-  %call2.i213 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i209, ptr noundef %call.i212)
+  %call2.i213 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i209, ptr noundef %call.i212)
           to label %invoke.cont60 unwind label %lpad.i214
 
 lpad.i214:                                        ; preds = %.noexc215
@@ -9210,7 +9210,7 @@ invoke.cont60:                                    ; preds = %.noexc215
   %m_len.i.i226 = getelementptr inbounds i8, ptr %agg.tmp.i225, i64 8
   store i64 11, ptr %m_len.i.i226, align 8
   %call.i228 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i224) #30
-  %call2.i229 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i225, ptr noundef %call.i228)
+  %call2.i229 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i225, ptr noundef %call.i228)
           to label %invoke.cont65 unwind label %lpad.i230
 
 lpad.i230:                                        ; preds = %.noexc231
@@ -9235,7 +9235,7 @@ invoke.cont65:                                    ; preds = %.noexc231
   %m_len.i.i242 = getelementptr inbounds i8, ptr %agg.tmp.i241, i64 8
   store i64 10, ptr %m_len.i.i242, align 8
   %call.i244 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i240) #30
-  %call2.i245 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i241, ptr noundef %call.i244)
+  %call2.i245 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i241, ptr noundef %call.i244)
           to label %invoke.cont70 unwind label %lpad.i246
 
 lpad.i246:                                        ; preds = %.noexc247
@@ -9260,7 +9260,7 @@ invoke.cont70:                                    ; preds = %.noexc247
   %m_len.i.i258 = getelementptr inbounds i8, ptr %agg.tmp.i257, i64 8
   store i64 10, ptr %m_len.i.i258, align 8
   %call.i260 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i256) #30
-  %call2.i261 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i257, ptr noundef %call.i260)
+  %call2.i261 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i257, ptr noundef %call.i260)
           to label %invoke.cont75 unwind label %lpad.i262
 
 lpad.i262:                                        ; preds = %.noexc263
@@ -9285,7 +9285,7 @@ invoke.cont75:                                    ; preds = %.noexc263
   %m_len.i.i274 = getelementptr inbounds i8, ptr %agg.tmp.i273, i64 8
   store i64 11, ptr %m_len.i.i274, align 8
   %call.i276 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i272) #30
-  %call2.i277 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i273, ptr noundef %call.i276)
+  %call2.i277 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i273, ptr noundef %call.i276)
           to label %invoke.cont80 unwind label %lpad.i278
 
 lpad.i278:                                        ; preds = %.noexc279
@@ -9310,7 +9310,7 @@ invoke.cont80:                                    ; preds = %.noexc279
   %m_len.i.i290 = getelementptr inbounds i8, ptr %agg.tmp.i289, i64 8
   store i64 10, ptr %m_len.i.i290, align 8
   %call.i292 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i288) #30
-  %call2.i293 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i289, ptr noundef %call.i292)
+  %call2.i293 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i289, ptr noundef %call.i292)
           to label %invoke.cont85 unwind label %lpad.i294
 
 lpad.i294:                                        ; preds = %.noexc295
@@ -9331,7 +9331,7 @@ invoke.cont85:                                    ; preds = %.noexc295
           to label %invoke.cont90 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont90:                                    ; preds = %invoke.cont85
-  %call93 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp89, ptr noundef %call91)
+  %call93 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef %agg.tmp89, ptr noundef %call91)
           to label %invoke.cont92 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont92:                                    ; preds = %invoke.cont90
@@ -9347,7 +9347,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
   %m_len.i.i311 = getelementptr inbounds i8, ptr %agg.tmp.i310, i64 8
   store i64 9, ptr %m_len.i.i311, align 8
   %call.i313 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i309) #30
-  %call2.i314 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i310, ptr noundef %call.i313)
+  %call2.i314 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i310, ptr noundef %call.i313)
           to label %invoke.cont97 unwind label %lpad.i315
 
 lpad.i315:                                        ; preds = %.noexc316
@@ -9518,7 +9518,7 @@ for.body.lr.ph.i:                                 ; preds = %_ZN18OpenImageIO_v2
 for.body.i328:                                    ; preds = %call11.i.noexc, %for.body.lr.ph.i
   %__begin2.sroa.0.011.i = phi ptr [ %67, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %call11.i.noexc ]
   %call10.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.011.i) #30
-  %call11.i336 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %channel_node.i, ptr noundef nonnull %agg.tmp.i320, ptr noundef %call10.i)
+  %call11.i336 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %channel_node.i, ptr noundef %agg.tmp.i320, ptr noundef %call10.i)
           to label %call11.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call11.i.noexc:                                   ; preds = %for.body.i328
@@ -9541,7 +9541,7 @@ invoke.cont101:                                   ; preds = %call11.i.noexc, %_Z
   %m_len.i.i344 = getelementptr inbounds i8, ptr %agg.tmp.i343, i64 8
   store i64 13, ptr %m_len.i.i344, align 8
   %call.i346 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i342) #30
-  %call2.i347 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i343, ptr noundef %call.i346)
+  %call2.i347 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i343, ptr noundef %call.i346)
           to label %invoke.cont103 unwind label %lpad.i348
 
 lpad.i348:                                        ; preds = %.noexc349
@@ -9566,7 +9566,7 @@ invoke.cont103:                                   ; preds = %.noexc349
   %m_len.i.i360 = getelementptr inbounds i8, ptr %agg.tmp.i359, i64 8
   store i64 9, ptr %m_len.i.i360, align 8
   %call.i362 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i358) #30
-  %call2.i363 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i359, ptr noundef %call.i362)
+  %call2.i363 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i359, ptr noundef %call.i362)
           to label %invoke.cont108 unwind label %lpad.i364
 
 lpad.i364:                                        ; preds = %.noexc365
@@ -9593,7 +9593,7 @@ invoke.cont108:                                   ; preds = %.noexc365
   %m_len.i.i376 = getelementptr inbounds i8, ptr %agg.tmp.i375, i64 8
   store i64 4, ptr %m_len.i.i376, align 8
   %call.i378 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %buf.i374) #30
-  %call2.i379 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp.i375, ptr noundef %call.i378)
+  %call2.i379 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %agg.tmp.i375, ptr noundef %call.i378)
           to label %invoke.cont113 unwind label %lpad.i380
 
 lpad.i380:                                        ; preds = %.noexc381
@@ -9780,7 +9780,7 @@ if.end184:                                        ; preds = %for.end, %invoke.co
   store ptr @.str.64, ptr %agg.tmp185, align 8
   store i64 6, ptr %m_len.i407, align 8
   %call186 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #30
-  %call188 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull %agg.tmp185, ptr noundef %call186)
+  %call188 = invoke fastcc ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef %agg.tmp185, ptr noundef %call186)
           to label %invoke.cont187 unwind label %lpad174
 
 invoke.cont187:                                   ; preds = %if.end184
@@ -47735,7 +47735,7 @@ return:                                           ; preds = %entry, %_ZNK18OpenI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr nocapture noundef readonly %node_name, ptr noundef %val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18add_nodeERNS_4pugi8xml_nodeENS_17basic_string_viewIcSt11char_traitsIcEEEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr nocapture noundef nonnull readonly %node_name, ptr noundef %val) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

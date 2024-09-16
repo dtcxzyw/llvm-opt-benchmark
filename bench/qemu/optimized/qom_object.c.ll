@@ -639,7 +639,7 @@ if.then:                                          ; preds = %entry, %type_get_by
   unreachable
 
 if.end:                                           ; preds = %type_get_by_name.exit
-  tail call fastcc void @object_initialize_with_type(ptr noundef %data, i64 noundef %size, ptr noundef nonnull %call1.i.i)
+  tail call fastcc void @object_initialize_with_type(ptr noundef %data, i64 noundef %size, ptr noundef %call1.i.i)
   ret void
 }
 
@@ -649,12 +649,12 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @object_initialize_with_type(ptr noundef %obj, i64 noundef %size, ptr noundef %type) unnamed_addr #0 {
+define internal fastcc void @object_initialize_with_type(ptr noundef %obj, i64 noundef %size, ptr noundef nonnull %type) unnamed_addr #0 {
 entry:
   %key.i.i = alloca ptr, align 8
   %val.i.i = alloca ptr, align 8
   %iter.i = alloca %struct.ObjectPropertyIterator, align 8
-  tail call fastcc void @type_initialize(ptr noundef %type)
+  tail call fastcc void @type_initialize(ptr noundef nonnull %type)
   %instance_size = getelementptr inbounds i8, ptr %type, i64 16
   %0 = load i64, ptr %instance_size, align 8
   %cmp = icmp ugt i64 %0, 39
@@ -807,7 +807,7 @@ object_class_property_init_all.exit:              ; preds = %object_property_ite
   %call18 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef null, ptr noundef nonnull @object_property_free) #20
   %properties = getelementptr inbounds i8, ptr %obj, i64 16
   store ptr %call18, ptr %properties, align 8
-  call fastcc void @object_init_with_type(ptr noundef nonnull %obj, ptr noundef %type)
+  call fastcc void @object_init_with_type(ptr noundef nonnull %obj, ptr noundef nonnull %type)
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %object_class_property_init_all.exit
@@ -905,7 +905,7 @@ if.then.i:                                        ; preds = %type_get_by_name.ex
   unreachable
 
 object_initialize.exit:                           ; preds = %type_get_by_name.exit.i
-  tail call fastcc void @object_initialize_with_type(ptr noundef %childobj, i64 noundef %size, ptr noundef nonnull %call1.i.i.i)
+  tail call fastcc void @object_initialize_with_type(ptr noundef %childobj, i64 noundef %size, ptr noundef %call1.i.i.i)
   %call = tail call zeroext i1 @object_set_propv(ptr noundef %childobj, ptr noundef %errp, ptr noundef %vargs)
   br i1 %call, label %if.end, label %out
 
@@ -1418,7 +1418,7 @@ if.else4.i:                                       ; preds = %do.end.i
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
   %obj.0.i = phi ptr [ %call.i, %if.then3.i ], [ %call5.i, %if.else4.i ]
   %obj_free.0.i = phi ptr [ @g_free, %if.then3.i ], [ @qemu_vfree, %if.else4.i ]
-  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %1, ptr noundef nonnull %0)
+  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %1, ptr noundef %0)
   %free.i = getelementptr inbounds i8, ptr %obj.0.i, i64 8
   store ptr %obj_free.0.i, ptr %free.i, align 8
   ret ptr %obj.0.i
@@ -1470,7 +1470,7 @@ if.else4.i:                                       ; preds = %do.end.i
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
   %obj.0.i = phi ptr [ %call.i, %if.then3.i ], [ %call5.i, %if.else4.i ]
   %obj_free.0.i = phi ptr [ @g_free, %if.then3.i ], [ @qemu_vfree, %if.else4.i ]
-  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %2, ptr noundef nonnull %call1.i.i)
+  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %2, ptr noundef %call1.i.i)
   %free.i = getelementptr inbounds i8, ptr %obj.0.i, i64 8
   store ptr %obj_free.0.i, ptr %free.i, align 8
   ret ptr %obj.0.i
@@ -1550,7 +1550,7 @@ if.else4.i:                                       ; preds = %do.end.i
 object_new_with_type.exit:                        ; preds = %if.then3.i, %if.else4.i
   %obj.0.i = phi ptr [ %call.i, %if.then3.i ], [ %call5.i, %if.else4.i ]
   %obj_free.0.i = phi ptr [ @g_free, %if.then3.i ], [ @qemu_vfree, %if.else4.i ]
-  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %5, ptr noundef nonnull %3)
+  tail call fastcc void @object_initialize_with_type(ptr noundef %obj.0.i, i64 noundef %5, ptr noundef %3)
   %free.i = getelementptr inbounds i8, ptr %obj.0.i, i64 8
   store ptr %obj_free.0.i, ptr %free.i, align 8
   %call5 = tail call zeroext i1 @object_set_propv(ptr noundef %obj.0.i, ptr noundef %errp, ptr noundef %vargs)
@@ -5051,7 +5051,7 @@ if.then.i:                                        ; preds = %if.then4
 
 object_get_root.exit:                             ; preds = %if.then4, %if.then.i
   %2 = phi ptr [ %call.i, %if.then.i ], [ %1, %if.then4 ]
-  %call6 = call fastcc ptr @object_resolve_partial_path(ptr noundef %2, ptr noundef nonnull %call, ptr noundef %typename, ptr noundef nonnull %ambiguous)
+  %call6 = call fastcc ptr @object_resolve_partial_path(ptr noundef %2, ptr noundef %call, ptr noundef %typename, ptr noundef %ambiguous)
   %tobool7.not = icmp eq ptr %ambiguousp, null
   br i1 %tobool7.not, label %if.end14, label %if.then8
 
@@ -5154,7 +5154,7 @@ if.end14:                                         ; preds = %object_resolve_path
 declare ptr @g_strsplit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @object_resolve_partial_path(ptr noundef %parent, ptr nocapture noundef readonly %parts, ptr noundef %typename, ptr nocapture noundef %ambiguous) unnamed_addr #0 {
+define internal fastcc ptr @object_resolve_partial_path(ptr noundef %parent, ptr nocapture noundef nonnull readonly %parts, ptr noundef %typename, ptr nocapture noundef nonnull %ambiguous) unnamed_addr #0 {
 entry:
   %iter = alloca %struct._GHashTableIter, align 8
   %prop = alloca ptr, align 8
@@ -5257,7 +5257,7 @@ if.end:                                           ; preds = %while.body
   %13 = load ptr, ptr %prop, align 8
   %opaque = getelementptr inbounds i8, ptr %13, i64 64
   %14 = load ptr, ptr %opaque, align 8
-  %call3 = call fastcc ptr @object_resolve_partial_path(ptr noundef %14, ptr noundef nonnull %parts, ptr noundef %typename, ptr noundef %ambiguous)
+  %call3 = call fastcc ptr @object_resolve_partial_path(ptr noundef %14, ptr noundef %parts, ptr noundef %typename, ptr noundef %ambiguous)
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.end9, label %if.then5
 

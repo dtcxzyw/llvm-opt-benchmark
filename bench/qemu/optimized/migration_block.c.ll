@@ -1765,7 +1765,7 @@ declare void @blk_unref(ptr noundef) #3
 declare void @aio_context_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @blk_mig_save_dirty_block(ptr noundef %f, i32 noundef %is_async) unnamed_addr #1 {
+define internal fastcc i32 @blk_mig_save_dirty_block(ptr noundef %f, i32 noundef range(i32 0, 2) %is_async) unnamed_addr #1 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %bmds.08 = load ptr, ptr @block_mig_state, align 8

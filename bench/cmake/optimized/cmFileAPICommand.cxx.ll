@@ -776,7 +776,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val = load ptr, ptr %61, align 8
   %189 = getelementptr inbounds i8, ptr %10, i64 88
   %.val78 = load ptr, ptr %189, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 0, i64 9, ptr nonnull @.str.5, ptr %.val, ptr %.val78)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 0, i64 9, ptr nonnull @.str.5, ptr %.val, ptr %.val78)
           to label %191 unwind label %.thread134
 
 .thread134:                                       ; preds = %186
@@ -790,7 +790,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val79 = load ptr, ptr %193, align 8
   %194 = getelementptr inbounds i8, ptr %10, i64 112
   %.val80 = load ptr, ptr %194, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 2, i64 5, ptr nonnull @.str.6, ptr %.val79, ptr %.val80)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %192, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 2, i64 5, ptr nonnull @.str.6, ptr %.val79, ptr %.val80)
           to label %195 unwind label %228
 
 195:                                              ; preds = %191
@@ -799,7 +799,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val81 = load ptr, ptr %197, align 8
   %198 = getelementptr inbounds i8, ptr %10, i64 136
   %.val82 = load ptr, ptr %198, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 3, i64 10, ptr nonnull @.str.7, ptr %.val81, ptr %.val82)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %196, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 3, i64 10, ptr nonnull @.str.7, ptr %.val81, ptr %.val82)
           to label %199 unwind label %228
 
 199:                                              ; preds = %195
@@ -808,7 +808,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.val83 = load ptr, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %10, i64 160
   %.val84 = load ptr, ptr %202, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %200, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 4, i64 10, ptr nonnull @.str.8, ptr %.val83, ptr %.val84)
+  invoke fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %200, ptr noundef nonnull align 8 dereferenceable(264) %188, i32 noundef 4, i64 10, ptr nonnull @.str.8, ptr %.val83, ptr %.val84)
           to label %.lr.ph.i.i.i.i106 unwind label %228
 
 .lr.ph.i.i.i.i106:                                ; preds = %199
@@ -1081,7 +1081,7 @@ _ZNSt8functionIFvRN14ArgumentParser8InstanceEEED2Ev.exit6: ; preds = %15, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS9_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(112) ptr @_ZN16cmArgumentParserIZN12_GLOBAL__N_118handleQueryCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EER17cmExecutionStatusE9ArgumentsE4BindIN14ArgumentParser8NonEmptyIS9_EEEERSF_N2cm18static_string_viewEMSE_T_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, i64 %1, ptr %2, i64 range(i64 80, 153) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.351", align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -1190,7 +1190,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #3 {
+define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFileAPINS0_10ObjectKindESt17basic_string_viewIcSt11char_traitsIcEERKSt6vectorINSt7__cxx1112basic_stringIcS5_SaIcEEESaISB_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, i32 noundef range(i32 0, 5) %2, i64 %3, ptr %4, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #3 {
   %6 = alloca [3 x %"struct.std::pair.373"], align 8
   %7 = alloca [5 x %"struct.std::pair.373"], align 8
   %8 = icmp eq ptr %.0.val, %.8.val
@@ -1255,7 +1255,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   store ptr @.str.18, ptr %.sroa.2.0..sroa_idx.i39.i, align 8, !alias.scope !51, !noalias !39
   %32 = getelementptr inbounds i8, ptr %7, i64 112
   store ptr null, ptr %32, align 8, !alias.scope !51, !noalias !39
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %7, i64 5)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %7, i64 5)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %7)
   br label %44
 
@@ -1291,7 +1291,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   store ptr @.str.20, ptr %.sroa.2.0..sroa_idx.i19.i, align 8, !alias.scope !63, !noalias !57
   %43 = getelementptr inbounds i8, ptr %6, i64 64
   store ptr null, ptr %43, align 8, !alias.scope !63, !noalias !57
-  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 3)
+  call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
   br label %44
 

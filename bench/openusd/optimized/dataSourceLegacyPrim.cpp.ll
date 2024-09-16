@@ -9848,7 +9848,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
           to label %56 unwind label %136
 
 56:                                               ; preds = %50
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %52)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %52)
           to label %57 unwind label %138
 
 57:                                               ; preds = %56
@@ -11716,11 +11716,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit62: ; preds = %811
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef range(i32 0, 6) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdPrimvarSchemaTokensE seq_cst, align 8
   %4 = inttoptr i64 %3 to ptr
   %.not.i.i = icmp eq i64 %3, 0
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable32 [
     i32 0, label %5
     i32 1, label %25
     i32 2, label %45
@@ -11993,12 +11993,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_
   %.not1.i.i30 = icmp eq i32 %124, 0
   br i1 %.not1.i.i30, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
-default.unreachable:                              ; preds = %2
+default.unreachable32:                            ; preds = %2
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split: ; preds = %120, %100, %80, %60, %40, %20
-  %.sink32 = phi ptr [ %22, %20 ], [ %42, %40 ], [ %62, %60 ], [ %82, %80 ], [ %102, %100 ], [ %122, %120 ]
-  store ptr %.sink32, ptr %0, align 8
+  %.sink33 = phi ptr [ %22, %20 ], [ %42, %40 ], [ %62, %60 ], [ %82, %80 ], [ %102, %100 ], [ %122, %120 ]
+  store ptr %.sink33, ptr %0, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split, %120, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit28, %100, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit22, %80, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit16, %60, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit10, %40, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit4, %20, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_37HdPrimvarSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
@@ -12231,7 +12231,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLegacyPrim36_Get
           to label %62 unwind label %137
 
 62:                                               ; preds = %56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias nonnull writable align 8 %10, i32 noundef %58)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_InterpolationAsTokenENS_15HdInterpolationE(ptr dead_on_unwind noalias writable align 8 %10, i32 noundef %58)
           to label %63 unwind label %139
 
 63:                                               ; preds = %62
@@ -28307,7 +28307,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %412 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %413 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val34 = load ptr, ptr %413, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Hd_DataSourceCamera3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 4 dereferenceable(8) %412, ptr %.val34)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Hd_DataSourceCamera3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 4 dereferenceable(8) %412, ptr %.val34)
   %414 = load ptr, ptr %5, align 8
   store ptr %414, ptr %0, align 8
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28334,7 +28334,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val36 = load ptr, ptr %431, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSourceLight3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 4 dereferenceable(8) %430, ptr %.val36)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSourceLight3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 4 dereferenceable(8) %430, ptr %.val36)
   %432 = load ptr, ptr %6, align 8
   store ptr %432, ptr %0, align 8
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28395,7 +28395,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %472 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val38 = load ptr, ptr %472, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125Hd_DataSourceRenderBuffer3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val38, ptr noundef nonnull align 4 dereferenceable(8) %473)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125Hd_DataSourceRenderBuffer3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val38, ptr noundef nonnull align 4 dereferenceable(8) %473)
   %474 = load ptr, ptr %7, align 8
   store ptr %474, ptr %0, align 8
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28422,7 +28422,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %490 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %491 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val40 = load ptr, ptr %490, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_DataSourceRenderSettings3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr %.val40, ptr noundef nonnull align 4 dereferenceable(8) %491)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_DataSourceRenderSettings3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %8, ptr %.val40, ptr noundef nonnull align 4 dereferenceable(8) %491)
   %492 = load ptr, ptr %8, align 8
   store ptr %492, ptr %0, align 8
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28500,7 +28500,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %544 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %545 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val42 = load ptr, ptr %545, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceVolumeField3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 4 dereferenceable(8) %544, ptr %.val42)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceVolumeField3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 4 dereferenceable(8) %544, ptr %.val42)
   %546 = load ptr, ptr %9, align 8
   store ptr %546, ptr %0, align 8
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28528,7 +28528,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %563 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %564 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val44 = load ptr, ptr %563, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_LegacyDrawTargetContainerDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val44, ptr noundef nonnull align 4 dereferenceable(8) %564)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_LegacyDrawTargetContainerDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %11, ptr %.val44, ptr noundef nonnull align 4 dereferenceable(8) %564)
   %565 = load ptr, ptr %11, align 8
   %566 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %567 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -28559,7 +28559,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %582 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %583 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val46 = load ptr, ptr %583, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133Hd_DataSourceLegacyExtComputation3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %582, ptr %.val46)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133Hd_DataSourceLegacyExtComputation3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %582, ptr %.val46)
   %584 = load ptr, ptr %12, align 8
   store ptr %584, ptr %0, align 8
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28586,7 +28586,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %600 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %601 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val48 = load ptr, ptr %601, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceImageShader3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %600, ptr %.val48)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceImageShader3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %600, ptr %.val48)
   %602 = load ptr, ptr %13, align 8
   store ptr %602, ptr %0, align 8
   %603 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28617,7 +28617,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %620 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %621 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val50 = load ptr, ptr %621, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Hd_DataSourceLightCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %620, ptr %.val50)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Hd_DataSourceLightCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %620, ptr %.val50)
   %622 = load ptr, ptr %14, align 8
   store ptr %622, ptr %0, align 8
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28646,7 +28646,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_35HdXformSchemaTokens_St
   %640 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %641 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val52 = load ptr, ptr %641, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLightFilterCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 4 dereferenceable(8) %640, ptr %.val52)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLightFilterCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 4 dereferenceable(8) %640, ptr %.val52)
   %642 = load ptr, ptr %15, align 8
   store ptr %642, ptr %0, align 8
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28800,7 +28800,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Hd_DataSourceCamera3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Hd_DataSourceCamera3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -28985,7 +28985,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSourceLight3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSourceLight3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSourceLightE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29141,7 +29141,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125Hd_DataSourceRenderBuffer3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125Hd_DataSourceRenderBuffer3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdRenderBufferDescriptor", align 4
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #29
@@ -29352,7 +29352,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_DataSourceRenderSettings3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_DataSourceRenderSettings3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -29537,7 +29537,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceVolumeField3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceVolumeField3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -29722,7 +29722,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_LegacyDrawTargetContainerDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_LegacyDrawTargetContainerDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_LegacyDrawTargetContainerDataSourceE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -29878,7 +29878,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_138Hd_Legacy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133Hd_DataSourceLegacyExtComputation3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133Hd_DataSourceLegacyExtComputation3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_133Hd_DataSourceLegacyExtComputationE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -30070,7 +30070,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdImageShaderSchemaTok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceImageShader3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSourceImageShader3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -30255,7 +30255,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_124Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Hd_DataSourceLightCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Hd_DataSourceLightCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -30440,7 +30440,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129Hd_DataSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLightFilterCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLightFilterCollections3NewIJRNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -53007,7 +53007,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_Sta
   br i1 %52, label %53, label %120
 
 53:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.val32 = load ptr, ptr %4, align 8
   %54 = getelementptr inbounds i8, ptr %4, i64 8
   %.val33 = load ptr, ptr %54, align 8
@@ -54831,7 +54831,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_Sta
   br i1 %897, label %898, label %965
 
 898:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit178
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %.val35 = load ptr, ptr %27, align 8
   %899 = getelementptr inbounds i8, ptr %27, i64 8
   %.val36 = load ptr, ptr %899, align 8
@@ -55143,7 +55143,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117Hd_DataSourceMesh21_GetMeshTopologyStoreEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Sp_locker", align 1
   %4 = alloca %"struct.std::_Sp_locker", align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -57565,7 +57565,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
   %4 = alloca %"class.std::shared_ptr.535", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -57743,7 +57743,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Sp_locker", align 1
   %4 = alloca %"struct.std::_Sp_locker", align 1
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMeshTopology", align 8
@@ -58364,7 +58364,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
   %4 = alloca %"class.std::shared_ptr.535", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -58662,7 +58662,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
   %4 = alloca %"class.std::shared_ptr.535", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -59011,7 +59011,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
   %4 = alloca %"class.std::shared_ptr.535", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
@@ -59982,7 +59982,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_Me
   %4 = alloca %"class.std::shared_ptr.535", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120Hd_MeshTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !340)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -62350,7 +62350,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
   %4 = alloca %"class.std::shared_ptr.598", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -62528,7 +62528,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Sp_locker", align 1
   %4 = alloca %"struct.std::_Sp_locker", align 1
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdBasisCurvesTopology", align 8
@@ -63149,7 +63149,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
   %4 = alloca %"class.std::shared_ptr.598", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
@@ -63498,7 +63498,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
   %4 = alloca %"class.std::shared_ptr.598", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !387)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -63893,7 +63893,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
   %4 = alloca %"class.std::shared_ptr.598", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !390)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -64201,7 +64201,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_Ba
   %4 = alloca %"class.std::shared_ptr.598", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %5, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127Hd_BasisCurvesTopologyStore3GetEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %.val)
   %6 = load ptr, ptr %4, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !393)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -67144,7 +67144,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDat
   %536 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %537 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val36 = load ptr, ptr %537, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIbE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %536, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val36)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIbE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %536, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val36)
   %538 = load ptr, ptr %12, align 8
   store ptr %538, ptr %0, align 8
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -67209,7 +67209,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDat
   br i1 %.not, label %586, label %582
 
 582:                                              ; preds = %568
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %579, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val40)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 4 dereferenceable(8) %579, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val40)
   %583 = load ptr, ptr %13, align 8
   store ptr %583, ptr %0, align 8
   %584 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -67219,7 +67219,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDat
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit
 
 586:                                              ; preds = %568
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLegacyCameraParamValue3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %579, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val40)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLegacyCameraParamValue3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %579, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %.val40)
   %587 = load ptr, ptr %14, align 8
   store ptr %587, ptr %0, align 8
   %588 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -67387,7 +67387,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDat
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIbE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIbE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -67836,7 +67836,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %113 = phi ptr [ %102, %100 ], [ %112, %110 ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 104
   %.val18 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr %.val18)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr %.val18)
           to label %115 unwind label %772
 
 115:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit50
@@ -67888,7 +67888,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %134 = phi ptr [ %123, %121 ], [ %133, %131 ], [ %125, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i52 ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 112
   %.val19 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr %.val19)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr %.val19)
           to label %136 unwind label %774
 
 136:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit56
@@ -67940,7 +67940,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %155 = phi ptr [ %144, %142 ], [ %154, %152 ], [ %146, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 120
   %.val20 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr %.val20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr %.val20)
           to label %157 unwind label %776
 
 157:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit62
@@ -67992,7 +67992,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %176 = phi ptr [ %165, %163 ], [ %175, %173 ], [ %167, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i64 ]
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 128
   %.val21 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %177, ptr %.val21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %177, ptr %.val21)
           to label %178 unwind label %778
 
 178:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit68
@@ -68044,7 +68044,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %197 = phi ptr [ %186, %184 ], [ %196, %194 ], [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i70 ]
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 136
   %.val22 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %198, ptr %.val22)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %198, ptr %.val22)
           to label %199 unwind label %780
 
 199:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit74
@@ -68096,7 +68096,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %218 = phi ptr [ %207, %205 ], [ %217, %215 ], [ %209, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i76 ]
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 144
   %.val23 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %219, ptr %.val23)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %219, ptr %.val23)
           to label %220 unwind label %782
 
 220:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
@@ -68148,7 +68148,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %239 = phi ptr [ %228, %226 ], [ %238, %236 ], [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82 ]
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 152
   %.val24 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %240, ptr %.val24)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %240, ptr %.val24)
           to label %241 unwind label %784
 
 241:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
@@ -69607,7 +69607,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %113 = phi ptr [ %102, %100 ], [ %112, %110 ], [ %104, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i46 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 216
   %.val = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr %.val)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %114, ptr %.val)
           to label %115 unwind label %772
 
 115:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit50
@@ -69659,7 +69659,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %134 = phi ptr [ %123, %121 ], [ %133, %131 ], [ %125, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i52 ]
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 224
   %.val18 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr %.val18)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %135, ptr %.val18)
           to label %136 unwind label %774
 
 136:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit56
@@ -69711,7 +69711,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %155 = phi ptr [ %144, %142 ], [ %154, %152 ], [ %146, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i58 ]
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 232
   %.val33 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr %.val33)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %156, ptr %.val33)
           to label %157 unwind label %776
 
 157:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit62
@@ -69763,7 +69763,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %176 = phi ptr [ %165, %163 ], [ %175, %173 ], [ %167, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i64 ]
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 240
   %.val19 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %177, ptr %.val19)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %177, ptr %.val19)
           to label %178 unwind label %778
 
 178:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit68
@@ -69815,7 +69815,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %197 = phi ptr [ %186, %184 ], [ %196, %194 ], [ %188, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i70 ]
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 248
   %.val34 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %198, ptr %.val34)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %198, ptr %.val34)
           to label %199 unwind label %780
 
 199:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit74
@@ -69867,7 +69867,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %218 = phi ptr [ %207, %205 ], [ %217, %215 ], [ %209, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i76 ]
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 256
   %.val20 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %219, ptr %.val20)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %219, ptr %.val20)
           to label %220 unwind label %782
 
 220:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit80
@@ -69919,7 +69919,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticT
   %239 = phi ptr [ %228, %226 ], [ %238, %236 ], [ %230, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdCameraTokens_StaticTokenTypeEE3NewEv.exit.i.i.i82 ]
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 264
   %.val21 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %240, ptr %.val21)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 4 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %240, ptr %.val21)
           to label %241 unwind label %784
 
 241:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdCameraTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit86
@@ -71295,7 +71295,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfEC2ERKNS_7SdfPathERKNS_7TfTokenEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.0.val)
           to label %5 unwind label %24
@@ -71435,7 +71435,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLegacyCameraParamValue3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_DataSourceLegacyCameraParamValue3NewIJRNS_7SdfPathERKNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -72744,7 +72744,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -72900,7 +72900,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %17, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
           to label %37 unwind label %31
 
 37:                                               ; preds = %33
@@ -73262,7 +73262,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeIn
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11VtStreamOutERKdRSo(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #29
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValueC2ERKNS_7TfTokenERKNS_7SdfPathEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef %.0.val)
           to label %5 unwind label %24
@@ -73511,7 +73511,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -73667,7 +73667,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %17, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
           to label %37 unwind label %31
 
 37:                                               ; preds = %33
@@ -74080,7 +74080,7 @@ declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__20HdSplitDiopterSchema7Builder8SetAngleERKSt10shared_ptrINS_24HdTypedSampledDataSourceIfEEE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS2_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueIfEC2ERKNS_7SdfPathERKNS_7TfTokenEPNS_15HdSceneDelegateE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %.0.val)
           to label %5 unwind label %24
@@ -75134,7 +75134,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -75290,7 +75290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %17, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
           to label %37 unwind label %31
 
 37:                                               ; preds = %33
@@ -75781,7 +75781,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -75937,7 +75937,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %17, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val10)
           to label %37 unwind label %31
 
 37:                                               ; preds = %33
@@ -76348,7 +76348,7 @@ declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24
 declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__22HdLensDistortionSchema7Builder9SetCenterERKSt10shared_ptrINS_24HdTypedSampledDataSourceINS_7GfVec2fEEEE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_140Hd_TypedDataSourceLegacyCameraParamValueINS_7GfVec2fEE3NewIJRNS_7SdfPathERNS_7TfTokenERPNS_15HdSceneDelegateEEEESt10shared_ptrIS3_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
@@ -77503,7 +77503,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -77659,7 +77659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %18, %24
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val8 = load ptr, ptr %37, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(8) %36, ptr %.val8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 4 dereferenceable(8) %36, ptr %.val8)
           to label %38 unwind label %32
 
 38:                                               ; preds = %34
@@ -78064,7 +78064,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -78220,7 +78220,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %17, %23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val8 = load ptr, ptr %36, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val8)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %35, ptr %.val8)
           to label %37 unwind label %31
 
 37:                                               ; preds = %33
@@ -78600,7 +78600,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_135Hd_Da
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val5 = load ptr, ptr %17, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr %.val5)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %16, ptr %.val5)
   %.val6 = load ptr, ptr %4, align 8
   %18 = load ptr, ptr %.val6, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 16
@@ -78701,7 +78701,7 @@ define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOB
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val6 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_131Hd_DataSourceLegacyPrimvarValue3NewIJRNS_7TfTokenERNS_7SdfPathERPNS_15HdSceneDelegateEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr %.val6)
   %.val7 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %.val7, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 24
@@ -80871,7 +80871,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load ptr, ptr %127, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %129 = load ptr, ptr %5, align 8
   %130 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %131 = load ptr, ptr %130, align 8
@@ -80885,7 +80885,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericG
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSourceE, i64 16), ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -82382,7 +82382,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12VtDictionaryEEERKT_v.exit: ; preds = %130, %124
   %.0.i.i = phi ptr [ %131, %130 ], [ %129, %124 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit unwind label %136
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12VtDictionaryEEERKT_v.exit
@@ -83027,7 +83027,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDataSourceINS_7TfTo
 
 410:                                              ; preds = %405
   %411 = getelementptr inbounds nuw i8, ptr %.sroa.0396.0479.i, i64 56
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %411)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %411)
           to label %412 unwind label %819, !noalias !453
 
 412:                                              ; preds = %410
@@ -84366,7 +84366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit165.i: ; preds = %829, %.b
 
 986:                                              ; preds = %982
   %987 = getelementptr inbounds nuw i8, ptr %.sroa.0400.0481.i, i64 112
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(8) %987)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(8) %987)
           to label %988 unwind label %2017, !noalias !453
 
 988:                                              ; preds = %986
@@ -87429,7 +87429,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev
   %2355 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2356 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load ptr, ptr %2355, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %2356, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %61, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %2356, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %2357 = load ptr, ptr %61, align 8
   %2358 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %2359 = load ptr, ptr %2358, align 8
@@ -87443,7 +87443,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericG
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector.177", align 8
@@ -92230,7 +92230,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load ptr, ptr %4, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %3, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -98489,7 +98489,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.
 
 _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12VtDictionaryEEERKT_v.exit: ; preds = %353, %347
   %.0.i.i72 = phi ptr [ %354, %353 ], [ %352, %347 ]
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i72)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_ToContainerDSERKNS_12VtDictionaryE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i72)
           to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit unwind label %359
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_12VtDictionaryEEERKT_v.exit
@@ -98735,7 +98735,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_20HdMaterialNetworkM
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdImageShaderSchemaTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit85
   %465 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load ptr, ptr %398, align 8
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %465, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_130Hd_GenericGetSampledDataSource3NewIJRPNS_15HdSceneDelegateERNS_7SdfPathERKNS_7TfTokenEEEESt10shared_ptrIS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %13, ptr %.val, ptr noundef nonnull align 4 dereferenceable(8) %465, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %466 = load ptr, ptr %13, align 8
   %467 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %468 = load ptr, ptr %467, align 8

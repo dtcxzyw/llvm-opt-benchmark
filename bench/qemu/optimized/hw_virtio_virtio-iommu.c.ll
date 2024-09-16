@@ -3970,7 +3970,7 @@ return:                                           ; preds = %for.body.i.i, %for.
 declare zeroext i1 @error_report_once_cond(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_iommu_report_fault(ptr noundef %viommu, i8 noundef zeroext %reason, i32 noundef %flags, i32 noundef %endpoint, i64 noundef %address) unnamed_addr #0 {
+define internal fastcc void @virtio_iommu_report_fault(ptr noundef %viommu, i8 noundef zeroext range(i8 0, 3) %reason, i32 noundef range(i32 256, 260) %flags, i32 noundef range(i32 0, 65536) %endpoint, i64 noundef %address) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %fault = alloca %struct.virtio_iommu_fault, align 8

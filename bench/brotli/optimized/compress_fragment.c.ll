@@ -7971,47 +7971,40 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @BuildAndStoreLiteralPrefixCode(ptr noundef %s, ptr nocapture noundef readonly %input, i64 noundef %input_size, ptr noundef %depths, ptr noundef %bits, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
+define internal fastcc i64 @BuildAndStoreLiteralPrefixCode(ptr noundef %s, ptr nocapture noundef readonly %input, i64 noundef range(i64 1, 0) %input_size, ptr noundef %depths, ptr noundef %bits, ptr noundef %storage_ix, ptr noundef %storage) unnamed_addr #0 {
 entry:
   %histogram1 = getelementptr inbounds i8, ptr %s, i64 6288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %histogram1, i8 0, i64 1024, i1 false)
   %cmp = icmp ult i64 %input_size, 32768
-  br i1 %cmp, label %for.cond.preheader, label %for.body17
+  br i1 %cmp, label %for.body, label %for.body17
 
-for.cond.preheader:                               ; preds = %entry
-  %cmp249.not = icmp eq i64 %input_size, 0
-  br i1 %cmp249.not, label %for.body7.preheader, label %for.body
-
-for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.050 = phi i64 [ %inc4, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %input, i64 %i.050
+for.body:                                         ; preds = %entry, %for.body
+  %i.049 = phi i64 [ %inc4, %for.body ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds i8, ptr %input, i64 %i.049
   %0 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %0 to i64
   %arrayidx3 = getelementptr inbounds i32, ptr %histogram1, i64 %idxprom
   %1 = load i32, ptr %arrayidx3, align 4
   %inc = add i32 %1, 1
   store i32 %inc, ptr %arrayidx3, align 4
-  %inc4 = add nuw nsw i64 %i.050, 1
-  %exitcond56.not = icmp eq i64 %inc4, %input_size
-  br i1 %exitcond56.not, label %for.body7.preheader, label %for.body, !llvm.loop !14
+  %inc4 = add nuw nsw i64 %i.049, 1
+  %exitcond55.not = icmp eq i64 %inc4, %input_size
+  br i1 %exitcond55.not, label %for.body7, label %for.body, !llvm.loop !14
 
-for.body7.preheader:                              ; preds = %for.body, %for.cond.preheader
-  br label %for.body7
-
-for.body7:                                        ; preds = %for.body7.preheader, %for.body7
-  %histogram_total.052 = phi i64 [ %add10, %for.body7 ], [ %input_size, %for.body7.preheader ]
-  %i.151 = phi i64 [ %inc12, %for.body7 ], [ 0, %for.body7.preheader ]
-  %arrayidx8 = getelementptr inbounds i32, ptr %histogram1, i64 %i.151
+for.body7:                                        ; preds = %for.body, %for.body7
+  %histogram_total.051 = phi i64 [ %add10, %for.body7 ], [ %input_size, %for.body ]
+  %i.150 = phi i64 [ %inc12, %for.body7 ], [ 0, %for.body ]
+  %arrayidx8 = getelementptr inbounds i32, ptr %histogram1, i64 %i.150
   %2 = load i32, ptr %arrayidx8, align 4
   %cond.i65 = tail call i32 @llvm.umin.i32(i32 %2, i32 11)
   %mul = shl nuw nsw i32 %cond.i65, 1
   %add = add i32 %mul, %2
   store i32 %add, ptr %arrayidx8, align 4
   %conv = zext nneg i32 %mul to i64
-  %add10 = add i64 %histogram_total.052, %conv
-  %inc12 = add nuw nsw i64 %i.151, 1
-  %exitcond57.not = icmp eq i64 %inc12, 256
-  br i1 %exitcond57.not, label %if.end, label %for.body7, !llvm.loop !15
+  %add10 = add i64 %histogram_total.051, %conv
+  %inc12 = add nuw nsw i64 %i.150, 1
+  %exitcond56.not = icmp eq i64 %inc12, 256
+  br i1 %exitcond56.not, label %if.end, label %for.body7, !llvm.loop !15
 
 for.body17:                                       ; preds = %entry, %for.body17
   %i.246 = phi i64 [ %add23, %for.body17 ], [ 0, %entry ]
@@ -8054,27 +8047,27 @@ if.end:                                           ; preds = %for.body29, %for.bo
   br label %for.body46
 
 for.body46:                                       ; preds = %if.end, %for.inc56
-  %literal_ratio.054 = phi i64 [ 0, %if.end ], [ %literal_ratio.1, %for.inc56 ]
-  %i.453 = phi i64 [ 0, %if.end ], [ %inc57, %for.inc56 ]
-  %arrayidx47 = getelementptr inbounds i32, ptr %histogram1, i64 %i.453
+  %literal_ratio.053 = phi i64 [ 0, %if.end ], [ %literal_ratio.1, %for.inc56 ]
+  %i.452 = phi i64 [ 0, %if.end ], [ %inc57, %for.inc56 ]
+  %arrayidx47 = getelementptr inbounds i32, ptr %histogram1, i64 %i.452
   %6 = load i32, ptr %arrayidx47, align 4
   %tobool.not = icmp eq i32 %6, 0
   br i1 %tobool.not, label %for.inc56, label %if.then48
 
 if.then48:                                        ; preds = %for.body46
-  %arrayidx50 = getelementptr inbounds i8, ptr %depths, i64 %i.453
+  %arrayidx50 = getelementptr inbounds i8, ptr %depths, i64 %i.452
   %7 = load i8, ptr %arrayidx50, align 1
   %conv51 = zext i8 %7 to i32
   %mul52 = mul i32 %6, %conv51
   %conv53 = zext i32 %mul52 to i64
-  %add54 = add i64 %literal_ratio.054, %conv53
+  %add54 = add i64 %literal_ratio.053, %conv53
   br label %for.inc56
 
 for.inc56:                                        ; preds = %for.body46, %if.then48
-  %literal_ratio.1 = phi i64 [ %add54, %if.then48 ], [ %literal_ratio.054, %for.body46 ]
-  %inc57 = add nuw nsw i64 %i.453, 1
-  %exitcond58.not = icmp eq i64 %inc57, 256
-  br i1 %exitcond58.not, label %for.end58, label %for.body46, !llvm.loop !18
+  %literal_ratio.1 = phi i64 [ %add54, %if.then48 ], [ %literal_ratio.053, %for.body46 ]
+  %inc57 = add nuw nsw i64 %i.452, 1
+  %exitcond57.not = icmp eq i64 %inc57, 256
+  br i1 %exitcond57.not, label %for.end58, label %for.body46, !llvm.loop !18
 
 for.end58:                                        ; preds = %for.inc56
   %mul59 = mul i64 %literal_ratio.1, 125

@@ -1553,7 +1553,7 @@ lpad.i:                                           ; preds = %invoke.cont7
 invoke.cont13:                                    ; preds = %_ZSt10_ConstructISt10shared_ptrIN4cvc58internal9ProofNodeEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %10 = load ptr, ptr %parent, align 8
   store ptr %10, ptr %agg.tmp15, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 %ref.tmp14, ptr noundef nonnull %agg.tmp15, ptr %holdout.coerce)
+  invoke fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias align 8 %ref.tmp14, ptr noundef %agg.tmp15, ptr %holdout.coerce)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont13
@@ -2631,7 +2631,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %parent, ptr readnone %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %parent, ptr readnone %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2789,7 +2789,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %if.then.i.i, %if.
 invoke.cont:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %3 = load ptr, ptr %parent, align 8
   store ptr %3, ptr %agg.tmp3, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 %ref.tmp2, ptr noundef nonnull %agg.tmp3, ptr %holdout.coerce)
+  invoke fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias align 8 %ref.tmp2, ptr noundef %agg.tmp3, ptr %holdout.coerce)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont

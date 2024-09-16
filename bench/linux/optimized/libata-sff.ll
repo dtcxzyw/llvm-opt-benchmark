@@ -4413,7 +4413,7 @@ declare dso_local i32 @ata_host_start(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @pci_read_config_byte(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ata_port_desc_misc(ptr noundef %0, i32 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @ata_port_desc_misc(ptr noundef %0, i32 noundef range(i32 14, 16) %1) unnamed_addr #3 align 16 {
   tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %0, ptr noundef nonnull @.str.25, i32 noundef %1) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 15820
   %4 = load i32, ptr %3, align 4
@@ -6385,7 +6385,7 @@ define internal fastcc void @ata_pio_sector(ptr noundef %0) unnamed_addr #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_pio_xfer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @ata_pio_xfer(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 4096) %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 8

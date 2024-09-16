@@ -1124,7 +1124,7 @@ define noundef ptr @_ZN7jsonnet8internal13jsonnet_parseEPNS0_9AllocatorERNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser5parseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser5parseEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef range(i32 0, 16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.jsonnet::internal::Token", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string.79", align 8
@@ -1359,7 +1359,7 @@ define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser5pa
 
 116:                                              ; preds = %109, %92, %88
   %.0167 = phi ptr [ %108, %109 ], [ null, %92 ], [ null, %88 ]
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 9, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 9, ptr noundef null)
           to label %117 unwind label %112
 
 117:                                              ; preds = %116
@@ -1562,7 +1562,7 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i136: ;
           to label %194 unwind label %110
 
 194:                                              ; preds = %186
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 32, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 32, ptr noundef null)
           to label %195 unwind label %110
 
 195:                                              ; preds = %194
@@ -1849,7 +1849,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit94: ; preds = %_
   br label %.body67
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc66
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 1 dereferenceable(1) %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
           to label %302 unwind label %349
 
 302:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -2606,7 +2606,7 @@ _ZNSt6vectorIPN7jsonnet8internal3ASTESaIS3_EED2Ev.exit: ; preds = %.body67, %355
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %576
@@ -2762,7 +2762,7 @@ _ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv.exit.i: ; preds = %614
   br label %.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %.noexc28.i
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %626 unwind label %645
 
 626:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i
@@ -2858,7 +2858,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit.i: ; preds = %638, %_
   br label %705
 
 648:                                              ; preds = %_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit.i, %._crit_edge
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 12, ptr noundef nonnull @.str.76)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 12, ptr noundef nonnull @.str.76)
           to label %649 unwind label %639
 
 649:                                              ; preds = %648
@@ -5324,7 +5324,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br label %818
 
 151:                                              ; preds = %1
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(192) %2)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(192) %2)
           to label %152 unwind label %124
 
 152:                                              ; preds = %151
@@ -5569,7 +5569,7 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev.exit: ; preds = %_ZSt
   br i1 %or.cond.not, label %255, label %243
 
 243:                                              ; preds = %236
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %244 unwind label %251
 
 244:                                              ; preds = %243
@@ -5607,7 +5607,7 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev.exit: ; preds = %_ZSt
   br i1 %257, label %258, label %285
 
 258:                                              ; preds = %255
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %259 unwind label %251
 
 259:                                              ; preds = %258
@@ -5617,7 +5617,7 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev.exit: ; preds = %_ZSt
           to label %261 unwind label %275
 
 261:                                              ; preds = %259
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef nonnull %25, ptr noundef nonnull align 8 dereferenceable(24) %23)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(24) %23)
           to label %262 unwind label %277
 
 262:                                              ; preds = %261
@@ -5698,7 +5698,7 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EED2Ev.exit: ; preds = %_ZSt
   br label %311
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE12emplace_backIJRPNS1_3ASTERS_INS1_13FodderElementESaISA_EEEEERS3_DpOT_.exit, %.preheader
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %293 unwind label %.loopexit.split-lp
 
 293:                                              ; preds = %._crit_edge
@@ -6056,7 +6056,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit: ; preds = %410
 
 413:                                              ; preds = %411
   store ptr %412, ptr %34, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 8, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 8, ptr noundef null)
           to label %414 unwind label %124
 
 414:                                              ; preds = %413
@@ -6807,7 +6807,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit203: ; preds = 
   ]
 
 727:                                              ; preds = %719
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
           to label %728 unwind label %743
 
 728:                                              ; preds = %727
@@ -6881,7 +6881,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit215: ; preds = 
           to label %757 unwind label %743
 
 757:                                              ; preds = %755
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef null)
           to label %758 unwind label %743
 
 758:                                              ; preds = %757
@@ -7085,7 +7085,7 @@ _ZN7jsonnet8internallsERSoNS0_5Token4KindE.exit:  ; preds = %.noexc240
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10parseInfixEPNS0_3ASTERKNS0_5TokenEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN7jsonnet8internal12_GLOBAL__N_16Parser10parseInfixEPNS0_3ASTERKNS0_5TokenEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(192) %2, i32 noundef range(i32 0, 16) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -7360,7 +7360,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 151:                                              ; preds = %147
   %152 = call ptr @__cxa_allocate_exception(i64 96) #24
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser3popEv(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %153 unwind label %.thread226
 
 153:                                              ; preds = %151
@@ -7686,7 +7686,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.0218 = phi ptr [ null, %198 ], [ %.0218.ph, %.sink.split ]
   %.1216 = phi ptr [ null, %198 ], [ %.1216.ph, %.sink.split ]
   %.0213 = phi i1 [ false, %198 ], [ true, %.sink.split ]
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 3, ptr noundef null)
           to label %263 unwind label %171
 
 263:                                              ; preds = %262
@@ -7859,7 +7859,7 @@ _ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E.exit.i140: ;
   br label %491
 
 308:                                              ; preds = %138
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 10, ptr noundef null)
           to label %309 unwind label %.loopexit
 
 309:                                              ; preds = %308
@@ -7994,7 +7994,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit151: ; preds = 
   br label %.body154
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc153
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 1 dereferenceable(1) %28)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 1 dereferenceable(1) %28)
           to label %346 unwind label %353
 
 346:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -8259,7 +8259,7 @@ _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
   br label %491
 
 424:                                              ; preds = %138
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(192) %9)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(192) %9)
           to label %425 unwind label %.loopexit
 
 425:                                              ; preds = %424
@@ -8832,7 +8832,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef range(i32 3, 33) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -9082,7 +9082,7 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parsePar
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.13", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %9 unwind label %27
 
 9:                                                ; preds = %5
@@ -10665,7 +10665,7 @@ define linkonce_odr void @_ZN7jsonnet8internal11ConditionalD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9parseArgsERSt6vectorINS0_8ArgParamESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.jsonnet::internal::Token", align 8
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14690,7 +14690,7 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator4makeINS0_5UnaryE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(192) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser20parseObjectRemainderERPNS0_3ASTERKNS0_5TokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(192) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.jsonnet::internal::LocationRange", align 8
   %6 = alloca %"class.std::vector.127", align 8
   %7 = alloca %"class.std::set", align 8
@@ -15160,7 +15160,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit349: ; preds = %
           to label %248 unwind label %290
 
 248:                                              ; preds = %247
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 1, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(24) %19)
           to label %249 unwind label %292
 
 249:                                              ; preds = %248
@@ -15707,7 +15707,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 
 421:                                              ; preds = %419
   store ptr %420, ptr %25, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 3, ptr noundef null)
           to label %422 unwind label %325
 
 422:                                              ; preds = %421
@@ -15775,7 +15775,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit194: ; preds = 
   br label %.body232
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc231
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(24) %45)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 1 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(24) %45)
           to label %443 unwind label %462
 
 443:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -15872,7 +15872,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 
 465:                                              ; preds = %_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit, %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit194
   store i8 0, ptr %50, align 1
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef null)
           to label %466 unwind label %456
 
 466:                                              ; preds = %465
@@ -16490,7 +16490,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit191: ; preds = 
           to label %643 unwind label %.loopexit
 
 643:                                              ; preds = %642
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef null)
           to label %644 unwind label %667
 
 644:                                              ; preds = %643
@@ -16660,7 +16660,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit.
   br label %.body363
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit365: ; preds = %.noexc362
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 8 dereferenceable(24) %69)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser11parseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbRSt6vectorINS0_13FodderElementESaISD_EE(ptr dead_on_unwind noalias writable align 8 %71, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 1 dereferenceable(1) %66, ptr noundef nonnull align 8 dereferenceable(24) %69)
           to label %697 unwind label %716
 
 697:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit365
@@ -16755,7 +16755,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit381: ; preds = %_ZSt8_
   br label %833
 
 719:                                              ; preds = %_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EED2Ev.exit381, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit.thread
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef nonnull @.str.76)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 12, ptr noundef nonnull @.str.76)
           to label %720 unwind label %710
 
 720:                                              ; preds = %719
@@ -17714,7 +17714,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZN7jsonne
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseComprehensionSpecsENS0_5Token4KindESt6vectorINS0_13FodderElementESaIS6_EERS5_INS0_17ComprehensionSpecESaIS9_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef range(i32 1, 4) %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.jsonnet::internal::LocationRange", align 8
   %7 = alloca %"struct.jsonnet::internal::Token", align 8
   %8 = alloca ptr, align 8
@@ -17761,7 +17761,7 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser23parseCom
 47:                                               ; preds = %.critedge, %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 10, ptr noundef null)
           to label %48 unwind label %485
 
 48:                                               ; preds = %47
@@ -17790,7 +17790,7 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.
 
 _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE11_M_is_localEv.exit.i.i
   store ptr %51, ptr %8, align 8
-  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 28, ptr noundef null)
+  invoke fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_16Parser9popExpectENS0_5Token4KindEPKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef 28, ptr noundef null)
           to label %57 unwind label %487
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEED2Ev.exit

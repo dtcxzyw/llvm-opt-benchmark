@@ -3608,7 +3608,7 @@ define internal void @_ZL19DOCTEST_ANON_FUNC_9v() #2 personality ptr @__gxx_pers
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.349)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.349)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -4331,7 +4331,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.360)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.360)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -4451,7 +4451,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.363)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.363)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -4576,7 +4576,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_15v() #2 personality ptr @__gxx_per
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.366)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.366)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -4727,7 +4727,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_17v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.369)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.369)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -4873,7 +4873,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_19v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.372)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.372)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -5019,7 +5019,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_21v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.374, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.374, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -5165,7 +5165,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_23v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.380)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.380)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -5311,7 +5311,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_25v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.383)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.383)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -5457,7 +5457,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_27v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.385)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.385)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -5613,7 +5613,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_29v() #2 personality ptr @__gxx_per
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.389)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.389)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -5733,7 +5733,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_29v() #2 personality ptr @__gxx_per
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.392)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.392)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -5858,7 +5858,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_29v() #2 personality ptr @__gxx_per
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.395)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.395)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -6009,7 +6009,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_31v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.398)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.398)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -6180,7 +6180,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.401)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.401)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -6300,7 +6300,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.404)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.404)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -6425,7 +6425,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.407)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.407)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -6550,7 +6550,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.410)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.410)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -6675,7 +6675,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.413)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.413)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -6800,7 +6800,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_33v() #2 personality ptr @__gxx_per
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.416)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.416)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -6976,7 +6976,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.419)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.419)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -7096,7 +7096,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.422)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.422)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -7221,7 +7221,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.425)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.425)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -7346,7 +7346,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.428)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.428)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -7471,7 +7471,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.431)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.431)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -7596,7 +7596,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_35v() #2 personality ptr @__gxx_per
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.434)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.434)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -7792,7 +7792,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 51:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.437)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.437)
           to label %52 unwind label %70
 
 52:                                               ; preds = %51
@@ -7912,7 +7912,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 93:                                               ; preds = %89
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.440)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.440)
           to label %94 unwind label %113
 
 94:                                               ; preds = %93
@@ -8037,7 +8037,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 136:                                              ; preds = %132
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.443)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.443)
           to label %137 unwind label %156
 
 137:                                              ; preds = %136
@@ -8162,7 +8162,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 179:                                              ; preds = %175
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.446)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.446)
           to label %180 unwind label %199
 
 180:                                              ; preds = %179
@@ -8287,7 +8287,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 222:                                              ; preds = %218
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.449)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.449)
           to label %223 unwind label %242
 
 223:                                              ; preds = %222
@@ -8412,7 +8412,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 265:                                              ; preds = %261
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull @.str.452)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull @.str.452)
           to label %266 unwind label %285
 
 266:                                              ; preds = %265
@@ -8537,7 +8537,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 308:                                              ; preds = %304
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull @.str.455)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull @.str.455)
           to label %309 unwind label %328
 
 309:                                              ; preds = %308
@@ -8662,7 +8662,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 351:                                              ; preds = %347
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull @.str.458)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull @.str.458)
           to label %352 unwind label %371
 
 352:                                              ; preds = %351
@@ -8787,7 +8787,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 394:                                              ; preds = %390
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull @.str.461)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull @.str.461)
           to label %395 unwind label %414
 
 395:                                              ; preds = %394
@@ -8912,7 +8912,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_37v() #2 personality ptr @__gxx_per
 
 437:                                              ; preds = %433
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull @.str.464)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull @.str.464)
           to label %438 unwind label %457
 
 438:                                              ; preds = %437
@@ -9083,7 +9083,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_39v() #2 personality ptr @__gxx_per
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.467)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.467)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -9203,7 +9203,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_39v() #2 personality ptr @__gxx_per
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.470)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.470)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -9328,7 +9328,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_39v() #2 personality ptr @__gxx_per
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.473)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.473)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -9453,7 +9453,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_39v() #2 personality ptr @__gxx_per
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.476)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.476)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -9578,7 +9578,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_39v() #2 personality ptr @__gxx_per
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.479)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.479)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -9734,7 +9734,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_41v() #2 personality ptr @__gxx_per
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.482)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.482)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -9854,7 +9854,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_41v() #2 personality ptr @__gxx_per
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.485)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.485)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -10015,7 +10015,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_43v() #2 personality ptr @__gxx_per
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.488)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.488)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -10135,7 +10135,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_43v() #2 personality ptr @__gxx_per
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.491)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.491)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -10260,7 +10260,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_43v() #2 personality ptr @__gxx_per
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.494)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.494)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -10411,7 +10411,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_45v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.497, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.497, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -10557,7 +10557,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_47v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.500)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.500)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -10703,7 +10703,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_49v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.503)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.503)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -10849,7 +10849,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_51v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.506)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.506)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -11350,7 +11350,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_55v() #2 personality ptr @__gxx_per
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.514)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.514)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -11470,7 +11470,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_55v() #2 personality ptr @__gxx_per
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.517)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.517)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -11646,7 +11646,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.520)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.520)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -11766,7 +11766,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.523)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.523)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -11891,7 +11891,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.526)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.526)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -12016,7 +12016,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.529)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.529)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -12141,7 +12141,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.532)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.532)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -12266,7 +12266,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_57v() #2 personality ptr @__gxx_per
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.535)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.535)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -12422,7 +12422,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_59v() #2 personality ptr @__gxx_per
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.538)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.538)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -12542,7 +12542,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_59v() #2 personality ptr @__gxx_per
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.540)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.540)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -12713,7 +12713,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_61v() #2 personality ptr @__gxx_per
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.543)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.543)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -12833,7 +12833,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_61v() #2 personality ptr @__gxx_per
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.546)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.546)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -12958,7 +12958,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_61v() #2 personality ptr @__gxx_per
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.549)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.549)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -13083,7 +13083,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_61v() #2 personality ptr @__gxx_per
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.552)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.552)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -13208,7 +13208,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_61v() #2 personality ptr @__gxx_per
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.555)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.555)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -13394,7 +13394,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.558)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.558)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -13514,7 +13514,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.561)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.561)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -13639,7 +13639,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.564)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.564)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -13764,7 +13764,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.567)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.567)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -13889,7 +13889,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.570)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.570)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -14014,7 +14014,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.573)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.573)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -14139,7 +14139,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.576)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.576)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -14264,7 +14264,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_63v() #2 personality ptr @__gxx_per
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.579)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.579)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -14430,7 +14430,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_65v() #2 personality ptr @__gxx_per
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.582)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.582)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -14550,7 +14550,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_65v() #2 personality ptr @__gxx_per
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.585)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.585)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -14675,7 +14675,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_65v() #2 personality ptr @__gxx_per
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.588)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.588)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -14800,7 +14800,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_65v() #2 personality ptr @__gxx_per
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.591)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.591)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -14951,7 +14951,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_67v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.593)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.593)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -15142,7 +15142,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 51:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.597)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.597)
           to label %52 unwind label %70
 
 52:                                               ; preds = %51
@@ -15262,7 +15262,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 93:                                               ; preds = %89
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.600)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.600)
           to label %94 unwind label %113
 
 94:                                               ; preds = %93
@@ -15387,7 +15387,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 136:                                              ; preds = %132
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.603)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.603)
           to label %137 unwind label %156
 
 137:                                              ; preds = %136
@@ -15512,7 +15512,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 179:                                              ; preds = %175
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.605)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.605)
           to label %180 unwind label %199
 
 180:                                              ; preds = %179
@@ -15637,7 +15637,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 222:                                              ; preds = %218
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.607)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.607)
           to label %223 unwind label %242
 
 223:                                              ; preds = %222
@@ -15762,7 +15762,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 265:                                              ; preds = %261
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull @.str.609)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull @.str.609)
           to label %266 unwind label %285
 
 266:                                              ; preds = %265
@@ -15887,7 +15887,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 308:                                              ; preds = %304
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull @.str.612)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull @.str.612)
           to label %309 unwind label %328
 
 309:                                              ; preds = %308
@@ -16012,7 +16012,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 351:                                              ; preds = %347
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull @.str.615)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull @.str.615)
           to label %352 unwind label %371
 
 352:                                              ; preds = %351
@@ -16137,7 +16137,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 394:                                              ; preds = %390
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull @.str.618)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull @.str.618)
           to label %395 unwind label %414
 
 395:                                              ; preds = %394
@@ -16262,7 +16262,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_69v() #2 personality ptr @__gxx_per
 
 437:                                              ; preds = %433
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull @.str.621)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull @.str.621)
           to label %438 unwind label %457
 
 438:                                              ; preds = %437
@@ -16423,7 +16423,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_71v() #2 personality ptr @__gxx_per
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.624)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.624)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -16543,7 +16543,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_71v() #2 personality ptr @__gxx_per
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.627)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.627)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -16668,7 +16668,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_71v() #2 personality ptr @__gxx_per
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.630)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.630)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -16818,11 +16818,11 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_73v() #2 personality ptr @__gxx_per
 
 5:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull @.str.633)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull @.str.633)
           to label %6 unwind label %12
 
 6:                                                ; preds = %5
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull @.str.634)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull @.str.634)
           to label %7 unwind label %14
 
 7:                                                ; preds = %6
@@ -16937,7 +16937,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_75v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.636)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.636)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -17083,7 +17083,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_77v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.639)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.639)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -17282,7 +17282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 30:                                               ; preds = %28
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %29) #17
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %31)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %31)
           to label %32 unwind label %43
 
 32:                                               ; preds = %30
@@ -17468,7 +17468,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39: ; 
 85:                                               ; preds = %83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %84) #17
   %86 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %86)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %86)
           to label %87 unwind label %98
 
 87:                                               ; preds = %85
@@ -17668,7 +17668,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.648)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.648)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -17788,7 +17788,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.651)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.651)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -17913,7 +17913,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.654)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.654)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -18038,7 +18038,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.656)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.656)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -18163,7 +18163,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.659)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.659)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -18288,7 +18288,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.662)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.662)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -18413,7 +18413,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.665)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.665)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -18538,7 +18538,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_81v() #2 personality ptr @__gxx_per
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.668)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.668)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -18689,7 +18689,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_83v() #2 personality ptr @__gxx_per
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.670)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.670)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -18870,7 +18870,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.673)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.673)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -18990,7 +18990,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.676)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.676)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -19115,7 +19115,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.679)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.679)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -19240,7 +19240,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.682)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.682)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -19365,7 +19365,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.685)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.685)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -19490,7 +19490,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.688)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.688)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -19615,7 +19615,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.690)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.690)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -19740,7 +19740,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_85v() #2 personality ptr @__gxx_per
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.692)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.692)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -19931,7 +19931,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 46:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.694)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.694)
           to label %47 unwind label %65
 
 47:                                               ; preds = %46
@@ -20051,7 +20051,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 88:                                               ; preds = %84
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.697)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.697)
           to label %89 unwind label %108
 
 89:                                               ; preds = %88
@@ -20176,7 +20176,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 131:                                              ; preds = %127
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.700, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.700, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %132 unwind label %151
 
 132:                                              ; preds = %131
@@ -20301,7 +20301,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 174:                                              ; preds = %170
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.702, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.702, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %175 unwind label %194
 
 175:                                              ; preds = %174
@@ -20426,7 +20426,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 217:                                              ; preds = %213
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull @.str.349)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull @.str.349)
           to label %218 unwind label %237
 
 218:                                              ; preds = %217
@@ -20551,7 +20551,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 260:                                              ; preds = %256
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull @.str.705)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull @.str.705)
           to label %261 unwind label %280
 
 261:                                              ; preds = %260
@@ -20676,7 +20676,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 303:                                              ; preds = %299
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull @.str.708)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull @.str.708)
           to label %304 unwind label %323
 
 304:                                              ; preds = %303
@@ -20801,7 +20801,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 346:                                              ; preds = %342
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull @.str.711)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull @.str.711)
           to label %347 unwind label %366
 
 347:                                              ; preds = %346
@@ -20926,7 +20926,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_87v() #2 personality ptr @__gxx_per
 
 389:                                              ; preds = %385
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull @.str.714)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull @.str.714)
           to label %390 unwind label %409
 
 390:                                              ; preds = %389
@@ -21132,7 +21132,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 61:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.717)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.717)
           to label %62 unwind label %80
 
 62:                                               ; preds = %61
@@ -21252,7 +21252,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 103:                                              ; preds = %99
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.719)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.719)
           to label %104 unwind label %123
 
 104:                                              ; preds = %103
@@ -21377,7 +21377,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 146:                                              ; preds = %142
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.721)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.721)
           to label %147 unwind label %166
 
 147:                                              ; preds = %146
@@ -21502,7 +21502,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 189:                                              ; preds = %185
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.723)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.723)
           to label %190 unwind label %209
 
 190:                                              ; preds = %189
@@ -21627,7 +21627,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 232:                                              ; preds = %228
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.725)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.725)
           to label %233 unwind label %252
 
 233:                                              ; preds = %232
@@ -21752,7 +21752,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 275:                                              ; preds = %271
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.727)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.727)
           to label %276 unwind label %295
 
 276:                                              ; preds = %275
@@ -21877,7 +21877,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 318:                                              ; preds = %314
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.729)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.729)
           to label %319 unwind label %338
 
 319:                                              ; preds = %318
@@ -22002,7 +22002,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 361:                                              ; preds = %357
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef nonnull @.str.732)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef nonnull @.str.732)
           to label %362 unwind label %381
 
 362:                                              ; preds = %361
@@ -22127,7 +22127,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 404:                                              ; preds = %400
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %46) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull @.str.734)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull @.str.734)
           to label %405 unwind label %424
 
 405:                                              ; preds = %404
@@ -22252,7 +22252,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 447:                                              ; preds = %443
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull @.str.736)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull @.str.736)
           to label %448 unwind label %467
 
 448:                                              ; preds = %447
@@ -22377,7 +22377,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 490:                                              ; preds = %486
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %54) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull @.str.738)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull @.str.738)
           to label %491 unwind label %510
 
 491:                                              ; preds = %490
@@ -22502,7 +22502,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_89v() #2 personality ptr @__gxx_per
 
 533:                                              ; preds = %529
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull @.str.741)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull @.str.741)
           to label %534 unwind label %553
 
 534:                                              ; preds = %533
@@ -22668,7 +22668,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_91v() #2 personality ptr @__gxx_per
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.744)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.744)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -22788,7 +22788,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_91v() #2 personality ptr @__gxx_per
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.747)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.747)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -22913,7 +22913,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_91v() #2 personality ptr @__gxx_per
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.750)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.750)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -23038,7 +23038,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_91v() #2 personality ptr @__gxx_per
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.752)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.752)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -23229,7 +23229,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 46:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.754)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.754)
           to label %47 unwind label %65
 
 47:                                               ; preds = %46
@@ -23349,7 +23349,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 88:                                               ; preds = %84
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.757)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.757)
           to label %89 unwind label %108
 
 89:                                               ; preds = %88
@@ -23474,7 +23474,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 131:                                              ; preds = %127
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.760)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.760)
           to label %132 unwind label %151
 
 132:                                              ; preds = %131
@@ -23599,7 +23599,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 174:                                              ; preds = %170
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.762)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.762)
           to label %175 unwind label %194
 
 175:                                              ; preds = %174
@@ -23724,7 +23724,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 217:                                              ; preds = %213
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull @.str.765)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull @.str.765)
           to label %218 unwind label %237
 
 218:                                              ; preds = %217
@@ -23849,7 +23849,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 260:                                              ; preds = %256
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull @.str.768)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull @.str.768)
           to label %261 unwind label %280
 
 261:                                              ; preds = %260
@@ -23974,7 +23974,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 303:                                              ; preds = %299
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull @.str.770)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull @.str.770)
           to label %304 unwind label %323
 
 304:                                              ; preds = %303
@@ -24099,7 +24099,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 346:                                              ; preds = %342
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull @.str.772)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull @.str.772)
           to label %347 unwind label %366
 
 347:                                              ; preds = %346
@@ -24224,7 +24224,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_93v() #2 personality ptr @__gxx_per
 
 389:                                              ; preds = %385
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull @.str.774)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull @.str.774)
           to label %390 unwind label %409
 
 390:                                              ; preds = %389
@@ -24380,7 +24380,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_95v() #2 personality ptr @__gxx_per
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.777)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.777)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -24500,7 +24500,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_95v() #2 personality ptr @__gxx_per
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.780)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.780)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -24656,7 +24656,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_97v() #2 personality ptr @__gxx_per
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.783)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.783)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -24776,7 +24776,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_97v() #2 personality ptr @__gxx_per
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.786)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.786)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -24983,7 +24983,7 @@ define internal void @_ZL20DOCTEST_ANON_FUNC_99v() #2 personality ptr @__gxx_per
 
 62:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.789)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.789)
           to label %63 unwind label %81
 
 63:                                               ; preds = %62
@@ -25455,7 +25455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 214:                                              ; preds = %213
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull @.str.798)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.798)
           to label %215 unwind label %235
 
 215:                                              ; preds = %214
@@ -25585,7 +25585,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 258:                                              ; preds = %254
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull @.str.801, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull @.str.801, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %259 unwind label %278
 
 259:                                              ; preds = %258
@@ -26062,7 +26062,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
 
 411:                                              ; preds = %410
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %55) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull @.str.805)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull @.str.805)
           to label %412 unwind label %432
 
 412:                                              ; preds = %411
@@ -26192,7 +26192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit95: ; 
 
 455:                                              ; preds = %451
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr noundef nonnull @.str.808, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull @.str.808, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %456 unwind label %475
 
 456:                                              ; preds = %455
@@ -26343,7 +26343,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_101v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.811)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.811)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -26489,7 +26489,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_103v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.814)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.814)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -27026,7 +27026,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_107v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.820, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.820, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -27177,7 +27177,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_109v() #2 personality ptr @__gxx_pe
   %14 = alloca %"class.std::allocator.78", align 1
   %15 = load i32, ptr @_ZN4FInt30LuauCompileLoopUnrollThresholdE, align 8
   store i32 200, ptr @_ZN4FInt30LuauCompileLoopUnrollThresholdE, align 8
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %1, ptr noundef nonnull @.str.821, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %1, ptr noundef nonnull @.str.821, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %16 unwind label %24
 
 16:                                               ; preds = %0
@@ -27511,7 +27511,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_111v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.826, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.826, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -27631,7 +27631,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_111v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.829, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.829, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -27782,7 +27782,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_113v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.832, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.832, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -27948,7 +27948,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_115v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.835, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.835, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -28068,7 +28068,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_115v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.838, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.838, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -28193,7 +28193,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_115v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.841, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.841, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -28318,7 +28318,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_115v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.844, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.844, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -28443,7 +28443,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_115v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.847, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.847, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -28609,7 +28609,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_117v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.850)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.850)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -28729,7 +28729,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_117v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.853)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.853)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -28854,7 +28854,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_117v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.856)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.856)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -28979,7 +28979,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_117v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.859, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.859, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -35139,7 +35139,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_121v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.899)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.899)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -35259,7 +35259,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_121v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.902)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.902)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -35410,7 +35410,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_123v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.905)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.905)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -35571,7 +35571,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_125v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.908, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.908, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -35691,7 +35691,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_125v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.911, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.911, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -35816,7 +35816,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_125v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.914, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.914, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -35941,7 +35941,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_125v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.917, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -36885,7 +36885,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_135v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.931, i32 noundef 0)
+  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.931, i32 noundef 0)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -39928,7 +39928,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.973)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.973)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -40048,7 +40048,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.976)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.976)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -40173,7 +40173,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.979)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.979)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -40298,7 +40298,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.982)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.982)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -40423,7 +40423,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.985)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.985)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -40548,7 +40548,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.988)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.988)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -40673,7 +40673,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.991)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.991)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -40798,7 +40798,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_161v() #2 personality ptr @__gxx_pe
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.994)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.994)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -40974,7 +40974,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.997)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.997)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -41094,7 +41094,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1000)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1000)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -41219,7 +41219,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1003)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1003)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -41344,7 +41344,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1006)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1006)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -41469,7 +41469,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1009)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1009)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -41594,7 +41594,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_163v() #2 personality ptr @__gxx_pe
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1012)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1012)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -41751,7 +41751,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_165v() #2 personality ptr @__gxx_pe
 
 9:                                                ; preds = %8
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1015)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1015)
           to label %10 unwind label %30
 
 10:                                               ; preds = %9
@@ -41924,7 +41924,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_167v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1018)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1018)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -42044,7 +42044,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_167v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1021)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1021)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -42169,7 +42169,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_167v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1024)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1024)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -42294,7 +42294,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_167v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1027)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1027)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -42419,7 +42419,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_167v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1030)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1030)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -43424,7 +43424,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_175v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1041)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1041)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -43544,7 +43544,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_175v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1043)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1043)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -43735,7 +43735,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 46:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1046, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1046, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %47 unwind label %65
 
 47:                                               ; preds = %46
@@ -43855,7 +43855,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 88:                                               ; preds = %84
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1049, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1049, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %89 unwind label %108
 
 89:                                               ; preds = %88
@@ -43980,7 +43980,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 131:                                              ; preds = %127
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1052, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1052, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %132 unwind label %151
 
 132:                                              ; preds = %131
@@ -44105,7 +44105,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 174:                                              ; preds = %170
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1055, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1055, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %175 unwind label %194
 
 175:                                              ; preds = %174
@@ -44230,7 +44230,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 217:                                              ; preds = %213
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull @.str.1058, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull @.str.1058, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %218 unwind label %237
 
 218:                                              ; preds = %217
@@ -44355,7 +44355,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 260:                                              ; preds = %256
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull @.str.1061, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull @.str.1061, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %261 unwind label %280
 
 261:                                              ; preds = %260
@@ -44480,7 +44480,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 303:                                              ; preds = %299
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %35) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull @.str.1064, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef nonnull @.str.1064, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %304 unwind label %323
 
 304:                                              ; preds = %303
@@ -44605,7 +44605,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 346:                                              ; preds = %342
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull @.str.1067, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull @.str.1067, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %347 unwind label %366
 
 347:                                              ; preds = %346
@@ -44730,7 +44730,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_177v() #2 personality ptr @__gxx_pe
 
 389:                                              ; preds = %385
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull @.str.1070, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull @.str.1070, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %390 unwind label %409
 
 390:                                              ; preds = %389
@@ -46149,7 +46149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 23:                                               ; preds = %21
   %24 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %24)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %24)
           to label %25 unwind label %.loopexit.split-lp34
 
 25:                                               ; preds = %23
@@ -46464,7 +46464,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 51:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1099)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1099)
           to label %52 unwind label %70
 
 52:                                               ; preds = %51
@@ -46584,7 +46584,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 93:                                               ; preds = %89
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1102)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1102)
           to label %94 unwind label %113
 
 94:                                               ; preds = %93
@@ -46709,7 +46709,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 136:                                              ; preds = %132
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1105)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1105)
           to label %137 unwind label %156
 
 137:                                              ; preds = %136
@@ -46834,7 +46834,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 179:                                              ; preds = %175
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1108)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1108)
           to label %180 unwind label %199
 
 180:                                              ; preds = %179
@@ -46959,7 +46959,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 222:                                              ; preds = %218
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1111)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1111)
           to label %223 unwind label %242
 
 223:                                              ; preds = %222
@@ -47084,7 +47084,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 265:                                              ; preds = %261
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull @.str.1114)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull @.str.1114)
           to label %266 unwind label %285
 
 266:                                              ; preds = %265
@@ -47209,7 +47209,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 308:                                              ; preds = %304
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull @.str.1117)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull @.str.1117)
           to label %309 unwind label %328
 
 309:                                              ; preds = %308
@@ -47334,7 +47334,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 351:                                              ; preds = %347
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull @.str.1120)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull @.str.1120)
           to label %352 unwind label %371
 
 352:                                              ; preds = %351
@@ -47459,7 +47459,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 394:                                              ; preds = %390
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull @.str.1123)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull @.str.1123)
           to label %395 unwind label %414
 
 395:                                              ; preds = %394
@@ -47584,7 +47584,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_187v() #2 personality ptr @__gxx_pe
 
 437:                                              ; preds = %433
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull @.str.1126)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull @.str.1126)
           to label %438 unwind label %457
 
 438:                                              ; preds = %437
@@ -47750,7 +47750,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_189v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1129)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1129)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -47870,7 +47870,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_189v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1132)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1132)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -47995,7 +47995,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_189v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1135)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1135)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -48120,7 +48120,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_189v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1138)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1138)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -48993,7 +48993,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_195v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1154)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1154)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -49149,7 +49149,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_197v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1157)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1157)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -49269,7 +49269,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_197v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1159)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1159)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -49394,7 +49394,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_197v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1162)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1162)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -49575,7 +49575,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 36:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1165)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1165)
           to label %37 unwind label %55
 
 37:                                               ; preds = %36
@@ -49695,7 +49695,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 78:                                               ; preds = %74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1168)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1168)
           to label %79 unwind label %98
 
 79:                                               ; preds = %78
@@ -49820,7 +49820,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 121:                                              ; preds = %117
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.1170)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.1170)
           to label %122 unwind label %141
 
 122:                                              ; preds = %121
@@ -49945,7 +49945,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 164:                                              ; preds = %160
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull @.str.1173)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull @.str.1173)
           to label %165 unwind label %184
 
 165:                                              ; preds = %164
@@ -50070,7 +50070,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 207:                                              ; preds = %203
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull @.str.1176)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull @.str.1176)
           to label %208 unwind label %227
 
 208:                                              ; preds = %207
@@ -50195,7 +50195,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 250:                                              ; preds = %246
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull @.str.1179)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.1179)
           to label %251 unwind label %270
 
 251:                                              ; preds = %250
@@ -50320,7 +50320,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_199v() #2 personality ptr @__gxx_pe
 
 293:                                              ; preds = %289
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull @.str.1182)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull @.str.1182)
           to label %294 unwind label %313
 
 294:                                              ; preds = %293
@@ -50476,7 +50476,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_201v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1185)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1185)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -50596,7 +50596,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_201v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1188)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1188)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -50762,7 +50762,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_203v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1191, i32 noundef 1)
+  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1191, i32 noundef 1)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -50882,7 +50882,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_203v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1194, i32 noundef 1)
+  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1194, i32 noundef 1)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -51007,7 +51007,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_203v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1197, i32 noundef 1)
+  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1197, i32 noundef 1)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -51132,7 +51132,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_203v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1200, i32 noundef 2)
+  invoke fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1200, i32 noundef 2)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -51303,7 +51303,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_205v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1203, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1203, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -51423,7 +51423,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_205v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1206, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1206, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -51548,7 +51548,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_205v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1208, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1208, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -51673,7 +51673,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_205v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1211, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1211, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -51798,7 +51798,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_205v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1214, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1214, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -51984,7 +51984,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1217, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1217, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -52104,7 +52104,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1219, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1219, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -52229,7 +52229,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1221, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1221, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -52354,7 +52354,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.1224, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.1224, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -52479,7 +52479,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.1227, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.1227, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -52604,7 +52604,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.1230, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.1230, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -52729,7 +52729,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.1070, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.1070, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -52854,7 +52854,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_207v() #2 personality ptr @__gxx_pe
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.1232, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.1232, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -53016,7 +53016,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_209v() #2 personality ptr @__gxx_pe
 
 17:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1234)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1234)
           to label %18 unwind label %36
 
 18:                                               ; preds = %17
@@ -54056,7 +54056,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_217v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1249, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1249, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -54176,7 +54176,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_217v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1258, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1258, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -54301,7 +54301,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_217v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1261, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1261, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -54426,7 +54426,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_217v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1264, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1264, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -54551,7 +54551,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_217v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1267, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1267, i32 noundef 0, i32 noundef 2, i1 noundef zeroext true)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -54707,7 +54707,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_219v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1270)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1270)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -54827,7 +54827,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_219v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1273)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1273)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -54983,7 +54983,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_221v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1276)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1276)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -55103,7 +55103,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_221v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1279)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1279)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -55269,7 +55269,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_223v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1282, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1282, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -55389,7 +55389,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_223v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1284, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1284, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -55514,7 +55514,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_223v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1287, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1287, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -55639,7 +55639,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_223v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1290, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1290, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -55800,7 +55800,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_225v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1292, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1292, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -55920,7 +55920,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_225v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1295, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1295, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -56045,7 +56045,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_225v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1298, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1298, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -56211,7 +56211,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_227v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1301, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1301, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -56331,7 +56331,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_227v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1304, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1304, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -56456,7 +56456,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_227v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1307, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1307, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -56581,7 +56581,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_227v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1310, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1310, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -56762,7 +56762,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_229v() #2 personality ptr @__gxx_pe
 
 28:                                               ; preds = %27
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1313, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1313, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %29 unwind label %49
 
 29:                                               ; preds = %28
@@ -56890,7 +56890,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_229v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1316, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1316, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -57018,7 +57018,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_229v() #2 personality ptr @__gxx_pe
 
 117:                                              ; preds = %116
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1319, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1319, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %118 unwind label %137
 
 118:                                              ; preds = %117
@@ -57146,7 +57146,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_229v() #2 personality ptr @__gxx_pe
 
 161:                                              ; preds = %160
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1322, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1322, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %162 unwind label %181
 
 162:                                              ; preds = %161
@@ -57339,7 +57339,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_231v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1324, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1324, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -57515,7 +57515,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_233v() #2 personality ptr @__gxx_pe
 
 28:                                               ; preds = %27
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1327, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1327, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %29 unwind label %49
 
 29:                                               ; preds = %28
@@ -57643,7 +57643,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_233v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %72
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1330, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1330, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -57771,7 +57771,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_233v() #2 personality ptr @__gxx_pe
 
 117:                                              ; preds = %116
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1333, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1333, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %118 unwind label %137
 
 118:                                              ; preds = %117
@@ -57899,7 +57899,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_233v() #2 personality ptr @__gxx_pe
 
 161:                                              ; preds = %160
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1336, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1336, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %162 unwind label %181
 
 162:                                              ; preds = %161
@@ -58092,7 +58092,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_235v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1339, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1339, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -58263,7 +58263,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_237v() #2 personality ptr @__gxx_pe
 
 23:                                               ; preds = %22
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1342, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1342, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %24 unwind label %44
 
 24:                                               ; preds = %23
@@ -58391,7 +58391,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_237v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %67
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1345, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1345, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -58519,7 +58519,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_237v() #2 personality ptr @__gxx_pe
 
 112:                                              ; preds = %111
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1348, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1348, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %113 unwind label %132
 
 113:                                              ; preds = %112
@@ -58727,7 +58727,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_239v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1351, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1351, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -58847,7 +58847,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_239v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1354, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1354, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -58972,7 +58972,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_239v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1356, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1356, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -59097,7 +59097,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_239v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1359, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1359, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -59253,7 +59253,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_241v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1362, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1362, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -59373,7 +59373,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_241v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1365, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1365, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -59529,7 +59529,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_243v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1368, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1368, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -59649,7 +59649,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_243v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1371, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1371, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -59805,7 +59805,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_245v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1374, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1374, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -59925,7 +59925,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_245v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1377, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1377, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -60076,7 +60076,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_247v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1379, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1379, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -60237,7 +60237,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_249v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1382, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1382, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -60357,7 +60357,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_249v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1385, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1385, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -60482,7 +60482,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_249v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1388, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1388, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -60607,7 +60607,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_249v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1391, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1391, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -60768,7 +60768,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_251v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1394, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1394, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -60888,7 +60888,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_251v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1397, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1397, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -61013,7 +61013,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_251v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1400, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1400, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -61189,7 +61189,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1403, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1403, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -61309,7 +61309,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1406, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1406, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -61434,7 +61434,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1409, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1409, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -61559,7 +61559,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1412, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1412, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -61684,7 +61684,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1415, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1415, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -61809,7 +61809,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_253v() #2 personality ptr @__gxx_pe
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1418, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1418, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -61970,7 +61970,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_255v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1421, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1421, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -62090,7 +62090,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_255v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1424, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1424, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -62215,7 +62215,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_255v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1426, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1426, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -62386,7 +62386,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_257v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1429, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1429, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -62506,7 +62506,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_257v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1432, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1432, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -62631,7 +62631,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_257v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1435, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1435, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -62756,7 +62756,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_257v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1438, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1438, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -62881,7 +62881,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_257v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1441, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1441, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -63032,7 +63032,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_259v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1444, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1444, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -63178,7 +63178,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_261v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1447, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1447, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -63355,7 +63355,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_263v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %25
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1450, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1450, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %27 unwind label %47
 
 27:                                               ; preds = %26
@@ -63483,7 +63483,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_263v() #2 personality ptr @__gxx_pe
 
 71:                                               ; preds = %70
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1452, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1452, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %72 unwind label %91
 
 72:                                               ; preds = %71
@@ -63611,7 +63611,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_263v() #2 personality ptr @__gxx_pe
 
 115:                                              ; preds = %114
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1447, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1447, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
           to label %116 unwind label %135
 
 116:                                              ; preds = %115
@@ -63809,7 +63809,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_265v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1456, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1456, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -63929,7 +63929,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_265v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1459, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1459, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -64090,7 +64090,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_267v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1461, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1461, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -64210,7 +64210,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_267v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1464, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1464, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -64335,7 +64335,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_267v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1467, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1467, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -64486,7 +64486,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_269v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1470, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1470, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -64632,7 +64632,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_271v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1473, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1473, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -64783,7 +64783,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_273v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1476, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1476, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -64903,7 +64903,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_273v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1479, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1479, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -65074,7 +65074,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_275v() #2 personality ptr @__gxx_pe
 
 26:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull @.str.1482, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull @.str.1482, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %27 unwind label %45
 
 27:                                               ; preds = %26
@@ -65194,7 +65194,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_275v() #2 personality ptr @__gxx_pe
 
 68:                                               ; preds = %64
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %69 unwind label %88
 
 69:                                               ; preds = %68
@@ -65319,7 +65319,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_275v() #2 personality ptr @__gxx_pe
 
 111:                                              ; preds = %107
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull @.str.1487, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull @.str.1487, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
           to label %112 unwind label %131
 
 112:                                              ; preds = %111
@@ -65444,7 +65444,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_275v() #2 personality ptr @__gxx_pe
 
 154:                                              ; preds = %150
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull @.str.1490, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull @.str.1490, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %155 unwind label %174
 
 155:                                              ; preds = %154
@@ -65569,7 +65569,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_275v() #2 personality ptr @__gxx_pe
 
 197:                                              ; preds = %193
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %23) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull @.str.1493, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull @.str.1493, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %198 unwind label %217
 
 198:                                              ; preds = %197
@@ -65745,7 +65745,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1495)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1495)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -65865,7 +65865,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1498)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1498)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -65990,7 +65990,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1501)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1501)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -66115,7 +66115,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1504)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1504)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -66240,7 +66240,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1507)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1507)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -66365,7 +66365,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_277v() #2 personality ptr @__gxx_pe
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1509)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1509)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -66531,7 +66531,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_279v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -66651,7 +66651,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_279v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1512, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1512, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -66776,7 +66776,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_279v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1485, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -66901,7 +66901,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_279v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1514, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1514, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -67052,7 +67052,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_281v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1516, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1516, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -67198,7 +67198,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_283v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1519, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1519, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -67381,7 +67381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 22:                                               ; preds = %20
   %23 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef %23, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %23, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %24 unwind label %34
 
 24:                                               ; preds = %22
@@ -67545,7 +67545,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_287v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1569, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1569, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -67665,7 +67665,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_287v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1572, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1572, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -67841,7 +67841,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 31:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1575)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1575)
           to label %32 unwind label %50
 
 32:                                               ; preds = %31
@@ -67961,7 +67961,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 73:                                               ; preds = %69
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1578)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1578)
           to label %74 unwind label %93
 
 74:                                               ; preds = %73
@@ -68086,7 +68086,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 116:                                              ; preds = %112
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1580)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1580)
           to label %117 unwind label %136
 
 117:                                              ; preds = %116
@@ -68211,7 +68211,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 159:                                              ; preds = %155
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1583)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1583)
           to label %160 unwind label %179
 
 160:                                              ; preds = %159
@@ -68336,7 +68336,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 202:                                              ; preds = %198
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1585)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1585)
           to label %203 unwind label %222
 
 203:                                              ; preds = %202
@@ -68461,7 +68461,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_289v() #2 personality ptr @__gxx_pe
 
 245:                                              ; preds = %241
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1588, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1588, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
           to label %246 unwind label %265
 
 246:                                              ; preds = %245
@@ -68682,7 +68682,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 76:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.1591)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.1591)
           to label %77 unwind label %95
 
 77:                                               ; preds = %76
@@ -68802,7 +68802,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 118:                                              ; preds = %114
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull @.str.1594)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull @.str.1594)
           to label %119 unwind label %138
 
 119:                                              ; preds = %118
@@ -68927,7 +68927,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 161:                                              ; preds = %157
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull @.str.1597)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull @.str.1597)
           to label %162 unwind label %181
 
 162:                                              ; preds = %161
@@ -69052,7 +69052,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 204:                                              ; preds = %200
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull @.str.1600)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.1600)
           to label %205 unwind label %224
 
 205:                                              ; preds = %204
@@ -69177,7 +69177,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 247:                                              ; preds = %243
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull @.str.1603)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull @.str.1603)
           to label %248 unwind label %267
 
 248:                                              ; preds = %247
@@ -69302,7 +69302,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 290:                                              ; preds = %286
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %37) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull @.str.1606)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull @.str.1606)
           to label %291 unwind label %310
 
 291:                                              ; preds = %290
@@ -69427,7 +69427,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 333:                                              ; preds = %329
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull @.str.1609)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull @.str.1609)
           to label %334 unwind label %353
 
 334:                                              ; preds = %333
@@ -69552,7 +69552,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 376:                                              ; preds = %372
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull @.str.1612)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull @.str.1612)
           to label %377 unwind label %396
 
 377:                                              ; preds = %376
@@ -69677,7 +69677,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 419:                                              ; preds = %415
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull @.str.1615)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull @.str.1615)
           to label %420 unwind label %439
 
 420:                                              ; preds = %419
@@ -69802,7 +69802,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 462:                                              ; preds = %458
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %53) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull @.str.1618)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull @.str.1618)
           to label %463 unwind label %482
 
 463:                                              ; preds = %462
@@ -69927,7 +69927,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 505:                                              ; preds = %501
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %57) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull @.str.1621)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull @.str.1621)
           to label %506 unwind label %525
 
 506:                                              ; preds = %505
@@ -70052,7 +70052,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 548:                                              ; preds = %544
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %61) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %63, ptr noundef nonnull @.str.1624)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %63, ptr noundef nonnull @.str.1624)
           to label %549 unwind label %568
 
 549:                                              ; preds = %548
@@ -70177,7 +70177,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 591:                                              ; preds = %587
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %65) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull @.str.1627)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull @.str.1627)
           to label %592 unwind label %611
 
 592:                                              ; preds = %591
@@ -70302,7 +70302,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 634:                                              ; preds = %630
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %69) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %71, ptr noundef nonnull @.str.1630)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %71, ptr noundef nonnull @.str.1630)
           to label %635 unwind label %654
 
 635:                                              ; preds = %634
@@ -70427,7 +70427,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_291v() #2 personality ptr @__gxx_pe
 
 677:                                              ; preds = %673
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull @.str.1633)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull @.str.1633)
           to label %678 unwind label %697
 
 678:                                              ; preds = %677
@@ -70578,7 +70578,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_293v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1636)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1636)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -70739,7 +70739,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_295v() #2 personality ptr @__gxx_pe
 
 21:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull @.str.1639)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull @.str.1639)
           to label %22 unwind label %40
 
 22:                                               ; preds = %21
@@ -70859,7 +70859,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_295v() #2 personality ptr @__gxx_pe
 
 63:                                               ; preds = %59
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1642)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1642)
           to label %64 unwind label %83
 
 64:                                               ; preds = %63
@@ -70984,7 +70984,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_295v() #2 personality ptr @__gxx_pe
 
 106:                                              ; preds = %102
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1644)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1644)
           to label %107 unwind label %126
 
 107:                                              ; preds = %106
@@ -71109,7 +71109,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_295v() #2 personality ptr @__gxx_pe
 
 149:                                              ; preds = %145
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1639, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1639, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
           to label %150 unwind label %169
 
 150:                                              ; preds = %149
@@ -71265,7 +71265,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_297v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1648)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1648)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -71385,7 +71385,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_297v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1651)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1651)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -71566,7 +71566,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 36:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1654, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1654, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %37 unwind label %55
 
 37:                                               ; preds = %36
@@ -71686,7 +71686,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 78:                                               ; preds = %74
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1654, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1654, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %79 unwind label %98
 
 79:                                               ; preds = %78
@@ -71811,7 +71811,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 121:                                              ; preds = %117
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull @.str.1659, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull @.str.1659, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %122 unwind label %141
 
 122:                                              ; preds = %121
@@ -71936,7 +71936,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 164:                                              ; preds = %160
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %21) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull @.str.1662, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull @.str.1662, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %165 unwind label %184
 
 165:                                              ; preds = %164
@@ -72061,7 +72061,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 207:                                              ; preds = %203
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull @.str.1665, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull @.str.1665, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %208 unwind label %227
 
 208:                                              ; preds = %207
@@ -72186,7 +72186,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 250:                                              ; preds = %246
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull @.str.1668, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull @.str.1668, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
           to label %251 unwind label %270
 
 251:                                              ; preds = %250
@@ -72311,7 +72311,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_299v() #2 personality ptr @__gxx_pe
 
 293:                                              ; preds = %289
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull @.str.1671, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef nonnull @.str.1671, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %294 unwind label %313
 
 294:                                              ; preds = %293
@@ -72467,7 +72467,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_301v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1674)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1674)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -72587,7 +72587,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_301v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1677)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1677)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -72738,7 +72738,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_303v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1680)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1680)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -72884,7 +72884,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_305v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1683)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1683)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -73030,7 +73030,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_307v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1686)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1686)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -73176,7 +73176,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_309v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1689)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1689)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -73322,7 +73322,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_311v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1692)
+  invoke fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1692)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -73478,7 +73478,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_313v() #2 personality ptr @__gxx_pe
 
 16:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull @.str.1695, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull @.str.1695, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %17 unwind label %35
 
 17:                                               ; preds = %16
@@ -73598,7 +73598,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_313v() #2 personality ptr @__gxx_pe
 
 58:                                               ; preds = %54
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull @.str.1695, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull @.str.1695, i32 noundef 0, i32 noundef 1, i1 noundef zeroext false)
           to label %59 unwind label %78
 
 59:                                               ; preds = %58
@@ -73723,7 +73723,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_313v() #2 personality ptr @__gxx_pe
 
 101:                                              ; preds = %97
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull @.str.1700, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull @.str.1700, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %102 unwind label %121
 
 102:                                              ; preds = %101
@@ -73874,7 +73874,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_315v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1703, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1703, i32 noundef 0, i32 noundef 2, i1 noundef zeroext false)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -74055,7 +74055,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 41:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull @.str.1706)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull @.str.1706)
           to label %42 unwind label %60
 
 42:                                               ; preds = %41
@@ -74175,7 +74175,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 83:                                               ; preds = %79
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull @.str.1709)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull @.str.1709)
           to label %84 unwind label %103
 
 84:                                               ; preds = %83
@@ -74300,7 +74300,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 126:                                              ; preds = %122
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull @.str.1712)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull @.str.1712)
           to label %127 unwind label %146
 
 127:                                              ; preds = %126
@@ -74425,7 +74425,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 169:                                              ; preds = %165
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull @.str.1715)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull @.str.1715)
           to label %170 unwind label %189
 
 170:                                              ; preds = %169
@@ -74550,7 +74550,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 212:                                              ; preds = %208
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull @.str.1718)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull @.str.1718)
           to label %213 unwind label %232
 
 213:                                              ; preds = %212
@@ -74675,7 +74675,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 255:                                              ; preds = %251
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull @.str.1721)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull @.str.1721)
           to label %256 unwind label %275
 
 256:                                              ; preds = %255
@@ -74800,7 +74800,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 298:                                              ; preds = %294
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %34) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr noundef nonnull @.str.1723)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %36, ptr noundef nonnull @.str.1723)
           to label %299 unwind label %318
 
 299:                                              ; preds = %298
@@ -74925,7 +74925,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_317v() #2 personality ptr @__gxx_pe
 
 341:                                              ; preds = %337
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %38) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull @.str.1726)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull @.str.1726)
           to label %342 unwind label %361
 
 342:                                              ; preds = %341
@@ -75081,7 +75081,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_319v() #2 personality ptr @__gxx_pe
 
 11:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull @.str.1729)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull @.str.1729)
           to label %12 unwind label %30
 
 12:                                               ; preds = %11
@@ -75201,7 +75201,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_319v() #2 personality ptr @__gxx_pe
 
 53:                                               ; preds = %49
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull @.str.1732, i32 noundef 5, i32 noundef 2, i1 noundef zeroext false)
+  invoke fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull @.str.1732, i32 noundef 5, i32 noundef 2, i1 noundef zeroext false)
           to label %54 unwind label %73
 
 54:                                               ; preds = %53
@@ -75397,7 +75397,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 51:                                               ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull @.str.1735)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull @.str.1735)
           to label %52 unwind label %70
 
 52:                                               ; preds = %51
@@ -75517,7 +75517,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 93:                                               ; preds = %89
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull @.str.1737)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull @.str.1737)
           to label %94 unwind label %113
 
 94:                                               ; preds = %93
@@ -75642,7 +75642,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 136:                                              ; preds = %132
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull @.str.1740)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull @.str.1740)
           to label %137 unwind label %156
 
 137:                                              ; preds = %136
@@ -75767,7 +75767,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 179:                                              ; preds = %175
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull @.str.1743)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull @.str.1743)
           to label %180 unwind label %199
 
 180:                                              ; preds = %179
@@ -75892,7 +75892,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 222:                                              ; preds = %218
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull @.str.1745)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull @.str.1745)
           to label %223 unwind label %242
 
 223:                                              ; preds = %222
@@ -76017,7 +76017,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 265:                                              ; preds = %261
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef nonnull @.str.1747)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef nonnull @.str.1747)
           to label %266 unwind label %285
 
 266:                                              ; preds = %265
@@ -76142,7 +76142,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 308:                                              ; preds = %304
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull @.str.1749)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull @.str.1749)
           to label %309 unwind label %328
 
 309:                                              ; preds = %308
@@ -76267,7 +76267,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 351:                                              ; preds = %347
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull @.str.1752)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull @.str.1752)
           to label %352 unwind label %371
 
 352:                                              ; preds = %351
@@ -76392,7 +76392,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 394:                                              ; preds = %390
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull @.str.1755)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull @.str.1755)
           to label %395 unwind label %414
 
 395:                                              ; preds = %394
@@ -76517,7 +76517,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_321v() #2 personality ptr @__gxx_pe
 
 437:                                              ; preds = %433
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %50, ptr noundef nonnull @.str.1758)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %50, ptr noundef nonnull @.str.1758)
           to label %438 unwind label %457
 
 438:                                              ; preds = %437
@@ -76668,7 +76668,7 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_323v() #2 personality ptr @__gxx_pe
 
 6:                                                ; preds = %0
   call void @_ZN7doctest6StringD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #17
-  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull @.str.1761)
+  invoke fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull @.str.1761)
           to label %7 unwind label %25
 
 7:                                                ; preds = %6
@@ -78492,7 +78492,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail19stringifyBinaryExprIciEE
 declare void @_ZN7doctest8toStringEc(ptr dead_on_unwind writable sret(%"class.doctest::String") align 8, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16compileFunction0B5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::BytecodeBuilder", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.78", align 1
@@ -78551,7 +78551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #17
-  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %3, i32 noundef 0)
+  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %3, i32 noundef 0)
           to label %23 unwind label %28
 
 23:                                               ; preds = %22
@@ -79720,7 +79720,7 @@ _ZN7doctest8toStringIA112_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15compileFunctionB5cxx11PKcjib(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 0, 6) %2, i32 noundef range(i32 0, 3) %3, i1 noundef zeroext %4) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Luau::BytecodeBuilder", align 8
   %7 = alloca %"struct.Luau::CompileOptions", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -79789,7 +79789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 29:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #17
-  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %6, i32 noundef %2)
+  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %6, i32 noundef %2)
           to label %30 unwind label %35
 
 30:                                               ; preds = %29
@@ -93222,7 +93222,7 @@ _ZN7doctest8toStringIA195_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24compileFunction0CoverageB5cxx11PKci(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Luau::BytecodeBuilder", align 8
   %5 = alloca %"struct.Luau::CompileOptions", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -93283,7 +93283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 24:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #17
-  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %4, i32 noundef 0)
+  invoke void @_ZNK4Luau15BytecodeBuilder12dumpFunctionB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %4, i32 noundef 0)
           to label %25 unwind label %30
 
 25:                                               ; preds = %24
@@ -103317,7 +103317,7 @@ _ZN7doctest8toStringIA180_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16compileTypeTableB5cxx11PKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Luau::BytecodeBuilder", align 8
   %4 = alloca %"struct.Luau::CompileOptions", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -103379,7 +103379,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 23:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
-  invoke void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %3)
+  invoke void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(840) %3)
           to label %24 unwind label %29
 
 24:                                               ; preds = %23

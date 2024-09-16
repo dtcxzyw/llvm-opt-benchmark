@@ -8044,7 +8044,7 @@ _ZN3nix9StorePathD2Ev.exit601:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %_ZN3nix9StorePathC2ERKS0_.exit603 unwind label %2663
 
 _ZN3nix9StorePathC2ERKS0_.exit603:                ; preds = %_ZN3nix9StorePathD2Ev.exit601
-  invoke fastcc void @_ZN3nixL24makeConstantStorePathRefENS_9StorePathE(ptr dead_on_unwind noalias nonnull writable align 8 %161, ptr noundef nonnull %162)
+  invoke fastcc void @_ZN3nixL24makeConstantStorePathRefENS_9StorePathE(ptr dead_on_unwind noalias writable align 8 %161, ptr noundef %162)
           to label %2598 unwind label %2665
 
 2598:                                             ; preds = %_ZN3nix9StorePathC2ERKS0_.exit603
@@ -11895,10 +11895,10 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE17_M_inse
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL24makeConstantStorePathRefENS_9StorePathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL24makeConstantStorePathRefENS_9StorePathE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::DerivedPathOpaque", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  invoke void @_ZN3nix8make_refINS_17SingleDerivedPathEJNS_17DerivedPathOpaqueEEEENS_3refIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.nix::ref.240") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN3nix8make_refINS_17SingleDerivedPathEJNS_17DerivedPathOpaqueEEEENS_3refIT_EEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.nix::ref.240") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %4 unwind label %11
 
 4:                                                ; preds = %2

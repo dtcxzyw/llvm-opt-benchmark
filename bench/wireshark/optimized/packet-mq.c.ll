@@ -3064,7 +3064,7 @@ define internal i32 @reassemble_mq(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %or.cond20, label %124, label %.thread309
 
 124:                                              ; preds = %107
-  %125 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %.0256302, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %125 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef %.0256302, ptr noundef nonnull %5, ptr noundef %6)
   %126 = add i32 %125, %.0256302
   %127 = load i32, ptr %120, align 4
   %128 = sub i32 %127, %125
@@ -3362,7 +3362,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 declare ptr @fragment_get_reassembled_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
   %8 = icmp sgt i32 %7, 3
   br i1 %8, label %10, label %.thread
@@ -3370,13 +3370,13 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
 .thread:                                          ; preds = %6
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 0, ptr %9, align 4
-  br label %144
+  br label %158
 
 10:                                               ; preds = %6
   %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3) #7
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %12, align 4
-  switch i32 %11, label %144 [
+  switch i32 %11, label %158 [
     i32 1329864736, label %13
     i32 -691781568, label %13
   ]
@@ -3386,7 +3386,7 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
   %15 = getelementptr inbounds i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %14, i32 noundef %16) #7
-  switch i32 %17, label %144 [
+  switch i32 %17, label %158 [
     i32 1, label %.thread163
     i32 2, label %20
     i32 3, label %18
@@ -3403,12 +3403,12 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
   %.1.ph = phi i32 [ 336, %18 ], [ 400, %19 ], [ 200, %13 ]
   %21 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
   %.not157 = icmp slt i32 %21, %.1.ph
-  br i1 %.not157, label %144, label %23
+  br i1 %.not157, label %158, label %23
 
 .thread163:                                       ; preds = %13
   %22 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
   %.not157165 = icmp slt i32 %22, 168
-  br i1 %.not157165, label %144, label %.thread167
+  br i1 %.not157165, label %158, label %.thread167
 
 23:                                               ; preds = %20
   %24 = add i32 %3, 168
@@ -3555,7 +3555,7 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
 
 .thread172:                                       ; preds = %106, %108, %121, %45
   %132 = icmp sgt i32 %.0152, 0
-  br i1 %132, label %133, label %144
+  br i1 %132, label %133, label %158
 
 133:                                              ; preds = %.thread172
   store i32 %.0152, ptr %5, align 4
@@ -3567,17 +3567,45 @@ define internal fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef readonly %
   %139 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %137, i32 noundef %138) #7
   %140 = tail call fastcc i32 @dissect_mq_or(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %.0152, i32 noundef %136, ptr noundef nonnull %4)
   %141 = add i32 %140, %.1.ph166169
-  %142 = tail call fastcc i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %2, i32 noundef %3, i32 noundef %.0152, i32 noundef %139, ptr noundef nonnull %4)
-  %143 = add i32 %141, %142
-  br label %144
+  %.not.i = icmp eq i32 %139, 0
+  br i1 %.not.i, label %dissect_mq_rr.exit, label %142
 
-144:                                              ; preds = %.thread163, %13, %.thread, %10, %20, %133, %.thread172
-  %.0 = phi i32 [ %143, %133 ], [ %.1.ph166169, %.thread172 ], [ %.1.ph, %20 ], [ 0, %10 ], [ 0, %.thread ], [ 0, %13 ], [ 168, %.thread163 ]
+142:                                              ; preds = %133
+  %143 = shl i32 %.0152, 3
+  %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3) #7
+  %.not26.i = icmp slt i32 %144, %143
+  br i1 %.not26.i, label %dissect_mq_rr.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %142, %.preheader.i
+  %.02328.i = phi i32 [ %156, %.preheader.i ], [ 0, %142 ]
+  %.02427.i = phi i32 [ %155, %.preheader.i ], [ 0, %142 ]
+  %145 = add i32 %.02427.i, %3
+  %146 = load i32, ptr @ett_mq_rr, align 4
+  %147 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %145, i32 noundef 8, i32 noundef %146, ptr noundef null, ptr noundef nonnull @.str.1817) #7
+  %148 = load i32, ptr @hf_mq_rr_compcode, align 4
+  %149 = load i32, ptr %15, align 4
+  %150 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %148, ptr noundef %0, i32 noundef %145, i32 noundef 4, i32 noundef %149) #7
+  %151 = load i32, ptr @hf_mq_rr_reascode, align 4
+  %152 = add i32 %145, 4
+  %153 = load i32, ptr %15, align 4
+  %154 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef 4, i32 noundef %153) #7
+  %155 = add i32 %.02427.i, 8
+  %156 = add nuw nsw i32 %.02328.i, 1
+  %exitcond.not.i = icmp eq i32 %156, %.0152
+  br i1 %exitcond.not.i, label %dissect_mq_rr.exit, label %.preheader.i, !llvm.loop !4
+
+dissect_mq_rr.exit:                               ; preds = %.preheader.i, %133, %142
+  %.0.i = phi i32 [ 0, %133 ], [ 0, %142 ], [ %143, %.preheader.i ]
+  %157 = add i32 %141, %.0.i
+  br label %158
+
+158:                                              ; preds = %.thread163, %13, %.thread, %10, %20, %dissect_mq_rr.exit, %.thread172
+  %.0 = phi i32 [ %157, %dissect_mq_rr.exit ], [ %.1.ph166169, %.thread172 ], [ %.1.ph, %20 ], [ 0, %10 ], [ 0, %.thread ], [ 0, %13 ], [ 168, %.thread163 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 365) i32 @dissect_mq_md(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #7
   %7 = icmp sgt i32 %6, 3
   br i1 %7, label %9, label %.thread
@@ -4138,12 +4166,40 @@ dissect_mq_MQPMO.exit:                            ; preds = %55, %59
   %147 = tail call fastcc i32 @dissect_mq_pmr(ptr noundef %0, ptr noundef %2, i32 noundef %146, i32 noundef %133, i32 noundef %142, i32 noundef %135, ptr noundef nonnull %4)
   %148 = add i32 %147, %switch.offset
   %149 = add i32 %148, %3
-  %150 = tail call fastcc i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %2, i32 noundef %149, i32 noundef %133, i32 noundef %145, ptr noundef nonnull %4)
-  %151 = add i32 %148, %150
+  %.not.i = icmp eq i32 %145, 0
+  br i1 %.not.i, label %dissect_mq_rr.exit, label %150
+
+150:                                              ; preds = %139
+  %151 = shl i32 %133, 3
+  %152 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %149) #7
+  %.not26.i = icmp slt i32 %152, %151
+  br i1 %.not26.i, label %dissect_mq_rr.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %150, %.preheader.i
+  %.02328.i = phi i32 [ %164, %.preheader.i ], [ 0, %150 ]
+  %.02427.i = phi i32 [ %163, %.preheader.i ], [ 0, %150 ]
+  %153 = add i32 %.02427.i, %149
+  %154 = load i32, ptr @ett_mq_rr, align 4
+  %155 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %153, i32 noundef 8, i32 noundef %154, ptr noundef null, ptr noundef nonnull @.str.1817) #7
+  %156 = load i32, ptr @hf_mq_rr_compcode, align 4
+  %157 = load i32, ptr %16, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %0, i32 noundef %153, i32 noundef 4, i32 noundef %157) #7
+  %159 = load i32, ptr @hf_mq_rr_reascode, align 4
+  %160 = add i32 %153, 4
+  %161 = load i32, ptr %16, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %159, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef %161) #7
+  %163 = add i32 %.02427.i, 8
+  %164 = add nuw nsw i32 %.02328.i, 1
+  %exitcond.not.i = icmp eq i32 %164, %133
+  br i1 %exitcond.not.i, label %dissect_mq_rr.exit, label %.preheader.i, !llvm.loop !4
+
+dissect_mq_rr.exit:                               ; preds = %.preheader.i, %139, %150
+  %.0.i = phi i32 [ 0, %139 ], [ 0, %150 ], [ %151, %.preheader.i ]
+  %165 = add i32 %.0.i, %148
   br label %.thread168
 
-.thread168:                                       ; preds = %14, %dissect_mq_MQPMO.exit, %.thread, %11, %switch.lookup, %.thread167, %139, %130
-  %.0151 = phi i32 [ %151, %139 ], [ %switch.offset, %.thread167 ], [ %switch.offset, %130 ], [ %switch.offset, %switch.lookup ], [ 0, %11 ], [ 0, %.thread ], [ 0, %14 ], [ %switch.offset, %dissect_mq_MQPMO.exit ]
+.thread168:                                       ; preds = %14, %dissect_mq_MQPMO.exit, %.thread, %11, %switch.lookup, %.thread167, %dissect_mq_rr.exit, %130
+  %.0151 = phi i32 [ %165, %dissect_mq_rr.exit ], [ %switch.offset, %.thread167 ], [ %switch.offset, %130 ], [ %switch.offset, %switch.lookup ], [ 0, %11 ], [ 0, %.thread ], [ 0, %14 ], [ %switch.offset, %dissect_mq_MQPMO.exit ]
   ret i32 %.0151
 }
 
@@ -4784,7 +4840,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   br i1 %.old27, label %376, label %.thread2554
 
 376:                                              ; preds = %372, %375
-  %377 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.02389, i32 noundef %.0, ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %377 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.02389, i32 noundef %.0, ptr noundef nonnull %8, ptr noundef %4)
   %378 = add i32 %377, %.0
   br i1 %.not2485, label %389, label %379
 
@@ -5145,7 +5201,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   %579 = tail call ptr @proto_tree_add_item(ptr noundef %558, i32 noundef %575, ptr noundef %0, i32 noundef %577, i32 noundef 4, i32 noundef %578) #7
   %580 = add nuw nsw i32 %.024182624, 1
   %exitcond2644.not = icmp eq i32 %580, %550
-  br i1 %exitcond2644.not, label %._crit_edge2627, label %.lr.ph2626, !llvm.loop !4
+  br i1 %exitcond2644.not, label %._crit_edge2627, label %.lr.ph2626, !llvm.loop !6
 
 ._crit_edge2627:                                  ; preds = %.lr.ph2626, %571
   %581 = load i8, ptr %44, align 2
@@ -5187,7 +5243,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
   %598 = add i32 %596, -2001
   %599 = icmp ult i32 %598, -2000
   %or.cond2536 = select i1 %597, i1 %599, i1 false
-  br i1 %or.cond2536, label %.lr.ph2631, label %.critedge, !llvm.loop !6
+  br i1 %or.cond2536, label %.lr.ph2631, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %.lr.ph2631, %.lr.ph2636
   %.02423.lcssa = phi i32 [ %590, %.lr.ph2636 ], [ %596, %.lr.ph2631 ]
@@ -5214,7 +5270,7 @@ dissect_mq_addCR_colinfo.exit2542:                ; preds = %269, %277
 612:                                              ; preds = %607, %609
   %613 = add nuw nsw i32 %.024222634, 1
   %exitcond2645.not = icmp eq i32 %613, %553
-  br i1 %exitcond2645.not, label %._crit_edge2637, label %.lr.ph2636, !llvm.loop !7
+  br i1 %exitcond2645.not, label %._crit_edge2637, label %.lr.ph2636, !llvm.loop !8
 
 ._crit_edge2637:                                  ; preds = %612, %.preheader
   %.not2507 = icmp eq i32 %556, 0
@@ -5746,7 +5802,7 @@ dissect_mq_addCR_colinfo.exit2548:                ; preds = %820, %822
 
 972:                                              ; preds = %970, %957
   %.6 = phi i32 [ %965, %970 ], [ %952, %957 ]
-  %973 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.02389, i32 noundef %.6, ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %973 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.02389, i32 noundef %.6, ptr noundef nonnull %8, ptr noundef %4)
   %974 = add i32 %973, %.6
   %975 = load i32, ptr %9, align 4
   %976 = and i32 %975, -65281
@@ -5841,7 +5897,7 @@ dissect_mq_addCR_colinfo.exit2548:                ; preds = %820, %822
   %1035 = add i32 %.024102621, 20
   %1036 = add nuw nsw i32 %.024092622, 1
   %exitcond2643.not = icmp eq i32 %1036, %1009
-  br i1 %exitcond2643.not, label %._crit_edge, label %.lr.ph2623, !llvm.loop !8
+  br i1 %exitcond2643.not, label %._crit_edge, label %.lr.ph2623, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph2623, %1013
   %1037 = add i32 %1012, %974
@@ -6085,7 +6141,7 @@ thread-pre-split2570:                             ; preds = %1135
   %1171 = add i32 %1169, %.82618
   %1172 = add nuw nsw i32 %.024082617, 1
   %exitcond.not = icmp eq i32 %1172, %1161
-  br i1 %exitcond.not, label %thread-pre-split2572, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %thread-pre-split2572, label %.lr.ph, !llvm.loop !10
 
 thread-pre-split2572:                             ; preds = %.lr.ph, %1170, %399, %906, %189, %348, %389, %619, %977, %933, %1156, %1159, %1152, %1109, %1106, %898, %403, %541, %360, %317, %343, %400, %1154, %1132
   %.22372.ph = phi ptr [ %1115, %1154 ], [ %1115, %1132 ], [ %.12371, %1106 ], [ %.12371, %1109 ], [ %1115, %1156 ], [ %1115, %1159 ], [ %.62376, %1152 ], [ %916, %933 ], [ %943, %977 ], [ %832, %898 ], [ %558, %619 ], [ %.12371, %400 ], [ %.12371, %403 ], [ %.42374, %541 ], [ %.32373, %389 ], [ %362, %360 ], [ %350, %348 ], [ %.12371, %317 ], [ %330, %343 ], [ %194, %189 ], [ %.12371, %906 ], [ %.12371, %399 ], [ %1115, %1170 ], [ %1115, %.lr.ph ]
@@ -6187,7 +6243,7 @@ thread-pre-split2572:                             ; preds = %.lr.ph, %1170, %399
   br i1 %.not2518, label %._crit_edge2655, label %1232
 
 1232:                                             ; preds = %1231
-  %1233 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef %1, ptr noundef %.02389, i32 noundef %.pre2661, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %1233 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef %1, ptr noundef %.02389, i32 noundef %.pre2661, ptr noundef nonnull %8, ptr noundef %6)
   br label %._crit_edge2655
 
 ._crit_edge2655:                                  ; preds = %1231, %1232
@@ -6363,7 +6419,7 @@ dissect_mq_addCR_colinfo.exit2550:                ; preds = %1269, %1275
   %.2235425942602 = phi i32 [ %.22354, %1260 ], [ %.22354, %thread-pre-split2595 ], [ %.2235425942602.ph, %.sink.split ]
   %.82378 = phi ptr [ %.72377, %1260 ], [ %.72377, %thread-pre-split2595 ], [ %.82378.ph, %.sink.split ]
   %.11 = phi i32 [ %.10, %1260 ], [ %.10, %thread-pre-split2595 ], [ %.11.ph, %.sink.split ]
-  %1310 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef %1, ptr noundef %.02389, i32 noundef %.11, ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %1310 = call fastcc i32 @dissect_mq_od(ptr noundef %0, ptr noundef %1, ptr noundef %.02389, i32 noundef %.11, ptr noundef nonnull %8, ptr noundef %4)
   %1311 = add i32 %1310, %.11
   %1312 = call fastcc i32 @dissect_mq_md(ptr noundef %0, ptr noundef %.02389, i32 noundef %1311, ptr noundef nonnull %8, i32 noundef 1)
   %.not2522 = icmp eq i32 %1312, 0
@@ -7279,7 +7335,7 @@ thread-pre-split2608:                             ; preds = %1504, %1514
   %1986 = call ptr @proto_tree_add_item(ptr noundef %1980, i32 noundef %1984, ptr noundef %0, i32 noundef %1969, i32 noundef %1967, i32 noundef %1985) #7
   %1987 = add i32 %1978, %.123642638
   %1988 = icmp slt i32 %1987, %1950
-  br i1 %1988, label %1965, label %.loopexit, !llvm.loop !10
+  br i1 %1988, label %1965, label %.loopexit, !llvm.loop !11
 
 1989:                                             ; preds = %1595
   %1990 = load i32, ptr @hf_mq_head_flags, align 4
@@ -7487,7 +7543,7 @@ define internal fastcc void @dissect_mq_charv(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %7
 
@@ -7519,48 +7575,6 @@ define internal fastcc noundef i32 @dissect_mq_or(ptr noundef %0, ptr noundef %1
   %21 = load i32, ptr %11, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 48, i32 noundef %21) #7
   %23 = add i32 %.02427, 96
-  %24 = add nuw nsw i32 %.02328, 1
-  %exitcond.not = icmp eq i32 %24, %3
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !11
-
-.loopexit:                                        ; preds = %12, %.preheader, %7, %6
-  %.0 = phi i32 [ 0, %6 ], [ 0, %7 ], [ %8, %.preheader ], [ %8, %12 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -7) i32 @dissect_mq_rr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.loopexit, label %7
-
-7:                                                ; preds = %6
-  %8 = shl i32 %3, 3
-  %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #7
-  %.not26 = icmp slt i32 %9, %8
-  br i1 %.not26, label %.loopexit, label %.preheader
-
-.preheader:                                       ; preds = %7
-  %10 = icmp sgt i32 %3, 0
-  br i1 %10, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
-  br label %12
-
-12:                                               ; preds = %.lr.ph, %12
-  %.02328 = phi i32 [ 0, %.lr.ph ], [ %24, %12 ]
-  %.02427 = phi i32 [ 0, %.lr.ph ], [ %23, %12 ]
-  %13 = add i32 %.02427, %2
-  %14 = load i32, ptr @ett_mq_rr, align 4
-  %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %13, i32 noundef 8, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.1817) #7
-  %16 = load i32, ptr @hf_mq_rr_compcode, align 4
-  %17 = load i32, ptr %11, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %16, ptr noundef %0, i32 noundef %13, i32 noundef 4, i32 noundef %17) #7
-  %19 = load i32, ptr @hf_mq_rr_reascode, align 4
-  %20 = add i32 %13, 4
-  %21 = load i32, ptr %11, align 4
-  %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 4, i32 noundef %21) #7
-  %23 = add i32 %.02427, 8
   %24 = add nuw nsw i32 %.02328, 1
   %exitcond.not = icmp eq i32 %24, %3
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !12
@@ -7730,7 +7744,7 @@ define internal fastcc void @dissect_mq_MQMO(ptr noundef %0, ptr noundef %1, i32
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_mq_pmr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mq_pmr(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 0) %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 {
   %8 = and i32 %5, 1
   %.not = icmp eq i32 %8, 0
   %9 = and i32 %5, 2

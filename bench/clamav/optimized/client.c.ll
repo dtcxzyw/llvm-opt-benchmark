@@ -846,7 +846,7 @@ declare i32 @dsresult(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @filelist(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @client_scan(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @client_scan(ptr noundef %0, i32 noundef range(i32 0, 5) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 8, 0) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(4097) ptr @malloc(i64 noundef 4097) #17

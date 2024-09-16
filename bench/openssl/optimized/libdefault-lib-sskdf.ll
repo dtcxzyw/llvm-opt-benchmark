@@ -563,7 +563,7 @@ if.end53:                                         ; preds = %if.else49
   %20 = load ptr, ptr %info56, align 8
   %info_len57 = getelementptr inbounds i8, ptr %vctx, i64 64
   %21 = load i64, ptr %info_len57, align 8
-  %call58 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef nonnull %call5, ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef 0, ptr noundef %key, i64 noundef %keylen)
+  %call58 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef %call5, ptr noundef %18, i64 noundef %19, ptr noundef %20, i64 noundef %21, i32 noundef 0, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 return:                                           ; preds = %if.then33, %if.end15, %entry, %lor.lhs.false, %if.end53, %if.then52, %SSKDF_mac_kdm.exit, %if.else27, %if.then14, %if.then3
@@ -777,7 +777,7 @@ if.end11:                                         ; preds = %if.end7
   %4 = load ptr, ptr %info, align 8
   %info_len = getelementptr inbounds i8, ptr %vctx, i64 64
   %5 = load i64, ptr %info_len, align 8
-  %call13 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef nonnull %call8, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 1, ptr noundef %key, i64 noundef %keylen)
+  %call13 = tail call fastcc i32 @SSKDF_hash_kdm(ptr noundef %call8, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef 1, ptr noundef %key, i64 noundef %keylen)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end11, %if.then10, %if.then6, %if.then3
@@ -821,7 +821,7 @@ declare i32 @EVP_MAC_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_MD_get_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %info, i64 noundef %info_len, i32 noundef %append_ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SSKDF_hash_kdm(ptr noundef nonnull %kdf_md, ptr noundef %z, i64 noundef %z_len, ptr noundef %info, i64 noundef %info_len, i32 noundef range(i32 0, 2) %append_ctr, ptr noundef %derived_key, i64 noundef %derived_key_len) unnamed_addr #0 {
 entry:
   %c = alloca [4 x i8], align 1
   %mac = alloca [64 x i8], align 16
@@ -834,7 +834,7 @@ entry:
   br i1 %or.cond2, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @EVP_MD_get_size(ptr noundef %kdf_md) #7
+  %call = tail call i32 @EVP_MD_get_size(ptr noundef nonnull %kdf_md) #7
   %cmp6 = icmp slt i32 %call, 1
   br i1 %cmp6, label %return, label %if.end8
 
@@ -848,7 +848,7 @@ if.end8:                                          ; preds = %if.end
   br i1 %or.cond3, label %end, label %if.end17
 
 if.end17:                                         ; preds = %if.end8
-  %call18 = tail call i32 @EVP_DigestInit(ptr noundef nonnull %call10, ptr noundef %kdf_md) #7
+  %call18 = tail call i32 @EVP_DigestInit(ptr noundef nonnull %call10, ptr noundef nonnull %kdf_md) #7
   %tobool.not = icmp eq i32 %call18, 0
   br i1 %tobool.not, label %end, label %for.cond.preheader
 

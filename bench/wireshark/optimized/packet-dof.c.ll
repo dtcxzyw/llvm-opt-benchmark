@@ -2111,7 +2111,7 @@ proto_item_set_generated.exit82:                  ; preds = %proto_item_set_gene
 
 167:                                              ; preds = %160
   %168 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #20
-  %169 = tail call fastcc i32 @dof_dissect_dpp_common(ptr noundef %168, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
+  %169 = tail call fastcc i32 @dof_dissect_dpp_common(ptr noundef %168, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   br label %dof_dissect_dnp_common.exit
 
 170:                                              ; preds = %proto_item_set_generated.exit82
@@ -2174,7 +2174,7 @@ declare void @col_set_fence(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dof_dissect_dpp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dof_dissect_dpp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #20
@@ -2246,7 +2246,7 @@ define internal fastcc i32 @dof_dissect_dpp_common(ptr noundef %0, ptr noundef %
 
 52:                                               ; preds = %24, %4
   %53 = load ptr, ptr @dof_dpp_dissectors, align 8
-  %54 = tail call i32 @dissector_try_uint_new(ptr noundef %53, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, i32 noundef 0, ptr noundef %3) #20
+  %54 = tail call i32 @dissector_try_uint_new(ptr noundef %53, i32 noundef %10, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %15, i32 noundef 0, ptr noundef nonnull %3) #20
   %.not51 = icmp eq i32 %54, 0
   br i1 %.not51, label %59, label %55
 
@@ -2723,7 +2723,7 @@ switch.early.test:                                ; preds = %.lr.ph113
   %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #22
   %80 = trunc i64 %79 to i32
   store i32 %80, ptr %4, align 4
-  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %73, ptr noundef nonnull %4, ptr noundef %71)
+  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %73, ptr noundef %4, ptr noundef %71)
   %81 = load i32, ptr %4, align 4
   %82 = trunc i32 %81 to i8
   %83 = getelementptr inbounds i8, ptr %71, i64 8
@@ -2766,7 +2766,7 @@ switch.early.test97:                              ; preds = %84
   %94 = trunc i64 %93 to i32
   store i32 %94, ptr %4, align 4
   %95 = getelementptr inbounds i8, ptr %71, i64 16
-  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %86, ptr noundef nonnull %4, ptr noundef nonnull %95)
+  call fastcc void @dof_oid_new_standard_string(ptr noundef nonnull %86, ptr noundef %4, ptr noundef nonnull %95)
   %96 = load i32, ptr %4, align 4
   %97 = trunc i32 %96 to i8
   %98 = getelementptr inbounds i8, ptr %71, i64 24
@@ -2861,11 +2861,11 @@ dof_oid_create_internal.exit.thread:              ; preds = %10
   br label %.lr.ph.lr.ph.i
 
 16:                                               ; preds = %10
-  %17 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %4)
+  %17 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %4)
   br label %dof_oid_create_internal.exit
 
 18:                                               ; preds = %10
-  %19 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %4)
+  %19 = call fastcc zeroext i8 @parseHexField(ptr noundef %4)
   br label %dof_oid_create_internal.exit
 
 dof_oid_create_internal.exit:                     ; preds = %16, %18
@@ -2980,11 +2980,11 @@ dof_oid_create_internal.exit52.thread:            ; preds = %47
   br label %.lr.ph.i55.preheader
 
 53:                                               ; preds = %47
-  %54 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %3)
+  %54 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %3)
   br label %dof_oid_create_internal.exit52
 
 55:                                               ; preds = %47
-  %56 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %3)
+  %56 = call fastcc zeroext i8 @parseHexField(ptr noundef %3)
   br label %dof_oid_create_internal.exit52
 
 dof_oid_create_internal.exit52:                   ; preds = %53, %55
@@ -3287,11 +3287,11 @@ dof_oid_create_internal.exit.thread:              ; preds = %10
   br label %.sink.split
 
 16:                                               ; preds = %10
-  %17 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %4)
+  %17 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %4)
   br label %dof_oid_create_internal.exit
 
 18:                                               ; preds = %10
-  %19 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %4)
+  %19 = call fastcc zeroext i8 @parseHexField(ptr noundef %4)
   br label %dof_oid_create_internal.exit
 
 dof_oid_create_internal.exit:                     ; preds = %16, %18
@@ -3400,11 +3400,11 @@ dof_oid_create_internal.exit52.thread:            ; preds = %45
   br label %.sink.split
 
 51:                                               ; preds = %45
-  %52 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %3)
+  %52 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %3)
   br label %dof_oid_create_internal.exit52
 
 53:                                               ; preds = %45
-  %54 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %3)
+  %54 = call fastcc zeroext i8 @parseHexField(ptr noundef %3)
   br label %dof_oid_create_internal.exit52
 
 dof_oid_create_internal.exit52:                   ; preds = %51, %53
@@ -3671,7 +3671,7 @@ count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dof_oid_new_standard_string(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @dof_oid_new_standard_string(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.parseCtx, align 8
   %5 = alloca %struct.parseCtx, align 8
   %.not = icmp eq ptr %0, null
@@ -3703,11 +3703,11 @@ dof_oid_create_internal.exit.thread:              ; preds = %6
   br label %43
 
 15:                                               ; preds = %6
-  %16 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %5)
+  %16 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %5)
   br label %dof_oid_create_internal.exit
 
 17:                                               ; preds = %6
-  %18 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %5)
+  %18 = call fastcc zeroext i8 @parseHexField(ptr noundef %5)
   br label %dof_oid_create_internal.exit
 
 dof_oid_create_internal.exit:                     ; preds = %15, %17
@@ -3753,11 +3753,11 @@ dof_oid_create_internal.exit22.thread:            ; preds = %25
   br label %41
 
 34:                                               ; preds = %25
-  %35 = call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %4)
+  %35 = call fastcc zeroext i8 @parseFormatOID(ptr noundef %4)
   br label %dof_oid_create_internal.exit22
 
 36:                                               ; preds = %25
-  %37 = call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %4)
+  %37 = call fastcc zeroext i8 @parseHexField(ptr noundef %4)
   br label %dof_oid_create_internal.exit22
 
 dof_oid_create_internal.exit22:                   ; preds = %34, %36
@@ -3898,7 +3898,7 @@ declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @parseFormatOID(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc zeroext range(i8 0, 2) i8 @parseFormatOID(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -4350,12 +4350,12 @@ default.unreachable:                              ; preds = %158, %96
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %.critedge.thread
-  %217 = tail call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %0)
+  %217 = tail call fastcc zeroext i8 @parseHexField(ptr noundef %0)
   %.not37 = icmp eq i8 %217, 0
   br i1 %.not37, label %220, label %254
 
 218:                                              ; preds = %.critedge.thread
-  %219 = tail call fastcc zeroext i8 @parseStringField(ptr noundef nonnull %0)
+  %219 = tail call fastcc zeroext i8 @parseStringField(ptr noundef %0)
   %.not36 = icmp eq i8 %219, 0
   br i1 %.not36, label %220, label %254
 
@@ -4401,7 +4401,7 @@ default.unreachable:                              ; preds = %158, %96
   br label %245
 
 245:                                              ; preds = %240, %242
-  %246 = tail call fastcc zeroext i8 @parseAttributes(ptr noundef nonnull %0)
+  %246 = tail call fastcc zeroext i8 @parseAttributes(ptr noundef %0)
   %.not40 = icmp eq i8 %246, 0
   br i1 %.not40, label %._crit_edge, label %254
 
@@ -4431,7 +4431,7 @@ parseOIDClass.exit:                               ; preds = %66, %switch.early.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @parseHexField(ptr nocapture noundef %0) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 2) i8 @parseHexField(ptr nocapture noundef nonnull %0) unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -4619,7 +4619,7 @@ switch.early.test107:                             ; preds = %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @parseStringField(ptr nocapture noundef %0) unnamed_addr #10 {
+define internal fastcc zeroext range(i8 0, 2) i8 @parseStringField(ptr nocapture noundef nonnull %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -4729,7 +4729,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @parseStringField(ptr nocapture
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @parseAttributes(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc zeroext range(i8 0, 2) i8 @parseAttributes(ptr nocapture noundef nonnull %0) unnamed_addr #9 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -4807,7 +4807,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @parseAttributes(ptr nocapture 
   br label %parseAttributeID.exit.thread
 
 parseAttributeID.exit:                            ; preds = %27
-  %41 = tail call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %0)
+  %41 = tail call fastcc zeroext i8 @parseHexField(ptr noundef %0)
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %parseAttributeID.exit.thread, label %.thread
 
@@ -4851,15 +4851,15 @@ parseAttributeID.exit.thread:                     ; preds = %.critedge26.i, %par
   ]
 
 64:                                               ; preds = %60
-  %65 = tail call fastcc zeroext i8 @parseFormatOID(ptr noundef nonnull %0)
+  %65 = tail call fastcc zeroext i8 @parseFormatOID(ptr noundef %0)
   br label %parseAttributeData.exit
 
 66:                                               ; preds = %60
-  %67 = tail call fastcc zeroext i8 @parseHexField(ptr noundef nonnull %0)
+  %67 = tail call fastcc zeroext i8 @parseHexField(ptr noundef %0)
   br label %parseAttributeData.exit
 
 68:                                               ; preds = %60
-  %69 = tail call fastcc zeroext i8 @parseStringField(ptr noundef nonnull %0)
+  %69 = tail call fastcc zeroext i8 @parseStringField(ptr noundef %0)
   br label %parseAttributeData.exit
 
 parseAttributeData.exit:                          ; preds = %64, %66, %68
@@ -5217,7 +5217,7 @@ define internal i32 @dissect_tunnel_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = tail call fastcc ptr @create_tcp_session_data(ptr noundef %1, ptr noundef nonnull %5)
+  %12 = tail call fastcc ptr @create_tcp_session_data(ptr noundef %1, ptr noundef %5)
   %13 = load i32, ptr @proto_2012_1_tunnel, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %13, ptr noundef %12) #20
   br label %14
@@ -5508,7 +5508,7 @@ declare ptr @find_conversation_pinfo(ptr noundef, i32 noundef) local_unnamed_add
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @create_tcp_session_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @create_tcp_session_data(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @wmem_file_scope() #20
   %4 = tail call noalias ptr @wmem_alloc0(ptr noundef %3, i64 noundef 136) #20
   %5 = tail call ptr @wmem_file_scope() #20
@@ -5707,12 +5707,12 @@ define internal noundef i32 @dissect_2009_11_type_4(ptr noundef %0, ptr noundef 
   %10 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 0, i32 noundef %9) #20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %8, ptr %5, align 4
-  %11 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %5, ptr noundef %10)
+  %11 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %5, ptr noundef %10)
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %dof_oid_create_standard_string.exit, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %11)
+  %13 = tail call fastcc i32 @ObjectID_ToStringLength(ptr noundef %11)
   %14 = tail call ptr @wmem_packet_scope() #20
   %15 = add i32 %13, 1
   %16 = zext i32 %15 to i64
@@ -5721,7 +5721,7 @@ define internal noundef i32 @dissect_2009_11_type_4(ptr noundef %0, ptr noundef 
   br i1 %.not11.i, label %dof_oid_create_standard_string.exit, label %18
 
 18:                                               ; preds = %12
-  %19 = tail call fastcc i32 @ObjectID_ToString(ptr noundef nonnull %11, ptr noundef nonnull %17)
+  %19 = tail call fastcc i32 @ObjectID_ToString(ptr noundef %11, ptr noundef nonnull %17)
   %20 = zext i32 %13 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
   store i8 0, ptr %21, align 1
@@ -5914,7 +5914,7 @@ define internal i32 @dissect_dof_tcp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = tail call fastcc ptr @create_tcp_session_data(ptr noundef %1, ptr noundef nonnull %6)
+  %13 = tail call fastcc ptr @create_tcp_session_data(ptr noundef %1, ptr noundef %6)
   %14 = load i32, ptr @proto_2008_1_dof_tcp, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %6, i32 noundef %14, ptr noundef %13) #20
   br label %15
@@ -6604,7 +6604,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @tvb_get_ptr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @read_c4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @read_c4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #20
   %6 = icmp slt i8 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %11
@@ -6671,7 +6671,7 @@ define internal fastcc void @validate_c4(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @DOFObjectID_Create_Unmarshal(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @DOFObjectID_Create_Unmarshal(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp ne ptr %1, null
   %5 = icmp ugt i32 %3, 1
@@ -6799,7 +6799,7 @@ OALMarshal_UncompressValue.exit:                  ; preds = %.lr.ph.i, %.thread3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 6
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -6936,8 +6936,8 @@ DOFObjectID_GetDataSize.exit:                     ; preds = %24, %.thread.i.i.i4
   br i1 %40, label %.thread.i, label %42
 
 .thread.i:                                        ; preds = %DOFObjectID_GetDataSize.exit, %._crit_edge.i
-  %.0.lcssa118121.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %DOFObjectID_GetDataSize.exit ]
-  %41 = add i32 %.0.lcssa118121.i, %30
+  %.0.lcssa122125.i = phi i32 [ %.1.i, %._crit_edge.i ], [ 0, %DOFObjectID_GetDataSize.exit ]
+  %41 = add i32 %.0.lcssa122125.i, %30
   br label %ObjectID_DataToString.exit
 
 42:                                               ; preds = %._crit_edge.i
@@ -7310,7 +7310,7 @@ DOFObjectID_GetBaseSize.exit.i83:                 ; preds = %.thread.i.i.i.i.i87
   %161 = zext i1 %.not33 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %160, ptr %2, align 4
-  %162 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %2, ptr noundef %159)
+  %162 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %2, ptr noundef %159)
   %.not.i91 = icmp eq ptr %162, null
   %163 = load i32, ptr %2, align 4
   %.not6.i = icmp eq i32 %163, %160
@@ -7321,7 +7321,7 @@ DOFObjectID_GetBaseSize.exit.i83:                 ; preds = %.thread.i.i.i.i.i87
   br i1 %.not34, label %166, label %164
 
 164:                                              ; preds = %.loopexit136
-  %165 = tail call fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %spec.select.i)
+  %165 = tail call fastcc i32 @ObjectID_ToStringLength(ptr noundef %spec.select.i)
   br label %ObjectID_DataToString.exit109
 
 166:                                              ; preds = %.loopexit136
@@ -7374,8 +7374,8 @@ DOFObjectID_GetBaseSize.exit.i83:                 ; preds = %.thread.i.i.i.i.i87
   br i1 %176, label %.thread.i108, label %178
 
 .thread.i108:                                     ; preds = %166, %._crit_edge.i105
-  %.0.lcssa118121.i107 = phi i32 [ %.1.i102, %._crit_edge.i105 ], [ 0, %166 ]
-  %177 = add i32 %.0.lcssa118121.i107, %160
+  %.0.lcssa122125.i107 = phi i32 [ %.1.i102, %._crit_edge.i105 ], [ 0, %166 ]
+  %177 = add i32 %.0.lcssa122125.i107, %160
   br label %ObjectID_DataToString.exit109
 
 178:                                              ; preds = %._crit_edge.i105
@@ -7398,7 +7398,7 @@ ObjectID_DataToString.exit109:                    ; preds = %178, %.thread.i108,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ObjectID_ToString(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i8 91, ptr %1, align 1
   %4 = getelementptr i8, ptr %1, i64 1
@@ -7941,7 +7941,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i118, %.lr.p
   store i8 58, ptr %236, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 %208, ptr %3, align 4
-  %237 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %3, ptr noundef %.sroa.4.0.i)
+  %237 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %3, ptr noundef %.sroa.4.0.i)
   %.not.i123 = icmp eq ptr %237, null
   %238 = load i32, ptr %3, align 4
   %.not6.i = icmp eq i32 %238, %208
@@ -7954,7 +7954,7 @@ DOFObjectID_GetAttributeAtIndex.exit:             ; preds = %.lr.ph.i118, %.lr.p
   br i1 %.not89, label %243, label %241
 
 241:                                              ; preds = %215
-  %242 = tail call fastcc i32 @ObjectID_ToString(ptr noundef nonnull %spec.select.i, ptr noundef %240)
+  %242 = tail call fastcc i32 @ObjectID_ToString(ptr noundef %spec.select.i, ptr noundef %240)
   br label %245
 
 243:                                              ; preds = %215
@@ -7986,12 +7986,12 @@ DOFObjectID_GetAttributeAtIndex.exit._crit_edge:  ; preds = %245, %DOFObjectID_G
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #15 {
+define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 256) %1, ptr noundef writeonly %2) unnamed_addr #15 {
   %.not102 = icmp eq i32 %1, 0
   br i1 %.not102, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %wide.trip.count = zext i32 %1 to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
@@ -8040,17 +8040,17 @@ define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly
   br i1 %.not87, label %26, label %.lr.ph100.preheader
 
 .thread:                                          ; preds = %3
-  %.not87120 = icmp eq ptr %2, null
-  br i1 %.not87120, label %26, label %.loopexit
+  %.not87124 = icmp eq ptr %2, null
+  br i1 %.not87124, label %26, label %.loopexit
 
 .lr.ph100.preheader:                              ; preds = %14
-  %wide.trip.count114 = zext i32 %1 to i64
+  %wide.trip.count118 = zext nneg i32 %1 to i64
   br label %.lr.ph100
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %22
-  %indvars.iv111 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next112, %22 ]
+  %indvars.iv115 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next116, %22 ]
   %.07998 = phi i32 [ 0, %.lr.ph100.preheader ], [ %23, %22 ]
-  %15 = getelementptr i8, ptr %0, i64 %indvars.iv111
+  %15 = getelementptr i8, ptr %0, i64 %indvars.iv115
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %22 [
     i8 40, label %17
@@ -8072,70 +8072,69 @@ define internal fastcc i32 @ObjectID_DataToString(ptr nocapture noundef readonly
   br label %22
 
 22:                                               ; preds = %.lr.ph100, %17
-  %.sink125 = phi i32 [ 2, %17 ], [ 1, %.lr.ph100 ]
-  %.sink124 = phi i32 [ %18, %17 ], [ %.07998, %.lr.ph100 ]
+  %.sink129 = phi i32 [ 2, %17 ], [ 1, %.lr.ph100 ]
+  %.sink128 = phi i32 [ %18, %17 ], [ %.07998, %.lr.ph100 ]
   %.sink = phi i8 [ %21, %17 ], [ %16, %.lr.ph100 ]
-  %23 = add i32 %.07998, %.sink125
-  %24 = zext i32 %.sink124 to i64
+  %23 = add i32 %.07998, %.sink129
+  %24 = zext i32 %.sink128 to i64
   %25 = getelementptr i8, ptr %2, i64 %24
   store i8 %.sink, ptr %25, align 1
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %.loopexit, label %.lr.ph100, !llvm.loop !38
+  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
+  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
+  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph100, !llvm.loop !38
 
 26:                                               ; preds = %.thread, %14
-  %.0.lcssa118121 = phi i32 [ 0, %.thread ], [ %.1, %14 ]
-  %27 = add i32 %.0.lcssa118121, %1
+  %.0.lcssa122125 = phi i32 [ 0, %.thread ], [ %.1, %14 ]
+  %27 = add i32 %.0.lcssa122125, %1
   br label %.loopexit
 
 28:                                               ; preds = %._crit_edge
-  br i1 %.not87, label %49, label %.lr.ph95.preheader
+  br i1 %.not87, label %45, label %.lr.ph95.preheader
 
 .lr.ph95.preheader:                               ; preds = %28
   store i8 123, ptr %2, align 1
-  %wide.trip.count109 = zext i32 %1 to i64
+  %wide.trip.count113 = zext nneg i32 %1 to i64
+  %invariant.gep = getelementptr i8, ptr %2, i64 1
   br label %.lr.ph95
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
+  %indvars.iv108 = phi i64 [ 1, %.lr.ph95.preheader ], [ %indvars.iv.next109, %.lr.ph95 ]
   %indvars.iv106 = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next107, %.lr.ph95 ]
-  %.392 = phi i32 [ 1, %.lr.ph95.preheader ], [ %43, %.lr.ph95 ]
   %29 = getelementptr i8, ptr %0, i64 %indvars.iv106
   %30 = load i8, ptr %29, align 1
   %31 = lshr i8 %30, 4
   %32 = zext nneg i8 %31 to i64
   %33 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
-  %35 = add i32 %.392, 1
-  %36 = zext i32 %.392 to i64
-  %37 = getelementptr i8, ptr %2, i64 %36
-  store i8 %34, ptr %37, align 1
-  %38 = load i8, ptr %29, align 1
-  %39 = and i8 %38, 15
-  %40 = zext nneg i8 %39 to i64
-  %41 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = add i32 %.392, 2
-  %44 = zext i32 %35 to i64
-  %45 = getelementptr i8, ptr %2, i64 %44
-  store i8 %42, ptr %45, align 1
+  %35 = getelementptr i8, ptr %2, i64 %indvars.iv108
+  store i8 %34, ptr %35, align 1
+  %36 = load i8, ptr %29, align 1
+  %37 = and i8 %36, 15
+  %38 = zext nneg i8 %37 to i64
+  %39 = getelementptr [16 x i8], ptr @OALString_HexChar, i64 0, i64 %38
+  %40 = load i8, ptr %39, align 1
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 2
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv108
+  store i8 %40, ptr %gep, align 1
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !39
+  %exitcond114.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count113
+  br i1 %exitcond114.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !39
 
 ._crit_edge96:                                    ; preds = %.lr.ph95
-  %46 = add i32 %.392, 3
-  %47 = zext i32 %43 to i64
-  %48 = getelementptr i8, ptr %2, i64 %47
-  store i8 125, ptr %48, align 1
+  %41 = trunc nuw nsw i64 %indvars.iv.next109 to i32
+  %42 = add i32 %41, 1
+  %43 = and i64 %indvars.iv.next109, 4294967295
+  %44 = getelementptr i8, ptr %2, i64 %43
+  store i8 125, ptr %44, align 1
   br label %.loopexit
 
-49:                                               ; preds = %28
-  %50 = shl nuw nsw i32 %1, 1
-  %51 = add nuw nsw i32 %50, 2
+45:                                               ; preds = %28
+  %46 = shl nuw nsw i32 %1, 1
+  %47 = add nuw nsw i32 %46, 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %.thread, %._crit_edge96, %49, %26
-  %.281 = phi i32 [ %27, %26 ], [ %46, %._crit_edge96 ], [ %51, %49 ], [ 0, %.thread ], [ %23, %22 ]
+.loopexit:                                        ; preds = %22, %.thread, %._crit_edge96, %45, %26
+  %.281 = phi i32 [ %27, %26 ], [ %42, %._crit_edge96 ], [ %47, %45 ], [ 0, %.thread ], [ %23, %22 ]
   ret i32 %.281
 }
 
@@ -8537,7 +8536,7 @@ proto_item_set_generated.exit148:                 ; preds = %111, %108, %105, %v
   %148 = sub i32 %147, %.2
   %149 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.2, i32 noundef %.1115, i32 noundef %148) #20
   %150 = call ptr @proto_item_get_parent(ptr noundef %2) #20
-  %151 = call fastcc i32 @dof_dissect_dpp_common(ptr noundef %149, ptr noundef %1, ptr noundef %150, ptr noundef nonnull %3)
+  %151 = call fastcc i32 @dof_dissect_dpp_common(ptr noundef %149, ptr noundef %1, ptr noundef %150, ptr noundef %3)
   %152 = add i32 %151, %.2
   %153 = load ptr, ptr %10, align 8
   call void @col_set_fence(ptr noundef %153, i32 noundef 34) #20
@@ -8847,12 +8846,12 @@ proto_item_set_generated.exit:                    ; preds = %assign_sid_id.exit,
   %120 = getelementptr i8, ptr %116, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %119, ptr %9, align 4
-  %121 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %9, ptr noundef %120)
+  %121 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %9, ptr noundef %120)
   %.not.i489 = icmp eq ptr %121, null
   br i1 %.not.i489, label %dof_oid_create_standard_string.exit, label %122
 
 122:                                              ; preds = %117
-  %123 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %121)
+  %123 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef %121)
   %124 = call ptr @wmem_packet_scope() #20
   %125 = add i32 %123, 1
   %126 = zext i32 %125 to i64
@@ -8861,7 +8860,7 @@ proto_item_set_generated.exit:                    ; preds = %assign_sid_id.exit,
   br i1 %.not11.i, label %dof_oid_create_standard_string.exit, label %128
 
 128:                                              ; preds = %122
-  %129 = call fastcc i32 @ObjectID_ToString(ptr noundef nonnull %121, ptr noundef nonnull %127)
+  %129 = call fastcc i32 @ObjectID_ToString(ptr noundef %121, ptr noundef nonnull %127)
   %130 = zext i32 %123 to i64
   %131 = getelementptr i8, ptr %127, i64 %130
   store i8 0, ptr %131, align 1
@@ -8922,12 +8921,12 @@ proto_item_set_generated.exit495:                 ; preds = %proto_item_set_gene
   %158 = getelementptr i8, ptr %154, i64 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %157, ptr %8, align 4
-  %159 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %8, ptr noundef %158)
+  %159 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %8, ptr noundef %158)
   %.not.i496 = icmp eq ptr %159, null
   br i1 %.not.i496, label %dof_oid_create_standard_string.exit499, label %160
 
 160:                                              ; preds = %155
-  %161 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %159)
+  %161 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef %159)
   %162 = call ptr @wmem_packet_scope() #20
   %163 = add i32 %161, 1
   %164 = zext i32 %163 to i64
@@ -8936,7 +8935,7 @@ proto_item_set_generated.exit495:                 ; preds = %proto_item_set_gene
   br i1 %.not11.i497, label %dof_oid_create_standard_string.exit499, label %166
 
 166:                                              ; preds = %160
-  %167 = call fastcc i32 @ObjectID_ToString(ptr noundef nonnull %159, ptr noundef nonnull %165)
+  %167 = call fastcc i32 @ObjectID_ToString(ptr noundef %159, ptr noundef nonnull %165)
   %168 = zext i32 %161 to i64
   %169 = getelementptr i8, ptr %165, i64 %168
   store i8 0, ptr %169, align 1
@@ -9066,7 +9065,7 @@ default.unreachable643:                           ; preds = %210
   %227 = getelementptr inbounds i8, ptr %15, i64 88
   %228 = trunc i32 %226 to i8
   %229 = call ptr @tvb_get_ptr(ptr noundef %224, i32 noundef 0, i32 noundef %226) #20
-  call fastcc void @learn_operation_sid(ptr noundef nonnull %227, i8 noundef zeroext %228, ptr noundef %229)
+  call fastcc void @learn_operation_sid(ptr noundef %227, i8 noundef zeroext %228, ptr noundef %229)
   %230 = load i32, ptr %227, align 8
   %231 = load i32, ptr %105, align 8
   %232 = icmp eq i32 %230, %231
@@ -10040,7 +10039,7 @@ learn_sender_sid.exit.i:                          ; preds = %682, %712, %684, %6
 716:                                              ; preds = %learn_sender_sid.exit.i
   %717 = getelementptr inbounds i8, ptr %590, i64 120
   %718 = call ptr @tvb_get_ptr(ptr noundef %639, i32 noundef 0, i32 noundef %641) #20
-  call fastcc void @learn_operation_sid(ptr noundef nonnull %717, i8 noundef zeroext %642, ptr noundef %718)
+  call fastcc void @learn_operation_sid(ptr noundef %717, i8 noundef zeroext %642, ptr noundef %718)
   %.pr.i = load i32, ptr %629, align 8
   %719 = add i32 %641, %625
   %.not74.i = icmp eq i32 %.pr.i, 0
@@ -10167,7 +10166,7 @@ dissect_dpp_v2_common.exit:                       ; preds = %766, %762, %validat
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @learn_operation_sid(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @learn_operation_sid(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -10363,7 +10362,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #20
   %.not = icmp sgt i8 %5, -1
   br i1 %.not, label %14, label %6
@@ -11199,7 +11198,7 @@ read_c2.exit:                                     ; preds = %85, %92
   br i1 %.not329, label %268, label %276
 
 268:                                              ; preds = %265
-  %269 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %230, ptr noundef nonnull %8, ptr noundef nonnull %13)
+  %269 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %230, ptr noundef %8, ptr noundef %13)
   %270 = load i32, ptr %8, align 4
   %271 = lshr i32 %270, 1
   store i32 %271, ptr %.0301.ph, align 4
@@ -11237,7 +11236,7 @@ proto_item_set_generated.exit:                    ; preds = %283, %280, %276, %2
   br i1 %.not330, label %288, label %301
 
 288:                                              ; preds = %proto_item_set_generated.exit
-  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0302, ptr noundef nonnull %9, ptr noundef nonnull %14)
+  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0302, ptr noundef %9, ptr noundef nonnull %14)
   %289 = load i32, ptr @hf_epp_v1_ccm_slot, align 4
   %290 = load i32, ptr %14, align 4
   %291 = load i16, ptr %9, align 2
@@ -11284,7 +11283,7 @@ proto_item_set_generated.exit354:                 ; preds = %307, %304, %301, %v
   br i1 %.not323, label %320, label %312
 
 312:                                              ; preds = %proto_item_set_generated.exit354
-  %313 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.1303, ptr noundef nonnull %10, ptr noundef nonnull %15)
+  %313 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.1303, ptr noundef %10, ptr noundef %15)
   %314 = load i32, ptr @hf_epp_v1_ccm_pn, align 4
   %315 = load i32, ptr %15, align 4
   %316 = load i32, ptr %10, align 4
@@ -11323,7 +11322,7 @@ proto_item_set_generated.exit357:                 ; preds = %328, %325, %320, %3
   br i1 %.not331, label %340, label %333
 
 333:                                              ; preds = %proto_item_set_generated.exit357
-  %334 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.2, ptr noundef nonnull %11, ptr noundef nonnull %16)
+  %334 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.2, ptr noundef %11, ptr noundef %16)
   %335 = load i32, ptr @hf_epp_v1_ccm_tnid, align 4
   %336 = load i32, ptr %16, align 4
   %337 = load i32, ptr %11, align 4
@@ -11339,7 +11338,7 @@ proto_item_set_generated.exit357:                 ; preds = %328, %325, %320, %3
   br i1 %.not332, label %349, label %342
 
 342:                                              ; preds = %340
-  %343 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.3, ptr noundef nonnull %12, ptr noundef nonnull %17)
+  %343 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %.3, ptr noundef %12, ptr noundef %17)
   %344 = load i32, ptr @hf_epp_v1_ccm_nnid, align 4
   %345 = load i32, ptr %17, align 4
   %346 = load i32, ptr %12, align 4
@@ -11453,7 +11452,7 @@ proto_item_set_generated.exit357:                 ; preds = %328, %325, %320, %3
   br label %436
 
 418:                                              ; preds = %407
-  %419 = call fastcc i32 @decrypt(ptr noundef nonnull %204, ptr noundef nonnull %.0301.ph, ptr noundef nonnull %18, ptr noundef %363, i32 noundef %.4, ptr noundef %367, i32 noundef %362)
+  %419 = call fastcc i32 @decrypt(ptr noundef %204, ptr noundef %.0301.ph, ptr noundef %18, ptr noundef %363, i32 noundef %.4, ptr noundef %367, i32 noundef %362)
   %.not336 = icmp eq i32 %419, 0
   br i1 %.not336, label %435, label %420
 
@@ -11535,7 +11534,7 @@ declare void @tvb_set_child_real_data_tvbuff(ptr noundef, ptr noundef) local_unn
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %.sroa.3 = alloca [11 x i8], align 1
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
@@ -11679,8 +11678,8 @@ define internal fastcc range(i32 0, 2) i32 @decrypt(ptr nocapture noundef readon
   %74 = zext i8 %67 to i32
   %75 = load ptr, ptr %64, align 8
   %76 = sub i32 %6, %74
-  %.lhs.trunc = add nsw i16 %68, -2
-  %77 = sdiv i16 %.lhs.trunc, 2
+  %.lhs.trunc.i = add nsw i16 %68, -2
+  %77 = sdiv i16 %.lhs.trunc.i, 2
   %.tr.i = trunc nsw i16 %77 to i8
   %78 = shl i8 %.tr.i, 3
   %79 = or i8 %78, 67
@@ -12065,7 +12064,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %47
   %139 = lshr i8 %68, 6
   %140 = icmp eq i8 %139, 3
   %spec.store.select = select i1 %140, i8 4, i8 %139
-  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367, ptr noundef nonnull %6, ptr noundef nonnull %8)
+  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367, ptr noundef %6, ptr noundef nonnull %8)
   %141 = load i32, ptr @hf_oap_1_itemid, align 4
   %142 = load i32, ptr %8, align 4
   %143 = load i16, ptr %6, align 2
@@ -12099,7 +12098,7 @@ validate_c2.exit403:                              ; preds = %138, %149
   br label %372
 
 159:                                              ; preds = %153
-  %160 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %155, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %152, i8 noundef zeroext %spec.store.select, i8 noundef zeroext 1)
+  %160 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %155, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %152, i8 noundef zeroext %spec.store.select, i8 noundef zeroext 1)
   br label %163
 
 161:                                              ; preds = %validate_c2.exit403
@@ -12108,7 +12107,7 @@ validate_c2.exit403:                              ; preds = %138, %149
 
 163:                                              ; preds = %161, %159
   %.2 = phi i32 [ %160, %159 ], [ %162, %161 ]
-  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.2, ptr noundef nonnull %10, ptr noundef nonnull %9)
+  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.2, ptr noundef %10, ptr noundef nonnull %9)
   %164 = load i32, ptr @hf_oap_1_subscription_delta, align 4
   %165 = load i32, ptr %9, align 4
   %166 = load i16, ptr %10, align 2
@@ -12134,7 +12133,7 @@ validate_c2.exit405:                              ; preds = %163, %172
   %177 = lshr i8 %68, 6
   %178 = icmp eq i8 %177, 3
   %spec.store.select3 = select i1 %178, i8 4, i8 %177
-  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367, ptr noundef nonnull %6, ptr noundef nonnull %11)
+  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367, ptr noundef %6, ptr noundef nonnull %11)
   %179 = load i32, ptr @hf_oap_1_itemid, align 4
   %180 = load i32, ptr %11, align 4
   %181 = load i16, ptr %6, align 2
@@ -12168,7 +12167,7 @@ validate_c2.exit407:                              ; preds = %176, %187
   br label %372
 
 197:                                              ; preds = %191
-  %198 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %193, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %190, i8 noundef zeroext %spec.store.select3, i8 noundef zeroext 1)
+  %198 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %193, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %190, i8 noundef zeroext %spec.store.select3, i8 noundef zeroext 1)
   br label %372
 
 199:                                              ; preds = %validate_c2.exit407
@@ -12199,7 +12198,7 @@ validate_c2.exit407:                              ; preds = %176, %187
   br label %372
 
 214:                                              ; preds = %208
-  %215 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %210, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %.0367, i8 noundef zeroext %spec.store.select4, i8 noundef zeroext 1)
+  %215 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %210, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %.0367, i8 noundef zeroext %spec.store.select4, i8 noundef zeroext 1)
   br label %372
 
 216:                                              ; preds = %205
@@ -12263,7 +12262,7 @@ validate_c2.exit415:                              ; preds = %read_c2.exit413, %2
   br label %372
 
 246:                                              ; preds = %240
-  %247 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %242, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %239, i8 noundef zeroext %spec.store.select5, i8 noundef zeroext 1)
+  %247 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %242, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %239, i8 noundef zeroext %spec.store.select5, i8 noundef zeroext 1)
   br label %250
 
 248:                                              ; preds = %validate_c2.exit415
@@ -12302,7 +12301,7 @@ validate_c2.exit415:                              ; preds = %read_c2.exit413, %2
   br label %372
 
 265:                                              ; preds = %259
-  %266 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %261, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %.0367, i8 noundef zeroext %spec.store.select9, i8 noundef zeroext 1)
+  %266 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %261, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %.0367, i8 noundef zeroext %spec.store.select9, i8 noundef zeroext 1)
   br label %269
 
 267:                                              ; preds = %256
@@ -12396,7 +12395,7 @@ oap_1_tree_add_alias.exit:                        ; preds = %281
   %324 = load i32, ptr %323, align 8
   %325 = getelementptr inbounds i8, ptr %298, i64 28
   store i32 %324, ptr %325, align 4
-  call fastcc void @oap_1_define_alias(ptr noundef nonnull %3, i32 noundef %304, ptr noundef nonnull %298)
+  call fastcc void @oap_1_define_alias(ptr noundef %3, i32 noundef %304, ptr noundef nonnull %298)
   br label %372
 
 326:                                              ; preds = %137, %137
@@ -12451,7 +12450,7 @@ validate_c2.exit424:                              ; preds = %read_c2.exit422, %3
   br label %372
 
 353:                                              ; preds = %347
-  %354 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %349, ptr noundef nonnull %17, ptr noundef %25, ptr noundef %0, i32 noundef %346, i8 noundef zeroext %spec.store.select11, i8 noundef zeroext 1)
+  %354 = call fastcc i32 @oap_1_tree_add_alias(ptr nonnull %349, ptr noundef %17, ptr noundef %25, ptr noundef %0, i32 noundef %346, i8 noundef zeroext %spec.store.select11, i8 noundef zeroext 1)
   br label %357
 
 355:                                              ; preds = %validate_c2.exit424
@@ -12471,7 +12470,7 @@ validate_c2.exit424:                              ; preds = %read_c2.exit422, %3
 
 365:                                              ; preds = %.thread440, %137
   %.0367442 = phi i32 [ %134, %.thread440 ], [ %.0367, %137 ]
-  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367442, ptr noundef nonnull %13, ptr noundef nonnull %12)
+  call fastcc void @read_c2(ptr noundef %0, i32 noundef %.0367442, ptr noundef %13, ptr noundef nonnull %12)
   %366 = load i32, ptr %12, align 4
   %367 = add i32 %366, %.0367442
   %368 = load i32, ptr @hf_oap_1_value_list, align 4
@@ -12501,7 +12500,7 @@ define internal range(i32 0, 5) i32 @dissect_oap_dsp(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dof_packet_add_proto_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dof_packet_add_proto_data(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope() #20
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 16) #20
   store i32 %1, ptr %5, align 8
@@ -12658,10 +12657,10 @@ validate_c2.exit66:                               ; preds = %read_c2.exit64, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @oap_1_tree_add_alias(ptr readonly %.16.val, ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc i32 @oap_1_tree_add_alias(ptr readonly %.16.val, ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext range(i8 0, 5) %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %struct._alias_key, align 4
-  %9 = zext i8 %4 to i32
+  %9 = zext nneg i8 %4 to i32
   %10 = icmp eq i8 %4, 0
   %11 = icmp eq ptr %.16.val, null
   %or.cond = select i1 %10, i1 true, i1 %11
@@ -12817,12 +12816,12 @@ proto_item_set_generated.exit:                    ; preds = %dof_iid_create_stan
   %93 = zext i16 %92 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %93, ptr %7, align 4
-  %94 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef nonnull %7, ptr noundef %90)
+  %94 = call fastcc ptr @DOFObjectID_Create_Unmarshal(ptr noundef %7, ptr noundef %90)
   %.not.i47 = icmp eq ptr %94, null
   br i1 %.not.i47, label %dof_oid_create_standard_string.exit, label %95
 
 95:                                               ; preds = %proto_item_set_generated.exit
-  %96 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef nonnull %94)
+  %96 = call fastcc i32 @ObjectID_ToStringLength(ptr noundef %94)
   %97 = call ptr @wmem_packet_scope() #20
   %98 = add i32 %96, 1
   %99 = zext i32 %98 to i64
@@ -12831,7 +12830,7 @@ proto_item_set_generated.exit:                    ; preds = %dof_iid_create_stan
   br i1 %.not11.i, label %dof_oid_create_standard_string.exit, label %101
 
 101:                                              ; preds = %95
-  %102 = call fastcc i32 @ObjectID_ToString(ptr noundef nonnull %94, ptr noundef nonnull %100)
+  %102 = call fastcc i32 @ObjectID_ToString(ptr noundef %94, ptr noundef nonnull %100)
   %103 = zext i32 %96 to i64
   %104 = getelementptr i8, ptr %100, i64 %103
   store i8 0, ptr %104, align 1
@@ -12918,7 +12917,7 @@ define internal fastcc noundef i32 @oap_1_tree_add_interface(ptr noundef %0, ptr
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @oap_1_define_alias(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @oap_1_define_alias(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._alias_key, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -13212,7 +13211,7 @@ validate_c2.exit192:                              ; preds = %read_c2.exit190, %7
   %153 = call ptr @wmem_file_scope() #20
   %154 = call noalias ptr @wmem_alloc0(ptr noundef %153, i64 noundef 88) #20
   %155 = load i32, ptr @proto_sgmp, align 4
-  call fastcc void @dof_packet_add_proto_data(ptr noundef nonnull %10, i32 noundef %155, ptr noundef %154)
+  call fastcc void @dof_packet_add_proto_data(ptr noundef %10, i32 noundef %155, ptr noundef %154)
   store i8 %.0172, ptr %154, align 8
   %156 = call ptr @wmem_file_scope() #20
   %157 = zext i8 %.0172 to i64
@@ -14152,7 +14151,7 @@ proto_item_set_generated.exit384:                 ; preds = %277, %274, %271, %.
   %286 = load i32, ptr @ett_tep_2_2_responder_initialization, align 4
   %287 = call ptr @proto_item_add_subtree(ptr noundef %285, i32 noundef %286) #20
   %.val = load ptr, ptr %14, align 8
-  %288 = call fastcc i32 @dissect_2008_4_tep_2_2_1(ptr noundef %283, ptr noundef %1, ptr noundef %287, ptr noundef nonnull %6, ptr %.val)
+  %288 = call fastcc i32 @dissect_2008_4_tep_2_2_1(ptr noundef %283, ptr noundef %1, ptr noundef %287, ptr noundef %6, ptr %.val)
   call void @proto_item_set_len(ptr noundef %287, i32 noundef %288) #20
   %289 = add i32 %288, %263
   %290 = load i32, ptr %196, align 8
@@ -14331,7 +14330,7 @@ proto_item_set_generated.exit384:                 ; preds = %277, %274, %271, %.
 .lr.ph403:                                        ; preds = %.preheader391, %394
   %.3321402 = phi ptr [ %396, %394 ], [ %.0318390, %.preheader391 ]
   %389 = load ptr, ptr %.3321402, align 8
-  %390 = call fastcc i32 @validate_session_key(ptr noundef nonnull %189, i32 noundef %.0317, ptr noundef %.0316, ptr noundef nonnull %7, ptr noundef %389)
+  %390 = call fastcc i32 @validate_session_key(ptr noundef %189, i32 noundef %.0317, ptr noundef %.0316, ptr noundef %7, ptr noundef %389)
   %.not363 = icmp eq i32 %390, 0
   br i1 %.not363, label %394, label %.preheader.thread
 
@@ -14353,7 +14352,7 @@ proto_item_set_generated.exit384:                 ; preds = %277, %274, %271, %.
   %397 = load ptr, ptr @global_security.0, align 8
   %398 = getelementptr %struct._dof_session_key_data, ptr %397, i64 %indvars.iv416
   %399 = load ptr, ptr %398, align 8
-  %400 = call fastcc i32 @validate_session_key(ptr noundef nonnull %189, i32 noundef %.0317, ptr noundef %.0316, ptr noundef nonnull %7, ptr noundef %399)
+  %400 = call fastcc i32 @validate_session_key(ptr noundef %189, i32 noundef %.0317, ptr noundef %.0316, ptr noundef %7, ptr noundef %399)
   %.not362 = icmp eq i32 %400, 0
   br i1 %.not362, label %405, label %401
 
@@ -14574,7 +14573,7 @@ dissect_2008_16_security_13.exit:                 ; preds = %4, %15
 declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 32774) i32 @dissect_2008_4_tep_2_2_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr readonly %.24.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 32774) i32 @dissect_2008_4_tep_2_2_1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr readonly %.24.val) unnamed_addr #0 {
   %5 = icmp eq ptr %.24.val, null
   br i1 %5, label %43, label %6
 
@@ -14715,7 +14714,7 @@ define internal noundef i32 @dissect_2008_16_security_6_3(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @validate_session_key(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @validate_session_key(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -14761,7 +14760,7 @@ define internal fastcc range(i32 0, 2) i32 @validate_session_key(ptr nocapture n
   %44 = zext i8 %43 to i64
   %45 = call i32 @gcry_mac_write(ptr noundef %39, ptr noundef %41, i64 noundef %44) #20
   %46 = load ptr, ptr %7, align 8
-  %47 = call i32 @gcry_mac_verify(ptr noundef %46, ptr noundef %3, i64 noundef 32) #20
+  %47 = call i32 @gcry_mac_verify(ptr noundef %46, ptr noundef nonnull %3, i64 noundef 32) #20
   %48 = icmp eq i32 %47, 0
   %49 = zext i1 %48 to i32
   br label %50
@@ -15173,7 +15172,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %123 = call ptr @wmem_file_scope() #20
   %124 = call noalias ptr @wmem_alloc0(ptr noundef %123, i64 noundef 80) #20
   %125 = load i32, ptr @proto_trp, align 4
-  call fastcc void @dof_packet_add_proto_data(ptr noundef nonnull %38, i32 noundef %125, ptr noundef %124)
+  call fastcc void @dof_packet_add_proto_data(ptr noundef %38, i32 noundef %125, ptr noundef %124)
   %126 = getelementptr inbounds i8, ptr %124, i64 8
   store i8 %.0478, ptr %126, align 8
   %127 = call ptr @wmem_file_scope() #20
@@ -15295,7 +15294,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   br label %207
 
 207:                                              ; preds = %200, %173
-  %208 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %197, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %208 = call fastcc i32 @read_c4(ptr noundef %0, i32 noundef %197, ptr noundef %7, ptr noundef %8)
   %209 = load i32, ptr %7, align 4
   %210 = or i32 %209, 1073741824
   %211 = load i32, ptr @hf_ssid, align 4
@@ -15415,7 +15414,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %281 = call ptr @wmem_file_scope() #20
   %282 = call noalias ptr @wmem_alloc0(ptr noundef %281, i64 noundef 80) #20
   %283 = load i32, ptr @proto_trp, align 4
-  call fastcc void @dof_packet_add_proto_data(ptr noundef nonnull %38, i32 noundef %283, ptr noundef %282)
+  call fastcc void @dof_packet_add_proto_data(ptr noundef %38, i32 noundef %283, ptr noundef %282)
   %284 = getelementptr inbounds i8, ptr %282, i64 8
   store i8 %.0482, ptr %284, align 8
   %285 = call ptr @wmem_file_scope() #20
@@ -15570,7 +15569,7 @@ dof_packet_get_proto_data.exit:                   ; preds = %42, %46
   %369 = call ptr @wmem_file_scope() #20
   %370 = call noalias ptr @wmem_alloc0(ptr noundef %369, i64 noundef 80) #20
   %371 = load i32, ptr @proto_trp, align 4
-  call fastcc void @dof_packet_add_proto_data(ptr noundef nonnull %38, i32 noundef %371, ptr noundef %370)
+  call fastcc void @dof_packet_add_proto_data(ptr noundef %38, i32 noundef %371, ptr noundef %370)
   %372 = getelementptr inbounds i8, ptr %370, i64 8
   store i8 %.0492, ptr %372, align 8
   %373 = call ptr @wmem_file_scope() #20

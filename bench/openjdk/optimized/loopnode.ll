@@ -18148,7 +18148,7 @@ _ZN14PhaseIdealLoop8set_loopEP4NodeP13IdealLoopTree.exit140: ; preds = %474, %47
   br i1 %.not117, label %486, label %485
 
 485:                                              ; preds = %.outer._crit_edge
-  tail call fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef nonnull %484, ptr noundef nonnull %0)
+  tail call fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef %484, ptr noundef %0)
   br label %486
 
 486:                                              ; preds = %485, %.outer._crit_edge
@@ -18156,7 +18156,7 @@ _ZN14PhaseIdealLoop8set_loopEP4NodeP13IdealLoopTree.exit140: ; preds = %474, %47
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef %0, ptr noundef %1) unnamed_addr #7 {
+define internal fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #7 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %6, %2
@@ -18168,7 +18168,7 @@ tailrecurse:                                      ; preds = %6, %2
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %tailrecurse
-  tail call fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef nonnull %4, ptr noundef nonnull %.tr)
+  tail call fastcc void @_ZL10fix_parentP13IdealLoopTreeS0_(ptr noundef %4, ptr noundef %.tr)
   br label %6
 
 6:                                                ; preds = %5, %tailrecurse

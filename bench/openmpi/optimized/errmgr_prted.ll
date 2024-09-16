@@ -1038,7 +1038,7 @@ pmix_pointer_array_get_item.exit385.thread:       ; preds = %241, %247, %pmix_po
   br label %754
 
 319:                                              ; preds = %314
-  %320 = call fastcc i32 @pack_state_for_proc(ptr noundef %309, ptr noundef nonnull %254)
+  %320 = call fastcc i32 @pack_state_for_proc(ptr noundef %309, ptr noundef %254)
   switch i32 %320, label %321 [
     i32 0, label %324
     i32 -2, label %323
@@ -1474,7 +1474,7 @@ pmix_pointer_array_get_item.exit390:              ; preds = %pmix_pointer_array_
 546:                                              ; preds = %541
   %547 = getelementptr inbounds i8, ptr %.0, i64 428
   store i32 %15, ptr %547, align 4
-  %548 = call fastcc i32 @pack_state_for_proc(ptr noundef %536, ptr noundef nonnull %.0)
+  %548 = call fastcc i32 @pack_state_for_proc(ptr noundef %536, ptr noundef %.0)
   switch i32 %548, label %549 [
     i32 0, label %552
     i32 -2, label %551
@@ -2326,7 +2326,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %25
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = tail call fastcc i32 @pack_state_for_proc(ptr noundef %0, ptr noundef nonnull %16)
+  %22 = tail call fastcc i32 @pack_state_for_proc(ptr noundef %0, ptr noundef %16)
   switch i32 %22, label %23 [
     i32 0, label %25
     i32 -2, label %.loopexit
@@ -2474,7 +2474,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @pack_state_for_proc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i32 @pack_state_for_proc(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i16 noundef zeroext 40) #12
   switch i32 %4, label %.sink.split [

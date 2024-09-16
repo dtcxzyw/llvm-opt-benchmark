@@ -113,8 +113,8 @@ define dso_local void @cmsysProcess_Delete(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not11.i, label %17, label %.preheader.i
 
 17:                                               ; preds = %14
-  tail call fastcc void @kwsysProcessClosePipes(ptr noundef nonnull %0)
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessClosePipes(ptr noundef %0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   store volatile i32 7, ptr %3, align 4
   br label %.preheader.i
 
@@ -260,8 +260,8 @@ define dso_local void @cmsysProcess_Disown(ptr noundef %0) local_unnamed_addr #3
   br i1 %.not11, label %14, label %15
 
 14:                                               ; preds = %11
-  tail call fastcc void @kwsysProcessClosePipes(ptr noundef nonnull %0)
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessClosePipes(ptr noundef %0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   store volatile i32 7, ptr %6, align 4
   br label %15
 
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %10
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   br label %.loopexit
 
 14:                                               ; preds = %10
@@ -305,7 +305,7 @@ define dso_local range(i32 0, 2) i32 @cmsysProcess_WaitForExit(ptr noundef %0, p
   br i1 %.not52, label %18, label %17
 
 17:                                               ; preds = %14
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   store volatile i32 1, ptr %4, align 4
   br label %.loopexit
 
@@ -662,7 +662,7 @@ kwsysProcessSetExitExceptionByIndex.exit:         ; preds = %153, %150, %147, %1
 171:                                              ; preds = %21, %18, %._crit_edge
   %.sink = phi i32 [ %170, %._crit_edge ], [ 6, %18 ], [ 5, %21 ]
   store volatile i32 %.sink, ptr %4, align 4
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 0)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %2, %3, %171, %17, %13
@@ -1740,7 +1740,7 @@ kwsysProcessInitialize.exit:                      ; preds = %80
   br i1 %.not113, label %91, label %.preheader145
 
 91:                                               ; preds = %kwsysProcessInitialize.exit
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 .preheader145:                                    ; preds = %kwsysProcessInitialize.exit, %95
@@ -1756,7 +1756,7 @@ kwsysProcessInitialize.exit:                      ; preds = %80
   br i1 %98, label %.preheader145, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %95
-  tail call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  tail call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 .critedge138:                                     ; preds = %.preheader145, %._crit_edge82.i
@@ -1932,7 +1932,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 185:                                              ; preds = %101, %kwsysProcessSetNonBlocking.exit22.i, %kwsysProcessSetNonBlocking.exit.i, %126, %122, %132, %104, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 186:                                              ; preds = %kwsysProcessesAdd.exit, %.critedge138
@@ -1949,7 +1949,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %192, label %193, label %194
 
 193:                                              ; preds = %189
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 194:                                              ; preds = %189
@@ -1958,7 +1958,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %196, label %197, label %218
 
 197:                                              ; preds = %194
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 198:                                              ; preds = %186
@@ -1993,7 +1993,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %215, label %216, label %218
 
 216:                                              ; preds = %211, %208
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 217:                                              ; preds = %203
@@ -2006,7 +2006,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %220, label %221, label %222
 
 221:                                              ; preds = %218
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 222:                                              ; preds = %218
@@ -2028,7 +2028,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %233, label %234, label %235
 
 234:                                              ; preds = %230, %222
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 235:                                              ; preds = %230
@@ -2038,7 +2038,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not118, label %238, label %239
 
 238:                                              ; preds = %235
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 239:                                              ; preds = %235
@@ -2048,12 +2048,12 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not119, label %245, label %242
 
 242:                                              ; preds = %239
-  %243 = call fastcc i32 @kwsysProcessSetupOutputPipeFile(ptr noundef nonnull %227, ptr noundef nonnull %241)
+  %243 = call fastcc i32 @kwsysProcessSetupOutputPipeFile(ptr noundef %227, ptr noundef %241)
   %.not122 = icmp eq i32 %243, 0
   br i1 %.not122, label %244, label %257
 
 244:                                              ; preds = %242
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 245:                                              ; preds = %239
@@ -2063,7 +2063,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not120, label %249, label %248
 
 248:                                              ; preds = %245
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %227)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %227)
   store i32 1, ptr %227, align 4
   br label %257
 
@@ -2075,12 +2075,12 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 253:                                              ; preds = %249
   %254 = getelementptr inbounds i8, ptr %0, i64 2388
-  %255 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef nonnull %227, ptr noundef nonnull %254)
+  %255 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef %227, ptr noundef %254)
   %.not121 = icmp eq i32 %255, 0
   br i1 %.not121, label %256, label %257
 
 256:                                              ; preds = %253
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 257:                                              ; preds = %248, %253, %249, %242
@@ -2089,7 +2089,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %259, label %260, label %261
 
 260:                                              ; preds = %257
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 261:                                              ; preds = %257
@@ -2111,7 +2111,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %272, label %273, label %274
 
 273:                                              ; preds = %269, %261
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 274:                                              ; preds = %269
@@ -2121,7 +2121,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not123, label %277, label %278
 
 277:                                              ; preds = %274
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 278:                                              ; preds = %274
@@ -2131,12 +2131,12 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not124, label %284, label %281
 
 281:                                              ; preds = %278
-  %282 = call fastcc i32 @kwsysProcessSetupOutputPipeFile(ptr noundef nonnull %266, ptr noundef nonnull %280)
+  %282 = call fastcc i32 @kwsysProcessSetupOutputPipeFile(ptr noundef %266, ptr noundef %280)
   %.not127 = icmp eq i32 %282, 0
   br i1 %.not127, label %283, label %296
 
 283:                                              ; preds = %281
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 284:                                              ; preds = %278
@@ -2146,7 +2146,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not125, label %288, label %287
 
 287:                                              ; preds = %284
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %266)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %266)
   store i32 2, ptr %266, align 8
   br label %296
 
@@ -2158,12 +2158,12 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 
 292:                                              ; preds = %288
   %293 = getelementptr inbounds i8, ptr %0, i64 2396
-  %294 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef nonnull %266, ptr noundef nonnull %293)
+  %294 = call fastcc i32 @kwsysProcessSetupOutputPipeNative(ptr noundef %266, ptr noundef %293)
   %.not126 = icmp eq i32 %294, 0
   br i1 %.not126, label %295, label %296
 
 295:                                              ; preds = %292
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 296:                                              ; preds = %287, %292, %288, %281
@@ -2223,11 +2223,11 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not130, label %325, label %324
 
 324:                                              ; preds = %322
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %10)
   br label %325
 
 325:                                              ; preds = %324, %322
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 326:                                              ; preds = %319
@@ -2253,11 +2253,11 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not129, label %341, label %340
 
 340:                                              ; preds = %334
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %10)
   br label %341
 
 341:                                              ; preds = %340, %334
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 342:                                              ; preds = %330
@@ -2274,14 +2274,14 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   %. = select i1 %.not131, ptr %266, ptr %227
   %348 = load i32, ptr %., align 4
   store i32 %348, ptr %309, align 4
-  %349 = call fastcc i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %.0152, ptr noundef nonnull %9)
+  %349 = call fastcc i32 @kwsysProcessCreate(ptr noundef %0, i32 noundef %.0152, ptr noundef %9)
   %350 = load i32, ptr %9, align 4
   %351 = load i32, ptr %226, align 8
   %.not132 = icmp eq i32 %350, %351
   br i1 %.not132, label %353, label %352
 
 352:                                              ; preds = %344
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %9)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %9)
   br label %353
 
 353:                                              ; preds = %352, %344
@@ -2291,7 +2291,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not133, label %357, label %356
 
 356:                                              ; preds = %353
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %307)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %307)
   br label %357
 
 357:                                              ; preds = %356, %353
@@ -2306,7 +2306,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   br i1 %.not135, label %362, label %363
 
 362:                                              ; preds = %360
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %309)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %309)
   br label %363
 
 363:                                              ; preds = %362, %360, %357
@@ -2316,25 +2316,25 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 364:                                              ; preds = %363
   store i32 %345, ptr %10, align 4
   %365 = getelementptr inbounds i8, ptr %9, i64 12
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %365)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %365)
   %366 = getelementptr inbounds i8, ptr %9, i64 16
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %366)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %366)
   %367 = load i32, ptr %226, align 8
   %.not137 = icmp eq i32 %345, %367
   br i1 %.not137, label %369, label %368
 
 368:                                              ; preds = %364
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %10)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %10)
   br label %369
 
 369:                                              ; preds = %368, %364
-  call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)
+  call fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef 1)
   br label %386
 
 .preheader144:                                    ; preds = %.preheader144.preheader, %.preheader144
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader144 ], [ 0, %.preheader144.preheader ]
   %370 = getelementptr inbounds [3 x i32], ptr %226, i64 0, i64 %indvars.iv
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %370)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %370)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %371, label %.preheader144, !llvm.loop !21
@@ -2380,7 +2380,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanup(ptr noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 {
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__sigset_t, align 8
   %5 = alloca i32, align 4
@@ -2728,7 +2728,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetNonBlocking(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2750,7 +2750,7 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeFile(ptr 
   br label %kwsysProcessCleanupDescriptor.exit
 
 kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
-  %12 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef 577, i32 noundef 438) #25
+  %12 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 577, i32 noundef 438) #25
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %20, label %14
 
@@ -2773,7 +2773,7 @@ kwsysProcessCleanupDescriptor.exit:               ; preds = %2, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp sgt i32 %2, 2
   br i1 %3, label %.preheader, label %11
@@ -2799,7 +2799,7 @@ define internal fastcc void @kwsysProcessCleanupDescriptor(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessSetupOutputPipeNative(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4
   %4 = icmp sgt i32 %3, 2
   br i1 %4, label %.preheader.i, label %kwsysProcessCleanupDescriptor.exit
@@ -2849,7 +2849,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @close(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessCreate(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.sigaction, align 8
   %6 = alloca i32, align 4
@@ -3503,7 +3503,7 @@ kwsysProcessCleanupDescriptor.exit114:            ; preds = %336, %.critedge.i11
   br i1 %347, label %348, label %349
 
 348:                                              ; preds = %kwsysProcessCleanupDescriptor.exit114
-  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef nonnull %13)
+  call fastcc void @kwsysProcessCleanupDescriptor(ptr noundef %13)
   br label %kwsysProcessCleanupDescriptor.exit61
 
 349:                                              ; preds = %kwsysProcessCleanupDescriptor.exit114
@@ -3572,7 +3572,7 @@ kwsysProcessCleanupDescriptor.exit61:             ; preds = %.preheader.i109, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @kwsysProcessClosePipes(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @kwsysProcessClosePipes(ptr nocapture noundef nonnull %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = getelementptr inbounds i8, ptr %0, i64 1160
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3696,7 +3696,7 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
 
 .split:                                           ; preds = %23
   %24 = getelementptr inbounds i8, ptr %12, i64 24
-  %25 = call fastcc i32 @kwsysProcessGetTimeoutTime(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %24)
+  %25 = call fastcc i32 @kwsysProcessGetTimeoutTime(ptr noundef %0, ptr noundef null, ptr noundef %24)
   %26 = icmp eq i32 %25, 0
   br label %kwsysProcessGetTimeoutTime.exit
 
@@ -4134,7 +4134,7 @@ kwsysProcessGetTimeoutLeft.exit.i:                ; preds = %kwsysProcessGetTime
 240:                                              ; preds = %234
   %241 = call ptr @strerror(i32 noundef %236) #25
   %242 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %95, ptr noundef nonnull dereferenceable(1) %241, i64 noundef 1024) #25
-  call void @cmsysProcess_Kill(ptr noundef %0)
+  call void @cmsysProcess_Kill(ptr noundef nonnull %0)
   store volatile i32 0, ptr %18, align 8
   store i32 1, ptr %107, align 8
   br label %kwsysProcessWaitForPipe.exit
@@ -4205,7 +4205,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8
@@ -4327,7 +4327,7 @@ define dso_local void @cmsysProcess_Kill(ptr noundef %0) local_unnamed_addr #3 {
   br label %kwsysProcessCleanupDescriptor.exit
 
 kwsysProcessCleanupDescriptor.exit:               ; preds = %6, %.critedge.i
-  tail call fastcc void @kwsysProcessClosePipes(ptr noundef nonnull %0)
+  tail call fastcc void @kwsysProcessClosePipes(ptr noundef %0)
   %17 = getelementptr inbounds i8, ptr %0, i64 1296
   store volatile i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 8

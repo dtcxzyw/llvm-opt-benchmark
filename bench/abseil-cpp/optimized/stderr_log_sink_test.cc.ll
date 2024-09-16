@@ -3872,7 +3872,7 @@ entry:
 define internal void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10DescribeToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %gmock_os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext false)
+  call fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext false)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3891,7 +3891,7 @@ lpad:                                             ; preds = %entry
 define internal void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18DescribeNegationToEPSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr noundef %gmock_os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
+  call fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(20) %this, i1 noundef zeroext true)
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %gmock_os, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
@@ -3982,7 +3982,7 @@ while.end:                                        ; preds = %while.body, %invoke
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i1 noundef zeroext %negation) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_123HasSubstrTimesMatcherP2IPciE10gmock_ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE17FormatDescriptionEb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i1 noundef zeroext %negation) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gmock_description = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::vector.65", align 8
@@ -4043,7 +4043,7 @@ ehcleanup.thread:                                 ; preds = %invoke.cont6
   br label %if.then.i.i.i13
 
 invoke.cont10:                                    ; preds = %invoke.cont6
-  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.33, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
+  invoke void @_ZN7testing8internal24FormatMatcherDescriptionEbPKcRKSt6vectorIS2_SaIS2_EERKS3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, i1 noundef zeroext %negation, ptr noundef nonnull @.str.33, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp7)
           to label %invoke.cont12 unwind label %ehcleanup
 
 invoke.cont12:                                    ; preds = %invoke.cont10

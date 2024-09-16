@@ -387,7 +387,7 @@ _ZN8facebook5velox9functions13countElementsINS0_11ArrayVectorEEEiRKNS0_17Selecti
   %17 = load ptr, ptr %baseVector_.i.i, align 8
   %pool_.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load ptr, ptr %pool_.i.i, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN8facebook5velox9functions13countElementsINS0_11ArrayVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorE.exit
@@ -2470,7 +2470,7 @@ _ZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17Selectivit
   %17 = load ptr, ptr %baseVector_.i.i, align 8
   %pool_.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %18 = load ptr, ptr %pool_.i.i, align 8
-  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector)
+  invoke fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector)
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN8facebook5velox9functions13countElementsINS0_9MapVectorEEEiRKNS0_17SelectivityVectorERNS0_13DecodedVectorE.exit
@@ -5915,7 +5915,7 @@ if.end:                                           ; preds = %_ZZN8facebook5velox
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(120) %decodedVector) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i = alloca %class.anon.57, align 8
   %rawNulls = alloca ptr, align 8
@@ -6510,7 +6510,7 @@ return:                                           ; preds = %"_ZZN8facebook5velo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorEE3$_0EEvPKmiibT_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %idx, i64 noundef %mask) unnamed_addr #14 align 2 {
+define internal fastcc void @"_ZZN8facebook5velox4bits10forEachBitIZNS0_9functions12_GLOBAL__N_112flattenNullsERKNS0_17SelectivityVectorERKNS0_13DecodedVectorEE3$_0EEvPKmiibT_ENKUlimE_clEim"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef range(i32 -33554432, 33554432) %idx, i64 noundef %mask) unnamed_addr #14 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 8

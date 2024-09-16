@@ -513,7 +513,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc nonnull ptr @prelude_ast(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc nonnull ptr @prelude_ast(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 1, 240) %2) unnamed_addr #1 {
   %4 = tail call i64 @rb_parser_new() #6
   %5 = tail call ptr @rb_parser_compile_string_path(i64 noundef %4, i64 noundef %0, i64 noundef %1, i32 noundef %2) #6
   %.not = icmp eq ptr %5, null

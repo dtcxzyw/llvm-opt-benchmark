@@ -4860,7 +4860,7 @@ php_var_serialize_string.exit:                    ; preds = %325, %331
   store ptr %342, ptr %16, align 8
   %522 = getelementptr inbounds i8, ptr %16, i64 8
   store i32 776, ptr %522, align 8
-  %523 = call fastcc i32 @php_var_serialize_call_magic_serialize(ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %523 = call fastcc i32 @php_var_serialize_call_magic_serialize(ptr noundef %15, ptr noundef %16)
   %524 = icmp eq i32 %523, -1
   br i1 %524, label %525, label %544
 
@@ -5530,7 +5530,7 @@ php_var_serialize_string.exit1472:                ; preds = %646, %651
   br label %1075
 
 855:                                              ; preds = %819
-  call fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %824, ptr noundef %2)
+  call fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef %21, ptr noundef %824, ptr noundef %2)
   %856 = getelementptr inbounds i8, ptr %824, i64 4
   %857 = load i32, ptr %856, align 4
   %858 = and i32 %857, 64
@@ -7258,7 +7258,7 @@ declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...)
 declare ptr @php_lookup_class_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_call_magic_serialize(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_call_magic_serialize(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
   %4 = add i32 %3, 1
   store i32 %4, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
@@ -7267,7 +7267,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_call_magic_serial
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 344
   %9 = load ptr, ptr %8, align 8
-  tail call void @zend_call_known_function(ptr noundef %9, ptr noundef %5, ptr noundef %7, ptr noundef %0, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  tail call void @zend_call_known_function(ptr noundef %9, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null, ptr noundef null) #12
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
   %11 = add i32 %10, -1
   store i32 %11, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
@@ -7276,7 +7276,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_var_serialize_call_magic_serial
   br i1 %.not, label %14, label %13
 
 13:                                               ; preds = %2
-  tail call void @zval_ptr_dtor(ptr noundef %0) #12
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %0) #12
   br label %24
 
 14:                                               ; preds = %2
@@ -7511,7 +7511,7 @@ define internal fastcc ptr @php_var_serialize_call_sleep(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @php_var_serialize_class(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._zend_array, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16

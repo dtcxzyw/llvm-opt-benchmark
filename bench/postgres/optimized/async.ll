@@ -592,7 +592,7 @@ define dso_local void @Async_Listen(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @queue_listen(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @queue_listen(i32 noundef range(i32 0, 3) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = tail call i32 @GetCurrentTransactionNestLevel() #16
   %4 = load ptr, ptr @CurTransactionContext, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8

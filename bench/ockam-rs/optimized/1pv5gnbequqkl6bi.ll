@@ -1828,7 +1828,7 @@ define hidden void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %0) unnamed_addr #3 {
+define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !505)
   %2 = load ptr, ptr %0, align 8, !alias.scope !505, !nonnull !4, !noundef !4
   %3 = atomicrmw sub ptr %2, i64 1 release, align 8, !noalias !505
@@ -5566,7 +5566,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node19identities_creation17h3676b02a1
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5609,7 +5609,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node23identities_verification17hfdedb
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5652,7 +5652,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node15identities_keys17hd9d8b4712ede4
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5695,7 +5695,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node11credentials17hc86308ed0cb251edE
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5747,7 +5747,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node12purpose_keys17h32789cec9a0d8a14
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5790,7 +5790,7 @@ define { ptr, ptr } @_ZN5ockam4node4Node21identities_repository17h82559828c72fae
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1
@@ -5833,7 +5833,7 @@ define noundef nonnull ptr @_ZN5ockam4node4Node21identities_attributes17hff5f3a5
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #34
+  invoke fastcc void @"_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$ockam_identity..identities..identities..Identities$GT$$GT$17h57f353113b1d059bE"(ptr noalias noundef align 8 dereferenceable(8) %2) #34
           to label %17 unwind label %15
 
 11:                                               ; preds = %1

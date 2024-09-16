@@ -243,7 +243,7 @@ if.end16:                                         ; preds = %invoke.cont9
           to label %invoke.cont19 unwind label %lpad18
 
 invoke.cont19:                                    ; preds = %if.end16
-  %call22 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull %call10, ptr noundef nonnull align 8 dereferenceable(32) %selected)
+  %call22 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %call10, ptr noundef nonnull align 8 dereferenceable(32) %selected)
           to label %invoke.cont21 unwind label %lpad20
 
 invoke.cont21:                                    ; preds = %invoke.cont19
@@ -293,7 +293,7 @@ if.end33:                                         ; preds = %invoke.cont26
           to label %invoke.cont37 unwind label %lpad36
 
 invoke.cont37:                                    ; preds = %if.end33
-  %call40 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef nonnull %call27, ptr noundef nonnull align 8 dereferenceable(32) %selected)
+  %call40 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, ptr noundef %call27, ptr noundef nonnull align 8 dereferenceable(32) %selected)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %invoke.cont37
@@ -343,7 +343,7 @@ if.end54:                                         ; preds = %invoke.cont47
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %if.end54
-  %call61 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull %call48, ptr noundef nonnull align 8 dereferenceable(32) %selected)
+  %call61 = invoke fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef %call48, ptr noundef nonnull align 8 dereferenceable(32) %selected)
           to label %invoke.cont60 unwind label %lpad59
 
 invoke.cont60:                                    ; preds = %invoke.cont58
@@ -933,7 +933,7 @@ declare ptr @RSA_private_key_from_bytes(ptr noundef, i64 noundef) local_unnamed_
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %key_name, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS6_(ptr noundef nonnull align 8 dereferenceable(32) %key_name, ptr noundef nonnull %key, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sig = alloca %"class.std::unique_ptr", align 8
   %fake_sha256_hash = alloca [32 x i8], align 16
@@ -952,7 +952,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call2 = tail call i32 @RSA_size(ptr noundef %key)
+  %call2 = tail call i32 @RSA_size(ptr noundef nonnull %key)
   %0 = zext i32 %call2 to i64
   %call3 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %0) #19
   store ptr %call3, ptr %sig, align 8
@@ -974,7 +974,7 @@ invoke.cont:                                      ; preds = %if.end
   store ptr %call.i.i2.i7, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call6 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call6 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1067,7 +1067,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   store ptr %call.i.i2.i18, ptr %agg.tmp16, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i17, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL8SpeedRSARKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6rsa_stS8_E3$_1E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %_M_manager.i.i16, align 8
-  %call21 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp16)
+  %call21 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp16)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont18
@@ -1185,7 +1185,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @RSA_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL9SpeedAEADPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS9_(ptr noundef %aead, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %ad_len, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL9SpeedAEADPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS9_(ptr noundef %aead, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef range(i64 11, 14) %ad_len, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1461,7 +1461,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
-  %call4 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %agg.tmp, i64 noundef 16)
+  %call4 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %agg.tmp, i64 noundef 16)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
@@ -1473,7 +1473,7 @@ land.lhs.true5:                                   ; preds = %invoke.cont3
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %land.lhs.true5
-  %call13 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %agg.tmp6, i64 noundef 256)
+  %call13 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %agg.tmp6, i64 noundef 256)
           to label %invoke.cont12 unwind label %lpad11
 
 invoke.cont12:                                    ; preds = %invoke.cont9
@@ -1485,7 +1485,7 @@ land.rhs:                                         ; preds = %invoke.cont12
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %land.rhs
-  %call22 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %agg.tmp14, i64 noundef 8192)
+  %call22 = invoke fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %agg.tmp14, i64 noundef 8192)
           to label %cleanup.done28.thread unwind label %lpad20
 
 cleanup.done28.thread:                            ; preds = %invoke.cont18
@@ -1914,7 +1914,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   store ptr %private_key, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call2 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call2 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -1978,7 +1978,7 @@ invoke.cont10:                                    ; preds = %if.end4
   store ptr %signature, ptr %ref.tmp12.sroa.2.0.agg.tmp11.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i20, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i19, align 8
-  %call15 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp11)
+  %call15 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp11)
           to label %invoke.cont14 unwind label %lpad13
 
 invoke.cont14:                                    ; preds = %invoke.cont10
@@ -2046,7 +2046,7 @@ invoke.cont25:                                    ; preds = %if.end19
   store ptr %signature, ptr %ref.tmp29.sroa.2.0.agg.tmp28.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i41, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i40, align 8
-  %call32 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp28)
+  %call32 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp28)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont25
@@ -2117,7 +2117,7 @@ invoke.cont43:                                    ; preds = %if.end37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp46, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i62, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_3E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i61, align 8
-  %call50 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp46)
+  %call50 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp46)
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %invoke.cont43
@@ -2188,7 +2188,7 @@ invoke.cont61:                                    ; preds = %if.end55
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp64, i8 0, i64 16, i1 false)
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i83, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL10Speed25519RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_4E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i82, align 8
-  %call68 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp64)
+  %call68 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp64)
           to label %invoke.cont67 unwind label %lpad66
 
 invoke.cont67:                                    ; preds = %invoke.cont61
@@ -2323,7 +2323,7 @@ if.end8:                                          ; preds = %invoke.cont
   store i64 %3, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL11SpeedSPAKE2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL11SpeedSPAKE2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call11 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call11 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont10 unwind label %lpad9
 
 invoke.cont10:                                    ; preds = %if.end8
@@ -2444,7 +2444,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   store ptr %clientmsg, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL12SpeedNewHopeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL12SpeedNewHopeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call4 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call4 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -2539,7 +2539,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr nocapture noundef writeonly %results, ptr noundef %func) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr nocapture noundef nonnull writeonly %results, ptr noundef nonnull %func) unnamed_addr #0 {
 entry:
   %ts.i23 = alloca %struct.timespec, align 8
   %ts.i11 = alloca %struct.timespec, align 8
@@ -2806,7 +2806,7 @@ declare i32 @RSA_verify(i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14SpeedAEADChunkPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noundef %aead, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %chunk_len, i64 noundef %ad_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14SpeedAEADChunkPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm(ptr noundef %aead, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef range(i64 16, 8193) %chunk_len, i64 noundef range(i64 11, 14) %ad_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ctx = alloca %struct.evp_aead_ctx_st, align 8
   %nonce = alloca %"class.std::unique_ptr", align 8
@@ -2841,12 +2841,12 @@ invoke.cont13:                                    ; preds = %invoke.cont8
 
 invoke.cont16:                                    ; preds = %invoke.cont13
   store ptr %call17, ptr %ad, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %call17, i8 0, i64 %ad_len, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call17, i8 0, i64 %ad_len, i1 false)
   %0 = ptrtoint ptr %call9 to i64
   %1 = and i64 %0, -16
   %and.i = add i64 %1, 16
   %2 = inttoptr i64 %and.i to ptr
-  tail call void @llvm.memset.p0.i64(ptr align 16 %2, i8 0, i64 %chunk_len, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %2, i8 0, i64 %chunk_len, i1 false)
   %3 = ptrtoint ptr %call14 to i64
   %4 = and i64 %3, -16
   %and.i24 = add i64 %4, 16
@@ -2917,7 +2917,7 @@ invoke.cont33:                                    ; preds = %if.end
   store ptr %call.i.i2.i25, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedAEADChunkPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedAEADChunkPK11evp_aead_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call36 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call36 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont33
@@ -2991,8 +2991,8 @@ invoke.cont45:                                    ; preds = %.noexc
   %div.i = fdiv double %conv.i, %conv4.i
   %mul.i = fmul double %div.i, 1.000000e+06
   %conv6.i = zext i32 %24 to i64
-  %mul7.i = mul i64 %chunk_len, %conv6.i
-  %conv8.i = uitofp i64 %mul7.i to double
+  %mul7.i = mul nuw nsw i64 %chunk_len, %conv6.i
+  %conv8.i = uitofp nneg i64 %mul7.i to double
   %div11.i = fdiv double %conv8.i, %conv4.i
   %call12.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %24, ptr noundef %call.i33, i32 noundef %25, double noundef %mul.i, double noundef %div11.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #17
@@ -3153,7 +3153,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 declare i32 @EVP_AEAD_CTX_seal(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14SpeedHashChunkPK9env_md_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef %chunk_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14SpeedHashChunkPK9env_md_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %md, ptr noundef nonnull align 8 dereferenceable(32) %name, i64 noundef range(i64 16, 8193) %chunk_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %scratch = alloca [8192 x i8], align 16
   %results = alloca %struct.TimeResults, align 4
@@ -3174,7 +3174,7 @@ entry:
   store ptr %call.i.i2.i, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedHashChunkPK9env_md_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedHashChunkPK9env_md_stRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call1 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call1 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3234,8 +3234,8 @@ if.end4:                                          ; preds = %_ZNSt8functionIFbvE
   %div.i = fdiv double %conv.i, %conv4.i
   %mul.i = fmul double %div.i, 1.000000e+06
   %conv6.i = zext i32 %11 to i64
-  %mul7.i = mul i64 %chunk_len, %conv6.i
-  %conv8.i = uitofp i64 %mul7.i to double
+  %mul7.i = mul nuw nsw i64 %chunk_len, %conv6.i
+  %conv8.i = uitofp nneg i64 %mul7.i to double
   %div11.i = fdiv double %conv8.i, %conv4.i
   %call12.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %11, ptr noundef %call.i, i32 noundef %12, double noundef %mul.i, double noundef %div11.i)
   call void @EVP_MD_CTX_destroy(ptr noundef %call)
@@ -3333,7 +3333,7 @@ declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef %name, i64 noundef %chunk_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull %name, i64 noundef range(i64 16, 8193) %chunk_len) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %scratch = alloca [8192 x i8], align 16
   %results = alloca %struct.TimeResults, align 4
@@ -3345,7 +3345,7 @@ entry:
   store ptr %scratch, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL16SpeedRandomChunkNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -3398,8 +3398,8 @@ if.end2:                                          ; preds = %_ZNSt8functionIFbvE
   %div.i = fdiv double %conv.i, %conv4.i
   %mul.i = fmul double %div.i, 1.000000e+06
   %conv6.i = zext i32 %7 to i64
-  %mul7.i = mul i64 %chunk_len, %conv6.i
-  %conv8.i = uitofp i64 %mul7.i to double
+  %mul7.i = mul nuw nsw i64 %chunk_len, %conv6.i
+  %conv8.i = uitofp nneg i64 %mul7.i to double
   %div11.i = fdiv double %conv8.i, %conv4.i
   %call12.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i32 noundef %7, ptr noundef %call.i, i32 noundef %8, double noundef %mul.i, double noundef %div11.i)
   br label %return
@@ -3449,7 +3449,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS6_(ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %nid, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS6_(ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef range(i32 415, 717) %nid, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %results = alloca %struct.TimeResults, align 4
   %agg.tmp = alloca %"class.std::function", align 8
@@ -3468,7 +3468,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   store i32 %nid, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL14SpeedECDHCurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call2 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call2 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.end
@@ -3891,7 +3891,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS6_(ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %nid, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS6_(ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef range(i32 415, 717) %nid, ptr noundef nonnull align 8 dereferenceable(32) %selected) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %key = alloca %"class.std::unique_ptr.11", align 8
   %signature = alloca [256 x i8], align 16
@@ -3957,7 +3957,7 @@ invoke.cont14:                                    ; preds = %if.end13
   store ptr %call.i.i2.i5, ptr %agg.tmp, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i, align 8
-  %call17 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp)
+  %call17 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp)
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont14
@@ -4040,7 +4040,7 @@ invoke.cont26:                                    ; preds = %invoke.cont23
   store ptr %call.i.i2.i16, ptr %agg.tmp24, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_1E9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i15, align 8
   store ptr @"_ZNSt17_Function_handlerIFbvEZL15SpeedECDSACurveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_E3$_1E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %_M_manager.i.i14, align 8
-  %call29 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef nonnull %results, ptr noundef nonnull %agg.tmp24)
+  %call29 = invoke fastcc noundef zeroext i1 @_ZL12TimeFunctionP11TimeResultsSt8functionIFbvEE(ptr noundef %results, ptr noundef %agg.tmp24)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont26

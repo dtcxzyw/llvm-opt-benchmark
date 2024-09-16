@@ -2690,7 +2690,7 @@ while.end:                                        ; preds = %cond.end22, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_long_string(ptr nocapture noundef %ls, ptr noundef writeonly %seminfo, i64 noundef %sep) unnamed_addr #0 {
+define internal fastcc void @read_long_string(ptr nocapture noundef %ls, ptr noundef writeonly %seminfo, i64 noundef range(i64 2, 0) %sep) unnamed_addr #0 {
 entry:
   %linenumber = getelementptr inbounds i8, ptr %ls, i64 4
   %0 = load i32, ptr %linenumber, align 4
@@ -3095,7 +3095,7 @@ if.then78:                                        ; preds = %cond.end32
   %mul = shl i64 %sep, 1
   %sub = sub i64 %68, %mul
   %69 = load ptr, ptr %L.i75, align 8
-  %call.i105 = tail call ptr @luaS_newlstr(ptr noundef %69, ptr noundef %add.ptr, i64 noundef %sub) #6
+  %call.i105 = tail call ptr @luaS_newlstr(ptr noundef %69, ptr noundef nonnull %add.ptr, i64 noundef %sub) #6
   %h.i = getelementptr inbounds i8, ptr %ls, i64 80
   %70 = load ptr, ptr %h.i, align 8
   %call2.i = tail call ptr @luaH_getstr(ptr noundef %70, ptr noundef %call.i105) #6
@@ -3150,7 +3150,7 @@ if.end83:                                         ; preds = %luaX_newstring.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_next1(ptr nocapture noundef %ls, i32 noundef %c) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_next1(ptr nocapture noundef %ls, i32 noundef range(i32 46, 63) %c) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %ls, align 8
   %cmp = icmp eq i32 %0, %c

@@ -2629,7 +2629,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114COFFMasmParser18ParseSectionSwitchEN4llvm9StringRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114COFFMasmParser18ParseSectionSwitchEN4llvm9StringRefEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr %1, i64 %2, i32 noundef range(i32 1610612768, -1073741695) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

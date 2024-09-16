@@ -712,7 +712,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 196609, 196611) %4, i32 noundef range(i32 16, 0) %5, i32 noundef %6) unnamed_addr #0 {
   %.off = add i8 %3, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %8, label %242
@@ -727,7 +727,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %15 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %14, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef 3) #2
   %16 = load i32, ptr @hf_dlm3_h_minor_version, align 4
   %17 = add i32 %6, 2
-  %18 = and i32 %4, 65535
+  %18 = and i32 %4, 3
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %16, ptr noundef %0, i32 noundef %17, i32 noundef 2, i32 noundef %18) #2
   %20 = add i32 %6, 4
   %21 = load i32, ptr @hf_dlm3_h_lockspace, align 4

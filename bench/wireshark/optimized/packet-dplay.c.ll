@@ -1021,7 +1021,7 @@ define internal fastcc void @dissect_type07_message(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_player_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_player_message(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 28, 77) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dplay_multi_id_to, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
@@ -1086,7 +1086,7 @@ define internal fastcc void @dissect_type0f_message(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_type13_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_type13_message(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 28, 77) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_dplay_type_13_id_to, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %5, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef 0) #3
@@ -1214,7 +1214,7 @@ define internal fastcc void @dissect_ping_message(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_type1a_message(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 28, 77) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_dplay_type_1a_id_to, align 4
@@ -1365,7 +1365,7 @@ define internal fastcc void @dissect_type29_message(ptr noundef %0, ptr noundef 
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 108, 169) i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 108, 169) i32 @dissect_session_desc(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 28, 89) %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_dplay_sess_desc_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #3
   %6 = add nuw nsw i32 %2, 4
@@ -1421,7 +1421,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dissect_packed_player(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 48, 97) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %2) #3

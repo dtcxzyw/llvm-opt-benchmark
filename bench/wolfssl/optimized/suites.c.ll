@@ -133,7 +133,7 @@ if.end:                                           ; preds = %entry
 if.then17:                                        ; preds = %if.end
   store i32 %argc, ptr %args, align 8
   store ptr %argv, ptr %argv9, align 8
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %0 = load i32, ptr %return_code20, align 8
   %cmp21.not = icmp eq i32 %0, 0
   br i1 %cmp21.not, label %if.then147, label %if.then22
@@ -145,7 +145,7 @@ if.then22:                                        ; preds = %if.then17
 if.end27:                                         ; preds = %if.end
   store i32 1, ptr %args, align 8
   %puts12 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %1 = load i32, ptr %return_code20, align 8
   %cmp31.not = icmp eq i32 %1, 0
   br i1 %cmp31.not, label %if.end36, label %if.then32
@@ -158,7 +158,7 @@ if.end36:                                         ; preds = %if.end27
   store i32 2, ptr %args, align 8
   %call40 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.5, i64 noundef 80) #16
   %puts13 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %2 = load i32, ptr %return_code20, align 8
   %cmp43.not = icmp eq i32 %2, 0
   br i1 %cmp43.not, label %if.end48, label %if.then44
@@ -170,7 +170,7 @@ if.then44:                                        ; preds = %if.end36
 if.end48:                                         ; preds = %if.end36
   %call51 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.7, i64 noundef 80) #16
   %puts14 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %3 = load i32, ptr %return_code20, align 8
   %cmp54.not = icmp eq i32 %3, 0
   br i1 %cmp54.not, label %if.end59, label %if.then55
@@ -182,7 +182,7 @@ if.then55:                                        ; preds = %if.end48
 if.end59:                                         ; preds = %if.end48
   %call62 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.9, i64 noundef 80) #16
   %puts15 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %4 = load i32, ptr %return_code20, align 8
   %cmp65.not = icmp eq i32 %4, 0
   br i1 %cmp65.not, label %if.end70, label %if.then66
@@ -194,7 +194,7 @@ if.then66:                                        ; preds = %if.end59
 if.end70:                                         ; preds = %if.end59
   %call73 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.11, i64 noundef 80) #16
   %puts16 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %5 = load i32, ptr %return_code20, align 8
   %cmp76.not = icmp eq i32 %5, 0
   br i1 %cmp76.not, label %if.end81, label %if.then77
@@ -206,7 +206,7 @@ if.then77:                                        ; preds = %if.end70
 if.end81:                                         ; preds = %if.end70
   %call84 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.13, i64 noundef 80) #16
   %puts17 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %6 = load i32, ptr %return_code20, align 8
   %cmp87.not = icmp eq i32 %6, 0
   br i1 %cmp87.not, label %if.end92, label %if.then88
@@ -218,7 +218,7 @@ if.then88:                                        ; preds = %if.end81
 if.end92:                                         ; preds = %if.end81
   %call95 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.15, i64 noundef 80) #16
   %puts18 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %7 = load i32, ptr %return_code20, align 8
   %cmp98.not = icmp eq i32 %7, 0
   br i1 %cmp98.not, label %if.end103, label %if.then99
@@ -230,7 +230,7 @@ if.then99:                                        ; preds = %if.end92
 if.end103:                                        ; preds = %if.end92
   %call106 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.17, i64 noundef 80) #16
   %puts19 = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %8 = load i32, ptr %return_code20, align 8
   %cmp109.not = icmp eq i32 %8, 0
   br i1 %cmp109.not, label %if.end114, label %if.then110
@@ -244,7 +244,7 @@ if.end114:                                        ; preds = %if.end103
   %call118 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.19, i64 noundef 80) #16
   %call121 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx5, ptr noundef nonnull @.str.20, i64 noundef 80) #16
   %puts20 = call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %9 = load i32, ptr %return_code20, align 8
   %cmp124.not = icmp eq i32 %9, 0
   br i1 %cmp124.not, label %if.end129, label %if.then125
@@ -258,7 +258,7 @@ if.end129:                                        ; preds = %if.end114
   %call133 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx2, ptr noundef nonnull @.str.22, i64 noundef 80) #16
   %call136 = call i64 @wc_strlcpy(ptr noundef nonnull %arrayidx5, ptr noundef nonnull @.str.23, i64 noundef 80) #16
   %puts21 = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
-  call fastcc void @test_harness(ptr noundef nonnull %args)
+  call fastcc void @test_harness(ptr noundef %args)
   %10 = load i32, ptr %return_code20, align 8
   %cmp139.not = icmp eq i32 %10, 0
   br i1 %cmp139.not, label %if.then147, label %if.then140
@@ -290,7 +290,7 @@ declare ptr @wolfSSL_CTX_new(ptr noundef) local_unnamed_addr #2
 declare ptr @wolfSSLv23_client_method() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_harness(ptr nocapture noundef %vargs) unnamed_addr #0 {
+define internal fastcc void @test_harness(ptr nocapture noundef nonnull %vargs) unnamed_addr #0 {
 entry:
   %svrArgs = alloca [40 x ptr], align 16
   %cliArgs = alloca [40 x ptr], align 16
@@ -584,20 +584,20 @@ if.end156.sink.split:                             ; preds = %if.then142, %if.end
 if.end156:                                        ; preds = %if.end156.sink.split, %land.lhs.true139, %if.then115
   %svrArgsSz.4 = phi i32 [ %svrArgsSz.584, %land.lhs.true139 ], [ %svrArgsSz.1112, %if.then115 ], [ %svrArgsSz.4.ph, %if.end156.sink.split ]
   %cliArgsSz.4 = phi i32 [ %cliArgsSz.585, %land.lhs.true139 ], [ %cliArgsSz.1115, %if.then115 ], [ %cliArgsSz.4.ph, %if.end156.sink.split ]
-  %call158 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call158 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %cmp159 = icmp eq i32 %call158, 0
   br i1 %cmp159, label %if.then161, label %if.end190
 
 if.then161:                                       ; preds = %if.end156
-  %call164 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %call167 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %call170 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %call173 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %call176 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %call179 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %call182 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %call185 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
-  %call188 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef nonnull %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef nonnull %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call164 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %call167 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %call170 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call173 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call176 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %call179 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call182 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call185 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0)
+  %call188 = call fastcc i32 @execute_test_case(i32 noundef %svrArgsSz.4, ptr noundef %svrArgs, i32 noundef %cliArgsSz.4, ptr noundef %cliArgs, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0)
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end156, %if.then161, %if.end113
@@ -656,7 +656,7 @@ declare ptr @wc_strsep(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -124, 1) i32 @execute_test_case(i32 noundef %svr_argc, ptr noundef %svr_argv, i32 noundef %cli_argc, ptr noundef %cli_argv, i32 noundef %addNoVerify, i32 noundef %addNonBlocking, i32 noundef %addDisableEMS, i32 noundef %forceSrvDefCipherList, i32 noundef %forceCliDefCipherList) unnamed_addr #0 {
+define internal fastcc range(i32 -124, 1) i32 @execute_test_case(i32 noundef %svr_argc, ptr noundef nonnull %svr_argv, i32 noundef %cli_argc, ptr noundef nonnull %cli_argv, i32 noundef range(i32 0, 2) %addNoVerify, i32 noundef range(i32 0, 2) %addNonBlocking, i32 noundef range(i32 0, 2) %addDisableEMS, i32 noundef range(i32 0, 2) %forceSrvDefCipherList, i32 noundef range(i32 0, 2) %forceCliDefCipherList) unnamed_addr #0 {
 entry:
   %cert.i79 = alloca [80 x i8], align 16
   %cert.i = alloca [80 x i8], align 16

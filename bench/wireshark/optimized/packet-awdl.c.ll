@@ -1161,7 +1161,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 65539) i32 @awdl_add_tagged_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 2, 4) %4) unnamed_addr #0 {
   %6 = alloca %struct.awdl_tagged_field_data, align 8
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #5
   %8 = zext i8 %7 to i32

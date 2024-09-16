@@ -50293,7 +50293,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit236:             ; preds = %_ZN4llvmeqENS_9Stri
   %.0.i234 = phi i1 [ %202, %201 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit228.thread ]
   store ptr @.str.586, ptr %17, align 8
   store ptr @.str.587, ptr %91, align 8
-  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext %60, ptr nonnull %17, i64 2)
+  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext %60, ptr %17, i64 2)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit232.thread788:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit228, %198, %_ZN4llvmeqENS_9StringRefES0_.exit232
@@ -50373,7 +50373,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit252:             ; preds = %224
 
 _ZN4llvmeqENS_9StringRefES0_.exit252.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) @constinit, i64 32, i1 false)
-  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext true, ptr nonnull %18, i64 4)
+  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext true, ptr %18, i64 4)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit252.thread797:   ; preds = %224, %_ZN4llvmeqENS_9StringRefES0_.exit252
@@ -50411,7 +50411,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit264:             ; preds = %_ZN4llvmeqENS_9Stri
   %.0.i262 = phi i1 [ %230, %229 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit260.thread ]
   store ptr @.str.597, ptr %19, align 8
   store ptr @.str.596, ptr %90, align 8
-  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext %60, ptr nonnull %19, i64 2)
+  call fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull align 8 dereferenceable(24) %16, i1 noundef zeroext %60, ptr %19, i64 2)
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
 231:                                              ; preds = %_ZNK4llvm9StringRef5splitEc.exit, %_ZNK4llvm9StringRef5splitEc.exit, %_ZNK4llvm9StringRef5splitEc.exit, %_ZNK4llvm9StringRef5splitEc.exit
@@ -52243,12 +52243,12 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
   br i1 %.not260, label %323, label %317
 
 317:                                              ; preds = %315
-  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %72, i32 noundef %316)
+  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %72, i32 noundef %316)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %74) #20
   %318 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %73) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef %318, ptr noundef nonnull align 1 dereferenceable(1) %74) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull @.str.673, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.673, i64 18))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %72, ptr noundef nonnull %73)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %72, ptr noundef %73)
   br label %.sink.split
 
 319:                                              ; preds = %313
@@ -52262,7 +52262,7 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
   %322 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %76) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef %322, ptr noundef nonnull align 1 dereferenceable(1) %77) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull @.str.673, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.673, i64 18))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %75, ptr noundef nonnull %76)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %75, ptr noundef %76)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %317, %321
@@ -52285,12 +52285,12 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
 
 327:                                              ; preds = %325
   %328 = load i32, ptr %66, align 4
-  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %78, i32 noundef %328)
+  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %78, i32 noundef %328)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %80) #20
   %329 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %79) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef %329, ptr noundef nonnull align 1 dereferenceable(1) %80) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull @.str.674, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.674, i64 21))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %78, ptr noundef nonnull %79)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %78, ptr noundef %79)
   br label %.sink.split3052
 
 330:                                              ; preds = %325
@@ -52309,7 +52309,7 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
   %335 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %82) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef %335, ptr noundef nonnull align 1 dereferenceable(1) %83) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull @.str.674, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.674, i64 21))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %81, ptr noundef nonnull %82)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %81, ptr noundef %82)
   br label %.sink.split3052
 
 .sink.split3052:                                  ; preds = %327, %334
@@ -52332,12 +52332,12 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
 
 340:                                              ; preds = %338
   %341 = load i32, ptr %66, align 4
-  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %84, i32 noundef %341)
+  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %84, i32 noundef %341)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %86) #20
   %342 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %85) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %342, ptr noundef nonnull align 1 dereferenceable(1) %86) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %85, ptr noundef nonnull @.str.676, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.676, i64 18))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %84, ptr noundef nonnull %85)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %84, ptr noundef %85)
   br label %345
 
 343:                                              ; preds = %338
@@ -52346,7 +52346,7 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
   %344 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef %344, ptr noundef nonnull align 1 dereferenceable(1) %89) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull @.str.676, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.676, i64 18))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %87, ptr noundef nonnull %88)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %87, ptr noundef %88)
   br label %345
 
 345:                                              ; preds = %343, %340
@@ -52366,12 +52366,12 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
 
 349:                                              ; preds = %347
   %350 = load i32, ptr %66, align 4
-  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %90, i32 noundef %350)
+  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %90, i32 noundef %350)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #20
   %351 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %91) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef %351, ptr noundef nonnull align 1 dereferenceable(1) %92) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull @.str.675, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.675, i64 21))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %90, ptr noundef nonnull %91)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %90, ptr noundef %91)
   br label %.sink.split3059
 
 352:                                              ; preds = %347
@@ -52385,7 +52385,7 @@ _ZNK4llvm3opt7ArgList3endEv.exit:                 ; preds = %.lr.ph.i.i.i276, %.
   %355 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef %355, ptr noundef nonnull align 1 dereferenceable(1) %95) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull @.str.675, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.675, i64 21))
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %93, ptr noundef nonnull %94)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %93, ptr noundef %94)
   br label %.sink.split3059
 
 .sink.split3059:                                  ; preds = %349, %354
@@ -52559,14 +52559,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 411:                                              ; preds = %410
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(32) %69) #20
-  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %98, i32 noundef %.0242)
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %97, ptr noundef nonnull %98)
+  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %98, i32 noundef %.0242)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %97, ptr noundef %98)
   br label %.sink.split3063
 
 412:                                              ; preds = %408
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %99, ptr noundef nonnull align 8 dereferenceable(32) %69) #20
-  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %100, i32 noundef %.0242)
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %99, ptr noundef nonnull %100)
+  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %100, i32 noundef %.0242)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %99, ptr noundef %100)
   br label %.sink.split3063
 
 413:                                              ; preds = %406
@@ -52574,8 +52574,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 
 414:                                              ; preds = %413
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %101, ptr noundef nonnull align 8 dereferenceable(32) %69) #20
-  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %102, i32 noundef %.0242)
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull %101, ptr noundef nonnull %102)
+  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %102, i32 noundef %.0242)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef %101, ptr noundef %102)
   br label %.sink.split3063
 
 .sink.split3063:                                  ; preds = %414, %412, %411
@@ -57576,7 +57576,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit853: ; preds = %239
   br i1 %.not253, label %2406, label %2404
 
 2404:                                             ; preds = %2402
-  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %137, i32 noundef %2403)
+  call fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %137, i32 noundef %2403)
   %2405 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %137) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %137) #20
   br label %2406
@@ -57638,7 +57638,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit856: ; preds = %_ZN
 
 2435:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit856
   %2436 = load i32, ptr %66, align 4
-  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %141, i32 noundef %2436)
+  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %141, i32 noundef %2436)
   %2437 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %141, i64 noundef 0, ptr noundef nonnull @.str.722) #20, !noalias !2125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef nonnull align 8 dereferenceable(32) %2437) #20
   %2438 = getelementptr inbounds nuw i8, ptr %139, i64 32
@@ -73859,7 +73859,7 @@ declare { ptr, ptr } @_ZNK4llvm3opt8OptTable9getOptionENS0_12OptSpecifierE(ptr n
 declare void @_ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr nonnull readonly %2, i64 range(i64 2, 5) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -73997,22 +73997,18 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %53, %_ZN4llvmplERKN
 
 72:                                               ; preds = %4
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = getelementptr inbounds ptr, ptr %2, i64 %3
-  %.not23.not.i = icmp eq i64 %3, 0
-  br i1 %.not23.not.i, label %_ZN4llvm12is_containedIPKcNS_9StringRefEEEbSt16initializer_listIT_ERKT0_.exit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %72
-  %75 = load ptr, ptr %73, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %76, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %75, i64 24
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = getelementptr inbounds ptr, ptr %2, i64 %3
+  %.sroa.0.0.copyload.i = load ptr, ptr %75, align 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %74, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.2.0.copyload.fr.i = freeze i64 %.sroa.2.0.copyload.i
   %.not.i1016.i = icmp eq i64 %.sroa.2.0.copyload.fr.i, 0
   br i1 %.not.i1016.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
-  %.0924.us.i = phi ptr [ %78, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ], [ %2, %.lr.ph.i ]
+.lr.ph.split.us.i:                                ; preds = %72, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
+  %.0924.us.i = phi ptr [ %78, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i ], [ %2, %72 ]
   %77 = load ptr, ptr %.0924.us.i, align 8
   %.not.i.us.i = icmp eq ptr %77, null
   br i1 %.not.i.us.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %_ZN4llvm9StringRefC2EPKc.exit.us.i
@@ -74024,11 +74020,11 @@ _ZN4llvm9StringRefC2EPKc.exit.us.i:               ; preds = %.lr.ph.split.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i:  ; preds = %_ZN4llvm9StringRefC2EPKc.exit.us.i
   %78 = getelementptr inbounds i8, ptr %.0924.us.i, i64 8
-  %.not.us.not.i = icmp eq ptr %78, %74
+  %.not.us.not.i = icmp eq ptr %78, %76
   br i1 %.not.us.not.i, label %_ZN4llvm12is_containedIPKcNS_9StringRefEEEbSt16initializer_listIT_ERKT0_.exit, label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
-  %.0924.i = phi ptr [ %82, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ %2, %.lr.ph.i ]
+.lr.ph.split.i:                                   ; preds = %72, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i
+  %.0924.i = phi ptr [ %82, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i ], [ %2, %72 ]
   %79 = load ptr, ptr %.0924.i, align 8
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, label %_ZN4llvm9StringRefC2EPKc.exit.i
@@ -74045,10 +74041,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %_ZN4llvm9StringRefC
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread21.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvm9StringRefC2EPKc.exit.i, %.lr.ph.split.i
   %82 = getelementptr inbounds i8, ptr %.0924.i, i64 8
-  %.not.not.i = icmp eq ptr %82, %74
+  %.not.not.i = icmp eq ptr %82, %76
   br i1 %.not.not.i, label %_ZN4llvm12is_containedIPKcNS_9StringRefEEEbSt16initializer_listIT_ERKT0_.exit, label %.lr.ph.split.i
 
-_ZN4llvm12is_containedIPKcNS_9StringRefEEEbSt16initializer_listIT_ERKT0_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i, %72
+_ZN4llvm12is_containedIPKcNS_9StringRefEEEbSt16initializer_listIT_ERKT0_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread21.us.i
   %83 = load ptr, ptr %0, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2794)
   %84 = load ptr, ptr %83, align 8, !noalias !2794
@@ -74309,11 +74305,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %48, %54, %42, %_ZN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %5, i32 noundef %1)
+  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %5, i32 noundef %1)
   %6 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   br i1 %6, label %12, label %7
 
@@ -74347,14 +74343,14 @@ define internal fastcc void @_ZL24RenderComplexRangeOptionB5cxx11N5clang15LangOp
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not = icmp eq i32 %1, 4
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %1)
+  call fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %1)
   %6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0, ptr noundef nonnull @.str.722) #20, !noalias !2827
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
@@ -74373,7 +74369,7 @@ define internal fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOption
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL26RenderFloatingPointOptionsRKN5clang6driver9ToolChainERKNS0_6DriverEbRKN4llvm3opt7ArgListERNS7_11SmallVectorIPKcLj16EEERKNS0_9JobActionEENK3$_1clENS_15LangOptionsBase16ComplexRangeKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL26RenderFloatingPointOptionsRKN5clang6driver9ToolChainERKNS0_6DriverEbRKN4llvm3opt7ArgListERNS7_11SmallVectorIPKcLj16EEERKNS0_9JobActionEENK3$_1clENS_15LangOptionsBase16ComplexRangeKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %0, align 8
@@ -74397,12 +74393,12 @@ define internal fastcc void @"_ZZL26RenderFloatingPointOptionsRKN5clang6driver9T
 15:                                               ; preds = %7
   %16 = load ptr, ptr %0, align 8
   %17 = load i32, ptr %16, align 4
-  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %3, i32 noundef %17)
+  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %3, i32 noundef %17)
   br label %18
 
 18:                                               ; preds = %15, %13
-  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %1)
-  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %9, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @_ZL20ComplexArithmeticStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %1)
+  call fastcc void @_ZL20EmitComplexRangeDiagRKN5clang6driver6DriverENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(1192) %9, ptr noundef %3, ptr noundef %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   br label %19
@@ -74414,7 +74410,7 @@ define internal fastcc void @"_ZZL26RenderFloatingPointOptionsRKN5clang6driver9T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL21ComplexRangeKindToStrB5cxx11N5clang15LangOptionsBase16ComplexRangeKindE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1

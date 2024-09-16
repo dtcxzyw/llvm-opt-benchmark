@@ -734,7 +734,7 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
 
 .body23:                                          ; preds = %175, %89, %94, %100, %52, %.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %53, %52 ], [ %90, %89 ], [ %lpad.thr_comm.i, %100 ], [ %lpad.thr_comm.i, %94 ], [ %eh.lpad-body, %175 ]
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #25
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef align 8 dereferenceable(16) %17) #25
           to label %"_ZN4core3ptr69drop_in_place$LT$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$GT$17h365506af4142d881E.llvm.12800139334778793870.exit" unwind label %140
 
 52:                                               ; preds = %157, %82, %"_ZN4core3ptr69drop_in_place$LT$triomphe..arc..Arc$LT$span..ast_id..AstIdMap$GT$$GT$17h365506af4142d881E.llvm.12800139334778793870.exit21"
@@ -939,7 +939,7 @@ define hidden void @"_ZN143_$LT$hir_expand..files..InFileWrapper$LT$span..HirFil
 115:                                              ; preds = %105
   %116 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #25
+  invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef align 8 dereferenceable(16) %17) #25
           to label %134 unwind label %140
 
 117:                                              ; preds = %105
@@ -3749,7 +3749,7 @@ define internal void @"_ZN4core3ptr473drop_in_place$LT$$LT$hir_expand..files..In
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$hir_expand..span_map..SpanMap$GT$17h7648f594fc461699E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !136, !noundef !4
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4022,7 +4022,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$triomphe..arc..Arc$LT$span..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h802814d054477d98E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h802814d054477d98E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !509, !noundef !4
   %3 = icmp eq i8 %2, 27
   br i1 %3, label %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17h8355abb5aa761ff5E.exit", label %4
@@ -39762,7 +39762,7 @@ define { ptr, i64 } @"_ZN46_$LT$DB$u20$as$u20$hir_ty..db..HirDatabase$GT$28gener
 31:                                               ; preds = %5
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h802814d054477d98E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #25
+  invoke fastcc void @"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17h802814d054477d98E"(ptr noalias noundef align 8 dereferenceable(24) %4) #25
           to label %.body.thread unwind label %32
 
 32:                                               ; preds = %31

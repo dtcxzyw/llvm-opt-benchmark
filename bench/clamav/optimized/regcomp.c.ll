@@ -293,18 +293,18 @@ doemit.exit:                                      ; preds = %40, %enlarge.exit.i
   br i1 %.not, label %76, label %75
 
 75:                                               ; preds = %doemit.exit
-  call fastcc void @p_ere(ptr noundef nonnull %4, i32 noundef 128)
+  call fastcc void @p_ere(ptr noundef %4, i32 noundef 128)
   br label %79
 
 76:                                               ; preds = %doemit.exit
   br i1 %.not86, label %78, label %77
 
 77:                                               ; preds = %76
-  call fastcc void @p_str(ptr noundef nonnull %4)
+  call fastcc void @p_str(ptr noundef %4)
   br label %79
 
 78:                                               ; preds = %76
-  call fastcc void @p_bre(ptr noundef nonnull %4, i32 noundef 128, i32 noundef 128)
+  call fastcc void @p_bre(ptr noundef %4, i32 noundef 128, i32 noundef 128)
   br label %79
 
 79:                                               ; preds = %77, %78, %75
@@ -646,7 +646,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @p_ere(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @p_ere(ptr noundef nonnull %0, i32 noundef range(i32 41, 129) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -813,7 +813,7 @@ doemit.exit171:                                   ; preds = %48, %enlarge.exit.i
   br i1 %79, label %81, label %80
 
 80:                                               ; preds = %77, %doemit.exit171
-  tail call fastcc void @p_ere(ptr noundef nonnull %0, i32 noundef 41)
+  tail call fastcc void @p_ere(ptr noundef %0, i32 noundef 41)
   br label %81
 
 81:                                               ; preds = %80, %77
@@ -1093,7 +1093,7 @@ seterr.exit141:                                   ; preds = %184, %187
 193:                                              ; preds = %188
   store ptr @nonnewline.bracket, ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @nonnewline.bracket, i64 3), ptr %4, align 8
-  tail call fastcc void @p_bracket(ptr noundef nonnull %0)
+  tail call fastcc void @p_bracket(ptr noundef %0)
   store ptr %25, ptr %0, align 8
   store ptr %19, ptr %4, align 8
   br label %doemit.exit140
@@ -1156,7 +1156,7 @@ enlarge.exit.thread.i137:                         ; preds = %.enlarge.exit.threa
   br label %doemit.exit140
 
 215:                                              ; preds = %24
-  tail call fastcc void @p_bracket(ptr noundef nonnull %0)
+  tail call fastcc void @p_bracket(ptr noundef %0)
   br label %doemit.exit140
 
 216:                                              ; preds = %24
@@ -1304,7 +1304,7 @@ enlarge.exit.thread.i7.i:                         ; preds = %.enlarge.exit.threa
 
 270:                                              ; preds = %224
   %271 = sext i8 %227 to i32
-  tail call fastcc void @ordinary(ptr noundef nonnull %0, i32 noundef %271)
+  tail call fastcc void @ordinary(ptr noundef %0, i32 noundef %271)
   br label %doemit.exit140
 
 272:                                              ; preds = %24
@@ -1346,7 +1346,7 @@ seterr.exit131:                                   ; preds = %284, %287
   br i1 %.not164.i, label %292, label %p_ere_exp.exit
 
 292:                                              ; preds = %288
-  tail call fastcc void @ordinary(ptr noundef nonnull %0, i32 noundef %27)
+  tail call fastcc void @ordinary(ptr noundef %0, i32 noundef %27)
   br label %doemit.exit140
 
 doemit.exit140:                                   ; preds = %270, %enlarge.exit.thread.i7.i, %enlarge.exit.i9.i, %249, %enlarge.exit.thread.i.i, %enlarge.exit.i.i, %228, %enlarge.exit.thread.i137, %enlarge.exit.i139, %194, %292, %215, %193, %seterr.exit141, %seterr.exit142, %doemit.exit149, %doemit.exit156, %seterr.exit157, %114
@@ -1417,7 +1417,7 @@ seterr.exit130:                                   ; preds = %313, %316
   %320 = load i64, ptr %3, align 8
   %reass.sub198 = sub i64 %320, %.pre232.pre242
   %321 = add i64 %reass.sub198, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1207959552, i64 noundef %321, i64 noundef %.pre232.pre242)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1207959552, i64 noundef %321, i64 noundef %.pre232.pre242)
   %322 = load i64, ptr %3, align 8
   %323 = sub nsw i64 %322, %.pre232.pre242
   %324 = load i32, ptr %5, align 8
@@ -1481,7 +1481,7 @@ doemit.exit129:                                   ; preds = %319, %enlarge.exit.
   %345 = load i64, ptr %3, align 8
   %reass.sub199 = sub i64 %345, %.pre232.pre242
   %346 = add i64 %reass.sub199, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1476395008, i64 noundef %346, i64 noundef %.pre232.pre242)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1476395008, i64 noundef %346, i64 noundef %.pre232.pre242)
   %347 = load i64, ptr %3, align 8
   %348 = sub nsw i64 %347, %.pre232.pre242
   %349 = load i32, ptr %5, align 8
@@ -1545,7 +1545,7 @@ enlarge.exit.thread.i119:                         ; preds = %.enlarge.exit.threa
   %371 = load i64, ptr %3, align 8
   %reass.sub197 = sub i64 %371, %.pre232.pre242
   %372 = add i64 %reass.sub197, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1207959552, i64 noundef %372, i64 noundef %.pre232.pre242)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1207959552, i64 noundef %372, i64 noundef %.pre232.pre242)
   %373 = load i64, ptr %3, align 8
   %374 = sub nsw i64 %373, %.pre232.pre242
   %375 = load i32, ptr %5, align 8
@@ -1609,7 +1609,7 @@ enlarge.exit.thread.i112:                         ; preds = %.enlarge.exit.threa
   %397 = load i64, ptr %3, align 8
   %reass.sub = sub i64 %397, %.pre232.pre242
   %398 = add i64 %reass.sub, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 2013265920, i64 noundef %398, i64 noundef %.pre232.pre242)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 2013265920, i64 noundef %398, i64 noundef %.pre232.pre242)
   %399 = load i64, ptr %3, align 8
   %400 = sub nsw i64 %399, %.pre232.pre242
   %401 = load i32, ptr %5, align 8
@@ -1976,7 +1976,7 @@ seterr.exit68:                                    ; preds = %558, %561
 
 562:                                              ; preds = %seterr.exit68, %p_count.exit, %520, %517, %p_count.exit83
   %.0155.i = phi i32 [ %.013.lcssa24.i, %p_count.exit ], [ %.013.lcssa24.i, %seterr.exit68 ], [ 256, %520 ], [ %.013.lcssa24.i74, %p_count.exit83 ], [ %.013.lcssa24.i74, %517 ]
-  tail call fastcc void @repeat(ptr noundef nonnull %0, i64 noundef %.pre232.pre242, i32 noundef %.013.lcssa24.i74, i32 noundef %.0155.i)
+  tail call fastcc void @repeat(ptr noundef %0, i64 noundef %.pre232.pre242, i32 noundef %.013.lcssa24.i74, i32 noundef %.0155.i)
   %563 = load ptr, ptr %4, align 8
   %564 = load ptr, ptr %0, align 8
   %565 = ptrtoint ptr %563 to i64
@@ -2135,7 +2135,7 @@ seterr.exit:                                      ; preds = %.critedge.thread, %
 630:                                              ; preds = %628
   %reass.sub200 = sub i64 %618, %12
   %631 = add i64 %reass.sub200, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 2013265920, i64 noundef %631, i64 noundef %12)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 2013265920, i64 noundef %631, i64 noundef %12)
   %.pre235 = load i64, ptr %3, align 8
   br label %632
 
@@ -2356,7 +2356,7 @@ doemit.exit64:                                    ; preds = %688, %enlarge.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @p_str(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @p_str(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -2396,7 +2396,7 @@ seterr.exit:                                      ; preds = %9, %13
   store ptr %22, ptr %0, align 8
   %23 = load i8, ptr %21, align 1
   %24 = sext i8 %23 to i32
-  tail call fastcc void @ordinary(ptr noundef nonnull %0, i32 noundef %24)
+  tail call fastcc void @ordinary(ptr noundef %0, i32 noundef %24)
   %25 = load ptr, ptr %2, align 8
   %26 = load ptr, ptr %0, align 8
   %27 = ptrtoint ptr %25 to i64
@@ -2410,7 +2410,7 @@ seterr.exit:                                      ; preds = %9, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @p_bre(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @p_bre(ptr noundef nonnull %0, i32 noundef range(i32 92, 129) %1, i32 noundef range(i32 41, 129) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2620,7 +2620,7 @@ seterr.exit127:                                   ; preds = %84, %87
 103:                                              ; preds = %98
   store ptr @nonnewline.bracket, ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @nonnewline.bracket, i64 3), ptr %6, align 8
-  tail call fastcc void @p_bracket(ptr noundef nonnull %0)
+  tail call fastcc void @p_bracket(ptr noundef %0)
   store ptr %97, ptr %0, align 8
   store ptr %96, ptr %6, align 8
   br label %doemit.exit126
@@ -2683,7 +2683,7 @@ enlarge.exit.thread.i123:                         ; preds = %.enlarge.exit.threa
   br label %doemit.exit126
 
 125:                                              ; preds = %95
-  tail call fastcc void @p_bracket(ptr noundef nonnull %0)
+  tail call fastcc void @p_bracket(ptr noundef %0)
   br label %doemit.exit126
 
 126:                                              ; preds = %95
@@ -2916,7 +2916,7 @@ doemit.exit104:                                   ; preds = %184, %enlarge.exit.
   br i1 %220, label %222, label %221
 
 221:                                              ; preds = %217, %214, %213
-  tail call fastcc void @p_bre(ptr noundef nonnull %0, i32 noundef 92, i32 noundef 41)
+  tail call fastcc void @p_bre(ptr noundef %0, i32 noundef 92, i32 noundef 41)
   br label %222
 
 222:                                              ; preds = %221, %217, %doemit.exit104
@@ -3262,7 +3262,7 @@ doemit.exit79:                                    ; preds = %enlarge.exit.thread
 359:                                              ; preds = %357
   %sext.i = shl i32 %.0119.i, 24
   %360 = ashr exact i32 %sext.i, 24
-  tail call fastcc void @ordinary(ptr noundef nonnull %0, i32 noundef %360)
+  tail call fastcc void @ordinary(ptr noundef %0, i32 noundef %360)
   br label %doemit.exit126
 
 doemit.exit126:                                   ; preds = %enlarge.exit.thread.i109, %enlarge.exit.i111, %147, %enlarge.exit.thread.i116, %enlarge.exit.i118, %126, %enlarge.exit.thread.i123, %enlarge.exit.i125, %104, %359, %doemit.exit79, %seterr.exit89, %seterr.exit90, %262, %seterr.exit105, %125, %103
@@ -3285,7 +3285,7 @@ doemit.exit126:                                   ; preds = %enlarge.exit.thread
   %372 = load i64, ptr %4, align 8
   %reass.sub = sub i64 %372, %75
   %373 = add i64 %reass.sub, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1207959552, i64 noundef %373, i64 noundef %75)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1207959552, i64 noundef %373, i64 noundef %75)
   %374 = load i64, ptr %4, align 8
   %375 = sub nsw i64 %374, %75
   %376 = load i32, ptr %56, align 8
@@ -3349,7 +3349,7 @@ doemit.exit70:                                    ; preds = %370, %enlarge.exit.
   %397 = load i64, ptr %4, align 8
   %reass.sub136 = sub i64 %397, %75
   %398 = add i64 %reass.sub136, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1476395008, i64 noundef %398, i64 noundef %75)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1476395008, i64 noundef %398, i64 noundef %75)
   %399 = load i64, ptr %4, align 8
   %400 = sub nsw i64 %399, %75
   %401 = load i32, ptr %56, align 8
@@ -3591,7 +3591,7 @@ seterr.exit41:                                    ; preds = %508, %511
 
 512:                                              ; preds = %seterr.exit41, %p_count.exit, %475, %470, %467, %p_count.exit56
   %.0120.i = phi i32 [ %.013.lcssa.ph.i, %p_count.exit ], [ %.013.lcssa.ph.i, %seterr.exit41 ], [ 256, %475 ], [ 256, %470 ], [ %.013.lcssa24.i47, %p_count.exit56 ], [ %.013.lcssa24.i47, %467 ]
-  tail call fastcc void @repeat(ptr noundef nonnull %0, i64 noundef %75, i32 noundef %.013.lcssa24.i47, i32 noundef %.0120.i)
+  tail call fastcc void @repeat(ptr noundef %0, i64 noundef %75, i32 noundef %.013.lcssa24.i47, i32 noundef %.0120.i)
   %513 = load ptr, ptr %6, align 8
   %514 = load ptr, ptr %0, align 8
   %515 = ptrtoint ptr %513 to i64
@@ -3797,7 +3797,7 @@ seterr.exit:                                      ; preds = %591, %595
 declare void @cli_regfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doinsert(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @doinsert(ptr nocapture noundef nonnull %0, i64 noundef range(i64 1207959552, 2013265921) %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 0
@@ -3933,7 +3933,7 @@ seterr.exit:                                      ; preds = %36, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @p_bracket(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @p_bracket(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -4768,7 +4768,7 @@ seterr.exit86.i:                                  ; preds = %410, %407
   br label %p_b_term.exit
 
 .thread88.i:                                      ; preds = %202, %198, %.critedge93
-  %411 = tail call fastcc signext i8 @p_b_symbol(ptr noundef nonnull %0)
+  %411 = tail call fastcc signext i8 @p_b_symbol(ptr noundef %0)
   %412 = load ptr, ptr %2, align 8
   %413 = load ptr, ptr %0, align 8
   %414 = ptrtoint ptr %412 to i64
@@ -4808,7 +4808,7 @@ seterr.exit86.i:                                  ; preds = %410, %407
   br label %435
 
 433:                                              ; preds = %428, %424
-  %434 = tail call fastcc signext i8 @p_b_symbol(ptr noundef nonnull %0)
+  %434 = tail call fastcc signext i8 @p_b_symbol(ptr noundef %0)
   br label %435
 
 435:                                              ; preds = %433, %431
@@ -5231,7 +5231,7 @@ othercase.exit165:                                ; preds = %626, %628, %630
   br i1 %.not8.i134, label %634, label %633
 
 633:                                              ; preds = %othercase.exit165
-  tail call fastcc void @bothcases(ptr noundef nonnull %0, i32 noundef %.0.i130)
+  tail call fastcc void @bothcases(ptr noundef %0, i32 noundef %.0.i130)
   br label %ordinary.exit
 
 634:                                              ; preds = %firstch.exit._crit_edge, %othercase.exit165, %615
@@ -5547,7 +5547,7 @@ freeset.exit:                                     ; preds = %enlarge.exit.thread
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ordinary(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ordinary(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -5611,7 +5611,7 @@ othercase.exit:                                   ; preds = %20, %22, %24
   %33 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 93, ptr %33, align 1
   store i8 0, ptr %32, align 1
-  call fastcc void @p_bracket(ptr noundef nonnull %0) #14
+  call fastcc void @p_bracket(ptr noundef %0) #14
   store ptr %28, ptr %0, align 8
   store ptr %30, ptr %29, align 8
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3)
@@ -5685,7 +5685,7 @@ doemit.exit:                                      ; preds = %enlarge.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @repeat(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @repeat(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
@@ -5737,9 +5737,9 @@ define internal fastcc void @repeat(ptr noundef %0, i64 noundef %1, i32 noundef 
 24:                                               ; preds = %15, %15, %15
   %reass.sub220 = sub i64 %16, %.tr163213
   %25 = add i64 %reass.sub220, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 2013265920, i64 noundef %25, i64 noundef %.tr163213)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 2013265920, i64 noundef %25, i64 noundef %.tr163213)
   %26 = add nsw i64 %.tr163213, 1
-  tail call fastcc void @repeat(ptr noundef nonnull %0, i64 noundef %26, i32 noundef 1, i32 noundef %.tr165.ph218)
+  tail call fastcc void @repeat(ptr noundef %0, i64 noundef %26, i32 noundef 1, i32 noundef %.tr165.ph218)
   %27 = load i64, ptr %5, align 8
   %28 = sub nsw i64 %27, %.tr163213
   %29 = load i32, ptr %6, align 8
@@ -5938,7 +5938,7 @@ enlarge.exit.thread.i92:                          ; preds = %.enlarge.exit.threa
 106:                                              ; preds = %15
   %reass.sub219 = sub i64 %16, %.tr163213
   %107 = add i64 %reass.sub219, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 2013265920, i64 noundef %107, i64 noundef %.tr163213)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 2013265920, i64 noundef %107, i64 noundef %.tr163213)
   %108 = load i64, ptr %5, align 8
   %109 = sub nsw i64 %108, %.tr163213
   %110 = load i32, ptr %6, align 8
@@ -6196,7 +6196,7 @@ tailrecurse.outer.backedge:                       ; preds = %._crit_edge.i, %enl
 211:                                              ; preds = %15
   %reass.sub = sub i64 %16, %.tr163213
   %212 = add i64 %reass.sub, 1
-  tail call fastcc void @doinsert(ptr noundef nonnull %0, i64 noundef 1207959552, i64 noundef %212, i64 noundef %.tr163213)
+  tail call fastcc void @doinsert(ptr noundef %0, i64 noundef 1207959552, i64 noundef %212, i64 noundef %.tr163213)
   %213 = load i64, ptr %5, align 8
   %214 = sub nsw i64 %213, %.tr163213
   %215 = load i32, ptr %6, align 8
@@ -6385,7 +6385,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc signext i8 @p_b_symbol(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc signext i8 @p_b_symbol(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -6588,7 +6588,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #7
 declare i32 @toupper(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bothcases(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @bothcases(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [3 x i8], align 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6601,7 +6601,7 @@ define internal fastcc void @bothcases(ptr noundef %0, i32 noundef %1) unnamed_a
   %9 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 93, ptr %9, align 1
   store i8 0, ptr %8, align 1
-  call fastcc void @p_bracket(ptr noundef nonnull %0)
+  call fastcc void @p_bracket(ptr noundef %0)
   store ptr %4, ptr %0, align 8
   store ptr %6, ptr %5, align 8
   ret void

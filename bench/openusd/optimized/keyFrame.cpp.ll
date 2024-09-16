@@ -2138,7 +2138,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   br i1 %10, label %16, label %92
 
 16:                                               ; preds = %2
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %18 unwind label %85
 
@@ -2298,7 +2298,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit24: ; preds = %_ZN32pxrInt
   br label %107
 
 92:                                               ; preds = %2
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %1)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %1)
   %93 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %94 unwind label %104
 
@@ -2348,7 +2348,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L9_GetValueB5cxx11ERKNS_10TsKeyFrameE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -2553,7 +2553,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %46, %52
           to label %89 unwind label %90, !noalias !56
 
 89:                                               ; preds = %.noexc26
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %92 unwind label %90
 
 90:                                               ; preds = %89, %.noexc26

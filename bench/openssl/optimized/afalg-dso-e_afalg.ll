@@ -337,7 +337,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ERR_AFALG_error(i32 noundef %reason, i32 noundef %line) unnamed_addr #1 {
+define internal fastcc void @ERR_AFALG_error(i32 noundef range(i32 100, 113) %reason, i32 noundef range(i32 212, 883) %line) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr @lib_code, align 4
   %cmp = icmp eq i32 %0, 0
@@ -712,7 +712,7 @@ afalg_set_key.exit.thread:                        ; preds = %do.body.i17, %if.th
 
 if.end25:                                         ; preds = %if.end21
   %aio = getelementptr inbounds i8, ptr %call5, i64 16
-  %call26 = call fastcc i32 @afalg_init_aio(ptr noundef nonnull %aio)
+  %call26 = call fastcc i32 @afalg_init_aio(ptr noundef %aio)
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %err, label %if.end29
 
@@ -1180,7 +1180,7 @@ declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @afalg_init_aio(ptr noundef %aio) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @afalg_init_aio(ptr noundef nonnull %aio) unnamed_addr #1 {
 entry:
   %aio_ctx = getelementptr inbounds i8, ptr %aio, i64 8
   store i64 0, ptr %aio_ctx, align 8

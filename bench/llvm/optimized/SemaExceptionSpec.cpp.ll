@@ -7453,7 +7453,7 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %201, %205
   br i1 %.not206, label %221, label %218
 
 218:                                              ; preds = %.lr.ph
-  %219 = tail call fastcc noundef i32 @_ZN5clangL15canVarDeclThrowERNS_4SemaEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %212)
+  %219 = tail call fastcc noundef i32 @_ZN5clangL15canVarDeclThrowERNS_4SemaEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %212)
   %220 = tail call noundef i32 @llvm.smax.i32(i32 %.0176386, i32 %219)
   %.pre500 = load i32, ptr %213, align 4
   %.pre501 = and i32 %.pre500, 127
@@ -8007,7 +8007,7 @@ _ZNK5clang4Type24getBaseElementTypeUnsafeEv.exit: ; preds = %22, %_ZNK5clang4Typ
   br i1 %.not41, label %53, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = tail call fastcc noundef i32 @_ZN5clangL15canVarDeclThrowERNS_4SemaEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull %49)
+  %51 = tail call fastcc noundef i32 @_ZN5clangL15canVarDeclThrowERNS_4SemaEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %49)
   %52 = tail call noundef i32 @llvm.smax.i32(i32 %.348, i32 %51)
   br label %53
 

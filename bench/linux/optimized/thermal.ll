@@ -475,7 +475,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %203 = load i64, ptr %202, align 8
   %204 = trunc i64 %203 to i32
   %205 = mul i32 %204, 100
-  %206 = call ptr @thermal_zone_device_register_with_trips(ptr noundef nonnull @.str.22, ptr noundef %201, i32 noundef %94, i32 noundef 0, ptr noundef %11, ptr noundef nonnull @acpi_thermal_zone_ops, ptr noundef null, i32 noundef %176, i32 noundef %205) #12
+  %206 = call ptr @thermal_zone_device_register_with_trips(ptr noundef nonnull @.str.22, ptr noundef %201, i32 noundef %94, i32 noundef 0, ptr noundef nonnull %11, ptr noundef nonnull @acpi_thermal_zone_ops, ptr noundef null, i32 noundef %176, i32 noundef %205) #12
   %207 = getelementptr inbounds i8, ptr %11, i64 344
   store ptr %206, ptr %207, align 8
   %208 = icmp ugt ptr %206, inttoptr (i64 -4096 to ptr)
@@ -590,7 +590,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br i1 %272, label %273, label %268, !llvm.loop !12
 
 273:                                              ; preds = %268
-  call void @kfree(ptr noundef %11) #12
+  call void @kfree(ptr noundef nonnull %11) #12
   br label %274
 
 274:                                              ; preds = %273, %242, %9, %1
@@ -781,7 +781,7 @@ declare dso_local void @__flush_workqueue(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_thermal_unregister_thermal_zone(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @acpi_thermal_unregister_thermal_zone(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @thermal_zone_device_disable(ptr noundef %3) #12
@@ -813,7 +813,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
@@ -956,7 +956,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
 86:                                               ; preds = %.thread, %82
   %87 = phi i64 [ %53, %.thread ], [ %84, %82 ]
   %88 = phi ptr [ %8, %.thread ], [ %83, %82 ]
-  %89 = call fastcc zeroext i1 @update_trip_devices(ptr noundef %0, ptr noundef %88, i32 noundef %1, i1 noundef zeroext false)
+  %89 = call fastcc zeroext i1 @update_trip_devices(ptr noundef nonnull %0, ptr noundef %88, i32 noundef %1, i1 noundef zeroext false)
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %86

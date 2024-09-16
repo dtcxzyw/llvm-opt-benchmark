@@ -131,7 +131,7 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   %.sroa.0.0.copyload = load i64, ptr %32, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %35 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %34)
+  %35 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %10, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %34)
   br i1 %35, label %29, label %sema_add_clobbers.exit, !llvm.loop !7
 
 36:                                               ; preds = %29
@@ -162,7 +162,7 @@ declare void @init_asm() local_unnamed_addr #1
 declare ptr @asm_instr_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, i32 %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 %3, i32 %4, ptr noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %5, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i8

@@ -1861,7 +1861,7 @@ define dso_local void @_ZN4llvm12VPRecipeBase10moveBeforeERNS_12VPBasicBlockENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i64, i32 } @_ZN4llvm12VPRecipeBase4costENS_12ElementCountERNS_13VPCostContextE(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(168) %2) local_unnamed_addr #0 align 2 {
-  %.sroa.09.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.08.0.extract.trunc = trunc i64 %1 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %6 [
@@ -1910,7 +1910,7 @@ _ZN4llvm8dyn_castINS_17VPSingleDefRecipeEKNS_12VPRecipeBaseEEEDcPT0_.exit.i: ; p
 9:                                                ; preds = %_ZN4llvm8dyn_castINS_17VPSingleDefRecipeEKNS_12VPRecipeBaseEEEDcPT0_.exit.i
   %10 = load i8, ptr %8, align 8
   %11 = icmp ugt i8 %10, 28
-  br i1 %11, label %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26, label %.critedge
+  br i1 %11, label %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25, label %.critedge
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1930,20 +1930,20 @@ _ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit: ; preds = %12, %17
   %.0.i.in = phi ptr [ %15, %12 ], [ %18, %17 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %.critedge, label %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26
+  br i1 %.not, label %.critedge, label %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25
 
-_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26: ; preds = %9, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit
-  %.0.i29 = phi ptr [ %.0.i, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit ], [ %8, %9 ]
+_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25: ; preds = %9, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit
+  %.0.i28 = phi ptr [ %.0.i, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit ], [ %8, %9 ]
   %19 = and i64 %1, 4294967296
   %20 = icmp ne i64 %19, 0
-  %.not.i7 = icmp ne i32 %.sroa.09.0.extract.trunc, 0
-  %or.cond.not.i = and i1 %.not.i7, %20
-  %21 = icmp ugt i32 %.sroa.09.0.extract.trunc, 1
+  %.not.i = icmp ne i32 %.sroa.08.0.extract.trunc, 0
+  %or.cond.not.i = and i1 %.not.i, %20
+  %21 = icmp ugt i32 %.sroa.08.0.extract.trunc, 1
   %spec.select.i = or i1 %21, %or.cond.not.i
-  %22 = tail call noundef zeroext i1 @_ZNK4llvm13VPCostContext19skipCostComputationEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull %.0.i29, i1 noundef zeroext %spec.select.i) #19
+  %22 = tail call noundef zeroext i1 @_ZNK4llvm13VPCostContext19skipCostComputationEPNS_11InstructionEb(ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull %.0.i28, i1 noundef zeroext %spec.select.i) #19
   br i1 %22, label %38, label %23
 
-23:                                               ; preds = %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26
+23:                                               ; preds = %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
@@ -1970,10 +1970,10 @@ _ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26: ; preds = %9, %
   %.fca.1.extract.c = extractvalue { i64, i32 } %37, 1
   br label %38
 
-38:                                               ; preds = %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26, %.critedge, %23, %31
-  %.sroa.022.0 = phi i64 [ %.fca.0.extract.c, %.critedge ], [ %33, %31 ], [ %.fca.0.extract, %23 ], [ 0, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26 ]
-  %.sroa.5.0 = phi i32 [ %.fca.1.extract.c, %.critedge ], [ 0, %31 ], [ %.fca.1.extract, %23 ], [ 0, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread26 ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.022.0, 0
+38:                                               ; preds = %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25, %.critedge, %23, %31
+  %.sroa.021.0 = phi i64 [ %.fca.0.extract.c, %.critedge ], [ %33, %31 ], [ %.fca.0.extract, %23 ], [ 0, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25 ]
+  %.sroa.5.0 = phi i32 [ %.fca.1.extract.c, %.critedge ], [ 0, %31 ], [ %.fca.1.extract, %23 ], [ 0, %_ZL21getInstructionForCostPKN4llvm12VPRecipeBaseE.exit.thread25 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.021.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert
 }

@@ -88,7 +88,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.13b33c499c59c7b76e9b3d73e56ecf4c.3.llvm.13697033098655696731 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -987,13 +987,13 @@ default.unreachable:                              ; preds = %140
   %.sroa.6.i.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i.sroa.6.0..sroa_idx, i64 16, i1 false), !noalias !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !141
-  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef align 8 dereferenceable(32) %8)
           to label %188 unwind label %118
 
 179:                                              ; preds = %176, %.thread.i.i, %167, %166, %152, %149, %146, %143
   %180 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #14
+  invoke fastcc void @"_ZN4core3ptr63drop_in_place$LT$uucore..parser..parse_size..ParseSizeError$GT$17h59bb52c82729dab0E"(ptr noalias noundef align 8 dereferenceable(32) %8) #14
           to label %.body unwind label %181, !noalias !167
 
 181:                                              ; preds = %179

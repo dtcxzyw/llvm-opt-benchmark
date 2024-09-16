@@ -1324,7 +1324,7 @@ Vec_IntFree.exit134:                              ; preds = %Vec_IntFree.exit, %
   br i1 %.not100, label %195, label %192
 
 192:                                              ; preds = %191
-  %193 = tail call fastcc ptr @Vec_PtrDupStr(ptr noundef nonnull %2)
+  %193 = tail call fastcc ptr @Vec_PtrDupStr(ptr noundef %2)
   %194 = getelementptr inbounds i8, ptr %.089, i64 632
   store ptr %193, ptr %194, align 8
   br label %195
@@ -1334,7 +1334,7 @@ Vec_IntFree.exit134:                              ; preds = %Vec_IntFree.exit, %
   br i1 %.not101, label %199, label %196
 
 196:                                              ; preds = %195
-  %197 = tail call fastcc ptr @Vec_PtrDupStr(ptr noundef nonnull %3)
+  %197 = tail call fastcc ptr @Vec_PtrDupStr(ptr noundef %3)
   %198 = getelementptr inbounds i8, ptr %.089, i64 640
   store ptr %197, ptr %198, align 8
   br label %199
@@ -1694,7 +1694,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noalias noundef ptr @Vec_PtrDupStr(ptr nocapture noundef readonly %0) unnamed_addr #8 {
+define internal fastcc noalias noundef ptr @Vec_PtrDupStr(ptr nocapture noundef nonnull readonly %0) unnamed_addr #8 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -2988,7 +2988,7 @@ Abc_Clock.exit173:                                ; preds = %Abc_Clock.exit171, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManCnfNodeAddToSolver(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Gia_ManCnfNodeAddToSolver(ptr nocapture noundef %0, i32 noundef range(i32 -1073741824, 1073741824) %1) unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca [2 x i32], align 4
   %5 = alloca ptr, align 8
@@ -5286,7 +5286,7 @@ declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

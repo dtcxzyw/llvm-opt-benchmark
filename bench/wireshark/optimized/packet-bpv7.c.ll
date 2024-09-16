@@ -1712,7 +1712,7 @@ proto_item_set_hidden.exit180.i:                  ; preds = %162, %159, %155, %p
   %170 = call ptr @proto_tree_add_cbor_eid(ptr noundef %79, i32 noundef %166, i32 noundef %167, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %10, ptr noundef %169)
   %171 = load i32, ptr @hf_primary_create_ts, align 4
   %172 = getelementptr inbounds i8, ptr %83, i64 40
-  call fastcc void @dissect_cbor_timestamp(ptr noundef %79, i32 noundef %171, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %172)
+  call fastcc void @dissect_cbor_timestamp(ptr noundef %79, i32 noundef %171, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %10, ptr noundef nonnull %172)
   %173 = load ptr, ptr %39, align 8
   %174 = call ptr @wscbor_chunk_read(ptr noundef %173, ptr noundef %0, ptr noundef nonnull %10) #16
   %175 = load ptr, ptr %39, align 8
@@ -2577,7 +2577,7 @@ proto_item_set_generated.exit330:                 ; preds = %353, %364, %361, %3
   %616 = load ptr, ptr %599, align 8
   %617 = getelementptr inbounds i8, ptr %598, i64 64
   %618 = load ptr, ptr %617, align 8
-  %619 = call fastcc i32 @dissect_carried_data(ptr noundef %.0257, ptr noundef nonnull %16, ptr noundef %616, ptr noundef %1, ptr noundef %618, i32 noundef %.0256)
+  %619 = call fastcc i32 @dissect_carried_data(ptr noundef %.0257, ptr noundef %16, ptr noundef %616, ptr noundef %1, ptr noundef %618, i32 noundef %.0256)
   br label %620
 
 620:                                              ; preds = %596, %601, %615
@@ -3260,7 +3260,7 @@ label_type_field.exit:                            ; preds = %34, %44
   %.0 = phi ptr [ %36, %label_type_field.exit ], [ null, %25 ]
   %54 = load i32, ptr %5, align 4
   %55 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %54) #16
-  %56 = call fastcc i32 @dissect_carried_data(ptr noundef %.0, ptr noundef nonnull %3, ptr noundef %55, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %.042)
+  %56 = call fastcc i32 @dissect_carried_data(ptr noundef %.0, ptr noundef %3, ptr noundef %55, ptr noundef nonnull %1, ptr noundef %27, i32 noundef %.042)
   %57 = load i32, ptr %5, align 4
   %58 = add i32 %57, %56
   store i32 %58, ptr %5, align 4
@@ -3715,7 +3715,7 @@ bp_bundle_ident_new.exit:                         ; preds = %32, %41
 
 118:                                              ; preds = %105, %114, %111, %108, %99
   %.0 = phi ptr [ %101, %99 ], [ %107, %105 ], [ %117, %114 ], [ null, %111 ], [ null, %108 ]
-  %119 = tail call fastcc i32 @dissect_carried_data(ptr noundef %.0, ptr noundef nonnull %3, ptr noundef nonnull %.1105, ptr noundef nonnull %1, ptr noundef %9, i32 noundef 1)
+  %119 = tail call fastcc i32 @dissect_carried_data(ptr noundef %.0, ptr noundef %3, ptr noundef nonnull %.1105, ptr noundef nonnull %1, ptr noundef %9, i32 noundef 1)
   br label %120
 
 120:                                              ; preds = %88, %84, %18, %22, %4, %118
@@ -3834,13 +3834,13 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %36 = load i32, ptr @ett_status_info, align 4
   %37 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %36) #16
   %38 = load i32, ptr @hf_status_rep_received, align 4
-  %39 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %38, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  %39 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %38, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %40 = load i32, ptr @hf_status_rep_forwarded, align 4
-  %41 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %40, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  %41 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %40, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %42 = load i32, ptr @hf_status_rep_delivered, align 4
-  %43 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %42, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  %43 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %42, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %44 = load i32, ptr @hf_status_rep_deleted, align 4
-  %45 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %44, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  %45 = call fastcc i32 @dissect_status_assertion(ptr noundef %37, i32 noundef %44, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %46 = icmp eq i32 %39, 0
   %47 = icmp eq i32 %41, 0
   %48 = icmp eq i32 %43, 0
@@ -3871,7 +3871,7 @@ define internal i32 @dissect_status_report(ptr noundef %0, ptr noundef %1, ptr n
   %65 = load i32, ptr @hf_status_rep_subj_src_uri, align 4
   %66 = call ptr @proto_tree_add_cbor_eid(ptr noundef %12, i32 noundef %64, i32 noundef %65, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %62)
   %67 = load i32, ptr @hf_status_rep_subj_ts, align 4
-  call fastcc void @dissect_cbor_timestamp(ptr noundef %12, i32 noundef %67, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  call fastcc void @dissect_cbor_timestamp(ptr noundef %12, i32 noundef %67, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5, ptr noundef nonnull %6)
   %68 = call ptr @wmem_file_scope() #16
   %69 = call noalias ptr @wmem_alloc(ptr noundef %68, i64 noundef 72) #16
   %70 = load i32, ptr %63, align 8
@@ -4325,13 +4325,13 @@ declare i32 @wmem_map_size(ptr noundef) local_unnamed_addr #2
 declare ptr @dissector_get_custom_table_handle(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @call_dissector_only(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %1) #16
+  %9 = tail call i32 @call_dissector_only(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %1) #16
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %.sink.split, label %11
 
@@ -4366,7 +4366,7 @@ define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef %1,
 22:                                               ; preds = %18
   store ptr null, ptr %7, align 8
   %23 = load ptr, ptr @btsd_heur, align 8
-  %24 = call i32 @dissector_try_heuristic(ptr noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %1) #16
+  %24 = call i32 @dissector_try_heuristic(ptr noundef %23, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %7, ptr noundef nonnull %1) #16
   %.not30 = icmp eq i32 %24, 0
   br i1 %.not30, label %27, label %25
 
@@ -4440,7 +4440,7 @@ declare ptr @proto_tree_add_cbor_bitmask(ptr noundef, i32 noundef, i32 noundef, 
 declare ptr @val64_to_str(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_cbor_timestamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc void @dissect_cbor_timestamp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca %struct.bp_dtn_time_t, align 8
   %8 = load i32, ptr %4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, i32 noundef 0) #16
@@ -4458,7 +4458,7 @@ define internal fastcc void @dissect_cbor_timestamp(ptr noundef %0, i32 noundef 
 
 19:                                               ; preds = %6
   %20 = load i32, ptr @hf_create_ts_time, align 4
-  call fastcc void @dissect_dtn_time(ptr noundef %11, i32 noundef %20, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %7)
+  call fastcc void @dissect_dtn_time(ptr noundef %11, i32 noundef %20, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %7)
   %21 = load ptr, ptr %12, align 8
   %22 = call ptr @wscbor_chunk_read(ptr noundef %21, ptr noundef %3, ptr noundef nonnull %4) #16
   %23 = call ptr @wmem_file_scope() #16
@@ -4574,7 +4574,7 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dtn_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc void @dissect_dtn_time(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = alloca %struct.nstime_t, align 8
   %8 = load i32, ptr %4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %8, i32 noundef -1, i32 noundef 0) #16
@@ -4931,7 +4931,7 @@ declare ptr @dissector_get_string_handle(ptr noundef, ptr noundef) local_unnamed
 declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_status_assertion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_status_assertion(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca %struct.bp_dtn_time_t, align 8
   %7 = load i32, ptr %4, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %1, ptr noundef %3, i32 noundef %7, i32 noundef -1, i32 noundef 0) #16
@@ -4970,7 +4970,7 @@ define internal fastcc i32 @dissect_status_assertion(ptr noundef %0, i32 noundef
 
 31:                                               ; preds = %27
   %32 = load i32, ptr @hf_status_assert_time, align 4
-  call fastcc void @dissect_dtn_time(ptr noundef %18, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call fastcc void @dissect_dtn_time(ptr noundef %18, i32 noundef %32, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %6)
   br label %33
 
 33:                                               ; preds = %27, %31, %5

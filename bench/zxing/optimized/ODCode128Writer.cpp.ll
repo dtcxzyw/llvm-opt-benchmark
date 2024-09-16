@@ -297,7 +297,7 @@ _ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE
   br i1 %.not.i5999.i, label %.lr.ph.preheader.i, label %_ZN5ZXing4OneDL10ChooseCodeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEii.exit
 
 .lr.ph.preheader.i:                               ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit58.i
-  %113 = sext i32 %110 to i64
+  %113 = add nsw i64 %47, 4
   br label %.lr.ph.i
 
 114:                                              ; preds = %_ZN5ZXing4OneDL9FindCTypeERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEi.exit65.i

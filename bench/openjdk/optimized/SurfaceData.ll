@@ -119,7 +119,7 @@ define ptr @SurfaceData_GetOps(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @GetSDOps(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 

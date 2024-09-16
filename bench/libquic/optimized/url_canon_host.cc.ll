@@ -194,7 +194,7 @@ if.else:                                          ; preds = %_ZN3url12_GLOBAL__N
   br i1 %call11, label %invoke.cont22, label %if.then15
 
 if.end13:                                         ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit
-  %call4 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %arrayidx7, i32 noundef %host.4.val, ptr noundef nonnull %output, ptr noundef nonnull %has_non_ascii)
+  %call4 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %arrayidx7, i32 noundef %host.4.val, ptr noundef nonnull %output, ptr noundef %has_non_ascii)
   br i1 %call4, label %invoke.cont22, label %if.then15
 
 if.then15:                                        ; preds = %if.else, %if.end13
@@ -847,7 +847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr nocapture noundef readonly %host, i32 noundef %host_len, ptr noundef %output, ptr nocapture noundef writeonly %has_non_ascii) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr nocapture noundef readonly %host, i32 noundef %host_len, ptr noundef %output, ptr nocapture noundef nonnull writeonly %has_non_ascii) unnamed_addr #0 {
 entry:
   store i8 0, ptr %has_non_ascii, align 1
   %cmp46 = icmp sgt i32 %host_len, 0
@@ -1049,7 +1049,7 @@ entry:
   br i1 %has_escaped, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %entry
-  %call2 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %host, i32 noundef %host_len, ptr noundef nonnull %output, ptr noundef nonnull %has_non_ascii.addr)
+  %call2 = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_112DoSimpleHostIccEEbPKT_iPNS_12CanonOutputTIT0_EEPb(ptr noundef %host, i32 noundef %host_len, ptr noundef nonnull %output, ptr noundef %has_non_ascii.addr)
   br i1 %call2, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then

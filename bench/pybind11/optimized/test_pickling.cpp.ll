@@ -33379,7 +33379,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZN19exercise_tramp
   br i1 %.not.i, label %28, label %16
 
 16:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %17 unwind label %7
 
 17:                                               ; preds = %16
@@ -33412,7 +33412,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %22, %19, %17
   br label %_ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_callE.exit.i
 
 28:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %29 unwind label %7
 
 29:                                               ; preds = %28
@@ -33474,7 +33474,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZN19exercise_trampoline4wrapENS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pybind11::object", align 8
   %4 = alloca %"class.pybind11::dict", align 8
   %5 = alloca %"class.pybind11::dict", align 8
@@ -33672,7 +33672,7 @@ _ZN8pybind114dictD2Ev.exit.i.i:                   ; preds = %50, %47, %_ZN8pybin
   store ptr @.str.1, ptr %68, align 8, !alias.scope !792, !noalias !781
   %69 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr null, ptr %69, align 8, !alias.scope !792, !noalias !781
-  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEERNS_4dictEEEENS_5tupleEDpOT0_(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEERNS_4dictEEEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %70 unwind label %87
 
 70:                                               ; preds = %66
@@ -41623,7 +41623,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_
   br i1 %.not.i, label %28, label %16
 
 16:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %.sroa.0.0.copyload.i.i.i)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %.sroa.0.0.copyload.i.i.i)
           to label %17 unwind label %7
 
 17:                                               ; preds = %16
@@ -41656,7 +41656,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %22, %19, %17
   br label %_ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_callE.exit.i
 
 28:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr nonnull %.sroa.0.0.copyload.i.i.i)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr nonnull %.sroa.0.0.copyload.i.i.i)
           to label %29 unwind label %7
 
 29:                                               ; preds = %28
@@ -41718,7 +41718,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::accessor.230", align 8
   %3 = alloca %"class.pybind11::detail::accessor.230", align 8
   %4 = alloca %"class.pybind11::detail::accessor.230", align 8
@@ -41743,7 +41743,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objec
   store ptr @.str.125, ptr %12, align 8, !alias.scope !1011, !noalias !1005
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr null, ptr %13, align 8, !alias.scope !1011, !noalias !1005
-  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEES6_S6_EEENS_5tupleEDpOT0_(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEES6_S6_EEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %14 unwind label %39
 
 14:                                               ; preds = %1
@@ -43497,7 +43497,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ23test_submodule_
   br i1 %.not.i, label %28, label %16
 
 16:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr nonnull %.sroa.0.0.copyload.i.i.i)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %3, ptr nonnull %.sroa.0.0.copyload.i.i.i)
           to label %17 unwind label %7
 
 17:                                               ; preds = %16
@@ -43530,7 +43530,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %22, %19, %17
   br label %_ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_callE.exit.i
 
 28:                                               ; preds = %9
-  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr nonnull %.sroa.0.0.copyload.i.i.i)
+  invoke fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr nonnull %.sroa.0.0.copyload.i.i.i)
           to label %29 unwind label %7
 
 29:                                               ; preds = %28
@@ -43592,7 +43592,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objectEEE4callINS_5tupleENS0_9void_typeERZ23test_submodule_picklingRNS_7module_EE3$_7EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::detail::accessor.230", align 8
   %3 = alloca %"class.pybind11::detail::accessor.230", align 8
   %4 = alloca %"class.pybind11::detail::accessor.230", align 8
@@ -43617,7 +43617,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRKNS_6objec
   store ptr @.str.125, ptr %12, align 8, !alias.scope !1093, !noalias !1087
   %13 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr null, ptr %13, align 8, !alias.scope !1093, !noalias !1087
-  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEES6_S6_EEENS_5tupleEDpOT0_(ptr dead_on_unwind writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  invoke void @_ZN8pybind1110make_tupleILNS_19return_value_policyE1EJNS_6detail8accessorINS2_17accessor_policies8str_attrEEES6_S6_EEENS_5tupleEDpOT0_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %14 unwind label %39
 
 14:                                               ; preds = %1

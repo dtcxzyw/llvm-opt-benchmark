@@ -1077,7 +1077,7 @@ if.then.i206:                                     ; preds = %land.rhs.i.i.i204
 
 _ZNK6hermes6parser10JSONObject2atEN4llvh9StringRefE.exit: ; preds = %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i194, %land.lhs.true.i.i197, %land.rhs.i.i.i204, %if.then.i206
   %retval.0.i203 = phi ptr [ %58, %if.then.i206 ], [ null, %land.lhs.true.i.i197 ], [ null, %land.rhs.i.i.i204 ], [ null, %_ZSt11lower_boundIPKPN6hermes6parser10JSONStringEN4llvh9StringRefENS1_15JSONHiddenClass14NameComparatorEET_SA_SA_RKT0_T1_.exit.i.i194 ]
-  call fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEm(ptr noalias nonnull align 8 %ref.tmp36, ptr noundef %retval.0.i203, i64 noundef %conv.i)
+  call fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEm(ptr noalias align 8 %ref.tmp36, ptr noundef %retval.0.i203, i64 noundef %conv.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !9)
   call void @_ZN6hermes2vm13RuntimeConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(373) %ref.tmp40)
   %GCConfigExplicit_.i.i = getelementptr inbounds i8, ptr %ref.tmp40, i64 376
@@ -2980,7 +2980,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEm(ptr noalias align 8 %agg.result, ptr noundef readonly %array, i64 noundef %globalObjID) unnamed_addr #0 {
+define internal fastcc void @_ZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEm(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly %array, i64 noundef %globalObjID) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i2181 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6247,7 +6247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2065: 
   store i32 %394, ptr %ref.tmp295, align 8
   %395 = extractvalue { i32, i64 } %call299, 1
   store i64 %395, ptr %10, align 8
-  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nonnull align 8 %ref.tmp300, ptr noundef %cond.i741)
+  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp300, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_20CallFromNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp293, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp295, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp300)
   %396 = load ptr, ptr %ref.tmp300, align 8
   %tobool.not.i.i.i = icmp eq ptr %396, null
@@ -6288,7 +6288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2074: 
   store i32 %400, ptr %ref.tmp304, align 8
   %401 = extractvalue { i32, i64 } %call308, 1
   store i64 %401, ptr %9, align 8
-  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nonnull align 8 %ref.tmp309, ptr noundef %cond.i741)
+  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp309, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_25ConstructFromNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp302, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp304, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp309)
   %402 = load ptr, ptr %ref.tmp309, align 8
   %tobool.not.i.i.i2075 = icmp eq ptr %402, null
@@ -6385,7 +6385,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit2102: 
   store i32 %414, ptr %ref.tmp325, align 8
   %415 = extractvalue { i32, i64 } %call329, 1
   store i64 %415, ptr %6, align 8
-  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nonnull align 8 %ref.tmp330, ptr noundef %cond.i741)
+  call fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias align 8 %ref.tmp330, ptr noundef %cond.i741)
   call void @_ZN8facebook6hermes7tracing10SynthTrace12emplace_backINS2_18CallToNativeRecordEJRNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEdNS2_10TraceValueESt6vectorISB_SaISB_EEEEEvDpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %timeFromStart, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp323, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp325, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp330)
   %416 = load ptr, ptr %ref.tmp330, align 8
   %tobool.not.i.i.i2103 = icmp eq ptr %416, null
@@ -10284,7 +10284,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nocapture align 8 %agg.result, ptr noundef readonly %array) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef readonly %array) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i.i = alloca %"class.std::allocator", align 1

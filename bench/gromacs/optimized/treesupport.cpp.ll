@@ -412,7 +412,7 @@ define void @_ZN3gmx36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeOb
   br i1 %.not, label %_ZSt8_DestroyIPN3gmx16KeyValueTreePathES1_EvT_S3_RSaIT0_E.exit.i.i, label %17
 
 17:                                               ; preds = %14
-  invoke fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val, ptr %.val15)
+  invoke fastcc void @"_ZN3gmx13formatAndJoinISt6vectorINS_16KeyValueTreePathESaIS2_EEZNS_36checkForUnknownOptionsInKeyValueTreeERKNS_18KeyValueTreeObjectERKNS_7OptionsEE3$_0EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_PKcRKT0_"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val, ptr %.val15)
           to label %18 unwind label %26
 
 18:                                               ; preds = %17

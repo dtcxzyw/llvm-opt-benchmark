@@ -427,11 +427,11 @@ merge_ranks.exit:                                 ; preds = %._crit_edge56.i, %1
   br i1 %254, label %255, label %256
 
 255:                                              ; preds = %253
-  tail call fastcc void @make_interclust_chain(ptr noundef nonnull %212, ptr noundef nonnull %220, ptr noundef nonnull %205)
+  tail call fastcc void @make_interclust_chain(ptr noundef nonnull %212, ptr noundef nonnull %220, ptr noundef %205)
   br label %257
 
 256:                                              ; preds = %253
-  tail call fastcc void @make_interclust_chain(ptr noundef nonnull %220, ptr noundef nonnull %212, ptr noundef nonnull %205)
+  tail call fastcc void @make_interclust_chain(ptr noundef nonnull %220, ptr noundef nonnull %212, ptr noundef %205)
   br label %257
 
 257:                                              ; preds = %256, %255, %252, %247, %246, %245, %235, %226, %.lr.ph.i9
@@ -1236,7 +1236,7 @@ declare void @flat_edge(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @merge_oneway(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_interclust_chain(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @make_interclust_chain(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 336
@@ -1501,7 +1501,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
 
 188:                                              ; preds = %clone_vn.exit.i, %102
   %.097.i = phi ptr [ %155, %clone_vn.exit.i ], [ %.0.i10, %102 ]
-  %189 = tail call ptr @virtual_edge(ptr noundef %.098127.i, ptr noundef nonnull %.097.i, ptr noundef %2) #9
+  %189 = tail call ptr @virtual_edge(ptr noundef %.098127.i, ptr noundef nonnull %.097.i, ptr noundef nonnull %2) #9
   %190 = getelementptr inbounds i8, ptr %189, i64 16
   %191 = load ptr, ptr %190, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 152
@@ -1691,7 +1691,7 @@ clone_vn.exit.i:                                  ; preds = %133, %106
   %312 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 %.idx115.i
   %313 = getelementptr inbounds i8, ptr %312, i64 56
   %314 = load ptr, ptr %313, align 8
-  %315 = tail call ptr @virtual_edge(ptr noundef %314, ptr noundef nonnull %.0.i10, ptr noundef %2) #9
+  %315 = tail call ptr @virtual_edge(ptr noundef %314, ptr noundef nonnull %.0.i10, ptr noundef nonnull %2) #9
   %316 = trunc nuw nsw i32 %.0 to i8
   %317 = getelementptr inbounds i8, ptr %315, i64 16
   %318 = load ptr, ptr %317, align 8

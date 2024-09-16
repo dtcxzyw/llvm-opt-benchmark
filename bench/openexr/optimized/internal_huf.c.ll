@@ -55,16 +55,16 @@ if.end7:                                          ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(524296) %spare, i8 0, i64 524296, i1 false)
   br label %for.body.i
 
-for.body.i:                                       ; preds = %if.end7, %for.body.i
-  %i.05.i = phi i64 [ %inc2.i, %for.body.i ], [ 0, %if.end7 ]
-  %arrayidx.i = getelementptr inbounds i16, ptr %raw, i64 %i.05.i
+for.body.i:                                       ; preds = %for.body.i, %if.end7
+  %i.04.i = phi i64 [ 0, %if.end7 ], [ %inc2.i, %for.body.i ]
+  %arrayidx.i = getelementptr inbounds i16, ptr %raw, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %idxprom.i = zext i16 %0 to i64
   %arrayidx1.i = getelementptr inbounds i64, ptr %spare, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx1.i, align 8
   %inc.i = add i64 %1, 1
   store i64 %inc.i, ptr %arrayidx1.i, align 8
-  %inc2.i = add nuw i64 %i.05.i, 1
+  %inc2.i = add nuw i64 %i.04.i, 1
   %exitcond.not.i = icmp eq i64 %inc2.i, %nRaw
   br i1 %exitcond.not.i, label %while.cond.i.preheader, label %for.body.i, !llvm.loop !4
 
@@ -875,7 +875,7 @@ if.else.i55:                                      ; preds = %for.body.i51
   %arrayidx7.i = getelementptr inbounds i64, ptr %spare, i64 %idxprom.i56
   %82 = load i64, ptr %arrayidx7.i, align 8
   %83 = load i64, ptr %arrayidx14.i118, align 8
-  %call.i = call fastcc i32 @sendCode(i64 noundef %82, i32 noundef %cs.029.i, i64 noundef %83, ptr noundef nonnull %c.i, ptr noundef nonnull %lc.i, ptr noundef nonnull %out.addr.i, ptr noundef nonnull %add.ptr1)
+  %call.i = call fastcc i32 @sendCode(i64 noundef %82, i32 noundef %cs.029.i, i64 noundef %83, ptr noundef %c.i, ptr noundef %lc.i, ptr noundef %out.addr.i, ptr noundef nonnull %add.ptr1)
   %cmp10.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp10.not.i, label %if.else.if.end13_crit_edge.i, label %hufEncode.exit.thread
 
@@ -897,7 +897,7 @@ if.end24.i:                                       ; preds = %if.end13.i, %if.end
   %arrayidx20.i = getelementptr inbounds i64, ptr %spare, i64 %idxprom19.i
   %84 = load i64, ptr %arrayidx20.i, align 8
   %85 = load i64, ptr %arrayidx14.i118, align 8
-  %call23.i = call fastcc i32 @sendCode(i64 noundef %84, i32 noundef %cs.0.lcssa.i, i64 noundef %85, ptr noundef nonnull %c.i, ptr noundef nonnull %lc.i, ptr noundef nonnull %out.addr.i, ptr noundef nonnull %add.ptr1)
+  %call23.i = call fastcc i32 @sendCode(i64 noundef %84, i32 noundef %cs.0.lcssa.i, i64 noundef %85, ptr noundef %c.i, ptr noundef %lc.i, ptr noundef %out.addr.i, ptr noundef nonnull %add.ptr1)
   %cmp25.i = icmp eq i32 %call23.i, 0
   br i1 %cmp25.i, label %if.then27.i, label %hufEncode.exit.thread
 
@@ -1866,9 +1866,9 @@ return:                                           ; preds = %for.inc.i64, %fasth
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr nocapture noundef readonly %src, i64 noundef %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr nocapture noundef readonly %src, i64 noundef range(i64 0, 4294967296) %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
 entry:
-  %sub = add i64 %numSrcBits, -128
+  %sub = add nsw i64 %numSrcBits, -128
   %cmp156.not = icmp eq i64 %numDstElems, 0
   br i1 %cmp156.not, label %while.end95, label %while.body.lr.ph
 
@@ -2279,7 +2279,7 @@ return:                                           ; preds = %while.end95, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %pctxt, ptr nocapture noundef readonly %hcode, i32 noundef %im, i32 noundef %iM, ptr nocapture noundef %hdecod) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %pctxt, ptr nocapture noundef readonly %hcode, i32 noundef range(i32 0, 65537) %im, i32 noundef range(i32 0, 65537) %iM, ptr nocapture noundef %hdecod) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %pctxt, null
   br i1 %tobool.not, label %cond.end6, label %cond.true3
@@ -2298,8 +2298,9 @@ cond.end6:                                        ; preds = %entry, %cond.true3
   br i1 %cmp.not50, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %cond.end6
-  %2 = zext i32 %im to i64
-  %3 = add i32 %iM, 1
+  %2 = zext nneg i32 %im to i64
+  %3 = add nuw nsw i32 %iM, 1
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc81
@@ -2384,7 +2385,7 @@ if.end48:                                         ; preds = %if.end44
   %sub51 = add i32 %15, -1
   %idxprom52 = zext i32 %sub51 to i64
   %arrayidx53 = getelementptr inbounds i32, ptr %14, i64 %idxprom52
-  %16 = trunc nuw i64 %indvars.iv57 to i32
+  %16 = trunc nuw nsw i64 %indvars.iv57 to i32
   store i32 %16, ptr %arrayidx53, align 4
   br label %for.inc81
 
@@ -2398,7 +2399,7 @@ if.then56:                                        ; preds = %if.else54
   %shl = shl i64 %shr.i, %sh_prom59
   %add.ptr60 = getelementptr inbounds %struct._HufDec, ptr %hdecod, i64 %shl
   %shl64 = shl nuw nsw i64 1, %sh_prom59
-  %17 = trunc nuw i64 %indvars.iv57 to i32
+  %17 = trunc nuw nsw i64 %indvars.iv57 to i32
   br label %for.body68
 
 for.body68:                                       ; preds = %if.then56, %if.end74
@@ -2425,8 +2426,7 @@ if.end74:                                         ; preds = %lor.lhs.false
 
 for.inc81:                                        ; preds = %if.end74, %if.end48, %if.else54
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next58 to i32
-  %exitcond.not = icmp eq i32 %3, %lftr.wideiv
+  %exitcond.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !42
 
 return:                                           ; preds = %for.body, %if.then13, %if.end44, %for.inc81, %for.body68, %lor.lhs.false, %cond.end6
@@ -2435,7 +2435,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr nocapture noundef readonly %hcode, ptr nocapture noundef readonly %hdecod, ptr noundef readonly %in, i64 noundef %ni, i32 noundef %rlc, i64 noundef %no, ptr noundef %out) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr nocapture noundef readonly %hcode, ptr nocapture noundef readonly %hdecod, ptr noundef readonly %in, i64 noundef range(i64 0, 4294967296) %ni, i32 noundef range(i32 0, 65537) %rlc, i64 noundef %no, ptr noundef %out) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i16, ptr %out, i64 %no
   %add = add nuw nsw i64 %ni, 7
@@ -2709,7 +2709,7 @@ while.end171:                                     ; preds = %while.cond.loopexit
   %c.0.lcssa = phi i64 [ 0, %entry ], [ %c.1.lcssa, %while.cond.loopexit ]
   %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %out.addr.1.lcssa, %while.cond.loopexit ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %in.addr.1.lcssa, %while.cond.loopexit ]
-  %sub172 = sub i64 0, %ni
+  %sub172 = sub nsw i64 0, %ni
   %and173 = and i64 %sub172, 7
   %conv175 = trunc nuw nsw i64 %and173 to i32
   %sub176 = sub nsw i32 %lc.0.lcssa, %conv175
@@ -2828,7 +2828,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr nocapture noundef %c, ptr nocapture noundef %lc, ptr nocapture noundef %out, ptr noundef readnone %outend) unnamed_addr #5 {
+define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr nocapture noundef nonnull %c, ptr nocapture noundef nonnull %lc, ptr nocapture noundef nonnull %out, ptr noundef readnone %outend) unnamed_addr #5 {
 entry:
   %0 = trunc i64 %sCode to i32
   %conv.i = and i32 %0, 63

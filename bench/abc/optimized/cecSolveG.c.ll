@@ -437,10 +437,10 @@ define void @CecG_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef
   %32 = ashr exact i64 %sext.i, 30
   %33 = getelementptr inbounds i8, ptr %.val70, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = shl nsw i32 %34, 1
-  %36 = trunc i64 %26 to i32
-  %37 = and i32 %36, 1
-  %38 = or disjoint i32 %35, %37
+  %35 = trunc i64 %26 to i32
+  %36 = and i32 %35, 1
+  %37 = shl nsw i32 %34, 1
+  %38 = or disjoint i32 %37, %36
   store i32 %38, ptr %8, align 4
   %.val67.val = load ptr, ptr %28, align 8
   %39 = ptrtoint ptr %.val67.val to i64
@@ -502,10 +502,10 @@ define void @CecG_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef
   %71 = ashr exact i64 %sext.i77, 30
   %72 = getelementptr inbounds i8, ptr %.val66, i64 %71
   %73 = load i32, ptr %72, align 4
-  %74 = shl nsw i32 %73, 1
-  %75 = trunc i64 %66 to i32
-  %76 = and i32 %75, 1
-  %77 = or disjoint i32 %74, %76
+  %74 = trunc i64 %66 to i32
+  %75 = and i32 %74, 1
+  %76 = shl nsw i32 %73, 1
+  %77 = or disjoint i32 %76, %75
   %78 = xor i32 %77, 1
   %79 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv85
   store i32 %78, ptr %79, align 4
@@ -1696,10 +1696,10 @@ Abc_Clock.exit:                                   ; preds = %2, %16
   %79 = ashr exact i64 %sext.i63, 30
   %80 = getelementptr inbounds i8, ptr %.val58, i64 %79
   %81 = load i32, ptr %80, align 4
-  %82 = shl nsw i32 %81, 1
-  %83 = trunc i64 %8 to i32
-  %84 = and i32 %83, 1
-  %85 = or disjoint i32 %82, %84
+  %82 = trunc i64 %8 to i32
+  %83 = and i32 %82, 1
+  %84 = shl nsw i32 %81, 1
+  %85 = or disjoint i32 %84, %83
   store i32 %85, ptr %7, align 4
   %86 = getelementptr inbounds i8, ptr %73, i64 20
   %87 = load i32, ptr %86, align 4

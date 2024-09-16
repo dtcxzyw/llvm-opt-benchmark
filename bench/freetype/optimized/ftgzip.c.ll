@@ -24,7 +24,7 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %1, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %1)
+  %11 = tail call fastcc i32 @ft_gzip_check_header(ptr noundef %1)
   store i32 %11, ptr %4, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %78
@@ -52,7 +52,7 @@ define i32 @FT_Stream_OpenGzip(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %23 = getelementptr inbounds i8, ptr %14, i64 8344
   store ptr %21, ptr %23, align 8
   store i64 0, ptr %21, align 8
-  %24 = call fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %1)
+  %24 = call fastcc i32 @ft_gzip_check_header(ptr noundef %1)
   %.not.i = icmp eq i32 %24, 0
   br i1 %.not.i, label %25, label %37
 
@@ -189,15 +189,15 @@ ft_gzip_get_uncompressed_size.exit:               ; preds = %40
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca [4 x i8], align 1
-  %4 = tail call i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef 0) #6
+  %4 = tail call i32 @FT_Stream_Seek(ptr noundef nonnull %0, i64 noundef 0) #6
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %1
-  %6 = call i32 @FT_Stream_Read(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 4) #6
+  %6 = call i32 @FT_Stream_Read(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #6
   %.not17 = icmp eq i32 %6, 0
   br i1 %.not17, label %7, label %.loopexit
 
@@ -221,7 +221,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0
   br i1 %.not18, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = call i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef 6) #6
+  %20 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 6) #6
   store i32 %20, ptr %2, align 4
   %21 = load i8, ptr %17, align 1
   %22 = and i8 %21, 4
@@ -229,14 +229,14 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0
   br i1 %.not19, label %29, label %23
 
 23:                                               ; preds = %19
-  %24 = call zeroext i16 @FT_Stream_ReadUShortLE(ptr noundef %0, ptr noundef nonnull %2) #6
+  %24 = call zeroext i16 @FT_Stream_ReadUShortLE(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %25 = load i32, ptr %2, align 4
   %.not20 = icmp eq i32 %25, 0
   br i1 %.not20, label %26, label %.loopexit
 
 26:                                               ; preds = %23
   %27 = zext i16 %24 to i64
-  %28 = call i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef %27) #6
+  %28 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef %27) #6
   store i32 %28, ptr %2, align 4
   %.not21 = icmp eq i32 %28, 0
   br i1 %.not21, label %._crit_edge, label %.loopexit
@@ -253,7 +253,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0
   br i1 %.not22, label %.loopexit30, label %.preheader28
 
 .preheader28:                                     ; preds = %29, %35
-  %33 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef %0, ptr noundef nonnull %2) #6
+  %33 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %34 = load i32, ptr %2, align 4
   %.not23 = icmp eq i32 %34, 0
   br i1 %.not23, label %35, label %.loopexit
@@ -274,7 +274,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0
   br i1 %.not24, label %.loopexit27, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit30, %42
-  %40 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef %0, ptr noundef nonnull %2) #6
+  %40 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %41 = load i32, ptr %2, align 4
   %.not25 = icmp eq i32 %41, 0
   br i1 %.not25, label %42, label %.loopexit
@@ -295,7 +295,7 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef %0) unnamed_addr #0
   br i1 %.not26, label %.loopexit, label %47
 
 47:                                               ; preds = %.loopexit27
-  %48 = call i32 @FT_Stream_Skip(ptr noundef %0, i64 noundef 2) #6
+  %48 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 2) #6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader28, %.preheader, %7, %16, %47, %.loopexit27, %23, %26, %1, %5

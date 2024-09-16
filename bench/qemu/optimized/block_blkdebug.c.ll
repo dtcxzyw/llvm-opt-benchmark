@@ -309,7 +309,7 @@ if.end15:                                         ; preds = %if.end10
 
 land.lhs.true:                                    ; preds = %if.end15
   %cmp28 = icmp ult i64 %call23, 2147483647
-  %10 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call23)
+  %10 = call range(i64 1, 32) i64 @llvm.ctpop.i64(i64 %call23)
   %tobool1.not.i = icmp ult i64 %10, 2
   %or.cond = select i1 %cmp28, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end33, label %if.then31

@@ -18212,7 +18212,7 @@ if.end27:                                         ; preds = %if.else14.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef %__step_size) unnamed_addr #19 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %__step_size) unnamed_addr #19 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
@@ -19871,7 +19871,7 @@ if.end27:                                         ; preds = %if.else14.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef %__step_size) unnamed_addr #19 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPP4exprS2_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_T1_T2_"(ptr noundef %__first, ptr noundef %__last, ptr nocapture noundef writeonly %__result, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %__step_size) unnamed_addr #19 {
 entry:
   %mul = shl nsw i64 %__step_size, 1
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64

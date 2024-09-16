@@ -71,7 +71,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL8newblockP9lua_Statei(ptr noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @_ZL8newblockP9lua_Statei(ptr noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 96
@@ -79,110 +79,107 @@ define internal fastcc noundef ptr @_ZL8newblockP9lua_Statei(ptr noundef %0, i32
   %7 = getelementptr inbounds [40 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %36
+  br i1 %.not, label %9, label %33
 
 9:                                                ; preds = %2
-  %10 = and i32 %1, 255
-  %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %11
-  %13 = load i32, ptr %12, align 4
-  %14 = icmp sgt i32 %13, 512
-  %15 = select i1 %14, i32 32744, i32 16360
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds [40 x i32], ptr @_ZL16kSizeClassConfig, i64 0, i64 %6
+  %11 = load i32, ptr %10, align 4
+  %12 = icmp sgt i32 %11, 512
+  %13 = select i1 %12, i32 32744, i32 16360
+  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds i8, ptr %4, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = zext nneg i32 %15 to i64
-  %21 = tail call noundef ptr %17(ptr noundef %19, ptr noundef null, i64 noundef 0, i64 noundef %20)
-  %.not.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i, label %22, label %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit
+  %18 = zext nneg i32 %13 to i64
+  %19 = tail call noundef ptr %15(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %18)
+  %.not.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i, label %20, label %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit
 
-22:                                               ; preds = %9
+20:                                               ; preds = %9
   tail call void @_Z10luaD_throwP9lua_Statei(ptr noundef nonnull %0, i32 noundef 4) #9
   unreachable
 
 _ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit: ; preds = %9
-  %23 = add nsw i64 %20, -56
-  %24 = add i32 %13, 8
-  %25 = sext i32 %24 to i64
-  %26 = udiv i64 %23, %25
-  %27 = trunc nuw nsw i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %21, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
-  store i32 %15, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 36
-  store i32 %24, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %21, i64 40
-  store ptr null, ptr %30, align 8
-  %31 = add nsw i32 %27, -1
-  %32 = mul nsw i32 %31, %24
-  %33 = getelementptr inbounds i8, ptr %21, i64 48
-  store i32 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %21, i64 52
-  store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds ptr, ptr %5, i64 %11
-  store ptr %21, ptr %35, align 8
-  br label %36
+  %21 = add nsw i64 %18, -56
+  %22 = add i32 %11, 8
+  %23 = sext i32 %22 to i64
+  %24 = udiv i64 %21, %23
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = getelementptr inbounds i8, ptr %19, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
+  store i32 %13, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %19, i64 36
+  store i32 %22, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %19, i64 40
+  store ptr null, ptr %28, align 8
+  %29 = add nsw i32 %25, -1
+  %30 = mul nsw i32 %29, %22
+  %31 = getelementptr inbounds i8, ptr %19, i64 48
+  store i32 %30, ptr %31, align 8
+  %32 = getelementptr inbounds i8, ptr %19, i64 52
+  store i32 0, ptr %32, align 4
+  store ptr %19, ptr %7, align 8
+  br label %33
 
-36:                                               ; preds = %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit, %2
-  %.027 = phi ptr [ %8, %2 ], [ %21, %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit ]
-  %37 = getelementptr inbounds i8, ptr %.027, i64 48
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %40, label %47
+33:                                               ; preds = %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit, %2
+  %.027 = phi ptr [ %8, %2 ], [ %19, %_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb.exit ]
+  %34 = getelementptr inbounds i8, ptr %.027, i64 48
+  %35 = load i32, ptr %34, align 8
+  %36 = icmp sgt i32 %35, -1
+  br i1 %36, label %37, label %44
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.027, i64 56
-  %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds [1 x i8], ptr %41, i64 %42
-  %44 = getelementptr inbounds i8, ptr %.027, i64 36
-  %45 = load i32, ptr %44, align 4
-  %46 = sub nsw i32 %38, %45
-  store i32 %46, ptr %37, align 8
-  br label %51
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %.027, i64 56
+  %39 = zext nneg i32 %35 to i64
+  %40 = getelementptr inbounds [1 x i8], ptr %38, i64 %39
+  %41 = getelementptr inbounds i8, ptr %.027, i64 36
+  %42 = load i32, ptr %41, align 4
+  %43 = sub nsw i32 %35, %42
+  store i32 %43, ptr %34, align 8
+  br label %48
 
-47:                                               ; preds = %36
-  %48 = getelementptr inbounds i8, ptr %.027, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %49, align 8
-  store ptr %50, ptr %48, align 8
-  br label %51
+44:                                               ; preds = %33
+  %45 = getelementptr inbounds i8, ptr %.027, i64 40
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %46, align 8
+  store ptr %47, ptr %45, align 8
+  br label %48
 
-51:                                               ; preds = %47, %40
-  %.0 = phi ptr [ %43, %40 ], [ %49, %47 ]
-  %52 = getelementptr inbounds i8, ptr %.027, i64 52
-  %53 = load i32, ptr %52, align 4
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 4
+48:                                               ; preds = %44, %37
+  %.0 = phi ptr [ %40, %37 ], [ %46, %44 ]
+  %49 = getelementptr inbounds i8, ptr %.027, i64 52
+  %50 = load i32, ptr %49, align 4
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %49, align 4
   store ptr %.027, ptr %.0, align 8
-  %55 = getelementptr inbounds i8, ptr %.027, i64 40
-  %56 = load ptr, ptr %55, align 8
-  %.not31 = icmp eq ptr %56, null
-  br i1 %.not31, label %57, label %65
+  %52 = getelementptr inbounds i8, ptr %.027, i64 40
+  %53 = load ptr, ptr %52, align 8
+  %.not31 = icmp eq ptr %53, null
+  br i1 %.not31, label %54, label %62
 
-57:                                               ; preds = %51
-  %58 = load i32, ptr %37, align 8
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %65
+54:                                               ; preds = %48
+  %55 = load i32, ptr %34, align 8
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %57, label %62
+
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %.027, i64 8
+  %59 = load ptr, ptr %58, align 8
+  store ptr %59, ptr %7, align 8
+  %.not32 = icmp eq ptr %59, null
+  br i1 %.not32, label %61, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %.027, i64 8
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %7, align 8
-  %.not32 = icmp eq ptr %62, null
-  br i1 %.not32, label %64, label %63
+  store ptr null, ptr %59, align 8
+  br label %61
 
-63:                                               ; preds = %60
-  store ptr null, ptr %62, align 8
-  br label %64
+61:                                               ; preds = %60, %57
+  store ptr null, ptr %58, align 8
+  br label %62
 
-64:                                               ; preds = %63, %60
-  store ptr null, ptr %61, align 8
-  br label %65
-
-65:                                               ; preds = %64, %57, %51
-  %66 = getelementptr inbounds i8, ptr %.0, i64 8
-  ret ptr %66
+62:                                               ; preds = %61, %54, %48
+  %63 = getelementptr inbounds i8, ptr %.0, i64 8
+  ret ptr %63
 }
 
 ; Function Attrs: noreturn
@@ -444,39 +441,39 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr nocapture noundef readonly
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds i8, ptr %6, i64 96
-  %39 = getelementptr inbounds i8, ptr %16, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %.not.i.i = icmp eq ptr %40, null
+  %39 = zext nneg i32 %12 to i64
+  %40 = getelementptr inbounds i8, ptr %16, i64 8
+  %41 = load ptr, ptr %40, align 8
+  %.not.i.i = icmp eq ptr %41, null
   %.pre.i.i = load ptr, ptr %16, align 8
-  br i1 %.not.i.i, label %42, label %41
+  br i1 %.not.i.i, label %43, label %42
 
-41:                                               ; preds = %37
-  store ptr %.pre.i.i, ptr %40, align 8
-  br label %42
+42:                                               ; preds = %37
+  store ptr %.pre.i.i, ptr %41, align 8
+  br label %43
 
-42:                                               ; preds = %41, %37
+43:                                               ; preds = %42, %37
   %.not15.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not15.i.i, label %46, label %43
+  br i1 %.not15.i.i, label %47, label %44
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %39, align 8
-  %45 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
-  store ptr %44, ptr %45, align 8
+44:                                               ; preds = %43
+  %45 = load ptr, ptr %40, align 8
+  %46 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  store ptr %45, ptr %46, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-46:                                               ; preds = %42
-  %47 = zext nneg i32 %12 to i64
-  %48 = getelementptr inbounds ptr, ptr %38, i64 %47
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds ptr, ptr %38, i64 %39
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %16
   br i1 %50, label %51, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-51:                                               ; preds = %46
-  %52 = load ptr, ptr %39, align 8
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %40, align 8
   store ptr %52, ptr %48, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %51, %46, %43
+_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %51, %47, %44
   %.val.i.i = load ptr, ptr %5, align 8
   %53 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %54 = load ptr, ptr %53, align 8
@@ -573,39 +570,39 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nocap
 38:                                               ; preds = %31
   %39 = getelementptr inbounds i8, ptr %16, i64 416
   %40 = getelementptr inbounds i8, ptr %16, i64 744
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not.i.i = icmp eq ptr %42, null
+  %41 = zext nneg i32 %13 to i64
+  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not.i.i = icmp eq ptr %43, null
   %.pre.i.i = load ptr, ptr %4, align 8
-  br i1 %.not.i.i, label %44, label %43
+  br i1 %.not.i.i, label %45, label %44
 
-43:                                               ; preds = %38
-  store ptr %.pre.i.i, ptr %42, align 8
-  br label %44
+44:                                               ; preds = %38
+  store ptr %.pre.i.i, ptr %43, align 8
+  br label %45
 
-44:                                               ; preds = %43, %38
+45:                                               ; preds = %44, %38
   %.not15.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not15.i.i, label %48, label %45
+  br i1 %.not15.i.i, label %49, label %46
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %41, align 8
-  %47 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
-  store ptr %46, ptr %47, align 8
+46:                                               ; preds = %45
+  %47 = load ptr, ptr %42, align 8
+  %48 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  store ptr %47, ptr %48, align 8
   br label %55
 
-48:                                               ; preds = %44
-  %49 = zext nneg i32 %13 to i64
-  %50 = getelementptr inbounds ptr, ptr %39, i64 %49
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds ptr, ptr %39, i64 %41
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %4
   br i1 %52, label %53, label %55
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %41, align 8
+53:                                               ; preds = %49
+  %54 = load ptr, ptr %42, align 8
   store ptr %54, ptr %50, align 8
   br label %55
 
-55:                                               ; preds = %53, %48, %45
+55:                                               ; preds = %53, %49, %46
   %.val.i.i = load ptr, ptr %6, align 8
   %56 = getelementptr inbounds i8, ptr %4, i64 24
   %57 = load ptr, ptr %56, align 8
@@ -818,39 +815,39 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds i8, ptr %46, i64 96
-  %71 = getelementptr inbounds i8, ptr %48, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %.not.i.i = icmp eq ptr %72, null
+  %71 = zext nneg i32 %23 to i64
+  %72 = getelementptr inbounds i8, ptr %48, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %.not.i.i = icmp eq ptr %73, null
   %.pre.i.i = load ptr, ptr %48, align 8
-  br i1 %.not.i.i, label %74, label %73
+  br i1 %.not.i.i, label %75, label %74
 
-73:                                               ; preds = %69
-  store ptr %.pre.i.i, ptr %72, align 8
-  br label %74
+74:                                               ; preds = %69
+  store ptr %.pre.i.i, ptr %73, align 8
+  br label %75
 
-74:                                               ; preds = %73, %69
+75:                                               ; preds = %74, %69
   %.not15.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %.not15.i.i, label %78, label %75
+  br i1 %.not15.i.i, label %79, label %76
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %71, align 8
-  %77 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
-  store ptr %76, ptr %77, align 8
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %72, align 8
+  %78 = getelementptr inbounds i8, ptr %.pre.i.i, i64 8
+  store ptr %77, ptr %78, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-78:                                               ; preds = %74
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds ptr, ptr %70, i64 %79
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds ptr, ptr %70, i64 %71
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %48
   br i1 %82, label %83, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %71, align 8
+83:                                               ; preds = %79
+  %84 = load ptr, ptr %72, align 8
   store ptr %84, ptr %80, align 8
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
-_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %83, %78, %75
+_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i: ; preds = %83, %79, %76
   %.val.i.i = load ptr, ptr %6, align 8
   %85 = getelementptr inbounds i8, ptr %.val.i.i, i64 16
   %86 = load ptr, ptr %85, align 8

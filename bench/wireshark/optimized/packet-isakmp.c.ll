@@ -2271,7 +2271,7 @@ define hidden void @isakmp_dissect_payloads(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef range(i32 0, 2) %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
@@ -2358,7 +2358,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   br label %.loopexit
 
 81:                                               ; preds = %76
-  %82 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.0250, i32 noundef %.0153248, i32 noundef %2, i8 noundef zeroext %.0152249, ptr noundef nonnull %52, ptr noundef nonnull %53, ptr noundef %1)
+  %82 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.0250, i32 noundef %.0153248, i32 noundef %2, i8 noundef zeroext %.0152249, ptr noundef %52, ptr noundef %53, ptr noundef %1)
   %83 = load i16, ptr %53, align 2
   %84 = zext i16 %83 to i32
   %85 = icmp ugt i16 %83, 3
@@ -2563,7 +2563,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   %.190.us.i = phi i32 [ %176, %dissect_transform.exit.us.i ], [ %.0.i, %.lr.ph.i ]
   %.17389.us.i = phi i32 [ %360, %dissect_transform.exit.us.i ], [ %.072.i, %.lr.ph.i ]
   %.07488.us.i = phi i8 [ %361, %dissect_transform.exit.us.i ], [ %155, %.lr.ph.i ]
-  %168 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.us.i, i32 noundef %.17389.us.i, i32 noundef 1, i8 noundef zeroext 3, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef %82)
+  %168 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.us.i, i32 noundef %.17389.us.i, i32 noundef 1, i8 noundef zeroext 3, ptr noundef %50, ptr noundef %51, ptr noundef %82)
   %169 = load i16, ptr %51, align 2
   %170 = zext i16 %169 to i32
   %171 = icmp slt i32 %.17389.us.i, %170
@@ -2659,7 +2659,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %168, i32 noundef %.0117.i.us.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef nonnull %45, ptr noundef nonnull %46, ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef nonnull %49)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %168, i32 noundef %.0117.i.us.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49)
   %216 = load i32, ptr %45, align 4
   %217 = add i32 %216, %.0117.i.us.i
   %218 = load i32, ptr %46, align 4
@@ -2925,7 +2925,7 @@ dissect_transform.exit.us.i:                      ; preds = %.lr.ph116.i.us.i, %
   %.190.us99.i = phi i32 [ %370, %dissect_transform.exit.us102.i ], [ %.0.i, %.lr.ph.i ]
   %.17389.us100.i = phi i32 [ %403, %dissect_transform.exit.us102.i ], [ %.072.i, %.lr.ph.i ]
   %.07488.us101.i = phi i8 [ %404, %dissect_transform.exit.us102.i ], [ %155, %.lr.ph.i ]
-  %362 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.us99.i, i32 noundef %.17389.us100.i, i32 noundef 2, i8 noundef zeroext 3, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef %82)
+  %362 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.us99.i, i32 noundef %.17389.us100.i, i32 noundef 2, i8 noundef zeroext 3, ptr noundef %50, ptr noundef %51, ptr noundef %82)
   %363 = load i16, ptr %51, align 2
   %364 = zext i16 %363 to i32
   %365 = icmp slt i32 %.17389.us100.i, %364
@@ -2970,7 +2970,7 @@ switch.lookup:                                    ; preds = %368
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %42)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %362, i32 noundef %.2114.i.us.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ike2_attr, ptr noundef nonnull @transform_ike2_attr_type, ptr noundef nonnull %40, ptr noundef nonnull %41, ptr noundef nonnull %42, ptr noundef nonnull %43, ptr noundef nonnull %44)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %362, i32 noundef %.2114.i.us.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ike2_attr, ptr noundef nonnull @transform_ike2_attr_type, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43, ptr noundef %44)
   %385 = load i32, ptr %40, align 4
   %386 = add i32 %385, %.2114.i.us.i
   %387 = load i32, ptr %41, align 4
@@ -3021,7 +3021,7 @@ dissect_transform.exit.us102.i:                   ; preds = %dissect_ike2_transf
   %.190.i = phi i32 [ %415, %dissect_transform.exit.i ], [ %.0.i, %.lr.ph.i ]
   %.17389.i = phi i32 [ %416, %dissect_transform.exit.i ], [ %.072.i, %.lr.ph.i ]
   %.07488.i = phi i8 [ %417, %dissect_transform.exit.i ], [ %155, %.lr.ph.i ]
-  %405 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.i, i32 noundef %.17389.i, i32 noundef %2, i8 noundef zeroext 3, ptr noundef nonnull %50, ptr noundef nonnull %51, ptr noundef %82)
+  %405 = call fastcc ptr @dissect_payload_header(ptr noundef %0, ptr noundef %6, i32 noundef %.190.i, i32 noundef %.17389.i, i32 noundef %2, i8 noundef zeroext 3, ptr noundef %50, ptr noundef %51, ptr noundef %82)
   %406 = load i16, ptr %51, align 2
   %407 = zext i16 %406 to i32
   %408 = icmp slt i32 %.17389.i, %407
@@ -3453,7 +3453,7 @@ dissect_certreq.exit:                             ; preds = %.preheader.i, %532,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.2343.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %36)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.2343.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ike_attr, ptr noundef nonnull @ike_attr_type, ptr noundef %32, ptr noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36)
   %623 = load i32, ptr %32, align 4
   %624 = add i32 %623, %.2343.i
   %625 = load i32, ptr %33, align 4
@@ -3520,7 +3520,7 @@ dissect_resp_lifetime_ike_attribute.exit.i:       ; preds = %646, %627
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.3341.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %618, i32 noundef %.3341.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_resp_lifetime_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %30, ptr noundef %31)
   %651 = load i32, ptr %27, align 4
   %652 = add i32 %651, %.3341.i
   %653 = load i32, ptr %28, align 4
@@ -3751,7 +3751,7 @@ dissect_resp_lifetime_ipsec_attribute.exit.i:     ; preds = %674, %655
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %82, i32 noundef %.4339.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_notify_data_rohc_attr, ptr noundef nonnull @rohc_attr_type, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %26)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %82, i32 noundef %.4339.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_notify_data_rohc_attr, ptr noundef nonnull @rohc_attr_type, ptr noundef %22, ptr noundef %23, ptr noundef %24, ptr noundef %25, ptr noundef %26)
   %770 = load i32, ptr %22, align 4
   %771 = add i32 %770, %.4339.i
   %772 = load i32, ptr %23, align 4
@@ -4131,7 +4131,7 @@ dissect_notif.exit:                               ; preds = %.lr.ph.i162, %.lr.p
   %vs_v2_cfgattr.sink.i.i = phi ptr [ @vs_v2_cfgattr, %.split.i.i ], [ @vs_v1_cfgattr, %.lr.ph.i175 ]
   %975 = load i32, ptr %hf_isakmp_cfg_attr_type_v2.sink.i.i, align 4
   store i32 %975, ptr getelementptr inbounds (i8, ptr @hf_isakmp_cfg_attr, i64 8), align 8
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %82, i32 noundef %.146.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_cfg_attr, ptr noundef nonnull %vs_v2_cfgattr.sink.i.i, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %82, i32 noundef %.146.i, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_cfg_attr, ptr noundef nonnull %vs_v2_cfgattr.sink.i.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
   %976 = load i32, ptr %16, align 4
   %977 = add i32 %976, %.146.i
   %978 = load i32, ptr %17, align 4
@@ -6736,7 +6736,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dissect_payload_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @dissect_payload_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -65535, -2147483648) %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr noundef %8) unnamed_addr #0 {
   %10 = icmp slt i32 %3, 4
   br i1 %10, label %11, label %13
 
@@ -6799,7 +6799,7 @@ declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 declare void @tvb_ensure_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sa_kek(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_sa_kek(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -4, 65532) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #17
@@ -6892,7 +6892,7 @@ define internal fastcc void @dissect_sa_kek(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -4, 65532) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -7008,7 +7008,7 @@ define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 
 
 87:                                               ; preds = %5
   %88 = load i32, ptr @hf_isakmp_sat_payload, align 4
-  %89 = add i32 %3, -5
+  %89 = add nsw i32 %3, -5
   %90 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %88, ptr noundef %0, i32 noundef %28, i32 noundef %89, i32 noundef 0) #17
   br label %91
 
@@ -7017,7 +7017,7 @@ define internal fastcc void @dissect_sa_tek(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @dissect_enc(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [3 x i64], align 16
@@ -7688,7 +7688,7 @@ define internal fastcc i32 @dissect_ipsec_attribute(ptr noundef %0, ptr noundef 
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  call fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull byval(%struct._attribute_common_fields) align 8 @hf_isakmp_ipsec_attr, ptr noundef nonnull @ipsec_attr_type, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = load i32, ptr %5, align 4
   %11 = add i32 %10, %3
   %12 = load i32, ptr %6, align 4
@@ -7875,7 +7875,7 @@ define internal fastcc i32 @dissect_ipsec_attribute(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct._attribute_common_fields) align 8 %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct._attribute_common_fields) align 8 %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #17
   %.not = icmp sgt i16 %11, -1
   %12 = and i16 %11, 32767
@@ -7953,7 +7953,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_life_duration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_life_duration(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 1, 0) %7) unnamed_addr #0 {
   switch i32 %7, label %35 [
     i32 8, label %32
     i32 1, label %9
@@ -8625,7 +8625,7 @@ prepare_decrypt_params.exit.thread:               ; preds = %ikev1_find_gcry_md_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_ivs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @update_ivs(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, -2147483648) %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -8684,7 +8684,7 @@ set_next_iv.exit:                                 ; preds = %get_iv.exit, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @decrypt_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @decrypt_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = zext nneg i32 %3 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 56
@@ -8756,7 +8756,7 @@ declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_un
 declare i64 @gcry_cipher_get_algo_keylen(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @generate_iv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc noalias ptr @generate_iv(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef range(i64 0, 4294967296) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = call i32 @gcry_md_open(ptr noundef nonnull %7, i32 noundef %4, i32 noundef 0) #17
   %.not = icmp eq i32 %8, 0

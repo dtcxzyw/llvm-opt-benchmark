@@ -141,16 +141,16 @@ while.end:                                        ; preds = %while.body
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %while.end
-  %i.06.i.i = phi i64 [ 0, %while.end ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %result_norm, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %while.end ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %result_norm, i64 %i.05.i.i
   %12 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.06.i.i
+  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.05.i.i
   %13 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i.i = and i64 %12, %10
   %and2.i.i.i = and i64 %13, %11
   %or.i.i.i = or i64 %and2.i.i.i, %and.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i, align 8
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 16
   br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %for.body.i.i, !llvm.loop !7
 
@@ -273,16 +273,16 @@ for.end37:                                        ; preds = %for.body31
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.end37
-  %i.06.i.i = phi i64 [ 0, %for.end37 ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %result, i64 %i.06.i.i
+  %i.05.i.i = phi i64 [ 0, %for.end37 ], [ %inc.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds i64, ptr %result, i64 %i.05.i.i
   %13 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.06.i.i
+  %arrayidx1.i.i = getelementptr inbounds i64, ptr %tmp, i64 %i.05.i.i
   %14 = load i64, ptr %arrayidx1.i.i, align 8
   %and.i.i.i = and i64 %13, %11
   %and2.i.i.i = and i64 %14, %12
   %or.i.i.i = or i64 %and2.i.i.i, %and.i.i.i
   store i64 %or.i.i.i, ptr %arrayidx.i.i, align 8
-  %inc.i.i = add nuw nsw i64 %i.06.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 8
   br i1 %exitcond.not.i.i, label %bn_reduce_once_in_place.exit, label %for.body.i.i, !llvm.loop !7
 

@@ -14739,7 +14739,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i48, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10AddSamplerRN10glTFCommon3RefIN5glTF29AnimationEEERNS0_INS1_4NodeEEERNS2_7SamplerENS1_13AnimationPathE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %animRef, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %nodeRef, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %sampler, i32 noundef %path) unnamed_addr #2 {
+define internal fastcc void @_ZL10AddSamplerRN10glTFCommon3RefIN5glTF29AnimationEEERNS0_INS1_4NodeEEERNS2_7SamplerENS1_13AnimationPathE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %animRef, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %nodeRef, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %sampler, i32 noundef range(i32 0, 3) %path) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %animRef, align 8
   %index.i = getelementptr inbounds i8, ptr %animRef, i64 8

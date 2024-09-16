@@ -17857,7 +17857,7 @@ declare dso_local void @complete(ptr noundef) local_unnamed_addr #0
 declare dso_local i64 @__msecs_to_jiffies(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @ata_identify_page_supported(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @ata_identify_page_supported(ptr noundef %0, i8 noundef zeroext range(i8 3, 10) %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -17996,7 +17996,7 @@ declare dso_local i32 @dma_map_sg_attrs(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_port_request_pm(ptr noundef %0, i32 %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
+define internal fastcc void @ata_port_request_pm(ptr noundef %0, i32 range(i32 1, 1041) %1, i32 noundef range(i32 0, 7) %2, i32 noundef range(i32 12, 29) %3, i1 noundef zeroext %4) unnamed_addr #1 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 16
   %8 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %7) #31

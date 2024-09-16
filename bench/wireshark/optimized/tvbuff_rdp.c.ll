@@ -608,7 +608,7 @@ bitstream_getbits.exit144.loopexit:               ; preds = %.lr.ph.i142
   br i1 %221, label %249, label %222
 
 222:                                              ; preds = %213
-  %223 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext 1, ptr noundef nonnull %4)
+  %223 = call fastcc i32 @bitstream_getbits(ptr noundef %3, i8 noundef zeroext 1, ptr noundef %4)
   %224 = load i32, ptr %4, align 4
   %.not100 = icmp eq i32 %224, 0
   br i1 %.not100, label %zgfx_write_literal.exit.thread, label %.preheader
@@ -695,7 +695,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %.1.lcssa = phi i32 [ 4, %.preheader ], [ %229, %.split.loopexit ]
   %.0.lcssa = phi i8 [ 2, %.preheader ], [ %230, %.split.loopexit ]
   store i32 %.pr173252.lcssa, ptr %4, align 4
-  %246 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext %.0.lcssa, ptr noundef nonnull %4)
+  %246 = call fastcc i32 @bitstream_getbits(ptr noundef %3, i8 noundef zeroext %.0.lcssa, ptr noundef %4)
   %247 = add i32 %246, %.1.lcssa
   %248 = load i32, ptr %4, align 4
   %.not101 = icmp eq i32 %248, 0
@@ -829,7 +829,7 @@ zgfx_write_from_history.exit:                     ; preds = %303, %307
   br label %.critedgethread-pre-split, !llvm.loop !6
 
 321:                                              ; preds = %197
-  %322 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext 15, ptr noundef nonnull %4)
+  %322 = call fastcc i32 @bitstream_getbits(ptr noundef %3, i8 noundef zeroext 15, ptr noundef %4)
   %323 = load i32, ptr %4, align 4
   %.not97 = icmp eq i32 %323, 0
   br i1 %.not97, label %zgfx_write_literal.exit.thread, label %324
@@ -841,7 +841,7 @@ zgfx_write_from_history.exit:                     ; preds = %303, %307
   store i32 %327, ptr %57, align 4
   store i32 0, ptr %59, align 4
   store i32 0, ptr %58, align 8
-  %328 = call fastcc i32 @zgfx_write_raw(ptr noundef %0, ptr noundef nonnull %3, i32 noundef %322)
+  %328 = call fastcc i32 @zgfx_write_raw(ptr noundef %0, ptr noundef %3, i32 noundef %322)
   %.not98 = icmp eq i32 %328, 0
   br i1 %.not98, label %zgfx_write_literal.exit.thread, label %.critedgethread-pre-split, !llvm.loop !6
 
@@ -895,7 +895,7 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = zext i8 %1 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
@@ -970,7 +970,7 @@ define internal fastcc i32 @bitstream_getbits(ptr nocapture noundef %0, i8 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zgfx_write_raw(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2500008
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 65535, %2

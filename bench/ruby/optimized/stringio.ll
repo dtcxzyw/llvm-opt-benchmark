@@ -295,7 +295,7 @@ define internal noundef i64 @strio_initialize(i32 noundef %0, ptr noundef %1, i6
 11:                                               ; preds = %5, %3
   %.0 = phi ptr [ %4, %3 ], [ %6, %5 ]
   %12 = tail call i64 @rb_call_super(i32 noundef 0, ptr noundef null) #14
-  %13 = tail call fastcc i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %.0, i64 noundef %2)
+  %13 = tail call fastcc i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef %.0, i64 noundef %2)
   ret i64 %2
 }
 
@@ -385,7 +385,7 @@ define internal noundef i64 @strio_reopen(i32 noundef %0, ptr noundef %1, i64 no
   unreachable
 
 get_strio.exit:                                   ; preds = %.split
-  %10 = tail call fastcc i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7, i64 noundef %2)
+  %10 = tail call fastcc i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef %7, i64 noundef %2)
   br label %28
 
 11:                                               ; preds = %3
@@ -415,7 +415,7 @@ get_strio.exit:                                   ; preds = %.split
   unreachable
 
 get_strio.exit31:                                 ; preds = %.split28
-  %26 = tail call fastcc i64 @strio_init(i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %23, i64 noundef %2)
+  %26 = tail call fastcc i64 @strio_init(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %23, i64 noundef %2)
   br label %28
 
 .critedge:                                        ; preds = %11, %17
@@ -1163,14 +1163,14 @@ readable.exit:                                    ; preds = %12
   br label %.loopexit
 
 25:                                               ; preds = %readable.exit
-  %26 = call fastcc ptr @prepare_getline_args(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %0, ptr noundef %1)
+  %26 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
   %27 = getelementptr inbounds i8, ptr %4, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %32, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %30 = call fastcc i64 @strio_getline(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %30 = call fastcc i64 @strio_getline(ptr noundef %4, ptr noundef %6)
   %31 = icmp eq i64 %30, 4
   br i1 %31, label %.loopexit, label %.lr.ph
 
@@ -1182,7 +1182,7 @@ readable.exit:                                    ; preds = %12
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %34 = phi i64 [ %36, %.lr.ph ], [ %30, %.preheader ]
   %35 = call i64 @rb_yield(i64 noundef %34) #14
-  %36 = call fastcc i64 @strio_getline(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %36 = call fastcc i64 @strio_getline(ptr noundef %4, ptr noundef %6)
   %37 = icmp eq i64 %36, 4
   br i1 %37, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -1635,7 +1635,7 @@ rb_num2int_inline.exit:                           ; preds = %45, %47
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 %58(i32 noundef %49, ptr noundef nonnull %4, ptr noundef %51) #14
   %60 = sext i32 %52 to i64
-  call fastcc void @strio_unget_bytes(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef %60)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef nonnull %4, i64 noundef %60)
   br label %81
 
 rb_integer_type_p.exit.thread28:                  ; preds = %36, %rb_integer_type_p.exit
@@ -1679,7 +1679,7 @@ RSTRING_PTR.exit:                                 ; preds = %70, %76
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %76 ], [ %75, %70 ]
   %77 = getelementptr inbounds i8, ptr %72, i64 16
   %78 = load i64, ptr %77, align 8
-  call fastcc void @strio_unget_bytes(ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, i64 noundef %78)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %78)
   store ptr %3, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #14, !srcloc !18
   %79 = load ptr, ptr %5, align 8
@@ -1791,7 +1791,7 @@ rb_num2int_inline.exit:                           ; preds = %47, %49
   %.0.i10 = phi i64 [ %48, %47 ], [ %50, %49 ]
   %51 = trunc i64 %.0.i10 to i8
   store i8 %51, ptr %4, align 1
-  call fastcc void @strio_unget_bytes(ptr noundef nonnull %7, ptr noundef nonnull %4, i64 noundef 1)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef nonnull %4, i64 noundef 1)
   br label %65
 
 rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_type_p.exit
@@ -1816,7 +1816,7 @@ rb_integer_type_p.exit.thread13:                  ; preds = %36, %rb_integer_typ
 
 RSTRING_PTR.exit:                                 ; preds = %58, %62
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %62 ], [ %61, %58 ]
-  call fastcc void @strio_unget_bytes(ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, i64 noundef %56)
+  call fastcc void @strio_unget_bytes(ptr noundef %7, ptr noundef %.sroa.2.0.i, i64 noundef %56)
   store ptr %3, ptr %5, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #14, !srcloc !22
   %63 = load ptr, ptr %5, align 8
@@ -1932,7 +1932,7 @@ get_strio.exit.i:                                 ; preds = %3
   unreachable
 
 readable.exit:                                    ; preds = %12
-  %20 = call fastcc ptr @prepare_getline_args(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %0, ptr noundef %1)
+  %20 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
@@ -1955,7 +1955,7 @@ readable.exit:                                    ; preds = %12
   br label %35
 
 33:                                               ; preds = %readable.exit
-  %34 = call fastcc i64 @strio_getline(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %34 = call fastcc i64 @strio_getline(ptr noundef %4, ptr noundef %6)
   call void @rb_lastline_set(i64 noundef %34) #14
   br label %35
 
@@ -1999,7 +1999,7 @@ get_strio.exit.i:                                 ; preds = %3
   unreachable
 
 readable.exit:                                    ; preds = %12
-  %20 = call fastcc ptr @prepare_getline_args(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %0, ptr noundef %1)
+  %20 = call fastcc ptr @prepare_getline_args(ptr noundef %6, ptr noundef %4, i32 noundef %0, ptr noundef %1)
   %21 = getelementptr inbounds i8, ptr %4, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
@@ -2012,14 +2012,14 @@ readable.exit:                                    ; preds = %12
 
 26:                                               ; preds = %readable.exit
   %27 = call i64 @rb_ary_new() #14
-  %28 = call fastcc i64 @strio_getline(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %28 = call fastcc i64 @strio_getline(ptr noundef %4, ptr noundef %6)
   %29 = icmp eq i64 %28, 4
   br i1 %29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %30 = phi i64 [ %32, %.lr.ph ], [ %28, %26 ]
   %31 = call i64 @rb_ary_push(i64 noundef %27, i64 noundef %30) #14
-  %32 = call fastcc i64 @strio_getline(ptr noundef nonnull %4, ptr noundef nonnull %6)
+  %32 = call fastcc i64 @strio_getline(ptr noundef %4, ptr noundef %6)
   %33 = icmp eq i64 %32, 4
   br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
@@ -2921,7 +2921,7 @@ define internal i64 @strio_set_encoding_by_bom(i64 noundef %0) #0 {
   unreachable
 
 get_strio.exit:                                   ; preds = %1
-  %6 = tail call fastcc ptr @set_encoding_by_bom(ptr noundef nonnull %3)
+  %6 = tail call fastcc ptr @set_encoding_by_bom(ptr noundef %3)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
 
@@ -3200,7 +3200,7 @@ declare void @rb_gc_writebarrier(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_call_super(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef returned %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @strio_init(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef returned %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -3302,7 +3302,7 @@ rb_obj_write.exit:                                ; preds = %37, %43
   br i1 %.not21, label %57, label %55
 
 55:                                               ; preds = %50
-  %56 = call fastcc ptr @set_encoding_by_bom(ptr noundef nonnull %2)
+  %56 = call fastcc ptr @set_encoding_by_bom(ptr noundef %2)
   %.pre24 = load i32, ptr %12, align 8
   br label %57
 
@@ -3339,7 +3339,7 @@ declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @rb_enc_get(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @set_encoding_by_bom(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load i64, ptr %3, align 8, !noalias !44
@@ -3522,7 +3522,7 @@ declare i64 @rb_enumeratorize_with_size(i64 noundef, i64 noundef, i32 noundef, p
 declare i64 @rb_frame_this_func() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @prepare_getline_args(ptr nocapture noundef readonly %0, ptr noundef returned %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @prepare_getline_args(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull returned %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -3744,7 +3744,7 @@ rb_num2long_inline.exit51.thread:                 ; preds = %15, %62, %66, %rb_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @strio_getline(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc i64 @strio_getline(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [256 x i64], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -4170,10 +4170,9 @@ RSTRING_PTR.exit205:                              ; preds = %216, %220
   %.sroa.2.0.i204 = phi ptr [ %.sroa.2.0.copyload.i203, %220 ], [ %219, %216 ]
   br label %222
 
-.preheader.i:                                     ; preds = %222
+.lr.ph.preheader.i:                               ; preds = %222
   %221 = add nsw i64 %72, -1
-  %.not12.i = icmp eq i64 %221, 0
-  br i1 %.not12.i, label %bm_init_skip.exit.thread, label %.lr.ph.i
+  br label %.lr.ph.i
 
 222:                                              ; preds = %222, %RSTRING_PTR.exit205
   %indvars.iv.i = phi i64 [ 0, %RSTRING_PTR.exit205 ], [ %indvars.iv.next.i, %222 ]
@@ -4181,11 +4180,11 @@ RSTRING_PTR.exit205:                              ; preds = %216, %220
   store i64 %72, ptr %223, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %.preheader.i, label %222, !llvm.loop !66
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i, label %222, !llvm.loop !66
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %224 = phi i64 [ %229, %.lr.ph.i ], [ %221, %.preheader.i ]
-  %.0913.i = phi ptr [ %225, %.lr.ph.i ], [ %.sroa.2.0.i204, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %224 = phi i64 [ %229, %.lr.ph.i ], [ %221, %.lr.ph.preheader.i ]
+  %.0913.i = phi ptr [ %225, %.lr.ph.i ], [ %.sroa.2.0.i204, %.lr.ph.preheader.i ]
   %225 = getelementptr inbounds i8, ptr %.0913.i, i64 1
   %226 = load i8, ptr %.0913.i, align 1
   %227 = zext i8 %226 to i64
@@ -4199,19 +4198,12 @@ bm_init_skip.exit:                                ; preds = %.lr.ph.i
   %.not.i206 = icmp sgt i64 %72, %193
   br i1 %.not.i206, label %bm_search.exit.thread, label %.preheader.lr.ph.i
 
-bm_init_skip.exit.thread:                         ; preds = %.preheader.i
-  %.not.i206252 = icmp sgt i64 %72, %193
-  br i1 %.not.i206252, label %bm_search.exit.thread, label %.preheader.us.i.preheader
-
 .preheader.lr.ph.i:                               ; preds = %bm_init_skip.exit
   %230 = icmp sgt i64 %72, 0
-  br i1 %230, label %.preheader.us.i.preheader, label %bm_search.exit
+  br i1 %230, label %.preheader.us.i, label %bm_search.exit
 
-.preheader.us.i.preheader:                        ; preds = %bm_init_skip.exit.thread, %.preheader.lr.ph.i
-  br label %.preheader.us.i
-
-.preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %.critedge.us.i
-  %.01925.us.i = phi i64 [ %242, %.critedge.us.i ], [ %221, %.preheader.us.i.preheader ]
+.preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %.critedge.us.i
+  %.01925.us.i = phi i64 [ %242, %.critedge.us.i ], [ %221, %.preheader.lr.ph.i ]
   br label %231
 
 231:                                              ; preds = %244, %.preheader.us.i
@@ -4257,9 +4249,9 @@ bm_search.exit:                                   ; preds = %.preheader.lr.ph.i,
   %253 = getelementptr inbounds i8, ptr %251, i64 %252
   br label %bm_search.exit.thread
 
-bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.lr.ph236, %.lr.ph238, %bm_init_skip.exit.thread, %.preheader, %bm_init_skip.exit, %.split.us, %250, %bm_search.exit, %190
-  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %253, %250 ], [ %.0145, %bm_search.exit ], [ %.0145, %190 ], [ %.0145, %bm_init_skip.exit ], [ %.0145, %.preheader ], [ %.0145, %bm_init_skip.exit.thread ], [ %.0145, %.lr.ph238 ], [ %.0145, %.lr.ph236 ], [ %.0145, %.critedge.us.i ]
-  %.3 = phi i64 [ %215, %.split.us ], [ 0, %250 ], [ 0, %bm_search.exit ], [ 0, %190 ], [ 0, %bm_init_skip.exit ], [ 0, %.preheader ], [ 0, %bm_init_skip.exit.thread ], [ 0, %.lr.ph238 ], [ 0, %.lr.ph236 ], [ 0, %.critedge.us.i ]
+bm_search.exit.thread:                            ; preds = %.critedge.us.i, %.lr.ph236, %.lr.ph238, %.preheader, %bm_init_skip.exit, %.split.us, %250, %bm_search.exit, %190
+  %.4 = phi ptr [ %.us-phi, %.split.us ], [ %253, %250 ], [ %.0145, %bm_search.exit ], [ %.0145, %190 ], [ %.0145, %bm_init_skip.exit ], [ %.0145, %.preheader ], [ %.0145, %.lr.ph238 ], [ %.0145, %.lr.ph236 ], [ %.0145, %.critedge.us.i ]
+  %.3 = phi i64 [ %215, %.split.us ], [ 0, %250 ], [ 0, %bm_search.exit ], [ 0, %190 ], [ 0, %bm_init_skip.exit ], [ 0, %.preheader ], [ 0, %.lr.ph238 ], [ 0, %.lr.ph236 ], [ 0, %.critedge.us.i ]
   %254 = load i64, ptr %14, align 8
   %255 = ptrtoint ptr %.4 to i64
   %256 = add i64 %.3, %192
@@ -4348,7 +4340,7 @@ declare i32 @rb_enc_codelen(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @rb_enc_uint_chr(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @strio_unget_bytes(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @strio_unget_bytes(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %0, align 8

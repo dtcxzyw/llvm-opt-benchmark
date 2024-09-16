@@ -273,11 +273,11 @@ define dso_local noundef ptr @i915_rsgt_from_mm_node(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @i915_refct_sgt_put(ptr noundef %0) unnamed_addr #6 align 16 {
+define internal fastcc void @i915_refct_sgt_put(ptr noundef nonnull %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 -1, ptr elementtype(i32) %0) #9, !srcloc !13
+  %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 -1, ptr nonnull elementtype(i32) %0) #9, !srcloc !13
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %10, label %7
 
@@ -286,12 +286,12 @@ define internal fastcc void @i915_refct_sgt_put(ptr noundef %0) unnamed_addr #6 
   br i1 %8, label %.thread, label %9, !prof !14
 
 9:                                                ; preds = %7
-  tail call void @refcount_warn_saturate(ptr noundef %0, i32 noundef 3) #9
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %0, i32 noundef 3) #9
   br label %.thread
 
 10:                                               ; preds = %1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
-  tail call void %4(ptr noundef %0) #9
+  tail call void %4(ptr noundef nonnull %0) #9
   br label %.thread
 
 .thread:                                          ; preds = %7, %9, %10

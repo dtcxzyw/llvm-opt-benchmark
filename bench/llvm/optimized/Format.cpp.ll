@@ -16941,7 +16941,7 @@ _ZN4llvm5ErrorD2Ev.exit154:                       ; preds = %387, %switch.lookup
   br i1 %412, label %414, label %413
 
 413:                                              ; preds = %411
-  call fastcc void @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvEENK3$_0clEPNS0_11FormatStyleE"(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %16)
+  call fastcc void @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvEENK3$_0clEPNS0_11FormatStyleE"(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %16)
   br label %414
 
 414:                                              ; preds = %413, %411
@@ -17129,7 +17129,7 @@ declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvEENK3$_0clEPNS0_11FormatStyleE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvEENK3$_0clEPNS0_11FormatStyleE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.llvm::MemoryBufferRef", align 8
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8, !noalias !315
@@ -17156,7 +17156,7 @@ define internal fastcc void @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %spec.select = select i1 %.not, ptr @"_ZZN5clang6format8getStyleEN4llvm9StringRefES2_S2_S2_PNS1_3vfs10FileSystemEbPFvRKNS1_12SMDiagnosticEPvEEN3$_18__invokeES8_S9_", ptr %18
-  %19 = call { i32, ptr } @_ZN5clang6format18parseConfigurationEN4llvm15MemoryBufferRefEPNS0_11FormatStyleEbPFvRKNS1_12SMDiagnosticEPvES8_(ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %3, ptr noundef %1, i1 noundef zeroext %16, ptr noundef nonnull %spec.select, ptr noundef null)
+  %19 = call { i32, ptr } @_ZN5clang6format18parseConfigurationEN4llvm15MemoryBufferRefEPNS0_11FormatStyleEbPFvRKNS1_12SMDiagnosticEPvES8_(ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %3, ptr noundef nonnull %1, i1 noundef zeroext %16, ptr noundef nonnull %spec.select, ptr noundef null)
   %.not9 = icmp eq ptr %12, %8
   br i1 %.not9, label %._crit_edge, label %11
 
@@ -18527,7 +18527,7 @@ _ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %94, %_ZS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortCppIncludesERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_116IncludeDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsES0_E3$_0EEEvT_SP_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr %4) unnamed_addr #2 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortCppIncludesERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_116IncludeDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsES0_E3$_0EEEvT_SP_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %3, ptr %4) unnamed_addr #2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
@@ -19780,7 +19780,7 @@ _ZSt17__rotate_adaptiveIPjS0_lET_S1_S1_S1_T1_S2_T0_S2_.exit: ; preds = %162, %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortCppIncludesERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_116IncludeDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsES0_E3$_1EEEvT_SP_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture readonly %4) unnamed_addr #15 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPjS0_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortCppIncludesERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_116IncludeDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsES0_E3$_1EEEvT_SP_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 4611686018427387901) %3, ptr nocapture readonly %4) unnamed_addr #15 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
@@ -20647,7 +20647,7 @@ _ZN4llvmltENS_9StringRefES0_.exit18.i.i.i.i.i30.i.i: ; preds = %_ZN4llvmltENS_9S
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %4) unnamed_addr #15 {
+define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr nocapture noundef %0, i64 noundef range(i64 0, 1152921504606846975) %1, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %2, i32 noundef %3, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %4) unnamed_addr #15 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7
@@ -23649,7 +23649,7 @@ _ZNK5clang6format13AnnotatedLine8endsWithIJNS_3tok9TokenKindEEEEbDpT_.exit.threa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %4 = getelementptr inbounds i8, ptr %0, i64 4296
   %5 = getelementptr inbounds i8, ptr %0, i64 4288
@@ -23753,7 +23753,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_er
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11cleanupPairINS_3tok9TokenKindES5_EEvPNS0_11FormatTokenET_T0_b(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11cleanupPairINS_3tok9TokenKindES5_EEvPNS0_11FormatTokenET_T0_b(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %1, i16 noundef zeroext range(i16 22, 67) %2, i16 noundef zeroext range(i16 23, 67) %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %7 = getelementptr inbounds i8, ptr %0, i64 4296
   %8 = getelementptr inbounds i8, ptr %0, i64 4288
@@ -23833,7 +23833,7 @@ _ZNSt3setIPN5clang6format11FormatTokenENS1_12_GLOBAL__N_17Cleaner15FormatTokenLe
 
 29:                                               ; preds = %25
   %30 = select i1 %4, ptr %.019.ph49, ptr %storemerge10.i
-  tail call fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull %30)
+  tail call fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %30)
   %.033 = load ptr, ptr %storemerge.in7.i50, align 8
   %31 = icmp ne ptr %.033, null
   %32 = icmp ne ptr %.033, %storemerge10.i
@@ -23928,7 +23928,7 @@ _ZZN5clang6format12_GLOBAL__N_17Cleaner11cleanupPairINS_3tok9TokenKindES5_EEvPNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11cleanupPairINS0_9TokenTypeENS_3tok9TokenKindEEEvPNS0_11FormatTokenET_T0_b(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %1, i8 noundef zeroext %2, i16 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11cleanupPairINS0_9TokenTypeENS_3tok9TokenKindEEEvPNS0_11FormatTokenET_T0_b(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %1, i8 noundef zeroext range(i8 32, 34) %2, i16 noundef zeroext range(i16 24, 67) %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4280
   %7 = getelementptr inbounds i8, ptr %0, i64 4296
   %8 = getelementptr inbounds i8, ptr %0, i64 4288
@@ -24008,7 +24008,7 @@ _ZNSt3setIPN5clang6format11FormatTokenENS1_12_GLOBAL__N_17Cleaner15FormatTokenLe
 
 29:                                               ; preds = %25
   %30 = select i1 %4, ptr %.019.ph49, ptr %storemerge10.i
-  tail call fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull %30)
+  tail call fastcc void @_ZN5clang6format12_GLOBAL__N_17Cleaner11deleteTokenEPNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %30)
   %.033 = load ptr, ptr %storemerge.in7.i50, align 8
   %31 = icmp ne ptr %.033, null
   %32 = icmp ne ptr %.033, %storemerge10.i
@@ -45467,7 +45467,7 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %98, %73, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN5clang6format12_GLOBAL__N_118JavaScriptRequoter22requoteJSStringLiteralERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsEENKUlNS_14SourceLocationEjNS3_9StringRefEE_clESC_jSD_(ptr %.0.val, ptr nonnull %.8.val.1792.val.8.val, i32 %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZZN5clang6format12_GLOBAL__N_118JavaScriptRequoter22requoteJSStringLiteralERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS_7tooling12ReplacementsEENKUlNS_14SourceLocationEjNS3_9StringRefEE_clESC_jSD_(ptr %.0.val, ptr nonnull %.8.val.1792.val.8.val, i32 %0, i32 noundef range(i32 0, 2) %1, ptr %2, i64 %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.clang::tooling::Replacement", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

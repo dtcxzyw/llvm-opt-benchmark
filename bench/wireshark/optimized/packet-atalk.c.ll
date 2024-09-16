@@ -1454,7 +1454,7 @@ define internal range(i32 0, 7) i32 @dissect_asp(ptr noundef %0, ptr noundef %1,
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.220) #8
   %9 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #8
-  %10 = tail call fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %10 = tail call fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %111, label %11
 
@@ -1918,7 +1918,7 @@ define internal i32 @dissect_atp_zip(ptr noundef %0, ptr noundef %1, ptr noundef
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.226) #8
   %9 = load ptr, ptr %7, align 8
   tail call void @col_clear(ptr noundef %9, i32 noundef 25) #8
-  %10 = tail call fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  %10 = tail call fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.sink.split, label %11
 
@@ -2407,7 +2407,7 @@ declare i32 @try_conversation_dissector(ptr noundef, ptr noundef, i32 noundef, i
 declare i32 @conversation_pt_to_conversation_type(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
   %4 = alloca %struct.asp_request_key, align 4
   %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
   %6 = getelementptr inbounds i8, ptr %5, i64 24

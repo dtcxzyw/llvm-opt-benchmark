@@ -5195,7 +5195,7 @@ dissect_link_control_cmd.exit:                    ; preds = %190, %190, %190, %1
   br label %dissect_link_policy_cmd.exit
 
 949:                                              ; preds = %189
-  %950 = tail call fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef nonnull %3, ptr noundef %.0214)
+  %950 = tail call fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3, ptr noundef %.0214)
   br label %dissect_link_policy_cmd.exit
 
 951:                                              ; preds = %189
@@ -5342,7 +5342,7 @@ dissect_link_control_cmd.exit:                    ; preds = %190, %190, %190, %1
   br label %dissect_link_policy_cmd.exit
 
 1027:                                             ; preds = %189
-  %1028 = tail call fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef nonnull %3)
+  %1028 = tail call fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %36, i16 noundef zeroext %94, ptr noundef %3)
   br label %dissect_link_policy_cmd.exit
 
 1029:                                             ; preds = %189
@@ -6096,7 +6096,7 @@ declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4, ptr noundef writeonly %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -7246,7 +7246,7 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext range(i16 0, 1024) %3, ptr noundef nonnull %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca [5 x %struct._wmem_tree_key_t], align 16
   %8 = alloca i32, align 4
@@ -9180,7 +9180,7 @@ declare i32 @dissect_bd_addr(i32 noundef, ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #1 {
+define internal fastcc noundef i32 @dissect_bthci_cmd_flow_spec(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #1 {
   %5 = load i32, ptr @hf_bthci_cmd_flow_spec, align 4
   %.not = icmp eq i32 %3, 0
   %6 = select i1 %.not, ptr @.str.2525, ptr @.str.2524
@@ -9282,7 +9282,7 @@ declare void @save_local_device_name_from_eir_ad(ptr noundef, i32 noundef, ptr n
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_antenna_switching_pattern(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @dissect_antenna_switching_pattern(ptr noundef %0, i32 noundef range(i32 6, 10) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = load i32, ptr @hf_bthci_cmd_antenna_switching_pattern_length, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #7
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #7
@@ -9307,7 +9307,7 @@ define internal fastcc i32 @dissect_antenna_switching_pattern(ptr noundef %0, i3
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.126) #7
   %18 = zext i8 %17 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %11, ptr noundef nonnull @.str.2558, i32 noundef %18) #7
-  %19 = add i32 %.126, 1
+  %19 = add nuw nsw i32 %.126, 1
   %20 = add i8 %.02225, -1
   %.not24 = icmp eq i8 %20, 0
   br i1 %.not24, label %.loopexit, label %14, !llvm.loop !20

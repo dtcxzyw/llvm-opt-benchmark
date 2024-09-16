@@ -13118,7 +13118,7 @@ _ZNK4llvm11CCValAssign8isRegLocEv.exit177:        ; preds = %158, %160
 _ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit:   ; preds = %164
   %166 = load i64, ptr %142, align 8
   %167 = trunc i64 %166 to i32
-  %168 = call fastcc noundef zeroext i1 @_ZL19MatchingStackOffsetN4llvm7SDValueEjNS_3ISD10ArgFlagsTyERNS_16MachineFrameInfoEPKNS_19MachineRegisterInfoEPKNS_12X86InstrInfoERKNS_11CCValAssignE(ptr %.sroa.024.0.copyload, i32 %.sroa.225.0.copyload, i32 noundef %167, i64 %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %133, ptr noundef nonnull %135, ptr noundef nonnull %137, ptr noundef nonnull align 8 dereferenceable(26) %142)
+  %168 = call fastcc noundef zeroext i1 @_ZL19MatchingStackOffsetN4llvm7SDValueEjNS_3ISD10ArgFlagsTyERNS_16MachineFrameInfoEPKNS_19MachineRegisterInfoEPKNS_12X86InstrInfoERKNS_11CCValAssignE(ptr %.sroa.024.0.copyload, i32 %.sroa.225.0.copyload, i32 noundef %167, i64 %.sroa.022.0.copyload, i64 %.sroa.223.0.copyload, ptr noundef nonnull align 8 dereferenceable(696) %133, ptr noundef %135, ptr noundef nonnull %137, ptr noundef nonnull align 8 dereferenceable(26) %142)
   br i1 %168, label %169, label %.loopexit199
 
 169:                                              ; preds = %_ZNK4llvm11CCValAssign8isRegLocEv.exit177, %_ZNK4llvm11CCValAssign15getLocMemOffsetEv.exit
@@ -13500,7 +13500,7 @@ declare noundef ptr @_ZNK4llvm15X86RegisterInfo20getCallPreservedMaskERKNS_15Mac
 declare noundef zeroext i1 @_ZNK4llvm18TargetRegisterInfo18regmaskSubsetEqualEPKjS2_(ptr noundef nonnull align 8 dereferenceable(308), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19MatchingStackOffsetN4llvm7SDValueEjNS_3ISD10ArgFlagsTyERNS_16MachineFrameInfoEPKNS_19MachineRegisterInfoEPKNS_12X86InstrInfoERKNS_11CCValAssignE(ptr nocapture readonly %0, i32 %1, i32 noundef %2, i64 %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19MatchingStackOffsetN4llvm7SDValueEjNS_3ISD10ArgFlagsTyERNS_16MachineFrameInfoEPKNS_19MachineRegisterInfoEPKNS_12X86InstrInfoERKNS_11CCValAssignE(ptr nocapture readonly %0, i32 %1, i32 noundef %2, i64 %3, i64 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %5, ptr noundef nonnull %6, ptr noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %8) unnamed_addr #0 {
   %10 = alloca %"struct.llvm::EVT", align 8
   %11 = alloca %"struct.llvm::EVT", align 8
   %12 = alloca %"class.llvm::TypeSize", align 8

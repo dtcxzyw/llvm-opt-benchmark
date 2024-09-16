@@ -74,7 +74,7 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
   store i16 0, ptr %5, align 2
   %6 = getelementptr inbounds i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8
-  %8 = call fastcc ptr @_get_avail_map(ptr noundef %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %8 = call fastcc ptr @_get_avail_map(ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   store ptr %8, ptr %2, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %9
@@ -154,7 +154,7 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_avail_map(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @_get_avail_map(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @slurm_cred_get_args(ptr noundef %0) #8
@@ -505,7 +505,7 @@ declare i32 @slurm_get_log_level() local_unnamed_addr #1
 declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lllp_map_abstract_masks(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_lllp_map_abstract_masks(i32 noundef range(i32 0, 65536) %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
@@ -520,7 +520,7 @@ define internal fastcc void @_lllp_map_abstract_masks(i32 noundef %0, ptr nocapt
   br i1 %.not10, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %wide.trip.count = zext i32 %0 to i64
+  %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %57
@@ -639,7 +639,7 @@ _lllp_map_abstract_mask.exit:                     ; preds = %53, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_match_masks_to_ldom(i32 noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_match_masks_to_ldom(i32 noundef range(i32 0, 65536) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit27, label %3
 
@@ -657,7 +657,7 @@ define internal fastcc void @_match_masks_to_ldom(i32 noundef %0, ptr noundef re
   br i1 %or.cond, label %.loopexit27, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %5
-  %wide.trip.count43 = zext i32 %0 to i64
+  %wide.trip.count43 = zext nneg i32 %0 to i64
   %wide.trip.count38 = and i64 %6, 4294967295
   br label %.preheader.us
 
@@ -804,7 +804,7 @@ define range(i32 0, 4034) i32 @lllp_distribution(ptr noundef %0, i32 noundef %1,
   br i1 %.not118, label %201, label %70
 
 70:                                               ; preds = %65
-  %71 = call fastcc ptr @_alloc_mask(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  %71 = call fastcc ptr @_alloc_mask(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
   store ptr %71, ptr %35, align 8
   %.not134 = icmp eq ptr %71, null
   br i1 %.not134, label %72, label %75
@@ -1166,7 +1166,7 @@ _validate_map.exit:                               ; preds = %165, %167, %170, %1
   %207 = load i16, ptr %206, align 2
   %208 = zext i16 %207 to i32
   %209 = mul nuw nsw i32 %208, %205
-  %210 = call fastcc ptr @_alloc_mask(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  %210 = call fastcc ptr @_alloc_mask(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
   store ptr %210, ptr %36, align 8
   %211 = tail call i32 @slurm_get_log_level() #8
   %212 = icmp sgt i32 %211, 4
@@ -1344,7 +1344,7 @@ switch.early.test:                                ; preds = %220
   br label %295
 
 295:                                              ; preds = %292, %289
-  %296 = call fastcc i32 @_task_layout_lllp_block(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %27)
+  %296 = call fastcc i32 @_task_layout_lllp_block(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %27)
   br label %517
 
 297:                                              ; preds = %285, %285, %285, %285
@@ -1365,7 +1365,7 @@ switch.early.test:                                ; preds = %220
   br label %306
 
 306:                                              ; preds = %303, %300
-  %307 = call fastcc i32 @_task_layout_lllp_block(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %27)
+  %307 = call fastcc i32 @_task_layout_lllp_block(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %27)
   br label %517
 
 308:                                              ; preds = %297, %285
@@ -1412,7 +1412,7 @@ switch.early.test:                                ; preds = %220
 326:                                              ; preds = %325, %314
   %327 = getelementptr inbounds i8, ptr %0, i64 544
   %328 = load ptr, ptr %327, align 8
-  %329 = call fastcc ptr @_get_avail_map(ptr noundef %328, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %329 = call fastcc ptr @_get_avail_map(ptr noundef %328, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   store ptr %329, ptr %15, align 8
   %.not.i153 = icmp eq ptr %329, null
   br i1 %.not.i153, label %_task_layout_lllp_cyclic.exit, label %330
@@ -2092,7 +2092,7 @@ _lllp_generate_cpu_bind.exit:                     ; preds = %619, %625
   br label %648
 
 629:                                              ; preds = %517
-  %630 = call fastcc ptr @_alloc_mask(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %34)
+  %630 = call fastcc ptr @_alloc_mask(ptr noundef %0, ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %32, ptr noundef %33, ptr noundef %34)
   %.not129 = icmp eq ptr %630, null
   br i1 %.not129, label %636, label %631
 
@@ -2175,7 +2175,7 @@ _lllp_free_masks.exit:                            ; preds = %654, %650
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_alloc_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @_alloc_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -2189,7 +2189,7 @@ define internal fastcc ptr @_alloc_mask(ptr nocapture noundef readonly %0, ptr n
   store i32 0, ptr %6, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 544
   %14 = load ptr, ptr %13, align 8
-  %15 = call fastcc ptr @_get_avail_map(ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %15 = call fastcc ptr @_get_avail_map(ptr noundef %14, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store ptr %15, ptr %11, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %102, label %16
@@ -2464,7 +2464,7 @@ declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare void @slurm_sprint_cpu_bind_type(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -2499,7 +2499,7 @@ define internal fastcc range(i32 0, 4034) i32 @_task_layout_lllp_block(ptr nocap
 24:                                               ; preds = %23, %3
   %25 = getelementptr inbounds i8, ptr %0, i64 544
   %26 = load ptr, ptr %25, align 8
-  %27 = call fastcc ptr @_get_avail_map(ptr noundef %26, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %27 = call fastcc ptr @_get_avail_map(ptr noundef %26, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   store ptr %27, ptr %7, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %192, label %28
@@ -2873,7 +2873,7 @@ declare void @slurm_cred_unlock_args(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_expand_masks(i16 noundef zeroext %0, i32 noundef %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @_expand_masks(i16 noundef zeroext %0, i32 noundef range(i32 0, 65536) %1, ptr nocapture noundef readonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4, i16 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
   %8 = zext i16 %0 to i32
   %9 = and i32 %8, 2
   %.not = icmp eq i32 %9, 0
@@ -2892,7 +2892,7 @@ define internal fastcc void @_expand_masks(i16 noundef zeroext %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %12
   %15 = zext i16 %5 to i32
-  %wide.trip.count = zext i32 %1 to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_blot_mask.exit
@@ -2971,7 +2971,7 @@ _blot_mask.exit:                                  ; preds = %.loopexit.i, %16, %
 
 .lr.ph39:                                         ; preds = %38
   %44 = zext i16 %3 to i64
-  %wide.trip.count47 = zext i32 %1 to i64
+  %wide.trip.count47 = zext nneg i32 %1 to i64
   br label %45
 
 45:                                               ; preds = %.lr.ph39, %_blot_mask_sockets.exit

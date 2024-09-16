@@ -5370,7 +5370,7 @@ Vec_IntFree.exit116:                              ; preds = %Vec_IntFree.exit, %
   %94 = fmul double %92, %93
   %95 = fptosi double %94 to i32
   %96 = tail call noundef i32 @llvm.smax.i32(i32 %95, i32 1)
-  %97 = tail call noundef i32 @llvm.smin.i32(i32 %88, i32 %96)
+  %97 = tail call i32 @llvm.smin.i32(i32 %88, i32 %96)
   %98 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %99 = getelementptr inbounds i8, ptr %98, i64 4
   store i32 0, ptr %99, align 4
@@ -8138,7 +8138,7 @@ declare void @Abc_SclTransferGates(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

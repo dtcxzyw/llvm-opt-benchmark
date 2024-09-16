@@ -6081,7 +6081,7 @@ declare i32 @fork() #23
 declare i32 @vfork() local_unnamed_addr #24
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal fastcc void @_ZN5folly12_GLOBAL__N_110childErrorEiii(i32 noundef %errFd, i32 noundef %errCode, i32 noundef %errnoValue) unnamed_addr #19 {
+define internal fastcc void @_ZN5folly12_GLOBAL__N_110childErrorEiii(i32 noundef %errFd, i32 noundef range(i32 126, 128) %errCode, i32 noundef %errnoValue) unnamed_addr #19 {
 entry:
   %info = alloca %"struct.folly::(anonymous namespace)::ChildErrorInfo", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %info) #41

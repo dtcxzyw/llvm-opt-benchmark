@@ -5366,7 +5366,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %15, i64 64
   %21 = load i16, ptr %20, align 8
-  call fastcc void @xact_redo_commit(ptr noundef nonnull %2, i32 noundef %17, i64 noundef %19, i16 noundef zeroext %21)
+  call fastcc void @xact_redo_commit(ptr noundef %2, i32 noundef %17, i64 noundef %19, i16 noundef zeroext %21)
   br label %92
 
 22:                                               ; preds = %1
@@ -5380,7 +5380,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %29 = load ptr, ptr %6, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 64
   %31 = load i16, ptr %30, align 8
-  call fastcc void @xact_redo_commit(ptr noundef nonnull %3, i32 noundef %26, i64 noundef %28, i16 noundef zeroext %31)
+  call fastcc void @xact_redo_commit(ptr noundef %3, i32 noundef %26, i64 noundef %28, i16 noundef zeroext %31)
   %32 = load ptr, ptr @MainLWLockArray, align 8
   %33 = getelementptr i8, ptr %32, i64 2304
   %34 = call zeroext i1 @LWLockAcquire(ptr noundef %33, i32 noundef 0) #22
@@ -5402,7 +5402,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %41, i64 64
   %47 = load i16, ptr %46, align 8
-  call fastcc void @xact_redo_abort(ptr noundef nonnull %4, i32 noundef %43, i64 noundef %45, i16 noundef zeroext %47)
+  call fastcc void @xact_redo_abort(ptr noundef %4, i32 noundef %43, i64 noundef %45, i16 noundef zeroext %47)
   br label %92
 
 48:                                               ; preds = %1
@@ -5416,7 +5416,7 @@ define dso_local void @xact_redo(ptr nocapture noundef readonly %0) local_unname
   %55 = load ptr, ptr %6, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 64
   %57 = load i16, ptr %56, align 8
-  call fastcc void @xact_redo_abort(ptr noundef nonnull %5, i32 noundef %52, i64 noundef %54, i16 noundef zeroext %57)
+  call fastcc void @xact_redo_abort(ptr noundef %5, i32 noundef %52, i64 noundef %54, i16 noundef zeroext %57)
   %58 = load ptr, ptr @MainLWLockArray, align 8
   %59 = getelementptr i8, ptr %58, i64 2304
   %60 = call zeroext i1 @LWLockAcquire(ptr noundef %59, i32 noundef 0) #22
@@ -5479,7 +5479,7 @@ default.unreachable:                              ; preds = %1
 declare void @ParseCommitRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_commit(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @xact_redo_commit(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5610,7 +5610,7 @@ declare void @LWLockRelease(ptr noundef) local_unnamed_addr #9
 declare void @ParseAbortRecord(i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xact_redo_abort(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @xact_redo_abort(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2, i16 noundef zeroext %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 24

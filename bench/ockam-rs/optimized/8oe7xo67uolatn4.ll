@@ -63,7 +63,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h183da4c7a0005407E"(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
+define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h183da4c7a0005407E"(i64 noundef range(i64 0, 2) %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %2, i64 noundef range(i64 65, 74) %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
   %6 = icmp ugt i64 %0, %1
   br i1 %6, label %9, label %7
 

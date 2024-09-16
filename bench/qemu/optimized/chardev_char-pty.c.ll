@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pty_chr_state(ptr noundef %chr, i32 noundef %connected) unnamed_addr #0 {
+define internal fastcc void @pty_chr_state(ptr noundef %chr, i32 noundef range(i32 0, 2) %connected) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %chr, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 48, ptr noundef nonnull @__func__.PTY_CHARDEV) #9
   %tobool.not = icmp eq i32 %connected, 0

@@ -72,7 +72,7 @@ define dso_local i64 @pg_strftime(ptr noundef %0, i64 noundef %1, ptr nocapture 
   %7 = load i32, ptr %6, align 4
   store i32 0, ptr %5, align 4
   %8 = getelementptr i8, ptr %0, i64 %1
-  %9 = call fastcc ptr @_fmt(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %8, ptr noundef nonnull %5)
+  %9 = call fastcc ptr @_fmt(ptr noundef %2, ptr noundef %3, ptr noundef %0, ptr noundef %8, ptr noundef %5)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %11
 
@@ -105,7 +105,7 @@ define dso_local i64 @pg_strftime(ptr noundef %0, i64 noundef %1, ptr nocapture 
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [12 x i8], align 1
   %7 = alloca [12 x i8], align 1
   %8 = alloca [12 x i8], align 1
@@ -428,7 +428,7 @@ _conv.exit.i:                                     ; preds = %128, %.lr.ph.i.i.i,
 
 131:                                              ; preds = %.preheader
   store i32 1, ptr %25, align 4
-  %132 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef %.0207, ptr noundef %3, ptr noundef nonnull %25)
+  %132 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef %.0207, ptr noundef %3, ptr noundef %25)
   %133 = load i32, ptr %25, align 4
   %134 = icmp eq i32 %133, 3
   br i1 %134, label %135, label %136
@@ -1214,7 +1214,7 @@ _conv.exit442:                                    ; preds = %.lr.ph.i.i437, %418
 
 423:                                              ; preds = %.preheader
   store i32 1, ptr %26, align 4
-  %424 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %.0207, ptr noundef %3, ptr noundef nonnull %26)
+  %424 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %.0207, ptr noundef %3, ptr noundef %26)
   %425 = load i32, ptr %26, align 4
   %426 = icmp eq i32 %425, 3
   br i1 %426, label %427, label %428

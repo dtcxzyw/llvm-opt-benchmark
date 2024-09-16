@@ -387,7 +387,7 @@ protobuf_verify_wiretype.exit.thread.i:           ; preds = %64
   br label %76
 
 66:                                               ; preds = %64
-  %67 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %7)
+  %67 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %7)
   %68 = load ptr, ptr %7, align 8
   %69 = zext nneg i8 %60 to i32
   %70 = icmp ult i8 %60, 6
@@ -453,7 +453,7 @@ protobuf_verify_wiretype.exit27.thread.i:         ; preds = %91
   br label %103
 
 93:                                               ; preds = %91
-  %94 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6)
+  %94 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %6)
   %95 = load ptr, ptr %6, align 8
   %96 = zext nneg i8 %60 to i32
   %97 = icmp ult i8 %60, 6
@@ -519,7 +519,7 @@ protobuf_verify_wiretype.exit34.thread.i:         ; preds = %118
   br label %130
 
 120:                                              ; preds = %118
-  %121 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
+  %121 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %33, ptr noundef nonnull %5)
   %122 = load ptr, ptr %5, align 8
   %123 = zext nneg i8 %60 to i32
   %124 = icmp ult i8 %60, 6
@@ -575,7 +575,7 @@ get_varint64.exit37.i:                            ; preds = %131, %get_varint64.
   br label %147
 
 145:                                              ; preds = %63
-  %146 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %33, ptr noundef null)
+  %146 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %33, ptr noundef null)
   br label %147
 
 147:                                              ; preds = %145, %get_varint64.exit37.i, %protobuf_verify_wiretype.exit34.i, %get_varint64.exit30.i, %protobuf_verify_wiretype.exit27.i, %get_varint64.exit.i, %protobuf_verify_wiretype.exit.i
@@ -791,7 +791,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %38
   br label %50
 
 40:                                               ; preds = %38
-  %41 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %41 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %42 = load ptr, ptr %7, align 8
   %43 = zext nneg i8 %34 to i32
   %44 = icmp ult i8 %34, 6
@@ -861,7 +861,7 @@ protobuf_verify_wiretype.exit22.thread:           ; preds = %68
   br label %80
 
 70:                                               ; preds = %68
-  %71 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %8, ptr noundef nonnull readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %71 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %8, ptr noundef readonly %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %72 = load ptr, ptr %6, align 8
   %73 = zext nneg i8 %34 to i32
   %74 = icmp ult i8 %34, 6
@@ -918,7 +918,7 @@ get_varint64.exit25:                              ; preds = %82, %get_varint64.e
   br label %98
 
 96:                                               ; preds = %37
-  %97 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %97 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %8, ptr noundef %9, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %98
 
 98:                                               ; preds = %protobuf_verify_wiretype.exit22, %protobuf_verify_wiretype.exit, %96, %get_varint64.exit25, %get_varint64.exit
@@ -1048,7 +1048,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %55
   br label %67
 
 57:                                               ; preds = %55
-  %58 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17)
+  %58 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %17)
   %59 = load ptr, ptr %17, align 8
   %60 = zext nneg i8 %51 to i32
   %61 = icmp ult i8 %51, 6
@@ -1115,7 +1115,7 @@ protobuf_verify_wiretype.exit103.thread:          ; preds = %83
   br label %95
 
 85:                                               ; preds = %83
-  %86 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
+  %86 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %16)
   %87 = load ptr, ptr %16, align 8
   %88 = zext nneg i8 %51 to i32
   %89 = icmp ult i8 %51, 6
@@ -1182,7 +1182,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %111
   br label %123
 
 113:                                              ; preds = %111
-  %114 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
+  %114 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
   %115 = load ptr, ptr %15, align 8
   %116 = zext nneg i8 %51 to i32
   %117 = icmp ult i8 %51, 6
@@ -1239,7 +1239,7 @@ get_varint64.exit113:                             ; preds = %124, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 139:                                              ; preds = %54
-  %140 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %140 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %18, ptr noundef %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not91 = icmp eq i32 %140, 0
   br i1 %.not91, label %141, label %protobuf_iter_next.exit152.thread
 
@@ -1309,7 +1309,7 @@ protobuf_verify_wiretype.exit120.thread:          ; preds = %165
   br label %177
 
 167:                                              ; preds = %165
-  %168 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
+  %168 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %14)
   %169 = load ptr, ptr %14, align 8
   %170 = zext nneg i8 %51 to i32
   %171 = icmp ult i8 %51, 6
@@ -1376,7 +1376,7 @@ protobuf_verify_wiretype.exit127.thread:          ; preds = %193
   br label %205
 
 195:                                              ; preds = %193
-  %196 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
+  %196 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %197 = load ptr, ptr %13, align 8
   %198 = zext nneg i8 %51 to i32
   %199 = icmp ult i8 %51, 6
@@ -1443,7 +1443,7 @@ protobuf_verify_wiretype.exit134.thread:          ; preds = %221
   br label %233
 
 223:                                              ; preds = %221
-  %224 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
+  %224 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %225 = load ptr, ptr %12, align 8
   %226 = zext nneg i8 %51 to i32
   %227 = icmp ult i8 %51, 6
@@ -1501,7 +1501,7 @@ get_varint64.exit137:                             ; preds = %234, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 249:                                              ; preds = %54
-  %250 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %250 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %18, ptr noundef %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not83 = icmp eq i32 %250, 0
   br i1 %.not83, label %251, label %protobuf_iter_next.exit152.thread
 
@@ -1614,7 +1614,7 @@ protobuf_verify_wiretype.exit156.thread:          ; preds = %292
   br label %304
 
 294:                                              ; preds = %292
-  %295 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %11)
+  %295 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %19, ptr noundef readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %11)
   %296 = load ptr, ptr %11, align 8
   %297 = zext nneg i8 %288 to i32
   %298 = icmp ult i8 %288, 6
@@ -1652,7 +1652,7 @@ protobuf_verify_wiretype.exit160.thread:          ; preds = %309
   br label %321
 
 311:                                              ; preds = %309
-  %312 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %10)
+  %312 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %19, ptr noundef readonly %20, ptr noundef %1, ptr noundef %268, ptr noundef nonnull %10)
   %313 = load ptr, ptr %10, align 8
   %314 = zext nneg i8 %288 to i32
   %315 = icmp ult i8 %288, 6
@@ -1712,7 +1712,7 @@ get_varint64.exit163:                             ; preds = %323, %get_varint64.
   br label %341
 
 339:                                              ; preds = %291
-  %340 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %340 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %19, ptr noundef %20, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %341
 
 341:                                              ; preds = %protobuf_verify_wiretype.exit160, %protobuf_verify_wiretype.exit156, %339, %get_varint64.exit163, %304
@@ -1735,7 +1735,7 @@ protobuf_verify_wiretype.exit167.thread:          ; preds = %345
   br label %357
 
 347:                                              ; preds = %345
-  %348 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %348 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %349 = load ptr, ptr %9, align 8
   %350 = zext nneg i8 %51 to i32
   %351 = icmp ult i8 %51, 6
@@ -1802,7 +1802,7 @@ protobuf_verify_wiretype.exit174.thread:          ; preds = %373
   br label %385
 
 375:                                              ; preds = %373
-  %376 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %376 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %377 = load ptr, ptr %8, align 8
   %378 = zext nneg i8 %51 to i32
   %379 = icmp ult i8 %51, 6
@@ -1870,7 +1870,7 @@ protobuf_verify_wiretype.exit181.thread:          ; preds = %400
   br label %412
 
 402:                                              ; preds = %400
-  %403 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %403 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %404 = load ptr, ptr %7, align 8
   %405 = zext nneg i8 %51 to i32
   %406 = icmp ult i8 %51, 6
@@ -1938,7 +1938,7 @@ protobuf_verify_wiretype.exit188.thread:          ; preds = %428
   br label %440
 
 430:                                              ; preds = %428
-  %431 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %431 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %18, ptr noundef readonly %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %432 = load ptr, ptr %6, align 8
   %433 = zext nneg i8 %51 to i32
   %434 = icmp ult i8 %51, 6
@@ -1996,7 +1996,7 @@ get_varint64.exit191:                             ; preds = %441, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 456:                                              ; preds = %54
-  %457 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %457 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %18, ptr noundef %20, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not77 = icmp eq i32 %457, 0
   br i1 %.not77, label %458, label %protobuf_iter_next.exit152.thread
 
@@ -2040,7 +2040,7 @@ get_varint64.exit194:                             ; preds = %459, %get_varint64.
   br label %protobuf_iter_next.exit152.thread
 
 476:                                              ; preds = %54
-  %477 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %477 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %18, ptr noundef %20, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %protobuf_iter_next.exit152.thread
 
 protobuf_iter_next.exit152.thread:                ; preds = %protobuf_iter_next.exit152, %341, %get_varint64.exit140, %456, %protobuf_verify_wiretype.exit188, %protobuf_verify_wiretype.exit181, %protobuf_verify_wiretype.exit174, %protobuf_verify_wiretype.exit167, %249, %protobuf_verify_wiretype.exit134, %protobuf_verify_wiretype.exit127, %protobuf_verify_wiretype.exit120, %139, %protobuf_verify_wiretype.exit110, %protobuf_verify_wiretype.exit103, %protobuf_verify_wiretype.exit, %476, %get_varint64.exit194, %get_varint64.exit191, %get_varint64.exit184, %get_varint64.exit177, %get_varint64.exit170, %get_varint64.exit137, %get_varint64.exit130, %get_varint64.exit123, %163, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit
@@ -2129,7 +2129,7 @@ protobuf_iter_next.exit:                          ; preds = %19, %get_varint64.e
   ]
 
 37:                                               ; preds = %36
-  %38 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %38 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not29 = icmp eq i32 %38, 0
   br i1 %.not29, label %.preheader, label %105
 
@@ -2174,7 +2174,7 @@ get_varint64.exit:                                ; preds = %40, %get_varint64.e
   br label %105
 
 57:                                               ; preds = %36
-  %58 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %58 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not26 = icmp eq i32 %58, 0
   br i1 %.not26, label %.preheader53, label %105
 
@@ -2235,7 +2235,7 @@ get_varint64.exit34:                              ; preds = %60, %get_varint64.e
   br label %105
 
 83:                                               ; preds = %36
-  %84 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %84 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not25 = icmp eq i32 %84, 0
   br i1 %.not25, label %.preheader54, label %105
 
@@ -2280,7 +2280,7 @@ get_varint64.exit37:                              ; preds = %86, %get_varint64.e
   br label %105
 
 103:                                              ; preds = %36
-  %104 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %104 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %105
 
 105:                                              ; preds = %83, %57, %37, %103, %get_varint64.exit37, %81, %get_varint64.exit
@@ -2376,7 +2376,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   br label %49
 
 39:                                               ; preds = %37
-  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
   %43 = icmp ult i8 %33, 6
@@ -2436,7 +2436,7 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br label %69
 
 67:                                               ; preds = %36
-  %68 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %68 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %69
 
 69:                                               ; preds = %protobuf_verify_wiretype.exit, %67, %get_varint64.exit
@@ -2550,7 +2550,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %44
   br label %56
 
 46:                                               ; preds = %44
-  %47 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
+  %47 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %13)
   %48 = load ptr, ptr %13, align 8
   %49 = zext nneg i8 %40 to i32
   %50 = icmp ult i8 %40, 6
@@ -2620,7 +2620,7 @@ protobuf_verify_wiretype.exit73.thread:           ; preds = %74
   br label %86
 
 76:                                               ; preds = %74
-  %77 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
+  %77 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
   %78 = load ptr, ptr %12, align 8
   %79 = zext nneg i8 %40 to i32
   %80 = icmp ult i8 %40, 6
@@ -2688,7 +2688,7 @@ protobuf_verify_wiretype.exit80.thread:           ; preds = %103
   br label %115
 
 105:                                              ; preds = %103
-  %106 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
+  %106 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %11)
   %107 = load ptr, ptr %11, align 8
   %108 = zext nneg i8 %40 to i32
   %109 = icmp ult i8 %40, 6
@@ -2756,7 +2756,7 @@ protobuf_verify_wiretype.exit87.thread:           ; preds = %132
   br label %144
 
 134:                                              ; preds = %132
-  %135 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
+  %135 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %10)
   %136 = load ptr, ptr %10, align 8
   %137 = zext nneg i8 %40 to i32
   %138 = icmp ult i8 %40, 6
@@ -2814,7 +2814,7 @@ get_varint64.exit90:                              ; preds = %146, %get_varint64.
   br label %339
 
 161:                                              ; preds = %43
-  %162 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %162 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not62 = icmp eq i32 %162, 0
   br i1 %.not62, label %.preheader, label %339
 
@@ -2869,7 +2869,7 @@ protobuf_verify_wiretype.exit97.thread:           ; preds = %181
   br label %193
 
 183:                                              ; preds = %181
-  %184 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %184 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %185 = load ptr, ptr %9, align 8
   %186 = zext nneg i8 %40 to i32
   %187 = icmp ult i8 %40, 6
@@ -2928,7 +2928,7 @@ get_varint64.exit100:                             ; preds = %195, %get_varint64.
   br label %339
 
 210:                                              ; preds = %43
-  %211 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %211 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not59 = icmp eq i32 %211, 0
   br i1 %.not59, label %.preheader175, label %339
 
@@ -2973,7 +2973,7 @@ get_varint64.exit103:                             ; preds = %213, %get_varint64.
   br label %339
 
 230:                                              ; preds = %43
-  %231 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %231 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %14, ptr noundef %15, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not58 = icmp eq i32 %231, 0
   br i1 %.not58, label %.preheader176, label %339
 
@@ -3028,7 +3028,7 @@ protobuf_verify_wiretype.exit110.thread:          ; preds = %250
   br label %262
 
 252:                                              ; preds = %250
-  %253 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %253 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %254 = load ptr, ptr %8, align 8
   %255 = zext nneg i8 %40 to i32
   %256 = icmp ult i8 %40, 6
@@ -3097,7 +3097,7 @@ protobuf_verify_wiretype.exit117.thread:          ; preds = %279
   br label %291
 
 281:                                              ; preds = %279
-  %282 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %282 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %283 = load ptr, ptr %7, align 8
   %284 = zext nneg i8 %40 to i32
   %285 = icmp ult i8 %40, 6
@@ -3166,7 +3166,7 @@ protobuf_verify_wiretype.exit124.thread:          ; preds = %308
   br label %320
 
 310:                                              ; preds = %308
-  %311 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %311 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %14, ptr noundef readonly %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %312 = load ptr, ptr %6, align 8
   %313 = zext nneg i8 %40 to i32
   %314 = icmp ult i8 %40, 6
@@ -3225,7 +3225,7 @@ get_varint64.exit127:                             ; preds = %322, %get_varint64.
   br label %339
 
 337:                                              ; preds = %43
-  %338 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %338 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %14, ptr noundef %15, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %339
 
 339:                                              ; preds = %protobuf_verify_wiretype.exit124, %protobuf_verify_wiretype.exit117, %protobuf_verify_wiretype.exit110, %230, %210, %protobuf_verify_wiretype.exit97, %161, %protobuf_verify_wiretype.exit87, %protobuf_verify_wiretype.exit80, %protobuf_verify_wiretype.exit73, %protobuf_verify_wiretype.exit, %337, %get_varint64.exit127, %get_varint64.exit120, %get_varint64.exit113, %get_varint64.exit106, %get_varint64.exit103, %get_varint64.exit100, %get_varint64.exit93, %get_varint64.exit90, %get_varint64.exit83, %get_varint64.exit76, %get_varint64.exit
@@ -3321,7 +3321,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %37
   br label %49
 
 39:                                               ; preds = %37
-  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %7, ptr noundef nonnull readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %40 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %41 = load ptr, ptr %6, align 8
   %42 = zext nneg i8 %33 to i32
   %43 = icmp ult i8 %33, 6
@@ -3381,7 +3381,7 @@ get_varint64.exit:                                ; preds = %51, %get_varint64.e
   br label %69
 
 67:                                               ; preds = %36
-  %68 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %68 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %7, ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %69
 
 69:                                               ; preds = %protobuf_verify_wiretype.exit, %67, %get_varint64.exit
@@ -3485,7 +3485,7 @@ protobuf_verify_wiretype.exit.thread:             ; preds = %40
   br label %52
 
 42:                                               ; preds = %40
-  %43 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
+  %43 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %9)
   %44 = load ptr, ptr %9, align 8
   %45 = zext nneg i8 %36 to i32
   %46 = icmp ult i8 %36, 6
@@ -3555,7 +3555,7 @@ protobuf_verify_wiretype.exit43.thread:           ; preds = %70
   br label %82
 
 72:                                               ; preds = %70
-  %73 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
+  %73 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %8)
   %74 = load ptr, ptr %8, align 8
   %75 = zext nneg i8 %36 to i32
   %76 = icmp ult i8 %36, 6
@@ -3625,7 +3625,7 @@ protobuf_verify_wiretype.exit50.thread:           ; preds = %100
   br label %112
 
 102:                                              ; preds = %100
-  %103 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
+  %103 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7)
   %104 = load ptr, ptr %7, align 8
   %105 = zext nneg i8 %36 to i32
   %106 = icmp ult i8 %36, 6
@@ -3685,7 +3685,7 @@ get_varint64.exit53:                              ; preds = %114, %get_varint64.
   br label %181
 
 130:                                              ; preds = %39
-  %131 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %131 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %10, ptr noundef %11, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not33 = icmp eq i32 %131, 0
   br i1 %.not33, label %.preheader, label %181
 
@@ -3740,7 +3740,7 @@ protobuf_verify_wiretype.exit60.thread:           ; preds = %150
   br label %162
 
 152:                                              ; preds = %150
-  %153 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
+  %153 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6)
   %154 = load ptr, ptr %6, align 8
   %155 = zext nneg i8 %36 to i32
   %156 = icmp ult i8 %36, 6
@@ -3798,7 +3798,7 @@ get_varint64.exit63:                              ; preds = %164, %get_varint64.
   br label %181
 
 179:                                              ; preds = %39
-  %180 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %180 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %10, ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %181
 
 181:                                              ; preds = %protobuf_verify_wiretype.exit60, %130, %protobuf_verify_wiretype.exit50, %protobuf_verify_wiretype.exit43, %protobuf_verify_wiretype.exit, %179, %get_varint64.exit63, %get_varint64.exit56, %get_varint64.exit53, %get_varint64.exit46, %get_varint64.exit
@@ -3882,7 +3882,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %cond, label %35, label %55
 
 35:                                               ; preds = %34
-  %36 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %36 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not9 = icmp eq i32 %36, 0
   br i1 %.not9, label %.preheader, label %57
 
@@ -3927,7 +3927,7 @@ get_varint64.exit:                                ; preds = %38, %get_varint64.e
   br label %57
 
 55:                                               ; preds = %34
-  %56 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %56 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %57
 
 57:                                               ; preds = %35, %55, %get_varint64.exit
@@ -4011,7 +4011,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %cond, label %35, label %55
 
 35:                                               ; preds = %34
-  %36 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
+  %36 = call fastcc i32 @protobuf_verify_wiretype(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, i8 noundef zeroext 2)
   %.not9 = icmp eq i32 %36, 0
   br i1 %.not9, label %.preheader, label %57
 
@@ -4056,7 +4056,7 @@ get_varint64.exit:                                ; preds = %38, %get_varint64.e
   br label %57
 
 55:                                               ; preds = %34
-  %56 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %56 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
   br label %57
 
 57:                                               ; preds = %35, %55, %get_varint64.exit
@@ -4136,7 +4136,7 @@ protobuf_iter_next.exit:                          ; preds = %17, %get_varint64.e
   br i1 %.not, label %protobuf_iter_next.exit.thread, label %34
 
 34:                                               ; preds = %protobuf_iter_next.exit
-  %35 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
+  %35 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %6, ptr noundef %7, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %36 = add i32 %32, %35
   store i32 %36, ptr %8, align 8
   %37 = sub i32 %33, %35
@@ -4149,7 +4149,7 @@ protobuf_iter_next.exit.thread:                   ; preds = %protobuf_iter_next.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, 3) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4159,7 +4159,7 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef reado
 
 10:                                               ; preds = %5
   %11 = icmp eq i8 %4, 2
-  br i1 %11, label %12, label %78
+  br i1 %11, label %12, label %76
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %0, align 8
@@ -4189,15 +4189,15 @@ define internal fastcc i32 @protobuf_verify_wiretype(ptr nocapture noundef reado
   %28 = or i64 %27, %.0.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp sgt i8 %22, -1
-  br i1 %29, label %get_varint64.exit.split.loop.exit50, label %18, !llvm.loop !4
+  br i1 %29, label %get_varint64.exit.split.loop.exit49, label %18, !llvm.loop !4
 
-get_varint64.exit.split.loop.exit50:              ; preds = %19
+get_varint64.exit.split.loop.exit49:              ; preds = %19
   %indvars.le = trunc i64 %indvars.iv.next to i32
   br label %get_varint64.exit
 
-get_varint64.exit:                                ; preds = %18, %get_varint64.exit.split.loop.exit50
-  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit50 ], [ %smax, %18 ]
-  %.1.i = phi i64 [ %28, %get_varint64.exit.split.loop.exit50 ], [ %.0.i, %18 ]
+get_varint64.exit:                                ; preds = %18, %get_varint64.exit.split.loop.exit49
+  %.1 = phi i32 [ %indvars.le, %get_varint64.exit.split.loop.exit49 ], [ %smax, %18 ]
+  %.1.i = phi i64 [ %28, %get_varint64.exit.split.loop.exit49 ], [ %.0.i, %18 ]
   %or.cond = icmp ugt i64 %.1.i, 2147483647
   br i1 %or.cond, label %30, label %42
 
@@ -4213,14 +4213,14 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %39 = load i64, ptr %38, align 8
   %40 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %37, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_length, ptr noundef nonnull @.str.133, i64 noundef %39, i64 noundef %.1.i) #4
   %41 = load i32, ptr %16, align 4
-  br label %78
+  br label %76
 
 42:                                               ; preds = %get_varint64.exit
   %43 = trunc nuw nsw i64 %.1.i to i32
   %44 = load i32, ptr %16, align 4
   %45 = sub i32 %44, %.1
   %46 = icmp slt i32 %45, %43
-  br i1 %46, label %47, label %78
+  br i1 %46, label %47, label %76
 
 47:                                               ; preds = %42
   %48 = load i32, ptr @hf_steam_ihs_discovery_unknown_data, align 4
@@ -4234,50 +4234,42 @@ get_varint64.exit:                                ; preds = %18, %get_varint64.e
   %56 = sub i32 %55, %.1
   %57 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %52, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_length, ptr noundef nonnull @.str.134, i64 noundef %54, i64 noundef %.1.i, i32 noundef %56) #4
   %58 = load i32, ptr %16, align 4
-  br label %78
+  br label %76
 
 59:                                               ; preds = %5
   %60 = zext nneg i8 %4 to i32
-  %61 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
+  %61 = call fastcc i32 @protobuf_dissect_unknown_field(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %6)
   %62 = load ptr, ptr %6, align 8
-  %63 = icmp ult i8 %4, 6
-  br i1 %63, label %64, label %protobuf_get_wiretype_name.exit
+  %63 = zext nneg i8 %4 to i64
+  %64 = getelementptr [6 x ptr], ptr @protobuf_wiretype_names, i64 0, i64 %63
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = load i64, ptr %66, align 8
+  %68 = load i8, ptr %7, align 8
+  %69 = zext i8 %68 to i32
+  %70 = icmp ult i8 %68, 6
+  br i1 %70, label %71, label %protobuf_get_wiretype_name.exit
 
-64:                                               ; preds = %59
-  %65 = zext nneg i8 %4 to i64
-  %66 = getelementptr [6 x ptr], ptr @protobuf_wiretype_names, i64 0, i64 %65
-  %67 = load ptr, ptr %66, align 8
+71:                                               ; preds = %59
+  %72 = zext nneg i8 %68 to i64
+  %73 = getelementptr [6 x ptr], ptr @protobuf_wiretype_names, i64 0, i64 %72
+  %74 = load ptr, ptr %73, align 8
   br label %protobuf_get_wiretype_name.exit
 
-protobuf_get_wiretype_name.exit:                  ; preds = %59, %64
-  %.0.i41 = phi ptr [ %67, %64 ], [ @.str.151, %59 ]
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
-  %69 = load i64, ptr %68, align 8
-  %70 = load i8, ptr %7, align 8
-  %71 = zext i8 %70 to i32
-  %72 = icmp ult i8 %70, 6
-  br i1 %72, label %73, label %protobuf_get_wiretype_name.exit43
+protobuf_get_wiretype_name.exit:                  ; preds = %59, %71
+  %.0.i42 = phi ptr [ %74, %71 ], [ @.str.151, %59 ]
+  %75 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %62, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef %60, ptr noundef %65, i64 noundef %67, i32 noundef %69, ptr noundef %.0.i42) #4
+  br label %76
 
-73:                                               ; preds = %protobuf_get_wiretype_name.exit
-  %74 = zext nneg i8 %70 to i64
-  %75 = getelementptr [6 x ptr], ptr @protobuf_wiretype_names, i64 0, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  br label %protobuf_get_wiretype_name.exit43
-
-protobuf_get_wiretype_name.exit43:                ; preds = %protobuf_get_wiretype_name.exit, %73
-  %.0.i42 = phi ptr [ %76, %73 ], [ @.str.151, %protobuf_get_wiretype_name.exit ]
-  %77 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %62, ptr noundef nonnull @ei_steam_ihs_discovery_invalid_wiretype, ptr noundef nonnull @.str.135, i32 noundef %60, ptr noundef %.0.i41, i64 noundef %69, i32 noundef %71, ptr noundef %.0.i42) #4
-  br label %78
-
-78:                                               ; preds = %10, %42, %protobuf_get_wiretype_name.exit43, %47, %30
-  %.0 = phi i32 [ %41, %30 ], [ %58, %47 ], [ %61, %protobuf_get_wiretype_name.exit43 ], [ 0, %42 ], [ 0, %10 ]
+76:                                               ; preds = %10, %42, %protobuf_get_wiretype_name.exit, %47, %30
+  %.0 = phi i32 [ %41, %30 ], [ %58, %47 ], [ %61, %protobuf_get_wiretype_name.exit ], [ 0, %42 ], [ 0, %10 ]
   ret i32 %.0
 }
 
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @protobuf_dissect_unknown_field(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @protobuf_dissect_unknown_field(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8
   switch i8 %7, label %108 [

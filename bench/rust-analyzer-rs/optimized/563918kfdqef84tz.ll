@@ -69,7 +69,7 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !4
   %4 = icmp eq i8 %3, 4
@@ -162,7 +162,7 @@ switch.lookup:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %0, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !alias.scope !46, !noalias !49, !noundef !4
   %4 = icmp ugt i64 %3, 3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1011,7 +1011,7 @@ default.unreachable:                              ; preds = %67, %28, %26
   store i8 %.sroa.17.sroa.6.0.i, ptr %.sroa.1627.0..sroa_idx32, align 4
   %.sroa.17.0..sroa_idx50 = getelementptr inbounds i8, ptr %13, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17.0..sroa_idx50, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17, i64 3, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %13)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %14, ptr noalias nocapture noundef align 4 dereferenceable(28) %13)
           to label %189 unwind label %186
 
 186:                                              ; preds = %192, %191, %189, %184
@@ -1027,7 +1027,7 @@ default.unreachable:                              ; preds = %67, %28, %26
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %.0119164, i64 28, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %12)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %14, ptr noalias nocapture noundef align 4 dereferenceable(28) %12)
           to label %190 unwind label %186
 
 190:                                              ; preds = %189
@@ -1041,7 +1041,7 @@ default.unreachable:                              ; preds = %67, %28, %26
 
 192:                                              ; preds = %190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, ptr noundef nonnull align 4 dereferenceable(28) %.0118163, i64 28, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %14, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %11)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %14, ptr noalias nocapture noundef align 4 dereferenceable(28) %11)
           to label %193 unwind label %186
 
 193:                                              ; preds = %192
@@ -1066,7 +1066,7 @@ default.unreachable:                              ; preds = %67, %28, %26
   store i8 %.sroa.17.sroa.6.0.i, ptr %.sroa.1627.0..sroa_idx40, align 4
   %.sroa.17.0..sroa_idx54 = getelementptr inbounds i8, ptr %4, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17.0..sroa_idx54, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17, i64 3, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %5, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %4)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %5, ptr noalias nocapture noundef align 4 dereferenceable(28) %4)
           to label %213 unwind label %211
 
 195:                                              ; preds = %172
@@ -1127,7 +1127,7 @@ default.unreachable:                              ; preds = %67, %28, %26
   store i8 %.sroa.17.sroa.6.0.i, ptr %.sroa.1627.0..sroa_idx36, align 4
   %.sroa.17.0..sroa_idx52 = getelementptr inbounds i8, ptr %8, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17.0..sroa_idx52, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.17, i64 3, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %8)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %9, ptr noalias nocapture noundef align 4 dereferenceable(28) %8)
           to label %208 unwind label %206
 
 206:                                              ; preds = %208, %.thread189
@@ -1140,7 +1140,7 @@ default.unreachable:                              ; preds = %67, %28, %26
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 4 dereferenceable(28) %.0119164, i64 28, i1 false)
-  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %9, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %7)
+  invoke fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$4push17h855d720e3e254789E"(ptr noalias noundef align 8 dereferenceable(96) %9, ptr noalias nocapture noundef align 4 dereferenceable(28) %7)
           to label %209 unwind label %206
 
 209:                                              ; preds = %208
@@ -1569,7 +1569,7 @@ default.unreachable:                              ; preds = %101
 122:                                              ; preds = %121
   %123 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %15) #24
+  invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$17h369282951a379854E"(ptr noalias noundef align 8 dereferenceable(64) %15) #24
           to label %.body63.thread unwind label %124
 
 124:                                              ; preds = %122

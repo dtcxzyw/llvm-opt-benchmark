@@ -1011,7 +1011,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h9db09e4f166235baE.ll
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, ptr, {} } }, align 8
@@ -1248,7 +1248,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
   store ptr %26, ptr %7, align 8
   %27 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %26, ptr %27, align 8
-  %28 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.5)
+  %28 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.5)
           to label %38 unwind label %36
 
 29:                                               ; preds = %4
@@ -1305,7 +1305,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
   store ptr %50, ptr %11, align 8
   %52 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %51, ptr %52, align 8
-  %53 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.5)
+  %53 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.5)
           to label %54 unwind label %36
 
 54:                                               ; preds = %49
@@ -1346,7 +1346,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
   store ptr %65, ptr %10, align 8
   %67 = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %66, ptr %67, align 8
-  %68 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.6)
+  %68 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.6)
           to label %69 unwind label %36
 
 69:                                               ; preds = %64
@@ -1364,7 +1364,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
   store i64 %.071, ptr %.sroa.018.sroa.5.0..sroa_idx, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %.070, ptr %.sroa.419.0..sroa_idx, align 8
-  %72 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.7)
+  %72 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.7)
           to label %77 unwind label %36
 
 73:                                               ; preds = %.critedge
@@ -1378,7 +1378,7 @@ define hidden noundef zeroext i1 @_ZN7uu_uniq4Uniq7cmp_key17h3f0ce449dc4b1e42E(p
   store i64 %.071, ptr %.sroa.026.sroa.5.0..sroa_idx, align 8
   %.sroa.427.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
   store i64 %.070, ptr %.sroa.427.0..sroa_idx, align 8
-  %76 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.8)
+  %76 = invoke fastcc noundef zeroext i1 @"_ZN7uu_uniq4Uniq8cmp_keys28_$u7b$$u7b$closure$u7d$$u7d$17hb21fe573fe2ce765E"(ptr noalias noundef align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.332c0b849d7faeec4c9a9314c13b20dc.8)
           to label %79 unwind label %36
 
 77:                                               ; preds = %.critedge2

@@ -437,7 +437,7 @@ define dso_local void @__genradix_free(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @genradix_free_recurse(ptr noundef %0, i32 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc void @genradix_free_recurse(ptr noundef %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #1 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %.loopexit, label %4
 

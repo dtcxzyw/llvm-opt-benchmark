@@ -206,7 +206,7 @@ if.end.i:                                         ; preds = %invoke.cont.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out.i, i8 0, i64 24, i1 false)
-  %call6.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef nonnull %out.i, ptr noundef nonnull %call.i.i)
+  %call6.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef %out.i, ptr noundef nonnull %call.i.i)
           to label %invoke.cont5.i unwind label %lpad4.i
 
 invoke.cont5.i:                                   ; preds = %if.end.i
@@ -518,7 +518,7 @@ lor.lhs.false.i20:                                ; preds = %invoke.cont.i.i13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cbs.i.i1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ret.i.i2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out.i4, i8 0, i64 24, i1 false)
-  %call2.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef nonnull %out.i4, ptr noundef nonnull %call.i.i5)
+  %call2.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef %out.i4, ptr noundef nonnull %call.i.i5)
           to label %invoke.cont.i unwind label %lpad.i18
 
 invoke.cont.i:                                    ; preds = %lor.lhs.false.i20
@@ -627,7 +627,7 @@ _ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit
   br i1 %cmp.i31.not.i, label %if.then22.i, label %lor.lhs.false18.i
 
 lor.lhs.false18.i:                                ; preds = %_ZNSt10unique_ptrI9ec_key_st14OpenSSLDeleterIS0_XadL_Z11EC_KEY_freeEEEED2Ev.exit.i
-  %call21.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef nonnull %out.i4, ptr noundef nonnull %.pr91.i)
+  %call21.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef %out.i4, ptr noundef nonnull %.pr91.i)
           to label %invoke.cont20.i unwind label %lpad.i18
 
 invoke.cont20.i:                                  ; preds = %lor.lhs.false18.i
@@ -797,7 +797,7 @@ if.then6.i:                                       ; preds = %invoke.cont4.i
 
 if.end9.i:                                        ; preds = %invoke.cont4.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out.i36, i8 0, i64 24, i1 false)
-  %call13.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef nonnull %out.i36, ptr noundef nonnull %call.i.i37)
+  %call13.i = invoke fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr noundef %out.i36, ptr noundef nonnull %call.i.i37)
           to label %invoke.cont12.i unwind label %lpad11.i
 
 invoke.cont12.i:                                  ; preds = %if.end9.i
@@ -2279,7 +2279,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @ERR_print_errors_fp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr nocapture noundef %out, ptr noundef %key) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18EncodeECPrivateKeyPSt6vectorIhSaIhEEPK9ec_key_st(ptr nocapture noundef nonnull %out, ptr noundef %key) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cbb = alloca %class.ScopedOpenSSLContext, align 8
   %der = alloca ptr, align 8

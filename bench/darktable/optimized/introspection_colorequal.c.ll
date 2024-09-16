@@ -5825,7 +5825,7 @@ define void @commit_params(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0, float noundef %1, ptr nocapture noundef writeonly %2, float noundef %3, i32 noundef %4) unnamed_addr #15 {
+define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef nonnull %0, float noundef %1, ptr nocapture noundef writeonly %2, float noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #15 {
   %6 = alloca [8 x [8 x float]], align 64
   %7 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %1)
   %8 = fmul reassoc nsz arcp contract afn float %7, 3.000000e+00
@@ -8491,7 +8491,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @dt_UCS_22_build_gamut_LUT(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #16 {
+define internal fastcc void @dt_UCS_22_build_gamut_LUT(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1440) %1, i8 0, i64 1440, i1 false), !tbaa !6
   %3 = load float, ptr %0, align 4, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -12775,7 +12775,7 @@ declare float @tanf(float noundef) local_unnamed_addr #17
 declare float @llvm.round.f32(float) #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #23 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2
@@ -12929,7 +12929,7 @@ define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %
 declare void @dt_bauhaus_slider_set_offset(ptr noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #24 {
+define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #24 {
   %5 = alloca [4 x float], align 16
   %6 = load float, ptr %0, align 4, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %0, i64 4

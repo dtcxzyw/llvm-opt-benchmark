@@ -276,7 +276,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   store ptr %119, ptr %3, align 8, !alias.scope !9
   store i32 %5, ptr %112, align 8, !alias.scope !9
   %120 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, float noundef 0.000000e+00, float noundef %116, ptr noundef nonnull %3)
+  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, float noundef 0.000000e+00, float noundef %116, ptr noundef %3)
   %122 = add nsw i32 %121, %.015.i
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
@@ -298,7 +298,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, float noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %9 = alloca [2 x float], align 4
   %10 = alloca [2 x float], align 4
@@ -680,7 +680,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   store ptr %119, ptr %3, align 8, !alias.scope !16
   store i32 %5, ptr %112, align 8, !alias.scope !16
   %120 = trunc nuw nsw i64 %indvars.iv.i20 to i32
-  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, double noundef 0.000000e+00, double noundef %116, ptr noundef nonnull %3)
+  %121 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %120, i32 noundef %114, i1 noundef zeroext true, double noundef 0.000000e+00, double noundef %116, ptr noundef %3)
   %122 = add nsw i32 %121, %.015.i
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
@@ -697,7 +697,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, double noundef %4, double noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, double noundef %4, double noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::Parameterization", align 4
   %9 = alloca [2 x double], align 16
   %10 = alloca [2 x double], align 16
@@ -2248,7 +2248,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 8
-  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef %82, ptr noundef nonnull %4)
+  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIfEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef %82, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIfEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
@@ -2461,7 +2461,7 @@ define weak_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation13GetEdgeC
   store ptr %2, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %.sroa.2.0..sroa_idx, align 8
-  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, double noundef 0.000000e+00, double noundef %82, ptr noundef nonnull %4)
+  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdgeCoordsIdEEiNS1_16ParameterizationEiibbT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE(i32 %.sroa.0.0.copyload, i32 noundef %1, i32 noundef %9, i1 noundef zeroext false, double noundef 0.000000e+00, double noundef %82, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr4quad13GetEdgeCoordsIdEEiiiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
@@ -3835,7 +3835,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   store i32 %12, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
   store i32 %14, ptr %.sroa.17.0..sroa_idx, align 4
-  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformFacetsEibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %80, i1 noundef zeroext %82, ptr noundef nonnull %3)
+  %83 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformFacetsEibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %80, i1 noundef zeroext %82, ptr noundef %3)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 84:                                               ; preds = %76
@@ -3855,7 +3855,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %.val = load i32, ptr %87, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 36
   %.val18 = load i32, ptr %90, align 4
-  %91 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.val, i32 %.val18, i1 noundef zeroext %89, ptr noundef nonnull %4)
+  %91 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.val, i32 %.val18, i1 noundef zeroext %89, ptr noundef %4)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 92:                                               ; preds = %84
@@ -3874,7 +3874,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   %.val19 = load i32, ptr %95, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 36
   %.val20 = load i32, ptr %100, align 4
-  %101 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %94, i32 %.val19, i32 %.val20, i32 noundef %97, i1 noundef zeroext %99, ptr noundef nonnull %5)
+  %101 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %94, i32 %.val19, i32 %.val20, i32 noundef %97, i1 noundef zeroext %99, ptr noundef %5)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 102:                                              ; preds = %74
@@ -3890,7 +3890,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   store i32 %12, ptr %.sroa.12.0..sroa_idx44, align 8
   %.sroa.17.0..sroa_idx56 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %14, ptr %.sroa.17.0..sroa_idx56, align 4
-  %107 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFacetsEiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %106, ptr noundef nonnull %6)
+  %107 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFacetsEiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %106, ptr noundef %6)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 108:                                              ; preds = %102
@@ -3905,7 +3905,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   store i32 %12, ptr %.sroa.12.0..sroa_idx46, align 8
   %.sroa.17.0..sroa_idx58 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 %14, ptr %.sroa.17.0..sroa_idx58, align 4
-  %115 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUniformFacetsEPKiiiNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %110, i32 noundef %112, i32 noundef %114, ptr noundef nonnull %7)
+  %115 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUniformFacetsEPKiiiNS1_12_GLOBAL__N_110FacetArrayE(ptr noundef %110, i32 noundef %112, i32 noundef %114, ptr noundef %7)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 116:                                              ; preds = %74
@@ -3923,7 +3923,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   store i32 %12, ptr %.sroa.12.0..sroa_idx48, align 8
   %.sroa.17.0..sroa_idx60 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 %14, ptr %.sroa.17.0..sroa_idx60, align 4
-  %123 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformFacetsEiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, i32 noundef %120, i1 noundef zeroext %122, ptr noundef nonnull %8)
+  %123 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformFacetsEiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, i32 noundef %120, i1 noundef zeroext %122, ptr noundef %8)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 124:                                              ; preds = %116
@@ -3940,7 +3940,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation9GetFacetsEPi(ptr n
   store i32 %12, ptr %.sroa.12.0..sroa_idx50, align 8
   %.sroa.17.0..sroa_idx62 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 %14, ptr %.sroa.17.0..sroa_idx62, align 4
-  %133 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUniformFacetsEiPKiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, ptr noundef %126, i32 noundef %128, i32 noundef %130, i1 noundef zeroext %132, ptr noundef nonnull %9)
+  %133 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUniformFacetsEiPKiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %17, ptr noundef %126, i32 noundef %128, i32 noundef %130, i1 noundef zeroext %132, ptr noundef %9)
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit: ; preds = %.lr.ph.i, %92, %86, %78, %108, %104, %124, %118, %58, %62, %35, %74, %29, %23
@@ -3949,7 +3949,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformFacetsEibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformFacetsEibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3978,7 +3978,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformF
   store ptr %17, ptr %4, align 8, !alias.scope !37
   store i32 %18, ptr %10, align 8, !alias.scope !37
   store i32 %14, ptr %11, align 4, !alias.scope !37
-  %19 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.021, i32 noundef %.021, i32 noundef %.01718, i1 noundef zeroext %1, ptr noundef nonnull %4)
+  %19 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.021, i32 noundef %.021, i32 noundef %.01718, i1 noundef zeroext %1, ptr noundef %4)
   %20 = add nsw i32 %19, %.01520
   %21 = shl nsw i32 %.021, 2
   %22 = add nsw i32 %21, %.01718
@@ -3993,7 +3993,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad16GetUniformF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.0.val, i32 %.4.val, i1 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmentedFacetsEPKibNS1_12_GLOBAL__N_110FacetArrayE(i32 %.0.val, i32 %.4.val, i1 noundef zeroext %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %4 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %5 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -4042,7 +4042,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmente
   store i32 %.sink, ptr %21, align 4
   store i32 %.sink20.i, ptr %.sink22.i.sroa.phi, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink19.i, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %22 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef nonnull %.sink19.i)
+  %22 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %3, ptr noundef %.sink19.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -4050,7 +4050,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad18GetSegmente
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr nocapture noundef readonly %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUniformFacetsEPKiS4_ibNS1_12_GLOBAL__N_110FacetArrayE(ptr nocapture noundef readonly %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %6 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %7 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -4119,7 +4119,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %43, align 8, !alias.scope !41
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %.sroa.17.0.copyload, ptr %44, align 4, !alias.scope !41
-  %45 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %6)
+  %45 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %6)
   br label %51
 
 46:                                               ; preds = %4
@@ -4130,7 +4130,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %48, align 8, !alias.scope !44
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.17.0.copyload, ptr %49, align 4, !alias.scope !44
-  %50 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %7)
+  %50 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %7)
   br label %51
 
 51:                                               ; preds = %46, %38
@@ -4162,7 +4162,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %64, align 8, !alias.scope !47
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sroa.17.0.copyload, ptr %65, align 4, !alias.scope !47
-  %66 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %8)
+  %66 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %8)
   br label %75
 
 67:                                               ; preds = %51
@@ -4176,7 +4176,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %72, align 8, !alias.scope !50
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %.sroa.17.0.copyload, ptr %73, align 4, !alias.scope !50
-  %74 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %9)
+  %74 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %9)
   br label %75
 
 75:                                               ; preds = %67, %56
@@ -4216,7 +4216,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %94, align 8, !alias.scope !53
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %.sroa.17.0.copyload, ptr %95, align 4, !alias.scope !53
-  %96 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %10)
+  %96 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %10)
   br label %105
 
 97:                                               ; preds = %75
@@ -4230,7 +4230,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %102, align 8, !alias.scope !56
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %.sroa.17.0.copyload, ptr %103, align 4, !alias.scope !56
-  %104 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %11)
+  %104 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %11)
   br label %105
 
 105:                                              ; preds = %97, %85
@@ -4267,7 +4267,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %122, align 8, !alias.scope !59
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %.sroa.17.0.copyload, ptr %123, align 4, !alias.scope !59
-  %124 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %12)
+  %124 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %12)
   br label %133
 
 125:                                              ; preds = %105
@@ -4281,7 +4281,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store i32 %.sroa.9.0.copyload, ptr %130, align 8, !alias.scope !62
   %131 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %.sroa.17.0.copyload, ptr %131, align 4, !alias.scope !62
-  %132 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %13)
+  %132 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %13)
   br label %133
 
 133:                                              ; preds = %125, %113
@@ -4327,7 +4327,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
   store ptr %146, ptr %14, align 8, !alias.scope !65
   store i32 %147, ptr %137, align 8, !alias.scope !65
   store i32 %143, ptr %138, align 4, !alias.scope !65
-  %148 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.sroa.speculated4, i32 noundef %.sroa.speculated, i32 noundef %.01647, i1 noundef zeroext %2, ptr noundef nonnull %14)
+  %148 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.sroa.speculated4, i32 noundef %.sroa.speculated, i32 noundef %.01647, i1 noundef zeroext %2, ptr noundef %14)
   %149 = add nsw i32 %148, %.01746
   %150 = add nuw nsw i32 %.sroa.speculated4, %.sroa.speculated
   %151 = shl nuw nsw i32 %150, 1
@@ -4342,7 +4342,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad19GetNonUnifo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFacetsEiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFacetsEiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %.not16 = icmp slt i32 %0, -2
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -4370,7 +4370,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFa
   store ptr %14, ptr %3, align 8, !alias.scope !69
   store i32 %15, ptr %7, align 8, !alias.scope !69
   store i32 %11, ptr %8, align 4, !alias.scope !69
-  %16 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.020, i32 noundef %.01517, ptr noundef nonnull %3)
+  %16 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %.020, i32 noundef %.01517, ptr noundef %3)
   %17 = add nsw i32 %16, %.01319
   %18 = mul nsw i32 %.020, 3
   %19 = add nsw i32 %18, %.01517
@@ -4385,7 +4385,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri16GetUniformFa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUniformFacetsEPKiiiNS1_12_GLOBAL__N_110FacetArrayE(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUniformFacetsEPKiiiNS1_12_GLOBAL__N_110FacetArrayE(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %6 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %7 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -4549,7 +4549,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri19GetNonUnifor
   store i32 %.sroa.7.0.copyload, ptr %85, align 8, !alias.scope !74
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %.sroa.13.0.copyload, ptr %86, align 4, !alias.scope !74
-  %87 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %6)
+  %87 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %6)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit.i
 
 _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit.i: ; preds = %84, %75, %.loopexit.i.i
@@ -4700,7 +4700,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
   store i32 %.sroa.7.0.copyload, ptr %158, align 8, !alias.scope !77
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %.sroa.13.0.copyload, ptr %159, align 4, !alias.scope !77
-  %160 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %7)
+  %160 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %7)
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit69.i
 
 _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit69.i: ; preds = %154, %145, %.loopexit.i64.i
@@ -4840,7 +4840,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
   store i32 %.sroa.7.0.copyload, ptr %224, align 8, !alias.scope !80
   %225 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %.sroa.13.0.copyload, ptr %225, align 4, !alias.scope !80
-  %226 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef nonnull %8)
+  %226 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %5, ptr noundef %8)
   br label %227
 
 227:                                              ; preds = %220, %211, %.loopexit.i83.i
@@ -4875,7 +4875,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
   store ptr %237, ptr %9, align 8, !alias.scope !83
   store i32 %238, ptr %229, align 8, !alias.scope !83
   store i32 %234, ptr %230, align 4, !alias.scope !83
-  %239 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %232, i32 noundef %.01742, ptr noundef nonnull %9)
+  %239 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %232, i32 noundef %.01742, ptr noundef %9)
   %240 = add nsw i32 %239, %.02140
   %241 = mul nsw i32 %232, 3
   %242 = add nsw i32 %241, %.01742
@@ -4889,7 +4889,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformFacetsEiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef readonly %3) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformFacetsEiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %6 = icmp eq i32 %1, 1
   br i1 %6, label %7, label %28
@@ -4974,7 +4974,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   store ptr %41, ptr %5, align 8, !alias.scope !87
   store i32 %42, ptr %34, align 8, !alias.scope !87
   store i32 %38, ptr %35, align 4, !alias.scope !87
-  %43 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.02428, i32 noundef %.01930, i1 noundef zeroext %2, ptr noundef nonnull %5)
+  %43 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.02428, i32 noundef %.01930, i1 noundef zeroext %2, ptr noundef %5)
   %44 = add nsw i32 %43, %.02029
   %45 = mul nsw i32 %.02428, %0
   %46 = add nsw i32 %.01930, %45
@@ -4989,7 +4989,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUniformFacetsEiPKiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUniformFacetsEiPKiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %9 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -5063,7 +5063,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store ptr %42, ptr %9, align 8, !alias.scope !91
   store i32 %.sroa.4.0.copyload, ptr %24, align 8, !alias.scope !91
   store i32 %.sroa.7.0.copyload, ptr %25, align 4, !alias.scope !91
-  %43 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull %9)
+  %43 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %9)
   %.1.us.i = add nsw i32 %43, %.03949.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %29
@@ -5123,7 +5123,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store ptr %75, ptr %8, align 8, !alias.scope !95
   store i32 %.sroa.4.0.copyload, ptr %26, align 8, !alias.scope !95
   store i32 %.sroa.7.0.copyload, ptr %27, align 4, !alias.scope !95
-  %76 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull %8)
+  %76 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %8)
   br label %83
 
 77:                                               ; preds = %.lr.ph.split.i
@@ -5135,7 +5135,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store ptr %81, ptr %9, align 8, !alias.scope !91
   store i32 %.sroa.4.0.copyload, ptr %24, align 8, !alias.scope !91
   store i32 %.sroa.7.0.copyload, ptr %25, align 4, !alias.scope !91
-  %82 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef nonnull %9)
+  %82 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %7, ptr noundef %9)
   %.pre.i = add nuw nsw i64 %indvars.iv57.i, 1
   br label %83
 
@@ -5179,7 +5179,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
   store ptr %96, ptr %10, align 8, !alias.scope !98
   store i32 %97, ptr %88, align 8, !alias.scope !98
   store i32 %93, ptr %89, align 4, !alias.scope !98
-  %98 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.sroa.speculated, i32 noundef %.02240, i1 noundef zeroext %4, ptr noundef nonnull %10)
+  %98 = call fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %.sroa.speculated, i32 noundef %.02240, i1 noundef zeroext %4, ptr noundef %10)
   %99 = add nsw i32 %98, %.02638
   %100 = mul nsw i32 %.sroa.speculated, %0
   %101 = add nsw i32 %100, %.02240
@@ -5193,7 +5193,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub19GetNonUnifo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %7 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %8 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
@@ -5304,7 +5304,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %.sink, ptr %54, align 4
   store i32 %.sink20.i, ptr %.sink22.i.sroa.phi, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink19.i, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
-  %55 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull %.sink19.i)
+  %55 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef %.sink19.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -5347,7 +5347,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %77, ptr %78, align 8, !alias.scope !102
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %75, ptr %79, align 4, !alias.scope !102
-  %80 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull %10)
+  %80 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef %10)
   store i32 %1, ptr %63, align 4
   store i32 %67, ptr %64, align 4
   %81 = add nsw i32 %67, -1
@@ -5371,7 +5371,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %89, ptr %90, align 8, !alias.scope !105
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i32 %85, ptr %91, align 4, !alias.scope !105
-  %92 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull %11)
+  %92 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef %11)
   %93 = add nsw i32 %92, %80
   store i32 %0, ptr %63, align 4
   store i32 %82, ptr %64, align 4
@@ -5401,7 +5401,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %106, ptr %107, align 8, !alias.scope !108
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %102, ptr %108, align 4, !alias.scope !108
-  %109 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull %12)
+  %109 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef %12)
   %110 = add nsw i32 %109, %93
   store i32 %1, ptr %63, align 4
   store i32 %95, ptr %64, align 4
@@ -5427,7 +5427,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInterior
   store i32 %120, ptr %121, align 8, !alias.scope !111
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %116, ptr %122, align 4, !alias.scope !111
-  %123 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef nonnull %13)
+  %123 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %9, ptr noundef %13)
   %124 = add nsw i32 %123, %110
   br label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
 
@@ -5437,7 +5437,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5728,7 +5728,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110appendQuadENS2_10FacetArrayEiiiii.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip23connectNonUniformFacetsENS2_10FacetArrayE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = load i8, ptr %0, align 4
@@ -6000,7 +6000,7 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorRingFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp slt i32 %0, 1
   br i1 %4, label %208, label %5
 
@@ -6364,7 +6364,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingFacetsEiiibNS1_12_GLOBAL__N_110FacetArrayE(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetStrip", align 4
   %7 = alloca %"class.OpenSubdiv::v3_6_0::Bfr::(anonymous namespace)::FacetArray", align 8
   %8 = icmp slt i32 %1, 1
@@ -6498,7 +6498,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   store ptr %70, ptr %7, align 8, !alias.scope !164
   store i32 %71, ptr %52, align 8, !alias.scope !164
   store i32 %67, ptr %53, align 4, !alias.scope !164
-  %72 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef nonnull %7)
+  %72 = call fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip19connectUniformQuadsENS2_10FacetArrayE(ptr noundef nonnull align 4 dereferenceable(32) %6, ptr noundef %7)
   %73 = add nsw i32 %72, %.03543
   %74 = add nuw nsw i32 %.044, 1
   %exitcond.not = icmp eq i32 %74, %0

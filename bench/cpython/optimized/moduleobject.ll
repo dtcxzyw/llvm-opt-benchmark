@@ -1300,7 +1300,7 @@ if.then26:                                        ; preds = %if.end24
   br i1 %cmp.i41, label %if.then30, label %if.end.i42
 
 if.end.i42:                                       ; preds = %if.then26
-  %call1.i43 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %call1.i, ptr noundef nonnull %call.i40, ptr noundef nonnull %13)
+  %call1.i43 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %call1.i, ptr noundef %call.i40, ptr noundef nonnull %13)
   %14 = load i64, ptr %call.i40, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i3.not.i44 = icmp eq i64 %15, 0
@@ -1426,7 +1426,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call fastcc i32 @_add_methods_to_object(ptr noundef %m, ptr noundef nonnull %call, ptr noundef %functions)
+  %call1 = tail call fastcc i32 @_add_methods_to_object(ptr noundef %m, ptr noundef %call, ptr noundef %functions)
   %0 = load i64, ptr %call, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i3.not = icmp eq i64 %1, 0
@@ -1752,7 +1752,7 @@ if.end94:                                         ; preds = %if.end89, %if.then7
   br i1 %cmp95.not, label %if.end102, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
-  %call98 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %m.1, ptr noundef nonnull %call2, ptr noundef nonnull %31)
+  %call98 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %m.1, ptr noundef %call2, ptr noundef nonnull %31)
   %cmp99.not = icmp eq i32 %call98, 0
   br i1 %cmp99.not, label %if.end102, label %error
 
@@ -1834,7 +1834,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare ptr @_PyErr_FormatFromCause(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_add_methods_to_object(ptr noundef %module, ptr noundef %name, ptr noundef %functions) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_methods_to_object(ptr noundef %module, ptr noundef nonnull %name, ptr noundef %functions) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %functions, align 8
   %cmp.not14 = icmp eq ptr %0, null
@@ -1854,7 +1854,7 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 if.end:                                           ; preds = %for.body
-  %call = tail call ptr @PyCMethod_New(ptr noundef nonnull %fdef.015, ptr noundef %module, ptr noundef %name, ptr noundef null) #4
+  %call = tail call ptr @PyCMethod_New(ptr noundef nonnull %fdef.015, ptr noundef %module, ptr noundef nonnull %name, ptr noundef null) #4
   %cmp4 = icmp eq ptr %call, null
   br i1 %cmp4, label %return, label %if.end6
 

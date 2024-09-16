@@ -70,8 +70,8 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
   %33 = getelementptr inbounds i8, ptr %0, i64 1060
   br label %34
 
-34:                                               ; preds = %27, %97
-  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %97 ]
+34:                                               ; preds = %27, %103
+  %indvars.iv = phi i64 [ 0, %27 ], [ %indvars.iv.next, %103 ]
   br i1 %.not54, label %41, label %35
 
 35:                                               ; preds = %34
@@ -91,78 +91,84 @@ define hidden void @VP8ParseQuant(ptr noundef %0) local_unnamed_addr #0 {
 42:                                               ; preds = %41
   %43 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %43, ptr noundef nonnull align 4 dereferenceable(32) %33, i64 32, i1 false)
-  br label %97
+  br label %103
 
 44:                                               ; preds = %35, %41
   %.049 = phi i32 [ %spec.select, %35 ], [ %3, %41 ]
   %45 = getelementptr inbounds [4 x %struct.VP8QuantMatrix], ptr %33, i64 0, i64 %indvars.iv
   %46 = add nsw i32 %.049, %8
-  %47 = tail call i32 @llvm.smin.i32(i32 %46, i32 127)
-  %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %49
-  %51 = load i8, ptr %50, align 1
-  %52 = zext i8 %51 to i32
-  store i32 %52, ptr %45, align 4
-  %53 = tail call i32 @llvm.smin.i32(i32 %.049, i32 127)
-  %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 0)
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %55
-  %57 = load i16, ptr %56, align 2
-  %58 = zext i16 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %45, i64 4
-  store i32 %58, ptr %59, align 4
-  %60 = add nsw i32 %.049, %13
-  %61 = tail call i32 @llvm.smin.i32(i32 %60, i32 127)
-  %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 0)
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = shl nuw nsw i32 %66, 1
-  %68 = getelementptr inbounds i8, ptr %45, i64 8
-  store i32 %67, ptr %68, align 4
-  %69 = add nsw i32 %.049, %18
-  %70 = tail call i32 @llvm.smin.i32(i32 %69, i32 127)
-  %71 = tail call i32 @llvm.smax.i32(i32 %70, i32 0)
-  %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %72
-  %74 = load i16, ptr %73, align 2
-  %75 = zext i16 %74 to i32
-  %76 = mul nuw nsw i32 %75, 101581
-  %77 = lshr i32 %76, 16
-  %78 = getelementptr inbounds i8, ptr %45, i64 12
-  %79 = icmp slt i32 %69, 2
-  %spec.select57 = select i1 %79, i32 8, i32 %77
-  store i32 %spec.select57, ptr %78, align 4
-  %80 = add nsw i32 %.049, %23
-  %81 = tail call i32 @llvm.smin.i32(i32 %80, i32 117)
-  %82 = tail call i32 @llvm.smax.i32(i32 %81, i32 0)
-  %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %83
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = getelementptr inbounds i8, ptr %45, i64 16
-  store i32 %86, ptr %87, align 4
-  %88 = add nsw i32 %.049, %28
-  %89 = tail call i32 @llvm.smin.i32(i32 %88, i32 127)
-  %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
-  %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %91
-  %93 = load i16, ptr %92, align 2
-  %94 = zext i16 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %45, i64 20
-  store i32 %94, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %45, i64 24
-  store i32 %88, ptr %96, align 4
-  br label %97
+  %47 = icmp slt i32 %46, 0
+  %48 = tail call i32 @llvm.umin.i32(i32 %46, i32 127)
+  %49 = select i1 %47, i32 0, i32 %48
+  %50 = zext nneg i32 %49 to i64
+  %51 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %50
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  store i32 %53, ptr %45, align 4
+  %54 = icmp slt i32 %.049, 0
+  %55 = tail call i32 @llvm.umin.i32(i32 %.049, i32 127)
+  %56 = select i1 %54, i32 0, i32 %55
+  %57 = zext nneg i32 %56 to i64
+  %58 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %57
+  %59 = load i16, ptr %58, align 2
+  %60 = zext i16 %59 to i32
+  %61 = getelementptr inbounds i8, ptr %45, i64 4
+  store i32 %60, ptr %61, align 4
+  %62 = add nsw i32 %.049, %13
+  %63 = icmp slt i32 %62, 0
+  %64 = tail call i32 @llvm.umin.i32(i32 %62, i32 127)
+  %65 = select i1 %63, i32 0, i32 %64
+  %66 = zext nneg i32 %65 to i64
+  %67 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %66
+  %68 = load i8, ptr %67, align 1
+  %69 = zext i8 %68 to i32
+  %70 = shl nuw nsw i32 %69, 1
+  %71 = getelementptr inbounds i8, ptr %45, i64 8
+  store i32 %70, ptr %71, align 4
+  %72 = add nsw i32 %.049, %18
+  %73 = icmp slt i32 %72, 0
+  %74 = tail call i32 @llvm.umin.i32(i32 %72, i32 127)
+  %75 = select i1 %73, i32 0, i32 %74
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %76
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i32
+  %80 = mul nuw nsw i32 %79, 101581
+  %81 = lshr i32 %80, 16
+  %82 = getelementptr inbounds i8, ptr %45, i64 12
+  %83 = icmp ult i32 %75, 2
+  %spec.select57 = select i1 %83, i32 8, i32 %81
+  store i32 %spec.select57, ptr %82, align 4
+  %84 = add nsw i32 %.049, %23
+  %85 = icmp slt i32 %84, 0
+  %86 = tail call i32 @llvm.umin.i32(i32 %84, i32 117)
+  %87 = select i1 %85, i32 0, i32 %86
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds [128 x i8], ptr @kDcTable, i64 0, i64 %88
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = getelementptr inbounds i8, ptr %45, i64 16
+  store i32 %91, ptr %92, align 4
+  %93 = add nsw i32 %.049, %28
+  %94 = icmp slt i32 %93, 0
+  %95 = tail call i32 @llvm.umin.i32(i32 %93, i32 127)
+  %96 = select i1 %94, i32 0, i32 %95
+  %97 = zext nneg i32 %96 to i64
+  %98 = getelementptr inbounds [128 x i16], ptr @kAcTable, i64 0, i64 %97
+  %99 = load i16, ptr %98, align 2
+  %100 = zext i16 %99 to i32
+  %101 = getelementptr inbounds i8, ptr %45, i64 20
+  store i32 %100, ptr %101, align 4
+  %102 = getelementptr inbounds i8, ptr %45, i64 24
+  store i32 %93, ptr %102, align 4
+  br label %103
 
-97:                                               ; preds = %44, %42
+103:                                              ; preds = %44, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %98, label %34, !llvm.loop !4
+  br i1 %exitcond.not, label %104, label %34, !llvm.loop !4
 
-98:                                               ; preds = %97
+104:                                              ; preds = %103
   ret void
 }
 
@@ -174,10 +180,7 @@ declare i32 @VP8GetSignedValue(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

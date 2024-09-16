@@ -1091,7 +1091,7 @@ declare dso_local i32 @intel_panel_init(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @intel_backlight_setup(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8

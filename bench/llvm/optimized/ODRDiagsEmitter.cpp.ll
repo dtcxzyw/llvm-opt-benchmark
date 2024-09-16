@@ -291,7 +291,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %58
   br i1 %.not223, label %_ZN4llvmneENS_9StringRefES0_.exit.thread221, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %8, %_ZN4llvmneENS_9StringRefES0_.exit
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0)
   %60 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit
@@ -358,7 +358,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %89, %95, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 0)
   %96 = load ptr, ptr %16, align 8
   %.not.i.i.i62 = icmp eq ptr %96, null
   br i1 %.not.i.i.i62, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i63, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit64
@@ -435,7 +435,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread221:      ; preds = %58, %_ZN4llvmneENS_
   br i1 %.not, label %217, label %136
 
 136:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread221
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 1)
   %137 = load ptr, ptr %17, align 8
   %.not.i.i.i72 = icmp eq ptr %137, null
   br i1 %.not.i.i.i72, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i73, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -508,7 +508,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i78:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit83
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit83:          ; preds = %170, %176, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 1)
   %177 = load ptr, ptr %18, align 8
   %.not.i.i.i84 = icmp eq ptr %177, null
   br i1 %.not.i.i.i84, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i85, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit90
@@ -595,7 +595,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i91:     ; preds = %_ZNK5clang17Diagnos
   br i1 %228, label %229, label %310
 
 229:                                              ; preds = %217
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 2)
   %230 = load ptr, ptr %19, align 8
   %.not.i.i.i97 = icmp eq ptr %230, null
   br i1 %.not.i.i.i97, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i98, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit
@@ -668,7 +668,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i102:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit107
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit107:         ; preds = %263, %269, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i102
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2)
   %270 = load ptr, ptr %20, align 8
   %.not.i.i.i108 = icmp eq ptr %270, null
   br i1 %.not.i.i.i108, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i109, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit113
@@ -782,7 +782,7 @@ _ZNK5clang9FieldDecl11getBitWidthEv.exit123:      ; preds = %_ZNK5clang9FieldDec
   br i1 %.not50, label %435, label %335
 
 335:                                              ; preds = %_ZNK5clang9FieldDecl11getBitWidthEv.exit123
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 3)
   %336 = load ptr, ptr %21, align 8
   %.not.i.i.i124 = icmp eq ptr %336, null
   br i1 %.not.i.i.i124, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i125, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit126
@@ -882,7 +882,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit137
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit137:         ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i132, %371, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i136
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
   %385 = load ptr, ptr %22, align 8
   %.not.i.i.i138 = icmp eq ptr %385, null
   br i1 %.not.i.i.i138, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i139, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit140
@@ -1001,7 +1001,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i147:    ; preds = %413, %_ZNK5clang17D
   br i1 %449, label %450, label %531
 
 450:                                              ; preds = %440
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 4)
   %451 = load ptr, ptr %23, align 8
   %.not.i.i.i153 = icmp eq ptr %451, null
   br i1 %.not.i.i.i153, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i154, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit158
@@ -1074,7 +1074,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i159:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit164
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit164:         ; preds = %484, %490, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i159
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 4)
   %491 = load ptr, ptr %24, align 8
   %.not.i.i.i165 = icmp eq ptr %491, null
   br i1 %.not.i.i.i165, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i166, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit170
@@ -1155,7 +1155,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i171:    ; preds = %_ZNK5clang17Diagnos
   br i1 %or.cond56, label %568, label %536
 
 536:                                              ; preds = %531
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 5)
   %537 = load ptr, ptr %25, align 8
   %.not.i.i.i177 = icmp eq ptr %537, null
   br i1 %.not.i.i.i177, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i178, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit179
@@ -1185,7 +1185,7 @@ _ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit179: ; pred
   store i8 %551, ptr %26, align 1
   %552 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %25, ptr noundef nonnull align 1 dereferenceable(1) %26)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %25) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 5)
   %553 = load ptr, ptr %27, align 8
   %.not.i.i.i180 = icmp eq ptr %553, null
   br i1 %.not.i.i.i180, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i181, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit182
@@ -1228,7 +1228,7 @@ _ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit182: ; pred
   br i1 %.not53, label %_ZN5clang17DiagnosticBuilderD2Ev.exit70, label %573
 
 573:                                              ; preds = %570
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 6)
   %574 = load ptr, ptr %29, align 8
   %.not.i.i.i183 = icmp eq ptr %574, null
   br i1 %.not.i.i.i183, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i184, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit185
@@ -1261,7 +1261,7 @@ _ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit185: ; pred
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(9) %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %29) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 6)
   %588 = load ptr, ptr %30, align 8
   %.not.i.i.i188 = icmp eq ptr %588, null
   br i1 %.not.i.i.i188, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i189, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit190
@@ -1305,7 +1305,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit70:          ; preds = %524, %530, %428, %4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_0clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1409,7 +1409,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %2 to i64
+  %56 = zext nneg i32 %2 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -1536,7 +1536,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %_ZN5clang17Diagnost
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter24diagnoseSubMismatchFieldEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_9FieldDeclES8_ENK3$_1clEZNKS0_24diagnoseSubMismatchFieldES3_S5_S5_S8_S8_E18ODRFieldDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1630,7 +1630,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %48 = phi ptr [ %47, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4 ], [ %45, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %49 = sext i32 %2 to i64
+  %49 = zext nneg i32 %2 to i64
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %51 = load i8, ptr %48, align 8
   %52 = zext i8 %51 to i64
@@ -1883,7 +1883,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang15ODRDiagsEmitter26diagnoseSubMis
   br i1 %.not81, label %103, label %23
 
 23:                                               ; preds = %9
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
   %24 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit
@@ -1956,7 +1956,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %57, %63, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 0)
   %64 = load ptr, ptr %13, align 8
   %.not.i.i.i20 = icmp eq ptr %64, null
   br i1 %.not.i.i.i20, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i21, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit26
@@ -2050,7 +2050,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i27:     ; preds = %_ZNK5clang17Diagnos
   br i1 %.not, label %_ZN5clang17DiagnosticBuilderD2Ev.exit32, label %114
 
 114:                                              ; preds = %103
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 1)
   %115 = load ptr, ptr %14, align 8
   %.not.i.i.i37 = icmp eq ptr %115, null
   br i1 %.not.i.i.i37, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i38, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -2129,7 +2129,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i47:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit52
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit52:          ; preds = %152, %158, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i47
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 1)
   %159 = load ptr, ptr %15, align 8
   %.not.i.i.i53 = icmp eq ptr %159, null
   br i1 %.not.i.i.i53, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i54, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit63
@@ -2212,7 +2212,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit32:          ; preds = %195, %201, %96, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_0clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2316,7 +2316,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %2 to i64
+  %56 = zext nneg i32 %2 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -2383,7 +2383,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter26diagnoseSubMismatchTypedefEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_15TypedefNameDeclES8_bENK3$_1clEZNKS0_26diagnoseSubMismatchTypedefES3_S5_S5_S8_S8_bE20ODRTypedefDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2464,7 +2464,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %38 = phi ptr [ %37, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %35, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %39 = sext i32 %2 to i64
+  %39 = zext nneg i32 %2 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %41 = load i8, ptr %38, align 8
   %42 = zext i8 %41 to i64
@@ -2572,7 +2572,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang15ODRDiagsEmitter22diagnoseSubMis
   br i1 %.not173, label %103, label %32
 
 32:                                               ; preds = %8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 0)
   %33 = load ptr, ptr %15, align 8
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit
@@ -2638,7 +2638,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %61, %67, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 0)
   %68 = load ptr, ptr %16, align 8
   %.not.i.i.i47 = icmp eq ptr %68, null
   br i1 %.not.i.i.i47, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i48, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit49
@@ -2714,7 +2714,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i50:     ; preds = %_ZNK5clang17Diagnos
   br i1 %.not, label %187, label %108
 
 108:                                              ; preds = %103
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 1)
   %109 = load ptr, ptr %17, align 8
   %.not.i.i.i59 = icmp eq ptr %109, null
   br i1 %.not.i.i.i59, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i60, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -2786,7 +2786,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i65:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit70
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit70:          ; preds = %141, %147, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i65
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 1)
   %148 = load ptr, ptr %18, align 8
   %.not.i.i.i72 = icmp eq ptr %148, null
   br i1 %.not.i.i.i72, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i73, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit78
@@ -2874,7 +2874,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i79:     ; preds = %_ZNK5clang17Diagnos
   br i1 %197, label %198, label %289
 
 198:                                              ; preds = %192
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 2)
   %199 = load ptr, ptr %19, align 8
   %.not.i.i.i86 = icmp eq ptr %199, null
   br i1 %.not.i.i.i86, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i87, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
@@ -2974,7 +2974,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit97
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit97:          ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i92, %230, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i96
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 2)
   %244 = load ptr, ptr %20, align 8
   %.not.i.i.i99 = icmp eq ptr %244, null
   br i1 %.not.i.i.i99, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i100, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit104
@@ -3082,7 +3082,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i107:    ; preds = %267, %263
   br i1 %.not39, label %322, label %295
 
 295:                                              ; preds = %292
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 3)
   %296 = load ptr, ptr %21, align 8
   %.not.i.i.i114 = icmp eq ptr %296, null
   br i1 %.not.i.i.i114, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i115, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit116
@@ -3114,7 +3114,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit116: ; pred
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(9) %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %21) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 3)
   %309 = load ptr, ptr %22, align 8
   %.not.i.i.i120 = icmp eq ptr %309, null
   br i1 %.not.i.i.i120, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i121, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit122
@@ -3169,7 +3169,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit122: ; pred
   br i1 %339, label %340, label %_ZN5clang17DiagnosticBuilderD2Ev.exit55
 
 340:                                              ; preds = %322
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 4)
   %341 = load ptr, ptr %23, align 8
   %.not.i.i.i126 = icmp eq ptr %341, null
   br i1 %.not.i.i.i126, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i127, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit
@@ -3242,7 +3242,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i131:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit136
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit136:         ; preds = %374, %380, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i131
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(32) %14, i32 noundef 4)
   %381 = load ptr, ptr %24, align 8
   %.not.i.i.i138 = icmp eq ptr %381, null
   br i1 %.not.i.i.i138, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i139, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit143
@@ -3320,7 +3320,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit55:          ; preds = %414, %420, %282, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_0clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3424,7 +3424,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %2 to i64
+  %56 = zext nneg i32 %2 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -3491,7 +3491,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter22diagnoseSubMismatchVarEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_7VarDeclES8_ENK3$_1clEZNKS0_22diagnoseSubMismatchVarES3_S5_S5_S8_S8_E16ODRVarDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 5) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3572,7 +3572,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %38 = phi ptr [ %37, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %35, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %39 = sext i32 %2 to i64
+  %39 = zext nneg i32 %2 to i64
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %41 = load i8, ptr %38, align 8
   %42 = zext i8 %41 to i64
@@ -3697,7 +3697,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang15ODRDiagsEmitter28diagnoseSubMis
 
 "_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_1clES3_.exit": ; preds = %24, %27
   %.sroa.0.0.insert.insert.i = phi i64 [ %35, %27 ], [ 0, %24 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.insert.insert.i, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.insert.insert.i, i32 noundef 0)
   %36 = load i32, ptr %18, align 8
   %37 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %37, null
@@ -3787,7 +3787,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %66, %72, %_ZN5clang
 
 "_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_1clES3_.exit49": ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %75
   %.sroa.0.0.insert.insert.i48 = phi i64 [ %83, %75 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i45, i64 %.sroa.0.0.insert.insert.i48, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i45, i64 %.sroa.0.0.insert.insert.i48, i32 noundef 0)
   %84 = load i32, ptr %20, align 8
   %85 = load ptr, ptr %12, align 8
   %.not.i.i.i50 = icmp eq ptr %85, null
@@ -3877,7 +3877,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i53:     ; preds = %_ZNK5clang17Diagnos
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds %"class.clang::SourceLocation", ptr %134, i64 %122
   %.sroa.04.0.copyload = load i32, ptr %135, align 4
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 %.sroa.05.0.copyload, i64 0, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 %.sroa.05.0.copyload, i64 0, i32 noundef 1)
   %136 = add i32 %.038102, 1
   %137 = load ptr, ptr %13, align 8
   %.not.i.i.i61 = icmp eq ptr %137, null
@@ -3951,7 +3951,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i67:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit72
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit72:          ; preds = %170, %176, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i67
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.04.0.copyload, i64 0, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.04.0.copyload, i64 0, i32 noundef 1)
   %177 = load ptr, ptr %14, align 8
   %.not.i.i.i73 = icmp eq ptr %177, null
   br i1 %.not.i.i.i73, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i74, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit79
@@ -4033,7 +4033,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit58:          ; preds = %216, %209, %215, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4128,7 +4128,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %49 = phi ptr [ %48, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %46, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %50 = sext i32 %4 to i64
+  %50 = zext nneg i32 %4 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %52 = load i8, ptr %49, align 8
   %53 = zext i8 %52 to i64
@@ -4195,7 +4195,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %77, %83, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter28diagnoseSubMismatchProtocolsERKNS_16ObjCProtocolListEPKNS_17ObjCContainerDeclEN4llvm9StringRefES3_S6_S8_ENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_28diagnoseSubMismatchProtocolsES3_S6_S8_S3_S6_S8_E31ODRReferencedProtocolDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4280,7 +4280,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %42 = phi ptr [ %41, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4 ], [ %39, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %43 = sext i32 %4 to i64
+  %43 = zext nneg i32 %4 to i64
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %45 = load i8, ptr %42, align 8
   %46 = zext i8 %45 to i64
@@ -4399,7 +4399,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang15ODRDiagsEmitter29diagnoseSubMis
   br i1 %.not, label %124, label %43
 
 43:                                               ; preds = %8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 0)
   %44 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit
@@ -4474,7 +4474,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %77, %83, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 0)
   %84 = load ptr, ptr %23, align 8
   %.not.i.i.i23 = icmp eq ptr %84, null
   br i1 %.not.i.i.i23, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i24, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit30
@@ -4561,7 +4561,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i31:     ; preds = %_ZNK5clang17Diagnos
   br i1 %133, label %134, label %223
 
 134:                                              ; preds = %124
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 1)
   %135 = load ptr, ptr %24, align 8
   %.not.i.i.i37 = icmp eq ptr %135, null
   br i1 %.not.i.i.i37, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i38, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
@@ -4639,7 +4639,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i42:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit47
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit47:          ; preds = %172, %178, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i42
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 1)
   %179 = load ptr, ptr %25, align 8
   %.not.i.i.i48 = icmp eq ptr %179, null
   br i1 %.not.i.i.i48, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i49, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit53
@@ -4727,7 +4727,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i54:     ; preds = %_ZNK5clang17Diagnos
   br i1 %.not14, label %307, label %230
 
 230:                                              ; preds = %223
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 2)
   %231 = load i16, ptr %224, align 1
   %232 = and i16 %231, 3
   %233 = load ptr, ptr %26, align 8
@@ -4796,7 +4796,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i62:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit67
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit67:          ; preds = %262, %268, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i62
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 2)
   %269 = load i16, ptr %226, align 1
   %270 = and i16 %269, 3
   %271 = load ptr, ptr %27, align 8
@@ -4871,7 +4871,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i71:     ; preds = %_ZNK5clang17Diagnos
   br i1 %310, label %311, label %398
 
 311:                                              ; preds = %307
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 3)
   %312 = load ptr, ptr %28, align 8
   %.not.i.i.i77 = icmp eq ptr %312, null
   br i1 %.not.i.i.i77, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i78, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit82
@@ -4948,7 +4948,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i83:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit88
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit88:          ; preds = %348, %354, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i83
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 3)
   %355 = load ptr, ptr %29, align 8
   %.not.i.i.i89 = icmp eq ptr %355, null
   br i1 %.not.i.i.i89, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i90, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit94
@@ -5031,7 +5031,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i95:     ; preds = %_ZNK5clang17Diagnos
   br i1 %401, label %402, label %489
 
 402:                                              ; preds = %398
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 4)
   %403 = load ptr, ptr %30, align 8
   %.not.i.i.i101 = icmp eq ptr %403, null
   br i1 %.not.i.i.i101, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i102, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit106
@@ -5108,7 +5108,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i107:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit112
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit112:         ; preds = %439, %445, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i107
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 4)
   %446 = load ptr, ptr %31, align 8
   %.not.i.i.i113 = icmp eq ptr %446, null
   br i1 %.not.i.i.i113, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i114, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit118
@@ -5235,7 +5235,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i119:    ; preds = %_ZNK5clang17Diagnos
   br label %577
 
 504:                                              ; preds = %489
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 0)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 0)
   %505 = load ptr, ptr %12, align 8
   %.not.i.i.i.i125 = icmp eq ptr %505, null
   br i1 %.not.i.i.i.i125, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit.i
@@ -5302,7 +5302,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %521, %_ZNK5clang17D
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %540, %534, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 0)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 0)
   %541 = load ptr, ptr %13, align 8
   %.not.i.i.i40.i = icmp eq ptr %541, null
   br i1 %.not.i.i.i40.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i41.i, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit42.i
@@ -5416,7 +5416,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.i: ; preds = %595
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread181.i: ; preds = %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.i, %589
   %.0.i184.i = phi ptr [ %603, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.i ], [ %592, %589 ]
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
   %604 = add nuw i64 %indvars.iv.i, 1
   %605 = load ptr, ptr %14, align 8
   %.not.i.i.i50.i = icmp eq ptr %605, null
@@ -5505,7 +5505,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i61.i:   ; preds = %634, %_ZNK5clang17D
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit66.i
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.i, %595
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
   %654 = add nuw i64 %indvars.iv.i, 1
   %655 = load ptr, ptr %15, align 8
   %.not.i.i.i67.i = icmp eq ptr %655, null
@@ -5611,7 +5611,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.i: ; preds = %704
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.thread187.i: ; preds = %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.i, %_ZN5clang17DiagnosticBuilderD2Ev.exit66.i
   %.0.i86190.i = phi ptr [ %712, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.i ], [ %701, %_ZN5clang17DiagnosticBuilderD2Ev.exit66.i ]
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
   %713 = add nuw i64 %indvars.iv.i, 1
   %714 = load ptr, ptr %16, align 8
   %.not.i.i.i88.i = icmp eq ptr %714, null
@@ -5700,7 +5700,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i103.i:  ; preds = %743, %_ZNK5clang17D
   br label %_ZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_.exit.thread
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.i, %704
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
   %763 = add nuw i64 %indvars.iv.i, 1
   %764 = load ptr, ptr %17, align 8
   %.not.i.i.i109.i = icmp eq ptr %764, null
@@ -5788,7 +5788,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i119.i:  ; preds = %788, %_ZNK5clang17D
   br i1 %.not192.i, label %892, label %811
 
 811:                                              ; preds = %808
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 2)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 2)
   %812 = add nuw i64 %indvars.iv.i, 1
   %813 = load ptr, ptr %18, align 8
   %.not.i.i.i127.i = icmp eq ptr %813, null
@@ -5862,7 +5862,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i133.i:  ; preds = %833, %_ZNK5clang17D
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit138.i
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit138.i:       ; preds = %852, %846, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i133.i
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 2)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 2)
   %853 = load ptr, ptr %19, align 8
   %.not.i.i.i139.i = icmp eq ptr %853, null
   br i1 %.not.i.i.i139.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i140.i, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit145.i
@@ -5972,7 +5972,7 @@ _ZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17Diagno
   br i1 %.not180, label %_ZN5clang17DiagnosticBuilderD2Ev.exit36, label %895
 
 895:                                              ; preds = %.loopexit
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(40) %20, i32 noundef 5)
   %896 = load ptr, ptr %32, align 8
   %.not.i.i.i129 = icmp eq ptr %896, null
   br i1 %.not.i.i.i129, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i130, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit
@@ -5997,7 +5997,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit: ; preds =
   %907 = getelementptr inbounds [10 x i64], ptr %905, i64 0, i64 %903
   store i64 %.sroa.0.0.copyload.i126, ptr %907, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %32) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 5)
   %908 = load ptr, ptr %33, align 8
   %.not.i.i.i132 = icmp eq ptr %908, null
   br i1 %.not.i.i.i132, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i133, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit134
@@ -6030,7 +6030,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit36:          ; preds = %482, %488, %391, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_0clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6134,7 +6134,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %2 to i64
+  %56 = zext nneg i32 %2 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -6201,7 +6201,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter29diagnoseSubMismatchObjCMethodEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_14ObjCMethodDeclES8_ENK3$_1clEZNKS0_29diagnoseSubMismatchObjCMethodES3_S5_S5_S8_S8_E19ODRMethodDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 0, 6) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6295,7 +6295,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %48 = phi ptr [ %47, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4 ], [ %45, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %49 = sext i32 %2 to i64
+  %49 = zext nneg i32 %2 to i64
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %51 = load i8, ptr %48, align 8
   %52 = zext i8 %51 to i64
@@ -6432,7 +6432,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %46
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %8, %_ZN4llvmneENS_9StringRefES0_.exit
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %48, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i, i32 noundef 0)
   %49 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit
@@ -6501,7 +6501,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %78, %84, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i69 = load i32, ptr %85, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i69, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i69, i32 noundef 0)
   %86 = load ptr, ptr %12, align 8
   %.not.i.i.i70 = icmp eq ptr %86, null
   br i1 %.not.i.i.i70, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i71, label %_ZNK5clang17DiagnosticBuilderlsIPNS_14IdentifierInfoEEERKS0_RKT_.exit72
@@ -6580,7 +6580,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread172:      ; preds = %46, %_ZN4llvmneENS_
 126:                                              ; preds = %_ZN4llvmneENS_9StringRefES0_.exit.thread172
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i81 = load i32, ptr %127, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i81, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i81, i32 noundef 1)
   %128 = load ptr, ptr %13, align 8
   %.not.i.i.i82 = icmp eq ptr %128, null
   br i1 %.not.i.i.i82, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i83, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit
@@ -6657,7 +6657,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i89:     ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit94:          ; preds = %161, %167, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i89
   %168 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i95 = load i32, ptr %168, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i95, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i95, i32 noundef 1)
   %169 = load ptr, ptr %14, align 8
   %.not.i.i.i96 = icmp eq ptr %169, null
   br i1 %.not.i.i.i96, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i97, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEvEERKS0_OT_.exit103
@@ -6744,7 +6744,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i104:    ; preds = %_ZNK5clang17Diagnos
 216:                                              ; preds = %209
   %217 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i110 = load i32, ptr %217, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i110, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.0.0.copyload.i110, i32 noundef 2)
   %218 = load i64, ptr %210, align 8
   %219 = lshr i64 %218, 32
   %220 = and i64 %219, 3
@@ -6815,7 +6815,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i113:    ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit118:         ; preds = %249, %255, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i113
   %256 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.0.0.copyload.i119 = load i32, ptr %256, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i119, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0.copyload.i119, i32 noundef 2)
   %257 = load i64, ptr %212, align 8
   %258 = lshr i64 %257, 32
   %259 = and i64 %258, 3
@@ -6910,7 +6910,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i123:    ; preds = %_ZNK5clang17Diagnos
   %.sroa.01.0.in.v = select i1 %310, i64 52, i64 24
   %.sroa.01.0.in = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.01.0.in.v
   %.sroa.01.0 = load i32, ptr %.sroa.01.0.in, align 4
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.01.0, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %9, i32 %.sroa.01.0, i32 noundef 3)
   %311 = load ptr, ptr %17, align 8
   %.not.i.i.i131 = icmp eq ptr %311, null
   br i1 %.not.i.i.i131, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i132, label %_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_.exit
@@ -6994,7 +6994,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit143:         ; preds = %350, %356, %_ZN5cla
   %.sroa.0.0.in.v = select i1 %.not63, i64 24, i64 52
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.in.v
   %.sroa.0.0 = load i32, ptr %.sroa.0.0.in, align 4
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 %.sroa.0.0, i32 noundef 3)
   %357 = load ptr, ptr %18, align 8
   %.not.i.i.i146 = icmp eq ptr %357, null
   br i1 %.not.i.i.i146, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i147, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit151
@@ -7077,7 +7077,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit78:          ; preds = %397, %390, %396, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_0clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 %2, i32 noundef range(i32 0, 4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7178,7 +7178,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %54 = phi ptr [ %53, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %51, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %55 = sext i32 %3 to i64
+  %55 = zext nneg i32 %3 to i64
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %57 = load i8, ptr %54, align 8
   %58 = zext i8 %57 to i64
@@ -7245,7 +7245,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %82, %88, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter31diagnoseSubMismatchObjCPropertyEPKNS_9NamedDeclEN4llvm9StringRefES5_PKNS_16ObjCPropertyDeclES8_ENK3$_1clENS_14SourceLocationEZNKS0_31diagnoseSubMismatchObjCPropertyES3_S5_S5_S8_S8_E21ODRPropertyDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 %2, i32 noundef range(i32 0, 4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -7336,7 +7336,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %47 = phi ptr [ %46, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i4 ], [ %44, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %48 = sext i32 %3 to i64
+  %48 = zext nneg i32 %3 to i64
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %50 = load i8, ptr %47, align 8
   %51 = zext i8 %50 to i64
@@ -8924,7 +8924,7 @@ _ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i: ; preds = %209, %_ZNK5
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_3clES6_.exit": ; preds = %201, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i
   %.sroa.02.0.insert.insert.i = phi i64 [ %217, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i ], [ 0, %201 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i, i64 %.sroa.02.0.insert.insert.i, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i, i64 %.sroa.02.0.insert.insert.i, i32 noundef 0)
   %218 = load ptr, ptr %21, align 8
   %.not.i.i.i481 = icmp eq ptr %218, null
   br i1 %.not.i.i.i481, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit
@@ -9027,7 +9027,7 @@ _ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i485: ; preds = %262, %_Z
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_3clES6_.exit491": ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i485
   %.sroa.02.0.insert.insert.i489 = phi i64 [ %270, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i485 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i483, i64 %.sroa.02.0.insert.insert.i489, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i483, i64 %.sroa.02.0.insert.insert.i489, i32 noundef 0)
   %271 = load ptr, ptr %22, align 8
   %.not.i.i.i492 = icmp eq ptr %271, null
   br i1 %.not.i.i.i492, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i493, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit494
@@ -9133,7 +9133,7 @@ _ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i503: ; preds = %316, %_Z
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_3clES6_.exit509": ; preds = %308, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i503
   %.sroa.02.0.insert.insert.i507 = phi i64 [ %324, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i503 ], [ 0, %308 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i501, i64 %.sroa.02.0.insert.insert.i507, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i501, i64 %.sroa.02.0.insert.insert.i507, i32 noundef 1)
   %325 = load ptr, ptr %23, align 8
   %.not.i.i.i510 = icmp eq ptr %325, null
   br i1 %.not.i.i.i510, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i511, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit512
@@ -9236,7 +9236,7 @@ _ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i521: ; preds = %369, %_Z
 
 "_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_3clES6_.exit527": ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit518, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i521
   %.sroa.02.0.insert.insert.i525 = phi i64 [ %377, %_ZNK5clang13CXXRecordDecl14DefinitionData5basesEv.exit.i521 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit518 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i519, i64 %.sroa.02.0.insert.insert.i525, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i519, i64 %.sroa.02.0.insert.insert.i525, i32 noundef 1)
   %378 = load ptr, ptr %24, align 8
   %.not.i.i.i528 = icmp eq ptr %378, null
   br i1 %.not.i.i.i528, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i529, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit530
@@ -9402,7 +9402,7 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit552:   ; preds = %_ZNK5clang16CXXBase
 447:                                              ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit552
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i553 = load i32, ptr %448, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i553, i64 %.sroa.01099.0.copyload, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i553, i64 %.sroa.01099.0.copyload, i32 noundef 2)
   %449 = add nuw i64 %indvars.iv, 1
   %450 = load ptr, ptr %25, align 8
   %.not.i.i.i555 = icmp eq ptr %450, null
@@ -9500,7 +9500,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i567:    ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit572:         ; preds = %492, %498, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i567
   %499 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i573 = load i32, ptr %499, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i573, i64 %.sroa.01089.0.copyload, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i573, i64 %.sroa.01089.0.copyload, i32 noundef 2)
   %500 = load ptr, ptr %26, align 8
   %.not.i.i.i575 = icmp eq ptr %500, null
   br i1 %.not.i.i.i575, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i576, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit577
@@ -9604,7 +9604,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i589:    ; preds = %_ZNK5clang17Diagnos
 554:                                              ; preds = %548
   %555 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i595 = load i32, ptr %555, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i595, i64 %.sroa.01099.0.copyload, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i595, i64 %.sroa.01099.0.copyload, i32 noundef 3)
   %556 = add nuw i64 %indvars.iv, 1
   %557 = load ptr, ptr %27, align 8
   %.not.i.i.i597 = icmp eq ptr %557, null
@@ -9709,7 +9709,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i613:    ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit618:         ; preds = %604, %610, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i613
   %611 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i619 = load i32, ptr %611, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i619, i64 %.sroa.01089.0.copyload, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i619, i64 %.sroa.01089.0.copyload, i32 noundef 3)
   %612 = load ptr, ptr %28, align 8
   %.not.i.i.i621 = icmp eq ptr %612, null
   br i1 %.not.i.i.i621, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i622, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit626
@@ -9820,7 +9820,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i638:    ; preds = %_ZNK5clang17Diagnos
 670:                                              ; preds = %665
   %671 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i644 = load i32, ptr %671, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i644, i64 %.sroa.01099.0.copyload, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %29, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 %.sroa.0.0.copyload.i644, i64 %.sroa.01099.0.copyload, i32 noundef 4)
   %672 = add nuw i64 %indvars.iv, 1
   %673 = load ptr, ptr %29, align 8
   %.not.i.i.i646 = icmp eq ptr %673, null
@@ -9925,7 +9925,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i662:    ; preds = %_ZNK5clang17Diagnos
 _ZN5clang17DiagnosticBuilderD2Ev.exit667:         ; preds = %720, %726, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i662
   %727 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.0.0.copyload.i668 = load i32, ptr %727, align 8
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i668, i64 %.sroa.01089.0.copyload, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %.sroa.0.0.copyload.i668, i64 %.sroa.01089.0.copyload, i32 noundef 4)
   %728 = load ptr, ptr %30, align 8
   %.not.i.i.i670 = icmp eq ptr %728, null
   br i1 %.not.i.i.i670, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i671, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit672
@@ -10775,11 +10775,11 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 1135:                                             ; preds = %1126
   %1136 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1129) #19
   %1137 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %1129) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %1136, i64 %1137, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %41, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %1136, i64 %1137, i32 noundef 0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %41) #17
   %1138 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1132) #19
   %1139 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %1132) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %1138, i64 %1139, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %1138, i64 %1139, i32 noundef 0)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %42) #17
   br label %2241
 
@@ -10832,12 +10832,12 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 1168:                                             ; preds = %1162, %1159
   %.sroa.01034.0 = phi i32 [ %1160, %1159 ], [ %.sroa.0.0.extract.trunc.i767, %1162 ]
   %storemerge419 = phi i64 [ %1161, %1159 ], [ %1167, %1162 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.01035.0, i64 %storemerge, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %43, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.01035.0, i64 %storemerge, i32 noundef 2)
   %1169 = zext i1 %1145 to i8
   store i8 %1169, ptr %44, align 1
   %1170 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %43, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %43) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.01034.0, i64 %storemerge419, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.01034.0, i64 %storemerge419, i32 noundef 2)
   %1171 = icmp eq ptr %1144, null
   %1172 = zext i1 %1171 to i8
   store i8 %1172, ptr %46, align 1
@@ -10859,11 +10859,11 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 1179:                                             ; preds = %1176
   %1180 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1142) #19
   %1181 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %1142) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %1180, i64 %1181, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %1180, i64 %1181, i32 noundef 1)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %47) #17
   %1182 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %1144) #19
   %1183 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %1144) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %1182, i64 %1183, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %1182, i64 %1183, i32 noundef 1)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %48) #17
   br label %2241
 
@@ -10914,9 +10914,9 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %or.cond1160, label %1210, label %1211
 
 1210:                                             ; preds = %1190
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %51, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 3)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %51) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %52, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 3)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %52) #17
   br label %2241
 
@@ -10937,10 +10937,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1222, label %1223, label %1226
 
 1223:                                             ; preds = %1211
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %55, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 4)
   %1224 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %55, ptr noundef nonnull align 1 dereferenceable(1) %53)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %55) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %56, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 4)
   %1225 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %56, ptr noundef nonnull align 1 dereferenceable(1) %54)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %56) #17
   br label %2241
@@ -10960,10 +10960,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1233, label %1234, label %1237
 
 1234:                                             ; preds = %1226
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 5)
   %1235 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %59, ptr noundef nonnull align 1 dereferenceable(1) %57)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %59) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 5)
   %1236 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %60, ptr noundef nonnull align 1 dereferenceable(1) %58)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %60) #17
   br label %2241
@@ -10995,11 +10995,11 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %or.cond1162, label %1256, label %1251
 
 1251:                                             ; preds = %1250
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 6)
   %1252 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %65, ptr noundef nonnull align 1 dereferenceable(1) %63)
   %1253 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %1252, ptr noundef nonnull align 1 dereferenceable(1) %61)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %65) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 6)
   %1254 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %66, ptr noundef nonnull align 1 dereferenceable(1) %64)
   %1255 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %1254, ptr noundef nonnull align 1 dereferenceable(1) %62)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %66) #17
@@ -11022,10 +11022,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1265, label %1266, label %1269
 
 1266:                                             ; preds = %1256
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 7)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %69, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 7)
   %1267 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %69, ptr noundef nonnull align 1 dereferenceable(1) %67)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %69) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 7)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %70, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 7)
   %1268 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %70, ptr noundef nonnull align 1 dereferenceable(1) %68)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %70) #17
   br label %2241
@@ -11041,10 +11041,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1274, label %1275, label %1278
 
 1275:                                             ; preds = %1269
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 8)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %73, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 8)
   %1276 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %73, ptr noundef nonnull align 1 dereferenceable(1) %71)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %73) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 8)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %74, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 8)
   %1277 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %74, ptr noundef nonnull align 1 dereferenceable(1) %72)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %74) #17
   br label %2241
@@ -11060,10 +11060,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1283, label %1284, label %1287
 
 1284:                                             ; preds = %1278
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 9)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %77, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 9)
   %1285 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %77, ptr noundef nonnull align 1 dereferenceable(1) %75)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %77) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 9)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 9)
   %1286 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %78, ptr noundef nonnull align 1 dereferenceable(1) %76)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %78) #17
   br label %2241
@@ -11085,10 +11085,10 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1296, label %1297, label %1300
 
 1297:                                             ; preds = %1287
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 10)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %81, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 10)
   %1298 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %81, ptr noundef nonnull align 1 dereferenceable(1) %79)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %81) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 10)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 10)
   %1299 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %82, ptr noundef nonnull align 1 dereferenceable(1) %80)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %82) #17
   br label %2241
@@ -11129,7 +11129,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br i1 %1322, label %1323, label %1360
 
 1323:                                             ; preds = %1311
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 11)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 11)
   %1324 = add nuw i64 %indvars.iv1393, 1
   %1325 = load ptr, ptr %83, align 8
   %.not.i.i.i773 = icmp eq ptr %1325, null
@@ -11173,7 +11173,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit775: ; preds = %1323, %_ZNK5cla
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %1339, ptr noundef nonnull align 4 dereferenceable(9) %10)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %83) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 11)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 11)
   %1343 = load ptr, ptr %85, align 8
   %.not.i.i.i778 = icmp eq ptr %1343, null
   br i1 %.not.i.i.i778, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i779, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit780
@@ -11230,7 +11230,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit780: ; preds = %1342, %_ZNK5cla
   br i1 %.not433, label %1395, label %1366
 
 1366:                                             ; preds = %1363
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 12)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %87, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 12)
   %1367 = add nuw i64 %indvars.iv1393, 1
   %1368 = load ptr, ptr %87, align 8
   %.not.i.i.i783 = icmp eq ptr %1368, null
@@ -11264,7 +11264,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit785: ; preds = %1366, %_ZNK5cla
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(9) %8)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %87) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 12)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %88, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 12)
   %1382 = load ptr, ptr %88, align 8
   %.not.i.i.i788 = icmp eq ptr %1382, null
   br i1 %.not.i.i.i788, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i789, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit790
@@ -11312,12 +11312,12 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit790: ; preds = %_ZNK5clang17Dia
   br i1 %or.cond457, label %1400, label %1405
 
 1400:                                             ; preds = %._crit_edge1265
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 13)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %89, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 13)
   %1401 = zext i1 %1399 to i8
   store i8 %1401, ptr %90, align 1
   %1402 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %89, ptr noundef nonnull align 1 dereferenceable(1) %90)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %89) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 13)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 13)
   %1403 = zext i1 %1398 to i8
   store i8 %1403, ptr %92, align 1
   %1404 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %91, ptr noundef nonnull align 1 dereferenceable(1) %92)
@@ -11329,15 +11329,15 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit790: ; preds = %_ZNK5clang17Dia
   br i1 %or.cond17, label %1406, label %1487
 
 1406:                                             ; preds = %1405
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull %1396)
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias nonnull writable align 8 %94, ptr noundef nonnull %1397)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef %1396)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias writable align 8 %94, ptr noundef %1397)
   %1407 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #17
   %1408 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %94) #17
   %.not429 = icmp eq i64 %1407, %1408
   br i1 %.not429, label %1438, label %1409
 
 1409:                                             ; preds = %1406
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 14)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 14)
   %1410 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #17
   %1411 = load ptr, ptr %95, align 8
   %.not.i.i.i793 = icmp eq ptr %1411, null
@@ -11364,7 +11364,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit795: ; preds = %1409, %_ZNK5cla
   %1423 = getelementptr inbounds [10 x i64], ptr %1421, i64 0, i64 %1419
   store i64 %1416, ptr %1423, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %95) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 14)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %96, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 14)
   %1424 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %94) #17
   %1425 = load ptr, ptr %96, align 8
   %.not.i.i.i796 = icmp eq ptr %1425, null
@@ -11416,7 +11416,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit798: ; preds = %_ZNK5clang17Dia
   br i1 %1450, label %1486, label %1451
 
 1451:                                             ; preds = %.lr.ph1269
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 15)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %97, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 15)
   %1452 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(24) %1444) #17
   %1453 = add nuw i64 %indvars.iv1398, 1
   %1454 = load ptr, ptr %97, align 8
@@ -11447,7 +11447,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit801: ; preds = %1451, %_ZNK5cla
   %1469 = getelementptr inbounds [10 x i64], ptr %1465, i64 0, i64 %1468
   store i64 %1459, ptr %1469, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %97) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 15)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %98, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 15)
   %1470 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16) %98, ptr noundef nonnull align 8 dereferenceable(24) %1447) #17
   %1471 = load ptr, ptr %98, align 8
   %.not.i.i.i802 = icmp eq ptr %1471, null
@@ -11502,10 +11502,10 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit804: ; preds = %_ZNK5clang17Dia
   br i1 %1496, label %1497, label %1500
 
 1497:                                             ; preds = %1487
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 16)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %101, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 16)
   %1498 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %101, ptr noundef nonnull align 1 dereferenceable(1) %99)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %101) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 16)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %102, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 16)
   %1499 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %102, ptr noundef nonnull align 1 dereferenceable(1) %100)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %102) #17
   br label %2241
@@ -11515,9 +11515,9 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit804: ; preds = %_ZNK5clang17Dia
   br i1 %brmerge.demorgan, label %1501, label %.loopexit
 
 1501:                                             ; preds = %1500
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 17)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 17)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %103) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 17)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %104, ptr noundef nonnull align 8 dereferenceable(32) %50, i32 noundef 17)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %104) #17
   br label %2241
 
@@ -11564,7 +11564,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit804: ; preds = %_ZNK5clang17Dia
   %1529 = getelementptr inbounds nuw i8, ptr %1104, i64 56
   %.sroa.0.0.copyload.i813 = load i32, ptr %1529, align 8
   %1530 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1104) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i813, i64 %1530, i32 noundef 20)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %105, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i813, i64 %1530, i32 noundef 20)
   %1531 = load ptr, ptr %105, align 8
   %.not.i.i.i814 = icmp eq ptr %1531, null
   br i1 %.not.i.i.i814, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i815, label %_ZNK5clang17DiagnosticBuilderlsIPKNS_9NamedDeclEEERKS0_RKT_.exit
@@ -11593,7 +11593,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_9NamedDeclEEERKS0_RKT_.exit: ; preds = %152
   %1544 = getelementptr inbounds nuw i8, ptr %1106, i64 56
   %.sroa.0.0.copyload.i816 = load i32, ptr %1544, align 8
   %1545 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1106) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i816, i64 %1545, i32 noundef 20)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %106, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i816, i64 %1545, i32 noundef 20)
   %1546 = load ptr, ptr %106, align 8
   %.not.i.i.i817 = icmp eq ptr %1546, null
   br i1 %.not.i.i.i817, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i818, label %_ZNK5clang17DiagnosticBuilderlsIPKNS_9NamedDeclEEERKS0_RKT_.exit819
@@ -11633,7 +11633,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_9NamedDeclEEERKS0_RKT_.exit819: ; preds = %
   %1563 = getelementptr inbounds nuw i8, ptr %1104, i64 56
   %.sroa.0.0.copyload.i822 = load i32, ptr %1563, align 8
   %1564 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1104) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i822, i64 %1564, i32 noundef 19)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %107, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i822, i64 %1564, i32 noundef 19)
   %1565 = load ptr, ptr %107, align 8
   %.not.i.i.i824 = icmp eq ptr %1565, null
   br i1 %.not.i.i.i824, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i825, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -11661,7 +11661,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit: ; preds = %1562, 
   %1577 = getelementptr inbounds nuw i8, ptr %1106, i64 56
   %.sroa.0.0.copyload.i826 = load i32, ptr %1577, align 8
   %1578 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1106) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %108, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i826, i64 %1578, i32 noundef 19)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %108, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i826, i64 %1578, i32 noundef 19)
   %1579 = load ptr, ptr %108, align 8
   %.not.i.i.i828 = icmp eq ptr %1579, null
   br i1 %.not.i.i.i828, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i829, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit830
@@ -11692,7 +11692,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit830: ; preds = %_ZN
   %1592 = getelementptr inbounds nuw i8, ptr %1104, i64 56
   %.sroa.0.0.copyload.i831 = load i32, ptr %1592, align 8
   %1593 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1104) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i831, i64 %1593, i32 noundef 18)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %109, ptr noundef nonnull align 8 dereferenceable(24) %39, i32 %.sroa.0.0.copyload.i831, i64 %1593, i32 noundef 18)
   %1594 = icmp eq ptr %.0.i.i.i.i.i809, null
   %1595 = zext i1 %1594 to i8
   store i8 %1595, ptr %110, align 1
@@ -11701,7 +11701,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit830: ; preds = %_ZN
   %1597 = getelementptr inbounds nuw i8, ptr %1106, i64 56
   %.sroa.0.0.copyload.i832 = load i32, ptr %1597, align 8
   %1598 = call i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(72) %1106) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i832, i64 %1598, i32 noundef 18)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(16) %40, i32 %.sroa.0.0.copyload.i832, i64 %1598, i32 noundef 18)
   %1599 = icmp eq ptr %.0.i.i.i.i.i812, null
   %1600 = zext i1 %1599 to i8
   store i8 %1600, ptr %112, align 1
@@ -11739,7 +11739,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit830: ; preds = %_ZN
   br label %1648
 
 1617:                                             ; preds = %1602
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 21)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %115, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 21)
   %1618 = load i32, ptr %1609, align 4
   %1619 = and i32 %1618, 536870911
   %1620 = load ptr, ptr %115, align 8
@@ -11767,7 +11767,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit835: ; preds = %1617, %_ZNK5cla
   %1632 = getelementptr inbounds [10 x i64], ptr %1630, i64 0, i64 %1628
   store i64 %1625, ptr %1632, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %115) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 21)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %116, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 21)
   %1633 = load i32, ptr %1612, align 4
   %1634 = and i32 %1633, 536870911
   %1635 = load ptr, ptr %116, align 8
@@ -11816,7 +11816,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit838: ; preds = %_ZNK5clang17Dia
   br i1 %.not438, label %1703, label %1660
 
 1660:                                             ; preds = %1648
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 22)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %119, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 22)
   %1661 = add nuw i32 %.03931275, 1
   %1662 = load ptr, ptr %119, align 8
   %.not.i.i.i839 = icmp eq ptr %1662, null
@@ -11869,7 +11869,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit841: ; preds = %1660, %_ZNK5cla
   %1682 = getelementptr inbounds [10 x i64], ptr %1672, i64 0, i64 %1679
   store i64 %.0.i842, ptr %1682, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %119) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 22)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 22)
   %1683 = load ptr, ptr %120, align 8
   %.not.i.i.i845 = icmp eq ptr %1683, null
   br i1 %.not.i.i.i845, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i846, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit847
@@ -11980,7 +11980,7 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %1728
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit862, %_ZN4llvmneENS_9StringRefES0_.exit
   %1730 = getelementptr inbounds nuw i8, ptr %1651, i64 40
   %1731 = getelementptr inbounds nuw i8, ptr %1653, i64 40
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 23)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 23)
   %1732 = add nuw i32 %.03931275, 1
   %1733 = load ptr, ptr %121, align 8
   %.not.i.i.i865 = icmp eq ptr %1733, null
@@ -12016,7 +12016,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit867: ; preds = %_ZN4llvmneENS_9
   %1752 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %121, ptr noundef nonnull align 1 dereferenceable(1) %122)
   %1753 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIPNS_9NamedDeclEEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %1752, ptr noundef nonnull align 8 dereferenceable(8) %117)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %121) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 23)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %123, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 23)
   %1754 = load ptr, ptr %123, align 8
   %.not.i.i.i869 = icmp eq ptr %1754, null
   br i1 %.not.i.i.i869, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i870, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit871
@@ -12083,7 +12083,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread1144:     ; preds = %1728, %_ZN4llvmneEN
   br i1 %1785, label %1786, label %1815
 
 1786:                                             ; preds = %._crit_edge, %1781
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
   %1787 = add nuw i32 %.03931275, 1
   %1788 = load ptr, ptr %127, align 8
   %.not.i.i.i878 = icmp eq ptr %1788, null
@@ -12111,7 +12111,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit880: ; preds = %1786, %_ZNK5cla
   store i64 %1793, ptr %1800, align 8
   %1801 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %127, ptr noundef nonnull align 1 dereferenceable(1) %125)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %127) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %128, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %128, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
   %1802 = load ptr, ptr %128, align 8
   %.not.i.i.i881 = icmp eq ptr %1802, null
   br i1 %.not.i.i.i881, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i882, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit883
@@ -12154,7 +12154,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit883: ; preds = %_ZNK5clang17Dia
   br i1 %.not440, label %.thread, label %1821
 
 1821:                                             ; preds = %1816
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %131, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %131, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
   %1822 = add nuw i32 %.03931275, 1
   %1823 = load ptr, ptr %131, align 8
   %.not.i.i.i884 = icmp eq ptr %1823, null
@@ -12182,7 +12182,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit886: ; preds = %1821, %_ZNK5cla
   store i64 %1828, ptr %1835, align 8
   %1836 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 8 dereferenceable(24) %129) #17
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %131) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %132, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %132, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
   %1837 = load ptr, ptr %132, align 8
   %.not.i.i.i887 = icmp eq ptr %1837, null
   br i1 %.not.i.i.i887, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i888, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit889
@@ -12221,7 +12221,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit889: ; preds = %_ZNK5clang17Dia
   br label %1886
 
 1853:                                             ; preds = %.thread
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %133, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
   %1854 = add nuw i32 %.03931275, 1
   %1855 = load ptr, ptr %133, align 8
   %.not.i.i.i890 = icmp eq ptr %1855, null
@@ -12252,7 +12252,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit892: ; preds = %1853, %_ZNK5cla
   store i8 %1869, ptr %134, align 1
   %1870 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %133, ptr noundef nonnull align 1 dereferenceable(1) %134)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %133) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %135, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %135, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
   %1871 = load ptr, ptr %135, align 8
   %.not.i.i.i893 = icmp eq ptr %1871, null
   br i1 %.not.i.i.i893, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i894, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit895
@@ -12306,7 +12306,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit895: ; preds = %_ZNK5clang17Dia
   br i1 %.not442, label %1928, label %1901
 
 1901:                                             ; preds = %1894
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %137, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 26)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %137, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 26)
   %1902 = add nuw i32 %.03931275, 1
   %1903 = load ptr, ptr %137, align 8
   %.not.i.i.i896 = icmp eq ptr %1903, null
@@ -12333,7 +12333,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit898: ; preds = %1901, %_ZNK5cla
   %1915 = getelementptr inbounds [10 x i64], ptr %1913, i64 0, i64 %1911
   store i64 %1908, ptr %1915, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %137) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %138, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 26)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %138, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 26)
   %1916 = load ptr, ptr %138, align 8
   %.not.i.i.i899 = icmp eq ptr %1916, null
   br i1 %.not.i.i.i899, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i900, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit901
@@ -12387,7 +12387,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit901: ; preds = %_ZNK5clang17Dia
   br i1 %1938, label %1939, label %1968
 
 1939:                                             ; preds = %._crit_edge1149, %1934
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %141, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
   %1940 = add nuw i32 %.03931275, 1
   %1941 = load ptr, ptr %141, align 8
   %.not.i.i.i908 = icmp eq ptr %1941, null
@@ -12415,7 +12415,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit910: ; preds = %1939, %_ZNK5cla
   store i64 %1946, ptr %1953, align 8
   %1954 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %141, ptr noundef nonnull align 1 dereferenceable(1) %139)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %141) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %142, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
   %1955 = load ptr, ptr %142, align 8
   %.not.i.i.i911 = icmp eq ptr %1955, null
   br i1 %.not.i.i.i911, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i912, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit913
@@ -12458,7 +12458,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit913: ; preds = %_ZNK5clang17Dia
   br i1 %.not444, label %.thread1150, label %1974
 
 1974:                                             ; preds = %1969
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %145, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
   %1975 = add nuw i32 %.03931275, 1
   %1976 = load ptr, ptr %145, align 8
   %.not.i.i.i914 = icmp eq ptr %1976, null
@@ -12486,7 +12486,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit916: ; preds = %1974, %_ZNK5cla
   store i64 %1981, ptr %1988, align 8
   %1989 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(24) %143) #17
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %145) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %146, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
   %1990 = load ptr, ptr %146, align 8
   %.not.i.i.i917 = icmp eq ptr %1990, null
   br i1 %.not.i.i.i917, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i918, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit919
@@ -12533,7 +12533,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit919: ; preds = %_ZNK5clang17Dia
 2012:                                             ; preds = %.thread1150
   %2013 = getelementptr inbounds nuw i8, ptr %1651, i64 80
   %2014 = getelementptr inbounds nuw i8, ptr %1653, i64 80
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %147, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %147, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
   %2015 = add nuw i32 %.03931275, 1
   %2016 = load ptr, ptr %147, align 8
   %.not.i.i.i920 = icmp eq ptr %2016, null
@@ -12565,7 +12565,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit922: ; preds = %2012, %_ZNK5cla
   store i8 %.lobit1175, ptr %148, align 1
   %2031 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %147, ptr noundef nonnull align 1 dereferenceable(1) %148)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %147) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %149, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
   %2032 = load ptr, ptr %149, align 8
   %.not.i.i.i923 = icmp eq ptr %2032, null
   br i1 %.not.i.i.i923, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i924, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit925
@@ -12620,7 +12620,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit925: ; preds = %_ZNK5clang17Dia
   br i1 %.not446, label %2087, label %2060
 
 2060:                                             ; preds = %2055
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 26)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %151, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 26)
   %2061 = add nuw i32 %.03931275, 1
   %2062 = load ptr, ptr %151, align 8
   %.not.i.i.i928 = icmp eq ptr %2062, null
@@ -12647,7 +12647,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit930: ; preds = %2060, %_ZNK5cla
   %2074 = getelementptr inbounds [10 x i64], ptr %2072, i64 0, i64 %2070
   store i64 %2067, ptr %2074, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %151) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 26)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %152, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 26)
   %2075 = load ptr, ptr %152, align 8
   %.not.i.i.i931 = icmp eq ptr %2075, null
   br i1 %.not.i.i.i931, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i932, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit933
@@ -12701,7 +12701,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit933: ; preds = %_ZNK5clang17Dia
   br i1 %2097, label %2098, label %2127
 
 2098:                                             ; preds = %._crit_edge1154, %2093
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %155, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %155, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 24)
   %2099 = add nuw i32 %.03931275, 1
   %2100 = load ptr, ptr %155, align 8
   %.not.i.i.i940 = icmp eq ptr %2100, null
@@ -12729,7 +12729,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit942: ; preds = %2098, %_ZNK5cla
   store i64 %2105, ptr %2112, align 8
   %2113 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbEERKS0_RKT_(ptr noundef nonnull align 8 dereferenceable(26) %155, ptr noundef nonnull align 1 dereferenceable(1) %153)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %155) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %156, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %156, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 24)
   %2114 = load ptr, ptr %156, align 8
   %.not.i.i.i943 = icmp eq ptr %2114, null
   br i1 %.not.i.i.i943, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i944, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit945
@@ -12772,7 +12772,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit945: ; preds = %_ZNK5clang17Dia
   br i1 %.not448, label %.thread1155, label %2133
 
 2133:                                             ; preds = %2128
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %159, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %159, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 25)
   %2134 = add nuw i32 %.03931275, 1
   %2135 = load ptr, ptr %159, align 8
   %.not.i.i.i946 = icmp eq ptr %2135, null
@@ -12800,7 +12800,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit948: ; preds = %2133, %_ZNK5cla
   store i64 %2140, ptr %2147, align 8
   %2148 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clanglsERKNS_19StreamingDiagnosticERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(24) %157) #17
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %159) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %160, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 25)
   %2149 = load ptr, ptr %160, align 8
   %.not.i.i.i949 = icmp eq ptr %2149, null
   br i1 %.not.i.i.i949, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i950, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit951
@@ -12840,7 +12840,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit951: ; preds = %_ZNK5clang17Dia
 2168:                                             ; preds = %.thread1155
   %2169 = getelementptr inbounds nuw i8, ptr %1651, i64 80
   %2170 = getelementptr inbounds nuw i8, ptr %1653, i64 80
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %161, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %161, ptr noundef nonnull align 8 dereferenceable(16) %113, i32 noundef 27)
   %2171 = add nuw i32 %.03931275, 1
   %2172 = load ptr, ptr %161, align 8
   %.not.i.i.i952 = icmp eq ptr %2172, null
@@ -12871,7 +12871,7 @@ _ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit954: ; preds = %2168, %_ZNK5cla
   store i8 %2186, ptr %162, align 1
   %2187 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %161, ptr noundef nonnull align 1 dereferenceable(1) %162)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %161) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %163, ptr noundef nonnull align 8 dereferenceable(16) %114, i32 noundef 27)
   %2188 = load ptr, ptr %163, align 8
   %.not.i.i.i955 = icmp eq ptr %2188, null
   br i1 %.not.i.i.i955, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i956, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit957
@@ -13014,7 +13014,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit500:         ; preds = %774, %780, %658, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 5) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13110,7 +13110,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %51 = phi ptr [ %50, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5 ], [ %48, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %52 = sext i32 %4 to i64
+  %52 = zext nneg i32 %4 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = load i8, ptr %51, align 8
   %55 = zext i8 %54 to i64
@@ -13177,7 +13177,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 5) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13249,7 +13249,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %35 = phi ptr [ %34, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %32, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %36 = sext i32 %4 to i64
+  %36 = zext nneg i32 %4 to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %38 = load i8, ptr %35, align 8
   %39 = zext i8 %38 to i64
@@ -13370,7 +13370,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(26) ptr @_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 28) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13466,7 +13466,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %51 = phi ptr [ %50, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5 ], [ %48, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %52 = sext i32 %4 to i64
+  %52 = zext nneg i32 %4 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = load i8, ptr %51, align 8
   %55 = zext i8 %54 to i64
@@ -13536,7 +13536,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 declare i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 28) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13608,7 +13608,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %35 = phi ptr [ %34, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %32, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %36 = sext i32 %4 to i64
+  %36 = zext nneg i32 %4 to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %38 = load i8, ptr %35, align 8
   %39 = zext i8 %38 to i64
@@ -13675,7 +13675,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %63, %69, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13686,7 +13686,7 @@ define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKN
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(168) %7) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i32, ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
@@ -13768,7 +13768,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %48, %54, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13779,7 +13779,7 @@ define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKN
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(168) %7) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val = load i32, ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
@@ -14016,7 +14016,7 @@ define internal fastcc noundef zeroext i1 @_ZL35diagnoseSubMismatchMethodParamet
   br label %104
 
 33:                                               ; preds = %8
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 0)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 0)
   %34 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit
@@ -14082,7 +14082,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %62, %68, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 0)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 0)
   %69 = load ptr, ptr %13, align 8
   %.not.i.i.i40 = icmp eq ptr %69, null
   br i1 %.not.i.i.i40, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i41, label %_ZNK5clang17DiagnosticBuilderlsIjEERKS0_RKT_.exit42
@@ -14195,7 +14195,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit: ; preds = %122
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread181: ; preds = %116, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit
   %.0.i184 = phi ptr [ %130, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit ], [ %119, %116 ]
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
   %131 = add nuw i64 %indvars.iv, 1
   %132 = load ptr, ptr %14, align 8
   %.not.i.i.i50 = icmp eq ptr %132, null
@@ -14284,7 +14284,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i61:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit66
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread: ; preds = %122, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 1)
   %181 = add nuw i64 %indvars.iv, 1
   %182 = load ptr, ptr %15, align 8
   %.not.i.i.i67 = icmp eq ptr %182, null
@@ -14390,7 +14390,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87: ; preds = %231
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.thread187: ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit66, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87
   %.0.i86190 = phi ptr [ %239, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87 ], [ %228, %_ZN5clang17DiagnosticBuilderD2Ev.exit66 ]
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
   %240 = add nuw i64 %indvars.iv, 1
   %241 = load ptr, ptr %16, align 8
   %.not.i.i.i88 = icmp eq ptr %241, null
@@ -14479,7 +14479,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i103:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit48
 
 _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87.thread: ; preds = %231, %_ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit87
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 1)
   %290 = add nuw i64 %indvars.iv, 1
   %291 = load ptr, ptr %17, align 8
   %.not.i.i.i109 = icmp eq ptr %291, null
@@ -14567,7 +14567,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i119:    ; preds = %_ZNK5clang17Diagnos
   br i1 %.not192, label %419, label %338
 
 338:                                              ; preds = %335
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 2)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %10, i32 noundef 2)
   %339 = add nuw i64 %indvars.iv, 1
   %340 = load ptr, ptr %18, align 8
   %.not.i.i.i127 = icmp eq ptr %340, null
@@ -14641,7 +14641,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i133:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit138
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit138:         ; preds = %373, %379, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i133
-  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 2)
+  call fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 2)
   %380 = load ptr, ptr %19, align 8
   %.not.i.i.i139 = icmp eq ptr %380, null
   br i1 %.not.i.i.i139, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i140, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEEERKS0_RKT_.exit145
@@ -14725,7 +14725,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit48:          ; preds = %419, %412, %418, %3
 declare noundef ptr @_ZNK5clang12FunctionDecl29getTemplateSpecializationArgsEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_12clEPKNS_20TemplateArgumentListE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3, i64 noundef 8) #17
   %4 = load i32, ptr %1, align 8
@@ -15049,7 +15049,7 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef range(i32 21, 28) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15060,7 +15060,7 @@ define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKN
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_7clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %14, null
@@ -15132,7 +15132,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %43, %49, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef range(i32 21, 28) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15143,7 +15143,7 @@ define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKN
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(ptr noundef nonnull align 8 dereferenceable(64) %7) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_8clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 %.sroa.0.0.copyload.i, i64 %12, i32 noundef %2)
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %14, null
@@ -16188,7 +16188,7 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit142: ; preds = %_ZNK5clang12Functi
   %72 = call i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #17
   %.sroa.0363.0.extract.trunc = trunc i64 %72 to i32
   %73 = call i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168) %1) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0363.0.extract.trunc, i64 %73, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0363.0.extract.trunc, i64 %73, i32 noundef 0)
   %.sroa.0.0.copyload.i.i143 = load i64, ptr %49, align 8
   %74 = and i64 %.sroa.0.0.copyload.i.i143, -16
   %75 = inttoptr i64 %74 to ptr
@@ -16275,7 +16275,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %111, %117, %_ZN5cla
   %118 = call i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #17
   %.sroa.0361.0.extract.trunc = trunc i64 %118 to i32
   %119 = call i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168) %2) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0361.0.extract.trunc, i64 %119, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0361.0.extract.trunc, i64 %119, i32 noundef 0)
   %.sroa.0.0.copyload.i.i151 = load i64, ptr %60, align 8
   %120 = and i64 %.sroa.0.0.copyload.i.i151, -16
   %121 = inttoptr i64 %120 to ptr
@@ -16393,7 +16393,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i160:    ; preds = %_ZNK5clang17Diagnos
   %183 = getelementptr inbounds i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8
   %185 = call i64 %184(ptr noundef nonnull align 8 dereferenceable(104) %172) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i168, i64 %185, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i168, i64 %185, i32 noundef 1)
   %186 = add i32 %.0116412, 1
   %187 = load ptr, ptr %14, align 8
   %.not.i.i.i169 = icmp eq ptr %187, null
@@ -16475,7 +16475,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit180:         ; preds = %220, %226, %_ZN5cla
   %229 = getelementptr inbounds i8, ptr %228, i64 16
   %230 = load ptr, ptr %229, align 8
   %231 = call i64 %230(ptr noundef nonnull align 8 dereferenceable(104) %175) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i181, i64 %231, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i181, i64 %231, i32 noundef 1)
   %232 = load ptr, ptr %15, align 8
   %.not.i.i.i182 = icmp eq ptr %232, null
   br i1 %.not.i.i.i182, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i183, label %_ZNK5clang17DiagnosticBuilderlsINS_15DeclarationNameEvEERKS0_OT_.exit189
@@ -16595,7 +16595,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread367: ; preds = %277, %
   %294 = getelementptr inbounds i8, ptr %293, i64 16
   %295 = load ptr, ptr %294, align 8
   %296 = call i64 %295(ptr noundef nonnull align 8 dereferenceable(104) %172) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i199, i64 %296, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i199, i64 %296, i32 noundef 2)
   %297 = add i32 %.0116412, 1
   %298 = load ptr, ptr %16, align 8
   %.not.i.i.i200 = icmp eq ptr %298, null
@@ -16690,7 +16690,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit.thread: ; preds = %283, %_ZN
   %349 = getelementptr inbounds i8, ptr %348, i64 16
   %350 = load ptr, ptr %349, align 8
   %351 = call i64 %350(ptr noundef nonnull align 8 dereferenceable(104) %172) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i219, i64 %351, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i219, i64 %351, i32 noundef 2)
   %352 = add i32 %.0116412, 1
   %353 = load ptr, ptr %17, align 8
   %.not.i.i.i220 = icmp eq ptr %353, null
@@ -16760,7 +16760,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit231.thread373: ; preds = %_ZN
   %387 = getelementptr inbounds i8, ptr %386, i64 16
   %388 = load ptr, ptr %387, align 8
   %389 = call i64 %388(ptr noundef nonnull align 8 dereferenceable(104) %175) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i232, i64 %389, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i232, i64 %389, i32 noundef 2)
   %390 = add i32 %.0116412, 1
   %391 = load ptr, ptr %19, align 8
   %.not.i.i.i233 = icmp eq ptr %391, null
@@ -16855,7 +16855,7 @@ _ZNK5clang4Type5getAsINS_11DecayedTypeEEEPKT_v.exit231.thread: ; preds = %376, %
   %442 = getelementptr inbounds i8, ptr %441, i64 16
   %443 = load ptr, ptr %442, align 8
   %444 = call i64 %443(ptr noundef nonnull align 8 dereferenceable(104) %175) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i254, i64 %444, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i254, i64 %444, i32 noundef 2)
   %445 = add i32 %.0116412, 1
   %446 = load ptr, ptr %20, align 8
   %.not.i.i.i255 = icmp eq ptr %446, null
@@ -16907,7 +16907,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit261: ; preds = %_ZN
   %473 = getelementptr inbounds i8, ptr %472, i64 16
   %474 = load ptr, ptr %473, align 8
   %475 = call i64 %474(ptr noundef nonnull align 8 dereferenceable(104) %172) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i262, i64 %475, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i262, i64 %475, i32 noundef 3)
   %476 = add i32 %.0116412, 1
   %477 = load ptr, ptr %22, align 8
   %.not.i.i.i263 = icmp eq ptr %477, null
@@ -17015,7 +17015,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit275:         ; preds = %_ZN5clang17Diagnost
   %525 = getelementptr inbounds i8, ptr %524, i64 16
   %526 = load ptr, ptr %525, align 8
   %527 = call i64 %526(ptr noundef nonnull align 8 dereferenceable(104) %175) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i276, i64 %527, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i276, i64 %527, i32 noundef 3)
   %528 = load ptr, ptr %23, align 8
   %.not.i.i.i277 = icmp eq ptr %528, null
   br i1 %.not.i.i.i277, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i278, label %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit282
@@ -17133,7 +17133,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %582 = getelementptr inbounds i8, ptr %581, i64 16
   %583 = load ptr, ptr %582, align 8
   %584 = call i64 %583(ptr noundef nonnull align 8 dereferenceable(104) %172) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i291, i64 %584, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i291, i64 %584, i32 noundef 4)
   %585 = add i32 %.0116412, 1
   %586 = load ptr, ptr %24, align 8
   %.not.i.i.i292 = icmp eq ptr %586, null
@@ -17227,7 +17227,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit302:         ; preds = %_ZN5clang17Diagnost
   %627 = getelementptr inbounds i8, ptr %626, i64 16
   %628 = load ptr, ptr %627, align 8
   %629 = call i64 %628(ptr noundef nonnull align 8 dereferenceable(104) %175) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i303, i64 %629, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i303, i64 %629, i32 noundef 4)
   %630 = load ptr, ptr %25, align 8
   %.not.i.i.i304 = icmp eq ptr %630, null
   br i1 %.not.i.i.i304, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i305, label %_ZNK5clang17DiagnosticBuilderlsIjvEERKS0_OT_.exit306
@@ -17324,7 +17324,7 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %672 = getelementptr inbounds i8, ptr %671, i64 16
   %673 = load ptr, ptr %672, align 8
   %674 = call i64 %673(ptr noundef nonnull align 8 dereferenceable(168) %1) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i315, i64 %674, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 %.sroa.0.0.copyload.i315, i64 %674, i32 noundef 5)
   %675 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %676 = load i8, ptr %675, align 8
   %677 = trunc i8 %676 to i1
@@ -17379,7 +17379,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit321:         ; preds = %693, %699, %_ZN5cla
   %702 = getelementptr inbounds i8, ptr %701, i64 16
   %703 = load ptr, ptr %702, align 8
   %704 = call i64 %703(ptr noundef nonnull align 8 dereferenceable(168) %2) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i322, i64 %704, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 %.sroa.0.0.copyload.i322, i64 %704, i32 noundef 5)
   %705 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %706 = load i8, ptr %705, align 8
   %707 = trunc i8 %706 to i1
@@ -17437,7 +17437,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit165:         ; preds = %723, %729, %433, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -17533,7 +17533,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %51 = phi ptr [ %50, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5 ], [ %48, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %52 = sext i32 %4 to i64
+  %52 = zext nneg i32 %4 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = load i8, ptr %51, align 8
   %55 = zext i8 %54 to i64
@@ -17602,7 +17602,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 declare i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -17674,7 +17674,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %35 = phi ptr [ %34, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %32, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %36 = sext i32 %4 to i64
+  %36 = zext nneg i32 %4 to i64
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %38 = load i8, ptr %35, align 8
   %39 = zext i8 %38 to i64
@@ -17845,7 +17845,7 @@ _ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.
   br i1 %58, label %59, label %134
 
 59:                                               ; preds = %_ZN5clang15ODRDiagsEmitter32getOwningModuleNameForDiagnosticB5cxx11EPKNS_4DeclE.exit76
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 0)
   %60 = load i40, ptr %53, align 8
   %.lobit = lshr i40 %60, 39
   %61 = zext nneg i40 %.lobit to i64
@@ -17914,7 +17914,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %90, %96, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 0)
   %97 = load i40, ptr %55, align 8
   %.lobit273 = lshr i40 %97, 39
   %98 = zext nneg i40 %.lobit273 to i64
@@ -18000,7 +18000,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i81:     ; preds = %_ZNK5clang17Diagnos
   br i1 %145, label %146, label %223
 
 146:                                              ; preds = %136
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 1)
   %147 = load i8, ptr %137, align 1
   %148 = and i8 %147, 1
   %149 = load ptr, ptr %14, align 8
@@ -18069,7 +18069,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i90:     ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit95
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit95:          ; preds = %178, %184, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i90
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 1)
   %185 = load i8, ptr %141, align 1
   %186 = and i8 %185, 1
   %187 = load ptr, ptr %15, align 8
@@ -18178,7 +18178,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i99:     ; preds = %_ZNK5clang17Diagnos
 236:                                              ; preds = %._crit_edge, %233
   %.not.i.i117256 = phi i1 [ true, %._crit_edge ], [ %.not.i.i117, %233 ]
   %.not.i.i115254 = phi i1 [ false, %._crit_edge ], [ %.not.i.i115, %233 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 2)
   %237 = xor i1 %.not.i.i115254, true
   %238 = load ptr, ptr %16, align 8
   %.not.i.i.i120 = icmp eq ptr %238, null
@@ -18246,7 +18246,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i123:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit128
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit128:         ; preds = %267, %273, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i123
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 2)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 2)
   %274 = xor i1 %.not.i.i117256, true
   %275 = load ptr, ptr %17, align 8
   %.not.i.i.i131 = icmp eq ptr %275, null
@@ -18324,7 +18324,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i134:    ; preds = %_ZNK5clang17Diagnos
   br i1 %.not67, label %.thread, label %315
 
 315:                                              ; preds = %312
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 3)
   %316 = load ptr, ptr %18, align 8
   %.not.i.i.i145 = icmp eq ptr %316, null
   br i1 %.not.i.i.i145, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i146, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -18349,7 +18349,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit: ; preds = %315, %
   %327 = getelementptr inbounds [10 x i64], ptr %325, i64 0, i64 %323
   store i64 %.sroa.0243.0, ptr %327, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %18) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 3)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 3)
   %328 = load ptr, ptr %19, align 8
   %.not.i.i.i148 = icmp eq ptr %328, null
   br i1 %.not.i.i.i148, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i149, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit150
@@ -18452,7 +18452,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit150: ; preds = %_ZN
   br i1 %.not68, label %440, label %365
 
 365:                                              ; preds = %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_2clERN4llvm11SmallVectorISt4pairIPKNS_16EnumConstantDeclEjELj4EEES3_.exit158"
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %1, i32 noundef 4)
   %366 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %20) #17
   %367 = load ptr, ptr %22, align 8
   %.not.i.i.i159 = icmp eq ptr %367, null
@@ -18521,7 +18521,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i161:    ; preds = %_ZNK5clang17Diagnos
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit166
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit166:         ; preds = %396, %402, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i161
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 4)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %2, i32 noundef 4)
   %403 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #17
   %404 = load ptr, ptr %23, align 8
   %.not.i.i.i167 = icmp eq ptr %404, null
@@ -18623,7 +18623,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i170:    ; preds = %_ZNK5clang17Diagnos
   br i1 %.not272, label %494, label %457
 
 457:                                              ; preds = %452
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 5)
   %458 = add nuw i64 %indvars.iv, 1
   %459 = load ptr, ptr %24, align 8
   %.not.i.i.i178 = icmp eq ptr %459, null
@@ -18657,7 +18657,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit: ; pred
   %476 = getelementptr inbounds [10 x i64], ptr %469, i64 0, i64 %473
   store i64 %472, ptr %476, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %24) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 5)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 5)
   %477 = load ptr, ptr %25, align 8
   %.not.i.i.i182 = icmp eq ptr %477, null
   br i1 %.not.i.i.i182, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i183, label %_ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit187
@@ -18706,7 +18706,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit187: ; p
   br i1 %or.cond3, label %543, label %502
 
 502:                                              ; preds = %501
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 6)
   %503 = add nuw i64 %indvars.iv, 1
   %504 = load ptr, ptr %26, align 8
   %.not.i.i.i188 = icmp eq ptr %504, null
@@ -18743,7 +18743,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit193: ; p
   store i8 %522, ptr %27, align 1
   %523 = call noundef nonnull align 8 dereferenceable(26) ptr @_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_(ptr noundef nonnull align 8 dereferenceable(26) %26, ptr noundef nonnull align 1 dereferenceable(1) %27)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %26) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 6)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %28, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 6)
   %524 = load ptr, ptr %28, align 8
   %.not.i.i.i194 = icmp eq ptr %524, null
   br i1 %.not.i.i.i194, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i195, label %_ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit199
@@ -18787,7 +18787,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit199: ; p
   br i1 %.not69, label %583, label %546
 
 546:                                              ; preds = %543
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 7)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %453, i32 noundef 7)
   %547 = add nuw i64 %indvars.iv, 1
   %548 = load ptr, ptr %30, align 8
   %.not.i.i.i200 = icmp eq ptr %548, null
@@ -18821,7 +18821,7 @@ _ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit205: ; p
   %565 = getelementptr inbounds [10 x i64], ptr %558, i64 0, i64 %562
   store i64 %561, ptr %565, align 8
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %30) #17
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 7)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %454, i32 noundef 7)
   %566 = load ptr, ptr %31, align 8
   %.not.i.i.i206 = icmp eq ptr %566, null
   br i1 %.not.i.i.i206, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i207, label %_ZNK5clang17DiagnosticBuilderlsIPKNS_16EnumConstantDeclEEERKS0_RKT_.exit211
@@ -18893,7 +18893,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit86:          ; preds = %304, %310, %216, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18995,7 +18995,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %3 to i64
+  %56 = zext nneg i32 %3 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -19062,7 +19062,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clIS1_EEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19140,7 +19140,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %39 = phi ptr [ %38, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %36, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %40 = sext i32 %3 to i64
+  %40 = zext nneg i32 %3 to i64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %42 = load i8, ptr %39, align 8
   %43 = zext i8 %42 to i64
@@ -19207,7 +19207,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %67, %73, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_0clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef range(i32 5, 8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19309,7 +19309,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %55 = phi ptr [ %54, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i7 ], [ %52, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %56 = sext i32 %3 to i64
+  %56 = zext nneg i32 %3 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %58 = load i8, ptr %55, align 8
   %59 = zext i8 %58 to i64
@@ -19376,7 +19376,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2, i32 noundef range(i32 5, 8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -19454,7 +19454,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZNK5clang1
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit
   %39 = phi ptr [ %38, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i ], [ %36, %_ZNK5clang15ODRDiagsEmitter4DiagENS_14SourceLocationEj.exit ]
-  %40 = sext i32 %3 to i64
+  %40 = zext nneg i32 %3 to i64
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %42 = load i8, ptr %39, align 8
   %43 = zext i8 %42 to i64
@@ -19785,7 +19785,7 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread: ; preds = %_ZNK5clang14O
   %.sroa.0275.0 = phi i64 [ %.sroa.0.0.copyload.i110, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit" ], [ 0, %.split ]
   %120 = phi i32 [ %.sroa.0.0.copyload.i111, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit" ], [ %.sroa.0.0.copyload.i109, %.split ]
   %phi.call = phi i64 [ %.sroa.0.0.insert.insert.i116, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit" ], [ %112, %.split ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 %120, i64 %phi.call, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 %120, i64 %phi.call, i32 noundef 0)
   %121 = load ptr, ptr %17, align 8
   %.not.i.i.i = icmp eq ptr %121, null
   br i1 %.not.i.i.i, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit
@@ -19892,7 +19892,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %154, %160, %_ZN5cla
   %.sroa.0273.0 = phi i64 [ %.sroa.0.0.copyload.i134, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit147" ], [ 0, %.split79 ]
   %173 = phi i32 [ %.sroa.0.0.copyload.i135, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit147" ], [ %.sroa.0.0.copyload.i124, %.split79 ]
   %phi.call82 = phi i64 [ %.sroa.0.0.insert.insert.i143, %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_1clEPKNS_14TypeSourceInfoES3_.exit147" ], [ %165, %.split79 ]
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 %173, i64 %phi.call82, i32 noundef 0)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 %173, i64 %phi.call82, i32 noundef 0)
   %174 = load ptr, ptr %18, align 8
   %.not.i.i.i148 = icmp eq ptr %174, null
   br i1 %.not.i.i.i148, label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i149, label %_ZNK5clang17DiagnosticBuilderlsINS_8QualTypeEEERKS0_RKT_.exit154
@@ -20202,7 +20202,7 @@ _ZNK5clang17ObjCInterfaceDecl13getDefinitionEv.exit174: ; preds = %_ZNK5clang17O
   %328 = getelementptr inbounds i8, ptr %327, i64 16
   %329 = load ptr, ptr %328, align 8
   %330 = call i64 %329(ptr noundef nonnull align 8 dereferenceable(80) %285) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 %.sroa.0.0.copyload.i183, i64 %330, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(24) %15, i32 %.sroa.0.0.copyload.i183, i64 %330, i32 noundef 1)
   %331 = getelementptr inbounds nuw i8, ptr %285, i64 40
   %332 = load i64, ptr %331, align 8
   %333 = and i64 %332, 7
@@ -20263,7 +20263,7 @@ _ZNK5clang17DiagnosticBuilderlsIivEERKS0_OT_.exit: ; preds = %_ZNK5clang9NamedDe
   %364 = getelementptr inbounds i8, ptr %363, i64 16
   %365 = load ptr, ptr %364, align 8
   %366 = call i64 %365(ptr noundef nonnull align 8 dereferenceable(80) %287) #19
-  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 %.sroa.0.0.copyload.i192, i64 %366, i32 noundef 1)
+  call fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef nonnull align 8 dereferenceable(16) %16, i32 %.sroa.0.0.copyload.i192, i64 %366, i32 noundef 1)
   %367 = getelementptr inbounds nuw i8, ptr %287, i64 40
   %368 = load i64, ptr %367, align 8
   %369 = and i64 %368, 7
@@ -20722,7 +20722,7 @@ declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef 
 declare noundef i32 @_ZN5clang17ObjCInterfaceDecl10getODRHashEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_0clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20818,7 +20818,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %51 = phi ptr [ %50, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i5 ], [ %48, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %52 = sext i32 %4 to i64
+  %52 = zext nneg i32 %4 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %54 = load i8, ptr %51, align 8
   %55 = zext i8 %54 to i64
@@ -20885,7 +20885,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i64 %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.clang::DiagnosticBuilder", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20970,7 +20970,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i3: ; preds = %_ZNK5clang
 
 _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i3, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit
   %44 = phi ptr [ %43, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i3 ], [ %41, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %45 = sext i32 %4 to i64
+  %45 = zext nneg i32 %4 to i64
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %44, align 8
   %48 = zext i8 %47 to i64
@@ -22709,7 +22709,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -22820,7 +22820,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8: ; preds = %_ZNK5clang
 
 _ZNK5clang17DiagnosticBuilderlsIZL35diagnoseSubMismatchMethodParametersINS_14ObjCMethodDeclEEbRNS_17DiagnosticsEngineEPKNS_9NamedDeclEN4llvm9StringRefESA_PKT_SD_E29ODRMethodParametersDifferenceEERKS0_RSC_.exit: ; preds = %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8
   %60 = phi ptr [ %59, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8 ], [ %57, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %61 = sext i32 %2 to i64
+  %61 = zext nneg i32 %2 to i64
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %63 = load i8, ptr %60, align 8
   %64 = zext i8 %63 to i64
@@ -22937,7 +22937,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %116, %122, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang14ObjCMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23038,7 +23038,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZNK5clang17DiagnosticBuilderlsIZL35diagnoseSubMismatchMethodParametersINS_14ObjCMethodDeclEEbRNS_17DiagnosticsEngineEPKNS_9NamedDeclEN4llvm9StringRefESA_PKT_SD_E29ODRMethodParametersDifferenceEERKS0_RSC_.exit: ; preds = %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6
   %53 = phi ptr [ %52, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %50, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %54 = sext i32 %2 to i64
+  %54 = zext nneg i32 %2 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %56 = load i8, ptr %53, align 8
   %57 = zext i8 %56 to i64
@@ -23155,7 +23155,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %109, %115, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE_clESC_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -23266,7 +23266,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8: ; preds = %_ZNK5clang
 
 _ZNK5clang17DiagnosticBuilderlsIZL35diagnoseSubMismatchMethodParametersINS_13CXXMethodDeclEEbRNS_17DiagnosticsEngineEPKNS_9NamedDeclEN4llvm9StringRefESA_PKT_SD_E29ODRMethodParametersDifferenceEERKS0_RSC_.exit: ; preds = %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8
   %60 = phi ptr [ %59, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i8 ], [ %57, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %61 = sext i32 %2 to i64
+  %61 = zext nneg i32 %2 to i64
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %63 = load i8, ptr %60, align 8
   %64 = zext i8 %63 to i64
@@ -23383,7 +23383,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %116, %122, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZZL35diagnoseSubMismatchMethodParametersIN5clang13CXXMethodDeclEEbRNS0_17DiagnosticsEngineEPKNS0_9NamedDeclEN4llvm9StringRefES8_PKT_SB_ENKUlZS_IS1_EbS3_S6_S8_S8_SB_SB_E29ODRMethodParametersDifferenceE0_clESC_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -23484,7 +23484,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6: ; preds = %_ZNK5clang
 
 _ZNK5clang17DiagnosticBuilderlsIZL35diagnoseSubMismatchMethodParametersINS_13CXXMethodDeclEEbRNS_17DiagnosticsEngineEPKNS_9NamedDeclEN4llvm9StringRefESA_PKT_SD_E29ODRMethodParametersDifferenceEERKS0_RSC_.exit: ; preds = %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6
   %53 = phi ptr [ %52, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i6 ], [ %50, %_ZNK5clang17DiagnosticBuilderlsIbvEERKS0_OT_.exit ]
-  %54 = sext i32 %2 to i64
+  %54 = zext nneg i32 %2 to i64
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %56 = load i8, ptr %53, align 8
   %57 = zext i8 %56 to i64

@@ -150,7 +150,7 @@ define void @_Z14posres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_KfP
   %74 = sext i32 %71 to i64
   %75 = getelementptr inbounds [3 x float], ptr %3, i64 %74
   %76 = getelementptr inbounds i8, ptr %73, i64 24
-  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %75, ptr noundef readonly %73, ptr noundef nonnull readonly %76, ptr noundef nonnull %10, ptr noundef nonnull %11, float noundef %34, ptr noundef %30, i32 noundef %36, i32 noundef %39, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %75, ptr noundef readonly %73, ptr noundef nonnull readonly %76, ptr noundef %10, ptr noundef %11, float noundef %34, ptr noundef %30, i32 noundef %36, i32 noundef %39, ptr noundef %14, ptr noundef %12, ptr noundef %13)
   %77 = getelementptr inbounds i8, ptr %73, i64 12
   %78 = getelementptr inbounds i8, ptr %73, i64 36
   br label %79
@@ -291,7 +291,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, float noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr nocapture noundef %10, ptr nocapture noundef writeonly %11) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, float noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull writeonly %11) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %13 = alloca [3 x float], align 4
   %14 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %15 = fsub float 1.000000e+00, %5
@@ -423,7 +423,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pb
   br i1 %.not, label %85, label %84
 
 84:                                               ; preds = %83
-  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %13, ptr noundef %9)
+  call void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %6, ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %9)
   br label %101
 
 85:                                               ; preds = %83
@@ -1045,7 +1045,7 @@ define void @_Z16fbposres_wrapperP6t_nrnbRK22InteractionDefinitionsPK5t_pbcPA3_K
   %65 = getelementptr inbounds %union.t_iparams, ptr %25, i64 %64
   %66 = sext i32 %63 to i64
   %67 = getelementptr inbounds [3 x float], ptr %3, i64 %66
-  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %67, ptr noundef readonly %65, ptr noundef readonly %65, ptr noundef nonnull %9, ptr noundef nonnull %9, float noundef 0.000000e+00, ptr noundef %29, i32 noundef %31, i32 noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  call fastcc void @_ZN12_GLOBAL__N_19posres_dxEPKfS1_S1_S1_S1_fPK5t_pbc15RefCoordScalingiPfS6_S6_(ptr noundef %67, ptr noundef readonly %65, ptr noundef readonly %65, ptr noundef %9, ptr noundef %9, float noundef 0.000000e+00, ptr noundef %29, i32 noundef %31, i32 noundef %33, ptr noundef %11, ptr noundef %10, ptr noundef %12)
   store float 0.000000e+00, ptr %13, align 4
   store float 0.000000e+00, ptr %51, align 4
   store float 0.000000e+00, ptr %52, align 4

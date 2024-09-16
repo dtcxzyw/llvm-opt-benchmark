@@ -605,7 +605,7 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_proc(ptr noundef %0) #0 {
 
 33:                                               ; preds = %.lr.ph
   %34 = load ptr, ptr %2, align 8
-  %35 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %34, ptr noundef nonnull %21, ptr noundef nonnull %26, ptr noundef nonnull %31)
+  %35 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %34, ptr noundef %21, ptr noundef nonnull %26, ptr noundef nonnull %31)
   %.not36 = icmp eq i32 %35, 0
   br i1 %.not36, label %40, label %36
 
@@ -742,7 +742,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i39, %70
   br label %opal_thread_add_fetch_32.exit
 
 97:                                               ; preds = %._crit_edge
-  call fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr noundef nonnull %21)
+  call fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr noundef %21)
   fence release
   %98 = load ptr, ptr %2, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 72
@@ -890,7 +890,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   %.085 = phi ptr [ %59, %58 ], [ %56, %52 ]
   %66 = getelementptr inbounds ptr, ptr %37, i64 %.086117
   %67 = load ptr, ptr %66, align 8
-  %68 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef nonnull %65, ptr noundef nonnull %.085, ptr noundef %43, ptr noundef %67)
+  %68 = call fastcc i32 @mca_bml_r2_endpoint_add_btl(ptr noundef nonnull %65, ptr noundef %.085, ptr noundef %43, ptr noundef %67)
   %.not103 = icmp eq i32 %68, 0
   br i1 %.not103, label %72, label %69
 
@@ -978,7 +978,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
   br i1 %.not101, label %102, label %101
 
 101:                                              ; preds = %96
-  call fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr noundef nonnull %100)
+  call fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr noundef %100)
   br label %102
 
 102:                                              ; preds = %96, %101
@@ -1787,7 +1787,7 @@ opal_obj_new.exit.thread11:                       ; preds = %.lr.ph.i.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -16, 1) i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -16, 1) i32 @mca_bml_r2_endpoint_add_btl(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 68
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2
@@ -2009,7 +2009,7 @@ mca_bml_base_btl_array_get_index.exit.thread:     ; preds = %31, %37, %mca_bml_b
 declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc void @mca_bml_r2_compute_endpoint_metrics(ptr nocapture noundef nonnull %0) unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val44 = load i64, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 184

@@ -4365,7 +4365,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   br i1 %.not118, label %124, label %122
 
 122:                                              ; preds = %116
-  %123 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef nonnull %51, i32 noundef %118, ptr noundef %7, i32 noundef %120, ptr noundef nonnull %9)
+  %123 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef %51, i32 noundef %118, ptr noundef %7, i32 noundef %120, ptr noundef nonnull %9)
   br label %124
 
 124:                                              ; preds = %116, %112, %122
@@ -4458,7 +4458,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %142, %Abc_NtkIsMapp
   %162 = shl nsw i32 %.val124, 1
   %163 = trunc nuw nsw i64 %indvars.iv173 to i32
   %164 = or disjoint i32 %162, %163
-  %165 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef nonnull %140, i32 noundef %155, ptr noundef %7, i32 noundef %163, ptr noundef nonnull %9)
+  %165 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef %140, i32 noundef %155, ptr noundef %7, i32 noundef %163, ptr noundef nonnull %9)
   br label %177
 
 166:                                              ; preds = %157
@@ -4471,11 +4471,11 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %142, %Abc_NtkIsMapp
   br i1 %.not116, label %174, label %172
 
 172:                                              ; preds = %166
-  %173 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef nonnull %140, i32 noundef %168, ptr noundef %7, i32 noundef %170, ptr noundef nonnull %9)
+  %173 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef %140, i32 noundef %168, ptr noundef %7, i32 noundef %170, ptr noundef nonnull %9)
   br label %177
 
 174:                                              ; preds = %166
-  %175 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef nonnull %140, i32 noundef %155, ptr noundef %7, i32 noundef %170, ptr noundef nonnull %9)
+  %175 = tail call fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef nonnull %13, ptr noundef %140, i32 noundef %155, ptr noundef %7, i32 noundef %170, ptr noundef nonnull %9)
   %176 = xor i32 %175, 1
   br label %177
 
@@ -4679,7 +4679,7 @@ declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #2
 declare void @Gia_ManHashStart(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NtkFinSimOneLit(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef %5) unnamed_addr #0 {
   %7 = alloca [6 x i32], align 16
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 4
@@ -4715,7 +4715,7 @@ Abc_NtkIsMappedLogic.exit:                        ; preds = %6
   %23 = getelementptr inbounds i32, ptr %.val61, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = shl nsw i32 %24, 1
-  %26 = add nsw i32 %25, %4
+  %26 = or disjoint i32 %25, %4
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i32, ptr %.val57, i64 %27
   %29 = load i32, ptr %28, align 4
@@ -4741,7 +4741,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %6, %Abc_NtkIsMapped
   %.val62 = load ptr, ptr %36, align 8
   %.val62.val = load i32, ptr %.val62, align 4
   %37 = shl nsw i32 %.val62.val, 1
-  %38 = add nsw i32 %37, %4
+  %38 = or disjoint i32 %37, %4
   %39 = getelementptr i8, ptr %3, i64 8
   %.val56 = load ptr, ptr %39, align 8
   %40 = sext i32 %38 to i64
@@ -4754,7 +4754,7 @@ Abc_NtkIsMappedLogic.exit.thread:                 ; preds = %6, %Abc_NtkIsMapped
   %44 = getelementptr i8, ptr %.val62, i64 4
   %.val63.val = load i32, ptr %44, align 4
   %45 = shl nsw i32 %.val63.val, 1
-  %46 = add nsw i32 %45, %4
+  %46 = or disjoint i32 %45, %4
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %.val56, i64 %47
   %49 = load i32, ptr %48, align 4
@@ -4949,7 +4949,7 @@ Vec_WecSizeSize.exit:
   %73 = and i32 %61, 31
   %74 = lshr i32 %72, %73
   %75 = and i32 %74, 1
-  %76 = tail call fastcc i32 @Abc_NtkFinSimOneBit(ptr noundef nonnull %41, i32 noundef %66, ptr noundef %7, i32 noundef %8, i32 noundef %61)
+  %76 = tail call fastcc i32 @Abc_NtkFinSimOneBit(ptr noundef %41, i32 noundef %66, ptr noundef %7, i32 noundef %8, i32 noundef %61)
   %.not195 = icmp eq i32 %75, %76
   br i1 %.not195, label %82, label %77
 
@@ -5285,7 +5285,7 @@ Abc_NtkFinSimOneWord.exit:                        ; preds = %.lr.ph.i238, %.lr.p
   %208 = and i32 %196, 31
   %209 = lshr i32 %207, %208
   %210 = and i32 %209, 1
-  %211 = tail call fastcc i32 @Abc_NtkFinSimOneBit(ptr noundef nonnull %94, i32 noundef %201, ptr noundef %7, i32 noundef %8, i32 noundef %196)
+  %211 = tail call fastcc i32 @Abc_NtkFinSimOneBit(ptr noundef %94, i32 noundef %201, ptr noundef %7, i32 noundef %8, i32 noundef %196)
   %.not193 = icmp eq i32 %210, %211
   br i1 %.not193, label %217, label %212
 
@@ -5676,7 +5676,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Abc_NtkFinSimOneBit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @Abc_NtkFinSimOneBit(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -96, -97) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [6 x i32], align 16
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 4
@@ -7338,7 +7338,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 54:                                               ; preds = %Vec_IntPush.exit
   %55 = add nsw i32 %21, 1
   %56 = shl nsw i32 %53, 1
-  %57 = tail call noundef i32 @llvm.smax.i32(i32 %56, i32 %55)
+  %57 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %56, i32 %55)
   %58 = load i32, ptr %49, align 8
   %.not.i.i18 = icmp slt i32 %58, %57
   br i1 %.not.i.i18, label %59, label %Vec_WecGrow.exit.i
@@ -8511,7 +8511,7 @@ define internal range(i32 -1, 2) i32 @Vec_IntSortCompare1(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4

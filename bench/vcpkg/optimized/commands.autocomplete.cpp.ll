@@ -760,7 +760,7 @@ _ZN5vcpkg4Util4findIRNS_10StringViewEcEEDaOT_OT0_.exit: ; preds = %161, %_ZN5vcp
           to label %224 unwind label %218
 
 224:                                              ; preds = %222
-  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11TripletFileESaIS3_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr nonnull %11)
+  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11TripletFileESaIS3_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr %11)
           to label %225 unwind label %236
 
 225:                                              ; preds = %224
@@ -771,7 +771,7 @@ _ZN5vcpkg4Util4findIRNS_10StringViewEcEEDaOT_OT0_.exit: ; preds = %161, %_ZN5vcp
   %230 = ptrtoint ptr %226 to i64
   %231 = sub i64 %229, %230
   %232 = ashr exact i64 %231, 6
-  invoke fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %153, i64 %198, ptr %226, i64 %232)
+  invoke fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr %153, i64 %198, ptr %226, i64 %232)
           to label %233 unwind label %236
 
 233:                                              ; preds = %225
@@ -1261,7 +1261,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.loopexit272
 
 .loopexit272:                                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit120, %._crit_edge318, %383, %387
-  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr nonnull %19)
+  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr %19)
           to label %389 unwind label %298
 
 389:                                              ; preds = %.loopexit272
@@ -1303,7 +1303,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %412 = load ptr, ptr %26, align 8
   %413 = getelementptr inbounds i8, ptr %26, i64 8
   %414 = load i64, ptr %413, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr %412, i64 %414, ptr %405, i64 %411)
+  invoke fastcc void @_ZN12_GLOBAL__N_126combine_port_with_tripletsB5cxx11EN5vcpkg10StringViewENS0_4SpanIKNS0_11TripletFileEEE(ptr dead_on_unwind noalias writable align 8 %25, ptr %412, i64 %414, ptr %405, i64 %411)
           to label %415 unwind label %298
 
 415:                                              ; preds = %403
@@ -1597,7 +1597,7 @@ _ZNSt12_Vector_baseIN5vcpkg11TripletFileESaIS1_EED2Ev.exit: ; preds = %24, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11TripletFileESaIS3_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_11TripletFileESaIS3_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
@@ -2017,7 +2017,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_mo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_29command_autocomplete_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture nonnull readonly %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8

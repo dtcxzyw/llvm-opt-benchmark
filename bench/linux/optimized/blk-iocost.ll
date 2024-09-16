@@ -7811,7 +7811,7 @@ iocg_unlock.exit:                                 ; preds = %.thread14, %.split.
 
 .split54.us:                                      ; preds = %.thread12.split.us
   call fastcc void @iocg_incur_debt(ptr noundef %15, i64 noundef %66, ptr noundef nonnull %3)
-  %273 = call fastcc zeroext i1 @iocg_kick_delay(ptr noundef %15, ptr noundef nonnull %3)
+  %273 = call fastcc zeroext i1 @iocg_kick_delay(ptr noundef nonnull %15, ptr noundef nonnull %3)
   br i1 %273, label %274, label %280
 
 274:                                              ; preds = %.split54.us
@@ -7881,7 +7881,7 @@ iocg_unlock.exit:                                 ; preds = %.thread14, %.split.
   %307 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %306, ptr %307, align 8
   store volatile ptr %304, ptr %306, align 8
-  call fastcc void @iocg_kick_waitq(ptr noundef %15, i1 noundef zeroext %296, ptr noundef nonnull %3)
+  call fastcc void @iocg_kick_waitq(ptr noundef nonnull %15, i1 noundef zeroext %296, ptr noundef nonnull %3)
   br i1 %296, label %308, label %311
 
 308:                                              ; preds = %.loopexit23
@@ -8306,7 +8306,7 @@ define internal void @ioc_rqos_exit(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 36
@@ -8459,7 +8459,7 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef %0, i64 nound
   %112 = phi i32 [ %104, %102 ], [ %182, %180 ]
   %113 = phi i32 [ %103, %102 ], [ %114, %180 ]
   %114 = add i32 %113, %107
-  tail call fastcc void @__propagate_weights(ptr noundef %0, i32 noundef %112, i32 noundef %114, i1 noundef zeroext true, ptr noundef %3)
+  tail call fastcc void @__propagate_weights(ptr noundef nonnull %0, i32 noundef %112, i32 noundef %114, i1 noundef zeroext true, ptr noundef %3)
   %115 = load ptr, ptr %5, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 364
   %117 = load i8, ptr %116, align 4, !range !29, !noundef !30
@@ -8592,7 +8592,7 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iocg_commit_bio(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @iocg_commit_bio(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   store i64 %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8622,7 +8622,7 @@ define internal fastcc void @iocg_commit_bio(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iocg_incur_debt(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc void @iocg_incur_debt(ptr noundef nonnull %0, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load volatile ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -8647,7 +8647,7 @@ define internal fastcc void @iocg_incur_debt(ptr noundef %0, i64 noundef %1, ptr
   store i64 %14, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
-  tail call fastcc void @__propagate_weights(ptr noundef %0, i32 noundef %17, i32 noundef 0, i1 noundef zeroext false, ptr noundef %2)
+  tail call fastcc void @__propagate_weights(ptr noundef nonnull %0, i32 noundef %17, i32 noundef 0, i1 noundef zeroext false, ptr noundef %2)
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 364
@@ -8768,7 +8768,7 @@ declare dso_local void @io_schedule() local_unnamed_addr #0
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_iocost_iocg_activate(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #18 align 16 {
+define internal fastcc void @trace_iocost_iocg_activate(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #18 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_iocost_iocg_activate, i64 8), i32 2) #21
           to label %26 [label %6], !srcloc !54
 
@@ -8791,7 +8791,7 @@ define internal fastcc void @trace_iocost_iocg_activate(ptr noundef %0, ptr noun
 15:                                               ; preds = %12
   %16 = getelementptr inbounds i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @__SCT__tp_func_iocost_iocg_activate(ptr noundef %17, ptr noundef %0, ptr noundef nonnull @trace_iocg_path, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #21
+  %18 = tail call i32 @__SCT__tp_func_iocost_iocg_activate(ptr noundef %17, ptr noundef nonnull %0, ptr noundef nonnull @trace_iocg_path, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #21
   br label %19
 
 19:                                               ; preds = %15, %12
@@ -8813,7 +8813,7 @@ define internal fastcc void @trace_iocost_iocg_activate(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_iocost_inuse_adjust(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #18 align 16 {
+define internal fastcc void @trace_iocost_inuse_adjust(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef range(i64 0, 4294967296) %4, i64 noundef range(i64 0, 4294967296) %5) unnamed_addr #18 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_iocost_inuse_adjust, i64 8), i32 2) #21
           to label %27 [label %7], !srcloc !54
 
@@ -8836,7 +8836,7 @@ define internal fastcc void @trace_iocost_inuse_adjust(ptr noundef %0, ptr nound
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @__SCT__tp_func_iocost_inuse_adjust(ptr noundef %18, ptr noundef %0, ptr noundef nonnull @trace_iocg_path, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #21
+  %19 = tail call i32 @__SCT__tp_func_iocost_inuse_adjust(ptr noundef %18, ptr noundef nonnull %0, ptr noundef nonnull @trace_iocg_path, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5) #21
   br label %20
 
 20:                                               ; preds = %16, %13

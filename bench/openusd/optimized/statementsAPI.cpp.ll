@@ -1058,7 +1058,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdRiStatementsAPI17CreateRi
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds = %15, %18
   %20 = phi ptr [ %17, %15 ], [ %19, %18 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %20)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %20)
   %21 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdRi_GetUsdTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %22 unwind label %147
 
@@ -1362,7 +1362,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit17: ; preds = %161, %165
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1558,7 +1558,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdRiStatementsAPI17CreateRi
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds = %16, %19
   %21 = phi ptr [ %18, %16 ], [ %20, %19 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %21)
   %22 = invoke noundef nonnull align 8 dereferenceable(1160) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_9SdfSchemaEE11GetInstanceEv()
           to label %_ZN32pxrInternal_v0_24__pxrReserved__9SdfSchema11GetInstanceEv.exit unwind label %156
 
@@ -1920,7 +1920,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdRiStatementsAPI14GetRiAtt
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds = %13, %16
   %18 = phi ptr [ %15, %13 ], [ %17, %16 ]
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %18)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L20_MakeRiAttrNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %18)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__9UsdObjectC2ERKNS_18Usd_PrimDataHandleERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 4 dereferenceable(8) %20)

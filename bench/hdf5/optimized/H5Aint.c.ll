@@ -886,7 +886,7 @@ define ptr @H5A__open(ptr nocapture noundef readonly %0, ptr noundef %1) local_u
   br label %.thread
 
 10:                                               ; preds = %2
-  %11 = tail call fastcc i32 @H5A__open_common(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %11 = tail call fastcc i32 @H5A__open_common(ptr noundef nonnull %0, ptr noundef %4)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %.thread
 
@@ -912,7 +912,7 @@ define ptr @H5A__open(ptr nocapture noundef readonly %0, ptr noundef %1) local_u
 declare ptr @H5O__attr_open_by_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5A__open_common(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5A__open_common(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = tail call i32 @H5G_name_free(ptr noundef nonnull %3) #13
   %5 = icmp slt i32 %4, 0
@@ -997,7 +997,7 @@ define ptr @H5A__open_by_idx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br label %31
 
 21:                                               ; preds = %13
-  %22 = call fastcc i32 @H5A__open_common(ptr noundef nonnull %6, ptr noundef nonnull %15)
+  %22 = call fastcc i32 @H5A__open_common(ptr noundef nonnull %6, ptr noundef %15)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %31
 
@@ -1076,7 +1076,7 @@ define ptr @H5A__open_by_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %29
 
 19:                                               ; preds = %11
-  %20 = call fastcc i32 @H5A__open_common(ptr noundef %0, ptr noundef nonnull %13)
+  %20 = call fastcc i32 @H5A__open_common(ptr noundef %0, ptr noundef %13)
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %22, label %29
 

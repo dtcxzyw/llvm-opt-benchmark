@@ -30,7 +30,7 @@ define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr noundef %0, ptr
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1)
+  %12 = call fastcc i32 @pack_blob(ptr noundef %8, i64 noundef %11, ptr noundef %1)
   %13 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %13) #12
   br label %14
@@ -55,7 +55,7 @@ define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapt
 
 10:                                               ; preds = %7
   %11 = load i64, ptr %3, align 8
-  %12 = call fastcc i32 @pack_blob(ptr noundef nonnull %8, i64 noundef %11, ptr noundef %1)
+  %12 = call fastcc i32 @pack_blob(ptr noundef %8, i64 noundef %11, ptr noundef %1)
   %13 = load ptr, ptr %4, align 8
   call void @free(ptr noundef %13) #12
   br label %14
@@ -331,7 +331,7 @@ define internal range(i32 -1366, 1) i32 @release(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.1, i64 noundef %1) #12
   %6 = icmp slt i32 %5, 0
@@ -359,7 +359,7 @@ define internal fastcc range(i32 -32, 1) i32 @pack_blob(ptr nocapture noundef re
   %sext22 = add i64 %18, 124554051584
   %21 = ashr exact i64 %sext22, 32
   %22 = getelementptr inbounds i8, ptr %12, i64 %21
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %0, i64 %1, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %0, i64 %1, i1 false)
   call void @free(ptr noundef %8) #12
   store ptr %12, ptr %2, align 8
   br label %23

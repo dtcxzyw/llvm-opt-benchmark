@@ -404,7 +404,7 @@ _parse_range.exit.thread:                         ; preds = %194
 196:                                              ; preds = %_parse_range.exit.thread, %179, %174
   %197 = getelementptr inbounds i8, ptr %3, i64 8
   %198 = load ptr, ptr %197, align 8
-  %199 = call fastcc i32 @_handle_step(ptr noundef %198, i32 noundef 0, ptr noundef nonnull %2)
+  %199 = call fastcc i32 @_handle_step(ptr noundef %198, i32 noundef 0, ptr noundef %2)
   %.not136 = icmp eq i32 %199, 0
   br i1 %.not136, label %200, label %_parse_range.exit
 
@@ -472,14 +472,14 @@ _parse_range.exit.thread:                         ; preds = %194
   store ptr %211, ptr %2, align 8
   %224 = getelementptr inbounds i8, ptr %3, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = call fastcc i32 @_parse_range(ptr noundef %225, ptr noundef nonnull %2)
+  %226 = call fastcc i32 @_parse_range(ptr noundef %225, ptr noundef %2)
   %.not140 = icmp eq i32 %226, 0
   br i1 %.not140, label %227, label %_parse_range.exit
 
 227:                                              ; preds = %220, %215, %223
   %228 = getelementptr inbounds i8, ptr %3, i64 16
   %229 = load ptr, ptr %228, align 8
-  %230 = call fastcc i32 @_handle_step(ptr noundef %229, i32 noundef 0, ptr noundef nonnull %2)
+  %230 = call fastcc i32 @_handle_step(ptr noundef %229, i32 noundef 0, ptr noundef %2)
   %.not142 = icmp eq i32 %230, 0
   br i1 %.not142, label %231, label %_parse_range.exit
 
@@ -547,14 +547,14 @@ _parse_range.exit.thread:                         ; preds = %194
   store ptr %242, ptr %2, align 8
   %255 = getelementptr inbounds i8, ptr %3, i64 24
   %256 = load ptr, ptr %255, align 8
-  %257 = call fastcc i32 @_parse_range(ptr noundef %256, ptr noundef nonnull %2)
+  %257 = call fastcc i32 @_parse_range(ptr noundef %256, ptr noundef %2)
   %.not146 = icmp eq i32 %257, 0
   br i1 %.not146, label %258, label %_parse_range.exit
 
 258:                                              ; preds = %251, %246, %254
   %259 = getelementptr inbounds i8, ptr %3, i64 24
   %260 = load ptr, ptr %259, align 8
-  %261 = call fastcc i32 @_handle_step(ptr noundef %260, i32 noundef 1, ptr noundef nonnull %2)
+  %261 = call fastcc i32 @_handle_step(ptr noundef %260, i32 noundef 1, ptr noundef %2)
   %.not148 = icmp eq i32 %261, 0
   br i1 %.not148, label %262, label %_parse_range.exit
 
@@ -692,14 +692,14 @@ _parse_range.exit.thread:                         ; preds = %194
 316:                                              ; preds = %279
   %317 = getelementptr inbounds i8, ptr %3, i64 32
   %318 = load ptr, ptr %317, align 8
-  %319 = call fastcc i32 @_parse_range(ptr noundef %318, ptr noundef nonnull %2)
+  %319 = call fastcc i32 @_parse_range(ptr noundef %318, ptr noundef %2)
   %.not152 = icmp eq i32 %319, 0
   br i1 %.not152, label %320, label %_parse_range.exit
 
 320:                                              ; preds = %276, %271, %316, %312
   %321 = getelementptr inbounds i8, ptr %3, i64 32
   %322 = load ptr, ptr %321, align 8
-  %323 = call fastcc i32 @_handle_step(ptr noundef %322, i32 noundef 1, ptr noundef nonnull %2)
+  %323 = call fastcc i32 @_handle_step(ptr noundef %322, i32 noundef 1, ptr noundef %2)
   %.not166 = icmp eq i32 %323, 0
   br i1 %.not166, label %324, label %_parse_range.exit
 
@@ -812,14 +812,14 @@ _parse_range.exit.thread:                         ; preds = %194
 368:                                              ; preds = %341
   %369 = getelementptr inbounds i8, ptr %3, i64 40
   %370 = load ptr, ptr %369, align 8
-  %371 = call fastcc i32 @_parse_range(ptr noundef %370, ptr noundef nonnull %2)
+  %371 = call fastcc i32 @_parse_range(ptr noundef %370, ptr noundef %2)
   %.not170 = icmp eq i32 %371, 0
   br i1 %.not170, label %372, label %_parse_range.exit
 
 372:                                              ; preds = %338, %333, %368, %364
   %373 = getelementptr inbounds i8, ptr %3, i64 40
   %374 = load ptr, ptr %373, align 8
-  %375 = call fastcc i32 @_handle_step(ptr noundef %374, i32 noundef 1, ptr noundef nonnull %2)
+  %375 = call fastcc i32 @_handle_step(ptr noundef %374, i32 noundef 1, ptr noundef %2)
   %.not179 = icmp eq i32 %375, 0
   br i1 %.not179, label %376, label %_parse_range.exit
 
@@ -899,7 +899,7 @@ declare void @bit_set_all(ptr noundef) local_unnamed_addr #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @__ctype_b_loc() #10
   %5 = load ptr, ptr %4, align 8
@@ -938,7 +938,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_handle_step(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_handle_step(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %2, align 8
@@ -971,7 +971,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_step(ptr noundef %0, i32 no
   %20 = tail call i64 @bit_size(ptr noundef %0) #8
   %21 = tail call ptr @bit_alloc(i64 noundef %20) #8
   store ptr %21, ptr %5, align 8
-  %22 = sext i32 %1 to i64
+  %22 = zext nneg i32 %1 to i64
   %23 = tail call i64 @bit_size(ptr noundef %21) #8
   %24 = icmp sgt i64 %23, %22
   br i1 %24, label %.lr.ph, label %._crit_edge

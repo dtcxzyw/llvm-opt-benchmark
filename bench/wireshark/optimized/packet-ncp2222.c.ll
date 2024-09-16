@@ -13020,7 +13020,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   store i32 %481, ptr %482, align 8
   %483 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 9, ptr %483, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %720
 
 484:                                              ; preds = %467
@@ -13042,7 +13042,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   store i32 %493, ptr %494, align 8
   %495 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 9, ptr %495, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 496:                                              ; preds = %467
@@ -13084,7 +13084,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   store i32 %518, ptr %519, align 8
   %520 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 8, ptr %520, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 521:                                              ; preds = %467
@@ -13108,7 +13108,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   store i32 %532, ptr %533, align 8
   %534 = getelementptr inbounds i8, ptr %14, i64 292
   store i8 8, ptr %534, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %720
 
 535:                                              ; preds = %463
@@ -13131,7 +13131,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %545 = load i32, ptr %544, align 4
   %546 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %545, ptr %546, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 547:                                              ; preds = %463
@@ -13168,7 +13168,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %569 = load i32, ptr %455, align 8
   %570 = getelementptr inbounds i8, ptr %14, i64 304
   store i32 %569, ptr %570, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 571:                                              ; preds = %463
@@ -13209,7 +13209,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %593 = load i32, ptr %592, align 4
   %594 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %593, ptr %594, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 595:                                              ; preds = %463
@@ -13237,7 +13237,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %610 = load i32, ptr %15, align 4
   %611 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %610, ptr %611, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 612:                                              ; preds = %463
@@ -13259,7 +13259,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %622 = load i32, ptr @hf_nds_classes, align 4
   %623 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 %622, ptr %623, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 624:                                              ; preds = %463
@@ -13327,7 +13327,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %664 = load i32, ptr %663, align 4
   %665 = getelementptr inbounds i8, ptr %14, i64 296
   store i32 %664, ptr %665, align 8
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 666:                                              ; preds = %463
@@ -13360,7 +13360,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
 683:                                              ; preds = %672
   %684 = getelementptr inbounds i8, ptr %14, i64 28
   store i32 %.0258.i, ptr %684, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   %685 = load i32, ptr %681, align 8
   %686 = add nuw nsw i32 %.0258.i, 4
   %687 = add i32 %686, %685
@@ -13379,7 +13379,7 @@ ncp_requires_subfunc.exit:                        ; preds = %221
   %694 = load i32, ptr @hf_nds_referrals, align 4
   store i32 %694, ptr %679, align 8
   store i8 9, ptr %674, align 4
-  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %14)
+  call fastcc void @process_multivalues(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %dissect_nds_reply.exit
 
 695:                                              ; preds = %463
@@ -14065,7 +14065,7 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
 1057:                                             ; preds = %1051
   %1058 = load ptr, ptr %780, align 8
   %1059 = call ptr @ptvcursor_new(ptr noundef %1058, ptr noundef %787, ptr noundef %0, i32 noundef %.20.i) #13
-  call fastcc void @process_ptvc_record(ptr noundef %1059, ptr noundef %1, ptr noundef nonnull @ptvc_struct_flush_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef %.3318322338385, i1 noundef zeroext false)
+  call fastcc void @process_ptvc_record(ptr noundef %1059, ptr noundef %1, ptr noundef nonnull @ptvc_struct_flush_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %.3318322338385, i1 noundef zeroext false)
   call void @ptvcursor_free(ptr noundef %1059) #13
   %1060 = add i32 %.20.i, 4
   %.pre458.i = load i16, ptr %761, align 2
@@ -14159,7 +14159,7 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
   %1109 = call ptr @proto_tree_add_subtree(ptr noundef %787, ptr noundef %0, i32 noundef %.26.i, i32 noundef -1, i32 noundef %1108, ptr noundef nonnull %10, ptr noundef nonnull @.str.7301) #13
   %1110 = load ptr, ptr %780, align 8
   %1111 = call ptr @ptvcursor_new(ptr noundef %1110, ptr noundef %1109, ptr noundef %0, i32 noundef %.26.i) #13
-  call fastcc void @process_ptvc_record(ptr noundef %1111, ptr noundef %1, ptr noundef nonnull @ptvc_struct_mac_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef %.3318322338385, i1 noundef zeroext false)
+  call fastcc void @process_ptvc_record(ptr noundef %1111, ptr noundef %1, ptr noundef nonnull @ptvc_struct_mac_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %.3318322338385, i1 noundef zeroext false)
   call void @ptvcursor_free(ptr noundef %1111) #13
   %1112 = add i32 %.26.i, 8
   %1113 = load ptr, ptr %10, align 8
@@ -14181,7 +14181,7 @@ thread-pre-split:                                 ; preds = %266, %dissect_nds_r
 1120:                                             ; preds = %1114
   %1121 = load ptr, ptr %780, align 8
   %1122 = call ptr @ptvcursor_new(ptr noundef %1121, ptr noundef %787, ptr noundef %0, i32 noundef %.27.i) #13
-  call fastcc void @process_ptvc_record(ptr noundef %1122, ptr noundef %1, ptr noundef nonnull @ptvc_struct_last_access_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef %.3318322338385, i1 noundef zeroext false)
+  call fastcc void @process_ptvc_record(ptr noundef %1122, ptr noundef %1, ptr noundef nonnull @ptvc_struct_last_access_time_struct, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %.3318322338385, i1 noundef zeroext false)
   call void @ptvcursor_free(ptr noundef %1122) #13
   %1123 = add i32 %.27.i, 2
   %.pre470.i = load i16, ptr %761, align 2
@@ -14287,7 +14287,7 @@ dissect_ncp_8x20reply.exit:                       ; preds = %781, %1143, %758, %
   br i1 %1175, label %1176, label %.thread400
 
 1176:                                             ; preds = %1172
-  call fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5)
+  call fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %5)
   %.pr342.pre = load i8, ptr %.3318322338385, align 8
   %1177 = icmp eq i8 %.pr342.pre, 123
   br i1 %1177, label %.thread400, label %thread-pre-split349
@@ -14299,7 +14299,7 @@ dissect_ncp_8x20reply.exit:                       ; preds = %781, %1143, %758, %
   br i1 %or.cond20, label %1180, label %.thread402
 
 1180:                                             ; preds = %.thread400
-  call fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %.0234317325337388)
+  call fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr noundef %5, ptr noundef %.0234317325337388)
   %.pr345.pre = load i8, ptr %.3318322338385, align 8
   %1181 = icmp eq i8 %.pr345.pre, 123
   br i1 %1181, label %thread-pre-split404, label %thread-pre-split349
@@ -14314,7 +14314,7 @@ thread-pre-split404:                              ; preds = %1180
   br i1 %1183, label %1184, label %.thread410
 
 1184:                                             ; preds = %.thread402
-  call fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr noundef %5)
   %.pr350.pre = load i8, ptr %.3318322338385, align 8
   br label %thread-pre-split349
 
@@ -14330,7 +14330,7 @@ thread-pre-split349:                              ; preds = %1184, %1176, %1165,
   br i1 %1190, label %1191, label %.thread410
 
 1191:                                             ; preds = %1187
-  call fastcc void @dissect_ncp_23_26_reply(ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @dissect_ncp_23_26_reply(ptr noundef %0, ptr noundef %5)
   %.pre375 = load i8, ptr %.3318322338385, align 8
   br label %1192
 
@@ -14346,7 +14346,7 @@ thread-pre-split349:                              ; preds = %1184, %1176, %1165,
   br i1 %1198, label %1199, label %.thread410
 
 1199:                                             ; preds = %1195
-  call fastcc void @dissect_ncp_87_72_reply(ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @dissect_ncp_87_72_reply(ptr noundef %0, ptr noundef %5)
   br label %.thread410
 
 1200:                                             ; preds = %252
@@ -15534,7 +15534,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %92, %102
 
 111:                                              ; preds = %110
   store i32 0, ptr %10, align 4
-  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef nonnull %10)
+  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext false, ptr noundef %10)
   %112 = load i16, ptr %36, align 4
   %113 = and i16 %112, 3
   %.not62.i = icmp eq i16 %113, 3
@@ -15599,7 +15599,7 @@ process_struct_sub_ptvc_record.exit:              ; preds = %92, %102
 .lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
   %.1.i52 = phi i32 [ %140, %.lr.ph53 ], [ 0, %.preheader ]
   %139 = icmp ne i32 %.1.i52, 0
-  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext %139, ptr noundef nonnull %10)
+  call fastcc void @add_ptvc_field(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %.055, i1 noundef zeroext %6, i1 noundef zeroext %139, ptr noundef %10)
   %140 = add nuw i32 %.1.i52, 1
   %exitcond65.not = icmp eq i32 %140, %137
   br i1 %exitcond65.not, label %_process_ptvc_record.exit, label %.lr.ph53, !llvm.loop !21
@@ -15679,7 +15679,7 @@ declare void @dissect_nmas_request(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_8x20req(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_8x20req(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 26, 29) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store volatile ptr %1, ptr %5, align 8
   %6 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %2) #13
@@ -15897,7 +15897,7 @@ declare void @dissect_sss_reply(ptr noundef, ptr noundef, ptr noundef, i8 nounde
 declare void @dissect_nmas_reply(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store volatile ptr %2, ptr %4, align 8
@@ -15982,7 +15982,7 @@ define internal fastcc void @dissect_ncp_123_17_reply(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store volatile ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 40
@@ -16014,7 +16014,7 @@ define internal fastcc void @dissect_ncp_123_11_reply(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   store volatile ptr %1, ptr %3, align 8
@@ -16063,7 +16063,7 @@ define internal fastcc void @dissect_ncp_123_62_reply(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_23_26_reply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_23_26_reply(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store volatile ptr %1, ptr %3, align 8
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #13
@@ -16095,7 +16095,7 @@ define internal fastcc void @dissect_ncp_23_26_reply(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_ncp_87_72_reply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @dissect_ncp_87_72_reply(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store volatile ptr %1, ptr %3, align 8
   %.0..0..0..0. = load volatile ptr, ptr %3, align 8
@@ -16559,7 +16559,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   store i32 %240, ptr %247, align 4
   %248 = getelementptr inbounds i8, ptr %13, i64 292
   store i8 7, ptr %248, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %249 = load i32, ptr %242, align 4
   %250 = shl i32 %249, 2
   %251 = add i32 %240, 4
@@ -16570,7 +16570,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %254 = load i32, ptr @hf_nds_tree_trans, align 4
   store i32 %254, ptr %246, align 8
   store i32 %252, ptr %247, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 255:                                              ; preds = %203
@@ -16591,7 +16591,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %264 = load i32, ptr @hf_nds_ver_include, align 4
   %265 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 %264, ptr %265, align 8
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %266 = load i32, ptr %259, align 4
   %267 = shl i32 %266, 2
   %268 = add nuw nsw i32 %.1, 16
@@ -16602,7 +16602,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %271 = load i32, ptr @hf_nds_ver_exclude, align 4
   store i32 %271, ptr %265, align 8
   store i32 %269, ptr %263, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %272 = load i32, ptr %259, align 4
   %273 = shl i32 %272, 2
   %274 = add i32 %269, 4
@@ -16650,7 +16650,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %306 = load i32, ptr @hf_nds_output_entry_specifier, align 4
   store i32 %306, ptr %265, align 8
   store i32 %304, ptr %263, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 307:                                              ; preds = %195
@@ -16779,7 +16779,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %394 = load i32, ptr @hf_nds_attr, align 4
   %395 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 %394, ptr %395, align 8
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %396 = load ptr, ptr %371, align 8
   %397 = getelementptr inbounds i8, ptr %13, i64 8
   %398 = load ptr, ptr %397, align 8
@@ -16835,7 +16835,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %432 = load i32, ptr @hf_nds_attr, align 4
   %433 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 %432, ptr %433, align 8
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %434 = load ptr, ptr %409, align 8
   %435 = getelementptr inbounds i8, ptr %13, i64 8
   %436 = load ptr, ptr %435, align 8
@@ -17012,7 +17012,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   store i32 %559, ptr %560, align 8
   %561 = getelementptr inbounds i8, ptr %13, i64 28
   store i32 %553, ptr %561, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 562:                                              ; preds = %195
@@ -17127,7 +17127,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   %643 = load i32, ptr @hf_nds_attr, align 4
   %644 = getelementptr inbounds i8, ptr %13, i64 32
   store i32 %643, ptr %644, align 8
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 645:                                              ; preds = %195
@@ -17177,7 +17177,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   store i32 %673, ptr %674, align 8
   %675 = getelementptr inbounds i8, ptr %13, i64 28
   store i32 %666, ptr %675, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 676:                                              ; preds = %195
@@ -17339,7 +17339,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   store i32 %795, ptr %796, align 8
   %797 = getelementptr inbounds i8, ptr %13, i64 28
   store i32 %789, ptr %797, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   br label %1221
 
 798:                                              ; preds = %195
@@ -17902,7 +17902,7 @@ ncp_hash_lookup.exit1227:                         ; preds = %.lr.ph.i1225, %156,
   store i32 %1214, ptr %1215, align 8
   %1216 = getelementptr inbounds i8, ptr %13, i64 292
   store i8 17, ptr %1216, align 4
-  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %13)
+  call fastcc void @process_multivalues(ptr noundef %.0, ptr noundef %0, ptr noundef nonnull %1, ptr noundef %13)
   %1217 = getelementptr inbounds i8, ptr %1, i64 8
   %1218 = load ptr, ptr %1217, align 8
   %1219 = getelementptr inbounds i8, ptr %13, i64 8
@@ -17959,7 +17959,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_multivalues(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @process_multivalues(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4
@@ -18222,7 +18222,7 @@ check_offset_addition.exit1754:                   ; preds = %.lr.ph2225
   %120 = add i32 %.0.i1755, %116
   store i32 %120, ptr %34, align 4
   %121 = load i32, ptr %7, align 4
-  call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef %121, ptr noundef nonnull %3)
+  call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef %121, ptr noundef %3)
   %122 = load i32, ptr %34, align 4
   %123 = add i32 %.22219, 1
   %124 = load i32, ptr %88, align 4
@@ -18510,7 +18510,7 @@ check_offset_addition.exit1765:                   ; preds = %.lr.ph2173
   %.0.i1766 = select i1 %287, i32 %288, i32 0
   %289 = add i32 %.0.i1766, %285
   store i32 %289, ptr %34, align 4
-  tail call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef 9, ptr noundef nonnull %3)
+  tail call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef 9, ptr noundef %3)
   %290 = load i32, ptr %34, align 4
   %291 = add i32 %.72172, 1
   %292 = load i32, ptr %54, align 4
@@ -18744,7 +18744,7 @@ check_offset_addition.exit1772:                   ; preds = %396
 
 421:                                              ; preds = %check_offset_addition.exit1772
   store i32 %420, ptr %34, align 4
-  tail call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef 9, ptr noundef nonnull %3)
+  tail call fastcc void @print_nds_values(ptr noundef %38, ptr noundef %2, ptr noundef %1, i32 noundef 9, ptr noundef %3)
   %422 = load i32, ptr %34, align 4
   br label %423
 
@@ -18993,7 +18993,7 @@ check_offset_addition.exit1776:                   ; preds = %553
   %570 = load i32, ptr @ett_nds, align 4
   %571 = tail call ptr @proto_item_add_subtree(ptr noundef %569, i32 noundef %570) #13
   %572 = add i32 %35, 8
-  %573 = tail call fastcc i32 @print_es_type(ptr noundef %571, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %566, i32 noundef %572)
+  %573 = tail call fastcc i32 @print_es_type(ptr noundef %571, ptr noundef %1, ptr noundef %3, i32 noundef %566, i32 noundef %572)
   %574 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %573) #13
   %575 = and i32 %574, 255
   %576 = tail call ptr @val_to_str_const(i32 noundef %575, ptr noundef nonnull @es_type, ptr noundef nonnull @.str.7312) #13
@@ -19003,7 +19003,7 @@ check_offset_addition.exit1776:                   ; preds = %553
   %579 = load i32, ptr @ett_nds, align 4
   %580 = tail call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579) #13
   %581 = add i32 %573, 4
-  %582 = tail call fastcc i32 @print_es_type(ptr noundef %580, ptr noundef %1, ptr noundef nonnull %3, i32 noundef %575, i32 noundef %581)
+  %582 = tail call fastcc i32 @print_es_type(ptr noundef %580, ptr noundef %1, ptr noundef %3, i32 noundef %575, i32 noundef %581)
   %583 = load ptr, ptr %8, align 8
   %584 = tail call i64 @g_strlcpy(ptr noundef nonnull @mv_resolve_name_string, ptr noundef %583, i64 noundef 128) #13
   %585 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %582) #13
@@ -21307,7 +21307,7 @@ define internal fastcc void @process_bitfield_sub_ptvc_record(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ptvc_field(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @add_ptvc_field(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = load i32, ptr %8, align 4
@@ -21748,7 +21748,7 @@ check_offset_addition.exit.us:                    ; preds = %35
 
 57:                                               ; preds = %.split.us
   store i32 %.0191.us, ptr %13, align 4
-  call fastcc void @process_set_filter(ptr noundef %24, ptr noundef %1, ptr noundef nonnull %10)
+  call fastcc void @process_set_filter(ptr noundef %24, ptr noundef %1, ptr noundef %10)
   %58 = load i32, ptr %13, align 4
   %59 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %58) #13
   %60 = icmp sgt i32 %59, 4
@@ -22534,7 +22534,7 @@ process_entry_info.exit:                          ; preds = %442, %444
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_set_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @process_set_filter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #13
@@ -22875,7 +22875,7 @@ process_search_match.exit:                        ; preds = %150
   %210 = add i32 %.0.i28, 1
   %211 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %205, ptr noundef %1, i32 noundef %.1.i, i32 noundef -1, i32 noundef %209, ptr noundef null, ptr noundef nonnull @.str.7221, i32 noundef %210) #13
   store i32 %.1.i, ptr %4, align 4
-  tail call fastcc void @process_set_filter(ptr noundef %211, ptr noundef %1, ptr noundef nonnull %2)
+  tail call fastcc void @process_set_filter(ptr noundef %211, ptr noundef %1, ptr noundef %2)
   %212 = load i32, ptr %4, align 4
   %213 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %212) #13
   %214 = icmp slt i32 %213, 4
@@ -23021,7 +23021,7 @@ declare void @proto_item_set_end(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @print_nds_values(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
@@ -23996,7 +23996,7 @@ sub_1735:                                         ; preds = %.tail728, %sub_1730
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @print_es_type(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @print_es_type(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.nstime_t, align 8

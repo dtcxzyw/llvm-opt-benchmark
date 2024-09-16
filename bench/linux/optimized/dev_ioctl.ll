@@ -825,7 +825,7 @@ declare dso_local i32 @dev_ethtool(ptr noundef, ptr noundef, ptr noundef) local_
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dev_ifsioc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dev_ifsioc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 35089, 35088) %3) unnamed_addr #0 align 16 {
   %5 = tail call ptr @__dev_get_by_name(ptr noundef %0, ptr noundef %1) #11
   %6 = icmp eq ptr %5, null
   br i1 %6, label %150, label %7
@@ -920,7 +920,7 @@ define internal fastcc i32 @dev_ifsioc(ptr noundef %0, ptr noundef %1, ptr nound
   br label %150
 
 40:                                               ; preds = %7
-  %41 = tail call fastcc i32 @dev_setifmap(ptr noundef nonnull %5, ptr noundef %1)
+  %41 = tail call fastcc i32 @dev_setifmap(ptr noundef %5, ptr noundef %1)
   br label %150
 
 42:                                               ; preds = %7
@@ -1050,11 +1050,11 @@ define internal fastcc i32 @dev_ifsioc(ptr noundef %0, ptr noundef %1, ptr nound
   br label %150
 
 123:                                              ; preds = %7
-  %124 = tail call fastcc i32 @dev_set_hwtstamp(ptr noundef nonnull %5, ptr noundef %1)
+  %124 = tail call fastcc i32 @dev_set_hwtstamp(ptr noundef %5, ptr noundef %1)
   br label %150
 
 125:                                              ; preds = %7
-  %126 = tail call fastcc i32 @dev_get_hwtstamp(ptr noundef nonnull %5, ptr noundef %1)
+  %126 = tail call fastcc i32 @dev_get_hwtstamp(ptr noundef %5, ptr noundef %1)
   br label %150
 
 127:                                              ; preds = %7, %7, %7
@@ -1142,7 +1142,7 @@ declare dso_local i32 @dev_set_mac_address_user(ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @call_netdevice_notifiers(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dev_setifmap(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dev_setifmap(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ifmap, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1189,12 +1189,12 @@ define internal fastcc i32 @dev_setifmap(ptr noundef %0, ptr noundef %1) unnamed
   %35 = getelementptr inbounds i8, ptr %1, i64 28
   %36 = load i8, ptr %35, align 4
   store i8 %36, ptr %34, align 4
-  %37 = call i32 %8(ptr noundef %0, ptr noundef nonnull %3) #11
+  %37 = call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   br label %40
 
 38:                                               ; preds = %10
-  %39 = tail call i32 %8(ptr noundef %0, ptr noundef %4) #11
+  %39 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %4) #11
   br label %40
 
 40:                                               ; preds = %38, %17, %2
@@ -1218,7 +1218,7 @@ declare dso_local i32 @dev_change_name(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local i32 @br_ioctl_call(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dev_set_hwtstamp(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.kernel_hwtstamp_config, align 8
   %4 = alloca %struct.netlink_ext_ack, align 8
   %5 = alloca %struct.hwtstamp_config, align 4
@@ -1280,7 +1280,7 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   br i1 %42, label %65, label %43
 
 43:                                               ; preds = %38
-  %44 = call i32 %36(ptr noundef %0, ptr noundef %1, i32 noundef 35248) #11
+  %44 = call i32 %36(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 35248) #11
   br label %65
 
 45:                                               ; preds = %29
@@ -1291,7 +1291,7 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   br i1 %49, label %65, label %50
 
 50:                                               ; preds = %45
-  %51 = call i32 @dev_set_hwtstamp_phylib(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  %51 = call i32 @dev_set_hwtstamp_phylib(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %65
 
@@ -1325,7 +1325,7 @@ define internal fastcc i32 @dev_set_hwtstamp(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @dev_get_hwtstamp(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @dev_get_hwtstamp(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.kernel_hwtstamp_config, align 8
   %4 = alloca %struct.hwtstamp_config, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1352,7 +1352,7 @@ define internal fastcc i32 @dev_get_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   br i1 %18, label %dev_get_hwtstamp_phylib.exit.thread, label %19
 
 19:                                               ; preds = %14
-  %20 = tail call i32 %12(ptr noundef %0, ptr noundef %1, i32 noundef 35249) #11
+  %20 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 35249) #11
   br label %dev_get_hwtstamp_phylib.exit.thread
 
 21:                                               ; preds = %2
@@ -1410,7 +1410,7 @@ define internal fastcc i32 @dev_get_hwtstamp(ptr noundef %0, ptr noundef %1) unn
   br label %dev_get_hwtstamp_phylib.exit
 
 51:                                               ; preds = %35, %31, %26
-  %52 = call i32 %8(ptr noundef %0, ptr noundef nonnull %3) #11
+  %52 = call i32 %8(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   br label %dev_get_hwtstamp_phylib.exit
 
 dev_get_hwtstamp_phylib.exit:                     ; preds = %48, %51

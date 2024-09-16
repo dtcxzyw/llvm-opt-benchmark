@@ -1393,10 +1393,10 @@ _ZL25havePPDomainDecompositionPK9t_commrec.exit.thread: ; preds = %175, %186, %_
   %528 = ptrtoint ptr %523 to i64
   %529 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %2, ptr noundef nonnull %17)
   %530 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.68, ptr noundef %529) #15
-  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.69, ptr noundef nonnull readonly align 8 dereferenceable(768) %519, i32 noundef %521, ptr noundef readonly %522, i64 %528, ptr noundef %8)
+  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef %16, ptr noundef nonnull @.str.69, ptr noundef nonnull readonly align 8 dereferenceable(768) %519, i32 noundef %521, ptr noundef readonly %522, i64 %528, ptr noundef %8)
   %531 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %2, ptr noundef nonnull %17)
   %532 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.70, ptr noundef %531) #15
-  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %16, ptr noundef nonnull @.str.71, ptr noundef nonnull readonly align 8 dereferenceable(768) %519, i32 noundef %521, ptr noundef readonly %522, i64 %527, ptr noundef %8)
+  call fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef %16, ptr noundef nonnull @.str.71, ptr noundef nonnull readonly align 8 dereferenceable(768) %519, i32 noundef %521, ptr noundef readonly %522, i64 %527, ptr noundef %8)
   %.not14.i = icmp eq ptr %517, null
   br i1 %.not14.i, label %535, label %533
 
@@ -2228,7 +2228,7 @@ declare void @_Z23dd_get_constraint_rangeRK12gmx_domdec_tPiS2_(ptr noundef nonnu
 declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 %.0.val, ptr noundef %5) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEEPA3_Kf(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %2, i32 noundef %3, ptr nocapture noundef readonly %4, i64 %.0.val, ptr noundef %5) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %7 = alloca [4096 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -2254,11 +2254,11 @@ define internal fastcc void @_ZN3gmxL16write_constr_pdbEPKcS1_RK10gmx_mtop_tiiPK
 
 18:                                               ; preds = %14
   %19 = load i32, ptr %4, align 8
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef %0, i32 noundef %19) #15
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull %0, i32 noundef %19) #15
   br label %23
 
 21:                                               ; preds = %14
-  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef %0) #15
+  %22 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %0) #15
   br label %23
 
 23:                                               ; preds = %21, %18

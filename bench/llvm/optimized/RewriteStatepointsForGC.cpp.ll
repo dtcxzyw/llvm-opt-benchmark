@@ -13902,7 +13902,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   store ptr %118, ptr %21, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_0E9_M_invokeERKSt9_Any_dataOS2_", ptr %108, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %107, align 8
-  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %115, ptr noundef nonnull %21)
+  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %115, ptr noundef %21)
   %119 = load ptr, ptr %107, align 8
   %.not.i.i = icmp eq ptr %119, null
   br i1 %.not.i.i, label %_ZNSt8functionIFvPN4llvm5ValueEEED2Ev.exit, label %120
@@ -13967,7 +13967,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj16EED2Ev.exit: ; preds = %._crit_edge, %126
   store ptr %24, ptr %.sroa.2395.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_1E9_M_invokeERKSt9_Any_dataOS2_", ptr %133, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_1E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %132, align 8
-  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %.sroa.080.0.copyload, ptr noundef nonnull %26)
+  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %.sroa.080.0.copyload, ptr noundef %26)
   %146 = load ptr, ptr %132, align 8
   %.not.i.i155 = icmp eq ptr %146, null
   br i1 %.not.i.i155, label %_ZNSt8functionIFvPN4llvm5ValueEEED2Ev.exit156, label %147
@@ -14857,7 +14857,7 @@ _ZNK4llvm9MapVectorIPNS_5ValueEN12_GLOBAL__N_18BDVStateENS_8DenseMapIS2_jNS_12De
   store ptr %574, ptr %29, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_2E9_M_invokeERKSt9_Any_dataOS2_", ptr %568, align 8
   store ptr @"_ZNSt17_Function_handlerIFvPN4llvm5ValueEEZL15findBasePointerS2_RNS0_9MapVectorIS2_S2_NS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEENS0_11SmallVectorISt4pairIS2_S2_ELj0EEEEERNS4_IS2_bSB_NSC_ISD_IS2_bELj0EEEEEE3$_2E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation", ptr %567, align 8
-  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %.sroa.065.0.copyload, ptr noundef nonnull %29)
+  call fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %.sroa.065.0.copyload, ptr noundef %29)
   %575 = load ptr, ptr %567, align 8
   %.not.i.i172 = icmp eq ptr %575, null
   br i1 %.not.i.i172, label %_ZNSt8functionIFvPN4llvm5ValueEEED2Ev.exit173, label %576
@@ -16480,7 +16480,7 @@ _ZN4llvm9MapVectorIPNS_5ValueEN12_GLOBAL__N_18BDVStateENS_8DenseMapIS2_jNS_12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL15findBasePointerPN4llvm5ValueERNS_9MapVectorIS1_S1_NS_8DenseMapIS1_jNS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEENS_11SmallVectorISt4pairIS1_S1_ELj0EEEEERNS2_IS1_bS9_NSA_ISB_IS1_bELj0EEEEEENK3$_3clES1_St8functionIFvS1_EE"(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

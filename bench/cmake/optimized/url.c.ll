@@ -1943,7 +1943,7 @@ thread-pre-split.i.i:                             ; preds = %247
   %265 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %264) #13
   %266 = getelementptr i8, ptr %256, i64 %265
   store i8 0, ptr %266, align 1
-  call fastcc void @zonefrom_url(ptr noundef nonnull %storemerge.i.i, ptr noundef nonnull %0, ptr noundef nonnull %45)
+  call fastcc void @zonefrom_url(ptr noundef %storemerge.i.i, ptr noundef nonnull %0, ptr noundef %45)
   br label %267
 
 267:                                              ; preds = %260, %257, %255
@@ -2067,7 +2067,7 @@ thread-pre-split.i.i:                             ; preds = %247
 
 317:                                              ; preds = %316, %310, %281, %278, %275
   %318 = load ptr, ptr %156, align 8
-  %319 = call fastcc i32 @findprotocol(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef %318)
+  %319 = call fastcc i32 @findprotocol(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %318)
   %.not206.i.i = icmp eq i32 %319, 0
   br i1 %.not206.i.i, label %320, label %parseurlandfillconn.exit.thread.i
 
@@ -2609,7 +2609,7 @@ detect_proxy.exit.i.i:                            ; preds = %497, %494, %.thread
   %539 = phi ptr [ %527, %.thread.i297.i ], [ %534, %533 ]
   %.3115166168.i.i = phi ptr [ %.2114.i.i, %.thread.i297.i ], [ null, %533 ]
   %540 = phi i1 [ true, %.thread.i297.i ], [ false, %533 ]
-  %541 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull %45, ptr noundef nonnull %.3.i.i, i32 noundef %538)
+  %541 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef %45, ptr noundef %.3.i.i, i32 noundef %538)
   %542 = load ptr, ptr @Curl_cfree, align 8
   call void %542(ptr noundef nonnull %.3.i.i) #12
   %.not150.i.i = icmp eq i32 %541, 0
@@ -2622,7 +2622,7 @@ detect_proxy.exit.i.i:                            ; preds = %497, %494, %.thread
   %.3115166167186.i.i = phi ptr [ %.3115166168.i.i, %543 ], [ %.2114.i.i, %.thread.i297.i ]
   %544 = phi ptr [ %539, %543 ], [ %527, %.thread.i297.i ]
   %545 = phi i32 [ %538, %543 ], [ %529, %.thread.i297.i ]
-  %546 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef nonnull %45, ptr noundef nonnull %.3115166167186.i.i, i32 noundef %545)
+  %546 = call fastcc i32 @parse_proxy(ptr noundef %0, ptr noundef %45, ptr noundef %.3115166167186.i.i, i32 noundef %545)
   %547 = load ptr, ptr @Curl_cfree, align 8
   call void %547(ptr noundef nonnull %.3115166167186.i.i) #12
   %.not151.i.i = icmp eq i32 %546, 0
@@ -2796,19 +2796,19 @@ parse_remote_port.exit.i:                         ; preds = %622
 
 626:                                              ; preds = %622, %618, %614
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %627 = call fastcc i32 @override_login(ptr noundef nonnull %0, ptr noundef nonnull %45)
+  %627 = call fastcc i32 @override_login(ptr noundef nonnull %0, ptr noundef %45)
   %.not235.i = icmp eq i32 %627, 0
   br i1 %.not235.i, label %628, label %create_conn.exit.thread
 
 628:                                              ; preds = %626
-  %629 = call fastcc i32 @set_login(ptr noundef nonnull %0, ptr noundef nonnull %45)
+  %629 = call fastcc i32 @set_login(ptr noundef nonnull %0, ptr noundef %45)
   %.not236.i = icmp eq i32 %629, 0
   br i1 %.not236.i, label %630, label %create_conn.exit.thread
 
 630:                                              ; preds = %628
   %631 = getelementptr inbounds i8, ptr %0, i64 1248
   %632 = load ptr, ptr %631, align 8
-  %633 = call fastcc i32 @parse_connect_to_slist(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef %632)
+  %633 = call fastcc i32 @parse_connect_to_slist(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %632)
   %.not237.i = icmp eq i32 %633, 0
   br i1 %.not237.i, label %634, label %create_conn.exit.thread
 
@@ -3019,12 +3019,12 @@ parse_remote_port.exit.i:                         ; preds = %622
   br i1 %.not255.i, label %732, label %.critedge.i
 
 732:                                              ; preds = %730
-  %733 = call fastcc zeroext i1 @ConnectionExists(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %733 = call fastcc zeroext i1 @ConnectionExists(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   br i1 %733, label %734, label %.critedge.i
 
 734:                                              ; preds = %732
   %735 = load ptr, ptr %11, align 8
-  call fastcc void @reuse_conn(ptr noundef nonnull %0, ptr noundef nonnull %45, ptr noundef %735)
+  call fastcc void @reuse_conn(ptr noundef nonnull %0, ptr noundef %45, ptr noundef %735)
   %736 = load i64, ptr %31, align 2
   %737 = and i64 %736, 268435456
   %.not281.i = icmp eq i64 %737, 0
@@ -3604,7 +3604,7 @@ declare i64 @Curl_multi_max_host_connections(ptr noundef) local_unnamed_addr #1
 declare i64 @Curl_multi_max_total_connections(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @override_login(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @override_login(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 304
   %4 = getelementptr inbounds i8, ptr %1, i64 312
   %5 = getelementptr inbounds i8, ptr %0, i64 2112
@@ -3847,7 +3847,7 @@ Curl_uc_to_curlcode.exit:                         ; preds = %96, %75, %102, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 680
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 140
@@ -3900,7 +3900,7 @@ define internal fastcc range(i32 0, 28) i32 @set_login(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
@@ -4455,7 +4455,7 @@ define internal fastcc void @prune_dead_connections(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ConnectionExists(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 3072
   %7 = getelementptr inbounds i8, ptr %0, i64 3488
   %8 = load i64, ptr %7, align 8
@@ -4791,7 +4791,7 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds i8, ptr %126, i64 144
-  %191 = tail call fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef nonnull %104, ptr noundef nonnull %190)
+  %191 = tail call fastcc zeroext i1 @socks_proxy_info_matches(ptr noundef %104, ptr noundef nonnull %190)
   br i1 %191, label %._crit_edge380, label %.backedge
 
 ._crit_edge380:                                   ; preds = %189
@@ -4813,7 +4813,7 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds i8, ptr %126, i64 200
-  %201 = tail call fastcc zeroext i1 @proxy_info_matches(ptr noundef nonnull %105, ptr noundef nonnull %200)
+  %201 = tail call fastcc zeroext i1 @proxy_info_matches(ptr noundef %105, ptr noundef nonnull %200)
   br i1 %201, label %202, label %.backedge
 
 202:                                              ; preds = %199
@@ -5327,7 +5327,7 @@ IsMultiplexingPossible.exit.thread:               ; preds = %IsMultiplexingPossi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reuse_conn(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @reuse_conn(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 304
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5619,11 +5619,11 @@ declare ptr @curl_url_strerror(i32 noundef) local_unnamed_addr #1
 declare i32 @curl_url_get(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zonefrom_url(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @zonefrom_url(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
-  %7 = call i32 @curl_url_get(ptr noundef %0, i32 noundef 10, ptr noundef nonnull %4, i32 noundef 0) #12
+  %7 = call i32 @curl_url_get(ptr noundef nonnull %0, i32 noundef 10, ptr noundef nonnull %4, i32 noundef 0) #12
   %8 = icmp eq i32 %7, 0
   %9 = load ptr, ptr %4, align 8
   %10 = icmp ne ptr %9, null
@@ -5688,7 +5688,7 @@ define internal fastcc void @zonefrom_url(ptr noundef %0, ptr noundef %1, ptr no
 declare ptr @Curl_hsts(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
   %5 = add i64 %4, -1
   %or.cond.i.i = icmp ult i64 %5, 7
@@ -5796,7 +5796,7 @@ declare ptr @curl_getenv(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_check_noproxy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -5812,7 +5812,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not, label %121, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @curl_url_set(ptr noundef nonnull %10, i32 noundef 0, ptr noundef %2, i32 noundef 520) #12
+  %12 = tail call i32 @curl_url_set(ptr noundef nonnull %10, i32 noundef 0, ptr noundef nonnull %2, i32 noundef 520) #12
   %.not89 = icmp eq i32 %12, 0
   br i1 %.not89, label %13, label %38
 
@@ -5869,32 +5869,32 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not97, label %37, label %40
 
 37:                                               ; preds = %34
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %2) #12
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef nonnull %2) #12
   br label %121
 
 38:                                               ; preds = %11
   %39 = tail call ptr @curl_url_strerror(i32 noundef %12) #12
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %2, ptr noundef %39) #12
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef nonnull %2, ptr noundef %39) #12
   br label %121
 
 40:                                               ; preds = %28, %31, %25, %22, %19, %18, %34
   %.0 = phi i32 [ %3, %34 ], [ %., %18 ], [ 7, %19 ], [ 5, %22 ], [ 6, %25 ], [ 4, %31 ], [ 4, %28 ]
   %41 = call zeroext i1 @Curl_ssl_supports(ptr noundef %0, i32 noundef 16) #12
-  %42 = and i32 %.0, -2
+  %42 = and i32 %.0, 254
   %or.cond = icmp ne i32 %42, 2
   %or.cond108.not = or i1 %41, %or.cond
   br i1 %or.cond108.not, label %44, label %43
 
 43:                                               ; preds = %40
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %2) #12
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %2) #12
   br label %121
 
 44:                                               ; preds = %40
-  %45 = and i32 %.0, -4
-  %switch.selectcmp = icmp eq i32 %45, 4
+  %45 = and i32 %.0, 252
+  %spec.select = icmp eq i32 %45, 4
   %46 = getelementptr inbounds i8, ptr %1, i64 144
   %47 = getelementptr inbounds i8, ptr %1, i64 200
-  %48 = select i1 %switch.selectcmp, ptr %46, ptr %47
+  %48 = select i1 %spec.select, ptr %46, ptr %47
   %49 = trunc nuw i32 %.0 to i8
   %50 = getelementptr inbounds i8, ptr %48, i64 36
   store i8 %49, ptr %50, align 4
@@ -6001,7 +6001,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1
   %98 = getelementptr inbounds i8, ptr %1, i64 1128
   %99 = load i32, ptr %98, align 8
   %100 = icmp slt i32 %99, 0
-  %brmerge = or i1 %switch.selectcmp, %100
+  %brmerge = or i1 %spec.select, %100
   br i1 %brmerge, label %103, label %101
 
 101:                                              ; preds = %.thread
@@ -6036,7 +6036,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1
   %116 = load ptr, ptr %8, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 1
   store ptr %117, ptr %8, align 8
-  call fastcc void @zonefrom_url(ptr noundef nonnull %10, ptr noundef %0, ptr noundef %1)
+  call fastcc void @zonefrom_url(ptr noundef %10, ptr noundef %0, ptr noundef %1)
   %.pre = load ptr, ptr %8, align 8
   br label %118
 
@@ -6047,7 +6047,7 @@ define internal fastcc i32 @parse_proxy(ptr noundef %0, ptr nocapture noundef %1
   store ptr null, ptr %8, align 8
   br label %121
 
-121:                                              ; preds = %104, %71, %52, %44, %13, %4, %74, %59, %118, %43, %38, %37
+121:                                              ; preds = %44, %104, %71, %52, %13, %4, %74, %59, %118, %43, %38, %37
   %.080 = phi i32 [ 5, %38 ], [ 0, %44 ], [ 0, %52 ], [ %65, %59 ], [ %77, %74 ], [ 0, %118 ], [ 4, %43 ], [ 7, %37 ], [ 27, %4 ], [ 27, %13 ], [ 27, %71 ], [ 27, %104 ]
   %122 = load ptr, ptr @Curl_cfree, align 8
   %123 = load ptr, ptr %6, align 8
@@ -6213,7 +6213,7 @@ declare zeroext i1 @Curl_multiplex_wanted(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @socks_proxy_info_matches(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 36
@@ -6262,7 +6262,7 @@ proxy_info_matches.exit:                          ; preds = %14, %8, %2, %26, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @proxy_info_matches(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 36

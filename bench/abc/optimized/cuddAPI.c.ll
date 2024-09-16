@@ -659,7 +659,7 @@ Cudd_FreeZddTree.exit:                            ; preds = %.loopexit
 
 ._crit_edge138:                                   ; preds = %.lr.ph137.preheader, %.preheader
   %116 = load ptr, ptr %84, align 8
-  %117 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef %116, i32 noundef %1, ptr noundef nonnull %105, ptr noundef nonnull %110)
+  %117 = tail call fastcc i32 @addMultiplicityGroups(ptr noundef nonnull %0, ptr noundef %116, i32 noundef %1, ptr noundef %105, ptr noundef %110)
   tail call void @free(ptr noundef nonnull %105) #20
   tail call void @free(ptr noundef nonnull %110) #20
   %118 = icmp eq i32 %117, 0
@@ -704,18 +704,18 @@ declare ptr @Mtr_CopyTree(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @Mtr_InitGroupTree(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 2, -2147483648) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %.not50 = icmp eq ptr %1, null
   br i1 %.not50, label %.loopexit, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %5
   %6 = getelementptr inbounds i8, ptr %0, i64 320
   %7 = getelementptr inbounds i8, ptr %0, i64 336
-  %8 = sext i32 %2 to i64
+  %8 = zext nneg i32 %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph53, %._crit_edge
-  %.04051 = phi ptr [ %1, %.lr.ph53 ], [ %54, %._crit_edge ]
+  %.04051 = phi ptr [ %1, %.lr.ph53 ], [ %52, %._crit_edge ]
   %10 = getelementptr inbounds i8, ptr %.04051, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not45 = icmp eq ptr %11, null
@@ -745,62 +745,62 @@ define internal fastcc range(i32 0, 2) i32 @addMultiplicityGroups(ptr nocapture 
   %28 = load i32, ptr %27, align 4
   %29 = udiv i32 %28, %2
   %30 = sext i32 %21 to i64
-  %31 = sext i32 %25 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %51
-  %indvars.iv56 = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next57, %51 ]
-  %.04149 = phi i32 [ %29, %.lr.ph.preheader ], [ %.2, %51 ]
-  %32 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv56
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %.preheader.preheader, label %51
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
+  %indvars.iv56 = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next57, %50 ]
+  %.04149 = phi i32 [ %29, %.lr.ph.preheader ], [ %.2, %50 ]
+  %31 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv56
+  %32 = load i8, ptr %31, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %.preheader.preheader, label %50
 
 .preheader.preheader:                             ; preds = %.lr.ph
-  %35 = zext i32 %.04149 to i64
+  %34 = zext i32 %.04149 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv = phi i64 [ %35, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %36 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %37 = load i8, ptr %36, align 1
-  %38 = icmp eq i8 %37, 1
+  %indvars.iv = phi i64 [ %34, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
+  %35 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %38, label %.preheader, label %39, !llvm.loop !17
+  br i1 %37, label %.preheader, label %38, !llvm.loop !17
 
-39:                                               ; preds = %.preheader
-  %40 = trunc nuw i64 %indvars.iv to i32
-  %41 = mul nsw i32 %2, %40
-  %42 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04051, i32 noundef %41, i32 noundef %2, i32 noundef 4) #20
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit, label %44
+38:                                               ; preds = %.preheader
+  %39 = trunc nuw i64 %indvars.iv to i32
+  %40 = mul nsw i32 %2, %39
+  %41 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.04051, i32 noundef %40, i32 noundef %2, i32 noundef 4) #20
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %.loopexit, label %43
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
-  %46 = load ptr, ptr %7, align 8
-  %47 = mul nsw i64 %indvars.iv56, %8
-  %48 = getelementptr inbounds i32, ptr %46, i64 %47
-  %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %42, i64 12
-  store i32 %49, ptr %50, align 4
-  store i8 1, ptr %32, align 1
-  store i8 1, ptr %45, align 1
-  br label %51
+43:                                               ; preds = %38
+  %44 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %45 = load ptr, ptr %7, align 8
+  %46 = mul nsw i64 %indvars.iv56, %8
+  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %41, i64 12
+  store i32 %48, ptr %49, align 4
+  store i8 1, ptr %31, align 1
+  store i8 1, ptr %44, align 1
+  br label %50
 
-51:                                               ; preds = %.lr.ph, %44
-  %.2 = phi i32 [ %40, %44 ], [ %.04149, %.lr.ph ]
+50:                                               ; preds = %.lr.ph, %43
+  %.2 = phi i32 [ %39, %43 ], [ %.04149, %.lr.ph ]
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
-  %52 = icmp slt i64 %indvars.iv.next57, %31
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  %lftr.wideiv = trunc i64 %indvars.iv.next57 to i32
+  %exitcond.not = icmp eq i32 %25, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %51, %14
-  %53 = getelementptr inbounds i8, ptr %.04051, i64 40
-  %54 = load ptr, ptr %53, align 8
-  %.not = icmp eq ptr %54, null
+._crit_edge:                                      ; preds = %50, %14
+  %51 = getelementptr inbounds i8, ptr %.04051, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %.not = icmp eq ptr %52, null
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !19
 
-.loopexit:                                        ; preds = %._crit_edge, %39, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %39 ], [ 1, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %38, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %38 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 
@@ -1621,7 +1621,7 @@ define void @Cudd_SetTree(ptr nocapture noundef %0, ptr noundef %1) local_unname
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 136
   %12 = load i32, ptr %11, align 8
-  tail call fastcc void @fixVarTree(ptr noundef nonnull %1, ptr noundef %10, i32 noundef %12)
+  tail call fastcc void @fixVarTree(ptr noundef %1, ptr noundef %10, i32 noundef %12)
   br label %13
 
 13:                                               ; preds = %6, %8
@@ -1631,7 +1631,7 @@ define void @Cudd_SetTree(ptr nocapture noundef %0, ptr noundef %1) local_unname
 declare void @Mtr_FreeTree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fixVarTree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
+define internal fastcc void @fixVarTree(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #14 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %17, %3
@@ -1658,7 +1658,7 @@ tailrecurse:                                      ; preds = %17, %3
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %12
-  tail call fastcc void @fixVarTree(ptr noundef nonnull %15, ptr noundef %1, i32 noundef %2)
+  tail call fastcc void @fixVarTree(ptr noundef %15, ptr noundef %1, i32 noundef %2)
   br label %17
 
 17:                                               ; preds = %16, %12
@@ -1715,7 +1715,7 @@ define void @Cudd_SetZddTree(ptr nocapture noundef %0, ptr noundef %1) local_unn
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 140
   %12 = load i32, ptr %11, align 4
-  tail call fastcc void @fixVarTree(ptr noundef nonnull %1, ptr noundef %10, i32 noundef %12)
+  tail call fastcc void @fixVarTree(ptr noundef %1, ptr noundef %10, i32 noundef %12)
   br label %13
 
 13:                                               ; preds = %6, %8

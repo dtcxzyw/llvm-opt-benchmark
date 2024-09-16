@@ -43573,7 +43573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL22AddColumnNameToBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt13unordered_setIS5_NS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %base_name, ptr noundef nonnull align 8 dereferenceable(56) %current_names) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL22AddColumnNameToBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt13unordered_setIS5_NS_33CaseInsensitiveStringHashFunctionENS_29CaseInsensitiveStringEqualityESaIS5_EE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %base_name, ptr noundef nonnull align 8 dereferenceable(56) %current_names) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.1811", align 8
   %__dnew.i.i.i = alloca i64, align 8

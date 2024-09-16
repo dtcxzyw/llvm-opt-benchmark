@@ -942,7 +942,7 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   br i1 %425, label %426, label %checkSplitConditions.exit.thread
 
 426:                                              ; preds = %422
-  call fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %221, i1 noundef zeroext %24)
+  call fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %17, ptr noundef nonnull %221, i1 noundef zeroext %24)
   br label %.loopexit
 
 checkSplitConditions.exit.thread:                 ; preds = %393, %422, %checkSplitConditions.exit
@@ -3829,7 +3829,7 @@ declare ptr @spgFormLeafTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca %struct.spgxlogMoveLeafs, align 4
   %9 = zext i1 %5 to i8

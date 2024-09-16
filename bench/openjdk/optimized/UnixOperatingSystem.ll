@@ -202,7 +202,7 @@ define internal fastcc range(i32 -2, 1) i32 @get_totalticks(i32 noundef %0, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden double @get_cpu_load(i32 noundef %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
-  %3 = call fastcc double @get_cpuload_internal(i32 noundef %0, ptr noundef nonnull %2, i32 noundef 1)
+  %3 = call fastcc double @get_cpuload_internal(i32 noundef %0, ptr noundef %2, i32 noundef 1)
   %4 = fcmp olt double %3, 0.000000e+00
   br i1 %4, label %10, label %5
 
@@ -219,7 +219,7 @@ define hidden double @get_cpu_load(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc double @get_cpuload_internal(i32 noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store double 0.000000e+00, ptr %1, align 8
@@ -320,7 +320,7 @@ get_jvmticks.exit:                                ; preds = %21
 ; Function Attrs: nounwind uwtable
 define hidden double @get_process_load() local_unnamed_addr #0 {
   %1 = alloca double, align 8
-  %2 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef nonnull %1, i32 noundef 0)
+  %2 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef %1, i32 noundef 0)
   %3 = fcmp olt double %2, 0.000000e+00
   %4 = load double, ptr %1, align 8
   %5 = fadd double %2, %4
@@ -359,7 +359,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getCpuLoad0(
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef nonnull %3, i32 noundef 1)
+  %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef %3, i32 noundef 1)
   %8 = fcmp olt double %7, 0.000000e+00
   br i1 %8, label %get_cpu_load.exit, label %9
 
@@ -389,7 +389,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCp
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef nonnull %3, i32 noundef 0)
+  %7 = call fastcc double @get_cpuload_internal(i32 noundef -1, ptr noundef %3, i32 noundef 0)
   %8 = fcmp olt double %7, 0.000000e+00
   %9 = load double, ptr %3, align 8
   %10 = fadd double %7, %9
@@ -416,7 +416,7 @@ define double @Java_com_sun_management_internal_OperatingSystemImpl_getSingleCpu
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %11 = call fastcc double @get_cpuload_internal(i32 noundef %2, ptr noundef nonnull %4, i32 noundef 1)
+  %11 = call fastcc double @get_cpuload_internal(i32 noundef %2, ptr noundef %4, i32 noundef 1)
   %12 = fcmp olt double %11, 0.000000e+00
   br i1 %12, label %get_cpu_load.exit, label %13
 

@@ -2580,7 +2580,7 @@ _ZNK4pstd8optionalIN4pbrt16ImageChannelDescEE5valueEv.exit.i: ; preds = %entry
   br label %_ZN4pstd8optionalIN4pbrt16ImageChannelDescEEC2ERKS3_.exit
 
 _ZN4pstd8optionalIN4pbrt16ImageChannelDescEEC2ERKS3_.exit: ; preds = %entry, %_ZNK4pstd8optionalIN4pbrt16ImageChannelDescEE5valueEv.exit.i
-  invoke fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias nonnull align 8 %item, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias align 8 %item, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef %agg.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN4pstd8optionalIN4pbrt16ImageChannelDescEEC2ERKS3_.exit
@@ -2709,7 +2709,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef %channelDesc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull %channelDesc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %getValues = alloca %class.anon, align 8
   %channelNames = alloca %"class.std::vector", align 8
@@ -3389,7 +3389,7 @@ _ZNK4pstd8optionalIN4pbrt16ImageChannelDescEE5valueEv.exit.i: ; preds = %_ZNSt10
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %_ZNK4pstd8optionalIN4pbrt16ImageChannelDescEE5valueEv.exit.i
-  invoke fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull %agg.tmp)
+  invoke fastcc void @_ZN4pbrtL19GetImageDisplayItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_5ImageEN4pstd8optionalINS_16ImageChannelDescEEE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %title, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef %agg.tmp)
           to label %invoke.cont2 unwind label %lpad1
 
 invoke.cont2:                                     ; preds = %invoke.cont

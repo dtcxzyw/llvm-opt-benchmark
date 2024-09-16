@@ -4004,7 +4004,7 @@ declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #1
 declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ext4_es_free_extent(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @ext4_es_free_extent(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 696
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -1
@@ -4086,7 +4086,7 @@ define internal fastcc void @ext4_es_free_extent(ptr noundef %0, ptr noundef %1)
 
 48:                                               ; preds = %42, %2
   %49 = load ptr, ptr @ext4_es_cachep, align 8
-  tail call void @kmem_cache_free(ptr noundef %49, ptr noundef %1) #11
+  tail call void @kmem_cache_free(ptr noundef %49, ptr noundef nonnull %1) #11
   ret void
 }
 
@@ -4643,7 +4643,7 @@ declare dso_local void @percpu_counter_add_batch(ptr noundef, i64 noundef, i32 n
 declare dso_local i32 @__SCT__tp_func_ext4_es_lookup_extent_exit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val, i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val, i32 noundef %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 3458764513820540928
@@ -4651,7 +4651,7 @@ define internal fastcc void @count_rsvd(ptr nocapture readonly %.40.val.872.val,
   br i1 %8, label %9, label %99
 
 9:                                                ; preds = %4
-  %10 = icmp slt i64 %1, 1
+  %10 = icmp eq i64 %1, 0
   br i1 %10, label %11, label %12, !prof !19
 
 11:                                               ; preds = %9

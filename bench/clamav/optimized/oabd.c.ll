@@ -610,35 +610,35 @@ define internal i32 @oabd_sys_write(ptr nocapture noundef %0, ptr noundef %1, i3
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %6(ptr noundef %8, ptr noundef %1, i32 noundef %2) #5
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %23
+  br i1 %10, label %11, label %24
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  br label %.lr.ph.i
+  br label %14
 
-.lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %.010.i = phi ptr [ %15, %.lr.ph.i ], [ %1, %11 ]
-  %.059.i = phi i32 [ %14, %.lr.ph.i ], [ %9, %11 ]
-  %.068.i = phi i32 [ %21, %.lr.ph.i ], [ %13, %11 ]
-  %14 = add nsw i32 %.059.i, -1
-  %15 = getelementptr inbounds i8, ptr %.010.i, i64 1
-  %16 = load i8, ptr %.010.i, align 1
+14:                                               ; preds = %14, %11
+  %.010.i = phi ptr [ %1, %11 ], [ %16, %14 ]
+  %.059.i = phi i32 [ %9, %11 ], [ %15, %14 ]
+  %.068.i = phi i32 [ %13, %11 ], [ %22, %14 ]
+  %15 = add nsw i32 %.059.i, -1
+  %16 = getelementptr inbounds i8, ptr %.010.i, i64 1
+  %17 = load i8, ptr %.010.i, align 1
   %.06.tr.i = trunc i32 %.068.i to i8
-  %.narrow.i = xor i8 %16, %.06.tr.i
-  %17 = zext i8 %.narrow.i to i64
-  %18 = getelementptr inbounds [256 x i32], ptr @crc32_table, i64 0, i64 %17
-  %19 = load i32, ptr %18, align 4
-  %20 = lshr i32 %.068.i, 8
-  %21 = xor i32 %19, %20
-  %22 = icmp ugt i32 %.059.i, 1
-  br i1 %22, label %.lr.ph.i, label %crc32.exit
+  %.narrow.i = xor i8 %17, %.06.tr.i
+  %18 = zext i8 %.narrow.i to i64
+  %19 = getelementptr inbounds [256 x i32], ptr @crc32_table, i64 0, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %21 = lshr i32 %.068.i, 8
+  %22 = xor i32 %20, %21
+  %23 = icmp ugt i32 %.059.i, 1
+  br i1 %23, label %14, label %crc32.exit
 
-crc32.exit:                                       ; preds = %.lr.ph.i
-  store i32 %21, ptr %12, align 8
-  br label %23
+crc32.exit:                                       ; preds = %14
+  store i32 %22, ptr %12, align 8
+  br label %24
 
-23:                                               ; preds = %crc32.exit, %3
+24:                                               ; preds = %crc32.exit, %3
   ret i32 %9
 }
 

@@ -471,13 +471,13 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %20
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
-  %.sroa.01.013.i = load ptr, ptr %32, align 8
-  %.not.i = icmp eq ptr %.sroa.01.013.i, null
+  %.sroa.01.012.i = load ptr, ptr %32, align 8
+  %.not.i = icmp eq ptr %.sroa.01.012.i, null
   br i1 %.not.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %.thread.i
-  %.sroa.01.014.i = phi ptr [ %.sroa.01.0.i, %.thread.i ], [ %.sroa.01.013.i, %31 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 24
+  %.sroa.01.013.i = phi ptr [ %.sroa.01.0.i, %.thread.i ], [ %.sroa.01.012.i, %31 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.01.013.i, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load i8, ptr %34, align 8
   switch i8 %35, label %.thread.i [
@@ -510,10 +510,10 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %20
   br i1 %48, label %"_ZZN4llvm16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEENK3$_0clEPNS_11InstructionE.exit", label %.thread.i
 
 .thread.i:                                        ; preds = %47, %.lr.ph.i
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.01.013.i, i64 8
   %.sroa.01.0.i = load ptr, ptr %49, align 8
-  %.not17.i = icmp eq ptr %.sroa.01.0.i, null
-  br i1 %.not17.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %.lr.ph.i
+  %.not16.i = icmp eq ptr %.sroa.01.0.i, null
+  br i1 %.not16.i, label %_ZN4llvm11SmallVectorIPNS_5ValueELj4EED2Ev.exit, label %.lr.ph.i
 
 "_ZZN4llvm16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEENK3$_0clEPNS_11InstructionE.exit": ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -874,11 +874,11 @@ _ZNK4llvm7PHINode18getBasicBlockIndexEPKNS_10BasicBlockE.exit.loopexit.i.i.i.i.i
   br label %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_11InstructionELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit
 
 .thread207:                                       ; preds = %219, %._crit_edge233, %230
-  %236 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_2EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr nonnull %3)
+  %236 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_2EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %3)
   br i1 %236, label %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_11InstructionELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit, label %237
 
 237:                                              ; preds = %.thread207
-  %238 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_3EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr nonnull %3)
+  %238 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_3EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr %3)
   br i1 %238, label %_ZN4llvm13SmallDenseMapIPNS_5ValueEPNS_11InstructionELj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEED2Ev.exit, label %239
 
 239:                                              ; preds = %237
@@ -1751,7 +1751,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit:  ; preds = %._crit_edge, %128
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_2EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_2EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %.idx3 = shl nsw i64 %4, 3
@@ -1925,7 +1925,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_11SmallVectorIPN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_3EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_5ValueELj4EEEZNS_16InstCombinerImpl19foldIntegerTypedPHIERNS_7PHINodeEE3$_3EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture nonnull readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #15
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -8449,7 +8449,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %97, %99
   %104 = phi ptr [ %98, %97 ], [ %103, %99 ]
   %.pre-phi2.i.i.i = phi i64 [ %.pre1.i.i.i, %97 ], [ %101, %99 ]
   %105 = getelementptr inbounds %"class.llvm::Use", ptr %104, i64 %.pre-phi2.i.i.i
-  %106 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_0EEbOT_T0_"(ptr %104, ptr %105, ptr nonnull %4, ptr %87)
+  %106 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_0EEbOT_T0_"(ptr %104, ptr %105, ptr %4, ptr %87)
   br i1 %106, label %107, label %.critedge3
 
 107:                                              ; preds = %_ZN4llvm7PHINode15incoming_valuesEv.exit
@@ -8511,7 +8511,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %.critedge
   %132 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 0, ptr %132, align 8
   call void @_ZN4llvm15SmallPtrSetImplIPNS_7PHINodeEE6insertES2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %8, ptr noundef nonnull align 8 dereferenceable(28) %7, ptr noundef nonnull %1)
-  %133 = call fastcc noundef zeroext i1 @_ZL14isDeadPHICyclePN4llvm7PHINodeERNS_15SmallPtrSetImplIS1_EE(ptr noundef nonnull %125, ptr noundef nonnull align 8 dereferenceable(28) %7)
+  %133 = call fastcc noundef zeroext i1 @_ZL14isDeadPHICyclePN4llvm7PHINodeERNS_15SmallPtrSetImplIS1_EE(ptr noundef %125, ptr noundef nonnull align 8 dereferenceable(28) %7)
   br i1 %133, label %134, label %138
 
 134:                                              ; preds = %127
@@ -8582,7 +8582,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit.thread:          ; preds = %switch.early.test, 
   %164 = getelementptr inbounds i8, ptr %9, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %164, i64 noundef 6) #15
   %165 = load ptr, ptr %115, align 8
-  %166 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_1EEbOT_T0_"(ptr %165, ptr null, ptr nonnull %1, ptr nonnull %9)
+  %166 = call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_1EEbOT_T0_"(ptr %165, ptr null, ptr %1, ptr %9)
   br i1 %166, label %167, label %.thread
 
 167:                                              ; preds = %163
@@ -8804,7 +8804,7 @@ _ZL21getAnyNonZeroConstIntRN4llvm7PHINodeE.exit:  ; preds = %_ZNK4llvm11Constant
   store i32 0, ptr %255, align 4
   %256 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 0, ptr %256, align 8
-  %257 = call fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(28) %12)
+  %257 = call fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(28) %12)
   br i1 %257, label %258, label %261
 
 258:                                              ; preds = %.loopexit292.thread
@@ -9198,7 +9198,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_5ValueEE12makeIteratorEPKPKv.exit: ; preds = %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr %0, ptr readnone %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeIPNS_3UseEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_0EEbOT_T0_"(ptr %.0.val, ptr %.8.val, ptr nonnull %0, ptr readnone %1) unnamed_addr #0 {
   %3 = ptrtoint ptr %.8.val to i64
   %4 = ptrtoint ptr %.0.val to i64
   %5 = sub i64 %3, %4
@@ -9610,7 +9610,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_5ValueEE6insertES2_.exit.i.i78.i.i.i.i: ; preds = 
 declare noundef ptr @_ZN4llvm8CastInst17CreatePointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineENS_14InsertPositionE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14isDeadPHICyclePN4llvm7PHINodeERNS_15SmallPtrSetImplIS1_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(28) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14isDeadPHICyclePN4llvm7PHINodeERNS_15SmallPtrSetImplIS1_EE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(28) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9667,7 +9667,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %tailrecurse
   br label %_ZN4llvm15SmallPtrSetImplIPNS_7PHINodeEE6insertES2_.exit
 
 30:                                               ; preds = %._crit_edge.i.i, %13
-  %31 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef %.tr) #15, !noalias !135
+  %31 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull %.tr) #15, !noalias !135
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %31, 1
   %.pre8.i = load i32, ptr %3, align 4
   %32 = trunc i8 %.fca.1.extract.i.i to i1
@@ -9700,7 +9700,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_7PHINodeEE6insertES2_.exit: ; preds = %.lr.ph.i.i,
 declare noundef zeroext i1 @_ZNK4llvm5Value14hasNUsesOrMoreEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr readonly %0, ptr %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_16InstCombinerImpl12visitPHINodeERNS_7PHINodeEE3$_1EEbOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nonnull readonly %0, ptr nonnull %1) unnamed_addr #0 {
   %3 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
   %.not12.i.i.i.i = icmp eq ptr %.0.val, %.8.val
   br i1 %.not12.i.i.i.i, label %"_ZSt6all_ofIN4llvm5Value18user_iterator_implINS0_4UserEEEZNS0_16InstCombinerImpl12visitPHINodeERNS0_7PHINodeEE3$_1EbT_S9_T0_.exit", label %.lr.ph.i.i.i.i
@@ -9856,7 +9856,7 @@ _ZN4llvm15SmallVectorImplIPNS_11InstructionEED2Ev.exit: ; preds = %1, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !noalias !139
   %6 = load ptr, ptr %2, align 8, !noalias !139
@@ -9896,7 +9896,7 @@ define internal fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERP
   br label %_ZN4llvm15SmallPtrSetImplIPNS_7PHINodeEE6insertES2_.exit
 
 23:                                               ; preds = %._crit_edge.i.i, %3
-  %24 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef %0) #15, !noalias !139
+  %24 = tail call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull %0) #15, !noalias !139
   %.fca.1.extract.i.i = extractvalue { ptr, i8 } %24, 1
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 20
   %.pre8.i = load i32, ptr %.phi.trans.insert.i, align 4
@@ -9951,7 +9951,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %36, %39
   br i1 %.not29, label %48, label %53
 
 48:                                               ; preds = %.lr.ph
-  %49 = tail call fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef nonnull %46, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2)
+  %49 = tail call fastcc noundef zeroext i1 @_ZL14PHIsEqualValuePN4llvm7PHINodeERPNS_5ValueERNS_15SmallPtrSetImplIS1_EE(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2)
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %48

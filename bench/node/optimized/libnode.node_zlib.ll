@@ -6555,7 +6555,7 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
 
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   %ctx_.i = getelementptr inbounds i8, ptr %retval.i17.0.i, i64 240
-  call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nonnull align 8 %err, ptr noundef nonnull align 8 dereferenceable(224) %ctx_.i)
+  call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias align 8 %err, ptr noundef nonnull align 8 dereferenceable(224) %ctx_.i)
   %10 = getelementptr inbounds i8, ptr %err, i64 8
   %err.val = load ptr, ptr %10, align 8
   %cmp.i.not = icmp eq ptr %err.val, null
@@ -7066,7 +7066,7 @@ land.rhs.i:                                       ; preds = %if.end71.i, %while.
   br i1 %cmp84.not.i, label %_ZN4node12_GLOBAL__N_111ZlibContext16DoThreadPoolWorkEv.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nonnull align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(224) %ctx_)
+  call fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(224) %ctx_)
   %18 = load i32, ptr %flush_38.i, align 8
   %call87.i = tail call i32 @inflate(ptr noundef nonnull %strm_37.i, i32 noundef %18) #22
   store i32 %call87.i, ptr %err_.i, align 4
@@ -8989,7 +8989,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @inflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN4node12_GLOBAL__N_111ZlibContext11ResetStreamEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN4node12_GLOBAL__N_111ZlibContext8InitZlibEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %err_ = getelementptr inbounds i8, ptr %this, i64 52

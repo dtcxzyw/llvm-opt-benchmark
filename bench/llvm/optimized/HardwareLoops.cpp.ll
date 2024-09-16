@@ -2643,9 +2643,9 @@ declare noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef n
 declare noundef ptr @_ZN4llvm12SCEVExpander13expandCodeForEPKNS_4SCEVEPNS_4TypeENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(816), ptr noundef, ptr noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL15CanGenerateTestPN4llvm4LoopEPNS_5ValueEENK3$_0clEPNS_8ICmpInstES3_j"(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -64
-  %5 = zext i32 %2 to i64
+  %5 = zext nneg i32 %2 to i64
   %6 = getelementptr inbounds %"class.llvm::Use", ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 8
@@ -2671,7 +2671,7 @@ _ZNK4llvm11ConstantInt6isZeroEv.exit:             ; preds = %9
 
 19:                                               ; preds = %14, %_ZNK4llvm11ConstantInt6isZeroEv.exit
   %20 = xor i32 %2, 1
-  %21 = zext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds %"class.llvm::Use", ptr %4, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %1

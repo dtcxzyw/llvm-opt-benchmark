@@ -8941,7 +8941,7 @@ if.then42:                                        ; preds = %sw.bb
 invoke.cont47:                                    ; preds = %if.then42
   %24 = load ptr, ptr %ref.tmp45, align 8
   store ptr %24, ptr %agg.tmp44, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp44)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef %agg.tmp, ptr noundef %agg.tmp44)
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont47
@@ -8990,7 +8990,7 @@ if.else53:                                        ; preds = %sw.bb
 invoke.cont59:                                    ; preds = %if.else53
   %31 = load ptr, ptr %ref.tmp57, align 8
   store ptr %31, ptr %agg.tmp56, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef nonnull %agg.tmp54, ptr noundef nonnull %agg.tmp56)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef %agg.tmp54, ptr noundef %agg.tmp56)
           to label %invoke.cont63 unwind label %lpad62
 
 invoke.cont63:                                    ; preds = %invoke.cont59
@@ -9042,7 +9042,7 @@ if.then69:                                        ; preds = %sw.bb67
 invoke.cont75:                                    ; preds = %if.then69
   %38 = load ptr, ptr %ref.tmp73, align 8
   store ptr %38, ptr %agg.tmp72, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef nonnull %agg.tmp70, ptr noundef nonnull %agg.tmp72)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef %agg.tmp70, ptr noundef %agg.tmp72)
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %invoke.cont75
@@ -9091,7 +9091,7 @@ if.else83:                                        ; preds = %sw.bb67
 invoke.cont89:                                    ; preds = %if.else83
   %45 = load ptr, ptr %ref.tmp87, align 8
   store ptr %45, ptr %agg.tmp86, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef nonnull %agg.tmp84, ptr noundef nonnull %agg.tmp86)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef %agg.tmp84, ptr noundef %agg.tmp86)
           to label %invoke.cont93 unwind label %lpad92
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -9143,7 +9143,7 @@ if.then99:                                        ; preds = %sw.bb97
 invoke.cont105:                                   ; preds = %if.then99
   %52 = load ptr, ptr %ref.tmp103, align 8
   store ptr %52, ptr %agg.tmp102, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef nonnull %agg.tmp100, ptr noundef nonnull %agg.tmp102)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef %agg.tmp100, ptr noundef %agg.tmp102)
           to label %invoke.cont109 unwind label %lpad108
 
 invoke.cont109:                                   ; preds = %invoke.cont105
@@ -9192,7 +9192,7 @@ if.else113:                                       ; preds = %sw.bb97
 invoke.cont119:                                   ; preds = %if.else113
   %59 = load ptr, ptr %ref.tmp117, align 8
   store ptr %59, ptr %agg.tmp116, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef nonnull %agg.tmp114, ptr noundef nonnull %agg.tmp116)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef %agg.tmp114, ptr noundef %agg.tmp116)
           to label %invoke.cont123 unwind label %lpad122
 
 invoke.cont123:                                   ; preds = %invoke.cont119
@@ -9244,7 +9244,7 @@ if.then129:                                       ; preds = %sw.bb127
 invoke.cont135:                                   ; preds = %if.then129
   %66 = load ptr, ptr %ref.tmp133, align 8
   store ptr %66, ptr %agg.tmp132, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef nonnull %agg.tmp130, ptr noundef nonnull %agg.tmp132)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 19, ptr noundef %agg.tmp130, ptr noundef %agg.tmp132)
           to label %invoke.cont139 unwind label %lpad138
 
 invoke.cont139:                                   ; preds = %invoke.cont135
@@ -9293,7 +9293,7 @@ if.else143:                                       ; preds = %sw.bb127
 invoke.cont149:                                   ; preds = %if.else143
   %73 = load ptr, ptr %ref.tmp147, align 8
   store ptr %73, ptr %agg.tmp146, align 8
-  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef nonnull %agg.tmp144, ptr noundef nonnull %agg.tmp146)
+  invoke fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef 21, ptr noundef %agg.tmp144, ptr noundef %agg.tmp146)
           to label %invoke.cont153 unwind label %lpad152
 
 invoke.cont153:                                   ; preds = %invoke.cont149
@@ -9755,7 +9755,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit6:              ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef %k, ptr nocapture noundef readonly %node, ptr noundef %c) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory2bvL10mkNodeKindENS0_4kind6Kind_tENS0_12NodeTemplateILb0EEES6_(ptr noalias align 8 %agg.result, i32 noundef range(i32 19, 22) %k, ptr nocapture noundef nonnull readonly %node, ptr noundef nonnull %c) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %nb = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.561", align 8

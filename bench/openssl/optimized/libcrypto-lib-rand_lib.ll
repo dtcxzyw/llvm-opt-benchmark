@@ -1111,7 +1111,7 @@ return:                                           ; preds = %entry, %err, %if.en
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @rand_new_drbg(ptr noundef %libctx, ptr noundef %parent, i32 noundef %reseed_interval, i64 noundef %reseed_time_interval, i32 noundef %use_df) unnamed_addr #0 {
+define internal fastcc ptr @rand_new_drbg(ptr noundef %libctx, ptr noundef %parent, i32 noundef range(i32 256, 65537) %reseed_interval, i64 noundef range(i64 420, 3601) %reseed_time_interval, i32 noundef range(i32 0, 2) %use_df) unnamed_addr #0 {
 entry:
   %reseed_interval.addr = alloca i32, align 4
   %reseed_time_interval.addr = alloca i64, align 8

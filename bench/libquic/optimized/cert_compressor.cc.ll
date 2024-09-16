@@ -509,7 +509,7 @@ lpad40.body:                                      ; preds = %lpad.i52, %lpad40
 
 invoke.cont43:                                    ; preds = %if.end36
   store ptr %z, ptr %scoped_z, align 8
-  invoke fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %zlib_dict, ptr noundef nonnull align 8 dereferenceable(24) %entries, ptr noundef nonnull align 8 dereferenceable(24) %certs)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %zlib_dict, ptr noundef nonnull align 8 dereferenceable(24) %entries, ptr noundef nonnull align 8 dereferenceable(24) %certs)
           to label %invoke.cont44 unwind label %lpad20
 
 invoke.cont44:                                    ; preds = %invoke.cont43
@@ -1820,7 +1820,7 @@ invoke.cont43:                                    ; preds = %invoke.cont42
   br i1 %cmp45, label %if.then46, label %if.end59
 
 if.then46:                                        ; preds = %invoke.cont43
-  invoke fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias nonnull align 8 %zlib_dict, ptr noundef nonnull align 8 dereferenceable(24) %entries, ptr noundef nonnull align 8 dereferenceable(24) %out_certs)
+  invoke fastcc void @_ZN3net12_GLOBAL__N_118ZlibDictForEntriesERKSt6vectorINS0_9CertEntryESaIS2_EERKS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noalias align 8 %zlib_dict, ptr noundef nonnull align 8 dereferenceable(24) %entries, ptr noundef nonnull align 8 dereferenceable(24) %out_certs)
           to label %invoke.cont47 unwind label %lpad31
 
 invoke.cont47:                                    ; preds = %if.then46

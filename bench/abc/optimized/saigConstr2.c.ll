@@ -2205,9 +2205,9 @@ define range(i32 0, 2) i32 @Saig_DetectTryPolarity(ptr noundef %0, i32 noundef %
   %24 = getelementptr inbounds i32, ptr %16, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not = icmp eq i32 %5, 0
-  %26 = shl nsw i32 %25, 1
-  %27 = zext i1 %.not to i32
-  %28 = or disjoint i32 %26, %27
+  %26 = zext i1 %.not to i32
+  %27 = shl nsw i32 %25, 1
+  %28 = or disjoint i32 %27, %26
   %29 = getelementptr inbounds i8, ptr %10, i64 4
   store i32 %28, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %10, i64 8

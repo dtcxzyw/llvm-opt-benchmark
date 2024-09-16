@@ -379,7 +379,7 @@ define hidden noundef ptr @_ZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt
   store ptr %68, ptr %6, align 8
   %70 = getelementptr inbounds i8, ptr %4, i64 8
   %71 = load i64, ptr %70, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %0, i64 noundef %71)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %7, ptr %0, i64 noundef %71)
           to label %72 unwind label %.thread
 
 72:                                               ; preds = %69
@@ -1599,7 +1599,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare noundef ptr @_ZNK4pugi16xml_parse_result11descriptionEv(ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.0.val, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tinyformat::detail::FormatListN", align 8
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::basic_fstream", align 8
@@ -1686,7 +1686,7 @@ define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_string
 
 40:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !5
-  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
+  invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %_ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit unwind label %41
 
 41:                                               ; preds = %40, %.noexc
@@ -4018,7 +4018,7 @@ define internal fastcc noundef ptr @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic
 
 224:                                              ; preds = %218
   %.val498 = load ptr, ptr %222, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %.val498, i64 noundef %223)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %7, ptr %.val498, i64 noundef %223)
           to label %225 unwind label %.thread
 
 225:                                              ; preds = %224
@@ -4165,7 +4165,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN4nori11loadFromX
 
 272:                                              ; preds = %268
   %.val497 = load ptr, ptr %270, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %.val497, i64 noundef %271)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %11, ptr %.val497, i64 noundef %271)
           to label %273 unwind label %.thread625
 
 273:                                              ; preds = %272
@@ -4241,7 +4241,7 @@ switch.edge:                                      ; preds = %_ZNSt3mapINSt7__cxx
 
 295:                                              ; preds = %291
   %.val496 = load ptr, ptr %293, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr %.val496, i64 noundef %294)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %13, ptr %.val496, i64 noundef %294)
           to label %296 unwind label %.thread636
 
 296:                                              ; preds = %295
@@ -4292,7 +4292,7 @@ switch.edge:                                      ; preds = %_ZNSt3mapINSt7__cxx
 
 311:                                              ; preds = %305
   %.val495 = load ptr, ptr %309, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val495, i64 noundef %310)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val495, i64 noundef %310)
           to label %312 unwind label %.thread647
 
 312:                                              ; preds = %311
@@ -4350,7 +4350,7 @@ switch.edge:                                      ; preds = %_ZNSt3mapINSt7__cxx
 
 329:                                              ; preds = %325
   %.val494 = load ptr, ptr %327, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr %.val494, i64 noundef %328)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %16, ptr %.val494, i64 noundef %328)
           to label %330 unwind label %.thread658
 
 330:                                              ; preds = %329
@@ -4629,7 +4629,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit517: ;
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE17_M_insert_unique_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i.i: ; preds = %416, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %22)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %405, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %22)
           to label %421 unwind label %462
 
 419:                                              ; preds = %416, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit517
@@ -4902,7 +4902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %496 unwind label %518
 
 496:                                              ; preds = %495
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %492, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %31)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %492, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %31)
           to label %497 unwind label %520
 
 497:                                              ; preds = %496
@@ -5065,7 +5065,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %546 unwind label %570
 
 546:                                              ; preds = %545
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %542, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %43)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %542, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %43)
           to label %547 unwind label %572
 
 547:                                              ; preds = %546
@@ -5233,7 +5233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %598 unwind label %622
 
 598:                                              ; preds = %597
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %594, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %56)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %594, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %56)
           to label %599 unwind label %624
 
 599:                                              ; preds = %598
@@ -5401,7 +5401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %650 unwind label %675
 
 650:                                              ; preds = %649
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %646, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %69)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %646, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %69)
           to label %651 unwind label %677
 
 651:                                              ; preds = %650
@@ -5570,7 +5570,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %703 unwind label %733
 
 703:                                              ; preds = %702
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %699, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %82)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %699, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %82)
           to label %704 unwind label %735
 
 704:                                              ; preds = %703
@@ -5747,7 +5747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %761 unwind label %791
 
 761:                                              ; preds = %760
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %757, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %96)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %757, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %96)
           to label %762 unwind label %793
 
 762:                                              ; preds = %761
@@ -5924,7 +5924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %819 unwind label %849
 
 819:                                              ; preds = %818
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %815, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %110)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %815, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %110)
           to label %820 unwind label %851
 
 820:                                              ; preds = %819
@@ -6095,7 +6095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %875 unwind label %888
 
 875:                                              ; preds = %874
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %873, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %124)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %873, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %124)
           to label %876 unwind label %890
 
 876:                                              ; preds = %875
@@ -6189,7 +6189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %901 unwind label %926
 
 901:                                              ; preds = %900
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %899, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %133)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %899, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %133)
           to label %902 unwind label %928
 
 902:                                              ; preds = %901
@@ -6296,7 +6296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %939 unwind label %959
 
 939:                                              ; preds = %938
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %937, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %142)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %937, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %142)
           to label %940 unwind label %961
 
 940:                                              ; preds = %939
@@ -6509,7 +6509,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %1013 unwind label %1044
 
 1013:                                             ; preds = %1012
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1011, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %156)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1011, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %156)
           to label %1014 unwind label %1046
 
 1014:                                             ; preds = %1013
@@ -6634,7 +6634,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %1059 unwind label %1118
 
 1059:                                             ; preds = %1058
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1055, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %167)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1055, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %167)
           to label %1060 unwind label %1120
 
 1060:                                             ; preds = %1059
@@ -6856,7 +6856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit526: ;
           to label %1147 unwind label %1386
 
 1147:                                             ; preds = %1146
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1141, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %182)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr noundef nonnull align 8 dereferenceable(16) %1141, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %182)
           to label %1148 unwind label %1388
 
 1148:                                             ; preds = %1147
@@ -7460,7 +7460,7 @@ _ZNK5Eigen9TransformIfLi3ELi2ELi0EEmlERKS1_.exit560: ; preds = %1351
 
 1436:                                             ; preds = %1425
   %.val = load ptr, ptr %1434, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %210, ptr %.val, i64 noundef %1435)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %210, ptr %.val, i64 noundef %1435)
           to label %1437 unwind label %.thread721
 
 1437:                                             ; preds = %1436
@@ -7634,7 +7634,7 @@ declare noundef zeroext i1 @_ZNK4pugi17xml_node_iteratorneERKS0_(ptr noundef non
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4pugi17xml_node_iteratorppEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_2clERKN4pugi8xml_nodeESt3setIS5_St4lessIS5_ESaIS5_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pugi::xml_object_range.96", align 8
   %5 = alloca %"class.pugi::xml_attribute_iterator", align 8
   %6 = alloca %"class.pugi::xml_attribute_iterator", align 8
@@ -7790,7 +7790,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 60:                                               ; preds = %56
   %.val26 = load ptr, ptr %58, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %.val26, i64 noundef %59)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %12, ptr %.val26, i64 noundef %59)
           to label %61 unwind label %.thread
 
 61:                                               ; preds = %60
@@ -7869,7 +7869,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 91:                                               ; preds = %87
   %.val = load ptr, ptr %89, align 8
-  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr %.val, i64 noundef %90)
+  invoke fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clB5cxx11El"(ptr dead_on_unwind noalias writable align 8 %14, ptr %.val, i64 noundef %90)
           to label %92 unwind label %.thread40
 
 92:                                               ; preds = %91

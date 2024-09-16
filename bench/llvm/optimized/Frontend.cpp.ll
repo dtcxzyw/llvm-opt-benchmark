@@ -1281,7 +1281,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(34) %14, ptr noundef nonnull align 8 dereferenceable(34) %15, ptr noundef nonnull align 8 dereferenceable(34) %16, ptr noundef nonnull align 8 dereferenceable(34) %17) #14
   %67 = load ptr, ptr %13, align 8
   %68 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
-  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %67, i64 %68)
+  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %67, i64 %68)
   %69 = load i8, ptr %61, align 8
   %70 = trunc i8 %69 to i1
   br i1 %70, label %71, label %72
@@ -1372,7 +1372,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull align 8 dereferenceable(34) %23) #14
   %104 = load ptr, ptr %19, align 8
   %105 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
-  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %104, i64 %105)
+  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %104, i64 %105)
   %106 = load i8, ptr %97, align 8
   %107 = trunc i8 %106 to i1
   br i1 %107, label %108, label %109
@@ -1448,7 +1448,7 @@ _ZN4llvm11SmallStringILj4096EED2Ev.exit62:        ; preds = %_ZNSt8optionalINSt7
   call void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull align 8 dereferenceable(34) %27, ptr noundef nonnull align 8 dereferenceable(34) %28, ptr noundef nonnull align 8 dereferenceable(34) %29) #14
   %137 = load ptr, ptr %25, align 8
   %138 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #14
-  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %137, i64 %138)
+  call fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr %137, i64 %138)
   %139 = load i8, ptr %128, align 8
   %140 = trunc i8 %139 to i1
   br i1 %140, label %141, label %142
@@ -1498,7 +1498,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang10installapi11findLibraryEN4llvm9StringRefERNS_11FileManagerENS1_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESC_SC_ENK3$_0clB5cxx11ES2_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8

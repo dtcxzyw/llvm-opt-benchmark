@@ -2263,7 +2263,7 @@ declare dso_local zeroext i1 @ftrace_event_is_function(ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @free_predicate(ptr noundef %0) unnamed_addr #3 align 16 {
+define internal fastcc void @free_predicate(ptr noundef nonnull %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @kfree(ptr noundef %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4009,7 +4009,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @select_comparison_fn(i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @filter_build_regex(ptr nocapture noundef %0) unnamed_addr #11 align 16 {
+define internal fastcc void @filter_build_regex(ptr nocapture noundef nonnull %0) unnamed_addr #11 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4

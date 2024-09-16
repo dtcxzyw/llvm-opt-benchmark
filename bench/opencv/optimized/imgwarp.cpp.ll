@@ -28628,7 +28628,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare noundef i32 @_ZNK2cv11_InputArray8channelsEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN2cvL14initInterTab2DEib(i32 noundef %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN2cvL14initInterTab2DEib(i32 noundef range(i32 1, -32) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

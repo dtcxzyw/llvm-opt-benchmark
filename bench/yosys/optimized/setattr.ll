@@ -421,7 +421,7 @@ define internal void @_ZN12_GLOBAL__N_111SetattrPass7executeESt6vectorINSt7__cxx
           to label %54 unwind label %80
 
 54:                                               ; preds = %53
-  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %16, ptr noundef %17, ptr noundef %18)
           to label %55 unwind label %82
 
 55:                                               ; preds = %54
@@ -555,7 +555,7 @@ _ZN12_GLOBAL__N_110setunset_tD2Ev.exit:           ; preds = %_ZN5Yosys5RTLIL5Con
           to label %104 unwind label %74
 
 104:                                              ; preds = %102
-  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %19, ptr noundef nonnull %20)
+  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %19, ptr noundef %20)
           to label %105 unwind label %124
 
 105:                                              ; preds = %104
@@ -2879,7 +2879,7 @@ _ZNSt6vectorIN12_GLOBAL__N_110setunset_tESaIS1_EE12emplace_backIJS1_EEEvDpOT_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.Yosys::RTLIL::Const", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7807,7 +7807,7 @@ define internal void @_ZN12_GLOBAL__N_112SetparamPass7executeESt6vectorINSt7__cx
           to label %53 unwind label %79
 
 53:                                               ; preds = %52
-  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %12, ptr noundef %13, ptr noundef %14)
           to label %54 unwind label %81
 
 54:                                               ; preds = %53
@@ -7941,7 +7941,7 @@ _ZN12_GLOBAL__N_110setunset_tD2Ev.exit:           ; preds = %_ZN5Yosys5RTLIL5Con
           to label %103 unwind label %73
 
 103:                                              ; preds = %101
-  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %15, ptr noundef nonnull %16)
+  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(41) %15, ptr noundef %16)
           to label %104 unwind label %123
 
 104:                                              ; preds = %103
@@ -8840,7 +8840,7 @@ define internal void @_ZN12_GLOBAL__N_111ChparamPass7executeESt6vectorINSt7__cxx
           to label %58 unwind label %84
 
 58:                                               ; preds = %57
-  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  invoke fastcc void @_ZN12_GLOBAL__N_110setunset_tC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(41) %11, ptr noundef %12, ptr noundef %13)
           to label %59 unwind label %86
 
 59:                                               ; preds = %58

@@ -557,7 +557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL28IntegralCompressFunctionNameB5cxx11ERKNS_11LogicalTypeE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %result_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL28IntegralCompressFunctionNameB5cxx11ERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %result_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -588,7 +588,7 @@ invoke.cont5:                                     ; preds = %entry
           to label %invoke.cont7 unwind label %lpad6
 
 invoke.cont7:                                     ; preds = %invoke.cont5
-  invoke void @_ZN6duckdb10StringUtil6FormatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_S7_DpT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
+  invoke void @_ZN6duckdb10StringUtil6FormatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_S7_DpT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
           to label %invoke.cont9 unwind label %lpad8
 
 invoke.cont9:                                     ; preds = %invoke.cont7
@@ -723,7 +723,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL38GetIntegralCompressFunctionInputSwitchERKNS_11LogicalTypeES2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 %input_type.0.val, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL38GetIntegralCompressFunctionInputSwitchERKNS_11LogicalTypeES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 %input_type.0.val, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i154 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i155 = alloca %"class.std::allocator", align 1
@@ -2669,7 +2669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL30IntegralDecompressFunctionNameB5cxx11ERKNS_11LogicalTypeE(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %result_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL30IntegralDecompressFunctionNameB5cxx11ERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %result_type) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2699,7 +2699,7 @@ invoke.cont4:                                     ; preds = %entry
           to label %invoke.cont6 unwind label %lpad5
 
 invoke.cont6:                                     ; preds = %invoke.cont4
-  invoke void @_ZN6duckdb10StringUtil6FormatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_S7_DpT_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
+  invoke void @_ZN6duckdb10StringUtil6FormatIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEES7_S7_DpT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull %agg.tmp, ptr noundef nonnull %agg.tmp1)
           to label %invoke.cont8 unwind label %lpad7
 
 invoke.cont8:                                     ; preds = %invoke.cont6
@@ -2824,7 +2824,7 @@ ehcleanup11:                                      ; preds = %if.then.i.i44, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL40GetIntegralDecompressFunctionInputSwitchERKNS_11LogicalTypeES2_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 %input_type.0.val, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL40GetIntegralDecompressFunctionInputSwitchERKNS_11LogicalTypeES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 %input_type.0.val, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i76 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7.i77 = alloca %"class.std::allocator", align 1
@@ -4469,7 +4469,7 @@ lpad:                                             ; preds = %_ZN6duckdb12Deseria
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL31GetStringCompressFunctionSwitchERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL31GetStringCompressFunctionSwitchERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 %result_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -5263,7 +5263,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %if.then.i4.i, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL33GetStringDecompressFunctionSwitchERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, i8 %input_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL33GetStringDecompressFunctionSwitchERKNS_11LogicalTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, i8 %input_type.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1

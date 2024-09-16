@@ -389,7 +389,7 @@ define void @_ZN8facebook5velox9functions36registerVectorFunction_udf_all_matchE
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -547,7 +547,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 declare noundef zeroext i1 @_ZN8facebook5velox4exec22registerVectorFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrINS1_17FunctionSignatureEESaISD_EESt10unique_ptrINS1_14VectorFunctionESt14default_deleteISH_EENS1_22VectorFunctionMetadataEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i8, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::shared_ptr"], align 8
   %ref.tmp1 = alloca %"class.facebook::velox::exec::FunctionSignatureBuilder", align 8
@@ -996,7 +996,7 @@ define void @_ZN8facebook5velox9functions36registerVectorFunction_udf_any_matchE
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -1156,7 +1156,7 @@ define void @_ZN8facebook5velox9functions37registerVectorFunction_udf_none_match
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -1316,7 +1316,7 @@ define void @_ZN8facebook5velox9functions41registerVectorFunction_udf_all_keys_m
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -1472,7 +1472,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::shared_ptr"], align 8
   %ref.tmp1 = alloca %"class.facebook::velox::exec::FunctionSignatureBuilder", align 8
@@ -1860,7 +1860,7 @@ define void @_ZN8facebook5velox9functions41registerVectorFunction_udf_any_keys_m
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -2020,7 +2020,7 @@ define void @_ZN8facebook5velox9functions40registerVectorFunction_udf_no_keys_ma
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_114keysSignaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -2180,7 +2180,7 @@ define void @_ZN8facebook5velox9functions43registerVectorFunction_udf_any_values
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 
@@ -2336,7 +2336,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias nocapture writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::shared_ptr"], align 8
   %ref.tmp1 = alloca %"class.facebook::velox::exec::FunctionSignatureBuilder", align 8
@@ -2724,7 +2724,7 @@ define void @_ZN8facebook5velox9functions42registerVectorFunction_udf_no_values_
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   %agg.tmp1 = alloca %"class.std::unique_ptr", align 8
-  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias nonnull align 8 %agg.tmp)
+  call fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116valuesSignaturesEv(ptr noalias align 8 %agg.tmp)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %invoke.cont unwind label %lpad
 

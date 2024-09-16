@@ -208,7 +208,7 @@ entry:
   br i1 %cmp, label %do.end28, label %if.end
 
 if.end:                                           ; preds = %entry
-  call fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %saved_sigmask)
+  call fastcc void @uv__signal_block_and_lock(ptr noundef %saved_sigmask)
   %tree_entry.i = getelementptr inbounds i8, ptr %handle, i64 112
   %1 = load ptr, ptr %tree_entry.i, align 8
   %cmp.i = icmp eq ptr %1, null
@@ -1024,7 +1024,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef %oneshot) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__signal_start(ptr noundef %handle, ptr noundef %signal_cb, i32 noundef %signum, i32 noundef range(i32 0, 2) %oneshot) unnamed_addr #0 {
 entry:
   %data.i.i53 = alloca i8, align 1
   %data.i.i = alloca i8, align 1
@@ -1057,7 +1057,7 @@ if.then8:                                         ; preds = %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then8, %if.end5
-  call fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %saved_sigmask)
+  call fastcc void @uv__signal_block_and_lock(ptr noundef %saved_sigmask)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds i8, ptr %lookup.i, i64 104
   store i32 %signum, ptr %signum1.i, align 8
@@ -1894,7 +1894,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__signal_block_and_lock(ptr noundef %saved_sigmask) unnamed_addr #0 {
+define internal fastcc void @uv__signal_block_and_lock(ptr noundef nonnull %saved_sigmask) unnamed_addr #0 {
 entry:
   %data.i = alloca i8, align 1
   %new_mask = alloca %struct.__sigset_t, align 8
@@ -1907,8 +1907,8 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @sigemptyset(ptr noundef %saved_sigmask) #10
-  %call2 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %new_mask, ptr noundef %saved_sigmask) #10
+  %call1 = call i32 @sigemptyset(ptr noundef nonnull %saved_sigmask) #10
+  %call2 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %new_mask, ptr noundef nonnull %saved_sigmask) #10
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 

@@ -916,12 +916,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit74:            ; preds = %185, %189
   %.0.in.i.i.i77 = select i1 %205, ptr %202, ptr %206
   %.0.i.i.i78 = load i64, ptr %.0.in.i.i.i77, align 8
   store i64 0, ptr %3, align 8
-  %207 = call fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %207 = call fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %207, label %208, label %_ZL6getValPN4llvm7MDTupleEPKcRm.exit
 
 208:                                              ; preds = %199
   store double 0.000000e+00, ptr %4, align 8
-  %209 = call fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %209 = call fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   br i1 %209, label %210, label %_ZL6getValPN4llvm7MDTupleEPKcRm.exit
 
 210:                                              ; preds = %208
@@ -1113,7 +1113,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %54, %44, %_ZN4llvmn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getOptionalValImEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %5, align 8
@@ -1188,7 +1188,7 @@ _ZL6getValPN4llvm7MDTupleEPKcRm.exit:             ; preds = %_ZNK4llvm6MDNode10g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getOptionalValIdEbPN4llvm7MDTupleERjPKcRT_(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = load i64, ptr %5, align 8

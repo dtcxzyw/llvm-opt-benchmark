@@ -374,7 +374,7 @@ declare i32 @fork() local_unnamed_addr #2
 define internal void @bail_out(i1 noundef zeroext %0, ptr noundef %1, ...) unnamed_addr #3 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @emit_tap_output_v(i32 noundef 1, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @emit_tap_output_v(i32 noundef 1, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   br i1 %0, label %4, label %5
 
@@ -3203,10 +3203,10 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @emit_tap_output(i32 noundef %0, ptr noundef %1, ...) unnamed_addr #0 {
+define internal void @emit_tap_output(i32 noundef range(i32 0, 7) %0, ptr noundef %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call fastcc void @emit_tap_output_v(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %3)
+  call fastcc void @emit_tap_output_v(i32 noundef %0, ptr noundef %1, ptr noundef %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -3244,97 +3244,101 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #7
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_tap_output_v(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @emit_tap_output_v(i32 noundef range(i32 0, 7) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
+  %5 = icmp eq i32 %0, 1
   %or.cond = icmp ult i32 %0, 2
   %stderr.val = load ptr, ptr @stderr, align 8
   %stdout.val = load ptr, ptr @stdout, align 8
   %.0 = select i1 %or.cond, ptr %stderr.val, ptr %stdout.val
-  %5 = icmp eq i32 %0, 4
-  br i1 %5, label %6, label %11
+  %6 = icmp eq i32 %0, 4
+  br i1 %6, label %7, label %12
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   store i1 false, ptr @in_note, align 1
-  %7 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %stdout.val, ptr noundef nonnull @.str.90) #23
-  %8 = load ptr, ptr @logfile, align 8
-  %.not33 = icmp eq ptr %8, null
-  br i1 %.not33, label %36, label %9
+  %8 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %stdout.val, ptr noundef nonnull @.str.90) #23
+  %9 = load ptr, ptr @logfile, align 8
+  %.not33 = icmp eq ptr %9, null
+  br i1 %.not33, label %44, label %10
 
-9:                                                ; preds = %6
-  %10 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.90) #23
-  br label %36
+10:                                               ; preds = %7
+  %11 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.90) #23
+  br label %44
 
-11:                                               ; preds = %3
-  call void @llvm.va_copy.p0(ptr nonnull %4, ptr %2)
-  switch i32 %0, label %18 [
-    i32 2, label %13
-    i32 1, label %13
-    i32 0, label %13
-    i32 3, label %12
-  ]
+12:                                               ; preds = %3
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %2)
+  %13 = and i32 %0, 5
+  %or.cond3 = icmp eq i32 %13, 0
+  %or.cond5 = or i1 %5, %or.cond3
+  br i1 %or.cond5, label %17, label %14
 
-12:                                               ; preds = %11
+14:                                               ; preds = %12
+  %15 = icmp eq i32 %0, 3
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %14
   %.b28 = load i1, ptr @in_note, align 1
-  br i1 %.b28, label %18, label %13
+  br i1 %.b28, label %22, label %17
 
-13:                                               ; preds = %11, %11, %11, %12
-  %14 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0, ptr noundef nonnull @.str.91) #23
-  %15 = load ptr, ptr @logfile, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %16
+17:                                               ; preds = %16, %12
+  %18 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0, ptr noundef nonnull @.str.91) #23
+  %19 = load ptr, ptr @logfile, align 8
+  %.not = icmp eq ptr %19, null
+  br i1 %.not, label %22, label %20
 
-16:                                               ; preds = %13
-  %17 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %15, ptr noundef nonnull @.str.91) #23
-  br label %18
+20:                                               ; preds = %17
+  %21 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %19, ptr noundef nonnull @.str.91) #23
+  br label %22
 
-18:                                               ; preds = %11, %13, %16, %12
-  %19 = call i32 @pg_vfprintf(ptr noundef %.0, ptr noundef %1, ptr noundef %2) #23
-  %20 = load ptr, ptr @logfile, align 8
-  %.not29 = icmp eq ptr %20, null
-  br i1 %.not29, label %23, label %21
+22:                                               ; preds = %17, %20, %16, %14
+  %23 = call i32 @pg_vfprintf(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull %2) #23
+  %24 = load ptr, ptr @logfile, align 8
+  %.not29 = icmp eq ptr %24, null
+  br i1 %.not29, label %27, label %25
 
-21:                                               ; preds = %18
-  %22 = call i32 @pg_vfprintf(ptr noundef nonnull %20, ptr noundef %1, ptr noundef nonnull %4) #23
-  br label %23
+25:                                               ; preds = %22
+  %26 = call i32 @pg_vfprintf(ptr noundef nonnull %24, ptr noundef %1, ptr noundef nonnull %4) #23
+  br label %27
 
-23:                                               ; preds = %21, %18
-  switch i32 %0, label %.thread [
-    i32 3, label %.thread35
-    i32 1, label %24
-  ]
+27:                                               ; preds = %25, %22
+  %28 = icmp eq i32 %0, 3
+  br i1 %28, label %36, label %29
 
-.thread35:                                        ; preds = %23
+29:                                               ; preds = %27
+  br i1 %5, label %30, label %37
+
+30:                                               ; preds = %29
+  %31 = load ptr, ptr @stdout, align 8
+  %32 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %31, ptr noundef nonnull @.str.92) #23
+  %33 = load ptr, ptr @logfile, align 8
+  %.not30 = icmp eq ptr %33, null
+  br i1 %.not30, label %37, label %34
+
+34:                                               ; preds = %30
+  %35 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %33, ptr noundef nonnull @.str.92) #23
+  br label %37
+
+36:                                               ; preds = %27
   store i1 true, ptr @in_note, align 1
   call void @llvm.va_end.p0(ptr nonnull %4)
-  br label %34
+  br label %42
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr @stdout, align 8
-  %26 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %25, ptr noundef nonnull @.str.92) #23
-  %27 = load ptr, ptr @logfile, align 8
-  %.not30 = icmp eq ptr %27, null
-  br i1 %.not30, label %.thread, label %28
-
-28:                                               ; preds = %24
-  %29 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.92) #23
-  br label %.thread
-
-.thread:                                          ; preds = %23, %28, %24
+37:                                               ; preds = %30, %34, %29
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %30 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0, ptr noundef nonnull @.str.90) #23
-  %31 = load ptr, ptr @logfile, align 8
-  %.not32 = icmp eq ptr %31, null
-  br i1 %.not32, label %34, label %32
+  %38 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0, ptr noundef nonnull @.str.90) #23
+  %39 = load ptr, ptr @logfile, align 8
+  %.not32 = icmp eq ptr %39, null
+  br i1 %.not32, label %42, label %40
 
-32:                                               ; preds = %.thread
-  %33 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %31, ptr noundef nonnull @.str.90) #23
-  br label %34
+40:                                               ; preds = %37
+  %41 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %39, ptr noundef nonnull @.str.90) #23
+  br label %42
 
-34:                                               ; preds = %.thread35, %.thread, %32
-  %35 = call i32 @fflush(ptr noundef null)
-  br label %36
+42:                                               ; preds = %36, %37, %40
+  %43 = call i32 @fflush(ptr noundef null)
+  br label %44
 
-36:                                               ; preds = %6, %9, %34
+44:                                               ; preds = %7, %10, %42
   ret void
 }
 

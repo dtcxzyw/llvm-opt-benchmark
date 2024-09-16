@@ -3935,7 +3935,7 @@ declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 declare i64 @atol(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 330, 337) i32 @process_integer_literal(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 330, 337) i32 @process_integer_literal(ptr noundef %0, i32 noundef range(i32 2, 17) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #32
   store i32 0, ptr %4, align 4
@@ -4607,7 +4607,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_get_previous_state() unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0) unnamed_addr #10 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef range(i32 -32768, 32768) %0) unnamed_addr #10 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [616 x i16], ptr @yy_accept, i64 0, i64 %2
   %4 = load i16, ptr %3, align 2

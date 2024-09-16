@@ -1195,7 +1195,7 @@ declare i32 @diff_result_code(ptr noundef) local_unnamed_addr #1
 declare void @release_revisions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @describe(ptr noundef %arg, i32 noundef %last_one) unnamed_addr #0 {
+define internal fastcc void @describe(ptr noundef %arg, i32 noundef range(i32 0, 2) %last_one) unnamed_addr #0 {
 entry:
   %revs.i = alloca %struct.rev_info, align 8
   %args.i = alloca %struct.strvec, align 8

@@ -103,7 +103,7 @@ if.end23:                                         ; preds = %if.end19
   br i1 %tobool26.not, label %end, label %if.end28
 
 if.end28:                                         ; preds = %if.end23
-  %call29 = tail call fastcc i32 @sct_ctx_update(ptr noundef nonnull %call20, ptr noundef nonnull %sctx, ptr noundef nonnull %sct)
+  %call29 = tail call fastcc i32 @sct_ctx_update(ptr noundef %call20, ptr noundef nonnull %sctx, ptr noundef nonnull %sct)
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %end, label %if.end32
 
@@ -145,7 +145,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef nonnull %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [12 x i8], align 1
   %entry_type = getelementptr inbounds i8, ptr %sct, i64 88
@@ -207,7 +207,7 @@ if.end5:                                          ; preds = %entry, %land.lhs.tr
   %conv49 = trunc i32 %0 to i8
   %arrayidx50 = getelementptr inbounds i8, ptr %tmpbuf, i64 11
   store i8 %conv49, ptr %arrayidx50, align 1
-  %call = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 12) #3
+  %call = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 12) #3
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end54
 
@@ -221,7 +221,7 @@ if.else:                                          ; preds = %if.end54
   %5 = load ptr, ptr %ihash59, align 8
   %ihashlen = getelementptr inbounds i8, ptr %sctx, i64 32
   %6 = load i64, ptr %ihashlen, align 8
-  %call60 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef %5, i64 noundef %6) #3
+  %call60 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef %5, i64 noundef %6) #3
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %return, label %if.end64
 
@@ -244,12 +244,12 @@ if.end68:                                         ; preds = %if.end64
   store i8 %conv76, ptr %incdec.ptr, align 1
   %conv79 = trunc i64 %derlen.0 to i8
   store i8 %conv79, ptr %incdec.ptr6, align 1
-  %call83 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 3) #3
+  %call83 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 3) #3
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %return, label %if.end86
 
 if.end86:                                         ; preds = %if.end68
-  %call87 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef nonnull %der.0, i64 noundef %derlen.0) #3
+  %call87 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %der.0, i64 noundef %derlen.0) #3
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %return, label %if.end90
 
@@ -261,7 +261,7 @@ if.end90:                                         ; preds = %if.end86
   store i8 %conv94, ptr %tmpbuf, align 1
   %conv98 = trunc i64 %7 to i8
   store i8 %conv98, ptr %incdec.ptr, align 1
-  %call102 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 2) #3
+  %call102 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %tmpbuf, i64 noundef 2) #3
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %return, label %if.end105
 
@@ -273,7 +273,7 @@ if.end105:                                        ; preds = %if.end90
 land.lhs.true108:                                 ; preds = %if.end105
   %ext = getelementptr inbounds i8, ptr %sct, i64 48
   %9 = load ptr, ptr %ext, align 8
-  %call110 = call i32 @EVP_DigestUpdate(ptr noundef %ctx, ptr noundef %9, i64 noundef %8) #3
+  %call110 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef %9, i64 noundef %8) #3
   %tobool111.not = icmp eq i32 %call110, 0
   br i1 %tobool111.not, label %return, label %if.end113
 

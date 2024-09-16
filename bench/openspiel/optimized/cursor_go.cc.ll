@@ -1609,29 +1609,29 @@ define void @_ZN10open_spiel9cursor_go13CursorGoState10ResetBoardEv(ptr noundef 
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE6center) #22, !noalias !4
   br label %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
 
-_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %71, %74, %79
+_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i: ; preds = %79, %74, %71
   %80 = zext nneg i32 %34 to i64
   %81 = shl nuw nsw i64 %80, 1
   %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %81) #24
-          to label %.lr.ph.i unwind label %.loopexit.split-lp.i, !noalias !4
+          to label %_ZNSt6vectorItSaItEE7reserveEm.exit.i unwind label %.loopexit.split-lp.i, !noalias !4
 
-.lr.ph.i:                                         ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
+_ZNSt6vectorItSaItEE7reserveEm.exit.i:            ; preds = %_ZNSt12_Vector_baseItSaItEE11_M_allocateEm.exit.i.i
   %83 = getelementptr inbounds i16, ptr %82, i64 %80
   br label %84
 
-84:                                               ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i, %.lr.ph.i
-  %.sroa.13.2 = phi ptr [ %83, %.lr.ph.i ], [ %.sroa.13.3, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %.sroa.011.0 = phi ptr [ %82, %.lr.ph.i ], [ %.sroa.011.1, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %85 = phi ptr [ %83, %.lr.ph.i ], [ %112, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
-  %86 = phi ptr [ %82, %.lr.ph.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+84:                                               ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i, %_ZNSt6vectorItSaItEE7reserveEm.exit.i
+  %.sroa.13.2 = phi ptr [ %83, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.13.3, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %.sroa.011.0 = phi ptr [ %82, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.011.1, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %indvars.iv.i = phi i64 [ 0, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %indvars.iv.next.i, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %85 = phi ptr [ %82, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %.sroa.9.0, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
+  %86 = phi ptr [ %83, %_ZNSt6vectorItSaItEE7reserveEm.exit.i ], [ %112, %_ZNSt6vectorItSaItEE9push_backERKt.exit.i ]
   %87 = getelementptr inbounds [9 x i16], ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE9placement, i64 0, i64 %indvars.iv.i
-  %.not.i.i = icmp eq ptr %86, %85
+  %.not.i.i = icmp eq ptr %85, %86
   br i1 %.not.i.i, label %90, label %88
 
 88:                                               ; preds = %84
   %89 = load i16, ptr %87, align 2, !noalias !4
-  store i16 %89, ptr %86, align 2, !noalias !4
+  store i16 %89, ptr %85, align 2, !noalias !4
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit.i
 
 90:                                               ; preds = %84
@@ -1689,14 +1689,14 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorItSaItEE9push_backERKt.exit.i
 
 _ZNSt6vectorItSaItEE9push_backERKt.exit.i:        ; preds = %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i, %88
-  %.pn = phi ptr [ %109, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %86, %88 ]
+  %.pn = phi ptr [ %109, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %85, %88 ]
   %.sroa.13.3 = phi ptr [ %111, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %.sroa.13.2, %88 ]
   %.sroa.011.1 = phi ptr [ %104, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %.sroa.011.0, %88 ]
-  %112 = phi ptr [ %111, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %85, %88 ]
+  %112 = phi ptr [ %111, %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i ], [ %86, %88 ]
   %.sroa.9.0 = getelementptr inbounds i8, ptr %.pn, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %80
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %84, !llvm.loop !8
+  br i1 %exitcond.not.i, label %178, label %84, !llvm.loop !8
 
 113:                                              ; preds = %43
   %114 = landingpad { ptr, i32 }
@@ -1918,25 +1918,25 @@ _ZNSt6vectorItSaItEE9push_backERKt.exit.i:        ; preds = %_ZNSt6vectorItSaItE
   call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %177) #25, !noalias !4
   br label %common.resume
 
-._crit_edge.i:                                    ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i
-  %178 = icmp slt i32 %34, 5
-  %179 = and i32 %34, 1
-  %.not54.i = icmp eq i32 %179, 0
-  %or.cond.i = or i1 %178, %.not54.i
-  br i1 %or.cond.i, label %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit, label %180
+178:                                              ; preds = %_ZNSt6vectorItSaItEE9push_backERKt.exit.i
+  %179 = icmp ult i32 %34, 5
+  %180 = and i32 %34, 1
+  %.not54.i = icmp eq i32 %180, 0
+  %or.cond.i = or i1 %179, %.not54.i
+  br i1 %or.cond.i, label %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit, label %181
 
-180:                                              ; preds = %._crit_edge.i
-  %181 = load i16, ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
-  %182 = getelementptr i16, ptr %.sroa.011.1, i64 %80
-  %183 = getelementptr i8, ptr %182, i64 -2
-  store i16 %181, ptr %183, align 2, !noalias !4
+181:                                              ; preds = %178
+  %182 = load i16, ptr @_ZZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEiE6center, align 2, !noalias !4
+  %183 = getelementptr i16, ptr %.sroa.011.1, i64 %80
+  %184 = getelementptr i8, ptr %183, i64 -2
+  store i16 %182, ptr %184, align 2, !noalias !4
   br label %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit
 
-common.resume:                                    ; preds = %194, %192, %165, %170, %172, %174
-  %common.resume.op = phi { ptr, i32 } [ %.pn52.i, %170 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %165 ], [ %lpad.phi.i, %172 ], [ %lpad.phi.i, %174 ], [ %193, %192 ], [ %193, %194 ]
+common.resume:                                    ; preds = %195, %193, %165, %170, %172, %174
+  %common.resume.op = phi { ptr, i32 } [ %.pn52.i, %170 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %165 ], [ %lpad.phi.i, %172 ], [ %lpad.phi.i, %174 ], [ %194, %193 ], [ %194, %195 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %._crit_edge.i, %180
+_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %178, %181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1960,78 +1960,78 @@ _ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit: ; preds = %._cri
   %.not31 = icmp eq ptr %.sroa.011.1, %.sroa.9.0
   br i1 %.not31, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %190, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit
+._crit_edge:                                      ; preds = %191, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit
   %.not.i.i.i = icmp eq ptr %.sroa.011.1, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %184
+  br i1 %.not.i.i.i, label %_ZNSt6vectorItSaItEED2Ev.exit, label %185
 
-184:                                              ; preds = %._crit_edge
-  %185 = ptrtoint ptr %.sroa.13.3 to i64
-  %186 = ptrtoint ptr %.sroa.011.1 to i64
-  %187 = sub i64 %185, %186
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.1, i64 noundef %187) #25
+185:                                              ; preds = %._crit_edge
+  %186 = ptrtoint ptr %.sroa.13.3 to i64
+  %187 = ptrtoint ptr %.sroa.011.1 to i64
+  %188 = sub i64 %186, %187
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.1, i64 noundef %188) #25
   br label %_ZNSt6vectorItSaItEED2Ev.exit
 
-.lr.ph:                                           ; preds = %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit, %190
-  %.sroa.08.032 = phi ptr [ %191, %190 ], [ %.sroa.011.1, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit ]
-  %188 = load i16, ptr %.sroa.08.032, align 2
-  %189 = invoke noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %24, i16 noundef zeroext %188, i8 noundef zeroext 0)
-          to label %190 unwind label %192
+.lr.ph:                                           ; preds = %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit, %191
+  %.sroa.08.032 = phi ptr [ %192, %191 ], [ %.sroa.011.1, %_ZN10open_spiel9cursor_go12_GLOBAL__N_114HandicapStonesEi.exit ]
+  %189 = load i16, ptr %.sroa.08.032, align 2
+  %190 = invoke noundef zeroext i1 @_ZN10open_spiel2go7GoBoard8PlayMoveEtNS0_7GoColorE(ptr noundef nonnull align 8 dereferenceable(7970) %24, i16 noundef zeroext %189, i8 noundef zeroext 0)
+          to label %191 unwind label %193
 
-190:                                              ; preds = %.lr.ph
-  %191 = getelementptr inbounds i8, ptr %.sroa.08.032, i64 2
+191:                                              ; preds = %.lr.ph
+  %192 = getelementptr inbounds i8, ptr %.sroa.08.032, i64 2
   %.not = icmp eq ptr %.sroa.08.032, %.pn
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-192:                                              ; preds = %.lr.ph
-  %193 = landingpad { ptr, i32 }
+193:                                              ; preds = %.lr.ph
+  %194 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i5 = icmp eq ptr %.sroa.011.1, null
-  br i1 %.not.i.i.i5, label %common.resume, label %194
+  br i1 %.not.i.i.i5, label %common.resume, label %195
 
-194:                                              ; preds = %192
-  %195 = ptrtoint ptr %.sroa.13.3 to i64
-  %196 = ptrtoint ptr %.sroa.011.1 to i64
-  %197 = sub i64 %195, %196
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.1, i64 noundef %197) #25
+195:                                              ; preds = %193
+  %196 = ptrtoint ptr %.sroa.13.3 to i64
+  %197 = ptrtoint ptr %.sroa.011.1 to i64
+  %198 = sub i64 %196, %197
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.011.1, i64 noundef %198) #25
   br label %common.resume
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %184, %._crit_edge, %._crit_edge.thread, %1
-  %.sink = phi i8 [ 0, %1 ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %184 ]
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 8108
-  store i8 %.sink, ptr %198, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8056
-  %200 = load ptr, ptr %199, align 8
-  %.not5.i.i.i = icmp eq ptr %200, null
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %185, %._crit_edge, %._crit_edge.thread, %1
+  %.sink = phi i8 [ 0, %1 ], [ 1, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %185 ]
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 8108
+  store i8 %.sink, ptr %199, align 4
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8056
+  %201 = load ptr, ptr %200, align 8
+  %.not5.i.i.i = icmp eq ptr %201, null
   br i1 %.not5.i.i.i, label %_ZNSt13unordered_setImN10open_spiel9cursor_go13CursorGoState15PassthroughHashESt8equal_toImESaImEE5clearEv.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %201, %.lr.ph.i.i.i ], [ %200, %_ZNSt6vectorItSaItEED2Ev.exit ]
-  %201 = load ptr, ptr %.06.i.i.i, align 8
+  %.06.i.i.i = phi ptr [ %202, %.lr.ph.i.i.i ], [ %201, %_ZNSt6vectorItSaItEED2Ev.exit ]
+  %202 = load ptr, ptr %.06.i.i.i, align 8
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 24) #25
-  %.not.i.i.i7 = icmp eq ptr %201, null
+  %.not.i.i.i7 = icmp eq ptr %202, null
   br i1 %.not.i.i.i7, label %_ZNSt13unordered_setImN10open_spiel9cursor_go13CursorGoState15PassthroughHashESt8equal_toImESaImEE5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZNSt13unordered_setImN10open_spiel9cursor_go13CursorGoState15PassthroughHashESt8equal_toImESaImEE5clearEv.exit: ; preds = %.lr.ph.i.i.i, %_ZNSt6vectorItSaItEED2Ev.exit
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8040
-  %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 8048
-  %205 = load i64, ptr %204, align 8
-  %206 = shl i64 %205, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %203, i8 0, i64 %206, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 8008
-  %208 = load i64, ptr %207, align 8
-  store i64 %208, ptr %23, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 8040
+  %204 = load ptr, ptr %203, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 8048
+  %206 = load i64, ptr %205, align 8
+  %207 = shl i64 %206, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %204, i8 0, i64 %207, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %200, i8 0, i64 16, i1 false)
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 8008
+  %209 = load i64, ptr %208, align 8
+  store i64 %209, ptr %23, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %202, ptr %2, align 8
-  %209 = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel9cursor_go13CursorGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueImmNS1_10_AllocNodeISaINS1_10_Hash_nodeImLb1EEEEEEEESt4pairINS1_14_Node_iteratorImLb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %202, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  store ptr %203, ptr %2, align 8
+  %210 = call { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_IdentityESt8equal_toImEN10open_spiel9cursor_go13CursorGoState15PassthroughHashENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueImmNS1_10_AllocNodeISaINS1_10_Hash_nodeImLb1EEEEEEEESt4pairINS1_14_Node_iteratorImLb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %203, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8116
-  store i8 0, ptr %210, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 8118
-  store i8 0, ptr %211, align 2
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8117
-  store i8 0, ptr %212, align 1
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 8116
+  store i8 0, ptr %211, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 8118
+  store i8 0, ptr %212, align 2
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 8117
+  store i8 0, ptr %213, align 1
   ret void
 }
 

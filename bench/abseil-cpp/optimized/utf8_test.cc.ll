@@ -1026,7 +1026,7 @@ for.end:                                          ; preds = %_ZN7testing15Assert
 invoke.cont159:                                   ; preds = %for.end
   store i64 %call160, ptr %ref.tmp157, align 8
   store i32 4, ptr %ref.tmp161, align 4
-  invoke fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias nonnull align 8 %gtest_ar156, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp161)
+  invoke fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias align 8 %gtest_ar156, ptr noundef nonnull @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp157, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp161)
           to label %invoke.cont162 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont162:                                   ; preds = %invoke.cont159
@@ -1127,7 +1127,7 @@ _ZN7testing15AssertionResultD2Ev.exit161:         ; preds = %if.end179, %_ZNKSt1
 invoke.cont184:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit161
   store i64 %call185, ptr %ref.tmp182, align 8
   store i32 4, ptr %ref.tmp186, align 4
-  invoke fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias nonnull align 8 %gtest_ar181, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp186)
+  invoke fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias align 8 %gtest_ar181, ptr noundef nonnull @.str.18, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp182, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp186)
           to label %invoke.cont187 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont187:                                   ; preds = %invoke.cont184
@@ -1479,7 +1479,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias align 8 %agg.result, ptr noundef %expr1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %val1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7testing8internal11CmpHelperLEImN4absl16strings_internal3$_0EEENS_15AssertionResultEPKcS7_RKT_RKT0_"(ptr noalias nonnull align 8 %agg.result, ptr noundef %expr1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %val1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i166.i = alloca %"class.testing::Message", align 8
   %ss.i.i.i158.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1503,7 +1503,7 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN7testing16AssertionSuccessEv(ptr sret(%"class.testing::AssertionResult") align 8 %agg.result)
+  tail call void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %agg.result)
   br label %return
 
 if.else:                                          ; preds = %entry

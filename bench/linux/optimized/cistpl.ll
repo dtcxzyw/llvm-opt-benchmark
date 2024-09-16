@@ -247,7 +247,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 64) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 316
   %6 = load i32, ptr %5, align 4
@@ -1125,7 +1125,7 @@ thread-pre-split:                                 ; preds = %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @read_cis_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @read_cis_cache(ptr noundef nonnull %0, i32 noundef range(i32 0, 16) %1, i32 noundef %2, i64 noundef range(i64 0, 256) %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32768
@@ -1195,7 +1195,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @read_cis_cache(ptr noundef
 
 .loopexit:                                        ; preds = %43, %24
   %46 = trunc nuw nsw i64 %3 to i32
-  %47 = tail call i32 @pcmcia_read_cis_mem(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %46, ptr noundef %4), !range !16
+  %47 = tail call i32 @pcmcia_read_cis_mem(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %46, ptr noundef %4), !range !16
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %61
 

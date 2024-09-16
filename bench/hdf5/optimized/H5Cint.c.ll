@@ -306,7 +306,7 @@ define range(i32 -1, 1) i32 @H5C__auto_adjust_cache_size(ptr noundef %0, i1 noun
 
 141:                                              ; preds = %136
   %142 = load double, ptr %4, align 8
-  %143 = call fastcc i32 @H5C__autoadjust__ageout(ptr noundef nonnull %0, double noundef %142, ptr noundef nonnull %5, ptr noundef nonnull %3, i1 noundef zeroext %1)
+  %143 = call fastcc i32 @H5C__autoadjust__ageout(ptr noundef nonnull %0, double noundef %142, ptr noundef %5, ptr noundef %3, i1 noundef zeroext %1)
   %144 = icmp slt i32 %143, 0
   br i1 %144, label %145, label %._crit_edge
 
@@ -573,7 +573,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__insert_new
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef %0, double noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout(ptr noundef %0, double noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 112

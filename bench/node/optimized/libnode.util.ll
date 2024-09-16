@@ -231,7 +231,7 @@ entry:
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  tail call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr nonnull %value.coerce, ptr noundef nonnull %this)
+  tail call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr %value.coerce, ptr noundef %this)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -239,7 +239,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef nonnull %isolate, ptr %value.coerce, ptr noundef %target) unnamed_addr #3 {
+define internal fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef nonnull %isolate, ptr nonnull %value.coerce, ptr noundef nonnull %target) unnamed_addr #3 {
 entry:
   %call3 = tail call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %isolate) #19
   %call10 = tail call ptr @_ZNK2v85Value8ToStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce, ptr %call3) #19
@@ -471,7 +471,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i56, label %if.then6, label %if.else
 
 if.then6:                                         ; preds = %if.end.i
-  tail call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr nonnull %value.coerce, ptr noundef nonnull %this)
+  tail call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr %value.coerce, ptr noundef %this)
   br label %if.end29
 
 if.else:                                          ; preds = %if.end, %if.end.i
@@ -931,7 +931,7 @@ entry:
   br i1 %cmp.i.i, label %_ZN4node9Utf8ValueC2EPN2v87IsolateENS1_5LocalINS1_5ValueEEE.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr nonnull %string.coerce, ptr noundef nonnull %utf8)
+  call fastcc void @_ZN4nodeL14MakeUtf8StringIcEEvPN2v87IsolateENS1_5LocalINS1_5ValueEEEPNS_16MaybeStackBufferIT_Lm1024EEE(ptr noundef %isolate, ptr %string.coerce, ptr noundef %utf8)
   %.pre = load ptr, ptr %buf_.i.i, align 8
   %.pre1 = load i64, ptr %utf8, align 8
   %0 = trunc i64 %.pre1 to i32

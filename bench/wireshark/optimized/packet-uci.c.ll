@@ -1281,7 +1281,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_parameters(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_parameters(ptr noundef %0, i32 noundef range(i32 4, 6) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #2
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_uci_parameters_count, align 4
@@ -1531,7 +1531,7 @@ define internal fastcc void @dissect_session_update_controller_multicast_list_nt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @dissect_app_config_parameters(ptr noundef %0, i32 noundef range(i32 5, 9) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #2
   %5 = zext i8 %4 to i32
   %6 = load i32, ptr @hf_uci_app_config_parameters_count, align 4

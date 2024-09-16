@@ -637,7 +637,7 @@ lor.lhs.false:                                    ; preds = %entry
   %sub.i4.i = add nsw i64 %add.i3.i, %switch.load
   %cmp.i = icmp ult i64 %sub.i4.i, %conv8
   %cmp2.i = icmp ult i64 %sub.i.i, %conv10
-  %.not.i.not = or i1 %cmp2.i, %cmp.i
+  %.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp2.i
   br i1 %.not.i.not, label %for.end96, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false

@@ -132,7 +132,7 @@ define i32 @WebPMuxSetChunk(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   br i1 %.not.i.i, label %MuxDeleteAllNamedData.exit.thread26, label %.lr.ph.i.i, !llvm.loop !6
 
 MuxDeleteAllNamedData.exit.thread26:              ; preds = %28, %18
-  %30 = tail call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %16, ptr noundef nonnull %2, i32 noundef %3)
+  %30 = tail call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %16, ptr noundef %2, i32 noundef %3)
   br label %MuxDeleteAllNamedData.exit.thread
 
 MuxDeleteAllNamedData.exit.thread:                ; preds = %15, %15, %15, %4, %8, %11, %MuxDeleteAllNamedData.exit.thread26
@@ -143,7 +143,7 @@ MuxDeleteAllNamedData.exit.thread:                ; preds = %15, %15, %15, %4, %
 declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.WebPChunk, align 8
   %6 = tail call i32 @ChunkGetIndexFromTag(i32 noundef %1) #7
   call void @ChunkInit(ptr noundef nonnull %5) #7
@@ -157,7 +157,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   ]
 
 7:                                                ; preds = %4
-  %8 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %8 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %9 = icmp eq i32 %8, 1
   br i1 %9, label %10, label %44
 
@@ -168,7 +168,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not74, label %44, label %.sink.split
 
 13:                                               ; preds = %4
-  %14 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %14 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %16, label %44
 
@@ -179,7 +179,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not73, label %44, label %.sink.split
 
 19:                                               ; preds = %4
-  %20 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %20 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %21 = icmp eq i32 %20, 1
   br i1 %21, label %22, label %44
 
@@ -190,7 +190,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not72, label %44, label %.sink.split
 
 25:                                               ; preds = %4
-  %26 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %26 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %44
 
@@ -201,7 +201,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not71, label %44, label %.sink.split
 
 31:                                               ; preds = %4
-  %32 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %32 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %34, label %44
 
@@ -212,7 +212,7 @@ define internal fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %1, ptr noundef %
   br i1 %.not70, label %44, label %.sink.split
 
 37:                                               ; preds = %4
-  %38 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %2, i32 noundef %3, i32 noundef %1) #7
+  %38 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %1) #7
   %39 = icmp eq i32 %38, 1
   br i1 %39, label %40, label %44
 
@@ -265,7 +265,7 @@ define i32 @WebPMuxSetImage(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 DeleteAllImages.exit:                             ; preds = %.lr.ph.i, %14
   call void @MuxImageInit(ptr noundef nonnull %4) #7
-  %18 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %4)
+  %18 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef %1, i32 noundef %2, ptr noundef %4)
   %.not18 = icmp eq i32 %18, 1
   br i1 %.not18, label %19, label %21
 
@@ -287,7 +287,7 @@ DeleteAllImages.exit:                             ; preds = %.lr.ph.i, %14
 declare void @MuxImageInit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SetAlphaAndImageChunks(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.WebPChunk, align 8
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca %struct.WebPData, align 8
@@ -394,7 +394,7 @@ AddDataToChunkList.exit27:                        ; preds = %41, %43
 
 47:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  %48 = call i32 @MuxImageFinalize(ptr noundef %2) #7
+  %48 = call i32 @MuxImageFinalize(ptr noundef nonnull %2) #7
   %.not20 = icmp eq i32 %48, 0
   %49 = select i1 %.not20, i32 -1, i32 1
   br label %50
@@ -454,7 +454,7 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 26:                                               ; preds = %23, %19
   call void @MuxImageInit(ptr noundef nonnull %4) #7
-  %27 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %4)
+  %27 = call fastcc i32 @SetAlphaAndImageChunks(ptr noundef %1, i32 noundef %2, ptr noundef %4)
   %.not49 = icmp eq i32 %27, 1
   br i1 %.not49, label %28, label %56
 
@@ -491,12 +491,12 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %47 = load i32, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %4, i64 36
   %49 = load i32, ptr %48, align 4
-  %50 = call fastcc i32 @CreateFrameData(i32 noundef %47, i32 noundef %49, ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %50 = call fastcc i32 @CreateFrameData(i32 noundef %47, i32 noundef %49, ptr noundef %6, ptr noundef %5)
   %.not51 = icmp eq i32 %50, 1
   br i1 %.not51, label %51, label %56
 
 51:                                               ; preds = %45
-  %52 = call fastcc i32 @AddDataToChunkList(ptr noundef nonnull %5, i32 noundef 1, i32 noundef %29, ptr noundef nonnull %4)
+  %52 = call fastcc i32 @AddDataToChunkList(ptr noundef %5, i32 noundef 1, i32 noundef %29, ptr noundef %4)
   %53 = load ptr, ptr %5, align 8
   call void @WebPFree(ptr noundef %53) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -524,7 +524,7 @@ declare i32 @ChunkGetIdFromTag(i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 44), align 4
   %6 = zext i32 %5 to i64
   %7 = tail call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef %6) #7
@@ -618,15 +618,15 @@ define internal fastcc range(i32 -3, 2) i32 @CreateFrameData(i32 noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AddDataToChunkList(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @AddDataToChunkList(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.WebPChunk, align 8
   call void @ChunkInit(ptr noundef nonnull %5) #7
-  %6 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %1, i32 noundef %2) #7
+  %6 = call i32 @ChunkAssignData(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2) #7
   %.not = icmp eq i32 %6, 1
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef %3) #7
+  %8 = call i32 @ChunkSetHead(ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   %.not10 = icmp eq i32 %8, 1
   br i1 %.not10, label %11, label %9
 
@@ -720,7 +720,7 @@ MuxDeleteAllNamedData.exit.thread21:              ; preds = %24, %14
   %41 = trunc i32 %40 to i8
   %42 = getelementptr inbounds i8, ptr %3, i64 5
   store i8 %41, ptr %42, align 1
-  %43 = call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %4, i32 noundef 1)
+  %43 = call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %12, ptr noundef %4, i32 noundef 1)
   br label %MuxDeleteAllNamedData.exit.thread
 
 MuxDeleteAllNamedData.exit.thread:                ; preds = %11, %11, %11, %8, %2, %MuxDeleteAllNamedData.exit.thread21
@@ -1309,7 +1309,7 @@ CreateVP8XChunk.exit:                             ; preds = %177, %179
   %204 = trunc i32 %203 to i8
   %205 = getelementptr inbounds i8, ptr %3, i64 9
   store i8 %204, ptr %205, align 1
-  %206 = call fastcc i32 @MuxSet(ptr noundef nonnull %0, i32 noundef %80, ptr noundef nonnull %4, i32 noundef 1)
+  %206 = call fastcc i32 @MuxSet(ptr noundef %0, i32 noundef %80, ptr noundef %4, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not49 = icmp eq i32 %206, 1

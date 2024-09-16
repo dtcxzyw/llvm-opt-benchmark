@@ -145,7 +145,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true
-  %call5 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.19, ptr noundef null)
+  %call5 = call fastcc i32 @test_provider(ptr noundef %libctx, ptr noundef nonnull @.str.19, ptr noundef null)
   %.pre = load ptr, ptr %libctx, align 8
   br label %land.end
 
@@ -188,7 +188,7 @@ if.then9:                                         ; preds = %if.end4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
-  %call11 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2)
+  %call11 = call fastcc i32 @test_provider(ptr noundef %libctx, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2)
   br label %return
 
 return:                                           ; preds = %entry, %if.end10, %if.then9, %if.then3
@@ -208,7 +208,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = call fastcc i32 @test_provider(ptr noundef nonnull %libctx, ptr noundef nonnull @.str.51, ptr noundef null)
+  %call2 = call fastcc i32 @test_provider(ptr noundef %libctx, ptr noundef nonnull @.str.51, ptr noundef null)
   %call3 = tail call ptr @OSSL_LIB_CTX_new() #5
   %call4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.20, i32 noundef 281, ptr noundef nonnull @.str.21, ptr noundef %call3) #5
   %tobool5.not = icmp eq i32 %call4, 0
@@ -327,7 +327,7 @@ declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @p_test_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_provider(ptr nocapture noundef %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @test_provider(ptr nocapture noundef nonnull %libctx, ptr noundef %name, ptr noundef %legacy) unnamed_addr #1 {
 entry:
   %expected_greeting = alloca [256 x i8], align 16
   %cmp.not = icmp eq ptr %legacy, null

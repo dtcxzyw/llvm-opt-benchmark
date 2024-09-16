@@ -7395,7 +7395,7 @@ _ZNSt12__shared_ptrIN5folly5BatonILb1ESt6atomicEELN9__gnu_cxx12_Lock_policyE2EED
 declare void @_ZN5folly14SingletonVault24scheduleDestroyInstancesEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly19CoreCachedSharedPtrINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerELm64EE5resetESt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(1024) %this, ptr nocapture noundef %p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly19CoreCachedSharedPtrINS_12_GLOBAL__N_128ScopedTerminateSignalHandlerELm64EE5resetESt10shared_ptrIS2_E(ptr noundef nonnull align 8 dereferenceable(1024) %this, ptr nocapture noundef nonnull %p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %guard.i = alloca %"class.folly::CoreAllocatorGuard", align 8
   %0 = load atomic i8, ptr @_ZGVZN5folly29core_cached_shared_ptr_detail11SlotsConfigILm64EE10initializeEvE1_ acquire, align 8

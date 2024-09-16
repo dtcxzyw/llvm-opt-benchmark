@@ -697,7 +697,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
   %15 = and i32 %14, 16777215
-  %16 = tail call range(i32 0, 16777216) i32 @llvm.smax.i32(i32 %.03446, i32 %15)
+  %16 = tail call range(i32 0, 16777216) i32 @llvm.umax.i32(i32 %.03446, i32 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !7
@@ -773,7 +773,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

@@ -563,7 +563,7 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 157:                                              ; preds = %155
   %158 = getelementptr inbounds i8, ptr %.0105160, i64 5
-  call fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %148, ptr noundef nonnull %158, i32 noundef 1, i32 noundef 0)
+  call fastcc void @php_stream_apply_filter_list(ptr noundef %148, ptr noundef %158, i32 noundef 1, i32 noundef 0)
   br label %164
 
 159:                                              ; preds = %155
@@ -573,11 +573,11 @@ define hidden ptr @php_stream_url_wrap_php(ptr noundef %0, ptr noundef %1, ptr n
 
 161:                                              ; preds = %159
   %162 = getelementptr inbounds i8, ptr %.0105160, i64 6
-  call fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %148, ptr noundef nonnull %162, i32 noundef 0, i32 noundef 1)
+  call fastcc void @php_stream_apply_filter_list(ptr noundef %148, ptr noundef %162, i32 noundef 0, i32 noundef 1)
   br label %164
 
 163:                                              ; preds = %159
-  call fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %148, ptr noundef nonnull %.0105160, i32 noundef %153, i32 noundef %154)
+  call fastcc void @php_stream_apply_filter_list(ptr noundef %148, ptr noundef %.0105160, i32 noundef %153, i32 noundef %154)
   br label %164
 
 164:                                              ; preds = %161, %163, %157
@@ -717,10 +717,10 @@ declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, 
 declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_stream_apply_filter_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @php_stream_apply_filter_list(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = call ptr @strtok_r(ptr noundef %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %5) #12
+  %6 = call ptr @strtok_r(ptr noundef nonnull %1, ptr noundef nonnull @.str.28, ptr noundef nonnull %5) #12
   %.not21 = icmp eq ptr %6, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 

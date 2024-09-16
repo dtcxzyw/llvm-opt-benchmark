@@ -111,120 +111,120 @@ define ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %5 = icmp slt i32 %2, 6
   br i1 %5, label %tailrecurse._crit_edge, label %.lr.ph
 
-tailrecurse.loopexit:                             ; preds = %select.unfold.i54
-  %6 = icmp slt i32 %.tr7178, 7
+tailrecurse.loopexit:                             ; preds = %select.unfold.i
+  %6 = icmp slt i32 %.tr6774, 7
   br i1 %6, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexit, %4
-  %.tr71.lcssa = phi i32 [ %2, %4 ], [ 5, %tailrecurse.loopexit ]
+  %.tr67.lcssa = phi i32 [ %2, %4 ], [ 5, %tailrecurse.loopexit ]
   %7 = load i32, ptr %1, align 4
-  %8 = tail call ptr @Kit_TruthToCloud5_rec(ptr noundef %0, i32 noundef %7, i32 noundef %.tr71.lcssa, i32 noundef %3)
-  br label %62
+  %8 = tail call ptr @Kit_TruthToCloud5_rec(ptr noundef %0, i32 noundef %7, i32 noundef %.tr67.lcssa, i32 noundef %3)
+  br label %63
 
 .lr.ph:                                           ; preds = %4, %tailrecurse.loopexit
-  %.tr7178 = phi i32 [ %29, %tailrecurse.loopexit ], [ %2, %4 ]
-  %9 = add nsw i32 %.tr7178, -5
+  %.tr6774 = phi i32 [ %30, %tailrecurse.loopexit ], [ %2, %4 ]
+  %9 = add nsw i32 %.tr6774, -5
   %10 = shl nuw i32 1, %9
   %11 = zext i32 %10 to i64
+  br label %12
+
+12:                                               ; preds = %15, %.lr.ph
+  %indvars.iv.i = phi i64 [ %16, %15 ], [ %11, %.lr.ph ]
+  %13 = trunc nuw i64 %indvars.iv.i to i32
+  %14 = icmp sgt i32 %13, 0
+  br i1 %14, label %15, label %Kit_TruthIsConst0.exit
+
+15:                                               ; preds = %12
+  %16 = add nsw i64 %indvars.iv.i, -1
+  %17 = getelementptr inbounds i32, ptr %1, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i, label %12, label %.preheader, !llvm.loop !4
+
+Kit_TruthIsConst0.exit:                           ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %20 = load ptr, ptr %19, align 8
+  br label %63
+
+.preheader:                                       ; preds = %15, %23
+  %indvars.iv.i48 = phi i64 [ %24, %23 ], [ %11, %15 ]
+  %21 = trunc nuw i64 %indvars.iv.i48 to i32
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %23, label %Kit_TruthIsConst1.exit
+
+23:                                               ; preds = %.preheader
+  %24 = add nsw i64 %indvars.iv.i48, -1
+  %25 = getelementptr inbounds i32, ptr %1, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %.not.i50 = icmp eq i32 %26, -1
+  br i1 %.not.i50, label %.preheader, label %29, !llvm.loop !6
+
+Kit_TruthIsConst1.exit:                           ; preds = %.preheader
+  %27 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = load ptr, ptr %27, align 8
+  br label %63
+
+29:                                               ; preds = %23
+  %30 = add nsw i32 %.tr6774, -1
+  %31 = add nsw i32 %.tr6774, -6
+  %32 = shl nuw i32 1, %31
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds i32, ptr %1, i64 %33
+  %35 = zext i32 %32 to i64
   br label %select.unfold.i
 
-select.unfold.i:                                  ; preds = %14, %.lr.ph
-  %indvars.iv.i = phi i64 [ %11, %.lr.ph ], [ %15, %14 ]
-  %12 = trunc nuw i64 %indvars.iv.i to i32
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %Kit_TruthIsConst0.exit
+select.unfold.i:                                  ; preds = %38, %29
+  %indvars.iv.i51 = phi i64 [ %35, %29 ], [ %39, %38 ]
+  %36 = trunc nuw i64 %indvars.iv.i51 to i32
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %tailrecurse.loopexit
 
-14:                                               ; preds = %select.unfold.i
-  %15 = add nsw i64 %indvars.iv.i, -1
-  %16 = getelementptr inbounds i32, ptr %1, i64 %15
-  %17 = load i32, ptr %16, align 4
-  %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %select.unfold.i, label %select.unfold.i49, !llvm.loop !4
+38:                                               ; preds = %select.unfold.i
+  %39 = add nsw i64 %indvars.iv.i51, -1
+  %40 = getelementptr inbounds i32, ptr %1, i64 %39
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i32, ptr %34, i64 %39
+  %43 = load i32, ptr %42, align 4
+  %.not.i52 = icmp eq i32 %41, %43
+  br i1 %.not.i52, label %select.unfold.i, label %select.unfold.i54, !llvm.loop !7
 
-Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
-  %19 = load ptr, ptr %18, align 8
-  br label %62
+select.unfold.i54:                                ; preds = %38, %46
+  %indvars.iv.i55 = phi i64 [ %47, %46 ], [ %35, %38 ]
+  %44 = trunc nuw i64 %indvars.iv.i55 to i32
+  %45 = icmp sgt i32 %44, 0
+  br i1 %45, label %46, label %Kit_TruthIsOpposite.exit
 
-select.unfold.i49:                                ; preds = %14, %22
-  %indvars.iv.i50 = phi i64 [ %23, %22 ], [ %11, %14 ]
-  %20 = trunc nuw i64 %indvars.iv.i50 to i32
-  %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %22, label %Kit_TruthIsConst1.exit
+46:                                               ; preds = %select.unfold.i54
+  %47 = add nsw i64 %indvars.iv.i55, -1
+  %48 = getelementptr inbounds i32, ptr %1, i64 %47
+  %49 = load i32, ptr %48, align 4
+  %50 = getelementptr inbounds i32, ptr %34, i64 %47
+  %51 = load i32, ptr %50, align 4
+  %52 = xor i32 %51, %49
+  %.not.i57 = icmp eq i32 %52, -1
+  br i1 %.not.i57, label %select.unfold.i54, label %57, !llvm.loop !8
 
-22:                                               ; preds = %select.unfold.i49
-  %23 = add nsw i64 %indvars.iv.i50, -1
-  %24 = getelementptr inbounds i32, ptr %1, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %.not.i52 = icmp eq i32 %25, -1
-  br i1 %.not.i52, label %select.unfold.i49, label %28, !llvm.loop !6
+Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i54
+  %53 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %30, i32 noundef %3)
+  %54 = ptrtoint ptr %53 to i64
+  %55 = xor i64 %54, 1
+  %56 = inttoptr i64 %55 to ptr
+  br label %60
 
-Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i49
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
-  %27 = load ptr, ptr %26, align 8
-  br label %62
+57:                                               ; preds = %46
+  %58 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %30, i32 noundef %3)
+  %59 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %34, i32 noundef %30, i32 noundef %3)
+  br label %60
 
-28:                                               ; preds = %22
-  %29 = add nsw i32 %.tr7178, -1
-  %30 = add nsw i32 %.tr7178, -6
-  %31 = shl nuw i32 1, %30
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %1, i64 %32
-  %34 = zext i32 %31 to i64
-  br label %select.unfold.i54
+60:                                               ; preds = %57, %Kit_TruthIsOpposite.exit
+  %.043 = phi ptr [ %56, %Kit_TruthIsOpposite.exit ], [ %59, %57 ]
+  %.042 = phi ptr [ %53, %Kit_TruthIsOpposite.exit ], [ %58, %57 ]
+  %61 = sub nsw i32 %3, %.tr6774
+  %62 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %61, ptr noundef %.043, ptr noundef %.042) #8
+  br label %63
 
-select.unfold.i54:                                ; preds = %37, %28
-  %indvars.iv.i55 = phi i64 [ %34, %28 ], [ %38, %37 ]
-  %35 = trunc nuw i64 %indvars.iv.i55 to i32
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %tailrecurse.loopexit
-
-37:                                               ; preds = %select.unfold.i54
-  %38 = add nsw i64 %indvars.iv.i55, -1
-  %39 = getelementptr inbounds i32, ptr %1, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i32, ptr %33, i64 %38
-  %42 = load i32, ptr %41, align 4
-  %.not.i56 = icmp eq i32 %40, %42
-  br i1 %.not.i56, label %select.unfold.i54, label %select.unfold.i58, !llvm.loop !7
-
-select.unfold.i58:                                ; preds = %37, %45
-  %indvars.iv.i59 = phi i64 [ %46, %45 ], [ %34, %37 ]
-  %43 = trunc nuw i64 %indvars.iv.i59 to i32
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %45, label %Kit_TruthIsOpposite.exit
-
-45:                                               ; preds = %select.unfold.i58
-  %46 = add nsw i64 %indvars.iv.i59, -1
-  %47 = getelementptr inbounds i32, ptr %1, i64 %46
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i32, ptr %33, i64 %46
-  %50 = load i32, ptr %49, align 4
-  %51 = xor i32 %50, %48
-  %.not.i61 = icmp eq i32 %51, -1
-  br i1 %.not.i61, label %select.unfold.i58, label %56, !llvm.loop !8
-
-Kit_TruthIsOpposite.exit:                         ; preds = %select.unfold.i58
-  %52 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %29, i32 noundef %3)
-  %53 = ptrtoint ptr %52 to i64
-  %54 = xor i64 %53, 1
-  %55 = inttoptr i64 %54 to ptr
-  br label %59
-
-56:                                               ; preds = %45
-  %57 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %29, i32 noundef %3)
-  %58 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef nonnull %33, i32 noundef %29, i32 noundef %3)
-  br label %59
-
-59:                                               ; preds = %56, %Kit_TruthIsOpposite.exit
-  %.043 = phi ptr [ %55, %Kit_TruthIsOpposite.exit ], [ %58, %56 ]
-  %.042 = phi ptr [ %52, %Kit_TruthIsOpposite.exit ], [ %57, %56 ]
-  %60 = sub nsw i32 %3, %.tr7178
-  %61 = tail call ptr @Cloud_MakeNode(ptr noundef %0, i32 noundef %60, ptr noundef %.043, ptr noundef %.042) #8
-  br label %62
-
-62:                                               ; preds = %59, %Kit_TruthIsConst1.exit, %Kit_TruthIsConst0.exit, %tailrecurse._crit_edge
-  %.0 = phi ptr [ %8, %tailrecurse._crit_edge ], [ %19, %Kit_TruthIsConst0.exit ], [ %27, %Kit_TruthIsConst1.exit ], [ %61, %59 ]
+63:                                               ; preds = %60, %Kit_TruthIsConst1.exit, %Kit_TruthIsConst0.exit, %tailrecurse._crit_edge
+  %.0 = phi ptr [ %8, %tailrecurse._crit_edge ], [ %20, %Kit_TruthIsConst0.exit ], [ %28, %Kit_TruthIsConst1.exit ], [ %62, %60 ]
   ret ptr %.0
 }
 

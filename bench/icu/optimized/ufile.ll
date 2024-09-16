@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL11finit_ownerP8_IO_FILEPKcS2_a(ptr noundef %f, ptr noundef %locale, ptr noundef %codepage, i8 noundef signext %takeOwnership) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL11finit_ownerP8_IO_FILEPKcS2_a(ptr noundef %f, ptr noundef %locale, ptr noundef %codepage, i8 noundef signext range(i8 0, 2) %takeOwnership) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

@@ -2465,7 +2465,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
   store ptr %472, ptr %475, align 8
   %476 = getelementptr inbounds i8, ptr %37, i64 40
   store i64 0, ptr %476, align 8
-  invoke fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %449, ptr %451, ptr noundef nonnull %37)
+  invoke fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %449, ptr %451, ptr noundef %37)
           to label %477 unwind label %483
 
 477:                                              ; preds = %471
@@ -2551,7 +2551,7 @@ _ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4
   %.val43 = load ptr, ptr %38, align 8
   %500 = getelementptr inbounds i8, ptr %38, i64 8
   %.val44 = load ptr, ptr %500, align 8
-  invoke fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr nonnull @.str.14, i64 1, ptr %.val43, ptr %.val44)
+  invoke fastcc void @"_ZN5vcpkg7Strings4joinISt6vectorIPKNS_16ExportPlanActionESaIS5_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESE_E3$_3EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13StringLiteralERKT_T0_"(ptr dead_on_unwind noalias writable align 8 %39, ptr nonnull @.str.14, i64 1, ptr %.val43, ptr %.val44)
           to label %501 unwind label %515
 
 501:                                              ; preds = %499
@@ -2637,7 +2637,7 @@ _ZNSt3mapIN5vcpkg14ExportPlanTypeESt6vectorIPKNS0_16ExportPlanActionESaIS5_EESt4
   unreachable
 
 530:                                              ; preds = %.critedge
-  invoke fastcc void @_ZN12_GLOBAL__N_116create_export_idB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %45)
+  invoke fastcc void @_ZN12_GLOBAL__N_116create_export_idB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %45)
           to label %531 unwind label %483
 
 531:                                              ; preds = %530
@@ -2916,7 +2916,7 @@ _ZN5vcpkg3msg7printlnENS_5ColorERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 declare void @_ZN5vcpkg6Checks9exit_failERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %.0.val, ptr readnone %.8.val, ptr noundef %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util8group_byINS_14ExportPlanTypeENS_16ExportPlanActionESt6vectorIS3_SaIS3_EEZNS_23command_export_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESD_E3$_1EEvRKT1_PSt3mapIT_S4_IPKT0_SaISM_EESt4lessISJ_ESaISt4pairIKSJ_SO_EEEOT2_"(ptr %.0.val, ptr readnone %.8.val, ptr noundef nonnull %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::tuple.250", align 8
   %3 = alloca %"class.std::tuple.253", align 1
   %4 = alloca i32, align 4
@@ -3776,7 +3776,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN5vcpkg6Checks12exit_successERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116create_export_idB5cxx11Ev(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116create_export_idB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LocalizedString", align 8
   %3 = alloca %struct.tm, align 8
   %4 = alloca [16 x i8], align 16
@@ -3837,7 +3837,7 @@ _ZN5vcpkg6Checks14msg_check_exitIJNS_3msg10expected_tENS2_8actual_tEEJNS_10Strin
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #22
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.100, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %21 unwind label %24
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
@@ -5631,7 +5631,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit73.i: ; preds = %613
 656:                                              ; preds = %.noexc.i123
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  invoke fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias nonnull writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_114ArchiveFormatC3ZIPE)
+  invoke fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias writable align 8 %83, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_114ArchiveFormatC3ZIPE)
           to label %657 unwind label %122
 
 657:                                              ; preds = %656
@@ -5703,7 +5703,7 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit73.i: ; preds = %613
 679:                                              ; preds = %.noexc.i128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  invoke fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias nonnull writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_114ArchiveFormatC9SEVEN_ZIPE)
+  invoke fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias writable align 8 %85, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(40) @_ZN12_GLOBAL__N_114ArchiveFormatC9SEVEN_ZIPE)
           to label %680 unwind label %122
 
 680:                                              ; preds = %679
@@ -11090,7 +11090,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10VcpkgPathsERKNS0_4PathES6_RKNS_13ArchiveFormatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LocalizedString", align 8
   %7 = alloca %"struct.vcpkg::Path", align 8
   %8 = alloca %"class.fmt::v10::format_arg_store.228", align 16
@@ -11138,7 +11138,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117do_archive_exportERKN5vcpkg10Vcp
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds i8, ptr %12, i64 8
   %38 = load i64, ptr %37, align 8
-  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %36, i64 %38)
+  invoke void @_ZNKR5vcpkg4PathdvENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr %36, i64 %38)
           to label %39 unwind label %134
 
 39:                                               ; preds = %5

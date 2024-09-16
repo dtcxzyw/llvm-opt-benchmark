@@ -1738,9 +1738,9 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendMuxReal(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 2, -2147483648) %2) unnamed_addr #1 {
   %4 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
-  %5 = icmp slt i32 %1, %2
+  %5 = icmp ult i32 %1, %2
   %6 = getelementptr i8, ptr %0, i64 32
   %.val75 = load ptr, ptr %6, align 8
   %7 = ptrtoint ptr %4 to i64
@@ -1749,7 +1749,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %10 = sdiv exact i64 %9, 12
   %11 = trunc i64 %10 to i32
   %12 = lshr i32 %1, 1
-  %13 = sub i32 %11, %12
+  %13 = sub nsw i32 %11, %12
   %14 = load i64, ptr %4, align 4
   %15 = and i32 %13, 536870911
   %16 = zext nneg i32 %15 to i64
@@ -1769,7 +1769,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %26 = sdiv exact i64 %25, 12
   %27 = trunc i64 %26 to i32
   %28 = lshr i32 %2, 1
-  %29 = sub i32 %27, %28
+  %29 = sub nsw i32 %27, %28
   %30 = and i32 %29, 536870911
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 32
@@ -1796,7 +1796,7 @@ define internal fastcc range(i32 0, -1) i32 @Gia_ManAppendAnd(ptr noundef %0, i3
   %49 = sdiv exact i64 %48, 12
   %50 = trunc i64 %49 to i32
   %51 = lshr i32 %2, 1
-  %52 = sub i32 %50, %51
+  %52 = sub nsw i32 %50, %51
   %53 = and i32 %52, 536870911
   %54 = zext nneg i32 %53 to i64
   %55 = and i64 %46, -1073741824

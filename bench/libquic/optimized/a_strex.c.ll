@@ -51,7 +51,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @X509_NAME_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_name_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, ptr noundef %n, i32 noundef %indent, i64 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @do_name_ex(ptr nocapture noundef readonly %io_ch, ptr noundef %arg, ptr noundef %n, i32 noundef %indent, i64 noundef range(i64 1, 0) %flags) unnamed_addr #0 {
 entry:
   %objtmp = alloca [80 x i8], align 16
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %indent, i32 0)
@@ -698,7 +698,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i8 noundef zeroext %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @do_buf(ptr noundef %buf, i32 noundef %buflen, i32 noundef %type, i8 noundef zeroext range(i8 0, 16) %flags, ptr noundef %quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %c = alloca i64, align 8
   %utfbuf = alloca [6 x i8], align 1
@@ -797,7 +797,7 @@ sw.epilog.us:                                     ; preds = %sw.bb.us, %sw.bb14.
   %cmp31.us = icmp ne ptr %p.1.us, %add.ptr
   %or.cond35.us = or i1 %tobool.not, %cmp31.us
   %orflags.1.us = select i1 %or.cond35.us, i8 %orflags.0.us, i8 64
-  %or5833.us = or i8 %orflags.1.us, %flags
+  %or5833.us = or disjoint i8 %orflags.1.us, %flags
   %call60.us = call fastcc i32 @do_esc_char(i64 noundef %8, i8 noundef zeroext %or5833.us, ptr noundef %quotes, ptr noundef %io_ch, ptr noundef %arg)
   %cmp61.us = icmp slt i32 %call60.us, 0
   br i1 %cmp61.us, label %return, label %if.end64.us
@@ -886,7 +886,7 @@ for.body.lr.ph:                                   ; preds = %sw.epilog
   %cmp31 = icmp ne ptr %p.1, %add.ptr
   %or.cond35 = or i1 %tobool.not, %cmp31
   %orflags.1 = select i1 %or.cond35, i8 %orflags.0, i8 64
-  %or4834 = or i8 %orflags.1, %flags
+  %or4834 = or disjoint i8 %orflags.1, %flags
   %wide.trip.count = zext nneg i32 %call42 to i64
   br label %for.body
 
@@ -929,7 +929,7 @@ declare i32 @UTF8_getc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @UTF8_putc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 11) i32 @do_esc_char(i64 noundef %c, i8 noundef zeroext range(i8 0, -128) %flags, ptr noundef writeonly %do_quotes, ptr nocapture noundef readonly %io_ch, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %chtmp = alloca i8, align 1
   %tmphex = alloca [19 x i8], align 16

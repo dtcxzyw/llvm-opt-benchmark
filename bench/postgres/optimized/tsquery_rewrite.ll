@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
-  %6 = call fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  %6 = call fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
 
@@ -32,7 +32,7 @@ define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   tail call void @check_stack_depth() #5
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
@@ -519,7 +519,7 @@ define dso_local i64 @tsquery_rewrite_query(ptr nocapture noundef readonly %0) l
   store ptr %12, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 0, ptr %2, align 1
-  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1109, ptr noundef %89, ptr noundef %.0, ptr noundef nonnull %2)
+  %100 = call fastcc ptr @dofindsubquery(ptr noundef nonnull %.1109, ptr noundef %89, ptr noundef %.0, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   store ptr %99, ptr @CurrentMemoryContext, align 8
   call void @QTNFree(ptr noundef %89) #5
@@ -709,7 +709,7 @@ define dso_local i64 @tsquery_rewrite(ptr nocapture noundef readonly %0) local_u
 40:                                               ; preds = %34, %20
   %.0 = phi ptr [ %39, %34 ], [ null, %20 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %41 = call fastcc ptr @dofindsubquery(ptr noundef %25, ptr noundef %31, ptr noundef %.0, ptr noundef nonnull %2)
+  %41 = call fastcc ptr @dofindsubquery(ptr noundef %25, ptr noundef %31, ptr noundef %.0, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   tail call void @QTNFree(ptr noundef %31) #5
   tail call void @QTNFree(ptr noundef %.0) #5

@@ -1536,7 +1536,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   br i1 %.not2070, label %242, label %241
 
 241:                                              ; preds = %238
-  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.01694, ptr noundef nonnull %.01699)
+  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.01694, ptr noundef %.01699)
   br label %242
 
 242:                                              ; preds = %238, %241
@@ -1687,7 +1687,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %320 = load ptr, ptr @stderr, align 8
   %321 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %320, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #34
   %322 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %322, i32 noundef %317, ptr noundef nonnull %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %322, i32 noundef %317, ptr noundef %2)
   %323 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %323)
   br label %324
@@ -1781,7 +1781,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   %365 = load ptr, ptr @stderr, align 8
   %366 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %365, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.16) #34
   %367 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %367, i32 noundef %.01739, ptr noundef nonnull %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %367, i32 noundef %.01739, ptr noundef %2)
   %368 = load ptr, ptr @stderr, align 8
   %fputc2082 = call i32 @fputc(i32 10, ptr %368)
   %.pre = load i32, ptr @frontend_verilog_yydebug, align 4
@@ -1873,7 +1873,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
 
 .split.us:                                        ; preds = %387, %397, %.split.us.split.us
   %.us-phi4827 = phi i32 [ %.41731.ph, %.split.us.split.us ], [ 1, %397 ], [ %.41731.us, %387 ]
-  %399 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %217)
+  %399 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %12, ptr noundef %11, ptr noundef %217)
   switch i32 %399, label %.thread2603 [
     i32 0, label %.thread2606
     i32 -1, label %7777
@@ -1936,7 +1936,7 @@ define noundef range(i32 0, 3) i32 @_Z24frontend_verilog_yyparsev() local_unname
   br i1 %.not2090, label %432, label %431
 
 431:                                              ; preds = %425
-  call fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr noundef nonnull %.21701, ptr noundef nonnull %.21721, i32 noundef %.01737)
+  call fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr noundef %.21701, ptr noundef %.21721, i32 noundef %.01737)
   br label %432
 
 432:                                              ; preds = %425, %431
@@ -4547,7 +4547,7 @@ _ZNSt5stackIPN5Yosys7hashlib4dictINS0_5RTLIL8IdStringEPNS0_3AST7AstNodeENS1_8has
 1472:                                             ; preds = %1469
   %1473 = getelementptr inbounds i8, ptr %.21711, i64 -24
   %1474 = load ptr, ptr %1473, align 8
-  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %1474)
+  invoke fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %46, ptr noundef nonnull align 8 dereferenceable(32) %1474)
           to label %1475 unwind label %1508
 
 1475:                                             ; preds = %1472
@@ -8264,7 +8264,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit2277:        ; preds = %3422, %3431
   br label %3501
 
 3501:                                             ; preds = %3499, %3498
-  call fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(32) %3479)
+  call fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %113, ptr noundef nonnull align 8 dereferenceable(32) %3479)
   %3502 = invoke noundef ptr @_ZN5Yosys3AST7AstNode11mkconst_strERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %113)
           to label %3503 unwind label %3513
 
@@ -15856,7 +15856,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %7737 = getelementptr inbounds [702 x i16], ptr @_ZL4yyr1, i64 0, i64 %401
   %7738 = load i16, ptr %7737, align 2
   %7739 = sext i16 %7738 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7736, i32 noundef %7739, ptr noundef nonnull %9)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7736, i32 noundef %7739, ptr noundef %9)
   %7740 = load ptr, ptr @stderr, align 8
   %fputc2223 = call i32 @fputc(i32 10, ptr %7740)
   br label %7741
@@ -15947,7 +15947,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   br label %.loopexit2688
 
 7784:                                             ; preds = %7780
-  %7785 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %12, ptr noundef nonnull %11, ptr noundef nonnull %217)
+  %7785 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %12, ptr noundef %11, ptr noundef %217)
   call void (ptr, ...) @_Z24frontend_verilog_yyerrorPKcz(ptr noundef nonnull %7782)
   %7786 = icmp eq i32 %7785, -2
   br i1 %7786, label %.loopexit2688, label %.thread2610
@@ -15974,7 +15974,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit2279: ; preds = %5261
   %7794 = load ptr, ptr @stderr, align 8
   %7795 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7794, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.113) #34
   %7796 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7796, i32 noundef %7774, ptr noundef nonnull readonly %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7796, i32 noundef %7774, ptr noundef readonly %2)
   %7797 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %7797)
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit
@@ -16037,7 +16037,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7821 = load ptr, ptr @stderr, align 8
   %7822 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7821, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.114) #34
   %7823 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7823, i32 noundef %7820, ptr noundef nonnull readonly %.51724)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7823, i32 noundef %7820, ptr noundef readonly %.51724)
   %7824 = load ptr, ptr @stderr, align 8
   %fputc.i2284 = call i32 @fputc(i32 10, ptr %7824)
   %.pr = load i32, ptr @frontend_verilog_yydebug, align 4
@@ -16047,7 +16047,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   br i1 %.not2232, label %7828, label %7827
 
 7827:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285
-  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.11695, ptr noundef nonnull %7825)
+  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.11695, ptr noundef %7825)
   br label %7828
 
 7828:                                             ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285.thread, %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2285, %7827
@@ -16101,7 +16101,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7852 = getelementptr inbounds [1357 x i16], ptr @_ZL6yystos, i64 0, i64 %7851
   %7853 = load i16, ptr %7852, align 2
   %7854 = sext i16 %7853 to i32
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7850, i32 noundef %7854, ptr noundef nonnull %7843)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7850, i32 noundef %7854, ptr noundef %7843)
   %7855 = load ptr, ptr @stderr, align 8
   %fputc2231 = call i32 @fputc(i32 10, ptr %7855)
   br label %231
@@ -16153,7 +16153,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILO
   %7865 = load ptr, ptr @stderr, align 8
   %7866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7865, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.117) #34
   %7867 = load ptr, ptr @stderr, align 8
-  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7867, i32 noundef %7862, ptr noundef nonnull readonly %2)
+  call fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr noundef %7867, i32 noundef %7862, ptr noundef readonly %2)
   %7868 = load ptr, ptr @stderr, align 8
   %fputc.i2287 = call i32 @fputc(i32 10, ptr %7868)
   br label %_ZL10yydestructPKc15yysymbol_kind_tP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE.exit2288
@@ -16252,7 +16252,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #7 {
+define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #7 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 9, i64 1, ptr %3) #33
   %.not4 = icmp ugt ptr %0, %1
@@ -16283,7 +16283,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare noundef i32 @_Z22frontend_verilog_yylexP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPE(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #10 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK24FRONTEND_VERILOG_YYSTYPEPK24FRONTEND_VERILOG_YYLTYPE(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #10 {
   %4 = icmp slt i32 %1, 174
   %.str.122..str.123 = select i1 %4, ptr @.str.122, ptr @.str.123
   %5 = sext i32 %1 to i64
@@ -16346,7 +16346,7 @@ _ZL18yy_location_print_P8_IO_FILEPK24FRONTEND_VERILOG_YYLTYPE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymbol_kind_t(ptr noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymbol_kind_t(ptr noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef range(i32 -2147483648, 256) %4) unnamed_addr #3 {
   %6 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
@@ -16613,7 +16613,7 @@ _ZL20yy_lac_stack_reallocPllPKcS1_PPsS2_S3_S2_.exit: ; preds = %125, %104
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_reduce_printPsP24FRONTEND_VERILOG_YYSTYPEP24FRONTEND_VERILOG_YYLTYPEi(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 -32768, 32769) %2) unnamed_addr #7 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds [702 x i16], ptr @_ZL7yyrline, i64 0, i64 %4
   %6 = load i16, ptr %5, align 2
@@ -18176,7 +18176,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #30
   %4 = icmp ult i64 %3, 2
   br i1 %4, label %5, label %6
@@ -18228,7 +18228,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_
   br label %29
 
 28:                                               ; preds = %23, %19
-  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
+  tail call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 1, i64 noundef -1)
   br label %29
 
 29:                                               ; preds = %28, %27, %18, %9, %5
@@ -18236,7 +18236,7 @@ define internal fastcc void @_ZN5Yosys5RTLILL11unescape_idERKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZL9makeRangeiib(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZL9makeRangeiib(i32 noundef %0, i32 noundef range(i32 0, -2147483648) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #36
   invoke void @_ZN5Yosys3AST7AstNodeC1ENS0_11AstNodeTypeEPS1_S3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(284) %4, i32 noundef 14, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %5 unwind label %69
@@ -18540,7 +18540,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZN5Yosys16log_file_warningERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPKcz(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc void @_ZL8addRangePN5Yosys3AST7AstNodeEiib(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 2147483647) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = tail call fastcc noundef ptr @_ZL9makeRangeiib(i32 noundef %1, i32 noundef 0, i1 noundef zeroext %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -20256,7 +20256,7 @@ define internal fastcc void @_ZL21ensureAsgnExprAllowedv() unnamed_addr #4 {
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #3 {
   %4 = alloca [5 x i32], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   %6 = load i32, ptr %5, align 8

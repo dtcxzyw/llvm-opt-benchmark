@@ -346,11 +346,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i144, %79
   call void @free(ptr noundef %113) #15
   store i32 0, ptr %12, align 4
   %114 = call i32 @PMIx_Info_list_add(ptr noundef %106, ptr noundef nonnull @.str.15, ptr noundef nonnull %12, i16 noundef zeroext 40) #15
-  %115 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %13, ptr noundef nonnull @.str.16)
+  %115 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %13, ptr noundef nonnull @.str.16)
   br i1 %115, label %.sink.split, label %116
 
 116:                                              ; preds = %105
-  %117 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull %13, ptr noundef nonnull @.str.18)
+  %117 = call fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef %13, ptr noundef nonnull @.str.18)
   br i1 %117, label %.sink.split, label %119
 
 .sink.split:                                      ; preds = %116, %105
@@ -950,7 +950,7 @@ declare i32 @getpid() local_unnamed_addr #2
 declare i32 @PMIx_Info_list_add(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
+define internal fastcc zeroext i1 @pmix_cmd_line_is_taken(ptr noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   %.09.i = load ptr, ptr %4, align 8

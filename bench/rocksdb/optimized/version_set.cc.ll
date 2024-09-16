@@ -10217,7 +10217,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_113LevelIteratorC2EPNS_10TableCacheERKNS_11ReadOptionsERKNS_11FileOptionsERKNS_21InternalKeyComparatorEPKNS_15LevelFilesBriefERKSt10shared_ptrIKNS_14SliceTransformEEbPNS_13HistogramImplENS_17TableReaderCallerEbihPNS_18RangeDelAggregatorEPKSt6vectorINS_28AtomicCompactionUnitBoundaryESaISS_EEbPPPPNS_25TruncatedRangeDelIteratorE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %table_cache, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 8 dereferenceable(16) %icomparator, ptr noundef %flevel, ptr noundef nonnull align 8 dereferenceable(16) %prefix_extractor, i1 noundef zeroext %should_sample, ptr noundef %file_read_hist, i8 noundef signext %caller, i1 noundef zeroext %skip_filters, i32 noundef %level, i8 noundef zeroext %block_protection_bytes_per_key, ptr noundef %range_del_agg, ptr noundef %compaction_boundaries, i1 noundef zeroext %allow_unprepared_value, ptr noundef writeonly %range_tombstone_iter_ptr_) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_113LevelIteratorC2EPNS_10TableCacheERKNS_11ReadOptionsERKNS_11FileOptionsERKNS_21InternalKeyComparatorEPKNS_15LevelFilesBriefERKSt10shared_ptrIKNS_14SliceTransformEEbPNS_13HistogramImplENS_17TableReaderCallerEbihPNS_18RangeDelAggregatorEPKSt6vectorINS_28AtomicCompactionUnitBoundaryESaISS_EEbPPPPNS_25TruncatedRangeDelIteratorE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %table_cache, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef nonnull align 8 dereferenceable(16) %icomparator, ptr noundef %flevel, ptr noundef nonnull align 8 dereferenceable(16) %prefix_extractor, i1 noundef zeroext %should_sample, ptr noundef %file_read_hist, i8 noundef signext range(i8 3, 11) %caller, i1 noundef zeroext %skip_filters, i32 noundef %level, i8 noundef zeroext %block_protection_bytes_per_key, ptr noundef %range_del_agg, ptr noundef %compaction_boundaries, i1 noundef zeroext %allow_unprepared_value, ptr noundef writeonly %range_tombstone_iter_ptr_) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %frombool = zext i1 %should_sample to i8
   %frombool1 = zext i1 %skip_filters to i8
@@ -10867,7 +10867,7 @@ if.end:                                           ; preds = %invoke.cont17
           to label %invoke.cont32 unwind label %lpad8.loopexit
 
 invoke.cont32:                                    ; preds = %if.end
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull %.cast, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef %call33, ptr noundef nonnull %overlap)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull %.cast, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef %call33, ptr noundef nonnull %overlap)
           to label %invoke.cont38 unwind label %lpad35
 
 invoke.cont38:                                    ; preds = %invoke.cont32
@@ -11036,7 +11036,7 @@ invoke.cont72:                                    ; preds = %land.rhs.i, %invoke
           to label %invoke.cont76 unwind label %lpad8.loopexit.split-lp
 
 invoke.cont76:                                    ; preds = %invoke.cont72
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias nonnull align 8 %ref.tmp78, ptr noundef %.cast, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef nonnull %call52, ptr noundef nonnull %overlap)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias align 8 %ref.tmp78, ptr noundef %.cast, ptr noundef nonnull align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef nonnull %call52, ptr noundef nonnull %overlap)
           to label %invoke.cont82 unwind label %_ZN7rocksdb19ScopedArenaIteratorD2Ev.exit100
 
 invoke.cont82:                                    ; preds = %invoke.cont76
@@ -11176,7 +11176,7 @@ _ZN7rocksdb6StatusD2Ev.exit106:                   ; preds = %ehcleanup97, %_ZNKS
 declare void @_ZN7rocksdb5ArenaC1EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2288), i64 noundef, ptr noundef, i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias align 8 %agg.result, ptr noundef %ucmp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef %iter, ptr nocapture noundef writeonly %overlap) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_119OverlapWithIteratorEPKNS_10ComparatorERKNS_5SliceES6_PNS_20InternalIteratorBaseIS4_EEPb(ptr noalias nonnull align 8 %agg.result, ptr noundef %ucmp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %smallest_user_key, ptr noundef nonnull align 8 dereferenceable(16) %largest_user_key, ptr noundef %iter, ptr nocapture noundef writeonly %overlap) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %range_start = alloca %"class.rocksdb::InternalKey", align 8
@@ -11277,7 +11277,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   %11 = getelementptr inbounds i8, ptr %ref.tmp18, i64 8
   %12 = extractvalue { ptr, i64 } %call22, 1
   store i64 %12, ptr %11, align 8
-  invoke void @_ZN7rocksdb16ParseInternalKeyERKNS_5SliceEPNS_17ParsedInternalKeyEb(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, ptr noundef nonnull %seek_result, i1 noundef zeroext false)
+  invoke void @_ZN7rocksdb16ParseInternalKeyERKNS_5SliceEPNS_17ParsedInternalKeyEb(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp18, ptr noundef nonnull %seek_result, i1 noundef zeroext false)
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont21
@@ -11334,7 +11334,7 @@ if.end33.invoke:                                  ; preds = %invoke.cont14, %_ZN
   %vtable9 = load ptr, ptr %iter, align 8
   %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 112
   %18 = load ptr, ptr %vfn10, align 8
-  invoke void %18(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %iter)
+  invoke void %18(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %iter)
           to label %cleanup37 unwind label %lpad
 
 cleanup37:                                        ; preds = %if.end33.invoke, %invoke.cont25
@@ -42192,7 +42192,7 @@ if.end:                                           ; preds = %_ZN7rocksdb12_GLOBA
   store ptr null, ptr %state_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %agg.result, i8 0, i64 6, i1 false)
   %manifest_file_number_ = getelementptr inbounds i8, ptr %this, i64 232
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %manifest_path, ptr noundef nonnull align 8 dereferenceable(40) %manifest_picker, ptr noundef nonnull %manifest_file_number_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %manifest_path, ptr noundef nonnull align 8 dereferenceable(40) %manifest_picker, ptr noundef %manifest_file_number_)
           to label %while.cond.preheader unwind label %lpad11
 
 while.cond.preheader:                             ; preds = %if.end
@@ -42291,7 +42291,7 @@ if.end23:                                         ; preds = %lor.lhs.false
           to label %invoke.cont24 unwind label %lpad15
 
 invoke.cont24:                                    ; preds = %if.end23
-  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(40) %manifest_picker, ptr noundef nonnull %manifest_file_number_)
+  invoke fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(40) %manifest_picker, ptr noundef %manifest_file_number_)
           to label %invoke.cont27 unwind label %lpad15
 
 invoke.cont27:                                    ; preds = %invoke.cont24
@@ -42386,7 +42386,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %number) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_114ManifestPicker15GetNextManifestEPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %number) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca i32, align 4
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #36
@@ -42425,7 +42425,7 @@ if.end:                                           ; preds = %if.then5, %invoke.c
 
 if.then11:                                        ; preds = %if.end
   %6 = load ptr, ptr %manifest_file_iter_, align 8
-  %call15 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %number, ptr noundef nonnull %type, ptr noundef null)
+  %call15 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %number, ptr noundef nonnull %type, ptr noundef null)
           to label %if.end23 unwind label %lpad
 
 if.end23:                                         ; preds = %if.then11
@@ -68959,7 +68959,7 @@ while.body.i.i.i:                                 ; preds = %invoke.cont.i.i.i, 
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__first.coerce, i64 %__parent.0.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #36
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i.i.i) #36
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i25.lcssa, ptr noundef nonnull %agg.tmp6.i.i.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i25.lcssa, ptr noundef %agg.tmp6.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %while.body.i.i.i
@@ -68999,7 +68999,7 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   %sub.ptr.sub.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i7, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i10 = ashr exact i64 %sub.ptr.sub.i.i9, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp7.i, ptr noundef nonnull align 8 dereferenceable(32) %__value.i) #36
-  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i10, ptr noundef nonnull %agg.tmp7.i)
+  invoke fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i10, ptr noundef %agg.tmp7.i)
           to label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_SO_SO_RT0_.exit" unwind label %lpad.i
 
 lpad.i:                                           ; preds = %while.body.i.i
@@ -69185,7 +69185,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN7rocksdb12_GLOBAL__N_114ManifestPickerC1ERKS7_RKSB_E3$_0EEEvT_T0_SP_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull %__value) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %num1.i.i.i = alloca i64, align 8
   %num2.i.i.i = alloca i64, align 8
@@ -79306,7 +79306,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   store i64 %18, ptr %file_size4.i.i.i14.i.i.i, align 8
   store i64 %19, ptr %smallest_seqno5.i.i.i16.i.i.i, align 8
   store i64 %20, ptr %largest_seqno6.i.i.i18.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef nonnull %agg.tmp6.i.i.i, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.le, ptr noundef %agg.tmp6.i.i.i, ptr readonly %__comp.coerce)
   %cmp11.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp11.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_SE_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !833
@@ -79354,7 +79354,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %"_
   store i64 %23, ptr %file_size4.i.i.i6.i.i9.i, align 8
   store i64 %24, ptr %smallest_seqno5.i.i.i8.i.i10.i, align 8
   store i64 %25, ptr %largest_seqno6.i.i.i10.i.i11.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i20.i, ptr noundef nonnull %agg.tmp7.i.i1.i, ptr readonly %__comp.coerce)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i20.i, ptr noundef %agg.tmp7.i.i1.i, ptr readonly %__comp.coerce)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %agg.tmp7.i.i1.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i19.i, 80
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !834
@@ -80154,7 +80154,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef readonly %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb14FdWithKeyRangeESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_18VersionStorageInfo28GenerateLevel0NonOverlappingEvE3$_0EEEvT_T0_SF_T1_T2_"(ptr %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull readonly %__value, ptr nocapture readonly %__comp.coerce) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp2.i.i.i.i = alloca %"class.rocksdb::Slice", align 8

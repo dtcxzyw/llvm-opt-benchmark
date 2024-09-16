@@ -699,13 +699,13 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @addk(ptr nocapture noundef %fs, ptr noundef %k, ptr nocapture noundef readonly %v) unnamed_addr #0 {
+define internal fastcc i32 @addk(ptr nocapture noundef %fs, ptr noundef nonnull %k, ptr nocapture noundef nonnull readonly %v) unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %fs, i64 32
   %0 = load ptr, ptr %L1, align 8, !tbaa !30
   %h = getelementptr inbounds i8, ptr %fs, i64 8
   %1 = load ptr, ptr %h, align 8, !tbaa !31
-  %call = tail call ptr @luaH_set(ptr noundef %0, ptr noundef %1, ptr noundef %k) #8
+  %call = tail call ptr @luaH_set(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %k) #8
   %2 = load ptr, ptr %fs, align 8, !tbaa !13
   %sizek = getelementptr inbounds i8, ptr %2, i64 76
   %3 = load i32, ptr %sizek, align 4, !tbaa !32
@@ -2695,7 +2695,7 @@ luaK_patchtohere.exit:                            ; preds = %fixjump.exit.i.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @jumponcond(ptr nocapture noundef %fs, ptr nocapture noundef %e, i32 noundef %cond) unnamed_addr #0 {
+define internal fastcc i32 @jumponcond(ptr nocapture noundef %fs, ptr nocapture noundef %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %e, align 8, !tbaa !38
   switch i32 %0, label %entry.if.then.i_crit_edge [
@@ -2726,8 +2726,7 @@ cleanup:                                          ; preds = %if.then
   %dec = add nsw i32 %5, -1
   store i32 %dec, ptr %pc, align 8, !tbaa !4
   %shr3 = lshr i32 %4, 23
-  %tobool.not = icmp eq i32 %cond, 0
-  %lnot.ext = zext i1 %tobool.not to i32
+  %lnot.ext = xor i32 %cond, 1
   %call = tail call fastcc i32 @condjump(ptr noundef nonnull %fs, i32 noundef 26, i32 noundef %shr3, i32 noundef 0, i32 noundef %lnot.ext)
   br label %return
 
@@ -3301,7 +3300,7 @@ sw.epilog:                                        ; preds = %patchtestreg.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codearith(ptr nocapture noundef %fs, i32 noundef %op, ptr nocapture noundef %e1, ptr nocapture noundef %e2) unnamed_addr #0 {
+define internal fastcc void @codearith(ptr nocapture noundef %fs, i32 noundef range(i32 12, 22) %op, ptr nocapture noundef %e1, ptr nocapture noundef %e2) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %e1, align 8, !tbaa !38
   %cmp.i.i = icmp eq i32 %0, 5
@@ -3518,7 +3517,7 @@ if.end:                                           ; preds = %if.end.sink.split, 
   %shl2.i = shl i32 %call3, 23
   %shl4.i = shl i32 %cond, 14
   %25 = or i32 %shl4.i, %shl2.i
-  %or5.i = or i32 %25, %op
+  %or5.i = or disjoint i32 %25, %op
   %ls.i = getelementptr inbounds i8, ptr %fs, i64 24
   %26 = load ptr, ptr %ls.i, align 8, !tbaa !17
   %lastline.i = getelementptr inbounds i8, ptr %26, i64 8
@@ -4905,12 +4904,12 @@ return:                                           ; preds = %sw.epilog, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @condjump(ptr nocapture noundef %fs, i32 noundef %op, i32 noundef %A, i32 noundef %B, i32 noundef %C) unnamed_addr #0 {
+define internal fastcc i32 @condjump(ptr nocapture noundef %fs, i32 noundef range(i32 23, 28) %op, i32 noundef range(i32 0, 512) %A, i32 noundef %B, i32 noundef %C) unnamed_addr #0 {
 entry:
   %shl1.i = shl nuw nsw i32 %A, 6
-  %or.i = or i32 %shl1.i, %op
+  %or.i = or disjoint i32 %shl1.i, %op
   %shl2.i = shl i32 %B, 23
-  %or3.i = or i32 %or.i, %shl2.i
+  %or3.i = or disjoint i32 %or.i, %shl2.i
   %shl4.i = shl i32 %C, 14
   %or5.i = or i32 %or3.i, %shl4.i
   %ls.i = getelementptr inbounds i8, ptr %fs, i64 24

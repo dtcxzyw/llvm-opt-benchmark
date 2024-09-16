@@ -1548,7 +1548,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_connect_ack(ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr nonnull align 1 @prte_version_string, i64 %30, i1 false)
   %31 = getelementptr inbounds i8, ptr %0, i64 416
   %32 = load i32, ptr %31, align 8
-  %33 = tail call fastcc i32 @tcp_peer_send_blocking(i32 noundef %32, ptr noundef nonnull %14, i64 noundef %13)
+  %33 = tail call fastcc i32 @tcp_peer_send_blocking(i32 noundef %32, ptr noundef %14, i64 noundef %13)
   %.not = icmp eq i32 %33, 0
   tail call void @free(ptr noundef nonnull %14) #13
   br i1 %.not, label %36, label %34
@@ -2004,7 +2004,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br label %19
 
 19:                                               ; preds = %17, %7, %3
-  %20 = call fastcc zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, i64 noundef 568)
+  %20 = call fastcc zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0, i32 noundef %1, ptr noundef %4, i64 noundef 568)
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %19
@@ -2124,7 +2124,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   store i32 %81, ptr %66, align 4
   %82 = call i32 @htonl(i32 noundef %71) #14
   store i32 %82, ptr %69, align 4
-  %83 = call fastcc i32 @tcp_peer_send_blocking(i32 noundef %1, ptr noundef nonnull %4, i64 noundef 568)
+  %83 = call fastcc i32 @tcp_peer_send_blocking(i32 noundef %1, ptr noundef %4, i64 noundef 568)
   %84 = call i32 @shutdown(i32 noundef %1, i32 noundef 2) #13
   %85 = call i32 @close(i32 noundef %1) #13
   br label %238
@@ -2238,7 +2238,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
   br label %238
 
 142:                                              ; preds = %135
-  %143 = call fastcc zeroext i1 @tcp_peer_recv_blocking(ptr noundef nonnull %.0103, i32 noundef %1, ptr noundef nonnull %138, i64 noundef %137)
+  %143 = call fastcc zeroext i1 @tcp_peer_recv_blocking(ptr noundef nonnull %.0103, i32 noundef %1, ptr noundef %138, i64 noundef %137)
   br i1 %143, label %158, label %144
 
 144:                                              ; preds = %142
@@ -2439,7 +2439,7 @@ define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef range(i64 0, 4294967296) %3) unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %19
@@ -2474,7 +2474,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   %.032.ph65 = phi i64 [ %84, %.outer ], [ 0, %19 ]
   %21 = getelementptr inbounds i8, ptr %2, i64 %.032.ph65
   %22 = sub nuw nsw i64 %3, %.032.ph65
-  %23 = tail call i64 @recv(i32 noundef %1, ptr noundef %21, i64 noundef %22, i32 noundef 0) #13
+  %23 = tail call i64 @recv(i32 noundef %1, ptr noundef nonnull %21, i64 noundef %22, i32 noundef 0) #13
   %24 = trunc i64 %23 to i32
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.split.us, label %.lr.ph62.preheader
@@ -2590,7 +2590,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
   br label %99
 
 79:                                               ; preds = %.lr.ph, %.lr.ph
-  %80 = tail call i64 @recv(i32 noundef %1, ptr noundef %21, i64 noundef %22, i32 noundef 0) #13
+  %80 = tail call i64 @recv(i32 noundef %1, ptr noundef nonnull %21, i64 noundef %22, i32 noundef 0) #13
   %81 = trunc i64 %80 to i32
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %.split.us, label %.lr.ph62
@@ -2641,7 +2641,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 {
   fence acquire
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @prte_oob_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %4, 64
@@ -2667,7 +2667,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef
   %.015.ph31 = phi i64 [ %28, %.outer ], [ 0, %12 ]
   %13 = getelementptr inbounds i8, ptr %1, i64 %.015.ph31
   %14 = sub nuw i64 %2, %.015.ph31
-  %15 = tail call i64 @send(i32 noundef %0, ptr noundef %13, i64 noundef %14, i32 noundef 0) #13
+  %15 = tail call i64 @send(i32 noundef %0, ptr noundef nonnull %13, i64 noundef %14, i32 noundef 0) #13
   %16 = and i64 %15, 2147483648
   %.not.us29 = icmp eq i64 %16, 0
   br i1 %.not.us29, label %.outer, label %.lr.ph30
@@ -2684,7 +2684,7 @@ define internal fastcc range(i32 -12, 1) i32 @tcp_peer_send_blocking(i32 noundef
   ]
 
 20:                                               ; preds = %18, %18
-  %21 = tail call i64 @send(i32 noundef %0, ptr noundef %13, i64 noundef %14, i32 noundef 0) #13
+  %21 = tail call i64 @send(i32 noundef %0, ptr noundef nonnull %13, i64 noundef %14, i32 noundef 0) #13
   %22 = and i64 %21, 2147483648
   %.not.us = icmp eq i64 %22, 0
   br i1 %.not.us, label %.outer, label %18
@@ -2850,7 +2850,7 @@ define internal fastcc noundef zeroext i1 @retry(ptr noundef %0, i32 noundef %1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.15.0..sroa_idx.i, i8 0, i64 32, i1 false)
   %57 = getelementptr inbounds i8, ptr %49, i64 568
   store i16 %39, ptr %57, align 1
-  %58 = tail call fastcc i32 @tcp_peer_send_blocking(i32 noundef %1, ptr noundef nonnull %49, i64 noundef 570)
+  %58 = tail call fastcc i32 @tcp_peer_send_blocking(i32 noundef %1, ptr noundef %49, i64 noundef 570)
   tail call void @free(ptr noundef nonnull %49) #13
   br label %tcp_peer_send_connect_nack.exit
 

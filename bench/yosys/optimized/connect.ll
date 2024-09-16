@@ -1979,7 +1979,7 @@ _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit148: ; preds = %248, %246, %2
   br i1 %280, label %282, label %281
 
 281:                                              ; preds = %279
-  invoke fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef nonnull %2, ptr noundef nonnull %.068.lcssa, ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(64) %18)
+  invoke fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef nonnull %2, ptr noundef %.068.lcssa, ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(64) %18)
           to label %282 unwind label %265
 
 282:                                              ; preds = %281, %279
@@ -2158,7 +2158,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i174: ; preds = 
           to label %334 unwind label %329
 
 334:                                              ; preds = %333
-  invoke fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef nonnull %2, ptr noundef nonnull %.068.lcssa, ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(64) %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef nonnull %2, ptr noundef %.068.lcssa, ptr noundef nonnull align 8 dereferenceable(80) %13, ptr noundef nonnull align 8 dereferenceable(64) %23)
           to label %335 unwind label %329
 
 335:                                              ; preds = %334
@@ -4229,7 +4229,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit:  ; preds = %_ZNK5Yosys5RTLIL15S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113unset_driversEPN5Yosys5RTLIL6DesignEPNS1_6ModuleERNS0_6SigMapERNS1_7SigSpecE(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca [75 x i32], align 4
   %6 = alloca %"class.std::allocator.10", align 1
   %7 = alloca [75 x i32], align 4

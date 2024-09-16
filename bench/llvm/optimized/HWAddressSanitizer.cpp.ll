@@ -6072,12 +6072,12 @@ _ZN12_GLOBAL__N_118HWAddressSanitizer10tagPointerERN4llvm9IRBuilderINS1_14Consta
   store ptr %0, ptr %92, align 8
   store ptr %89, ptr %.sroa.3.0..sroa_idx.i, align 8
   store ptr %90, ptr %.sroa.4.0..sroa_idx.i, align 8
-  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nonnull writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(32) %1545, ptr noundef nonnull byval(%class.anon.542) align 8 %92)
+  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias writable align 8 %93, ptr noundef nonnull align 8 dereferenceable(32) %1545, ptr noundef nonnull byval(%class.anon.542) align 8 %92)
   %1546 = getelementptr inbounds nuw i8, ptr %.099170.i, i64 48
   store ptr %0, ptr %94, align 8
   store ptr %89, ptr %.sroa.3.0..sroa_idx46.i, align 8
   store ptr %90, ptr %.sroa.4.0..sroa_idx48.i, align 8
-  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nonnull writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(32) %1546, ptr noundef nonnull byval(%class.anon.542) align 8 %94)
+  call fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias writable align 8 %95, ptr noundef nonnull align 8 dereferenceable(32) %1546, ptr noundef nonnull byval(%class.anon.542) align 8 %94)
   %1547 = load ptr, ptr %82, align 8
   %1548 = load ptr, ptr %90, align 8
   store ptr %1548, ptr %96, align 8
@@ -6884,7 +6884,7 @@ _ZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERN4llvm6memtag9StackInfoE
   br i1 %1972, label %1973, label %1975
 
 1973:                                             ; preds = %1948
-  call fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef %1879, ptr noundef %1947, ptr noundef nonnull align 8 dereferenceable(440) %205, ptr noundef %.0.i202)
+  call fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef %1879, ptr noundef %1947, ptr noundef nonnull align 8 dereferenceable(440) %205, ptr noundef %.0.i202)
   %1974 = load ptr, ptr %4, align 8
   br label %1975
 
@@ -7032,7 +7032,7 @@ _ZN12_GLOBAL__N_118HWAddressSanitizer26instrumentMemAccessOutlineEPN4llvm5ValueE
   %2029 = or disjoint i32 %2028, %2026
   %2030 = or i32 %2029, %1911
   %2031 = zext nneg i32 %2030 to i64
-  call fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef %1879, ptr noundef %1947, ptr noundef nonnull align 8 dereferenceable(440) %205, ptr noundef %.0.i202)
+  call fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly align 8 dereferenceable(544) %0, ptr noundef %1879, ptr noundef %1947, ptr noundef nonnull align 8 dereferenceable(440) %205, ptr noundef %.0.i202)
   %2032 = load ptr, ptr %11, align 8
   %2033 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %2032) #20
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %1798, i64 noundef 2) #20
@@ -12809,7 +12809,7 @@ _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit: ; preds = %.lr.ph.
 declare noundef i64 @_ZN4llvm6memtag20getAllocaSizeInBytesERKNS_10AllocaInstE(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly byval(%class.anon.542) align 8 %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm8for_eachIRNS_11SmallVectorIPNS_13IntrinsicInstELj2EEEZN12_GLOBAL__N_118HWAddressSanitizer15instrumentStackERNS_6memtag9StackInfoEPNS_5ValueESC_RKNS_13DominatorTreeERKNS_17PostDominatorTreeERKNS_8LoopInfoEE3$_0EET0_OT_SN_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly byval(%class.anon.542) align 8 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #20
   %6 = getelementptr inbounds ptr, ptr %4, i64 %5
@@ -13684,7 +13684,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer20insertShadowTagCheckEPN4llvm5ValueEPNS1_11InstructionERNS1_14DomTreeUpdaterEPNS1_8LoopInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(544) %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(440) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::IRBuilder", align 8
   %9 = alloca %"class.llvm::Twine", align 8

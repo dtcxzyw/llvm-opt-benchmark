@@ -387,25 +387,23 @@ define internal noundef zeroext i1 @"_ZN66_$LT$uucore..mods..error..UIoError$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h7e0965d714cc0979E"(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = icmp ne ptr %1, null
-  tail call void @llvm.assume(i1 %3)
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub nuw i64 %4, %5
-  %7 = icmp ult i64 %6, 32
-  br i1 %7, label %10, label %8
+define internal fastcc noundef i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h7e0965d714cc0979E"(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #3 {
+  %3 = ptrtoint ptr %1 to i64
+  %4 = ptrtoint ptr %0 to i64
+  %5 = sub nuw i64 %3, %4
+  %6 = icmp ult i64 %5, 32
+  br i1 %6, label %9, label %7
 
-8:                                                ; preds = %2
-  %9 = tail call noundef i64 @_ZN4core3str5count14do_count_chars17he36fdf2016856db9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %6)
-  br label %12
+7:                                                ; preds = %2
+  %8 = tail call noundef i64 @_ZN4core3str5count14do_count_chars17he36fdf2016856db9E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %5)
+  br label %11
 
-10:                                               ; preds = %2
-  %11 = tail call noundef i64 @_ZN4core3str5count23char_count_general_case17h600586a25ebb3ca4E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %6)
-  br label %12
+9:                                                ; preds = %2
+  %10 = tail call noundef i64 @_ZN4core3str5count23char_count_general_case17h600586a25ebb3ca4E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %5)
+  br label %11
 
-12:                                               ; preds = %10, %8
-  %.0 = phi i64 [ %11, %10 ], [ %9, %8 ]
+11:                                               ; preds = %9, %7
+  %.0 = phi i64 [ %10, %9 ], [ %8, %7 ]
   ret i64 %.0
 }
 
@@ -1524,7 +1522,7 @@ _ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit: ; preds = %.no
 
 111:                                              ; preds = %.thread
   %112 = getelementptr inbounds i8, ptr %108, i64 %110
-  %113 = tail call fastcc noundef i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h7e0965d714cc0979E"(ptr noundef nonnull %108, ptr noundef nonnull %112)
+  %113 = tail call fastcc noundef i64 @"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17h7e0965d714cc0979E"(ptr noundef nonnull %108, ptr noundef %112)
   %114 = icmp ugt i64 %113, 1
   br i1 %114, label %120, label %.critedge
 

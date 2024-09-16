@@ -560,7 +560,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_Test12PerfTest
           to label %11 unwind label %41
 
 11:                                               ; preds = %10
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %12 unwind label %43
 
 12:                                               ; preds = %11
@@ -851,7 +851,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 declare void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::basic_ifstream", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -2139,7 +2139,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_Test12PerfTest
           to label %12 unwind label %46
 
 12:                                               ; preds = %11
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %13 unwind label %48
 
 13:                                               ; preds = %12
@@ -2788,7 +2788,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_Test12PerfTe
           to label %12 unwind label %46
 
 12:                                               ; preds = %11
-  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke fastcc void @_ZN11opencv_test12_GLOBAL__N_115loadExposureSeqERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %13 unwind label %48
 
 13:                                               ; preds = %12

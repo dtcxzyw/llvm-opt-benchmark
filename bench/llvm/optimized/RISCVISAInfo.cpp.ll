@@ -4980,7 +4980,7 @@ _ZN4llvm5ErrorD2Ev.exit161:                       ; preds = %215
   br label %444
 
 238:                                              ; preds = %215, %215
-  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias nonnull writable align 8 %36, ptr nonnull %29, i64 1, ptr nonnull %224, i64 %225, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, i1 noundef zeroext %3, i1 noundef zeroext %4)
+  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias writable align 8 %36, ptr nonnull %29, i64 1, ptr nonnull %224, i64 %225, ptr noundef nonnull align 4 dereferenceable(4) %30, ptr noundef nonnull align 4 dereferenceable(4) %31, ptr noundef nonnull align 4 dereferenceable(4) %32, i1 noundef zeroext %3, i1 noundef zeroext %4)
   %239 = load ptr, ptr %36, align 8
   %.not369 = icmp eq ptr %239, null
   br i1 %.not369, label %_ZN4llvm5ErrorD2Ev.exit163, label %_ZN4llvm5ErrorD2Ev.exit162
@@ -5415,7 +5415,7 @@ _ZN4llvm5ErrorD2Ev.exit217:                       ; preds = %_ZNK4llvm9StringRef
   %.sroa.4.2 = phi i64 [ %333, %330 ], [ %368, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit ]
   %.sroa.0245.2 = phi ptr [ @.str.38, %330 ], [ %.sroa.07.0.i202, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit ]
   %.sroa.5.2 = phi i64 [ 29, %330 ], [ %.sroa.6.0.i201, %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit ]
-  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr nonnull %.sroa.0257.0, i64 %.sroa.8.2, ptr %.sroa.0248.2, i64 %.sroa.4.2, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %59, i1 noundef zeroext %3, i1 noundef zeroext %4)
+  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias writable align 8 %60, ptr nonnull %.sroa.0257.0, i64 %.sroa.8.2, ptr %.sroa.0248.2, i64 %.sroa.4.2, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %59, i1 noundef zeroext %3, i1 noundef zeroext %4)
   %395 = load ptr, ptr %60, align 8
   %.not370 = icmp eq ptr %395, null
   br i1 %.not370, label %_ZN4llvm5ErrorD2Ev.exit219, label %_ZN4llvm5ErrorD2Ev.exit218
@@ -5449,7 +5449,7 @@ _ZN4llvm5ErrorD2Ev.exit219:                       ; preds = %394
   br i1 %406, label %_ZNK4llvm9StringRef3strB5cxx11Ev.exit226, label %_ZN4llvm5ErrorD2Ev.exit224
 
 _ZN4llvm5ErrorD2Ev.exit224:                       ; preds = %405
-  call fastcc void @_ZL21getErrorForInvalidExtN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr nonnull %.sroa.0257.0, i64 %.sroa.8.2)
+  call fastcc void @_ZL21getErrorForInvalidExtN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %61, ptr nonnull %.sroa.0257.0, i64 %.sroa.8.2)
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %408 = load i8, ptr %407, align 8
   %409 = or i8 %408, 1
@@ -5576,7 +5576,7 @@ _ZNSt10unique_ptrIN4llvm12RISCVISAInfoESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5723,7 +5723,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZNK4llvm9StringRef
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17), !noalias !268
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(34) %21) #18, !noalias !271
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 22, ptr nonnull %94) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 22, ptr nonnull %94) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17), !noalias !268
   br label %202
@@ -5774,7 +5774,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit75:                ; preds = %_ZN4llvm9StringRef1
   %106 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !282
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(34) %23) #18, !noalias !285
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 22, ptr nonnull %106) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %15, i32 22, ptr nonnull %106) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !282
   br label %202
@@ -5822,7 +5822,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit96:                ; preds = %110, %112
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13), !noalias !296
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(34) %25) #18, !noalias !299
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 22, ptr nonnull %121) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 22, ptr nonnull %121) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !296
   br label %202
@@ -5854,7 +5854,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit96:                ; preds = %110, %112
   %133 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12), !noalias !302
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(34) %27) #18, !noalias !305
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 22, ptr nonnull %133) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %12, i32 22, ptr nonnull %133) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12), !noalias !302
   br label %202
@@ -5892,7 +5892,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit111:               ; preds = %137
   %145 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !316
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(34) %28) #18, !noalias !319
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 22, ptr nonnull %145) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 22, ptr nonnull %145) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !316
   br label %202
@@ -5921,7 +5921,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit111:               ; preds = %137
   store ptr @.str.271, ptr %32, align 8
   store i8 3, ptr %154, align 8
   call void @_ZN4llvmplERKNS_5TwineES2_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Twine") align 8 %30, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 8 dereferenceable(34) %32)
-  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %30)
+  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %30)
   br label %202
 
 156:                                              ; preds = %147
@@ -5980,7 +5980,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit111:               ; preds = %137
   %174 = getelementptr inbounds nuw i8, ptr %46, i64 33
   store i8 1, ptr %174, align 1
   store ptr %33, ptr %46, align 8
-  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %46)
+  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %46)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #18
   br label %202
 
@@ -6076,7 +6076,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit116:               ; preds = %182
   %201 = getelementptr inbounds nuw i8, ptr %54, i64 33
   store i8 1, ptr %201, align 1
   store ptr %47, ptr %54, align 8
-  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %54)
+  call fastcc void @_ZL8getErrorRKN4llvm5TwineE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %54)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %47) #18
   br label %202
 
@@ -6189,7 +6189,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm9StringRefC
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21getErrorForInvalidExtN4llvm9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL21getErrorForInvalidExtN4llvm9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -6223,7 +6223,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %3
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5), !noalias !363
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %6) #18, !noalias !366
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 22, ptr nonnull %19) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 22, ptr nonnull %19) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !363
   br label %36
@@ -6284,7 +6284,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit45:                ; preds = %3, %_ZNK4llvm9Strin
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !387
   call void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %8) #18, !noalias !390
-  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 22, ptr nonnull %35) #18
+  call void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 22, ptr nonnull %35) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !387
   br label %36
@@ -9544,7 +9544,7 @@ _ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit: ; preds = %15, %38, %_ZL
 43:                                               ; preds = %_ZL27findLastNonVersionCharacterN4llvm9StringRefE.exit
   %44 = sub nuw i64 %1, %42
   %45 = getelementptr inbounds i8, ptr %0, i64 %42
-  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr %0, i64 %42, ptr %45, i64 %44, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true, i1 noundef zeroext true)
+  call fastcc void @_ZL19getExtensionVersionN4llvm9StringRefES0_RjS1_S1_bb(ptr dead_on_unwind noalias writable align 8 %9, ptr %0, i64 %42, ptr %45, i64 %44, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, i1 noundef zeroext true, i1 noundef zeroext true)
   %46 = load ptr, ptr %9, align 8
   %.not22 = icmp eq ptr %46, null
   br i1 %.not22, label %_ZN4llvm5ErrorD2Ev.exit13, label %47

@@ -5566,7 +5566,7 @@ for.inc.i:                                        ; preds = %if.then.i.i.i43, %.
 
 invoke.cont44:                                    ; preds = %for.inc.i, %_ZN4absl12lts_202308029MutexLockD2Ev.exit40
   store i64 0, ptr %agg.tmp43, align 8, !alias.scope !136
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp43)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext true, ptr noundef %agg.tmp43)
           to label %cleanup48 unwind label %lpad45
 
 cleanup48.critedge:                               ; preds = %if.then.i.i, %invoke.cont13, %invoke.cont15
@@ -5773,7 +5773,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %send_goaway, ptr nocapture noundef readonly %force_disconnect) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i1 noundef zeroext %send_goaway, ptr nocapture noundef nonnull readonly %force_disconnect) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
@@ -6185,7 +6185,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %_ZNSt6vectorIN9grpc
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %_ZN4absl12lts_202308029MutexLockD2Ev.exit
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext false, ptr noundef nonnull %agg.tmp6)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext false, ptr noundef %agg.tmp6)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -6373,7 +6373,7 @@ terminate.lpad.i:                                 ; preds = %_ZNSt6vectorIN9grpc
 
 invoke.cont7:                                     ; preds = %_ZNSt6vectorIN9grpc_core13RefCountedPtrINS0_7ChannelEEESaIS3_EED2Ev.exit
   store i64 0, ptr %agg.tmp6, align 8, !alias.scope !142
-  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext true, ptr noundef nonnull %agg.tmp6)
+  invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_118ChannelBroadcaster17BroadcastShutdownEbN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(24) %broadcaster, i1 noundef zeroext true, ptr noundef %agg.tmp6)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit unwind label %lpad8
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont7

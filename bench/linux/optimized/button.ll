@@ -761,7 +761,7 @@ declare dso_local i32 @acpi_bus_generate_netlink_event(ptr noundef, ptr noundef,
 declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 noundef %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 noundef range(i32 -19, 2) %0) unnamed_addr #0 align 16 {
 ._crit_edge:
   %1 = load i64, ptr @lid_init_state, align 8
   %2 = icmp ne i64 %1, 0

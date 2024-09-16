@@ -916,7 +916,7 @@ hamt_hash.exit:                                   ; preds = %entry
   %cond.i = tail call i32 @llvm.umin.i32(i32 %xor.i, i32 -2)
   %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %h_root, align 8
-  %call1 = call fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf)
+  %call1 = call fastcc ptr @hamt_node_assoc(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf)
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -993,7 +993,7 @@ return:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_assoc(ptr noundef %node, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef writeonly %added_leaf) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_assoc(ptr noundef %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef nonnull writeonly %added_leaf) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %node, i64 8
   %node.val = load ptr, ptr %0, align 8
@@ -1584,7 +1584,7 @@ hamt_hash.exit:                                   ; preds = %entry
   store ptr null, ptr %new_root, align 8
   %h_root = getelementptr inbounds i8, ptr %o, i64 16
   %0 = load ptr, ptr %h_root, align 8
-  %call1 = call fastcc i32 @hamt_node_without(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef nonnull %new_root)
+  %call1 = call fastcc i32 @hamt_node_without(ptr noundef %0, i32 noundef 0, i32 noundef %cond.i, ptr noundef %key, ptr noundef %new_root)
   switch i32 %call1, label %default.unreachable [
     i32 0, label %return
     i32 2, label %sw.bb2
@@ -1661,7 +1661,7 @@ return:                                           ; preds = %entry, %if.end.i.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr nocapture noundef readonly %node, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr nocapture noundef writeonly %new_node) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @hamt_node_without(ptr nocapture noundef readonly %node, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr nocapture noundef nonnull writeonly %new_node) unnamed_addr #0 {
 entry:
   %sub_node.i17 = alloca ptr, align 8
   %sub_node.i = alloca ptr, align 8
@@ -1684,7 +1684,7 @@ if.then:                                          ; preds = %entry
 if.end.i:                                         ; preds = %if.then
   %sub.i123 = add i32 %shl.i126, -1
   %and.i124 = and i32 %1, %sub.i123
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i124)
+  %2 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i124)
   %mul.i = shl nuw nsw i32 %2, 1
   %add.i = or disjoint i32 %mul.i, 1
   %b_array.i = getelementptr inbounds i8, ptr %node, i64 32
@@ -1700,7 +1700,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %4 = load ptr, ptr %arrayidx5.i, align 8
   store ptr null, ptr %sub_node.i, align 8
   %add8.i = add i32 %shift, 5
-  %call9.i = call fastcc i32 @hamt_node_without(ptr noundef %4, i32 noundef %add8.i, i32 noundef %hash, ptr noundef %key, ptr noundef nonnull %sub_node.i)
+  %call9.i = call fastcc i32 @hamt_node_without(ptr noundef %4, i32 noundef %add8.i, i32 noundef %hash, ptr noundef %key, ptr noundef %sub_node.i)
   %switch.i = icmp ult i32 %call9.i, 2
   br i1 %switch.i, label %hamt_node_bitmap_without.exit, label %sw.bb10.i
 
@@ -1978,7 +1978,7 @@ if.end.i67:                                       ; preds = %if.end3.i.i, %for.b
   store i64 %49, ptr %_gc_prev.i.i.i63, align 8
   %52 = load i32, ptr %b_bitmap.i, align 8
   %and.i.i = and i32 %52, %sub.i123
-  %53 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i.i)
+  %53 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i.i)
   %mul.i69 = shl nuw nsw i32 %53, 1
   %cmp329.not.i = icmp eq i32 %and.i.i, 0
   br i1 %cmp329.not.i, label %for.end.i74, label %for.body.lr.ph.i70
@@ -2089,7 +2089,7 @@ if.then4:                                         ; preds = %if.else
 if.end.i22:                                       ; preds = %if.then4
   store ptr null, ptr %sub_node.i17, align 8
   %add.i23 = add i32 %shift, 5
-  %call1.i = call fastcc i32 @hamt_node_without(ptr noundef nonnull %62, i32 noundef %add.i23, i32 noundef %hash, ptr noundef %key, ptr noundef nonnull %sub_node.i17)
+  %call1.i = call fastcc i32 @hamt_node_without(ptr noundef nonnull %62, i32 noundef %add.i23, i32 noundef %hash, ptr noundef %key, ptr noundef %sub_node.i17)
   switch i32 %call1.i, label %default.unreachable [
     i32 1, label %hamt_node_array_without.exit
     i32 0, label %hamt_node_array_without.exit
@@ -2683,7 +2683,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
 if.end.i.i:                                       ; preds = %if.then.i
   %sub.i.i = add i32 %shl.i.i, -1
   %and.i28.i = and i32 %3, %sub.i.i
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i28.i)
+  %4 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i28.i)
   %mul.i.i = shl nuw nsw i32 %4, 1
   %add.i.i = or disjoint i32 %mul.i.i, 1
   %b_array.i.i = getelementptr inbounds i8, ptr %node.tr.i, i64 32
@@ -2795,7 +2795,7 @@ if.end4:                                          ; preds = %if.end
   br label %do.body
 
 do.body:                                          ; preds = %if.end14, %if.end4
-  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter, ptr noundef nonnull %v_key, ptr noundef nonnull %v_val)
+  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter, ptr noundef %v_key, ptr noundef %v_val)
   %cond = icmp eq i32 %call, 0
   br i1 %cond, label %if.then6, label %return
 
@@ -2831,7 +2831,7 @@ return:                                           ; preds = %do.body, %if.end14,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef writeonly %key, ptr nocapture noundef writeonly %val) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @hamt_iterator_next(ptr nocapture noundef %iter, ptr nocapture noundef nonnull writeonly %key, ptr nocapture noundef nonnull writeonly %val) unnamed_addr #2 {
 entry:
   %i_level = getelementptr inbounds i8, ptr %iter, i64 128
   %0 = load i8, ptr %i_level, align 8
@@ -3085,7 +3085,7 @@ entry:
   %key = alloca ptr, align 8
   %val = alloca ptr, align 8
   %hi_iter = getelementptr inbounds i8, ptr %it, i64 24
-  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %hi_iter, ptr noundef nonnull %key, ptr noundef nonnull %val)
+  %call = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %hi_iter, ptr noundef %key, ptr noundef %val)
   %trunc = trunc nuw i32 %call to i1
   br i1 %trunc, label %sw.bb, label %sw.bb1
 
@@ -3403,7 +3403,7 @@ if.end4.i:                                        ; preds = %if.end.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %if.end14.i, %if.end4.i
-  %call.i = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter.i, ptr noundef nonnull %v_key.i, ptr noundef nonnull %v_val.i)
+  %call.i = call fastcc i32 @hamt_iterator_next(ptr noundef nonnull %iter.i, ptr noundef %v_key.i, ptr noundef %v_val.i)
   %cond.i = icmp eq i32 %call.i, 0
   br i1 %cond.i, label %if.then6.i, label %if.end8
 
@@ -3821,7 +3821,7 @@ return:                                           ; preds = %if.then, %do.end, %
 declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef %self, i32 noundef %shift, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef writeonly %added_leaf) unnamed_addr #0 {
+define internal fastcc ptr @hamt_node_bitmap_assoc(ptr noundef %self, i32 noundef %shift, i32 noundef range(i32 0, -1) %hash, ptr noundef %key, ptr noundef %val, ptr nocapture noundef nonnull writeonly %added_leaf) unnamed_addr #0 {
 entry:
   %added_leaf.i = alloca i32, align 4
   %shr.i.i = lshr i32 %hash, %shift
@@ -3831,7 +3831,7 @@ entry:
   %0 = load i32, ptr %b_bitmap, align 8
   %sub.i = add i32 %shl.i, -1
   %and.i = and i32 %0, %sub.i
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %and.i)
   %and = and i32 %0, %shl.i
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -4222,7 +4222,7 @@ hamt_node_new_bitmap_or_collision.exit.thread332: ; preds = %if.end.i.i287, %_Py
   br label %if.end52
 
 if.end21.i:                                       ; preds = %hamt_hash.exit323
-  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add48, i32 noundef %cond.i321, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %added_leaf.i)
+  %call22.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), i32 noundef %add48, i32 noundef %cond.i321, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %added_leaf.i)
   %58 = load i64, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), align 8
   %59 = and i64 %58, 2147483648
   %cmp.i40.not.i = icmp eq i64 %59, 0
@@ -4243,7 +4243,7 @@ Py_DECREF.exit38.i:                               ; preds = %if.then1.i36.i, %if
   br i1 %cmp23.i, label %hamt_node_new_bitmap_or_collision.exit.thread, label %if.end25.i
 
 if.end25.i:                                       ; preds = %Py_DECREF.exit38.i
-  %call26.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %call22.i, i32 noundef %add48, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef nonnull %added_leaf.i)
+  %call26.i = call fastcc ptr @hamt_node_assoc(ptr noundef nonnull %call22.i, i32 noundef %add48, i32 noundef %hash, ptr noundef %key, ptr noundef %val, ptr noundef %added_leaf.i)
   %60 = load i64, ptr %call22.i, align 8
   %61 = and i64 %60, 2147483648
   %cmp.i43.not.i = icmp eq i64 %61, 0

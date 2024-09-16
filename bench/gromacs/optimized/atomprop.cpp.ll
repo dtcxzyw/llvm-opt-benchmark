@@ -528,7 +528,7 @@ define noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   %41 = getelementptr inbounds [5 x %struct.AtomProperty], ptr %40, i64 0, i64 %12
   %42 = getelementptr inbounds i8, ptr %39, i64 368
-  %43 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %8)
+  %43 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %41, ptr noundef nonnull align 8 dereferenceable(56) %42, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %8)
           to label %44 unwind label %21
 
 44:                                               ; preds = %38
@@ -761,7 +761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24.i: 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6)
   store i8 0, ptr %5, align 1
-  %72 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %5)
+  %72 = invoke fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %5)
           to label %.noexc25.i unwind label %136
 
 .noexc25.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit24.i
@@ -1013,7 +1013,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL17findPropertyIndexP12AtomPropertyRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4hashIS7_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS7_S7_EEERSD_SJ_Pb(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20

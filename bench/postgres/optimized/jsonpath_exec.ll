@@ -724,7 +724,7 @@ countVariablesFromJsonb.exit:                     ; preds = %40, %51
 
 67:                                               ; preds = %countVariablesFromJsonb.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  %68 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext false)
+  %68 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext false)
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %76, label %70
 
@@ -739,7 +739,7 @@ countVariablesFromJsonb.exit:                     ; preds = %40, %51
   br label %76
 
 74:                                               ; preds = %countVariablesFromJsonb.exit
-  %75 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, i1 noundef zeroext %65)
+  %75 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %4, i1 noundef zeroext %65)
   br label %76
 
 76:                                               ; preds = %67, %74, %70
@@ -824,7 +824,7 @@ declare zeroext i1 @JsonbExtractScalar(ptr noundef, ptr noundef) local_unnamed_a
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonbValue, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1073,7 +1073,7 @@ getJsonPathItem.exit:                             ; preds = %74, %75, %79, %82, 
   %117 = getelementptr inbounds i8, ptr %0, i64 56
   %118 = load i8, ptr %117, align 8
   %119 = trunc i8 %118 to i1
-  %120 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef %71, ptr noundef %3, i1 noundef zeroext %119)
+  %120 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %25, ptr noundef %71, ptr noundef %3, i1 noundef zeroext %119)
   br label %executeNextItem.exit
 
 121:                                              ; preds = %getJsonPathItem.exit
@@ -1101,7 +1101,7 @@ executeNextItem.exit:                             ; preds = %116, %121, %125
   br label %.loopexit
 
 127:                                              ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60
-  %128 = tail call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext true)
+  %128 = tail call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
   %129 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %20) #11
@@ -1132,7 +1132,7 @@ executeNextItem.exit:                             ; preds = %116, %121, %125
   %142 = getelementptr inbounds i8, ptr %0, i64 56
   %143 = load i8, ptr %142, align 8
   %144 = trunc i8 %143 to i1
-  %145 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %3, i1 noundef zeroext %144)
+  %145 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %20, ptr noundef nonnull %21, ptr noundef %3, i1 noundef zeroext %144)
   br label %appendBoolResult.exit
 
 146:                                              ; preds = %137
@@ -1175,31 +1175,31 @@ appendBoolResult.exit:                            ; preds = %146, %141, %157, %1
   br label %.loopexit
 
 159:                                              ; preds = %60
-  %160 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_add_opt_error, ptr noundef %3)
+  %160 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_add_opt_error, ptr noundef %3)
   br label %.loopexit
 
 161:                                              ; preds = %60
-  %162 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_sub_opt_error, ptr noundef %3)
+  %162 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_sub_opt_error, ptr noundef %3)
   br label %.loopexit
 
 163:                                              ; preds = %60
-  %164 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_mul_opt_error, ptr noundef %3)
+  %164 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_mul_opt_error, ptr noundef %3)
   br label %.loopexit
 
 165:                                              ; preds = %60
-  %166 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_div_opt_error, ptr noundef %3)
+  %166 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_div_opt_error, ptr noundef %3)
   br label %.loopexit
 
 167:                                              ; preds = %60
-  %168 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_mod_opt_error, ptr noundef %3)
+  %168 = tail call fastcc i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_mod_opt_error, ptr noundef %3)
   br label %.loopexit
 
 169:                                              ; preds = %60
-  %170 = tail call fastcc i32 @executeUnaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null, ptr noundef %3)
+  %170 = tail call fastcc i32 @executeUnaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef %3)
   br label %.loopexit
 
 171:                                              ; preds = %60
-  %172 = tail call fastcc i32 @executeUnaryArithmExpr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @numeric_uminus, ptr noundef %3)
+  %172 = tail call fastcc i32 @executeUnaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @numeric_uminus, ptr noundef %3)
   br label %.loopexit
 
 173:                                              ; preds = %60
@@ -1223,7 +1223,7 @@ appendBoolResult.exit:                            ; preds = %146, %141, %157, %1
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %182
-  %187 = tail call fastcc i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
+  %187 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 188:                                              ; preds = %182
@@ -1365,7 +1365,7 @@ JsonbArraySize.exit:                              ; preds = %242, %247
 .lr.ph653:                                        ; preds = %JsonbArraySize.exit, %265
   %.0511652 = phi i32 [ %266, %265 ], [ 0, %JsonbArraySize.exit ]
   %269 = call zeroext i1 @jspGetArraySubscript(ptr noundef nonnull %1, ptr noundef nonnull %27, ptr noundef nonnull %28, i32 noundef %.0511652) #11
-  %270 = call fastcc i32 @getArrayIndex(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull %2, ptr noundef nonnull %29)
+  %270 = call fastcc i32 @getArrayIndex(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %2, ptr noundef %29)
   %271 = icmp eq i32 %270, 2
   br i1 %271, label %.thread, label %272
 
@@ -1373,7 +1373,7 @@ JsonbArraySize.exit:                              ; preds = %242, %247
   br i1 %269, label %273, label %276
 
 273:                                              ; preds = %272
-  %274 = call fastcc i32 @getArrayIndex(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %2, ptr noundef nonnull %30)
+  %274 = call fastcc i32 @getArrayIndex(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %2, ptr noundef %30)
   %275 = icmp eq i32 %274, 2
   br i1 %275, label %.thread, label %._crit_edge628
 
@@ -1491,7 +1491,7 @@ JsonbArraySize.exit:                              ; preds = %242, %247
 executeNextItem.exit561.us:                       ; preds = %300
   %317 = load i8, ptr %262, align 8
   %318 = trunc i8 %317 to i1
-  %319 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %.0518.us, ptr noundef %3, i1 noundef zeroext %318)
+  %319 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %25, ptr noundef nonnull %.0518.us, ptr noundef %3, i1 noundef zeroext %318)
   %320 = icmp eq i32 %319, 2
   br i1 %320, label %.thread, label %executeNextItem.exit561.thread.us
 
@@ -1570,7 +1570,7 @@ executeNextItem.exit561.thread.thread:            ; preds = %.lr.ph.split.split
   %349 = load i8, ptr %348, align 1
   %350 = and i8 %349, 1
   store i8 1, ptr %348, align 1
-  %351 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
+  %351 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   store i8 %350, ptr %348, align 1
   %352 = icmp ne i32 %351, 0
   %353 = icmp ne ptr %3, null
@@ -1614,7 +1614,7 @@ executeNextItem.exit561.thread.thread:            ; preds = %.lr.ph.split.split
   br i1 %.not543, label %384, label %377
 
 377:                                              ; preds = %370
-  %378 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %376, ptr noundef %3, i1 noundef zeroext false)
+  %378 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %376, ptr noundef %3, i1 noundef zeroext false)
   %379 = getelementptr inbounds i8, ptr %1, i64 4
   %380 = load i32, ptr %379, align 4
   %381 = icmp slt i32 %380, 1
@@ -1685,7 +1685,7 @@ executeNextItem.exit561.thread.thread:            ; preds = %.lr.ph.split.split
 418:                                              ; preds = %60
   %419 = getelementptr inbounds i8, ptr %0, i64 24
   %420 = load ptr, ptr %419, align 8
-  %421 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %420, ptr noundef %3, i1 noundef zeroext true)
+  %421 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %420, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 422:                                              ; preds = %60
@@ -1708,7 +1708,7 @@ setBaseObject.exit:                               ; preds = %422, %427
   %430 = phi ptr [ %429, %427 ], [ null, %422 ]
   store ptr %430, ptr %425, align 8
   store i32 0, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %431 = tail call fastcc i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %424, ptr noundef %3, i1 noundef zeroext true)
+  %431 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %424, ptr noundef %3, i1 noundef zeroext true)
   store ptr %.sroa.0.0.copyload.i, ptr %425, align 8
   store i32 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   br label %.loopexit
@@ -1730,13 +1730,13 @@ setBaseObject.exit:                               ; preds = %422, %427
   %439 = getelementptr inbounds i8, ptr %0, i64 24
   %440 = load ptr, ptr %439, align 8
   store ptr %2, ptr %439, align 8
-  %441 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %25, ptr noundef %2, i1 noundef zeroext false)
+  %441 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %25, ptr noundef %2, i1 noundef zeroext false)
   store ptr %440, ptr %439, align 8
   %.not542 = icmp eq i32 %441, 1
   br i1 %.not542, label %442, label %.loopexit
 
 442:                                              ; preds = %438
-  %443 = call fastcc i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
+  %443 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef %2, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 444:                                              ; preds = %60
@@ -1750,7 +1750,7 @@ setBaseObject.exit:                               ; preds = %422, %427
   %450 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %447) #13
   %451 = trunc i64 %450 to i32
   store i32 %451, ptr %448, align 8
-  %452 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %445, ptr noundef %3, i1 noundef zeroext false)
+  %452 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %445, ptr noundef %3, i1 noundef zeroext false)
   br label %.loopexit
 
 453:                                              ; preds = %60
@@ -1803,19 +1803,19 @@ JsonbArraySize.exit565:                           ; preds = %456, %462
   %482 = tail call ptr @int64_to_numeric(i64 noundef %481) #11
   %483 = getelementptr inbounds i8, ptr %480, i64 8
   store ptr %482, ptr %483, align 8
-  %484 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %480, ptr noundef %3, i1 noundef zeroext false)
+  %484 = tail call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %480, ptr noundef %3, i1 noundef zeroext false)
   br label %.loopexit
 
 485:                                              ; preds = %60
-  %486 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_abs, ptr noundef %3)
+  %486 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_abs, ptr noundef %3)
   br label %.loopexit
 
 487:                                              ; preds = %60
-  %488 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_floor, ptr noundef %3)
+  %488 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_floor, ptr noundef %3)
   br label %.loopexit
 
 489:                                              ; preds = %60
-  %490 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_ceil, ptr noundef %3)
+  %490 = tail call fastcc i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %4, ptr noundef nonnull @numeric_ceil, ptr noundef %3)
   br label %.loopexit
 
 491:                                              ; preds = %60
@@ -1966,7 +1966,7 @@ JsonbArraySize.exit565:                           ; preds = %456, %462
 
 580:                                              ; preds = %564, %519
   %.0506.ph = phi ptr [ %2, %519 ], [ %32, %564 ]
-  %581 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %.0506.ph, ptr noundef %3, i1 noundef zeroext true)
+  %581 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %.0506.ph, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 582:                                              ; preds = %60, %60, %60, %60, %60, %60
@@ -2616,7 +2616,7 @@ JsonbType.exit.thread588:                         ; preds = %583, %582
   %864 = load i32, ptr %9, align 4
   %865 = getelementptr inbounds i8, ptr %858, i64 24
   store i32 %864, ptr %865, align 8
-  %866 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %10, ptr noundef nonnull %858, ptr noundef %3, i1 noundef zeroext %852)
+  %866 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %858, ptr noundef %3, i1 noundef zeroext %852)
   br label %executeDateTimeMethod.exit
 
 executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %690, %702, %722, %746, %770, %795, %809, %834, %850, %851, %857
@@ -2650,7 +2650,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   br label %.loopexit
 
 873:                                              ; preds = %868, %867
-  %874 = tail call fastcc i32 @executeKeyValueMethod(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  %874 = tail call fastcc i32 @executeKeyValueMethod(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %.loopexit
 
 875:                                              ; preds = %60
@@ -2687,7 +2687,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   %892 = call ptr @int64_to_numeric(i64 noundef %891) #11
   %893 = getelementptr inbounds i8, ptr %890, i64 8
   store ptr %892, ptr %893, align 8
-  %894 = call fastcc i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef nonnull %890, ptr noundef %3, i1 noundef zeroext %876)
+  %894 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef nonnull %890, ptr noundef %3, i1 noundef zeroext %876)
   br label %.loopexit
 
 895:                                              ; preds = %60
@@ -2802,7 +2802,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   %959 = call ptr @pg_detoast_datum(ptr noundef %958) #11
   %960 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %959, ptr %960, align 8
-  %961 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %36, ptr noundef %3, i1 noundef zeroext true)
+  %961 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %36, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 962:                                              ; preds = %60
@@ -2924,7 +2924,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   %1028 = getelementptr inbounds i8, ptr %40, i64 8
   %1029 = and i8 %1027, 1
   store i8 %1029, ptr %1028, align 8
-  %1030 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %40, ptr noundef %3, i1 noundef zeroext true)
+  %1030 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %40, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 1031:                                             ; preds = %60, %60
@@ -3201,7 +3201,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   store i32 2, ptr %44, align 8
   %1188 = getelementptr inbounds i8, ptr %44, i64 8
   store ptr %.1516, ptr %1188, align 8
-  %1189 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %44, ptr noundef %3, i1 noundef zeroext true)
+  %1189 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %44, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 1190:                                             ; preds = %60
@@ -3317,7 +3317,7 @@ executeDateTimeMethod.exit:                       ; preds = %600, %651, %683, %6
   %1255 = call ptr @pg_detoast_datum(ptr noundef %1254) #11
   %1256 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr %1255, ptr %1256, align 8
-  %1257 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %53, ptr noundef %3, i1 noundef zeroext true)
+  %1257 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %53, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 1258:                                             ; preds = %60
@@ -3434,7 +3434,7 @@ unreachable:                                      ; preds = %1258
   %1320 = trunc i64 %1319 to i32
   store i32 %1320, ptr %1317, align 8
   store i32 1, ptr %57, align 8
-  %1321 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %57, ptr noundef %3, i1 noundef zeroext true)
+  %1321 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef nonnull %57, ptr noundef %3, i1 noundef zeroext true)
   br label %.loopexit
 
 1322:                                             ; preds = %60
@@ -3462,7 +3462,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca %struct.JsonPathItem, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %8
@@ -3474,7 +3474,7 @@ define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef %0, ptr 
   br i1 %11, label %14, label %19
 
 12:                                               ; preds = %6
-  %13 = call zeroext i1 @jspGetNext(ptr noundef %1, ptr noundef nonnull %7) #11
+  %13 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %8, %12
@@ -3482,7 +3482,7 @@ define internal fastcc range(i32 0, 3) i32 @executeNextItem(ptr noundef %0, ptr 
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  %18 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %.01722, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %17)
+  %18 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %.01722, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %17)
   br label %JsonValueListAppend.exit
 
 19:                                               ; preds = %8, %12
@@ -3531,7 +3531,7 @@ JsonValueListAppend.exit:                         ; preds = %33, %32, %26, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonValueList, align 8
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonPathItem, align 8
@@ -3573,33 +3573,33 @@ define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr 
 
 19:                                               ; preds = %17
   call void @jspGetLeftArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
-  %20 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false)
+  %20 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext false)
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %130, label %22
 
 22:                                               ; preds = %19
   call void @jspGetRightArg(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
-  %23 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext false)
+  %23 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %7, ptr noundef %2, i1 noundef zeroext false)
   %24 = icmp eq i32 %23, 1
   %25 = select i1 %24, i32 %20, i32 %23
   br label %130
 
 26:                                               ; preds = %17
   call void @jspGetLeftArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
-  %27 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false)
+  %27 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext false)
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %130, label %29
 
 29:                                               ; preds = %26
   call void @jspGetRightArg(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
-  %30 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext false)
+  %30 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %7, ptr noundef %2, i1 noundef zeroext false)
   %31 = icmp eq i32 %30, 0
   %32 = select i1 %31, i32 %27, i32 %30
   br label %130
 
 33:                                               ; preds = %17
   call void @jspGetArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
-  %34 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false)
+  %34 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext false)
   %35 = icmp eq i32 %34, 2
   br i1 %35, label %130, label %36
 
@@ -3610,7 +3610,7 @@ define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr 
 
 39:                                               ; preds = %17
   call void @jspGetArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
-  %40 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext false)
+  %40 = call fastcc i32 @executeBoolItem(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext false)
   %41 = icmp eq i32 %40, 2
   %42 = zext i1 %41 to i32
   br label %130
@@ -3618,13 +3618,13 @@ define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr 
 43:                                               ; preds = %17, %17, %17, %17, %17, %17
   call void @jspGetLeftArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
   call void @jspGetRightArg(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
-  %44 = call fastcc i32 @executePredicate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull @executeComparison, ptr noundef %0)
+  %44 = call fastcc i32 @executePredicate(ptr noundef %0, ptr noundef %1, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull @executeComparison, ptr noundef nonnull %0)
   br label %130
 
 45:                                               ; preds = %17
   call void @jspGetLeftArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
   call void @jspGetRightArg(ptr noundef nonnull %1, ptr noundef nonnull %7) #11
-  %46 = call fastcc i32 @executePredicate(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull @executeStartsWith, ptr noundef null)
+  %46 = call fastcc i32 @executePredicate(ptr noundef %0, ptr noundef %1, ptr noundef %6, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext false, ptr noundef nonnull @executeStartsWith, ptr noundef null)
   br label %130
 
 47:                                               ; preds = %17
@@ -3640,7 +3640,7 @@ define internal fastcc range(i32 0, 3) i32 @executeBoolItem(ptr noundef %0, ptr 
   %53 = load i8, ptr %52, align 2
   %54 = and i8 %53, 1
   store i8 0, ptr %52, align 2
-  %55 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %5)
+  %55 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %5)
   store i8 %54, ptr %52, align 2
   %56 = icmp eq i32 %55, 2
   br i1 %56, label %executePredicate.exit, label %57
@@ -3778,7 +3778,7 @@ executePredicate.exit:                            ; preds = %98, %executeLikeReg
   %109 = load i8, ptr %108, align 2
   %110 = and i8 %109, 1
   store i8 0, ptr %108, align 2
-  %111 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef nonnull %9, i1 noundef zeroext false)
+  %111 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef nonnull %9, i1 noundef zeroext false)
   store i8 %110, ptr %108, align 2
   %112 = icmp eq i32 %111, 2
   br i1 %112, label %130, label %113
@@ -3798,7 +3798,7 @@ executePredicate.exit:                            ; preds = %98, %executeLikeReg
   %119 = load i8, ptr %118, align 2
   %120 = and i8 %119, 1
   store i8 0, ptr %118, align 2
-  %121 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef null, i1 noundef zeroext true)
+  %121 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef null, i1 noundef zeroext true)
   store i8 %120, ptr %118, align 2
   %122 = icmp eq i32 %121, 2
   br i1 %122, label %130, label %123
@@ -3822,21 +3822,21 @@ executePredicate.exit:                            ; preds = %98, %executeLikeReg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeBinaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeBinaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonValueList, align 8
   %8 = alloca %struct.JsonValueList, align 8
   %9 = alloca i8, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  call void @jspGetLeftArg(ptr noundef %1, ptr noundef nonnull %6) #11
-  %10 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
+  call void @jspGetLeftArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
+  %10 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
   %11 = icmp eq i32 %10, 2
   br i1 %11, label %78, label %12
 
 12:                                               ; preds = %5
-  call void @jspGetRightArg(ptr noundef %1, ptr noundef nonnull %6) #11
-  %13 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %8)
+  call void @jspGetRightArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
+  %13 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %8)
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %78, label %15
 
@@ -3957,7 +3957,7 @@ JsonValueListLength.exit49.thread57:              ; preds = %36, %JsonValueListL
 
 71:                                               ; preds = %63, %57
   %.0 = phi ptr [ %62, %57 ], [ %68, %63 ]
-  %72 = call zeroext i1 @jspGetNext(ptr noundef %1, ptr noundef nonnull %6) #11
+  %72 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
   %73 = icmp ne ptr %4, null
   %or.cond = or i1 %73, %72
   br i1 %or.cond, label %74, label %78
@@ -3967,7 +3967,7 @@ JsonValueListLength.exit49.thread57:              ; preds = %36, %JsonValueListL
   store i32 2, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %.0, ptr %76, align 8
-  %77 = call fastcc i32 @executeNextItem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %75, ptr noundef %4, i1 noundef zeroext false)
+  %77 = call fastcc i32 @executeNextItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %75, ptr noundef %4, i1 noundef zeroext false)
   br label %78
 
 78:                                               ; preds = %71, %63, %JsonValueListLength.exit49.thread57, %JsonValueListLength.exit.thread54, %12, %5, %74
@@ -3986,17 +3986,17 @@ declare ptr @numeric_div_opt_error(ptr noundef, ptr noundef, ptr noundef) #1
 declare ptr @numeric_mod_opt_error(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeUnaryArithmExpr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeUnaryArithmExpr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathItem, align 8
   %7 = alloca %struct.JsonValueList, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  call void @jspGetArg(ptr noundef %1, ptr noundef nonnull %6) #11
-  %8 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
+  call void @jspGetArg(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
+  %8 = call fastcc i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %6, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %7)
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %executeNextItem.exit.thread.thread44, label %10
 
 10:                                               ; preds = %5
-  %11 = call zeroext i1 @jspGetNext(ptr noundef %1, ptr noundef nonnull %6) #11
+  %11 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %6) #11
   %.fr = freeze i1 %11
   %12 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %12, null
@@ -4091,7 +4091,7 @@ JsonValueListInitIterator.exit:                   ; preds = %16, %13, %10
 executeNextItem.exit.us.us:                       ; preds = %35
   %48 = load i8, ptr %27, align 8
   %49 = trunc i8 %48 to i1
-  %50 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %.sroa.0.0.ph.us.us, ptr noundef %4, i1 noundef zeroext %49)
+  %50 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %.sroa.0.0.ph.us.us, ptr noundef %4, i1 noundef zeroext %49)
   switch i32 %50, label %.outer.us.us [
     i32 2, label %executeNextItem.exit.thread.thread44
     i32 0, label %executeNextItem.exit.thread.us.us
@@ -4212,7 +4212,7 @@ define internal fastcc range(i32 19, 18) i32 @JsonbType(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItemUnwrapTargetArray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItemUnwrapTargetArray(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %6, 18
   br i1 %.not, label %11, label %7
@@ -4244,7 +4244,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.JsonbValue, align 8
   tail call void @check_stack_depth() #11
@@ -4384,7 +4384,7 @@ JsonValueListAppend.exit.us:                      ; preds = %41, %39, %35, %28
   %60 = load i8, ptr %17, align 1
   %61 = and i8 %60, 1
   store i8 1, ptr %17, align 1
-  %62 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
+  %62 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
   store i8 %61, ptr %17, align 1
   %63 = icmp eq i32 %62, 2
   br i1 %63, label %.loopexit, label %64
@@ -4453,7 +4453,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
   br label %.split.split.split.us, !llvm.loop !12
 
 83:                                               ; preds = %80, %79
-  %84 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
+  %84 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
   %85 = icmp eq i32 %84, 2
   br i1 %85, label %.loopexit, label %86
 
@@ -4493,7 +4493,7 @@ JsonValueListAppend.exit.us74:                    ; preds = %.JsonValueListAppen
   br i1 %or.cond6, label %97, label %JsonValueListAppend.exit
 
 97:                                               ; preds = %94, %93
-  %98 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
+  %98 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %3, i1 noundef zeroext %8)
   %99 = icmp eq i32 %98, 2
   br i1 %99, label %.loopexit, label %100
 
@@ -4539,7 +4539,7 @@ JsonValueListAppend.exit:                         ; preds = %.JsonValueListAppen
 declare zeroext i1 @jspGetArraySubscript(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @getArrayIndex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @getArrayIndex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonValueList, align 8
   %6 = alloca i8, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -4648,133 +4648,200 @@ declare ptr @jspOperationName(i32 noundef) local_unnamed_addr #1
 declare ptr @int64_to_numeric(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeNumericItemMethod(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = alloca %struct.JsonPathItem, align 8
+define internal fastcc range(i32 0, 3) i32 @executeNumericItemMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca %struct.JsonbValue, align 8
+  %9 = alloca %struct.JsonPathItem, align 8
   %.pre = load i32, ptr %2, align 8
-  br i1 %3, label %8, label %JsonbType.exit.thread26
+  br i1 %3, label %10, label %JsonbType.exit.thread26
 
-8:                                                ; preds = %6
+10:                                               ; preds = %6
   switch i32 %.pre, label %JsonbType.exit.thread26.thread [
-    i32 18, label %9
-    i32 16, label %20
-    i32 2, label %34
+    i32 18, label %11
+    i32 16, label %22
+    i32 2, label %51
   ]
 
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = load i32, ptr %11, align 4
-  %13 = and i32 %12, 536870912
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %14, label %JsonbType.exit.thread26.thread
+11:                                               ; preds = %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %13, align 4
+  %15 = and i32 %14, 536870912
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %16, label %JsonbType.exit.thread26.thread
 
-14:                                               ; preds = %9
-  %15 = and i32 %12, 1073741824
-  %.not7.i = icmp eq i32 %15, 0
-  br i1 %.not7.i, label %16, label %executeItemUnwrapTargetArray.exit
+16:                                               ; preds = %11
+  %17 = and i32 %14, 1073741824
+  %.not7.i = icmp eq i32 %17, 0
+  br i1 %.not7.i, label %18, label %executeItemUnwrapTargetArray.exit
 
-16:                                               ; preds = %14
-  %17 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %17)
-  %18 = load i32, ptr %11, align 4
-  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %18) #11
+18:                                               ; preds = %16
+  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %19)
+  %20 = load i32, ptr %13, align 4
+  %21 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.50, i32 noundef %20) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3354, ptr noundef nonnull @__func__.JsonbType) #11
   unreachable
 
-20:                                               ; preds = %8
-  %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %21)
-  %22 = load i32, ptr %2, align 8
-  %23 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %22) #11
+22:                                               ; preds = %10
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %23)
+  %24 = load i32, ptr %2, align 8
+  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %24) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1587, ptr noundef nonnull @__func__.executeItemUnwrapTargetArray) #11
   unreachable
 
-executeItemUnwrapTargetArray.exit:                ; preds = %14
-  %24 = tail call fastcc range(i32 0, 3) i32 @executeAnyItem(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %11, ptr noundef %5, i32 noundef 1, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false)
+executeItemUnwrapTargetArray.exit:                ; preds = %16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
+  tail call void @check_stack_depth() #11
+  %26 = tail call ptr @JsonbIteratorInit(ptr noundef nonnull %13) #11
+  store ptr %26, ptr %7, align 8
+  %.not30 = icmp eq ptr %5, null
+  br i1 %.not30, label %.split.split.split.us.i.outer, label %.split.split.split.us.i.us.outer
+
+.split.split.split.us.i.us:                       ; preds = %.split.split.split.us.i.us.outer, %30
+  %27 = call i32 @JsonbIteratorNext(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext true) #11
+  switch i32 %27, label %30 [
+    i32 0, label %executeAnyItem.exit
+    i32 1, label %28
+  ]
+
+28:                                               ; preds = %.split.split.split.us.i.us
+  %29 = call i32 @JsonbIteratorNext(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext true) #11
+  br label %30
+
+30:                                               ; preds = %28, %.split.split.split.us.i.us
+  %.057.us82.i.us = phi i32 [ %29, %28 ], [ %27, %.split.split.split.us.i.us ]
+  %31 = and i32 %.057.us82.i.us, -2
+  %or.cond.us83.i.us = icmp eq i32 %31, 2
+  br i1 %or.cond.us83.i.us, label %32, label %.split.split.split.us.i.us, !llvm.loop !12
+
+32:                                               ; preds = %30
+  %33 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %5, i1 noundef zeroext false)
+  %34 = icmp eq i32 %33, 2
+  br i1 %34, label %executeAnyItem.exit, label %.split.split.split.us.i.us.outer, !llvm.loop !12
+
+.split.split.split.us.i.us.outer:                 ; preds = %executeItemUnwrapTargetArray.exit, %32
+  %.058.us81.i.us.ph = phi i32 [ %33, %32 ], [ 1, %executeItemUnwrapTargetArray.exit ]
+  br label %.split.split.split.us.i.us
+
+.split.split.split.us.i:                          ; preds = %.split.split.split.us.i.outer, %38
+  %35 = call i32 @JsonbIteratorNext(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext true) #11
+  switch i32 %35, label %38 [
+    i32 0, label %executeAnyItem.exit
+    i32 1, label %36
+  ]
+
+36:                                               ; preds = %.split.split.split.us.i
+  %37 = call i32 @JsonbIteratorNext(ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext true) #11
+  br label %38
+
+38:                                               ; preds = %36, %.split.split.split.us.i
+  %.057.us82.i = phi i32 [ %37, %36 ], [ %35, %.split.split.split.us.i ]
+  %39 = and i32 %.057.us82.i, -2
+  %or.cond.us83.i = icmp eq i32 %39, 2
+  br i1 %or.cond.us83.i, label %40, label %.split.split.split.us.i, !llvm.loop !12
+
+40:                                               ; preds = %38
+  %41 = call fastcc i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef null, i1 noundef zeroext false)
+  switch i32 %41, label %.split.split.split.us.i.outer [
+    i32 2, label %executeAnyItem.exit
+    i32 0, label %executeAnyItem.exit
+  ], !llvm.loop !12
+
+.split.split.split.us.i.outer:                    ; preds = %executeItemUnwrapTargetArray.exit, %40
+  %.058.us81.i.ph = phi i32 [ %41, %40 ], [ 1, %executeItemUnwrapTargetArray.exit ]
+  br label %.split.split.split.us.i
+
+executeAnyItem.exit:                              ; preds = %.split.split.split.us.i.us, %32, %.split.split.split.us.i, %40, %40
+  %.us-phi = phi i32 [ %.058.us81.i.ph, %.split.split.split.us.i ], [ %41, %40 ], [ %41, %40 ], [ %.058.us81.i.us.ph, %.split.split.split.us.i.us ], [ 2, %32 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %executeNextItem.exit
 
 JsonbType.exit.thread26:                          ; preds = %6
   %.not = icmp eq i32 %.pre, 2
-  br i1 %.not, label %34, label %JsonbType.exit.thread26.thread
+  br i1 %.not, label %51, label %JsonbType.exit.thread26.thread
 
-JsonbType.exit.thread26.thread:                   ; preds = %8, %9, %JsonbType.exit.thread26
-  %25 = getelementptr inbounds i8, ptr %0, i64 58
-  %26 = load i8, ptr %25, align 2
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %executeNextItem.exit
+JsonbType.exit.thread26.thread:                   ; preds = %10, %11, %JsonbType.exit.thread26
+  %42 = getelementptr inbounds i8, ptr %0, i64 58
+  %43 = load i8, ptr %42, align 2
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %executeNextItem.exit
 
-28:                                               ; preds = %JsonbType.exit.thread26.thread
-  %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %29)
-  %30 = tail call i32 @errcode(i32 noundef 101449858) #11
-  %31 = load i32, ptr %1, align 8
-  %32 = tail call ptr @jspOperationName(i32 noundef %31) #11
-  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef %32) #11
+45:                                               ; preds = %JsonbType.exit.thread26.thread
+  %46 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %46)
+  %47 = tail call i32 @errcode(i32 noundef 101449858) #11
+  %48 = load i32, ptr %1, align 8
+  %49 = tail call ptr @jspOperationName(i32 noundef %48) #11
+  %50 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54, ptr noundef %49) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2218, ptr noundef nonnull @__func__.executeNumericItemMethod) #11
   unreachable
 
-34:                                               ; preds = %8, %JsonbType.exit.thread26
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = tail call i64 @DirectFunctionCall1Coll(ptr noundef %4, i32 noundef 0, i64 noundef %37) #11
-  %39 = call zeroext i1 @jspGetNext(ptr noundef %1, ptr noundef nonnull %7) #11
-  %40 = icmp ne ptr %5, null
-  %or.cond = or i1 %40, %39
-  br i1 %or.cond, label %41, label %executeNextItem.exit
+51:                                               ; preds = %10, %JsonbType.exit.thread26
+  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = tail call i64 @DirectFunctionCall1Coll(ptr noundef %4, i32 noundef 0, i64 noundef %54) #11
+  %56 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %9) #11
+  %57 = icmp ne ptr %5, null
+  %or.cond = or i1 %57, %56
+  br i1 %or.cond, label %58, label %executeNextItem.exit
 
-41:                                               ; preds = %34
-  %42 = call ptr @palloc(i64 noundef 32) #11
-  store i32 2, ptr %42, align 8
-  %43 = inttoptr i64 %38 to ptr
-  %44 = call ptr @pg_detoast_datum(ptr noundef %43) #11
-  %45 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %54
+58:                                               ; preds = %51
+  %59 = call ptr @palloc(i64 noundef 32) #11
+  store i32 2, ptr %59, align 8
+  %60 = inttoptr i64 %55 to ptr
+  %61 = call ptr @pg_detoast_datum(ptr noundef %60) #11
+  %62 = getelementptr inbounds i8, ptr %59, i64 8
+  store ptr %61, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %66, label %71
 
-49:                                               ; preds = %41
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
-  %51 = load i8, ptr %50, align 8
-  %52 = trunc i8 %51 to i1
-  %53 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %42, ptr noundef %5, i1 noundef zeroext %52)
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %68 = load i8, ptr %67, align 8
+  %69 = trunc i8 %68 to i1
+  %70 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %9, ptr noundef nonnull %59, ptr noundef %5, i1 noundef zeroext %69)
   br label %executeNextItem.exit
 
-54:                                               ; preds = %41
+71:                                               ; preds = %58
   %.not21.i = icmp eq ptr %5, null
-  br i1 %.not21.i, label %executeNextItem.exit, label %55
+  br i1 %.not21.i, label %executeNextItem.exit, label %72
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %5, align 8
-  %.not.i24 = icmp eq ptr %56, null
-  br i1 %.not.i24, label %60, label %57
+72:                                               ; preds = %71
+  %73 = load ptr, ptr %5, align 8
+  %.not.i24 = icmp eq ptr %73, null
+  br i1 %.not.i24, label %77, label %74
 
-57:                                               ; preds = %55
-  %58 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %56, ptr nonnull %42) #11
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %58, ptr %59, align 8
+74:                                               ; preds = %72
+  %75 = call ptr @list_make2_impl(i32 noundef 1, ptr nonnull %73, ptr nonnull %59) #11
+  %76 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %75, ptr %76, align 8
   store ptr null, ptr %5, align 8
   br label %executeNextItem.exit
 
-60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %5, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %.not13.i = icmp eq ptr %62, null
-  br i1 %.not13.i, label %63, label %64
+77:                                               ; preds = %72
+  %78 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = load ptr, ptr %78, align 8
+  %.not13.i = icmp eq ptr %79, null
+  br i1 %.not13.i, label %80, label %81
 
-63:                                               ; preds = %60
-  store ptr %42, ptr %5, align 8
+80:                                               ; preds = %77
+  store ptr %59, ptr %5, align 8
   br label %executeNextItem.exit
 
-64:                                               ; preds = %60
-  %65 = call ptr @lappend(ptr noundef nonnull %62, ptr noundef nonnull %42) #11
-  store ptr %65, ptr %61, align 8
+81:                                               ; preds = %77
+  %82 = call ptr @lappend(ptr noundef nonnull %79, ptr noundef nonnull %59) #11
+  store ptr %82, ptr %78, align 8
   br label %executeNextItem.exit
 
-executeNextItem.exit:                             ; preds = %54, %49, %57, %63, %64, %34, %JsonbType.exit.thread26.thread, %executeItemUnwrapTargetArray.exit
-  %.0 = phi i32 [ %24, %executeItemUnwrapTargetArray.exit ], [ 2, %JsonbType.exit.thread26.thread ], [ 0, %34 ], [ %53, %49 ], [ 0, %54 ], [ 0, %57 ], [ 0, %63 ], [ 0, %64 ]
+executeNextItem.exit:                             ; preds = %71, %66, %74, %80, %81, %51, %JsonbType.exit.thread26.thread, %executeAnyItem.exit
+  %.0 = phi i32 [ %.us-phi, %executeAnyItem.exit ], [ 2, %JsonbType.exit.thread26.thread ], [ 0, %51 ], [ %70, %66 ], [ 0, %71 ], [ 0, %74 ], [ 0, %80 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -4793,7 +4860,7 @@ declare double @float8in_internal(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare i64 @float8_numeric(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeKeyValueMethod(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeKeyValueMethod(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.JsonPathItem, align 8
   %6 = alloca %struct.JsonbValue, align 8
   %7 = alloca %struct.JsonbValue, align 8
@@ -4851,7 +4918,7 @@ JsonbType.exit.thread51:                          ; preds = %4, %22
   br i1 %.not41, label %.loopexit, label %39
 
 39:                                               ; preds = %37
-  %40 = call zeroext i1 @jspGetNext(ptr noundef %1, ptr noundef nonnull %5) #11
+  %40 = call zeroext i1 @jspGetNext(ptr noundef nonnull %1, ptr noundef nonnull %5) #11
   store i32 1, ptr %9, align 8
   %41 = getelementptr inbounds i8, ptr %9, i64 8
   %42 = getelementptr inbounds i8, ptr %9, i64 16
@@ -5009,7 +5076,7 @@ executeNextItem.exit.thread.us:                   ; preds = %120, %118, %114, %1
 executeNextItem.exit.us:                          ; preds = %setBaseObject.exit.us
   %121 = load i8, ptr %71, align 8
   %122 = trunc i8 %121 to i1
-  %123 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef %3, i1 noundef zeroext %122)
+  %123 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %5, ptr noundef nonnull %13, ptr noundef %3, i1 noundef zeroext %122)
   store ptr %.sroa.0.0.copyload.i.us, ptr %56, align 8
   store i32 %.sroa.2.0.copyload.i.us, ptr %57, align 8
   %124 = icmp eq i32 %123, 2
@@ -5126,7 +5193,7 @@ declare ptr @list_make2_impl(i32 noundef, ptr, ptr) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executePredicate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executePredicate(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.JsonValueList, align 8
   %10 = alloca %struct.JsonValueList, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -5146,7 +5213,7 @@ define internal fastcc range(i32 0, 3) i32 @executePredicate(ptr noundef %0, ptr
 
 17:                                               ; preds = %16
   store i8 0, ptr %11, align 2
-  %18 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %10)
+  %18 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef nonnull %10)
   store i8 %13, ptr %11, align 2
   %19 = icmp eq i32 %18, 2
   br i1 %19, label %.loopexit67, label %20
@@ -5220,7 +5287,7 @@ JsonValueListNext.exit.us:                        ; preds = %36, %JsonValueListI
   br i1 %.not37.us, label %.split.us, label %JsonValueListInitIterator.exit47.us
 
 JsonValueListInitIterator.exit47.us:              ; preds = %JsonValueListNext.exit.us
-  %42 = call i32 %6(ptr noundef %1, ptr noundef nonnull %.sroa.062.0.us, ptr noundef null, ptr noundef %7) #11, !callees !14
+  %42 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.062.0.us, ptr noundef null, ptr noundef %7) #11, !callees !14
   switch i32 %42, label %JsonValueListInitIterator.exit.split.us [
     i32 2, label %46
     i32 1, label %43
@@ -5322,7 +5389,7 @@ JsonValueListNext.exit52:                         ; preds = %59, %66
   %.13275 = phi i1 [ %.031, %.lr.ph ], [ %.233, %JsonValueListNext.exit57 ]
   %.sroa.13.274 = phi ptr [ %.sroa.13.1113, %.lr.ph ], [ %.sroa.13.3, %JsonValueListNext.exit57 ]
   %.sroa.0.273 = phi ptr [ %.sroa.0.1112, %.lr.ph ], [ %.sroa.0.3, %JsonValueListNext.exit57 ]
-  %77 = call i32 %6(ptr noundef %1, ptr noundef nonnull %.sroa.062.0, ptr noundef nonnull %.177, ptr noundef %7) #11, !callees !14
+  %77 = call i32 %6(ptr noundef nonnull %1, ptr noundef nonnull %.sroa.062.0, ptr noundef nonnull %.177, ptr noundef %7) #11, !callees !14
   switch i32 %77, label %84 [
     i32 2, label %78
     i32 1, label %81
@@ -5911,7 +5978,7 @@ declare zeroext i1 @jspConvertRegexFlags(i32 noundef, ptr noundef, ptr noundef) 
 declare zeroext i1 @RE_compile_and_execute(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonValueList, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i8, ptr %7, align 8
@@ -5921,7 +5988,7 @@ define internal fastcc range(i32 0, 3) i32 @executeItemOptUnwrapResult(ptr nound
 
 11:                                               ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %12 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext true)
+  %12 = call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext true)
   %13 = icmp eq i32 %12, 2
   br i1 %13, label %.loopexit, label %14
 
@@ -6050,7 +6117,7 @@ JsonValueListAppend.exit.backedge:                ; preds = %59, %58, %54, %exec
 ._crit_edge:                                      ; preds = %5
   %.not35 = xor i1 %3, true
   %.mux = select i1 %.not35, i1 %9, i1 false
-  %61 = tail call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %.mux)
+  %61 = tail call fastcc range(i32 0, 3) i32 @executeItemOptUnwrapTarget(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %.mux)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %JsonValueListNext.exit, %11, %._crit_edge

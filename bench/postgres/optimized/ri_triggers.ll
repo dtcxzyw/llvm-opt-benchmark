@@ -136,7 +136,7 @@ define dso_local noundef i64 @RI_FKey_check_ins(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %6, label %3
 
@@ -170,7 +170,7 @@ define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %
 
 18:                                               ; preds = %10
   %19 = and i32 %12, 3
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable1 [
     i32 1, label %20
     i32 2, label %26
     i32 3, label %32
@@ -212,7 +212,7 @@ define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %
   tail call void @errfinish(ptr noundef nonnull @.str.8, i32 noundef 2057, ptr noundef nonnull @__func__.ri_CheckTrigger) #11
   unreachable
 
-default.unreachable:                              ; preds = %18
+default.unreachable1:                             ; preds = %18
   unreachable
 
 38:                                               ; preds = %32, %26, %20
@@ -350,7 +350,7 @@ ri_NullCheck.exit.thread:                         ; preds = %._crit_edge.loopexi
   store i32 %storemerge.i, ptr %2, align 4
   %70 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 1, ptr %70, align 4
-  %71 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %2)
+  %71 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %2)
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %137
 
@@ -499,7 +499,7 @@ quoteOneName.exit:                                ; preds = %118
   call void @appendStringInfoString(ptr noundef nonnull %3, ptr noundef nonnull @.str.48) #11
   %134 = load ptr, ptr %3, align 8
   %135 = load i32, ptr %28, align 8
-  %136 = call fastcc ptr @ri_PlanCheck(ptr noundef %134, i32 noundef %135, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef %24, ptr noundef %27)
+  %136 = call fastcc ptr @ri_PlanCheck(ptr noundef %134, i32 noundef %135, ptr noundef %7, ptr noundef %2, ptr noundef %24, ptr noundef %27)
   br label %137
 
 137:                                              ; preds = %._crit_edge, %69
@@ -509,7 +509,7 @@ quoteOneName.exit:                                ; preds = %118
   %140 = getelementptr inbounds i8, ptr %139, i64 115
   %141 = load i8, ptr %140, align 1
   %142 = icmp eq i8 %141, 112
-  %143 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %12, ptr noundef nonnull %2, ptr noundef nonnull %.055, ptr noundef %24, ptr noundef %27, ptr noundef null, ptr noundef %.053, i1 noundef zeroext %142, i32 noundef 5)
+  %143 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %12, ptr noundef %2, ptr noundef %.055, ptr noundef %24, ptr noundef %27, ptr noundef null, ptr noundef %.053, i1 noundef zeroext %142, i32 noundef 5)
   %144 = call i32 @SPI_finish() #11
   %.not58 = icmp eq i32 %144, 2
   br i1 %.not58, label %148, label %145
@@ -599,7 +599,7 @@ define internal fastcc void @ri_restrict(ptr nocapture noundef readonly %0, i1 n
   store i32 %storemerge.i.i, ptr %3, align 4
   %32 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 2, ptr %32, align 4
-  %33 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %3)
+  %33 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %3)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %96
 
@@ -745,12 +745,12 @@ quoteOneName.exit.i:                              ; preds = %77
   call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.48) #11
   %93 = load ptr, ptr %4, align 8
   %94 = load i32, ptr %64, align 8
-  %95 = call fastcc ptr @ri_PlanCheck(ptr noundef %93, i32 noundef %94, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef %22, ptr noundef %23)
+  %95 = call fastcc ptr @ri_PlanCheck(ptr noundef %93, i32 noundef %94, ptr noundef %8, ptr noundef %3, ptr noundef %22, ptr noundef %23)
   br label %96
 
 96:                                               ; preds = %._crit_edge.i, %31
   %.0.i = phi ptr [ %95, %._crit_edge.i ], [ %33, %31 ]
-  %97 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %3, ptr noundef nonnull %.0.i, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
+  %97 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef %3, ptr noundef %.0.i, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
   %98 = call i32 @SPI_finish() #11
   %.not32.i = icmp eq i32 %98, 2
   br i1 %.not32.i, label %ri_Check_Pk_Match.exit, label %99
@@ -789,7 +789,7 @@ ri_Check_Pk_Match.exit:                           ; preds = %96
   store i32 %storemerge.i, ptr %9, align 4
   %108 = getelementptr inbounds i8, ptr %9, i64 4
   store i32 5, ptr %108, align 4
-  %109 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %9)
+  %109 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %9)
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %187
 
@@ -943,7 +943,7 @@ quoteOneName.exit:                                ; preds = %164
   br i1 %177, label %179, label %178
 
 178:                                              ; preds = %176
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %10, i32 noundef %157)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %10, i32 noundef %157)
   br label %179
 
 179:                                              ; preds = %178, %176, %quoteOneName.exit
@@ -958,12 +958,12 @@ quoteOneName.exit:                                ; preds = %164
   call void @appendStringInfoString(ptr noundef nonnull %10, ptr noundef nonnull @.str.48) #11
   %184 = load ptr, ptr %10, align 8
   %185 = load i32, ptr %140, align 8
-  %186 = call fastcc ptr @ri_PlanCheck(ptr noundef %184, i32 noundef %185, ptr noundef nonnull %14, ptr noundef nonnull %9, ptr noundef %22, ptr noundef %23)
+  %186 = call fastcc ptr @ri_PlanCheck(ptr noundef %184, i32 noundef %185, ptr noundef %14, ptr noundef %9, ptr noundef %22, ptr noundef %23)
   br label %187
 
 187:                                              ; preds = %._crit_edge, %107
   %.054 = phi ptr [ %186, %._crit_edge ], [ %109, %107 ]
-  %188 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %.054, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
+  %188 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %19, ptr noundef %9, ptr noundef %.054, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef null, i1 noundef zeroext true, i32 noundef 5)
   %189 = call i32 @SPI_finish() #11
   %.not59 = icmp eq i32 %189, 2
   br i1 %.not59, label %193, label %190
@@ -1049,7 +1049,7 @@ define dso_local noundef i64 @RI_FKey_cascade_del(ptr nocapture noundef readonly
   store i32 %storemerge.i, ptr %2, align 4
   %26 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3, ptr %26, align 4
-  %27 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %2)
+  %27 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %2)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %104
 
@@ -1203,7 +1203,7 @@ quoteOneName.exit:                                ; preds = %82
   br i1 %95, label %97, label %96
 
 96:                                               ; preds = %94
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %3, i32 noundef %75)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %3, i32 noundef %75)
   br label %97
 
 97:                                               ; preds = %96, %94, %quoteOneName.exit
@@ -1217,12 +1217,12 @@ quoteOneName.exit:                                ; preds = %82
 ._crit_edge:                                      ; preds = %97, %quoteRelationName.exit
   %.lcssa = phi i32 [ %59, %quoteRelationName.exit ], [ %99, %97 ]
   %102 = load ptr, ptr %3, align 8
-  %103 = call fastcc ptr @ri_PlanCheck(ptr noundef %102, i32 noundef %.lcssa, ptr noundef nonnull %7, ptr noundef nonnull %2, ptr noundef %17, ptr noundef %18)
+  %103 = call fastcc ptr @ri_PlanCheck(ptr noundef %102, i32 noundef %.lcssa, ptr noundef %7, ptr noundef %2, ptr noundef %17, ptr noundef %18)
   br label %104
 
 104:                                              ; preds = %._crit_edge, %25
   %.0 = phi ptr [ %103, %._crit_edge ], [ %27, %25 ]
-  %105 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %2, ptr noundef nonnull %.0, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 8)
+  %105 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef %2, ptr noundef %.0, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 8)
   %106 = call i32 @SPI_finish() #11
   %.not54 = icmp eq i32 %106, 2
   br i1 %.not54, label %110, label %107
@@ -1563,7 +1563,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ri_FetchPreparedPlan(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.HASHCTL, align 8
   %3 = load ptr, ptr @ri_query_cache, align 8
   %.not = icmp eq ptr %3, null
@@ -1592,7 +1592,7 @@ define internal fastcc ptr @ri_FetchPreparedPlan(ptr noundef %0) unnamed_addr #0
 
 10:                                               ; preds = %4, %1
   %11 = phi ptr [ %.pre, %4 ], [ %3, %1 ]
-  %12 = call ptr @hash_search(ptr noundef %11, ptr noundef %0, i32 noundef 0, ptr noundef null) #11
+  %12 = call ptr @hash_search(ptr noundef %11, ptr noundef nonnull %0, i32 noundef 0, ptr noundef null) #11
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.critedge, label %14
 
@@ -1631,7 +1631,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @get_collation_isdeterministic(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_GenerateQualCollation(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [131 x i8], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %35, label %4
@@ -1688,7 +1688,7 @@ quoteOneName.exit:                                ; preds = %20
   %27 = getelementptr i8, ptr %.pn.i, i64 2
   store i8 34, ptr %.08.i, align 1
   store i8 0, ptr %27, align 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef nonnull %3) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.55, ptr noundef nonnull %3) #11
   store i8 34, ptr %3, align 16
   br label %28
 
@@ -1717,7 +1717,7 @@ quoteOneName.exit18:                              ; preds = %28
   %34 = getelementptr i8, ptr %.pn.i13, i64 2
   store i8 34, ptr %.08.i15, align 1
   store i8 0, ptr %34, align 1
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %3) #11
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %0, ptr noundef nonnull @.str.56, ptr noundef nonnull %3) #11
   call void @ReleaseSysCache(ptr noundef nonnull %6) #11
   br label %35
 
@@ -1726,7 +1726,7 @@ quoteOneName.exit18:                              ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca %struct.HASHCTL, align 8
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -1743,7 +1743,7 @@ define internal fastcc nonnull ptr @ri_PlanCheck(ptr noundef %0, i32 noundef %1,
   %18 = load i32, ptr %10, align 4
   %19 = or i32 %18, 5
   call void @SetUserIdAndSecContext(i32 noundef %17, i32 noundef %19) #11
-  %20 = call ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr noundef %2) #11
+  %20 = call ptr @SPI_prepare(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2) #11
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %27
 
@@ -1797,7 +1797,7 @@ ri_HashPreparedPlan.exit:                         ; preds = %27, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ri_PerformCheck(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, i32 noundef range(i32 5, 10) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca [64 x i64], align 16
@@ -1988,7 +1988,7 @@ ri_ExtractValues.exit66:                          ; preds = %slot_getattr.exit.i
   %118 = or i32 %117, 5
   call void @SetUserIdAndSecContext(i32 noundef %116, i32 noundef %118) #11
   %119 = zext i1 %112 to i64
-  %120 = call i32 @SPI_execute_snapshot(ptr noundef %2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %.049, ptr noundef %.048, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %119) #11
+  %120 = call i32 @SPI_execute_snapshot(ptr noundef nonnull %2, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %.049, ptr noundef %.048, i1 noundef zeroext false, i1 noundef zeroext false, i64 noundef %119) #11
   %121 = load i32, ptr %10, align 4
   %122 = load i32, ptr %11, align 4
   call void @SetUserIdAndSecContext(i32 noundef %121, i32 noundef %122) #11
@@ -2092,7 +2092,7 @@ define dso_local noundef i64 @RI_FKey_cascade_upd(ptr nocapture noundef readonly
   store i32 %storemerge.i, ptr %2, align 4
   %29 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 4, ptr %29, align 4
-  %30 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %2)
+  %30 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %2)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %115
 
@@ -2251,7 +2251,7 @@ quoteOneName.exit:                                ; preds = %85
   br i1 %99, label %101, label %100
 
 100:                                              ; preds = %98
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %3, i32 noundef %78)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %3, i32 noundef %78)
   br label %101
 
 101:                                              ; preds = %100, %98, %quoteOneName.exit
@@ -2273,12 +2273,12 @@ quoteOneName.exit:                                ; preds = %85
   %111 = load ptr, ptr %3, align 8
   %112 = load i32, ptr %61, align 8
   %113 = shl i32 %112, 1
-  %114 = call fastcc ptr @ri_PlanCheck(ptr noundef %111, i32 noundef %113, ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef %18, ptr noundef %19)
+  %114 = call fastcc ptr @ri_PlanCheck(ptr noundef %111, i32 noundef %113, ptr noundef %8, ptr noundef %2, ptr noundef %18, ptr noundef %19)
   br label %115
 
 115:                                              ; preds = %._crit_edge, %28
   %.0 = phi ptr [ %114, %._crit_edge ], [ %30, %28 ]
-  %116 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef nonnull %.0, ptr noundef %18, ptr noundef %19, ptr noundef %23, ptr noundef %21, i1 noundef zeroext true, i32 noundef 9)
+  %116 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %15, ptr noundef %2, ptr noundef %.0, ptr noundef %18, ptr noundef %19, ptr noundef %23, ptr noundef %21, i1 noundef zeroext true, i32 noundef 9)
   %117 = call i32 @SPI_finish() #11
   %.not63 = icmp eq i32 %117, 2
   br i1 %.not63, label %121, label %118
@@ -2308,7 +2308,7 @@ define dso_local noundef i64 @RI_FKey_setnull_del(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_set(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @ri_set(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.RI_QueryKey, align 4
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca [262 x i8], align 16
@@ -2338,21 +2338,21 @@ define internal fastcc void @ri_set(ptr nocapture noundef readonly %0, i1 nounde
   unreachable
 
 25:                                               ; preds = %3
-  %switch = icmp eq i32 %2, 2
+  %switch.not.not = icmp eq i32 %2, 2
   %26 = select i1 %1, i32 6, i32 8
   %27 = select i1 %1, i32 7, i32 9
-  %.071 = select i1 %switch, i32 %27, i32 %26
+  %.071 = select i1 %switch.not.not, i32 %27, i32 %26
   %storemerge.in.i = getelementptr inbounds i8, ptr %14, i64 8
   %storemerge.i = load i32, ptr %storemerge.in.i, align 8
   store i32 %storemerge.i, ptr %4, align 4
   %28 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %.071, ptr %28, align 4
-  %29 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef nonnull %4)
+  %29 = call fastcc ptr @ri_FetchPreparedPlan(ptr noundef %4)
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %128
 
 31:                                               ; preds = %25
-  br i1 %switch, label %.sink.split, label %32
+  br i1 %switch.not.not, label %.sink.split, label %32
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds i8, ptr %14, i64 96
@@ -2569,7 +2569,7 @@ quoteOneName.exit92:                              ; preds = %106
   br i1 %119, label %121, label %120
 
 120:                                              ; preds = %118
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %5, i32 noundef %99)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %5, i32 noundef %99)
   br label %121
 
 121:                                              ; preds = %120, %118, %quoteOneName.exit92
@@ -2583,12 +2583,12 @@ quoteOneName.exit92:                              ; preds = %106
 ._crit_edge:                                      ; preds = %121, %.preheader
   %.lcssa = phi i32 [ %70, %.preheader ], [ %123, %121 ]
   %126 = load ptr, ptr %5, align 8
-  %127 = call fastcc ptr @ri_PlanCheck(ptr noundef %126, i32 noundef %.lcssa, ptr noundef nonnull %9, ptr noundef nonnull %4, ptr noundef %17, ptr noundef %18)
+  %127 = call fastcc ptr @ri_PlanCheck(ptr noundef %126, i32 noundef %.lcssa, ptr noundef %9, ptr noundef %4, ptr noundef %17, ptr noundef %18)
   br label %128
 
 128:                                              ; preds = %._crit_edge, %25
   %.070 = phi ptr [ %127, %._crit_edge ], [ %29, %25 ]
-  %129 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %.070, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 9)
+  %129 = call fastcc zeroext i1 @ri_PerformCheck(ptr noundef nonnull %14, ptr noundef %4, ptr noundef %.070, ptr noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef null, i1 noundef zeroext true, i32 noundef 9)
   %130 = call i32 @SPI_finish() #11
   %.not83 = icmp eq i32 %130, 2
   br i1 %.not83, label %134, label %131
@@ -3603,7 +3603,7 @@ quoteOneName.exit166:                             ; preds = %217
   br i1 %.not140, label %228, label %227
 
 227:                                              ; preds = %quoteOneName.exit166
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %4, i32 noundef %199)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %4, i32 noundef %199)
   br label %228
 
 228:                                              ; preds = %227, %quoteOneName.exit166
@@ -3899,7 +3899,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errtableconstraint(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #4 {
+define internal fastcc void @ri_ReportViolation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 3, 2) %5, i1 noundef zeroext %6) unnamed_addr #4 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = alloca %struct.StringInfoData, align 8
   %10 = alloca i32, align 4
@@ -4446,7 +4446,7 @@ quoteOneName.exit110:                             ; preds = %125
   br i1 %.not86, label %136, label %135
 
 135:                                              ; preds = %quoteOneName.exit110
-  call fastcc void @ri_GenerateQualCollation(ptr noundef nonnull %4, i32 noundef %107)
+  call fastcc void @ri_GenerateQualCollation(ptr noundef %4, i32 noundef %107)
   br label %136
 
 136:                                              ; preds = %135, %quoteOneName.exit110

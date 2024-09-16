@@ -365,7 +365,7 @@ if.else:                                          ; preds = %if.end24
   br i1 %tobool33.not, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then27
-  %call37 = tail call fastcc i32 @BN_from_montgomery_word(ptr noundef %r, ptr noundef nonnull %call20, ptr noundef nonnull %mont)
+  %call37 = tail call fastcc i32 @BN_from_montgomery_word(ptr noundef %r, ptr noundef %call20, ptr noundef nonnull %mont)
   br label %err
 
 err:                                              ; preds = %if.end36, %if.else, %if.then27, %if.end19
@@ -392,7 +392,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call2 = tail call fastcc i32 @BN_from_montgomery_word(ptr noundef %r, ptr noundef nonnull %call, ptr noundef %mont)
+  %call2 = tail call fastcc i32 @BN_from_montgomery_word(ptr noundef %r, ptr noundef %call, ptr noundef %mont)
   br label %err
 
 err:                                              ; preds = %entry, %lor.lhs.false, %if.end
@@ -402,7 +402,7 @@ err:                                              ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef %ret, ptr noundef %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds i8, ptr %mont, i64 24
   %top = getelementptr inbounds i8, ptr %mont, i64 32
@@ -418,7 +418,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mul = shl nsw i32 %0, 1
   %conv = sext i32 %mul to i64
-  %call = tail call ptr @bn_wexpand(ptr noundef %r, i64 noundef %conv) #5
+  %call = tail call ptr @bn_wexpand(ptr noundef nonnull %r, i64 noundef %conv) #5
   %cmp2 = icmp eq ptr %call, null
   br i1 %cmp2, label %return, label %if.end5
 

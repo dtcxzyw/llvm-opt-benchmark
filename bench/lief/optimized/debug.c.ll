@@ -494,7 +494,7 @@ debug_print_line_by_line.exit:                    ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %8, i8 0, i64 72, i1 false)
   %44 = call i32 @mbedtls_pk_debug(ptr noundef nonnull %43, ptr noundef nonnull %8) #9
   %.not.i = icmp eq i32 %44, 0
-  br i1 %.not.i, label %.preheader.split.i, label %45
+  br i1 %.not.i, label %.preheader.i, label %45
 
 45:                                               ; preds = %debug_print_line_by_line.exit
   %.val26.i = load ptr, ptr %0, align 8
@@ -505,14 +505,14 @@ debug_print_line_by_line.exit:                    ; preds = %30
   call void %.val26.val.i(ptr noundef %.val26.val27.i, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.13) #9
   br label %debug_print_pk.exit
 
-.preheader.split.i:                               ; preds = %debug_print_line_by_line.exit, %77
+.preheader.i:                                     ; preds = %debug_print_line_by_line.exit, %77
   %.01.i = phi i64 [ %78, %77 ], [ 0, %debug_print_line_by_line.exit ]
   %48 = getelementptr inbounds [3 x %struct.mbedtls_pk_debug_item], ptr %8, i64 0, i64 %.01.i
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %debug_print_pk.exit, label %51
 
-51:                                               ; preds = %.preheader.split.i
+51:                                               ; preds = %.preheader.i
   %52 = getelementptr inbounds i8, ptr %48, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.12, ptr noundef %53) #9
@@ -570,9 +570,9 @@ mbedtls_debug_print_ecp.exit.i:                   ; preds = %70, %64, %59
 77:                                               ; preds = %74, %mbedtls_debug_print_ecp.exit.i, %56
   %78 = add nuw nsw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %78, 3
-  br i1 %exitcond.not.i, label %debug_print_pk.exit, label %.preheader.split.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %debug_print_pk.exit, label %.preheader.i, !llvm.loop !9
 
-debug_print_pk.exit:                              ; preds = %.preheader.split.i, %77, %45
+debug_print_pk.exit:                              ; preds = %.preheader.i, %77, %45
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %79 = getelementptr inbounds i8, ptr %.025, i64 608

@@ -8086,7 +8086,7 @@ declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @sqlite3_do_callback(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = icmp ne i32 %4, 0
   %spec.store.select = select i1 %7, i32 2, i32 0

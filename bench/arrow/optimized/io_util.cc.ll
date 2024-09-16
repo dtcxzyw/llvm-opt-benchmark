@@ -2018,7 +2018,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i21:         ; preds = %if.end8.sink.split.
   br label %return
 
 invoke.cont12:                                    ; preds = %_ZN5arrow6StatusD2Ev.exit.thread, %_ZN5arrow6StatusD2Ev.exit
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_114StringToNativeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp8, i64 %file_name.coerce0, ptr %file_name.coerce1)
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_114StringToNativeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %ref.tmp8, i64 %file_name.coerce0, ptr %file_name.coerce1)
   %14 = load ptr, ptr %ref.tmp8, align 8
   %cmp.i.i = icmp eq ptr %14, null
   br i1 %cmp.i.i, label %do.end22, label %if.then17
@@ -2165,7 +2165,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_114StringToNativeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_114StringToNativeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, i64 %s.coerce0, ptr %s.coerce1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3856,7 +3856,7 @@ entry:
   br i1 %allow_not_found, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit79
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, ptr noundef nonnull %lst, ptr noundef nonnull %exists)
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, ptr noundef %lst, ptr noundef nonnull %exists)
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %0 = load ptr, ptr %ref.tmp, align 8, !noalias !103
   store ptr %0, ptr %__s, align 8, !alias.scope !103
@@ -3951,7 +3951,7 @@ _ZN5arrow6Status11DeleteStateEv.exit.i22:         ; preds = %if.end8.sink.split.
   br label %return
 
 _ZN5arrow6StatusD2Ev.exit79:                      ; preds = %entry
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias nonnull align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, ptr noundef nonnull %lst, ptr noundef null)
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias align 8 %ref.tmp10, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, ptr noundef %lst, ptr noundef null)
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %12 = load ptr, ptr %ref.tmp10, align 8, !noalias !106
   store ptr %12, ptr %__s9, align 8, !alias.scope !106
@@ -4172,7 +4172,7 @@ lpad:                                             ; preds = %if.then31
   resume { ptr, i32 } %40
 
 _ZN5arrow6StatusD2Ev.exit188:                     ; preds = %if.then27, %if.then27
-  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias nonnull align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, i32 %25, i1 noundef zeroext %remove_top_dir)
+  call fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias align 8 %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(8) %dir_path, i32 %25, i1 noundef zeroext %remove_top_dir)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
   %41 = load ptr, ptr %ref.tmp37, align 8, !noalias !118
   store ptr %41, ptr %__s36, align 8, !alias.scope !118
@@ -9222,7 +9222,7 @@ entry:
   %ref.tmp45 = alloca %"class.arrow::Status", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base_name) #34
   store ptr %prefix, ptr %MakeBaseName, align 8
-  invoke fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %MakeBaseName)
+  invoke fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %MakeBaseName)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
@@ -10427,7 +10427,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %_ZN5arrow6Status5St
   store ptr %101, ptr %st.i, align 8, !noalias !285
   store ptr null, ptr %ref.tmp24.i, align 8, !noalias !285
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25.i) #34
-  invoke fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %ref.tmp30.i10, ptr noundef nonnull align 8 dereferenceable(8) %MakeBaseName)
+  invoke fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias align 8 %ref.tmp30.i10, ptr noundef nonnull align 8 dereferenceable(8) %MakeBaseName)
           to label %invoke.cont33.i unwind label %lpad13.loopexit.i
 
 invoke.cont33.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit.i
@@ -10941,7 +10941,7 @@ ehcleanup51:                                      ; preds = %ehcleanup49, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5arrow8internal12TemporaryDir4MakeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clB5cxx11Ev"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gen.i = alloca %"class.std::linear_congruential_engine", align 8
   %dist.i = alloca %"class.std::uniform_int_distribution", align 4
@@ -13118,14 +13118,14 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %path, ptr nocapture noundef %lst, ptr noundef writeonly %exists) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %path, ptr nocapture noundef nonnull %lst, ptr noundef writeonly %exists) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %path, align 8
   %call1 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #34
-  %call2 = tail call i32 @lstat64(ptr noundef %call1, ptr noundef %lst) #34
+  %call2 = tail call i32 @lstat64(ptr noundef %call1, ptr noundef nonnull %lst) #34
   %cmp.not = icmp eq i32 %call2, 0
   %cmp13.not = icmp eq ptr %exists, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -13154,7 +13154,7 @@ if.then11:                                        ; preds = %if.then, %lor.lhs.f
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i), !noalias !344
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !341
-  invoke void @_ZN5arrow8internal15StatusFromErrnoIJRA34_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_EEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %2, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(34) @.str.39, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(2) @.str.1)
+  invoke void @_ZN5arrow8internal15StatusFromErrnoIJRA34_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_EEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %2, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(34) @.str.39, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 1 dereferenceable(2) @.str.1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then11
@@ -13184,7 +13184,7 @@ return:                                           ; preds = %if.end16, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %path, i32 %lst.24.val, i1 noundef zeroext %remove_top_dir) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %path, i32 %lst.24.val, i1 noundef zeroext %remove_top_dir) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i.i.i131 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13285,7 +13285,7 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
           to label %do.body14.i unwind label %lpad12.i
 
 do.body14.i:                                      ; preds = %for.body.i
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias nonnull align 8 %ref.tmp15.i, ptr noundef nonnull align 8 dereferenceable(8) %full_path.i, ptr noundef nonnull %lst.i, ptr noundef null)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_18LinkStatERKNS0_16PlatformFilenameEP4statPb(ptr noalias align 8 %ref.tmp15.i, ptr noundef nonnull align 8 dereferenceable(8) %full_path.i, ptr noundef %lst.i, ptr noundef null)
           to label %_ZN5arrow6StatusD2Ev.exit212 unwind label %lpad16.i
 
 _ZN5arrow6StatusD2Ev.exit212:                     ; preds = %do.body14.i
@@ -13317,7 +13317,7 @@ _ZN5arrow6StatusD2Ev.exit174:                     ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i133, label %if.then.i136, label %if.end.i
 
 if.then.i136:                                     ; preds = %_ZN5arrow6StatusD2Ev.exit174
-  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias nonnull align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(8) %full_path.i, i32 %14, i1 noundef zeroext true)
+  invoke fastcc void @_ZN5arrow8internal12_GLOBAL__N_117DeleteDirEntryDirERKNS0_16PlatformFilenameERK4statb(ptr noalias align 8 %ref.tmp31.i, ptr noundef nonnull align 8 dereferenceable(8) %full_path.i, i32 %14, i1 noundef zeroext true)
           to label %_ZN5arrow6StatusD2Ev.exit130 unwind label %lpad16.i
 
 if.end.i:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit174
@@ -13507,7 +13507,7 @@ if.then27:                                        ; preds = %land.lhs.true22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i.i43), !noalias !396
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i.i44) #34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i.i44), !noalias !393
-  invoke void @_ZN5arrow8internal15StatusFromErrnoIJRA32_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_EEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %24, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(32) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29, ptr noundef nonnull align 1 dereferenceable(2) @.str.1)
+  invoke void @_ZN5arrow8internal15StatusFromErrnoIJRA32_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S2_EEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.result, i32 noundef %24, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(32) @.str.40, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29, ptr noundef nonnull align 1 dereferenceable(2) @.str.1)
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %if.then27

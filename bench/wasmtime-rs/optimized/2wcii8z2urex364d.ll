@@ -193,7 +193,7 @@ define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy
   store i64 0, ptr %.sroa.35.0..sroa_idx, align 8
   %28 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %29 = getelementptr inbounds i8, ptr %28, i64 88
-  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %3, ptr nonnull align 8 %29)
+  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %3, ptr align 8 %29)
           to label %30 unwind label %22
 
 30:                                               ; preds = %24
@@ -232,7 +232,7 @@ define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar9copy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nocapture writeonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %4, i64 80
@@ -242,14 +242,14 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11g
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %4, i64 88
-  tail call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %0, ptr nonnull align 8 %9)
+  tail call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %0, ptr align 8 %9)
   br label %13
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %4, i64 72
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nonnull align 8 %3, ptr nonnull align 8 %11)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias align 8 %3, ptr nonnull align 8 %11)
   %12 = load i8, ptr %5, align 8, !range !5, !noundef !3
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5image17h203fd32fe8a8e4a9E(ptr noalias align 8 %0, ptr nonnull align 8 %3, i8 %12)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5image17h203fd32fe8a8e4a9E(ptr noalias align 8 %0, ptr align 8 %3, i8 %12)
           to label %16 unwind label %14
 
 13:                                               ; preds = %16, %8
@@ -281,7 +281,7 @@ define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7Type
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %4, i64 88
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nonnull align 8 %3, ptr nonnull align 8 %0)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias align 8 %3, ptr nonnull align 8 %0)
   %6 = invoke zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2ddf9b7215a2cc7eE"(ptr nonnull align 8 %5, ptr nonnull align 8 %3)
           to label %.noexc unwind label %23
 
@@ -381,7 +381,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar14singleton_
   %25 = alloca { { i64, ptr, {} }, i64 }, align 8
   %26 = alloca { i8, [23 x i8] }, align 8
   %27 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nonnull align 8 %27, ptr align 8 %1)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias align 8 %27, ptr align 8 %1)
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8, !noundef !3
   %30 = getelementptr inbounds i8, ptr %27, i64 64
@@ -791,7 +791,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr nocapture readonly align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar7derived17h353045a32ef80551E(ptr nocapture readonly align 8 %0, i8 range(i8 0, 9) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %5 = alloca { ptr, i64 }, align 8
@@ -829,62 +829,62 @@ define internal fastcc nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7Typ
   %35 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %36 = alloca { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, align 8
   %37 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias nonnull align 8 %37, ptr align 8 %0)
-  %.sink116.sroa.gep = getelementptr inbounds i8, ptr %35, i64 8
-  %.sink116.sroa.gep117 = getelementptr inbounds i8, ptr %33, i64 8
-  %.sink116.sroa.gep118 = getelementptr inbounds i8, ptr %31, i64 8
-  %.sink116.sroa.gep119 = getelementptr inbounds i8, ptr %29, i64 8
-  %.sink116.sroa.gep120 = getelementptr inbounds i8, ptr %27, i64 8
-  %.sink116.sroa.gep121 = getelementptr inbounds i8, ptr %25, i64 8
-  %.sink116.sroa.gep122 = getelementptr inbounds i8, ptr %23, i64 8
-  %.sink116.sroa.gep123 = getelementptr inbounds i8, ptr %21, i64 8
-  %.sink116.sroa.gep124 = getelementptr inbounds i8, ptr %19, i64 8
-  %.sink116.sroa.gep125 = getelementptr inbounds i8, ptr %17, i64 8
-  %.sink116.sroa.gep126 = getelementptr inbounds i8, ptr %14, i64 8
-  %.sink116.sroa.gep127 = getelementptr inbounds i8, ptr %11, i64 8
-  %.sink116.sroa.gep129 = getelementptr inbounds i8, ptr %35, i64 32
-  %.sink116.sroa.gep130 = getelementptr inbounds i8, ptr %33, i64 32
-  %.sink116.sroa.gep131 = getelementptr inbounds i8, ptr %31, i64 32
-  %.sink116.sroa.gep132 = getelementptr inbounds i8, ptr %29, i64 32
-  %.sink116.sroa.gep133 = getelementptr inbounds i8, ptr %27, i64 32
-  %.sink116.sroa.gep134 = getelementptr inbounds i8, ptr %25, i64 32
-  %.sink116.sroa.gep135 = getelementptr inbounds i8, ptr %23, i64 32
-  %.sink116.sroa.gep136 = getelementptr inbounds i8, ptr %21, i64 32
-  %.sink116.sroa.gep137 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sink116.sroa.gep138 = getelementptr inbounds i8, ptr %17, i64 32
-  %.sink116.sroa.gep139 = getelementptr inbounds i8, ptr %14, i64 32
-  %.sink116.sroa.gep140 = getelementptr inbounds i8, ptr %11, i64 32
-  %.sink116.sroa.gep142 = getelementptr inbounds i8, ptr %35, i64 16
-  %.sink116.sroa.gep143 = getelementptr inbounds i8, ptr %33, i64 16
-  %.sink116.sroa.gep144 = getelementptr inbounds i8, ptr %31, i64 16
-  %.sink116.sroa.gep145 = getelementptr inbounds i8, ptr %29, i64 16
-  %.sink116.sroa.gep146 = getelementptr inbounds i8, ptr %27, i64 16
-  %.sink116.sroa.gep147 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sink116.sroa.gep148 = getelementptr inbounds i8, ptr %23, i64 16
-  %.sink116.sroa.gep149 = getelementptr inbounds i8, ptr %21, i64 16
-  %.sink116.sroa.gep150 = getelementptr inbounds i8, ptr %19, i64 16
-  %.sink116.sroa.gep151 = getelementptr inbounds i8, ptr %17, i64 16
-  %.sink116.sroa.gep152 = getelementptr inbounds i8, ptr %14, i64 16
-  %.sink116.sroa.gep153 = getelementptr inbounds i8, ptr %11, i64 16
-  %.sink116.sroa.gep155 = getelementptr inbounds i8, ptr %35, i64 24
-  %.sink116.sroa.gep156 = getelementptr inbounds i8, ptr %33, i64 24
-  %.sink116.sroa.gep157 = getelementptr inbounds i8, ptr %31, i64 24
-  %.sink116.sroa.gep158 = getelementptr inbounds i8, ptr %29, i64 24
-  %.sink116.sroa.gep159 = getelementptr inbounds i8, ptr %27, i64 24
-  %.sink116.sroa.gep160 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sink116.sroa.gep161 = getelementptr inbounds i8, ptr %23, i64 24
-  %.sink116.sroa.gep162 = getelementptr inbounds i8, ptr %21, i64 24
-  %.sink116.sroa.gep163 = getelementptr inbounds i8, ptr %19, i64 24
-  %.sink116.sroa.gep164 = getelementptr inbounds i8, ptr %17, i64 24
-  %.sink116.sroa.gep165 = getelementptr inbounds i8, ptr %14, i64 24
-  %.sink116.sroa.gep166 = getelementptr inbounds i8, ptr %11, i64 24
-  %.sink108.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
-  %.sink108.sroa.gep167 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink108.sroa.gep169 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sink108.sroa.gep170 = getelementptr inbounds i8, ptr %12, i64 16
-  %.sink108.sroa.gep172 = getelementptr inbounds i8, ptr %15, i64 24
-  %.sink108.sroa.gep173 = getelementptr inbounds i8, ptr %12, i64 24
-  switch i8 %1, label %default.unreachable [
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar11get_typeset17h304660746771ae3bE(ptr noalias align 8 %37, ptr align 8 %0)
+  %.sink117.sroa.gep = getelementptr inbounds i8, ptr %35, i64 8
+  %.sink117.sroa.gep118 = getelementptr inbounds i8, ptr %33, i64 8
+  %.sink117.sroa.gep119 = getelementptr inbounds i8, ptr %31, i64 8
+  %.sink117.sroa.gep120 = getelementptr inbounds i8, ptr %29, i64 8
+  %.sink117.sroa.gep121 = getelementptr inbounds i8, ptr %27, i64 8
+  %.sink117.sroa.gep122 = getelementptr inbounds i8, ptr %25, i64 8
+  %.sink117.sroa.gep123 = getelementptr inbounds i8, ptr %23, i64 8
+  %.sink117.sroa.gep124 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sink117.sroa.gep125 = getelementptr inbounds i8, ptr %19, i64 8
+  %.sink117.sroa.gep126 = getelementptr inbounds i8, ptr %17, i64 8
+  %.sink117.sroa.gep127 = getelementptr inbounds i8, ptr %14, i64 8
+  %.sink117.sroa.gep128 = getelementptr inbounds i8, ptr %11, i64 8
+  %.sink117.sroa.gep130 = getelementptr inbounds i8, ptr %35, i64 32
+  %.sink117.sroa.gep131 = getelementptr inbounds i8, ptr %33, i64 32
+  %.sink117.sroa.gep132 = getelementptr inbounds i8, ptr %31, i64 32
+  %.sink117.sroa.gep133 = getelementptr inbounds i8, ptr %29, i64 32
+  %.sink117.sroa.gep134 = getelementptr inbounds i8, ptr %27, i64 32
+  %.sink117.sroa.gep135 = getelementptr inbounds i8, ptr %25, i64 32
+  %.sink117.sroa.gep136 = getelementptr inbounds i8, ptr %23, i64 32
+  %.sink117.sroa.gep137 = getelementptr inbounds i8, ptr %21, i64 32
+  %.sink117.sroa.gep138 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink117.sroa.gep139 = getelementptr inbounds i8, ptr %17, i64 32
+  %.sink117.sroa.gep140 = getelementptr inbounds i8, ptr %14, i64 32
+  %.sink117.sroa.gep141 = getelementptr inbounds i8, ptr %11, i64 32
+  %.sink117.sroa.gep143 = getelementptr inbounds i8, ptr %35, i64 16
+  %.sink117.sroa.gep144 = getelementptr inbounds i8, ptr %33, i64 16
+  %.sink117.sroa.gep145 = getelementptr inbounds i8, ptr %31, i64 16
+  %.sink117.sroa.gep146 = getelementptr inbounds i8, ptr %29, i64 16
+  %.sink117.sroa.gep147 = getelementptr inbounds i8, ptr %27, i64 16
+  %.sink117.sroa.gep148 = getelementptr inbounds i8, ptr %25, i64 16
+  %.sink117.sroa.gep149 = getelementptr inbounds i8, ptr %23, i64 16
+  %.sink117.sroa.gep150 = getelementptr inbounds i8, ptr %21, i64 16
+  %.sink117.sroa.gep151 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sink117.sroa.gep152 = getelementptr inbounds i8, ptr %17, i64 16
+  %.sink117.sroa.gep153 = getelementptr inbounds i8, ptr %14, i64 16
+  %.sink117.sroa.gep154 = getelementptr inbounds i8, ptr %11, i64 16
+  %.sink117.sroa.gep156 = getelementptr inbounds i8, ptr %35, i64 24
+  %.sink117.sroa.gep157 = getelementptr inbounds i8, ptr %33, i64 24
+  %.sink117.sroa.gep158 = getelementptr inbounds i8, ptr %31, i64 24
+  %.sink117.sroa.gep159 = getelementptr inbounds i8, ptr %29, i64 24
+  %.sink117.sroa.gep160 = getelementptr inbounds i8, ptr %27, i64 24
+  %.sink117.sroa.gep161 = getelementptr inbounds i8, ptr %25, i64 24
+  %.sink117.sroa.gep162 = getelementptr inbounds i8, ptr %23, i64 24
+  %.sink117.sroa.gep163 = getelementptr inbounds i8, ptr %21, i64 24
+  %.sink117.sroa.gep164 = getelementptr inbounds i8, ptr %19, i64 24
+  %.sink117.sroa.gep165 = getelementptr inbounds i8, ptr %17, i64 24
+  %.sink117.sroa.gep166 = getelementptr inbounds i8, ptr %14, i64 24
+  %.sink117.sroa.gep167 = getelementptr inbounds i8, ptr %11, i64 24
+  %.sink109.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
+  %.sink109.sroa.gep168 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sink109.sroa.gep170 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sink109.sroa.gep171 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sink109.sroa.gep173 = getelementptr inbounds i8, ptr %15, i64 24
+  %.sink109.sroa.gep174 = getelementptr inbounds i8, ptr %12, i64 24
+  switch i8 %1, label %default.unreachable102 [
     i8 8, label %57
     i8 7, label %56
     i8 2, label %40
@@ -896,7 +896,7 @@ define internal fastcc nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7Typ
     i8 6, label %39
   ]
 
-default.unreachable:                              ; preds = %2
+default.unreachable102:                           ; preds = %2
   unreachable
 
 38:                                               ; preds = %2
@@ -951,7 +951,7 @@ default.unreachable:                              ; preds = %2
 64:                                               ; preds = %230
   br i1 %.2, label %248, label %247
 
-.thread99:                                        ; preds = %.invoke104, %.invoke102, %.invoke, %227, %.thread, %195, %57, %173, %56, %165, %154, %157, %155, %146, %144, %132, %121, %124, %122, %113, %111, %99, %97, %89, %87, %75, %73, %65, %62
+.thread99:                                        ; preds = %.invoke105, %.invoke103, %.invoke, %227, %.thread, %195, %57, %173, %56, %165, %154, %157, %155, %146, %144, %132, %121, %124, %122, %113, %111, %99, %97, %89, %87, %75, %73, %65, %62
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %248
@@ -971,7 +971,7 @@ default.unreachable:                              ; preds = %2
 
 72:                                               ; preds = %69
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.10, ptr %35, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 73:                                               ; preds = %58
   %74 = getelementptr inbounds i8, ptr %37, i64 72
@@ -993,7 +993,7 @@ default.unreachable:                              ; preds = %2
 
 82:                                               ; preds = %79
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.14, ptr %33, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 83:                                               ; preds = %93, %44
   %84 = getelementptr inbounds i8, ptr %37, i64 88
@@ -1021,7 +1021,7 @@ default.unreachable:                              ; preds = %2
 
 96:                                               ; preds = %93
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.18, ptr %31, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 97:                                               ; preds = %83
   %98 = getelementptr inbounds i8, ptr %37, i64 72
@@ -1043,7 +1043,7 @@ default.unreachable:                              ; preds = %2
 
 106:                                              ; preds = %103
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.22, ptr %29, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 107:                                              ; preds = %117, %48
   %108 = getelementptr inbounds i8, ptr %37, i64 88
@@ -1071,7 +1071,7 @@ default.unreachable:                              ; preds = %2
 
 120:                                              ; preds = %117
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.10, ptr %27, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 121:                                              ; preds = %128, %107
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %24, ptr nonnull align 8 %37)
@@ -1097,7 +1097,7 @@ default.unreachable:                              ; preds = %2
 
 131:                                              ; preds = %128
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.14, ptr %25, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 132:                                              ; preds = %121
   %133 = invoke align 2 ptr @"_ZN123_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbed9e3434e2bd436E"(ptr nonnull align 8 %24)
@@ -1114,7 +1114,7 @@ default.unreachable:                              ; preds = %2
 
 139:                                              ; preds = %136
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.30, ptr %23, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 140:                                              ; preds = %150, %52
   %141 = getelementptr inbounds i8, ptr %37, i64 88
@@ -1142,7 +1142,7 @@ default.unreachable:                              ; preds = %2
 
 153:                                              ; preds = %150
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.18, ptr %21, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 154:                                              ; preds = %161, %140
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %18, ptr nonnull align 8 %37)
@@ -1168,7 +1168,7 @@ default.unreachable:                              ; preds = %2
 
 164:                                              ; preds = %161
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.22, ptr %19, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 165:                                              ; preds = %154
   %166 = invoke align 2 ptr @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41073f7e163b6034E"(ptr nonnull align 8 %18)
@@ -1185,7 +1185,7 @@ default.unreachable:                              ; preds = %2
 
 172:                                              ; preds = %169
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.38, ptr %17, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 173:                                              ; preds = %56
   %174 = invoke align 2 ptr @"_ZN123_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbed9e3434e2bd436E"(ptr nonnull align 8 %16)
@@ -1220,11 +1220,11 @@ default.unreachable:                              ; preds = %2
 
 193:                                              ; preds = %177
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.45, ptr %15, align 8
-  br label %.invoke104
+  br label %.invoke105
 
 194:                                              ; preds = %180
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.42, ptr %14, align 8
-  br label %.invoke102
+  br label %.invoke103
 
 195:                                              ; preds = %57
   %196 = invoke align 2 ptr @"_ZN123_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hbed9e3434e2bd436E"(ptr nonnull align 8 %13)
@@ -1267,43 +1267,43 @@ default.unreachable:                              ; preds = %2
 
 216:                                              ; preds = %200
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.56, ptr %12, align 8
-  br label %.invoke104
+  br label %.invoke105
 
-.invoke104:                                       ; preds = %193, %216
-  %.sink108.sroa.phi = phi ptr [ %.sink108.sroa.gep, %193 ], [ %.sink108.sroa.gep167, %216 ]
-  %.sink108.sroa.phi168 = phi ptr [ %.sink108.sroa.gep169, %193 ], [ %.sink108.sroa.gep170, %216 ]
-  %.sink108.sroa.phi171 = phi ptr [ %.sink108.sroa.gep172, %193 ], [ %.sink108.sroa.gep173, %216 ]
-  %.sink108 = phi ptr [ %15, %193 ], [ %12, %216 ]
+.invoke105:                                       ; preds = %193, %216
+  %.sink109.sroa.phi = phi ptr [ %.sink109.sroa.gep, %193 ], [ %.sink109.sroa.gep168, %216 ]
+  %.sink109.sroa.phi169 = phi ptr [ %.sink109.sroa.gep170, %193 ], [ %.sink109.sroa.gep171, %216 ]
+  %.sink109.sroa.phi172 = phi ptr [ %.sink109.sroa.gep173, %193 ], [ %.sink109.sroa.gep174, %216 ]
+  %.sink109 = phi ptr [ %15, %193 ], [ %12, %216 ]
   %217 = phi ptr [ %174, %193 ], [ %196, %216 ]
   %218 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.47, %193 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.57, %216 ]
-  store i64 1, ptr %.sink108.sroa.phi, align 8
-  store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.2, ptr %.sink108.sroa.phi168, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink108.sroa.phi171, i8 0, i64 16, i1 false)
-  invoke void @_ZN4core9panicking13assert_failed17h1b8979c0555f210dE(i8 0, ptr nonnull align 2 %217, ptr nonnull align 2 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.46, ptr nonnull align 8 %.sink108, ptr nonnull align 8 %218) #14
-          to label %.cont105 unwind label %.thread99
+  store i64 1, ptr %.sink109.sroa.phi, align 8
+  store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.2, ptr %.sink109.sroa.phi169, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink109.sroa.phi172, i8 0, i64 16, i1 false)
+  invoke void @_ZN4core9panicking13assert_failed17h1b8979c0555f210dE(i8 0, ptr nonnull align 2 %217, ptr nonnull align 2 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.46, ptr nonnull align 8 %.sink109, ptr nonnull align 8 %218) #14
+          to label %.cont106 unwind label %.thread99
 
-.cont105:                                         ; preds = %.invoke104
+.cont106:                                         ; preds = %.invoke105
   unreachable
 
 219:                                              ; preds = %203
   store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.53, ptr %11, align 8
-  br label %.invoke102
+  br label %.invoke103
 
-.invoke102:                                       ; preds = %72, %82, %96, %106, %120, %131, %139, %153, %164, %172, %194, %219
-  %.sink116.sroa.phi = phi ptr [ %.sink116.sroa.gep, %72 ], [ %.sink116.sroa.gep117, %82 ], [ %.sink116.sroa.gep118, %96 ], [ %.sink116.sroa.gep119, %106 ], [ %.sink116.sroa.gep120, %120 ], [ %.sink116.sroa.gep121, %131 ], [ %.sink116.sroa.gep122, %139 ], [ %.sink116.sroa.gep123, %153 ], [ %.sink116.sroa.gep124, %164 ], [ %.sink116.sroa.gep125, %172 ], [ %.sink116.sroa.gep126, %194 ], [ %.sink116.sroa.gep127, %219 ]
-  %.sink116.sroa.phi128 = phi ptr [ %.sink116.sroa.gep129, %72 ], [ %.sink116.sroa.gep130, %82 ], [ %.sink116.sroa.gep131, %96 ], [ %.sink116.sroa.gep132, %106 ], [ %.sink116.sroa.gep133, %120 ], [ %.sink116.sroa.gep134, %131 ], [ %.sink116.sroa.gep135, %139 ], [ %.sink116.sroa.gep136, %153 ], [ %.sink116.sroa.gep137, %164 ], [ %.sink116.sroa.gep138, %172 ], [ %.sink116.sroa.gep139, %194 ], [ %.sink116.sroa.gep140, %219 ]
-  %.sink116.sroa.phi141 = phi ptr [ %.sink116.sroa.gep142, %72 ], [ %.sink116.sroa.gep143, %82 ], [ %.sink116.sroa.gep144, %96 ], [ %.sink116.sroa.gep145, %106 ], [ %.sink116.sroa.gep146, %120 ], [ %.sink116.sroa.gep147, %131 ], [ %.sink116.sroa.gep148, %139 ], [ %.sink116.sroa.gep149, %153 ], [ %.sink116.sroa.gep150, %164 ], [ %.sink116.sroa.gep151, %172 ], [ %.sink116.sroa.gep152, %194 ], [ %.sink116.sroa.gep153, %219 ]
-  %.sink116.sroa.phi154 = phi ptr [ %.sink116.sroa.gep155, %72 ], [ %.sink116.sroa.gep156, %82 ], [ %.sink116.sroa.gep157, %96 ], [ %.sink116.sroa.gep158, %106 ], [ %.sink116.sroa.gep159, %120 ], [ %.sink116.sroa.gep160, %131 ], [ %.sink116.sroa.gep161, %139 ], [ %.sink116.sroa.gep162, %153 ], [ %.sink116.sroa.gep163, %164 ], [ %.sink116.sroa.gep164, %172 ], [ %.sink116.sroa.gep165, %194 ], [ %.sink116.sroa.gep166, %219 ]
-  %.sink116 = phi ptr [ %35, %72 ], [ %33, %82 ], [ %31, %96 ], [ %29, %106 ], [ %27, %120 ], [ %25, %131 ], [ %23, %139 ], [ %21, %153 ], [ %19, %164 ], [ %17, %172 ], [ %14, %194 ], [ %11, %219 ]
+.invoke103:                                       ; preds = %72, %82, %96, %106, %120, %131, %139, %153, %164, %172, %194, %219
+  %.sink117.sroa.phi = phi ptr [ %.sink117.sroa.gep, %72 ], [ %.sink117.sroa.gep118, %82 ], [ %.sink117.sroa.gep119, %96 ], [ %.sink117.sroa.gep120, %106 ], [ %.sink117.sroa.gep121, %120 ], [ %.sink117.sroa.gep122, %131 ], [ %.sink117.sroa.gep123, %139 ], [ %.sink117.sroa.gep124, %153 ], [ %.sink117.sroa.gep125, %164 ], [ %.sink117.sroa.gep126, %172 ], [ %.sink117.sroa.gep127, %194 ], [ %.sink117.sroa.gep128, %219 ]
+  %.sink117.sroa.phi129 = phi ptr [ %.sink117.sroa.gep130, %72 ], [ %.sink117.sroa.gep131, %82 ], [ %.sink117.sroa.gep132, %96 ], [ %.sink117.sroa.gep133, %106 ], [ %.sink117.sroa.gep134, %120 ], [ %.sink117.sroa.gep135, %131 ], [ %.sink117.sroa.gep136, %139 ], [ %.sink117.sroa.gep137, %153 ], [ %.sink117.sroa.gep138, %164 ], [ %.sink117.sroa.gep139, %172 ], [ %.sink117.sroa.gep140, %194 ], [ %.sink117.sroa.gep141, %219 ]
+  %.sink117.sroa.phi142 = phi ptr [ %.sink117.sroa.gep143, %72 ], [ %.sink117.sroa.gep144, %82 ], [ %.sink117.sroa.gep145, %96 ], [ %.sink117.sroa.gep146, %106 ], [ %.sink117.sroa.gep147, %120 ], [ %.sink117.sroa.gep148, %131 ], [ %.sink117.sroa.gep149, %139 ], [ %.sink117.sroa.gep150, %153 ], [ %.sink117.sroa.gep151, %164 ], [ %.sink117.sroa.gep152, %172 ], [ %.sink117.sroa.gep153, %194 ], [ %.sink117.sroa.gep154, %219 ]
+  %.sink117.sroa.phi155 = phi ptr [ %.sink117.sroa.gep156, %72 ], [ %.sink117.sroa.gep157, %82 ], [ %.sink117.sroa.gep158, %96 ], [ %.sink117.sroa.gep159, %106 ], [ %.sink117.sroa.gep160, %120 ], [ %.sink117.sroa.gep161, %131 ], [ %.sink117.sroa.gep162, %139 ], [ %.sink117.sroa.gep163, %153 ], [ %.sink117.sroa.gep164, %164 ], [ %.sink117.sroa.gep165, %172 ], [ %.sink117.sroa.gep166, %194 ], [ %.sink117.sroa.gep167, %219 ]
+  %.sink117 = phi ptr [ %35, %72 ], [ %33, %82 ], [ %31, %96 ], [ %29, %106 ], [ %27, %120 ], [ %25, %131 ], [ %23, %139 ], [ %21, %153 ], [ %19, %164 ], [ %17, %172 ], [ %14, %194 ], [ %11, %219 ]
   %220 = phi ptr [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.11, %72 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.15, %82 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.19, %96 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.23, %106 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.25, %120 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.27, %131 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.31, %139 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.33, %153 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.35, %164 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.39, %172 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.43, %194 ], [ @anon.45c1bf1ea372aef3ca8c2f6251eb9182.54, %219 ]
-  store i64 1, ptr %.sink116.sroa.phi, align 8
-  store ptr null, ptr %.sink116.sroa.phi128, align 8
-  store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.2, ptr %.sink116.sroa.phi141, align 8
-  store i64 0, ptr %.sink116.sroa.phi154, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %.sink116, ptr nonnull align 8 %220) #14
-          to label %.cont103 unwind label %.thread99
+  store i64 1, ptr %.sink117.sroa.phi, align 8
+  store ptr null, ptr %.sink117.sroa.phi129, align 8
+  store ptr @anon.45c1bf1ea372aef3ca8c2f6251eb9182.2, ptr %.sink117.sroa.phi142, align 8
+  store i64 0, ptr %.sink117.sroa.phi155, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %.sink117, ptr nonnull align 8 %220) #14
+          to label %.cont104 unwind label %.thread99
 
-.cont103:                                         ; preds = %.invoke102
+.cont104:                                         ; preds = %.invoke103
   unreachable
 
 .thread:                                          ; preds = %203, %180, %169, %136, %103, %83, %79, %58, %2, %38, %39
@@ -1774,7 +1774,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5image17h203fd32fe8a8e4a9E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, i8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5image17h203fd32fe8a8e4a9E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, i8 range(i8 0, 9) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, align 8
   %5 = alloca { { { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} } }, align 8
   %6 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
@@ -1794,7 +1794,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5im
   %20 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %21 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
   %22 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
-  switch i8 %2, label %default.unreachable [
+  switch i8 %2, label %default.unreachable9 [
     i8 0, label %23
     i8 1, label %35
     i8 2, label %64
@@ -1806,14 +1806,14 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet5im
     i8 8, label %102
   ]
 
-default.unreachable:                              ; preds = %3
+default.unreachable9:                             ; preds = %3
   unreachable
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %20)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %20, ptr align 8 %1), !noalias !16
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %20, ptr align 8 %1), !noalias !16
   %24 = invoke ptr @_ZN5alloc5alloc15exchange_malloc17hb7db822585aad40aE(i64 2, i64 2)
           to label %28 unwind label %26, !noalias !16
 
@@ -1867,7 +1867,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet7lane_of17hdce0b6bbcb872e74E.exi
 35:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %17)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %17, ptr align 8 %1), !noalias !19
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %17, ptr align 8 %1), !noalias !19
   %36 = getelementptr inbounds i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !19, !noundef !3
   %38 = icmp eq i64 %37, 1
@@ -1969,12 +1969,12 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   br label %103
 
 66:                                               ; preds = %3
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10half_width17hdf5b649bbbad6373E(ptr noalias nonnull align 8 %22, ptr align 8 %1)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10half_width17hdf5b649bbbad6373E(ptr noalias align 8 %22, ptr align 8 %1)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %15)
-  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %15, ptr nonnull align 8 %22)
+  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %15, ptr align 8 %22)
           to label %.noexc unwind label %104
 
 .noexc:                                           ; preds = %66
@@ -2013,12 +2013,12 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   unreachable
 
 76:                                               ; preds = %3
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet12double_width17h7f0abf5626027da1E(ptr noalias nonnull align 8 %21, ptr align 8 %1)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet12double_width17h7f0abf5626027da1E(ptr noalias align 8 %21, ptr align 8 %1)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %11)
-  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %11, ptr nonnull align 8 %21)
+  invoke fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %11, ptr align 8 %21)
           to label %.noexc5 unwind label %109
 
 .noexc5:                                          ; preds = %76
@@ -2061,7 +2061,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet9as_truthy17hd0b01b1fc459a00dE.e
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %7)
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %7, ptr align 8 %1), !noalias !28
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %7, ptr align 8 %1), !noalias !28
   %87 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %4, ptr nonnull align 8 %87)
           to label %91 unwind label %89, !noalias !28
@@ -2181,7 +2181,7 @@ _ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet17dynamic_to_vector17h4a5858bbb4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10half_width17hdf5b649bbbad6373E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10half_width17hdf5b649bbbad6373E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, align 8
   %4 = alloca { { { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} }, {} }, align 8
   %5 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
@@ -2189,7 +2189,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10h
   %7 = alloca { { { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} }, {} }, align 8
   %8 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %9 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %9, ptr align 8 %1)
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %9, ptr align 8 %1)
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %6, ptr nonnull align 8 %10)
           to label %14 unwind label %12
@@ -2258,7 +2258,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet10h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet12double_width17h7f0abf5626027da1E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet12double_width17h7f0abf5626027da1E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, align 8
   %4 = alloca { { { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} }, {} }, align 8
   %5 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
@@ -2266,7 +2266,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeSet12d
   %7 = alloca { { { { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }, {} }, {} }, align 8
   %8 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %9 = alloca { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } }, { { { ptr, [1 x i64] }, i64, { {} }, {} } } }, align 8
-  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nonnull align 8 %9, ptr align 8 %1)
+  call fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias align 8 %9, ptr align 8 %1)
   %10 = getelementptr inbounds i8, ptr %1, i64 48
   invoke void @"_ZN5alloc11collections5btree3set21BTreeSet$LT$T$C$A$GT$4iter17h2e7731a9c4eb2a53E"(ptr nonnull sret({ { { { { i64, [3 x i64] }, { i64, [3 x i64] } }, i64 } } }) align 8 %6, ptr nonnull align 8 %10)
           to label %14 unwind label %12
@@ -2902,7 +2902,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   %. = select i1 %10, i16 1, i16 2
   %11 = getelementptr inbounds i8, ptr %1, i64 18
   %12 = tail call fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %11, i16 %., i16 256, i16 1)
-  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %7, i48 %12)
+  call fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %7, i48 %12)
   %13 = getelementptr inbounds i8, ptr %1, i64 24
   %14 = invoke fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nonnull align 2 %13, i16 2, i16 256, i16 0)
           to label %17 unwind label %15
@@ -2913,7 +2913,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   br label %45
 
 17:                                               ; preds = %2
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %6, i48 %14)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %6, i48 %14)
           to label %18 unwind label %15
 
 18:                                               ; preds = %17
@@ -2926,7 +2926,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   br label %43
 
 22:                                               ; preds = %18
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %5, i48 %19)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %5, i48 %19)
           to label %23 unwind label %20
 
 23:                                               ; preds = %22
@@ -2940,7 +2940,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
   br label %42
 
 28:                                               ; preds = %23
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %4, i48 %25)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %4, i48 %25)
           to label %29 unwind label %26
 
 29:                                               ; preds = %28
@@ -2949,7 +2949,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
           to label %32 unwind label %38
 
 32:                                               ; preds = %29
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nonnull align 8 %3, i48 %31)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias align 8 %3, i48 %31)
           to label %33 unwind label %38
 
 33:                                               ; preds = %32
@@ -2996,37 +2996,35 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder5bui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 %1, i16 %2, i16 %3) unnamed_addr #0 {
+define internal fastcc range(i48 0, -140737488355328) i48 @_ZN22cranelift_codegen_meta4cdsl7typevar8Interval8to_range17h453e18daf0ed1783E(ptr nocapture readonly align 2 %0, i16 range(i16 1, 33) %1, i16 range(i16 64, 257) %2, i16 range(i16 0, 2) %3) unnamed_addr #0 {
   %5 = load i16, ptr %0, align 2, !range !31, !noundef !3
   switch i16 %5, label %default.unreachable11 [
     i16 0, label %6
-    i16 1, label %15
-    i16 2, label %8
+    i16 1, label %14
+    i16 2, label %7
   ]
 
 default.unreachable11:                            ; preds = %4
   unreachable
 
 6:                                                ; preds = %4
-  %7 = icmp ne i16 %3, 0
-  %. = zext i1 %7 to i16
-  br label %15
+  br label %14
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
-  %10 = load i16, ptr %9, align 2, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
-  %12 = load i16, ptr %11, align 2, !noundef !3
-  %13 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %10)
-  %14 = icmp eq i16 %13, 1
-  br i1 %14, label %16, label %19
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = load i16, ptr %8, align 2, !noundef !3
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = load i16, ptr %10, align 2, !noundef !3
+  %12 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %9)
+  %13 = icmp eq i16 %12, 1
+  br i1 %13, label %15, label %18
 
-15:                                               ; preds = %25, %4, %6
-  %.sroa.01.0 = phi i16 [ %., %6 ], [ %5, %4 ], [ 1, %25 ]
-  %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %10, %25 ]
-  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %12, %25 ]
-  %.sroa.8.0.insert.ext = zext i16 %.sroa.8.0 to i48
-  %.sroa.8.0.insert.shift = shl nuw i48 %.sroa.8.0.insert.ext, 32
+14:                                               ; preds = %24, %4, %6
+  %.sroa.01.0 = phi i16 [ %3, %6 ], [ %5, %4 ], [ 1, %24 ]
+  %.sroa.5.0 = phi i16 [ 1, %6 ], [ %1, %4 ], [ %9, %24 ]
+  %.sroa.8.0 = phi i16 [ 1, %6 ], [ %2, %4 ], [ %11, %24 ]
+  %.sroa.8.0.insert.ext = zext nneg i16 %.sroa.8.0 to i48
+  %.sroa.8.0.insert.shift = shl nuw nsw i48 %.sroa.8.0.insert.ext, 32
   %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0 to i48
   %.sroa.5.0.insert.shift = shl nuw nsw i48 %.sroa.5.0.insert.ext, 16
   %.sroa.5.0.insert.insert = or disjoint i48 %.sroa.8.0.insert.shift, %.sroa.5.0.insert.shift
@@ -3034,40 +3032,40 @@ default.unreachable11:                            ; preds = %4
   %.sroa.01.0.insert.insert = or disjoint i48 %.sroa.5.0.insert.insert, %.sroa.01.0.insert.ext
   ret i48 %.sroa.01.0.insert.insert
 
-16:                                               ; preds = %8
-  %17 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %12)
-  %18 = icmp eq i16 %17, 1
-  br i1 %18, label %20, label %21
+15:                                               ; preds = %7
+  %16 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %11)
+  %17 = icmp eq i16 %16, 1
+  br i1 %17, label %19, label %20
 
-19:                                               ; preds = %8
+18:                                               ; preds = %7
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.96, i64 39, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.97) #14
   unreachable
 
-20:                                               ; preds = %16
-  %.not = icmp ugt i16 %10, %12
-  br i1 %.not, label %22, label %23
+19:                                               ; preds = %15
+  %.not = icmp ugt i16 %9, %11
+  br i1 %.not, label %21, label %22
 
-21:                                               ; preds = %16
+20:                                               ; preds = %15
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.94, i64 40, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.95) #14
   unreachable
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.88, i64 29, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.89) #14
   unreachable
 
-23:                                               ; preds = %20
-  %.not8 = icmp ult i16 %10, %1
-  br i1 %.not8, label %24, label %25
+22:                                               ; preds = %19
+  %.not8 = icmp ult i16 %9, %1
+  br i1 %.not8, label %23, label %24
 
-24:                                               ; preds = %23
+23:                                               ; preds = %22
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.90, i64 41, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.91) #14
   unreachable
 
-25:                                               ; preds = %23
-  %.not9 = icmp ugt i16 %12, %2
-  br i1 %.not9, label %26, label %15
+24:                                               ; preds = %22
+  %.not9 = icmp ugt i16 %11, %2
+  br i1 %.not9, label %25, label %14
 
-26:                                               ; preds = %25
+25:                                               ; preds = %24
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.92, i64 40, ptr nonnull align 8 @anon.45c1bf1ea372aef3ca8c2f6251eb9182.93) #14
   unreachable
 }
@@ -3084,7 +3082,7 @@ define range(i48 2, 0) i48 @"_ZN129_$LT$cranelift_codegen_meta..cdsl..typevar..I
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nocapture writeonly align 8 %0, i48 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl7typevar12range_to_set17hba086c1342bbec2bE(ptr noalias nocapture nonnull writeonly align 8 %0, i48 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i32, i32, i8, [3 x i8] }, align 4
   %4 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %.sroa.22.0.extract.shift = lshr i48 %1, 16
@@ -3223,7 +3221,7 @@ define hidden zeroext i1 @"_ZN89_$LT$cranelift_codegen_meta..cdsl..typevar..Type
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..clone..Clone$GT$5clone17h227da45b576799e5E"(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, [1 x i64] }, i64, { {} }, {} }, align 8
   %4 = alloca { { ptr, [1 x i64] }, i64, { {} }, {} }, align 8
   %5 = alloca { { ptr, [1 x i64] }, i64, { {} }, {} }, align 8
@@ -3233,7 +3231,7 @@ define internal fastcc void @"_ZN85_$LT$cranelift_codegen_meta..cdsl..typevar..T
   %9 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %10 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
   %11 = alloca { { { ptr, [1 x i64] }, i64, { {} }, {} } }, align 8
-  call void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h095e798261caf094E"(ptr nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 %7, ptr align 8 %1)
+  call void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h095e798261caf094E"(ptr nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 %7, ptr nonnull align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %12 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h095e798261caf094E"(ptr nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 %6, ptr nonnull align 8 %12)

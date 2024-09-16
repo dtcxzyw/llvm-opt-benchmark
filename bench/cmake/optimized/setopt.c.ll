@@ -7541,7 +7541,7 @@ switch.lookup:                                    ; preds = %1185
 4366:                                             ; preds = %4362, %4356
   %4367 = phi ptr [ %4360, %4356 ], [ %4364, %4362 ]
   %4368 = load ptr, ptr %4367, align 8
-  %4369 = call fastcc i32 @protocol2num(ptr noundef %4368, ptr noundef nonnull %5)
+  %4369 = call fastcc i32 @protocol2num(ptr noundef %4368, ptr noundef %5)
   %.not1374 = icmp eq i32 %4369, 0
   br i1 %.not1374, label %4370, label %.critedge
 
@@ -7575,7 +7575,7 @@ switch.lookup:                                    ; preds = %1185
 4386:                                             ; preds = %4382, %4376
   %4387 = phi ptr [ %4380, %4376 ], [ %4384, %4382 ]
   %4388 = load ptr, ptr %4387, align 8
-  %4389 = call fastcc i32 @protocol2num(ptr noundef %4388, ptr noundef nonnull %6)
+  %4389 = call fastcc i32 @protocol2num(ptr noundef %4388, ptr noundef %6)
   %.not1373 = icmp eq i32 %4389, 0
   br i1 %.not1373, label %4390, label %.critedge
 
@@ -8962,7 +8962,7 @@ declare zeroext i1 @Curl_ssl_false_start(ptr noundef) local_unnamed_addr #3
 declare void @Curl_hsts_cleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 44) i32 @protocol2num(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

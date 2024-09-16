@@ -2679,14 +2679,14 @@ _ZN17InteractionOfTypeD2Ev.exit.i:                ; preds = %841, %839
   %.val.i = load ptr, ptr %62, align 8
   %853 = getelementptr inbounds i8, ptr %62, i64 8
   %.val8.i = load ptr, ptr %853, align 8
-  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val.i, ptr %.val8.i, ptr noundef nonnull %8, i32 noundef 2, i1 noundef zeroext %849, i1 noundef zeroext false, i1 noundef zeroext %851)
+  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val.i, ptr %.val8.i, ptr noundef %8, i32 noundef 2, i1 noundef zeroext %849, i1 noundef zeroext false, i1 noundef zeroext %851)
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc84:                                         ; preds = %.loopexit181
   store float %846, ptr %852, align 4
   %.val9.i = load ptr, ptr %757, align 8
   %.val10.i = load ptr, ptr %764, align 8
-  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val9.i, ptr %.val10.i, ptr noundef nonnull %8, i32 noundef 2, i1 noundef zeroext %849, i1 noundef zeroext false, i1 noundef zeroext %851)
+  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val9.i, ptr %.val10.i, ptr noundef %8, i32 noundef 2, i1 noundef zeroext %849, i1 noundef zeroext false, i1 noundef zeroext %851)
           to label %.noexc85 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc85:                                         ; preds = %.noexc84
@@ -2695,7 +2695,7 @@ _ZN17InteractionOfTypeD2Ev.exit.i:                ; preds = %841, %839
   store float 3.000000e+00, ptr %854, align 8
   %.val11.i = load ptr, ptr %758, align 8
   %.val12.i = load ptr, ptr %785, align 8
-  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val11.i, ptr %.val12.i, ptr noundef nonnull %8, i32 noundef 3, i1 noundef zeroext %849, i1 noundef zeroext true, i1 noundef zeroext %851)
+  invoke fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.val11.i, ptr %.val12.i, ptr noundef %8, i32 noundef 3, i1 noundef zeroext %849, i1 noundef zeroext true, i1 noundef zeroext %851)
           to label %855 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 855:                                              ; preds = %.noexc85
@@ -3989,93 +3989,89 @@ declare noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.0.val, ptr readnone %.8.val, ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(ptr %.0.val, ptr readnone %.8.val, ptr nocapture noundef nonnull %0, i32 noundef range(i32 2, 4) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca double, align 8
   %7 = alloca [32 x i8], align 16
   %8 = alloca %"struct.std::array.92", align 4
   %9 = alloca %class.InteractionOfType, align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.10", align 1
-  %.not12 = icmp eq ptr %.0.val, %.8.val
-  br i1 %.not12, label %._crit_edge16, label %.lr.ph15
+  %.not11 = icmp eq ptr %.0.val, %.8.val
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
-.lr.ph15:                                         ; preds = %5
-  %12 = icmp sgt i32 %1, 0
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 48
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
-  %18 = getelementptr inbounds i8, ptr %9, i64 72
-  %19 = zext i32 %1 to i64
-  br label %20
+.lr.ph:                                           ; preds = %5
+  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds i8, ptr %8, i64 48
+  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds i8, ptr %9, i64 72
+  %18 = zext nneg i32 %1 to i64
+  br label %19
 
-20:                                               ; preds = %.lr.ph15, %_ZN17InteractionOfTypeD2Ev.exit
-  %.sroa.06.013 = phi ptr [ %.0.val, %.lr.ph15 ], [ %69, %_ZN17InteractionOfTypeD2Ev.exit ]
-  br i1 %4, label %22, label %.preheader
+19:                                               ; preds = %.lr.ph, %_ZN17InteractionOfTypeD2Ev.exit
+  %.sroa.06.012 = phi ptr [ %.0.val, %.lr.ph ], [ %69, %_ZN17InteractionOfTypeD2Ev.exit ]
+  br i1 %4, label %21, label %.preheader
 
-.preheader:                                       ; preds = %20
-  br i1 %12, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
-  store float -4.092030e+05, ptr %21, align 4
+.preheader:                                       ; preds = %19, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %19 ]
+  %20 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  store float -4.092030e+05, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %18
+  br i1 %exitcond.not, label %.loopexit.preheader, label %.preheader, !llvm.loop !25
 
-22:                                               ; preds = %20
-  %23 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.06.013)
-  %24 = load float, ptr %23, align 4
-  br i1 %2, label %25, label %31
+21:                                               ; preds = %19
+  %22 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2c0Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sroa.06.012)
+  %23 = load float, ptr %22, align 4
+  br i1 %2, label %24, label %30
 
-25:                                               ; preds = %22
-  %26 = fpext float %24 to double
-  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.84, double noundef %26) #19
-  %28 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.85, ptr noundef nonnull %6) #19
-  %29 = load double, ptr %6, align 8
-  %30 = fptrunc double %29 to float
-  br label %31
+24:                                               ; preds = %21
+  %25 = fpext float %23 to double
+  %26 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.84, double noundef %25) #19
+  %27 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.85, ptr noundef nonnull %6) #19
+  %28 = load double, ptr %6, align 8
+  %29 = fptrunc double %28 to float
+  br label %30
 
-31:                                               ; preds = %22, %25
-  %storemerge = phi float [ %30, %25 ], [ %24, %22 ]
+30:                                               ; preds = %21, %24
+  %storemerge = phi float [ %29, %24 ], [ %23, %21 ]
   store float %storemerge, ptr %0, align 4
-  br i1 %3, label %32, label %.loopexit
+  br i1 %3, label %31, label %.loopexit.preheader
 
-32:                                               ; preds = %31
-  %33 = load float, ptr %13, align 4
-  %34 = fmul float %storemerge, %33
-  %35 = fadd float %34, 3.600000e+03
-  %36 = fptosi float %35 to i32
-  %37 = srem i32 %36, 360
-  %38 = icmp sgt i32 %37, 180
-  %39 = add nuw nsw i32 %37, -360
-  %spec.select = select i1 %38, i32 %39, i32 %37
-  %40 = add nsw i32 %spec.select, 180
-  %41 = sitofp i32 %40 to float
-  store float %41, ptr %0, align 4
+31:                                               ; preds = %30
+  %32 = load float, ptr %12, align 4
+  %33 = fmul float %storemerge, %32
+  %34 = fadd float %33, 3.600000e+03
+  %35 = fptosi float %34 to i32
+  %36 = srem i32 %35, 360
+  %37 = icmp sgt i32 %36, 180
+  %38 = add nuw nsw i32 %36, -360
+  %spec.select = select i1 %37, i32 %38, i32 %36
+  %39 = add nsw i32 %spec.select, 180
+  %40 = sitofp i32 %39 to float
+  store float %40, ptr %0, align 4
+  br label %.loopexit.preheader
+
+.loopexit.preheader:                              ; preds = %.preheader, %30, %31
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %31, %32
-  br i1 %12, label %.lr.ph11, label %._crit_edge
+.loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
+  %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.loopexit ], [ 0, %.loopexit.preheader ]
+  %41 = getelementptr inbounds float, ptr %0, i64 %indvars.iv14
+  %42 = load float, ptr %41, align 4
+  %43 = getelementptr inbounds [12 x float], ptr %8, i64 0, i64 %indvars.iv14
+  store float %42, ptr %43, align 4
+  %44 = add nuw nsw i64 %indvars.iv14, %18
+  %45 = getelementptr inbounds [12 x float], ptr %8, i64 0, i64 %44
+  store float %42, ptr %45, align 4
+  %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
+  %exitcond18.not = icmp eq i64 %indvars.iv.next15, %18
+  br i1 %exitcond18.not, label %46, label %.loopexit, !llvm.loop !26
 
-.lr.ph11:                                         ; preds = %.loopexit, %.lr.ph11
-  %indvars.iv18 = phi i64 [ %indvars.iv.next19, %.lr.ph11 ], [ 0, %.loopexit ]
-  %42 = getelementptr inbounds float, ptr %0, i64 %indvars.iv18
-  %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds [12 x float], ptr %8, i64 0, i64 %indvars.iv18
-  store float %43, ptr %44, align 4
-  %45 = add nuw nsw i64 %indvars.iv18, %19
-  %46 = getelementptr inbounds [12 x float], ptr %8, i64 0, i64 %45
-  store float %43, ptr %46, align 4
-  %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %exitcond22.not = icmp eq i64 %indvars.iv.next19, %19
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph11, !llvm.loop !26
-
-._crit_edge:                                      ; preds = %.lr.ph11, %.preheader, %.loopexit
-  %47 = load ptr, ptr %.sroa.06.013, align 8
-  %48 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 8
+46:                                               ; preds = %.loopexit
+  %47 = load ptr, ptr %.sroa.06.012, align 8
+  %48 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = ptrtoint ptr %47 to i64
@@ -4085,7 +4081,7 @@ define internal fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(
   %54 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %.noexc unwind label %70
 
-.noexc:                                           ; preds = %._crit_edge
+.noexc:                                           ; preds = %46
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %54, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %.noexc42 unwind label %70
 
@@ -4100,17 +4096,17 @@ define internal fastcc void @_ZL18lo_set_force_constP18InteractionsOfTypePfibbb(
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc42
-  invoke void @_ZN17InteractionOfTypeC1EN3gmx8ArrayRefIKiEENS1_IKfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr %47, ptr %53, ptr nonnull %8, ptr nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %10)
+  invoke void @_ZN17InteractionOfTypeC1EN3gmx8ArrayRefIKiEENS1_IKfEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr %47, ptr %53, ptr nonnull %8, ptr nonnull %13, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %57 unwind label %72
 
 57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %58 = load ptr, ptr %.sroa.06.013, align 8
-  %59 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 16
+  %58 = load ptr, ptr %.sroa.06.012, align 8
+  %59 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 16
   %60 = load ptr, ptr %9, align 8
-  store ptr %60, ptr %.sroa.06.013, align 8
-  %61 = load ptr, ptr %15, align 8
+  store ptr %60, ptr %.sroa.06.012, align 8
+  %61 = load ptr, ptr %14, align 8
   store ptr %61, ptr %48, align 8
-  %62 = load ptr, ptr %16, align 8
+  %62 = load ptr, ptr %15, align 8
   store ptr %62, ptr %59, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %58, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
@@ -4121,11 +4117,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %_ZN17InteractionOfTypeaSEOS_.exit
 
 _ZN17InteractionOfTypeaSEOS_.exit:                ; preds = %57, %63
-  %64 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false)
-  %65 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 72
-  %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %18) #19
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #19
+  %64 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false)
+  %65 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 72
+  %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull align 8 dereferenceable(32) %17) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #19
   %67 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %67, null
   br i1 %.not.i.i.i.i, label %_ZN17InteractionOfTypeD2Ev.exit, label %68
@@ -4137,11 +4133,11 @@ _ZN17InteractionOfTypeaSEOS_.exit:                ; preds = %57, %63
 _ZN17InteractionOfTypeD2Ev.exit:                  ; preds = %_ZN17InteractionOfTypeaSEOS_.exit, %68
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
-  %69 = getelementptr inbounds i8, ptr %.sroa.06.013, i64 104
+  %69 = getelementptr inbounds i8, ptr %.sroa.06.012, i64 104
   %.not = icmp eq ptr %69, %.8.val
-  br i1 %.not, label %._crit_edge16, label %20
+  br i1 %.not, label %._crit_edge, label %19
 
-70:                                               ; preds = %.noexc, %._crit_edge
+70:                                               ; preds = %.noexc, %46
   %71 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4157,7 +4153,7 @@ _ZN17InteractionOfTypeD2Ev.exit:                  ; preds = %_ZN17InteractionOfT
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
   resume { ptr, i32 } %.pn
 
-._crit_edge16:                                    ; preds = %_ZN17InteractionOfTypeD2Ev.exit, %5
+._crit_edge:                                      ; preds = %_ZN17InteractionOfTypeD2Ev.exit, %5
   ret void
 }
 
@@ -4182,7 +4178,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @_ZNK22PreprocessingAtomTypes20atomNameFromAtomTypeB5cxx11Ei(ptr dead_on_unwind writable sret(%"class.std::optional") align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL8print_plP8_IO_FILEN3gmx8ArrayRefIK18InteractionsOfTypeEEiPKcPPPc(ptr nocapture noundef %0, ptr nocapture readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #14 {
+define internal fastcc void @_ZL8print_plP8_IO_FILEN3gmx8ArrayRefIK18InteractionsOfTypeEEiPKcPPPc(ptr nocapture noundef %0, ptr nocapture readonly %1, i32 noundef range(i32 0, 25) %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #14 {
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds %struct.InteractionsOfType, ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8

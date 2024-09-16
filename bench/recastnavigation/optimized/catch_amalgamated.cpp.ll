@@ -4241,8 +4241,8 @@ define dso_local void @_ZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx
   store i64 %17, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 24
   store double %1, ptr %24, align 8
-  call fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @_ZN5Catch9Benchmark6Detail4meanEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_)
-  call fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @_ZN5Catch9Benchmark6Detail12_GLOBAL__N_118standard_deviationEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEESA_)
+  call fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @_ZN5Catch9Benchmark6Detail4meanEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEES9_)
+  call fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @_ZN5Catch9Benchmark6Detail12_GLOBAL__N_118standard_deviationEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEESA_)
   %.sroa.08.0.copyload = load double, ptr %7, align 8
   %.sroa.0.0.copyload = load double, ptr %8, align 8
   %25 = sitofp i32 %21 to double
@@ -4430,7 +4430,7 @@ _ZN5Catch9Benchmark6Detail4meanEN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5Catch9Benchmark6Detail15analyse_samplesEdjN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEES8_ENK3$_0clEPFdNS3_IPKdS7_EESC_E"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::uniform_int_distribution", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::mersenne_twister_engine", align 8
@@ -4872,7 +4872,7 @@ _ZN5Catch9Benchmark6Detail12_GLOBAL__N_18resampleISt23mersenne_twister_engineImL
   %141 = load double, ptr %140, align 8
   %.sroa.01.0.copyload = load ptr, ptr %21, align 8
   %.sroa.0.0.copyload = load ptr, ptr %23, align 8
-  invoke void @_ZN5Catch9Benchmark6Detail9bootstrapIRPFdN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEESA_EEENS0_8EstimateIdEEdNS4_IPdS9_EESH_RKS9_OT_(ptr dead_on_unwind writable sret(%"struct.Catch::Benchmark::Estimate") align 8 %0, double noundef %141, ptr %.sroa.01.0.copyload, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  invoke void @_ZN5Catch9Benchmark6Detail9bootstrapIRPFdN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEESA_EEENS0_8EstimateIdEEdNS4_IPdS9_EESH_RKS9_OT_(ptr dead_on_unwind nonnull writable sret(%"struct.Catch::Benchmark::Estimate") align 8 %0, double noundef %141, ptr %.sroa.01.0.copyload, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %142 unwind label %145
 
 142:                                              ; preds = %_ZN5Catch9Benchmark6Detail12_GLOBAL__N_18resampleISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEPFdN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEESD_EEESC_RT_jSD_SD_RT0_.exit
@@ -21240,7 +21240,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 _ZN5Catch14ReporterConfigC2EPKNS_7IConfigENS_6Detail10unique_ptrINS_7IStreamEEENS_10ColourModeESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_St4lessISF_ESaISt4pairIKSF_SF_EEE.exit.i: ; preds = %147, %139
   %.sink.i.i.i.i.i.i = phi ptr [ %152, %147 ], [ %119, %139 ]
   store i64 0, ptr %.sink.i.i.i.i.i.i, align 8, !noalias !196
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(72) %4)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(72) %4)
           to label %153 unwind label %.thread.i
 
 153:                                              ; preds = %_ZN5Catch14ReporterConfigC2EPKNS_7IConfigENS_6Detail10unique_ptrINS_7IStreamEEENS_10ColourModeESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_St4lessISF_ESaISt4pairIKSF_SF_EEE.exit.i
@@ -21519,7 +21519,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 _ZN5Catch14ReporterConfigC2EPKNS_7IConfigENS_6Detail10unique_ptrINS_7IStreamEEENS_10ColourModeESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_St4lessISF_ESaISt4pairIKSF_SF_EEE.exit43.i: ; preds = %256, %252
   %.sink.i.i.i.i.i42.i = phi ptr [ %231, %256 ], [ %224, %252 ]
   store i64 0, ptr %.sink.i.i.i.i.i42.i, align 8, !noalias !196
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.057.083.i, ptr noundef nonnull align 8 dereferenceable(72) %10)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.057.083.i, ptr noundef nonnull align 8 dereferenceable(72) %10)
           to label %257 unwind label %328, !noalias !196
 
 257:                                              ; preds = %_ZN5Catch14ReporterConfigC2EPKNS_7IConfigENS_6Detail10unique_ptrINS_7IStreamEEENS_10ColourModeESt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_St4lessISF_ESaISt4pairIKSF_SF_EEE.exit43.i
@@ -21812,7 +21812,7 @@ _ZN5Catch6Detail10unique_ptrINS_14IEventListenerEED2Ev.exit31.i: ; preds = %340,
           to label %372 unwind label %.loopexit.split-lp
 
 372:                                              ; preds = %370
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_19TestGroup7executeEv(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(545) %14)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_19TestGroup7executeEv(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(545) %14)
           to label %373 unwind label %383
 
 373:                                              ; preds = %372
@@ -23517,7 +23517,7 @@ _ZNSt3setIPKN5Catch14TestCaseHandleESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_19TestGroup7executeEv(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(545) %1) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_19TestGroup7executeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(545) %1) unnamed_addr #6 align 2 {
   %3 = alloca %"struct.Catch::Totals", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 496
@@ -59296,7 +59296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i: 
   store i64 14, ptr %75, align 8, !noalias !889
   %76 = getelementptr inbounds i8, ptr %9, i64 184
   store i32 1, ptr %76, align 8, !noalias !889
-  invoke fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr nonnull %9)
+  invoke fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %9)
           to label %77 unwind label %91
 
 77:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit60.i
@@ -59488,7 +59488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit80.i: 
   store i64 14, ptr %130, align 8, !noalias !889
   %131 = getelementptr inbounds i8, ptr %14, i64 184
   store i32 1, ptr %131, align 8, !noalias !889
-  invoke fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr nonnull %14)
+  invoke fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %14)
           to label %132 unwind label %146
 
 132:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit80.i
@@ -65168,7 +65168,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_115printSummaryRowERSoRNS_10ColourImplENS_9StringRefERKSt6vectorINS0_13SummaryColumnESaIS6_EEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3, ptr %.0.val, ptr readnone %.8.val, i64 noundef %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_115printSummaryRowERSoRNS_10ColourImplENS_9StringRefERKSt6vectorINS0_13SummaryColumnESaIS6_EEm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr %2, i64 %3, ptr %.0.val, ptr readnone %.8.val, i64 noundef range(i64 0, 2) %4) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.not20 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
@@ -71717,7 +71717,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter15testRunStartingERKNS_11TestR
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %8 unwind label %11
 
@@ -71737,7 +71737,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter15testRunStartingERKNS_11TestR
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, i64 %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.1", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.1", align 1
@@ -72208,7 +72208,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter12testRunEndedERKNS_12TestRunS
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %8 unwind label %11
 
@@ -72591,7 +72591,7 @@ _ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_.exit62: ; preds = %_ZN5Catch20Reus
   %132 = load ptr, ptr %131, align 8
   %133 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #56
   %134 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %132) #56
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr %133, i64 %134)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %11, ptr %133, i64 %134)
           to label %135 unwind label %.loopexit.split-lp
 
 135:                                              ; preds = %130
@@ -72614,7 +72614,7 @@ _ZN5Catch20ReusableStringStreamlsIcEERS0_RKT_.exit62: ; preds = %_ZN5Catch20Reus
 _ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit65: ; preds = %141
   %143 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #56
   %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #56
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr %143, i64 %144)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %12, ptr %143, i64 %144)
           to label %145 unwind label %154
 
 145:                                              ; preds = %_ZNK5Catch20ReusableStringStream3strB5cxx11Ev.exit65
@@ -72794,7 +72794,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter16testCaseStartingERKNS_12Test
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.401)
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #56
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #56
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %10, i64 %11)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %10, i64 %11)
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %13 unwind label %18
 
@@ -72842,7 +72842,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter13testCaseEndedERKNS_13TestCas
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.402)
   %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
   %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr %16, i64 %17)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %3, ptr %16, i64 %17)
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %19 unwind label %29
 
@@ -72853,7 +72853,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter13testCaseEndedERKNS_13TestCas
 21:                                               ; preds = %19
   %22 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #56
   %23 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #56
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %22, i64 %23)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %4, ptr %22, i64 %23)
           to label %24 unwind label %29
 
 24:                                               ; preds = %21
@@ -72891,7 +72891,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter13testCaseEndedERKNS_13TestCas
   %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.404)
   %40 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
   %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %40, i64 %41)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %5, ptr %40, i64 %41)
   %42 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %43 unwind label %53
 
@@ -72902,7 +72902,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter13testCaseEndedERKNS_13TestCas
 45:                                               ; preds = %43
   %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #56
   %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #56
-  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr %46, i64 %47)
+  invoke fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %6, ptr %46, i64 %47)
           to label %48 unwind label %53
 
 48:                                               ; preds = %45
@@ -72935,7 +72935,7 @@ define dso_local void @_ZN5Catch16TeamCityReporter13testCaseEndedERKNS_13TestCas
   %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull @.str.405)
   %61 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
   %62 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #56
-  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %61, i64 %62)
+  call fastcc void @_ZN5Catch12_GLOBAL__N_16escapeB5cxx11ENS_9StringRefE(ptr dead_on_unwind noalias writable align 8 %7, ptr %61, i64 %62)
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %64 unwind label %79
 
@@ -84734,7 +84734,7 @@ _ZSt8_DestroyIPN5Catch5Clara3ArgEEvT_S4_.exit:    ; preds = %.lr.ph.i.i, %.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_114createReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEONS_14ReporterConfigE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.Catch::ReusableStringStream", align 8
   %6 = tail call fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEE11getInternalEv()
@@ -84761,7 +84761,7 @@ _ZNK5Catch16ReporterRegistry6createERKNSt7__cxx1112basic_stringIcSt11char_traits
   %19 = load ptr, ptr %18, align 8, !noalias !1181
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !noalias !1181
-  tail call void %21(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.78") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(72) %2)
+  tail call void %21(ptr dead_on_unwind nonnull writable sret(%"class.Catch::Detail::unique_ptr.78") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(72) %2)
   %.pr = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %.pr, null
   br i1 %.not, label %22, label %37
@@ -87242,7 +87242,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK5Catch12_GLOBAL__N_116AssertionPrinter15printResultTypeENS_6Colour4CodeENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK5Catch12_GLOBAL__N_116AssertionPrinter15printResultTypeENS_6Colour4CodeENS_9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 24) %1, ptr %2, i64 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %32, label %6
 
@@ -87411,7 +87411,7 @@ _ZNK5Catch15AssertionResult21getExpandedExpressionB5cxx11Ev.exit: ; preds = %26,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_116AssertionPrinter22printRemainingMessagesENS_6Colour4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_116AssertionPrinter22printRemainingMessagesENS_6Colour4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i32 noundef range(i32 0, 24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -87698,7 +87698,7 @@ _ZNK5Catch12_GLOBAL__N_116AssertionPrinter23printOriginalExpressionEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5Catch12_GLOBAL__N_110ColumnInfoESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #57
@@ -88291,7 +88291,7 @@ _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Catch12_GLOBAL__N_119TapAssertionPrinter22printRemainingMessagesENS_6Colour4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Catch12_GLOBAL__N_119TapAssertionPrinter22printRemainingMessagesENS_6Colour4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef range(i32 0, 24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8

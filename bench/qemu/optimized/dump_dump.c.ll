@@ -448,7 +448,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare i32 @migrate_add_blocker_internal(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_init(i32 noundef %fd, i1 noundef zeroext %has_format, i32 noundef %format, i1 noundef zeroext %paging, i1 noundef zeroext %has_filter, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw, ptr noundef %errp) unnamed_addr #2 {
+define internal fastcc void @dump_init(i32 noundef range(i32 0, -1) %fd, i1 noundef zeroext %has_format, i32 noundef %format, i1 noundef zeroext %paging, i1 noundef zeroext %has_filter, i64 noundef %begin, i64 noundef %length, i1 noundef zeroext %kdump_raw, ptr noundef %errp) unnamed_addr #2 {
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   %frombool = zext i1 %has_format to i8
@@ -1574,7 +1574,7 @@ if.end8.i:                                        ; preds = %write_dump_header.e
   %conv.i.i.i = zext i32 %s.val.i18.i to i64
   %mul.i.i = shl nuw nsw i64 %conv.i.i.i, 3
   %call1.i.i = call noalias ptr @g_malloc0(i64 noundef %conv.i.i.i) #20
-  %call216.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef nonnull %block_iter.i.i, ptr noundef nonnull %pfn.i.i, ptr noundef null, ptr noundef nonnull %s)
+  %call216.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef %block_iter.i.i, ptr noundef %pfn.i.i, ptr noundef null, ptr noundef nonnull %s)
   br i1 %call216.i.i, label %while.body.i.i, label %if.end10.i.i
 
 while.body.i.i:                                   ; preds = %if.end8.i, %if.end.i20.i
@@ -1591,7 +1591,7 @@ if.then.i22.i:                                    ; preds = %while.body.i.i
 
 if.end.i20.i:                                     ; preds = %while.body.i.i
   %inc.i.i = add i64 %num_dumpable.017.i.i, 1
-  %call2.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef nonnull %block_iter.i.i, ptr noundef nonnull %pfn.i.i, ptr noundef null, ptr noundef %s)
+  %call2.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef %block_iter.i.i, ptr noundef %pfn.i.i, ptr noundef null, ptr noundef %s)
   br i1 %call2.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !11
 
 while.end.i.i:                                    ; preds = %if.end.i20.i
@@ -1719,7 +1719,7 @@ if.end.i28.i:                                     ; preds = %get_len_buf_out.exi
   store ptr %call12.i.i, ptr %buf.i.i, align 8
   %123 = load i32, ptr %page_size.i.i.i, align 4
   %conv15.i.i = zext i32 %123 to i64
-  %call16.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_data.i.i, ptr noundef %call12.i.i, i64 noundef %conv15.i.i, i1 noundef zeroext false)
+  %call16.i.i = call fastcc i32 @write_cache(ptr noundef %page_data.i.i, ptr noundef %call12.i.i, i64 noundef %conv15.i.i, i1 noundef zeroext false)
   %124 = load ptr, ptr %buf.i.i, align 8
   call void @g_free(ptr noundef %124) #18
   %cmp17.i.i = icmp slt i32 %call16.i.i, 0
@@ -1734,7 +1734,7 @@ if.end20.i.i:                                     ; preds = %if.end.i28.i
   %conv23.i.i = zext i32 %125 to i64
   %call28.i.i = call noalias ptr @g_malloc(i64 noundef %conv23.i.i) #20
   store ptr %call28.i.i, ptr %buf.i.i, align 8
-  %call29141.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef nonnull %block_iter.i24.i, ptr noundef nonnull %pfn_iter.i.i, ptr noundef nonnull %buf.i.i, ptr noundef nonnull %s)
+  %call29141.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef %block_iter.i24.i, ptr noundef %pfn_iter.i.i, ptr noundef nonnull %buf.i.i, ptr noundef nonnull %s)
   br i1 %call29141.i.i, label %for.body.lr.ph.i.i, label %if.end131.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end20.i.i
@@ -1754,7 +1754,7 @@ for.body.i.i:                                     ; preds = %if.end122.i.i, %for
   br i1 %call33.i.i, label %if.then34.i.i, label %if.else40.i.i
 
 if.then34.i.i:                                    ; preds = %for.body.i.i
-  %call35.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_desc.i.i, ptr noundef nonnull %pd_zero.i.i, i64 noundef 24, i1 noundef zeroext false)
+  %call35.i.i = call fastcc i32 @write_cache(ptr noundef %page_desc.i.i, ptr noundef nonnull %pd_zero.i.i, i64 noundef 24, i1 noundef zeroext false)
   %cmp36.i.i = icmp slt i32 %call35.i.i, 0
   br i1 %cmp36.i.i, label %if.then38.i.i, label %if.end122.i.i
 
@@ -1793,7 +1793,7 @@ if.then54.i.i:                                    ; preds = %land.lhs.true48.i.i
   %132 = call i32 @llvm.bswap.i32(i32 %conv57.i.i)
   %spec.select.i82.i.i = select i1 %cmp.i78.i.i, i32 %conv57.i.i, i32 %132
   store i32 %spec.select.i82.i.i, ptr %size59.i.i, align 8
-  %call60.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_data.i.i, ptr noundef %call2.i29.i, i64 noundef %130, i1 noundef zeroext false)
+  %call60.i.i = call fastcc i32 @write_cache(ptr noundef %page_data.i.i, ptr noundef %call2.i29.i, i64 noundef %130, i1 noundef zeroext false)
   %cmp61.i.i = icmp slt i32 %call60.i.i, 0
   br i1 %cmp61.i.i, label %if.then63.i.i, label %if.end111.i.i
 
@@ -1831,7 +1831,7 @@ if.then82.i.i:                                    ; preds = %land.lhs.true76.i.i
   %137 = call i32 @llvm.bswap.i32(i32 %conv85.i.i)
   %spec.select.i88.i.i = select i1 %cmp.i84.i.i, i32 %conv85.i.i, i32 %137
   store i32 %spec.select.i88.i.i, ptr %size59.i.i, align 8
-  %call88.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_data.i.i, ptr noundef %call2.i29.i, i64 noundef %135, i1 noundef zeroext false)
+  %call88.i.i = call fastcc i32 @write_cache(ptr noundef %page_data.i.i, ptr noundef %call2.i29.i, i64 noundef %135, i1 noundef zeroext false)
   %cmp89.i.i = icmp slt i32 %call88.i.i, 0
   br i1 %cmp89.i.i, label %if.then91.i.i, label %if.end111.i.i
 
@@ -1850,7 +1850,7 @@ if.else93.i.i:                                    ; preds = %land.lhs.true76.i.i
   %spec.select.i94.i.i = select i1 %cmp.i93.i.i, i32 %138, i32 %140
   store i32 %spec.select.i94.i.i, ptr %size59.i.i, align 8
   %141 = load ptr, ptr %buf.i.i, align 8
-  %call105.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_data.i.i, ptr noundef %141, i64 noundef %conv98.i.i, i1 noundef zeroext false)
+  %call105.i.i = call fastcc i32 @write_cache(ptr noundef %page_data.i.i, ptr noundef %141, i64 noundef %conv98.i.i, i1 noundef zeroext false)
   %cmp106.i.i = icmp slt i32 %call105.i.i, 0
   br i1 %cmp106.i.i, label %if.then108.i.i, label %if.end111.i.i
 
@@ -1867,7 +1867,7 @@ if.end111.i.i:                                    ; preds = %if.else93.i.i, %if.
   store i64 %spec.select.i100.i.i, ptr %pd.i.i, align 8
   %144 = load i64, ptr %size_out.i.i, align 8
   %add116.i.i = add i64 %144, %offset_data.0142.i.i
-  %call117.i.i = call fastcc i32 @write_cache(ptr noundef nonnull %page_desc.i.i, ptr noundef nonnull %pd.i.i, i64 noundef 24, i1 noundef zeroext false)
+  %call117.i.i = call fastcc i32 @write_cache(ptr noundef %page_desc.i.i, ptr noundef nonnull %pd.i.i, i64 noundef 24, i1 noundef zeroext false)
   %cmp118.i.i = icmp slt i32 %call117.i.i, 0
   br i1 %cmp118.i.i, label %if.then120.i.i, label %if.end122.i.i
 
@@ -1883,7 +1883,7 @@ if.end122.i.i:                                    ; preds = %if.end111.i.i, %if.
   %add126.i.i = add i64 %146, %conv125.i.i
   store i64 %add126.i.i, ptr %written_size.i.i, align 8
   store ptr %call28.i.i, ptr %buf.i.i, align 8
-  %call29.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef nonnull %block_iter.i24.i, ptr noundef nonnull %pfn_iter.i.i, ptr noundef nonnull %buf.i.i, ptr noundef nonnull %s)
+  %call29.i.i = call fastcc zeroext i1 @get_next_page(ptr noundef %block_iter.i24.i, ptr noundef %pfn_iter.i.i, ptr noundef nonnull %buf.i.i, ptr noundef nonnull %s)
   br i1 %call29.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !12
 
 for.end.i.i:                                      ; preds = %if.end122.i.i
@@ -3515,7 +3515,7 @@ declare i32 @cpu_write_elf32_note(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare i32 @cpu_write_elf32_qemunote(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc zeroext i1 @get_next_page(ptr nocapture noundef %blockptr, ptr nocapture noundef %pfnptr, ptr noundef %bufptr, ptr nocapture noundef readonly %s) unnamed_addr #2 {
+define internal fastcc zeroext i1 @get_next_page(ptr nocapture noundef nonnull %blockptr, ptr nocapture noundef nonnull %pfnptr, ptr noundef %bufptr, ptr nocapture noundef readonly %s) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %blockptr, align 8
   %page_size1 = getelementptr inbounds i8, ptr %s, i64 36
@@ -3812,7 +3812,7 @@ return:                                           ; preds = %write_buffer.exit47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @write_cache(ptr nocapture noundef %dc, ptr nocapture noundef readonly %buf, i64 noundef %size, i1 noundef zeroext %flag_sync) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @write_cache(ptr nocapture noundef nonnull %dc, ptr nocapture noundef readonly %buf, i64 noundef %size, i1 noundef zeroext %flag_sync) unnamed_addr #2 {
 entry:
   %mdh.i = alloca %struct.MakedumpfileDataHeader, align 8
   %buf_size = getelementptr inbounds i8, ptr %dc, i64 16

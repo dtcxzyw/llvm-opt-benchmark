@@ -1663,7 +1663,7 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
 
 _ZNK5clang12ast_matchers8internal11TrueMatchercvNS1_7MatcherIT_EEINS_4StmtEEEv.exit.i.i: ; preds = %52, %48, %4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  call fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef nonnull %36)
+  call fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %36)
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i.i12.i.i = icmp eq ptr %57, null
@@ -1890,7 +1890,7 @@ _ZNO5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasA
   %151 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %142, ptr %151, align 8, !alias.scope !62
   %152 = atomicrmw add ptr %143, i32 1 monotonic, align 4, !noalias !62
-  call fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef nonnull %38)
+  call fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef %38)
   %153 = load ptr, ptr %151, align 8
   %.not.i.i.i.i17.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i.i.i17.i.i, label %_ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit18.i.i, label %154
@@ -2324,7 +2324,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br label %_ZN5clang12ast_matchers10BoundNodesC2ERKS1_.exit.i.i
 
 _ZN5clang12ast_matchers10BoundNodesC2ERKS1_.exit.i.i: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE7_M_copyERKSG_.exit.i.i.i.i.i.i, %335
-  call fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull %0)
+  call fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef %0)
   %348 = load ptr, ptr %331, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef %348)
   %349 = getelementptr inbounds i8, ptr %.092.i.i, i64 48
@@ -2596,7 +2596,7 @@ _ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAn
 _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit.i20.i: ; preds = %448, %440, %_ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAncestorMatcherENS_4StmtENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocES4_NS_7TypeLocENS_4AttrEEEEED2Ev.exit.thread.i.i
   %452 = phi ptr [ %439, %_ZN5clang12ast_matchers8internal34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAncestorMatcherENS_4StmtENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocES4_NS_7TypeLocENS_4AttrEEEEED2Ev.exit.thread.i.i ], [ %445, %440 ], [ %445, %448 ]
   call void @_ZNKR5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAncestorMatcherENS_4StmtENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocES5_NS_7TypeLocENS_4AttrEEEEEEEEcvNS1_7MatcherIT_EEIS5_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.423") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  call fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull %14)
+  call fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %14)
   %453 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %454 = load ptr, ptr %453, align 8
   %.not.i.i.i.i.i21.i = icmp eq ptr %454, null
@@ -2617,7 +2617,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit.i20.i: ; p
 
 _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit.i22.i: ; preds = %459, %455, %_ZN5clang12ast_matchers8internal15BindableMatcherINS_4StmtEED2Ev.exit.i20.i
   call void @_ZNKR5clang12ast_matchers8internal23VariadicOperatorMatcherIJNS1_34ArgumentAdaptingMatcherFuncAdaptorINS1_18HasAncestorMatcherENS_4StmtENS1_8TypeListIJNS_4DeclENS_22NestedNameSpecifierLocES5_NS_7TypeLocENS_4AttrEEEEEEEEcvNS1_7MatcherIT_EEIS5_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.423") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  call fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull %16)
+  call fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %16)
   %463 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %464 = load ptr, ptr %463, align 8
   %.not.i.i.i.i14.i23.i = icmp eq ptr %464, null
@@ -2871,7 +2871,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
   br label %_ZN5clang12ast_matchers10BoundNodesC2ERKS1_.exit.i36.i
 
 _ZN5clang12ast_matchers10BoundNodesC2ERKS1_.exit.i36.i: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE7_M_copyERKSG_.exit.i.i.i.i.i35.i, %558
-  call fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull %0)
+  call fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef %0)
   %571 = load ptr, ptr %554, align 8
   call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5clang12DynTypedNodeEESt10_Select1stISA_ESt4lessIvESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %571)
   %572 = getelementptr inbounds i8, ptr %.047.i.i, i64 48
@@ -2995,7 +2995,7 @@ _ZNK12_GLOBAL__N_129RunLoopAutoreleaseLeakChecker16checkASTCodeBodyEPKN5clang4De
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL14getRunLoopRunMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
 _ZN5clang12ast_matchers15hasReceiverTypeERKNS0_8internal7MatcherINS_8QualTypeEEE.exit:
   %2 = alloca %"class.std::optional.1127", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -3727,7 +3727,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_9NamedDeclEED2Ev.exit: ; preds = %_Z
   store ptr %27, ptr %338, align 8, !alias.scope !282
   %339 = getelementptr inbounds i8, ptr %30, i64 16
   store ptr %20, ptr %339, align 8, !alias.scope !282
-  call void @_ZNO5clang12ast_matchers8internal23VariadicOperatorMatcherIJRNS1_7MatcherINS_4StmtEEES6_EEcvNS3_IT_EEIS4_EEv(ptr dead_on_unwind writable sret(%"class.clang::ast_matchers::internal::Matcher.423") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %30)
+  call void @_ZNO5clang12ast_matchers8internal23VariadicOperatorMatcherIJRNS1_7MatcherINS_4StmtEEES6_EEcvNS3_IT_EEIS4_EEv(ptr dead_on_unwind nonnull writable sret(%"class.clang::ast_matchers::internal::Matcher.423") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %30)
   %340 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %341 = load ptr, ptr %340, align 8
   %.not.i.i.i.i40 = icmp eq ptr %341, null
@@ -3789,7 +3789,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4StmtEED2Ev.exit44: ; preds = %_ZN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL20getOtherMessageSentMN5clang12ast_matchers8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %"class.std::optional.1127", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1061", align 8
@@ -4066,7 +4066,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_23ObjCAutoreleasePoolStmtEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL15emitDiagnosticsRN5clang12ast_matchers10BoundNodesEPKNS_4DeclERNS_4ento11BugReporterERNS6_15AnalysisManagerEPKN12_GLOBAL__N_129RunLoopAutoreleaseLeakCheckerE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(256) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::ASTNodeKind", align 4
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.clang::ASTNodeKind", align 4
@@ -4405,7 +4405,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit104:               ; preds = %_ZN4llvmplERKNS_5Tw
   %131 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 1, ptr %131, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %91, ptr noundef %4, ptr nonnull @.str.17, i64 35, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %18, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %16, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1284") align 8 %26, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1285") align 8 %27) #17
+  call void @_ZN5clang4ento11BugReporter15EmitBasicReportEPKNS_4DeclEPKNS0_11CheckerBaseEN4llvm9StringRefES9_S9_NS0_22PathDiagnosticLocationENS8_8ArrayRefINS_11SourceRangeEEENSB_INS_9FixItHintEEE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef %91, ptr noundef nonnull %4, ptr nonnull @.str.17, i64 35, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %18, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %19, ptr noundef nonnull byval(%"class.clang::ento::PathDiagnosticLocation") align 8 %16, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1284") align 8 %26, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1285") align 8 %27) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   br label %132
 

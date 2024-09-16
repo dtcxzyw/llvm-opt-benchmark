@@ -1050,7 +1050,7 @@ if.end68:                                         ; preds = %invoke.cont64
   %75 = ptrtoint ptr %call65 to i64
   store i64 %75, ptr %agg.tmp, align 8
   store ptr null, ptr %sample, align 8
-  %call73 = invoke fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %bc_file.sroa.0.0.lcssa, ptr noundef nonnull %call24, ptr noundef nonnull %agg.tmp)
+  %call73 = invoke fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %bc_file.sroa.0.0.lcssa, ptr noundef nonnull %call24, ptr noundef %agg.tmp)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %if.end68
@@ -1089,7 +1089,7 @@ if.then.i143:                                     ; preds = %if.end75
 invoke.cont78:                                    ; preds = %if.then.i143, %if.end75
   tail call fastcc void @_ZL7messageP8_IO_FILEPKc(ptr noundef %bc_file.sroa.0.0.lcssa, ptr noundef nonnull @.str.12)
   store ptr null, ptr %agg.tmp83, align 8
-  %call86 = invoke fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %bc_file.sroa.0.0.lcssa, ptr noundef nonnull %call24, ptr noundef nonnull %agg.tmp83)
+  %call86 = invoke fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %bc_file.sroa.0.0.lcssa, ptr noundef nonnull %call24, ptr noundef %agg.tmp83)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont78
@@ -1514,7 +1514,7 @@ declare void @BN_free(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_bin2bn(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %fp, ptr noundef %ctx, ptr nocapture noundef %a) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11test_lshiftP8_IO_FILEP10bignum_ctxSt10unique_ptrI9bignum_st14OpenSSLDeleterIS4_XadL_Z7BN_freeEEEE(ptr noundef %fp, ptr noundef %ctx, ptr nocapture noundef nonnull %a) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %b = alloca %"class.std::unique_ptr.10", align 8
   %c = alloca %"class.std::unique_ptr.10", align 8
@@ -5239,7 +5239,7 @@ if.then116:                                       ; preds = %invoke.cont113
   br label %cleanup
 
 for.end:                                          ; preds = %for.cond
-  %call121 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef nonnull %a, ptr noundef nonnull @.str.67)
+  %call121 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %a, ptr noundef nonnull @.str.67)
           to label %invoke.cont120 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont120:                                   ; preds = %for.end
@@ -5247,7 +5247,7 @@ invoke.cont120:                                   ; preds = %for.end
   br i1 %tobool122.not, label %cleanup, label %lor.lhs.false123
 
 lor.lhs.false123:                                 ; preds = %invoke.cont120
-  %call125 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef nonnull %b, ptr noundef nonnull @.str.68)
+  %call125 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %b, ptr noundef nonnull @.str.68)
           to label %invoke.cont124 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont124:                                   ; preds = %lor.lhs.false123
@@ -5255,7 +5255,7 @@ invoke.cont124:                                   ; preds = %lor.lhs.false123
   br i1 %tobool126.not, label %cleanup, label %lor.lhs.false127
 
 lor.lhs.false127:                                 ; preds = %invoke.cont124
-  %call129 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef nonnull %c, ptr noundef nonnull @.str.69)
+  %call129 = invoke fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr noundef %c, ptr noundef nonnull @.str.69)
           to label %invoke.cont128 unwind label %lpad20.loopexit.split-lp
 
 invoke.cont128:                                   ; preds = %lor.lhs.false127
@@ -9227,7 +9227,7 @@ declare i32 @BN_mod_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @BN_exp(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr nocapture noundef %out, ptr noundef %in) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL11HexToBIGNUMPSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEEPKc(ptr nocapture noundef nonnull %out, ptr noundef %in) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %raw = alloca ptr, align 8
   store ptr null, ptr %raw, align 8

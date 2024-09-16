@@ -3222,7 +3222,7 @@ declare dso_local ptr @nexthop_find_by_id(ptr noundef, i32 noundef) local_unname
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fib_info_hash_move(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @fib_info_hash_move(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load i32, ptr @fib_info_hash_size, align 4
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @fib_info_lock) #16
   %5 = load ptr, ptr @fib_info_hash, align 8
@@ -3407,7 +3407,7 @@ declare dso_local ptr @ip_fib_metrics_init(ptr noundef, ptr noundef, i32 noundef
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @nexthop_get(ptr noundef %0) unnamed_addr #9 align 16 {
+define internal fastcc zeroext i1 @nexthop_get(ptr noundef nonnull %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load volatile i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -3445,7 +3445,7 @@ define internal fastcc zeroext i1 @nexthop_get(ptr noundef %0) unnamed_addr #9 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fib_get_nhs(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @fib_get_nhs(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.fib_config, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !22
@@ -3757,49 +3757,47 @@ declare dso_local i32 @fib_check_nexthop(ptr noundef, i8 noundef zeroext, ptr no
 declare dso_local ptr @dev_get_by_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @fib_valid_prefsrc(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @fib_valid_prefsrc(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 2
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
-  %9 = icmp ne i32 %8, 0
-  %10 = icmp eq i32 %8, %1
-  %11 = and i1 %9, %10
-  br i1 %11, label %29, label %12
+  %9 = icmp eq i32 %8, %1
+  br i1 %9, label %27, label %10
 
-12:                                               ; preds = %6, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp eq i32 %14, 254
-  %16 = select i1 %15, i32 255, i32 %14
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 @inet_addr_type_table(ptr noundef %18, i32 noundef %1, i32 noundef %16) #16
-  %20 = icmp ne i32 %19, 2
-  %21 = icmp ne i32 %16, 255
-  %22 = and i1 %20, %21
-  br i1 %22, label %23, label %26
+10:                                               ; preds = %6, %2
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = icmp eq i32 %12, 254
+  %14 = select i1 %13, i32 255, i32 %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @inet_addr_type_table(ptr noundef %16, i32 noundef %1, i32 noundef %14) #16
+  %18 = icmp ne i32 %17, 2
+  %19 = icmp ne i32 %14, 255
+  %20 = and i1 %18, %19
+  br i1 %20, label %21, label %24
 
-23:                                               ; preds = %12
-  %24 = load ptr, ptr %17, align 8
-  %25 = tail call i32 @inet_addr_type_table(ptr noundef %24, i32 noundef %1, i32 noundef 255) #16
-  br label %26
+21:                                               ; preds = %10
+  %22 = load ptr, ptr %15, align 8
+  %23 = tail call i32 @inet_addr_type_table(ptr noundef %22, i32 noundef %1, i32 noundef 255) #16
+  br label %24
 
-26:                                               ; preds = %23, %12
-  %27 = phi i32 [ %25, %23 ], [ %19, %12 ]
-  %28 = icmp eq i32 %27, 2
-  br i1 %28, label %29, label %30
+24:                                               ; preds = %21, %10
+  %25 = phi i32 [ %23, %21 ], [ %17, %10 ]
+  %26 = icmp eq i32 %25, 2
+  br i1 %26, label %27, label %28
 
-29:                                               ; preds = %26, %6
-  br label %30
+27:                                               ; preds = %24, %6
+  br label %28
 
-30:                                               ; preds = %29, %26
-  %31 = phi i1 [ false, %26 ], [ true, %29 ]
-  ret i1 %31
+28:                                               ; preds = %27, %24
+  %29 = phi i1 [ false, %24 ], [ true, %27 ]
+  ret i1 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
@@ -4134,7 +4132,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #4 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fib_find_info(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @fib_find_info(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 69
@@ -4436,7 +4434,7 @@ define internal fastcc ptr @fib_find_info(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @fib_info_hashfn(ptr nocapture noundef readonly %0) unnamed_addr #10 align 16 {
+define internal fastcc i32 @fib_info_hashfn(ptr nocapture noundef nonnull readonly %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 69
@@ -6519,7 +6517,7 @@ define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -6648,7 +6646,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc void @fib_result_assign(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @fib_result_assign(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 104

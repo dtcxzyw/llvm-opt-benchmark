@@ -275,12 +275,12 @@ entry:
   br i1 %cmp.i9, label %if.then.i14, label %if.end
 
 if.then.i14:                                      ; preds = %entry
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i14
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -302,7 +302,7 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 malloc_init_hard_a0.exit:                         ; preds = %if.end.i.i, %if.then.i.i.i
   %call.i = tail call fastcc zeroext i1 @malloc_init_hard_a0_locked()
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   br i1 %call.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry, %malloc_init_hard_a0.exit
@@ -347,12 +347,12 @@ sz_size2index.exit:                               ; preds = %if.end5.i, %if.end.
   br i1 %cmp.i110, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %sz_size2index.exit
-  %call.i.i.i112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i113 = icmp eq i32 %call.i.i.i112, 0
   br i1 %cmp.i.not.i.i113, label %if.end.i.i115, label %if.then.i.i114
 
 if.then.i.i114:                                   ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i115
 
@@ -387,34 +387,34 @@ if.end3.i.i:                                      ; preds = %if.then2.i.i, %mall
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef null, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef null, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %16, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i120 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %sz_size2index.exit, %arena_init.exit
   %ret.0.i = phi ptr [ %retval.0.i.i, %arena_init.exit ], [ %9, %sz_size2index.exit ]
-  %call33.i = tail call ptr @arena_malloc_hard(ptr noundef null, ptr noundef %ret.0.i, i64 noundef %size, i32 noundef %retval.i.0, i1 noundef zeroext %zero) #19
+  %call33.i = tail call ptr @arena_malloc_hard(ptr noundef null, ptr noundef %ret.0.i, i64 noundef %size, i32 noundef %retval.i.0, i1 noundef zeroext %zero) #18
   %cmp14.i = icmp ne ptr %call33.i, null
   %or.cond1 = select i1 %is_internal, i1 %cmp14.i, i1 false
   br i1 %or.cond1, label %if.then.i257, label %return
 
 if.then.i257:                                     ; preds = %arena_get.exit
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
   %17 = ptrtoint ptr %call33.i to i64
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %17)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %17)
   %18 = load ptr, ptr %tmp.i.i, align 8
   %.val = load i64, ptr %18, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i246 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
   %19 = load atomic i64, ptr %arrayidx.i246 monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i270) #19
-  %call1.i.i274 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i270, i64 noundef %17)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i270) #18
+  %call1.i.i274 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i270, i64 noundef %17)
   %call1.i.i274.fca.0.extract = extractvalue { i64, i32 } %call1.i.i274, 0
   %idxprom.i.i = and i64 %call1.i.i274.fca.0.extract, 4294967295
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i
@@ -451,17 +451,17 @@ entry.if.then.i15_crit_edge:                      ; preds = %entry
   br label %if.then.i15
 
 if.then.i155:                                     ; preds = %entry
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #18
   %0 = ptrtoint ptr %ptr to i64
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i.i, i64 noundef %0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %0)
   %1 = load ptr, ptr %tmp.i.i.i, align 8
   %.val = load i64, ptr %1, align 8
   %conv.i = and i64 %.val, 4095
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %conv.i
   %2 = load atomic i64, ptr %arrayidx.i.i monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i188) #19
-  %call1.i.i201 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i188, i64 noundef %0)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i188) #18
+  %call1.i.i201 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i188, i64 noundef %0)
   %call1.i.i201.fca.0.extract = extractvalue { i64, i32 } %call1.i.i201, 0
   %idxprom.i.i206 = and i64 %call1.i.i201.fca.0.extract, 4294967295
   %arrayidx.i.i207 = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %idxprom.i.i206
@@ -473,24 +473,24 @@ if.then.i155:                                     ; preds = %entry
 if.then.i15:                                      ; preds = %entry.if.then.i15_crit_edge, %if.then.i155
   %.pre-phi = phi i64 [ %.pre, %entry.if.then.i15_crit_edge ], [ %0, %if.then.i155 ]
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
-  %call1.i10.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %.pre-phi)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
+  %call1.i10.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %.pre-phi)
   %call1.i.fca.1.extract.i = extractvalue { i64, i32 } %call1.i10.i, 1
   %6 = and i32 %call1.i.fca.1.extract.i, 256
   %tobool.i.not.i = icmp eq i32 %6, 0
   br i1 %tobool.i.not.i, label %if.then.i.i.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i15
-  call void @arena_dalloc_small(ptr noundef null, ptr noundef %ptr) #19
+  call void @arena_dalloc_small(ptr noundef null, ptr noundef %ptr) #18
   br label %arena_dalloc_no_tcache.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i15
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i.i91)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i.i92)
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i91) #19
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i92, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i.i91, i64 noundef %.pre-phi)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i91) #18
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i92, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i91, i64 noundef %.pre-phi)
   %7 = load ptr, ptr %tmp.i.i.i92, align 8
-  call void @large_dalloc(ptr noundef null, ptr noundef %7) #19
+  call void @large_dalloc(ptr noundef null, ptr noundef %7) #18
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i.i91)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i.i92)
   br label %arena_dalloc_no_tcache.exit
@@ -551,12 +551,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @arena_init(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %config) local_unnamed_addr #1 {
 entry:
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i
 
@@ -581,7 +581,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 
 arena_init_locked.exit.thread:                    ; preds = %malloc_mutex_lock.exit
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %if.end.i7
 
 if.end.i5:                                        ; preds = %malloc_mutex_lock.exit
@@ -602,28 +602,28 @@ if.end3.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp5.not.i, label %if.end9.i, label %arena_init_locked.exit
 
 if.end9.i:                                        ; preds = %if.end3.i
-  %call10.i = tail call ptr @arena_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %config) #19
+  %call10.i = tail call ptr @arena_new(ptr noundef %tsdn, i32 noundef %ind, ptr noundef %config) #18
   br label %arena_init_locked.exit
 
 arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9.i
   %retval.0.i = phi ptr [ %call10.i, %if.end9.i ], [ %6, %if.end3.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i6 = icmp eq i32 %ind, 0
   br i1 %cmp.i6, label %arena_new_create_background_thread.exit, label %if.end.i7
 
 if.end.i7:                                        ; preds = %arena_init_locked.exit.thread, %arena_init_locked.exit
   %retval.0.i14 = phi ptr [ null, %arena_init_locked.exit.thread ], [ %retval.0.i, %arena_init_locked.exit ]
-  %call.i8 = tail call zeroext i1 @arena_is_huge(i32 noundef %ind) #19
+  %call.i8 = tail call zeroext i1 @arena_is_huge(i32 noundef %ind) #18
   br i1 %call.i8, label %arena_new_create_background_thread.exit, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i7
-  %call3.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsdn, i32 noundef %ind) #19
+  %call3.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsdn, i32 noundef %ind) #18
   br i1 %call3.i, label %if.then4.i, label %arena_new_create_background_thread.exit
 
 if.then4.i:                                       ; preds = %if.then1.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.159, i32 noundef %ind) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.159, i32 noundef %ind) #18
+  tail call void @abort() #19
   unreachable
 
 arena_new_create_background_thread.exit:          ; preds = %arena_init_locked.exit, %if.end.i7, %if.then1.i
@@ -634,16 +634,16 @@ arena_new_create_background_thread.exit:          ; preds = %arena_init_locked.e
 ; Function Attrs: nounwind uwtable
 define hidden void @arena_migrate(ptr noundef %tsd, ptr noundef %oldarena, ptr noundef %newarena) local_unnamed_addr #1 {
 entry:
-  tail call void @arena_nthreads_dec(ptr noundef %oldarena, i1 noundef zeroext false) #19
-  tail call void @arena_nthreads_inc(ptr noundef %newarena, i1 noundef zeroext false) #19
+  tail call void @arena_nthreads_dec(ptr noundef %oldarena, i1 noundef zeroext false) #18
+  tail call void @arena_nthreads_inc(ptr noundef %newarena, i1 noundef zeroext false) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i = getelementptr inbounds i8, ptr %tsd, i64 144
   store ptr %newarena, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i, align 8
-  %call = tail call i32 @arena_nthreads_get(ptr noundef %oldarena, i1 noundef zeroext false) #19
+  %call = tail call i32 @arena_nthreads_get(ptr noundef %oldarena, i1 noundef zeroext false) #18
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call void @arena_decay(ptr noundef nonnull %tsd, ptr noundef %oldarena, i1 noundef zeroext false, i1 noundef zeroext true) #19
+  tail call void @arena_decay(ptr noundef nonnull %tsd, ptr noundef %oldarena, i1 noundef zeroext false, i1 noundef zeroext true) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -670,7 +670,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call.i146 = tail call i32 @sched_getcpu() #19
+  %call.i146 = tail call i32 @sched_getcpu() #18
   %1 = load i32, ptr @opt_percpu_arena, align 4
   %cmp.i = icmp eq i32 %1, 3
   br i1 %cmp.i, label %percpu_arena_choose.exit, label %lor.lhs.false.i
@@ -704,7 +704,7 @@ arena_get.exit:                                   ; preds = %percpu_arena_choose
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i
   %6 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %7 = inttoptr i64 %6 to ptr
-  tail call void @arena_nthreads_inc(ptr noundef %7, i1 noundef zeroext false) #19
+  tail call void @arena_nthreads_inc(ptr noundef %7, i1 noundef zeroext false) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i.i = getelementptr inbounds i8, ptr %tsd, i64 144
   store ptr %7, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i.i, align 8
   %binshard_next.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -730,7 +730,7 @@ arena_bind.exit:                                  ; preds = %do.end.i
   %arrayidx.i.i62 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i61
   %10 = load atomic i64, ptr %arrayidx.i.i62 acquire, align 8
   %11 = inttoptr i64 %10 to ptr
-  tail call void @arena_nthreads_inc(ptr noundef %11, i1 noundef zeroext true) #19
+  tail call void @arena_nthreads_inc(ptr noundef %11, i1 noundef zeroext true) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i = getelementptr inbounds i8, ptr %tsd, i64 136
   store ptr %11, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i, align 8
   br label %return
@@ -745,12 +745,12 @@ for.body.preheader:                               ; preds = %if.end
   store i32 0, ptr %choose7.sroa.4, align 4
   store i8 0, ptr %is_new_arena.sroa.0, align 2
   store i8 0, ptr %is_new_arena.sroa.3, align 1
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.preheader
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i
 
@@ -803,13 +803,13 @@ for.body23:                                       ; preds = %for.body23.preheade
   %indvars.iv.sroa.phi = phi ptr [ %choose7.sroa.0, %for.body23.preheader ], [ %choose7.sroa.4, %for.inc41 ]
   %20 = load atomic i64, ptr %arrayidx.i64 acquire, align 8
   %21 = inttoptr i64 %20 to ptr
-  %call27 = tail call i32 @arena_nthreads_get(ptr noundef %21, i1 noundef zeroext %tobool) #19
+  %call27 = tail call i32 @arena_nthreads_get(ptr noundef %21, i1 noundef zeroext %tobool) #18
   %22 = load i32, ptr %indvars.iv.sroa.phi, align 4
   %idxprom.i75 = zext i32 %22 to i64
   %arrayidx.i76 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i75
   %23 = load atomic i64, ptr %arrayidx.i76 acquire, align 8
   %24 = inttoptr i64 %23 to ptr
-  %call35 = tail call i32 @arena_nthreads_get(ptr noundef %24, i1 noundef zeroext %tobool) #19
+  %call35 = tail call i32 @arena_nthreads_get(ptr noundef %24, i1 noundef zeroext %tobool) #18
   %cmp36 = icmp ult i32 %call27, %call35
   br i1 %cmp36, label %if.then37, label %for.inc41
 
@@ -851,7 +851,7 @@ for.body53:                                       ; preds = %for.cond51.preheade
   %arrayidx.i82 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i81
   %30 = load atomic i64, ptr %arrayidx.i82 acquire, align 8
   %31 = inttoptr i64 %30 to ptr
-  %call61 = tail call i32 @arena_nthreads_get(ptr noundef %31, i1 noundef zeroext %tobool58) #19
+  %call61 = tail call i32 @arena_nthreads_get(ptr noundef %31, i1 noundef zeroext %tobool58) #18
   %cmp62 = icmp eq i32 %call61, 0
   %32 = load i32, ptr @narenas_auto, align 4
   %cmp63 = icmp eq i32 %first_null.0.lcssa, %32
@@ -890,7 +890,7 @@ if.end3.i:                                        ; preds = %if.then2.i, %if.end
   br i1 %cmp5.not.i, label %if.end9.i, label %arena_init_locked.exit
 
 if.end9.i:                                        ; preds = %if.end3.i
-  %call10.i = tail call ptr @arena_new(ptr noundef %tsd, i32 noundef %first_null.0.lcssa, ptr noundef nonnull @arena_config_default) #19
+  %call10.i = tail call ptr @arena_new(ptr noundef %tsd, i32 noundef %first_null.0.lcssa, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init_locked.exit
 
 arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9.i
@@ -900,7 +900,7 @@ arena_init_locked.exit:                           ; preds = %if.end3.i, %if.end9
 
 if.then86:                                        ; preds = %if.else77, %arena_init_locked.exit
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %return
 
 if.end88:                                         ; preds = %arena_init_locked.exit
@@ -916,7 +916,7 @@ if.end102:                                        ; preds = %if.end88, %if.then6
   %arrayidx.i.i98 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i97
   %41 = load atomic i64, ptr %arrayidx.i.i98 acquire, align 8
   %42 = inttoptr i64 %41 to ptr
-  tail call void @arena_nthreads_inc(ptr noundef %42, i1 noundef zeroext %tobool58) #19
+  tail call void @arena_nthreads_inc(ptr noundef %42, i1 noundef zeroext %tobool58) #18
   br i1 %tobool58, label %arena_bind.exit113.thread, label %if.else.i
 
 arena_bind.exit113.thread:                        ; preds = %if.end102
@@ -946,7 +946,7 @@ arena_bind.exit113:                               ; preds = %do.end.i102
 
 for.end112:                                       ; preds = %arena_bind.exit113, %arena_bind.exit113.thread
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i114 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i114 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %for.body117
 
 for.body117:                                      ; preds = %for.end112, %for.inc128
@@ -963,16 +963,16 @@ do.end123:                                        ; preds = %for.body117
   br i1 %cmp.i115, label %for.inc128, label %if.end.i116
 
 if.end.i116:                                      ; preds = %do.end123
-  %call.i = tail call zeroext i1 @arena_is_huge(i32 noundef %46) #19
+  %call.i = tail call zeroext i1 @arena_is_huge(i32 noundef %46) #18
   br i1 %call.i, label %for.inc128, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i116
-  %call3.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsd, i32 noundef %46) #19
+  %call3.i = tail call zeroext i1 @background_thread_create(ptr noundef %tsd, i32 noundef %46) #18
   br i1 %call3.i, label %if.then4.i, label %for.inc128
 
 if.then4.i:                                       ; preds = %if.then1.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.159, i32 noundef %46) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.159, i32 noundef %46) #18
+  tail call void @abort() #19
   unreachable
 
 for.inc128:                                       ; preds = %if.then1.i, %if.end.i116, %do.end123, %for.body117
@@ -982,7 +982,7 @@ if.else131:                                       ; preds = %if.end
   %47 = load atomic i64, ptr @arenas acquire, align 64
   %48 = load atomic i64, ptr @arenas acquire, align 64
   %49 = inttoptr i64 %48 to ptr
-  tail call void @arena_nthreads_inc(ptr noundef %49, i1 noundef zeroext false) #19
+  tail call void @arena_nthreads_inc(ptr noundef %49, i1 noundef zeroext false) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i.i122 = getelementptr inbounds i8, ptr %tsd, i64 144
   store ptr %49, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i.i122, align 8
   %binshard_next.i123 = getelementptr inbounds i8, ptr %49, i64 8
@@ -1006,7 +1006,7 @@ arena_bind.exit134:                               ; preds = %do.end.i125
   %52 = inttoptr i64 %47 to ptr
   %53 = load atomic i64, ptr @arenas acquire, align 64
   %54 = inttoptr i64 %53 to ptr
-  tail call void @arena_nthreads_inc(ptr noundef %54, i1 noundef zeroext true) #19
+  tail call void @arena_nthreads_inc(ptr noundef %54, i1 noundef zeroext true) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i136 = getelementptr inbounds i8, ptr %tsd, i64 136
   store ptr %54, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i.i136, align 8
   br label %return
@@ -1031,7 +1031,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void @arena_nthreads_dec(ptr noundef %3, i1 noundef zeroext true) #19
+  tail call void @arena_nthreads_dec(ptr noundef %3, i1 noundef zeroext true) #18
   store ptr null, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_iarena.i, align 8
   br label %if.end
 
@@ -1054,7 +1054,7 @@ if.then:                                          ; preds = %entry
   %arrayidx.i.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i.i
   %2 = load atomic i64, ptr %arrayidx.i.i acquire, align 8
   %3 = inttoptr i64 %2 to ptr
-  tail call void @arena_nthreads_dec(ptr noundef %3, i1 noundef zeroext false) #19
+  tail call void @arena_nthreads_dec(ptr noundef %3, i1 noundef zeroext false) #18
   store ptr null, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i, align 8
   br label %if.end
 
@@ -1077,14 +1077,14 @@ entry:
   br i1 %cmp6.i1110.not, label %if.then2.i.i, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
   br i1 %2, label %if.then2.i.i, label %land.lhs.true8.i
 
 if.then2.i.i:                                     ; preds = %entry, %tsd_fetch_impl.exit
-  %retval.i1101.0770 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
+  %retval.i1101.0769 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
   %cmp.i152.i = icmp ult i64 %size, 4097
   br i1 %cmp.i152.i, label %if.then.i157.i, label %if.end.i156.i
 
@@ -1127,12 +1127,12 @@ land.lhs.true.i31.i666:                           ; preds = %sz_size2index.exit.
   %conv.i147.i = zext nneg i32 %retval.i150.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i
   %7 = load i64, ptr %arrayidx.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 872
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 872
   %cmp3.i.i708 = icmp ult i64 %size, 14337
   br i1 %cmp3.i.i708, label %if.then11.i.i824, label %if.end.i65.i712
 
 if.then11.i.i824:                                 ; preds = %land.lhs.true.i31.i666
-  %bins.i.i829 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 880
+  %bins.i.i829 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 880
   %arrayidx.i.i831 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i829, i64 0, i64 %conv.i147.i
   %8 = load ptr, ptr %arrayidx.i.i831, align 8
   %9 = load ptr, ptr %8, align 8
@@ -1162,7 +1162,7 @@ if.then22.i166.i904:                              ; preds = %if.end11.i.i895
   br label %if.end50.i.i855
 
 if.then.i86.i862:                                 ; preds = %if.end11.i.i895
-  %call7.i.i863 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0770, ptr noundef null)
+  %call7.i.i863 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0769, ptr noundef null)
   %cmp.i87.i864 = icmp eq ptr %call7.i.i863, null
   br i1 %cmp.i87.i864, label %if.then112.i, label %if.end.i88.i868
 
@@ -1174,12 +1174,12 @@ if.end.i88.i868:                                  ; preds = %if.then.i86.i862
   br i1 %cmp.i146.i873, label %if.then23.i93.i888, label %if.end27.i.i881
 
 if.then23.i93.i888:                               ; preds = %if.end.i88.i868
-  %call26.i.i890 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i.i863, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call26.i.i890 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i.i863, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit948
 
 if.end27.i.i881:                                  ; preds = %if.end.i88.i868
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
-  %call29.i92.i882 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i.i863, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i573) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #18
+  %call29.i92.i882 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i.i863, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i.i831, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i573) #18
   %16 = load i8, ptr %tcache_hard_success.i.i573, align 1
   %17 = and i8 %16, 1
   %cmp32.i.i885 = icmp eq i8 %17, 0
@@ -1199,7 +1199,7 @@ if.end.i65.i712:                                  ; preds = %land.lhs.true.i31.i
   br i1 %cmp15.i.i713.not, label %if.end31.i.i679, label %if.then23.i.i718
 
 if.then23.i.i718:                                 ; preds = %if.end.i65.i712
-  %bins.i111.i723 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 880
+  %bins.i111.i723 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 880
   %arrayidx.i113.i725 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i723, i64 0, i64 %conv.i147.i
   %20 = load ptr, ptr %arrayidx.i113.i725, align 8
   %21 = load ptr, ptr %20, align 8
@@ -1229,12 +1229,12 @@ if.then22.i196.i820:                              ; preds = %if.end11.i187.i811
   br label %if.end35.i121.i749
 
 if.then.i126.i757:                                ; preds = %if.end11.i187.i811
-  %call7.i127.i758 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0770, ptr noundef null)
+  %call7.i127.i758 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1101.0769, ptr noundef null)
   %cmp.i128.i759 = icmp eq ptr %call7.i127.i758, null
   br i1 %cmp.i128.i759, label %if.then112.i, label %sz_s2u.exit.i792
 
 sz_s2u.exit.i792:                                 ; preds = %if.then.i126.i757
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i113.i725, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1098, ptr noundef nonnull %arrayidx.i113.i725, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   %shl.i.i776 = shl nuw i64 %size, 1
   %sub.i.i777 = add i64 %shl.i.i776, -1
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i777, i1 true)
@@ -1243,7 +1243,7 @@ sz_s2u.exit.i792:                                 ; preds = %if.then.i126.i757
   %sub12.i.i787 = xor i64 %notmask701, -1
   %add.i.i788 = add nuw nsw i64 %size, %sub12.i.i787
   %and.i.i790 = and i64 %add.i.i788, %notmask701
-  %call19.i133.i794 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %call7.i127.i758, i64 noundef %and.i.i790, i1 noundef zeroext false) #19
+  %call19.i133.i794 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %call7.i127.i758, i64 noundef %and.i.i790, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit948
 
 if.end35.i121.i749:                               ; preds = %if.then.i199.i823, %if.then22.i196.i820
@@ -1254,7 +1254,7 @@ if.end35.i121.i749:                               ; preds = %if.then.i199.i823, 
   br label %imalloc_no_sample.exit948
 
 if.end31.i.i679:                                  ; preds = %if.end.i65.i712
-  %call33.i.i681 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0770, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call33.i.i681 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1101.0769, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit948
 
 imalloc_no_sample.exit948:                        ; preds = %sz_s2u.exit.i792, %if.end35.i121.i749, %if.then23.i93.i888, %if.end50.i.i855, %if.end31.i.i679
@@ -1264,16 +1264,16 @@ imalloc_no_sample.exit948:                        ; preds = %sz_s2u.exit.i792, %
 
 if.end61.i:                                       ; preds = %imalloc_no_sample.exit948
   store i8 1, ptr %ctx.i1508, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619 = getelementptr inbounds i8, ptr %retval.i1101.0770, i64 848
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619 = getelementptr inbounds i8, ptr %retval.i1101.0769, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1508, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1619, ptr %next_event_fast.i, align 8
   %29 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
@@ -1285,11 +1285,11 @@ if.end61.i:                                       ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1515, label %do.end, label %if.else.i1519
 
 if.else.i1519:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1101.0770, ptr noundef nonnull %ctx.i1508) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1101.0769, ptr noundef nonnull %ctx.i1508) #18
   br label %do.end
 
 if.then112.i:                                     ; preds = %if.then.i126.i757, %if.end27.i.i881, %if.then.i86.i862, %if.end.i156.i, %sz_size2index.exit.i, %imalloc_no_sample.exit948
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end
 
@@ -1303,7 +1303,7 @@ land.lhs.true.i.i43:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i44, label %if.then.i42, label %land.lhs.true.i.i323
 
 if.then.i42:                                      ; preds = %land.lhs.true.i.i43
-  %call.i705 = tail call ptr @__errno_location() #21
+  %call.i705 = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i705, align 4
   br label %do.end
 
@@ -1334,17 +1334,17 @@ if.end5.i707:                                     ; preds = %if.end.i156.i305
   %sub8.i711 = xor i32 %conv1.i.i.i.i710, 252
   %shl9.i712 = add nsw i32 %sub8.i711, -20
   %sub15.i713 = sub nuw nsw i64 60, %34
-  %shl18.i715 = shl nsw i64 -1, %sub15.i713
-  %sub19.i716 = add nsw i64 %size, -1
-  %and.i717 = and i64 %shl18.i715, %sub19.i716
-  %shr.i718 = lshr i64 %and.i717, %sub15.i713
-  %36 = trunc i64 %shr.i718 to i32
-  %conv22.i719 = and i32 %36, 3
-  %add23.i720 = or disjoint i32 %conv22.i719, %shl9.i712
+  %shl18.i714 = shl nsw i64 -1, %sub15.i713
+  %sub19.i715 = add nsw i64 %size, -1
+  %and.i716 = and i64 %shl18.i714, %sub19.i715
+  %shr.i717 = lshr i64 %and.i716, %sub15.i713
+  %36 = trunc i64 %shr.i717 to i32
+  %conv22.i718 = and i32 %36, 3
+  %add23.i719 = or disjoint i32 %conv22.i718, %shl9.i712
   br label %sz_size2index.exit.i307
 
 sz_size2index.exit.i307:                          ; preds = %if.end5.i707, %if.then.i157.i317
-  %retval.i150.i103.0 = phi i32 [ %conv.i200.i322, %if.then.i157.i317 ], [ %add23.i720, %if.end5.i707 ]
+  %retval.i150.i103.0 = phi i32 [ %conv.i200.i322, %if.then.i157.i317 ], [ %add23.i719, %if.end5.i707 ]
   %cmp3.i.i309 = icmp ugt i32 %retval.i150.i103.0, 234
   br i1 %cmp3.i.i309, label %if.then112.i235, label %if.end24.i186
 
@@ -1366,16 +1366,16 @@ tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i186
 if.else.i22.i:                                    ; preds = %if.end24.i186
   %40 = load atomic i64, ptr @arenas acquire, align 64
   %41 = inttoptr i64 %40 to ptr
-  %cmp.i723 = icmp eq i64 %40, 0
-  br i1 %cmp.i723, label %if.then3.i, label %arena_get.exit
+  %cmp.i722 = icmp eq i64 %40, 0
+  br i1 %cmp.i722, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -1397,26 +1397,26 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %45 = load atomic i32, ptr @narenas_total acquire, align 4
   %cmp1.i.i = icmp eq i32 %45, 0
-  br i1 %cmp1.i.i, label %if.then2.i.i727, label %if.end3.i.i
+  br i1 %cmp1.i.i, label %if.then2.i.i726, label %if.end3.i.i
 
-if.then2.i.i727:                                  ; preds = %malloc_mutex_lock.exit.i
+if.then2.i.i726:                                  ; preds = %malloc_mutex_lock.exit.i
   %46 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
-if.end3.i.i:                                      ; preds = %if.then2.i.i727, %malloc_mutex_lock.exit.i
+if.end3.i.i:                                      ; preds = %if.then2.i.i726, %malloc_mutex_lock.exit.i
   %47 = load atomic i64, ptr @arenas acquire, align 64
   %48 = inttoptr i64 %47 to ptr
   %cmp5.not.i.i = icmp eq i64 %47, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %48, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i, %arena_init.exit
@@ -1476,12 +1476,12 @@ if.end.i88.i:                                     ; preds = %if.then.i86.i
   br i1 %cmp.i146.i, label %if.then23.i93.i, label %if.end27.i.i
 
 if.then23.i93.i:                                  ; preds = %if.end.i88.i
-  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #19
+  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #18
   br label %imalloc_no_sample.exit
 
 if.end27.i.i:                                     ; preds = %if.end.i88.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i.i469, i32 noundef %retval.i150.i103.0, i1 noundef zeroext true) #19
-  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i.i469, i32 noundef %retval.i150.i103.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i.i469, i32 noundef %retval.i150.i103.0, i1 noundef zeroext true) #18
+  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i.i469, i32 noundef %retval.i150.i103.0, ptr noundef nonnull %tcache_hard_success.i.i) #18
   %58 = load i8, ptr %tcache_hard_success.i.i, align 1
   %59 = and i8 %58, 1
   %cmp32.i.i = icmp eq i8 %59, 0
@@ -1544,7 +1544,7 @@ if.then.i126.i:                                   ; preds = %if.end11.i187.i
   br i1 %cmp.i128.i, label %if.then112.i235, label %sz_s2u.exit.i463
 
 sz_s2u.exit.i463:                                 ; preds = %if.then.i126.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i103.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1132, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i103.0, i1 noundef zeroext false) #18
   %shl.i.i448 = shl nuw i64 %size, 1
   %sub.i.i449 = add i64 %shl.i.i448, -1
   %70 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i449, i1 true)
@@ -1553,7 +1553,7 @@ sz_s2u.exit.i463:                                 ; preds = %if.then.i126.i
   %sub12.i.i458 = xor i64 %notmask, -1
   %add.i.i459 = add nuw nsw i64 %size, %sub12.i.i458
   %and.i.i461 = and i64 %add.i.i459, %notmask
-  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i461, i1 noundef zeroext %tobool2.i.i324) #19
+  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i461, i1 noundef zeroext %tobool2.i.i324) #18
   br label %imalloc_no_sample.exit
 
 if.else.i120.i:                                   ; preds = %if.then.i199.i, %if.then22.i196.i
@@ -1572,8 +1572,8 @@ if.end35.i121.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1755775 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1755775, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #19
+  %arena.i.1754774 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1754774, i64 noundef %size, i32 noundef %retval.i150.i103.0, i1 noundef zeroext %tobool2.i.i324) #18
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i463, %if.end35.i121.i, %if.then23.i93.i, %if.end50.i.i, %if.end31.i.i
@@ -1604,7 +1604,7 @@ if.end61.i200:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1498, label %land.lhs.true69.i208, label %if.else.i1502
 
 if.else.i1502:                                    ; preds = %if.end61.i200
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i208
 
 land.lhs.true69.i208:                             ; preds = %if.else.i1502, %if.end61.i200
@@ -1617,12 +1617,12 @@ land.lhs.true72.i211:                             ; preds = %land.lhs.true69.i20
 
 if.then80.i216:                                   ; preds = %land.lhs.true72.i211
   %76 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %76(ptr noundef nonnull %retval.i421.0, i64 noundef %37) #19
+  call void %76(ptr noundef nonnull %retval.i421.0, i64 noundef %37) #18
   br label %if.then
 
 if.then112.i235:                                  ; preds = %if.then.i126.i, %if.end27.i.i, %if.then.i86.i, %arena_get_from_ind.exit.i, %if.end.i156.i305, %sz_size2index.exit.i307, %imalloc_no_sample.exit
-  %call.i726 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %call.i726, align 4
+  %call.i725 = tail call ptr @__errno_location() #20
+  store i32 12, ptr %call.i725, align 4
   br label %if.then
 
 if.then:                                          ; preds = %land.lhs.true69.i208, %land.lhs.true72.i211, %if.then80.i216, %if.then112.i235
@@ -1631,12 +1631,12 @@ if.then:                                          ; preds = %land.lhs.true69.i20
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
   %77 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.0.ph, i64 noundef %77, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.0.ph, i64 noundef %77, ptr noundef nonnull %args) #18
   br label %do.end
 
 do.end:                                           ; preds = %if.then.i42, %if.end61.i, %if.else.i1519, %if.then112.i, %if.then
-  %ret.0766 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i42 ], [ null, %if.then112.i ], [ %retval.i50.i579.0, %if.else.i1519 ], [ %retval.i50.i579.0, %if.end61.i ]
-  ret ptr %ret.0766
+  %ret.0765 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i42 ], [ null, %if.then112.i ], [ %retval.i50.i579.0, %if.else.i1519 ], [ %retval.i50.i579.0, %if.end61.i ]
+  ret ptr %ret.0765
 }
 
 declare void @hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
@@ -1649,7 +1649,7 @@ entry:
   br i1 %cmp.i, label %if.then15.i, label %if.end17.i
 
 if.then15.i:                                      ; preds = %entry
-  %call16.i = tail call ptr @malloc_default(i64 noundef %size) #19
+  %call16.i = tail call ptr @malloc_default(i64 noundef %size) #18
   br label %imalloc_fastpath.exit
 
 if.end17.i:                                       ; preds = %entry
@@ -1669,7 +1669,7 @@ if.end17.i:                                       ; preds = %entry
   br i1 %cmp31.i.not, label %if.end41.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %if.end17.i
-  %call40.i = tail call ptr @malloc_default(i64 noundef %size) #19
+  %call40.i = tail call ptr @malloc_default(i64 noundef %size) #18
   br label %imalloc_fastpath.exit
 
 if.end41.i:                                       ; preds = %if.end17.i
@@ -1715,7 +1715,7 @@ if.then53.i:                                      ; preds = %if.end11.i
   br label %imalloc_fastpath.exit
 
 if.end54.i:                                       ; preds = %if.end11.i
-  %call55.i = tail call ptr @malloc_default(i64 noundef %size) #19
+  %call55.i = tail call ptr @malloc_default(i64 noundef %size) #18
   br label %imalloc_fastpath.exit
 
 imalloc_fastpath.exit:                            ; preds = %if.end54.i, %if.then53.i, %if.then49.i, %if.then39.i, %if.then15.i
@@ -1736,7 +1736,7 @@ entry:
   br i1 %cmp6.i1113.not, label %if.end.i61, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -1841,7 +1841,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1401
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101 = getelementptr inbounds i8, ptr %retval.i1104.0747, i64 872
-  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0747, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #19
+  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0747, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #18
   %cmp52.i = icmp eq ptr %call8.i1063, null
   br i1 %cmp52.i, label %do.end4, label %if.end61.i
 
@@ -1868,7 +1868,7 @@ if.end61.i:                                       ; preds = %if.end38.i.i
   br i1 %cmp.i1518, label %if.end81.i, label %if.else.i1522
 
 if.else.i1522:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0747, ptr noundef nonnull %ctx.i1511) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0747, ptr noundef nonnull %ctx.i1511) #18
   br label %if.end81.i
 
 if.end81.i:                                       ; preds = %if.else.i1522, %if.end61.i
@@ -1885,7 +1885,7 @@ land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i47, label %if.then.i45, label %if.end.i143
 
 if.then.i45:                                      ; preds = %land.lhs.true.i.i46
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   store ptr null, ptr %memptr, align 8
   br label %do.end4
@@ -2024,7 +2024,7 @@ arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
   %arena.i.1738 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i.thread ], [ %ret.0.i, %arena_get.exit ]
   %tcache.i.i.0733737 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ %retval.i1129.0, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get.exit ]
-  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1738, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0733737) #19
+  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1738, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0733737) #18
   %cmp52.i199 = icmp eq ptr %call8.i, null
   br i1 %cmp52.i199, label %if.then, label %if.end61.i203
 
@@ -2051,7 +2051,7 @@ if.end61.i203:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1501, label %land.lhs.true69.i211, label %if.else.i1505
 
 if.else.i1505:                                    ; preds = %if.end61.i203
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i211
 
 land.lhs.true69.i211:                             ; preds = %if.else.i1505, %if.end61.i203
@@ -2064,7 +2064,7 @@ land.lhs.true72.i214:                             ; preds = %land.lhs.true69.i21
 
 if.then80.i219:                                   ; preds = %land.lhs.true72.i214
   %29 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %29(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #19
+  call void %29(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #18
   br label %if.end81.i206
 
 if.end81.i206:                                    ; preds = %if.then80.i219, %land.lhs.true72.i214, %land.lhs.true69.i211
@@ -2081,7 +2081,7 @@ if.then:                                          ; preds = %arena_get_from_ind.
   store i64 %size, ptr %arrayinit.element2, align 16
   %31 = load ptr, ptr %memptr, align 8
   %conv = zext nneg i32 %retval.i.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 1, ptr noundef %31, i64 noundef %conv, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 1, ptr noundef %31, i64 noundef %conv, ptr noundef nonnull %args) #18
   br label %do.end4
 
 do.end4:                                          ; preds = %if.end.i.i1314, %if.end.i34.i1377, %sz_s2u.exit.i1338, %if.end5.i1302, %if.then.i45, %lor.rhs.i, %if.end.i61, %if.end38.i.i, %if.end26.i.i, %if.end81.i, %if.then
@@ -2102,7 +2102,7 @@ entry:
   br i1 %cmp6.i1113.not, label %if.end.i61, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -2207,7 +2207,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1401
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101 = getelementptr inbounds i8, ptr %retval.i1104.0750, i64 872
-  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0750, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #19
+  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0750, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #18
   %cmp52.i = icmp eq ptr %call8.i1063, null
   br i1 %cmp52.i, label %if.then112.i, label %if.end61.i
 
@@ -2234,16 +2234,16 @@ if.end61.i:                                       ; preds = %if.end38.i.i
   br i1 %cmp.i1518, label %do.end4, label %if.else.i1522
 
 if.else.i1522:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0750, ptr noundef nonnull %ctx.i1511) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0750, ptr noundef nonnull %ctx.i1511) #18
   br label %do.end4
 
 if.then112.i:                                     ; preds = %if.end.i.i1314, %if.end.i34.i1377, %sz_s2u.exit.i1338, %if.end5.i1302, %if.end38.i.i, %if.end26.i.i
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end4
 
 if.then120.i:                                     ; preds = %lor.rhs.i, %if.end.i61
-  %call.i707 = tail call ptr @__errno_location() #21
+  %call.i707 = tail call ptr @__errno_location() #20
   store i32 22, ptr %call.i707, align 4
   br label %do.end4
 
@@ -2257,7 +2257,7 @@ land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i47, label %if.then.i45, label %if.end.i143
 
 if.then.i45:                                      ; preds = %land.lhs.true.i.i46
-  %call.i708 = tail call ptr @__errno_location() #21
+  %call.i708 = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i708, align 4
   br label %do.end4
 
@@ -2379,12 +2379,12 @@ if.else.i22.i:                                    ; preds = %if.end38.i.i187
   br i1 %cmp.i711, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -2419,13 +2419,13 @@ if.end3.i.i:                                      ; preds = %if.then2.i.i, %mall
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i, %arena_init.exit
@@ -2441,7 +2441,7 @@ arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
   %arena.i.1741 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i.thread ], [ %ret.0.i, %arena_get.exit ]
   %tcache.i.i.0736740 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ %retval.i1129.0, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get.exit ]
-  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1741, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0736740) #19
+  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1741, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0736740) #18
   %cmp52.i199 = icmp eq ptr %call8.i, null
   br i1 %cmp52.i199, label %if.then112.i238, label %if.end61.i203
 
@@ -2468,7 +2468,7 @@ if.end61.i203:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1501, label %land.lhs.true69.i211, label %if.else.i1505
 
 if.else.i1505:                                    ; preds = %if.end61.i203
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i211
 
 land.lhs.true69.i211:                             ; preds = %if.else.i1505, %if.end61.i203
@@ -2481,16 +2481,16 @@ land.lhs.true72.i214:                             ; preds = %land.lhs.true69.i21
 
 if.then80.i219:                                   ; preds = %land.lhs.true72.i214
   %36 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #19
+  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #18
   br label %if.then
 
 if.then112.i238:                                  ; preds = %arena_get_from_ind.exit.i, %if.end.i.i1229, %if.end.i34.i1237, %sz_s2u.exit.i1230, %if.end5.i, %imalloc_no_sample.exit, %if.end26.i.i179
-  %call.i713 = tail call ptr @__errno_location() #21
+  %call.i713 = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i713, align 4
   br label %if.then
 
 if.then120.i344:                                  ; preds = %lor.rhs.i147, %if.end.i143
-  %call.i714 = tail call ptr @__errno_location() #21
+  %call.i714 = tail call ptr @__errno_location() #20
   store i32 22, ptr %call.i714, align 4
   br label %if.then
 
@@ -2502,7 +2502,7 @@ if.then:                                          ; preds = %land.lhs.true69.i21
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
   %37 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #18
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then.i45, %if.end61.i, %if.else.i1522, %if.then120.i, %if.then112.i, %if.then
@@ -2525,14 +2525,14 @@ entry:
   br i1 %cmp6.i1112.not, label %if.end.i373, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
   br i1 %2, label %if.end.i373, label %land.lhs.true8.i
 
 if.end.i373:                                      ; preds = %entry, %tsd_fetch_impl.exit
-  %retval.i1103.0793 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
+  %retval.i1103.0792 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %0, %entry ]
   %mul702 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size, i64 %num)
   %mul.val703 = extractvalue { i64, i1 } %mul702, 0
   %cmp.i377 = icmp eq i64 %mul.val703, 0
@@ -2594,12 +2594,12 @@ land.lhs.true.i31.i668:                           ; preds = %sz_size2index.exit.
   %conv.i147.i = zext nneg i32 %retval.i150.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i
   %7 = load i64, ptr %arrayidx.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100 = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 872
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100 = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 872
   %cmp3.i.i710 = icmp ult i64 %mul.val703, 14337
   br i1 %cmp3.i.i710, label %if.then11.i.i826, label %if.end.i65.i714
 
 if.then11.i.i826:                                 ; preds = %land.lhs.true.i31.i668
-  %bins.i.i831 = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 880
+  %bins.i.i831 = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 880
   %arrayidx.i.i833 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i831, i64 0, i64 %conv.i147.i
   %8 = load ptr, ptr %arrayidx.i.i833, align 8
   %9 = load ptr, ptr %8, align 8
@@ -2629,7 +2629,7 @@ if.then22.i166.i906:                              ; preds = %if.end11.i.i897
   br label %if.then46.i.i861
 
 if.then.i86.i864:                                 ; preds = %if.end11.i.i897
-  %call7.i.i865 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1103.0793, ptr noundef null)
+  %call7.i.i865 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1103.0792, ptr noundef null)
   %cmp.i87.i866 = icmp eq ptr %call7.i.i865, null
   br i1 %cmp.i87.i866, label %if.then112.i, label %if.end.i88.i870
 
@@ -2641,12 +2641,12 @@ if.end.i88.i870:                                  ; preds = %if.then.i86.i864
   br i1 %cmp.i146.i875, label %if.then23.i93.i890, label %if.end27.i.i883
 
 if.then23.i93.i890:                               ; preds = %if.end.i88.i870
-  %call26.i.i892 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %call7.i.i865, i64 noundef %mul.val703, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
+  %call26.i.i892 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %call7.i.i865, i64 noundef %mul.val703, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit950
 
 if.end27.i.i883:                                  ; preds = %if.end.i88.i870
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i.i833, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
-  %call29.i92.i884 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %call7.i.i865, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i.i833, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i575) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i.i833, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #18
+  %call29.i92.i884 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %call7.i.i865, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i.i833, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i575) #18
   %16 = load i8, ptr %tcache_hard_success.i.i575, align 1
   %17 = and i8 %16, 1
   %cmp32.i.i887 = icmp eq i8 %17, 0
@@ -2668,7 +2668,7 @@ if.end.i65.i714:                                  ; preds = %land.lhs.true.i31.i
   br i1 %cmp15.i.i715.not, label %if.end31.i.i681, label %if.then23.i.i720
 
 if.then23.i.i720:                                 ; preds = %if.end.i65.i714
-  %bins.i111.i725 = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 880
+  %bins.i111.i725 = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 880
   %arrayidx.i113.i727 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i725, i64 0, i64 %conv.i147.i
   %21 = load ptr, ptr %arrayidx.i113.i727, align 8
   %22 = load ptr, ptr %21, align 8
@@ -2698,12 +2698,12 @@ if.then22.i196.i822:                              ; preds = %if.end11.i187.i813
   br label %if.then31.i.i756
 
 if.then.i126.i759:                                ; preds = %if.end11.i187.i813
-  %call7.i127.i760 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1103.0793, ptr noundef null)
+  %call7.i127.i760 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1103.0792, ptr noundef null)
   %cmp.i128.i761 = icmp eq ptr %call7.i127.i760, null
   br i1 %cmp.i128.i761, label %if.then112.i, label %sz_s2u.exit.i794
 
 sz_s2u.exit.i794:                                 ; preds = %if.then.i126.i759
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i113.i727, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100, ptr noundef nonnull %arrayidx.i113.i727, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   %shl.i.i778 = shl nuw i64 %mul.val703, 1
   %sub.i.i779 = add i64 %shl.i.i778, -1
   %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i779, i1 true)
@@ -2712,7 +2712,7 @@ sz_s2u.exit.i794:                                 ; preds = %if.then.i126.i759
   %sub12.i.i789 = xor i64 %notmask705, -1
   %add.i.i790 = add nuw nsw i64 %mul.val703, %sub12.i.i789
   %and.i.i792 = and i64 %add.i.i790, %notmask705
-  %call19.i133.i796 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %call7.i127.i760, i64 noundef %and.i.i792, i1 noundef zeroext true) #19
+  %call19.i133.i796 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %call7.i127.i760, i64 noundef %and.i.i792, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit950
 
 if.then31.i.i756:                                 ; preds = %if.then.i199.i825, %if.then22.i196.i822
@@ -2725,7 +2725,7 @@ if.then31.i.i756:                                 ; preds = %if.then.i199.i825, 
   br label %imalloc_no_sample.exit950
 
 if.end31.i.i681:                                  ; preds = %if.end.i65.i714
-  %call33.i.i683 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1103.0793, ptr noundef null, i64 noundef %mul.val703, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
+  %call33.i.i683 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1103.0792, ptr noundef null, i64 noundef %mul.val703, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit950
 
 imalloc_no_sample.exit950:                        ; preds = %sz_s2u.exit.i794, %if.then31.i.i756, %if.then23.i93.i890, %if.then46.i.i861, %if.end31.i.i681
@@ -2735,16 +2735,16 @@ imalloc_no_sample.exit950:                        ; preds = %sz_s2u.exit.i794, %
 
 if.end61.i:                                       ; preds = %imalloc_no_sample.exit950
   store i8 1, ptr %ctx.i1510, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i1510, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1510, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1510, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1621 = getelementptr inbounds i8, ptr %retval.i1103.0793, i64 848
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1621 = getelementptr inbounds i8, ptr %retval.i1103.0792, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1510, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1621, ptr %next_event_fast.i, align 8
   %31 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
@@ -2756,11 +2756,11 @@ if.end61.i:                                       ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1517, label %do.end3, label %if.else.i1521
 
 if.else.i1521:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1103.0793, ptr noundef nonnull %ctx.i1510) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1103.0792, ptr noundef nonnull %ctx.i1510) #18
   br label %do.end3
 
 if.then112.i:                                     ; preds = %if.then.i126.i759, %if.end27.i.i883, %if.then.i86.i864, %if.end.i156.i, %sz_size2index.exit.i, %if.then4.i401, %compute_size_with_overflow.exit408, %imalloc_no_sample.exit950
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end3
 
@@ -2774,7 +2774,7 @@ land.lhs.true.i.i45:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i46, label %if.then.i44, label %if.end.i356
 
 if.then.i44:                                      ; preds = %land.lhs.true.i.i45
-  %call.i714 = tail call ptr @__errno_location() #21
+  %call.i714 = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i714, align 4
   br label %do.end3
 
@@ -2822,17 +2822,17 @@ if.end5.i716:                                     ; preds = %if.end.i156.i307
   %sub8.i720 = xor i32 %conv1.i.i.i.i719, 252
   %shl9.i721 = add nsw i32 %sub8.i720, -20
   %sub15.i722 = sub nuw nsw i64 60, %35
-  %shl18.i724 = shl nsw i64 -1, %sub15.i722
-  %sub19.i725 = add nsw i64 %mul.val, -1
-  %and.i726 = and i64 %shl18.i724, %sub19.i725
-  %shr.i727 = lshr i64 %and.i726, %sub15.i722
-  %37 = trunc i64 %shr.i727 to i32
-  %conv22.i728 = and i32 %37, 3
-  %add23.i729 = or disjoint i32 %conv22.i728, %shl9.i721
+  %shl18.i723 = shl nsw i64 -1, %sub15.i722
+  %sub19.i724 = add nsw i64 %mul.val, -1
+  %and.i725 = and i64 %shl18.i723, %sub19.i724
+  %shr.i726 = lshr i64 %and.i725, %sub15.i722
+  %37 = trunc i64 %shr.i726 to i32
+  %conv22.i727 = and i32 %37, 3
+  %add23.i728 = or disjoint i32 %conv22.i727, %shl9.i721
   br label %sz_size2index.exit.i309
 
 sz_size2index.exit.i309:                          ; preds = %if.end5.i716, %if.then.i157.i319
-  %retval.i150.i105.0 = phi i32 [ %conv.i200.i324, %if.then.i157.i319 ], [ %add23.i729, %if.end5.i716 ]
+  %retval.i150.i105.0 = phi i32 [ %conv.i200.i324, %if.then.i157.i319 ], [ %add23.i728, %if.end5.i716 ]
   %cmp3.i.i311 = icmp ugt i32 %retval.i150.i105.0, 234
   br i1 %cmp3.i.i311, label %if.then112.i237, label %if.end24.i188
 
@@ -2854,16 +2854,16 @@ tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i188
 if.else.i22.i:                                    ; preds = %if.end24.i188
   %41 = load atomic i64, ptr @arenas acquire, align 64
   %42 = inttoptr i64 %41 to ptr
-  %cmp.i732 = icmp eq i64 %41, 0
-  br i1 %cmp.i732, label %if.then3.i, label %arena_get.exit
+  %cmp.i731 = icmp eq i64 %41, 0
+  br i1 %cmp.i731, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -2885,26 +2885,26 @@ if.then.i.i.i:                                    ; preds = %if.end.i.i
 malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.end.i.i
   %46 = load atomic i32, ptr @narenas_total acquire, align 4
   %cmp1.i.i = icmp eq i32 %46, 0
-  br i1 %cmp1.i.i, label %if.then2.i.i736, label %if.end3.i.i
+  br i1 %cmp1.i.i, label %if.then2.i.i735, label %if.end3.i.i
 
-if.then2.i.i736:                                  ; preds = %malloc_mutex_lock.exit.i
+if.then2.i.i735:                                  ; preds = %malloc_mutex_lock.exit.i
   %47 = atomicrmw add ptr @narenas_total, i32 1 release, align 4
   br label %if.end3.i.i
 
-if.end3.i.i:                                      ; preds = %if.then2.i.i736, %malloc_mutex_lock.exit.i
+if.end3.i.i:                                      ; preds = %if.then2.i.i735, %malloc_mutex_lock.exit.i
   %48 = load atomic i64, ptr @arenas acquire, align 64
   %49 = inttoptr i64 %48 to ptr
   %cmp5.not.i.i = icmp eq i64 %48, 0
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %49, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i, %arena_init.exit
@@ -2964,12 +2964,12 @@ if.end.i88.i:                                     ; preds = %if.then.i86.i
   br i1 %cmp.i146.i, label %if.then23.i93.i, label %if.end27.i.i
 
 if.then23.i93.i:                                  ; preds = %if.end.i88.i
-  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #19
+  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit
 
 if.end27.i.i:                                     ; preds = %if.end.i88.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i.i471, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #19
-  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i.i471, i32 noundef %retval.i150.i105.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i.i471, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #18
+  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i.i471, i32 noundef %retval.i150.i105.0, ptr noundef nonnull %tcache_hard_success.i.i) #18
   %59 = load i8, ptr %tcache_hard_success.i.i, align 1
   %60 = and i8 %59, 1
   %cmp32.i.i = icmp eq i8 %60, 0
@@ -3026,7 +3026,7 @@ if.then.i126.i:                                   ; preds = %if.end11.i187.i
   br i1 %cmp.i128.i, label %if.then112.i237, label %sz_s2u.exit.i465
 
 sz_s2u.exit.i465:                                 ; preds = %if.then.i126.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i105.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1134, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i105.0, i1 noundef zeroext false) #18
   %shl.i.i450 = shl nuw i64 %mul.val, 1
   %sub.i.i451 = add i64 %shl.i.i450, -1
   %71 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i451, i1 true)
@@ -3035,7 +3035,7 @@ sz_s2u.exit.i465:                                 ; preds = %if.then.i126.i
   %sub12.i.i460 = xor i64 %notmask, -1
   %add.i.i461 = add nuw nsw i64 %mul.val, %sub12.i.i460
   %and.i.i463 = and i64 %add.i.i461, %notmask
-  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i463, i1 noundef zeroext true) #19
+  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i463, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit
 
 if.then31.i.i:                                    ; preds = %if.then.i199.i, %if.then22.i196.i
@@ -3048,8 +3048,8 @@ if.then31.i.i:                                    ; preds = %if.then.i199.i, %if
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1780798 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1780798, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #19
+  %arena.i.1779797 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1779797, i64 noundef %mul.val, i32 noundef %retval.i150.i105.0, i1 noundef zeroext true) #18
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i465, %if.then31.i.i, %if.then23.i93.i, %if.then46.i.i, %if.end31.i.i
@@ -3080,12 +3080,12 @@ if.end61.i202:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1500, label %if.then, label %if.else.i1504
 
 if.else.i1504:                                    ; preds = %if.end61.i202
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %if.then
 
 if.then112.i237:                                  ; preds = %if.then.i126.i, %if.end27.i.i, %if.then.i86.i, %arena_get_from_ind.exit.i, %if.end.i156.i307, %sz_size2index.exit.i309, %if.then4.i, %compute_size_with_overflow.exit, %imalloc_no_sample.exit
-  %call.i735 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %call.i735, align 4
+  %call.i734 = tail call ptr @__errno_location() #20
+  store i32 12, ptr %call.i734, align 4
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i1504, %if.end61.i202, %if.then112.i237
@@ -3096,12 +3096,12 @@ if.then:                                          ; preds = %if.else.i1504, %if.
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
   %76 = ptrtoint ptr %ret.0 to i64
-  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.0, i64 noundef %76, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.0, i64 noundef %76, ptr noundef nonnull %args) #18
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then112.i, %if.else.i1521, %if.end61.i, %if.then.i44, %if.then
-  %ret.0790 = phi ptr [ %ret.0, %if.then ], [ %retval.i50.i581.0, %if.end61.i ], [ %retval.i50.i581.0, %if.else.i1521 ], [ null, %if.then112.i ], [ null, %if.then.i44 ]
-  ret ptr %ret.0790
+  %ret.0789 = phi ptr [ %ret.0, %if.then ], [ %retval.i50.i581.0, %if.end61.i ], [ %retval.i50.i581.0, %if.else.i1521 ], [ null, %if.then112.i ], [ null, %if.then.i44 ]
+  ret ptr %ret.0789
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3123,7 +3123,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp6.i.not, label %tsdn_rtree_ctx.exit1597, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.then
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #18
   %state.i1308.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i1308.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -3134,7 +3134,7 @@ tsdn_rtree_ctx.exit1597:                          ; preds = %if.then, %tsd_fetch
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1320 = getelementptr inbounds i8, ptr %retval.i1322.0537, i64 872
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1707 = getelementptr inbounds i8, ptr %retval.i1322.0537, i64 448
   %3 = ptrtoint ptr %ptr to i64
-  %call1.i109505 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1707, i64 noundef %3)
+  %call1.i109505 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1322.0537, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1707, i64 noundef %3)
   %call1.i109.fca.0.extract = extractvalue { i64, i32 } %call1.i109505, 0
   %call1.i109.fca.1.extract = extractvalue { i64, i32 } %call1.i109505, 1
   %metadata.i.sroa.0.0.extract.trunc = trunc i64 %call1.i109.fca.0.extract to i32
@@ -3170,14 +3170,14 @@ if.then10.i:                                      ; preds = %if.then17.i542
   br i1 %cmp.i.i562, label %if.then18.i568, label %if.end20.i
 
 if.then18.i568:                                   ; preds = %if.then10.i
-  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %ptr) #19
+  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %ptr) #18
   br label %ifree.exit105
 
 if.end20.i:                                       ; preds = %if.then10.i
   %conv24.i = zext i16 %arrayidx.i.i561.val to i32
   %11 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i = lshr i32 %conv24.i, %11
-  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1320, ptr noundef nonnull %arrayidx.i555, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i) #19
+  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1320, ptr noundef nonnull %arrayidx.i555, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i) #18
   %12 = load ptr, ptr %arrayidx.i555, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = load i16, ptr %low_bits_full.i1024, align 2
@@ -3220,7 +3220,7 @@ if.then.i1277:                                    ; preds = %if.then.i770
   %conv8.i1281 = zext i16 %arrayidx6.i1279.val to i32
   %22 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i1282 = lshr i32 %conv8.i1281, %22
-  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1320, ptr noundef nonnull %arrayidx.i1258, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i1282) #19
+  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1320, ptr noundef nonnull %arrayidx.i1258, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i1282) #18
   %23 = load ptr, ptr %arrayidx.i1258, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = load i16, ptr %low_bits_full.i28.i1261, align 2
@@ -3235,9 +3235,9 @@ if.end.i.i1291:                                   ; preds = %if.then.i1277
   br label %ifree.exit105
 
 tsdn_rtree_ctx.exit1467:                          ; preds = %if.else20.i540
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1707, i64 noundef %3)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %retval.i1322.0537, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1707, i64 noundef %3)
   %27 = load ptr, ptr %tmp.i.i, align 8
-  tail call void @large_dalloc(ptr noundef nonnull %retval.i1322.0537, ptr noundef %27) #19
+  tail call void @large_dalloc(ptr noundef nonnull %retval.i1322.0537, ptr noundef %27) #18
   br label %ifree.exit105
 
 ifree.exit105:                                    ; preds = %if.end.i20.i1267, %if.end.i1016, %if.end.i.i1291, %if.then.i1277, %if.end.i1003, %if.end20.i, %if.then18.i568, %tsdn_rtree_ctx.exit1467
@@ -3263,7 +3263,7 @@ ifree.exit105:                                    ; preds = %if.end.i20.i1267, %
   br i1 %cmp.i1732, label %if.end16, label %if.else.i1736
 
 if.else.i1736:                                    ; preds = %ifree.exit105
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %ctx.i1725) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1322.0537, ptr noundef nonnull %ctx.i1725) #18
   br label %if.end16
 
 lor.lhs.false.i:                                  ; preds = %tsd_fetch_impl.exit
@@ -3285,9 +3285,9 @@ tsdn_rtree_ctx.exit1584:                          ; preds = %lor.lhs.false.i, %i
   store i64 %32, ptr %args_raw, align 16
   %scevgep = getelementptr inbounds i8, ptr %args_raw, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  call void @hook_invoke_dalloc(i32 noundef 0, ptr noundef nonnull %ptr, ptr noundef nonnull %args_raw) #19
+  call void @hook_invoke_dalloc(i32 noundef 0, ptr noundef nonnull %ptr, ptr noundef nonnull %args_raw) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1701 = getelementptr inbounds i8, ptr %call13.i, i64 448
-  %call1.i121519 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1701, i64 noundef %32)
+  %call1.i121519 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %call13.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1701, i64 noundef %32)
   %call1.i121.fca.0.extract = extractvalue { i64, i32 } %call1.i121519, 0
   %call1.i121.fca.1.extract = extractvalue { i64, i32 } %call1.i121519, 1
   %metadata.i118.sroa.0.0.extract.trunc = trunc i64 %call1.i121.fca.0.extract to i32
@@ -3302,7 +3302,7 @@ tsdn_rtree_ctx.exit1584:                          ; preds = %lor.lhs.false.i, %i
 
 if.then24.i:                                      ; preds = %tsdn_rtree_ctx.exit1584
   %36 = load ptr, ptr @junk_free_callback, align 8
-  call void %36(ptr noundef nonnull %ptr, i64 noundef %34) #19
+  call void %36(ptr noundef nonnull %ptr, i64 noundef %34) #18
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then24.i, %tsdn_rtree_ctx.exit1584
@@ -3341,14 +3341,14 @@ if.then10.i721:                                   ; preds = %if.then17.i
   br i1 %cmp.i.i726, label %if.then18.i742, label %if.end20.i734
 
 if.then18.i742:                                   ; preds = %if.then10.i721
-  call void @arena_dalloc_small(ptr noundef nonnull %call13.i, ptr noundef nonnull %ptr) #19
+  call void @arena_dalloc_small(ptr noundef nonnull %call13.i, ptr noundef nonnull %ptr) #18
   br label %ifree.exit
 
 if.end20.i734:                                    ; preds = %if.then10.i721
   %conv24.i738 = zext i16 %arrayidx.i.i723.val to i32
   %42 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i739 = lshr i32 %conv24.i738, %42
-  call void @tcache_bin_flush_small(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i713, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i739) #19
+  call void @tcache_bin_flush_small(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i713, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i739) #18
   %43 = load ptr, ptr %arrayidx.i713, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = load i16, ptr %low_bits_full.i1059, align 2
@@ -3391,7 +3391,7 @@ if.then.i1112:                                    ; preds = %if.then.i841
   %conv8.i = zext i16 %arrayidx6.i.val to i32
   %53 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i1113 = lshr i32 %conv8.i, %53
-  call void @tcache_bin_flush_large(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i1106, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i1113) #19
+  call void @tcache_bin_flush_large(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.0, ptr noundef nonnull %arrayidx.i1106, i32 noundef %metadata.i118.sroa.0.0.extract.trunc, i32 noundef %shr.i1113) #18
   %54 = load ptr, ptr %arrayidx.i1106, align 8
   %55 = ptrtoint ptr %54 to i64
   %56 = load i16, ptr %low_bits_full.i28.i, align 2
@@ -3407,9 +3407,9 @@ if.end.i.i1115:                                   ; preds = %if.then.i1112
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.else20.i394
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %call13.i, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i826, ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %32)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i826, ptr noundef nonnull %call13.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %32)
   %58 = load ptr, ptr %tmp.i.i826, align 8
-  call void @large_dalloc(ptr noundef nonnull %call13.i, ptr noundef %58) #19
+  call void @large_dalloc(ptr noundef nonnull %call13.i, ptr noundef %58) #18
   br label %ifree.exit
 
 ifree.exit:                                       ; preds = %if.end.i20.i, %if.end.i938, %if.end.i.i1115, %if.then.i1112, %if.end.i928, %if.end20.i734, %if.then.i396, %if.then18.i742, %tsdn_rtree_ctx.exit
@@ -3435,7 +3435,7 @@ ifree.exit:                                       ; preds = %if.end.i20.i, %if.e
   br i1 %cmp.i1715, label %if.end16, label %if.else.i1719
 
 if.else.i1719:                                    ; preds = %ifree.exit
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %if.end16
 
 if.end16:                                         ; preds = %if.else.i1736, %if.else.i1719, %ifree.exit105, %ifree.exit, %entry
@@ -3519,7 +3519,7 @@ entry:
   br i1 %cmp6.i1113.not, label %if.end.i61, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -3623,7 +3623,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1401
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101 = getelementptr inbounds i8, ptr %retval.i1104.0738, i64 872
-  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0738, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #19
+  %call8.i1063 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1104.0738, ptr noundef null, i64 noundef %retval.i1297.0, i64 noundef %alignment, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1101) #18
   %cmp52.i = icmp eq ptr %call8.i1063, null
   br i1 %cmp52.i, label %do.end4, label %if.end61.i
 
@@ -3650,7 +3650,7 @@ if.end61.i:                                       ; preds = %if.end38.i.i
   br i1 %cmp.i1518, label %do.end4, label %if.else.i1522
 
 if.else.i1522:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0738, ptr noundef nonnull %ctx.i1511) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1104.0738, ptr noundef nonnull %ctx.i1511) #18
   br label %do.end4
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
@@ -3663,7 +3663,7 @@ land.lhs.true.i.i46:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i47, label %if.then.i45, label %if.end.i143
 
 if.then.i45:                                      ; preds = %land.lhs.true.i.i46
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end4
 
@@ -3784,12 +3784,12 @@ if.else.i22.i:                                    ; preds = %if.end38.i.i187
   br i1 %cmp.i709, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -3824,13 +3824,13 @@ if.end3.i.i:                                      ; preds = %if.then2.i.i, %mall
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i, %arena_init.exit
@@ -3846,7 +3846,7 @@ arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
   %arena.i.1729 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i.thread ], [ %ret.0.i, %arena_get.exit ]
   %tcache.i.i.0724728 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ %retval.i1129.0, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get.exit ]
-  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1729, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0724728) #19
+  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1729, i64 noundef %retval.i1214.0, i64 noundef %alignment, i1 noundef zeroext %tobool2.i.i327, ptr noundef %tcache.i.i.0724728) #18
   %cmp52.i199 = icmp eq ptr %call8.i, null
   br i1 %cmp52.i199, label %if.then, label %if.end61.i203
 
@@ -3873,7 +3873,7 @@ if.end61.i203:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1501, label %land.lhs.true69.i211, label %if.else.i1505
 
 if.else.i1505:                                    ; preds = %if.end61.i203
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i211
 
 land.lhs.true69.i211:                             ; preds = %if.else.i1505, %if.end61.i203
@@ -3886,7 +3886,7 @@ land.lhs.true72.i214:                             ; preds = %land.lhs.true69.i21
 
 if.then80.i219:                                   ; preds = %land.lhs.true72.i214
   %36 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #19
+  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1214.0) #18
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1230, %if.end5.i, %if.end.i143, %lor.rhs.i147, %if.end26.i.i179, %imalloc_no_sample.exit, %land.lhs.true69.i211, %land.lhs.true72.i214, %if.then80.i219
@@ -3897,7 +3897,7 @@ if.then:                                          ; preds = %arena_get_from_ind.
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
   %37 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #18
   br label %do.end4
 
 do.end4:                                          ; preds = %sz_s2u.exit.i1338, %if.end5.i1302, %if.then.i45, %if.end.i61, %lor.rhs.i, %if.end26.i.i, %if.end38.i.i, %if.end61.i, %if.else.i1522, %if.then
@@ -3918,7 +3918,7 @@ entry:
   br i1 %cmp6.i1112.not, label %if.else.i143.i, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -4000,7 +4000,7 @@ if.end26.i.i:                                     ; preds = %sz_s2u.exit38.i1400
 
 if.end38.i.i:                                     ; preds = %if.end26.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100 = getelementptr inbounds i8, ptr %retval.i1103.0734, i64 872
-  %call8.i1062 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1103.0734, ptr noundef null, i64 noundef %retval.i1296.0, i64 noundef 4096, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100) #19
+  %call8.i1062 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1103.0734, ptr noundef null, i64 noundef %retval.i1296.0, i64 noundef 4096, i1 noundef zeroext false, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1100) #18
   %cmp52.i = icmp eq ptr %call8.i1062, null
   br i1 %cmp52.i, label %do.end3, label %if.end61.i
 
@@ -4027,7 +4027,7 @@ if.end61.i:                                       ; preds = %if.end38.i.i
   br i1 %cmp.i1517, label %do.end3, label %if.else.i1521
 
 if.else.i1521:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1103.0734, ptr noundef nonnull %ctx.i1510) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1103.0734, ptr noundef nonnull %ctx.i1510) #18
   br label %do.end3
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
@@ -4040,7 +4040,7 @@ land.lhs.true.i.i45:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i46, label %if.then.i44, label %land.lhs.true.i.i325
 
 if.then.i44:                                      ; preds = %land.lhs.true.i.i45
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end3
 
@@ -4139,12 +4139,12 @@ if.else.i22.i:                                    ; preds = %if.end38.i.i186
   br i1 %cmp.i708, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -4179,13 +4179,13 @@ if.end3.i.i:                                      ; preds = %if.then2.i.i, %mall
   br i1 %cmp5.not.i.i, label %if.end9.i.i, label %arena_init.exit
 
 if.end9.i.i:                                      ; preds = %if.end3.i.i
-  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i = tail call ptr @arena_new(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit
 
 arena_init.exit:                                  ; preds = %if.end3.i.i, %if.end9.i.i
   %retval.0.i.i = phi ptr [ %call10.i.i, %if.end9.i.i ], [ %31, %if.end3.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i, %arena_init.exit
@@ -4201,7 +4201,7 @@ arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit
 imalloc_no_sample.exit:                           ; preds = %tcache_get_from_ind.exit.i.thread, %arena_get.exit, %arena_get_from_ind.exit.i
   %arena.i.1725 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i.thread ], [ %ret.0.i, %arena_get.exit ]
   %tcache.i.i.0720724 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ %retval.i1128.0, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get.exit ]
-  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1725, i64 noundef %retval.i1213.0, i64 noundef 4096, i1 noundef zeroext %tobool2.i.i326, ptr noundef %tcache.i.i.0720724) #19
+  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1725, i64 noundef %retval.i1213.0, i64 noundef 4096, i1 noundef zeroext %tobool2.i.i326, ptr noundef %tcache.i.i.0720724) #18
   %cmp52.i198 = icmp eq ptr %call8.i, null
   br i1 %cmp52.i198, label %if.then, label %if.end61.i202
 
@@ -4228,7 +4228,7 @@ if.end61.i202:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1500, label %land.lhs.true69.i210, label %if.else.i1504
 
 if.else.i1504:                                    ; preds = %if.end61.i202
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i210
 
 land.lhs.true69.i210:                             ; preds = %if.else.i1504, %if.end61.i202
@@ -4241,7 +4241,7 @@ land.lhs.true72.i213:                             ; preds = %land.lhs.true69.i21
 
 if.then80.i218:                                   ; preds = %land.lhs.true72.i213
   %36 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1213.0) #19
+  call void %36(ptr noundef nonnull %call8.i, i64 noundef %retval.i1213.0) #18
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1229, %if.end26.i.i178, %imalloc_no_sample.exit, %land.lhs.true69.i210, %land.lhs.true72.i213, %if.then80.i218
@@ -4250,7 +4250,7 @@ if.then:                                          ; preds = %arena_get_from_ind.
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
   %37 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.0.ph, i64 noundef %37, ptr noundef nonnull %args) #18
   br label %do.end3
 
 do.end3:                                          ; preds = %sz_s2u.exit.i1337, %if.then.i44, %if.end26.i.i, %if.end38.i.i, %if.end61.i, %if.else.i1521, %if.then
@@ -4310,14 +4310,14 @@ if.end:                                           ; preds = %mallocx_tcache_get.
   br i1 %cmp6.i1143.not, label %lor.rhs.i, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.end
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %4 = icmp eq i8 %.pre, 0
   br i1 %4, label %lor.rhs.i, label %land.lhs.true8.i
 
 lor.rhs.i:                                        ; preds = %if.end, %tsd_fetch_impl.exit
-  %retval.i1134.0826 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %2, %if.end ]
+  %retval.i1134.0825 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %2, %if.end ]
   %cmp.i.i = icmp eq i64 %dopts.sroa.34.0, 0
   br i1 %cmp.i.i, label %if.then2.i.i, label %if.else.i143.i
 
@@ -4358,9 +4358,9 @@ if.end5.i724:                                     ; preds = %if.end.i156.i
 sz_size2index.exit.i:                             ; preds = %if.end5.i724, %if.then.i157.i
   %retval.i150.i.0 = phi i32 [ %conv.i200.i, %if.then.i157.i ], [ %add23.i, %if.end5.i724 ]
   %cmp3.i.i = icmp ugt i32 %retval.i150.i.0, 234
-  br i1 %cmp3.i.i, label %do.end13, label %aligned_usize_get.exit.i.thread769
+  br i1 %cmp3.i.i, label %do.end13, label %aligned_usize_get.exit.i.thread768
 
-aligned_usize_get.exit.i.thread769:               ; preds = %sz_size2index.exit.i
+aligned_usize_get.exit.i.thread768:               ; preds = %sz_size2index.exit.i
   %conv.i147.i = zext nneg i32 %retval.i150.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i
   %9 = load i64, ptr %arrayidx.i.i, align 8
@@ -4452,16 +4452,16 @@ aligned_usize_get.exit.i:                         ; preds = %if.end18.i1372, %sz
   %or.cond = icmp ult i64 %15, -8070450532247928832
   br i1 %or.cond, label %do.end13, label %if.end24.i
 
-if.end24.i:                                       ; preds = %aligned_usize_get.exit.i.thread769, %aligned_usize_get.exit.i
-  %usize.i83.0774 = phi i64 [ %9, %aligned_usize_get.exit.i.thread769 ], [ %retval.i1328.0, %aligned_usize_get.exit.i ]
-  %ind.i.0773 = phi i32 [ %retval.i150.i.0, %aligned_usize_get.exit.i.thread769 ], [ 0, %aligned_usize_get.exit.i ]
+if.end24.i:                                       ; preds = %aligned_usize_get.exit.i.thread768, %aligned_usize_get.exit.i
+  %usize.i83.0773 = phi i64 [ %9, %aligned_usize_get.exit.i.thread768 ], [ %retval.i1328.0, %aligned_usize_get.exit.i ]
+  %ind.i.0772 = phi i32 [ %retval.i150.i.0, %aligned_usize_get.exit.i.thread768 ], [ 0, %aligned_usize_get.exit.i ]
   switch i32 %dopts.sroa.60.0, label %if.else28.i.i670 [
     i32 -2, label %if.then5.i.i979
     i32 -1, label %tcache_get_from_ind.exit.i673
   ]
 
 if.then5.i.i979:                                  ; preds = %if.end24.i
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1131 = getelementptr inbounds i8, ptr %retval.i1134.0826, i64 872
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1131 = getelementptr inbounds i8, ptr %retval.i1134.0825, i64 872
   br label %tcache_get_from_ind.exit.i673
 
 if.else28.i.i670:                                 ; preds = %if.end24.i
@@ -4476,12 +4476,12 @@ if.else28.i.i670:                                 ; preds = %if.end24.i
   ]
 
 if.then.i1181:                                    ; preds = %if.else28.i.i670
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %dopts.sroa.60.0) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %dopts.sroa.60.0) #18
+  tail call void @abort() #19
   unreachable
 
 if.then10.i1179:                                  ; preds = %if.else28.i.i670
-  %call.i1180 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1134.0826) #19
+  %call.i1180 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1134.0825) #18
   store ptr %call.i1180, ptr %arrayidx.i, align 8
   br label %tcache_get_from_ind.exit.i673
 
@@ -4499,7 +4499,7 @@ if.else.i22.i676:                                 ; preds = %tcache_get_from_ind
   br i1 %cmp.i731, label %if.then3.i, label %arena_get.exit
 
 if.then3.i:                                       ; preds = %if.else.i22.i676
-  %call4.i = tail call ptr @arena_init(ptr noundef nonnull %retval.i1134.0826, i32 noundef %dopts.sroa.66.0, ptr noundef nonnull @arena_config_default)
+  %call4.i = tail call ptr @arena_init(ptr noundef nonnull %retval.i1134.0825, i32 noundef %dopts.sroa.66.0, ptr noundef nonnull @arena_config_default)
   br label %arena_get.exit
 
 arena_get.exit:                                   ; preds = %if.else.i22.i676, %if.then3.i
@@ -4513,11 +4513,11 @@ arena_get_from_ind.exit.i684:                     ; preds = %arena_get.exit
   br i1 %cmp4.i.i955.not.not, label %if.end.i685, label %do.end13
 
 if.end.i685:                                      ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i673, %arena_get_from_ind.exit.i684
-  %arena.i662.1783 = phi ptr [ null, %arena_get_from_ind.exit.i684 ], [ null, %tcache_get_from_ind.exit.i673 ], [ %ret.0.i, %arena_get.exit ]
+  %arena.i662.1782 = phi ptr [ null, %arena_get_from_ind.exit.i684 ], [ null, %tcache_get_from_ind.exit.i673 ], [ %ret.0.i, %arena_get.exit ]
   br i1 %cmp.i.i, label %if.end.i34.i703, label %if.then4.i948
 
 if.then4.i948:                                    ; preds = %if.end.i685
-  %call8.i1093 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1134.0826, ptr noundef %arena.i662.1783, i64 noundef %usize.i83.0774, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %dopts.sroa.48.0, ptr noundef %tcache.i.i651.0) #19
+  %call8.i1093 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1134.0825, ptr noundef %arena.i662.1782, i64 noundef %usize.i83.0773, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %dopts.sroa.48.0, ptr noundef %tcache.i.i651.0) #18
   br label %imalloc_no_sample.exit981
 
 if.end.i34.i703:                                  ; preds = %if.end.i685
@@ -4530,7 +4530,7 @@ if.then.i63.i740:                                 ; preds = %if.end.i34.i703
 
 if.then11.i.i857:                                 ; preds = %if.then.i63.i740
   %bins.i.i862 = getelementptr inbounds i8, ptr %tcache.i.i651.0, i64 8
-  %idxprom.i.i863 = zext nneg i32 %ind.i.0773 to i64
+  %idxprom.i.i863 = zext nneg i32 %ind.i.0772 to i64
   %arrayidx.i.i864 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i862, i64 0, i64 %idxprom.i.i863
   %21 = load ptr, ptr %arrayidx.i.i864, align 8
   %22 = load ptr, ptr %21, align 8
@@ -4560,7 +4560,7 @@ if.then22.i166.i937:                              ; preds = %if.end11.i.i928
   br label %if.end36.i.i883
 
 if.then.i86.i895:                                 ; preds = %if.end11.i.i928
-  %call7.i.i896 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1134.0826, ptr noundef %arena.i662.1783)
+  %call7.i.i896 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1134.0825, ptr noundef %arena.i662.1782)
   %cmp.i87.i897 = icmp eq ptr %call7.i.i896, null
   br i1 %cmp.i87.i897, label %do.end13, label %if.end.i88.i901
 
@@ -4572,12 +4572,12 @@ if.end.i88.i901:                                  ; preds = %if.then.i86.i895
   br i1 %cmp.i146.i906, label %if.then23.i93.i921, label %if.end27.i.i914
 
 if.then23.i93.i921:                               ; preds = %if.end.i88.i901
-  %call26.i.i923 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %call7.i.i896, i64 noundef %size, i32 noundef %ind.i.0773, i1 noundef zeroext %dopts.sroa.48.0) #19
+  %call26.i.i923 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %call7.i.i896, i64 noundef %size, i32 noundef %ind.i.0772, i1 noundef zeroext %dopts.sroa.48.0) #18
   br label %imalloc_no_sample.exit981
 
 if.end27.i.i914:                                  ; preds = %if.end.i88.i901
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i.i864, i32 noundef %ind.i.0773, i1 noundef zeroext true) #19
-  %call29.i92.i915 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %call7.i.i896, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i.i864, i32 noundef %ind.i.0773, ptr noundef nonnull %tcache_hard_success.i.i606) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i.i864, i32 noundef %ind.i.0772, i1 noundef zeroext true) #18
+  %call29.i92.i915 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %call7.i.i896, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i.i864, i32 noundef %ind.i.0772, ptr noundef nonnull %tcache_hard_success.i.i606) #18
   %29 = load i8, ptr %tcache_hard_success.i.i606, align 1
   %30 = and i8 %29, 1
   %cmp32.i.i918 = icmp eq i8 %30, 0
@@ -4607,7 +4607,7 @@ if.end.i65.i745:                                  ; preds = %if.then.i63.i740
 
 if.then23.i.i751:                                 ; preds = %if.end.i65.i745
   %bins.i111.i756 = getelementptr inbounds i8, ptr %tcache.i.i651.0, i64 8
-  %idxprom.i112.i757 = zext nneg i32 %ind.i.0773 to i64
+  %idxprom.i112.i757 = zext nneg i32 %ind.i.0772 to i64
   %arrayidx.i113.i758 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i756, i64 0, i64 %idxprom.i112.i757
   %34 = load ptr, ptr %arrayidx.i113.i758, align 8
   %35 = load ptr, ptr %34, align 8
@@ -4637,12 +4637,12 @@ if.then22.i196.i853:                              ; preds = %if.end11.i187.i844
   br label %if.else.i120.i777
 
 if.then.i126.i790:                                ; preds = %if.end11.i187.i844
-  %call7.i127.i791 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1134.0826, ptr noundef %arena.i662.1783)
+  %call7.i127.i791 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1134.0825, ptr noundef %arena.i662.1782)
   %cmp.i128.i792 = icmp eq ptr %call7.i127.i791, null
   br i1 %cmp.i128.i792, label %do.end13, label %if.end.i132.i796
 
 if.end.i132.i796:                                 ; preds = %if.then.i126.i790
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i113.i758, i32 noundef %ind.i.0773, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %tcache.i.i651.0, ptr noundef nonnull %arrayidx.i113.i758, i32 noundef %ind.i.0772, i1 noundef zeroext false) #18
   %cmp.i217.i802 = icmp ugt i64 %size, 8070450532247928832
   br i1 %cmp.i217.i802, label %sz_s2u.exit.i825, label %if.end5.i.i808
 
@@ -4659,7 +4659,7 @@ if.end5.i.i808:                                   ; preds = %if.end.i132.i796
 
 sz_s2u.exit.i825:                                 ; preds = %if.end5.i.i808, %if.end.i132.i796
   %retval.i214.i546.0 = phi i64 [ %and.i.i823, %if.end5.i.i808 ], [ 0, %if.end.i132.i796 ]
-  %call19.i133.i827 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %call7.i127.i791, i64 noundef %retval.i214.i546.0, i1 noundef zeroext %dopts.sroa.48.0) #19
+  %call19.i133.i827 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %call7.i127.i791, i64 noundef %retval.i214.i546.0, i1 noundef zeroext %dopts.sroa.48.0) #18
   br label %imalloc_no_sample.exit981
 
 if.else.i120.i777:                                ; preds = %if.then.i199.i856, %if.then22.i196.i853
@@ -4679,7 +4679,7 @@ if.end35.i121.i782:                               ; preds = %if.then31.i.i787, %
   br label %imalloc_no_sample.exit981
 
 if.end31.i.i712:                                  ; preds = %if.end.i65.i745, %if.end.i34.i703
-  %call33.i.i714 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1134.0826, ptr noundef %arena.i662.1783, i64 noundef %size, i32 noundef %ind.i.0773, i1 noundef zeroext %dopts.sroa.48.0) #19
+  %call33.i.i714 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1134.0825, ptr noundef %arena.i662.1782, i64 noundef %size, i32 noundef %ind.i.0772, i1 noundef zeroext %dopts.sroa.48.0) #18
   br label %imalloc_no_sample.exit981
 
 imalloc_no_sample.exit981:                        ; preds = %sz_s2u.exit.i825, %if.end35.i121.i782, %if.then23.i93.i921, %if.end50.i.i888, %if.end31.i.i712, %if.then4.i948
@@ -4689,28 +4689,28 @@ imalloc_no_sample.exit981:                        ; preds = %sz_s2u.exit.i825, %
 
 if.end61.i:                                       ; preds = %imalloc_no_sample.exit981
   store i8 1, ptr %ctx.i1542, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1134.0826, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1134.0825, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i1542, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1134.0826, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1134.0825, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1542, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1134.0826, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1134.0825, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1542, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1653 = getelementptr inbounds i8, ptr %retval.i1134.0826, i64 848
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1653 = getelementptr inbounds i8, ptr %retval.i1134.0825, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1542, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1653, ptr %next_event_fast.i, align 8
   %44 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1546 = add i64 %44, %usize.i83.0774
+  %add.i1546 = add i64 %44, %usize.i83.0773
   store i64 %add.i1546, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
   %45 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
   %sub.i1548 = sub i64 %45, %44
-  %cmp.i1549 = icmp ult i64 %usize.i83.0774, %sub.i1548
+  %cmp.i1549 = icmp ult i64 %usize.i83.0773, %sub.i1548
   br i1 %cmp.i1549, label %do.end13, label %if.else.i1553
 
 if.else.i1553:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1134.0826, ptr noundef nonnull %ctx.i1542) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1134.0825, ptr noundef nonnull %ctx.i1542) #18
   br label %do.end13
 
 land.lhs.true8.i:                                 ; preds = %tsd_fetch_impl.exit
@@ -4723,7 +4723,7 @@ land.lhs.true.i.i74:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i75, label %if.then.i73, label %lor.rhs.i177
 
 if.then.i73:                                      ; preds = %land.lhs.true.i.i74
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %do.end13
 
@@ -4759,21 +4759,21 @@ if.end5.i735:                                     ; preds = %if.end.i156.i338
   %sub8.i739 = xor i32 %conv1.i.i.i.i738, 252
   %shl9.i740 = add nsw i32 %sub8.i739, -20
   %sub15.i741 = sub nuw nsw i64 60, %49
-  %shl18.i743 = shl nsw i64 -1, %sub15.i741
-  %sub19.i744 = add nsw i64 %size, -1
-  %and.i745 = and i64 %shl18.i743, %sub19.i744
-  %shr.i746 = lshr i64 %and.i745, %sub15.i741
-  %51 = trunc i64 %shr.i746 to i32
-  %conv22.i747 = and i32 %51, 3
-  %add23.i748 = or disjoint i32 %conv22.i747, %shl9.i740
+  %shl18.i742 = shl nsw i64 -1, %sub15.i741
+  %sub19.i743 = add nsw i64 %size, -1
+  %and.i744 = and i64 %shl18.i742, %sub19.i743
+  %shr.i745 = lshr i64 %and.i744, %sub15.i741
+  %51 = trunc i64 %shr.i745 to i32
+  %conv22.i746 = and i32 %51, 3
+  %add23.i747 = or disjoint i32 %conv22.i746, %shl9.i740
   br label %sz_size2index.exit.i340
 
 sz_size2index.exit.i340:                          ; preds = %if.end5.i735, %if.then.i157.i350
-  %retval.i150.i136.0 = phi i32 [ %conv.i200.i355, %if.then.i157.i350 ], [ %add23.i748, %if.end5.i735 ]
+  %retval.i150.i136.0 = phi i32 [ %conv.i200.i355, %if.then.i157.i350 ], [ %add23.i747, %if.end5.i735 ]
   %cmp3.i.i342 = icmp ugt i32 %retval.i150.i136.0, 234
-  br i1 %cmp3.i.i342, label %if.then8, label %aligned_usize_get.exit.i218.thread798
+  br i1 %cmp3.i.i342, label %if.then8, label %aligned_usize_get.exit.i218.thread797
 
-aligned_usize_get.exit.i218.thread798:            ; preds = %sz_size2index.exit.i340
+aligned_usize_get.exit.i218.thread797:            ; preds = %sz_size2index.exit.i340
   %conv.i147.i341 = zext nneg i32 %retval.i150.i136.0 to i64
   %arrayidx.i.i348 = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i341
   %52 = load i64, ptr %arrayidx.i.i348, align 8
@@ -4865,9 +4865,9 @@ aligned_usize_get.exit.i218:                      ; preds = %if.end18.i, %sz_s2u
   %or.cond714 = icmp ult i64 %58, -8070450532247928832
   br i1 %or.cond714, label %if.then8, label %if.end24.i219
 
-if.end24.i219:                                    ; preds = %aligned_usize_get.exit.i218.thread798, %aligned_usize_get.exit.i218
-  %usize.i166.0803 = phi i64 [ %52, %aligned_usize_get.exit.i218.thread798 ], [ %retval.i1244.0, %aligned_usize_get.exit.i218 ]
-  %ind.i165.0802 = phi i32 [ %retval.i150.i136.0, %aligned_usize_get.exit.i218.thread798 ], [ 0, %aligned_usize_get.exit.i218 ]
+if.end24.i219:                                    ; preds = %aligned_usize_get.exit.i218.thread797, %aligned_usize_get.exit.i218
+  %usize.i166.0802 = phi i64 [ %52, %aligned_usize_get.exit.i218.thread797 ], [ %retval.i1244.0, %aligned_usize_get.exit.i218 ]
+  %ind.i165.0801 = phi i32 [ %retval.i150.i136.0, %aligned_usize_get.exit.i218.thread797 ], [ 0, %aligned_usize_get.exit.i218 ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1881 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %59 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i1881, align 1
   %cmp35.i273 = icmp sgt i8 %59, 0
@@ -4897,12 +4897,12 @@ if.else28.i.i:                                    ; preds = %if.end24.i219
   ]
 
 if.then.i1200:                                    ; preds = %if.else28.i.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %spec.select) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %spec.select) #18
+  tail call void @abort() #19
   unreachable
 
 if.then10.i1198:                                  ; preds = %if.else28.i.i
-  %call.i1199 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %call13.i) #19
+  %call.i1199 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %call13.i) #18
   store ptr %call.i1199, ptr %arrayidx.i1186, align 8
   br label %tcache_get_from_ind.exit.i
 
@@ -4912,33 +4912,33 @@ tcache_get_from_ind.exit.i:                       ; preds = %if.then10.i1198, %i
   br i1 %cmp.i21.i, label %if.end.i466, label %if.else.i22.i
 
 if.else.i22.i:                                    ; preds = %tcache_get_from_ind.exit.i
-  %idxprom.i753 = zext nneg i32 %spec.select715 to i64
-  %arrayidx.i754 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i753
-  %63 = load atomic i64, ptr %arrayidx.i754 acquire, align 8
+  %idxprom.i752 = zext nneg i32 %spec.select715 to i64
+  %arrayidx.i753 = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i752
+  %63 = load atomic i64, ptr %arrayidx.i753 acquire, align 8
   %64 = inttoptr i64 %63 to ptr
-  %cmp.i755 = icmp eq i64 %63, 0
-  br i1 %cmp.i755, label %if.then3.i758, label %arena_get.exit760
+  %cmp.i754 = icmp eq i64 %63, 0
+  br i1 %cmp.i754, label %if.then3.i757, label %arena_get.exit759
 
-if.then3.i758:                                    ; preds = %if.else.i22.i
-  %call4.i759 = tail call ptr @arena_init(ptr noundef nonnull %call13.i, i32 noundef %spec.select715, ptr noundef nonnull @arena_config_default)
-  br label %arena_get.exit760
+if.then3.i757:                                    ; preds = %if.else.i22.i
+  %call4.i758 = tail call ptr @arena_init(ptr noundef nonnull %call13.i, i32 noundef %spec.select715, ptr noundef nonnull @arena_config_default)
+  br label %arena_get.exit759
 
-arena_get.exit760:                                ; preds = %if.else.i22.i, %if.then3.i758
-  %ret.0.i757 = phi ptr [ %call4.i759, %if.then3.i758 ], [ %64, %if.else.i22.i ]
-  %cmp2.i.i465 = icmp eq ptr %ret.0.i757, null
+arena_get.exit759:                                ; preds = %if.else.i22.i, %if.then3.i757
+  %ret.0.i756 = phi ptr [ %call4.i758, %if.then3.i757 ], [ %64, %if.else.i22.i ]
+  %cmp2.i.i465 = icmp eq ptr %ret.0.i756, null
   br i1 %cmp2.i.i465, label %arena_get_from_ind.exit.i, label %if.end.i466
 
-arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit760
+arena_get_from_ind.exit.i:                        ; preds = %arena_get.exit759
   %65 = load i32, ptr @narenas_auto, align 4
   %cmp4.i.i.not.not = icmp ult i32 %spec.select715, %65
   br i1 %cmp4.i.i.not.not, label %if.end.i466, label %if.then8
 
-if.end.i466:                                      ; preds = %arena_get.exit760, %tcache_get_from_ind.exit.i, %arena_get_from_ind.exit.i
-  %arena.i.1812 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i ], [ %ret.0.i757, %arena_get.exit760 ]
+if.end.i466:                                      ; preds = %arena_get.exit759, %tcache_get_from_ind.exit.i, %arena_get_from_ind.exit.i
+  %arena.i.1811 = phi ptr [ null, %arena_get_from_ind.exit.i ], [ null, %tcache_get_from_ind.exit.i ], [ %ret.0.i756, %arena_get.exit759 ]
   br i1 %cmp.i.i204, label %if.end.i34.i, label %if.then4.i507
 
 if.then4.i507:                                    ; preds = %if.end.i466
-  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1812, i64 noundef %usize.i166.0803, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %retval.i.i148.0, ptr noundef %tcache.i.i.0) #19
+  %call8.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1811, i64 noundef %usize.i166.0802, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %retval.i.i148.0, ptr noundef %tcache.i.i.0) #18
   br label %imalloc_no_sample.exit
 
 if.end.i34.i:                                     ; preds = %if.end.i466
@@ -4951,7 +4951,7 @@ if.then.i63.i:                                    ; preds = %if.end.i34.i
 
 if.then11.i.i:                                    ; preds = %if.then.i63.i
   %bins.i.i = getelementptr inbounds i8, ptr %tcache.i.i.0, i64 8
-  %idxprom.i.i501 = zext nneg i32 %ind.i165.0802 to i64
+  %idxprom.i.i501 = zext nneg i32 %ind.i165.0801 to i64
   %arrayidx.i.i502 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i, i64 0, i64 %idxprom.i.i501
   %66 = load ptr, ptr %arrayidx.i.i502, align 8
   %67 = load ptr, ptr %66, align 8
@@ -4981,7 +4981,7 @@ if.then22.i166.i:                                 ; preds = %if.end11.i.i504
   br label %if.end36.i.i
 
 if.then.i86.i:                                    ; preds = %if.end11.i.i504
-  %call7.i.i = tail call fastcc ptr @arena_choose(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1812)
+  %call7.i.i = tail call fastcc ptr @arena_choose(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1811)
   %cmp.i87.i = icmp eq ptr %call7.i.i, null
   br i1 %cmp.i87.i, label %if.then8, label %if.end.i88.i
 
@@ -4993,12 +4993,12 @@ if.end.i88.i:                                     ; preds = %if.then.i86.i
   br i1 %cmp.i146.i, label %if.then23.i93.i, label %if.end27.i.i
 
 if.then23.i93.i:                                  ; preds = %if.end.i88.i
-  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %ind.i165.0802, i1 noundef zeroext %retval.i.i148.0) #19
+  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %ind.i165.0801, i1 noundef zeroext %retval.i.i148.0) #18
   br label %imalloc_no_sample.exit
 
 if.end27.i.i:                                     ; preds = %if.end.i88.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i.i502, i32 noundef %ind.i165.0802, i1 noundef zeroext true) #19
-  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i.i502, i32 noundef %ind.i165.0802, ptr noundef nonnull %tcache_hard_success.i.i) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i.i502, i32 noundef %ind.i165.0801, i1 noundef zeroext true) #18
+  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i.i502, i32 noundef %ind.i165.0801, ptr noundef nonnull %tcache_hard_success.i.i) #18
   %74 = load i8, ptr %tcache_hard_success.i.i, align 1
   %75 = and i8 %74, 1
   %cmp32.i.i = icmp eq i8 %75, 0
@@ -5028,7 +5028,7 @@ if.end.i65.i:                                     ; preds = %if.then.i63.i
 
 if.then23.i.i478:                                 ; preds = %if.end.i65.i
   %bins.i111.i = getelementptr inbounds i8, ptr %tcache.i.i.0, i64 8
-  %idxprom.i112.i = zext nneg i32 %ind.i165.0802 to i64
+  %idxprom.i112.i = zext nneg i32 %ind.i165.0801 to i64
   %arrayidx.i113.i = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i, i64 0, i64 %idxprom.i112.i
   %79 = load ptr, ptr %arrayidx.i113.i, align 8
   %80 = load ptr, ptr %79, align 8
@@ -5058,12 +5058,12 @@ if.then22.i196.i:                                 ; preds = %if.end11.i187.i
   br label %if.else.i120.i
 
 if.then.i126.i:                                   ; preds = %if.end11.i187.i
-  %call7.i127.i = tail call fastcc ptr @arena_choose(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1812)
+  %call7.i127.i = tail call fastcc ptr @arena_choose(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1811)
   %cmp.i128.i = icmp eq ptr %call7.i127.i, null
   br i1 %cmp.i128.i, label %if.then8, label %if.end.i132.i
 
 if.end.i132.i:                                    ; preds = %if.then.i126.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %ind.i165.0802, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %tcache.i.i.0, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %ind.i165.0801, i1 noundef zeroext false) #18
   %cmp.i217.i = icmp ugt i64 %size, 8070450532247928832
   br i1 %cmp.i217.i, label %sz_s2u.exit.i496, label %if.end5.i.i480
 
@@ -5080,7 +5080,7 @@ if.end5.i.i480:                                   ; preds = %if.end.i132.i
 
 sz_s2u.exit.i496:                                 ; preds = %if.end5.i.i480, %if.end.i132.i
   %retval.i214.i.0 = phi i64 [ %and.i.i494, %if.end5.i.i480 ], [ 0, %if.end.i132.i ]
-  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %retval.i214.i.0, i1 noundef zeroext %retval.i.i148.0) #19
+  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %retval.i214.i.0, i1 noundef zeroext %retval.i.i148.0) #18
   br label %imalloc_no_sample.exit
 
 if.else.i120.i:                                   ; preds = %if.then.i199.i, %if.then22.i196.i
@@ -5100,7 +5100,7 @@ if.end35.i121.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %if.end.i65.i, %if.end.i34.i
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1812, i64 noundef %size, i32 noundef %ind.i165.0802, i1 noundef zeroext %retval.i.i148.0) #19
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1811, i64 noundef %size, i32 noundef %ind.i165.0801, i1 noundef zeroext %retval.i.i148.0) #18
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i496, %if.end35.i121.i, %if.then23.i93.i, %if.end50.i.i, %if.end31.i.i, %if.then4.i507
@@ -5123,15 +5123,15 @@ if.end61.i233:                                    ; preds = %imalloc_no_sample.e
   %next_event_fast.i1609 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1609, align 8
   %89 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1602, align 8
-  %add.i1530 = add i64 %89, %usize.i166.0803
+  %add.i1530 = add i64 %89, %usize.i166.0802
   store i64 %add.i1530, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1602, align 8
   %90 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1690, align 8
   %sub.i1531 = sub i64 %90, %89
-  %cmp.i1532 = icmp ult i64 %usize.i166.0803, %sub.i1531
+  %cmp.i1532 = icmp ult i64 %usize.i166.0802, %sub.i1531
   br i1 %cmp.i1532, label %land.lhs.true69.i241, label %if.else.i1536
 
 if.else.i1536:                                    ; preds = %if.end61.i233
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i241
 
 land.lhs.true69.i241:                             ; preds = %if.else.i1536, %if.end61.i233
@@ -5144,7 +5144,7 @@ land.lhs.true72.i244:                             ; preds = %land.lhs.true69.i24
 
 if.then80.i249:                                   ; preds = %land.lhs.true72.i244
   %92 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %92(ptr noundef nonnull %retval.i454.0, i64 noundef %usize.i166.0803) #19
+  call void %92(ptr noundef nonnull %retval.i454.0, i64 noundef %usize.i166.0802) #18
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then.i126.i, %if.end27.i.i, %if.then.i86.i, %arena_get_from_ind.exit.i, %sz_s2u.exit.i1260, %if.end5.i, %if.end.i156.i338, %sz_size2index.exit.i340, %imalloc_no_sample.exit, %aligned_usize_get.exit.i218, %land.lhs.true69.i241, %land.lhs.true72.i244, %if.then80.i249
@@ -5156,12 +5156,12 @@ if.then8:                                         ; preds = %if.then.i126.i, %if
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
   %93 = ptrtoint ptr %ret.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.0.ph, i64 noundef %93, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.0.ph, i64 noundef %93, ptr noundef nonnull %args) #18
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then.i126.i790, %if.end27.i.i914, %if.then.i86.i895, %arena_get_from_ind.exit.i684, %sz_s2u.exit.i1369, %if.end5.i1333, %if.end.i156.i, %sz_size2index.exit.i, %if.then.i73, %imalloc_no_sample.exit981, %aligned_usize_get.exit.i, %if.end61.i, %if.else.i1553, %if.then8
-  %ret.0823 = phi ptr [ %ret.0.ph, %if.then8 ], [ null, %if.then.i73 ], [ %retval.i654.0, %if.else.i1553 ], [ %retval.i654.0, %if.end61.i ], [ null, %aligned_usize_get.exit.i ], [ null, %imalloc_no_sample.exit981 ], [ null, %sz_size2index.exit.i ], [ null, %if.end.i156.i ], [ null, %if.end5.i1333 ], [ null, %sz_s2u.exit.i1369 ], [ null, %arena_get_from_ind.exit.i684 ], [ null, %if.then.i86.i895 ], [ null, %if.end27.i.i914 ], [ null, %if.then.i126.i790 ]
-  ret ptr %ret.0823
+  %ret.0822 = phi ptr [ %ret.0.ph, %if.then8 ], [ null, %if.then.i73 ], [ %retval.i654.0, %if.else.i1553 ], [ %retval.i654.0, %if.end61.i ], [ null, %aligned_usize_get.exit.i ], [ null, %imalloc_no_sample.exit981 ], [ null, %sz_size2index.exit.i ], [ null, %if.end.i156.i ], [ null, %if.end5.i1333 ], [ null, %sz_s2u.exit.i1369 ], [ null, %arena_get_from_ind.exit.i684 ], [ null, %if.then.i86.i895 ], [ null, %if.end27.i.i914 ], [ null, %if.then.i126.i790 ]
+  ret ptr %ret.0822
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
@@ -5192,7 +5192,7 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
@@ -5230,7 +5230,7 @@ arena_get_from_ind.exit:                          ; preds = %arena_get.exit
   br i1 %cmp4.i.not.not, label %if.end, label %return
 
 if.end:                                           ; preds = %arena_get.exit, %tsd_fetch_impl.exit, %arena_get_from_ind.exit
-  %arena.1342 = phi ptr [ null, %arena_get_from_ind.exit ], [ null, %tsd_fetch_impl.exit ], [ %ret.0.i, %arena_get.exit ]
+  %arena.1348 = phi ptr [ null, %arena_get_from_ind.exit ], [ null, %tsd_fetch_impl.exit ], [ %ret.0.i, %arena_get.exit ]
   %and.i = and i32 %flags, 1048320
   switch i32 %and.i, label %mallocx_tcache_get.exit [
     i32 0, label %tcache_get_from_ind.exit.thread
@@ -5250,7 +5250,7 @@ tcache_get_from_ind.exit.thread:                  ; preds = %mallocx_tcache_get.
   %tobool.i236 = trunc i8 %6 to i1
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i = getelementptr inbounds i8, ptr %retval.i197.0, i64 872
   %retval.i209.0 = select i1 %tobool.i236, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr null
-  %cmp.i.i586347 = icmp eq ptr %retval.i197.0, null
+  %cmp.i.i586353 = icmp eq ptr %retval.i197.0, null
   br label %if.end.i590.split
 
 if.else28.i:                                      ; preds = %mallocx_tcache_get.exit
@@ -5265,12 +5265,12 @@ if.else28.i:                                      ; preds = %mallocx_tcache_get.
   ]
 
 if.then.i226:                                     ; preds = %if.else28.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #18
+  tail call void @abort() #19
   unreachable
 
 if.then10.i:                                      ; preds = %if.else28.i
-  %call.i225 = tail call ptr @tcache_create_explicit(ptr noundef %retval.i197.0) #19
+  %call.i225 = tail call ptr @tcache_create_explicit(ptr noundef %retval.i197.0) #18
   store ptr %call.i225, ptr %arrayidx.i216, align 8
   br label %tcache_get_from_ind.exit
 
@@ -5280,22 +5280,22 @@ tcache_get_from_ind.exit:                         ; preds = %if.then10.i, %if.el
   br i1 %cmp.i.i586, label %if.then.i592, label %if.end.i590.split
 
 if.then.i592:                                     ; preds = %tcache_get_from_ind.exit
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #18
   %9 = ptrtoint ptr %ptr to i64
-  %call1.i322 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %9)
+  %call1.i322 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %9)
   br label %tsdn_rtree_ctx.exit593
 
 if.end.i590.split:                                ; preds = %tcache_get_from_ind.exit.thread, %tcache_get_from_ind.exit
-  %cmp.i.i586351 = phi i1 [ %cmp.i.i586347, %tcache_get_from_ind.exit.thread ], [ false, %tcache_get_from_ind.exit ]
-  %tcache.i.0349 = phi ptr [ %retval.i209.0, %tcache_get_from_ind.exit.thread ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
+  %cmp.i.i586357 = phi i1 [ %cmp.i.i586353, %tcache_get_from_ind.exit.thread ], [ false, %tcache_get_from_ind.exit ]
+  %tcache.i.0355 = phi ptr [ %retval.i209.0, %tcache_get_from_ind.exit.thread ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i615 = getelementptr inbounds i8, ptr %retval.i197.0, i64 448
   %10 = ptrtoint ptr %ptr to i64
-  %call1.i323 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i615, i64 noundef %10)
+  %call1.i323 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i197.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i615, i64 noundef %10)
   br label %tsdn_rtree_ctx.exit593
 
 tsdn_rtree_ctx.exit593:                           ; preds = %if.end.i590.split, %if.then.i592
-  %cmp.i.i586350 = phi i1 [ true, %if.then.i592 ], [ %cmp.i.i586351, %if.end.i590.split ]
-  %tcache.i.0348 = phi ptr [ %tcache.i.0, %if.then.i592 ], [ %tcache.i.0349, %if.end.i590.split ]
+  %cmp.i.i586356 = phi i1 [ true, %if.then.i592 ], [ %cmp.i.i586357, %if.end.i590.split ]
+  %tcache.i.0354 = phi ptr [ %tcache.i.0, %if.then.i592 ], [ %tcache.i.0355, %if.end.i590.split ]
   %11 = phi i64 [ %9, %if.then.i592 ], [ %10, %if.end.i590.split ]
   %phi.call = phi { i64, i32 } [ %call1.i322, %if.then.i592 ], [ %call1.i323, %if.end.i590.split ]
   %call1.i.fca.0.extract = extractvalue { i64, i32 } %phi.call, 0
@@ -5521,7 +5521,7 @@ sz_sa2u.exit:                                     ; preds = %if.end18.i, %sz_s2u
   br i1 %28, label %return, label %if.end.i295
 
 if.end.i295:                                      ; preds = %sz_sa2u.exit
-  %call8.i.i = call ptr @arena_palloc(ptr noundef %retval.i197.0, ptr noundef %arena.1342, i64 noundef %retval.i309.0, i64 noundef %and1, i1 noundef zeroext %retval.i81.0, ptr noundef %tcache.i.0348) #19
+  %call8.i.i = call ptr @arena_palloc(ptr noundef %retval.i197.0, ptr noundef %arena.1348, i64 noundef %retval.i309.0, i64 noundef %and1, i1 noundef zeroext %retval.i81.0, ptr noundef %tcache.i.0354) #18
   %cmp6.i297 = icmp eq ptr %call8.i.i, null
   br i1 %cmp6.i297, label %return, label %if.end9.i
 
@@ -5532,12 +5532,12 @@ if.end9.i:                                        ; preds = %if.end.i295
   %tobool12.i302 = trunc i8 %29 to i1
   %cond14.i = select i1 %tobool12.i302, i32 7, i32 8
   %30 = ptrtoint ptr %call8.i.i to i64
-  call void @hook_invoke_alloc(i32 noundef %cond14.i, ptr noundef nonnull %call8.i.i, i64 noundef %30, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef %cond14.i, ptr noundef nonnull %call8.i.i, i64 noundef %30, ptr noundef nonnull %args) #18
   %31 = load i8, ptr %hook_args, align 8
   %tobool16.i = trunc i8 %31 to i1
   %cond18.i = select i1 %tobool16.i, i32 3, i32 4
-  call void @hook_invoke_dalloc(i32 noundef %cond18.i, ptr noundef %ptr, ptr noundef nonnull %args) #19
-  %cmp.i530 = icmp eq ptr %tcache.i.0348, null
+  call void @hook_invoke_dalloc(i32 noundef %cond18.i, ptr noundef %ptr, ptr noundef nonnull %args) #18
+  %cmp.i530 = icmp eq ptr %tcache.i.0354, null
   br i1 %cmp.i530, label %if.then.i558, label %if.end.i534
 
 if.then.i558:                                     ; preds = %if.end9.i
@@ -5557,129 +5557,149 @@ if.then.i.i553:                                   ; preds = %if.end.i534
   br label %sz_size2index.exit.i
 
 if.end.i.i539:                                    ; preds = %if.end.i534
-  %call2.i.i = call fastcc i32 @sz_size2index_compute(i64 noundef %12)
+  %cmp.i340 = icmp ugt i64 %12, 8070450532247928832
+  br i1 %cmp.i340, label %if.else.i542, label %if.end5.i341
+
+if.end5.i341:                                     ; preds = %if.end.i.i539
+  %shl.i342 = shl nuw i64 %12, 1
+  %sub.i343 = add i64 %shl.i342, -1
+  %33 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i343, i1 true)
+  %34 = trunc nuw nsw i64 %33 to i32
+  %conv1.i.i.i.i = shl nuw nsw i32 %34, 2
+  %sub8.i = xor i32 %conv1.i.i.i.i, 252
+  %shl9.i = add nsw i32 %sub8.i, -20
+  %sub15.i = sub nuw nsw i64 60, %33
+  %shl18.i = shl nsw i64 -1, %sub15.i
+  %sub19.i = add nsw i64 %12, -1
+  %and.i344 = and i64 %shl18.i, %sub19.i
+  %shr.i345 = lshr i64 %and.i344, %sub15.i
+  %35 = trunc i64 %shr.i345 to i32
+  %conv22.i = and i32 %35, 3
+  %add23.i = or disjoint i32 %conv22.i, %shl9.i
   br label %sz_size2index.exit.i
 
-sz_size2index.exit.i:                             ; preds = %if.end.i.i539, %if.then.i.i553
-  %retval.i.i522.0 = phi i32 [ %conv.i29.i, %if.then.i.i553 ], [ %call2.i.i, %if.end.i.i539 ]
+sz_size2index.exit.i:                             ; preds = %if.end5.i341, %if.then.i.i553
+  %retval.i.i522.0 = phi i32 [ %conv.i29.i, %if.then.i.i553 ], [ %add23.i, %if.end5.i341 ]
   %conv7.i = zext nneg i32 %retval.i.i522.0 to i64
   %cmp8.i = icmp ult i32 %retval.i.i522.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i542
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i
-  %bins.i.i = getelementptr inbounds i8, ptr %tcache.i.0348, i64 8
+  %bins.i.i = getelementptr inbounds i8, ptr %tcache.i.0354, i64 8
   %arrayidx.i31.i = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i, i64 0, i64 %conv7.i
-  %33 = load ptr, ptr %arrayidx.i31.i, align 8
-  %34 = ptrtoint ptr %33 to i64
+  %36 = load ptr, ptr %arrayidx.i31.i, align 8
+  %37 = ptrtoint ptr %36 to i64
   %low_bits_full.i84.i = getelementptr inbounds i8, ptr %arrayidx.i31.i, i64 18
-  %35 = load i16, ptr %low_bits_full.i84.i, align 2
-  %36 = trunc i64 %34 to i16
-  %cmp.i85.i.not = icmp eq i16 %35, %36
+  %38 = load i16, ptr %low_bits_full.i84.i, align 2
+  %39 = trunc i64 %37 to i16
+  %cmp.i85.i.not = icmp eq i16 %38, %39
   br i1 %cmp.i85.i.not, label %if.then10.i.i, label %if.end.i76.i
 
 if.end.i76.i:                                     ; preds = %if.then19.i
-  %incdec.ptr.i77.i = getelementptr inbounds i8, ptr %33, i64 -8
+  %incdec.ptr.i77.i = getelementptr inbounds i8, ptr %36, i64 -8
   store ptr %incdec.ptr.i77.i, ptr %arrayidx.i31.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i77.i, align 8
   br label %do.end40
 
 if.then10.i.i:                                    ; preds = %if.then19.i
-  %37 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx.i.i.i550 = getelementptr inbounds %struct.cache_bin_info_s, ptr %37, i64 %conv7.i
+  %40 = load ptr, ptr @tcache_bin_info, align 8
+  %arrayidx.i.i.i550 = getelementptr inbounds %struct.cache_bin_info_s, ptr %40, i64 %conv7.i
   %arrayidx.i.i.i550.val = load i16, ptr %arrayidx.i.i.i550, align 2
   %cmp.i.i.i551 = icmp eq i16 %arrayidx.i.i.i550.val, 0
   br i1 %cmp.i.i.i551, label %if.then18.i.i, label %if.end20.i.i
 
 if.then18.i.i:                                    ; preds = %if.then10.i.i
-  call void @arena_dalloc_small(ptr noundef %retval.i197.0, ptr noundef %ptr) #19
+  call void @arena_dalloc_small(ptr noundef %retval.i197.0, ptr noundef %ptr) #18
   br label %do.end40
 
 if.end20.i.i:                                     ; preds = %if.then10.i.i
   %conv24.i.i = zext i16 %arrayidx.i.i.i550.val to i32
-  %38 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
-  %shr.i35.i = lshr i32 %conv24.i.i, %38
-  call void @tcache_bin_flush_small(ptr noundef %retval.i197.0, ptr noundef nonnull %tcache.i.0348, ptr noundef nonnull %arrayidx.i31.i, i32 noundef %retval.i.i522.0, i32 noundef %shr.i35.i) #19
-  %39 = load ptr, ptr %arrayidx.i31.i, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = load i16, ptr %low_bits_full.i84.i, align 2
-  %42 = trunc i64 %40 to i16
-  %cmp.i91.i = icmp eq i16 %41, %42
+  %41 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
+  %shr.i35.i = lshr i32 %conv24.i.i, %41
+  call void @tcache_bin_flush_small(ptr noundef %retval.i197.0, ptr noundef nonnull %tcache.i.0354, ptr noundef nonnull %arrayidx.i31.i, i32 noundef %retval.i.i522.0, i32 noundef %shr.i35.i) #18
+  %42 = load ptr, ptr %arrayidx.i31.i, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = load i16, ptr %low_bits_full.i84.i, align 2
+  %45 = trunc i64 %43 to i16
+  %cmp.i91.i = icmp eq i16 %44, %45
   br i1 %cmp.i91.i, label %do.end40, label %if.end.i66.i
 
 if.end.i66.i:                                     ; preds = %if.end20.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %39, i64 -8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %42, i64 -8
   store ptr %incdec.ptr.i.i, ptr %arrayidx.i31.i, align 8
   store ptr %ptr, ptr %incdec.ptr.i.i, align 8
   br label %do.end40
 
-if.else.i542:                                     ; preds = %sz_size2index.exit.i
-  %43 = load i32, ptr @nhbins, align 4
-  %cmp.i44.i = icmp ult i32 %retval.i.i522.0, %43
+if.else.i542:                                     ; preds = %if.end.i.i539, %sz_size2index.exit.i
+  %conv7.i370 = phi i64 [ %conv7.i, %sz_size2index.exit.i ], [ 235, %if.end.i.i539 ]
+  %retval.i.i522.0369 = phi i32 [ %retval.i.i522.0, %sz_size2index.exit.i ], [ 235, %if.end.i.i539 ]
+  %46 = load i32, ptr @nhbins, align 4
+  %cmp.i44.i = icmp ult i32 %retval.i.i522.0369, %46
   br i1 %cmp.i44.i, label %if.then.i48.i, label %if.else.i.i
 
 if.then.i48.i:                                    ; preds = %if.else.i542
-  %bins.i109.i = getelementptr inbounds i8, ptr %tcache.i.0348, i64 8
-  %arrayidx.i111.i545 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i, i64 0, i64 %conv7.i
-  %44 = load ptr, ptr %arrayidx.i111.i545, align 8
-  %45 = ptrtoint ptr %44 to i64
+  %bins.i109.i = getelementptr inbounds i8, ptr %tcache.i.0354, i64 8
+  %arrayidx.i111.i545 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i, i64 0, i64 %conv7.i370
+  %47 = load ptr, ptr %arrayidx.i111.i545, align 8
+  %48 = ptrtoint ptr %47 to i64
   %low_bits_full.i28.i.i = getelementptr inbounds i8, ptr %arrayidx.i111.i545, i64 18
-  %46 = load i16, ptr %low_bits_full.i28.i.i, align 2
-  %47 = trunc i64 %45 to i16
-  %cmp.i.i112.i.not = icmp eq i16 %46, %47
+  %49 = load i16, ptr %low_bits_full.i28.i.i, align 2
+  %50 = trunc i64 %48 to i16
+  %cmp.i.i112.i.not = icmp eq i16 %49, %50
   br i1 %cmp.i.i112.i.not, label %if.then.i117.i, label %if.end.i20.i.i
 
 if.end.i20.i.i:                                   ; preds = %if.then.i48.i
-  %incdec.ptr.i21.i.i = getelementptr inbounds i8, ptr %44, i64 -8
+  %incdec.ptr.i21.i.i = getelementptr inbounds i8, ptr %47, i64 -8
   store ptr %incdec.ptr.i21.i.i, ptr %arrayidx.i111.i545, align 8
   store ptr %ptr, ptr %incdec.ptr.i21.i.i, align 8
   br label %do.end40
 
 if.then.i117.i:                                   ; preds = %if.then.i48.i
-  %48 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx6.i.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %48, i64 %conv7.i
+  %51 = load ptr, ptr @tcache_bin_info, align 8
+  %arrayidx6.i.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %51, i64 %conv7.i370
   %arrayidx6.i.i.val = load i16, ptr %arrayidx6.i.i, align 2
   %conv8.i.i = zext i16 %arrayidx6.i.i.val to i32
-  %49 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
-  %shr.i118.i = lshr i32 %conv8.i.i, %49
-  call void @tcache_bin_flush_large(ptr noundef %retval.i197.0, ptr noundef nonnull %tcache.i.0348, ptr noundef nonnull %arrayidx.i111.i545, i32 noundef %retval.i.i522.0, i32 noundef %shr.i118.i) #19
-  %50 = load ptr, ptr %arrayidx.i111.i545, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = load i16, ptr %low_bits_full.i28.i.i, align 2
-  %53 = trunc i64 %51 to i16
-  %cmp.i34.i.i = icmp eq i16 %52, %53
+  %52 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
+  %shr.i118.i = lshr i32 %conv8.i.i, %52
+  call void @tcache_bin_flush_large(ptr noundef %retval.i197.0, ptr noundef nonnull %tcache.i.0354, ptr noundef nonnull %arrayidx.i111.i545, i32 noundef %retval.i.i522.0369, i32 noundef %shr.i118.i) #18
+  %53 = load ptr, ptr %arrayidx.i111.i545, align 8
+  %54 = ptrtoint ptr %53 to i64
+  %55 = load i16, ptr %low_bits_full.i28.i.i, align 2
+  %56 = trunc i64 %54 to i16
+  %cmp.i34.i.i = icmp eq i16 %55, %56
   br i1 %cmp.i34.i.i, label %do.end40, label %if.end.i.i.i546
 
 if.end.i.i.i546:                                  ; preds = %if.then.i117.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %50, i64 -8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %53, i64 -8
   store ptr %incdec.ptr.i.i.i, ptr %arrayidx.i111.i545, align 8
   store ptr %ptr, ptr %incdec.ptr.i.i.i, align 8
   br label %do.end40
 
 if.else.i.i:                                      ; preds = %if.else.i542
-  br i1 %cmp.i.i586350, label %if.then.i567, label %if.end.i566.split
+  br i1 %cmp.i.i586356, label %if.then.i567, label %if.end.i566.split
 
 if.then.i567:                                     ; preds = %if.else.i.i
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #19
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i.i, i64 noundef %11)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i.i) #18
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i.i, i64 noundef %11)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i566.split:                                ; preds = %if.else.i.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %retval.i197.0, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %11)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i197.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %11)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i566.split, %if.then.i567
-  %54 = load ptr, ptr %tmp.i.i.i, align 8
-  call void @large_dalloc(ptr noundef %retval.i197.0, ptr noundef %54) #19
+  %57 = load ptr, ptr %tmp.i.i.i, align 8
+  call void @large_dalloc(ptr noundef %retval.i197.0, ptr noundef %57) #18
   br label %do.end40
 
 iralloct.exit:                                    ; preds = %if.end38.i, %land.lhs.true.i256
-  %call6.i = call ptr @arena_ralloc(ptr noundef %retval.i197.0, ptr noundef %arena.1342, ptr noundef %ptr, i64 noundef %12, i64 noundef %size, i64 noundef %and1, i1 noundef zeroext %retval.i81.0, ptr noundef %tcache.i.0348, ptr noundef nonnull %hook_args) #19
+  %call6.i = call ptr @arena_ralloc(ptr noundef %retval.i197.0, ptr noundef %arena.1348, ptr noundef %ptr, i64 noundef %12, i64 noundef %size, i64 noundef %and1, i1 noundef zeroext %retval.i81.0, ptr noundef %tcache.i.0354, ptr noundef nonnull %hook_args) #18
   %cmp = icmp eq ptr %call6.i, null
   br i1 %cmp, label %return, label %do.end40
 
 do.end40:                                         ; preds = %if.then.i558, %if.then18.i.i, %if.end.i76.i, %if.end.i20.i.i, %tsdn_rtree_ctx.exit, %if.end20.i.i, %if.end.i66.i, %if.then.i117.i, %if.end.i.i.i546, %iralloct.exit
-  %retval.i246.0362 = phi ptr [ %call6.i, %iralloct.exit ], [ %call8.i.i, %if.end.i.i.i546 ], [ %call8.i.i, %if.then.i117.i ], [ %call8.i.i, %if.end.i66.i ], [ %call8.i.i, %if.end20.i.i ], [ %call8.i.i, %tsdn_rtree_ctx.exit ], [ %call8.i.i, %if.end.i20.i.i ], [ %call8.i.i, %if.end.i76.i ], [ %call8.i.i, %if.then18.i.i ], [ %call8.i.i, %if.then.i558 ]
+  %retval.i246.0373 = phi ptr [ %call6.i, %iralloct.exit ], [ %call8.i.i, %if.end.i.i.i546 ], [ %call8.i.i, %if.then.i117.i ], [ %call8.i.i, %if.end.i66.i ], [ %call8.i.i, %if.end20.i.i ], [ %call8.i.i, %tsdn_rtree_ctx.exit ], [ %call8.i.i, %if.end.i20.i.i ], [ %call8.i.i, %if.end.i76.i ], [ %call8.i.i, %if.then18.i.i ], [ %call8.i.i, %if.then.i558 ]
   store i8 1, ptr %ctx.i633, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i197.0, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i633, i64 8
@@ -5693,16 +5713,16 @@ do.end40:                                         ; preds = %if.then.i558, %if.t
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i745 = getelementptr inbounds i8, ptr %retval.i197.0, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i633, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i745, ptr %next_event_fast.i, align 8
-  %55 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i637 = add i64 %55, %usize.1
+  %58 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
+  %add.i637 = add i64 %58, %usize.1
   store i64 %add.i637, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %56 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
-  %sub.i639 = sub i64 %56, %55
+  %59 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
+  %sub.i639 = sub i64 %59, %58
   %cmp.i640 = icmp ult i64 %usize.1, %sub.i639
   br i1 %cmp.i640, label %te_event_advance.exit647, label %if.else.i644
 
 if.else.i644:                                     ; preds = %do.end40
-  call void @te_event_trigger(ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %ctx.i633) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %ctx.i633) #18
   br label %te_event_advance.exit647
 
 te_event_advance.exit647:                         ; preds = %do.end40, %if.else.i644
@@ -5719,21 +5739,21 @@ te_event_advance.exit647:                         ; preds = %do.end40, %if.else.
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i = getelementptr inbounds i8, ptr %retval.i197.0, i64 864
   %next_event_fast14.i689 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i, ptr %next_event_fast14.i689, align 8
-  %57 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i682, align 8
-  %add.i620 = add i64 %57, %12
+  %60 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i682, align 8
+  %add.i620 = add i64 %60, %12
   store i64 %add.i620, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i682, align 8
-  %58 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i788, align 8
-  %sub.i622 = sub i64 %58, %57
+  %61 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i788, align 8
+  %sub.i622 = sub i64 %61, %60
   %cmp.i623 = icmp ult i64 %12, %sub.i622
   br i1 %cmp.i623, label %te_event_advance.exit, label %if.else.i627
 
 if.else.i627:                                     ; preds = %te_event_advance.exit647
-  call void @te_event_trigger(ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i197.0, ptr noundef nonnull %ctx.i) #18
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit647, %if.else.i627
-  %59 = load i8, ptr @opt_junk_alloc, align 1
-  %tobool42 = trunc i8 %59 to i1
+  %62 = load i8, ptr @opt_junk_alloc, align 1
+  %tobool42 = trunc i8 %62 to i1
   %cmp49 = icmp ule i64 %usize.1, %12
   %not.tobool42 = xor i1 %tobool42, true
   %or.cond332 = select i1 %not.tobool42, i1 true, i1 %cmp49
@@ -5742,15 +5762,15 @@ te_event_advance.exit:                            ; preds = %te_event_advance.ex
 
 if.then53:                                        ; preds = %te_event_advance.exit
   %sub = sub nuw nsw i64 %usize.1, %12
-  %60 = ptrtoint ptr %retval.i246.0362 to i64
-  %add = add i64 %12, %60
-  %61 = inttoptr i64 %add to ptr
-  %62 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %62(ptr noundef %61, i64 noundef %sub) #19
+  %63 = ptrtoint ptr %retval.i246.0373 to i64
+  %add = add i64 %12, %63
+  %64 = inttoptr i64 %add to ptr
+  %65 = load ptr, ptr @junk_alloc_callback, align 8
+  call void %65(ptr noundef %64, i64 noundef %sub) #18
   br label %return
 
 return:                                           ; preds = %sz_s2u.exit.i, %if.end.i295, %sz_sa2u.exit, %sz_s2u.exit.i414, %if.end5.i378, %if.end.i138, %arena_get_from_ind.exit, %iralloct.exit, %if.end26.i, %if.then53, %te_event_advance.exit
-  %retval.0 = phi ptr [ %retval.i246.0362, %te_event_advance.exit ], [ %retval.i246.0362, %if.then53 ], [ null, %if.end26.i ], [ null, %iralloct.exit ], [ null, %arena_get_from_ind.exit ], [ null, %if.end.i138 ], [ null, %if.end5.i378 ], [ null, %sz_s2u.exit.i414 ], [ null, %sz_sa2u.exit ], [ null, %if.end.i295 ], [ null, %sz_s2u.exit.i ]
+  %retval.0 = phi ptr [ %retval.i246.0373, %te_event_advance.exit ], [ %retval.i246.0373, %if.then53 ], [ null, %if.end26.i ], [ null, %iralloct.exit ], [ null, %arena_get_from_ind.exit ], [ null, %if.end.i138 ], [ null, %if.end5.i378 ], [ null, %sz_s2u.exit.i414 ], [ null, %sz_sa2u.exit ], [ null, %if.end.i295 ], [ null, %sz_s2u.exit.i ]
   ret ptr %retval.0
 }
 
@@ -5803,7 +5823,7 @@ if.then3.i:                                       ; preds = %if.then9
   br i1 %cmp6.i.not.i, label %lor.lhs.false.i.i, label %if.then11.i.i712
 
 if.then11.i.i712:                                 ; preds = %if.then3.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %3, i1 noundef zeroext false) #19
+  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %3, i1 noundef zeroext false) #18
   br label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.then11.i.i712, %if.then3.i
@@ -5826,9 +5846,9 @@ tsdn_rtree_ctx.exit669.i:                         ; preds = %if.then18.i.i714, %
   store i64 %7, ptr %args.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %args.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.element.i, i8 0, i64 16, i1 false)
-  call void @hook_invoke_dalloc(i32 noundef 3, ptr noundef nonnull %ptr, ptr noundef nonnull %args.i) #19
+  call void @hook_invoke_dalloc(i32 noundef 3, ptr noundef nonnull %ptr, ptr noundef nonnull %args.i) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i = getelementptr inbounds i8, ptr %retval.i535.0.i, i64 448
-  %call1.i28259.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
+  %call1.i28259.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i535.0.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
   %call1.i28.fca.0.extract.i = extractvalue { i64, i32 } %call1.i28259.i, 0
   %call1.i28.fca.1.extract.i = extractvalue { i64, i32 } %call1.i28259.i, 1
   %metadata.i.sroa.0.0.extract.trunc.i = trunc i64 %call1.i28.fca.0.extract.i to i32
@@ -5843,7 +5863,7 @@ tsdn_rtree_ctx.exit669.i:                         ; preds = %if.then18.i.i714, %
 
 if.then24.i.i:                                    ; preds = %tsdn_rtree_ctx.exit669.i
   %11 = load ptr, ptr @junk_free_callback, align 8
-  call void %11(ptr noundef nonnull %ptr, i64 noundef %9) #19
+  call void %11(ptr noundef nonnull %ptr, i64 noundef %9) #18
   br label %if.end25.i.i
 
 if.end25.i.i:                                     ; preds = %if.then24.i.i, %tsdn_rtree_ctx.exit669.i
@@ -5851,21 +5871,21 @@ if.end25.i.i:                                     ; preds = %if.then24.i.i, %tsd
   br i1 %cmp.i133.i, label %tsdn_rtree_ctx.exit.thread.i, label %if.then6.i.i
 
 tsdn_rtree_ctx.exit.thread.i:                     ; preds = %if.end25.i.i
-  %call1.i11.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
+  %call1.i11.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i535.0.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
   %call1.i.fca.1.extract13.i = extractvalue { i64, i32 } %call1.i11.i, 1
   %12 = and i32 %call1.i.fca.1.extract13.i, 256
   %tobool.i.not14.i = icmp eq i32 %12, 0
-  br i1 %tobool.i.not14.i, label %arena_dalloc_large_no_tcache.exit.i, label %if.then.i741
+  br i1 %tobool.i.not14.i, label %arena_dalloc_large_no_tcache.exit.i, label %if.then.i740
 
-if.then.i741:                                     ; preds = %tsdn_rtree_ctx.exit.thread.i
-  call void @arena_dalloc_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ptr) #19
+if.then.i740:                                     ; preds = %tsdn_rtree_ctx.exit.thread.i
+  call void @arena_dalloc_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ptr) #18
   br label %ifree.exit.i
 
 arena_dalloc_large_no_tcache.exit.i:              ; preds = %tsdn_rtree_ctx.exit.thread.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i.i)
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i535.0.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
   %13 = load ptr, ptr %tmp.i.i.i, align 8
-  call void @large_dalloc(ptr noundef nonnull %retval.i535.0.i, ptr noundef %13) #19
+  call void @large_dalloc(ptr noundef nonnull %retval.i535.0.i, ptr noundef %13) #18
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i.i)
   br label %ifree.exit.i
 
@@ -5897,14 +5917,14 @@ if.then10.i251.i:                                 ; preds = %if.then17.i.i
   br i1 %cmp.i.i256.i, label %if.then18.i272.i, label %if.end20.i264.i
 
 if.then18.i272.i:                                 ; preds = %if.then10.i251.i
-  call void @arena_dalloc_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ptr) #19
+  call void @arena_dalloc_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ptr) #18
   br label %ifree.exit.i
 
 if.end20.i264.i:                                  ; preds = %if.then10.i251.i
   %conv24.i268.i = zext i16 %arrayidx.i.i253.val.i to i32
   %19 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i269.i = lshr i32 %conv24.i268.i, %19
-  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %tcache.i.0.i, ptr noundef nonnull %arrayidx.i243.i, i32 noundef %metadata.i.sroa.0.0.extract.trunc.i, i32 noundef %shr.i269.i) #19
+  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %tcache.i.0.i, ptr noundef nonnull %arrayidx.i243.i, i32 noundef %metadata.i.sroa.0.0.extract.trunc.i, i32 noundef %shr.i269.i) #18
   %20 = load ptr, ptr %arrayidx.i243.i, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = load i16, ptr %low_bits_full.i419.i, align 2
@@ -5947,7 +5967,7 @@ if.then.i460.i:                                   ; preds = %if.then.i323.i
   %conv8.i.i = zext i16 %arrayidx6.i.val.i to i32
   %30 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i461.i = lshr i32 %conv8.i.i, %30
-  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %tcache.i.0.i, ptr noundef nonnull %arrayidx.i454.i, i32 noundef %metadata.i.sroa.0.0.extract.trunc.i, i32 noundef %shr.i461.i) #19
+  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %tcache.i.0.i, ptr noundef nonnull %arrayidx.i454.i, i32 noundef %metadata.i.sroa.0.0.extract.trunc.i, i32 noundef %shr.i461.i) #18
   %31 = load ptr, ptr %arrayidx.i454.i, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = load i16, ptr %low_bits_full.i28.i.i, align 2
@@ -5962,12 +5982,12 @@ if.end.i.i463.i:                                  ; preds = %if.then.i460.i
   br label %ifree.exit.i
 
 tsdn_rtree_ctx.exit.i:                            ; preds = %if.else20.i144.i
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i308.i, ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i308.i, ptr noundef nonnull %retval.i535.0.i, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i723.i, i64 noundef %7)
   %35 = load ptr, ptr %tmp.i.i308.i, align 8
-  call void @large_dalloc(ptr noundef nonnull %retval.i535.0.i, ptr noundef %35) #19
+  call void @large_dalloc(ptr noundef nonnull %retval.i535.0.i, ptr noundef %35) #18
   br label %ifree.exit.i
 
-ifree.exit.i:                                     ; preds = %arena_dalloc_large_no_tcache.exit.i, %if.then.i741, %tsdn_rtree_ctx.exit.i, %if.end.i.i463.i, %if.then.i460.i, %if.end.i20.i.i, %if.end.i364.i, %if.end20.i264.i, %if.then18.i272.i, %if.end.i374.i
+ifree.exit.i:                                     ; preds = %arena_dalloc_large_no_tcache.exit.i, %if.then.i740, %tsdn_rtree_ctx.exit.i, %if.end.i.i463.i, %if.then.i460.i, %if.end.i20.i.i, %if.end.i364.i, %if.end20.i264.i, %if.then18.i272.i, %if.end.i374.i
   store i8 0, ptr %ctx.i.i, align 8
   %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i.i = getelementptr inbounds i8, ptr %retval.i535.0.i, i64 856
   %current8.i.i = getelementptr inbounds i8, ptr %ctx.i.i, i64 8
@@ -5990,11 +6010,11 @@ ifree.exit.i:                                     ; preds = %arena_dalloc_large_
   br i1 %cmp.i731.i, label %do_realloc_nonnull_zero.exit, label %if.else.i735.i
 
 if.else.i735.i:                                   ; preds = %ifree.exit.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ctx.i.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i535.0.i, ptr noundef nonnull %ctx.i.i) #18
   br label %do_realloc_nonnull_zero.exit
 
 if.else9.i:                                       ; preds = %if.then9
-  tail call void (ptr, ...) @safety_check_fail(ptr noundef nonnull @.str.162) #19
+  tail call void (ptr, ...) @safety_check_fail(ptr noundef nonnull @.str.162) #18
   br label %do_realloc_nonnull_zero.exit
 
 do_realloc_nonnull_zero.exit:                     ; preds = %if.then.i, %ifree.exit.i, %if.else.i735.i, %if.else9.i
@@ -6012,14 +6032,14 @@ if.else14:                                        ; preds = %if.else
   br i1 %cmp6.i1130.not, label %if.then2.i.i, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.else14
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %38, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %38, i1 noundef zeroext false) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %40 = icmp eq i8 %.pre, 0
   br i1 %40, label %if.then2.i.i, label %land.lhs.true8.i
 
 if.then2.i.i:                                     ; preds = %if.else14, %tsd_fetch_impl.exit
-  %retval.i1121.0783 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %38, %if.else14 ]
+  %retval.i1121.0782 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %38, %if.else14 ]
   %cmp.i152.i = icmp ult i64 %size, 4097
   br i1 %cmp.i152.i, label %if.then.i157.i, label %if.end.i156.i
 
@@ -6062,12 +6082,12 @@ land.lhs.true.i31.i686:                           ; preds = %sz_size2index.exit.
   %conv.i147.i = zext nneg i32 %retval.i150.i.0 to i64
   %arrayidx.i.i = getelementptr inbounds [235 x i64], ptr @sz_index2size_tab, i64 0, i64 %conv.i147.i
   %45 = load i64, ptr %arrayidx.i.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118 = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 872
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118 = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 872
   %cmp3.i.i728 = icmp ult i64 %size, 14337
   br i1 %cmp3.i.i728, label %if.then11.i.i844, label %if.end.i65.i732
 
 if.then11.i.i844:                                 ; preds = %land.lhs.true.i31.i686
-  %bins.i.i849 = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 880
+  %bins.i.i849 = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 880
   %arrayidx.i.i851 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i849, i64 0, i64 %conv.i147.i
   %46 = load ptr, ptr %arrayidx.i.i851, align 8
   %47 = load ptr, ptr %46, align 8
@@ -6097,7 +6117,7 @@ if.then22.i166.i924:                              ; preds = %if.end11.i.i915
   br label %if.end50.i.i875
 
 if.then.i86.i882:                                 ; preds = %if.end11.i.i915
-  %call7.i.i883 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1121.0783, ptr noundef null)
+  %call7.i.i883 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1121.0782, ptr noundef null)
   %cmp.i87.i884 = icmp eq ptr %call7.i.i883, null
   br i1 %cmp.i87.i884, label %if.then112.i, label %if.end.i88.i888
 
@@ -6109,12 +6129,12 @@ if.end.i88.i888:                                  ; preds = %if.then.i86.i882
   br i1 %cmp.i146.i893, label %if.then23.i93.i908, label %if.end27.i.i901
 
 if.then23.i93.i908:                               ; preds = %if.end.i88.i888
-  %call26.i.i910 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %call7.i.i883, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call26.i.i910 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %call7.i.i883, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit968
 
 if.end27.i.i901:                                  ; preds = %if.end.i88.i888
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i.i851, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #19
-  %call29.i92.i902 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %call7.i.i883, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i.i851, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i593) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i.i851, i32 noundef %retval.i150.i.0, i1 noundef zeroext true) #18
+  %call29.i92.i902 = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %call7.i.i883, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i.i851, i32 noundef %retval.i150.i.0, ptr noundef nonnull %tcache_hard_success.i.i593) #18
   %54 = load i8, ptr %tcache_hard_success.i.i593, align 1
   %55 = and i8 %54, 1
   %cmp32.i.i905 = icmp eq i8 %55, 0
@@ -6134,7 +6154,7 @@ if.end.i65.i732:                                  ; preds = %land.lhs.true.i31.i
   br i1 %cmp15.i.i733.not, label %if.end31.i.i699, label %if.then23.i.i738
 
 if.then23.i.i738:                                 ; preds = %if.end.i65.i732
-  %bins.i111.i743 = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 880
+  %bins.i111.i743 = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 880
   %arrayidx.i113.i745 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i111.i743, i64 0, i64 %conv.i147.i
   %58 = load ptr, ptr %arrayidx.i113.i745, align 8
   %59 = load ptr, ptr %58, align 8
@@ -6164,12 +6184,12 @@ if.then22.i196.i840:                              ; preds = %if.end11.i187.i831
   br label %if.end35.i121.i769
 
 if.then.i126.i777:                                ; preds = %if.end11.i187.i831
-  %call7.i127.i778 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1121.0783, ptr noundef null)
+  %call7.i127.i778 = tail call fastcc ptr @arena_choose(ptr noundef nonnull %retval.i1121.0782, ptr noundef null)
   %cmp.i128.i779 = icmp eq ptr %call7.i127.i778, null
   br i1 %cmp.i128.i779, label %if.then112.i, label %sz_s2u.exit.i812
 
 sz_s2u.exit.i812:                                 ; preds = %if.then.i126.i777
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i113.i745, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i1118, ptr noundef nonnull %arrayidx.i113.i745, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   %shl.i.i796 = shl nuw i64 %size, 1
   %sub.i.i797 = add i64 %shl.i.i796, -1
   %65 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i797, i1 true)
@@ -6178,7 +6198,7 @@ sz_s2u.exit.i812:                                 ; preds = %if.then.i126.i777
   %sub12.i.i807 = xor i64 %notmask709, -1
   %add.i.i808 = add nuw nsw i64 %size, %sub12.i.i807
   %and.i.i810 = and i64 %add.i.i808, %notmask709
-  %call19.i133.i814 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %call7.i127.i778, i64 noundef %and.i.i810, i1 noundef zeroext false) #19
+  %call19.i133.i814 = tail call ptr @large_malloc(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %call7.i127.i778, i64 noundef %and.i.i810, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit968
 
 if.end35.i121.i769:                               ; preds = %if.then.i199.i843, %if.then22.i196.i840
@@ -6189,7 +6209,7 @@ if.end35.i121.i769:                               ; preds = %if.then.i199.i843, 
   br label %imalloc_no_sample.exit968
 
 if.end31.i.i699:                                  ; preds = %if.end.i65.i732
-  %call33.i.i701 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1121.0783, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #19
+  %call33.i.i701 = tail call ptr @arena_malloc_hard(ptr noundef nonnull %retval.i1121.0782, ptr noundef null, i64 noundef %size, i32 noundef %retval.i150.i.0, i1 noundef zeroext false) #18
   br label %imalloc_no_sample.exit968
 
 imalloc_no_sample.exit968:                        ; preds = %sz_s2u.exit.i812, %if.end35.i121.i769, %if.then23.i93.i908, %if.end50.i.i875, %if.end31.i.i699
@@ -6199,16 +6219,16 @@ imalloc_no_sample.exit968:                        ; preds = %sz_s2u.exit.i812, %
 
 if.end61.i:                                       ; preds = %imalloc_no_sample.exit968
   store i8 1, ptr %ctx.i1528, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 840
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 840
   %current.i = getelementptr inbounds i8, ptr %ctx.i1528, i64 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 8
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 8
   %last_event.i = getelementptr inbounds i8, ptr %ctx.i1528, i64 16
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 16
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 16
   %next_event.i = getelementptr inbounds i8, ptr %ctx.i1528, i64 24
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, ptr %next_event.i, align 8
-  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1639 = getelementptr inbounds i8, ptr %retval.i1121.0783, i64 848
+  %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1639 = getelementptr inbounds i8, ptr %retval.i1121.0782, i64 848
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1528, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1639, ptr %next_event_fast.i, align 8
   %67 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
@@ -6220,11 +6240,11 @@ if.end61.i:                                       ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1535, label %return, label %if.else.i1539
 
 if.else.i1539:                                    ; preds = %if.end61.i
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1121.0783, ptr noundef nonnull %ctx.i1528) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1121.0782, ptr noundef nonnull %ctx.i1528) #18
   br label %return
 
 if.then112.i:                                     ; preds = %if.then.i126.i777, %if.end27.i.i901, %if.then.i86.i882, %if.end.i156.i, %sz_size2index.exit.i, %imalloc_no_sample.exit968
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i, align 4
   br label %return
 
@@ -6238,7 +6258,7 @@ land.lhs.true.i.i63:                              ; preds = %land.lhs.true8.i
   br i1 %call3.i.i64, label %if.then.i62, label %land.lhs.true.i.i343
 
 if.then.i62:                                      ; preds = %land.lhs.true.i.i63
-  %call.i717 = tail call ptr @__errno_location() #21
+  %call.i717 = tail call ptr @__errno_location() #20
   store i32 12, ptr %call.i717, align 4
   br label %return
 
@@ -6269,17 +6289,17 @@ if.end5.i719:                                     ; preds = %if.end.i156.i325
   %sub8.i723 = xor i32 %conv1.i.i.i.i722, 252
   %shl9.i724 = add nsw i32 %sub8.i723, -20
   %sub15.i725 = sub nuw nsw i64 60, %72
-  %shl18.i727 = shl nsw i64 -1, %sub15.i725
-  %sub19.i728 = add nsw i64 %size, -1
-  %and.i729 = and i64 %shl18.i727, %sub19.i728
-  %shr.i730 = lshr i64 %and.i729, %sub15.i725
-  %74 = trunc i64 %shr.i730 to i32
-  %conv22.i731 = and i32 %74, 3
-  %add23.i732 = or disjoint i32 %conv22.i731, %shl9.i724
+  %shl18.i726 = shl nsw i64 -1, %sub15.i725
+  %sub19.i727 = add nsw i64 %size, -1
+  %and.i728 = and i64 %shl18.i726, %sub19.i727
+  %shr.i729 = lshr i64 %and.i728, %sub15.i725
+  %74 = trunc i64 %shr.i729 to i32
+  %conv22.i730 = and i32 %74, 3
+  %add23.i731 = or disjoint i32 %conv22.i730, %shl9.i724
   br label %sz_size2index.exit.i327
 
 sz_size2index.exit.i327:                          ; preds = %if.end5.i719, %if.then.i157.i337
-  %retval.i150.i123.0 = phi i32 [ %conv.i200.i342, %if.then.i157.i337 ], [ %add23.i732, %if.end5.i719 ]
+  %retval.i150.i123.0 = phi i32 [ %conv.i200.i342, %if.then.i157.i337 ], [ %add23.i731, %if.end5.i719 ]
   %cmp3.i.i329 = icmp ugt i32 %retval.i150.i123.0, 234
   br i1 %cmp3.i.i329, label %if.then112.i255, label %if.end24.i206
 
@@ -6301,15 +6321,15 @@ tcache_get_from_ind.exit.i.thread:                ; preds = %if.end24.i206
 if.else.i22.i:                                    ; preds = %if.end24.i206
   %78 = load atomic i64, ptr @arenas acquire, align 64
   %79 = inttoptr i64 %78 to ptr
-  %cmp.i735 = icmp eq i64 %78, 0
-  br i1 %cmp.i735, label %if.then3.i737, label %arena_get.exit
+  %cmp.i734 = icmp eq i64 %78, 0
+  br i1 %cmp.i734, label %if.then3.i736, label %arena_get.exit
 
-if.then3.i737:                                    ; preds = %if.else.i22.i
+if.then3.i736:                                    ; preds = %if.else.i22.i
   %call4.i = tail call ptr @arena_init(ptr noundef nonnull %call13.i, i32 noundef 0, ptr noundef nonnull @arena_config_default)
   br label %arena_get.exit
 
-arena_get.exit:                                   ; preds = %if.else.i22.i, %if.then3.i737
-  %ret.0.i = phi ptr [ %call4.i, %if.then3.i737 ], [ %79, %if.else.i22.i ]
+arena_get.exit:                                   ; preds = %if.else.i22.i, %if.then3.i736
+  %ret.0.i = phi ptr [ %call4.i, %if.then3.i736 ], [ %79, %if.else.i22.i ]
   %cmp2.i.i452 = icmp eq ptr %ret.0.i, null
   br i1 %cmp2.i.i452, label %arena_get_from_ind.exit.i, label %if.end31.i.i
 
@@ -6365,12 +6385,12 @@ if.end.i88.i:                                     ; preds = %if.then.i86.i
   br i1 %cmp.i146.i, label %if.then23.i93.i, label %if.end27.i.i
 
 if.then23.i93.i:                                  ; preds = %if.end.i88.i
-  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #19
+  %call26.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #18
   br label %imalloc_no_sample.exit
 
 if.end27.i.i:                                     ; preds = %if.end.i88.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i.i489, i32 noundef %retval.i150.i123.0, i1 noundef zeroext true) #19
-  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i.i489, i32 noundef %retval.i150.i123.0, ptr noundef nonnull %tcache_hard_success.i.i) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i.i489, i32 noundef %retval.i150.i123.0, i1 noundef zeroext true) #18
+  %call29.i92.i = call ptr @tcache_alloc_small_hard(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i.i489, i32 noundef %retval.i150.i123.0, ptr noundef nonnull %tcache_hard_success.i.i) #18
   %89 = load i8, ptr %tcache_hard_success.i.i, align 1
   %90 = and i8 %89, 1
   %cmp32.i.i = icmp eq i8 %90, 0
@@ -6433,7 +6453,7 @@ if.then.i126.i:                                   ; preds = %if.end11.i187.i
   br i1 %cmp.i128.i, label %if.then112.i255, label %sz_s2u.exit.i483
 
 sz_s2u.exit.i483:                                 ; preds = %if.then.i126.i
-  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i123.0, i1 noundef zeroext false) #19
+  tail call void @tcache_bin_flush_stashed(ptr noundef nonnull %call13.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i1152, ptr noundef nonnull %arrayidx.i113.i, i32 noundef %retval.i150.i123.0, i1 noundef zeroext false) #18
   %shl.i.i468 = shl nuw i64 %size, 1
   %sub.i.i469 = add i64 %shl.i.i468, -1
   %101 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i.i469, i1 true)
@@ -6442,7 +6462,7 @@ sz_s2u.exit.i483:                                 ; preds = %if.then.i126.i
   %sub12.i.i478 = xor i64 %notmask, -1
   %add.i.i479 = add nuw nsw i64 %size, %sub12.i.i478
   %and.i.i481 = and i64 %add.i.i479, %notmask
-  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i481, i1 noundef zeroext %tobool2.i.i344) #19
+  %call19.i133.i = tail call ptr @large_malloc(ptr noundef nonnull %call13.i, ptr noundef nonnull %call7.i127.i, i64 noundef %and.i.i481, i1 noundef zeroext %tobool2.i.i344) #18
   br label %imalloc_no_sample.exit
 
 if.else.i120.i:                                   ; preds = %if.then.i199.i, %if.then22.i196.i
@@ -6461,8 +6481,8 @@ if.end35.i121.i:                                  ; preds = %if.then31.i.i, %if.
   br label %imalloc_no_sample.exit
 
 if.end31.i.i:                                     ; preds = %arena_get.exit, %tcache_get_from_ind.exit.i.thread, %arena_get_from_ind.exit.i, %if.end.i65.i
-  %arena.i.1770788 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
-  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1770788, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #19
+  %arena.i.1769787 = phi ptr [ null, %if.end.i65.i ], [ %ret.0.i, %arena_get.exit ], [ null, %tcache_get_from_ind.exit.i.thread ], [ null, %arena_get_from_ind.exit.i ]
+  %call33.i.i = tail call ptr @arena_malloc_hard(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1769787, i64 noundef %size, i32 noundef %retval.i150.i123.0, i1 noundef zeroext %tobool2.i.i344) #18
   br label %imalloc_no_sample.exit
 
 imalloc_no_sample.exit:                           ; preds = %sz_s2u.exit.i483, %if.end35.i121.i, %if.then23.i93.i, %if.end50.i.i, %if.end31.i.i
@@ -6493,7 +6513,7 @@ if.end61.i220:                                    ; preds = %imalloc_no_sample.e
   br i1 %cmp.i1518, label %land.lhs.true69.i228, label %if.else.i1522
 
 if.else.i1522:                                    ; preds = %if.end61.i220
-  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %call13.i, ptr noundef nonnull %ctx.i) #18
   br label %land.lhs.true69.i228
 
 land.lhs.true69.i228:                             ; preds = %if.else.i1522, %if.end61.i220
@@ -6506,12 +6526,12 @@ land.lhs.true72.i231:                             ; preds = %land.lhs.true69.i22
 
 if.then80.i236:                                   ; preds = %land.lhs.true72.i231
   %107 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %107(ptr noundef nonnull %retval.i441.0, i64 noundef %75) #19
+  call void %107(ptr noundef nonnull %retval.i441.0, i64 noundef %75) #18
   br label %if.then18
 
 if.then112.i255:                                  ; preds = %if.then.i126.i, %if.end27.i.i, %if.then.i86.i, %arena_get_from_ind.exit.i, %if.end.i156.i325, %sz_size2index.exit.i327, %imalloc_no_sample.exit
-  %call.i739 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %call.i739, align 4
+  %call.i738 = tail call ptr @__errno_location() #20
+  store i32 12, ptr %call.i738, align 4
   br label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true69.i228, %land.lhs.true72.i231, %if.then80.i236, %if.then112.i255
@@ -6523,7 +6543,7 @@ if.then18:                                        ; preds = %land.lhs.true69.i22
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
   %109 = ptrtoint ptr %ret15.0.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret15.0.ph, i64 noundef %109, ptr noundef nonnull %args) #19
+  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret15.0.ph, i64 noundef %109, ptr noundef nonnull %args) #18
   br label %return
 
 return:                                           ; preds = %if.then.i62, %if.end61.i, %if.else.i1539, %if.then112.i, %if.then18, %do_realloc_nonnull_zero.exit, %if.then
@@ -6557,24 +6577,24 @@ entry:
   br i1 %cmp6.i.not, label %if.end.i131.split, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   %cmp.i.i138 = icmp eq ptr %call13.i, null
   br i1 %cmp.i.i138, label %if.then.i132, label %if.end.i131.split
 
 if.then.i132:                                     ; preds = %tsd_fetch_impl.exit
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #18
   %3 = ptrtoint ptr %ptr to i64
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %3)
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i97) #19
-  %call1.i116 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i97, i64 noundef %3)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %3)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i97) #18
+  %call1.i116 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i97, i64 noundef %3)
   br label %tsdn_rtree_ctx.exit
 
 if.end.i131.split:                                ; preds = %entry, %tsd_fetch_impl.exit
   %retval.i118.0122 = phi ptr [ %call13.i, %tsd_fetch_impl.exit ], [ %1, %entry ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i158 = getelementptr inbounds i8, ptr %retval.i118.0122, i64 448
   %4 = ptrtoint ptr %ptr to i64
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i, ptr noundef nonnull %retval.i118.0122, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i158, i64 noundef %4)
-  %call1.i117 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i118.0122, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i158, i64 noundef %4)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i, ptr noundef nonnull %retval.i118.0122, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i158, i64 noundef %4)
+  %call1.i117 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i118.0122, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i158, i64 noundef %4)
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.end.i131.split, %if.then.i132
@@ -6605,7 +6625,7 @@ ixallocx_helper.exit.thread:                      ; preds = %land.lhs.true.i173
   br label %label_not_resized
 
 ixallocx_helper.exit:                             ; preds = %if.end, %land.lhs.true.i173
-  %call4.i = call zeroext i1 @arena_ralloc_no_move(ptr noundef %retval.i118.0121128, ptr noundef %ptr, i64 noundef %6, i64 noundef %size, i64 noundef %spec.select, i1 noundef zeroext %retval.i.0, ptr noundef nonnull %newsize.i) #19
+  %call4.i = call zeroext i1 @arena_ralloc_no_move(ptr noundef %retval.i118.0121128, ptr noundef %ptr, i64 noundef %6, i64 noundef %size, i64 noundef %spec.select, i1 noundef zeroext %retval.i.0, ptr noundef nonnull %newsize.i) #18
   %7 = load i64, ptr %newsize.i, align 8
   %spec.select118 = select i1 %call4.i, i64 %6, i64 %7
   %cmp39 = icmp eq i64 %spec.select118, %6
@@ -6634,7 +6654,7 @@ if.end48:                                         ; preds = %ixallocx_helper.exi
   br i1 %cmp.i197, label %te_event_advance.exit204, label %if.else.i201
 
 if.else.i201:                                     ; preds = %if.end48
-  call void @te_event_trigger(ptr noundef nonnull %retval.i118.0121128, ptr noundef nonnull %ctx.i190) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i118.0121128, ptr noundef nonnull %ctx.i190) #18
   br label %te_event_advance.exit204
 
 te_event_advance.exit204:                         ; preds = %if.end48, %if.else.i201
@@ -6660,7 +6680,7 @@ te_event_advance.exit204:                         ; preds = %if.end48, %if.else.
   br i1 %cmp.i180, label %te_event_advance.exit, label %if.else.i184
 
 if.else.i184:                                     ; preds = %te_event_advance.exit204
-  call void @te_event_trigger(ptr noundef nonnull %retval.i118.0121128, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i118.0121128, ptr noundef nonnull %ctx.i) #18
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %te_event_advance.exit204, %if.else.i184
@@ -6677,7 +6697,7 @@ if.then60:                                        ; preds = %te_event_advance.ex
   %add = add i64 %6, %5
   %13 = inttoptr i64 %add to ptr
   %14 = load ptr, ptr @junk_alloc_callback, align 8
-  call void %14(ptr noundef %13, i64 noundef %sub61) #19
+  call void %14(ptr noundef %13, i64 noundef %sub61) #18
   br label %label_not_resized
 
 label_not_resized:                                ; preds = %ixallocx_helper.exit.thread, %te_event_advance.exit, %tsdn_rtree_ctx.exit, %if.then60, %ixallocx_helper.exit
@@ -6697,7 +6717,7 @@ if.then72:                                        ; preds = %label_not_resized
   %arrayinit.element74 = getelementptr inbounds i8, ptr %args, i64 24
   %conv75 = sext i32 %flags to i64
   store i64 %conv75, ptr %arrayinit.element74, align 8
-  call void @hook_invoke_expand(i32 noundef 2, ptr noundef %ptr, i64 noundef %6, i64 noundef %usize.0, i64 noundef %usize.0, ptr noundef nonnull %args) #19
+  call void @hook_invoke_expand(i32 noundef 2, ptr noundef %ptr, i64 noundef %6, i64 noundef %usize.0, i64 noundef %usize.0, ptr noundef nonnull %args) #18
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then72, %label_not_resized
@@ -6722,21 +6742,21 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.i.not, label %if.end.i.i.split, label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   %cmp.i.i.i = icmp eq ptr %call13.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.i.split
 
 if.then.i.i:                                      ; preds = %entry, %tsdn_fetch.exit
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
   %3 = ptrtoint ptr %ptr to i64
-  %call1.i.i12 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %3)
+  %call1.i.i12 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %3)
   br label %arena_salloc.exit
 
 if.end.i.i.split:                                 ; preds = %if.end.i, %tsdn_fetch.exit
   %retval.i.019 = phi ptr [ %call13.i, %tsdn_fetch.exit ], [ %1, %if.end.i ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i = getelementptr inbounds i8, ptr %retval.i.019, i64 448
   %4 = ptrtoint ptr %ptr to i64
-  %call1.i.i13 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i.019, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
+  %call1.i.i13 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i.019, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
   br label %arena_salloc.exit
 
 arena_salloc.exit:                                ; preds = %if.end.i.i.split, %if.then.i.i
@@ -6763,7 +6783,7 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #18
   %state.i1284.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i1284.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -6818,12 +6838,12 @@ if.else28.i:                                      ; preds = %mallocx_tcache_get.
   ]
 
 if.then.i1323:                                    ; preds = %if.else28.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #18
+  tail call void @abort() #19
   unreachable
 
 if.then10.i1321:                                  ; preds = %if.else28.i
-  %call.i1322 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1291.0) #19
+  %call.i1322 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i1291.0) #18
   store ptr %call.i1322, ptr %arrayidx.i1312, align 8
   br label %tcache_get_from_ind.exit
 
@@ -6835,7 +6855,7 @@ tsdn_rtree_ctx.exit1517:                          ; preds = %tcache_get_from_ind
   %tcache.i.0530 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, %tcache_get_from_ind.exit.thread528 ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1627 = getelementptr inbounds i8, ptr %retval.i1291.0, i64 448
   %7 = ptrtoint ptr %ptr to i64
-  %call1.i83495 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1627, i64 noundef %7)
+  %call1.i83495 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1291.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1627, i64 noundef %7)
   %call1.i83.fca.0.extract = extractvalue { i64, i32 } %call1.i83495, 0
   %metadata.i.sroa.0.0.extract.trunc = trunc i64 %call1.i83.fca.0.extract to i32
   %idxprom.i = and i64 %call1.i83.fca.0.extract, 4294967295
@@ -6879,14 +6899,14 @@ if.then10.i:                                      ; preds = %if.then17.i515
   br i1 %cmp.i.i535, label %if.then18.i542, label %if.end20.i
 
 if.then18.i542:                                   ; preds = %if.then10.i
-  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i1291.0, ptr noundef %ptr) #19
+  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i1291.0, ptr noundef %ptr) #18
   br label %ifree.exit72
 
 if.end20.i:                                       ; preds = %if.then10.i
   %conv24.i = zext i16 %arrayidx.i.i534.val to i32
   %15 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i541 = lshr i32 %conv24.i, %15
-  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0530, ptr noundef nonnull %arrayidx.i528, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i541) #19
+  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0530, ptr noundef nonnull %arrayidx.i528, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i541) #18
   %16 = load ptr, ptr %arrayidx.i528, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = load i16, ptr %low_bits_full.i1000, align 2
@@ -6929,7 +6949,7 @@ if.then.i1253:                                    ; preds = %if.then.i744
   %conv8.i1257 = zext i16 %arrayidx6.i1255.val to i32
   %26 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i1258 = lshr i32 %conv8.i1257, %26
-  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0530, ptr noundef nonnull %arrayidx.i1234, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i1258) #19
+  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0530, ptr noundef nonnull %arrayidx.i1234, i32 noundef %metadata.i.sroa.0.0.extract.trunc, i32 noundef %shr.i1258) #18
   %27 = load ptr, ptr %arrayidx.i1234, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = load i16, ptr %low_bits_full.i28.i1237, align 2
@@ -6944,9 +6964,9 @@ if.end.i.i1267:                                   ; preds = %if.then.i1253
   br label %ifree.exit72
 
 tsdn_rtree_ctx.exit1387:                          ; preds = %if.else20.i513
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1627, i64 noundef %7)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %retval.i1291.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1627, i64 noundef %7)
   %31 = load ptr, ptr %tmp.i.i, align 8
-  tail call void @large_dalloc(ptr noundef nonnull %retval.i1291.0, ptr noundef %31) #19
+  tail call void @large_dalloc(ptr noundef nonnull %retval.i1291.0, ptr noundef %31) #18
   br label %ifree.exit72
 
 ifree.exit72:                                     ; preds = %if.end.i20.i1243, %if.end.i992, %if.end.i.i1267, %if.then.i1253, %if.end.i979, %if.end20.i, %if.then.i518, %if.then18.i542, %tsdn_rtree_ctx.exit1387
@@ -6980,9 +7000,9 @@ tsdn_rtree_ctx.exit1504:                          ; preds = %if.then18.i, %lor.l
   store i64 %conv13, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args_raw, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  call void @hook_invoke_dalloc(i32 noundef 1, ptr noundef %ptr, ptr noundef nonnull %args_raw) #19
+  call void @hook_invoke_dalloc(i32 noundef 1, ptr noundef %ptr, ptr noundef nonnull %args_raw) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1621 = getelementptr inbounds i8, ptr %retval.i1291.0, i64 448
-  %call1.i95509 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1621, i64 noundef %34)
+  %call1.i95509 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i1291.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1621, i64 noundef %34)
   %call1.i95.fca.0.extract = extractvalue { i64, i32 } %call1.i95509, 0
   %call1.i95.fca.1.extract = extractvalue { i64, i32 } %call1.i95509, 1
   %metadata.i92.sroa.0.0.extract.trunc = trunc i64 %call1.i95.fca.0.extract to i32
@@ -6997,7 +7017,7 @@ tsdn_rtree_ctx.exit1504:                          ; preds = %if.then18.i, %lor.l
 
 if.then24.i:                                      ; preds = %tsdn_rtree_ctx.exit1504
   %38 = load ptr, ptr @junk_free_callback, align 8
-  call void %38(ptr noundef %ptr, i64 noundef %36) #19
+  call void %38(ptr noundef %ptr, i64 noundef %36) #18
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then24.i, %tsdn_rtree_ctx.exit1504
@@ -7036,14 +7056,14 @@ if.then10.i695:                                   ; preds = %if.then17.i
   br i1 %cmp.i.i700, label %if.then18.i716, label %if.end20.i708
 
 if.then18.i716:                                   ; preds = %if.then10.i695
-  call void @arena_dalloc_small(ptr noundef nonnull %retval.i1291.0, ptr noundef %ptr) #19
+  call void @arena_dalloc_small(ptr noundef nonnull %retval.i1291.0, ptr noundef %ptr) #18
   br label %ifree.exit
 
 if.end20.i708:                                    ; preds = %if.then10.i695
   %conv24.i712 = zext i16 %arrayidx.i.i697.val to i32
   %44 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i713 = lshr i32 %conv24.i712, %44
-  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0527, ptr noundef nonnull %arrayidx.i687, i32 noundef %metadata.i92.sroa.0.0.extract.trunc, i32 noundef %shr.i713) #19
+  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0527, ptr noundef nonnull %arrayidx.i687, i32 noundef %metadata.i92.sroa.0.0.extract.trunc, i32 noundef %shr.i713) #18
   %45 = load ptr, ptr %arrayidx.i687, align 8
   %46 = ptrtoint ptr %45 to i64
   %47 = load i16, ptr %low_bits_full.i1035, align 2
@@ -7086,7 +7106,7 @@ if.then.i1088:                                    ; preds = %if.then.i815
   %conv8.i = zext i16 %arrayidx6.i.val to i32
   %55 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i1089 = lshr i32 %conv8.i, %55
-  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0527, ptr noundef nonnull %arrayidx.i1082, i32 noundef %metadata.i92.sroa.0.0.extract.trunc, i32 noundef %shr.i1089) #19
+  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %tcache.i.0527, ptr noundef nonnull %arrayidx.i1082, i32 noundef %metadata.i92.sroa.0.0.extract.trunc, i32 noundef %shr.i1089) #18
   %56 = load ptr, ptr %arrayidx.i1082, align 8
   %57 = ptrtoint ptr %56 to i64
   %58 = load i16, ptr %low_bits_full.i28.i, align 2
@@ -7102,9 +7122,9 @@ if.end.i.i1091:                                   ; preds = %if.then.i1088
 
 tsdn_rtree_ctx.exit:                              ; preds = %if.else20.i367
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %retval.i1291.0, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i800, ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %34)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i800, ptr noundef nonnull %retval.i1291.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %34)
   %60 = load ptr, ptr %tmp.i.i800, align 8
-  call void @large_dalloc(ptr noundef nonnull %retval.i1291.0, ptr noundef %60) #19
+  call void @large_dalloc(ptr noundef nonnull %retval.i1291.0, ptr noundef %60) #18
   br label %ifree.exit
 
 ifree.exit:                                       ; preds = %if.end.i20.i, %if.end.i914, %if.end.i.i1091, %if.then.i1088, %if.end.i904, %if.end20.i708, %if.then.i369, %if.then18.i716, %tsdn_rtree_ctx.exit
@@ -7131,7 +7151,7 @@ ifree.exit:                                       ; preds = %if.end.i20.i, %if.e
 
 if.end.sink.split:                                ; preds = %ifree.exit, %ifree.exit72
   %ctx.i.sink = phi ptr [ %ctx.i1645, %ifree.exit72 ], [ %ctx.i, %ifree.exit ]
-  call void @te_event_trigger(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %ctx.i.sink) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i1291.0, ptr noundef nonnull %ctx.i.sink) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %ifree.exit, %ifree.exit72
@@ -7153,7 +7173,7 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext true) #18
   %state.i.phi.trans.insert = getelementptr inbounds i8, ptr %call13.i, i64 832
   %.pre = load i8, ptr %state.i.phi.trans.insert, align 8
   %2 = icmp eq i8 %.pre, 0
@@ -7296,9 +7316,9 @@ mallocx_tcache_get.exit:                          ; preds = %if.end26.i
   ]
 
 if.then.i24:                                      ; preds = %if.end26.i, %mallocx_tcache_get.exit
-  br i1 %cmp.i, label %tcache_get_from_ind.exit.thread534, label %lor.lhs.false.i
+  br i1 %cmp.i, label %tcache_get_from_ind.exit.thread530, label %lor.lhs.false.i
 
-tcache_get_from_ind.exit.thread534:               ; preds = %if.then.i24
+tcache_get_from_ind.exit.thread530:               ; preds = %if.then.i24
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i = getelementptr inbounds i8, ptr %retval.i225.0, i64 872
   br label %if.end.i68
 
@@ -7327,12 +7347,12 @@ if.else28.i:                                      ; preds = %mallocx_tcache_get.
   ]
 
 if.then.i254:                                     ; preds = %if.else28.i
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #19
-  tail call void @abort() #20
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #18
+  tail call void @abort() #19
   unreachable
 
 if.then10.i:                                      ; preds = %if.else28.i
-  %call.i253 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i225.0) #19
+  %call.i253 = tail call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i225.0) #18
   store ptr %call.i253, ptr %arrayidx.i244, align 8
   br label %tcache_get_from_ind.exit
 
@@ -7340,17 +7360,17 @@ tcache_get_from_ind.exit:                         ; preds = %if.then10.i, %if.el
   %tcache.i.0 = phi ptr [ null, %mallocx_tcache_get.exit ], [ null, %if.end26.i ], [ %14, %if.else28.i ], [ %call.i253, %if.then10.i ]
   br i1 %cmp.i, label %if.end.i68, label %if.else
 
-if.end.i68:                                       ; preds = %tcache_get_from_ind.exit.thread534, %tcache_get_from_ind.exit
-  %tcache.i.0536 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, %tcache_get_from_ind.exit.thread534 ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
+if.end.i68:                                       ; preds = %tcache_get_from_ind.exit.thread530, %tcache_get_from_ind.exit
+  %tcache.i.0532 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, %tcache_get_from_ind.exit.thread530 ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
   %cmp.i128 = icmp ult i64 %usize.i.1, 4097
-  %cmp.i907538 = icmp eq ptr %tcache.i.0536, null
+  %cmp.i907534 = icmp eq ptr %tcache.i.0532, null
   br i1 %cmp.i128, label %if.then25.i94.thread, label %if.end.i132
 
 if.end.i132:                                      ; preds = %if.end.i68
-  br i1 %cmp.i907538, label %if.then.i1050, label %if.end.i.i916
+  br i1 %cmp.i907534, label %if.then.i1050, label %if.end.i.i916
 
 if.then25.i94.thread:                             ; preds = %if.end.i68
-  br i1 %cmp.i907538, label %if.then.i1050, label %if.then.i.i1044
+  br i1 %cmp.i907534, label %if.then.i1050, label %if.then.i.i1044
 
 if.then.i1050:                                    ; preds = %if.then25.i94.thread, %if.end.i132
   tail call fastcc void @arena_sdalloc_no_tcache(ptr noundef nonnull %retval.i225.0, ptr noundef %ptr, i64 noundef %usize.i.1)
@@ -7365,34 +7385,34 @@ if.then.i.i1044:                                  ; preds = %if.then25.i94.threa
   br label %sz_size2index.exit.i918
 
 if.end.i.i916:                                    ; preds = %if.end.i132
-  br i1 %cmp29.i, label %if.else.i928, label %if.end5.i477
+  br i1 %cmp29.i, label %if.else.i928, label %if.end5.i476
 
-if.end5.i477:                                     ; preds = %if.end.i.i916
-  %shl.i478 = shl nuw i64 %usize.i.1, 1
-  %sub.i479 = add i64 %shl.i478, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i479, i1 true)
+if.end5.i476:                                     ; preds = %if.end.i.i916
+  %shl.i477 = shl nuw i64 %usize.i.1, 1
+  %sub.i478 = add i64 %shl.i477, -1
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i478, i1 true)
   %17 = trunc nuw nsw i64 %16 to i32
-  %conv1.i.i.i.i480 = shl nuw nsw i32 %17, 2
-  %sub8.i481 = xor i32 %conv1.i.i.i.i480, 252
-  %shl9.i482 = add nsw i32 %sub8.i481, -20
-  %sub15.i483 = sub nuw nsw i64 60, %16
-  %shl18.i485 = shl nsw i64 -1, %sub15.i483
-  %sub19.i486 = add nsw i64 %usize.i.1, -1
-  %and.i487 = and i64 %shl18.i485, %sub19.i486
-  %shr.i488 = lshr i64 %and.i487, %sub15.i483
-  %18 = trunc i64 %shr.i488 to i32
-  %conv22.i489 = and i32 %18, 3
-  %add23.i490 = or disjoint i32 %conv22.i489, %shl9.i482
+  %conv1.i.i.i.i479 = shl nuw nsw i32 %17, 2
+  %sub8.i480 = xor i32 %conv1.i.i.i.i479, 252
+  %shl9.i481 = add nsw i32 %sub8.i480, -20
+  %sub15.i482 = sub nuw nsw i64 60, %16
+  %shl18.i483 = shl nsw i64 -1, %sub15.i482
+  %sub19.i484 = add nsw i64 %usize.i.1, -1
+  %and.i485 = and i64 %shl18.i483, %sub19.i484
+  %shr.i486 = lshr i64 %and.i485, %sub15.i482
+  %18 = trunc i64 %shr.i486 to i32
+  %conv22.i487 = and i32 %18, 3
+  %add23.i488 = or disjoint i32 %conv22.i487, %shl9.i481
   br label %sz_size2index.exit.i918
 
-sz_size2index.exit.i918:                          ; preds = %if.end5.i477, %if.then.i.i1044
-  %retval.i.i897.0 = phi i32 [ %conv.i29.i1049, %if.then.i.i1044 ], [ %add23.i490, %if.end5.i477 ]
+sz_size2index.exit.i918:                          ; preds = %if.end5.i476, %if.then.i.i1044
+  %retval.i.i897.0 = phi i32 [ %conv.i29.i1049, %if.then.i.i1044 ], [ %add23.i488, %if.end5.i476 ]
   %conv7.i919 = zext nneg i32 %retval.i.i897.0 to i64
   %cmp8.i920 = icmp ult i32 %retval.i.i897.0, 39
   br i1 %cmp8.i920, label %if.then19.i981, label %if.else.i928
 
 if.then19.i981:                                   ; preds = %sz_size2index.exit.i918
-  %bins.i.i984 = getelementptr inbounds i8, ptr %tcache.i.0536, i64 8
+  %bins.i.i984 = getelementptr inbounds i8, ptr %tcache.i.0532, i64 8
   %arrayidx.i31.i986 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i984, i64 0, i64 %conv7.i919
   %19 = load ptr, ptr %arrayidx.i31.i986, align 8
   %20 = ptrtoint ptr %19 to i64
@@ -7416,14 +7436,14 @@ if.then10.i.i1005:                                ; preds = %if.then19.i981
   br i1 %cmp.i.i.i1010, label %if.then18.i.i1039, label %if.end20.i.i1018
 
 if.then18.i.i1039:                                ; preds = %if.then10.i.i1005
-  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i225.0, ptr noundef %ptr) #19
+  tail call void @arena_dalloc_small(ptr noundef nonnull %retval.i225.0, ptr noundef %ptr) #18
   br label %if.end34.i90
 
 if.end20.i.i1018:                                 ; preds = %if.then10.i.i1005
   %conv24.i.i1022 = zext i16 %arrayidx.i.i.i1007.val to i32
   %24 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i35.i1023 = lshr i32 %conv24.i.i1022, %24
-  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0536, ptr noundef nonnull %arrayidx.i31.i986, i32 noundef %retval.i.i897.0, i32 noundef %shr.i35.i1023) #19
+  tail call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0532, ptr noundef nonnull %arrayidx.i31.i986, i32 noundef %retval.i.i897.0, i32 noundef %shr.i35.i1023) #18
   %25 = load ptr, ptr %arrayidx.i31.i986, align 8
   %26 = ptrtoint ptr %25 to i64
   %27 = load i16, ptr %low_bits_full.i84.i989, align 2
@@ -7438,15 +7458,15 @@ if.end.i66.i1032:                                 ; preds = %if.end20.i.i1018
   br label %if.end34.i90
 
 if.else.i928:                                     ; preds = %if.end.i.i916, %sz_size2index.exit.i918
-  %conv7.i919549 = phi i64 [ %conv7.i919, %sz_size2index.exit.i918 ], [ 235, %if.end.i.i916 ]
-  %retval.i.i897.0548 = phi i32 [ %retval.i.i897.0, %sz_size2index.exit.i918 ], [ 235, %if.end.i.i916 ]
+  %conv7.i919545 = phi i64 [ %conv7.i919, %sz_size2index.exit.i918 ], [ 235, %if.end.i.i916 ]
+  %retval.i.i897.0544 = phi i32 [ %retval.i.i897.0, %sz_size2index.exit.i918 ], [ 235, %if.end.i.i916 ]
   %29 = load i32, ptr @nhbins, align 4
-  %cmp.i44.i931 = icmp ult i32 %retval.i.i897.0548, %29
+  %cmp.i44.i931 = icmp ult i32 %retval.i.i897.0544, %29
   br i1 %cmp.i44.i931, label %if.then.i48.i935, label %if.end.i1059.split
 
 if.then.i48.i935:                                 ; preds = %if.else.i928
-  %bins.i109.i938 = getelementptr inbounds i8, ptr %tcache.i.0536, i64 8
-  %arrayidx.i111.i940 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i938, i64 0, i64 %conv7.i919549
+  %bins.i109.i938 = getelementptr inbounds i8, ptr %tcache.i.0532, i64 8
+  %arrayidx.i111.i940 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i938, i64 0, i64 %conv7.i919545
   %30 = load ptr, ptr %arrayidx.i111.i940, align 8
   %31 = ptrtoint ptr %30 to i64
   %low_bits_full.i28.i.i943 = getelementptr inbounds i8, ptr %arrayidx.i111.i940, i64 18
@@ -7463,12 +7483,12 @@ if.end.i20.i.i949:                                ; preds = %if.then.i48.i935
 
 if.then.i117.i959:                                ; preds = %if.then.i48.i935
   %34 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx6.i.i961 = getelementptr inbounds %struct.cache_bin_info_s, ptr %34, i64 %conv7.i919549
+  %arrayidx6.i.i961 = getelementptr inbounds %struct.cache_bin_info_s, ptr %34, i64 %conv7.i919545
   %arrayidx6.i.i961.val = load i16, ptr %arrayidx6.i.i961, align 2
   %conv8.i.i963 = zext i16 %arrayidx6.i.i961.val to i32
   %35 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i118.i964 = lshr i32 %conv8.i.i963, %35
-  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0536, ptr noundef nonnull %arrayidx.i111.i940, i32 noundef %retval.i.i897.0548, i32 noundef %shr.i118.i964) #19
+  tail call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0532, ptr noundef nonnull %arrayidx.i111.i940, i32 noundef %retval.i.i897.0544, i32 noundef %shr.i118.i964) #18
   %36 = load ptr, ptr %arrayidx.i111.i940, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = load i16, ptr %low_bits_full.i28.i.i943, align 2
@@ -7485,9 +7505,9 @@ if.end.i.i.i973:                                  ; preds = %if.then.i117.i959
 if.end.i1059.split:                               ; preds = %if.else.i928
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %retval.i225.0, i64 448
   %40 = ptrtoint ptr %ptr to i64
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i873, ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %40)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i873, ptr noundef nonnull %retval.i225.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %40)
   %41 = load ptr, ptr %tmp.i.i.i873, align 8
-  tail call void @large_dalloc(ptr noundef nonnull %retval.i225.0, ptr noundef %41) #19
+  tail call void @large_dalloc(ptr noundef nonnull %retval.i225.0, ptr noundef %41) #18
   br label %if.end34.i90
 
 if.end34.i90:                                     ; preds = %if.end.i20.i.i949, %if.end.i76.i995, %if.end.i.i.i973, %if.then.i117.i959, %if.end.i66.i1032, %if.end20.i.i1018, %if.then.i1050, %if.then18.i.i1039, %if.end.i1059.split
@@ -7513,7 +7533,7 @@ if.end34.i90:                                     ; preds = %if.end.i20.i.i949, 
   br i1 %cmp.i1136, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then18.i, %lor.lhs.false.i, %tcache_get_from_ind.exit
-  %tcache.i.0533 = phi ptr [ %tcache.i.0, %tcache_get_from_ind.exit ], [ null, %lor.lhs.false.i ], [ %retval.i237.0, %if.then18.i ]
+  %tcache.i.0529 = phi ptr [ %tcache.i.0, %tcache_get_from_ind.exit ], [ null, %lor.lhs.false.i ], [ %retval.i237.0, %if.then18.i ]
   %44 = ptrtoint ptr %ptr to i64
   store i64 %44, ptr %args_raw, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args_raw, i64 8
@@ -7521,7 +7541,7 @@ if.else:                                          ; preds = %if.then18.i, %lor.l
   %arrayinit.element13 = getelementptr inbounds i8, ptr %args_raw, i64 16
   %conv14 = sext i32 %flags to i64
   store i64 %conv14, ptr %arrayinit.element13, align 16
-  call void @hook_invoke_dalloc(i32 noundef 2, ptr noundef %ptr, ptr noundef nonnull %args_raw) #19
+  call void @hook_invoke_dalloc(i32 noundef 2, ptr noundef %ptr, ptr noundef nonnull %args_raw) #18
   %cmp.i139 = icmp ult i64 %usize.i.1, 4097
   %45 = load i8, ptr @opt_junk_free, align 1
   %tobool29.i = trunc i8 %45 to i1
@@ -7529,11 +7549,11 @@ if.else:                                          ; preds = %if.then18.i, %lor.l
 
 if.then31.i:                                      ; preds = %if.else
   %46 = load ptr, ptr @junk_free_callback, align 8
-  call void %46(ptr noundef %ptr, i64 noundef %usize.i.1) #19
+  call void %46(ptr noundef %ptr, i64 noundef %usize.i.1) #18
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then31.i, %if.else
-  %cmp.i390 = icmp eq ptr %tcache.i.0533, null
+  %cmp.i390 = icmp eq ptr %tcache.i.0529, null
   br i1 %cmp.i390, label %if.then.i412, label %if.end.i394
 
 if.then.i412:                                     ; preds = %if.end32.i
@@ -7552,34 +7572,34 @@ if.then.i.i407:                                   ; preds = %if.end.i394
   br label %sz_size2index.exit.i
 
 if.end.i.i399:                                    ; preds = %if.end.i394
-  br i1 %cmp29.i, label %if.else.i402, label %if.end5.i511
+  br i1 %cmp29.i, label %if.else.i402, label %if.end5.i508
 
-if.end5.i511:                                     ; preds = %if.end.i.i399
-  %shl.i512 = shl nuw i64 %usize.i.1, 1
-  %sub.i513 = add i64 %shl.i512, -1
-  %48 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i513, i1 true)
+if.end5.i508:                                     ; preds = %if.end.i.i399
+  %shl.i509 = shl nuw i64 %usize.i.1, 1
+  %sub.i510 = add i64 %shl.i509, -1
+  %48 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub.i510, i1 true)
   %49 = trunc nuw nsw i64 %48 to i32
-  %conv1.i.i.i.i514 = shl nuw nsw i32 %49, 2
-  %sub8.i515 = xor i32 %conv1.i.i.i.i514, 252
-  %shl9.i516 = add nsw i32 %sub8.i515, -20
-  %sub15.i517 = sub nuw nsw i64 60, %48
-  %shl18.i519 = shl nsw i64 -1, %sub15.i517
-  %sub19.i520 = add nsw i64 %usize.i.1, -1
-  %and.i521 = and i64 %shl18.i519, %sub19.i520
-  %shr.i522 = lshr i64 %and.i521, %sub15.i517
-  %50 = trunc i64 %shr.i522 to i32
-  %conv22.i523 = and i32 %50, 3
-  %add23.i524 = or disjoint i32 %conv22.i523, %shl9.i516
+  %conv1.i.i.i.i511 = shl nuw nsw i32 %49, 2
+  %sub8.i512 = xor i32 %conv1.i.i.i.i511, 252
+  %shl9.i513 = add nsw i32 %sub8.i512, -20
+  %sub15.i514 = sub nuw nsw i64 60, %48
+  %shl18.i515 = shl nsw i64 -1, %sub15.i514
+  %sub19.i516 = add nsw i64 %usize.i.1, -1
+  %and.i517 = and i64 %shl18.i515, %sub19.i516
+  %shr.i518 = lshr i64 %and.i517, %sub15.i514
+  %50 = trunc i64 %shr.i518 to i32
+  %conv22.i519 = and i32 %50, 3
+  %add23.i520 = or disjoint i32 %conv22.i519, %shl9.i513
   br label %sz_size2index.exit.i
 
-sz_size2index.exit.i:                             ; preds = %if.end5.i511, %if.then.i.i407
-  %retval.i.i381.0 = phi i32 [ %conv.i29.i, %if.then.i.i407 ], [ %add23.i524, %if.end5.i511 ]
+sz_size2index.exit.i:                             ; preds = %if.end5.i508, %if.then.i.i407
+  %retval.i.i381.0 = phi i32 [ %conv.i29.i, %if.then.i.i407 ], [ %add23.i520, %if.end5.i508 ]
   %conv7.i = zext nneg i32 %retval.i.i381.0 to i64
   %cmp8.i = icmp ult i32 %retval.i.i381.0, 39
   br i1 %cmp8.i, label %if.then19.i, label %if.else.i402
 
 if.then19.i:                                      ; preds = %sz_size2index.exit.i
-  %bins.i.i = getelementptr inbounds i8, ptr %tcache.i.0533, i64 8
+  %bins.i.i = getelementptr inbounds i8, ptr %tcache.i.0529, i64 8
   %arrayidx.i31.i = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i.i, i64 0, i64 %conv7.i
   %51 = load ptr, ptr %arrayidx.i31.i, align 8
   %52 = ptrtoint ptr %51 to i64
@@ -7603,14 +7623,14 @@ if.then10.i.i:                                    ; preds = %if.then19.i
   br i1 %cmp.i.i.i406, label %if.then18.i.i, label %if.end20.i.i
 
 if.then18.i.i:                                    ; preds = %if.then10.i.i
-  call void @arena_dalloc_small(ptr noundef nonnull %retval.i225.0, ptr noundef %ptr) #19
+  call void @arena_dalloc_small(ptr noundef nonnull %retval.i225.0, ptr noundef %ptr) #18
   br label %if.end34.i
 
 if.end20.i.i:                                     ; preds = %if.then10.i.i
   %conv24.i.i = zext i16 %arrayidx.i.i.i.val to i32
   %56 = load i32, ptr @opt_lg_tcache_flush_small_div, align 4
   %shr.i35.i = lshr i32 %conv24.i.i, %56
-  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0533, ptr noundef nonnull %arrayidx.i31.i, i32 noundef %retval.i.i381.0, i32 noundef %shr.i35.i) #19
+  call void @tcache_bin_flush_small(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0529, ptr noundef nonnull %arrayidx.i31.i, i32 noundef %retval.i.i381.0, i32 noundef %shr.i35.i) #18
   %57 = load ptr, ptr %arrayidx.i31.i, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = load i16, ptr %low_bits_full.i84.i, align 2
@@ -7625,15 +7645,15 @@ if.end.i66.i:                                     ; preds = %if.end20.i.i
   br label %if.end34.i
 
 if.else.i402:                                     ; preds = %if.end.i.i399, %sz_size2index.exit.i
-  %conv7.i554 = phi i64 [ %conv7.i, %sz_size2index.exit.i ], [ 235, %if.end.i.i399 ]
-  %retval.i.i381.0553 = phi i32 [ %retval.i.i381.0, %sz_size2index.exit.i ], [ 235, %if.end.i.i399 ]
+  %conv7.i550 = phi i64 [ %conv7.i, %sz_size2index.exit.i ], [ 235, %if.end.i.i399 ]
+  %retval.i.i381.0549 = phi i32 [ %retval.i.i381.0, %sz_size2index.exit.i ], [ 235, %if.end.i.i399 ]
   %61 = load i32, ptr @nhbins, align 4
-  %cmp.i44.i = icmp ult i32 %retval.i.i381.0553, %61
+  %cmp.i44.i = icmp ult i32 %retval.i.i381.0549, %61
   br i1 %cmp.i44.i, label %if.then.i48.i, label %tsdn_rtree_ctx.exit1099
 
 if.then.i48.i:                                    ; preds = %if.else.i402
-  %bins.i109.i = getelementptr inbounds i8, ptr %tcache.i.0533, i64 8
-  %arrayidx.i111.i403 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i, i64 0, i64 %conv7.i554
+  %bins.i109.i = getelementptr inbounds i8, ptr %tcache.i.0529, i64 8
+  %arrayidx.i111.i403 = getelementptr inbounds [76 x %struct.cache_bin_s], ptr %bins.i109.i, i64 0, i64 %conv7.i550
   %62 = load ptr, ptr %arrayidx.i111.i403, align 8
   %63 = ptrtoint ptr %62 to i64
   %low_bits_full.i28.i.i = getelementptr inbounds i8, ptr %arrayidx.i111.i403, i64 18
@@ -7650,12 +7670,12 @@ if.end.i20.i.i:                                   ; preds = %if.then.i48.i
 
 if.then.i117.i:                                   ; preds = %if.then.i48.i
   %66 = load ptr, ptr @tcache_bin_info, align 8
-  %arrayidx6.i.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %66, i64 %conv7.i554
+  %arrayidx6.i.i = getelementptr inbounds %struct.cache_bin_info_s, ptr %66, i64 %conv7.i550
   %arrayidx6.i.i.val = load i16, ptr %arrayidx6.i.i, align 2
   %conv8.i.i = zext i16 %arrayidx6.i.i.val to i32
   %67 = load i32, ptr @opt_lg_tcache_flush_large_div, align 4
   %shr.i118.i = lshr i32 %conv8.i.i, %67
-  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0533, ptr noundef nonnull %arrayidx.i111.i403, i32 noundef %retval.i.i381.0553, i32 noundef %shr.i118.i) #19
+  call void @tcache_bin_flush_large(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %tcache.i.0529, ptr noundef nonnull %arrayidx.i111.i403, i32 noundef %retval.i.i381.0549, i32 noundef %shr.i118.i) #18
   %68 = load ptr, ptr %arrayidx.i111.i403, align 8
   %69 = ptrtoint ptr %68 to i64
   %70 = load i16, ptr %low_bits_full.i28.i.i, align 2
@@ -7671,9 +7691,9 @@ if.end.i.i.i:                                     ; preds = %if.then.i117.i
 
 tsdn_rtree_ctx.exit1099:                          ; preds = %if.else.i402
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1129 = getelementptr inbounds i8, ptr %retval.i225.0, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1129, i64 noundef %44)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i.i, ptr noundef nonnull %retval.i225.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i1129, i64 noundef %44)
   %72 = load ptr, ptr %tmp.i.i.i, align 8
-  call void @large_dalloc(ptr noundef nonnull %retval.i225.0, ptr noundef %72) #19
+  call void @large_dalloc(ptr noundef nonnull %retval.i225.0, ptr noundef %72) #18
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end.i20.i.i, %if.end.i76.i, %if.end.i.i.i, %if.then.i117.i, %if.end.i66.i, %if.end20.i.i, %if.then.i412, %if.then18.i.i, %tsdn_rtree_ctx.exit1099
@@ -7700,7 +7720,7 @@ if.end34.i:                                       ; preds = %if.end.i20.i.i, %if
 
 if.end.sink.split:                                ; preds = %if.end34.i, %if.end34.i90
   %ctx.i1146.sink = phi ptr [ %ctx.i, %if.end34.i90 ], [ %ctx.i1146, %if.end34.i ]
-  call void @te_event_trigger(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %ctx.i1146.sink) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i225.0, ptr noundef nonnull %ctx.i1146.sink) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %if.end34.i, %if.end34.i90
@@ -7837,7 +7857,7 @@ if.end.i:                                         ; preds = %if.end.i24
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %2, i1 noundef zeroext false) #18
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %if.end.i24
@@ -7987,12 +8007,12 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
   %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
-  %call6 = tail call i32 @ctl_byname(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #19
+  %call6 = tail call i32 @ctl_byname(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #18
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %tsd_fetch_impl.exit
@@ -8021,12 +8041,12 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
   %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
-  %call6 = tail call i32 @ctl_nametomib(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %mibp, ptr noundef %miblenp) #19
+  %call6 = tail call i32 @ctl_nametomib(ptr noundef %retval.i13.0, ptr noundef %name, ptr noundef %mibp, ptr noundef %miblenp) #18
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %tsd_fetch_impl.exit
@@ -8055,12 +8075,12 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %e
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %if.end.i, %if.then11.i
   %retval.i13.0 = phi ptr [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
-  %call6 = tail call i32 @ctl_bymib(ptr noundef %retval.i13.0, ptr noundef %mib, i64 noundef %miblen, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #19
+  %call6 = tail call i32 @ctl_bymib(ptr noundef %retval.i13.0, ptr noundef %mib, i64 noundef %miblen, ptr noundef %oldp, ptr noundef %oldlenp, ptr noundef %newp, i64 noundef %newlen) #18
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %tsd_fetch_impl.exit
@@ -8086,14 +8106,14 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %entry
   %retval.i.0 = phi ptr [ null, %entry ], [ %call13.i, %if.then11.i ], [ %1, %if.end.i ]
-  %call1 = call zeroext i1 @buf_writer_init(ptr noundef %retval.i.0, ptr noundef nonnull %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef null, i64 noundef 65536) #19
-  call void @stats_print(ptr noundef nonnull @buf_writer_cb, ptr noundef nonnull %buf_writer, ptr noundef %opts) #19
-  call void @buf_writer_terminate(ptr noundef %retval.i.0, ptr noundef nonnull %buf_writer) #19
+  %call1 = call zeroext i1 @buf_writer_init(ptr noundef %retval.i.0, ptr noundef nonnull %buf_writer, ptr noundef %write_cb, ptr noundef %cbopaque, ptr noundef null, i64 noundef 65536) #18
+  call void @stats_print(ptr noundef nonnull @buf_writer_cb, ptr noundef nonnull %buf_writer, ptr noundef %opts) #18
+  call void @buf_writer_terminate(ptr noundef %retval.i.0, ptr noundef nonnull %buf_writer) #18
   ret void
 }
 
@@ -8121,7 +8141,7 @@ if.end.i.i:                                       ; preds = %entry
   br i1 %cmp6.i.not, label %tsdn_fetch.exit.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsdn_fetch.exit.i
 
 tsdn_fetch.exit.i:                                ; preds = %if.then11.i, %if.end.i.i
@@ -8138,15 +8158,15 @@ if.else.i:                                        ; preds = %tsdn_fetch.exit.i
   br i1 %cmp.i.i.i, label %if.then.i.i16, label %if.end.i.i14.split
 
 if.then.i.i16:                                    ; preds = %tsdn_fetch.exit.i.thread, %if.else.i
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
   %3 = ptrtoint ptr %ptr to i64
-  %call1.i.i13 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %3)
+  %call1.i.i13 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %3)
   br label %arena_salloc.exit
 
 if.end.i.i14.split:                               ; preds = %if.else.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i = getelementptr inbounds i8, ptr %retval.i.i.0, i64 448
   %4 = ptrtoint ptr %ptr to i64
-  %call1.i.i14 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i.i.0, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
+  %call1.i.i14 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %retval.i.i.0, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
   br label %arena_salloc.exit
 
 arena_salloc.exit:                                ; preds = %if.end.i.i14.split, %if.then.i.i16
@@ -8173,7 +8193,7 @@ entry:
   br i1 %cmp6.i.not, label %lor.rhs, label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %cmp = icmp eq ptr %call13.i, null
   br i1 %cmp, label %label_done, label %lor.rhs
 
@@ -8426,7 +8446,7 @@ if.end70:                                         ; preds = %arena_get.exit, %if
   %rem = urem i64 %sub, %nregs.0
   %sub71 = sub i64 %sub, %rem
   %add.ptr = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.1237
-  %call74 = call i64 @arena_fill_small_fresh(ptr noundef nonnull %retval.i294.0204, ptr noundef nonnull %arena.2, i32 noundef %retval.i201.0, ptr noundef %add.ptr, i64 noundef %sub71, i1 noundef zeroext %retval.i166.0) #19
+  %call74 = call i64 @arena_fill_small_fresh(ptr noundef nonnull %retval.i294.0204, ptr noundef nonnull %arena.2, i32 noundef %retval.i201.0, ptr noundef %add.ptr, i64 noundef %sub71, i1 noundef zeroext %retval.i166.0) #18
   %add76 = add i64 %call74, %filled.1237
   br label %if.end77
 
@@ -8472,12 +8492,12 @@ if.else28.i:                                      ; preds = %mallocx_tcache_get.
   ]
 
 if.then.i323:                                     ; preds = %if.else28.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.161, i32 noundef %sub.i) #18
+  call void @abort() #19
   unreachable
 
 if.then10.i:                                      ; preds = %if.else28.i
-  %call.i322 = call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i294.0204) #19
+  %call.i322 = call ptr @tcache_create_explicit(ptr noundef nonnull %retval.i294.0204) #18
   store ptr %call.i322, ptr %arrayidx.i313, align 8
   br label %tcache_get_from_ind.exit
 
@@ -8571,7 +8591,7 @@ if.end121:                                        ; preds = %if.then92, %mallocx
   br i1 %cmp.i370, label %te_event_advance.exit, label %if.else.i374
 
 if.else.i374:                                     ; preds = %if.end121
-  call void @te_event_trigger(ptr noundef nonnull %retval.i294.0204, ptr noundef nonnull %ctx.i) #19
+  call void @te_event_trigger(ptr noundef nonnull %retval.i294.0204, ptr noundef nonnull %ctx.i) #18
   br label %te_event_advance.exit
 
 te_event_advance.exit:                            ; preds = %if.end121, %if.else.i374
@@ -8579,7 +8599,7 @@ te_event_advance.exit:                            ; preds = %if.end121, %if.else
   br i1 %cmp122, label %if.then126, label %if.end140
 
 if.then126:                                       ; preds = %te_event_advance.exit
-  %call127 = call noalias ptr @je_mallocx(i64 noundef %size, i32 noundef %flags) #22
+  %call127 = call noalias ptr @je_mallocx(i64 noundef %size, i32 noundef %flags) #21
   %cmp128 = icmp eq ptr %call127, null
   br i1 %cmp128, label %label_done, label %if.end131
 
@@ -8618,12 +8638,12 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp.i44.i, label %if.then3.i.i, label %arena_choose_impl.exit
 
 if.then3.i.i:                                     ; preds = %if.then5.i
-  %call.i.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call.i.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   %cmp.i.not.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp.i.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then3.i.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @arenas_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
   br label %if.end.i.i.i
 
@@ -8658,13 +8678,13 @@ if.end3.i.i.i:                                    ; preds = %if.then2.i.i.i, %ma
   br i1 %cmp5.not.i.i.i, label %if.end9.i.i.i, label %arena_init.exit.i
 
 if.end9.i.i.i:                                    ; preds = %if.end3.i.i.i
-  %call10.i.i.i = tail call ptr @arena_new(ptr noundef nonnull %tsd, i32 noundef 0, ptr noundef nonnull @arena_config_default) #19
+  %call10.i.i.i = tail call ptr @arena_new(ptr noundef nonnull %tsd, i32 noundef 0, ptr noundef nonnull @arena_config_default) #18
   br label %arena_init.exit.i
 
 arena_init.exit.i:                                ; preds = %if.end9.i.i.i, %if.end3.i.i.i
   %retval.0.i.i.i = phi ptr [ %call10.i.i.i, %if.end9.i.i.i ], [ %9, %if.end3.i.i.i ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @arenas_lock, i64 104) monotonic, align 8
-  %call1.i.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #19
+  %call1.i.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @arenas_lock, i64 64)) #18
   br label %arena_choose_impl.exit
 
 cond.end.i:                                       ; preds = %if.end.i
@@ -8692,11 +8712,11 @@ do.end33.i:                                       ; preds = %if.then25.i
   br i1 %cmp35.not.i, label %if.end43.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %do.end33.i
-  tail call void @tcache_arena_reassociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %call23.i) #19
+  tail call void @tcache_arena_reassociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %call23.i) #18
   br label %if.end43.i
 
 if.else.i:                                        ; preds = %if.then25.i
-  tail call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %call23.i) #19
+  tail call void @tcache_arena_associate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %call23.i) #18
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.else.i, %if.then37.i, %do.end33.i, %if.then21.i, %cond.end.i
@@ -8726,7 +8746,7 @@ land.lhs.true52.i:                                ; preds = %land.lhs.true47.i
   br i1 %cmp54.not.i, label %arena_choose_impl.exit, label %if.then56.i
 
 if.then56.i:                                      ; preds = %land.lhs.true52.i
-  %call.i92.i = tail call i32 @sched_getcpu() #19
+  %call.i92.i = tail call i32 @sched_getcpu() #18
   %17 = load i32, ptr @opt_percpu_arena, align 4
   %cmp.i.i = icmp eq i32 %17, 3
   br i1 %cmp.i.i, label %percpu_arena_choose.exit.i, label %lor.lhs.false.i.i
@@ -8791,20 +8811,20 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
   %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %0, %entry ]
   %2 = load atomic i32, ptr @narenas_total acquire, align 4
   %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds i8, ptr %retval.i.0, i64 2704
-  tail call void @witness_prefork(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #19
-  tail call void @ctl_prefork(ptr noundef %retval.i.0) #19
-  tail call void @tcache_prefork(ptr noundef %retval.i.0) #19
-  tail call void @malloc_mutex_prefork(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #19
-  tail call void @background_thread_prefork0(ptr noundef %retval.i.0) #19
-  tail call void @prof_prefork0(ptr noundef %retval.i.0) #19
-  tail call void @background_thread_prefork1(ptr noundef %retval.i.0) #19
+  tail call void @witness_prefork(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #18
+  tail call void @ctl_prefork(ptr noundef %retval.i.0) #18
+  tail call void @tcache_prefork(ptr noundef %retval.i.0) #18
+  tail call void @malloc_mutex_prefork(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #18
+  tail call void @background_thread_prefork0(ptr noundef %retval.i.0) #18
+  tail call void @prof_prefork0(ptr noundef %retval.i.0) #18
+  tail call void @background_thread_prefork1(ptr noundef %retval.i.0) #18
   %cmp1037.not = icmp eq i32 %2, 0
   br i1 %cmp1037.not, label %for.end36, label %for.cond9.preheader.us.preheader
 
@@ -8838,39 +8858,39 @@ if.then.us:                                       ; preds = %for.body11.us
   ]
 
 sw.bb30.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork8(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork8(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb28.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork7(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork7(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb26.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork6(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork6(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb24.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork5(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork5(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb22.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork4(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork4(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb20.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork3(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork3(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb18.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork2(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork2(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb16.us:                                       ; preds = %if.then.us
-  tail call void @arena_prefork1(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork1(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 sw.bb.us:                                         ; preds = %if.then.us
-  tail call void @arena_prefork0(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_prefork0(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %sw.bb.us, %sw.bb16.us, %sw.bb18.us, %sw.bb20.us, %sw.bb22.us, %sw.bb24.us, %sw.bb26.us, %sw.bb28.us, %sw.bb30.us, %for.body11.us
@@ -8887,9 +8907,9 @@ default.unreachable:                              ; preds = %if.then.us
   unreachable
 
 for.end36:                                        ; preds = %for.cond9.for.inc34_crit_edge.us, %tsd_fetch_impl.exit
-  tail call void @prof_prefork1(ptr noundef %retval.i.0) #19
-  tail call void @stats_prefork(ptr noundef %retval.i.0) #19
-  tail call void @tsd_prefork(ptr noundef %retval.i.0) #19
+  tail call void @prof_prefork1(ptr noundef %retval.i.0) #18
+  tail call void @stats_prefork(ptr noundef %retval.i.0) #18
+  tail call void @tsd_prefork(ptr noundef %retval.i.0) #18
   ret void
 }
 
@@ -8941,15 +8961,15 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
   %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %0, %entry ]
-  tail call void @tsd_postfork_parent(ptr noundef %retval.i.0) #19
+  tail call void @tsd_postfork_parent(ptr noundef %retval.i.0) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds i8, ptr %retval.i.0, i64 2704
-  tail call void @witness_postfork_parent(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #19
-  tail call void @stats_postfork_parent(ptr noundef %retval.i.0) #19
+  tail call void @witness_postfork_parent(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #18
+  tail call void @stats_postfork_parent(ptr noundef %retval.i.0) #18
   %2 = load atomic i32, ptr @narenas_total acquire, align 4
   %cmp17.not = icmp eq i32 %2, 0
   br i1 %cmp17.not, label %for.end, label %for.body.preheader
@@ -8967,7 +8987,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %4 = inttoptr i64 %3 to ptr
-  tail call void @arena_postfork_parent(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_postfork_parent(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -8976,11 +8996,11 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %tsd_fetch_impl.exit
-  tail call void @prof_postfork_parent(ptr noundef %retval.i.0) #19
-  tail call void @background_thread_postfork_parent(ptr noundef %retval.i.0) #19
-  tail call void @malloc_mutex_postfork_parent(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #19
-  tail call void @tcache_postfork_parent(ptr noundef %retval.i.0) #19
-  tail call void @ctl_postfork_parent(ptr noundef %retval.i.0) #19
+  tail call void @prof_postfork_parent(ptr noundef %retval.i.0) #18
+  tail call void @background_thread_postfork_parent(ptr noundef %retval.i.0) #18
+  tail call void @malloc_mutex_postfork_parent(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #18
+  tail call void @tcache_postfork_parent(ptr noundef %retval.i.0) #18
+  tail call void @ctl_postfork_parent(ptr noundef %retval.i.0) #18
   ret void
 }
 
@@ -9012,15 +9032,15 @@ entry:
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %entry
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %entry, %if.then11.i
   %retval.i.0 = phi ptr [ %call13.i, %if.then11.i ], [ %0, %entry ]
-  tail call void @tsd_postfork_child(ptr noundef %retval.i.0) #19
+  tail call void @tsd_postfork_child(ptr noundef %retval.i.0) #18
   %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i = getelementptr inbounds i8, ptr %retval.i.0, i64 2704
-  tail call void @witness_postfork_child(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #19
-  tail call void @stats_postfork_child(ptr noundef %retval.i.0) #19
+  tail call void @witness_postfork_child(ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_witness_tsd.i) #18
+  tail call void @stats_postfork_child(ptr noundef %retval.i.0) #18
   %2 = load atomic i32, ptr @narenas_total acquire, align 4
   %cmp17.not = icmp eq i32 %2, 0
   br i1 %cmp17.not, label %for.end, label %for.body.preheader
@@ -9038,7 +9058,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %4 = inttoptr i64 %3 to ptr
-  tail call void @arena_postfork_child(ptr noundef %retval.i.0, ptr noundef nonnull %4) #19
+  tail call void @arena_postfork_child(ptr noundef %retval.i.0, ptr noundef nonnull %4) #18
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
@@ -9047,11 +9067,11 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %for.inc, %tsd_fetch_impl.exit
-  tail call void @prof_postfork_child(ptr noundef %retval.i.0) #19
-  tail call void @background_thread_postfork_child(ptr noundef %retval.i.0) #19
-  tail call void @malloc_mutex_postfork_child(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #19
-  tail call void @tcache_postfork_child(ptr noundef %retval.i.0) #19
-  tail call void @ctl_postfork_child(ptr noundef %retval.i.0) #19
+  tail call void @prof_postfork_child(ptr noundef %retval.i.0) #18
+  tail call void @background_thread_postfork_child(ptr noundef %retval.i.0) #18
+  tail call void @malloc_mutex_postfork_child(ptr noundef %retval.i.0, ptr noundef nonnull @arenas_lock) #18
+  tail call void @tcache_postfork_child(ptr noundef %retval.i.0) #18
+  tail call void @ctl_postfork_child(ptr noundef %retval.i.0) #18
   ret void
 }
 
@@ -9079,17 +9099,17 @@ entry:
   %rtree_ctx_fallback.i49.i = alloca %struct.rtree_ctx_s, align 8
   %rtree_ctx_fallback.i.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i.i = alloca %struct.rtree_contents_s, align 8
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i49.i) #19
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i49.i) #18
   %0 = ptrtoint ptr %ptr to i64
-  %call1.i.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i49.i, i64 noundef %0)
+  %call1.i.i = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i49.i, i64 noundef %0)
   %call1.i.i.fca.1.extract = extractvalue { i64, i32 } %call1.i.i, 1
   %1 = and i32 %call1.i.i.fca.1.extract, 256
   %tobool.i.i.not = icmp eq i32 %1, 0
   br i1 %tobool.i.i.not, label %iget_defrag_hint.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %entry
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %0)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %0)
   %2 = load ptr, ptr %tmp.i.i, align 8
   %edata.val.i = load i64, ptr %2, align 8
   %conv.i.i = and i64 %edata.val.i, 4095
@@ -9106,12 +9126,12 @@ if.then.i7:                                       ; preds = %entry
   %6 = inttoptr i64 %add.i57 to ptr
   %add.ptr.i = getelementptr inbounds %struct.bin_s, ptr %6, i64 %conv.i
   %lock.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 64
-  %call.i.i = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #19
+  %call.i.i = call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #18
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i58, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i7
-  call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i) #19
+  call void @malloc_mutex_lock_slow(ptr noundef %add.ptr.i) #18
   %locked.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 104
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i58
@@ -9221,7 +9241,7 @@ if.end43.i:                                       ; preds = %if.then9.i, %for.en
   %defrag.i.1 = phi i32 [ %conv41.i, %for.end.i ], [ 0, %if.then9.i ], [ 0, %malloc_mutex_lock.exit ]
   %locked.i69 = getelementptr inbounds i8, ptr %add.ptr.i, i64 104
   store atomic i8 0, ptr %locked.i69 monotonic, align 1
-  %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #19
+  %call1.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #18
   br label %iget_defrag_hint.exit
 
 iget_defrag_hint.exit:                            ; preds = %if.end43.i, %entry
@@ -9237,16 +9257,16 @@ entry:
   %sc_data = alloca %struct.sc_data_s, align 8
   %bin_shard_sizes = alloca [39 x i32], align 16
   %hpa_shard_opts = alloca %struct.hpa_shard_opts_s, align 8
-  %call = tail call i64 @pthread_self() #21
+  %call = tail call i64 @pthread_self() #20
   store i64 %call, ptr @malloc_initializer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6656) %sc_data, i8 0, i64 6656, i1 false)
-  call void @sc_boot(ptr noundef nonnull %sc_data) #19
-  call void @bin_shard_sizes_boot(ptr noundef nonnull %bin_shard_sizes) #19
+  call void @sc_boot(ptr noundef nonnull %sc_data) #18
+  call void @bin_shard_sizes_boot(ptr noundef nonnull %bin_shard_sizes) #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %opts_cache.i)
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %buf.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %opts_cache.i, i8 0, i64 40, i1 false)
-  call fastcc void @malloc_conf_init_helper(ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %opts_cache.i, ptr noundef nonnull %buf.i)
-  call fastcc void @malloc_conf_init_helper(ptr noundef nonnull %sc_data, ptr noundef nonnull %bin_shard_sizes, i1 noundef zeroext false, ptr noundef nonnull %opts_cache.i, ptr noundef null)
+  call fastcc void @malloc_conf_init_helper(ptr noundef null, ptr noundef null, i1 noundef zeroext true, ptr noundef %opts_cache.i, ptr noundef nonnull %buf.i)
+  call fastcc void @malloc_conf_init_helper(ptr noundef nonnull %sc_data, ptr noundef nonnull %bin_shard_sizes, i1 noundef zeroext false, ptr noundef %opts_cache.i, ptr noundef null)
   %0 = load i8, ptr @opt_prof_leak_error, align 1
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %land.lhs.true.i.i, label %malloc_conf_init.exit
@@ -9257,67 +9277,67 @@ land.lhs.true.i.i:                                ; preds = %entry
   br i1 %tobool1.i.i, label %malloc_conf_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.157) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.157) #18
   %2 = load i8, ptr @opt_abort_conf, align 1
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then3.i, label %malloc_conf_init.exit
 
 if.then3.i:                                       ; preds = %if.then.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #18
+  call void @abort() #19
   unreachable
 
 malloc_conf_init.exit:                            ; preds = %entry, %land.lhs.true.i.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %opts_cache.i)
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %buf.i)
   %3 = load i64, ptr @opt_lg_san_uaf_align, align 8
-  call void @san_init(i64 noundef %3) #19
+  call void @san_init(i64 noundef %3) #18
   %4 = load i8, ptr @opt_cache_oblivious, align 1
   %tobool = trunc i8 %4 to i1
-  call void @sz_boot(ptr noundef nonnull %sc_data, i1 noundef zeroext %tobool) #19
-  call void @bin_info_boot(ptr noundef nonnull %sc_data, ptr noundef nonnull %bin_shard_sizes) #19
+  call void @sz_boot(ptr noundef nonnull %sc_data, i1 noundef zeroext %tobool) #18
+  call void @bin_info_boot(ptr noundef nonnull %sc_data, ptr noundef nonnull %bin_shard_sizes) #18
   %5 = load i8, ptr @opt_stats_print, align 1
   %tobool3 = trunc i8 %5 to i1
   br i1 %tobool3, label %if.then, label %if.end9
 
 if.then:                                          ; preds = %malloc_conf_init.exit
-  %call4 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #19
+  %call4 = call i32 @atexit(ptr noundef nonnull @stats_print_atexit) #18
   %cmp.not = icmp eq i32 %call4, 0
   br i1 %cmp.not, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  call void @malloc_write(ptr noundef nonnull @.str.77) #19
+  call void @malloc_write(ptr noundef nonnull @.str.77) #18
   %6 = load i8, ptr @opt_abort, align 1
   %tobool6 = trunc i8 %6 to i1
   br i1 %tobool6, label %if.then7, label %if.end9
 
 if.then7:                                         ; preds = %if.then5
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 if.end9:                                          ; preds = %if.then, %if.then5, %malloc_conf_init.exit
-  %call10 = call zeroext i1 @stats_boot() #19
+  %call10 = call zeroext i1 @stats_boot() #18
   br i1 %call10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %if.end9
-  %call13 = call zeroext i1 @pages_boot() #19
+  %call13 = call zeroext i1 @pages_boot() #18
   br i1 %call13, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
-  %call16 = call zeroext i1 @base_boot(ptr noundef null) #19
+  %call16 = call zeroext i1 @base_boot(ptr noundef null) #18
   br i1 %call16, label %return, label %if.end18
 
 if.end18:                                         ; preds = %if.end15
-  %call19 = call ptr @b0get() #19
-  %call20 = call zeroext i1 @emap_init(ptr noundef nonnull @arena_emap_global, ptr noundef %call19, i1 noundef zeroext true) #19
+  %call19 = call ptr @b0get() #18
+  %call20 = call zeroext i1 @emap_init(ptr noundef nonnull @arena_emap_global, ptr noundef %call19, i1 noundef zeroext true) #18
   br i1 %call20, label %return, label %if.end22
 
 if.end22:                                         ; preds = %if.end18
-  %call23 = call zeroext i1 @extent_boot() #19
+  %call23 = call zeroext i1 @extent_boot() #18
   br i1 %call23, label %return, label %if.end25
 
 if.end25:                                         ; preds = %if.end22
-  %call26 = call zeroext i1 @ctl_boot() #19
+  %call26 = call zeroext i1 @ctl_boot() #18
   br i1 %call26, label %return, label %if.end28
 
 if.end28:                                         ; preds = %if.end25
@@ -9326,21 +9346,21 @@ if.end28:                                         ; preds = %if.end25
   br i1 %tobool29, label %land.lhs.true, label %if.end36
 
 land.lhs.true:                                    ; preds = %if.end28
-  %call30 = call zeroext i1 (...) @hpa_supported() #19
+  %call30 = call zeroext i1 (...) @hpa_supported() #18
   br i1 %call30, label %if.end36, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true
   %8 = load i8, ptr @opt_abort_conf, align 1
   %tobool32 = trunc i8 %8 to i1
   %cond = select i1 %tobool32, ptr @.str.79, ptr @.str.80
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond) #18
   %9 = load i8, ptr @opt_abort_conf, align 1
   %tobool33 = trunc i8 %9 to i1
   br i1 %tobool33, label %if.then34, label %if.else
 
 if.then34:                                        ; preds = %if.then31
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #18
+  call void @abort() #19
   unreachable
 
 if.else:                                          ; preds = %if.then31
@@ -9348,23 +9368,23 @@ if.else:                                          ; preds = %if.then31
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %land.lhs.true, %if.end28
-  %call37 = call ptr @b0get() #19
+  %call37 = call ptr @b0get() #18
   %10 = load i8, ptr @opt_hpa, align 1
   %tobool38 = trunc i8 %10 to i1
-  %call39 = call zeroext i1 @arena_boot(ptr noundef nonnull %sc_data, ptr noundef %call37, i1 noundef zeroext %tobool38) #19
+  %call39 = call zeroext i1 @arena_boot(ptr noundef nonnull %sc_data, ptr noundef %call37, i1 noundef zeroext %tobool38) #18
   br i1 %call39, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end36
-  %call42 = call ptr @b0get() #19
-  %call43 = call zeroext i1 @tcache_boot(ptr noundef null, ptr noundef %call42) #19
+  %call42 = call ptr @b0get() #18
+  %call43 = call zeroext i1 @tcache_boot(ptr noundef null, ptr noundef %call42) #18
   br i1 %call43, label %return, label %if.end45
 
 if.end45:                                         ; preds = %if.end41
-  %call46 = call zeroext i1 @malloc_mutex_init(ptr noundef nonnull @arenas_lock, ptr noundef nonnull @.str.81, i32 noundef 4, i32 noundef 0) #19
+  %call46 = call zeroext i1 @malloc_mutex_init(ptr noundef nonnull @arenas_lock, ptr noundef nonnull @.str.81, i32 noundef 4, i32 noundef 0) #18
   br i1 %call46, label %return, label %if.end48
 
 if.end48:                                         ; preds = %if.end45
-  %call49 = call zeroext i1 (...) @hook_boot() #19
+  %call49 = call zeroext i1 (...) @hook_boot() #18
   store i32 1, ptr @narenas_auto, align 4
   store i32 2, ptr @manual_arena_base, align 4
   store i64 0, ptr @arenas, align 64
@@ -9381,7 +9401,7 @@ if.end54:                                         ; preds = %if.end48
   br i1 %tobool56, label %land.lhs.true58, label %if.else68
 
 land.lhs.true58:                                  ; preds = %if.end54
-  %call59 = call zeroext i1 (...) @hpa_supported() #19
+  %call59 = call zeroext i1 (...) @hpa_supported() #18
   br i1 %call59, label %land.lhs.true58.if.else68_crit_edge, label %if.then60
 
 land.lhs.true58.if.else68_crit_edge:              ; preds = %land.lhs.true58
@@ -9392,14 +9412,14 @@ if.then60:                                        ; preds = %land.lhs.true58
   %14 = load i8, ptr @opt_abort_conf, align 1
   %tobool61 = trunc i8 %14 to i1
   %cond63 = select i1 %tobool61, ptr @.str.79, ptr @.str.80
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond63) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.78, ptr noundef nonnull %cond63) #18
   %15 = load i8, ptr @opt_abort_conf, align 1
   %tobool64 = trunc i8 %15 to i1
   br i1 %tobool64, label %if.then65, label %if.else66
 
 if.then65:                                        ; preds = %if.then60
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #18
+  call void @abort() #19
   unreachable
 
 if.else66:                                        ; preds = %if.then60
@@ -9419,7 +9439,7 @@ if.then70:                                        ; preds = %if.else68
   store i8 %frombool, ptr %deferral_allowed, align 4
   %18 = load ptr, ptr @a0, align 8
   %pa_shard = getelementptr inbounds i8, ptr %18, i64 10648
-  %call72 = call zeroext i1 @pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %pa_shard, ptr noundef nonnull %hpa_shard_opts, ptr noundef nonnull @opt_hpa_sec_opts) #19
+  %call72 = call zeroext i1 @pa_shard_enable_hpa(ptr noundef null, ptr noundef nonnull %pa_shard, ptr noundef nonnull %hpa_shard_opts, ptr noundef nonnull @opt_hpa_sec_opts) #18
   br i1 %call72, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.else68, %if.then70, %if.else66
@@ -9463,7 +9483,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #19
+  %call13.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %1, i1 noundef zeroext false) #18
   br label %tsdn_fetch.exit
 
 tsdn_fetch.exit:                                  ; preds = %if.then11.i, %if.end.i, %entry
@@ -9486,13 +9506,13 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then:                                          ; preds = %for.body
   %lock.i.i = getelementptr inbounds i8, ptr %5, i64 10472
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #18
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i18, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %tcache_ql_mtx = getelementptr inbounds i8, ptr %5, i64 10408
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %tcache_ql_mtx) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull %tcache_ql_mtx) #18
   %locked.i = getelementptr inbounds i8, ptr %5, i64 10512
   store atomic i8 1, ptr %locked.i monotonic, align 1
   br label %if.end.i18
@@ -9525,7 +9545,7 @@ for.body6:                                        ; preds = %malloc_mutex_lock.e
   %tcache_slow.022 = phi ptr [ %11, %for.body6 ], [ %9, %malloc_mutex_lock.exit ]
   %tcache = getelementptr inbounds i8, ptr %tcache_slow.022, i64 184
   %10 = load ptr, ptr %tcache, align 8
-  tail call void @tcache_stats_merge(ptr noundef %retval.i.0, ptr noundef %10, ptr noundef nonnull %5) #19
+  tail call void @tcache_stats_merge(ptr noundef %retval.i.0, ptr noundef %10, ptr noundef nonnull %5) #18
   %11 = load ptr, ptr %tcache_slow.022, align 8
   %12 = load ptr, ptr %tcache_ql, align 8
   %cmp9.not = icmp eq ptr %11, %12
@@ -9536,7 +9556,7 @@ for.body6:                                        ; preds = %malloc_mutex_lock.e
 for.end:                                          ; preds = %for.body6, %malloc_mutex_lock.exit
   %locked.i19 = getelementptr inbounds i8, ptr %5, i64 10512
   store atomic i8 0, ptr %locked.i19 monotonic, align 1
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #19
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #18
   br label %for.inc13
 
 for.inc13:                                        ; preds = %for.body, %for.end
@@ -9558,14 +9578,14 @@ if.end.i.i:                                       ; preds = %for.end14
   br i1 %cmp6.i.not.i, label %je_malloc_stats_print.exit, label %if.then11.i.i
 
 if.then11.i.i:                                    ; preds = %if.end.i.i
-  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %14, i1 noundef zeroext false) #19
+  %call13.i.i = tail call ptr @tsd_fetch_slow(ptr noundef nonnull %14, i1 noundef zeroext false) #18
   br label %je_malloc_stats_print.exit
 
 je_malloc_stats_print.exit:                       ; preds = %for.end14, %if.end.i.i, %if.then11.i.i
   %retval.i.0.i = phi ptr [ null, %for.end14 ], [ %call13.i.i, %if.then11.i.i ], [ %14, %if.end.i.i ]
-  %call1.i20 = call zeroext i1 @buf_writer_init(ptr noundef %retval.i.0.i, ptr noundef nonnull %buf_writer.i, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 65536) #19
-  call void @stats_print(ptr noundef nonnull @buf_writer_cb, ptr noundef nonnull %buf_writer.i, ptr noundef nonnull @opt_stats_print_opts) #19
-  call void @buf_writer_terminate(ptr noundef %retval.i.0.i, ptr noundef nonnull %buf_writer.i) #19
+  %call1.i20 = call zeroext i1 @buf_writer_init(ptr noundef %retval.i.0.i, ptr noundef nonnull %buf_writer.i, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 65536) #18
+  call void @stats_print(ptr noundef nonnull @buf_writer_cb, ptr noundef nonnull %buf_writer.i, ptr noundef nonnull @opt_stats_print_opts) #18
+  call void @buf_writer_terminate(ptr noundef %retval.i.0.i, ptr noundef nonnull %buf_writer.i) #18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %buf_writer.i)
   ret void
 }
@@ -9607,9 +9627,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare zeroext i1 @pa_shard_enable_hpa(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @malloc_conf_init_helper(ptr noundef %sc_data, ptr noundef %bin_shard_sizes, i1 noundef zeroext %initial_call, ptr nocapture noundef %opts_cache, ptr noundef %buf) unnamed_addr #1 {
+define internal fastcc void @malloc_conf_init_helper(ptr noundef %sc_data, ptr noundef %bin_shard_sizes, i1 noundef zeroext %initial_call, ptr nocapture noundef nonnull %opts_cache, ptr noundef %buf) unnamed_addr #1 {
 entry:
-  %end.i671 = alloca ptr, align 8
+  %end.i670 = alloca ptr, align 8
   %end.i = alloca ptr, align 8
   %end = alloca ptr, align 8
   %end373 = alloca ptr, align 8
@@ -9648,12 +9668,12 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc2196
-  %indvars.iv2262 = phi i64 [ 0, %entry ], [ %indvars.iv.next2263, %for.inc2196 ]
+  %indvars.iv2261 = phi i64 [ 0, %entry ], [ %indvars.iv.next2262, %for.inc2196 ]
   br i1 %initial_call, label %if.then, label %land.lhs.true
 
 if.then:                                          ; preds = %for.body
-  %0 = trunc nuw nsw i64 %indvars.iv2262 to i32
-  switch i32 %0, label %default.unreachable.i [
+  %0 = trunc nuw nsw i64 %indvars.iv2261 to i32
+  switch i32 %0, label %default.unreachable5.i [
     i32 0, label %if.end.thread
     i32 1, label %sw.bb1.i
     i32 2, label %sw.bb2.i
@@ -9666,9 +9686,9 @@ sw.bb1.i:                                         ; preds = %if.then
   br label %if.end.thread
 
 sw.bb2.i:                                         ; preds = %if.then
-  %call.i = tail call ptr @__errno_location() #21
+  %call.i = tail call ptr @__errno_location() #20
   %2 = load i32, ptr %call.i, align 4
-  %call3.i = call i64 @readlink(ptr noundef nonnull @.str.150, ptr noundef %buf, i64 noundef 4096) #19
+  %call3.i = call i64 @readlink(ptr noundef nonnull @.str.150, ptr noundef %buf, i64 noundef 4096) #18
   %cmp4.i = icmp eq i64 %call3.i, -1
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i
 
@@ -9683,37 +9703,37 @@ if.end6.i:                                        ; preds = %if.then5.i, %sw.bb2
   br label %if.end.thread
 
 sw.bb7.i:                                         ; preds = %if.then
-  %call.i4.i = call ptr @secure_getenv(ptr noundef nonnull @.str.151) #19
+  %call.i4.i = call ptr @secure_getenv(ptr noundef nonnull @.str.151) #18
   br label %if.end.thread
 
 sw.bb13.i:                                        ; preds = %if.then
   %3 = load ptr, ptr @je_malloc_conf_2_conf_harder, align 8
   br label %if.end.thread
 
-default.unreachable.i:                            ; preds = %if.then
+default.unreachable5.i:                           ; preds = %if.then
   unreachable
 
 if.end.thread:                                    ; preds = %sw.bb13.i, %sw.bb7.i, %if.end6.i, %sw.bb1.i, %if.then
   %ret.0.i = phi ptr [ %3, %sw.bb13.i ], [ %call.i4.i, %sw.bb7.i ], [ %buf, %if.end6.i ], [ @.str.88, %if.then ], [ %1, %sw.bb1.i ]
-  %arrayidx = getelementptr inbounds ptr, ptr %opts_cache, i64 %indvars.iv2262
+  %arrayidx = getelementptr inbounds ptr, ptr %opts_cache, i64 %indvars.iv2261
   store ptr %ret.0.i, ptr %arrayidx, align 8
   br label %if.end9
 
 land.lhs.true:                                    ; preds = %for.body
-  %arrayidx2 = getelementptr inbounds ptr, ptr %opts_cache, i64 %indvars.iv2262
+  %arrayidx2 = getelementptr inbounds ptr, ptr %opts_cache, i64 %indvars.iv2261
   %4 = load ptr, ptr %arrayidx2, align 8
   %5 = load i8, ptr @opt_confirm_conf, align 1
   %tobool4 = trunc i8 %5 to i1
   br i1 %tobool4, label %if.then5, label %if.end9
 
 if.then5:                                         ; preds = %land.lhs.true
-  %arrayidx7 = getelementptr inbounds [5 x ptr], ptr @malloc_conf_init_helper.opts_explain, i64 0, i64 %indvars.iv2262
+  %arrayidx7 = getelementptr inbounds [5 x ptr], ptr @malloc_conf_init_helper.opts_explain, i64 0, i64 %indvars.iv2261
   %6 = load ptr, ptr %arrayidx7, align 8
   %cmp8.not = icmp eq ptr %4, null
   %cond = select i1 %cmp8.not, ptr @.str.88, ptr %4
-  %7 = trunc i64 %indvars.iv2262 to i32
+  %7 = trunc i64 %indvars.iv2261 to i32
   %8 = add i32 %7, 1
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.87, i32 noundef %8, ptr noundef %6, ptr noundef nonnull %cond) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.87, i32 noundef %8, ptr noundef %6, ptr noundef nonnull %cond) #18
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end.thread, %if.then5, %land.lhs.true
@@ -9723,25 +9743,25 @@ if.end9:                                          ; preds = %if.end.thread, %if.
 
 while.cond.preheader:                             ; preds = %if.end9
   %10 = load i8, ptr %9, align 1
-  %cmp13.not2181 = icmp eq i8 %10, 0
-  br i1 %cmp13.not2181, label %while.end, label %for.body.i.preheader
+  %cmp13.not2180 = icmp eq i8 %10, 0
+  br i1 %cmp13.not2180, label %while.end, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %while.cond.preheader, %while.cond.backedge
   %11 = phi i8 [ %22, %while.cond.backedge ], [ %10, %while.cond.preheader ]
-  %opts.02182 = phi ptr [ %opts.1, %while.cond.backedge ], [ %9, %while.cond.preheader ]
+  %opts.02181 = phi ptr [ %opts.1, %while.cond.backedge ], [ %9, %while.cond.preheader ]
   br label %for.body.i
 
 for.cond6.preheader.i:                            ; preds = %for.body.i
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %opts.027.i, i64 1
   %12 = ptrtoint ptr %incdec.ptr2.i to i64
-  %13 = ptrtoint ptr %opts.02182 to i64
+  %13 = ptrtoint ptr %opts.02181 to i64
   %14 = xor i64 %13, -1
   %sub3.i = add i64 %12, %14
   br label %for.body9.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %sw.epilog.i
   %15 = phi i8 [ %.pr, %sw.epilog.i ], [ %11, %for.body.i.preheader ]
-  %opts.027.i = phi ptr [ %incdec.ptr.i, %sw.epilog.i ], [ %opts.02182, %for.body.i.preheader ]
+  %opts.027.i = phi ptr [ %incdec.ptr.i, %sw.epilog.i ], [ %opts.02181, %for.body.i.preheader ]
   switch i8 %15, label %while.end.sink.split [
     i8 65, label %sw.epilog.i
     i8 66, label %sw.epilog.i
@@ -9811,7 +9831,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   ]
 
 sw.bb4.i:                                         ; preds = %for.body.i
-  %cmp.not.i = icmp eq ptr %opts.027.i, %opts.02182
+  %cmp.not.i = icmp eq ptr %opts.027.i, %opts.02181
   br i1 %cmp.not.i, label %while.end, label %while.end.sink.split
 
 sw.epilog.i:                                      ; preds = %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i, %for.body.i
@@ -9834,7 +9854,7 @@ sw.bb11.i:                                        ; preds = %for.body9.i
   br i1 %cmp14.i, label %if.then16.i, label %if.end17.i
 
 if.then16.i:                                      ; preds = %sw.bb11.i
-  call void @malloc_write(ptr noundef nonnull @.str.154) #19
+  call void @malloc_write(ptr noundef nonnull @.str.154) #18
   store i1 true, ptr @had_conf_error, align 1
   br label %if.end17.i
 
@@ -9860,7 +9880,7 @@ while.body:                                       ; preds = %sw.bb20.i, %if.end1
   br i1 %cmp16, label %land.lhs.true18, label %if.end54
 
 land.lhs.true18:                                  ; preds = %while.body
-  %call19 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.89, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 12) #23
+  %call19 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.89, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 12) #22
   %cmp20 = icmp eq i32 %call19, 0
   br i1 %cmp20, label %if.then22, label %if.end54.thread
 
@@ -9871,12 +9891,12 @@ if.then22:                                        ; preds = %land.lhs.true18
   ]
 
 land.lhs.true25:                                  ; preds = %if.then22
-  %call26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call26 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp27 = icmp eq i32 %call26, 0
   br i1 %cmp27, label %if.end42, label %if.else37
 
 land.lhs.true32:                                  ; preds = %if.then22
-  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call33 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp34 = icmp eq i32 %call33, 0
   br i1 %cmp34, label %if.end42, label %if.else37
 
@@ -9885,8 +9905,8 @@ if.else37:                                        ; preds = %if.then22, %land.lh
 
 if.then39:                                        ; preds = %if.else37
   %conv1.i = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 12, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 12, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i = icmp eq i32 %call2.i, 0
   br i1 %cmp.i, label %while.cond.backedge, label %if.end.i
 
@@ -9905,7 +9925,7 @@ land.lhs.true44:                                  ; preds = %if.end42
 
 if.then50:                                        ; preds = %land.lhs.true44
   %conv52 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 12, ptr noundef nonnull %opts.02182, i32 noundef %conv52, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 12, ptr noundef nonnull %opts.02181, i32 noundef %conv52, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end.i411, %if.then283, %land.lhs.true2015.thread, %if.then2181, %land.lhs.true2175, %land.lhs.true2175.thread, %if.then2146, %land.lhs.true2140, %land.lhs.true2140.thread, %if.then2111, %land.lhs.true2105, %land.lhs.true2105.thread, %if.then2062, %land.lhs.true2056, %land.lhs.true2056.thread, %if.then2021, %land.lhs.true2015, %if.then1981, %if.then1989, %if.then1963, %if.else1948, %land.lhs.true1957.thread, %if.then1918, %if.else1904, %land.lhs.true1912.thread, %if.then1878, %if.else1864, %land.lhs.true1872.thread, %if.then1838, %if.else1824, %land.lhs.true1832.thread, %if.then1798, %land.lhs.true1792, %land.lhs.true1792.thread, %if.then1758, %land.lhs.true1752, %land.lhs.true1752.thread, %if.then1719, %if.then1727, %if.then1701, %land.lhs.true1695, %land.lhs.true1695.thread, %if.then1666, %land.lhs.true1660, %land.lhs.true1660.thread, %if.then1631, %land.lhs.true1625, %land.lhs.true1625.thread, %if.then1590, %if.else1571, %land.lhs.true1584.thread, %if.then1545, %if.else1526, %land.lhs.true1539.thread, %if.then1500, %land.lhs.true1494, %land.lhs.true1494.thread, %if.then1460, %land.lhs.true1454, %land.lhs.true1454.thread, %if.then1415, %land.lhs.true1409, %land.lhs.true1409.thread, %if.then1375, %land.lhs.true1369, %if.end.i648, %if.then1365, %if.then1337, %land.lhs.true1331, %if.then1325, %if.then1318, %if.end.i642, %if.then1294, %land.lhs.true1288, %if.then1282, %if.then1275, %if.end.i634, %if.then1251, %if.else1231, %if.then1229, %if.end.i626, %if.then1205, %if.else1185, %if.then1183, %if.end.i618, %if.then1159, %land.lhs.true1153, %if.then1148, %if.end.i610, %if.then1124, %if.else1110, %if.then1108, %if.end.i602, %if.then1084, %if.else1064, %if.then1062, %if.end.i594, %if.then1038, %if.else1018, %if.then1016, %if.end.i586, %if.then992, %if.else972, %if.then970, %if.end.i578, %if.then946, %land.lhs.true940, %if.then934, %if.then924, %if.end.i570, %if.then900, %land.lhs.true894, %if.then885, %if.end.i562, %if.then861, %if.else847, %if.then845, %if.end.i554, %if.then821, %land.lhs.true815, %if.then810, %if.end.i546, %if.then781, %land.lhs.true775, %if.then770, %if.end.i540, %if.then741, %land.lhs.true735, %if.then728, %if.end.i534, %init_opt_stats_opts.exit529, %if.then683, %if.then664, %land.lhs.true658, %if.then645, %if.end.i502, %if.then652, %if.end.i508, %init_opt_stats_opts.exit, %if.then621, %if.then602, %land.lhs.true596, %if.then591, %if.end.i489, %if.then562, %land.lhs.true556, %if.then540, %if.end.i477, %if.then550, %if.end.i483, %if.then516, %land.lhs.true510, %if.then494, %if.end.i463, %if.then504, %if.end.i469, %if.then470, %land.lhs.true464, %if.then451, %if.end.i449, %if.then458, %if.end.i455, %if.then427, %land.lhs.true421, %if.then415, %if.end.i441, %if.then393, %land.lhs.true387, %if.then383, %if.end.i431, %if.then359, %land.lhs.true353, %if.then339, %if.end.i419, %if.then346, %if.end.i425, %if.then311, %if.then319, %if.then293, %land.lhs.true287, %if.then246, %land.lhs.true240, %if.then235, %if.end.i399, %if.then206, %land.lhs.true200, %if.end.i393, %if.then196, %if.then173, %land.lhs.true167, %if.then162, %if.end.i387, %if.then133, %land.lhs.true127, %if.then122, %if.end.i381, %if.then93, %land.lhs.true87, %if.then82, %if.end.i375, %if.end42, %if.then50, %land.lhs.true44, %if.else37, %if.then39, %if.end.i, %if.then2187, %if.end54, %if.end54.thread
@@ -9927,7 +9947,7 @@ if.end57:                                         ; preds = %if.end54
   ]
 
 land.lhs.true60:                                  ; preds = %if.end57
-  %call61 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 5) #23
+  %call61 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 5) #22
   %cmp62 = icmp eq i32 %call61, 0
   br i1 %cmp62, label %if.then64, label %if.end177
 
@@ -9938,19 +9958,19 @@ if.then64:                                        ; preds = %land.lhs.true60
   ]
 
 land.lhs.true67:                                  ; preds = %if.then64
-  %call68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp69 = icmp eq i32 %call68, 0
   br i1 %cmp69, label %land.lhs.true87, label %if.then82
 
 land.lhs.true75:                                  ; preds = %if.then64
-  %call76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call76 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp77 = icmp eq i32 %call76, 0
   br i1 %cmp77, label %land.lhs.true87, label %if.then82
 
 if.then82:                                        ; preds = %if.then64, %land.lhs.true67, %land.lhs.true75
   %conv1.i372 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 5, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i372, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i373 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 5, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i372, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i373 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i374 = icmp eq i32 %call2.i373, 0
   br i1 %cmp.i374, label %while.cond.backedge, label %if.end.i375
 
@@ -9959,19 +9979,19 @@ if.end.i375:                                      ; preds = %if.then82
   br label %while.cond.backedge
 
 land.lhs.true87:                                  ; preds = %land.lhs.true75, %land.lhs.true67
-  %storemerge2065 = phi i8 [ 1, %land.lhs.true67 ], [ 0, %land.lhs.true75 ]
-  store i8 %storemerge2065, ptr @opt_abort, align 1
+  %storemerge2064 = phi i8 [ 1, %land.lhs.true67 ], [ 0, %land.lhs.true75 ]
+  store i8 %storemerge2064, ptr @opt_abort, align 1
   %23 = load i8, ptr @opt_confirm_conf, align 1
   %tobool88 = trunc i8 %23 to i1
   br i1 %tobool88, label %if.then93, label %while.cond.backedge
 
 if.then93:                                        ; preds = %land.lhs.true87
   %conv95 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 5, ptr noundef nonnull %opts.02182, i32 noundef %conv95, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 5, ptr noundef nonnull %opts.02181, i32 noundef %conv95, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true100:                                 ; preds = %if.end57
-  %call101 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.93, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 10) #23
+  %call101 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.93, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 10) #22
   %cmp102 = icmp eq i32 %call101, 0
   br i1 %cmp102, label %if.then104, label %if.end177
 
@@ -9982,19 +10002,19 @@ if.then104:                                       ; preds = %land.lhs.true100
   ]
 
 land.lhs.true107:                                 ; preds = %if.then104
-  %call108 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call108 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp109 = icmp eq i32 %call108, 0
   br i1 %cmp109, label %land.lhs.true127, label %if.then122
 
 land.lhs.true115:                                 ; preds = %if.then104
-  %call116 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call116 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp117 = icmp eq i32 %call116, 0
   br i1 %cmp117, label %land.lhs.true127, label %if.then122
 
 if.then122:                                       ; preds = %if.then104, %land.lhs.true107, %land.lhs.true115
   %conv1.i378 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 10, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i378, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i379 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 10, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i378, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i379 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i380 = icmp eq i32 %call2.i379, 0
   br i1 %cmp.i380, label %while.cond.backedge, label %if.end.i381
 
@@ -10003,19 +10023,19 @@ if.end.i381:                                      ; preds = %if.then122
   br label %while.cond.backedge
 
 land.lhs.true127:                                 ; preds = %land.lhs.true115, %land.lhs.true107
-  %storemerge2064 = phi i8 [ 1, %land.lhs.true107 ], [ 0, %land.lhs.true115 ]
-  store i8 %storemerge2064, ptr @opt_abort_conf, align 1
+  %storemerge2063 = phi i8 [ 1, %land.lhs.true107 ], [ 0, %land.lhs.true115 ]
+  store i8 %storemerge2063, ptr @opt_abort_conf, align 1
   %24 = load i8, ptr @opt_confirm_conf, align 1
   %tobool128 = trunc i8 %24 to i1
   br i1 %tobool128, label %if.then133, label %while.cond.backedge
 
 if.then133:                                       ; preds = %land.lhs.true127
   %conv135 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 10, ptr noundef nonnull %opts.02182, i32 noundef %conv135, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 10, ptr noundef nonnull %opts.02181, i32 noundef %conv135, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true140:                                 ; preds = %if.end57
-  %call141 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.94, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 13) #23
+  %call141 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.94, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 13) #22
   %cmp142 = icmp eq i32 %call141, 0
   br i1 %cmp142, label %if.then144, label %if.end177.thread
 
@@ -10026,19 +10046,19 @@ if.then144:                                       ; preds = %land.lhs.true140
   ]
 
 land.lhs.true147:                                 ; preds = %if.then144
-  %call148 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call148 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp149 = icmp eq i32 %call148, 0
   br i1 %cmp149, label %land.lhs.true167, label %if.then162
 
 land.lhs.true155:                                 ; preds = %if.then144
-  %call156 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call156 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp157 = icmp eq i32 %call156, 0
   br i1 %cmp157, label %land.lhs.true167, label %if.then162
 
 if.then162:                                       ; preds = %if.then144, %land.lhs.true147, %land.lhs.true155
   %conv1.i384 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 13, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i384, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i385 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 13, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i384, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i385 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i386 = icmp eq i32 %call2.i385, 0
   br i1 %cmp.i386, label %while.cond.backedge, label %if.end.i387
 
@@ -10055,41 +10075,41 @@ land.lhs.true167:                                 ; preds = %land.lhs.true155, %
 
 if.then173:                                       ; preds = %land.lhs.true167
   %conv175 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 13, ptr noundef nonnull %opts.02182, i32 noundef %conv175, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 13, ptr noundef nonnull %opts.02181, i32 noundef %conv175, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end177:                                        ; preds = %if.end57, %land.lhs.true100, %land.lhs.true60, %if.end54.thread
-  %cmp9815421553 = phi i1 [ true, %land.lhs.true100 ], [ false, %land.lhs.true60 ], [ false, %if.end54.thread ], [ false, %if.end57 ]
-  %call178 = call i32 @strncmp(ptr noundef nonnull @.str.95, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i) #23
+  %cmp9815411552 = phi i1 [ true, %land.lhs.true100 ], [ false, %land.lhs.true60 ], [ false, %if.end54.thread ], [ false, %if.end57 ]
+  %call178 = call i32 @strncmp(ptr noundef nonnull @.str.95, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i) #22
   %cmp179 = icmp eq i32 %call178, 0
   br i1 %cmp179, label %for.body185.preheader, label %if.end210
 
 if.end177.thread:                                 ; preds = %land.lhs.true140
-  %call1781573 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.95, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 13) #23
-  %cmp1791574 = icmp eq i32 %call1781573, 0
-  br i1 %cmp1791574, label %for.body185.preheader, label %if.end250
+  %call1781572 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.95, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 13) #22
+  %cmp1791573 = icmp eq i32 %call1781572, 0
+  br i1 %cmp1791573, label %for.body185.preheader, label %if.end250
 
 for.body185.preheader:                            ; preds = %if.end177, %if.end177.thread
   br label %for.body185
 
 for.body185:                                      ; preds = %for.body185.preheader, %for.inc
-  %indvars.iv2258 = phi i64 [ %indvars.iv.next2259, %for.inc ], [ 0, %for.body185.preheader ]
-  %arrayidx187 = getelementptr inbounds [0 x ptr], ptr @metadata_thp_mode_names, i64 0, i64 %indvars.iv2258
+  %indvars.iv2257 = phi i64 [ %indvars.iv.next2258, %for.inc ], [ 0, %for.body185.preheader ]
+  %arrayidx187 = getelementptr inbounds [0 x ptr], ptr @metadata_thp_mode_names, i64 0, i64 %indvars.iv2257
   %26 = load ptr, ptr %arrayidx187, align 8
-  %call188 = call i32 @strncmp(ptr noundef %26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %call188 = call i32 @strncmp(ptr noundef %26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #22
   %cmp189 = icmp eq i32 %call188, 0
   br i1 %cmp189, label %land.lhs.true200, label %for.inc
 
 for.inc:                                          ; preds = %for.body185
-  %indvars.iv.next2259 = add nuw nsw i64 %indvars.iv2258, 1
-  %exitcond2261.not = icmp eq i64 %indvars.iv.next2259, 3
-  br i1 %exitcond2261.not, label %if.then196, label %for.body185, !llvm.loop !25
+  %indvars.iv.next2258 = add nuw nsw i64 %indvars.iv2257, 1
+  %exitcond2260.not = icmp eq i64 %indvars.iv.next2258, 3
+  br i1 %exitcond2260.not, label %if.then196, label %for.body185, !llvm.loop !25
 
 if.then196:                                       ; preds = %for.inc
   %conv.i389 = trunc i64 %sub3.i to i32
   %conv1.i390 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i389, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i390, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i391 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i389, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i390, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i391 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i392 = icmp eq i32 %call2.i391, 0
   br i1 %cmp.i392, label %while.cond.backedge, label %if.end.i393
 
@@ -10098,7 +10118,7 @@ if.end.i393:                                      ; preds = %if.then196
   br label %while.cond.backedge
 
 land.lhs.true200:                                 ; preds = %for.body185
-  %27 = trunc nuw nsw i64 %indvars.iv2258 to i32
+  %27 = trunc nuw nsw i64 %indvars.iv2257 to i32
   store i32 %27, ptr @opt_metadata_thp, align 4
   %28 = load i8, ptr @opt_confirm_conf, align 1
   %tobool201 = trunc i8 %28 to i1
@@ -10107,7 +10127,7 @@ land.lhs.true200:                                 ; preds = %for.body185
 if.then206:                                       ; preds = %land.lhs.true200
   %conv207 = trunc i64 %sub3.i to i32
   %conv208 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv207, ptr noundef nonnull %opts.02182, i32 noundef %conv208, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv207, ptr noundef nonnull %opts.02181, i32 noundef %conv208, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end210:                                        ; preds = %if.end177
@@ -10115,7 +10135,7 @@ if.end210:                                        ; preds = %if.end177
   br i1 %cmp211, label %land.lhs.true213, label %if.end250
 
 land.lhs.true213:                                 ; preds = %if.end210
-  %call214 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.96, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 6) #23
+  %call214 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.96, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 6) #22
   %cmp215 = icmp eq i32 %call214, 0
   br i1 %cmp215, label %if.then217, label %if.end250
 
@@ -10126,19 +10146,19 @@ if.then217:                                       ; preds = %land.lhs.true213
   ]
 
 land.lhs.true220:                                 ; preds = %if.then217
-  %call221 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call221 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp222 = icmp eq i32 %call221, 0
   br i1 %cmp222, label %land.lhs.true240, label %if.then235
 
 land.lhs.true228:                                 ; preds = %if.then217
-  %call229 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call229 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp230 = icmp eq i32 %call229, 0
   br i1 %cmp230, label %land.lhs.true240, label %if.then235
 
 if.then235:                                       ; preds = %if.then217, %land.lhs.true220, %land.lhs.true228
   %conv1.i396 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 6, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i396, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i397 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 6, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i396, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i397 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i398 = icmp eq i32 %call2.i397, 0
   br i1 %cmp.i398, label %while.cond.backedge, label %if.end.i399
 
@@ -10147,22 +10167,22 @@ if.end.i399:                                      ; preds = %if.then235
   br label %while.cond.backedge
 
 land.lhs.true240:                                 ; preds = %land.lhs.true228, %land.lhs.true220
-  %storemerge2077 = phi i8 [ 1, %land.lhs.true220 ], [ 0, %land.lhs.true228 ]
-  store i8 %storemerge2077, ptr @opt_retain, align 1
+  %storemerge2076 = phi i8 [ 1, %land.lhs.true220 ], [ 0, %land.lhs.true228 ]
+  store i8 %storemerge2076, ptr @opt_retain, align 1
   %29 = load i8, ptr @opt_confirm_conf, align 1
   %tobool241 = trunc i8 %29 to i1
   br i1 %tobool241, label %if.then246, label %while.cond.backedge
 
 if.then246:                                       ; preds = %land.lhs.true240
   %conv248 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 6, ptr noundef nonnull %opts.02182, i32 noundef %conv248, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 6, ptr noundef nonnull %opts.02181, i32 noundef %conv248, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end250:                                        ; preds = %if.end177.thread, %land.lhs.true213, %if.end210
-  %cmp2111582 = phi i1 [ true, %land.lhs.true213 ], [ false, %if.end210 ], [ false, %if.end177.thread ]
-  %cmp138155415751581 = phi i1 [ false, %land.lhs.true213 ], [ false, %if.end210 ], [ true, %if.end177.thread ]
-  %cmp981542155315761580 = phi i1 [ %cmp9815421553, %land.lhs.true213 ], [ %cmp9815421553, %if.end210 ], [ false, %if.end177.thread ]
-  %call251 = call i32 @strncmp(ptr noundef nonnull @.str.97, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i) #23
+  %cmp2111581 = phi i1 [ true, %land.lhs.true213 ], [ false, %if.end210 ], [ false, %if.end177.thread ]
+  %cmp138155315741580 = phi i1 [ false, %land.lhs.true213 ], [ false, %if.end210 ], [ true, %if.end177.thread ]
+  %cmp981541155215751579 = phi i1 [ %cmp9815411552, %land.lhs.true213 ], [ %cmp9815411552, %if.end210 ], [ false, %if.end177.thread ]
+  %call251 = call i32 @strncmp(ptr noundef nonnull @.str.97, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i) #22
   %cmp252 = icmp eq i32 %call251, 0
   br i1 %cmp252, label %for.cond257.preheader, label %if.end297
 
@@ -10172,22 +10192,22 @@ for.cond257.preheader:                            ; preds = %if.end250
   br label %for.body260
 
 for.body260:                                      ; preds = %for.cond257.preheader, %for.inc277
-  %indvars.iv2255 = phi i64 [ 0, %for.cond257.preheader ], [ %indvars.iv.next2256, %for.inc277 ]
-  %cur_opt_valid.62179 = phi i1 [ true, %for.cond257.preheader ], [ %cur_opt_valid.7, %for.inc277 ]
-  %arrayidx262 = getelementptr inbounds [0 x ptr], ptr @dss_prec_names, i64 0, i64 %indvars.iv2255
+  %indvars.iv2254 = phi i64 [ 0, %for.cond257.preheader ], [ %indvars.iv.next2255, %for.inc277 ]
+  %cur_opt_valid.62178 = phi i1 [ true, %for.cond257.preheader ], [ %cur_opt_valid.7, %for.inc277 ]
+  %arrayidx262 = getelementptr inbounds [0 x ptr], ptr @dss_prec_names, i64 0, i64 %indvars.iv2254
   %30 = load ptr, ptr %arrayidx262, align 8
-  %call263 = call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %call263 = call i32 @strncmp(ptr noundef %30, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #22
   %cmp264 = icmp eq i32 %call263, 0
   br i1 %cmp264, label %if.then266, label %for.inc277
 
 if.then266:                                       ; preds = %for.body260
-  %31 = trunc nuw nsw i64 %indvars.iv2255 to i32
-  %call267 = call zeroext i1 @extent_dss_prec_set(i32 noundef %31) #19
+  %31 = trunc nuw nsw i64 %indvars.iv2254 to i32
+  %call267 = call zeroext i1 @extent_dss_prec_set(i32 noundef %31) #18
   br i1 %call267, label %if.then270, label %land.lhs.true287
 
 if.then270:                                       ; preds = %if.then266
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.98, i32 noundef %conv.i401, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i403 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.98, i32 noundef %conv.i401, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i403 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i404 = icmp eq i32 %call2.i403, 0
   br i1 %cmp.i404, label %for.inc277, label %if.end.i405
 
@@ -10196,14 +10216,14 @@ if.end.i405:                                      ; preds = %if.then270
   br label %for.inc277
 
 for.inc277:                                       ; preds = %if.end.i405, %if.then270, %for.body260
-  %cur_opt_valid.7 = phi i1 [ %cur_opt_valid.62179, %for.body260 ], [ false, %if.then270 ], [ false, %if.end.i405 ]
-  %indvars.iv.next2256 = add nuw nsw i64 %indvars.iv2255, 1
-  %exitcond2257.not = icmp eq i64 %indvars.iv.next2256, 3
-  br i1 %exitcond2257.not, label %if.then283, label %for.body260, !llvm.loop !26
+  %cur_opt_valid.7 = phi i1 [ %cur_opt_valid.62178, %for.body260 ], [ false, %if.then270 ], [ false, %if.end.i405 ]
+  %indvars.iv.next2255 = add nuw nsw i64 %indvars.iv2254, 1
+  %exitcond2256.not = icmp eq i64 %indvars.iv.next2255, 3
+  br i1 %exitcond2256.not, label %if.then283, label %for.body260, !llvm.loop !26
 
 if.then283:                                       ; preds = %for.inc277
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i401, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i409 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i401, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i409 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i410 = icmp eq i32 %call2.i409, 0
   br i1 %cmp.i410, label %while.cond.backedge, label %if.end.i411
 
@@ -10216,11 +10236,11 @@ land.lhs.true287:                                 ; preds = %if.then266
   store ptr %32, ptr @opt_dss, align 8
   %33 = load i8, ptr @opt_confirm_conf, align 1
   %tobool288 = trunc i8 %33 to i1
-  %brmerge.not = select i1 %tobool288, i1 %cur_opt_valid.62179, i1 false
+  %brmerge.not = select i1 %tobool288, i1 %cur_opt_valid.62178, i1 false
   br i1 %brmerge.not, label %if.then293, label %while.cond.backedge
 
 if.then293:                                       ; preds = %land.lhs.true287
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv.i401, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv.i401, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end297:                                        ; preds = %if.end250
@@ -10228,7 +10248,7 @@ if.end297:                                        ; preds = %if.end250
   br i1 %cmp298, label %land.lhs.true300, label %if.end365
 
 land.lhs.true300:                                 ; preds = %if.end297
-  %call301 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.99, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 7) #23
+  %call301 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.99, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 7) #22
   %cmp302 = icmp eq i32 %call301, 0
   br i1 %cmp302, label %if.then304, label %if.end365
 
@@ -10237,7 +10257,7 @@ if.then304:                                       ; preds = %land.lhs.true300
   br i1 %cmp305, label %land.lhs.true307, label %if.then330
 
 land.lhs.true307:                                 ; preds = %if.then304
-  %call308 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.100, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 7) #23
+  %call308 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.100, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 7) #22
   %cmp309 = icmp eq i32 %call308, 0
   br i1 %cmp309, label %if.then311, label %if.then330
 
@@ -10248,13 +10268,13 @@ if.then311:                                       ; preds = %land.lhs.true307
   br i1 %tobool314, label %if.then319, label %while.cond.backedge
 
 if.then319:                                       ; preds = %if.then311
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 7, ptr noundef nonnull %opts.02182, i32 noundef 7, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 7, ptr noundef nonnull %opts.02181, i32 noundef 7, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.then330:                                       ; preds = %land.lhs.true307, %if.then304
-  %call.i413 = tail call ptr @__errno_location() #21
+  %call.i413 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i413, align 4
-  %call331 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end, i32 noundef 0) #19
+  %call331 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end, i32 noundef 0) #18
   %35 = load i32, ptr %call.i413, align 4
   %cmp333.not = icmp eq i32 %35, 0
   br i1 %cmp333.not, label %lor.lhs.false, label %if.then339
@@ -10268,8 +10288,8 @@ lor.lhs.false:                                    ; preds = %if.then330
 
 if.then339:                                       ; preds = %if.then330, %lor.lhs.false
   %conv1.i416 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 7, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i416, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i417 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 7, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i416, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i417 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i418 = icmp eq i32 %call2.i417, 0
   br i1 %cmp.i418, label %while.cond.backedge, label %if.end.i419
 
@@ -10283,8 +10303,8 @@ if.else341:                                       ; preds = %lor.lhs.false
 
 if.then346:                                       ; preds = %if.else341
   %conv1.i422 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 7, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i422, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 7, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i422, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i424 = icmp eq i32 %call2.i423, 0
   br i1 %cmp.i424, label %while.cond.backedge, label %if.end.i425
 
@@ -10301,19 +10321,19 @@ land.lhs.true353:                                 ; preds = %if.else341
 
 if.then359:                                       ; preds = %land.lhs.true353
   %conv361 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 7, ptr noundef nonnull %opts.02182, i32 noundef %conv361, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 7, ptr noundef nonnull %opts.02181, i32 noundef %conv361, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end365:                                        ; preds = %land.lhs.true300, %if.end297
-  br i1 %cmp138155415751581, label %land.lhs.true368, label %if.end397
+  br i1 %cmp138155315741580, label %land.lhs.true368, label %if.end397
 
 land.lhs.true368:                                 ; preds = %if.end365
-  %call369 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.102, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 13) #23
+  %call369 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.102, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 13) #22
   %cmp370 = icmp eq i32 %call369, 0
   br i1 %cmp370, label %if.then372, label %if.end397
 
 if.then372:                                       ; preds = %land.lhs.true368
-  %call374 = call zeroext i1 @fxp_parse(ptr noundef nonnull @opt_narenas_ratio, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end373) #19
+  %call374 = call zeroext i1 @fxp_parse(ptr noundef nonnull @opt_narenas_ratio, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end373) #18
   br i1 %call374, label %if.then383, label %lor.lhs.false378
 
 lor.lhs.false378:                                 ; preds = %if.then372
@@ -10326,8 +10346,8 @@ lor.lhs.false378:                                 ; preds = %if.then372
 if.then383:                                       ; preds = %if.then372, %lor.lhs.false378
   %conv.i427 = trunc i64 %sub3.i to i32
   %conv1.i428 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i427, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i428, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i429 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i427, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i428, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i429 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i430 = icmp eq i32 %call2.i429, 0
   br i1 %cmp.i430, label %while.cond.backedge, label %if.end.i431
 
@@ -10343,38 +10363,38 @@ land.lhs.true387:                                 ; preds = %lor.lhs.false378
 if.then393:                                       ; preds = %land.lhs.true387
   %conv394 = trunc i64 %sub3.i to i32
   %conv395 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv394, ptr noundef nonnull %opts.02182, i32 noundef %conv395, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv394, ptr noundef nonnull %opts.02181, i32 noundef %conv395, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end397:                                        ; preds = %land.lhs.true368, %if.end365
-  br i1 %cmp981542155315761580, label %land.lhs.true400, label %if.end431
+  br i1 %cmp981541155215751579, label %land.lhs.true400, label %if.end431
 
 land.lhs.true400:                                 ; preds = %if.end397
-  %call401 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.103, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 10) #23
+  %call401 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.103, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 10) #22
   %cmp402 = icmp eq i32 %call401, 0
   br i1 %cmp402, label %do.body.preheader, label %if.end431
 
 do.body.preheader:                                ; preds = %land.lhs.true400
-  %call.i.i = tail call ptr @__errno_location() #21
+  %call.i.i = tail call ptr @__errno_location() #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store i32 0, ptr %call.i.i, align 4
-  %call.i4332155 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end.i, i32 noundef 0) #19
+  %call.i4332154 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end.i, i32 noundef 0) #18
   %41 = load i32, ptr %call.i.i, align 4
-  %cmp.not.i4342156 = icmp eq i32 %41, 0
-  br i1 %cmp.not.i4342156, label %lor.lhs.false.i, label %malloc_conf_multi_sizes_next.exit.thread
+  %cmp.not.i4342155 = icmp eq i32 %41, 0
+  br i1 %cmp.not.i4342155, label %lor.lhs.false.i, label %malloc_conf_multi_sizes_next.exit.thread
 
 do.body:                                          ; preds = %do.cond
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store i32 0, ptr %call.i.i, align 4
-  %call.i433 = call i64 @malloc_strtoumax(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %end.i, i32 noundef 0) #19
+  %call.i433 = call i64 @malloc_strtoumax(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %end.i, i32 noundef 0) #18
   %42 = load i32, ptr %call.i.i, align 4
   %cmp.not.i434 = icmp eq i32 %42, 0
   br i1 %cmp.not.i434, label %lor.lhs.false.i, label %malloc_conf_multi_sizes_next.exit.thread, !llvm.loop !27
 
 lor.lhs.false.i:                                  ; preds = %do.body.preheader, %do.body
-  %call.i4332162 = phi i64 [ %call.i433, %do.body ], [ %call.i4332155, %do.body.preheader ]
-  %vlen_left.02158 = phi i64 [ %sub.i, %do.body ], [ %vlen.4, %do.body.preheader ]
-  %bin_shards_segment_cur.02157 = phi ptr [ %spec.select.i, %do.body ], [ %incdec.ptr2.i, %do.body.preheader ]
+  %call.i4332161 = phi i64 [ %call.i433, %do.body ], [ %call.i4332154, %do.body.preheader ]
+  %vlen_left.02157 = phi i64 [ %sub.i, %do.body ], [ %vlen.4, %do.body.preheader ]
+  %bin_shards_segment_cur.02156 = phi ptr [ %spec.select.i, %do.body ], [ %incdec.ptr2.i, %do.body.preheader ]
   %43 = load ptr, ptr %end.i, align 8
   %44 = load i8, ptr %43, align 1
   %cmp2.not.i = icmp eq i8 %44, 45
@@ -10382,7 +10402,7 @@ lor.lhs.false.i:                                  ; preds = %do.body.preheader, 
 
 if.end.i436:                                      ; preds = %lor.lhs.false.i
   %add.ptr.i = getelementptr inbounds i8, ptr %43, i64 1
-  %call4.i = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %end.i, i32 noundef 0) #19
+  %call4.i = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %end.i, i32 noundef 0) #18
   %45 = load i32, ptr %call.i.i, align 4
   %cmp6.not.i = icmp eq i32 %45, 0
   br i1 %cmp6.not.i, label %lor.lhs.false8.i, label %malloc_conf_multi_sizes_next.exit.thread
@@ -10395,7 +10415,7 @@ lor.lhs.false8.i:                                 ; preds = %if.end.i436
 
 if.end13.i:                                       ; preds = %lor.lhs.false8.i
   %add.ptr14.i = getelementptr inbounds i8, ptr %46, i64 1
-  %call15.i = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr14.i, ptr noundef nonnull %end.i, i32 noundef 0) #19
+  %call15.i = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr14.i, ptr noundef nonnull %end.i, i32 noundef 0) #18
   %48 = load i32, ptr %call.i.i, align 4
   %cmp17.not.i = icmp eq i32 %48, 0
   br i1 %cmp17.not.i, label %lor.lhs.false410, label %malloc_conf_multi_sizes_next.exit.thread
@@ -10408,14 +10428,14 @@ lor.lhs.false410:                                 ; preds = %if.end13.i
   %49 = load ptr, ptr %end.i, align 8
   %50 = load i8, ptr %49, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
-  %call411 = call zeroext i1 @bin_update_shard_size(ptr noundef %bin_shard_sizes, i64 noundef %call.i4332162, i64 noundef %call4.i, i64 noundef %call15.i) #19
+  %call411 = call zeroext i1 @bin_update_shard_size(ptr noundef %bin_shard_sizes, i64 noundef %call.i4332161, i64 noundef %call4.i, i64 noundef %call15.i) #18
   br i1 %call411, label %if.then415, label %do.cond
 
 if.then415:                                       ; preds = %lor.lhs.false410, %malloc_conf_multi_sizes_next.exit.thread
   %conv.i437 = trunc i64 %sub3.i to i32
   %conv1.i438 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.104, i32 noundef %conv.i437, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i438, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i439 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.104, i32 noundef %conv.i437, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i438, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i439 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i440 = icmp eq i32 %call2.i439, 0
   br i1 %cmp.i440, label %while.cond.backedge, label %if.end.i441
 
@@ -10424,13 +10444,13 @@ if.end.i441:                                      ; preds = %if.then415
   br label %while.cond.backedge
 
 do.cond:                                          ; preds = %lor.lhs.false410
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %bin_shards_segment_cur.02157 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %bin_shards_segment_cur.02156 to i64
   %cmp22.i = icmp eq i8 %50, 124
   %spec.select.idx.i = zext i1 %cmp22.i to i64
   %spec.select.i = getelementptr inbounds i8, ptr %49, i64 %spec.select.idx.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %spec.select.i to i64
   %sub.ptr.sub.neg.i = sub i64 %sub.ptr.rhs.cast.i, %sub.ptr.lhs.cast.i
-  %sub.i = add i64 %sub.ptr.sub.neg.i, %vlen_left.02158
+  %sub.i = add i64 %sub.ptr.sub.neg.i, %vlen_left.02157
   %cmp418.not = icmp eq i64 %sub.i, 0
   br i1 %cmp418.not, label %land.lhs.true421, label %do.body, !llvm.loop !27
 
@@ -10442,7 +10462,7 @@ land.lhs.true421:                                 ; preds = %do.cond
 if.then427:                                       ; preds = %land.lhs.true421
   %conv428 = trunc i64 %sub3.i to i32
   %conv429 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv428, ptr noundef nonnull %opts.02182, i32 noundef %conv429, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv428, ptr noundef nonnull %opts.02181, i32 noundef %conv429, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end431:                                        ; preds = %land.lhs.true400, %if.end397
@@ -10450,14 +10470,14 @@ if.end431:                                        ; preds = %land.lhs.true400, %
   br i1 %cmp432, label %land.lhs.true434, label %if.end566
 
 land.lhs.true434:                                 ; preds = %if.end431
-  %call435 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.105, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 14) #23
+  %call435 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.105, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 14) #22
   %cmp436 = icmp eq i32 %call435, 0
   br i1 %cmp436, label %if.then438, label %land.lhs.true477
 
 if.then438:                                       ; preds = %land.lhs.true434
-  %call.i443 = tail call ptr @__errno_location() #21
+  %call.i443 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i443, align 4
-  %call441 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end440, i32 noundef 0) #19
+  %call441 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end440, i32 noundef 0) #18
   %52 = load i32, ptr %call.i443, align 4
   %cmp443.not = icmp eq i32 %52, 0
   br i1 %cmp443.not, label %lor.lhs.false445, label %if.then451
@@ -10471,8 +10491,8 @@ lor.lhs.false445:                                 ; preds = %if.then438
 
 if.then451:                                       ; preds = %if.then438, %lor.lhs.false445
   %conv1.i446 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i446, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i447 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i446, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i447 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i448 = icmp eq i32 %call2.i447, 0
   br i1 %cmp.i448, label %while.cond.backedge, label %if.end.i449
 
@@ -10486,8 +10506,8 @@ if.else453:                                       ; preds = %lor.lhs.false445
 
 if.then458:                                       ; preds = %if.else453
   %conv1.i452 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i452, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i453 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i452, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i453 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i454 = icmp eq i32 %call2.i453, 0
   br i1 %cmp.i454, label %while.cond.backedge, label %if.end.i455
 
@@ -10503,18 +10523,18 @@ land.lhs.true464:                                 ; preds = %if.else453
 
 if.then470:                                       ; preds = %land.lhs.true464
   %conv472 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv472, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv472, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true477:                                 ; preds = %land.lhs.true434
-  %call478 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.106, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 14) #23
+  %call478 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.106, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 14) #22
   %cmp479 = icmp eq i32 %call478, 0
   br i1 %cmp479, label %if.then481, label %land.lhs.true523
 
 if.then481:                                       ; preds = %land.lhs.true477
-  %call.i457 = tail call ptr @__errno_location() #21
+  %call.i457 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i457, align 4
-  %call484 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end483, i32 noundef 0) #19
+  %call484 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end483, i32 noundef 0) #18
   %56 = load i32, ptr %call.i457, align 4
   %cmp486.not = icmp eq i32 %56, 0
   br i1 %cmp486.not, label %lor.lhs.false488, label %if.then494
@@ -10528,8 +10548,8 @@ lor.lhs.false488:                                 ; preds = %if.then481
 
 if.then494:                                       ; preds = %if.then481, %lor.lhs.false488
   %conv1.i460 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i460, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i461 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i460, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i461 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i462 = icmp eq i32 %call2.i461, 0
   br i1 %cmp.i462, label %while.cond.backedge, label %if.end.i463
 
@@ -10544,8 +10564,8 @@ if.else496:                                       ; preds = %lor.lhs.false488
 
 if.then504:                                       ; preds = %if.else496
   %conv1.i466 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i466, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i467 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i466, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i467 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i468 = icmp eq i32 %call2.i467, 0
   br i1 %cmp.i468, label %while.cond.backedge, label %if.end.i469
 
@@ -10561,18 +10581,18 @@ land.lhs.true510:                                 ; preds = %if.else496
 
 if.then516:                                       ; preds = %land.lhs.true510
   %conv518 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv518, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv518, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true523:                                 ; preds = %land.lhs.true477
-  %call524 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.107, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 14) #23
+  %call524 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.107, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 14) #22
   %cmp525 = icmp eq i32 %call524, 0
   br i1 %cmp525, label %if.then527, label %land.lhs.true628
 
 if.then527:                                       ; preds = %land.lhs.true523
-  %call.i471 = tail call ptr @__errno_location() #21
+  %call.i471 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i471, align 4
-  %call530 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end529, i32 noundef 0) #19
+  %call530 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end529, i32 noundef 0) #18
   %61 = load i32, ptr %call.i471, align 4
   %cmp532.not = icmp eq i32 %61, 0
   br i1 %cmp532.not, label %lor.lhs.false534, label %if.then540
@@ -10586,8 +10606,8 @@ lor.lhs.false534:                                 ; preds = %if.then527
 
 if.then540:                                       ; preds = %if.then527, %lor.lhs.false534
   %conv1.i474 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i474, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i475 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i474, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i475 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i476 = icmp eq i32 %call2.i475, 0
   br i1 %cmp.i476, label %while.cond.backedge, label %if.end.i477
 
@@ -10602,8 +10622,8 @@ if.else542:                                       ; preds = %lor.lhs.false534
 
 if.then550:                                       ; preds = %if.else542
   %conv1.i480 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i480, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i481 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i480, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i481 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i482 = icmp eq i32 %call2.i481, 0
   br i1 %cmp.i482, label %while.cond.backedge, label %if.end.i483
 
@@ -10619,7 +10639,7 @@ land.lhs.true556:                                 ; preds = %if.else542
 
 if.then562:                                       ; preds = %land.lhs.true556
   %conv564 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv564, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv564, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end566:                                        ; preds = %if.end431
@@ -10631,7 +10651,7 @@ if.end566:                                        ; preds = %if.end431
   ]
 
 land.lhs.true569:                                 ; preds = %if.end566
-  %call570 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.108, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 11) #23
+  %call570 = call i32 @strncmp(ptr noundef nonnull dereferenceable(12) @.str.108, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 11) #22
   %cmp571 = icmp eq i32 %call570, 0
   br i1 %cmp571, label %if.then573, label %if.end785
 
@@ -10642,19 +10662,19 @@ if.then573:                                       ; preds = %land.lhs.true569
   ]
 
 land.lhs.true576:                                 ; preds = %if.then573
-  %call577 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call577 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp578 = icmp eq i32 %call577, 0
   br i1 %cmp578, label %land.lhs.true596, label %if.then591
 
 land.lhs.true584:                                 ; preds = %if.then573
-  %call585 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call585 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp586 = icmp eq i32 %call585, 0
   br i1 %cmp586, label %land.lhs.true596, label %if.then591
 
 if.then591:                                       ; preds = %if.then573, %land.lhs.true576, %land.lhs.true584
   %conv1.i486 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 11, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i486, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i487 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 11, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i486, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i487 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i488 = icmp eq i32 %call2.i487, 0
   br i1 %cmp.i488, label %while.cond.backedge, label %if.end.i489
 
@@ -10663,19 +10683,19 @@ if.end.i489:                                      ; preds = %if.then591
   br label %while.cond.backedge
 
 land.lhs.true596:                                 ; preds = %land.lhs.true584, %land.lhs.true576
-  %storemerge2067 = phi i8 [ 1, %land.lhs.true576 ], [ 0, %land.lhs.true584 ]
-  store i8 %storemerge2067, ptr @opt_stats_print, align 1
+  %storemerge2066 = phi i8 [ 1, %land.lhs.true576 ], [ 0, %land.lhs.true584 ]
+  store i8 %storemerge2066, ptr @opt_stats_print, align 1
   %66 = load i8, ptr @opt_confirm_conf, align 1
   %tobool597 = trunc i8 %66 to i1
   br i1 %tobool597, label %if.then602, label %while.cond.backedge
 
 if.then602:                                       ; preds = %land.lhs.true596
   %conv604 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 11, ptr noundef nonnull %opts.02182, i32 noundef %conv604, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 11, ptr noundef nonnull %opts.02181, i32 noundef %conv604, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true609:                                 ; preds = %if.end566
-  %call610 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.109, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 16) #23
+  %call610 = call i32 @strncmp(ptr noundef nonnull dereferenceable(17) @.str.109, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 16) #22
   %cmp611 = icmp eq i32 %call610, 0
   br i1 %cmp611, label %if.then613, label %if.end785
 
@@ -10684,7 +10704,7 @@ if.then613:                                       ; preds = %land.lhs.true609
   br i1 %cmp11.not.i, label %init_opt_stats_opts.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then613
-  %call.i491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @opt_stats_print_opts) #23
+  %call.i491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @opt_stats_print_opts) #22
   br label %for.body.i492
 
 for.body.i492:                                    ; preds = %for.inc.i, %for.body.preheader.i
@@ -10707,7 +10727,7 @@ for.body.i492:                                    ; preds = %for.inc.i, %for.bod
 
 sw.epilog.i494:                                   ; preds = %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492, %for.body.i492
   %conv11.i = zext nneg i8 %67 to i32
-  %call12.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_print_opts, i32 noundef %conv11.i) #23
+  %call12.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_print_opts, i32 noundef %conv11.i) #22
   %cmp13.not.i = icmp eq ptr %call12.i, null
   br i1 %cmp13.not.i, label %if.end.i495, label %for.inc.i
 
@@ -10732,18 +10752,18 @@ init_opt_stats_opts.exit:                         ; preds = %for.inc.i, %if.then
 
 if.then621:                                       ; preds = %init_opt_stats_opts.exit
   %conv623 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 16, ptr noundef nonnull %opts.02182, i32 noundef %conv623, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 16, ptr noundef nonnull %opts.02181, i32 noundef %conv623, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true628:                                 ; preds = %land.lhs.true523
-  %call629 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.110, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 14) #23
+  %call629 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.110, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 14) #22
   %cmp630 = icmp eq i32 %call629, 0
   br i1 %cmp630, label %if.then632, label %if.end785
 
 if.then632:                                       ; preds = %land.lhs.true628
-  %call.i496 = tail call ptr @__errno_location() #21
+  %call.i496 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i496, align 4
-  %call635 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end634, i32 noundef 0) #19
+  %call635 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end634, i32 noundef 0) #18
   %69 = load i32, ptr %call.i496, align 4
   %cmp637.not = icmp eq i32 %69, 0
   br i1 %cmp637.not, label %lor.lhs.false639, label %if.then645
@@ -10757,8 +10777,8 @@ lor.lhs.false639:                                 ; preds = %if.then632
 
 if.then645:                                       ; preds = %if.then632, %lor.lhs.false639
   %conv1.i499 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i499, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i500 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i499, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i500 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i501 = icmp eq i32 %call2.i500, 0
   br i1 %cmp.i501, label %while.cond.backedge, label %if.end.i502
 
@@ -10772,8 +10792,8 @@ if.else647:                                       ; preds = %lor.lhs.false639
 
 if.then652:                                       ; preds = %if.else647
   %conv1.i505 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i505, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i506 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.101, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i505, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i506 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i507 = icmp eq i32 %call2.i506, 0
   br i1 %cmp.i507, label %while.cond.backedge, label %if.end.i508
 
@@ -10789,11 +10809,11 @@ land.lhs.true658:                                 ; preds = %if.else647
 
 if.then664:                                       ; preds = %land.lhs.true658
   %conv666 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv666, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv666, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true671:                                 ; preds = %if.end566
-  %call672 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.111, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 19) #23
+  %call672 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.111, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 19) #22
   %cmp673 = icmp eq i32 %call672, 0
   br i1 %cmp673, label %if.then675, label %if.end785
 
@@ -10802,7 +10822,7 @@ if.then675:                                       ; preds = %land.lhs.true671
   br i1 %cmp11.not.i510, label %init_opt_stats_opts.exit529, label %for.body.preheader.i511
 
 for.body.preheader.i511:                          ; preds = %if.then675
-  %call.i512 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @opt_stats_interval_opts) #23
+  %call.i512 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @opt_stats_interval_opts) #22
   br label %for.body.i513
 
 for.body.i513:                                    ; preds = %for.inc.i521, %for.body.preheader.i511
@@ -10825,7 +10845,7 @@ for.body.i513:                                    ; preds = %for.inc.i521, %for.
 
 sw.epilog.i517:                                   ; preds = %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513, %for.body.i513
   %conv11.i518 = zext nneg i8 %73 to i32
-  %call12.i519 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_interval_opts, i32 noundef %conv11.i518) #23
+  %call12.i519 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) @opt_stats_interval_opts, i32 noundef %conv11.i518) #22
   %cmp13.not.i520 = icmp eq ptr %call12.i519, null
   br i1 %cmp13.not.i520, label %if.end.i525, label %for.inc.i521
 
@@ -10850,11 +10870,11 @@ init_opt_stats_opts.exit529:                      ; preds = %for.inc.i521, %if.t
 
 if.then683:                                       ; preds = %init_opt_stats_opts.exit529
   %conv685 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 19, ptr noundef nonnull %opts.02182, i32 noundef %conv685, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 19, ptr noundef nonnull %opts.02181, i32 noundef %conv685, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true690:                                 ; preds = %if.end566
-  %call691 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.112, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 4) #23
+  %call691 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.112, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 4) #22
   %cmp692 = icmp eq i32 %call691, 0
   br i1 %cmp692, label %if.then694, label %land.lhs.true748
 
@@ -10865,7 +10885,7 @@ if.then694:                                       ; preds = %land.lhs.true690
   ]
 
 land.lhs.true697:                                 ; preds = %if.then694
-  %call698 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call698 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp699 = icmp eq i32 %call698, 0
   br i1 %cmp699, label %if.then701, label %land.lhs.true721
 
@@ -10876,7 +10896,7 @@ if.then701:                                       ; preds = %land.lhs.true697
   br label %land.lhs.true735
 
 land.lhs.true705:                                 ; preds = %if.then694
-  %call706 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call706 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp707 = icmp eq i32 %call706, 0
   br i1 %cmp707, label %if.then709, label %land.lhs.true713
 
@@ -10887,7 +10907,7 @@ if.then709:                                       ; preds = %land.lhs.true705
   br label %land.lhs.true735
 
 land.lhs.true713:                                 ; preds = %land.lhs.true705
-  %call714 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call714 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp715 = icmp eq i32 %call714, 0
   br i1 %cmp715, label %if.then717, label %if.then728
 
@@ -10898,7 +10918,7 @@ if.then717:                                       ; preds = %land.lhs.true713
   br label %land.lhs.true735
 
 land.lhs.true721:                                 ; preds = %land.lhs.true697
-  %call722 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call722 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp723 = icmp eq i32 %call722, 0
   br i1 %cmp723, label %if.then725, label %if.then728
 
@@ -10910,8 +10930,8 @@ if.then725:                                       ; preds = %land.lhs.true721
 
 if.then728:                                       ; preds = %if.then694, %land.lhs.true713, %land.lhs.true721
   %conv1.i531 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 4, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i531, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i532 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 4, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i531, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i532 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i533 = icmp eq i32 %call2.i532, 0
   br i1 %cmp.i533, label %while.cond.backedge, label %if.end.i534
 
@@ -10926,11 +10946,11 @@ land.lhs.true735:                                 ; preds = %if.then701, %if.the
 
 if.then741:                                       ; preds = %land.lhs.true735
   %conv743 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 4, ptr noundef nonnull %opts.02182, i32 noundef %conv743, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 4, ptr noundef nonnull %opts.02181, i32 noundef %conv743, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true748:                                 ; preds = %land.lhs.true690
-  %call749 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.113, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 4) #23
+  %call749 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.113, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 4) #22
   %cmp750 = icmp eq i32 %call749, 0
   br i1 %cmp750, label %if.then752, label %if.end785
 
@@ -10941,19 +10961,19 @@ if.then752:                                       ; preds = %land.lhs.true748
   ]
 
 land.lhs.true755:                                 ; preds = %if.then752
-  %call756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call756 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp757 = icmp eq i32 %call756, 0
   br i1 %cmp757, label %land.lhs.true775, label %if.then770
 
 land.lhs.true763:                                 ; preds = %if.then752
-  %call764 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call764 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp765 = icmp eq i32 %call764, 0
   br i1 %cmp765, label %land.lhs.true775, label %if.then770
 
 if.then770:                                       ; preds = %if.then752, %land.lhs.true755, %land.lhs.true763
   %conv1.i537 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 4, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i537, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i538 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 4, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i537, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i538 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i539 = icmp eq i32 %call2.i538, 0
   br i1 %cmp.i539, label %while.cond.backedge, label %if.end.i540
 
@@ -10962,23 +10982,23 @@ if.end.i540:                                      ; preds = %if.then770
   br label %while.cond.backedge
 
 land.lhs.true775:                                 ; preds = %land.lhs.true763, %land.lhs.true755
-  %storemerge2066 = phi i8 [ 1, %land.lhs.true755 ], [ 0, %land.lhs.true763 ]
-  store i8 %storemerge2066, ptr @opt_zero, align 1
+  %storemerge2065 = phi i8 [ 1, %land.lhs.true755 ], [ 0, %land.lhs.true763 ]
+  store i8 %storemerge2065, ptr @opt_zero, align 1
   %76 = load i8, ptr @opt_confirm_conf, align 1
   %tobool776 = trunc i8 %76 to i1
   br i1 %tobool776, label %if.then781, label %while.cond.backedge
 
 if.then781:                                       ; preds = %land.lhs.true775
   %conv783 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 4, ptr noundef nonnull %opts.02182, i32 noundef %conv783, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 4, ptr noundef nonnull %opts.02181, i32 noundef %conv783, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end785:                                        ; preds = %if.end566, %land.lhs.true628, %land.lhs.true569, %land.lhs.true609, %land.lhs.true671, %land.lhs.true748
-  %cmp669168616911707 = phi i1 [ false, %land.lhs.true748 ], [ true, %land.lhs.true671 ], [ false, %land.lhs.true609 ], [ false, %land.lhs.true569 ], [ false, %land.lhs.true628 ], [ false, %if.end566 ]
-  br i1 %cmp2111582, label %land.lhs.true788, label %if.end825
+  %cmp669168516901706 = phi i1 [ false, %land.lhs.true748 ], [ true, %land.lhs.true671 ], [ false, %land.lhs.true609 ], [ false, %land.lhs.true569 ], [ false, %land.lhs.true628 ], [ false, %if.end566 ]
+  br i1 %cmp2111581, label %land.lhs.true788, label %if.end825
 
 land.lhs.true788:                                 ; preds = %if.end785
-  %call789 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.114, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 6) #23
+  %call789 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str.114, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 6) #22
   %cmp790 = icmp eq i32 %call789, 0
   br i1 %cmp790, label %if.then792, label %if.end825
 
@@ -10989,20 +11009,20 @@ if.then792:                                       ; preds = %land.lhs.true788
   ]
 
 land.lhs.true795:                                 ; preds = %if.then792
-  %call796 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call796 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp797 = icmp eq i32 %call796, 0
   br i1 %cmp797, label %land.lhs.true815, label %if.then810
 
 land.lhs.true803:                                 ; preds = %if.then792
-  %call804 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call804 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp805 = icmp eq i32 %call804, 0
   br i1 %cmp805, label %land.lhs.true815, label %if.then810
 
 if.then810:                                       ; preds = %if.then792, %land.lhs.true795, %land.lhs.true803
   %conv.i542 = trunc i64 %sub3.i to i32
   %conv1.i543 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i542, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i543, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i544 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i542, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i543, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i544 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i545 = icmp eq i32 %call2.i544, 0
   br i1 %cmp.i545, label %while.cond.backedge, label %if.end.i546
 
@@ -11011,8 +11031,8 @@ if.end.i546:                                      ; preds = %if.then810
   br label %while.cond.backedge
 
 land.lhs.true815:                                 ; preds = %land.lhs.true803, %land.lhs.true795
-  %storemerge2076 = phi i8 [ 1, %land.lhs.true795 ], [ 0, %land.lhs.true803 ]
-  store i8 %storemerge2076, ptr @opt_tcache, align 1
+  %storemerge2075 = phi i8 [ 1, %land.lhs.true795 ], [ 0, %land.lhs.true803 ]
+  store i8 %storemerge2075, ptr @opt_tcache, align 1
   %77 = load i8, ptr @opt_confirm_conf, align 1
   %tobool816 = trunc i8 %77 to i1
   br i1 %tobool816, label %if.then821, label %while.cond.backedge
@@ -11020,21 +11040,21 @@ land.lhs.true815:                                 ; preds = %land.lhs.true803, %
 if.then821:                                       ; preds = %land.lhs.true815
   %conv822 = trunc i64 %sub3.i to i32
   %conv823 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv822, ptr noundef nonnull %opts.02182, i32 noundef %conv823, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv822, ptr noundef nonnull %opts.02181, i32 noundef %conv823, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end825:                                        ; preds = %land.lhs.true788, %if.end785
-  br i1 %cmp981542155315761580, label %land.lhs.true828, label %if.end865
+  br i1 %cmp981541155215751579, label %land.lhs.true828, label %if.end865
 
 land.lhs.true828:                                 ; preds = %if.end825
-  %call829 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.115, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 10) #23
+  %call829 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.115, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 10) #22
   %cmp830 = icmp eq i32 %call829, 0
   br i1 %cmp830, label %if.then832, label %if.end865
 
 if.then832:                                       ; preds = %land.lhs.true828
-  %call.i548 = tail call ptr @__errno_location() #21
+  %call.i548 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i548, align 4
-  %call835 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end834, i32 noundef 0) #19
+  %call835 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end834, i32 noundef 0) #18
   %78 = load i32, ptr %call.i548, align 4
   %cmp837.not = icmp eq i32 %78, 0
   br i1 %cmp837.not, label %lor.lhs.false839, label %if.then845
@@ -11049,8 +11069,8 @@ lor.lhs.false839:                                 ; preds = %if.then832
 if.then845:                                       ; preds = %if.then832, %lor.lhs.false839
   %conv.i550 = trunc i64 %sub3.i to i32
   %conv1.i551 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i550, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i551, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i552 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i550, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i551, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i552 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i553 = icmp eq i32 %call2.i552, 0
   br i1 %cmp.i553, label %while.cond.backedge, label %if.end.i554
 
@@ -11068,21 +11088,21 @@ if.else847:                                       ; preds = %lor.lhs.false839
 if.then861:                                       ; preds = %if.else847
   %conv862 = trunc i64 %sub3.i to i32
   %conv863 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv862, ptr noundef nonnull %opts.02182, i32 noundef %conv863, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv862, ptr noundef nonnull %opts.02181, i32 noundef %conv863, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end865:                                        ; preds = %land.lhs.true828, %if.end825
-  br i1 %cmp138155415751581, label %land.lhs.true868, label %if.end904
+  br i1 %cmp138155315741580, label %land.lhs.true868, label %if.end904
 
 land.lhs.true868:                                 ; preds = %if.end865
-  %call869 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.116, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 13) #23
+  %call869 = call i32 @strncmp(ptr noundef nonnull dereferenceable(14) @.str.116, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 13) #22
   %cmp870 = icmp eq i32 %call869, 0
   br i1 %cmp870, label %if.then872, label %if.end904
 
 if.then872:                                       ; preds = %land.lhs.true868
-  %call.i556 = tail call ptr @__errno_location() #21
+  %call.i556 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i556, align 4
-  %call875 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end874, i32 noundef 0) #19
+  %call875 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end874, i32 noundef 0) #18
   %82 = load i32, ptr %call.i556, align 4
   %cmp877.not = icmp eq i32 %82, 0
   br i1 %cmp877.not, label %lor.lhs.false879, label %if.then885
@@ -11097,8 +11117,8 @@ lor.lhs.false879:                                 ; preds = %if.then872
 if.then885:                                       ; preds = %if.then872, %lor.lhs.false879
   %conv.i558 = trunc i64 %sub3.i to i32
   %conv1.i559 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i558, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i559, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i560 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i558, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i559, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i560 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i561 = icmp eq i32 %call2.i560, 0
   br i1 %cmp.i561, label %while.cond.backedge, label %if.end.i562
 
@@ -11117,7 +11137,7 @@ land.lhs.true894:                                 ; preds = %lor.lhs.false879
 if.then900:                                       ; preds = %land.lhs.true894
   %conv901 = trunc i64 %sub3.i to i32
   %conv902 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv901, ptr noundef nonnull %opts.02182, i32 noundef %conv902, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv901, ptr noundef nonnull %opts.02181, i32 noundef %conv902, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end904:                                        ; preds = %land.lhs.true868, %if.end865
@@ -11125,14 +11145,14 @@ if.end904:                                        ; preds = %land.lhs.true868, %
   br i1 %cmp905, label %land.lhs.true907, label %if.end950
 
 land.lhs.true907:                                 ; preds = %if.end904
-  %call908 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.117, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 20) #23
+  %call908 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.117, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 20) #22
   %cmp909 = icmp eq i32 %call908, 0
   br i1 %cmp909, label %if.then911, label %if.end1042
 
 if.then911:                                       ; preds = %land.lhs.true907
-  %call.i564 = tail call ptr @__errno_location() #21
+  %call.i564 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i564, align 4
-  %call914 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end913, i32 noundef 0) #19
+  %call914 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end913, i32 noundef 0) #18
   %86 = load i32, ptr %call.i564, align 4
   %cmp916.not = icmp eq i32 %86, 0
   br i1 %cmp916.not, label %lor.lhs.false918, label %if.then924
@@ -11146,8 +11166,8 @@ lor.lhs.false918:                                 ; preds = %if.then911
 
 if.then924:                                       ; preds = %if.then911, %lor.lhs.false918
   %conv1.i567 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 20, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i567, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i568 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 20, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i567, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i568 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i569 = icmp eq i32 %call2.i568, 0
   br i1 %cmp.i569, label %while.cond.backedge, label %if.end.i570
 
@@ -11161,7 +11181,7 @@ if.else926:                                       ; preds = %lor.lhs.false918
   br i1 %or.cond2, label %if.then934, label %land.lhs.true940
 
 if.then934:                                       ; preds = %if.else926
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02182, i64 noundef 20, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02181, i64 noundef 20, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true940:                                 ; preds = %if.else926
@@ -11172,7 +11192,7 @@ land.lhs.true940:                                 ; preds = %if.else926
 
 if.then946:                                       ; preds = %land.lhs.true940
   %conv948 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 20, ptr noundef nonnull %opts.02182, i32 noundef %conv948, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 20, ptr noundef nonnull %opts.02181, i32 noundef %conv948, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end950:                                        ; preds = %if.end904
@@ -11180,14 +11200,14 @@ if.end950:                                        ; preds = %if.end904
   br i1 %cmp951, label %land.lhs.true953, label %if.end1042
 
 land.lhs.true953:                                 ; preds = %if.end950
-  %call954 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.118, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 23) #23
+  %call954 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.118, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 23) #22
   %cmp955 = icmp eq i32 %call954, 0
   br i1 %cmp955, label %if.then957, label %land.lhs.true999
 
 if.then957:                                       ; preds = %land.lhs.true953
-  %call.i572 = tail call ptr @__errno_location() #21
+  %call.i572 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i572, align 4
-  %call960 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end959, i32 noundef 0) #19
+  %call960 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end959, i32 noundef 0) #18
   %91 = load i32, ptr %call.i572, align 4
   %cmp962.not = icmp eq i32 %91, 0
   br i1 %cmp962.not, label %lor.lhs.false964, label %if.then970
@@ -11201,8 +11221,8 @@ lor.lhs.false964:                                 ; preds = %if.then957
 
 if.then970:                                       ; preds = %if.then957, %lor.lhs.false964
   %conv1.i575 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 23, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i575, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i576 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 23, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i575, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i576 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i577 = icmp eq i32 %call2.i576, 0
   br i1 %cmp.i577, label %while.cond.backedge, label %if.end.i578
 
@@ -11212,8 +11232,8 @@ if.end.i578:                                      ; preds = %if.then970
 
 if.else972:                                       ; preds = %lor.lhs.false964
   %cmp973 = icmp eq i64 %call960, 0
-  %spec.select2297 = call i64 @llvm.umin.i64(i64 %call960, i64 2048)
-  %spec.select = trunc nuw nsw i64 %spec.select2297 to i32
+  %spec.select2296 = call i64 @llvm.umin.i64(i64 %call960, i64 2048)
+  %spec.select = trunc nuw nsw i64 %spec.select2296 to i32
   %.sink = select i1 %cmp973, i32 1, i32 %spec.select
   store i32 %.sink, ptr @opt_tcache_nslots_small_min, align 4
   %94 = load i8, ptr @opt_confirm_conf, align 1
@@ -11222,18 +11242,18 @@ if.else972:                                       ; preds = %lor.lhs.false964
 
 if.then992:                                       ; preds = %if.else972
   %conv994 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 23, ptr noundef nonnull %opts.02182, i32 noundef %conv994, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 23, ptr noundef nonnull %opts.02181, i32 noundef %conv994, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true999:                                 ; preds = %land.lhs.true953
-  %call1000 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.119, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 23) #23
+  %call1000 = call i32 @strncmp(ptr noundef nonnull dereferenceable(24) @.str.119, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 23) #22
   %cmp1001 = icmp eq i32 %call1000, 0
   br i1 %cmp1001, label %if.then1003, label %if.end1042
 
 if.then1003:                                      ; preds = %land.lhs.true999
-  %call.i580 = tail call ptr @__errno_location() #21
+  %call.i580 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i580, align 4
-  %call1006 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1005, i32 noundef 0) #19
+  %call1006 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1005, i32 noundef 0) #18
   %95 = load i32, ptr %call.i580, align 4
   %cmp1008.not = icmp eq i32 %95, 0
   br i1 %cmp1008.not, label %lor.lhs.false1010, label %if.then1016
@@ -11247,8 +11267,8 @@ lor.lhs.false1010:                                ; preds = %if.then1003
 
 if.then1016:                                      ; preds = %if.then1003, %lor.lhs.false1010
   %conv1.i583 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 23, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i583, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i584 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 23, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i583, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i584 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i585 = icmp eq i32 %call2.i584, 0
   br i1 %cmp.i585, label %while.cond.backedge, label %if.end.i586
 
@@ -11258,31 +11278,31 @@ if.end.i586:                                      ; preds = %if.then1016
 
 if.else1018:                                      ; preds = %lor.lhs.false1010
   %cmp1019 = icmp eq i64 %call1006, 0
-  %spec.select22922296 = call i64 @llvm.umin.i64(i64 %call1006, i64 2048)
-  %spec.select2292 = trunc nuw nsw i64 %spec.select22922296 to i32
-  %.sink2285 = select i1 %cmp1019, i32 1, i32 %spec.select2292
-  store i32 %.sink2285, ptr @opt_tcache_nslots_small_max, align 4
+  %spec.select22912295 = call i64 @llvm.umin.i64(i64 %call1006, i64 2048)
+  %spec.select2291 = trunc nuw nsw i64 %spec.select22912295 to i32
+  %.sink2284 = select i1 %cmp1019, i32 1, i32 %spec.select2291
+  store i32 %.sink2284, ptr @opt_tcache_nslots_small_max, align 4
   %98 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1033 = trunc i8 %98 to i1
   br i1 %tobool1033, label %if.then1038, label %while.cond.backedge
 
 if.then1038:                                      ; preds = %if.else1018
   %conv1040 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 23, ptr noundef nonnull %opts.02182, i32 noundef %conv1040, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 23, ptr noundef nonnull %opts.02181, i32 noundef %conv1040, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1042:                                       ; preds = %if.end950, %land.lhs.true907, %land.lhs.true999
-  br i1 %cmp669168616911707, label %land.lhs.true1045, label %if.end1088
+  br i1 %cmp669168516901706, label %land.lhs.true1045, label %if.end1088
 
 land.lhs.true1045:                                ; preds = %if.end1042
-  %call1046 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.120, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 19) #23
+  %call1046 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.120, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 19) #22
   %cmp1047 = icmp eq i32 %call1046, 0
   br i1 %cmp1047, label %if.then1049, label %if.end1088
 
 if.then1049:                                      ; preds = %land.lhs.true1045
-  %call.i588 = tail call ptr @__errno_location() #21
+  %call.i588 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i588, align 4
-  %call1052 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1051, i32 noundef 0) #19
+  %call1052 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1051, i32 noundef 0) #18
   %99 = load i32, ptr %call.i588, align 4
   %cmp1054.not = icmp eq i32 %99, 0
   br i1 %cmp1054.not, label %lor.lhs.false1056, label %if.then1062
@@ -11297,8 +11317,8 @@ lor.lhs.false1056:                                ; preds = %if.then1049
 if.then1062:                                      ; preds = %if.then1049, %lor.lhs.false1056
   %conv.i590 = trunc i64 %sub3.i to i32
   %conv1.i591 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i590, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i591, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i592 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i590, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i591, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i592 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i593 = icmp eq i32 %call2.i592, 0
   br i1 %cmp.i593, label %while.cond.backedge, label %if.end.i594
 
@@ -11308,10 +11328,10 @@ if.end.i594:                                      ; preds = %if.then1062
 
 if.else1064:                                      ; preds = %lor.lhs.false1056
   %cmp1065 = icmp eq i64 %call1052, 0
-  %spec.select22932300 = call i64 @llvm.umin.i64(i64 %call1052, i64 2048)
-  %spec.select2293 = trunc nuw nsw i64 %spec.select22932300 to i32
-  %.sink2286 = select i1 %cmp1065, i32 1, i32 %spec.select2293
-  store i32 %.sink2286, ptr @opt_tcache_nslots_large, align 4
+  %spec.select22922299 = call i64 @llvm.umin.i64(i64 %call1052, i64 2048)
+  %spec.select2292 = trunc nuw nsw i64 %spec.select22922299 to i32
+  %.sink2285 = select i1 %cmp1065, i32 1, i32 %spec.select2292
+  store i32 %.sink2285, ptr @opt_tcache_nslots_large, align 4
   %102 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1079 = trunc i8 %102 to i1
   br i1 %tobool1079, label %if.then1084, label %while.cond.backedge
@@ -11319,21 +11339,21 @@ if.else1064:                                      ; preds = %lor.lhs.false1056
 if.then1084:                                      ; preds = %if.else1064
   %conv1085 = trunc i64 %sub3.i to i32
   %conv1086 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1085, ptr noundef nonnull %opts.02182, i32 noundef %conv1086, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1085, ptr noundef nonnull %opts.02181, i32 noundef %conv1086, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1088:                                       ; preds = %land.lhs.true1045, %if.end1042
   br i1 %cmp905, label %land.lhs.true1091, label %if.end1128
 
 land.lhs.true1091:                                ; preds = %if.end1088
-  %call1092 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.121, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 20) #23
+  %call1092 = call i32 @strncmp(ptr noundef nonnull dereferenceable(21) @.str.121, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 20) #22
   %cmp1093 = icmp eq i32 %call1092, 0
   br i1 %cmp1093, label %if.then1095, label %if.end1341
 
 if.then1095:                                      ; preds = %land.lhs.true1091
-  %call.i596 = tail call ptr @__errno_location() #21
+  %call.i596 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i596, align 4
-  %call1098 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1097, i32 noundef 0) #19
+  %call1098 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1097, i32 noundef 0) #18
   %103 = load i32, ptr %call.i596, align 4
   %cmp1100.not = icmp eq i32 %103, 0
   br i1 %cmp1100.not, label %lor.lhs.false1102, label %if.then1108
@@ -11347,8 +11367,8 @@ lor.lhs.false1102:                                ; preds = %if.then1095
 
 if.then1108:                                      ; preds = %if.then1095, %lor.lhs.false1102
   %conv1.i599 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 20, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i599, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i600 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 20, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i599, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i600 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i601 = icmp eq i32 %call2.i600, 0
   br i1 %cmp.i601, label %while.cond.backedge, label %if.end.i602
 
@@ -11365,7 +11385,7 @@ if.else1110:                                      ; preds = %lor.lhs.false1102
 
 if.then1124:                                      ; preds = %if.else1110
   %conv1126 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 20, ptr noundef nonnull %opts.02182, i32 noundef %conv1126, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 20, ptr noundef nonnull %opts.02181, i32 noundef %conv1126, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1128:                                       ; preds = %if.end1088
@@ -11377,14 +11397,14 @@ if.end1128:                                       ; preds = %if.end1088
   ]
 
 land.lhs.true1131:                                ; preds = %if.end1128
-  %call1132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.122, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 21) #23
+  %call1132 = call i32 @strncmp(ptr noundef nonnull dereferenceable(22) @.str.122, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 21) #22
   %cmp1133 = icmp eq i32 %call1132, 0
   br i1 %cmp1133, label %if.then1135, label %if.end1341
 
 if.then1135:                                      ; preds = %land.lhs.true1131
-  %call.i604 = tail call ptr @__errno_location() #21
+  %call.i604 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i604, align 4
-  %call1138 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1137, i32 noundef 0) #19
+  %call1138 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1137, i32 noundef 0) #18
   %107 = load i32, ptr %call.i604, align 4
   %cmp1140.not = icmp eq i32 %107, 0
   br i1 %cmp1140.not, label %lor.lhs.false1142, label %if.then1148
@@ -11398,8 +11418,8 @@ lor.lhs.false1142:                                ; preds = %if.then1135
 
 if.then1148:                                      ; preds = %if.then1135, %lor.lhs.false1142
   %conv1.i607 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 21, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i607, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i608 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 21, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i607, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i608 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i609 = icmp eq i32 %call2.i608, 0
   br i1 %cmp.i609, label %while.cond.backedge, label %if.end.i610
 
@@ -11415,18 +11435,18 @@ land.lhs.true1153:                                ; preds = %lor.lhs.false1142
 
 if.then1159:                                      ; preds = %land.lhs.true1153
   %conv1161 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 21, ptr noundef nonnull %opts.02182, i32 noundef %conv1161, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 21, ptr noundef nonnull %opts.02181, i32 noundef %conv1161, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1166:                                ; preds = %if.end1128
-  %call1167 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.123, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 25) #23
+  %call1167 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.123, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 25) #22
   %cmp1168 = icmp eq i32 %call1167, 0
   br i1 %cmp1168, label %if.then1170, label %land.lhs.true1212
 
 if.then1170:                                      ; preds = %land.lhs.true1166
-  %call.i612 = tail call ptr @__errno_location() #21
+  %call.i612 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i612, align 4
-  %call1173 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1172, i32 noundef 0) #19
+  %call1173 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1172, i32 noundef 0) #18
   %111 = load i32, ptr %call.i612, align 4
   %cmp1175.not = icmp eq i32 %111, 0
   br i1 %cmp1175.not, label %lor.lhs.false1177, label %if.then1183
@@ -11440,8 +11460,8 @@ lor.lhs.false1177:                                ; preds = %if.then1170
 
 if.then1183:                                      ; preds = %if.then1170, %lor.lhs.false1177
   %conv1.i615 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 25, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i615, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i616 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 25, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i615, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i616 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i617 = icmp eq i32 %call2.i616, 0
   br i1 %cmp.i617, label %while.cond.backedge, label %if.end.i618
 
@@ -11451,28 +11471,28 @@ if.end.i618:                                      ; preds = %if.then1183
 
 if.else1185:                                      ; preds = %lor.lhs.false1177
   %cmp1186 = icmp eq i64 %call1173, 0
-  %spec.select22942299 = call i64 @llvm.umin.i64(i64 %call1173, i64 16)
-  %spec.select2294 = trunc nuw nsw i64 %spec.select22942299 to i32
-  %.sink2287 = select i1 %cmp1186, i32 1, i32 %spec.select2294
-  store i32 %.sink2287, ptr @opt_lg_tcache_flush_small_div, align 4
+  %spec.select22932298 = call i64 @llvm.umin.i64(i64 %call1173, i64 16)
+  %spec.select2293 = trunc nuw nsw i64 %spec.select22932298 to i32
+  %.sink2286 = select i1 %cmp1186, i32 1, i32 %spec.select2293
+  store i32 %.sink2286, ptr @opt_lg_tcache_flush_small_div, align 4
   %114 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1200 = trunc i8 %114 to i1
   br i1 %tobool1200, label %if.then1205, label %while.cond.backedge
 
 if.then1205:                                      ; preds = %if.else1185
   %conv1207 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 25, ptr noundef nonnull %opts.02182, i32 noundef %conv1207, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 25, ptr noundef nonnull %opts.02181, i32 noundef %conv1207, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1212:                                ; preds = %land.lhs.true1166
-  %call1213 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.124, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 25) #23
+  %call1213 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.124, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 25) #22
   %cmp1214 = icmp eq i32 %call1213, 0
   br i1 %cmp1214, label %if.then1216, label %if.end1341
 
 if.then1216:                                      ; preds = %land.lhs.true1212
-  %call.i620 = tail call ptr @__errno_location() #21
+  %call.i620 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i620, align 4
-  %call1219 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1218, i32 noundef 0) #19
+  %call1219 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1218, i32 noundef 0) #18
   %115 = load i32, ptr %call.i620, align 4
   %cmp1221.not = icmp eq i32 %115, 0
   br i1 %cmp1221.not, label %lor.lhs.false1223, label %if.then1229
@@ -11486,8 +11506,8 @@ lor.lhs.false1223:                                ; preds = %if.then1216
 
 if.then1229:                                      ; preds = %if.then1216, %lor.lhs.false1223
   %conv1.i623 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 25, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i623, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i624 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 25, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i623, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i624 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i625 = icmp eq i32 %call2.i624, 0
   br i1 %cmp.i625, label %while.cond.backedge, label %if.end.i626
 
@@ -11497,28 +11517,28 @@ if.end.i626:                                      ; preds = %if.then1229
 
 if.else1231:                                      ; preds = %lor.lhs.false1223
   %cmp1232 = icmp eq i64 %call1219, 0
-  %spec.select22952298 = call i64 @llvm.umin.i64(i64 %call1219, i64 16)
-  %spec.select2295 = trunc nuw nsw i64 %spec.select22952298 to i32
-  %.sink2288 = select i1 %cmp1232, i32 1, i32 %spec.select2295
-  store i32 %.sink2288, ptr @opt_lg_tcache_flush_large_div, align 4
+  %spec.select22942297 = call i64 @llvm.umin.i64(i64 %call1219, i64 16)
+  %spec.select2294 = trunc nuw nsw i64 %spec.select22942297 to i32
+  %.sink2287 = select i1 %cmp1232, i32 1, i32 %spec.select2294
+  store i32 %.sink2287, ptr @opt_lg_tcache_flush_large_div, align 4
   %118 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1246 = trunc i8 %118 to i1
   br i1 %tobool1246, label %if.then1251, label %while.cond.backedge
 
 if.then1251:                                      ; preds = %if.else1231
   %conv1253 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 25, ptr noundef nonnull %opts.02182, i32 noundef %conv1253, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 25, ptr noundef nonnull %opts.02181, i32 noundef %conv1253, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1258:                                ; preds = %if.end1128
-  %call1259 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.125, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 18) #23
+  %call1259 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.125, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 18) #22
   %cmp1260 = icmp eq i32 %call1259, 0
   br i1 %cmp1260, label %if.then1262, label %if.end1341
 
 if.then1262:                                      ; preds = %land.lhs.true1258
-  %call.i628 = tail call ptr @__errno_location() #21
+  %call.i628 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i628, align 4
-  %call1265 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1264, i32 noundef 0) #19
+  %call1265 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1264, i32 noundef 0) #18
   %119 = load i32, ptr %call.i628, align 4
   %cmp1267.not = icmp eq i32 %119, 0
   br i1 %cmp1267.not, label %lor.lhs.false1269, label %if.then1275
@@ -11532,8 +11552,8 @@ lor.lhs.false1269:                                ; preds = %if.then1262
 
 if.then1275:                                      ; preds = %if.then1262, %lor.lhs.false1269
   %conv1.i631 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 18, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i631, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i632 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 18, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i631, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i632 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i633 = icmp eq i32 %call2.i632, 0
   br i1 %cmp.i633, label %while.cond.backedge, label %if.end.i634
 
@@ -11546,7 +11566,7 @@ if.else1277:                                      ; preds = %lor.lhs.false1269
   br i1 %cmp1278, label %if.then1282, label %land.lhs.true1288
 
 if.then1282:                                      ; preds = %if.else1277
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02182, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02181, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1288:                                ; preds = %if.else1277
@@ -11557,18 +11577,18 @@ land.lhs.true1288:                                ; preds = %if.else1277
 
 if.then1294:                                      ; preds = %land.lhs.true1288
   %conv1296 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 18, ptr noundef nonnull %opts.02182, i32 noundef %conv1296, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 18, ptr noundef nonnull %opts.02181, i32 noundef %conv1296, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1301:                                ; preds = %if.end1128
-  %call1302 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.126, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 24) #23
+  %call1302 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.126, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 24) #22
   %cmp1303 = icmp eq i32 %call1302, 0
   br i1 %cmp1303, label %if.then1305, label %if.end1341
 
 if.then1305:                                      ; preds = %land.lhs.true1301
-  %call.i636 = tail call ptr @__errno_location() #21
+  %call.i636 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i636, align 4
-  %call1308 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1307, i32 noundef 0) #19
+  %call1308 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1307, i32 noundef 0) #18
   %123 = load i32, ptr %call.i636, align 4
   %cmp1310.not = icmp eq i32 %123, 0
   br i1 %cmp1310.not, label %lor.lhs.false1312, label %if.then1318
@@ -11582,8 +11602,8 @@ lor.lhs.false1312:                                ; preds = %if.then1305
 
 if.then1318:                                      ; preds = %if.then1305, %lor.lhs.false1312
   %conv1.i639 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 24, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i639, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i640 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef 24, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i639, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i640 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i641 = icmp eq i32 %call2.i640, 0
   br i1 %cmp.i641, label %while.cond.backedge, label %if.end.i642
 
@@ -11596,7 +11616,7 @@ if.else1320:                                      ; preds = %lor.lhs.false1312
   br i1 %cmp1321, label %if.then1325, label %land.lhs.true1331
 
 if.then1325:                                      ; preds = %if.else1320
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02182, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.101, ptr noundef nonnull %opts.02181, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1331:                                ; preds = %if.else1320
@@ -11607,35 +11627,35 @@ land.lhs.true1331:                                ; preds = %if.else1320
 
 if.then1337:                                      ; preds = %land.lhs.true1331
   %conv1339 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 24, ptr noundef nonnull %opts.02182, i32 noundef %conv1339, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 24, ptr noundef nonnull %opts.02181, i32 noundef %conv1339, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1341:                                       ; preds = %if.end1128, %land.lhs.true1131, %land.lhs.true1212, %land.lhs.true1091, %land.lhs.true1258, %land.lhs.true1301
-  %cmp12991853 = phi i1 [ true, %land.lhs.true1301 ], [ false, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ false, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
-  %cmp11641809182018351852 = phi i1 [ false, %land.lhs.true1301 ], [ false, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ true, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
-  %cmp125618361851 = phi i1 [ false, %land.lhs.true1301 ], [ true, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ false, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
-  %call1342 = call i32 @strncmp(ptr noundef nonnull @.str.127, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i) #23
+  %cmp12991852 = phi i1 [ true, %land.lhs.true1301 ], [ false, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ false, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
+  %cmp11641808181918341851 = phi i1 [ false, %land.lhs.true1301 ], [ false, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ true, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
+  %cmp125618351850 = phi i1 [ false, %land.lhs.true1301 ], [ true, %land.lhs.true1258 ], [ false, %land.lhs.true1091 ], [ false, %land.lhs.true1212 ], [ false, %land.lhs.true1131 ], [ false, %if.end1128 ]
+  %call1342 = call i32 @strncmp(ptr noundef nonnull @.str.127, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i) #22
   %cmp1343 = icmp eq i32 %call1342, 0
   br i1 %cmp1343, label %for.body1351, label %if.end1379
 
 for.body1351:                                     ; preds = %if.end1341, %for.inc1359
-  %indvars.iv2251 = phi i64 [ %indvars.iv.next2252, %for.inc1359 ], [ 0, %if.end1341 ]
-  %arrayidx1353 = getelementptr inbounds [0 x ptr], ptr @percpu_arena_mode_names, i64 0, i64 %indvars.iv2251
+  %indvars.iv2250 = phi i64 [ %indvars.iv.next2251, %for.inc1359 ], [ 0, %if.end1341 ]
+  %arrayidx1353 = getelementptr inbounds [0 x ptr], ptr @percpu_arena_mode_names, i64 0, i64 %indvars.iv2250
   %127 = load ptr, ptr %arrayidx1353, align 8
-  %call1354 = call i32 @strncmp(ptr noundef %127, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %call1354 = call i32 @strncmp(ptr noundef %127, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #22
   %cmp1355 = icmp eq i32 %call1354, 0
   br i1 %cmp1355, label %land.lhs.true1369, label %for.inc1359
 
 for.inc1359:                                      ; preds = %for.body1351
-  %indvars.iv.next2252 = add nuw nsw i64 %indvars.iv2251, 1
-  %exitcond2254.not = icmp eq i64 %indvars.iv.next2252, 3
-  br i1 %exitcond2254.not, label %if.then1365, label %for.body1351, !llvm.loop !29
+  %indvars.iv.next2251 = add nuw nsw i64 %indvars.iv2250, 1
+  %exitcond2253.not = icmp eq i64 %indvars.iv.next2251, 3
+  br i1 %exitcond2253.not, label %if.then1365, label %for.body1351, !llvm.loop !29
 
 if.then1365:                                      ; preds = %for.inc1359
   %conv.i644 = trunc i64 %sub3.i to i32
   %conv1.i645 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i644, ptr noundef nonnull %opts.02182, i32 noundef %conv1.i645, ptr noundef nonnull %incdec.ptr2.i) #19
-  %call2.i646 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02182, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef nonnull @.str.91, i32 noundef %conv.i644, ptr noundef nonnull %opts.02181, i32 noundef %conv1.i645, ptr noundef nonnull %incdec.ptr2.i) #18
+  %call2.i646 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02181, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp.i647 = icmp eq i32 %call2.i646, 0
   br i1 %cmp.i647, label %while.cond.backedge, label %if.end.i648
 
@@ -11644,7 +11664,7 @@ if.end.i648:                                      ; preds = %if.then1365
   br label %while.cond.backedge
 
 land.lhs.true1369:                                ; preds = %for.body1351
-  %128 = trunc nuw nsw i64 %indvars.iv2251 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv2250 to i32
   store i32 %128, ptr @opt_percpu_arena, align 4
   %129 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1370 = trunc i8 %129 to i1
@@ -11653,7 +11673,7 @@ land.lhs.true1369:                                ; preds = %for.body1351
 if.then1375:                                      ; preds = %land.lhs.true1369
   %conv1376 = trunc i64 %sub3.i to i32
   %conv1377 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1376, ptr noundef nonnull %opts.02182, i32 noundef %conv1377, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1376, ptr noundef nonnull %opts.02181, i32 noundef %conv1377, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1379:                                       ; preds = %if.end1341
@@ -11661,7 +11681,7 @@ if.end1379:                                       ; preds = %if.end1341
   br i1 %cmp1380, label %land.lhs.true1382, label %if.end1419
 
 land.lhs.true1382:                                ; preds = %if.end1379
-  %call1383 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.128, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 17) #23
+  %call1383 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.128, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 17) #22
   %cmp1384 = icmp eq i32 %call1383, 0
   br i1 %cmp1384, label %if.then1386, label %if.end1504
 
@@ -11672,29 +11692,29 @@ if.then1386:                                      ; preds = %land.lhs.true1382
   ]
 
 land.lhs.true1389:                                ; preds = %if.then1386
-  %call1390 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call1390 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp1391 = icmp eq i32 %call1390, 0
   br i1 %cmp1391, label %land.lhs.true1409, label %land.lhs.true1409.thread
 
 land.lhs.true1397:                                ; preds = %if.then1386
-  %call1398 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call1398 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp1399 = icmp eq i32 %call1398, 0
   br i1 %cmp1399, label %land.lhs.true1409, label %land.lhs.true1409.thread
 
 land.lhs.true1409.thread:                         ; preds = %if.then1386, %land.lhs.true1397, %land.lhs.true1389
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1409:                                ; preds = %land.lhs.true1397, %land.lhs.true1389
-  %storemerge2073 = phi i8 [ 1, %land.lhs.true1389 ], [ 0, %land.lhs.true1397 ]
-  store i8 %storemerge2073, ptr @opt_background_thread, align 1
+  %storemerge2072 = phi i8 [ 1, %land.lhs.true1389 ], [ 0, %land.lhs.true1397 ]
+  store i8 %storemerge2072, ptr @opt_background_thread, align 1
   %130 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1410 = trunc i8 %130 to i1
   br i1 %tobool1410, label %if.then1415, label %while.cond.backedge
 
 if.then1415:                                      ; preds = %land.lhs.true1409
   %conv1417 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02182, i32 noundef %conv1417, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02181, i32 noundef %conv1417, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1419:                                       ; preds = %if.end1379
@@ -11704,14 +11724,14 @@ if.end1419:                                       ; preds = %if.end1379
   ]
 
 land.lhs.true1422:                                ; preds = %if.end1419
-  %call1423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.129, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 22) #23
+  %call1423 = call i32 @strncmp(ptr noundef nonnull dereferenceable(23) @.str.129, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 22) #22
   %cmp1424 = icmp eq i32 %call1423, 0
   br i1 %cmp1424, label %if.then1426, label %if.end1504
 
 if.then1426:                                      ; preds = %land.lhs.true1422
-  %call.i650 = tail call ptr @__errno_location() #21
+  %call.i650 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i650, align 4
-  %call1429 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1428, i32 noundef 0) #19
+  %call1429 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1428, i32 noundef 0) #18
   %131 = load i32, ptr %call.i650, align 4
   %cmp1431.not = icmp eq i32 %131, 0
   br i1 %cmp1431.not, label %lor.lhs.false1433, label %land.lhs.true1454.thread
@@ -11724,7 +11744,7 @@ lor.lhs.false1433:                                ; preds = %if.then1426
   br i1 %cmp1435.not, label %if.else1441, label %land.lhs.true1454.thread
 
 land.lhs.true1454.thread:                         ; preds = %lor.lhs.false1433, %if.then1426
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 22, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 22, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1441:                                      ; preds = %lor.lhs.false1433
@@ -11748,26 +11768,26 @@ land.lhs.true1454:                                ; preds = %land.lhs.true1454.s
 
 if.then1460:                                      ; preds = %land.lhs.true1454
   %conv1462 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 22, ptr noundef nonnull %opts.02182, i32 noundef %conv1462, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 22, ptr noundef nonnull %opts.02181, i32 noundef %conv1462, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 sub_0:                                            ; preds = %if.end1419
-  %136 = load i8, ptr %opts.02182, align 1
+  %136 = load i8, ptr %opts.02181, align 1
   %137 = zext i8 %136 to i32
   %138 = sub nsw i32 104, %137
   %.not = icmp eq i8 %136, 104
   br i1 %.not, label %sub_1, label %land.lhs.true1467.tail
 
 sub_1:                                            ; preds = %sub_0
-  %139 = getelementptr inbounds i8, ptr %opts.02182, i64 1
+  %139 = getelementptr inbounds i8, ptr %opts.02181, i64 1
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
   %142 = sub nsw i32 112, %141
-  %.not2213 = icmp eq i8 %140, 112
-  br i1 %.not2213, label %sub_2, label %land.lhs.true1467.tail
+  %.not2212 = icmp eq i8 %140, 112
+  br i1 %.not2212, label %sub_2, label %land.lhs.true1467.tail
 
 sub_2:                                            ; preds = %sub_1
-  %143 = getelementptr inbounds i8, ptr %opts.02182, i64 2
+  %143 = getelementptr inbounds i8, ptr %opts.02181, i64 2
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
   %146 = sub nsw i32 97, %145
@@ -11785,44 +11805,44 @@ if.then1471:                                      ; preds = %land.lhs.true1467.t
   ]
 
 land.lhs.true1474:                                ; preds = %if.then1471
-  %call1475 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call1475 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.90, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp1476 = icmp eq i32 %call1475, 0
   br i1 %cmp1476, label %land.lhs.true1494, label %land.lhs.true1494.thread
 
 land.lhs.true1482:                                ; preds = %if.then1471
-  %call1483 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call1483 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp1484 = icmp eq i32 %call1483, 0
   br i1 %cmp1484, label %land.lhs.true1494, label %land.lhs.true1494.thread
 
 land.lhs.true1494.thread:                         ; preds = %if.then1471, %land.lhs.true1482, %land.lhs.true1474
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 3, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 3, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1494:                                ; preds = %land.lhs.true1482, %land.lhs.true1474
-  %storemerge2068 = phi i8 [ 1, %land.lhs.true1474 ], [ 0, %land.lhs.true1482 ]
-  store i8 %storemerge2068, ptr @opt_hpa, align 1
+  %storemerge2067 = phi i8 [ 1, %land.lhs.true1474 ], [ 0, %land.lhs.true1482 ]
+  store i8 %storemerge2067, ptr @opt_hpa, align 1
   %148 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1495 = trunc i8 %148 to i1
   br i1 %tobool1495, label %if.then1500, label %while.cond.backedge
 
 if.then1500:                                      ; preds = %land.lhs.true1494
   %conv1502 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 3, ptr noundef nonnull %opts.02182, i32 noundef %conv1502, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 3, ptr noundef nonnull %opts.02181, i32 noundef %conv1502, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1504:                                       ; preds = %if.end1419, %land.lhs.true1382, %land.lhs.true1422, %land.lhs.true1467.tail
-  %cmp14651892 = phi i1 [ true, %land.lhs.true1467.tail ], [ false, %land.lhs.true1422 ], [ false, %land.lhs.true1382 ], [ false, %if.end1419 ]
-  br i1 %cmp125618361851, label %land.lhs.true1507, label %if.end1549
+  %cmp14651891 = phi i1 [ true, %land.lhs.true1467.tail ], [ false, %land.lhs.true1422 ], [ false, %land.lhs.true1382 ], [ false, %if.end1419 ]
+  br i1 %cmp125618351850, label %land.lhs.true1507, label %if.end1549
 
 land.lhs.true1507:                                ; preds = %if.end1504
-  %call1508 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.131, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 18) #23
+  %call1508 = call i32 @strncmp(ptr noundef nonnull dereferenceable(19) @.str.131, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 18) #22
   %cmp1509 = icmp eq i32 %call1508, 0
   br i1 %cmp1509, label %if.then1511, label %if.end1549
 
 if.then1511:                                      ; preds = %land.lhs.true1507
-  %call.i652 = tail call ptr @__errno_location() #21
+  %call.i652 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i652, align 4
-  %call1514 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1513, i32 noundef 0) #19
+  %call1514 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1513, i32 noundef 0) #18
   %149 = load i32, ptr %call.i652, align 4
   %cmp1516.not = icmp eq i32 %149, 0
   br i1 %cmp1516.not, label %lor.lhs.false1518, label %land.lhs.true1539.thread
@@ -11835,13 +11855,13 @@ lor.lhs.false1518:                                ; preds = %if.then1511
   br i1 %cmp1520.not, label %if.else1526, label %land.lhs.true1539.thread
 
 land.lhs.true1539.thread:                         ; preds = %lor.lhs.false1518, %if.then1511
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1526:                                      ; preds = %lor.lhs.false1518
   %.call1514 = call i64 @llvm.umin.i64(i64 %call1514, i64 2097152)
-  %.sink2289 = call i64 @llvm.umax.i64(i64 %.call1514, i64 4096)
-  store i64 %.sink2289, ptr @opt_hpa_opts, align 8
+  %.sink2288 = call i64 @llvm.umax.i64(i64 %.call1514, i64 4096)
+  store i64 %.sink2288, ptr @opt_hpa_opts, align 8
   %152 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1540 = trunc i8 %152 to i1
   br i1 %tobool1540, label %if.then1545, label %while.cond.backedge
@@ -11849,7 +11869,7 @@ if.else1526:                                      ; preds = %lor.lhs.false1518
 if.then1545:                                      ; preds = %if.else1526
   %conv1546 = trunc i64 %sub3.i to i32
   %conv1547 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1546, ptr noundef nonnull %opts.02182, i32 noundef %conv1547, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1546, ptr noundef nonnull %opts.02181, i32 noundef %conv1547, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1549:                                       ; preds = %land.lhs.true1507, %if.end1504
@@ -11859,14 +11879,14 @@ if.end1549:                                       ; preds = %land.lhs.true1507, 
   ]
 
 land.lhs.true1552:                                ; preds = %if.end1549
-  %call1553 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.132, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 26) #23
+  %call1553 = call i32 @strncmp(ptr noundef nonnull dereferenceable(27) @.str.132, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 26) #22
   %cmp1554 = icmp eq i32 %call1553, 0
   br i1 %cmp1554, label %if.then1556, label %if.end1635
 
 if.then1556:                                      ; preds = %land.lhs.true1552
-  %call.i654 = tail call ptr @__errno_location() #21
+  %call.i654 = tail call ptr @__errno_location() #20
   store i32 0, ptr %call.i654, align 4
-  %call1559 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1558, i32 noundef 0) #19
+  %call1559 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1558, i32 noundef 0) #18
   %153 = load i32, ptr %call.i654, align 4
   %cmp1561.not = icmp eq i32 %153, 0
   br i1 %cmp1561.not, label %lor.lhs.false1563, label %land.lhs.true1584.thread
@@ -11879,29 +11899,29 @@ lor.lhs.false1563:                                ; preds = %if.then1556
   br i1 %cmp1565.not, label %if.else1571, label %land.lhs.true1584.thread
 
 land.lhs.true1584.thread:                         ; preds = %lor.lhs.false1563, %if.then1556
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1571:                                      ; preds = %lor.lhs.false1563
   %.call1559 = call i64 @llvm.umin.i64(i64 %call1559, i64 2097152)
-  %.sink2290 = call i64 @llvm.umax.i64(i64 %.call1559, i64 4096)
-  store i64 %.sink2290, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
+  %.sink2289 = call i64 @llvm.umax.i64(i64 %.call1559, i64 4096)
+  store i64 %.sink2289, ptr getelementptr inbounds (i8, ptr @opt_hpa_opts, i64 8), align 8
   %156 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1585 = trunc i8 %156 to i1
   br i1 %tobool1585, label %if.then1590, label %while.cond.backedge
 
 if.then1590:                                      ; preds = %if.else1571
   %conv1592 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 26, ptr noundef nonnull %opts.02182, i32 noundef %conv1592, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 26, ptr noundef nonnull %opts.02181, i32 noundef %conv1592, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1597:                                ; preds = %if.end1549
-  %call1598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.133, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 32) #23
+  %call1598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(33) @.str.133, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 32) #22
   %cmp1599 = icmp eq i32 %call1598, 0
   br i1 %cmp1599, label %if.then1601, label %if.end1635
 
 if.then1601:                                      ; preds = %land.lhs.true1597
-  %call1604 = call zeroext i1 @fxp_parse(ptr noundef nonnull %ratio, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1602) #19
+  %call1604 = call zeroext i1 @fxp_parse(ptr noundef nonnull %ratio, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1602) #18
   br i1 %call1604, label %land.lhs.true1625.thread, label %lor.lhs.false1608
 
 lor.lhs.false1608:                                ; preds = %if.then1601
@@ -11915,7 +11935,7 @@ lor.lhs.false1608:                                ; preds = %if.then1601
   br i1 %or.cond3, label %land.lhs.true1625.thread, label %land.lhs.true1625
 
 land.lhs.true1625.thread:                         ; preds = %lor.lhs.false1608, %if.then1601
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 32, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 32, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1625:                                ; preds = %lor.lhs.false1608
@@ -11928,22 +11948,22 @@ land.lhs.true1625:                                ; preds = %lor.lhs.false1608
 
 if.then1631:                                      ; preds = %land.lhs.true1625
   %conv1633 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 32, ptr noundef nonnull %opts.02182, i32 noundef %conv1633, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 32, ptr noundef nonnull %opts.02181, i32 noundef %conv1633, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1635:                                       ; preds = %if.end1549, %land.lhs.true1552, %land.lhs.true1597
-  br i1 %cmp669168616911707, label %land.lhs.true1638, label %if.end1670
+  br i1 %cmp669168516901706, label %land.lhs.true1638, label %if.end1670
 
 land.lhs.true1638:                                ; preds = %if.end1635
-  %call1639 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.134, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 19) #23
+  %call1639 = call i32 @strncmp(ptr noundef nonnull dereferenceable(20) @.str.134, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 19) #22
   %cmp1640 = icmp eq i32 %call1639, 0
   br i1 %cmp1640, label %if.then1642, label %if.end1670
 
 if.then1642:                                      ; preds = %land.lhs.true1638
-  %call.i657 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i657, align 4
-  %call1645 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1644, i32 noundef 0) #19
-  %161 = load i32, ptr %call.i657, align 4
+  %call.i656 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i656, align 4
+  %call1645 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1644, i32 noundef 0) #18
+  %161 = load i32, ptr %call.i656, align 4
   %cmp1647.not = icmp eq i32 %161, 0
   br i1 %cmp1647.not, label %lor.lhs.false1649, label %land.lhs.true1660.thread
 
@@ -11955,7 +11975,7 @@ lor.lhs.false1649:                                ; preds = %if.then1642
   br i1 %cmp1651.not, label %land.lhs.true1660, label %land.lhs.true1660.thread
 
 land.lhs.true1660.thread:                         ; preds = %lor.lhs.false1649, %if.then1642
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1660:                                ; preds = %lor.lhs.false1649
@@ -11967,22 +11987,22 @@ land.lhs.true1660:                                ; preds = %lor.lhs.false1649
 if.then1666:                                      ; preds = %land.lhs.true1660
   %conv1667 = trunc i64 %sub3.i to i32
   %conv1668 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1667, ptr noundef nonnull %opts.02182, i32 noundef %conv1668, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1667, ptr noundef nonnull %opts.02181, i32 noundef %conv1668, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1670:                                       ; preds = %land.lhs.true1638, %if.end1635
-  br i1 %cmp11641809182018351852, label %land.lhs.true1673, label %if.end1705
+  br i1 %cmp11641808181918341851, label %land.lhs.true1673, label %if.end1705
 
 land.lhs.true1673:                                ; preds = %if.end1670
-  %call1674 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.135, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 25) #23
+  %call1674 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.135, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 25) #22
   %cmp1675 = icmp eq i32 %call1674, 0
   br i1 %cmp1675, label %if.then1677, label %if.end1705
 
 if.then1677:                                      ; preds = %land.lhs.true1673
-  %call.i659 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i659, align 4
-  %call1680 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1679, i32 noundef 0) #19
-  %165 = load i32, ptr %call.i659, align 4
+  %call.i658 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i658, align 4
+  %call1680 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1679, i32 noundef 0) #18
+  %165 = load i32, ptr %call.i658, align 4
   %cmp1682.not = icmp eq i32 %165, 0
   br i1 %cmp1682.not, label %lor.lhs.false1684, label %land.lhs.true1695.thread
 
@@ -11994,7 +12014,7 @@ lor.lhs.false1684:                                ; preds = %if.then1677
   br i1 %cmp1686.not, label %land.lhs.true1695, label %land.lhs.true1695.thread
 
 land.lhs.true1695.thread:                         ; preds = %lor.lhs.false1684, %if.then1677
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1695:                                ; preds = %lor.lhs.false1684
@@ -12006,37 +12026,37 @@ land.lhs.true1695:                                ; preds = %lor.lhs.false1684
 if.then1701:                                      ; preds = %land.lhs.true1695
   %conv1702 = trunc i64 %sub3.i to i32
   %conv1703 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1702, ptr noundef nonnull %opts.02182, i32 noundef %conv1703, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1702, ptr noundef nonnull %opts.02181, i32 noundef %conv1703, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1705:                                       ; preds = %land.lhs.true1673, %if.end1670
   br i1 %cmp432, label %land.lhs.true1708, label %if.end1762
 
 land.lhs.true1708:                                ; preds = %if.end1705
-  %call1709 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.136, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 14) #23
+  %call1709 = call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.136, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 14) #22
   %cmp1710 = icmp eq i32 %call1709, 0
   br i1 %cmp1710, label %if.then1712, label %if.end1882
 
 if.then1712:                                      ; preds = %land.lhs.true1708
   %cmp1713 = icmp eq i64 %vlen.4, 2
-  br i1 %cmp1713, label %sub_02079, label %if.end1731
+  br i1 %cmp1713, label %sub_02078, label %if.end1731
 
-sub_02079:                                        ; preds = %if.then1712
+sub_02078:                                        ; preds = %if.then1712
   %169 = load i8, ptr %incdec.ptr2.i, align 1
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 45, %170
-  %.not2216 = icmp eq i8 %169, 45
-  br i1 %.not2216, label %sub_12080, label %land.lhs.true1715.tail
+  %.not2215 = icmp eq i8 %169, 45
+  br i1 %.not2215, label %sub_12079, label %land.lhs.true1715.tail
 
-sub_12080:                                        ; preds = %sub_02079
+sub_12079:                                        ; preds = %sub_02078
   %172 = getelementptr inbounds i8, ptr %opts.027.i, i64 2
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = sub nsw i32 49, %174
   br label %land.lhs.true1715.tail
 
-land.lhs.true1715.tail:                           ; preds = %sub_02079, %sub_12080
-  %176 = phi i32 [ %171, %sub_02079 ], [ %175, %sub_12080 ]
+land.lhs.true1715.tail:                           ; preds = %sub_02078, %sub_12079
+  %176 = phi i32 [ %171, %sub_02078 ], [ %175, %sub_12079 ]
   %cmp1717 = icmp eq i32 %176, 0
   br i1 %cmp1717, label %if.then1719, label %if.end1731
 
@@ -12047,11 +12067,11 @@ if.then1719:                                      ; preds = %land.lhs.true1715.t
   br i1 %tobool1722, label %if.then1727, label %while.cond.backedge
 
 if.then1727:                                      ; preds = %if.then1719
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef 2, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef 2, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1731:                                       ; preds = %land.lhs.true1715.tail, %if.then1712
-  %call1735 = call zeroext i1 @fxp_parse(ptr noundef nonnull %ratio1732, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1733) #19
+  %call1735 = call zeroext i1 @fxp_parse(ptr noundef nonnull %ratio1732, ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1733) #18
   br i1 %call1735, label %land.lhs.true1752.thread, label %lor.lhs.false1739
 
 lor.lhs.false1739:                                ; preds = %if.end1731
@@ -12062,7 +12082,7 @@ lor.lhs.false1739:                                ; preds = %if.end1731
   br i1 %cmp1743.not, label %land.lhs.true1752, label %land.lhs.true1752.thread
 
 land.lhs.true1752.thread:                         ; preds = %lor.lhs.false1739, %if.end1731
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 14, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 14, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1752:                                ; preds = %lor.lhs.false1739
@@ -12074,7 +12094,7 @@ land.lhs.true1752:                                ; preds = %lor.lhs.false1739
 
 if.then1758:                                      ; preds = %land.lhs.true1752
   %conv1760 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02182, i32 noundef %conv1760, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 14, ptr noundef nonnull %opts.02181, i32 noundef %conv1760, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1762:                                       ; preds = %if.end1705
@@ -12082,15 +12102,15 @@ if.end1762:                                       ; preds = %if.end1705
   br i1 %cmp1763, label %land.lhs.true1765, label %if.end1802
 
 land.lhs.true1765:                                ; preds = %if.end1762
-  %call1766 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.138, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 15) #23
+  %call1766 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.138, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 15) #22
   %cmp1767 = icmp eq i32 %call1766, 0
   br i1 %cmp1767, label %if.then1769, label %if.end1882
 
 if.then1769:                                      ; preds = %land.lhs.true1765
-  %call.i661 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i661, align 4
-  %call1772 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1771, i32 noundef 0) #19
-  %181 = load i32, ptr %call.i661, align 4
+  %call.i660 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i660, align 4
+  %call1772 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1771, i32 noundef 0) #18
+  %181 = load i32, ptr %call.i660, align 4
   %cmp1774.not = icmp eq i32 %181, 0
   br i1 %cmp1774.not, label %lor.lhs.false1776, label %land.lhs.true1792.thread
 
@@ -12102,7 +12122,7 @@ lor.lhs.false1776:                                ; preds = %if.then1769
   br i1 %cmp1778.not, label %land.lhs.true1792, label %land.lhs.true1792.thread
 
 land.lhs.true1792.thread:                         ; preds = %lor.lhs.false1776, %if.then1769
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 15, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 15, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1792:                                ; preds = %lor.lhs.false1776
@@ -12113,22 +12133,22 @@ land.lhs.true1792:                                ; preds = %lor.lhs.false1776
 
 if.then1798:                                      ; preds = %land.lhs.true1792
   %conv1800 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 15, ptr noundef nonnull %opts.02182, i32 noundef %conv1800, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 15, ptr noundef nonnull %opts.02181, i32 noundef %conv1800, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1802:                                       ; preds = %if.end1762
   br i1 %cmp1380, label %land.lhs.true1805, label %if.end1882
 
 land.lhs.true1805:                                ; preds = %if.end1802
-  %call1806 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.139, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 17) #23
+  %call1806 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.139, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 17) #22
   %cmp1807 = icmp eq i32 %call1806, 0
   br i1 %cmp1807, label %if.then1809, label %land.lhs.true1845
 
 if.then1809:                                      ; preds = %land.lhs.true1805
-  %call.i663 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i663, align 4
-  %call1812 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1811, i32 noundef 0) #19
-  %185 = load i32, ptr %call.i663, align 4
+  %call.i662 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i662, align 4
+  %call1812 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1811, i32 noundef 0) #18
+  %185 = load i32, ptr %call.i662, align 4
   %cmp1814.not = icmp eq i32 %185, 0
   br i1 %cmp1814.not, label %lor.lhs.false1816, label %land.lhs.true1832.thread
 
@@ -12140,7 +12160,7 @@ lor.lhs.false1816:                                ; preds = %if.then1809
   br i1 %cmp1818.not, label %if.else1824, label %land.lhs.true1832.thread
 
 land.lhs.true1832.thread:                         ; preds = %lor.lhs.false1816, %if.then1809
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1824:                                      ; preds = %lor.lhs.false1816
@@ -12152,19 +12172,19 @@ if.else1824:                                      ; preds = %lor.lhs.false1816
 
 if.then1838:                                      ; preds = %if.else1824
   %conv1840 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02182, i32 noundef %conv1840, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02181, i32 noundef %conv1840, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true1845:                                ; preds = %land.lhs.true1805
-  %call1846 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.140, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 17) #23
+  %call1846 = call i32 @strncmp(ptr noundef nonnull dereferenceable(18) @.str.140, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 17) #22
   %cmp1847 = icmp eq i32 %call1846, 0
   br i1 %cmp1847, label %if.then1849, label %if.end1882
 
 if.then1849:                                      ; preds = %land.lhs.true1845
-  %call.i665 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i665, align 4
-  %call1852 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1851, i32 noundef 0) #19
-  %189 = load i32, ptr %call.i665, align 4
+  %call.i664 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i664, align 4
+  %call1852 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1851, i32 noundef 0) #18
+  %189 = load i32, ptr %call.i664, align 4
   %cmp1854.not = icmp eq i32 %189, 0
   br i1 %cmp1854.not, label %lor.lhs.false1856, label %land.lhs.true1872.thread
 
@@ -12176,7 +12196,7 @@ lor.lhs.false1856:                                ; preds = %if.then1849
   br i1 %cmp1858.not, label %if.else1864, label %land.lhs.true1872.thread
 
 land.lhs.true1872.thread:                         ; preds = %lor.lhs.false1856, %if.then1849
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1864:                                      ; preds = %lor.lhs.false1856
@@ -12188,23 +12208,23 @@ if.else1864:                                      ; preds = %lor.lhs.false1856
 
 if.then1878:                                      ; preds = %if.else1864
   %conv1880 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02182, i32 noundef %conv1880, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 17, ptr noundef nonnull %opts.02181, i32 noundef %conv1880, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1882:                                       ; preds = %land.lhs.true1708, %land.lhs.true1765, %if.end1802, %land.lhs.true1845
-  %cmp1763194919601971 = phi i1 [ false, %land.lhs.true1845 ], [ false, %if.end1802 ], [ true, %land.lhs.true1765 ], [ false, %land.lhs.true1708 ]
-  br i1 %cmp11641809182018351852, label %land.lhs.true1885, label %if.end1922
+  %cmp1763194819591970 = phi i1 [ false, %land.lhs.true1845 ], [ false, %if.end1802 ], [ true, %land.lhs.true1765 ], [ false, %land.lhs.true1708 ]
+  br i1 %cmp11641808181918341851, label %land.lhs.true1885, label %if.end1922
 
 land.lhs.true1885:                                ; preds = %if.end1882
-  %call1886 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.141, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 25) #23
+  %call1886 = call i32 @strncmp(ptr noundef nonnull dereferenceable(26) @.str.141, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 25) #22
   %cmp1887 = icmp eq i32 %call1886, 0
   br i1 %cmp1887, label %if.then1889, label %if.end1922
 
 if.then1889:                                      ; preds = %land.lhs.true1885
-  %call.i667 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i667, align 4
-  %call1892 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1891, i32 noundef 0) #19
-  %193 = load i32, ptr %call.i667, align 4
+  %call.i666 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i666, align 4
+  %call1892 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1891, i32 noundef 0) #18
+  %193 = load i32, ptr %call.i666, align 4
   %cmp1894.not = icmp eq i32 %193, 0
   br i1 %cmp1894.not, label %lor.lhs.false1896, label %land.lhs.true1912.thread
 
@@ -12216,7 +12236,7 @@ lor.lhs.false1896:                                ; preds = %if.then1889
   br i1 %cmp1898.not, label %if.else1904, label %land.lhs.true1912.thread
 
 land.lhs.true1912.thread:                         ; preds = %lor.lhs.false1896, %if.then1889
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1904:                                      ; preds = %lor.lhs.false1896
@@ -12229,22 +12249,22 @@ if.else1904:                                      ; preds = %lor.lhs.false1896
 if.then1918:                                      ; preds = %if.else1904
   %conv1919 = trunc i64 %sub3.i to i32
   %conv1920 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1919, ptr noundef nonnull %opts.02182, i32 noundef %conv1920, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1919, ptr noundef nonnull %opts.02181, i32 noundef %conv1920, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1922:                                       ; preds = %land.lhs.true1885, %if.end1882
-  br i1 %cmp12991853, label %land.lhs.true1925, label %if.end1967
+  br i1 %cmp12991852, label %land.lhs.true1925, label %if.end1967
 
 land.lhs.true1925:                                ; preds = %if.end1922
-  %call1926 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.142, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 24) #23
+  %call1926 = call i32 @strncmp(ptr noundef nonnull dereferenceable(25) @.str.142, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 24) #22
   %cmp1927 = icmp eq i32 %call1926, 0
   br i1 %cmp1927, label %if.then1929, label %if.end1967
 
 if.then1929:                                      ; preds = %land.lhs.true1925
-  %call.i669 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i669, align 4
-  %call1932 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1931, i32 noundef 0) #19
-  %197 = load i32, ptr %call.i669, align 4
+  %call.i668 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i668, align 4
+  %call1932 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end1931, i32 noundef 0) #18
+  %197 = load i32, ptr %call.i668, align 4
   %cmp1934.not = icmp eq i32 %197, 0
   br i1 %cmp1934.not, label %lor.lhs.false1936, label %land.lhs.true1957.thread
 
@@ -12256,7 +12276,7 @@ lor.lhs.false1936:                                ; preds = %if.then1929
   br i1 %cmp1938.not, label %if.else1948, label %land.lhs.true1957.thread
 
 land.lhs.true1957.thread:                         ; preds = %lor.lhs.false1936, %if.then1929
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1948:                                      ; preds = %lor.lhs.false1936
@@ -12269,14 +12289,14 @@ if.else1948:                                      ; preds = %lor.lhs.false1936
 if.then1963:                                      ; preds = %if.else1948
   %conv1964 = trunc i64 %sub3.i to i32
   %conv1965 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1964, ptr noundef nonnull %opts.02182, i32 noundef %conv1965, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1964, ptr noundef nonnull %opts.02181, i32 noundef %conv1965, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1967:                                       ; preds = %land.lhs.true1925, %if.end1922
-  br i1 %cmp981542155315761580, label %land.lhs.true1970, label %if.end2025
+  br i1 %cmp981541155215751579, label %land.lhs.true1970, label %if.end2025
 
 land.lhs.true1970:                                ; preds = %if.end1967
-  %call1971 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.143, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 10) #23
+  %call1971 = call i32 @strncmp(ptr noundef nonnull dereferenceable(11) @.str.143, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 10) #22
   %cmp1972 = icmp eq i32 %call1971, 0
   br i1 %cmp1972, label %if.then1974, label %if.end2025
 
@@ -12285,86 +12305,86 @@ if.then1974:                                      ; preds = %land.lhs.true1970
   br i1 %cmp1975, label %land.lhs.true1977, label %if.end1993
 
 land.lhs.true1977:                                ; preds = %if.then1974
-  %call1978 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.100, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 7) #23
+  %call1978 = call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.100, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 7) #22
   %cmp1979 = icmp eq i32 %call1978, 0
   br i1 %cmp1979, label %if.then1981, label %if.end1993
 
 if.then1981:                                      ; preds = %land.lhs.true1977
-  call void @sc_data_init(ptr noundef %sc_data) #19
+  call void @sc_data_init(ptr noundef %sc_data) #18
   %201 = load i8, ptr @opt_confirm_conf, align 1
   %tobool1984 = trunc i8 %201 to i1
   br i1 %tobool1984, label %if.then1989, label %while.cond.backedge
 
 if.then1989:                                      ; preds = %if.then1981
   %conv1990 = trunc i64 %sub3.i to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1990, ptr noundef nonnull %opts.02182, i32 noundef 7, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv1990, ptr noundef nonnull %opts.02181, i32 noundef 7, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end1993:                                       ; preds = %land.lhs.true1977, %if.then1974
-  %call.i.i672 = tail call ptr @__errno_location() #21
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i671)
-  store i32 0, ptr %call.i.i672, align 4
-  %call.i6732132 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end.i671, i32 noundef 0) #19
-  %202 = load i32, ptr %call.i.i672, align 4
-  %cmp.not.i6742133 = icmp eq i32 %202, 0
-  br i1 %cmp.not.i6742133, label %lor.lhs.false.i676, label %land.lhs.true2015.thread
+  %call.i.i671 = tail call ptr @__errno_location() #20
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i670)
+  store i32 0, ptr %call.i.i671, align 4
+  %call.i6722131 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end.i670, i32 noundef 0) #18
+  %202 = load i32, ptr %call.i.i671, align 4
+  %cmp.not.i6732132 = icmp eq i32 %202, 0
+  br i1 %cmp.not.i6732132, label %lor.lhs.false.i675, label %land.lhs.true2015.thread
 
 do.body1996:                                      ; preds = %do.cond2007
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i671)
-  store i32 0, ptr %call.i.i672, align 4
-  %call.i673 = call i64 @malloc_strtoumax(ptr noundef nonnull %spec.select.i691, ptr noundef nonnull %end.i671, i32 noundef 0) #19
-  %203 = load i32, ptr %call.i.i672, align 4
-  %cmp.not.i674 = icmp eq i32 %203, 0
-  br i1 %cmp.not.i674, label %lor.lhs.false.i676, label %land.lhs.true2015.thread, !llvm.loop !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i670)
+  store i32 0, ptr %call.i.i671, align 4
+  %call.i672 = call i64 @malloc_strtoumax(ptr noundef nonnull %spec.select.i690, ptr noundef nonnull %end.i670, i32 noundef 0) #18
+  %203 = load i32, ptr %call.i.i671, align 4
+  %cmp.not.i673 = icmp eq i32 %203, 0
+  br i1 %cmp.not.i673, label %lor.lhs.false.i675, label %land.lhs.true2015.thread, !llvm.loop !30
 
-lor.lhs.false.i676:                               ; preds = %if.end1993, %do.body1996
-  %call.i6732139 = phi i64 [ %call.i673, %do.body1996 ], [ %call.i6732132, %if.end1993 ]
-  %vlen_left1995.02135 = phi i64 [ %sub.i695, %do.body1996 ], [ %vlen.4, %if.end1993 ]
-  %slab_size_segment_cur.02134 = phi ptr [ %spec.select.i691, %do.body1996 ], [ %incdec.ptr2.i, %if.end1993 ]
-  %204 = load ptr, ptr %end.i671, align 8
+lor.lhs.false.i675:                               ; preds = %if.end1993, %do.body1996
+  %call.i6722138 = phi i64 [ %call.i672, %do.body1996 ], [ %call.i6722131, %if.end1993 ]
+  %vlen_left1995.02134 = phi i64 [ %sub.i694, %do.body1996 ], [ %vlen.4, %if.end1993 ]
+  %slab_size_segment_cur.02133 = phi ptr [ %spec.select.i690, %do.body1996 ], [ %incdec.ptr2.i, %if.end1993 ]
+  %204 = load ptr, ptr %end.i670, align 8
   %205 = load i8, ptr %204, align 1
-  %cmp2.not.i677 = icmp eq i8 %205, 45
-  br i1 %cmp2.not.i677, label %if.end.i678, label %land.lhs.true2015.thread
+  %cmp2.not.i676 = icmp eq i8 %205, 45
+  br i1 %cmp2.not.i676, label %if.end.i677, label %land.lhs.true2015.thread
 
-if.end.i678:                                      ; preds = %lor.lhs.false.i676
-  %add.ptr.i679 = getelementptr inbounds i8, ptr %204, i64 1
-  %call4.i680 = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr.i679, ptr noundef nonnull %end.i671, i32 noundef 0) #19
-  %206 = load i32, ptr %call.i.i672, align 4
-  %cmp6.not.i681 = icmp eq i32 %206, 0
-  br i1 %cmp6.not.i681, label %lor.lhs.false8.i682, label %land.lhs.true2015.thread
+if.end.i677:                                      ; preds = %lor.lhs.false.i675
+  %add.ptr.i678 = getelementptr inbounds i8, ptr %204, i64 1
+  %call4.i679 = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr.i678, ptr noundef nonnull %end.i670, i32 noundef 0) #18
+  %206 = load i32, ptr %call.i.i671, align 4
+  %cmp6.not.i680 = icmp eq i32 %206, 0
+  br i1 %cmp6.not.i680, label %lor.lhs.false8.i681, label %land.lhs.true2015.thread
 
-lor.lhs.false8.i682:                              ; preds = %if.end.i678
-  %207 = load ptr, ptr %end.i671, align 8
+lor.lhs.false8.i681:                              ; preds = %if.end.i677
+  %207 = load ptr, ptr %end.i670, align 8
   %208 = load i8, ptr %207, align 1
-  %cmp10.not.i683 = icmp eq i8 %208, 58
-  br i1 %cmp10.not.i683, label %if.end13.i684, label %land.lhs.true2015.thread
+  %cmp10.not.i682 = icmp eq i8 %208, 58
+  br i1 %cmp10.not.i682, label %if.end13.i683, label %land.lhs.true2015.thread
 
-if.end13.i684:                                    ; preds = %lor.lhs.false8.i682
-  %add.ptr14.i685 = getelementptr inbounds i8, ptr %207, i64 1
-  %call15.i686 = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr14.i685, ptr noundef nonnull %end.i671, i32 noundef 0) #19
-  %209 = load i32, ptr %call.i.i672, align 4
-  %cmp17.not.i687 = icmp eq i32 %209, 0
-  br i1 %cmp17.not.i687, label %do.cond2007, label %land.lhs.true2015.thread
+if.end13.i683:                                    ; preds = %lor.lhs.false8.i681
+  %add.ptr14.i684 = getelementptr inbounds i8, ptr %207, i64 1
+  %call15.i685 = call i64 @malloc_strtoumax(ptr noundef nonnull %add.ptr14.i684, ptr noundef nonnull %end.i670, i32 noundef 0) #18
+  %209 = load i32, ptr %call.i.i671, align 4
+  %cmp17.not.i686 = icmp eq i32 %209, 0
+  br i1 %cmp17.not.i686, label %do.cond2007, label %land.lhs.true2015.thread
 
-land.lhs.true2015.thread:                         ; preds = %if.end13.i684, %if.end.i678, %lor.lhs.false8.i682, %do.body1996, %lor.lhs.false.i676, %if.end1993
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i671)
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.144, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+land.lhs.true2015.thread:                         ; preds = %if.end13.i683, %if.end.i677, %lor.lhs.false8.i681, %do.body1996, %lor.lhs.false.i675, %if.end1993
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i670)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.144, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
-do.cond2007:                                      ; preds = %if.end13.i684
-  %210 = load ptr, ptr %end.i671, align 8
+do.cond2007:                                      ; preds = %if.end13.i683
+  %210 = load ptr, ptr %end.i670, align 8
   %211 = load i8, ptr %210, align 1
-  %cmp22.i689 = icmp eq i8 %211, 124
-  %spec.select.idx.i690 = zext i1 %cmp22.i689 to i64
-  %spec.select.i691 = getelementptr inbounds i8, ptr %210, i64 %spec.select.idx.i690
-  %sub.ptr.lhs.cast.i692 = ptrtoint ptr %spec.select.i691 to i64
-  %sub.ptr.rhs.cast.i693 = ptrtoint ptr %slab_size_segment_cur.02134 to i64
-  %sub.ptr.sub.neg.i694 = sub i64 %sub.ptr.rhs.cast.i693, %sub.ptr.lhs.cast.i692
-  %sub.i695 = add i64 %sub.ptr.sub.neg.i694, %vlen_left1995.02135
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i671)
-  %conv2001 = trunc i64 %call15.i686 to i32
-  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %call.i6732139, i64 noundef %call4.i680, i32 noundef %conv2001) #19
-  %cmp2010 = icmp eq i64 %sub.i695, 0
+  %cmp22.i688 = icmp eq i8 %211, 124
+  %spec.select.idx.i689 = zext i1 %cmp22.i688 to i64
+  %spec.select.i690 = getelementptr inbounds i8, ptr %210, i64 %spec.select.idx.i689
+  %sub.ptr.lhs.cast.i691 = ptrtoint ptr %spec.select.i690 to i64
+  %sub.ptr.rhs.cast.i692 = ptrtoint ptr %slab_size_segment_cur.02133 to i64
+  %sub.ptr.sub.neg.i693 = sub i64 %sub.ptr.rhs.cast.i692, %sub.ptr.lhs.cast.i691
+  %sub.i694 = add i64 %sub.ptr.sub.neg.i693, %vlen_left1995.02134
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i670)
+  %conv2001 = trunc i64 %call15.i685 to i32
+  call void @sc_data_update_slab_size(ptr noundef %sc_data, i64 noundef %call.i6722138, i64 noundef %call4.i679, i32 noundef %conv2001) #18
+  %cmp2010 = icmp eq i64 %sub.i694, 0
   br i1 %cmp2010, label %land.lhs.true2015, label %do.body1996, !llvm.loop !30
 
 land.lhs.true2015:                                ; preds = %do.cond2007
@@ -12375,36 +12395,36 @@ land.lhs.true2015:                                ; preds = %do.cond2007
 if.then2021:                                      ; preds = %land.lhs.true2015
   %conv2022 = trunc i64 %sub3.i to i32
   %conv2023 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2022, ptr noundef nonnull %opts.02182, i32 noundef %conv2023, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2022, ptr noundef nonnull %opts.02181, i32 noundef %conv2023, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end2025:                                       ; preds = %land.lhs.true1970, %if.end1967
-  br i1 %cmp14651892, label %sub_02082, label %if.end2066
+  br i1 %cmp14651891, label %sub_02081, label %if.end2066
 
-sub_02082:                                        ; preds = %if.end2025
-  %213 = load i8, ptr %opts.02182, align 1
+sub_02081:                                        ; preds = %if.end2025
+  %213 = load i8, ptr %opts.02181, align 1
   %214 = zext i8 %213 to i32
   %215 = sub nsw i32 116, %214
-  %.not2214 = icmp eq i8 %213, 116
-  br i1 %.not2214, label %sub_12083, label %land.lhs.true2028.tail
+  %.not2213 = icmp eq i8 %213, 116
+  br i1 %.not2213, label %sub_12082, label %land.lhs.true2028.tail
 
-sub_12083:                                        ; preds = %sub_02082
-  %216 = getelementptr inbounds i8, ptr %opts.02182, i64 1
+sub_12082:                                        ; preds = %sub_02081
+  %216 = getelementptr inbounds i8, ptr %opts.02181, i64 1
   %217 = load i8, ptr %216, align 1
   %218 = zext i8 %217 to i32
   %219 = sub nsw i32 104, %218
-  %.not2215 = icmp eq i8 %217, 104
-  br i1 %.not2215, label %sub_22084, label %land.lhs.true2028.tail
+  %.not2214 = icmp eq i8 %217, 104
+  br i1 %.not2214, label %sub_22083, label %land.lhs.true2028.tail
 
-sub_22084:                                        ; preds = %sub_12083
-  %220 = getelementptr inbounds i8, ptr %opts.02182, i64 2
+sub_22083:                                        ; preds = %sub_12082
+  %220 = getelementptr inbounds i8, ptr %opts.02181, i64 2
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i32
   %223 = sub nsw i32 112, %222
   br label %land.lhs.true2028.tail
 
-land.lhs.true2028.tail:                           ; preds = %sub_02082, %sub_12083, %sub_22084
-  %224 = phi i32 [ %215, %sub_02082 ], [ %219, %sub_12083 ], [ %223, %sub_22084 ]
+land.lhs.true2028.tail:                           ; preds = %sub_02081, %sub_12082, %sub_22083
+  %224 = phi i32 [ %215, %sub_02081 ], [ %219, %sub_12082 ], [ %223, %sub_22083 ]
   %cmp2030 = icmp eq i32 %224, 0
   br i1 %cmp2030, label %for.body2038, label %if.end2066
 
@@ -12412,7 +12432,7 @@ for.body2038:                                     ; preds = %land.lhs.true2028.t
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc2046 ], [ 0, %land.lhs.true2028.tail ]
   %arrayidx2040 = getelementptr inbounds [0 x ptr], ptr @thp_mode_names, i64 0, i64 %indvars.iv
   %225 = load ptr, ptr %arrayidx2040, align 8
-  %call2041 = call i32 @strncmp(ptr noundef %225, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
+  %call2041 = call i32 @strncmp(ptr noundef %225, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #22
   %cmp2042 = icmp eq i32 %call2041, 0
   br i1 %cmp2042, label %land.lhs.true2056, label %for.inc2046
 
@@ -12422,7 +12442,7 @@ for.inc2046:                                      ; preds = %for.body2038
   br i1 %exitcond.not, label %land.lhs.true2056.thread, label %for.body2038, !llvm.loop !31
 
 land.lhs.true2056.thread:                         ; preds = %for.inc2046
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2056:                                ; preds = %for.body2038
@@ -12435,14 +12455,14 @@ land.lhs.true2056:                                ; preds = %for.body2038
 if.then2062:                                      ; preds = %land.lhs.true2056
   %conv2063 = trunc i64 %sub3.i to i32
   %conv2064 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2063, ptr noundef nonnull %opts.02182, i32 noundef %conv2064, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2063, ptr noundef nonnull %opts.02181, i32 noundef %conv2064, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end2066:                                       ; preds = %land.lhs.true2028.tail, %if.end2025
   br i1 %cmp16, label %land.lhs.true2069, label %if.end2115
 
 land.lhs.true2069:                                ; preds = %if.end2066
-  %call2070 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.146, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 12) #23
+  %call2070 = call i32 @strncmp(ptr noundef nonnull dereferenceable(13) @.str.146, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 12) #22
   %cmp2071 = icmp eq i32 %call2070, 0
   br i1 %cmp2071, label %if.then2073, label %if.end2115
 
@@ -12453,49 +12473,49 @@ if.then2073:                                      ; preds = %land.lhs.true2069
   ]
 
 land.lhs.true2076:                                ; preds = %if.then2073
-  %call2077 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call2077 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.1, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp2078 = icmp eq i32 %call2077, 0
   br i1 %cmp2078, label %land.lhs.true2105, label %land.lhs.true2092
 
 land.lhs.true2084:                                ; preds = %if.then2073
-  %call2085 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #23
+  %call2085 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.2, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 4) #22
   %cmp2086 = icmp eq i32 %call2085, 0
   br i1 %cmp2086, label %land.lhs.true2105, label %land.lhs.true2105.thread
 
 land.lhs.true2092:                                ; preds = %land.lhs.true2076
-  %call2093 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #23
+  %call2093 = call i32 @strncmp(ptr noundef nonnull dereferenceable(6) @.str.3, ptr noundef nonnull dereferenceable(1) %incdec.ptr2.i, i64 noundef 5) #22
   %cmp2094 = icmp eq i32 %call2093, 0
   br i1 %cmp2094, label %land.lhs.true2105, label %land.lhs.true2105.thread
 
 land.lhs.true2105.thread:                         ; preds = %if.then2073, %land.lhs.true2092, %land.lhs.true2084
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef 12, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef 12, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2105:                                ; preds = %land.lhs.true2092, %land.lhs.true2084, %land.lhs.true2076
-  %.sink2291 = phi i32 [ 0, %land.lhs.true2076 ], [ 1, %land.lhs.true2084 ], [ 2, %land.lhs.true2092 ]
-  store i32 %.sink2291, ptr @opt_zero_realloc_action, align 4
+  %.sink2290 = phi i32 [ 0, %land.lhs.true2076 ], [ 1, %land.lhs.true2084 ], [ 2, %land.lhs.true2092 ]
+  store i32 %.sink2290, ptr @opt_zero_realloc_action, align 4
   %228 = load i8, ptr @opt_confirm_conf, align 1
   %tobool2106 = trunc i8 %228 to i1
   br i1 %tobool2106, label %if.then2111, label %while.cond.backedge
 
 if.then2111:                                      ; preds = %land.lhs.true2105
   %conv2113 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 12, ptr noundef nonnull %opts.02182, i32 noundef %conv2113, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef 12, ptr noundef nonnull %opts.02181, i32 noundef %conv2113, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.end2115:                                       ; preds = %land.lhs.true2069, %if.end2066
-  br i1 %cmp1763194919601971, label %land.lhs.true2118, label %if.then2187
+  br i1 %cmp1763194819591970, label %land.lhs.true2118, label %if.then2187
 
 land.lhs.true2118:                                ; preds = %if.end2115
-  %call2119 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.147, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 15) #23
+  %call2119 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.147, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 15) #22
   %cmp2120 = icmp eq i32 %call2119, 0
   br i1 %cmp2120, label %if.then2122, label %land.lhs.true2153
 
 if.then2122:                                      ; preds = %land.lhs.true2118
-  %call.i697 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i697, align 4
-  %call2125 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2124, i32 noundef 0) #19
-  %229 = load i32, ptr %call.i697, align 4
+  %call.i696 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i696, align 4
+  %call2125 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2124, i32 noundef 0) #18
+  %229 = load i32, ptr %call.i696, align 4
   %cmp2127.not = icmp eq i32 %229, 0
   br i1 %cmp2127.not, label %lor.lhs.false2129, label %land.lhs.true2140.thread
 
@@ -12507,7 +12527,7 @@ lor.lhs.false2129:                                ; preds = %if.then2122
   br i1 %cmp2131.not, label %land.lhs.true2140, label %land.lhs.true2140.thread
 
 land.lhs.true2140.thread:                         ; preds = %lor.lhs.false2129, %if.then2122
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2140:                                ; preds = %lor.lhs.false2129
@@ -12519,19 +12539,19 @@ land.lhs.true2140:                                ; preds = %lor.lhs.false2129
 if.then2146:                                      ; preds = %land.lhs.true2140
   %conv2147 = trunc i64 %sub3.i to i32
   %conv2148 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2147, ptr noundef nonnull %opts.02182, i32 noundef %conv2148, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2147, ptr noundef nonnull %opts.02181, i32 noundef %conv2148, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 land.lhs.true2153:                                ; preds = %land.lhs.true2118
-  %call2154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.148, ptr noundef nonnull dereferenceable(1) %opts.02182, i64 noundef 15) #23
+  %call2154 = call i32 @strncmp(ptr noundef nonnull dereferenceable(16) @.str.148, ptr noundef nonnull dereferenceable(1) %opts.02181, i64 noundef 15) #22
   %cmp2155 = icmp eq i32 %call2154, 0
   br i1 %cmp2155, label %if.then2157, label %if.then2187
 
 if.then2157:                                      ; preds = %land.lhs.true2153
-  %call.i699 = tail call ptr @__errno_location() #21
-  store i32 0, ptr %call.i699, align 4
-  %call2160 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2159, i32 noundef 0) #19
-  %233 = load i32, ptr %call.i699, align 4
+  %call.i698 = tail call ptr @__errno_location() #20
+  store i32 0, ptr %call.i698, align 4
+  %call2160 = call i64 @malloc_strtoumax(ptr noundef nonnull %incdec.ptr2.i, ptr noundef nonnull %end2159, i32 noundef 0) #18
+  %233 = load i32, ptr %call.i698, align 4
   %cmp2162.not = icmp eq i32 %233, 0
   br i1 %cmp2162.not, label %lor.lhs.false2164, label %land.lhs.true2175.thread
 
@@ -12543,7 +12563,7 @@ lor.lhs.false2164:                                ; preds = %if.then2157
   br i1 %cmp2166.not, label %land.lhs.true2175, label %land.lhs.true2175.thread
 
 land.lhs.true2175.thread:                         ; preds = %lor.lhs.false2164, %if.then2157
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.91, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2175:                                ; preds = %lor.lhs.false2164
@@ -12555,16 +12575,16 @@ land.lhs.true2175:                                ; preds = %lor.lhs.false2164
 if.then2181:                                      ; preds = %land.lhs.true2175
   %conv2182 = trunc i64 %sub3.i to i32
   %conv2183 = trunc i64 %vlen.4 to i32
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2182, ptr noundef nonnull %opts.02182, i32 noundef %conv2183, ptr noundef nonnull %incdec.ptr2.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.92, i32 noundef %conv2182, ptr noundef nonnull %opts.02181, i32 noundef %conv2183, ptr noundef nonnull %incdec.ptr2.i) #18
   br label %while.cond.backedge
 
 if.then2187:                                      ; preds = %if.end2115, %land.lhs.true2153
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.149, ptr noundef nonnull %opts.02182, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.149, ptr noundef nonnull %opts.02181, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 while.end.sink.split:                             ; preds = %for.body.i, %sw.bb4.i
   %.str.153.sink = phi ptr [ @.str.152, %sw.bb4.i ], [ @.str.153, %for.body.i ]
-  call void @malloc_write(ptr noundef nonnull %.str.153.sink) #19
+  call void @malloc_write(ptr noundef nonnull %.str.153.sink) #18
   store i1 true, ptr @had_conf_error, align 1
   br label %while.end
 
@@ -12578,14 +12598,14 @@ land.lhs.true2191:                                ; preds = %while.end
   br i1 %.b323, label %if.then2194, label %for.inc2196
 
 if.then2194:                                      ; preds = %land.lhs.true2191
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #18
+  call void @abort() #19
   unreachable
 
 for.inc2196:                                      ; preds = %while.end, %land.lhs.true2191, %if.end9
-  %indvars.iv.next2263 = add nuw nsw i64 %indvars.iv2262, 1
-  %exitcond2266.not = icmp eq i64 %indvars.iv.next2263, 5
-  br i1 %exitcond2266.not, label %release.i, label %for.body, !llvm.loop !32
+  %indvars.iv.next2262 = add nuw nsw i64 %indvars.iv2261, 1
+  %exitcond2265.not = icmp eq i64 %indvars.iv.next2262, 5
+  br i1 %exitcond2265.not, label %release.i, label %for.body, !llvm.loop !32
 
 release.i:                                        ; preds = %for.inc2196
   store atomic i8 1, ptr @log_init_done release, align 1
@@ -12600,8 +12620,8 @@ define internal fastcc void @malloc_conf_error(ptr noundef %msg, ptr noundef %k,
 entry:
   %conv = trunc i64 %klen to i32
   %conv1 = trunc i64 %vlen to i32
-  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef %msg, i32 noundef %conv, ptr noundef %k, i32 noundef %conv1, ptr noundef %v) #19
-  %call2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %k, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #23
+  tail call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.155, ptr noundef %msg, i32 noundef %conv, ptr noundef %k, i32 noundef %conv1, ptr noundef %v) #18
+  %call2 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %k, ptr noundef nonnull dereferenceable(14) @.str.156, i64 noundef 13) #22
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -12664,8 +12684,8 @@ entry:
   br i1 %cmp.i.i, label %tsdn_rtree_ctx.exit, label %tsdn_rtree_ctx.exit.thread
 
 tsdn_rtree_ctx.exit:                              ; preds = %entry
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #19
-  %call1.i10 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i, i64 noundef %0)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i) #18
+  %call1.i10 = call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef null, ptr noundef %rtree_ctx_fallback.i, i64 noundef %0)
   %call1.i.fca.1.extract = extractvalue { i64, i32 } %call1.i10, 1
   %1 = and i32 %call1.i.fca.1.extract, 256
   %tobool.i.not = icmp eq i32 %1, 0
@@ -12673,32 +12693,32 @@ tsdn_rtree_ctx.exit:                              ; preds = %entry
 
 tsdn_rtree_ctx.exit.thread:                       ; preds = %entry
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  %call1.i11 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsdn, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %0)
+  %call1.i11 = tail call fastcc { i64, i32 } @rtree_metadata_read(ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %0)
   %call1.i.fca.1.extract13 = extractvalue { i64, i32 } %call1.i11, 1
   %2 = and i32 %call1.i.fca.1.extract13, 256
   %tobool.i.not14 = icmp eq i32 %2, 0
   br i1 %tobool.i.not14, label %if.end.i.split.i, label %if.then
 
 if.then:                                          ; preds = %tsdn_rtree_ctx.exit.thread, %tsdn_rtree_ctx.exit
-  call void @arena_dalloc_small(ptr noundef %tsdn, ptr noundef %ptr) #19
+  call void @arena_dalloc_small(ptr noundef %tsdn, ptr noundef %ptr) #18
   br label %if.end
 
 if.then.i.i:                                      ; preds = %tsdn_rtree_ctx.exit
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i)
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %0)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %0)
   br label %arena_dalloc_large_no_tcache.exit
 
 if.end.i.split.i:                                 ; preds = %tsdn_rtree_ctx.exit.thread
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %tmp.i.i)
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %0)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i, i64 noundef %0)
   br label %arena_dalloc_large_no_tcache.exit
 
 arena_dalloc_large_no_tcache.exit:                ; preds = %if.then.i.i, %if.end.i.split.i
   %3 = load ptr, ptr %tmp.i.i, align 8
-  call void @large_dalloc(ptr noundef %tsdn, ptr noundef %3) #19
+  call void @large_dalloc(ptr noundef %tsdn, ptr noundef %3) #18
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
   br label %if.end
@@ -12787,7 +12807,7 @@ sz_size2index.exit:                               ; preds = %if.end5.i, %if.then
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %sz_size2index.exit
-  tail call void @arena_dalloc_small(ptr noundef %tsdn, ptr noundef %ptr) #19
+  tail call void @arena_dalloc_small(ptr noundef %tsdn, ptr noundef %ptr) #18
   br label %if.end
 
 if.else:                                          ; preds = %if.end.i, %sz_size2index.exit
@@ -12798,18 +12818,18 @@ if.else:                                          ; preds = %if.end.i, %sz_size2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.end.i.split.i
 
 if.then.i.i:                                      ; preds = %if.else
-  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #19
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef null, ptr noundef nonnull %rtree_ctx_fallback.i.i, i64 noundef %4)
+  call void @rtree_ctx_data_init(ptr noundef nonnull %rtree_ctx_fallback.i.i) #18
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef null, ptr noundef %rtree_ctx_fallback.i.i, i64 noundef %4)
   br label %arena_dalloc_large_no_tcache.exit
 
 if.end.i.split.i:                                 ; preds = %if.else
   %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i = getelementptr inbounds i8, ptr %tsdn, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %tmp.i.i, ptr noundef nonnull %tsdn, ptr noundef %cant_access_tsd_items_directly_use_a_getter_or_setter_rtree_ctx.i.i.i, i64 noundef %4)
   br label %arena_dalloc_large_no_tcache.exit
 
 arena_dalloc_large_no_tcache.exit:                ; preds = %if.then.i.i, %if.end.i.split.i
   %5 = load ptr, ptr %tmp.i.i, align 8
-  call void @large_dalloc(ptr noundef %tsdn, ptr noundef %5) #19
+  call void @large_dalloc(ptr noundef %tsdn, ptr noundef %5) #18
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %rtree_ctx_fallback.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp.i.i)
   br label %if.end
@@ -12821,7 +12841,7 @@ if.end:                                           ; preds = %arena_dalloc_large_
 declare void @safety_check_fail(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #1 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #1 {
 entry:
   %shr.i.i = lshr i64 %key, 30
   %and.i.i = and i64 %shr.i.i, 15
@@ -12894,7 +12914,7 @@ if.end137.i:                                      ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %if.end137.i
-  %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #19
+  %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #18
   br label %monotonic.i.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
@@ -12930,7 +12950,7 @@ declare void @rtree_ctx_data_init(ptr noundef) local_unnamed_addr #3
 declare ptr @rtree_leaf_elm_lookup_hard(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %tsdn, ptr noundef %rtree_ctx, i64 noundef %key) unnamed_addr #1 {
+define internal fastcc { i64, i32 } @rtree_metadata_read(ptr noundef %tsdn, ptr noundef nonnull %rtree_ctx, i64 noundef %key) unnamed_addr #1 {
 entry:
   %shr.i.i = lshr i64 %key, 30
   %and.i.i = and i64 %shr.i.i, 15
@@ -13003,7 +13023,7 @@ if.end137.i:                                      ; preds = %for.body.i
   br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !33
 
 for.end.i:                                        ; preds = %if.end137.i
-  %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #19
+  %call141.i = tail call ptr @rtree_leaf_elm_lookup_hard(ptr noundef %tsdn, ptr noundef nonnull @arena_emap_global, ptr noundef nonnull %rtree_ctx, i64 noundef %key, i1 noundef zeroext true, i1 noundef zeroext false) #18
   br label %monotonic.i.i
 
 monotonic.i.i:                                    ; preds = %if.then.i, %if.then27.i, %if.then71.i, %for.end.i
@@ -13034,12 +13054,12 @@ entry:
   %set.i1.i = alloca %struct.cpu_set_t, align 8
   %set.i.i = alloca %struct.cpu_set_t, align 8
   %i.i.i = alloca i32, align 4
-  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   %cmp.i.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
   br label %if.end.i
 
@@ -13065,7 +13085,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 
 lor.lhs.false.i:                                  ; preds = %malloc_mutex_lock.exit
   %4 = load i64, ptr @malloc_initializer, align 8
-  %call1.i = tail call i64 @pthread_self() #21
+  %call1.i = tail call i64 @pthread_self() #20
   %cmp.i = icmp eq i64 %4, %call1.i
   %cmp2.i = icmp eq i32 %3, 1
   %or.cond.i = and i1 %cmp2.i, %cmp.i
@@ -13079,7 +13099,7 @@ if.end.i15:                                       ; preds = %lor.lhs.false.i
 do.body.i:                                        ; preds = %if.end.i15, %malloc_mutex_lock.exit.i
   %spinner.sroa.0.0.i = phi i32 [ %spinner.sroa.0.1.i, %malloc_mutex_lock.exit.i ], [ 0, %if.end.i15 ]
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %i.i.i)
   %cmp.i.i = icmp ult i32 %spinner.sroa.0.0.i, 5
   br i1 %cmp.i.i, label %if.then.i.i18, label %if.else.i.i
@@ -13092,7 +13112,7 @@ if.then.i.i18:                                    ; preds = %do.body.i
   br i1 %cmp26.i.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then.i.i18, %for.body.i.i
-  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !43
+  tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !43
   %i.i.i.0.i.i.i.0.i.i.i.0.i.i.0.i.i.0.i.0.i.0.i.0.1.i.i = load volatile i32, ptr %i.i.i, align 4
   %inc.i.i19 = add i32 %i.i.i.0.i.i.i.0.i.i.i.0.i.i.0.i.i.0.i.0.i.0.i.0.1.i.i, 1
   store volatile i32 %inc.i.i19, ptr %i.i.i, align 4
@@ -13106,18 +13126,18 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.t
   br label %spin_adaptive.exit.i
 
 if.else.i.i:                                      ; preds = %do.body.i
-  %call.i.i16 = tail call i32 @sched_yield() #19
+  %call.i.i16 = tail call i32 @sched_yield() #18
   br label %spin_adaptive.exit.i
 
 spin_adaptive.exit.i:                             ; preds = %if.else.i.i, %for.end.i.i
   %spinner.sroa.0.1.i = phi i32 [ %inc4.i.i, %for.end.i.i ], [ %spinner.sroa.0.0.i, %if.else.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %i.i.i)
-  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call.i.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   %cmp.i.not.i.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp.i.not.i.i, label %if.end.i.i, label %if.then.i1.i
 
 if.then.i1.i:                                     ; preds = %spin_adaptive.exit.i
-  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
+  tail call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
   br label %if.end.i.i
 
@@ -13143,7 +13163,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %if.then.i.i.i, %if.
 
 if.then:                                          ; preds = %malloc_mutex_lock.exit.i, %lor.lhs.false.i, %malloc_mutex_lock.exit
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i.i20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   br label %return
 
 if.end:                                           ; preds = %if.end.i15
@@ -13156,21 +13176,21 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.then2:                                         ; preds = %land.lhs.true
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i.i22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   br label %return
 
 if.end3:                                          ; preds = %land.lhs.true, %if.end
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
-  %call4 = tail call ptr @malloc_tsd_boot0() #19
+  %call1.i24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
+  %call4 = tail call ptr @malloc_tsd_boot0() #18
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end3
   store i32 1, ptr @malloc_init_state, align 4
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i.i)
-  %call.i.i25 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %set.i.i) #19
-  %call1.i.i26 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %set.i.i) #19
+  %call.i.i25 = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %set.i.i) #18
+  %call1.i.i26 = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %set.i.i) #18
   %cmp.i.i27 = icmp eq i32 %call1.i.i26, -1
   %cond.i.i = select i1 %cmp.i.i27, i32 1, i32 %call1.i.i26
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %set.i.i)
@@ -13181,14 +13201,14 @@ if.end7:                                          ; preds = %if.end3
 
 if.then.i28:                                      ; preds = %if.end7
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %set.i1.i)
-  %call.i2.i = call i64 @sysconf(i32 noundef 84) #19
-  %call1.i3.i = call i64 @sysconf(i32 noundef 83) #19
+  %call.i2.i = call i64 @sysconf(i32 noundef 84) #18
+  %call1.i3.i = call i64 @sysconf(i32 noundef 83) #18
   %cmp.not.i.i29 = icmp eq i64 %call.i2.i, %call1.i3.i
   br i1 %cmp.not.i.i29, label %if.end.i.i33, label %malloc_cpu_count_is_deterministic.exit.i
 
 if.end.i.i33:                                     ; preds = %if.then.i28
-  %call2.i.i = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %set.i1.i) #19
-  %call3.i.i = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %set.i1.i) #19
+  %call2.i.i = call i32 @sched_getaffinity(i32 noundef 0, i64 noundef 128, ptr noundef nonnull %set.i1.i) #18
+  %call3.i.i = call i32 @__sched_cpucount(i64 noundef 128, ptr noundef nonnull %set.i1.i) #18
   %conv.i.i = sext i32 %call3.i.i to i64
   %cmp4.not.i.i = icmp eq i64 %call.i2.i, %conv.i.i
   br label %malloc_cpu_count_is_deterministic.exit.i
@@ -13203,14 +13223,14 @@ malloc_cpu_count_is_deterministic.exit.i:         ; preds = %if.end.i.i33, %if.t
 
 if.then4.i:                                       ; preds = %malloc_cpu_count_is_deterministic.exit.i
   store i32 2, ptr @opt_percpu_arena, align 4
-  call void @malloc_write(ptr noundef nonnull @.str.163) #19
+  call void @malloc_write(ptr noundef nonnull @.str.163) #18
   %11 = load i8, ptr @opt_abort_conf, align 1
   %tobool5.i = trunc i8 %11 to i1
   br i1 %tobool5.i, label %if.then6.i, label %if.end.i30
 
 if.then6.i:                                       ; preds = %if.then4.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #19
-  call void @abort() #20
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.158) #18
+  call void @abort() #19
   unreachable
 
 if.end.i30:                                       ; preds = %if.then4.i
@@ -13219,35 +13239,35 @@ if.end.i30:                                       ; preds = %if.then4.i
   br i1 %tobool7.i, label %if.then8.i, label %if.end12.i
 
 if.then8.i:                                       ; preds = %if.end.i30
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 if.end12.i:                                       ; preds = %if.end.i30, %malloc_cpu_count_is_deterministic.exit.i, %if.end7
-  %call13.i31 = call i32 @pthread_atfork(ptr noundef nonnull @jemalloc_prefork, ptr noundef nonnull @jemalloc_postfork_parent, ptr noundef nonnull @jemalloc_postfork_child) #19
+  %call13.i31 = call i32 @pthread_atfork(ptr noundef nonnull @jemalloc_prefork, ptr noundef nonnull @jemalloc_postfork_parent, ptr noundef nonnull @jemalloc_postfork_child) #18
   %cmp14.not.i = icmp eq i32 %call13.i31, 0
   br i1 %cmp14.not.i, label %malloc_init_hard_recursible.exit, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.end12.i
-  call void @malloc_write(ptr noundef nonnull @.str.164) #19
+  call void @malloc_write(ptr noundef nonnull @.str.164) #18
   %13 = load i8, ptr @opt_abort, align 1
   %tobool16.i = trunc i8 %13 to i1
   br i1 %tobool16.i, label %if.then17.i, label %return
 
 if.then17.i:                                      ; preds = %if.then15.i
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 malloc_init_hard_recursible.exit:                 ; preds = %if.end12.i
-  %call20.i = call zeroext i1 @background_thread_boot0() #19
+  %call20.i = call zeroext i1 @background_thread_boot0() #18
   br i1 %call20.i, label %return, label %if.end10
 
 if.end10:                                         ; preds = %malloc_init_hard_recursible.exit
-  %call.i.i34 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call.i.i34 = call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   %cmp.i.not.i35 = icmp eq i32 %call.i.i34, 0
   br i1 %cmp.i.not.i35, label %if.end.i37, label %if.then.i36
 
 if.then.i36:                                      ; preds = %if.end10
-  call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #19
+  call void @malloc_mutex_lock_slow(ptr noundef nonnull @init_lock) #18
   store atomic i8 1, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
   br label %if.end.i37
 
@@ -13277,7 +13297,7 @@ malloc_mutex_lock.exit42:                         ; preds = %if.end.i37, %if.the
   br i1 %cmp.i.i.i, label %if.then.i.i44, label %pre_reentrancy.exit
 
 if.then.i.i44:                                    ; preds = %malloc_mutex_lock.exit42
-  call void @tsd_slow_update(ptr noundef nonnull %call4) #19
+  call void @tsd_slow_update(ptr noundef nonnull %call4) #18
   br label %pre_reentrancy.exit
 
 pre_reentrancy.exit:                              ; preds = %malloc_mutex_lock.exit42, %if.then.i.i44
@@ -13286,7 +13306,7 @@ pre_reentrancy.exit:                              ; preds = %malloc_mutex_lock.e
   br i1 %cmp.not.i45, label %if.end26thread-pre-split.i, label %if.then.i46
 
 if.then.i46:                                      ; preds = %pre_reentrancy.exit
-  %call.i.i47 = call i32 @sched_getcpu() #19
+  %call.i.i47 = call i32 @sched_getcpu() #18
   %cmp1.i = icmp slt i32 %call.i.i47, 0
   br i1 %cmp1.i, label %if.then2.i, label %if.else.i
 
@@ -13318,13 +13338,13 @@ if.then.i7.i:                                     ; preds = %cond.false.i
 
 cond.end.i:                                       ; preds = %if.then.i7.i, %cond.false.i, %if.then2.i
   %cond.i = phi i32 [ %20, %if.then2.i ], [ %.call1.i.i, %if.then.i7.i ], [ 1, %cond.false.i ]
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.165, i32 noundef %cond.i) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.165, i32 noundef %cond.i) #18
   %23 = load i8, ptr @opt_abort, align 1
   %tobool4.i = trunc i8 %23 to i1
   br i1 %tobool4.i, label %if.then5.i, label %if.end26thread-pre-split.i
 
 if.then5.i:                                       ; preds = %cond.end.i
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 if.else.i:                                        ; preds = %if.then.i46
@@ -13333,13 +13353,13 @@ if.else.i:                                        ; preds = %if.then.i46
   br i1 %cmp6.i, label %if.then7.i, label %if.end11.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.166, i32 noundef %24) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.166, i32 noundef %24) #18
   %25 = load i8, ptr @opt_abort, align 1
   %tobool8.i = trunc i8 %25 to i1
   br i1 %tobool8.i, label %if.then9.i, label %if.then16
 
 if.then9.i:                                       ; preds = %if.then7.i
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 if.end11.i:                                       ; preds = %if.else.i
@@ -13351,7 +13371,7 @@ if.end11.i:                                       ; preds = %if.else.i
   br i1 %or.cond29.i, label %if.end19.i51, label %if.then15.i49
 
 if.then15.i49:                                    ; preds = %if.end11.i
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.167, i32 noundef %24) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.167, i32 noundef %24) #18
   %27 = load i8, ptr @opt_abort, align 1
   %tobool16.i50 = trunc i8 %27 to i1
   br i1 %tobool16.i50, label %if.then17.i55, label %if.then15.if.end19_crit_edge.i
@@ -13363,7 +13383,7 @@ if.then15.if.end19_crit_edge.i:                   ; preds = %if.then15.i49
   br label %if.end19.i51
 
 if.then17.i55:                                    ; preds = %if.then15.i49
-  call void @abort() #20
+  call void @abort() #19
   unreachable
 
 if.end19.i51:                                     ; preds = %if.then15.if.end19_crit_edge.i, %if.end11.i
@@ -13422,14 +13442,14 @@ do.end32.i:                                       ; preds = %do.end32.sink.split
 
 if.then34.i:                                      ; preds = %do.end32.i
   store i32 4094, ptr @narenas_auto, align 4
-  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.168, i32 noundef 4094) #19
+  call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.168, i32 noundef 4094) #18
   %.pre33.i = load i32, ptr @narenas_auto, align 4
   br label %if.end35.i
 
 if.end35.i:                                       ; preds = %if.then34.i, %do.end32.i
   %34 = phi i32 [ %.pre33.i, %if.then34.i ], [ %33, %do.end32.i ]
   store atomic i32 %34, ptr @narenas_total release, align 4
-  %call36.i = call zeroext i1 @arena_init_huge() #19
+  %call36.i = call zeroext i1 @arena_init_huge() #18
   br i1 %call36.i, label %if.then37.i, label %lor.lhs.false
 
 if.then37.i:                                      ; preds = %if.end35.i
@@ -13439,13 +13459,13 @@ if.then37.i:                                      ; preds = %if.end35.i
 lor.lhs.false:                                    ; preds = %if.then37.i, %if.end35.i
   %36 = load atomic i32, ptr @narenas_total acquire, align 4
   store i32 %36, ptr @manual_arena_base, align 4
-  %call14 = call ptr @b0get() #19
-  %call15 = call zeroext i1 @background_thread_boot1(ptr noundef nonnull %call4, ptr noundef %call14) #19
+  %call14 = call ptr @b0get() #18
+  %call15 = call zeroext i1 @background_thread_boot1(ptr noundef nonnull %call4, ptr noundef %call14) #18
   br i1 %call15, label %if.then16, label %if.end18
 
 if.then16:                                        ; preds = %if.then7.i, %lor.lhs.false
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i.i56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i.i56 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   %37 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %dec.i.i.i = add i8 %37, -1
   store i8 %dec.i.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
@@ -13453,7 +13473,7 @@ if.then16:                                        ; preds = %if.then7.i, %lor.lh
   br i1 %cmp.i.i.i57, label %if.then.i.i.i59, label %return
 
 if.then.i.i.i59:                                  ; preds = %if.then16
-  call void @tsd_slow_update(ptr noundef nonnull %call4) #19
+  call void @tsd_slow_update(ptr noundef nonnull %call4) #18
   br label %return
 
 if.end18:                                         ; preds = %lor.lhs.false
@@ -13462,7 +13482,7 @@ if.end18:                                         ; preds = %lor.lhs.false
   %add.i.i = add i32 %38, 3
   %spec.select.i.i = select i1 %cmp.not.i.i60, i32 2, i32 %add.i.i
   store i32 %spec.select.i.i, ptr @opt_percpu_arena, align 4
-  %call.i = call zeroext i1 @malloc_mutex_boot() #19
+  %call.i = call zeroext i1 @malloc_mutex_boot() #18
   br i1 %call.i, label %if.then20, label %if.end22
 
 if.then20:                                        ; preds = %if.end18
@@ -13502,13 +13522,13 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp.i.i64, label %if.then.i.i65, label %post_reentrancy.exit
 
 if.then.i.i65:                                    ; preds = %if.end22
-  call void @tsd_slow_update(ptr noundef nonnull %call4) #19
+  call void @tsd_slow_update(ptr noundef nonnull %call4) #18
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %if.end22, %if.then.i.i65
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
-  call void @malloc_tsd_boot1() #19
+  %call1.i66 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
+  call void @malloc_tsd_boot1() #18
   %47 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
   %state.i.i = getelementptr inbounds i8, ptr %47, i64 832
   %48 = load i8, ptr %state.i.i, align 8
@@ -13516,7 +13536,7 @@ post_reentrancy.exit:                             ; preds = %if.end22, %if.then.
   br i1 %cmp6.i.not, label %tsd_fetch_impl.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %post_reentrancy.exit
-  %call13.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %47, i1 noundef zeroext false) #19
+  %call13.i = call ptr @tsd_fetch_slow(ptr noundef nonnull %47, i1 noundef zeroext false) #18
   br label %tsd_fetch_impl.exit
 
 tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %if.then11.i
@@ -13526,8 +13546,8 @@ tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exi
   br i1 %tobool, label %do.end, label %if.end32
 
 do.end:                                           ; preds = %tsd_fetch_impl.exit
-  call void @background_thread_ctl_init(ptr noundef %retval.i.0) #19
-  %call29 = call zeroext i1 @background_thread_create(ptr noundef %retval.i.0, i32 noundef 0) #19
+  call void @background_thread_ctl_init(ptr noundef %retval.i.0) #18
+  %call29 = call zeroext i1 @background_thread_create(ptr noundef %retval.i.0, i32 noundef 0) #18
   br i1 %call29, label %return, label %if.end32
 
 if.end32:                                         ; preds = %do.end, %tsd_fetch_impl.exit
@@ -13542,7 +13562,7 @@ return:                                           ; preds = %if.then15.i, %if.th
 define internal fastcc void @malloc_init_hard_cleanup(ptr noundef %tsdn, i1 noundef zeroext %reentrancy_set) unnamed_addr #1 {
 entry:
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @init_lock, i64 104) monotonic, align 8
-  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #19
+  %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @init_lock, i64 64)) #18
   br i1 %reentrancy_set, label %do.end, label %if.end
 
 do.end:                                           ; preds = %entry
@@ -13554,7 +13574,7 @@ do.end:                                           ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end
 
 if.then.i.i:                                      ; preds = %do.end
-  tail call void @tsd_slow_update(ptr noundef nonnull %tsdn) #19
+  tail call void @tsd_slow_update(ptr noundef nonnull %tsdn) #18
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i.i, %do.end, %entry
@@ -13592,36 +13612,6 @@ declare zeroext i1 @arena_init_huge() local_unnamed_addr #3
 
 declare zeroext i1 @malloc_mutex_boot() local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc range(i32 32, 236) i32 @sz_size2index_compute(i64 noundef %size) unnamed_addr #16 {
-entry:
-  %cmp = icmp ugt i64 %size, 8070450532247928832
-  br i1 %cmp, label %return, label %if.end5
-
-if.end5:                                          ; preds = %entry
-  %shl = shl nuw i64 %size, 1
-  %sub = add i64 %shl, -1
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub, i1 true)
-  %1 = trunc nuw nsw i64 %0 to i32
-  %conv1.i.i.i = shl nuw nsw i32 %1, 2
-  %sub8 = xor i32 %conv1.i.i.i, 252
-  %shl9 = add nsw i32 %sub8, -20
-  %sub15 = sub nsw i64 60, %0
-  %sh_prom = and i64 %sub15, 4294967295
-  %shl18 = shl nsw i64 -1, %sh_prom
-  %sub19 = add nsw i64 %size, -1
-  %and = and i64 %shl18, %sub19
-  %shr = lshr i64 %and, %sh_prom
-  %2 = trunc i64 %shr to i32
-  %conv22 = and i32 %2, 3
-  %add23 = or disjoint i32 %conv22, %shl9
-  br label %return
-
-return:                                           ; preds = %entry, %if.end5
-  %retval.0 = phi i32 [ %add23, %if.end5 ], [ 235, %entry ]
-  ret i32 %retval.0
-}
-
 declare void @tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -13650,15 +13640,15 @@ if.then3.i:                                       ; preds = %if.then
 
 arena_get.exit:                                   ; preds = %if.then, %if.then3.i
   %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %3, %if.then ]
-  tail call void @arena_nthreads_dec(ptr noundef nonnull %0, i1 noundef zeroext false) #19
-  tail call void @arena_nthreads_inc(ptr noundef %ret.0.i, i1 noundef zeroext false) #19
+  tail call void @arena_nthreads_dec(ptr noundef nonnull %0, i1 noundef zeroext false) #18
+  tail call void @arena_nthreads_inc(ptr noundef %ret.0.i, i1 noundef zeroext false) #18
   store ptr %ret.0.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_arena.i, align 8
-  %call.i = tail call i32 @arena_nthreads_get(ptr noundef nonnull %0, i1 noundef zeroext false) #19
+  %call.i = tail call i32 @arena_nthreads_get(ptr noundef nonnull %0, i1 noundef zeroext false) #18
   %cmp.i15 = icmp eq i32 %call.i, 0
   br i1 %cmp.i15, label %if.then.i, label %arena_migrate.exit
 
 if.then.i:                                        ; preds = %arena_get.exit
-  tail call void @arena_decay(ptr noundef nonnull %tsd, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext true) #19
+  tail call void @arena_decay(ptr noundef nonnull %tsd, ptr noundef nonnull %0, i1 noundef zeroext false, i1 noundef zeroext true) #18
   br label %arena_migrate.exit
 
 arena_migrate.exit:                               ; preds = %arena_get.exit, %if.then.i
@@ -13669,7 +13659,7 @@ arena_migrate.exit:                               ; preds = %arena_get.exit, %if
 if.then10:                                        ; preds = %arena_migrate.exit
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i = getelementptr inbounds i8, ptr %tsd, i64 872
   %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i = getelementptr inbounds i8, ptr %tsd, i64 256
-  tail call void @tcache_arena_reassociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %ret.0.i) #19
+  tail call void @tcache_arena_reassociate(ptr noundef nonnull %tsd, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache_slow.i, ptr noundef nonnull %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i.i, ptr noundef %ret.0.i) #18
   br label %if.end13
 
 if.end13:                                         ; preds = %arena_migrate.exit, %if.then10, %entry
@@ -13677,25 +13667,25 @@ if.end13:                                         ; preds = %arena_migrate.exit,
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #17
+declare i64 @llvm.ctpop.i64(i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #17
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -13713,14 +13703,13 @@ attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
-attributes #21 = { nounwind willreturn memory(none) }
-attributes #22 = { nounwind allocsize(0) }
-attributes #23 = { nounwind willreturn memory(read) }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(none) }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

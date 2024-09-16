@@ -4836,7 +4836,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1169:                                    ; preds = %.lr.ph.i.i.i.i.i.i137, %.noexc7.i135
   %.0.lcssa.i.i.i.i.i.i141 = phi ptr [ %374, %.noexc7.i135 ], [ %379, %.lr.ph.i.i.i.i.i.i137 ]
   store ptr %.0.lcssa.i.i.i.i.i.i141, ptr %47, align 8
-  %381 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %381 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %382 unwind label %746
 
 382:                                              ; preds = %.loopexit1169
@@ -5764,7 +5764,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1166:                                    ; preds = %.lr.ph.i.i.i.i.i.i237, %.noexc7.i235
   %.0.lcssa.i.i.i.i.i.i241 = phi ptr [ %682, %.noexc7.i235 ], [ %687, %.lr.ph.i.i.i.i.i.i237 ]
   store ptr %.0.lcssa.i.i.i.i.i.i241, ptr %71, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %9, i1 noundef zeroext %533, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %9, i1 noundef zeroext %533, ptr noundef %10, ptr noundef %11)
           to label %689 unwind label %748
 
 689:                                              ; preds = %.loopexit1166
@@ -6812,7 +6812,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1163:                                    ; preds = %.lr.ph.i.i.i.i.i.i359, %.noexc7.i357
   %.0.lcssa.i.i.i.i.i.i363 = phi ptr [ %970, %.noexc7.i357 ], [ %973, %.lr.ph.i.i.i.i.i.i359 ]
   store ptr %.0.lcssa.i.i.i.i.i.i363, ptr %95, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %13, i1 noundef zeroext %823, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %13, i1 noundef zeroext %823, ptr noundef %14, ptr noundef %15)
           to label %975 unwind label %1015
 
 975:                                              ; preds = %.loopexit1163
@@ -7734,7 +7734,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit1160:                                    ; preds = %.lr.ph.i.i.i.i.i.i467, %.noexc7.i465
   %.0.lcssa.i.i.i.i.i.i471 = phi ptr [ %1234, %.noexc7.i465 ], [ %1237, %.lr.ph.i.i.i.i.i.i467 ]
   store ptr %.0.lcssa.i.i.i.i.i.i471, ptr %113, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %17, i1 noundef zeroext %1087, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %17, i1 noundef zeroext %1087, ptr noundef %18, ptr noundef %19)
           to label %1239 unwind label %1553
 
 1239:                                             ; preds = %.loopexit1160
@@ -8624,7 +8624,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i588, %.noexc7.i586
   %.0.lcssa.i.i.i.i.i.i592 = phi ptr [ %1496, %.noexc7.i586 ], [ %1499, %.lr.ph.i.i.i.i.i.i588 ]
   store ptr %.0.lcssa.i.i.i.i.i.i592, ptr %134, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull %21, i1 noundef zeroext %1349, ptr noundef nonnull %22, ptr noundef nonnull %23)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %231, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %21, i1 noundef zeroext %1349, ptr noundef %22, ptr noundef %23)
           to label %1501 unwind label %1555
 
 1501:                                             ; preds = %.loopexit
@@ -8953,7 +8953,7 @@ _ZNSt6vectorIN5Yosys5RTLIL14MemWriteActionESaIS2_EE5clearEv.exit: ; preds = %._c
 1558:                                             ; preds = %_ZNSt6vectorIN5Yosys5RTLIL14MemWriteActionESaIS2_EE5clearEv.exit
   %1559 = load i8, ptr %5, align 1
   %1560 = trunc i8 %1559 to i1
-  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef nonnull %30, ptr noundef nonnull %24, i1 noundef zeroext %1560)
+  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef nonnull %30, ptr noundef %24, i1 noundef zeroext %1560)
           to label %1561 unwind label %1571
 
 1561:                                             ; preds = %1558
@@ -9049,7 +9049,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i680: ; preds = 
   %1596 = load i8, ptr %5, align 1
   %1597 = trunc i8 %1596 to i1
   %1598 = xor i1 %1597, true
-  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %25, i1 noundef zeroext %1598)
+  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef %25, i1 noundef zeroext %1598)
           to label %1599 unwind label %1609
 
 1599:                                             ; preds = %1595
@@ -11263,7 +11263,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %7 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -11432,7 +11432,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %76, %80, %87
           to label %95 unwind label %126
 
 95:                                               ; preds = %94
-  %96 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %96 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %97 unwind label %128
 
 97:                                               ; preds = %95
@@ -11678,7 +11678,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit128:             ; preds = %170, %174, %181
           to label %189 unwind label %220
 
 189:                                              ; preds = %188
-  %190 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %190 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %191 unwind label %222
 
 191:                                              ; preds = %189
@@ -11928,7 +11928,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit162:             ; preds = %264, %268, %275
           to label %286 unwind label %317
 
 286:                                              ; preds = %285
-  %287 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %287 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %288 unwind label %319
 
 288:                                              ; preds = %286
@@ -12178,7 +12178,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit196:             ; preds = %361, %365, %372
           to label %383 unwind label %414
 
 383:                                              ; preds = %382
-  %384 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %384 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %385 unwind label %416
 
 385:                                              ; preds = %383
@@ -12537,7 +12537,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit236:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %527 unwind label %530
 
 527:                                              ; preds = %526
-  %528 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %528 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %19, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %529 unwind label %532
 
 529:                                              ; preds = %527
@@ -12603,7 +12603,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit236:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %553 unwind label %556
 
 553:                                              ; preds = %552
-  %554 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %554 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %21, ptr noundef %22, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %555 unwind label %558
 
 555:                                              ; preds = %553
@@ -12895,7 +12895,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit253:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %683 unwind label %686
 
 683:                                              ; preds = %682
-  %684 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %684 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %26, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %685 unwind label %688
 
 685:                                              ; preds = %683
@@ -12961,7 +12961,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit253:             ; preds = %_ZN5Yosys5RTLIL8IdS
           to label %709 unwind label %712
 
 709:                                              ; preds = %708
-  %710 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull align 1 dereferenceable(1) %3)
+  %710 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %28, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %711 unwind label %714
 
 711:                                              ; preds = %709
@@ -13068,7 +13068,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit260: ; preds = %32, %_ZN5Yosys
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111apply_resetEPN5Yosys5RTLIL6ModuleEPNS1_7ProcessEPNS1_8SyncRuleERNS0_6SigMapENS1_7SigSpecEbSA_SA_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef nonnull %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %11 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %12 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -13279,7 +13279,7 @@ _ZN5Yosys5RTLIL7SigSpecaSERKS1_.exit:             ; preds = %.noexc42
           to label %102 unwind label %127
 
 102:                                              ; preds = %101
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %88, ptr noundef nonnull %14, i1 noundef zeroext %6, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %1, ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %88, ptr noundef %14, i1 noundef zeroext %6, i1 noundef zeroext false)
           to label %103 unwind label %129
 
 103:                                              ; preds = %102
@@ -13585,7 +13585,7 @@ declare void @_ZN5Yosys9log_errorEPKcz(ptr noundef, ...) local_unnamed_addr #8
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %7 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -13640,7 +13640,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6M
           to label %46 unwind label %186
 
 46:                                               ; preds = %43
-  %47 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %47 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %48 unwind label %188
 
 48:                                               ; preds = %46
@@ -14522,7 +14522,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 _ZN5Yosys5RTLIL7SigSpecC2ERKS1_.exit121:          ; preds = %.lr.ph.i.i.i.i.i.i113, %.noexc7.i111.thread
   %.0.lcssa.i.i.i.i.i.i117 = phi ptr [ null, %.noexc7.i111.thread ], [ %317, %.lr.ph.i.i.i.i.i.i113 ]
   store ptr %.0.lcssa.i.i.i.i.i.i117, ptr %32, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef %249, ptr noundef nonnull %10, i1 noundef zeroext %3)
+  invoke fastcc void @_ZN12_GLOBAL__N_115eliminate_constEPN5Yosys5RTLIL6ModuleEPNS1_8CaseRuleENS1_7SigSpecEb(ptr noundef %0, ptr noundef %249, ptr noundef %10, i1 noundef zeroext %3)
           to label %319 unwind label %331
 
 319:                                              ; preds = %_ZN5Yosys5RTLIL7SigSpecC2ERKS1_.exit121
@@ -15959,7 +15959,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictIPciNS1_13hash_cstr_opsEE7entry_tESaIS6_EE12emp
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ENS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef zeroext, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %9 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %10 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -16602,7 +16602,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit418:                                     ; preds = %.lr.ph.i.i.i.i.i.i75, %.noexc7.i73.thread
   %.0.lcssa.i.i.i.i.i.i79 = phi ptr [ null, %.noexc7.i73.thread ], [ %248, %.lr.ph.i.i.i.i.i.i75 ]
   store ptr %.0.lcssa.i.i.i.i.i.i79, ptr %67, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %112, ptr noundef nonnull %10, i1 noundef zeroext %5, i1 noundef zeroext %6)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %112, ptr noundef %10, i1 noundef zeroext %5, i1 noundef zeroext %6)
           to label %250 unwind label %272
 
 250:                                              ; preds = %.loopexit418
@@ -16726,7 +16726,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit110:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %274 unwind label %415
 
 274:                                              ; preds = %.loopexit436
-  %275 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %275 = invoke fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yosys5RTLIL6ModuleENS1_7SigSpecES4_Rb(ptr noundef %0, ptr noundef %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %11)
           to label %276 unwind label %417
 
 276:                                              ; preds = %274
@@ -17225,7 +17225,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit181:              ; preds = %_ZSt8_DestroyIPN5Yo
           to label %426 unwind label %448
 
 426:                                              ; preds = %.loopexit416
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %304, ptr noundef nonnull %17, i1 noundef zeroext %5, i1 noundef zeroext false)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %304, ptr noundef %17, i1 noundef zeroext %5, i1 noundef zeroext false)
           to label %427 unwind label %450
 
 427:                                              ; preds = %426
@@ -17796,7 +17796,7 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL6SigBitEEE8allocateERS3_m.exit.i.i.i.i.i
 .loopexit417:                                     ; preds = %.lr.ph.i.i.i.i.i.i237, %.noexc7.i235.thread
   %.0.lcssa.i.i.i.i.i.i241 = phi ptr [ null, %.noexc7.i235.thread ], [ %590, %.lr.ph.i.i.i.i.i.i237 ]
   store ptr %.0.lcssa.i.i.i.i.i.i241, ptr %85, align 8
-  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %454, ptr noundef nonnull %19, i1 noundef zeroext %5, i1 noundef zeroext true)
+  invoke fastcc void @_ZN12_GLOBAL__N_111apply_constEPN5Yosys5RTLIL6ModuleENS1_7SigSpecERS4_PNS1_8CaseRuleES4_bb(ptr noundef %0, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %454, ptr noundef %19, i1 noundef zeroext %5, i1 noundef zeroext true)
           to label %592 unwind label %614
 
 592:                                              ; preds = %.loopexit417

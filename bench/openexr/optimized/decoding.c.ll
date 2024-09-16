@@ -770,7 +770,7 @@ if.then20:                                        ; preds = %if.end12
   %14 = load i64, ptr %sample_count_table_size, align 8
   %sample_count_table = getelementptr inbounds i8, ptr %decode, i64 144
   %15 = load ptr, ptr %sample_count_table, align 8
-  %call26 = tail call fastcc i32 @decompress_data(ptr noundef nonnull %0, i32 noundef %12, ptr noundef nonnull %decode, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %mul24)
+  %call26 = tail call fastcc i32 @decompress_data(ptr noundef %0, i32 noundef %12, ptr noundef nonnull %decode, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %mul24)
   %cmp27.not = icmp eq i32 %call26, 0
   br i1 %cmp27.not, label %if.end34, label %if.then29
 
@@ -799,7 +799,7 @@ if.then42:                                        ; preds = %if.end12, %if.end34
   %23 = load ptr, ptr %unpacked_buffer, align 8
   %unpacked_size = getelementptr inbounds i8, ptr %decode, i64 64
   %24 = load i64, ptr %unpacked_size, align 8
-  %call46 = tail call fastcc i32 @decompress_data(ptr noundef nonnull %0, i32 noundef %20, ptr noundef nonnull %decode, ptr noundef %21, i64 noundef %22, ptr noundef %23, i64 noundef %24)
+  %call46 = tail call fastcc i32 @decompress_data(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %decode, ptr noundef %21, i64 noundef %22, ptr noundef %23, i64 noundef %24)
   %cmp48.not = icmp eq i32 %call46, 0
   br i1 %cmp48.not, label %return, label %if.then50
 
@@ -992,7 +992,7 @@ if.then34:                                        ; preds = %if.end29
   br label %return
 
 if.then40:                                        ; preds = %if.end29
-  %call41 = tail call fastcc i32 @update_pack_unpack_ptrs(ptr noundef nonnull %decode)
+  %call41 = tail call fastcc i32 @update_pack_unpack_ptrs(ptr noundef %decode)
   %cmp43.not = icmp eq i32 %call41, 0
   br i1 %cmp43.not, label %land.lhs.true, label %if.then45
 
@@ -1027,7 +1027,7 @@ land.lhs.true64:                                  ; preds = %land.lhs.true, %if.
   br i1 %switch, label %if.then71, label %land.lhs.true86
 
 if.then71:                                        ; preds = %land.lhs.true64
-  %call72 = tail call fastcc i32 @unpack_sample_table(ptr noundef nonnull %ctxt, ptr noundef nonnull %decode)
+  %call72 = tail call fastcc i32 @unpack_sample_table(ptr noundef %ctxt, ptr noundef %decode)
   %decode_flags = getelementptr inbounds i8, ptr %decode, i64 10
   %18 = load i16, ptr %decode_flags, align 2
   %19 = and i16 %18, 4
@@ -1084,7 +1084,7 @@ return:                                           ; preds = %land.lhs.true100, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_pack_unpack_ptrs(ptr noundef %decode) unnamed_addr #0 {
+define internal fastcc i32 @update_pack_unpack_ptrs(ptr noundef nonnull %decode) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %decode, i64 46
   %0 = load i8, ptr %type, align 2
@@ -1158,7 +1158,7 @@ return:                                           ; preds = %if.then35, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unpack_sample_table(ptr noundef %pctxt, ptr nocapture noundef readonly %decode) unnamed_addr #0 {
+define internal fastcc i32 @unpack_sample_table(ptr noundef nonnull %pctxt, ptr nocapture noundef nonnull readonly %decode) unnamed_addr #0 {
 entry:
   %width = getelementptr inbounds i8, ptr %decode, i64 40
   %0 = load i32, ptr %width, align 8
@@ -1287,7 +1287,7 @@ lor.lhs.false:                                    ; preds = %for.cond40.for.end6
 if.then73:                                        ; preds = %lor.lhs.false
   %report_error = getelementptr inbounds i8, ptr %pctxt, i64 64
   %15 = load ptr, ptr %report_error, align 8
-  %call74 = tail call i32 %15(ptr noundef %pctxt, i32 noundef 30, ptr noundef nonnull @.str.17) #4
+  %call74 = tail call i32 %15(ptr noundef nonnull %pctxt, i32 noundef 30, ptr noundef nonnull @.str.17) #4
   br label %return
 
 return:                                           ; preds = %for.body12.us, %for.body43.us, %lor.lhs.false, %if.then73
@@ -1369,7 +1369,7 @@ declare i32 @exr_read_deep_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @exr_read_chunk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decompress_data(ptr noundef %pctxt, i32 noundef %ctype, ptr noundef %decode, ptr noundef %packbufptr, i64 noundef %packsz, ptr noundef %unpackbufptr, i64 noundef %unpacksz) unnamed_addr #0 {
+define internal fastcc i32 @decompress_data(ptr noundef nonnull %pctxt, i32 noundef %ctype, ptr noundef %decode, ptr noundef %packbufptr, i64 noundef %packsz, ptr noundef %unpackbufptr, i64 noundef %unpacksz) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %packsz, 0
   br i1 %cmp, label %return, label %if.end
@@ -1406,7 +1406,7 @@ if.end9:                                          ; preds = %if.end
 sw.bb:                                            ; preds = %if.end9
   %report_error = getelementptr inbounds i8, ptr %pctxt, i64 64
   %2 = load ptr, ptr %report_error, align 8
-  %call = tail call i32 %2(ptr noundef %pctxt, i32 noundef 3, ptr noundef nonnull @.str.15) #4
+  %call = tail call i32 %2(ptr noundef nonnull %pctxt, i32 noundef 3, ptr noundef nonnull @.str.15) #4
   br label %return
 
 sw.bb10:                                          ; preds = %if.end9
@@ -1444,7 +1444,7 @@ sw.bb24:                                          ; preds = %if.end9
 sw.default:                                       ; preds = %if.end9
   %print_error = getelementptr inbounds i8, ptr %pctxt, i64 72
   %3 = load ptr, ptr %print_error, align 8
-  %call27 = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef %pctxt, i32 noundef 3, ptr noundef nonnull @.str.16, i32 noundef %ctype) #4
+  %call27 = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %pctxt, i32 noundef 3, ptr noundef nonnull @.str.16, i32 noundef %ctype) #4
   br label %return
 
 return:                                           ; preds = %sw.bb10, %sw.bb12, %sw.bb14, %sw.bb16, %sw.bb18, %sw.bb20, %sw.bb22, %sw.bb24, %if.then5, %if.then7, %entry, %sw.default, %sw.bb

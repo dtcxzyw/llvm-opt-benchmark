@@ -181,7 +181,7 @@ _ZL14getheaptriggerP12global_Statem.exit:         ; preds = %38, %50
 declare noundef double @_Z9lua_clockv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 noundef range(i64 -21474836, 21474837) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4

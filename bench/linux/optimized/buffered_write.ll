@@ -1378,7 +1378,7 @@ declare dso_local i64 @fault_in_iov_iter_readable(ptr noundef, i64 noundef) loca
 declare dso_local i32 @netfs_prefetch_for_write(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @trace_netfs_folio(ptr noundef %0, i8 noundef signext %1) unnamed_addr #4 align 16 {
+define internal fastcc void @trace_netfs_folio(ptr noundef %0, i8 noundef signext range(i8 24, 26) %1) unnamed_addr #4 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_folio, i64 8), i32 2) #11
           to label %23 [label %3], !srcloc !10
 

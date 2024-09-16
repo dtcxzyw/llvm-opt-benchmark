@@ -533,7 +533,7 @@ _.exit9.i:                                        ; preds = %if.end3.i6.i, %if.t
   br label %replace_object.exit
 
 if.end10.i:                                       ; preds = %if.end.i29
-  %call11.i = call fastcc i32 @replace_object_oid(ptr noundef %23, ptr noundef nonnull %object.i, ptr noundef %24, ptr noundef nonnull %repl.i, i32 noundef %3)
+  %call11.i = call fastcc i32 @replace_object_oid(ptr noundef %23, ptr noundef %object.i, ptr noundef %24, ptr noundef %repl.i, i32 noundef %3)
   br label %replace_object.exit
 
 replace_object.exit:                              ; preds = %_.exit.i26, %_.exit9.i, %if.end10.i
@@ -599,7 +599,7 @@ _.exit17.i:                                       ; preds = %if.end3.i14.i, %if.
   br label %edit_and_replace.exit
 
 if.end11.i:                                       ; preds = %if.end.i33
-  %call12.i = call fastcc i32 @check_ref_valid(ptr noundef nonnull %old_oid.i, ptr noundef nonnull %prev.i, ptr noundef nonnull %ref.i31, i32 noundef %3)
+  %call12.i = call fastcc i32 @check_ref_valid(ptr noundef %old_oid.i, ptr noundef %prev.i, ptr noundef %ref.i31, i32 noundef %3)
   %tobool.not.i35 = icmp eq i32 %call12.i, 0
   call void @strbuf_release(ptr noundef nonnull %ref.i31) #15
   br i1 %tobool.not.i35, label %if.end14.i, label %edit_and_replace.exit
@@ -879,7 +879,7 @@ if.end30.i:                                       ; preds = %if.end49.i.i, %if.e
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %result.i.i)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i.i)
   call void @free(ptr noundef %call15.i) #15
-  %call31.i = call fastcc i32 @oideq(ptr noundef nonnull %old_oid.i, ptr noundef nonnull %new_oid.i)
+  %call31.i = call fastcc i32 @oideq(ptr noundef nonnull %old_oid.i, ptr noundef %new_oid.i)
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %if.end38.i, label %if.then33.i
 
@@ -899,7 +899,7 @@ _.exit52.i:                                       ; preds = %if.end3.i49.i, %if.
   br label %edit_and_replace.exit
 
 if.end38.i:                                       ; preds = %if.end30.i
-  %call39.i = call fastcc i32 @replace_object_oid(ptr noundef %29, ptr noundef nonnull %old_oid.i, ptr noundef nonnull @.str.49, ptr noundef nonnull %new_oid.i, i32 noundef %3)
+  %call39.i = call fastcc i32 @replace_object_oid(ptr noundef %29, ptr noundef %old_oid.i, ptr noundef nonnull @.str.49, ptr noundef %new_oid.i, i32 noundef %3)
   br label %edit_and_replace.exit
 
 edit_and_replace.exit:                            ; preds = %_.exit.i53, %_.exit17.i, %if.end11.i, %if.then18.i, %_.exit25.i, %if.then29.i, %_.exit52.i, %if.end38.i
@@ -1137,7 +1137,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @create_graft(i32 noundef %argc, ptr noundef %argv, i32 noundef %force, i32 noundef %gentle) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @create_graft(i32 noundef %argc, ptr noundef %argv, i32 noundef %force, i32 noundef range(i32 0, 2) %gentle) unnamed_addr #0 {
 entry:
   %mergetag_data.i = alloca %struct.check_mergetag_data, align 8
   %new_parents.i = alloca %struct.strbuf, align 8
@@ -1444,7 +1444,7 @@ _.exit61:                                         ; preds = %if.end43, %if.end3.
   br label %return
 
 if.end50:                                         ; preds = %oideq.exit
-  %call53 = call fastcc i32 @replace_object_oid(ptr noundef %0, ptr noundef nonnull %oid, ptr noundef nonnull @.str.49, ptr noundef nonnull %new_oid, i32 noundef %force)
+  %call53 = call fastcc i32 @replace_object_oid(ptr noundef %0, ptr noundef %oid, ptr noundef nonnull @.str.49, ptr noundef %new_oid, i32 noundef %force)
   br label %return
 
 return:                                           ; preds = %if.end50, %_.exit61, %_.exit55, %_.exit43, %if.then24, %if.then14, %_.exit21, %_.exit
@@ -1481,7 +1481,7 @@ declare i32 @delete_ref(ptr noundef, ptr noundef, ptr noundef, i32 noundef) loca
 declare i32 @printf_ln(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @replace_object_oid(ptr noundef %object_ref, ptr noundef %object, ptr noundef %replace_ref, ptr noundef %repl, i32 noundef %force) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @replace_object_oid(ptr noundef %object_ref, ptr noundef nonnull %object, ptr noundef %replace_ref, ptr noundef nonnull %repl, i32 noundef %force) unnamed_addr #0 {
 entry:
   %prev = alloca %struct.object_id, align 4
   %ref = alloca %struct.strbuf, align 8
@@ -1489,9 +1489,9 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %err, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
   %0 = load ptr, ptr @the_repository, align 8
-  %call = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef %object, ptr noundef null) #15
+  %call = tail call i32 @oid_object_info(ptr noundef %0, ptr noundef nonnull %object, ptr noundef null) #15
   %1 = load ptr, ptr @the_repository, align 8
-  %call1 = tail call i32 @oid_object_info(ptr noundef %1, ptr noundef %repl, ptr noundef null) #15
+  %call1 = tail call i32 @oid_object_info(ptr noundef %1, ptr noundef nonnull %repl, ptr noundef null) #15
   %tobool.not = icmp eq i32 %force, 0
   br i1 %tobool.not, label %land.lhs.true, label %if.end
 
@@ -1517,7 +1517,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 
 if.end:                                           ; preds = %land.lhs.true, %entry
   %.sink = phi i32 [ %force, %entry ], [ 0, %land.lhs.true ]
-  %call710 = call fastcc i32 @check_ref_valid(ptr noundef %object, ptr noundef nonnull %prev, ptr noundef nonnull %ref, i32 noundef %.sink)
+  %call710 = call fastcc i32 @check_ref_valid(ptr noundef %object, ptr noundef %prev, ptr noundef %ref, i32 noundef %.sink)
   %tobool8.not = icmp eq i32 %call710, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
@@ -1533,7 +1533,7 @@ if.end10:                                         ; preds = %if.end
 lor.lhs.false:                                    ; preds = %if.end10
   %buf = getelementptr inbounds i8, ptr %ref, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %call13 = call i32 @ref_transaction_update(ptr noundef nonnull %call11, ptr noundef %3, ptr noundef %repl, ptr noundef nonnull %prev, i32 noundef 0, ptr noundef null, ptr noundef nonnull %err) #15
+  %call13 = call i32 @ref_transaction_update(ptr noundef nonnull %call11, ptr noundef %3, ptr noundef nonnull %repl, ptr noundef nonnull %prev, i32 noundef 0, ptr noundef null, ptr noundef nonnull %err) #15
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %lor.lhs.false15, label %if.then18
 
@@ -1564,7 +1564,7 @@ declare i32 @oid_object_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_ref_valid(ptr noundef %object, ptr noundef %prev, ptr noundef %ref, i32 noundef %force) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_ref_valid(ptr noundef nonnull %object, ptr noundef nonnull %prev, ptr noundef nonnull %ref, i32 noundef %force) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %len2.i = getelementptr inbounds i8, ptr %ref, i64 8
@@ -1579,7 +1579,7 @@ if.then4.i:                                       ; preds = %entry
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
-  %call = tail call ptr @oid_to_hex(ptr noundef %object) #15
+  %call = tail call ptr @oid_to_hex(ptr noundef nonnull %object) #15
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %ref, ptr noundef nonnull @.str.41, ptr noundef %0, ptr noundef %call) #15
   %2 = load ptr, ptr %buf.i, align 8
   %call1 = tail call i32 @check_refname_format(ptr noundef %2, i32 noundef 0) #15
@@ -1603,7 +1603,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
 
 if.end:                                           ; preds = %strbuf_setlen.exit
   %5 = load ptr, ptr %buf.i, align 8
-  %call7 = tail call i32 @read_ref(ptr noundef %5, ptr noundef %prev) #15
+  %call7 = tail call i32 @read_ref(ptr noundef %5, ptr noundef nonnull %prev) #15
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.else, label %if.then9
 
@@ -1664,7 +1664,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare i32 @launch_editor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef readonly %oid2) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @oideq(ptr nocapture noundef readonly %oid1, ptr nocapture noundef nonnull readonly %oid2) unnamed_addr #8 {
 entry:
   %algo = getelementptr inbounds i8, ptr %oid1, i64 32
   %0 = load i32, ptr %algo, align 4

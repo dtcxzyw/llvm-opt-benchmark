@@ -201,7 +201,7 @@ define hidden void @zim_DOM_XMLDocument_createFromString(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -231,148 +231,148 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
 16:                                               ; preds = %13
-  %17 = icmp eq i32 %1, 1
-  br i1 %17, label %18, label %22
+  %.not18 = icmp eq i32 %1, 0
+  br i1 %.not18, label %21, label %17
 
-18:                                               ; preds = %16
-  %19 = load ptr, ptr %3, align 8
-  %20 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.6) #5
-  %.not18 = icmp eq ptr %20, null
-  br i1 %.not18, label %22, label %21
+17:                                               ; preds = %16
+  %18 = load ptr, ptr %3, align 8
+  %19 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.6) #5
+  %.not19 = icmp eq ptr %19, null
+  br i1 %.not19, label %21, label %20
 
-21:                                               ; preds = %18
+20:                                               ; preds = %17
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 1, ptr noundef nonnull @.str.7) #4
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-22:                                               ; preds = %18, %16
-  %23 = load i64, ptr %7, align 8
-  %24 = and i64 %23, -4812288
-  %.not.i = icmp eq i64 %24, 0
-  br i1 %.not.i, label %26, label %25
+21:                                               ; preds = %17, %16
+  %22 = load i64, ptr %7, align 8
+  %23 = and i64 %22, -4812288
+  %.not.i = icmp eq i64 %23, 0
+  br i1 %.not.i, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.10) #4
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-26:                                               ; preds = %22
-  %27 = load ptr, ptr %4, align 8
-  %.not19 = icmp eq ptr %27, null
-  br i1 %.not19, label %34, label %28
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %4, align 8
+  %.not20 = icmp eq ptr %26, null
+  br i1 %.not20, label %33, label %27
 
-28:                                               ; preds = %26
-  %29 = call ptr @xmlFindCharEncodingHandler(ptr noundef nonnull %27) #4
-  %.not20 = icmp eq ptr %29, null
-  br i1 %.not20, label %30, label %31
+27:                                               ; preds = %25
+  %28 = call ptr @xmlFindCharEncodingHandler(ptr noundef nonnull %26) #4
+  %.not21 = icmp eq ptr %28, null
+  br i1 %.not21, label %29, label %30
 
-30:                                               ; preds = %28
+29:                                               ; preds = %27
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 3, ptr noundef nonnull @.str.8) #4
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-31:                                               ; preds = %28
-  %32 = load i64, ptr %7, align 8
-  %33 = or i64 %32, 2097152
-  store i64 %33, ptr %7, align 8
+30:                                               ; preds = %27
+  %31 = load i64, ptr %7, align 8
+  %32 = or i64 %31, 2097152
+  store i64 %32, ptr %7, align 8
   %.pre = load i64, ptr %5, align 8
-  br label %34
+  br label %33
 
-34:                                               ; preds = %31, %26
-  %35 = phi i64 [ %33, %31 ], [ %23, %26 ]
-  %36 = phi i64 [ %.pre, %31 ], [ %11, %26 ]
-  %.0 = phi ptr [ %29, %31 ], [ null, %26 ]
-  %37 = load ptr, ptr %3, align 8
-  %38 = call ptr @dom_document_parser(ptr noundef null, i32 noundef %1, ptr noundef %37, i64 noundef %36, i64 noundef %35, ptr noundef %.0) #4
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %47
+33:                                               ; preds = %30, %25
+  %34 = phi i64 [ %32, %30 ], [ %22, %25 ]
+  %35 = phi i64 [ %.pre, %30 ], [ %11, %25 ]
+  %.0 = phi ptr [ %28, %30 ], [ null, %25 ]
+  %36 = load ptr, ptr %3, align 8
+  %37 = call ptr @dom_document_parser(ptr noundef null, i32 noundef %1, ptr noundef %36, i64 noundef %35, i64 noundef %34, ptr noundef %.0) #4
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %46
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not22 = icmp eq ptr %41, null
-  br i1 %.not22, label %42, label %dom_mark_namespaces_as_attributes_too.exit.sink.split
+39:                                               ; preds = %33
+  %40 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not23 = icmp eq ptr %40, null
+  br i1 %.not23, label %41, label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-42:                                               ; preds = %40
-  br i1 %17, label %43, label %46
+41:                                               ; preds = %39
+  br i1 %.not18, label %45, label %42
 
-43:                                               ; preds = %42
-  %44 = load ptr, ptr %3, align 8
-  %45 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %44) #4
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %3, align 8
+  %44 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %43) #4
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-46:                                               ; preds = %42
+45:                                               ; preds = %41
   call void @php_dom_throw_error(i32 noundef 11, i32 noundef 1) #4
   br label %dom_mark_namespaces_as_attributes_too.exit.sink.split
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %38, i64 112
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.sink.split, label %53
+46:                                               ; preds = %33
+  %47 = getelementptr inbounds i8, ptr %37, i64 112
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.sink.split, label %52
 
-.sink.split:                                      ; preds = %47
-  %51 = load ptr, ptr %4, align 8
-  %.not21 = icmp eq ptr %51, null
-  %.str. = select i1 %.not21, ptr @.str, ptr %51
-  %52 = call ptr @xmlStrdup(ptr noundef nonnull %.str.) #4
-  store ptr %52, ptr %48, align 8
-  br label %53
+.sink.split:                                      ; preds = %46
+  %50 = load ptr, ptr %4, align 8
+  %.not22 = icmp eq ptr %50, null
+  %.str. = select i1 %.not22, ptr @.str, ptr %50
+  %51 = call ptr @xmlStrdup(ptr noundef nonnull %.str.) #4
+  store ptr %51, ptr %47, align 8
+  br label %52
 
-53:                                               ; preds = %.sink.split, %47
-  %54 = load ptr, ptr @dom_xml_document_class_entry, align 8
-  %55 = call ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %54, ptr noundef nonnull %38, ptr noundef null) #4
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 28
-  store i8 1, ptr %58, align 4
-  %59 = getelementptr i8, ptr %38, i64 24
-  %.val = load ptr, ptr %59, align 8
+52:                                               ; preds = %.sink.split, %46
+  %53 = load ptr, ptr @dom_xml_document_class_entry, align 8
+  %54 = call ptr @php_dom_instantiate_object_helper(ptr noundef %0, ptr noundef %53, ptr noundef nonnull %37, ptr noundef null) #4
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  store i8 1, ptr %57, align 4
+  %58 = getelementptr i8, ptr %37, i64 24
+  %.val = load ptr, ptr %58, align 8
   %.not3.i = icmp eq ptr %.val, null
   br i1 %.not3.i, label %dom_mark_namespaces_as_attributes_too.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %53, %.lr.ph.i.backedge
-  %.04.i = phi ptr [ %.04.i.be, %.lr.ph.i.backedge ], [ %.val, %53 ]
-  %60 = getelementptr inbounds i8, ptr %.04.i, i64 8
-  %61 = load i32, ptr %60, align 8
-  %62 = icmp eq i32 %61, 1
-  br i1 %62, label %63, label %68
+.lr.ph.i:                                         ; preds = %52, %.lr.ph.i.backedge
+  %.04.i = phi ptr [ %.04.i.be, %.lr.ph.i.backedge ], [ %.val, %52 ]
+  %59 = getelementptr inbounds i8, ptr %.04.i, i64 8
+  %60 = load i32, ptr %59, align 8
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %67
 
-63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds i8, ptr %.04.i, i64 96
-  %65 = load ptr, ptr %64, align 8
-  call void @dom_ns_compat_mark_attribute_list(ptr noundef %65) #4
-  %66 = getelementptr inbounds i8, ptr %.04.i, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %.not16.i = icmp eq ptr %67, null
-  br i1 %.not16.i, label %68, label %.lr.ph.i.backedge
+62:                                               ; preds = %.lr.ph.i
+  %63 = getelementptr inbounds i8, ptr %.04.i, i64 96
+  %64 = load ptr, ptr %63, align 8
+  call void @dom_ns_compat_mark_attribute_list(ptr noundef %64) #4
+  %65 = getelementptr inbounds i8, ptr %.04.i, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %.not16.i = icmp eq ptr %66, null
+  br i1 %.not16.i, label %67, label %.lr.ph.i.backedge
 
-68:                                               ; preds = %63, %.lr.ph.i
-  %69 = getelementptr inbounds i8, ptr %.04.i, i64 48
-  %70 = load ptr, ptr %69, align 8
-  %.not17.i = icmp eq ptr %70, null
+67:                                               ; preds = %62, %.lr.ph.i
+  %68 = getelementptr inbounds i8, ptr %.04.i, i64 48
+  %69 = load ptr, ptr %68, align 8
+  %.not17.i = icmp eq ptr %69, null
   br i1 %.not17.i, label %.preheader.i, label %.lr.ph.i.backedge
 
-.lr.ph.i.backedge:                                ; preds = %74, %68, %63
-  %.04.i.be = phi ptr [ %67, %63 ], [ %70, %68 ], [ %76, %74 ]
+.lr.ph.i.backedge:                                ; preds = %73, %67, %62
+  %.04.i.be = phi ptr [ %66, %62 ], [ %69, %67 ], [ %75, %73 ]
   br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %68, %74
-  %.2.i = phi ptr [ %72, %74 ], [ %.04.i, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.2.i, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %dom_mark_namespaces_as_attributes_too.exit, label %74
+.preheader.i:                                     ; preds = %67, %73
+  %.2.i = phi ptr [ %71, %73 ], [ %.04.i, %67 ]
+  %70 = getelementptr inbounds i8, ptr %.2.i, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %dom_mark_namespaces_as_attributes_too.exit, label %73
 
-74:                                               ; preds = %.preheader.i
-  %75 = getelementptr inbounds i8, ptr %72, i64 48
-  %76 = load ptr, ptr %75, align 8
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %.preheader.i, label %.lr.ph.i.backedge
+73:                                               ; preds = %.preheader.i
+  %74 = getelementptr inbounds i8, ptr %71, i64 48
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.preheader.i, label %.lr.ph.i.backedge
 
-dom_mark_namespaces_as_attributes_too.exit.sink.split: ; preds = %43, %46, %40, %2, %12, %15, %21, %25, %30
-  %78 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %79 = icmp ne ptr %78, null
-  call void @llvm.assume(i1 %79)
+dom_mark_namespaces_as_attributes_too.exit.sink.split: ; preds = %42, %45, %39, %2, %12, %15, %20, %24, %29
+  %77 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %78 = icmp ne ptr %77, null
+  call void @llvm.assume(i1 %78)
   br label %dom_mark_namespaces_as_attributes_too.exit
 
-dom_mark_namespaces_as_attributes_too.exit:       ; preds = %.preheader.i, %dom_mark_namespaces_as_attributes_too.exit.sink.split, %53
+dom_mark_namespaces_as_attributes_too.exit:       ; preds = %.preheader.i, %dom_mark_namespaces_as_attributes_too.exit.sink.split, %52
   ret void
 }
 

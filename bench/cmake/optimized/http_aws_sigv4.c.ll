@@ -800,7 +800,7 @@ make_headers.exit.thread:                         ; preds = %187, %.lr.ph219.i, 
   store i8 0, ptr %275, align 8
   %276 = getelementptr inbounds i8, ptr %0, i64 4584
   %277 = load ptr, ptr %276, align 8
-  %278 = call fastcc i32 @canon_query(ptr noundef %0, ptr noundef %277, ptr noundef nonnull %17)
+  %278 = call fastcc i32 @canon_query(ptr noundef %0, ptr noundef %277, ptr noundef %17)
   %.not145 = icmp eq i32 %278, 0
   br i1 %.not145, label %279, label %calc_s3_payload_hash.exit
 
@@ -981,7 +981,7 @@ declare i32 @Curl_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #2
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [64 x %struct.pair], align 16
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i8], align 1
@@ -1055,7 +1055,7 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %or.cond118, label %36, label %38
 
 36:                                               ; preds = %30
-  %37 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
+  %37 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 38:                                               ; preds = %30
@@ -1069,11 +1069,11 @@ define internal fastcc i32 @canon_query(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 39:                                               ; preds = %38, %38, %38, %38
-  %40 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
+  %40 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 41:                                               ; preds = %38
-  %42 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
+  %42 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %.073131, i64 noundef 1) #12
   br label %72
 
 43:                                               ; preds = %38
@@ -1132,12 +1132,12 @@ switch.early.test123:                             ; preds = %47
   %54 = load i8, ptr %48, align 1
   %55 = call signext i8 @Curl_raw_toupper(i8 noundef signext %54) #12
   store i8 %55, ptr %22, align 1
-  %56 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %5, i64 noundef 3) #12
+  %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %5, i64 noundef 3) #12
   %57 = add i64 %.075130, -2
   br label %72
 
 58:                                               ; preds = %switch.early.test123, %switch.early.test
-  %59 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.35, i64 noundef 3) #12
+  %59 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull @.str.35, i64 noundef 3) #12
   br label %72
 
 60:                                               ; preds = %38
@@ -1154,7 +1154,7 @@ switch.early.test123:                             ; preds = %47
   %69 = getelementptr inbounds [17 x i8], ptr @__const.canon_query.hex, i64 0, i64 %68
   %70 = load i8, ptr %69, align 1
   store i8 %70, ptr %24, align 1
-  %71 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull %6, i64 noundef 3) #12
+  %71 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 3) #12
   br label %72
 
 72:                                               ; preds = %36, %51, %58, %60, %41, %39
@@ -1176,7 +1176,7 @@ switch.early.test123:                             ; preds = %47
   br i1 %.1, label %.thread, label %79
 
 79:                                               ; preds = %78
-  %80 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.36, i64 noundef 1) #12
+  %80 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull @.str.36, i64 noundef 1) #12
   %.not103 = icmp eq i32 %80, 0
   br i1 %.not103, label %.thread, label %.loopexit
 
@@ -1185,7 +1185,7 @@ switch.early.test123:                             ; preds = %47
   br i1 %81, label %82, label %.thread114
 
 82:                                               ; preds = %.thread
-  %83 = call i32 @Curl_dyn_addn(ptr noundef %2, ptr noundef nonnull @.str.37, i64 noundef 1) #12
+  %83 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull @.str.37, i64 noundef 1) #12
   br label %.thread114
 
 .thread114:                                       ; preds = %.thread, %82, %25

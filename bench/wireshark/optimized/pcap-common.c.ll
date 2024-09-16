@@ -1561,7 +1561,7 @@ declare void @atm_guess_traffic_type(ptr noundef, ptr noundef) local_unnamed_add
 declare void @atm_guess_lane_type(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.64.val, i32 %.68.val, ptr noundef %0, i32 noundef %1) unnamed_addr #5 {
+define internal fastcc void @pcap_byteswap_linux_usb_pseudoheader(i32 %.64.val, i32 %.68.val, ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #5 {
   %spec.select = tail call i32 @llvm.umin.i32(i32 %.64.val, i32 %.68.val)
   %3 = zext i32 %spec.select to i64
   %4 = ptrtoint ptr %0 to i64

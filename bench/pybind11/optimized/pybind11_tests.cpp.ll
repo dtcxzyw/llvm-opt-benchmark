@@ -33454,7 +33454,7 @@ _ZN8pybind116detail15argument_loaderIJRK8UserTypeEEC2Ev.exit.i: ; preds = %10, %
   br i1 %.not.i, label %39, label %28
 
 28:                                               ; preds = %23
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val17.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val17.i)
   %29 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %_ZN8pybind114noneD2Ev.exit.i, label %30
@@ -33484,7 +33484,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %33, %30, %28
   br label %"_ZZN8pybind1112cpp_function10initializeIZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0NS_3strEJRK8UserTypeEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESP_.exit"
 
 39:                                               ; preds = %23
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val17.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val17.i)
   %40 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0NS_3strEJRK8UserTypeEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESP_.exit", label %_ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i
@@ -33524,7 +33524,7 @@ _ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_val
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8UserTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_0EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.pybind11::str", align 8
   %4 = alloca i32, align 4
@@ -33559,7 +33559,7 @@ _ZN8pybind116detail7cast_opIRK8UserTypeEENS0_11type_casterINS0_14intrinsic_typeI
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !753
   %10 = load i32, ptr %.16.val, align 4, !noalias !753
   store i32 %10, ptr %4, align 4, !noalias !753
-  invoke void @_ZNK8pybind113str6formatIJiEEES0_DpOT_(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZNK8pybind113str6formatIJiEEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %11 unwind label %20
 
 11:                                               ; preds = %_ZN8pybind116detail7cast_opIRK8UserTypeEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i
@@ -35253,7 +35253,7 @@ _ZN8pybind116detail15argument_loaderIJRK7IncTypeEEC2Ev.exit.i: ; preds = %10, %7
   br i1 %.not.i, label %39, label %28
 
 28:                                               ; preds = %23
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr %.val17.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %4, ptr %.val17.i)
   %29 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %_ZN8pybind114noneD2Ev.exit.i, label %30
@@ -35283,7 +35283,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %33, %30, %28
   br label %"_ZZN8pybind1112cpp_function10initializeIZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1NS_3strEJRK7IncTypeEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESP_.exit"
 
 39:                                               ; preds = %23
-  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %.val17.i)
+  call fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %5, ptr %.val17.i)
   %40 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %"_ZZN8pybind1112cpp_function10initializeIZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1NS_3strEJRK7IncTypeEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESP_.exit", label %_ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_value_policyES4_.exit.i
@@ -35323,7 +35323,7 @@ _ZN8pybind116detail15pyobject_casterINS_3strEE4castERKNS_6handleENS_19return_val
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK7IncTypeEE4callINS_3strENS0_9void_typeERZL28pybind11_init_pybind11_testsRNS_7module_EE3$_1EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.pybind11::str", align 8
   %4 = alloca i32, align 4
@@ -35358,7 +35358,7 @@ _ZN8pybind116detail7cast_opIRK7IncTypeEENS0_11type_casterINS0_14intrinsic_typeIT
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2), !noalias !806
   %10 = load i32, ptr %.16.val, align 4, !noalias !806
   store i32 %10, ptr %4, align 4, !noalias !806
-  invoke void @_ZNK8pybind113str6formatIJiEEES0_DpOT_(ptr dead_on_unwind writable sret(%"class.pybind11::str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  invoke void @_ZNK8pybind113str6formatIJiEEES0_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.pybind11::str") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %11 unwind label %20
 
 11:                                               ; preds = %_ZN8pybind116detail7cast_opIRK7IncTypeEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i

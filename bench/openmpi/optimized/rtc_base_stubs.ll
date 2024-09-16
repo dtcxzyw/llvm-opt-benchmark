@@ -113,20 +113,20 @@ define i32 @prte_rtc_base_send_warn_show_help(i32 noundef %0, ptr noundef %1, pt
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %7 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
+  %7 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %5, ptr noundef %1, ptr noundef %2, ptr noundef %4)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %or.cond = or i1 %6, %7
   br i1 %or.cond, label %44, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1, ptr noundef %4) #7
+  %9 = tail call ptr @pmix_show_help_vstring(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #7
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %11 = trunc i64 %10 to i32
   %12 = getelementptr inbounds i8, ptr %1, i64 8
@@ -208,7 +208,7 @@ define void @prte_rtc_base_send_error_show_help(i32 noundef %0, i32 noundef %1, 
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %1, ptr %7, align 4
   call void @llvm.va_start.p0(ptr nonnull %5)
-  %8 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %5)
+  %8 = call fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %5)
   call void @llvm.va_end.p0(ptr nonnull %5)
   call void @exit(i32 noundef %1) #9
   unreachable

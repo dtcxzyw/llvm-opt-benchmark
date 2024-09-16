@@ -100,7 +100,7 @@ define void @ompi_hook_comm_method_mpi_init_bottom(i32 noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_report_comm_methods(i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @ompi_report_comm_methods(i32 noundef range(i32 1, 3) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4

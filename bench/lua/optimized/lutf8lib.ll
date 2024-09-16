@@ -805,7 +805,7 @@ entry:
 declare void @lua_pushvalue(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @iter_aux(ptr noundef %L, i32 noundef %strict) unnamed_addr #0 {
+define internal fastcc i32 @iter_aux(ptr noundef %L, i32 noundef range(i32 0, 2) %strict) unnamed_addr #0 {
 entry:
   %len = alloca i64, align 8
   %call = call ptr @luaL_checklstring(ptr noundef %L, i32 noundef 1, ptr noundef nonnull %len) #2

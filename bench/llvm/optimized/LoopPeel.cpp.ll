@@ -1540,7 +1540,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i81: ; preds = %.lr.ph.i.i95,
   %192 = getelementptr inbounds i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %192, i64 noundef 6) #16
   call void @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getExitingBlocksERNS_15SmallVectorImplIPS1_EE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  %193 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj6EEEZL37peelToTurnInvariantLoadsDerefencebaleRNS_4LoopERNS_13DominatorTreeEPNS_15AssumptionCacheEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr nonnull %5)
+  %193 = call fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj6EEEZL37peelToTurnInvariantLoadsDerefencebaleRNS_4LoopERNS_13DominatorTreeEPNS_15AssumptionCacheEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr %5)
   %. = zext i1 %193 to i32
   call void @_ZN4llvm11SmallVectorIPNS_10BasicBlockELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
   br label %.loopexit134
@@ -9988,7 +9988,7 @@ declare noundef zeroext i1 @_ZN4llvm24isDereferenceablePointerEPKNS_5ValueEPNS_4
 declare void @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getExitingBlocksERNS_15SmallVectorImplIPS1_EE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj6EEEZL37peelToTurnInvariantLoadsDerefencebaleRNS_4LoopERNS_13DominatorTreeEPNS_15AssumptionCacheEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofIRNS_11SmallVectorIPNS_10BasicBlockELj6EEEZL37peelToTurnInvariantLoadsDerefencebaleRNS_4LoopERNS_13DominatorTreeEPNS_15AssumptionCacheEE3$_1EEbOT_T0_"(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nonnull %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4

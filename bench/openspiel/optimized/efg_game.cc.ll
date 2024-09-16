@@ -1737,7 +1737,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
-  call fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %20)
+  call fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %20)
   %21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #28
   store ptr %21, ptr %5, align 8
@@ -1768,7 +1768,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca [6 x %"class.absl::debian2::string_view"], align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -12296,7 +12296,7 @@ define void @_ZNK10open_spiel8efg_game7EFGGame10PrettyTreeEPKNS0_4NodeERKNSt7__c
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  call fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef %2)
+  call fastcc void @_ZN10open_spiel8efg_game12_GLOBAL__N_112NodeToStringB5cxx11EPKNS0_4NodeE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %2)
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %9 unwind label %22
 

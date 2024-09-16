@@ -365,7 +365,7 @@ entry:
   store i32 %conv6.i, ptr %column.i, align 8
   %lastLocation.sroa.5.0.current_.i4.sroa_idx = getelementptr inbounds i8, ptr %fdid, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lastLocation.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %lastLocation.sroa.5.0.current_.i4.sroa_idx, i64 24, i1 false)
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %hasValue_.i = getelementptr inbounds i8, ptr %loc, i64 32
   %3 = load i8, ptr %hasValue_.i, align 4
   %tobool.i20 = trunc i8 %3 to i1
@@ -382,7 +382,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
   %nextLocationOffset.023 = phi i32 [ %add.i14.i, %if.end.lr.ph ], [ %fdid.val3, %if.end ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %lastLocation.sroa.5, ptr noundef nonnull align 4 dereferenceable(24) %lastLocation.sroa.5.0.loc.sroa_idx, i64 24, i1 false)
   %fdid.val3 = load i32, ptr %offset_.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %5 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %5 to i1
   %6 = load i32, ptr %loc, align 4
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nocapture writeonly align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
 entry:
   %result.i32 = alloca i64, align 8
   %result.i25 = alloca i64, align 8
@@ -674,7 +674,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i8.i)
   %conv6.i.us = trunc i64 %9 to i32
   store i32 %conv6.i.us, ptr %column.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %10 = load i8, ptr %hasValue_.i, align 4
   %tobool.i56.us = trunc i8 %10 to i1
   br i1 %tobool.i56.us, label %while.body15.us.us, label %while.end.us
@@ -690,7 +690,7 @@ while.body15.us.us:                               ; preds = %while.body.us, %if.
   br i1 %cmp20.us.us, label %if.then25.loopexit, label %if.end45.us.us
 
 if.end45.us.us:                                   ; preds = %while.body15.us.us
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %12 = load i8, ptr %hasValue_.i, align 4
   %tobool.i.us.us = trunc i8 %12 to i1
   br i1 %tobool.i.us.us, label %while.body15.us.us, label %while.end.us, !llvm.loop !12
@@ -733,7 +733,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result.i8.i)
   %conv6.i = trunc i64 %15 to i32
   store i32 %conv6.i, ptr %column.i, align 8
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %16 = load i8, ptr %hasValue_.i, align 4
   %tobool.i56 = trunc i8 %16 to i1
   br i1 %tobool.i56, label %while.body15, label %while.end
@@ -795,7 +795,7 @@ if.end45:                                         ; preds = %land.lhs.true, %lor
   %best.sroa.3.2 = phi i32 [ %21, %if.then39 ], [ %best.sroa.3.158, %lor.lhs.false30 ], [ %best.sroa.3.158, %land.lhs.true ], [ %best.sroa.3.158, %while.body15 ]
   %best.sroa.7.2 = phi i32 [ %targetLine, %if.then39 ], [ %best.sroa.7.159, %lor.lhs.false30 ], [ %best.sroa.7.159, %land.lhs.true ], [ %best.sroa.7.159, %while.body15 ]
   %best.sroa.9.2 = phi i32 [ %18, %if.then39 ], [ %best.sroa.9.160, %lor.lhs.false30 ], [ %best.sroa.9.160, %land.lhs.true ], [ %best.sroa.9.160, %while.body15 ]
-  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nonnull align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
+  call fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias align 4 %loc, ptr noundef nonnull align 8 dereferenceable(56) %fdid)
   %22 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %while.body15, label %while.end, !llvm.loop !12

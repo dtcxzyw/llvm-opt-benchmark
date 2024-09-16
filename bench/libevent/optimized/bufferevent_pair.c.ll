@@ -582,7 +582,7 @@ decref_and_unlock.exit:                           ; preds = %if.end9, %if.then.i
 declare void @bufferevent_init_generic_timeout_cbs_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_pair_transfer(ptr noundef %src, ptr noundef %dst, i32 noundef %ignore_wm) unnamed_addr #0 {
+define internal fastcc void @be_pair_transfer(ptr noundef %src, ptr noundef %dst, i32 noundef range(i32 0, 2) %ignore_wm) unnamed_addr #0 {
 entry:
   %output = getelementptr inbounds i8, ptr %src, i64 264
   %0 = load ptr, ptr %output, align 8

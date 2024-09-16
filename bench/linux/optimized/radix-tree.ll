@@ -110,7 +110,7 @@ define dso_local noundef range(i32 -12, 1) i32 @radix_tree_preload(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @__radix_tree_preload(i32 noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @__radix_tree_preload(i32 noundef %0, i32 noundef range(i32 11, 22) %1) unnamed_addr #0 align 16 {
   %3 = and i32 %0, -4194305
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #13, !srcloc !11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !12
@@ -873,7 +873,7 @@ define dso_local void @__radix_tree_replace(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -2892,7 +2892,7 @@ radix_tree_node_alloc.exit.thread:                ; preds = %28, %72, %92, %.thr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @radix_tree_extend(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 262) %3) unnamed_addr #0 align 16 {
   br label %5
 
 5:                                                ; preds = %5, %4

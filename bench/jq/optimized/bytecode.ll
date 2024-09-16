@@ -309,7 +309,7 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 32:                                               ; preds = %29, %89
   %indvars.iv = phi i64 [ %31, %29 ], [ %indvars.iv.next, %89 ]
-  %.083110 = phi i32 [ 0, %29 ], [ %90, %89 ]
+  %.083109 = phi i32 [ 0, %29 ], [ %90, %89 ]
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i16, ptr %33, i64 %indvars.iv
   %35 = load i16, ptr %34, align 2
@@ -323,8 +323,8 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 40:                                               ; preds = %32
   %41 = and i16 %37, -4097
-  %.not105 = icmp eq i16 %35, 0
-  br i1 %.not105, label %getlevel.exit, label %.lr.ph.i.preheader
+  %.not.i = icmp eq i16 %35, 0
+  br i1 %.not.i, label %getlevel.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %40
   %42 = zext i16 %35 to i32
@@ -361,8 +361,8 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   br label %83
 
 63:                                               ; preds = %32
-  %.not106 = icmp eq i16 %35, 0
-  br i1 %.not106, label %getlevel.exit99, label %.lr.ph.i96.preheader
+  %.not.i95 = icmp eq i16 %35, 0
+  br i1 %.not.i95, label %getlevel.exit100, label %.lr.ph.i96.preheader
 
 .lr.ph.i96.preheader:                             ; preds = %63
   %64 = zext i16 %35 to i32
@@ -375,13 +375,13 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   %66 = load ptr, ptr %65, align 8
   %67 = add nsw i32 %.05.i97, -1
   %68 = icmp ugt i32 %.05.i97, 1
-  br i1 %68, label %.lr.ph.i96, label %getlevel.exit99, !llvm.loop !8
+  br i1 %68, label %.lr.ph.i96, label %getlevel.exit100, !llvm.loop !8
 
-getlevel.exit99:                                  ; preds = %.lr.ph.i96, %63
-  %.03.lcssa.i95 = phi ptr [ %0, %63 ], [ %66, %.lr.ph.i96 ]
-  %69 = getelementptr inbounds i8, ptr %.03.lcssa.i95, i64 72
+getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
+  %.03.lcssa.i99 = phi ptr [ %0, %63 ], [ %66, %.lr.ph.i96 ]
+  %69 = getelementptr inbounds i8, ptr %.03.lcssa.i99, i64 72
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.03.lcssa.i95, i64 80
+  %71 = getelementptr inbounds i8, ptr %.03.lcssa.i99, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = tail call { i64, ptr } @jv_copy(i64 %70, ptr %72) #6
   %74 = extractvalue { i64, ptr } %73, 0
@@ -395,9 +395,9 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i96, %63
   %82 = tail call { i64, ptr } @jv_array_get(i64 %80, ptr %81, i32 noundef %38) #6
   br label %83
 
-83:                                               ; preds = %getlevel.exit99, %getlevel.exit
-  %.pre-phi = phi i32 [ %38, %getlevel.exit99 ], [ %.pre, %getlevel.exit ]
-  %.pn = phi { i64, ptr } [ %82, %getlevel.exit99 ], [ %62, %getlevel.exit ]
+83:                                               ; preds = %getlevel.exit100, %getlevel.exit
+  %.pre-phi = phi i32 [ %38, %getlevel.exit100 ], [ %.pre, %getlevel.exit ]
+  %.pn = phi { i64, ptr } [ %82, %getlevel.exit100 ], [ %62, %getlevel.exit ]
   %.sroa.4.0 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.034.0 = extractvalue { i64, ptr } %.pn, 0
   %84 = tail call ptr @jv_string_value(i64 %.sroa.034.0, ptr %.sroa.4.0) #6
@@ -412,8 +412,8 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i96, %63
   br label %89
 
 89:                                               ; preds = %83, %86
-  %90 = add nuw nsw i32 %.083110, 1
-  %exitcond.not = icmp eq i32 %.083110, %30
+  %90 = add nuw nsw i32 %.083109, 1
+  %exitcond.not = icmp eq i32 %.083109, %30
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !9
 
 91:                                               ; preds = %22
@@ -482,23 +482,23 @@ getlevel.exit99:                                  ; preds = %.lr.ph.i96, %63
   %136 = getelementptr inbounds i16, ptr %23, i64 %135
   %137 = load i16, ptr %136, align 2
   %138 = zext i16 %27 to i32
-  %.not107 = icmp eq i16 %27, 0
-  br i1 %.not107, label %getlevel.exit104, label %.lr.ph.i101
+  %.not.i101 = icmp eq i16 %27, 0
+  br i1 %.not.i101, label %getlevel.exit106, label %.lr.ph.i102
 
-.lr.ph.i101:                                      ; preds = %134, %.lr.ph.i101
-  %.05.i102 = phi i32 [ %141, %.lr.ph.i101 ], [ %138, %134 ]
-  %.034.i103 = phi ptr [ %140, %.lr.ph.i101 ], [ %0, %134 ]
-  %139 = getelementptr inbounds i8, ptr %.034.i103, i64 64
+.lr.ph.i102:                                      ; preds = %134, %.lr.ph.i102
+  %.05.i103 = phi i32 [ %141, %.lr.ph.i102 ], [ %138, %134 ]
+  %.034.i104 = phi ptr [ %140, %.lr.ph.i102 ], [ %0, %134 ]
+  %139 = getelementptr inbounds i8, ptr %.034.i104, i64 64
   %140 = load ptr, ptr %139, align 8
-  %141 = add nsw i32 %.05.i102, -1
-  %142 = icmp ugt i32 %.05.i102, 1
-  br i1 %142, label %.lr.ph.i101, label %getlevel.exit104, !llvm.loop !8
+  %141 = add nsw i32 %.05.i103, -1
+  %142 = icmp ugt i32 %.05.i103, 1
+  br i1 %142, label %.lr.ph.i102, label %getlevel.exit106, !llvm.loop !8
 
-getlevel.exit104:                                 ; preds = %.lr.ph.i101, %134
-  %.03.lcssa.i100 = phi ptr [ %0, %134 ], [ %140, %.lr.ph.i101 ]
-  %143 = getelementptr inbounds i8, ptr %.03.lcssa.i100, i64 72
+getlevel.exit106:                                 ; preds = %.lr.ph.i102, %134
+  %.03.lcssa.i105 = phi ptr [ %0, %134 ], [ %140, %.lr.ph.i102 ]
+  %143 = getelementptr inbounds i8, ptr %.03.lcssa.i105, i64 72
   %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.03.lcssa.i100, i64 80
+  %145 = getelementptr inbounds i8, ptr %.03.lcssa.i105, i64 80
   %146 = load ptr, ptr %145, align 8
   %147 = tail call { i64, ptr } @jv_copy(i64 %144, ptr %146) #6
   %148 = extractvalue { i64, ptr } %147, 0
@@ -516,9 +516,9 @@ getlevel.exit104:                                 ; preds = %.lr.ph.i101, %134
   %160 = tail call ptr @jv_string_value(i64 %158, ptr %159) #6
   %161 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %160, i32 noundef %156)
   tail call void @jv_free(i64 %158, ptr %159) #6
-  br i1 %.not107, label %.loopexit, label %162
+  br i1 %.not.i101, label %.loopexit, label %162
 
-162:                                              ; preds = %getlevel.exit104
+162:                                              ; preds = %getlevel.exit106
   %163 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %138)
   br label %.loopexit
 
@@ -527,7 +527,7 @@ getlevel.exit104:                                 ; preds = %.lr.ph.i101, %134
   %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %165)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %89, %114, %164, %162, %getlevel.exit104, %120, %91, %2
+.loopexit:                                        ; preds = %89, %114, %164, %162, %getlevel.exit106, %120, %91, %2
   ret void
 }
 

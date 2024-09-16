@@ -11189,7 +11189,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %init
 
 init:                                             ; preds = %init.check
-  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16bnspecEv(ptr noalias nonnull align 8 %ref.tmp)
+  invoke fastcc void @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_16bnspecEv(ptr noalias align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
@@ -12846,7 +12846,7 @@ invoke.cont:                                      ; preds = %_ZN18OpenImageIO_v2
   %m_len.i.i = getelementptr inbounds i8, ptr %font_, i64 8
   %6 = load i64, ptr %m_len.i.i, align 8
   store i64 %6, ptr %m_len.i5, align 8
-  %call = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr noundef nonnull %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %font)
+  %call = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr noundef %agg.tmp1, ptr noundef nonnull align 8 dereferenceable(32) %font)
           to label %invoke.cont4 unwind label %lpad2
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -13088,7 +13088,7 @@ ehcleanup32:                                      ; preds = %ehcleanup, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr nocapture noundef readonly %font_, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr nocapture noundef nonnull readonly %font_, ptr noundef nonnull align 8 dereferenceable(32) %result) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i26 = alloca %"class.fmt::v8::format_arg_store.158", align 16
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -13454,7 +13454,7 @@ invoke.cont2:                                     ; preds = %if.end
   %m_len.i.i = getelementptr inbounds i8, ptr %font_, i64 8
   %9 = load i64, ptr %m_len.i.i, align 8
   store i64 %9, ptr %m_len.i84, align 8
-  %call7 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr noundef nonnull %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %font)
+  %call7 = invoke fastcc noundef zeroext i1 @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_112resolve_fontENS_17basic_string_viewIcSt11char_traitsIcEEERNSt7__cxx1112basic_stringIcS3_SaIcEEE(ptr noundef %agg.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %font)
           to label %invoke.cont6 unwind label %lpad4
 
 invoke.cont6:                                     ; preds = %invoke.cont2

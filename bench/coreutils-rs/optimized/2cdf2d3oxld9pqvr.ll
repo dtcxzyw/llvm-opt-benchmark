@@ -87,7 +87,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i: ; preds = %9, %_ZN3std
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !7, !noundef !8
   %3 = icmp eq i64 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -198,7 +198,7 @@ define internal void @"_ZN4core3ptr40drop_in_place$LT$regex..error..Error$GT$17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !33, !noundef !8
   switch i32 %2, label %3 [
     i32 0, label %"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h43ee77ecbda89705E.exit"
@@ -469,7 +469,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
 ._crit_edge.i:
   %4 = alloca {}, align 1
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -720,8 +720,8 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   br label %160
 
 97:                                               ; preds = %147, %89
-  %.sroa.0.039.i.i = phi i32 [ 0, %89 ], [ %98, %147 ]
-  %98 = add nuw nsw i32 %.sroa.0.039.i.i, 1
+  %.sroa.0.038.i.i = phi i32 [ 0, %89 ], [ %98, %147 ]
+  %98 = add nuw nsw i32 %.sroa.0.038.i.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !121
   %99 = load i64, ptr %86, align 8, !noalias !120, !noundef !8
   %100 = icmp ult i64 %90, %99
@@ -780,7 +780,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hd4e175028fe63256E.exit.i
   unreachable
 
 124:                                              ; preds = %107
-  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias noundef align 8 dereferenceable(24) %5)
           to label %113 unwind label %125, !noalias !120
 
 125:                                              ; preds = %124
@@ -845,7 +845,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i: ; preds = %141, 
   br i1 %exitcond.not.i.i, label %94, label %97
 
 148:                                              ; preds = %105
-  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
+  invoke fastcc void @"_ZN4core3ptr327drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$$GT$$GT$$GT$$GT$17ha3d33448b7d00834E"(ptr noalias noundef align 8 dereferenceable(24) %5)
           to label %147 unwind label %.thread.loopexit.i.i, !noalias !120
 
 .thread.i.i:                                      ; preds = %.thread.loopexit.split-lp.i.i, %.thread.loopexit.i.i, %83
@@ -1607,7 +1607,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   %124 = load ptr, ptr %123, align 8, !alias.scope !196, !noalias !212, !nonnull !8, !noundef !8
   %125 = getelementptr inbounds i8, ptr %108, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !196, !noalias !212, !noundef !8
-  invoke fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %37, ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %126)
+  invoke fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef align 8 dereferenceable(72) %35, ptr noalias noundef readonly align 8 dereferenceable(32) %37, ptr noalias noundef nonnull readonly align 1 %124, i64 noundef %126)
           to label %134 unwind label %.loopexit.i
 
 .thread.i:                                        ; preds = %137, %107
@@ -1621,7 +1621,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   %131 = load ptr, ptr %130, align 8, !alias.scope !196, !noalias !212, !nonnull !8, !noundef !8
   %132 = getelementptr inbounds i8, ptr %.0129284.i, i64 16
   %133 = load i64, ptr %132, align 8, !alias.scope !196, !noalias !212, !noundef !8
-  invoke fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %32, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %39, ptr noalias noundef nonnull readonly align 1 %131, i64 noundef %133)
+  invoke fastcc void @_ZN5regex5regex6string5Regex11captures_at17h9983fbb57465bbe3E(ptr noalias nocapture noundef align 8 dereferenceable(72) %32, ptr noalias noundef readonly align 8 dereferenceable(32) %39, ptr noalias noundef nonnull readonly align 1 %131, i64 noundef %133)
           to label %175 unwind label %.loopexit.i
 
 134:                                              ; preds = %121
@@ -2041,7 +2041,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 263:                                              ; preds = %262
   %264 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %29) #15
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef align 8 dereferenceable(56) %29) #15
           to label %.body206.i unwind label %265, !noalias !212
 
 265:                                              ; preds = %263
@@ -2233,7 +2233,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 325:                                              ; preds = %324
   %326 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %27) #15
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef align 8 dereferenceable(56) %27) #15
           to label %.body206.i unwind label %327, !noalias !212
 
 327:                                              ; preds = %325
@@ -2342,7 +2342,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
 355:                                              ; preds = %354
   %356 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %25) #15
+  invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$uu_csplit..patterns..Pattern$GT$17h2a8366a7d305465cE"(ptr noalias noundef align 8 dereferenceable(56) %25) #15
           to label %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit184.i" unwind label %357, !noalias !212
 
 357:                                              ; preds = %355

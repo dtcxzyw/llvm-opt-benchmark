@@ -44505,7 +44505,7 @@ _ZN16IrBuilderFixtureD2Ev.exit:                   ; preds = %_ZNSt6vectorIN4Luau
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr %.0.val, i32 %0, i32 %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZZN12_GLOBAL__N_121DOCTEST_ANON_CLASS_541fEvENKUlN4Luau7CodeGen4IrOpES3_NS2_11IrConditionEbE_clES3_S3_S4_b(ptr %.0.val, i32 %0, i32 %1, i8 noundef zeroext range(i8 0, 10) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = alloca %"struct.Luau::CodeGen::IrInst", align 4
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   %7 = getelementptr inbounds i8, ptr %5, i64 38

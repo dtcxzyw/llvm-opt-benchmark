@@ -87,7 +87,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.73331ee43a0e5e9a3ee1aaeac309e318.71.llvm.1041312438752767756 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae831eff96cb1f65E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae831eff96cb1f65E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
   %6 = icmp eq i64 %5, -1
@@ -587,7 +587,7 @@ _ZN11str_indices18is_not_crlf_middle17h5d55d026c5e73e78E.exit.thread: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !33, !noundef !4
   %.not = icmp eq i64 %3, -9223372036854775808
@@ -650,7 +650,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str6traits110_$LT$impl$u20$core..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(72) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = icmp ult i64 %2, 16
@@ -1300,7 +1300,7 @@ _ZN11str_indices5lines18count_breaks_up_to17hd3ee043fc4e28476E.exit: ; preds = %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = icmp ult i64 %2, 16
@@ -4320,7 +4320,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %16
 272:                                              ; preds = %301, %280, %.noexc29.thread, %302
   %273 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12) #18
+  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef align 8 dereferenceable(40) %12) #18
           to label %335 unwind label %308
 
 274:                                              ; preds = %.noexc29.thread
@@ -4967,7 +4967,7 @@ define void @_ZN5ropey4iter5Lines11from_str_at17h2ce6559dd1a6f370E(ptr dead_on_u
 199:                                              ; preds = %.invoke, %170
   %200 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %5) #18
+  invoke fastcc void @"_ZN4core3ptr43drop_in_place$LT$ropey..iter..LinesEnum$GT$17h8dad828b71f1f9afE"(ptr noalias noundef align 8 dereferenceable(40) %5) #18
           to label %212 unwind label %210
 
 .noexc9.thread:                                   ; preds = %.noexc9, %191, %196, %.noexc8
@@ -5499,7 +5499,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %.sroa.15.5 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4a6aaf2b2c2be032E.exit160" ], [ %250, %239 ]
   %.sroa.7351.5 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4a6aaf2b2c2be032E.exit160" ], [ %249, %239 ]
   %.sroa.0348.5 = phi i64 [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h4a6aaf2b2c2be032E.exit160" ], [ %248, %239 ]
-  call fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %21)
+  call fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %16, i64 noundef %21)
   %254 = load i64, ptr %11, align 8, !noundef !4
   %255 = getelementptr inbounds i8, ptr %11, i64 8
   %256 = load i64, ptr %255, align 8, !noundef !4
@@ -6290,7 +6290,7 @@ _ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit181: ; pre
   %626 = add i64 %625, -1
   store i64 %626, ptr %624, align 8
   %627 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %627, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %627, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   br label %565
 
 628:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i313", %"_ZN4core3str6traits110_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeTo$LT$usize$GT$$GT$5index17h66d5095e8283f190E.exit307", %608, %614
@@ -7426,7 +7426,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   store i64 %425, ptr %436, align 8
   %437 = getelementptr inbounds i8, ptr %8, i64 16
   store i8 0, ptr %437, align 8
-  %438 = call fastcc { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae831eff96cb1f65E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 %435, i64 noundef %432)
+  %438 = call fastcc { ptr, i64 } @"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hae831eff96cb1f65E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 %435, i64 noundef %432)
   %439 = extractvalue { ptr, i64 } %438, 0
   %440 = extractvalue { ptr, i64 } %438, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
@@ -7460,7 +7460,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   %.sroa.15.5 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit ], [ %452, %.preheader1487 ]
   %.sroa.8.5 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit ], [ %451, %.preheader1487 ]
   %.sroa.0437.5 = phi i64 [ 0, %_ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit ], [ %450, %.preheader1487 ]
-  call fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %54)
+  call fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %54)
   %456 = getelementptr inbounds i8, ptr %7, i64 8
   %457 = getelementptr inbounds i8, ptr %7, i64 16
   %458 = getelementptr inbounds i8, ptr %7, i64 24
@@ -8569,7 +8569,7 @@ _ZN11str_indices5lines16to_byte_idx_impl17h385babf254751b31E.exit163: ; preds = 
   %967 = add i64 %966, 1
   store i64 %967, ptr %965, align 8
   %968 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %968, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
+  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %968, ptr noalias noundef nonnull readonly align 1 inttoptr (i64 1 to ptr), i64 noundef 0)
   br label %953
 
 969:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.i414", %960
@@ -9059,7 +9059,7 @@ _ZN11str_indices5lines16to_byte_idx_impl17h385babf254751b31E.exit: ; preds = %"_
 
 1195:                                             ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit4.i", %1186, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hb97b2eada704aeb2E.exit.thread.i430"
   %1196 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %1196, ptr noalias noundef nonnull readonly align 1 %972, i64 noundef %.sroa.0.0.i148.lcssa)
+  tail call fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17he11e16094a686bcdE"(ptr noalias nocapture noundef align 8 dereferenceable(72) %1196, ptr noalias noundef nonnull readonly align 1 %972, i64 noundef %.sroa.0.0.i148.lcssa)
   br label %953
 }
 

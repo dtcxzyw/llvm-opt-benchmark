@@ -4400,7 +4400,7 @@ define hidden void @_ZN5clang6driver10toolchains5MinGWC2ERKNS0_6DriverERKN4llvm6
   br label %_ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit15
 
 87:                                               ; preds = %4
-  call fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(1192) %83, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(32) %53)
+  call fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(1192) %83, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %73, ptr noundef nonnull align 8 dereferenceable(32) %53)
   %88 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %89 = load i8, ptr %88, align 8
   %90 = trunc i8 %89 to i1
@@ -4437,7 +4437,7 @@ define hidden void @_ZN5clang6driver10toolchains5MinGWC2ERKNS0_6DriverERKN4llvm6
   br label %_ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 108:                                              ; preds = %104
-  call fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias nonnull writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %73)
+  call fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %73)
   %109 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %110 = load i8, ptr %109, align 8
   %111 = trunc i8 %110 to i1
@@ -4705,7 +4705,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1192) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca i8, align 1
   %8 = alloca %"class.llvm::SmallVector.258", align 8
@@ -4993,7 +4993,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit107:               ; preds = %_ZN4llvmplERKNS_5Tw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SmallVector.135", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -5056,7 +5056,7 @@ _ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit:
   %.027 = phi ptr [ %41, %40 ], [ %37, %3 ]
   %42 = load ptr, ptr %.027, align 8
   %43 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %.027) #15
-  call void @_ZN4llvm3sys17findProgramByNameB5cxx11ENS_9StringRefENS_8ArrayRefIS1_EE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr %42, i64 %43, ptr null, i64 0) #15
+  call void @_ZN4llvm3sys17findProgramByNameB5cxx11ENS_9StringRefENS_8ArrayRefIS1_EE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr %42, i64 %43, ptr null, i64 0) #15
   %44 = load i8, ptr %.phi.trans.insert, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %40, label %.critedge
@@ -8253,7 +8253,7 @@ define internal fastcc noundef zeroext i1 @_ZL10testTripleRKN5clang6driver6Drive
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 %30, ptr %32, ptr noundef nonnull align 1 dereferenceable(1) %9) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #15
-  call fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  call fastcc void @_ZL24findClangRelativeSysrootRKN5clang6driver6DriverERKN4llvm6TripleES7_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(1192) %0, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
@@ -8264,7 +8264,7 @@ _ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit:
   br i1 %36, label %_ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit12, label %37
 
 37:                                               ; preds = %_ZN4llvm7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  call fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %1)
+  call fastcc void @_ZL7findGccB5cxx11RKN4llvm6TripleES2_(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1

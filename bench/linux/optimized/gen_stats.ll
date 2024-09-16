@@ -240,7 +240,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_basic(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 1, 8) %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.gnet_stats_basic, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8

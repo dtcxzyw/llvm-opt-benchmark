@@ -1608,7 +1608,7 @@ read_posix_string.exit:                           ; preds = %296
   br i1 %35, label %310, label %311
 
 310:                                              ; preds = %309
-  call fastcc void @read_location(ptr noundef nonnull %4, ptr noundef nonnull %33)
+  call fastcc void @read_location(ptr noundef %4, ptr noundef nonnull %33)
   br label %316
 
 311:                                              ; preds = %309
@@ -1975,7 +1975,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_location(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @read_location(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load i32, ptr %3, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4

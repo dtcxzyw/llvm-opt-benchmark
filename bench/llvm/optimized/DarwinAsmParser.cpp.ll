@@ -3353,7 +3353,7 @@ _ZN12_GLOBAL__N_115DarwinAsmParser24parseSectionDirectiveBssEN4llvm9StringRefENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18parseSectionSwitchEN4llvm9StringRefES2_jjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18parseSectionSwitchEN4llvm9StringRefES2_jjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i64 %4, i32 noundef range(i32 0, -2147483639) %5, i32 noundef range(i32 0, 17) %6, i32 noundef range(i32 0, 27) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -5662,7 +5662,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5672,7 +5672,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser15p
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = alloca %"class.llvm::VersionTuple", align 8
-  %15 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %15 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   br i1 %15, label %82, label %16
 
 16:                                               ; preds = %5
@@ -5708,7 +5708,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit:    ; preds = %16
   %32 = getelementptr inbounds i8, ptr %31, i64 184
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef nonnull align 8 dereferenceable(40) ptr %33(ptr noundef nonnull align 8 dereferenceable(34) %30) #15
-  %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull @.str.185)
+  %35 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %6, ptr noundef %7, ptr noundef nonnull @.str.185)
   br i1 %35, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread, label %36
 
 36:                                               ; preds = %29
@@ -5732,7 +5732,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit:    ; preds = %16
   br i1 %53, label %54, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit
 
 54:                                               ; preds = %36
-  %55 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.186)
+  %55 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %8, ptr noundef nonnull @.str.186)
   br i1 %55, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread, label %56
 
 56:                                               ; preds = %54
@@ -5783,7 +5783,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZL17isSDKVersionTo
   br label %82
 
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
-  %70 = sext i32 %4 to i64
+  %70 = zext nneg i32 %4 to i64
   %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE, i64 0, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4llvm9StringRefES2_NS1_5SMLocENS1_6Triple6OSTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr null, i64 0, ptr %3, i32 noundef %switch.load)
@@ -5810,7 +5810,7 @@ switch.lookup:                                    ; preds = %_ZL17isSDKVersionTo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.173)
   br i1 %6, label %45, label %7
@@ -5875,7 +5875,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread: ; preds = %18, %_ZL17isSDK
   br label %45
 
 43:                                               ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
-  %44 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.175)
+  %44 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %3, ptr noundef nonnull @.str.175)
   br label %45
 
 45:                                               ; preds = %43, %7, %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit, %4, %38
@@ -5884,7 +5884,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread: ; preds = %18, %_ZL17isSDK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4llvm9StringRefES2_NS1_5SMLocENS1_6Triple6OSTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4llvm9StringRefES2_NS1_5SMLocENS1_6Triple6OSTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr %5, i32 noundef range(i32 5, 31) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -6006,7 +6006,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %30, %25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -6259,7 +6259,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit161:               ; preds = %112, %114
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -6564,7 +6564,7 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit111.thread.i: ; preds =
   %66 = getelementptr inbounds i8, ptr %65, i64 184
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef nonnull align 8 dereferenceable(40) ptr %67(ptr noundef nonnull align 8 dereferenceable(34) %64) #15
-  %69 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %69 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser12parseVersionEPjS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   br i1 %69, label %_ZN12_GLOBAL__N_115DarwinAsmParser17parseBuildVersionEN4llvm9StringRefENS1_5SMLocE.exit, label %70
 
 70:                                               ; preds = %63
@@ -6599,7 +6599,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i:  ; preds = %70
   %85 = getelementptr inbounds i8, ptr %84, i64 184
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef nonnull align 8 dereferenceable(40) ptr %86(ptr noundef nonnull align 8 dereferenceable(34) %83) #15
-  %88 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @.str.185)
+  %88 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser31parseMajorMinorVersionComponentEPjS1_PKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %5, ptr noundef %6, ptr noundef nonnull @.str.185)
   br i1 %88, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread.i, label %89
 
 89:                                               ; preds = %82
@@ -6623,7 +6623,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.i:  ; preds = %70
   br i1 %106, label %107, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.i
 
 107:                                              ; preds = %89
-  %108 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.186)
+  %108 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser37parseOptionalTrailingVersionComponentEPjPKc(ptr noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %7, ptr noundef nonnull @.str.186)
   br i1 %108, label %_ZN12_GLOBAL__N_115DarwinAsmParser15parseSDKVersionERN4llvm12VersionTupleE.exit.thread.i, label %109
 
 109:                                              ; preds = %107

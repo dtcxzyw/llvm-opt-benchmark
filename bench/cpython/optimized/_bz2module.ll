@@ -576,7 +576,7 @@ declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compress(ptr noundef %c, ptr noundef %data, i64 noundef %len, i32 noundef %action) unnamed_addr #0 {
+define internal fastcc ptr @compress(ptr noundef %c, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 0, 3) %action) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct._BlocksOutputBuffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buffer, i8 0, i64 24, i1 false)
@@ -658,7 +658,7 @@ if.end24.us.us:                                   ; preds = %if.end15.us.us.thre
   br i1 %cmp27.us.us, label %if.then29.us.us, label %if.end39.us.us
 
 if.then29.us.us:                                  ; preds = %if.end24.us.us
-  %call34.us.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call34.us.us = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp35.us.us = icmp slt i64 %call34.us.us, 0
   br i1 %cmp35.us.us, label %error, label %if.end39.us.us
 
@@ -692,7 +692,7 @@ if.end15.us38:                                    ; preds = %if.then8.us34, %for
   br i1 %cmp27.us40, label %if.then29.us41, label %if.end39.us44
 
 if.then29.us41:                                   ; preds = %if.end15.us38
-  %call34.us42 = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call34.us42 = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp35.us43 = icmp slt i64 %call34.us42, 0
   br i1 %cmp35.us43, label %error, label %if.end39.us44
 
@@ -726,7 +726,7 @@ if.end15:                                         ; preds = %if.then8, %for.cond
   br i1 %cmp27, label %if.then29, label %if.end39
 
 if.then29:                                        ; preds = %if.end15
-  %call34 = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
+  %call34 = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer, ptr noundef nonnull %next_out, ptr noundef nonnull %avail_out)
   %cmp35 = icmp slt i64 %call34, 0
   br i1 %cmp35, label %error, label %if.end39
 
@@ -744,7 +744,7 @@ if.end45:                                         ; preds = %if.end39
 
 for.end:                                          ; preds = %if.end45, %if.end15.us.us
   %9 = load i32, ptr %avail_out, align 8
-  %call55 = call fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull %buffer, i32 noundef %9)
+  %call55 = call fastcc ptr @OutputBuffer_Finish(ptr noundef %buffer, i32 noundef %9)
   %cmp56.not = icmp eq ptr %call55, null
   br i1 %cmp56.not, label %error, label %return
 
@@ -777,7 +777,7 @@ return:                                           ; preds = %if.then1.i.i.i24, %
 declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @OutputBuffer_Grow(ptr nocapture noundef %buffer, ptr nocapture noundef writeonly %next_out, ptr nocapture noundef %avail_out) unnamed_addr #0 {
+define internal fastcc i64 @OutputBuffer_Grow(ptr nocapture noundef nonnull %buffer, ptr nocapture noundef writeonly %next_out, ptr nocapture noundef %avail_out) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %avail_out, align 4
   %1 = load ptr, ptr %buffer, align 8
@@ -945,7 +945,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @OutputBuffer_Finish(ptr nocapture noundef %buffer, i32 noundef %avail_out) unnamed_addr #0 {
+define internal fastcc ptr @OutputBuffer_Finish(ptr nocapture noundef nonnull %buffer, i32 noundef %avail_out) unnamed_addr #0 {
 entry:
   %conv = zext i32 %avail_out to i64
   %0 = load ptr, ptr %buffer, align 8
@@ -1645,7 +1645,7 @@ if.then26.i.i.i:                                  ; preds = %if.else22.i.i.i
   br i1 %cmp29.i.i.i, label %for.end.i.i.i, label %if.end32.i.i.i
 
 if.end32.i.i.i:                                   ; preds = %if.then26.i.i.i
-  %call35.i.i.i = call fastcc i64 @OutputBuffer_Grow(ptr noundef nonnull %buffer.i.i.i, ptr noundef nonnull %next_out.i.i.i, ptr noundef nonnull %avail_out.i.i.i)
+  %call35.i.i.i = call fastcc i64 @OutputBuffer_Grow(ptr noundef %buffer.i.i.i, ptr noundef nonnull %next_out.i.i.i, ptr noundef nonnull %avail_out.i.i.i)
   %cmp36.i.i.i = icmp slt i64 %call35.i.i.i, 0
   br i1 %cmp36.i.i.i, label %error.i.i.i, label %for.cond.i.i.i.backedge
 
@@ -1654,7 +1654,7 @@ for.cond.i.i.i.backedge:                          ; preds = %if.end32.i.i.i, %if
 
 for.end.i.i.i:                                    ; preds = %if.then26.i.i.i, %if.else.i.i.i, %if.then17.i.i.i
   %31 = load i32, ptr %avail_out.i.i.i, align 8
-  %call44.i.i.i = call fastcc ptr @OutputBuffer_Finish(ptr noundef nonnull %buffer.i.i.i, i32 noundef %31)
+  %call44.i.i.i = call fastcc ptr @OutputBuffer_Finish(ptr noundef %buffer.i.i.i, i32 noundef %31)
   %cmp45.not.i.i.i = icmp eq ptr %call44.i.i.i, null
   br i1 %cmp45.not.i.i.i, label %error.i.i.i, label %if.end45.i.i
 

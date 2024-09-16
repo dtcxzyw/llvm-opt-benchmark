@@ -604,7 +604,7 @@ declare ptr @findBasename(ptr noundef) local_unnamed_addr #1
 declare i32 @u_parseArgs(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define internal fastcc void @_ZL10printUsagePKca(ptr noundef %pname, i8 noundef signext %isHelp) unnamed_addr #2 {
+define internal fastcc void @_ZL10printUsagePKca(ptr noundef %pname, i8 noundef signext range(i8 0, 2) %isHelp) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i8 %isHelp, 0
   %0 = load ptr, ptr @stdout, align 8

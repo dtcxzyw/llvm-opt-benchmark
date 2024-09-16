@@ -218,7 +218,7 @@ lor.lhs.false45:                                  ; preds = %lor.lhs.false42
 
 if.end51:                                         ; preds = %lor.lhs.false45
   %5 = load i64, ptr %num_iov, align 8
-  %call53 = call fastcc i32 @compare_iov(ptr noundef nonnull @data_1, i64 noundef 16, ptr noundef nonnull %iov, i64 noundef %5)
+  %call53 = call fastcc i32 @compare_iov(ptr noundef nonnull @data_1, i64 noundef 16, ptr noundef %iov, i64 noundef %5)
   %call56 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 81, ptr noundef nonnull @.str.16, i32 noundef %call53) #7
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err, label %if.end59
@@ -269,7 +269,7 @@ lor.lhs.false84:                                  ; preds = %lor.lhs.false80
 
 if.end95:                                         ; preds = %lor.lhs.false84
   %10 = load i64, ptr %num_iov, align 8
-  %call97 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds (i8, ptr @data_1, i64 8), i64 noundef 8, ptr noundef nonnull %iov, i64 noundef %10)
+  %call97 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds (i8, ptr @data_1, i64 8), i64 noundef 8, ptr noundef %iov, i64 noundef %10)
   %call100 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 98, ptr noundef nonnull @.str.20, i32 noundef %call97) #7
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %err, label %if.end103
@@ -337,7 +337,7 @@ lor.lhs.false143:                                 ; preds = %lor.lhs.false139
 
 if.end154:                                        ; preds = %lor.lhs.false143
   %15 = load i64, ptr %num_iov, align 8
-  %call156 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds (i8, ptr @data_1, i64 4), i64 noundef 3, ptr noundef nonnull %iov, i64 noundef %15)
+  %call156 = call fastcc i32 @compare_iov(ptr noundef nonnull getelementptr inbounds (i8, ptr @data_1, i64 4), i64 noundef 3, ptr noundef %iov, i64 noundef %15)
   %call159 = call i32 @test_true(ptr noundef nonnull @.str.4, i32 noundef 124, ptr noundef nonnull @.str.25, i32 noundef %call156) #7
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %err, label %if.end162
@@ -1560,10 +1560,10 @@ declare i32 @test_size_t_gt(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare i32 @test_uint64_t_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef %ref_len, ptr nocapture noundef readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @compare_iov(ptr nocapture noundef readonly %ref, i64 noundef range(i64 3, 17) %ref_len, ptr nocapture noundef nonnull readonly %iov, i64 noundef %iov_len) unnamed_addr #2 {
 entry:
   %cmp14.not = icmp eq i64 %iov_len, 0
-  br i1 %cmp14.not, label %for.end.thread, label %for.body
+  br i1 %cmp14.not, label %return, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %total_len.016 = phi i64 [ %add, %for.body ], [ 0, %entry ]
@@ -1578,11 +1578,6 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   %cmp1.not = icmp eq i64 %ref_len, %add
   br i1 %cmp1.not, label %for.body4, label %return
-
-for.end.thread:                                   ; preds = %entry
-  %cmp1.not24 = icmp eq i64 %ref_len, 0
-  %spec.select = zext i1 %cmp1.not24 to i32
-  br label %return
 
 for.body4:                                        ; preds = %for.end, %if.end9
   %cur.019 = phi ptr [ %add.ptr, %if.end9 ], [ %ref, %for.end ]
@@ -1601,8 +1596,8 @@ if.end9:                                          ; preds = %for.body4
   %exitcond22.not = icmp eq i64 %inc13, %iov_len
   br i1 %exitcond22.not, label %return, label %for.body4, !llvm.loop !19
 
-return:                                           ; preds = %for.body4, %if.end9, %for.end.thread, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %spec.select, %for.end.thread ], [ 0, %for.body4 ], [ 1, %if.end9 ]
+return:                                           ; preds = %for.body4, %if.end9, %entry, %for.end
+  %retval.0 = phi i32 [ 0, %for.end ], [ 0, %entry ], [ 0, %for.body4 ], [ 1, %if.end9 ]
   ret i32 %retval.0
 }
 

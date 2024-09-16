@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_public_key(ptr noundef %cbs, i32 noundef %buggy) unnamed_addr #0 {
+define internal fastcc ptr @parse_public_key(ptr noundef %cbs, i32 noundef range(i32 0, 2) %buggy) unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbs_st, align 8
   %call = tail call ptr @RSA_new() #5
@@ -188,7 +188,7 @@ return:                                           ; preds = %lor.lhs.false6, %if
 declare i32 @CBB_add_asn1(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @marshal_integer(ptr noundef %cbb, ptr noundef %bn) unnamed_addr #0 {
+define internal fastcc i32 @marshal_integer(ptr noundef nonnull %cbb, ptr noundef %bn) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bn, null
   br i1 %cmp, label %if.then, label %if.end
@@ -198,7 +198,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @BN_marshal_asn1(ptr noundef %cbb, ptr noundef nonnull %bn) #5
+  %call = tail call i32 @BN_marshal_asn1(ptr noundef nonnull %cbb, ptr noundef nonnull %bn) #5
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -328,25 +328,25 @@ parse_integer.exit49:                             ; preds = %lor.lhs.false18
 
 lor.lhs.false21:                                  ; preds = %parse_integer.exit49
   %q = getelementptr inbounds i8, ptr %call, i64 40
-  %call22 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %q)
+  %call22 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %q)
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %err, label %lor.lhs.false24
 
 lor.lhs.false24:                                  ; preds = %lor.lhs.false21
   %dmp1 = getelementptr inbounds i8, ptr %call, i64 48
-  %call25 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %dmp1)
+  %call25 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %dmp1)
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %err, label %lor.lhs.false27
 
 lor.lhs.false27:                                  ; preds = %lor.lhs.false24
   %dmq1 = getelementptr inbounds i8, ptr %call, i64 56
-  %call28 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %dmq1)
+  %call28 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %dmq1)
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false27
   %iqmp = getelementptr inbounds i8, ptr %call, i64 64
-  %call31 = call fastcc i32 @parse_integer(ptr noundef nonnull %child, ptr noundef nonnull %iqmp)
+  %call31 = call fastcc i32 @parse_integer(ptr noundef %child, ptr noundef %iqmp)
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -401,7 +401,7 @@ while.cond:                                       ; preds = %lor.lhs.false54, %l
   br i1 %cmp62.not, label %if.end80, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %call63 = call fastcc ptr @rsa_parse_additional_prime(ptr noundef nonnull %other_prime_infos)
+  %call63 = call fastcc ptr @rsa_parse_additional_prime(ptr noundef %other_prime_infos)
   %cmp64 = icmp eq ptr %call63, null
   br i1 %cmp64, label %err, label %if.end66
 
@@ -465,7 +465,7 @@ declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef %cbs, ptr nocapture noundef writeonly %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @BN_new() #5
   store ptr %call.i, ptr %out, align 8
@@ -473,7 +473,7 @@ entry:
   br i1 %cmp.i, label %parse_integer_buggy.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call4.i = tail call i32 @BN_parse_asn1_unsigned(ptr noundef %cbs, ptr noundef nonnull %call.i) #5
+  %call4.i = tail call i32 @BN_parse_asn1_unsigned(ptr noundef nonnull %cbs, ptr noundef nonnull %call.i) #5
   br label %parse_integer_buggy.exit
 
 parse_integer_buggy.exit:                         ; preds = %entry, %if.end.i
@@ -490,7 +490,7 @@ declare ptr @BN_new() local_unnamed_addr #1
 declare i32 @BN_mul(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @rsa_parse_additional_prime(ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc noundef ptr @rsa_parse_additional_prime(ptr noundef nonnull %cbs) unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbs_st, align 8
   %calloc = tail call dereferenceable_or_null(40) ptr @calloc(i64 1, i64 40)
@@ -502,7 +502,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = call i32 @CBS_get_asn1(ptr noundef %cbs, ptr noundef nonnull %child, i32 noundef 48) #5
+  %call1 = call i32 @CBS_get_asn1(ptr noundef nonnull %cbs, ptr noundef nonnull %child, i32 noundef 48) #5
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then13, label %lor.lhs.false
 
@@ -690,7 +690,7 @@ marshal_integer.exit52:                           ; preds = %lor.lhs.false23
 lor.lhs.false26:                                  ; preds = %marshal_integer.exit52
   %iqmp = getelementptr inbounds i8, ptr %rsa, i64 64
   %8 = load ptr, ptr %iqmp, align 8
-  %call27 = call fastcc i32 @marshal_integer(ptr noundef nonnull %child, ptr noundef %8)
+  %call27 = call fastcc i32 @marshal_integer(ptr noundef %child, ptr noundef %8)
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %return.sink.split, label %if.end
 

@@ -2467,7 +2467,7 @@ define range(i32 0, 2) i32 @_tr_tally(ptr nocapture noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -2147483648, 2147483647) %2) unnamed_addr #1 {
   %.not250 = icmp slt i32 %2, 0
   br i1 %.not250, label %._crit_edge, label %.lr.ph
 
@@ -2489,8 +2489,8 @@ define internal fastcc void @send_tree(ptr noundef %0, ptr nocapture noundef rea
   %16 = getelementptr inbounds i8, ptr %0, i64 2806
   %17 = getelementptr inbounds i8, ptr %0, i64 2800
   %18 = getelementptr inbounds i8, ptr %0, i64 2802
-  %19 = add nuw i32 %2, 1
-  %wide.trip.count = zext i32 %19 to i64
+  %19 = add nuw nsw i32 %2, 1
+  %wide.trip.count = zext nneg i32 %19 to i64
   br label %20
 
 20:                                               ; preds = %.lr.ph, %315

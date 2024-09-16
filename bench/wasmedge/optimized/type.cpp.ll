@@ -2449,7 +2449,7 @@ define void @_ZN8WasmEdge6Loader6Loader8loadTypeERNS_3AST12FunctionTypeE(ptr dea
   %7 = alloca %"class.cxx20::unexpected", align 4
   %8 = alloca %"class.WasmEdge::ErrCode", align 4
   store ptr %1, ptr %4, align 8
-  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nonnull writable align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %9 = load i8, ptr %5, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %15, label %11
@@ -2464,7 +2464,7 @@ define void @_ZN8WasmEdge6Loader6Loader8loadTypeERNS_3AST12FunctionTypeE(ptr dea
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %2, i64 24
-  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nonnull writable align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias writable align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %17 = load i8, ptr %6, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %.preheader, label %19
@@ -3015,7 +3015,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i:             ; preds = %56, %54, %52, %50
 declare void @_ZN8WasmEdge7FileMgr8peekByteEv(ptr dead_on_unwind writable sret(%"class.cxx20::expected.38") align 4, ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nocapture writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8WasmEdge6Loader6Loader7loadVecINS_3AST12FunctionTypeENS_7ValTypeERZNS1_8loadTypeERS4_E3$_0EEN5cxx208expectedIvNS_7ErrCodeEEERSt6vectorIT0_SaISE_EEOT1_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected", align 4
   %7 = alloca %"class.cxx20::expected.94", align 4

@@ -3041,7 +3041,7 @@ define void @_Z21_gmx_sel_init_keywordP19gmx_ana_selmethod_tSt10unique_ptrINSt7_
   %7 = load i64, ptr %2, align 8
   store i64 %7, ptr %6, align 8
   store ptr null, ptr %2, align 8
-  invoke fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
+  invoke fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef %6, ptr noundef %3, ptr noundef %4)
           to label %8 unwind label %10
 
 8:                                                ; preds = %5
@@ -3065,7 +3065,7 @@ _ZNSt10unique_ptrINSt7__cxx114listIN3gmx20SelectionParserValueESaIS3_EEESt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.gmx::InternalError", align 8
   %9 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -3990,7 +3990,7 @@ define void @_Z30_gmx_sel_init_keyword_strmatchP19gmx_ana_selmethod_tN3gmx24Sele
 19:                                               ; preds = %15
   store i64 %14, ptr %7, align 8
   store ptr null, ptr %3, align 8
-  invoke fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %7, ptr noundef %4, ptr noundef %5)
+  invoke fastcc void @_ZL21init_keyword_internalP19gmx_ana_selmethod_tN3gmx24SelectionStringMatchTypeESt10unique_ptrINSt7__cxx114listINS1_20SelectionParserValueESaIS6_EEESt14default_deleteIS8_EEPKcPv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %7, ptr noundef %4, ptr noundef %5)
           to label %20 unwind label %22
 
 20:                                               ; preds = %19

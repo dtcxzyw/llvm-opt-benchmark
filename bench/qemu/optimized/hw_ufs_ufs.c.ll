@@ -2021,7 +2021,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #4
 declare void @qemu_sglist_init(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 254) i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 254) i32 @ufs_exec_query_attr(ptr nocapture noundef %req, i32 noundef range(i32 1, 3) %op) unnamed_addr #2 {
 entry:
   %_now.i.i5.i = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %entry, %trace_ufs_e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 255) i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef %op) unnamed_addr #2 {
+define internal fastcc range(i32 0, 255) i32 @ufs_exec_query_flag(ptr nocapture noundef %req, i32 noundef range(i32 1, 9) %op) unnamed_addr #2 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %_now.i.i5.i = alloca %struct.timeval, align 8
@@ -2588,13 +2588,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %21 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %22 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %op, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %conv11.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.47, i32 noundef %call10.i.i, i64 noundef %21, i64 noundef %22, i32 noundef %op) #14
   br label %trace_ufs_err_query_invalid_opcode.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv12.i.i = and i32 %op, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %conv12.i.i) #14
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.48, i32 noundef %op) #14
   br label %trace_ufs_err_query_invalid_opcode.exit
 
 trace_ufs_err_query_invalid_opcode.exit:          ; preds = %if.else27, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i

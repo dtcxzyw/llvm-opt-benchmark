@@ -21523,12 +21523,12 @@ invoke.cont99:                                    ; preds = %invoke.cont38.i, %i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp28.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp29.i)
   %insideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 208
-  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp100, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef nonnull %loc92)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias align 8 %agg.tmp100, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef %loc92)
           to label %invoke.cont102 unwind label %lpad98.loopexit.split-lp.loopexit
 
 invoke.cont102:                                   ; preds = %invoke.cont99
   %outsideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 240
-  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp103, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef nonnull %loc92)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias align 8 %agg.tmp103, ptr nonnull %this, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef %loc92)
           to label %invoke.cont106 unwind label %lpad98.loopexit.split-lp.loopexit
 
 invoke.cont106:                                   ; preds = %invoke.cont102
@@ -22138,7 +22138,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare void @_ZN4pbrt5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESB_bRKNS_19ParameterDictionaryERKSt3mapIS6_NS_12FloatTextureESt4lessIS6_ESaISt4pairIS7_SG_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pstd::vector.237") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEEENK3$_2clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_7FileLocE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #28
   br i1 %call, label %return, label %if.end
@@ -22194,7 +22194,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4l
   br i1 %cmp.i.i.i.i, label %if.then7, label %if.end8
 
 if.then7:                                         ; preds = %if.end, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4pbrt6MediumEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE14_M_lower_boundEPSt13_Rb_tree_nodeISA_EPSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  tail call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.180, ptr noundef nonnull align 8 dereferenceable(32) %s) #30
+  tail call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc, ptr noundef nonnull @.str.180, ptr noundef nonnull align 8 dereferenceable(32) %s) #30
   unreachable
 
 if.end8:                                          ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
@@ -22376,7 +22376,7 @@ land.rhs:                                         ; preds = %entry
 
 land.end:                                         ; preds = %land.rhs, %entry
   %shapes = getelementptr inbounds i8, ptr %this, i64 296
-  call fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias nonnull align 8 %primitives, ptr noundef nonnull align 8 dereferenceable(56) %CreatePrimitivesForShapes, ptr noundef nonnull align 8 dereferenceable(24) %shapes)
+  call fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias align 8 %primitives, ptr noundef nonnull align 8 dereferenceable(56) %CreatePrimitivesForShapes, ptr noundef nonnull align 8 dereferenceable(24) %shapes)
   %8 = load ptr, ptr %shapes, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 304
   %9 = load ptr, ptr %_M_finish.i.i, align 8
@@ -22449,7 +22449,7 @@ invoke.cont:                                      ; preds = %if.end.i.i, %_ZNSt6
   %21 = getelementptr inbounds i8, ptr %CreatePrimitivesForAnimatedShapes, i64 40
   store ptr %findMedium, ptr %21, align 8
   %animatedShapes = getelementptr inbounds i8, ptr %this, i64 320
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nonnull align 8 %animatedPrimitives, ptr noundef nonnull align 8 dereferenceable(48) %CreatePrimitivesForAnimatedShapes, ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias align 8 %animatedPrimitives, ptr noundef nonnull align 8 dereferenceable(48) %CreatePrimitivesForAnimatedShapes, ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes)
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -23263,7 +23263,7 @@ _ZNSt6vectorIN4pbrt9PrimitiveESaIS1_EED2Ev.exit153: ; preds = %ehcleanup130, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::function.437", align 8
   %ref.tmp.i = alloca %"class.pstd::vector.237", align 8
@@ -23503,7 +23503,7 @@ if.end:                                           ; preds = %invoke.cont12
   %37 = load ptr, ptr %25, align 8
   %parameters = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
   %loc = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias nonnull align 8 %alphaTex, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias align 8 %alphaTex, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc)
           to label %invoke.cont14 unwind label %lpad9.loopexit.split-lp.loopexit
 
 invoke.cont14:                                    ; preds = %if.end
@@ -23618,13 +23618,13 @@ if.end45:                                         ; preds = %do.end, %if.end31
   %mtl.sroa.0.0 = load i64, ptr %mtl.sroa.0.0.in, align 8
   %49 = load ptr, ptr %28, align 8
   %insideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 208
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias align 8 %agg.tmp46, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef %loc)
           to label %invoke.cont48 unwind label %lpad9.loopexit.split-lp.loopexit
 
 invoke.cont48:                                    ; preds = %if.end45
   %50 = load ptr, ptr %28, align 8
   %outsideMedium = getelementptr inbounds i8, ptr %add.ptr.i, i64 240
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias align 8 %agg.tmp49, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef %loc)
           to label %invoke.cont52 unwind label %lpad9.loopexit.split-lp.loopexit
 
 invoke.cont52:                                    ; preds = %invoke.cont48
@@ -24063,7 +24063,7 @@ ehcleanup127:                                     ; preds = %if.then.i.i.i168, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shapes7 = alloca %"class.pstd::vector.237", align 8
   %alphaTex = alloca %"class.pbrt::FloatTexture", align 8
@@ -24192,7 +24192,7 @@ lpad12.loopexit.split-lp:                         ; preds = %if.then30, %if.then
 
 if.end:                                           ; preds = %invoke.cont13
   %13 = load ptr, ptr %3, align 8
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias nonnull align 8 %alphaTex, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias align 8 %alphaTex, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc)
           to label %invoke.cont17 unwind label %lpad12.loopexit
 
 invoke.cont17:                                    ; preds = %if.end
@@ -24307,13 +24307,13 @@ if.end47:                                         ; preds = %do.end, %if.end34
   %mtl.sroa.0.0 = load i64, ptr %mtl.sroa.0.0.in, align 8
   %25 = load ptr, ptr %6, align 8
   %insideMedium = getelementptr inbounds i8, ptr %__begin2.sroa.0.0329, i64 896
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias align 8 %agg.tmp48, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(32) %insideMedium, ptr noundef %loc)
           to label %invoke.cont50 unwind label %lpad12.loopexit
 
 invoke.cont50:                                    ; preds = %if.end47
   %26 = load ptr, ptr %6, align 8
   %outsideMedium = getelementptr inbounds i8, ptr %__begin2.sroa.0.0329, i64 928
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nonnull align 8 %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef nonnull %loc)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias align 8 %agg.tmp51, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(32) %outsideMedium, ptr noundef %loc)
           to label %invoke.cont54 unwind label %lpad12.loopexit
 
 invoke.cont54:                                    ; preds = %invoke.cont50
@@ -33926,7 +33926,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_3clERKNS_19ParameterDictionaryEPKNS_7FileLocE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alphaTexName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -34047,7 +34047,7 @@ lpad5:                                            ; preds = %if.then27, %if.else
   br label %ehcleanup33
 
 if.else:                                          ; preds = %invoke.cont6
-  invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.179, ptr noundef nonnull align 8 dereferenceable(32) %alphaTexName) #30
+  invoke void @_ZN4pbrt9ErrorExitIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc, ptr noundef nonnull @.str.179, ptr noundef nonnull align 8 dereferenceable(32) %alphaTexName) #30
           to label %invoke.cont16 unwind label %lpad5
 
 invoke.cont16:                                    ; preds = %if.else
@@ -34133,7 +34133,7 @@ eh.resume:                                        ; preds = %ehcleanup33, %ehcle
 declare void @_ZNK4pbrt19ParameterDictionary12ReportUnusedEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nocapture writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_4clERSU_PKNS_7FileLocE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull %loc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #28
   br i1 %call, label %return, label %if.end
@@ -34198,7 +34198,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4
   br i1 %cmp.i, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
-  tail call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef %loc, ptr noundef nonnull @.str.180, ptr noundef nonnull align 8 dereferenceable(32) %s) #30
+  tail call void @_ZN4pbrt9ErrorExitIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvPKNS_7FileLocEPKcDpOT_(ptr noundef nonnull %loc, ptr noundef nonnull @.str.180, ptr noundef nonnull align 8 dereferenceable(32) %s) #30
   unreachable
 
 if.end7:                                          ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt6MediumESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit
@@ -53118,12 +53118,12 @@ entry:
   %second.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %second.i.i.i, align 8
   %shapes.i.i.i = getelementptr inbounds i8, ptr %5, i64 32
-  call fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias nonnull align 8 %instancePrimitives.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %shapes.i.i.i)
+  call fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_0clERS16_INS_16ShapeSceneEntityESaIS1C_EE"(ptr noalias align 8 %instancePrimitives.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %shapes.i.i.i)
   %6 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %second.i.i.i, align 8
   %animatedShapes.i.i.i = getelementptr inbounds i8, ptr %8, i64 56
-  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nonnull align 8 %movingInstancePrimitives.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i.i.i)
+  invoke fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias align 8 %movingInstancePrimitives.i.i.i, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(24) %animatedShapes.i.i.i)
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %entry

@@ -1061,7 +1061,7 @@ _ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = 
   %.sroa.036.0.copyload = load i32, ptr %159, align 4
   %160 = getelementptr inbounds i8, ptr %.pn, i64 24
   %161 = load ptr, ptr %160, align 8
-  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %59, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %162 unwind label %179
 
 162:                                              ; preds = %_ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit
@@ -1296,7 +1296,7 @@ _ZNSt22_Optional_payload_baseIN3nix9StorePathEE10_M_destroyEv.exit.i.i.i.i: ; pr
   store ptr %120, ptr %123, align 8
   store i64 0, ptr %124, align 8
   %.sroa.031.0.copyload = load i32, ptr %187, align 4
-  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %64, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %230 unwind label %257
 
 230:                                              ; preds = %.critedge
@@ -1415,7 +1415,7 @@ _ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit260: ; preds
   %264 = load ptr, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %.pn, i64 20
   %.sroa.030.0.copyload = load i32, ptr %265, align 4
-  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %266 unwind label %.loopexit
 
 266:                                              ; preds = %_ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit260
@@ -1493,7 +1493,7 @@ _ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit269: ; preds
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds i8, ptr %.pn, i64 20
   %.sroa.027.0.copyload = load i32, ptr %290, align 4
-  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(8) %55)
+  invoke fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(8) %55)
           to label %291 unwind label %.loopexit
 
 291:                                              ; preds = %_ZNK3nix9SymbolStreqESt17basic_string_viewIcSt11char_traitsIcEE.exit269
@@ -4226,7 +4226,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZN3nix9EvalState17coerceToStorePathENS_6PosIdxERNS_5ValueERSt3setINS_20NixStringContextElemESt4lessIS5_ESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8, ptr noundef nonnull align 8 dereferenceable(1248), i32, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef byval(%"class.std::basic_string_view") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6PosIdxEPPNS_5ValueERS3_ENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -4244,7 +4244,7 @@ define internal fastcc void @"_ZZN3nixL17prim_fetchClosureERNS_9EvalStateENS_6Po
           to label %12 unwind label %28
 
 12:                                               ; preds = %6
-  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.40)
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_PKS5_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.40)
           to label %13 unwind label %30
 
 13:                                               ; preds = %12

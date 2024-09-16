@@ -1657,7 +1657,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.08.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %21) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa41, ptr noundef nonnull %8, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa41, ptr noundef %8, ptr %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
   %22 = add nsw i64 %.08.i.i.i, -1
@@ -1681,7 +1681,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %27 = sub i64 %26, %9
   %28 = ashr exact i64 %27, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %28, ptr noundef nonnull %6, ptr %3)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %28, ptr noundef %6, ptr %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
@@ -1880,7 +1880,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr %4) unnamed_addr #3 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZNK5clang7CodeGen7ABIInfo23appendAttributeManglingEN4llvm9StringRefERNSI_11raw_ostreamEE3$_0EEEvT_T0_SP_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr %4) unnamed_addr #3 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2

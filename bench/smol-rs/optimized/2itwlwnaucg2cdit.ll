@@ -191,7 +191,7 @@ default.unreachable17:                            ; preds = %24, %8
   %.sroa.6.0.ph = phi i64 [ 1, %8 ], [ %12, %10 ]
   %14 = tail call noundef i64 @"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$3len17h682c8f28e584a57eE"(ptr noundef nonnull align 128 %1)
   %15 = sub i64 %.sroa.6.0.ph, %14
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %7, i64 %15)
+  %.0.sroa.speculated.i = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.umin.i64(i64 %7, i64 %15)
   br label %16
 
 16:                                               ; preds = %8, %13
@@ -257,7 +257,7 @@ default.unreachable17:                            ; preds = %24, %8
   br i1 %exitcond.not, label %.thread12, label %20
 
 34:                                               ; preds = %"_ZN16concurrent_queue24ConcurrentQueue$LT$T$GT$4push17h939594b15b7a5db6E.exit"
-  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
+  call fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE"(ptr noalias noundef align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.3175fb8d09b4a1a925f412bbfdb736fa.3, i64 noundef 38, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3175fb8d09b4a1a925f412bbfdb736fa.4) #17
   unreachable
@@ -715,7 +715,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE"(ptr noalias noundef align 8 dereferenceable(16) %0) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8, !range !14, !noundef !13
   %3 = icmp eq i64 %2, 2
   br i1 %3, label %4, label %5

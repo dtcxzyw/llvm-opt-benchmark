@@ -298,7 +298,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr nonnull %47)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %5, ptr nonnull %47)
   %49 = load ptr, ptr %0, align 8
   %.val74.i = load ptr, ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %.val74.i, i64 152
@@ -939,7 +939,7 @@ _ZN12_GLOBAL__N_112HandleInModeERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_124cmForEachFunctionBlockerESt14default_deleteIS1_EED2Ev.exit
 
 246:                                              ; preds = %44
-  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr %47)
+  call fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias writable align 8 %23, ptr %47)
   %247 = load ptr, ptr %31, align 8
   %248 = load ptr, ptr %0, align 8
   %249 = ptrtoint ptr %247 to i64
@@ -1134,7 +1134,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %340 = getelementptr inbounds i8, ptr %339, i64 32
   %341 = getelementptr inbounds i8, ptr %.val55, i64 160
   %342 = load ptr, ptr %341, align 8
-  call fastcc void @"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZ16cmForEachCommandRKSB_R17cmExecutionStatusE3$_0EvT_SI_T0_"(ptr nonnull %340, ptr %342, ptr nonnull %28, i32 %313)
+  call fastcc void @"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZ16cmForEachCommandRKSB_R17cmExecutionStatusE3$_0EvT_SI_T0_"(ptr nonnull %340, ptr %342, ptr %28, i32 %313)
   br label %349
 
 343:                                              ; preds = %253
@@ -1236,7 +1236,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124cmForEachFunctionBlockerEJP10cmMakefileEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #26
   store ptr getelementptr inbounds (i8, ptr @_ZTV17cmFunctionBlocker, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -1659,7 +1659,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE15_M_er
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZ16cmForEachCommandRKSB_R17cmExecutionStatusE3$_0EvT_SI_T0_"(ptr %0, ptr readnone %1, ptr nocapture %2, i32 %3) unnamed_addr #5 {
+define internal fastcc void @"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZ16cmForEachCommandRKSB_R17cmExecutionStatusE3$_0EvT_SI_T0_"(ptr %0, ptr readnone %1, ptr nocapture nonnull %2, i32 %3) unnamed_addr #5 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not6 = icmp eq ptr %0, %1
   br i1 %.not6, label %._crit_edge, label %.lr.ph

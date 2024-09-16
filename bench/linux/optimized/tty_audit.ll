@@ -178,7 +178,7 @@ define dso_local noundef range(i32 -1, 1) i32 @tty_audit_push() local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tty_audit_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @tty_audit_log(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #0 align 16 {
   %5 = alloca [16 x i8], align 16
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !5
   %7 = inttoptr i64 %6 to ptr

@@ -1558,7 +1558,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit36.i.i.i:
 _ZNK4llvm4User10getOperandEj.exit39.i.i.i:        ; preds = %671, %668
   %676 = phi ptr [ %670, %668 ], [ %675, %671 ]
   %677 = load ptr, ptr %676, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %677, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %677, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %548, i64 noundef 8) #16
   %678 = zext i32 %609 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %678)
@@ -1711,7 +1711,7 @@ _ZN4llvm13IRBuilderBase10CreateUnOpENS_11Instruction8UnaryOpsEPNS_5ValueERKNS_5T
   br i1 %exitcond.not.i.i.i316, label %._crit_edge.i.i.i317, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i313, !llvm.loop !37
 
 ._crit_edge.i.i.i317:                             ; preds = %_ZN4llvm13IRBuilderBase10CreateUnOpENS_11Instruction8UnaryOpsEPNS_5ValueERKNS_5TwineEPNS_6MDNodeE.exit, %_ZNK4llvm4User10getOperandEj.exit39.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef nonnull align 8 dereferenceable(32) %8)
   %728 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
   %729 = load ptr, ptr %12, align 8
   %730 = icmp eq ptr %729, %548
@@ -1879,7 +1879,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i.i319:    ; preds = %735, %_ZN4llvm11Sma
   %825 = and i8 %824, 63
   %826 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %569) #16
   %.val.i.i274 = load i32, ptr %149, align 4
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %15, i32 %.val.i.i274, ptr noundef %822, i8 %825, ptr noundef nonnull align 8 dereferenceable(512) %826)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %15, i32 %.val.i.i274, ptr noundef %822, i8 %825, ptr noundef nonnull align 8 dereferenceable(512) %826)
   %.val19.i.i = load i8, ptr %504, align 8
   %827 = trunc i8 %.val19.i.i to i1
   br i1 %827, label %828, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadInstE.exit.thread
@@ -1902,7 +1902,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i.i319:    ; preds = %735, %_ZN4llvm11Sma
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %16, ptr noundef nonnull %569)
   %830 = getelementptr inbounds i8, ptr %569, i64 -32
   %831 = load ptr, ptr %830, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %831, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %831, ptr noundef nonnull align 8 dereferenceable(32) %15)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %518, i64 noundef 8) #16
   %832 = load i32, ptr %519, align 4
   %833 = zext i32 %832 to i64
@@ -1997,7 +1997,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i280:           ; preds = %_ZN4llvmplERKNS_5Tw
   br i1 %exitcond.not.i.i284, label %._crit_edge.i.i285, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i280, !llvm.loop !46
 
 ._crit_edge.i.i285:                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.i280, %_ZN4llvmplERKNS_5TwineES2_.exit.us.i.i288, %828
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(32) %15)
   %873 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %18) #16
   %874 = load ptr, ptr %18, align 8
   %875 = icmp eq ptr %874, %518
@@ -2078,7 +2078,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadI
   %902 = and i8 %901, 63
   %903 = call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm11Instruction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(72) %569) #16
   %.val.i.i262 = load i32, ptr %149, align 4
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias nonnull writable align 8 %21, i32 %.val.i.i262, ptr noundef %899, i8 %902, ptr noundef nonnull align 8 dereferenceable(512) %903)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias writable align 8 %21, i32 %.val.i.i262, ptr noundef %899, i8 %902, ptr noundef nonnull align 8 dereferenceable(512) %903)
   %.val22.i.i = load i8, ptr %482, align 8
   %904 = trunc i8 %.val22.i.i to i1
   br i1 %904, label %905, label %_ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE10visitStoreERNS_9StoreInstE.exit.thread
@@ -2101,8 +2101,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadI
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull %569)
   %907 = getelementptr inbounds i8, ptr %569, i64 -32
   %908 = load ptr, ptr %907, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %908, ptr noundef nonnull align 8 dereferenceable(32) %21)
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull %897, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %908, ptr noundef nonnull align 8 dereferenceable(32) %21)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %24, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull %897, ptr noundef nonnull align 8 dereferenceable(32) %21)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull %496, i64 noundef 8) #16
   %909 = load i32, ptr %497, align 4
   %910 = zext i32 %909 to i64
@@ -2140,7 +2140,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE9visitLoadERNS_8LoadI
   br i1 %exitcond.not.i.i267, label %._crit_edge.i.i268, label %913, !llvm.loop !47
 
 ._crit_edge.i.i268:                               ; preds = %913, %905
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %25)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %25)
   %927 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #16
   %928 = load ptr, ptr %25, align 8
   %929 = icmp eq ptr %928, %496
@@ -2394,7 +2394,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit70.thread
   %1036 = getelementptr inbounds %"class.llvm::Use", ptr %569, i64 %1035
   %1037 = getelementptr inbounds %"class.llvm::Use", ptr %1036, i64 %indvars.iv.i.i246
   %1038 = load ptr, ptr %1037, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1038, ptr noundef nonnull align 8 dereferenceable(32) %30)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1038, ptr noundef nonnull align 8 dereferenceable(32) %30)
   %.val54.i.i = load ptr, ptr %29, align 8
   %1039 = getelementptr inbounds %"class.(anonymous namespace)::Scatterer", ptr %.val54.i.i, i64 %indvars.iv.i.i246
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %1039, ptr noundef nonnull align 8 dereferenceable(80) %31, i64 80, i1 false)
@@ -2611,7 +2611,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i257: ; preds = %1127, %1123
   br i1 %exitcond106.not.i.i, label %._crit_edge92.i.i, label %1051, !llvm.loop !64
 
 ._crit_edge92.i.i:                                ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit.i.i257, %._crit_edge.i.i254
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef nonnull align 8 dereferenceable(32) %26)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %32, ptr noundef nonnull align 8 dereferenceable(32) %26)
   %1128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #16
   %1129 = load ptr, ptr %32, align 8
   %1130 = icmp eq ptr %1129, %469
@@ -2984,7 +2984,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit87.i.i: ;
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %400, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %38, ptr noundef nonnull %569)
   %1291 = load ptr, ptr %1243, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1291, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1291, ptr noundef nonnull align 8 dereferenceable(32) %37)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %412, i64 noundef 8) #16
   %1292 = zext i32 %1242 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %1292)
@@ -3107,7 +3107,7 @@ _ZNK4llvm4User10getOperandEj.exit.i.i:            ; preds = %1330, %1327
   store i64 %1341, ptr %438, align 8, !alias.scope !82
   store ptr @.str.10, ptr %439, align 8, !alias.scope !82
   %1342 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %38, i32 noundef 49, ptr noundef nonnull %.062.lcssa.i.i, ptr noundef %1316, ptr noundef nonnull align 8 dereferenceable(34) %46)
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1342, ptr noundef nonnull align 8 dereferenceable(32) %45)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1342, ptr noundef nonnull align 8 dereferenceable(32) %45)
   br i1 %.not163.i.i, label %._crit_edge153.i.i, label %.lr.ph152.i.i
 
 .lr.ph152.i.i:                                    ; preds = %.critedge.i.i, %.lr.ph152.i.i
@@ -3268,7 +3268,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit104.i.loopexit.i:  ; preds = %.lr.ph.i.i213
   br label %.loopexit.i.i218
 
 .loopexit.i.i218:                                 ; preds = %_ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i219, %_ZN4llvmplERKNS_5TwineES2_.exit.i.i223, %1399, %._crit_edge.i.i217, %1313, %.preheader.i.i221
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(32) %36)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(32) %36)
   br label %1400
 
 1400:                                             ; preds = %.loopexit.i.i218, %1357
@@ -3592,7 +3592,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i1
 _ZNK4llvm4User10getOperandEj.exit44.i.i.i186:     ; preds = %1522, %1519
   %1527 = phi ptr [ %1521, %1519 ], [ %1526, %1522 ]
   %1528 = load ptr, ptr %1527, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1528, ptr noundef nonnull align 8 dereferenceable(32) %55)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1528, ptr noundef nonnull align 8 dereferenceable(32) %55)
   %1529 = load i32, ptr %1461, align 4
   %1530 = and i32 %1529, 1073741824
   %.not.i.i45.i.i.i187 = icmp eq i32 %1530, 0
@@ -3614,7 +3614,7 @@ _ZNK4llvm4User10getOperandEj.exit46.i.i.i188:     ; preds = %1534, %1531
   %1539 = phi ptr [ %1533, %1531 ], [ %1538, %1534 ]
   %1540 = getelementptr inbounds i8, ptr %1539, i64 32
   %1541 = load ptr, ptr %1540, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %58, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1541, ptr noundef nonnull align 8 dereferenceable(32) %55)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %58, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1541, ptr noundef nonnull align 8 dereferenceable(32) %55)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef nonnull %383, i64 noundef 8) #16
   %1542 = zext i32 %1460 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %1542)
@@ -3723,7 +3723,7 @@ _ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5Tw
   br i1 %exitcond.not.i.i.i195, label %._crit_edge.i.i.i196, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i191, !llvm.loop !119
 
 ._crit_edge.i.i.i196:                             ; preds = %_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE.exit, %_ZNK4llvm4User10getOperandEj.exit46.i.i.i188
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull align 8 dereferenceable(32) %54)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %59, ptr noundef nonnull align 8 dereferenceable(32) %54)
   %1588 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %59) #16
   %1589 = load ptr, ptr %59, align 8
   %1590 = icmp eq ptr %1589, %383
@@ -4005,7 +4005,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i.i.i:
 _ZNK4llvm4User10getOperandEj.exit44.i.i.i:        ; preds = %1705, %1702
   %1710 = phi ptr [ %1704, %1702 ], [ %1709, %1705 ]
   %1711 = load ptr, ptr %1710, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1711, ptr noundef nonnull align 8 dereferenceable(32) %63)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %65, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1711, ptr noundef nonnull align 8 dereferenceable(32) %63)
   %1712 = load i32, ptr %1644, align 4
   %1713 = and i32 %1712, 1073741824
   %.not.i.i45.i.i.i = icmp eq i32 %1713, 0
@@ -4027,7 +4027,7 @@ _ZNK4llvm4User10getOperandEj.exit46.i.i.i:        ; preds = %1717, %1714
   %1722 = phi ptr [ %1716, %1714 ], [ %1721, %1717 ]
   %1723 = getelementptr inbounds i8, ptr %1722, i64 32
   %1724 = load ptr, ptr %1723, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1724, ptr noundef nonnull align 8 dereferenceable(32) %63)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1724, ptr noundef nonnull align 8 dereferenceable(32) %63)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull %356, i64 noundef 8) #16
   %1725 = zext i32 %1643 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef %1725)
@@ -4068,7 +4068,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i146:         ; preds = %_ZN4llvmplERKNS_5Tw
   br i1 %exitcond.not.i.i.i149, label %._crit_edge.i.i.i150, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i146, !llvm.loop !134
 
 ._crit_edge.i.i.i150:                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i146, %_ZNK4llvm4User10getOperandEj.exit46.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(32) %62)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %67, ptr noundef nonnull align 8 dereferenceable(32) %62)
   %1739 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %67) #16
   %1740 = load ptr, ptr %67, align 8
   %1741 = icmp eq ptr %1740, %356
@@ -4290,7 +4290,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us.i.i:           ; preds = %_ZN4llvmplERKNS_5Tw
   %1812 = load ptr, ptr %1810, align 8
   %1813 = getelementptr inbounds %"class.llvm::Use", ptr %1812, i64 %indvars.iv57.i.i
   %1814 = load ptr, ptr %1813, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1814, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1814, ptr noundef nonnull align 8 dereferenceable(32) %70)
   %1815 = load ptr, ptr %1810, align 8
   %1816 = load i32, ptr %1811, align 8
   %1817 = zext i32 %1816 to i64
@@ -4434,7 +4434,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i116:           ; preds = %_ZN4llvmplERKNS_5Tw
   %1882 = load ptr, ptr %1809, align 8
   %1883 = getelementptr inbounds %"class.llvm::Use", ptr %1882, i64 %indvars.iv62.i.i
   %1884 = load ptr, ptr %1883, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %1884, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %75, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %1884, ptr noundef nonnull align 8 dereferenceable(32) %70)
   %1885 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %339) #16
   %1886 = load ptr, ptr %339, align 8
   %1887 = icmp eq ptr %1886, %340
@@ -4450,7 +4450,7 @@ _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i123:      ; preds = %1888, %.lr.ph38.spl
   br i1 %exitcond66.not.i.i, label %._crit_edge39.i.i, label %.lr.ph38.split.i.i, !llvm.loop !147
 
 ._crit_edge39.i.i:                                ; preds = %_ZN12_GLOBAL__N_19ScattererD2Ev.exit.us.i.i, %_ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i123, %.preheader.thread.i.i, %.preheader.i.i121
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %72, ptr noundef nonnull align 8 dereferenceable(32) %70)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %72, ptr noundef nonnull align 8 dereferenceable(32) %70)
   %1889 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #16
   %1890 = load ptr, ptr %72, align 8
   %1891 = icmp eq ptr %1890, %331
@@ -4733,7 +4733,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit92.thread
   br i1 %.not71.i.i.i, label %2022, label %_ZN4llvm11SmallVectorIPNS_5ValueELj8EED2Ev.exit102.i.i.i
 
 2022:                                             ; preds = %2021
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull %1986, ptr noundef nonnull align 8 dereferenceable(32) %81)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %82, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull %1986, ptr noundef nonnull align 8 dereferenceable(32) %81)
   %.val77.i.i.i = load ptr, ptr %78, align 8
   %2023 = getelementptr inbounds %"class.(anonymous namespace)::Scatterer", ptr %.val77.i.i.i, i64 %indvars.iv.i.i.i93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2023, ptr noundef nonnull align 8 dereferenceable(80) %82, i64 80, i1 false)
@@ -4998,7 +4998,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i99:          ; preds = %2129, %2128
   br i1 %2144, label %.lr.ph133.i.i.i, label %._crit_edge134.i.i.i, !llvm.loop !165
 
 ._crit_edge134.i.i.i:                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i99, %._crit_edge.i.i.i98
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef nonnull align 8 dereferenceable(32) %76)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %83, ptr noundef nonnull align 8 dereferenceable(32) %76)
   call void @_ZN4llvm24IRBuilderDefaultInserterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %296) #16
   call void @_ZN4llvm15IRBuilderFolderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %295) #16
   %2145 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %85) #16
@@ -5317,10 +5317,10 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i: ;
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %90, ptr noundef nonnull %569)
   %2264 = getelementptr inbounds i8, ptr %569, i64 -64
   %2265 = load ptr, ptr %2264, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2265, ptr noundef nonnull align 8 dereferenceable(32) %88)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %91, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2265, ptr noundef nonnull align 8 dereferenceable(32) %88)
   %2266 = getelementptr inbounds i8, ptr %569, i64 -32
   %2267 = load ptr, ptr %2266, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2267, ptr noundef nonnull align 8 dereferenceable(32) %88)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %92, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2267, ptr noundef nonnull align 8 dereferenceable(32) %88)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull %265, i64 noundef 8) #16
   %2268 = zext i32 %2224 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %93, i64 noundef %2268)
@@ -5329,7 +5329,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit53.i.i: ;
   br i1 %2269, label %2271, label %2287
 
 2271:                                             ; preds = %2262
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %94, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2270, ptr noundef nonnull align 8 dereferenceable(32) %89)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %94, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2270, ptr noundef nonnull align 8 dereferenceable(32) %89)
   %.not83.i.i = icmp eq i32 %2224, 0
   br i1 %.not83.i.i, label %._crit_edge.i.i80, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i
 
@@ -5401,7 +5401,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit69.i.i:            ; preds = %2287, %_ZN4llvmplER
   br i1 %exitcond.not.i.i77, label %_ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i78, label %_ZN4llvmplERKNS_5TwineES2_.exit69.i.i, !llvm.loop !189
 
 _ZN12_GLOBAL__N_19ScattererD2Ev.exit.i.i78:       ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit69.i.i, %2287, %2286, %._crit_edge.i.i80
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %93, ptr noundef nonnull align 8 dereferenceable(32) %88)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %93, ptr noundef nonnull align 8 dereferenceable(32) %88)
   %2298 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %93) #16
   %2299 = load ptr, ptr %93, align 8
   %2300 = icmp eq ptr %2299, %265
@@ -5567,7 +5567,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE11visitSelectERNS_10S
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %220, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %102, ptr noundef nonnull %569)
   %2358 = load ptr, ptr %2317, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2358, ptr noundef nonnull align 8 dereferenceable(32) %101)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %103, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2358, ptr noundef nonnull align 8 dereferenceable(32) %101)
   %2359 = getelementptr inbounds i8, ptr %569, i64 -32
   %2360 = load ptr, ptr %2359, align 8
   %2361 = load i8, ptr %2360, align 8
@@ -5858,7 +5858,7 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_117ScalarizerVisitorEbE19visitExtractElement
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %110, ptr noundef nonnull %569)
   %2468 = getelementptr inbounds i8, ptr %569, i64 -96
   %2469 = load ptr, ptr %2468, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2469, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %111, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2469, ptr noundef nonnull align 8 dereferenceable(32) %109)
   %2470 = getelementptr inbounds i8, ptr %569, i64 -64
   %2471 = load ptr, ptr %2470, align 8
   %2472 = getelementptr inbounds i8, ptr %569, i64 -32
@@ -6048,7 +6048,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit64.i.i:            ; preds = %_ZN4llvmplERKNS_5Tw
   br i1 %exitcond.not.i.i38, label %.loopexit.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit64.i.i, !llvm.loop !230
 
 .loopexit.i.i:                                    ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit64.i.i, %2529, %2522, %2508, %.preheader.i.i, %2476
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %112, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %112, ptr noundef nonnull align 8 dereferenceable(32) %109)
   br label %2552
 
 2552:                                             ; preds = %.loopexit.i.i, %2532
@@ -6291,10 +6291,10 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i: ;
 
 2652:                                             ; preds = %2650
   %2653 = load ptr, ptr %2610, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2653, ptr noundef nonnull align 8 dereferenceable(32) %119)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %120, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2653, ptr noundef nonnull align 8 dereferenceable(32) %119)
   %2654 = getelementptr inbounds i8, ptr %569, i64 -32
   %2655 = load ptr, ptr %2654, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2655, ptr noundef nonnull align 8 dereferenceable(32) %119)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %121, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2655, ptr noundef nonnull align 8 dereferenceable(32) %119)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull %179, i64 noundef 8) #16
   %2656 = zext i32 %2608 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %122, i64 noundef %2656)
@@ -6343,7 +6343,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit39.i.i: ;
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %2659, !llvm.loop !237
 
 ._crit_edge.i.i:                                  ; preds = %2674, %2652
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %122, ptr noundef nonnull align 8 dereferenceable(32) %118)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %122, ptr noundef nonnull align 8 dereferenceable(32) %118)
   %2677 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #16
   %2678 = load ptr, ptr %122, align 8
   %2679 = icmp eq ptr %2678, %179
@@ -6606,7 +6606,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit35.i.i.i:
 _ZNK4llvm4User10getOperandEj.exit38.i.i.i:        ; preds = %2790, %2787
   %2795 = phi ptr [ %2789, %2787 ], [ %2794, %2790 ]
   %2796 = load ptr, ptr %2795, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef %2796, ptr noundef nonnull align 8 dereferenceable(32) %125)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %127, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef %2796, ptr noundef nonnull align 8 dereferenceable(32) %125)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull %165, i64 noundef 8) #16
   %2797 = zext i32 %2728 to i64
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE10resizeImplILb0EEEvm(ptr noundef nonnull align 8 dereferenceable(16) %128, i64 noundef %2797)
@@ -6667,7 +6667,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i.i:            ; preds = %_ZNK4llvm4User10get
   br i1 %exitcond.not.i.i.i, label %._crit_edge.i.i.i, label %_ZN4llvmplERKNS_5TwineES2_.exit.i.i.i, !llvm.loop !252
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZZN12_GLOBAL__N_117ScalarizerVisitor15visitFreezeInstERN4llvm10FreezeInstEENK3$_0clERNS1_9IRBuilderINS1_14ConstantFolderENS1_24IRBuilderDefaultInserterEEEPNS1_5ValueERKNS1_5TwineE.exit.i.i.i", %_ZNK4llvm4User10getOperandEj.exit38.i.i.i
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %569, ptr noundef nonnull align 8 dereferenceable(80) %128, ptr noundef nonnull align 8 dereferenceable(32) %124)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %569, ptr noundef nonnull align 8 dereferenceable(80) %128, ptr noundef nonnull align 8 dereferenceable(32) %124)
   %2818 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %128) #16
   %2819 = load ptr, ptr %128, align 8
   %2820 = icmp eq ptr %2819, %165
@@ -8384,7 +8384,7 @@ _ZN4llvm11GraphTraitsIPNS_10BasicBlockEE9child_endES2_.exit: ; preds = %_ZN4llvm
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1128) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1128) %1, ptr noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::tuple.150", align 8
   %7 = alloca %"class.std::tuple.153", align 1
   %8 = alloca %"class.std::tuple.150", align 8
@@ -9150,7 +9150,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::tuple.150", align 8
   %6 = alloca %"class.std::tuple.153", align 1
   %7 = alloca %"struct.std::pair.146", align 8
@@ -10553,7 +10553,7 @@ declare void @_ZN4llvm18ExtractElementInstC1EPNS_5ValueES2_RKNS_5TwineENS_14Inse
 declare noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor26transferMetadataAndIRFlagsEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEE(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.169", align 8
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
@@ -11189,7 +11189,7 @@ _ZN12_GLOBAL__N_117ScalarizerVisitor14getVectorSplitEPN4llvm4TypeE.exit41.i: ; p
 _ZNK4llvm4User10getOperandEj.exit44.i:            ; preds = %125, %122
   %130 = phi ptr [ %124, %122 ], [ %129, %125 ]
   %131 = load ptr, ptr %130, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef %131, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef %131, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %132 = load i32, ptr %51, align 4
   %133 = and i32 %132, 1073741824
   %.not.i.i45.i = icmp eq i32 %133, 0
@@ -11211,7 +11211,7 @@ _ZNK4llvm4User10getOperandEj.exit46.i:            ; preds = %137, %134
   %142 = phi ptr [ %136, %134 ], [ %141, %137 ]
   %143 = getelementptr inbounds i8, ptr %142, i64 32
   %144 = load ptr, ptr %143, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef %144, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef %144, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %145 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %145, i64 noundef 8) #16
   %146 = zext i32 %48 to i64
@@ -11259,7 +11259,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i:                ; preds = %_ZN4llvmplERKNS_5Tw
   br i1 %exitcond.not.i, label %._crit_edge.i, label %_ZN4llvmplERKNS_5TwineES2_.exit.i, !llvm.loop !338
 
 ._crit_edge.i:                                    ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit.i, %_ZNK4llvm4User10getOperandEj.exit46.i
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %166 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
   %167 = load ptr, ptr %8, align 8
   %168 = icmp eq ptr %167, %145
@@ -11452,7 +11452,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; pr
 declare noundef ptr @_ZN4llvm14BinaryOperator6CreateENS_11Instruction9BinaryOpsEPNS_5ValueES4_RKNS_5TwineENS_14InsertPositionE(i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, i32 %.1124.val, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(512) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor15getVectorLayoutEPN4llvm4TypeENS1_5AlignERKNS1_10DataLayoutE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.1124.val, ptr noundef %1, i8 %2, ptr noundef nonnull align 8 dereferenceable(512) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::TypeSize", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8, !noalias !339
@@ -11835,7 +11835,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_9StoreInstEEEPT_S4_RKNS_5TwineE.exit: ; preds
 declare void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_bNS_5AlignENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef, ptr noundef, i1 noundef zeroext, i8, ptr noundef byval(%"class.llvm::InsertPosition") align 8) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ScattererELj8EEC2Em(ptr noundef nonnull align 8 dereferenceable(1296) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm11SmallVectorIN12_GLOBAL__N_19ScattererELj8EEC2Em(ptr noundef nonnull align 8 dereferenceable(1296) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef 8) #16
@@ -12304,7 +12304,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117ScalarizerVisitor1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm24IRBuilderDefaultInserterE, i64 16), ptr %92, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull %1)
   %104 = load ptr, ptr %51, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(32) %4)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor7scatterEPN4llvm11InstructionEPNS1_5ValueERKNS_11VectorSplitE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef %104, ptr noundef nonnull align 8 dereferenceable(32) %4)
   %105 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %105, i64 noundef 8) #16
   %106 = zext i32 %48 to i64
@@ -12389,7 +12389,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %_ZN4llvmplERKNS_5Tw
   br i1 %exitcond.not, label %._crit_edge, label %_ZN4llvmplERKNS_5TwineES2_.exit, !llvm.loop !358
 
 ._crit_edge:                                      ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %_ZN4llvmplERKNS_5TwineES2_.exit.us, %89
-  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  call fastcc void @_ZN12_GLOBAL__N_117ScalarizerVisitor6gatherEPN4llvm11InstructionERKNS1_11SmallVectorIPNS1_5ValueELj8EEERKNS_11VectorSplitE(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %141 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #16
   %142 = load ptr, ptr %7, align 8
   %143 = icmp eq ptr %142, %105

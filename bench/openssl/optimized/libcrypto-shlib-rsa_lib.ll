@@ -392,12 +392,12 @@ if.end9:                                          ; preds = %if.end
   %mul = mul nuw nsw i64 %conv, 181704
   br label %while.body.i
 
-while.body.i:                                     ; preds = %if.end9, %while.body.i
-  %r.014.i = phi i32 [ %add.i, %while.body.i ], [ 0, %if.end9 ]
-  %v.addr.013.i = phi i64 [ %shr.i, %while.body.i ], [ %mul, %if.end9 ]
-  %shr.i = lshr i64 %v.addr.013.i, 1
-  %add.i = add nuw nsw i32 %r.014.i, 262144
-  %cmp.i = icmp ugt i64 %v.addr.013.i, 1048575
+while.body.i:                                     ; preds = %while.body.i, %if.end9
+  %r.013.i = phi i32 [ 0, %if.end9 ], [ %add.i, %while.body.i ]
+  %v.addr.012.i = phi i64 [ %mul, %if.end9 ], [ %shr.i, %while.body.i ]
+  %shr.i = lshr i64 %v.addr.012.i, 1
+  %add.i = add nuw nsw i32 %r.013.i, 262144
+  %cmp.i = icmp ugt i64 %v.addr.012.i, 1048575
   br i1 %cmp.i, label %while.body.i, label %for.body.i.preheader, !llvm.loop !4
 
 for.body.i.preheader:                             ; preds = %while.body.i
@@ -405,17 +405,17 @@ for.body.i.preheader:                             ; preds = %while.body.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %r.118.i = phi i32 [ %r.2.i, %for.body.i ], [ %add.i, %for.body.i.preheader ]
-  %i.017.i = phi i32 [ %div11.i, %for.body.i ], [ 131072, %for.body.i.preheader ]
-  %v.addr.116.i = phi i64 [ %v.addr.2.i, %for.body.i ], [ %shr.i, %for.body.i.preheader ]
-  %mul.i.i = mul i64 %v.addr.116.i, %v.addr.116.i
+  %r.116.i = phi i32 [ %r.2.i, %for.body.i ], [ %add.i, %for.body.i.preheader ]
+  %i.015.i = phi i32 [ %div11.i, %for.body.i ], [ 131072, %for.body.i.preheader ]
+  %v.addr.114.i = phi i64 [ %v.addr.2.i, %for.body.i ], [ %shr.i, %for.body.i.preheader ]
+  %mul.i.i = mul i64 %v.addr.114.i, %v.addr.114.i
   %cmp2.i = icmp ugt i64 %mul.i.i, 137438953471
   %v.addr.2.v.i = select i1 %cmp2.i, i64 19, i64 18
   %v.addr.2.i = lshr i64 %mul.i.i, %v.addr.2.v.i
-  %add4.i = select i1 %cmp2.i, i32 %i.017.i, i32 0
-  %r.2.i = add i32 %add4.i, %r.118.i
-  %div11.i = lshr i32 %i.017.i, 1
-  %cmp1.not.i = icmp ult i32 %i.017.i, 2
+  %add4.i = select i1 %cmp2.i, i32 %i.015.i, i32 0
+  %r.2.i = add i32 %add4.i, %r.116.i
+  %div11.i = lshr i32 %i.015.i, 1
+  %cmp1.not.i = icmp ult i32 %i.015.i, 2
   br i1 %cmp1.not.i, label %ilog_e.exit, label %for.body.i, !llvm.loop !6
 
 ilog_e.exit:                                      ; preds = %for.body.i
@@ -1277,10 +1277,10 @@ if.then27:                                        ; preds = %if.end24
 
 for.body:                                         ; preds = %if.then27, %if.end49
   %i.060 = phi i32 [ %inc, %if.end49 ], [ 2, %if.then27 ]
-  %call.i53 = tail call ptr @OPENSSL_sk_value(ptr noundef %primes, i32 noundef %i.060) #10
-  %call.i54 = tail call ptr @OPENSSL_sk_value(ptr noundef %exps, i32 noundef %i.060) #10
+  %call.i53 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %primes, i32 noundef %i.060) #10
+  %call.i54 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %exps, i32 noundef %i.060) #10
   %sub = add nsw i32 %i.060, -1
-  %call.i55 = tail call ptr @OPENSSL_sk_value(ptr noundef %coeffs, i32 noundef %sub) #10
+  %call.i55 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %coeffs, i32 noundef %sub) #10
   %cmp36 = icmp ne ptr %call.i53, null
   %cmp38 = icmp ne ptr %call.i54, null
   %or.cond2 = select i1 %cmp36, i1 %cmp38, i1 false
@@ -1471,7 +1471,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %ctx, i32 noundef %keytype, i32 noundef %optype, ptr noundef %mdkey, ptr noundef %mdname, ptr noundef %propkey, ptr noundef %mdprops) unnamed_addr #0 {
+define internal fastcc i32 @int_set_rsa_md_name(ptr noundef %ctx, i32 noundef range(i32 -1, 913) %keytype, i32 noundef range(i32 4, 2033) %optype, ptr noundef %mdkey, ptr noundef %mdname, ptr noundef %propkey, ptr noundef %mdprops) unnamed_addr #0 {
 entry:
   %params = alloca [3 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
@@ -1565,7 +1565,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %ctx, i32 noundef %keytype, i32 noundef %optype, ptr noundef %mdkey, ptr noundef %mdname, i64 noundef %mdnamesize) unnamed_addr #0 {
+define internal fastcc i32 @int_get_rsa_md_name(ptr noundef %ctx, i32 noundef range(i32 -1, 7) %keytype, i32 noundef range(i32 1536, 2033) %optype, ptr noundef %mdkey, ptr noundef %mdname, i64 noundef %mdnamesize) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8

@@ -645,14 +645,14 @@ if.end249:                                        ; preds = %if.end243
   br i1 %tobool244, label %if.then251, label %if.else
 
 if.then251:                                       ; preds = %if.end249
-  call fastcc void @import_marks(ptr noundef nonnull %9, i32 noundef 0)
+  call fastcc void @import_marks(ptr noundef %9, i32 noundef 0)
   br label %if.end255
 
 if.else:                                          ; preds = %if.end249
   br i1 %tobool246, label %if.then253, label %if.end255
 
 if.then253:                                       ; preds = %if.else
-  call fastcc void @import_marks(ptr noundef nonnull %10, i32 noundef 1)
+  call fastcc void @import_marks(ptr noundef %10, i32 noundef 1)
   br label %if.end255
 
 if.end255:                                        ; preds = %if.else, %if.then253, %if.then251
@@ -1051,8 +1051,8 @@ anonymize_refname.exit.i:                         ; preds = %for.inc.i.i, %if.th
   %refname.addr.1.i.i = phi ptr [ %str.addr.0.i.i.i, %if.then.i.i22 ], [ %56, %for.inc.i.i ]
   call fastcc void @anonymize_path(ptr noundef nonnull @anonymize_refname.anon, ptr noundef %refname.addr.1.i.i, ptr noundef nonnull @anonymize_refname.refs, ptr noundef nonnull @anonymize_ref_component)
   %62 = load ptr, ptr getelementptr inbounds (i8, ptr @anonymize_refname.anon, i64 16), align 8
-  call fastcc void @anonymize_ident_line(ptr noundef nonnull %committer.i, ptr noundef nonnull %committer_end.i)
-  call fastcc void @anonymize_ident_line(ptr noundef nonnull %author.i, ptr noundef nonnull %author_end.i)
+  call fastcc void @anonymize_ident_line(ptr noundef %committer.i, ptr noundef %committer_end.i)
+  call fastcc void @anonymize_ident_line(ptr noundef %author.i, ptr noundef %author_end.i)
   br label %if.end51.i
 
 if.end51.i:                                       ; preds = %anonymize_refname.exit.i, %for.end.i
@@ -1426,7 +1426,7 @@ for.end.i51:                                      ; preds = %if.end12.i48, %if.t
   br i1 %tobool16.not.i, label %if.end280, label %if.then17.i
 
 if.then17.i:                                      ; preds = %for.end.i51
-  %call18.i53 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.140, ptr noundef %101) #18
+  %call18.i53 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.140, ptr noundef nonnull %101) #18
   br label %if.end280
 
 if.end280:                                        ; preds = %if.then17.i, %for.end.i51, %handle_deletes.exit
@@ -1716,7 +1716,7 @@ declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @import_marks(ptr noundef %input_file, i32 noundef %check_exists) unnamed_addr #0 {
+define internal fastcc void @import_marks(ptr noundef nonnull %input_file, i32 noundef range(i32 0, 2) %check_exists) unnamed_addr #0 {
 entry:
   %line = alloca [512 x i8], align 16
   %sb = alloca %struct.stat, align 8
@@ -1726,12 +1726,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %call = call i32 @stat64(ptr noundef %input_file, ptr noundef nonnull %sb) #18
+  %call = call i32 @stat64(ptr noundef nonnull %input_file, ptr noundef nonnull %sb) #18
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %call2 = tail call ptr @xfopen(ptr noundef %input_file, ptr noundef nonnull @.str.64) #18
+  %call2 = tail call ptr @xfopen(ptr noundef nonnull %input_file, ptr noundef nonnull @.str.64) #18
   %call312 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 512, ptr noundef %call2)
   %tobool4.not13 = icmp eq ptr %call312, null
   br i1 %tobool4.not13, label %while.end, label %while.body.lr.ph
@@ -2152,7 +2152,7 @@ if.else29.i:                                      ; preds = %if.end19.i
   br i1 %tobool31.not.i, label %if.end43.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %if.else29.i
-  call fastcc void @anonymize_ident_line(ptr noundef nonnull %tagger.i, ptr noundef nonnull %tagger_end.i)
+  call fastcc void @anonymize_ident_line(ptr noundef %tagger.i, ptr noundef %tagger_end.i)
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.then32.i, %if.then23.i
@@ -3380,7 +3380,7 @@ declare void @diff_root_tree_oid(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @string_list_remove(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @anonymize_ident_line(ptr nocapture noundef %beg, ptr nocapture noundef %end) unnamed_addr #0 {
+define internal fastcc void @anonymize_ident_line(ptr nocapture noundef nonnull %beg, ptr nocapture noundef nonnull %end) unnamed_addr #0 {
 entry:
   %out.i = alloca %struct.strbuf, align 8
   %key.i = alloca %struct.anonymized_entry_key, align 8

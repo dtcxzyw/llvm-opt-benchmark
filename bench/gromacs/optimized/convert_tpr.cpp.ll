@@ -1352,7 +1352,7 @@ _ZL18print_runtime_infoP10t_inputrec.exit75:      ; preds = %.noexc73
   %322 = load ptr, ptr %321, align 8
   %323 = getelementptr inbounds i8, ptr %6, i64 456
   %324 = load ptr, ptr %323, align 8
-  invoke fastcc void @_ZL17reduce_topology_xiPiP10gmx_mtop_tPA3_fS3_(i32 noundef %319, ptr noundef %320, ptr noundef nonnull %4, ptr noundef %322, ptr noundef %324)
+  invoke fastcc void @_ZL17reduce_topology_xiPiP10gmx_mtop_tPA3_fS3_(i32 noundef %319, ptr noundef %320, ptr noundef %4, ptr noundef %322, ptr noundef %324)
           to label %325 unwind label %62
 
 325:                                              ; preds = %316
@@ -1576,7 +1576,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17reduce_topology_xiPiP10gmx_mtop_tPA3_fS3_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17reduce_topology_xiPiP10gmx_mtop_tPA3_fS3_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %struct.gmx_localtop_t, align 8

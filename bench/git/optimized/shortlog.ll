@@ -196,7 +196,7 @@ if.then4.i.i:                                     ; preds = %if.end12.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %if.end12.i
-  %call13.i = call fastcc i32 @parse_ident(ptr noundef %log, ptr noundef nonnull %ident.i, ptr noundef %9)
+  %call13.i = call fastcc i32 @parse_ident(ptr noundef %log, ptr noundef %ident.i, ptr noundef %9)
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   %12 = load ptr, ptr %buf.i.i, align 8
   %value.0.i = select i1 %tobool14.not.i, ptr %12, ptr %9
@@ -831,7 +831,7 @@ if.then4.i.i:                                     ; preds = %while.end28.i
   br label %strbuf_setlen.exit.i
 
 strbuf_setlen.exit.i:                             ; preds = %if.then4.i.i, %while.end28.i
-  %call29.i = call fastcc i32 @parse_ident(ptr noundef nonnull %log, ptr noundef nonnull %mapped_ident.i, ptr noundef %v.1.i)
+  %call29.i = call fastcc i32 @parse_ident(ptr noundef nonnull %log, ptr noundef %mapped_ident.i, ptr noundef %v.1.i)
   %cmp30.i = icmp slt i32 %call29.i, 0
   br i1 %cmp30.i, label %while.cond.backedge.i, label %if.end32.i
 
@@ -1426,7 +1426,7 @@ declare i32 @trailer_iterator_advance(ptr noundef) local_unnamed_addr #2
 declare i32 @string_list_has_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_ident(ptr noundef %log, ptr noundef %out, ptr noundef %in) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_ident(ptr noundef %log, ptr noundef nonnull %out, ptr noundef %in) unnamed_addr #0 {
 entry:
   %mailbuf = alloca ptr, align 8
   %namebuf = alloca ptr, align 8
@@ -1461,7 +1461,7 @@ if.end:                                           ; preds = %entry
   %call7 = call i32 @map_user(ptr noundef nonnull %mailmap, ptr noundef nonnull %mailbuf, ptr noundef nonnull %maillen, ptr noundef nonnull %namebuf, ptr noundef nonnull %namelen) #16
   %4 = load ptr, ptr %namebuf, align 8
   %5 = load i64, ptr %namelen, align 8
-  call void @strbuf_add(ptr noundef %out, ptr noundef %4, i64 noundef %5) #16
+  call void @strbuf_add(ptr noundef nonnull %out, ptr noundef %4, i64 noundef %5) #16
   %email = getelementptr inbounds i8, ptr %log, i64 184
   %6 = load i32, ptr %email, align 8
   %tobool8.not = icmp eq i32 %6, 0
@@ -1471,7 +1471,7 @@ if.then9:                                         ; preds = %if.end
   %7 = load i64, ptr %maillen, align 8
   %conv10 = trunc i64 %7 to i32
   %8 = load ptr, ptr %mailbuf, align 8
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.27, i32 noundef %conv10, ptr noundef %8) #16
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %out, ptr noundef nonnull @.str.27, i32 noundef %conv10, ptr noundef %8) #16
   br label %return
 
 return:                                           ; preds = %if.end, %if.then9, %entry

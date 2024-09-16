@@ -368,7 +368,7 @@ declare i32 @utf8_to_unicode(ptr noundef) local_unnamed_addr #1
 declare i32 @pg_utf_mblen_private(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @is_code_in_table(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @is_code_in_table(i32 noundef %0, ptr noundef %1, i32 noundef range(i32 12, 793) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4
   %5 = load i32, ptr %1, align 4
@@ -376,7 +376,7 @@ define internal fastcc zeroext i1 @is_code_in_table(i32 noundef %0, ptr noundef 
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = sext i32 %2 to i64
+  %8 = zext nneg i32 %2 to i64
   %9 = getelementptr i32, ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4

@@ -2072,17 +2072,18 @@ if.end30:                                         ; preds = %if.then24, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_gr(ptr nocapture noundef readonly %s, i32 noundef %reg_index) unnamed_addr #0 {
+define internal fastcc range(i32 0, 256) i32 @cirrus_vga_read_gr(ptr nocapture noundef readonly %s, i32 noundef range(i32 0, 256) %reg_index) unnamed_addr #0 {
 entry:
-  switch i32 %reg_index, label %sw.epilog [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb1
-    i32 2, label %sw.bb3
-    i32 3, label %sw.bb3
-    i32 4, label %sw.bb3
-    i32 6, label %sw.bb3
-    i32 7, label %sw.bb3
-    i32 8, label %sw.bb3
+  %trunc = trunc nuw i32 %reg_index to i8
+  switch i8 %trunc, label %sw.epilog [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb1
+    i8 2, label %sw.bb3
+    i8 3, label %sw.bb3
+    i8 4, label %sw.bb3
+    i8 6, label %sw.bb3
+    i8 7, label %sw.bb3
+    i8 8, label %sw.bb3
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -2139,9 +2140,10 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cirrus_vga_write_gr(ptr noundef %s, i32 noundef %reg_index, i32 noundef %reg_value) unnamed_addr #0 {
+define internal fastcc void @cirrus_vga_write_gr(ptr noundef %s, i32 noundef range(i32 0, 256) %reg_index, i32 noundef %reg_value) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
+  %conv = trunc nuw i32 %reg_index to i8
   %conv1 = trunc i32 %reg_value to i8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %0 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2168,61 +2170,59 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %4 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
-  %conv11.i.i = and i32 %reg_index, 255
   %conv12.i.i = and i32 %reg_value, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %conv11.i.i, i32 noundef %conv12.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.45, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %reg_index, i32 noundef %conv12.i.i) #13
   br label %trace_vga_cirrus_write_gr.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv13.i.i = and i32 %reg_index, 255
   %conv14.i.i = and i32 %reg_value, 255
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %conv13.i.i, i32 noundef %conv14.i.i) #13
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %reg_index, i32 noundef %conv14.i.i) #13
   br label %trace_vga_cirrus_write_gr.exit
 
 trace_vga_cirrus_write_gr.exit:                   ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  switch i32 %reg_index, label %do.body [
-    i32 0, label %sw.bb
-    i32 1, label %sw.bb7
-    i32 2, label %sw.bb18
-    i32 3, label %sw.bb18
-    i32 4, label %sw.bb18
-    i32 6, label %sw.bb18
-    i32 7, label %sw.bb18
-    i32 8, label %sw.bb18
-    i32 5, label %sw.bb28
-    i32 9, label %sw.bb35
-    i32 10, label %sw.bb35
-    i32 11, label %sw.bb41
-    i32 16, label %sw.bb47
-    i32 17, label %sw.bb47
-    i32 18, label %sw.bb47
-    i32 19, label %sw.bb47
-    i32 20, label %sw.bb47
-    i32 21, label %sw.bb47
-    i32 32, label %sw.bb47
-    i32 34, label %sw.bb47
-    i32 36, label %sw.bb47
-    i32 38, label %sw.bb47
-    i32 40, label %sw.bb47
-    i32 41, label %sw.bb47
-    i32 44, label %sw.bb47
-    i32 45, label %sw.bb47
-    i32 47, label %sw.bb47
-    i32 48, label %sw.bb47
-    i32 50, label %sw.bb47
-    i32 51, label %sw.bb47
-    i32 52, label %sw.bb47
-    i32 53, label %sw.bb47
-    i32 56, label %sw.bb47
-    i32 57, label %sw.bb47
-    i32 33, label %sw.bb53
-    i32 35, label %sw.bb53
-    i32 37, label %sw.bb53
-    i32 39, label %sw.bb53
-    i32 42, label %sw.bb60
-    i32 46, label %sw.bb72
-    i32 49, label %sw.bb79
+  switch i8 %conv, label %do.body [
+    i8 0, label %sw.bb
+    i8 1, label %sw.bb7
+    i8 2, label %sw.bb18
+    i8 3, label %sw.bb18
+    i8 4, label %sw.bb18
+    i8 6, label %sw.bb18
+    i8 7, label %sw.bb18
+    i8 8, label %sw.bb18
+    i8 5, label %sw.bb28
+    i8 9, label %sw.bb35
+    i8 10, label %sw.bb35
+    i8 11, label %sw.bb41
+    i8 16, label %sw.bb47
+    i8 17, label %sw.bb47
+    i8 18, label %sw.bb47
+    i8 19, label %sw.bb47
+    i8 20, label %sw.bb47
+    i8 21, label %sw.bb47
+    i8 32, label %sw.bb47
+    i8 34, label %sw.bb47
+    i8 36, label %sw.bb47
+    i8 38, label %sw.bb47
+    i8 40, label %sw.bb47
+    i8 41, label %sw.bb47
+    i8 44, label %sw.bb47
+    i8 45, label %sw.bb47
+    i8 47, label %sw.bb47
+    i8 48, label %sw.bb47
+    i8 50, label %sw.bb47
+    i8 51, label %sw.bb47
+    i8 52, label %sw.bb47
+    i8 53, label %sw.bb47
+    i8 56, label %sw.bb47
+    i8 57, label %sw.bb47
+    i8 33, label %sw.bb53
+    i8 35, label %sw.bb53
+    i8 37, label %sw.bb53
+    i8 39, label %sw.bb53
+    i8 42, label %sw.bb60
+    i8 46, label %sw.bb72
+    i8 49, label %sw.bb79
   ]
 
 sw.bb:                                            ; preds = %trace_vga_cirrus_write_gr.exit
@@ -47539,7 +47539,7 @@ if.end33:                                         ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cirrus_mem_writeb_mode4and5_8bpp(ptr noundef %s, i32 noundef %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
+define internal fastcc void @cirrus_mem_writeb_mode4and5_8bpp(ptr noundef %s, i32 noundef range(i32 4, 6) %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
 entry:
   %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
   %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576
@@ -47599,7 +47599,7 @@ for.end:                                          ; preds = %if.end4, %for.body.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @cirrus_mem_writeb_mode4and5_16bpp(ptr noundef %s, i32 noundef %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
+define internal fastcc void @cirrus_mem_writeb_mode4and5_16bpp(ptr noundef %s, i32 noundef range(i32 4, 6) %mode, i32 noundef %offset, i32 noundef %mem_value) unnamed_addr #0 {
 entry:
   %vram_ptr = getelementptr inbounds i8, ptr %s, i64 8
   %cirrus_addr_mask = getelementptr inbounds i8, ptr %s, i64 70576

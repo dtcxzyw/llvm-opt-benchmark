@@ -4830,7 +4830,7 @@ _ZSt11upper_boundIPSt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN
   %129 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #18
   store i32 0, ptr %110, align 8
   %130 = load i32, ptr %.048100, align 8
-  call fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %9, i32 noundef %130)
+  call fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias writable align 8 %9, i32 noundef %130)
   %131 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef 0, ptr noundef nonnull @.str.9) #18, !noalias !56
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %131) #18
   store i8 4, ptr %111, align 8
@@ -5212,7 +5212,7 @@ _ZN4llvm11SmallVectorIPNS_8FunctionELj8EED2Ev.exit65: ; preds = %306, %310
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5393,7 +5393,7 @@ _ZNSt5tupleIJPN4llvm12FunctionTypeENS0_14WeakTrackingVHEPNS0_8ConstantEEED2Ev.ex
 _ZN4llvm15SmallVectorImplISt5tupleIJPNS_12FunctionTypeENS_14WeakTrackingVHEPNS_8ConstantEEEE5clearEv.exit: ; preds = %_ZNSt5tupleIJPN4llvm12FunctionTypeENS0_14WeakTrackingVHEPNS0_8ConstantEEED2Ev.exit.i.i, %_ZSt11upper_boundIPSt4pairIN5clang7CodeGen33OrderGlobalInitsOrStermFinalizersEPN4llvm8FunctionEES7_NS2_13CodeGenModule25StermFinalizerPriorityCmpEET_SB_SB_RKT0_T1_.exit
   store i32 0, ptr %33, align 8
   %59 = load i32, ptr %.059, align 8
-  call fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias nonnull writable align 8 %6, i32 noundef %59)
+  call fastcc void @_ZL17getPrioritySuffixB5cxx11j(ptr dead_on_unwind noalias writable align 8 %6, i32 noundef %59)
   %60 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.11) #18, !noalias !80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %60) #18
   store i8 4, ptr %34, align 8

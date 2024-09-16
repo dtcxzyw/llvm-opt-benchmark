@@ -48,11 +48,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
 .preheader81.split.us.i:                          ; preds = %.preheader81.i
   %22 = tail call i64 @file_read(ptr noundef %1, ptr noundef nonnull %19, i64 noundef %spec.store.select.i) #5
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %._crit_edge.i, label %24
+  br i1 %23, label %.critedge.thread.thread.i, label %24
 
 24:                                               ; preds = %.preheader81.split.us.i
   %25 = icmp slt i64 %22, 0
-  br i1 %25, label %._crit_edge.i, label %.preheader.i.preheader
+  br i1 %25, label %.critedge.thread.thread.i, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %28, %24
   %.062.i.ph = phi i64 [ %22, %24 ], [ %26, %28 ]
@@ -61,7 +61,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
 .preheader81.split.i:                             ; preds = %.preheader81.i, %30
   %26 = tail call i64 @file_read(ptr noundef %1, ptr noundef nonnull %19, i64 noundef %spec.store.select.i) #5
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %._crit_edge.i, label %28
+  br i1 %27, label %.critedge.thread.thread.i, label %28
 
 28:                                               ; preds = %.preheader81.split.i
   %29 = icmp slt i64 %26, 0
@@ -69,7 +69,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
 
 30:                                               ; preds = %28
   %.not89.i = icmp eq i64 %26, -4
-  br i1 %.not89.i, label %.preheader81.split.i, label %._crit_edge.i, !llvm.loop !6
+  br i1 %.not89.i, label %.preheader81.split.i, label %.critedge.thread.thread.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %40
   %.062.i = phi i64 [ %.163.i, %40 ], [ %.062.i.ph, %.preheader.i.preheader ]
@@ -89,7 +89,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
   %38 = icmp ne i64 %31, -4
   %39 = icmp eq i64 %.3.i, 0
   %or.cond3.i = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond3.i, label %._crit_edge.i, label %40
+  br i1 %or.cond3.i, label %.critedge.thread.thread.i, label %40
 
 40:                                               ; preds = %37, %33
   %.163.i = phi i64 [ %35, %33 ], [ %.062.i, %37 ]
@@ -100,14 +100,14 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
 
 .critedge.thread.i:                               ; preds = %40
   %.not102.i = icmp ult i64 %.4.i, %3
-  br i1 %.not102.i, label %.preheader81.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %.not102.i, label %.preheader81.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %.critedge.thread.i, %24, %.preheader81.split.us.i, %30, %.preheader81.split.i, %37
-  %.058.lcssa.i = phi i64 [ %31, %37 ], [ %.05887.fr.i, %.preheader81.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader81.split.us.i ]
+.critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader81.split.us.i, %30, %.preheader81.split.i, %37
+  %.26096.i = phi i64 [ %31, %37 ], [ %.05887.fr.i, %.preheader81.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader81.split.us.i ]
   tail call void @free(ptr noundef %19)
   br i1 %.not.i, label %copyfile.exit, label %42
 
-42:                                               ; preds = %._crit_edge.i
+42:                                               ; preds = %.critedge.thread.thread.i
   %43 = tail call i32 @file_seek(ptr noundef %1, i32 noundef 0, i32 noundef 1) #5
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %47
@@ -121,11 +121,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
   %48 = tail call i32 @file_seek(ptr noundef %1, i32 noundef %.061.i, i32 noundef 0) #5
   %49 = icmp slt i32 %48, 0
   %50 = sext i32 %48 to i64
-  %spec.select.i = select i1 %49, i64 %50, i64 %.058.lcssa.i
+  %spec.select.i = select i1 %49, i64 %50, i64 %.26096.i
   br label %copyfile.exit
 
-copyfile.exit:                                    ; preds = %47, %45, %._crit_edge.i, %18, %16, %10, %4
-  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.058.lcssa.i, %._crit_edge.i ], [ %spec.select.i, %47 ]
+copyfile.exit:                                    ; preds = %47, %45, %.critedge.thread.thread.i, %18, %16, %10, %4
+  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.26096.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
   ret i64 %.0
 }
 

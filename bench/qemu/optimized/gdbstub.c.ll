@@ -233,8 +233,8 @@ declare i32 @accel_supported_gdbstub_sstep_flags() local_unnamed_addr #3
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @gdb_memtohex(ptr noundef %buf, ptr nocapture noundef readonly %mem, i32 noundef %len) local_unnamed_addr #0 {
 entry:
-  %cmp30 = icmp sgt i32 %len, 0
-  br i1 %cmp30, label %for.body.lr.ph, label %for.end
+  %cmp32 = icmp sgt i32 %len, 0
+  br i1 %cmp32, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %len.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -242,23 +242,24 @@ for.body.lr.ph:                                   ; preds = %entry
   %wide.trip.count = zext nneg i32 %len to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %g_string_append_c_inline.exit19
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %g_string_append_c_inline.exit19 ]
+for.body:                                         ; preds = %for.body.lr.ph, %g_string_append_c_inline.exit21
+  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %g_string_append_c_inline.exit21 ]
   %arrayidx = getelementptr i8, ptr %mem, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %shr = lshr i8 %0, 4
   %cmp.i = icmp ult i8 %0, -96
-  %retval.0.v.i = select i1 %cmp.i, i8 48, i8 87
-  %retval.0.i = add nuw nsw i8 %retval.0.v.i, %shr
+  %add.i = or disjoint i8 %shr, 48
+  %add1.i = add nuw nsw i8 %shr, 87
+  %retval.0.i = select i1 %cmp.i, i8 %add.i, i8 %add1.i
   %1 = load i64, ptr %len.i, align 8
-  %add.i = add i64 %1, 1
+  %add.i6 = add i64 %1, 1
   %2 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i6 = icmp ult i64 %add.i, %2
-  br i1 %cmp.i6, label %if.then.i, label %if.else.i
+  %cmp.i7 = icmp ult i64 %add.i6, %2
+  br i1 %cmp.i7, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
   %3 = load ptr, ptr %buf, align 8
-  store i64 %add.i, ptr %len.i, align 8
+  store i64 %add.i6, ptr %len.i, align 8
   %arrayidx.i = getelementptr i8, ptr %3, i64 %1
   store i8 %retval.0.i, ptr %arrayidx.i, align 1
   %4 = load ptr, ptr %buf, align 8
@@ -273,60 +274,61 @@ if.else.i:                                        ; preds = %for.body
 
 g_string_append_c_inline.exit:                    ; preds = %if.then.i, %if.else.i
   %6 = and i8 %0, 15
-  %cmp.i7 = icmp ult i8 %6, 10
-  %retval.0.v.i8 = select i1 %cmp.i7, i8 48, i8 87
-  %retval.0.i9 = add nuw nsw i8 %retval.0.v.i8, %6
+  %cmp.i8 = icmp ult i8 %6, 10
+  %add.i9 = or disjoint i8 %6, 48
+  %add1.i10 = add nuw nsw i8 %6, 87
+  %retval.0.i11 = select i1 %cmp.i8, i8 %add.i9, i8 %add1.i10
   %7 = load i64, ptr %len.i, align 8
-  %add.i11 = add i64 %7, 1
+  %add.i13 = add i64 %7, 1
   %8 = load i64, ptr %allocated_len.i, align 8
-  %cmp.i13 = icmp ult i64 %add.i11, %8
-  br i1 %cmp.i13, label %if.then.i16, label %if.else.i14
+  %cmp.i15 = icmp ult i64 %add.i13, %8
+  br i1 %cmp.i15, label %if.then.i18, label %if.else.i16
 
-if.then.i16:                                      ; preds = %g_string_append_c_inline.exit
+if.then.i18:                                      ; preds = %g_string_append_c_inline.exit
   %9 = load ptr, ptr %buf, align 8
-  store i64 %add.i11, ptr %len.i, align 8
-  %arrayidx.i17 = getelementptr i8, ptr %9, i64 %7
-  store i8 %retval.0.i9, ptr %arrayidx.i17, align 1
+  store i64 %add.i13, ptr %len.i, align 8
+  %arrayidx.i19 = getelementptr i8, ptr %9, i64 %7
+  store i8 %retval.0.i11, ptr %arrayidx.i19, align 1
   %10 = load ptr, ptr %buf, align 8
   %11 = load i64, ptr %len.i, align 8
-  %arrayidx4.i18 = getelementptr i8, ptr %10, i64 %11
-  store i8 0, ptr %arrayidx4.i18, align 1
-  br label %g_string_append_c_inline.exit19
+  %arrayidx4.i20 = getelementptr i8, ptr %10, i64 %11
+  store i8 0, ptr %arrayidx4.i20, align 1
+  br label %g_string_append_c_inline.exit21
 
-if.else.i14:                                      ; preds = %g_string_append_c_inline.exit
-  %call.i15 = tail call ptr @g_string_insert_c(ptr noundef nonnull %buf, i64 noundef -1, i8 noundef signext %retval.0.i9) #18
-  br label %g_string_append_c_inline.exit19
+if.else.i16:                                      ; preds = %g_string_append_c_inline.exit
+  %call.i17 = tail call ptr @g_string_insert_c(ptr noundef nonnull %buf, i64 noundef -1, i8 noundef signext %retval.0.i11) #18
+  br label %g_string_append_c_inline.exit21
 
-g_string_append_c_inline.exit19:                  ; preds = %if.then.i16, %if.else.i14
+g_string_append_c_inline.exit21:                  ; preds = %if.then.i18, %if.else.i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %g_string_append_c_inline.exit19, %entry
-  %len.i20 = getelementptr inbounds i8, ptr %buf, i64 8
-  %12 = load i64, ptr %len.i20, align 8
-  %add.i21 = add i64 %12, 1
-  %allocated_len.i22 = getelementptr inbounds i8, ptr %buf, i64 16
-  %13 = load i64, ptr %allocated_len.i22, align 8
-  %cmp.i23 = icmp ult i64 %add.i21, %13
-  br i1 %cmp.i23, label %if.then.i26, label %if.else.i24
+for.end:                                          ; preds = %g_string_append_c_inline.exit21, %entry
+  %len.i22 = getelementptr inbounds i8, ptr %buf, i64 8
+  %12 = load i64, ptr %len.i22, align 8
+  %add.i23 = add i64 %12, 1
+  %allocated_len.i24 = getelementptr inbounds i8, ptr %buf, i64 16
+  %13 = load i64, ptr %allocated_len.i24, align 8
+  %cmp.i25 = icmp ult i64 %add.i23, %13
+  br i1 %cmp.i25, label %if.then.i28, label %if.else.i26
 
-if.then.i26:                                      ; preds = %for.end
+if.then.i28:                                      ; preds = %for.end
   %14 = load ptr, ptr %buf, align 8
-  store i64 %add.i21, ptr %len.i20, align 8
-  %arrayidx.i27 = getelementptr i8, ptr %14, i64 %12
-  store i8 0, ptr %arrayidx.i27, align 1
+  store i64 %add.i23, ptr %len.i22, align 8
+  %arrayidx.i29 = getelementptr i8, ptr %14, i64 %12
+  store i8 0, ptr %arrayidx.i29, align 1
   %15 = load ptr, ptr %buf, align 8
-  %16 = load i64, ptr %len.i20, align 8
-  %arrayidx4.i28 = getelementptr i8, ptr %15, i64 %16
-  store i8 0, ptr %arrayidx4.i28, align 1
-  br label %g_string_append_c_inline.exit29
+  %16 = load i64, ptr %len.i22, align 8
+  %arrayidx4.i30 = getelementptr i8, ptr %15, i64 %16
+  store i8 0, ptr %arrayidx4.i30, align 1
+  br label %g_string_append_c_inline.exit31
 
-if.else.i24:                                      ; preds = %for.end
-  %call.i25 = tail call ptr @g_string_insert_c(ptr noundef nonnull %buf, i64 noundef -1, i8 noundef signext 0) #18
-  br label %g_string_append_c_inline.exit29
+if.else.i26:                                      ; preds = %for.end
+  %call.i27 = tail call ptr @g_string_insert_c(ptr noundef nonnull %buf, i64 noundef -1, i8 noundef signext 0) #18
+  br label %g_string_append_c_inline.exit31
 
-g_string_append_c_inline.exit29:                  ; preds = %if.then.i26, %if.else.i24
+g_string_append_c_inline.exit31:                  ; preds = %if.then.i28, %if.else.i26
   ret void
 }
 
@@ -457,17 +459,19 @@ if.then10.i:                                      ; preds = %if.end.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %shr13.i = lshr i8 %2, 4
   %cmp.i.i = icmp ult i8 %2, -96
-  %retval.0.v.i.i = select i1 %cmp.i.i, i8 48, i8 87
-  %retval.0.i.i = add nuw nsw i8 %retval.0.v.i.i, %shr13.i
+  %add.i.i = or disjoint i8 %shr13.i, 48
+  %add1.i.i = add nuw nsw i8 %shr13.i, 87
+  %retval.0.i.i = select i1 %cmp.i.i, i8 %add.i.i, i8 %add1.i.i
   %arrayidx17.i = getelementptr [69 x i8], ptr %line_buffer.i, i64 0, i64 %add.i
   store i8 %retval.0.i.i, ptr %arrayidx17.i, align 1
   %3 = and i8 %2, 15
   %cmp.i17.i = icmp ult i8 %3, 10
-  %retval.0.v.i18.i = select i1 %cmp.i17.i, i8 48, i8 87
-  %retval.0.i19.i = add nuw nsw i8 %retval.0.v.i18.i, %3
+  %add.i18.i = or disjoint i8 %3, 48
+  %add1.i19.i = add nuw nsw i8 %3, 87
+  %retval.0.i20.i = select i1 %cmp.i17.i, i8 %add.i18.i, i8 %add1.i19.i
   %add23.i = add nuw nsw i64 %add.i, 1
   %arrayidx24.i = getelementptr [69 x i8], ptr %line_buffer.i, i64 0, i64 %add23.i
-  store i8 %retval.0.i19.i, ptr %arrayidx24.i, align 1
+  store i8 %retval.0.i20.i, ptr %arrayidx24.i, align 1
   %4 = add i8 %2, -32
   %or.cond.i = icmp ult i8 %4, 95
   %conv32.i = select i1 %or.cond.i, i8 %2, i8 46
@@ -529,10 +533,10 @@ hexdump.exit:                                     ; preds = %for.inc.i, %if.then
   br label %if.end
 
 if.end:                                           ; preds = %hexdump.exit, %land.lhs.true, %entry
-  %cmp13 = icmp sgt i32 %len, 0
+  %cmp15 = icmp sgt i32 %len, 0
   %arrayidx15 = getelementptr inbounds i8, ptr %footer, i64 1
   %arrayidx19 = getelementptr inbounds i8, ptr %footer, i64 2
-  br i1 %cmp13, label %for.cond.us.preheader, label %for.cond
+  br i1 %cmp15, label %for.cond.us.preheader, label %for.cond
 
 for.cond.us.preheader:                            ; preds = %if.end
   %wide.trip.count = zext nneg i32 %len to i64
@@ -549,11 +553,11 @@ for.cond.us:                                      ; preds = %for.cond.us.prehead
 
 for.body.us:                                      ; preds = %for.cond.us, %for.body.us
   %indvars.iv = phi i64 [ 0, %for.cond.us ], [ %indvars.iv.next, %for.body.us ]
-  %csum.014.us = phi i32 [ 0, %for.cond.us ], [ %add.us, %for.body.us ]
+  %csum.016.us = phi i32 [ 0, %for.cond.us ], [ %add.us, %for.body.us ]
   %arrayidx.us = getelementptr i8, ptr %buf, i64 %indvars.iv
   %15 = load i8, ptr %arrayidx.us, align 1
-  %conv11.us18 = zext i8 %15 to i32
-  %add.us = add i32 %csum.014.us, %conv11.us18
+  %conv11.us20 = zext i8 %15 to i32
+  %add.us = add i32 %csum.016.us, %conv11.us20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.cond9.for.end_crit_edge.us, label %for.body.us, !llvm.loop !9
@@ -563,15 +567,17 @@ for.cond9.for.end_crit_edge.us:                   ; preds = %for.body.us
   %shr.us = lshr i32 %add.us, 4
   %and.us = and i32 %shr.us, 15
   %cmp.i9.us = icmp ult i32 %and.us, 10
-  %retval.0.v.i.us = select i1 %cmp.i9.us, i32 48, i32 87
-  %retval.0.i.us = add nuw nsw i32 %retval.0.v.i.us, %and.us
+  %add.i10.us = or disjoint i32 %and.us, 48
+  %add1.i.us = add nuw nsw i32 %and.us, 87
+  %retval.0.i.us = select i1 %cmp.i9.us, i32 %add.i10.us, i32 %add1.i.us
   %conv14.us = trunc nuw nsw i32 %retval.0.i.us to i8
   store i8 %conv14.us, ptr %arrayidx15, align 1
   %and16.us = and i32 %add.us, 15
-  %cmp.i10.us = icmp ult i32 %and16.us, 10
-  %retval.0.v.i11.us = select i1 %cmp.i10.us, i32 48, i32 87
-  %retval.0.i12.us = add nuw nsw i32 %retval.0.v.i11.us, %and16.us
-  %conv18.us = trunc nuw nsw i32 %retval.0.i12.us to i8
+  %cmp.i11.us = icmp ult i32 %and16.us, 10
+  %add.i12.us = or disjoint i32 %and16.us, 48
+  %add1.i13.us = add nuw nsw i32 %and16.us, 87
+  %retval.0.i14.us = select i1 %cmp.i11.us, i32 %add.i12.us, i32 %add1.i13.us
+  %conv18.us = trunc nuw nsw i32 %retval.0.i14.us to i8
   store i8 %conv18.us, ptr %arrayidx19, align 1
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @gdbserver_state, i64 4144), align 8
   %call20.us = call ptr @g_byte_array_append(ptr noundef %16, ptr noundef nonnull %footer, i32 noundef 3) #18
@@ -3562,7 +3568,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #3
 declare i32 @gdb_signal_to_target(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @process_string_cmd(ptr noundef %data, ptr noundef readonly %cmds, i32 noundef %num_cmds) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @process_string_cmd(ptr noundef %data, ptr noundef readonly %cmds, i32 noundef range(i32 1, 14) %num_cmds) unnamed_addr #0 {
 entry:
   %curr_delimiters.i90.i = alloca [2 x i8], align 2
   %curr_delimiters.i72.i = alloca [2 x i8], align 2
@@ -3576,10 +3582,8 @@ entry:
   %curr_data.i = alloca ptr, align 8
   %this_param.i = alloca %union.GdbCmdVariant, align 8
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 16) #18
-  %tobool.not = icmp ne ptr %cmds, null
-  %cmp24 = icmp sgt i32 %num_cmds, 0
-  %or.cond = and i1 %tobool.not, %cmp24
-  br i1 %or.cond, label %for.body.preheader, label %cleanup
+  %tobool.not = icmp eq ptr %cmds, null
+  br i1 %tobool.not, label %cleanup, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %num_cmds to i64

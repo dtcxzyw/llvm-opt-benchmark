@@ -1938,8 +1938,8 @@ _ZN12_GLOBAL__N_14SROA22deleteDeadInstructionsERN4llvm15SmallPtrSetImplIPNS1_10A
   br i1 %320, label %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit, label %321
 
 321:                                              ; preds = %_ZN12_GLOBAL__N_14SROA22deleteDeadInstructionsERN4llvm15SmallPtrSetImplIPNS1_10AllocaInstEEE.exit
-  call fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %77, ptr nonnull %8)
-  call fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %89, ptr nonnull %8)
+  call fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %77, ptr %8)
+  call fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %89, ptr %8)
   %.val.i = load ptr, ptr %90, align 8
   %.val5.i = load ptr, ptr %91, align 8
   %322 = ptrtoint ptr %.val5.i to i64
@@ -4221,8 +4221,8 @@ _ZN4llvm11InstVisitorIN12_GLOBAL__N_120AggLoadStoreRewriterEbE10visitStoreERNS_9
   %398 = load ptr, ptr %397, align 8
   %399 = getelementptr inbounds i8, ptr %395, i64 -32
   %400 = load ptr, ptr %399, align 8
-  call fastcc void @_ZZN12_GLOBAL__N_120AggLoadStoreRewriter15unfoldGEPSelectERN4llvm17GetElementPtrInstEENKUlPNS1_5ValueEE_clES5_(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %398)
-  call fastcc void @_ZZN12_GLOBAL__N_120AggLoadStoreRewriter15unfoldGEPSelectERN4llvm17GetElementPtrInstEENKUlPNS1_5ValueEE_clES5_(ptr dead_on_unwind noalias nonnull writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %400)
+  call fastcc void @_ZZN12_GLOBAL__N_120AggLoadStoreRewriter15unfoldGEPSelectERN4llvm17GetElementPtrInstEENKUlPNS1_5ValueEE_clES5_(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %398)
+  call fastcc void @_ZZN12_GLOBAL__N_120AggLoadStoreRewriter15unfoldGEPSelectERN4llvm17GetElementPtrInstEENKUlPNS1_5ValueEE_clES5_(ptr dead_on_unwind noalias writable align 8 %49, ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef %400)
   %401 = load ptr, ptr %118, align 8
   call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %401, ptr noundef nonnull %185)
   %402 = call i32 @_ZNK4llvm17GetElementPtrInst14getNoWrapFlagsEv(ptr noundef nonnull align 8 dereferenceable(88) %185) #25
@@ -7247,7 +7247,7 @@ _ZL21speculatePHINodeLoadsRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_12
 
 ._crit_edge198:                                   ; preds = %_ZL21speculatePHINodeLoadsRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERNS_7PHINodeE.exit, %1500
   %1738 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  call fastcc void @_ZN4llvm9MapVectorIPNS_10SelectInstENS_11SmallVectorISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS7_EENS_18PointerIntPairInfoIS7_Lj2ESB_EEEEPNS_9StoreInstEEELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_SI_ELj8EEEE10takeVectorEv(ptr dead_on_unwind noalias nonnull writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(600) %1738)
+  call fastcc void @_ZN4llvm9MapVectorIPNS_10SelectInstENS_11SmallVectorISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS7_EENS_18PointerIntPairInfoIS7_Lj2ESB_EEEEPNS_9StoreInstEEELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_SI_ELj8EEEE10takeVectorEv(ptr dead_on_unwind noalias writable align 8 %57, ptr noundef nonnull align 8 dereferenceable(600) %1738)
   %1739 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #25
   br i1 %1739, label %._crit_edge202, label %.lr.ph201
 
@@ -8306,7 +8306,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm9SetVectorIPNS_10AllocaInstENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE9remove_ifIZN12_GLOBAL__N_14SROA7runSROAERNS_8FunctionEE3$_0EEbT_"(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.776", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred.776", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10220,7 +10220,7 @@ _ZNSt17_Temporary_bufferIPN12_GLOBAL__N_15SliceES1_EC2ES2_l.exit.thread21.i.i.i:
 _ZN4llvm11stable_sortIRN12_GLOBAL__N_112AllocaSlicesEEEvOT_.exit: ; preds = %_ZN4llvm9BitVectorD2Ev.exit.i, %192, %223, %210, %_ZN4llvm14SmallBitVectorD2Ev.exit
   %224 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %224, i64 noundef 4) #25
-  call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(456) %2)
+  call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef nonnull align 8 dereferenceable(456) %2)
   call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %33, ptr noundef nonnull align 8 dereferenceable(96) %32)
   %225 = getelementptr inbounds nuw i8, ptr %32, i64 96
   call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %34, ptr noundef nonnull align 8 dereferenceable(96) %225)
@@ -10948,7 +10948,7 @@ _ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i: ; pred
 "_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZN12_GLOBAL__N_14SROA11splitAllocaERNS_10AllocaInstERNS5_12AllocaSlicesEE3$_0EET0_OT_SC_.exit": ; preds = %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i, %574
   %.0.i.i.i.i5.i = phi ptr [ %37, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i ], [ %577, %574 ]
   %.0.i.i.i.i3.i181 = phi ptr [ %573, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i ], [ %579, %574 ]
-  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef %.0.i.i.i.i5.i, ptr noundef %.0.i.i.i.i3.i181, ptr noundef nonnull byval(%class.anon.521) align 8 %18)
+  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %.0.i.i.i.i5.i, ptr noundef %.0.i.i.i.i3.i181, ptr noundef nonnull byval(%class.anon.521) align 8 %18)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %.sroa.0.0.copyload.i.i.i.i183 = load i64, ptr %37, align 8
   %580 = and i64 %.sroa.0.0.copyload.i.i.i.i183, 4
@@ -11004,7 +11004,7 @@ _ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i190: ; p
 "_ZN4llvm8for_eachINS_13TinyPtrVectorIPNS_17DbgVariableRecordEEEZN12_GLOBAL__N_14SROA11splitAllocaERNS_10AllocaInstERNS5_12AllocaSlicesEE3$_0EET0_OT_SC_.exit192": ; preds = %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i190, %593
   %.0.i.i.i.i5.i188 = phi ptr [ %39, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i190 ], [ %596, %593 ]
   %.0.i.i.i.i3.i189 = phi ptr [ %592, %_ZN4llvm13TinyPtrVectorIPNS_17DbgVariableRecordEE5beginEv.exit.i.i.i.i.i190 ], [ %598, %593 ]
-  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef %.0.i.i.i.i5.i188, ptr noundef %.0.i.i.i.i3.i189, ptr noundef nonnull byval(%class.anon.521) align 8 %17)
+  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef %.0.i.i.i.i5.i188, ptr noundef %.0.i.i.i.i3.i189, ptr noundef nonnull byval(%class.anon.521) align 8 %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   %.sroa.0.0.copyload.i.i.i.i193 = load i64, ptr %39, align 8
   %599 = and i64 %.sroa.0.0.copyload.i.i.i.i193, 4
@@ -11689,7 +11689,7 @@ _ZN4llvm2at23getDVRAssignmentMarkersEPKNS_11InstructionE.exit: ; preds = %923, %
   %929 = load ptr, ptr %41, align 8, !noalias !233
   %930 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #25, !noalias !233
   %931 = getelementptr inbounds ptr, ptr %929, i64 %930
-  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nonnull writable align 8 %42, ptr noundef %929, ptr noundef %931, ptr noundef nonnull byval(%class.anon.521) align 8 %4)
+  call fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias writable align 8 %42, ptr noundef %929, ptr noundef %931, ptr noundef nonnull byval(%class.anon.521) align 8 %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %932 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #25
   %933 = load ptr, ptr %41, align 8
@@ -11856,7 +11856,7 @@ _ZN4llvm9SetVectorIPNS_7PHINodeENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm9MapVectorIPNS_10SelectInstENS_11SmallVectorISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS7_EENS_18PointerIntPairInfoIS7_Lj2ESB_EEEEPNS_9StoreInstEEELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_SI_ELj8EEEE10takeVectorEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm9MapVectorIPNS_10SelectInstENS_11SmallVectorISt7variantIJNS_14PointerIntPairIPNS_8LoadInstELj2EN12_GLOBAL__N_123SelectHandSpeculativityENS_21PointerLikeTypeTraitsIS7_EENS_18PointerIntPairInfoIS7_Lj2ESB_EEEEPNS_9StoreInstEEELj2EEENS_13SmallDenseMapIS2_jLj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS3_ISt4pairIS2_SI_ELj8EEEE10takeVectorEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(600) %1) unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp ult i32 %4, 2
@@ -20515,7 +20515,7 @@ _ZSt21__move_merge_adaptiveIPN12_GLOBAL__N_15SliceES2_S2_N9__gnu_cxx5__ops15_Ite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_15SliceES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #17 {
+define internal fastcc void @_ZSt17__merge_sort_loopIPN12_GLOBAL__N_15SliceES2_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_T2_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 768614336404564649) %3) unnamed_addr #17 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -21046,7 +21046,7 @@ _ZN4llvm13SmallDenseMapIPNS_11InstructionEZN12_GLOBAL__N_14SROA22presplitLoadsAn
   store i32 0, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i32 0, ptr %95, align 8
-  call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(456) %2)
+  call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(456) %2)
   call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %49, ptr noundef nonnull align 8 dereferenceable(96) %48)
   %96 = getelementptr inbounds nuw i8, ptr %48, i64 96
   call fastcc void @_ZN12_GLOBAL__N_112AllocaSlices18partition_iteratorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(96) %96)
@@ -27870,7 +27870,7 @@ _ZN4llvm11SmallVectorIPNS_8LoadInstELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112AllocaSlices10partitionsEv(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(456) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
   %4 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
   %5 = alloca %"class.(anonymous namespace)::AllocaSlices::partition_iterator", align 8
@@ -30998,7 +30998,7 @@ declare void @_ZN4llvm13findDVRValuesEPNS_5ValueE(ptr dead_on_unwind writable sr
 declare noundef ptr @_ZN4llvm4Type9getIntNTyERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(34) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(34) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -35909,7 +35909,7 @@ declare noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL31isVectorPromotionViableForSliceRN12_GLOBAL__N_19PartitionERKNS_5SliceEPN4llvm10VectorTypeEmRKNS5_10DataLayoutE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(512) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL31isVectorPromotionViableForSliceRN12_GLOBAL__N_19PartitionERKNS_5SliceEPN4llvm10VectorTypeEmRKNS5_10DataLayoutE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, 2305843009213693952) %3, ptr noundef nonnull align 8 dereferenceable(512) %4) unnamed_addr #0 {
   %.val80 = load i64, ptr %1, align 8
   %.val93 = load i64, ptr %0, align 8
   %6 = tail call i64 @llvm.usub.sat.i64(i64 %.val80, i64 %.val93)
@@ -38695,7 +38695,7 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %17, %25
   store i8 1, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 33
   store i8 1, ptr %27, align 1
-  %28 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef %13, ptr noundef nonnull %4, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %5)
+  %28 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef %13, ptr noundef %4, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %5)
   %29 = load i32, ptr %15, align 8
   %30 = icmp ugt i32 %29, 64
   br i1 %30, label %31, label %_ZN4llvm5APIntD2Ev.exit
@@ -42720,7 +42720,7 @@ _ZN4llvm5APIntC2ERKS0_.exit:                      ; preds = %439, %441
   store i64 %444, ptr %447, align 8, !alias.scope !823
   %448 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr @.str.42, ptr %448, align 8, !alias.scope !823
-  %449 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %435, ptr noundef nonnull %375, ptr noundef nonnull %22, ptr noundef nonnull %386, ptr noundef nonnull align 8 dereferenceable(34) %23)
+  %449 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %435, ptr noundef nonnull %375, ptr noundef %22, ptr noundef nonnull %386, ptr noundef nonnull align 8 dereferenceable(34) %23)
   %450 = load i32, ptr %436, align 8
   %451 = icmp ugt i32 %450, 64
   br i1 %451, label %452, label %_ZN4llvm5APIntD2Ev.exit241
@@ -43030,7 +43030,7 @@ _ZN4llvm5APIntC2ERKS0_.exit251:                   ; preds = %609, %611
   store i64 %614, ptr %617, align 8, !alias.scope !829
   %618 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr @.str.42, ptr %618, align 8, !alias.scope !829
-  %619 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %605, ptr noundef nonnull %375, ptr noundef nonnull %26, ptr noundef nonnull %386, ptr noundef nonnull align 8 dereferenceable(34) %27)
+  %619 = call fastcc noundef ptr @_ZL14getAdjustedPtrRN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEEERKNS_10DataLayoutEPNS_5ValueENS_5APIntEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(176) %605, ptr noundef nonnull %375, ptr noundef %26, ptr noundef nonnull %386, ptr noundef nonnull align 8 dereferenceable(34) %27)
   %620 = load i32, ptr %606, align 8
   %621 = icmp ugt i32 %620, 64
   br i1 %621, label %622, label %_ZN4llvm5APIntD2Ev.exit252
@@ -45897,7 +45897,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_copyIKmmEEvPT_S5_PT0_PNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef readonly byval(%class.anon.521) align 8 %3) unnamed_addr #0 {
+define internal fastcc void @"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_14SROA11splitAllocaERNS0_10AllocaInstERNS4_12AllocaSlicesEE3$_0ET0_T_SC_SB_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr nocapture noundef readonly byval(%class.anon.521) align 8 %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = alloca %"class.llvm::DebugLoc", align 8
   %7 = alloca %"class.llvm::DebugLoc", align 8

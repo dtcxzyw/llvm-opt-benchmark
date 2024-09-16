@@ -1065,7 +1065,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @sttype_field_hfinfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @df_func_base(ptr readonly %.0.val, ptr noundef %0, i32 noundef range(i32 1, 3) %1) unnamed_addr #0 {
   %3 = icmp ne ptr %.0.val, null
   br i1 %3, label %.preheader, label %.loopexit
 

@@ -2813,9 +2813,9 @@ Vec_IntFind.exit.us:                              ; preds = %47, %._crit_edge.lo
   %58 = getelementptr inbounds i32, ptr %.val69, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp ne i32 %59, 1
-  %61 = shl nsw i32 %56, 1
-  %62 = zext i1 %60 to i32
-  %63 = or disjoint i32 %61, %62
+  %61 = zext i1 %60 to i32
+  %62 = shl nsw i32 %56, 1
+  %63 = or disjoint i32 %62, %61
   %64 = xor i32 %63, 1
   %65 = load i32, ptr %8, align 4
   %66 = load i32, ptr %7, align 8
@@ -9467,9 +9467,9 @@ Abc_Clock.exit422.Acb_NtkObjMffcEstimate.exit414.thread_crit_edge: ; preds = %Ab
   %566 = getelementptr inbounds i32, ptr %.val333, i64 %565
   %567 = load i32, ptr %566, align 4
   %568 = icmp ne i32 %567, 1
-  %569 = shl nsw i32 %563, 1
-  %570 = zext i1 %568 to i32
-  %571 = or disjoint i32 %569, %570
+  %569 = zext i1 %568 to i32
+  %570 = shl nsw i32 %563, 1
+  %571 = or disjoint i32 %570, %569
   store i32 %571, ptr %22, align 4
   %572 = call i32 @sat_solver_addclause(ptr noundef %561, ptr noundef nonnull %22, ptr noundef nonnull %546) #24
   %.not294 = icmp eq i32 %572, 0
@@ -10737,14 +10737,14 @@ declare void @llvm.va_end.p0(ptr) #18
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21

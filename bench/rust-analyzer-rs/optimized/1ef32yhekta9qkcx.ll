@@ -1029,7 +1029,7 @@ define internal void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17h928b5a20df
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !140, !noundef !4
   switch i64 %2, label %"_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hbac3ed97a0602907E.exit" [
     i64 0, label %4
@@ -2122,7 +2122,7 @@ define void @_ZN3mbe16DeclarativeMacro8from_err17h5b4db1b86874b231E(ptr noalias 
 .body:                                            ; preds = %6
   %7 = landingpad { ptr, i32 }
           cleanup
-  tail call fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #22
+  tail call fastcc void @"_ZN4core3ptr36drop_in_place$LT$mbe..ParseError$GT$17h8c8bf4a64ae9e1feE"(ptr noalias noundef align 8 dereferenceable(24) %1) #22
   invoke fastcc void @"_ZN4core3ptr65drop_in_place$LT$alloc..boxed..Box$LT$$u5b$mbe..Rule$u5d$$GT$$GT$17h2830c952ca9a4670E"(ptr nonnull inttoptr (i64 8 to ptr), i64 0) #22
           to label %13 unwind label %11
 

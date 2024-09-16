@@ -1287,7 +1287,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef %82, ptr noundef nonnull align 1 dereferenceable(1) %15) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 8))
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 1144
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %83)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %83)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #24
@@ -1295,7 +1295,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %84, ptr noundef nonnull align 1 dereferenceable(1) %17) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 9))
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 1176
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(32) %85)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %85)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #24
@@ -1303,7 +1303,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %86, ptr noundef nonnull align 1 dereferenceable(1) %19) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 13))
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 1208
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %87)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %87)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #24
@@ -1311,7 +1311,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %88, ptr noundef nonnull align 1 dereferenceable(1) %21) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 8))
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 1240
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %89)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(32) %89)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #24
@@ -1319,7 +1319,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef %90, ptr noundef nonnull align 1 dereferenceable(1) %23) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 5))
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 1272
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(32) %91)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(32) %91)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #24
@@ -1327,7 +1327,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %92, ptr noundef nonnull align 1 dereferenceable(1) %25) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 12))
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 1304
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(32) %93)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %24, ptr noundef nonnull align 8 dereferenceable(32) %93)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #24
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 1336
@@ -1384,7 +1384,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %116, ptr noundef nonnull align 1 dereferenceable(1) %28) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.13, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.13, i64 8))
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 1144
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(32) %117)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %27, ptr noundef nonnull align 8 dereferenceable(32) %117)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #24
   br label %118
@@ -1409,7 +1409,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %128, ptr noundef nonnull align 1 dereferenceable(1) %31) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.14, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.14, i64 9))
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 1176
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(32) %129)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(32) %129)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #24
   br label %130
@@ -1434,7 +1434,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef %140, ptr noundef nonnull align 1 dereferenceable(1) %34) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @.str.15, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.15, i64 13))
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 1208
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(32) %141)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %33, ptr noundef nonnull align 8 dereferenceable(32) %141)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #24
   br label %142
@@ -1459,7 +1459,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %152, ptr noundef nonnull align 1 dereferenceable(1) %37) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.16, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.16, i64 8))
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 1240
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %153)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %36, ptr noundef nonnull align 8 dereferenceable(32) %153)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #24
   br label %154
@@ -1484,7 +1484,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %164, ptr noundef nonnull align 1 dereferenceable(1) %40) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull @.str.17, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.17, i64 5))
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 1272
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(32) %165)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %165)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #24
   br label %166
@@ -1509,7 +1509,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit: 
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef %176, ptr noundef nonnull align 1 dereferenceable(1) %43) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull @.str.18, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.18, i64 12))
   %177 = getelementptr inbounds nuw i8, ptr %1, i64 1304
-  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %42, ptr noundef nonnull align 8 dereferenceable(32) %177)
+  call fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %42, ptr noundef nonnull align 8 dereferenceable(32) %177)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #24
   br label %178
@@ -1582,7 +1582,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEEENK3$_0clES7_RSt8functionIFbjRKNS_6ModuleEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %4 = alloca %"class.std::function.50", align 8
   %5 = alloca %"class.std::function.50", align 8
@@ -3625,7 +3625,7 @@ define dso_local void @_ZN4llvm3lto7backendERKNS0_6ConfigESt8functionIFNS_8Expec
   %13 = alloca %"class.std::vector.64", align 8
   %14 = alloca %"class.std::function.187", align 8
   %15 = alloca %"class.std::function.187", align 8
-  call fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %4)
+  call fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %4)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
@@ -3633,7 +3633,7 @@ define dso_local void @_ZN4llvm3lto7backendERKNS0_6ConfigESt8functionIFNS_8Expec
 
 19:                                               ; preds = %6
   %20 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(857) %4)
+  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(857) %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 527
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
@@ -3683,7 +3683,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %24, %28
   br label %_ZNSt8functionIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEEC2ERKSC_.exit
 
 _ZNSt8functionIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEEC2ERKSC_.exit: ; preds = %38, %40
-  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %36, ptr noundef nonnull %14, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5)
+  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %36, ptr noundef %14, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5)
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not.i.i = icmp eq ptr %48, null
@@ -3789,7 +3789,7 @@ _ZN4llvm8ExpectedIPKNS_6TargetEED2Ev.exit:        ; preds = %_ZN4llvm12ErrorSucc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3898,7 +3898,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(857) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(857) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::Triple", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::SubtargetFeatures", align 8
@@ -4062,7 +4062,7 @@ _ZN4llvm17SubtargetFeaturesD2Ev.exit:             ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca i32, align 4
@@ -4548,7 +4548,7 @@ define dso_local void @_ZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_
   %34 = alloca %"class.std::unique_ptr.163", align 8
   store i32 %2, ptr %20, align 4
   store ptr %8, ptr %21, align 8
-  call fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %4)
+  call fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %4)
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = trunc i8 %36 to i1
@@ -4564,7 +4564,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 40:                                               ; preds = %10
   %41 = load ptr, ptr %22, align 8
-  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(857) %4)
+  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %23, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %41, ptr noundef nonnull align 8 dereferenceable(857) %4)
   %42 = load ptr, ptr %4, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 864
   %44 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #24
@@ -4628,7 +4628,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i57: ;
 
 _ZNSt8functionIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEEC2ERKSC_.exit: ; preds = %69, %73
   %80 = load i32, ptr %20, align 4
-  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %70, ptr noundef nonnull %26, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5)
+  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %70, ptr noundef %26, i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5)
   %81 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not.i.i = icmp eq ptr %82, null
@@ -4758,7 +4758,7 @@ _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit.i66: ; preds = %122,
 
 132:                                              ; preds = %124
   store i64 %64, ptr %28, align 8
-  call fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef %131, ptr noundef nonnull %28)
+  call fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef %131, ptr noundef %28)
   %133 = load ptr, ptr %28, align 8
   %.not.i68 = icmp eq ptr %133, null
   br i1 %.not.i68, label %_ZNSt10unique_ptrIN4llvm14ToolOutputFileESt14default_deleteIS1_EED2Ev.exit70, label %134
@@ -5307,7 +5307,7 @@ _ZN4llvm3lto27finalizeOptimizationRemarksESt10unique_ptrINS_14ToolOutputFileESt1
 354:                                              ; preds = %_ZNKSt8functionIFbjRKN4llvm6ModuleEEEclEjS3_.exit91, %_ZN4llvm5ErrorD2Ev.exit
   %355 = load ptr, ptr %23, align 8
   store i64 %64, ptr %34, align 8
-  call fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef %355, ptr noundef nonnull %34)
+  call fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef %355, ptr noundef %34)
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %_ZN4llvm3lto27finalizeOptimizationRemarksESt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EE.exit94, %354
@@ -5468,7 +5468,7 @@ _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit: ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::function.187", align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5552,7 +5552,7 @@ _ZNSt8functionIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14defaul
   %47 = load ptr, ptr %8, align 8
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr %11, align 8
-  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %35, ptr noundef %3, ptr noundef nonnull %6, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(488) %49)
+  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %35, ptr noundef %3, ptr noundef %6, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(488) %49)
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not.i.i6 = icmp eq ptr %51, null
@@ -12552,7 +12552,7 @@ _ZN4llvm15ParserCallbacksD2Ev.exit.i.i.i.i.i.i.i: ; preds = %38, %35, %_ZNSt8opt
   %48 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %49, align 8
-  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1368) %47, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(857) %46)
+  call fastcc void @_ZL19createTargetMachineRKN4llvm3lto6ConfigEPKNS_6TargetERNS_6ModuleE(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(1368) %47, ptr noundef %50, ptr noundef nonnull align 8 dereferenceable(857) %46)
   %51 = load ptr, ptr %.val, align 8
   %52 = load ptr, ptr %6, align 8
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -12577,7 +12577,7 @@ _ZN4llvm15ParserCallbacksD2Ev.exit.i.i.i.i.i.i.i: ; preds = %38, %35, %_ZNSt8opt
 _ZNSt8functionIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEEC2ERKSC_.exit.i.i.i.i.i.i.i: ; preds = %57, %44
   %64 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %65 = load ptr, ptr %64, align 8
-  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %51, ptr noundef %52, ptr noundef nonnull %7, i32 noundef %.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(857) %46, ptr noundef nonnull align 8 dereferenceable(488) %65)
+  call fastcc void @_ZL7codegenRKN4llvm3lto6ConfigEPNS_13TargetMachineESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS9_EEEEjRKNS_5TwineEEEjRNS_6ModuleERKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(1368) %51, ptr noundef %52, ptr noundef %7, i32 noundef %.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(857) %46, ptr noundef nonnull align 8 dereferenceable(488) %65)
   %66 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %67, null

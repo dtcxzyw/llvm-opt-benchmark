@@ -2334,7 +2334,7 @@ declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(p
 declare void @_ZN4llvm20emitSourceFileHeaderENS_9StringRefERNS_11raw_ostreamERKNS_12RecordKeeperE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(3184) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter23emitCompressInstEmitterERN4llvm11raw_ostreamENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(3184) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2405,7 +2405,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter23emitCompres
   %storemerge26.i.i.in.in.i.i.i = phi i64 [ %storemerge26.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %51, %54 ]
   %storemerge26.i.i.in.i.i.i = add nuw nsw i64 %storemerge26.i.i.in.in.i.i.i, 1
   %storemerge26.i.i.i.i.i = lshr i64 %storemerge26.i.i.in.i.i.i, 1
-  %56 = mul nuw nsw i64 %storemerge26.i.i.i.i.i, 608
+  %56 = mul nuw i64 %storemerge26.i.i.i.i.i, 608
   %57 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %56, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %.not.i.i.i.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i.i.i, label %58

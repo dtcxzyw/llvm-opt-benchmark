@@ -4132,7 +4132,7 @@ _ZNSt15__tuple_compareISt5tupleIJhhhhhhbbbbbbbbbbbbEES1_Lm9ELm18EE4__eqERKS1_S4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120X86FoldTablesEmitter17addEntryWithFlagsERSt3mapIPKN4llvm18CodeGenInstructionENS0_17X86FoldTableEntryENS0_19CompareInstrsByEnumESaISt4pairIKS5_S6_EEES5_S5_tjb(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120X86FoldTablesEmitter17addEntryWithFlagsERSt3mapIPKN4llvm18CodeGenInstructionENS0_17X86FoldTableEntryENS0_19CompareInstrsByEnumESaISt4pairIKS5_S6_EEES5_S5_tjb(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 0, 5) %5, i1 noundef zeroext %6) unnamed_addr #1 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::StringRef", align 8
@@ -4163,7 +4163,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120X86FoldTablesEmitter17addEntryWi
 
 33:                                               ; preds = %7
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %35 = zext i32 %5 to i64
+  %35 = zext nneg i32 %5 to i64
   %36 = load ptr, ptr %34, align 8
   %37 = getelementptr inbounds %"struct.llvm::CGIOperandList::OperandInfo", ptr %36, i64 %35
   %38 = load ptr, ptr %37, align 8

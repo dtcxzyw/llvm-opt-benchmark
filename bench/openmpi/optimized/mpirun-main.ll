@@ -109,9 +109,9 @@ find_prterun.exit:                                ; preds = %24
   %36 = call i32 @opal_argv_append(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.17) #11
   %37 = call i32 @opal_argv_append(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.18) #11
   %38 = call i32 @opal_argv_append(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @.str.3) #11
-  call fastcc void @append_prefixes(ptr noundef nonnull %4, ptr noundef nonnull @.str.19)
-  call fastcc void @append_prefixes(ptr noundef nonnull %4, ptr noundef nonnull @.str.20)
-  call fastcc void @append_prefixes(ptr noundef nonnull %4, ptr noundef nonnull @.str.21)
+  call fastcc void @append_prefixes(ptr noundef %4, ptr noundef nonnull @.str.19)
+  call fastcc void @append_prefixes(ptr noundef %4, ptr noundef nonnull @.str.20)
+  call fastcc void @append_prefixes(ptr noundef %4, ptr noundef nonnull @.str.21)
   %39 = load ptr, ptr %4, align 8
   %40 = call noalias ptr @opal_argv_join(ptr noundef %39, i32 noundef 44) #11
   %41 = call i32 @opal_setenv(ptr noundef nonnull @.str.22, ptr noundef %40, i1 noundef zeroext true, ptr noundef nonnull @environ) #11
@@ -191,7 +191,7 @@ declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare i32 @opal_argv_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_prefixes(ptr noundef %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc void @append_prefixes(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca i32, align 4
   %4 = icmp eq ptr %1, null
   br i1 %4, label %23, label %5

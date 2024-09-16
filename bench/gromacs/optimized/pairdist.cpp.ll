@@ -620,7 +620,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_112PairDistance12init
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 116
   %9 = load i32, ptr %8, align 4
-  %10 = tail call fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef nonnull %6, ptr noundef %7, i32 noundef %9)
+  %10 = tail call fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef %6, ptr noundef %7, i32 noundef %9)
   %11 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %10, ptr %11, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 128
@@ -651,7 +651,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_112PairDistance12init
   %28 = getelementptr inbounds %"class.gmx::Selection", ptr %27, i64 %.01631
   %29 = load ptr, ptr %2, align 8
   %30 = load i32, ptr %25, align 8
-  %31 = tail call fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef nonnull %28, ptr noundef %29, i32 noundef %30)
+  %31 = tail call fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef %28, ptr noundef %29, i32 noundef %30)
   %32 = load i32, ptr %11, align 4
   %33 = mul nsw i32 %32, %31
   %34 = load i32, ptr %12, align 8
@@ -3076,7 +3076,7 @@ _ZNSt6vectorIN3gmx15analysismodules12_GLOBAL__N_19GroupTypeESaIS3_EE9push_backEO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN3gmx15analysismodules12_GLOBAL__N_119initSelectionGroupsEPNS_9SelectionEPK10gmx_mtop_tNS1_9GroupTypeE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::InternalError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8

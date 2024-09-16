@@ -714,7 +714,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   br i1 %.029.i, label %153, label %154
 
 153:                                              ; preds = %150
-  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %125, ptr noundef nonnull %5)
+  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %125, ptr noundef %5)
   br label %154
 
 154:                                              ; preds = %153, %150
@@ -723,7 +723,7 @@ ItemPointerIndicatesMovedPartitions.exit.thread:  ; preds = %55, %ItemPointerInd
   br i1 %or.cond39.not.i, label %156, label %logical_rewrite_heap_tuple.exit
 
 156:                                              ; preds = %154
-  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %133, ptr noundef nonnull %5)
+  call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %133, ptr noundef %5)
   br label %logical_rewrite_heap_tuple.exit
 
 logical_rewrite_heap_tuple.exit:                  ; preds = %110, %149, %154, %156
@@ -1397,7 +1397,7 @@ declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_ad
 declare i64 @FileWriteV(i32 noundef, ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @logical_rewrite_log_mapping(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca [1024 x i8], align 16

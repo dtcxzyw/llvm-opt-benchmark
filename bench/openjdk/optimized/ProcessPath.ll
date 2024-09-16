@@ -760,7 +760,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   br i1 %or.cond254, label %130, label %131
 
 130:                                              ; preds = %125
-  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %126, float %128, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %126, float %128, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
   br label %131
 
 131:                                              ; preds = %125, %130, %122
@@ -822,7 +822,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 160:                                              ; preds = %158
   %.val221 = load float, ptr %14, align 16
   %.val222 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine(ptr noundef %0, float %.val221, float %.val222, float %151, float %154, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val221, float %.val222, float %151, float %154, ptr noundef %15)
   store float %151, ptr %14, align 16
   store float %154, ptr %77, align 4
   br label %533
@@ -977,7 +977,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %240 = call float @llvm.fmuladd.f32(float %228, float %239, float %232)
   store float %240, ptr %103, align 4
   store float %240, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %13, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %ProcessQuad.exit
 
@@ -1008,7 +1008,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %253 = call float @llvm.fmuladd.f32(float %241, float %252, float %245)
   store float %253, ptr %108, align 4
   store float %253, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %12, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %254 = fsub double %.sroa.6.080.i, %.sroa.0.181.i
   %255 = fcmp ogt double %254, 0.000000e+00
@@ -1047,17 +1047,17 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %277 = call float @llvm.fmuladd.f32(float %259, float %276, float %267)
   store float %277, ptr %113, align 4
   store float %277, ptr %77, align 4
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %11, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %ProcessQuad.exit
 
 ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, %.thread.i, %256
-  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr noundef %14, ptr noundef %15)
   br label %279
 
 278:                                              ; preds = %182
   %.val226 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine(ptr noundef %0, float %186, float %.val226, float %173, float %176, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %186, float %.val226, float %173, float %176, ptr noundef %15)
   br label %279
 
 279:                                              ; preds = %278, %ProcessQuad.exit
@@ -1416,7 +1416,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %476 = call float @llvm.fmuladd.f32(float %444, float %475, float %462)
   store float %476, ptr %91, align 4
   store float %476, ptr %77, align 4
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %9, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br i1 %431, label %.lr.ph186.i, label %ProcessCubic.exit
 
@@ -1484,7 +1484,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %518 = call float @llvm.fmuladd.f32(float %486, float %517, float %504)
   store float %518, ptr %98, align 4
   store float %518, ptr %77, align 4
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %8, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %519
 
@@ -1494,14 +1494,14 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   br i1 %exitcond195.not.i, label %ProcessCubic.exit, label %477, !llvm.loop !9
 
 ProcessCubic.exit:                                ; preds = %519, %427, %._crit_edge.i241
-  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr noundef %14, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %521
 
 520:                                              ; preds = %307
   %.val229 = load float, ptr %14, align 16
   %.val230 = load float, ptr %77, align 4
-  call fastcc void @ProcessLine(ptr noundef %0, float %.val229, float %.val230, float %298, float %301, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %.val229, float %.val230, float %298, float %301, ptr noundef %15)
   br label %521
 
 521:                                              ; preds = %520, %ProcessCubic.exit
@@ -1524,7 +1524,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br i1 %or.cond266, label %530, label %531
 
 530:                                              ; preds = %525
-  call fastcc void @ProcessLine(ptr noundef %0, float %526, float %528, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef %0, float %526, float %528, float %.sroa.0.1276, float %.sroa.13.1274, ptr noundef %15)
   store float %.sroa.0.1276, ptr %14, align 16
   store float %.sroa.13.1274, ptr %77, align 4
   br label %531
@@ -1567,7 +1567,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br i1 %or.cond269, label %548, label %549
 
 548:                                              ; preds = %542
-  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %543, float %546, float %.sroa.0.2, float %.sroa.13.2, ptr noundef nonnull %15)
+  call fastcc void @ProcessLine(ptr noundef nonnull %0, float %543, float %546, float %.sroa.0.2, float %.sroa.13.2, ptr noundef %15)
   br label %549
 
 549:                                              ; preds = %542, %548, %538
@@ -1582,7 +1582,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
@@ -1755,7 +1755,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %108 = fmul float %.1225, 1.024000e+03
   %109 = fptosi float %108 to i32
   %110 = load ptr, ptr %0, align 8
-  tail call void %110(ptr noundef nonnull %0, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef %1, i8 noundef zeroext %101, i8 noundef zeroext %99) #12
+  tail call void %110(ptr noundef nonnull %0, i32 noundef %103, i32 noundef %105, i32 noundef %107, i32 noundef %109, ptr noundef nonnull %1, i8 noundef zeroext %101, i8 noundef zeroext %99) #12
   br label %.thread
 
 111:                                              ; preds = %52
@@ -1796,7 +1796,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %134 = fmul float %.0229, 1.024000e+03
   %135 = fptosi float %134 to i32
   %136 = load ptr, ptr %0, align 8
-  tail call void %136(ptr noundef nonnull %0, i32 noundef %131, i32 noundef %135, i32 noundef %131, i32 noundef %133, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #12
+  tail call void %136(ptr noundef nonnull %0, i32 noundef %131, i32 noundef %135, i32 noundef %131, i32 noundef %133, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %53) #12
   br label %146
 
 .thread57:                                        ; preds = %111, %117
@@ -1872,7 +1872,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %175 = fmul float %.270, 1.024000e+03
   %176 = fptosi float %175 to i32
   %177 = load ptr, ptr %0, align 8
-  tail call void %177(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %174, i32 noundef %176, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
+  tail call void %177(ptr noundef nonnull %0, i32 noundef %148, i32 noundef %147, i32 noundef %174, i32 noundef %176, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
   br i1 %169, label %178, label %.thread
 
 178:                                              ; preds = %.fold.split264
@@ -1881,7 +1881,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %181 = fmul float %.0224, 1.024000e+03
   %182 = fptosi float %181 to i32
   %183 = load ptr, ptr %0, align 8
-  tail call void %183(ptr noundef nonnull %0, i32 noundef %174, i32 noundef %176, i32 noundef %180, i32 noundef %182, ptr noundef %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
+  tail call void %183(ptr noundef nonnull %0, i32 noundef %174, i32 noundef %176, i32 noundef %180, i32 noundef %182, ptr noundef nonnull %1, i8 noundef zeroext 0, i8 noundef zeroext %172) #12
   br label %.thread
 
 .thread:                                          ; preds = %84, %82, %64, %62, %38, %36, %18, %16, %.fold.split264, %178, %141, %98
@@ -2930,7 +2930,7 @@ define internal void @stubEndSubPath(ptr nocapture readnone %0) #6 {
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [6 x float], align 16
   %5 = load float, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3059,8 +3059,8 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   %94 = getelementptr inbounds i8, ptr %4, i64 4
   store float %93, ptr %94, align 4
   store float %93, ptr %25, align 4
-  tail call fastcc void @ProcessMonotonicQuad(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  call fastcc void @ProcessMonotonicQuad(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %2)
+  tail call fastcc void @ProcessMonotonicQuad(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @ProcessMonotonicQuad(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %2)
   br label %188
 
 95:                                               ; preds = %69
@@ -3197,7 +3197,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   %184 = icmp slt i32 %183, 0
   %.199.i = select i1 %184, i32 %123, i32 %178
   %185 = load ptr, ptr %0, align 8
-  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
+  tail call void %185(ptr noundef nonnull %0, i32 noundef %.0100122.i, i32 noundef %.098123.i, i32 noundef %spec.select.i, i32 noundef %.199.i, ptr noundef nonnull %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
   %186 = icmp ugt i32 %.195124.i, 2
   br i1 %186, label %.lr.ph127.i, label %DrawMonotonicQuad.exit, !llvm.loop !19
 
@@ -3205,7 +3205,7 @@ DrawMonotonicQuad.exit:                           ; preds = %.lr.ph127.i, %.preh
   %.0100.lcssa.i = phi i32 [ %117, %.preheader.i ], [ %spec.select.i, %.lr.ph127.i ]
   %.098.lcssa.i = phi i32 [ %119, %.preheader.i ], [ %.199.i, %.lr.ph127.i ]
   %187 = load ptr, ptr %0, align 8
-  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
+  tail call void %187(ptr noundef nonnull %0, i32 noundef %.0100.lcssa.i, i32 noundef %.098.lcssa.i, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %2, i8 noundef zeroext %115, i8 noundef zeroext 0) #12
   br label %188
 
 188:                                              ; preds = %52, %56, %60, %36, %40, %44, %48, %DrawMonotonicQuad.exit, %77
@@ -3219,7 +3219,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #7
 declare double @sqrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [8 x float], align 16
   %5 = load float, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3380,8 +3380,8 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   %121 = getelementptr inbounds i8, ptr %4, i64 4
   store float %120, ptr %121, align 4
   store float %120, ptr %37, align 4
-  tail call fastcc void @ProcessMonotonicCubic(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2)
-  call fastcc void @ProcessMonotonicCubic(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %2)
+  tail call fastcc void @ProcessMonotonicCubic(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
+  call fastcc void @ProcessMonotonicCubic(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %2)
   br label %DrawMonotonicCubic.exit
 
 122:                                              ; preds = %81
@@ -3618,7 +3618,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
 
 .thread.i:                                        ; preds = %.critedge3.i
   %254 = load ptr, ptr %0, align 8
-  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
+  tail call void %254(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %148, i32 noundef %150, ptr noundef nonnull %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
   br label %DrawMonotonicCubic.exit
 
 255:                                              ; preds = %.critedge3.i
@@ -3641,7 +3641,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   %271 = icmp slt i32 %270, 0
   %.1150.i = select i1 %271, i32 %150, i32 %265
   %272 = load ptr, ptr %0, align 8
-  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
+  tail call void %272(ptr noundef nonnull %0, i32 noundef %.0152254.i, i32 noundef %.0149255.i, i32 noundef %spec.select.i, i32 noundef %.1150.i, ptr noundef nonnull %2, i8 noundef zeroext %142, i8 noundef zeroext 0) #12
   %273 = icmp sgt i32 %.2179.lcssa.i, 1
   br i1 %273, label %.preheader192.i, label %DrawMonotonicCubic.exit, !llvm.loop !22
 

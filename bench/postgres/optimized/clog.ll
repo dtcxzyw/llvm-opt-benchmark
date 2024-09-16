@@ -271,7 +271,7 @@ set_status_by_pages.exit:                         ; preds = %44, %108, %set_stat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 131072) %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = load i16, ptr getelementptr inbounds (i8, ptr @XactCtlData, i64 8), align 8
   %9 = zext i16 %8 to i64
   %10 = and i64 %5, %9

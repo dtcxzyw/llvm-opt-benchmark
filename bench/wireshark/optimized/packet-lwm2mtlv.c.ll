@@ -880,146 +880,124 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lwm2m_allocate_fields(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @lwm2m_allocate_fields(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 1, 0) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %2 to i64
-  br label %.lr.ph
+  br label %6
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %6 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %12 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv, i32 3
-  %8 = load i32, ptr %7, align 8
-  %9 = icmp eq i32 %8, 4
-  br i1 %9, label %10, label %12
+6:                                                ; preds = %3, %13
+  %7 = phi i32 [ 0, %3 ], [ %14, %13 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %13 ]
+  %8 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv, i32 3
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp eq i32 %9, 4
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %.lr.ph
-  %11 = add i32 %6, 1
-  store i32 %11, ptr %5, align 8
-  br label %12
+11:                                               ; preds = %6
+  %12 = add i32 %7, 1
+  store i32 %12, ptr %5, align 8
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %10
-  %13 = phi i32 [ %6, %.lr.ph ], [ %11, %10 ]
+13:                                               ; preds = %6, %11
+  %14 = phi i32 [ %7, %6 ], [ %12, %11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %15, label %6, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %12, %3
-  %14 = phi i32 [ 0, %3 ], [ %13, %12 ]
-  %15 = add i32 %14, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %15, ptr %16, align 8
-  %17 = zext i32 %15 to i64
-  %18 = tail call noalias ptr @g_malloc0_n(i64 noundef %17, i64 noundef 80) #10
-  store ptr %18, ptr %0, align 8
-  %19 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 8) #8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %19, ptr %20, align 8
-  %21 = load i32, ptr %5, align 8
-  %22 = zext i32 %21 to i64
-  %23 = tail call noalias ptr @g_malloc0_n(i64 noundef %22, i64 noundef 48) #10
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %23, ptr %24, align 8
-  br i1 %.not, label %._crit_edge63.critedge, label %.lr.ph57.preheader
+15:                                               ; preds = %13
+  %16 = add i32 %14, %2
+  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %16, ptr %17, align 8
+  %18 = zext i32 %16 to i64
+  %19 = tail call noalias ptr @g_malloc0_n(i64 noundef %18, i64 noundef 80) #10
+  store ptr %19, ptr %0, align 8
+  %20 = tail call ptr @g_array_new(i32 noundef 1, i32 noundef 1, i32 noundef 8) #8
+  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %20, ptr %21, align 8
+  %22 = load i32, ptr %5, align 8
+  %23 = zext i32 %22 to i64
+  %24 = tail call noalias ptr @g_malloc0_n(i64 noundef %23, i64 noundef 48) #10
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %24, ptr %25, align 8
+  br label %26
 
-.lr.ph57.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count70 = zext i32 %2 to i64
-  br label %.lr.ph57
+26:                                               ; preds = %15, %47
+  %indvars.iv59 = phi i64 [ 0, %15 ], [ %indvars.iv.next60, %47 ]
+  %.04955 = phi i32 [ 0, %15 ], [ %.1, %47 ]
+  %27 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv59
+  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  store ptr %28, ptr %4, align 8
+  %29 = load ptr, ptr %0, align 8
+  %30 = getelementptr %struct.hf_register_info, ptr %29, i64 %indvars.iv59
+  call fastcc void @lwm2m_add_resource(ptr noundef %27, ptr noundef %30, i32 noundef 0)
+  %31 = load ptr, ptr %21, align 8
+  %32 = call ptr @g_array_append_vals(ptr noundef %31, ptr noundef nonnull %4, i32 noundef 1) #8
+  %33 = getelementptr inbounds i8, ptr %27, i64 16
+  %34 = load i32, ptr %33, align 8
+  %35 = icmp eq i32 %34, 4
+  br i1 %35, label %36, label %47
 
-.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %45
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next68, %45 ]
-  %.04955 = phi i32 [ 0, %.lr.ph57.preheader ], [ %.1, %45 ]
-  %25 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv67
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr %26, ptr %4, align 8
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr %struct.hf_register_info, ptr %27, i64 %indvars.iv67
-  call fastcc void @lwm2m_add_resource(ptr noundef %25, ptr noundef %28, i32 noundef 0)
-  %29 = load ptr, ptr %20, align 8
-  %30 = call ptr @g_array_append_vals(ptr noundef %29, ptr noundef nonnull %4, i32 noundef 1) #8
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %32, 4
-  br i1 %33, label %34, label %45
+36:                                               ; preds = %26
+  %37 = add i32 %.04955, %2
+  %38 = load ptr, ptr %25, align 8
+  %39 = zext i32 %.04955 to i64
+  %40 = getelementptr %struct._lwm2m_resource_t, ptr %38, i64 %39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %27, i64 48, i1 false)
+  %41 = load ptr, ptr %25, align 8
+  %42 = add i32 %.04955, 1
+  %43 = getelementptr %struct._lwm2m_resource_t, ptr %41, i64 %39
+  %44 = load ptr, ptr %0, align 8
+  %45 = zext i32 %37 to i64
+  %46 = getelementptr %struct.hf_register_info, ptr %44, i64 %45
+  call fastcc void @lwm2m_add_resource(ptr noundef %43, ptr noundef %46, i32 noundef 1)
+  br label %47
 
-34:                                               ; preds = %.lr.ph57
-  %35 = add i32 %.04955, %2
-  %36 = load ptr, ptr %24, align 8
-  %37 = zext i32 %.04955 to i64
-  %38 = getelementptr %struct._lwm2m_resource_t, ptr %36, i64 %37
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
-  %39 = load ptr, ptr %24, align 8
-  %40 = add i32 %.04955, 1
-  %41 = getelementptr %struct._lwm2m_resource_t, ptr %39, i64 %37
-  %42 = load ptr, ptr %0, align 8
-  %43 = zext i32 %35 to i64
-  %44 = getelementptr %struct.hf_register_info, ptr %42, i64 %43
-  call fastcc void @lwm2m_add_resource(ptr noundef %41, ptr noundef %44, i32 noundef 1)
-  br label %45
+47:                                               ; preds = %26, %36
+  %.1 = phi i32 [ %42, %36 ], [ %.04955, %26 ]
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
+  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
+  br i1 %exitcond63.not, label %48, label %26, !llvm.loop !10
 
-45:                                               ; preds = %.lr.ph57, %34
-  %.1 = phi i32 [ %40, %34 ], [ %.04955, %.lr.ph57 ]
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
-  br i1 %exitcond71.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !10
-
-._crit_edge58:                                    ; preds = %45
-  %46 = load i32, ptr @proto_lwm2mtlv, align 4
-  %47 = load ptr, ptr %0, align 8
-  %48 = load i32, ptr %16, align 8
-  call void @proto_register_field_array(i32 noundef %46, ptr noundef %47, i32 noundef %48) #8
-  %49 = load ptr, ptr %20, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8
-  call void @proto_register_subtree_array(ptr noundef %50, i32 noundef %52) #8
-  %wide.trip.count75 = zext i32 %2 to i64
-  br label %.lr.ph62
-
-.lr.ph62:                                         ; preds = %._crit_edge58, %64
-  %indvars.iv72 = phi i64 [ 0, %._crit_edge58 ], [ %indvars.iv.next73, %64 ]
-  %.259 = phi i32 [ 0, %._crit_edge58 ], [ %.3, %64 ]
-  %53 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv72
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+48:                                               ; preds = %47
+  %49 = load i32, ptr @proto_lwm2mtlv, align 4
+  %50 = load ptr, ptr %0, align 8
+  %51 = load i32, ptr %17, align 8
+  call void @proto_register_field_array(i32 noundef %49, ptr noundef %50, i32 noundef %51) #8
+  %52 = load ptr, ptr %21, align 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8
-  %56 = icmp eq i32 %55, 4
-  br i1 %56, label %57, label %64
+  call void @proto_register_subtree_array(ptr noundef %53, i32 noundef %55) #8
+  br label %56
 
-57:                                               ; preds = %.lr.ph62
-  %58 = getelementptr inbounds i8, ptr %53, i64 32
+56:                                               ; preds = %48, %68
+  %indvars.iv64 = phi i64 [ 0, %48 ], [ %indvars.iv.next65, %68 ]
+  %.256 = phi i32 [ 0, %48 ], [ %.3, %68 ]
+  %57 = getelementptr %struct._lwm2m_resource_t, ptr %1, i64 %indvars.iv64
+  %58 = getelementptr inbounds i8, ptr %57, i64 16
   %59 = load i32, ptr %58, align 8
-  %60 = load ptr, ptr %24, align 8
-  %61 = add i32 %.259, 1
-  %62 = zext i32 %.259 to i64
-  %63 = getelementptr %struct._lwm2m_resource_t, ptr %60, i64 %62, i32 5
-  store i32 %59, ptr %63, align 8
-  br label %64
+  %60 = icmp eq i32 %59, 4
+  br i1 %60, label %61, label %68
 
-64:                                               ; preds = %.lr.ph62, %57
-  %.3 = phi i32 [ %61, %57 ], [ %.259, %.lr.ph62 ]
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !11
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %57, i64 32
+  %63 = load i32, ptr %62, align 8
+  %64 = load ptr, ptr %25, align 8
+  %65 = add i32 %.256, 1
+  %66 = zext i32 %.256 to i64
+  %67 = getelementptr %struct._lwm2m_resource_t, ptr %64, i64 %66, i32 5
+  store i32 %63, ptr %67, align 8
+  br label %68
 
-._crit_edge63.critedge:                           ; preds = %._crit_edge
-  %65 = load i32, ptr @proto_lwm2mtlv, align 4
-  %66 = load ptr, ptr %0, align 8
-  %67 = load i32, ptr %16, align 8
-  tail call void @proto_register_field_array(i32 noundef %65, ptr noundef %66, i32 noundef %67) #8
-  %68 = load ptr, ptr %20, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %68, i64 8
-  %71 = load i32, ptr %70, align 8
-  tail call void @proto_register_subtree_array(ptr noundef %69, i32 noundef %71) #8
-  br label %._crit_edge63
+68:                                               ; preds = %56, %61
+  %.3 = phi i32 [ %65, %61 ], [ %.256, %56 ]
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
+  %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
+  br i1 %exitcond68.not, label %69, label %56, !llvm.loop !11
 
-._crit_edge63:                                    ; preds = %64, %._crit_edge63.critedge
+69:                                               ; preds = %68
   ret void
 }
 
@@ -1871,7 +1849,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lwm2m_add_resource(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @lwm2m_add_resource(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #10
   store i32 -1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40

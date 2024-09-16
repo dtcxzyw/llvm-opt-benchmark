@@ -10,7 +10,7 @@ define i32 @strnatcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call ptr @__ctype_b_loc() #4
   %5 = load ptr, ptr %4, align 8
   %.not53 = icmp eq i32 %2, 0

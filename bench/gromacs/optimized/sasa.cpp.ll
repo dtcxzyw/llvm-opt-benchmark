@@ -5171,7 +5171,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_113connolly_plotEPKciPKfPA3_fP7t_atomsP8t_s
   %.sroa.013.0.copyload = load ptr, ptr %13, align 8
   %356 = ptrtoint ptr %.sroa.014.0.copyload to i64
   %357 = ptrtoint ptr %.sroa.013.0.copyload to i64
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %355, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull %26, ptr noundef nonnull %27, i64 %356, i64 %357, ptr noundef nonnull %41)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(24) %355, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef %26, ptr noundef %27, i64 %356, i64 %357, ptr noundef nonnull %41)
           to label %358 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 358:                                              ; preds = %354
@@ -5219,7 +5219,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_113connolly_plotEPKciPKfPA3_fP7t_atomsP8t_s
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %375 = ptrtoint ptr %.sroa.05.0.copyload to i64
   %376 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %374, ptr noundef nonnull align 8 dereferenceable(24) %365, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull %26, ptr noundef nonnull %27, i64 %375, i64 %376, ptr noundef nonnull %41)
+  invoke fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %374, ptr noundef nonnull align 8 dereferenceable(24) %365, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef %26, ptr noundef %27, i64 %375, i64 %376, ptr noundef nonnull %41)
           to label %377 unwind label %.loopexit
 
 377:                                              ; preds = %372
@@ -6380,7 +6380,7 @@ declare void @_ZN3gmx18AnalysisDataHandle10startFrameEiff(ptr noundef nonnull al
 declare void @_ZN3gmx18AnalysisDataHandle8setPointEifb(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, float noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, i64 %6, i64 %7, ptr nocapture noundef readonly %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_112computeAreasERKNS_9SelectionES4_RKSt6vectorIfSaIfEES9_PfSA_NS_18AnalysisDataHandleESB_PS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, i64 %6, i64 %7, ptr nocapture noundef readonly %8) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.gmx::AnalysisDataHandle", align 8
   %11 = alloca %"class.gmx::AnalysisDataHandle", align 8
   %12 = alloca %"class.gmx::InconsistentInputError", align 8

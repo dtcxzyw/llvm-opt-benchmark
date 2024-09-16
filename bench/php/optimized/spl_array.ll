@@ -332,7 +332,7 @@ tailrecurse.i.i:                                  ; preds = %.lr.ph.i.i
 spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_edge.i.i, %37, %46, %54, %55, %64
   %.0.i.i = phi ptr [ %35, %37 ], [ %35, %tailrecurse._crit_edge.i.i ], [ %.tr31.i.i, %46 ], [ %52, %55 ], [ %52, %64 ], [ %52, %54 ]
   %67 = load ptr, ptr %.0.i.i, align 8
-  %68 = call fastcc i32 @get_hash_key(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %2)
+  %68 = call fastcc i32 @get_hash_key(ptr noundef %8, ptr noundef nonnull %9, ptr noundef %2)
   %69 = icmp eq i32 %68, -1
   br i1 %69, label %70, label %75
 
@@ -558,7 +558,7 @@ define hidden void @zim_ArrayObject_offsetSet(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_write_dimension_ex(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @spl_array_write_dimension_ex(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.spl_hash_key, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 -88
@@ -725,7 +725,7 @@ spl_array_set_refcount.exit:                      ; preds = %spl_array_get_hash_
   br label %spl_array_set_refcount.exit64
 
 81:                                               ; preds = %30
-  %82 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %2)
+  %82 = call fastcc i32 @get_hash_key(ptr noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %2)
   %83 = icmp eq i32 %82, -1
   br i1 %83, label %84, label %89
 
@@ -1033,7 +1033,7 @@ define hidden void @zim_ArrayObject_offsetUnset(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_unset_dimension_ex(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @spl_array_unset_dimension_ex(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.spl_hash_key, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 -88
   %.not = icmp eq i32 %0, 0
@@ -1062,7 +1062,7 @@ define internal fastcc void @spl_array_unset_dimension_ex(i32 noundef %0, ptr no
   br label %spl_array_set_refcount.exit58
 
 17:                                               ; preds = %13
-  %18 = call fastcc i32 @get_hash_key(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %2)
+  %18 = call fastcc i32 @get_hash_key(ptr noundef %4, ptr noundef nonnull %5, ptr noundef %2)
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %20, label %25
 
@@ -1461,7 +1461,7 @@ define hidden void @zim_ArrayObject___construct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, 65536) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 7
@@ -1628,7 +1628,7 @@ define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly 
   %93 = getelementptr inbounds i8, ptr %1, i64 20
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, -50331649
-  %96 = trunc i64 %.0 to i32
+  %96 = trunc nuw nsw i64 %.0 to i32
   %97 = or i32 %95, %96
   store i32 %97, ptr %93, align 4
   %98 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1955,7 +1955,7 @@ define hidden void @zim_ArrayObject_getIterator(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @spl_array_object_new_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @spl_array_object_new_ex(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2458,7 +2458,7 @@ define hidden void @zim_ArrayObject_asort(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_method(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @spl_array_method(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 5, 12) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
   %8 = alloca ptr, align 8
@@ -2545,8 +2545,8 @@ spl_array_get_hash_table_ptr.exit:                ; preds = %tailrecurse._crit_e
   %.0.i = phi ptr [ %16, %18 ], [ %16, %tailrecurse._crit_edge.i ], [ %.tr31.i, %27 ], [ %33, %36 ], [ %33, %45 ], [ %33, %35 ]
   %48 = load ptr, ptr %.0.i, align 8
   store ptr null, ptr %8, align 8
-  %49 = and i64 %3, -8
-  %50 = add nsw i64 %49, 32
+  %49 = and i64 %3, 8
+  %50 = or disjoint i64 %49, 32
   %51 = tail call noalias ptr @_emalloc(i64 noundef %50) #12
   store i32 1, ptr %51, align 4
   %52 = getelementptr inbounds i8, ptr %51, i64 4
@@ -2556,7 +2556,7 @@ spl_array_get_hash_table_ptr.exit:                ; preds = %tailrecurse._crit_e
   %54 = getelementptr inbounds i8, ptr %51, i64 16
   store i64 %3, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %51, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr align 1 %2, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %55, ptr noundef nonnull align 1 dereferenceable(1) %2, i64 %3, i1 false)
   %56 = getelementptr inbounds [1 x i8], ptr %55, i64 0, i64 %3
   store i8 0, ptr %56, align 1
   store ptr %51, ptr %6, align 8
@@ -6167,7 +6167,7 @@ define internal noundef ptr @spl_array_get_iterator(ptr nocapture readnone %0, p
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
   br label %5
@@ -6468,7 +6468,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
   br label %spl_hash_key_release.exit
 
 55:                                               ; preds = %49, %51
-  %56 = call fastcc i32 @get_hash_key(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %2)
+  %56 = call fastcc i32 @get_hash_key(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2)
   %57 = icmp eq i32 %56, -1
   br i1 %57, label %58, label %60
 

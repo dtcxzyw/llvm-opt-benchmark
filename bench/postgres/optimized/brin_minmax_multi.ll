@@ -847,7 +847,7 @@ brin_minmax_multi_get_values.exit:                ; preds = %37, %39
   %129 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %128, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #12
   %130 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %129, ptr @CurrentMemoryContext, align 8
-  %131 = call fastcc ptr @build_expanded_ranges(ptr noundef %117, i32 noundef %16, ptr noundef nonnull %.086, ptr noundef nonnull %4)
+  %131 = call fastcc ptr @build_expanded_ranges(ptr noundef %117, i32 noundef %16, ptr noundef nonnull %.086, ptr noundef %4)
   %132 = getelementptr inbounds i8, ptr %7, i64 40
   %133 = zext i16 %17 to i64
   %134 = add nsw i64 %133, -1
@@ -1344,7 +1344,7 @@ minmax_multi_get_procinfo.exit.i:                 ; preds = %46, %42, %34, %18
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 4
   %51 = load i32, ptr %50, align 4
-  %52 = call fastcc ptr @build_expanded_ranges(ptr noundef %22, i32 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %4)
+  %52 = call fastcc ptr @build_expanded_ranges(ptr noundef %22, i32 noundef %51, ptr noundef nonnull %5, ptr noundef %4)
   %53 = load i32, ptr %50, align 4
   %54 = load i32, ptr %4, align 4
   %55 = icmp eq i32 %54, 1
@@ -3417,7 +3417,7 @@ define dso_local i64 @brin_minmax_multi_summary_send(ptr noundef %0) local_unnam
 declare i64 @byteasend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_expanded_ranges(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @build_expanded_ranges(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 32

@@ -222,12 +222,12 @@ define internal i32 @dissect_gssapi(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 .thread.i:                                        ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %6 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5)
+  %6 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %5)
   br label %dissect_gssapi_work_wrapper.exit
 
 7:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %8 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5)
+  %8 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   br label %dissect_gssapi_work_wrapper.exit
 
@@ -246,12 +246,12 @@ define internal i32 @dissect_gssapi_verf(ptr noundef %0, ptr noundef %1, ptr nou
 
 .thread.i:                                        ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %6 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5)
+  %6 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %5)
   br label %dissect_gssapi_work_wrapper.exit
 
 7:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %8 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef nonnull %5)
+  %8 = call fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, ptr noundef %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   br label %dissect_gssapi_work_wrapper.exit
 
@@ -314,7 +314,7 @@ define hidden i32 @wrap_dissect_gssapi_verf(ptr noundef %0, i32 noundef %1, ptr 
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #11
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  %9 = call fastcc i32 @dissect_gssapi_work(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @dissect_gssapi_work(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 1, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   ret i32 %9
 }
@@ -346,7 +346,7 @@ define hidden ptr @wrap_dissect_gssapi_payload(ptr noundef %0, ptr noundef %1, p
   store ptr %spec.select, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
-  %12 = call fastcc i32 @dissect_gssapi_work(ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
+  %12 = call fastcc i32 @dissect_gssapi_work(ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef 0, ptr noundef %7)
   %.sroa.7.0.copyload26 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   br label %13
@@ -394,7 +394,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -1243,7 +1243,7 @@ define internal i32 @wrap_dissect_gssapi(ptr noundef %0, i32 noundef %1, ptr nou
   %8 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #11
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
-  %9 = call fastcc i32 @dissect_gssapi_work(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef nonnull %7)
+  %9 = call fastcc i32 @dissect_gssapi_work(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef %7)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
   %10 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #11
   ret i32 %10

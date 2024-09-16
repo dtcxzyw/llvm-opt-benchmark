@@ -287,7 +287,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 declare ptr @UI_get0_action_string(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @read_string_inner(ptr noundef %ui, ptr noundef %uis, i32 noundef %echo, i32 noundef %strip_nl) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 2) i32 @read_string_inner(ptr noundef %ui, ptr noundef %uis, i32 noundef range(i32 0, 2) %echo, i32 noundef range(i32 0, 2) %strip_nl) unnamed_addr #3 {
 entry:
   %buf.i = alloca [5 x i8], align 1
   %sa.i = alloca %struct.sigaction, align 8

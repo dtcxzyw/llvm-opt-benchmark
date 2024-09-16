@@ -7418,7 +7418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_Pcp
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit54: ; preds = %282, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i50, %272
   %285 = phi ptr [ %274, %272 ], [ %284, %282 ], [ %276, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i50 ]
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 32
-  %287 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %20)
+  %287 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %286, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %20)
           to label %288 unwind label %269
 
 288:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit54
@@ -7558,7 +7558,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_Pcp
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit72: ; preds = %336, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i68, %326
   %339 = phi ptr [ %328, %326 ], [ %338, %336 ], [ %330, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i68 ]
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 40
-  %341 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %340, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %22)
+  %341 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %340, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %22)
           to label %342 unwind label %269
 
 342:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit72
@@ -7698,7 +7698,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_Pcp
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit91: ; preds = %390, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i87, %380
   %393 = phi ptr [ %382, %380 ], [ %392, %390 ], [ %384, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i87 ]
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 48
-  %395 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %24)
+  %395 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %24)
           to label %396 unwind label %269
 
 396:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit91
@@ -7817,7 +7817,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_Pcp
 _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit106: ; preds = %438, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i102, %428
   %441 = phi ptr [ %430, %428 ], [ %440, %438 ], [ %432, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeEE3NewEv.exit.i.i.i102 ]
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 56
-  %443 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %26)
+  %443 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %26)
           to label %444 unwind label %269
 
 444:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_64Test_PcpDynamicFileFormatPlugin_FileFormatTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit106
@@ -8202,7 +8202,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13UncheckedSwapINS_12VtDictionaryEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIiEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -8510,7 +8510,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %134, %_ZNK32p
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L11_ExtractArgIdEEbRKNS_7TfTokenERKNS_27PcpDynamicFileFormatContextERKNS_12VtDictionaryEPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -9147,11 +9147,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt1
   %166 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__15VtDictionaryGetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_12VtDictionaryERKS6_(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %165)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %166)
   store ptr %7, ptr %8, align 8
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %2)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %167 unwind label %185
 
 167:                                              ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7TfTokencvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit39
-  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  invoke fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %168 unwind label %187
 
 168:                                              ; preds = %167
@@ -9720,7 +9720,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__neERKNS_12VtDictionaryES2_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZNK32pxrInternal_v0_24__pxrReserved__42Test_PcpDynamicFileFormatPlugin_FileFormat39CanFieldChangeAffectFileFormatArgumentsERKNS_7TfTokenERKNS_7VtValueES6_S6_ENK3$_0clES6_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Vt_DefaultHolder", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtDictionary", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9789,7 +9789,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_12VtDictionaryEEEbv.
   %32 = load ptr, ptr %1, align 8
   store ptr null, ptr %5, align 8
   store ptr %5, ptr %4, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__15VtDictionaryGetINS_12VtDictionaryES1_EET_RKS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_16Vt_DefaultHolderIT0_EE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtDictionary") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__15VtDictionaryGetINS_12VtDictionaryES1_EET_RKS1_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_16Vt_DefaultHolderIT0_EE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtDictionary") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %33 unwind label %41
 
 33:                                               ; preds = %31

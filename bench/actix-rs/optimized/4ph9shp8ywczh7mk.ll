@@ -328,7 +328,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.46
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -1290,7 +1290,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
 
 11:                                               ; preds = %4
   %12 = sub nuw i64 %9, %2
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %7)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef align 8 dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   store i64 %12, ptr %8, align 8
   br i1 %3, label %16, label %14
@@ -1320,7 +1320,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
 
 20:                                               ; preds = %16
   %21 = sub nuw i64 %18, %2
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   store i64 %21, ptr %17, align 8
   br label %14
@@ -1349,7 +1349,7 @@ define void @_ZN15actix_multipart4form6Limits18try_consume_limits17h893d8f0c5ee5
 
 28:                                               ; preds = %23
   %29 = sub nuw i64 %25, %2
-  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %5)
+  call fastcc void @"_ZN4core3ptr59drop_in_place$LT$actix_multipart..error..MultipartError$GT$17hc27e203801522e72E"(ptr noalias noundef align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   store i64 1, ptr %1, align 8
   store i64 %29, ptr %24, align 8

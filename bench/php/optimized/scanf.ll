@@ -942,7 +942,7 @@ define range(i32 -2, 1) i32 @php_sscanf_internal(ptr noundef %0, ptr noundef %1,
   %218 = icmp eq i64 %.1482, 0
   %spec.store.select4 = select i1 %218, i64 -1, i64 %.1482
   store ptr %.2, ptr %9, align 8
-  %219 = call fastcc ptr @BuildCharSet(ptr noundef nonnull %12, ptr noundef %111)
+  %219 = call fastcc ptr @BuildCharSet(ptr noundef %12, ptr noundef %111)
   store ptr %219, ptr %7, align 8
   %220 = load i32, ptr %40, align 4
   %.not28.i = icmp sgt i32 %220, 0
@@ -1016,7 +1016,7 @@ CharInSet.exit:                                   ; preds = %.lr.ph.i, %236, %.c
 243:                                              ; preds = %239, %CharInSet.exit, %226
   %244 = phi ptr [ %scevgep, %239 ], [ %227, %CharInSet.exit ], [ %227, %226 ]
   store ptr %244, ptr %9, align 8
-  call fastcc void @ReleaseCharSet(ptr noundef nonnull %12)
+  call fastcc void @ReleaseCharSet(ptr noundef %12)
   %245 = icmp eq ptr %.2, %244
   br i1 %245, label %.thread575, label %246
 
@@ -1566,7 +1566,7 @@ declare i32 @zend_try_assign_typed_ref_stringl(ptr noundef, ptr noundef, i64 nou
 declare void @add_index_stringl(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 94
@@ -1745,7 +1745,7 @@ thread-pre-split:                                 ; preds = %45, %67, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReleaseCharSet(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @ReleaseCharSet(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_efree(ptr noundef %3) #10

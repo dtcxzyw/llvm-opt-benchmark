@@ -5747,7 +5747,7 @@ define noundef nonnull ptr @_ZN5faiss21read_ProductQuantizerEPKc(ptr noundef %0)
           to label %4 unwind label %5
 
 4:                                                ; preds = %.noexc
-  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %3, ptr noundef nonnull %2)
+  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %3, ptr noundef nonnull %2)
           to label %_ZN5faiss21read_ProductQuantizerEPNS_8IOReaderE.exit unwind label %_ZNSt10unique_ptrIN5faiss16ProductQuantizerESt14default_deleteIS1_EED2Ev.exit9.i
 
 5:                                                ; preds = %.noexc
@@ -5789,7 +5789,7 @@ define noundef nonnull ptr @_ZN5faiss21read_ProductQuantizerEPNS_8IOReaderE(ptr 
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %2, ptr noundef %0)
+  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %2, ptr noundef %0)
           to label %_ZNSt10unique_ptrIN5faiss16ProductQuantizerESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN5faiss16ProductQuantizerESt14default_deleteIS1_EED2Ev.exit9
 
 _ZNSt10unique_ptrIN5faiss16ProductQuantizerESt14default_deleteIS1_EED2Ev.exit: ; preds = %3
@@ -5821,7 +5821,7 @@ declare void @_ZN5faiss12FileIOReaderD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7555,7 +7555,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
 807:                                              ; preds = %805
   call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %806, ptr noundef nonnull %0)
   %808 = getelementptr inbounds i8, ptr %806, i64 72
-  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %808, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %808, ptr noundef nonnull %0)
   %809 = getelementptr inbounds i8, ptr %806, i64 88
   %810 = load i64, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %806, i64 40
@@ -7944,7 +7944,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
   br i1 %1017, label %1019, label %1022
 
 1019:                                             ; preds = %1014
-  call fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17ResidualQuantizerEPNS_8IOReaderE(ptr noundef nonnull %1018, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17ResidualQuantizerEPNS_8IOReaderE(ptr noundef %1018, ptr noundef nonnull %0)
   br label %1023
 
 1020:                                             ; preds = %1012
@@ -9985,28 +9985,28 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit1934
 
 2087:                                             ; preds = %2069
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2070, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2070, ptr noundef nonnull %0, ptr noundef null)
   %2088 = getelementptr inbounds i8, ptr %2070, i64 328
   %2089 = load ptr, ptr %2088, align 8
   call fastcc void @_ZN5faissL25read_LocalSearchQuantizerEPNS_20LocalSearchQuantizerEPNS_8IOReaderE(ptr noundef %2089, ptr noundef nonnull %0)
   br label %2099
 
 2090:                                             ; preds = %2075
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2076, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2076, ptr noundef nonnull %0, ptr noundef null)
   %2091 = getelementptr inbounds i8, ptr %2076, i64 328
   %2092 = load ptr, ptr %2091, align 8
   call fastcc void @_ZN5faissL22read_ResidualQuantizerEPNS_17ResidualQuantizerEPNS_8IOReaderEi(ptr noundef %2092, ptr noundef nonnull %0, i32 noundef %1)
   br label %2099
 
 2093:                                             ; preds = %2081
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2080, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2080, ptr noundef nonnull %0, ptr noundef null)
   %2094 = getelementptr inbounds i8, ptr %2080, i64 328
   %2095 = load ptr, ptr %2094, align 8
   call fastcc void @_ZN5faissL32read_ProductLocalSearchQuantizerEPNS_27ProductLocalSearchQuantizerEPNS_8IOReaderE(ptr noundef %2095, ptr noundef nonnull %0)
   br label %2099
 
 2096:                                             ; preds = %2084
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2080, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2080, ptr noundef nonnull %0, ptr noundef null)
   %2097 = getelementptr inbounds i8, ptr %2080, i64 328
   %2098 = load ptr, ptr %2097, align 8
   call fastcc void @_ZN5faissL29read_ProductResidualQuantizerEPNS_24ProductResidualQuantizerEPNS_8IOReaderEi(ptr noundef %2098, ptr noundef nonnull %0, i32 noundef %1)
@@ -10729,7 +10729,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit1934
 
 2489:                                             ; preds = %2459
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %.014831950, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %.014831950, ptr noundef nonnull %0, i32 noundef %1)
   call void @_ZN5faiss16IndexIVFFastScan16init_code_packerEv(ptr noundef nonnull align 8 dereferenceable(328) %.014831950)
   br label %5145
 
@@ -10752,7 +10752,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
 
 2500:                                             ; preds = %2498
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2499, ptr noundef nonnull %0, ptr noundef nonnull %84)
+  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2499, ptr noundef nonnull %0, ptr noundef nonnull %84)
           to label %2501 unwind label %.loopexit.split-lp
 
 2501:                                             ; preds = %2500
@@ -10762,7 +10762,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %517, %519, %521, %5
   %2505 = shl nsw i64 %2504, 2
   %2506 = getelementptr inbounds i8, ptr %2499, i64 152
   store i64 %2505, ptr %2506, align 8
-  %2507 = invoke fastcc noundef ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr noundef nonnull %2499, ptr noundef nonnull align 8 dereferenceable(24) %84)
+  %2507 = invoke fastcc noundef ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr noundef %2499, ptr noundef nonnull align 8 dereferenceable(24) %84)
           to label %2508 unwind label %.loopexit.split-lp
 
 2508:                                             ; preds = %2501
@@ -11241,7 +11241,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1931:                ; preds = %.loopexit1961, %.lo
   store float 1.000000e+00, ptr %2738, align 8
   %2739 = getelementptr inbounds i8, ptr %2731, i64 304
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2739, i8 0, i64 16, i1 false)
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2731, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2731, ptr noundef nonnull %0, ptr noundef null)
   %2740 = getelementptr inbounds i8, ptr %2731, i64 8
   %2741 = load i32, ptr %2740, align 8
   %2742 = sext i32 %2741 to i64
@@ -11476,7 +11476,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit1931:                ; preds = %.loopexit1961, %.lo
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2852
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %2731, ptr noundef %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %2731, ptr noundef %0, i32 noundef %1)
   br label %5145
 
 2853:                                             ; preds = %.loopexit1965, %.loopexit.split-lp1966, %2834, %2794, %2775
@@ -11501,14 +11501,14 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
           to label %2862 unwind label %2868
 
 2862:                                             ; preds = %2860
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %2861, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %2861, ptr noundef nonnull %0, ptr noundef null)
   %2863 = getelementptr inbounds i8, ptr %2861, i64 8
   %2864 = load i32, ptr %2863, align 8
   %2865 = sext i32 %2864 to i64
   %2866 = shl nsw i64 %2865, 2
   %2867 = getelementptr inbounds i8, ptr %2861, i64 152
   store i64 %2866, ptr %2867, align 8
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %2861, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %2861, ptr noundef nonnull %0, i32 noundef %1)
   br label %5145
 
 2868:                                             ; preds = %2860
@@ -11531,7 +11531,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 2876:                                             ; preds = %2874
   call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %2875, ptr noundef nonnull %0)
   %2877 = getelementptr inbounds i8, ptr %2875, i64 72
-  call fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef nonnull %2877, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef %2877, ptr noundef nonnull %0)
   %2878 = load ptr, ptr %0, align 8
   %2879 = load ptr, ptr %2878, align 8
   %2880 = call noundef i64 %2879(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %100, i64 noundef 8, i64 noundef 1)
@@ -12114,12 +12114,12 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 
 3184:                                             ; preds = %3182
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %116, i8 0, i64 24, i1 false)
-  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %3183, ptr noundef nonnull %0, ptr noundef nonnull %116)
+  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %3183, ptr noundef nonnull %0, ptr noundef nonnull %116)
           to label %3185 unwind label %.loopexit.split-lp1972
 
 3185:                                             ; preds = %3184
   %3186 = getelementptr inbounds i8, ptr %3183, i64 264
-  invoke fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef nonnull %3186, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef %3186, ptr noundef nonnull %0)
           to label %3187 unwind label %.loopexit.split-lp1972
 
 3187:                                             ; preds = %3185
@@ -12197,7 +12197,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   br label %3317
 
 3220:                                             ; preds = %3192
-  %3221 = invoke fastcc noundef ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr noundef nonnull %3183, ptr noundef nonnull align 8 dereferenceable(24) %116)
+  %3221 = invoke fastcc noundef ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr noundef %3183, ptr noundef nonnull align 8 dereferenceable(24) %116)
           to label %.preheader1970 unwind label %.loopexit.split-lp1972
 
 .preheader1970:                                   ; preds = %3220
@@ -12415,9 +12415,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
           to label %3328 unwind label %3354
 
 3328:                                             ; preds = %3326
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %3327, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %3327, ptr noundef nonnull %0, ptr noundef null)
   %3329 = getelementptr inbounds i8, ptr %3327, i64 264
-  call fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef nonnull %3329, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef %3329, ptr noundef nonnull %0)
   %3330 = getelementptr inbounds i8, ptr %3327, i64 152
   %3331 = load ptr, ptr %0, align 8
   %3332 = load ptr, ptr %3331, align 8
@@ -12544,7 +12544,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit1934
 
 3396:                                             ; preds = %3367, %3366
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %3327, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %3327, ptr noundef nonnull %0, i32 noundef %1)
   br label %5145
 
 3397:                                             ; preds = %3322
@@ -12634,7 +12634,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 
 3440:                                             ; preds = %3437, %3434, %3428, %3423
   %.01488 = phi ptr [ %3424, %3423 ], [ %3429, %3428 ], [ %3433, %3434 ], [ %3433, %3437 ]
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %.01488, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %.01488, ptr noundef nonnull %0, ptr noundef null)
   %3441 = getelementptr inbounds i8, ptr %.01488, i64 152
   %3442 = load ptr, ptr %0, align 8
   %3443 = load ptr, ptr %3442, align 8
@@ -12827,7 +12827,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit1934
 
 3539:                                             ; preds = %3509
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %.01488, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %.01488, ptr noundef nonnull %0, i32 noundef %1)
   br label %5145
 
 3540:                                             ; preds = %3409
@@ -12842,7 +12842,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
           to label %3546 unwind label %3574
 
 3546:                                             ; preds = %3544
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %3545, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %3545, ptr noundef nonnull %0, ptr noundef null)
   %3547 = call noundef ptr @_ZN5faiss20read_VectorTransformEPNS_8IOReaderE(ptr noundef nonnull %0)
   %3548 = getelementptr inbounds i8, ptr %3545, i64 264
   store ptr %3547, ptr %3548, align 8
@@ -13184,7 +13184,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit1934
 
 3729:                                             ; preds = %3694
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %3545, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %3545, ptr noundef nonnull %0, i32 noundef %1)
   br label %5145
 
 3730:                                             ; preds = %3540
@@ -13546,7 +13546,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 3910:                                             ; preds = %3908
   call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %3909, ptr noundef nonnull %0)
   %3911 = getelementptr inbounds i8, ptr %3909, i64 40
-  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %3911, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %3911, ptr noundef nonnull %0)
   br label %5145
 
 3912:                                             ; preds = %3908
@@ -14052,7 +14052,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 
 4172:                                             ; preds = %4142
   %4173 = getelementptr inbounds i8, ptr %4107, i64 144
-  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %4173, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %4173, ptr noundef nonnull %0)
   %4174 = getelementptr inbounds i8, ptr %4107, i64 352
   %4175 = load ptr, ptr %0, align 8
   %4176 = load ptr, ptr %4175, align 8
@@ -14923,7 +14923,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 4634:                                             ; preds = %4632
   call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %4633, ptr noundef nonnull %0)
   %4635 = getelementptr inbounds i8, ptr %4633, i64 40
-  call fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IOReaderE(ptr noundef nonnull %4635, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IOReaderE(ptr noundef %4635, ptr noundef nonnull %0)
   %4636 = call noundef ptr @_ZN5faiss10read_indexEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef %1)
   %4637 = getelementptr inbounds i8, ptr %4633, i64 136
   store ptr %4636, ptr %4637, align 8
@@ -14952,7 +14952,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 4647:                                             ; preds = %4645
   call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %4646, ptr noundef nonnull %0)
   %4648 = getelementptr inbounds i8, ptr %4646, i64 136
-  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %4648, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %4648, ptr noundef nonnull %0)
   %4649 = getelementptr inbounds i8, ptr %4646, i64 36
   %4650 = load ptr, ptr %0, align 8
   %4651 = load ptr, ptr %4650, align 8
@@ -15424,7 +15424,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
           to label %4903 unwind label %4928
 
 4903:                                             ; preds = %4901
-  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %4902, ptr noundef nonnull %0, ptr noundef null)
+  call fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %4902, ptr noundef nonnull %0, ptr noundef null)
   %4904 = getelementptr inbounds i8, ptr %4902, i64 256
   %4905 = load ptr, ptr %0, align 8
   %4906 = load ptr, ptr %4905, align 8
@@ -15762,8 +15762,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge1995, %2
 
 5085:                                             ; preds = %5055
   %5086 = getelementptr inbounds i8, ptr %4902, i64 328
-  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %5086, ptr noundef nonnull %0)
-  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %4902, ptr noundef nonnull %0, i32 noundef %1)
+  call fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %5086, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %4902, ptr noundef nonnull %0, i32 noundef %1)
   call void @_ZN5faiss18IndexIVFPQFastScan16precompute_tableEv(ptr noundef nonnull align 8 dereferenceable(568) %4902)
   %5087 = getelementptr inbounds i8, ptr %4902, i64 352
   %5088 = load i64, ptr %5087, align 8
@@ -16285,7 +16285,7 @@ declare void @_ZN5faiss7IndexPQC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN5faiss22IndexResidualQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(512)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17ResidualQuantizerEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL26read_ResidualQuantizer_oldEPNS_17ResidualQuantizerEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
@@ -18088,14 +18088,14 @@ declare void @_ZN5faiss43IndexIVFProductLocalSearchQuantizerFastScanC1Ev(ptr nou
 declare void @_ZN5faiss40IndexIVFProductResidualQuantizerFastScanC1Ev(ptr noundef nonnull align 8 dereferenceable(696)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
-  tail call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @_ZN5faissL17read_index_headerEPNS_5IndexEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1)
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   %12 = load ptr, ptr %1, align 8
@@ -18438,7 +18438,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %151, %153, %155, %1
 
 .loopexit:                                        ; preds = %91, %_ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit, %68
   %192 = getelementptr inbounds i8, ptr %0, i64 168
-  call fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef nonnull %192, ptr noundef nonnull %1)
+  call fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef %192, ptr noundef nonnull %1)
   ret void
 
 193:                                              ; preds = %188, %190, %136, %138, %118, %120, %64, %66, %35, %37
@@ -18452,7 +18452,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %151, %153, %155, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call noundef ptr @_ZN5faiss18read_InvertedListsEPNS_8IOReaderEi(ptr noundef %1, i32 noundef %2)
@@ -18569,7 +18569,7 @@ declare void @_ZN5faiss16IndexIVFFastScan16init_code_packerEv(ptr noundef nonnul
 declare void @_ZN5faiss12IndexIVFFlatC1Ev(ptr noundef nonnull align 8 dereferenceable(257)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr nocapture noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #27
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8
@@ -18699,7 +18699,7 @@ _ZNSt10_HashtableIlSt4pairIKllESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4
 declare void @_ZN5faiss20IndexScalarQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL20read_ScalarQuantizerEPNS_15ScalarQuantizerEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19210,7 +19210,7 @@ define internal fastcc noundef nonnull ptr @_ZN5faissL10read_ivfpqEPNS_8IOReader
   %34 = phi ptr [ %31, %30 ], [ %29, %28 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %. = select i1 %22, ptr %4, ptr null
-  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef nonnull %34, ptr noundef %0, ptr noundef %.)
+  invoke fastcc void @_ZN5faissL15read_ivf_headerEPNS_8IndexIVFEPNS_8IOReaderEPSt6vectorIS4_IlSaIlEESaIS6_EE(ptr noundef %34, ptr noundef %0, ptr noundef %.)
           to label %35 unwind label %.loopexit.split-lp
 
 35:                                               ; preds = %32
@@ -19353,7 +19353,7 @@ define internal fastcc noundef nonnull ptr @_ZN5faissL10read_ivfpqEPNS_8IOReader
 
 101:                                              ; preds = %75
   %102 = getelementptr inbounds i8, ptr %34, i64 264
-  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %102, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %102, ptr noundef nonnull %0)
           to label %103 unwind label %.loopexit.split-lp
 
 103:                                              ; preds = %101
@@ -19586,7 +19586,7 @@ _ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE.exit:
   br label %.body
 
 220:                                              ; preds = %103
-  invoke fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef nonnull %34, ptr noundef nonnull %0, i32 noundef %2)
+  invoke fastcc void @_ZN5faissL18read_InvertedListsEPNS_8IndexIVFEPNS_8IOReaderEi(ptr noundef %34, ptr noundef nonnull %0, i32 noundef %2)
           to label %.loopexit unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %127, %_ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE.exit, %220
@@ -19614,7 +19614,7 @@ _ZN5faissL17set_array_invlistEPNS_8IndexIVFERSt6vectorIS2_IlSaIlEESaIS4_EE.exit:
 
 232:                                              ; preds = %231
   %233 = getelementptr inbounds i8, ptr %33, i64 528
-  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef nonnull %233, ptr noundef nonnull %0)
+  invoke fastcc void @_ZN5faissL21read_ProductQuantizerEPNS_16ProductQuantizerEPNS_8IOReaderE(ptr noundef %233, ptr noundef nonnull %0)
           to label %234 unwind label %.loopexit.split-lp
 
 234:                                              ; preds = %232
@@ -21804,7 +21804,7 @@ _ZSt6fill_nIPiiiET_S1_T0_RKT1_.exit:              ; preds = %_ZSt6fill_nIPiiiET_
 declare void @_ZN5faiss18IndexNNDescentFlatC1Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22271,7 +22271,7 @@ define internal fastcc void @_ZN5faissL14read_NNDescentEPNS_9NNDescentEPNS_8IORe
 277:                                              ; preds = %248
   %278 = load ptr, ptr %1, align 8
   %279 = load ptr, ptr %278, align 8
-  %280 = tail call noundef i64 %279(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %0, i64 noundef 1, i64 noundef 1)
+  %280 = tail call noundef i64 %279(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull %0, i64 noundef 1, i64 noundef 1)
   %281 = icmp eq i64 %280, 1
   br i1 %281, label %305, label %282
 
@@ -23736,7 +23736,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i64, align 8
@@ -25386,7 +25386,7 @@ define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr nou
   store i64 32, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %69, i64 72
   store i32 0, ptr %74, align 8
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %69, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %69, ptr noundef nonnull %0)
   %75 = load ptr, ptr %0, align 8
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef i64 %76(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %18, i64 noundef 8, i64 noundef 1)
@@ -25619,7 +25619,7 @@ define noundef nonnull ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr nou
 194:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %193, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %193, ptr noundef nonnull %0)
   %195 = getelementptr inbounds i8, ptr %193, i64 168
   %196 = load ptr, ptr %0, align 8
   %197 = load ptr, ptr %196, align 8
@@ -25743,7 +25743,7 @@ _ZN5faissL22read_binary_ivf_headerEPNS_14IndexBinaryIVFEPNS_8IOReaderEPSt6vector
   %257 = getelementptr inbounds i8, ptr %193, i64 176
   store i8 1, ptr %257, align 8
   %258 = getelementptr inbounds i8, ptr %193, i64 72
-  call fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef nonnull %258, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL15read_direct_mapEPNS_9DirectMapEPNS_8IOReaderE(ptr noundef %258, ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
@@ -25835,7 +25835,7 @@ _ZN5faissL18read_InvertedListsEPNS_14IndexBinaryIVFEPNS_8IOReaderEi.exit: ; pred
           to label %299 unwind label %303
 
 299:                                              ; preds = %297
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %298, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %298, ptr noundef nonnull %0)
   %300 = getelementptr inbounds i8, ptr %298, i64 40
   store i8 1, ptr %300, align 8
   %301 = call noundef ptr @_ZN5faiss10read_indexEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef %1)
@@ -25861,7 +25861,7 @@ _ZN5faissL18read_InvertedListsEPNS_14IndexBinaryIVFEPNS_8IOReaderEi.exit: ; pred
           to label %311 unwind label %316
 
 311:                                              ; preds = %309
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %310, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %310, ptr noundef nonnull %0)
   %312 = getelementptr inbounds i8, ptr %310, i64 32
   call fastcc void @_ZN5faissL9read_HNSWEPNS_4HNSWEPNS_8IOReaderE(ptr noundef nonnull %312, ptr noundef nonnull %0)
   %313 = call noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef %1)
@@ -25934,7 +25934,7 @@ _ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit: ; preds = %340
 
 344:                                              ; preds = %_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit, %_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit
   %345 = phi ptr [ %331, %_ZN5faiss19IndexIDMap2TemplateINS_11IndexBinaryEEC2Ev.exit ], [ %341, %_ZN5faiss18IndexIDMapTemplateINS_11IndexBinaryEEC2Ev.exit ]
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %345, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %345, ptr noundef nonnull %0)
   %346 = call noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef %1)
   %347 = getelementptr inbounds i8, ptr %345, i64 32
   store ptr %346, ptr %347, align 8
@@ -26159,7 +26159,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %410, %412, %414, %4
           to label %458 unwind label %483
 
 458:                                              ; preds = %456
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %457, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %457, ptr noundef nonnull %0)
   %459 = getelementptr inbounds i8, ptr %457, i64 88
   %460 = load ptr, ptr %0, align 8
   %461 = load ptr, ptr %460, align 8
@@ -26293,7 +26293,7 @@ _ZNSt6vectorIlSaIlEE6resizeEm.exit:               ; preds = %410, %412, %414, %4
           to label %529 unwind label %533
 
 529:                                              ; preds = %527
-  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %528, ptr noundef nonnull %0)
+  call fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %528, ptr noundef nonnull %0)
   %530 = call noundef ptr @_ZN5faiss17read_index_binaryEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef 0)
   %531 = call ptr @__dynamic_cast(ptr nonnull %530, ptr nonnull @_ZTIN5faiss11IndexBinaryE, ptr nonnull @_ZTIN5faiss15IndexBinaryFlatE, i64 0) #24
   %532 = getelementptr inbounds i8, ptr %528, i64 32
@@ -27412,7 +27412,7 @@ _ZN5faissL26read_binary_multi_hash_mapERSt13unordered_mapIlSt6vectorIlSaIlEESt4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faissL24read_index_binary_headerEPNS_11IndexBinaryEPNS_8IOReaderE(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -674,7 +674,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare void @register_init_routine(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 16777216) %7, i32 noundef range(i32 0, 7) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
   %12 = alloca i16, align 2
@@ -713,7 +713,7 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
 
 37:                                               ; preds = %34, %36, %22
   %.0 = phi i32 [ %33, %22 ], [ %1, %36 ], [ %1, %34 ]
-  %38 = icmp sgt i32 %16, 8
+  %38 = icmp ugt i32 %16, 8
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %37
@@ -727,7 +727,7 @@ define internal fastcc i32 @dissect_RSI_CONN_block(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i16 noundef zeroext %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 16777216) %7, i32 noundef range(i32 2, 10) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = zext i16 %5 to i32
   %12 = add nuw nsw i32 %7, %11
@@ -753,7 +753,7 @@ define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %
 
 24:                                               ; preds = %21, %23, %18
   %.0 = phi i32 [ %20, %18 ], [ %1, %23 ], [ %1, %21 ]
-  %25 = icmp sgt i32 %12, 8
+  %25 = icmp ugt i32 %12, 8
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -769,7 +769,7 @@ define internal fastcc i32 @dissect_RSI_SVCS_block(ptr noundef %0, i32 noundef %
 declare i32 @dissect_dcerpc_uint32(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_pn_rta_remaining_user_data_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext range(i8 0, 2) %6, i32 noundef range(i32 0, 32) %7, i32 noundef range(i32 5, 7) %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   store i32 1, ptr %10, align 4
   %11 = getelementptr inbounds i8, ptr %2, i64 284

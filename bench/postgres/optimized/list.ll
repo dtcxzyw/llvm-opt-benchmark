@@ -449,7 +449,7 @@ define dso_local noundef ptr @list_insert_nth(ptr noundef %0, i32 noundef %1, pt
   br label %13
 
 11:                                               ; preds = %3
-  %12 = tail call fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef %1)
+  %12 = tail call fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1)
   br label %13
 
 13:                                               ; preds = %11, %5
@@ -460,7 +460,7 @@ define dso_local noundef ptr @list_insert_nth(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -561,7 +561,7 @@ define dso_local noundef ptr @list_insert_nth_int(ptr noundef %0, i32 noundef %1
   br label %14
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef %1)
+  %13 = tail call fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1)
   store i32 %2, ptr %13, align 8
   br label %14
 
@@ -591,7 +591,7 @@ define dso_local noundef ptr @list_insert_nth_oid(ptr noundef %0, i32 noundef %1
   br label %14
 
 12:                                               ; preds = %3
-  %13 = tail call fastcc ptr @insert_new_cell(ptr noundef nonnull %0, i32 noundef %1)
+  %13 = tail call fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1)
   store i32 %2, ptr %13, align 8
   br label %14
 

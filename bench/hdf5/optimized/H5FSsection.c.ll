@@ -438,7 +438,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_remove(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_lock(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_lock(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 129) %2) unnamed_addr #0 {
   %4 = alloca %struct.H5FS_sinfo_cache_ud_t, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 360
   %6 = load ptr, ptr %5, align 8
@@ -455,7 +455,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FS__sinfo_lock(ptr noundef %0, pt
   %12 = getelementptr inbounds i8, ptr %1, i64 380
   %13 = load i32, ptr %12, align 4
   %.not37 = icmp ne i32 %2, %13
-  %14 = and i32 %2, -129
+  %14 = and i32 %2, 127
   %15 = icmp eq i32 %14, 0
   %or.cond = and i1 %15, %.not37
   br i1 %or.cond, label %16, label %58
@@ -977,7 +977,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_add(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not22, label %35, label %28
 
 28:                                               ; preds = %25
-  %29 = call fastcc i32 @H5FS__sect_merge(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %4)
+  %29 = call fastcc i32 @H5FS__sect_merge(ptr noundef nonnull %1, ptr noundef %6, ptr noundef %4)
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %._crit_edge32
 
@@ -1043,7 +1043,7 @@ define range(i32 -1, 1) i32 @H5FS_sect_add(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FS__sect_merge(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = load ptr, ptr %5, align 8
@@ -1989,7 +1989,7 @@ define range(i32 -1, 2) i32 @H5FS_sect_try_merge(ptr noundef %0, ptr noundef %1,
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
-  %12 = call fastcc i32 @H5FS__sect_merge(ptr noundef %1, ptr noundef nonnull %6, ptr noundef %4)
+  %12 = call fastcc i32 @H5FS__sect_merge(ptr noundef %1, ptr noundef %6, ptr noundef %4)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %18
 

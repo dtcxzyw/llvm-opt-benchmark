@@ -997,7 +997,7 @@ _ZN5ZXing6Pdf417L15ProcessByteECIsERKSt6vectorIiSaIiEEiRNS_7ContentE.exit66.i: ;
   br label %.body.i
 
 326:                                              ; preds = %315
-  invoke fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %317, i32 noundef 2)
+  invoke fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %317, i32 noundef 2)
           to label %.noexc70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc70:                                         ; preds = %326
@@ -2824,7 +2824,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit58:                  ; preds = %.thread, %250
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L17NumericCompactionERKSt6vectorIiSaIiEEiRNS_7ContentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(54) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing6Pdf417L17NumericCompactionERKSt6vectorIiSaIiEEiRNS_7ContentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef nonnull align 8 dereferenceable(54) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8
@@ -2863,7 +2863,7 @@ define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L17NumericCompactionERKSt6ve
 
 .split:                                           ; preds = %21, %19
   %.131.sink = phi i32 [ 15, %19 ], [ %.131, %21 ]
-  call fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.2, i32 noundef %.131.sink)
+  call fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.2, i32 noundef %.131.sink)
   %24 = load ptr, ptr %9, align 8
   %25 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   %26 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
@@ -3296,7 +3296,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEii(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ZXing::BigInteger", align 8
   %6 = alloca %"class.ZXing::BigInteger", align 8
   %7 = alloca %"class.ZXing::BigInteger", align 8
@@ -3313,7 +3313,7 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKS
 
 14:                                               ; preds = %12
   invoke fastcc void @"_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiENK3$_0clEv"()
-          to label %15 unwind label %62
+          to label %15 unwind label %61
 
 15:                                               ; preds = %14
   %16 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt5arrayIN5ZXing10BigIntegerELm16EED2Ev, ptr nonnull @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, ptr nonnull @__dso_handle) #22
@@ -3324,155 +3324,151 @@ define internal fastcc void @_ZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKS
   store i8 0, ptr %5, align 8
   %18 = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  %19 = icmp sgt i32 %3, 0
-  br i1 %19, label %.lr.ph, label %._crit_edge
-
-.lr.ph:                                           ; preds = %17
-  %20 = sub i32 %2, %3
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
-  %23 = getelementptr inbounds i8, ptr %7, i64 24
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
-  %26 = getelementptr inbounds i8, ptr %5, i64 24
-  %27 = getelementptr inbounds i8, ptr %6, i64 16
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
-  %29 = zext nneg i32 %3 to i64
-  %30 = sext i32 %20 to i64
+  %19 = sub i32 %2, %3
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds i8, ptr %7, i64 24
+  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %26 = getelementptr inbounds i8, ptr %6, i64 16
+  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = zext nneg i32 %3 to i64
+  %29 = sext i32 %19 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %31
+  br label %30
 
-31:                                               ; preds = %.lr.ph, %_ZN5ZXing10BigIntegerD2Ev.exit23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5ZXing10BigIntegerD2Ev.exit23 ]
-  %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr i32, ptr %32, i64 %indvars.iv
-  %34 = getelementptr i32, ptr %33, i64 %30
-  %35 = load i32, ptr %34, align 4
-  %.lobit.i = lshr i32 %35, 31
-  %36 = trunc nuw nsw i32 %.lobit.i to i8
-  store i8 %36, ptr %7, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  %37 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %38 unwind label %.loopexit
+30:                                               ; preds = %17, %_ZN5ZXing10BigIntegerD2Ev.exit23
+  %indvars.iv = phi i64 [ 0, %17 ], [ %indvars.iv.next, %_ZN5ZXing10BigIntegerD2Ev.exit23 ]
+  %31 = load ptr, ptr %1, align 8
+  %32 = getelementptr i32, ptr %31, i64 %indvars.iv
+  %33 = getelementptr i32, ptr %32, i64 %29
+  %34 = load i32, ptr %33, align 4
+  %.lobit.i = lshr i32 %34, 31
+  %35 = trunc nuw nsw i32 %.lobit.i to i8
+  store i8 %35, ptr %7, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  %36 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
+          to label %37 unwind label %.loopexit
 
-38:                                               ; preds = %31
-  %39 = call i32 @llvm.abs.i32(i32 %35, i1 true)
-  %40 = zext nneg i32 %39 to i64
-  %41 = xor i64 %indvars.iv, -1
-  %42 = add nsw i64 %29, %41
-  %43 = getelementptr inbounds [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %42
-  store ptr %37, ptr %21, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr %44, ptr %23, align 8
-  store i64 %40, ptr %37, align 8
-  store ptr %44, ptr %22, align 8
+37:                                               ; preds = %30
+  %38 = call i32 @llvm.abs.i32(i32 %34, i1 true)
+  %39 = zext nneg i32 %38 to i64
+  %40 = xor i64 %indvars.iv, -1
+  %41 = add nsw i64 %28, %40
+  %42 = getelementptr inbounds [16 x %"class.ZXing::BigInteger"], ptr @_ZZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900, i64 0, i64 %41
+  store ptr %36, ptr %20, align 8
+  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  store ptr %43, ptr %22, align 8
+  store i64 %39, ptr %36, align 8
+  store ptr %43, ptr %21, align 8
   store i8 0, ptr %6, align 8, !alias.scope !23
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !alias.scope !23
-  invoke void @_ZN5ZXing10BigInteger8MultiplyERKS0_S2_RS0_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit unwind label %45
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false), !alias.scope !23
+  invoke void @_ZN5ZXing10BigInteger8MultiplyERKS0_S2_RS0_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit unwind label %44
 
-45:                                               ; preds = %38
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %37
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %24, align 8, !alias.scope !23
-  %.not.i.i.i.i.i = icmp eq ptr %47, null
+  %46 = load ptr, ptr %23, align 8, !alias.scope !23
+  %.not.i.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i.i.i.i, label %.body, label %.body.sink.split
 
-_ZN5ZXingmlERKNS_10BigIntegerES2_.exit:           ; preds = %38
-  %48 = load ptr, ptr %18, align 8
-  %49 = load ptr, ptr %25, align 8
-  %50 = icmp eq ptr %48, %49
-  br i1 %50, label %51, label %58
+_ZN5ZXingmlERKNS_10BigIntegerES2_.exit:           ; preds = %37
+  %47 = load ptr, ptr %18, align 8
+  %48 = load ptr, ptr %24, align 8
+  %49 = icmp eq ptr %47, %48
+  br i1 %49, label %50, label %57
 
-51:                                               ; preds = %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit
-  %52 = load i8, ptr %6, align 8
-  %53 = and i8 %52, 1
-  store i8 %53, ptr %5, align 8
-  %54 = load ptr, ptr %24, align 8
-  store ptr %54, ptr %18, align 8
+50:                                               ; preds = %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit
+  %51 = load i8, ptr %6, align 8
+  %52 = and i8 %51, 1
+  store i8 %52, ptr %5, align 8
+  %53 = load ptr, ptr %23, align 8
+  store ptr %53, ptr %18, align 8
+  %54 = load ptr, ptr %26, align 8
+  store ptr %54, ptr %24, align 8
   %55 = load ptr, ptr %27, align 8
   store ptr %55, ptr %25, align 8
-  %56 = load ptr, ptr %28, align 8
-  store ptr %56, ptr %26, align 8
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %48, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5ZXing10BigIntegerD2Ev.exit, label %57
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %47, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5ZXing10BigIntegerD2Ev.exit, label %56
 
-57:                                               ; preds = %51
-  call void @_ZdlPv(ptr noundef nonnull %48) #24
+56:                                               ; preds = %50
+  call void @_ZdlPv(ptr noundef nonnull %47) #24
   br label %_ZN5ZXing10BigIntegerpLEOS0_.exit
 
-58:                                               ; preds = %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit
+57:                                               ; preds = %_ZN5ZXingmlERKNS_10BigIntegerES2_.exit
   invoke void @_ZN5ZXing10BigInteger3AddERKS0_S2_RS0_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN5ZXing10BigIntegerpLEOS0_.exit unwind label %64
+          to label %_ZN5ZXing10BigIntegerpLEOS0_.exit unwind label %63
 
-_ZN5ZXing10BigIntegerpLEOS0_.exit:                ; preds = %57, %58
-  %.pr = load ptr, ptr %24, align 8
+_ZN5ZXing10BigIntegerpLEOS0_.exit:                ; preds = %56, %57
+  %.pr = load ptr, ptr %23, align 8
   %.not.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing10BigIntegerD2Ev.exit, label %59
+  br i1 %.not.i.i.i.i, label %_ZN5ZXing10BigIntegerD2Ev.exit, label %58
 
-59:                                               ; preds = %_ZN5ZXing10BigIntegerpLEOS0_.exit
+58:                                               ; preds = %_ZN5ZXing10BigIntegerpLEOS0_.exit
   call void @_ZdlPv(ptr noundef nonnull %.pr) #24
   br label %_ZN5ZXing10BigIntegerD2Ev.exit
 
-_ZN5ZXing10BigIntegerD2Ev.exit:                   ; preds = %51, %_ZN5ZXing10BigIntegerpLEOS0_.exit, %59
-  %60 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i22 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i.i22, label %_ZN5ZXing10BigIntegerD2Ev.exit23, label %61
+_ZN5ZXing10BigIntegerD2Ev.exit:                   ; preds = %50, %_ZN5ZXing10BigIntegerpLEOS0_.exit, %58
+  %59 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i22 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i.i22, label %_ZN5ZXing10BigIntegerD2Ev.exit23, label %60
 
-61:                                               ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %60) #24
+60:                                               ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %59) #24
   br label %_ZN5ZXing10BigIntegerD2Ev.exit23
 
-_ZN5ZXing10BigIntegerD2Ev.exit23:                 ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit, %61
+_ZN5ZXing10BigIntegerD2Ev.exit23:                 ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit, %60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !26
+  br i1 %exitcond.not, label %68, label %30, !llvm.loop !26
 
-62:                                               ; preds = %14
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %14
+  %62 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5ZXing6Pdf417L21DecodeBase900toBase10B5cxx11ERKSt6vectorIiSaIiEEiiE6EXP900) #22
   br label %_ZN5ZXing10BigIntegerD2Ev.exit31
 
-.loopexit:                                        ; preds = %31
+.loopexit:                                        ; preds = %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5ZXing10BigIntegerD2Ev.exit27
 
-.loopexit.split-lp:                               ; preds = %._crit_edge
+.loopexit.split-lp:                               ; preds = %68
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN5ZXing10BigIntegerD2Ev.exit27
 
-64:                                               ; preds = %58
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %57
+  %64 = landingpad { ptr, i32 }
           cleanup
-  %66 = load ptr, ptr %24, align 8
-  %.not.i.i.i.i24 = icmp eq ptr %66, null
+  %65 = load ptr, ptr %23, align 8
+  %.not.i.i.i.i24 = icmp eq ptr %65, null
   br i1 %.not.i.i.i.i24, label %.body, label %.body.sink.split
 
-.body.sink.split:                                 ; preds = %64, %45
-  %.sink = phi ptr [ %47, %45 ], [ %66, %64 ]
-  %.pn18.ph = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ]
+.body.sink.split:                                 ; preds = %63, %44
+  %.sink = phi ptr [ %46, %44 ], [ %65, %63 ]
+  %.pn18.ph = phi { ptr, i32 } [ %45, %44 ], [ %64, %63 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink) #24
   br label %.body
 
-.body:                                            ; preds = %.body.sink.split, %64, %45
-  %.pn18 = phi { ptr, i32 } [ %46, %45 ], [ %65, %64 ], [ %.pn18.ph, %.body.sink.split ]
-  %67 = load ptr, ptr %21, align 8
-  %.not.i.i.i.i26 = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i26, label %_ZN5ZXing10BigIntegerD2Ev.exit27, label %68
+.body:                                            ; preds = %.body.sink.split, %63, %44
+  %.pn18 = phi { ptr, i32 } [ %45, %44 ], [ %64, %63 ], [ %.pn18.ph, %.body.sink.split ]
+  %66 = load ptr, ptr %20, align 8
+  %.not.i.i.i.i26 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i.i26, label %_ZN5ZXing10BigIntegerD2Ev.exit27, label %67
 
-68:                                               ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %67) #24
+67:                                               ; preds = %.body
+  call void @_ZdlPv(ptr noundef nonnull %66) #24
   br label %_ZN5ZXing10BigIntegerD2Ev.exit27
 
-._crit_edge:                                      ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit23, %17
+68:                                               ; preds = %_ZN5ZXing10BigIntegerD2Ev.exit23
   invoke void @_ZNK5ZXing10BigInteger8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %69 unwind label %.loopexit.split-lp
 
-69:                                               ; preds = %._crit_edge
+69:                                               ; preds = %68
   %70 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br i1 %70, label %81, label %71
 
@@ -3483,7 +3479,7 @@ _ZN5ZXing10BigIntegerD2Ev.exit23:                 ; preds = %_ZN5ZXing10BigInteg
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %71
-  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i64 noundef -1)
+  invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef 1, i64 noundef -1)
           to label %76 unwind label %79
 
 76:                                               ; preds = %75
@@ -3528,8 +3524,8 @@ _ZN5ZXing10BigIntegerD2Ev.exit29:                 ; preds = %76, %78
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %_ZN5ZXing10BigIntegerD2Ev.exit27
 
-_ZN5ZXing10BigIntegerD2Ev.exit27:                 ; preds = %.loopexit, %.loopexit.split-lp, %68, %.body, %88
-  %.pn18.pn = phi { ptr, i32 } [ %.pn, %88 ], [ %.pn18, %.body ], [ %.pn18, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZN5ZXing10BigIntegerD2Ev.exit27:                 ; preds = %.loopexit, %.loopexit.split-lp, %67, %.body, %88
+  %.pn18.pn = phi { ptr, i32 } [ %.pn, %88 ], [ %.pn18, %.body ], [ %.pn18, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %89 = load ptr, ptr %18, align 8
   %.not.i.i.i.i30 = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i30, label %_ZN5ZXing10BigIntegerD2Ev.exit31, label %90
@@ -3538,8 +3534,8 @@ _ZN5ZXing10BigIntegerD2Ev.exit27:                 ; preds = %.loopexit, %.loopex
   call void @_ZdlPv(ptr noundef nonnull %89) #24
   br label %_ZN5ZXing10BigIntegerD2Ev.exit31
 
-_ZN5ZXing10BigIntegerD2Ev.exit31:                 ; preds = %90, %_ZN5ZXing10BigIntegerD2Ev.exit27, %62
-  %.pn18.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn18.pn, %_ZN5ZXing10BigIntegerD2Ev.exit27 ], [ %.pn18.pn, %90 ]
+_ZN5ZXing10BigIntegerD2Ev.exit31:                 ; preds = %90, %_ZN5ZXing10BigIntegerD2Ev.exit27, %61
+  %.pn18.pn.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn18.pn, %_ZN5ZXing10BigIntegerD2Ev.exit27 ], [ %.pn18.pn, %90 ]
   resume { ptr, i32 } %.pn18.pn.pn
 
 91:                                               ; preds = %81
@@ -4139,7 +4135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L28DecodeMacroOptionalTextFieldERKSt6vectorIiSaIiEEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L28DecodeMacroOptionalTextFieldERKSt6vectorIiSaIiEEiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 -2147483646, -2147483648) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ZXing::Content", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(54) %4)
@@ -4184,7 +4180,7 @@ _ZN5ZXing7ContentD2Ev.exit:                       ; preds = %_ZNSt6vectorIN5ZXin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN5ZXing6Pdf417L31DecodeMacroOptionalNumericFieldERKSt6vectorIiSaIiEEiRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXing6Pdf417L31DecodeMacroOptionalNumericFieldERKSt6vectorIiSaIiEEiRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 -2147483646, -2147483648) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.ZXing::Content", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

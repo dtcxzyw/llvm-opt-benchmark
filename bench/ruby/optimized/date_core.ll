@@ -552,458 +552,458 @@ define void @Init_date_core() local_unnamed_addr #0 {
   tail call void @rb_include_module(i64 noundef %30, i64 noundef %31) #20
   %32 = load i64, ptr @cDate, align 8
   %33 = tail call i64 @rb_ary_new_capa(i64 noundef 13) #20
-  br label %.lr.ph.i
+  br label %34
 
-.lr.ph.i:                                         ; preds = %39, %0
-  %.01214.i = phi i64 [ %41, %39 ], [ 0, %0 ]
-  %34 = getelementptr inbounds ptr, ptr @monthnames, i64 %.01214.i
-  %35 = load ptr, ptr %34, align 8
-  %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %39, label %36
+34:                                               ; preds = %40, %0
+  %.01214.i = phi i64 [ 0, %0 ], [ %42, %40 ]
+  %35 = getelementptr inbounds ptr, ptr @monthnames, i64 %.01214.i
+  %36 = load ptr, ptr %35, align 8
+  %.not.i = icmp eq ptr %36, null
+  br i1 %.not.i, label %40, label %37
 
-36:                                               ; preds = %.lr.ph.i
-  %37 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %35) #20
-  %38 = tail call i64 @rb_obj_freeze(i64 noundef %37) #20
-  br label %39
+37:                                               ; preds = %34
+  %38 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %36) #20
+  %39 = tail call i64 @rb_obj_freeze(i64 noundef %38) #20
+  br label %40
 
-39:                                               ; preds = %36, %.lr.ph.i
-  %.0.i = phi i64 [ %37, %36 ], [ 4, %.lr.ph.i ]
-  %40 = tail call i64 @rb_ary_push(i64 noundef %33, i64 noundef %.0.i) #20
-  %41 = add nuw nsw i64 %.01214.i, 1
-  %exitcond.not.i = icmp eq i64 %41, 13
-  br i1 %exitcond.not.i, label %mk_ary_of_str.exit, label %.lr.ph.i, !llvm.loop !6
+40:                                               ; preds = %37, %34
+  %.0.i = phi i64 [ %38, %37 ], [ 4, %34 ]
+  %41 = tail call i64 @rb_ary_push(i64 noundef %33, i64 noundef %.0.i) #20
+  %42 = add nuw nsw i64 %.01214.i, 1
+  %exitcond.not.i = icmp eq i64 %42, 13
+  br i1 %exitcond.not.i, label %mk_ary_of_str.exit, label %34, !llvm.loop !6
 
-mk_ary_of_str.exit:                               ; preds = %39
-  %42 = tail call i64 @rb_obj_freeze(i64 noundef %33) #20
+mk_ary_of_str.exit:                               ; preds = %40
+  %43 = tail call i64 @rb_obj_freeze(i64 noundef %33) #20
   tail call void @rb_define_const(i64 noundef %32, ptr noundef nonnull @.str.16, i64 noundef %33) #20
-  %43 = load i64, ptr @cDate, align 8
-  %44 = tail call i64 @rb_ary_new_capa(i64 noundef 13) #20
-  br label %.lr.ph.i1
+  %44 = load i64, ptr @cDate, align 8
+  %45 = tail call i64 @rb_ary_new_capa(i64 noundef 13) #20
+  br label %46
 
-.lr.ph.i1:                                        ; preds = %50, %mk_ary_of_str.exit
-  %.01214.i2 = phi i64 [ %52, %50 ], [ 0, %mk_ary_of_str.exit ]
-  %45 = getelementptr inbounds ptr, ptr @abbr_monthnames, i64 %.01214.i2
-  %46 = load ptr, ptr %45, align 8
-  %.not.i3 = icmp eq ptr %46, null
-  br i1 %.not.i3, label %50, label %47
+46:                                               ; preds = %52, %mk_ary_of_str.exit
+  %.01214.i1 = phi i64 [ 0, %mk_ary_of_str.exit ], [ %54, %52 ]
+  %47 = getelementptr inbounds ptr, ptr @abbr_monthnames, i64 %.01214.i1
+  %48 = load ptr, ptr %47, align 8
+  %.not.i2 = icmp eq ptr %48, null
+  br i1 %.not.i2, label %52, label %49
 
-47:                                               ; preds = %.lr.ph.i1
-  %48 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %46) #20
-  %49 = tail call i64 @rb_obj_freeze(i64 noundef %48) #20
-  br label %50
+49:                                               ; preds = %46
+  %50 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %48) #20
+  %51 = tail call i64 @rb_obj_freeze(i64 noundef %50) #20
+  br label %52
 
-50:                                               ; preds = %47, %.lr.ph.i1
-  %.0.i4 = phi i64 [ %48, %47 ], [ 4, %.lr.ph.i1 ]
-  %51 = tail call i64 @rb_ary_push(i64 noundef %44, i64 noundef %.0.i4) #20
-  %52 = add nuw nsw i64 %.01214.i2, 1
-  %exitcond.not.i5 = icmp eq i64 %52, 13
-  br i1 %exitcond.not.i5, label %mk_ary_of_str.exit6, label %.lr.ph.i1, !llvm.loop !6
+52:                                               ; preds = %49, %46
+  %.0.i3 = phi i64 [ %50, %49 ], [ 4, %46 ]
+  %53 = tail call i64 @rb_ary_push(i64 noundef %45, i64 noundef %.0.i3) #20
+  %54 = add nuw nsw i64 %.01214.i1, 1
+  %exitcond.not.i4 = icmp eq i64 %54, 13
+  br i1 %exitcond.not.i4, label %mk_ary_of_str.exit5, label %46, !llvm.loop !6
 
-mk_ary_of_str.exit6:                              ; preds = %50
-  %53 = tail call i64 @rb_obj_freeze(i64 noundef %44) #20
-  tail call void @rb_define_const(i64 noundef %43, ptr noundef nonnull @.str.17, i64 noundef %44) #20
-  %54 = load i64, ptr @cDate, align 8
-  %55 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #20
-  br label %.lr.ph.i7
+mk_ary_of_str.exit5:                              ; preds = %52
+  %55 = tail call i64 @rb_obj_freeze(i64 noundef %45) #20
+  tail call void @rb_define_const(i64 noundef %44, ptr noundef nonnull @.str.17, i64 noundef %45) #20
+  %56 = load i64, ptr @cDate, align 8
+  %57 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #20
+  br label %58
 
-.lr.ph.i7:                                        ; preds = %61, %mk_ary_of_str.exit6
-  %.01214.i8 = phi i64 [ %63, %61 ], [ 0, %mk_ary_of_str.exit6 ]
-  %56 = getelementptr inbounds ptr, ptr @daynames, i64 %.01214.i8
-  %57 = load ptr, ptr %56, align 8
-  %.not.i9 = icmp eq ptr %57, null
-  br i1 %.not.i9, label %61, label %58
+58:                                               ; preds = %64, %mk_ary_of_str.exit5
+  %.01214.i6 = phi i64 [ 0, %mk_ary_of_str.exit5 ], [ %66, %64 ]
+  %59 = getelementptr inbounds ptr, ptr @daynames, i64 %.01214.i6
+  %60 = load ptr, ptr %59, align 8
+  %.not.i7 = icmp eq ptr %60, null
+  br i1 %.not.i7, label %64, label %61
 
-58:                                               ; preds = %.lr.ph.i7
-  %59 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %57) #20
-  %60 = tail call i64 @rb_obj_freeze(i64 noundef %59) #20
-  br label %61
+61:                                               ; preds = %58
+  %62 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %60) #20
+  %63 = tail call i64 @rb_obj_freeze(i64 noundef %62) #20
+  br label %64
 
-61:                                               ; preds = %58, %.lr.ph.i7
-  %.0.i10 = phi i64 [ %59, %58 ], [ 4, %.lr.ph.i7 ]
-  %62 = tail call i64 @rb_ary_push(i64 noundef %55, i64 noundef %.0.i10) #20
-  %63 = add nuw nsw i64 %.01214.i8, 1
-  %exitcond.not.i11 = icmp eq i64 %63, 7
-  br i1 %exitcond.not.i11, label %mk_ary_of_str.exit12, label %.lr.ph.i7, !llvm.loop !6
+64:                                               ; preds = %61, %58
+  %.0.i8 = phi i64 [ %62, %61 ], [ 4, %58 ]
+  %65 = tail call i64 @rb_ary_push(i64 noundef %57, i64 noundef %.0.i8) #20
+  %66 = add nuw nsw i64 %.01214.i6, 1
+  %exitcond.not.i9 = icmp eq i64 %66, 7
+  br i1 %exitcond.not.i9, label %mk_ary_of_str.exit10, label %58, !llvm.loop !6
 
-mk_ary_of_str.exit12:                             ; preds = %61
-  %64 = tail call i64 @rb_obj_freeze(i64 noundef %55) #20
-  tail call void @rb_define_const(i64 noundef %54, ptr noundef nonnull @.str.18, i64 noundef %55) #20
-  %65 = load i64, ptr @cDate, align 8
-  %66 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #20
-  br label %.lr.ph.i13
+mk_ary_of_str.exit10:                             ; preds = %64
+  %67 = tail call i64 @rb_obj_freeze(i64 noundef %57) #20
+  tail call void @rb_define_const(i64 noundef %56, ptr noundef nonnull @.str.18, i64 noundef %57) #20
+  %68 = load i64, ptr @cDate, align 8
+  %69 = tail call i64 @rb_ary_new_capa(i64 noundef 7) #20
+  br label %70
 
-.lr.ph.i13:                                       ; preds = %72, %mk_ary_of_str.exit12
-  %.01214.i14 = phi i64 [ %74, %72 ], [ 0, %mk_ary_of_str.exit12 ]
-  %67 = getelementptr inbounds ptr, ptr @abbr_daynames, i64 %.01214.i14
-  %68 = load ptr, ptr %67, align 8
-  %.not.i15 = icmp eq ptr %68, null
-  br i1 %.not.i15, label %72, label %69
+70:                                               ; preds = %76, %mk_ary_of_str.exit10
+  %.01214.i11 = phi i64 [ 0, %mk_ary_of_str.exit10 ], [ %78, %76 ]
+  %71 = getelementptr inbounds ptr, ptr @abbr_daynames, i64 %.01214.i11
+  %72 = load ptr, ptr %71, align 8
+  %.not.i12 = icmp eq ptr %72, null
+  br i1 %.not.i12, label %76, label %73
 
-69:                                               ; preds = %.lr.ph.i13
-  %70 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %68) #20
-  %71 = tail call i64 @rb_obj_freeze(i64 noundef %70) #20
-  br label %72
+73:                                               ; preds = %70
+  %74 = tail call i64 @rb_usascii_str_new_cstr(ptr noundef nonnull %72) #20
+  %75 = tail call i64 @rb_obj_freeze(i64 noundef %74) #20
+  br label %76
 
-72:                                               ; preds = %69, %.lr.ph.i13
-  %.0.i16 = phi i64 [ %70, %69 ], [ 4, %.lr.ph.i13 ]
-  %73 = tail call i64 @rb_ary_push(i64 noundef %66, i64 noundef %.0.i16) #20
-  %74 = add nuw nsw i64 %.01214.i14, 1
-  %exitcond.not.i17 = icmp eq i64 %74, 7
-  br i1 %exitcond.not.i17, label %mk_ary_of_str.exit18, label %.lr.ph.i13, !llvm.loop !6
+76:                                               ; preds = %73, %70
+  %.0.i13 = phi i64 [ %74, %73 ], [ 4, %70 ]
+  %77 = tail call i64 @rb_ary_push(i64 noundef %69, i64 noundef %.0.i13) #20
+  %78 = add nuw nsw i64 %.01214.i11, 1
+  %exitcond.not.i14 = icmp eq i64 %78, 7
+  br i1 %exitcond.not.i14, label %mk_ary_of_str.exit15, label %70, !llvm.loop !6
 
-mk_ary_of_str.exit18:                             ; preds = %72
-  %75 = tail call i64 @rb_obj_freeze(i64 noundef %66) #20
-  tail call void @rb_define_const(i64 noundef %65, ptr noundef nonnull @.str.19, i64 noundef %66) #20
-  %76 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_const(i64 noundef %76, ptr noundef nonnull @.str.20, i64 noundef 4598323) #20
-  %77 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.21, i64 noundef 4722445) #20
-  %78 = load i64, ptr @cDate, align 8
-  %79 = tail call i64 @rb_float_new(double noundef 0x7FF0000000000000) #20
-  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.22, i64 noundef %79) #20
+mk_ary_of_str.exit15:                             ; preds = %76
+  %79 = tail call i64 @rb_obj_freeze(i64 noundef %69) #20
+  tail call void @rb_define_const(i64 noundef %68, ptr noundef nonnull @.str.19, i64 noundef %69) #20
   %80 = load i64, ptr @cDate, align 8
-  %81 = tail call i64 @rb_float_new(double noundef 0xFFF0000000000000) #20
-  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.23, i64 noundef %81) #20
+  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.20, i64 noundef 4598323) #20
+  %81 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_const(i64 noundef %81, ptr noundef nonnull @.str.21, i64 noundef 4722445) #20
   %82 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %82, ptr noundef nonnull @d_lite_s_alloc_simple) #20
-  %83 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %83, ptr noundef nonnull @.str.24, ptr noundef nonnull @date_s_valid_jd_p, i32 noundef -1) #20
+  %83 = tail call i64 @rb_float_new(double noundef 0x7FF0000000000000) #20
+  tail call void @rb_define_const(i64 noundef %82, ptr noundef nonnull @.str.22, i64 noundef %83) #20
   %84 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %84, ptr noundef nonnull @.str.25, ptr noundef nonnull @date_s_valid_ordinal_p, i32 noundef -1) #20
-  %85 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %85, ptr noundef nonnull @.str.26, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #20
+  %85 = tail call i64 @rb_float_new(double noundef 0xFFF0000000000000) #20
+  tail call void @rb_define_const(i64 noundef %84, ptr noundef nonnull @.str.23, i64 noundef %85) #20
   %86 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %86, ptr noundef nonnull @.str.27, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #20
+  tail call void @rb_define_alloc_func(i64 noundef %86, ptr noundef nonnull @d_lite_s_alloc_simple) #20
   %87 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %87, ptr noundef nonnull @.str.28, ptr noundef nonnull @date_s_valid_commercial_p, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %87, ptr noundef nonnull @.str.24, ptr noundef nonnull @date_s_valid_jd_p, i32 noundef -1) #20
   %88 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %88, ptr noundef nonnull @.str.29, ptr noundef nonnull @date_s_julian_leap_p, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %88, ptr noundef nonnull @.str.25, ptr noundef nonnull @date_s_valid_ordinal_p, i32 noundef -1) #20
   %89 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %89, ptr noundef nonnull @.str.30, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %89, ptr noundef nonnull @.str.26, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #20
   %90 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %90, ptr noundef nonnull @.str.31, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %90, ptr noundef nonnull @.str.27, ptr noundef nonnull @date_s_valid_civil_p, i32 noundef -1) #20
   %91 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %91, ptr noundef nonnull @.str.32, ptr noundef nonnull @date_s_jd, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %91, ptr noundef nonnull @.str.28, ptr noundef nonnull @date_s_valid_commercial_p, i32 noundef -1) #20
   %92 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %92, ptr noundef nonnull @.str.33, ptr noundef nonnull @date_s_ordinal, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %92, ptr noundef nonnull @.str.29, ptr noundef nonnull @date_s_julian_leap_p, i32 noundef 1) #20
   %93 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %93, ptr noundef nonnull @.str.34, ptr noundef nonnull @date_s_civil, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %93, ptr noundef nonnull @.str.30, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #20
   %94 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %94, ptr noundef nonnull @.str.35, ptr noundef nonnull @date_s_commercial, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %94, ptr noundef nonnull @.str.31, ptr noundef nonnull @date_s_gregorian_leap_p, i32 noundef 1) #20
   %95 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %95, ptr noundef nonnull @.str.36, ptr noundef nonnull @date_s_today, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %95, ptr noundef nonnull @.str.32, ptr noundef nonnull @date_s_jd, i32 noundef -1) #20
   %96 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %96, ptr noundef nonnull @.str.37, ptr noundef nonnull @date_s__strptime, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %96, ptr noundef nonnull @.str.33, ptr noundef nonnull @date_s_ordinal, i32 noundef -1) #20
   %97 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %97, ptr noundef nonnull @.str.38, ptr noundef nonnull @date_s_strptime, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %97, ptr noundef nonnull @.str.34, ptr noundef nonnull @date_s_civil, i32 noundef -1) #20
   %98 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %98, ptr noundef nonnull @.str.39, ptr noundef nonnull @date_s__parse, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %98, ptr noundef nonnull @.str.35, ptr noundef nonnull @date_s_commercial, i32 noundef -1) #20
   %99 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %99, ptr noundef nonnull @.str.40, ptr noundef nonnull @date_s_parse, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %99, ptr noundef nonnull @.str.36, ptr noundef nonnull @date_s_today, i32 noundef -1) #20
   %100 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %100, ptr noundef nonnull @.str.41, ptr noundef nonnull @date_s__iso8601, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %100, ptr noundef nonnull @.str.37, ptr noundef nonnull @date_s__strptime, i32 noundef -1) #20
   %101 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %101, ptr noundef nonnull @.str.42, ptr noundef nonnull @date_s_iso8601, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %101, ptr noundef nonnull @.str.38, ptr noundef nonnull @date_s_strptime, i32 noundef -1) #20
   %102 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %102, ptr noundef nonnull @.str.43, ptr noundef nonnull @date_s__rfc3339, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %102, ptr noundef nonnull @.str.39, ptr noundef nonnull @date_s__parse, i32 noundef -1) #20
   %103 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %103, ptr noundef nonnull @.str.44, ptr noundef nonnull @date_s_rfc3339, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %103, ptr noundef nonnull @.str.40, ptr noundef nonnull @date_s_parse, i32 noundef -1) #20
   %104 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %104, ptr noundef nonnull @.str.45, ptr noundef nonnull @date_s__xmlschema, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %104, ptr noundef nonnull @.str.41, ptr noundef nonnull @date_s__iso8601, i32 noundef -1) #20
   %105 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %105, ptr noundef nonnull @.str.46, ptr noundef nonnull @date_s_xmlschema, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %105, ptr noundef nonnull @.str.42, ptr noundef nonnull @date_s_iso8601, i32 noundef -1) #20
   %106 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %106, ptr noundef nonnull @.str.47, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %106, ptr noundef nonnull @.str.43, ptr noundef nonnull @date_s__rfc3339, i32 noundef -1) #20
   %107 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %107, ptr noundef nonnull @.str.48, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %107, ptr noundef nonnull @.str.44, ptr noundef nonnull @date_s_rfc3339, i32 noundef -1) #20
   %108 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %108, ptr noundef nonnull @.str.49, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %108, ptr noundef nonnull @.str.45, ptr noundef nonnull @date_s__xmlschema, i32 noundef -1) #20
   %109 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %109, ptr noundef nonnull @.str.50, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %109, ptr noundef nonnull @.str.46, ptr noundef nonnull @date_s_xmlschema, i32 noundef -1) #20
   %110 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %110, ptr noundef nonnull @.str.51, ptr noundef nonnull @date_s__httpdate, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %110, ptr noundef nonnull @.str.47, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #20
   %111 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %111, ptr noundef nonnull @.str.52, ptr noundef nonnull @date_s_httpdate, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %111, ptr noundef nonnull @.str.48, ptr noundef nonnull @date_s__rfc2822, i32 noundef -1) #20
   %112 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %112, ptr noundef nonnull @.str.53, ptr noundef nonnull @date_s__jisx0301, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %112, ptr noundef nonnull @.str.49, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #20
   %113 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %113, ptr noundef nonnull @.str.54, ptr noundef nonnull @date_s_jisx0301, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %113, ptr noundef nonnull @.str.50, ptr noundef nonnull @date_s_rfc2822, i32 noundef -1) #20
   %114 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %114, ptr noundef nonnull @.str.55, ptr noundef nonnull @date_initialize, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %114, ptr noundef nonnull @.str.51, ptr noundef nonnull @date_s__httpdate, i32 noundef -1) #20
   %115 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %115, ptr noundef nonnull @.str.56, ptr noundef nonnull @d_lite_initialize_copy, i32 noundef 1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %115, ptr noundef nonnull @.str.52, ptr noundef nonnull @date_s_httpdate, i32 noundef -1) #20
   %116 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %116, ptr noundef nonnull @.str.57, ptr noundef nonnull @d_lite_ajd, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %116, ptr noundef nonnull @.str.53, ptr noundef nonnull @date_s__jisx0301, i32 noundef -1) #20
   %117 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %117, ptr noundef nonnull @.str.58, ptr noundef nonnull @d_lite_amjd, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %117, ptr noundef nonnull @.str.54, ptr noundef nonnull @date_s_jisx0301, i32 noundef -1) #20
   %118 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.32, ptr noundef nonnull @d_lite_jd, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %118, ptr noundef nonnull @.str.55, ptr noundef nonnull @date_initialize, i32 noundef -1) #20
   %119 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.59, ptr noundef nonnull @d_lite_mjd, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %119, ptr noundef nonnull @.str.56, ptr noundef nonnull @d_lite_initialize_copy, i32 noundef 1) #20
   %120 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.60, ptr noundef nonnull @d_lite_ld, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %120, ptr noundef nonnull @.str.57, ptr noundef nonnull @d_lite_ajd, i32 noundef 0) #20
   %121 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.4, ptr noundef nonnull @d_lite_year, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %121, ptr noundef nonnull @.str.58, ptr noundef nonnull @d_lite_amjd, i32 noundef 0) #20
   %122 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.6, ptr noundef nonnull @d_lite_yday, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %122, ptr noundef nonnull @.str.32, ptr noundef nonnull @d_lite_jd, i32 noundef 0) #20
   %123 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.61, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %123, ptr noundef nonnull @.str.59, ptr noundef nonnull @d_lite_mjd, i32 noundef 0) #20
   %124 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.5, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %124, ptr noundef nonnull @.str.60, ptr noundef nonnull @d_lite_ld, i32 noundef 0) #20
   %125 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.62, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %125, ptr noundef nonnull @.str.4, ptr noundef nonnull @d_lite_year, i32 noundef 0) #20
   %126 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.8, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %126, ptr noundef nonnull @.str.6, ptr noundef nonnull @d_lite_yday, i32 noundef 0) #20
   %127 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.63, ptr noundef nonnull @d_lite_day_fraction, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %127, ptr noundef nonnull @.str.61, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #20
   %128 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.64, ptr noundef nonnull @d_lite_cwyear, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %128, ptr noundef nonnull @.str.5, ptr noundef nonnull @d_lite_mon, i32 noundef 0) #20
   %129 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.65, ptr noundef nonnull @d_lite_cweek, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %129, ptr noundef nonnull @.str.62, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #20
   %130 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.66, ptr noundef nonnull @d_lite_cwday, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %130, ptr noundef nonnull @.str.8, ptr noundef nonnull @d_lite_mday, i32 noundef 0) #20
   %131 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.7, ptr noundef nonnull @d_lite_wday, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %131, ptr noundef nonnull @.str.63, ptr noundef nonnull @d_lite_day_fraction, i32 noundef 0) #20
   %132 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.67, ptr noundef nonnull @d_lite_sunday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %132, ptr noundef nonnull @.str.64, ptr noundef nonnull @d_lite_cwyear, i32 noundef 0) #20
   %133 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %133, ptr noundef nonnull @.str.68, ptr noundef nonnull @d_lite_monday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %133, ptr noundef nonnull @.str.65, ptr noundef nonnull @d_lite_cweek, i32 noundef 0) #20
   %134 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %134, ptr noundef nonnull @.str.69, ptr noundef nonnull @d_lite_tuesday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %134, ptr noundef nonnull @.str.66, ptr noundef nonnull @d_lite_cwday, i32 noundef 0) #20
   %135 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %135, ptr noundef nonnull @.str.70, ptr noundef nonnull @d_lite_wednesday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %135, ptr noundef nonnull @.str.7, ptr noundef nonnull @d_lite_wday, i32 noundef 0) #20
   %136 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.71, ptr noundef nonnull @d_lite_thursday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %136, ptr noundef nonnull @.str.67, ptr noundef nonnull @d_lite_sunday_p, i32 noundef 0) #20
   %137 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %137, ptr noundef nonnull @.str.72, ptr noundef nonnull @d_lite_friday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %137, ptr noundef nonnull @.str.68, ptr noundef nonnull @d_lite_monday_p, i32 noundef 0) #20
   %138 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.73, ptr noundef nonnull @d_lite_saturday_p, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %138, ptr noundef nonnull @.str.69, ptr noundef nonnull @d_lite_tuesday_p, i32 noundef 0) #20
   %139 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_private_method(i64 noundef %139, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %139, ptr noundef nonnull @.str.70, ptr noundef nonnull @d_lite_wednesday_p, i32 noundef 0) #20
   %140 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_private_method(i64 noundef %140, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %140, ptr noundef nonnull @.str.71, ptr noundef nonnull @d_lite_thursday_p, i32 noundef 0) #20
   %141 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_private_method(i64 noundef %141, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %141, ptr noundef nonnull @.str.72, ptr noundef nonnull @d_lite_friday_p, i32 noundef 0) #20
   %142 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_private_method(i64 noundef %142, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %142, ptr noundef nonnull @.str.73, ptr noundef nonnull @d_lite_saturday_p, i32 noundef 0) #20
   %143 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_private_method(i64 noundef %143, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
+  tail call void @rb_define_private_method(i64 noundef %143, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
   %144 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %144, ptr noundef nonnull @.str.76, ptr noundef nonnull @d_lite_julian_p, i32 noundef 0) #20
+  tail call void @rb_define_private_method(i64 noundef %144, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
   %145 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %145, ptr noundef nonnull @.str.77, ptr noundef nonnull @d_lite_gregorian_p, i32 noundef 0) #20
+  tail call void @rb_define_private_method(i64 noundef %145, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
   %146 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %146, ptr noundef nonnull @.str.31, ptr noundef nonnull @d_lite_leap_p, i32 noundef 0) #20
+  tail call void @rb_define_private_method(i64 noundef %146, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
   %147 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %147, ptr noundef nonnull @.str.78, ptr noundef nonnull @d_lite_start, i32 noundef 0) #20
+  tail call void @rb_define_private_method(i64 noundef %147, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_zero, i32 noundef 0) #20
   %148 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %148, ptr noundef nonnull @.str.79, ptr noundef nonnull @d_lite_new_start, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %148, ptr noundef nonnull @.str.76, ptr noundef nonnull @d_lite_julian_p, i32 noundef 0) #20
   %149 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %149, ptr noundef nonnull @.str.80, ptr noundef nonnull @d_lite_italy, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %149, ptr noundef nonnull @.str.77, ptr noundef nonnull @d_lite_gregorian_p, i32 noundef 0) #20
   %150 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %150, ptr noundef nonnull @.str.81, ptr noundef nonnull @d_lite_england, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %150, ptr noundef nonnull @.str.31, ptr noundef nonnull @d_lite_leap_p, i32 noundef 0) #20
   %151 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %151, ptr noundef nonnull @.str.82, ptr noundef nonnull @d_lite_julian, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %151, ptr noundef nonnull @.str.78, ptr noundef nonnull @d_lite_start, i32 noundef 0) #20
   %152 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %152, ptr noundef nonnull @.str.83, ptr noundef nonnull @d_lite_gregorian, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %152, ptr noundef nonnull @.str.79, ptr noundef nonnull @d_lite_new_start, i32 noundef -1) #20
   %153 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %153, ptr noundef nonnull @.str.84, ptr noundef nonnull @d_lite_plus, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %153, ptr noundef nonnull @.str.80, ptr noundef nonnull @d_lite_italy, i32 noundef 0) #20
   %154 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %154, ptr noundef nonnull @.str.85, ptr noundef nonnull @d_lite_minus, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %154, ptr noundef nonnull @.str.81, ptr noundef nonnull @d_lite_england, i32 noundef 0) #20
   %155 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %155, ptr noundef nonnull @.str.86, ptr noundef nonnull @d_lite_next_day, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %155, ptr noundef nonnull @.str.82, ptr noundef nonnull @d_lite_julian, i32 noundef 0) #20
   %156 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %156, ptr noundef nonnull @.str.87, ptr noundef nonnull @d_lite_prev_day, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %156, ptr noundef nonnull @.str.83, ptr noundef nonnull @d_lite_gregorian, i32 noundef 0) #20
   %157 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %157, ptr noundef nonnull @.str.88, ptr noundef nonnull @d_lite_next, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %157, ptr noundef nonnull @.str.84, ptr noundef nonnull @d_lite_plus, i32 noundef 1) #20
   %158 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %158, ptr noundef nonnull @.str.89, ptr noundef nonnull @d_lite_next, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %158, ptr noundef nonnull @.str.85, ptr noundef nonnull @d_lite_minus, i32 noundef 1) #20
   %159 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %159, ptr noundef nonnull @.str.90, ptr noundef nonnull @d_lite_rshift, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %159, ptr noundef nonnull @.str.86, ptr noundef nonnull @d_lite_next_day, i32 noundef -1) #20
   %160 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %160, ptr noundef nonnull @.str.91, ptr noundef nonnull @d_lite_lshift, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %160, ptr noundef nonnull @.str.87, ptr noundef nonnull @d_lite_prev_day, i32 noundef -1) #20
   %161 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %161, ptr noundef nonnull @.str.92, ptr noundef nonnull @d_lite_next_month, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %161, ptr noundef nonnull @.str.88, ptr noundef nonnull @d_lite_next, i32 noundef 0) #20
   %162 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %162, ptr noundef nonnull @.str.93, ptr noundef nonnull @d_lite_prev_month, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %162, ptr noundef nonnull @.str.89, ptr noundef nonnull @d_lite_next, i32 noundef 0) #20
   %163 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %163, ptr noundef nonnull @.str.94, ptr noundef nonnull @d_lite_next_year, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %163, ptr noundef nonnull @.str.90, ptr noundef nonnull @d_lite_rshift, i32 noundef 1) #20
   %164 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %164, ptr noundef nonnull @.str.95, ptr noundef nonnull @d_lite_prev_year, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %164, ptr noundef nonnull @.str.91, ptr noundef nonnull @d_lite_lshift, i32 noundef 1) #20
   %165 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %165, ptr noundef nonnull @.str.96, ptr noundef nonnull @d_lite_step, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %165, ptr noundef nonnull @.str.92, ptr noundef nonnull @d_lite_next_month, i32 noundef -1) #20
   %166 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %166, ptr noundef nonnull @.str.97, ptr noundef nonnull @d_lite_upto, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %166, ptr noundef nonnull @.str.93, ptr noundef nonnull @d_lite_prev_month, i32 noundef -1) #20
   %167 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %167, ptr noundef nonnull @.str.98, ptr noundef nonnull @d_lite_downto, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %167, ptr noundef nonnull @.str.94, ptr noundef nonnull @d_lite_next_year, i32 noundef -1) #20
   %168 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str, ptr noundef nonnull @d_lite_cmp, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %168, ptr noundef nonnull @.str.95, ptr noundef nonnull @d_lite_prev_year, i32 noundef -1) #20
   %169 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %169, ptr noundef nonnull @.str.99, ptr noundef nonnull @d_lite_equal, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %169, ptr noundef nonnull @.str.96, ptr noundef nonnull @d_lite_step, i32 noundef -1) #20
   %170 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.100, ptr noundef nonnull @d_lite_eql_p, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %170, ptr noundef nonnull @.str.97, ptr noundef nonnull @d_lite_upto, i32 noundef 1) #20
   %171 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.101, ptr noundef nonnull @d_lite_hash, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %171, ptr noundef nonnull @.str.98, ptr noundef nonnull @d_lite_downto, i32 noundef 1) #20
   %172 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str.102, ptr noundef nonnull @d_lite_to_s, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %172, ptr noundef nonnull @.str, ptr noundef nonnull @d_lite_cmp, i32 noundef 1) #20
   %173 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.103, ptr noundef nonnull @d_lite_inspect, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %173, ptr noundef nonnull @.str.99, ptr noundef nonnull @d_lite_equal, i32 noundef 1) #20
   %174 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %174, ptr noundef nonnull @.str.104, ptr noundef nonnull @d_lite_strftime, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %174, ptr noundef nonnull @.str.100, ptr noundef nonnull @d_lite_eql_p, i32 noundef 1) #20
   %175 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %175, ptr noundef nonnull @.str.105, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %175, ptr noundef nonnull @.str.101, ptr noundef nonnull @d_lite_hash, i32 noundef 0) #20
   %176 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %176, ptr noundef nonnull @.str.106, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %176, ptr noundef nonnull @.str.102, ptr noundef nonnull @d_lite_to_s, i32 noundef 0) #20
   %177 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %177, ptr noundef nonnull @.str.42, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %177, ptr noundef nonnull @.str.103, ptr noundef nonnull @d_lite_inspect, i32 noundef 0) #20
   %178 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %178, ptr noundef nonnull @.str.46, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %178, ptr noundef nonnull @.str.104, ptr noundef nonnull @d_lite_strftime, i32 noundef -1) #20
   %179 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %179, ptr noundef nonnull @.str.44, ptr noundef nonnull @d_lite_rfc3339, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %179, ptr noundef nonnull @.str.105, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #20
   %180 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %180, ptr noundef nonnull @.str.49, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %180, ptr noundef nonnull @.str.106, ptr noundef nonnull @d_lite_asctime, i32 noundef 0) #20
   %181 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %181, ptr noundef nonnull @.str.50, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %181, ptr noundef nonnull @.str.42, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #20
   %182 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %182, ptr noundef nonnull @.str.52, ptr noundef nonnull @d_lite_httpdate, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %182, ptr noundef nonnull @.str.46, ptr noundef nonnull @d_lite_iso8601, i32 noundef 0) #20
   %183 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %183, ptr noundef nonnull @.str.54, ptr noundef nonnull @d_lite_jisx0301, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %183, ptr noundef nonnull @.str.44, ptr noundef nonnull @d_lite_rfc3339, i32 noundef 0) #20
   %184 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %184, ptr noundef nonnull @.str.107, ptr noundef nonnull @d_lite_deconstruct_keys, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %184, ptr noundef nonnull @.str.49, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #20
   %185 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %185, ptr noundef nonnull @.str.108, ptr noundef nonnull @d_lite_marshal_dump, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %185, ptr noundef nonnull @.str.50, ptr noundef nonnull @d_lite_rfc2822, i32 noundef 0) #20
   %186 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %186, ptr noundef nonnull @.str.109, ptr noundef nonnull @d_lite_marshal_load, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %186, ptr noundef nonnull @.str.52, ptr noundef nonnull @d_lite_httpdate, i32 noundef 0) #20
   %187 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %187, ptr noundef nonnull @.str.110, ptr noundef nonnull @date_s__load, i32 noundef 1) #20
+  tail call void @rb_define_method(i64 noundef %187, ptr noundef nonnull @.str.54, ptr noundef nonnull @d_lite_jisx0301, i32 noundef 0) #20
   %188 = load i64, ptr @cDate, align 8
-  %189 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.111, i64 noundef %188) #20
-  store i64 %189, ptr @cDateTime, align 8
-  tail call void @rb_define_alloc_func(i64 noundef %189, ptr noundef nonnull @d_lite_s_alloc_complex) #20
-  %190 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %190, ptr noundef nonnull @.str.32, ptr noundef nonnull @datetime_s_jd, i32 noundef -1) #20
-  %191 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %191, ptr noundef nonnull @.str.33, ptr noundef nonnull @datetime_s_ordinal, i32 noundef -1) #20
-  %192 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %192, ptr noundef nonnull @.str.34, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #20
-  %193 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %193, ptr noundef nonnull @.str.112, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %188, ptr noundef nonnull @.str.107, ptr noundef nonnull @d_lite_deconstruct_keys, i32 noundef 1) #20
+  %189 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_method(i64 noundef %189, ptr noundef nonnull @.str.108, ptr noundef nonnull @d_lite_marshal_dump, i32 noundef 0) #20
+  %190 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_method(i64 noundef %190, ptr noundef nonnull @.str.109, ptr noundef nonnull @d_lite_marshal_load, i32 noundef 1) #20
+  %191 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_singleton_method(i64 noundef %191, ptr noundef nonnull @.str.110, ptr noundef nonnull @date_s__load, i32 noundef 1) #20
+  %192 = load i64, ptr @cDate, align 8
+  %193 = tail call i64 @rb_define_class(ptr noundef nonnull @.str.111, i64 noundef %192) #20
+  store i64 %193, ptr @cDateTime, align 8
+  tail call void @rb_define_alloc_func(i64 noundef %193, ptr noundef nonnull @d_lite_s_alloc_complex) #20
   %194 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %194, ptr noundef nonnull @.str.35, ptr noundef nonnull @datetime_s_commercial, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %194, ptr noundef nonnull @.str.32, ptr noundef nonnull @datetime_s_jd, i32 noundef -1) #20
   %195 = load i64, ptr @cDateTime, align 8
-  %196 = and i64 %195, 7
-  %197 = icmp ne i64 %196, 0
-  %198 = icmp eq i64 %195, 0
-  %199 = or i1 %198, %197
-  br i1 %199, label %203, label %200
+  tail call void @rb_define_singleton_method(i64 noundef %195, ptr noundef nonnull @.str.33, ptr noundef nonnull @datetime_s_ordinal, i32 noundef -1) #20
+  %196 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_singleton_method(i64 noundef %196, ptr noundef nonnull @.str.34, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #20
+  %197 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_singleton_method(i64 noundef %197, ptr noundef nonnull @.str.112, ptr noundef nonnull @datetime_s_civil, i32 noundef -1) #20
+  %198 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_singleton_method(i64 noundef %198, ptr noundef nonnull @.str.35, ptr noundef nonnull @datetime_s_commercial, i32 noundef -1) #20
+  %199 = load i64, ptr @cDateTime, align 8
+  %200 = and i64 %199, 7
+  %201 = icmp ne i64 %200, 0
+  %202 = icmp eq i64 %199, 0
+  %203 = or i1 %202, %201
+  br i1 %203, label %207, label %204
 
-200:                                              ; preds = %mk_ary_of_str.exit18
-  %201 = inttoptr i64 %195 to ptr
-  %202 = getelementptr inbounds i8, ptr %201, i64 8
+204:                                              ; preds = %mk_ary_of_str.exit15
+  %205 = inttoptr i64 %199 to ptr
+  %206 = getelementptr inbounds i8, ptr %205, i64 8
   br label %rb_class_of.exit
 
-203:                                              ; preds = %mk_ary_of_str.exit18
-  switch i64 %195, label %206 [
+207:                                              ; preds = %mk_ary_of_str.exit15
+  switch i64 %199, label %210 [
     i64 0, label %rb_class_of.exit
-    i64 4, label %204
-    i64 20, label %205
+    i64 4, label %208
+    i64 20, label %209
   ]
 
-204:                                              ; preds = %203
+208:                                              ; preds = %207
   br label %rb_class_of.exit
 
-205:                                              ; preds = %203
+209:                                              ; preds = %207
   br label %rb_class_of.exit
 
-206:                                              ; preds = %203
-  %207 = and i64 %195, 1
-  %.not.i20 = icmp eq i64 %207, 0
-  br i1 %.not.i20, label %208, label %rb_class_of.exit
+210:                                              ; preds = %207
+  %211 = and i64 %199, 1
+  %.not.i17 = icmp eq i64 %211, 0
+  br i1 %.not.i17, label %212, label %rb_class_of.exit
 
-208:                                              ; preds = %206
-  %209 = and i64 %195, 254
-  %210 = icmp eq i64 %209, 12
-  %spec.select.i = select i1 %210, ptr @rb_cSymbol, ptr @rb_cFloat
+212:                                              ; preds = %210
+  %213 = and i64 %199, 254
+  %214 = icmp eq i64 %213, 12
+  %spec.select.i = select i1 %214, ptr @rb_cSymbol, ptr @rb_cFloat
   br label %rb_class_of.exit
 
-rb_class_of.exit:                                 ; preds = %200, %203, %204, %205, %206, %208
-  %.0.in.i = phi ptr [ @rb_cNilClass, %204 ], [ @rb_cTrueClass, %205 ], [ %202, %200 ], [ @rb_cFalseClass, %203 ], [ @rb_cInteger, %206 ], [ %spec.select.i, %208 ]
-  %.0.i19 = load i64, ptr %.0.in.i, align 8
-  tail call void @rb_undef_method(i64 noundef %.0.i19, ptr noundef nonnull @.str.36) #20
-  %211 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %211, ptr noundef nonnull @.str.113, ptr noundef nonnull @datetime_s_now, i32 noundef -1) #20
-  %212 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %212, ptr noundef nonnull @.str.37, ptr noundef nonnull @datetime_s__strptime, i32 noundef -1) #20
-  %213 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %213, ptr noundef nonnull @.str.38, ptr noundef nonnull @datetime_s_strptime, i32 noundef -1) #20
-  %214 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %214, ptr noundef nonnull @.str.40, ptr noundef nonnull @datetime_s_parse, i32 noundef -1) #20
+rb_class_of.exit:                                 ; preds = %204, %207, %208, %209, %210, %212
+  %.0.in.i = phi ptr [ @rb_cNilClass, %208 ], [ @rb_cTrueClass, %209 ], [ %206, %204 ], [ @rb_cFalseClass, %207 ], [ @rb_cInteger, %210 ], [ %spec.select.i, %212 ]
+  %.0.i16 = load i64, ptr %.0.in.i, align 8
+  tail call void @rb_undef_method(i64 noundef %.0.i16, ptr noundef nonnull @.str.36) #20
   %215 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %215, ptr noundef nonnull @.str.42, ptr noundef nonnull @datetime_s_iso8601, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %215, ptr noundef nonnull @.str.113, ptr noundef nonnull @datetime_s_now, i32 noundef -1) #20
   %216 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %216, ptr noundef nonnull @.str.44, ptr noundef nonnull @datetime_s_rfc3339, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %216, ptr noundef nonnull @.str.37, ptr noundef nonnull @datetime_s__strptime, i32 noundef -1) #20
   %217 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %217, ptr noundef nonnull @.str.46, ptr noundef nonnull @datetime_s_xmlschema, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %217, ptr noundef nonnull @.str.38, ptr noundef nonnull @datetime_s_strptime, i32 noundef -1) #20
   %218 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %218, ptr noundef nonnull @.str.49, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %218, ptr noundef nonnull @.str.40, ptr noundef nonnull @datetime_s_parse, i32 noundef -1) #20
   %219 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %219, ptr noundef nonnull @.str.50, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %219, ptr noundef nonnull @.str.42, ptr noundef nonnull @datetime_s_iso8601, i32 noundef -1) #20
   %220 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %220, ptr noundef nonnull @.str.52, ptr noundef nonnull @datetime_s_httpdate, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %220, ptr noundef nonnull @.str.44, ptr noundef nonnull @datetime_s_rfc3339, i32 noundef -1) #20
   %221 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_singleton_method(i64 noundef %221, ptr noundef nonnull @.str.54, ptr noundef nonnull @datetime_s_jisx0301, i32 noundef -1) #20
+  tail call void @rb_define_singleton_method(i64 noundef %221, ptr noundef nonnull @.str.46, ptr noundef nonnull @datetime_s_xmlschema, i32 noundef -1) #20
   %222 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %222, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_hour, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %222, ptr noundef nonnull @.str.49, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #20
   %223 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %223, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_min, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %223, ptr noundef nonnull @.str.50, ptr noundef nonnull @datetime_s_rfc2822, i32 noundef -1) #20
   %224 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %224, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_min, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %224, ptr noundef nonnull @.str.52, ptr noundef nonnull @datetime_s_httpdate, i32 noundef -1) #20
   %225 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %225, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #20
+  tail call void @rb_define_singleton_method(i64 noundef %225, ptr noundef nonnull @.str.54, ptr noundef nonnull @datetime_s_jisx0301, i32 noundef -1) #20
   %226 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %226, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %226, ptr noundef nonnull @.str.9, ptr noundef nonnull @d_lite_hour, i32 noundef 0) #20
   %227 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %227, ptr noundef nonnull @.str.12, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %227, ptr noundef nonnull @.str.10, ptr noundef nonnull @d_lite_min, i32 noundef 0) #20
   %228 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %228, ptr noundef nonnull @.str.114, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %228, ptr noundef nonnull @.str.74, ptr noundef nonnull @d_lite_min, i32 noundef 0) #20
   %229 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %229, ptr noundef nonnull @.str.115, ptr noundef nonnull @d_lite_offset, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %229, ptr noundef nonnull @.str.11, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #20
   %230 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %230, ptr noundef nonnull @.str.13, ptr noundef nonnull @d_lite_zone, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %230, ptr noundef nonnull @.str.75, ptr noundef nonnull @d_lite_sec, i32 noundef 0) #20
   %231 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %231, ptr noundef nonnull @.str.116, ptr noundef nonnull @d_lite_new_offset, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %231, ptr noundef nonnull @.str.12, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #20
   %232 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %232, ptr noundef nonnull @.str.102, ptr noundef nonnull @dt_lite_to_s, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %232, ptr noundef nonnull @.str.114, ptr noundef nonnull @d_lite_sec_fraction, i32 noundef 0) #20
   %233 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %233, ptr noundef nonnull @.str.104, ptr noundef nonnull @dt_lite_strftime, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %233, ptr noundef nonnull @.str.115, ptr noundef nonnull @d_lite_offset, i32 noundef 0) #20
   %234 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %234, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %234, ptr noundef nonnull @.str.13, ptr noundef nonnull @d_lite_zone, i32 noundef 0) #20
   %235 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %235, ptr noundef nonnull @.str.46, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %235, ptr noundef nonnull @.str.116, ptr noundef nonnull @d_lite_new_offset, i32 noundef -1) #20
   %236 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %236, ptr noundef nonnull @.str.44, ptr noundef nonnull @dt_lite_rfc3339, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %236, ptr noundef nonnull @.str.102, ptr noundef nonnull @dt_lite_to_s, i32 noundef 0) #20
   %237 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %237, ptr noundef nonnull @.str.54, ptr noundef nonnull @dt_lite_jisx0301, i32 noundef -1) #20
+  tail call void @rb_define_method(i64 noundef %237, ptr noundef nonnull @.str.104, ptr noundef nonnull @dt_lite_strftime, i32 noundef -1) #20
   %238 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %238, ptr noundef nonnull @.str.107, ptr noundef nonnull @dt_lite_deconstruct_keys, i32 noundef 1) #20
-  %239 = load i64, ptr @rb_cTime, align 8
-  tail call void @rb_define_method(i64 noundef %239, ptr noundef nonnull @.str.117, ptr noundef nonnull @time_to_time, i32 noundef 0) #20
-  %240 = load i64, ptr @rb_cTime, align 8
-  tail call void @rb_define_method(i64 noundef %240, ptr noundef nonnull @.str.118, ptr noundef nonnull @time_to_date, i32 noundef 0) #20
-  %241 = load i64, ptr @rb_cTime, align 8
-  tail call void @rb_define_method(i64 noundef %241, ptr noundef nonnull @.str.119, ptr noundef nonnull @time_to_datetime, i32 noundef 0) #20
-  %242 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %242, ptr noundef nonnull @.str.117, ptr noundef nonnull @date_to_time, i32 noundef 0) #20
-  %243 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %243, ptr noundef nonnull @.str.118, ptr noundef nonnull @date_to_date, i32 noundef 0) #20
-  %244 = load i64, ptr @cDate, align 8
-  tail call void @rb_define_method(i64 noundef %244, ptr noundef nonnull @.str.119, ptr noundef nonnull @date_to_datetime, i32 noundef 0) #20
-  %245 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %245, ptr noundef nonnull @.str.117, ptr noundef nonnull @datetime_to_time, i32 noundef 0) #20
-  %246 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %246, ptr noundef nonnull @.str.118, ptr noundef nonnull @datetime_to_date, i32 noundef 0) #20
-  %247 = load i64, ptr @cDateTime, align 8
-  tail call void @rb_define_method(i64 noundef %247, ptr noundef nonnull @.str.119, ptr noundef nonnull @datetime_to_datetime, i32 noundef 0) #20
+  tail call void @rb_define_method(i64 noundef %238, ptr noundef nonnull @.str.42, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #20
+  %239 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %239, ptr noundef nonnull @.str.46, ptr noundef nonnull @dt_lite_iso8601, i32 noundef -1) #20
+  %240 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %240, ptr noundef nonnull @.str.44, ptr noundef nonnull @dt_lite_rfc3339, i32 noundef -1) #20
+  %241 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %241, ptr noundef nonnull @.str.54, ptr noundef nonnull @dt_lite_jisx0301, i32 noundef -1) #20
+  %242 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %242, ptr noundef nonnull @.str.107, ptr noundef nonnull @dt_lite_deconstruct_keys, i32 noundef 1) #20
+  %243 = load i64, ptr @rb_cTime, align 8
+  tail call void @rb_define_method(i64 noundef %243, ptr noundef nonnull @.str.117, ptr noundef nonnull @time_to_time, i32 noundef 0) #20
+  %244 = load i64, ptr @rb_cTime, align 8
+  tail call void @rb_define_method(i64 noundef %244, ptr noundef nonnull @.str.118, ptr noundef nonnull @time_to_date, i32 noundef 0) #20
+  %245 = load i64, ptr @rb_cTime, align 8
+  tail call void @rb_define_method(i64 noundef %245, ptr noundef nonnull @.str.119, ptr noundef nonnull @time_to_datetime, i32 noundef 0) #20
+  %246 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_method(i64 noundef %246, ptr noundef nonnull @.str.117, ptr noundef nonnull @date_to_time, i32 noundef 0) #20
+  %247 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_method(i64 noundef %247, ptr noundef nonnull @.str.118, ptr noundef nonnull @date_to_date, i32 noundef 0) #20
+  %248 = load i64, ptr @cDate, align 8
+  tail call void @rb_define_method(i64 noundef %248, ptr noundef nonnull @.str.119, ptr noundef nonnull @date_to_datetime, i32 noundef 0) #20
+  %249 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %249, ptr noundef nonnull @.str.117, ptr noundef nonnull @datetime_to_time, i32 noundef 0) #20
+  %250 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %250, ptr noundef nonnull @.str.118, ptr noundef nonnull @datetime_to_date, i32 noundef 0) #20
+  %251 = load i64, ptr @cDateTime, align 8
+  tail call void @rb_define_method(i64 noundef %251, ptr noundef nonnull @.str.119, ptr noundef nonnull @datetime_to_datetime, i32 noundef 0) #20
   ret void
 }
 
@@ -1177,7 +1177,7 @@ c_valid_start_p.exit.thread.i:                    ; preds = %c_valid_start_p.exi
 valid_ordinal_sub.exit:                           ; preds = %33, %c_valid_start_p.exit.i, %c_valid_start_p.exit.thread.i
   %.0.i = phi double [ %31, %c_valid_start_p.exit.i ], [ 0.000000e+00, %c_valid_start_p.exit.thread.i ], [ %31, %33 ]
   %38 = trunc i64 %.0.i.i to i32
-  %39 = call fastcc i32 @valid_ordinal_p(i64 noundef %22, i32 noundef %38, double noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %39 = call fastcc i32 @valid_ordinal_p(i64 noundef %22, i32 noundef %38, double noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %.not9.i = icmp eq i32 %39, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1331,7 +1331,7 @@ guess_style.exit.i:                               ; preds = %69, %65, %f_negativ
   br i1 %71, label %72, label %guess_style.exit.thread.i
 
 72:                                               ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %30, double noundef -1.000000e+00, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @decode_year(i64 noundef %30, double noundef -1.000000e+00, ptr noundef %4, ptr noundef %5)
   %73 = load i32, ptr %5, align 4
   %74 = icmp slt i32 %40, 0
   %75 = add nsw i32 %40, 13
@@ -1383,7 +1383,7 @@ c_gregorian_last_day_of_month.exit.i.i.i:         ; preds = %89, %77
   br i1 %or.cond22.i.i.i, label %select.unfold, label %.sink.split
 
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %67
-  %102 = call fastcc i32 @valid_civil_p(i64 noundef %30, i32 noundef %40, i32 noundef %46, double noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %102 = call fastcc i32 @valid_civil_p(i64 noundef %30, i32 noundef %40, i32 noundef %46, double noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not17.i = icmp eq i32 %102, 0
   br i1 %.not17.i, label %select.unfold, label %.sink.split
 
@@ -1505,7 +1505,7 @@ valid_commercial_sub.exit:                        ; preds = %47, %c_valid_start_
   %.0.i = phi double [ %45, %c_valid_start_p.exit.i ], [ 0.000000e+00, %c_valid_start_p.exit.thread.i ], [ %45, %47 ]
   %52 = trunc i64 %.0.i13.i to i32
   %53 = trunc i64 %.0.i.i to i32
-  %54 = call fastcc i32 @valid_commercial_p(i64 noundef %30, i32 noundef %53, i32 noundef %52, double noundef %.0.i, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %54 = call fastcc i32 @valid_commercial_p(i64 noundef %30, i32 noundef %53, i32 noundef %52, double noundef %.0.i, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not11.i = icmp eq i32 %54, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
@@ -1537,7 +1537,7 @@ define internal range(i64 0, 21) i64 @date_s_julian_leap_p(i64 %0, i64 noundef %
   unreachable
 
 check_numeric.exit:                               ; preds = %2
-  call fastcc void @decode_year(i64 noundef %1, double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @decode_year(i64 noundef %1, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %4)
   %10 = load i32, ptr %4, align 4
   %11 = and i32 %10, 3
   %.not = icmp eq i32 %11, 0
@@ -1561,7 +1561,7 @@ define internal range(i64 0, 21) i64 @date_s_gregorian_leap_p(i64 %0, i64 nounde
   unreachable
 
 check_numeric.exit:                               ; preds = %2
-  call fastcc void @decode_year(i64 noundef %1, double noundef -1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @decode_year(i64 noundef %1, double noundef -1.000000e+00, ptr noundef %3, ptr noundef %4)
   %10 = load i32, ptr %4, align 4
   %11 = and i32 %10, 3
   %12 = icmp ne i32 %11, 0
@@ -1646,7 +1646,7 @@ c_valid_start_p.exit.thread28:                    ; preds = %14, %c_valid_start_
 
 check_numeric.exit:                               ; preds = %c_valid_start_p.exit.thread28
   %25 = load i64, ptr %4, align 8
-  %26 = call fastcc i64 @d_trunc(i64 noundef %25, ptr noundef nonnull %6)
+  %26 = call fastcc i64 @d_trunc(i64 noundef %25, ptr noundef %6)
   %27 = load i64, ptr %6, align 8
   %28 = and i64 %27, 7
   %29 = icmp ne i64 %28, 0
@@ -1709,7 +1709,7 @@ f_zero_p.exit.thread35:                           ; preds = %41, %rb_type.exit.t
   %.013 = phi i64 [ 1, %3 ], [ %26, %f_zero_p.exit ], [ %26, %f_zero_p.exit.thread ], [ %26, %rb_type.exit.thread8.i ], [ %26, %41 ]
   %.012 = phi i64 [ 1, %3 ], [ 1, %f_zero_p.exit ], [ %27, %f_zero_p.exit.thread ], [ 1, %rb_type.exit.thread8.i ], [ 1, %41 ]
   %.0 = phi double [ 0x41418A8C80000000, %3 ], [ %.1, %f_zero_p.exit ], [ %.1, %f_zero_p.exit.thread ], [ %.1, %rb_type.exit.thread8.i ], [ %.1, %41 ]
-  call fastcc void @decode_jd(i64 noundef %.013, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  call fastcc void @decode_jd(i64 noundef %.013, ptr noundef %7, ptr noundef %8)
   %50 = load i64, ptr %7, align 8
   %51 = load i32, ptr %8, align 4
   %52 = call i64 @rb_data_typed_object_zalloc(i64 noundef %2, i64 noundef 32, ptr noundef nonnull @d_lite_type) #20
@@ -1883,7 +1883,7 @@ c_valid_start_p.exit.thread38:                    ; preds = %17, %c_valid_start_
 
 check_numeric.exit:                               ; preds = %c_valid_start_p.exit.thread38
   %28 = load i64, ptr %5, align 8
-  %29 = call fastcc i64 @d_trunc(i64 noundef %28, ptr noundef nonnull %7)
+  %29 = call fastcc i64 @d_trunc(i64 noundef %28, ptr noundef %7)
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0
   br i1 %.not.i22, label %33, label %31
@@ -1982,7 +1982,7 @@ check_numeric.exit27:                             ; preds = %f_zero_p.exit.threa
   %.016 = phi i64 [ 1, %3 ], [ %.117, %check_numeric.exit27 ]
   %.013 = phi i32 [ 1, %3 ], [ %.114, %check_numeric.exit27 ]
   %.0 = phi double [ 0x41418A8C80000000, %3 ], [ %.2, %check_numeric.exit27 ]
-  %67 = call fastcc i32 @valid_ordinal_p(i64 noundef %.018, i32 noundef %.013, double noundef %.0, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %67 = call fastcc i32 @valid_ordinal_p(i64 noundef %.018, i32 noundef %.013, double noundef %.0, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not20 = icmp eq i32 %67, 0
   br i1 %.not20, label %68, label %70
 
@@ -2201,7 +2201,7 @@ c_valid_start_p.exit.thread48:                    ; preds = %20, %c_valid_start_
 
 check_numeric.exit:                               ; preds = %c_valid_start_p.exit.thread48
   %31 = load i64, ptr %6, align 8
-  %32 = call fastcc i64 @d_trunc(i64 noundef %31, ptr noundef nonnull %8)
+  %32 = call fastcc i64 @d_trunc(i64 noundef %31, ptr noundef %8)
   %33 = and i64 %32, 1
   %.not.i27 = icmp eq i64 %33, 0
   br i1 %.not.i27, label %36, label %34
@@ -2337,7 +2337,7 @@ check_numeric.exit37:                             ; preds = %75
   %.017 = phi i32 [ 1, %3 ], [ %.118, %check_numeric.exit37 ]
   %.014 = phi i32 [ 1, %3 ], [ %.216, %check_numeric.exit37 ]
   %.0 = phi double [ 0x41418A8C80000000, %3 ], [ %.3, %check_numeric.exit37 ]
-  %84 = call fastcc i32 @valid_commercial_p(i64 noundef %.023, i32 noundef %.017, i32 noundef %.014, double noundef %.0, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %84 = call fastcc i32 @valid_commercial_p(i64 noundef %.023, i32 noundef %.017, i32 noundef %.014, double noundef %.0, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %.not25 = icmp eq i32 %84, 0
   br i1 %.not25, label %85, label %87
 
@@ -2529,7 +2529,7 @@ c_valid_start_p.exit.thread14:                    ; preds = %15, %3, %c_valid_st
   %34 = sext i32 %29 to i64
   %35 = shl nsw i64 %34, 1
   %36 = or disjoint i64 %35, 1
-  call fastcc void @decode_year(i64 noundef %36, double noundef -1.000000e+00, ptr noundef nonnull %5, ptr noundef nonnull %8)
+  call fastcc void @decode_year(i64 noundef %36, double noundef -1.000000e+00, ptr noundef %5, ptr noundef %8)
   %37 = load i64, ptr %5, align 8
   %38 = load double, ptr @negative_inf, align 8
   %39 = load i32, ptr %8, align 4
@@ -3339,7 +3339,7 @@ c_valid_start_p.exit.thread80:                    ; preds = %28, %c_valid_start_
 
 check_numeric.exit:                               ; preds = %c_valid_start_p.exit.thread80
   %39 = load i64, ptr %6, align 8
-  %40 = call fastcc i64 @d_trunc(i64 noundef %39, ptr noundef nonnull %8)
+  %40 = call fastcc i64 @d_trunc(i64 noundef %39, ptr noundef %8)
   %41 = and i64 %40, 1
   %.not.i51 = icmp eq i64 %41, 0
   br i1 %.not.i51, label %44, label %42
@@ -3515,7 +3515,7 @@ guess_style.exit:                                 ; preds = %91, %f_negative_p.e
   br i1 %109, label %110, label %guess_style.exit.thread
 
 110:                                              ; preds = %guess_style.exit
-  call fastcc void @decode_year(i64 noundef %.0, double noundef -1.000000e+00, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  call fastcc void @decode_year(i64 noundef %.0, double noundef -1.000000e+00, ptr noundef %9, ptr noundef %10)
   %111 = load i32, ptr %10, align 4
   %112 = icmp slt i32 %.040, 0
   %113 = add nsw i32 %.040, 13
@@ -3620,7 +3620,7 @@ rb_obj_write.exit:                                ; preds = %canon.exit, %161
   br label %198
 
 guess_style.exit.thread:                          ; preds = %105, %guess_style.exit
-  %166 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.040, i32 noundef %.037, double noundef %.036, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %166 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.040, i32 noundef %.037, double noundef %.036, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   %.not48 = icmp eq i32 %166, 0
   br i1 %.not48, label %167, label %169
 
@@ -3863,7 +3863,7 @@ m_real_jd.exit.i:                                 ; preds = %7, %1
   %.0.in.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
   %8 = tail call fastcc i32 @m_jd(ptr noundef nonnull %4)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %8, ptr noundef nonnull %3)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %8, ptr noundef %3)
   %9 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %10 = and i64 %9, 1
@@ -3890,7 +3890,7 @@ m_real_jd.exit.i:                                 ; preds = %7, %1
 m_real_jd.exit26.i:                               ; preds = %17, %14
   %.0.i.i25.i = load i64, ptr %.0.in.i.i.i, align 8
   %18 = tail call fastcc i32 @m_jd(ptr noundef nonnull %4)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i25.i, i32 noundef %18, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i25.i, i32 noundef %18, ptr noundef %2)
   %19 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %20 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %19, i64 noundef 45, i32 noundef 1, i64 noundef 4800003) #20
@@ -4073,7 +4073,7 @@ m_real_local_jd.exit:                             ; preds = %1, %6
   %.0.in.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %7 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %3)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef %2)
   %8 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i64 %8
@@ -4097,7 +4097,7 @@ m_real_local_jd.exit:                             ; preds = %1, %6
   %.0.in.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %7 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %3)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef %2)
   %8 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %8, i64 noundef 45, i32 noundef 1, i64 noundef 4800003) #20
@@ -4122,7 +4122,7 @@ m_real_local_jd.exit:                             ; preds = %1, %6
   %.0.in.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %7 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %3)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %7, ptr noundef %2)
   %8 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %9 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %8, i64 noundef 45, i32 noundef 1, i64 noundef 4598321) #20
@@ -4346,7 +4346,7 @@ define internal range(i64 1, 0) i64 @d_lite_cweek(i64 noundef %0) #0 {
 
 m_cweek.exit:                                     ; preds = %9, %11
   %.0.i.i = phi double [ %12, %11 ], [ %10, %9 ]
-  call fastcc void @c_jd_to_commercial(i32 noundef %6, double noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @c_jd_to_commercial(i32 noundef %6, double noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %13 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -7165,7 +7165,7 @@ m_sg.exit:                                        ; preds = %44, %48
 
 49:                                               ; preds = %51, %m_sg.exit
   %.026 = phi i32 [ %45, %m_sg.exit ], [ %52, %51 ]
-  %50 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.025, i32 noundef %.026, double noundef %.0.i30, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %10)
+  %50 = call fastcc i32 @valid_civil_p(i64 noundef %.0, i32 noundef %.025, i32 noundef %.026, double noundef %.0.i30, ptr noundef %4, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %6, ptr noundef %10)
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %51, label %56
 
@@ -7182,7 +7182,7 @@ m_sg.exit:                                        ; preds = %44, %48
 56:                                               ; preds = %49
   %57 = load i64, ptr %4, align 8
   %58 = load i32, ptr %6, align 4
-  call fastcc void @encode_jd(i64 noundef %57, i32 noundef %58, ptr noundef nonnull %5)
+  call fastcc void @encode_jd(i64 noundef %57, i32 noundef %58, ptr noundef %5)
   %59 = load i64, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %60 = load i32, ptr %11, align 8
@@ -7198,7 +7198,7 @@ m_real_local_jd.exit:                             ; preds = %56, %62
   %.0.in.i.i = getelementptr inbounds i8, ptr %11, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %63 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %11)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %63, ptr noundef nonnull %3)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %63, ptr noundef %3)
   %64 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %65 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %59, i64 noundef 45, i32 noundef 1, i64 noundef %64) #20
@@ -8241,7 +8241,7 @@ define internal i64 @d_lite_to_s(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.345, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.345, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -8284,7 +8284,7 @@ m_real_jd.exit.i:                                 ; preds = %8, %1
   %.0.in.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
   %9 = tail call fastcc i32 @m_jd(ptr noundef nonnull %3)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %9, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %9, ptr noundef %2)
   %10 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %11 = load i32, ptr %3, align 8
@@ -8380,7 +8380,7 @@ define internal i64 @d_lite_asctime(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.349, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.349, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -8421,7 +8421,7 @@ define internal i64 @d_lite_iso8601(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.345, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.345, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -8462,7 +8462,7 @@ define internal i64 @d_lite_rfc3339(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.350, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.350, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -8503,7 +8503,7 @@ define internal i64 @d_lite_rfc2822(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.351, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.351, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -8548,7 +8548,7 @@ define internal i64 @d_lite_httpdate(i64 noundef %0) #0 {
   store ptr %9, ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %10, align 8
-  %11 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.352, ptr noundef nonnull %5)
+  %11 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.352, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %12 = load ptr, ptr %6, align 8
@@ -8595,7 +8595,7 @@ m_real_local_jd.exit:                             ; preds = %1, %12
   %.0.in.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %13 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %9)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %13, ptr noundef nonnull %7)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %13, ptr noundef %7)
   %14 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %15 = tail call i64 @m_real_year(ptr noundef nonnull %9)
@@ -8650,7 +8650,7 @@ jisx0301_date_format.exit:                        ; preds = %m_real_local_jd.exi
   store ptr %34, ptr %5, align 8
   %35 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %35, align 8
-  %36 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull %.014.i, ptr noundef nonnull %5)
+  %36 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull %.014.i, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %37 = load ptr, ptr %6, align 8
@@ -9096,7 +9096,7 @@ f_eqeq_p.exit.thread.i:                           ; preds = %f_eqeq_p.exit.i, %1
   br label %f_eqeq_p.exit.thread43.i
 
 f_eqeq_p.exit.thread43.i:                         ; preds = %f_eqeq_p.exit.thread.i, %f_eqeq_p.exit.i, %115
-  call fastcc void @decode_jd(i64 noundef %74, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @decode_jd(i64 noundef %74, ptr noundef %3, ptr noundef %4)
   %119 = and i64 %88, 1
   %.not.i28.i = icmp eq i64 %119, 0
   br i1 %.not.i28.i, label %122, label %120
@@ -9688,7 +9688,7 @@ c_valid_start_p.exit.thread:                      ; preds = %15, %c_valid_start_
 c_valid_start_p.exit.thread97:                    ; preds = %19, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.5 = phi double [ 0x41418A8C80000000, %3 ], [ %17, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %17, %19 ]
   %24 = load i64, ptr %8, align 8
-  %25 = call fastcc i32 @offset_to_sec(i64 noundef %24, ptr noundef nonnull %11)
+  %25 = call fastcc i32 @offset_to_sec(i64 noundef %24, ptr noundef %11)
   %.not35 = icmp eq i32 %25, 0
   br i1 %.not35, label %26, label %27
 
@@ -9713,7 +9713,7 @@ c_valid_start_p.exit.thread97:                    ; preds = %19, %3, %c_valid_st
 
 check_numeric.exit:                               ; preds = %27
   %34 = load i64, ptr %7, align 8
-  %35 = call fastcc i64 @s_trunc(i64 noundef %34, ptr noundef nonnull %10)
+  %35 = call fastcc i64 @s_trunc(i64 noundef %34, ptr noundef %10)
   %36 = and i64 %35, 1
   %.not.i42 = icmp eq i64 %36, 0
   br i1 %.not.i42, label %39, label %37
@@ -9805,7 +9805,7 @@ f_zero_p.exit.thread104:                          ; preds = %56, %rb_type.exit.t
 
 check_numeric.exit47:                             ; preds = %f_zero_p.exit.thread104
   %71 = load i64, ptr %6, align 8
-  %72 = call fastcc i64 @min_trunc(i64 noundef %71, ptr noundef nonnull %10)
+  %72 = call fastcc i64 @min_trunc(i64 noundef %71, ptr noundef %10)
   %73 = and i64 %72, 1
   %.not.i48 = icmp eq i64 %73, 0
   br i1 %.not.i48, label %76, label %74
@@ -9896,7 +9896,7 @@ f_zero_p.exit57.thread112:                        ; preds = %93, %rb_type.exit.t
 
 check_numeric.exit59:                             ; preds = %f_zero_p.exit57.thread112
   %106 = load i64, ptr %5, align 8
-  %107 = call fastcc i64 @h_trunc(i64 noundef %106, ptr noundef nonnull %10)
+  %107 = call fastcc i64 @h_trunc(i64 noundef %106, ptr noundef %10)
   %108 = and i64 %107, 1
   %.not.i60 = icmp eq i64 %108, 0
   br i1 %.not.i60, label %111, label %109
@@ -9991,7 +9991,7 @@ f_zero_p.exit69.thread120:                        ; preds = %128, %rb_type.exit.
 
 check_numeric.exit71:                             ; preds = %f_zero_p.exit69.thread120
   %141 = load i64, ptr %4, align 8
-  %142 = call fastcc i64 @d_trunc(i64 noundef %141, ptr noundef nonnull %10)
+  %142 = call fastcc i64 @d_trunc(i64 noundef %141, ptr noundef %10)
   %143 = load i64, ptr %10, align 8
   %144 = and i64 %143, 7
   %145 = icmp ne i64 %144, 0
@@ -10092,7 +10092,7 @@ c_valid_time_p.exit.thread:                       ; preds = %f_zero_p.exit78.thr
   %182 = phi i32 [ 0, %179 ], [ %168, %174 ], [ 0, %3 ]
   %.094 = phi i32 [ 0, %179 ], [ %spec.select, %174 ], [ 0, %3 ]
   %.434 = phi i64 [ %180, %179 ], [ %.030, %174 ], [ 1, %3 ]
-  call fastcc void @decode_jd(i64 noundef %.0142152164173198203, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  call fastcc void @decode_jd(i64 noundef %.0142152164173198203, ptr noundef %12, ptr noundef %13)
   %183 = load i32, ptr %13, align 4
   %184 = mul nuw nsw i32 %.094, 3600
   %185 = mul nuw nsw i32 %182, 60
@@ -10284,7 +10284,7 @@ c_valid_start_p.exit.thread:                      ; preds = %18, %c_valid_start_
 c_valid_start_p.exit.thread111:                   ; preds = %22, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.6 = phi double [ 0x41418A8C80000000, %3 ], [ %20, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %20, %22 ]
   %27 = load i64, ptr %9, align 8
-  %28 = call fastcc i32 @offset_to_sec(i64 noundef %27, ptr noundef nonnull %12)
+  %28 = call fastcc i32 @offset_to_sec(i64 noundef %27, ptr noundef %12)
   %.not43 = icmp eq i32 %28, 0
   br i1 %.not43, label %29, label %30
 
@@ -10309,7 +10309,7 @@ c_valid_start_p.exit.thread111:                   ; preds = %22, %3, %c_valid_st
 
 check_numeric.exit:                               ; preds = %30
   %37 = load i64, ptr %8, align 8
-  %38 = call fastcc i64 @s_trunc(i64 noundef %37, ptr noundef nonnull %11)
+  %38 = call fastcc i64 @s_trunc(i64 noundef %37, ptr noundef %11)
   %39 = and i64 %38, 1
   %.not.i51 = icmp eq i64 %39, 0
   br i1 %.not.i51, label %42, label %40
@@ -10401,7 +10401,7 @@ f_zero_p.exit.thread118:                          ; preds = %59, %rb_type.exit.t
 
 check_numeric.exit56:                             ; preds = %f_zero_p.exit.thread118
   %74 = load i64, ptr %7, align 8
-  %75 = call fastcc i64 @min_trunc(i64 noundef %74, ptr noundef nonnull %11)
+  %75 = call fastcc i64 @min_trunc(i64 noundef %74, ptr noundef %11)
   %76 = and i64 %75, 1
   %.not.i57 = icmp eq i64 %76, 0
   br i1 %.not.i57, label %79, label %77
@@ -10492,7 +10492,7 @@ f_zero_p.exit66.thread126:                        ; preds = %96, %rb_type.exit.t
 
 check_numeric.exit68:                             ; preds = %f_zero_p.exit66.thread126
   %109 = load i64, ptr %6, align 8
-  %110 = call fastcc i64 @h_trunc(i64 noundef %109, ptr noundef nonnull %11)
+  %110 = call fastcc i64 @h_trunc(i64 noundef %109, ptr noundef %11)
   %111 = and i64 %110, 1
   %.not.i69 = icmp eq i64 %111, 0
   br i1 %.not.i69, label %114, label %112
@@ -10584,7 +10584,7 @@ f_zero_p.exit78.thread134:                        ; preds = %131, %rb_type.exit.
 
 check_numeric.exit80:                             ; preds = %f_zero_p.exit78.thread134
   %144 = load i64, ptr %5, align 8
-  %145 = call fastcc i64 @d_trunc(i64 noundef %144, ptr noundef nonnull %11)
+  %145 = call fastcc i64 @d_trunc(i64 noundef %144, ptr noundef %11)
   %146 = and i64 %145, 1
   %.not.i81 = icmp eq i64 %146, 0
   br i1 %.not.i81, label %149, label %147
@@ -10687,7 +10687,7 @@ check_numeric.exit92:                             ; preds = %f_zero_p.exit90.thr
   %.022 = phi i32 [ 0, %3 ], [ %.426, %check_numeric.exit92 ]
   %.021 = phi double [ 0x41418A8C80000000, %3 ], [ %.5, %check_numeric.exit92 ]
   %.0 = phi i64 [ -9423, %3 ], [ %179, %check_numeric.exit92 ]
-  %181 = call fastcc i32 @valid_ordinal_p(i64 noundef %.0, i32 noundef %.034, double noundef %.021, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %181 = call fastcc i32 @valid_ordinal_p(i64 noundef %.0, i32 noundef %.034, double noundef %.021, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   %.not48 = icmp eq i32 %181, 0
   br i1 %.not48, label %182, label %184
 
@@ -10994,7 +10994,7 @@ c_valid_start_p.exit.thread.i:                    ; preds = %c_valid_start_p.exi
 c_valid_start_p.exit.thread187.i:                 ; preds = %c_valid_start_p.exit.thread.i, %c_valid_start_p.exit.i, %50, %44
   %.764.i = phi double [ 0x41418A8C80000000, %44 ], [ %48, %c_valid_start_p.exit.i ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread.i ], [ %48, %50 ]
   %55 = load i64, ptr %10, align 8
-  %56 = call fastcc i32 @offset_to_sec(i64 noundef %55, ptr noundef nonnull %13)
+  %56 = call fastcc i32 @offset_to_sec(i64 noundef %55, ptr noundef %13)
   %.not87.i = icmp eq i32 %56, 0
   br i1 %.not87.i, label %57, label %58
 
@@ -11019,7 +11019,7 @@ c_valid_start_p.exit.thread187.i:                 ; preds = %c_valid_start_p.exi
 
 check_numeric.exit.i:                             ; preds = %58
   %65 = load i64, ptr %9, align 8
-  %66 = call fastcc i64 @s_trunc(i64 noundef %65, ptr noundef nonnull %12)
+  %66 = call fastcc i64 @s_trunc(i64 noundef %65, ptr noundef %12)
   %67 = and i64 %66, 1
   %.not.i97.i = icmp eq i64 %67, 0
   br i1 %.not.i97.i, label %70, label %68
@@ -11111,7 +11111,7 @@ f_zero_p.exit.thread194.i:                        ; preds = %f_zero_p.exit.threa
 
 check_numeric.exit102.i:                          ; preds = %f_zero_p.exit.thread194.i
   %102 = load i64, ptr %8, align 8
-  %103 = call fastcc i64 @min_trunc(i64 noundef %102, ptr noundef nonnull %12)
+  %103 = call fastcc i64 @min_trunc(i64 noundef %102, ptr noundef %12)
   %104 = and i64 %103, 1
   %.not.i103.i = icmp eq i64 %104, 0
   br i1 %.not.i103.i, label %107, label %105
@@ -11202,7 +11202,7 @@ f_zero_p.exit112.thread202.i:                     ; preds = %f_zero_p.exit112.th
 
 check_numeric.exit114.i:                          ; preds = %f_zero_p.exit112.thread202.i
   %137 = load i64, ptr %7, align 8
-  %138 = call fastcc i64 @h_trunc(i64 noundef %137, ptr noundef nonnull %12)
+  %138 = call fastcc i64 @h_trunc(i64 noundef %137, ptr noundef %12)
   %139 = and i64 %138, 1
   %.not.i115.i = icmp eq i64 %139, 0
   br i1 %.not.i115.i, label %142, label %140
@@ -11294,7 +11294,7 @@ f_zero_p.exit124.thread210.i:                     ; preds = %f_zero_p.exit124.th
 
 check_numeric.exit126.i:                          ; preds = %f_zero_p.exit124.thread210.i
   %172 = load i64, ptr %6, align 8
-  %173 = call fastcc i64 @d_trunc(i64 noundef %172, ptr noundef nonnull %12)
+  %173 = call fastcc i64 @d_trunc(i64 noundef %172, ptr noundef %12)
   %174 = and i64 %173, 1
   %.not.i127.i = icmp eq i64 %174, 0
   br i1 %.not.i127.i, label %177, label %175
@@ -11477,7 +11477,7 @@ guess_style.exit.i:                               ; preds = %238, %234, %f_negat
   br i1 %240, label %241, label %guess_style.exit.thread.i
 
 241:                                              ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %.0.i, double noundef -1.000000e+00, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @decode_year(i64 noundef %.0.i, double noundef -1.000000e+00, ptr noundef %14, ptr noundef %15)
   %242 = load i32, ptr %15, align 4
   %243 = icmp slt i32 %.083.i, 0
   %244 = add nsw i32 %.083.i, 13
@@ -11632,7 +11632,7 @@ rb_obj_write.exit.i:                              ; preds = %308, %canon.exit.i
   br label %386
 
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %236
-  %322 = call fastcc i32 @valid_civil_p(i64 noundef %.0.i, i32 noundef %.083.i, i32 noundef %.080.i, double noundef %.057.i, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21)
+  %322 = call fastcc i32 @valid_civil_p(i64 noundef %.0.i, i32 noundef %.083.i, i32 noundef %.080.i, double noundef %.057.i, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21)
   %.not92.i = icmp eq i32 %322, 0
   br i1 %.not92.i, label %323, label %325
 
@@ -11893,7 +11893,7 @@ c_valid_start_p.exit.thread:                      ; preds = %21, %c_valid_start_
 c_valid_start_p.exit.thread124:                   ; preds = %25, %3, %c_valid_start_p.exit, %c_valid_start_p.exit.thread
   %.7 = phi double [ 0x41418A8C80000000, %3 ], [ %23, %c_valid_start_p.exit ], [ 0x41418A8C80000000, %c_valid_start_p.exit.thread ], [ %23, %25 ]
   %30 = load i64, ptr %10, align 8
-  %31 = call fastcc i32 @offset_to_sec(i64 noundef %30, ptr noundef nonnull %13)
+  %31 = call fastcc i32 @offset_to_sec(i64 noundef %30, ptr noundef %13)
   %.not51 = icmp eq i32 %31, 0
   br i1 %.not51, label %32, label %33
 
@@ -11918,7 +11918,7 @@ c_valid_start_p.exit.thread124:                   ; preds = %25, %3, %c_valid_st
 
 check_numeric.exit:                               ; preds = %33
   %40 = load i64, ptr %9, align 8
-  %41 = call fastcc i64 @s_trunc(i64 noundef %40, ptr noundef nonnull %12)
+  %41 = call fastcc i64 @s_trunc(i64 noundef %40, ptr noundef %12)
   %42 = and i64 %41, 1
   %.not.i59 = icmp eq i64 %42, 0
   br i1 %.not.i59, label %45, label %43
@@ -12010,7 +12010,7 @@ f_zero_p.exit.thread131:                          ; preds = %62, %rb_type.exit.t
 
 check_numeric.exit64:                             ; preds = %f_zero_p.exit.thread131
   %77 = load i64, ptr %8, align 8
-  %78 = call fastcc i64 @min_trunc(i64 noundef %77, ptr noundef nonnull %12)
+  %78 = call fastcc i64 @min_trunc(i64 noundef %77, ptr noundef %12)
   %79 = and i64 %78, 1
   %.not.i65 = icmp eq i64 %79, 0
   br i1 %.not.i65, label %82, label %80
@@ -12101,7 +12101,7 @@ f_zero_p.exit74.thread139:                        ; preds = %99, %rb_type.exit.t
 
 check_numeric.exit76:                             ; preds = %f_zero_p.exit74.thread139
   %112 = load i64, ptr %7, align 8
-  %113 = call fastcc i64 @h_trunc(i64 noundef %112, ptr noundef nonnull %12)
+  %113 = call fastcc i64 @h_trunc(i64 noundef %112, ptr noundef %12)
   %114 = and i64 %113, 1
   %.not.i77 = icmp eq i64 %114, 0
   br i1 %.not.i77, label %117, label %115
@@ -12193,7 +12193,7 @@ f_zero_p.exit86.thread147:                        ; preds = %134, %rb_type.exit.
 
 check_numeric.exit88:                             ; preds = %f_zero_p.exit86.thread147
   %147 = load i64, ptr %6, align 8
-  %148 = call fastcc i64 @d_trunc(i64 noundef %147, ptr noundef nonnull %12)
+  %148 = call fastcc i64 @d_trunc(i64 noundef %147, ptr noundef %12)
   %149 = and i64 %148, 1
   %.not.i89 = icmp eq i64 %149, 0
   br i1 %.not.i89, label %152, label %150
@@ -12336,7 +12336,7 @@ check_numeric.exit105:                            ; preds = %189
   %.023 = phi i32 [ 0, %3 ], [ %.528, %check_numeric.exit105 ]
   %.022 = phi double [ 0x41418A8C80000000, %3 ], [ %.6, %check_numeric.exit105 ]
   %.0 = phi i64 [ -9423, %3 ], [ %196, %check_numeric.exit105 ]
-  %198 = call fastcc i32 @valid_commercial_p(i64 noundef %.0, i32 noundef %.041, i32 noundef %.038, double noundef %.022, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  %198 = call fastcc i32 @valid_commercial_p(i64 noundef %.0, i32 noundef %.041, i32 noundef %.038, double noundef %.022, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr noundef %18, ptr noundef %19)
   %.not56 = icmp eq i32 %198, 0
   br i1 %.not56, label %199, label %201
 
@@ -12595,7 +12595,7 @@ define internal noundef i64 @datetime_s_now(i32 noundef %0, ptr noundef %1, i64 
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 1
   %45 = or disjoint i64 %44, 1
-  call fastcc void @decode_year(i64 noundef %45, double noundef -1.000000e+00, ptr noundef nonnull %5, ptr noundef nonnull %9)
+  call fastcc void @decode_year(i64 noundef %45, double noundef -1.000000e+00, ptr noundef %5, ptr noundef %9)
   %46 = load i64, ptr %5, align 8
   %47 = add i64 %38, 4611686018427387904
   %or.cond.i = icmp sgt i64 %47, -1
@@ -13440,7 +13440,7 @@ define internal i64 @d_lite_new_offset(i32 noundef %0, ptr noundef %1, i64 nound
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %4, align 8
-  %10 = call fastcc i32 @offset_to_sec(i64 noundef %9, ptr noundef nonnull %5)
+  %10 = call fastcc i32 @offset_to_sec(i64 noundef %9, ptr noundef %5)
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %._crit_edge
 
@@ -13476,7 +13476,7 @@ define internal i64 @dt_lite_to_s(i64 noundef %0) #0 {
   store ptr %7, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @tmx_funcs, ptr %8, align 8
-  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %4, ptr noundef nonnull @.str.350, ptr noundef nonnull %5)
+  %9 = call fastcc i64 @date_strftime_alloc(ptr noundef %4, ptr noundef nonnull @.str.350, ptr noundef %5)
   store ptr %2, ptr %6, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %6) #20, !srcloc !13
   %10 = load ptr, ptr %6, align 8
@@ -13550,7 +13550,7 @@ rb_num2long_inline.exit:                          ; preds = %16, %14, %rb_check_
   store ptr %18, ptr %7, align 8
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr @tmx_funcs, ptr %19, align 8
-  %20 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %6, ptr noundef nonnull @.str.345, ptr noundef nonnull %7)
+  %20 = call fastcc i64 @date_strftime_alloc(ptr noundef %6, ptr noundef nonnull @.str.345, ptr noundef %7)
   store ptr %4, ptr %8, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %8) #20, !srcloc !13
   %21 = load ptr, ptr %8, align 8
@@ -13672,7 +13672,7 @@ rbimpl_intern_const.exit22:                       ; preds = %.lr.ph.i20, %rbimpl
   %.lcssa.i19 = phi i64 [ %.pr.i17, %rbimpl_intern_const.exit16 ], [ %9, %.lr.ph.i20 ]
   %10 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %.lcssa.i19, i32 noundef 0) #20
   %11 = tail call i64 @rb_fix2int(i64 noundef %10) #20
-  call fastcc void @decode_year(i64 noundef %5, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @decode_year(i64 noundef %5, double noundef -1.000000e+00, ptr noundef %2, ptr noundef %3)
   %12 = load i64, ptr @cDate, align 8
   %13 = load i64, ptr %2, align 8
   %14 = load double, ptr @negative_inf, align 8
@@ -13900,7 +13900,7 @@ rbimpl_intern_const.exit68:                       ; preds = %.lr.ph.i66, %sec_to
   %41 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %.lcssa.i65, i32 noundef 0) #20
   %42 = tail call i64 @rb_fix2int(i64 noundef %41) #20
   %43 = trunc i64 %42 to i32
-  call fastcc void @decode_year(i64 noundef %5, double noundef -1.000000e+00, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  call fastcc void @decode_year(i64 noundef %5, double noundef -1.000000e+00, ptr noundef %2, ptr noundef %3)
   %44 = load i64, ptr @cDateTime, align 8
   %45 = load i64, ptr %2, align 8
   %46 = load double, ptr @negative_inf, align 8
@@ -14382,7 +14382,7 @@ declare i64 @rb_ary_push(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @rb_usascii_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @d_simple_new_internal(i64 noundef %0, i64 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i64 @d_simple_new_internal(i64 noundef %0, i64 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, -4) %7) unnamed_addr #0 {
   %9 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 32, ptr noundef nonnull @d_lite_type) #20
   %10 = inttoptr i64 %9 to ptr
   %11 = getelementptr inbounds i8, ptr %10, i64 24
@@ -14505,7 +14505,7 @@ declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #1
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @valid_ordinal_p(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_ordinal_p(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = tail call double @llvm.fabs.f64(double %2) #21
@@ -14550,7 +14550,7 @@ guess_style.exit:                                 ; preds = %7, %f_negative_p.ex
 guess_style.exit.thread:                          ; preds = %23, %guess_style.exit
   %28 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %29 = trunc i64 %28 to i32
-  %30 = call fastcc i32 @c_valid_ordinal_p(i32 noundef %29, i32 noundef %1, double noundef %2, ptr noundef nonnull %8, ptr noundef %6)
+  %30 = call fastcc i32 @c_valid_ordinal_p(i32 noundef %29, i32 noundef %1, double noundef %2, ptr noundef %8, ptr noundef %6)
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %62, label %31
 
@@ -14618,7 +14618,7 @@ f_zero_p.exit.thread:                             ; preds = %50, %rb_type.exit.i
   %.not32 = icmp eq i32 %56, 0
   %57 = select i1 %.not32, i32 1, i32 -1
   %58 = sitofp i32 %57 to double
-  call fastcc void @decode_year(i64 noundef %0, double noundef %58, ptr noundef nonnull %9, ptr noundef %4)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %58, ptr noundef %9, ptr noundef %4)
   br label %62
 
 59:                                               ; preds = %guess_style.exit
@@ -14633,7 +14633,7 @@ f_zero_p.exit.thread:                             ; preds = %50, %rb_type.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @encode_jd(i64 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @encode_jd(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
   %6 = icmp eq i64 %0, 0
@@ -14705,7 +14705,7 @@ declare i64 @rb_fix2int(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_num2int(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_ordinal_p(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #7 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -14742,7 +14742,7 @@ c_find_ldoy.exit.thread:                          ; preds = %23
 25:                                               ; preds = %23, %22
   %.08.i = phi i32 [ 0, %22 ], [ %24, %23 ]
   %26 = xor i32 %.08.i, 31
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 12, i32 noundef %26, double noundef %2, ptr noundef %17, ptr noundef %18, ptr noundef %19, ptr noundef %20)
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %23, label %28
 
@@ -14791,7 +14791,7 @@ c_jd_to_civil.exit.i:                             ; preds = %34, %28
 
 55:                                               ; preds = %55, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %57, %55 ]
-  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %56 = call fastcc i32 @c_valid_civil_p(i32 noundef %54, i32 noundef 1, i32 noundef %.08.i.i, double noundef %2, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   %.not.i.i = icmp ne i32 %56, 0
   %57 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %57, 31
@@ -14818,7 +14818,7 @@ c_jd_to_ordinal.exit:                             ; preds = %55
 
 62:                                               ; preds = %62, %61
   %.08.i.i20 = phi i32 [ 1, %61 ], [ %64, %62 ]
-  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %3, ptr noundef nonnull %12)
+  %63 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i20, double noundef %2, ptr noundef %10, ptr noundef %11, ptr noundef %3, ptr noundef %12)
   %.not.i.i21 = icmp ne i32 %63, 0
   %64 = add nuw nsw i32 %.08.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i32 %64, 31
@@ -14877,7 +14877,7 @@ c_jd_to_civil.exit.i24:                           ; preds = %74, %c_ordinal_to_j
 
 95:                                               ; preds = %95, %c_jd_to_civil.exit.i24
   %.08.i.i28 = phi i32 [ 1, %c_jd_to_civil.exit.i24 ], [ %97, %95 ]
-  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %96 = call fastcc i32 @c_valid_civil_p(i32 noundef %94, i32 noundef 1, i32 noundef %.08.i.i28, double noundef %2, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not.i.i29 = icmp ne i32 %96, 0
   %97 = add nuw nsw i32 %.08.i.i28, 1
   %exitcond.not.i.i30 = icmp eq i32 %97, 31
@@ -14904,7 +14904,7 @@ c_jd_to_ordinal.exit32:                           ; preds = %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_jd(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_jd(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %.pr.i = load i64, ptr @decode_jd.rbimpl_id, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
@@ -14978,7 +14978,7 @@ f_zero_p.exit.thread12:                           ; preds = %f_zero_p.exit, %rb_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_year(i64 noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @decode_year(i64 noundef %0, double noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = fcmp olt double %1, 0.000000e+00
   %6 = select i1 %5, i32 584400, i32 584388
   %7 = and i64 %0, 1
@@ -15104,7 +15104,7 @@ f_zero_p.exit.thread41:                           ; preds = %50, %rb_type.exit.t
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #7 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = icmp slt i32 %1, 0
@@ -15136,7 +15136,7 @@ c_find_ldom.exit.thread:                          ; preds = %17
 19:                                               ; preds = %16, %17
   %.0.i57 = phi i32 [ 0, %16 ], [ %18, %17 ]
   %20 = xor i32 %.0.i57, 31
-  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %spec.select, i32 noundef %20, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %6, ptr noundef %7)
+  %21 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef %spec.select, i32 noundef %20, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %6, ptr noundef %7)
   %.not.i = icmp eq i32 %21, 0
   br i1 %.not.i, label %17, label %22
 
@@ -15308,7 +15308,7 @@ define internal fastcc i64 @rbimpl_intern_const(ptr nocapture noundef nonnull %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @valid_civil_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_civil_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = tail call double @llvm.fabs.f64(double %3) #21
@@ -15353,7 +15353,7 @@ guess_style.exit:                                 ; preds = %10, %f_negative_p.e
 guess_style.exit.thread:                          ; preds = %26, %guess_style.exit
   %31 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %32 = trunc i64 %31 to i32
-  %33 = call fastcc i32 @c_valid_civil_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9)
+  %33 = call fastcc i32 @c_valid_civil_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %9)
   %.not45 = icmp eq i32 %33, 0
   br i1 %.not45, label %c_valid_gregorian_p.exit.thread, label %34
 
@@ -15421,7 +15421,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
   %.not47 = icmp eq i32 %59, 0
   %60 = select i1 %.not47, i32 1, i32 -1
   %61 = sitofp i32 %60 to double
-  call fastcc void @decode_year(i64 noundef %0, double noundef %61, ptr noundef nonnull %12, ptr noundef %5)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %61, ptr noundef %12, ptr noundef %5)
   br label %c_valid_gregorian_p.exit.thread
 
 62:                                               ; preds = %guess_style.exit
@@ -15552,7 +15552,7 @@ c_valid_gregorian_p.exit.thread:                  ; preds = %98, %94, %c_gregori
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @valid_commercial_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @valid_commercial_p(i64 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i64, align 8
   %13 = tail call double @llvm.fabs.f64(double %3) #21
@@ -15597,7 +15597,7 @@ guess_style.exit:                                 ; preds = %10, %f_negative_p.e
 guess_style.exit.thread:                          ; preds = %26, %guess_style.exit
   %31 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %32 = trunc i64 %31 to i32
-  %33 = call fastcc i32 @c_valid_commercial_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %11, ptr noundef %9)
+  %33 = call fastcc i32 @c_valid_commercial_p(i32 noundef %32, i32 noundef %1, i32 noundef %2, double noundef %3, ptr noundef %6, ptr noundef %7, ptr noundef %11, ptr noundef %9)
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %65, label %34
 
@@ -15665,7 +15665,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
   %.not36 = icmp eq i32 %59, 0
   %60 = select i1 %.not36, i32 1, i32 -1
   %61 = sitofp i32 %60 to double
-  call fastcc void @decode_year(i64 noundef %0, double noundef %61, ptr noundef nonnull %12, ptr noundef %5)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %61, ptr noundef %12, ptr noundef %5)
   br label %65
 
 62:                                               ; preds = %guess_style.exit
@@ -15680,7 +15680,7 @@ f_zero_p.exit.thread:                             ; preds = %53, %rb_type.exit.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #7 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -15708,7 +15708,7 @@ define internal fastcc range(i32 0, 2) i32 @c_valid_commercial_p(i32 noundef %0,
 
 25:                                               ; preds = %25, %23
   %.08.i.i = phi i32 [ 1, %23 ], [ %27, %25 ]
-  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16)
+  %26 = call fastcc i32 @c_valid_civil_p(i32 noundef %24, i32 noundef 1, i32 noundef %.08.i.i, double noundef %3, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16)
   %.not.i.i = icmp ne i32 %26, 0
   %27 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %27, 31
@@ -15740,7 +15740,7 @@ c_commercial_to_jd.exit:                          ; preds = %31, %35
   %38 = mul nsw i32 %1, 7
   %39 = add i32 %29, %38
   %40 = sub i32 %39, %37
-  call fastcc void @c_jd_to_commercial(i32 noundef %40, double noundef %3, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19)
+  call fastcc void @c_jd_to_commercial(i32 noundef %40, double noundef %3, ptr noundef %17, ptr noundef %18, ptr noundef %19)
   %41 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %41, %0
   br i1 %.not, label %42, label %72
@@ -15759,7 +15759,7 @@ c_commercial_to_jd.exit:                          ; preds = %31, %35
 
 45:                                               ; preds = %45, %44
   %.08.i.i32 = phi i32 [ 1, %44 ], [ %47, %45 ]
-  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12)
+  %46 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i32, double noundef %3, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
   %.not.i.i33 = icmp ne i32 %46, 0
   %47 = add nuw nsw i32 %.08.i.i32, 1
   %exitcond.not.i.i34 = icmp eq i32 %47, 31
@@ -15787,7 +15787,7 @@ c_find_fdoy.exit.i36:                             ; preds = %45
 c_commercial_to_jd.exit37:                        ; preds = %51, %55
   %57 = phi i32 [ %54, %51 ], [ %56, %55 ]
   %58 = mul i32 %.023, 7
-  %59 = add i32 %spec.select, -8
+  %59 = add nsw i32 %spec.select, -8
   %60 = add i32 %59, %58
   %61 = add i32 %60, %49
   %62 = sub i32 %61, %57
@@ -15799,7 +15799,7 @@ c_commercial_to_jd.exit37:                        ; preds = %51, %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %66 = load i32, ptr %6, align 4
-  call fastcc void @c_jd_to_commercial(i32 noundef %66, double noundef %3, ptr noundef nonnull %17, ptr noundef %4, ptr noundef %5)
+  call fastcc void @c_jd_to_commercial(i32 noundef %66, double noundef %3, ptr noundef %17, ptr noundef %4, ptr noundef %5)
   %67 = load i32, ptr %17, align 4
   %.not28 = icmp eq i32 %0, %67
   br i1 %.not28, label %68, label %72
@@ -15821,7 +15821,7 @@ c_commercial_to_jd.exit37:                        ; preds = %51, %55
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @c_jd_to_commercial(i32 noundef %0, double noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #9 {
+define internal fastcc void @c_jd_to_commercial(i32 noundef %0, double noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #9 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15871,7 +15871,7 @@ c_jd_to_civil.exit:                               ; preds = %5, %17
 
 39:                                               ; preds = %39, %c_jd_to_civil.exit
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %41, %39 ]
-  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %40 = call fastcc i32 @c_valid_civil_p(i32 noundef %38, i32 noundef 1, i32 noundef %.08.i.i, double noundef %1, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   %.not.i.i = icmp ne i32 %40, 0
   %41 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %41, 31
@@ -15913,7 +15913,7 @@ c_commercial_to_jd.exit:                          ; preds = %45, %49
 
 54:                                               ; preds = %54, %53
   %.08.i.i23 = phi i32 [ 1, %53 ], [ %56, %54 ]
-  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %55 = call fastcc i32 @c_valid_civil_p(i32 noundef %37, i32 noundef 1, i32 noundef %.08.i.i23, double noundef %1, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not.i.i24 = icmp ne i32 %55, 0
   %56 = add nuw nsw i32 %.08.i.i23, 1
   %exitcond.not.i.i25 = icmp eq i32 %56, 31
@@ -15993,7 +15993,7 @@ c_commercial_to_jd.exit28:                        ; preds = %60, %64
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @d_trunc(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @d_trunc(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = and i64 %0, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %to_integer.exit
@@ -16931,7 +16931,7 @@ rbimpl_intern_const.exit70:                       ; preds = %.lr.ph.i68, %rbimpl
   unreachable
 
 60:                                               ; preds = %56
-  call fastcc void @decode_jd(i64 noundef %.028, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @decode_jd(i64 noundef %.028, ptr noundef %4, ptr noundef %5)
   %61 = load i64, ptr %4, align 8
   %62 = load i32, ptr %5, align 4
   %63 = tail call double @rb_num2dbl(i64 noundef %.0) #20
@@ -17042,14 +17042,14 @@ rb_num2int_inline.exit7:                          ; preds = %19, %21
   %.0.i6 = phi i64 [ %20, %19 ], [ %22, %21 ]
   %23 = trunc i64 %.0.i6 to i32
   %24 = tail call double @rb_num2dbl(i64 noundef %3) #20
-  %25 = call fastcc i32 @valid_civil_p(i64 noundef %0, i32 noundef %17, i32 noundef %23, double noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %25 = call fastcc i32 @valid_civil_p(i64 noundef %0, i32 noundef %17, i32 noundef %23, double noundef %24, ptr noundef %5, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %30, label %26
 
 26:                                               ; preds = %rb_num2int_inline.exit7
   %27 = load i64, ptr %5, align 8
   %28 = load i32, ptr %10, align 4
-  call fastcc void @encode_jd(i64 noundef %27, i32 noundef %28, ptr noundef nonnull %6)
+  call fastcc void @encode_jd(i64 noundef %27, i32 noundef %28, ptr noundef %6)
   %29 = load i64, ptr %6, align 8
   br label %30
 
@@ -18859,7 +18859,7 @@ d_lite_jd.exit:                                   ; preds = %rbimpl_intern_const
   %.0.in.i.i.i = getelementptr inbounds i8, ptr %517, i64 8
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8
   %521 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %517)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %521, ptr noundef nonnull %3)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i.i, i32 noundef %521, ptr noundef %3)
   %522 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %523 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %516, i64 noundef %522) #20
@@ -19103,7 +19103,7 @@ rb_num2int_inline.exit.i:                         ; preds = %33, %31
   %.0.i.i = phi i64 [ %32, %31 ], [ %34, %33 ]
   %35 = trunc i64 %.0.i.i to i32
   %36 = tail call double @rb_num2dbl(i64 noundef %1) #20
-  %37 = call fastcc i32 @valid_ordinal_p(i64 noundef %27, i32 noundef %35, double noundef %36, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %37 = call fastcc i32 @valid_ordinal_p(i64 noundef %27, i32 noundef %35, double noundef %36, ptr noundef %10, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   %.not.i99 = icmp eq i32 %37, 0
   br i1 %.not.i99, label %rt__valid_ordinal_p.exit.thread, label %rt__valid_ordinal_p.exit
 
@@ -19118,7 +19118,7 @@ rt__valid_ordinal_p.exit.thread:                  ; preds = %rb_num2int_inline.e
 rt__valid_ordinal_p.exit:                         ; preds = %rb_num2int_inline.exit.i
   %38 = load i64, ptr %10, align 8
   %39 = load i32, ptr %13, align 4
-  call fastcc void @encode_jd(i64 noundef %38, i32 noundef %39, ptr noundef nonnull %11)
+  call fastcc void @encode_jd(i64 noundef %38, i32 noundef %39, ptr noundef %11)
   %40 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
@@ -19350,7 +19350,7 @@ rb_num2int_inline.exit7.i:                        ; preds = %107, %105
   %.0.i6.i = phi i64 [ %106, %105 ], [ %108, %107 ]
   %109 = trunc i64 %.0.i6.i to i32
   %110 = tail call double @rb_num2dbl(i64 noundef %1) #20
-  %111 = call fastcc i32 @valid_commercial_p(i64 noundef %95, i32 noundef %103, i32 noundef %109, double noundef %110, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %111 = call fastcc i32 @valid_commercial_p(i64 noundef %95, i32 noundef %103, i32 noundef %109, double noundef %110, ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %.not.i148 = icmp eq i32 %111, 0
   br i1 %.not.i148, label %rt__valid_commercial_p.exit.thread, label %rt__valid_commercial_p.exit
 
@@ -19367,7 +19367,7 @@ rt__valid_commercial_p.exit.thread:               ; preds = %rb_num2int_inline.e
 rt__valid_commercial_p.exit:                      ; preds = %rb_num2int_inline.exit7.i
   %112 = load i64, ptr %3, align 8
   %113 = load i32, ptr %8, align 4
-  call fastcc void @encode_jd(i64 noundef %112, i32 noundef %113, ptr noundef nonnull %4)
+  call fastcc void @encode_jd(i64 noundef %112, i32 noundef %113, ptr noundef %4)
   %114 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -19597,7 +19597,7 @@ define internal fastcc i64 @f_eqeq_p(i64 noundef %0, i64 noundef %1) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @rt__valid_weeknum_p(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @rt__valid_weeknum_p(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef range(i64 1, 4) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -19697,7 +19697,7 @@ guess_style.exit.i:                               ; preds = %49, %45, %f_negativ
 guess_style.exit.thread.i:                        ; preds = %guess_style.exit.i, %47
   %52 = tail call i64 @rb_fix2int(i64 noundef %0) #20
   %53 = trunc i64 %52 to i32
-  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %14)
+  %54 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %53, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %33, ptr noundef %11, ptr noundef %12, ptr noundef %6, ptr noundef %14)
   %.not.i12 = icmp eq i32 %54, 0
   br i1 %.not.i12, label %valid_weeknum_p.exit.thread15, label %55
 
@@ -19711,7 +19711,7 @@ valid_weeknum_p.exit.thread15:                    ; preds = %guess_style.exit.th
   %57 = sext i32 %56 to i64
   %58 = shl nsw i64 %57, 1
   %59 = or disjoint i64 %58, 1
-  call fastcc void @decode_jd(i64 noundef %59, ptr noundef nonnull %8, ptr noundef nonnull %13)
+  call fastcc void @decode_jd(i64 noundef %59, ptr noundef %8, ptr noundef %13)
   %60 = load i64, ptr %8, align 8
   %61 = and i64 %60, 7
   %62 = icmp ne i64 %61, 0
@@ -19768,7 +19768,7 @@ f_zero_p.exit.thread.i:                           ; preds = %f_zero_p.exit.i, %7
   %.not38.i = icmp eq i32 %79, 0
   %80 = select i1 %.not38.i, i32 1, i32 -1
   %81 = sitofp i32 %80 to double
-  call fastcc void @decode_year(i64 noundef %0, double noundef %81, ptr noundef nonnull %7, ptr noundef nonnull %10)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %81, ptr noundef %7, ptr noundef %10)
   br label %valid_weeknum_p.exit.thread
 
 valid_weeknum_p.exit.thread:                      ; preds = %f_zero_p.exit.thread46.i, %f_zero_p.exit.thread.i
@@ -19777,9 +19777,9 @@ valid_weeknum_p.exit.thread:                      ; preds = %f_zero_p.exit.threa
   br label %84
 
 valid_weeknum_p.exit:                             ; preds = %guess_style.exit.i
-  call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i.i, ptr noundef nonnull %8, ptr noundef nonnull %10)
+  call fastcc void @decode_year(i64 noundef %0, double noundef %.0.i.i, ptr noundef %8, ptr noundef %10)
   %82 = load i32, ptr %10, align 4
-  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %83 = call fastcc i32 @c_valid_weeknum_p(i32 noundef %82, i32 noundef %20, i32 noundef %26, i32 noundef %32, double noundef %.0.i.i, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %.not = icmp eq i32 %83, 0
@@ -19792,7 +19792,7 @@ valid_weeknum_p.exit._crit_edge:                  ; preds = %valid_weeknum_p.exi
 84:                                               ; preds = %valid_weeknum_p.exit._crit_edge, %valid_weeknum_p.exit.thread
   %85 = phi i64 [ %.pre, %valid_weeknum_p.exit._crit_edge ], [ %60, %valid_weeknum_p.exit.thread ]
   %86 = load i32, ptr %13, align 4
-  call fastcc void @encode_jd(i64 noundef %85, i32 noundef %86, ptr noundef nonnull %9)
+  call fastcc void @encode_jd(i64 noundef %85, i32 noundef %86, ptr noundef %9)
   %87 = load i64, ptr %9, align 8
   br label %88
 
@@ -19802,7 +19802,7 @@ valid_weeknum_p.exit._crit_edge:                  ; preds = %valid_weeknum_p.exi
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @c_valid_weeknum_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef writeonly %8) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @c_valid_weeknum_p(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #7 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -19830,7 +19830,7 @@ define internal fastcc range(i32 0, 2) i32 @c_valid_weeknum_p(i32 noundef %0, i3
 
 26:                                               ; preds = %26, %24
   %.08.i.i = phi i32 [ 1, %24 ], [ %28, %26 ]
-  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %27 = call fastcc i32 @c_valid_civil_p(i32 noundef %25, i32 noundef 1, i32 noundef %.08.i.i, double noundef %4, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
   %.not.i.i = icmp ne i32 %27, 0
   %28 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %28, 31
@@ -19865,7 +19865,7 @@ c_weeknum_to_jd.exit:                             ; preds = %33, %37
   %42 = add i32 %3, %41
   %43 = add i32 %42, %30
   %44 = sub i32 %43, %40
-  call fastcc void @c_jd_to_weeknum(i32 noundef %44, i32 noundef %3, double noundef %4, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20)
+  call fastcc void @c_jd_to_weeknum(i32 noundef %44, i32 noundef %3, double noundef %4, ptr noundef %18, ptr noundef %19, ptr noundef %20)
   %45 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %45, %0
   br i1 %.not, label %46, label %78
@@ -19884,7 +19884,7 @@ c_weeknum_to_jd.exit:                             ; preds = %33, %37
 
 49:                                               ; preds = %49, %48
   %.08.i.i37 = phi i32 [ 1, %48 ], [ %51, %49 ]
-  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13)
+  %50 = call fastcc i32 @c_valid_civil_p(i32 noundef %0, i32 noundef 1, i32 noundef %.08.i.i37, double noundef %4, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
   %.not.i.i38 = icmp ne i32 %50, 0
   %51 = add nuw nsw i32 %.08.i.i37, 1
   %exitcond.not.i.i39 = icmp eq i32 %51, 31
@@ -19926,7 +19926,7 @@ c_weeknum_to_jd.exit42:                           ; preds = %56, %60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %72 = load i32, ptr %7, align 4
-  call fastcc void @c_jd_to_weeknum(i32 noundef %72, i32 noundef %3, double noundef %4, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6)
+  call fastcc void @c_jd_to_weeknum(i32 noundef %72, i32 noundef %3, double noundef %4, ptr noundef %18, ptr noundef %5, ptr noundef %6)
   %73 = load i32, ptr %18, align 4
   %.not33 = icmp eq i32 %0, %73
   br i1 %.not33, label %74, label %78
@@ -19948,7 +19948,7 @@ c_weeknum_to_jd.exit42:                           ; preds = %56, %60
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @c_jd_to_weeknum(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #9 {
+define internal fastcc void @c_jd_to_weeknum(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #9 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -19991,7 +19991,7 @@ c_jd_to_civil.exit:                               ; preds = %6, %13
 
 34:                                               ; preds = %34, %c_jd_to_civil.exit
   %.08.i = phi i32 [ 1, %c_jd_to_civil.exit ], [ %36, %34 ]
-  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %35 = call fastcc i32 @c_valid_civil_p(i32 noundef %33, i32 noundef 1, i32 noundef %.08.i, double noundef %2, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %.not.i = icmp ne i32 %35, 0
   %36 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %36, 31
@@ -20141,7 +20141,7 @@ m_real_jd.exit:                                   ; preds = %1
   %.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %6 = tail call fastcc i32 @m_jd(ptr noundef nonnull %0)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %6, ptr noundef nonnull %3)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %6, ptr noundef %3)
   %7 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %8 = and i64 %7, 1
@@ -20169,7 +20169,7 @@ m_real_jd.exit27:                                 ; preds = %1
   %.0.in.i.i25 = getelementptr inbounds i8, ptr %0, i64 8
   %.0.i.i26 = load i64, ptr %.0.in.i.i25, align 8
   %19 = tail call fastcc i32 @m_jd(ptr noundef nonnull %0)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i26, i32 noundef %19, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i26, i32 noundef %19, ptr noundef %2)
   %20 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %21 = load i32, ptr %0, align 8
@@ -20708,7 +20708,7 @@ f_zero_p.exit.thread:                             ; preds = %20, %rb_type.exit.i
   %.not7.not = icmp eq i32 %27, 0
   %28 = select i1 %.not7.not, i32 -1, i32 1
   %29 = sitofp i32 %28 to double
-  call fastcc void @encode_year(i64 noundef %.0.i, i32 noundef %6, double noundef %29, ptr noundef nonnull %2)
+  call fastcc void @encode_year(i64 noundef %.0.i, i32 noundef %6, double noundef %29, ptr noundef %2)
   %30 = load i64, ptr %2, align 8
   br label %31
 
@@ -20794,7 +20794,7 @@ get_s_civil.exit:                                 ; preds = %c_jd_to_civil.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @encode_year(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @encode_year(i64 noundef %0, i32 noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = and i64 %0, 7
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i64 %0, 0
@@ -21102,7 +21102,7 @@ c_jd_to_civil.exit.i:                             ; preds = %61, %59
 
 82:                                               ; preds = %82, %c_jd_to_civil.exit.i
   %.08.i.i = phi i32 [ 1, %c_jd_to_civil.exit.i ], [ %84, %82 ]
-  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %83 = call fastcc i32 @c_valid_civil_p(i32 noundef %81, i32 noundef 1, i32 noundef %.08.i.i, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.not.i.i21 = icmp ne i32 %83, 0
   %84 = add nuw nsw i32 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %84, 31
@@ -21317,7 +21317,7 @@ m_nth.exit:                                       ; preds = %1, %8
 
 m_cwyear.exit:                                    ; preds = %12, %14
   %.0.i.i = phi double [ %15, %14 ], [ %13, %12 ]
-  call fastcc void @c_jd_to_commercial(i32 noundef %9, double noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @c_jd_to_commercial(i32 noundef %9, double noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %16 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -21379,7 +21379,7 @@ f_zero_p.exit.thread:                             ; preds = %30, %rb_type.exit.i
   %.not7.not = icmp eq i32 %37, 0
   %38 = select i1 %.not7.not, i32 -1, i32 1
   %39 = sitofp i32 %38 to double
-  call fastcc void @encode_year(i64 noundef %.0.i, i32 noundef %16, double noundef %39, ptr noundef nonnull %5)
+  call fastcc void @encode_year(i64 noundef %.0.i, i32 noundef %16, double noundef %39, ptr noundef %5)
   %40 = load i64, ptr %5, align 8
   br label %41
 
@@ -21409,7 +21409,7 @@ define internal i32 @m_cweek(ptr nocapture noundef %0) #0 {
 
 m_virtual_sg.exit:                                ; preds = %8, %10
   %.0.i = phi double [ %11, %10 ], [ %9, %8 ]
-  call fastcc void @c_jd_to_commercial(i32 noundef %5, double noundef %.0.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @c_jd_to_commercial(i32 noundef %5, double noundef %.0.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %12 = load i32, ptr %3, align 4
   ret i32 %12
 }
@@ -21584,7 +21584,7 @@ dup_obj.exit:                                     ; preds = %d_lite_s_alloc_simp
 declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @d_complex_new_internal(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13) unnamed_addr #0 {
+define internal fastcc i64 @d_complex_new_internal(i64 noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef range(i32 0, -4) %13) unnamed_addr #0 {
   %15 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 48, ptr noundef nonnull @d_lite_type) #20
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds i8, ptr %16, i64 24
@@ -21915,7 +21915,7 @@ m_real_local_jd.exit:                             ; preds = %8, %11
   %.0.in.i.i = getelementptr inbounds i8, ptr %5, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %12 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %5)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %12, ptr noundef nonnull %4)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %12, ptr noundef %4)
   %13 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %14 = and i64 %1, 1
@@ -21955,7 +21955,7 @@ m_real_local_jd.exit14:                           ; preds = %25, %28
   %.0.in.i.i12 = getelementptr inbounds i8, ptr %5, i64 8
   %.0.i.i13 = load i64, ptr %.0.in.i.i12, align 8
   %29 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %5)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i13, i32 noundef %29, ptr noundef nonnull %3)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i13, i32 noundef %29, ptr noundef %3)
   %30 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %.pr.i = load i64, ptr @equal_gen.rbimpl_id, align 8
@@ -22000,7 +22000,7 @@ f_eqeq_p.exit:                                    ; preds = %38, %35, %19, %16, 
 declare i64 @rb_memhash(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @date_strftime_alloc(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @date_strftime_alloc(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   store i8 0, ptr %4, align 1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #23
@@ -22011,7 +22011,7 @@ define internal fastcc i64 @date_strftime_alloc(ptr nocapture noundef %0, ptr no
   %8 = tail call ptr @rb_errno_ptr() #20
   store i32 0, ptr %8, align 4
   %9 = load ptr, ptr %0, align 8
-  %10 = tail call i64 @date_strftime(ptr noundef %9, i64 noundef 100, ptr noundef %1, ptr noundef %2) #20
+  %10 = tail call i64 @date_strftime(ptr noundef %9, i64 noundef 100, ptr noundef %1, ptr noundef nonnull %2) #20
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %.loopexit
 
@@ -22031,7 +22031,7 @@ define internal fastcc i64 @date_strftime_alloc(ptr nocapture noundef %0, ptr no
   %19 = tail call noalias nonnull dereferenceable(1024) ptr @ruby_xmalloc(i64 noundef 1024) #27
   store ptr %19, ptr %0, align 8
   store i8 0, ptr %19, align 1
-  %20 = tail call i64 @date_strftime(ptr noundef nonnull %19, i64 noundef 1024, ptr noundef %1, ptr noundef %2) #20
+  %20 = tail call i64 @date_strftime(ptr noundef nonnull %19, i64 noundef 1024, ptr noundef %1, ptr noundef nonnull %2) #20
   %.not2730 = icmp eq i64 %20, 0
   br i1 %.not2730, label %.lr.ph, label %.loopexit
 
@@ -22044,7 +22044,7 @@ define internal fastcc i64 @date_strftime_alloc(ptr nocapture noundef %0, ptr no
   %24 = tail call noalias nonnull ptr @ruby_xmalloc(i64 noundef %23) #27
   store ptr %24, ptr %0, align 8
   store i8 0, ptr %24, align 1
-  %25 = tail call i64 @date_strftime(ptr noundef nonnull %24, i64 noundef %23, ptr noundef %1, ptr noundef %2) #20
+  %25 = tail call i64 @date_strftime(ptr noundef nonnull %24, i64 noundef %23, ptr noundef %1, ptr noundef nonnull %2) #20
   %.not27 = icmp eq i64 %25, 0
   br i1 %.not27, label %26, label %.loopexit
 
@@ -22099,7 +22099,7 @@ define internal i32 @m_wnum0(ptr nocapture noundef %0) #0 {
 
 m_wnumx.exit:                                     ; preds = %8, %10
   %.0.i.i = phi double [ %11, %10 ], [ %9, %8 ]
-  call fastcc void @c_jd_to_weeknum(i32 noundef %5, i32 noundef 0, double noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @c_jd_to_weeknum(i32 noundef %5, i32 noundef 0, double noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %12 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -22131,7 +22131,7 @@ define internal i32 @m_wnum1(ptr nocapture noundef %0) #0 {
 
 m_wnumx.exit:                                     ; preds = %8, %10
   %.0.i.i = phi double [ %11, %10 ], [ %9, %8 ]
-  call fastcc void @c_jd_to_weeknum(i32 noundef %5, i32 noundef 1, double noundef %.0.i.i, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call fastcc void @c_jd_to_weeknum(i32 noundef %5, i32 noundef 1, double noundef %.0.i.i, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %12 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
@@ -22360,7 +22360,7 @@ m_real_jd.exit:                                   ; preds = %1, %5
   %.0.in.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8
   %6 = tail call fastcc i32 @m_jd(ptr noundef nonnull %0)
-  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %6, ptr noundef nonnull %2)
+  call fastcc void @encode_jd(i64 noundef %.0.i.i, i32 noundef %6, ptr noundef %2)
   %7 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %8 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %7, i64 noundef 45, i32 noundef 1, i64 noundef 4881177) #20
@@ -22687,7 +22687,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
 
 .lr.ph6:                                          ; preds = %32, %.critedge.thread
   %.0355 = phi ptr [ %.1.lcssa8, %.critedge.thread ], [ %.sroa.2.0.i, %32 ]
-  %36 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %7, ptr noundef %.0355, ptr noundef nonnull %8)
+  %36 = call fastcc i64 @date_strftime_alloc(ptr noundef %7, ptr noundef %.0355, ptr noundef %8)
   %37 = load ptr, ptr %7, align 8
   %38 = call i64 @rb_str_cat(i64 noundef %34, ptr noundef %37, i64 noundef %36) #20
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0355) #23
@@ -22733,7 +22733,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
   br i1 %54, label %.lr.ph6, label %._crit_edge, !llvm.loop !36
 
 55:                                               ; preds = %RSTRING_PTR.exit
-  %56 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %7, ptr noundef %.sroa.2.0.i, ptr noundef nonnull %8)
+  %56 = call fastcc i64 @date_strftime_alloc(ptr noundef %7, ptr noundef %.sroa.2.0.i, ptr noundef %8)
   %57 = load ptr, ptr %7, align 8
   %58 = call i64 @rb_str_new(ptr noundef %57, i64 noundef %56) #20
   %.not41 = icmp eq ptr %57, %6
@@ -22953,7 +22953,7 @@ set_of.exit:                                      ; preds = %dup_obj_as_complex.
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @deconstruct_keys(i64 noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @deconstruct_keys(i64 noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i64 @rb_hash_new() #20
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @d_lite_type) #20
   %6 = icmp eq i64 %1, 4
@@ -23642,7 +23642,7 @@ declare nonnull ptr @ruby_xrealloc(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i64 @rb_marshal_load(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @offset_to_sec(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @offset_to_sec(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   br label %Check_Type.exit
 
 Check_Type.exit:                                  ; preds = %Check_Type.exit.backedge, %2
@@ -23894,7 +23894,7 @@ f_eqeq_p.exit.thread84:                           ; preds = %77, %day_to_sec.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @s_trunc(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @s_trunc(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = and i64 %0, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %to_integer.exit
@@ -24007,7 +24007,7 @@ to_integer.exit:                                  ; preds = %rbimpl_intern_const
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @min_trunc(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @min_trunc(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = and i64 %0, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %to_integer.exit
@@ -24120,7 +24120,7 @@ to_integer.exit:                                  ; preds = %rbimpl_intern_const
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @h_trunc(i64 noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @h_trunc(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = and i64 %0, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %to_integer.exit
@@ -24719,7 +24719,7 @@ rb_num2int_inline.exit177:                        ; preds = %158, %160
   %167 = mul nuw nsw i32 %spec.select.i, 3600
   %168 = add nuw nsw i32 %166, %167
   %169 = add nuw nsw i32 %168, %.030.i
-  call fastcc void @decode_jd(i64 noundef %.070, ptr noundef nonnull %4, ptr noundef nonnull %5)
+  call fastcc void @decode_jd(i64 noundef %.070, ptr noundef %4, ptr noundef %5)
   %170 = load i32, ptr %5, align 4
   %171 = sub i32 %169, %.072
   %172 = icmp ugt i32 %171, 86399
@@ -24773,7 +24773,7 @@ define internal fastcc i64 @iso8601_timediv(i64 noundef %0, i64 noundef %1) unna
   store ptr %16, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr @tmx_funcs, ptr %17, align 8
-  %18 = call fastcc i64 @date_strftime_alloc(ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %18 = call fastcc i64 @date_strftime_alloc(ptr noundef %5, ptr noundef nonnull %8, ptr noundef %6)
   store ptr %3, ptr %7, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %7) #20, !srcloc !13
   %19 = load ptr, ptr %7, align 8

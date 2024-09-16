@@ -9638,7 +9638,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdBasisCurvesSchemaTok
 
 34:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_BoundsDrawMode22_ComputeBoundsTopologyEv(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_BoundsDrawMode22_ComputeBoundsTopologyEv(ptr dead_on_unwind noalias writable align 8 %6)
           to label %35 unwind label %55
 
 35:                                               ; preds = %34
@@ -12915,7 +12915,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__36HdExtentSchemaTokens_Static
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdBasisCurvesSchema7Builder11SetTopologyERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_BoundsDrawMode22_ComputeBoundsTopologyEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_BoundsDrawMode22_ComputeBoundsTopologyEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %3 = alloca [24 x i32], align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
@@ -13129,7 +13129,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
           to label %97 unwind label %461
 
 97:                                               ; preds = %91
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %96)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %96)
           to label %98 unwind label %461
 
 98:                                               ; preds = %97
@@ -16306,7 +16306,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdPrimvarsSchemaTokens
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 48
   store ptr null, ptr %10, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit32
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %49
@@ -17003,7 +17003,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
 349:                                              ; preds = %347
   %350 = getelementptr inbounds nuw i8, ptr %348, i64 48
   store ptr null, ptr %16, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(8) %350, ptr noundef nonnull align 8 dereferenceable(8) %16)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68 unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit73
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit68: ; preds = %349
@@ -17090,7 +17090,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEC2ERKS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.60", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %7 = load ptr, ptr %1, align 8
@@ -17166,7 +17166,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %29, %24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i, %33, %38
-  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
+  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6)
           to label %39 unwind label %75
 
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit
@@ -17638,7 +17638,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaD2Ev.exit: ; preds = %1, %20, %33,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -17651,7 +17651,7 @@ define internal fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved
   %7 = extractvalue { ptr, i32 } %6, 0
   %8 = tail call ptr @__cxa_begin_catch(ptr %7) #28
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %1) #28
-  tail call void @_ZdlPvm(ptr noundef %1, i64 noundef 40) #32
+  tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 40) #32
   invoke void @__cxa_rethrow() #30
           to label %15 unwind label %9
 
@@ -23205,7 +23205,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_41HdBasisCurvesSchemaTok
 
 34:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OriginDrawMode22_ComputeOriginTopologyEv(ptr dead_on_unwind noalias nonnull writable align 8 %6)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OriginDrawMode22_ComputeOriginTopologyEv(ptr dead_on_unwind noalias writable align 8 %6)
           to label %35 unwind label %55
 
 35:                                               ; preds = %34
@@ -23461,7 +23461,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEC2ERKS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OriginDrawMode22_ComputeOriginTopologyEv(ptr dead_on_unwind noalias writable align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_OriginDrawMode22_ComputeOriginTopologyEv(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
   %3 = alloca [6 x i32], align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtArray", align 8
@@ -23675,7 +23675,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
           to label %97 unwind label %461
 
 97:                                               ; preds = %91
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema7Builder5BuildEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %96)
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27HdBasisCurvesTopologySchema7Builder5BuildEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %96)
           to label %98 unwind label %461
 
 98:                                               ; preds = %97
@@ -24923,7 +24923,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_38HdPrimvarsSchemaTokens
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEEERNS_7TfTokenESB_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEEERNS_7TfTokenESB_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
           to label %45 unwind label %66
 
 45:                                               ; preds = %42
@@ -25001,7 +25001,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEEC2ERKS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEEERNS_7TfTokenESB_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayINS_7GfVec3fEEEEEERNS_7TfTokenESB_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr.60", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #31
   %7 = load ptr, ptr %1, align 8
@@ -25077,7 +25077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %29, %24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i, %33, %38
-  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %6)
+  invoke fastcc void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceEEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %6)
           to label %39 unwind label %75
 
 39:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSourceC2ERKSt10shared_ptrINS_16HdDataSourceBaseEERKNS_7TfTokenES9_.exit
@@ -26489,7 +26489,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.val46 = load ptr, ptr %330, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val46)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val46)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %329
@@ -26995,7 +26995,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZSt10_Constr
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %58, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
@@ -27145,7 +27145,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE12emplace_backI
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !106
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %.val17)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %.val17)
           to label %113 unwind label %.loopexit.split-lp.i, !noalias !106
 
 113:                                              ; preds = %._crit_edge
@@ -27850,7 +27850,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawM
   %95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath12GetNameTokenEv(ptr noundef nonnull align 4 dereferenceable(8) %2)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val), !noalias !112
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val), !noalias !112
   %.val.i = load ptr, ptr %5, align 8, !noalias !112
   %.val3.i = load ptr, ptr %95, align 8, !noalias !112
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
@@ -28040,7 +28040,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataC
 
 187:                                              ; preds = %91
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
   %.val.i21 = load ptr, ptr %4, align 8
   %188 = getelementptr inbounds i8, ptr %4, i64 8
   %.val.i.i22 = load ptr, ptr %188, align 8
@@ -30896,7 +30896,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__42HdMaterialNodeSchemaTokens_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__42HdMaterialNodeSchemaTokens_StaticTokenTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Sp_locker", align 1
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdImagingGeomModelSchema", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -38023,7 +38023,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %1618 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache10_CardsData17_ComputeMaterialsERKNS2_13_SchemaValuesE(ptr dead_on_unwind noalias nonnull writable align 8 %1618, ptr noundef nonnull align 8 dereferenceable(904) %1)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache10_CardsData17_ComputeMaterialsERKNS2_13_SchemaValuesE(ptr dead_on_unwind noalias writable align 8 %1618, ptr noundef nonnull align 8 dereferenceable(904) %1)
           to label %1619 unwind label %1628
 
 1619:                                             ; preds = %1617
@@ -38164,7 +38164,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32HdRetainedTypedSampledDat
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache10_CardsData17_ComputeMaterialsERKNS2_13_SchemaValuesE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(904) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache10_CardsData17_ComputeMaterialsERKNS2_13_SchemaValuesE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(904) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.std::shared_ptr.60"], align 16
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMaterialNodeParameterSchema::Builder", align 8
@@ -38917,7 +38917,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 398:                                              ; preds = %396
   %399 = getelementptr inbounds nuw i8, ptr %395, i64 8
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 40
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias nonnull writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(8) %400)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias writable align 8 %60, ptr noundef nonnull align 8 dereferenceable(8) %399, ptr noundef nonnull align 8 dereferenceable(8) %400)
           to label %401 unwind label %567, !noalias !175
 
 401:                                              ; preds = %398
@@ -39072,7 +39072,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EE9push_backERKS1
 470:                                              ; preds = %468
   %471 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %472 = getelementptr inbounds nuw i8, ptr %469, i64 48
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias nonnull writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(8) %471, ptr noundef nonnull align 8 dereferenceable(8) %472)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias writable align 8 %61, ptr noundef nonnull align 8 dereferenceable(8) %471, ptr noundef nonnull align 8 dereferenceable(8) %472)
           to label %473 unwind label %567, !noalias !175
 
 473:                                              ; preds = %470
@@ -40485,7 +40485,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.i: ; preds = %1066, %
 .noexc94:                                         ; preds = %.noexc93
   %1075 = getelementptr inbounds nuw i8, ptr %1073, i64 16
   %1076 = getelementptr inbounds nuw i8, ptr %1074, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %1075, ptr noundef nonnull align 8 dereferenceable(8) %1076)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %1075, ptr noundef nonnull align 8 dereferenceable(8) %1076)
           to label %.noexc95 unwind label %3190
 
 .noexc95:                                         ; preds = %.noexc94
@@ -50933,7 +50933,7 @@ _ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSou
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode18_ComputeConnectionERKNS_7TfTokenES4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %"class.std::shared_ptr.60"], align 16
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdMaterialConnectionSchema::Builder", align 8
@@ -54503,7 +54503,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_34HdMeshSchemaTokens_Sta
   %.val14 = load ptr, ptr %37, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val14)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val14)
           to label %.noexc unwind label %205
 
 .noexc:                                           ; preds = %36
@@ -55086,7 +55086,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_36HdExtentSchemaTokens_S
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.val = load ptr, ptr %306, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val), !noalias !274
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val), !noalias !274
   %.val.i49 = load ptr, ptr %4, align 8, !noalias !274
   %307 = getelementptr inbounds nuw i8, ptr %.val.i49, i64 48
   %308 = load ptr, ptr %307, align 8, !noalias !274
@@ -56639,7 +56639,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawM
   %.val20 = load ptr, ptr %202, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val20), !noalias !283
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val20), !noalias !283
   %.val.i = load ptr, ptr %4, align 8, !noalias !283
   %203 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
   %204 = load ptr, ptr %203, align 8, !noalias !283
@@ -56998,7 +56998,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 361:                                              ; preds = %359
   %362 = getelementptr inbounds nuw i8, ptr %360, i64 48
   store ptr null, ptr %11, align 8
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_118_PrimvarDataSource3NewIJSt10shared_ptrINS_32HdRetainedTypedSampledDataSourceINS_7VtArrayIfEEEEERNS_7TfTokenES9_EEES3_IS1_EDpOT_(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef nonnull align 8 dereferenceable(8) %11)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit87 unwind label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit91
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit87: ; preds = %361
@@ -57677,7 +57677,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_Card
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val21 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val21), !noalias !289
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %.val21), !noalias !289
   %.val.i = load ptr, ptr %5, align 8, !noalias !289
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %12)
@@ -57771,7 +57771,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataC
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %.val = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache13_GetCardsDataEv(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %.val)
           to label %.noexc unwind label %120
 
 .noexc:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_CardsDrawMode15_CardsDataCache9GetPointsEv.exit

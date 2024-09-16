@@ -585,7 +585,7 @@ define internal { i64, i64 } @"_ZN126_$LT$actix_http..body..message_body..Messag
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -593,7 +593,7 @@ define internal fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5e
   %.sroa.5 = alloca [2 x i64], align 8
   %6 = alloca { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6)
-  call fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 %1)
+  call fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 %1)
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17hca68dd1fb874dda3E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %7)
           to label %10 unwind label %8
@@ -816,7 +816,7 @@ define internal fastcc void @"_ZN4core3ptr104drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !121, !noundef !4
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %14
@@ -873,7 +873,7 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h3043819d85397ec4E"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h3043819d85397ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i8, ptr %0, align 8, !range !61, !noundef !4
   %4 = icmp eq i8 %3, 0
@@ -908,7 +908,7 @@ define internal fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !138, !noundef !4
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -962,7 +962,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$http..header..value..Inval
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$cookie..CookieStr$GT$$GT$17h56e56fa7f35ab53dE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$cookie..CookieStr$GT$$GT$17h56e56fa7f35ab53dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !150, !noundef !4
   %switch = icmp slt i64 %3, -9223372036854775805
@@ -996,7 +996,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = load i64, ptr %0, align 8, !range !138, !noundef !4
   %switch = icmp slt i64 %3, -9223372036854775806
@@ -1086,7 +1086,7 @@ define internal fastcc { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17
   store i64 1, ptr %9, align 8, !alias.scope !182, !noalias !185
   %10 = getelementptr inbounds i8, ptr %3, i64 40
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %10, align 8, !alias.scope !182, !noalias !185
-  call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
+  call fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef align 8 dereferenceable(48) %3)
   %11 = load i64, ptr %4, align 8, !range !187, !noundef !4
   %trunc = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1110,7 +1110,7 @@ define hidden noundef nonnull ptr @"_ZN4core5slice4iter13Iter$LT$T$GT$11pre_dec_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.0.i.i.i = alloca { ptr, ptr, i64, { ptr } }, align 8
   %3 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %4 = alloca { ptr, ptr, i64, { ptr } }, align 8
@@ -1338,7 +1338,7 @@ define internal noundef zeroext i1 @"_ZN65_$LT$smallvec..CollectionAllocErr$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #2 {
+define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !99, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -1386,7 +1386,7 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
   br i1 %27, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us, label %28
 
 28:                                               ; preds = %.lr.ph.i.us
-  %29 = add nuw i64 %.05.i.us, 1
+  %29 = add nuw nsw i64 %.05.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %29, %.sroa.3.0.i47.us
   br i1 %exitcond.not.i.us, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us, label %.lr.ph.i.us
 
@@ -1443,7 +1443,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.us: ; preds = %.lr.
   br i1 %50, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %51
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = add nuw i64 %.05.i, 1
+  %52 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %52, %.sroa.3.0.i47
   br i1 %exitcond.not.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit, label %.lr.ph.i
 
@@ -2145,7 +2145,7 @@ define void @"_ZN66_$LT$http..uri..Uri$u20$as$u20$actix_web..extract..FromReques
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 48
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
-  call fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 %8)
+  call fastcc void @"_ZN53_$LT$http..uri..Uri$u20$as$u20$core..clone..Clone$GT$5clone17h5d534b4aa6afb56bE"(ptr noalias nocapture noundef align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %4, i64 88, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4)
   ret void
@@ -3014,7 +3014,7 @@ define void @_ZN9actix_web4http6header6accept6Accept10preference17he1cea04e60a71
 59:                                               ; preds = %46
   %60 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h3043819d85397ec4E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #31
+  invoke fastcc void @"_ZN4core3ptr33drop_in_place$LT$mime..Source$GT$17h3043819d85397ec4E"(ptr noalias noundef align 8 dereferenceable(32) %3) #31
           to label %.thread47 unwind label %61, !noalias !409
 
 61:                                               ; preds = %59
@@ -4662,7 +4662,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   call void @llvm.experimental.noalias.scope.decl(metadata !783)
   %.val.i.i.i = load ptr, ptr %.sroa.07.sroa.3.0..sroa_idx, align 8, !alias.scope !786, !nonnull !4, !align !99, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !786
-  invoke fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.07.sroa.3.0..sroa_idx)
+  invoke fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h31e9a9119eba9397E"(ptr noalias nocapture noundef align 8 dereferenceable(24) %3, ptr noalias noundef align 8 dereferenceable(48) %.sroa.07.sroa.3.0..sroa_idx)
           to label %.noexc64 unwind label %.loopexit
 
 .noexc64:                                         ; preds = %.lr.ph
@@ -4977,7 +4977,7 @@ define void @_ZN9actix_web7request11HttpRequest6cookie17h63fb182646ff74b1E(ptr n
 
 72:                                               ; preds = %96, %73
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %96 ], [ %74, %73 ]
-  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #31
+  invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$17ha45e60c0ac324eb7E"(ptr noalias noundef align 8 dereferenceable(24) %8) #31
           to label %167 unwind label %155, !noalias !813
 
 73:                                               ; preds = %67
@@ -5038,7 +5038,7 @@ define void @_ZN9actix_web7request11HttpRequest6cookie17h63fb182646ff74b1E(ptr n
 
 96:                                               ; preds = %133, %97
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %133 ], [ %98, %97 ]
-  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #31
+  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef align 8 dereferenceable(24) %7) #31
           to label %72 unwind label %155, !noalias !813
 
 97:                                               ; preds = %91
@@ -5130,7 +5130,7 @@ define void @_ZN9actix_web7request11HttpRequest6cookie17h63fb182646ff74b1E(ptr n
 
 133:                                              ; preds = %153, %134
   %.pn.i = phi { ptr, i32 } [ %154, %153 ], [ %135, %134 ]
-  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #31
+  invoke fastcc void @"_ZN4core3ptr38drop_in_place$LT$cookie..CookieStr$GT$17h9c208fc89a933a4eE"(ptr noalias noundef align 8 dereferenceable(24) %6) #31
           to label %96 unwind label %155, !noalias !813
 
 134:                                              ; preds = %124
@@ -5185,7 +5185,7 @@ define void @_ZN9actix_web7request11HttpRequest6cookie17h63fb182646ff74b1E(ptr n
 153:                                              ; preds = %147
   %154 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$cookie..CookieStr$GT$$GT$17h56e56fa7f35ab53dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #31
+  invoke fastcc void @"_ZN4core3ptr66drop_in_place$LT$core..option..Option$LT$cookie..CookieStr$GT$$GT$17h56e56fa7f35ab53dE"(ptr noalias noundef align 8 dereferenceable(24) %5) #31
           to label %133 unwind label %155, !noalias !813
 
 155:                                              ; preds = %153, %133, %96, %72
@@ -7201,7 +7201,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest9peer_addr17h0feb5e784
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(832) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(832) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -7396,7 +7396,7 @@ define internal fastcc void @_ZN9actix_web4test12test_request11TestRequest6finis
 define void @_ZN9actix_web4test12test_request11TestRequest10to_request17h2f5f9776cb1ca82fE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }) align 8 dereferenceable(80) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, [2 x i64] }, ptr, ptr, { i64, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3)
-  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %3, ptr noalias noundef nonnull align 8 dereferenceable(832) %1)
+  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef align 8 dereferenceable(80) %3, ptr noalias noundef align 8 dereferenceable(832) %1)
           to label %7 unwind label %5
 
 4:                                                ; preds = %15, %5
@@ -7475,7 +7475,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest14to_srv_request17he20
   %18 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15)
-  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %15, ptr noalias noundef nonnull align 8 dereferenceable(832) %1)
+  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef align 8 dereferenceable(80) %15, ptr noalias noundef align 8 dereferenceable(832) %1)
           to label %26 unwind label %24
 
 19:                                               ; preds = %144, %142, %24
@@ -7538,7 +7538,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest14to_srv_request17he20
   %40 = getelementptr inbounds i8, ptr %1, i64 528
   %41 = getelementptr inbounds i8, ptr %1, i64 552
   %42 = getelementptr inbounds i8, ptr %28, i64 48
-  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 %42)
+  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 %42)
           to label %43 unwind label %36
 
 43:                                               ; preds = %38
@@ -7889,7 +7889,7 @@ common.resume:                                    ; preds = %116, %152, %127
   %.pn36 = phi { ptr, i32 } [ %.pn63, %.thread77 ], [ %141, %140 ], [ %59, %58 ], [ %37, %36 ], [ %51, %50 ], [ %97, %96 ]
   %.234 = phi i1 [ false, %.thread77 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
   %.126 = phi i8 [ 0, %.thread77 ], [ 1, %140 ], [ 1, %58 ], [ 1, %36 ], [ 1, %50 ], [ 0, %96 ]
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #31
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef align 8 dereferenceable(24) %17) #31
           to label %142 unwind label %138
 
 144:                                              ; preds = %142
@@ -7947,7 +7947,7 @@ define noundef nonnull ptr @_ZN9actix_web4test12test_request11TestRequest15to_ht
   %16 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)
-  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %14, ptr noalias noundef nonnull align 8 dereferenceable(832) %0)
+  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef align 8 dereferenceable(80) %14, ptr noalias noundef align 8 dereferenceable(832) %0)
           to label %23 unwind label %21
 
 .thread88:                                        ; preds = %108, %.thread83, %153, %21
@@ -8058,7 +8058,7 @@ default.unreachable:                              ; preds = %24
   %52 = getelementptr inbounds i8, ptr %0, i64 528
   %53 = getelementptr inbounds i8, ptr %0, i64 552
   %54 = getelementptr inbounds i8, ptr %25, i64 48
-  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef nonnull align 8 dereferenceable(112) %53, ptr noundef nonnull align 8 %54)
+  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef align 8 dereferenceable(112) %53, ptr noundef nonnull align 8 %54)
           to label %55 unwind label %42
 
 55:                                               ; preds = %50
@@ -8454,7 +8454,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest13to_http_parts17h9d36
   %18 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %15)
-  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %15, ptr noalias noundef nonnull align 8 dereferenceable(832) %1)
+  invoke fastcc void @_ZN9actix_web4test12test_request11TestRequest6finish17h727ea211c0155bf7E(ptr noalias nocapture noundef align 8 dereferenceable(80) %15, ptr noalias noundef align 8 dereferenceable(832) %1)
           to label %26 unwind label %24
 
 19:                                               ; preds = %144, %142, %24
@@ -8510,7 +8510,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest13to_http_parts17h9d36
   %.pn.pn = phi { ptr, i32 } [ %.pn56, %.thread70 ], [ %141, %140 ], [ %59, %58 ], [ %37, %36 ], [ %51, %50 ], [ %97, %96 ]
   %.2 = phi i1 [ false, %.thread70 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
   %.022 = phi i8 [ 0, %.thread70 ], [ 1, %140 ], [ 1, %58 ], [ 1, %36 ], [ 1, %50 ], [ 0, %96 ]
-  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #31
+  invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef align 8 dereferenceable(24) %17) #31
           to label %142 unwind label %138
 
 36:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$9is_unique17h38f99f4a3310785dE.llvm.6550989041561640416.exit.thread.i", %38
@@ -8524,7 +8524,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest13to_http_parts17h9d36
   %40 = getelementptr inbounds i8, ptr %1, i64 528
   %41 = getelementptr inbounds i8, ptr %1, i64 552
   %42 = getelementptr inbounds i8, ptr %28, i64 48
-  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 %42)
+  invoke fastcc void @_ZN12actix_router3url3Url6update17h3f1a8a562e7aac5eE(ptr noalias noundef align 8 dereferenceable(112) %41, ptr noundef nonnull align 8 %42)
           to label %43 unwind label %36
 
 43:                                               ; preds = %38

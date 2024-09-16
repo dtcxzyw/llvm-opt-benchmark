@@ -556,7 +556,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 58:                                               ; preds = %57
   %59 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.088.i) #3
-  tail call fastcc void @raknet_dissect_ACK(ptr noundef %59, ptr noundef nonnull %1, ptr noundef nonnull %49, i32 1)
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %59, ptr noundef nonnull %1, ptr noundef %49, i32 1)
   br label %raknet_dissect_connected_message.exit
 
 60:                                               ; preds = %57
@@ -582,7 +582,7 @@ raknet_get_session_state.exit.i:                  ; preds = %25, %20
 
 72:                                               ; preds = %64
   %73 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 1) #3
-  tail call fastcc void @raknet_dissect_ACK(ptr noundef %73, ptr noundef nonnull %1, ptr noundef nonnull %68, i32 0)
+  tail call fastcc void @raknet_dissect_ACK(ptr noundef %73, ptr noundef nonnull %1, ptr noundef %68, i32 0)
   br label %raknet_dissect_connected_message.exit
 
 74:                                               ; preds = %64
@@ -1058,7 +1058,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, i32 %.0.val) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq i32 %.0.val, 0
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1066,7 +1066,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture no
   %.str.170..str.169 = select i1 %.not, ptr @.str.170, ptr @.str.169
   tail call void @col_add_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull %.str.170..str.169) #3
   %7 = load i32, ptr @hf_raknet_NACK_record_count, align 4
-  %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #3
+  %8 = call ptr @proto_tree_add_item_ret_uint(ptr noundef nonnull %2, i32 noundef %7, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %4) #3
   %9 = load i32, ptr %4, align 4
   %.not3 = icmp eq i32 %9, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
@@ -1092,7 +1092,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture no
   %18 = load ptr, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.172, i32 noundef %16) #3
   %19 = load i32, ptr @hf_raknet_packet_number_range, align 4
-  %20 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef %.02, i32 noundef 4, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %16) #3
+  %20 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %19, ptr noundef %0, i32 noundef %.02, i32 noundef 4, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %16) #3
   %21 = load i32, ptr @ett_raknet_packet_number_range, align 4
   %22 = call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #3
   %23 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
@@ -1107,7 +1107,7 @@ define internal fastcc void @raknet_dissect_ACK(ptr noundef %0, ptr nocapture no
   %30 = load ptr, ptr %10, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.175, i32 noundef %16, i32 noundef %29) #3
   %31 = load i32, ptr @hf_raknet_packet_number_range, align 4
-  %32 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %.02, i32 noundef 7, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %29) #3
+  %32 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef nonnull %2, i32 noundef %31, ptr noundef %0, i32 noundef %.02, i32 noundef 7, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174, i32 noundef %16, i32 noundef %29) #3
   %33 = load i32, ptr @ett_raknet_packet_number_range, align 4
   %34 = call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #3
   %35 = load i32, ptr @hf_raknet_range_max_equal_to_min, align 4
@@ -1349,7 +1349,7 @@ raknet_get_session_state.exit:                    ; preds = %4, %23
 
 38:                                               ; preds = %29, %35, %raknet_get_session_state.exit
   %39 = load i32, ptr @hf_raknet_server_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %39, ptr noundef nonnull %1, ptr noundef %0, ptr noundef %5)
   %40 = load i32, ptr @hf_raknet_mtu_size, align 4
   %41 = load i32, ptr %5, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef 0) #3
@@ -1382,7 +1382,7 @@ define internal noundef i32 @raknet_dissect_open_connection_reply_2(ptr noundef 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef 17, i32 noundef 8, i32 noundef 0) #3
   store i32 25, ptr %5, align 4
   %21 = load i32, ptr @hf_raknet_client_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %21, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %9, i32 noundef %21, ptr noundef %1, ptr noundef %0, ptr noundef %5)
   %22 = load i32, ptr @hf_raknet_mtu_size, align 4
   %23 = load i32, ptr %5, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %22, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0) #3
@@ -1486,7 +1486,7 @@ define internal i32 @raknet_dissect_unconnected_pong(ptr noundef %0, ptr nocaptu
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc void @raknet_dissect_system_address(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
   %8 = load i32, ptr %4, align 4
@@ -1637,7 +1637,7 @@ define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noun
   %5 = alloca i32, align 4
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_client_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef %5)
   %7 = load i32, ptr @hf_raknet_system_index, align 4
   %8 = load i32, ptr %5, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef 2, i32 noundef 0) #3
@@ -1648,7 +1648,7 @@ define internal noundef i32 @raknet_dissect_connection_request_accepted(ptr noun
 11:                                               ; preds = %4, %11
   %.013 = phi i32 [ 0, %4 ], [ %13, %11 ]
   %12 = load i32, ptr @hf_raknet_internal_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %12, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %12, ptr noundef %1, ptr noundef %0, ptr noundef %5)
   %13 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %13, 10
   br i1 %exitcond.not, label %14, label %11, !llvm.loop !10
@@ -1669,13 +1669,13 @@ define internal noundef i32 @raknet_dissect_new_incoming_connection(ptr noundef 
   %5 = alloca i32, align 4
   store i32 1, ptr %5, align 4
   %6 = load i32, ptr @hf_raknet_server_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %6, ptr noundef %1, ptr noundef %0, ptr noundef %5)
   br label %7
 
 7:                                                ; preds = %4, %7
   %.011 = phi i32 [ 0, %4 ], [ %9, %7 ]
   %8 = load i32, ptr @hf_raknet_internal_address, align 4
-  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %8, ptr noundef %1, ptr noundef %0, ptr noundef nonnull %5)
+  call fastcc void @raknet_dissect_system_address(ptr noundef %2, i32 noundef %8, ptr noundef %1, ptr noundef %0, ptr noundef %5)
   %9 = add nuw nsw i32 %.011, 1
   %exitcond.not = icmp eq i32 %9, 10
   br i1 %exitcond.not, label %10, label %7, !llvm.loop !11

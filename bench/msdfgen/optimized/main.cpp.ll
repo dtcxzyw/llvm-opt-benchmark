@@ -2856,7 +2856,7 @@ if.end1492:                                       ; preds = %if.then1490, %sw.bb
   br i1 %tobool1493.not, label %if.end1496, label %if.then1494
 
 if.then1494:                                      ; preds = %if.end1492
-  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull %edgeAssignment.0.lcssa3351)
+  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3351)
           to label %if.end1496 unwind label %lpad1443
 
 if.end1496:                                       ; preds = %if.then1494, %if.end1492
@@ -2904,7 +2904,7 @@ if.end1520:                                       ; preds = %if.then1518, %sw.bb
   br i1 %tobool1521.not, label %if.end1524, label %if.then1522
 
 if.then1522:                                      ; preds = %if.end1520
-  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull %edgeAssignment.0.lcssa3351)
+  invoke fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef %edgeAssignment.0.lcssa3351)
           to label %if.end1524 unwind label %lpad1443
 
 if.end1524:                                       ; preds = %if.then1522, %if.end1520
@@ -3306,11 +3306,11 @@ _ZL12cmpExtensionPKcS0_.exit123.i:                ; preds = %for.cond.i106.i
   br i1 %cmp.not.i111.i, label %sw.bb25.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %lor.lhs.false.i114.i, %_ZL12cmpExtensionPKcS0_.exit123.i
-  %call10.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.156)
+  %call10.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.156)
   br i1 %call10.i, label %sw.bb28.i.thread, label %if.else12.i
 
 if.else12.i:                                      ; preds = %if.else9.i
-  %call13.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.157)
+  %call13.i = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.157)
   br i1 %call13.i, label %sw.bb47.i, label %if.then1680
 
 sw.bb.i:                                          ; preds = %_ZL12cmpExtensionPKcS0_.exit.i, %if.then.i897
@@ -3925,11 +3925,11 @@ _ZL12cmpExtensionPKcS0_.exit123.i1169:            ; preds = %for.cond.i106.i1147
   br i1 %cmp.not.i111.i1152, label %sw.bb25.i1085, label %if.else9.i1163
 
 if.else9.i1163:                                   ; preds = %lor.lhs.false.i114.i1155, %_ZL12cmpExtensionPKcS0_.exit123.i1169
-  %call10.i1164 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.156)
+  %call10.i1164 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.156)
   br i1 %call10.i1164, label %sw.bb28.i1019.thread, label %if.else12.i1165
 
 if.else12.i1165:                                  ; preds = %if.else9.i1163
-  %call13.i1166 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.157)
+  %call13.i1166 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.157)
   br i1 %call13.i1166, label %sw.bb47.i968, label %if.then1764
 
 sw.bb.i1090:                                      ; preds = %_ZL12cmpExtensionPKcS0_.exit.i1174, %if.then.i967
@@ -4551,11 +4551,11 @@ _ZL12cmpExtensionPKcS0_.exit123.i1503:            ; preds = %for.cond.i106.i1481
   br i1 %cmp.not.i111.i1486, label %sw.bb25.i1419, label %if.else9.i1497
 
 if.else9.i1497:                                   ; preds = %lor.lhs.false.i114.i1489, %_ZL12cmpExtensionPKcS0_.exit123.i1503
-  %call10.i1498 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.156)
+  %call10.i1498 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.156)
   br i1 %call10.i1498, label %sw.bb28.i1352.thread, label %if.else12.i1499
 
 if.else12.i1499:                                  ; preds = %if.else9.i1497
-  %call13.i1500 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull %output.0.lcssa3372, ptr noundef nonnull @.str.157)
+  %call13.i1500 = call fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef %output.0.lcssa3372, ptr noundef nonnull @.str.157)
   br i1 %call13.i1500, label %sw.bb47.i1298, label %if.then1850
 
 sw.bb.i1424:                                      ; preds = %_ZL12cmpExtensionPKcS0_.exit.i1508, %if.then.i1297
@@ -5207,7 +5207,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef readonly %path, ptr noundef readonly %ext) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL12cmpExtensionPKcS0_(ptr noundef nonnull readonly %path, ptr noundef readonly %ext) unnamed_addr #7 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #18
   %add.ptr = getelementptr inbounds i8, ptr %path, i64 %call
@@ -5296,7 +5296,7 @@ declare void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_
 declare void @_ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(32), double noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, ptr nocapture noundef readonly %edgeAssignment) unnamed_addr #0 {
+define internal fastcc void @_ZL13parseColoringRN7msdfgen5ShapeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, ptr nocapture noundef nonnull readonly %edgeAssignment) unnamed_addr #0 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %shape, i64 8
   %0 = load ptr, ptr %shape, align 8

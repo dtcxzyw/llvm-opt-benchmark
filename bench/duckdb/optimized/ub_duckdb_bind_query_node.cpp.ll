@@ -37582,7 +37582,7 @@ return:                                           ; preds = %for.cond, %_ZN6duck
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL29CreateDuplicateEliminatedJoinERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEENS_8JoinTypeENS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS7_ELb1EEEb(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns, i8 noundef zeroext %join_type, ptr nocapture noundef %original_plan, i1 noundef zeroext %perform_delim) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL29CreateDuplicateEliminatedJoinERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEENS_8JoinTypeENS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS7_ELb1EEEb(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns, i8 noundef zeroext %join_type, ptr nocapture noundef nonnull %original_plan, i1 noundef zeroext %perform_delim) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %window = alloca %"class.duckdb::unique_ptr.941", align 8
@@ -38378,7 +38378,7 @@ _ZN6duckdb10unique_ptrINS_21LogicalComparisonJoinESt14default_deleteIS1_ELb1EE13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL25CreateDelimJoinConditionsERNS_21LogicalComparisonJoinERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEENS2_INS_13ColumnBindingELb1EEEmb(ptr noundef nonnull align 8 dereferenceable(256) %delim_join, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns, ptr noundef %bindings, i64 noundef %base_offset, i1 noundef zeroext %perform_delim) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL25CreateDelimJoinConditionsERNS_21LogicalComparisonJoinERKNS_6vectorINS_20CorrelatedColumnInfoELb1EEENS2_INS_13ColumnBindingELb1EEEmb(ptr noundef nonnull align 8 dereferenceable(256) %delim_join, ptr noundef nonnull align 8 dereferenceable(24) %correlated_columns, ptr noundef nonnull %bindings, i64 noundef %base_offset, i1 noundef zeroext %perform_delim) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.33", align 1

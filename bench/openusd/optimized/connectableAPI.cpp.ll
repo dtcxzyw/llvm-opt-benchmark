@@ -1157,7 +1157,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %130, %132, %1
 
 175:                                              ; preds = %3
   %176 = tail call ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute11GetTypeNameEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %176)
+  call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %176)
   %177 = load i32, ptr %8, align 8
   switch i32 %177, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit61 [
     i32 4, label %178
@@ -1787,7 +1787,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfValueTypeName", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1841,7 +1841,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 28:                                               ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %29 unwind label %92
 
 29:                                               ; preds = %28
@@ -3098,7 +3098,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %147, %149, %1
           to label %194 unwind label %.loopexit
 
 194:                                              ; preds = %192
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.063.079, ptr %193)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetOrCreateSourceAttrERKNS_28UsdShadeConnectionSourceInfoENS_16SdfValueTypeNameE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.063.079, ptr %193)
           to label %195 unwind label %.loopexit
 
 195:                                              ; preds = %194

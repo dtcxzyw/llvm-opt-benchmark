@@ -314,7 +314,7 @@ entry:
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl13hash_internal12_GLOBAL__N_114TestUnchangingEPKmii(ptr noundef %expected, i32 noundef %offset, i32 noundef %len) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl13hash_internal12_GLOBAL__N_114TestUnchangingEPKmii(ptr noundef %expected, i32 noundef %offset, i32 noundef range(i32 -2147483648, 1048577) %len) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca i64, align 8

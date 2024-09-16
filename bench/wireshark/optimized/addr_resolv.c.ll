@@ -649,7 +649,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_hosts_file(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @read_hosts_file(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %union.anon.1, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.52)
@@ -1747,7 +1747,7 @@ sync_lookup_ip4.exit:                             ; preds = %68
   store ptr %3, ptr %75, align 8
   %76 = load ptr, ptr @ghba_chan, align 8
   call void @ares_gethostbyaddr(ptr noundef %76, ptr noundef nonnull %2, i32 noundef 4, i32 noundef 2, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef nonnull %73) #20
-  call fastcc void @wait_for_sync_resolv(ptr noundef nonnull %3)
+  call fastcc void @wait_for_sync_resolv(ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %82
@@ -1859,7 +1859,7 @@ sync_lookup_ip6.exit.i:                           ; preds = %32
   store ptr %2, ptr %39, align 8
   %40 = load ptr, ptr @ghba_chan, align 8
   call void @ares_gethostbyaddr(ptr noundef %40, ptr noundef %0, i32 noundef 16, i32 noundef 10, ptr noundef nonnull @c_ares_ghba_sync_cb, ptr noundef %37) #20
-  call fastcc void @wait_for_sync_resolv(ptr noundef nonnull %2)
+  call fastcc void @wait_for_sync_resolv(ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   br label %host_lookup6.exitthread-pre-split
 
@@ -2315,7 +2315,7 @@ set_ethent.exit.i:                                ; preds = %56, %55
   %61 = load i32, ptr %4, align 4
   %62 = getelementptr inbounds i8, ptr %60, i64 6
   %63 = getelementptr inbounds i8, ptr %60, i64 70
-  tail call fastcc void @add_manuf_name(ptr noundef nonnull %60, i32 noundef %61, ptr noundef nonnull %62, ptr noundef nonnull %63)
+  tail call fastcc void @add_manuf_name(ptr noundef %60, i32 noundef %61, ptr noundef %62, ptr noundef %63)
   %64 = call fastcc ptr @get_ethent(ptr noundef nonnull %4, i32 noundef 1)
   %.not.i1 = icmp eq ptr %64, null
   br i1 %.not.i1, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
@@ -2378,7 +2378,7 @@ set_ethent.exit15.i:                              ; preds = %81, %80
   %86 = load i32, ptr %4, align 4
   %87 = getelementptr inbounds i8, ptr %85, i64 6
   %88 = getelementptr inbounds i8, ptr %85, i64 70
-  tail call fastcc void @add_manuf_name(ptr noundef nonnull %85, i32 noundef %86, ptr noundef nonnull %87, ptr noundef nonnull %88)
+  tail call fastcc void @add_manuf_name(ptr noundef %85, i32 noundef %86, ptr noundef %87, ptr noundef %88)
   %89 = call fastcc ptr @get_ethent(ptr noundef nonnull %4, i32 noundef 1)
   %.not11.i = icmp eq ptr %89, null
   br i1 %.not11.i, label %._crit_edge25.i, label %.lr.ph24.i, !llvm.loop !20
@@ -2428,7 +2428,7 @@ set_ethent.exit19.i:                              ; preds = %101, %100
   %105 = load i32, ptr %4, align 4
   %106 = getelementptr inbounds i8, ptr %104, i64 6
   %107 = getelementptr inbounds i8, ptr %104, i64 70
-  tail call fastcc void @add_manuf_name(ptr noundef nonnull %104, i32 noundef %105, ptr noundef nonnull %106, ptr noundef nonnull %107)
+  tail call fastcc void @add_manuf_name(ptr noundef %104, i32 noundef %105, ptr noundef %106, ptr noundef %107)
   %108 = call fastcc ptr @get_ethent(ptr noundef nonnull %4, i32 noundef 1)
   %.not12.i = icmp eq ptr %108, null
   br i1 %.not12.i, label %._crit_edge28.i, label %.lr.ph27.i, !llvm.loop !21
@@ -4502,7 +4502,7 @@ parse_ether_address.exit.thread:                  ; preds = %25, %24, %12, %6, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_ether_address(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #14 {
+define internal fastcc range(i32 0, 2) i32 @parse_ether_address(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #14 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr @g_ascii_table, align 8
   br label %7
@@ -4824,7 +4824,7 @@ define internal void @c_ares_ghba_sync_cb(ptr noundef %0, i32 noundef %1, i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wait_for_sync_resolv(ptr nocapture noundef readonly %0) unnamed_addr #2 {
+define internal fastcc void @wait_for_sync_resolv(ptr nocapture noundef nonnull readonly %0) unnamed_addr #2 {
   %2 = alloca %struct.fd_set, align 8
   %3 = alloca %struct.fd_set, align 8
   %4 = alloca %struct.timeval, align 8
@@ -5675,7 +5675,7 @@ wka_name_lookup.exit193:                          ; preds = %._crit_edge28.i181
 
 397:                                              ; preds = %394, %391
   %398 = phi i32 [ %.pre274, %394 ], [ %392, %391 ]
-  call fastcc void @eth_resolved_name_fill(ptr noundef %0, ptr noundef nonnull %390, i32 noundef %398, ptr noundef nonnull %11)
+  call fastcc void @eth_resolved_name_fill(ptr noundef %0, ptr noundef %390, i32 noundef %398, ptr noundef nonnull %11)
   %399 = load i8, ptr %0, align 1
   %400 = or i8 %399, 18
   store i8 %400, ptr %0, align 1
@@ -5700,7 +5700,7 @@ wka_name_lookup.exit193:                          ; preds = %._crit_edge28.i181
 declare ptr @bytes_to_hexstr_punct(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #14 {
+define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #14 {
   switch i32 %2, label %40 [
     i32 24, label %5
     i32 28, label %17
@@ -5718,7 +5718,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
   %13 = getelementptr i8, ptr %3, i64 5
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.61, ptr noundef %1, i32 noundef %9, i32 noundef %12, i32 noundef %15) #20
+  %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.61, ptr noundef nonnull %1, i32 noundef %9, i32 noundef %12, i32 noundef %15) #20
   br label %.loopexit
 
 17:                                               ; preds = %4
@@ -5733,7 +5733,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
   %26 = getelementptr i8, ptr %3, i64 5
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 64, ptr noundef nonnull @.str.65, ptr noundef %1, i32 noundef %22, i32 noundef %25, i32 noundef %28) #20
+  %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 64, ptr noundef nonnull @.str.65, ptr noundef nonnull %1, i32 noundef %22, i32 noundef %25, i32 noundef %28) #20
   br label %.loopexit
 
 30:                                               ; preds = %4
@@ -5745,14 +5745,14 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
   %36 = getelementptr i8, ptr %3, i64 5
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef %1, i32 noundef %35, i32 noundef %38) #20
+  %39 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 64, ptr noundef nonnull @.str.66, ptr noundef nonnull %1, i32 noundef %35, i32 noundef %38) #20
   br label %.loopexit
 
 40:                                               ; preds = %4
   %41 = lshr i32 %2, 3
   %42 = and i32 %2, 7
   %43 = getelementptr inbounds i8, ptr %0, i64 25
-  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 64, ptr noundef nonnull @.str.67, ptr noundef %1) #20
+  %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 64, ptr noundef nonnull @.str.67, ptr noundef nonnull %1) #20
   %45 = icmp sgt i32 %44, 63
   br i1 %45, label %.loopexit, label %46
 
@@ -5815,7 +5815,7 @@ define internal fastcc void @eth_resolved_name_fill(ptr nocapture noundef writeo
 declare void @address_to_str_buf(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @get_ethent(ptr nocapture noundef writeonly %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc noundef ptr @get_ethent(ptr nocapture noundef writeonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = alloca [1024 x i8], align 16
   %4 = load ptr, ptr @eth_p, align 8
   %5 = icmp eq ptr %4, null
@@ -6468,45 +6468,71 @@ declare ptr @get_systemfile_dir() local_unnamed_addr #3
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_manuf_name(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 {
-  switch i32 %1, label %13 [
+define internal fastcc void @add_manuf_name(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #2 {
+  switch i32 %1, label %36 [
     i32 0, label %5
-    i32 48, label %9
+    i32 48, label %32
   ]
 
 5:                                                ; preds = %4
-  %6 = tail call fastcc ptr @manuf_hash_new_entry(ptr noundef %0, ptr noundef %2, ptr noundef %3)
-  %7 = load i8, ptr %6, align 1
-  %8 = or i8 %7, 8
-  store i8 %8, ptr %6, align 1
-  br label %25
+  %6 = load i8, ptr %0, align 1
+  %7 = getelementptr i8, ptr %0, i64 1
+  %8 = load i8, ptr %7, align 1
+  %9 = getelementptr i8, ptr %0, i64 2
+  %10 = load i8, ptr %9, align 1
+  %11 = load ptr, ptr @addr_resolv_scope, align 8
+  %12 = tail call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 141) #20
+  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %13, ptr noundef nonnull align 1 dereferenceable(3) %0, i64 3, i1 false)
+  %14 = getelementptr inbounds i8, ptr %12, i64 13
+  %15 = tail call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef nonnull %2, i64 noundef 64) #20
+  store i8 2, ptr %12, align 1
+  %16 = getelementptr inbounds i8, ptr %12, i64 77
+  %17 = tail call i64 @g_strlcpy(ptr noundef nonnull %16, ptr noundef nonnull %3, i64 noundef 64) #20
+  %18 = zext i8 %6 to i64
+  %19 = shl nuw nsw i64 %18, 16
+  %20 = zext i8 %8 to i64
+  %21 = shl nuw nsw i64 %20, 8
+  %22 = or disjoint i64 %21, %19
+  %23 = zext i8 %10 to i64
+  %24 = or disjoint i64 %22, %23
+  %25 = getelementptr inbounds i8, ptr %12, i64 4
+  %26 = tail call ptr @bytes_to_hexstr_punct(ptr noundef nonnull %25, ptr noundef nonnull %0, i64 noundef 3, i8 noundef signext 58) #20
+  store i8 0, ptr %26, align 1
+  %27 = load ptr, ptr @manuf_hashtable, align 8
+  %28 = inttoptr i64 %24 to ptr
+  %29 = tail call ptr @wmem_map_insert(ptr noundef %27, ptr noundef %28, ptr noundef nonnull %12) #20
+  %30 = load i8, ptr %12, align 1
+  %31 = or i8 %30, 8
+  store i8 %31, ptr %12, align 1
+  br label %48
 
-9:                                                ; preds = %4
-  %10 = tail call fastcc ptr @add_eth_name(ptr noundef %0, ptr noundef %2)
-  %11 = load i8, ptr %10, align 1
-  %12 = or i8 %11, 8
-  store i8 %12, ptr %10, align 1
-  br label %25
+32:                                               ; preds = %4
+  %33 = tail call fastcc ptr @add_eth_name(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %34 = load i8, ptr %33, align 1
+  %35 = or i8 %34, 8
+  store i8 %35, ptr %33, align 1
+  br label %48
 
-13:                                               ; preds = %4
-  %14 = load ptr, ptr @addr_resolv_scope, align 8
-  %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 6) #20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %15, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6, i1 false)
-  %16 = load ptr, ptr @addr_resolv_scope, align 8
-  %17 = tail call noalias ptr @wmem_alloc(ptr noundef %16, i64 noundef 16) #20
-  store i8 2, ptr %17, align 8
-  %18 = load ptr, ptr @addr_resolv_scope, align 8
-  %19 = tail call noalias ptr @wmem_strdup(ptr noundef %18, ptr noundef %2) #20
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr %19, ptr %20, align 8
-  %21 = load ptr, ptr @wka_hashtable, align 8
-  %22 = tail call ptr @wmem_map_insert(ptr noundef %21, ptr noundef %15, ptr noundef nonnull %17) #20
-  %23 = load i8, ptr %17, align 8
-  %24 = or i8 %23, 8
-  store i8 %24, ptr %17, align 8
-  br label %25
+36:                                               ; preds = %4
+  %37 = load ptr, ptr @addr_resolv_scope, align 8
+  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 6) #20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull readonly align 1 dereferenceable(6) %0, i64 6, i1 false)
+  %39 = load ptr, ptr @addr_resolv_scope, align 8
+  %40 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef 16) #20
+  store i8 2, ptr %40, align 8
+  %41 = load ptr, ptr @addr_resolv_scope, align 8
+  %42 = tail call noalias ptr @wmem_strdup(ptr noundef %41, ptr noundef nonnull %2) #20
+  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %42, ptr %43, align 8
+  %44 = load ptr, ptr @wka_hashtable, align 8
+  %45 = tail call ptr @wmem_map_insert(ptr noundef %44, ptr noundef %38, ptr noundef nonnull %40) #20
+  %46 = load i8, ptr %40, align 8
+  %47 = or i8 %46, 8
+  store i8 %47, ptr %40, align 8
+  br label %48
 
-25:                                               ; preds = %13, %9, %5
+48:                                               ; preds = %36, %32, %5
   ret void
 }
 

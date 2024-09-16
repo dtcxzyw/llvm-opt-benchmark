@@ -124,7 +124,7 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr noc
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.01.sroa.2.0..sroa_idx.i, align 8, !noalias !7
   %.sroa.01.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 160
   store i64 0, ptr %.sroa.01.sroa.3.0..sroa_idx.i, align 8, !noalias !7
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %7)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %7)
           to label %45 unwind label %37, !noalias !7
 
 37:                                               ; preds = %34
@@ -163,7 +163,7 @@ define void @_ZN14cranelift_isle9serialize9serialize17hb8d37802d7eb09cdE(ptr noc
   %47 = load ptr, ptr %46, align 8, !nonnull !3, !noundef !3
   %48 = getelementptr inbounds i8, ptr %10, i64 16
   %49 = load i64, ptr %48, align 8, !noundef !3
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias align 8 %0, ptr nonnull align 8 %9, ptr nonnull align 8 %47, i64 %49)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias align 8 %0, ptr align 8 %9, ptr align 8 %47, i64 %49)
           to label %50 unwind label %43
 
 50:                                               ; preds = %45
@@ -267,7 +267,7 @@ _ZN14cranelift_isle9serialize16respect_priority17h48727fe3094c7d24E.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -279,7 +279,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_bl
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h97de457c020ab7c5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr align 8 %1), !noalias !12
+  call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h97de457c020ab7c5E"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %6, ptr nonnull align 8 %1), !noalias !12
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   invoke void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h89e1fd56140dfd7cE"(ptr nonnull sret({ { i64, ptr, {} }, i64 }) align 8 %5, ptr nonnull align 8 %10)
           to label %14 unwind label %12, !noalias !12
@@ -358,7 +358,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_bl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { {} }, align 1
   %3 = alloca { [2 x { [3 x i64] }], { i64, i64 } }, align 8
   %4 = alloca { { i64, i8, [7 x i8] }, i16, [3 x i16] }, align 8
@@ -506,7 +506,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nocapture writeonly align 8 %0, ptr align 8 %1, ptr align 8 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, i64 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [2 x { [3 x i64] }], { i64, i64 } }, align 8
   %6 = alloca { { i64, i8, [7 x i8] }, i16, [3 x i16] }, align 8
   %7 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
@@ -866,14 +866,14 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17
   %.sroa.023.0.insert.insert.i = or disjoint i48 %.sroa.424.0.insert.insert.i, 1
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %47)
   store i48 %.sroa.023.0.insert.insert.i, ptr %47, align 8
-  %193 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %192, ptr nonnull align 2 %47)
+  %193 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %192, ptr nonnull align 2 %47)
           to label %.noexc61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc61:                                         ; preds = %191
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46)
-  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %46, ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %193, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
+  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %46, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %193, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
           to label %.noexc62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc62:                                         ; preds = %.noexc61
@@ -965,7 +965,7 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit, %356, %320, %.body117, %323, %325, %.loopexit178
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi177, %325 ], [ %lpad.phi182, %.loopexit178 ], [ %lpad.thr_comm.split-lp137, %356 ], [ %324, %323 ], [ %321, %320 ], [ %.pn.pn.i, %.body117 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit145, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit155, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit169, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp172, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$cranelift_isle..serialize..Decomposition$GT$17he837e87229cd38b1E"(ptr align 8 %1) #12
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$cranelift_isle..serialize..Decomposition$GT$17he837e87229cd38b1E"(ptr nonnull align 8 %1) #12
           to label %392 unwind label %390
 
 214:                                              ; preds = %._crit_edge.i
@@ -996,14 +996,14 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   %217 = load ptr, ptr %69, align 8, !nonnull !3, !align !11, !noundef !3
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %43)
   store i48 %.sroa.0.0.insert.insert.i, ptr %43, align 8
-  %218 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %217, ptr nonnull align 2 %43)
+  %218 = invoke i64 @_ZN14cranelift_isle9serialize18partition_in_place17ha0e3e0f02479d436E(ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %217, ptr nonnull align 2 %43)
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc67:                                         ; preds = %216
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42)
-  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %42, ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %218, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
+  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %42, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %218, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.6)
           to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc68:                                         ; preds = %.noexc67
@@ -1031,7 +1031,7 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 .loopexit384:                                     ; preds = %214, %.thread380
   %230 = load ptr, ptr %69, align 8, !nonnull !3, !align !11, !noundef !3
-  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17ha65e0d826fb46d45E"(ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %230)
+  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key17ha65e0d826fb46d45E"(ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, ptr nonnull align 8 %230)
           to label %371 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 231:                                              ; preds = %.noexc69, %227
@@ -1040,7 +1040,7 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %42)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %43)
-  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %67, ptr align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %.0.i.i, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.9)
+  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h48ab597b2cf5fee6E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %67, ptr nonnull align 8 %.sroa.0.0, i64 %.sroa.7.0, i64 %.0.i.i, ptr nonnull align 8 @anon.d4af4c79604ea0f35702c9c623b8a88c.9)
           to label %232 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 232:                                              ; preds = %231
@@ -1084,11 +1084,11 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 238:                                              ; preds = %232
   store i16 %.sroa.24.0.extract.trunc.i, ptr %39, align 2
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
           to label %.noexc72 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc72:                                         ; preds = %238
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %1)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %1)
           to label %.noexc73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc73:                                         ; preds = %.noexc72
@@ -1102,19 +1102,19 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
           to label %244 unwind label %.loopexit.split-lp159
 
 240:                                              ; preds = %232
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
           to label %.noexc74 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc74:                                         ; preds = %240
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %1, i16 %.sroa.3.0.extract.trunc.i)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %1, i16 %.sroa.3.0.extract.trunc.i)
           to label %.noexc75 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc75:                                         ; preds = %.noexc74
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %1)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %1)
           to label %.noexc76 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc76:                                         ; preds = %.noexc75
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias nonnull align 8 %25, ptr nonnull align 8 %1)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias align 8 %25, ptr align 8 %1)
           to label %.noexc77 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc77:                                         ; preds = %.noexc76
@@ -1365,11 +1365,11 @@ _ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E.exit
 
 302:                                              ; preds = %303, %299
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %27, ptr noundef nonnull align 8 dereferenceable(176) %35, i64 176, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %28, ptr nonnull align 8 %27, ptr nonnull align 8 %248, i64 %249)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %28, ptr align 8 %27, ptr align 8 %248, i64 %249)
           to label %304 unwind label %.loopexit.split-lp149.loopexit
 
 303:                                              ; preds = %299
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %35)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %35)
           to label %302 unwind label %.loopexit.split-lp149.loopexit
 
 304:                                              ; preds = %302
@@ -1479,7 +1479,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 
 322:                                              ; preds = %.noexc77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %23, ptr noundef nonnull align 8 dereferenceable(176) %25, i64 176, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %24, ptr nonnull align 8 %23, ptr nonnull align 8 %233, i64 %234)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %24, ptr align 8 %23, ptr align 8 %233, i64 %234)
           to label %370 unwind label %320
 
 323:                                              ; preds = %.noexc77
@@ -1530,7 +1530,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   %336 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
   %337 = getelementptr inbounds [0 x i8], ptr %336, i64 0, i64 %332
   %338 = load i8, ptr %337, align 1, !range !17, !noundef !3
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %1, i16 %.sroa.24.0.extract.trunc.i)
           to label %.noexc80 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc80:                                         ; preds = %335
@@ -1546,11 +1546,11 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   %343 = load ptr, ptr %103, align 8, !nonnull !3, !noundef !3
   %344 = getelementptr inbounds [0 x i8], ptr %343, i64 0, i64 %339
   store i8 %338, ptr %344, align 1
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %1)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %1)
           to label %.noexc83 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc83:                                         ; preds = %342
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias nonnull align 8 %21, ptr nonnull align 8 %1)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition9new_block17h661e6f837a49e77bE(ptr noalias align 8 %21, ptr align 8 %1)
           to label %.noexc84 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc84:                                         ; preds = %.noexc83
@@ -1659,12 +1659,12 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
   store i8 2, ptr %363, align 1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr nonnull align 8 %21)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition12add_bindings17haa3e147474f25ff1E(ptr align 8 %21)
           to label %369 unwind label %.loopexit178.loopexit
 
 369:                                              ; preds = %368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %19, ptr noundef nonnull align 8 dereferenceable(176) %21, i64 176, i1 false)
-  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %20, ptr nonnull align 8 %19, ptr nonnull align 8 %233, i64 %234)
+  invoke fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17hc501d191c6b2ec74E(ptr noalias nonnull align 8 %20, ptr align 8 %19, ptr align 8 %233, i64 %234)
           to label %370 unwind label %356
 
 .loopexit178.loopexit:                            ; preds = %368, %357, %367, %.noexc88, %.noexc84, %354, %.noexc499
@@ -1836,7 +1836,7 @@ _ZN14cranelift_isle9serialize13Decomposition9set_ready17h7b137655f15d3bc2E.exit1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr align 8 %0, i16 %1) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition8use_expr17h1c2abc649114658eE(ptr nonnull align 8 %0, i16 %1) unnamed_addr #0 {
   %3 = alloca { [2 x { [3 x i64] }], { i64, i64 } }, align 8
   %4 = alloca { { i64, i8, [7 x i8] }, i16, [3 x i16] }, align 8
   %5 = alloca { ptr, ptr, {} }, align 8

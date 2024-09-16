@@ -2222,9 +2222,9 @@ Scl_CellPinTime.exit:                             ; preds = %6
   %47 = getelementptr inbounds i8, ptr %9, i64 4
   store float %46, ptr %47, align 4
   store float %46, ptr %9, align 4
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %15)
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %15)
-  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef nonnull %15)
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %7, ptr noundef %12, ptr noundef %15)
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %8, ptr noundef %13, ptr noundef %15)
+  call fastcc void @Scl_LibPinArrival(ptr noundef nonnull %29, ptr noundef %10, ptr noundef %11, ptr noundef %9, ptr noundef %14, ptr noundef %15)
   %48 = load float, ptr %12, align 8
   %49 = fpext float %48 to double
   %50 = getelementptr inbounds i8, ptr %12, i64 4
@@ -2278,7 +2278,7 @@ Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) unnamed_addr #14 {
+define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #14 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %47 [

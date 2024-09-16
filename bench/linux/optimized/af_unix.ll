@@ -1767,7 +1767,7 @@ define internal i32 @unix_create(ptr noundef %0, ptr noundef %1, i32 noundef %2,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @unix_create1(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3) unnamed_addr #0 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @unix_nr_socks, ptr nonnull elementtype(i64) @unix_nr_socks) #19, !srcloc !25
   %5 = load volatile i64, ptr @unix_nr_socks, align 8
   %6 = tail call i64 @get_max_files() #19
@@ -3983,7 +3983,7 @@ define internal i32 @unix_stream_read_skb(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @unix_release_sock(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4518,7 +4518,7 @@ declare dso_local i32 @get_random_u32() local_unnamed_addr #4
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unix_table_double_lock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @unix_table_double_lock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %1, %2
   br i1 %4, label %5, label %7
 
@@ -4547,7 +4547,7 @@ define internal fastcc void @unix_table_double_lock(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @unix_table_double_unlock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @unix_table_double_unlock(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %1, %2
   %5 = getelementptr inbounds i8, ptr %0, i64 552
   %6 = load ptr, ptr %5, align 8
@@ -4568,7 +4568,7 @@ define internal fastcc void @unix_table_double_unlock(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__unix_set_addr_hash(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__unix_set_addr_hash(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef range(i32 0, 512) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -4727,7 +4727,7 @@ declare dso_local void @lockref_get(ptr noundef) local_unnamed_addr #4
 declare dso_local ptr @sock_wmalloc(ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @unix_find_other(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @unix_find_other(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -32768, 65536) %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.path, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 2
@@ -4969,7 +4969,7 @@ define internal fastcc ptr @unix_find_other(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @unix_wait_for_peer(ptr noundef %0, i64 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i64 @unix_wait_for_peer(ptr noundef %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #19
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -5219,7 +5219,7 @@ declare dso_local ptr @sock_alloc_send_pskb(ptr noundef, i64 noundef, i64 nounde
 declare dso_local i64 @skb_splice_from_iter(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @refcount_add(i32 noundef %0, ptr noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @refcount_add(i32 noundef range(i32 0, -2147483648) %0, ptr noundef %1) unnamed_addr #5 align 16 {
   %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 %0, ptr elementtype(i32) %1) #19, !srcloc !6
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5, !prof !7
@@ -5246,7 +5246,7 @@ declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare dso_local i32 @skb_copy_datagram_from_iter(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @maybe_add_creds(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @maybe_add_creds(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5332,7 +5332,7 @@ define internal fastcc void @maybe_add_creds(ptr nocapture noundef %0, ptr nound
 declare dso_local void @skb_queue_tail(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @queue_oob(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @queue_oob(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
   store i32 0, ptr %6, align 4
@@ -5568,11 +5568,11 @@ maybe_add_creds.exit:                             ; preds = %70, %91, %112
 142:                                              ; preds = %139, %136, %133
   %143 = getelementptr inbounds i8, ptr %2, i64 216
   call void @skb_queue_tail(ptr noundef %143, ptr noundef nonnull %12) #19
-  call void @sk_send_sigurg(ptr noundef %2) #19
+  call void @sk_send_sigurg(ptr noundef nonnull %2) #19
   call void @_raw_spin_unlock(ptr noundef %59) #19
   %144 = getelementptr inbounds i8, ptr %2, i64 680
   %145 = load ptr, ptr %144, align 8
-  call void %145(ptr noundef %2) #19
+  call void %145(ptr noundef nonnull %2) #19
   %146 = load i32, ptr %6, align 4
   br label %147
 

@@ -872,7 +872,7 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @new_file_ctx(i32 noundef %type, ptr noundef %uri, ptr noundef %provctx) unnamed_addr #0 {
+define internal fastcc ptr @new_file_ctx(i32 noundef range(i32 0, 2) %type, ptr noundef %uri, ptr noundef %provctx) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str.4, i32 noundef 127) #8
   %cmp.not = icmp eq ptr %call, null

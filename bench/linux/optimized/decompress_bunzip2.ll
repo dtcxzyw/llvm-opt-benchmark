@@ -161,7 +161,7 @@ define dso_local noundef i32 @bunzip2(ptr noundef %0, i64 noundef %1, ptr nounde
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 -6, 1) i32 @start_bunzip(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 -6, 1) i32 @start_bunzip(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = tail call noalias align 4096 dereferenceable_or_null(42648) ptr @kmalloc_large(i64 noundef 42648, i32 noundef 3264) #12
   store ptr %5, ptr %0, align 8
   %6 = icmp eq ptr %5, null

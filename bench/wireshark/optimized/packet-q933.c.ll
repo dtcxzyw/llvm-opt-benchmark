@@ -2023,7 +2023,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_q933_number_ie(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_q933_number_ie(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = icmp eq i32 %2, 0
   br i1 %6, label %44, label %7
 
@@ -2089,7 +2089,7 @@ define internal fastcc void @dissect_q933_number_ie(ptr noundef %0, i32 noundef 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 4) i32 @dissect_q933_guint16_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 2147483647, 256) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #3
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %8, label %33

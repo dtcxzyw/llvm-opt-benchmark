@@ -2043,7 +2043,7 @@ safe_read.exit181.i:                              ; preds = %309, %313
 safe_read.exit181.thread.i:                       ; preds = %315, %safe_read.exit181.i
   %316 = zext nneg i32 %.1289.i to i64
   %317 = getelementptr inbounds i8, ptr %3, i64 %316
-  %318 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %317)
+  %318 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %317)
   %.not149.i = icmp eq i32 %318, 0
   br i1 %.not149.i, label %safe_read.exit.thread.sink.split.i, label %.preheader.i39
 
@@ -2161,7 +2161,7 @@ safe_read.exit197.i:                              ; preds = %363, %367
 
 safe_read.exit197.thread.i:                       ; preds = %369, %safe_read.exit197.i
   %370 = getelementptr inbounds i8, ptr %3, i64 %221
-  %371 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %370)
+  %371 = call fastcc i32 @fcgi_get_params(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %370)
   %.not140.i = icmp eq i32 %371, 0
   br i1 %.not140.i, label %safe_read.exit.thread.sink.split.i, label %372
 
@@ -3735,7 +3735,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #21 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 

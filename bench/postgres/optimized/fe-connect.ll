@@ -452,7 +452,7 @@ recognized_connection_string.exit.i:              ; preds = %23
   br i1 %.not164.i, label %.critedge.i, label %recognized_connection_string.exit.thread.i
 
 recognized_connection_string.exit.thread.i:       ; preds = %recognized_connection_string.exit.i, %23, %.split.i
-  %27 = tail call fastcc ptr @parse_connection_string(ptr noundef nonnull %17, ptr noundef nonnull %7, i1 noundef zeroext false)
+  %27 = tail call fastcc ptr @parse_connection_string(ptr noundef nonnull %17, ptr noundef %7, i1 noundef zeroext false)
   %28 = icmp eq ptr %27, null
   br i1 %28, label %conninfo_array_parse.exit.thread, label %.critedge.i
 
@@ -776,7 +776,7 @@ PQconninfoFree.exit135.i:                         ; preds = %111, %._crit_edge.i
   br label %PQconninfoFree.exit156.i
 
 PQconninfoFree.exit156.i:                         ; preds = %._crit_edge.i155.i, %._crit_edge197.i
-  %136 = tail call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef nonnull %29, ptr noundef nonnull %7)
+  %136 = tail call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef %29, ptr noundef nonnull %7)
   br i1 %136, label %.preheader, label %.preheader.i157.i
 
 .preheader.i157.i:                                ; preds = %PQconninfoFree.exit156.i
@@ -795,8 +795,8 @@ PQconninfoFree.exit156.i:                         ; preds = %._crit_edge.i155.i,
   br i1 %.not.i161.i, label %PQconninfoFree.exit.sink.split.i, label %.lr.ph.i159.i, !llvm.loop !7
 
 PQconninfoFree.exit.sink.split.i:                 ; preds = %.lr.ph.i145.i, %.lr.ph.i124.i, %.lr.ph.i110.i, %.lr.ph.i159.i, %.lr.ph.i.i, %.preheader.i157.i, %.preheader.i143.i, %PQconninfoFree.exit121.i, %.preheader.i108.i, %.preheader.i99.i
-  %.sink.i = phi ptr [ %.077.i, %.preheader.i99.i ], [ %.1195.i, %.preheader.i108.i ], [ %.1195.i, %PQconninfoFree.exit121.i ], [ %.1195.i, %.preheader.i143.i ], [ %29, %.preheader.i157.i ], [ %.077.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i159.i ], [ %.1195.i, %.lr.ph.i110.i ], [ %.1195.i, %.lr.ph.i124.i ], [ %.1195.i, %.lr.ph.i145.i ]
-  tail call void @free(ptr noundef %.sink.i) #23
+  %.1195.lcssa220.sink.i = phi ptr [ %.077.i, %.preheader.i99.i ], [ %.1195.i, %.preheader.i108.i ], [ %.1195.i, %PQconninfoFree.exit121.i ], [ %.1195.i, %.preheader.i143.i ], [ %29, %.preheader.i157.i ], [ %.077.i, %.lr.ph.i.i ], [ %29, %.lr.ph.i159.i ], [ %.1195.i, %.lr.ph.i110.i ], [ %.1195.i, %.lr.ph.i124.i ], [ %.1195.i, %.lr.ph.i145.i ]
+  tail call void @free(ptr noundef %.1195.lcssa220.sink.i) #23
   br label %conninfo_array_parse.exit.thread
 
 conninfo_array_parse.exit.thread:                 ; preds = %PQconninfoFree.exit.sink.split.i, %PQconninfoFree.exit142.i, %._crit_edge.i106.i, %conninfo_init.exit.thread.i, %recognized_connection_string.exit.thread.i
@@ -1183,7 +1183,7 @@ define range(i32 0, 4) i32 @PQpingParams(ptr nocapture noundef readonly %0, ptr 
 23:                                               ; preds = %5, %12, %.thread.i, %17, %20
   %.0.i.ph = phi i32 [ %..i, %20 ], [ 2, %17 ], [ 0, %.thread.i ], [ 0, %12 ], [ 3, %5 ]
   tail call void @pqClosePGconn(ptr noundef nonnull %4)
-  tail call fastcc void @freePGconn(ptr noundef nonnull %4)
+  tail call fastcc void @freePGconn(ptr noundef %4)
   br label %PQfinish.exit
 
 PQfinish.exit:                                    ; preds = %3, %23
@@ -1198,7 +1198,7 @@ define void @PQfinish(ptr noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   tail call void @pqClosePGconn(ptr noundef nonnull %0)
-  tail call fastcc void @freePGconn(ptr noundef nonnull %0)
+  tail call fastcc void @freePGconn(ptr noundef %0)
   br label %3
 
 3:                                                ; preds = %2, %1
@@ -1232,7 +1232,7 @@ define noundef ptr @PQconnectStart(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %pqConnectDBStart.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef nonnull %2, ptr noundef %0)
+  %5 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef %2, ptr noundef %0)
   br i1 %5, label %6, label %pqConnectDBStart.exit
 
 6:                                                ; preds = %4
@@ -1340,7 +1340,7 @@ define range(i32 0, 4) i32 @PQping(ptr noundef %0) local_unnamed_addr #0 {
 21:                                               ; preds = %3, %10, %.thread.i, %15, %18
   %.0.i.ph = phi i32 [ %..i, %18 ], [ 2, %15 ], [ 0, %.thread.i ], [ 0, %10 ], [ 3, %3 ]
   tail call void @pqClosePGconn(ptr noundef nonnull %2)
-  tail call fastcc void @freePGconn(ptr noundef nonnull %2)
+  tail call fastcc void @freePGconn(ptr noundef %2)
   br label %PQfinish.exit
 
 PQfinish.exit:                                    ; preds = %1, %21
@@ -1415,7 +1415,7 @@ define noundef ptr @pqMakeEmptyPGconn() local_unnamed_addr #0 {
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %33, %29, %26, %23, %2
-  tail call fastcc void @freePGconn(ptr noundef nonnull %calloc)
+  tail call fastcc void @freePGconn(ptr noundef %calloc)
   br label %38
 
 38:                                               ; preds = %33, %37, %0
@@ -2910,9 +2910,9 @@ define range(i32 0, 2) i32 @pqConnectDBStart(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @connectOptions1(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @connectOptions1(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1000
-  %4 = tail call fastcc ptr @parse_connection_string(ptr noundef %1, ptr noundef nonnull %3, i1 noundef zeroext true)
+  %4 = tail call fastcc ptr @parse_connection_string(ptr noundef %1, ptr noundef %3, i1 noundef zeroext true)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %.preheader
 
@@ -3221,7 +3221,7 @@ conninfo_init.exit.thread:                        ; preds = %5
   br label %conninfo_init.exit
 
 conninfo_init.exit:                               ; preds = %18, %.lr.ph.preheader.i, %15
-  %19 = call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef nonnull %6, ptr noundef null)
+  %19 = call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef %6, ptr noundef null)
   br i1 %19, label %25, label %.preheader.i7
 
 .preheader.i7:                                    ; preds = %conninfo_init.exit
@@ -3256,7 +3256,7 @@ PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.prehead
 declare void @initPQExpBuffer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @conninfo_add_defaults(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @conninfo_add_defaults(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca i8, align 1
   %5 = alloca %struct.stat, align 8
@@ -3334,7 +3334,7 @@ pqGetHomeDirectory.exit.i:                        ; preds = %26, %23
   br i1 %.not22.i, label %35, label %40
 
 35:                                               ; preds = %32, %21
-  %36 = call fastcc i32 @parseServiceFile(ptr noundef nonnull %3, ptr noundef nonnull %.01727.i, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
+  %36 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %37 = load i8, ptr %4, align 1
   %38 = trunc i8 %37 to i1
   %39 = icmp ne i32 %36, 0
@@ -3352,7 +3352,7 @@ pqGetHomeDirectory.exit.i:                        ; preds = %26, %23
   br i1 %.not24.i, label %45, label %47
 
 45:                                               ; preds = %40
-  %46 = call fastcc i32 @parseServiceFile(ptr noundef nonnull %3, ptr noundef nonnull %.01727.i, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4)
+  %46 = call fastcc i32 @parseServiceFile(ptr noundef %3, ptr noundef %.01727.i, ptr noundef %0, ptr noundef %1, ptr noundef %4)
   %.not25.i = icmp eq i32 %46, 0
   br i1 %.not25.i, label %._crit_edge.i, label %parseServiceInfo.exit
 
@@ -3549,15 +3549,15 @@ recognized_connection_string.exit:                ; preds = %14
   br i1 %.not81, label %.thread, label %recognized_connection_string.exit.thread
 
 recognized_connection_string.exit.thread:         ; preds = %14, %11, %recognized_connection_string.exit
-  %18 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef nonnull %8, ptr noundef nonnull %4)
+  %18 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef %8, ptr noundef nonnull %4)
   br i1 %18, label %28, label %92
 
 19:                                               ; preds = %10
-  %20 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef nonnull %8, ptr noundef nonnull @.str.45)
+  %20 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef %8, ptr noundef nonnull @.str.45)
   br i1 %20, label %28, label %92
 
 .thread:                                          ; preds = %recognized_connection_string.exit
-  %21 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef nonnull %8, ptr noundef nonnull @.str.45)
+  %21 = tail call fastcc zeroext i1 @connectOptions1(ptr noundef %8, ptr noundef nonnull @.str.45)
   br i1 %21, label %22, label %92
 
 22:                                               ; preds = %.thread
@@ -4280,13 +4280,13 @@ getHostaddr.exit:                                 ; preds = %234, %237
 256:                                              ; preds = %250
   %257 = tail call ptr @__errno_location() #26
   %258 = load i32, ptr %257, align 4
-  call fastcc void @emitHostIdentityInfo(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  call fastcc void @emitHostIdentityInfo(ptr noundef %0, ptr noundef %13)
   %259 = call ptr @pg_strerror_r(i32 noundef %258, ptr noundef nonnull %7, i64 noundef 256) #23
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.57, ptr noundef %259) #23
   br label %.loopexit491
 
 260:                                              ; preds = %242
-  call fastcc void @emitHostIdentityInfo(ptr noundef nonnull %0, ptr noundef nonnull %13)
+  call fastcc void @emitHostIdentityInfo(ptr noundef %0, ptr noundef %13)
   %261 = load i32, ptr %228, align 8
   %.not429 = icmp eq i32 %261, 1
   br i1 %.not429, label %.critedge438, label %262
@@ -4360,22 +4360,22 @@ getHostaddr.exit:                                 ; preds = %234, %237
   br label %.critedge
 
 288:                                              ; preds = %280
-  %289 = call fastcc i32 @setKeepalivesIdle(ptr noundef nonnull %0)
+  %289 = call fastcc i32 @setKeepalivesIdle(ptr noundef %0)
   %.not432 = icmp eq i32 %289, 0
   br i1 %.not432, label %.critedge, label %290
 
 290:                                              ; preds = %288
-  %291 = call fastcc i32 @setKeepalivesInterval(ptr noundef nonnull %0)
+  %291 = call fastcc i32 @setKeepalivesInterval(ptr noundef %0)
   %.not433 = icmp eq i32 %291, 0
   br i1 %.not433, label %.critedge, label %292
 
 292:                                              ; preds = %290
-  %293 = call fastcc i32 @setKeepalivesCount(ptr noundef nonnull %0)
+  %293 = call fastcc i32 @setKeepalivesCount(ptr noundef %0)
   %.not434 = icmp eq i32 %293, 0
   br i1 %.not434, label %.critedge, label %294
 
 294:                                              ; preds = %292
-  %295 = call fastcc i32 @setTCPUserTimeout(ptr noundef nonnull %0)
+  %295 = call fastcc i32 @setTCPUserTimeout(ptr noundef %0)
   %.not435.not = icmp eq i32 %295, 0
   br i1 %.not435.not, label %.critedge, label %.critedge438
 
@@ -4410,7 +4410,7 @@ getHostaddr.exit:                                 ; preds = %234, %237
   br label %.backedge.backedge
 
 306:                                              ; preds = %301
-  call fastcc void @connectFailureMessage(ptr noundef nonnull %0, i32 noundef %303)
+  call fastcc void @connectFailureMessage(ptr noundef %0, i32 noundef %303)
   store i8 1, ptr %34, align 4
   br label %.backedge.backedge
 
@@ -4693,7 +4693,7 @@ getHostaddr.exit:                                 ; preds = %234, %237
   br label %.backedge.backedge
 
 430:                                              ; preds = %425
-  call fastcc void @pgpassfileWarning(ptr noundef nonnull %0)
+  call fastcc void @pgpassfileWarning(ptr noundef %0)
   br label %.loopexit491
 
 431:                                              ; preds = %421
@@ -5286,7 +5286,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emitHostIdentityInfo(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @emitHostIdentityInfo(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [1025 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 616
   %5 = load i16, ptr %4, align 8
@@ -5360,7 +5360,7 @@ declare ptr @pg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setKeepalivesIdle(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setKeepalivesIdle(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca [256 x i8], align 16
@@ -5416,7 +5416,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesIdle(ptr noundef %0) un
   br i1 %.not11.i, label %.loopexit, label %21, !llvm.loop !14
 
 pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.95) #23
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.95) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %41
 
@@ -5449,7 +5449,7 @@ pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setKeepalivesInterval(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setKeepalivesInterval(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca [256 x i8], align 16
@@ -5505,7 +5505,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesInterval(ptr noundef %0
   br i1 %.not11.i, label %.loopexit, label %21, !llvm.loop !14
 
 pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.97) #23
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.97) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %41
 
@@ -5538,7 +5538,7 @@ pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setKeepalivesCount(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setKeepalivesCount(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca [256 x i8], align 16
@@ -5594,7 +5594,7 @@ define internal fastcc range(i32 0, 2) i32 @setKeepalivesCount(ptr noundef %0) u
   br i1 %.not11.i, label %.loopexit, label %21, !llvm.loop !14
 
 pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.99) #23
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.99) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %41
 
@@ -5627,7 +5627,7 @@ pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setTCPUserTimeout(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @setTCPUserTimeout(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca [256 x i8], align 16
@@ -5683,7 +5683,7 @@ define internal fastcc range(i32 0, 2) i32 @setTCPUserTimeout(ptr noundef %0) un
   br i1 %.not11.i, label %.loopexit, label %21, !llvm.loop !14
 
 pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
-  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.101) #23
+  tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.89, ptr noundef nonnull %6, ptr noundef nonnull @.str.101) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %41
 
@@ -5718,7 +5718,7 @@ pqParseIntParam.exit:                             ; preds = %21, %8, %13, %15
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @connectFailureMessage(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @connectFailureMessage(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 1000
   %5 = call ptr @pg_strerror_r(i32 noundef %1, ptr noundef nonnull %3, i64 noundef 256) #23
@@ -5783,7 +5783,7 @@ declare i32 @pqCheckInBufferSpace(i64 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @pqGetErrorNotice3(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pgpassfileWarning(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @pgpassfileWarning(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 761
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -5881,7 +5881,7 @@ define internal void @defaultNoticeProcessor(ptr nocapture readnone %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freePGconn(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @freePGconn(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %struct.PGEventConnDestroy, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i32, ptr %3, align 8
@@ -6412,7 +6412,7 @@ define noundef ptr @PQconninfoParse(ptr noundef %0, ptr noundef writeonly %1) lo
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = call fastcc ptr @parse_connection_string(ptr noundef %0, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %11 = call fastcc ptr @parse_connection_string(ptr noundef %0, ptr noundef %3, i1 noundef zeroext false)
   %12 = icmp eq ptr %11, null
   %or.cond = and i1 %4, %12
   br i1 %or.cond, label %13, label %15
@@ -6432,7 +6432,7 @@ define noundef ptr @PQconninfoParse(ptr noundef %0, ptr noundef writeonly %1) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @parse_connection_string(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @parse_connection_string(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.PQExpBufferData, align 8
   %5 = alloca %struct.PQExpBufferData, align 8
   %6 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(14) @uri_designator, i64 noundef 13) #24
@@ -6450,7 +6450,7 @@ select.unfold:                                    ; preds = %8, %3
   br i1 %12, label %conninfo_init.exit.thread.i, label %.preheader.i.i
 
 conninfo_init.exit.thread.i:                      ; preds = %select.unfold
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   br label %conninfo_uri_parse.exit
 
 .preheader.i.i:                                   ; preds = %select.unfold, %.preheader.i.i
@@ -6497,7 +6497,7 @@ conninfo_init.exit.i:                             ; preds = %23, %.lr.ph.prehead
   br i1 %or.cond.i.i, label %30, label %31
 
 30:                                               ; preds = %conninfo_init.exit.i
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   br label %.preheader.i13.critedge.i
 
 31:                                               ; preds = %conninfo_init.exit.i
@@ -6506,7 +6506,7 @@ conninfo_init.exit.i:                             ; preds = %23, %.lr.ph.prehead
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   br label %.preheader.i13.critedge.i
 
 35:                                               ; preds = %31
@@ -6520,7 +6520,7 @@ conninfo_init.exit.i:                             ; preds = %23, %.lr.ph.prehead
   br i1 %40, label %select.unfold.i.i, label %uri_prefix_length.exit.i.i
 
 uri_prefix_length.exit.i.i:                       ; preds = %38
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.112, ptr noundef %0) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.112, ptr noundef %0) #23
   br label %.preheader.i13.critedge.i
 
 select.unfold.i.i:                                ; preds = %38, %35
@@ -6578,7 +6578,7 @@ select.unfold.i.i:                                ; preds = %38, %35
   br i1 %.not.i.i.i.i, label %conninfo_find.exit.thread.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 conninfo_find.exit.thread.i.i.i:                  ; preds = %55, %50
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.113) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.113) #23
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i.i.i:                         ; preds = %.lr.ph.i.i.i.i
@@ -6630,7 +6630,7 @@ conninfo_storeval.exit.i.i:                       ; preds = %conninfo_find.exit.
   br i1 %.not.i.i183.i.i, label %conninfo_find.exit.thread.i184.i.i, label %.lr.ph.i.i181.i.i, !llvm.loop !12
 
 conninfo_find.exit.thread.i184.i.i:               ; preds = %74, %69
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.7) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.7) #23
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i186.i.i:                      ; preds = %.lr.ph.i.i181.i.i
@@ -6677,7 +6677,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br label %87, !llvm.loop !40
 
 91:                                               ; preds = %87
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.114, ptr noundef %0) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.114, ptr noundef %0) #23
   br label %.preheader.i13.critedge.i
 
 92:                                               ; preds = %87
@@ -6685,7 +6685,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %93, label %94, label %95
 
 94:                                               ; preds = %92
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.115, ptr noundef %0) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.115, ptr noundef %0) #23
   br label %.preheader.i13.critedge.i
 
 95:                                               ; preds = %92
@@ -6707,7 +6707,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   %102 = sub i64 %100, %101
   %103 = trunc i64 %102 to i32
   %104 = add i32 %103, 1
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.116, i32 noundef %99, i32 noundef %104, ptr noundef %0) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.116, i32 noundef %99, i32 noundef %104, ptr noundef %0) #23
   br label %.preheader.i13.critedge.i
 
 .preheader.i12.i:                                 ; preds = %.loopexit.i.i, %105
@@ -6803,7 +6803,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not.i.i195.i.i, label %conninfo_find.exit.thread.i196.i.i, label %.lr.ph.i.i193.i.i, !llvm.loop !12
 
 conninfo_find.exit.thread.i196.i.i:               ; preds = %131, %126
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.117) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.117) #23
   br label %.preheader.i13.critedge.i
 
 conninfo_find.exit.i198.i.i:                      ; preds = %.lr.ph.i.i193.i.i
@@ -6825,7 +6825,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not170.i.i, label %143, label %141
 
 141:                                              ; preds = %138
-  %142 = call fastcc ptr @conninfo_storeval(ptr noundef nonnull %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %139, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
+  %142 = call fastcc ptr @conninfo_storeval(ptr noundef %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %139, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not171.i.i = icmp eq ptr %142, null
   br i1 %.not171.i.i, label %.preheader.i13.critedge.i, label %143
 
@@ -6858,7 +6858,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   br i1 %.not174.i.i, label %153, label %151
 
 151:                                              ; preds = %.critedge18.i.i
-  %152 = call fastcc ptr @conninfo_storeval(ptr noundef nonnull %11, ptr noundef nonnull @.str.118, ptr noundef nonnull %145, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
+  %152 = call fastcc ptr @conninfo_storeval(ptr noundef %11, ptr noundef nonnull @.str.118, ptr noundef nonnull %145, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not175.i.i = icmp eq ptr %152, null
   br i1 %.not175.i.i, label %.preheader.i13.critedge.i, label %153
 
@@ -6870,7 +6870,7 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
 
 154:                                              ; preds = %153
   %155 = getelementptr i8, ptr %.11.i.i, i64 1
-  %156 = call fastcc zeroext i1 @conninfo_uri_parse_params(ptr noundef %155, ptr noundef nonnull %11, ptr noundef %1)
+  %156 = call fastcc zeroext i1 @conninfo_uri_parse_params(ptr noundef %155, ptr noundef %11, ptr noundef %1)
   br i1 %156, label %conninfo_uri_parse_options.exit.i, label %.preheader.i13.critedge.i
 
 conninfo_uri_parse_options.exit.i:                ; preds = %154, %153
@@ -6907,7 +6907,7 @@ PQconninfoFree.exit.i:                            ; preds = %.lr.ph.i.i, %.prehe
   br label %conninfo_uri_parse.exit
 
 162:                                              ; preds = %conninfo_uri_parse_options.exit.i
-  %163 = call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef nonnull %11, ptr noundef %1)
+  %163 = call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef %11, ptr noundef nonnull %1)
   br i1 %163, label %conninfo_uri_parse.exit, label %.preheader.i15.i
 
 .preheader.i15.i:                                 ; preds = %162
@@ -6935,7 +6935,7 @@ uri_prefix_length.exit:                           ; preds = %8
   br i1 %170, label %conninfo_init.exit.thread.i19, label %.preheader.i.i8
 
 conninfo_init.exit.thread.i19:                    ; preds = %uri_prefix_length.exit
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   br label %conninfo_uri_parse.exit
 
 .preheader.i.i8:                                  ; preds = %uri_prefix_length.exit, %.preheader.i.i8
@@ -6982,7 +6982,7 @@ conninfo_init.exit.i12:                           ; preds = %181, %.lr.ph.prehea
   br label %191
 
 .preheader.i96.i:                                 ; preds = %conninfo_init.exit.i12
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   %186 = load ptr, ptr %169, align 8
   %.not7.i.i14 = icmp eq ptr %186, null
   br i1 %.not7.i.i14, label %PQconninfoFree.exit.i17, label %.lr.ph.i.i15
@@ -7070,7 +7070,7 @@ PQconninfoFree.exit.i17:                          ; preds = %.lr.ph.i.i15, %.pre
   br i1 %.not87.i, label %224, label %.preheader.i98.i
 
 .preheader.i98.i:                                 ; preds = %.loopexit122.i, %208
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %.070151.i) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.126, ptr noundef nonnull %.070151.i) #23
   %219 = load ptr, ptr %169, align 8
   %.not7.i99.i = icmp eq ptr %219, null
   br i1 %.not7.i99.i, label %PQconninfoFree.exit104.i, label %.lr.ph.i100.i
@@ -7179,7 +7179,7 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
   ]
 
 .preheader.i105.i:                                ; preds = %.backedge.i
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.127) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.127) #23
   %254 = load ptr, ptr %169, align 8
   %.not7.i106.i = icmp eq ptr %254, null
   br i1 %.not7.i106.i, label %PQconninfoFree.exit111.i, label %.lr.ph.i107.i
@@ -7220,7 +7220,7 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
 
 266:                                              ; preds = %264, %.loopexit.i
   %.8.i = phi ptr [ %.6.i, %.loopexit.i ], [ %265, %264 ]
-  %267 = tail call fastcc ptr @conninfo_storeval(ptr noundef nonnull %169, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
+  %267 = tail call fastcc ptr @conninfo_storeval(ptr noundef %169, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not95.i = icmp eq ptr %267, null
   br i1 %.not95.i, label %.preheader.i112.i, label %.backedge125.i
 
@@ -7249,7 +7249,7 @@ PQconninfoFree.exit118.i:                         ; preds = %.lr.ph.i114.i, %.pr
   br i1 %2, label %273, label %conninfo_uri_parse.exit
 
 273:                                              ; preds = %._crit_edge.i
-  %274 = tail call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef nonnull %169, ptr noundef %1)
+  %274 = tail call fastcc zeroext i1 @conninfo_add_defaults(ptr noundef %169, ptr noundef nonnull %1)
   br i1 %274, label %conninfo_uri_parse.exit, label %275
 
 275:                                              ; preds = %273
@@ -7392,7 +7392,7 @@ conninfo_storeval.exit:                           ; preds = %40, %46, %45, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @conninfo_storeval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @conninfo_storeval(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.239) #24
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %12
@@ -7427,7 +7427,7 @@ conninfo_find.exit.thread:                        ; preds = %17, %12
   br i1 %4, label %31, label %20
 
 20:                                               ; preds = %conninfo_find.exit.thread
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.128, ptr noundef %.020) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.128, ptr noundef %.020) #23
   br label %31
 
 conninfo_find.exit:                               ; preds = %.lr.ph.i
@@ -7444,7 +7444,7 @@ conninfo_find.exit:                               ; preds = %.lr.ph.i
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %3, ptr noundef nonnull @.str.44) #23
   br label %31
 
 28:                                               ; preds = %24, %21
@@ -8111,7 +8111,7 @@ declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_add
 declare void @libpq_append_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %.not99 = icmp eq i8 %4, 0
   br i1 %.not99, label %.loopexit59, label %.preheader.lr.ph
@@ -8140,7 +8140,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br i1 %.not56, label %11, label %10
 
 10:                                               ; preds = %9
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %2, ptr noundef nonnull @.str.119, ptr noundef nonnull %.050100) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.119, ptr noundef nonnull %.050100) #23
   br label %.loopexit59
 
 11:                                               ; preds = %9
@@ -8159,7 +8159,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %.loopexit
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %2, ptr noundef nonnull @.str.120, ptr noundef nonnull %.050100) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.120, ptr noundef nonnull %.050100) #23
   br label %.loopexit59
 
 17:                                               ; preds = %7
@@ -8242,7 +8242,7 @@ conninfo_find.exit.i:                             ; preds = %.lr.ph.i.i
   br i1 %49, label %50, label %conninfo_storeval.exit
 
 50:                                               ; preds = %conninfo_find.exit.i
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %2, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.44) #23
   %.pre = load i64, ptr %5, align 8
   br label %conninfo_storeval.exit.thread
 
@@ -8288,7 +8288,7 @@ conninfo_storeval.exit.thread:                    ; preds = %40, %45, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %4 = add i64 %3, 1
   %5 = tail call noalias ptr @malloc(i64 noundef %4) #25
@@ -8296,7 +8296,7 @@ define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, 
   br i1 %6, label %7, label %.preheader
 
 7:                                                ; preds = %2
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.44) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.44) #23
   br label %.loopexit
 
 .preheader:                                       ; preds = %2, %38
@@ -8351,7 +8351,7 @@ define internal fastcc noalias noundef ptr @conninfo_uri_decode(ptr noundef %0, 
   br i1 %or.cond8.i29, label %30, label %get_hexdigit.exit
 
 get_hexdigit.exit:                                ; preds = %28, %17
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.124, ptr noundef %0) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.124, ptr noundef %0) #23
   tail call void @free(ptr noundef %5) #23
   br label %.loopexit
 
@@ -8364,7 +8364,7 @@ get_hexdigit.exit:                                ; preds = %28, %17
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %30
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %1, ptr noundef nonnull @.str.125, ptr noundef %0) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef nonnull %1, ptr noundef nonnull @.str.125, ptr noundef %0) #23
   tail call void @free(ptr noundef %5) #23
   br label %.loopexit
 
@@ -8390,10 +8390,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   store i8 0, ptr %4, align 1
-  %7 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.138)
+  %7 = tail call noalias ptr @fopen(ptr noundef nonnull %0, ptr noundef nonnull @.str.138)
   %8 = icmp eq ptr %7, null
   br i1 %8, label %10, label %.preheader84
 
@@ -8403,7 +8403,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %.not101, label %.loopexit, label %.lr.ph103
 
 10:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.139, ptr noundef %0) #23
+  tail call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.139, ptr noundef nonnull %0) #23
   br label %87
 
 .lr.ph103:                                        ; preds = %.preheader84, %.backedge
@@ -8415,7 +8415,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %.lr.ph103
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.140, i32 noundef %12, ptr noundef %0) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.140, i32 noundef %12, ptr noundef nonnull %0) #23
   br label %.loopexit
 
 16:                                               ; preds = %.lr.ph103
@@ -8499,7 +8499,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
 48:                                               ; preds = %45
   %49 = getelementptr i8, ptr %.06795, i64 1
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
-  %51 = call i32 @strncmp(ptr noundef %49, ptr noundef %1, i64 noundef %50) #24
+  %51 = call i32 @strncmp(ptr noundef %49, ptr noundef nonnull %1, i64 noundef %50) #24
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %58
 
@@ -8524,7 +8524,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.141, ptr noundef %0, i32 noundef %12) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.141, ptr noundef nonnull %0, i32 noundef %12) #23
   br label %.loopexit
 
 66:                                               ; preds = %62
@@ -8545,7 +8545,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br i1 %72, label %.lr.ph99._crit_edge, label %.lr.ph143
 
 73:                                               ; preds = %66
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.142, ptr noundef %0, i32 noundef %12) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.142, ptr noundef nonnull %0, i32 noundef %12) #23
   br label %.loopexit
 
 .lr.ph143:                                        ; preds = %.lr.ph99.preheader, %.lr.ph99
@@ -8580,7 +8580,7 @@ define internal fastcc range(i32 0, 4) i32 @parseServiceFile(ptr noundef %0, ptr
   br label %.loopexit
 
 .critedge82:                                      ; preds = %.preheader, %.lr.ph143
-  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.141, ptr noundef %0, i32 noundef %12) #23
+  call void (ptr, ptr, ...) @libpq_append_error(ptr noundef %3, ptr noundef nonnull @.str.141, ptr noundef nonnull %0, i32 noundef %12) #23
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %.backedge, %.preheader84, %.critedge82, %85, %73, %65, %15

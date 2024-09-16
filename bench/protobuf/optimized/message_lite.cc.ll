@@ -2384,7 +2384,7 @@ return:                                           ; preds = %if.end17, %if.end, 
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_124ByteSizeConsistencyErrorEmmmRKNS0_11MessageLiteE(i64 noundef %byte_size_before_serialization, i64 noundef %byte_size_after_serialization, i64 noundef %bytes_produced_by_serialization, ptr noundef nonnull align 8 dereferenceable(16) %message) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_124ByteSizeConsistencyErrorEmmmRKNS0_11MessageLiteE(i64 noundef range(i64 0, 2147483648) %byte_size_before_serialization, i64 noundef %byte_size_after_serialization, i64 noundef range(i64 -2147483648, 2147483648) %bytes_produced_by_serialization, ptr noundef nonnull align 8 dereferenceable(16) %message) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8

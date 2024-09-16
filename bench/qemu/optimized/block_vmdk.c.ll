@@ -418,7 +418,7 @@ sw.default:                                       ; preds = %if.end4
   store i32 %and, ptr %role, align 8
   %6 = load ptr, ptr %file, align 8
   %call10 = tail call i32 @bdrv_child_refresh_perms(ptr noundef nonnull %bs, ptr noundef %6, ptr noundef nonnull @error_abort) #15
-  %call11 = tail call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef nonnull %call2, ptr noundef %options, ptr noundef %errp)
+  %call11 = tail call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef %call2, ptr noundef %options, ptr noundef %errp)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %sw.bb
@@ -1786,7 +1786,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @bdrv_open_file_child(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @vmdk_read_desc(ptr noundef %file, i64 noundef %desc_offset, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @vmdk_read_desc(ptr noundef %file, i64 noundef range(i64 0, -511) %desc_offset, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %file, align 8
   %call = tail call i64 @bdrv_getlength(ptr noundef %0) #15
@@ -1875,7 +1875,7 @@ if.end.i:                                         ; preds = %sw.bb
   %granularity.i = getelementptr inbounds i8, ptr %header.i, i64 12
   %6 = load i32, ptr %granularity.i, align 1
   %conv8.i = zext i32 %6 to i64
-  %call9.i = call fastcc i32 @vmdk_add_extent(ptr noundef %bs, ptr noundef %file, i1 noundef zeroext false, i64 noundef %conv.i, i64 noundef %shl.i, i64 noundef 0, i32 noundef %5, i32 noundef 4096, i64 noundef %conv8.i, ptr noundef nonnull %extent.i, ptr noundef %errp)
+  %call9.i = call fastcc i32 @vmdk_add_extent(ptr noundef %bs, ptr noundef %file, i1 noundef zeroext false, i64 noundef %conv.i, i64 noundef %shl.i, i64 noundef 0, i32 noundef %5, i32 noundef 4096, i64 noundef %conv8.i, ptr noundef %extent.i, ptr noundef %errp)
   %cmp10.i = icmp slt i32 %call9.i, 0
   br i1 %cmp10.i, label %vmdk_open_vmfs_sparse.exit, label %if.end13.i
 
@@ -1948,7 +1948,7 @@ if.then7.i:                                       ; preds = %if.then4.i
   br i1 %tobool9.not.i, label %vmdk_open_vmdk4.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.then7.i
-  %call12.i = call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef nonnull %call8.i, ptr noundef %options, ptr noundef %errp)
+  %call12.i = call fastcc i32 @vmdk_open_desc_file(ptr noundef nonnull %bs, ptr noundef %call8.i, ptr noundef %options, ptr noundef %errp)
   call void @g_free(ptr noundef nonnull %call8.i) #15
   br label %vmdk_open_vmdk4.exit
 
@@ -2100,7 +2100,7 @@ if.end114.i:                                      ; preds = %if.end90.i
   %shl119.i = shl i64 %38, 9
   %39 = load i32, ptr %num_gtes_per_gt.i, align 4
   %40 = load i64, ptr %granularity.i12, align 4
-  %call124.i = call fastcc i32 @vmdk_add_extent(ptr noundef nonnull %bs, ptr noundef nonnull %file, i1 noundef zeroext false, i64 noundef %37, i64 noundef %shl119.i, i64 noundef %l1_backup_offset.0.i, i32 noundef %conv96.i, i32 noundef %39, i64 noundef %40, ptr noundef nonnull %extent.i7, ptr noundef %errp)
+  %call124.i = call fastcc i32 @vmdk_add_extent(ptr noundef nonnull %bs, ptr noundef nonnull %file, i1 noundef zeroext false, i64 noundef %37, i64 noundef %shl119.i, i64 noundef %l1_backup_offset.0.i, i32 noundef %conv96.i, i32 noundef %39, i64 noundef %40, ptr noundef %extent.i7, ptr noundef %errp)
   %cmp125.i = icmp slt i32 %call124.i, 0
   br i1 %cmp125.i, label %vmdk_open_vmdk4.exit, label %if.end128.i
 
@@ -2163,7 +2163,7 @@ return:                                           ; preds = %sw.default, %vmdk_o
 declare i32 @bdrv_child_refresh_perms(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmdk_open_desc_file(ptr noundef %bs, ptr noundef %buf, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vmdk_open_desc_file(ptr noundef %bs, ptr noundef nonnull %buf, ptr noundef %options, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %const_header.i = alloca %struct.VMDKSESparseConstHeader, align 8
   %volatile_header.i = alloca %struct.VMDKSESparseVolatileHeader, align 8
@@ -2726,7 +2726,7 @@ if.end23.i:                                       ; preds = %if.end12.i.i
   %.tr33.i = trunc i64 %48 to i32
   %conv28.i = shl i32 %.tr33.i, 6
   %49 = load i64, ptr %grain_size.i.i, align 8
-  %call29.i = call fastcc i32 @vmdk_add_extent(ptr noundef %bs, ptr noundef nonnull %call99.i, i1 noundef zeroext false, i64 noundef %45, i64 noundef %mul24.i, i64 noundef 0, i32 noundef %conv.i, i32 noundef %conv28.i, i64 noundef %49, ptr noundef nonnull %extent.i30, ptr noundef %errp)
+  %call29.i = call fastcc i32 @vmdk_add_extent(ptr noundef %bs, ptr noundef nonnull %call99.i, i1 noundef zeroext false, i64 noundef %45, i64 noundef %mul24.i, i64 noundef 0, i32 noundef %conv.i, i32 noundef %conv28.i, i64 noundef %49, ptr noundef %extent.i30, ptr noundef %errp)
   %cmp30.i = icmp slt i32 %call29.i, 0
   br i1 %cmp30.i, label %if.then142.i, label %if.end33.i36
 
@@ -2881,7 +2881,7 @@ exit:                                             ; preds = %vmdk_parse_extents.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_read_cid(ptr nocapture noundef readonly %bs, i32 noundef %parent, ptr nocapture noundef writeonly %pcid) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vmdk_read_cid(ptr nocapture noundef readonly %bs, i32 noundef range(i32 0, 2) %parent, ptr nocapture noundef writeonly %pcid) unnamed_addr #0 {
 entry:
   %cid = alloca i32, align 4
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
@@ -3004,7 +3004,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @bdrv_refresh_filename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vmdk_add_extent(ptr nocapture noundef %bs, ptr noundef %file, i1 noundef zeroext %flat, i64 noundef %sectors, i64 noundef %l1_offset, i64 noundef %l1_backup_offset, i32 noundef %l1_size, i32 noundef %l2_size, i64 noundef %cluster_sectors, ptr nocapture noundef writeonly %new_extent, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc i32 @vmdk_add_extent(ptr nocapture noundef %bs, ptr noundef %file, i1 noundef zeroext %flat, i64 noundef %sectors, i64 noundef %l1_offset, i64 noundef range(i64 0, -511) %l1_backup_offset, i32 noundef %l1_size, i32 noundef %l2_size, i64 noundef %cluster_sectors, ptr nocapture noundef nonnull writeonly %new_extent, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %flat to i8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24

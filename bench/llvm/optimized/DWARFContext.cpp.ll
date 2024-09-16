@@ -2524,7 +2524,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit320:          ; preds = %_ZNSt8functionIFvN4
   %.sroa.0111.0.copyload = load i64, ptr %477, align 8
   %.sroa.2112.0..sroa_idx = getelementptr inbounds i8, ptr %477, i64 8
   %.sroa.2112.0.copyload = load i8, ptr %.sroa.2112.0..sroa_idx, align 8
-  call fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %29, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %521, i64 %.sroa.0111.0.copyload, i8 %.sroa.2112.0.copyload)
+  call fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %29, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %30, ptr noundef nonnull align 8 dereferenceable(32) %521, i64 %.sroa.0111.0.copyload, i8 %.sroa.2112.0.copyload)
   %522 = getelementptr inbounds nuw i8, ptr %29, i64 144
   %523 = load ptr, ptr %522, align 8
   %.not.i.i.i321 = icmp eq ptr %523, null
@@ -2660,7 +2660,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit336:          ; preds = %_ZNSt8functionIFvN4
   %.sroa.0104.0.copyload = load i64, ptr %540, align 8
   %.sroa.2105.0..sroa_idx = getelementptr inbounds i8, ptr %540, i64 8
   %.sroa.2105.0.copyload = load i8, ptr %.sroa.2105.0..sroa_idx, align 8
-  call fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %31, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %32, ptr noundef nonnull align 8 dereferenceable(32) %584, i64 %.sroa.0104.0.copyload, i8 %.sroa.2105.0.copyload)
+  call fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %31, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %32, ptr noundef nonnull align 8 dereferenceable(32) %584, i64 %.sroa.0104.0.copyload, i8 %.sroa.2105.0.copyload)
   %585 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %586 = load ptr, ptr %585, align 8
   %.not.i.i.i337 = icmp eq ptr %586, null
@@ -3688,7 +3688,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit432:          ; preds = %_ZNSt8functionIFvN4
   %.sroa.054.0.copyload = load i64, ptr %1011, align 8
   %.sroa.255.0..sroa_idx = getelementptr inbounds i8, ptr %1011, i64 8
   %.sroa.255.0.copyload = load i8, ptr %.sroa.255.0..sroa_idx, align 8
-  call fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %53, ptr noundef nonnull %54, i64 %.sroa.054.0.copyload, i8 %.sroa.255.0.copyload)
+  call fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %53, ptr noundef %54, i64 %.sroa.054.0.copyload, i8 %.sroa.255.0.copyload)
   %1087 = getelementptr inbounds nuw i8, ptr %54, i64 144
   %1088 = load ptr, ptr %1087, align 8
   %.not.i.i.i433 = icmp eq ptr %1088, null
@@ -3889,7 +3889,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit458:          ; preds = %_ZNSt8functionIFvN4
   %.sroa.047.0.copyload = load i64, ptr %1107, align 8
   %.sroa.248.0..sroa_idx = getelementptr inbounds i8, ptr %1107, i64 8
   %.sroa.248.0.copyload = load i8, ptr %.sroa.248.0..sroa_idx, align 8
-  call fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull %57, ptr noundef nonnull %58, i64 %.sroa.047.0.copyload, i8 %.sroa.248.0.copyload)
+  call fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef %57, ptr noundef %58, i64 %.sroa.047.0.copyload, i8 %.sroa.248.0.copyload)
   %1183 = getelementptr inbounds nuw i8, ptr %58, i64 144
   %1184 = load ptr, ptr %1183, align 8
   %.not.i.i.i459 = icmp eq ptr %1184, null
@@ -4714,7 +4714,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i512: ; preds = %1585, %_ZNSt8func
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit514
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit514:          ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i512, %1595
-  call fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %67, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_6object16SectionedAddressEEjEE11callback_fnIZNS_12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayIS1_ImELm28EEE3$_5EES4_lj", i64 %1571, ptr noundef nonnull %68)
+  call fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %67, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_6object16SectionedAddressEEjEE11callback_fnIZNS_12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayIS1_ImELm28EEE3$_5EES4_lj", i64 %1571, ptr noundef %68)
   %1603 = getelementptr inbounds nuw i8, ptr %68, i64 144
   %1604 = load ptr, ptr %1603, align 8
   %.not.i.i.i515 = icmp eq ptr %1604, null
@@ -4847,7 +4847,7 @@ _ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i528: ; preds = %1652, %_ZNSt8func
   br label %_ZN4llvm13DIDumpOptionsC2ERKS0_.exit530
 
 _ZN4llvm13DIDumpOptionsC2ERKS0_.exit530:          ; preds = %_ZNSt8functionIFvN4llvm5ErrorEEEC2ERKS3_.exit.i528, %1662
-  call fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %69, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_6object16SectionedAddressEEjEE11callback_fnIZNS_12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayIS1_ImELm28EEE3$_5EES4_lj", i64 %1638, ptr noundef nonnull %70)
+  call fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(40) %69, ptr nonnull @"_ZN4llvm12function_refIFSt8optionalINS_6object16SectionedAddressEEjEE11callback_fnIZNS_12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayIS1_ImELm28EEE3$_5EES4_lj", i64 %1638, ptr noundef %70)
   %1670 = getelementptr inbounds nuw i8, ptr %70, i64 144
   %1671 = load ptr, ptr %1670, align 8
   %.not.i.i.i531 = icmp eq ptr %1671, null
@@ -5720,7 +5720,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit642:          ; preds = %_ZNSt8functionIFvN4
   %2072 = getelementptr inbounds i8, ptr %2071, i64 40
   %2073 = load ptr, ptr %2072, align 8
   %2074 = call noundef zeroext i1 %2073(ptr noundef nonnull align 8 dereferenceable(32) %2070) #24
-  call fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %75, ptr nonnull @.str.40, i64 17, ptr noundef nonnull align 8 dereferenceable(32) %2049, ptr noundef nonnull align 8 dereferenceable(24) %2053, ptr %2059, i64 %2060, ptr %2067, ptr %2069, i1 noundef zeroext %2074)
+  call fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %75, ptr nonnull @.str.40, i64 17, ptr noundef nonnull align 8 dereferenceable(32) %2049, ptr noundef nonnull align 8 dereferenceable(24) %2053, ptr %2059, i64 %2060, ptr %2067, ptr %2069, i1 noundef zeroext %2074)
   %2075 = getelementptr inbounds nuw i8, ptr %75, i64 144
   %2076 = load ptr, ptr %2075, align 8
   %.not.i.i.i645 = icmp eq ptr %2076, null
@@ -5853,7 +5853,7 @@ _ZN4llvm13DIDumpOptionsC2ERKS0_.exit656:          ; preds = %_ZNSt8functionIFvN4
   %2149 = getelementptr inbounds i8, ptr %2148, i64 40
   %2150 = load ptr, ptr %2149, align 8
   %2151 = call noundef zeroext i1 %2150(ptr noundef nonnull align 8 dereferenceable(32) %2147) #24
-  call fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %76, ptr nonnull @.str.42, i64 21, ptr noundef nonnull align 8 dereferenceable(32) %2126, ptr noundef nonnull align 8 dereferenceable(24) %2130, ptr %2136, i64 %2137, ptr %2144, ptr %2146, i1 noundef zeroext %2151)
+  call fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %76, ptr nonnull @.str.42, i64 21, ptr noundef nonnull align 8 dereferenceable(32) %2126, ptr noundef nonnull align 8 dereferenceable(24) %2130, ptr %2136, i64 %2137, ptr %2144, ptr %2146, i1 noundef zeroext %2151)
   %2152 = getelementptr inbounds nuw i8, ptr %76, i64 144
   %2153 = load ptr, ptr %2152, align 8
   %.not.i.i.i659 = icmp eq ptr %2153, null
@@ -6074,7 +6074,7 @@ declare { ptr, i64 } @_ZN4llvm3sys4path9extensionENS_9StringRefENS1_5StyleE(ptr,
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_0clEbPKcjNS_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_0clEbPKcjNS_9StringRefE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i1 noundef zeroext %1, ptr noundef %2, i32 noundef range(i32 0, 27) %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = shl nuw nsw i32 1, %3
   %7 = load ptr, ptr %0, align 8
   %8 = load i64, ptr %7, align 8
@@ -7233,7 +7233,7 @@ define dso_local noundef ptr @_ZN4llvm12DWARFContext11getDebugLocEv(ptr nocaptur
 declare void @_ZNK4llvm13DWARFDebugLoc4dumpERNS_11raw_ostreamERKNS_11DWARFObjectENS_13DIDumpOptionsESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(672), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 %4, i8 %5) unnamed_addr #0 {
+define internal fastcc void @_ZL19dumpLoclistsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_18DWARFDataExtractorERKNS_11DWARFObjectESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr nocapture noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 %4, i8 %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.llvm::DWARFListTableHeader", align 8
   %9 = alloca %"class.llvm::Error", align 8
@@ -7710,7 +7710,7 @@ declare void @_ZNK4llvm19DWARFDebugArangeSet4dumpERNS_11raw_ostreamE(ptr noundef
 declare void @_ZN4llvm14DWARFDebugLine13SectionParserC1ERNS_18DWARFDataExtractorERKNS_12DWARFContextENS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteIS9_EEEE(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(105), ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, i64 %3, i8 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm12DWARFContext4dumpERNS_11raw_ostreamENS_13DIDumpOptionsESt5arrayISt8optionalImELm28EEENK3$_3clENS_14DWARFDebugLine13SectionParserES3_S6_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 %3, i8 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::format_object", align 8
   %7 = alloca %"struct.llvm::DWARFDebugLine::LineTable", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -8100,7 +8100,7 @@ declare void @_ZN4llvm19DWARFDebugRangeList7extractERKNS_18DWARFDataExtractorEPm
 declare void @_ZNK4llvm19DWARFDebugRangeList4dumpERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL19dumpRnglistsSectionRN4llvm11raw_ostreamERNS_18DWARFDataExtractorENS_12function_refIFSt8optionalINS_6object16SectionedAddressEEjEEENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::DWARFDebugRnglistTable", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -8302,7 +8302,7 @@ _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %87, %90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.0.val, i64 %.8.val, ptr readonly %.0.val1, ptr readnone %.8.val3, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @_ZL24dumpStringOffsetsSectionRN4llvm11raw_ostreamENS_13DIDumpOptionsENS_9StringRefERKNS_11DWARFObjectERKNS_12DWARFSectionES3_NS_14iterator_rangeIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteISC_EEEEb(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr %.0.val, i64 %.8.val, ptr readonly %.0.val1, ptr readnone %.8.val3, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -11232,7 +11232,7 @@ _ZN4llvm12DWARFContext28getCompileUnitForCodeAddressEm.exit: ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef nonnull %21, i64 noundef %2, i32 noundef %.sroa.4.0.extract.trunc, i32 noundef %.sroa.010.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(16) %29)
+  tail call fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef %21, i64 noundef %2, i32 noundef %.sroa.4.0.extract.trunc, i32 noundef %.sroa.010.0.extract.trunc, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(16) %29)
   %.not18 = icmp eq i32 %.sroa.010.0.extract.trunc, 0
   br i1 %.not18, label %_ZN4llvm12DWARFContext28getCompileUnitForCodeAddressEm.exit.thread, label %30
 
@@ -11361,7 +11361,7 @@ define linkonce_odr hidden void @_ZN4llvm10DILineInfoC2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %7) unnamed_addr #0 {
+define internal fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %7) unnamed_addr #0 {
   %9 = alloca %"class.llvm::SmallVector.374", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::optional.100", align 8
@@ -11549,7 +11549,7 @@ _ZN4llvm12DWARFContext28getCompileUnitForCodeAddressEm.exit: ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %5, align 8
-  call fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef nonnull %32, i64 noundef %2, i32 noundef %40, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(16) %13)
+  call fastcc void @_ZL37getFunctionNameAndStartLineForAddressPN4llvm16DWARFCompileUnitEmNS_10DINameKindENS_19DILineInfoSpecifier16FileLineInfoKindERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_RjRSt8optionalImE(ptr noundef %32, i64 noundef %2, i32 noundef %40, i32 noundef %41, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(16) %13)
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %71
 
@@ -12798,7 +12798,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i129.i
   %314 = inttoptr i64 %313 to ptr
   store ptr null, ptr %47, align 8, !noalias !276
   store ptr %314, ptr %50, align 8, !alias.scope !273, !noalias !252
-  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(34) %49, ptr noundef nonnull %50), !noalias !252
+  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias writable align 8 %48, ptr noundef nonnull align 8 dereferenceable(34) %49, ptr noundef %50), !noalias !252
   %315 = load ptr, ptr %48, align 8, !noalias !252
   store ptr null, ptr %48, align 8, !noalias !252
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !252
@@ -13068,7 +13068,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.i.i:              ; preds = %_ZN12_GLOBAL__N_116
   store i8 3, ptr %190, align 1, !alias.scope !299, !noalias !252
   store ptr %.pr.i.i, ptr %56, align 8, !noalias !252
   store ptr null, ptr %52, align 8, !noalias !252
-  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef nonnull %56), !noalias !252
+  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias writable align 8 %53, ptr noundef nonnull align 8 dereferenceable(34) %54, ptr noundef %56), !noalias !252
   %420 = load ptr, ptr %53, align 8, !noalias !252
   store ptr null, ptr %53, align 8, !noalias !252
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16), !noalias !252
@@ -13570,7 +13570,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i279
   %619 = inttoptr i64 %618 to ptr
   store ptr null, ptr %20, align 8, !noalias !341
   store ptr %619, ptr %23, align 8, !alias.scope !338, !noalias !331
-  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef nonnull %23), !noalias !331
+  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(34) %22, ptr noundef %23), !noalias !331
   %620 = load ptr, ptr %21, align 8, !noalias !342
   %621 = ptrtoint ptr %620 to i64
   store ptr null, ptr %21, align 8, !noalias !342
@@ -13603,7 +13603,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i28.i.
   %635 = inttoptr i64 %634 to ptr
   store ptr null, ptr %24, align 8, !noalias !352
   store ptr %635, ptr %27, align 8, !alias.scope !349, !noalias !331
-  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull %27), !noalias !331
+  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef %27), !noalias !331
   %636 = load ptr, ptr %25, align 8, !noalias !353
   %637 = ptrtoint ptr %636 to i64
   store ptr null, ptr %25, align 8, !noalias !353
@@ -13996,7 +13996,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit312.i.i:           ; preds = %721, %720
   store i8 3, ptr %224, align 1, !alias.scope !370, !noalias !252
   %792 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm6object15object_categoryEv() #24, !noalias !252
   call void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %70, i32 3, ptr nonnull %792) #24, !noalias !252
-  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nonnull writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(34) %68, ptr noundef nonnull %70), !noalias !252
+  call fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias writable align 8 %67, ptr noundef nonnull align 8 dereferenceable(34) %68, ptr noundef %70), !noalias !252
   %793 = load ptr, ptr %67, align 8, !noalias !252
   store ptr null, ptr %67, align 8, !noalias !252
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !252
@@ -24892,7 +24892,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairImNS_10DILineInfoEELb0EE13destroy_range
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL11createErrorRKN4llvm5TwineENS_5ErrorE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Error", align 8

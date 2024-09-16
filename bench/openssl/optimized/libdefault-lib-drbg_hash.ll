@@ -703,7 +703,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hash_df(i64 %drbg.232.val, ptr %drbg.248.val, ptr noundef %out, i8 noundef zeroext range(i8 -1, 2) %inbyte, ptr noundef %in, i64 noundef %inlen, ptr noundef %in2, i64 noundef %in2len, ptr noundef %in3, i64 noundef %in3len) unnamed_addr #0 {
 entry:
   %tmp = alloca [6 x i8], align 1
   %ctx1 = getelementptr inbounds i8, ptr %drbg.248.val, i64 24
@@ -959,7 +959,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @ossl_prov_drbg_uninstantiate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr nocapture noundef readonly %drbg, i8 noundef zeroext %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_hash_to_v(ptr nocapture noundef readonly %drbg, i8 noundef zeroext range(i8 2, 4) %inbyte, ptr noundef %adin, i64 noundef %adinlen) unnamed_addr #0 {
 entry:
   %inbyte.addr = alloca i8, align 1
   store i8 %inbyte, ptr %inbyte.addr, align 1

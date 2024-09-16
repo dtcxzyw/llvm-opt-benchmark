@@ -74,7 +74,7 @@ entry:
   br i1 %cmp, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call1 = call fastcc i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %call, ptr noundef nonnull %PKIconf, i32 noundef 19)
+  %call1 = call fastcc i32 @send_receive_check(ptr noundef %ctx, ptr noundef %call, ptr noundef %PKIconf, i32 noundef 19)
   %.pre = load ptr, ptr %PKIconf, align 8
   br label %err
 
@@ -89,10 +89,10 @@ err:                                              ; preds = %entry, %if.end
 declare ptr @ossl_cmp_certConf_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef %req, ptr nocapture noundef %rep, i32 noundef %expected_type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %req, ptr nocapture noundef nonnull %rep, i32 noundef range(i32 -2147483647, -2147483648) %expected_type) unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
-  %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef %req) #4
+  %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %req) #4
   %call2 = tail call ptr @ossl_cmp_bodytype_to_string(i32 noundef %call) #4
   %call3 = tail call ptr @ossl_cmp_bodytype_to_string(i32 noundef %expected_type) #4
   %msg_timeout = getelementptr inbounds i8, ptr %ctx, i64 100
@@ -159,7 +159,7 @@ if.then36:                                        ; preds = %if.end26
 if.end39:                                         ; preds = %if.end26, %if.then36, %entry
   tail call void @OSSL_CMP_CTX_print_errors(ptr noundef nonnull %ctx) #4
   %call40 = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.send_receive_check, ptr noundef nonnull @.str, i32 noundef 163, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.18, ptr noundef %call2) #4
-  %call41 = tail call ptr %spec.store.select(ptr noundef nonnull %ctx, ptr noundef %req) #4
+  %call41 = tail call ptr %spec.store.select(ptr noundef nonnull %ctx, ptr noundef nonnull %req) #4
   store ptr %call41, ptr %rep, align 8
   store i32 %0, ptr %msg_timeout, align 4
   %5 = load ptr, ptr %rep, align 8
@@ -336,7 +336,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2, label %err, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call fastcc i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %call1, ptr noundef nonnull %PKIconf, i32 noundef 19)
+  %call6 = call fastcc i32 @send_receive_check(ptr noundef %ctx, ptr noundef %call1, ptr noundef %PKIconf, i32 noundef 19)
   %.pre = load ptr, ptr %PKIconf, align 8
   br label %err
 
@@ -548,7 +548,7 @@ if.end.i:                                         ; preds = %if.then7
 
 initial_certreq.exit:                             ; preds = %if.end.i
   store i32 -2, ptr %status, align 8
-  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i, ptr noundef nonnull %rep, i32 noundef %cond2)
+  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef %rep, i32 noundef %cond2)
   tail call void @OSSL_CMP_MSG_free(ptr noundef nonnull %call1.i) #4
   %tobool8.not = icmp eq i32 %call5.i, 0
   br i1 %tobool8.not, label %err, label %if.end21
@@ -570,7 +570,7 @@ if.end.i18:                                       ; preds = %if.then13
   br i1 %cmp2.i, label %ossl_cmp_exchange_error.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i18
-  %call6.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i19, ptr noundef nonnull %PKIconf.i, i32 noundef 19)
+  %call6.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i19, ptr noundef %PKIconf.i, i32 noundef 19)
   %.pre.i = load ptr, ptr %PKIconf.i, align 8
   br label %ossl_cmp_exchange_error.exit
 
@@ -585,12 +585,12 @@ ossl_cmp_exchange_error.exit:                     ; preds = %if.then13, %if.end.
   br label %return
 
 if.end15:                                         ; preds = %if.else
-  %call16 = call fastcc i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef nonnull %rep, ptr noundef %checkAfter)
+  %call16 = call fastcc i32 @poll_for_response(ptr noundef %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef %rep, ptr noundef %checkAfter)
   %cmp17 = icmp slt i32 %call16, 1
   br i1 %cmp17, label %return, label %if.end21
 
 if.end21:                                         ; preds = %if.end15, %initial_certreq.exit
-  %call22 = call fastcc i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef nonnull %rep, ptr noundef %checkAfter)
+  %call22 = call fastcc i32 @cert_response(ptr noundef %ctx, i32 noundef 0, i32 noundef %cond, ptr noundef %rep, ptr noundef %checkAfter)
   br label %err
 
 err:                                              ; preds = %if.end.i, %if.then7, %initial_certreq.exit, %if.end21
@@ -611,15 +611,15 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef %ctx, i32 noundef %sleep, i32 noundef %rid, ptr nocapture noundef writeonly %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr nocapture noundef nonnull writeonly %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
 entry:
   %prep = alloca ptr, align 8
   %check_after = alloca i64, align 8
   %str = alloca [1024 x i8], align 16
   store ptr null, ptr %prep, align 8
-  %call = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.33) #4
+  %call = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.33) #4
   store ptr null, ptr %rep, align 8
-  %call136 = tail call ptr @ossl_cmp_pollReq_new(ptr noundef %ctx, i32 noundef %rid) #4
+  %call136 = tail call ptr @ossl_cmp_pollReq_new(ptr noundef nonnull %ctx, i32 noundef %rid) #4
   %cmp37 = icmp eq ptr %call136, null
   br i1 %cmp37, label %err, label %if.end.lr.ph
 
@@ -632,7 +632,7 @@ if.end.lr.ph:                                     ; preds = %entry
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then72
   %call138 = phi ptr [ %call136, %if.end.lr.ph ], [ %call1, %if.then72 ]
-  %call2 = call fastcc i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %call138, ptr noundef nonnull %prep, i32 noundef 26)
+  %call2 = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call138, ptr noundef %prep, i32 noundef 26)
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %err, label %if.end4
 
@@ -735,7 +735,7 @@ if.end52:                                         ; preds = %if.then50, %lor.lhs
 
 if.end53:                                         ; preds = %if.end52, %if.then36
   %8 = load i64, ptr %check_after, align 8
-  %call55 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.37, ptr noundef nonnull %str, i64 noundef %8) #4
+  %call55 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 312, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.37, ptr noundef nonnull %str, i64 noundef %8) #4
   %9 = load i32, ptr %total_timeout, align 8
   %cmp56.not = icmp eq i32 %9, 0
   br i1 %cmp56.not, label %if.end70, label %if.then58
@@ -788,7 +788,7 @@ if.then76:                                        ; preds = %if.else73
   br label %return
 
 if.else80:                                        ; preds = %if.end4
-  %call81 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.38) #4
+  %call81 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 6, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.poll_for_response, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.38) #4
   %cmp83 = icmp eq ptr %0, null
   br i1 %cmp83, label %err, label %if.end86
 
@@ -810,11 +810,11 @@ return:                                           ; preds = %if.else73, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef %ctx, i32 noundef %sleep, i32 noundef %rid, ptr nocapture noundef %resp, ptr noundef %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, 1) %rid, ptr nocapture noundef nonnull %resp, ptr noundef %checkAfter) unnamed_addr #0 {
 entry:
   %buf.i = alloca [1024 x i8], align 16
   %txt = alloca ptr, align 8
-  %call = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef %ctx) #4
+  %call = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %ctx) #4
   store ptr null, ptr %txt, align 8
   br label %retry
 
@@ -845,7 +845,7 @@ if.end10:                                         ; preds = %retry
 if.end15:                                         ; preds = %if.end10
   %status = getelementptr inbounds i8, ptr %call11, i64 8
   %4 = load ptr, ptr %status, align 8
-  %call16 = tail call fastcc i32 @save_statusInfo(ptr noundef %ctx, ptr noundef %4)
+  %call16 = tail call fastcc i32 @save_statusInfo(ptr noundef nonnull %ctx, ptr noundef %4)
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %return, label %if.end19
 
@@ -876,7 +876,7 @@ if.end28:                                         ; preds = %if.then22, %if.end1
 if.then33:                                        ; preds = %if.end28
   tail call void @OSSL_CMP_MSG_free(ptr noundef %7) #4
   store ptr null, ptr %resp, align 8
-  %call34 = tail call fastcc i32 @poll_for_response(ptr noundef %ctx, i32 noundef %sleep, i32 noundef %rid.addr.1, ptr noundef nonnull %resp, ptr noundef %checkAfter)
+  %call34 = tail call fastcc i32 @poll_for_response(ptr noundef %ctx, i32 noundef %sleep, i32 noundef %rid.addr.1, ptr noundef %resp, ptr noundef %checkAfter)
   switch i32 %call34, label %retry [
     i32 0, label %if.else
     i32 -1, label %return
@@ -906,23 +906,23 @@ if.end42:                                         ; preds = %if.end28
   ]
 
 sw.bb.i:                                          ; preds = %if.end42
-  %call4.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.44) #4
+  %call4.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.44) #4
   br label %err.i
 
 sw.bb5.i:                                         ; preds = %if.end42
-  %call6.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 427, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #4
+  %call6.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 427, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.45) #4
   br label %sw.epilog.i
 
 sw.bb8.i:                                         ; preds = %if.end42
-  %call9.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 433, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.46) #4
+  %call9.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 433, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.46) #4
   br label %err.i
 
 sw.bb10.i:                                        ; preds = %if.end42
-  %call11.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.47) #4
+  %call11.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.47) #4
   br label %sw.epilog.i
 
 sw.bb12.i:                                        ; preds = %if.end42
-  %call13.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.48) #4
+  %call13.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 4, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 442, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.48) #4
   br label %sw.epilog.i
 
 sw.bb14.i:                                        ; preds = %if.end42
@@ -932,11 +932,11 @@ sw.bb14.i:                                        ; preds = %if.end42
 sw.default.i:                                     ; preds = %if.end42
   %status19.i = getelementptr inbounds i8, ptr %ctx, i64 456
   %11 = load i32, ptr %status19.i, align 8
-  %call20.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.49, i32 noundef %11) #4
+  %call20.i = tail call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef 3, ptr noundef nonnull %ctx, ptr noundef nonnull @__func__.get1_cert_status, ptr noundef nonnull @.str, i32 noundef 453, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.49, i32 noundef %11) #4
   br label %err.i
 
 sw.epilog.i:                                      ; preds = %sw.bb14.i, %sw.bb12.i, %sw.bb10.i, %sw.bb5.i, %if.end42
-  %call21.i = tail call ptr @ossl_cmp_certresponse_get1_cert(ptr noundef %ctx, ptr noundef nonnull %call11) #4
+  %call21.i = tail call ptr @ossl_cmp_certresponse_get1_cert(ptr noundef nonnull %ctx, ptr noundef nonnull %call11) #4
   %cmp22.i = icmp eq ptr %call21.i, null
   br i1 %cmp22.i, label %if.then24.i, label %if.end48
 
@@ -952,7 +952,7 @@ err.i:                                            ; preds = %sw.default.i, %sw.b
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13.i, ptr noundef nonnull @__func__.get1_cert_status) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef %.sink.i, ptr noundef null) #4
-  %call26.i = call ptr @OSSL_CMP_CTX_snprint_PKIStatus(ptr noundef %ctx, ptr noundef nonnull %buf.i, i64 noundef 1024) #4
+  %call26.i = call ptr @OSSL_CMP_CTX_snprint_PKIStatus(ptr noundef nonnull %ctx, ptr noundef nonnull %buf.i, i64 noundef 1024) #4
   %cmp27.not.i = icmp eq ptr %call26.i, null
   br i1 %cmp27.not.i, label %if.then47, label %if.then29.i
 
@@ -967,7 +967,7 @@ if.then47:                                        ; preds = %if.then24.i, %if.th
 
 if.end48:                                         ; preds = %sw.epilog.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i)
-  %call49 = tail call i32 @ossl_cmp_ctx_set0_newCert(ptr noundef %ctx, ptr noundef nonnull %call21.i) #4
+  %call49 = tail call i32 @ossl_cmp_ctx_set0_newCert(ptr noundef nonnull %ctx, ptr noundef nonnull %call21.i) #4
   %tobool50.not = icmp eq i32 %call49, 0
   br i1 %tobool50.not, label %return, label %if.end52
 
@@ -977,7 +977,7 @@ if.end52:                                         ; preds = %if.end48
   br i1 %cmp53.not, label %if.end59, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end52
-  %call56 = tail call i32 @ossl_cmp_ctx_set1_caPubs(ptr noundef %ctx, ptr noundef nonnull %12) #4
+  %call56 = tail call i32 @ossl_cmp_ctx_set1_caPubs(ptr noundef nonnull %ctx, ptr noundef nonnull %12) #4
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %return, label %if.end59
 
@@ -1006,7 +1006,7 @@ if.end68:                                         ; preds = %if.then67, %land.lh
   %spec.select = select i1 %cmp69.not, ptr @OSSL_CMP_certConf_cb, ptr %14
   %newCert72 = getelementptr inbounds i8, ptr %ctx, i64 480
   %15 = load ptr, ptr %newCert72, align 8
-  %call73 = call i32 %spec.select(ptr noundef %ctx, ptr noundef %15, i32 noundef %fail_info.0, ptr noundef nonnull %txt) #4
+  %call73 = call i32 %spec.select(ptr noundef nonnull %ctx, ptr noundef %15, i32 noundef %fail_info.0, ptr noundef nonnull %txt) #4
   %cmp74 = icmp ne i32 %call73, 0
   %16 = load ptr, ptr %txt, align 8
   %cmp77 = icmp eq ptr %16, null
@@ -1097,13 +1097,13 @@ if.end.i:                                         ; preds = %if.end
 
 initial_certreq.exit:                             ; preds = %if.end.i
   store i32 -2, ptr %status.i, align 8
-  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef nonnull %call1.i, ptr noundef nonnull %rep, i32 noundef %cond2)
+  %call5.i = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call1.i, ptr noundef %rep, i32 noundef %cond2)
   tail call void @OSSL_CMP_MSG_free(ptr noundef nonnull %call1.i) #4
   %tobool5.not = icmp eq i32 %call5.i, 0
   br i1 %tobool5.not, label %err, label %if.end7
 
 if.end7:                                          ; preds = %initial_certreq.exit
-  %call8 = call fastcc i32 @cert_response(ptr noundef nonnull %ctx, i32 noundef 1, i32 noundef %cond, ptr noundef nonnull %rep, ptr noundef null)
+  %call8 = call fastcc i32 @cert_response(ptr noundef %ctx, i32 noundef 1, i32 noundef %cond, ptr noundef %rep, ptr noundef null)
   %cmp9 = icmp slt i32 %call8, 1
   br i1 %cmp9, label %err, label %if.end12
 
@@ -1177,7 +1177,7 @@ if.end7:                                          ; preds = %lor.lhs.false, %lan
 
 if.end10:                                         ; preds = %if.end7
   store i32 -2, ptr %status, align 8
-  %call12 = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef nonnull %rp, i32 noundef 12)
+  %call12 = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call, ptr noundef %rp, i32 noundef 12)
   %tobool.not = icmp eq i32 %call12, 0
   %.pre = load ptr, ptr %rp, align 8
   br i1 %tobool.not, label %end, label %if.end14
@@ -1420,7 +1420,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   store i32 -2, ptr %status, align 8
-  %call5 = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef nonnull %call, ptr noundef nonnull %genp, i32 noundef 22)
+  %call5 = call fastcc i32 @send_receive_check(ptr noundef nonnull %ctx, ptr noundef %call, ptr noundef %genp, i32 noundef 22)
   %tobool.not = icmp eq i32 %call5, 0
   %.pre8 = load ptr, ptr %genp, align 8
   br i1 %tobool.not, label %err, label %if.end7

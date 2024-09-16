@@ -4540,7 +4540,7 @@ if.then62.i7170:                                  ; preds = %miracle_found.i7160
   br label %if.end24.i
 
 if.end8.i6513:                                    ; preds = %if.end27.i7154, %if.end4.i, %miracle_found.i7160, %if.end48.i7156
-  %call9.i6514 = call fastcc i32 @roseCountingMiracleOccurs(ptr noundef nonnull %t, ptr noundef nonnull %add.ptr.i5336, ptr noundef nonnull %core_info.i5332, i64 noundef %697, i64 noundef %sub.i6511, ptr noundef nonnull %miracle_loc.i)
+  %call9.i6514 = call fastcc i32 @roseCountingMiracleOccurs(ptr noundef nonnull %t, ptr noundef nonnull %add.ptr.i5336, ptr noundef nonnull %core_info.i5332, i64 noundef %697, i64 noundef %sub.i6511, ptr noundef %miracle_loc.i)
   %tobool10.i6515.not = icmp eq i32 %call9.i6514, 0
   br i1 %tobool10.i6515.not, label %if.end116.i5405.critedge, label %if.end8.i6513.if.end24.i_crit_edge
 
@@ -5397,7 +5397,7 @@ if.then62.i7095:                                  ; preds = %miracle_found.i
   br label %if.then18.i6586
 
 if.end8.i6576:                                    ; preds = %if.end27.i7088, %if.end4.i6566, %miracle_found.i, %if.end48.i7089
-  %call9.i6577 = call fastcc i32 @roseCountingMiracleOccurs(ptr noundef nonnull %t, ptr noundef nonnull %add.ptr.i5234, ptr noundef nonnull %core_info.i5231, i64 noundef %854, i64 noundef %sub.i6573, ptr noundef nonnull %miracle_loc.i6556)
+  %call9.i6577 = call fastcc i32 @roseCountingMiracleOccurs(ptr noundef nonnull %t, ptr noundef nonnull %add.ptr.i5234, ptr noundef nonnull %core_info.i5231, i64 noundef %854, i64 noundef %sub.i6573, ptr noundef %miracle_loc.i6556)
   %tobool10.i6578.not = icmp eq i32 %call9.i6577, 0
   %871 = load i64, ptr %miracle_loc.i6556, align 8
   %cmp.i6584.not = icmp eq i64 %871, %854
@@ -32596,7 +32596,7 @@ declare signext i8 @nfaInAcceptState(ptr noundef, i32 noundef, ptr noundef) loca
 declare signext i8 @nfaExpandState(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %ci, i64 noundef %begin_loc, i64 noundef %end_loc, ptr nocapture noundef writeonly %miracle_loc) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @roseCountingMiracleOccurs(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %ci, i64 noundef %begin_loc, i64 noundef %end_loc, ptr nocapture noundef nonnull writeonly %miracle_loc) unnamed_addr #4 {
 entry:
   %temp.i372.sroa.0 = alloca <2 x i64>, align 16
   %temp.i247.sroa.0 = alloca <2 x i64>, align 16

@@ -1935,7 +1935,7 @@ _ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br label %32
 
 32:                                               ; preds = %30, %27, %24
-  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_119HandleAppendCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_119HandleAppendCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %33 = load ptr, ptr %1, align 8
   %34 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(3520) %33)
           to label %35 unwind label %38
@@ -2148,7 +2148,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125HandleAppendStringCommand
   br label %16
 
 16:                                               ; preds = %14, %11, %2
-  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_125HandleAppendStringCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_125HandleAppendStringCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %17 = load ptr, ptr %1, align 8
   %18 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(3520) %17)
           to label %19 unwind label %22
@@ -2356,7 +2356,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_127HandleRemoveFilenameComma
   br label %18
 
 18:                                               ; preds = %16, %13, %2
-  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_127HandleRemoveFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_127HandleRemoveFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %19 = load ptr, ptr %1, align 8
   %20 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(3520) %19)
           to label %21 unwind label %24
@@ -2603,7 +2603,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128HandleReplaceFilenameComm
   br label %21
 
 21:                                               ; preds = %19, %16, %2
-  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_128HandleReplaceFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_128HandleReplaceFilenameCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %22 = load ptr, ptr %1, align 8
   %23 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(3520) %22)
           to label %24 unwind label %27
@@ -3818,7 +3818,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123HandleNormalPathCommandER
   br label %19
 
 19:                                               ; preds = %17, %14, %2
-  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_123HandleNormalPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
+  call fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(136) @_ZZN12_GLOBAL__N_123HandleNormalPathCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EER17cmExecutionStatusE6parser, ptr noundef nonnull align 8 dereferenceable(24) %0)
   %20 = load ptr, ptr %1, align 8
   %21 = invoke noundef zeroext i1 @_ZNK14ArgumentParser11ParseResult16MaybeReportErrorER10cmMakefile(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(3520) %20)
           to label %22 unwind label %25
@@ -9851,7 +9851,7 @@ _ZN12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK12_GLOBAL__N_132ArgumentParserWithOutputVariableINS_14OutputVariableEE5ParseILi2EEES1_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ArgumentParser::Instance", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !186)
   %5 = getelementptr inbounds i8, ptr %1, i64 112

@@ -7562,7 +7562,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit
 
 19:                                               ; preds = %tailrecurse
-  %20 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %20 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 21:                                               ; preds = %tailrecurse
@@ -7717,11 +7717,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.loopexit
 
 73:                                               ; preds = %tailrecurse
-  %74 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %74 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 75:                                               ; preds = %tailrecurse
-  %76 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %76 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 77:                                               ; preds = %tailrecurse
@@ -7975,7 +7975,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRan
   br label %.loopexit
 
 167:                                              ; preds = %tailrecurse
-  %168 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef nonnull %.tr)
+  %168 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 169:                                              ; preds = %tailrecurse
@@ -8131,7 +8131,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRan
   br label %.loopexit
 
 218:                                              ; preds = %tailrecurse
-  %219 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %219 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 220:                                              ; preds = %tailrecurse
@@ -8191,7 +8191,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRan
   br label %.loopexit
 
 240:                                              ; preds = %tailrecurse
-  %241 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %241 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 242:                                              ; preds = %tailrecurse
@@ -8290,7 +8290,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRan
   br label %.loopexit
 
 276:                                              ; preds = %tailrecurse
-  %277 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang18UserDefinedLiteralEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %277 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang18UserDefinedLiteralEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 278:                                              ; preds = %tailrecurse
@@ -8322,7 +8322,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCIvarRefExprEEENS1_11SourceRan
   br label %.loopexit
 
 288:                                              ; preds = %tailrecurse
-  %289 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXUnresolvedConstructExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %289 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXUnresolvedConstructExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 290:                                              ; preds = %tailrecurse
@@ -8377,7 +8377,7 @@ tailrecurse.backedge:                             ; preds = %299, %636
   br label %.loopexit
 
 304:                                              ; preds = %tailrecurse
-  %305 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXRewrittenBinaryOperatorES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef nonnull %.tr)
+  %305 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXRewrittenBinaryOperatorES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 306:                                              ; preds = %tailrecurse
@@ -8421,11 +8421,11 @@ tailrecurse.backedge:                             ; preds = %299, %636
   br label %.loopexit
 
 321:                                              ; preds = %tailrecurse
-  %322 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %322 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 323:                                              ; preds = %tailrecurse
-  %324 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %324 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 325:                                              ; preds = %tailrecurse
@@ -8484,7 +8484,7 @@ tailrecurse.backedge:                             ; preds = %299, %636
   br label %.loopexit
 
 343:                                              ; preds = %tailrecurse
-  %344 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang9BlockExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %344 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang9BlockExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 345:                                              ; preds = %tailrecurse
@@ -8602,7 +8602,7 @@ tailrecurse.backedge:                             ; preds = %299, %636
   br label %.loopexit
 
 388:                                              ; preds = %tailrecurse
-  %389 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %389 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 390:                                              ; preds = %tailrecurse
@@ -8618,7 +8618,7 @@ tailrecurse.backedge:                             ; preds = %299, %636
   br label %.loopexit
 
 394:                                              ; preds = %tailrecurse
-  %395 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %395 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 396:                                              ; preds = %tailrecurse
@@ -9204,7 +9204,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRan
   br label %.loopexit
 
 611:                                              ; preds = %tailrecurse
-  %612 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %612 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 613:                                              ; preds = %tailrecurse
@@ -9247,7 +9247,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang15ObjCAtThrowStmtEEENS1_11SourceRan
   br label %.loopexit
 
 625:                                              ; preds = %tailrecurse
-  %626 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %.tr)
+  %626 = tail call fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %.tr)
   br label %.loopexit
 
 627:                                              ; preds = %tailrecurse
@@ -9368,7 +9368,7 @@ _ZN12_GLOBAL__N_118getSourceRangeImplIN5clang12CoreturnStmtEEENS1_11SourceRangeE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang13UnaryOperatorEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 7864320
   %4 = icmp eq i32 %3, 0
@@ -9479,7 +9479,7 @@ _ZNK5clang20UnresolvedMemberExpr9getEndLocEv.exit: ; preds = %_ZNK5clang12Overlo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang20UnresolvedLookupExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9571,7 +9571,7 @@ _ZNK5clang24MaterializeTemporaryExpr9getEndLocEv.exit: ; preds = %0, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17MSPropertyRefExprES2_EENS1_11SourceRangeEPKNS1_4StmtEMT0_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !nonnull !894, !noundef !894
   %4 = tail call noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #31
@@ -9610,7 +9610,7 @@ _ZNK5clang17MSPropertyRefExpr14getSourceRangeEv.exit: ; preds = %_ZNK5clang17MSP
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang25DependentScopeDeclRefExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #32
   %4 = load i24, ptr %0, align 8
@@ -9690,7 +9690,7 @@ _ZNK5clang25ConceptSpecializationExpr9getEndLocEv.exit: ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang19CompoundLiteralExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -9809,7 +9809,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang26CXXRe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang11CXXFoldExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -9878,7 +9878,7 @@ _ZNK5clang11CXXFoldExpr9getEndLocEv.exit:         ; preds = %_ZNK5clang11CXXFold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef %0) unnamed_addr #0 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang27CXXDependentScopeMemberExprEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::NestedNameSpecifierLoc", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9993,7 +9993,7 @@ _ZNK5clang17ArrayInitLoopExpr9getEndLocEv.exit:   ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang10SwitchStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10025,7 +10025,7 @@ _ZNK5clang10SwitchStmt9getEndLocEv.exit:          ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang8CaseStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4
   br label %3
@@ -10054,7 +10054,7 @@ _ZNK5clang8CaseStmt9getEndLocEv.exit:             ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang6IfStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.0.0.copyload.i.i = load i32, ptr %2, align 4
   %3 = load i16, ptr %0, align 8
@@ -10105,7 +10105,7 @@ _ZNK5clang6IfStmt9getEndLocEv.exit:               ; preds = %_ZNK5clang6IfStmt7g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_118getSourceRangeImplIN5clang17CoroutineBodyStmtEEENS1_11SourceRangeEPKNS1_4StmtEMS4_KFS3_vE(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

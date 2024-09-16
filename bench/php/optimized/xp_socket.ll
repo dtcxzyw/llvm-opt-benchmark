@@ -797,7 +797,7 @@ switch.early.test:                                ; preds = %46
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %3, i64 56
   %123 = load i32, ptr %122, align 8
-  %124 = tail call fastcc i32 @sock_sendto(ptr noundef nonnull %8, ptr noundef %117, i64 noundef %119, i32 noundef %115, ptr noundef %121, i32 noundef %123)
+  %124 = tail call fastcc i32 @sock_sendto(ptr noundef %8, ptr noundef %117, i64 noundef %119, i32 noundef %115, ptr noundef %121, i32 noundef %123)
   %125 = getelementptr inbounds i8, ptr %3, i64 112
   store i32 %124, ptr %125, align 8
   %126 = icmp eq i32 %124, -1
@@ -832,7 +832,7 @@ switch.early.test:                                ; preds = %46
   %146 = select i1 %.not109, ptr null, ptr %145
   %147 = getelementptr inbounds i8, ptr %3, i64 88
   %148 = select i1 %.not109, ptr null, ptr %147
-  %149 = tail call fastcc i32 @sock_recvfrom(ptr noundef nonnull %8, ptr noundef %136, i64 noundef %138, i32 noundef %.2, ptr noundef %143, ptr noundef %146, ptr noundef %148)
+  %149 = tail call fastcc i32 @sock_recvfrom(ptr noundef %8, ptr noundef %136, i64 noundef %138, i32 noundef %.2, ptr noundef %143, ptr noundef %146, ptr noundef %148)
   %150 = getelementptr inbounds i8, ptr %3, i64 112
   store i32 %149, ptr %150, align 8
   br label %162
@@ -972,7 +972,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %66 = and i8 %65, 1
   %67 = zext nneg i8 %66 to i32
   %68 = getelementptr inbounds i8, ptr %3, i64 104
-  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef nonnull %8, i32 noundef %67, ptr noundef nonnull %68)
+  %69 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %60, i64 noundef %62, ptr noundef %8, i32 noundef %67, ptr noundef nonnull %68)
   %70 = icmp eq ptr %69, null
   br i1 %70, label %php_tcp_sockop_connect.exit, label %71
 
@@ -1023,7 +1023,7 @@ parse_unix_address.exit.i:                        ; preds = %38, %33
   %95 = lshr i8 %94, 2
   %96 = and i8 %95, 1
   %97 = zext nneg i8 %96 to i32
-  %98 = call fastcc ptr @parse_ip_address_ex(ptr noundef nonnull %91, i64 noundef %93, ptr noundef nonnull %9, i32 noundef %97, ptr noundef nonnull %68)
+  %98 = call fastcc ptr @parse_ip_address_ex(ptr noundef nonnull %91, i64 noundef %93, ptr noundef %9, i32 noundef %97, ptr noundef nonnull %68)
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %89, %78, %74, %71
@@ -1220,7 +1220,7 @@ parse_unix_address.exit.i28:                      ; preds = %179, %174
   %195 = and i8 %194, 1
   %196 = zext nneg i8 %195 to i32
   %197 = getelementptr inbounds i8, ptr %3, i64 104
-  %198 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %189, i64 noundef %191, ptr noundef nonnull %5, i32 noundef %196, ptr noundef nonnull %197)
+  %198 = call fastcc noalias ptr @parse_ip_address_ex(ptr noundef %189, i64 noundef %191, ptr noundef %5, i32 noundef %196, ptr noundef nonnull %197)
   %199 = icmp eq ptr %198, null
   br i1 %199, label %php_tcp_sockop_bind.exit, label %200
 
@@ -1540,7 +1540,7 @@ declare i32 @php_network_get_sock_name(i32 noundef, ptr noundef, ptr noundef, pt
 declare i32 @php_network_get_peer_name(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sock_sendto(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @sock_sendto(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   %7 = load i32, ptr %0, align 8
   br i1 %.not, label %10, label %8
@@ -1560,7 +1560,7 @@ define internal fastcc i32 @sock_sendto(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sock_recvfrom(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @sock_recvfrom(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 4) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.sockaddr_storage, align 8
   %9 = alloca i32, align 4
   %10 = icmp ne ptr %4, null
@@ -1628,7 +1628,7 @@ declare i32 @php_network_connect_socket(i32 noundef, ptr noundef, i32 noundef, i
 declare ptr @php_stream_context_get_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc noalias ptr @parse_ip_address_ex(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 91
   %8 = icmp ugt i64 %1, 1

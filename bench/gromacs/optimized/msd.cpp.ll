@@ -2770,7 +2770,7 @@ _ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit38: ; preds = %42, %47
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEED2Ev.exit.us
   %.sroa.045.048.us = phi ptr [ %105, %_ZNSt6vectorIfSaIfEED2Ev.exit.us ], [ %.val, %.lr.ph ]
   %62 = getelementptr inbounds i8, ptr %.sroa.045.048.us, i64 32
-  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %62)
+  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %62)
   %63 = getelementptr inbounds i8, ptr %.sroa.045.048.us, i64 144
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %.sroa.045.048.us, i64 152
@@ -2840,7 +2840,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.us:                 ; preds = %70, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEED2Ev.exit
   %.sroa.045.048 = phi ptr [ %132, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %.val, %.lr.ph ]
   %106 = getelementptr inbounds i8, ptr %.sroa.045.048, i64 32
-  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %106)
+  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %106)
   %107 = getelementptr inbounds i8, ptr %.sroa.045.048, i64 144
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %.sroa.045.048, i64 152
@@ -2900,7 +2900,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %114, %.lr.ph.split
 136:                                              ; preds = %.lr.ph52, %_ZNSt6vectorIfSaIfEED2Ev.exit40
   %.sroa.043.050 = phi ptr [ %.val31, %.lr.ph52 ], [ %153, %_ZNSt6vectorIfSaIfEED2Ev.exit40 ]
   %137 = getelementptr inbounds i8, ptr %.sroa.043.050, i64 16
-  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %137)
+  call fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %137)
   %138 = load i64, ptr %37, align 8
   %139 = load ptr, ptr %13, align 8
   %140 = getelementptr inbounds double, ptr %139, i64 %138
@@ -6982,7 +6982,7 @@ _ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EE13_M_dealloc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_17MsdData11averageMsdsEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8

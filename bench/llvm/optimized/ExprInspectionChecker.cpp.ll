@@ -2964,7 +2964,7 @@ _ZN12_GLOBAL__N_115SymbolExpressorC2EN4llvm18IntrusiveRefCntPtrIKN5clang4ento12P
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_115SymbolExpressorC2EN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEE.exit.thread, %48
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %40)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull %40)
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %50 = load i8, ptr %49, align 8
   %51 = trunc i8 %50 to i1
@@ -10518,7 +10518,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::optional.1007", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -10577,7 +10577,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25:
 38:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit25
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %40 = load ptr, ptr %39, align 8
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %30, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %40)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %40)
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
@@ -10652,7 +10652,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit88:
 61:                                               ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit88
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %63 = load ptr, ptr %62, align 8
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %63)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %63)
   %64 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %65 = load i8, ptr %64, align 8
   %66 = trunc i8 %65 to i1
@@ -10794,7 +10794,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93:
 110:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %112 = load ptr, ptr %111, align 8
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %112)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %112)
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %114 = load i8, ptr %113, align 8
   %115 = trunc i8 %114 to i1
@@ -10803,7 +10803,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit93:
 116:                                              ; preds = %110
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %118 = load ptr, ptr %117, align 8
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %118)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %118)
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %120 = load i8, ptr %119, align 8
   %121 = trunc i8 %120 to i1
@@ -10906,7 +10906,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit142
 148:                                              ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit142
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %150 = load ptr, ptr %149, align 8
-  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %150)
+  call fastcc void @_ZN5clang4ento14SymExprVisitorIN12_GLOBAL__N_115SymbolExpressorESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5VisitEPKNS0_7SymExprE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull %150)
   %151 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %152 = load i8, ptr %151, align 8
   %153 = trunc i8 %152 to i1
@@ -11008,7 +11008,7 @@ _ZN12_GLOBAL__N_115SymbolExpressor15VisitSymbolCastB5cxx11EPKN5clang4ento10Symbo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115SymbolExpressor6lookupB5cxx11EPKN5clang4ento7SymExprE(ptr dead_on_unwind noalias writable align 8 %0, ptr nonnull %.0.val, ptr noundef readnone %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115SymbolExpressor6lookupB5cxx11EPKN5clang4ento7SymExprE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr noundef readnone %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1

@@ -4189,7 +4189,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEmNS_12DenseMapInfoI
 ._crit_edge69.i.i:                                ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_EixERKS4_.exit.i.i
   %1518 = load ptr, ptr %48, align 8
   %1519 = getelementptr inbounds nuw i8, ptr %1518, i64 320
-  call fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_121MachineBlockPlacement16assignBlockOrderERKSt6vectorIPKS1_SaIS8_EEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %1519, ptr nonnull %16)
+  call fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_121MachineBlockPlacement16assignBlockOrderERKSt6vectorIPKS1_SaIS8_EEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %1519, ptr %16)
   %1520 = load ptr, ptr %48, align 8
   %1521 = getelementptr inbounds nuw i8, ptr %1520, i64 16
   %1522 = load ptr, ptr %1521, align 8
@@ -4430,7 +4430,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_110BlockChainEE8AllocateEm.exit
   %.sink.i.i.i = phi ptr [ %1623, %.critedge.i.i.i.i.i.i ], [ %1616, %1615 ]
   %.0.i.i.i.i.i.i129 = phi ptr [ %1622, %.critedge.i.i.i.i.i.i ], [ %1617, %1615 ]
   store ptr %.sink.i.i.i, ptr %1600, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i.i.i.i129, ptr noundef nonnull align 8 dereferenceable(20) %1598, ptr noundef nonnull %1603)
+  call fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i.i.i.i129, ptr noundef nonnull align 8 dereferenceable(20) %1598, ptr noundef %1603)
   %1624 = load ptr, ptr %48, align 8
   %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 328
   %1626 = getelementptr inbounds nuw i8, ptr %1624, i64 320
@@ -5631,7 +5631,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorIN12_GLOBAL__N_110BlockChainEE8AllocateEm.exit
   %.sink.i.i = phi ptr [ %41, %.critedge.i.i.i.i.i ], [ %34, %33 ]
   %.0.i.i.i.i.i = phi ptr [ %40, %.critedge.i.i.i.i.i ], [ %35, %33 ]
   store ptr %.sink.i.i, ptr %17, align 8
-  call fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull %.sroa.067.099)
+  call fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %.0.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef %.sroa.067.099)
   %42 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   store i32 0, ptr %21, align 8
   store ptr null, ptr %3, align 8
@@ -7082,12 +7082,12 @@ _ZN4llvm8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_121MachineBlockPlacemen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110BlockChainC2ERN4llvm8DenseMapIPKNS1_17MachineBasicBlockEPS0_NS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S6_EEEEPS3_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %5, i64 noundef 4) #22
-  tail call void @_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 1, ptr noundef %2)
+  tail call void @_ZN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEE6assignEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 1, ptr noundef nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -19101,9 +19101,9 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %5, i64 %14
   br i1 %12, label %._crit_edge.loopexit.i.i.i.i.i.i, label %.lr.ph.i.split.i.i.i.i.i
 
-.lr.ph.i.split.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread"
-  %.0127.i.i.i.i.i.i = phi i64 [ %107, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread" ], [ %8, %.lr.ph.i.i.i.i.i.i ]
-  %.029126.i.i.i.i.i.i = phi ptr [ %106, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread" ], [ %5, %.lr.ph.i.i.i.i.i.i ]
+.lr.ph.i.split.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i"
+  %.0127.i.i.i.i.i.i = phi i64 [ %107, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i" ], [ %8, %.lr.ph.i.i.i.i.i.i ]
+  %.029126.i.i.i.i.i.i = phi ptr [ %106, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i" ], [ %5, %.lr.ph.i.i.i.i.i.i ]
   %.029.val46.i.i.i.i.i.i = load ptr, ptr %.029126.i.i.i.i.i.i, align 8
   %15 = ptrtoint ptr %.029.val46.i.i.i.i.i.i to i64
   %16 = trunc i64 %15 to i32
@@ -19122,7 +19122,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %.0165.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i.i.i.i.i.i.i, %26 ], [ %.0163.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.split.i.i.i.i.i ]
   %.0154.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %27, %26 ], [ 1, %.lr.ph.i.split.i.i.i.i.i ]
   %25 = icmp eq ptr %24, inttoptr (i64 -4096 to ptr)
-  br i1 %25, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread", label %26
+  br i1 %25, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i", label %26
 
 26:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
   %27 = add i32 %.0154.i.i.i.i.i.i.i.i.i.i.i, 1
@@ -19139,9 +19139,9 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %34 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val44.val.i.i.i.i.i.i, i64 %33, i32 0, i32 1
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %1
-  br i1 %36, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread"
+  br i1 %36, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i"
   %37 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 8
   %.val43.i.i.i.i.i.i = load ptr, ptr %37, align 8
   %38 = ptrtoint ptr %.val43.i.i.i.i.i.i to i64
@@ -19156,12 +19156,12 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %46 = icmp eq ptr %.val43.i.i.i.i.i.i, %45
   br i1 %46, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i55.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i55.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread", %49
-  %47 = phi ptr [ %54, %49 ], [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread" ]
-  %.0165.i.i.i.i.i56.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i58.i.i.i.i.i.i, %49 ], [ %.0163.i.i.i.i.i54.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread" ]
-  %.0154.i.i.i.i.i57.i.i.i.i.i.i = phi i32 [ %50, %49 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread" ]
+.lr.ph.i.i.i.i.i55.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i", %49
+  %47 = phi ptr [ %54, %49 ], [ %45, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i" ]
+  %.0165.i.i.i.i.i56.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i58.i.i.i.i.i.i, %49 ], [ %.0163.i.i.i.i.i54.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i" ]
+  %.0154.i.i.i.i.i57.i.i.i.i.i.i = phi i32 [ %50, %49 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i" ]
   %48 = icmp eq ptr %47, inttoptr (i64 -4096 to ptr)
-  br i1 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread", label %49
+  br i1 %48, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i", label %49
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i55.i.i.i.i.i.i
   %50 = add i32 %.0154.i.i.i.i.i57.i.i.i.i.i.i, 1
@@ -19173,14 +19173,14 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %55 = icmp eq ptr %.val43.i.i.i.i.i.i, %54
   br i1 %55, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i55.i.i.i.i.i.i, !llvm.loop !134
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i": ; preds = %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread"
-  %56 = phi i64 [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i.thread" ], [ %52, %49 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i": ; preds = %49, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i"
+  %56 = phi i64 [ %43, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.thread.i.i.i" ], [ %52, %49 ]
   %57 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val44.val.i.i.i.i.i.i, i64 %56, i32 0, i32 1
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %1
-  br i1 %59, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit88", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread"
+  br i1 %59, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit80", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i55.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i55.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i"
   %60 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 16
   %.val40.i.i.i.i.i.i = load ptr, ptr %60, align 8
   %61 = ptrtoint ptr %.val40.i.i.i.i.i.i to i64
@@ -19195,12 +19195,12 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %69 = icmp eq ptr %.val40.i.i.i.i.i.i, %68
   br i1 %69, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i63.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i63.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread", %72
-  %70 = phi ptr [ %77, %72 ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread" ]
-  %.0165.i.i.i.i.i64.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i66.i.i.i.i.i.i, %72 ], [ %.0163.i.i.i.i.i62.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread" ]
-  %.0154.i.i.i.i.i65.i.i.i.i.i.i = phi i32 [ %73, %72 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread" ]
+.lr.ph.i.i.i.i.i63.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i", %72
+  %70 = phi ptr [ %77, %72 ], [ %68, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i" ]
+  %.0165.i.i.i.i.i64.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i66.i.i.i.i.i.i, %72 ], [ %.0163.i.i.i.i.i62.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i" ]
+  %.0154.i.i.i.i.i65.i.i.i.i.i.i = phi i32 [ %73, %72 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i" ]
   %71 = icmp eq ptr %70, inttoptr (i64 -4096 to ptr)
-  br i1 %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread", label %72
+  br i1 %71, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i", label %72
 
 72:                                               ; preds = %.lr.ph.i.i.i.i.i63.i.i.i.i.i.i
   %73 = add i32 %.0154.i.i.i.i.i65.i.i.i.i.i.i, 1
@@ -19212,14 +19212,14 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %78 = icmp eq ptr %.val40.i.i.i.i.i.i, %77
   br i1 %78, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i63.i.i.i.i.i.i, !llvm.loop !134
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i": ; preds = %72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread"
-  %79 = phi i64 [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i.thread" ], [ %75, %72 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i": ; preds = %72, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i"
+  %79 = phi i64 [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.thread.i.i.i" ], [ %75, %72 ]
   %80 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val44.val.i.i.i.i.i.i, i64 %79, i32 0, i32 1
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, %1
-  br i1 %82, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit86", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread"
+  br i1 %82, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit78", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i63.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i63.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i"
   %83 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 24
   %.val37.i.i.i.i.i.i = load ptr, ptr %83, align 8
   %84 = ptrtoint ptr %.val37.i.i.i.i.i.i to i64
@@ -19234,12 +19234,12 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %92 = icmp eq ptr %.val37.i.i.i.i.i.i, %91
   br i1 %92, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i71.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i71.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread", %95
-  %93 = phi ptr [ %100, %95 ], [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread" ]
-  %.0165.i.i.i.i.i72.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i74.i.i.i.i.i.i, %95 ], [ %.0163.i.i.i.i.i70.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread" ]
-  %.0154.i.i.i.i.i73.i.i.i.i.i.i = phi i32 [ %96, %95 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread" ]
+.lr.ph.i.i.i.i.i71.i.i.i.i.i.i:                   ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i", %95
+  %93 = phi ptr [ %100, %95 ], [ %91, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i" ]
+  %.0165.i.i.i.i.i72.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i74.i.i.i.i.i.i, %95 ], [ %.0163.i.i.i.i.i70.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i" ]
+  %.0154.i.i.i.i.i73.i.i.i.i.i.i = phi i32 [ %96, %95 ], [ 1, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i" ]
   %94 = icmp eq ptr %93, inttoptr (i64 -4096 to ptr)
-  br i1 %94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread", label %95
+  br i1 %94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i", label %95
 
 95:                                               ; preds = %.lr.ph.i.i.i.i.i71.i.i.i.i.i.i
   %96 = add i32 %.0154.i.i.i.i.i73.i.i.i.i.i.i, 1
@@ -19251,20 +19251,20 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %101 = icmp eq ptr %.val37.i.i.i.i.i.i, %100
   br i1 %101, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i", label %.lr.ph.i.i.i.i.i71.i.i.i.i.i.i, !llvm.loop !134
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i": ; preds = %95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread"
-  %102 = phi i64 [ %89, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i.thread" ], [ %98, %95 ]
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i": ; preds = %95, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i"
+  %102 = phi i64 [ %89, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.thread.i.i.i" ], [ %98, %95 ]
   %103 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val44.val.i.i.i.i.i.i, i64 %102, i32 0, i32 1
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, %1
-  br i1 %105, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread"
+  br i1 %105, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i71.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i71.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i"
   %106 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 32
   %107 = add nsw i64 %.0127.i.i.i.i.i.i, -1
   %108 = icmp sgt i64 %.0127.i.i.i.i.i.i, 1
   br i1 %108, label %.lr.ph.i.split.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !135
 
-._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.i.i.i.thread", %.lr.ph.i.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit77.i.i.i.thread.i.i.i", %.lr.ph.i.i.i.i.i.i
   %109 = and i64 %6, 3
   br label %._crit_edge.i.i.i.i.i.i
 
@@ -19298,7 +19298,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %112 = getelementptr inbounds i8, ptr %0, i64 736
   %.val33.val51.i.i.i.i.i.i = load i32, ptr %112, align 8
   %113 = icmp eq i32 %.val33.val51.i.i.i.i.i.i, 0
-  br i1 %113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread", label %114
+  br i1 %113, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i", label %114
 
 114:                                              ; preds = %110
   %115 = ptrtoint ptr %.029.val.i.i.i.i.i.i to i64
@@ -19319,7 +19319,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %.0165.i.i.i.i.i80.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i82.i.i.i.i.i.i, %127 ], [ %.0163.i.i.i.i.i78.i.i.i.i.i.i, %114 ]
   %.0154.i.i.i.i.i81.i.i.i.i.i.i = phi i32 [ %128, %127 ], [ 1, %114 ]
   %126 = icmp eq ptr %125, inttoptr (i64 -4096 to ptr)
-  br i1 %126, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread", label %127
+  br i1 %126, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i", label %127
 
 127:                                              ; preds = %.lr.ph.i.i.i.i.i79.i.i.i.i.i.i
   %128 = add i32 %.0154.i.i.i.i.i81.i.i.i.i.i.i, 1
@@ -19336,19 +19336,19 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %135 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val33.val.i.i.i.i.i.i, i64 %134, i32 0, i32 1
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, %1
-  br i1 %137, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread"
+  br i1 %137, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i79.i.i.i.i.i.i, %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i79.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i", %110
   %138 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %139
 
-139:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread", %._crit_edge._crit_edge.i.i.i.i.i.i
-  %.val31.val52.i.i.i.i.i.i = phi i32 [ %.val31.val52.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.val33.val51.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread" ]
-  %.val31.val.i.i.i.i.i.i = phi ptr [ %.val31.val.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.val33.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread" ]
-  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %138, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i.thread" ]
+139:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i", %._crit_edge._crit_edge.i.i.i.i.i.i
+  %.val31.val52.i.i.i.i.i.i = phi i32 [ %.val31.val52.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.val33.val51.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i" ]
+  %.val31.val.i.i.i.i.i.i = phi ptr [ %.val31.val.pre.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.val33.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i" ]
+  %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %138, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.thread.i.i.i" ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %140 = icmp eq i32 %.val31.val52.i.i.i.i.i.i, 0
-  br i1 %140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread", label %141
+  br i1 %140, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i", label %141
 
 141:                                              ; preds = %139
   %142 = ptrtoint ptr %.1.val.i.i.i.i.i.i to i64
@@ -19369,7 +19369,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %.0165.i.i.i.i.i88.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i90.i.i.i.i.i.i, %154 ], [ %.0163.i.i.i.i.i86.i.i.i.i.i.i, %141 ]
   %.0154.i.i.i.i.i89.i.i.i.i.i.i = phi i32 [ %155, %154 ], [ 1, %141 ]
   %153 = icmp eq ptr %152, inttoptr (i64 -4096 to ptr)
-  br i1 %153, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread", label %154
+  br i1 %153, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i", label %154
 
 154:                                              ; preds = %.lr.ph.i.i.i.i.i87.i.i.i.i.i.i
   %155 = add i32 %.0154.i.i.i.i.i89.i.i.i.i.i.i, 1
@@ -19386,16 +19386,16 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %162 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val31.val.i.i.i.i.i.i, i64 %161, i32 0, i32 1
   %163 = load ptr, ptr %162, align 8
   %164 = icmp eq ptr %163, %1
-  br i1 %164, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread"
+  br i1 %164, label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i87.i.i.i.i.i.i, %139, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i87.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i", %139
   %165 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %166
 
-166:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread", %._crit_edge._crit_edge141.i.i.i.i.i.i
-  %.val.val53.i.i.i.i.i.i = phi i32 [ %.val.val53.pre.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %.val31.val52.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread" ]
-  %.val.val.i.i.i.i.i.i = phi ptr [ %.val.val.pre.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %.val31.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread" ]
-  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %165, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i.thread" ]
+166:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i", %._crit_edge._crit_edge141.i.i.i.i.i.i
+  %.val.val53.i.i.i.i.i.i = phi i32 [ %.val.val53.pre.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %.val31.val52.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i" ]
+  %.val.val.i.i.i.i.i.i = phi ptr [ %.val.val.pre.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %.val31.val.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i" ]
+  %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge._crit_edge141.i.i.i.i.i.i ], [ %165, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.thread.i.i.i" ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %167 = icmp eq i32 %.val.val53.i.i.i.i.i.i, 0
   br i1 %167, label %"_ZN4llvm9remove_ifIRNS_15SmallVectorImplIPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS6_10BlockChainES5_E3$_0EEDaOT_T0_.exit.i", label %168
@@ -19442,16 +19442,16 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %192 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 24
   br label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit86": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i"
+"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit78": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit69.i.i.i.i.i.i"
   %193 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 16
   br label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit88": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i"
+"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit80": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit61.i.i.i.i.i.i"
   %194 = getelementptr inbounds i8, ptr %.029126.i.i.i.i.i.i, i64 8
   br label %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i"
 
-"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit86", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit88", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i"
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i" ], [ %192, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %193, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit86" ], [ %194, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit88" ], [ %.029126.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i" ]
+"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit78", %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit80", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i"
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit85.i.i.i.i.i.i" ], [ %.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit93.i.i.i.i.i.i" ], [ %.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i" ], [ %192, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit" ], [ %193, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit78" ], [ %194, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i.loopexit.split.loop.exit80" ], [ %.029126.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.i.i" ]
   %195 = icmp eq ptr %.028.i.i.i.i.i.i, %7
   br i1 %195, label %"_ZN4llvm9remove_ifIRNS_15SmallVectorImplIPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS6_10BlockChainES5_E3$_0EEDaOT_T0_.exit.i", label %.preheader.i.i.i.i
 
@@ -19472,7 +19472,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %.val.val.i.i.i.i = load ptr, ptr %196, align 8
   %.val.val22.i.i.i.i = load i32, ptr %197, align 8
   %199 = icmp eq i32 %.val.val22.i.i.i.i, 0
-  br i1 %199, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread", label %200
+  br i1 %199, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i", label %200
 
 200:                                              ; preds = %198
   %201 = ptrtoint ptr %.017.val.i.i.i.i to i64
@@ -19493,7 +19493,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %.0165.i.i.i.i.i.i.i.i.i = phi i32 [ %.016.i.i.i.i.i.i.i.i.i, %213 ], [ %.0163.i.i.i.i.i.i.i.i.i, %200 ]
   %.0154.i.i.i.i.i.i.i.i.i = phi i32 [ %214, %213 ], [ 1, %200 ]
   %212 = icmp eq ptr %211, inttoptr (i64 -4096 to ptr)
-  br i1 %212, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread", label %213
+  br i1 %212, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i", label %213
 
 213:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %214 = add i32 %.0154.i.i.i.i.i.i.i.i.i, 1
@@ -19510,20 +19510,20 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %221 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.60", ptr %.val.val.i.i.i.i, i64 %220, i32 0, i32 1
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, %1
-  br i1 %223, label %225, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread"
+  br i1 %223, label %225, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %198, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i", %198
   store ptr %.017.val.i.i.i.i, ptr %.041.i.i.i.i, align 8
   %224 = getelementptr inbounds i8, ptr %.041.i.i.i.i, i64 8
   br label %225
 
-225:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i"
-  %.1.i.i.i.i = phi ptr [ %.041.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i" ], [ %224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i.thread" ]
+225:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i"
+  %.1.i.i.i.i = phi ptr [ %.041.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.i.i.i" ], [ %224, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit.i.thread.i.i.i" ]
   %.017.i.i.i.i = getelementptr inbounds i8, ptr %.01742.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %7
   br i1 %.not.i.i.i.i, label %"_ZN4llvm9remove_ifIRNS_15SmallVectorImplIPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS6_10BlockChainES5_E3$_0EEDaOT_T0_.exit.i", label %198, !llvm.loop !136
 
-"_ZN4llvm9remove_ifIRNS_15SmallVectorImplIPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS6_10BlockChainES5_E3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i95.i.i.i.i.i.i, %225, %166, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i", %._crit_edge.i.i.i.i.i.i
+"_ZN4llvm9remove_ifIRNS_15SmallVectorImplIPNS_17MachineBasicBlockEEEZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS6_10BlockChainES5_E3$_0EEDaOT_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i95.i.i.i.i.i.i, %225, %.preheader.i.i.i.i, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i", %166, %._crit_edge.i.i.i.i.i.i
   %.016.i.i.i.i = phi ptr [ %7, %"_ZSt9__find_ifIPPN4llvm17MachineBasicBlockEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS7_10BlockChainERNS0_15SmallVectorImplIS2_EEE3$_0EEET_SH_SH_T0_.exit.i.i.i.i" ], [ %7, %._crit_edge.i.i.i.i.i.i ], [ %7, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_121MachineBlockPlacement24selectBestCandidateBlockERKNS2_10BlockChainERN4llvm15SmallVectorImplIPNS7_17MachineBasicBlockEEEE3$_0EclIPSA_EEbT_.exit101.i.i.i.i.i.i" ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %7, %166 ], [ %.1.i.i.i.i, %225 ], [ %7, %.lr.ph.i.i.i.i.i95.i.i.i.i.i.i ]
   %226 = load ptr, ptr %2, align 8
   %227 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
@@ -19561,8 +19561,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   %249 = trunc i8 %248 to i1
   %250 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
   %251 = getelementptr inbounds ptr, ptr %245, i64 %250
-  %.not54 = icmp eq i64 %250, 0
-  br i1 %.not54, label %.loopexit, label %.lr.ph
+  %.not46 = icmp eq i64 %250, 0
+  br i1 %.not46, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %244
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 720
@@ -19571,10 +19571,10 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_121MachineBlockPlacement24se
   br label %255
 
 255:                                              ; preds = %.lr.ph, %293
-  %.01957 = phi ptr [ null, %.lr.ph ], [ %.1, %293 ]
-  %.02056 = phi ptr [ %245, %.lr.ph ], [ %294, %293 ]
-  %.sroa.0.055 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0.1, %293 ]
-  %256 = load ptr, ptr %.02056, align 8
+  %.01949 = phi ptr [ null, %.lr.ph ], [ %.1, %293 ]
+  %.02048 = phi ptr [ %245, %.lr.ph ], [ %294, %293 ]
+  %.sroa.0.047 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0.1, %293 ]
+  %256 = load ptr, ptr %.02048, align 8
   store ptr %256, ptr %4, align 8
   %.val.i.i = load ptr, ptr %252, align 8
   %.val4.i.i = load i32, ptr %253, align 8
@@ -19641,18 +19641,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110B
 288:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit
   %289 = load ptr, ptr %254, align 8
   %290 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %289, ptr noundef %256) #22
-  %.not21 = icmp ne ptr %.01957, null
-  %291 = icmp uge i64 %.sroa.0.055, %290
+  %.not21 = icmp ne ptr %.01949, null
+  %291 = icmp uge i64 %.sroa.0.047, %290
   %292 = xor i1 %291, %249
   %or.cond = select i1 %.not21, i1 %292, i1 false
-  %spec.select = select i1 %or.cond, i64 %.sroa.0.055, i64 %290
-  %spec.select33 = select i1 %or.cond, ptr %.01957, ptr %256
+  %spec.select = select i1 %or.cond, i64 %.sroa.0.047, i64 %290
+  %spec.select25 = select i1 %or.cond, ptr %.01949, ptr %256
   br label %293
 
 293:                                              ; preds = %288, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit
-  %.sroa.0.1 = phi i64 [ %.sroa.0.055, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit ], [ %spec.select, %288 ]
-  %.1 = phi ptr [ %.01957, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit ], [ %spec.select33, %288 ]
-  %294 = getelementptr inbounds i8, ptr %.02056, i64 8
+  %.sroa.0.1 = phi i64 [ %.sroa.0.047, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit ], [ %spec.select, %288 ]
+  %.1 = phi ptr [ %.01949, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit ], [ %spec.select25, %288 ]
+  %294 = getelementptr inbounds i8, ptr %.02048, i64 8
   %.not = icmp eq ptr %294, %251
   br i1 %.not, label %.loopexit, label %255
 
@@ -23611,7 +23611,7 @@ tailrecurse:                                      ; preds = %"_ZSt13__upper_boun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #14 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement19selectBestSuccessorEPKS3_RKNSA_10BlockChainEPKNS1_14SmallSetVectorISD_Lj16EEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 1152921504606846973) %3) unnamed_addr #14 {
   %5 = shl nsw i64 %3, 1
   %6 = ptrtoint ptr %1 to i64
   %7 = ptrtoint ptr %0 to i64
@@ -27019,7 +27019,7 @@ _ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17MachineBasicBlockES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture readonly %4, ptr nocapture readonly %5) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17MachineBasicBlockES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_0EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr nocapture readonly %4, ptr nocapture readonly %5) unnamed_addr #0 {
   %7 = shl nsw i64 %3, 1
   %8 = ptrtoint ptr %1 to i64
   %9 = ptrtoint ptr %0 to i64
@@ -27848,7 +27848,7 @@ _ZSt17__rotate_adaptiveIPPN4llvm17MachineBasicBlockES3_lET_S4_S4_S4_T1_S5_T0_S5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17MachineBasicBlockES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr nocapture readonly %4) unnamed_addr #0 {
+define internal fastcc void @"_ZSt17__merge_sort_loopIPPN4llvm17MachineBasicBlockES3_lN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121MachineBlockPlacement23findDuplicateCandidatesERNS0_15SmallVectorImplIS2_EES2_PNS0_14SmallSetVectorIPKS1_Lj16EEEE3$_1EEEvT_SJ_T0_T1_T2_"(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 -9223372036854775808, 2305843009213693949) %3, ptr nocapture readonly %4) unnamed_addr #0 {
   %6 = shl nsw i64 %3, 1
   %7 = ptrtoint ptr %1 to i64
   %8 = ptrtoint ptr %0 to i64
@@ -28359,7 +28359,7 @@ declare noundef ptr @_ZN4llvm17MachineBasicBlock14getFallThroughEb(ptr noundef n
 declare void @_ZN4llvm17MachineBasicBlock18findBranchDebugLocEv(ptr dead_on_unwind writable sret(%"class.llvm::DebugLoc") align 8, ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_121MachineBlockPlacement16assignBlockOrderERKSt6vectorIPKS1_SaIS8_EEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN4llvm12simple_ilistINS_17MachineBasicBlockEJEE4sortIZN12_GLOBAL__N_121MachineBlockPlacement16assignBlockOrderERKSt6vectorIPKS1_SaIS8_EEE3$_0EEvT_"(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.620, align 8
   %4 = alloca %"class.llvm::simple_ilist", align 8
   %5 = load ptr, ptr %0, align 8

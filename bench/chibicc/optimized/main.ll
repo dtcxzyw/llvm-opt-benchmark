@@ -1951,7 +1951,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal fastcc void @usage(i32 noundef %status) unnamed_addr #10 {
+define internal fastcc void @usage(i32 noundef range(i32 0, 2) %status) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = tail call i64 @fwrite(ptr nonnull @.str.56, i64 29, i64 1, ptr %0) #24

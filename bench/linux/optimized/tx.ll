@@ -1516,7 +1516,7 @@ define dso_local void @ieee80211_xmit(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_skb_resize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @ieee80211_skb_resize(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, -2147483648) %2, i32 noundef range(i32 0, 3) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
   switch i32 %3, label %.thread1 [
@@ -3481,7 +3481,7 @@ define dso_local void @__ieee80211_xmit_fast(ptr noundef %0, ptr noundef %1, ptr
   %224 = sub nuw nsw i32 4, %222
   %225 = select i1 %223, i32 0, i32 %224
   %226 = or disjoint i32 %225, 8
-  %227 = tail call fastcc zeroext i1 @ieee80211_amsdu_realloc_pad(ptr noundef %32, ptr noundef nonnull %27, i32 noundef %226)
+  %227 = tail call fastcc zeroext i1 @ieee80211_amsdu_realloc_pad(ptr noundef %32, ptr noundef %27, i32 noundef %226)
   br i1 %227, label %228, label %253
 
 228:                                              ; preds = %215
@@ -10791,7 +10791,7 @@ define dso_local ptr @ieee80211_beacon_get_template(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__ieee80211_beacon_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 -1, 256) %5, ptr noundef writeonly %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.ieee80211_tx_rate_control, align 8
   tail call void @__rcu_read_lock() #20
   %9 = getelementptr i8, ptr %1, i64 -152
@@ -13554,7 +13554,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #2
 declare dso_local ptr @skb_clone(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
@@ -13593,7 +13593,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %22
-  %36 = tail call i32 @pskb_expand_head(ptr noundef %2, i32 noundef %25, i32 noundef 0, i32 noundef 2080) #20
+  %36 = tail call i32 @pskb_expand_head(ptr noundef nonnull %2, i32 noundef %25, i32 noundef 0, i32 noundef 2080) #20
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %42, label %38
 
@@ -13605,7 +13605,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
   br label %98
 
 42:                                               ; preds = %35, %22
-  %43 = tail call ptr @skb_push(ptr noundef %2, i32 noundef 14) #20
+  %43 = tail call ptr @skb_push(ptr noundef nonnull %2, i32 noundef 14) #20
   %44 = getelementptr i8, ptr %43, i64 14
   %45 = sext i32 %10 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %43, ptr align 1 %44, i64 %45, i1 false)
@@ -13701,7 +13701,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_prepare_head(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @ieee80211_amsdu_realloc_pad(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @ieee80211_amsdu_realloc_pad(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 8, 16) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 192
@@ -13714,7 +13714,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_amsdu_realloc_pad(ptr nocap
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %3
-  %14 = tail call i32 @pskb_expand_head(ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2080) #20
+  %14 = tail call i32 @pskb_expand_head(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, i32 noundef 2080) #20
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %16
 
@@ -14382,7 +14382,7 @@ define internal fastcc zeroext i1 @ieee80211_tx_8023(ptr nocapture noundef reado
 declare dso_local void @skb_queue_head(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, i8 noundef zeroext %7) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef writeonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull readonly %6, i8 noundef zeroext %7) unnamed_addr #0 align 16 {
   %9 = alloca %struct.ieee80211_tx_rate_control, align 8
   %10 = alloca %struct.ieee80211_tx_data, align 8
   %11 = getelementptr i8, ptr %1, i64 -4056
@@ -15046,7 +15046,7 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %389, %394
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 720
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 280
@@ -15082,7 +15082,7 @@ define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef re
   br label %26
 
 26:                                               ; preds = %23, %13
-  %27 = tail call ptr @skb_put(ptr noundef %2, i32 noundef 5) #20
+  %27 = tail call ptr @skb_put(ptr noundef nonnull %2, i32 noundef 5) #20
   %28 = getelementptr i8, ptr %27, i64 1
   store i8 5, ptr %27, align 1
   %29 = getelementptr i8, ptr %27, i64 2
@@ -15160,7 +15160,7 @@ define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef re
   %73 = getelementptr i8, ptr %1, i64 %72
   %74 = sub i32 %69, %68
   %75 = add i32 %74, 1
-  %76 = tail call ptr @skb_put(ptr noundef %2, i32 noundef %75) #20
+  %76 = tail call ptr @skb_put(ptr noundef nonnull %2, i32 noundef %75) #20
   %77 = zext i32 %75 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %73, i64 %77, i1 false)
   %78 = trunc i32 %74 to i8
@@ -15206,7 +15206,7 @@ define internal fastcc void @__ieee80211_beacon_add_tim(ptr nocapture noundef re
 
 104:                                              ; preds = %99
   store i8 4, ptr %28, align 1
-  %105 = tail call ptr @skb_put(ptr noundef %2, i32 noundef 1) #20
+  %105 = tail call ptr @skb_put(ptr noundef nonnull %2, i32 noundef 1) #20
   store i8 0, ptr %105, align 1
   br label %106
 

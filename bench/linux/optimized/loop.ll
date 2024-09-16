@@ -1814,7 +1814,7 @@ declare dso_local void @kthread_associate_blkcg(ptr noundef) local_unnamed_addr 
 declare dso_local void @blk_mq_complete_request(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr noundef %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 align 16 {
   %4 = alloca %struct.iov_iter, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false), !annotation !10
@@ -1860,8 +1860,8 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %30 = phi i32 [ %12, %.split.us ], [ %32, %28 ]
   %31 = add i32 %29, 1
   %32 = tail call i32 @llvm.usub.sat.i32(i32 %30, i32 %27)
-  %.not = icmp ugt i32 %30, %27
-  br i1 %.not, label %28, label %.loopexit4, !llvm.loop !33
+  %.not8 = icmp ugt i32 %30, %27
+  br i1 %.not8, label %28, label %.loopexit4, !llvm.loop !33
 
 .split:                                           ; preds = %14, %.split
   %33 = phi i32 [ %42, %.split ], [ %9, %14 ]
@@ -2031,55 +2031,55 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   store i32 131072, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %0, i64 68
   store i16 0, ptr %145, align 4
-  %146 = icmp eq i32 %2, 1
-  %147 = getelementptr inbounds i8, ptr %.96.val, i64 176
-  %148 = load ptr, ptr %147, align 8
-  %149 = select i1 %146, i64 40, i64 32
-  %150 = getelementptr inbounds i8, ptr %148, i64 %149
-  %151 = load ptr, ptr %150, align 8
-  %152 = call i64 %151(ptr noundef %141, ptr noundef nonnull %4) #14
-  %153 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #14, !srcloc !38
-  %154 = icmp ult i8 %153, 2
-  call void @llvm.assume(i1 %154)
-  %155 = icmp eq i8 %153, 0
-  br i1 %155, label %159, label %156
+  %.not = icmp eq i32 %2, 0
+  %146 = getelementptr inbounds i8, ptr %.96.val, i64 176
+  %147 = load ptr, ptr %146, align 8
+  %148 = select i1 %.not, i64 32, i64 40
+  %149 = getelementptr inbounds i8, ptr %147, i64 %148
+  %150 = load ptr, ptr %149, align 8
+  %151 = call i64 %150(ptr noundef %141, ptr noundef nonnull %4) #14
+  %152 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #14, !srcloc !38
+  %153 = icmp ult i8 %152, 2
+  call void @llvm.assume(i1 %153)
+  %154 = icmp eq i8 %152, 0
+  br i1 %154, label %158, label %155
 
-156:                                              ; preds = %.loopexit3
-  %157 = getelementptr inbounds i8, ptr %0, i64 80
-  %158 = load ptr, ptr %157, align 8
-  call void @kfree(ptr noundef %158) #14
-  store ptr null, ptr %157, align 8
+155:                                              ; preds = %.loopexit3
+  %156 = getelementptr inbounds i8, ptr %0, i64 80
+  %157 = load ptr, ptr %156, align 8
+  call void @kfree(ptr noundef %157) #14
+  store ptr null, ptr %156, align 8
   call void @blk_mq_complete_request(ptr noundef %5) #14
-  br label %159
+  br label %158
 
-159:                                              ; preds = %156, %.loopexit3
-  %160 = and i64 %152, 4294967295
-  %161 = icmp eq i64 %160, 4294966767
-  br i1 %161, label %.thread2, label %162
+158:                                              ; preds = %155, %.loopexit3
+  %159 = and i64 %151, 4294967295
+  %160 = icmp eq i64 %159, 4294966767
+  br i1 %160, label %.thread2, label %161
 
-162:                                              ; preds = %159
-  %163 = shl i64 %152, 32
-  %164 = ashr exact i64 %163, 32
-  %165 = getelementptr i8, ptr %0, i64 24
-  store i64 %164, ptr %165, align 8
-  %166 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #14, !srcloc !38
-  %167 = icmp ult i8 %166, 2
-  call void @llvm.assume(i1 %167)
-  %168 = icmp eq i8 %166, 0
-  br i1 %168, label %.thread2, label %169
+161:                                              ; preds = %158
+  %162 = shl i64 %151, 32
+  %163 = ashr exact i64 %162, 32
+  %164 = getelementptr i8, ptr %0, i64 24
+  store i64 %163, ptr %164, align 8
+  %165 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %135, ptr elementtype(i32) %135) #14, !srcloc !38
+  %166 = icmp ult i8 %165, 2
+  call void @llvm.assume(i1 %166)
+  %167 = icmp eq i8 %165, 0
+  br i1 %167, label %.thread2, label %168
 
-169:                                              ; preds = %162
-  %170 = getelementptr i8, ptr %0, i64 80
-  %171 = load ptr, ptr %170, align 8
-  call void @kfree(ptr noundef %171) #14
-  store ptr null, ptr %170, align 8
+168:                                              ; preds = %161
+  %169 = getelementptr i8, ptr %0, i64 80
+  %170 = load ptr, ptr %169, align 8
+  call void @kfree(ptr noundef %170) #14
+  store ptr null, ptr %169, align 8
   call void @blk_mq_complete_request(ptr noundef %5) #14
   br label %.thread2
 
-.thread2:                                         ; preds = %60, %169, %162, %159, %.thread1
-  %172 = phi i32 [ -5, %.thread1 ], [ 0, %159 ], [ 0, %162 ], [ 0, %169 ], [ -5, %60 ]
+.thread2:                                         ; preds = %60, %168, %161, %158, %.thread1
+  %171 = phi i32 [ -5, %.thread1 ], [ 0, %158 ], [ 0, %161 ], [ 0, %168 ], [ -5, %60 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #14
-  ret i32 %172
+  ret i32 %171
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3887,7 +3887,7 @@ define internal fastcc void @loop_update_rotational(ptr readonly %.96.val.216.va
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @loop_set_size(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #3 align 16 {
+define internal fastcc void @loop_set_size(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 36028797018963968) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @set_capacity_and_notify(ptr noundef %4, i64 noundef %1) #14

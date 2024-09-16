@@ -43934,7 +43934,7 @@ if.end40:                                         ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIPPhlN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_SG_T0_T1_"(ptr noundef %__first, ptr noundef %__last, i64 noundef %__depth_limit, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__introsort_loopIPPhlN9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_SG_T0_T1_"(ptr noundef nonnull %__first, ptr noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #0 {
 entry:
   %agg.tmp13 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 8
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
@@ -43975,7 +43975,7 @@ while.cond.i.i.i.split:                           ; preds = %if.then, %while.con
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i6, -1
   %add.ptr.i.i.i2 = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i2, align 8, !tbaa !17
-  tail call fastcc void @"_ZSt13__adjust_heapIPPhlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
+  tail call fastcc void @"_ZSt13__adjust_heapIPPhlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef %__first, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef %1, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp)
   %cmp5.not.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp5.not.i.i.i, label %while.body.i.i, label %while.cond.i.i.i.split, !llvm.loop !1315
 
@@ -44244,7 +44244,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIPPhlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef %__first, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef %__value, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #0 {
+define internal fastcc void @"_ZSt13__adjust_heapIPPhlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN6duckdbL13SortTiedBlobsERNS5_13BufferManagerES0_RKmS9_S9_PbS0_RKNS5_10SortLayoutEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nocapture noundef nonnull %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %__len, ptr noundef %__value, ptr nocapture noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %__comp) unnamed_addr #0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2

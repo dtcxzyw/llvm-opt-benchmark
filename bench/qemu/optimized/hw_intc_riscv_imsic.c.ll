@@ -693,7 +693,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eidelivery_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eidelivery = getelementptr inbounds i8, ptr %imsic, i64 1112
   %0 = load ptr, ptr %eidelivery, align 8
@@ -773,7 +773,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_eithreshold_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %eithreshold = getelementptr inbounds i8, ptr %imsic, i64 1120
   %0 = load ptr, ptr %eithreshold, align 16
@@ -853,7 +853,7 @@ riscv_imsic_update.exit:                          ; preds = %for.body.i.i, %for.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @riscv_imsic_topei_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc void @riscv_imsic_topei_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 64) %page, ptr noundef writeonly %val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %num_irqs.i = getelementptr inbounds i8, ptr %imsic, i64 1148
   %0 = load i32, ptr %num_irqs.i, align 4
@@ -861,7 +861,7 @@ entry:
   %mul.i = mul i32 %1, %page
   %eithreshold.i = getelementptr inbounds i8, ptr %imsic, i64 1120
   %2 = load ptr, ptr %eithreshold.i, align 16
-  %idxprom.i = zext i32 %page to i64
+  %idxprom.i = zext nneg i32 %page to i64
   %arrayidx.i = getelementptr i32, ptr %2, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %4 = add i32 %3, -1
@@ -988,7 +988,7 @@ if.end7:                                          ; preds = %riscv_imsic_update.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @riscv_imsic_eix_rmw(ptr nocapture noundef readonly %imsic, i32 noundef %xlen, i32 noundef %page, i32 noundef %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @riscv_imsic_eix_rmw(ptr nocapture noundef readonly %imsic, i32 noundef range(i32 0, 256) %xlen, i32 noundef range(i32 0, 64) %page, i32 noundef range(i32 -192, 65408) %num, i1 noundef zeroext %pend, ptr noundef writeonly %val, i64 noundef %new_val, i64 noundef %wr_mask) unnamed_addr #0 {
 entry:
   %cond = select i1 %pend, i32 1, i32 2
   %cmp.not = icmp eq i32 %xlen, 32
@@ -1020,14 +1020,14 @@ if.end6:                                          ; preds = %if.end3
 
 if.end6.if.end16_crit_edge:                       ; preds = %if.end6
   %.pre = tail call i32 @llvm.umax.i32(i32 %xlen, i32 1)
-  %.pre41 = zext i32 %.pre to i64
+  %.pre41 = zext nneg i32 %.pre to i64
   br label %if.end16
 
 if.then10:                                        ; preds = %if.end6
   store i64 0, ptr %val, align 8
   %eistate = getelementptr inbounds i8, ptr %imsic, i64 1128
   %umax = tail call i32 @llvm.umax.i32(i32 %xlen, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %for.body
 
 for.body:                                         ; preds = %if.then10, %for.body
@@ -1090,7 +1090,7 @@ for.inc44:                                        ; preds = %if.then28, %if.end2
 for.end46:                                        ; preds = %for.inc44
   %eidelivery.i = getelementptr inbounds i8, ptr %imsic, i64 1112
   %9 = load ptr, ptr %eidelivery.i, align 8
-  %idxprom.i = zext i32 %page to i64
+  %idxprom.i = zext nneg i32 %page to i64
   %arrayidx.i = getelementptr i32, ptr %9, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i = icmp eq i32 %10, 0

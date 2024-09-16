@@ -1625,7 +1625,7 @@ do.end69.thread:                                  ; preds = %mmbit_isset.exit418
   store i64 0, ptr %from_offset, align 8
   %325 = getelementptr i8, ptr %ri, i64 8
   %ri.val10221207 = load i64, ptr %325, align 8
-  call fastcc void @runRevNfa(ptr noundef nonnull %scratch, i64 %ri.val10221207, i64 noundef %to_offset, ptr noundef nonnull %from_offset)
+  call fastcc void @runRevNfa(ptr noundef nonnull %scratch, i64 %ri.val10221207, i64 noundef %to_offset, ptr noundef %from_offset)
   %add.ptr.i1171 = getelementptr inbounds i8, ptr %6, i64 %idx.ext.i972
   %326 = load i8, ptr %add.ptr.i1171, align 1
   %conv1.i1175 = zext i8 %326 to i32
@@ -1881,7 +1881,7 @@ do.end69:                                         ; preds = %do.body.i4399
   store i64 0, ptr %from_offset, align 8
   %378 = getelementptr i8, ptr %ri, i64 8
   %ri.val1022 = load i64, ptr %378, align 8
-  call fastcc void @runRevNfa(ptr noundef %scratch, i64 %ri.val1022, i64 noundef %to_offset, ptr noundef nonnull %from_offset)
+  call fastcc void @runRevNfa(ptr noundef %scratch, i64 %ri.val1022, i64 noundef %to_offset, ptr noundef %from_offset)
   br label %do.body.i1949
 
 do.body.i1949:                                    ; preds = %if.end.i1962, %do.end69
@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end.i4715, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef %from_offset) unnamed_addr #0 {
+define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull %from_offset) unnamed_addr #0 {
 entry:
   %rose = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose, align 8

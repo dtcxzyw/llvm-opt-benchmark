@@ -3526,7 +3526,7 @@ define void @_ZN5tokio3net4unix4pipe4pipe17hee65ad4614851a56E(ptr noalias nocapt
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.820)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
-  invoke fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %10)
+  invoke fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %3, i32 noundef %10)
           to label %19 unwind label %16
 
 14:                                               ; preds = %1
@@ -3557,7 +3557,7 @@ define void @_ZN5tokio3net4unix4pipe4pipe17hee65ad4614851a56E(ptr noalias nocapt
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %23, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
-  invoke fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %12)
+  invoke fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef align 8 dereferenceable(32) %2, i32 noundef %12)
           to label %30 unwind label %28
 
 25:                                               ; preds = %19
@@ -3829,7 +3829,7 @@ define { i8, i8 } @"_ZN78_$LT$tokio..net..unix..pipe..OpenOptions$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   %.sroa.5 = alloca [16 x i8], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -4008,7 +4008,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 
 .noexc38:                                         ; preds = %.noexc36, %42
   %49 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1)
-  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %49)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %49)
   br label %.thread68
 
 50:                                               ; preds = %47
@@ -4047,14 +4047,14 @@ define void @_ZN5tokio3net4unix4pipe6Sender13from_owned_fd17h5c6214d5c627ff96E(p
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe6Sender19from_file_unchecked17h6ff727971eb674efE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1), !range !827, !noalias !895
-  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe6Sender23from_owned_fd_unchecked17h53586f789a126f37E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN76_$LT$mio..sys..unix..pipe..Sender$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h66fd5dc07fd91ebaE"(i32 noundef %1), !range !827
-  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe6Sender8from_mio17h42eed3663b5b0d5eE(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 
@@ -4314,7 +4314,7 @@ define noundef range(i32 0, -1) i32 @"_ZN75_$LT$tokio..net..unix..pipe..Sender$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef range(i32 0, -1) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca i8, align 1
   %.sroa.5 = alloca [16 x i8], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
@@ -4492,7 +4492,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 
 .noexc38:                                         ; preds = %.noexc36, %41
   %48 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1)
-  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %48)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %48)
   br label %.thread68
 
 49:                                               ; preds = %46
@@ -4531,14 +4531,14 @@ define void @_ZN5tokio3net4unix4pipe8Receiver13from_owned_fd17hbe545561190f1354E
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe8Receiver19from_file_unchecked17ha8b126839764b979E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1), !range !827, !noalias !926
-  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN5tokio3net4unix4pipe8Receiver23from_owned_fd_unchecked17h09025d0ef2d7a959E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i32 @"_ZN78_$LT$mio..sys..unix..pipe..Receiver$u20$as$u20$std..os..fd..raw..FromRawFd$GT$11from_raw_fd17h6c77d1c5d5f87d57E"(i32 noundef %1), !range !827
-  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %3)
+  tail call fastcc void @_ZN5tokio3net4unix4pipe8Receiver8from_mio17hc26a7093ed58e415E(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i32 noundef %3)
   ret void
 }
 

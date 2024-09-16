@@ -3003,7 +3003,7 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #5
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cmp_info(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @cmp_info(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %10, label %5

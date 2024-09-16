@@ -499,7 +499,7 @@ pathkeys_contained_in.exit:                       ; preds = %44
 pathkeys_contained_in.exit.thread113:             ; preds = %50, %.thread26.i.i, %pathkeys_contained_in.exit
   %53 = getelementptr inbounds i8, ptr %0, i64 328
   %54 = load i32, ptr %53, align 8
-  %55 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %22, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %54)
+  %55 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %22, ptr noundef %3, ptr noundef %4, i32 noundef %54)
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %57, label %pathkeys_contained_in.exit.thread
 
@@ -738,7 +738,7 @@ pathkeys_contained_in.exit76:                     ; preds = %146
 pathkeys_contained_in.exit76.thread117:           ; preds = %152, %.thread26.i.i72, %pathkeys_contained_in.exit76
   %155 = getelementptr inbounds i8, ptr %0, i64 328
   %156 = load i32, ptr %155, align 8
-  %157 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %124, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %156)
+  %157 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %124, ptr noundef %3, ptr noundef %4, i32 noundef %156)
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %159, label %pathkeys_contained_in.exit76.thread
 
@@ -910,7 +910,7 @@ pathkeys_contained_in.exit76.thread:              ; preds = %190, %.thread26.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %41, label %6
 

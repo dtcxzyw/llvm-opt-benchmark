@@ -457,7 +457,7 @@ define internal i32 @dissect_dmx_sip(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #2
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %62, label %8
+  br i1 %.not, label %63, label %8
 
 8:                                                ; preds = %4
   %9 = load i32, ptr @proto_dmx_sip, align 4
@@ -507,33 +507,33 @@ define internal i32 @dissect_dmx_sip(ptr noundef %0, ptr noundef %1, ptr noundef
   %.0 = phi i32 [ %44, %43 ], [ 22, %8 ]
   %49 = load i32, ptr @hf_dmx_sip_checksum, align 4
   %50 = load i32, ptr @hf_dmx_sip_checksum_status, align 4
-  br label %.lr.ph.i
+  br label %51
 
-.lr.ph.i:                                         ; preds = %48, %.lr.ph.i
-  %.08.i = phi i32 [ %53, %.lr.ph.i ], [ 0, %48 ]
-  %.067.i = phi i8 [ %52, %.lr.ph.i ], [ -49, %48 ]
-  %51 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i) #2
-  %52 = add i8 %51, %.067.i
-  %53 = add nuw nsw i32 %.08.i, 1
-  %exitcond.not.i = icmp eq i32 %53, %.0
-  br i1 %exitcond.not.i, label %dmx_sip_checksum.exit, label %.lr.ph.i, !llvm.loop !7
+51:                                               ; preds = %51, %48
+  %.08.i = phi i32 [ 0, %48 ], [ %54, %51 ]
+  %.067.i = phi i8 [ -49, %48 ], [ %53, %51 ]
+  %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08.i) #2
+  %53 = add i8 %52, %.067.i
+  %54 = add nuw nsw i32 %.08.i, 1
+  %exitcond.not.i = icmp eq i32 %54, %.0
+  br i1 %exitcond.not.i, label %dmx_sip_checksum.exit, label %51, !llvm.loop !7
 
-dmx_sip_checksum.exit:                            ; preds = %.lr.ph.i
-  %54 = zext i8 %52 to i32
-  %55 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.0, i32 noundef %49, i32 noundef %50, ptr noundef nonnull @ei_dmx_sip_checksum, ptr noundef %1, i32 noundef %54, i32 noundef 0, i32 noundef 1) #2
-  %56 = add nuw nsw i32 %.0, 1
-  %57 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
-  %58 = icmp ult i32 %56, %57
-  br i1 %58, label %59, label %62
+dmx_sip_checksum.exit:                            ; preds = %51
+  %55 = zext i8 %53 to i32
+  %56 = tail call ptr @proto_tree_add_checksum(ptr noundef %12, ptr noundef %0, i32 noundef %.0, i32 noundef %49, i32 noundef %50, ptr noundef nonnull @ei_dmx_sip_checksum, ptr noundef %1, i32 noundef %55, i32 noundef 0, i32 noundef 1) #2
+  %57 = add nuw nsw i32 %.0, 1
+  %58 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
+  %59 = icmp ult i32 %57, %58
+  br i1 %59, label %60, label %63
 
-59:                                               ; preds = %dmx_sip_checksum.exit
-  %60 = load i32, ptr @hf_dmx_sip_trailer, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %60, ptr noundef %0, i32 noundef %56, i32 noundef -1, i32 noundef 0) #2
-  br label %62
+60:                                               ; preds = %dmx_sip_checksum.exit
+  %61 = load i32, ptr @hf_dmx_sip_trailer, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %61, ptr noundef %0, i32 noundef %57, i32 noundef -1, i32 noundef 0) #2
+  br label %63
 
-62:                                               ; preds = %dmx_sip_checksum.exit, %59, %4
-  %63 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %63
+63:                                               ; preds = %dmx_sip_checksum.exit, %60, %4
+  %64 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %64
 }
 
 ; Function Attrs: nounwind uwtable

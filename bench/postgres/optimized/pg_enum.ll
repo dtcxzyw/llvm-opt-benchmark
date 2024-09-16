@@ -343,13 +343,13 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 24:                                               ; preds = %23
   %25 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
-  br i1 %25, label %26, label %221
+  br i1 %25, label %26, label %222
 
 26:                                               ; preds = %24
   %27 = tail call i32 @errcode(i32 noundef 290948) #10
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %1) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 289, ptr noundef nonnull @__func__.AddEnumLabel) #10
-  br label %221
+  br label %222
 
 29:                                               ; preds = %23
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -380,7 +380,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 ._crit_edge.us.thread:                            ; preds = %.split.us
   tail call void @pg_qsort(ptr noundef %41, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
-  br label %155
+  br label %156
 
 ._crit_edge.us:                                   ; preds = %56
   tail call void @pg_qsort(ptr noundef nonnull %41, i64 noundef %39, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
@@ -397,7 +397,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %53 = getelementptr inbounds i8, ptr %52, i64 8
   %54 = load float, ptr %53, align 4
   %55 = fadd float %54, 1.000000e+00
-  br label %155
+  br label %156
 
 56:                                               ; preds = %.lr.ph.us, %56
   %indvars.iv174 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next175, %56 ]
@@ -416,16 +416,16 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br label %56
 
 .preheader111.thread:                             ; preds = %RenumberEnumType.exit, %.split.preheader
-  %.lcssa221 = phi i64 [ %39, %.split.preheader ], [ %150, %RenumberEnumType.exit ]
-  %.lcssa216 = phi ptr [ %41, %.split.preheader ], [ %152, %RenumberEnumType.exit ]
+  %.lcssa221 = phi i64 [ %39, %.split.preheader ], [ %151, %RenumberEnumType.exit ]
+  %.lcssa216 = phi ptr [ %41, %.split.preheader ], [ %153, %RenumberEnumType.exit ]
   tail call void @pg_qsort(ptr noundef %.lcssa216, i64 noundef %.lcssa221, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #10
   br label %.preheader111._crit_edge
 
 .lr.ph:                                           ; preds = %.split.preheader, %RenumberEnumType.exit
-  %62 = phi ptr [ %152, %RenumberEnumType.exit ], [ %41, %.split.preheader ]
-  %63 = phi i64 [ %150, %RenumberEnumType.exit ], [ %39, %.split.preheader ]
-  %64 = phi i32 [ %149, %RenumberEnumType.exit ], [ %38, %.split.preheader ]
-  %65 = phi ptr [ %147, %RenumberEnumType.exit ], [ %36, %.split.preheader ]
+  %62 = phi ptr [ %153, %RenumberEnumType.exit ], [ %41, %.split.preheader ]
+  %63 = phi i64 [ %151, %RenumberEnumType.exit ], [ %39, %.split.preheader ]
+  %64 = phi i32 [ %150, %RenumberEnumType.exit ], [ %38, %.split.preheader ]
+  %65 = phi ptr [ %148, %RenumberEnumType.exit ], [ %36, %.split.preheader ]
   %66 = getelementptr inbounds i8, ptr %65, i64 80
   %wide.trip.count = zext nneg i32 %64 to i64
   br label %67
@@ -494,7 +494,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %100 = getelementptr inbounds i8, ptr %97, i64 8
   %101 = load float, ptr %100, align 4
   %102 = fadd float %101, -1.000000e+00
-  br label %155
+  br label %156
 
 103:                                              ; preds = %87
   %.not103 = icmp slt i32 %.097, %64
@@ -504,7 +504,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %105 = getelementptr inbounds i8, ptr %97, i64 8
   %106 = load float, ptr %105, align 4
   %107 = fadd float %106, 1.000000e+00
-  br label %155
+  br label %156
 
 108:                                              ; preds = %103
   %109 = zext nneg i32 %.097 to i64
@@ -526,75 +526,75 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %.0..0..0..0.7 = load volatile float, ptr %11, align 4
   %124 = load float, ptr %118, align 4
   %125 = fcmp oeq float %.0..0..0..0.7, %124
-  br i1 %125, label %.lr.ph.i.preheader, label %126
+  br i1 %125, label %.preheader241, label %126
 
 126:                                              ; preds = %108
   %.0..0..0..0.8 = load volatile float, ptr %11, align 4
   %127 = load float, ptr %120, align 4
   %128 = fcmp oeq float %.0..0..0..0.8, %127
-  br i1 %128, label %.lr.ph.i.preheader, label %154
+  br i1 %128, label %.preheader241, label %155
 
-.lr.ph.i.preheader:                               ; preds = %108, %126
-  br label %.lr.ph.i
+.preheader241:                                    ; preds = %126, %108
+  br label %129
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %145
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %145 ], [ %wide.trip.count172, %.lr.ph.i.preheader ]
+129:                                              ; preds = %.preheader241, %146
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %146 ], [ %wide.trip.count172, %.preheader241 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %129 = getelementptr ptr, ptr %62, i64 %indvars.iv.next.i
-  %130 = load ptr, ptr %129, align 8
-  %131 = tail call ptr @heap_copytuple(ptr noundef %130) #10
-  %132 = getelementptr inbounds i8, ptr %131, i64 16
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 22
-  %135 = load i8, ptr %134, align 2
-  %136 = zext i8 %135 to i64
-  %137 = getelementptr i8, ptr %133, i64 %136
-  %138 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %139 = uitofp nneg i32 %138 to float
-  %140 = getelementptr inbounds i8, ptr %137, i64 8
-  %141 = load float, ptr %140, align 4
-  %142 = fcmp une float %141, %139
-  br i1 %142, label %143, label %145
+  %130 = getelementptr ptr, ptr %62, i64 %indvars.iv.next.i
+  %131 = load ptr, ptr %130, align 8
+  %132 = tail call ptr @heap_copytuple(ptr noundef %131) #10
+  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 22
+  %136 = load i8, ptr %135, align 2
+  %137 = zext i8 %136 to i64
+  %138 = getelementptr i8, ptr %134, i64 %137
+  %139 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %140 = uitofp nneg i32 %139 to float
+  %141 = getelementptr inbounds i8, ptr %138, i64 8
+  %142 = load float, ptr %141, align 4
+  %143 = fcmp une float %142, %140
+  br i1 %143, label %144, label %146
 
-143:                                              ; preds = %.lr.ph.i
-  store float %139, ptr %140, align 4
-  %144 = getelementptr inbounds i8, ptr %131, i64 4
-  tail call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %144, ptr noundef nonnull %131) #10
-  br label %145
+144:                                              ; preds = %129
+  store float %140, ptr %141, align 4
+  %145 = getelementptr inbounds i8, ptr %132, i64 4
+  tail call void @CatalogTupleUpdate(ptr noundef %34, ptr noundef nonnull %145, ptr noundef nonnull %132) #10
+  br label %146
 
-145:                                              ; preds = %143, %.lr.ph.i
-  tail call void @heap_freetuple(ptr noundef nonnull %131) #10
-  %146 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %146, label %.lr.ph.i, label %RenumberEnumType.exit, !llvm.loop !13
+146:                                              ; preds = %144, %129
+  tail call void @heap_freetuple(ptr noundef nonnull %132) #10
+  %147 = icmp ugt i64 %indvars.iv.i, 1
+  br i1 %147, label %129, label %RenumberEnumType.exit, !llvm.loop !13
 
-RenumberEnumType.exit:                            ; preds = %145
+RenumberEnumType.exit:                            ; preds = %146
   tail call void @CommandCounterIncrement() #10
   tail call void @pfree(ptr noundef nonnull %62) #10
   tail call void @ReleaseCatCacheList(ptr noundef %65) #10
-  %147 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
-  %148 = getelementptr inbounds i8, ptr %147, i64 64
-  %149 = load i32, ptr %148, align 8
-  %150 = sext i32 %149 to i64
-  %151 = shl nsw i64 %150, 3
-  %152 = tail call ptr @palloc(i64 noundef %151) #10
-  %153 = icmp sgt i32 %149, 0
-  br i1 %153, label %.lr.ph, label %.preheader111.thread
+  %148 = tail call ptr @SearchSysCacheList(i32 noundef 24, i32 noundef 1, i64 noundef %20, i64 noundef 0, i64 noundef 0) #10
+  %149 = getelementptr inbounds i8, ptr %148, i64 64
+  %150 = load i32, ptr %149, align 8
+  %151 = sext i32 %150 to i64
+  %152 = shl nsw i64 %151, 3
+  %153 = tail call ptr @palloc(i64 noundef %152) #10
+  %154 = icmp sgt i32 %150, 0
+  br i1 %154, label %.lr.ph, label %.preheader111.thread
 
-154:                                              ; preds = %126
+155:                                              ; preds = %126
   %.0..0..0..0.9 = load volatile float, ptr %11, align 4
-  br label %155
+  br label %156
 
-155:                                              ; preds = %._crit_edge.us.thread, %99, %154, %104, %._crit_edge.us
-  %156 = phi ptr [ %36, %._crit_edge.us ], [ %65, %99 ], [ %65, %104 ], [ %65, %154 ], [ %36, %._crit_edge.us.thread ]
-  %157 = phi i32 [ %38, %._crit_edge.us ], [ %64, %99 ], [ %64, %104 ], [ %64, %154 ], [ %38, %._crit_edge.us.thread ]
-  %158 = phi ptr [ %41, %._crit_edge.us ], [ %62, %99 ], [ %62, %104 ], [ %62, %154 ], [ %41, %._crit_edge.us.thread ]
-  %.0 = phi float [ %55, %._crit_edge.us ], [ %102, %99 ], [ %107, %104 ], [ %.0..0..0..0.9, %154 ], [ 1.000000e+00, %._crit_edge.us.thread ]
-  %.fr = freeze i32 %157
-  %159 = load i8, ptr @IsBinaryUpgrade, align 1
-  %160 = trunc i8 %159 to i1
-  br i1 %160, label %184, label %.preheader
+156:                                              ; preds = %._crit_edge.us.thread, %99, %155, %104, %._crit_edge.us
+  %157 = phi ptr [ %36, %._crit_edge.us ], [ %65, %99 ], [ %65, %104 ], [ %65, %155 ], [ %36, %._crit_edge.us.thread ]
+  %158 = phi i32 [ %38, %._crit_edge.us ], [ %64, %99 ], [ %64, %104 ], [ %64, %155 ], [ %38, %._crit_edge.us.thread ]
+  %159 = phi ptr [ %41, %._crit_edge.us ], [ %62, %99 ], [ %62, %104 ], [ %62, %155 ], [ %41, %._crit_edge.us.thread ]
+  %.0 = phi float [ %55, %._crit_edge.us ], [ %102, %99 ], [ %107, %104 ], [ %.0..0..0..0.9, %155 ], [ 1.000000e+00, %._crit_edge.us.thread ]
+  %.fr = freeze i32 %158
+  %160 = load i8, ptr @IsBinaryUpgrade, align 1
+  %161 = trunc i8 %160 to i1
+  br i1 %161, label %185, label %.preheader
 
-.preheader:                                       ; preds = %155
+.preheader:                                       ; preds = %156
   %.not107144 = icmp sgt i32 %.fr, 0
   br i1 %.not107144, label %.lr.ph147.us.preheader, label %.critedge
 
@@ -603,143 +603,143 @@ RenumberEnumType.exit:                            ; preds = %145
   br label %.lr.ph147.us
 
 .lr.ph147.us:                                     ; preds = %.lr.ph147.us.backedge, %.lr.ph147.us.preheader
-  %161 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
-  store i32 %161, ptr %7, align 4
-  br label %162
+  %162 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
+  store i32 %162, ptr %7, align 4
+  br label %163
 
-162:                                              ; preds = %.lr.ph147.us, %181
-  %indvars.iv179 = phi i64 [ 0, %.lr.ph147.us ], [ %indvars.iv.next180, %181 ]
-  %163 = getelementptr ptr, ptr %158, i64 %indvars.iv179
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 16
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 22
-  %168 = load i8, ptr %167, align 2
-  %169 = zext i8 %168 to i64
-  %170 = getelementptr i8, ptr %166, i64 %169
-  %171 = load i32, ptr %170, align 4
-  %172 = and i32 %171, 1
-  %.not104.us = icmp eq i32 %172, 0
-  br i1 %.not104.us, label %173, label %181
+163:                                              ; preds = %.lr.ph147.us, %182
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph147.us ], [ %indvars.iv.next180, %182 ]
+  %164 = getelementptr ptr, ptr %159, i64 %indvars.iv179
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds i8, ptr %165, i64 16
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 22
+  %169 = load i8, ptr %168, align 2
+  %170 = zext i8 %169 to i64
+  %171 = getelementptr i8, ptr %167, i64 %170
+  %172 = load i32, ptr %171, align 4
+  %173 = and i32 %172, 1
+  %.not104.us = icmp eq i32 %173, 0
+  br i1 %.not104.us, label %174, label %182
 
-173:                                              ; preds = %162
-  %174 = getelementptr inbounds i8, ptr %170, i64 8
-  %175 = load float, ptr %174, align 4
-  %176 = fcmp olt float %175, %.0
-  br i1 %176, label %178, label %177
+174:                                              ; preds = %163
+  %175 = getelementptr inbounds i8, ptr %171, i64 8
+  %176 = load float, ptr %175, align 4
+  %177 = fcmp olt float %176, %.0
+  br i1 %177, label %179, label %178
 
-177:                                              ; preds = %173
-  %.not105.us = icmp ugt i32 %171, %161
-  br i1 %.not105.us, label %181, label %179
+178:                                              ; preds = %174
+  %.not105.us = icmp ugt i32 %172, %162
+  br i1 %.not105.us, label %182, label %180
 
-178:                                              ; preds = %173
-  %.not106.us = icmp ult i32 %171, %161
-  br i1 %.not106.us, label %181, label %179
+179:                                              ; preds = %174
+  %.not106.us = icmp ult i32 %172, %162
+  br i1 %.not106.us, label %182, label %180
 
-179:                                              ; preds = %178, %177
-  %180 = and i32 %161, 1
-  %.not108.us = icmp eq i32 %180, 0
+180:                                              ; preds = %179, %178
+  %181 = and i32 %162, 1
+  %.not108.us = icmp eq i32 %181, 0
   br i1 %.not108.us, label %.lr.ph147.us.backedge, label %.loopexit
 
-.lr.ph147.us.backedge:                            ; preds = %179, %..critedge_crit_edge.us
+.lr.ph147.us.backedge:                            ; preds = %180, %..critedge_crit_edge.us
   br label %.lr.ph147.us
 
-181:                                              ; preds = %178, %177, %162
+182:                                              ; preds = %179, %178, %163
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %..critedge_crit_edge.us, label %162, !llvm.loop !14
+  br i1 %exitcond183.not, label %..critedge_crit_edge.us, label %163, !llvm.loop !14
 
-..critedge_crit_edge.us:                          ; preds = %181
-  %182 = and i32 %161, 1
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %.loopexit, label %.lr.ph147.us.backedge
+..critedge_crit_edge.us:                          ; preds = %182
+  %183 = and i32 %162, 1
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %.loopexit, label %.lr.ph147.us.backedge
 
-184:                                              ; preds = %155
-  %185 = load i32, ptr @binary_upgrade_next_pg_enum_oid, align 4
-  %.not109 = icmp eq i32 %185, 0
-  br i1 %.not109, label %186, label %190
+185:                                              ; preds = %156
+  %186 = load i32, ptr @binary_upgrade_next_pg_enum_oid, align 4
+  %.not109 = icmp eq i32 %186, 0
+  br i1 %.not109, label %187, label %191
 
-186:                                              ; preds = %184
-  %187 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %187)
-  %188 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %189 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
+187:                                              ; preds = %185
+  %188 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %188)
+  %189 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %190 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 408, ptr noundef nonnull @__func__.AddEnumLabel) #10
   unreachable
 
-190:                                              ; preds = %184
-  br i1 %35, label %195, label %191
+191:                                              ; preds = %185
+  br i1 %35, label %196, label %192
 
-191:                                              ; preds = %190
-  %192 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %192)
-  %193 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %194 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #10
+192:                                              ; preds = %191
+  %193 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %193)
+  %194 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %195 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 418, ptr noundef nonnull @__func__.AddEnumLabel) #10
   unreachable
 
-195:                                              ; preds = %190
-  store i32 %185, ptr %7, align 4
+196:                                              ; preds = %191
+  store i32 %186, ptr %7, align 4
   store i32 0, ptr @binary_upgrade_next_pg_enum_oid, align 4
   br label %.loopexit
 
 .critedge:                                        ; preds = %.preheader, %.critedge
-  %196 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
-  %197 = and i32 %196, 1
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %.loopexit.split, label %.critedge
+  %197 = tail call i32 @GetNewOidWithIndex(ptr noundef %34, i32 noundef 3502, i16 noundef signext 1) #10
+  %198 = and i32 %197, 1
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %.loopexit.split, label %.critedge
 
 .loopexit.split:                                  ; preds = %.critedge
-  store i32 %196, ptr %7, align 4
+  store i32 %197, ptr %7, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %179, %..critedge_crit_edge.us, %.loopexit.split, %195
-  %199 = phi i32 [ %196, %.loopexit.split ], [ %185, %195 ], [ %161, %..critedge_crit_edge.us ], [ %161, %179 ]
-  tail call void @pfree(ptr noundef %158) #10
-  tail call void @ReleaseCatCacheList(ptr noundef %156) #10
+.loopexit:                                        ; preds = %180, %..critedge_crit_edge.us, %.loopexit.split, %196
+  %200 = phi i32 [ %197, %.loopexit.split ], [ %186, %196 ], [ %162, %..critedge_crit_edge.us ], [ %162, %180 ]
+  tail call void @pfree(ptr noundef %159) #10
+  tail call void @ReleaseCatCacheList(ptr noundef %157) #10
   store i32 0, ptr %9, align 4
-  %200 = zext i32 %199 to i64
-  store i64 %200, ptr %8, align 16
-  %201 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %20, ptr %201, align 8
-  %202 = bitcast float %.0 to i32
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %203, ptr %204, align 16
+  %201 = zext i32 %200 to i64
+  store i64 %201, ptr %8, align 16
+  %202 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %20, ptr %202, align 8
+  %203 = bitcast float %.0 to i32
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds i8, ptr %8, i64 16
+  store i64 %204, ptr %205, align 16
   call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %1) #10
-  %205 = ptrtoint ptr %10 to i64
-  %206 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 %205, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %34, i64 64
-  %208 = load ptr, ptr %207, align 8
-  %209 = call ptr @heap_form_tuple(ptr noundef %208, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
-  call void @CatalogTupleInsert(ptr noundef %34, ptr noundef %209) #10
-  call void @heap_freetuple(ptr noundef %209) #10
+  %206 = ptrtoint ptr %10 to i64
+  %207 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 %206, ptr %207, align 8
+  %208 = getelementptr inbounds i8, ptr %34, i64 64
+  %209 = load ptr, ptr %208, align 8
+  %210 = call ptr @heap_form_tuple(ptr noundef %209, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
+  call void @CatalogTupleInsert(ptr noundef %34, ptr noundef %210) #10
+  call void @heap_freetuple(ptr noundef %210) #10
   call void @table_close(ptr noundef %34, i32 noundef 3) #10
-  %210 = load ptr, ptr @uncommitted_enums, align 8
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %218
+  %211 = load ptr, ptr @uncommitted_enums, align 8
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %213, label %219
 
-212:                                              ; preds = %.loopexit
+213:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
-  %213 = getelementptr inbounds i8, ptr %6, i64 32
-  store i64 4, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %6, i64 40
+  %214 = getelementptr inbounds i8, ptr %6, i64 32
   store i64 4, ptr %214, align 8
-  %215 = load ptr, ptr @TopTransactionContext, align 8
-  %216 = getelementptr inbounds i8, ptr %6, i64 80
-  store ptr %215, ptr %216, align 8
-  %217 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1064) #10
-  store ptr %217, ptr @uncommitted_enums, align 8
+  %215 = getelementptr inbounds i8, ptr %6, i64 40
+  store i64 4, ptr %215, align 8
+  %216 = load ptr, ptr @TopTransactionContext, align 8
+  %217 = getelementptr inbounds i8, ptr %6, i64 80
+  store ptr %216, ptr %217, align 8
+  %218 = call ptr @hash_create(ptr noundef nonnull @.str.8, i64 noundef 32, ptr noundef nonnull %6, i32 noundef 1064) #10
+  store ptr %218, ptr @uncommitted_enums, align 8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
-  br label %218
+  br label %219
 
-218:                                              ; preds = %212, %.loopexit
-  %219 = phi ptr [ %217, %212 ], [ %210, %.loopexit ]
-  %220 = call ptr @hash_search(ptr noundef %219, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null) #10
-  br label %221
+219:                                              ; preds = %213, %.loopexit
+  %220 = phi ptr [ %218, %213 ], [ %211, %.loopexit ]
+  %221 = call ptr @hash_search(ptr noundef %220, ptr noundef nonnull %7, i32 noundef 1, ptr noundef null) #10
+  br label %222
 
-221:                                              ; preds = %26, %24, %218
+222:                                              ; preds = %26, %24, %219
   ret void
 }
 

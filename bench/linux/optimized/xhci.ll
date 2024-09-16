@@ -10035,7 +10035,7 @@ declare dso_local void @xhci_debugfs_create_stream_files(ptr noundef, ptr nounde
 declare dso_local void @xhci_setup_no_streams_ep_input_ctx(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @xhci_setup_device(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %2, 0
   %6 = select i1 %5, ptr @.str.146, ptr @.str.147
   %7 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef %0) #21
@@ -10651,7 +10651,7 @@ declare dso_local void @xhci_clear_endpoint_bw_info(ptr noundef) local_unnamed_a
 declare dso_local i32 @__SCT__tp_func_xhci_discover_or_reset_device(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc noundef range(i32 0, 2) i32 @xhci_check_usb2_port_capability(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @xhci_check_usb2_port_capability(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 255) %1, i32 noundef range(i32 524288, 1048577) %2) unnamed_addr #18 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2672
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0

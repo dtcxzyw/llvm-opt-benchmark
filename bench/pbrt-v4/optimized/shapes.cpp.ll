@@ -17562,7 +17562,7 @@ land.end:                                         ; preds = %land.rhs, %invoke.c
   %div = udiv i64 %sub.ptr.div.i, 3
   store ptr %renderFromObject.addr, ptr %ref.tmp159, align 8
   store ptr %displacement, ptr %ref.tmp160, align 8
-  invoke fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(144) %plyMesh, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159, float noundef %mul, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp160, ptr noundef %loc)
+  invoke fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias align 8 %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(144) %plyMesh, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp159, float noundef %mul, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp160, ptr noundef %loc)
           to label %invoke.cont161 unwind label %lpad144
 
 invoke.cont161:                                   ; preds = %land.end
@@ -18271,7 +18271,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %displace, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK4pbrt11TriQuadMesh8DisplaceIZNS_5Shape6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_9TransformESD_bRKNS_19ParameterDictionaryERKSt3mapIS8_NS_12FloatTextureESt4lessIS8_ESaISt4pairIS9_SI_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEEE3$_1ZNS2_6CreateESA_SD_SD_bSG_SQ_ST_SY_E3$_0EES0_OT_fOT0_ST_"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %dist, float noundef %maxDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %displace, ptr noundef %loc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::function", align 8
   %agg.tmp.i = alloca %"class.std::function.191", align 8

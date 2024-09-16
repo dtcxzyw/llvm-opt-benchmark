@@ -99,7 +99,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_bencoding_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef range(i32 0, 3) %7) unnamed_addr #0 {
   %9 = icmp sgt i32 %5, 10
   br i1 %9, label %10, label %12
 
@@ -380,8 +380,8 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
-  %8 = icmp slt i32 %3, 2
+define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, -2147483648) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
+  %8 = icmp ult i32 %3, 2
   br i1 %8, label %9, label %.preheader
 
 9:                                                ; preds = %7

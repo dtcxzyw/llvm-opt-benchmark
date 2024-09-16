@@ -11819,7 +11819,7 @@ define internal void @"_ZNK2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcE
   %.01632.i = phi i32 [ %3, %4 ], [ %36, %35 ]
   call void @_ZN2rc6Random5splitEv(ptr dead_on_unwind nonnull writable sret(%"class.rc::Random") align 8 %8, ptr noundef nonnull align 8 dereferenceable(81) %5), !noalias !386
   call void @_ZNK2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKNS_6RandomEi(ptr dead_on_unwind nonnull writable sret(%"class.rc::Shrinkable.85") align 8 %7, ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(81) %8, i32 noundef %.01632.i) #23, !noalias !386
-  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef nonnull %7)
+  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef %7)
           to label %14 unwind label %25, !noalias !386
 
 14:                                               ; preds = %13
@@ -12042,7 +12042,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8, !noalias !390
   %5 = load ptr, ptr %4, align 8, !noalias !390
@@ -13005,7 +13005,7 @@ _ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %35 = load ptr, ptr %4, align 8, !noalias !475
   store ptr %35, ptr %3, align 8, !noalias !475
   store ptr null, ptr %4, align 8, !noalias !475
-  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr noundef nonnull %3)
+  invoke fastcc void @"_ZN2rc10shrinkable6filterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS_10ShrinkableIT_EEEESI_OT0_"(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef %3)
           to label %36 unwind label %45, !noalias !468
 
 36:                                               ; preds = %34

@@ -974,7 +974,7 @@ define internal fastcc void @dissect_flag(ptr noundef %0, ptr noundef %1) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef signext i16 @dissect_certificate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef signext i16 @dissect_certificate(ptr noundef %0, i32 noundef range(i32 -32699, 98372) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1) #3
   %switch.selectcmp = icmp eq i16 %5, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.231, ptr @.str.229
@@ -1005,7 +1005,7 @@ define internal fastcc noundef signext i16 @dissect_certificate(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_ecdh_parameter(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @dissect_ecdh_parameter(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %switch.selectcmp = icmp eq i8 %4, 2
   %switch.select = select i1 %switch.selectcmp, ptr @.str.235, ptr @.str.229
@@ -1033,7 +1033,7 @@ define internal fastcc noundef zeroext i16 @dissect_ecdh_parameter(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext range(i16 1, 257) i16 @dissect_key_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc zeroext range(i16 1, 257) i16 @dissect_key_data(ptr noundef %0, i32 noundef range(i32 47, 323) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #3
   %6 = load i32, ptr @hf_wai_key_data, align 4
   %7 = zext i8 %5 to i32
@@ -1061,7 +1061,7 @@ define internal fastcc zeroext range(i16 1, 257) i16 @dissect_key_data(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 65539) i32 @dissect_identity_list(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 3, 65539) i32 @dissect_identity_list(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [4 x i8], align 4
   %5 = add nuw nsw i32 %1, 1
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %5) #3
@@ -1122,7 +1122,7 @@ define internal fastcc range(i32 3, 65539) i32 @dissect_identity_list(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i16 @dissect_signature(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i16 @dissect_signature(ptr noundef %0, i32 noundef range(i32 -2147483648, 65536) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = add nsw i32 %1, 1
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %5) #3
   %7 = zext i16 %6 to i32
@@ -1226,7 +1226,7 @@ dissect_signature_algorithm.exit:                 ; preds = %53, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 3, 65539) i32 @dissect_multiple_certificate(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 3, 65539) i32 @dissect_multiple_certificate(ptr noundef %0, i32 noundef range(i32 0, 65536) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = add nuw nsw i32 %1, 1
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4) #3
   %6 = zext i16 %5 to i32

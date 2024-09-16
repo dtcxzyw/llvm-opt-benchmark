@@ -240,7 +240,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %.not91 = icmp eq ptr %47, null
   %48 = zext i1 %.not91 to i32
   store i32 %48, ptr %12, align 8
-  %49 = call fastcc i32 @xml_get_int(ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4)
+  %49 = call fastcc i32 @xml_get_int(ptr noundef %8, ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %3, ptr noundef %4)
   %.not92 = icmp eq i32 %49, 0
   br i1 %.not92, label %.loopexit, label %50
 
@@ -250,7 +250,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   br i1 %.not93, label %52, label %72
 
 52:                                               ; preds = %50
-  %53 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4)
+  %53 = call fastcc i32 @xml_get_int(ptr noundef %9, ptr noundef %6, ptr noundef nonnull @.str.4, ptr noundef %3, ptr noundef %4)
   %.not94 = icmp eq i32 %53, 0
   br i1 %.not94, label %.loopexit, label %54
 
@@ -258,14 +258,14 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %55 = load i32, ptr %9, align 4
   %56 = trunc i32 %55 to i16
   store i16 %56, ptr %13, align 2
-  %57 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef %4)
+  %57 = call fastcc i32 @xml_get_int(ptr noundef %9, ptr noundef %6, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef %4)
   %.not95 = icmp eq i32 %57, 0
   br i1 %.not95, label %.loopexit, label %58
 
 58:                                               ; preds = %54
   %59 = load i32, ptr %9, align 4
   store i32 %59, ptr %14, align 8
-  %60 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %4)
+  %60 = call fastcc i32 @xml_get_int(ptr noundef %9, ptr noundef %6, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %4)
   %.not96 = icmp eq i32 %60, 0
   br i1 %.not96, label %.loopexit, label %61
 
@@ -273,7 +273,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %62 = load i32, ptr %9, align 4
   %63 = trunc i32 %62 to i8
   store i8 %63, ptr %15, align 1
-  %64 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef %4)
+  %64 = call fastcc i32 @xml_get_int(ptr noundef %9, ptr noundef %6, ptr noundef nonnull @.str.7, ptr noundef %3, ptr noundef %4)
   %.not97 = icmp eq i32 %64, 0
   br i1 %.not97, label %.loopexit, label %65
 
@@ -281,7 +281,7 @@ define internal fastcc range(i32 0, 2) i32 @dct3trace_get_packet(ptr noundef %0,
   %66 = load i32, ptr %9, align 4
   %67 = trunc i32 %66 to i8
   store i8 %67, ptr %16, align 4
-  %68 = call fastcc i32 @xml_get_int(ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef %4)
+  %68 = call fastcc i32 @xml_get_int(ptr noundef %9, ptr noundef %6, ptr noundef nonnull @.str.8, ptr noundef %3, ptr noundef %4)
   %.not98 = icmp eq i32 %68, 0
   br i1 %.not98, label %.loopexit, label %69
 
@@ -551,7 +551,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @xml_get_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @xml_get_int(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [32 x i8], align 16
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %2) #8
@@ -600,7 +600,7 @@ define internal fastcc range(i32 0, 2) i32 @xml_get_int(ptr noundef %0, ptr noun
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %18, i64 %26, i1 false)
   %31 = getelementptr [32 x i8], ptr %7, i64 0, i64 %26
   store i8 0, ptr %31, align 1
-  %32 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef %0) #7
+  %32 = call zeroext i1 @ws_strtoi32(ptr noundef nonnull %7, ptr noundef nonnull %6, ptr noundef nonnull %0) #7
   br i1 %32, label %46, label %33
 
 33:                                               ; preds = %30

@@ -2042,7 +2042,7 @@ land.lhs.true90:                                  ; preds = %land.lhs.true84
   br i1 %tobool92.not, label %err, label %if.end94
 
 if.end94:                                         ; preds = %land.lhs.true90
-  %call95 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %n, ptr noundef nonnull @bn1strings)
+  %call95 = call fastcc i32 @parse_bigBN(ptr noundef %n, ptr noundef nonnull @bn1strings)
   %cmp96 = icmp ne i32 %call95, 0
   %conv97 = zext i1 %cmp96 to i32
   %call98 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 527, ptr noundef nonnull @.str.146, i32 noundef %conv97) #7
@@ -2050,7 +2050,7 @@ if.end94:                                         ; preds = %land.lhs.true90
   br i1 %tobool99.not, label %err, label %land.lhs.true100
 
 land.lhs.true100:                                 ; preds = %if.end94
-  %call101 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %a, ptr noundef nonnull @bn2strings)
+  %call101 = call fastcc i32 @parse_bigBN(ptr noundef %a, ptr noundef nonnull @bn2strings)
   %cmp102 = icmp ne i32 %call101, 0
   %conv103 = zext i1 %cmp102 to i32
   %call104 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 528, ptr noundef nonnull @.str.147, i32 noundef %conv103) #7
@@ -2104,7 +2104,7 @@ land.lhs.true129:                                 ; preds = %land.lhs.true123
   br i1 %tobool131.not, label %err, label %if.end133
 
 if.end133:                                        ; preds = %land.lhs.true129
-  %call134 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %a, ptr noundef nonnull @test_modexp_mont5.ahex)
+  %call134 = call fastcc i32 @parse_bigBN(ptr noundef %a, ptr noundef nonnull @test_modexp_mont5.ahex)
   %cmp135 = icmp ne i32 %call134, 0
   %conv136 = zext i1 %cmp135 to i32
   %call137 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 571, ptr noundef nonnull @.str.168, i32 noundef %conv136) #7
@@ -2112,7 +2112,7 @@ if.end133:                                        ; preds = %land.lhs.true129
   br i1 %tobool138.not, label %err, label %land.lhs.true139
 
 land.lhs.true139:                                 ; preds = %if.end133
-  %call140 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %n, ptr noundef nonnull @test_modexp_mont5.nhex)
+  %call140 = call fastcc i32 @parse_bigBN(ptr noundef %n, ptr noundef nonnull @test_modexp_mont5.nhex)
   %cmp141 = icmp ne i32 %call140, 0
   %conv142 = zext i1 %cmp141 to i32
   %call143 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 572, ptr noundef nonnull @.str.169, i32 noundef %conv142) #7
@@ -2317,7 +2317,7 @@ if.end269:                                        ; preds = %land.lhs.true262
   br i1 %tobool271.not, label %err, label %if.end273
 
 if.end273:                                        ; preds = %if.end269
-  %call274 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %e, ptr noundef nonnull @test_modexp_mont5.ehex)
+  %call274 = call fastcc i32 @parse_bigBN(ptr noundef %e, ptr noundef nonnull @test_modexp_mont5.ehex)
   %cmp275 = icmp ne i32 %call274, 0
   %conv276 = zext i1 %cmp275 to i32
   %call277 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 681, ptr noundef nonnull @.str.210, i32 noundef %conv276) #7
@@ -2325,7 +2325,7 @@ if.end273:                                        ; preds = %if.end269
   br i1 %tobool278.not, label %err, label %lor.lhs.false279
 
 lor.lhs.false279:                                 ; preds = %if.end273
-  %call280 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %p, ptr noundef nonnull @test_modexp_mont5.phex)
+  %call280 = call fastcc i32 @parse_bigBN(ptr noundef %p, ptr noundef nonnull @test_modexp_mont5.phex)
   %cmp281 = icmp ne i32 %call280, 0
   %conv282 = zext i1 %cmp281 to i32
   %call283 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 682, ptr noundef nonnull @.str.211, i32 noundef %conv282) #7
@@ -2333,7 +2333,7 @@ lor.lhs.false279:                                 ; preds = %if.end273
   br i1 %tobool284.not, label %err, label %lor.lhs.false285
 
 lor.lhs.false285:                                 ; preds = %lor.lhs.false279
-  %call286 = call fastcc i32 @parse_bigBN(ptr noundef nonnull %m, ptr noundef nonnull @test_modexp_mont5.mhex)
+  %call286 = call fastcc i32 @parse_bigBN(ptr noundef %m, ptr noundef nonnull @test_modexp_mont5.mhex)
   %cmp287 = icmp ne i32 %call286, 0
   %conv288 = zext i1 %cmp287 to i32
   %call289 = call i32 @test_true(ptr noundef nonnull @.str.17, i32 noundef 683, ptr noundef nonnull @.str.212, i32 noundef %conv288) #7
@@ -7221,10 +7221,10 @@ declare i32 @BN_MONT_CTX_set(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_bigBN(ptr noundef %out, ptr noundef %bn_strings) unnamed_addr #1 {
+define internal fastcc i32 @parse_bigBN(ptr noundef nonnull %out, ptr noundef %bn_strings) unnamed_addr #1 {
 entry:
   %call = tail call ptr @glue_strings(ptr noundef %bn_strings, ptr noundef null) #7
-  %call1 = tail call i32 @BN_hex2bn(ptr noundef %out, ptr noundef %call) #7
+  %call1 = tail call i32 @BN_hex2bn(ptr noundef nonnull %out, ptr noundef %call) #7
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.17, i32 noundef 77) #7
   ret i32 %call1
 }

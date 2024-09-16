@@ -368,7 +368,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext %skipwhite, ptr noundef %token, ptr noundef %status) unnamed_addr #1 {
+define internal fastcc i32 @getNextChar(ptr noundef %buf, i8 noundef signext range(i8 0, 2) %skipwhite, ptr noundef %token, ptr noundef %status) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0

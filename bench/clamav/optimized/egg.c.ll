@@ -636,7 +636,7 @@ getMagicHeaderName.exit.i.i:                      ; preds = %83, %82, %81, %80, 
   br label %159
 
 141:                                              ; preds = %132
-  %142 = tail call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %139, i64 noundef %136, ptr noundef nonnull %43)
+  %142 = tail call fastcc i32 @egg_parse_encrypt_header(ptr noundef %139, i64 noundef %136, ptr noundef %43)
   %.not70.i.i = icmp eq i32 %142, 0
   br i1 %.not70.i.i, label %egg_parse_archive_extra_field.exit.i, label %143
 
@@ -1250,7 +1250,7 @@ getMagicHeaderName.exit.i.i154:                   ; preds = %277, %276, %275, %2
   br label %465
 
 378:                                              ; preds = %370
-  %379 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %376, i64 noundef %373, ptr noundef nonnull %263, ptr noundef nonnull %7)
+  %379 = call fastcc i32 @egg_parse_comment_header(ptr noundef %376, i64 noundef %373, ptr noundef %263, ptr noundef %7)
   %.not160.i.i = icmp eq i32 %379, 0
   br i1 %.not160.i.i, label %381, label %380
 
@@ -1313,7 +1313,7 @@ getMagicHeaderName.exit.i.i154:                   ; preds = %277, %276, %275, %2
   br label %465
 
 408:                                              ; preds = %399
-  %409 = call fastcc i32 @egg_parse_encrypt_header(ptr noundef nonnull %406, i64 noundef %403, ptr noundef nonnull %236)
+  %409 = call fastcc i32 @egg_parse_encrypt_header(ptr noundef %406, i64 noundef %403, ptr noundef %236)
   %.not158.i.i = icmp eq i32 %409, 0
   br i1 %.not158.i.i, label %egg_parse_file_extra_field.exit.i, label %410
 
@@ -1821,7 +1821,7 @@ getMagicHeaderName.exit:                          ; preds = %590, %592, %593, %5
   br label %669
 
 634:                                              ; preds = %624
-  %635 = call fastcc i32 @egg_parse_comment_header(ptr noundef nonnull %632, i64 noundef %629, ptr noundef nonnull %588, ptr noundef nonnull %8)
+  %635 = call fastcc i32 @egg_parse_comment_header(ptr noundef %632, i64 noundef %629, ptr noundef %588, ptr noundef %8)
   %.not144 = icmp eq i32 %635, 0
   br i1 %.not144, label %636, label %662
 
@@ -1894,7 +1894,7 @@ getMagicHeaderName.exit:                          ; preds = %590, %592, %593, %5
 
 669:                                              ; preds = %183, %egg_parse_file_headers.exit, %475, %539, %554, %577, %639, %647, %633, %615, %620, %589, %648
   %.0112.ph = phi i32 [ 27, %648 ], [ 27, %589 ], [ 27, %620 ], [ 27, %615 ], [ 27, %633 ], [ 20, %647 ], [ 27, %639 ], [ 20, %577 ], [ 20, %554 ], [ 27, %539 ], [ 20, %475 ], [ 27, %egg_parse_file_headers.exit ], [ 27, %183 ]
-  call fastcc void @egg_free_egg_handle(ptr noundef nonnull %13)
+  call fastcc void @egg_free_egg_handle(ptr noundef %13)
   br label %670
 
 670:                                              ; preds = %15, %665, %669, %11
@@ -2017,7 +2017,7 @@ define internal fastcc void @egg_free_egg_file(ptr nocapture noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   store ptr null, ptr %5, align 8
@@ -2044,7 +2044,7 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
   br i1 %.not23, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = call i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1, i16 noundef zeroext -535, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %16 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %0, i64 noundef %1, i16 noundef zeroext -535, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %.not24 = icmp eq i32 %16, 0
   br i1 %.not24, label %..thread_crit_edge, label %23
 
@@ -2053,7 +2053,7 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
   br label %.thread
 
 17:                                               ; preds = %13
-  %18 = tail call noalias ptr @strndup(ptr noundef %0, i64 noundef %1) #11
+  %18 = tail call noalias ptr @strndup(ptr noundef nonnull %0, i64 noundef %1) #11
   store ptr %18, ptr %5, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %.thread
@@ -2088,7 +2088,7 @@ define internal fastcc range(i32 0, 21) i32 @egg_parse_comment_header(ptr nounde
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @egg_free_egg_handle(ptr nocapture noundef %0) unnamed_addr #1 {
+define internal fastcc void @egg_free_egg_handle(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3355,7 +3355,7 @@ define void @cli_egg_close(ptr noundef %0) local_unnamed_addr #1 {
   br label %4
 
 3:                                                ; preds = %1
-  tail call fastcc void @egg_free_egg_handle(ptr noundef nonnull %0)
+  tail call fastcc void @egg_free_egg_handle(ptr noundef %0)
   br label %4
 
 4:                                                ; preds = %3, %2
@@ -3363,7 +3363,7 @@ define void @cli_egg_close(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @egg_parse_encrypt_header(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 28) i32 @egg_parse_encrypt_header(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %4, label %5
 

@@ -1027,7 +1027,7 @@ type_in_list_does_not_exist_skipping.exit164.i:   ; preds = %392, %schema_does_n
   br label %486
 
 404:                                              ; preds = %25
-  %405 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %405 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef %2, ptr noundef %3)
   br i1 %405, label %486, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %404
@@ -1048,7 +1048,7 @@ list_length.exit.i:                               ; preds = %404
   br label %486
 
 416:                                              ; preds = %25
-  %417 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %417 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef %2, ptr noundef %3)
   br i1 %417, label %486, label %list_length.exit167.i
 
 list_length.exit167.i:                            ; preds = %416
@@ -1074,7 +1074,7 @@ list_length.exit167.i:                            ; preds = %416
   br label %.thread201.sink.split.i
 
 431:                                              ; preds = %25
-  %432 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  %432 = call fastcc zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %17, ptr noundef %2, ptr noundef %3)
   br i1 %432, label %486, label %list_length.exit169.i
 
 list_length.exit169.i:                            ; preds = %431
@@ -1363,7 +1363,7 @@ declare ptr @TypeNameListToString(ptr noundef) local_unnamed_addr #1
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @owningrel_does_not_exist_skipping(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit, label %4
 

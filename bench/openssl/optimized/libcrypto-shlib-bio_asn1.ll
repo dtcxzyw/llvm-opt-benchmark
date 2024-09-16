@@ -166,7 +166,7 @@ for.cond.backedge:                                ; preds = %asn1_bio_setup_ex.e
 
 sw.bb10:                                          ; preds = %for.cond
   %3 = load ptr, ptr %prefix_free, align 8
-  %call11 = call fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %call, ptr noundef %3, i32 noundef 2)
+  %call11 = call fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef %call, ptr noundef %3, i32 noundef 2)
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %done, label %for.cond.backedge
 
@@ -417,7 +417,7 @@ if.end29:                                         ; preds = %asn1_bio_setup_ex.e
 if.then32:                                        ; preds = %if.end29
   %suffix_free33 = getelementptr inbounds i8, ptr %call, i64 64
   %13 = load ptr, ptr %suffix_free33, align 8
-  %call34 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %call, ptr noundef %13, i32 noundef 6)
+  %call34 = tail call fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef %call, ptr noundef %13, i32 noundef 6)
   %cmp35 = icmp slt i32 %call34, 1
   br i1 %cmp35, label %if.then37, label %if.then32.if.end39_crit_edge
 
@@ -562,7 +562,7 @@ declare ptr @BIO_get_data(ptr noundef) local_unnamed_addr #2
 declare ptr @BIO_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef %ctx, ptr noundef readonly %cleanup, i32 noundef %next) unnamed_addr #1 {
+define internal fastcc i32 @asn1_bio_flush_ex(ptr noundef %b, ptr noundef nonnull %ctx, ptr noundef readonly %cleanup, i32 noundef range(i32 2, 7) %next) unnamed_addr #1 {
 entry:
   %ex_len = getelementptr inbounds i8, ptr %ctx, i64 80
   %0 = load i32, ptr %ex_len, align 8

@@ -5862,7 +5862,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %"_ZZN4llvm26stripNo
   br i1 %.not68, label %76, label %69
 
 69:                                               ; preds = %64
-  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %68)
+  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %68)
   %.val = load ptr, ptr %3, align 8
   %.val69 = load i32, ptr %60, align 8
   %70 = call fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval7mapNodeEPN4llvm8MetadataE(ptr %.val, i32 %.val69, ptr noundef nonnull %68)
@@ -5914,7 +5914,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %.lr.ph214, %260
 92:                                               ; preds = %89
   %93 = load ptr, ptr %5, align 8, !noalias !82
   %94 = load ptr, ptr %93, align 8, !noalias !82
-  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef nonnull %90), !noalias !82
+  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %94, ptr noundef %90), !noalias !82
   %95 = load ptr, ptr %93, align 8, !noalias !82
   %.val.i.i = load ptr, ptr %95, align 8, !noalias !82
   %96 = getelementptr i8, ptr %95, i64 16
@@ -6124,7 +6124,7 @@ _ZN12_GLOBAL__N_120DebugTypeInfoRemoval7mapNodeEPN4llvm8MetadataE.exit119: ; pre
 165:                                              ; preds = %"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_3clEPNS_6MDNodeE.exit.i"
   %166 = load ptr, ptr %5, align 8, !noalias !82
   %167 = load ptr, ptr %166, align 8, !noalias !82
-  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %167, ptr noundef nonnull %91), !noalias !82
+  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %167, ptr noundef %91), !noalias !82
   %168 = load ptr, ptr %166, align 8, !noalias !82
   %.val.i10.i = load ptr, ptr %168, align 8, !noalias !82
   %169 = getelementptr i8, ptr %168, i64 16
@@ -6428,7 +6428,7 @@ _ZN4llvm32updateLoopMetadataDebugLocationsERNS_11InstructionENS_12function_refIF
 
 267:                                              ; preds = %.lr.ph224
   %268 = load ptr, ptr %4, align 8
-  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %268, ptr noundef nonnull %266)
+  call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %268, ptr noundef %266)
   %269 = load ptr, ptr %4, align 8
   %.val.i = load ptr, ptr %269, align 8
   %270 = getelementptr i8, ptr %269, i64 16
@@ -6717,7 +6717,7 @@ _ZN4llvm11SmallVectorIPNS_6MDNodeELj8EED2Ev.exit: ; preds = %.loopexit, %362
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.814", align 8
   %4 = alloca %"class.llvm::DenseSet.816", align 8
   %5 = alloca ptr, align 8
@@ -7264,7 +7264,7 @@ _ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_1clERKNS_8DebugLocE"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_1clERKNS_8DebugLocE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK4llvm8DebugLoc8getScopeEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   %5 = tail call noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #16
   %.not.i = icmp eq ptr %4, null
@@ -7273,7 +7273,7 @@ define internal fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleE
 6:                                                ; preds = %3
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %7, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %4)
+  tail call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %4)
   %9 = load ptr, ptr %7, align 8
   %.val.i = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %9, i64 16
@@ -7297,7 +7297,7 @@ define internal fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleE
 19:                                               ; preds = %"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_3clEPNS_6MDNodeE.exit"
   %20 = load ptr, ptr %1, align 8
   %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull %5)
+  tail call fastcc void @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval16traverseAndRemapEPN4llvm6MDNodeE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef %5)
   %22 = load ptr, ptr %20, align 8
   %.val.i10 = load ptr, ptr %22, align 8
   %23 = getelementptr i8, ptr %22, i64 16
@@ -15006,7 +15006,7 @@ _ZNK4llvm18DILexicalBlockBase8getScopeEv.exit:    ; preds = %635, %639
   ]
 
 648:                                              ; preds = %647
-  %649 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1)
+  %649 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1)
   br label %_ZZN12_GLOBAL__N_120DebugTypeInfoRemoval5remapEPN4llvm6MDNodeEENKUlS3_E_clES3_.exitthread-pre-split
 
 _ZN4llvm3isaINS_6DINodeEPNS_6MDNodeEEEbRKT0_.exit: ; preds = %647
@@ -15381,7 +15381,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_6MDNodeENS_6detail13DenseSetEmptyENS_12D
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_120DebugTypeInfoRemoval24getReplacementMDLocationEPN4llvm10DILocationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 2
@@ -19699,7 +19699,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_8MetadataES2_EE11callb
 
 _ZN4llvm16dyn_cast_or_nullINS_10DILocationENS_8MetadataEEEDaPT0_.exit.i: ; preds = %6
   call void @_ZN4llvm8DebugLocC1EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %1) #16
-  call fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_1clERKNS_8DebugLocE"(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call fastcc void @"_ZZN4llvm26stripNonLineTableDebugInfoERNS_6ModuleEENK3$_1clERKNS_8DebugLocE"(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull readonly align 8 dereferenceable(16) %.val, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %9 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   %10 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %10, null

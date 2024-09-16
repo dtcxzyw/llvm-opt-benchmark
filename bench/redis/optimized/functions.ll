@@ -1375,7 +1375,7 @@ if.then:                                          ; preds = %entry
 
 engineLibraryFree.exit:                           ; preds = %entry
   %5 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  tail call fastcc void @libraryUnlink(ptr noundef %5, ptr noundef nonnull %call)
+  tail call fastcc void @libraryUnlink(ptr noundef %5, ptr noundef %call)
   %functions.i = getelementptr inbounds i8, ptr %call, i64 8
   %6 = load ptr, ptr %functions.i, align 8
   tail call void @dictRelease(ptr noundef %6) #11
@@ -1397,7 +1397,7 @@ return:                                           ; preds = %engineLibraryFree.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @libraryUnlink(ptr nocapture noundef %lib_ctx, ptr noundef %li) unnamed_addr #1 {
+define internal fastcc void @libraryUnlink(ptr nocapture noundef %lib_ctx, ptr noundef nonnull %li) unnamed_addr #1 {
 entry:
   %functions = getelementptr inbounds i8, ptr %li, i64 8
   %0 = load ptr, ptr %functions, align 8
@@ -1588,7 +1588,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fcallCommandGeneric(ptr noundef %c, i32 noundef %ro) unnamed_addr #1 {
+define internal fastcc void @fcallCommandGeneric(ptr noundef %c, i32 noundef range(i32 0, 2) %ro) unnamed_addr #1 {
 entry:
   %numkeys = alloca i64, align 8
   %run_ctx = alloca %struct.scriptRunCtx, align 8
@@ -1946,7 +1946,7 @@ if.then51:                                        ; preds = %while.end
 
 if.else52:                                        ; preds = %while.end
   %14 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  %call55 = call fastcc i32 @libraryJoin(ptr noundef %14, ptr noundef %call25, i32 noundef %cmp53, ptr noundef nonnull %err)
+  %call55 = call fastcc i32 @libraryJoin(ptr noundef %14, ptr noundef %call25, i32 noundef %cmp53, ptr noundef %err)
   %cmp56.not = icmp eq i32 %call55, 0
   br i1 %cmp56.not, label %if.end60, label %load_errorthread-pre-split
 
@@ -2010,7 +2010,7 @@ declare i32 @rdbLoadType(ptr noundef) local_unnamed_addr #0
 declare i32 @rdbFunctionLoad(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @libraryJoin(ptr nocapture noundef %functions_lib_ctx_dst, ptr nocapture noundef readonly %functions_lib_ctx_src, i32 noundef %replace, ptr nocapture noundef writeonly %err) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @libraryJoin(ptr nocapture noundef %functions_lib_ctx_dst, ptr nocapture noundef readonly %functions_lib_ctx_src, i32 noundef range(i32 0, 2) %replace, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %functions_lib_ctx_src, align 8
   %call = tail call ptr @dictGetIterator(ptr noundef %0) #11
@@ -2058,7 +2058,7 @@ if.then13:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then13, %if.then
   %old_libraries_list.3 = phi ptr [ %old_libraries_list.049, %if.then ], [ %call14, %if.then13 ]
-  tail call fastcc void @libraryUnlink(ptr noundef nonnull %functions_lib_ctx_dst, ptr noundef nonnull %call5)
+  tail call fastcc void @libraryUnlink(ptr noundef nonnull %functions_lib_ctx_dst, ptr noundef %call5)
   %call15 = tail call ptr @listAddNodeTail(ptr noundef nonnull %old_libraries_list.3, ptr noundef nonnull %call5) #11
   br label %if.end17
 
@@ -2636,7 +2636,7 @@ if.end23:                                         ; preds = %if.end12
   br i1 %tobool17, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %if.end23
-  tail call fastcc void @libraryUnlink(ptr noundef nonnull %lib_ctx, ptr noundef nonnull %call16)
+  tail call fastcc void @libraryUnlink(ptr noundef nonnull %lib_ctx, ptr noundef %call16)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %if.end23

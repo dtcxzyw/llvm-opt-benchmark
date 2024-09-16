@@ -274,7 +274,7 @@ cond.end53.i:                                     ; preds = %cond.false45.i
 
 if.then56.i:                                      ; preds = %cond.end53.i, %cond.false45.i, %cond.false.i, %if.end41.i
   %cond5487.i = phi i32 [ 3, %cond.end53.i ], [ 5, %cond.false.i ], [ 6, %if.end41.i ], [ 4, %cond.false45.i ]
-  %call59.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call9.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %recp.i, ptr noundef %ctx)
+  %call59.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call9.i, ptr noundef nonnull %call10.i, ptr noundef nonnull %call10.i, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool60.not.i = icmp eq i32 %call59.i, 0
   br i1 %tobool60.not.i, label %err.i, label %if.end62.i
 
@@ -301,7 +301,7 @@ lor.lhs.false67.i:                                ; preds = %for.body.i
   %6 = add nsw i64 %indvars.iv.i, -1
   %arrayidx72.i = getelementptr inbounds [32 x ptr], ptr %val.i, i64 0, i64 %6
   %7 = load ptr, ptr %arrayidx72.i, align 8
-  %call73.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call64.i, ptr noundef %7, ptr noundef nonnull %call9.i, ptr noundef nonnull %recp.i, ptr noundef %ctx)
+  %call73.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef nonnull %call64.i, ptr noundef %7, ptr noundef nonnull %call9.i, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool74.not.i = icmp eq i32 %call73.i, 0
   br i1 %tobool74.not.i, label %err.i, label %for.cond.i
 
@@ -329,7 +329,7 @@ if.then86.lr.ph.i:                                ; preds = %for.cond83.outer.i
 
 if.then86.us.i:                                   ; preds = %if.then86.lr.ph.i, %if.end96.us.i
   %wstart.098.us.i = phi i32 [ %dec.us.i, %if.end96.us.i ], [ %wstart.0.ph.i, %if.then86.lr.ph.i ]
-  %call89.us.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %r, ptr noundef nonnull %recp.i, ptr noundef %ctx)
+  %call89.us.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %r, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool90.not.us.i = icmp eq i32 %call89.us.i, 0
   br i1 %tobool90.not.us.i, label %err.i, label %if.end93.us.i
 
@@ -400,14 +400,14 @@ for.cond117.i:                                    ; preds = %for.body119.i
 
 for.body119.i:                                    ; preds = %for.end114.i, %for.cond117.i
   %i.2109.i = phi i32 [ %inc125.i, %for.cond117.i ], [ 0, %for.end114.i ]
-  %call120.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %r, ptr noundef nonnull %recp.i, ptr noundef %ctx)
+  %call120.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %r, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool121.not.i = icmp eq i32 %call120.i, 0
   br i1 %tobool121.not.i, label %err.i, label %for.cond117.i
 
 if.end127.i:                                      ; preds = %for.cond117.i, %for.end114.i
   %arrayidx129.i = getelementptr inbounds [32 x ptr], ptr %val.i, i64 0, i64 %wvalue.0.lcssa.i
   %10 = load ptr, ptr %arrayidx129.i, align 8
-  %call130.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %10, ptr noundef nonnull %recp.i, ptr noundef %ctx)
+  %call130.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %10, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool131.not.i = icmp eq i32 %call130.i, 0
   br i1 %tobool131.not.i, label %err.i, label %if.end133.i
 
@@ -1691,7 +1691,7 @@ for.body441:                                      ; preds = %if.end435, %for.bod
 for.end448:                                       ; preds = %for.body441, %if.end435
   %wvalue.2.lcssa = phi i32 [ 0, %if.end435 ], [ %add444, %for.body441 ]
   %bits.5.lcssa = phi i32 [ %dec436, %if.end435 ], [ %dec447, %for.body441 ]
-  %call449 = call fastcc i32 @copy_from_prebuf(ptr noundef nonnull %tmp, i32 noundef %0, ptr noundef nonnull %add.ptr, i32 noundef %wvalue.2.lcssa, i32 noundef %spec.select)
+  %call449 = call fastcc i32 @copy_from_prebuf(ptr noundef %tmp, i32 noundef %0, ptr noundef %add.ptr, i32 noundef %wvalue.2.lcssa, i32 noundef %spec.select)
   %tobool450.not = icmp eq i32 %call449, 0
   br i1 %tobool450.not, label %if.then488, label %while.cond453
 
@@ -1718,7 +1718,7 @@ if.end464:                                        ; preds = %for.body460
   br i1 %exitcond389.not, label %for.end471, label %for.body460, !llvm.loop !32
 
 for.end471:                                       ; preds = %if.end464
-  %call472 = call fastcc i32 @copy_from_prebuf(ptr noundef nonnull %am, i32 noundef %0, ptr noundef nonnull %add.ptr, i32 noundef %add467, i32 noundef %spec.select)
+  %call472 = call fastcc i32 @copy_from_prebuf(ptr noundef %am, i32 noundef %0, ptr noundef %add.ptr, i32 noundef %add467, i32 noundef %spec.select)
   %tobool473.not = icmp eq i32 %call472, 0
   br i1 %tobool473.not, label %if.then488, label %if.end475
 
@@ -1815,16 +1815,16 @@ declare void @bn_power5(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr 
 declare i32 @bn_from_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @copy_from_prebuf(ptr noundef %b, i32 noundef %top, ptr noundef %buf, i32 noundef %idx, i32 noundef %window) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @copy_from_prebuf(ptr noundef nonnull %b, i32 noundef %top, ptr noundef nonnull %buf, i32 noundef %idx, i32 noundef range(i32 1, 6) %window) unnamed_addr #0 {
 entry:
   %shl = shl nuw nsw i32 1, %window
   %conv = sext i32 %top to i64
-  %call = tail call ptr @bn_wexpand(ptr noundef %b, i64 noundef %conv) #7
+  %call = tail call ptr @bn_wexpand(ptr noundef nonnull %b, i64 noundef %conv) #7
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %cmp2 = icmp slt i32 %window, 4
+  %cmp2 = icmp ult i32 %window, 4
   br i1 %cmp2, label %for.cond.preheader, label %if.else
 
 for.cond.preheader:                               ; preds = %if.end
@@ -2057,7 +2057,7 @@ for.end78.split.split.split:                      ; preds = %for.body48
 if.end87:                                         ; preds = %for.end78.split.split.split.us.us.split, %for.end78.split.split.us.us.split.split, %for.end78.split.us.us.split.split.split, %for.end78.split.split.split, %for.end, %if.else, %for.cond.preheader
   %top88 = getelementptr inbounds i8, ptr %b, i64 8
   store i32 %top, ptr %top88, align 8
-  tail call void @bn_correct_top(ptr noundef %b) #7
+  tail call void @bn_correct_top(ptr noundef nonnull %b) #7
   br label %return
 
 return:                                           ; preds = %entry, %if.end87
@@ -2466,7 +2466,7 @@ return:                                           ; preds = %err, %if.then4, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %x, ptr noundef %y, ptr noundef %recp, ptr noundef %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %x, ptr noundef %y, ptr noundef nonnull %recp, ptr noundef %ctx) unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #7
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #7
@@ -2516,7 +2516,7 @@ if.end7.i:                                        ; preds = %if.else5.i, %if.end
   br i1 %or.cond2.i, label %BN_div_recp.exit, label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.end7.i
-  %call16.i = tail call i32 @BN_ucmp(ptr noundef %ca.0, ptr noundef %recp) #7
+  %call16.i = tail call i32 @BN_ucmp(ptr noundef %ca.0, ptr noundef nonnull %recp) #7
   %cmp17.i = icmp slt i32 %call16.i, 0
   br i1 %cmp17.i, label %if.then18.i, label %if.end22.i
 
@@ -2605,7 +2605,7 @@ if.end60.i:                                       ; preds = %if.end56.i
 
 while.cond.i:                                     ; preds = %if.end72.i, %if.end60.i
   %j.0.i = phi i32 [ 0, %if.end60.i ], [ %inc.i, %if.end72.i ]
-  %call63.i = tail call i32 @BN_ucmp(ptr noundef %r.0.i, ptr noundef %recp) #7
+  %call63.i = tail call i32 @BN_ucmp(ptr noundef %r.0.i, ptr noundef nonnull %recp) #7
   %cmp64.i = icmp sgt i32 %call63.i, -1
   br i1 %cmp64.i, label %while.body.i, label %while.end.i
 
@@ -2619,7 +2619,7 @@ if.then66.i:                                      ; preds = %while.body.i
   br label %BN_div_recp.exit
 
 if.end67.i:                                       ; preds = %while.body.i
-  %call69.i = tail call i32 @BN_usub(ptr noundef %r.0.i, ptr noundef %r.0.i, ptr noundef %recp) #7
+  %call69.i = tail call i32 @BN_usub(ptr noundef %r.0.i, ptr noundef %r.0.i, ptr noundef nonnull %recp) #7
   %tobool70.not.i = icmp eq i32 %call69.i, 0
   br i1 %tobool70.not.i, label %BN_div_recp.exit, label %if.end72.i
 

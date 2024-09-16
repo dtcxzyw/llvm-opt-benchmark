@@ -2601,7 +2601,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit.i:          ; preds = %1061
   %1079 = load ptr, ptr %247, align 8
   call void @_ZN4llvm14LoopVersioningC1ERKNS_14LoopAccessInfoENS_8ArrayRefISt4pairIPKNS_23RuntimeCheckingPtrGroupES8_EEEPNS_4LoopEPNS_8LoopInfoEPNS_13DominatorTreeEPNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(272) %21, ptr noundef nonnull align 8 dereferenceable(144) %1073, ptr %1074, i64 %1075, ptr noundef %1076, ptr noundef %1077, ptr noundef %1078, ptr noundef %1079) #17
   call void @_ZN4llvm14LoopVersioning11versionLoopEv(ptr noundef nonnull align 8 dereferenceable(272) %21)
-  call fastcc void @_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_130StoreToLoadForwardingCandidateELj4EEEZNS2_22LoadEliminationForLoop11processLoopEvEUlRKS3_E_EEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr nonnull %28)
+  call fastcc void @_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_130StoreToLoadForwardingCandidateELj4EEEZNS2_22LoadEliminationForLoop11processLoopEvEUlRKS3_E_EEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr %28)
   call void @_ZN4llvm14LoopVersioningD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %21) #17
   br label %1080
 
@@ -3812,7 +3812,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj8EED2Ev.exit: ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_130StoreToLoadForwardingCandidateELj4EEEZNS2_22LoadEliminationForLoop11processLoopEvEUlRKS3_E_EEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %1) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvm8erase_ifINS_11SmallVectorIN12_GLOBAL__N_130StoreToLoadForwardingCandidateELj4EEEZNS2_22LoadEliminationForLoop11processLoopEvEUlRKS3_E_EEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nonnull %1) unnamed_addr #0 {
   %.val.i = load ptr, ptr %0, align 8
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::StoreToLoadForwardingCandidate", ptr %.val.i, i64 %3

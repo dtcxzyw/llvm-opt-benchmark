@@ -7049,7 +7049,7 @@ define dso_local void @_ZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN
   %6 = alloca %"class.llvm::Triple", align 8
   %7 = alloca %"class.std::optional.73", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias nonnull writable align 8 %5, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
+  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias writable align 8 %5, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %8)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
@@ -7098,7 +7098,7 @@ _ZNK4llvm6Triple11isArmMClassEv.exit:             ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @_ZN4llvm6Triple7setArchENS0_8ArchTypeENS0_11SubArchTypeE(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef 1, i32 noundef 0) #25
-  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias nonnull writable align 8 %7, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %6)
+  call fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias writable align 8 %7, ptr %2, i64 %3, ptr nonnull %1, ptr noundef nonnull align 8 dereferenceable(56) %6)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
@@ -7145,7 +7145,7 @@ _ZNK4llvm6Triple11isArmMClassEv.exit.thread:      ; preds = %22, %22, %22, %22, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias writable align 8 %0, ptr %.0.val.0.val, i64 %.0.val.8.val, ptr nocapture readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang6driver9ToolChain19getTargetSubDirPathB5cxx11EN4llvm9StringRefEENK3$_0clB5cxx11ERKNS2_6TripleE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val.0.val, i64 %.0.val.8.val, ptr nocapture readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.llvm::SmallString.91", align 8
   %5 = alloca %"class.llvm::Twine", align 8

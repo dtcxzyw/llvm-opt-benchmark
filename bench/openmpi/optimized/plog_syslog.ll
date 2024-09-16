@@ -193,7 +193,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare zeroext i1 @PMIx_Check_key(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @write_local(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, i64 noundef range(i64 1, 0) %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca [48 x i8], align 16
   %9 = alloca ptr, align 8
@@ -237,19 +237,18 @@ thread-pre-split:                                 ; preds = %18, %13, %6
 27:                                               ; preds = %25
   %28 = call noalias dereferenceable_or_null(2) ptr @strdup(ptr noundef nonnull @.str.12) #6
   store ptr %28, ptr %9, align 8
-  br label %32
+  br label %.preheader
 
 29:                                               ; preds = %25
   %30 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.13, ptr noundef nonnull %3) #6
   %31 = icmp slt i32 %30, 0
-  br i1 %31, label %.loopexit, label %32
+  br i1 %31, label %.loopexit, label %.preheader
 
-32:                                               ; preds = %29, %27
-  %.not28 = icmp eq i64 %5, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+.preheader:                                       ; preds = %29, %27
+  br label %32
 
-.lr.ph:                                           ; preds = %32, %48
-  %.027 = phi i64 [ %51, %48 ], [ 0, %32 ]
+32:                                               ; preds = %.preheader, %48
+  %.027 = phi i64 [ %51, %48 ], [ 0, %.preheader ]
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 120
   %35 = load ptr, ptr %34, align 8
@@ -258,11 +257,11 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   %38 = getelementptr inbounds i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %struct.pmix_info, ptr %4, i64 %.027
-  %41 = call i32 %39(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef %40, i16 noundef zeroext 24) #6
+  %41 = call i32 %39(ptr noundef nonnull %10, ptr noundef nonnull @.str.14, ptr noundef nonnull %40, i16 noundef zeroext 24) #6
   %.not = icmp eq i32 %41, 0
   br i1 %.not, label %42, label %.sink.split
 
-42:                                               ; preds = %.lr.ph
+42:                                               ; preds = %32
   %43 = load ptr, ptr %9, align 8
   %44 = load ptr, ptr %10, align 8
   %45 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, ptr noundef %43, ptr noundef %44) #6
@@ -278,29 +277,28 @@ thread-pre-split:                                 ; preds = %18, %13, %6
   store ptr %50, ptr %9, align 8
   %51 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %51, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %52, label %32, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %48, %32
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
-  %53 = icmp ult i32 %2, 8
-  br i1 %53, label %switch.lookup, label %sev2str.exit
+52:                                               ; preds = %48
+  %53 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 260), align 4
+  %54 = icmp ult i32 %2, 8
+  br i1 %54, label %switch.lookup, label %sev2str.exit
 
-switch.lookup:                                    ; preds = %._crit_edge
-  %54 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.write_local, i64 0, i64 %54
+switch.lookup:                                    ; preds = %52
+  %55 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.write_local, i64 0, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sev2str.exit
 
-sev2str.exit:                                     ; preds = %._crit_edge, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.24, %._crit_edge ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 256
-  %56 = load i32, ptr %55, align 4
-  %57 = load ptr, ptr %9, align 8
-  call void (i32, ptr, ...) @syslog(i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %52, ptr noundef nonnull %.0.i, ptr noundef %0, i32 noundef %56, ptr noundef %57) #6
+sev2str.exit:                                     ; preds = %52, %switch.lookup
+  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.24, %52 ]
+  %56 = getelementptr inbounds i8, ptr %0, i64 256
+  %57 = load i32, ptr %56, align 4
+  call void (i32, ptr, ...) @syslog(i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef nonnull %8, ptr noundef nonnull getelementptr inbounds (i8, ptr @pmix_globals, i64 4), i32 noundef %53, ptr noundef nonnull %.0.i, ptr noundef %0, i32 noundef %57, ptr noundef %50) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph, %sev2str.exit
-  %.021.ph = phi i32 [ 0, %sev2str.exit ], [ %41, %.lr.ph ]
+.sink.split:                                      ; preds = %32, %sev2str.exit
+  %.021.ph = phi i32 [ 0, %sev2str.exit ], [ %41, %32 ]
   %58 = load ptr, ptr %9, align 8
   call void @free(ptr noundef %58) #6
   br label %.loopexit

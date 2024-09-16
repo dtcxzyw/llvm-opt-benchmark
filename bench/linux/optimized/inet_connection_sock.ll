@@ -1331,7 +1331,7 @@ declare dso_local ptr @inet_bind2_bucket_find(ptr noundef, ptr noundef, i16 noun
 declare dso_local ptr @inet_bind2_bucket_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @inet_csk_bind_conflict(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = tail call i32 @sock_i_uid(ptr noundef %0) #12
   tail call void @__rcu_read_lock() #12
   %7 = getelementptr inbounds i8, ptr %0, i64 720
@@ -3384,7 +3384,7 @@ declare dso_local ptr @inet_bhash2_addr_any_hashbucket(ptr noundef, ptr noundef,
 declare dso_local zeroext i1 @inet_bind2_bucket_match_addr_any(ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readonly %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readonly %0, ptr noundef nonnull %1, i32 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, %1
   br i1 %7, label %65, label %8
 
@@ -3441,7 +3441,7 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
   br i1 %43, label %65, label %44
 
 44:                                               ; preds = %41
-  %45 = tail call i32 @sock_i_uid(ptr noundef %1) #12
+  %45 = tail call i32 @sock_i_uid(ptr noundef nonnull %1) #12
   %46 = icmp eq i32 %45, %2
   br i1 %46, label %65, label %64
 
@@ -3466,7 +3466,7 @@ define internal fastcc noundef zeroext i1 @inet_bind_conflict(ptr noundef readon
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %57
-  %62 = tail call i32 @sock_i_uid(ptr noundef %1) #12
+  %62 = tail call i32 @sock_i_uid(ptr noundef nonnull %1) #12
   %63 = icmp eq i32 %62, %2
   br i1 %63, label %64, label %65
 

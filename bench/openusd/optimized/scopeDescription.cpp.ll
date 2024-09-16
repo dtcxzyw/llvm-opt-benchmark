@@ -1098,7 +1098,7 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit.thread.i: ; pr
   %49 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.speculated.i, i1 true)
   %50 = shl nuw nsw i64 %49, 1
   %51 = xor i64 %50, 126
-  call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef nonnull %2, ptr noundef nonnull %46, i64 noundef %51, i64 %44)
+  call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %2, ptr noundef %46, i64 noundef %51, i64 %44)
   %52 = icmp ugt i64 %40, 16
   %scevgep.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
   br i1 %52, label %.preheader.i.i, label %71
@@ -2674,7 +2674,7 @@ declare i64 @pthread_self() local_unnamed_addr #15
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 %3) unnamed_addr #16 {
+define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, i64 %3) unnamed_addr #16 {
   %5 = ptrtoint ptr %0 to i64
   %6 = ptrtoint ptr %1 to i64
   %7 = sub i64 %6, %5
@@ -3206,7 +3206,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxr
   br label %166, !llvm.loop !43
 
 "_ZSt27__unguarded_partition_pivotIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEET_SB_SB_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_139_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EclIPPNS3_14_StackRegistry11_StackEntryESA_EEbT_T0_.exit20.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef nonnull %.1.lcssa.i.i, ptr noundef %.031, i64 noundef %137, i64 %3)
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry11_StackEntryElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_39_ComputeAndLockScopeDescriptionStackMsgEvE3$_0EEEvT_SB_T0_T1_"(ptr noundef %.1.lcssa.i.i, ptr noundef %.031, i64 noundef %137, i64 %3)
   %190 = ptrtoint ptr %.1.lcssa.i.i to i64
   %191 = sub i64 %190, %5
   %192 = icmp sgt i64 %191, 128

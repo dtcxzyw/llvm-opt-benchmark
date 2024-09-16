@@ -897,7 +897,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   store ptr %57, ptr %203, align 8
   %204 = getelementptr inbounds i8, ptr %67, i64 16
   store ptr %1, ptr %204, align 8
-  invoke fastcc void @"_ZZN5vcpkg28command_add_version_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(24) %67)
+  invoke fastcc void @"_ZZN5vcpkg28command_add_version_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %66, ptr noundef nonnull align 8 dereferenceable(24) %67)
           to label %205 unwind label %166
 
 205:                                              ; preds = %202
@@ -3460,7 +3460,7 @@ _ZNSt12_Vector_baseIN5vcpkg4PathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN5vcpkg28command_add_version_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5vcpkg28command_add_version_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEENK3$_0clB5cxx11Ev"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, vcpkg::Version>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, vcpkg::Version>>, std::less<void>>::_Alloc_node", align 8
   %4 = alloca %"struct.vcpkg::IgnoreErrors", align 8
   %5 = alloca %"struct.vcpkg::ExpectedT.112", align 8
@@ -8567,7 +8567,7 @@ _ZNSt6vectorIN5vcpkg4Json5ValueESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5v
 declare void @_ZN5vcpkg4Json5Value6stringEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Json::Value") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129insert_version_to_json_objectERN5vcpkg4Json6ObjectERKNS0_7VersionENS0_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr %2, i64 %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_129insert_version_to_json_objectERN5vcpkg4Json6ObjectERKNS0_7VersionENS0_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr %2, i64 range(i64 7, 15) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"struct.vcpkg::Json::Value", align 8

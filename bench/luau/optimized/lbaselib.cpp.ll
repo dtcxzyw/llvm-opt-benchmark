@@ -740,7 +740,7 @@ declare void @_Z9lua_errorP9lua_State(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @_Z6lua_gcP9lua_Stateii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL7getfuncP9lua_Statei(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL7getfuncP9lua_Statei(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca %struct.lua_Debug, align 8
   %4 = tail call noundef i32 @_Z8lua_typeP9lua_Statei(ptr noundef %0, i32 noundef 1)
   %5 = icmp eq i32 %4, 7

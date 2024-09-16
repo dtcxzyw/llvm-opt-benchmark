@@ -371,7 +371,7 @@ define hidden void @zif_exec(ptr noundef %0, ptr nocapture noundef writeonly %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_exec_ex(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq i32 %2, 0
   %5 = select i1 %.not, i32 3, i32 2

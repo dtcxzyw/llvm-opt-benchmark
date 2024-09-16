@@ -3538,25 +3538,25 @@ _ZN7AstNode12dtypeSetVoidEv.exit.i:               ; preds = %99, %_ZN14AstCMetho
   %spec.select.i.i.i = select i1 %131, ptr %128, ptr null
   %132 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 24
   %133 = load ptr, ptr %132, align 8
-  %.not.i9.i.i = icmp eq ptr %133, null
-  br i1 %.not.i9.i.i, label %143, label %134
+  %.not.i.i52.i = icmp eq ptr %133, null
+  br i1 %.not.i.i52.i, label %143, label %134
 
 134:                                              ; preds = %129
   %135 = getelementptr inbounds i8, ptr %133, i64 64
-  %.sroa.0.0.copyload.i.i.i10.i.i = load i16, ptr %135, align 8
-  %136 = icmp eq i16 %.sroa.0.0.copyload.i.i.i10.i.i, 419
+  %.sroa.0.0.copyload.i.i.i9.i.i = load i16, ptr %135, align 8
+  %136 = icmp eq i16 %.sroa.0.0.copyload.i.i.i9.i.i, 419
   br i1 %136, label %_ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i, label %143
 
 _ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i: ; preds = %134
   %137 = getelementptr inbounds i8, ptr %128, i64 8
   %138 = load ptr, ptr %137, align 8
-  %.not.i12.i.i = icmp eq ptr %138, null
-  br i1 %.not.i12.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %139
+  %.not.i11.i.i = icmp eq ptr %138, null
+  br i1 %.not.i11.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %139
 
 139:                                              ; preds = %_ZN7AstNode11privateCastI7AstTextPS_EEPT_S2_.exit.i.i
   %140 = getelementptr inbounds i8, ptr %138, i64 64
-  %.sroa.0.0.copyload.i.i.i13.i.i = load i16, ptr %140, align 8
-  %141 = add i16 %.sroa.0.0.copyload.i.i.i13.i.i, -78
+  %.sroa.0.0.copyload.i.i.i12.i.i = load i16, ptr %140, align 8
+  %141 = add i16 %.sroa.0.0.copyload.i.i.i12.i.i, -78
   %spec.select.i.i.i.i = icmp ult i16 %141, 240
   br i1 %spec.select.i.i.i.i, label %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i
 
@@ -3567,8 +3567,8 @@ _ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i: ; preds = %139
 
 143:                                              ; preds = %134, %129
   %144 = call noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %128, i1 noundef zeroext false, i1 noundef zeroext false)
-  %.not.i.i15.i.i = icmp eq ptr %144, null
-  br i1 %.not.i.i15.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
+  %.not.i.i14.i.i = icmp eq ptr %144, null
+  br i1 %.not.i.i14.i.i, label %_ZZN7V3Sched13prepareTimingEP10AstNetlistEN12AwaitVisitor13addResumePinsEP14AstCMethodHardP11AstNodeExpr.exit.i, label %_ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i
 
 _ZN14AstCMethodHard8addPinspEP11AstNodeExpr.exit.sink.split.i.i: ; preds = %143, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i
   %.sink.i.i = phi ptr [ %142, %_ZN7AstNode11privateCastI11AstNodeExprPS_EEPT_S2_.exit.i.i ], [ %144, %143 ]

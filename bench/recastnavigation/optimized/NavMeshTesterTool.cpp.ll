@@ -478,7 +478,7 @@ split:                                            ; preds = %_Z7inRangePKfS0_ff.
   %191 = load i32, ptr %12, align 4
   %192 = call noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr noundef nonnull %6, i32 noundef %.0123, i32 noundef 256, ptr noundef nonnull %11, i32 noundef %191)
   %193 = load ptr, ptr %94, align 8
-  %194 = call fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr noundef nonnull %6, i32 noundef %192, ptr noundef %193)
+  %194 = call fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr noundef %6, i32 noundef %192, ptr noundef %193)
   store float 0.000000e+00, ptr %13, align 4
   %195 = load ptr, ptr %94, align 8
   %196 = load i32, ptr %6, align 16
@@ -1883,7 +1883,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleToggleEv(ptr noundef nonnul
   %91 = getelementptr inbounds i8, ptr %0, i64 32208
   %92 = getelementptr inbounds i8, ptr %0, i64 33284
   %93 = getelementptr inbounds i8, ptr %0, i64 33404
-  %94 = call fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef %89, ptr noundef nonnull %71, ptr noundef nonnull %90, ptr noundef nonnull %91, i32 noundef %82, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %92, ptr noundef nonnull %93)
+  %94 = call fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef %89, ptr noundef %71, ptr noundef %90, ptr noundef %91, i32 noundef %82, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %92, ptr noundef nonnull %93)
   br i1 %94, label %95, label %253
 
 95:                                               ; preds = %87
@@ -1948,7 +1948,7 @@ define dso_local void @_ZN17NavMeshTesterTool12handleToggleEv(ptr noundef nonnul
   %135 = call noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr noundef nonnull %91, i32 noundef %133, i32 noundef 256, ptr noundef nonnull %7, i32 noundef %134)
   store i32 %135, ptr %81, align 8
   %136 = load ptr, ptr %88, align 8
-  %137 = call fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr noundef nonnull %91, i32 noundef %135, ptr noundef %136)
+  %137 = call fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr noundef %91, i32 noundef %135, ptr noundef %136)
   store i32 %137, ptr %81, align 8
   store float 0.000000e+00, ptr %9, align 4
   %138 = load ptr, ptr %88, align 8
@@ -2178,13 +2178,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryPKfS2_fPKjiPfRhRjS5_Pi(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef writeonly %8, ptr noundef writeonly %9) unnamed_addr #0 {
   %11 = alloca [9 x float], align 16
   %12 = alloca [3 x i8], align 1
   %13 = alloca [3 x i32], align 4
   %14 = alloca i32, align 4
   store i32 0, ptr %14, align 4
-  %15 = call noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 3, i32 noundef 0)
+  %15 = call noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef 3, i32 noundef 0)
   %16 = load i32, ptr %14, align 4
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %.loopexit, label %17
@@ -2305,7 +2305,7 @@ declare noundef i32 @_ZNK14dtNavMeshQuery16moveAlongSurfaceEjPKfS1_PK13dtQueryFi
 declare noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14fixupShortcutsPjiP14dtNavMeshQuery(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

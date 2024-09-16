@@ -1294,7 +1294,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr nou
 declare noundef i32 @_ZN6asmjit9_abi_1_106String9_opNumberENS1_8ModifyOpEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 1, 3) %2, i32 noundef range(i32 2, 64) %3) unnamed_addr #3 {
   %5 = shl nsw i32 -1, %2
   %6 = xor i32 %5, -1
   %7 = add nsw i32 %3, -1
@@ -1319,7 +1319,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   br i1 %21, label %22, label %.loopexit, !prof !44
 
 22:                                               ; preds = %16
-  %23 = add nuw i32 %11, 1
+  %23 = add nuw nsw i32 %11, 1
   %24 = shl i32 %10, %2
   %25 = icmp eq i32 %23, %3
   br i1 %25, label %26, label %9, !llvm.loop !55
@@ -1334,7 +1334,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 256) %1, i32 noundef range(i32 1, 6) %2, i32 noundef range(i32 0, 5) %3, ptr noundef %4, i32 noundef range(i32 1, 9) %5) unnamed_addr #3 {
   %7 = shl nsw i32 -1, %2
   %8 = xor i32 %7, -1
   br label %9
@@ -1344,7 +1344,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %11 = phi i32 [ %37, %34 ], [ 0, %6 ]
   %12 = phi i32 [ %35, %34 ], [ 0, %6 ]
   %13 = and i32 %10, %8
-  %14 = add i32 %13, %11
+  %14 = add nuw i32 %13, %11
   %15 = icmp eq i32 %12, 0
   %16 = select i1 %15, i8 123, i8 124
   %17 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %16) #8
@@ -1368,7 +1368,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   br i1 %26, label %28, label %23, !llvm.loop !56
 
 28:                                               ; preds = %23
-  %29 = add nuw i32 %21, 1
+  %29 = add nuw nsw i32 %21, 1
   %30 = icmp ult i32 %29, %14
   br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !57
 
@@ -1379,9 +1379,9 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   br i1 %33, label %34, label %.loopexit4, !prof !44
 
 34:                                               ; preds = %.loopexit
-  %35 = add nuw i32 %12, 1
+  %35 = add nuw nsw i32 %12, 1
   %36 = lshr i32 %10, %2
-  %37 = add i32 %11, %3
+  %37 = add nuw nsw i32 %11, %3
   %38 = icmp eq i32 %35, %5
   br i1 %38, label %39, label %9, !llvm.loop !58
 
@@ -1395,7 +1395,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef range(i32 1, 9) %3) unnamed_addr #3 {
   %5 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
   %6 = zext nneg i32 %3 to i64

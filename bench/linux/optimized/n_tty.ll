@@ -3149,7 +3149,7 @@ define internal fastcc i64 @n_tty_receive_buf_common(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = icmp eq i64 %3, 0
   br i1 %6, label %.loopexit, label %7
 
@@ -3295,7 +3295,7 @@ define internal fastcc void @n_tty_receive_buf_closing(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef range(i64 -2147483646, 2147483648) %3, i1 noundef zeroext %4) unnamed_addr #4 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 576
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq i64 %3, 0
@@ -5019,7 +5019,7 @@ define internal fastcc void @n_tty_receive_buf_standard(ptr noundef %0, ptr noca
 declare dso_local void @kill_fasync(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_char_flagged(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 0) %2) unnamed_addr #4 align 16 {
   switch i8 %2, label %82 [
     i8 1, label %4
     i8 3, label %32
@@ -5171,7 +5171,7 @@ declare dso_local ptr @tty_driver_name(ptr noundef) local_unnamed_addr #3
 declare dso_local ptr @tty_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @isig(i32 noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @isig(i32 noundef range(i32 2, 21) %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 276
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 128
@@ -5592,7 +5592,7 @@ define internal fastcc void @n_tty_receive_char(ptr noundef %0, i8 noundef zeroe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 noundef range(i32 2, 21) %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
   tail call fastcc void @isig(i32 noundef %1, ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   %5 = load i32, ptr %4, align 8
@@ -5758,7 +5758,7 @@ define internal fastcc void @n_tty_receive_signal_char(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @echo_char(i8 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 16 {
+define internal fastcc void @echo_char(i8 noundef zeroext range(i8 11, 10) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 576
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i8 %0, -1
@@ -5882,7 +5882,7 @@ define internal fastcc void @commit_echoes(ptr noundef %0) unnamed_addr #4 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @n_tty_receive_handle_newline(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #4 align 16 {
+define internal fastcc void @n_tty_receive_handle_newline(ptr noundef %0, i8 noundef zeroext range(i8 11, 10) %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 576
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 4192

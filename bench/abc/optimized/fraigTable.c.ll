@@ -507,7 +507,7 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfo(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Fraig_TableResizeF(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @Fraig_TableResizeF(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #3 {
 Abc_Clock.exit:
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)

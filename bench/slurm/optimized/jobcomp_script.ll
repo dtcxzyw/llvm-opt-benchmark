@@ -460,7 +460,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
   store ptr %78, ptr %23, align 8
   store ptr null, ptr %78, align 8
   %79 = load i32, ptr %44, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef %79)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, i32 noundef %79)
   %80 = getelementptr inbounds i8, ptr %44, i64 12
   %81 = load i32, ptr %80, align 4
   %.not.i.i.i = icmp eq i32 %81, -2
@@ -485,7 +485,7 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
 91:                                               ; preds = %88, %86, %82, %77
   %.051.i.i.i = phi i32 [ %90, %88 ], [ 0, %86 ], [ 0, %77 ], [ 0, %82 ]
   %.0.i8.i.i = phi i32 [ 0, %88 ], [ 0, %86 ], [ 0, %77 ], [ %83, %82 ]
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.051.i.i.i, i32 noundef %.0.i8.i.i)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %.051.i.i.i, i32 noundef %.0.i8.i.i)
   %92 = getelementptr inbounds i8, ptr %44, i64 20
   %93 = load i32, ptr %92, align 4
   %.not60.i.i.i = icmp eq i32 %93, -2
@@ -510,51 +510,51 @@ _redirect_stdio.exit.i.i:                         ; preds = %_redirect_stdio.exi
 103:                                              ; preds = %100, %98, %94, %91
   %.152.i.i.i = phi i32 [ %102, %100 ], [ 0, %98 ], [ 0, %91 ], [ 0, %94 ]
   %.1.i.i.i = phi i32 [ 0, %100 ], [ 0, %98 ], [ 0, %91 ], [ %95, %94 ]
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %.152.i.i.i, i32 noundef %.1.i.i.i)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.32, i32 noundef %.152.i.i.i, i32 noundef %.1.i.i.i)
   %104 = getelementptr inbounds i8, ptr %44, i64 4
   %105 = load i32, ptr %104, align 4
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.30, i32 noundef %105)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.30, i32 noundef %105)
   %106 = getelementptr inbounds i8, ptr %44, i64 8
   %107 = load i32, ptr %106, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.30, i32 noundef %107)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.30, i32 noundef %107)
   %108 = getelementptr inbounds i8, ptr %44, i64 32
   %109 = load i32, ptr %108, align 8
   %.not62.i.i.i = icmp eq i32 %109, 0
   br i1 %.not62.i.i.i, label %115, label %110
 
 110:                                              ; preds = %103
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.30, i32 noundef %109)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.30, i32 noundef %109)
   %111 = getelementptr inbounds i8, ptr %44, i64 36
   %112 = load i32, ptr %111, align 4
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.30, i32 noundef %112)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.30, i32 noundef %112)
   %113 = load i32, ptr %108, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.30, i32 noundef %113)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.30, i32 noundef %113)
   %114 = load i32, ptr %111, align 4
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.30, i32 noundef %114)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.30, i32 noundef %114)
   br label %115
 
 115:                                              ; preds = %110, %103
   %116 = getelementptr inbounds i8, ptr %44, i64 24
   %117 = load i32, ptr %116, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.30, i32 noundef %117)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.30, i32 noundef %117)
   %118 = getelementptr inbounds i8, ptr %44, i64 28
   %119 = load i32, ptr %118, align 4
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.30, i32 noundef %119)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.30, i32 noundef %119)
   %120 = getelementptr inbounds i8, ptr %44, i64 64
   %121 = load i64, ptr %120, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %121)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i64 noundef %121)
   %122 = getelementptr inbounds i8, ptr %44, i64 72
   %123 = load i64, ptr %122, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i64 noundef %123)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.43, i64 noundef %123)
   %124 = getelementptr inbounds i8, ptr %44, i64 56
   %125 = load i64, ptr %124, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, i64 noundef %125)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.43, i64 noundef %125)
   %126 = getelementptr inbounds i8, ptr %44, i64 44
   %127 = load i32, ptr %126, align 4
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.30, i32 noundef %127)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.30, i32 noundef %127)
   %128 = getelementptr inbounds i8, ptr %44, i64 48
   %129 = load i32, ptr %128, align 8
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.30, i32 noundef %129)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.30, i32 noundef %129)
   %130 = getelementptr inbounds i8, ptr %44, i64 16
   %131 = load i32, ptr %130, align 8
   %132 = call ptr @slurmdb_job_flags_str(i32 noundef %131) #10
@@ -1359,7 +1359,7 @@ _env_append.exit181.i.i.i:                        ; preds = %_extend_env.exit.i1
   br i1 %.not67.i.i.i, label %516, label %515
 
 515:                                              ; preds = %_env_append.exit181.i.i.i
-  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef nonnull %23, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef nonnull %514)
+  call void (ptr, ptr, ptr, ...) @_env_append_fmt(ptr noundef %23, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, ptr noundef nonnull %514)
   br label %516
 
 516:                                              ; preds = %515, %_env_append.exit181.i.i.i
@@ -2104,7 +2104,7 @@ declare void @slurm_closeall(i32 noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_env_append_fmt(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #0 {
+define internal void @_env_append_fmt(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16

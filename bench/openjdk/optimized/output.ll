@@ -4529,7 +4529,7 @@ _ZNK4Type8make_ptrEv.exit:                        ; preds = %428, %431, %434
 declare noundef ptr @_ZN8ciObject17constant_encodingEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13new_loc_valueP13PhaseRegAllociN8Location4TypeE(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 10) %2) unnamed_addr #0 {
   %4 = icmp ne i32 %1, -1
   %5 = icmp slt i32 %1, 616
   %6 = and i1 %4, %5
@@ -4544,15 +4544,15 @@ _ZN7OptoReg8as_VMRegEi.exit:                      ; preds = %3
   %12 = trunc i64 %11 to i32
   %13 = sub i32 %12, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1) to i32)
   %14 = shl i32 %13, 5
-  %15 = or i32 %2, %14
-  %16 = or i32 %15, 16
+  %15 = or disjoint i32 %14, %2
+  %16 = or disjoint i32 %15, 16
   br label %22
 
 17:                                               ; preds = %3
   %18 = tail call noundef i32 @_ZNK13PhaseRegAlloc10reg2offsetEi(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) #14
   %19 = shl i32 %18, 3
   %20 = and i32 %19, -32
-  %21 = or i32 %20, %2
+  %21 = or disjoint i32 %20, %2
   br label %22
 
 22:                                               ; preds = %17, %_ZN7OptoReg8as_VMRegEi.exit

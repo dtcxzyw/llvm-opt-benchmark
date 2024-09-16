@@ -218,7 +218,7 @@ define void @_ZN7jsonnet8internal23jsonnet_static_analysisEPNS0_3ASTE(ptr nounde
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 40
   store i64 0, ptr %8, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %2, ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %2, ptr noundef %0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %9 unwind label %19
 
 9:                                                ; preds = %1
@@ -257,7 +257,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit2: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8
@@ -343,7 +343,7 @@ define internal fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbR
 55:                                               ; preds = %4
   %56 = getelementptr inbounds i8, ptr %1, i64 128
   %57 = load ptr, ptr %56, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %8, ptr noundef %57, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef %57, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 58:                                               ; preds = %55
@@ -384,7 +384,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit: ; pred
   %.sroa.0457.0579 = phi ptr [ %68, %.lr.ph580 ], [ %83, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit199 ]
   %75 = getelementptr inbounds i8, ptr %.sroa.0457.0579, i64 56
   %76 = load ptr, ptr %75, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %9, ptr noundef %76, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef %76, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %77 unwind label %.loopexit.split-lp.loopexit
 
 77:                                               ; preds = %74
@@ -468,7 +468,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit199: ; p
 96:                                               ; preds = %.lr.ph577, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit201
   %.sroa.0453.0575 = phi ptr [ %90, %.lr.ph577 ], [ %104, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit201 ]
   %97 = load ptr, ptr %.sroa.0453.0575, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %10, ptr noundef %97, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %97, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %98 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 98:                                               ; preds = %96
@@ -502,7 +502,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit201: ; p
 107:                                              ; preds = %4
   %108 = getelementptr inbounds i8, ptr %1, i64 128
   %109 = load ptr, ptr %108, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %11, ptr noundef %109, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef %109, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %110 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 110:                                              ; preds = %107
@@ -528,7 +528,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit203: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit202
   %119 = getelementptr inbounds i8, ptr %1, i64 168
   %120 = load ptr, ptr %119, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %12, ptr noundef %120, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef %120, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %121 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 121:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit203
@@ -566,7 +566,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 134:                                              ; preds = %4
   %135 = getelementptr inbounds i8, ptr %1, i64 128
   %136 = load ptr, ptr %135, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef %136, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %136, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %137 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 137:                                              ; preds = %134
@@ -592,7 +592,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit207: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit206
   %146 = getelementptr inbounds i8, ptr %1, i64 160
   %147 = load ptr, ptr %146, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef %147, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef %147, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %148 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 148:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit207
@@ -618,7 +618,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit209: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit208
   %157 = getelementptr inbounds i8, ptr %1, i64 192
   %158 = load ptr, ptr %157, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef %158, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef %158, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %159 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 159:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit209
@@ -662,7 +662,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 174:                                              ; preds = %4
   %175 = getelementptr inbounds i8, ptr %1, i64 128
   %176 = load ptr, ptr %175, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef %176, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef %176, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %177 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 177:                                              ; preds = %174
@@ -794,7 +794,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit:
   br label %.lr.ph.i.i.i215
 
 223:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.pre.pre.i.i480)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull align 8 dereferenceable(32) %.pre.i.pre.pre.i.i480)
           to label %224 unwind label %.loopexit.split-lp511
 
 224:                                              ; preds = %223
@@ -974,7 +974,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
 ._crit_edge563:                                   ; preds = %278, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EEC2ERKS8_.exit
   %280 = getelementptr inbounds i8, ptr %1, i64 208
   %281 = load ptr, ptr %280, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef %281, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %281, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %282 unwind label %.loopexit.split-lp511
 
 282:                                              ; preds = %._crit_edge563
@@ -997,7 +997,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
   br i1 %.not, label %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit245, label %291
 
 291:                                              ; preds = %288
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull %290, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %17)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull %290, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %17)
           to label %292 unwind label %.loopexit.split-lp503.loopexit
 
 292:                                              ; preds = %291
@@ -1155,7 +1155,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit250: ; p
 331:                                              ; preds = %321
   %332 = getelementptr inbounds i8, ptr %1, i64 128
   %333 = load ptr, ptr %332, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %25, ptr noundef %333, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %25, ptr noundef %333, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %334 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 334:                                              ; preds = %331
@@ -1187,7 +1187,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 345:                                              ; preds = %4
   %346 = getelementptr inbounds i8, ptr %1, i64 128
   %347 = load ptr, ptr %346, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %26, ptr noundef %347, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %26, ptr noundef %347, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %348 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 348:                                              ; preds = %345
@@ -1213,7 +1213,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit257: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit256
   %357 = getelementptr inbounds i8, ptr %1, i64 168
   %358 = load ptr, ptr %357, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %27, ptr noundef %358, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %27, ptr noundef %358, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %359 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 359:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit257
@@ -1426,7 +1426,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
   %.sroa.0431.0553 = phi ptr [ %428, %.lr.ph554 ], [ %442, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit299 ]
   %434 = getelementptr inbounds i8, ptr %.sroa.0431.0553, i64 56
   %435 = load ptr, ptr %434, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %31, ptr noundef %435, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %29)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %435, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %29)
           to label %436 unwind label %.loopexit.split-lp516.loopexit
 
 436:                                              ; preds = %433
@@ -1480,7 +1480,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit299: ; p
 ._crit_edge555:                                   ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit299, %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit296
   %447 = getelementptr inbounds i8, ptr %1, i64 152
   %448 = load ptr, ptr %447, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %32, ptr noundef %448, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %29)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %448, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %29)
           to label %449 unwind label %.loopexit.split-lp516.loopexit.split-lp
 
 449:                                              ; preds = %._crit_edge555
@@ -1603,7 +1603,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit308: ; p
   %.sroa.0423.0546 = phi ptr [ %482, %.lr.ph ], [ %508, %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit315 ]
   %492 = getelementptr inbounds i8, ptr %.sroa.0423.0546, i64 8
   %493 = load ptr, ptr %492, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %33, ptr noundef %493, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %33, ptr noundef %493, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %494 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 494:                                              ; preds = %491
@@ -1626,7 +1626,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit312: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit311
   %500 = getelementptr inbounds i8, ptr %.sroa.0423.0546, i64 16
   %501 = load ptr, ptr %500, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %34, ptr noundef %501, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef %501, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %502 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 502:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit312
@@ -1679,7 +1679,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit318: ; p
 517:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit318
   %518 = getelementptr inbounds i8, ptr %.sroa.0419.0, i64 16
   %519 = load ptr, ptr %518, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %35, ptr noundef %519, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %519, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %520 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 520:                                              ; preds = %517
@@ -1825,7 +1825,7 @@ _ZNSt8_Rb_treeIPKN7jsonnet8internal10IdentifierES4_St9_IdentityIS4_ESt4lessIS4_E
   %568 = phi ptr [ %561, %.noexc351 ], [ %546, %553 ]
   %569 = getelementptr inbounds i8, ptr %1, i64 128
   %570 = load ptr, ptr %569, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %37, ptr noundef %570, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %36)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %37, ptr noundef %570, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %36)
           to label %571 unwind label %607
 
 571:                                              ; preds = %567
@@ -1851,7 +1851,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit355: ; preds = %_ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8_.exit354
   %580 = getelementptr inbounds i8, ptr %1, i64 136
   %581 = load ptr, ptr %580, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef %581, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %36)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef %581, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %36)
           to label %582 unwind label %607
 
 582:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit355
@@ -1881,7 +1881,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit358: ; p
 _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE5eraseERKS4_.exit360: ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit358
   %592 = getelementptr inbounds i8, ptr %1, i64 152
   %593 = load ptr, ptr %592, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef %593, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef %593, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %594 unwind label %607
 
 594:                                              ; preds = %_ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE5eraseERKS4_.exit360
@@ -2021,7 +2021,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit363: ; p
 636:                                              ; preds = %626
   %637 = getelementptr inbounds i8, ptr %1, i64 152
   %638 = load ptr, ptr %637, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %44, ptr noundef %638, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %44, ptr noundef %638, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %639 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 639:                                              ; preds = %636
@@ -2053,7 +2053,7 @@ _ZN7jsonnet8internalL6appendERSt3setIPKNS0_10IdentifierESt4lessIS4_ESaIS4_EERKS8
 650:                                              ; preds = %4
   %651 = getelementptr inbounds i8, ptr %1, i64 136
   %652 = load ptr, ptr %651, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %45, ptr noundef %652, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  invoke fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable align 8 %45, ptr noundef %652, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %653 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 653:                                              ; preds = %650
@@ -2121,7 +2121,7 @@ _ZNKSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit
   %678 = tail call ptr @__cxa_allocate_exception(i64 96) #20
   %679 = getelementptr inbounds i8, ptr %1, i64 8
   %680 = load ptr, ptr %665, align 8
-  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias nonnull writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %680)
+  invoke fastcc void @_ZN7jsonnet8internalL11encode_utf8ERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE(ptr dead_on_unwind noalias writable align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %680)
           to label %681 unwind label %.thread473
 
 681:                                              ; preds = %_ZNKSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EE4findERKS4_.exit.thread

@@ -331,7 +331,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr nocapture noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc noundef ptr @net_vhost_vdpa_init(ptr noundef %peer, ptr noundef %name, i32 noundef range(i32 0, -1) %vdpa_device_fd, i32 noundef %queue_pair_index, i32 noundef range(i32 1, 3) %nvqs, i1 noundef zeroext %is_datapath, i1 noundef zeroext %svq, ptr nocapture noundef readonly byval(%struct.vhost_vdpa_iova_range) align 8 %iova_range, i64 noundef %features, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %device_id.i.i = alloca i32, align 4
   %options.i = alloca %struct.VhostNetOptions, align 8
@@ -1429,7 +1429,7 @@ if.then.i:                                        ; preds = %if.then2
   store ptr %mac.i, ptr %data.i, align 8
   %iov_len.i32 = getelementptr inbounds i8, ptr %data.i, i64 8
   store i64 6, ptr %iov_len.i32, align 8
-  %call1.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef nonnull %data.i, i64 noundef 1)
+  %call1.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 1, ptr noundef %data.i, i64 noundef 1)
   %cmp.i = icmp slt i64 %call1.i, 0
   br i1 %cmp.i, label %vhost_vdpa_net_load_mac.exit.thread77, label %if.then.if.end5_crit_edge.i
 
@@ -1492,7 +1492,7 @@ vhost_vdpa_net_load_mac.exit:                     ; preds = %lor.lhs.false.i
   %iov_len34.i = getelementptr inbounds i8, ptr %data20.i, i64 56
   %conv35.i = zext i32 %mul15.i to i64
   store i64 %conv35.i, ptr %iov_len34.i, align 8
-  %call38.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef nonnull %data20.i, i64 noundef 4)
+  %call38.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 1, i8 noundef zeroext 0, ptr noundef %data20.i, i64 noundef 4)
   %spec.select.i = trunc nsw i64 %call38.i to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %uni.i)
@@ -1516,7 +1516,7 @@ if.end.i:                                         ; preds = %if.end10
   store ptr %mq.i, ptr %data.i33, align 8
   %iov_len.i36 = getelementptr inbounds i8, ptr %data.i33, i64 8
   store i64 2, ptr %iov_len.i36, align 8
-  %call2.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull %data.i33, i64 noundef 1)
+  %call2.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef %data.i33, i64 noundef 1)
   %cmp.i37 = icmp slt i64 %call2.i, 0
   br i1 %cmp.i37, label %vhost_vdpa_net_load_mq.exit.thread86, label %if.end6.i
 
@@ -1609,7 +1609,7 @@ vhost_vdpa_net_load_rss.exit:                     ; preds = %vhost_vdpa_net_load
   store ptr %key.i, ptr %arrayinit.element37.i, align 16
   %iov_len40.i = getelementptr inbounds i8, ptr %data.i61, i64 56
   store i64 40, ptr %iov_len40.i, align 8
-  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef nonnull %data.i61, i64 noundef 4)
+  %call45.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 1, ptr noundef %data.i61, i64 noundef 4)
   call void @g_free(ptr noundef %call.i66) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i61)
@@ -1673,7 +1673,7 @@ vhost_vdpa_net_load_rss.exit.i:                   ; preds = %lor.lhs.false.i.i
   store ptr %key.i.i, ptr %arrayinit.element37.i.i, align 16
   %iov_len40.i.i = getelementptr inbounds i8, ptr %data.i.i, i64 56
   store i64 40, ptr %iov_len40.i.i, align 8
-  %call45.i.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 2, ptr noundef nonnull %data.i.i, i64 noundef 4)
+  %call45.i.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 4, i8 noundef zeroext 2, ptr noundef %data.i.i, i64 noundef 4)
   call void @g_free(ptr noundef nonnull %call.i.i) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cfg.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %data.i.i)
@@ -1721,7 +1721,7 @@ vhost_vdpa_net_load_offloads.exit:                ; preds = %if.end.i44
   store ptr %offloads.i, ptr %data.i40, align 8
   %iov_len.i47 = getelementptr inbounds i8, ptr %data.i40, i64 8
   store i64 8, ptr %iov_len.i47, align 8
-  %call6.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef nonnull %data.i40, i64 noundef 1)
+  %call6.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 5, i8 noundef zeroext 0, ptr noundef %data.i40, i64 noundef 1)
   %spec.select.i48 = trunc nsw i64 %call6.i to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %offloads.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i40)
@@ -1753,7 +1753,7 @@ if.then2.i:                                       ; preds = %land.lhs.true.i
   store ptr %on.addr.i.i, ptr %data.i.i50, align 8
   %iov_len.i.i58 = getelementptr inbounds i8, ptr %data.i.i50, i64 8
   store i64 1, ptr %iov_len.i.i58, align 8
-  %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %data.i.i50, i64 noundef 1)
+  %call.i.i59 = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef %data.i.i50, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i.i50)
   %cmp.i60 = icmp slt i64 %call.i.i59, 0
@@ -1778,7 +1778,7 @@ if.then17.i:                                      ; preds = %lor.lhs.false.i57, 
   store ptr %on.addr.i37.i, ptr %data.i38.i, align 8
   %iov_len.i39.i = getelementptr inbounds i8, ptr %data.i38.i, i64 8
   store i64 1, ptr %iov_len.i39.i, align 8
-  %call.i40.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef nonnull %data.i38.i, i64 noundef 1)
+  %call.i40.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 1, ptr noundef %data.i38.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i37.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i38.i)
   %cmp20.i = icmp slt i64 %call.i40.i, 0
@@ -1803,7 +1803,7 @@ if.then37.i:                                      ; preds = %if.end35.i
   store ptr %on.addr.i44.i, ptr %data.i45.i, align 8
   %iov_len.i46.i = getelementptr inbounds i8, ptr %data.i45.i, i64 8
   store i64 1, ptr %iov_len.i46.i, align 8
-  %call.i47.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 2, ptr noundef nonnull %data.i45.i, i64 noundef 1)
+  %call.i47.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 2, ptr noundef %data.i45.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i44.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i45.i)
   %cmp40.i = icmp slt i64 %call.i47.i, 0
@@ -1822,7 +1822,7 @@ if.then47.i:                                      ; preds = %if.end45.i
   store ptr %on.addr.i49.i, ptr %data.i50.i, align 8
   %iov_len.i51.i = getelementptr inbounds i8, ptr %data.i50.i, i64 8
   store i64 1, ptr %iov_len.i51.i, align 8
-  %call.i52.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 3, ptr noundef nonnull %data.i50.i, i64 noundef 1)
+  %call.i52.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 3, ptr noundef %data.i50.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i49.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i50.i)
   %cmp50.i = icmp slt i64 %call.i52.i, 0
@@ -1841,7 +1841,7 @@ if.then57.i:                                      ; preds = %if.end55.i
   store ptr %on.addr.i54.i, ptr %data.i55.i, align 8
   %iov_len.i56.i = getelementptr inbounds i8, ptr %data.i55.i, i64 8
   store i64 1, ptr %iov_len.i56.i, align 8
-  %call.i57.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 4, ptr noundef nonnull %data.i55.i, i64 noundef 1)
+  %call.i57.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 4, ptr noundef %data.i55.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i54.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i55.i)
   %cmp60.i = icmp slt i64 %call.i57.i, 0
@@ -1860,7 +1860,7 @@ if.then67.i:                                      ; preds = %if.end65.i
   store ptr %on.addr.i59.i, ptr %data.i60.i, align 8
   %iov_len.i61.i = getelementptr inbounds i8, ptr %data.i60.i, i64 8
   store i64 1, ptr %iov_len.i61.i, align 8
-  %call.i62.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 5, ptr noundef nonnull %data.i60.i, i64 noundef 1)
+  %call.i62.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef nonnull readonly %nc, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 0, i8 noundef zeroext 5, ptr noundef %data.i60.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %on.addr.i59.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i60.i)
   %cmp70.i = icmp slt i64 %call.i62.i, 0
@@ -1872,7 +1872,7 @@ vhost_vdpa_net_load_rx.exit:                      ; preds = %if.then2.i, %if.the
   br label %return
 
 if.end40:                                         ; preds = %if.end65.i, %if.then67.i, %if.end31.i, %if.end30
-  %call41 = call fastcc i32 @vhost_vdpa_net_load_vlan(ptr noundef nonnull %nc, ptr noundef nonnull %call.i, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor)
+  %call41 = call fastcc i32 @vhost_vdpa_net_load_vlan(ptr noundef nonnull %nc, ptr noundef nonnull %call.i, ptr noundef %out_cursor, ptr noundef %in_cursor)
   %tobool42.not = icmp eq i32 %call41, 0
   br i1 %tobool42.not, label %if.end50, label %return
 
@@ -2054,7 +2054,7 @@ declare ptr @vhost_iova_tree_find_iova(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @vhost_vdpa_dma_unmap(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_net_load_vlan(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr noundef %out_cursor, ptr noundef %in_cursor) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @vhost_vdpa_net_load_vlan(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor) unnamed_addr #0 {
 entry:
   %vid.addr.i = alloca i16, align 2
   %data.i = alloca %struct.iovec, align 8
@@ -2101,7 +2101,7 @@ if.then8:                                         ; preds = %for.body3
   store i16 %conv, ptr %vid.addr.i, align 2
   store ptr %vid.addr.i, ptr %data.i, align 8
   store i64 2, ptr %iov_len.i, align 8
-  %call.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef nonnull %data.i, i64 noundef 1)
+  %call.i = call fastcc i64 @vhost_vdpa_net_load_cmd(ptr noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext 2, i8 noundef zeroext 0, ptr noundef %data.i, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %vid.addr.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %data.i)
   %cmp11.not = icmp eq i64 %call.i, 0
@@ -2177,7 +2177,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -2147483648, 1) i64 @vhost_vdpa_net_load_cmd(ptr nocapture noundef readonly %s, ptr noundef %out_cursor, ptr noundef %in_cursor, i8 noundef zeroext %class, i8 noundef zeroext %cmd, ptr noundef %data_sg, i64 noundef %data_num) unnamed_addr #0 {
+define internal fastcc range(i64 -2147483648, 1) i64 @vhost_vdpa_net_load_cmd(ptr nocapture noundef readonly %s, ptr noundef nonnull %out_cursor, ptr noundef nonnull %in_cursor, i8 noundef zeroext range(i8 0, 6) %class, i8 noundef zeroext range(i8 0, 6) %cmd, ptr noundef nonnull %data_sg, i64 noundef range(i64 1, 5) %data_num) unnamed_addr #0 {
 entry:
   %out_cursor.addr = alloca ptr, align 8
   %in_cursor.addr = alloca ptr, align 8
@@ -2191,7 +2191,7 @@ entry:
   %cmd2 = getelementptr inbounds i8, ptr %ctrl, i64 1
   store i8 %cmd, ptr %cmd2, align 1
   %conv = trunc nuw nsw i64 %data_num to i32
-  %call = tail call i64 @iov_size(ptr noundef %data_sg, i32 noundef %conv) #13
+  %call = tail call i64 @iov_size(ptr noundef nonnull %data_sg, i32 noundef %conv) #13
   %shadow_vqs = getelementptr inbounds i8, ptr %s, i64 640
   %call.i.i = tail call i32 @getpagesize() #14
   %conv.i.i = sext i32 %call.i.i to i64
@@ -2216,7 +2216,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp7, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call9 = tail call i64 @iov_size(ptr noundef %out_cursor, i32 noundef 1) #13
+  %call9 = tail call i64 @iov_size(ptr noundef nonnull %out_cursor, i32 noundef 1) #13
   %cmp10 = icmp ult i64 %call9, %add
   br i1 %cmp10, label %if.then12, label %if.end20
 
@@ -2287,9 +2287,9 @@ if.else.i:                                        ; preds = %if.end20
 if.else.i20:                                      ; preds = %if.else.i, %if.then.i
   %12 = load ptr, ptr %out_cursor, align 8
   %add.ptr = getelementptr i8, ptr %12, i64 2
-  %call.i21 = call i64 @iov_to_buf_full(ptr noundef %data_sg, i32 noundef %conv, i64 noundef 0, ptr noundef %add.ptr, i64 noundef %call) #13
+  %call.i21 = call i64 @iov_to_buf_full(ptr noundef nonnull %data_sg, i32 noundef %conv, i64 noundef 0, ptr noundef %add.ptr, i64 noundef %call) #13
   %call25 = call i32 @iov_copy(ptr noundef nonnull %out, i32 noundef 1, ptr noundef nonnull %out_cursor, i32 noundef 1, i64 noundef 0, i64 noundef %add) #13
-  %call26 = call i32 @iov_copy(ptr noundef nonnull %in, i32 noundef 1, ptr noundef %in_cursor, i32 noundef 1, i64 noundef 0, i64 noundef 1) #13
+  %call26 = call i32 @iov_copy(ptr noundef nonnull %in, i32 noundef 1, ptr noundef nonnull %in_cursor, i32 noundef 1, i64 noundef 0, i64 noundef 1) #13
   %s.val = load ptr, ptr %shadow_vqs, align 16
   %s.val.val = load ptr, ptr %s.val, align 8
   %s.val.val.val = load ptr, ptr %s.val.val, align 8

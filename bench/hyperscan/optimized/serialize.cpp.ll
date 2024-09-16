@@ -678,7 +678,7 @@ declare noundef ptr @_ZN7testing8UnitTest11GetInstanceEv() local_unnamed_addr #0
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7testing8UnitTest27parameterized_test_registryEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_110SerializePEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %line) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN7testing8internal29ParameterizedTestCaseRegistry24GetTestCasePatternHolderIN12_GLOBAL__N_110SerializePEEEPNS0_25ParameterizedTestCaseInfoIT_EEPKcSA_i(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef range(i32 84, 242) %line) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %0 = load ptr, ptr %this, align 8
@@ -1228,7 +1228,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_110SerializePEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJj7patternEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef %meta_factory) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_110SerializePEE14AddTestPatternEPKcS6_PNS0_19TestMetaFactoryBaseISt5tupleIJj7patternEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef readonly %test_base_name, ptr noundef nonnull %meta_factory) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i10.i = alloca i64, align 8
   %ref.tmp = alloca %"class.testing::internal::linked_ptr.22", align 8

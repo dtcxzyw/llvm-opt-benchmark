@@ -1613,7 +1613,7 @@ if.end77:                                         ; preds = %if.else68, %if.end6
   %key = getelementptr inbounds i8, ptr %ix, i64 52
   store i32 %22, ptr %key, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %savetv, ptr noundef nonnull align 8 dereferenceable(48) %arrayidx83, i64 48, i1 false)
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef 8)
+  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 8)
   %23 = load ptr, ptr %L78, align 8
   %base93 = getelementptr inbounds i8, ptr %23, i64 32
   %24 = load ptr, ptr %base93, align 8
@@ -3719,7 +3719,7 @@ if.then255:                                       ; preds = %lor.lhs.false, %sw.
   %and256 = and i32 %64, 2
   %tobool257.not = icmp eq i32 %and256, 0
   %cond258 = select i1 %tobool257.not, i32 6, i32 7
-  call fastcc void @rec_mm_comp_cdata(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %and136, i32 noundef %cond258)
+  call fastcc void @rec_mm_comp_cdata(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %and136, i32 noundef %cond258)
   br label %sw.epilog957
 
 if.end259:                                        ; preds = %lor.lhs.false
@@ -3861,7 +3861,7 @@ if.then379:                                       ; preds = %if.end343
   br label %if.end396
 
 if.else393:                                       ; preds = %if.end343
-  call fastcc void @rec_mm_comp(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %and136)
+  call fastcc void @rec_mm_comp(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %and136)
   br label %sw.epilog957
 
 if.end396:                                        ; preds = %if.then348, %if.then366, %if.then379
@@ -3896,7 +3896,7 @@ sw.bb408:                                         ; preds = %sw.epilog247, %sw.e
   br i1 %or.cond488, label %if.then416, label %if.end417
 
 if.then416:                                       ; preds = %sw.bb408
-  call fastcc void @rec_mm_comp_cdata(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %and136, i32 noundef 4)
+  call fastcc void @rec_mm_comp_cdata(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %and136, i32 noundef 4)
   br label %sw.epilog957
 
 if.end417:                                        ; preds = %sw.bb408
@@ -3940,7 +3940,7 @@ if.else453:                                       ; preds = %lor.lhs.false437, %
   br i1 %cmp454, label %if.then456, label %sw.epilog957
 
 if.then456:                                       ; preds = %if.else453
-  call fastcc void @rec_mm_equal(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %and136)
+  call fastcc void @rec_mm_equal(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %and136)
   br label %sw.epilog957
 
 sw.bb460:                                         ; preds = %sw.epilog247, %sw.epilog247
@@ -4026,7 +4026,7 @@ if.then523:                                       ; preds = %sw.bb512
 
 if.else526:                                       ; preds = %sw.bb512
   %keyv527 = getelementptr inbounds i8, ptr %ix, i64 8
-  call fastcc void @rec_mm_len(ptr noundef nonnull %J, i32 noundef %rc.1, ptr noundef nonnull %keyv527)
+  call fastcc void @rec_mm_len(ptr noundef nonnull %J, i32 noundef %rc.1, ptr noundef %keyv527)
   br label %if.end986
 
 sw.bb531:                                         ; preds = %sw.epilog247
@@ -4050,7 +4050,7 @@ if.else544:                                       ; preds = %sw.bb531
   %keyv548 = getelementptr inbounds i8, ptr %ix, i64 8
   %131 = load i64, ptr %keyv548, align 8
   store i64 %131, ptr %ix, align 8
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef 16)
+  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 16)
   br label %if.end986
 
 sw.bb551:                                         ; preds = %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247, %sw.epilog247
@@ -4099,7 +4099,7 @@ if.then592:                                       ; preds = %land.lhs.true582
   br label %sw.epilog957
 
 if.else598:                                       ; preds = %land.lhs.true582, %sw.bb568
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef %shr572)
+  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef %shr572)
   br label %if.end986
 
 recmod:                                           ; preds = %sw.epilog247, %sw.epilog247, %sw.bb551
@@ -4130,7 +4130,7 @@ if.then621:                                       ; preds = %land.lhs.true611
   br label %sw.epilog957
 
 if.else625:                                       ; preds = %land.lhs.true611, %recmod
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef 14)
+  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 14)
   br label %if.end986
 
 sw.bb628:                                         ; preds = %sw.epilog247
@@ -4159,7 +4159,7 @@ if.then648:                                       ; preds = %land.lhs.true638
   br label %sw.epilog957
 
 if.else652:                                       ; preds = %land.lhs.true638, %sw.bb628
-  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef nonnull %ix, i32 noundef 15)
+  call fastcc void @rec_mm_arith(ptr noundef nonnull %J, ptr noundef %ix, i32 noundef 15)
   br label %if.end986
 
 sw.bb655:                                         ; preds = %sw.epilog247
@@ -4745,7 +4745,7 @@ if.end1001:                                       ; preds = %sw.bb96, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_comp_fixup(ptr noundef %J, ptr noundef %pc, i32 noundef %cond) unnamed_addr #0 {
+define internal fastcc void @rec_comp_fixup(ptr noundef %J, ptr noundef %pc, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %pc, i64 4
   %0 = load i32, ptr %arrayidx, align 4
@@ -4797,7 +4797,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_comp_cdata(ptr noundef %J, ptr nocapture noundef %ix, i32 noundef %op, i32 noundef %mm) unnamed_addr #0 {
+define internal fastcc void @rec_mm_comp_cdata(ptr noundef %J, ptr nocapture noundef nonnull %ix, i32 noundef range(i32 0, 256) %op, i32 noundef range(i32 4, 8) %mm) unnamed_addr #0 {
 entry:
   tail call void @lj_snap_add(ptr noundef %J) #7
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -4820,7 +4820,7 @@ if.end:                                           ; preds = %entry, %if.else
   %storemerge = load i64, ptr %keyv, align 8
   store i64 %storemerge, ptr %ix, align 8
   %call = tail call i32 @lj_record_mm_lookup(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef %mm)
-  tail call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef %op)
+  tail call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef %ix, i32 noundef %op)
   ret void
 }
 
@@ -4863,7 +4863,7 @@ declare hidden i32 @lj_ir_numcmp(double noundef, double noundef, i32 noundef) lo
 declare hidden i32 @lj_ir_strcmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_comp(ptr noundef %J, ptr noundef %ix, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc void @rec_mm_comp(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
 entry:
   %mo1v = alloca %union.TValue, align 8
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -4956,7 +4956,7 @@ if.end48.sink.split:                              ; preds = %land.lhs.true18, %l
   br label %if.end48
 
 if.end48:                                         ; preds = %lor.lhs.false, %if.end48.sink.split
-  call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef %op.addr.0)
+  call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef %ix, i32 noundef %op.addr.0)
   br label %while.end
 
 nomatch:                                          ; preds = %while.body, %if.else35, %lor.lhs.false
@@ -4981,7 +4981,7 @@ while.end:                                        ; preds = %nomatch, %if.end48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_equal(ptr noundef %J, ptr noundef %ix, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc void @rec_mm_equal(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
 entry:
   %mo1v = alloca %union.TValue, align 8
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -5069,7 +5069,7 @@ if.end46.sink.split:                              ; preds = %land.lhs.true16, %l
   br label %if.end46
 
 if.end46:                                         ; preds = %if.end46.sink.split, %lor.lhs.false
-  call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef %op)
+  call fastcc void @rec_mm_callcomp(ptr noundef %J, ptr noundef %ix, i32 noundef %op)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else33, %lor.lhs.false, %if.end46, %entry
@@ -5081,7 +5081,7 @@ declare hidden i32 @lj_ir_tonum(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_len(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef readonly %tv) unnamed_addr #0 {
+define internal fastcc void @rec_mm_len(ptr noundef %J, i32 noundef %tr, ptr nocapture noundef nonnull readonly %tv) unnamed_addr #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %tab = getelementptr inbounds i8, ptr %ix, i64 48
@@ -5196,7 +5196,7 @@ if.else:                                          ; preds = %entry
 declare hidden i32 @lj_opt_narrow_unm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_arith(ptr noundef %J, ptr nocapture noundef %ix, i32 noundef %mm) unnamed_addr #0 {
+define internal fastcc void @rec_mm_arith(ptr noundef %J, ptr nocapture noundef nonnull %ix, i32 noundef range(i32 0, 32) %mm) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %mm, 8
   br i1 %cmp, label %cond.true.i, label %cond.false.i
@@ -5927,7 +5927,7 @@ for.end:                                          ; preds = %cond.end25, %cond.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_varg(ptr noundef %J, i32 noundef %dst, i64 noundef %nresults) unnamed_addr #0 {
+define internal fastcc void @rec_varg(ptr noundef %J, i32 noundef %dst, i64 noundef range(i64 -1, 4294967295) %nresults) unnamed_addr #0 {
 entry:
   %pt = getelementptr inbounds i8, ptr %J, i64 152
   %0 = load ptr, ptr %pt, align 8
@@ -6002,8 +6002,8 @@ if.end31:                                         ; preds = %if.end31.sink.split
   br i1 %cmp34, label %if.then36, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end31
-  %cmp38280 = icmp sgt i64 %nresults.addr.1, 0
-  br i1 %cmp38280, label %for.body.lr.ph, label %if.end301
+  %cmp38280.not = icmp eq i64 %nresults.addr.1, 0
+  br i1 %cmp38280.not, label %if.end301, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %base42 = getelementptr inbounds i8, ptr %J, i64 160
@@ -6554,7 +6554,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %J, ptr noundef %fori, i32 noundef %isforl) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @rec_for(ptr noundef %J, ptr noundef %fori, i32 noundef range(i32 0, 2) %isforl) unnamed_addr #0 {
 entry:
   %scev23 = alloca %struct.ScEvEntry, align 8
   %0 = load i32, ptr %fori, align 4
@@ -6920,7 +6920,7 @@ if.end135:                                        ; preds = %if.else129, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_loop_interp(ptr noundef %J, ptr noundef readonly %pc, i32 noundef %ev) unnamed_addr #0 {
+define internal fastcc void @rec_loop_interp(ptr noundef %J, ptr noundef readonly %pc, i32 noundef range(i32 0, 3) %ev) unnamed_addr #0 {
 entry:
   %parent = getelementptr inbounds i8, ptr %J, i64 3016
   %0 = load i32, ptr %parent, align 8
@@ -7375,7 +7375,7 @@ return:                                           ; preds = %if.else, %if.then60
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_loop_jit(ptr noundef %J, i32 noundef %lnk, i32 noundef %ev) unnamed_addr #0 {
+define internal fastcc void @rec_loop_jit(ptr noundef %J, i32 noundef %lnk, i32 noundef range(i32 0, 3) %ev) unnamed_addr #0 {
 entry:
   %parent = getelementptr inbounds i8, ptr %J, i64 3016
   %0 = load i32, ptr %parent, align 8
@@ -8258,7 +8258,7 @@ if.end150:                                        ; preds = %if.end142, %lor.lhs
 declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_for_loop(ptr noundef %J, ptr noundef %fori, ptr nocapture noundef writeonly %scev, i32 noundef %init) unnamed_addr #0 {
+define internal fastcc void @rec_for_loop(ptr noundef %J, ptr noundef %fori, ptr nocapture noundef writeonly %scev, i32 noundef range(i32 0, 2) %init) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %fori, align 4
   %shr = lshr i32 %0, 8
@@ -8336,12 +8336,12 @@ fori_arg.exit:                                    ; preds = %cond.end9, %if.then
   %arrayidx.i61 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i60
   %12 = load i32, ptr %arrayidx.i61, align 4
   %tobool.not.i62 = icmp eq i32 %12, 0
-  br i1 %tobool.not.i62, label %if.then.i64, label %fori_arg.exit81
+  br i1 %tobool.not.i62, label %if.then.i64, label %fori_arg.exit80
 
 if.then.i64:                                      ; preds = %fori_arg.exit
   %call.i65 = tail call fastcc i32 @find_kinit(ptr noundef nonnull %J, ptr noundef nonnull %fori, i32 noundef %add13, i32 noundef %cond10)
   %tobool1.not.i66 = icmp eq i32 %call.i65, 0
-  br i1 %tobool1.not.i66, label %if.then2.i67, label %fori_arg.exit81
+  br i1 %tobool1.not.i66, label %if.then2.i67, label %fori_arg.exit80
 
 if.then2.i67:                                     ; preds = %if.then.i64
   %cmp.i.i68 = icmp eq i32 %cond10, 19
@@ -8362,11 +8362,11 @@ if.then2.i67:                                     ; preds = %if.then.i64
   store i16 %conv2.i.i.i74, ptr %op2.i.i.i.i77, align 2
   %call.i.i.i78 = tail call i32 @lj_ir_emit(ptr noundef nonnull %J) #7
   %16 = load ptr, ptr %base1, align 8
-  %arrayidx.i.i.i80 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i60
-  store i32 %call.i.i.i78, ptr %arrayidx.i.i.i80, align 4
-  br label %fori_arg.exit81
+  %arrayidx.i.i.i79 = getelementptr inbounds i32, ptr %16, i64 %idxprom.i60
+  store i32 %call.i.i.i78, ptr %arrayidx.i.i.i79, align 4
+  br label %fori_arg.exit80
 
-fori_arg.exit81:                                  ; preds = %fori_arg.exit, %if.then.i64, %if.then2.i67
+fori_arg.exit80:                                  ; preds = %fori_arg.exit, %if.then.i64, %if.then2.i67
   %tr.0.i63 = phi i32 [ %12, %fori_arg.exit ], [ %call.i65, %if.then.i64 ], [ %call.i.i.i78, %if.then2.i67 ]
   %17 = getelementptr i8, ptr %arrayidx, i64 20
   %arrayidx15.val = load i32, ptr %17, align 4
@@ -8391,21 +8391,21 @@ fori_arg.exit81:                                  ; preds = %fori_arg.exit, %if.
   store i16 %conv26, ptr %start, align 2
   br i1 %tobool.not, label %if.then37, label %if.end45
 
-if.then37:                                        ; preds = %fori_arg.exit81
+if.then37:                                        ; preds = %fori_arg.exit80
   %start41 = getelementptr inbounds i8, ptr %J, i64 2994
   %18 = load i16, ptr %start41, align 2
-  %cmp.i82 = icmp eq i32 %cond10, 19
+  %cmp.i81 = icmp eq i32 %cond10, 19
   %tobool7.not.i = icmp eq i16 %18, 0
-  %19 = and i1 %cmp.i82, %tobool7.not.i
+  %19 = and i1 %cmp.i81, %tobool7.not.i
   %20 = select i1 %19, i32 128, i32 0
   %add.i = add i32 %20, %cond10
   %21 = trunc i32 %add.i to i16
   %conv.i.i = or i16 %21, 18176
   %baseslot.i.i = getelementptr inbounds i8, ptr %J, i64 176
   %22 = load i32, ptr %baseslot.i.i, align 8
-  %add.i.i84 = add nsw i32 %22, %and
-  %conv1.i.i = trunc i32 %add.i.i84 to i16
-  %conv2.i.i = select i1 %cmp.i82, i16 40, i16 32
+  %add.i.i83 = add nsw i32 %22, %and
+  %conv1.i.i = trunc i32 %add.i.i83 to i16
+  %conv2.i.i = select i1 %cmp.i81, i16 40, i16 32
   %fold.i.i.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i.i.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 %conv.i.i, ptr %ot1.i.i.i, align 4
@@ -8418,8 +8418,8 @@ if.then37:                                        ; preds = %fori_arg.exit81
   store i32 %call.i.i, ptr %arrayidx.i.i, align 4
   br label %if.end45
 
-if.end45:                                         ; preds = %if.then37, %fori_arg.exit81
-  %idx.0 = phi i32 [ %4, %fori_arg.exit81 ], [ %call.i.i, %if.then37 ]
+if.end45:                                         ; preds = %if.then37, %fori_arg.exit80
+  %idx.0 = phi i32 [ %4, %fori_arg.exit80 ], [ %call.i.i, %if.then37 ]
   %tobool46.not = icmp eq i32 %init, 0
   br i1 %tobool46.not, label %if.then47, label %if.end56
 
@@ -8614,7 +8614,7 @@ declare hidden void @lj_snap_shrink(ptr noundef) local_unnamed_addr #1
 declare hidden i32 @lj_debug_line(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_callcomp(ptr noundef %J, ptr nocapture noundef readonly %ix, i32 noundef %op) unnamed_addr #0 {
+define internal fastcc void @rec_mm_callcomp(ptr noundef %J, ptr nocapture noundef nonnull readonly %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
 entry:
   %and = and i32 %op, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -8735,7 +8735,7 @@ declare hidden void @lj_meta_for(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden i32 @lj_opt_narrow_forl(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_for_check(ptr noundef %J, i32 noundef %t, i32 noundef %dir, i32 noundef %stop, i32 noundef %step, i32 noundef %init) unnamed_addr #0 {
+define internal fastcc void @rec_for_check(ptr noundef %J, i32 noundef %t, i32 noundef range(i32 0, 2) %dir, i32 noundef %stop, i32 noundef %step, i32 noundef range(i32 0, 2) %init) unnamed_addr #0 {
 entry:
   %conv = trunc i32 %step to i16
   %conv1 = and i32 %step, 32768
@@ -8757,7 +8757,7 @@ cond.false:                                       ; preds = %if.then
 cond.end:                                         ; preds = %cond.false, %cond.true
   %cond = phi i32 [ %call, %cond.true ], [ %call5, %cond.false ]
   %tobool.not.not = icmp eq i32 %dir, 0
-  %shl = select i1 %tobool.not.not, i32 0, i32 256
+  %shl = shl nuw nsw i32 %dir, 8
   %or = or i32 %t, %shl
   %0 = trunc i32 %or to i16
   %conv8 = or i16 %0, 128
@@ -9016,7 +9016,7 @@ declare hidden void @lj_trace_flush(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @find_kinit(ptr noundef %J, ptr noundef readonly %endpc, i32 noundef %slot, i32 noundef %t) unnamed_addr #0 {
+define internal fastcc i32 @find_kinit(ptr noundef %J, ptr noundef readonly %endpc, i32 noundef range(i32 0, 258) %slot, i32 noundef %t) unnamed_addr #0 {
 entry:
   %pt = getelementptr inbounds i8, ptr %J, i64 152
   %0 = load ptr, ptr %pt, align 8

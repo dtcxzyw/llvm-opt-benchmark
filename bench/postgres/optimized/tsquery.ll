@@ -303,7 +303,7 @@ define dso_local ptr @parse_tsquery(ptr noundef %0, ptr nocapture noundef readon
   %28 = getelementptr inbounds i8, ptr %7, i64 48
   store ptr %26, ptr %28, align 8
   store i8 0, ptr %26, align 1
-  call fastcc void @makepol(ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2)
+  call fastcc void @makepol(ptr noundef %7, ptr noundef %1, i64 noundef %2)
   %29 = load ptr, ptr %23, align 8
   call void @close_tsvector_parser(ptr noundef %29) #12
   br i1 %.not58, label %37, label %30
@@ -461,7 +461,7 @@ list_length.exit64:                               ; preds = %list_length.exit62,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i8 0, ptr %8, align 1
   store i32 0, ptr %6, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %74, ptr noundef nonnull %6, i32 noundef %107, ptr noundef nonnull %8)
+  call fastcc void @findoprnd_recurse(ptr noundef %74, ptr noundef %6, i32 noundef %107, ptr noundef %8)
   %108 = load i32, ptr %6, align 4
   %.not.i65 = icmp eq i32 %108, %107
   br i1 %.not.i65, label %findoprnd.exit, label %109
@@ -1107,7 +1107,7 @@ declare ptr @init_tsvector_parser(ptr noundef, i32 noundef, ptr noundef) local_u
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makepol(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @makepol(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1147,7 +1147,7 @@ define internal fastcc void @makepol(ptr noundef %0, ptr nocapture noundef reado
 
 22:                                               ; preds = %12
   %23 = load i8, ptr %4, align 1
-  call fastcc void @cleanOpStack(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i8 noundef signext %23)
+  call fastcc void @cleanOpStack(ptr noundef %0, ptr noundef %7, ptr noundef %8, i8 noundef signext %23)
   %24 = load i32, ptr %8, align 4
   %25 = icmp eq i32 %24, 32
   br i1 %25, label %26, label %pushOpStack.exit
@@ -1172,7 +1172,7 @@ pushOpStack.exit:                                 ; preds = %22
   br label %68
 
 35:                                               ; preds = %12
-  call fastcc void @makepol(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
+  call fastcc void @makepol(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %68
 
 36:                                               ; preds = %12
@@ -1353,7 +1353,7 @@ define dso_local i64 @tsqueryout(ptr nocapture noundef readonly %0) local_unname
   %20 = getelementptr i8, ptr %12, i64 %19
   %21 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %20, ptr %21, align 8
-  call fastcc void @infix(ptr noundef nonnull %2, i32 noundef -1, i1 noundef zeroext false)
+  call fastcc void @infix(ptr noundef %2, i32 noundef -1, i1 noundef zeroext false)
   %22 = load i64, ptr %3, align 8
   %23 = inttoptr i64 %22 to ptr
   %.not = icmp eq ptr %5, %23
@@ -1374,7 +1374,7 @@ define dso_local i64 @tsqueryout(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @infix(ptr noundef nonnull %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.INFIX, align 8
   tail call void @check_stack_depth() #12
   %5 = load ptr, ptr %0, align 8
@@ -1693,7 +1693,7 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   %181 = load ptr, ptr %0, align 8
   %182 = getelementptr i8, ptr %181, i64 12
   store ptr %182, ptr %0, align 8
-  tail call fastcc void @infix(ptr noundef nonnull %0, i32 noundef 4, i1 noundef zeroext false)
+  tail call fastcc void @infix(ptr noundef %0, i32 noundef 4, i1 noundef zeroext false)
   br i1 %129, label %.preheader, label %321
 
 .preheader:                                       ; preds = %._crit_edge256
@@ -1821,10 +1821,10 @@ define internal fastcc void @infix(ptr noundef %0, i32 noundef %1, i1 noundef ze
   store ptr %246, ptr %247, align 8
   %248 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %246, ptr %248, align 8
-  call fastcc void @infix(ptr noundef nonnull %4, i32 noundef %209, i1 noundef zeroext %214)
+  call fastcc void @infix(ptr noundef %4, i32 noundef %209, i1 noundef zeroext %214)
   %249 = load ptr, ptr %4, align 8
   store ptr %249, ptr %0, align 8
-  call fastcc void @infix(ptr noundef nonnull %0, i32 noundef %209, i1 noundef zeroext false)
+  call fastcc void @infix(ptr noundef %0, i32 noundef %209, i1 noundef zeroext false)
   %250 = getelementptr inbounds i8, ptr %0, i64 16
   %251 = getelementptr inbounds i8, ptr %0, i64 8
   %252 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2330,7 +2330,7 @@ switch.early.test:                                ; preds = %73
   %106 = load i32, ptr %105, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 0, ptr %2, align 4
-  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef nonnull %2, i32 noundef %7, ptr noundef nonnull %3)
+  call fastcc void @findoprnd_recurse(ptr noundef %104, ptr noundef %2, i32 noundef %7, ptr noundef %3)
   %107 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %107, %7
   br i1 %.not.i, label %findoprnd.exit, label %108
@@ -2442,7 +2442,7 @@ define dso_local i64 @tsquerytree(ptr nocapture noundef readonly %0) local_unnam
   %25 = getelementptr i8, ptr %13, i64 %24
   %26 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %25, ptr %26, align 8
-  call fastcc void @infix(ptr noundef nonnull %2, i32 noundef -1, i1 noundef zeroext false)
+  call fastcc void @infix(ptr noundef %2, i32 noundef -1, i1 noundef zeroext false)
   %27 = load ptr, ptr %20, align 8
   %28 = load ptr, ptr %21, align 8
   %29 = ptrtoint ptr %28 to i64
@@ -2499,7 +2499,7 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cleanOpStack(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i8 noundef signext %3) unnamed_addr #0 {
+define internal fastcc void @cleanOpStack(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull %2, i8 noundef signext %3) unnamed_addr #0 {
   %5 = sext i8 %3 to i64
   %6 = add nsw i64 %5, -1
   %7 = getelementptr [4 x i32], ptr @tsearch_op_priority, i64 0, i64 %6
@@ -2584,7 +2584,7 @@ define internal fastcc void @cleanOpStack(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @findoprnd_recurse(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @findoprnd_recurse(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   tail call void @check_stack_depth() #12
   %5 = load i32, ptr %1, align 4
   %.not39 = icmp ult i32 %5, %2
@@ -2635,7 +2635,7 @@ tailrecurse.backedge:                             ; preds = %18, %23
 23:                                               ; preds = %14
   %24 = add nuw i32 %8, 1
   store i32 %24, ptr %1, align 4
-  tail call fastcc void @findoprnd_recurse(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3)
+  tail call fastcc void @findoprnd_recurse(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   %25 = load i32, ptr %1, align 4
   %26 = sub i32 %25, %8
   %27 = getelementptr inbounds i8, ptr %10, i64 4

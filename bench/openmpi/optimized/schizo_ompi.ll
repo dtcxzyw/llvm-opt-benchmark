@@ -842,7 +842,7 @@ define internal range(i32 -13, 1) i32 @parse_env(ptr nocapture readnone %0, ptr 
 .lr.ph.i:                                         ; preds = %.preheader.i, %37
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %.preheader.i ]
   %32 = phi ptr [ %39, %37 ], [ %31, %.preheader.i ]
-  %33 = call fastcc i32 @process_token(ptr noundef nonnull %32, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  %33 = call fastcc i32 @process_token(ptr noundef %32, ptr noundef %13, ptr noundef %14)
   switch i32 %33, label %process_env_list.exit [
     i32 0, label %37
     i32 -13, label %process_env_list.exit.thread356
@@ -1149,7 +1149,7 @@ sub_0207.i:                                       ; preds = %131
 158:                                              ; preds = %.tail206.thread.i
   store i8 0, ptr %157, align 1
   %159 = getelementptr inbounds i8, ptr %157, i64 1
-  %160 = call fastcc i32 @check_cache(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %156, ptr noundef nonnull %159)
+  %160 = call fastcc i32 @check_cache(ptr noundef %8, ptr noundef %9, ptr noundef %156, ptr noundef nonnull %159)
   br label %process_envar.exit.i
 
 161:                                              ; preds = %.tail206.thread.i
@@ -1190,7 +1190,7 @@ sub_0207.i:                                       ; preds = %131
 180:                                              ; preds = %175
   store i8 0, ptr %177, align 1
   %181 = getelementptr inbounds i8, ptr %177, i64 1
-  %182 = call fastcc i32 @check_cache(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %176, ptr noundef nonnull %181)
+  %182 = call fastcc i32 @check_cache(ptr noundef %8, ptr noundef %9, ptr noundef %176, ptr noundef nonnull %181)
   call void @free(ptr noundef %176) #17
   %.pre.i.i = load ptr, ptr @environ, align 8
   br label %183
@@ -1210,7 +1210,7 @@ sub_0207.i:                                       ; preds = %131
   br i1 %.not59.i.i, label %191, label %189
 
 189:                                              ; preds = %187
-  %190 = call fastcc i32 @check_cache(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %156, ptr noundef nonnull %188)
+  %190 = call fastcc i32 @check_cache(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %156, ptr noundef nonnull %188)
   br label %process_envar.exit.i
 
 191:                                              ; preds = %187
@@ -1322,7 +1322,7 @@ process_envar.exit.i:                             ; preds = %.lr.ph.i.i, %183, %
 .lr.ph.i183.i:                                    ; preds = %.preheader.i.i, %245
   %indvars.iv.i184.i = phi i64 [ %indvars.iv.next.i185.i, %245 ], [ 0, %.preheader.i.i ]
   %239 = phi ptr [ %247, %245 ], [ %238, %.preheader.i.i ]
-  %240 = call fastcc i32 @process_token(ptr noundef nonnull %239, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %240 = call fastcc i32 @process_token(ptr noundef %239, ptr noundef %8, ptr noundef %9)
   switch i32 %240, label %.loopexit.i.i [
     i32 0, label %245
     i32 -13, label %241
@@ -1347,7 +1347,7 @@ process_envar.exit.i:                             ; preds = %.lr.ph.i.i, %183, %
   br label %process_env_list.exit.i
 
 248:                                              ; preds = %229
-  %249 = call fastcc i32 @check_cache(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %230, ptr noundef %232)
+  %249 = call fastcc i32 @check_cache(ptr noundef %6, ptr noundef %7, ptr noundef %230, ptr noundef %232)
   br label %process_env_list.exit.i
 
 process_env_list.exit.i:                          ; preds = %248, %.loopexit.i.i, %235
@@ -1414,7 +1414,7 @@ process_env_list.exit.i:                          ; preds = %248, %.loopexit.i.i
 .lr.ph.i189.i:                                    ; preds = %.preheader.i187.i, %280
   %indvars.iv.i190.i = phi i64 [ %indvars.iv.next.i194.i, %280 ], [ 0, %.preheader.i187.i ]
   %275 = phi ptr [ %282, %280 ], [ %274, %.preheader.i187.i ]
-  %276 = call fastcc i32 @process_token(ptr noundef nonnull %275, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %276 = call fastcc i32 @process_token(ptr noundef %275, ptr noundef %8, ptr noundef %9)
   switch i32 %276, label %process_tune_files.exit [
     i32 0, label %280
     i32 -13, label %process_env_list.exit196.thread202.i
@@ -1438,7 +1438,7 @@ process_env_list.exit196.thread199.i:             ; preds = %280, %.preheader.i1
   br label %process_env_list.exit196.thread.i
 
 283:                                              ; preds = %256
-  %284 = call fastcc i32 @process_token(ptr noundef nonnull %109, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %284 = call fastcc i32 @process_token(ptr noundef %109, ptr noundef %6, ptr noundef %7)
   %.not178.i = icmp eq i32 %284, 0
   br i1 %.not178.i, label %process_env_list.exit196.thread.i, label %285
 
@@ -1635,7 +1635,7 @@ pmix_cmd_line_get_param.exit241:                  ; preds = %.lr.ph.i235
   %346 = getelementptr inbounds i8, ptr %.011.i236, i64 152
   %347 = load ptr, ptr %346, align 8
   %348 = load ptr, ptr %347, align 8
-  %349 = call fastcc i32 @check_cache(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @.str.187, ptr noundef %348)
+  %349 = call fastcc i32 @check_cache(ptr noundef %11, ptr noundef %12, ptr noundef nonnull @.str.187, ptr noundef %348)
   %.not194 = icmp eq i32 %349, 0
   br i1 %.not194, label %pmix_cmd_line_get_param.exit241.pmix_cmd_line_get_param.exit241.thread_crit_edge, label %350
 
@@ -1813,7 +1813,7 @@ pmix_cmd_line_get_param.exit291.preheader:        ; preds = %.lr.ph.i285
   br label %pmix_cmd_line_get_param.exit291
 
 420:                                              ; preds = %.lr.ph499
-  %421 = call fastcc i32 @check_cache(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %415, ptr noundef nonnull %412)
+  %421 = call fastcc i32 @check_cache(ptr noundef %11, ptr noundef %12, ptr noundef %415, ptr noundef nonnull %412)
   %.not222 = icmp eq i32 %421, 0
   br i1 %.not222, label %pmix_cmd_line_get_param.exit291, label %422
 
@@ -1881,7 +1881,7 @@ pmix_cmd_line_get_param.exit300.preheader:        ; preds = %.lr.ph.i294
   br label %pmix_cmd_line_get_param.exit300
 
 447:                                              ; preds = %.lr.ph502
-  %448 = call fastcc i32 @check_cache(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %442, ptr noundef nonnull %439)
+  %448 = call fastcc i32 @check_cache(ptr noundef %11, ptr noundef %12, ptr noundef %442, ptr noundef nonnull %439)
   %.not221 = icmp eq i32 %448, 0
   br i1 %.not221, label %pmix_cmd_line_get_param.exit300, label %449
 
@@ -1989,7 +1989,7 @@ check_generic.exit:                               ; preds = %.lr.ph.i311
   br label %check_generic.exit.thread
 
 489:                                              ; preds = %check_generic.exit
-  %490 = call fastcc i32 @check_cache(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %469, ptr noundef nonnull %466)
+  %490 = call fastcc i32 @check_cache(ptr noundef %11, ptr noundef %12, ptr noundef %469, ptr noundef nonnull %466)
   %.not220 = icmp eq i32 %490, 0
   br i1 %.not220, label %check_generic.exit.thread, label %491
 
@@ -2099,7 +2099,7 @@ check_generic.exit334:                            ; preds = %.lr.ph.i328
   br label %check_generic.exit334.thread
 
 532:                                              ; preds = %check_generic.exit334
-  %533 = call fastcc i32 @check_cache(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %512, ptr noundef nonnull %509)
+  %533 = call fastcc i32 @check_cache(ptr noundef %11, ptr noundef %12, ptr noundef %512, ptr noundef nonnull %509)
   %.not219 = icmp eq i32 %533, 0
   br i1 %.not219, label %check_generic.exit334.thread, label %534
 
@@ -2161,11 +2161,11 @@ pmix_cmd_line_get_param.exit323.thread:           ; preds = %505, %check_generic
 555:                                              ; preds = %552
   store i8 0, ptr %554, align 1
   %556 = getelementptr inbounds i8, ptr %554, i64 1
-  %557 = call fastcc i32 @check_cache(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %553, ptr noundef nonnull %556)
+  %557 = call fastcc i32 @check_cache(ptr noundef %13, ptr noundef %14, ptr noundef %553, ptr noundef nonnull %556)
   br label %560
 
 558:                                              ; preds = %552
-  %559 = call fastcc i32 @check_cache(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %546, ptr noundef %553)
+  %559 = call fastcc i32 @check_cache(ptr noundef %13, ptr noundef %14, ptr noundef nonnull %546, ptr noundef %553)
   br label %560
 
 560:                                              ; preds = %558, %555
@@ -2189,7 +2189,7 @@ pmix_cmd_line_get_param.exit323.thread:           ; preds = %505, %check_generic
   store i8 0, ptr %547, align 1
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr inbounds i8, ptr %547, i64 1
-  %569 = call fastcc i32 @check_cache(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %567, ptr noundef nonnull %568)
+  %569 = call fastcc i32 @check_cache(ptr noundef %13, ptr noundef %14, ptr noundef %567, ptr noundef nonnull %568)
   %.not216 = icmp eq i32 %569, 0
   br i1 %.not216, label %574, label %570
 
@@ -5958,7 +5958,7 @@ declare i32 @PMIx_Setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr nound
 declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 1) i32 @check_cache(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @check_cache(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %.val9 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -6012,13 +6012,13 @@ declare i32 @PMIx_Argv_append_nosize(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -13, 1) i32 @process_token(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -13, 1) i32 @process_token(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @getenv(ptr noundef %0) #17
+  %7 = tail call ptr @getenv(ptr noundef nonnull %0) #17
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
 
@@ -6039,7 +6039,7 @@ define internal fastcc range(i32 -13, 1) i32 @process_token(ptr noundef %0, ptr 
   br label %19
 
 17:                                               ; preds = %12
-  %18 = tail call fastcc i32 @check_cache(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %10)
+  %18 = tail call fastcc i32 @check_cache(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %10)
   br label %19
 
 19:                                               ; preds = %17, %14
@@ -6050,7 +6050,7 @@ define internal fastcc range(i32 -13, 1) i32 @process_token(ptr noundef %0, ptr 
 20:                                               ; preds = %3
   store i8 0, ptr %4, align 1
   %21 = getelementptr inbounds i8, ptr %4, i64 1
-  %22 = tail call fastcc i32 @check_cache(ptr noundef %1, ptr noundef %2, ptr noundef %0, ptr noundef nonnull %21)
+  %22 = tail call fastcc i32 @check_cache(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %0, ptr noundef nonnull %21)
   br label %23
 
 23:                                               ; preds = %19, %20, %9, %6

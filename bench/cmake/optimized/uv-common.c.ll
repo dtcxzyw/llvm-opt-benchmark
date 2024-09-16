@@ -2546,7 +2546,7 @@ define dso_local void @uv_print_all_handles(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @uv__print_handles(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @uv__print_handles(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %uv_default_loop.exit
 

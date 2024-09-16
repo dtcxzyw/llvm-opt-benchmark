@@ -2016,8 +2016,8 @@ define hidden void @_ZN2cv17get_chebyshev_winENS_5Size_IiEEf(ptr dead_on_unwind 
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.2.0.extract.shift = lshr i64 %1, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  call fastcc void @_ZN2cvL7chebwinEif(ptr dead_on_unwind noalias nonnull writable align 8 %4, i32 noundef %.sroa.2.0.extract.trunc, float noundef %2)
-  invoke fastcc void @_ZN2cvL7chebwinEif(ptr dead_on_unwind noalias nonnull writable align 8 %7, i32 noundef %.sroa.0.0.extract.trunc, float noundef %2)
+  call fastcc void @_ZN2cvL7chebwinEif(ptr dead_on_unwind noalias writable align 8 %4, i32 noundef %.sroa.2.0.extract.trunc, float noundef %2)
+  invoke fastcc void @_ZN2cvL7chebwinEif(ptr dead_on_unwind noalias writable align 8 %7, i32 noundef %.sroa.0.0.extract.trunc, float noundef %2)
           to label %9 unwind label %28
 
 9:                                                ; preds = %3

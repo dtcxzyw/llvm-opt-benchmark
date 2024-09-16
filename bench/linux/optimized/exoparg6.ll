@@ -162,7 +162,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 declare dso_local ptr @acpi_ut_create_integer_object(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i8 @acpi_ex_do_match(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i8 @acpi_ex_do_match(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #3
   store i8 1, ptr %4, align 1
@@ -176,27 +176,27 @@ define internal fastcc zeroext i8 @acpi_ex_do_match(i32 noundef %0, ptr noundef 
   ]
 
 5:                                                ; preds = %3
-  %6 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 147, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %6 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 147, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %23, label %25
 
 8:                                                ; preds = %3
-  %9 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %9 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.sink.split, label %25
 
 11:                                               ; preds = %3
-  %12 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %12 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %23, label %25
 
 14:                                               ; preds = %3
-  %15 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %15 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 148, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.sink.split, label %25
 
 17:                                               ; preds = %3
-  %18 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %4) #3
+  %18 = call i32 @acpi_ex_do_logical_op(i16 noundef zeroext 149, ptr noundef %2, ptr noundef nonnull %1, ptr noundef nonnull %4) #3
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %23, label %25
 

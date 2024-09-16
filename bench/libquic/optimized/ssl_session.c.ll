@@ -920,7 +920,7 @@ declare i64 @SSL_CTX_sess_get_cache_size(ptr noundef) local_unnamed_addr #1
 declare i64 @SSL_CTX_sess_number(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %ctx, ptr noundef %session, i32 noundef %lock) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @remove_session_lock(ptr noundef %ctx, ptr noundef %session, i32 noundef range(i32 0, 2) %lock) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %session, null
   br i1 %cmp.not, label %if.end20, label %land.lhs.true

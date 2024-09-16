@@ -4525,7 +4525,7 @@ _ZN5vcpkg3msg7printlnIJEJEEEvNS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS3
 
 .lr.ph:                                           ; preds = %_ZN5vcpkg3msg7printlnIJEJEEEvNS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS3_E4typeET0_EE.exit, %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit
   %.sroa.025.034 = phi ptr [ %23, %_ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit ], [ %12, %_ZN5vcpkg3msg7printlnIJEJEEEvNS0_8MessageTIJDpT_EEEDpNS0_6TagArgINS_8identityIS3_E4typeET0_EE.exit ]
-  call fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.025.034)
+  call fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.025.034)
   %20 = call { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
@@ -4691,7 +4691,7 @@ _ZN5vcpkg3msg7printlnERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LocalizedString", align 8
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4995,7 +4995,7 @@ _ZNKR5vcpkg8OptionalINS_19ExtendedBuildResultEE13value_or_exitERKNS_8LineInfoE.e
   br i1 %.not, label %28, label %22
 
 22:                                               ; preds = %_ZNKR5vcpkg8OptionalINS_19ExtendedBuildResultEE13value_or_exitERKNS_8LineInfoE.exit
-  call fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias nonnull writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.07.012)
+  call fastcc void @_ZN5vcpkgL17format_result_rowERKNS_11SpecSummaryE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(176) %.sroa.07.012)
   %23 = call { ptr, i64 } @_ZNK5vcpkg15LocalizedStringcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
@@ -5376,7 +5376,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE9constructIS1_JRKNS0_17Install
 109:                                              ; preds = %.noexc, %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE9constructIS1_JRKNS0_17InstallPlanActionEEEEvRS2_PT_DpOT0_.exit.i
   %110 = phi ptr [ %.pre.i, %.noexc ], [ %107, %_ZNSt16allocator_traitsISaIN5vcpkg11SpecSummaryEEE9constructIS1_JRKNS0_17InstallPlanActionEEEEvRS2_PT_DpOT0_.exit.i ]
   %111 = getelementptr inbounds i8, ptr %110, i64 -176
-  invoke fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(528) %.sroa.062.090, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(244) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(528) %.sroa.062.090, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(244) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %112 unwind label %.loopexit.split-lp.loopexit
 
 112:                                              ; preds = %109
@@ -5467,7 +5467,7 @@ _ZN5vcpkg7details15OptionalStorageINS_19ExtendedBuildResultELb0EE7emplaceIJS2_EE
           to label %156 unwind label %.loopexit
 
 156:                                              ; preds = %154
-  invoke fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(528) %.sroa.058.095, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(244) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  invoke fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %4, ptr noundef nonnull align 8 dereferenceable(528) %.sroa.058.095, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(244) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %157 unwind label %174
 
 157:                                              ; preds = %156
@@ -5491,7 +5491,7 @@ _ZN5vcpkg7details15OptionalStorageINS_19ExtendedBuildResultELb0EE7emplaceIJS2_EE
   %165 = getelementptr inbounds i8, ptr %19, i64 32
   store ptr %11, ptr %165, align 8
   %.val = load i8, ptr %148, align 8
-  invoke fastcc void @"_ZNKR5vcpkg8OptionalINS_4PathEE4thenIZNS_20install_execute_planERKNS_17VcpkgCmdArgumentsERKNS_10ActionPlanENS_9KeepGoingERKNS_10VcpkgPathsERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderEbE3$_0EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalISM_ELi0EEEvEEEESM_"(ptr dead_on_unwind noalias nonnull writable align 8 %18, i8 %.val, ptr noundef nonnull byval(%class.anon.205) align 8 %19)
+  invoke fastcc void @"_ZNKR5vcpkg8OptionalINS_4PathEE4thenIZNS_20install_execute_planERKNS_17VcpkgCmdArgumentsERKNS_10ActionPlanENS_9KeepGoingERKNS_10VcpkgPathsERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderEbE3$_0EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalISM_ELi0EEEvEEEESM_"(ptr dead_on_unwind noalias writable align 8 %18, i8 %.val, ptr noundef nonnull byval(%class.anon.205) align 8 %19)
           to label %166 unwind label %176
 
 166:                                              ; preds = %161
@@ -5781,7 +5781,7 @@ _ZNK5vcpkg26TrackedPackageInstallGuard18print_elapsed_timeEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(244) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkgL27perform_install_plan_actionERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(244) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.vcpkg::msg::TagArg.511", align 8
   %9 = alloca %"struct.vcpkg::msg::TagArg.511", align 8
   %10 = alloca %"class.std::unique_ptr.80", align 8
@@ -6080,7 +6080,7 @@ _ZN5vcpkg14ExpectedHolderINS_17BinaryControlFileEED2Ev.exit.i: ; preds = %132, %
 
 143:                                              ; preds = %142
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #23
-  invoke void @_ZN5vcpkg13build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERKNS_18IBuildLogsRecorderERKNS_16StatusParagraphsE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExtendedBuildResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %4)
+  invoke void @_ZN5vcpkg13build_packageERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsERKNS_17InstallPlanActionERKNS_18IBuildLogsRecorderERKNS_16StatusParagraphsE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::ExtendedBuildResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr noundef nonnull align 8 dereferenceable(400) %2, ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %144 unwind label %133
 
 144:                                              ; preds = %143
@@ -6647,7 +6647,7 @@ _ZN5vcpkg3msg7printlnENS_5ColorERKNS_15LocalizedStringE.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNKR5vcpkg8OptionalINS_4PathEE4thenIZNS_20install_execute_planERKNS_17VcpkgCmdArgumentsERKNS_10ActionPlanENS_9KeepGoingERKNS_10VcpkgPathsERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderEbE3$_0EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalISM_ELi0EEEvEEEESM_"(ptr dead_on_unwind noalias writable align 8 %0, i8 %.0.val, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNKR5vcpkg8OptionalINS_4PathEE4thenIZNS_20install_execute_planERKNS_17VcpkgCmdArgumentsERKNS_10ActionPlanENS_9KeepGoingERKNS_10VcpkgPathsERNS_16StatusParagraphsERNS_11BinaryCacheERKNS_18IBuildLogsRecorderEbE3$_0EEDTclclsr3stdE7declvalIRT_EEclL_ZSt7declvalIRKS1_EDTcl9__declvalISM_ELi0EEEvEEEESM_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, i8 %.0.val, ptr nocapture noundef readonly byval(%class.anon.205) align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::Path", align 8
   %4 = alloca %"struct.vcpkg::Path", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
@@ -10727,7 +10727,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insert
   %.val296 = load ptr, ptr %342, align 8
   %343 = getelementptr i8, ptr %341, i64 16
   %.val297 = load ptr, ptr %343, align 8
-  %344 = call fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESH_E3$_0EEDaOT_T0_"(ptr %.val296, ptr %.val297, ptr nonnull %.sroa.0458.0618)
+  %344 = call fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESH_E3$_0EEDaOT_T0_"(ptr %.val296, ptr %.val297, ptr %.sroa.0458.0618)
   %345 = load ptr, ptr %20, align 8
   %346 = getelementptr inbounds i8, ptr %345, i64 16
   %347 = load ptr, ptr %346, align 8
@@ -10949,7 +10949,7 @@ _ZNSt6vectorIN5vcpkg10DependencyESaIS1_EE6insertIN9__gnu_cxx17__normal_iteratorI
   br label %506
 
 ._crit_edge624:                                   ; preds = %.lr.ph623, %428
-  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_17InstallPlanActionESaIS3_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESC_E3$_4EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %429, ptr nonnull %25)
+  invoke fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_17InstallPlanActionESaIS3_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESC_E3$_4EEvRT_T0_"(ptr noundef nonnull align 8 dereferenceable(24) %429, ptr %25)
           to label %439 unwind label %437
 
 439:                                              ; preds = %._crit_edge624
@@ -11254,7 +11254,7 @@ _ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exi
   store ptr %7, ptr %39, align 8
   %550 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %1, ptr %550, align 8
-  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESJ_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISR_EEOSO_OSM_"(ptr dead_on_unwind noalias nonnull writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(24) %549, ptr noundef nonnull align 8 dereferenceable(16) %39)
+  invoke fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESJ_E3$_1EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISR_EEOSO_OSM_"(ptr dead_on_unwind noalias writable align 8 %38, ptr noundef nonnull align 8 dereferenceable(24) %549, ptr noundef nonnull align 8 dereferenceable(16) %39)
           to label %551 unwind label %581
 
 551:                                              ; preds = %_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev.exit
@@ -13016,7 +13016,7 @@ _ZNSt12_Vector_baseIN5vcpkg10DependencyESaIS1_EED2Ev.exit: ; preds = %34, %.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESH_E3$_0EEDaOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr %0) unnamed_addr #6 {
+define internal fastcc ptr @"_ZN5vcpkg4Util7find_ifIRSt6vectorISt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS4_EESaIS7_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESH_E3$_0EEDaOT_T0_"(ptr readonly %.0.val, ptr readnone %.8.val, ptr nonnull %0) unnamed_addr #6 {
   %.not6 = icmp eq ptr %.0.val, %.8.val
   br i1 %.not6, label %"_ZZN5vcpkg24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_ENK3$_0clERKSt10unique_ptrINS_16FeatureParagraphESt14default_deleteIS9_EE.exit.thread", label %.lr.ph
 
@@ -13665,7 +13665,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg9ExpectedTINS_10ActionPlanENS_15Loc
 declare void @_ZN5vcpkg10ActionPlan26print_unsupported_warningsEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_17InstallPlanActionESaIS3_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESC_E3$_4EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util15erase_remove_ifISt6vectorINS_17InstallPlanActionESaIS3_EEZNS_24command_install_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletESC_E3$_4EEvRT_T0_"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -16231,7 +16231,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %23) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %19) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa139, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa139, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
@@ -16266,7 +16266,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %34 = ashr exact i64 %33, 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %34, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %34, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #23
@@ -16434,7 +16434,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkgL24extract_files_in_tripletERKSB_INSH_33StatusParagraphAndAssociatedFilesESaISI_EENSH_7TripletEmE3$_0EEEvT_T0_SR_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -24754,7 +24754,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %25) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa143, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa143, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
@@ -24789,7 +24789,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %36 = ashr exact i64 %35, 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %36, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %36, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #23
@@ -24961,7 +24961,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15install_packageERKNSH_10VcpkgPathsERKNSH_17BinaryControlFileEPNSH_16StatusParagraphsEE3$_0EEEvT_T0_ST_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
@@ -27689,7 +27689,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %20 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.010.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %20) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa135, ptr noundef nonnull %7)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr %0, i64 noundef %.010.i.i.i, i64 noundef %.lcssa135, ptr noundef %7)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #23
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %21 = add nsw i64 %.010.i.i.i, -1
@@ -27713,7 +27713,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %26 = sub i64 %25, %8
   %27 = ashr exact i64 %26, 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %4) #23
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %27, ptr noundef nonnull %5)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %27, ptr noundef %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -27968,7 +27968,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_comp_iterIZN5vcpkg15get_cmake_usageERKNSF_18ReadOnlyFilesystemERKNSF_14InstalledPathsERKNSF_15BinaryParagraphEE3$_0EEEvT_T0_SS_T1_T2_"(ptr %0, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2

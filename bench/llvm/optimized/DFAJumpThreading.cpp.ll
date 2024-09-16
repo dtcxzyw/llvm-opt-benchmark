@@ -3495,7 +3495,7 @@ _ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_114AllSwitchPaths3runEvE
   store i32 8, ptr %179, align 8
   store i32 0, ptr %180, align 4
   store i32 0, ptr %181, align 8
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef %1419, ptr noundef nonnull align 8 dereferenceable(96) %38)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias writable align 8 %39, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef nonnull align 8 dereferenceable(20) %37, ptr noundef %1419, ptr noundef nonnull align 8 dereferenceable(96) %38)
   %1422 = load ptr, ptr %160, align 8
   %1423 = icmp eq ptr %1421, %1422
   br i1 %1423, label %1424, label %1431
@@ -3520,7 +3520,7 @@ _ZN4llvm25OptimizationRemarkEmitter4emitIZN12_GLOBAL__N_114AllSwitchPaths3runEvE
   br label %_ZNSt6vectorISt5dequeIPN4llvm10BasicBlockESaIS3_EESaIS5_EED2Ev.exit.i
 
 1431:                                             ; preds = %1415
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias nonnull writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef %1421, ptr noundef %1422, ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias writable align 8 %40, ptr noundef nonnull align 8 dereferenceable(72) %71, ptr noundef %1421, ptr noundef %1422, ptr noundef nonnull align 8 dereferenceable(96) %38, i32 noundef 1)
   %1432 = load ptr, ptr %40, align 8
   %1433 = load ptr, ptr %182, align 8
   %1434 = icmp eq ptr %1432, %1433
@@ -7641,7 +7641,7 @@ declare void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13Dominator
 declare void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca %"struct.std::_Deque_iterator.191", align 8
   %8 = alloca %"struct.std::_Deque_iterator.218", align 8
@@ -8135,7 +8135,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit: ; preds = %.lr
   br i1 %254, label %255, label %376
 
 255:                                              ; preds = %.loopexit
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(96) %4)
   %.val71 = load ptr, ptr %15, align 8
   %.val = load ptr, ptr %88, align 8
   %.not232244 = icmp eq ptr %.val71, %.val
@@ -8519,7 +8519,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit136: ; preds = %
   br i1 %.not229, label %_ZNSt6vectorISt5dequeIPN4llvm10BasicBlockESaIS3_EESaIS5_EED2Ev.exit, label %_ZN12_GLOBAL__N_113ThreadingPathD2Ev.exit
 
 _ZNSt6vectorISt5dequeIPN4llvm10BasicBlockESaIS3_EESaIS5_EED2Ev.exit: ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit136
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %231, ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %231, ptr noundef %106, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1)
   %399 = load ptr, ptr %16, align 8
   %400 = load ptr, ptr %64, align 8
   %401 = load ptr, ptr %65, align 8
@@ -8528,7 +8528,7 @@ _ZNSt6vectorISt5dequeIPN4llvm10BasicBlockESaIS3_EESaIS5_EED2Ev.exit: ; preds = %
   br i1 %402, label %_ZSt8_DestroyIPSt5dequeIPN4llvm10BasicBlockESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i164, label %403
 
 403:                                              ; preds = %_ZNSt6vectorISt5dequeIPN4llvm10BasicBlockESaIS3_EESaIS5_EED2Ev.exit
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias nonnull writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(96) %4)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths23getPathsFromStateDefMapERN4llvm8DenseMapIPKNS1_10BasicBlockEPKNS1_7PHINodeENS1_12DenseMapInfoIS5_vEENS1_6detail12DenseMapPairIS5_S8_EEEEPS6_RNS1_11SmallPtrSetIS5_Lj8EEE(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef nonnull %140, ptr noundef nonnull align 8 dereferenceable(96) %4)
   %.val72 = load ptr, ptr %17, align 8
   %.val70 = load ptr, ptr %66, align 8
   %.not230241 = icmp eq ptr %.val72, %.val70
@@ -9225,7 +9225,7 @@ _ZN4llvm11SmallPtrSetIPKNS_10BasicBlockELj8EED2Ev.exit: ; preds = %_ZN4llvm15Sma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %7 = alloca %"struct.llvm::DiagnosticInfoOptimizationBase::Argument", align 8
   %8 = alloca %"class.llvm::OptimizationRemarkAnalysis", align 8
@@ -9725,7 +9725,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit: ; preds = %.lr
   br i1 %.not, label %225, label %_ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EED2Ev.exit
 
 225:                                              ; preds = %222
-  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias nonnull writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %134, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %119)
+  call fastcc void @_ZN12_GLOBAL__N_114AllSwitchPaths5pathsEPN4llvm10BasicBlockES3_RNS1_11SmallPtrSetIPKS2_Lj8EEEj(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %134, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %119)
   %226 = load ptr, ptr %14, align 8
   %227 = load ptr, ptr %120, align 8
   %.not102108 = icmp eq ptr %226, %227
@@ -21125,7 +21125,7 @@ _ZSt14__partial_sortIPSt4pairIPN4llvm11InstructionES3_EN9__gnu_cxx5__ops15_Iter_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_T2_(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4) unnamed_addr #0 {
+define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_T2_(ptr nocapture noundef %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, ptr %4) unnamed_addr #0 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
   %8 = icmp slt i64 %1, %7

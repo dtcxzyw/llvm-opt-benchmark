@@ -797,7 +797,7 @@ cid_parse_dict.exit.i:                            ; preds = %259
   %285 = load i64, ptr %269, align 8
   %286 = load i64, ptr %100, align 8
   %.val.i = load ptr, ptr %36, align 8
-  %287 = call fastcc i32 @cid_hex_to_binary(ptr noundef %281, i64 noundef %285, i64 noundef %286, ptr %.val.i, ptr noundef nonnull %11)
+  %287 = call fastcc i32 @cid_hex_to_binary(ptr noundef %281, i64 noundef %285, i64 noundef %286, ptr %.val.i, ptr noundef %11)
   store i32 %287, ptr %10, align 4
   %.not79.i = icmp eq i32 %287, 0
   br i1 %.not79.i, label %288, label %352
@@ -2062,7 +2062,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %.192.val, ptr nocapture noundef writeonly %3) unnamed_addr #2 {
+define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %.192.val, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
   %5 = alloca [256 x i8], align 16
   %6 = tail call i32 @FT_Stream_Seek(ptr noundef %.192.val, i64 noundef %2) #13
   %.not = icmp eq i32 %6, 0

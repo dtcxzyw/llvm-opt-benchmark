@@ -1230,7 +1230,7 @@ define noundef i32 @_ZN14cranelift_wasm15code_translator25optionally_bitcast_vec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef nonnull align 8 dereferenceable(72) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = alloca { i8, [15 x i8] }, align 8
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds i32, ptr %2, i64 %3
@@ -1379,7 +1379,7 @@ define noundef i32 @_ZN14cranelift_wasm15code_translator22canonicalise_then_jump
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9)
   %10 = getelementptr inbounds i8, ptr %9, i64 64
   store i64 0, ptr %10, align 8, !alias.scope !196
-  %11 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef nonnull align 8 dereferenceable(72) %9, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
+  %11 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef align 8 dereferenceable(72) %9, ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %2, i64 noundef %3)
           to label %14 unwind label %12
 
 12:                                               ; preds = %.noexc1, %.noexc, %16, %14, %4
@@ -1490,7 +1490,7 @@ define noundef i32 @_ZN14cranelift_wasm15code_translator17canonicalise_brif17h85
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16)
   %17 = getelementptr inbounds i8, ptr %16, i64 64
   store i64 0, ptr %17, align 8, !alias.scope !221
-  %18 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef nonnull align 8 dereferenceable(72) %16, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4)
+  %18 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef align 8 dereferenceable(72) %16, ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %3, i64 noundef %4)
           to label %22 unwind label %20
 
 19:                                               ; preds = %27, %20
@@ -1509,7 +1509,7 @@ define noundef i32 @_ZN14cranelift_wasm15code_translator17canonicalise_brif17h85
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15)
   %25 = getelementptr inbounds i8, ptr %15, i64 64
   store i64 0, ptr %25, align 8, !alias.scope !224
-  %26 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef nonnull align 8 dereferenceable(72) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %6, i64 noundef %7)
+  %26 = invoke fastcc { ptr, i64 } @_ZN14cranelift_wasm15code_translator24canonicalise_v128_values17h2fedebbc44f1c1ebE(ptr noalias noundef align 8 dereferenceable(72) %15, ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 %6, i64 noundef %7)
           to label %29 unwind label %27
 
 27:                                               ; preds = %.noexc6, %.noexc5, %.noexc4, %.noexc3, %.noexc2, %.noexc, %31, %29, %22

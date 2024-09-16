@@ -2220,7 +2220,7 @@ define void @_ZNK2cv5aruco13ArucoDetector13detectMarkersERKNS_11_InputArrayERKNS
   store ptr %197, ptr %27, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %199, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_0E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %196, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull %27)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef %27)
           to label %200 unwind label %207
 
 200:                                              ; preds = %198
@@ -2292,7 +2292,7 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit:        ; preds = %_ZNSt8functionIFvRK
   store ptr %19, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_1E9_M_invokeERKSt9_Any_dataS3_", ptr %233, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNKS0_5aruco13ArucoDetector13detectMarkersERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_SC_E3$_1E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation", ptr %232, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef nonnull %29)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %28, ptr noundef %29)
           to label %234 unwind label %241
 
 234:                                              ; preds = %222
@@ -2819,7 +2819,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IN2cv6Point_IiEESaIS3_EESaIS5_EESaIS7_EEC2EmRKS
   store ptr %71, ptr %14, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS9_INS0_6Point_IfEESaISB_EESaISD_EERS9_IS9_INSA_IiEESaISH_EESaISJ_EERKNS5_18DetectorParametersEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %73, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5arucoL24_detectInitialCandidatesERKNS0_3MatERSt6vectorIS9_INS0_6Point_IfEESaISB_EESaISD_EERS9_IS9_INSA_IiEESaISH_EESaISJ_EERKNS5_18DetectorParametersEE3$_0E10_M_managerERSt9_Any_dataRKSS_St18_Manager_operation", ptr %70, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull %14)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14)
           to label %74 unwind label %161
 
 74:                                               ; preds = %72
@@ -5114,7 +5114,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   store ptr %136, ptr %18, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco13ArucoDetector17ArucoDetectorImpl18identifyCandidatesERKNS0_3MatERKSt6vectorIS8_SaIS8_EERSB_INS5_19MarkerCandidateTreeESaISG_EERSB_ISB_INS0_6Point_IfEESaISL_EESaISN_EERSB_ISB_INSK_IiEESaISR_EESaIST_EERSB_IiSaIiEERKNS0_12_OutputArrayEEUlS3_E_E9_M_invokeERKSt9_Any_dataS3_, ptr %68, align 8
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_5aruco13ArucoDetector17ArucoDetectorImpl18identifyCandidatesERKNS0_3MatERKSt6vectorIS8_SaIS8_EERSB_INS5_19MarkerCandidateTreeESaISG_EERSB_ISB_INS0_6Point_IfEESaISL_EESaISN_EERSB_ISB_INSK_IiEESaISR_EESaIST_EERSB_IiSaIiEERKNS0_12_OutputArrayEEUlS3_E_E10_M_managerERSt9_Any_dataRKS15_St18_Manager_operation, ptr %67, align 8
-  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef nonnull %18)
+  invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef %18)
           to label %138 unwind label %165
 
 138:                                              ; preds = %137
@@ -5790,7 +5790,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit168:                 ; preds = %391, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::ParallelLoopBodyLambdaWrapper", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -8828,7 +8828,7 @@ _ZNK2cv11_InputArray6getMatEi.exit269:            ; preds = %1084, %1086
   %1101 = load i32, ptr %904, align 4
   %1102 = load double, ptr %905, align 8
   %1103 = load double, ptr %906, align 8
-  invoke fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias nonnull writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef %1099, i32 noundef %1100, i32 noundef %1101, double noundef %1102, double noundef %1103)
+  invoke fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias writable align 8 %78, ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %80, i32 noundef %1099, i32 noundef %1100, i32 noundef %1101, double noundef %1102, double noundef %1103)
           to label %1104 unwind label %1120
 
 1104:                                             ; preds = %1098
@@ -10007,7 +10007,7 @@ declare void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96), 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, double noundef %6, double noundef %7) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::Range", align 4
   %10 = alloca %"class.cv::Range", align 8
   %11 = alloca %"class.cv::Range", align 8
@@ -19468,7 +19468,7 @@ define internal fastcc noundef zeroext range(i8 0, 3) i8 @_ZN2cv5arucoL21_identi
   %50 = load double, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 128
   %52 = load double, ptr %51, align 8
-  invoke fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias nonnull writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %44, i32 noundef %46, i32 noundef %48, double noundef %50, double noundef %52)
+  invoke fastcc void @_ZN2cv5arucoL12_extractBitsERKNS_11_InputArrayERKSt6vectorINS_6Point_IfEESaIS6_EEiiidd(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %44, i32 noundef %46, i32 noundef %48, double noundef %50, double noundef %52)
           to label %53 unwind label %90
 
 53:                                               ; preds = %39

@@ -1781,7 +1781,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
   br i1 %.not3263, label %243, label %242
 
 242:                                              ; preds = %239
-  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.03186, ptr noundef nonnull %.03191)
+  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.03186, ptr noundef %.03191)
   br label %243
 
 243:                                              ; preds = %239, %242
@@ -1997,7 +1997,7 @@ define noundef range(i32 0, 3) i32 @_Z7yyparsePN7glslang13TParseContextE(ptr nou
   br i1 %.not3276, label %359, label %358
 
 358:                                              ; preds = %350
-  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr noundef nonnull %.23193, i32 noundef %.03213)
+  call fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr noundef %.23193, i32 noundef %.03213)
   br label %359
 
 359:                                              ; preds = %350, %358
@@ -41627,7 +41627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   ]
 
 16413:                                            ; preds = %16411
-  %16414 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %7, ptr %.03724, ptr nonnull %.23193, i32 %16412)
+  %16414 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr %.03724, ptr nonnull %.23193, i32 %16412)
   switch i32 %16414, label %.thread3734 [
     i32 0, label %.thread3738
     i32 -1, label %16415
@@ -41661,7 +41661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
   br label %.loopexit3802
 
 16421:                                            ; preds = %16417
-  %16422 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef nonnull %7, ptr nonnull %16419, ptr nonnull %.23193, i32 %16412)
+  %16422 = call fastcc noundef i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr noundef %7, ptr nonnull %16419, ptr nonnull %.23193, i32 %16412)
   call void @_ZN7glslang13TParseContext11parserErrorEPKc(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull %16419) #25
   %16423 = icmp eq i32 %16422, -2
   br i1 %16423, label %.loopexit3802, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit
@@ -41758,7 +41758,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709:
   br i1 %.not3335, label %16474, label %16473
 
 16473:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709
-  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.13187, ptr noundef nonnull %16471)
+  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.13187, ptr noundef %16471)
   br label %16474
 
 16474:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709.thread, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3709, %16473
@@ -41860,7 +41860,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714:
   br i1 %.not3337, label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread, label %16509
 
 16509:                                            ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714
-  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.431903765.ph, ptr noundef nonnull %.631973763.ph)
+  call fastcc void @_ZL14yy_stack_printPsS_(ptr noundef %.431903765.ph, ptr noundef %.631973763.ph)
   br label %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread
 
 _ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714.thread: ; preds = %16496, %_ZL10yydestructPKc15yysymbol_kind_tP7YYSTYPEPN7glslang13TParseContextE.exit3714, %16509
@@ -41933,7 +41933,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #3 {
+define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #3 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.219, i64 9, i64 1, ptr %3) #22
   %.not4 = icmp ugt ptr %0, %1
@@ -41964,7 +41964,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 declare noundef i32 @_Z5yylexP7YYSTYPERN7glslang13TParseContextE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(30232)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #7 {
+define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7YYSTYPEPN7glslang13TParseContextE(ptr nocapture noundef %0, i32 noundef range(i32 -32768, 32768) %1) unnamed_addr #7 {
   %3 = icmp slt i32 %1, 465
   %.str.222..str.223 = select i1 %3, ptr @.str.222, ptr @.str.223
   %4 = sext i32 %1 to i64
@@ -41976,7 +41976,7 @@ define internal fastcc void @_ZL15yy_symbol_printP8_IO_FILE15yysymbol_kind_tPK7Y
 }
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #3 {
+define internal fastcc void @_ZL15yy_reduce_printPsP7YYSTYPEiPN7glslang13TParseContextE(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -32768, 32769) %1) unnamed_addr #3 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [701 x i16], ptr @_ZL7yyrline, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -44501,7 +44501,7 @@ declare noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSo
 declare noundef ptr @_ZN7glslang13TParseContext20makeSpirvInstructionERKNS_10TSourceLocERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEi(ptr noundef nonnull align 8 dereferenceable(30232), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #9 {
+define internal fastcc noundef range(i32 -2, 1) i32 @_ZL14yysyntax_errorPlPPcPK12yypcontext_t(ptr nocapture noundef nonnull %0, ptr %.0.val, ptr nocapture readonly %.0.val1, i32 %.8.val) unnamed_addr #9 {
   %2 = alloca [5 x i32], align 16
   %.not.i = icmp eq i32 %.8.val, -2
   br i1 %.not.i, label %_ZL25yy_syntax_error_argumentsPK12yypcontext_tP15yysymbol_kind_ti.exit.thread6, label %3
